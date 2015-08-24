@@ -120,10 +120,9 @@ instance AWSPager DescribeDBSubnetGroups where
             Just $ rq & ddsgMarker .~ rs ^. ddsgrsMarker
 
 instance AWSRequest DescribeDBSubnetGroups where
-        type Sv DescribeDBSubnetGroups = RDS
         type Rs DescribeDBSubnetGroups =
              DescribeDBSubnetGroupsResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "DescribeDBSubnetGroupsResult"
               (\ s h x ->

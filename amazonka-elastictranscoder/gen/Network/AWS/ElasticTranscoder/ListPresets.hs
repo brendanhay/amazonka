@@ -93,9 +93,8 @@ instance AWSPager ListPresets where
             Just $ rq & lPageToken .~ rs ^. lrsNextPageToken
 
 instance AWSRequest ListPresets where
-        type Sv ListPresets = ElasticTranscoder
         type Rs ListPresets = ListPresetsResponse
-        request = get
+        request = get elasticTranscoder
         response
           = receiveJSON
               (\ s h x ->

@@ -128,9 +128,8 @@ rrDestinationCIdRBlock :: Lens' ReplaceRoute Text
 rrDestinationCIdRBlock = lens _rrDestinationCIdRBlock (\ s a -> s{_rrDestinationCIdRBlock = a});
 
 instance AWSRequest ReplaceRoute where
-        type Sv ReplaceRoute = EC2
         type Rs ReplaceRoute = ReplaceRouteResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull ReplaceRouteResponse'
 
 instance ToHeaders ReplaceRoute where

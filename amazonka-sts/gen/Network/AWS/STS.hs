@@ -71,8 +71,8 @@
 -- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.STS
     (
-    -- * Service
-      STS
+    -- * Service Configuration
+      sTS
 
     -- * Errors
     -- $errors

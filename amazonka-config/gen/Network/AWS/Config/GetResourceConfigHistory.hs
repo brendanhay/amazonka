@@ -139,10 +139,9 @@ grchResourceId :: Lens' GetResourceConfigHistory Text
 grchResourceId = lens _grchResourceId (\ s a -> s{_grchResourceId = a});
 
 instance AWSRequest GetResourceConfigHistory where
-        type Sv GetResourceConfigHistory = Config
         type Rs GetResourceConfigHistory =
              GetResourceConfigHistoryResponse
-        request = postJSON
+        request = postJSON config
         response
           = receiveJSON
               (\ s h x ->

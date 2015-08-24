@@ -103,9 +103,8 @@ roKey :: Lens' RestoreObject ObjectKey
 roKey = lens _roKey (\ s a -> s{_roKey = a});
 
 instance AWSRequest RestoreObject where
-        type Sv RestoreObject = S3
         type Rs RestoreObject = RestoreObjectResponse
-        request = postXML
+        request = postXML s3
         response
           = receiveEmpty
               (\ s h x ->

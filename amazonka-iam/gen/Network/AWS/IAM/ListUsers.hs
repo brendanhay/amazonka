@@ -112,9 +112,8 @@ instance AWSPager ListUsers where
             Just $ rq & luMarker .~ rs ^. lursMarker
 
 instance AWSRequest ListUsers where
-        type Sv ListUsers = IAM
         type Rs ListUsers = ListUsersResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListUsersResult"
               (\ s h x ->

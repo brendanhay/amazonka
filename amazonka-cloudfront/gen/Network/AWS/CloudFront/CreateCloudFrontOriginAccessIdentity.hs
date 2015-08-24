@@ -71,11 +71,9 @@ ccfoaiCloudFrontOriginAccessIdentityConfig = lens _ccfoaiCloudFrontOriginAccessI
 
 instance AWSRequest
          CreateCloudFrontOriginAccessIdentity where
-        type Sv CreateCloudFrontOriginAccessIdentity =
-             CloudFront
         type Rs CreateCloudFrontOriginAccessIdentity =
              CreateCloudFrontOriginAccessIdentityResponse
-        request = postXML
+        request = postXML cloudFront
         response
           = receiveXML
               (\ s h x ->

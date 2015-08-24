@@ -93,10 +93,9 @@ rcsgiEC2SecurityGroupOwnerId = lens _rcsgiEC2SecurityGroupOwnerId (\ s a -> s{_r
 
 instance AWSRequest RevokeCacheSecurityGroupIngress
          where
-        type Sv RevokeCacheSecurityGroupIngress = ElastiCache
         type Rs RevokeCacheSecurityGroupIngress =
              RevokeCacheSecurityGroupIngressResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper
               "RevokeCacheSecurityGroupIngressResult"

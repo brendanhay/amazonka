@@ -78,9 +78,8 @@ diImageId :: Lens' DeregisterImage Text
 diImageId = lens _diImageId (\ s a -> s{_diImageId = a});
 
 instance AWSRequest DeregisterImage where
-        type Sv DeregisterImage = EC2
         type Rs DeregisterImage = DeregisterImageResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull DeregisterImageResponse'
 
 instance ToHeaders DeregisterImage where

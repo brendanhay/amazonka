@@ -78,10 +78,9 @@ pdpAccessPolicy :: Lens' PutDestinationPolicy Text
 pdpAccessPolicy = lens _pdpAccessPolicy (\ s a -> s{_pdpAccessPolicy = a});
 
 instance AWSRequest PutDestinationPolicy where
-        type Sv PutDestinationPolicy = CloudWatchLogs
         type Rs PutDestinationPolicy =
              PutDestinationPolicyResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response = receiveNull PutDestinationPolicyResponse'
 
 instance ToHeaders PutDestinationPolicy where

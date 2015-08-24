@@ -130,10 +130,9 @@ cdbpgDescription :: Lens' CreateDBParameterGroup Text
 cdbpgDescription = lens _cdbpgDescription (\ s a -> s{_cdbpgDescription = a});
 
 instance AWSRequest CreateDBParameterGroup where
-        type Sv CreateDBParameterGroup = RDS
         type Rs CreateDBParameterGroup =
              CreateDBParameterGroupResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "CreateDBParameterGroupResult"
               (\ s h x ->

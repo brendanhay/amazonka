@@ -88,10 +88,9 @@ upsStatus :: Lens' UpdatePipelineStatus Text
 upsStatus = lens _upsStatus (\ s a -> s{_upsStatus = a});
 
 instance AWSRequest UpdatePipelineStatus where
-        type Sv UpdatePipelineStatus = ElasticTranscoder
         type Rs UpdatePipelineStatus =
              UpdatePipelineStatusResponse
-        request = postJSON
+        request = postJSON elasticTranscoder
         response
           = receiveJSON
               (\ s h x ->

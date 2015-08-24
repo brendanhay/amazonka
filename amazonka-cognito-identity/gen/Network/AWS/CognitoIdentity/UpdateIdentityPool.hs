@@ -121,9 +121,8 @@ uipAllowUnauthenticatedIdentities :: Lens' UpdateIdentityPool Bool
 uipAllowUnauthenticatedIdentities = lens _uipAllowUnauthenticatedIdentities (\ s a -> s{_uipAllowUnauthenticatedIdentities = a});
 
 instance AWSRequest UpdateIdentityPool where
-        type Sv UpdateIdentityPool = CognitoIdentity
         type Rs UpdateIdentityPool = IdentityPool
-        request = postJSON
+        request = postJSON cognitoIdentity
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateIdentityPool where

@@ -200,9 +200,8 @@ giKey :: Lens' GetItem (HashMap Text AttributeValue)
 giKey = lens _giKey (\ s a -> s{_giKey = a}) . _Map;
 
 instance AWSRequest GetItem where
-        type Sv GetItem = DynamoDB
         type Rs GetItem = GetItemResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->

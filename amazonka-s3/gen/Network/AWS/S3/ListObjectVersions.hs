@@ -147,10 +147,9 @@ instance AWSPager ListObjectVersions where
               lovVersionIdMarker .~ rs ^. lovrsNextVersionIdMarker
 
 instance AWSRequest ListObjectVersions where
-        type Sv ListObjectVersions = S3
         type Rs ListObjectVersions =
              ListObjectVersionsResponse
-        request = get
+        request = get s3
         response
           = receiveXML
               (\ s h x ->

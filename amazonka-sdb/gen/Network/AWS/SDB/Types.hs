@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.SDB.Types
     (
-    -- * Service
-      SDB
+    -- * Service Configuration
+      sDB
 
     -- * Errors
     , _InvalidNumberValueTests
@@ -82,39 +81,36 @@ import           Network.AWS.SDB.Types.Product
 import           Network.AWS.SDB.Types.Sum
 import           Network.AWS.Sign.V2
 
--- | Version @2009-04-15@ of the Amazon SimpleDB SDK.
-data SDB
-
-instance AWSService SDB where
-    type Sg SDB = V2
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "SDB"
-            , _svcPrefix = "sdb"
-            , _svcVersion = "2009-04-15"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseXMLError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2009-04-15' of the Amazon SimpleDB SDK configuration.
+sDB :: Service
+sDB =
+    Service
+    { _svcAbbrev = "SDB"
+    , _svcSigner = v2
+    , _svcPrefix = "sdb"
+    , _svcVersion = "2009-04-15"
+    , _svcEndpoint = defaultEndpoint sDB
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseXMLError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | Too many predicates exist in the query expression.
 _InvalidNumberValueTests :: AsError a => Getting (First ServiceError) a ServiceError

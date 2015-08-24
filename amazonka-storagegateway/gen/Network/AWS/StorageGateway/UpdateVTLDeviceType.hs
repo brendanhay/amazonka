@@ -83,10 +83,9 @@ uvtldtDeviceType :: Lens' UpdateVTLDeviceType Text
 uvtldtDeviceType = lens _uvtldtDeviceType (\ s a -> s{_uvtldtDeviceType = a});
 
 instance AWSRequest UpdateVTLDeviceType where
-        type Sv UpdateVTLDeviceType = StorageGateway
         type Rs UpdateVTLDeviceType =
              UpdateVTLDeviceTypeResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

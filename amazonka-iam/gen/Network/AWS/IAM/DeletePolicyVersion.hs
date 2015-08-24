@@ -86,10 +86,9 @@ dpvVersionId :: Lens' DeletePolicyVersion Text
 dpvVersionId = lens _dpvVersionId (\ s a -> s{_dpvVersionId = a});
 
 instance AWSRequest DeletePolicyVersion where
-        type Sv DeletePolicyVersion = IAM
         type Rs DeletePolicyVersion =
              DeletePolicyVersionResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull DeletePolicyVersionResponse'
 
 instance ToHeaders DeletePolicyVersion where

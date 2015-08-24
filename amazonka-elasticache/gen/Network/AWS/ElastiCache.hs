@@ -29,8 +29,8 @@
 -- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.ElastiCache
     (
-    -- * Service
-      ElastiCache
+    -- * Service Configuration
+      elastiCache
 
     -- * Errors
     -- $errors

@@ -114,10 +114,9 @@ mdiIdentityPoolId :: Lens' MergeDeveloperIdentities Text
 mdiIdentityPoolId = lens _mdiIdentityPoolId (\ s a -> s{_mdiIdentityPoolId = a});
 
 instance AWSRequest MergeDeveloperIdentities where
-        type Sv MergeDeveloperIdentities = CognitoIdentity
         type Rs MergeDeveloperIdentities =
              MergeDeveloperIdentitiesResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response
           = receiveJSON
               (\ s h x ->

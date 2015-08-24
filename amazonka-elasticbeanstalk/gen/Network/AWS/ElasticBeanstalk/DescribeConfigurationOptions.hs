@@ -115,11 +115,9 @@ dcoSolutionStackName = lens _dcoSolutionStackName (\ s a -> s{_dcoSolutionStackN
 
 instance AWSRequest DescribeConfigurationOptions
          where
-        type Sv DescribeConfigurationOptions =
-             ElasticBeanstalk
         type Rs DescribeConfigurationOptions =
              DescribeConfigurationOptionsResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper
               "DescribeConfigurationOptionsResult"

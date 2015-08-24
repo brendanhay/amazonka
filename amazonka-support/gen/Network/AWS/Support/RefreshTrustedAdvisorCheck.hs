@@ -76,10 +76,9 @@ rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
 rtacCheckId = lens _rtacCheckId (\ s a -> s{_rtacCheckId = a});
 
 instance AWSRequest RefreshTrustedAdvisorCheck where
-        type Sv RefreshTrustedAdvisorCheck = Support
         type Rs RefreshTrustedAdvisorCheck =
              RefreshTrustedAdvisorCheckResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveEmpty
               (\ s h x ->

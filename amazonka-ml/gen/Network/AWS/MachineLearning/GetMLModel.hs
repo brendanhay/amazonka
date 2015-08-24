@@ -98,9 +98,8 @@ gmlmMLModelId :: Lens' GetMLModel Text
 gmlmMLModelId = lens _gmlmMLModelId (\ s a -> s{_gmlmMLModelId = a});
 
 instance AWSRequest GetMLModel where
-        type Sv GetMLModel = MachineLearning
         type Rs GetMLModel = GetMLModelResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

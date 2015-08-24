@@ -71,10 +71,9 @@ geaEndpointARN :: Lens' GetEndpointAttributes Text
 geaEndpointARN = lens _geaEndpointARN (\ s a -> s{_geaEndpointARN = a});
 
 instance AWSRequest GetEndpointAttributes where
-        type Sv GetEndpointAttributes = SNS
         type Rs GetEndpointAttributes =
              GetEndpointAttributesResponse
-        request = postQuery
+        request = postQuery sNS
         response
           = receiveXMLWrapper "GetEndpointAttributesResult"
               (\ s h x ->

@@ -93,10 +93,9 @@ uoicptThumbprintList = lens _uoicptThumbprintList (\ s a -> s{_uoicptThumbprintL
 
 instance AWSRequest
          UpdateOpenIdConnectProviderThumbprint where
-        type Sv UpdateOpenIdConnectProviderThumbprint = IAM
         type Rs UpdateOpenIdConnectProviderThumbprint =
              UpdateOpenIdConnectProviderThumbprintResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveNull
               UpdateOpenIdConnectProviderThumbprintResponse'

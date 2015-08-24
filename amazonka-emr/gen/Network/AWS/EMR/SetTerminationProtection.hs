@@ -97,10 +97,9 @@ stpTerminationProtected :: Lens' SetTerminationProtection Bool
 stpTerminationProtected = lens _stpTerminationProtected (\ s a -> s{_stpTerminationProtected = a});
 
 instance AWSRequest SetTerminationProtection where
-        type Sv SetTerminationProtection = EMR
         type Rs SetTerminationProtection =
              SetTerminationProtectionResponse
-        request = postJSON
+        request = postJSON eMR
         response
           = receiveNull SetTerminationProtectionResponse'
 

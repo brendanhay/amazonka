@@ -72,9 +72,8 @@ cwWorkspaces :: Lens' CreateWorkspaces (NonEmpty WorkspaceRequest)
 cwWorkspaces = lens _cwWorkspaces (\ s a -> s{_cwWorkspaces = a}) . _List1;
 
 instance AWSRequest CreateWorkspaces where
-        type Sv CreateWorkspaces = WorkSpaces
         type Rs CreateWorkspaces = CreateWorkspacesResponse
-        request = postJSON
+        request = postJSON workSpaces
         response
           = receiveJSON
               (\ s h x ->

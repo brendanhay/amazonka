@@ -88,10 +88,9 @@ sdrpAccountId :: Lens' SetDataRetrievalPolicy Text
 sdrpAccountId = lens _sdrpAccountId (\ s a -> s{_sdrpAccountId = a});
 
 instance AWSRequest SetDataRetrievalPolicy where
-        type Sv SetDataRetrievalPolicy = Glacier
         type Rs SetDataRetrievalPolicy =
              SetDataRetrievalPolicyResponse
-        request = putJSON
+        request = putJSON glacier
         response
           = receiveNull SetDataRetrievalPolicyResponse'
 

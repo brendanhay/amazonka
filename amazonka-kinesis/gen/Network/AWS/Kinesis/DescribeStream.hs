@@ -126,9 +126,8 @@ instance AWSPager DescribeStream where
                   dsrsStreamDescription . sdShards . _last . sShardId
 
 instance AWSRequest DescribeStream where
-        type Sv DescribeStream = Kinesis
         type Rs DescribeStream = DescribeStreamResponse
-        request = postJSON
+        request = postJSON kinesis
         response
           = receiveJSON
               (\ s h x ->

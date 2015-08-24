@@ -202,10 +202,9 @@ instance AWSPager PollForDecisionTask where
               pfdtNextPageToken .~ rs ^. pfdtrsNextPageToken
 
 instance AWSRequest PollForDecisionTask where
-        type Sv PollForDecisionTask = SWF
         type Rs PollForDecisionTask =
              PollForDecisionTaskResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveJSON
               (\ s h x ->

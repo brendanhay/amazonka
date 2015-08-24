@@ -80,10 +80,9 @@ lupArn :: Lens' ListUniqueProblems Text
 lupArn = lens _lupArn (\ s a -> s{_lupArn = a});
 
 instance AWSRequest ListUniqueProblems where
-        type Sv ListUniqueProblems = DeviceFarm
         type Rs ListUniqueProblems =
              ListUniqueProblemsResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

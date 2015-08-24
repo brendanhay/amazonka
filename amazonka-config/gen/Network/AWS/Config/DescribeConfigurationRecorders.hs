@@ -72,10 +72,9 @@ dcrConfigurationRecorderNames = lens _dcrConfigurationRecorderNames (\ s a -> s{
 
 instance AWSRequest DescribeConfigurationRecorders
          where
-        type Sv DescribeConfigurationRecorders = Config
         type Rs DescribeConfigurationRecorders =
              DescribeConfigurationRecordersResponse
-        request = postJSON
+        request = postJSON config
         response
           = receiveJSON
               (\ s h x ->

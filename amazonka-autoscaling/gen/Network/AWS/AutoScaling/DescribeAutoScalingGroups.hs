@@ -96,10 +96,9 @@ instance AWSPager DescribeAutoScalingGroups where
             Just $ rq & dasgNextToken .~ rs ^. dasgrsNextToken
 
 instance AWSRequest DescribeAutoScalingGroups where
-        type Sv DescribeAutoScalingGroups = AutoScaling
         type Rs DescribeAutoScalingGroups =
              DescribeAutoScalingGroupsResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "DescribeAutoScalingGroupsResult"
               (\ s h x ->

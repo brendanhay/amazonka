@@ -68,9 +68,8 @@ dDirectoryId :: Lens' DeleteDirectory Text
 dDirectoryId = lens _dDirectoryId (\ s a -> s{_dDirectoryId = a});
 
 instance AWSRequest DeleteDirectory where
-        type Sv DeleteDirectory = DirectoryService
         type Rs DeleteDirectory = DeleteDirectoryResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveJSON
               (\ s h x ->

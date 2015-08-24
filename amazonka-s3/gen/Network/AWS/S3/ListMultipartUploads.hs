@@ -150,10 +150,9 @@ instance AWSPager ListMultipartUploads where
               & lmuUploadIdMarker .~ rs ^. lmursNextUploadIdMarker
 
 instance AWSRequest ListMultipartUploads where
-        type Sv ListMultipartUploads = S3
         type Rs ListMultipartUploads =
              ListMultipartUploadsResponse
-        request = get
+        request = get s3
         response
           = receiveXML
               (\ s h x ->

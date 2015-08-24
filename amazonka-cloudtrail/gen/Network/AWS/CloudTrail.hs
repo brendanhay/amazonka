@@ -38,8 +38,8 @@
 -- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudTrail
     (
-    -- * Service
-      CloudTrail
+    -- * Service Configuration
+      cloudTrail
 
     -- * Errors
     -- $errors

@@ -81,9 +81,8 @@ pbcBucket :: Lens' PutBucketCORS BucketName
 pbcBucket = lens _pbcBucket (\ s a -> s{_pbcBucket = a});
 
 instance AWSRequest PutBucketCORS where
-        type Sv PutBucketCORS = S3
         type Rs PutBucketCORS = PutBucketCORSResponse
-        request = contentMD5 . putXML
+        request = contentMD5 . putXML s3
         response = receiveNull PutBucketCORSResponse'
 
 instance ToElement PutBucketCORS where

@@ -213,10 +213,9 @@ instance AWSPager DescribeEvaluations where
             Just $ rq & deNextToken .~ rs ^. desrsNextToken
 
 instance AWSRequest DescribeEvaluations where
-        type Sv DescribeEvaluations = MachineLearning
         type Rs DescribeEvaluations =
              DescribeEvaluationsResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

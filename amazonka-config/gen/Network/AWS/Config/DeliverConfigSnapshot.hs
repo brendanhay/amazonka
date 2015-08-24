@@ -78,10 +78,9 @@ dcsDeliveryChannelName :: Lens' DeliverConfigSnapshot Text
 dcsDeliveryChannelName = lens _dcsDeliveryChannelName (\ s a -> s{_dcsDeliveryChannelName = a});
 
 instance AWSRequest DeliverConfigSnapshot where
-        type Sv DeliverConfigSnapshot = Config
         type Rs DeliverConfigSnapshot =
              DeliverConfigSnapshotResponse
-        request = postJSON
+        request = postJSON config
         response
           = receiveJSON
               (\ s h x ->

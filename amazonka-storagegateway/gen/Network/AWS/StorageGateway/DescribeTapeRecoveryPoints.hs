@@ -106,10 +106,9 @@ instance AWSPager DescribeTapeRecoveryPoints where
             Just $ rq & dtrpMarker .~ rs ^. dtrprsMarker
 
 instance AWSRequest DescribeTapeRecoveryPoints where
-        type Sv DescribeTapeRecoveryPoints = StorageGateway
         type Rs DescribeTapeRecoveryPoints =
              DescribeTapeRecoveryPointsResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

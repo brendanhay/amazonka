@@ -70,10 +70,9 @@ dlbptPolicyTypeNames = lens _dlbptPolicyTypeNames (\ s a -> s{_dlbptPolicyTypeNa
 
 instance AWSRequest DescribeLoadBalancerPolicyTypes
          where
-        type Sv DescribeLoadBalancerPolicyTypes = ELB
         type Rs DescribeLoadBalancerPolicyTypes =
              DescribeLoadBalancerPolicyTypesResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper
               "DescribeLoadBalancerPolicyTypesResult"

@@ -106,8 +106,8 @@
 -- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CodePipeline
     (
-    -- * Service
-      CodePipeline
+    -- * Service Configuration
+      codePipeline
 
     -- * Errors
     -- $errors

@@ -94,10 +94,9 @@ ddDestinationNamePrefix :: Lens' DescribeDestinations (Maybe Text)
 ddDestinationNamePrefix = lens _ddDestinationNamePrefix (\ s a -> s{_ddDestinationNamePrefix = a});
 
 instance AWSRequest DescribeDestinations where
-        type Sv DescribeDestinations = CloudWatchLogs
         type Rs DescribeDestinations =
              DescribeDestinationsResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response
           = receiveJSON
               (\ s h x ->

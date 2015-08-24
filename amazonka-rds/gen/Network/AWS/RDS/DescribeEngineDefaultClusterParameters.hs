@@ -112,10 +112,9 @@ dedcpDBParameterGroupFamily = lens _dedcpDBParameterGroupFamily (\ s a -> s{_ded
 
 instance AWSRequest
          DescribeEngineDefaultClusterParameters where
-        type Sv DescribeEngineDefaultClusterParameters = RDS
         type Rs DescribeEngineDefaultClusterParameters =
              DescribeEngineDefaultClusterParametersResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "DescribeEngineDefaultClusterParametersResult"

@@ -79,9 +79,8 @@ daApplicationName :: Lens' DeleteApplication Text
 daApplicationName = lens _daApplicationName (\ s a -> s{_daApplicationName = a});
 
 instance AWSRequest DeleteApplication where
-        type Sv DeleteApplication = ElasticBeanstalk
         type Rs DeleteApplication = DeleteApplicationResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response = receiveNull DeleteApplicationResponse'
 
 instance ToHeaders DeleteApplication where

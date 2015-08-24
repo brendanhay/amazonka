@@ -63,10 +63,9 @@ dblBucket :: Lens' DeleteBucketLifecycle BucketName
 dblBucket = lens _dblBucket (\ s a -> s{_dblBucket = a});
 
 instance AWSRequest DeleteBucketLifecycle where
-        type Sv DeleteBucketLifecycle = S3
         type Rs DeleteBucketLifecycle =
              DeleteBucketLifecycleResponse
-        request = delete
+        request = delete s3
         response = receiveNull DeleteBucketLifecycleResponse'
 
 instance ToHeaders DeleteBucketLifecycle where

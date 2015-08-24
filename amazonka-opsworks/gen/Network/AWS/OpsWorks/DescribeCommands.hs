@@ -97,9 +97,8 @@ dcCommandIds :: Lens' DescribeCommands [Text]
 dcCommandIds = lens _dcCommandIds (\ s a -> s{_dcCommandIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeCommands where
-        type Sv DescribeCommands = OpsWorks
         type Rs DescribeCommands = DescribeCommandsResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

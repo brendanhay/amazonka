@@ -97,10 +97,9 @@ pjsrJobId :: Lens' PutJobSuccessResult Text
 pjsrJobId = lens _pjsrJobId (\ s a -> s{_pjsrJobId = a});
 
 instance AWSRequest PutJobSuccessResult where
-        type Sv PutJobSuccessResult = CodePipeline
         type Rs PutJobSuccessResult =
              PutJobSuccessResultResponse
-        request = postJSON
+        request = postJSON codePipeline
         response = receiveNull PutJobSuccessResultResponse'
 
 instance ToHeaders PutJobSuccessResult where

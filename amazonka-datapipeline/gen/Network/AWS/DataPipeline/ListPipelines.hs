@@ -83,9 +83,8 @@ instance AWSPager ListPipelines where
             Just $ rq & lpMarker .~ rs ^. lprsMarker
 
 instance AWSRequest ListPipelines where
-        type Sv ListPipelines = DataPipeline
         type Rs ListPipelines = ListPipelinesResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->

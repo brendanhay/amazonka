@@ -95,10 +95,9 @@ sipcIdentityPoolId = lens _sipcIdentityPoolId (\ s a -> s{_sipcIdentityPoolId = 
 
 instance AWSRequest SetIdentityPoolConfiguration
          where
-        type Sv SetIdentityPoolConfiguration = CognitoSync
         type Rs SetIdentityPoolConfiguration =
              SetIdentityPoolConfigurationResponse
-        request = postJSON
+        request = postJSON cognitoSync
         response
           = receiveJSON
               (\ s h x ->

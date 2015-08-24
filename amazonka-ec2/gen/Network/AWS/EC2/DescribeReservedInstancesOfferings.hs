@@ -268,10 +268,9 @@ instance AWSPager DescribeReservedInstancesOfferings
 
 instance AWSRequest
          DescribeReservedInstancesOfferings where
-        type Sv DescribeReservedInstancesOfferings = EC2
         type Rs DescribeReservedInstancesOfferings =
              DescribeReservedInstancesOfferingsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

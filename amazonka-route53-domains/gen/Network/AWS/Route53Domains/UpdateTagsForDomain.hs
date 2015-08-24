@@ -136,10 +136,9 @@ utfdDomainName :: Lens' UpdateTagsForDomain Text
 utfdDomainName = lens _utfdDomainName (\ s a -> s{_utfdDomainName = a});
 
 instance AWSRequest UpdateTagsForDomain where
-        type Sv UpdateTagsForDomain = Route53Domains
         type Rs UpdateTagsForDomain =
              UpdateTagsForDomainResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveEmpty
               (\ s h x ->

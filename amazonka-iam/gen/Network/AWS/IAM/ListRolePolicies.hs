@@ -114,9 +114,8 @@ instance AWSPager ListRolePolicies where
             Just $ rq & lrpMarker .~ rs ^. lrprsMarker
 
 instance AWSRequest ListRolePolicies where
-        type Sv ListRolePolicies = IAM
         type Rs ListRolePolicies = ListRolePoliciesResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListRolePoliciesResult"
               (\ s h x ->

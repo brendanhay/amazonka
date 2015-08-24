@@ -97,10 +97,9 @@ spaaAttributes = lens _spaaAttributes (\ s a -> s{_spaaAttributes = a}) . _Map;
 
 instance AWSRequest SetPlatformApplicationAttributes
          where
-        type Sv SetPlatformApplicationAttributes = SNS
         type Rs SetPlatformApplicationAttributes =
              SetPlatformApplicationAttributesResponse
-        request = postQuery
+        request = postQuery sNS
         response
           = receiveNull
               SetPlatformApplicationAttributesResponse'

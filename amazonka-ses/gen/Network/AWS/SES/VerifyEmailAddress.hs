@@ -73,10 +73,9 @@ veaEmailAddress :: Lens' VerifyEmailAddress Text
 veaEmailAddress = lens _veaEmailAddress (\ s a -> s{_veaEmailAddress = a});
 
 instance AWSRequest VerifyEmailAddress where
-        type Sv VerifyEmailAddress = SES
         type Rs VerifyEmailAddress =
              VerifyEmailAddressResponse
-        request = postQuery
+        request = postQuery sES
         response = receiveNull VerifyEmailAddressResponse'
 
 instance ToHeaders VerifyEmailAddress where

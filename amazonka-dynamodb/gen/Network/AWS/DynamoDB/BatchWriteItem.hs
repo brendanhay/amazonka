@@ -194,9 +194,8 @@ bwiRequestItems :: Lens' BatchWriteItem (HashMap Text (NonEmpty WriteRequest))
 bwiRequestItems = lens _bwiRequestItems (\ s a -> s{_bwiRequestItems = a}) . _Map;
 
 instance AWSRequest BatchWriteItem where
-        type Sv BatchWriteItem = DynamoDB
         type Rs BatchWriteItem = BatchWriteItemResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->

@@ -78,10 +78,9 @@ dihLoadBalancerName :: Lens' DescribeInstanceHealth Text
 dihLoadBalancerName = lens _dihLoadBalancerName (\ s a -> s{_dihLoadBalancerName = a});
 
 instance AWSRequest DescribeInstanceHealth where
-        type Sv DescribeInstanceHealth = ELB
         type Rs DescribeInstanceHealth =
              DescribeInstanceHealthResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper "DescribeInstanceHealthResult"
               (\ s h x ->

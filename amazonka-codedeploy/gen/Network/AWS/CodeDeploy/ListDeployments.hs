@@ -115,9 +115,8 @@ ldDeploymentGroupName :: Lens' ListDeployments (Maybe Text)
 ldDeploymentGroupName = lens _ldDeploymentGroupName (\ s a -> s{_ldDeploymentGroupName = a});
 
 instance AWSRequest ListDeployments where
-        type Sv ListDeployments = CodeDeploy
         type Rs ListDeployments = ListDeploymentsResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->

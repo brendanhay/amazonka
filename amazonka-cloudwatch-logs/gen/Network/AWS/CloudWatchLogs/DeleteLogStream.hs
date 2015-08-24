@@ -74,9 +74,8 @@ dlsLogStreamName :: Lens' DeleteLogStream Text
 dlsLogStreamName = lens _dlsLogStreamName (\ s a -> s{_dlsLogStreamName = a});
 
 instance AWSRequest DeleteLogStream where
-        type Sv DeleteLogStream = CloudWatchLogs
         type Rs DeleteLogStream = DeleteLogStreamResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response = receiveNull DeleteLogStreamResponse'
 
 instance ToHeaders DeleteLogStream where

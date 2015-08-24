@@ -159,10 +159,9 @@ psugaScheduledActionName = lens _psugaScheduledActionName (\ s a -> s{_psugaSche
 
 instance AWSRequest PutScheduledUpdateGroupAction
          where
-        type Sv PutScheduledUpdateGroupAction = AutoScaling
         type Rs PutScheduledUpdateGroupAction =
              PutScheduledUpdateGroupActionResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveNull PutScheduledUpdateGroupActionResponse'
 

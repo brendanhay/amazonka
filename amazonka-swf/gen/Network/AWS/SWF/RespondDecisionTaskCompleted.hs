@@ -106,10 +106,9 @@ rdtcTaskToken = lens _rdtcTaskToken (\ s a -> s{_rdtcTaskToken = a});
 
 instance AWSRequest RespondDecisionTaskCompleted
          where
-        type Sv RespondDecisionTaskCompleted = SWF
         type Rs RespondDecisionTaskCompleted =
              RespondDecisionTaskCompletedResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveNull RespondDecisionTaskCompletedResponse'
 

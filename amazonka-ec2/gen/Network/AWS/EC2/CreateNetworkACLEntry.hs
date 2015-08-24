@@ -167,10 +167,9 @@ cnaeCIdRBlock :: Lens' CreateNetworkACLEntry Text
 cnaeCIdRBlock = lens _cnaeCIdRBlock (\ s a -> s{_cnaeCIdRBlock = a});
 
 instance AWSRequest CreateNetworkACLEntry where
-        type Sv CreateNetworkACLEntry = EC2
         type Rs CreateNetworkACLEntry =
              CreateNetworkACLEntryResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull CreateNetworkACLEntryResponse'
 
 instance ToHeaders CreateNetworkACLEntry where

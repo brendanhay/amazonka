@@ -68,10 +68,9 @@ dvmdSerialNumber :: Lens' DeleteVirtualMFADevice Text
 dvmdSerialNumber = lens _dvmdSerialNumber (\ s a -> s{_dvmdSerialNumber = a});
 
 instance AWSRequest DeleteVirtualMFADevice where
-        type Sv DeleteVirtualMFADevice = IAM
         type Rs DeleteVirtualMFADevice =
              DeleteVirtualMFADeviceResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveNull DeleteVirtualMFADeviceResponse'
 

@@ -70,10 +70,9 @@ diInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
 diInterconnectId = lens _diInterconnectId (\ s a -> s{_diInterconnectId = a});
 
 instance AWSRequest DescribeInterconnects where
-        type Sv DescribeInterconnects = DirectConnect
         type Rs DescribeInterconnects =
              DescribeInterconnectsResponse
-        request = postJSON
+        request = postJSON directConnect
         response
           = receiveJSON
               (\ s h x ->

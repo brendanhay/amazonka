@@ -130,9 +130,8 @@ sContainerInstances :: Lens' StartTask [Text]
 sContainerInstances = lens _sContainerInstances (\ s a -> s{_sContainerInstances = a}) . _Coerce;
 
 instance AWSRequest StartTask where
-        type Sv StartTask = ECS
         type Rs StartTask = StartTaskResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

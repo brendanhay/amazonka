@@ -81,10 +81,9 @@ dpStackId :: Lens' DescribePermissions (Maybe Text)
 dpStackId = lens _dpStackId (\ s a -> s{_dpStackId = a});
 
 instance AWSRequest DescribePermissions where
-        type Sv DescribePermissions = OpsWorks
         type Rs DescribePermissions =
              DescribePermissionsResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

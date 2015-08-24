@@ -96,9 +96,8 @@ gspkEncoding :: Lens' GetSSHPublicKey EncodingType
 gspkEncoding = lens _gspkEncoding (\ s a -> s{_gspkEncoding = a});
 
 instance AWSRequest GetSSHPublicKey where
-        type Sv GetSSHPublicKey = IAM
         type Rs GetSSHPublicKey = GetSSHPublicKeyResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "GetSSHPublicKeyResult"
               (\ s h x ->

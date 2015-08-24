@@ -175,10 +175,9 @@ instance AWSPager
 
 instance AWSRequest
          DescribeReservedDBInstancesOfferings where
-        type Sv DescribeReservedDBInstancesOfferings = RDS
         type Rs DescribeReservedDBInstancesOfferings =
              DescribeReservedDBInstancesOfferingsResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "DescribeReservedDBInstancesOfferingsResult"

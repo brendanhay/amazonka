@@ -102,10 +102,9 @@ udiDeveloperUserIdentifier :: Lens' UnlinkDeveloperIdentity Text
 udiDeveloperUserIdentifier = lens _udiDeveloperUserIdentifier (\ s a -> s{_udiDeveloperUserIdentifier = a});
 
 instance AWSRequest UnlinkDeveloperIdentity where
-        type Sv UnlinkDeveloperIdentity = CognitoIdentity
         type Rs UnlinkDeveloperIdentity =
              UnlinkDeveloperIdentityResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response
           = receiveNull UnlinkDeveloperIdentityResponse'
 

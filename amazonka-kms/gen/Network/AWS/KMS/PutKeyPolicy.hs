@@ -90,9 +90,8 @@ pkpPolicy :: Lens' PutKeyPolicy Text
 pkpPolicy = lens _pkpPolicy (\ s a -> s{_pkpPolicy = a});
 
 instance AWSRequest PutKeyPolicy where
-        type Sv PutKeyPolicy = KMS
         type Rs PutKeyPolicy = PutKeyPolicyResponse
-        request = postJSON
+        request = postJSON kMS
         response = receiveNull PutKeyPolicyResponse'
 
 instance ToHeaders PutKeyPolicy where

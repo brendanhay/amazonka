@@ -98,10 +98,9 @@ etcTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
 etcTemplateURL = lens _etcTemplateURL (\ s a -> s{_etcTemplateURL = a});
 
 instance AWSRequest EstimateTemplateCost where
-        type Sv EstimateTemplateCost = CloudFormation
         type Rs EstimateTemplateCost =
              EstimateTemplateCostResponse
-        request = postQuery
+        request = postQuery cloudFormation
         response
           = receiveXMLWrapper "EstimateTemplateCostResult"
               (\ s h x ->

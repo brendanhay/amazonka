@@ -157,9 +157,8 @@ apPrincipal :: Lens' AddPermission Text
 apPrincipal = lens _apPrincipal (\ s a -> s{_apPrincipal = a});
 
 instance AWSRequest AddPermission where
-        type Sv AddPermission = Lambda
         type Rs AddPermission = AddPermissionResponse
-        request = postJSON
+        request = postJSON lambda
         response
           = receiveJSON
               (\ s h x ->

@@ -179,11 +179,9 @@ cdsfrRoleARN = lens _cdsfrRoleARN (\ s a -> s{_cdsfrRoleARN = a});
 
 instance AWSRequest CreateDataSourceFromRedshift
          where
-        type Sv CreateDataSourceFromRedshift =
-             MachineLearning
         type Rs CreateDataSourceFromRedshift =
              CreateDataSourceFromRedshiftResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

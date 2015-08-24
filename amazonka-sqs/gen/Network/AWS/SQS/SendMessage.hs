@@ -114,9 +114,8 @@ smMessageBody :: Lens' SendMessage Text
 smMessageBody = lens _smMessageBody (\ s a -> s{_smMessageBody = a});
 
 instance AWSRequest SendMessage where
-        type Sv SendMessage = SQS
         type Rs SendMessage = SendMessageResponse
-        request = postQuery
+        request = postQuery sQS
         response
           = receiveXMLWrapper "SendMessageResult"
               (\ s h x ->

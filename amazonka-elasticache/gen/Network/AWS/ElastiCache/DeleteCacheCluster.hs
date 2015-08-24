@@ -87,10 +87,9 @@ dccCacheClusterId :: Lens' DeleteCacheCluster Text
 dccCacheClusterId = lens _dccCacheClusterId (\ s a -> s{_dccCacheClusterId = a});
 
 instance AWSRequest DeleteCacheCluster where
-        type Sv DeleteCacheCluster = ElastiCache
         type Rs DeleteCacheCluster =
              DeleteCacheClusterResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "DeleteCacheClusterResult"
               (\ s h x ->

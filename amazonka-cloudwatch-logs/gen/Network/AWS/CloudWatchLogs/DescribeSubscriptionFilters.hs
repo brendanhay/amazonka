@@ -113,10 +113,9 @@ instance AWSPager DescribeSubscriptionFilters where
             Just $ rq & dsfNextToken .~ rs ^. dsfrsNextToken
 
 instance AWSRequest DescribeSubscriptionFilters where
-        type Sv DescribeSubscriptionFilters = CloudWatchLogs
         type Rs DescribeSubscriptionFilters =
              DescribeSubscriptionFiltersResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response
           = receiveJSON
               (\ s h x ->

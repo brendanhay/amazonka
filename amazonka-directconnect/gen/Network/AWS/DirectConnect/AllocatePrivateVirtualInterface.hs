@@ -119,11 +119,9 @@ apviNewPrivateVirtualInterfaceAllocation = lens _apviNewPrivateVirtualInterfaceA
 
 instance AWSRequest AllocatePrivateVirtualInterface
          where
-        type Sv AllocatePrivateVirtualInterface =
-             DirectConnect
         type Rs AllocatePrivateVirtualInterface =
              VirtualInterface
-        request = postJSON
+        request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders AllocatePrivateVirtualInterface

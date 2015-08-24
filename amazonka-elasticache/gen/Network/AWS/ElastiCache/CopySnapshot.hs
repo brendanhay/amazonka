@@ -78,9 +78,8 @@ csTargetSnapshotName :: Lens' CopySnapshot Text
 csTargetSnapshotName = lens _csTargetSnapshotName (\ s a -> s{_csTargetSnapshotName = a});
 
 instance AWSRequest CopySnapshot where
-        type Sv CopySnapshot = ElastiCache
         type Rs CopySnapshot = CopySnapshotResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "CopySnapshotResult"
               (\ s h x ->

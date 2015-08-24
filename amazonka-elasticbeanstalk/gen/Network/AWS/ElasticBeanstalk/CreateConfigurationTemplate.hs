@@ -174,11 +174,9 @@ cctTemplateName :: Lens' CreateConfigurationTemplate Text
 cctTemplateName = lens _cctTemplateName (\ s a -> s{_cctTemplateName = a});
 
 instance AWSRequest CreateConfigurationTemplate where
-        type Sv CreateConfigurationTemplate =
-             ElasticBeanstalk
         type Rs CreateConfigurationTemplate =
              ConfigurationSettingsDescription
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper
               "CreateConfigurationTemplateResult"

@@ -81,9 +81,8 @@ ajNonce :: Lens' AcknowledgeJob Text
 ajNonce = lens _ajNonce (\ s a -> s{_ajNonce = a});
 
 instance AWSRequest AcknowledgeJob where
-        type Sv AcknowledgeJob = CodePipeline
         type Rs AcknowledgeJob = AcknowledgeJobResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveEmpty
               (\ s h x ->

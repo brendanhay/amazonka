@@ -107,10 +107,9 @@ emcGranularity :: Lens' EnableMetricsCollection Text
 emcGranularity = lens _emcGranularity (\ s a -> s{_emcGranularity = a});
 
 instance AWSRequest EnableMetricsCollection where
-        type Sv EnableMetricsCollection = AutoScaling
         type Rs EnableMetricsCollection =
              EnableMetricsCollectionResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveNull EnableMetricsCollectionResponse'
 

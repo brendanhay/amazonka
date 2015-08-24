@@ -53,10 +53,9 @@ describeAdjustmentTypes
 describeAdjustmentTypes = DescribeAdjustmentTypes'
 
 instance AWSRequest DescribeAdjustmentTypes where
-        type Sv DescribeAdjustmentTypes = AutoScaling
         type Rs DescribeAdjustmentTypes =
              DescribeAdjustmentTypesResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "DescribeAdjustmentTypesResult"
               (\ s h x ->

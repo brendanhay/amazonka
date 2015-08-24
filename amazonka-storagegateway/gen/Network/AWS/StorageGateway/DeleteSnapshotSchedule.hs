@@ -76,10 +76,9 @@ dVolumeARN :: Lens' DeleteSnapshotSchedule Text
 dVolumeARN = lens _dVolumeARN (\ s a -> s{_dVolumeARN = a});
 
 instance AWSRequest DeleteSnapshotSchedule where
-        type Sv DeleteSnapshotSchedule = StorageGateway
         type Rs DeleteSnapshotSchedule =
              DeleteSnapshotScheduleResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

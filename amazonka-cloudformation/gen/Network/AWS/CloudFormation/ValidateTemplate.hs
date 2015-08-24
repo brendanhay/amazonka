@@ -92,9 +92,8 @@ vtTemplateURL :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateURL = lens _vtTemplateURL (\ s a -> s{_vtTemplateURL = a});
 
 instance AWSRequest ValidateTemplate where
-        type Sv ValidateTemplate = CloudFormation
         type Rs ValidateTemplate = ValidateTemplateResponse
-        request = postQuery
+        request = postQuery cloudFormation
         response
           = receiveXMLWrapper "ValidateTemplateResult"
               (\ s h x ->

@@ -107,9 +107,8 @@ instance AWSPager ListServices where
             Just $ rq & lsNextToken .~ rs ^. lsrsNextToken
 
 instance AWSRequest ListServices where
-        type Sv ListServices = ECS
         type Rs ListServices = ListServicesResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

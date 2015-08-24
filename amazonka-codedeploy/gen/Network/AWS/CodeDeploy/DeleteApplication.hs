@@ -66,9 +66,8 @@ daApplicationName :: Lens' DeleteApplication Text
 daApplicationName = lens _daApplicationName (\ s a -> s{_daApplicationName = a});
 
 instance AWSRequest DeleteApplication where
-        type Sv DeleteApplication = CodeDeploy
         type Rs DeleteApplication = DeleteApplicationResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response = receiveNull DeleteApplicationResponse'
 
 instance ToHeaders DeleteApplication where

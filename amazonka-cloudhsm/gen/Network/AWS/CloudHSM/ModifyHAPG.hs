@@ -85,9 +85,8 @@ mhHAPGARN :: Lens' ModifyHAPG Text
 mhHAPGARN = lens _mhHAPGARN (\ s a -> s{_mhHAPGARN = a});
 
 instance AWSRequest ModifyHAPG where
-        type Sv ModifyHAPG = CloudHSM
         type Rs ModifyHAPG = ModifyHAPGResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->

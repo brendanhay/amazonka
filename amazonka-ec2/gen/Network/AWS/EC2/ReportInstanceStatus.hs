@@ -154,10 +154,9 @@ risReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
 risReasonCodes = lens _risReasonCodes (\ s a -> s{_risReasonCodes = a}) . _Coerce;
 
 instance AWSRequest ReportInstanceStatus where
-        type Sv ReportInstanceStatus = EC2
         type Rs ReportInstanceStatus =
              ReportInstanceStatusResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull ReportInstanceStatusResponse'
 
 instance ToHeaders ReportInstanceStatus where

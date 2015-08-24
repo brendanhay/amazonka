@@ -82,10 +82,9 @@ urdRepositoryName :: Lens' UpdateRepositoryDescription Text
 urdRepositoryName = lens _urdRepositoryName (\ s a -> s{_urdRepositoryName = a});
 
 instance AWSRequest UpdateRepositoryDescription where
-        type Sv UpdateRepositoryDescription = CodeCommit
         type Rs UpdateRepositoryDescription =
              UpdateRepositoryDescriptionResponse
-        request = postJSON
+        request = postJSON codeCommit
         response
           = receiveNull UpdateRepositoryDescriptionResponse'
 

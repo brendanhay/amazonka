@@ -89,9 +89,8 @@ fdcDBClusterIdentifier :: Lens' FailoverDBCluster (Maybe Text)
 fdcDBClusterIdentifier = lens _fdcDBClusterIdentifier (\ s a -> s{_fdcDBClusterIdentifier = a});
 
 instance AWSRequest FailoverDBCluster where
-        type Sv FailoverDBCluster = RDS
         type Rs FailoverDBCluster = FailoverDBClusterResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "FailoverDBClusterResult"
               (\ s h x ->

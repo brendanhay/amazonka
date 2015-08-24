@@ -108,10 +108,9 @@ cdbcsTargetDBClusterSnapshotIdentifier :: Lens' CopyDBClusterSnapshot Text
 cdbcsTargetDBClusterSnapshotIdentifier = lens _cdbcsTargetDBClusterSnapshotIdentifier (\ s a -> s{_cdbcsTargetDBClusterSnapshotIdentifier = a});
 
 instance AWSRequest CopyDBClusterSnapshot where
-        type Sv CopyDBClusterSnapshot = RDS
         type Rs CopyDBClusterSnapshot =
              CopyDBClusterSnapshotResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "CopyDBClusterSnapshotResult"
               (\ s h x ->

@@ -87,10 +87,9 @@ urdiRDSDBInstanceARN :: Lens' UpdateRDSDBInstance Text
 urdiRDSDBInstanceARN = lens _urdiRDSDBInstanceARN (\ s a -> s{_urdiRDSDBInstanceARN = a});
 
 instance AWSRequest UpdateRDSDBInstance where
-        type Sv UpdateRDSDBInstance = OpsWorks
         type Rs UpdateRDSDBInstance =
              UpdateRDSDBInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull UpdateRDSDBInstanceResponse'
 
 instance ToHeaders UpdateRDSDBInstance where

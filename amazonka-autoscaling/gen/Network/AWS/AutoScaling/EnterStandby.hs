@@ -93,9 +93,8 @@ esShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
 esShouldDecrementDesiredCapacity = lens _esShouldDecrementDesiredCapacity (\ s a -> s{_esShouldDecrementDesiredCapacity = a});
 
 instance AWSRequest EnterStandby where
-        type Sv EnterStandby = AutoScaling
         type Rs EnterStandby = EnterStandbyResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "EnterStandbyResult"
               (\ s h x ->

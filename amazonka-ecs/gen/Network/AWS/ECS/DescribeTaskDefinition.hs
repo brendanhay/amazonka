@@ -74,10 +74,9 @@ dtdTaskDefinition :: Lens' DescribeTaskDefinition Text
 dtdTaskDefinition = lens _dtdTaskDefinition (\ s a -> s{_dtdTaskDefinition = a});
 
 instance AWSRequest DescribeTaskDefinition where
-        type Sv DescribeTaskDefinition = ECS
         type Rs DescribeTaskDefinition =
              DescribeTaskDefinitionResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

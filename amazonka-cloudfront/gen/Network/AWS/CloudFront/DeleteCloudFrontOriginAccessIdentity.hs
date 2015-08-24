@@ -76,11 +76,9 @@ dcfoaiId = lens _dcfoaiId (\ s a -> s{_dcfoaiId = a});
 
 instance AWSRequest
          DeleteCloudFrontOriginAccessIdentity where
-        type Sv DeleteCloudFrontOriginAccessIdentity =
-             CloudFront
         type Rs DeleteCloudFrontOriginAccessIdentity =
              DeleteCloudFrontOriginAccessIdentityResponse
-        request = delete
+        request = delete cloudFront
         response
           = receiveNull
               DeleteCloudFrontOriginAccessIdentityResponse'

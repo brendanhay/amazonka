@@ -68,9 +68,8 @@ gjArn :: Lens' GetJob Text
 gjArn = lens _gjArn (\ s a -> s{_gjArn = a});
 
 instance AWSRequest GetJob where
-        type Sv GetJob = DeviceFarm
         type Rs GetJob = GetJobResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

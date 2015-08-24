@@ -80,9 +80,8 @@ urRadiusSettings :: Lens' UpdateRadius RadiusSettings
 urRadiusSettings = lens _urRadiusSettings (\ s a -> s{_urRadiusSettings = a});
 
 instance AWSRequest UpdateRadius where
-        type Sv UpdateRadius = DirectoryService
         type Rs UpdateRadius = UpdateRadiusResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveEmpty
               (\ s h x ->

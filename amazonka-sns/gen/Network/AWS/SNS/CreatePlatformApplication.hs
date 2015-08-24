@@ -106,10 +106,9 @@ cpaAttributes :: Lens' CreatePlatformApplication (HashMap Text Text)
 cpaAttributes = lens _cpaAttributes (\ s a -> s{_cpaAttributes = a}) . _Map;
 
 instance AWSRequest CreatePlatformApplication where
-        type Sv CreatePlatformApplication = SNS
         type Rs CreatePlatformApplication =
              CreatePlatformApplicationResponse
-        request = postQuery
+        request = postQuery sNS
         response
           = receiveXMLWrapper "CreatePlatformApplicationResult"
               (\ s h x ->

@@ -81,9 +81,8 @@ dupPolicyName :: Lens' DeleteUserPolicy Text
 dupPolicyName = lens _dupPolicyName (\ s a -> s{_dupPolicyName = a});
 
 instance AWSRequest DeleteUserPolicy where
-        type Sv DeleteUserPolicy = IAM
         type Rs DeleteUserPolicy = DeleteUserPolicyResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull DeleteUserPolicyResponse'
 
 instance ToHeaders DeleteUserPolicy where

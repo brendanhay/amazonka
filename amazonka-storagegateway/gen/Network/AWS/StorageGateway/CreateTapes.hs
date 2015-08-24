@@ -125,9 +125,8 @@ ctTapeBarcodePrefix :: Lens' CreateTapes Text
 ctTapeBarcodePrefix = lens _ctTapeBarcodePrefix (\ s a -> s{_ctTapeBarcodePrefix = a});
 
 instance AWSRequest CreateTapes where
-        type Sv CreateTapes = StorageGateway
         type Rs CreateTapes = CreateTapesResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

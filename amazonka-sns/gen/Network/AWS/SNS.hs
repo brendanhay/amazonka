@@ -33,8 +33,8 @@
 -- /See:/ <http://docs.aws.amazon.com/sns/latest/api/Welcome.html AWS API Reference>
 module Network.AWS.SNS
     (
-    -- * Service
-      SNS
+    -- * Service Configuration
+      sNS
 
     -- * Errors
     -- $errors

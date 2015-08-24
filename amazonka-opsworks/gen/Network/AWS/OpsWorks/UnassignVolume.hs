@@ -71,9 +71,8 @@ uvVolumeId :: Lens' UnassignVolume Text
 uvVolumeId = lens _uvVolumeId (\ s a -> s{_uvVolumeId = a});
 
 instance AWSRequest UnassignVolume where
-        type Sv UnassignVolume = OpsWorks
         type Rs UnassignVolume = UnassignVolumeResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull UnassignVolumeResponse'
 
 instance ToHeaders UnassignVolume where

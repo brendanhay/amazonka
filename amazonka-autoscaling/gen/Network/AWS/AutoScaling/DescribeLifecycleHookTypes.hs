@@ -53,10 +53,9 @@ describeLifecycleHookTypes
 describeLifecycleHookTypes = DescribeLifecycleHookTypes'
 
 instance AWSRequest DescribeLifecycleHookTypes where
-        type Sv DescribeLifecycleHookTypes = AutoScaling
         type Rs DescribeLifecycleHookTypes =
              DescribeLifecycleHookTypesResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper
               "DescribeLifecycleHookTypesResult"

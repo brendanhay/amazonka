@@ -119,10 +119,9 @@ instance AWSPager DescribeCacheParameters where
             Just $ rq & dcpMarker .~ rs ^. dcprsMarker
 
 instance AWSRequest DescribeCacheParameters where
-        type Sv DescribeCacheParameters = ElastiCache
         type Rs DescribeCacheParameters =
              DescribeCacheParametersResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "DescribeCacheParametersResult"
               (\ s h x ->

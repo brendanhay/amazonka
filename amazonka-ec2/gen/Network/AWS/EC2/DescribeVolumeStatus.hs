@@ -199,10 +199,9 @@ instance AWSPager DescribeVolumeStatus where
             Just $ rq & dvssNextToken .~ rs ^. dvsrsNextToken
 
 instance AWSRequest DescribeVolumeStatus where
-        type Sv DescribeVolumeStatus = EC2
         type Rs DescribeVolumeStatus =
              DescribeVolumeStatusResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

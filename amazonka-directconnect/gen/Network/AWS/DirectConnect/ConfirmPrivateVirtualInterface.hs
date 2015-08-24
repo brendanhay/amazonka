@@ -93,11 +93,9 @@ cpviVirtualGatewayId = lens _cpviVirtualGatewayId (\ s a -> s{_cpviVirtualGatewa
 
 instance AWSRequest ConfirmPrivateVirtualInterface
          where
-        type Sv ConfirmPrivateVirtualInterface =
-             DirectConnect
         type Rs ConfirmPrivateVirtualInterface =
              ConfirmPrivateVirtualInterfaceResponse
-        request = postJSON
+        request = postJSON directConnect
         response
           = receiveJSON
               (\ s h x ->

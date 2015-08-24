@@ -130,8 +130,8 @@
 -- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.DynamoDB
     (
-    -- * Service
-      DynamoDB
+    -- * Service Configuration
+      dynamoDB
 
     -- * Errors
     -- $errors

@@ -112,10 +112,9 @@ mdpgParameters :: Lens' ModifyDBParameterGroup [Parameter]
 mdpgParameters = lens _mdpgParameters (\ s a -> s{_mdpgParameters = a}) . _Coerce;
 
 instance AWSRequest ModifyDBParameterGroup where
-        type Sv ModifyDBParameterGroup = RDS
         type Rs ModifyDBParameterGroup =
              DBParameterGroupNameMessage
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "ModifyDBParameterGroupResult"
               (\ s h x -> parseXML x)

@@ -71,10 +71,9 @@ deiElasticIP :: Lens' DisassociateElasticIP Text
 deiElasticIP = lens _deiElasticIP (\ s a -> s{_deiElasticIP = a});
 
 instance AWSRequest DisassociateElasticIP where
-        type Sv DisassociateElasticIP = OpsWorks
         type Rs DisassociateElasticIP =
              DisassociateElasticIPResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull DisassociateElasticIPResponse'
 
 instance ToHeaders DisassociateElasticIP where

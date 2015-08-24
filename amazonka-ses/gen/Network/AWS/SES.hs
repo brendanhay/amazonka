@@ -24,8 +24,8 @@
 -- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.SES
     (
-    -- * Service
-      SES
+    -- * Service Configuration
+      sES
 
     -- * Errors
     -- $errors

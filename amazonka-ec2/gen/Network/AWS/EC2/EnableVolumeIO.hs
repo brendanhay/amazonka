@@ -76,9 +76,8 @@ evioVolumeId :: Lens' EnableVolumeIO Text
 evioVolumeId = lens _evioVolumeId (\ s a -> s{_evioVolumeId = a});
 
 instance AWSRequest EnableVolumeIO where
-        type Sv EnableVolumeIO = EC2
         type Rs EnableVolumeIO = EnableVolumeIOResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull EnableVolumeIOResponse'
 
 instance ToHeaders EnableVolumeIO where

@@ -94,10 +94,9 @@ rnaaNetworkACLId = lens _rnaaNetworkACLId (\ s a -> s{_rnaaNetworkACLId = a});
 
 instance AWSRequest ReplaceNetworkACLAssociation
          where
-        type Sv ReplaceNetworkACLAssociation = EC2
         type Rs ReplaceNetworkACLAssociation =
              ReplaceNetworkACLAssociationResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

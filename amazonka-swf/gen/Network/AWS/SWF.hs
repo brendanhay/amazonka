@@ -32,8 +32,8 @@
 -- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/Welcome.html AWS API Reference>
 module Network.AWS.SWF
     (
-    -- * Service
-      SWF
+    -- * Service Configuration
+      sWF
 
     -- * Errors
     -- $errors

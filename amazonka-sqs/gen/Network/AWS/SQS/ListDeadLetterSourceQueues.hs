@@ -70,10 +70,9 @@ ldlsqQueueURL :: Lens' ListDeadLetterSourceQueues Text
 ldlsqQueueURL = lens _ldlsqQueueURL (\ s a -> s{_ldlsqQueueURL = a});
 
 instance AWSRequest ListDeadLetterSourceQueues where
-        type Sv ListDeadLetterSourceQueues = SQS
         type Rs ListDeadLetterSourceQueues =
              ListDeadLetterSourceQueuesResponse
-        request = postQuery
+        request = postQuery sQS
         response
           = receiveXMLWrapper
               "ListDeadLetterSourceQueuesResult"

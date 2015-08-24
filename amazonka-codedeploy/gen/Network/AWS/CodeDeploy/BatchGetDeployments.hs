@@ -68,10 +68,9 @@ bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
 bgdDeploymentIds = lens _bgdDeploymentIds (\ s a -> s{_bgdDeploymentIds = a}) . _Default . _Coerce;
 
 instance AWSRequest BatchGetDeployments where
-        type Sv BatchGetDeployments = CodeDeploy
         type Rs BatchGetDeployments =
              BatchGetDeploymentsResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->

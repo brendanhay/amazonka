@@ -125,9 +125,8 @@ daAllocationIds :: Lens' DescribeAddresses [Text]
 daAllocationIds = lens _daAllocationIds (\ s a -> s{_daAllocationIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeAddresses where
-        type Sv DescribeAddresses = EC2
         type Rs DescribeAddresses = DescribeAddressesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

@@ -75,9 +75,8 @@ rtTags :: Lens' RemoveTags (NonEmpty TagKeyOnly)
 rtTags = lens _rtTags (\ s a -> s{_rtTags = a}) . _List1;
 
 instance AWSRequest RemoveTags where
-        type Sv RemoveTags = ELB
         type Rs RemoveTags = RemoveTagsResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper "RemoveTagsResult"
               (\ s h x ->

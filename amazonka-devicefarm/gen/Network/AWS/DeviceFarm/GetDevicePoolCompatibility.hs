@@ -111,10 +111,9 @@ gdpcAppARN :: Lens' GetDevicePoolCompatibility Text
 gdpcAppARN = lens _gdpcAppARN (\ s a -> s{_gdpcAppARN = a});
 
 instance AWSRequest GetDevicePoolCompatibility where
-        type Sv GetDevicePoolCompatibility = DeviceFarm
         type Rs GetDevicePoolCompatibility =
              GetDevicePoolCompatibilityResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

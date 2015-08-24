@@ -81,10 +81,9 @@ garRevision :: Lens' GetApplicationRevision RevisionLocation
 garRevision = lens _garRevision (\ s a -> s{_garRevision = a});
 
 instance AWSRequest GetApplicationRevision where
-        type Sv GetApplicationRevision = CodeDeploy
         type Rs GetApplicationRevision =
              GetApplicationRevisionResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->

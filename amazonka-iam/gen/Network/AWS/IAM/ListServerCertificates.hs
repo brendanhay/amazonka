@@ -111,10 +111,9 @@ instance AWSPager ListServerCertificates where
             Just $ rq & lscMarker .~ rs ^. lscrsMarker
 
 instance AWSRequest ListServerCertificates where
-        type Sv ListServerCertificates = IAM
         type Rs ListServerCertificates =
              ListServerCertificatesResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListServerCertificatesResult"
               (\ s h x ->

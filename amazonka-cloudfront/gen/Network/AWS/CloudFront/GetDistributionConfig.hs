@@ -69,10 +69,9 @@ gdcId :: Lens' GetDistributionConfig Text
 gdcId = lens _gdcId (\ s a -> s{_gdcId = a});
 
 instance AWSRequest GetDistributionConfig where
-        type Sv GetDistributionConfig = CloudFront
         type Rs GetDistributionConfig =
              GetDistributionConfigResponse
-        request = get
+        request = get cloudFront
         response
           = receiveXML
               (\ s h x ->

@@ -97,10 +97,9 @@ creNewPrivateVirtualInterface = lens _creNewPrivateVirtualInterface (\ s a -> s{
 
 instance AWSRequest CreatePrivateVirtualInterface
          where
-        type Sv CreatePrivateVirtualInterface = DirectConnect
         type Rs CreatePrivateVirtualInterface =
              VirtualInterface
-        request = postJSON
+        request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreatePrivateVirtualInterface

@@ -85,11 +85,9 @@ derEnvironmentId = lens _derEnvironmentId (\ s a -> s{_derEnvironmentId = a});
 
 instance AWSRequest DescribeEnvironmentResources
          where
-        type Sv DescribeEnvironmentResources =
-             ElasticBeanstalk
         type Rs DescribeEnvironmentResources =
              DescribeEnvironmentResourcesResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper
               "DescribeEnvironmentResourcesResult"

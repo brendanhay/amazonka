@@ -95,9 +95,8 @@ sihHealthStatus :: Lens' SetInstanceHealth Text
 sihHealthStatus = lens _sihHealthStatus (\ s a -> s{_sihHealthStatus = a});
 
 instance AWSRequest SetInstanceHealth where
-        type Sv SetInstanceHealth = AutoScaling
         type Rs SetInstanceHealth = SetInstanceHealthResponse
-        request = postQuery
+        request = postQuery autoScaling
         response = receiveNull SetInstanceHealthResponse'
 
 instance ToHeaders SetInstanceHealth where

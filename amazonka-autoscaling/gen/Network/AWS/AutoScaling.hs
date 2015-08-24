@@ -21,8 +21,8 @@
 -- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.AutoScaling
     (
-    -- * Service
-      AutoScaling
+    -- * Service Configuration
+      autoScaling
 
     -- * Errors
     -- $errors

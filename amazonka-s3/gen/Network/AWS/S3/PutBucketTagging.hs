@@ -82,9 +82,8 @@ pbtTagging :: Lens' PutBucketTagging Tagging
 pbtTagging = lens _pbtTagging (\ s a -> s{_pbtTagging = a});
 
 instance AWSRequest PutBucketTagging where
-        type Sv PutBucketTagging = S3
         type Rs PutBucketTagging = PutBucketTaggingResponse
-        request = contentMD5 . putXML
+        request = contentMD5 . putXML s3
         response = receiveNull PutBucketTaggingResponse'
 
 instance ToElement PutBucketTagging where

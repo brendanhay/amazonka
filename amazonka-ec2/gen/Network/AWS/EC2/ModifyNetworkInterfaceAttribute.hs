@@ -123,10 +123,9 @@ mniaNetworkInterfaceId = lens _mniaNetworkInterfaceId (\ s a -> s{_mniaNetworkIn
 
 instance AWSRequest ModifyNetworkInterfaceAttribute
          where
-        type Sv ModifyNetworkInterfaceAttribute = EC2
         type Rs ModifyNetworkInterfaceAttribute =
              ModifyNetworkInterfaceAttributeResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveNull
               ModifyNetworkInterfaceAttributeResponse'

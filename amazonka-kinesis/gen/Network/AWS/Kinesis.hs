@@ -19,8 +19,8 @@
 -- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Kinesis
     (
-    -- * Service
-      Kinesis
+    -- * Service Configuration
+      kinesis
 
     -- * Errors
     -- $errors

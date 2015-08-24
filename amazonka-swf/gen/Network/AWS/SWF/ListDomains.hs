@@ -144,9 +144,8 @@ instance AWSPager ListDomains where
               ldNextPageToken .~ rs ^. ldrsNextPageToken
 
 instance AWSRequest ListDomains where
-        type Sv ListDomains = SWF
         type Rs ListDomains = ListDomainsResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveJSON
               (\ s h x ->

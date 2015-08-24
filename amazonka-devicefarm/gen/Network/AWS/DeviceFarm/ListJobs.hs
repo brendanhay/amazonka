@@ -80,9 +80,8 @@ ljArn :: Lens' ListJobs Text
 ljArn = lens _ljArn (\ s a -> s{_ljArn = a});
 
 instance AWSRequest ListJobs where
-        type Sv ListJobs = DeviceFarm
         type Rs ListJobs = ListJobsResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

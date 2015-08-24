@@ -81,9 +81,8 @@ aubDiskIds :: Lens' AddUploadBuffer [Text]
 aubDiskIds = lens _aubDiskIds (\ s a -> s{_aubDiskIds = a}) . _Coerce;
 
 instance AWSRequest AddUploadBuffer where
-        type Sv AddUploadBuffer = StorageGateway
         type Rs AddUploadBuffer = AddUploadBufferResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

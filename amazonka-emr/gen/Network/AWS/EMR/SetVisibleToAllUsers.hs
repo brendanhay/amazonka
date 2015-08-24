@@ -83,10 +83,9 @@ svtauVisibleToAllUsers :: Lens' SetVisibleToAllUsers Bool
 svtauVisibleToAllUsers = lens _svtauVisibleToAllUsers (\ s a -> s{_svtauVisibleToAllUsers = a});
 
 instance AWSRequest SetVisibleToAllUsers where
-        type Sv SetVisibleToAllUsers = EMR
         type Rs SetVisibleToAllUsers =
              SetVisibleToAllUsersResponse
-        request = postJSON
+        request = postJSON eMR
         response = receiveNull SetVisibleToAllUsersResponse'
 
 instance ToHeaders SetVisibleToAllUsers where

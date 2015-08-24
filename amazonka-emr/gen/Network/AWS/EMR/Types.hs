@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.EMR.Types
     (
-    -- * Service
-      EMR
+    -- * Service Configuration
+      eMR
 
     -- * Errors
     , _InvalidRequestException
@@ -343,39 +342,36 @@ import           Network.AWS.EMR.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2009-03-31@ of the Amazon Elastic MapReduce SDK.
-data EMR
-
-instance AWSService EMR where
-    type Sg EMR = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "EMR"
-            , _svcPrefix = "elasticmapreduce"
-            , _svcVersion = "2009-03-31"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2009-03-31' of the Amazon Elastic MapReduce SDK configuration.
+eMR :: Service
+eMR =
+    Service
+    { _svcAbbrev = "EMR"
+    , _svcSigner = v4
+    , _svcPrefix = "elasticmapreduce"
+    , _svcVersion = "2009-03-31"
+    , _svcEndpoint = defaultEndpoint eMR
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | This exception occurs when there is something wrong with user input.
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError

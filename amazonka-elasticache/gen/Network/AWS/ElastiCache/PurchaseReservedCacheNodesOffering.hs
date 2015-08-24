@@ -94,11 +94,9 @@ prcnoReservedCacheNodesOfferingId = lens _prcnoReservedCacheNodesOfferingId (\ s
 
 instance AWSRequest
          PurchaseReservedCacheNodesOffering where
-        type Sv PurchaseReservedCacheNodesOffering =
-             ElastiCache
         type Rs PurchaseReservedCacheNodesOffering =
              PurchaseReservedCacheNodesOfferingResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper
               "PurchaseReservedCacheNodesOfferingResult"

@@ -26,8 +26,8 @@
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudFront
     (
-    -- * Service
-      CloudFront
+    -- * Service Configuration
+      cloudFront
 
     -- * Errors
     -- $errors

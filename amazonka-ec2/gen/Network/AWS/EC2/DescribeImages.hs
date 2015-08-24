@@ -197,9 +197,8 @@ deseDryRun :: Lens' DescribeImages (Maybe Bool)
 deseDryRun = lens _deseDryRun (\ s a -> s{_deseDryRun = a});
 
 instance AWSRequest DescribeImages where
-        type Sv DescribeImages = EC2
         type Rs DescribeImages = DescribeImagesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

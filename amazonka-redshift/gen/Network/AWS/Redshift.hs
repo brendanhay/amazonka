@@ -42,8 +42,8 @@
 -- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Redshift
     (
-    -- * Service
-      Redshift
+    -- * Service Configuration
+      redshift
 
     -- * Errors
     -- $errors

@@ -98,9 +98,8 @@ lgKeyId :: Lens' ListGrants Text
 lgKeyId = lens _lgKeyId (\ s a -> s{_lgKeyId = a});
 
 instance AWSRequest ListGrants where
-        type Sv ListGrants = KMS
         type Rs ListGrants = ListGrantsResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->

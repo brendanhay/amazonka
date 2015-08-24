@@ -124,10 +124,9 @@ psfDestinationARN :: Lens' PutSubscriptionFilter Text
 psfDestinationARN = lens _psfDestinationARN (\ s a -> s{_psfDestinationARN = a});
 
 instance AWSRequest PutSubscriptionFilter where
-        type Sv PutSubscriptionFilter = CloudWatchLogs
         type Rs PutSubscriptionFilter =
              PutSubscriptionFilterResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response = receiveNull PutSubscriptionFilterResponse'
 
 instance ToHeaders PutSubscriptionFilter where

@@ -171,10 +171,9 @@ asgeGroupId = lens _asgeGroupId (\ s a -> s{_asgeGroupId = a});
 
 instance AWSRequest AuthorizeSecurityGroupEgress
          where
-        type Sv AuthorizeSecurityGroupEgress = EC2
         type Rs AuthorizeSecurityGroupEgress =
              AuthorizeSecurityGroupEgressResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveNull AuthorizeSecurityGroupEgressResponse'
 

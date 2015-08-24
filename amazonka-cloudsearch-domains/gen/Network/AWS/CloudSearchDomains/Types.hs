@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.CloudSearchDomains.Types
     (
-    -- * Service
-      CloudSearchDomains
+    -- * Service Configuration
+      cloudSearchDomains
 
     -- * Errors
     , _DocumentServiceException
@@ -90,39 +89,36 @@ import           Network.AWS.CloudSearchDomains.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2013-01-01@ of the Amazon CloudSearch Domain SDK.
-data CloudSearchDomains
-
-instance AWSService CloudSearchDomains where
-    type Sg CloudSearchDomains = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "CloudSearchDomains"
-            , _svcPrefix = "cloudsearchdomain"
-            , _svcVersion = "2013-01-01"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2013-01-01' of the Amazon CloudSearch Domain SDK configuration.
+cloudSearchDomains :: Service
+cloudSearchDomains =
+    Service
+    { _svcAbbrev = "CloudSearchDomains"
+    , _svcSigner = v4
+    , _svcPrefix = "cloudsearchdomain"
+    , _svcVersion = "2013-01-01"
+    , _svcEndpoint = defaultEndpoint cloudSearchDomains
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | Information about any problems encountered while processing an upload
 -- request.

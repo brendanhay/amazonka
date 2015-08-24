@@ -106,9 +106,8 @@ instance AWSPager ListGroupsForUser where
             Just $ rq & lgfuMarker .~ rs ^. lgfursMarker
 
 instance AWSRequest ListGroupsForUser where
-        type Sv ListGroupsForUser = IAM
         type Rs ListGroupsForUser = ListGroupsForUserResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListGroupsForUserResult"
               (\ s h x ->

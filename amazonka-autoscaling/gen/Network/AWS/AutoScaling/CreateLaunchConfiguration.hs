@@ -327,10 +327,9 @@ clcLaunchConfigurationName :: Lens' CreateLaunchConfiguration Text
 clcLaunchConfigurationName = lens _clcLaunchConfigurationName (\ s a -> s{_clcLaunchConfigurationName = a});
 
 instance AWSRequest CreateLaunchConfiguration where
-        type Sv CreateLaunchConfiguration = AutoScaling
         type Rs CreateLaunchConfiguration =
              CreateLaunchConfigurationResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveNull CreateLaunchConfigurationResponse'
 

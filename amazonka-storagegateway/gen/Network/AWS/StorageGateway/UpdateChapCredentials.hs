@@ -119,10 +119,9 @@ uccInitiatorName :: Lens' UpdateChapCredentials Text
 uccInitiatorName = lens _uccInitiatorName (\ s a -> s{_uccInitiatorName = a});
 
 instance AWSRequest UpdateChapCredentials where
-        type Sv UpdateChapCredentials = StorageGateway
         type Rs UpdateChapCredentials =
              UpdateChapCredentialsResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

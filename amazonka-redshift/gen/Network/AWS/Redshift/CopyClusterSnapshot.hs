@@ -120,10 +120,9 @@ ccsTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
 ccsTargetSnapshotIdentifier = lens _ccsTargetSnapshotIdentifier (\ s a -> s{_ccsTargetSnapshotIdentifier = a});
 
 instance AWSRequest CopyClusterSnapshot where
-        type Sv CopyClusterSnapshot = Redshift
         type Rs CopyClusterSnapshot =
              CopyClusterSnapshotResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "CopyClusterSnapshotResult"
               (\ s h x ->

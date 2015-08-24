@@ -79,10 +79,9 @@ ciInvalidationBatch :: Lens' CreateInvalidation InvalidationBatch
 ciInvalidationBatch = lens _ciInvalidationBatch (\ s a -> s{_ciInvalidationBatch = a});
 
 instance AWSRequest CreateInvalidation where
-        type Sv CreateInvalidation = CloudFront
         type Rs CreateInvalidation =
              CreateInvalidationResponse
-        request = postXML
+        request = postXML cloudFront
         response
           = receiveXML
               (\ s h x ->

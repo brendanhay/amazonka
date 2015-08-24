@@ -37,8 +37,8 @@
 -- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudFormation
     (
-    -- * Service
-      CloudFormation
+    -- * Service Configuration
+      cloudFormation
 
     -- * Errors
     -- $errors

@@ -76,10 +76,9 @@ desmUUId :: Lens' DeleteEventSourceMapping Text
 desmUUId = lens _desmUUId (\ s a -> s{_desmUUId = a});
 
 instance AWSRequest DeleteEventSourceMapping where
-        type Sv DeleteEventSourceMapping = Lambda
         type Rs DeleteEventSourceMapping =
              EventSourceMappingConfiguration
-        request = delete
+        request = delete lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders DeleteEventSourceMapping where

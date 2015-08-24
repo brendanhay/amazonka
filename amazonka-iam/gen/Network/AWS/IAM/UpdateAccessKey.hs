@@ -96,9 +96,8 @@ uakStatus :: Lens' UpdateAccessKey StatusType
 uakStatus = lens _uakStatus (\ s a -> s{_uakStatus = a});
 
 instance AWSRequest UpdateAccessKey where
-        type Sv UpdateAccessKey = IAM
         type Rs UpdateAccessKey = UpdateAccessKeyResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull UpdateAccessKeyResponse'
 
 instance ToHeaders UpdateAccessKey where

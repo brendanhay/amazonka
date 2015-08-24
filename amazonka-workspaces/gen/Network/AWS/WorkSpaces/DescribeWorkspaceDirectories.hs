@@ -87,10 +87,9 @@ dwdDirectoryIds = lens _dwdDirectoryIds (\ s a -> s{_dwdDirectoryIds = a}) . map
 
 instance AWSRequest DescribeWorkspaceDirectories
          where
-        type Sv DescribeWorkspaceDirectories = WorkSpaces
         type Rs DescribeWorkspaceDirectories =
              DescribeWorkspaceDirectoriesResponse
-        request = postJSON
+        request = postJSON workSpaces
         response
           = receiveJSON
               (\ s h x ->

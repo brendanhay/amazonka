@@ -159,10 +159,9 @@ driDryRun :: Lens' DescribeReservedInstances (Maybe Bool)
 driDryRun = lens _driDryRun (\ s a -> s{_driDryRun = a});
 
 instance AWSRequest DescribeReservedInstances where
-        type Sv DescribeReservedInstances = EC2
         type Rs DescribeReservedInstances =
              DescribeReservedInstancesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

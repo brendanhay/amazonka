@@ -22,8 +22,8 @@
 -- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html AWS API Reference>
 module Network.AWS.S3
     (
-    -- * Service
-      S3
+    -- * Service Configuration
+      s3
 
     -- * Errors
     -- $errors

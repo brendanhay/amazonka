@@ -112,10 +112,9 @@ reiInfoType :: Lens' RequestEnvironmentInfo EnvironmentInfoType
 reiInfoType = lens _reiInfoType (\ s a -> s{_reiInfoType = a});
 
 instance AWSRequest RequestEnvironmentInfo where
-        type Sv RequestEnvironmentInfo = ElasticBeanstalk
         type Rs RequestEnvironmentInfo =
              RequestEnvironmentInfoResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveNull RequestEnvironmentInfoResponse'
 

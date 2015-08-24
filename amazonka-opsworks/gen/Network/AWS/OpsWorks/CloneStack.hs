@@ -413,9 +413,8 @@ cServiceRoleARN :: Lens' CloneStack Text
 cServiceRoleARN = lens _cServiceRoleARN (\ s a -> s{_cServiceRoleARN = a});
 
 instance AWSRequest CloneStack where
-        type Sv CloneStack = OpsWorks
         type Rs CloneStack = CloneStackResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

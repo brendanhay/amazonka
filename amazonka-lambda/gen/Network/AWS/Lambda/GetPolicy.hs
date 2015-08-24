@@ -78,9 +78,8 @@ gpFunctionName :: Lens' GetPolicy Text
 gpFunctionName = lens _gpFunctionName (\ s a -> s{_gpFunctionName = a});
 
 instance AWSRequest GetPolicy where
-        type Sv GetPolicy = Lambda
         type Rs GetPolicy = GetPolicyResponse
-        request = get
+        request = get lambda
         response
           = receiveJSON
               (\ s h x ->

@@ -146,10 +146,9 @@ mesSubscriptionName :: Lens' ModifyEventSubscription Text
 mesSubscriptionName = lens _mesSubscriptionName (\ s a -> s{_mesSubscriptionName = a});
 
 instance AWSRequest ModifyEventSubscription where
-        type Sv ModifyEventSubscription = Redshift
         type Rs ModifyEventSubscription =
              ModifyEventSubscriptionResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "ModifyEventSubscriptionResult"
               (\ s h x ->

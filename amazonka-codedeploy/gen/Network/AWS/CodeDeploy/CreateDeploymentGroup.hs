@@ -161,10 +161,9 @@ cdgServiceRoleARN :: Lens' CreateDeploymentGroup Text
 cdgServiceRoleARN = lens _cdgServiceRoleARN (\ s a -> s{_cdgServiceRoleARN = a});
 
 instance AWSRequest CreateDeploymentGroup where
-        type Sv CreateDeploymentGroup = CodeDeploy
         type Rs CreateDeploymentGroup =
              CreateDeploymentGroupResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->

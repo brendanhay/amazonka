@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.DataPipeline.Types
     (
-    -- * Service
-      DataPipeline
+    -- * Service Configuration
+      dataPipeline
 
     -- * Errors
     , _InvalidRequestException
@@ -131,39 +130,36 @@ import           Network.AWS.DataPipeline.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2012-10-29@ of the Amazon Data Pipeline SDK.
-data DataPipeline
-
-instance AWSService DataPipeline where
-    type Sg DataPipeline = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "DataPipeline"
-            , _svcPrefix = "datapipeline"
-            , _svcVersion = "2012-10-29"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2012-10-29' of the Amazon Data Pipeline SDK configuration.
+dataPipeline :: Service
+dataPipeline =
+    Service
+    { _svcAbbrev = "DataPipeline"
+    , _svcSigner = v4
+    , _svcPrefix = "datapipeline"
+    , _svcVersion = "2012-10-29"
+    , _svcEndpoint = defaultEndpoint dataPipeline
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | The request was not valid. Verify that your request was properly
 -- formatted, that the signature was generated with the correct

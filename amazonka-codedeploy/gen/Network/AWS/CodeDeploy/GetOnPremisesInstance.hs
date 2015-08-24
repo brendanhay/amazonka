@@ -68,10 +68,9 @@ gopiInstanceName :: Lens' GetOnPremisesInstance Text
 gopiInstanceName = lens _gopiInstanceName (\ s a -> s{_gopiInstanceName = a});
 
 instance AWSRequest GetOnPremisesInstance where
-        type Sv GetOnPremisesInstance = CodeDeploy
         type Rs GetOnPremisesInstance =
              GetOnPremisesInstanceResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->

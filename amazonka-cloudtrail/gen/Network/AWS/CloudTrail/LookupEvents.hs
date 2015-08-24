@@ -128,9 +128,8 @@ leMaxResults :: Lens' LookupEvents (Maybe Natural)
 leMaxResults = lens _leMaxResults (\ s a -> s{_leMaxResults = a}) . mapping _Nat;
 
 instance AWSRequest LookupEvents where
-        type Sv LookupEvents = CloudTrail
         type Rs LookupEvents = LookupEventsResponse
-        request = postJSON
+        request = postJSON cloudTrail
         response
           = receiveJSON
               (\ s h x ->

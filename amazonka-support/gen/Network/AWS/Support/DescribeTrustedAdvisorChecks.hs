@@ -74,10 +74,9 @@ dtacLanguage = lens _dtacLanguage (\ s a -> s{_dtacLanguage = a});
 
 instance AWSRequest DescribeTrustedAdvisorChecks
          where
-        type Sv DescribeTrustedAdvisorChecks = Support
         type Rs DescribeTrustedAdvisorChecks =
              DescribeTrustedAdvisorChecksResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveJSON
               (\ s h x ->

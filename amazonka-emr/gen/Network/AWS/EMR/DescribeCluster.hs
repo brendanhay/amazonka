@@ -70,9 +70,8 @@ dcClusterId :: Lens' DescribeCluster Text
 dcClusterId = lens _dcClusterId (\ s a -> s{_dcClusterId = a});
 
 instance AWSRequest DescribeCluster where
-        type Sv DescribeCluster = EMR
         type Rs DescribeCluster = DescribeClusterResponse
-        request = postJSON
+        request = postJSON eMR
         response
           = receiveJSON
               (\ s h x ->

@@ -166,9 +166,8 @@ gslJobIds :: Lens' GetShippingLabel [Text]
 gslJobIds = lens _gslJobIds (\ s a -> s{_gslJobIds = a}) . _Coerce;
 
 instance AWSRequest GetShippingLabel where
-        type Sv GetShippingLabel = ImportExport
         type Rs GetShippingLabel = GetShippingLabelResponse
-        request = postQuery
+        request = postQuery importExport
         response
           = receiveXMLWrapper "GetShippingLabelResult"
               (\ s h x ->

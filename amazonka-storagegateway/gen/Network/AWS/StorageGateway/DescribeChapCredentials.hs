@@ -73,10 +73,9 @@ dccTargetARN :: Lens' DescribeChapCredentials Text
 dccTargetARN = lens _dccTargetARN (\ s a -> s{_dccTargetARN = a});
 
 instance AWSRequest DescribeChapCredentials where
-        type Sv DescribeChapCredentials = StorageGateway
         type Rs DescribeChapCredentials =
              DescribeChapCredentialsResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

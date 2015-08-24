@@ -108,10 +108,9 @@ actcCommunicationBody :: Lens' AddCommunicationToCase Text
 actcCommunicationBody = lens _actcCommunicationBody (\ s a -> s{_actcCommunicationBody = a});
 
 instance AWSRequest AddCommunicationToCase where
-        type Sv AddCommunicationToCase = Support
         type Rs AddCommunicationToCase =
              AddCommunicationToCaseResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveJSON
               (\ s h x ->

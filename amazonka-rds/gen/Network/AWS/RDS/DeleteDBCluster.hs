@@ -118,9 +118,8 @@ ddbcSkipFinalSnapshot :: Lens' DeleteDBCluster (Maybe Bool)
 ddbcSkipFinalSnapshot = lens _ddbcSkipFinalSnapshot (\ s a -> s{_ddbcSkipFinalSnapshot = a});
 
 instance AWSRequest DeleteDBCluster where
-        type Sv DeleteDBCluster = RDS
         type Rs DeleteDBCluster = DeleteDBClusterResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "DeleteDBClusterResult"
               (\ s h x ->

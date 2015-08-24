@@ -136,9 +136,8 @@ ePlaintext :: Lens' Encrypt ByteString
 ePlaintext = lens _ePlaintext (\ s a -> s{_ePlaintext = a}) . _Sensitive . _Base64;
 
 instance AWSRequest Encrypt where
-        type Sv Encrypt = KMS
         type Rs Encrypt = EncryptResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->

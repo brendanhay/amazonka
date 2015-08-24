@@ -232,10 +232,9 @@ instance AWSPager ListClosedWorkflowExecutions where
 
 instance AWSRequest ListClosedWorkflowExecutions
          where
-        type Sv ListClosedWorkflowExecutions = SWF
         type Rs ListClosedWorkflowExecutions =
              WorkflowExecutionInfos
-        request = postJSON
+        request = postJSON sWF
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders ListClosedWorkflowExecutions where

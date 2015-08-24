@@ -85,10 +85,9 @@ eazflbAvailabilityZones = lens _eazflbAvailabilityZones (\ s a -> s{_eazflbAvail
 
 instance AWSRequest
          EnableAvailabilityZonesForLoadBalancer where
-        type Sv EnableAvailabilityZonesForLoadBalancer = ELB
         type Rs EnableAvailabilityZonesForLoadBalancer =
              EnableAvailabilityZonesForLoadBalancerResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper
               "EnableAvailabilityZonesForLoadBalancerResult"

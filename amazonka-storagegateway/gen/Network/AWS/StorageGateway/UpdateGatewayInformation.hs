@@ -86,10 +86,9 @@ ugiGatewayARN :: Lens' UpdateGatewayInformation Text
 ugiGatewayARN = lens _ugiGatewayARN (\ s a -> s{_ugiGatewayARN = a});
 
 instance AWSRequest UpdateGatewayInformation where
-        type Sv UpdateGatewayInformation = StorageGateway
         type Rs UpdateGatewayInformation =
              UpdateGatewayInformationResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

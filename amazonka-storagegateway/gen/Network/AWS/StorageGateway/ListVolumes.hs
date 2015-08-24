@@ -114,9 +114,8 @@ instance AWSPager ListVolumes where
             Just $ rq & lvMarker .~ rs ^. lvrsMarker
 
 instance AWSRequest ListVolumes where
-        type Sv ListVolumes = StorageGateway
         type Rs ListVolumes = ListVolumesResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

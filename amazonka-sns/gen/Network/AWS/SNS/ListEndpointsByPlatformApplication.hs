@@ -102,10 +102,9 @@ instance AWSPager ListEndpointsByPlatformApplication
 
 instance AWSRequest
          ListEndpointsByPlatformApplication where
-        type Sv ListEndpointsByPlatformApplication = SNS
         type Rs ListEndpointsByPlatformApplication =
              ListEndpointsByPlatformApplicationResponse
-        request = postQuery
+        request = postQuery sNS
         response
           = receiveXMLWrapper
               "ListEndpointsByPlatformApplicationResult"

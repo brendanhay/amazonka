@@ -96,10 +96,9 @@ dnaeEgress :: Lens' DeleteNetworkACLEntry Bool
 dnaeEgress = lens _dnaeEgress (\ s a -> s{_dnaeEgress = a});
 
 instance AWSRequest DeleteNetworkACLEntry where
-        type Sv DeleteNetworkACLEntry = EC2
         type Rs DeleteNetworkACLEntry =
              DeleteNetworkACLEntryResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull DeleteNetworkACLEntryResponse'
 
 instance ToHeaders DeleteNetworkACLEntry where

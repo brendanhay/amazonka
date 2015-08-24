@@ -75,10 +75,9 @@ dncTopicARN = lens _dncTopicARN (\ s a -> s{_dncTopicARN = a});
 
 instance AWSRequest DeleteNotificationConfiguration
          where
-        type Sv DeleteNotificationConfiguration = AutoScaling
         type Rs DeleteNotificationConfiguration =
              DeleteNotificationConfigurationResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveNull
               DeleteNotificationConfigurationResponse'

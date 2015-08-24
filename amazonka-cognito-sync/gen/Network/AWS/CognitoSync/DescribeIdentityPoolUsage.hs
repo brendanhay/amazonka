@@ -75,10 +75,9 @@ dipuIdentityPoolId :: Lens' DescribeIdentityPoolUsage Text
 dipuIdentityPoolId = lens _dipuIdentityPoolId (\ s a -> s{_dipuIdentityPoolId = a});
 
 instance AWSRequest DescribeIdentityPoolUsage where
-        type Sv DescribeIdentityPoolUsage = CognitoSync
         type Rs DescribeIdentityPoolUsage =
              DescribeIdentityPoolUsageResponse
-        request = get
+        request = get cognitoSync
         response
           = receiveJSON
               (\ s h x ->

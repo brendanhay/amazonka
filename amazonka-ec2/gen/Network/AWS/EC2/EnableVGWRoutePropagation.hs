@@ -74,10 +74,9 @@ evrpGatewayId :: Lens' EnableVGWRoutePropagation Text
 evrpGatewayId = lens _evrpGatewayId (\ s a -> s{_evrpGatewayId = a});
 
 instance AWSRequest EnableVGWRoutePropagation where
-        type Sv EnableVGWRoutePropagation = EC2
         type Rs EnableVGWRoutePropagation =
              EnableVGWRoutePropagationResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveNull EnableVGWRoutePropagationResponse'
 

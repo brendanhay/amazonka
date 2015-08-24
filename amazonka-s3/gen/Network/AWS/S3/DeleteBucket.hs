@@ -65,9 +65,8 @@ dbBucket :: Lens' DeleteBucket BucketName
 dbBucket = lens _dbBucket (\ s a -> s{_dbBucket = a});
 
 instance AWSRequest DeleteBucket where
-        type Sv DeleteBucket = S3
         type Rs DeleteBucket = DeleteBucketResponse
-        request = delete
+        request = delete s3
         response = receiveNull DeleteBucketResponse'
 
 instance ToHeaders DeleteBucket where

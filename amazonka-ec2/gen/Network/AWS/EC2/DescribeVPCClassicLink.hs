@@ -104,10 +104,9 @@ dvclDryRun :: Lens' DescribeVPCClassicLink (Maybe Bool)
 dvclDryRun = lens _dvclDryRun (\ s a -> s{_dvclDryRun = a});
 
 instance AWSRequest DescribeVPCClassicLink where
-        type Sv DescribeVPCClassicLink = EC2
         type Rs DescribeVPCClassicLink =
              DescribeVPCClassicLinkResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

@@ -109,9 +109,8 @@ udDocuments :: Lens' UploadDocuments RqBody
 udDocuments = lens _udDocuments (\ s a -> s{_udDocuments = a});
 
 instance AWSRequest UploadDocuments where
-        type Sv UploadDocuments = CloudSearchDomains
         type Rs UploadDocuments = UploadDocumentsResponse
-        request = postBody
+        request = postBody cloudSearchDomains
         response
           = receiveJSON
               (\ s h x ->

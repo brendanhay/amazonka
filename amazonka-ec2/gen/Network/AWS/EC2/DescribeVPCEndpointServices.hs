@@ -94,10 +94,9 @@ dvesMaxResults :: Lens' DescribeVPCEndpointServices (Maybe Int)
 dvesMaxResults = lens _dvesMaxResults (\ s a -> s{_dvesMaxResults = a});
 
 instance AWSRequest DescribeVPCEndpointServices where
-        type Sv DescribeVPCEndpointServices = EC2
         type Rs DescribeVPCEndpointServices =
              DescribeVPCEndpointServicesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

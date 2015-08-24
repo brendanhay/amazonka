@@ -29,8 +29,8 @@
 -- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.ECS
     (
-    -- * Service
-      ECS
+    -- * Service Configuration
+      eCS
 
     -- * Errors
     -- $errors

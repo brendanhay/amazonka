@@ -103,10 +103,9 @@ gaadFilter = lens _gaadFilter (\ s a -> s{_gaadFilter = a}) . _Default . _Coerce
 
 instance AWSRequest GetAccountAuthorizationDetails
          where
-        type Sv GetAccountAuthorizationDetails = IAM
         type Rs GetAccountAuthorizationDetails =
              GetAccountAuthorizationDetailsResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper
               "GetAccountAuthorizationDetailsResult"

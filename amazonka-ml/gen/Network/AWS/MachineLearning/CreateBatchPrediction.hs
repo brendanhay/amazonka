@@ -129,10 +129,9 @@ cbpOutputURI :: Lens' CreateBatchPrediction Text
 cbpOutputURI = lens _cbpOutputURI (\ s a -> s{_cbpOutputURI = a});
 
 instance AWSRequest CreateBatchPrediction where
-        type Sv CreateBatchPrediction = MachineLearning
         type Rs CreateBatchPrediction =
              CreateBatchPredictionResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

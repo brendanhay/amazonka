@@ -224,9 +224,8 @@ bgiRequestItems :: Lens' BatchGetItem (HashMap Text KeysAndAttributes)
 bgiRequestItems = lens _bgiRequestItems (\ s a -> s{_bgiRequestItems = a}) . _Map;
 
 instance AWSRequest BatchGetItem where
-        type Sv BatchGetItem = DynamoDB
         type Rs BatchGetItem = BatchGetItemResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->

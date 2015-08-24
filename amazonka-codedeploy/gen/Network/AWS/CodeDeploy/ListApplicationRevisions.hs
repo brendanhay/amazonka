@@ -154,10 +154,9 @@ larApplicationName :: Lens' ListApplicationRevisions Text
 larApplicationName = lens _larApplicationName (\ s a -> s{_larApplicationName = a});
 
 instance AWSRequest ListApplicationRevisions where
-        type Sv ListApplicationRevisions = CodeDeploy
         type Rs ListApplicationRevisions =
              ListApplicationRevisionsResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->

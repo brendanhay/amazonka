@@ -124,10 +124,9 @@ crilClientToken = lens _crilClientToken (\ s a -> s{_crilClientToken = a});
 
 instance AWSRequest CreateReservedInstancesListing
          where
-        type Sv CreateReservedInstancesListing = EC2
         type Rs CreateReservedInstancesListing =
              CreateReservedInstancesListingResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

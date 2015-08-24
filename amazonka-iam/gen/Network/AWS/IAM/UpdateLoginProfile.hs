@@ -86,10 +86,9 @@ ulpUserName :: Lens' UpdateLoginProfile Text
 ulpUserName = lens _ulpUserName (\ s a -> s{_ulpUserName = a});
 
 instance AWSRequest UpdateLoginProfile where
-        type Sv UpdateLoginProfile = IAM
         type Rs UpdateLoginProfile =
              UpdateLoginProfileResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull UpdateLoginProfileResponse'
 
 instance ToHeaders UpdateLoginProfile where

@@ -71,10 +71,9 @@ dCacheSubnetGroupName :: Lens' DeleteCacheSubnetGroup Text
 dCacheSubnetGroupName = lens _dCacheSubnetGroupName (\ s a -> s{_dCacheSubnetGroupName = a});
 
 instance AWSRequest DeleteCacheSubnetGroup where
-        type Sv DeleteCacheSubnetGroup = ElastiCache
         type Rs DeleteCacheSubnetGroup =
              DeleteCacheSubnetGroupResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveNull DeleteCacheSubnetGroupResponse'
 

@@ -70,10 +70,9 @@ dslLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
 dslLanguage = lens _dslLanguage (\ s a -> s{_dslLanguage = a});
 
 instance AWSRequest DescribeSeverityLevels where
-        type Sv DescribeSeverityLevels = Support
         type Rs DescribeSeverityLevels =
              DescribeSeverityLevelsResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveJSON
               (\ s h x ->

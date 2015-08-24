@@ -91,10 +91,9 @@ rtaGatewayARN :: Lens' RetrieveTapeArchive Text
 rtaGatewayARN = lens _rtaGatewayARN (\ s a -> s{_rtaGatewayARN = a});
 
 instance AWSRequest RetrieveTapeArchive where
-        type Sv RetrieveTapeArchive = StorageGateway
         type Rs RetrieveTapeArchive =
              RetrieveTapeArchiveResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

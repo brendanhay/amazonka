@@ -77,10 +77,9 @@ pjfrFailureDetails :: Lens' PutJobFailureResult FailureDetails
 pjfrFailureDetails = lens _pjfrFailureDetails (\ s a -> s{_pjfrFailureDetails = a});
 
 instance AWSRequest PutJobFailureResult where
-        type Sv PutJobFailureResult = CodePipeline
         type Rs PutJobFailureResult =
              PutJobFailureResultResponse
-        request = postJSON
+        request = postJSON codePipeline
         response = receiveNull PutJobFailureResultResponse'
 
 instance ToHeaders PutJobFailureResult where

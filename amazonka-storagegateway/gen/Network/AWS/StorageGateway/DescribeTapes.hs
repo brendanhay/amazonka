@@ -117,9 +117,8 @@ instance AWSPager DescribeTapes where
             Just $ rq & dtMarker .~ rs ^. dtsrsMarker
 
 instance AWSRequest DescribeTapes where
-        type Sv DescribeTapes = StorageGateway
         type Rs DescribeTapes = DescribeTapesResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

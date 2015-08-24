@@ -175,10 +175,9 @@ ccweDomain = lens _ccweDomain (\ s a -> s{_ccweDomain = a});
 
 instance AWSRequest CountClosedWorkflowExecutions
          where
-        type Sv CountClosedWorkflowExecutions = SWF
         type Rs CountClosedWorkflowExecutions =
              WorkflowExecutionCount
-        request = postJSON
+        request = postJSON sWF
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CountClosedWorkflowExecutions

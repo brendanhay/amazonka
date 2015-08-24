@@ -21,8 +21,8 @@
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.EC2
     (
-    -- * Service
-      EC2
+    -- * Service Configuration
+      eC2
 
     -- * Errors
     -- $errors

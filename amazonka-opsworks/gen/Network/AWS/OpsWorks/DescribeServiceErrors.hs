@@ -94,10 +94,9 @@ dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
 dseStackId = lens _dseStackId (\ s a -> s{_dseStackId = a});
 
 instance AWSRequest DescribeServiceErrors where
-        type Sv DescribeServiceErrors = OpsWorks
         type Rs DescribeServiceErrors =
              DescribeServiceErrorsResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

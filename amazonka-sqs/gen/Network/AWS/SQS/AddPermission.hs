@@ -131,9 +131,8 @@ apActions :: Lens' AddPermission [Text]
 apActions = lens _apActions (\ s a -> s{_apActions = a}) . _Coerce;
 
 instance AWSRequest AddPermission where
-        type Sv AddPermission = SQS
         type Rs AddPermission = AddPermissionResponse
-        request = postQuery
+        request = postQuery sQS
         response = receiveNull AddPermissionResponse'
 
 instance ToHeaders AddPermission where

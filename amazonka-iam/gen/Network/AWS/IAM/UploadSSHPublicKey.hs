@@ -84,10 +84,9 @@ usshpkSSHPublicKeyBody :: Lens' UploadSSHPublicKey Text
 usshpkSSHPublicKeyBody = lens _usshpkSSHPublicKeyBody (\ s a -> s{_usshpkSSHPublicKeyBody = a});
 
 instance AWSRequest UploadSSHPublicKey where
-        type Sv UploadSSHPublicKey = IAM
         type Rs UploadSSHPublicKey =
              UploadSSHPublicKeyResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "UploadSSHPublicKeyResult"
               (\ s h x ->

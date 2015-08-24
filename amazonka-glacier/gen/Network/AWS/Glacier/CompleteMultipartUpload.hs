@@ -166,10 +166,9 @@ cmuUploadId :: Lens' CompleteMultipartUpload Text
 cmuUploadId = lens _cmuUploadId (\ s a -> s{_cmuUploadId = a});
 
 instance AWSRequest CompleteMultipartUpload where
-        type Sv CompleteMultipartUpload = Glacier
         type Rs CompleteMultipartUpload =
              ArchiveCreationOutput
-        request = postJSON
+        request = postJSON glacier
         response
           = receiveEmpty
               (\ s h x ->

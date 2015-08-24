@@ -76,10 +76,9 @@ rfsSnapshotId :: Lens' RestoreFromSnapshot Text
 rfsSnapshotId = lens _rfsSnapshotId (\ s a -> s{_rfsSnapshotId = a});
 
 instance AWSRequest RestoreFromSnapshot where
-        type Sv RestoreFromSnapshot = DirectoryService
         type Rs RestoreFromSnapshot =
              RestoreFromSnapshotResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveEmpty
               (\ s h x ->

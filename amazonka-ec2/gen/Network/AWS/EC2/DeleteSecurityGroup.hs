@@ -89,10 +89,9 @@ dsgDryRun :: Lens' DeleteSecurityGroup (Maybe Bool)
 dsgDryRun = lens _dsgDryRun (\ s a -> s{_dsgDryRun = a});
 
 instance AWSRequest DeleteSecurityGroup where
-        type Sv DeleteSecurityGroup = EC2
         type Rs DeleteSecurityGroup =
              DeleteSecurityGroupResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull DeleteSecurityGroupResponse'
 
 instance ToHeaders DeleteSecurityGroup where

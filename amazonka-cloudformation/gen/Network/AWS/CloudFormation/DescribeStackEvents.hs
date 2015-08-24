@@ -103,10 +103,9 @@ instance AWSPager DescribeStackEvents where
             Just $ rq & dseNextToken .~ rs ^. dsersNextToken
 
 instance AWSRequest DescribeStackEvents where
-        type Sv DescribeStackEvents = CloudFormation
         type Rs DescribeStackEvents =
              DescribeStackEventsResponse
-        request = postQuery
+        request = postQuery cloudFormation
         response
           = receiveXMLWrapper "DescribeStackEventsResult"
               (\ s h x ->

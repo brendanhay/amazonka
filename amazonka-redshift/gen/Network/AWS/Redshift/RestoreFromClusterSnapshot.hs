@@ -332,10 +332,9 @@ rfcsSnapshotIdentifier :: Lens' RestoreFromClusterSnapshot Text
 rfcsSnapshotIdentifier = lens _rfcsSnapshotIdentifier (\ s a -> s{_rfcsSnapshotIdentifier = a});
 
 instance AWSRequest RestoreFromClusterSnapshot where
-        type Sv RestoreFromClusterSnapshot = Redshift
         type Rs RestoreFromClusterSnapshot =
              RestoreFromClusterSnapshotResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "RestoreFromClusterSnapshotResult"

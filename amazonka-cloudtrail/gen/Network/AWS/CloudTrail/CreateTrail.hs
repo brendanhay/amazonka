@@ -139,9 +139,8 @@ ctS3BucketName :: Lens' CreateTrail Text
 ctS3BucketName = lens _ctS3BucketName (\ s a -> s{_ctS3BucketName = a});
 
 instance AWSRequest CreateTrail where
-        type Sv CreateTrail = CloudTrail
         type Rs CreateTrail = CreateTrailResponse
-        request = postJSON
+        request = postJSON cloudTrail
         response
           = receiveJSON
               (\ s h x ->

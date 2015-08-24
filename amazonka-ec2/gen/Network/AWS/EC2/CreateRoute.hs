@@ -148,9 +148,8 @@ crDestinationCIdRBlock :: Lens' CreateRoute Text
 crDestinationCIdRBlock = lens _crDestinationCIdRBlock (\ s a -> s{_crDestinationCIdRBlock = a});
 
 instance AWSRequest CreateRoute where
-        type Sv CreateRoute = EC2
         type Rs CreateRoute = CreateRouteResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

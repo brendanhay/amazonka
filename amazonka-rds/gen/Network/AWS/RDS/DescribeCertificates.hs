@@ -113,10 +113,9 @@ dcMarker :: Lens' DescribeCertificates (Maybe Text)
 dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a});
 
 instance AWSRequest DescribeCertificates where
-        type Sv DescribeCertificates = RDS
         type Rs DescribeCertificates =
              DescribeCertificatesResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "DescribeCertificatesResult"
               (\ s h x ->

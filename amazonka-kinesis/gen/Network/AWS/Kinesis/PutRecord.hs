@@ -170,9 +170,8 @@ prPartitionKey :: Lens' PutRecord Text
 prPartitionKey = lens _prPartitionKey (\ s a -> s{_prPartitionKey = a});
 
 instance AWSRequest PutRecord where
-        type Sv PutRecord = Kinesis
         type Rs PutRecord = PutRecordResponse
-        request = postJSON
+        request = postJSON kinesis
         response
           = receiveJSON
               (\ s h x ->

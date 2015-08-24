@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.SQS.Types
     (
-    -- * Service
-      SQS
+    -- * Service Configuration
+      sQS
 
     -- * Errors
     , _InvalidBatchEntryId
@@ -110,41 +109,38 @@ import           Network.AWS.Sign.V4
 import           Network.AWS.SQS.Types.Product
 import           Network.AWS.SQS.Types.Sum
 
--- | Version @2012-11-05@ of the Amazon Simple Queue Service SDK.
-data SQS
-
-instance AWSService SQS where
-    type Sg SQS = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "SQS"
-            , _svcPrefix = "sqs"
-            , _svcVersion = "2012-11-05"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseXMLError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "RequestThrottled" . hasStatus 403) e =
-              Just "request_limit_exceeded"
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2012-11-05' of the Amazon Simple Queue Service SDK configuration.
+sQS :: Service
+sQS =
+    Service
+    { _svcAbbrev = "SQS"
+    , _svcSigner = v4
+    , _svcPrefix = "sqs"
+    , _svcVersion = "2012-11-05"
+    , _svcEndpoint = defaultEndpoint sQS
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseXMLError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "RequestThrottled" . hasStatus 403) e =
+          Just "request_limit_exceeded"
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | The 'Id' of a batch entry in a batch request does not abide by the
 -- specification.

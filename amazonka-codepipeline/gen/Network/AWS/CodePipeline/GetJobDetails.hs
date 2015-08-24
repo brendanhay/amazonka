@@ -74,9 +74,8 @@ gjdJobId :: Lens' GetJobDetails Text
 gjdJobId = lens _gjdJobId (\ s a -> s{_gjdJobId = a});
 
 instance AWSRequest GetJobDetails where
-        type Sv GetJobDetails = CodePipeline
         type Rs GetJobDetails = GetJobDetailsResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->

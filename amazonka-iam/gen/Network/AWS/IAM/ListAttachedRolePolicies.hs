@@ -117,10 +117,9 @@ larpRoleName :: Lens' ListAttachedRolePolicies Text
 larpRoleName = lens _larpRoleName (\ s a -> s{_larpRoleName = a});
 
 instance AWSRequest ListAttachedRolePolicies where
-        type Sv ListAttachedRolePolicies = IAM
         type Rs ListAttachedRolePolicies =
              ListAttachedRolePoliciesResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListAttachedRolePoliciesResult"
               (\ s h x ->

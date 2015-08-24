@@ -87,9 +87,8 @@ dtTableName :: Lens' DeleteTable Text
 dtTableName = lens _dtTableName (\ s a -> s{_dtTableName = a});
 
 instance AWSRequest DeleteTable where
-        type Sv DeleteTable = DynamoDB
         type Rs DeleteTable = DeleteTableResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->

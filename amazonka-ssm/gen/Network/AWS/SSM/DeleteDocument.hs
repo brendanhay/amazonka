@@ -68,9 +68,8 @@ dddName :: Lens' DeleteDocument Text
 dddName = lens _dddName (\ s a -> s{_dddName = a});
 
 instance AWSRequest DeleteDocument where
-        type Sv DeleteDocument = SSM
         type Rs DeleteDocument = DeleteDocumentResponse
-        request = postJSON
+        request = postJSON sSM
         response
           = receiveEmpty
               (\ s h x ->

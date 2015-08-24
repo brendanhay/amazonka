@@ -27,8 +27,8 @@
 -- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html AWS API Reference>
 module Network.AWS.CloudSearchDomains
     (
-    -- * Service
-      CloudSearchDomains
+    -- * Service Configuration
+      cloudSearchDomains
 
     -- * Errors
     -- $errors

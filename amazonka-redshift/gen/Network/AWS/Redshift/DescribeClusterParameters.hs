@@ -135,10 +135,9 @@ instance AWSPager DescribeClusterParameters where
             Just $ rq & dcpsMarker .~ rs ^. dcprsMarker
 
 instance AWSRequest DescribeClusterParameters where
-        type Sv DescribeClusterParameters = Redshift
         type Rs DescribeClusterParameters =
              DescribeClusterParametersResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "DescribeClusterParametersResult"
               (\ s h x ->

@@ -102,9 +102,8 @@ pgpPolicyDocument :: Lens' PutGroupPolicy Text
 pgpPolicyDocument = lens _pgpPolicyDocument (\ s a -> s{_pgpPolicyDocument = a});
 
 instance AWSRequest PutGroupPolicy where
-        type Sv PutGroupPolicy = IAM
         type Rs PutGroupPolicy = PutGroupPolicyResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull PutGroupPolicyResponse'
 
 instance ToHeaders PutGroupPolicy where

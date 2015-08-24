@@ -94,10 +94,9 @@ svapVaultName :: Lens' SetVaultAccessPolicy Text
 svapVaultName = lens _svapVaultName (\ s a -> s{_svapVaultName = a});
 
 instance AWSRequest SetVaultAccessPolicy where
-        type Sv SetVaultAccessPolicy = Glacier
         type Rs SetVaultAccessPolicy =
              SetVaultAccessPolicyResponse
-        request = putJSON
+        request = putJSON glacier
         response = receiveNull SetVaultAccessPolicyResponse'
 
 instance ToHeaders SetVaultAccessPolicy where

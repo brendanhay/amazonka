@@ -117,10 +117,9 @@ ddcMarker :: Lens' DescribeDBClusters (Maybe Text)
 ddcMarker = lens _ddcMarker (\ s a -> s{_ddcMarker = a});
 
 instance AWSRequest DescribeDBClusters where
-        type Sv DescribeDBClusters = RDS
         type Rs DescribeDBClusters =
              DescribeDBClustersResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "DescribeDBClustersResult"
               (\ s h x ->

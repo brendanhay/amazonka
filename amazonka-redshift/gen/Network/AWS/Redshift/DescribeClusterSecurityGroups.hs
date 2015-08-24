@@ -162,10 +162,9 @@ instance AWSPager DescribeClusterSecurityGroups where
 
 instance AWSRequest DescribeClusterSecurityGroups
          where
-        type Sv DescribeClusterSecurityGroups = Redshift
         type Rs DescribeClusterSecurityGroups =
              DescribeClusterSecurityGroupsResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "DescribeClusterSecurityGroupsResult"

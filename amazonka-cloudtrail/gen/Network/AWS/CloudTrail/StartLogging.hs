@@ -67,9 +67,8 @@ sName :: Lens' StartLogging Text
 sName = lens _sName (\ s a -> s{_sName = a});
 
 instance AWSRequest StartLogging where
-        type Sv StartLogging = CloudTrail
         type Rs StartLogging = StartLoggingResponse
-        request = postJSON
+        request = postJSON cloudTrail
         response
           = receiveEmpty
               (\ s h x ->

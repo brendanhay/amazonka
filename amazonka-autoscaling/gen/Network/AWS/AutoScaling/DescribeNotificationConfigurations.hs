@@ -99,11 +99,9 @@ instance AWSPager DescribeNotificationConfigurations
 
 instance AWSRequest
          DescribeNotificationConfigurations where
-        type Sv DescribeNotificationConfigurations =
-             AutoScaling
         type Rs DescribeNotificationConfigurations =
              DescribeNotificationConfigurationsResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper
               "DescribeNotificationConfigurationsResult"

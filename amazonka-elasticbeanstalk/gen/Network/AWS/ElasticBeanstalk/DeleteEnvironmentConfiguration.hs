@@ -83,11 +83,9 @@ decEnvironmentName = lens _decEnvironmentName (\ s a -> s{_decEnvironmentName = 
 
 instance AWSRequest DeleteEnvironmentConfiguration
          where
-        type Sv DeleteEnvironmentConfiguration =
-             ElasticBeanstalk
         type Rs DeleteEnvironmentConfiguration =
              DeleteEnvironmentConfigurationResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveNull DeleteEnvironmentConfigurationResponse'
 

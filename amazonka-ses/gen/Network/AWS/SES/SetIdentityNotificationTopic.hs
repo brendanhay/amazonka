@@ -105,10 +105,9 @@ sintNotificationType = lens _sintNotificationType (\ s a -> s{_sintNotificationT
 
 instance AWSRequest SetIdentityNotificationTopic
          where
-        type Sv SetIdentityNotificationTopic = SES
         type Rs SetIdentityNotificationTopic =
              SetIdentityNotificationTopicResponse
-        request = postQuery
+        request = postQuery sES
         response
           = receiveXMLWrapper
               "SetIdentityNotificationTopicResult"

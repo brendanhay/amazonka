@@ -90,10 +90,9 @@ instance AWSPager ListBootstrapActions where
             Just $ rq & lbaMarker .~ rs ^. lbarsMarker
 
 instance AWSRequest ListBootstrapActions where
-        type Sv ListBootstrapActions = EMR
         type Rs ListBootstrapActions =
              ListBootstrapActionsResponse
-        request = postJSON
+        request = postJSON eMR
         response
           = receiveJSON
               (\ s h x ->

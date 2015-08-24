@@ -111,9 +111,8 @@ instance AWSPager ListHealthChecks where
             Just $ rq & lhcMarker .~ rs ^. lhcrsNextMarker
 
 instance AWSRequest ListHealthChecks where
-        type Sv ListHealthChecks = Route53
         type Rs ListHealthChecks = ListHealthChecksResponse
-        request = get
+        request = get route53
         response
           = receiveXML
               (\ s h x ->

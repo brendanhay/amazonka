@@ -110,10 +110,9 @@ udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
 udnNameservers = lens _udnNameservers (\ s a -> s{_udnNameservers = a}) . _Coerce;
 
 instance AWSRequest UpdateDomainNameservers where
-        type Sv UpdateDomainNameservers = Route53Domains
         type Rs UpdateDomainNameservers =
              UpdateDomainNameserversResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveJSON
               (\ s h x ->

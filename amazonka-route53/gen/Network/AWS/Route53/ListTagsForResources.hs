@@ -84,10 +84,9 @@ lResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
 lResourceIds = lens _lResourceIds (\ s a -> s{_lResourceIds = a}) . _List1;
 
 instance AWSRequest ListTagsForResources where
-        type Sv ListTagsForResources = Route53
         type Rs ListTagsForResources =
              ListTagsForResourcesResponse
-        request = postXML
+        request = postXML route53
         response
           = receiveXML
               (\ s h x ->

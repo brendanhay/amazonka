@@ -140,9 +140,8 @@ ssNewStartingHashKey :: Lens' SplitShard Text
 ssNewStartingHashKey = lens _ssNewStartingHashKey (\ s a -> s{_ssNewStartingHashKey = a});
 
 instance AWSRequest SplitShard where
-        type Sv SplitShard = Kinesis
         type Rs SplitShard = SplitShardResponse
-        request = postJSON
+        request = postJSON kinesis
         response = receiveNull SplitShardResponse'
 
 instance ToHeaders SplitShard where

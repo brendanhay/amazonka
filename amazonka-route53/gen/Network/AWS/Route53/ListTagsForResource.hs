@@ -83,10 +83,9 @@ ltfrResourceId :: Lens' ListTagsForResource Text
 ltfrResourceId = lens _ltfrResourceId (\ s a -> s{_ltfrResourceId = a});
 
 instance AWSRequest ListTagsForResource where
-        type Sv ListTagsForResource = Route53
         type Rs ListTagsForResource =
              ListTagsForResourceResponse
-        request = get
+        request = get route53
         response
           = receiveXML
               (\ s h x ->

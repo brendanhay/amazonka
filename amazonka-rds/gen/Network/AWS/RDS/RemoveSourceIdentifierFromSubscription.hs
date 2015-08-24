@@ -83,10 +83,9 @@ rsifsSourceIdentifier = lens _rsifsSourceIdentifier (\ s a -> s{_rsifsSourceIden
 
 instance AWSRequest
          RemoveSourceIdentifierFromSubscription where
-        type Sv RemoveSourceIdentifierFromSubscription = RDS
         type Rs RemoveSourceIdentifierFromSubscription =
              RemoveSourceIdentifierFromSubscriptionResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "RemoveSourceIdentifierFromSubscriptionResult"

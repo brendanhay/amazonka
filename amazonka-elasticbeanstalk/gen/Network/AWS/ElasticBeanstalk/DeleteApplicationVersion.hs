@@ -94,10 +94,9 @@ davVersionLabel :: Lens' DeleteApplicationVersion Text
 davVersionLabel = lens _davVersionLabel (\ s a -> s{_davVersionLabel = a});
 
 instance AWSRequest DeleteApplicationVersion where
-        type Sv DeleteApplicationVersion = ElasticBeanstalk
         type Rs DeleteApplicationVersion =
              DeleteApplicationVersionResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveNull DeleteApplicationVersionResponse'
 

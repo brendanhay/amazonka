@@ -80,9 +80,8 @@ cpNewPassword :: Lens' ChangePassword Text
 cpNewPassword = lens _cpNewPassword (\ s a -> s{_cpNewPassword = a}) . _Sensitive;
 
 instance AWSRequest ChangePassword where
-        type Sv ChangePassword = IAM
         type Rs ChangePassword = ChangePasswordResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull ChangePasswordResponse'
 
 instance ToHeaders ChangePassword where

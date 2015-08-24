@@ -92,10 +92,9 @@ cctConversionTaskId :: Lens' CancelConversionTask Text
 cctConversionTaskId = lens _cctConversionTaskId (\ s a -> s{_cctConversionTaskId = a});
 
 instance AWSRequest CancelConversionTask where
-        type Sv CancelConversionTask = EC2
         type Rs CancelConversionTask =
              CancelConversionTaskResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull CancelConversionTaskResponse'
 
 instance ToHeaders CancelConversionTask where

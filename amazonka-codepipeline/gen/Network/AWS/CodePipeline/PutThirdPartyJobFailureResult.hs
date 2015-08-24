@@ -90,10 +90,9 @@ ptpjfrFailureDetails = lens _ptpjfrFailureDetails (\ s a -> s{_ptpjfrFailureDeta
 
 instance AWSRequest PutThirdPartyJobFailureResult
          where
-        type Sv PutThirdPartyJobFailureResult = CodePipeline
         type Rs PutThirdPartyJobFailureResult =
              PutThirdPartyJobFailureResultResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveNull PutThirdPartyJobFailureResultResponse'
 

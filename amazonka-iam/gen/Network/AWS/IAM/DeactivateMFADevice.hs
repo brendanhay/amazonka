@@ -80,10 +80,9 @@ dmdSerialNumber :: Lens' DeactivateMFADevice Text
 dmdSerialNumber = lens _dmdSerialNumber (\ s a -> s{_dmdSerialNumber = a});
 
 instance AWSRequest DeactivateMFADevice where
-        type Sv DeactivateMFADevice = IAM
         type Rs DeactivateMFADevice =
              DeactivateMFADeviceResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull DeactivateMFADeviceResponse'
 
 instance ToHeaders DeactivateMFADevice where

@@ -173,10 +173,9 @@ cdsfrdsRoleARN :: Lens' CreateDataSourceFromRDS Text
 cdsfrdsRoleARN = lens _cdsfrdsRoleARN (\ s a -> s{_cdsfrdsRoleARN = a});
 
 instance AWSRequest CreateDataSourceFromRDS where
-        type Sv CreateDataSourceFromRDS = MachineLearning
         type Rs CreateDataSourceFromRDS =
              CreateDataSourceFromRDSResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

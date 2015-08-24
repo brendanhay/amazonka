@@ -71,9 +71,8 @@ clgLogGroupName :: Lens' CreateLogGroup Text
 clgLogGroupName = lens _clgLogGroupName (\ s a -> s{_clgLogGroupName = a});
 
 instance AWSRequest CreateLogGroup where
-        type Sv CreateLogGroup = CloudWatchLogs
         type Rs CreateLogGroup = CreateLogGroupResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response = receiveNull CreateLogGroupResponse'
 
 instance ToHeaders CreateLogGroup where

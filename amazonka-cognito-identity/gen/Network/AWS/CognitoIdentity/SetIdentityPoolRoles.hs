@@ -79,10 +79,9 @@ siprRoles :: Lens' SetIdentityPoolRoles (HashMap Text Text)
 siprRoles = lens _siprRoles (\ s a -> s{_siprRoles = a}) . _Map;
 
 instance AWSRequest SetIdentityPoolRoles where
-        type Sv SetIdentityPoolRoles = CognitoIdentity
         type Rs SetIdentityPoolRoles =
              SetIdentityPoolRolesResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response = receiveNull SetIdentityPoolRolesResponse'
 
 instance ToHeaders SetIdentityPoolRoles where

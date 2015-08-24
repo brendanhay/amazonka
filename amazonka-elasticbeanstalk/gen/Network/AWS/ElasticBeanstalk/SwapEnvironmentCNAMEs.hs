@@ -109,10 +109,9 @@ secnameSourceEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
 secnameSourceEnvironmentId = lens _secnameSourceEnvironmentId (\ s a -> s{_secnameSourceEnvironmentId = a});
 
 instance AWSRequest SwapEnvironmentCNAMEs where
-        type Sv SwapEnvironmentCNAMEs = ElasticBeanstalk
         type Rs SwapEnvironmentCNAMEs =
              SwapEnvironmentCNAMEsResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response = receiveNull SwapEnvironmentCNAMEsResponse'
 
 instance ToHeaders SwapEnvironmentCNAMEs where

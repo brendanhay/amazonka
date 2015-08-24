@@ -69,10 +69,9 @@ cdaCNAMEPrefix :: Lens' CheckDNSAvailability Text
 cdaCNAMEPrefix = lens _cdaCNAMEPrefix (\ s a -> s{_cdaCNAMEPrefix = a});
 
 instance AWSRequest CheckDNSAvailability where
-        type Sv CheckDNSAvailability = ElasticBeanstalk
         type Rs CheckDNSAvailability =
              CheckDNSAvailabilityResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper "CheckDNSAvailabilityResult"
               (\ s h x ->

@@ -106,9 +106,8 @@ instance AWSPager ListJobsByStatus where
               ljbsPageToken .~ rs ^. ljbsrsNextPageToken
 
 instance AWSRequest ListJobsByStatus where
-        type Sv ListJobsByStatus = ElasticTranscoder
         type Rs ListJobsByStatus = ListJobsByStatusResponse
-        request = get
+        request = get elasticTranscoder
         response
           = receiveJSON
               (\ s h x ->

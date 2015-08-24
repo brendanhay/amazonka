@@ -417,10 +417,9 @@ cccCacheClusterId :: Lens' CreateCacheCluster Text
 cccCacheClusterId = lens _cccCacheClusterId (\ s a -> s{_cccCacheClusterId = a});
 
 instance AWSRequest CreateCacheCluster where
-        type Sv CreateCacheCluster = ElastiCache
         type Rs CreateCacheCluster =
              CreateCacheClusterResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "CreateCacheClusterResult"
               (\ s h x ->

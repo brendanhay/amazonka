@@ -79,10 +79,9 @@ dpgGroupName :: Lens' DeletePlacementGroup Text
 dpgGroupName = lens _dpgGroupName (\ s a -> s{_dpgGroupName = a});
 
 instance AWSRequest DeletePlacementGroup where
-        type Sv DeletePlacementGroup = EC2
         type Rs DeletePlacementGroup =
              DeletePlacementGroupResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull DeletePlacementGroupResponse'
 
 instance ToHeaders DeletePlacementGroup where

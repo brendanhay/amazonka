@@ -83,10 +83,9 @@ dPipelineId :: Lens' DeactivatePipeline Text
 dPipelineId = lens _dPipelineId (\ s a -> s{_dPipelineId = a});
 
 instance AWSRequest DeactivatePipeline where
-        type Sv DeactivatePipeline = DataPipeline
         type Rs DeactivatePipeline =
              DeactivatePipelineResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveEmpty
               (\ s h x ->

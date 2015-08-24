@@ -44,8 +44,8 @@
 -- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.SQS
     (
-    -- * Service
-      SQS
+    -- * Service Configuration
+      sQS
 
     -- * Errors
     -- $errors

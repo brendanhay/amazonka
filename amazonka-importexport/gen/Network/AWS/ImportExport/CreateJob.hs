@@ -116,9 +116,8 @@ cjValidateOnly :: Lens' CreateJob Bool
 cjValidateOnly = lens _cjValidateOnly (\ s a -> s{_cjValidateOnly = a});
 
 instance AWSRequest CreateJob where
-        type Sv CreateJob = ImportExport
         type Rs CreateJob = CreateJobResponse
-        request = postQuery
+        request = postQuery importExport
         response
           = receiveXMLWrapper "CreateJobResult"
               (\ s h x ->

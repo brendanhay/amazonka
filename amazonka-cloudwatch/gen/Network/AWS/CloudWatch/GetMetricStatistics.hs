@@ -174,10 +174,9 @@ gmsStatistics :: Lens' GetMetricStatistics (NonEmpty Statistic)
 gmsStatistics = lens _gmsStatistics (\ s a -> s{_gmsStatistics = a}) . _List1;
 
 instance AWSRequest GetMetricStatistics where
-        type Sv GetMetricStatistics = CloudWatch
         type Rs GetMetricStatistics =
              GetMetricStatisticsResponse
-        request = postQuery
+        request = postQuery cloudWatch
         response
           = receiveXMLWrapper "GetMetricStatisticsResult"
               (\ s h x ->

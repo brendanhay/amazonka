@@ -133,10 +133,9 @@ instance AWSPager DescribeDBParameters where
             Just $ rq & ddpMarker .~ rs ^. ddprsMarker
 
 instance AWSRequest DescribeDBParameters where
-        type Sv DescribeDBParameters = RDS
         type Rs DescribeDBParameters =
              DescribeDBParametersResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "DescribeDBParametersResult"
               (\ s h x ->

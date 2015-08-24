@@ -83,9 +83,8 @@ dhzId :: Lens' DeleteHostedZone Text
 dhzId = lens _dhzId (\ s a -> s{_dhzId = a});
 
 instance AWSRequest DeleteHostedZone where
-        type Sv DeleteHostedZone = Route53
         type Rs DeleteHostedZone = DeleteHostedZoneResponse
-        request = delete
+        request = delete route53
         response
           = receiveXML
               (\ s h x ->

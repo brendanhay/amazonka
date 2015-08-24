@@ -74,10 +74,9 @@ ghclfrHealthCheckId = lens _ghclfrHealthCheckId (\ s a -> s{_ghclfrHealthCheckId
 
 instance AWSRequest GetHealthCheckLastFailureReason
          where
-        type Sv GetHealthCheckLastFailureReason = Route53
         type Rs GetHealthCheckLastFailureReason =
              GetHealthCheckLastFailureReasonResponse
-        request = get
+        request = get route53
         response
           = receiveXML
               (\ s h x ->

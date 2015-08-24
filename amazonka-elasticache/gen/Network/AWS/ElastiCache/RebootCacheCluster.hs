@@ -90,10 +90,9 @@ rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
 rccCacheNodeIdsToReboot = lens _rccCacheNodeIdsToReboot (\ s a -> s{_rccCacheNodeIdsToReboot = a}) . _Coerce;
 
 instance AWSRequest RebootCacheCluster where
-        type Sv RebootCacheCluster = ElastiCache
         type Rs RebootCacheCluster =
              RebootCacheClusterResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "RebootCacheClusterResult"
               (\ s h x ->

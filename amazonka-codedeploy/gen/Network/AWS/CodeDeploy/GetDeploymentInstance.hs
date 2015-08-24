@@ -78,10 +78,9 @@ gdiInstanceId :: Lens' GetDeploymentInstance Text
 gdiInstanceId = lens _gdiInstanceId (\ s a -> s{_gdiInstanceId = a});
 
 instance AWSRequest GetDeploymentInstance where
-        type Sv GetDeploymentInstance = CodeDeploy
         type Rs GetDeploymentInstance =
              GetDeploymentInstanceResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->

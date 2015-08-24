@@ -83,10 +83,9 @@ usapAccessPolicies :: Lens' UpdateServiceAccessPolicies Text
 usapAccessPolicies = lens _usapAccessPolicies (\ s a -> s{_usapAccessPolicies = a});
 
 instance AWSRequest UpdateServiceAccessPolicies where
-        type Sv UpdateServiceAccessPolicies = CloudSearch
         type Rs UpdateServiceAccessPolicies =
              UpdateServiceAccessPoliciesResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper
               "UpdateServiceAccessPoliciesResult"

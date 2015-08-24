@@ -114,9 +114,8 @@ instance AWSPager ListGroupPolicies where
             Just $ rq & lgpMarker .~ rs ^. lgprsMarker
 
 instance AWSRequest ListGroupPolicies where
-        type Sv ListGroupPolicies = IAM
         type Rs ListGroupPolicies = ListGroupPoliciesResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListGroupPoliciesResult"
               (\ s h x ->

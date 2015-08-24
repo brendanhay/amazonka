@@ -91,10 +91,9 @@ estTransitionType :: Lens' EnableStageTransition StageTransitionType
 estTransitionType = lens _estTransitionType (\ s a -> s{_estTransitionType = a});
 
 instance AWSRequest EnableStageTransition where
-        type Sv EnableStageTransition = CodePipeline
         type Rs EnableStageTransition =
              EnableStageTransitionResponse
-        request = postJSON
+        request = postJSON codePipeline
         response = receiveNull EnableStageTransitionResponse'
 
 instance ToHeaders EnableStageTransition where

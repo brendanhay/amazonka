@@ -16,8 +16,8 @@
 -- /See:/ <http://docs.aws.amazon.com/elasticfilesystem/latest/devguide/welcome.html AWS API Reference>
 module Network.AWS.EFS
     (
-    -- * Service
-      EFS
+    -- * Service Configuration
+      eFS
 
     -- * Errors
     -- $errors

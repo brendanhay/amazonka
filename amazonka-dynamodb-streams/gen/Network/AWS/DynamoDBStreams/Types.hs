@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.DynamoDBStreams.Types
     (
-    -- * Service
-      DynamoDBStreams
+    -- * Service Configuration
+      dynamoDBStreams
 
     -- * Errors
     , _ExpiredIteratorException
@@ -117,39 +116,36 @@ import           Network.AWS.DynamoDBStreams.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2012-08-10@ of the Amazon DynamoDB Streams SDK.
-data DynamoDBStreams
-
-instance AWSService DynamoDBStreams where
-    type Sg DynamoDBStreams = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "DynamoDBStreams"
-            , _svcPrefix = "streams.dynamodb"
-            , _svcVersion = "2012-08-10"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2012-08-10' of the Amazon DynamoDB Streams SDK configuration.
+dynamoDBStreams :: Service
+dynamoDBStreams =
+    Service
+    { _svcAbbrev = "DynamoDBStreams"
+    , _svcSigner = v4
+    , _svcPrefix = "streams.dynamodb"
+    , _svcVersion = "2012-08-10"
+    , _svcEndpoint = defaultEndpoint dynamoDBStreams
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | The shard iterator has expired and can no longer be used to retrieve
 -- stream records. A shard iterator expires 15 minutes after it is

@@ -81,9 +81,8 @@ rGrantId :: Lens' RevokeGrant Text
 rGrantId = lens _rGrantId (\ s a -> s{_rGrantId = a});
 
 instance AWSRequest RevokeGrant where
-        type Sv RevokeGrant = KMS
         type Rs RevokeGrant = RevokeGrantResponse
-        request = postJSON
+        request = postJSON kMS
         response = receiveNull RevokeGrantResponse'
 
 instance ToHeaders RevokeGrant where

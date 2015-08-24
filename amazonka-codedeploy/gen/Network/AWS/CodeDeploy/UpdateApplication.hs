@@ -73,9 +73,8 @@ uaApplicationName :: Lens' UpdateApplication (Maybe Text)
 uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
 
 instance AWSRequest UpdateApplication where
-        type Sv UpdateApplication = CodeDeploy
         type Rs UpdateApplication = UpdateApplicationResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response = receiveNull UpdateApplicationResponse'
 
 instance ToHeaders UpdateApplication where

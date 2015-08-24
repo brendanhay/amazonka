@@ -109,9 +109,8 @@ dCiphertextBlob :: Lens' Decrypt ByteString
 dCiphertextBlob = lens _dCiphertextBlob (\ s a -> s{_dCiphertextBlob = a}) . _Base64;
 
 instance AWSRequest Decrypt where
-        type Sv Decrypt = KMS
         type Rs Decrypt = DecryptResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->

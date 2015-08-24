@@ -113,10 +113,9 @@ ccsgSubnetIds :: Lens' CreateClusterSubnetGroup [Text]
 ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a}) . _Coerce;
 
 instance AWSRequest CreateClusterSubnetGroup where
-        type Sv CreateClusterSubnetGroup = Redshift
         type Rs CreateClusterSubnetGroup =
              CreateClusterSubnetGroupResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "CreateClusterSubnetGroupResult"
               (\ s h x ->

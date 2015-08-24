@@ -214,9 +214,8 @@ instance AWSPager DescribeMLModels where
             Just $ rq & dmlmNextToken .~ rs ^. dmlmsrsNextToken
 
 instance AWSRequest DescribeMLModels where
-        type Sv DescribeMLModels = MachineLearning
         type Rs DescribeMLModels = DescribeMLModelsResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

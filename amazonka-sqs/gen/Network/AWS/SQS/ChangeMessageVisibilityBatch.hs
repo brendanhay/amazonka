@@ -94,10 +94,9 @@ cmvbEntries = lens _cmvbEntries (\ s a -> s{_cmvbEntries = a}) . _Coerce;
 
 instance AWSRequest ChangeMessageVisibilityBatch
          where
-        type Sv ChangeMessageVisibilityBatch = SQS
         type Rs ChangeMessageVisibilityBatch =
              ChangeMessageVisibilityBatchResponse
-        request = postQuery
+        request = postQuery sQS
         response
           = receiveXMLWrapper
               "ChangeMessageVisibilityBatchResult"

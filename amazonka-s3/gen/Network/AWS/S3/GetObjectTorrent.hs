@@ -86,9 +86,8 @@ gotKey :: Lens' GetObjectTorrent ObjectKey
 gotKey = lens _gotKey (\ s a -> s{_gotKey = a});
 
 instance AWSRequest GetObjectTorrent where
-        type Sv GetObjectTorrent = S3
         type Rs GetObjectTorrent = GetObjectTorrentResponse
-        request = get
+        request = get s3
         response
           = receiveBody
               (\ s h x ->

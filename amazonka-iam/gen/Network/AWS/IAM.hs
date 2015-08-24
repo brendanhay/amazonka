@@ -76,8 +76,8 @@
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.IAM
     (
-    -- * Service
-      IAM
+    -- * Service Configuration
+      iAM
 
     -- * Errors
     -- $errors

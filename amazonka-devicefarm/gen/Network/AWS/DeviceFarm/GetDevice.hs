@@ -68,9 +68,8 @@ gdArn :: Lens' GetDevice Text
 gdArn = lens _gdArn (\ s a -> s{_gdArn = a});
 
 instance AWSRequest GetDevice where
-        type Sv GetDevice = DeviceFarm
         type Rs GetDevice = GetDeviceResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

@@ -108,9 +108,8 @@ prpPolicyDocument :: Lens' PutRolePolicy Text
 prpPolicyDocument = lens _prpPolicyDocument (\ s a -> s{_prpPolicyDocument = a});
 
 instance AWSRequest PutRolePolicy where
-        type Sv PutRolePolicy = IAM
         type Rs PutRolePolicy = PutRolePolicyResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull PutRolePolicyResponse'
 
 instance ToHeaders PutRolePolicy where

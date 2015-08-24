@@ -113,10 +113,9 @@ ddoDryRun :: Lens' DescribeDHCPOptions (Maybe Bool)
 ddoDryRun = lens _ddoDryRun (\ s a -> s{_ddoDryRun = a});
 
 instance AWSRequest DescribeDHCPOptions where
-        type Sv DescribeDHCPOptions = EC2
         type Rs DescribeDHCPOptions =
              DescribeDHCPOptionsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

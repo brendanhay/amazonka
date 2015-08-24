@@ -167,9 +167,8 @@ instance AWSPager FilterLogEvents where
             Just $ rq & fleNextToken .~ rs ^. flersNextToken
 
 instance AWSRequest FilterLogEvents where
-        type Sv FilterLogEvents = CloudWatchLogs
         type Rs FilterLogEvents = FilterLogEventsResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response
           = receiveJSON
               (\ s h x ->

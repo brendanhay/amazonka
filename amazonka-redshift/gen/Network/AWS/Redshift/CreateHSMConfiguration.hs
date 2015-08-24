@@ -140,10 +140,9 @@ chcHSMServerPublicCertificate :: Lens' CreateHSMConfiguration Text
 chcHSMServerPublicCertificate = lens _chcHSMServerPublicCertificate (\ s a -> s{_chcHSMServerPublicCertificate = a});
 
 instance AWSRequest CreateHSMConfiguration where
-        type Sv CreateHSMConfiguration = Redshift
         type Rs CreateHSMConfiguration =
              CreateHSMConfigurationResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "CreateHsmConfigurationResult"
               (\ s h x ->

@@ -21,8 +21,8 @@
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Route53
     (
-    -- * Service
-      Route53
+    -- * Service Configuration
+      route53
 
     -- * Errors
     -- $errors

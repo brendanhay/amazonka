@@ -84,10 +84,9 @@ rrfipRoleName = lens _rrfipRoleName (\ s a -> s{_rrfipRoleName = a});
 
 instance AWSRequest RemoveRoleFromInstanceProfile
          where
-        type Sv RemoveRoleFromInstanceProfile = IAM
         type Rs RemoveRoleFromInstanceProfile =
              RemoveRoleFromInstanceProfileResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveNull RemoveRoleFromInstanceProfileResponse'
 

@@ -147,9 +147,8 @@ cjInput :: Lens' CreateJob JobInput
 cjInput = lens _cjInput (\ s a -> s{_cjInput = a});
 
 instance AWSRequest CreateJob where
-        type Sv CreateJob = ElasticTranscoder
         type Rs CreateJob = CreateJobResponse
-        request = postJSON
+        request = postJSON elasticTranscoder
         response
           = receiveJSON
               (\ s h x ->

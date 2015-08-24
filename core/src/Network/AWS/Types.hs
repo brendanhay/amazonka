@@ -112,7 +112,6 @@ module Network.AWS.Types
 
     -- ** Seconds
     , Seconds         (..)
-    , _Seconds
     , seconds
     , microseconds
 
@@ -604,17 +603,16 @@ newtype Seconds = Seconds Int
         , ToText
         )
 
-_Seconds :: Iso' Seconds Int
-_Seconds = iso seconds Seconds
-
 instance ToLog Seconds where
-    build (Seconds n) = build n <> "s"
+    build s = build (seconds s) <> "s"
 
 seconds :: Seconds -> Int
-seconds (Seconds n) = n
+seconds (Seconds n)
+    | n < 0     = 0
+    | otherwise = n
 
 microseconds :: Seconds -> Int
-microseconds (Seconds n) = n * 1000000
+microseconds =  (1000000 *) . seconds
 
 _Coerce :: (Coercible a b, Coercible b a) => Iso' a b
 _Coerce = iso coerce coerce

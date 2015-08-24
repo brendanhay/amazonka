@@ -22,16 +22,23 @@ module Network.AWS.Env
     , Env      (..)
     , HasEnv   (..)
 
-    -- * Configuration Overrides
-    , override
-    , configure
+    -- * Configuration
 
-    -- * Scoped Actions
+    -- ** Scoped Actions
     , within
     , once
     , timeout
     , endpoint
     , signer
+
+    -- ** Environment Overrides
+    , setRetry
+    , setTimeout
+    , setEndpoint
+    , setSigner
+
+    -- * Internal
+    , configure
     ) where
 
 import           Control.Applicative
@@ -77,6 +84,8 @@ class HasEnv a where
     -- | The function used to determine if an 'HttpException' should be retried.
     envRetryCheck :: Lens' a (Int -> HttpException -> Bool)
 
+    -- | The currently applied overrides to the 'Service' configuration used
+    -- for signing and request construction.
     envConfig     :: Lens' a Config
 
     -- | The 'Manager' used to create and manage open HTTP connections.
@@ -115,9 +124,21 @@ instance Monoid Config where
     mempty      = Config id
     mappend a b = Config (configure b . configure a)
 
--- | Add a service configuration override to the environment's current scope.
-override :: (MonadReader r m, HasEnv r) => (Service -> Service) -> m a -> m a
-override f = local (envConfig <>~ Config f)
+-- | Override the retry behaviour for all service configurations.
+setRetry :: HasEnv a => (Retry -> Retry) -> a -> a
+setRetry f = envConfig <>~ Config (svcRetry %~ f)
+
+-- | Override the endpoint for all service configurations.
+setEndpoint :: HasEnv a => (Endpoint -> Endpoint) -> a -> a
+setEndpoint f = envConfig <>~ Config (svcEndpoint %~ (f .))
+
+-- | Override the timeout for all service configurations.
+setTimeout :: HasEnv a => Seconds -> a -> a
+setTimeout s = envConfig <>~ Config (svcTimeout ?~ s)
+
+-- | Override the signer for all service configurations.
+setSigner :: HasEnv a => Signer -> a -> a
+setSigner v = envConfig <>~ Config (svcSigner .~ v)
 
 -- | Scope an action within the specific 'Region'.
 within :: (MonadReader r m, HasEnv r) => Region -> m a -> m a
@@ -126,7 +147,7 @@ within r = local (envRegion .~ r)
 -- | Scope an action such that any retry logic for the 'Service' is
 -- ignored and any requests will at most be sent once.
 once :: (MonadReader r m, HasEnv r) => m a -> m a
-once = override (svcRetry . retryAttempts .~ 0)
+once = local (setRetry (retryAttempts .~ 0))
 
 -- | Scope an action such that any HTTP response will use this timeout value.
 --
@@ -141,16 +162,16 @@ once = override (svcRetry . retryAttempts .~ 0)
 -- * The default 'ClientRequest' timeout. (Approximately 30s)
 --
 timeout :: (MonadReader r m, HasEnv r) => Seconds -> m a -> m a
-timeout s = override (svcTimeout ?~ s)
+timeout s = local (setTimeout s)
 
--- | Scope an action such that any HTTP requests and signing logic used
+-- | Scope an action such that any HTTP requests and signing logic use
 -- a modified endpoint.
 endpoint :: (MonadReader r m, HasEnv r) => (Endpoint -> Endpoint) -> m a -> m a
-endpoint f = override (svcEndpoint %~ (f .))
+endpoint f = local (setEndpoint f)
 
 -- | Scope an action such that the specified signing algorithm is used.
 signer :: (MonadReader r m, HasEnv r) => Signer -> m a -> m a
-signer v = override (\x -> x { _svcSigner = v })
+signer v = local (setSigner v)
 
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
@@ -170,9 +191,9 @@ newEnv r c = liftIO (newManager conduitManagerSettings)
 --
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
 newEnvWith :: (Applicative m, MonadIO m, MonadCatch m)
-           => Region      -- ^ Initial region to operate in.
-           -> Credentials -- ^ Credential discovery mechanism.
-           -> Maybe Bool  -- ^ Dictate if the instance is running on EC2. (Preload memoisation.)
+           => Region               -- ^ Initial region to operate in.
+           -> Credentials          -- ^ Credential discovery mechanism.
+           -> Maybe Bool           -- ^ Dictate if the instance is running on EC2. (Preload memoisation.)
            -> Manager
            -> m Env
 newEnvWith r c p m =

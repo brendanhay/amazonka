@@ -54,6 +54,7 @@ test{{ op.value.name }}Response :: {{ op.value.output.name }} -> TestTree
 test{{ op.value.name }}Response = res
     "{{ op.value.name }}Response"
     "fixture/{{ op.value.name }}Response"
+    {{ serviceAbbrrev | lowerHead }}
     (Proxy :: Proxy {{ op.value.input.name }})
   {% endif %}
 {% endfor %}

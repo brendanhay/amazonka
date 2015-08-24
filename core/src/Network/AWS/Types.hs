@@ -132,6 +132,7 @@ import           Data.Data                    (Data, Typeable)
 import           Data.Hashable
 import           Data.IORef
 import           Data.Monoid
+import           Data.Proxy
 import           Data.String
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
@@ -143,7 +144,7 @@ import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
-import           Network.HTTP.Client          hiding (Request, Response)
+import           Network.HTTP.Client          hiding (Proxy, Request, Response)
 import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
@@ -442,7 +443,8 @@ class AWSRequest a where
     request  :: a -> Request a
     response :: MonadResource m
              => Logger
-             -> Request a
+             -> Service
+             -> Proxy a
              -> ClientResponse
              -> m (Response a)
 

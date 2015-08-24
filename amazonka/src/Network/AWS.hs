@@ -226,7 +226,8 @@ timeout s = liftAWS . AWST.timeout s
 endpoint :: MonadAWS m => (Endpoint -> Endpoint) -> AWS a -> m a
 endpoint f = liftAWS . AWST.endpoint f
 
-signer :: MonadAWS m => (forall v. Signer v) -> AWS a -> m a
+-- | Scope an action such that the specified signing algorithm is used.
+signer :: MonadAWS m => Signer -> AWS a -> m a
 signer v = liftAWS . AWST.signer v
 
 -- | Send a request, returning the associated response if successful.

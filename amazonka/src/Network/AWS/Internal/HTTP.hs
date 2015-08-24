@@ -122,7 +122,7 @@ perform Env{..} x = catches go handlers
         t           <- liftIO getCurrentTime
         Signed m rq <-
             withAuth _envAuth $ \a ->
-                return $! rqSigner a _envRegion t x
+                return $! rqSign x a _envRegion t
 
         logTrace _envLogger m  -- trace:Signing:Meta
         logDebug _envLogger rq -- debug:ClientRequest
@@ -132,7 +132,7 @@ perform Env{..} x = catches go handlers
         logDebug _envLogger rs -- debug:ClientResponse
 
         Right <$>
-            response _envLogger svc x rs
+            response _envLogger x rs
 
     handlers =
         [ Handler $ err
@@ -140,8 +140,6 @@ perform Env{..} x = catches go handlers
         ]
       where
         err e = logError _envLogger e >> return (Left e)
-
-    svc = _rqService x
 
 configured :: (MonadReader r m, HasEnv r, AWSRequest a)
            => a

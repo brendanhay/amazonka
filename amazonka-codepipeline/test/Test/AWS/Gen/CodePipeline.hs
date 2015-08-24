@@ -295,136 +295,159 @@ testGetPipelineResponse :: GetPipelineResponse -> TestTree
 testGetPipelineResponse = res
     "GetPipelineResponse"
     "fixture/GetPipelineResponse"
+    codePipeline
     (Proxy :: Proxy GetPipeline)
 
 testPutJobFailureResultResponse :: PutJobFailureResultResponse -> TestTree
 testPutJobFailureResultResponse = res
     "PutJobFailureResultResponse"
     "fixture/PutJobFailureResultResponse"
+    codePipeline
     (Proxy :: Proxy PutJobFailureResult)
 
 testAcknowledgeThirdPartyJobResponse :: AcknowledgeThirdPartyJobResponse -> TestTree
 testAcknowledgeThirdPartyJobResponse = res
     "AcknowledgeThirdPartyJobResponse"
     "fixture/AcknowledgeThirdPartyJobResponse"
+    codePipeline
     (Proxy :: Proxy AcknowledgeThirdPartyJob)
 
 testPutThirdPartyJobFailureResultResponse :: PutThirdPartyJobFailureResultResponse -> TestTree
 testPutThirdPartyJobFailureResultResponse = res
     "PutThirdPartyJobFailureResultResponse"
     "fixture/PutThirdPartyJobFailureResultResponse"
+    codePipeline
     (Proxy :: Proxy PutThirdPartyJobFailureResult)
 
 testPollForThirdPartyJobsResponse :: PollForThirdPartyJobsResponse -> TestTree
 testPollForThirdPartyJobsResponse = res
     "PollForThirdPartyJobsResponse"
     "fixture/PollForThirdPartyJobsResponse"
+    codePipeline
     (Proxy :: Proxy PollForThirdPartyJobs)
 
 testPollForJobsResponse :: PollForJobsResponse -> TestTree
 testPollForJobsResponse = res
     "PollForJobsResponse"
     "fixture/PollForJobsResponse"
+    codePipeline
     (Proxy :: Proxy PollForJobs)
 
 testStartPipelineExecutionResponse :: StartPipelineExecutionResponse -> TestTree
 testStartPipelineExecutionResponse = res
     "StartPipelineExecutionResponse"
     "fixture/StartPipelineExecutionResponse"
+    codePipeline
     (Proxy :: Proxy StartPipelineExecution)
 
 testUpdatePipelineResponse :: UpdatePipelineResponse -> TestTree
 testUpdatePipelineResponse = res
     "UpdatePipelineResponse"
     "fixture/UpdatePipelineResponse"
+    codePipeline
     (Proxy :: Proxy UpdatePipeline)
 
 testDeletePipelineResponse :: DeletePipelineResponse -> TestTree
 testDeletePipelineResponse = res
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse"
+    codePipeline
     (Proxy :: Proxy DeletePipeline)
 
 testGetPipelineStateResponse :: GetPipelineStateResponse -> TestTree
 testGetPipelineStateResponse = res
     "GetPipelineStateResponse"
     "fixture/GetPipelineStateResponse"
+    codePipeline
     (Proxy :: Proxy GetPipelineState)
 
 testGetJobDetailsResponse :: GetJobDetailsResponse -> TestTree
 testGetJobDetailsResponse = res
     "GetJobDetailsResponse"
     "fixture/GetJobDetailsResponse"
+    codePipeline
     (Proxy :: Proxy GetJobDetails)
 
 testListPipelinesResponse :: ListPipelinesResponse -> TestTree
 testListPipelinesResponse = res
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse"
+    codePipeline
     (Proxy :: Proxy ListPipelines)
 
 testDeleteCustomActionTypeResponse :: DeleteCustomActionTypeResponse -> TestTree
 testDeleteCustomActionTypeResponse = res
     "DeleteCustomActionTypeResponse"
     "fixture/DeleteCustomActionTypeResponse"
+    codePipeline
     (Proxy :: Proxy DeleteCustomActionType)
 
 testPutActionRevisionResponse :: PutActionRevisionResponse -> TestTree
 testPutActionRevisionResponse = res
     "PutActionRevisionResponse"
     "fixture/PutActionRevisionResponse"
+    codePipeline
     (Proxy :: Proxy PutActionRevision)
 
 testPutJobSuccessResultResponse :: PutJobSuccessResultResponse -> TestTree
 testPutJobSuccessResultResponse = res
     "PutJobSuccessResultResponse"
     "fixture/PutJobSuccessResultResponse"
+    codePipeline
     (Proxy :: Proxy PutJobSuccessResult)
 
 testListActionTypesResponse :: ListActionTypesResponse -> TestTree
 testListActionTypesResponse = res
     "ListActionTypesResponse"
     "fixture/ListActionTypesResponse"
+    codePipeline
     (Proxy :: Proxy ListActionTypes)
 
 testDisableStageTransitionResponse :: DisableStageTransitionResponse -> TestTree
 testDisableStageTransitionResponse = res
     "DisableStageTransitionResponse"
     "fixture/DisableStageTransitionResponse"
+    codePipeline
     (Proxy :: Proxy DisableStageTransition)
 
 testAcknowledgeJobResponse :: AcknowledgeJobResponse -> TestTree
 testAcknowledgeJobResponse = res
     "AcknowledgeJobResponse"
     "fixture/AcknowledgeJobResponse"
+    codePipeline
     (Proxy :: Proxy AcknowledgeJob)
 
 testEnableStageTransitionResponse :: EnableStageTransitionResponse -> TestTree
 testEnableStageTransitionResponse = res
     "EnableStageTransitionResponse"
     "fixture/EnableStageTransitionResponse"
+    codePipeline
     (Proxy :: Proxy EnableStageTransition)
 
 testGetThirdPartyJobDetailsResponse :: GetThirdPartyJobDetailsResponse -> TestTree
 testGetThirdPartyJobDetailsResponse = res
     "GetThirdPartyJobDetailsResponse"
     "fixture/GetThirdPartyJobDetailsResponse"
+    codePipeline
     (Proxy :: Proxy GetThirdPartyJobDetails)
 
 testCreatePipelineResponse :: CreatePipelineResponse -> TestTree
 testCreatePipelineResponse = res
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse"
+    codePipeline
     (Proxy :: Proxy CreatePipeline)
 
 testCreateCustomActionTypeResponse :: CreateCustomActionTypeResponse -> TestTree
 testCreateCustomActionTypeResponse = res
     "CreateCustomActionTypeResponse"
     "fixture/CreateCustomActionTypeResponse"
+    codePipeline
     (Proxy :: Proxy CreateCustomActionType)
 
 testPutThirdPartyJobSuccessResultResponse :: PutThirdPartyJobSuccessResultResponse -> TestTree
 testPutThirdPartyJobSuccessResultResponse = res
     "PutThirdPartyJobSuccessResultResponse"
     "fixture/PutThirdPartyJobSuccessResultResponse"
+    codePipeline
     (Proxy :: Proxy PutThirdPartyJobSuccessResult)

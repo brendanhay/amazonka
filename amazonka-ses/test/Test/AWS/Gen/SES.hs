@@ -284,130 +284,152 @@ testGetSendQuotaResponse :: GetSendQuotaResponse -> TestTree
 testGetSendQuotaResponse = res
     "GetSendQuotaResponse"
     "fixture/GetSendQuotaResponse"
+    sES
     (Proxy :: Proxy GetSendQuota)
 
 testDeleteIdentityPolicyResponse :: DeleteIdentityPolicyResponse -> TestTree
 testDeleteIdentityPolicyResponse = res
     "DeleteIdentityPolicyResponse"
     "fixture/DeleteIdentityPolicyResponse"
+    sES
     (Proxy :: Proxy DeleteIdentityPolicy)
 
 testPutIdentityPolicyResponse :: PutIdentityPolicyResponse -> TestTree
 testPutIdentityPolicyResponse = res
     "PutIdentityPolicyResponse"
     "fixture/PutIdentityPolicyResponse"
+    sES
     (Proxy :: Proxy PutIdentityPolicy)
 
 testSetIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse -> TestTree
 testSetIdentityDkimEnabledResponse = res
     "SetIdentityDkimEnabledResponse"
     "fixture/SetIdentityDkimEnabledResponse"
+    sES
     (Proxy :: Proxy SetIdentityDkimEnabled)
 
 testGetIdentityNotificationAttributesResponse :: GetIdentityNotificationAttributesResponse -> TestTree
 testGetIdentityNotificationAttributesResponse = res
     "GetIdentityNotificationAttributesResponse"
     "fixture/GetIdentityNotificationAttributesResponse"
+    sES
     (Proxy :: Proxy GetIdentityNotificationAttributes)
 
 testListIdentityPoliciesResponse :: ListIdentityPoliciesResponse -> TestTree
 testListIdentityPoliciesResponse = res
     "ListIdentityPoliciesResponse"
     "fixture/ListIdentityPoliciesResponse"
+    sES
     (Proxy :: Proxy ListIdentityPolicies)
 
 testSetIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse -> TestTree
 testSetIdentityFeedbackForwardingEnabledResponse = res
     "SetIdentityFeedbackForwardingEnabledResponse"
     "fixture/SetIdentityFeedbackForwardingEnabledResponse"
+    sES
     (Proxy :: Proxy SetIdentityFeedbackForwardingEnabled)
 
 testGetIdentityVerificationAttributesResponse :: GetIdentityVerificationAttributesResponse -> TestTree
 testGetIdentityVerificationAttributesResponse = res
     "GetIdentityVerificationAttributesResponse"
     "fixture/GetIdentityVerificationAttributesResponse"
+    sES
     (Proxy :: Proxy GetIdentityVerificationAttributes)
 
 testGetIdentityPoliciesResponse :: GetIdentityPoliciesResponse -> TestTree
 testGetIdentityPoliciesResponse = res
     "GetIdentityPoliciesResponse"
     "fixture/GetIdentityPoliciesResponse"
+    sES
     (Proxy :: Proxy GetIdentityPolicies)
 
 testVerifyDomainIdentityResponse :: VerifyDomainIdentityResponse -> TestTree
 testVerifyDomainIdentityResponse = res
     "VerifyDomainIdentityResponse"
     "fixture/VerifyDomainIdentityResponse"
+    sES
     (Proxy :: Proxy VerifyDomainIdentity)
 
 testVerifyDomainDkimResponse :: VerifyDomainDkimResponse -> TestTree
 testVerifyDomainDkimResponse = res
     "VerifyDomainDkimResponse"
     "fixture/VerifyDomainDkimResponse"
+    sES
     (Proxy :: Proxy VerifyDomainDkim)
 
 testSendRawEmailResponse :: SendRawEmailResponse -> TestTree
 testSendRawEmailResponse = res
     "SendRawEmailResponse"
     "fixture/SendRawEmailResponse"
+    sES
     (Proxy :: Proxy SendRawEmail)
 
 testGetIdentityDkimAttributesResponse :: GetIdentityDkimAttributesResponse -> TestTree
 testGetIdentityDkimAttributesResponse = res
     "GetIdentityDkimAttributesResponse"
     "fixture/GetIdentityDkimAttributesResponse"
+    sES
     (Proxy :: Proxy GetIdentityDkimAttributes)
 
 testDeleteIdentityResponse :: DeleteIdentityResponse -> TestTree
 testDeleteIdentityResponse = res
     "DeleteIdentityResponse"
     "fixture/DeleteIdentityResponse"
+    sES
     (Proxy :: Proxy DeleteIdentity)
 
 testGetSendStatisticsResponse :: GetSendStatisticsResponse -> TestTree
 testGetSendStatisticsResponse = res
     "GetSendStatisticsResponse"
     "fixture/GetSendStatisticsResponse"
+    sES
     (Proxy :: Proxy GetSendStatistics)
 
 testListIdentitiesResponse :: ListIdentitiesResponse -> TestTree
 testListIdentitiesResponse = res
     "ListIdentitiesResponse"
     "fixture/ListIdentitiesResponse"
+    sES
     (Proxy :: Proxy ListIdentities)
 
 testDeleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse -> TestTree
 testDeleteVerifiedEmailAddressResponse = res
     "DeleteVerifiedEmailAddressResponse"
     "fixture/DeleteVerifiedEmailAddressResponse"
+    sES
     (Proxy :: Proxy DeleteVerifiedEmailAddress)
 
 testVerifyEmailAddressResponse :: VerifyEmailAddressResponse -> TestTree
 testVerifyEmailAddressResponse = res
     "VerifyEmailAddressResponse"
     "fixture/VerifyEmailAddressResponse"
+    sES
     (Proxy :: Proxy VerifyEmailAddress)
 
 testVerifyEmailIdentityResponse :: VerifyEmailIdentityResponse -> TestTree
 testVerifyEmailIdentityResponse = res
     "VerifyEmailIdentityResponse"
     "fixture/VerifyEmailIdentityResponse"
+    sES
     (Proxy :: Proxy VerifyEmailIdentity)
 
 testSendEmailResponse :: SendEmailResponse -> TestTree
 testSendEmailResponse = res
     "SendEmailResponse"
     "fixture/SendEmailResponse"
+    sES
     (Proxy :: Proxy SendEmail)
 
 testListVerifiedEmailAddressesResponse :: ListVerifiedEmailAddressesResponse -> TestTree
 testListVerifiedEmailAddressesResponse = res
     "ListVerifiedEmailAddressesResponse"
     "fixture/ListVerifiedEmailAddressesResponse"
+    sES
     (Proxy :: Proxy ListVerifiedEmailAddresses)
 
 testSetIdentityNotificationTopicResponse :: SetIdentityNotificationTopicResponse -> TestTree
 testSetIdentityNotificationTopicResponse = res
     "SetIdentityNotificationTopicResponse"
     "fixture/SetIdentityNotificationTopicResponse"
+    sES
     (Proxy :: Proxy SetIdentityNotificationTopic)

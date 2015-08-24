@@ -240,106 +240,124 @@ testGetOpenIdTokenResponse :: GetOpenIdTokenResponse -> TestTree
 testGetOpenIdTokenResponse = res
     "GetOpenIdTokenResponse"
     "fixture/GetOpenIdTokenResponse"
+    cognitoIdentity
     (Proxy :: Proxy GetOpenIdToken)
 
 testDescribeIdentityPoolResponse :: IdentityPool -> TestTree
 testDescribeIdentityPoolResponse = res
     "DescribeIdentityPoolResponse"
     "fixture/DescribeIdentityPoolResponse"
+    cognitoIdentity
     (Proxy :: Proxy DescribeIdentityPool)
 
 testGetOpenIdTokenForDeveloperIdentityResponse :: GetOpenIdTokenForDeveloperIdentityResponse -> TestTree
 testGetOpenIdTokenForDeveloperIdentityResponse = res
     "GetOpenIdTokenForDeveloperIdentityResponse"
     "fixture/GetOpenIdTokenForDeveloperIdentityResponse"
+    cognitoIdentity
     (Proxy :: Proxy GetOpenIdTokenForDeveloperIdentity)
 
 testUnlinkDeveloperIdentityResponse :: UnlinkDeveloperIdentityResponse -> TestTree
 testUnlinkDeveloperIdentityResponse = res
     "UnlinkDeveloperIdentityResponse"
     "fixture/UnlinkDeveloperIdentityResponse"
+    cognitoIdentity
     (Proxy :: Proxy UnlinkDeveloperIdentity)
 
 testGetCredentialsForIdentityResponse :: GetCredentialsForIdentityResponse -> TestTree
 testGetCredentialsForIdentityResponse = res
     "GetCredentialsForIdentityResponse"
     "fixture/GetCredentialsForIdentityResponse"
+    cognitoIdentity
     (Proxy :: Proxy GetCredentialsForIdentity)
 
 testListIdentityPoolsResponse :: ListIdentityPoolsResponse -> TestTree
 testListIdentityPoolsResponse = res
     "ListIdentityPoolsResponse"
     "fixture/ListIdentityPoolsResponse"
+    cognitoIdentity
     (Proxy :: Proxy ListIdentityPools)
 
 testGetIdentityPoolRolesResponse :: GetIdentityPoolRolesResponse -> TestTree
 testGetIdentityPoolRolesResponse = res
     "GetIdentityPoolRolesResponse"
     "fixture/GetIdentityPoolRolesResponse"
+    cognitoIdentity
     (Proxy :: Proxy GetIdentityPoolRoles)
 
 testDeleteIdentityPoolResponse :: DeleteIdentityPoolResponse -> TestTree
 testDeleteIdentityPoolResponse = res
     "DeleteIdentityPoolResponse"
     "fixture/DeleteIdentityPoolResponse"
+    cognitoIdentity
     (Proxy :: Proxy DeleteIdentityPool)
 
 testUpdateIdentityPoolResponse :: IdentityPool -> TestTree
 testUpdateIdentityPoolResponse = res
     "UpdateIdentityPoolResponse"
     "fixture/UpdateIdentityPoolResponse"
+    cognitoIdentity
     (Proxy :: Proxy UpdateIdentityPool)
 
 testGetIdResponse :: GetIdResponse -> TestTree
 testGetIdResponse = res
     "GetIdResponse"
     "fixture/GetIdResponse"
+    cognitoIdentity
     (Proxy :: Proxy GetId)
 
 testDeleteIdentitiesResponse :: DeleteIdentitiesResponse -> TestTree
 testDeleteIdentitiesResponse = res
     "DeleteIdentitiesResponse"
     "fixture/DeleteIdentitiesResponse"
+    cognitoIdentity
     (Proxy :: Proxy DeleteIdentities)
 
 testSetIdentityPoolRolesResponse :: SetIdentityPoolRolesResponse -> TestTree
 testSetIdentityPoolRolesResponse = res
     "SetIdentityPoolRolesResponse"
     "fixture/SetIdentityPoolRolesResponse"
+    cognitoIdentity
     (Proxy :: Proxy SetIdentityPoolRoles)
 
 testListIdentitiesResponse :: ListIdentitiesResponse -> TestTree
 testListIdentitiesResponse = res
     "ListIdentitiesResponse"
     "fixture/ListIdentitiesResponse"
+    cognitoIdentity
     (Proxy :: Proxy ListIdentities)
 
 testLookupDeveloperIdentityResponse :: LookupDeveloperIdentityResponse -> TestTree
 testLookupDeveloperIdentityResponse = res
     "LookupDeveloperIdentityResponse"
     "fixture/LookupDeveloperIdentityResponse"
+    cognitoIdentity
     (Proxy :: Proxy LookupDeveloperIdentity)
 
 testUnlinkIdentityResponse :: UnlinkIdentityResponse -> TestTree
 testUnlinkIdentityResponse = res
     "UnlinkIdentityResponse"
     "fixture/UnlinkIdentityResponse"
+    cognitoIdentity
     (Proxy :: Proxy UnlinkIdentity)
 
 testDescribeIdentityResponse :: IdentityDescription -> TestTree
 testDescribeIdentityResponse = res
     "DescribeIdentityResponse"
     "fixture/DescribeIdentityResponse"
+    cognitoIdentity
     (Proxy :: Proxy DescribeIdentity)
 
 testCreateIdentityPoolResponse :: IdentityPool -> TestTree
 testCreateIdentityPoolResponse = res
     "CreateIdentityPoolResponse"
     "fixture/CreateIdentityPoolResponse"
+    cognitoIdentity
     (Proxy :: Proxy CreateIdentityPool)
 
 testMergeDeveloperIdentitiesResponse :: MergeDeveloperIdentitiesResponse -> TestTree
 testMergeDeveloperIdentitiesResponse = res
     "MergeDeveloperIdentitiesResponse"
     "fixture/MergeDeveloperIdentitiesResponse"
+    cognitoIdentity
     (Proxy :: Proxy MergeDeveloperIdentities)

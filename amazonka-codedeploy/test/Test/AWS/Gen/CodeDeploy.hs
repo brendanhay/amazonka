@@ -394,190 +394,222 @@ testRemoveTagsFromOnPremisesInstancesResponse :: RemoveTagsFromOnPremisesInstanc
 testRemoveTagsFromOnPremisesInstancesResponse = res
     "RemoveTagsFromOnPremisesInstancesResponse"
     "fixture/RemoveTagsFromOnPremisesInstancesResponse"
+    codeDeploy
     (Proxy :: Proxy RemoveTagsFromOnPremisesInstances)
 
 testGetDeploymentResponse :: GetDeploymentResponse -> TestTree
 testGetDeploymentResponse = res
     "GetDeploymentResponse"
     "fixture/GetDeploymentResponse"
+    codeDeploy
     (Proxy :: Proxy GetDeployment)
 
 testCreateDeploymentConfigResponse :: CreateDeploymentConfigResponse -> TestTree
 testCreateDeploymentConfigResponse = res
     "CreateDeploymentConfigResponse"
     "fixture/CreateDeploymentConfigResponse"
+    codeDeploy
     (Proxy :: Proxy CreateDeploymentConfig)
 
 testUpdateDeploymentGroupResponse :: UpdateDeploymentGroupResponse -> TestTree
 testUpdateDeploymentGroupResponse = res
     "UpdateDeploymentGroupResponse"
     "fixture/UpdateDeploymentGroupResponse"
+    codeDeploy
     (Proxy :: Proxy UpdateDeploymentGroup)
 
 testDeleteDeploymentGroupResponse :: DeleteDeploymentGroupResponse -> TestTree
 testDeleteDeploymentGroupResponse = res
     "DeleteDeploymentGroupResponse"
     "fixture/DeleteDeploymentGroupResponse"
+    codeDeploy
     (Proxy :: Proxy DeleteDeploymentGroup)
 
 testListOnPremisesInstancesResponse :: ListOnPremisesInstancesResponse -> TestTree
 testListOnPremisesInstancesResponse = res
     "ListOnPremisesInstancesResponse"
     "fixture/ListOnPremisesInstancesResponse"
+    codeDeploy
     (Proxy :: Proxy ListOnPremisesInstances)
 
 testGetApplicationRevisionResponse :: GetApplicationRevisionResponse -> TestTree
 testGetApplicationRevisionResponse = res
     "GetApplicationRevisionResponse"
     "fixture/GetApplicationRevisionResponse"
+    codeDeploy
     (Proxy :: Proxy GetApplicationRevision)
 
 testDeleteDeploymentConfigResponse :: DeleteDeploymentConfigResponse -> TestTree
 testDeleteDeploymentConfigResponse = res
     "DeleteDeploymentConfigResponse"
     "fixture/DeleteDeploymentConfigResponse"
+    codeDeploy
     (Proxy :: Proxy DeleteDeploymentConfig)
 
 testGetDeploymentConfigResponse :: GetDeploymentConfigResponse -> TestTree
 testGetDeploymentConfigResponse = res
     "GetDeploymentConfigResponse"
     "fixture/GetDeploymentConfigResponse"
+    codeDeploy
     (Proxy :: Proxy GetDeploymentConfig)
 
 testCreateDeploymentResponse :: CreateDeploymentResponse -> TestTree
 testCreateDeploymentResponse = res
     "CreateDeploymentResponse"
     "fixture/CreateDeploymentResponse"
+    codeDeploy
     (Proxy :: Proxy CreateDeployment)
 
 testGetOnPremisesInstanceResponse :: GetOnPremisesInstanceResponse -> TestTree
 testGetOnPremisesInstanceResponse = res
     "GetOnPremisesInstanceResponse"
     "fixture/GetOnPremisesInstanceResponse"
+    codeDeploy
     (Proxy :: Proxy GetOnPremisesInstance)
 
 testBatchGetDeploymentsResponse :: BatchGetDeploymentsResponse -> TestTree
 testBatchGetDeploymentsResponse = res
     "BatchGetDeploymentsResponse"
     "fixture/BatchGetDeploymentsResponse"
+    codeDeploy
     (Proxy :: Proxy BatchGetDeployments)
 
 testRegisterApplicationRevisionResponse :: RegisterApplicationRevisionResponse -> TestTree
 testRegisterApplicationRevisionResponse = res
     "RegisterApplicationRevisionResponse"
     "fixture/RegisterApplicationRevisionResponse"
+    codeDeploy
     (Proxy :: Proxy RegisterApplicationRevision)
 
 testDeleteApplicationResponse :: DeleteApplicationResponse -> TestTree
 testDeleteApplicationResponse = res
     "DeleteApplicationResponse"
     "fixture/DeleteApplicationResponse"
+    codeDeploy
     (Proxy :: Proxy DeleteApplication)
 
 testUpdateApplicationResponse :: UpdateApplicationResponse -> TestTree
 testUpdateApplicationResponse = res
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse"
+    codeDeploy
     (Proxy :: Proxy UpdateApplication)
 
 testBatchGetApplicationsResponse :: BatchGetApplicationsResponse -> TestTree
 testBatchGetApplicationsResponse = res
     "BatchGetApplicationsResponse"
     "fixture/BatchGetApplicationsResponse"
+    codeDeploy
     (Proxy :: Proxy BatchGetApplications)
 
 testCreateApplicationResponse :: CreateApplicationResponse -> TestTree
 testCreateApplicationResponse = res
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse"
+    codeDeploy
     (Proxy :: Proxy CreateApplication)
 
 testDeregisterOnPremisesInstanceResponse :: DeregisterOnPremisesInstanceResponse -> TestTree
 testDeregisterOnPremisesInstanceResponse = res
     "DeregisterOnPremisesInstanceResponse"
     "fixture/DeregisterOnPremisesInstanceResponse"
+    codeDeploy
     (Proxy :: Proxy DeregisterOnPremisesInstance)
 
 testGetDeploymentInstanceResponse :: GetDeploymentInstanceResponse -> TestTree
 testGetDeploymentInstanceResponse = res
     "GetDeploymentInstanceResponse"
     "fixture/GetDeploymentInstanceResponse"
+    codeDeploy
     (Proxy :: Proxy GetDeploymentInstance)
 
 testStopDeploymentResponse :: StopDeploymentResponse -> TestTree
 testStopDeploymentResponse = res
     "StopDeploymentResponse"
     "fixture/StopDeploymentResponse"
+    codeDeploy
     (Proxy :: Proxy StopDeployment)
 
 testGetApplicationResponse :: GetApplicationResponse -> TestTree
 testGetApplicationResponse = res
     "GetApplicationResponse"
     "fixture/GetApplicationResponse"
+    codeDeploy
     (Proxy :: Proxy GetApplication)
 
 testListDeploymentGroupsResponse :: ListDeploymentGroupsResponse -> TestTree
 testListDeploymentGroupsResponse = res
     "ListDeploymentGroupsResponse"
     "fixture/ListDeploymentGroupsResponse"
+    codeDeploy
     (Proxy :: Proxy ListDeploymentGroups)
 
 testRegisterOnPremisesInstanceResponse :: RegisterOnPremisesInstanceResponse -> TestTree
 testRegisterOnPremisesInstanceResponse = res
     "RegisterOnPremisesInstanceResponse"
     "fixture/RegisterOnPremisesInstanceResponse"
+    codeDeploy
     (Proxy :: Proxy RegisterOnPremisesInstance)
 
 testBatchGetOnPremisesInstancesResponse :: BatchGetOnPremisesInstancesResponse -> TestTree
 testBatchGetOnPremisesInstancesResponse = res
     "BatchGetOnPremisesInstancesResponse"
     "fixture/BatchGetOnPremisesInstancesResponse"
+    codeDeploy
     (Proxy :: Proxy BatchGetOnPremisesInstances)
 
 testListDeploymentConfigsResponse :: ListDeploymentConfigsResponse -> TestTree
 testListDeploymentConfigsResponse = res
     "ListDeploymentConfigsResponse"
     "fixture/ListDeploymentConfigsResponse"
+    codeDeploy
     (Proxy :: Proxy ListDeploymentConfigs)
 
 testCreateDeploymentGroupResponse :: CreateDeploymentGroupResponse -> TestTree
 testCreateDeploymentGroupResponse = res
     "CreateDeploymentGroupResponse"
     "fixture/CreateDeploymentGroupResponse"
+    codeDeploy
     (Proxy :: Proxy CreateDeploymentGroup)
 
 testGetDeploymentGroupResponse :: GetDeploymentGroupResponse -> TestTree
 testGetDeploymentGroupResponse = res
     "GetDeploymentGroupResponse"
     "fixture/GetDeploymentGroupResponse"
+    codeDeploy
     (Proxy :: Proxy GetDeploymentGroup)
 
 testListDeploymentsResponse :: ListDeploymentsResponse -> TestTree
 testListDeploymentsResponse = res
     "ListDeploymentsResponse"
     "fixture/ListDeploymentsResponse"
+    codeDeploy
     (Proxy :: Proxy ListDeployments)
 
 testListApplicationRevisionsResponse :: ListApplicationRevisionsResponse -> TestTree
 testListApplicationRevisionsResponse = res
     "ListApplicationRevisionsResponse"
     "fixture/ListApplicationRevisionsResponse"
+    codeDeploy
     (Proxy :: Proxy ListApplicationRevisions)
 
 testListApplicationsResponse :: ListApplicationsResponse -> TestTree
 testListApplicationsResponse = res
     "ListApplicationsResponse"
     "fixture/ListApplicationsResponse"
+    codeDeploy
     (Proxy :: Proxy ListApplications)
 
 testAddTagsToOnPremisesInstancesResponse :: AddTagsToOnPremisesInstancesResponse -> TestTree
 testAddTagsToOnPremisesInstancesResponse = res
     "AddTagsToOnPremisesInstancesResponse"
     "fixture/AddTagsToOnPremisesInstancesResponse"
+    codeDeploy
     (Proxy :: Proxy AddTagsToOnPremisesInstances)
 
 testListDeploymentInstancesResponse :: ListDeploymentInstancesResponse -> TestTree
 testListDeploymentInstancesResponse = res
     "ListDeploymentInstancesResponse"
     "fixture/ListDeploymentInstancesResponse"
+    codeDeploy
     (Proxy :: Proxy ListDeploymentInstances)

@@ -78,9 +78,8 @@ gcId :: Lens' GetChange Text
 gcId = lens _gcId (\ s a -> s{_gcId = a});
 
 instance AWSRequest GetChange where
-        type Sv GetChange = Route53
         type Rs GetChange = GetChangeResponse
-        request = get
+        request = get route53
         response
           = receiveXML
               (\ s h x ->

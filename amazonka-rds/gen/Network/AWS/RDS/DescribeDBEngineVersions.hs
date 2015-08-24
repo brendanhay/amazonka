@@ -159,10 +159,9 @@ instance AWSPager DescribeDBEngineVersions where
             Just $ rq & ddevMarker .~ rs ^. ddevrsMarker
 
 instance AWSRequest DescribeDBEngineVersions where
-        type Sv DescribeDBEngineVersions = RDS
         type Rs DescribeDBEngineVersions =
              DescribeDBEngineVersionsResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "DescribeDBEngineVersionsResult"
               (\ s h x ->

@@ -130,10 +130,9 @@ pfatTaskList :: Lens' PollForActivityTask TaskList
 pfatTaskList = lens _pfatTaskList (\ s a -> s{_pfatTaskList = a});
 
 instance AWSRequest PollForActivityTask where
-        type Sv PollForActivityTask = SWF
         type Rs PollForActivityTask =
              PollForActivityTaskResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveJSON
               (\ s h x ->

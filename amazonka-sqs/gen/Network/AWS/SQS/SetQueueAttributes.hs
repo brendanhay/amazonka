@@ -109,10 +109,9 @@ sqaAttributes :: Lens' SetQueueAttributes (HashMap QueueAttributeName Text)
 sqaAttributes = lens _sqaAttributes (\ s a -> s{_sqaAttributes = a}) . _Map;
 
 instance AWSRequest SetQueueAttributes where
-        type Sv SetQueueAttributes = SQS
         type Rs SetQueueAttributes =
              SetQueueAttributesResponse
-        request = postQuery
+        request = postQuery sQS
         response = receiveNull SetQueueAttributesResponse'
 
 instance ToHeaders SetQueueAttributes where

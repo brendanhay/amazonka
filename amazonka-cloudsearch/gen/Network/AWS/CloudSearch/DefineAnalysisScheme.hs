@@ -84,10 +84,9 @@ dasaAnalysisScheme :: Lens' DefineAnalysisScheme AnalysisScheme
 dasaAnalysisScheme = lens _dasaAnalysisScheme (\ s a -> s{_dasaAnalysisScheme = a});
 
 instance AWSRequest DefineAnalysisScheme where
-        type Sv DefineAnalysisScheme = CloudSearch
         type Rs DefineAnalysisScheme =
              DefineAnalysisSchemeResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "DefineAnalysisSchemeResult"
               (\ s h x ->

@@ -68,9 +68,8 @@ sdDeploymentId :: Lens' StopDeployment Text
 sdDeploymentId = lens _sdDeploymentId (\ s a -> s{_sdDeploymentId = a});
 
 instance AWSRequest StopDeployment where
-        type Sv StopDeployment = CodeDeploy
         type Rs StopDeployment = StopDeploymentResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->

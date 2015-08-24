@@ -96,9 +96,8 @@ instance AWSPager DescribeStacks where
             Just $ rq & dNextToken .~ rs ^. dsrsNextToken
 
 instance AWSRequest DescribeStacks where
-        type Sv DescribeStacks = CloudFormation
         type Rs DescribeStacks = DescribeStacksResponse
-        request = postQuery
+        request = postQuery cloudFormation
         response
           = receiveXMLWrapper "DescribeStacksResult"
               (\ s h x ->

@@ -106,10 +106,9 @@ dazDryRun :: Lens' DescribeAvailabilityZones (Maybe Bool)
 dazDryRun = lens _dazDryRun (\ s a -> s{_dazDryRun = a});
 
 instance AWSRequest DescribeAvailabilityZones where
-        type Sv DescribeAvailabilityZones = EC2
         type Rs DescribeAvailabilityZones =
              DescribeAvailabilityZonesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

@@ -22,8 +22,8 @@
 -- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/api-reference.html AWS API Reference>
 module Network.AWS.ImportExport
     (
-    -- * Service
-      ImportExport
+    -- * Service Configuration
+      importExport
 
     -- * Errors
     -- $errors

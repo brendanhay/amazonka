@@ -98,10 +98,9 @@ aniDeviceIndex :: Lens' AttachNetworkInterface Int
 aniDeviceIndex = lens _aniDeviceIndex (\ s a -> s{_aniDeviceIndex = a});
 
 instance AWSRequest AttachNetworkInterface where
-        type Sv AttachNetworkInterface = EC2
         type Rs AttachNetworkInterface =
              AttachNetworkInterfaceResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

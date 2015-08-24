@@ -109,10 +109,9 @@ cvpcDryRun :: Lens' CreateVPCPeeringConnection (Maybe Bool)
 cvpcDryRun = lens _cvpcDryRun (\ s a -> s{_cvpcDryRun = a});
 
 instance AWSRequest CreateVPCPeeringConnection where
-        type Sv CreateVPCPeeringConnection = EC2
         type Rs CreateVPCPeeringConnection =
              CreateVPCPeeringConnectionResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

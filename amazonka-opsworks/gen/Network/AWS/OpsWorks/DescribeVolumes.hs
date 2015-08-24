@@ -105,9 +105,8 @@ dvStackId :: Lens' DescribeVolumes (Maybe Text)
 dvStackId = lens _dvStackId (\ s a -> s{_dvStackId = a});
 
 instance AWSRequest DescribeVolumes where
-        type Sv DescribeVolumes = OpsWorks
         type Rs DescribeVolumes = DescribeVolumesResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

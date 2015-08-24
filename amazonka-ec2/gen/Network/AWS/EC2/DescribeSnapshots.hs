@@ -231,9 +231,8 @@ instance AWSPager DescribeSnapshots where
             Just $ rq & dssNextToken .~ rs ^. dssrsNextToken
 
 instance AWSRequest DescribeSnapshots where
-        type Sv DescribeSnapshots = EC2
         type Rs DescribeSnapshots = DescribeSnapshotsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

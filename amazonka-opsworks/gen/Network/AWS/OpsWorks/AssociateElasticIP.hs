@@ -81,10 +81,9 @@ aeiElasticIP :: Lens' AssociateElasticIP Text
 aeiElasticIP = lens _aeiElasticIP (\ s a -> s{_aeiElasticIP = a});
 
 instance AWSRequest AssociateElasticIP where
-        type Sv AssociateElasticIP = OpsWorks
         type Rs AssociateElasticIP =
              AssociateElasticIPResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull AssociateElasticIPResponse'
 
 instance ToHeaders AssociateElasticIP where

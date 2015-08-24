@@ -98,10 +98,9 @@ adoVPCId :: Lens' AssociateDHCPOptions Text
 adoVPCId = lens _adoVPCId (\ s a -> s{_adoVPCId = a});
 
 instance AWSRequest AssociateDHCPOptions where
-        type Sv AssociateDHCPOptions = EC2
         type Rs AssociateDHCPOptions =
              AssociateDHCPOptionsResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull AssociateDHCPOptionsResponse'
 
 instance ToHeaders AssociateDHCPOptions where

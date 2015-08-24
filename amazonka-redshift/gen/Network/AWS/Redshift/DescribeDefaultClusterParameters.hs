@@ -126,10 +126,9 @@ instance AWSPager DescribeDefaultClusterParameters
 
 instance AWSRequest DescribeDefaultClusterParameters
          where
-        type Sv DescribeDefaultClusterParameters = Redshift
         type Rs DescribeDefaultClusterParameters =
              DescribeDefaultClusterParametersResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "DescribeDefaultClusterParametersResult"

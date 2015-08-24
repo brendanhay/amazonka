@@ -162,10 +162,9 @@ instance AWSPager DescribeClusterParameterGroups
 
 instance AWSRequest DescribeClusterParameterGroups
          where
-        type Sv DescribeClusterParameterGroups = Redshift
         type Rs DescribeClusterParameterGroups =
              DescribeClusterParameterGroupsResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "DescribeClusterParameterGroupsResult"

@@ -126,10 +126,9 @@ ccpgDescription :: Lens' CreateClusterParameterGroup Text
 ccpgDescription = lens _ccpgDescription (\ s a -> s{_ccpgDescription = a});
 
 instance AWSRequest CreateClusterParameterGroup where
-        type Sv CreateClusterParameterGroup = Redshift
         type Rs CreateClusterParameterGroup =
              CreateClusterParameterGroupResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "CreateClusterParameterGroupResult"

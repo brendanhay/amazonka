@@ -78,11 +78,9 @@ davsApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
 davsApplicationName = lens _davsApplicationName (\ s a -> s{_davsApplicationName = a});
 
 instance AWSRequest DescribeApplicationVersions where
-        type Sv DescribeApplicationVersions =
-             ElasticBeanstalk
         type Rs DescribeApplicationVersions =
              DescribeApplicationVersionsResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper
               "DescribeApplicationVersionsResult"

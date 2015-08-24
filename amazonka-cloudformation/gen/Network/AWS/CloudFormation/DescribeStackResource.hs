@@ -90,10 +90,9 @@ desLogicalResourceId :: Lens' DescribeStackResource Text
 desLogicalResourceId = lens _desLogicalResourceId (\ s a -> s{_desLogicalResourceId = a});
 
 instance AWSRequest DescribeStackResource where
-        type Sv DescribeStackResource = CloudFormation
         type Rs DescribeStackResource =
              DescribeStackResourceResponse
-        request = postQuery
+        request = postQuery cloudFormation
         response
           = receiveXMLWrapper "DescribeStackResourceResult"
               (\ s h x ->

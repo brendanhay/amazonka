@@ -107,9 +107,8 @@ instance AWSPager ListOperations where
             Just $ rq & loMarker .~ rs ^. lorsNextPageMarker
 
 instance AWSRequest ListOperations where
-        type Sv ListOperations = Route53Domains
         type Rs ListOperations = ListOperationsResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveJSON
               (\ s h x ->

@@ -66,10 +66,9 @@ gbvBucket :: Lens' GetBucketVersioning BucketName
 gbvBucket = lens _gbvBucket (\ s a -> s{_gbvBucket = a});
 
 instance AWSRequest GetBucketVersioning where
-        type Sv GetBucketVersioning = S3
         type Rs GetBucketVersioning =
              GetBucketVersioningResponse
-        request = get
+        request = get s3
         response
           = receiveXML
               (\ s h x ->

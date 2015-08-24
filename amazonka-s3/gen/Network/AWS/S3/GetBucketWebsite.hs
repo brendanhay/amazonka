@@ -69,9 +69,8 @@ gbwBucket :: Lens' GetBucketWebsite BucketName
 gbwBucket = lens _gbwBucket (\ s a -> s{_gbwBucket = a});
 
 instance AWSRequest GetBucketWebsite where
-        type Sv GetBucketWebsite = S3
         type Rs GetBucketWebsite = GetBucketWebsiteResponse
-        request = get
+        request = get s3
         response
           = receiveXML
               (\ s h x ->

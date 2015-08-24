@@ -77,10 +77,9 @@ ddbcpgDBClusterParameterGroupName = lens _ddbcpgDBClusterParameterGroupName (\ s
 
 instance AWSRequest DeleteDBClusterParameterGroup
          where
-        type Sv DeleteDBClusterParameterGroup = RDS
         type Rs DeleteDBClusterParameterGroup =
              DeleteDBClusterParameterGroupResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveNull DeleteDBClusterParameterGroupResponse'
 

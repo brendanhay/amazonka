@@ -276,10 +276,9 @@ mrgReplicationGroupId :: Lens' ModifyReplicationGroup Text
 mrgReplicationGroupId = lens _mrgReplicationGroupId (\ s a -> s{_mrgReplicationGroupId = a});
 
 instance AWSRequest ModifyReplicationGroup where
-        type Sv ModifyReplicationGroup = ElastiCache
         type Rs ModifyReplicationGroup =
              ModifyReplicationGroupResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "ModifyReplicationGroupResult"
               (\ s h x ->

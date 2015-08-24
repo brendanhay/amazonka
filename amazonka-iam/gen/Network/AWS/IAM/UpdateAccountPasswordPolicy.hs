@@ -174,10 +174,9 @@ uappAllowUsersToChangePassword :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappAllowUsersToChangePassword = lens _uappAllowUsersToChangePassword (\ s a -> s{_uappAllowUsersToChangePassword = a});
 
 instance AWSRequest UpdateAccountPasswordPolicy where
-        type Sv UpdateAccountPasswordPolicy = IAM
         type Rs UpdateAccountPasswordPolicy =
              UpdateAccountPasswordPolicyResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveNull UpdateAccountPasswordPolicyResponse'
 

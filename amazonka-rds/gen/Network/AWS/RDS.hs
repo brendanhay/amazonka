@@ -43,8 +43,8 @@
 -- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.RDS
     (
-    -- * Service
-      RDS
+    -- * Service Configuration
+      rDS
 
     -- * Errors
     -- $errors

@@ -84,9 +84,8 @@ dpPolicyARN :: Lens' DeletePolicy Text
 dpPolicyARN = lens _dpPolicyARN (\ s a -> s{_dpPolicyARN = a});
 
 instance AWSRequest DeletePolicy where
-        type Sv DeletePolicy = IAM
         type Rs DeletePolicy = DeletePolicyResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull DeletePolicyResponse'
 
 instance ToHeaders DeletePolicy where

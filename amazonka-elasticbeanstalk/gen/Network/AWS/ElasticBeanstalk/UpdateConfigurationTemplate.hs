@@ -132,11 +132,9 @@ uctTemplateName :: Lens' UpdateConfigurationTemplate Text
 uctTemplateName = lens _uctTemplateName (\ s a -> s{_uctTemplateName = a});
 
 instance AWSRequest UpdateConfigurationTemplate where
-        type Sv UpdateConfigurationTemplate =
-             ElasticBeanstalk
         type Rs UpdateConfigurationTemplate =
              ConfigurationSettingsDescription
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper
               "UpdateConfigurationTemplateResult"

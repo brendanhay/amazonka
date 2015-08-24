@@ -80,10 +80,9 @@ dciContainerInstances :: Lens' DescribeContainerInstances [Text]
 dciContainerInstances = lens _dciContainerInstances (\ s a -> s{_dciContainerInstances = a}) . _Coerce;
 
 instance AWSRequest DescribeContainerInstances where
-        type Sv DescribeContainerInstances = ECS
         type Rs DescribeContainerInstances =
              DescribeContainerInstancesResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

@@ -150,10 +150,9 @@ dsgsDryRun :: Lens' DescribeSecurityGroups (Maybe Bool)
 dsgsDryRun = lens _dsgsDryRun (\ s a -> s{_dsgsDryRun = a});
 
 instance AWSRequest DescribeSecurityGroups where
-        type Sv DescribeSecurityGroups = EC2
         type Rs DescribeSecurityGroups =
              DescribeSecurityGroupsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

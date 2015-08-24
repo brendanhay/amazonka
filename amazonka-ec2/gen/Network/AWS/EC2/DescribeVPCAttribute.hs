@@ -90,10 +90,9 @@ dvpcaVPCId :: Lens' DescribeVPCAttribute Text
 dvpcaVPCId = lens _dvpcaVPCId (\ s a -> s{_dvpcaVPCId = a});
 
 instance AWSRequest DescribeVPCAttribute where
-        type Sv DescribeVPCAttribute = EC2
         type Rs DescribeVPCAttribute =
              DescribeVPCAttributeResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

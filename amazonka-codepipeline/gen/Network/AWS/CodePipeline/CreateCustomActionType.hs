@@ -132,10 +132,9 @@ ccatOutputArtifactDetails :: Lens' CreateCustomActionType ArtifactDetails
 ccatOutputArtifactDetails = lens _ccatOutputArtifactDetails (\ s a -> s{_ccatOutputArtifactDetails = a});
 
 instance AWSRequest CreateCustomActionType where
-        type Sv CreateCustomActionType = CodePipeline
         type Rs CreateCustomActionType =
              CreateCustomActionTypeResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->

@@ -123,10 +123,9 @@ instance AWSPager DescribeEngineDefaultParameters
 
 instance AWSRequest DescribeEngineDefaultParameters
          where
-        type Sv DescribeEngineDefaultParameters = RDS
         type Rs DescribeEngineDefaultParameters =
              DescribeEngineDefaultParametersResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "DescribeEngineDefaultParametersResult"

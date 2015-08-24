@@ -80,9 +80,8 @@ agpPolicyARN :: Lens' AttachGroupPolicy Text
 agpPolicyARN = lens _agpPolicyARN (\ s a -> s{_agpPolicyARN = a});
 
 instance AWSRequest AttachGroupPolicy where
-        type Sv AttachGroupPolicy = IAM
         type Rs AttachGroupPolicy = AttachGroupPolicyResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull AttachGroupPolicyResponse'
 
 instance ToHeaders AttachGroupPolicy where

@@ -84,10 +84,9 @@ ddtlDomainName :: Lens' DisableDomainTransferLock Text
 ddtlDomainName = lens _ddtlDomainName (\ s a -> s{_ddtlDomainName = a});
 
 instance AWSRequest DisableDomainTransferLock where
-        type Sv DisableDomainTransferLock = Route53Domains
         type Rs DisableDomainTransferLock =
              DisableDomainTransferLockResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveJSON
               (\ s h x ->

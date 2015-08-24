@@ -82,10 +82,9 @@ rcifoicpClientId = lens _rcifoicpClientId (\ s a -> s{_rcifoicpClientId = a});
 
 instance AWSRequest
          RemoveClientIdFromOpenIdConnectProvider where
-        type Sv RemoveClientIdFromOpenIdConnectProvider = IAM
         type Rs RemoveClientIdFromOpenIdConnectProvider =
              RemoveClientIdFromOpenIdConnectProviderResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveNull
               RemoveClientIdFromOpenIdConnectProviderResponse'

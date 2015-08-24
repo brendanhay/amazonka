@@ -194,9 +194,8 @@ ccCommunicationBody :: Lens' CreateCase Text
 ccCommunicationBody = lens _ccCommunicationBody (\ s a -> s{_ccCommunicationBody = a});
 
 instance AWSRequest CreateCase where
-        type Sv CreateCase = Support
         type Rs CreateCase = CreateCaseResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveJSON
               (\ s h x ->

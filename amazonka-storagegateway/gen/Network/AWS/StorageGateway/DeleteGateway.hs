@@ -85,9 +85,8 @@ dgGatewayARN :: Lens' DeleteGateway Text
 dgGatewayARN = lens _dgGatewayARN (\ s a -> s{_dgGatewayARN = a});
 
 instance AWSRequest DeleteGateway where
-        type Sv DeleteGateway = StorageGateway
         type Rs DeleteGateway = DeleteGatewayResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

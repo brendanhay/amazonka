@@ -70,10 +70,9 @@ csdStreamingDistributionConfig :: Lens' CreateStreamingDistribution StreamingDis
 csdStreamingDistributionConfig = lens _csdStreamingDistributionConfig (\ s a -> s{_csdStreamingDistributionConfig = a});
 
 instance AWSRequest CreateStreamingDistribution where
-        type Sv CreateStreamingDistribution = CloudFront
         type Rs CreateStreamingDistribution =
              CreateStreamingDistributionResponse
-        request = postXML
+        request = postXML cloudFront
         response
           = receiveXML
               (\ s h x ->

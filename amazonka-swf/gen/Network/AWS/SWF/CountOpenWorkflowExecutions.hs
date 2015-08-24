@@ -144,10 +144,9 @@ coweStartTimeFilter :: Lens' CountOpenWorkflowExecutions ExecutionTimeFilter
 coweStartTimeFilter = lens _coweStartTimeFilter (\ s a -> s{_coweStartTimeFilter = a});
 
 instance AWSRequest CountOpenWorkflowExecutions where
-        type Sv CountOpenWorkflowExecutions = SWF
         type Rs CountOpenWorkflowExecutions =
              WorkflowExecutionCount
-        request = postJSON
+        request = postJSON sWF
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CountOpenWorkflowExecutions where

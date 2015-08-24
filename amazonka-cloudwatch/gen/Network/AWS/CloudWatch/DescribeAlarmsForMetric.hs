@@ -113,10 +113,9 @@ dafmNamespace :: Lens' DescribeAlarmsForMetric Text
 dafmNamespace = lens _dafmNamespace (\ s a -> s{_dafmNamespace = a});
 
 instance AWSRequest DescribeAlarmsForMetric where
-        type Sv DescribeAlarmsForMetric = CloudWatch
         type Rs DescribeAlarmsForMetric =
              DescribeAlarmsForMetricResponse
-        request = postQuery
+        request = postQuery cloudWatch
         response
           = receiveXMLWrapper "DescribeAlarmsForMetricResult"
               (\ s h x ->

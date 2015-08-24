@@ -123,10 +123,9 @@ gdkwpKeyId = lens _gdkwpKeyId (\ s a -> s{_gdkwpKeyId = a});
 
 instance AWSRequest GenerateDataKeyWithoutPlaintext
          where
-        type Sv GenerateDataKeyWithoutPlaintext = KMS
         type Rs GenerateDataKeyWithoutPlaintext =
              GenerateDataKeyWithoutPlaintextResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->

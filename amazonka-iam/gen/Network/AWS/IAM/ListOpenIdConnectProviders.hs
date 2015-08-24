@@ -53,10 +53,9 @@ listOpenIdConnectProviders
 listOpenIdConnectProviders = ListOpenIdConnectProviders'
 
 instance AWSRequest ListOpenIdConnectProviders where
-        type Sv ListOpenIdConnectProviders = IAM
         type Rs ListOpenIdConnectProviders =
              ListOpenIdConnectProvidersResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper
               "ListOpenIDConnectProvidersResult"

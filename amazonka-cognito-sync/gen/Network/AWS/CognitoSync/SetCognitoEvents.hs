@@ -83,9 +83,8 @@ sceEvents :: Lens' SetCognitoEvents (HashMap Text Text)
 sceEvents = lens _sceEvents (\ s a -> s{_sceEvents = a}) . _Map;
 
 instance AWSRequest SetCognitoEvents where
-        type Sv SetCognitoEvents = CognitoSync
         type Rs SetCognitoEvents = SetCognitoEventsResponse
-        request = postJSON
+        request = postJSON cognitoSync
         response = receiveNull SetCognitoEventsResponse'
 
 instance ToHeaders SetCognitoEvents where

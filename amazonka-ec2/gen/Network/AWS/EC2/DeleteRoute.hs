@@ -86,9 +86,8 @@ drDestinationCIdRBlock :: Lens' DeleteRoute Text
 drDestinationCIdRBlock = lens _drDestinationCIdRBlock (\ s a -> s{_drDestinationCIdRBlock = a});
 
 instance AWSRequest DeleteRoute where
-        type Sv DeleteRoute = EC2
         type Rs DeleteRoute = DeleteRouteResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull DeleteRouteResponse'
 
 instance ToHeaders DeleteRoute where

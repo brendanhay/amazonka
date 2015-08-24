@@ -93,9 +93,8 @@ instance AWSPager ListDomains where
             Just $ rq & ldNextToken .~ rs ^. ldrsNextToken
 
 instance AWSRequest ListDomains where
-        type Sv ListDomains = SDB
         type Rs ListDomains = ListDomainsResponse
-        request = postQuery
+        request = postQuery sDB
         response
           = receiveXMLWrapper "ListDomainsResult"
               (\ s h x ->

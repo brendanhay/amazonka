@@ -80,10 +80,9 @@ dspkSSHPublicKeyId :: Lens' DeleteSSHPublicKey Text
 dspkSSHPublicKeyId = lens _dspkSSHPublicKeyId (\ s a -> s{_dspkSSHPublicKeyId = a});
 
 instance AWSRequest DeleteSSHPublicKey where
-        type Sv DeleteSSHPublicKey = IAM
         type Rs DeleteSSHPublicKey =
              DeleteSSHPublicKeyResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull DeleteSSHPublicKeyResponse'
 
 instance ToHeaders DeleteSSHPublicKey where

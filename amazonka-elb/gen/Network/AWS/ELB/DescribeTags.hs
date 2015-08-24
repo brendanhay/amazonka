@@ -66,9 +66,8 @@ dtLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
 dtLoadBalancerNames = lens _dtLoadBalancerNames (\ s a -> s{_dtLoadBalancerNames = a}) . _List1;
 
 instance AWSRequest DescribeTags where
-        type Sv DescribeTags = ELB
         type Rs DescribeTags = DescribeTagsResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper "DescribeTagsResult"
               (\ s h x ->

@@ -66,10 +66,9 @@ gbrBucket :: Lens' GetBucketReplication BucketName
 gbrBucket = lens _gbrBucket (\ s a -> s{_gbrBucket = a});
 
 instance AWSRequest GetBucketReplication where
-        type Sv GetBucketReplication = S3
         type Rs GetBucketReplication =
              GetBucketReplicationResponse
-        request = get
+        request = get s3
         response
           = receiveXML
               (\ s h x ->

@@ -68,10 +68,9 @@ gsaSubscriptionARN :: Lens' GetSubscriptionAttributes Text
 gsaSubscriptionARN = lens _gsaSubscriptionARN (\ s a -> s{_gsaSubscriptionARN = a});
 
 instance AWSRequest GetSubscriptionAttributes where
-        type Sv GetSubscriptionAttributes = SNS
         type Rs GetSubscriptionAttributes =
              GetSubscriptionAttributesResponse
-        request = postQuery
+        request = postQuery sNS
         response
           = receiveXMLWrapper "GetSubscriptionAttributesResult"
               (\ s h x ->

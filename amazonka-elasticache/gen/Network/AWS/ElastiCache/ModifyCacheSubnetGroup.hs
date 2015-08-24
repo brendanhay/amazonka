@@ -93,10 +93,9 @@ mcsgCacheSubnetGroupName :: Lens' ModifyCacheSubnetGroup Text
 mcsgCacheSubnetGroupName = lens _mcsgCacheSubnetGroupName (\ s a -> s{_mcsgCacheSubnetGroupName = a});
 
 instance AWSRequest ModifyCacheSubnetGroup where
-        type Sv ModifyCacheSubnetGroup = ElastiCache
         type Rs ModifyCacheSubnetGroup =
              ModifyCacheSubnetGroupResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "ModifyCacheSubnetGroupResult"
               (\ s h x ->

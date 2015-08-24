@@ -124,10 +124,9 @@ instance AWSPager DescribeAlarmHistory where
             Just $ rq & dahNextToken .~ rs ^. dahrsNextToken
 
 instance AWSRequest DescribeAlarmHistory where
-        type Sv DescribeAlarmHistory = CloudWatch
         type Rs DescribeAlarmHistory =
              DescribeAlarmHistoryResponse
-        request = postQuery
+        request = postQuery cloudWatch
         response
           = receiveXMLWrapper "DescribeAlarmHistoryResult"
               (\ s h x ->

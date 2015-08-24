@@ -98,10 +98,9 @@ cpviNewPublicVirtualInterface = lens _cpviNewPublicVirtualInterface (\ s a -> s{
 
 instance AWSRequest CreatePublicVirtualInterface
          where
-        type Sv CreatePublicVirtualInterface = DirectConnect
         type Rs CreatePublicVirtualInterface =
              VirtualInterface
-        request = postJSON
+        request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreatePublicVirtualInterface where

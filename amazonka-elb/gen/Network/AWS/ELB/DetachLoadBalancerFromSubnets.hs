@@ -82,10 +82,9 @@ dlbfsSubnets = lens _dlbfsSubnets (\ s a -> s{_dlbfsSubnets = a}) . _Coerce;
 
 instance AWSRequest DetachLoadBalancerFromSubnets
          where
-        type Sv DetachLoadBalancerFromSubnets = ELB
         type Rs DetachLoadBalancerFromSubnets =
              DetachLoadBalancerFromSubnetsResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper
               "DetachLoadBalancerFromSubnetsResult"

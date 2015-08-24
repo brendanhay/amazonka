@@ -115,9 +115,8 @@ instance AWSPager ListAccessKeys where
             Just $ rq & lakMarker .~ rs ^. lakrsMarker
 
 instance AWSRequest ListAccessKeys where
-        type Sv ListAccessKeys = IAM
         type Rs ListAccessKeys = ListAccessKeysResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListAccessKeysResult"
               (\ s h x ->

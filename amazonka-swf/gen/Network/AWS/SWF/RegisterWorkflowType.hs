@@ -237,10 +237,9 @@ rwtVersion :: Lens' RegisterWorkflowType Text
 rwtVersion = lens _rwtVersion (\ s a -> s{_rwtVersion = a});
 
 instance AWSRequest RegisterWorkflowType where
-        type Sv RegisterWorkflowType = SWF
         type Rs RegisterWorkflowType =
              RegisterWorkflowTypeResponse
-        request = postJSON
+        request = postJSON sWF
         response = receiveNull RegisterWorkflowTypeResponse'
 
 instance ToHeaders RegisterWorkflowType where

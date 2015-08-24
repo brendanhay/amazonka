@@ -95,9 +95,8 @@ esDirectoryId :: Lens' EnableSSO Text
 esDirectoryId = lens _esDirectoryId (\ s a -> s{_esDirectoryId = a});
 
 instance AWSRequest EnableSSO where
-        type Sv EnableSSO = DirectoryService
         type Rs EnableSSO = EnableSSOResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveEmpty
               (\ s h x ->

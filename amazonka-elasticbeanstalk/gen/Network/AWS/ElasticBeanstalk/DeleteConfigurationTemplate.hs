@@ -80,11 +80,9 @@ dctTemplateName :: Lens' DeleteConfigurationTemplate Text
 dctTemplateName = lens _dctTemplateName (\ s a -> s{_dctTemplateName = a});
 
 instance AWSRequest DeleteConfigurationTemplate where
-        type Sv DeleteConfigurationTemplate =
-             ElasticBeanstalk
         type Rs DeleteConfigurationTemplate =
              DeleteConfigurationTemplateResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveNull DeleteConfigurationTemplateResponse'
 

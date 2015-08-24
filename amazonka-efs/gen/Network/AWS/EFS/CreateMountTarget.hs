@@ -199,9 +199,8 @@ cmtSubnetId :: Lens' CreateMountTarget Text
 cmtSubnetId = lens _cmtSubnetId (\ s a -> s{_cmtSubnetId = a});
 
 instance AWSRequest CreateMountTarget where
-        type Sv CreateMountTarget = EFS
         type Rs CreateMountTarget = MountTargetDescription
-        request = postJSON
+        request = postJSON eFS
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreateMountTarget where

@@ -117,10 +117,9 @@ dbtDryRun :: Lens' DescribeBundleTasks (Maybe Bool)
 dbtDryRun = lens _dbtDryRun (\ s a -> s{_dbtDryRun = a});
 
 instance AWSRequest DescribeBundleTasks where
-        type Sv DescribeBundleTasks = EC2
         type Rs DescribeBundleTasks =
              DescribeBundleTasksResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

@@ -80,10 +80,9 @@ delBandwidthType :: Lens' DeleteBandwidthRateLimit Text
 delBandwidthType = lens _delBandwidthType (\ s a -> s{_delBandwidthType = a});
 
 instance AWSRequest DeleteBandwidthRateLimit where
-        type Sv DeleteBandwidthRateLimit = StorageGateway
         type Rs DeleteBandwidthRateLimit =
              DeleteBandwidthRateLimitResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

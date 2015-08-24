@@ -72,10 +72,9 @@ ddbpgDBParameterGroupName :: Lens' DeleteDBParameterGroup Text
 ddbpgDBParameterGroupName = lens _ddbpgDBParameterGroupName (\ s a -> s{_ddbpgDBParameterGroupName = a});
 
 instance AWSRequest DeleteDBParameterGroup where
-        type Sv DeleteDBParameterGroup = RDS
         type Rs DeleteDBParameterGroup =
              DeleteDBParameterGroupResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveNull DeleteDBParameterGroupResponse'
 

@@ -255,9 +255,8 @@ upId :: Lens' UpdatePipeline Text
 upId = lens _upId (\ s a -> s{_upId = a});
 
 instance AWSRequest UpdatePipeline where
-        type Sv UpdatePipeline = ElasticTranscoder
         type Rs UpdatePipeline = UpdatePipelineResponse
-        request = putJSON
+        request = putJSON elasticTranscoder
         response
           = receiveJSON
               (\ s h x ->

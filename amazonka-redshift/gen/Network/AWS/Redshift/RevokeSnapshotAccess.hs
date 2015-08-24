@@ -97,10 +97,9 @@ rsaAccountWithRestoreAccess :: Lens' RevokeSnapshotAccess Text
 rsaAccountWithRestoreAccess = lens _rsaAccountWithRestoreAccess (\ s a -> s{_rsaAccountWithRestoreAccess = a});
 
 instance AWSRequest RevokeSnapshotAccess where
-        type Sv RevokeSnapshotAccess = Redshift
         type Rs RevokeSnapshotAccess =
              RevokeSnapshotAccessResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "RevokeSnapshotAccessResult"
               (\ s h x ->

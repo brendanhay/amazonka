@@ -94,10 +94,9 @@ riaAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
 riaAttribute = lens _riaAttribute (\ s a -> s{_riaAttribute = a});
 
 instance AWSRequest ResetInstanceAttribute where
-        type Sv ResetInstanceAttribute = EC2
         type Rs ResetInstanceAttribute =
              ResetInstanceAttributeResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveNull ResetInstanceAttributeResponse'
 

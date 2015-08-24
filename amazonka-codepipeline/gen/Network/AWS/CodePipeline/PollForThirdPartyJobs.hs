@@ -83,10 +83,9 @@ pftpjActionTypeId :: Lens' PollForThirdPartyJobs ActionTypeId
 pftpjActionTypeId = lens _pftpjActionTypeId (\ s a -> s{_pftpjActionTypeId = a});
 
 instance AWSRequest PollForThirdPartyJobs where
-        type Sv PollForThirdPartyJobs = CodePipeline
         type Rs PollForThirdPartyJobs =
              PollForThirdPartyJobsResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->

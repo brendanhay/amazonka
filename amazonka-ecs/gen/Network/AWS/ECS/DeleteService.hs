@@ -75,9 +75,8 @@ dsService :: Lens' DeleteService Text
 dsService = lens _dsService (\ s a -> s{_dsService = a});
 
 instance AWSRequest DeleteService where
-        type Sv DeleteService = ECS
         type Rs DeleteService = DeleteServiceResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

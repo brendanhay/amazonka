@@ -40,8 +40,8 @@
 -- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/Welcome.html AWS API Reference>
 module Network.AWS.ElasticBeanstalk
     (
-    -- * Service
-      ElasticBeanstalk
+    -- * Service Configuration
+      elasticBeanstalk
 
     -- * Errors
     -- $errors

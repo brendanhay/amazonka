@@ -73,9 +73,8 @@ gpsName :: Lens' GetPipelineState Text
 gpsName = lens _gpsName (\ s a -> s{_gpsName = a});
 
 instance AWSRequest GetPipelineState where
-        type Sv GetPipelineState = CodePipeline
         type Rs GetPipelineState = GetPipelineStateResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->

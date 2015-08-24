@@ -81,10 +81,9 @@ dvpcVPCPeeringConnectionId :: Lens' DeleteVPCPeeringConnection Text
 dvpcVPCPeeringConnectionId = lens _dvpcVPCPeeringConnectionId (\ s a -> s{_dvpcVPCPeeringConnectionId = a});
 
 instance AWSRequest DeleteVPCPeeringConnection where
-        type Sv DeleteVPCPeeringConnection = EC2
         type Rs DeleteVPCPeeringConnection =
              DeleteVPCPeeringConnectionResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

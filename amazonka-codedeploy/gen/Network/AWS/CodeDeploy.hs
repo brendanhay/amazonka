@@ -76,8 +76,8 @@
 -- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CodeDeploy
     (
-    -- * Service
-      CodeDeploy
+    -- * Service Configuration
+      codeDeploy
 
     -- * Errors
     -- $errors

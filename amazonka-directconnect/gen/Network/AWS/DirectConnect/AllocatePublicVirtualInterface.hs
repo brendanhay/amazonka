@@ -118,11 +118,9 @@ aNewPublicVirtualInterfaceAllocation = lens _aNewPublicVirtualInterfaceAllocatio
 
 instance AWSRequest AllocatePublicVirtualInterface
          where
-        type Sv AllocatePublicVirtualInterface =
-             DirectConnect
         type Rs AllocatePublicVirtualInterface =
              VirtualInterface
-        request = postJSON
+        request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders AllocatePublicVirtualInterface

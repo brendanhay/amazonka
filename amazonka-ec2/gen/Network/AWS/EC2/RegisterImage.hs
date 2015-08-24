@@ -201,9 +201,8 @@ riName :: Lens' RegisterImage Text
 riName = lens _riName (\ s a -> s{_riName = a});
 
 instance AWSRequest RegisterImage where
-        type Sv RegisterImage = EC2
         type Rs RegisterImage = RegisterImageResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

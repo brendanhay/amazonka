@@ -25,8 +25,8 @@
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html AWS API Reference>
 module Network.AWS.Lambda
     (
-    -- * Service
-      Lambda
+    -- * Service Configuration
+      lambda
 
     -- * Errors
     -- $errors

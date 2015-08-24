@@ -117,9 +117,8 @@ instance AWSPager DescribePolicies where
             Just $ rq & dpsNextToken .~ rs ^. dprsNextToken
 
 instance AWSRequest DescribePolicies where
-        type Sv DescribePolicies = AutoScaling
         type Rs DescribePolicies = DescribePoliciesResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "DescribePoliciesResult"
               (\ s h x ->

@@ -113,10 +113,9 @@ decEcsClusterARNs :: Lens' DescribeEcsClusters [Text]
 decEcsClusterARNs = lens _decEcsClusterARNs (\ s a -> s{_decEcsClusterARNs = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeEcsClusters where
-        type Sv DescribeEcsClusters = OpsWorks
         type Rs DescribeEcsClusters =
              DescribeEcsClustersResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

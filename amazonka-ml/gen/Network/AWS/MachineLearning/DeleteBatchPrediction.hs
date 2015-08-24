@@ -75,10 +75,9 @@ dbpBatchPredictionId :: Lens' DeleteBatchPrediction Text
 dbpBatchPredictionId = lens _dbpBatchPredictionId (\ s a -> s{_dbpBatchPredictionId = a});
 
 instance AWSRequest DeleteBatchPrediction where
-        type Sv DeleteBatchPrediction = MachineLearning
         type Rs DeleteBatchPrediction =
              DeleteBatchPredictionResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

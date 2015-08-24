@@ -70,10 +70,9 @@ gakluAccessKeyId :: Lens' GetAccessKeyLastUsed Text
 gakluAccessKeyId = lens _gakluAccessKeyId (\ s a -> s{_gakluAccessKeyId = a});
 
 instance AWSRequest GetAccessKeyLastUsed where
-        type Sv GetAccessKeyLastUsed = IAM
         type Rs GetAccessKeyLastUsed =
              GetAccessKeyLastUsedResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "GetAccessKeyLastUsedResult"
               (\ s h x ->

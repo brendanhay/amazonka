@@ -104,10 +104,9 @@ datActivityType :: Lens' DescribeActivityType ActivityType
 datActivityType = lens _datActivityType (\ s a -> s{_datActivityType = a});
 
 instance AWSRequest DescribeActivityType where
-        type Sv DescribeActivityType = SWF
         type Rs DescribeActivityType =
              DescribeActivityTypeResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveJSON
               (\ s h x ->

@@ -94,9 +94,8 @@ instance AWSPager ListTables where
                 rs ^. ltrsLastEvaluatedTableName
 
 instance AWSRequest ListTables where
-        type Sv ListTables = DynamoDB
         type Rs ListTables = ListTablesResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->

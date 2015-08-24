@@ -108,10 +108,9 @@ umstDayOfWeek :: Lens' UpdateMaintenanceStartTime Natural
 umstDayOfWeek = lens _umstDayOfWeek (\ s a -> s{_umstDayOfWeek = a}) . _Nat;
 
 instance AWSRequest UpdateMaintenanceStartTime where
-        type Sv UpdateMaintenanceStartTime = StorageGateway
         type Rs UpdateMaintenanceStartTime =
              UpdateMaintenanceStartTimeResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

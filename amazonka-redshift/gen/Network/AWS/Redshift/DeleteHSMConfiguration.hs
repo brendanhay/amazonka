@@ -65,10 +65,9 @@ dhcHSMConfigurationIdentifier :: Lens' DeleteHSMConfiguration Text
 dhcHSMConfigurationIdentifier = lens _dhcHSMConfigurationIdentifier (\ s a -> s{_dhcHSMConfigurationIdentifier = a});
 
 instance AWSRequest DeleteHSMConfiguration where
-        type Sv DeleteHSMConfiguration = Redshift
         type Rs DeleteHSMConfiguration =
              DeleteHSMConfigurationResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveNull DeleteHSMConfigurationResponse'
 

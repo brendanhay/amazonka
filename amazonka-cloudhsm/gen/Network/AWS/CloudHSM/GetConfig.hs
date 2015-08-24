@@ -89,9 +89,8 @@ gcHAPGList :: Lens' GetConfig [Text]
 gcHAPGList = lens _gcHAPGList (\ s a -> s{_gcHAPGList = a}) . _Coerce;
 
 instance AWSRequest GetConfig where
-        type Sv GetConfig = CloudHSM
         type Rs GetConfig = GetConfigResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->

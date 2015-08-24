@@ -140,10 +140,9 @@ cdcpgDescription = lens _cdcpgDescription (\ s a -> s{_cdcpgDescription = a});
 
 instance AWSRequest CreateDBClusterParameterGroup
          where
-        type Sv CreateDBClusterParameterGroup = RDS
         type Rs CreateDBClusterParameterGroup =
              CreateDBClusterParameterGroupResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "CreateDBClusterParameterGroupResult"

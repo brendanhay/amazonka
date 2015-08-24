@@ -67,9 +67,8 @@ dtName :: Lens' DeleteTrail Text
 dtName = lens _dtName (\ s a -> s{_dtName = a});
 
 instance AWSRequest DeleteTrail where
-        type Sv DeleteTrail = CloudTrail
         type Rs DeleteTrail = DeleteTrailResponse
-        request = postJSON
+        request = postJSON cloudTrail
         response
           = receiveEmpty
               (\ s h x ->

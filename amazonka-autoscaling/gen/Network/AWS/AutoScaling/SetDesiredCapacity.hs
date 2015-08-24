@@ -91,10 +91,9 @@ sdcDesiredCapacity :: Lens' SetDesiredCapacity Int
 sdcDesiredCapacity = lens _sdcDesiredCapacity (\ s a -> s{_sdcDesiredCapacity = a});
 
 instance AWSRequest SetDesiredCapacity where
-        type Sv SetDesiredCapacity = AutoScaling
         type Rs SetDesiredCapacity =
              SetDesiredCapacityResponse
-        request = postQuery
+        request = postQuery autoScaling
         response = receiveNull SetDesiredCapacityResponse'
 
 instance ToHeaders SetDesiredCapacity where

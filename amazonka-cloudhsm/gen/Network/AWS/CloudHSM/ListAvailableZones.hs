@@ -55,10 +55,9 @@ listAvailableZones
 listAvailableZones = ListAvailableZones'
 
 instance AWSRequest ListAvailableZones where
-        type Sv ListAvailableZones = CloudHSM
         type Rs ListAvailableZones =
              ListAvailableZonesResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->

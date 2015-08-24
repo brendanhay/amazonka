@@ -156,10 +156,9 @@ csscsivNetworkInterfaceId :: Lens' CreateStorediSCSIVolume Text
 csscsivNetworkInterfaceId = lens _csscsivNetworkInterfaceId (\ s a -> s{_csscsivNetworkInterfaceId = a});
 
 instance AWSRequest CreateStorediSCSIVolume where
-        type Sv CreateStorediSCSIVolume = StorageGateway
         type Rs CreateStorediSCSIVolume =
              CreateStorediSCSIVolumeResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

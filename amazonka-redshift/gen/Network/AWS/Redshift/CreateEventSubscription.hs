@@ -186,10 +186,9 @@ cesSNSTopicARN :: Lens' CreateEventSubscription Text
 cesSNSTopicARN = lens _cesSNSTopicARN (\ s a -> s{_cesSNSTopicARN = a});
 
 instance AWSRequest CreateEventSubscription where
-        type Sv CreateEventSubscription = Redshift
         type Rs CreateEventSubscription =
              CreateEventSubscriptionResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "CreateEventSubscriptionResult"
               (\ s h x ->

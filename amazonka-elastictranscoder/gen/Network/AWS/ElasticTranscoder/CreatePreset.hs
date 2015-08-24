@@ -136,9 +136,8 @@ cpContainer :: Lens' CreatePreset Text
 cpContainer = lens _cpContainer (\ s a -> s{_cpContainer = a});
 
 instance AWSRequest CreatePreset where
-        type Sv CreatePreset = ElasticTranscoder
         type Rs CreatePreset = CreatePresetResponse
-        request = postJSON
+        request = postJSON elasticTranscoder
         response
           = receiveJSON
               (\ s h x ->

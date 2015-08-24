@@ -18,8 +18,8 @@
 -- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html AWS API Reference>
 module Network.AWS.ElasticTranscoder
     (
-    -- * Service
-      ElasticTranscoder
+    -- * Service Configuration
+      elasticTranscoder
 
     -- * Errors
     -- $errors

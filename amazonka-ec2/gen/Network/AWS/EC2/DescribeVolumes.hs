@@ -179,9 +179,8 @@ desMaxResults :: Lens' DescribeVolumes (Maybe Int)
 desMaxResults = lens _desMaxResults (\ s a -> s{_desMaxResults = a});
 
 instance AWSRequest DescribeVolumes where
-        type Sv DescribeVolumes = EC2
         type Rs DescribeVolumes = DescribeVolumesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

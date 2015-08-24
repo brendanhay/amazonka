@@ -38,8 +38,8 @@
 -- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.DataPipeline
     (
-    -- * Service
-      DataPipeline
+    -- * Service Configuration
+      dataPipeline
 
     -- * Errors
     -- $errors

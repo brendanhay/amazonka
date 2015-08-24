@@ -103,9 +103,8 @@ gglContinentCode :: Lens' GetGeoLocation (Maybe Text)
 gglContinentCode = lens _gglContinentCode (\ s a -> s{_gglContinentCode = a});
 
 instance AWSRequest GetGeoLocation where
-        type Sv GetGeoLocation = Route53
         type Rs GetGeoLocation = GetGeoLocationResponse
-        request = get
+        request = get route53
         response
           = receiveXML
               (\ s h x ->

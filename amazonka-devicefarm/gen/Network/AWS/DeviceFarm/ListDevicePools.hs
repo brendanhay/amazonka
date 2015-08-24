@@ -98,9 +98,8 @@ ldpArn :: Lens' ListDevicePools Text
 ldpArn = lens _ldpArn (\ s a -> s{_ldpArn = a});
 
 instance AWSRequest ListDevicePools where
-        type Sv ListDevicePools = DeviceFarm
         type Rs ListDevicePools = ListDevicePoolsResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

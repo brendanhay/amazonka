@@ -131,10 +131,9 @@ dsfrhStartTime = lens _dsfrhStartTime (\ s a -> s{_dsfrhStartTime = a}) . _Time;
 
 instance AWSRequest DescribeSpotFleetRequestHistory
          where
-        type Sv DescribeSpotFleetRequestHistory = EC2
         type Rs DescribeSpotFleetRequestHistory =
              DescribeSpotFleetRequestHistoryResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

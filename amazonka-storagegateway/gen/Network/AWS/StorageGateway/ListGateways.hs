@@ -103,9 +103,8 @@ instance AWSPager ListGateways where
             Just $ rq & lgMarker .~ rs ^. lgrsMarker
 
 instance AWSRequest ListGateways where
-        type Sv ListGateways = StorageGateway
         type Rs ListGateways = ListGatewaysResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

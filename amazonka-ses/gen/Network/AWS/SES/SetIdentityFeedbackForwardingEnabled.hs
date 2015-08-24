@@ -95,10 +95,9 @@ siffeForwardingEnabled = lens _siffeForwardingEnabled (\ s a -> s{_siffeForwardi
 
 instance AWSRequest
          SetIdentityFeedbackForwardingEnabled where
-        type Sv SetIdentityFeedbackForwardingEnabled = SES
         type Rs SetIdentityFeedbackForwardingEnabled =
              SetIdentityFeedbackForwardingEnabledResponse
-        request = postQuery
+        request = postQuery sES
         response
           = receiveXMLWrapper
               "SetIdentityFeedbackForwardingEnabledResult"

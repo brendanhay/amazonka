@@ -102,10 +102,9 @@ dwtWorkflowType :: Lens' DescribeWorkflowType WorkflowType
 dwtWorkflowType = lens _dwtWorkflowType (\ s a -> s{_dwtWorkflowType = a});
 
 instance AWSRequest DescribeWorkflowType where
-        type Sv DescribeWorkflowType = SWF
         type Rs DescribeWorkflowType =
              DescribeWorkflowTypeResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveJSON
               (\ s h x ->

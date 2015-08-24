@@ -95,9 +95,8 @@ gsJobId :: Lens' GetStatus Text
 gsJobId = lens _gsJobId (\ s a -> s{_gsJobId = a});
 
 instance AWSRequest GetStatus where
-        type Sv GetStatus = ImportExport
         type Rs GetStatus = GetStatusResponse
-        request = postQuery
+        request = postQuery importExport
         response
           = receiveXMLWrapper "GetStatusResult"
               (\ s h x ->

@@ -479,9 +479,8 @@ instance AWSPager Scan where
               sExclusiveStartKey .~ rs ^. srsLastEvaluatedKey
 
 instance AWSRequest Scan where
-        type Sv Scan = DynamoDB
         type Rs Scan = ScanResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->

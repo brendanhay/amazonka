@@ -141,9 +141,8 @@ instance AWSPager ListObjects where
                     (^? (lorsContents . _last . oKey))
 
 instance AWSRequest ListObjects where
-        type Sv ListObjects = S3
         type Rs ListObjects = ListObjectsResponse
-        request = get
+        request = get s3
         response
           = receiveXML
               (\ s h x ->

@@ -141,10 +141,8 @@ acoiVlan = lens _acoiVlan (\ s a -> s{_acoiVlan = a});
 
 instance AWSRequest AllocateConnectionOnInterconnect
          where
-        type Sv AllocateConnectionOnInterconnect =
-             DirectConnect
         type Rs AllocateConnectionOnInterconnect = Connection
-        request = postJSON
+        request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders AllocateConnectionOnInterconnect

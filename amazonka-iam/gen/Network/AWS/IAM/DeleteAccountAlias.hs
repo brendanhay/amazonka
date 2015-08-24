@@ -66,10 +66,9 @@ daaAccountAlias :: Lens' DeleteAccountAlias Text
 daaAccountAlias = lens _daaAccountAlias (\ s a -> s{_daaAccountAlias = a});
 
 instance AWSRequest DeleteAccountAlias where
-        type Sv DeleteAccountAlias = IAM
         type Rs DeleteAccountAlias =
              DeleteAccountAliasResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull DeleteAccountAliasResponse'
 
 instance ToHeaders DeleteAccountAlias where

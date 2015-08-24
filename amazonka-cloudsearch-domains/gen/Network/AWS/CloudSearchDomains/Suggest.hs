@@ -105,9 +105,8 @@ sSuggester :: Lens' Suggest Text
 sSuggester = lens _sSuggester (\ s a -> s{_sSuggester = a});
 
 instance AWSRequest Suggest where
-        type Sv Suggest = CloudSearchDomains
         type Rs Suggest = SuggestResponse
-        request = get
+        request = get cloudSearchDomains
         response
           = receiveJSON
               (\ s h x ->

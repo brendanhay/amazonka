@@ -68,9 +68,8 @@ dtTrailNameList :: Lens' DescribeTrails [Text]
 dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeTrails where
-        type Sv DescribeTrails = CloudTrail
         type Rs DescribeTrails = DescribeTrailsResponse
-        request = postJSON
+        request = postJSON cloudTrail
         response
           = receiveJSON
               (\ s h x ->

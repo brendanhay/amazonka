@@ -75,10 +75,9 @@ dtbasInstanceIds = lens _dtbasInstanceIds (\ s a -> s{_dtbasInstanceIds = a}) . 
 
 instance AWSRequest DescribeTimeBasedAutoScaling
          where
-        type Sv DescribeTimeBasedAutoScaling = OpsWorks
         type Rs DescribeTimeBasedAutoScaling =
              DescribeTimeBasedAutoScalingResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

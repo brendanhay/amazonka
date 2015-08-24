@@ -82,9 +82,8 @@ pbwWebsiteConfiguration :: Lens' PutBucketWebsite WebsiteConfiguration
 pbwWebsiteConfiguration = lens _pbwWebsiteConfiguration (\ s a -> s{_pbwWebsiteConfiguration = a});
 
 instance AWSRequest PutBucketWebsite where
-        type Sv PutBucketWebsite = S3
         type Rs PutBucketWebsite = PutBucketWebsiteResponse
-        request = putXML
+        request = putXML s3
         response = receiveNull PutBucketWebsiteResponse'
 
 instance ToElement PutBucketWebsite where

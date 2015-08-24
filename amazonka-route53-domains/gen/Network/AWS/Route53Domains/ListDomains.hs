@@ -110,9 +110,8 @@ instance AWSPager ListDomains where
             Just $ rq & ldMarker .~ rs ^. ldrsNextPageMarker
 
 instance AWSRequest ListDomains where
-        type Sv ListDomains = Route53Domains
         type Rs ListDomains = ListDomainsResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveJSON
               (\ s h x ->

@@ -90,10 +90,9 @@ eeExpression :: Lens' EvaluateExpression Text
 eeExpression = lens _eeExpression (\ s a -> s{_eeExpression = a});
 
 instance AWSRequest EvaluateExpression where
-        type Sv EvaluateExpression = DataPipeline
         type Rs EvaluateExpression =
              EvaluateExpressionResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->

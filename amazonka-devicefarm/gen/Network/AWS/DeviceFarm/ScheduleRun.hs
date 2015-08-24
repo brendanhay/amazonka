@@ -116,9 +116,8 @@ srTest :: Lens' ScheduleRun ScheduleRunTest
 srTest = lens _srTest (\ s a -> s{_srTest = a});
 
 instance AWSRequest ScheduleRun where
-        type Sv ScheduleRun = DeviceFarm
         type Rs ScheduleRun = ScheduleRunResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

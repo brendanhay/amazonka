@@ -99,9 +99,8 @@ raDryRun :: Lens' ReleaseAddress (Maybe Bool)
 raDryRun = lens _raDryRun (\ s a -> s{_raDryRun = a});
 
 instance AWSRequest ReleaseAddress where
-        type Sv ReleaseAddress = EC2
         type Rs ReleaseAddress = ReleaseAddressResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull ReleaseAddressResponse'
 
 instance ToHeaders ReleaseAddress where

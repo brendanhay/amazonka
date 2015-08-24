@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.Route53Domains.Types
     (
-    -- * Service
-      Route53Domains
+    -- * Service Configuration
+      route53Domains
 
     -- * Errors
     , _InvalidInput
@@ -100,39 +99,36 @@ import           Network.AWS.Route53Domains.Types.Product
 import           Network.AWS.Route53Domains.Types.Sum
 import           Network.AWS.Sign.V4
 
--- | Version @2014-05-15@ of the Amazon Route 53 Domains SDK.
-data Route53Domains
-
-instance AWSService Route53Domains where
-    type Sg Route53Domains = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "Route53Domains"
-            , _svcPrefix = "route53domains"
-            , _svcVersion = "2014-05-15"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2014-05-15' of the Amazon Route 53 Domains SDK configuration.
+route53Domains :: Service
+route53Domains =
+    Service
+    { _svcAbbrev = "Route53Domains"
+    , _svcSigner = v4
+    , _svcPrefix = "route53domains"
+    , _svcVersion = "2014-05-15"
+    , _svcEndpoint = defaultEndpoint route53Domains
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | The requested item is not acceptable. For example, for an OperationId it
 -- may refer to the ID of an operation that is already completed. For a

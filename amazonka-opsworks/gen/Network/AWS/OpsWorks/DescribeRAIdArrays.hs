@@ -94,10 +94,9 @@ draiaStackId :: Lens' DescribeRAIdArrays (Maybe Text)
 draiaStackId = lens _draiaStackId (\ s a -> s{_draiaStackId = a});
 
 instance AWSRequest DescribeRAIdArrays where
-        type Sv DescribeRAIdArrays = OpsWorks
         type Rs DescribeRAIdArrays =
              DescribeRAIdArraysResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

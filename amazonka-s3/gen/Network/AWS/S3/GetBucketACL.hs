@@ -67,9 +67,8 @@ gbaBucket :: Lens' GetBucketACL BucketName
 gbaBucket = lens _gbaBucket (\ s a -> s{_gbaBucket = a});
 
 instance AWSRequest GetBucketACL where
-        type Sv GetBucketACL = S3
         type Rs GetBucketACL = GetBucketACLResponse
-        request = get
+        request = get s3
         response
           = receiveXML
               (\ s h x ->

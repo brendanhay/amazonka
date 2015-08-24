@@ -99,9 +99,8 @@ delDatasetName :: Lens' DeleteDataset Text
 delDatasetName = lens _delDatasetName (\ s a -> s{_delDatasetName = a});
 
 instance AWSRequest DeleteDataset where
-        type Sv DeleteDataset = CognitoSync
         type Rs DeleteDataset = DeleteDatasetResponse
-        request = delete
+        request = delete cognitoSync
         response
           = receiveJSON
               (\ s h x ->

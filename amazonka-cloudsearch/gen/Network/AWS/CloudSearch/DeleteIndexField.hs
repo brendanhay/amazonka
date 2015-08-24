@@ -84,9 +84,8 @@ difiIndexFieldName :: Lens' DeleteIndexField Text
 difiIndexFieldName = lens _difiIndexFieldName (\ s a -> s{_difiIndexFieldName = a});
 
 instance AWSRequest DeleteIndexField where
-        type Sv DeleteIndexField = CloudSearch
         type Rs DeleteIndexField = DeleteIndexFieldResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "DeleteIndexFieldResult"
               (\ s h x ->

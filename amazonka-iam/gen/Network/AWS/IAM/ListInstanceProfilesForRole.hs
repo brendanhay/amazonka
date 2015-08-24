@@ -109,10 +109,9 @@ instance AWSPager ListInstanceProfilesForRole where
             Just $ rq & lipfrMarker .~ rs ^. lipfrrsMarker
 
 instance AWSRequest ListInstanceProfilesForRole where
-        type Sv ListInstanceProfilesForRole = IAM
         type Rs ListInstanceProfilesForRole =
              ListInstanceProfilesForRoleResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper
               "ListInstanceProfilesForRoleResult"

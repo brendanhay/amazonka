@@ -208,10 +208,9 @@ instance AWSPager DescribeDataSources where
             Just $ rq & ddsNextToken .~ rs ^. ddssrsNextToken
 
 instance AWSRequest DescribeDataSources where
-        type Sv DescribeDataSources = MachineLearning
         type Rs DescribeDataSources =
              DescribeDataSourcesResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

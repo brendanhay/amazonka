@@ -80,10 +80,9 @@ delbLayerId :: Lens' DetachElasticLoadBalancer Text
 delbLayerId = lens _delbLayerId (\ s a -> s{_delbLayerId = a});
 
 instance AWSRequest DetachElasticLoadBalancer where
-        type Sv DetachElasticLoadBalancer = OpsWorks
         type Rs DetachElasticLoadBalancer =
              DetachElasticLoadBalancerResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveNull DetachElasticLoadBalancerResponse'
 

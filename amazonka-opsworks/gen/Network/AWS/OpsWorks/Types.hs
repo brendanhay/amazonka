@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.OpsWorks.Types
     (
-    -- * Service
-      OpsWorks
+    -- * Service Configuration
+      opsWorks
 
     -- * Errors
     , _ValidationException
@@ -509,39 +508,36 @@ import           Network.AWS.OpsWorks.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2013-02-18@ of the Amazon OpsWorks SDK.
-data OpsWorks
-
-instance AWSService OpsWorks where
-    type Sg OpsWorks = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "OpsWorks"
-            , _svcPrefix = "opsworks"
-            , _svcVersion = "2013-02-18"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2013-02-18' of the Amazon OpsWorks SDK configuration.
+opsWorks :: Service
+opsWorks =
+    Service
+    { _svcAbbrev = "OpsWorks"
+    , _svcSigner = v4
+    , _svcPrefix = "opsworks"
+    , _svcVersion = "2013-02-18"
+    , _svcEndpoint = defaultEndpoint opsWorks
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | Indicates that a request was invalid.
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError

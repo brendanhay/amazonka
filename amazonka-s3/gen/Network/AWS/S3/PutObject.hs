@@ -309,9 +309,8 @@ poBody :: Lens' PutObject RqBody
 poBody = lens _poBody (\ s a -> s{_poBody = a});
 
 instance AWSRequest PutObject where
-        type Sv PutObject = S3
         type Rs PutObject = PutObjectResponse
-        request = putBody
+        request = putBody s3
         response
           = receiveEmpty
               (\ s h x ->

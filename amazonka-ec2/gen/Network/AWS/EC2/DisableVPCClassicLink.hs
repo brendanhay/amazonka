@@ -79,10 +79,9 @@ dvpcclVPCId :: Lens' DisableVPCClassicLink Text
 dvpcclVPCId = lens _dvpcclVPCId (\ s a -> s{_dvpcclVPCId = a});
 
 instance AWSRequest DisableVPCClassicLink where
-        type Sv DisableVPCClassicLink = EC2
         type Rs DisableVPCClassicLink =
              DisableVPCClassicLinkResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

@@ -76,10 +76,9 @@ drdsId :: Lens' DeleteReusableDelegationSet Text
 drdsId = lens _drdsId (\ s a -> s{_drdsId = a});
 
 instance AWSRequest DeleteReusableDelegationSet where
-        type Sv DeleteReusableDelegationSet = Route53
         type Rs DeleteReusableDelegationSet =
              DeleteReusableDelegationSetResponse
-        request = delete
+        request = delete route53
         response
           = receiveEmpty
               (\ s h x ->

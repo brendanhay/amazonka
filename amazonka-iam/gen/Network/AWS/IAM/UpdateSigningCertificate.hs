@@ -92,10 +92,9 @@ uscStatus :: Lens' UpdateSigningCertificate StatusType
 uscStatus = lens _uscStatus (\ s a -> s{_uscStatus = a});
 
 instance AWSRequest UpdateSigningCertificate where
-        type Sv UpdateSigningCertificate = IAM
         type Rs UpdateSigningCertificate =
              UpdateSigningCertificateResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveNull UpdateSigningCertificateResponse'
 

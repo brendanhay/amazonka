@@ -99,10 +99,9 @@ rtrhTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat Text
 rtrhTaskrunnerId = lens _rtrhTaskrunnerId (\ s a -> s{_rtrhTaskrunnerId = a});
 
 instance AWSRequest ReportTaskRunnerHeartbeat where
-        type Sv ReportTaskRunnerHeartbeat = DataPipeline
         type Rs ReportTaskRunnerHeartbeat =
              ReportTaskRunnerHeartbeatResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->

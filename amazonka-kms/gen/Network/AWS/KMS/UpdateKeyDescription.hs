@@ -79,10 +79,9 @@ ukdDescription :: Lens' UpdateKeyDescription Text
 ukdDescription = lens _ukdDescription (\ s a -> s{_ukdDescription = a});
 
 instance AWSRequest UpdateKeyDescription where
-        type Sv UpdateKeyDescription = KMS
         type Rs UpdateKeyDescription =
              UpdateKeyDescriptionResponse
-        request = postJSON
+        request = postJSON kMS
         response = receiveNull UpdateKeyDescriptionResponse'
 
 instance ToHeaders UpdateKeyDescription where

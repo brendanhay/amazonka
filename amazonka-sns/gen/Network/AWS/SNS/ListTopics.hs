@@ -79,9 +79,8 @@ instance AWSPager ListTopics where
             Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
 
 instance AWSRequest ListTopics where
-        type Sv ListTopics = SNS
         type Rs ListTopics = ListTopicsResponse
-        request = postQuery
+        request = postQuery sNS
         response
           = receiveXMLWrapper "ListTopicsResult"
               (\ s h x ->

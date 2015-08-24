@@ -2,7 +2,6 @@
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 

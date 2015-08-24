@@ -73,9 +73,8 @@ gceIdentityPoolId :: Lens' GetCognitoEvents Text
 gceIdentityPoolId = lens _gceIdentityPoolId (\ s a -> s{_gceIdentityPoolId = a});
 
 instance AWSRequest GetCognitoEvents where
-        type Sv GetCognitoEvents = CognitoSync
         type Rs GetCognitoEvents = GetCognitoEventsResponse
-        request = get
+        request = get cognitoSync
         response
           = receiveJSON
               (\ s h x ->

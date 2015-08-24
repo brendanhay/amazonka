@@ -91,9 +91,8 @@ ckDescription :: Lens' CreateKey (Maybe Text)
 ckDescription = lens _ckDescription (\ s a -> s{_ckDescription = a});
 
 instance AWSRequest CreateKey where
-        type Sv CreateKey = KMS
         type Rs CreateKey = CreateKeyResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->

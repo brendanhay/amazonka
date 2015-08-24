@@ -108,9 +108,8 @@ instance AWSPager ListMFADevices where
             Just $ rq & lmdMarker .~ rs ^. lmdrsMarker
 
 instance AWSRequest ListMFADevices where
-        type Sv ListMFADevices = IAM
         type Rs ListMFADevices = ListMFADevicesResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListMFADevicesResult"
               (\ s h x ->

@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.ElastiCache.Types
     (
-    -- * Service
-      ElastiCache
+    -- * Service Configuration
+      elastiCache
 
     -- * Errors
     , _CacheSubnetGroupAlreadyExistsFault
@@ -372,39 +371,36 @@ import           Network.AWS.ElastiCache.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2015-02-02@ of the Amazon ElastiCache SDK.
-data ElastiCache
-
-instance AWSService ElastiCache where
-    type Sg ElastiCache = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "ElastiCache"
-            , _svcPrefix = "elasticache"
-            , _svcVersion = "2015-02-02"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseXMLError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2015-02-02' of the Amazon ElastiCache SDK configuration.
+elastiCache :: Service
+elastiCache =
+    Service
+    { _svcAbbrev = "ElastiCache"
+    , _svcSigner = v4
+    , _svcPrefix = "elasticache"
+    , _svcVersion = "2015-02-02"
+    , _svcEndpoint = defaultEndpoint elastiCache
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseXMLError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | The requested cache subnet group name is already in use by an existing
 -- cache subnet group.

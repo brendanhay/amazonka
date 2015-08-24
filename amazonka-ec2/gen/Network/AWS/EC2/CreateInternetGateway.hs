@@ -72,10 +72,9 @@ cigDryRun :: Lens' CreateInternetGateway (Maybe Bool)
 cigDryRun = lens _cigDryRun (\ s a -> s{_cigDryRun = a});
 
 instance AWSRequest CreateInternetGateway where
-        type Sv CreateInternetGateway = EC2
         type Rs CreateInternetGateway =
              CreateInternetGatewayResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

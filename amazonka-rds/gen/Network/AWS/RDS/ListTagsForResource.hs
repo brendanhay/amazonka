@@ -82,10 +82,9 @@ ltfrResourceName :: Lens' ListTagsForResource Text
 ltfrResourceName = lens _ltfrResourceName (\ s a -> s{_ltfrResourceName = a});
 
 instance AWSRequest ListTagsForResource where
-        type Sv ListTagsForResource = RDS
         type Rs ListTagsForResource =
              ListTagsForResourceResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "ListTagsForResourceResult"
               (\ s h x ->

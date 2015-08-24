@@ -128,9 +128,8 @@ dsDryRun :: Lens' DescribeSubnets (Maybe Bool)
 dsDryRun = lens _dsDryRun (\ s a -> s{_dsDryRun = a});
 
 instance AWSRequest DescribeSubnets where
-        type Sv DescribeSubnets = EC2
         type Rs DescribeSubnets = DescribeSubnetsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

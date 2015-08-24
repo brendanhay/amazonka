@@ -103,10 +103,9 @@ ldiDeploymentId :: Lens' ListDeploymentInstances Text
 ldiDeploymentId = lens _ldiDeploymentId (\ s a -> s{_ldiDeploymentId = a});
 
 instance AWSRequest ListDeploymentInstances where
-        type Sv ListDeploymentInstances = CodeDeploy
         type Rs ListDeploymentInstances =
              ListDeploymentInstancesResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->

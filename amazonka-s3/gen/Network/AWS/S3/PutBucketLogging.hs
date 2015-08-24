@@ -84,9 +84,8 @@ pblBucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus
 pblBucketLoggingStatus = lens _pblBucketLoggingStatus (\ s a -> s{_pblBucketLoggingStatus = a});
 
 instance AWSRequest PutBucketLogging where
-        type Sv PutBucketLogging = S3
         type Rs PutBucketLogging = PutBucketLoggingResponse
-        request = putXML
+        request = putXML s3
         response = receiveNull PutBucketLoggingResponse'
 
 instance ToElement PutBucketLogging where

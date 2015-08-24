@@ -96,10 +96,9 @@ uavVersionLabel :: Lens' UpdateApplicationVersion Text
 uavVersionLabel = lens _uavVersionLabel (\ s a -> s{_uavVersionLabel = a});
 
 instance AWSRequest UpdateApplicationVersion where
-        type Sv UpdateApplicationVersion = ElasticBeanstalk
         type Rs UpdateApplicationVersion =
              ApplicationVersionDescriptionMessage
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper "UpdateApplicationVersionResult"
               (\ s h x -> parseXML x)

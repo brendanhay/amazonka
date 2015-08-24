@@ -110,9 +110,8 @@ ccPassword :: Lens' CreateComputer Text
 ccPassword = lens _ccPassword (\ s a -> s{_ccPassword = a}) . _Sensitive;
 
 instance AWSRequest CreateComputer where
-        type Sv CreateComputer = DirectoryService
         type Rs CreateComputer = CreateComputerResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveJSON
               (\ s h x ->

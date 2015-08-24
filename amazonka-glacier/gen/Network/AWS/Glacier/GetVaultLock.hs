@@ -108,9 +108,8 @@ gvlVaultName :: Lens' GetVaultLock Text
 gvlVaultName = lens _gvlVaultName (\ s a -> s{_gvlVaultName = a});
 
 instance AWSRequest GetVaultLock where
-        type Sv GetVaultLock = Glacier
         type Rs GetVaultLock = GetVaultLockResponse
-        request = get
+        request = get glacier
         response
           = receiveJSON
               (\ s h x ->

@@ -71,10 +71,9 @@ dParameterGroupName :: Lens' DeleteClusterParameterGroup Text
 dParameterGroupName = lens _dParameterGroupName (\ s a -> s{_dParameterGroupName = a});
 
 instance AWSRequest DeleteClusterParameterGroup where
-        type Sv DeleteClusterParameterGroup = Redshift
         type Rs DeleteClusterParameterGroup =
              DeleteClusterParameterGroupResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveNull DeleteClusterParameterGroupResponse'
 

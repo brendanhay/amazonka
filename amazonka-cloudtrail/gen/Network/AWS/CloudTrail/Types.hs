@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.CloudTrail.Types
     (
-    -- * Service
-      CloudTrail
+    -- * Service Configuration
+      cloudTrail
 
     -- * Errors
     , _InvalidTimeRangeException
@@ -77,39 +76,36 @@ import           Network.AWS.CloudTrail.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2013-11-01@ of the Amazon CloudTrail SDK.
-data CloudTrail
-
-instance AWSService CloudTrail where
-    type Sg CloudTrail = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "CloudTrail"
-            , _svcPrefix = "cloudtrail"
-            , _svcVersion = "2013-11-01"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2013-11-01' of the Amazon CloudTrail SDK configuration.
+cloudTrail :: Service
+cloudTrail =
+    Service
+    { _svcAbbrev = "CloudTrail"
+    , _svcSigner = v4
+    , _svcPrefix = "cloudtrail"
+    , _svcVersion = "2013-11-01"
+    , _svcEndpoint = defaultEndpoint cloudTrail
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | Occurs if the timestamp values are invalid. Either the start time occurs
 -- after the end time or the time range is outside the range of possible

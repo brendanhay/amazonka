@@ -102,9 +102,8 @@ instance AWSPager ListJobs where
               ljMarker .~ rs ^? ljrsJobs . _last . jobJobId
 
 instance AWSRequest ListJobs where
-        type Sv ListJobs = ImportExport
         type Rs ListJobs = ListJobsResponse
-        request = postQuery
+        request = postQuery importExport
         response
           = receiveXMLWrapper "ListJobsResult"
               (\ s h x ->

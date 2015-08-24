@@ -79,9 +79,8 @@ delFileSystemId :: Lens' DeleteFileSystem Text
 delFileSystemId = lens _delFileSystemId (\ s a -> s{_delFileSystemId = a});
 
 instance AWSRequest DeleteFileSystem where
-        type Sv DeleteFileSystem = EFS
         type Rs DeleteFileSystem = DeleteFileSystemResponse
-        request = delete
+        request = delete eFS
         response = receiveNull DeleteFileSystemResponse'
 
 instance ToHeaders DeleteFileSystem where

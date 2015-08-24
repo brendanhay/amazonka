@@ -81,10 +81,9 @@ caApplicationName :: Lens' CreateApplication Text
 caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a});
 
 instance AWSRequest CreateApplication where
-        type Sv CreateApplication = ElasticBeanstalk
         type Rs CreateApplication =
              ApplicationDescriptionMessage
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper "CreateApplicationResult"
               (\ s h x -> parseXML x)

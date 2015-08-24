@@ -95,10 +95,9 @@ crdsCallerReference :: Lens' CreateReusableDelegationSet Text
 crdsCallerReference = lens _crdsCallerReference (\ s a -> s{_crdsCallerReference = a});
 
 instance AWSRequest CreateReusableDelegationSet where
-        type Sv CreateReusableDelegationSet = Route53
         type Rs CreateReusableDelegationSet =
              CreateReusableDelegationSetResponse
-        request = postXML
+        request = postXML route53
         response
           = receiveXML
               (\ s h x ->

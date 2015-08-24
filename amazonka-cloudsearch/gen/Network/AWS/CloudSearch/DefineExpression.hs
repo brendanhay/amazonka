@@ -84,9 +84,8 @@ dExpression :: Lens' DefineExpression Expression
 dExpression = lens _dExpression (\ s a -> s{_dExpression = a});
 
 instance AWSRequest DefineExpression where
-        type Sv DefineExpression = CloudSearch
         type Rs DefineExpression = DefineExpressionResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "DefineExpressionResult"
               (\ s h x ->

@@ -93,9 +93,8 @@ liDistributionId :: Lens' ListInvalidations Text
 liDistributionId = lens _liDistributionId (\ s a -> s{_liDistributionId = a});
 
 instance AWSRequest ListInvalidations where
-        type Sv ListInvalidations = CloudFront
         type Rs ListInvalidations = ListInvalidationsResponse
-        request = get
+        request = get cloudFront
         response
           = receiveXML
               (\ s h x ->

@@ -93,10 +93,9 @@ ccpgDescription :: Lens' CreateCacheParameterGroup Text
 ccpgDescription = lens _ccpgDescription (\ s a -> s{_ccpgDescription = a});
 
 instance AWSRequest CreateCacheParameterGroup where
-        type Sv CreateCacheParameterGroup = ElastiCache
         type Rs CreateCacheParameterGroup =
              CreateCacheParameterGroupResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "CreateCacheParameterGroupResult"
               (\ s h x ->

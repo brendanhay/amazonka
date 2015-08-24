@@ -72,10 +72,9 @@ dsaScheduledActionName :: Lens' DeleteScheduledAction Text
 dsaScheduledActionName = lens _dsaScheduledActionName (\ s a -> s{_dsaScheduledActionName = a});
 
 instance AWSRequest DeleteScheduledAction where
-        type Sv DeleteScheduledAction = AutoScaling
         type Rs DeleteScheduledAction =
              DeleteScheduledActionResponse
-        request = postQuery
+        request = postQuery autoScaling
         response = receiveNull DeleteScheduledActionResponse'
 
 instance ToHeaders DeleteScheduledAction where

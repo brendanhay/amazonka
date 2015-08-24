@@ -76,10 +76,9 @@ dcgcCustomerGatewayId :: Lens' DeleteCustomerGateway Text
 dcgcCustomerGatewayId = lens _dcgcCustomerGatewayId (\ s a -> s{_dcgcCustomerGatewayId = a});
 
 instance AWSRequest DeleteCustomerGateway where
-        type Sv DeleteCustomerGateway = EC2
         type Rs DeleteCustomerGateway =
              DeleteCustomerGatewayResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull DeleteCustomerGatewayResponse'
 
 instance ToHeaders DeleteCustomerGateway where

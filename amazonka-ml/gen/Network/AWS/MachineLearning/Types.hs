@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.MachineLearning.Types
     (
-    -- * Service
-      MachineLearning
+    -- * Service Configuration
+      machineLearning
 
     -- * Errors
     , _InternalServerException
@@ -225,39 +224,36 @@ import           Network.AWS.MachineLearning.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2014-12-12@ of the Amazon Machine Learning SDK.
-data MachineLearning
-
-instance AWSService MachineLearning where
-    type Sg MachineLearning = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "MachineLearning"
-            , _svcPrefix = "machinelearning"
-            , _svcVersion = "2014-12-12"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2014-12-12' of the Amazon Machine Learning SDK configuration.
+machineLearning :: Service
+machineLearning =
+    Service
+    { _svcAbbrev = "MachineLearning"
+    , _svcSigner = v4
+    , _svcPrefix = "machinelearning"
+    , _svcVersion = "2014-12-12"
+    , _svcEndpoint = defaultEndpoint machineLearning
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | An error on the server occurred when trying to process a request.
 _InternalServerException :: AsError a => Getting (First ServiceError) a ServiceError

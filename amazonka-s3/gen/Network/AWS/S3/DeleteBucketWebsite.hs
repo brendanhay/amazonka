@@ -63,10 +63,9 @@ dbwBucket :: Lens' DeleteBucketWebsite BucketName
 dbwBucket = lens _dbwBucket (\ s a -> s{_dbwBucket = a});
 
 instance AWSRequest DeleteBucketWebsite where
-        type Sv DeleteBucketWebsite = S3
         type Rs DeleteBucketWebsite =
              DeleteBucketWebsiteResponse
-        request = delete
+        request = delete s3
         response = receiveNull DeleteBucketWebsiteResponse'
 
 instance ToHeaders DeleteBucketWebsite where

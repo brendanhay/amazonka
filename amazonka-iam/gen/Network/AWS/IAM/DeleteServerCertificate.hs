@@ -74,10 +74,9 @@ dscServerCertificateName :: Lens' DeleteServerCertificate Text
 dscServerCertificateName = lens _dscServerCertificateName (\ s a -> s{_dscServerCertificateName = a});
 
 instance AWSRequest DeleteServerCertificate where
-        type Sv DeleteServerCertificate = IAM
         type Rs DeleteServerCertificate =
              DeleteServerCertificateResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveNull DeleteServerCertificateResponse'
 

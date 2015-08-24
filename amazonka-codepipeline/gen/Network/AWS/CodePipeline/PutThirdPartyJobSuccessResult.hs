@@ -108,10 +108,9 @@ ptpjsrClientToken = lens _ptpjsrClientToken (\ s a -> s{_ptpjsrClientToken = a})
 
 instance AWSRequest PutThirdPartyJobSuccessResult
          where
-        type Sv PutThirdPartyJobSuccessResult = CodePipeline
         type Rs PutThirdPartyJobSuccessResult =
              PutThirdPartyJobSuccessResultResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveNull PutThirdPartyJobSuccessResultResponse'
 

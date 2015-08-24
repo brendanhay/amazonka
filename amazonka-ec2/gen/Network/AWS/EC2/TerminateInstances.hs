@@ -100,10 +100,9 @@ tiInstanceIds :: Lens' TerminateInstances [Text]
 tiInstanceIds = lens _tiInstanceIds (\ s a -> s{_tiInstanceIds = a}) . _Coerce;
 
 instance AWSRequest TerminateInstances where
-        type Sv TerminateInstances = EC2
         type Rs TerminateInstances =
              TerminateInstancesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

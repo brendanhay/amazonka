@@ -86,9 +86,8 @@ defSuggester :: Lens' DefineSuggester Suggester
 defSuggester = lens _defSuggester (\ s a -> s{_defSuggester = a});
 
 instance AWSRequest DefineSuggester where
-        type Sv DefineSuggester = CloudSearch
         type Rs DefineSuggester = DefineSuggesterResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "DefineSuggesterResult"
               (\ s h x ->

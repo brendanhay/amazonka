@@ -87,10 +87,9 @@ gtpjdClientToken :: Lens' GetThirdPartyJobDetails Text
 gtpjdClientToken = lens _gtpjdClientToken (\ s a -> s{_gtpjdClientToken = a});
 
 instance AWSRequest GetThirdPartyJobDetails where
-        type Sv GetThirdPartyJobDetails = CodePipeline
         type Rs GetThirdPartyJobDetails =
              GetThirdPartyJobDetailsResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->

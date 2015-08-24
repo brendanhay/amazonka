@@ -173,9 +173,8 @@ cfCode :: Lens' CreateFunction FunctionCode
 cfCode = lens _cfCode (\ s a -> s{_cfCode = a});
 
 instance AWSRequest CreateFunction where
-        type Sv CreateFunction = Lambda
         type Rs CreateFunction = FunctionConfiguration
-        request = postJSON
+        request = postJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreateFunction where

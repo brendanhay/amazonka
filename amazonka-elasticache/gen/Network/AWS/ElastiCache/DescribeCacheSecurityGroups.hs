@@ -107,10 +107,9 @@ instance AWSPager DescribeCacheSecurityGroups where
             Just $ rq & dcsgsMarker .~ rs ^. dcsgsrsMarker
 
 instance AWSRequest DescribeCacheSecurityGroups where
-        type Sv DescribeCacheSecurityGroups = ElastiCache
         type Rs DescribeCacheSecurityGroups =
              DescribeCacheSecurityGroupsResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper
               "DescribeCacheSecurityGroupsResult"

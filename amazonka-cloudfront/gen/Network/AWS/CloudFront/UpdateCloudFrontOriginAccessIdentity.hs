@@ -90,11 +90,9 @@ ucfoaiId = lens _ucfoaiId (\ s a -> s{_ucfoaiId = a});
 
 instance AWSRequest
          UpdateCloudFrontOriginAccessIdentity where
-        type Sv UpdateCloudFrontOriginAccessIdentity =
-             CloudFront
         type Rs UpdateCloudFrontOriginAccessIdentity =
              UpdateCloudFrontOriginAccessIdentityResponse
-        request = putXML
+        request = putXML cloudFront
         response
           = receiveXML
               (\ s h x ->

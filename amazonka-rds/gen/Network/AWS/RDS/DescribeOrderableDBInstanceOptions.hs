@@ -160,10 +160,9 @@ instance AWSPager DescribeOrderableDBInstanceOptions
 
 instance AWSRequest
          DescribeOrderableDBInstanceOptions where
-        type Sv DescribeOrderableDBInstanceOptions = RDS
         type Rs DescribeOrderableDBInstanceOptions =
              DescribeOrderableDBInstanceOptionsResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "DescribeOrderableDBInstanceOptionsResult"

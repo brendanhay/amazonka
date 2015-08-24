@@ -116,9 +116,8 @@ usService :: Lens' UpdateService Text
 usService = lens _usService (\ s a -> s{_usService = a});
 
 instance AWSRequest UpdateService where
-        type Sv UpdateService = ECS
         type Rs UpdateService = UpdateServiceResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

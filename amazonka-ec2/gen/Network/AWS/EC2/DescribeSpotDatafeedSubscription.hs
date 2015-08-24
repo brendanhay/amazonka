@@ -73,10 +73,9 @@ dsdsDryRun = lens _dsdsDryRun (\ s a -> s{_dsdsDryRun = a});
 
 instance AWSRequest DescribeSpotDatafeedSubscription
          where
-        type Sv DescribeSpotDatafeedSubscription = EC2
         type Rs DescribeSpotDatafeedSubscription =
              DescribeSpotDatafeedSubscriptionResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

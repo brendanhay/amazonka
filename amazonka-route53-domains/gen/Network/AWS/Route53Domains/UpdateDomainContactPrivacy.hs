@@ -149,10 +149,9 @@ udcpDomainName :: Lens' UpdateDomainContactPrivacy Text
 udcpDomainName = lens _udcpDomainName (\ s a -> s{_udcpDomainName = a});
 
 instance AWSRequest UpdateDomainContactPrivacy where
-        type Sv UpdateDomainContactPrivacy = Route53Domains
         type Rs UpdateDomainContactPrivacy =
              UpdateDomainContactPrivacyResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveJSON
               (\ s h x ->

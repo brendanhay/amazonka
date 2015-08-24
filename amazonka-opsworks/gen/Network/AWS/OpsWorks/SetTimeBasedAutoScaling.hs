@@ -80,10 +80,9 @@ stbasInstanceId :: Lens' SetTimeBasedAutoScaling Text
 stbasInstanceId = lens _stbasInstanceId (\ s a -> s{_stbasInstanceId = a});
 
 instance AWSRequest SetTimeBasedAutoScaling where
-        type Sv SetTimeBasedAutoScaling = OpsWorks
         type Rs SetTimeBasedAutoScaling =
              SetTimeBasedAutoScalingResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveNull SetTimeBasedAutoScalingResponse'
 

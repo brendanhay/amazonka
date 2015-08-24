@@ -76,9 +76,8 @@ dhapgHAPGARN :: Lens' DescribeHAPG Text
 dhapgHAPGARN = lens _dhapgHAPGARN (\ s a -> s{_dhapgHAPGARN = a});
 
 instance AWSRequest DescribeHAPG where
-        type Sv DescribeHAPG = CloudHSM
         type Rs DescribeHAPG = DescribeHAPGResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->

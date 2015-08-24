@@ -97,10 +97,9 @@ daaDryRun :: Lens' DescribeAccountAttributes (Maybe Bool)
 daaDryRun = lens _daaDryRun (\ s a -> s{_daaDryRun = a});
 
 instance AWSRequest DescribeAccountAttributes where
-        type Sv DescribeAccountAttributes = EC2
         type Rs DescribeAccountAttributes =
              DescribeAccountAttributesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

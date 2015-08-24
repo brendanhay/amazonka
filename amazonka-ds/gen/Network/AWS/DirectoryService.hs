@@ -20,8 +20,8 @@
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/welcome.html AWS API Reference>
 module Network.AWS.DirectoryService
     (
-    -- * Service
-      DirectoryService
+    -- * Service Configuration
+      directoryService
 
     -- * Errors
     -- $errors

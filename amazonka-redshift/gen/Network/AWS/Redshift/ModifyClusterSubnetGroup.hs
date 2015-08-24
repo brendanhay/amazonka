@@ -89,10 +89,9 @@ mcsgSubnetIds :: Lens' ModifyClusterSubnetGroup [Text]
 mcsgSubnetIds = lens _mcsgSubnetIds (\ s a -> s{_mcsgSubnetIds = a}) . _Coerce;
 
 instance AWSRequest ModifyClusterSubnetGroup where
-        type Sv ModifyClusterSubnetGroup = Redshift
         type Rs ModifyClusterSubnetGroup =
              ModifyClusterSubnetGroupResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "ModifyClusterSubnetGroupResult"
               (\ s h x ->

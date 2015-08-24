@@ -161,9 +161,8 @@ instance AWSPager ListActivityTypes where
               latNextPageToken .~ rs ^. latrsNextPageToken
 
 instance AWSRequest ListActivityTypes where
-        type Sv ListActivityTypes = SWF
         type Rs ListActivityTypes = ListActivityTypesResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveJSON
               (\ s h x ->

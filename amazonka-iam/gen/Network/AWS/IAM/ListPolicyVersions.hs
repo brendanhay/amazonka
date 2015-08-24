@@ -98,10 +98,9 @@ lpvPolicyARN :: Lens' ListPolicyVersions Text
 lpvPolicyARN = lens _lpvPolicyARN (\ s a -> s{_lpvPolicyARN = a});
 
 instance AWSRequest ListPolicyVersions where
-        type Sv ListPolicyVersions = IAM
         type Rs ListPolicyVersions =
              ListPolicyVersionsResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListPolicyVersionsResult"
               (\ s h x ->

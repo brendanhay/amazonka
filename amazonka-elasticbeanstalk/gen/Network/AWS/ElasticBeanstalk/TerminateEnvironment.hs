@@ -128,9 +128,8 @@ teEnvironmentId :: Lens' TerminateEnvironment (Maybe Text)
 teEnvironmentId = lens _teEnvironmentId (\ s a -> s{_teEnvironmentId = a});
 
 instance AWSRequest TerminateEnvironment where
-        type Sv TerminateEnvironment = ElasticBeanstalk
         type Rs TerminateEnvironment = EnvironmentDescription
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper "TerminateEnvironmentResult"
               (\ s h x -> parseXML x)

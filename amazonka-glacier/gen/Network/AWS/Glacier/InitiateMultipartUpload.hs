@@ -144,10 +144,9 @@ imuVaultName :: Lens' InitiateMultipartUpload Text
 imuVaultName = lens _imuVaultName (\ s a -> s{_imuVaultName = a});
 
 instance AWSRequest InitiateMultipartUpload where
-        type Sv InitiateMultipartUpload = Glacier
         type Rs InitiateMultipartUpload =
              InitiateMultipartUploadResponse
-        request = postJSON
+        request = postJSON glacier
         response
           = receiveEmpty
               (\ s h x ->

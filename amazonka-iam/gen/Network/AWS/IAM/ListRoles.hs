@@ -113,9 +113,8 @@ instance AWSPager ListRoles where
             Just $ rq & lrMarker .~ rs ^. lrrsMarker
 
 instance AWSRequest ListRoles where
-        type Sv ListRoles = IAM
         type Rs ListRoles = ListRolesResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListRolesResult"
               (\ s h x ->

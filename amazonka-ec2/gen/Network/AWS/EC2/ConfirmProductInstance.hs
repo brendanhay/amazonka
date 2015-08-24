@@ -92,10 +92,9 @@ cpiInstanceId :: Lens' ConfirmProductInstance Text
 cpiInstanceId = lens _cpiInstanceId (\ s a -> s{_cpiInstanceId = a});
 
 instance AWSRequest ConfirmProductInstance where
-        type Sv ConfirmProductInstance = EC2
         type Rs ConfirmProductInstance =
              ConfirmProductInstanceResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

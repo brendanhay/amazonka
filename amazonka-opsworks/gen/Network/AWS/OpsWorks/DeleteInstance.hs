@@ -91,9 +91,8 @@ diInstanceId :: Lens' DeleteInstance Text
 diInstanceId = lens _diInstanceId (\ s a -> s{_diInstanceId = a});
 
 instance AWSRequest DeleteInstance where
-        type Sv DeleteInstance = OpsWorks
         type Rs DeleteInstance = DeleteInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull DeleteInstanceResponse'
 
 instance ToHeaders DeleteInstance where

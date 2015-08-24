@@ -59,10 +59,9 @@ describeMetricCollectionTypes = DescribeMetricCollectionTypes'
 
 instance AWSRequest DescribeMetricCollectionTypes
          where
-        type Sv DescribeMetricCollectionTypes = AutoScaling
         type Rs DescribeMetricCollectionTypes =
              DescribeMetricCollectionTypesResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper
               "DescribeMetricCollectionTypesResult"

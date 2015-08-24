@@ -121,10 +121,9 @@ rdsgiDBSecurityGroupName = lens _rdsgiDBSecurityGroupName (\ s a -> s{_rdsgiDBSe
 
 instance AWSRequest RevokeDBSecurityGroupIngress
          where
-        type Sv RevokeDBSecurityGroupIngress = RDS
         type Rs RevokeDBSecurityGroupIngress =
              RevokeDBSecurityGroupIngressResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "RevokeDBSecurityGroupIngressResult"

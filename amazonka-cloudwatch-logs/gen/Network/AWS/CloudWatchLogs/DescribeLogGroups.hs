@@ -106,9 +106,8 @@ instance AWSPager DescribeLogGroups where
             Just $ rq & dlgNextToken .~ rs ^. dlgrsNextToken
 
 instance AWSRequest DescribeLogGroups where
-        type Sv DescribeLogGroups = CloudWatchLogs
         type Rs DescribeLogGroups = DescribeLogGroupsResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response
           = receiveJSON
               (\ s h x ->

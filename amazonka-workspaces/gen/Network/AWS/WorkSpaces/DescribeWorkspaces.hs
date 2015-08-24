@@ -135,10 +135,9 @@ dwLimit :: Lens' DescribeWorkspaces (Maybe Natural)
 dwLimit = lens _dwLimit (\ s a -> s{_dwLimit = a}) . mapping _Nat;
 
 instance AWSRequest DescribeWorkspaces where
-        type Sv DescribeWorkspaces = WorkSpaces
         type Rs DescribeWorkspaces =
              DescribeWorkspacesResponse
-        request = postJSON
+        request = postJSON workSpaces
         response
           = receiveJSON
               (\ s h x ->

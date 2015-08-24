@@ -90,10 +90,9 @@ ucaContainerInstance :: Lens' UpdateContainerAgent Text
 ucaContainerInstance = lens _ucaContainerInstance (\ s a -> s{_ucaContainerInstance = a});
 
 instance AWSRequest UpdateContainerAgent where
-        type Sv UpdateContainerAgent = ECS
         type Rs UpdateContainerAgent =
              UpdateContainerAgentResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

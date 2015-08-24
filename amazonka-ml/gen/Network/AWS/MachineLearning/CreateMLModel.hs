@@ -190,9 +190,8 @@ cmlmTrainingDataSourceId :: Lens' CreateMLModel Text
 cmlmTrainingDataSourceId = lens _cmlmTrainingDataSourceId (\ s a -> s{_cmlmTrainingDataSourceId = a});
 
 instance AWSRequest CreateMLModel where
-        type Sv CreateMLModel = MachineLearning
         type Rs CreateMLModel = CreateMLModelResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

@@ -89,9 +89,8 @@ sspStackName :: Lens' SetStackPolicy Text
 sspStackName = lens _sspStackName (\ s a -> s{_sspStackName = a});
 
 instance AWSRequest SetStackPolicy where
-        type Sv SetStackPolicy = CloudFormation
         type Rs SetStackPolicy = SetStackPolicyResponse
-        request = postQuery
+        request = postQuery cloudFormation
         response = receiveNull SetStackPolicyResponse'
 
 instance ToHeaders SetStackPolicy where

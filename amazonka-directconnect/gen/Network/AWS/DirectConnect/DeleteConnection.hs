@@ -80,9 +80,8 @@ dcConnectionId :: Lens' DeleteConnection Text
 dcConnectionId = lens _dcConnectionId (\ s a -> s{_dcConnectionId = a});
 
 instance AWSRequest DeleteConnection where
-        type Sv DeleteConnection = DirectConnect
         type Rs DeleteConnection = Connection
-        request = postJSON
+        request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders DeleteConnection where

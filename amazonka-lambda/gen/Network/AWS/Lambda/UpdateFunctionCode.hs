@@ -134,9 +134,8 @@ uFunctionName :: Lens' UpdateFunctionCode Text
 uFunctionName = lens _uFunctionName (\ s a -> s{_uFunctionName = a});
 
 instance AWSRequest UpdateFunctionCode where
-        type Sv UpdateFunctionCode = Lambda
         type Rs UpdateFunctionCode = FunctionConfiguration
-        request = putJSON
+        request = putJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateFunctionCode where

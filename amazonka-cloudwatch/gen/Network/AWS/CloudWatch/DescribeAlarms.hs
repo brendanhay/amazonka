@@ -126,9 +126,8 @@ instance AWSPager DescribeAlarms where
             Just $ rq & daNextToken .~ rs ^. darsNextToken
 
 instance AWSRequest DescribeAlarms where
-        type Sv DescribeAlarms = CloudWatch
         type Rs DescribeAlarms = DescribeAlarmsResponse
-        request = postQuery
+        request = postQuery cloudWatch
         response
           = receiveXMLWrapper "DescribeAlarmsResult"
               (\ s h x ->

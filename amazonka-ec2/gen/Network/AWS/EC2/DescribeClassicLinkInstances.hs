@@ -140,10 +140,9 @@ dcliMaxResults = lens _dcliMaxResults (\ s a -> s{_dcliMaxResults = a});
 
 instance AWSRequest DescribeClassicLinkInstances
          where
-        type Sv DescribeClassicLinkInstances = EC2
         type Rs DescribeClassicLinkInstances =
              DescribeClassicLinkInstancesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

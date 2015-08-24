@@ -87,9 +87,8 @@ caAlias :: Lens' CreateAlias Text
 caAlias = lens _caAlias (\ s a -> s{_caAlias = a});
 
 instance AWSRequest CreateAlias where
-        type Sv CreateAlias = DirectoryService
         type Rs CreateAlias = CreateAliasResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveJSON
               (\ s h x ->

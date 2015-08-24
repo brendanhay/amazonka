@@ -133,9 +133,8 @@ ddiDBInstanceIdentifier :: Lens' DeleteDBInstance Text
 ddiDBInstanceIdentifier = lens _ddiDBInstanceIdentifier (\ s a -> s{_ddiDBInstanceIdentifier = a});
 
 instance AWSRequest DeleteDBInstance where
-        type Sv DeleteDBInstance = RDS
         type Rs DeleteDBInstance = DeleteDBInstanceResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "DeleteDBInstanceResult"
               (\ s h x ->

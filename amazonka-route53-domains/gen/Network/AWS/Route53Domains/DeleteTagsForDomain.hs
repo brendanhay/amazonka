@@ -101,10 +101,9 @@ dtfdTagsToDelete :: Lens' DeleteTagsForDomain [Text]
 dtfdTagsToDelete = lens _dtfdTagsToDelete (\ s a -> s{_dtfdTagsToDelete = a}) . _Coerce;
 
 instance AWSRequest DeleteTagsForDomain where
-        type Sv DeleteTagsForDomain = Route53Domains
         type Rs DeleteTagsForDomain =
              DeleteTagsForDomainResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveEmpty
               (\ s h x ->

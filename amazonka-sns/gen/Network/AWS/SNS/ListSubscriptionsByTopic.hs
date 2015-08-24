@@ -92,10 +92,9 @@ instance AWSPager ListSubscriptionsByTopic where
             Just $ rq & lsbtNextToken .~ rs ^. lsbtrsNextToken
 
 instance AWSRequest ListSubscriptionsByTopic where
-        type Sv ListSubscriptionsByTopic = SNS
         type Rs ListSubscriptionsByTopic =
              ListSubscriptionsByTopicResponse
-        request = postQuery
+        request = postQuery sNS
         response
           = receiveXMLWrapper "ListSubscriptionsByTopicResult"
               (\ s h x ->

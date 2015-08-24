@@ -171,10 +171,9 @@ umpBody :: Lens' UploadMultipartPart RqBody
 umpBody = lens _umpBody (\ s a -> s{_umpBody = a});
 
 instance AWSRequest UploadMultipartPart where
-        type Sv UploadMultipartPart = Glacier
         type Rs UploadMultipartPart =
              UploadMultipartPartResponse
-        request = putBody
+        request = putBody glacier
         response
           = receiveEmpty
               (\ s h x ->

@@ -78,10 +78,9 @@ gbpdIdentityPoolId :: Lens' GetBulkPublishDetails Text
 gbpdIdentityPoolId = lens _gbpdIdentityPoolId (\ s a -> s{_gbpdIdentityPoolId = a});
 
 instance AWSRequest GetBulkPublishDetails where
-        type Sv GetBulkPublishDetails = CognitoSync
         type Rs GetBulkPublishDetails =
              GetBulkPublishDetailsResponse
-        request = postJSON
+        request = postJSON cognitoSync
         response
           = receiveJSON
               (\ s h x ->

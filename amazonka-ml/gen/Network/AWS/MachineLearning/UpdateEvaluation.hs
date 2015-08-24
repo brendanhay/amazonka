@@ -80,9 +80,8 @@ ueEvaluationName :: Lens' UpdateEvaluation Text
 ueEvaluationName = lens _ueEvaluationName (\ s a -> s{_ueEvaluationName = a});
 
 instance AWSRequest UpdateEvaluation where
-        type Sv UpdateEvaluation = MachineLearning
         type Rs UpdateEvaluation = UpdateEvaluationResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

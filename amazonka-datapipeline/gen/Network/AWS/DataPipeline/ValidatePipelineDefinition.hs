@@ -99,10 +99,9 @@ vpdPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
 vpdPipelineObjects = lens _vpdPipelineObjects (\ s a -> s{_vpdPipelineObjects = a}) . _Coerce;
 
 instance AWSRequest ValidatePipelineDefinition where
-        type Sv ValidatePipelineDefinition = DataPipeline
         type Rs ValidatePipelineDefinition =
              ValidatePipelineDefinitionResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->

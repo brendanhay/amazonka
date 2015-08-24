@@ -77,10 +77,9 @@ attopiInstanceNames = lens _attopiInstanceNames (\ s a -> s{_attopiInstanceNames
 
 instance AWSRequest AddTagsToOnPremisesInstances
          where
-        type Sv AddTagsToOnPremisesInstances = CodeDeploy
         type Rs AddTagsToOnPremisesInstances =
              AddTagsToOnPremisesInstancesResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveNull AddTagsToOnPremisesInstancesResponse'
 

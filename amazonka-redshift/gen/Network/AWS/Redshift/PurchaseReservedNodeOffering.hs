@@ -90,10 +90,9 @@ prnoReservedNodeOfferingId = lens _prnoReservedNodeOfferingId (\ s a -> s{_prnoR
 
 instance AWSRequest PurchaseReservedNodeOffering
          where
-        type Sv PurchaseReservedNodeOffering = Redshift
         type Rs PurchaseReservedNodeOffering =
              PurchaseReservedNodeOfferingResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "PurchaseReservedNodeOfferingResult"

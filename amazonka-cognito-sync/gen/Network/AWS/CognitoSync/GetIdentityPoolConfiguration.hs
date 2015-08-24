@@ -77,10 +77,9 @@ gipcIdentityPoolId = lens _gipcIdentityPoolId (\ s a -> s{_gipcIdentityPoolId = 
 
 instance AWSRequest GetIdentityPoolConfiguration
          where
-        type Sv GetIdentityPoolConfiguration = CognitoSync
         type Rs GetIdentityPoolConfiguration =
              GetIdentityPoolConfigurationResponse
-        request = get
+        request = get cognitoSync
         response
           = receiveJSON
               (\ s h x ->

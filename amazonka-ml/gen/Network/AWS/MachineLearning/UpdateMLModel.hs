@@ -93,9 +93,8 @@ umlmMLModelId :: Lens' UpdateMLModel Text
 umlmMLModelId = lens _umlmMLModelId (\ s a -> s{_umlmMLModelId = a});
 
 instance AWSRequest UpdateMLModel where
-        type Sv UpdateMLModel = MachineLearning
         type Rs UpdateMLModel = UpdateMLModelResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

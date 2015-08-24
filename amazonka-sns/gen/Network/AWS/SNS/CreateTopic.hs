@@ -77,9 +77,8 @@ ctName :: Lens' CreateTopic Text
 ctName = lens _ctName (\ s a -> s{_ctName = a});
 
 instance AWSRequest CreateTopic where
-        type Sv CreateTopic = SNS
         type Rs CreateTopic = CreateTopicResponse
-        request = postQuery
+        request = postQuery sNS
         response
           = receiveXMLWrapper "CreateTopicResult"
               (\ s h x ->

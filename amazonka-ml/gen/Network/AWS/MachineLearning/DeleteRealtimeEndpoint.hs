@@ -67,10 +67,9 @@ dreMLModelId :: Lens' DeleteRealtimeEndpoint Text
 dreMLModelId = lens _dreMLModelId (\ s a -> s{_dreMLModelId = a});
 
 instance AWSRequest DeleteRealtimeEndpoint where
-        type Sv DeleteRealtimeEndpoint = MachineLearning
         type Rs DeleteRealtimeEndpoint =
              DeleteRealtimeEndpointResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

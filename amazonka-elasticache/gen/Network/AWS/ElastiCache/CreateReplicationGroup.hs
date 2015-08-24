@@ -406,10 +406,9 @@ crgReplicationGroupDescription :: Lens' CreateReplicationGroup Text
 crgReplicationGroupDescription = lens _crgReplicationGroupDescription (\ s a -> s{_crgReplicationGroupDescription = a});
 
 instance AWSRequest CreateReplicationGroup where
-        type Sv CreateReplicationGroup = ElastiCache
         type Rs CreateReplicationGroup =
              CreateReplicationGroupResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "CreateReplicationGroupResult"
               (\ s h x ->

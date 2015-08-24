@@ -171,9 +171,8 @@ instance AWSPager DescribeCases where
             Just $ rq & dcNextToken .~ rs ^. drsNextToken
 
 instance AWSRequest DescribeCases where
-        type Sv DescribeCases = Support
         type Rs DescribeCases = DescribeCasesResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveJSON
               (\ s h x ->

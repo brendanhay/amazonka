@@ -108,10 +108,9 @@ instance AWSPager ListContainerInstances where
             Just $ rq & lciNextToken .~ rs ^. lcirsNextToken
 
 instance AWSRequest ListContainerInstances where
-        type Sv ListContainerInstances = ECS
         type Rs ListContainerInstances =
              ListContainerInstancesResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

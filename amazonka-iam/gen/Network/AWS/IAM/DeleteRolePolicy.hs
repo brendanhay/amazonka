@@ -81,9 +81,8 @@ delPolicyName :: Lens' DeleteRolePolicy Text
 delPolicyName = lens _delPolicyName (\ s a -> s{_delPolicyName = a});
 
 instance AWSRequest DeleteRolePolicy where
-        type Sv DeleteRolePolicy = IAM
         type Rs DeleteRolePolicy = DeleteRolePolicyResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull DeleteRolePolicyResponse'
 
 instance ToHeaders DeleteRolePolicy where

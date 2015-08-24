@@ -139,10 +139,9 @@ csgDescription :: Lens' CreateSecurityGroup Text
 csgDescription = lens _csgDescription (\ s a -> s{_csgDescription = a});
 
 instance AWSRequest CreateSecurityGroup where
-        type Sv CreateSecurityGroup = EC2
         type Rs CreateSecurityGroup =
              CreateSecurityGroupResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

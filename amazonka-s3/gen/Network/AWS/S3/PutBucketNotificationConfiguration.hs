@@ -74,10 +74,9 @@ pbncNotificationConfiguration = lens _pbncNotificationConfiguration (\ s a -> s{
 
 instance AWSRequest
          PutBucketNotificationConfiguration where
-        type Sv PutBucketNotificationConfiguration = S3
         type Rs PutBucketNotificationConfiguration =
              PutBucketNotificationConfigurationResponse
-        request = putXML
+        request = putXML s3
         response
           = receiveNull
               PutBucketNotificationConfigurationResponse'

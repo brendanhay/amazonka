@@ -77,10 +77,9 @@ coutTags :: Lens' CreateOrUpdateTags [Tag]
 coutTags = lens _coutTags (\ s a -> s{_coutTags = a}) . _Coerce;
 
 instance AWSRequest CreateOrUpdateTags where
-        type Sv CreateOrUpdateTags = AutoScaling
         type Rs CreateOrUpdateTags =
              CreateOrUpdateTagsResponse
-        request = postQuery
+        request = postQuery autoScaling
         response = receiveNull CreateOrUpdateTagsResponse'
 
 instance ToHeaders CreateOrUpdateTags where

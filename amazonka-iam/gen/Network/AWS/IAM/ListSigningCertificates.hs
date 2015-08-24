@@ -112,10 +112,9 @@ instance AWSPager ListSigningCertificates where
           | otherwise = Just $ rq & lMarker .~ rs ^. lrsMarker
 
 instance AWSRequest ListSigningCertificates where
-        type Sv ListSigningCertificates = IAM
         type Rs ListSigningCertificates =
              ListSigningCertificatesResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListSigningCertificatesResult"
               (\ s h x ->

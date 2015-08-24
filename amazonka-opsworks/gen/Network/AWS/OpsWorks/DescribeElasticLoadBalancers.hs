@@ -85,10 +85,9 @@ delbStackId = lens _delbStackId (\ s a -> s{_delbStackId = a});
 
 instance AWSRequest DescribeElasticLoadBalancers
          where
-        type Sv DescribeElasticLoadBalancers = OpsWorks
         type Rs DescribeElasticLoadBalancers =
              DescribeElasticLoadBalancersResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

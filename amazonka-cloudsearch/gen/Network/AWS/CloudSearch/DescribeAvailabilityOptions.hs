@@ -86,10 +86,9 @@ daoDomainName :: Lens' DescribeAvailabilityOptions Text
 daoDomainName = lens _daoDomainName (\ s a -> s{_daoDomainName = a});
 
 instance AWSRequest DescribeAvailabilityOptions where
-        type Sv DescribeAvailabilityOptions = CloudSearch
         type Rs DescribeAvailabilityOptions =
              DescribeAvailabilityOptionsResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper
               "DescribeAvailabilityOptionsResult"

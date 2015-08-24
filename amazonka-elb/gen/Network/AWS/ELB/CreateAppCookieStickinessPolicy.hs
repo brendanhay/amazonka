@@ -103,10 +103,9 @@ cacspCookieName = lens _cacspCookieName (\ s a -> s{_cacspCookieName = a});
 
 instance AWSRequest CreateAppCookieStickinessPolicy
          where
-        type Sv CreateAppCookieStickinessPolicy = ELB
         type Rs CreateAppCookieStickinessPolicy =
              CreateAppCookieStickinessPolicyResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper
               "CreateAppCookieStickinessPolicyResult"

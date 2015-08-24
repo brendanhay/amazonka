@@ -89,10 +89,9 @@ udId :: Lens' UpdateDistribution Text
 udId = lens _udId (\ s a -> s{_udId = a});
 
 instance AWSRequest UpdateDistribution where
-        type Sv UpdateDistribution = CloudFront
         type Rs UpdateDistribution =
              UpdateDistributionResponse
-        request = putXML
+        request = putXML cloudFront
         response
           = receiveXML
               (\ s h x ->

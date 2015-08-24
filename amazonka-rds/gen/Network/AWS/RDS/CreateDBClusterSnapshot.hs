@@ -108,10 +108,9 @@ cdcsDBClusterIdentifier :: Lens' CreateDBClusterSnapshot Text
 cdcsDBClusterIdentifier = lens _cdcsDBClusterIdentifier (\ s a -> s{_cdcsDBClusterIdentifier = a});
 
 instance AWSRequest CreateDBClusterSnapshot where
-        type Sv CreateDBClusterSnapshot = RDS
         type Rs CreateDBClusterSnapshot =
              CreateDBClusterSnapshotResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "CreateDBClusterSnapshotResult"
               (\ s h x ->

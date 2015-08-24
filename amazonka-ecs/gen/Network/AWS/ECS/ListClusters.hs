@@ -96,9 +96,8 @@ instance AWSPager ListClusters where
             Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
 
 instance AWSRequest ListClusters where
-        type Sv ListClusters = ECS
         type Rs ListClusters = ListClustersResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

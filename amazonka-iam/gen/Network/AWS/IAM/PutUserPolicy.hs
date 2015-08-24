@@ -101,9 +101,8 @@ pupPolicyDocument :: Lens' PutUserPolicy Text
 pupPolicyDocument = lens _pupPolicyDocument (\ s a -> s{_pupPolicyDocument = a});
 
 instance AWSRequest PutUserPolicy where
-        type Sv PutUserPolicy = IAM
         type Rs PutUserPolicy = PutUserPolicyResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull PutUserPolicyResponse'
 
 instance ToHeaders PutUserPolicy where

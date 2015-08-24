@@ -83,10 +83,9 @@ lipuMaxResults :: Lens' ListIdentityPoolUsage (Maybe Int)
 lipuMaxResults = lens _lipuMaxResults (\ s a -> s{_lipuMaxResults = a});
 
 instance AWSRequest ListIdentityPoolUsage where
-        type Sv ListIdentityPoolUsage = CognitoSync
         type Rs ListIdentityPoolUsage =
              ListIdentityPoolUsageResponse
-        request = get
+        request = get cognitoSync
         response
           = receiveJSON
               (\ s h x ->

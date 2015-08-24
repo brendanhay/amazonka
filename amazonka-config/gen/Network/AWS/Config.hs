@@ -44,8 +44,8 @@
 -- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Config
     (
-    -- * Service
-      Config
+    -- * Service Configuration
+      config
 
     -- * Errors
     -- $errors

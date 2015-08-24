@@ -95,10 +95,9 @@ dsaAttribute :: Lens' DescribeSnapshotAttribute SnapshotAttributeName
 dsaAttribute = lens _dsaAttribute (\ s a -> s{_dsaAttribute = a});
 
 instance AWSRequest DescribeSnapshotAttribute where
-        type Sv DescribeSnapshotAttribute = EC2
         type Rs DescribeSnapshotAttribute =
              DescribeSnapshotAttributeResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

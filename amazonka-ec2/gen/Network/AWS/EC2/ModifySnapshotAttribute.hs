@@ -132,10 +132,9 @@ msaSnapshotId :: Lens' ModifySnapshotAttribute Text
 msaSnapshotId = lens _msaSnapshotId (\ s a -> s{_msaSnapshotId = a});
 
 instance AWSRequest ModifySnapshotAttribute where
-        type Sv ModifySnapshotAttribute = EC2
         type Rs ModifySnapshotAttribute =
              ModifySnapshotAttributeResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveNull ModifySnapshotAttributeResponse'
 

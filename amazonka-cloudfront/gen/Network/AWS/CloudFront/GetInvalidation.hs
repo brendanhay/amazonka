@@ -78,9 +78,8 @@ giId :: Lens' GetInvalidation Text
 giId = lens _giId (\ s a -> s{_giId = a});
 
 instance AWSRequest GetInvalidation where
-        type Sv GetInvalidation = CloudFront
         type Rs GetInvalidation = GetInvalidationResponse
-        request = get
+        request = get cloudFront
         response
           = receiveXML
               (\ s h x ->

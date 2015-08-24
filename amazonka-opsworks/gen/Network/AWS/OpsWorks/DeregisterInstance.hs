@@ -72,10 +72,9 @@ dInstanceId :: Lens' DeregisterInstance Text
 dInstanceId = lens _dInstanceId (\ s a -> s{_dInstanceId = a});
 
 instance AWSRequest DeregisterInstance where
-        type Sv DeregisterInstance = OpsWorks
         type Rs DeregisterInstance =
              DeregisterInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull DeregisterInstanceResponse'
 
 instance ToHeaders DeregisterInstance where

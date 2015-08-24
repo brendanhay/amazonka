@@ -69,9 +69,8 @@ lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
 lqQueueNamePrefix = lens _lqQueueNamePrefix (\ s a -> s{_lqQueueNamePrefix = a});
 
 instance AWSRequest ListQueues where
-        type Sv ListQueues = SQS
         type Rs ListQueues = ListQueuesResponse
-        request = postQuery
+        request = postQuery sQS
         response
           = receiveXMLWrapper "ListQueuesResult"
               (\ s h x ->

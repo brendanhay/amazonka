@@ -68,9 +68,8 @@ gtArn :: Lens' GetTest Text
 gtArn = lens _gtArn (\ s a -> s{_gtArn = a});
 
 instance AWSRequest GetTest where
-        type Sv GetTest = DeviceFarm
         type Rs GetTest = GetTestResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

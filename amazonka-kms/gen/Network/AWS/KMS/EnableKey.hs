@@ -70,9 +70,8 @@ ekKeyId :: Lens' EnableKey Text
 ekKeyId = lens _ekKeyId (\ s a -> s{_ekKeyId = a});
 
 instance AWSRequest EnableKey where
-        type Sv EnableKey = KMS
         type Rs EnableKey = EnableKeyResponse
-        request = postJSON
+        request = postJSON kMS
         response = receiveNull EnableKeyResponse'
 
 instance ToHeaders EnableKey where

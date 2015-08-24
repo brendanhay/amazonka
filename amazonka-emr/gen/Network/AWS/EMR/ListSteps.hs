@@ -106,9 +106,8 @@ instance AWSPager ListSteps where
             Just $ rq & lsMarker .~ rs ^. lsrsMarker
 
 instance AWSRequest ListSteps where
-        type Sv ListSteps = EMR
         type Rs ListSteps = ListStepsResponse
-        request = postJSON
+        request = postJSON eMR
         response
           = receiveJSON
               (\ s h x ->

@@ -115,10 +115,9 @@ dpmaResourceIdentifier = lens _dpmaResourceIdentifier (\ s a -> s{_dpmaResourceI
 
 instance AWSRequest DescribePendingMaintenanceActions
          where
-        type Sv DescribePendingMaintenanceActions = RDS
         type Rs DescribePendingMaintenanceActions =
              DescribePendingMaintenanceActionsResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "DescribePendingMaintenanceActionsResult"

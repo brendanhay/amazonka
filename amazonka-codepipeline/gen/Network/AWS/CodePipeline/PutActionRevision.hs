@@ -102,9 +102,8 @@ parActionRevision :: Lens' PutActionRevision ActionRevision
 parActionRevision = lens _parActionRevision (\ s a -> s{_parActionRevision = a});
 
 instance AWSRequest PutActionRevision where
-        type Sv PutActionRevision = CodePipeline
         type Rs PutActionRevision = PutActionRevisionResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->

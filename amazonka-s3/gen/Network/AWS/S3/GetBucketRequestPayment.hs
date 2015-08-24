@@ -66,10 +66,9 @@ gbrpBucket :: Lens' GetBucketRequestPayment BucketName
 gbrpBucket = lens _gbrpBucket (\ s a -> s{_gbrpBucket = a});
 
 instance AWSRequest GetBucketRequestPayment where
-        type Sv GetBucketRequestPayment = S3
         type Rs GetBucketRequestPayment =
              GetBucketRequestPaymentResponse
-        request = get
+        request = get s3
         response
           = receiveXML
               (\ s h x ->

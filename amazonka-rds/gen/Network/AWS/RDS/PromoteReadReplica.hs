@@ -122,10 +122,9 @@ prrDBInstanceIdentifier :: Lens' PromoteReadReplica Text
 prrDBInstanceIdentifier = lens _prrDBInstanceIdentifier (\ s a -> s{_prrDBInstanceIdentifier = a});
 
 instance AWSRequest PromoteReadReplica where
-        type Sv PromoteReadReplica = RDS
         type Rs PromoteReadReplica =
              PromoteReadReplicaResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "PromoteReadReplicaResult"
               (\ s h x ->

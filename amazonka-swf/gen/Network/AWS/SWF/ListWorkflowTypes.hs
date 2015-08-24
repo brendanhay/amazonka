@@ -158,9 +158,8 @@ instance AWSPager ListWorkflowTypes where
               lwtNextPageToken .~ rs ^. lwtrsNextPageToken
 
 instance AWSRequest ListWorkflowTypes where
-        type Sv ListWorkflowTypes = SWF
         type Rs ListWorkflowTypes = ListWorkflowTypesResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveJSON
               (\ s h x ->

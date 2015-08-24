@@ -80,10 +80,9 @@ uiInstanceIds :: Lens' UnmonitorInstances [Text]
 uiInstanceIds = lens _uiInstanceIds (\ s a -> s{_uiInstanceIds = a}) . _Coerce;
 
 instance AWSRequest UnmonitorInstances where
-        type Sv UnmonitorInstances = EC2
         type Rs UnmonitorInstances =
              UnmonitorInstancesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

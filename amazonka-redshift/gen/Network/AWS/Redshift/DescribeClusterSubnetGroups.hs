@@ -151,10 +151,9 @@ instance AWSPager DescribeClusterSubnetGroups where
             Just $ rq & dcsgsMarker .~ rs ^. dcsgrsMarker
 
 instance AWSRequest DescribeClusterSubnetGroups where
-        type Sv DescribeClusterSubnetGroups = Redshift
         type Rs DescribeClusterSubnetGroups =
              DescribeClusterSubnetGroupsResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "DescribeClusterSubnetGroupsResult"

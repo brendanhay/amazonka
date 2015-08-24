@@ -128,10 +128,9 @@ ddcpDBClusterParameterGroupName :: Lens' DescribeDBClusterParameters Text
 ddcpDBClusterParameterGroupName = lens _ddcpDBClusterParameterGroupName (\ s a -> s{_ddcpDBClusterParameterGroupName = a});
 
 instance AWSRequest DescribeDBClusterParameters where
-        type Sv DescribeDBClusterParameters = RDS
         type Rs DescribeDBClusterParameters =
              DescribeDBClusterParametersResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "DescribeDBClusterParametersResult"

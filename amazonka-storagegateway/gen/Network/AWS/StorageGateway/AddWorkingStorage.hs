@@ -92,9 +92,8 @@ awsDiskIds :: Lens' AddWorkingStorage [Text]
 awsDiskIds = lens _awsDiskIds (\ s a -> s{_awsDiskIds = a}) . _Coerce;
 
 instance AWSRequest AddWorkingStorage where
-        type Sv AddWorkingStorage = StorageGateway
         type Rs AddWorkingStorage = AddWorkingStorageResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

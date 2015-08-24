@@ -90,10 +90,9 @@ dmbEntries :: Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
 dmbEntries = lens _dmbEntries (\ s a -> s{_dmbEntries = a}) . _Coerce;
 
 instance AWSRequest DeleteMessageBatch where
-        type Sv DeleteMessageBatch = SQS
         type Rs DeleteMessageBatch =
              DeleteMessageBatchResponse
-        request = postQuery
+        request = postQuery sQS
         response
           = receiveXMLWrapper "DeleteMessageBatchResult"
               (\ s h x ->

@@ -66,10 +66,9 @@ caaAccountAlias :: Lens' CreateAccountAlias Text
 caaAccountAlias = lens _caaAccountAlias (\ s a -> s{_caaAccountAlias = a});
 
 instance AWSRequest CreateAccountAlias where
-        type Sv CreateAccountAlias = IAM
         type Rs CreateAccountAlias =
              CreateAccountAliasResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull CreateAccountAliasResponse'
 
 instance ToHeaders CreateAccountAlias where

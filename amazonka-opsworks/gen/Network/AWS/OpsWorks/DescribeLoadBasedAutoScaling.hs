@@ -74,10 +74,9 @@ dlbasLayerIds = lens _dlbasLayerIds (\ s a -> s{_dlbasLayerIds = a}) . _Coerce;
 
 instance AWSRequest DescribeLoadBasedAutoScaling
          where
-        type Sv DescribeLoadBasedAutoScaling = OpsWorks
         type Rs DescribeLoadBasedAutoScaling =
              DescribeLoadBasedAutoScalingResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

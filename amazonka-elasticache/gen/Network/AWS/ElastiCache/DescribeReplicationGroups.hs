@@ -112,10 +112,9 @@ instance AWSPager DescribeReplicationGroups where
             Just $ rq & drgsMarker .~ rs ^. drgrsMarker
 
 instance AWSRequest DescribeReplicationGroups where
-        type Sv DescribeReplicationGroups = ElastiCache
         type Rs DescribeReplicationGroups =
              DescribeReplicationGroupsResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "DescribeReplicationGroupsResult"
               (\ s h x ->

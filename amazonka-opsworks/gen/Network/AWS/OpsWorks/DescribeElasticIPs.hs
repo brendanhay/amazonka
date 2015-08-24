@@ -99,10 +99,9 @@ deiStackId :: Lens' DescribeElasticIPs (Maybe Text)
 deiStackId = lens _deiStackId (\ s a -> s{_deiStackId = a});
 
 instance AWSRequest DescribeElasticIPs where
-        type Sv DescribeElasticIPs = OpsWorks
         type Rs DescribeElasticIPs =
              DescribeElasticIPsResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

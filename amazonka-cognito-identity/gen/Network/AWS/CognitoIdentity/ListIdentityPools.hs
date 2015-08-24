@@ -80,9 +80,8 @@ lipMaxResults :: Lens' ListIdentityPools Natural
 lipMaxResults = lens _lipMaxResults (\ s a -> s{_lipMaxResults = a}) . _Nat;
 
 instance AWSRequest ListIdentityPools where
-        type Sv ListIdentityPools = CognitoIdentity
         type Rs ListIdentityPools = ListIdentityPoolsResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response
           = receiveJSON
               (\ s h x ->

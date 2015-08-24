@@ -124,10 +124,9 @@ instance AWSPager DescribeDBInstances where
             Just $ rq & ddbiMarker .~ rs ^. ddbirsMarker
 
 instance AWSRequest DescribeDBInstances where
-        type Sv DescribeDBInstances = RDS
         type Rs DescribeDBInstances =
              DescribeDBInstancesResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "DescribeDBInstancesResult"
               (\ s h x ->

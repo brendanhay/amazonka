@@ -80,9 +80,8 @@ miInstanceIds :: Lens' MonitorInstances [Text]
 miInstanceIds = lens _miInstanceIds (\ s a -> s{_miInstanceIds = a}) . _Coerce;
 
 instance AWSRequest MonitorInstances where
-        type Sv MonitorInstances = EC2
         type Rs MonitorInstances = MonitorInstancesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

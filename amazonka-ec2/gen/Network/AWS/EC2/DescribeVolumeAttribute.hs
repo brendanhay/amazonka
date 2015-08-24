@@ -94,10 +94,9 @@ dvaVolumeId :: Lens' DescribeVolumeAttribute Text
 dvaVolumeId = lens _dvaVolumeId (\ s a -> s{_dvaVolumeId = a});
 
 instance AWSRequest DescribeVolumeAttribute where
-        type Sv DescribeVolumeAttribute = EC2
         type Rs DescribeVolumeAttribute =
              DescribeVolumeAttributeResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

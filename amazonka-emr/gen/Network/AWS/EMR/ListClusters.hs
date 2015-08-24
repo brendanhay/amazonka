@@ -110,9 +110,8 @@ instance AWSPager ListClusters where
             Just $ rq & lcMarker .~ rs ^. lcrsMarker
 
 instance AWSRequest ListClusters where
-        type Sv ListClusters = EMR
         type Rs ListClusters = ListClustersResponse
-        request = postJSON
+        request = postJSON eMR
         response
           = receiveJSON
               (\ s h x ->

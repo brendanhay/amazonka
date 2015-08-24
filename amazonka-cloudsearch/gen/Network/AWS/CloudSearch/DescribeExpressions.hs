@@ -98,10 +98,9 @@ deDomainName :: Lens' DescribeExpressions Text
 deDomainName = lens _deDomainName (\ s a -> s{_deDomainName = a});
 
 instance AWSRequest DescribeExpressions where
-        type Sv DescribeExpressions = CloudSearch
         type Rs DescribeExpressions =
              DescribeExpressionsResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "DescribeExpressionsResult"
               (\ s h x ->

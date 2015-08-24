@@ -89,10 +89,9 @@ aatsAttachments :: Lens' AddAttachmentsToSet [Attachment]
 aatsAttachments = lens _aatsAttachments (\ s a -> s{_aatsAttachments = a}) . _Coerce;
 
 instance AWSRequest AddAttachmentsToSet where
-        type Sv AddAttachmentsToSet = Support
         type Rs AddAttachmentsToSet =
              AddAttachmentsToSetResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveJSON
               (\ s h x ->

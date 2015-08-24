@@ -91,10 +91,9 @@ dmcAutoScalingGroupName :: Lens' DisableMetricsCollection Text
 dmcAutoScalingGroupName = lens _dmcAutoScalingGroupName (\ s a -> s{_dmcAutoScalingGroupName = a});
 
 instance AWSRequest DisableMetricsCollection where
-        type Sv DisableMetricsCollection = AutoScaling
         type Rs DisableMetricsCollection =
              DisableMetricsCollectionResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveNull DisableMetricsCollectionResponse'
 

@@ -107,10 +107,9 @@ slbasLayerId :: Lens' SetLoadBasedAutoScaling Text
 slbasLayerId = lens _slbasLayerId (\ s a -> s{_slbasLayerId = a});
 
 instance AWSRequest SetLoadBasedAutoScaling where
-        type Sv SetLoadBasedAutoScaling = OpsWorks
         type Rs SetLoadBasedAutoScaling =
              SetLoadBasedAutoScalingResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveNull SetLoadBasedAutoScalingResponse'
 

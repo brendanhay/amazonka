@@ -105,9 +105,8 @@ instance AWSPager ListStreams where
                 rs ^? lsrsStreamNames . _last
 
 instance AWSRequest ListStreams where
-        type Sv ListStreams = Kinesis
         type Rs ListStreams = ListStreamsResponse
-        request = postJSON
+        request = postJSON kinesis
         response
           = receiveJSON
               (\ s h x ->

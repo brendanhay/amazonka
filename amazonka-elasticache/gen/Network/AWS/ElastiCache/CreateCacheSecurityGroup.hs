@@ -92,10 +92,9 @@ ccsgDescription :: Lens' CreateCacheSecurityGroup Text
 ccsgDescription = lens _ccsgDescription (\ s a -> s{_ccsgDescription = a});
 
 instance AWSRequest CreateCacheSecurityGroup where
-        type Sv CreateCacheSecurityGroup = ElastiCache
         type Rs CreateCacheSecurityGroup =
              CreateCacheSecurityGroupResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "CreateCacheSecurityGroupResult"
               (\ s h x ->

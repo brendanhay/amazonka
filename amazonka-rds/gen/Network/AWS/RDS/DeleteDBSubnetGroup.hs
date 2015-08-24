@@ -76,10 +76,9 @@ ddbsgDBSubnetGroupName :: Lens' DeleteDBSubnetGroup Text
 ddbsgDBSubnetGroupName = lens _ddbsgDBSubnetGroupName (\ s a -> s{_ddbsgDBSubnetGroupName = a});
 
 instance AWSRequest DeleteDBSubnetGroup where
-        type Sv DeleteDBSubnetGroup = RDS
         type Rs DeleteDBSubnetGroup =
              DeleteDBSubnetGroupResponse
-        request = postQuery
+        request = postQuery rDS
         response = receiveNull DeleteDBSubnetGroupResponse'
 
 instance ToHeaders DeleteDBSubnetGroup where

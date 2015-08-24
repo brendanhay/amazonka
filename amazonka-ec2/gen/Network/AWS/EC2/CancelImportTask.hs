@@ -88,9 +88,8 @@ citDryRun :: Lens' CancelImportTask (Maybe Bool)
 citDryRun = lens _citDryRun (\ s a -> s{_citDryRun = a});
 
 instance AWSRequest CancelImportTask where
-        type Sv CancelImportTask = EC2
         type Rs CancelImportTask = CancelImportTaskResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

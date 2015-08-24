@@ -76,10 +76,9 @@ ginaIdentities = lens _ginaIdentities (\ s a -> s{_ginaIdentities = a}) . _Coerc
 
 instance AWSRequest GetIdentityNotificationAttributes
          where
-        type Sv GetIdentityNotificationAttributes = SES
         type Rs GetIdentityNotificationAttributes =
              GetIdentityNotificationAttributesResponse
-        request = postQuery
+        request = postQuery sES
         response
           = receiveXMLWrapper
               "GetIdentityNotificationAttributesResult"

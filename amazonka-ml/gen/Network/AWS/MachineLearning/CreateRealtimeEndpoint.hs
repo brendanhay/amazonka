@@ -69,10 +69,9 @@ creMLModelId :: Lens' CreateRealtimeEndpoint Text
 creMLModelId = lens _creMLModelId (\ s a -> s{_creMLModelId = a});
 
 instance AWSRequest CreateRealtimeEndpoint where
-        type Sv CreateRealtimeEndpoint = MachineLearning
         type Rs CreateRealtimeEndpoint =
              CreateRealtimeEndpointResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

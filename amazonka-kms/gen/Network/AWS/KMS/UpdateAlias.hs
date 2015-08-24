@@ -95,9 +95,8 @@ uaTargetKeyId :: Lens' UpdateAlias Text
 uaTargetKeyId = lens _uaTargetKeyId (\ s a -> s{_uaTargetKeyId = a});
 
 instance AWSRequest UpdateAlias where
-        type Sv UpdateAlias = KMS
         type Rs UpdateAlias = UpdateAliasResponse
-        request = postJSON
+        request = postJSON kMS
         response = receiveNull UpdateAliasResponse'
 
 instance ToHeaders UpdateAlias where

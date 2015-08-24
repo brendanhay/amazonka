@@ -13,9 +13,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Sign.V2
-    ( Meta (..)
-    , V2
-    , v2
+    ( v2
     ) where
 
 import           Control.Applicative
@@ -37,16 +35,14 @@ import           Network.HTTP.Types           hiding (toQuery)
 
 import           Prelude
 
-data V2
-
-data instance (Meta V2) = Meta
+data V2 = V2
     { metaTime      :: !UTCTime
     , metaEndpoint  :: !Endpoint
     , metaSignature :: !ByteString
     }
 
-instance ToLog (Meta V2) where
-    build Meta{..} = mconcat $ intersperse "\n"
+instance ToLog V2 where
+    build V2{..} = buildLines
         [ "[Version 2 Metadata] {"
         , "  time      = " <> build metaTime
         , "  endpoint  = " <> build (_endpointHost metaEndpoint)
@@ -54,13 +50,13 @@ instance ToLog (Meta V2) where
         , "}"
         ]
 
-v2 :: Signer V2
+v2 :: Signer
 v2 = Signer sign' (const sign') -- FIXME: revisit v2 presigning.
 
-sign' :: Algorithm V2 a
-sign' AuthEnv{..} r t Request{..} = Signed meta rq
+sign' :: Algorithm a
+sign' Request{..} AuthEnv{..} r t = Signed meta rq
   where
-    meta = Meta t end signature
+    meta = Meta (V2 t end signature)
 
     rq = (clientRequest end _svcTimeout)
         { Client.method         = meth

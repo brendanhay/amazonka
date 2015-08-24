@@ -16,9 +16,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Sign.V4
-    ( Meta (..)
-    , V4
-    , v4
+    ( v4
     ) where
 
 import           Control.Applicative
@@ -47,9 +45,7 @@ import           Network.HTTP.Types.Header
 
 import           Prelude
 
-data V4
-
-data instance Meta V4 = Meta
+data V4 = V4
     { metaTime             :: !UTCTime
     , metaMethod           :: !Method
     , metaPath             :: !Path
@@ -66,8 +62,8 @@ data instance Meta V4 = Meta
     , metaTimeout          :: !(Maybe Seconds)
     }
 
-instance ToLog (Meta V4) where
-    build Meta{..} = buildLines
+instance ToLog V4 where
+    build V4{..} = buildLines
         [ "[Version 4 Metadata] {"
         , "  time              = " <> build metaTime
         , "  endpoint          = " <> build (_endpointHost metaEndpoint)
@@ -83,11 +79,11 @@ instance ToLog (Meta V4) where
         , "}"
         ]
 
-v4 :: Signer V4
+v4 :: Signer
 v4 = Signer sign' presign'
 
-presign' :: Seconds -> Algorithm V4 a
-presign' ex auth reg ts rq = finalise meta authorise
+presign' :: Seconds -> Algorithm a
+presign' ex rq auth reg ts = finalise meta authorise
   where
     authorise = queryString
         <>~ ("&X-Amz-Signature=" <> toBS (metaSignature meta))
@@ -106,8 +102,8 @@ presign' ex auth reg ts rq = finalise meta authorise
 
     prepare = rqHeaders .~ []
 
-sign' :: Algorithm V4 a
-sign' auth reg ts rq = finalise meta authorise
+sign' :: Algorithm a
+sign' rq auth reg ts = finalise meta authorise
   where
     authorise = requestHeaders
         <>~ [(hAuthorization, authorisation meta)]
@@ -153,14 +149,14 @@ type Method            = Tag "method"             ByteString
 type Path              = Tag "path"               ByteString
 type Signature         = Tag "signature"          ByteString
 
-authorisation :: Meta V4 -> ByteString
-authorisation Meta{..} = algorithm
+authorisation :: V4 -> ByteString
+authorisation V4{..} = algorithm
     <> " Credential="     <> toBS metaCredential
     <> ", SignedHeaders=" <> toBS metaSignedHeaders
     <> ", Signature="     <> toBS metaSignature
 
-finalise :: Meta V4 -> (ClientRequest -> ClientRequest) -> Signed V4 a
-finalise m@Meta{..} authorise = Signed m (authorise rq)
+finalise :: V4 -> (ClientRequest -> ClientRequest) -> Signed a
+finalise m@V4{..} authorise = Signed (Meta m) (authorise rq)
   where
     rq = (clientRequest metaEndpoint metaTimeout)
         { Client.method         = toBS metaMethod
@@ -181,8 +177,8 @@ metadata :: AuthEnv
          -> (Credential -> SignedHeaders -> QueryString -> QueryString)
          -> Hash
          -> Request a
-         -> Meta V4
-metadata auth reg ts presign digest rq = Meta
+         -> V4
+metadata auth reg ts presign digest rq = V4
     { metaTime             = ts
     , metaMethod           = method
     , metaPath             = path

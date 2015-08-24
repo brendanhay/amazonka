@@ -34,17 +34,15 @@ module Network.AWS.Types
     , Logger
 
     -- * Signing
-    , Meta
     , Algorithm
+    , Meta           (..)
     , Signer         (..)
     , Signed         (..)
-    , sgMeta
-    , sgRequest
 
     -- * Service
     , Abbrev
     , Service        (..)
---    , svcSigner
+    , svcSigner
     , svcEndpoint
     , svcTimeout
     , svcStatus
@@ -59,8 +57,8 @@ module Network.AWS.Types
     , rqPath
     , rqQuery
     , rqBody
-    , rqSigner
-    , rqPresigner
+    , rqSign
+    , rqPresign
 
     -- * Responses
     , Response
@@ -145,7 +143,7 @@ import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
-import           Network.HTTP.Client          hiding (Proxy, Request, Response)
+import           Network.HTTP.Client          hiding (Request, Response)
 import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
@@ -339,39 +337,39 @@ retryAttempts :: Lens' Retry Int
 retryAttempts = lens _retryAttempts (\s a -> s { _retryAttempts = a })
 
 -- | Signing algorithm specific metadata.
-data family Meta v :: *
+data Meta where
+    Meta :: ToLog a => a -> Meta
 
 -- | A signed 'ClientRequest' and associated metadata specific
 -- to the signing algorithm, tagged with the initial request type
 -- to be able to obtain the associated response, 'Rs a'.
-data Signed v a where
-    Signed :: ToLog (Meta v) => Meta v -> ClientRequest -> Signed v a
+data Signed a = Signed
+    { sgMeta    :: !Meta
+    , sgRequest :: !ClientRequest
+    }
 
-sgMeta :: Signed v a -> Meta v
-sgMeta (Signed m _) = m
+type Algorithm a = Request a -> AuthEnv -> Region -> UTCTime -> Signed a
 
-sgRequest :: Signed v a -> ClientRequest
-sgRequest (Signed _ r) = r
-
-type Algorithm v a = AuthEnv -> Region -> UTCTime -> Request a -> Signed v a
-
-data Signer v = Signer
-    { sgSigner    :: forall a. Algorithm v a
-    , sgPresigner :: forall a. Seconds -> Algorithm v a
+data Signer = Signer
+    { sgSign    :: forall a. Algorithm a
+    , sgPresign :: forall a. Seconds -> Algorithm a
     }
 
 -- | Attributes and functions specific to an AWS service.
 data Service = Service
     { _svcAbbrev   :: !Abbrev
-    , _svcSigner   :: forall v. Signer v
-    , _svcPrefix   :: ByteString
-    , _svcVersion  :: ByteString
-    , _svcEndpoint :: Region -> Endpoint
-    , _svcTimeout  :: Maybe Seconds
-    , _svcStatus   :: Status -> Bool
-    , _svcError    :: Abbrev -> Status -> [Header] -> LazyByteString -> Error
-    , _svcRetry    :: Retry
+    , _svcSigner   :: !Signer
+    , _svcPrefix   :: !ByteString
+    , _svcVersion  :: !ByteString
+    , _svcEndpoint :: !(Region -> Endpoint)
+    , _svcTimeout  :: !(Maybe Seconds)
+    , _svcStatus   :: !(Status -> Bool)
+    , _svcError    :: !(Abbrev -> Status -> [Header] -> LazyByteString -> Error)
+    , _svcRetry    :: !Retry
     }
+
+svcSigner :: Lens' Service Signer
+svcSigner = lens _svcSigner (\s a -> s { _svcSigner = a })
 
 svcEndpoint :: Lens' Service (Region -> Endpoint)
 svcEndpoint = lens _svcEndpoint (\s a -> s { _svcEndpoint = a })
@@ -425,11 +423,11 @@ rqPath = lens _rqPath (\s a -> s { _rqPath = a })
 rqQuery :: Lens' (Request a) QueryString
 rqQuery = lens _rqQuery (\s a -> s { _rqQuery = a })
 
-rqSigner :: Algorithm v a
-rqSigner a r ts x = sgSigner (_svcSigner (_rqService x)) a r ts x
+rqSign :: Algorithm a
+rqSign x = sgSign (_svcSigner (_rqService x)) x
 
-rqPresigner :: Seconds -> Algorithm v a
-rqPresigner ex a r ts x = sgPresigner (_svcSigner (_rqService x)) ex a r ts x
+rqPresign :: Seconds -> Algorithm a
+rqPresign ex x = sgPresign (_svcSigner (_rqService x)) ex x
 
 type Response a = (Status, Rs a)
 
@@ -441,7 +439,6 @@ class AWSRequest a where
     request  :: a -> Request a
     response :: MonadResource m
              => Logger
-             -> Service
              -> Request a
              -> ClientResponse
              -> m (Response a)

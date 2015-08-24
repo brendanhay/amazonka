@@ -152,58 +152,68 @@ testBatchDeleteAttributesResponse :: BatchDeleteAttributesResponse -> TestTree
 testBatchDeleteAttributesResponse = res
     "BatchDeleteAttributesResponse"
     "fixture/BatchDeleteAttributesResponse"
+    sDB
     (Proxy :: Proxy BatchDeleteAttributes)
 
 testBatchPutAttributesResponse :: BatchPutAttributesResponse -> TestTree
 testBatchPutAttributesResponse = res
     "BatchPutAttributesResponse"
     "fixture/BatchPutAttributesResponse"
+    sDB
     (Proxy :: Proxy BatchPutAttributes)
 
 testGetAttributesResponse :: GetAttributesResponse -> TestTree
 testGetAttributesResponse = res
     "GetAttributesResponse"
     "fixture/GetAttributesResponse"
+    sDB
     (Proxy :: Proxy GetAttributes)
 
 testCreateDomainResponse :: CreateDomainResponse -> TestTree
 testCreateDomainResponse = res
     "CreateDomainResponse"
     "fixture/CreateDomainResponse"
+    sDB
     (Proxy :: Proxy CreateDomain)
 
 testDomainMetadataResponse :: DomainMetadataResponse -> TestTree
 testDomainMetadataResponse = res
     "DomainMetadataResponse"
     "fixture/DomainMetadataResponse"
+    sDB
     (Proxy :: Proxy DomainMetadata)
 
 testSelectResponse :: SelectResponse -> TestTree
 testSelectResponse = res
     "SelectResponse"
     "fixture/SelectResponse"
+    sDB
     (Proxy :: Proxy Select)
 
 testPutAttributesResponse :: PutAttributesResponse -> TestTree
 testPutAttributesResponse = res
     "PutAttributesResponse"
     "fixture/PutAttributesResponse"
+    sDB
     (Proxy :: Proxy PutAttributes)
 
 testDeleteAttributesResponse :: DeleteAttributesResponse -> TestTree
 testDeleteAttributesResponse = res
     "DeleteAttributesResponse"
     "fixture/DeleteAttributesResponse"
+    sDB
     (Proxy :: Proxy DeleteAttributes)
 
 testListDomainsResponse :: ListDomainsResponse -> TestTree
 testListDomainsResponse = res
     "ListDomainsResponse"
     "fixture/ListDomainsResponse"
+    sDB
     (Proxy :: Proxy ListDomains)
 
 testDeleteDomainResponse :: DeleteDomainResponse -> TestTree
 testDeleteDomainResponse = res
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse"
+    sDB
     (Proxy :: Proxy DeleteDomain)

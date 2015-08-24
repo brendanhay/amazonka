@@ -812,418 +812,488 @@ testDescribeRDSDBInstancesResponse :: DescribeRDSDBInstancesResponse -> TestTree
 testDescribeRDSDBInstancesResponse = res
     "DescribeRDSDBInstancesResponse"
     "fixture/DescribeRDSDBInstancesResponse"
+    opsWorks
     (Proxy :: Proxy DescribeRDSDBInstances)
 
 testDeleteStackResponse :: DeleteStackResponse -> TestTree
 testDeleteStackResponse = res
     "DeleteStackResponse"
     "fixture/DeleteStackResponse"
+    opsWorks
     (Proxy :: Proxy DeleteStack)
 
 testUpdateStackResponse :: UpdateStackResponse -> TestTree
 testUpdateStackResponse = res
     "UpdateStackResponse"
     "fixture/UpdateStackResponse"
+    opsWorks
     (Proxy :: Proxy UpdateStack)
 
 testCreateLayerResponse :: CreateLayerResponse -> TestTree
 testCreateLayerResponse = res
     "CreateLayerResponse"
     "fixture/CreateLayerResponse"
+    opsWorks
     (Proxy :: Proxy CreateLayer)
 
 testSetLoadBasedAutoScalingResponse :: SetLoadBasedAutoScalingResponse -> TestTree
 testSetLoadBasedAutoScalingResponse = res
     "SetLoadBasedAutoScalingResponse"
     "fixture/SetLoadBasedAutoScalingResponse"
+    opsWorks
     (Proxy :: Proxy SetLoadBasedAutoScaling)
 
 testUnassignVolumeResponse :: UnassignVolumeResponse -> TestTree
 testUnassignVolumeResponse = res
     "UnassignVolumeResponse"
     "fixture/UnassignVolumeResponse"
+    opsWorks
     (Proxy :: Proxy UnassignVolume)
 
 testDeregisterRDSDBInstanceResponse :: DeregisterRDSDBInstanceResponse -> TestTree
 testDeregisterRDSDBInstanceResponse = res
     "DeregisterRDSDBInstanceResponse"
     "fixture/DeregisterRDSDBInstanceResponse"
+    opsWorks
     (Proxy :: Proxy DeregisterRDSDBInstance)
 
 testCreateInstanceResponse :: CreateInstanceResponse -> TestTree
 testCreateInstanceResponse = res
     "CreateInstanceResponse"
     "fixture/CreateInstanceResponse"
+    opsWorks
     (Proxy :: Proxy CreateInstance)
 
 testRegisterElasticIPResponse :: RegisterElasticIPResponse -> TestTree
 testRegisterElasticIPResponse = res
     "RegisterElasticIPResponse"
     "fixture/RegisterElasticIPResponse"
+    opsWorks
     (Proxy :: Proxy RegisterElasticIP)
 
 testDescribeAgentVersionsResponse :: DescribeAgentVersionsResponse -> TestTree
 testDescribeAgentVersionsResponse = res
     "DescribeAgentVersionsResponse"
     "fixture/DescribeAgentVersionsResponse"
+    opsWorks
     (Proxy :: Proxy DescribeAgentVersions)
 
 testDescribeLayersResponse :: DescribeLayersResponse -> TestTree
 testDescribeLayersResponse = res
     "DescribeLayersResponse"
     "fixture/DescribeLayersResponse"
+    opsWorks
     (Proxy :: Proxy DescribeLayers)
 
 testCreateDeploymentResponse :: CreateDeploymentResponse -> TestTree
 testCreateDeploymentResponse = res
     "CreateDeploymentResponse"
     "fixture/CreateDeploymentResponse"
+    opsWorks
     (Proxy :: Proxy CreateDeployment)
 
 testDeleteAppResponse :: DeleteAppResponse -> TestTree
 testDeleteAppResponse = res
     "DeleteAppResponse"
     "fixture/DeleteAppResponse"
+    opsWorks
     (Proxy :: Proxy DeleteApp)
 
 testUpdateAppResponse :: UpdateAppResponse -> TestTree
 testUpdateAppResponse = res
     "UpdateAppResponse"
     "fixture/UpdateAppResponse"
+    opsWorks
     (Proxy :: Proxy UpdateApp)
 
 testDeleteInstanceResponse :: DeleteInstanceResponse -> TestTree
 testDeleteInstanceResponse = res
     "DeleteInstanceResponse"
     "fixture/DeleteInstanceResponse"
+    opsWorks
     (Proxy :: Proxy DeleteInstance)
 
 testUpdateInstanceResponse :: UpdateInstanceResponse -> TestTree
 testUpdateInstanceResponse = res
     "UpdateInstanceResponse"
     "fixture/UpdateInstanceResponse"
+    opsWorks
     (Proxy :: Proxy UpdateInstance)
 
 testDescribeStacksResponse :: DescribeStacksResponse -> TestTree
 testDescribeStacksResponse = res
     "DescribeStacksResponse"
     "fixture/DescribeStacksResponse"
+    opsWorks
     (Proxy :: Proxy DescribeStacks)
 
 testDeregisterVolumeResponse :: DeregisterVolumeResponse -> TestTree
 testDeregisterVolumeResponse = res
     "DeregisterVolumeResponse"
     "fixture/DeregisterVolumeResponse"
+    opsWorks
     (Proxy :: Proxy DeregisterVolume)
 
 testAssignInstanceResponse :: AssignInstanceResponse -> TestTree
 testAssignInstanceResponse = res
     "AssignInstanceResponse"
     "fixture/AssignInstanceResponse"
+    opsWorks
     (Proxy :: Proxy AssignInstance)
 
 testRebootInstanceResponse :: RebootInstanceResponse -> TestTree
 testRebootInstanceResponse = res
     "RebootInstanceResponse"
     "fixture/RebootInstanceResponse"
+    opsWorks
     (Proxy :: Proxy RebootInstance)
 
 testDescribeTimeBasedAutoScalingResponse :: DescribeTimeBasedAutoScalingResponse -> TestTree
 testDescribeTimeBasedAutoScalingResponse = res
     "DescribeTimeBasedAutoScalingResponse"
     "fixture/DescribeTimeBasedAutoScalingResponse"
+    opsWorks
     (Proxy :: Proxy DescribeTimeBasedAutoScaling)
 
 testUpdateRDSDBInstanceResponse :: UpdateRDSDBInstanceResponse -> TestTree
 testUpdateRDSDBInstanceResponse = res
     "UpdateRDSDBInstanceResponse"
     "fixture/UpdateRDSDBInstanceResponse"
+    opsWorks
     (Proxy :: Proxy UpdateRDSDBInstance)
 
 testStopStackResponse :: StopStackResponse -> TestTree
 testStopStackResponse = res
     "StopStackResponse"
     "fixture/StopStackResponse"
+    opsWorks
     (Proxy :: Proxy StopStack)
 
 testDescribeVolumesResponse :: DescribeVolumesResponse -> TestTree
 testDescribeVolumesResponse = res
     "DescribeVolumesResponse"
     "fixture/DescribeVolumesResponse"
+    opsWorks
     (Proxy :: Proxy DescribeVolumes)
 
 testDisassociateElasticIPResponse :: DisassociateElasticIPResponse -> TestTree
 testDisassociateElasticIPResponse = res
     "DisassociateElasticIPResponse"
     "fixture/DisassociateElasticIPResponse"
+    opsWorks
     (Proxy :: Proxy DisassociateElasticIP)
 
 testRegisterEcsClusterResponse :: RegisterEcsClusterResponse -> TestTree
 testRegisterEcsClusterResponse = res
     "RegisterEcsClusterResponse"
     "fixture/RegisterEcsClusterResponse"
+    opsWorks
     (Proxy :: Proxy RegisterEcsCluster)
 
 testStopInstanceResponse :: StopInstanceResponse -> TestTree
 testStopInstanceResponse = res
     "StopInstanceResponse"
     "fixture/StopInstanceResponse"
+    opsWorks
     (Proxy :: Proxy StopInstance)
 
 testRegisterVolumeResponse :: RegisterVolumeResponse -> TestTree
 testRegisterVolumeResponse = res
     "RegisterVolumeResponse"
     "fixture/RegisterVolumeResponse"
+    opsWorks
     (Proxy :: Proxy RegisterVolume)
 
 testSetTimeBasedAutoScalingResponse :: SetTimeBasedAutoScalingResponse -> TestTree
 testSetTimeBasedAutoScalingResponse = res
     "SetTimeBasedAutoScalingResponse"
     "fixture/SetTimeBasedAutoScalingResponse"
+    opsWorks
     (Proxy :: Proxy SetTimeBasedAutoScaling)
 
 testDeregisterElasticIPResponse :: DeregisterElasticIPResponse -> TestTree
 testDeregisterElasticIPResponse = res
     "DeregisterElasticIPResponse"
     "fixture/DeregisterElasticIPResponse"
+    opsWorks
     (Proxy :: Proxy DeregisterElasticIP)
 
 testAttachElasticLoadBalancerResponse :: AttachElasticLoadBalancerResponse -> TestTree
 testAttachElasticLoadBalancerResponse = res
     "AttachElasticLoadBalancerResponse"
     "fixture/AttachElasticLoadBalancerResponse"
+    opsWorks
     (Proxy :: Proxy AttachElasticLoadBalancer)
 
 testDescribeUserProfilesResponse :: DescribeUserProfilesResponse -> TestTree
 testDescribeUserProfilesResponse = res
     "DescribeUserProfilesResponse"
     "fixture/DescribeUserProfilesResponse"
+    opsWorks
     (Proxy :: Proxy DescribeUserProfiles)
 
 testDescribeStackSummaryResponse :: DescribeStackSummaryResponse -> TestTree
 testDescribeStackSummaryResponse = res
     "DescribeStackSummaryResponse"
     "fixture/DescribeStackSummaryResponse"
+    opsWorks
     (Proxy :: Proxy DescribeStackSummary)
 
 testDeregisterEcsClusterResponse :: DeregisterEcsClusterResponse -> TestTree
 testDeregisterEcsClusterResponse = res
     "DeregisterEcsClusterResponse"
     "fixture/DeregisterEcsClusterResponse"
+    opsWorks
     (Proxy :: Proxy DeregisterEcsCluster)
 
 testDescribeAppsResponse :: DescribeAppsResponse -> TestTree
 testDescribeAppsResponse = res
     "DescribeAppsResponse"
     "fixture/DescribeAppsResponse"
+    opsWorks
     (Proxy :: Proxy DescribeApps)
 
 testUpdateMyUserProfileResponse :: UpdateMyUserProfileResponse -> TestTree
 testUpdateMyUserProfileResponse = res
     "UpdateMyUserProfileResponse"
     "fixture/UpdateMyUserProfileResponse"
+    opsWorks
     (Proxy :: Proxy UpdateMyUserProfile)
 
 testDescribeInstancesResponse :: DescribeInstancesResponse -> TestTree
 testDescribeInstancesResponse = res
     "DescribeInstancesResponse"
     "fixture/DescribeInstancesResponse"
+    opsWorks
     (Proxy :: Proxy DescribeInstances)
 
 testDescribeDeploymentsResponse :: DescribeDeploymentsResponse -> TestTree
 testDescribeDeploymentsResponse = res
     "DescribeDeploymentsResponse"
     "fixture/DescribeDeploymentsResponse"
+    opsWorks
     (Proxy :: Proxy DescribeDeployments)
 
 testCreateStackResponse :: CreateStackResponse -> TestTree
 testCreateStackResponse = res
     "CreateStackResponse"
     "fixture/CreateStackResponse"
+    opsWorks
     (Proxy :: Proxy CreateStack)
 
 testGrantAccessResponse :: GrantAccessResponse -> TestTree
 testGrantAccessResponse = res
     "GrantAccessResponse"
     "fixture/GrantAccessResponse"
+    opsWorks
     (Proxy :: Proxy GrantAccess)
 
 testDescribeElasticIPsResponse :: DescribeElasticIPsResponse -> TestTree
 testDescribeElasticIPsResponse = res
     "DescribeElasticIPsResponse"
     "fixture/DescribeElasticIPsResponse"
+    opsWorks
     (Proxy :: Proxy DescribeElasticIPs)
 
 testDeleteLayerResponse :: DeleteLayerResponse -> TestTree
 testDeleteLayerResponse = res
     "DeleteLayerResponse"
     "fixture/DeleteLayerResponse"
+    opsWorks
     (Proxy :: Proxy DeleteLayer)
 
 testUpdateLayerResponse :: UpdateLayerResponse -> TestTree
 testUpdateLayerResponse = res
     "UpdateLayerResponse"
     "fixture/UpdateLayerResponse"
+    opsWorks
     (Proxy :: Proxy UpdateLayer)
 
 testCloneStackResponse :: CloneStackResponse -> TestTree
 testCloneStackResponse = res
     "CloneStackResponse"
     "fixture/CloneStackResponse"
+    opsWorks
     (Proxy :: Proxy CloneStack)
 
 testGetHostnameSuggestionResponse :: GetHostnameSuggestionResponse -> TestTree
 testGetHostnameSuggestionResponse = res
     "GetHostnameSuggestionResponse"
     "fixture/GetHostnameSuggestionResponse"
+    opsWorks
     (Proxy :: Proxy GetHostnameSuggestion)
 
 testCreateAppResponse :: CreateAppResponse -> TestTree
 testCreateAppResponse = res
     "CreateAppResponse"
     "fixture/CreateAppResponse"
+    opsWorks
     (Proxy :: Proxy CreateApp)
 
 testDescribePermissionsResponse :: DescribePermissionsResponse -> TestTree
 testDescribePermissionsResponse = res
     "DescribePermissionsResponse"
     "fixture/DescribePermissionsResponse"
+    opsWorks
     (Proxy :: Proxy DescribePermissions)
 
 testUpdateElasticIPResponse :: UpdateElasticIPResponse -> TestTree
 testUpdateElasticIPResponse = res
     "UpdateElasticIPResponse"
     "fixture/UpdateElasticIPResponse"
+    opsWorks
     (Proxy :: Proxy UpdateElasticIP)
 
 testDescribeLoadBasedAutoScalingResponse :: DescribeLoadBasedAutoScalingResponse -> TestTree
 testDescribeLoadBasedAutoScalingResponse = res
     "DescribeLoadBasedAutoScalingResponse"
     "fixture/DescribeLoadBasedAutoScalingResponse"
+    opsWorks
     (Proxy :: Proxy DescribeLoadBasedAutoScaling)
 
 testRegisterInstanceResponse :: RegisterInstanceResponse -> TestTree
 testRegisterInstanceResponse = res
     "RegisterInstanceResponse"
     "fixture/RegisterInstanceResponse"
+    opsWorks
     (Proxy :: Proxy RegisterInstance)
 
 testAssociateElasticIPResponse :: AssociateElasticIPResponse -> TestTree
 testAssociateElasticIPResponse = res
     "AssociateElasticIPResponse"
     "fixture/AssociateElasticIPResponse"
+    opsWorks
     (Proxy :: Proxy AssociateElasticIP)
 
 testDetachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse -> TestTree
 testDetachElasticLoadBalancerResponse = res
     "DetachElasticLoadBalancerResponse"
     "fixture/DetachElasticLoadBalancerResponse"
+    opsWorks
     (Proxy :: Proxy DetachElasticLoadBalancer)
 
 testDescribeStackProvisioningParametersResponse :: DescribeStackProvisioningParametersResponse -> TestTree
 testDescribeStackProvisioningParametersResponse = res
     "DescribeStackProvisioningParametersResponse"
     "fixture/DescribeStackProvisioningParametersResponse"
+    opsWorks
     (Proxy :: Proxy DescribeStackProvisioningParameters)
 
 testDescribeMyUserProfileResponse :: DescribeMyUserProfileResponse -> TestTree
 testDescribeMyUserProfileResponse = res
     "DescribeMyUserProfileResponse"
     "fixture/DescribeMyUserProfileResponse"
+    opsWorks
     (Proxy :: Proxy DescribeMyUserProfile)
 
 testUnassignInstanceResponse :: UnassignInstanceResponse -> TestTree
 testUnassignInstanceResponse = res
     "UnassignInstanceResponse"
     "fixture/UnassignInstanceResponse"
+    opsWorks
     (Proxy :: Proxy UnassignInstance)
 
 testRegisterRDSDBInstanceResponse :: RegisterRDSDBInstanceResponse -> TestTree
 testRegisterRDSDBInstanceResponse = res
     "RegisterRDSDBInstanceResponse"
     "fixture/RegisterRDSDBInstanceResponse"
+    opsWorks
     (Proxy :: Proxy RegisterRDSDBInstance)
 
 testDeleteUserProfileResponse :: DeleteUserProfileResponse -> TestTree
 testDeleteUserProfileResponse = res
     "DeleteUserProfileResponse"
     "fixture/DeleteUserProfileResponse"
+    opsWorks
     (Proxy :: Proxy DeleteUserProfile)
 
 testUpdateUserProfileResponse :: UpdateUserProfileResponse -> TestTree
 testUpdateUserProfileResponse = res
     "UpdateUserProfileResponse"
     "fixture/UpdateUserProfileResponse"
+    opsWorks
     (Proxy :: Proxy UpdateUserProfile)
 
 testDescribeServiceErrorsResponse :: DescribeServiceErrorsResponse -> TestTree
 testDescribeServiceErrorsResponse = res
     "DescribeServiceErrorsResponse"
     "fixture/DescribeServiceErrorsResponse"
+    opsWorks
     (Proxy :: Proxy DescribeServiceErrors)
 
 testStartStackResponse :: StartStackResponse -> TestTree
 testStartStackResponse = res
     "StartStackResponse"
     "fixture/StartStackResponse"
+    opsWorks
     (Proxy :: Proxy StartStack)
 
 testCreateUserProfileResponse :: CreateUserProfileResponse -> TestTree
 testCreateUserProfileResponse = res
     "CreateUserProfileResponse"
     "fixture/CreateUserProfileResponse"
+    opsWorks
     (Proxy :: Proxy CreateUserProfile)
 
 testDescribeCommandsResponse :: DescribeCommandsResponse -> TestTree
 testDescribeCommandsResponse = res
     "DescribeCommandsResponse"
     "fixture/DescribeCommandsResponse"
+    opsWorks
     (Proxy :: Proxy DescribeCommands)
 
 testDescribeEcsClustersResponse :: DescribeEcsClustersResponse -> TestTree
 testDescribeEcsClustersResponse = res
     "DescribeEcsClustersResponse"
     "fixture/DescribeEcsClustersResponse"
+    opsWorks
     (Proxy :: Proxy DescribeEcsClusters)
 
 testDescribeElasticLoadBalancersResponse :: DescribeElasticLoadBalancersResponse -> TestTree
 testDescribeElasticLoadBalancersResponse = res
     "DescribeElasticLoadBalancersResponse"
     "fixture/DescribeElasticLoadBalancersResponse"
+    opsWorks
     (Proxy :: Proxy DescribeElasticLoadBalancers)
 
 testDeregisterInstanceResponse :: DeregisterInstanceResponse -> TestTree
 testDeregisterInstanceResponse = res
     "DeregisterInstanceResponse"
     "fixture/DeregisterInstanceResponse"
+    opsWorks
     (Proxy :: Proxy DeregisterInstance)
 
 testDescribeRAIdArraysResponse :: DescribeRAIdArraysResponse -> TestTree
 testDescribeRAIdArraysResponse = res
     "DescribeRAIdArraysResponse"
     "fixture/DescribeRAIdArraysResponse"
+    opsWorks
     (Proxy :: Proxy DescribeRAIdArrays)
 
 testSetPermissionResponse :: SetPermissionResponse -> TestTree
 testSetPermissionResponse = res
     "SetPermissionResponse"
     "fixture/SetPermissionResponse"
+    opsWorks
     (Proxy :: Proxy SetPermission)
 
 testUpdateVolumeResponse :: UpdateVolumeResponse -> TestTree
 testUpdateVolumeResponse = res
     "UpdateVolumeResponse"
     "fixture/UpdateVolumeResponse"
+    opsWorks
     (Proxy :: Proxy UpdateVolume)
 
 testAssignVolumeResponse :: AssignVolumeResponse -> TestTree
 testAssignVolumeResponse = res
     "AssignVolumeResponse"
     "fixture/AssignVolumeResponse"
+    opsWorks
     (Proxy :: Proxy AssignVolume)
 
 testStartInstanceResponse :: StartInstanceResponse -> TestTree
 testStartInstanceResponse = res
     "StartInstanceResponse"
     "fixture/StartInstanceResponse"
+    opsWorks
     (Proxy :: Proxy StartInstance)

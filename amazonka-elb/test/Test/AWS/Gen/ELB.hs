@@ -350,166 +350,194 @@ testDescribeLoadBalancerPolicyTypesResponse :: DescribeLoadBalancerPolicyTypesRe
 testDescribeLoadBalancerPolicyTypesResponse = res
     "DescribeLoadBalancerPolicyTypesResponse"
     "fixture/DescribeLoadBalancerPolicyTypesResponse"
+    eLB
     (Proxy :: Proxy DescribeLoadBalancerPolicyTypes)
 
 testDescribeTagsResponse :: DescribeTagsResponse -> TestTree
 testDescribeTagsResponse = res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse"
+    eLB
     (Proxy :: Proxy DescribeTags)
 
 testDescribeLoadBalancersResponse :: DescribeLoadBalancersResponse -> TestTree
 testDescribeLoadBalancersResponse = res
     "DescribeLoadBalancersResponse"
     "fixture/DescribeLoadBalancersResponse"
+    eLB
     (Proxy :: Proxy DescribeLoadBalancers)
 
 testApplySecurityGroupsToLoadBalancerResponse :: ApplySecurityGroupsToLoadBalancerResponse -> TestTree
 testApplySecurityGroupsToLoadBalancerResponse = res
     "ApplySecurityGroupsToLoadBalancerResponse"
     "fixture/ApplySecurityGroupsToLoadBalancerResponse"
+    eLB
     (Proxy :: Proxy ApplySecurityGroupsToLoadBalancer)
 
 testRemoveTagsResponse :: RemoveTagsResponse -> TestTree
 testRemoveTagsResponse = res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse"
+    eLB
     (Proxy :: Proxy RemoveTags)
 
 testCreateLBCookieStickinessPolicyResponse :: CreateLBCookieStickinessPolicyResponse -> TestTree
 testCreateLBCookieStickinessPolicyResponse = res
     "CreateLBCookieStickinessPolicyResponse"
     "fixture/CreateLBCookieStickinessPolicyResponse"
+    eLB
     (Proxy :: Proxy CreateLBCookieStickinessPolicy)
 
 testDeleteLoadBalancerResponse :: DeleteLoadBalancerResponse -> TestTree
 testDeleteLoadBalancerResponse = res
     "DeleteLoadBalancerResponse"
     "fixture/DeleteLoadBalancerResponse"
+    eLB
     (Proxy :: Proxy DeleteLoadBalancer)
 
 testCreateLoadBalancerPolicyResponse :: CreateLoadBalancerPolicyResponse -> TestTree
 testCreateLoadBalancerPolicyResponse = res
     "CreateLoadBalancerPolicyResponse"
     "fixture/CreateLoadBalancerPolicyResponse"
+    eLB
     (Proxy :: Proxy CreateLoadBalancerPolicy)
 
 testDeregisterInstancesFromLoadBalancerResponse :: DeregisterInstancesFromLoadBalancerResponse -> TestTree
 testDeregisterInstancesFromLoadBalancerResponse = res
     "DeregisterInstancesFromLoadBalancerResponse"
     "fixture/DeregisterInstancesFromLoadBalancerResponse"
+    eLB
     (Proxy :: Proxy DeregisterInstancesFromLoadBalancer)
 
 testDescribeLoadBalancerPoliciesResponse :: DescribeLoadBalancerPoliciesResponse -> TestTree
 testDescribeLoadBalancerPoliciesResponse = res
     "DescribeLoadBalancerPoliciesResponse"
     "fixture/DescribeLoadBalancerPoliciesResponse"
+    eLB
     (Proxy :: Proxy DescribeLoadBalancerPolicies)
 
 testDisableAvailabilityZonesForLoadBalancerResponse :: DisableAvailabilityZonesForLoadBalancerResponse -> TestTree
 testDisableAvailabilityZonesForLoadBalancerResponse = res
     "DisableAvailabilityZonesForLoadBalancerResponse"
     "fixture/DisableAvailabilityZonesForLoadBalancerResponse"
+    eLB
     (Proxy :: Proxy DisableAvailabilityZonesForLoadBalancer)
 
 testSetLoadBalancerPoliciesForBackendServerResponse :: SetLoadBalancerPoliciesForBackendServerResponse -> TestTree
 testSetLoadBalancerPoliciesForBackendServerResponse = res
     "SetLoadBalancerPoliciesForBackendServerResponse"
     "fixture/SetLoadBalancerPoliciesForBackendServerResponse"
+    eLB
     (Proxy :: Proxy SetLoadBalancerPoliciesForBackendServer)
 
 testEnableAvailabilityZonesForLoadBalancerResponse :: EnableAvailabilityZonesForLoadBalancerResponse -> TestTree
 testEnableAvailabilityZonesForLoadBalancerResponse = res
     "EnableAvailabilityZonesForLoadBalancerResponse"
     "fixture/EnableAvailabilityZonesForLoadBalancerResponse"
+    eLB
     (Proxy :: Proxy EnableAvailabilityZonesForLoadBalancer)
 
 testSetLoadBalancerListenerSSLCertificateResponse :: SetLoadBalancerListenerSSLCertificateResponse -> TestTree
 testSetLoadBalancerListenerSSLCertificateResponse = res
     "SetLoadBalancerListenerSSLCertificateResponse"
     "fixture/SetLoadBalancerListenerSSLCertificateResponse"
+    eLB
     (Proxy :: Proxy SetLoadBalancerListenerSSLCertificate)
 
 testConfigureHealthCheckResponse :: ConfigureHealthCheckResponse -> TestTree
 testConfigureHealthCheckResponse = res
     "ConfigureHealthCheckResponse"
     "fixture/ConfigureHealthCheckResponse"
+    eLB
     (Proxy :: Proxy ConfigureHealthCheck)
 
 testAttachLoadBalancerToSubnetsResponse :: AttachLoadBalancerToSubnetsResponse -> TestTree
 testAttachLoadBalancerToSubnetsResponse = res
     "AttachLoadBalancerToSubnetsResponse"
     "fixture/AttachLoadBalancerToSubnetsResponse"
+    eLB
     (Proxy :: Proxy AttachLoadBalancerToSubnets)
 
 testModifyLoadBalancerAttributesResponse :: ModifyLoadBalancerAttributesResponse -> TestTree
 testModifyLoadBalancerAttributesResponse = res
     "ModifyLoadBalancerAttributesResponse"
     "fixture/ModifyLoadBalancerAttributesResponse"
+    eLB
     (Proxy :: Proxy ModifyLoadBalancerAttributes)
 
 testCreateAppCookieStickinessPolicyResponse :: CreateAppCookieStickinessPolicyResponse -> TestTree
 testCreateAppCookieStickinessPolicyResponse = res
     "CreateAppCookieStickinessPolicyResponse"
     "fixture/CreateAppCookieStickinessPolicyResponse"
+    eLB
     (Proxy :: Proxy CreateAppCookieStickinessPolicy)
 
 testAddTagsResponse :: AddTagsResponse -> TestTree
 testAddTagsResponse = res
     "AddTagsResponse"
     "fixture/AddTagsResponse"
+    eLB
     (Proxy :: Proxy AddTags)
 
 testDescribeLoadBalancerAttributesResponse :: DescribeLoadBalancerAttributesResponse -> TestTree
 testDescribeLoadBalancerAttributesResponse = res
     "DescribeLoadBalancerAttributesResponse"
     "fixture/DescribeLoadBalancerAttributesResponse"
+    eLB
     (Proxy :: Proxy DescribeLoadBalancerAttributes)
 
 testDescribeInstanceHealthResponse :: DescribeInstanceHealthResponse -> TestTree
 testDescribeInstanceHealthResponse = res
     "DescribeInstanceHealthResponse"
     "fixture/DescribeInstanceHealthResponse"
+    eLB
     (Proxy :: Proxy DescribeInstanceHealth)
 
 testDetachLoadBalancerFromSubnetsResponse :: DetachLoadBalancerFromSubnetsResponse -> TestTree
 testDetachLoadBalancerFromSubnetsResponse = res
     "DetachLoadBalancerFromSubnetsResponse"
     "fixture/DetachLoadBalancerFromSubnetsResponse"
+    eLB
     (Proxy :: Proxy DetachLoadBalancerFromSubnets)
 
 testRegisterInstancesWithLoadBalancerResponse :: RegisterInstancesWithLoadBalancerResponse -> TestTree
 testRegisterInstancesWithLoadBalancerResponse = res
     "RegisterInstancesWithLoadBalancerResponse"
     "fixture/RegisterInstancesWithLoadBalancerResponse"
+    eLB
     (Proxy :: Proxy RegisterInstancesWithLoadBalancer)
 
 testDeleteLoadBalancerPolicyResponse :: DeleteLoadBalancerPolicyResponse -> TestTree
 testDeleteLoadBalancerPolicyResponse = res
     "DeleteLoadBalancerPolicyResponse"
     "fixture/DeleteLoadBalancerPolicyResponse"
+    eLB
     (Proxy :: Proxy DeleteLoadBalancerPolicy)
 
 testCreateLoadBalancerListenersResponse :: CreateLoadBalancerListenersResponse -> TestTree
 testCreateLoadBalancerListenersResponse = res
     "CreateLoadBalancerListenersResponse"
     "fixture/CreateLoadBalancerListenersResponse"
+    eLB
     (Proxy :: Proxy CreateLoadBalancerListeners)
 
 testDeleteLoadBalancerListenersResponse :: DeleteLoadBalancerListenersResponse -> TestTree
 testDeleteLoadBalancerListenersResponse = res
     "DeleteLoadBalancerListenersResponse"
     "fixture/DeleteLoadBalancerListenersResponse"
+    eLB
     (Proxy :: Proxy DeleteLoadBalancerListeners)
 
 testCreateLoadBalancerResponse :: CreateLoadBalancerResponse -> TestTree
 testCreateLoadBalancerResponse = res
     "CreateLoadBalancerResponse"
     "fixture/CreateLoadBalancerResponse"
+    eLB
     (Proxy :: Proxy CreateLoadBalancer)
 
 testSetLoadBalancerPoliciesOfListenerResponse :: SetLoadBalancerPoliciesOfListenerResponse -> TestTree
 testSetLoadBalancerPoliciesOfListenerResponse = res
     "SetLoadBalancerPoliciesOfListenerResponse"
     "fixture/SetLoadBalancerPoliciesOfListenerResponse"
+    eLB
     (Proxy :: Proxy SetLoadBalancerPoliciesOfListener)

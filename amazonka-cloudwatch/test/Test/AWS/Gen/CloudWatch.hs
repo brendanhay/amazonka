@@ -163,64 +163,75 @@ testEnableAlarmActionsResponse :: EnableAlarmActionsResponse -> TestTree
 testEnableAlarmActionsResponse = res
     "EnableAlarmActionsResponse"
     "fixture/EnableAlarmActionsResponse"
+    cloudWatch
     (Proxy :: Proxy EnableAlarmActions)
 
 testPutMetricDataResponse :: PutMetricDataResponse -> TestTree
 testPutMetricDataResponse = res
     "PutMetricDataResponse"
     "fixture/PutMetricDataResponse"
+    cloudWatch
     (Proxy :: Proxy PutMetricData)
 
 testDescribeAlarmsResponse :: DescribeAlarmsResponse -> TestTree
 testDescribeAlarmsResponse = res
     "DescribeAlarmsResponse"
     "fixture/DescribeAlarmsResponse"
+    cloudWatch
     (Proxy :: Proxy DescribeAlarms)
 
 testListMetricsResponse :: ListMetricsResponse -> TestTree
 testListMetricsResponse = res
     "ListMetricsResponse"
     "fixture/ListMetricsResponse"
+    cloudWatch
     (Proxy :: Proxy ListMetrics)
 
 testDeleteAlarmsResponse :: DeleteAlarmsResponse -> TestTree
 testDeleteAlarmsResponse = res
     "DeleteAlarmsResponse"
     "fixture/DeleteAlarmsResponse"
+    cloudWatch
     (Proxy :: Proxy DeleteAlarms)
 
 testDescribeAlarmHistoryResponse :: DescribeAlarmHistoryResponse -> TestTree
 testDescribeAlarmHistoryResponse = res
     "DescribeAlarmHistoryResponse"
     "fixture/DescribeAlarmHistoryResponse"
+    cloudWatch
     (Proxy :: Proxy DescribeAlarmHistory)
 
 testGetMetricStatisticsResponse :: GetMetricStatisticsResponse -> TestTree
 testGetMetricStatisticsResponse = res
     "GetMetricStatisticsResponse"
     "fixture/GetMetricStatisticsResponse"
+    cloudWatch
     (Proxy :: Proxy GetMetricStatistics)
 
 testDisableAlarmActionsResponse :: DisableAlarmActionsResponse -> TestTree
 testDisableAlarmActionsResponse = res
     "DisableAlarmActionsResponse"
     "fixture/DisableAlarmActionsResponse"
+    cloudWatch
     (Proxy :: Proxy DisableAlarmActions)
 
 testDescribeAlarmsForMetricResponse :: DescribeAlarmsForMetricResponse -> TestTree
 testDescribeAlarmsForMetricResponse = res
     "DescribeAlarmsForMetricResponse"
     "fixture/DescribeAlarmsForMetricResponse"
+    cloudWatch
     (Proxy :: Proxy DescribeAlarmsForMetric)
 
 testSetAlarmStateResponse :: SetAlarmStateResponse -> TestTree
 testSetAlarmStateResponse = res
     "SetAlarmStateResponse"
     "fixture/SetAlarmStateResponse"
+    cloudWatch
     (Proxy :: Proxy SetAlarmState)
 
 testPutMetricAlarmResponse :: PutMetricAlarmResponse -> TestTree
 testPutMetricAlarmResponse = res
     "PutMetricAlarmResponse"
     "fixture/PutMetricAlarmResponse"
+    cloudWatch
     (Proxy :: Proxy PutMetricAlarm)

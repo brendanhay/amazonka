@@ -218,94 +218,110 @@ testGetFunctionConfigurationResponse :: FunctionConfiguration -> TestTree
 testGetFunctionConfigurationResponse = res
     "GetFunctionConfigurationResponse"
     "fixture/GetFunctionConfigurationResponse"
+    lambda
     (Proxy :: Proxy GetFunctionConfiguration)
 
 testUpdateEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
 testUpdateEventSourceMappingResponse = res
     "UpdateEventSourceMappingResponse"
     "fixture/UpdateEventSourceMappingResponse"
+    lambda
     (Proxy :: Proxy UpdateEventSourceMapping)
 
 testDeleteEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
 testDeleteEventSourceMappingResponse = res
     "DeleteEventSourceMappingResponse"
     "fixture/DeleteEventSourceMappingResponse"
+    lambda
     (Proxy :: Proxy DeleteEventSourceMapping)
 
 testRemovePermissionResponse :: RemovePermissionResponse -> TestTree
 testRemovePermissionResponse = res
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse"
+    lambda
     (Proxy :: Proxy RemovePermission)
 
 testInvokeResponse :: InvokeResponse -> TestTree
 testInvokeResponse = res
     "InvokeResponse"
     "fixture/InvokeResponse"
+    lambda
     (Proxy :: Proxy Invoke)
 
 testGetEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
 testGetEventSourceMappingResponse = res
     "GetEventSourceMappingResponse"
     "fixture/GetEventSourceMappingResponse"
+    lambda
     (Proxy :: Proxy GetEventSourceMapping)
 
 testCreateFunctionResponse :: FunctionConfiguration -> TestTree
 testCreateFunctionResponse = res
     "CreateFunctionResponse"
     "fixture/CreateFunctionResponse"
+    lambda
     (Proxy :: Proxy CreateFunction)
 
 testCreateEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
 testCreateEventSourceMappingResponse = res
     "CreateEventSourceMappingResponse"
     "fixture/CreateEventSourceMappingResponse"
+    lambda
     (Proxy :: Proxy CreateEventSourceMapping)
 
 testGetFunctionResponse :: GetFunctionResponse -> TestTree
 testGetFunctionResponse = res
     "GetFunctionResponse"
     "fixture/GetFunctionResponse"
+    lambda
     (Proxy :: Proxy GetFunction)
 
 testListEventSourceMappingsResponse :: ListEventSourceMappingsResponse -> TestTree
 testListEventSourceMappingsResponse = res
     "ListEventSourceMappingsResponse"
     "fixture/ListEventSourceMappingsResponse"
+    lambda
     (Proxy :: Proxy ListEventSourceMappings)
 
 testAddPermissionResponse :: AddPermissionResponse -> TestTree
 testAddPermissionResponse = res
     "AddPermissionResponse"
     "fixture/AddPermissionResponse"
+    lambda
     (Proxy :: Proxy AddPermission)
 
 testDeleteFunctionResponse :: DeleteFunctionResponse -> TestTree
 testDeleteFunctionResponse = res
     "DeleteFunctionResponse"
     "fixture/DeleteFunctionResponse"
+    lambda
     (Proxy :: Proxy DeleteFunction)
 
 testUpdateFunctionConfigurationResponse :: FunctionConfiguration -> TestTree
 testUpdateFunctionConfigurationResponse = res
     "UpdateFunctionConfigurationResponse"
     "fixture/UpdateFunctionConfigurationResponse"
+    lambda
     (Proxy :: Proxy UpdateFunctionConfiguration)
 
 testListFunctionsResponse :: ListFunctionsResponse -> TestTree
 testListFunctionsResponse = res
     "ListFunctionsResponse"
     "fixture/ListFunctionsResponse"
+    lambda
     (Proxy :: Proxy ListFunctions)
 
 testUpdateFunctionCodeResponse :: FunctionConfiguration -> TestTree
 testUpdateFunctionCodeResponse = res
     "UpdateFunctionCodeResponse"
     "fixture/UpdateFunctionCodeResponse"
+    lambda
     (Proxy :: Proxy UpdateFunctionCode)
 
 testGetPolicyResponse :: GetPolicyResponse -> TestTree
 testGetPolicyResponse = res
     "GetPolicyResponse"
     "fixture/GetPolicyResponse"
+    lambda
     (Proxy :: Proxy GetPolicy)

@@ -284,130 +284,152 @@ testDescribeDestinationsResponse :: DescribeDestinationsResponse -> TestTree
 testDescribeDestinationsResponse = res
     "DescribeDestinationsResponse"
     "fixture/DescribeDestinationsResponse"
+    cloudWatchLogs
     (Proxy :: Proxy DescribeDestinations)
 
 testDeleteDestinationResponse :: DeleteDestinationResponse -> TestTree
 testDeleteDestinationResponse = res
     "DeleteDestinationResponse"
     "fixture/DeleteDestinationResponse"
+    cloudWatchLogs
     (Proxy :: Proxy DeleteDestination)
 
 testPutDestinationResponse :: PutDestinationResponse -> TestTree
 testPutDestinationResponse = res
     "PutDestinationResponse"
     "fixture/PutDestinationResponse"
+    cloudWatchLogs
     (Proxy :: Proxy PutDestination)
 
 testDescribeSubscriptionFiltersResponse :: DescribeSubscriptionFiltersResponse -> TestTree
 testDescribeSubscriptionFiltersResponse = res
     "DescribeSubscriptionFiltersResponse"
     "fixture/DescribeSubscriptionFiltersResponse"
+    cloudWatchLogs
     (Proxy :: Proxy DescribeSubscriptionFilters)
 
 testGetLogEventsResponse :: GetLogEventsResponse -> TestTree
 testGetLogEventsResponse = res
     "GetLogEventsResponse"
     "fixture/GetLogEventsResponse"
+    cloudWatchLogs
     (Proxy :: Proxy GetLogEvents)
 
 testDescribeLogGroupsResponse :: DescribeLogGroupsResponse -> TestTree
 testDescribeLogGroupsResponse = res
     "DescribeLogGroupsResponse"
     "fixture/DescribeLogGroupsResponse"
+    cloudWatchLogs
     (Proxy :: Proxy DescribeLogGroups)
 
 testFilterLogEventsResponse :: FilterLogEventsResponse -> TestTree
 testFilterLogEventsResponse = res
     "FilterLogEventsResponse"
     "fixture/FilterLogEventsResponse"
+    cloudWatchLogs
     (Proxy :: Proxy FilterLogEvents)
 
 testDeleteLogStreamResponse :: DeleteLogStreamResponse -> TestTree
 testDeleteLogStreamResponse = res
     "DeleteLogStreamResponse"
     "fixture/DeleteLogStreamResponse"
+    cloudWatchLogs
     (Proxy :: Proxy DeleteLogStream)
 
 testCreateLogStreamResponse :: CreateLogStreamResponse -> TestTree
 testCreateLogStreamResponse = res
     "CreateLogStreamResponse"
     "fixture/CreateLogStreamResponse"
+    cloudWatchLogs
     (Proxy :: Proxy CreateLogStream)
 
 testCreateLogGroupResponse :: CreateLogGroupResponse -> TestTree
 testCreateLogGroupResponse = res
     "CreateLogGroupResponse"
     "fixture/CreateLogGroupResponse"
+    cloudWatchLogs
     (Proxy :: Proxy CreateLogGroup)
 
 testPutLogEventsResponse :: PutLogEventsResponse -> TestTree
 testPutLogEventsResponse = res
     "PutLogEventsResponse"
     "fixture/PutLogEventsResponse"
+    cloudWatchLogs
     (Proxy :: Proxy PutLogEvents)
 
 testDeleteSubscriptionFilterResponse :: DeleteSubscriptionFilterResponse -> TestTree
 testDeleteSubscriptionFilterResponse = res
     "DeleteSubscriptionFilterResponse"
     "fixture/DeleteSubscriptionFilterResponse"
+    cloudWatchLogs
     (Proxy :: Proxy DeleteSubscriptionFilter)
 
 testPutSubscriptionFilterResponse :: PutSubscriptionFilterResponse -> TestTree
 testPutSubscriptionFilterResponse = res
     "PutSubscriptionFilterResponse"
     "fixture/PutSubscriptionFilterResponse"
+    cloudWatchLogs
     (Proxy :: Proxy PutSubscriptionFilter)
 
 testDeleteLogGroupResponse :: DeleteLogGroupResponse -> TestTree
 testDeleteLogGroupResponse = res
     "DeleteLogGroupResponse"
     "fixture/DeleteLogGroupResponse"
+    cloudWatchLogs
     (Proxy :: Proxy DeleteLogGroup)
 
 testTestMetricFilterResponse :: TestMetricFilterResponse -> TestTree
 testTestMetricFilterResponse = res
     "TestMetricFilterResponse"
     "fixture/TestMetricFilterResponse"
+    cloudWatchLogs
     (Proxy :: Proxy TestMetricFilter)
 
 testDescribeMetricFiltersResponse :: DescribeMetricFiltersResponse -> TestTree
 testDescribeMetricFiltersResponse = res
     "DescribeMetricFiltersResponse"
     "fixture/DescribeMetricFiltersResponse"
+    cloudWatchLogs
     (Proxy :: Proxy DescribeMetricFilters)
 
 testDeleteMetricFilterResponse :: DeleteMetricFilterResponse -> TestTree
 testDeleteMetricFilterResponse = res
     "DeleteMetricFilterResponse"
     "fixture/DeleteMetricFilterResponse"
+    cloudWatchLogs
     (Proxy :: Proxy DeleteMetricFilter)
 
 testPutRetentionPolicyResponse :: PutRetentionPolicyResponse -> TestTree
 testPutRetentionPolicyResponse = res
     "PutRetentionPolicyResponse"
     "fixture/PutRetentionPolicyResponse"
+    cloudWatchLogs
     (Proxy :: Proxy PutRetentionPolicy)
 
 testDeleteRetentionPolicyResponse :: DeleteRetentionPolicyResponse -> TestTree
 testDeleteRetentionPolicyResponse = res
     "DeleteRetentionPolicyResponse"
     "fixture/DeleteRetentionPolicyResponse"
+    cloudWatchLogs
     (Proxy :: Proxy DeleteRetentionPolicy)
 
 testPutMetricFilterResponse :: PutMetricFilterResponse -> TestTree
 testPutMetricFilterResponse = res
     "PutMetricFilterResponse"
     "fixture/PutMetricFilterResponse"
+    cloudWatchLogs
     (Proxy :: Proxy PutMetricFilter)
 
 testPutDestinationPolicyResponse :: PutDestinationPolicyResponse -> TestTree
 testPutDestinationPolicyResponse = res
     "PutDestinationPolicyResponse"
     "fixture/PutDestinationPolicyResponse"
+    cloudWatchLogs
     (Proxy :: Proxy PutDestinationPolicy)
 
 testDescribeLogStreamsResponse :: DescribeLogStreamsResponse -> TestTree
 testDescribeLogStreamsResponse = res
     "DescribeLogStreamsResponse"
     "fixture/DescribeLogStreamsResponse"
+    cloudWatchLogs
     (Proxy :: Proxy DescribeLogStreams)

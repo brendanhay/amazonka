@@ -240,106 +240,124 @@ testListOperationsResponse :: ListOperationsResponse -> TestTree
 testListOperationsResponse = res
     "ListOperationsResponse"
     "fixture/ListOperationsResponse"
+    route53Domains
     (Proxy :: Proxy ListOperations)
 
 testGetDomainDetailResponse :: GetDomainDetailResponse -> TestTree
 testGetDomainDetailResponse = res
     "GetDomainDetailResponse"
     "fixture/GetDomainDetailResponse"
+    route53Domains
     (Proxy :: Proxy GetDomainDetail)
 
 testUpdateDomainContactPrivacyResponse :: UpdateDomainContactPrivacyResponse -> TestTree
 testUpdateDomainContactPrivacyResponse = res
     "UpdateDomainContactPrivacyResponse"
     "fixture/UpdateDomainContactPrivacyResponse"
+    route53Domains
     (Proxy :: Proxy UpdateDomainContactPrivacy)
 
 testGetOperationDetailResponse :: GetOperationDetailResponse -> TestTree
 testGetOperationDetailResponse = res
     "GetOperationDetailResponse"
     "fixture/GetOperationDetailResponse"
+    route53Domains
     (Proxy :: Proxy GetOperationDetail)
 
 testEnableDomainAutoRenewResponse :: EnableDomainAutoRenewResponse -> TestTree
 testEnableDomainAutoRenewResponse = res
     "EnableDomainAutoRenewResponse"
     "fixture/EnableDomainAutoRenewResponse"
+    route53Domains
     (Proxy :: Proxy EnableDomainAutoRenew)
 
 testDisableDomainAutoRenewResponse :: DisableDomainAutoRenewResponse -> TestTree
 testDisableDomainAutoRenewResponse = res
     "DisableDomainAutoRenewResponse"
     "fixture/DisableDomainAutoRenewResponse"
+    route53Domains
     (Proxy :: Proxy DisableDomainAutoRenew)
 
 testUpdateDomainContactResponse :: UpdateDomainContactResponse -> TestTree
 testUpdateDomainContactResponse = res
     "UpdateDomainContactResponse"
     "fixture/UpdateDomainContactResponse"
+    route53Domains
     (Proxy :: Proxy UpdateDomainContact)
 
 testEnableDomainTransferLockResponse :: EnableDomainTransferLockResponse -> TestTree
 testEnableDomainTransferLockResponse = res
     "EnableDomainTransferLockResponse"
     "fixture/EnableDomainTransferLockResponse"
+    route53Domains
     (Proxy :: Proxy EnableDomainTransferLock)
 
 testRegisterDomainResponse :: RegisterDomainResponse -> TestTree
 testRegisterDomainResponse = res
     "RegisterDomainResponse"
     "fixture/RegisterDomainResponse"
+    route53Domains
     (Proxy :: Proxy RegisterDomain)
 
 testDisableDomainTransferLockResponse :: DisableDomainTransferLockResponse -> TestTree
 testDisableDomainTransferLockResponse = res
     "DisableDomainTransferLockResponse"
     "fixture/DisableDomainTransferLockResponse"
+    route53Domains
     (Proxy :: Proxy DisableDomainTransferLock)
 
 testCheckDomainAvailabilityResponse :: CheckDomainAvailabilityResponse -> TestTree
 testCheckDomainAvailabilityResponse = res
     "CheckDomainAvailabilityResponse"
     "fixture/CheckDomainAvailabilityResponse"
+    route53Domains
     (Proxy :: Proxy CheckDomainAvailability)
 
 testListTagsForDomainResponse :: ListTagsForDomainResponse -> TestTree
 testListTagsForDomainResponse = res
     "ListTagsForDomainResponse"
     "fixture/ListTagsForDomainResponse"
+    route53Domains
     (Proxy :: Proxy ListTagsForDomain)
 
 testUpdateDomainNameserversResponse :: UpdateDomainNameserversResponse -> TestTree
 testUpdateDomainNameserversResponse = res
     "UpdateDomainNameserversResponse"
     "fixture/UpdateDomainNameserversResponse"
+    route53Domains
     (Proxy :: Proxy UpdateDomainNameservers)
 
 testRetrieveDomainAuthCodeResponse :: RetrieveDomainAuthCodeResponse -> TestTree
 testRetrieveDomainAuthCodeResponse = res
     "RetrieveDomainAuthCodeResponse"
     "fixture/RetrieveDomainAuthCodeResponse"
+    route53Domains
     (Proxy :: Proxy RetrieveDomainAuthCode)
 
 testTransferDomainResponse :: TransferDomainResponse -> TestTree
 testTransferDomainResponse = res
     "TransferDomainResponse"
     "fixture/TransferDomainResponse"
+    route53Domains
     (Proxy :: Proxy TransferDomain)
 
 testDeleteTagsForDomainResponse :: DeleteTagsForDomainResponse -> TestTree
 testDeleteTagsForDomainResponse = res
     "DeleteTagsForDomainResponse"
     "fixture/DeleteTagsForDomainResponse"
+    route53Domains
     (Proxy :: Proxy DeleteTagsForDomain)
 
 testUpdateTagsForDomainResponse :: UpdateTagsForDomainResponse -> TestTree
 testUpdateTagsForDomainResponse = res
     "UpdateTagsForDomainResponse"
     "fixture/UpdateTagsForDomainResponse"
+    route53Domains
     (Proxy :: Proxy UpdateTagsForDomain)
 
 testListDomainsResponse :: ListDomainsResponse -> TestTree
 testListDomainsResponse = res
     "ListDomainsResponse"
     "fixture/ListDomainsResponse"
+    route53Domains
     (Proxy :: Proxy ListDomains)

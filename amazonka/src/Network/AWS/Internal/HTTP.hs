@@ -27,12 +27,13 @@ import           Control.Monad.Trans.Resource
 import           Control.Retry
 import           Data.List                    (intersperse)
 import           Data.Monoid
+import           Data.Proxy
 import           Data.Time
 import           Network.AWS.Env
 import           Network.AWS.Internal.Logger
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
-import           Network.HTTP.Conduit         hiding (Request, Response)
+import           Network.HTTP.Conduit         hiding (Proxy, Request, Response)
 
 import           Prelude
 
@@ -52,21 +53,21 @@ retrier x = do
     policy rq = retryStream rq <> retryService (_rqService rq)
 
     check e rq n (Left r)
-        | Just p <- r ^? transportErr n, p = msg e "http_error" n >> return True
-        | Just m <- r ^? serviceErr        = msg e m            n >> return True
+        | Just p <- r ^? transportErr, p = msg e "http_error" n >> return True
+        | Just m <- r ^? serviceErr      = msg e m            n >> return True
       where
-        transportErr n = _TransportError . to (_envRetryCheck e n)
-        serviceErr     = _ServiceError . to rc . _Just
+        transportErr = _TransportError . to (_envRetryCheck e n)
+        serviceErr   = _ServiceError . to rc . _Just
 
         rc = rq ^. rqService . svcRetry . to _retryCheck
 
     check _ _ _ _                          = return False
 
     msg :: MonadIO m => Env -> Text -> Int -> m ()
-    msg e x n = logDebug (_envLogger e)
+    msg e m n = logDebug (_envLogger e)
         . mconcat
         . intersperse " "
-        $ [ "[Retry " <> build x <> "]"
+        $ [ "[Retry " <> build m <> "]"
           , "after"
           , build (n + 1)
           , "attempts."
@@ -131,8 +132,7 @@ perform Env{..} x = catches go handlers
 
         logDebug _envLogger rs -- debug:ClientResponse
 
-        Right <$>
-            response _envLogger x rs
+        Right <$> response _envLogger (_rqService x) (p x) rs
 
     handlers =
         [ Handler $ return . Left
@@ -140,6 +140,9 @@ perform Env{..} x = catches go handlers
             logError _envLogger er
             return (Left (TransportError er))
         ]
+
+    p :: Request a -> Proxy a
+    p = const Proxy
 
 configured :: (MonadReader r m, HasEnv r, AWSRequest a)
            => a

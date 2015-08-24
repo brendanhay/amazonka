@@ -95,9 +95,8 @@ diLayerId :: Lens' DescribeInstances (Maybe Text)
 diLayerId = lens _diLayerId (\ s a -> s{_diLayerId = a});
 
 instance AWSRequest DescribeInstances where
-        type Sv DescribeInstances = OpsWorks
         type Rs DescribeInstances = DescribeInstancesResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

@@ -94,10 +94,9 @@ csdsBucket = lens _csdsBucket (\ s a -> s{_csdsBucket = a});
 
 instance AWSRequest CreateSpotDatafeedSubscription
          where
-        type Sv CreateSpotDatafeedSubscription = EC2
         type Rs CreateSpotDatafeedSubscription =
              CreateSpotDatafeedSubscriptionResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

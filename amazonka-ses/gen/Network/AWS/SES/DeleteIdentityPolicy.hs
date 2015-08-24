@@ -97,10 +97,9 @@ dipPolicyName :: Lens' DeleteIdentityPolicy Text
 dipPolicyName = lens _dipPolicyName (\ s a -> s{_dipPolicyName = a});
 
 instance AWSRequest DeleteIdentityPolicy where
-        type Sv DeleteIdentityPolicy = SES
         type Rs DeleteIdentityPolicy =
              DeleteIdentityPolicyResponse
-        request = postQuery
+        request = postQuery sES
         response
           = receiveXMLWrapper "DeleteIdentityPolicyResult"
               (\ s h x ->

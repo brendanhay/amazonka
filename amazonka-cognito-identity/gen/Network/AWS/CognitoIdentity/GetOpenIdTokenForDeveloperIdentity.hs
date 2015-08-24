@@ -130,11 +130,9 @@ goitfdiLogins = lens _goitfdiLogins (\ s a -> s{_goitfdiLogins = a}) . _Map;
 
 instance AWSRequest
          GetOpenIdTokenForDeveloperIdentity where
-        type Sv GetOpenIdTokenForDeveloperIdentity =
-             CognitoIdentity
         type Rs GetOpenIdTokenForDeveloperIdentity =
              GetOpenIdTokenForDeveloperIdentityResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response
           = receiveJSON
               (\ s h x ->

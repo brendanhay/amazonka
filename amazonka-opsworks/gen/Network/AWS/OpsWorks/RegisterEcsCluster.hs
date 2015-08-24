@@ -85,10 +85,9 @@ recStackId :: Lens' RegisterEcsCluster Text
 recStackId = lens _recStackId (\ s a -> s{_recStackId = a});
 
 instance AWSRequest RegisterEcsCluster where
-        type Sv RegisterEcsCluster = OpsWorks
         type Rs RegisterEcsCluster =
              RegisterEcsClusterResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

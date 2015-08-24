@@ -85,9 +85,8 @@ rvStackId :: Lens' RegisterVolume Text
 rvStackId = lens _rvStackId (\ s a -> s{_rvStackId = a});
 
 instance AWSRequest RegisterVolume where
-        type Sv RegisterVolume = OpsWorks
         type Rs RegisterVolume = RegisterVolumeResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

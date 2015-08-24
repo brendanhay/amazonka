@@ -141,9 +141,8 @@ utName :: Lens' UpdateTrail Text
 utName = lens _utName (\ s a -> s{_utName = a});
 
 instance AWSRequest UpdateTrail where
-        type Sv UpdateTrail = CloudTrail
         type Rs UpdateTrail = UpdateTrailResponse
-        request = postJSON
+        request = postJSON cloudTrail
         response
           = receiveJSON
               (\ s h x ->

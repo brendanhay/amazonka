@@ -106,9 +106,8 @@ csSnapshotDescription :: Lens' CreateSnapshot Text
 csSnapshotDescription = lens _csSnapshotDescription (\ s a -> s{_csSnapshotDescription = a});
 
 instance AWSRequest CreateSnapshot where
-        type Sv CreateSnapshot = StorageGateway
         type Rs CreateSnapshot = CreateSnapshotResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

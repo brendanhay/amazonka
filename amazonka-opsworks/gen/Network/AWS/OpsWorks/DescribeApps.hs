@@ -85,9 +85,8 @@ daStackId :: Lens' DescribeApps (Maybe Text)
 daStackId = lens _daStackId (\ s a -> s{_daStackId = a});
 
 instance AWSRequest DescribeApps where
-        type Sv DescribeApps = OpsWorks
         type Rs DescribeApps = DescribeAppsResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

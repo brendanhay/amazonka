@@ -66,10 +66,9 @@ desSubscriptionName :: Lens' DeleteEventSubscription Text
 desSubscriptionName = lens _desSubscriptionName (\ s a -> s{_desSubscriptionName = a});
 
 instance AWSRequest DeleteEventSubscription where
-        type Sv DeleteEventSubscription = Redshift
         type Rs DeleteEventSubscription =
              DeleteEventSubscriptionResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveNull DeleteEventSubscriptionResponse'
 

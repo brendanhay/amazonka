@@ -79,9 +79,8 @@ erRadiusSettings :: Lens' EnableRadius RadiusSettings
 erRadiusSettings = lens _erRadiusSettings (\ s a -> s{_erRadiusSettings = a});
 
 instance AWSRequest EnableRadius where
-        type Sv EnableRadius = DirectoryService
         type Rs EnableRadius = EnableRadiusResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveEmpty
               (\ s h x ->

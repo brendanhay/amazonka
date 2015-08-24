@@ -98,9 +98,8 @@ dhsmHSMARN :: Lens' DescribeHSM (Maybe Text)
 dhsmHSMARN = lens _dhsmHSMARN (\ s a -> s{_dhsmHSMARN = a});
 
 instance AWSRequest DescribeHSM where
-        type Sv DescribeHSM = CloudHSM
         type Rs DescribeHSM = DescribeHSMResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->

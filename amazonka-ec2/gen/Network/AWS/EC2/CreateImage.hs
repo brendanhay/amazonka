@@ -135,9 +135,8 @@ ciiName :: Lens' CreateImage Text
 ciiName = lens _ciiName (\ s a -> s{_ciiName = a});
 
 instance AWSRequest CreateImage where
-        type Sv CreateImage = EC2
         type Rs CreateImage = CreateImageResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

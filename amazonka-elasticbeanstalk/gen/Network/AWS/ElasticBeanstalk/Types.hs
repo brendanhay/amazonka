@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.ElasticBeanstalk.Types
     (
-    -- * Service
-      ElasticBeanstalk
+    -- * Service Configuration
+      elasticBeanstalk
 
     -- * Errors
     , _InvalidRequestException
@@ -353,39 +352,36 @@ import           Network.AWS.ElasticBeanstalk.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2010-12-01@ of the Amazon Elastic Beanstalk SDK.
-data ElasticBeanstalk
-
-instance AWSService ElasticBeanstalk where
-    type Sg ElasticBeanstalk = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "ElasticBeanstalk"
-            , _svcPrefix = "elasticbeanstalk"
-            , _svcVersion = "2010-12-01"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseXMLError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2010-12-01' of the Amazon Elastic Beanstalk SDK configuration.
+elasticBeanstalk :: Service
+elasticBeanstalk =
+    Service
+    { _svcAbbrev = "ElasticBeanstalk"
+    , _svcSigner = v4
+    , _svcPrefix = "elasticbeanstalk"
+    , _svcVersion = "2010-12-01"
+    , _svcEndpoint = defaultEndpoint elasticBeanstalk
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseXMLError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | The request is invalid, please check parameters and their values
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError

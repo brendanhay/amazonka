@@ -68,10 +68,9 @@ daApplicationNames :: Lens' DescribeApplications [Text]
 daApplicationNames = lens _daApplicationNames (\ s a -> s{_daApplicationNames = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeApplications where
-        type Sv DescribeApplications = ElasticBeanstalk
         type Rs DescribeApplications =
              DescribeApplicationsResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper "DescribeApplicationsResult"
               (\ s h x ->

@@ -85,10 +85,9 @@ dInitiatorName :: Lens' DeleteChapCredentials Text
 dInitiatorName = lens _dInitiatorName (\ s a -> s{_dInitiatorName = a});
 
 instance AWSRequest DeleteChapCredentials where
-        type Sv DeleteChapCredentials = StorageGateway
         type Rs DeleteChapCredentials =
              DeleteChapCredentialsResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

@@ -128,9 +128,8 @@ instance AWSPager DescribeTags where
             Just $ rq & dtNextToken .~ rs ^. dtrsNextToken
 
 instance AWSRequest DescribeTags where
-        type Sv DescribeTags = EC2
         type Rs DescribeTags = DescribeTagsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

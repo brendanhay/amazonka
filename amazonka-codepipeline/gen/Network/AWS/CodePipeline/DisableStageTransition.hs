@@ -103,10 +103,9 @@ dstReason :: Lens' DisableStageTransition Text
 dstReason = lens _dstReason (\ s a -> s{_dstReason = a});
 
 instance AWSRequest DisableStageTransition where
-        type Sv DisableStageTransition = CodePipeline
         type Rs DisableStageTransition =
              DisableStageTransitionResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveNull DisableStageTransitionResponse'
 

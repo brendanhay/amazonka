@@ -376,9 +376,8 @@ csDefaultInstanceProfileARN :: Lens' CreateStack Text
 csDefaultInstanceProfileARN = lens _csDefaultInstanceProfileARN (\ s a -> s{_csDefaultInstanceProfileARN = a});
 
 instance AWSRequest CreateStack where
-        type Sv CreateStack = OpsWorks
         type Rs CreateStack = CreateStackResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

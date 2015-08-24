@@ -158,9 +158,8 @@ instance AWSPager DescribeClusters where
             Just $ rq & dcMarker .~ rs ^. dcrsMarker
 
 instance AWSRequest DescribeClusters where
-        type Sv DescribeClusters = Redshift
         type Rs DescribeClusters = DescribeClustersResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "DescribeClustersResult"
               (\ s h x ->

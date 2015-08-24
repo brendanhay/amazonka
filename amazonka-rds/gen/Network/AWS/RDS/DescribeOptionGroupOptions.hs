@@ -126,10 +126,9 @@ instance AWSPager DescribeOptionGroupOptions where
             Just $ rq & dogoMarker .~ rs ^. dogorsMarker
 
 instance AWSRequest DescribeOptionGroupOptions where
-        type Sv DescribeOptionGroupOptions = RDS
         type Rs DescribeOptionGroupOptions =
              DescribeOptionGroupOptionsResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "DescribeOptionGroupOptionsResult"

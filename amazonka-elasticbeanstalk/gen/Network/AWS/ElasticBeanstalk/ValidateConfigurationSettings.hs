@@ -106,11 +106,9 @@ vcsOptionSettings = lens _vcsOptionSettings (\ s a -> s{_vcsOptionSettings = a})
 
 instance AWSRequest ValidateConfigurationSettings
          where
-        type Sv ValidateConfigurationSettings =
-             ElasticBeanstalk
         type Rs ValidateConfigurationSettings =
              ValidateConfigurationSettingsResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper
               "ValidateConfigurationSettingsResult"

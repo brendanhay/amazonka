@@ -68,9 +68,8 @@ guArn :: Lens' GetUpload Text
 guArn = lens _guArn (\ s a -> s{_guArn = a});
 
 instance AWSRequest GetUpload where
-        type Sv GetUpload = DeviceFarm
         type Rs GetUpload = GetUploadResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

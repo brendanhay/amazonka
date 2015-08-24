@@ -85,10 +85,9 @@ diflbInstances = lens _diflbInstances (\ s a -> s{_diflbInstances = a}) . _Coerc
 
 instance AWSRequest
          DeregisterInstancesFromLoadBalancer where
-        type Sv DeregisterInstancesFromLoadBalancer = ELB
         type Rs DeregisterInstancesFromLoadBalancer =
              DeregisterInstancesFromLoadBalancerResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper
               "DeregisterInstancesFromLoadBalancerResult"

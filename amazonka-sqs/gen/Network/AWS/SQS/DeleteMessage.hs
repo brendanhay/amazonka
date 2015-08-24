@@ -94,9 +94,8 @@ dmReceiptHandle :: Lens' DeleteMessage Text
 dmReceiptHandle = lens _dmReceiptHandle (\ s a -> s{_dmReceiptHandle = a});
 
 instance AWSRequest DeleteMessage where
-        type Sv DeleteMessage = SQS
         type Rs DeleteMessage = DeleteMessageResponse
-        request = postQuery
+        request = postQuery sQS
         response = receiveNull DeleteMessageResponse'
 
 instance ToHeaders DeleteMessage where

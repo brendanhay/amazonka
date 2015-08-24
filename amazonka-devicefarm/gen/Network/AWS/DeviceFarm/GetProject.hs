@@ -68,9 +68,8 @@ gpArn :: Lens' GetProject Text
 gpArn = lens _gpArn (\ s a -> s{_gpArn = a});
 
 instance AWSRequest GetProject where
-        type Sv GetProject = DeviceFarm
         type Rs GetProject = GetProjectResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

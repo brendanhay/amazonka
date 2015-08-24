@@ -97,10 +97,9 @@ artRouteTableId :: Lens' AssociateRouteTable Text
 artRouteTableId = lens _artRouteTableId (\ s a -> s{_artRouteTableId = a});
 
 instance AWSRequest AssociateRouteTable where
-        type Sv AssociateRouteTable = EC2
         type Rs AssociateRouteTable =
              AssociateRouteTableResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

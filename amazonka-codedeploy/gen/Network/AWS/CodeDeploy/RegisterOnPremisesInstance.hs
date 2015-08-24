@@ -75,10 +75,9 @@ ropiIamUserARN :: Lens' RegisterOnPremisesInstance Text
 ropiIamUserARN = lens _ropiIamUserARN (\ s a -> s{_ropiIamUserARN = a});
 
 instance AWSRequest RegisterOnPremisesInstance where
-        type Sv RegisterOnPremisesInstance = CodeDeploy
         type Rs RegisterOnPremisesInstance =
              RegisterOnPremisesInstanceResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveNull RegisterOnPremisesInstanceResponse'
 

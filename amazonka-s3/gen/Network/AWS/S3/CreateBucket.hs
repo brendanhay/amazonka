@@ -131,9 +131,8 @@ cbBucket :: Lens' CreateBucket BucketName
 cbBucket = lens _cbBucket (\ s a -> s{_cbBucket = a});
 
 instance AWSRequest CreateBucket where
-        type Sv CreateBucket = S3
         type Rs CreateBucket = CreateBucketResponse
-        request = putXML
+        request = putXML s3
         response
           = receiveEmpty
               (\ s h x ->

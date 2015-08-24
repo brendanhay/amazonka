@@ -74,9 +74,8 @@ pqQueueURL :: Lens' PurgeQueue Text
 pqQueueURL = lens _pqQueueURL (\ s a -> s{_pqQueueURL = a});
 
 instance AWSRequest PurgeQueue where
-        type Sv PurgeQueue = SQS
         type Rs PurgeQueue = PurgeQueueResponse
-        request = postQuery
+        request = postQuery sQS
         response = receiveNull PurgeQueueResponse'
 
 instance ToHeaders PurgeQueue where

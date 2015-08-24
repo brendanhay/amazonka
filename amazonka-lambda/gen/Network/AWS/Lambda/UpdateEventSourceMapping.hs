@@ -117,10 +117,9 @@ uesmUUId :: Lens' UpdateEventSourceMapping Text
 uesmUUId = lens _uesmUUId (\ s a -> s{_uesmUUId = a});
 
 instance AWSRequest UpdateEventSourceMapping where
-        type Sv UpdateEventSourceMapping = Lambda
         type Rs UpdateEventSourceMapping =
              EventSourceMappingConfiguration
-        request = putJSON
+        request = putJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateEventSourceMapping where

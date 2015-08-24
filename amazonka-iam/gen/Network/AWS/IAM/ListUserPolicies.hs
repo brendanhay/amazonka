@@ -113,9 +113,8 @@ instance AWSPager ListUserPolicies where
             Just $ rq & lupMarker .~ rs ^. luprsMarker
 
 instance AWSRequest ListUserPolicies where
-        type Sv ListUserPolicies = IAM
         type Rs ListUserPolicies = ListUserPoliciesResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListUserPoliciesResult"
               (\ s h x ->

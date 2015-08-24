@@ -66,10 +66,9 @@ gBucket :: Lens' GetBucketLifecycle BucketName
 gBucket = lens _gBucket (\ s a -> s{_gBucket = a});
 
 instance AWSRequest GetBucketLifecycle where
-        type Sv GetBucketLifecycle = S3
         type Rs GetBucketLifecycle =
              GetBucketLifecycleResponse
-        request = get
+        request = get s3
         response
           = receiveXML
               (\ s h x ->

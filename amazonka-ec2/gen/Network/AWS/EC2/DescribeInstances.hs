@@ -376,9 +376,8 @@ instance AWSPager DescribeInstances where
             Just $ rq & diiNextToken .~ rs ^. dirsNextToken
 
 instance AWSRequest DescribeInstances where
-        type Sv DescribeInstances = EC2
         type Rs DescribeInstances = DescribeInstancesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

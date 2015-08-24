@@ -155,10 +155,9 @@ instance AWSPager DescribeHSMClientCertificates where
 
 instance AWSRequest DescribeHSMClientCertificates
          where
-        type Sv DescribeHSMClientCertificates = Redshift
         type Rs DescribeHSMClientCertificates =
              DescribeHSMClientCertificatesResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "DescribeHsmClientCertificatesResult"

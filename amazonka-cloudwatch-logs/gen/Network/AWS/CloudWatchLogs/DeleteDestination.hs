@@ -65,9 +65,8 @@ ddDestinationName :: Lens' DeleteDestination Text
 ddDestinationName = lens _ddDestinationName (\ s a -> s{_ddDestinationName = a});
 
 instance AWSRequest DeleteDestination where
-        type Sv DeleteDestination = CloudWatchLogs
         type Rs DeleteDestination = DeleteDestinationResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response = receiveNull DeleteDestinationResponse'
 
 instance ToHeaders DeleteDestination where

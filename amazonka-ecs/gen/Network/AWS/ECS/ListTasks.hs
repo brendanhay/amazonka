@@ -168,9 +168,8 @@ instance AWSPager ListTasks where
             Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
 
 instance AWSRequest ListTasks where
-        type Sv ListTasks = ECS
         type Rs ListTasks = ListTasksResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

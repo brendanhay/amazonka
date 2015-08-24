@@ -79,10 +79,9 @@ dveVPCEndpointIds :: Lens' DeleteVPCEndpoints [Text]
 dveVPCEndpointIds = lens _dveVPCEndpointIds (\ s a -> s{_dveVPCEndpointIds = a}) . _Coerce;
 
 instance AWSRequest DeleteVPCEndpoints where
-        type Sv DeleteVPCEndpoints = EC2
         type Rs DeleteVPCEndpoints =
              DeleteVPCEndpointsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

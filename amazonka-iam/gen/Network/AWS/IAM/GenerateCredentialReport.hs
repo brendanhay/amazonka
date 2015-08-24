@@ -57,10 +57,9 @@ generateCredentialReport
 generateCredentialReport = GenerateCredentialReport'
 
 instance AWSRequest GenerateCredentialReport where
-        type Sv GenerateCredentialReport = IAM
         type Rs GenerateCredentialReport =
              GenerateCredentialReportResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "GenerateCredentialReportResult"
               (\ s h x ->

@@ -117,10 +117,9 @@ instance AWSPager DescribeDBSecurityGroups where
             Just $ rq & ddbsgMarker .~ rs ^. ddbsgrsMarker
 
 instance AWSRequest DescribeDBSecurityGroups where
-        type Sv DescribeDBSecurityGroups = RDS
         type Rs DescribeDBSecurityGroups =
              DescribeDBSecurityGroupsResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "DescribeDBSecurityGroupsResult"
               (\ s h x ->

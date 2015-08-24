@@ -114,9 +114,8 @@ mhHSMARN :: Lens' ModifyHSM Text
 mhHSMARN = lens _mhHSMARN (\ s a -> s{_mhHSMARN = a});
 
 instance AWSRequest ModifyHSM where
-        type Sv ModifyHSM = CloudHSM
         type Rs ModifyHSM = ModifyHSMResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->

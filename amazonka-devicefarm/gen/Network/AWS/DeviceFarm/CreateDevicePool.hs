@@ -96,9 +96,8 @@ cdpRules :: Lens' CreateDevicePool [Rule]
 cdpRules = lens _cdpRules (\ s a -> s{_cdpRules = a}) . _Coerce;
 
 instance AWSRequest CreateDevicePool where
-        type Sv CreateDevicePool = DeviceFarm
         type Rs CreateDevicePool = CreateDevicePoolResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

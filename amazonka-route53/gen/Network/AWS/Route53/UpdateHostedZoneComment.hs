@@ -83,10 +83,9 @@ uhzcId :: Lens' UpdateHostedZoneComment Text
 uhzcId = lens _uhzcId (\ s a -> s{_uhzcId = a});
 
 instance AWSRequest UpdateHostedZoneComment where
-        type Sv UpdateHostedZoneComment = Route53
         type Rs UpdateHostedZoneComment =
              UpdateHostedZoneCommentResponse
-        request = postXML
+        request = postXML route53
         response
           = receiveXML
               (\ s h x ->

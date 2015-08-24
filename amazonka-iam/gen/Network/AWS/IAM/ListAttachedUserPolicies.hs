@@ -117,10 +117,9 @@ laupUserName :: Lens' ListAttachedUserPolicies Text
 laupUserName = lens _laupUserName (\ s a -> s{_laupUserName = a});
 
 instance AWSRequest ListAttachedUserPolicies where
-        type Sv ListAttachedUserPolicies = IAM
         type Rs ListAttachedUserPolicies =
              ListAttachedUserPoliciesResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListAttachedUserPoliciesResult"
               (\ s h x ->

@@ -79,10 +79,9 @@ gdgDeploymentGroupName :: Lens' GetDeploymentGroup Text
 gdgDeploymentGroupName = lens _gdgDeploymentGroupName (\ s a -> s{_gdgDeploymentGroupName = a});
 
 instance AWSRequest GetDeploymentGroup where
-        type Sv GetDeploymentGroup = CodeDeploy
         type Rs GetDeploymentGroup =
              GetDeploymentGroupResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->

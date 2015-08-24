@@ -99,10 +99,9 @@ drgReplicationGroupId :: Lens' DeleteReplicationGroup Text
 drgReplicationGroupId = lens _drgReplicationGroupId (\ s a -> s{_drgReplicationGroupId = a});
 
 instance AWSRequest DeleteReplicationGroup where
-        type Sv DeleteReplicationGroup = ElastiCache
         type Rs DeleteReplicationGroup =
              DeleteReplicationGroupResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "DeleteReplicationGroupResult"
               (\ s h x ->

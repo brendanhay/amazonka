@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.CodePipeline.Types
     (
-    -- * Service
-      CodePipeline
+    -- * Service Configuration
+      codePipeline
 
     -- * Errors
     , _ValidationException
@@ -337,39 +336,36 @@ import           Network.AWS.CodePipeline.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2015-07-09@ of the Amazon CodePipeline SDK.
-data CodePipeline
-
-instance AWSService CodePipeline where
-    type Sg CodePipeline = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "CodePipeline"
-            , _svcPrefix = "codepipeline"
-            , _svcVersion = "2015-07-09"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2015-07-09' of the Amazon CodePipeline SDK configuration.
+codePipeline :: Service
+codePipeline =
+    Service
+    { _svcAbbrev = "CodePipeline"
+    , _svcSigner = v4
+    , _svcPrefix = "codepipeline"
+    , _svcVersion = "2015-07-09"
+    , _svcEndpoint = defaultEndpoint codePipeline
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | The validation was specified in an invalid format.
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError

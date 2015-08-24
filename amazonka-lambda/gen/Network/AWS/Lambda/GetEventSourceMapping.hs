@@ -76,10 +76,9 @@ gesmUUId :: Lens' GetEventSourceMapping Text
 gesmUUId = lens _gesmUUId (\ s a -> s{_gesmUUId = a});
 
 instance AWSRequest GetEventSourceMapping where
-        type Sv GetEventSourceMapping = Lambda
         type Rs GetEventSourceMapping =
              EventSourceMappingConfiguration
-        request = get
+        request = get lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders GetEventSourceMapping where

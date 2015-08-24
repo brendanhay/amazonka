@@ -28,8 +28,8 @@
 -- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CodeCommit
     (
-    -- * Service
-      CodeCommit
+    -- * Service Configuration
+      codeCommit
 
     -- * Errors
     -- $errors

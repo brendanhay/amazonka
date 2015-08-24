@@ -115,9 +115,8 @@ cdoDHCPConfigurations :: Lens' CreateDHCPOptions [NewDHCPConfiguration]
 cdoDHCPConfigurations = lens _cdoDHCPConfigurations (\ s a -> s{_cdoDHCPConfigurations = a}) . _Coerce;
 
 instance AWSRequest CreateDHCPOptions where
-        type Sv CreateDHCPOptions = EC2
         type Rs CreateDHCPOptions = CreateDHCPOptionsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

@@ -111,9 +111,8 @@ elBucketName :: Lens' EnableLogging Text
 elBucketName = lens _elBucketName (\ s a -> s{_elBucketName = a});
 
 instance AWSRequest EnableLogging where
-        type Sv EnableLogging = Redshift
         type Rs EnableLogging = LoggingStatus
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "EnableLoggingResult"
               (\ s h x -> parseXML x)

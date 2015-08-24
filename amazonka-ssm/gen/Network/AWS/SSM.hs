@@ -31,8 +31,8 @@
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.SSM
     (
-    -- * Service
-      SSM
+    -- * Service Configuration
+      sSM
 
     -- * Errors
     -- $errors

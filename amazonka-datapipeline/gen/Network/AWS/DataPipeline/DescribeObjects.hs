@@ -115,9 +115,8 @@ instance AWSPager DescribeObjects where
             Just $ rq & doMarker .~ rs ^. dorsMarker
 
 instance AWSRequest DescribeObjects where
-        type Sv DescribeObjects = DataPipeline
         type Rs DescribeObjects = DescribeObjectsResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->

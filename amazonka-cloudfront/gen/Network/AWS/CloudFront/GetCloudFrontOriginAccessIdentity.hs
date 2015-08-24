@@ -70,11 +70,9 @@ gcfoaiId = lens _gcfoaiId (\ s a -> s{_gcfoaiId = a});
 
 instance AWSRequest GetCloudFrontOriginAccessIdentity
          where
-        type Sv GetCloudFrontOriginAccessIdentity =
-             CloudFront
         type Rs GetCloudFrontOriginAccessIdentity =
              GetCloudFrontOriginAccessIdentityResponse
-        request = get
+        request = get cloudFront
         response
           = receiveXML
               (\ s h x ->

@@ -80,9 +80,8 @@ lsArn :: Lens' ListSamples Text
 lsArn = lens _lsArn (\ s a -> s{_lsArn = a});
 
 instance AWSRequest ListSamples where
-        type Sv ListSamples = DeviceFarm
         type Rs ListSamples = ListSamplesResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

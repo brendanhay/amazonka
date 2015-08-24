@@ -268,10 +268,9 @@ casgMaxSize :: Lens' CreateAutoScalingGroup Int
 casgMaxSize = lens _casgMaxSize (\ s a -> s{_casgMaxSize = a});
 
 instance AWSRequest CreateAutoScalingGroup where
-        type Sv CreateAutoScalingGroup = AutoScaling
         type Rs CreateAutoScalingGroup =
              CreateAutoScalingGroupResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveNull CreateAutoScalingGroupResponse'
 

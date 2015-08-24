@@ -86,10 +86,9 @@ dlbAutoScalingGroupName :: Lens' DescribeLoadBalancers Text
 dlbAutoScalingGroupName = lens _dlbAutoScalingGroupName (\ s a -> s{_dlbAutoScalingGroupName = a});
 
 instance AWSRequest DescribeLoadBalancers where
-        type Sv DescribeLoadBalancers = AutoScaling
         type Rs DescribeLoadBalancers =
              DescribeLoadBalancersResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "DescribeLoadBalancersResult"
               (\ s h x ->

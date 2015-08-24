@@ -82,10 +82,9 @@ pBucket :: Lens' PutBucketLifecycle BucketName
 pBucket = lens _pBucket (\ s a -> s{_pBucket = a});
 
 instance AWSRequest PutBucketLifecycle where
-        type Sv PutBucketLifecycle = S3
         type Rs PutBucketLifecycle =
              PutBucketLifecycleResponse
-        request = contentMD5 . putXML
+        request = contentMD5 . putXML s3
         response = receiveNull PutBucketLifecycleResponse'
 
 instance ToElement PutBucketLifecycle where

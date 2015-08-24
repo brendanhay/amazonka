@@ -102,10 +102,9 @@ creDescription :: Lens' CreateClusterSecurityGroup Text
 creDescription = lens _creDescription (\ s a -> s{_creDescription = a});
 
 instance AWSRequest CreateClusterSecurityGroup where
-        type Sv CreateClusterSecurityGroup = Redshift
         type Rs CreateClusterSecurityGroup =
              CreateClusterSecurityGroupResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "CreateClusterSecurityGroupResult"

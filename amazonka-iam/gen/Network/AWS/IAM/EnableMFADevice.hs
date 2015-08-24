@@ -96,9 +96,8 @@ emdAuthenticationCode2 :: Lens' EnableMFADevice Text
 emdAuthenticationCode2 = lens _emdAuthenticationCode2 (\ s a -> s{_emdAuthenticationCode2 = a});
 
 instance AWSRequest EnableMFADevice where
-        type Sv EnableMFADevice = IAM
         type Rs EnableMFADevice = EnableMFADeviceResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull EnableMFADeviceResponse'
 
 instance ToHeaders EnableMFADevice where

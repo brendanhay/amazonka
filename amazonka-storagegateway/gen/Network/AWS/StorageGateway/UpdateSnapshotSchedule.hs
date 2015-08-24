@@ -116,10 +116,9 @@ ussRecurrenceInHours :: Lens' UpdateSnapshotSchedule Natural
 ussRecurrenceInHours = lens _ussRecurrenceInHours (\ s a -> s{_ussRecurrenceInHours = a}) . _Nat;
 
 instance AWSRequest UpdateSnapshotSchedule where
-        type Sv UpdateSnapshotSchedule = StorageGateway
         type Rs UpdateSnapshotSchedule =
              UpdateSnapshotScheduleResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

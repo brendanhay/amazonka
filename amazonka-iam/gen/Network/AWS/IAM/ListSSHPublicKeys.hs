@@ -105,9 +105,8 @@ lspkMarker :: Lens' ListSSHPublicKeys (Maybe Text)
 lspkMarker = lens _lspkMarker (\ s a -> s{_lspkMarker = a});
 
 instance AWSRequest ListSSHPublicKeys where
-        type Sv ListSSHPublicKeys = IAM
         type Rs ListSSHPublicKeys = ListSSHPublicKeysResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListSSHPublicKeysResult"
               (\ s h x ->

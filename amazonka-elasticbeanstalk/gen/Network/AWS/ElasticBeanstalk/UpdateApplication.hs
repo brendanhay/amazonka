@@ -83,10 +83,9 @@ uaApplicationName :: Lens' UpdateApplication Text
 uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
 
 instance AWSRequest UpdateApplication where
-        type Sv UpdateApplication = ElasticBeanstalk
         type Rs UpdateApplication =
              ApplicationDescriptionMessage
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper "UpdateApplicationResult"
               (\ s h x -> parseXML x)

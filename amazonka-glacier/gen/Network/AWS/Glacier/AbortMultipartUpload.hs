@@ -116,10 +116,9 @@ amuUploadId :: Lens' AbortMultipartUpload Text
 amuUploadId = lens _amuUploadId (\ s a -> s{_amuUploadId = a});
 
 instance AWSRequest AbortMultipartUpload where
-        type Sv AbortMultipartUpload = Glacier
         type Rs AbortMultipartUpload =
              AbortMultipartUploadResponse
-        request = delete
+        request = delete glacier
         response = receiveNull AbortMultipartUploadResponse'
 
 instance ToHeaders AbortMultipartUpload where

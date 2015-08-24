@@ -67,10 +67,9 @@ migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
 migInstanceGroups = lens _migInstanceGroups (\ s a -> s{_migInstanceGroups = a}) . _Default . _Coerce;
 
 instance AWSRequest ModifyInstanceGroups where
-        type Sv ModifyInstanceGroups = EMR
         type Rs ModifyInstanceGroups =
              ModifyInstanceGroupsResponse
-        request = postJSON
+        request = postJSON eMR
         response = receiveNull ModifyInstanceGroupsResponse'
 
 instance ToHeaders ModifyInstanceGroups where

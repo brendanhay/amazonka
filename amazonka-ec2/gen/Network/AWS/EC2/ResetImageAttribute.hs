@@ -88,10 +88,9 @@ resAttribute :: Lens' ResetImageAttribute ResetImageAttributeName
 resAttribute = lens _resAttribute (\ s a -> s{_resAttribute = a});
 
 instance AWSRequest ResetImageAttribute where
-        type Sv ResetImageAttribute = EC2
         type Rs ResetImageAttribute =
              ResetImageAttributeResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull ResetImageAttributeResponse'
 
 instance ToHeaders ResetImageAttribute where

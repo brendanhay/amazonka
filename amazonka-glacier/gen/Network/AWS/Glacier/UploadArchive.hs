@@ -151,9 +151,8 @@ uaBody :: Lens' UploadArchive RqBody
 uaBody = lens _uaBody (\ s a -> s{_uaBody = a});
 
 instance AWSRequest UploadArchive where
-        type Sv UploadArchive = Glacier
         type Rs UploadArchive = ArchiveCreationOutput
-        request = postBody
+        request = postBody glacier
         response
           = receiveEmpty
               (\ s h x ->

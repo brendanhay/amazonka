@@ -90,10 +90,9 @@ clpPassword :: Lens' CreateLoginProfile Text
 clpPassword = lens _clpPassword (\ s a -> s{_clpPassword = a}) . _Sensitive;
 
 instance AWSRequest CreateLoginProfile where
-        type Sv CreateLoginProfile = IAM
         type Rs CreateLoginProfile =
              CreateLoginProfileResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "CreateLoginProfileResult"
               (\ s h x ->

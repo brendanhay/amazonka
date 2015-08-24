@@ -100,9 +100,8 @@ pmfMetricTransformations :: Lens' PutMetricFilter (NonEmpty MetricTransformation
 pmfMetricTransformations = lens _pmfMetricTransformations (\ s a -> s{_pmfMetricTransformations = a}) . _List1;
 
 instance AWSRequest PutMetricFilter where
-        type Sv PutMetricFilter = CloudWatchLogs
         type Rs PutMetricFilter = PutMetricFilterResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response = receiveNull PutMetricFilterResponse'
 
 instance ToHeaders PutMetricFilter where

@@ -77,10 +77,9 @@ davStackId :: Lens' DescribeAgentVersions (Maybe Text)
 davStackId = lens _davStackId (\ s a -> s{_davStackId = a});
 
 instance AWSRequest DescribeAgentVersions where
-        type Sv DescribeAgentVersions = OpsWorks
         type Rs DescribeAgentVersions =
              DescribeAgentVersionsResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

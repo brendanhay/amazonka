@@ -98,10 +98,9 @@ instance AWSPager DescribeLoadBalancers where
             Just $ rq & dlbMarker .~ rs ^. dlbrsNextMarker
 
 instance AWSRequest DescribeLoadBalancers where
-        type Sv DescribeLoadBalancers = ELB
         type Rs DescribeLoadBalancers =
              DescribeLoadBalancersResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper "DescribeLoadBalancersResult"
               (\ s h x ->

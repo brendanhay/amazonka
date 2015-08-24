@@ -97,10 +97,9 @@ stscTask :: Lens' SubmitTaskStateChange (Maybe Text)
 stscTask = lens _stscTask (\ s a -> s{_stscTask = a});
 
 instance AWSRequest SubmitTaskStateChange where
-        type Sv SubmitTaskStateChange = ECS
         type Rs SubmitTaskStateChange =
              SubmitTaskStateChangeResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

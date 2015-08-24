@@ -131,9 +131,8 @@ instance AWSPager DescribeSnapshots where
             Just $ rq & dsMarker .~ rs ^. dssrsMarker
 
 instance AWSRequest DescribeSnapshots where
-        type Sv DescribeSnapshots = ElastiCache
         type Rs DescribeSnapshots = DescribeSnapshotsResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "DescribeSnapshotsResult"
               (\ s h x ->

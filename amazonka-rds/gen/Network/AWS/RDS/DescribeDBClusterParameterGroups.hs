@@ -119,10 +119,9 @@ ddcpgDBClusterParameterGroupName = lens _ddcpgDBClusterParameterGroupName (\ s a
 
 instance AWSRequest DescribeDBClusterParameterGroups
          where
-        type Sv DescribeDBClusterParameterGroups = RDS
         type Rs DescribeDBClusterParameterGroups =
              DescribeDBClusterParameterGroupsResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "DescribeDBClusterParameterGroupsResult"

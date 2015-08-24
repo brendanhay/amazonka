@@ -82,9 +82,8 @@ gpName :: Lens' GetPipeline Text
 gpName = lens _gpName (\ s a -> s{_gpName = a});
 
 instance AWSRequest GetPipeline where
-        type Sv GetPipeline = CodePipeline
         type Rs GetPipeline = GetPipelineResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->

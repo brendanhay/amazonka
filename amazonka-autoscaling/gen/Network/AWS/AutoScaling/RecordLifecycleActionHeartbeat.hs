@@ -109,10 +109,9 @@ rlahLifecycleActionToken = lens _rlahLifecycleActionToken (\ s a -> s{_rlahLifec
 
 instance AWSRequest RecordLifecycleActionHeartbeat
          where
-        type Sv RecordLifecycleActionHeartbeat = AutoScaling
         type Rs RecordLifecycleActionHeartbeat =
              RecordLifecycleActionHeartbeatResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper
               "RecordLifecycleActionHeartbeatResult"

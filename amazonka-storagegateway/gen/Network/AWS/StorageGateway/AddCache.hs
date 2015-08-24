@@ -82,9 +82,8 @@ acDiskIds :: Lens' AddCache [Text]
 acDiskIds = lens _acDiskIds (\ s a -> s{_acDiskIds = a}) . _Coerce;
 
 instance AWSRequest AddCache where
-        type Sv AddCache = StorageGateway
         type Rs AddCache = AddCacheResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

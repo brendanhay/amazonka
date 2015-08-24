@@ -83,10 +83,9 @@ asgtlbSecurityGroups = lens _asgtlbSecurityGroups (\ s a -> s{_asgtlbSecurityGro
 
 instance AWSRequest ApplySecurityGroupsToLoadBalancer
          where
-        type Sv ApplySecurityGroupsToLoadBalancer = ELB
         type Rs ApplySecurityGroupsToLoadBalancer =
              ApplySecurityGroupsToLoadBalancerResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper
               "ApplySecurityGroupsToLoadBalancerResult"

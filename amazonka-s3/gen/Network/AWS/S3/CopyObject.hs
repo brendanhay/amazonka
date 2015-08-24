@@ -370,9 +370,8 @@ coKey :: Lens' CopyObject ObjectKey
 coKey = lens _coKey (\ s a -> s{_coKey = a});
 
 instance AWSRequest CopyObject where
-        type Sv CopyObject = S3
         type Rs CopyObject = CopyObjectResponse
-        request = put
+        request = put s3
         response
           = receiveXML
               (\ s h x ->

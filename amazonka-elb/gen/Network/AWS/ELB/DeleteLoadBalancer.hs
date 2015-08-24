@@ -74,10 +74,9 @@ dlbLoadBalancerName :: Lens' DeleteLoadBalancer Text
 dlbLoadBalancerName = lens _dlbLoadBalancerName (\ s a -> s{_dlbLoadBalancerName = a});
 
 instance AWSRequest DeleteLoadBalancer where
-        type Sv DeleteLoadBalancer = ELB
         type Rs DeleteLoadBalancer =
              DeleteLoadBalancerResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper "DeleteLoadBalancerResult"
               (\ s h x ->

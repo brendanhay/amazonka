@@ -127,9 +127,8 @@ dClusterIdentifier :: Lens' DeleteCluster Text
 dClusterIdentifier = lens _dClusterIdentifier (\ s a -> s{_dClusterIdentifier = a});
 
 instance AWSRequest DeleteCluster where
-        type Sv DeleteCluster = Redshift
         type Rs DeleteCluster = DeleteClusterResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "DeleteClusterResult"
               (\ s h x ->

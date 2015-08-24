@@ -89,9 +89,8 @@ drClusterIdentifier :: Lens' DescribeResize Text
 drClusterIdentifier = lens _drClusterIdentifier (\ s a -> s{_drClusterIdentifier = a});
 
 instance AWSRequest DescribeResize where
-        type Sv DescribeResize = Redshift
         type Rs DescribeResize = DescribeResizeResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "DescribeResizeResult"
               (\ s h x ->

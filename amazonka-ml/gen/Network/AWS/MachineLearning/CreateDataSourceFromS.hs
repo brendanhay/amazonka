@@ -146,10 +146,9 @@ cdsfsDataSpec :: Lens' CreateDataSourceFromS S3DataSpec
 cdsfsDataSpec = lens _cdsfsDataSpec (\ s a -> s{_cdsfsDataSpec = a});
 
 instance AWSRequest CreateDataSourceFromS where
-        type Sv CreateDataSourceFromS = MachineLearning
         type Rs CreateDataSourceFromS =
              CreateDataSourceFromSResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

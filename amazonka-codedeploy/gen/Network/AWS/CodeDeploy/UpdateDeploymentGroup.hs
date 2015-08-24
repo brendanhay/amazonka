@@ -136,10 +136,9 @@ udgCurrentDeploymentGroupName :: Lens' UpdateDeploymentGroup Text
 udgCurrentDeploymentGroupName = lens _udgCurrentDeploymentGroupName (\ s a -> s{_udgCurrentDeploymentGroupName = a});
 
 instance AWSRequest UpdateDeploymentGroup where
-        type Sv UpdateDeploymentGroup = CodeDeploy
         type Rs UpdateDeploymentGroup =
              UpdateDeploymentGroupResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->

@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.Glacier.Types
     (
-    -- * Service
-      Glacier
+    -- * Service Configuration
+      glacier
 
     -- * Errors
     , _PolicyEnforcedException
@@ -145,39 +144,36 @@ import           Network.AWS.Glacier.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2012-06-01@ of the Amazon Glacier SDK.
-data Glacier
-
-instance AWSService Glacier where
-    type Sg Glacier = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "Glacier"
-            , _svcPrefix = "glacier"
-            , _svcVersion = "2012-06-01"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2012-06-01' of the Amazon Glacier SDK configuration.
+glacier :: Service
+glacier =
+    Service
+    { _svcAbbrev = "Glacier"
+    , _svcSigner = v4
+    , _svcPrefix = "glacier"
+    , _svcVersion = "2012-06-01"
+    , _svcEndpoint = defaultEndpoint glacier
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | Returned if a retrieval job would exceed the current data policy\'s
 -- retrieval rate limit. For more information about data retrieval

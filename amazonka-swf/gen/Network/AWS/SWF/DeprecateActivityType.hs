@@ -102,10 +102,9 @@ depActivityType :: Lens' DeprecateActivityType ActivityType
 depActivityType = lens _depActivityType (\ s a -> s{_depActivityType = a});
 
 instance AWSRequest DeprecateActivityType where
-        type Sv DeprecateActivityType = SWF
         type Rs DeprecateActivityType =
              DeprecateActivityTypeResponse
-        request = postJSON
+        request = postJSON sWF
         response = receiveNull DeprecateActivityTypeResponse'
 
 instance ToHeaders DeprecateActivityType where

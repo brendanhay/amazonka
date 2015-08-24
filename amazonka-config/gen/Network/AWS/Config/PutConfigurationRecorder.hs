@@ -77,10 +77,9 @@ pcrConfigurationRecorder :: Lens' PutConfigurationRecorder ConfigurationRecorder
 pcrConfigurationRecorder = lens _pcrConfigurationRecorder (\ s a -> s{_pcrConfigurationRecorder = a});
 
 instance AWSRequest PutConfigurationRecorder where
-        type Sv PutConfigurationRecorder = Config
         type Rs PutConfigurationRecorder =
              PutConfigurationRecorderResponse
-        request = postJSON
+        request = postJSON config
         response
           = receiveNull PutConfigurationRecorderResponse'
 

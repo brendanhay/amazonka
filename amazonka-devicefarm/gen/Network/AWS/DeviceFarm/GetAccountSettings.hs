@@ -54,10 +54,9 @@ getAccountSettings
 getAccountSettings = GetAccountSettings'
 
 instance AWSRequest GetAccountSettings where
-        type Sv GetAccountSettings = DeviceFarm
         type Rs GetAccountSettings =
              GetAccountSettingsResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

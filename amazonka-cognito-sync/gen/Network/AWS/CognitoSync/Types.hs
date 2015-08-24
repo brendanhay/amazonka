@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.CognitoSync.Types
     (
-    -- * Service
-      CognitoSync
+    -- * Service Configuration
+      cognitoSync
 
     -- * Errors
     , _InvalidParameterException
@@ -109,39 +108,36 @@ import           Network.AWS.CognitoSync.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2014-06-30@ of the Amazon Cognito Sync SDK.
-data CognitoSync
-
-instance AWSService CognitoSync where
-    type Sg CognitoSync = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "CognitoSync"
-            , _svcPrefix = "cognito-sync"
-            , _svcVersion = "2014-06-30"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2014-06-30' of the Amazon Cognito Sync SDK configuration.
+cognitoSync :: Service
+cognitoSync =
+    Service
+    { _svcAbbrev = "CognitoSync"
+    , _svcSigner = v4
+    , _svcPrefix = "cognito-sync"
+    , _svcVersion = "2014-06-30"
+    , _svcEndpoint = defaultEndpoint cognitoSync
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | Thrown when a request parameter does not comply with the associated
 -- constraints.

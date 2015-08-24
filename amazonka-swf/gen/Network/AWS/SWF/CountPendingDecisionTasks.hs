@@ -99,9 +99,8 @@ cpdtTaskList :: Lens' CountPendingDecisionTasks TaskList
 cpdtTaskList = lens _cpdtTaskList (\ s a -> s{_cpdtTaskList = a});
 
 instance AWSRequest CountPendingDecisionTasks where
-        type Sv CountPendingDecisionTasks = SWF
         type Rs CountPendingDecisionTasks = PendingTaskCount
-        request = postJSON
+        request = postJSON sWF
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CountPendingDecisionTasks where

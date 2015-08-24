@@ -73,10 +73,9 @@ rufgUserName :: Lens' RemoveUserFromGroup Text
 rufgUserName = lens _rufgUserName (\ s a -> s{_rufgUserName = a});
 
 instance AWSRequest RemoveUserFromGroup where
-        type Sv RemoveUserFromGroup = IAM
         type Rs RemoveUserFromGroup =
              RemoveUserFromGroupResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull RemoveUserFromGroupResponse'
 
 instance ToHeaders RemoveUserFromGroup where

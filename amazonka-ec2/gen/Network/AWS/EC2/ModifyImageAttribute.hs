@@ -156,10 +156,9 @@ miaImageId :: Lens' ModifyImageAttribute Text
 miaImageId = lens _miaImageId (\ s a -> s{_miaImageId = a});
 
 instance AWSRequest ModifyImageAttribute where
-        type Sv ModifyImageAttribute = EC2
         type Rs ModifyImageAttribute =
              ModifyImageAttributeResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull ModifyImageAttributeResponse'
 
 instance ToHeaders ModifyImageAttribute where

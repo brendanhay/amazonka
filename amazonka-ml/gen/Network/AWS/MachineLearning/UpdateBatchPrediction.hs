@@ -79,10 +79,9 @@ ubpBatchPredictionName :: Lens' UpdateBatchPrediction Text
 ubpBatchPredictionName = lens _ubpBatchPredictionName (\ s a -> s{_ubpBatchPredictionName = a});
 
 instance AWSRequest UpdateBatchPrediction where
-        type Sv UpdateBatchPrediction = MachineLearning
         type Rs UpdateBatchPrediction =
              UpdateBatchPredictionResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

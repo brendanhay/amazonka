@@ -214,10 +214,9 @@ instance AWSPager DescribeBatchPredictions where
             Just $ rq & dbpNextToken .~ rs ^. drsNextToken
 
 instance AWSRequest DescribeBatchPredictions where
-        type Sv DescribeBatchPredictions = MachineLearning
         type Rs DescribeBatchPredictions =
              DescribeBatchPredictionsResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

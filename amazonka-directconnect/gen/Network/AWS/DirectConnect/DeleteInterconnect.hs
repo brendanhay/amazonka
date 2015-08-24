@@ -68,10 +68,9 @@ dInterconnectId :: Lens' DeleteInterconnect Text
 dInterconnectId = lens _dInterconnectId (\ s a -> s{_dInterconnectId = a});
 
 instance AWSRequest DeleteInterconnect where
-        type Sv DeleteInterconnect = DirectConnect
         type Rs DeleteInterconnect =
              DeleteInterconnectResponse
-        request = postJSON
+        request = postJSON directConnect
         response
           = receiveJSON
               (\ s h x ->

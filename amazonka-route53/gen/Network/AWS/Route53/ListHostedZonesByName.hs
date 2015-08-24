@@ -122,10 +122,9 @@ lhzbnDNSName :: Lens' ListHostedZonesByName (Maybe Text)
 lhzbnDNSName = lens _lhzbnDNSName (\ s a -> s{_lhzbnDNSName = a});
 
 instance AWSRequest ListHostedZonesByName where
-        type Sv ListHostedZonesByName = Route53
         type Rs ListHostedZonesByName =
              ListHostedZonesByNameResponse
-        request = get
+        request = get route53
         response
           = receiveXML
               (\ s h x ->

@@ -286,10 +286,9 @@ cmuKey :: Lens' CreateMultipartUpload ObjectKey
 cmuKey = lens _cmuKey (\ s a -> s{_cmuKey = a});
 
 instance AWSRequest CreateMultipartUpload where
-        type Sv CreateMultipartUpload = S3
         type Rs CreateMultipartUpload =
              CreateMultipartUploadResponse
-        request = post
+        request = post s3
         response
           = receiveXML
               (\ s h x ->

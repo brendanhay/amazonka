@@ -263,10 +263,9 @@ cdirrSourceDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
 cdirrSourceDBInstanceIdentifier = lens _cdirrSourceDBInstanceIdentifier (\ s a -> s{_cdirrSourceDBInstanceIdentifier = a});
 
 instance AWSRequest CreateDBInstanceReadReplica where
-        type Sv CreateDBInstanceReadReplica = RDS
         type Rs CreateDBInstanceReadReplica =
              CreateDBInstanceReadReplicaResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "CreateDBInstanceReadReplicaResult"

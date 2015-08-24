@@ -99,9 +99,8 @@ pdRoleARN :: Lens' PutDestination Text
 pdRoleARN = lens _pdRoleARN (\ s a -> s{_pdRoleARN = a});
 
 instance AWSRequest PutDestination where
-        type Sv PutDestination = CloudWatchLogs
         type Rs PutDestination = PutDestinationResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response
           = receiveJSON
               (\ s h x ->

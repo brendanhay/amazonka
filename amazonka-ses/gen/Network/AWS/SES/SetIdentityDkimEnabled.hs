@@ -95,10 +95,9 @@ sideDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
 sideDkimEnabled = lens _sideDkimEnabled (\ s a -> s{_sideDkimEnabled = a});
 
 instance AWSRequest SetIdentityDkimEnabled where
-        type Sv SetIdentityDkimEnabled = SES
         type Rs SetIdentityDkimEnabled =
              SetIdentityDkimEnabledResponse
-        request = postQuery
+        request = postQuery sES
         response
           = receiveXMLWrapper "SetIdentityDkimEnabledResult"
               (\ s h x ->

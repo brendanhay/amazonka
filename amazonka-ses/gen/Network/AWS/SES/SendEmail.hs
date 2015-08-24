@@ -203,9 +203,8 @@ seMessage :: Lens' SendEmail Message
 seMessage = lens _seMessage (\ s a -> s{_seMessage = a});
 
 instance AWSRequest SendEmail where
-        type Sv SendEmail = SES
         type Rs SendEmail = SendEmailResponse
-        request = postQuery
+        request = postQuery sES
         response
           = receiveXMLWrapper "SendEmailResult"
               (\ s h x ->

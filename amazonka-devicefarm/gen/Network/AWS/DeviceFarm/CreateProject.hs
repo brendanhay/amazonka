@@ -68,9 +68,8 @@ cpName :: Lens' CreateProject Text
 cpName = lens _cpName (\ s a -> s{_cpName = a});
 
 instance AWSRequest CreateProject where
-        type Sv CreateProject = DeviceFarm
         type Rs CreateProject = CreateProjectResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

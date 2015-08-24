@@ -106,10 +106,9 @@ ddLimit :: Lens' DescribeDirectories (Maybe Natural)
 ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat;
 
 instance AWSRequest DescribeDirectories where
-        type Sv DescribeDirectories = DirectoryService
         type Rs DescribeDirectories =
              DescribeDirectoriesResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveJSON
               (\ s h x ->

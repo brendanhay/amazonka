@@ -98,9 +98,8 @@ avlVaultName :: Lens' AbortVaultLock Text
 avlVaultName = lens _avlVaultName (\ s a -> s{_avlVaultName = a});
 
 instance AWSRequest AbortVaultLock where
-        type Sv AbortVaultLock = Glacier
         type Rs AbortVaultLock = AbortVaultLockResponse
-        request = delete
+        request = delete glacier
         response = receiveNull AbortVaultLockResponse'
 
 instance ToHeaders AbortVaultLock where

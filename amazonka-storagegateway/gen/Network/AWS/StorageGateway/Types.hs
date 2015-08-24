@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.StorageGateway.Types
     (
-    -- * Service
-      StorageGateway
+    -- * Service Configuration
+      storageGateway
 
     -- * Errors
     , _InvalidGatewayRequestException
@@ -153,39 +152,36 @@ import           Network.AWS.Sign.V4
 import           Network.AWS.StorageGateway.Types.Product
 import           Network.AWS.StorageGateway.Types.Sum
 
--- | Version @2013-06-30@ of the Amazon Storage Gateway SDK.
-data StorageGateway
-
-instance AWSService StorageGateway where
-    type Sg StorageGateway = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "StorageGateway"
-            , _svcPrefix = "storagegateway"
-            , _svcVersion = "2013-06-30"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2013-06-30' of the Amazon Storage Gateway SDK configuration.
+storageGateway :: Service
+storageGateway =
+    Service
+    { _svcAbbrev = "StorageGateway"
+    , _svcSigner = v4
+    , _svcPrefix = "storagegateway"
+    , _svcVersion = "2013-06-30"
+    , _svcEndpoint = defaultEndpoint storageGateway
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | An exception occurred because an invalid gateway request was issued to
 -- the service. See the error and message fields for more information.

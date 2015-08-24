@@ -182,9 +182,8 @@ upBody :: Lens' UploadPart RqBody
 upBody = lens _upBody (\ s a -> s{_upBody = a});
 
 instance AWSRequest UploadPart where
-        type Sv UploadPart = S3
         type Rs UploadPart = UploadPartResponse
-        request = putBody
+        request = putBody s3
         response
           = receiveEmpty
               (\ s h x ->

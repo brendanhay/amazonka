@@ -110,9 +110,8 @@ instance AWSPager ListInstances where
             Just $ rq & liMarker .~ rs ^. lirsMarker
 
 instance AWSRequest ListInstances where
-        type Sv ListInstances = EMR
         type Rs ListInstances = ListInstancesResponse
-        request = postJSON
+        request = postJSON eMR
         response
           = receiveJSON
               (\ s h x ->

@@ -123,9 +123,8 @@ instance AWSPager ListHostedZones where
             Just $ rq & lhzMarker .~ rs ^. lhzrsNextMarker
 
 instance AWSRequest ListHostedZones where
-        type Sv ListHostedZones = Route53
         type Rs ListHostedZones = ListHostedZonesResponse
-        request = get
+        request = get route53
         response
           = receiveXML
               (\ s h x ->

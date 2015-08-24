@@ -63,10 +63,9 @@ dbtBucket :: Lens' DeleteBucketTagging BucketName
 dbtBucket = lens _dbtBucket (\ s a -> s{_dbtBucket = a});
 
 instance AWSRequest DeleteBucketTagging where
-        type Sv DeleteBucketTagging = S3
         type Rs DeleteBucketTagging =
              DeleteBucketTaggingResponse
-        request = delete
+        request = delete s3
         response = receiveNull DeleteBucketTaggingResponse'
 
 instance ToHeaders DeleteBucketTagging where

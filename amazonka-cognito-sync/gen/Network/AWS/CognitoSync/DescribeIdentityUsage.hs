@@ -86,10 +86,9 @@ diuIdentityId :: Lens' DescribeIdentityUsage Text
 diuIdentityId = lens _diuIdentityId (\ s a -> s{_diuIdentityId = a});
 
 instance AWSRequest DescribeIdentityUsage where
-        type Sv DescribeIdentityUsage = CognitoSync
         type Rs DescribeIdentityUsage =
              DescribeIdentityUsageResponse
-        request = get
+        request = get cognitoSync
         response
           = receiveJSON
               (\ s h x ->

@@ -96,10 +96,9 @@ dvnVaultName :: Lens' DeleteVaultNotifications Text
 dvnVaultName = lens _dvnVaultName (\ s a -> s{_dvnVaultName = a});
 
 instance AWSRequest DeleteVaultNotifications where
-        type Sv DeleteVaultNotifications = Glacier
         type Rs DeleteVaultNotifications =
              DeleteVaultNotificationsResponse
-        request = delete
+        request = delete glacier
         response
           = receiveNull DeleteVaultNotificationsResponse'
 

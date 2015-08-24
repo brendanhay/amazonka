@@ -374,10 +374,9 @@ rdifdsDBSnapshotIdentifier = lens _rdifdsDBSnapshotIdentifier (\ s a -> s{_rdifd
 
 instance AWSRequest RestoreDBInstanceFromDBSnapshot
          where
-        type Sv RestoreDBInstanceFromDBSnapshot = RDS
         type Rs RestoreDBInstanceFromDBSnapshot =
              RestoreDBInstanceFromDBSnapshotResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "RestoreDBInstanceFromDBSnapshotResult"

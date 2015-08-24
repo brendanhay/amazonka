@@ -118,10 +118,9 @@ instance AWSPager DescribeVTLDevices where
             Just $ rq & dvtldMarker .~ rs ^. dvtldrsMarker
 
 instance AWSRequest DescribeVTLDevices where
-        type Sv DescribeVTLDevices = StorageGateway
         type Rs DescribeVTLDevices =
              DescribeVTLDevicesResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

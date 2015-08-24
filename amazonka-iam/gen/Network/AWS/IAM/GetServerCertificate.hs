@@ -67,10 +67,9 @@ gscServerCertificateName :: Lens' GetServerCertificate Text
 gscServerCertificateName = lens _gscServerCertificateName (\ s a -> s{_gscServerCertificateName = a});
 
 instance AWSRequest GetServerCertificate where
-        type Sv GetServerCertificate = IAM
         type Rs GetServerCertificate =
              GetServerCertificateResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "GetServerCertificateResult"
               (\ s h x ->

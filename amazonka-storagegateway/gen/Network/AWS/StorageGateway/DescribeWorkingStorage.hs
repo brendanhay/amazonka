@@ -81,10 +81,9 @@ dwsGatewayARN :: Lens' DescribeWorkingStorage Text
 dwsGatewayARN = lens _dwsGatewayARN (\ s a -> s{_dwsGatewayARN = a});
 
 instance AWSRequest DescribeWorkingStorage where
-        type Sv DescribeWorkingStorage = StorageGateway
         type Rs DescribeWorkingStorage =
              DescribeWorkingStorageResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

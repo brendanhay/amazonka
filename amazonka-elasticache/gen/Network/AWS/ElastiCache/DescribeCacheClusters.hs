@@ -139,10 +139,9 @@ instance AWSPager DescribeCacheClusters where
           | otherwise = Just $ rq & dMarker .~ rs ^. drsMarker
 
 instance AWSRequest DescribeCacheClusters where
-        type Sv DescribeCacheClusters = ElastiCache
         type Rs DescribeCacheClusters =
              DescribeCacheClustersResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "DescribeCacheClustersResult"
               (\ s h x ->

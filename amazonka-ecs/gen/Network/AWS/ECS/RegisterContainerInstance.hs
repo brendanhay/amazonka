@@ -124,10 +124,9 @@ rciTotalResources :: Lens' RegisterContainerInstance [Resource]
 rciTotalResources = lens _rciTotalResources (\ s a -> s{_rciTotalResources = a}) . _Default . _Coerce;
 
 instance AWSRequest RegisterContainerInstance where
-        type Sv RegisterContainerInstance = ECS
         type Rs RegisterContainerInstance =
              RegisterContainerInstanceResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

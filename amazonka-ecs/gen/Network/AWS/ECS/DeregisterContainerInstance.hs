@@ -114,10 +114,9 @@ derContainerInstance :: Lens' DeregisterContainerInstance Text
 derContainerInstance = lens _derContainerInstance (\ s a -> s{_derContainerInstance = a});
 
 instance AWSRequest DeregisterContainerInstance where
-        type Sv DeregisterContainerInstance = ECS
         type Rs DeregisterContainerInstance =
              DeregisterContainerInstanceResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

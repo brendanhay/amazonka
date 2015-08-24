@@ -78,10 +78,9 @@ ddsgDBSecurityGroupName :: Lens' DeleteDBSecurityGroup Text
 ddsgDBSecurityGroupName = lens _ddsgDBSecurityGroupName (\ s a -> s{_ddsgDBSecurityGroupName = a});
 
 instance AWSRequest DeleteDBSecurityGroup where
-        type Sv DeleteDBSecurityGroup = RDS
         type Rs DeleteDBSecurityGroup =
              DeleteDBSecurityGroupResponse
-        request = postQuery
+        request = postQuery rDS
         response = receiveNull DeleteDBSecurityGroupResponse'
 
 instance ToHeaders DeleteDBSecurityGroup where

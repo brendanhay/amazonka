@@ -50,8 +50,8 @@
 -- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html AWS API Reference>
 module Network.AWS.Glacier
     (
-    -- * Service
-      Glacier
+    -- * Service Configuration
+      glacier
 
     -- * Errors
     -- $errors

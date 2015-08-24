@@ -102,10 +102,9 @@ gvnVaultName :: Lens' GetVaultNotifications Text
 gvnVaultName = lens _gvnVaultName (\ s a -> s{_gvnVaultName = a});
 
 instance AWSRequest GetVaultNotifications where
-        type Sv GetVaultNotifications = Glacier
         type Rs GetVaultNotifications =
              GetVaultNotificationsResponse
-        request = get
+        request = get glacier
         response
           = receiveJSON
               (\ s h x ->

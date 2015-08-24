@@ -78,10 +78,9 @@ dgiGatewayARN :: Lens' DescribeGatewayInformation Text
 dgiGatewayARN = lens _dgiGatewayARN (\ s a -> s{_dgiGatewayARN = a});
 
 instance AWSRequest DescribeGatewayInformation where
-        type Sv DescribeGatewayInformation = StorageGateway
         type Rs DescribeGatewayInformation =
              DescribeGatewayInformationResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

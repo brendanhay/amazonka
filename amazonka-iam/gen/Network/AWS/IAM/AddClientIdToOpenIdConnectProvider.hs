@@ -81,10 +81,9 @@ acitoicpClientId = lens _acitoicpClientId (\ s a -> s{_acitoicpClientId = a});
 
 instance AWSRequest
          AddClientIdToOpenIdConnectProvider where
-        type Sv AddClientIdToOpenIdConnectProvider = IAM
         type Rs AddClientIdToOpenIdConnectProvider =
              AddClientIdToOpenIdConnectProviderResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveNull
               AddClientIdToOpenIdConnectProviderResponse'

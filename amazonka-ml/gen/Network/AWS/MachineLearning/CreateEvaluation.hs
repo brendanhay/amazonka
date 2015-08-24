@@ -116,9 +116,8 @@ ceEvaluationDataSourceId :: Lens' CreateEvaluation Text
 ceEvaluationDataSourceId = lens _ceEvaluationDataSourceId (\ s a -> s{_ceEvaluationDataSourceId = a});
 
 instance AWSRequest CreateEvaluation where
-        type Sv CreateEvaluation = MachineLearning
         type Rs CreateEvaluation = CreateEvaluationResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->

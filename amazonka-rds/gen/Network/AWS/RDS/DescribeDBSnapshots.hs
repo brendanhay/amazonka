@@ -153,10 +153,9 @@ instance AWSPager DescribeDBSnapshots where
             Just $ rq & ddsMarker .~ rs ^. ddsrsMarker
 
 instance AWSRequest DescribeDBSnapshots where
-        type Sv DescribeDBSnapshots = RDS
         type Rs DescribeDBSnapshots =
              DescribeDBSnapshotsResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "DescribeDBSnapshotsResult"
               (\ s h x ->

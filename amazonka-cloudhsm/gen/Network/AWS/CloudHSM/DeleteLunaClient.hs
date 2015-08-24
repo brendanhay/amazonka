@@ -65,9 +65,8 @@ dClientARN :: Lens' DeleteLunaClient Text
 dClientARN = lens _dClientARN (\ s a -> s{_dClientARN = a});
 
 instance AWSRequest DeleteLunaClient where
-        type Sv DeleteLunaClient = CloudHSM
         type Rs DeleteLunaClient = DeleteLunaClientResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveEmpty
               (\ s h x ->

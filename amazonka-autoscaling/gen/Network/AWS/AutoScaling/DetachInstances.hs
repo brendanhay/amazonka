@@ -92,9 +92,8 @@ diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
 diShouldDecrementDesiredCapacity = lens _diShouldDecrementDesiredCapacity (\ s a -> s{_diShouldDecrementDesiredCapacity = a});
 
 instance AWSRequest DetachInstances where
-        type Sv DetachInstances = AutoScaling
         type Rs DetachInstances = DetachInstancesResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "DetachInstancesResult"
               (\ s h x ->

@@ -103,10 +103,9 @@ cscgSnapshotCopyGrantName :: Lens' CreateSnapshotCopyGrant Text
 cscgSnapshotCopyGrantName = lens _cscgSnapshotCopyGrantName (\ s a -> s{_cscgSnapshotCopyGrantName = a});
 
 instance AWSRequest CreateSnapshotCopyGrant where
-        type Sv CreateSnapshotCopyGrant = Redshift
         type Rs CreateSnapshotCopyGrant =
              CreateSnapshotCopyGrantResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "CreateSnapshotCopyGrantResult"
               (\ s h x ->

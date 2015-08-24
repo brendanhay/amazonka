@@ -129,10 +129,9 @@ ccscsivClientToken :: Lens' CreateCachediSCSIVolume Text
 ccscsivClientToken = lens _ccscsivClientToken (\ s a -> s{_ccscsivClientToken = a});
 
 instance AWSRequest CreateCachediSCSIVolume where
-        type Sv CreateCachediSCSIVolume = StorageGateway
         type Rs CreateCachediSCSIVolume =
              CreateCachediSCSIVolumeResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

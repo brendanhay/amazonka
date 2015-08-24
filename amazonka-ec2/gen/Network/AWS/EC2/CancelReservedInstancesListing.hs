@@ -72,10 +72,9 @@ crilReservedInstancesListingId = lens _crilReservedInstancesListingId (\ s a -> 
 
 instance AWSRequest CancelReservedInstancesListing
          where
-        type Sv CancelReservedInstancesListing = EC2
         type Rs CancelReservedInstancesListing =
              CancelReservedInstancesListingResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

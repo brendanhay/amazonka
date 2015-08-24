@@ -130,10 +130,9 @@ instance AWSPager DescribeClusterVersions where
             Just $ rq & dcvMarker .~ rs ^. dcvrsMarker
 
 instance AWSRequest DescribeClusterVersions where
-        type Sv DescribeClusterVersions = Redshift
         type Rs DescribeClusterVersions =
              DescribeClusterVersionsResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "DescribeClusterVersionsResult"
               (\ s h x ->

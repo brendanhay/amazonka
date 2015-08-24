@@ -88,10 +88,9 @@ csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
 csirSpotInstanceRequestIds = lens _csirSpotInstanceRequestIds (\ s a -> s{_csirSpotInstanceRequestIds = a}) . _Coerce;
 
 instance AWSRequest CancelSpotInstanceRequests where
-        type Sv CancelSpotInstanceRequests = EC2
         type Rs CancelSpotInstanceRequests =
              CancelSpotInstanceRequestsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

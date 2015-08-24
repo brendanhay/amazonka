@@ -65,10 +65,9 @@ dscgSnapshotCopyGrantName :: Lens' DeleteSnapshotCopyGrant Text
 dscgSnapshotCopyGrantName = lens _dscgSnapshotCopyGrantName (\ s a -> s{_dscgSnapshotCopyGrantName = a});
 
 instance AWSRequest DeleteSnapshotCopyGrant where
-        type Sv DeleteSnapshotCopyGrant = Redshift
         type Rs DeleteSnapshotCopyGrant =
              DeleteSnapshotCopyGrantResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveNull DeleteSnapshotCopyGrantResponse'
 

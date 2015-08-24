@@ -184,10 +184,9 @@ rdctpitSourceDBClusterIdentifier = lens _rdctpitSourceDBClusterIdentifier (\ s a
 
 instance AWSRequest RestoreDBClusterToPointInTime
          where
-        type Sv RestoreDBClusterToPointInTime = RDS
         type Rs RestoreDBClusterToPointInTime =
              RestoreDBClusterToPointInTimeResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "RestoreDBClusterToPointInTimeResult"

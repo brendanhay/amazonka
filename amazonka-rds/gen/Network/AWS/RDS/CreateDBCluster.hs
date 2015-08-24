@@ -294,9 +294,8 @@ cdcPort :: Lens' CreateDBCluster (Maybe Int)
 cdcPort = lens _cdcPort (\ s a -> s{_cdcPort = a});
 
 instance AWSRequest CreateDBCluster where
-        type Sv CreateDBCluster = RDS
         type Rs CreateDBCluster = CreateDBClusterResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "CreateDBClusterResult"
               (\ s h x ->

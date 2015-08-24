@@ -75,10 +75,9 @@ cVirtualInterfaceId = lens _cVirtualInterfaceId (\ s a -> s{_cVirtualInterfaceId
 
 instance AWSRequest ConfirmPublicVirtualInterface
          where
-        type Sv ConfirmPublicVirtualInterface = DirectConnect
         type Rs ConfirmPublicVirtualInterface =
              ConfirmPublicVirtualInterfaceResponse
-        request = postJSON
+        request = postJSON directConnect
         response
           = receiveJSON
               (\ s h x ->

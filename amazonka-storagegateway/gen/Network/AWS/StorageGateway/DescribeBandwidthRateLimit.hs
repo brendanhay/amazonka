@@ -78,10 +78,9 @@ dbrlGatewayARN :: Lens' DescribeBandwidthRateLimit Text
 dbrlGatewayARN = lens _dbrlGatewayARN (\ s a -> s{_dbrlGatewayARN = a});
 
 instance AWSRequest DescribeBandwidthRateLimit where
-        type Sv DescribeBandwidthRateLimit = StorageGateway
         type Rs DescribeBandwidthRateLimit =
              DescribeBandwidthRateLimitResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

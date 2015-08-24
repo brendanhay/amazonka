@@ -76,9 +76,8 @@ dTagKeys :: Lens' DeleteTags [Text]
 dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Coerce;
 
 instance AWSRequest DeleteTags where
-        type Sv DeleteTags = Redshift
         type Rs DeleteTags = DeleteTagsResponse
-        request = postQuery
+        request = postQuery redshift
         response = receiveNull DeleteTagsResponse'
 
 instance ToHeaders DeleteTags where

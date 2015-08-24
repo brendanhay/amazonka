@@ -274,10 +274,9 @@ sWorkflowType :: Lens' StartWorkflowExecution WorkflowType
 sWorkflowType = lens _sWorkflowType (\ s a -> s{_sWorkflowType = a});
 
 instance AWSRequest StartWorkflowExecution where
-        type Sv StartWorkflowExecution = SWF
         type Rs StartWorkflowExecution =
              StartWorkflowExecutionResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveJSON
               (\ s h x ->

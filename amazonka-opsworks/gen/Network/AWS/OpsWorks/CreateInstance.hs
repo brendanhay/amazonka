@@ -276,9 +276,8 @@ ciInstanceType :: Lens' CreateInstance Text
 ciInstanceType = lens _ciInstanceType (\ s a -> s{_ciInstanceType = a});
 
 instance AWSRequest CreateInstance where
-        type Sv CreateInstance = OpsWorks
         type Rs CreateInstance = CreateInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

@@ -138,9 +138,8 @@ chSubscriptionType :: Lens' CreateHSM SubscriptionType
 chSubscriptionType = lens _chSubscriptionType (\ s a -> s{_chSubscriptionType = a});
 
 instance AWSRequest CreateHSM where
-        type Sv CreateHSM = CloudHSM
         type Rs CreateHSM = CreateHSMResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->

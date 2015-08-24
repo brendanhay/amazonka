@@ -77,10 +77,9 @@ pdcDeliveryChannel :: Lens' PutDeliveryChannel DeliveryChannel
 pdcDeliveryChannel = lens _pdcDeliveryChannel (\ s a -> s{_pdcDeliveryChannel = a});
 
 instance AWSRequest PutDeliveryChannel where
-        type Sv PutDeliveryChannel = Config
         type Rs PutDeliveryChannel =
              PutDeliveryChannelResponse
-        request = postJSON
+        request = postJSON config
         response = receiveNull PutDeliveryChannelResponse'
 
 instance ToHeaders PutDeliveryChannel where

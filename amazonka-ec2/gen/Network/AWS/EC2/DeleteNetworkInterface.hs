@@ -76,10 +76,9 @@ dninNetworkInterfaceId :: Lens' DeleteNetworkInterface Text
 dninNetworkInterfaceId = lens _dninNetworkInterfaceId (\ s a -> s{_dninNetworkInterfaceId = a});
 
 instance AWSRequest DeleteNetworkInterface where
-        type Sv DeleteNetworkInterface = EC2
         type Rs DeleteNetworkInterface =
              DeleteNetworkInterfaceResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveNull DeleteNetworkInterfaceResponse'
 

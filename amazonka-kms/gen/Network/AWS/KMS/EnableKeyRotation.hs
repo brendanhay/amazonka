@@ -69,9 +69,8 @@ ekrKeyId :: Lens' EnableKeyRotation Text
 ekrKeyId = lens _ekrKeyId (\ s a -> s{_ekrKeyId = a});
 
 instance AWSRequest EnableKeyRotation where
-        type Sv EnableKeyRotation = KMS
         type Rs EnableKeyRotation = EnableKeyRotationResponse
-        request = postJSON
+        request = postJSON kMS
         response = receiveNull EnableKeyRotationResponse'
 
 instance ToHeaders EnableKeyRotation where

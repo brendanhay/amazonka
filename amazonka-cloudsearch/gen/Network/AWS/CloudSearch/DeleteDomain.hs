@@ -72,9 +72,8 @@ dddDomainName :: Lens' DeleteDomain Text
 dddDomainName = lens _dddDomainName (\ s a -> s{_dddDomainName = a});
 
 instance AWSRequest DeleteDomain where
-        type Sv DeleteDomain = CloudSearch
         type Rs DeleteDomain = DeleteDomainResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "DeleteDomainResult"
               (\ s h x ->

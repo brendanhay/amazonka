@@ -261,9 +261,8 @@ clShortname :: Lens' CreateLayer Text
 clShortname = lens _clShortname (\ s a -> s{_clShortname = a});
 
 instance AWSRequest CreateLayer where
-        type Sv CreateLayer = OpsWorks
         type Rs CreateLayer = CreateLayerResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

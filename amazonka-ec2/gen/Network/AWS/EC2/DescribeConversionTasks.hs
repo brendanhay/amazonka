@@ -89,10 +89,9 @@ dctDryRun :: Lens' DescribeConversionTasks (Maybe Bool)
 dctDryRun = lens _dctDryRun (\ s a -> s{_dctDryRun = a});
 
 instance AWSRequest DescribeConversionTasks where
-        type Sv DescribeConversionTasks = EC2
         type Rs DescribeConversionTasks =
              DescribeConversionTasksResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

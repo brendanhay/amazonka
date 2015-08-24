@@ -101,10 +101,9 @@ dvfhzVPC = lens _dvfhzVPC (\ s a -> s{_dvfhzVPC = a});
 
 instance AWSRequest DisassociateVPCFromHostedZone
          where
-        type Sv DisassociateVPCFromHostedZone = Route53
         type Rs DisassociateVPCFromHostedZone =
              DisassociateVPCFromHostedZoneResponse
-        request = postXML
+        request = postXML route53
         response
           = receiveXML
               (\ s h x ->

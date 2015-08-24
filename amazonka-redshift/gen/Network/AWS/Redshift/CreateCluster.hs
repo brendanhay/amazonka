@@ -444,9 +444,8 @@ ccMasterUserPassword :: Lens' CreateCluster Text
 ccMasterUserPassword = lens _ccMasterUserPassword (\ s a -> s{_ccMasterUserPassword = a});
 
 instance AWSRequest CreateCluster where
-        type Sv CreateCluster = Redshift
         type Rs CreateCluster = CreateClusterResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "CreateClusterResult"
               (\ s h x ->

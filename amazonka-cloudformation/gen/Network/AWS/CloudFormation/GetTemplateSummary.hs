@@ -120,10 +120,9 @@ gtsStackName :: Lens' GetTemplateSummary (Maybe Text)
 gtsStackName = lens _gtsStackName (\ s a -> s{_gtsStackName = a});
 
 instance AWSRequest GetTemplateSummary where
-        type Sv GetTemplateSummary = CloudFormation
         type Rs GetTemplateSummary =
              GetTemplateSummaryResponse
-        request = postQuery
+        request = postQuery cloudFormation
         response
           = receiveXMLWrapper "GetTemplateSummaryResult"
               (\ s h x ->

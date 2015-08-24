@@ -521,9 +521,8 @@ piItem :: Lens' PutItem (HashMap Text AttributeValue)
 piItem = lens _piItem (\ s a -> s{_piItem = a}) . _Map;
 
 instance AWSRequest PutItem where
-        type Sv PutItem = DynamoDB
         type Rs PutItem = PutItemResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->

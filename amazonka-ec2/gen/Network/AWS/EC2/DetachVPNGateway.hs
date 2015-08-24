@@ -93,9 +93,8 @@ dvpngVPCId :: Lens' DetachVPNGateway Text
 dvpngVPCId = lens _dvpngVPCId (\ s a -> s{_dvpngVPCId = a});
 
 instance AWSRequest DetachVPNGateway where
-        type Sv DetachVPNGateway = EC2
         type Rs DetachVPNGateway = DetachVPNGatewayResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull DetachVPNGatewayResponse'
 
 instance ToHeaders DetachVPNGateway where

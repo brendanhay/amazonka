@@ -495,9 +495,8 @@ diKey :: Lens' DeleteItem (HashMap Text AttributeValue)
 diKey = lens _diKey (\ s a -> s{_diKey = a}) . _Map;
 
 instance AWSRequest DeleteItem where
-        type Sv DeleteItem = DynamoDB
         type Rs DeleteItem = DeleteItemResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->

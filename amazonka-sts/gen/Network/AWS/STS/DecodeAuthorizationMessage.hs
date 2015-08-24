@@ -94,10 +94,9 @@ damEncodedMessage :: Lens' DecodeAuthorizationMessage Text
 damEncodedMessage = lens _damEncodedMessage (\ s a -> s{_damEncodedMessage = a});
 
 instance AWSRequest DecodeAuthorizationMessage where
-        type Sv DecodeAuthorizationMessage = STS
         type Rs DecodeAuthorizationMessage =
              DecodeAuthorizationMessageResponse
-        request = postQuery
+        request = postQuery sTS
         response
           = receiveXMLWrapper
               "DecodeAuthorizationMessageResult"

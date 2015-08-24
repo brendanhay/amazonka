@@ -63,10 +63,9 @@ dbrBucket :: Lens' DeleteBucketReplication BucketName
 dbrBucket = lens _dbrBucket (\ s a -> s{_dbrBucket = a});
 
 instance AWSRequest DeleteBucketReplication where
-        type Sv DeleteBucketReplication = S3
         type Rs DeleteBucketReplication =
              DeleteBucketReplicationResponse
-        request = delete
+        request = delete s3
         response
           = receiveNull DeleteBucketReplicationResponse'
 

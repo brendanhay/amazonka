@@ -124,10 +124,9 @@ ldiIdentityPoolId :: Lens' LookupDeveloperIdentity Text
 ldiIdentityPoolId = lens _ldiIdentityPoolId (\ s a -> s{_ldiIdentityPoolId = a});
 
 instance AWSRequest LookupDeveloperIdentity where
-        type Sv LookupDeveloperIdentity = CognitoIdentity
         type Rs LookupDeveloperIdentity =
              LookupDeveloperIdentityResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response
           = receiveJSON
               (\ s h x ->

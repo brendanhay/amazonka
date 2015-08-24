@@ -95,9 +95,8 @@ dssoDirectoryId :: Lens' DisableSSO Text
 dssoDirectoryId = lens _dssoDirectoryId (\ s a -> s{_dssoDirectoryId = a});
 
 instance AWSRequest DisableSSO where
-        type Sv DisableSSO = DirectoryService
         type Rs DisableSSO = DisableSSOResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveEmpty
               (\ s h x ->

@@ -69,9 +69,8 @@ daAppId :: Lens' DeleteApp Text
 daAppId = lens _daAppId (\ s a -> s{_daAppId = a});
 
 instance AWSRequest DeleteApp where
-        type Sv DeleteApp = OpsWorks
         type Rs DeleteApp = DeleteAppResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull DeleteAppResponse'
 
 instance ToHeaders DeleteApp where

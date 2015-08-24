@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.SSM.Types
     (
-    -- * Service
-      SSM
+    -- * Service Configuration
+      sSM
 
     -- * Errors
     , _AssociatedInstances
@@ -114,39 +113,36 @@ import           Network.AWS.Sign.V4
 import           Network.AWS.SSM.Types.Product
 import           Network.AWS.SSM.Types.Sum
 
--- | Version @2014-11-06@ of the Amazon Simple Systems Management Service SDK.
-data SSM
-
-instance AWSService SSM where
-    type Sg SSM = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "SSM"
-            , _svcPrefix = "ssm"
-            , _svcVersion = "2014-11-06"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2014-11-06' of the Amazon Simple Systems Management Service SDK configuration.
+sSM :: Service
+sSM =
+    Service
+    { _svcAbbrev = "SSM"
+    , _svcSigner = v4
+    , _svcPrefix = "ssm"
+    , _svcVersion = "2014-11-06"
+    , _svcEndpoint = defaultEndpoint sSM
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | You must disassociate a configuration document from all instances before
 -- you can delete it.

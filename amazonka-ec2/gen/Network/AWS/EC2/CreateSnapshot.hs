@@ -127,9 +127,8 @@ ccVolumeId :: Lens' CreateSnapshot Text
 ccVolumeId = lens _ccVolumeId (\ s a -> s{_ccVolumeId = a});
 
 instance AWSRequest CreateSnapshot where
-        type Sv CreateSnapshot = EC2
         type Rs CreateSnapshot = Snapshot
-        request = postQuery
+        request = postQuery eC2
         response = receiveXML (\ s h x -> parseXML x)
 
 instance ToHeaders CreateSnapshot where

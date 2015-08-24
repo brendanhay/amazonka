@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.EFS.Types
     (
-    -- * Service
-      EFS
+    -- * Service Configuration
+      eFS
 
     -- * Errors
     , _MountTargetNotFound
@@ -80,39 +79,36 @@ import           Network.AWS.EFS.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2015-02-01@ of the Amazon Elastic File System SDK.
-data EFS
-
-instance AWSService EFS where
-    type Sg EFS = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "EFS"
-            , _svcPrefix = "elasticfilesystem"
-            , _svcVersion = "2015-02-01"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2015-02-01' of the Amazon Elastic File System SDK configuration.
+eFS :: Service
+eFS =
+    Service
+    { _svcAbbrev = "EFS"
+    , _svcSigner = v4
+    , _svcPrefix = "elasticfilesystem"
+    , _svcVersion = "2015-02-01"
+    , _svcEndpoint = defaultEndpoint eFS
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | Returned if there is no mount target with the specified ID is found in
 -- the caller\'s account.

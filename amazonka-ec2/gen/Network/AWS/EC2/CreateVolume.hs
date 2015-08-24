@@ -193,9 +193,8 @@ creAvailabilityZone :: Lens' CreateVolume Text
 creAvailabilityZone = lens _creAvailabilityZone (\ s a -> s{_creAvailabilityZone = a});
 
 instance AWSRequest CreateVolume where
-        type Sv CreateVolume = EC2
         type Rs CreateVolume = Volume
-        request = postQuery
+        request = postQuery eC2
         response = receiveXML (\ s h x -> parseXML x)
 
 instance ToHeaders CreateVolume where

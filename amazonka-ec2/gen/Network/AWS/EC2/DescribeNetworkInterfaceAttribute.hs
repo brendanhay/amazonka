@@ -93,10 +93,9 @@ dniaNetworkInterfaceId = lens _dniaNetworkInterfaceId (\ s a -> s{_dniaNetworkIn
 
 instance AWSRequest DescribeNetworkInterfaceAttribute
          where
-        type Sv DescribeNetworkInterfaceAttribute = EC2
         type Rs DescribeNetworkInterfaceAttribute =
              DescribeNetworkInterfaceAttributeResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

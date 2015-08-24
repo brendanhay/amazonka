@@ -108,10 +108,9 @@ instance AWSPager DescribeCacheParameterGroups where
 
 instance AWSRequest DescribeCacheParameterGroups
          where
-        type Sv DescribeCacheParameterGroups = ElastiCache
         type Rs DescribeCacheParameterGroups =
              DescribeCacheParameterGroupsResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper
               "DescribeCacheParameterGroupsResult"

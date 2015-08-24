@@ -72,9 +72,8 @@ guUserName :: Lens' GetUser (Maybe Text)
 guUserName = lens _guUserName (\ s a -> s{_guUserName = a});
 
 instance AWSRequest GetUser where
-        type Sv GetUser = IAM
         type Rs GetUser = GetUserResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "GetUserResult"
               (\ s h x ->

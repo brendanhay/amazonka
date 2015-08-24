@@ -71,9 +71,8 @@ upPipeline :: Lens' UpdatePipeline PipelineDeclaration
 upPipeline = lens _upPipeline (\ s a -> s{_upPipeline = a});
 
 instance AWSRequest UpdatePipeline where
-        type Sv UpdatePipeline = CodePipeline
         type Rs UpdatePipeline = UpdatePipelineResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->

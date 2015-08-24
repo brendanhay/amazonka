@@ -66,10 +66,9 @@ dopiInstanceName = lens _dopiInstanceName (\ s a -> s{_dopiInstanceName = a});
 
 instance AWSRequest DeregisterOnPremisesInstance
          where
-        type Sv DeregisterOnPremisesInstance = CodeDeploy
         type Rs DeregisterOnPremisesInstance =
              DeregisterOnPremisesInstanceResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveNull DeregisterOnPremisesInstanceResponse'
 

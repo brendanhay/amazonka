@@ -71,10 +71,9 @@ gipInstanceProfileName :: Lens' GetInstanceProfile Text
 gipInstanceProfileName = lens _gipInstanceProfileName (\ s a -> s{_gipInstanceProfileName = a});
 
 instance AWSRequest GetInstanceProfile where
-        type Sv GetInstanceProfile = IAM
         type Rs GetInstanceProfile =
              GetInstanceProfileResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "GetInstanceProfileResult"
               (\ s h x ->

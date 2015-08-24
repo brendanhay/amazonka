@@ -76,9 +76,8 @@ dKeyId :: Lens' DescribeKey Text
 dKeyId = lens _dKeyId (\ s a -> s{_dKeyId = a});
 
 instance AWSRequest DescribeKey where
-        type Sv DescribeKey = KMS
         type Rs DescribeKey = DescribeKeyResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->

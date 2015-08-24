@@ -224,10 +224,9 @@ ratVersion :: Lens' RegisterActivityType Text
 ratVersion = lens _ratVersion (\ s a -> s{_ratVersion = a});
 
 instance AWSRequest RegisterActivityType where
-        type Sv RegisterActivityType = SWF
         type Rs RegisterActivityType =
              RegisterActivityTypeResponse
-        request = postJSON
+        request = postJSON sWF
         response = receiveNull RegisterActivityTypeResponse'
 
 instance ToHeaders RegisterActivityType where

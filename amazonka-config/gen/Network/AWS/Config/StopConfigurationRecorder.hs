@@ -67,10 +67,9 @@ scrConfigurationRecorderName :: Lens' StopConfigurationRecorder Text
 scrConfigurationRecorderName = lens _scrConfigurationRecorderName (\ s a -> s{_scrConfigurationRecorderName = a});
 
 instance AWSRequest StopConfigurationRecorder where
-        type Sv StopConfigurationRecorder = Config
         type Rs StopConfigurationRecorder =
              StopConfigurationRecorderResponse
-        request = postJSON
+        request = postJSON config
         response
           = receiveNull StopConfigurationRecorderResponse'
 

@@ -70,10 +70,9 @@ gsdcId = lens _gsdcId (\ s a -> s{_gsdcId = a});
 
 instance AWSRequest GetStreamingDistributionConfig
          where
-        type Sv GetStreamingDistributionConfig = CloudFront
         type Rs GetStreamingDistributionConfig =
              GetStreamingDistributionConfigResponse
-        request = get
+        request = get cloudFront
         response
           = receiveXML
               (\ s h x ->

@@ -64,9 +64,8 @@ hbBucket :: Lens' HeadBucket BucketName
 hbBucket = lens _hbBucket (\ s a -> s{_hbBucket = a});
 
 instance AWSRequest HeadBucket where
-        type Sv HeadBucket = S3
         type Rs HeadBucket = HeadBucketResponse
-        request = head'
+        request = head' s3
         response = receiveNull HeadBucketResponse'
 
 instance ToHeaders HeadBucket where

@@ -370,10 +370,9 @@ mccCacheClusterId :: Lens' ModifyCacheCluster Text
 mccCacheClusterId = lens _mccCacheClusterId (\ s a -> s{_mccCacheClusterId = a});
 
 instance AWSRequest ModifyCacheCluster where
-        type Sv ModifyCacheCluster = ElastiCache
         type Rs ModifyCacheCluster =
              ModifyCacheClusterResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "ModifyCacheClusterResult"
               (\ s h x ->

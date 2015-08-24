@@ -74,10 +74,9 @@ dFilterName :: Lens' DeleteSubscriptionFilter Text
 dFilterName = lens _dFilterName (\ s a -> s{_dFilterName = a});
 
 instance AWSRequest DeleteSubscriptionFilter where
-        type Sv DeleteSubscriptionFilter = CloudWatchLogs
         type Rs DeleteSubscriptionFilter =
              DeleteSubscriptionFilterResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response
           = receiveNull DeleteSubscriptionFilterResponse'
 

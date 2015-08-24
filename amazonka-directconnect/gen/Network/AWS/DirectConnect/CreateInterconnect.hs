@@ -122,9 +122,8 @@ ciLocation :: Lens' CreateInterconnect Text
 ciLocation = lens _ciLocation (\ s a -> s{_ciLocation = a});
 
 instance AWSRequest CreateInterconnect where
-        type Sv CreateInterconnect = DirectConnect
         type Rs CreateInterconnect = Interconnect
-        request = postJSON
+        request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreateInterconnect where

@@ -64,9 +64,8 @@ dlgLogGroupName :: Lens' DeleteLogGroup Text
 dlgLogGroupName = lens _dlgLogGroupName (\ s a -> s{_dlgLogGroupName = a});
 
 instance AWSRequest DeleteLogGroup where
-        type Sv DeleteLogGroup = CloudWatchLogs
         type Rs DeleteLogGroup = DeleteLogGroupResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response = receiveNull DeleteLogGroupResponse'
 
 instance ToHeaders DeleteLogGroup where

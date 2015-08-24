@@ -20,8 +20,8 @@
 -- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/welcome.html AWS API Reference>
 module Network.AWS.WorkSpaces
     (
-    -- * Service
-      WorkSpaces
+    -- * Service Configuration
+      workSpaces
 
     -- * Errors
     -- $errors

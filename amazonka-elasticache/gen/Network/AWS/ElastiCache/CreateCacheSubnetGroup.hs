@@ -96,10 +96,9 @@ ccsgSubnetIds :: Lens' CreateCacheSubnetGroup [Text]
 ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a}) . _Coerce;
 
 instance AWSRequest CreateCacheSubnetGroup where
-        type Sv CreateCacheSubnetGroup = ElastiCache
         type Rs CreateCacheSubnetGroup =
              CreateCacheSubnetGroupResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "CreateCacheSubnetGroupResult"
               (\ s h x ->

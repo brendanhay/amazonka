@@ -88,10 +88,9 @@ mmtsgMountTargetId = lens _mmtsgMountTargetId (\ s a -> s{_mmtsgMountTargetId = 
 
 instance AWSRequest ModifyMountTargetSecurityGroups
          where
-        type Sv ModifyMountTargetSecurityGroups = EFS
         type Rs ModifyMountTargetSecurityGroups =
              ModifyMountTargetSecurityGroupsResponse
-        request = putJSON
+        request = putJSON eFS
         response
           = receiveNull
               ModifyMountTargetSecurityGroupsResponse'

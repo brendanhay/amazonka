@@ -68,10 +68,9 @@ dIdentityPoolId :: Lens' DeleteIdentityPool Text
 dIdentityPoolId = lens _dIdentityPoolId (\ s a -> s{_dIdentityPoolId = a});
 
 instance AWSRequest DeleteIdentityPool where
-        type Sv DeleteIdentityPool = CognitoIdentity
         type Rs DeleteIdentityPool =
              DeleteIdentityPoolResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response = receiveNull DeleteIdentityPoolResponse'
 
 instance ToHeaders DeleteIdentityPool where

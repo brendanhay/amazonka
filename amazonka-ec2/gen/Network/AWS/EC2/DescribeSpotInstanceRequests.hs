@@ -220,10 +220,9 @@ dsirDryRun = lens _dsirDryRun (\ s a -> s{_dsirDryRun = a});
 
 instance AWSRequest DescribeSpotInstanceRequests
          where
-        type Sv DescribeSpotInstanceRequests = EC2
         type Rs DescribeSpotInstanceRequests =
              DescribeSpotInstanceRequestsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

@@ -111,11 +111,9 @@ dcsApplicationName = lens _dcsApplicationName (\ s a -> s{_dcsApplicationName = 
 
 instance AWSRequest DescribeConfigurationSettings
          where
-        type Sv DescribeConfigurationSettings =
-             ElasticBeanstalk
         type Rs DescribeConfigurationSettings =
              DescribeConfigurationSettingsResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper
               "DescribeConfigurationSettingsResult"

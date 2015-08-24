@@ -173,10 +173,9 @@ rsgiDryRun :: Lens' RevokeSecurityGroupIngress (Maybe Bool)
 rsgiDryRun = lens _rsgiDryRun (\ s a -> s{_rsgiDryRun = a});
 
 instance AWSRequest RevokeSecurityGroupIngress where
-        type Sv RevokeSecurityGroupIngress = EC2
         type Rs RevokeSecurityGroupIngress =
              RevokeSecurityGroupIngressResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveNull RevokeSecurityGroupIngressResponse'
 

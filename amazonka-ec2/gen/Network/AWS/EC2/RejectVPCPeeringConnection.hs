@@ -83,10 +83,9 @@ rvpcVPCPeeringConnectionId :: Lens' RejectVPCPeeringConnection Text
 rvpcVPCPeeringConnectionId = lens _rvpcVPCPeeringConnectionId (\ s a -> s{_rvpcVPCPeeringConnectionId = a});
 
 instance AWSRequest RejectVPCPeeringConnection where
-        type Sv RejectVPCPeeringConnection = EC2
         type Rs RejectVPCPeeringConnection =
              RejectVPCPeeringConnectionResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

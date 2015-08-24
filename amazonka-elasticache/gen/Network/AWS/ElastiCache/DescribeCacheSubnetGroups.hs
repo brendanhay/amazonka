@@ -107,10 +107,9 @@ instance AWSPager DescribeCacheSubnetGroups where
             Just $ rq & dcsgMarker .~ rs ^. dcsgrsMarker
 
 instance AWSRequest DescribeCacheSubnetGroups where
-        type Sv DescribeCacheSubnetGroups = ElastiCache
         type Rs DescribeCacheSubnetGroups =
              DescribeCacheSubnetGroupsResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "DescribeCacheSubnetGroupsResult"
               (\ s h x ->

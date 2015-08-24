@@ -110,9 +110,8 @@ instance AWSPager ListGroups where
             Just $ rq & lgMarker .~ rs ^. lgrsMarker
 
 instance AWSRequest ListGroups where
-        type Sv ListGroups = IAM
         type Rs ListGroups = ListGroupsResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListGroupsResult"
               (\ s h x ->

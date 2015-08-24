@@ -16,8 +16,8 @@
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-domain-registrations.html AWS API Reference>
 module Network.AWS.Route53Domains
     (
-    -- * Service
-      Route53Domains
+    -- * Service Configuration
+      route53Domains
 
     -- * Errors
     -- $errors

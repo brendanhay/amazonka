@@ -71,9 +71,8 @@ uSubscriptionARN :: Lens' Unsubscribe Text
 uSubscriptionARN = lens _uSubscriptionARN (\ s a -> s{_uSubscriptionARN = a});
 
 instance AWSRequest Unsubscribe where
-        type Sv Unsubscribe = SNS
         type Rs Unsubscribe = UnsubscribeResponse
-        request = postQuery
+        request = postQuery sNS
         response = receiveNull UnsubscribeResponse'
 
 instance ToHeaders Unsubscribe where

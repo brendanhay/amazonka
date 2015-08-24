@@ -98,9 +98,8 @@ rmdAuthenticationCode2 :: Lens' ResyncMFADevice Text
 rmdAuthenticationCode2 = lens _rmdAuthenticationCode2 (\ s a -> s{_rmdAuthenticationCode2 = a});
 
 instance AWSRequest ResyncMFADevice where
-        type Sv ResyncMFADevice = IAM
         type Rs ResyncMFADevice = ResyncMFADeviceResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull ResyncMFADeviceResponse'
 
 instance ToHeaders ResyncMFADevice where

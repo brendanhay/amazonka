@@ -112,10 +112,9 @@ instance AWSPager DescribeEventSubscriptions where
             Just $ rq & dMarker .~ rs ^. desrsMarker
 
 instance AWSRequest DescribeEventSubscriptions where
-        type Sv DescribeEventSubscriptions = Redshift
         type Rs DescribeEventSubscriptions =
              DescribeEventSubscriptionsResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "DescribeEventSubscriptionsResult"

@@ -96,9 +96,8 @@ apActionName :: Lens' AddPermission [Text]
 apActionName = lens _apActionName (\ s a -> s{_apActionName = a}) . _Coerce;
 
 instance AWSRequest AddPermission where
-        type Sv AddPermission = SNS
         type Rs AddPermission = AddPermissionResponse
-        request = postQuery
+        request = postQuery sNS
         response = receiveNull AddPermissionResponse'
 
 instance ToHeaders AddPermission where

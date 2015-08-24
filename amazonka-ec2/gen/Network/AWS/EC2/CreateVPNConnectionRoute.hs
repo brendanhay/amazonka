@@ -80,10 +80,9 @@ cvcrDestinationCIdRBlock :: Lens' CreateVPNConnectionRoute Text
 cvcrDestinationCIdRBlock = lens _cvcrDestinationCIdRBlock (\ s a -> s{_cvcrDestinationCIdRBlock = a});
 
 instance AWSRequest CreateVPNConnectionRoute where
-        type Sv CreateVPNConnectionRoute = EC2
         type Rs CreateVPNConnectionRoute =
              CreateVPNConnectionRouteResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveNull CreateVPNConnectionRouteResponse'
 

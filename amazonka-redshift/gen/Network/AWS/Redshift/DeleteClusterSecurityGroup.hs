@@ -72,10 +72,9 @@ dClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup Text
 dClusterSecurityGroupName = lens _dClusterSecurityGroupName (\ s a -> s{_dClusterSecurityGroupName = a});
 
 instance AWSRequest DeleteClusterSecurityGroup where
-        type Sv DeleteClusterSecurityGroup = Redshift
         type Rs DeleteClusterSecurityGroup =
              DeleteClusterSecurityGroupResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveNull DeleteClusterSecurityGroupResponse'
 

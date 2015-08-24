@@ -124,10 +124,9 @@ dvgsVPNGatewayIds :: Lens' DescribeVPNGateways [Text]
 dvgsVPNGatewayIds = lens _dvgsVPNGatewayIds (\ s a -> s{_dvgsVPNGatewayIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeVPNGateways where
-        type Sv DescribeVPNGateways = EC2
         type Rs DescribeVPNGateways =
              DescribeVPNGatewaysResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

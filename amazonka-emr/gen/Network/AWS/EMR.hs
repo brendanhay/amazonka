@@ -20,8 +20,8 @@
 -- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/Welcome.html AWS API Reference>
 module Network.AWS.EMR
     (
-    -- * Service
-      EMR
+    -- * Service Configuration
+      eMR
 
     -- * Errors
     -- $errors

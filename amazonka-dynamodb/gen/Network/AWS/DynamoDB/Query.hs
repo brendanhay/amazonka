@@ -707,9 +707,8 @@ instance AWSPager Query where
               qExclusiveStartKey .~ rs ^. qrsLastEvaluatedKey
 
 instance AWSRequest Query where
-        type Sv Query = DynamoDB
         type Rs Query = QueryResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->

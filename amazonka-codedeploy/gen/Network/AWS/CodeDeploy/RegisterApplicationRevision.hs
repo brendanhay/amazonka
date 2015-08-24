@@ -86,10 +86,9 @@ rarRevision :: Lens' RegisterApplicationRevision RevisionLocation
 rarRevision = lens _rarRevision (\ s a -> s{_rarRevision = a});
 
 instance AWSRequest RegisterApplicationRevision where
-        type Sv RegisterApplicationRevision = CodeDeploy
         type Rs RegisterApplicationRevision =
              RegisterApplicationRevisionResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveNull RegisterApplicationRevisionResponse'
 

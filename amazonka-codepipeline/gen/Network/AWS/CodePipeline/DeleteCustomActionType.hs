@@ -93,10 +93,9 @@ dcatVersion :: Lens' DeleteCustomActionType Text
 dcatVersion = lens _dcatVersion (\ s a -> s{_dcatVersion = a});
 
 instance AWSRequest DeleteCustomActionType where
-        type Sv DeleteCustomActionType = CodePipeline
         type Rs DeleteCustomActionType =
              DeleteCustomActionTypeResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveNull DeleteCustomActionTypeResponse'
 

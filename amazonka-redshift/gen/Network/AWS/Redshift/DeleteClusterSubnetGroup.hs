@@ -63,10 +63,9 @@ dcsgClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup Text
 dcsgClusterSubnetGroupName = lens _dcsgClusterSubnetGroupName (\ s a -> s{_dcsgClusterSubnetGroupName = a});
 
 instance AWSRequest DeleteClusterSubnetGroup where
-        type Sv DeleteClusterSubnetGroup = Redshift
         type Rs DeleteClusterSubnetGroup =
              DeleteClusterSubnetGroupResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveNull DeleteClusterSubnetGroupResponse'
 

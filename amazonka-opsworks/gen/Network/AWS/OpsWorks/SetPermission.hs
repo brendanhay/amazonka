@@ -118,9 +118,8 @@ spIAMUserARN :: Lens' SetPermission Text
 spIAMUserARN = lens _spIAMUserARN (\ s a -> s{_spIAMUserARN = a});
 
 instance AWSRequest SetPermission where
-        type Sv SetPermission = OpsWorks
         type Rs SetPermission = SetPermissionResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull SetPermissionResponse'
 
 instance ToHeaders SetPermission where

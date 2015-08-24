@@ -142,10 +142,9 @@ cavVersionLabel :: Lens' CreateApplicationVersion Text
 cavVersionLabel = lens _cavVersionLabel (\ s a -> s{_cavVersionLabel = a});
 
 instance AWSRequest CreateApplicationVersion where
-        type Sv CreateApplicationVersion = ElasticBeanstalk
         type Rs CreateApplicationVersion =
              ApplicationVersionDescriptionMessage
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper "CreateApplicationVersionResult"
               (\ s h x -> parseXML x)

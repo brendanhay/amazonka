@@ -112,10 +112,9 @@ instance AWSPager ListTaskDefinitionFamilies where
             Just $ rq & ltdfNextToken .~ rs ^. ltdfrsNextToken
 
 instance AWSRequest ListTaskDefinitionFamilies where
-        type Sv ListTaskDefinitionFamilies = ECS
         type Rs ListTaskDefinitionFamilies =
              ListTaskDefinitionFamiliesResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

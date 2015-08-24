@@ -84,9 +84,8 @@ dsStreamName :: Lens' DeleteStream Text
 dsStreamName = lens _dsStreamName (\ s a -> s{_dsStreamName = a});
 
 instance AWSRequest DeleteStream where
-        type Sv DeleteStream = Kinesis
         type Rs DeleteStream = DeleteStreamResponse
-        request = postJSON
+        request = postJSON kinesis
         response = receiveNull DeleteStreamResponse'
 
 instance ToHeaders DeleteStream where

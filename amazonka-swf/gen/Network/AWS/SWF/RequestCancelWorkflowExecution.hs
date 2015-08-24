@@ -113,10 +113,9 @@ rcweWorkflowId = lens _rcweWorkflowId (\ s a -> s{_rcweWorkflowId = a});
 
 instance AWSRequest RequestCancelWorkflowExecution
          where
-        type Sv RequestCancelWorkflowExecution = SWF
         type Rs RequestCancelWorkflowExecution =
              RequestCancelWorkflowExecutionResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveNull RequestCancelWorkflowExecutionResponse'
 

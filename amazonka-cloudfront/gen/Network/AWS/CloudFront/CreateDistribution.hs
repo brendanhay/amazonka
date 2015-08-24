@@ -70,10 +70,9 @@ cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
 cdDistributionConfig = lens _cdDistributionConfig (\ s a -> s{_cdDistributionConfig = a});
 
 instance AWSRequest CreateDistribution where
-        type Sv CreateDistribution = CloudFront
         type Rs CreateDistribution =
              CreateDistributionResponse
-        request = postXML
+        request = postXML cloudFront
         response
           = receiveXML
               (\ s h x ->

@@ -70,10 +70,9 @@ dupIAMUserARNs :: Lens' DescribeUserProfiles [Text]
 dupIAMUserARNs = lens _dupIAMUserARNs (\ s a -> s{_dupIAMUserARNs = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeUserProfiles where
-        type Sv DescribeUserProfiles = OpsWorks
         type Rs DescribeUserProfiles =
              DescribeUserProfilesResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

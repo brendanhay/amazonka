@@ -71,10 +71,9 @@ giprIdentityPoolId :: Lens' GetIdentityPoolRoles Text
 giprIdentityPoolId = lens _giprIdentityPoolId (\ s a -> s{_giprIdentityPoolId = a});
 
 instance AWSRequest GetIdentityPoolRoles where
-        type Sv GetIdentityPoolRoles = CognitoIdentity
         type Rs GetIdentityPoolRoles =
              GetIdentityPoolRolesResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response
           = receiveJSON
               (\ s h x ->

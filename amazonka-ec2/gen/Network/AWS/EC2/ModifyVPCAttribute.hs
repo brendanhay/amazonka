@@ -90,10 +90,9 @@ mvaVPCId :: Lens' ModifyVPCAttribute Text
 mvaVPCId = lens _mvaVPCId (\ s a -> s{_mvaVPCId = a});
 
 instance AWSRequest ModifyVPCAttribute where
-        type Sv ModifyVPCAttribute = EC2
         type Rs ModifyVPCAttribute =
              ModifyVPCAttributeResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull ModifyVPCAttributeResponse'
 
 instance ToHeaders ModifyVPCAttribute where

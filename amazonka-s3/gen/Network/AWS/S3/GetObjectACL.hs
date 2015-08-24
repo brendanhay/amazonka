@@ -96,9 +96,8 @@ goaKey :: Lens' GetObjectACL ObjectKey
 goaKey = lens _goaKey (\ s a -> s{_goaKey = a});
 
 instance AWSRequest GetObjectACL where
-        type Sv GetObjectACL = S3
         type Rs GetObjectACL = GetObjectACLResponse
-        request = get
+        request = get s3
         response
           = receiveXML
               (\ s h x ->

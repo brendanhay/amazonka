@@ -136,9 +136,8 @@ riStackId :: Lens' RegisterInstance Text
 riStackId = lens _riStackId (\ s a -> s{_riStackId = a});
 
 instance AWSRequest RegisterInstance where
-        type Sv RegisterInstance = OpsWorks
         type Rs RegisterInstance = RegisterInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

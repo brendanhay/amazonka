@@ -127,10 +127,9 @@ dsrStackName :: Lens' DescribeStackResources (Maybe Text)
 dsrStackName = lens _dsrStackName (\ s a -> s{_dsrStackName = a});
 
 instance AWSRequest DescribeStackResources where
-        type Sv DescribeStackResources = CloudFormation
         type Rs DescribeStackResources =
              DescribeStackResourcesResponse
-        request = postQuery
+        request = postQuery cloudFormation
         response
           = receiveXMLWrapper "DescribeStackResourcesResult"
               (\ s h x ->

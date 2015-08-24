@@ -69,10 +69,9 @@ drdiRDSDBInstanceARN :: Lens' DeregisterRDSDBInstance Text
 drdiRDSDBInstanceARN = lens _drdiRDSDBInstanceARN (\ s a -> s{_drdiRDSDBInstanceARN = a});
 
 instance AWSRequest DeregisterRDSDBInstance where
-        type Sv DeregisterRDSDBInstance = OpsWorks
         type Rs DeregisterRDSDBInstance =
              DeregisterRDSDBInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveNull DeregisterRDSDBInstanceResponse'
 

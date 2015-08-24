@@ -139,9 +139,8 @@ cDesiredCount :: Lens' CreateService Int
 cDesiredCount = lens _cDesiredCount (\ s a -> s{_cDesiredCount = a});
 
 instance AWSRequest CreateService where
-        type Sv CreateService = ECS
         type Rs CreateService = CreateServiceResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

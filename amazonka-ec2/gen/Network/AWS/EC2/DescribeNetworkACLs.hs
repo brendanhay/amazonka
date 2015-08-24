@@ -147,10 +147,9 @@ dnaclNetworkACLIds :: Lens' DescribeNetworkACLs [Text]
 dnaclNetworkACLIds = lens _dnaclNetworkACLIds (\ s a -> s{_dnaclNetworkACLIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeNetworkACLs where
-        type Sv DescribeNetworkACLs = EC2
         type Rs DescribeNetworkACLs =
              DescribeNetworkACLsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

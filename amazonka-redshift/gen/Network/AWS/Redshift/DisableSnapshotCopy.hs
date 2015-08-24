@@ -78,10 +78,9 @@ dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
 dscClusterIdentifier = lens _dscClusterIdentifier (\ s a -> s{_dscClusterIdentifier = a});
 
 instance AWSRequest DisableSnapshotCopy where
-        type Sv DisableSnapshotCopy = Redshift
         type Rs DisableSnapshotCopy =
              DisableSnapshotCopyResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "DisableSnapshotCopyResult"
               (\ s h x ->

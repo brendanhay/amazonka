@@ -80,9 +80,8 @@ csSnapshotName :: Lens' CreateSnapshot Text
 csSnapshotName = lens _csSnapshotName (\ s a -> s{_csSnapshotName = a});
 
 instance AWSRequest CreateSnapshot where
-        type Sv CreateSnapshot = ElastiCache
         type Rs CreateSnapshot = CreateSnapshotResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "CreateSnapshotResult"
               (\ s h x ->

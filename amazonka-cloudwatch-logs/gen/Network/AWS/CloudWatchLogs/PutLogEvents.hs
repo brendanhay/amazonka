@@ -114,9 +114,8 @@ pleLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
 pleLogEvents = lens _pleLogEvents (\ s a -> s{_pleLogEvents = a}) . _List1;
 
 instance AWSRequest PutLogEvents where
-        type Sv PutLogEvents = CloudWatchLogs
         type Rs PutLogEvents = PutLogEventsResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response
           = receiveJSON
               (\ s h x ->

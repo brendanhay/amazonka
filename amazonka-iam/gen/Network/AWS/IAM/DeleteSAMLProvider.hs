@@ -70,10 +70,9 @@ dsamlpSAMLProviderARN :: Lens' DeleteSAMLProvider Text
 dsamlpSAMLProviderARN = lens _dsamlpSAMLProviderARN (\ s a -> s{_dsamlpSAMLProviderARN = a});
 
 instance AWSRequest DeleteSAMLProvider where
-        type Sv DeleteSAMLProvider = IAM
         type Rs DeleteSAMLProvider =
              DeleteSAMLProviderResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull DeleteSAMLProviderResponse'
 
 instance ToHeaders DeleteSAMLProvider where

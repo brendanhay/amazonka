@@ -93,10 +93,9 @@ pbvVersioningConfiguration :: Lens' PutBucketVersioning VersioningConfiguration
 pbvVersioningConfiguration = lens _pbvVersioningConfiguration (\ s a -> s{_pbvVersioningConfiguration = a});
 
 instance AWSRequest PutBucketVersioning where
-        type Sv PutBucketVersioning = S3
         type Rs PutBucketVersioning =
              PutBucketVersioningResponse
-        request = putXML
+        request = putXML s3
         response = receiveNull PutBucketVersioningResponse'
 
 instance ToElement PutBucketVersioning where

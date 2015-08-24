@@ -92,9 +92,8 @@ ltfsStreamName :: Lens' ListTagsForStream Text
 ltfsStreamName = lens _ltfsStreamName (\ s a -> s{_ltfsStreamName = a});
 
 instance AWSRequest ListTagsForStream where
-        type Sv ListTagsForStream = Kinesis
         type Rs ListTagsForStream = ListTagsForStreamResponse
-        request = postJSON
+        request = postJSON kinesis
         response
           = receiveJSON
               (\ s h x ->

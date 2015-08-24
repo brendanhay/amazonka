@@ -141,10 +141,9 @@ instance AWSPager DownloadDBLogFilePortion where
             Just $ rq & ddlfpMarker .~ rs ^. ddlfprsMarker
 
 instance AWSRequest DownloadDBLogFilePortion where
-        type Sv DownloadDBLogFilePortion = RDS
         type Rs DownloadDBLogFilePortion =
              DownloadDBLogFilePortionResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "DownloadDBLogFilePortionResult"
               (\ s h x ->

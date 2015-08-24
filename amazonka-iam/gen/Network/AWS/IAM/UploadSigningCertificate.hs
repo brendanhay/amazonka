@@ -94,10 +94,9 @@ uplCertificateBody :: Lens' UploadSigningCertificate Text
 uplCertificateBody = lens _uplCertificateBody (\ s a -> s{_uplCertificateBody = a});
 
 instance AWSRequest UploadSigningCertificate where
-        type Sv UploadSigningCertificate = IAM
         type Rs UploadSigningCertificate =
              UploadSigningCertificateResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "UploadSigningCertificateResult"
               (\ s h x ->

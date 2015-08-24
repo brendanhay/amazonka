@@ -126,9 +126,8 @@ instance AWSPager QueryObjects where
             Just $ rq & qoMarker .~ rs ^. qorsMarker
 
 instance AWSRequest QueryObjects where
-        type Sv QueryObjects = DataPipeline
         type Rs QueryObjects = QueryObjectsResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->

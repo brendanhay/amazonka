@@ -150,10 +150,9 @@ cesmStartingPosition :: Lens' CreateEventSourceMapping EventSourcePosition
 cesmStartingPosition = lens _cesmStartingPosition (\ s a -> s{_cesmStartingPosition = a});
 
 instance AWSRequest CreateEventSourceMapping where
-        type Sv CreateEventSourceMapping = Lambda
         type Rs CreateEventSourceMapping =
              EventSourceMappingConfiguration
-        request = postJSON
+        request = postJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreateEventSourceMapping where

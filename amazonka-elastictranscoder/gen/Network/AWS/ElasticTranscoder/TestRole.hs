@@ -109,9 +109,8 @@ trTopics :: Lens' TestRole [Text]
 trTopics = lens _trTopics (\ s a -> s{_trTopics = a}) . _Coerce;
 
 instance AWSRequest TestRole where
-        type Sv TestRole = ElasticTranscoder
         type Rs TestRole = TestRoleResponse
-        request = postJSON
+        request = postJSON elasticTranscoder
         response
           = receiveJSON
               (\ s h x ->

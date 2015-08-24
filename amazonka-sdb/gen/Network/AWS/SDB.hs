@@ -32,8 +32,8 @@
 -- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API.html AWS API Reference>
 module Network.AWS.SDB
     (
-    -- * Service
-      SDB
+    -- * Service Configuration
+      sDB
 
     -- * Errors
     -- $errors

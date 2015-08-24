@@ -101,10 +101,9 @@ instance AWSPager ListStackResources where
             Just $ rq & lsrNextToken .~ rs ^. lsrrsNextToken
 
 instance AWSRequest ListStackResources where
-        type Sv ListStackResources = CloudFormation
         type Rs ListStackResources =
              ListStackResourcesResponse
-        request = postQuery
+        request = postQuery cloudFormation
         response
           = receiveXMLWrapper "ListStackResourcesResult"
               (\ s h x ->

@@ -124,10 +124,9 @@ instance AWSPager ListEventSourceMappings where
             Just $ rq & lesmMarker .~ rs ^. lesmrsNextMarker
 
 instance AWSRequest ListEventSourceMappings where
-        type Sv ListEventSourceMappings = Lambda
         type Rs ListEventSourceMappings =
              ListEventSourceMappingsResponse
-        request = get
+        request = get lambda
         response
           = receiveJSON
               (\ s h x ->

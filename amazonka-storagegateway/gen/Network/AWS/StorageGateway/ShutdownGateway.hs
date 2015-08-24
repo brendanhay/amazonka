@@ -91,9 +91,8 @@ sGatewayARN :: Lens' ShutdownGateway Text
 sGatewayARN = lens _sGatewayARN (\ s a -> s{_sGatewayARN = a});
 
 instance AWSRequest ShutdownGateway where
-        type Sv ShutdownGateway = StorageGateway
         type Rs ShutdownGateway = ShutdownGatewayResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

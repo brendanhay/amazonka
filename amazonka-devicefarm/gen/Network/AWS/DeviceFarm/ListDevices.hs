@@ -79,9 +79,8 @@ ldNextToken :: Lens' ListDevices (Maybe Text)
 ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 
 instance AWSRequest ListDevices where
-        type Sv ListDevices = DeviceFarm
         type Rs ListDevices = ListDevicesResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

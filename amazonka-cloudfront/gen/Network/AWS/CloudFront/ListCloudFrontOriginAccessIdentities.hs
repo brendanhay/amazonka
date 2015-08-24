@@ -82,11 +82,9 @@ lcfoaiMarker = lens _lcfoaiMarker (\ s a -> s{_lcfoaiMarker = a});
 
 instance AWSRequest
          ListCloudFrontOriginAccessIdentities where
-        type Sv ListCloudFrontOriginAccessIdentities =
-             CloudFront
         type Rs ListCloudFrontOriginAccessIdentities =
              ListCloudFrontOriginAccessIdentitiesResponse
-        request = get
+        request = get cloudFront
         response
           = receiveXML
               (\ s h x ->

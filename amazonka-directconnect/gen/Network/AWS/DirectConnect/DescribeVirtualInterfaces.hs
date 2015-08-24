@@ -88,10 +88,9 @@ dviVirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
 dviVirtualInterfaceId = lens _dviVirtualInterfaceId (\ s a -> s{_dviVirtualInterfaceId = a});
 
 instance AWSRequest DescribeVirtualInterfaces where
-        type Sv DescribeVirtualInterfaces = DirectConnect
         type Rs DescribeVirtualInterfaces =
              DescribeVirtualInterfacesResponse
-        request = postJSON
+        request = postJSON directConnect
         response
           = receiveJSON
               (\ s h x ->

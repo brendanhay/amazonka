@@ -74,11 +74,9 @@ dsppStackId = lens _dsppStackId (\ s a -> s{_dsppStackId = a});
 
 instance AWSRequest
          DescribeStackProvisioningParameters where
-        type Sv DescribeStackProvisioningParameters =
-             OpsWorks
         type Rs DescribeStackProvisioningParameters =
              DescribeStackProvisioningParametersResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

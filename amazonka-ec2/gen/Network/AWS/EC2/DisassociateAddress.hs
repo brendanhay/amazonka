@@ -92,10 +92,9 @@ dasDryRun :: Lens' DisassociateAddress (Maybe Bool)
 dasDryRun = lens _dasDryRun (\ s a -> s{_dasDryRun = a});
 
 instance AWSRequest DisassociateAddress where
-        type Sv DisassociateAddress = EC2
         type Rs DisassociateAddress =
              DisassociateAddressResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull DisassociateAddressResponse'
 
 instance ToHeaders DisassociateAddress where

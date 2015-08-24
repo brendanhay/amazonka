@@ -186,10 +186,9 @@ instance AWSPager ListResourceRecordSets where
                 rs ^. lrrsrsNextRecordIdentifier
 
 instance AWSRequest ListResourceRecordSets where
-        type Sv ListResourceRecordSets = Route53
         type Rs ListResourceRecordSets =
              ListResourceRecordSetsResponse
-        request = get
+        request = get route53
         response
           = receiveXML
               (\ s h x ->

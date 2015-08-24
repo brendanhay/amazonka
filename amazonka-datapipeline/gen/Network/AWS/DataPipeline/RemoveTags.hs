@@ -76,9 +76,8 @@ rtTagKeys :: Lens' RemoveTags [Text]
 rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a}) . _Coerce;
 
 instance AWSRequest RemoveTags where
-        type Sv RemoveTags = DataPipeline
         type Rs RemoveTags = RemoveTagsResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveEmpty
               (\ s h x ->

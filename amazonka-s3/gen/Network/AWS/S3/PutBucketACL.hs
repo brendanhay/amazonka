@@ -137,9 +137,8 @@ pbaBucket :: Lens' PutBucketACL BucketName
 pbaBucket = lens _pbaBucket (\ s a -> s{_pbaBucket = a});
 
 instance AWSRequest PutBucketACL where
-        type Sv PutBucketACL = S3
         type Rs PutBucketACL = PutBucketACLResponse
-        request = putXML
+        request = putXML s3
         response = receiveNull PutBucketACLResponse'
 
 instance ToElement PutBucketACL where

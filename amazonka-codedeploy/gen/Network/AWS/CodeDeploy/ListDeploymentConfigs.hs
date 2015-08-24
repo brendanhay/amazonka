@@ -71,10 +71,9 @@ ldcNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
 ldcNextToken = lens _ldcNextToken (\ s a -> s{_ldcNextToken = a});
 
 instance AWSRequest ListDeploymentConfigs where
-        type Sv ListDeploymentConfigs = CodeDeploy
         type Rs ListDeploymentConfigs =
              ListDeploymentConfigsResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->

@@ -92,9 +92,8 @@ cTags :: Lens' CreateTags [Tag]
 cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Coerce;
 
 instance AWSRequest CreateTags where
-        type Sv CreateTags = EC2
         type Rs CreateTags = CreateTagsResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull CreateTagsResponse'
 
 instance ToHeaders CreateTags where

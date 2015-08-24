@@ -192,10 +192,9 @@ rdcfsEngine = lens _rdcfsEngine (\ s a -> s{_rdcfsEngine = a});
 
 instance AWSRequest RestoreDBClusterFromSnapshot
          where
-        type Sv RestoreDBClusterFromSnapshot = RDS
         type Rs RestoreDBClusterFromSnapshot =
              RestoreDBClusterFromSnapshotResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "RestoreDBClusterFromSnapshotResult"

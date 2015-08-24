@@ -121,10 +121,9 @@ dcgDryRun :: Lens' DescribeCustomerGateways (Maybe Bool)
 dcgDryRun = lens _dcgDryRun (\ s a -> s{_dcgDryRun = a});
 
 instance AWSRequest DescribeCustomerGateways where
-        type Sv DescribeCustomerGateways = EC2
         type Rs DescribeCustomerGateways =
              DescribeCustomerGatewaysResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

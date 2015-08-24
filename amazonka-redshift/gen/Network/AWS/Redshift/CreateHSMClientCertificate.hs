@@ -89,10 +89,9 @@ chccHSMClientCertificateIdentifier :: Lens' CreateHSMClientCertificate Text
 chccHSMClientCertificateIdentifier = lens _chccHSMClientCertificateIdentifier (\ s a -> s{_chccHSMClientCertificateIdentifier = a});
 
 instance AWSRequest CreateHSMClientCertificate where
-        type Sv CreateHSMClientCertificate = Redshift
         type Rs CreateHSMClientCertificate =
              CreateHSMClientCertificateResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "CreateHsmClientCertificateResult"

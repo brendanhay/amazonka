@@ -74,10 +74,9 @@ ghsLayerId :: Lens' GetHostnameSuggestion Text
 ghsLayerId = lens _ghsLayerId (\ s a -> s{_ghsLayerId = a});
 
 instance AWSRequest GetHostnameSuggestion where
-        type Sv GetHostnameSuggestion = OpsWorks
         type Rs GetHostnameSuggestion =
              GetHostnameSuggestionResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

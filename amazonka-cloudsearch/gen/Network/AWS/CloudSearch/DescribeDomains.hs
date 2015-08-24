@@ -77,9 +77,8 @@ ddDomainNames :: Lens' DescribeDomains [Text]
 ddDomainNames = lens _ddDomainNames (\ s a -> s{_ddDomainNames = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeDomains where
-        type Sv DescribeDomains = CloudSearch
         type Rs DescribeDomains = DescribeDomainsResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "DescribeDomainsResult"
               (\ s h x ->

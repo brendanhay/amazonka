@@ -112,10 +112,9 @@ ppdPipelineObjects :: Lens' PutPipelineDefinition [PipelineObject]
 ppdPipelineObjects = lens _ppdPipelineObjects (\ s a -> s{_ppdPipelineObjects = a}) . _Coerce;
 
 instance AWSRequest PutPipelineDefinition where
-        type Sv PutPipelineDefinition = DataPipeline
         type Rs PutPipelineDefinition =
              PutPipelineDefinitionResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->

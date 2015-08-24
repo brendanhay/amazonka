@@ -142,9 +142,8 @@ cgGranteePrincipal :: Lens' CreateGrant Text
 cgGranteePrincipal = lens _cgGranteePrincipal (\ s a -> s{_cgGranteePrincipal = a});
 
 instance AWSRequest CreateGrant where
-        type Sv CreateGrant = KMS
         type Rs CreateGrant = CreateGrantResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->

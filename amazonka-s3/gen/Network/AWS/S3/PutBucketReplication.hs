@@ -83,10 +83,9 @@ pbrReplicationConfiguration :: Lens' PutBucketReplication ReplicationConfigurati
 pbrReplicationConfiguration = lens _pbrReplicationConfiguration (\ s a -> s{_pbrReplicationConfiguration = a});
 
 instance AWSRequest PutBucketReplication where
-        type Sv PutBucketReplication = S3
         type Rs PutBucketReplication =
              PutBucketReplicationResponse
-        request = putXML
+        request = putXML s3
         response = receiveNull PutBucketReplicationResponse'
 
 instance ToElement PutBucketReplication where

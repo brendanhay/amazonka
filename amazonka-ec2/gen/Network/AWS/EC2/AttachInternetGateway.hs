@@ -88,10 +88,9 @@ aigVPCId :: Lens' AttachInternetGateway Text
 aigVPCId = lens _aigVPCId (\ s a -> s{_aigVPCId = a});
 
 instance AWSRequest AttachInternetGateway where
-        type Sv AttachInternetGateway = EC2
         type Rs AttachInternetGateway =
              AttachInternetGatewayResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull AttachInternetGatewayResponse'
 
 instance ToHeaders AttachInternetGateway where

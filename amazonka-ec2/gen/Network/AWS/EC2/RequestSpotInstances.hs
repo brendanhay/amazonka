@@ -199,10 +199,9 @@ rsiSpotPrice :: Lens' RequestSpotInstances Text
 rsiSpotPrice = lens _rsiSpotPrice (\ s a -> s{_rsiSpotPrice = a});
 
 instance AWSRequest RequestSpotInstances where
-        type Sv RequestSpotInstances = EC2
         type Rs RequestSpotInstances =
              RequestSpotInstancesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

@@ -58,10 +58,9 @@ describeMyUserProfile
 describeMyUserProfile = DescribeMyUserProfile'
 
 instance AWSRequest DescribeMyUserProfile where
-        type Sv DescribeMyUserProfile = OpsWorks
         type Rs DescribeMyUserProfile =
              DescribeMyUserProfileResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->

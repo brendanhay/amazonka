@@ -82,10 +82,9 @@ dasAnalysisSchemeName :: Lens' DeleteAnalysisScheme Text
 dasAnalysisSchemeName = lens _dasAnalysisSchemeName (\ s a -> s{_dasAnalysisSchemeName = a});
 
 instance AWSRequest DeleteAnalysisScheme where
-        type Sv DeleteAnalysisScheme = CloudSearch
         type Rs DeleteAnalysisScheme =
              DeleteAnalysisSchemeResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "DeleteAnalysisSchemeResult"
               (\ s h x ->

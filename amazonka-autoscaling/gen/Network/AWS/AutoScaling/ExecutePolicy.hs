@@ -120,9 +120,8 @@ epPolicyName :: Lens' ExecutePolicy Text
 epPolicyName = lens _epPolicyName (\ s a -> s{_epPolicyName = a});
 
 instance AWSRequest ExecutePolicy where
-        type Sv ExecutePolicy = AutoScaling
         type Rs ExecutePolicy = ExecutePolicyResponse
-        request = postQuery
+        request = postQuery autoScaling
         response = receiveNull ExecutePolicyResponse'
 
 instance ToHeaders ExecutePolicy where

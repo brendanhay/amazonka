@@ -105,10 +105,9 @@ rInfoType :: Lens' RetrieveEnvironmentInfo EnvironmentInfoType
 rInfoType = lens _rInfoType (\ s a -> s{_rInfoType = a});
 
 instance AWSRequest RetrieveEnvironmentInfo where
-        type Sv RetrieveEnvironmentInfo = ElasticBeanstalk
         type Rs RetrieveEnvironmentInfo =
              RetrieveEnvironmentInfoResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper "RetrieveEnvironmentInfoResult"
               (\ s h x ->

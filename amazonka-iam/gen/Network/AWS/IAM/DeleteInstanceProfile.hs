@@ -72,10 +72,9 @@ dipInstanceProfileName :: Lens' DeleteInstanceProfile Text
 dipInstanceProfileName = lens _dipInstanceProfileName (\ s a -> s{_dipInstanceProfileName = a});
 
 instance AWSRequest DeleteInstanceProfile where
-        type Sv DeleteInstanceProfile = IAM
         type Rs DeleteInstanceProfile =
              DeleteInstanceProfileResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull DeleteInstanceProfileResponse'
 
 instance ToHeaders DeleteInstanceProfile where

@@ -83,10 +83,9 @@ reEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
 reEnvironmentId = lens _reEnvironmentId (\ s a -> s{_reEnvironmentId = a});
 
 instance AWSRequest RebuildEnvironment where
-        type Sv RebuildEnvironment = ElasticBeanstalk
         type Rs RebuildEnvironment =
              RebuildEnvironmentResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response = receiveNull RebuildEnvironmentResponse'
 
 instance ToHeaders RebuildEnvironment where

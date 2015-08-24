@@ -131,10 +131,9 @@ dvpcpcDryRun = lens _dvpcpcDryRun (\ s a -> s{_dvpcpcDryRun = a});
 
 instance AWSRequest DescribeVPCPeeringConnections
          where
-        type Sv DescribeVPCPeeringConnections = EC2
         type Rs DescribeVPCPeeringConnections =
              DescribeVPCPeeringConnectionsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

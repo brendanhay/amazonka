@@ -227,10 +227,9 @@ arwwiWebIdentityToken :: Lens' AssumeRoleWithWebIdentity Text
 arwwiWebIdentityToken = lens _arwwiWebIdentityToken (\ s a -> s{_arwwiWebIdentityToken = a});
 
 instance AWSRequest AssumeRoleWithWebIdentity where
-        type Sv AssumeRoleWithWebIdentity = STS
         type Rs AssumeRoleWithWebIdentity =
              AssumeRoleWithWebIdentityResponse
-        request = postQuery
+        request = postQuery sTS
         response
           = receiveXMLWrapper "AssumeRoleWithWebIdentityResult"
               (\ s h x ->

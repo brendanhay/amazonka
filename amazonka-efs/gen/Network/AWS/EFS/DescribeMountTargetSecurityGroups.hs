@@ -77,10 +77,9 @@ dmtsgMountTargetId = lens _dmtsgMountTargetId (\ s a -> s{_dmtsgMountTargetId = 
 
 instance AWSRequest DescribeMountTargetSecurityGroups
          where
-        type Sv DescribeMountTargetSecurityGroups = EFS
         type Rs DescribeMountTargetSecurityGroups =
              DescribeMountTargetSecurityGroupsResponse
-        request = get
+        request = get eFS
         response
           = receiveJSON
               (\ s h x ->

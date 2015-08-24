@@ -485,9 +485,8 @@ seaQuery :: Lens' Search Text
 seaQuery = lens _seaQuery (\ s a -> s{_seaQuery = a});
 
 instance AWSRequest Search where
-        type Sv Search = CloudSearchDomains
         type Rs Search = SearchResponse
-        request = get
+        request = get cloudSearchDomains
         response
           = receiveJSON
               (\ s h x ->

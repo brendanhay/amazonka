@@ -91,10 +91,9 @@ csfrTerminateInstances :: Lens' CancelSpotFleetRequests Bool
 csfrTerminateInstances = lens _csfrTerminateInstances (\ s a -> s{_csfrTerminateInstances = a});
 
 instance AWSRequest CancelSpotFleetRequests where
-        type Sv CancelSpotFleetRequests = EC2
         type Rs CancelSpotFleetRequests =
              CancelSpotFleetRequestsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

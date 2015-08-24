@@ -88,10 +88,9 @@ dsapDomainName = lens _dsapDomainName (\ s a -> s{_dsapDomainName = a});
 
 instance AWSRequest DescribeServiceAccessPolicies
          where
-        type Sv DescribeServiceAccessPolicies = CloudSearch
         type Rs DescribeServiceAccessPolicies =
              DescribeServiceAccessPoliciesResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper
               "DescribeServiceAccessPoliciesResult"

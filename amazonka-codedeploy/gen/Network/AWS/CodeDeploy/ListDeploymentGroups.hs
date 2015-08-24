@@ -83,10 +83,9 @@ ldgApplicationName :: Lens' ListDeploymentGroups Text
 ldgApplicationName = lens _ldgApplicationName (\ s a -> s{_ldgApplicationName = a});
 
 instance AWSRequest ListDeploymentGroups where
-        type Sv ListDeploymentGroups = CodeDeploy
         type Rs ListDeploymentGroups =
              ListDeploymentGroupsResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->

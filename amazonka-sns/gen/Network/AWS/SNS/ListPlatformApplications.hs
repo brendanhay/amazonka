@@ -88,10 +88,9 @@ instance AWSPager ListPlatformApplications where
             Just $ rq & lpaNextToken .~ rs ^. lparsNextToken
 
 instance AWSRequest ListPlatformApplications where
-        type Sv ListPlatformApplications = SNS
         type Rs ListPlatformApplications =
              ListPlatformApplicationsResponse
-        request = postQuery
+        request = postQuery sNS
         response
           = receiveXMLWrapper "ListPlatformApplicationsResult"
               (\ s h x ->

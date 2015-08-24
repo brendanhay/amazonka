@@ -93,9 +93,8 @@ apPipelineId :: Lens' ActivatePipeline Text
 apPipelineId = lens _apPipelineId (\ s a -> s{_apPipelineId = a});
 
 instance AWSRequest ActivatePipeline where
-        type Sv ActivatePipeline = DataPipeline
         type Rs ActivatePipeline = ActivatePipelineResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveEmpty
               (\ s h x ->

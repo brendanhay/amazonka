@@ -189,10 +189,9 @@ instance AWSPager DescribeSpotPriceHistory where
             Just $ rq & dsphNextToken .~ rs ^. dsphrsNextToken
 
 instance AWSRequest DescribeSpotPriceHistory where
-        type Sv DescribeSpotPriceHistory = EC2
         type Rs DescribeSpotPriceHistory =
              DescribeSpotPriceHistoryResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

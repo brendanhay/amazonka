@@ -95,10 +95,9 @@ rtdContainerDefinitions :: Lens' RegisterTaskDefinition [ContainerDefinition]
 rtdContainerDefinitions = lens _rtdContainerDefinitions (\ s a -> s{_rtdContainerDefinitions = a}) . _Coerce;
 
 instance AWSRequest RegisterTaskDefinition where
-        type Sv RegisterTaskDefinition = ECS
         type Rs RegisterTaskDefinition =
              RegisterTaskDefinitionResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

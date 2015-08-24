@@ -71,10 +71,9 @@ goicpOpenIdConnectProviderARN :: Lens' GetOpenIdConnectProvider Text
 goicpOpenIdConnectProviderARN = lens _goicpOpenIdConnectProviderARN (\ s a -> s{_goicpOpenIdConnectProviderARN = a});
 
 instance AWSRequest GetOpenIdConnectProvider where
-        type Sv GetOpenIdConnectProvider = IAM
         type Rs GetOpenIdConnectProvider =
              GetOpenIdConnectProviderResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "GetOpenIDConnectProviderResult"
               (\ s h x ->

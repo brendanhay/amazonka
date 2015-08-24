@@ -104,10 +104,9 @@ ctfrResourceId :: Lens' ChangeTagsForResource Text
 ctfrResourceId = lens _ctfrResourceId (\ s a -> s{_ctfrResourceId = a});
 
 instance AWSRequest ChangeTagsForResource where
-        type Sv ChangeTagsForResource = Route53
         type Rs ChangeTagsForResource =
              ChangeTagsForResourceResponse
-        request = postXML
+        request = postXML route53
         response
           = receiveEmpty
               (\ s h x ->

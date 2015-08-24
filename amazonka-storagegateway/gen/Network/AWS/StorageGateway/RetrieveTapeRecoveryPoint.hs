@@ -87,10 +87,9 @@ rtrpGatewayARN :: Lens' RetrieveTapeRecoveryPoint Text
 rtrpGatewayARN = lens _rtrpGatewayARN (\ s a -> s{_rtrpGatewayARN = a});
 
 instance AWSRequest RetrieveTapeRecoveryPoint where
-        type Sv RetrieveTapeRecoveryPoint = StorageGateway
         type Rs RetrieveTapeRecoveryPoint =
              RetrieveTapeRecoveryPointResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->

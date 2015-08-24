@@ -78,9 +78,8 @@ dtTasks :: Lens' DescribeTasks [Text]
 dtTasks = lens _dtTasks (\ s a -> s{_dtTasks = a}) . _Coerce;
 
 instance AWSRequest DescribeTasks where
-        type Sv DescribeTasks = ECS
         type Rs DescribeTasks = DescribeTasksResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->

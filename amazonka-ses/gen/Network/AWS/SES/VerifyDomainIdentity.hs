@@ -71,10 +71,9 @@ vdiDomain :: Lens' VerifyDomainIdentity Text
 vdiDomain = lens _vdiDomain (\ s a -> s{_vdiDomain = a});
 
 instance AWSRequest VerifyDomainIdentity where
-        type Sv VerifyDomainIdentity = SES
         type Rs VerifyDomainIdentity =
              VerifyDomainIdentityResponse
-        request = postQuery
+        request = postQuery sES
         response
           = receiveXMLWrapper "VerifyDomainIdentityResult"
               (\ s h x ->

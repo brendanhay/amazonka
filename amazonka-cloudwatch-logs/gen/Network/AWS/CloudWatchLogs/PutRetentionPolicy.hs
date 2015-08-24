@@ -75,10 +75,9 @@ prpRetentionInDays :: Lens' PutRetentionPolicy Int
 prpRetentionInDays = lens _prpRetentionInDays (\ s a -> s{_prpRetentionInDays = a});
 
 instance AWSRequest PutRetentionPolicy where
-        type Sv PutRetentionPolicy = CloudWatchLogs
         type Rs PutRetentionPolicy =
              PutRetentionPolicyResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response = receiveNull PutRetentionPolicyResponse'
 
 instance ToHeaders PutRetentionPolicy where

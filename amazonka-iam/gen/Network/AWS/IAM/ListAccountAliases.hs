@@ -99,10 +99,9 @@ instance AWSPager ListAccountAliases where
             Just $ rq & laaMarker .~ rs ^. laarsMarker
 
 instance AWSRequest ListAccountAliases where
-        type Sv ListAccountAliases = IAM
         type Rs ListAccountAliases =
              ListAccountAliasesResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListAccountAliasesResult"
               (\ s h x ->

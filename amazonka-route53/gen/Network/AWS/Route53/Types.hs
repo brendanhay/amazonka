@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.Route53.Types
     (
-    -- * Service
-      Route53
+    -- * Service Configuration
+      route53
 
     -- * Errors
     , _HealthCheckVersionMismatch
@@ -217,39 +216,36 @@ import           Network.AWS.Route53.Types.Product
 import           Network.AWS.Route53.Types.Sum
 import           Network.AWS.Sign.V4
 
--- | Version @2013-04-01@ of the Amazon Route 53 SDK.
-data Route53
-
-instance AWSService Route53 where
-    type Sg Route53 = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "Route53"
-            , _svcPrefix = "route53"
-            , _svcVersion = "2013-04-01"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseXMLError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2013-04-01' of the Amazon Route 53 SDK configuration.
+route53 :: Service
+route53 =
+    Service
+    { _svcAbbrev = "Route53"
+    , _svcSigner = v4
+    , _svcPrefix = "route53"
+    , _svcVersion = "2013-04-01"
+    , _svcEndpoint = defaultEndpoint route53
+    , _svcTimeout = Just 70
+    , _svcStatus = statusSuccess
+    , _svcError = parseXMLError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | Prism for HealthCheckVersionMismatch' errors.
 _HealthCheckVersionMismatch :: AsError a => Getting (First ServiceError) a ServiceError

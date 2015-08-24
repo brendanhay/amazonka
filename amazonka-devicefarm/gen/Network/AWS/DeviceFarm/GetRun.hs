@@ -68,9 +68,8 @@ grArn :: Lens' GetRun Text
 grArn = lens _grArn (\ s a -> s{_grArn = a});
 
 instance AWSRequest GetRun where
-        type Sv GetRun = DeviceFarm
         type Rs GetRun = GetRunResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->

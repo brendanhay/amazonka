@@ -13,6 +13,7 @@
 --
 module Network.AWS.Endpoint where
 
+import           Control.Lens
 import qualified Data.CaseInsensitive        as CI
 import qualified Data.HashSet                as Set
 import           Data.Monoid
@@ -20,6 +21,20 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Types
 
 import           Prelude
+
+-- | A convenience function for overriding the 'Service' 'Endpoint'.
+--
+-- /See:/ 'svcEndpoint'.
+endpoint :: Bool       -- ^ Whether to use HTTPS (ie. SSL).
+         -> ByteString -- ^ The hostname to connect to.
+         -> Int        -- ^ The port number to connect to.
+         -> Service    -- ^ The service configuration to override.
+         -> Service
+endpoint s h p = svcEndpoint %~ (addr .)
+  where
+    addr = (endpointSecure .~ s)
+         . (endpointHost   .~ h)
+         . (endpointPort   .~ p)
 
 -- | Determine the full host address and credential scope for
 -- within the specified 'Region'.

@@ -10,8 +10,8 @@
 -- /See:/ <{{ referenceUrl }} AWS API Reference>
 module {{ moduleName }}
     (
-    -- * Service
-      {{ serviceAbbrev }}
+    -- * Service Configuration
+      {{ serviceAbbrev | lowerHead }}
 
     -- * Errors
     -- $errors

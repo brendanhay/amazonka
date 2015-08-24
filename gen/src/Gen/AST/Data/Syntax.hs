@@ -162,25 +162,25 @@ recordD ts n = conD . \case
 conD :: ConDecl -> QualConDecl
 conD = QualConDecl noLoc [] []
 
-serviceD :: HasMetadata a f => a -> Retry -> Decl
-serviceD m r = instD "AWSService" n
-    [ assocD n "Sg" sig
-    , InsDecl $ patBindWhere noLoc (pvar "service") rhs bs
-    ]
-  where
-    rhs = app (var "const") (var "svc")
-    bs  = [svc noBinds, try noBinds, chk noBinds]
+serviceS :: HasMetadata a f => a -> Decl
+serviceS m = TypeSig noLoc [ident (serviceFunction m)] (tycon "Service")
 
-    svc = sfun noLoc (ident "svc") [] . UnGuardedRhs $
+serviceD :: HasMetadata a f => a -> Retry -> Decl
+serviceD m r = patBindWhere noLoc (pvar n) rhs bs
+  where
+    bs  = [try noBinds, chk noBinds]
+
+    rhs =
         RecConstr (unqual "Service")
-            [ FieldUpdate (unqual "_svcAbbrev")    (str abbrev)
-            , FieldUpdate (unqual "_svcPrefix")    (m ^. endpointPrefix . to str)
-            , FieldUpdate (unqual "_svcVersion")   (m ^. apiVersion . to str)
-            , FieldUpdate (unqual "_svcEndpoint")  (app (var "defaultEndpoint") (var "svc"))
-            , FieldUpdate (unqual "_svcTimeout")   (app justE (intE 70))
-            , FieldUpdate (unqual "_svcStatus")    (var "statusSuccess")
-            , FieldUpdate (unqual "_svcError")     (m ^. serviceError . to var)
-            , FieldUpdate (unqual "_svcRetry")     (var "retry")
+            [ FieldUpdate (unqual "_svcAbbrev")   (str abbrev)
+            , FieldUpdate (unqual "_svcSigner")   (var sig)
+            , FieldUpdate (unqual "_svcPrefix")   (m ^. endpointPrefix . to str)
+            , FieldUpdate (unqual "_svcVersion")  (m ^. apiVersion . to str)
+            , FieldUpdate (unqual "_svcEndpoint") (app (var "defaultEndpoint") (var n))
+            , FieldUpdate (unqual "_svcTimeout")  (app justE (intE 70))
+            , FieldUpdate (unqual "_svcStatus")   (var "statusSuccess")
+            , FieldUpdate (unqual "_svcError")    (var (serviceError m))
+            , FieldUpdate (unqual "_svcRetry")    (var "retry")
             ]
 
     try = sfun noLoc (ident "retry") [] . UnGuardedRhs $
@@ -196,7 +196,7 @@ serviceD m r = instD "AWSService" n
       where
         policy (k, v) = (`guardE` app justE (str k)) <$> policyE v
 
-    n      = mkId abbrev
+    n      = serviceFunction m
     abbrev = m ^. serviceAbbrev
     sig    = m ^. signatureVersion . to sigToText
 
@@ -296,10 +296,9 @@ requestD :: HasMetadata a f
          -> (Ref, [Field])
          -> Decl
 requestD c m h (a, as) (b, bs) = instD "AWSRequest" (identifier a)
-    [ assocD (identifier a) "Sv" (m ^. serviceAbbrev)
-    , assocD (identifier a) "Rs" (typeId (identifier b))
-    , funD "request"  (requestF  c (m ^. protocol) h a as)
-    , funD "response" (responseE   (m ^. protocol) b bs)
+    [ assocD (identifier a) "Rs" (typeId (identifier b))
+    , funD "request"  (requestF c m h a as)
+    , funD "response" (responseE (m ^. protocol) b bs)
     ]
 
 responseE :: Protocol -> Ref -> [Field] -> Exp
@@ -615,12 +614,20 @@ inputNames, outputNames :: Protocol -> Field -> Names
 inputNames  p f = Proto.nestedNames p Input  (f ^. fieldId) (f ^. fieldRef)
 outputNames p f = Proto.nestedNames p Output (f ^. fieldId) (f ^. fieldRef)
 
-requestF :: Config -> Protocol -> HTTP Identity -> Ref -> [Inst] -> Exp
-requestF c p h r is = maybe v (Fold.foldr' plugin v) ps
+requestF :: HasMetadata a f
+         => Config
+         -> a
+         -> HTTP Identity
+         -> Ref
+         -> [Inst]
+         -> Exp
+requestF c meta h r is = maybe e (Fold.foldr' plugin e) ps
   where
     plugin x = infixApp (var x) "."
 
     ps = Map.lookup (identifier r) (c ^. operationPlugins)
+
+    e = app v (var n)
 
     v = var
       . mappend (methodToText m)
@@ -639,6 +646,8 @@ requestF c p h r is = maybe v (Fold.foldr' plugin v) ps
         _             -> Nothing
 
     m = h ^. method
+    p = meta ^. protocol
+    n = serviceFunction meta
 
 -- FIXME: take method into account for responses, such as HEAD etc, particuarly
 -- when the body might be totally empty.

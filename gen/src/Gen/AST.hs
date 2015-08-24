@@ -41,7 +41,7 @@ rewrite :: Versions
         -> Either Error Library
 rewrite v cfg s' = do
     s <- rewriteService cfg (ignore cfg (deprecate s')) >>= renderShapes cfg
-    Library v cfg s <$> renderService s
+    Library v cfg s <$> serviceData (s ^. metadata) (s ^. retry)
 
 deprecate :: Service f a b c -> Service f a b c
 deprecate = operations %~ Map.filter (not . view opDeprecated)
@@ -96,9 +96,6 @@ renderShapes cfg svc = do
         , _shapes     = ys
         , _waiters    = zs
         }
-
-renderService :: Service f a b c -> Either Error Rendered
-renderService s = serviceData (s ^. metadata) (s ^. retry)
 
 type MemoR = StateT (Map Id Relation, Set (Id, Direction, Id)) (Either Error)
 

@@ -39,6 +39,7 @@ import           Data.List              (nub)
 import           Data.Maybe
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
+import           Data.Text.Manipulate   (lowerHead)
 import           Gen.Text
 import           Gen.TH
 import           Gen.Types.Ann
@@ -65,8 +66,8 @@ data Signature
       deriving (Eq, Show, Generic)
 
 sigToText :: Signature -> Text
-sigToText V2 = "V2"
-sigToText _  = "V4"
+sigToText V2 = "v2"
+sigToText _  = "v4"
 
 instance FromJSON Signature where
     parseJSON = gParseJSON' lower
@@ -427,13 +428,17 @@ instance FromJSON (Metadata Maybe) where
 instance ToJSON (Metadata Identity) where
     toJSON = gToJSON' camel
 
-serviceError :: HasMetadata a f => Getter a Text
-serviceError = to $ \m -> case m ^. protocol of
-    JSON     -> "parseJSONError"
-    RestJSON -> "parseJSONError"
-    RestXML  -> "parseXMLError"
-    Query    -> "parseXMLError"
-    EC2      -> "parseXMLError"
+serviceError :: HasMetadata a f => a -> Text
+serviceError m =
+    case m ^. protocol of
+        JSON     -> "parseJSONError"
+        RestJSON -> "parseJSONError"
+        RestXML  -> "parseXMLError"
+        Query    -> "parseXMLError"
+        EC2      -> "parseXMLError"
+
+serviceFunction :: HasMetadata a f => a -> Text
+serviceFunction m = lowerHead (m ^. serviceAbbrev)
 
 data Service f a b c = Service
     { _metadata'     :: Metadata f

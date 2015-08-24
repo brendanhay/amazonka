@@ -168,11 +168,10 @@ prodData m s st = (,fields) <$> mk
         <*>  pp Indent (ctorD n fields)
 
     mkHelp :: Help
-    mkHelp = Raw
-        . LText.toStrict
-        $ format ("Creates a value of '" % itype %
-                 "' with the minimum fields required to make a request.\n")
-                 n
+    mkHelp = Raw $
+        sformat ("Creates a value of '" % itype %
+                "' with the minimum fields required to make a request.\n")
+                n
 
     -- FIXME: dirty, dirty hack to render smart ctor parameter haddock coments
     addParamComments :: [Field] -> Rendered -> Rendered
@@ -198,8 +197,13 @@ renderInsts p n = fmap Map.fromList . traverse go
 serviceData :: HasMetadata a f
             => a
             -> Retry
-            -> Either Error Rendered
-serviceData m r = pp Indent (serviceD m r)
+            -> Either Error Fun
+serviceData m r = Fun' (serviceFunction m) (Raw h)
+    <$> pp None   (serviceS m)
+    <*> pp Indent (serviceD m r)
+  where
+    h = sformat ("API version @" % stext % "@ of the " % stext % " configuration.")
+                (m ^. apiVersion) (m ^. serviceFullName)
 
 waiterData :: HasMetadata a Identity
            => a

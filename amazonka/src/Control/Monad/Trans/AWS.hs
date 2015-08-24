@@ -69,6 +69,12 @@ module Control.Monad.Trans.AWS
     , endpoint
     , signer
 
+    -- ** Environment Overrides
+    , setRetry
+    , setTimeout
+    , setEndpoint
+    , setSigner
+
     -- ** Streaming
     -- $streaming
 
@@ -264,8 +270,6 @@ paginate = go
 -- is fulfilled.
 --
 -- Throws 'Error'.
---
--- /See:/ 'awaitWith'
 await :: (AWSConstraint r m, AWSRequest a)
       => Wait a
       -> a
@@ -274,8 +278,6 @@ await w = waiter w >=> hoistError . maybe (Right ()) Left
 
 -- | Presign an URL that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
---
--- /See:/ 'presign', 'presignWith'
 presignURL :: ( MonadIO m
               , MonadReader r m
               , HasEnv r
@@ -359,8 +361,7 @@ parameters using the appropriate lenses. This value can then be sent using 'send
 or 'paginate' and the library will take care of serialisation/authentication and
 so forth.
 
-The default 'Service' configuration for a request (or the supplied 'Service' configuration
-when using the @*With@ variants) contains retry configuration that is used to
+The default 'Service' configuration for a request contains retry configuration that is used to
 determine if a request can safely be retried and what kind of back off/on strategy
 should be used. (Usually exponential.)
 Typically services define retry strategies that handle throttling, general server
@@ -397,13 +398,49 @@ namespace for services which support 'await'.
 -}
 
 {- $service
-When a request is sent, various configuration values such as the endpoint,
+When a request is sent, various values such as the endpoint,
 retry strategy, timeout and error handlers are taken from the associated 'Service'
-configuration.
+for a request. For example, 'DynamoDB' will use the 'Network.AWS.DynamoDB.dynamoDB'
+configuration for 'PutItem', 'Query' etc.
 
-You can override the default configuration for a series of one or more actions
-by using 'within', 'once' and 'timeout', or by using the @*With@ suffixed
-functions on an individual request basis below.
+You can apply overrides to all 'Service' configurations with two different
+mechanisms. The setter functions such as 'setEndpoint', 'setTimeout' etc.
+are used to wholly override all configurations before use and the
+'local' functions such as 'within', 'once', 'timeout' etc. modify all configurations
+for requests within scope.
+
+An example of how you might use these overrides is demonstrated using
+'setEndpoint' vs 'endpoint' to create environment which communicates with a
+local service, instead of the remote AWS APIs.
+
+Firsly, a function with which to modify the 'Service' 'Endpoint' is defined:
+
+> let local :: Endpoint -> Endpoint
+>     local = (endpointHost   .~ "localhost")
+>           . (endpointPort   .~ 8000)
+>           . (endpointSecure .~ False)
+
+then, setting the initial environment using 'setEndpoint':
+
+> e <- newEnv Frankfurt Discover <&> setEndpoint local
+> runAWS e $ do
+>     -- Any service calls here will _always_ communicate with localhost:8000.
+>     ...
+
+versus scoping the 'endpoint' modifications:
+
+> e <- newEnv Frankfurt Discover
+> runAWS e $ do
+>     -- Service calls here will comminucate with remote AWS APIs.
+>     ...
+>     endpoint local $ do
+>        -- Any service calls here will communicate with localhost:8000.
+>        ...
+
+/Note:/ Functions such as 'setSigner' and 'signer' should be used with the
+various AWS constraints in mind. For example: if you're operating in @eu-central-1@ which
+only supports Version 4 signing and you use 'setSigner' 'v2' ..., you'll only
+receive signing failures for responses.
 -}
 
 {- $streaming

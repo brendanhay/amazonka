@@ -58,11 +58,8 @@ instance AWSSigner V2 where
       where
         meta = Meta t end signature
 
-        rq = clientRequest
+        rq = (clientRequest end _svcTimeout)
             { Client.method         = meth
-            , Client.host           = _endpointHost
-            , Client.secure         = _endpointSecure
-            , Client.port           = _endpointPort
             , Client.path           = path'
             , Client.queryString    = toBS authorised
             , Client.requestHeaders = headers

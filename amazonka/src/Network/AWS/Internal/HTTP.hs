@@ -4,6 +4,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- |
 -- Module      : Network.AWS.Internal.HTTP
@@ -14,11 +15,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Internal.HTTP
-    ( perform
-    , retrier
+    ( retrier
     , waiter
     ) where
 
+import           Control.Arrow                (first)
 import           Control.Monad
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class
@@ -35,45 +36,13 @@ import           Network.HTTP.Conduit         hiding (Request, Response)
 
 import           Prelude
 
-perform :: (MonadCatch m, MonadResource m, AWSSigner (Sg s), AWSRequest a)
+retrier :: (MonadCatch m, MonadResource m, AWSSigner (Sg s), AWSRequest a)
         => Env
         -> Service s
-        -> Request a
+        -> a
         -> m (Either Error (Response a))
-perform e@Env{..} svc x = catches go handlers
-  where
-    go = do
-        t          <- liftIO getCurrentTime
-        Signed m s <- withAuth _envAuth $ \a ->
-            return (signed a _envRegion t svc x)
-
-        let rq = s { responseTimeout = timeoutFor e svc }
-
-        logTrace _envLogger m  -- trace:Signing:Meta
-        logDebug _envLogger rq -- debug:ClientRequest
-
-        rs         <- liftResourceT (http rq _envManager)
-
-        logDebug _envLogger rs -- debug:ClientResponse
-
-        Right <$>
-            response _envLogger svc x rs
-
-    handlers =
-        [ Handler $ return . Left
-        , Handler $ \er -> do
-            logError _envLogger er
-            return (Left (TransportError er))
-        ]
-
-retrier :: MonadIO m
-        => Env
-        -> Service s
-        -> Request a
-        -> m (Either Error (Response a))
-        -> m (Either Error (Response a))
-retrier Env{..} Service{..} rq =
-    retrying (fromMaybe policy _envRetryPolicy) check
+retrier e@Env{..} s@Service{..} (request -> rq) =
+    retrying policy check (perform e s rq)
   where
     policy = limitRetries _retryAttempts
        <> RetryPolicy (const $ listToMaybe [0 | not stream])
@@ -87,15 +56,13 @@ retrier Env{..} Service{..} rq =
           where
             grow = _retryBase * (fromIntegral _retryGrowth ^^ (n - 1))
 
-    check n = \case
-        Left (TransportError e) -> do
-            p <- liftIO (_envRetryCheck n e)
-            when p (msg "http_error" n) >> return p
+    check n (Left x)
+        | Just p <- x ^? transportErr n, p = msg "http_error" n >> return True
+        | Just m <- x ^? serviceErr        = msg m            n >> return True
+    check _ _                              = return False
 
-        Left e | Just x <- e ^? _ServiceError . to _retryCheck . _Just ->
-            msg x n >> return True
-
-        _ -> return False
+    transportErr n = _TransportError . to (_envRetryCheck n)
+    serviceErr     = _ServiceError . to _retryCheck . _Just
 
     msg x n = logDebug _envLogger
         . mconcat
@@ -108,30 +75,29 @@ retrier Env{..} Service{..} rq =
 
     Exponential{..} = _svcRetry
 
-waiter :: MonadIO m
+waiter :: (MonadCatch m, MonadResource m, AWSSigner (Sg s), AWSRequest a)
        => Env
+       -> Service s
        -> Wait a
-       -> Request a
-       -> m (Either Error (Response a))
+       -> a
        -> m (Maybe Error)
-waiter Env{..} w@Wait{..} rq f = retrying policy check wait >>= exit
+waiter e@Env{..} s w@Wait{..} (request -> rq) =
+   retrying policy check (result <$> perform e s rq) >>= exit
   where
     policy = limitRetries _waitAttempts
           <> constantDelay (microseconds _waitDelay)
 
-    wait = do
-        e <- f
-        return (fromMaybe AcceptRetry (accept w rq e), e)
-
-    exit (AcceptSuccess, _)      = return Nothing
-    exit (_,             Left e) = return (Just e)
-    exit (_,             _)      = return Nothing
-
     check n (a, _) = msg n a >> return (retry a)
+      where
+        retry AcceptSuccess = False
+        retry AcceptFailure = False
+        retry AcceptRetry   = True
 
-    retry AcceptSuccess = False
-    retry AcceptFailure = False
-    retry AcceptRetry   = True
+    result = first (fromMaybe AcceptRetry . accept w rq) . join (,)
+
+    exit (AcceptSuccess, _) = return Nothing
+    exit (_,        Left x) = return (Just x)
+    exit (_,             _) = return Nothing
 
     msg n a = logDebug _envLogger
         . mconcat
@@ -143,7 +109,31 @@ waiter Env{..} w@Wait{..} rq f = retrying policy check wait >>= exit
           , "attempts."
           ]
 
--- | Returns the possible HTTP response timeout value in microseconds
--- given the timeout configuration sources.
-timeoutFor :: HasEnv a => a -> Service s -> Maybe Int
-timeoutFor e s = microseconds <$> (e ^. envTimeout <|> _svcTimeout s)
+perform :: (MonadCatch m, MonadResource m, AWSSigner (Sg s), AWSRequest a)
+        => Env
+        -> Service s
+        -> Request a
+        -> m (Either Error (Response a))
+perform Env{..} svc x = catches go handlers
+  where
+    go = do
+        t           <- liftIO getCurrentTime
+        Signed m rq <- withAuth _envAuth $ \a ->
+            return (signed a _envRegion t svc x)
+
+        logTrace _envLogger m  -- trace:Signing:Meta
+        logDebug _envLogger rq -- debug:ClientRequest
+
+        rs          <- liftResourceT (http rq _envManager)
+
+        logDebug _envLogger rs -- debug:ClientResponse
+
+        Right <$>
+            response _envLogger svc x rs
+
+    handlers =
+        [ Handler $ return . Left
+        , Handler $ \er -> do
+            logError _envLogger er
+            return (Left (TransportError er))
+        ]

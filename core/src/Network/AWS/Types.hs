@@ -49,6 +49,9 @@ module Network.AWS.Types
 
     -- * Retries
     , Retry          (..)
+    , exponentBase
+    , exponentGrowth
+    , retryAttempts
 
     -- * Signing
     , AWSSigner      (..)
@@ -163,16 +166,6 @@ type ClientResponse = Client.Response ResponseBody
 
 -- | A convenience alias encapsulating the common 'Response' body.
 type ResponseBody = ResumableSource (ResourceT IO) ByteString
-
--- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
--- throwing errors when receiving erroneous status codes in respones.
-clientRequest :: ClientRequest
-clientRequest = def
-    { Client.secure        = True
-    , Client.port          = 443
-    , Client.redirectCount = 0
-    , Client.checkStatus   = \_ _ _ -> Nothing
-    }
 
 -- | Abbreviated service name.
 newtype Abbrev = Abbrev Text
@@ -340,6 +333,15 @@ data Retry = Exponential
       -- if the request should be retried.
     }
 
+exponentBase :: Lens' Retry Double
+exponentBase = lens _retryBase (\s a -> s { _retryBase = a })
+
+exponentGrowth :: Lens' Retry Int
+exponentGrowth = lens _retryGrowth (\s a -> s { _retryGrowth = a })
+
+retryAttempts :: Lens' Retry Int
+retryAttempts = lens _retryAttempts (\s a -> s { _retryAttempts = a })
+
 -- | Attributes and functions specific to an AWS service.
 data Service s = Service
     { _svcAbbrev   :: !Abbrev
@@ -363,6 +365,17 @@ svcStatus = lens _svcStatus (\s a -> s { _svcStatus = a })
 
 svcRetry :: Lens' (Service s) Retry
 svcRetry = lens _svcRetry (\s a -> s { _svcRetry = a })
+
+-- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
+-- throwing errors when receiving erroneous status codes in respones.
+clientRequest :: Endpoint -> Maybe Seconds -> ClientRequest
+clientRequest e t = def
+    { Client.secure          = _endpointSecure e
+    , Client.port            = _endpointPort   e
+    , Client.redirectCount   = 0
+    , Client.checkStatus     = \_ _ _ -> Nothing
+    , Client.responseTimeout = microseconds <$> t
+    }
 
 -- | An unsigned request.
 data Request a = Request

@@ -62,16 +62,12 @@ module Control.Monad.Trans.AWS
     -- ** Overriding Service Configuration
     -- $service
 
-    -- *** Scoped Actions
     , within
     , once
+    , retries
     , timeout
-
-    -- *** Per Request
-    , sendWith
-    , paginateWith
-    , awaitWith
-    , presignWith
+    , endpoint
+    , succeeds
 
     -- ** Streaming
     -- $streaming
@@ -162,6 +158,7 @@ import           Network.AWS.Internal.Logger
 import           Network.AWS.Pager            (AWSPager (..))
 import           Network.AWS.Prelude          as AWS
 import qualified Network.AWS.Presign          as Sign
+import           Network.AWS.Request          (requestURL)
 import           Network.AWS.Types            hiding (LogLevel (..))
 import           Network.AWS.Waiter           (Wait)
 
@@ -244,56 +241,27 @@ type AWSConstraint r m =
 -- | Send a request, returning the associated response if successful.
 --
 -- Throws 'Error'.
---
--- /See:/ 'sendWith'
 send :: (AWSConstraint r m, AWSRequest a)
      => a
      -> m (Rs a)
-send = sendWith id
-
--- | A variant of 'send' that allows modifying the default 'Service' definition
--- used to configure the request.
---
--- Throws 'Error'.
-sendWith :: (AWSConstraint r m, AWSSigner (Sg s), AWSRequest a)
-         => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
-         -> a                             -- ^ Request.
-         -> m (Rs a)
-sendWith f x = do
+send x = do
     e <- view environment
-    r <- retrier e s rq (perform e s rq) >>= hoistError
-    return (snd r)
-  where
-    rq = request x
-    s  = f (serviceOf x)
+    r <- retrier e (configure e x) x
+    snd <$> hoistError r
 
 -- | Repeatedly send a request, automatically setting markers and
 -- paginating over multiple responses while available.
 --
 -- Throws 'Error'.
---
--- /See:/ 'paginateWith'
 paginate :: (AWSConstraint r m, AWSPager a)
          => a
          -> Source m (Rs a)
-paginate = paginateWith id
-
--- | A variant of 'paginate' that allows modifying the default 'Service' definition
--- used to configure the request.
---
--- Throws 'Error'.
-paginateWith :: (AWSConstraint r m, AWSSigner (Sg s), AWSPager a)
-             => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
-             -> a                             -- ^ Initial request.
-             -> Source m (Rs a)
-paginateWith f = go
+paginate = go
   where
     go !x = do
-        !y <- sendWith f x
+        !y <- send x
         yield y
-        maybe (pure ())
-              go
-              (page x y)
+        maybe (pure ()) go (page x y)
 
 -- | Poll the API with the supplied request until a specific 'Wait' condition
 -- is fulfilled.
@@ -305,23 +273,10 @@ await :: (AWSConstraint r m, AWSRequest a)
       => Wait a
       -> a
       -> m ()
-await = awaitWith id
-
--- | A variant of 'await' that allows modifying the default 'Service' definition
--- used to configure the request.
---
--- Throws 'Error'.
-awaitWith :: (AWSConstraint r m, AWSSigner (Sg s), AWSRequest a)
-          => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
-          -> Wait a                        -- ^ Polling, error and acceptance criteria.
-          -> a                             -- ^ Request to poll with.
-          -> m ()
-awaitWith f w x = do
+await w x = do
     e <- view environment
-    waiter e w rq (perform e s rq) >>= hoistError . maybe (Right ()) Left
-  where
-    rq = request x
-    s  = f (serviceOf x)
+    r <- waiter e (configure e x) w x
+    hoistError (maybe (Right ()) Left r)
 
 -- | Presign an URL that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
@@ -337,15 +292,10 @@ presignURL :: ( MonadIO m
            -> Seconds     -- ^ Expiry time.
            -> a           -- ^ Request to presign.
            -> m ByteString
-presignURL ts ex x = do
-    a <- view envAuth
-    r <- view envRegion
-    Sign.presignURL a r ts ex x
+presignURL ts ex = liftM requestURL . presign ts ex
 
 -- | Presign an HTTP request that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
---
--- /See:/ 'presignWith'
 presign :: ( MonadIO m
            , MonadReader r m
            , HasEnv r
@@ -356,25 +306,9 @@ presign :: ( MonadIO m
         -> Seconds     -- ^ Expiry time.
         -> a           -- ^ Request to presign.
         -> m ClientRequest
-presign = presignWith id
-
--- | A variant of 'presign' that allows specifying the 'Service' definition
--- used to configure the request.
-presignWith :: ( MonadIO m
-               , MonadReader r m
-               , HasEnv r
-               , AWSPresigner (Sg s)
-               , AWSRequest a
-               )
-            => (Service (Sv a) -> Service s) -- ^ Function to modify the service configuration.
-            -> UTCTime                       -- ^ Signing time.
-            -> Seconds                       -- ^ Expiry time.
-            -> a                             -- ^ Request to presign.
-            -> m ClientRequest
-presignWith f ts ex x = do
-    a <- view envAuth
-    g <- view envRegion
-    Sign.presignWith f a g ts ex x
+presign ts ex x = do
+    e <- view environment
+    Sign.presignWith (const $ configure e x) (_envAuth e) (_envRegion e) ts ex x
 
 -- | Test whether the underlying host is running on EC2.
 -- This is memoised and any external check occurs for the first invocation only.

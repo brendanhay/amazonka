@@ -52,7 +52,7 @@ presign :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)
         -> Seconds     -- ^ Expiry time.
         -> a           -- ^ Request to presign.
         -> m ClientRequest
-presign a r ts ex = presignWith id a r ts ex
+presign = presignWith id
 
 -- | A variant of 'presign' that allows specifying the 'Service' definition
 -- used to configure the request.

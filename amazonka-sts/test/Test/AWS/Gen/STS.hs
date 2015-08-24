@@ -108,34 +108,40 @@ testAssumeRoleResponse :: AssumeRoleResponse -> TestTree
 testAssumeRoleResponse = res
     "AssumeRoleResponse"
     "fixture/AssumeRoleResponse"
+    sTS
     (Proxy :: Proxy AssumeRole)
 
 testDecodeAuthorizationMessageResponse :: DecodeAuthorizationMessageResponse -> TestTree
 testDecodeAuthorizationMessageResponse = res
     "DecodeAuthorizationMessageResponse"
     "fixture/DecodeAuthorizationMessageResponse"
+    sTS
     (Proxy :: Proxy DecodeAuthorizationMessage)
 
 testAssumeRoleWithWebIdentityResponse :: AssumeRoleWithWebIdentityResponse -> TestTree
 testAssumeRoleWithWebIdentityResponse = res
     "AssumeRoleWithWebIdentityResponse"
     "fixture/AssumeRoleWithWebIdentityResponse"
+    sTS
     (Proxy :: Proxy AssumeRoleWithWebIdentity)
 
 testGetFederationTokenResponse :: GetFederationTokenResponse -> TestTree
 testGetFederationTokenResponse = res
     "GetFederationTokenResponse"
     "fixture/GetFederationTokenResponse"
+    sTS
     (Proxy :: Proxy GetFederationToken)
 
 testGetSessionTokenResponse :: GetSessionTokenResponse -> TestTree
 testGetSessionTokenResponse = res
     "GetSessionTokenResponse"
     "fixture/GetSessionTokenResponse"
+    sTS
     (Proxy :: Proxy GetSessionToken)
 
 testAssumeRoleWithSAMLResponse :: AssumeRoleWithSAMLResponse -> TestTree
 testAssumeRoleWithSAMLResponse = res
     "AssumeRoleWithSAMLResponse"
     "fixture/AssumeRoleWithSAMLResponse"
+    sTS
     (Proxy :: Proxy AssumeRoleWithSAML)

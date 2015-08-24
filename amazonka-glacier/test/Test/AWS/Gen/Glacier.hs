@@ -373,178 +373,208 @@ testSetVaultAccessPolicyResponse :: SetVaultAccessPolicyResponse -> TestTree
 testSetVaultAccessPolicyResponse = res
     "SetVaultAccessPolicyResponse"
     "fixture/SetVaultAccessPolicyResponse"
+    glacier
     (Proxy :: Proxy SetVaultAccessPolicy)
 
 testInitiateJobResponse :: InitiateJobResponse -> TestTree
 testInitiateJobResponse = res
     "InitiateJobResponse"
     "fixture/InitiateJobResponse"
+    glacier
     (Proxy :: Proxy InitiateJob)
 
 testSetDataRetrievalPolicyResponse :: SetDataRetrievalPolicyResponse -> TestTree
 testSetDataRetrievalPolicyResponse = res
     "SetDataRetrievalPolicyResponse"
     "fixture/SetDataRetrievalPolicyResponse"
+    glacier
     (Proxy :: Proxy SetDataRetrievalPolicy)
 
 testDeleteVaultAccessPolicyResponse :: DeleteVaultAccessPolicyResponse -> TestTree
 testDeleteVaultAccessPolicyResponse = res
     "DeleteVaultAccessPolicyResponse"
     "fixture/DeleteVaultAccessPolicyResponse"
+    glacier
     (Proxy :: Proxy DeleteVaultAccessPolicy)
 
 testListTagsForVaultResponse :: ListTagsForVaultResponse -> TestTree
 testListTagsForVaultResponse = res
     "ListTagsForVaultResponse"
     "fixture/ListTagsForVaultResponse"
+    glacier
     (Proxy :: Proxy ListTagsForVault)
 
 testGetVaultNotificationsResponse :: GetVaultNotificationsResponse -> TestTree
 testGetVaultNotificationsResponse = res
     "GetVaultNotificationsResponse"
     "fixture/GetVaultNotificationsResponse"
+    glacier
     (Proxy :: Proxy GetVaultNotifications)
 
 testUploadMultipartPartResponse :: UploadMultipartPartResponse -> TestTree
 testUploadMultipartPartResponse = res
     "UploadMultipartPartResponse"
     "fixture/UploadMultipartPartResponse"
+    glacier
     (Proxy :: Proxy UploadMultipartPart)
 
 testDeleteVaultNotificationsResponse :: DeleteVaultNotificationsResponse -> TestTree
 testDeleteVaultNotificationsResponse = res
     "DeleteVaultNotificationsResponse"
     "fixture/DeleteVaultNotificationsResponse"
+    glacier
     (Proxy :: Proxy DeleteVaultNotifications)
 
 testCompleteVaultLockResponse :: CompleteVaultLockResponse -> TestTree
 testCompleteVaultLockResponse = res
     "CompleteVaultLockResponse"
     "fixture/CompleteVaultLockResponse"
+    glacier
     (Proxy :: Proxy CompleteVaultLock)
 
 testAbortVaultLockResponse :: AbortVaultLockResponse -> TestTree
 testAbortVaultLockResponse = res
     "AbortVaultLockResponse"
     "fixture/AbortVaultLockResponse"
+    glacier
     (Proxy :: Proxy AbortVaultLock)
 
 testListVaultsResponse :: ListVaultsResponse -> TestTree
 testListVaultsResponse = res
     "ListVaultsResponse"
     "fixture/ListVaultsResponse"
+    glacier
     (Proxy :: Proxy ListVaults)
 
 testListJobsResponse :: ListJobsResponse -> TestTree
 testListJobsResponse = res
     "ListJobsResponse"
     "fixture/ListJobsResponse"
+    glacier
     (Proxy :: Proxy ListJobs)
 
 testSetVaultNotificationsResponse :: SetVaultNotificationsResponse -> TestTree
 testSetVaultNotificationsResponse = res
     "SetVaultNotificationsResponse"
     "fixture/SetVaultNotificationsResponse"
+    glacier
     (Proxy :: Proxy SetVaultNotifications)
 
 testCompleteMultipartUploadResponse :: ArchiveCreationOutput -> TestTree
 testCompleteMultipartUploadResponse = res
     "CompleteMultipartUploadResponse"
     "fixture/CompleteMultipartUploadResponse"
+    glacier
     (Proxy :: Proxy CompleteMultipartUpload)
 
 testListMultipartUploadsResponse :: ListMultipartUploadsResponse -> TestTree
 testListMultipartUploadsResponse = res
     "ListMultipartUploadsResponse"
     "fixture/ListMultipartUploadsResponse"
+    glacier
     (Proxy :: Proxy ListMultipartUploads)
 
 testDescribeVaultResponse :: DescribeVaultOutput -> TestTree
 testDescribeVaultResponse = res
     "DescribeVaultResponse"
     "fixture/DescribeVaultResponse"
+    glacier
     (Proxy :: Proxy DescribeVault)
 
 testAbortMultipartUploadResponse :: AbortMultipartUploadResponse -> TestTree
 testAbortMultipartUploadResponse = res
     "AbortMultipartUploadResponse"
     "fixture/AbortMultipartUploadResponse"
+    glacier
     (Proxy :: Proxy AbortMultipartUpload)
 
 testGetVaultLockResponse :: GetVaultLockResponse -> TestTree
 testGetVaultLockResponse = res
     "GetVaultLockResponse"
     "fixture/GetVaultLockResponse"
+    glacier
     (Proxy :: Proxy GetVaultLock)
 
 testDescribeJobResponse :: GlacierJobDescription -> TestTree
 testDescribeJobResponse = res
     "DescribeJobResponse"
     "fixture/DescribeJobResponse"
+    glacier
     (Proxy :: Proxy DescribeJob)
 
 testInitiateVaultLockResponse :: InitiateVaultLockResponse -> TestTree
 testInitiateVaultLockResponse = res
     "InitiateVaultLockResponse"
     "fixture/InitiateVaultLockResponse"
+    glacier
     (Proxy :: Proxy InitiateVaultLock)
 
 testGetVaultAccessPolicyResponse :: GetVaultAccessPolicyResponse -> TestTree
 testGetVaultAccessPolicyResponse = res
     "GetVaultAccessPolicyResponse"
     "fixture/GetVaultAccessPolicyResponse"
+    glacier
     (Proxy :: Proxy GetVaultAccessPolicy)
 
 testGetDataRetrievalPolicyResponse :: GetDataRetrievalPolicyResponse -> TestTree
 testGetDataRetrievalPolicyResponse = res
     "GetDataRetrievalPolicyResponse"
     "fixture/GetDataRetrievalPolicyResponse"
+    glacier
     (Proxy :: Proxy GetDataRetrievalPolicy)
 
 testRemoveTagsFromVaultResponse :: RemoveTagsFromVaultResponse -> TestTree
 testRemoveTagsFromVaultResponse = res
     "RemoveTagsFromVaultResponse"
     "fixture/RemoveTagsFromVaultResponse"
+    glacier
     (Proxy :: Proxy RemoveTagsFromVault)
 
 testDeleteArchiveResponse :: DeleteArchiveResponse -> TestTree
 testDeleteArchiveResponse = res
     "DeleteArchiveResponse"
     "fixture/DeleteArchiveResponse"
+    glacier
     (Proxy :: Proxy DeleteArchive)
 
 testDeleteVaultResponse :: DeleteVaultResponse -> TestTree
 testDeleteVaultResponse = res
     "DeleteVaultResponse"
     "fixture/DeleteVaultResponse"
+    glacier
     (Proxy :: Proxy DeleteVault)
 
 testInitiateMultipartUploadResponse :: InitiateMultipartUploadResponse -> TestTree
 testInitiateMultipartUploadResponse = res
     "InitiateMultipartUploadResponse"
     "fixture/InitiateMultipartUploadResponse"
+    glacier
     (Proxy :: Proxy InitiateMultipartUpload)
 
 testListPartsResponse :: ListPartsResponse -> TestTree
 testListPartsResponse = res
     "ListPartsResponse"
     "fixture/ListPartsResponse"
+    glacier
     (Proxy :: Proxy ListParts)
 
 testCreateVaultResponse :: CreateVaultResponse -> TestTree
 testCreateVaultResponse = res
     "CreateVaultResponse"
     "fixture/CreateVaultResponse"
+    glacier
     (Proxy :: Proxy CreateVault)
 
 testAddTagsToVaultResponse :: AddTagsToVaultResponse -> TestTree
 testAddTagsToVaultResponse = res
     "AddTagsToVaultResponse"
     "fixture/AddTagsToVaultResponse"
+    glacier
     (Proxy :: Proxy AddTagsToVault)
 
 testUploadArchiveResponse :: ArchiveCreationOutput -> TestTree
 testUploadArchiveResponse = res
     "UploadArchiveResponse"
     "fixture/UploadArchiveResponse"
+    glacier
     (Proxy :: Proxy UploadArchive)

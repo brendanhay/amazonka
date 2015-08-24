@@ -163,64 +163,75 @@ testUpdateRepositoryNameResponse :: UpdateRepositoryNameResponse -> TestTree
 testUpdateRepositoryNameResponse = res
     "UpdateRepositoryNameResponse"
     "fixture/UpdateRepositoryNameResponse"
+    codeCommit
     (Proxy :: Proxy UpdateRepositoryName)
 
 testGetBranchResponse :: GetBranchResponse -> TestTree
 testGetBranchResponse = res
     "GetBranchResponse"
     "fixture/GetBranchResponse"
+    codeCommit
     (Proxy :: Proxy GetBranch)
 
 testUpdateRepositoryDescriptionResponse :: UpdateRepositoryDescriptionResponse -> TestTree
 testUpdateRepositoryDescriptionResponse = res
     "UpdateRepositoryDescriptionResponse"
     "fixture/UpdateRepositoryDescriptionResponse"
+    codeCommit
     (Proxy :: Proxy UpdateRepositoryDescription)
 
 testListBranchesResponse :: ListBranchesResponse -> TestTree
 testListBranchesResponse = res
     "ListBranchesResponse"
     "fixture/ListBranchesResponse"
+    codeCommit
     (Proxy :: Proxy ListBranches)
 
 testCreateBranchResponse :: CreateBranchResponse -> TestTree
 testCreateBranchResponse = res
     "CreateBranchResponse"
     "fixture/CreateBranchResponse"
+    codeCommit
     (Proxy :: Proxy CreateBranch)
 
 testUpdateDefaultBranchResponse :: UpdateDefaultBranchResponse -> TestTree
 testUpdateDefaultBranchResponse = res
     "UpdateDefaultBranchResponse"
     "fixture/UpdateDefaultBranchResponse"
+    codeCommit
     (Proxy :: Proxy UpdateDefaultBranch)
 
 testCreateRepositoryResponse :: CreateRepositoryResponse -> TestTree
 testCreateRepositoryResponse = res
     "CreateRepositoryResponse"
     "fixture/CreateRepositoryResponse"
+    codeCommit
     (Proxy :: Proxy CreateRepository)
 
 testListRepositoriesResponse :: ListRepositoriesResponse -> TestTree
 testListRepositoriesResponse = res
     "ListRepositoriesResponse"
     "fixture/ListRepositoriesResponse"
+    codeCommit
     (Proxy :: Proxy ListRepositories)
 
 testGetRepositoryResponse :: GetRepositoryResponse -> TestTree
 testGetRepositoryResponse = res
     "GetRepositoryResponse"
     "fixture/GetRepositoryResponse"
+    codeCommit
     (Proxy :: Proxy GetRepository)
 
 testDeleteRepositoryResponse :: DeleteRepositoryResponse -> TestTree
 testDeleteRepositoryResponse = res
     "DeleteRepositoryResponse"
     "fixture/DeleteRepositoryResponse"
+    codeCommit
     (Proxy :: Proxy DeleteRepository)
 
 testBatchGetRepositoriesResponse :: BatchGetRepositoriesResponse -> TestTree
 testBatchGetRepositoriesResponse = res
     "BatchGetRepositoriesResponse"
     "fixture/BatchGetRepositoriesResponse"
+    codeCommit
     (Proxy :: Proxy BatchGetRepositories)

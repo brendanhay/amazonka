@@ -339,160 +339,187 @@ testListServicesResponse :: ListServicesResponse -> TestTree
 testListServicesResponse = res
     "ListServicesResponse"
     "fixture/ListServicesResponse"
+    eCS
     (Proxy :: Proxy ListServices)
 
 testDescribeClustersResponse :: DescribeClustersResponse -> TestTree
 testDescribeClustersResponse = res
     "DescribeClustersResponse"
     "fixture/DescribeClustersResponse"
+    eCS
     (Proxy :: Proxy DescribeClusters)
 
 testDeleteServiceResponse :: DeleteServiceResponse -> TestTree
 testDeleteServiceResponse = res
     "DeleteServiceResponse"
     "fixture/DeleteServiceResponse"
+    eCS
     (Proxy :: Proxy DeleteService)
 
 testUpdateServiceResponse :: UpdateServiceResponse -> TestTree
 testUpdateServiceResponse = res
     "UpdateServiceResponse"
     "fixture/UpdateServiceResponse"
+    eCS
     (Proxy :: Proxy UpdateService)
 
 testDiscoverPollEndpointResponse :: DiscoverPollEndpointResponse -> TestTree
 testDiscoverPollEndpointResponse = res
     "DiscoverPollEndpointResponse"
     "fixture/DiscoverPollEndpointResponse"
+    eCS
     (Proxy :: Proxy DiscoverPollEndpoint)
 
 testSubmitContainerStateChangeResponse :: SubmitContainerStateChangeResponse -> TestTree
 testSubmitContainerStateChangeResponse = res
     "SubmitContainerStateChangeResponse"
     "fixture/SubmitContainerStateChangeResponse"
+    eCS
     (Proxy :: Proxy SubmitContainerStateChange)
 
 testStopTaskResponse :: StopTaskResponse -> TestTree
 testStopTaskResponse = res
     "StopTaskResponse"
     "fixture/StopTaskResponse"
+    eCS
     (Proxy :: Proxy StopTask)
 
 testDescribeTaskDefinitionResponse :: DescribeTaskDefinitionResponse -> TestTree
 testDescribeTaskDefinitionResponse = res
     "DescribeTaskDefinitionResponse"
     "fixture/DescribeTaskDefinitionResponse"
+    eCS
     (Proxy :: Proxy DescribeTaskDefinition)
 
 testSubmitTaskStateChangeResponse :: SubmitTaskStateChangeResponse -> TestTree
 testSubmitTaskStateChangeResponse = res
     "SubmitTaskStateChangeResponse"
     "fixture/SubmitTaskStateChangeResponse"
+    eCS
     (Proxy :: Proxy SubmitTaskStateChange)
 
 testDescribeContainerInstancesResponse :: DescribeContainerInstancesResponse -> TestTree
 testDescribeContainerInstancesResponse = res
     "DescribeContainerInstancesResponse"
     "fixture/DescribeContainerInstancesResponse"
+    eCS
     (Proxy :: Proxy DescribeContainerInstances)
 
 testDeleteClusterResponse :: DeleteClusterResponse -> TestTree
 testDeleteClusterResponse = res
     "DeleteClusterResponse"
     "fixture/DeleteClusterResponse"
+    eCS
     (Proxy :: Proxy DeleteCluster)
 
 testCreateClusterResponse :: CreateClusterResponse -> TestTree
 testCreateClusterResponse = res
     "CreateClusterResponse"
     "fixture/CreateClusterResponse"
+    eCS
     (Proxy :: Proxy CreateCluster)
 
 testListTaskDefinitionsResponse :: ListTaskDefinitionsResponse -> TestTree
 testListTaskDefinitionsResponse = res
     "ListTaskDefinitionsResponse"
     "fixture/ListTaskDefinitionsResponse"
+    eCS
     (Proxy :: Proxy ListTaskDefinitions)
 
 testListTasksResponse :: ListTasksResponse -> TestTree
 testListTasksResponse = res
     "ListTasksResponse"
     "fixture/ListTasksResponse"
+    eCS
     (Proxy :: Proxy ListTasks)
 
 testRunTaskResponse :: RunTaskResponse -> TestTree
 testRunTaskResponse = res
     "RunTaskResponse"
     "fixture/RunTaskResponse"
+    eCS
     (Proxy :: Proxy RunTask)
 
 testListContainerInstancesResponse :: ListContainerInstancesResponse -> TestTree
 testListContainerInstancesResponse = res
     "ListContainerInstancesResponse"
     "fixture/ListContainerInstancesResponse"
+    eCS
     (Proxy :: Proxy ListContainerInstances)
 
 testRegisterContainerInstanceResponse :: RegisterContainerInstanceResponse -> TestTree
 testRegisterContainerInstanceResponse = res
     "RegisterContainerInstanceResponse"
     "fixture/RegisterContainerInstanceResponse"
+    eCS
     (Proxy :: Proxy RegisterContainerInstance)
 
 testUpdateContainerAgentResponse :: UpdateContainerAgentResponse -> TestTree
 testUpdateContainerAgentResponse = res
     "UpdateContainerAgentResponse"
     "fixture/UpdateContainerAgentResponse"
+    eCS
     (Proxy :: Proxy UpdateContainerAgent)
 
 testListTaskDefinitionFamiliesResponse :: ListTaskDefinitionFamiliesResponse -> TestTree
 testListTaskDefinitionFamiliesResponse = res
     "ListTaskDefinitionFamiliesResponse"
     "fixture/ListTaskDefinitionFamiliesResponse"
+    eCS
     (Proxy :: Proxy ListTaskDefinitionFamilies)
 
 testStartTaskResponse :: StartTaskResponse -> TestTree
 testStartTaskResponse = res
     "StartTaskResponse"
     "fixture/StartTaskResponse"
+    eCS
     (Proxy :: Proxy StartTask)
 
 testDeregisterTaskDefinitionResponse :: DeregisterTaskDefinitionResponse -> TestTree
 testDeregisterTaskDefinitionResponse = res
     "DeregisterTaskDefinitionResponse"
     "fixture/DeregisterTaskDefinitionResponse"
+    eCS
     (Proxy :: Proxy DeregisterTaskDefinition)
 
 testDescribeTasksResponse :: DescribeTasksResponse -> TestTree
 testDescribeTasksResponse = res
     "DescribeTasksResponse"
     "fixture/DescribeTasksResponse"
+    eCS
     (Proxy :: Proxy DescribeTasks)
 
 testListClustersResponse :: ListClustersResponse -> TestTree
 testListClustersResponse = res
     "ListClustersResponse"
     "fixture/ListClustersResponse"
+    eCS
     (Proxy :: Proxy ListClusters)
 
 testDescribeServicesResponse :: DescribeServicesResponse -> TestTree
 testDescribeServicesResponse = res
     "DescribeServicesResponse"
     "fixture/DescribeServicesResponse"
+    eCS
     (Proxy :: Proxy DescribeServices)
 
 testDeregisterContainerInstanceResponse :: DeregisterContainerInstanceResponse -> TestTree
 testDeregisterContainerInstanceResponse = res
     "DeregisterContainerInstanceResponse"
     "fixture/DeregisterContainerInstanceResponse"
+    eCS
     (Proxy :: Proxy DeregisterContainerInstance)
 
 testRegisterTaskDefinitionResponse :: RegisterTaskDefinitionResponse -> TestTree
 testRegisterTaskDefinitionResponse = res
     "RegisterTaskDefinitionResponse"
     "fixture/RegisterTaskDefinitionResponse"
+    eCS
     (Proxy :: Proxy RegisterTaskDefinition)
 
 testCreateServiceResponse :: CreateServiceResponse -> TestTree
 testCreateServiceResponse = res
     "CreateServiceResponse"
     "fixture/CreateServiceResponse"
+    eCS
     (Proxy :: Proxy CreateService)

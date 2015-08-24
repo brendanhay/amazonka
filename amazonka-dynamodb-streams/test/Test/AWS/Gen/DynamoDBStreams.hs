@@ -86,22 +86,26 @@ testGetRecordsResponse :: GetRecordsResponse -> TestTree
 testGetRecordsResponse = res
     "GetRecordsResponse"
     "fixture/GetRecordsResponse"
+    dynamoDBStreams
     (Proxy :: Proxy GetRecords)
 
 testGetShardIteratorResponse :: GetShardIteratorResponse -> TestTree
 testGetShardIteratorResponse = res
     "GetShardIteratorResponse"
     "fixture/GetShardIteratorResponse"
+    dynamoDBStreams
     (Proxy :: Proxy GetShardIterator)
 
 testListStreamsResponse :: ListStreamsResponse -> TestTree
 testListStreamsResponse = res
     "ListStreamsResponse"
     "fixture/ListStreamsResponse"
+    dynamoDBStreams
     (Proxy :: Proxy ListStreams)
 
 testDescribeStreamResponse :: DescribeStreamResponse -> TestTree
 testDescribeStreamResponse = res
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse"
+    dynamoDBStreams
     (Proxy :: Proxy DescribeStream)

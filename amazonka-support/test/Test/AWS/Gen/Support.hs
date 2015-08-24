@@ -196,82 +196,96 @@ testRefreshTrustedAdvisorCheckResponse :: RefreshTrustedAdvisorCheckResponse -> 
 testRefreshTrustedAdvisorCheckResponse = res
     "RefreshTrustedAdvisorCheckResponse"
     "fixture/RefreshTrustedAdvisorCheckResponse"
+    support
     (Proxy :: Proxy RefreshTrustedAdvisorCheck)
 
 testDescribeCasesResponse :: DescribeCasesResponse -> TestTree
 testDescribeCasesResponse = res
     "DescribeCasesResponse"
     "fixture/DescribeCasesResponse"
+    support
     (Proxy :: Proxy DescribeCases)
 
 testDescribeTrustedAdvisorCheckRefreshStatusesResponse :: DescribeTrustedAdvisorCheckRefreshStatusesResponse -> TestTree
 testDescribeTrustedAdvisorCheckRefreshStatusesResponse = res
     "DescribeTrustedAdvisorCheckRefreshStatusesResponse"
     "fixture/DescribeTrustedAdvisorCheckRefreshStatusesResponse"
+    support
     (Proxy :: Proxy DescribeTrustedAdvisorCheckRefreshStatuses)
 
 testCreateCaseResponse :: CreateCaseResponse -> TestTree
 testCreateCaseResponse = res
     "CreateCaseResponse"
     "fixture/CreateCaseResponse"
+    support
     (Proxy :: Proxy CreateCase)
 
 testDescribeTrustedAdvisorCheckSummariesResponse :: DescribeTrustedAdvisorCheckSummariesResponse -> TestTree
 testDescribeTrustedAdvisorCheckSummariesResponse = res
     "DescribeTrustedAdvisorCheckSummariesResponse"
     "fixture/DescribeTrustedAdvisorCheckSummariesResponse"
+    support
     (Proxy :: Proxy DescribeTrustedAdvisorCheckSummaries)
 
 testResolveCaseResponse :: ResolveCaseResponse -> TestTree
 testResolveCaseResponse = res
     "ResolveCaseResponse"
     "fixture/ResolveCaseResponse"
+    support
     (Proxy :: Proxy ResolveCase)
 
 testDescribeSeverityLevelsResponse :: DescribeSeverityLevelsResponse -> TestTree
 testDescribeSeverityLevelsResponse = res
     "DescribeSeverityLevelsResponse"
     "fixture/DescribeSeverityLevelsResponse"
+    support
     (Proxy :: Proxy DescribeSeverityLevels)
 
 testDescribeTrustedAdvisorChecksResponse :: DescribeTrustedAdvisorChecksResponse -> TestTree
 testDescribeTrustedAdvisorChecksResponse = res
     "DescribeTrustedAdvisorChecksResponse"
     "fixture/DescribeTrustedAdvisorChecksResponse"
+    support
     (Proxy :: Proxy DescribeTrustedAdvisorChecks)
 
 testDescribeAttachmentResponse :: DescribeAttachmentResponse -> TestTree
 testDescribeAttachmentResponse = res
     "DescribeAttachmentResponse"
     "fixture/DescribeAttachmentResponse"
+    support
     (Proxy :: Proxy DescribeAttachment)
 
 testAddAttachmentsToSetResponse :: AddAttachmentsToSetResponse -> TestTree
 testAddAttachmentsToSetResponse = res
     "AddAttachmentsToSetResponse"
     "fixture/AddAttachmentsToSetResponse"
+    support
     (Proxy :: Proxy AddAttachmentsToSet)
 
 testDescribeTrustedAdvisorCheckResultResponse :: DescribeTrustedAdvisorCheckResultResponse -> TestTree
 testDescribeTrustedAdvisorCheckResultResponse = res
     "DescribeTrustedAdvisorCheckResultResponse"
     "fixture/DescribeTrustedAdvisorCheckResultResponse"
+    support
     (Proxy :: Proxy DescribeTrustedAdvisorCheckResult)
 
 testDescribeServicesResponse :: DescribeServicesResponse -> TestTree
 testDescribeServicesResponse = res
     "DescribeServicesResponse"
     "fixture/DescribeServicesResponse"
+    support
     (Proxy :: Proxy DescribeServices)
 
 testDescribeCommunicationsResponse :: DescribeCommunicationsResponse -> TestTree
 testDescribeCommunicationsResponse = res
     "DescribeCommunicationsResponse"
     "fixture/DescribeCommunicationsResponse"
+    support
     (Proxy :: Proxy DescribeCommunications)
 
 testAddCommunicationToCaseResponse :: AddCommunicationToCaseResponse -> TestTree
 testAddCommunicationToCaseResponse = res
     "AddCommunicationToCaseResponse"
     "fixture/AddCommunicationToCaseResponse"
+    support
     (Proxy :: Proxy AddCommunicationToCase)

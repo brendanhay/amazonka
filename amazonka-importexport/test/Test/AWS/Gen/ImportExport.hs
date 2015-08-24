@@ -108,34 +108,40 @@ testGetShippingLabelResponse :: GetShippingLabelResponse -> TestTree
 testGetShippingLabelResponse = res
     "GetShippingLabelResponse"
     "fixture/GetShippingLabelResponse"
+    importExport
     (Proxy :: Proxy GetShippingLabel)
 
 testCreateJobResponse :: CreateJobResponse -> TestTree
 testCreateJobResponse = res
     "CreateJobResponse"
     "fixture/CreateJobResponse"
+    importExport
     (Proxy :: Proxy CreateJob)
 
 testListJobsResponse :: ListJobsResponse -> TestTree
 testListJobsResponse = res
     "ListJobsResponse"
     "fixture/ListJobsResponse"
+    importExport
     (Proxy :: Proxy ListJobs)
 
 testUpdateJobResponse :: UpdateJobResponse -> TestTree
 testUpdateJobResponse = res
     "UpdateJobResponse"
     "fixture/UpdateJobResponse"
+    importExport
     (Proxy :: Proxy UpdateJob)
 
 testGetStatusResponse :: GetStatusResponse -> TestTree
 testGetStatusResponse = res
     "GetStatusResponse"
     "fixture/GetStatusResponse"
+    importExport
     (Proxy :: Proxy GetStatus)
 
 testCancelJobResponse :: CancelJobResponse -> TestTree
 testCancelJobResponse = res
     "CancelJobResponse"
     "fixture/CancelJobResponse"
+    importExport
     (Proxy :: Proxy CancelJob)

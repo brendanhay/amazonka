@@ -383,184 +383,215 @@ testListActivityTypesResponse :: ListActivityTypesResponse -> TestTree
 testListActivityTypesResponse = res
     "ListActivityTypesResponse"
     "fixture/ListActivityTypesResponse"
+    sWF
     (Proxy :: Proxy ListActivityTypes)
 
 testListOpenWorkflowExecutionsResponse :: WorkflowExecutionInfos -> TestTree
 testListOpenWorkflowExecutionsResponse = res
     "ListOpenWorkflowExecutionsResponse"
     "fixture/ListOpenWorkflowExecutionsResponse"
+    sWF
     (Proxy :: Proxy ListOpenWorkflowExecutions)
 
 testRegisterActivityTypeResponse :: RegisterActivityTypeResponse -> TestTree
 testRegisterActivityTypeResponse = res
     "RegisterActivityTypeResponse"
     "fixture/RegisterActivityTypeResponse"
+    sWF
     (Proxy :: Proxy RegisterActivityType)
 
 testCountPendingActivityTasksResponse :: PendingTaskCount -> TestTree
 testCountPendingActivityTasksResponse = res
     "CountPendingActivityTasksResponse"
     "fixture/CountPendingActivityTasksResponse"
+    sWF
     (Proxy :: Proxy CountPendingActivityTasks)
 
 testRegisterWorkflowTypeResponse :: RegisterWorkflowTypeResponse -> TestTree
 testRegisterWorkflowTypeResponse = res
     "RegisterWorkflowTypeResponse"
     "fixture/RegisterWorkflowTypeResponse"
+    sWF
     (Proxy :: Proxy RegisterWorkflowType)
 
 testRespondActivityTaskFailedResponse :: RespondActivityTaskFailedResponse -> TestTree
 testRespondActivityTaskFailedResponse = res
     "RespondActivityTaskFailedResponse"
     "fixture/RespondActivityTaskFailedResponse"
+    sWF
     (Proxy :: Proxy RespondActivityTaskFailed)
 
 testListWorkflowTypesResponse :: ListWorkflowTypesResponse -> TestTree
 testListWorkflowTypesResponse = res
     "ListWorkflowTypesResponse"
     "fixture/ListWorkflowTypesResponse"
+    sWF
     (Proxy :: Proxy ListWorkflowTypes)
 
 testCountOpenWorkflowExecutionsResponse :: WorkflowExecutionCount -> TestTree
 testCountOpenWorkflowExecutionsResponse = res
     "CountOpenWorkflowExecutionsResponse"
     "fixture/CountOpenWorkflowExecutionsResponse"
+    sWF
     (Proxy :: Proxy CountOpenWorkflowExecutions)
 
 testDescribeWorkflowTypeResponse :: DescribeWorkflowTypeResponse -> TestTree
 testDescribeWorkflowTypeResponse = res
     "DescribeWorkflowTypeResponse"
     "fixture/DescribeWorkflowTypeResponse"
+    sWF
     (Proxy :: Proxy DescribeWorkflowType)
 
 testRequestCancelWorkflowExecutionResponse :: RequestCancelWorkflowExecutionResponse -> TestTree
 testRequestCancelWorkflowExecutionResponse = res
     "RequestCancelWorkflowExecutionResponse"
     "fixture/RequestCancelWorkflowExecutionResponse"
+    sWF
     (Proxy :: Proxy RequestCancelWorkflowExecution)
 
 testDeprecateWorkflowTypeResponse :: DeprecateWorkflowTypeResponse -> TestTree
 testDeprecateWorkflowTypeResponse = res
     "DeprecateWorkflowTypeResponse"
     "fixture/DeprecateWorkflowTypeResponse"
+    sWF
     (Proxy :: Proxy DeprecateWorkflowType)
 
 testRespondDecisionTaskCompletedResponse :: RespondDecisionTaskCompletedResponse -> TestTree
 testRespondDecisionTaskCompletedResponse = res
     "RespondDecisionTaskCompletedResponse"
     "fixture/RespondDecisionTaskCompletedResponse"
+    sWF
     (Proxy :: Proxy RespondDecisionTaskCompleted)
 
 testRegisterDomainResponse :: RegisterDomainResponse -> TestTree
 testRegisterDomainResponse = res
     "RegisterDomainResponse"
     "fixture/RegisterDomainResponse"
+    sWF
     (Proxy :: Proxy RegisterDomain)
 
 testDescribeWorkflowExecutionResponse :: DescribeWorkflowExecutionResponse -> TestTree
 testDescribeWorkflowExecutionResponse = res
     "DescribeWorkflowExecutionResponse"
     "fixture/DescribeWorkflowExecutionResponse"
+    sWF
     (Proxy :: Proxy DescribeWorkflowExecution)
 
 testPollForActivityTaskResponse :: PollForActivityTaskResponse -> TestTree
 testPollForActivityTaskResponse = res
     "PollForActivityTaskResponse"
     "fixture/PollForActivityTaskResponse"
+    sWF
     (Proxy :: Proxy PollForActivityTask)
 
 testRespondActivityTaskCompletedResponse :: RespondActivityTaskCompletedResponse -> TestTree
 testRespondActivityTaskCompletedResponse = res
     "RespondActivityTaskCompletedResponse"
     "fixture/RespondActivityTaskCompletedResponse"
+    sWF
     (Proxy :: Proxy RespondActivityTaskCompleted)
 
 testSignalWorkflowExecutionResponse :: SignalWorkflowExecutionResponse -> TestTree
 testSignalWorkflowExecutionResponse = res
     "SignalWorkflowExecutionResponse"
     "fixture/SignalWorkflowExecutionResponse"
+    sWF
     (Proxy :: Proxy SignalWorkflowExecution)
 
 testCountPendingDecisionTasksResponse :: PendingTaskCount -> TestTree
 testCountPendingDecisionTasksResponse = res
     "CountPendingDecisionTasksResponse"
     "fixture/CountPendingDecisionTasksResponse"
+    sWF
     (Proxy :: Proxy CountPendingDecisionTasks)
 
 testListClosedWorkflowExecutionsResponse :: WorkflowExecutionInfos -> TestTree
 testListClosedWorkflowExecutionsResponse = res
     "ListClosedWorkflowExecutionsResponse"
     "fixture/ListClosedWorkflowExecutionsResponse"
+    sWF
     (Proxy :: Proxy ListClosedWorkflowExecutions)
 
 testRecordActivityTaskHeartbeatResponse :: RecordActivityTaskHeartbeatResponse -> TestTree
 testRecordActivityTaskHeartbeatResponse = res
     "RecordActivityTaskHeartbeatResponse"
     "fixture/RecordActivityTaskHeartbeatResponse"
+    sWF
     (Proxy :: Proxy RecordActivityTaskHeartbeat)
 
 testDescribeDomainResponse :: DescribeDomainResponse -> TestTree
 testDescribeDomainResponse = res
     "DescribeDomainResponse"
     "fixture/DescribeDomainResponse"
+    sWF
     (Proxy :: Proxy DescribeDomain)
 
 testDeprecateDomainResponse :: DeprecateDomainResponse -> TestTree
 testDeprecateDomainResponse = res
     "DeprecateDomainResponse"
     "fixture/DeprecateDomainResponse"
+    sWF
     (Proxy :: Proxy DeprecateDomain)
 
 testGetWorkflowExecutionHistoryResponse :: GetWorkflowExecutionHistoryResponse -> TestTree
 testGetWorkflowExecutionHistoryResponse = res
     "GetWorkflowExecutionHistoryResponse"
     "fixture/GetWorkflowExecutionHistoryResponse"
+    sWF
     (Proxy :: Proxy GetWorkflowExecutionHistory)
 
 testDescribeActivityTypeResponse :: DescribeActivityTypeResponse -> TestTree
 testDescribeActivityTypeResponse = res
     "DescribeActivityTypeResponse"
     "fixture/DescribeActivityTypeResponse"
+    sWF
     (Proxy :: Proxy DescribeActivityType)
 
 testDeprecateActivityTypeResponse :: DeprecateActivityTypeResponse -> TestTree
 testDeprecateActivityTypeResponse = res
     "DeprecateActivityTypeResponse"
     "fixture/DeprecateActivityTypeResponse"
+    sWF
     (Proxy :: Proxy DeprecateActivityType)
 
 testTerminateWorkflowExecutionResponse :: TerminateWorkflowExecutionResponse -> TestTree
 testTerminateWorkflowExecutionResponse = res
     "TerminateWorkflowExecutionResponse"
     "fixture/TerminateWorkflowExecutionResponse"
+    sWF
     (Proxy :: Proxy TerminateWorkflowExecution)
 
 testCountClosedWorkflowExecutionsResponse :: WorkflowExecutionCount -> TestTree
 testCountClosedWorkflowExecutionsResponse = res
     "CountClosedWorkflowExecutionsResponse"
     "fixture/CountClosedWorkflowExecutionsResponse"
+    sWF
     (Proxy :: Proxy CountClosedWorkflowExecutions)
 
 testRespondActivityTaskCanceledResponse :: RespondActivityTaskCanceledResponse -> TestTree
 testRespondActivityTaskCanceledResponse = res
     "RespondActivityTaskCanceledResponse"
     "fixture/RespondActivityTaskCanceledResponse"
+    sWF
     (Proxy :: Proxy RespondActivityTaskCanceled)
 
 testListDomainsResponse :: ListDomainsResponse -> TestTree
 testListDomainsResponse = res
     "ListDomainsResponse"
     "fixture/ListDomainsResponse"
+    sWF
     (Proxy :: Proxy ListDomains)
 
 testStartWorkflowExecutionResponse :: StartWorkflowExecutionResponse -> TestTree
 testStartWorkflowExecutionResponse = res
     "StartWorkflowExecutionResponse"
     "fixture/StartWorkflowExecutionResponse"
+    sWF
     (Proxy :: Proxy StartWorkflowExecution)
 
 testPollForDecisionTaskResponse :: PollForDecisionTaskResponse -> TestTree
 testPollForDecisionTaskResponse = res
     "PollForDecisionTaskResponse"
     "fixture/PollForDecisionTaskResponse"
+    sWF
     (Proxy :: Proxy PollForDecisionTask)

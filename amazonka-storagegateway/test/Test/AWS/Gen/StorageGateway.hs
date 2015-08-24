@@ -592,298 +592,348 @@ testCancelArchivalResponse :: CancelArchivalResponse -> TestTree
 testCancelArchivalResponse = res
     "CancelArchivalResponse"
     "fixture/CancelArchivalResponse"
+    storageGateway
     (Proxy :: Proxy CancelArchival)
 
 testCreateStorediSCSIVolumeResponse :: CreateStorediSCSIVolumeResponse -> TestTree
 testCreateStorediSCSIVolumeResponse = res
     "CreateStorediSCSIVolumeResponse"
     "fixture/CreateStorediSCSIVolumeResponse"
+    storageGateway
     (Proxy :: Proxy CreateStorediSCSIVolume)
 
 testCreateTapesResponse :: CreateTapesResponse -> TestTree
 testCreateTapesResponse = res
     "CreateTapesResponse"
     "fixture/CreateTapesResponse"
+    storageGateway
     (Proxy :: Proxy CreateTapes)
 
 testCreateCachediSCSIVolumeResponse :: CreateCachediSCSIVolumeResponse -> TestTree
 testCreateCachediSCSIVolumeResponse = res
     "CreateCachediSCSIVolumeResponse"
     "fixture/CreateCachediSCSIVolumeResponse"
+    storageGateway
     (Proxy :: Proxy CreateCachediSCSIVolume)
 
 testUpdateVTLDeviceTypeResponse :: UpdateVTLDeviceTypeResponse -> TestTree
 testUpdateVTLDeviceTypeResponse = res
     "UpdateVTLDeviceTypeResponse"
     "fixture/UpdateVTLDeviceTypeResponse"
+    storageGateway
     (Proxy :: Proxy UpdateVTLDeviceType)
 
 testDescribeChapCredentialsResponse :: DescribeChapCredentialsResponse -> TestTree
 testDescribeChapCredentialsResponse = res
     "DescribeChapCredentialsResponse"
     "fixture/DescribeChapCredentialsResponse"
+    storageGateway
     (Proxy :: Proxy DescribeChapCredentials)
 
 testAddUploadBufferResponse :: AddUploadBufferResponse -> TestTree
 testAddUploadBufferResponse = res
     "AddUploadBufferResponse"
     "fixture/AddUploadBufferResponse"
+    storageGateway
     (Proxy :: Proxy AddUploadBuffer)
 
 testListVolumeInitiatorsResponse :: ListVolumeInitiatorsResponse -> TestTree
 testListVolumeInitiatorsResponse = res
     "ListVolumeInitiatorsResponse"
     "fixture/ListVolumeInitiatorsResponse"
+    storageGateway
     (Proxy :: Proxy ListVolumeInitiators)
 
 testDescribeWorkingStorageResponse :: DescribeWorkingStorageResponse -> TestTree
 testDescribeWorkingStorageResponse = res
     "DescribeWorkingStorageResponse"
     "fixture/DescribeWorkingStorageResponse"
+    storageGateway
     (Proxy :: Proxy DescribeWorkingStorage)
 
 testDescribeCachediSCSIVolumesResponse :: DescribeCachediSCSIVolumesResponse -> TestTree
 testDescribeCachediSCSIVolumesResponse = res
     "DescribeCachediSCSIVolumesResponse"
     "fixture/DescribeCachediSCSIVolumesResponse"
+    storageGateway
     (Proxy :: Proxy DescribeCachediSCSIVolumes)
 
 testUpdateGatewayInformationResponse :: UpdateGatewayInformationResponse -> TestTree
 testUpdateGatewayInformationResponse = res
     "UpdateGatewayInformationResponse"
     "fixture/UpdateGatewayInformationResponse"
+    storageGateway
     (Proxy :: Proxy UpdateGatewayInformation)
 
 testDescribeMaintenanceStartTimeResponse :: DescribeMaintenanceStartTimeResponse -> TestTree
 testDescribeMaintenanceStartTimeResponse = res
     "DescribeMaintenanceStartTimeResponse"
     "fixture/DescribeMaintenanceStartTimeResponse"
+    storageGateway
     (Proxy :: Proxy DescribeMaintenanceStartTime)
 
 testAddCacheResponse :: AddCacheResponse -> TestTree
 testAddCacheResponse = res
     "AddCacheResponse"
     "fixture/AddCacheResponse"
+    storageGateway
     (Proxy :: Proxy AddCache)
 
 testStartGatewayResponse :: StartGatewayResponse -> TestTree
 testStartGatewayResponse = res
     "StartGatewayResponse"
     "fixture/StartGatewayResponse"
+    storageGateway
     (Proxy :: Proxy StartGateway)
 
 testShutdownGatewayResponse :: ShutdownGatewayResponse -> TestTree
 testShutdownGatewayResponse = res
     "ShutdownGatewayResponse"
     "fixture/ShutdownGatewayResponse"
+    storageGateway
     (Proxy :: Proxy ShutdownGateway)
 
 testUpdateGatewaySoftwareNowResponse :: UpdateGatewaySoftwareNowResponse -> TestTree
 testUpdateGatewaySoftwareNowResponse = res
     "UpdateGatewaySoftwareNowResponse"
     "fixture/UpdateGatewaySoftwareNowResponse"
+    storageGateway
     (Proxy :: Proxy UpdateGatewaySoftwareNow)
 
 testDeleteChapCredentialsResponse :: DeleteChapCredentialsResponse -> TestTree
 testDeleteChapCredentialsResponse = res
     "DeleteChapCredentialsResponse"
     "fixture/DeleteChapCredentialsResponse"
+    storageGateway
     (Proxy :: Proxy DeleteChapCredentials)
 
 testUpdateChapCredentialsResponse :: UpdateChapCredentialsResponse -> TestTree
 testUpdateChapCredentialsResponse = res
     "UpdateChapCredentialsResponse"
     "fixture/UpdateChapCredentialsResponse"
+    storageGateway
     (Proxy :: Proxy UpdateChapCredentials)
 
 testDescribeStorediSCSIVolumesResponse :: DescribeStorediSCSIVolumesResponse -> TestTree
 testDescribeStorediSCSIVolumesResponse = res
     "DescribeStorediSCSIVolumesResponse"
     "fixture/DescribeStorediSCSIVolumesResponse"
+    storageGateway
     (Proxy :: Proxy DescribeStorediSCSIVolumes)
 
 testDescribeTapesResponse :: DescribeTapesResponse -> TestTree
 testDescribeTapesResponse = res
     "DescribeTapesResponse"
     "fixture/DescribeTapesResponse"
+    storageGateway
     (Proxy :: Proxy DescribeTapes)
 
 testDescribeUploadBufferResponse :: DescribeUploadBufferResponse -> TestTree
 testDescribeUploadBufferResponse = res
     "DescribeUploadBufferResponse"
     "fixture/DescribeUploadBufferResponse"
+    storageGateway
     (Proxy :: Proxy DescribeUploadBuffer)
 
 testCreateSnapshotFromVolumeRecoveryPointResponse :: CreateSnapshotFromVolumeRecoveryPointResponse -> TestTree
 testCreateSnapshotFromVolumeRecoveryPointResponse = res
     "CreateSnapshotFromVolumeRecoveryPointResponse"
     "fixture/CreateSnapshotFromVolumeRecoveryPointResponse"
+    storageGateway
     (Proxy :: Proxy CreateSnapshotFromVolumeRecoveryPoint)
 
 testDescribeGatewayInformationResponse :: DescribeGatewayInformationResponse -> TestTree
 testDescribeGatewayInformationResponse = res
     "DescribeGatewayInformationResponse"
     "fixture/DescribeGatewayInformationResponse"
+    storageGateway
     (Proxy :: Proxy DescribeGatewayInformation)
 
 testRetrieveTapeRecoveryPointResponse :: RetrieveTapeRecoveryPointResponse -> TestTree
 testRetrieveTapeRecoveryPointResponse = res
     "RetrieveTapeRecoveryPointResponse"
     "fixture/RetrieveTapeRecoveryPointResponse"
+    storageGateway
     (Proxy :: Proxy RetrieveTapeRecoveryPoint)
 
 testUpdateMaintenanceStartTimeResponse :: UpdateMaintenanceStartTimeResponse -> TestTree
 testUpdateMaintenanceStartTimeResponse = res
     "UpdateMaintenanceStartTimeResponse"
     "fixture/UpdateMaintenanceStartTimeResponse"
+    storageGateway
     (Proxy :: Proxy UpdateMaintenanceStartTime)
 
 testDeleteGatewayResponse :: DeleteGatewayResponse -> TestTree
 testDeleteGatewayResponse = res
     "DeleteGatewayResponse"
     "fixture/DeleteGatewayResponse"
+    storageGateway
     (Proxy :: Proxy DeleteGateway)
 
 testDisableGatewayResponse :: DisableGatewayResponse -> TestTree
 testDisableGatewayResponse = res
     "DisableGatewayResponse"
     "fixture/DisableGatewayResponse"
+    storageGateway
     (Proxy :: Proxy DisableGateway)
 
 testDescribeSnapshotScheduleResponse :: DescribeSnapshotScheduleResponse -> TestTree
 testDescribeSnapshotScheduleResponse = res
     "DescribeSnapshotScheduleResponse"
     "fixture/DescribeSnapshotScheduleResponse"
+    storageGateway
     (Proxy :: Proxy DescribeSnapshotSchedule)
 
 testDescribeTapeArchivesResponse :: DescribeTapeArchivesResponse -> TestTree
 testDescribeTapeArchivesResponse = res
     "DescribeTapeArchivesResponse"
     "fixture/DescribeTapeArchivesResponse"
+    storageGateway
     (Proxy :: Proxy DescribeTapeArchives)
 
 testRetrieveTapeArchiveResponse :: RetrieveTapeArchiveResponse -> TestTree
 testRetrieveTapeArchiveResponse = res
     "RetrieveTapeArchiveResponse"
     "fixture/RetrieveTapeArchiveResponse"
+    storageGateway
     (Proxy :: Proxy RetrieveTapeArchive)
 
 testDescribeBandwidthRateLimitResponse :: DescribeBandwidthRateLimitResponse -> TestTree
 testDescribeBandwidthRateLimitResponse = res
     "DescribeBandwidthRateLimitResponse"
     "fixture/DescribeBandwidthRateLimitResponse"
+    storageGateway
     (Proxy :: Proxy DescribeBandwidthRateLimit)
 
 testDescribeVTLDevicesResponse :: DescribeVTLDevicesResponse -> TestTree
 testDescribeVTLDevicesResponse = res
     "DescribeVTLDevicesResponse"
     "fixture/DescribeVTLDevicesResponse"
+    storageGateway
     (Proxy :: Proxy DescribeVTLDevices)
 
 testCreateSnapshotResponse :: CreateSnapshotResponse -> TestTree
 testCreateSnapshotResponse = res
     "CreateSnapshotResponse"
     "fixture/CreateSnapshotResponse"
+    storageGateway
     (Proxy :: Proxy CreateSnapshot)
 
 testUpdateSnapshotScheduleResponse :: UpdateSnapshotScheduleResponse -> TestTree
 testUpdateSnapshotScheduleResponse = res
     "UpdateSnapshotScheduleResponse"
     "fixture/UpdateSnapshotScheduleResponse"
+    storageGateway
     (Proxy :: Proxy UpdateSnapshotSchedule)
 
 testCancelRetrievalResponse :: CancelRetrievalResponse -> TestTree
 testCancelRetrievalResponse = res
     "CancelRetrievalResponse"
     "fixture/CancelRetrievalResponse"
+    storageGateway
     (Proxy :: Proxy CancelRetrieval)
 
 testDeleteSnapshotScheduleResponse :: DeleteSnapshotScheduleResponse -> TestTree
 testDeleteSnapshotScheduleResponse = res
     "DeleteSnapshotScheduleResponse"
     "fixture/DeleteSnapshotScheduleResponse"
+    storageGateway
     (Proxy :: Proxy DeleteSnapshotSchedule)
 
 testDeleteTapeArchiveResponse :: DeleteTapeArchiveResponse -> TestTree
 testDeleteTapeArchiveResponse = res
     "DeleteTapeArchiveResponse"
     "fixture/DeleteTapeArchiveResponse"
+    storageGateway
     (Proxy :: Proxy DeleteTapeArchive)
 
 testListVolumeRecoveryPointsResponse :: ListVolumeRecoveryPointsResponse -> TestTree
 testListVolumeRecoveryPointsResponse = res
     "ListVolumeRecoveryPointsResponse"
     "fixture/ListVolumeRecoveryPointsResponse"
+    storageGateway
     (Proxy :: Proxy ListVolumeRecoveryPoints)
 
 testAddWorkingStorageResponse :: AddWorkingStorageResponse -> TestTree
 testAddWorkingStorageResponse = res
     "AddWorkingStorageResponse"
     "fixture/AddWorkingStorageResponse"
+    storageGateway
     (Proxy :: Proxy AddWorkingStorage)
 
 testListGatewaysResponse :: ListGatewaysResponse -> TestTree
 testListGatewaysResponse = res
     "ListGatewaysResponse"
     "fixture/ListGatewaysResponse"
+    storageGateway
     (Proxy :: Proxy ListGateways)
 
 testListVolumesResponse :: ListVolumesResponse -> TestTree
 testListVolumesResponse = res
     "ListVolumesResponse"
     "fixture/ListVolumesResponse"
+    storageGateway
     (Proxy :: Proxy ListVolumes)
 
 testDescribeTapeRecoveryPointsResponse :: DescribeTapeRecoveryPointsResponse -> TestTree
 testDescribeTapeRecoveryPointsResponse = res
     "DescribeTapeRecoveryPointsResponse"
     "fixture/DescribeTapeRecoveryPointsResponse"
+    storageGateway
     (Proxy :: Proxy DescribeTapeRecoveryPoints)
 
 testDeleteVolumeResponse :: DeleteVolumeResponse -> TestTree
 testDeleteVolumeResponse = res
     "DeleteVolumeResponse"
     "fixture/DeleteVolumeResponse"
+    storageGateway
     (Proxy :: Proxy DeleteVolume)
 
 testResetCacheResponse :: ResetCacheResponse -> TestTree
 testResetCacheResponse = res
     "ResetCacheResponse"
     "fixture/ResetCacheResponse"
+    storageGateway
     (Proxy :: Proxy ResetCache)
 
 testActivateGatewayResponse :: ActivateGatewayResponse -> TestTree
 testActivateGatewayResponse = res
     "ActivateGatewayResponse"
     "fixture/ActivateGatewayResponse"
+    storageGateway
     (Proxy :: Proxy ActivateGateway)
 
 testDescribeCacheResponse :: DescribeCacheResponse -> TestTree
 testDescribeCacheResponse = res
     "DescribeCacheResponse"
     "fixture/DescribeCacheResponse"
+    storageGateway
     (Proxy :: Proxy DescribeCache)
 
 testUpdateBandwidthRateLimitResponse :: UpdateBandwidthRateLimitResponse -> TestTree
 testUpdateBandwidthRateLimitResponse = res
     "UpdateBandwidthRateLimitResponse"
     "fixture/UpdateBandwidthRateLimitResponse"
+    storageGateway
     (Proxy :: Proxy UpdateBandwidthRateLimit)
 
 testDeleteBandwidthRateLimitResponse :: DeleteBandwidthRateLimitResponse -> TestTree
 testDeleteBandwidthRateLimitResponse = res
     "DeleteBandwidthRateLimitResponse"
     "fixture/DeleteBandwidthRateLimitResponse"
+    storageGateway
     (Proxy :: Proxy DeleteBandwidthRateLimit)
 
 testListLocalDisksResponse :: ListLocalDisksResponse -> TestTree
 testListLocalDisksResponse = res
     "ListLocalDisksResponse"
     "fixture/ListLocalDisksResponse"
+    storageGateway
     (Proxy :: Proxy ListLocalDisks)
 
 testDeleteTapeResponse :: DeleteTapeResponse -> TestTree
 testDeleteTapeResponse = res
     "DeleteTapeResponse"
     "fixture/DeleteTapeResponse"
+    storageGateway
     (Proxy :: Proxy DeleteTape)

@@ -306,142 +306,166 @@ testDescribeAvailabilityOptionsResponse :: DescribeAvailabilityOptionsResponse -
 testDescribeAvailabilityOptionsResponse = res
     "DescribeAvailabilityOptionsResponse"
     "fixture/DescribeAvailabilityOptionsResponse"
+    cloudSearch
     (Proxy :: Proxy DescribeAvailabilityOptions)
 
 testDescribeExpressionsResponse :: DescribeExpressionsResponse -> TestTree
 testDescribeExpressionsResponse = res
     "DescribeExpressionsResponse"
     "fixture/DescribeExpressionsResponse"
+    cloudSearch
     (Proxy :: Proxy DescribeExpressions)
 
 testDefineExpressionResponse :: DefineExpressionResponse -> TestTree
 testDefineExpressionResponse = res
     "DefineExpressionResponse"
     "fixture/DefineExpressionResponse"
+    cloudSearch
     (Proxy :: Proxy DefineExpression)
 
 testDescribeScalingParametersResponse :: DescribeScalingParametersResponse -> TestTree
 testDescribeScalingParametersResponse = res
     "DescribeScalingParametersResponse"
     "fixture/DescribeScalingParametersResponse"
+    cloudSearch
     (Proxy :: Proxy DescribeScalingParameters)
 
 testDescribeServiceAccessPoliciesResponse :: DescribeServiceAccessPoliciesResponse -> TestTree
 testDescribeServiceAccessPoliciesResponse = res
     "DescribeServiceAccessPoliciesResponse"
     "fixture/DescribeServiceAccessPoliciesResponse"
+    cloudSearch
     (Proxy :: Proxy DescribeServiceAccessPolicies)
 
 testDescribeSuggestersResponse :: DescribeSuggestersResponse -> TestTree
 testDescribeSuggestersResponse = res
     "DescribeSuggestersResponse"
     "fixture/DescribeSuggestersResponse"
+    cloudSearch
     (Proxy :: Proxy DescribeSuggesters)
 
 testUpdateAvailabilityOptionsResponse :: UpdateAvailabilityOptionsResponse -> TestTree
 testUpdateAvailabilityOptionsResponse = res
     "UpdateAvailabilityOptionsResponse"
     "fixture/UpdateAvailabilityOptionsResponse"
+    cloudSearch
     (Proxy :: Proxy UpdateAvailabilityOptions)
 
 testDeleteExpressionResponse :: DeleteExpressionResponse -> TestTree
 testDeleteExpressionResponse = res
     "DeleteExpressionResponse"
     "fixture/DeleteExpressionResponse"
+    cloudSearch
     (Proxy :: Proxy DeleteExpression)
 
 testDescribeDomainsResponse :: DescribeDomainsResponse -> TestTree
 testDescribeDomainsResponse = res
     "DescribeDomainsResponse"
     "fixture/DescribeDomainsResponse"
+    cloudSearch
     (Proxy :: Proxy DescribeDomains)
 
 testDefineSuggesterResponse :: DefineSuggesterResponse -> TestTree
 testDefineSuggesterResponse = res
     "DefineSuggesterResponse"
     "fixture/DefineSuggesterResponse"
+    cloudSearch
     (Proxy :: Proxy DefineSuggester)
 
 testDeleteAnalysisSchemeResponse :: DeleteAnalysisSchemeResponse -> TestTree
 testDeleteAnalysisSchemeResponse = res
     "DeleteAnalysisSchemeResponse"
     "fixture/DeleteAnalysisSchemeResponse"
+    cloudSearch
     (Proxy :: Proxy DeleteAnalysisScheme)
 
 testListDomainNamesResponse :: ListDomainNamesResponse -> TestTree
 testListDomainNamesResponse = res
     "ListDomainNamesResponse"
     "fixture/ListDomainNamesResponse"
+    cloudSearch
     (Proxy :: Proxy ListDomainNames)
 
 testDescribeAnalysisSchemesResponse :: DescribeAnalysisSchemesResponse -> TestTree
 testDescribeAnalysisSchemesResponse = res
     "DescribeAnalysisSchemesResponse"
     "fixture/DescribeAnalysisSchemesResponse"
+    cloudSearch
     (Proxy :: Proxy DescribeAnalysisSchemes)
 
 testCreateDomainResponse :: CreateDomainResponse -> TestTree
 testCreateDomainResponse = res
     "CreateDomainResponse"
     "fixture/CreateDomainResponse"
+    cloudSearch
     (Proxy :: Proxy CreateDomain)
 
 testDefineAnalysisSchemeResponse :: DefineAnalysisSchemeResponse -> TestTree
 testDefineAnalysisSchemeResponse = res
     "DefineAnalysisSchemeResponse"
     "fixture/DefineAnalysisSchemeResponse"
+    cloudSearch
     (Proxy :: Proxy DefineAnalysisScheme)
 
 testDeleteSuggesterResponse :: DeleteSuggesterResponse -> TestTree
 testDeleteSuggesterResponse = res
     "DeleteSuggesterResponse"
     "fixture/DeleteSuggesterResponse"
+    cloudSearch
     (Proxy :: Proxy DeleteSuggester)
 
 testDescribeIndexFieldsResponse :: DescribeIndexFieldsResponse -> TestTree
 testDescribeIndexFieldsResponse = res
     "DescribeIndexFieldsResponse"
     "fixture/DescribeIndexFieldsResponse"
+    cloudSearch
     (Proxy :: Proxy DescribeIndexFields)
 
 testIndexDocumentsResponse :: IndexDocumentsResponse -> TestTree
 testIndexDocumentsResponse = res
     "IndexDocumentsResponse"
     "fixture/IndexDocumentsResponse"
+    cloudSearch
     (Proxy :: Proxy IndexDocuments)
 
 testDeleteIndexFieldResponse :: DeleteIndexFieldResponse -> TestTree
 testDeleteIndexFieldResponse = res
     "DeleteIndexFieldResponse"
     "fixture/DeleteIndexFieldResponse"
+    cloudSearch
     (Proxy :: Proxy DeleteIndexField)
 
 testBuildSuggestersResponse :: BuildSuggestersResponse -> TestTree
 testBuildSuggestersResponse = res
     "BuildSuggestersResponse"
     "fixture/BuildSuggestersResponse"
+    cloudSearch
     (Proxy :: Proxy BuildSuggesters)
 
 testUpdateScalingParametersResponse :: UpdateScalingParametersResponse -> TestTree
 testUpdateScalingParametersResponse = res
     "UpdateScalingParametersResponse"
     "fixture/UpdateScalingParametersResponse"
+    cloudSearch
     (Proxy :: Proxy UpdateScalingParameters)
 
 testUpdateServiceAccessPoliciesResponse :: UpdateServiceAccessPoliciesResponse -> TestTree
 testUpdateServiceAccessPoliciesResponse = res
     "UpdateServiceAccessPoliciesResponse"
     "fixture/UpdateServiceAccessPoliciesResponse"
+    cloudSearch
     (Proxy :: Proxy UpdateServiceAccessPolicies)
 
 testDefineIndexFieldResponse :: DefineIndexFieldResponse -> TestTree
 testDefineIndexFieldResponse = res
     "DefineIndexFieldResponse"
     "fixture/DefineIndexFieldResponse"
+    cloudSearch
     (Proxy :: Proxy DefineIndexField)
 
 testDeleteDomainResponse :: DeleteDomainResponse -> TestTree
 testDeleteDomainResponse = res
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse"
+    cloudSearch
     (Proxy :: Proxy DeleteDomain)

@@ -338,8 +338,8 @@ endpointScope :: Lens' Endpoint ByteString
 endpointScope = lens _endpointScope (\s a -> s { _endpointScope = a })
 
 data LogLevel
-    = Error -- ^ Error messages only.
-    | Info  -- ^ Info messages supplied by the user - this level is not emitted by the library.
+    = Info  -- ^ Info messages supplied by the user - this level is not emitted by the library.
+    | Error -- ^ Error messages only.
     | Debug -- ^ Useful debug information + info + error levels.
     | Trace -- ^ Includes potentially sensitive signing metadata, and non-streaming response bodies.
       deriving (Eq, Ord, Enum, Show, Data, Typeable)

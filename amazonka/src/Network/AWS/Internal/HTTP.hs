@@ -59,7 +59,7 @@ retrier x = do
         transportErr = _TransportError . to (_envRetryCheck e n)
         serviceErr   = _ServiceError . to rc . _Just
 
-        rc = rq ^. rqService . svcRetry . to _retryCheck
+        rc = rq ^. rqService . serviceRetry . retryCheck
 
     check _ _ _ _                          = return False
 

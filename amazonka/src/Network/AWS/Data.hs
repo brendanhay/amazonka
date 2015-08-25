@@ -18,7 +18,8 @@ module Network.AWS.Data
     -- * Text
       FromText     (..)
     , fromText
-    , matchCI
+    , fromTextError
+    , takeLowerText
     , ToText       (..)
 
     -- * ByteString

@@ -1,5 +1,6 @@
 {-# LANGUAGE DefaultSignatures #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE PackageImports    #-}
 
@@ -20,7 +21,6 @@ module Network.AWS.Data.Text
     , fromTextError
     , takeLowerText
     , takeText
-    , matchCI
 
     -- * Serialisation
     , ToText   (..)
@@ -67,9 +67,6 @@ takeLowerText = Text.toLower <$> A.takeText
 takeText :: Parser Text
 takeText = A.takeText
 
-matchCI :: Text -> a -> Parser a
-matchCI x y = A.asciiCI x <* A.endOfInput >> return y
-
 class FromText a where
     parser :: Parser a
 
@@ -98,7 +95,10 @@ instance FromText Double where
     parser = A.signed A.rational <* A.endOfInput
 
 instance FromText Bool where
-    parser = matchCI "false" False <|> matchCI "true" True
+    parser = takeLowerText >>= \case
+        "true"  -> pure True
+        "false" -> pure False
+        e       -> fromTextError $ "Failure parsing Bool from '" <> e <> "'."
 
 instance FromText StdMethod where
     parser = do

@@ -610,7 +610,7 @@ rDS =
     , _svcVersion = "2014-10-31"
     , _svcEndpoint = defaultEndpoint rDS
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

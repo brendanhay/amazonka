@@ -310,7 +310,7 @@ deviceFarm =
     , _svcVersion = "2015-06-23"
     , _svcEndpoint = defaultEndpoint deviceFarm
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

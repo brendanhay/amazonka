@@ -60,7 +60,7 @@ sTS =
     , _svcVersion = "2011-06-15"
     , _svcEndpoint = defaultEndpoint sTS
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

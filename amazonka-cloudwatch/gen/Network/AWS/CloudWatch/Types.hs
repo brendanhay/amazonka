@@ -138,7 +138,7 @@ cloudWatch =
     , _svcVersion = "2010-08-01"
     , _svcEndpoint = defaultEndpoint cloudWatch
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

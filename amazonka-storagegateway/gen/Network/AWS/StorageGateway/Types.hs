@@ -162,7 +162,7 @@ storageGateway =
     , _svcVersion = "2013-06-30"
     , _svcEndpoint = defaultEndpoint storageGateway
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

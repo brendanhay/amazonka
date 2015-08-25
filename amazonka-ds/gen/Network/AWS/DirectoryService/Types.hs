@@ -172,7 +172,7 @@ directoryService =
     , _svcVersion = "2015-04-16"
     , _svcEndpoint = defaultEndpoint directoryService
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

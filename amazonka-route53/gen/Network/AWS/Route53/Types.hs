@@ -226,7 +226,7 @@ route53 =
     , _svcVersion = "2013-04-01"
     , _svcEndpoint = defaultEndpoint route53
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

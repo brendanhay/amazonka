@@ -142,7 +142,7 @@ workSpaces =
     , _svcVersion = "2015-04-08"
     , _svcEndpoint = defaultEndpoint workSpaces
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

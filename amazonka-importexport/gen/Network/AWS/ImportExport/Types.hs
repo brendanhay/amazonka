@@ -70,7 +70,7 @@ importExport =
     , _svcVersion = "2010-06-01"
     , _svcEndpoint = defaultEndpoint importExport
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

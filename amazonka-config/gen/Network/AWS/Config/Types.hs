@@ -153,7 +153,7 @@ config =
     , _svcVersion = "2014-11-12"
     , _svcEndpoint = defaultEndpoint config
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

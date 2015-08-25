@@ -156,7 +156,7 @@ within r = local (envRegion .~ r)
 -- | Scope an action such that any retry logic for the 'Service' is
 -- ignored and any requests will at most be sent once.
 once :: (MonadReader r m, HasEnv r) => m a -> m a
-once = local (override (svcRetry . retryAttempts .~ 0))
+once = local (override (serviceRetry . retryAttempts .~ 0))
 
 -- | Scope an action such that any HTTP response will use this timeout value.
 --
@@ -170,7 +170,7 @@ once = local (override (svcRetry . retryAttempts .~ 0))
 --
 -- * The default 'ClientRequest' timeout. (Approximately 30s)
 timeout :: (MonadReader r m, HasEnv r) => Seconds -> m a -> m a
-timeout s = local (override (svcTimeout ?~ s))
+timeout s = local (override (serviceTimeout ?~ s))
 
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.

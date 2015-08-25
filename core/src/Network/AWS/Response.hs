@@ -111,7 +111,7 @@ receive :: MonadResource m
         -> ClientResponse
         -> m (Response a)
 receive f  Service{..} _ rs
-    | not (_svcStatus s) = sinkLBS x >>= serviceErr
+    | not (_svcCheck s) = sinkLBS x >>= serviceErr
     | otherwise          = do
         p <- f (fromEnum s) h x
         either serializeErr

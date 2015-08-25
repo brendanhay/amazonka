@@ -131,7 +131,7 @@ module Control.Monad.Trans.AWS
 
     -- ** Endpoints
     , Endpoint
-    , endpoint
+    , setEndpoint
 
     -- * Re-exported Types
     , RqBody
@@ -159,7 +159,6 @@ import           Data.Conduit                 hiding (await)
 import           Data.IORef
 import           Network.AWS.Auth
 import qualified Network.AWS.EC2.Metadata     as EC2
-import           Network.AWS.Endpoint         (endpoint)
 import           Network.AWS.Env
 import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.HTTP
@@ -411,10 +410,10 @@ You can modify a specific 'Service''s default configuration by using
 
 An example of how you might alter default configuration using these mechanisms
 is demonstrated below. Firstly, the default 'dynamoDB' service is configured to
-use localhost as the endpoint:
+use non-SSL localhost as the endpoint:
 
 > let dynamo :: Service
->     dynamo = dynamoDB & endpoint False "localhost" 8000
+>     dynamo = setEndpoint False "localhost" 8000 dynamoDB
 
 The updated configuration is then passed to the 'Env' during setup:
 

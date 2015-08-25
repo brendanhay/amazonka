@@ -24,19 +24,19 @@ import           Prelude
 
 -- | A convenience function for overriding the 'Service' 'Endpoint'.
 --
--- /See:/ 'svcEndpoint'.
-endpoint :: Bool       -- ^ Whether to use HTTPS (ie. SSL).
-         -> ByteString -- ^ The hostname to connect to.
-         -> Int        -- ^ The port number to connect to.
-         -> Service    -- ^ The service configuration to override.
-         -> Service
-endpoint s h p = svcEndpoint %~ (addr .)
+-- /See:/ 'serviceEndpoint'.
+setEndpoint :: Bool       -- ^ Whether to use HTTPS (ie. SSL).
+            -> ByteString -- ^ The hostname to connect to.
+            -> Int        -- ^ The port number to connect to.
+            -> Service    -- ^ The service configuration to override.
+            -> Service
+setEndpoint s h p = serviceEndpoint %~ addr
   where
     addr = (endpointSecure .~ s)
          . (endpointHost   .~ h)
          . (endpointPort   .~ p)
 
--- | Determine the full host address and credential scope for
+-- | Determine the full host address and credential scope
 -- within the specified 'Region'.
 defaultEndpoint :: Service -> Region -> Endpoint
 defaultEndpoint (_svcPrefix -> p) r = go (CI.mk p)

@@ -42,11 +42,11 @@ module Network.AWS.Types
     -- * Service
     , Abbrev
     , Service        (..)
-    , svcSigner
-    , svcEndpoint
-    , svcTimeout
-    , svcStatus
-    , svcRetry
+    , serviceSigner
+    , serviceEndpoint
+    , serviceTimeout
+    , serviceCheck
+    , serviceRetry
 
     -- * Requests
     , AWSRequest     (..)
@@ -68,6 +68,7 @@ module Network.AWS.Types
     , exponentBase
     , exponentGrowth
     , retryAttempts
+    , retryCheck
 
     -- * Errors
     , AsError        (..)
@@ -339,6 +340,9 @@ exponentGrowth = lens _retryGrowth (\s a -> s { _retryGrowth = a })
 retryAttempts :: Lens' Retry Int
 retryAttempts = lens _retryAttempts (\s a -> s { _retryAttempts = a })
 
+retryCheck :: Lens' Retry (ServiceError -> Maybe Text)
+retryCheck = lens _retryCheck (\s a -> s { _retryCheck = a })
+
 -- | Signing algorithm specific metadata.
 data Meta where
     Meta :: ToLog a => a -> Meta
@@ -369,25 +373,25 @@ data Service = Service
     , _svcVersion  :: !ByteString
     , _svcEndpoint :: !(Region -> Endpoint)
     , _svcTimeout  :: !(Maybe Seconds)
-    , _svcStatus   :: !(Status -> Bool)
+    , _svcCheck    :: !(Status -> Bool)
     , _svcError    :: !(Abbrev -> Status -> [Header] -> LazyByteString -> Error)
     , _svcRetry    :: !Retry
     }
 
-svcSigner :: Lens' Service Signer
-svcSigner = lens _svcSigner (\s a -> s { _svcSigner = a })
+serviceSigner :: Lens' Service Signer
+serviceSigner = lens _svcSigner (\s a -> s { _svcSigner = a })
 
-svcEndpoint :: Lens' Service (Region -> Endpoint)
-svcEndpoint = lens _svcEndpoint (\s a -> s { _svcEndpoint = a })
+serviceEndpoint :: Setter' Service Endpoint
+serviceEndpoint = sets (\f s -> s { _svcEndpoint = \r -> f (_svcEndpoint s r) })
 
-svcTimeout :: Lens' Service (Maybe Seconds)
-svcTimeout = lens _svcTimeout (\s a -> s { _svcTimeout = a })
+serviceTimeout :: Lens' Service (Maybe Seconds)
+serviceTimeout = lens _svcTimeout (\s a -> s { _svcTimeout = a })
 
-svcStatus :: Lens' Service (Status -> Bool)
-svcStatus = lens _svcStatus (\s a -> s { _svcStatus = a })
+serviceCheck :: Lens' Service (Status -> Bool)
+serviceCheck = lens _svcCheck (\s a -> s { _svcCheck = a })
 
-svcRetry :: Lens' Service Retry
-svcRetry = lens _svcRetry (\s a -> s { _svcRetry = a })
+serviceRetry :: Lens' Service Retry
+serviceRetry = lens _svcRetry (\s a -> s { _svcRetry = a })
 
 -- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
 -- throwing errors when receiving erroneous status codes in respones.

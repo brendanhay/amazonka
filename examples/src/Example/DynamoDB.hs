@@ -23,18 +23,20 @@ import           Network.AWS.Data
 import           Network.AWS.DynamoDB
 import           System.IO
 
-printTables :: Region
-               -- ^ Region to operate in.
-            -> Maybe (ByteString, Int)
-               -- ^ Custom endpoint port, such as (localhost, 80000).
+printTables :: Region     -- ^ Region to operate in.
+            -> Bool       -- ^ Whether to use HTTPS (ie. SSL).
+            -> ByteString -- ^ The hostname to connect to.
+            -> Int        -- ^ The port number to connect to.
             -> IO ()
-printTables r h = do
+printTables r s h p = do
     lgr <- newLogger Debug stdout
     env <- newEnv r Discover <&> envLogger .~ lgr
 
+    let dynamo = setEndpoint s h p dynamoDB
+
     runResourceT . runAWST env $ do
-        -- Scoping the endpoint change using 'endpoint':
-        endpoint (redirect h) $ do
+        -- Scoping the endpoint change using 'reconfigure':
+        reconfigure dynamo $ do
             say $ "Listing all tables in region " <> toText r
             paginate listTables
                 =$= CL.concatMap (view ltrsTableNames)
@@ -48,15 +50,9 @@ printTables r h = do
 
     -- You can also hardcode the endpoint in the initial environment
     -- by manually constructing it:
-    -- let env' = Override (svcEndpoint .~ const (Endpoint ...))
-    -- runResourceT . runAWST env' $
-
-redirect :: Maybe (ByteString, Int) -> Endpoint -> Endpoint
-redirect Nothing       = id
-redirect (Just (h, p)) =
-      (endpointHost   .~ h)
-    . (endpointPort   .~ p)
-    . (endpointSecure .~ (p == 443))
+    -- let env' = setEndpoint s h p env
+    -- runResourceT . runAWST env' $ do
+    --     ...
 
 say :: MonadIO m => Text -> m ()
 say = liftIO . Text.putStrLn

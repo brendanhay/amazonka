@@ -23,10 +23,8 @@ tests = testGroup "path"
         , testCase "preserves trailing slash" $
             let x = "/some/path/with/trailing/slash/" in encode x @?= x
 
-        , testCase "removes adjacent slashes" $
-            let x = "/path//with/adjacent///slahes/"
-                y = "/path/with/adjacent/slahes/"
-             in encode x @?= y
+        , testCase "preserves adjacent slashes" $
+            let x = "/path//with/adjacent///slahes/" in encode x @?= x
         ]
     ]
 

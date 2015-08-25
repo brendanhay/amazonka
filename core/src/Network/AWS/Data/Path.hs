@@ -5,7 +5,6 @@
 {-# LANGUAGE LambdaCase         #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE StandaloneDeriving #-}
-{-# LANGUAGE ViewPatterns       #-}
 
 -- |
 -- Module      : Network.AWS.Data.Path
@@ -49,16 +48,18 @@ instance ToPath Text where
     toPath = toBS
 
 rawPath :: ToPath a => a -> Path 'NoEncoding
-rawPath (toPath -> x) = Raw (filter (not . BS8.null) (BS8.split sep x)) trail
+rawPath = Raw . strip . BS8.split sep . toPath
   where
-    trail = not (BS.null x || BS8.last x /= sep)
+    strip (x:xs)
+        | BS.null x = xs
+    strip xs        = xs
 
 data Encoding = NoEncoding | Percent
     deriving (Eq, Show)
 
 data Path :: Encoding -> * where
-    Raw     :: [ByteString] -> Bool -> Path 'NoEncoding
-    Encoded :: [ByteString] -> Bool -> Path 'Percent
+    Raw     :: [ByteString] -> Path 'NoEncoding
+    Encoded :: [ByteString] -> Path 'Percent
 
 deriving instance Show (Path a)
 deriving instance Eq   (Path a)
@@ -67,24 +68,21 @@ type RawPath     = Path 'NoEncoding
 type EscapedPath = Path 'Percent
 
 instance Monoid RawPath where
-    mempty                        = Raw [] False
-    mappend (Raw xs _) (Raw ys t) = Raw (xs ++ ys) t
+    mempty                    = Raw []
+    mappend (Raw xs) (Raw ys) = Raw (xs ++ ys)
 
 instance ToByteString EscapedPath where
-    toBS (Encoded [] _) = slash
-    toBS (Encoded xs t) = trail (slash <> BS8.intercalate slash xs)
-      where
-        trail | t         = flip BS8.snoc sep
-              | otherwise = id
+    toBS (Encoded []) = slash
+    toBS (Encoded xs) = slash <> BS8.intercalate slash xs
 
 escapePath :: Path a -> EscapedPath
-escapePath (Raw     xs t) = Encoded (map (urlEncode True) xs) t
-escapePath (Encoded xs t) = Encoded xs t
+escapePath (Raw     xs) = Encoded (map (urlEncode True) xs)
+escapePath (Encoded xs) = Encoded xs
 
 collapsePath :: Path a -> Path a
 collapsePath = \case
-    Raw     xs t -> Raw     (go xs) t
-    Encoded xs t -> Encoded (go xs) t
+    Raw     xs -> Raw     (go xs)
+    Encoded xs -> Encoded (go xs)
   where
     go = reverse . f . reverse
 

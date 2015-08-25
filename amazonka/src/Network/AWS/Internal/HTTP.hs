@@ -132,8 +132,8 @@ perform Env{..} svc x = catches go handlers
             response _envLogger svc x rs
 
     handlers =
-        [ Handler $ return . Left
-        , Handler $ \er -> do
-            logError _envLogger er
-            return (Left (TransportError er))
+        [ Handler $ err
+        , Handler $ err . TransportError
         ]
+      where
+        err e = logError _envLogger e >> return (Left e)

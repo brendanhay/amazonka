@@ -18,7 +18,6 @@ module Network.AWS.Sign.V2
 
 import           Control.Applicative
 import qualified Data.ByteString.Char8        as BS8
-import           Data.List                    (intersperse)
 import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data.Body

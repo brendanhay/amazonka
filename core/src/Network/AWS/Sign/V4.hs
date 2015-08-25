@@ -158,6 +158,7 @@ finalise m@Meta{..} authorise = Signed m (authorise rq)
   where
     rq = (clientRequest metaEndpoint metaTimeout)
         { Client.method         = toBS metaMethod
+        , Client.host           = metaEndpoint ^. endpointHost
         , Client.path           = toBS metaPath
         , Client.queryString    = qry
         , Client.requestHeaders = metaHeaders

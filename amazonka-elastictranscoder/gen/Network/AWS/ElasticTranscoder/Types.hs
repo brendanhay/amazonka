@@ -348,7 +348,7 @@ elasticTranscoder =
     , _svcVersion = "2012-09-25"
     , _svcEndpoint = defaultEndpoint elasticTranscoder
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

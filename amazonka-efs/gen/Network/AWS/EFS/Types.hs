@@ -89,7 +89,7 @@ eFS =
     , _svcVersion = "2015-02-01"
     , _svcEndpoint = defaultEndpoint eFS
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

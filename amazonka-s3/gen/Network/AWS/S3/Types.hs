@@ -474,7 +474,7 @@ s3 =
     , _svcVersion = "2006-03-01"
     , _svcEndpoint = defaultEndpoint s3
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

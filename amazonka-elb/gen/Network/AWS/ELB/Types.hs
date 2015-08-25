@@ -231,7 +231,7 @@ eLB =
     , _svcVersion = "2012-06-01"
     , _svcEndpoint = defaultEndpoint eLB
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

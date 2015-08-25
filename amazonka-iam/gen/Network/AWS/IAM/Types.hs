@@ -334,7 +334,7 @@ iAM =
     , _svcVersion = "2010-05-08"
     , _svcEndpoint = defaultEndpoint iAM
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

@@ -123,7 +123,7 @@ sSM =
     , _svcVersion = "2014-11-06"
     , _svcEndpoint = defaultEndpoint sSM
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

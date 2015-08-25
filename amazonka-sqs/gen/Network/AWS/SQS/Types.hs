@@ -119,7 +119,7 @@ sQS =
     , _svcVersion = "2012-11-05"
     , _svcEndpoint = defaultEndpoint sQS
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

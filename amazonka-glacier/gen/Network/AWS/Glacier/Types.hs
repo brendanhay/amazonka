@@ -154,7 +154,7 @@ glacier =
     , _svcVersion = "2012-06-01"
     , _svcEndpoint = defaultEndpoint glacier
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

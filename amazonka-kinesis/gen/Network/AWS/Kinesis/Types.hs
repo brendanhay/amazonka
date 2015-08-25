@@ -103,7 +103,7 @@ kinesis =
     , _svcVersion = "2013-12-02"
     , _svcEndpoint = defaultEndpoint kinesis
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

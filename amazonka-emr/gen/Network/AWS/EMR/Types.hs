@@ -352,7 +352,7 @@ eMR =
     , _svcVersion = "2009-03-31"
     , _svcEndpoint = defaultEndpoint eMR
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

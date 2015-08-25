@@ -256,7 +256,7 @@ eCS =
     , _svcVersion = "2014-11-13"
     , _svcEndpoint = defaultEndpoint eCS
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

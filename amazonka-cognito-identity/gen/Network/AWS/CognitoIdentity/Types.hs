@@ -85,7 +85,7 @@ cognitoIdentity =
     , _svcVersion = "2014-06-30"
     , _svcEndpoint = defaultEndpoint cognitoIdentity
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

@@ -86,7 +86,7 @@ cloudTrail =
     , _svcVersion = "2013-11-01"
     , _svcEndpoint = defaultEndpoint cloudTrail
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

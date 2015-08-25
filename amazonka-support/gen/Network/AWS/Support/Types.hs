@@ -168,7 +168,7 @@ support =
     , _svcVersion = "2013-04-15"
     , _svcEndpoint = defaultEndpoint support
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

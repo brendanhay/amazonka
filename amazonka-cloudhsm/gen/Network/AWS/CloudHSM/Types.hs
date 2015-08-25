@@ -48,7 +48,7 @@ cloudHSM =
     , _svcVersion = "2014-05-30"
     , _svcEndpoint = defaultEndpoint cloudHSM
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

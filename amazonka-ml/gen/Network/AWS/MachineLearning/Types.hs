@@ -234,7 +234,7 @@ machineLearning =
     , _svcVersion = "2014-12-12"
     , _svcEndpoint = defaultEndpoint machineLearning
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

@@ -305,7 +305,7 @@ codeDeploy =
     , _svcVersion = "2014-10-06"
     , _svcEndpoint = defaultEndpoint codeDeploy
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

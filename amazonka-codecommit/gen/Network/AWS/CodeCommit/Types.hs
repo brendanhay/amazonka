@@ -88,7 +88,7 @@ codeCommit =
     , _svcVersion = "2015-04-13"
     , _svcEndpoint = defaultEndpoint codeCommit
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

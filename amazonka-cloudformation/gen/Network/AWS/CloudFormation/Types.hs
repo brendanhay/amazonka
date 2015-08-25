@@ -175,7 +175,7 @@ cloudFormation =
     , _svcVersion = "2010-05-15"
     , _svcEndpoint = defaultEndpoint cloudFormation
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

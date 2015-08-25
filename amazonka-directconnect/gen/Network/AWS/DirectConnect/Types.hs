@@ -151,7 +151,7 @@ directConnect =
     , _svcVersion = "2012-10-25"
     , _svcEndpoint = defaultEndpoint directConnect
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

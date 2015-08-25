@@ -95,7 +95,7 @@ lambda =
     , _svcVersion = "2015-03-31"
     , _svcEndpoint = defaultEndpoint lambda
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

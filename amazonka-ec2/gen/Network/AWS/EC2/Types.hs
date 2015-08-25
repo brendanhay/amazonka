@@ -1670,7 +1670,7 @@ eC2 =
     , _svcVersion = "2015-04-15"
     , _svcEndpoint = defaultEndpoint eC2
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

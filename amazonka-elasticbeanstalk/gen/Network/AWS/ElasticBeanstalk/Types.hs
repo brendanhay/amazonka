@@ -362,7 +362,7 @@ elasticBeanstalk =
     , _svcVersion = "2010-12-01"
     , _svcEndpoint = defaultEndpoint elasticBeanstalk
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

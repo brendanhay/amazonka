@@ -109,7 +109,7 @@ route53Domains =
     , _svcVersion = "2014-05-15"
     , _svcEndpoint = defaultEndpoint route53Domains
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

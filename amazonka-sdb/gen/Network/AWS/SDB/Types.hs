@@ -91,7 +91,7 @@ sDB =
     , _svcVersion = "2009-04-15"
     , _svcEndpoint = defaultEndpoint sDB
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

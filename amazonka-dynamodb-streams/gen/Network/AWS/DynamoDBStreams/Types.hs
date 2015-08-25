@@ -126,7 +126,7 @@ dynamoDBStreams =
     , _svcVersion = "2012-08-10"
     , _svcEndpoint = defaultEndpoint dynamoDBStreams
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

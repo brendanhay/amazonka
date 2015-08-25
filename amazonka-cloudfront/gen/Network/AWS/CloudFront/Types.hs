@@ -459,7 +459,7 @@ cloudFront =
     , _svcVersion = "2015-04-17"
     , _svcEndpoint = defaultEndpoint cloudFront
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

@@ -140,7 +140,7 @@ dataPipeline =
     , _svcVersion = "2012-10-29"
     , _svcEndpoint = defaultEndpoint dataPipeline
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

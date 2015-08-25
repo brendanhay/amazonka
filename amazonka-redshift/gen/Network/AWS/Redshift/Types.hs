@@ -485,7 +485,7 @@ redshift =
     , _svcVersion = "2012-12-01"
     , _svcEndpoint = defaultEndpoint redshift
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

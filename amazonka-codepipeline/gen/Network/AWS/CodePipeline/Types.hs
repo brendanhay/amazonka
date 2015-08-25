@@ -346,7 +346,7 @@ codePipeline =
     , _svcVersion = "2015-07-09"
     , _svcEndpoint = defaultEndpoint codePipeline
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

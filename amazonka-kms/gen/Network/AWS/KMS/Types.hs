@@ -97,7 +97,7 @@ kMS =
     , _svcVersion = "2014-11-01"
     , _svcEndpoint = defaultEndpoint kMS
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseJSONError
     , _svcRetry = retry
     }

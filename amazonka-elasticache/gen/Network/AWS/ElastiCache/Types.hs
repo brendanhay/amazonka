@@ -381,7 +381,7 @@ elastiCache =
     , _svcVersion = "2015-02-02"
     , _svcEndpoint = defaultEndpoint elastiCache
     , _svcTimeout = Just 70
-    , _svcStatus = statusSuccess
+    , _svcCheck = statusSuccess
     , _svcError = parseXMLError
     , _svcRetry = retry
     }

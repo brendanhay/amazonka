@@ -38,7 +38,7 @@ instance Arbitrary Service where
         , _svcVersion  = "2012-01-01"
         , _svcEndpoint = defaultEndpoint (svc a)
         , _svcTimeout  = Nothing
-        , _svcStatus   = const False
+        , _svcCheck    = const False
         , _svcError    = error "_svcError not defined."
         , _svcRetry    = error "_svcRetry not defined."
         }

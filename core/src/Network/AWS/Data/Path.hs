@@ -1,11 +1,11 @@
 {-# LANGUAGE DataKinds          #-}
-{-# LANGUAGE DefaultSignatures  #-}
 {-# LANGUAGE FlexibleInstances  #-}
 {-# LANGUAGE GADTs              #-}
 {-# LANGUAGE KindSignatures     #-}
 {-# LANGUAGE LambdaCase         #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE ViewPatterns       #-}
 
 -- |
 -- Module      : Network.AWS.Data.Path
@@ -30,6 +30,7 @@ module Network.AWS.Data.Path
     , collapsePath
     ) where
 
+import qualified Data.ByteString             as BS
 import qualified Data.ByteString.Char8       as BS8
 import           Data.Monoid
 import           Network.AWS.Data.ByteString
@@ -48,14 +49,16 @@ instance ToPath Text where
     toPath = toBS
 
 rawPath :: ToPath a => a -> Path 'NoEncoding
-rawPath = Raw . filter (not . BS8.null) . BS8.split sep . toPath
+rawPath (toPath -> x) = Raw (filter (not . BS8.null) (BS8.split sep x)) trail
+  where
+    trail = not (BS.null x || BS8.last x /= sep)
 
 data Encoding = NoEncoding | Percent
     deriving (Eq, Show)
 
 data Path :: Encoding -> * where
-    Raw     :: [ByteString] -> Path 'NoEncoding
-    Encoded :: [ByteString] -> Path 'Percent
+    Raw     :: [ByteString] -> Bool -> Path 'NoEncoding
+    Encoded :: [ByteString] -> Bool -> Path 'Percent
 
 deriving instance Show (Path a)
 deriving instance Eq   (Path a)
@@ -64,21 +67,24 @@ type RawPath     = Path 'NoEncoding
 type EscapedPath = Path 'Percent
 
 instance Monoid RawPath where
-    mempty                    = Raw []
-    mappend (Raw xs) (Raw ys) = Raw (xs ++ ys)
+    mempty                        = Raw [] False
+    mappend (Raw xs _) (Raw ys t) = Raw (xs ++ ys) t
 
 instance ToByteString EscapedPath where
-    toBS (Encoded []) = slash
-    toBS (Encoded xs) = slash <> BS8.intercalate slash xs
+    toBS (Encoded [] _) = slash
+    toBS (Encoded xs t) = trail (slash <> BS8.intercalate slash xs)
+      where
+        trail | t         = flip BS8.snoc sep
+              | otherwise = id
 
 escapePath :: Path a -> EscapedPath
-escapePath (Raw     xs) = Encoded (map (urlEncode True) xs)
-escapePath (Encoded xs) = Encoded xs
+escapePath (Raw     xs t) = Encoded (map (urlEncode True) xs) t
+escapePath (Encoded xs t) = Encoded xs t
 
 collapsePath :: Path a -> Path a
 collapsePath = \case
-    Raw     xs -> Raw     (go xs)
-    Encoded xs -> Encoded (go xs)
+    Raw     xs t -> Raw     (go xs) t
+    Encoded xs t -> Encoded (go xs) t
   where
     go = reverse . f . reverse
 

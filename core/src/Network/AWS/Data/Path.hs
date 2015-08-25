@@ -72,7 +72,10 @@ instance Monoid RawPath where
 
 instance ToByteString EscapedPath where
     toBS (Encoded [] _) = slash
-    toBS (Encoded xs t) = slash <> BS8.intercalate slash (xs <> [slash | t])
+    toBS (Encoded xs t) = trail (slash <> BS8.intercalate slash xs)
+      where
+        trail | t         = flip BS8.snoc sep
+              | otherwise = id
 
 escapePath :: Path a -> EscapedPath
 escapePath (Raw     xs t) = Encoded (map (urlEncode True) xs) t

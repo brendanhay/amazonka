@@ -92,7 +92,8 @@ module Network.AWS.Types
     , serviceMessage
     , serviceRequestId
     -- ** Error Types
-    , ErrorCode      (..)
+    , ErrorCode
+    , errorCode
     , ErrorMessage   (..)
     , RequestId      (..)
 
@@ -135,15 +136,18 @@ import           Data.Conduit
 import           Data.Data                    (Data, Typeable)
 import           Data.Hashable
 import           Data.IORef
+import           Data.Maybe
 import           Data.Monoid
 import           Data.Proxy
 import           Data.String
+import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           GHC.Generics                 (Generic)
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.Log
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.JSON
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
@@ -171,7 +175,30 @@ newtype Abbrev = Abbrev Text
     deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToLog)
 
 newtype ErrorCode = ErrorCode Text
-    deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToLog)
+    deriving (Eq, Ord, Show, ToText, ToLog)
+
+instance IsString ErrorCode where fromString = errorCode . fromString
+instance FromJSON ErrorCode where parseJSON  = parseJSONText "ErrorCode"
+instance FromXML  ErrorCode where parseXML   = parseXMLText  "ErrorCode"
+
+instance FromText ErrorCode where
+    parser = errorCode <$> parser
+
+-- | Construct an 'ErrorCode'.
+errorCode :: Text -> ErrorCode
+errorCode = ErrorCode . strip . unnamespace
+  where
+    -- Common suffixes are stripped since the service definitions are ambigiuous
+    -- as to whether the error shape's name, or the error code is present
+    -- in the response.
+    strip x = fromMaybe x $
+        Text.stripSuffix "Exception" x <|> Text.stripSuffix "Fault" x
+
+    -- Removing the (potential) leading ...# namespace.
+    unnamespace x =
+        case Text.break (== '#') x of
+            (ns, e) | Text.null e -> ns
+                    | otherwise   -> Text.drop 1 e
 
 newtype ErrorMessage = ErrorMessage Text
     deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToLog)

@@ -20,10 +20,9 @@ import           Data.Aeson.Types            (parseEither)
 import qualified Data.ByteString.Lazy        as LBS
 import           Data.Maybe
 import           Data.Monoid
-import qualified Data.Text                   as Text
-import qualified Data.Text.Encoding          as Text
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Headers
+import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
 import           Network.AWS.Types
 import           Network.HTTP.Client
@@ -71,10 +70,9 @@ getRequestId h =
 
 getErrorCode :: Status -> [Header] -> ErrorCode
 getErrorCode s h =
-    fromMaybe (ErrorCode . Text.decodeUtf8 $ statusMessage s) $
-        case h .# hAMZNErrorType of
-            Left  _ -> Nothing
-            Right t -> fmap ErrorCode . lastOf traverse $ Text.split (== '#') t
+    case h .# hAMZNErrorType of
+        Left  _ -> errorCode (toText (statusMessage s))
+        Right x -> errorCode x
 
 parseJSONError :: Abbrev
                -> Status
@@ -86,15 +84,9 @@ parseJSONError a s h bs = decodeError a s h bs (parse bs)
     parse = eitherDecode' >=> parseEither (withObject "JSONError" go)
 
     go o = do
-        c <- (Just <$> o .: "__type") <|> o .:? "code"
-        let e = strip <$> c
+        e <- (Just <$> o .: "__type") <|> o .:? "code"
         m <- msg e o
         return $! serviceError a s h e m Nothing
-
-    strip (ErrorCode x) = ErrorCode $
-        case Text.break (== '#') x of
-            (ns, e) | Text.null e -> ns
-                    | otherwise   -> Text.drop 1 e
 
     msg c o =
         if c == Just "RequestEntityTooLarge"
@@ -117,7 +109,7 @@ parseXMLError a s h bs = decodeError a s h bs (decodeXML bs >>= go)
     code x = Just <$> (firstElement "Code" x >>= parseXML)
          <|> return root
 
-    root = ErrorCode <$> rootElementName bs
+    root = errorCode <$> rootElementName bs
 
     may (Left  _) = pure Nothing
     may (Right x) = Just <$> parseXML x

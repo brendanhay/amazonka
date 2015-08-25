@@ -370,6 +370,7 @@ svcRetry = lens _svcRetry (\s a -> s { _svcRetry = a })
 clientRequest :: Endpoint -> Maybe Seconds -> ClientRequest
 clientRequest e t = def
     { Client.secure          = _endpointSecure e
+    , Client.host            = _endpointHost   e
     , Client.port            = _endpointPort   e
     , Client.redirectCount   = 0
     , Client.checkStatus     = \_ _ _ -> Nothing

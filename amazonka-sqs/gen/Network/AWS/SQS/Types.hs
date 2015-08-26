@@ -33,6 +33,9 @@ module Network.AWS.SQS.Types
     , _MessageNotInflight
     , _BatchEntryIdsNotDistinct
 
+    -- * MessageAttribute
+    , MessageAttribute (..)
+
     -- * QueueAttributeName
     , QueueAttributeName (..)
 

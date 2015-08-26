@@ -157,6 +157,9 @@ module Network.AWS.SQS
 
     -- * Types
 
+    -- ** MessageAttribute
+    , MessageAttribute (..)
+
     -- ** QueueAttributeName
     , QueueAttributeName (..)
 

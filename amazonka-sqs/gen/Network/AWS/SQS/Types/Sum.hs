@@ -19,6 +19,37 @@ module Network.AWS.SQS.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data MessageAttribute
+    = All
+    | ApproximateFirstReceiveTimestamp
+    | ApproximateReceiveCount
+    | SenderId
+    | SentTimestamp
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText MessageAttribute where
+    parser = takeLowerText >>= \case
+        "all" -> pure All
+        "approximatefirstreceivetimestamp" -> pure ApproximateFirstReceiveTimestamp
+        "approximatereceivecount" -> pure ApproximateReceiveCount
+        "senderid" -> pure SenderId
+        "senttimestamp" -> pure SentTimestamp
+        e -> fromTextError $ "Failure parsing MessageAttribute from value: '" <> e
+           <> "'. Accepted values: All, ApproximateFirstReceiveTimestamp, ApproximateReceiveCount, SenderId, SentTimestamp"
+
+instance ToText MessageAttribute where
+    toText = \case
+        All -> "All"
+        ApproximateFirstReceiveTimestamp -> "ApproximateFirstReceiveTimestamp"
+        ApproximateReceiveCount -> "ApproximateReceiveCount"
+        SenderId -> "SenderId"
+        SentTimestamp -> "SentTimestamp"
+
+instance Hashable     MessageAttribute
+instance ToByteString MessageAttribute
+instance ToQuery      MessageAttribute
+instance ToHeader     MessageAttribute
+
 data QueueAttributeName
     = ApproximateNumberOfMessages
     | ApproximateNumberOfMessagesDelayed

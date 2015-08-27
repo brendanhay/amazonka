@@ -1,5 +1,32 @@
 {
     "metadata": {
         "serviceAbbreviation": "SQS"
+    },
+    "shapes": {
+        "MessageAttributeList": {
+            "type": "list",
+            "member": {
+                "shape": "MessageAttribute",
+                "locationName": "AttributeName"
+            },
+            "flattened": true
+        },
+        "ReceiveMessageRequest": {
+            "members": {
+                "AttributeNames": {
+                    "shape": "MessageAttributeList"
+                }
+            }
+        },
+        "MessageAttribute": {
+            "type": "string",
+            "enum": [
+                "All",
+                "ApproximateFirstReceiveTimestamp",
+                "ApproximateReceiveCount",
+                "SenderId",
+                "SentTimestamp"
+            ]
+        }
     }
 }

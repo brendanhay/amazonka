@@ -97,7 +97,7 @@ data ReceiveMessage = ReceiveMessage'
     { _rmVisibilityTimeout     :: !(Maybe Int)
     , _rmMessageAttributeNames :: !(Maybe [Text])
     , _rmWaitTimeSeconds       :: !(Maybe Int)
-    , _rmAttributeNames        :: !(Maybe [QueueAttributeName])
+    , _rmAttributeNames        :: !(Maybe [MessageAttribute])
     , _rmMaxNumberOfMessages   :: !(Maybe Int)
     , _rmQueueURL              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -173,7 +173,7 @@ rmWaitTimeSeconds = lens _rmWaitTimeSeconds (\ s a -> s{_rmWaitTimeSeconds = a})
 --     anonymous access is allowed) of the sender.
 -- -   'SentTimestamp' - returns the time when the message was sent to the
 --     queue (epoch time in milliseconds).
-rmAttributeNames :: Lens' ReceiveMessage [QueueAttributeName]
+rmAttributeNames :: Lens' ReceiveMessage [MessageAttribute]
 rmAttributeNames = lens _rmAttributeNames (\ s a -> s{_rmAttributeNames = a}) . _Default . _Coerce;
 
 -- | The maximum number of messages to return. Amazon SQS never returns more

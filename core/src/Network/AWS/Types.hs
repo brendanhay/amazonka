@@ -344,6 +344,23 @@ data LogLevel
     | Trace -- ^ Includes potentially sensitive signing metadata, and non-streaming response bodies.
       deriving (Eq, Ord, Enum, Show, Data, Typeable)
 
+instance FromText LogLevel where
+    parser = takeLowerText >>= \case
+        "info"  -> pure Info
+        "error" -> pure Error
+        "debug" -> pure Debug
+        "trace" -> pure Trace
+        e       -> fromTextError $ "Failure parsing LogLevel from " <> e
+
+instance ToText LogLevel where
+    toText = \case
+        Info  -> "info"
+        Error -> "error"
+        Debug -> "debug"
+        Trace -> "trace"
+
+instance ToByteString LogLevel
+
 -- | A function threaded through various request and serialisation routines
 -- to log informational and debug messages.
 type Logger = LogLevel -> Builder -> IO ()
@@ -571,8 +588,7 @@ instance FromText Region where
         "us-gov-west-1"      -> pure GovCloud
         "fips-us-gov-west-1" -> pure GovCloudFIPS
         "sa-east-1"          -> pure SaoPaulo
-        e                    -> fail $
-            "Failure parsing Region from " ++ show e
+        e                    -> fromTextError $ "Failure parsing Region from " <> e
 
 instance ToText Region where
     toText = \case

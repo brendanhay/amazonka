@@ -1,5 +1,5 @@
 name:                  amazonka-sns
-version:               1.1.0
+version:               1.2.0
 synopsis:              Amazon Simple Notification Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -91,7 +91,7 @@ library
         , Network.AWS.SNS.Types.Sum
 
     build-depends:
-          amazonka-core == 1.1.0.*
+          amazonka-core == 1.2.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-sns-test
@@ -110,9 +110,9 @@ test-suite amazonka-sns-test
         , Test.AWS.SNS.Internal
 
     build-depends:
-          amazonka-core == 1.1.0
-        , amazonka-test == 1.1.0
-        , amazonka-sns == 1.1.0
+          amazonka-core == 1.2.0
+        , amazonka-test == 1.2.0
+        , amazonka-sns == 1.2.0
         , base
         , bytestring
         , lens

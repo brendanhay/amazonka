@@ -1,5 +1,5 @@
 name:                  amazonka-sdb
-version:               1.1.0
+version:               1.2.0
 synopsis:              Amazon SimpleDB SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -75,7 +75,7 @@ library
         , Network.AWS.SDB.Types.Sum
 
     build-depends:
-          amazonka-core == 1.1.0.*
+          amazonka-core == 1.2.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-sdb-test
@@ -94,9 +94,9 @@ test-suite amazonka-sdb-test
         , Test.AWS.SDB.Internal
 
     build-depends:
-          amazonka-core == 1.1.0
-        , amazonka-test == 1.1.0
-        , amazonka-sdb == 1.1.0
+          amazonka-core == 1.2.0
+        , amazonka-test == 1.2.0
+        , amazonka-sdb == 1.2.0
         , base
         , bytestring
         , lens

@@ -1,5 +1,5 @@
 name:                  amazonka-datapipeline
-version:               1.1.0
+version:               1.2.0
 synopsis:              Amazon Data Pipeline SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -90,7 +90,7 @@ library
         , Network.AWS.DataPipeline.Types.Sum
 
     build-depends:
-          amazonka-core == 1.1.0.*
+          amazonka-core == 1.2.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-datapipeline-test
@@ -109,9 +109,9 @@ test-suite amazonka-datapipeline-test
         , Test.AWS.DataPipeline.Internal
 
     build-depends:
-          amazonka-core == 1.1.0
-        , amazonka-test == 1.1.0
-        , amazonka-datapipeline == 1.1.0
+          amazonka-core == 1.2.0
+        , amazonka-test == 1.2.0
+        , amazonka-datapipeline == 1.2.0
         , base
         , bytestring
         , lens

@@ -1,5 +1,5 @@
 name:                  amazonka-lambda
-version:               1.1.0
+version:               1.2.0
 synopsis:              Amazon Lambda SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -74,7 +74,7 @@ library
         , Network.AWS.Lambda.Types.Sum
 
     build-depends:
-          amazonka-core == 1.1.0.*
+          amazonka-core == 1.2.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-lambda-test
@@ -93,9 +93,9 @@ test-suite amazonka-lambda-test
         , Test.AWS.Lambda.Internal
 
     build-depends:
-          amazonka-core == 1.1.0
-        , amazonka-test == 1.1.0
-        , amazonka-lambda == 1.1.0
+          amazonka-core == 1.2.0
+        , amazonka-test == 1.2.0
+        , amazonka-lambda == 1.2.0
         , base
         , bytestring
         , lens

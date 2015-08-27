@@ -78,9 +78,8 @@ clcCertificate :: Lens' CreateLunaClient Text
 clcCertificate = lens _clcCertificate (\ s a -> s{_clcCertificate = a});
 
 instance AWSRequest CreateLunaClient where
-        type Sv CreateLunaClient = CloudHSM
         type Rs CreateLunaClient = CreateLunaClientResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->
@@ -100,8 +99,9 @@ instance ToHeaders CreateLunaClient where
 instance ToJSON CreateLunaClient where
         toJSON CreateLunaClient'{..}
           = object
-              ["Label" .= _clcLabel,
-               "Certificate" .= _clcCertificate]
+              (catMaybes
+                 [("Label" .=) <$> _clcLabel,
+                  Just ("Certificate" .= _clcCertificate)])
 
 instance ToPath CreateLunaClient where
         toPath = const "/"

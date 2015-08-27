@@ -63,9 +63,8 @@ dbcBucket :: Lens' DeleteBucketCORS BucketName
 dbcBucket = lens _dbcBucket (\ s a -> s{_dbcBucket = a});
 
 instance AWSRequest DeleteBucketCORS where
-        type Sv DeleteBucketCORS = S3
         type Rs DeleteBucketCORS = DeleteBucketCORSResponse
-        request = delete
+        request = delete s3
         response = receiveNull DeleteBucketCORSResponse'
 
 instance ToHeaders DeleteBucketCORS where

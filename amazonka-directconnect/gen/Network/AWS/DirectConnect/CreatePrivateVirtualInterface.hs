@@ -97,10 +97,9 @@ creNewPrivateVirtualInterface = lens _creNewPrivateVirtualInterface (\ s a -> s{
 
 instance AWSRequest CreatePrivateVirtualInterface
          where
-        type Sv CreatePrivateVirtualInterface = DirectConnect
         type Rs CreatePrivateVirtualInterface =
              VirtualInterface
-        request = postJSON
+        request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreatePrivateVirtualInterface
@@ -117,9 +116,11 @@ instance ToHeaders CreatePrivateVirtualInterface
 instance ToJSON CreatePrivateVirtualInterface where
         toJSON CreatePrivateVirtualInterface'{..}
           = object
-              ["connectionId" .= _creConnectionId,
-               "newPrivateVirtualInterface" .=
-                 _creNewPrivateVirtualInterface]
+              (catMaybes
+                 [Just ("connectionId" .= _creConnectionId),
+                  Just
+                    ("newPrivateVirtualInterface" .=
+                       _creNewPrivateVirtualInterface)])
 
 instance ToPath CreatePrivateVirtualInterface where
         toPath = const "/"

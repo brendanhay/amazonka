@@ -2,7 +2,6 @@
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -108,7 +107,7 @@ instance FromJSON DataRetrievalPolicy where
 
 instance ToJSON DataRetrievalPolicy where
         toJSON DataRetrievalPolicy'{..}
-          = object ["Rules" .= _drpRules]
+          = object (catMaybes [("Rules" .=) <$> _drpRules])
 
 -- | Data retrieval policy rule.
 --
@@ -157,8 +156,9 @@ instance FromJSON DataRetrievalRule where
 instance ToJSON DataRetrievalRule where
         toJSON DataRetrievalRule'{..}
           = object
-              ["Strategy" .= _drrStrategy,
-               "BytesPerHour" .= _drrBytesPerHour]
+              (catMaybes
+                 [("Strategy" .=) <$> _drrStrategy,
+                  ("BytesPerHour" .=) <$> _drrBytesPerHour])
 
 -- | Contains the Amazon Glacier response to your request.
 --
@@ -586,9 +586,11 @@ irjiLimit = lens _irjiLimit (\ s a -> s{_irjiLimit = a});
 instance ToJSON InventoryRetrievalJobInput where
         toJSON InventoryRetrievalJobInput'{..}
           = object
-              ["EndDate" .= _irjiEndDate,
-               "StartDate" .= _irjiStartDate,
-               "Marker" .= _irjiMarker, "Limit" .= _irjiLimit]
+              (catMaybes
+                 [("EndDate" .=) <$> _irjiEndDate,
+                  ("StartDate" .=) <$> _irjiStartDate,
+                  ("Marker" .=) <$> _irjiMarker,
+                  ("Limit" .=) <$> _irjiLimit])
 
 -- | Provides options for defining a job.
 --
@@ -687,13 +689,15 @@ jpDescription = lens _jpDescription (\ s a -> s{_jpDescription = a});
 instance ToJSON JobParameters where
         toJSON JobParameters'{..}
           = object
-              ["ArchiveId" .= _jpArchiveId,
-               "RetrievalByteRange" .= _jpRetrievalByteRange,
-               "Format" .= _jpFormat,
-               "InventoryRetrievalParameters" .=
-                 _jpInventoryRetrievalParameters,
-               "SNSTopic" .= _jpSNSTopic, "Type" .= _jpType,
-               "Description" .= _jpDescription]
+              (catMaybes
+                 [("ArchiveId" .=) <$> _jpArchiveId,
+                  ("RetrievalByteRange" .=) <$> _jpRetrievalByteRange,
+                  ("Format" .=) <$> _jpFormat,
+                  ("InventoryRetrievalParameters" .=) <$>
+                    _jpInventoryRetrievalParameters,
+                  ("SNSTopic" .=) <$> _jpSNSTopic,
+                  ("Type" .=) <$> _jpType,
+                  ("Description" .=) <$> _jpDescription])
 
 -- | A list of the part sizes of the multipart upload.
 --
@@ -833,7 +837,7 @@ instance FromJSON VaultAccessPolicy where
 
 instance ToJSON VaultAccessPolicy where
         toJSON VaultAccessPolicy'{..}
-          = object ["Policy" .= _vapPolicy]
+          = object (catMaybes [("Policy" .=) <$> _vapPolicy])
 
 -- | Contains the vault lock policy.
 --
@@ -860,7 +864,7 @@ vlpPolicy = lens _vlpPolicy (\ s a -> s{_vlpPolicy = a});
 
 instance ToJSON VaultLockPolicy where
         toJSON VaultLockPolicy'{..}
-          = object ["Policy" .= _vlpPolicy]
+          = object (catMaybes [("Policy" .=) <$> _vlpPolicy])
 
 -- | Represents a vault\'s notification configuration.
 --
@@ -905,4 +909,6 @@ instance FromJSON VaultNotificationConfig where
 instance ToJSON VaultNotificationConfig where
         toJSON VaultNotificationConfig'{..}
           = object
-              ["SNSTopic" .= _vncSNSTopic, "Events" .= _vncEvents]
+              (catMaybes
+                 [("SNSTopic" .=) <$> _vncSNSTopic,
+                  ("Events" .=) <$> _vncEvents])

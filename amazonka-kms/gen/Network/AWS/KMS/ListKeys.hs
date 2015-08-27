@@ -82,9 +82,8 @@ lkLimit :: Lens' ListKeys (Maybe Natural)
 lkLimit = lens _lkLimit (\ s a -> s{_lkLimit = a}) . mapping _Nat;
 
 instance AWSRequest ListKeys where
-        type Sv ListKeys = KMS
         type Rs ListKeys = ListKeysResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->
@@ -104,7 +103,10 @@ instance ToHeaders ListKeys where
 
 instance ToJSON ListKeys where
         toJSON ListKeys'{..}
-          = object ["Marker" .= _lkMarker, "Limit" .= _lkLimit]
+          = object
+              (catMaybes
+                 [("Marker" .=) <$> _lkMarker,
+                  ("Limit" .=) <$> _lkLimit])
 
 instance ToPath ListKeys where
         toPath = const "/"

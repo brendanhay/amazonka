@@ -75,9 +75,8 @@ dsService :: Lens' DeleteService Text
 dsService = lens _dsService (\ s a -> s{_dsService = a});
 
 instance AWSRequest DeleteService where
-        type Sv DeleteService = ECS
         type Rs DeleteService = DeleteServiceResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -97,7 +96,9 @@ instance ToHeaders DeleteService where
 instance ToJSON DeleteService where
         toJSON DeleteService'{..}
           = object
-              ["cluster" .= _dsCluster, "service" .= _dsService]
+              (catMaybes
+                 [("cluster" .=) <$> _dsCluster,
+                  Just ("service" .= _dsService)])
 
 instance ToPath DeleteService where
         toPath = const "/"

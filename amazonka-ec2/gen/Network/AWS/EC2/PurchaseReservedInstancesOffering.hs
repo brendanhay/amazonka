@@ -114,10 +114,9 @@ prioInstanceCount = lens _prioInstanceCount (\ s a -> s{_prioInstanceCount = a})
 
 instance AWSRequest PurchaseReservedInstancesOffering
          where
-        type Sv PurchaseReservedInstancesOffering = EC2
         type Rs PurchaseReservedInstancesOffering =
              PurchaseReservedInstancesOfferingResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

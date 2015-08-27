@@ -78,10 +78,9 @@ dcsDeliveryChannelName :: Lens' DeliverConfigSnapshot Text
 dcsDeliveryChannelName = lens _dcsDeliveryChannelName (\ s a -> s{_dcsDeliveryChannelName = a});
 
 instance AWSRequest DeliverConfigSnapshot where
-        type Sv DeliverConfigSnapshot = Config
         type Rs DeliverConfigSnapshot =
              DeliverConfigSnapshotResponse
-        request = postJSON
+        request = postJSON config
         response
           = receiveJSON
               (\ s h x ->
@@ -101,7 +100,9 @@ instance ToHeaders DeliverConfigSnapshot where
 instance ToJSON DeliverConfigSnapshot where
         toJSON DeliverConfigSnapshot'{..}
           = object
-              ["deliveryChannelName" .= _dcsDeliveryChannelName]
+              (catMaybes
+                 [Just
+                    ("deliveryChannelName" .= _dcsDeliveryChannelName)])
 
 instance ToPath DeliverConfigSnapshot where
         toPath = const "/"

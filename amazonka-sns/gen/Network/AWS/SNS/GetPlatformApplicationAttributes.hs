@@ -72,10 +72,9 @@ gpaaPlatformApplicationARN = lens _gpaaPlatformApplicationARN (\ s a -> s{_gpaaP
 
 instance AWSRequest GetPlatformApplicationAttributes
          where
-        type Sv GetPlatformApplicationAttributes = SNS
         type Rs GetPlatformApplicationAttributes =
              GetPlatformApplicationAttributesResponse
-        request = postQuery
+        request = postQuery sNS
         response
           = receiveXMLWrapper
               "GetPlatformApplicationAttributesResult"

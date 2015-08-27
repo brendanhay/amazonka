@@ -79,10 +79,9 @@ dLoadBalancerNames :: Lens' DetachLoadBalancers [Text]
 dLoadBalancerNames = lens _dLoadBalancerNames (\ s a -> s{_dLoadBalancerNames = a}) . _Default . _Coerce;
 
 instance AWSRequest DetachLoadBalancers where
-        type Sv DetachLoadBalancers = AutoScaling
         type Rs DetachLoadBalancers =
              DetachLoadBalancersResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "DetachLoadBalancersResult"
               (\ s h x ->

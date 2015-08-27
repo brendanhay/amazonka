@@ -79,9 +79,8 @@ csDirectoryId :: Lens' CreateSnapshot Text
 csDirectoryId = lens _csDirectoryId (\ s a -> s{_csDirectoryId = a});
 
 instance AWSRequest CreateSnapshot where
-        type Sv CreateSnapshot = DirectoryService
         type Rs CreateSnapshot = CreateSnapshotResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveJSON
               (\ s h x ->
@@ -101,7 +100,9 @@ instance ToHeaders CreateSnapshot where
 instance ToJSON CreateSnapshot where
         toJSON CreateSnapshot'{..}
           = object
-              ["Name" .= _csName, "DirectoryId" .= _csDirectoryId]
+              (catMaybes
+                 [("Name" .=) <$> _csName,
+                  Just ("DirectoryId" .= _csDirectoryId)])
 
 instance ToPath CreateSnapshot where
         toPath = const "/"

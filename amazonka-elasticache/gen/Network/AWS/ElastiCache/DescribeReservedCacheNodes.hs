@@ -193,10 +193,9 @@ instance AWSPager DescribeReservedCacheNodes where
             Just $ rq & drcnMarker .~ rs ^. drcnrsMarker
 
 instance AWSRequest DescribeReservedCacheNodes where
-        type Sv DescribeReservedCacheNodes = ElastiCache
         type Rs DescribeReservedCacheNodes =
              DescribeReservedCacheNodesResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper
               "DescribeReservedCacheNodesResult"

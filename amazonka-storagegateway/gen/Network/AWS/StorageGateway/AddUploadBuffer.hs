@@ -81,9 +81,8 @@ aubDiskIds :: Lens' AddUploadBuffer [Text]
 aubDiskIds = lens _aubDiskIds (\ s a -> s{_aubDiskIds = a}) . _Coerce;
 
 instance AWSRequest AddUploadBuffer where
-        type Sv AddUploadBuffer = StorageGateway
         type Rs AddUploadBuffer = AddUploadBufferResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -103,8 +102,9 @@ instance ToHeaders AddUploadBuffer where
 instance ToJSON AddUploadBuffer where
         toJSON AddUploadBuffer'{..}
           = object
-              ["GatewayARN" .= _aubGatewayARN,
-               "DiskIds" .= _aubDiskIds]
+              (catMaybes
+                 [Just ("GatewayARN" .= _aubGatewayARN),
+                  Just ("DiskIds" .= _aubDiskIds)])
 
 instance ToPath AddUploadBuffer where
         toPath = const "/"

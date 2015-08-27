@@ -16,8 +16,8 @@
 -- /See:/ <http://docs.aws.amazon.com/machine-learning/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.MachineLearning
     (
-    -- * Service
-      MachineLearning
+    -- * Service Configuration
+      machineLearning
 
     -- * Errors
     -- $errors

@@ -113,10 +113,9 @@ instance AWSPager DescribeSubscriptionFilters where
             Just $ rq & dsfNextToken .~ rs ^. dsfrsNextToken
 
 instance AWSRequest DescribeSubscriptionFilters where
-        type Sv DescribeSubscriptionFilters = CloudWatchLogs
         type Rs DescribeSubscriptionFilters =
              DescribeSubscriptionFiltersResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response
           = receiveJSON
               (\ s h x ->
@@ -138,9 +137,11 @@ instance ToHeaders DescribeSubscriptionFilters where
 instance ToJSON DescribeSubscriptionFilters where
         toJSON DescribeSubscriptionFilters'{..}
           = object
-              ["filterNamePrefix" .= _dsfFilterNamePrefix,
-               "nextToken" .= _dsfNextToken, "limit" .= _dsfLimit,
-               "logGroupName" .= _dsfLogGroupName]
+              (catMaybes
+                 [("filterNamePrefix" .=) <$> _dsfFilterNamePrefix,
+                  ("nextToken" .=) <$> _dsfNextToken,
+                  ("limit" .=) <$> _dsfLimit,
+                  Just ("logGroupName" .= _dsfLogGroupName)])
 
 instance ToPath DescribeSubscriptionFilters where
         toPath = const "/"

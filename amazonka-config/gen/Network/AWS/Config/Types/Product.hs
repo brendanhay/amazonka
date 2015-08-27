@@ -2,7 +2,6 @@
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -377,9 +376,10 @@ instance FromJSON ConfigurationRecorder where
 instance ToJSON ConfigurationRecorder where
         toJSON ConfigurationRecorder'{..}
           = object
-              ["name" .= _crName,
-               "recordingGroup" .= _crRecordingGroup,
-               "roleARN" .= _crRoleARN]
+              (catMaybes
+                 [("name" .=) <$> _crName,
+                  ("recordingGroup" .=) <$> _crRecordingGroup,
+                  ("roleARN" .=) <$> _crRoleARN])
 
 -- | The current status of the configuration recorder.
 --
@@ -537,9 +537,11 @@ instance FromJSON DeliveryChannel where
 instance ToJSON DeliveryChannel where
         toJSON DeliveryChannel'{..}
           = object
-              ["s3KeyPrefix" .= _dcS3KeyPrefix,
-               "snsTopicARN" .= _dcSnsTopicARN, "name" .= _dcName,
-               "s3BucketName" .= _dcS3BucketName]
+              (catMaybes
+                 [("s3KeyPrefix" .=) <$> _dcS3KeyPrefix,
+                  ("snsTopicARN" .=) <$> _dcSnsTopicARN,
+                  ("name" .=) <$> _dcName,
+                  ("s3BucketName" .=) <$> _dcS3BucketName])
 
 -- | The status of a specified delivery channel.
 --
@@ -658,8 +660,9 @@ instance FromJSON RecordingGroup where
 instance ToJSON RecordingGroup where
         toJSON RecordingGroup'{..}
           = object
-              ["allSupported" .= _rgAllSupported,
-               "resourceTypes" .= _rgResourceTypes]
+              (catMaybes
+                 [("allSupported" .=) <$> _rgAllSupported,
+                  ("resourceTypes" .=) <$> _rgResourceTypes])
 
 -- | The relationship of the related resource to the main resource.
 --

@@ -69,9 +69,8 @@ dtaTapeARN :: Lens' DeleteTapeArchive Text
 dtaTapeARN = lens _dtaTapeARN (\ s a -> s{_dtaTapeARN = a});
 
 instance AWSRequest DeleteTapeArchive where
-        type Sv DeleteTapeArchive = StorageGateway
         type Rs DeleteTapeArchive = DeleteTapeArchiveResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -90,7 +89,8 @@ instance ToHeaders DeleteTapeArchive where
 
 instance ToJSON DeleteTapeArchive where
         toJSON DeleteTapeArchive'{..}
-          = object ["TapeARN" .= _dtaTapeARN]
+          = object
+              (catMaybes [Just ("TapeARN" .= _dtaTapeARN)])
 
 instance ToPath DeleteTapeArchive where
         toPath = const "/"

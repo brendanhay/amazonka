@@ -118,11 +118,9 @@ acsgiClusterSecurityGroupName = lens _acsgiClusterSecurityGroupName (\ s a -> s{
 
 instance AWSRequest
          AuthorizeClusterSecurityGroupIngress where
-        type Sv AuthorizeClusterSecurityGroupIngress =
-             Redshift
         type Rs AuthorizeClusterSecurityGroupIngress =
              AuthorizeClusterSecurityGroupIngressResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "AuthorizeClusterSecurityGroupIngressResult"

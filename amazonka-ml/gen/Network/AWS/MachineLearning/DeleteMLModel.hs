@@ -73,9 +73,8 @@ dmlmMLModelId :: Lens' DeleteMLModel Text
 dmlmMLModelId = lens _dmlmMLModelId (\ s a -> s{_dmlmMLModelId = a});
 
 instance AWSRequest DeleteMLModel where
-        type Sv DeleteMLModel = MachineLearning
         type Rs DeleteMLModel = DeleteMLModelResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -93,7 +92,8 @@ instance ToHeaders DeleteMLModel where
 
 instance ToJSON DeleteMLModel where
         toJSON DeleteMLModel'{..}
-          = object ["MLModelId" .= _dmlmMLModelId]
+          = object
+              (catMaybes [Just ("MLModelId" .= _dmlmMLModelId)])
 
 instance ToPath DeleteMLModel where
         toPath = const "/"

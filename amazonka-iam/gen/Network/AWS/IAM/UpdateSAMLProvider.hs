@@ -84,10 +84,9 @@ usamlpSAMLProviderARN :: Lens' UpdateSAMLProvider Text
 usamlpSAMLProviderARN = lens _usamlpSAMLProviderARN (\ s a -> s{_usamlpSAMLProviderARN = a});
 
 instance AWSRequest UpdateSAMLProvider where
-        type Sv UpdateSAMLProvider = IAM
         type Rs UpdateSAMLProvider =
              UpdateSAMLProviderResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "UpdateSAMLProviderResult"
               (\ s h x ->

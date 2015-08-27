@@ -119,10 +119,9 @@ uccInitiatorName :: Lens' UpdateChapCredentials Text
 uccInitiatorName = lens _uccInitiatorName (\ s a -> s{_uccInitiatorName = a});
 
 instance AWSRequest UpdateChapCredentials where
-        type Sv UpdateChapCredentials = StorageGateway
         type Rs UpdateChapCredentials =
              UpdateChapCredentialsResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -143,12 +142,14 @@ instance ToHeaders UpdateChapCredentials where
 instance ToJSON UpdateChapCredentials where
         toJSON UpdateChapCredentials'{..}
           = object
-              ["SecretToAuthenticateTarget" .=
-                 _uccSecretToAuthenticateTarget,
-               "TargetARN" .= _uccTargetARN,
-               "SecretToAuthenticateInitiator" .=
-                 _uccSecretToAuthenticateInitiator,
-               "InitiatorName" .= _uccInitiatorName]
+              (catMaybes
+                 [("SecretToAuthenticateTarget" .=) <$>
+                    _uccSecretToAuthenticateTarget,
+                  Just ("TargetARN" .= _uccTargetARN),
+                  Just
+                    ("SecretToAuthenticateInitiator" .=
+                       _uccSecretToAuthenticateInitiator),
+                  Just ("InitiatorName" .= _uccInitiatorName)])
 
 instance ToPath UpdateChapCredentials where
         toPath = const "/"

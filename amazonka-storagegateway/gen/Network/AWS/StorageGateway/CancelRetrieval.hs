@@ -81,9 +81,8 @@ crTapeARN :: Lens' CancelRetrieval Text
 crTapeARN = lens _crTapeARN (\ s a -> s{_crTapeARN = a});
 
 instance AWSRequest CancelRetrieval where
-        type Sv CancelRetrieval = StorageGateway
         type Rs CancelRetrieval = CancelRetrievalResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -103,8 +102,9 @@ instance ToHeaders CancelRetrieval where
 instance ToJSON CancelRetrieval where
         toJSON CancelRetrieval'{..}
           = object
-              ["GatewayARN" .= _crGatewayARN,
-               "TapeARN" .= _crTapeARN]
+              (catMaybes
+                 [Just ("GatewayARN" .= _crGatewayARN),
+                  Just ("TapeARN" .= _crTapeARN)])
 
 instance ToPath CancelRetrieval where
         toPath = const "/"

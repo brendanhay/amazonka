@@ -95,10 +95,9 @@ rtdContainerDefinitions :: Lens' RegisterTaskDefinition [ContainerDefinition]
 rtdContainerDefinitions = lens _rtdContainerDefinitions (\ s a -> s{_rtdContainerDefinitions = a}) . _Coerce;
 
 instance AWSRequest RegisterTaskDefinition where
-        type Sv RegisterTaskDefinition = ECS
         type Rs RegisterTaskDefinition =
              RegisterTaskDefinitionResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -118,8 +117,12 @@ instance ToHeaders RegisterTaskDefinition where
 instance ToJSON RegisterTaskDefinition where
         toJSON RegisterTaskDefinition'{..}
           = object
-              ["volumes" .= _rtdVolumes, "family" .= _rtdFamily,
-               "containerDefinitions" .= _rtdContainerDefinitions]
+              (catMaybes
+                 [("volumes" .=) <$> _rtdVolumes,
+                  Just ("family" .= _rtdFamily),
+                  Just
+                    ("containerDefinitions" .=
+                       _rtdContainerDefinitions)])
 
 instance ToPath RegisterTaskDefinition where
         toPath = const "/"

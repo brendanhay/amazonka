@@ -75,10 +75,9 @@ dtbasInstanceIds = lens _dtbasInstanceIds (\ s a -> s{_dtbasInstanceIds = a}) . 
 
 instance AWSRequest DescribeTimeBasedAutoScaling
          where
-        type Sv DescribeTimeBasedAutoScaling = OpsWorks
         type Rs DescribeTimeBasedAutoScaling =
              DescribeTimeBasedAutoScalingResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -99,7 +98,9 @@ instance ToHeaders DescribeTimeBasedAutoScaling where
 
 instance ToJSON DescribeTimeBasedAutoScaling where
         toJSON DescribeTimeBasedAutoScaling'{..}
-          = object ["InstanceIds" .= _dtbasInstanceIds]
+          = object
+              (catMaybes
+                 [Just ("InstanceIds" .= _dtbasInstanceIds)])
 
 instance ToPath DescribeTimeBasedAutoScaling where
         toPath = const "/"

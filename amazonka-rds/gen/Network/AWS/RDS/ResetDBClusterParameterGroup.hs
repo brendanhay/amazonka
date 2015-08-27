@@ -105,10 +105,9 @@ rdcpgDBClusterParameterGroupName = lens _rdcpgDBClusterParameterGroupName (\ s a
 
 instance AWSRequest ResetDBClusterParameterGroup
          where
-        type Sv ResetDBClusterParameterGroup = RDS
         type Rs ResetDBClusterParameterGroup =
              DBClusterParameterGroupNameMessage
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "ResetDBClusterParameterGroupResult"

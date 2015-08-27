@@ -90,10 +90,9 @@ instance AWSPager ListBootstrapActions where
             Just $ rq & lbaMarker .~ rs ^. lbarsMarker
 
 instance AWSRequest ListBootstrapActions where
-        type Sv ListBootstrapActions = EMR
         type Rs ListBootstrapActions =
              ListBootstrapActionsResponse
-        request = postJSON
+        request = postJSON eMR
         response
           = receiveJSON
               (\ s h x ->
@@ -115,8 +114,9 @@ instance ToHeaders ListBootstrapActions where
 instance ToJSON ListBootstrapActions where
         toJSON ListBootstrapActions'{..}
           = object
-              ["Marker" .= _lbaMarker,
-               "ClusterId" .= _lbaClusterId]
+              (catMaybes
+                 [("Marker" .=) <$> _lbaMarker,
+                  Just ("ClusterId" .= _lbaClusterId)])
 
 instance ToPath ListBootstrapActions where
         toPath = const "/"

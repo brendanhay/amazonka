@@ -106,10 +106,9 @@ riwlbInstances = lens _riwlbInstances (\ s a -> s{_riwlbInstances = a}) . _Coerc
 
 instance AWSRequest RegisterInstancesWithLoadBalancer
          where
-        type Sv RegisterInstancesWithLoadBalancer = ELB
         type Rs RegisterInstancesWithLoadBalancer =
              RegisterInstancesWithLoadBalancerResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper
               "RegisterInstancesWithLoadBalancerResult"

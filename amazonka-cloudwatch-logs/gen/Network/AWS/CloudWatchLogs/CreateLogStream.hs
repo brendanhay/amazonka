@@ -80,9 +80,8 @@ clsLogStreamName :: Lens' CreateLogStream Text
 clsLogStreamName = lens _clsLogStreamName (\ s a -> s{_clsLogStreamName = a});
 
 instance AWSRequest CreateLogStream where
-        type Sv CreateLogStream = CloudWatchLogs
         type Rs CreateLogStream = CreateLogStreamResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response = receiveNull CreateLogStreamResponse'
 
 instance ToHeaders CreateLogStream where
@@ -97,8 +96,9 @@ instance ToHeaders CreateLogStream where
 instance ToJSON CreateLogStream where
         toJSON CreateLogStream'{..}
           = object
-              ["logGroupName" .= _clsLogGroupName,
-               "logStreamName" .= _clsLogStreamName]
+              (catMaybes
+                 [Just ("logGroupName" .= _clsLogGroupName),
+                  Just ("logStreamName" .= _clsLogStreamName)])
 
 instance ToPath CreateLogStream where
         toPath = const "/"

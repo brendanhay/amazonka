@@ -61,8 +61,8 @@
 -- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.OpsWorks
     (
-    -- * Service
-      OpsWorks
+    -- * Service Configuration
+      opsWorks
 
     -- * Errors
     -- $errors

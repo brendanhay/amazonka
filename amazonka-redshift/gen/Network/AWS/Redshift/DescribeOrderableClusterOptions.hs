@@ -138,10 +138,9 @@ instance AWSPager DescribeOrderableClusterOptions
 
 instance AWSRequest DescribeOrderableClusterOptions
          where
-        type Sv DescribeOrderableClusterOptions = Redshift
         type Rs DescribeOrderableClusterOptions =
              DescribeOrderableClusterOptionsResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "DescribeOrderableClusterOptionsResult"

@@ -106,9 +106,8 @@ csSnapshotDescription :: Lens' CreateSnapshot Text
 csSnapshotDescription = lens _csSnapshotDescription (\ s a -> s{_csSnapshotDescription = a});
 
 instance AWSRequest CreateSnapshot where
-        type Sv CreateSnapshot = StorageGateway
         type Rs CreateSnapshot = CreateSnapshotResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -129,8 +128,10 @@ instance ToHeaders CreateSnapshot where
 instance ToJSON CreateSnapshot where
         toJSON CreateSnapshot'{..}
           = object
-              ["VolumeARN" .= _csVolumeARN,
-               "SnapshotDescription" .= _csSnapshotDescription]
+              (catMaybes
+                 [Just ("VolumeARN" .= _csVolumeARN),
+                  Just
+                    ("SnapshotDescription" .= _csSnapshotDescription)])
 
 instance ToPath CreateSnapshot where
         toPath = const "/"

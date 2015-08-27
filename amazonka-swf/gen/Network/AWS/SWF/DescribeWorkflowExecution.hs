@@ -102,10 +102,9 @@ dweExecution :: Lens' DescribeWorkflowExecution WorkflowExecution
 dweExecution = lens _dweExecution (\ s a -> s{_dweExecution = a});
 
 instance AWSRequest DescribeWorkflowExecution where
-        type Sv DescribeWorkflowExecution = SWF
         type Rs DescribeWorkflowExecution =
              DescribeWorkflowExecutionResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveJSON
               (\ s h x ->
@@ -130,8 +129,9 @@ instance ToHeaders DescribeWorkflowExecution where
 instance ToJSON DescribeWorkflowExecution where
         toJSON DescribeWorkflowExecution'{..}
           = object
-              ["domain" .= _dweDomain,
-               "execution" .= _dweExecution]
+              (catMaybes
+                 [Just ("domain" .= _dweDomain),
+                  Just ("execution" .= _dweExecution)])
 
 instance ToPath DescribeWorkflowExecution where
         toPath = const "/"

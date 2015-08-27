@@ -135,10 +135,9 @@ dwLimit :: Lens' DescribeWorkspaces (Maybe Natural)
 dwLimit = lens _dwLimit (\ s a -> s{_dwLimit = a}) . mapping _Nat;
 
 instance AWSRequest DescribeWorkspaces where
-        type Sv DescribeWorkspaces = WorkSpaces
         type Rs DescribeWorkspaces =
              DescribeWorkspacesResponse
-        request = postJSON
+        request = postJSON workSpaces
         response
           = receiveJSON
               (\ s h x ->
@@ -160,10 +159,13 @@ instance ToHeaders DescribeWorkspaces where
 instance ToJSON DescribeWorkspaces where
         toJSON DescribeWorkspaces'{..}
           = object
-              ["DirectoryId" .= _dwDirectoryId,
-               "WorkspaceIds" .= _dwWorkspaceIds,
-               "UserName" .= _dwUserName, "BundleId" .= _dwBundleId,
-               "NextToken" .= _dwNextToken, "Limit" .= _dwLimit]
+              (catMaybes
+                 [("DirectoryId" .=) <$> _dwDirectoryId,
+                  ("WorkspaceIds" .=) <$> _dwWorkspaceIds,
+                  ("UserName" .=) <$> _dwUserName,
+                  ("BundleId" .=) <$> _dwBundleId,
+                  ("NextToken" .=) <$> _dwNextToken,
+                  ("Limit" .=) <$> _dwLimit])
 
 instance ToPath DescribeWorkspaces where
         toPath = const "/"

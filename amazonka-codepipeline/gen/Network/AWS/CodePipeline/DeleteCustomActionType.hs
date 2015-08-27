@@ -93,10 +93,9 @@ dcatVersion :: Lens' DeleteCustomActionType Text
 dcatVersion = lens _dcatVersion (\ s a -> s{_dcatVersion = a});
 
 instance AWSRequest DeleteCustomActionType where
-        type Sv DeleteCustomActionType = CodePipeline
         type Rs DeleteCustomActionType =
              DeleteCustomActionTypeResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveNull DeleteCustomActionTypeResponse'
 
@@ -113,9 +112,10 @@ instance ToHeaders DeleteCustomActionType where
 instance ToJSON DeleteCustomActionType where
         toJSON DeleteCustomActionType'{..}
           = object
-              ["category" .= _dcatCategory,
-               "provider" .= _dcatProvider,
-               "version" .= _dcatVersion]
+              (catMaybes
+                 [Just ("category" .= _dcatCategory),
+                  Just ("provider" .= _dcatProvider),
+                  Just ("version" .= _dcatVersion)])
 
 instance ToPath DeleteCustomActionType where
         toPath = const "/"

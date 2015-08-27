@@ -95,10 +95,9 @@ dtacrCheckId = lens _dtacrCheckId (\ s a -> s{_dtacrCheckId = a});
 
 instance AWSRequest DescribeTrustedAdvisorCheckResult
          where
-        type Sv DescribeTrustedAdvisorCheckResult = Support
         type Rs DescribeTrustedAdvisorCheckResult =
              DescribeTrustedAdvisorCheckResultResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveJSON
               (\ s h x ->
@@ -120,8 +119,9 @@ instance ToJSON DescribeTrustedAdvisorCheckResult
          where
         toJSON DescribeTrustedAdvisorCheckResult'{..}
           = object
-              ["language" .= _dtacrLanguage,
-               "checkId" .= _dtacrCheckId]
+              (catMaybes
+                 [("language" .=) <$> _dtacrLanguage,
+                  Just ("checkId" .= _dtacrCheckId)])
 
 instance ToPath DescribeTrustedAdvisorCheckResult
          where

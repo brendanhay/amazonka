@@ -85,9 +85,8 @@ caInstanceId :: Lens' CreateAssociation Text
 caInstanceId = lens _caInstanceId (\ s a -> s{_caInstanceId = a});
 
 instance AWSRequest CreateAssociation where
-        type Sv CreateAssociation = SSM
         type Rs CreateAssociation = CreateAssociationResponse
-        request = postJSON
+        request = postJSON sSM
         response
           = receiveJSON
               (\ s h x ->
@@ -107,7 +106,9 @@ instance ToHeaders CreateAssociation where
 instance ToJSON CreateAssociation where
         toJSON CreateAssociation'{..}
           = object
-              ["Name" .= _caName, "InstanceId" .= _caInstanceId]
+              (catMaybes
+                 [Just ("Name" .= _caName),
+                  Just ("InstanceId" .= _caInstanceId)])
 
 instance ToPath CreateAssociation where
         toPath = const "/"

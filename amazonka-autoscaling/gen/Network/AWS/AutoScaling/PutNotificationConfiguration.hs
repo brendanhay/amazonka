@@ -94,10 +94,9 @@ pncNotificationTypes = lens _pncNotificationTypes (\ s a -> s{_pncNotificationTy
 
 instance AWSRequest PutNotificationConfiguration
          where
-        type Sv PutNotificationConfiguration = AutoScaling
         type Rs PutNotificationConfiguration =
              PutNotificationConfigurationResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveNull PutNotificationConfigurationResponse'
 

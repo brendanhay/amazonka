@@ -171,9 +171,8 @@ instance AWSPager DescribeCases where
             Just $ rq & dcNextToken .~ rs ^. drsNextToken
 
 instance AWSRequest DescribeCases where
-        type Sv DescribeCases = Support
         type Rs DescribeCases = DescribeCasesResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveJSON
               (\ s h x ->
@@ -193,15 +192,18 @@ instance ToHeaders DescribeCases where
 instance ToJSON DescribeCases where
         toJSON DescribeCases'{..}
           = object
-              ["includeResolvedCases" .= _dcIncludeResolvedCases,
-               "caseIdList" .= _dcCaseIdList,
-               "afterTime" .= _dcAfterTime,
-               "nextToken" .= _dcNextToken,
-               "beforeTime" .= _dcBeforeTime,
-               "includeCommunications" .= _dcIncludeCommunications,
-               "displayId" .= _dcDisplayId,
-               "language" .= _dcLanguage,
-               "maxResults" .= _dcMaxResults]
+              (catMaybes
+                 [("includeResolvedCases" .=) <$>
+                    _dcIncludeResolvedCases,
+                  ("caseIdList" .=) <$> _dcCaseIdList,
+                  ("afterTime" .=) <$> _dcAfterTime,
+                  ("nextToken" .=) <$> _dcNextToken,
+                  ("beforeTime" .=) <$> _dcBeforeTime,
+                  ("includeCommunications" .=) <$>
+                    _dcIncludeCommunications,
+                  ("displayId" .=) <$> _dcDisplayId,
+                  ("language" .=) <$> _dcLanguage,
+                  ("maxResults" .=) <$> _dcMaxResults])
 
 instance ToPath DescribeCases where
         toPath = const "/"

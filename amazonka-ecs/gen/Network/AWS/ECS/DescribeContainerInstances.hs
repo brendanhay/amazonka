@@ -80,10 +80,9 @@ dciContainerInstances :: Lens' DescribeContainerInstances [Text]
 dciContainerInstances = lens _dciContainerInstances (\ s a -> s{_dciContainerInstances = a}) . _Coerce;
 
 instance AWSRequest DescribeContainerInstances where
-        type Sv DescribeContainerInstances = ECS
         type Rs DescribeContainerInstances =
              DescribeContainerInstancesResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -105,8 +104,10 @@ instance ToHeaders DescribeContainerInstances where
 instance ToJSON DescribeContainerInstances where
         toJSON DescribeContainerInstances'{..}
           = object
-              ["cluster" .= _dciCluster,
-               "containerInstances" .= _dciContainerInstances]
+              (catMaybes
+                 [("cluster" .=) <$> _dciCluster,
+                  Just
+                    ("containerInstances" .= _dciContainerInstances)])
 
 instance ToPath DescribeContainerInstances where
         toPath = const "/"

@@ -78,10 +78,9 @@ dbrlGatewayARN :: Lens' DescribeBandwidthRateLimit Text
 dbrlGatewayARN = lens _dbrlGatewayARN (\ s a -> s{_dbrlGatewayARN = a});
 
 instance AWSRequest DescribeBandwidthRateLimit where
-        type Sv DescribeBandwidthRateLimit = StorageGateway
         type Rs DescribeBandwidthRateLimit =
              DescribeBandwidthRateLimitResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -103,7 +102,8 @@ instance ToHeaders DescribeBandwidthRateLimit where
 
 instance ToJSON DescribeBandwidthRateLimit where
         toJSON DescribeBandwidthRateLimit'{..}
-          = object ["GatewayARN" .= _dbrlGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _dbrlGatewayARN)])
 
 instance ToPath DescribeBandwidthRateLimit where
         toPath = const "/"

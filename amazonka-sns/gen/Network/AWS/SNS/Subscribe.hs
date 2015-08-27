@@ -113,9 +113,8 @@ subProtocol :: Lens' Subscribe Text
 subProtocol = lens _subProtocol (\ s a -> s{_subProtocol = a});
 
 instance AWSRequest Subscribe where
-        type Sv Subscribe = SNS
         type Rs Subscribe = SubscribeResponse
-        request = postQuery
+        request = postQuery sNS
         response
           = receiveXMLWrapper "SubscribeResult"
               (\ s h x ->

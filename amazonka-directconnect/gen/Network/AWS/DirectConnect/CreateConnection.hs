@@ -105,9 +105,8 @@ ccConnectionName :: Lens' CreateConnection Text
 ccConnectionName = lens _ccConnectionName (\ s a -> s{_ccConnectionName = a});
 
 instance AWSRequest CreateConnection where
-        type Sv CreateConnection = DirectConnect
         type Rs CreateConnection = Connection
-        request = postJSON
+        request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreateConnection where
@@ -122,9 +121,10 @@ instance ToHeaders CreateConnection where
 instance ToJSON CreateConnection where
         toJSON CreateConnection'{..}
           = object
-              ["location" .= _ccLocation,
-               "bandwidth" .= _ccBandwidth,
-               "connectionName" .= _ccConnectionName]
+              (catMaybes
+                 [Just ("location" .= _ccLocation),
+                  Just ("bandwidth" .= _ccBandwidth),
+                  Just ("connectionName" .= _ccConnectionName)])
 
 instance ToPath CreateConnection where
         toPath = const "/"

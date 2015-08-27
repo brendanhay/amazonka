@@ -120,10 +120,9 @@ instance AWSPager DescribeReservedNodeOfferings where
 
 instance AWSRequest DescribeReservedNodeOfferings
          where
-        type Sv DescribeReservedNodeOfferings = Redshift
         type Rs DescribeReservedNodeOfferings =
              DescribeReservedNodeOfferingsResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "DescribeReservedNodeOfferingsResult"

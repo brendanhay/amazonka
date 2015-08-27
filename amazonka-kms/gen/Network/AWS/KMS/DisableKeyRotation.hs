@@ -69,10 +69,9 @@ dkrKeyId :: Lens' DisableKeyRotation Text
 dkrKeyId = lens _dkrKeyId (\ s a -> s{_dkrKeyId = a});
 
 instance AWSRequest DisableKeyRotation where
-        type Sv DisableKeyRotation = KMS
         type Rs DisableKeyRotation =
              DisableKeyRotationResponse
-        request = postJSON
+        request = postJSON kMS
         response = receiveNull DisableKeyRotationResponse'
 
 instance ToHeaders DisableKeyRotation where
@@ -86,7 +85,7 @@ instance ToHeaders DisableKeyRotation where
 
 instance ToJSON DisableKeyRotation where
         toJSON DisableKeyRotation'{..}
-          = object ["KeyId" .= _dkrKeyId]
+          = object (catMaybes [Just ("KeyId" .= _dkrKeyId)])
 
 instance ToPath DisableKeyRotation where
         toPath = const "/"

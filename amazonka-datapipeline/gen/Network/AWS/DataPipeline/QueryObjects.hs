@@ -126,9 +126,8 @@ instance AWSPager QueryObjects where
             Just $ rq & qoMarker .~ rs ^. qorsMarker
 
 instance AWSRequest QueryObjects where
-        type Sv QueryObjects = DataPipeline
         type Rs QueryObjects = QueryObjectsResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -149,9 +148,12 @@ instance ToHeaders QueryObjects where
 instance ToJSON QueryObjects where
         toJSON QueryObjects'{..}
           = object
-              ["query" .= _qoQuery, "marker" .= _qoMarker,
-               "limit" .= _qoLimit, "pipelineId" .= _qoPipelineId,
-               "sphere" .= _qoSphere]
+              (catMaybes
+                 [("query" .=) <$> _qoQuery,
+                  ("marker" .=) <$> _qoMarker,
+                  ("limit" .=) <$> _qoLimit,
+                  Just ("pipelineId" .= _qoPipelineId),
+                  Just ("sphere" .= _qoSphere)])
 
 instance ToPath QueryObjects where
         toPath = const "/"

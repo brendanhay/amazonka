@@ -113,10 +113,9 @@ ratcTaskToken = lens _ratcTaskToken (\ s a -> s{_ratcTaskToken = a});
 
 instance AWSRequest RespondActivityTaskCompleted
          where
-        type Sv RespondActivityTaskCompleted = SWF
         type Rs RespondActivityTaskCompleted =
              RespondActivityTaskCompletedResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveNull RespondActivityTaskCompletedResponse'
 
@@ -133,8 +132,9 @@ instance ToHeaders RespondActivityTaskCompleted where
 instance ToJSON RespondActivityTaskCompleted where
         toJSON RespondActivityTaskCompleted'{..}
           = object
-              ["result" .= _ratcResult,
-               "taskToken" .= _ratcTaskToken]
+              (catMaybes
+                 [("result" .=) <$> _ratcResult,
+                  Just ("taskToken" .= _ratcTaskToken)])
 
 instance ToPath RespondActivityTaskCompleted where
         toPath = const "/"

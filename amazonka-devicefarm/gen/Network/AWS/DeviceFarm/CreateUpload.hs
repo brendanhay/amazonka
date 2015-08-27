@@ -120,9 +120,8 @@ cuType :: Lens' CreateUpload UploadType
 cuType = lens _cuType (\ s a -> s{_cuType = a});
 
 instance AWSRequest CreateUpload where
-        type Sv CreateUpload = DeviceFarm
         type Rs CreateUpload = CreateUploadResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -141,9 +140,10 @@ instance ToHeaders CreateUpload where
 instance ToJSON CreateUpload where
         toJSON CreateUpload'{..}
           = object
-              ["contentType" .= _cuContentType,
-               "projectArn" .= _cuProjectARN, "name" .= _cuName,
-               "type" .= _cuType]
+              (catMaybes
+                 [("contentType" .=) <$> _cuContentType,
+                  Just ("projectArn" .= _cuProjectARN),
+                  Just ("name" .= _cuName), Just ("type" .= _cuType)])
 
 instance ToPath CreateUpload where
         toPath = const "/"

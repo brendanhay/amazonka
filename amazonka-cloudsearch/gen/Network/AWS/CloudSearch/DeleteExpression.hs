@@ -83,9 +83,8 @@ delExpressionName :: Lens' DeleteExpression Text
 delExpressionName = lens _delExpressionName (\ s a -> s{_delExpressionName = a});
 
 instance AWSRequest DeleteExpression where
-        type Sv DeleteExpression = CloudSearch
         type Rs DeleteExpression = DeleteExpressionResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "DeleteExpressionResult"
               (\ s h x ->

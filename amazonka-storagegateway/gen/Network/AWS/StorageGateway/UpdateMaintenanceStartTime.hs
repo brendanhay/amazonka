@@ -108,10 +108,9 @@ umstDayOfWeek :: Lens' UpdateMaintenanceStartTime Natural
 umstDayOfWeek = lens _umstDayOfWeek (\ s a -> s{_umstDayOfWeek = a}) . _Nat;
 
 instance AWSRequest UpdateMaintenanceStartTime where
-        type Sv UpdateMaintenanceStartTime = StorageGateway
         type Rs UpdateMaintenanceStartTime =
              UpdateMaintenanceStartTimeResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -131,10 +130,11 @@ instance ToHeaders UpdateMaintenanceStartTime where
 instance ToJSON UpdateMaintenanceStartTime where
         toJSON UpdateMaintenanceStartTime'{..}
           = object
-              ["GatewayARN" .= _umstGatewayARN,
-               "HourOfDay" .= _umstHourOfDay,
-               "MinuteOfHour" .= _umstMinuteOfHour,
-               "DayOfWeek" .= _umstDayOfWeek]
+              (catMaybes
+                 [Just ("GatewayARN" .= _umstGatewayARN),
+                  Just ("HourOfDay" .= _umstHourOfDay),
+                  Just ("MinuteOfHour" .= _umstMinuteOfHour),
+                  Just ("DayOfWeek" .= _umstDayOfWeek)])
 
 instance ToPath UpdateMaintenanceStartTime where
         toPath = const "/"

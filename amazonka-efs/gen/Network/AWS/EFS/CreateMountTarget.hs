@@ -199,9 +199,8 @@ cmtSubnetId :: Lens' CreateMountTarget Text
 cmtSubnetId = lens _cmtSubnetId (\ s a -> s{_cmtSubnetId = a});
 
 instance AWSRequest CreateMountTarget where
-        type Sv CreateMountTarget = EFS
         type Rs CreateMountTarget = MountTargetDescription
-        request = postJSON
+        request = postJSON eFS
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreateMountTarget where
@@ -210,10 +209,11 @@ instance ToHeaders CreateMountTarget where
 instance ToJSON CreateMountTarget where
         toJSON CreateMountTarget'{..}
           = object
-              ["IpAddress" .= _cmtIPAddress,
-               "SecurityGroups" .= _cmtSecurityGroups,
-               "FileSystemId" .= _cmtFileSystemId,
-               "SubnetId" .= _cmtSubnetId]
+              (catMaybes
+                 [("IpAddress" .=) <$> _cmtIPAddress,
+                  ("SecurityGroups" .=) <$> _cmtSecurityGroups,
+                  Just ("FileSystemId" .= _cmtFileSystemId),
+                  Just ("SubnetId" .= _cmtSubnetId)])
 
 instance ToPath CreateMountTarget where
         toPath = const "/2015-02-01/mount-targets"

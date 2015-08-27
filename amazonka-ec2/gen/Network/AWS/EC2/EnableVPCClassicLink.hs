@@ -86,10 +86,9 @@ evclVPCId :: Lens' EnableVPCClassicLink Text
 evclVPCId = lens _evclVPCId (\ s a -> s{_evclVPCId = a});
 
 instance AWSRequest EnableVPCClassicLink where
-        type Sv EnableVPCClassicLink = EC2
         type Rs EnableVPCClassicLink =
              EnableVPCClassicLinkResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

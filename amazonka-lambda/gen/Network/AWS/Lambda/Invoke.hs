@@ -140,9 +140,8 @@ iFunctionName :: Lens' Invoke Text
 iFunctionName = lens _iFunctionName (\ s a -> s{_iFunctionName = a});
 
 instance AWSRequest Invoke where
-        type Sv Invoke = Lambda
         type Rs Invoke = InvokeResponse
-        request = postJSON
+        request = postJSON lambda
         response
           = receiveJSON
               (\ s h x ->
@@ -160,7 +159,8 @@ instance ToHeaders Invoke where
                "X-Amz-Client-Context" =# _iClientContext]
 
 instance ToJSON Invoke where
-        toJSON Invoke'{..} = object ["Payload" .= _iPayload]
+        toJSON Invoke'{..}
+          = object (catMaybes [("Payload" .=) <$> _iPayload])
 
 instance ToPath Invoke where
         toPath Invoke'{..}

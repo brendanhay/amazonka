@@ -139,9 +139,8 @@ cDesiredCount :: Lens' CreateService Int
 cDesiredCount = lens _cDesiredCount (\ s a -> s{_cDesiredCount = a});
 
 instance AWSRequest CreateService where
-        type Sv CreateService = ECS
         type Rs CreateService = CreateServiceResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -161,12 +160,14 @@ instance ToHeaders CreateService where
 instance ToJSON CreateService where
         toJSON CreateService'{..}
           = object
-              ["cluster" .= _cCluster,
-               "clientToken" .= _cClientToken,
-               "loadBalancers" .= _cLoadBalancers, "role" .= _cRole,
-               "serviceName" .= _cServiceName,
-               "taskDefinition" .= _cTaskDefinition,
-               "desiredCount" .= _cDesiredCount]
+              (catMaybes
+                 [("cluster" .=) <$> _cCluster,
+                  ("clientToken" .=) <$> _cClientToken,
+                  ("loadBalancers" .=) <$> _cLoadBalancers,
+                  ("role" .=) <$> _cRole,
+                  Just ("serviceName" .= _cServiceName),
+                  Just ("taskDefinition" .= _cTaskDefinition),
+                  Just ("desiredCount" .= _cDesiredCount)])
 
 instance ToPath CreateService where
         toPath = const "/"

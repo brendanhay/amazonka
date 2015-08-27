@@ -73,9 +73,8 @@ lhsmNextToken :: Lens' ListHSMs (Maybe Text)
 lhsmNextToken = lens _lhsmNextToken (\ s a -> s{_lhsmNextToken = a});
 
 instance AWSRequest ListHSMs where
-        type Sv ListHSMs = CloudHSM
         type Rs ListHSMs = ListHSMsResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->
@@ -94,7 +93,8 @@ instance ToHeaders ListHSMs where
 
 instance ToJSON ListHSMs where
         toJSON ListHSMs'{..}
-          = object ["NextToken" .= _lhsmNextToken]
+          = object
+              (catMaybes [("NextToken" .=) <$> _lhsmNextToken])
 
 instance ToPath ListHSMs where
         toPath = const "/"

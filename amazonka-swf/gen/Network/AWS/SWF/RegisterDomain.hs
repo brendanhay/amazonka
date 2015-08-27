@@ -119,9 +119,8 @@ rdWorkflowExecutionRetentionPeriodInDays :: Lens' RegisterDomain Text
 rdWorkflowExecutionRetentionPeriodInDays = lens _rdWorkflowExecutionRetentionPeriodInDays (\ s a -> s{_rdWorkflowExecutionRetentionPeriodInDays = a});
 
 instance AWSRequest RegisterDomain where
-        type Sv RegisterDomain = SWF
         type Rs RegisterDomain = RegisterDomainResponse
-        request = postJSON
+        request = postJSON sWF
         response = receiveNull RegisterDomainResponse'
 
 instance ToHeaders RegisterDomain where
@@ -137,9 +136,12 @@ instance ToHeaders RegisterDomain where
 instance ToJSON RegisterDomain where
         toJSON RegisterDomain'{..}
           = object
-              ["description" .= _rdDescription, "name" .= _rdName,
-               "workflowExecutionRetentionPeriodInDays" .=
-                 _rdWorkflowExecutionRetentionPeriodInDays]
+              (catMaybes
+                 [("description" .=) <$> _rdDescription,
+                  Just ("name" .= _rdName),
+                  Just
+                    ("workflowExecutionRetentionPeriodInDays" .=
+                       _rdWorkflowExecutionRetentionPeriodInDays)])
 
 instance ToPath RegisterDomain where
         toPath = const "/"

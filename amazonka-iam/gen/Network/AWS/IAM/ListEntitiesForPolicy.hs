@@ -129,10 +129,9 @@ lefpPolicyARN :: Lens' ListEntitiesForPolicy Text
 lefpPolicyARN = lens _lefpPolicyARN (\ s a -> s{_lefpPolicyARN = a});
 
 instance AWSRequest ListEntitiesForPolicy where
-        type Sv ListEntitiesForPolicy = IAM
         type Rs ListEntitiesForPolicy =
              ListEntitiesForPolicyResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListEntitiesForPolicyResult"
               (\ s h x ->

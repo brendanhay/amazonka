@@ -118,11 +118,9 @@ aNewPublicVirtualInterfaceAllocation = lens _aNewPublicVirtualInterfaceAllocatio
 
 instance AWSRequest AllocatePublicVirtualInterface
          where
-        type Sv AllocatePublicVirtualInterface =
-             DirectConnect
         type Rs AllocatePublicVirtualInterface =
              VirtualInterface
-        request = postJSON
+        request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders AllocatePublicVirtualInterface
@@ -139,10 +137,12 @@ instance ToHeaders AllocatePublicVirtualInterface
 instance ToJSON AllocatePublicVirtualInterface where
         toJSON AllocatePublicVirtualInterface'{..}
           = object
-              ["connectionId" .= _aConnectionId,
-               "ownerAccount" .= _aOwnerAccount,
-               "newPublicVirtualInterfaceAllocation" .=
-                 _aNewPublicVirtualInterfaceAllocation]
+              (catMaybes
+                 [Just ("connectionId" .= _aConnectionId),
+                  Just ("ownerAccount" .= _aOwnerAccount),
+                  Just
+                    ("newPublicVirtualInterfaceAllocation" .=
+                       _aNewPublicVirtualInterfaceAllocation)])
 
 instance ToPath AllocatePublicVirtualInterface where
         toPath = const "/"

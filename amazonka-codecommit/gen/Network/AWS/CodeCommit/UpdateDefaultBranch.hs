@@ -79,10 +79,9 @@ udbDefaultBranchName :: Lens' UpdateDefaultBranch Text
 udbDefaultBranchName = lens _udbDefaultBranchName (\ s a -> s{_udbDefaultBranchName = a});
 
 instance AWSRequest UpdateDefaultBranch where
-        type Sv UpdateDefaultBranch = CodeCommit
         type Rs UpdateDefaultBranch =
              UpdateDefaultBranchResponse
-        request = postJSON
+        request = postJSON codeCommit
         response = receiveNull UpdateDefaultBranchResponse'
 
 instance ToHeaders UpdateDefaultBranch where
@@ -98,8 +97,9 @@ instance ToHeaders UpdateDefaultBranch where
 instance ToJSON UpdateDefaultBranch where
         toJSON UpdateDefaultBranch'{..}
           = object
-              ["repositoryName" .= _udbRepositoryName,
-               "defaultBranchName" .= _udbDefaultBranchName]
+              (catMaybes
+                 [Just ("repositoryName" .= _udbRepositoryName),
+                  Just ("defaultBranchName" .= _udbDefaultBranchName)])
 
 instance ToPath UpdateDefaultBranch where
         toPath = const "/"

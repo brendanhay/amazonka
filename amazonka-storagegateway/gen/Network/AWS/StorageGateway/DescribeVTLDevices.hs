@@ -118,10 +118,9 @@ instance AWSPager DescribeVTLDevices where
             Just $ rq & dvtldMarker .~ rs ^. dvtldrsMarker
 
 instance AWSRequest DescribeVTLDevices where
-        type Sv DescribeVTLDevices = StorageGateway
         type Rs DescribeVTLDevices =
              DescribeVTLDevicesResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -144,9 +143,11 @@ instance ToHeaders DescribeVTLDevices where
 instance ToJSON DescribeVTLDevices where
         toJSON DescribeVTLDevices'{..}
           = object
-              ["Marker" .= _dvtldMarker, "Limit" .= _dvtldLimit,
-               "VTLDeviceARNs" .= _dvtldVTLDeviceARNs,
-               "GatewayARN" .= _dvtldGatewayARN]
+              (catMaybes
+                 [("Marker" .=) <$> _dvtldMarker,
+                  ("Limit" .=) <$> _dvtldLimit,
+                  ("VTLDeviceARNs" .=) <$> _dvtldVTLDeviceARNs,
+                  Just ("GatewayARN" .= _dvtldGatewayARN)])
 
 instance ToPath DescribeVTLDevices where
         toPath = const "/"

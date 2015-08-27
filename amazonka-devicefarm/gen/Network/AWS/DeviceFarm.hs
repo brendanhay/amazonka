@@ -18,8 +18,8 @@
 -- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.DeviceFarm
     (
-    -- * Service
-      DeviceFarm
+    -- * Service Configuration
+      deviceFarm
 
     -- * Errors
     -- $errors

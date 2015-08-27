@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.IAM.Types
     (
-    -- * Service
-      IAM
+    -- * Service Configuration
+      iAM
 
     -- * Errors
     , _CredentialReportNotPresentException
@@ -325,39 +324,36 @@ import           Network.AWS.IAM.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2010-05-08@ of the Amazon Identity and Access Management SDK.
-data IAM
-
-instance AWSService IAM where
-    type Sg IAM = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "IAM"
-            , _svcPrefix = "iam"
-            , _svcVersion = "2010-05-08"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseXMLError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2010-05-08' of the Amazon Identity and Access Management SDK configuration.
+iAM :: Service
+iAM =
+    Service
+    { _svcAbbrev = "IAM"
+    , _svcSigner = v4
+    , _svcPrefix = "iam"
+    , _svcVersion = "2010-05-08"
+    , _svcEndpoint = defaultEndpoint iAM
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | The request was rejected because the credential report does not exist.
 -- To generate a credential report, use GenerateCredentialReport.

@@ -91,9 +91,8 @@ grShardIterator :: Lens' GetRecords Text
 grShardIterator = lens _grShardIterator (\ s a -> s{_grShardIterator = a});
 
 instance AWSRequest GetRecords where
-        type Sv GetRecords = DynamoDBStreams
         type Rs GetRecords = GetRecordsResponse
-        request = postJSON
+        request = postJSON dynamoDBStreams
         response
           = receiveJSON
               (\ s h x ->
@@ -115,8 +114,9 @@ instance ToHeaders GetRecords where
 instance ToJSON GetRecords where
         toJSON GetRecords'{..}
           = object
-              ["Limit" .= _grLimit,
-               "ShardIterator" .= _grShardIterator]
+              (catMaybes
+                 [("Limit" .=) <$> _grLimit,
+                  Just ("ShardIterator" .= _grShardIterator)])
 
 instance ToPath GetRecords where
         toPath = const "/"

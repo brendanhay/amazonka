@@ -106,10 +106,9 @@ rdtcTaskToken = lens _rdtcTaskToken (\ s a -> s{_rdtcTaskToken = a});
 
 instance AWSRequest RespondDecisionTaskCompleted
          where
-        type Sv RespondDecisionTaskCompleted = SWF
         type Rs RespondDecisionTaskCompleted =
              RespondDecisionTaskCompletedResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveNull RespondDecisionTaskCompletedResponse'
 
@@ -126,9 +125,10 @@ instance ToHeaders RespondDecisionTaskCompleted where
 instance ToJSON RespondDecisionTaskCompleted where
         toJSON RespondDecisionTaskCompleted'{..}
           = object
-              ["decisions" .= _rdtcDecisions,
-               "executionContext" .= _rdtcExecutionContext,
-               "taskToken" .= _rdtcTaskToken]
+              (catMaybes
+                 [("decisions" .=) <$> _rdtcDecisions,
+                  ("executionContext" .=) <$> _rdtcExecutionContext,
+                  Just ("taskToken" .= _rdtcTaskToken)])
 
 instance ToPath RespondDecisionTaskCompleted where
         toPath = const "/"

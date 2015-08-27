@@ -74,11 +74,9 @@ dcoiInterconnectId = lens _dcoiInterconnectId (\ s a -> s{_dcoiInterconnectId = 
 
 instance AWSRequest DescribeConnectionsOnInterconnect
          where
-        type Sv DescribeConnectionsOnInterconnect =
-             DirectConnect
         type Rs DescribeConnectionsOnInterconnect =
              Connections
-        request = postJSON
+        request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders DescribeConnectionsOnInterconnect
@@ -95,7 +93,9 @@ instance ToHeaders DescribeConnectionsOnInterconnect
 instance ToJSON DescribeConnectionsOnInterconnect
          where
         toJSON DescribeConnectionsOnInterconnect'{..}
-          = object ["interconnectId" .= _dcoiInterconnectId]
+          = object
+              (catMaybes
+                 [Just ("interconnectId" .= _dcoiInterconnectId)])
 
 instance ToPath DescribeConnectionsOnInterconnect
          where

@@ -137,9 +137,8 @@ instance AWSPager ListParts where
               lpPartNumberMarker .~ rs ^. lprsNextPartNumberMarker
 
 instance AWSRequest ListParts where
-        type Sv ListParts = S3
         type Rs ListParts = ListPartsResponse
-        request = get
+        request = get s3
         response
           = receiveXML
               (\ s h x ->

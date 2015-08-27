@@ -89,10 +89,9 @@ mcpgParameters :: Lens' ModifyClusterParameterGroup [Parameter]
 mcpgParameters = lens _mcpgParameters (\ s a -> s{_mcpgParameters = a}) . _Coerce;
 
 instance AWSRequest ModifyClusterParameterGroup where
-        type Sv ModifyClusterParameterGroup = Redshift
         type Rs ModifyClusterParameterGroup =
              ClusterParameterGroupNameMessage
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "ModifyClusterParameterGroupResult"

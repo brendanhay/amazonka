@@ -79,9 +79,8 @@ mlcCertificate :: Lens' ModifyLunaClient Text
 mlcCertificate = lens _mlcCertificate (\ s a -> s{_mlcCertificate = a});
 
 instance AWSRequest ModifyLunaClient where
-        type Sv ModifyLunaClient = CloudHSM
         type Rs ModifyLunaClient = ModifyLunaClientResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->
@@ -101,8 +100,9 @@ instance ToHeaders ModifyLunaClient where
 instance ToJSON ModifyLunaClient where
         toJSON ModifyLunaClient'{..}
           = object
-              ["ClientArn" .= _mlcClientARN,
-               "Certificate" .= _mlcCertificate]
+              (catMaybes
+                 [Just ("ClientArn" .= _mlcClientARN),
+                  Just ("Certificate" .= _mlcCertificate)])
 
 instance ToPath ModifyLunaClient where
         toPath = const "/"

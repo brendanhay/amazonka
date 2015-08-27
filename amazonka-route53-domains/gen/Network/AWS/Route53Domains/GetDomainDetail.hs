@@ -99,9 +99,8 @@ gddDomainName :: Lens' GetDomainDetail Text
 gddDomainName = lens _gddDomainName (\ s a -> s{_gddDomainName = a});
 
 instance AWSRequest GetDomainDetail where
-        type Sv GetDomainDetail = Route53Domains
         type Rs GetDomainDetail = GetDomainDetailResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveJSON
               (\ s h x ->
@@ -140,7 +139,8 @@ instance ToHeaders GetDomainDetail where
 
 instance ToJSON GetDomainDetail where
         toJSON GetDomainDetail'{..}
-          = object ["DomainName" .= _gddDomainName]
+          = object
+              (catMaybes [Just ("DomainName" .= _gddDomainName)])
 
 instance ToPath GetDomainDetail where
         toPath = const "/"

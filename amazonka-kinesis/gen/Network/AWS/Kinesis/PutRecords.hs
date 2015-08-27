@@ -137,9 +137,8 @@ pStreamName :: Lens' PutRecords Text
 pStreamName = lens _pStreamName (\ s a -> s{_pStreamName = a});
 
 instance AWSRequest PutRecords where
-        type Sv PutRecords = Kinesis
         type Rs PutRecords = PutRecordsResponse
-        request = postJSON
+        request = postJSON kinesis
         response
           = receiveJSON
               (\ s h x ->
@@ -159,8 +158,9 @@ instance ToHeaders PutRecords where
 instance ToJSON PutRecords where
         toJSON PutRecords'{..}
           = object
-              ["Records" .= _pRecordEntries,
-               "StreamName" .= _pStreamName]
+              (catMaybes
+                 [Just ("Records" .= _pRecordEntries),
+                  Just ("StreamName" .= _pStreamName)])
 
 instance ToPath PutRecords where
         toPath = const "/"

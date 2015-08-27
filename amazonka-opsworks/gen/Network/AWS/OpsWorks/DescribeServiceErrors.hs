@@ -94,10 +94,9 @@ dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
 dseStackId = lens _dseStackId (\ s a -> s{_dseStackId = a});
 
 instance AWSRequest DescribeServiceErrors where
-        type Sv DescribeServiceErrors = OpsWorks
         type Rs DescribeServiceErrors =
              DescribeServiceErrorsResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -118,9 +117,10 @@ instance ToHeaders DescribeServiceErrors where
 instance ToJSON DescribeServiceErrors where
         toJSON DescribeServiceErrors'{..}
           = object
-              ["InstanceId" .= _dseInstanceId,
-               "ServiceErrorIds" .= _dseServiceErrorIds,
-               "StackId" .= _dseStackId]
+              (catMaybes
+                 [("InstanceId" .=) <$> _dseInstanceId,
+                  ("ServiceErrorIds" .=) <$> _dseServiceErrorIds,
+                  ("StackId" .=) <$> _dseStackId])
 
 instance ToPath DescribeServiceErrors where
         toPath = const "/"

@@ -75,11 +75,9 @@ rtfopiInstanceNames = lens _rtfopiInstanceNames (\ s a -> s{_rtfopiInstanceNames
 
 instance AWSRequest RemoveTagsFromOnPremisesInstances
          where
-        type Sv RemoveTagsFromOnPremisesInstances =
-             CodeDeploy
         type Rs RemoveTagsFromOnPremisesInstances =
              RemoveTagsFromOnPremisesInstancesResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveNull
               RemoveTagsFromOnPremisesInstancesResponse'
@@ -99,8 +97,9 @@ instance ToJSON RemoveTagsFromOnPremisesInstances
          where
         toJSON RemoveTagsFromOnPremisesInstances'{..}
           = object
-              ["tags" .= _rtfopiTags,
-               "instanceNames" .= _rtfopiInstanceNames]
+              (catMaybes
+                 [Just ("tags" .= _rtfopiTags),
+                  Just ("instanceNames" .= _rtfopiInstanceNames)])
 
 instance ToPath RemoveTagsFromOnPremisesInstances
          where

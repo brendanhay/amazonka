@@ -190,9 +190,8 @@ cmlmTrainingDataSourceId :: Lens' CreateMLModel Text
 cmlmTrainingDataSourceId = lens _cmlmTrainingDataSourceId (\ s a -> s{_cmlmTrainingDataSourceId = a});
 
 instance AWSRequest CreateMLModel where
-        type Sv CreateMLModel = MachineLearning
         type Rs CreateMLModel = CreateMLModelResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -211,13 +210,16 @@ instance ToHeaders CreateMLModel where
 instance ToJSON CreateMLModel where
         toJSON CreateMLModel'{..}
           = object
-              ["Recipe" .= _cmlmRecipe,
-               "RecipeUri" .= _cmlmRecipeURI,
-               "MLModelName" .= _cmlmMLModelName,
-               "Parameters" .= _cmlmParameters,
-               "MLModelId" .= _cmlmMLModelId,
-               "MLModelType" .= _cmlmMLModelType,
-               "TrainingDataSourceId" .= _cmlmTrainingDataSourceId]
+              (catMaybes
+                 [("Recipe" .=) <$> _cmlmRecipe,
+                  ("RecipeUri" .=) <$> _cmlmRecipeURI,
+                  ("MLModelName" .=) <$> _cmlmMLModelName,
+                  ("Parameters" .=) <$> _cmlmParameters,
+                  Just ("MLModelId" .= _cmlmMLModelId),
+                  Just ("MLModelType" .= _cmlmMLModelType),
+                  Just
+                    ("TrainingDataSourceId" .=
+                       _cmlmTrainingDataSourceId)])
 
 instance ToPath CreateMLModel where
         toPath = const "/"

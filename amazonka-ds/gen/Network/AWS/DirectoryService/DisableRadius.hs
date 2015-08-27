@@ -68,9 +68,8 @@ drDirectoryId :: Lens' DisableRadius Text
 drDirectoryId = lens _drDirectoryId (\ s a -> s{_drDirectoryId = a});
 
 instance AWSRequest DisableRadius where
-        type Sv DisableRadius = DirectoryService
         type Rs DisableRadius = DisableRadiusResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveEmpty
               (\ s h x ->
@@ -88,7 +87,8 @@ instance ToHeaders DisableRadius where
 
 instance ToJSON DisableRadius where
         toJSON DisableRadius'{..}
-          = object ["DirectoryId" .= _drDirectoryId]
+          = object
+              (catMaybes [Just ("DirectoryId" .= _drDirectoryId)])
 
 instance ToPath DisableRadius where
         toPath = const "/"

@@ -95,9 +95,8 @@ diLayerId :: Lens' DescribeInstances (Maybe Text)
 diLayerId = lens _diLayerId (\ s a -> s{_diLayerId = a});
 
 instance AWSRequest DescribeInstances where
-        type Sv DescribeInstances = OpsWorks
         type Rs DescribeInstances = DescribeInstancesResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -118,8 +117,10 @@ instance ToHeaders DescribeInstances where
 instance ToJSON DescribeInstances where
         toJSON DescribeInstances'{..}
           = object
-              ["InstanceIds" .= _diInstanceIds,
-               "StackId" .= _diStackId, "LayerId" .= _diLayerId]
+              (catMaybes
+                 [("InstanceIds" .=) <$> _diInstanceIds,
+                  ("StackId" .=) <$> _diStackId,
+                  ("LayerId" .=) <$> _diLayerId])
 
 instance ToPath DescribeInstances where
         toPath = const "/"

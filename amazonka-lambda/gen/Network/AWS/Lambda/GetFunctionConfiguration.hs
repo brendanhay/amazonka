@@ -89,10 +89,9 @@ gfcFunctionName :: Lens' GetFunctionConfiguration Text
 gfcFunctionName = lens _gfcFunctionName (\ s a -> s{_gfcFunctionName = a});
 
 instance AWSRequest GetFunctionConfiguration where
-        type Sv GetFunctionConfiguration = Lambda
         type Rs GetFunctionConfiguration =
              FunctionConfiguration
-        request = get
+        request = get lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders GetFunctionConfiguration where

@@ -56,12 +56,13 @@ import           Test.Tasty.HUnit
 res :: (AWSRequest a, Eq (Rs a), Show (Rs a))
     => TestName
     -> FilePath
+    -> Service
     -> Proxy a
     -> Rs a
     -> TestTree
-res n f p e = testCase n $
+res n f s p e = testCase n $
         LBS.readFile f
-    >>= testResponse p
+    >>= testResponse s p
     >>= assertDiff f e
 
 req :: (AWSRequest a, Eq a, Show a)
@@ -75,9 +76,7 @@ req n f e = testCase n $ do
     assertDiff f e' (first show a)
   where
     expected = do
-        let rq = request e
-            sg = signed auth NorthVirginia time (serviceOf e) rq
-            x  = sg ^. sgRequest
+        let x = sgRequest (rqSign (request e) auth NorthVirginia time)
         b <- sink (requestBody x)
         return $! mkReq
             (method x)
@@ -92,17 +91,16 @@ req n f e = testCase n $ do
         RequestBodyBuilder _ b -> pure (toBS b)
         _                      -> fail "Streaming body not supported."
 
-testResponse :: forall a. (AWSService (Sv a), AWSRequest a)
-             => Proxy a
+testResponse :: forall a. AWSRequest a
+             => Service
+             -> Proxy a
              -> LazyByteString
              -> IO (Either String (Rs a))
-testResponse x lbs = do
-    y <- trying _Error $ runResourceT (response l (service x) rq rs)
+testResponse s p lbs = do
+    y <- trying _Error $ runResourceT (response l s p rs)
     return $! first show (snd <$> y)
   where
     l _ _ = return ()
-
-    rq = undefined :: Request a
 
     rs = Client.Response
         { responseStatus    = status200

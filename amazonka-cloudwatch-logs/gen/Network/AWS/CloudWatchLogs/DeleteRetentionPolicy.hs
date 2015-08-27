@@ -66,10 +66,9 @@ drpLogGroupName :: Lens' DeleteRetentionPolicy Text
 drpLogGroupName = lens _drpLogGroupName (\ s a -> s{_drpLogGroupName = a});
 
 instance AWSRequest DeleteRetentionPolicy where
-        type Sv DeleteRetentionPolicy = CloudWatchLogs
         type Rs DeleteRetentionPolicy =
              DeleteRetentionPolicyResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response = receiveNull DeleteRetentionPolicyResponse'
 
 instance ToHeaders DeleteRetentionPolicy where
@@ -84,7 +83,9 @@ instance ToHeaders DeleteRetentionPolicy where
 
 instance ToJSON DeleteRetentionPolicy where
         toJSON DeleteRetentionPolicy'{..}
-          = object ["logGroupName" .= _drpLogGroupName]
+          = object
+              (catMaybes
+                 [Just ("logGroupName" .= _drpLogGroupName)])
 
 instance ToPath DeleteRetentionPolicy where
         toPath = const "/"

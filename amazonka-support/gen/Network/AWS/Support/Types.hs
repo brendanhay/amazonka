@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.Support.Types
     (
-    -- * Service
-      Support
+    -- * Service Configuration
+      support
 
     -- * Errors
     , _AttachmentSetExpired
@@ -159,39 +158,36 @@ import           Network.AWS.Sign.V4
 import           Network.AWS.Support.Types.Product
 import           Network.AWS.Support.Types.Sum
 
--- | Version @2013-04-15@ of the Amazon Support SDK.
-data Support
-
-instance AWSService Support where
-    type Sg Support = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "Support"
-            , _svcPrefix = "support"
-            , _svcVersion = "2013-04-15"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2013-04-15' of the Amazon Support SDK configuration.
+support :: Service
+support =
+    Service
+    { _svcAbbrev = "Support"
+    , _svcSigner = v4
+    , _svcPrefix = "support"
+    , _svcVersion = "2013-04-15"
+    , _svcEndpoint = defaultEndpoint support
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | The expiration time of the attachment set has passed. The set expires 1
 -- hour after it is created.

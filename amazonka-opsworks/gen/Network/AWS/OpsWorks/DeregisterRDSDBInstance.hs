@@ -69,10 +69,9 @@ drdiRDSDBInstanceARN :: Lens' DeregisterRDSDBInstance Text
 drdiRDSDBInstanceARN = lens _drdiRDSDBInstanceARN (\ s a -> s{_drdiRDSDBInstanceARN = a});
 
 instance AWSRequest DeregisterRDSDBInstance where
-        type Sv DeregisterRDSDBInstance = OpsWorks
         type Rs DeregisterRDSDBInstance =
              DeregisterRDSDBInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveNull DeregisterRDSDBInstanceResponse'
 
@@ -89,7 +88,8 @@ instance ToHeaders DeregisterRDSDBInstance where
 instance ToJSON DeregisterRDSDBInstance where
         toJSON DeregisterRDSDBInstance'{..}
           = object
-              ["RdsDbInstanceArn" .= _drdiRDSDBInstanceARN]
+              (catMaybes
+                 [Just ("RdsDbInstanceArn" .= _drdiRDSDBInstanceARN)])
 
 instance ToPath DeregisterRDSDBInstance where
         toPath = const "/"

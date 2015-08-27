@@ -2,7 +2,6 @@
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -215,15 +214,18 @@ instance FromJSON IdentityPool where
 instance ToJSON IdentityPool where
         toJSON IdentityPool'{..}
           = object
-              ["SupportedLoginProviders" .=
-                 _ipSupportedLoginProviders,
-               "DeveloperProviderName" .= _ipDeveloperProviderName,
-               "OpenIdConnectProviderARNs" .=
-                 _ipOpenIdConnectProviderARNs,
-               "IdentityPoolId" .= _ipIdentityPoolId,
-               "IdentityPoolName" .= _ipIdentityPoolName,
-               "AllowUnauthenticatedIdentities" .=
-                 _ipAllowUnauthenticatedIdentities]
+              (catMaybes
+                 [("SupportedLoginProviders" .=) <$>
+                    _ipSupportedLoginProviders,
+                  ("DeveloperProviderName" .=) <$>
+                    _ipDeveloperProviderName,
+                  ("OpenIdConnectProviderARNs" .=) <$>
+                    _ipOpenIdConnectProviderARNs,
+                  Just ("IdentityPoolId" .= _ipIdentityPoolId),
+                  Just ("IdentityPoolName" .= _ipIdentityPoolName),
+                  Just
+                    ("AllowUnauthenticatedIdentities" .=
+                       _ipAllowUnauthenticatedIdentities)])
 
 -- | A description of the identity pool.
 --

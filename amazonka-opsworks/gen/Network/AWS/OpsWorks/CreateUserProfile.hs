@@ -104,9 +104,8 @@ cupIAMUserARN :: Lens' CreateUserProfile Text
 cupIAMUserARN = lens _cupIAMUserARN (\ s a -> s{_cupIAMUserARN = a});
 
 instance AWSRequest CreateUserProfile where
-        type Sv CreateUserProfile = OpsWorks
         type Rs CreateUserProfile = CreateUserProfileResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -126,10 +125,12 @@ instance ToHeaders CreateUserProfile where
 instance ToJSON CreateUserProfile where
         toJSON CreateUserProfile'{..}
           = object
-              ["SshUsername" .= _cupSSHUsername,
-               "SshPublicKey" .= _cupSSHPublicKey,
-               "AllowSelfManagement" .= _cupAllowSelfManagement,
-               "IamUserArn" .= _cupIAMUserARN]
+              (catMaybes
+                 [("SshUsername" .=) <$> _cupSSHUsername,
+                  ("SshPublicKey" .=) <$> _cupSSHPublicKey,
+                  ("AllowSelfManagement" .=) <$>
+                    _cupAllowSelfManagement,
+                  Just ("IamUserArn" .= _cupIAMUserARN)])
 
 instance ToPath CreateUserProfile where
         toPath = const "/"

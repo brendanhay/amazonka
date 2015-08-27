@@ -68,9 +68,8 @@ guArn :: Lens' GetUpload Text
 guArn = lens _guArn (\ s a -> s{_guArn = a});
 
 instance AWSRequest GetUpload where
-        type Sv GetUpload = DeviceFarm
         type Rs GetUpload = GetUploadResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -87,7 +86,8 @@ instance ToHeaders GetUpload where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetUpload where
-        toJSON GetUpload'{..} = object ["arn" .= _guArn]
+        toJSON GetUpload'{..}
+          = object (catMaybes [Just ("arn" .= _guArn)])
 
 instance ToPath GetUpload where
         toPath = const "/"

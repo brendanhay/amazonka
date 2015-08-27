@@ -156,10 +156,9 @@ drtsRouteTableIds :: Lens' DescribeRouteTables [Text]
 drtsRouteTableIds = lens _drtsRouteTableIds (\ s a -> s{_drtsRouteTableIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeRouteTables where
-        type Sv DescribeRouteTables = EC2
         type Rs DescribeRouteTables =
              DescribeRouteTablesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

@@ -83,10 +83,9 @@ gpdPipelineId :: Lens' GetPipelineDefinition Text
 gpdPipelineId = lens _gpdPipelineId (\ s a -> s{_gpdPipelineId = a});
 
 instance AWSRequest GetPipelineDefinition where
-        type Sv GetPipelineDefinition = DataPipeline
         type Rs GetPipelineDefinition =
              GetPipelineDefinitionResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -108,8 +107,9 @@ instance ToHeaders GetPipelineDefinition where
 instance ToJSON GetPipelineDefinition where
         toJSON GetPipelineDefinition'{..}
           = object
-              ["version" .= _gpdVersion,
-               "pipelineId" .= _gpdPipelineId]
+              (catMaybes
+                 [("version" .=) <$> _gpdVersion,
+                  Just ("pipelineId" .= _gpdPipelineId)])
 
 instance ToPath GetPipelineDefinition where
         toPath = const "/"

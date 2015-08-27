@@ -219,9 +219,8 @@ ijVaultName :: Lens' InitiateJob Text
 ijVaultName = lens _ijVaultName (\ s a -> s{_ijVaultName = a});
 
 instance AWSRequest InitiateJob where
-        type Sv InitiateJob = Glacier
         type Rs InitiateJob = InitiateJobResponse
-        request = postJSON
+        request = postJSON glacier
         response
           = receiveEmpty
               (\ s h x ->
@@ -234,7 +233,9 @@ instance ToHeaders InitiateJob where
 
 instance ToJSON InitiateJob where
         toJSON InitiateJob'{..}
-          = object ["jobParameters" .= _ijJobParameters]
+          = object
+              (catMaybes
+                 [("jobParameters" .=) <$> _ijJobParameters])
 
 instance ToPath InitiateJob where
         toPath InitiateJob'{..}

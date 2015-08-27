@@ -81,9 +81,8 @@ crRepositoryName :: Lens' CreateRepository Text
 crRepositoryName = lens _crRepositoryName (\ s a -> s{_crRepositoryName = a});
 
 instance AWSRequest CreateRepository where
-        type Sv CreateRepository = CodeCommit
         type Rs CreateRepository = CreateRepositoryResponse
-        request = postJSON
+        request = postJSON codeCommit
         response
           = receiveJSON
               (\ s h x ->
@@ -103,8 +102,10 @@ instance ToHeaders CreateRepository where
 instance ToJSON CreateRepository where
         toJSON CreateRepository'{..}
           = object
-              ["repositoryDescription" .= _crRepositoryDescription,
-               "repositoryName" .= _crRepositoryName]
+              (catMaybes
+                 [("repositoryDescription" .=) <$>
+                    _crRepositoryDescription,
+                  Just ("repositoryName" .= _crRepositoryName)])
 
 instance ToPath CreateRepository where
         toPath = const "/"

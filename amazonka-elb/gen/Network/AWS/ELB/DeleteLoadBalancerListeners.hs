@@ -74,10 +74,9 @@ dlblLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Int]
 dlblLoadBalancerPorts = lens _dlblLoadBalancerPorts (\ s a -> s{_dlblLoadBalancerPorts = a}) . _Coerce;
 
 instance AWSRequest DeleteLoadBalancerListeners where
-        type Sv DeleteLoadBalancerListeners = ELB
         type Rs DeleteLoadBalancerListeners =
              DeleteLoadBalancerListenersResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper
               "DeleteLoadBalancerListenersResult"

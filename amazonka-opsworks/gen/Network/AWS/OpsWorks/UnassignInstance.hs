@@ -72,9 +72,8 @@ uInstanceId :: Lens' UnassignInstance Text
 uInstanceId = lens _uInstanceId (\ s a -> s{_uInstanceId = a});
 
 instance AWSRequest UnassignInstance where
-        type Sv UnassignInstance = OpsWorks
         type Rs UnassignInstance = UnassignInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull UnassignInstanceResponse'
 
 instance ToHeaders UnassignInstance where
@@ -88,7 +87,8 @@ instance ToHeaders UnassignInstance where
 
 instance ToJSON UnassignInstance where
         toJSON UnassignInstance'{..}
-          = object ["InstanceId" .= _uInstanceId]
+          = object
+              (catMaybes [Just ("InstanceId" .= _uInstanceId)])
 
 instance ToPath UnassignInstance where
         toPath = const "/"

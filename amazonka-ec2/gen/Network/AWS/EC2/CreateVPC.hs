@@ -107,9 +107,8 @@ cvCIdRBlock :: Lens' CreateVPC Text
 cvCIdRBlock = lens _cvCIdRBlock (\ s a -> s{_cvCIdRBlock = a});
 
 instance AWSRequest CreateVPC where
-        type Sv CreateVPC = EC2
         type Rs CreateVPC = CreateVPCResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

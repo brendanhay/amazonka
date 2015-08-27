@@ -78,10 +78,9 @@ dlcCertificateFingerprint :: Lens' DescribeLunaClient (Maybe Text)
 dlcCertificateFingerprint = lens _dlcCertificateFingerprint (\ s a -> s{_dlcCertificateFingerprint = a});
 
 instance AWSRequest DescribeLunaClient where
-        type Sv DescribeLunaClient = CloudHSM
         type Rs DescribeLunaClient =
              DescribeLunaClientResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->
@@ -106,9 +105,10 @@ instance ToHeaders DescribeLunaClient where
 instance ToJSON DescribeLunaClient where
         toJSON DescribeLunaClient'{..}
           = object
-              ["ClientArn" .= _dlcClientARN,
-               "CertificateFingerprint" .=
-                 _dlcCertificateFingerprint]
+              (catMaybes
+                 [("ClientArn" .=) <$> _dlcClientARN,
+                  ("CertificateFingerprint" .=) <$>
+                    _dlcCertificateFingerprint])
 
 instance ToPath DescribeLunaClient where
         toPath = const "/"

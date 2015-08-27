@@ -73,9 +73,8 @@ autgUserName :: Lens' AddUserToGroup Text
 autgUserName = lens _autgUserName (\ s a -> s{_autgUserName = a});
 
 instance AWSRequest AddUserToGroup where
-        type Sv AddUserToGroup = IAM
         type Rs AddUserToGroup = AddUserToGroupResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull AddUserToGroupResponse'
 
 instance ToHeaders AddUserToGroup where

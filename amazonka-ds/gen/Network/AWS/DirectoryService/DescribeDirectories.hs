@@ -106,10 +106,9 @@ ddLimit :: Lens' DescribeDirectories (Maybe Natural)
 ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat;
 
 instance AWSRequest DescribeDirectories where
-        type Sv DescribeDirectories = DirectoryService
         type Rs DescribeDirectories =
              DescribeDirectoriesResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveJSON
               (\ s h x ->
@@ -131,9 +130,10 @@ instance ToHeaders DescribeDirectories where
 instance ToJSON DescribeDirectories where
         toJSON DescribeDirectories'{..}
           = object
-              ["NextToken" .= _ddNextToken,
-               "DirectoryIds" .= _ddDirectoryIds,
-               "Limit" .= _ddLimit]
+              (catMaybes
+                 [("NextToken" .=) <$> _ddNextToken,
+                  ("DirectoryIds" .=) <$> _ddDirectoryIds,
+                  ("Limit" .=) <$> _ddLimit])
 
 instance ToPath DescribeDirectories where
         toPath = const "/"

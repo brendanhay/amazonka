@@ -67,9 +67,8 @@ sName :: Lens' StartLogging Text
 sName = lens _sName (\ s a -> s{_sName = a});
 
 instance AWSRequest StartLogging where
-        type Sv StartLogging = CloudTrail
         type Rs StartLogging = StartLoggingResponse
-        request = postJSON
+        request = postJSON cloudTrail
         response
           = receiveEmpty
               (\ s h x ->
@@ -86,7 +85,8 @@ instance ToHeaders StartLogging where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON StartLogging where
-        toJSON StartLogging'{..} = object ["Name" .= _sName]
+        toJSON StartLogging'{..}
+          = object (catMaybes [Just ("Name" .= _sName)])
 
 instance ToPath StartLogging where
         toPath = const "/"

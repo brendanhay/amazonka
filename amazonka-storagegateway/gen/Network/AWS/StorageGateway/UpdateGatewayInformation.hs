@@ -86,10 +86,9 @@ ugiGatewayARN :: Lens' UpdateGatewayInformation Text
 ugiGatewayARN = lens _ugiGatewayARN (\ s a -> s{_ugiGatewayARN = a});
 
 instance AWSRequest UpdateGatewayInformation where
-        type Sv UpdateGatewayInformation = StorageGateway
         type Rs UpdateGatewayInformation =
              UpdateGatewayInformationResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -109,9 +108,10 @@ instance ToHeaders UpdateGatewayInformation where
 instance ToJSON UpdateGatewayInformation where
         toJSON UpdateGatewayInformation'{..}
           = object
-              ["GatewayName" .= _ugiGatewayName,
-               "GatewayTimezone" .= _ugiGatewayTimezone,
-               "GatewayARN" .= _ugiGatewayARN]
+              (catMaybes
+                 [("GatewayName" .=) <$> _ugiGatewayName,
+                  ("GatewayTimezone" .=) <$> _ugiGatewayTimezone,
+                  Just ("GatewayARN" .= _ugiGatewayARN)])
 
 instance ToPath UpdateGatewayInformation where
         toPath = const "/"

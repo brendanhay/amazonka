@@ -109,10 +109,9 @@ instance AWSPager DescribeReservedNodes where
             Just $ rq & drnMarker .~ rs ^. drnrsMarker
 
 instance AWSRequest DescribeReservedNodes where
-        type Sv DescribeReservedNodes = Redshift
         type Rs DescribeReservedNodes =
              DescribeReservedNodesResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "DescribeReservedNodesResult"
               (\ s h x ->

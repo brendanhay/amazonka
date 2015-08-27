@@ -317,148 +317,173 @@ testDeleteEndpointResponse :: DeleteEndpointResponse -> TestTree
 testDeleteEndpointResponse = res
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse"
+    sNS
     (Proxy :: Proxy DeleteEndpoint)
 
 testRemovePermissionResponse :: RemovePermissionResponse -> TestTree
 testRemovePermissionResponse = res
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse"
+    sNS
     (Proxy :: Proxy RemovePermission)
 
 testSetPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse -> TestTree
 testSetPlatformApplicationAttributesResponse = res
     "SetPlatformApplicationAttributesResponse"
     "fixture/SetPlatformApplicationAttributesResponse"
+    sNS
     (Proxy :: Proxy SetPlatformApplicationAttributes)
 
 testCreatePlatformEndpointResponse :: CreatePlatformEndpointResponse -> TestTree
 testCreatePlatformEndpointResponse = res
     "CreatePlatformEndpointResponse"
     "fixture/CreatePlatformEndpointResponse"
+    sNS
     (Proxy :: Proxy CreatePlatformEndpoint)
 
 testListSubscriptionsByTopicResponse :: ListSubscriptionsByTopicResponse -> TestTree
 testListSubscriptionsByTopicResponse = res
     "ListSubscriptionsByTopicResponse"
     "fixture/ListSubscriptionsByTopicResponse"
+    sNS
     (Proxy :: Proxy ListSubscriptionsByTopic)
 
 testGetTopicAttributesResponse :: GetTopicAttributesResponse -> TestTree
 testGetTopicAttributesResponse = res
     "GetTopicAttributesResponse"
     "fixture/GetTopicAttributesResponse"
+    sNS
     (Proxy :: Proxy GetTopicAttributes)
 
 testDeleteTopicResponse :: DeleteTopicResponse -> TestTree
 testDeleteTopicResponse = res
     "DeleteTopicResponse"
     "fixture/DeleteTopicResponse"
+    sNS
     (Proxy :: Proxy DeleteTopic)
 
 testListTopicsResponse :: ListTopicsResponse -> TestTree
 testListTopicsResponse = res
     "ListTopicsResponse"
     "fixture/ListTopicsResponse"
+    sNS
     (Proxy :: Proxy ListTopics)
 
 testCreatePlatformApplicationResponse :: CreatePlatformApplicationResponse -> TestTree
 testCreatePlatformApplicationResponse = res
     "CreatePlatformApplicationResponse"
     "fixture/CreatePlatformApplicationResponse"
+    sNS
     (Proxy :: Proxy CreatePlatformApplication)
 
 testListEndpointsByPlatformApplicationResponse :: ListEndpointsByPlatformApplicationResponse -> TestTree
 testListEndpointsByPlatformApplicationResponse = res
     "ListEndpointsByPlatformApplicationResponse"
     "fixture/ListEndpointsByPlatformApplicationResponse"
+    sNS
     (Proxy :: Proxy ListEndpointsByPlatformApplication)
 
 testGetPlatformApplicationAttributesResponse :: GetPlatformApplicationAttributesResponse -> TestTree
 testGetPlatformApplicationAttributesResponse = res
     "GetPlatformApplicationAttributesResponse"
     "fixture/GetPlatformApplicationAttributesResponse"
+    sNS
     (Proxy :: Proxy GetPlatformApplicationAttributes)
 
 testDeletePlatformApplicationResponse :: DeletePlatformApplicationResponse -> TestTree
 testDeletePlatformApplicationResponse = res
     "DeletePlatformApplicationResponse"
     "fixture/DeletePlatformApplicationResponse"
+    sNS
     (Proxy :: Proxy DeletePlatformApplication)
 
 testListPlatformApplicationsResponse :: ListPlatformApplicationsResponse -> TestTree
 testListPlatformApplicationsResponse = res
     "ListPlatformApplicationsResponse"
     "fixture/ListPlatformApplicationsResponse"
+    sNS
     (Proxy :: Proxy ListPlatformApplications)
 
 testSetTopicAttributesResponse :: SetTopicAttributesResponse -> TestTree
 testSetTopicAttributesResponse = res
     "SetTopicAttributesResponse"
     "fixture/SetTopicAttributesResponse"
+    sNS
     (Proxy :: Proxy SetTopicAttributes)
 
 testGetEndpointAttributesResponse :: GetEndpointAttributesResponse -> TestTree
 testGetEndpointAttributesResponse = res
     "GetEndpointAttributesResponse"
     "fixture/GetEndpointAttributesResponse"
+    sNS
     (Proxy :: Proxy GetEndpointAttributes)
 
 testAddPermissionResponse :: AddPermissionResponse -> TestTree
 testAddPermissionResponse = res
     "AddPermissionResponse"
     "fixture/AddPermissionResponse"
+    sNS
     (Proxy :: Proxy AddPermission)
 
 testGetSubscriptionAttributesResponse :: GetSubscriptionAttributesResponse -> TestTree
 testGetSubscriptionAttributesResponse = res
     "GetSubscriptionAttributesResponse"
     "fixture/GetSubscriptionAttributesResponse"
+    sNS
     (Proxy :: Proxy GetSubscriptionAttributes)
 
 testListSubscriptionsResponse :: ListSubscriptionsResponse -> TestTree
 testListSubscriptionsResponse = res
     "ListSubscriptionsResponse"
     "fixture/ListSubscriptionsResponse"
+    sNS
     (Proxy :: Proxy ListSubscriptions)
 
 testCreateTopicResponse :: CreateTopicResponse -> TestTree
 testCreateTopicResponse = res
     "CreateTopicResponse"
     "fixture/CreateTopicResponse"
+    sNS
     (Proxy :: Proxy CreateTopic)
 
 testSubscribeResponse :: SubscribeResponse -> TestTree
 testSubscribeResponse = res
     "SubscribeResponse"
     "fixture/SubscribeResponse"
+    sNS
     (Proxy :: Proxy Subscribe)
 
 testUnsubscribeResponse :: UnsubscribeResponse -> TestTree
 testUnsubscribeResponse = res
     "UnsubscribeResponse"
     "fixture/UnsubscribeResponse"
+    sNS
     (Proxy :: Proxy Unsubscribe)
 
 testSetEndpointAttributesResponse :: SetEndpointAttributesResponse -> TestTree
 testSetEndpointAttributesResponse = res
     "SetEndpointAttributesResponse"
     "fixture/SetEndpointAttributesResponse"
+    sNS
     (Proxy :: Proxy SetEndpointAttributes)
 
 testSetSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse -> TestTree
 testSetSubscriptionAttributesResponse = res
     "SetSubscriptionAttributesResponse"
     "fixture/SetSubscriptionAttributesResponse"
+    sNS
     (Proxy :: Proxy SetSubscriptionAttributes)
 
 testConfirmSubscriptionResponse :: ConfirmSubscriptionResponse -> TestTree
 testConfirmSubscriptionResponse = res
     "ConfirmSubscriptionResponse"
     "fixture/ConfirmSubscriptionResponse"
+    sNS
     (Proxy :: Proxy ConfirmSubscription)
 
 testPublishResponse :: PublishResponse -> TestTree
 testPublishResponse = res
     "PublishResponse"
     "fixture/PublishResponse"
+    sNS
     (Proxy :: Proxy Publish)

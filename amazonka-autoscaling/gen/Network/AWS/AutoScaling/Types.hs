@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.AutoScaling.Types
     (
-    -- * Service
-      AutoScaling
+    -- * Service Configuration
+      autoScaling
 
     -- * Errors
     , _LimitExceededFault
@@ -270,39 +269,36 @@ import           Network.AWS.AutoScaling.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2011-01-01@ of the Amazon Auto Scaling SDK.
-data AutoScaling
-
-instance AWSService AutoScaling where
-    type Sg AutoScaling = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "AutoScaling"
-            , _svcPrefix = "autoscaling"
-            , _svcVersion = "2011-01-01"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseXMLError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2011-01-01' of the Amazon Auto Scaling SDK configuration.
+autoScaling :: Service
+autoScaling =
+    Service
+    { _svcAbbrev = "AutoScaling"
+    , _svcSigner = v4
+    , _svcPrefix = "autoscaling"
+    , _svcVersion = "2011-01-01"
+    , _svcEndpoint = defaultEndpoint autoScaling
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | You have already reached a limit for your Auto Scaling resources (for
 -- example, groups, launch configurations, or lifecycle hooks). For more

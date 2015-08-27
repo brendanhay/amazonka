@@ -99,10 +99,9 @@ cietInstanceId :: Lens' CreateInstanceExportTask Text
 cietInstanceId = lens _cietInstanceId (\ s a -> s{_cietInstanceId = a});
 
 instance AWSRequest CreateInstanceExportTask where
-        type Sv CreateInstanceExportTask = EC2
         type Rs CreateInstanceExportTask =
              CreateInstanceExportTaskResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

@@ -69,9 +69,8 @@ daAppId :: Lens' DeleteApp Text
 daAppId = lens _daAppId (\ s a -> s{_daAppId = a});
 
 instance AWSRequest DeleteApp where
-        type Sv DeleteApp = OpsWorks
         type Rs DeleteApp = DeleteAppResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull DeleteAppResponse'
 
 instance ToHeaders DeleteApp where
@@ -84,7 +83,8 @@ instance ToHeaders DeleteApp where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DeleteApp where
-        toJSON DeleteApp'{..} = object ["AppId" .= _daAppId]
+        toJSON DeleteApp'{..}
+          = object (catMaybes [Just ("AppId" .= _daAppId)])
 
 instance ToPath DeleteApp where
         toPath = const "/"

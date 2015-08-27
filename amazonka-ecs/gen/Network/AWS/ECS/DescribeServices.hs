@@ -75,9 +75,8 @@ dServices :: Lens' DescribeServices [Text]
 dServices = lens _dServices (\ s a -> s{_dServices = a}) . _Coerce;
 
 instance AWSRequest DescribeServices where
-        type Sv DescribeServices = ECS
         type Rs DescribeServices = DescribeServicesResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -99,7 +98,9 @@ instance ToHeaders DescribeServices where
 instance ToJSON DescribeServices where
         toJSON DescribeServices'{..}
           = object
-              ["cluster" .= _dCluster, "services" .= _dServices]
+              (catMaybes
+                 [("cluster" .=) <$> _dCluster,
+                  Just ("services" .= _dServices)])
 
 instance ToPath DescribeServices where
         toPath = const "/"

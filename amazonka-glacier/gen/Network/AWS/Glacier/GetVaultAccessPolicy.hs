@@ -88,10 +88,9 @@ gvapVaultName :: Lens' GetVaultAccessPolicy Text
 gvapVaultName = lens _gvapVaultName (\ s a -> s{_gvapVaultName = a});
 
 instance AWSRequest GetVaultAccessPolicy where
-        type Sv GetVaultAccessPolicy = Glacier
         type Rs GetVaultAccessPolicy =
              GetVaultAccessPolicyResponse
-        request = get
+        request = get glacier
         response
           = receiveJSON
               (\ s h x ->

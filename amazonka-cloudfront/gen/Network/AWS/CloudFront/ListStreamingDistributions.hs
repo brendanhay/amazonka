@@ -81,10 +81,9 @@ lsdMarker :: Lens' ListStreamingDistributions (Maybe Text)
 lsdMarker = lens _lsdMarker (\ s a -> s{_lsdMarker = a});
 
 instance AWSRequest ListStreamingDistributions where
-        type Sv ListStreamingDistributions = CloudFront
         type Rs ListStreamingDistributions =
              ListStreamingDistributionsResponse
-        request = get
+        request = get cloudFront
         response
           = receiveXML
               (\ s h x ->

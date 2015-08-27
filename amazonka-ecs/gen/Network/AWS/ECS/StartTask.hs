@@ -130,9 +130,8 @@ sContainerInstances :: Lens' StartTask [Text]
 sContainerInstances = lens _sContainerInstances (\ s a -> s{_sContainerInstances = a}) . _Coerce;
 
 instance AWSRequest StartTask where
-        type Sv StartTask = ECS
         type Rs StartTask = StartTaskResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -154,10 +153,12 @@ instance ToHeaders StartTask where
 instance ToJSON StartTask where
         toJSON StartTask'{..}
           = object
-              ["overrides" .= _sOverrides, "cluster" .= _sCluster,
-               "startedBy" .= _sStartedBy,
-               "taskDefinition" .= _sTaskDefinition,
-               "containerInstances" .= _sContainerInstances]
+              (catMaybes
+                 [("overrides" .=) <$> _sOverrides,
+                  ("cluster" .=) <$> _sCluster,
+                  ("startedBy" .=) <$> _sStartedBy,
+                  Just ("taskDefinition" .= _sTaskDefinition),
+                  Just ("containerInstances" .= _sContainerInstances)])
 
 instance ToPath StartTask where
         toPath = const "/"

@@ -72,10 +72,9 @@ dInstanceId :: Lens' DeregisterInstance Text
 dInstanceId = lens _dInstanceId (\ s a -> s{_dInstanceId = a});
 
 instance AWSRequest DeregisterInstance where
-        type Sv DeregisterInstance = OpsWorks
         type Rs DeregisterInstance =
              DeregisterInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull DeregisterInstanceResponse'
 
 instance ToHeaders DeregisterInstance where
@@ -90,7 +89,8 @@ instance ToHeaders DeregisterInstance where
 
 instance ToJSON DeregisterInstance where
         toJSON DeregisterInstance'{..}
-          = object ["InstanceId" .= _dInstanceId]
+          = object
+              (catMaybes [Just ("InstanceId" .= _dInstanceId)])
 
 instance ToPath DeregisterInstance where
         toPath = const "/"

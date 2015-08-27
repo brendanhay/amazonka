@@ -161,10 +161,9 @@ cdgServiceRoleARN :: Lens' CreateDeploymentGroup Text
 cdgServiceRoleARN = lens _cdgServiceRoleARN (\ s a -> s{_cdgServiceRoleARN = a});
 
 instance AWSRequest CreateDeploymentGroup where
-        type Sv CreateDeploymentGroup = CodeDeploy
         type Rs CreateDeploymentGroup =
              CreateDeploymentGroupResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -184,14 +183,17 @@ instance ToHeaders CreateDeploymentGroup where
 instance ToJSON CreateDeploymentGroup where
         toJSON CreateDeploymentGroup'{..}
           = object
-              ["deploymentConfigName" .= _cdgDeploymentConfigName,
-               "ec2TagFilters" .= _cdgEc2TagFilters,
-               "onPremisesInstanceTagFilters" .=
-                 _cdgOnPremisesInstanceTagFilters,
-               "autoScalingGroups" .= _cdgAutoScalingGroups,
-               "applicationName" .= _cdgApplicationName,
-               "deploymentGroupName" .= _cdgDeploymentGroupName,
-               "serviceRoleArn" .= _cdgServiceRoleARN]
+              (catMaybes
+                 [("deploymentConfigName" .=) <$>
+                    _cdgDeploymentConfigName,
+                  ("ec2TagFilters" .=) <$> _cdgEc2TagFilters,
+                  ("onPremisesInstanceTagFilters" .=) <$>
+                    _cdgOnPremisesInstanceTagFilters,
+                  ("autoScalingGroups" .=) <$> _cdgAutoScalingGroups,
+                  Just ("applicationName" .= _cdgApplicationName),
+                  Just
+                    ("deploymentGroupName" .= _cdgDeploymentGroupName),
+                  Just ("serviceRoleArn" .= _cdgServiceRoleARN)])
 
 instance ToPath CreateDeploymentGroup where
         toPath = const "/"

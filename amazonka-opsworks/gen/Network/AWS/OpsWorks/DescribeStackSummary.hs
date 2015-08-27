@@ -73,10 +73,9 @@ dssStackId :: Lens' DescribeStackSummary Text
 dssStackId = lens _dssStackId (\ s a -> s{_dssStackId = a});
 
 instance AWSRequest DescribeStackSummary where
-        type Sv DescribeStackSummary = OpsWorks
         type Rs DescribeStackSummary =
              DescribeStackSummaryResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -95,7 +94,8 @@ instance ToHeaders DescribeStackSummary where
 
 instance ToJSON DescribeStackSummary where
         toJSON DescribeStackSummary'{..}
-          = object ["StackId" .= _dssStackId]
+          = object
+              (catMaybes [Just ("StackId" .= _dssStackId)])
 
 instance ToPath DescribeStackSummary where
         toPath = const "/"

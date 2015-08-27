@@ -114,9 +114,8 @@ pleLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
 pleLogEvents = lens _pleLogEvents (\ s a -> s{_pleLogEvents = a}) . _List1;
 
 instance AWSRequest PutLogEvents where
-        type Sv PutLogEvents = CloudWatchLogs
         type Rs PutLogEvents = PutLogEventsResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response
           = receiveJSON
               (\ s h x ->
@@ -137,10 +136,11 @@ instance ToHeaders PutLogEvents where
 instance ToJSON PutLogEvents where
         toJSON PutLogEvents'{..}
           = object
-              ["sequenceToken" .= _pleSequenceToken,
-               "logGroupName" .= _pleLogGroupName,
-               "logStreamName" .= _pleLogStreamName,
-               "logEvents" .= _pleLogEvents]
+              (catMaybes
+                 [("sequenceToken" .=) <$> _pleSequenceToken,
+                  Just ("logGroupName" .= _pleLogGroupName),
+                  Just ("logStreamName" .= _pleLogStreamName),
+                  Just ("logEvents" .= _pleLogEvents)])
 
 instance ToPath PutLogEvents where
         toPath = const "/"

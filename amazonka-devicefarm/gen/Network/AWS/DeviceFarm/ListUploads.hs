@@ -80,9 +80,8 @@ luArn :: Lens' ListUploads Text
 luArn = lens _luArn (\ s a -> s{_luArn = a});
 
 instance AWSRequest ListUploads where
-        type Sv ListUploads = DeviceFarm
         type Rs ListUploads = ListUploadsResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -102,7 +101,9 @@ instance ToHeaders ListUploads where
 instance ToJSON ListUploads where
         toJSON ListUploads'{..}
           = object
-              ["nextToken" .= _luNextToken, "arn" .= _luArn]
+              (catMaybes
+                 [("nextToken" .=) <$> _luNextToken,
+                  Just ("arn" .= _luArn)])
 
 instance ToPath ListUploads where
         toPath = const "/"

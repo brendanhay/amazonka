@@ -71,10 +71,9 @@ ddcDeliveryChannelName :: Lens' DeleteDeliveryChannel Text
 ddcDeliveryChannelName = lens _ddcDeliveryChannelName (\ s a -> s{_ddcDeliveryChannelName = a});
 
 instance AWSRequest DeleteDeliveryChannel where
-        type Sv DeleteDeliveryChannel = Config
         type Rs DeleteDeliveryChannel =
              DeleteDeliveryChannelResponse
-        request = postJSON
+        request = postJSON config
         response = receiveNull DeleteDeliveryChannelResponse'
 
 instance ToHeaders DeleteDeliveryChannel where
@@ -90,7 +89,9 @@ instance ToHeaders DeleteDeliveryChannel where
 instance ToJSON DeleteDeliveryChannel where
         toJSON DeleteDeliveryChannel'{..}
           = object
-              ["DeliveryChannelName" .= _ddcDeliveryChannelName]
+              (catMaybes
+                 [Just
+                    ("DeliveryChannelName" .= _ddcDeliveryChannelName)])
 
 instance ToPath DeleteDeliveryChannel where
         toPath = const "/"

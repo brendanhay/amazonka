@@ -142,9 +142,8 @@ cgGranteePrincipal :: Lens' CreateGrant Text
 cgGranteePrincipal = lens _cgGranteePrincipal (\ s a -> s{_cgGranteePrincipal = a});
 
 instance AWSRequest CreateGrant where
-        type Sv CreateGrant = KMS
         type Rs CreateGrant = CreateGrantResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->
@@ -164,11 +163,13 @@ instance ToHeaders CreateGrant where
 instance ToJSON CreateGrant where
         toJSON CreateGrant'{..}
           = object
-              ["RetiringPrincipal" .= _cgRetiringPrincipal,
-               "Constraints" .= _cgConstraints,
-               "GrantTokens" .= _cgGrantTokens,
-               "Operations" .= _cgOperations, "KeyId" .= _cgKeyId,
-               "GranteePrincipal" .= _cgGranteePrincipal]
+              (catMaybes
+                 [("RetiringPrincipal" .=) <$> _cgRetiringPrincipal,
+                  ("Constraints" .=) <$> _cgConstraints,
+                  ("GrantTokens" .=) <$> _cgGrantTokens,
+                  ("Operations" .=) <$> _cgOperations,
+                  Just ("KeyId" .= _cgKeyId),
+                  Just ("GranteePrincipal" .= _cgGranteePrincipal)])
 
 instance ToPath CreateGrant where
         toPath = const "/"

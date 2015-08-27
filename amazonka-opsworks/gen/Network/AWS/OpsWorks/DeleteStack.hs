@@ -71,9 +71,8 @@ dsStackId :: Lens' DeleteStack Text
 dsStackId = lens _dsStackId (\ s a -> s{_dsStackId = a});
 
 instance AWSRequest DeleteStack where
-        type Sv DeleteStack = OpsWorks
         type Rs DeleteStack = DeleteStackResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull DeleteStackResponse'
 
 instance ToHeaders DeleteStack where
@@ -87,7 +86,7 @@ instance ToHeaders DeleteStack where
 
 instance ToJSON DeleteStack where
         toJSON DeleteStack'{..}
-          = object ["StackId" .= _dsStackId]
+          = object (catMaybes [Just ("StackId" .= _dsStackId)])
 
 instance ToPath DeleteStack where
         toPath = const "/"

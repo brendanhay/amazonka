@@ -83,10 +83,9 @@ svtauVisibleToAllUsers :: Lens' SetVisibleToAllUsers Bool
 svtauVisibleToAllUsers = lens _svtauVisibleToAllUsers (\ s a -> s{_svtauVisibleToAllUsers = a});
 
 instance AWSRequest SetVisibleToAllUsers where
-        type Sv SetVisibleToAllUsers = EMR
         type Rs SetVisibleToAllUsers =
              SetVisibleToAllUsersResponse
-        request = postJSON
+        request = postJSON eMR
         response = receiveNull SetVisibleToAllUsersResponse'
 
 instance ToHeaders SetVisibleToAllUsers where
@@ -102,8 +101,10 @@ instance ToHeaders SetVisibleToAllUsers where
 instance ToJSON SetVisibleToAllUsers where
         toJSON SetVisibleToAllUsers'{..}
           = object
-              ["JobFlowIds" .= _svtauJobFlowIds,
-               "VisibleToAllUsers" .= _svtauVisibleToAllUsers]
+              (catMaybes
+                 [Just ("JobFlowIds" .= _svtauJobFlowIds),
+                  Just
+                    ("VisibleToAllUsers" .= _svtauVisibleToAllUsers)])
 
 instance ToPath SetVisibleToAllUsers where
         toPath = const "/"

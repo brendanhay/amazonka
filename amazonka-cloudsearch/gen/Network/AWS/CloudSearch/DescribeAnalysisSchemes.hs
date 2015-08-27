@@ -98,10 +98,9 @@ dassDomainName :: Lens' DescribeAnalysisSchemes Text
 dassDomainName = lens _dassDomainName (\ s a -> s{_dassDomainName = a});
 
 instance AWSRequest DescribeAnalysisSchemes where
-        type Sv DescribeAnalysisSchemes = CloudSearch
         type Rs DescribeAnalysisSchemes =
              DescribeAnalysisSchemesResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "DescribeAnalysisSchemesResult"
               (\ s h x ->

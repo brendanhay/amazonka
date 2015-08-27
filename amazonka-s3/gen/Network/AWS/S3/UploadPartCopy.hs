@@ -241,9 +241,8 @@ upcUploadId :: Lens' UploadPartCopy Text
 upcUploadId = lens _upcUploadId (\ s a -> s{_upcUploadId = a});
 
 instance AWSRequest UploadPartCopy where
-        type Sv UploadPartCopy = S3
         type Rs UploadPartCopy = UploadPartCopyResponse
-        request = put
+        request = put s3
         response
           = receiveXML
               (\ s h x ->

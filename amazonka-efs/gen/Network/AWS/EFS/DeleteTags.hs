@@ -80,9 +80,8 @@ dTagKeys :: Lens' DeleteTags [Text]
 dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Coerce;
 
 instance AWSRequest DeleteTags where
-        type Sv DeleteTags = EFS
         type Rs DeleteTags = DeleteTagsResponse
-        request = postJSON
+        request = postJSON eFS
         response = receiveNull DeleteTagsResponse'
 
 instance ToHeaders DeleteTags where
@@ -90,7 +89,7 @@ instance ToHeaders DeleteTags where
 
 instance ToJSON DeleteTags where
         toJSON DeleteTags'{..}
-          = object ["TagKeys" .= _dTagKeys]
+          = object (catMaybes [Just ("TagKeys" .= _dTagKeys)])
 
 instance ToPath DeleteTags where
         toPath DeleteTags'{..}

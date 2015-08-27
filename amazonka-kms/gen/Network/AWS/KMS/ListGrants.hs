@@ -98,9 +98,8 @@ lgKeyId :: Lens' ListGrants Text
 lgKeyId = lens _lgKeyId (\ s a -> s{_lgKeyId = a});
 
 instance AWSRequest ListGrants where
-        type Sv ListGrants = KMS
         type Rs ListGrants = ListGrantsResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->
@@ -121,8 +120,10 @@ instance ToHeaders ListGrants where
 instance ToJSON ListGrants where
         toJSON ListGrants'{..}
           = object
-              ["Marker" .= _lgMarker, "Limit" .= _lgLimit,
-               "KeyId" .= _lgKeyId]
+              (catMaybes
+                 [("Marker" .=) <$> _lgMarker,
+                  ("Limit" .=) <$> _lgLimit,
+                  Just ("KeyId" .= _lgKeyId)])
 
 instance ToPath ListGrants where
         toPath = const "/"

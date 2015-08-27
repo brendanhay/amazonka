@@ -80,9 +80,8 @@ sgGatewayARN :: Lens' StartGateway Text
 sgGatewayARN = lens _sgGatewayARN (\ s a -> s{_sgGatewayARN = a});
 
 instance AWSRequest StartGateway where
-        type Sv StartGateway = StorageGateway
         type Rs StartGateway = StartGatewayResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -101,7 +100,8 @@ instance ToHeaders StartGateway where
 
 instance ToJSON StartGateway where
         toJSON StartGateway'{..}
-          = object ["GatewayARN" .= _sgGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _sgGatewayARN)])
 
 instance ToPath StartGateway where
         toPath = const "/"

@@ -77,10 +77,9 @@ rtfsTagKeys :: Lens' RemoveTagsFromStream (NonEmpty Text)
 rtfsTagKeys = lens _rtfsTagKeys (\ s a -> s{_rtfsTagKeys = a}) . _List1;
 
 instance AWSRequest RemoveTagsFromStream where
-        type Sv RemoveTagsFromStream = Kinesis
         type Rs RemoveTagsFromStream =
              RemoveTagsFromStreamResponse
-        request = postJSON
+        request = postJSON kinesis
         response = receiveNull RemoveTagsFromStreamResponse'
 
 instance ToHeaders RemoveTagsFromStream where
@@ -96,8 +95,9 @@ instance ToHeaders RemoveTagsFromStream where
 instance ToJSON RemoveTagsFromStream where
         toJSON RemoveTagsFromStream'{..}
           = object
-              ["StreamName" .= _rtfsStreamName,
-               "TagKeys" .= _rtfsTagKeys]
+              (catMaybes
+                 [Just ("StreamName" .= _rtfsStreamName),
+                  Just ("TagKeys" .= _rtfsTagKeys)])
 
 instance ToPath RemoveTagsFromStream where
         toPath = const "/"

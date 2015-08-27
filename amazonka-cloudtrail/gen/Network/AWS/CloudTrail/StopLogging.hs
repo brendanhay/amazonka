@@ -72,9 +72,8 @@ slName :: Lens' StopLogging Text
 slName = lens _slName (\ s a -> s{_slName = a});
 
 instance AWSRequest StopLogging where
-        type Sv StopLogging = CloudTrail
         type Rs StopLogging = StopLoggingResponse
-        request = postJSON
+        request = postJSON cloudTrail
         response
           = receiveEmpty
               (\ s h x ->
@@ -91,7 +90,8 @@ instance ToHeaders StopLogging where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON StopLogging where
-        toJSON StopLogging'{..} = object ["Name" .= _slName]
+        toJSON StopLogging'{..}
+          = object (catMaybes [Just ("Name" .= _slName)])
 
 instance ToPath StopLogging where
         toPath = const "/"

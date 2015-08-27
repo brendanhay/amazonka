@@ -119,11 +119,9 @@ apviNewPrivateVirtualInterfaceAllocation = lens _apviNewPrivateVirtualInterfaceA
 
 instance AWSRequest AllocatePrivateVirtualInterface
          where
-        type Sv AllocatePrivateVirtualInterface =
-             DirectConnect
         type Rs AllocatePrivateVirtualInterface =
              VirtualInterface
-        request = postJSON
+        request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders AllocatePrivateVirtualInterface
@@ -140,10 +138,12 @@ instance ToHeaders AllocatePrivateVirtualInterface
 instance ToJSON AllocatePrivateVirtualInterface where
         toJSON AllocatePrivateVirtualInterface'{..}
           = object
-              ["connectionId" .= _apviConnectionId,
-               "ownerAccount" .= _apviOwnerAccount,
-               "newPrivateVirtualInterfaceAllocation" .=
-                 _apviNewPrivateVirtualInterfaceAllocation]
+              (catMaybes
+                 [Just ("connectionId" .= _apviConnectionId),
+                  Just ("ownerAccount" .= _apviOwnerAccount),
+                  Just
+                    ("newPrivateVirtualInterfaceAllocation" .=
+                       _apviNewPrivateVirtualInterfaceAllocation)])
 
 instance ToPath AllocatePrivateVirtualInterface where
         toPath = const "/"

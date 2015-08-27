@@ -96,9 +96,8 @@ instance AWSPager ListClusters where
             Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
 
 instance AWSRequest ListClusters where
-        type Sv ListClusters = ECS
         type Rs ListClusters = ListClustersResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -120,8 +119,9 @@ instance ToHeaders ListClusters where
 instance ToJSON ListClusters where
         toJSON ListClusters'{..}
           = object
-              ["nextToken" .= _lcNextToken,
-               "maxResults" .= _lcMaxResults]
+              (catMaybes
+                 [("nextToken" .=) <$> _lcNextToken,
+                  ("maxResults" .=) <$> _lcMaxResults])
 
 instance ToPath ListClusters where
         toPath = const "/"

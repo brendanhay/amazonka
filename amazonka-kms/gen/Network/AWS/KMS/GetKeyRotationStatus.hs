@@ -73,10 +73,9 @@ gkrsKeyId :: Lens' GetKeyRotationStatus Text
 gkrsKeyId = lens _gkrsKeyId (\ s a -> s{_gkrsKeyId = a});
 
 instance AWSRequest GetKeyRotationStatus where
-        type Sv GetKeyRotationStatus = KMS
         type Rs GetKeyRotationStatus =
              GetKeyRotationStatusResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->
@@ -94,7 +93,7 @@ instance ToHeaders GetKeyRotationStatus where
 
 instance ToJSON GetKeyRotationStatus where
         toJSON GetKeyRotationStatus'{..}
-          = object ["KeyId" .= _gkrsKeyId]
+          = object (catMaybes [Just ("KeyId" .= _gkrsKeyId)])
 
 instance ToPath GetKeyRotationStatus where
         toPath = const "/"

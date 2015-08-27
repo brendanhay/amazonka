@@ -78,9 +78,8 @@ tmfLogEventMessages :: Lens' TestMetricFilter (NonEmpty Text)
 tmfLogEventMessages = lens _tmfLogEventMessages (\ s a -> s{_tmfLogEventMessages = a}) . _List1;
 
 instance AWSRequest TestMetricFilter where
-        type Sv TestMetricFilter = CloudWatchLogs
         type Rs TestMetricFilter = TestMetricFilterResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response
           = receiveJSON
               (\ s h x ->
@@ -99,8 +98,9 @@ instance ToHeaders TestMetricFilter where
 instance ToJSON TestMetricFilter where
         toJSON TestMetricFilter'{..}
           = object
-              ["filterPattern" .= _tmfFilterPattern,
-               "logEventMessages" .= _tmfLogEventMessages]
+              (catMaybes
+                 [Just ("filterPattern" .= _tmfFilterPattern),
+                  Just ("logEventMessages" .= _tmfLogEventMessages)])
 
 instance ToPath TestMetricFilter where
         toPath = const "/"

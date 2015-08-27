@@ -376,9 +376,8 @@ csDefaultInstanceProfileARN :: Lens' CreateStack Text
 csDefaultInstanceProfileARN = lens _csDefaultInstanceProfileARN (\ s a -> s{_csDefaultInstanceProfileARN = a});
 
 instance AWSRequest CreateStack where
-        type Sv CreateStack = OpsWorks
         type Rs CreateStack = CreateStackResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -397,27 +396,33 @@ instance ToHeaders CreateStack where
 instance ToJSON CreateStack where
         toJSON CreateStack'{..}
           = object
-              ["DefaultRootDeviceType" .= _csDefaultRootDeviceType,
-               "ChefConfiguration" .= _csChefConfiguration,
-               "VpcId" .= _csVPCId,
-               "AgentVersion" .= _csAgentVersion,
-               "DefaultSshKeyName" .= _csDefaultSSHKeyName,
-               "CustomJson" .= _csCustomJSON,
-               "CustomCookbooksSource" .= _csCustomCookbooksSource,
-               "DefaultAvailabilityZone" .=
-                 _csDefaultAvailabilityZone,
-               "UseOpsworksSecurityGroups" .=
-                 _csUseOpsworksSecurityGroups,
-               "DefaultOs" .= _csDefaultOS,
-               "Attributes" .= _csAttributes,
-               "UseCustomCookbooks" .= _csUseCustomCookbooks,
-               "DefaultSubnetId" .= _csDefaultSubnetId,
-               "ConfigurationManager" .= _csConfigurationManager,
-               "HostnameTheme" .= _csHostnameTheme,
-               "Name" .= _csName, "Region" .= _csRegion,
-               "ServiceRoleArn" .= _csServiceRoleARN,
-               "DefaultInstanceProfileArn" .=
-                 _csDefaultInstanceProfileARN]
+              (catMaybes
+                 [("DefaultRootDeviceType" .=) <$>
+                    _csDefaultRootDeviceType,
+                  ("ChefConfiguration" .=) <$> _csChefConfiguration,
+                  ("VpcId" .=) <$> _csVPCId,
+                  ("AgentVersion" .=) <$> _csAgentVersion,
+                  ("DefaultSshKeyName" .=) <$> _csDefaultSSHKeyName,
+                  ("CustomJson" .=) <$> _csCustomJSON,
+                  ("CustomCookbooksSource" .=) <$>
+                    _csCustomCookbooksSource,
+                  ("DefaultAvailabilityZone" .=) <$>
+                    _csDefaultAvailabilityZone,
+                  ("UseOpsworksSecurityGroups" .=) <$>
+                    _csUseOpsworksSecurityGroups,
+                  ("DefaultOs" .=) <$> _csDefaultOS,
+                  ("Attributes" .=) <$> _csAttributes,
+                  ("UseCustomCookbooks" .=) <$> _csUseCustomCookbooks,
+                  ("DefaultSubnetId" .=) <$> _csDefaultSubnetId,
+                  ("ConfigurationManager" .=) <$>
+                    _csConfigurationManager,
+                  ("HostnameTheme" .=) <$> _csHostnameTheme,
+                  Just ("Name" .= _csName),
+                  Just ("Region" .= _csRegion),
+                  Just ("ServiceRoleArn" .= _csServiceRoleARN),
+                  Just
+                    ("DefaultInstanceProfileArn" .=
+                       _csDefaultInstanceProfileARN)])
 
 instance ToPath CreateStack where
         toPath = const "/"

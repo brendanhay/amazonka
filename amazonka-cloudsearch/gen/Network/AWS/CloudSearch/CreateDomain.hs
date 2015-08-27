@@ -74,9 +74,8 @@ cdDomainName :: Lens' CreateDomain Text
 cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
 
 instance AWSRequest CreateDomain where
-        type Sv CreateDomain = CloudSearch
         type Rs CreateDomain = CreateDomainResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "CreateDomainResult"
               (\ s h x ->

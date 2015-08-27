@@ -96,9 +96,8 @@ uuUserName :: Lens' UpdateUser Text
 uuUserName = lens _uuUserName (\ s a -> s{_uuUserName = a});
 
 instance AWSRequest UpdateUser where
-        type Sv UpdateUser = IAM
         type Rs UpdateUser = UpdateUserResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull UpdateUserResponse'
 
 instance ToHeaders UpdateUser where

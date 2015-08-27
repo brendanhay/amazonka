@@ -13,13 +13,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Sign.V2
-    ( V2
-    , Meta (..)
+    ( v2
     ) where
 
 import           Control.Applicative
 import qualified Data.ByteString.Char8        as BS8
-import           Data.List                    (intersperse)
 import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data.Body
@@ -36,16 +34,14 @@ import           Network.HTTP.Types           hiding (toQuery)
 
 import           Prelude
 
-data V2
-
-data instance Meta V2 = Meta
+data V2 = V2
     { metaTime      :: !UTCTime
     , metaEndpoint  :: !Endpoint
     , metaSignature :: !ByteString
     }
 
-instance ToLog (Meta V2) where
-    build Meta{..} = mconcat $ intersperse "\n"
+instance ToLog V2 where
+    build V2{..} = buildLines
         [ "[Version 2 Metadata] {"
         , "  time      = " <> build metaTime
         , "  endpoint  = " <> build (_endpointHost metaEndpoint)
@@ -53,46 +49,50 @@ instance ToLog (Meta V2) where
         , "}"
         ]
 
-instance AWSSigner V2 where
-    signed AuthEnv{..} r t Service{..} Request{..} = Signed meta rq
-      where
-        meta = Meta t end signature
+v2 :: Signer
+v2 = Signer sign' (const sign') -- FIXME: revisit v2 presigning.
 
-        rq = clientRequest
-            { Client.method         = meth
-            , Client.host           = _endpointHost
-            , Client.path           = path'
-            , Client.queryString    = toBS authorised
-            , Client.requestHeaders = headers
-            , Client.requestBody    = bodyRequest _rqBody
-            }
+sign' :: Algorithm a
+sign' Request{..} AuthEnv{..} r t = Signed meta rq
+  where
+    meta = Meta (V2 t end signature)
 
-        meth  = toBS _rqMethod
-        path' = toBS (escapePath _rqPath)
+    rq = (clientRequest end _svcTimeout)
+        { Client.method         = meth
+        , Client.path           = path'
+        , Client.queryString    = toBS authorised
+        , Client.requestHeaders = headers
+        , Client.requestBody    = bodyRequest _rqBody
+        }
 
-        end@Endpoint{..} = _svcEndpoint r
+    meth  = toBS _rqMethod
+    path' = toBS (escapePath _rqPath)
 
-        authorised = pair "Signature" (urlEncode True signature) query
+    end@Endpoint{..} = _svcEndpoint r
 
-        signature = digestToBase Base64
-            . hmacSHA256 (toBS _authSecret)
-            $ BS8.intercalate "\n"
-                [ meth
-                , _endpointHost
-                , path'
-                , toBS query
-                ]
+    Service{..} = _rqService
 
-        query =
-             pair "Version"          _svcVersion
-           . pair "SignatureVersion" ("2"          :: ByteString)
-           . pair "SignatureMethod"  ("HmacSHA256" :: ByteString)
-           . pair "Timestamp"        time
-           . pair "AWSAccessKeyId"   (toBS _authAccess)
-           $ _rqQuery <> maybe mempty toQuery token
+    authorised = pair "Signature" (urlEncode True signature) query
 
-        token = ("SecurityToken" :: ByteString,) . toBS <$> _authToken
+    signature = digestToBase Base64
+        . hmacSHA256 (toBS _authSecret)
+        $ BS8.intercalate "\n"
+            [ meth
+            , _endpointHost
+            , path'
+            , toBS query
+            ]
 
-        headers = hdr hDate time _rqHeaders
+    query =
+         pair "Version"          _svcVersion
+       . pair "SignatureVersion" ("2"          :: ByteString)
+       . pair "SignatureMethod"  ("HmacSHA256" :: ByteString)
+       . pair "Timestamp"        time
+       . pair "AWSAccessKeyId"   (toBS _authAccess)
+       $ _rqQuery <> maybe mempty toQuery token
 
-        time = toBS (Time t :: ISO8601)
+    token = ("SecurityToken" :: ByteString,) . toBS <$> _authToken
+
+    headers = hdr hDate time _rqHeaders
+
+    time = toBS (Time t :: ISO8601)

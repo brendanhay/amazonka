@@ -141,9 +141,8 @@ utTableName :: Lens' UpdateTable Text
 utTableName = lens _utTableName (\ s a -> s{_utTableName = a});
 
 instance AWSRequest UpdateTable where
-        type Sv UpdateTable = DynamoDB
         type Rs UpdateTable = UpdateTableResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->
@@ -162,12 +161,16 @@ instance ToHeaders UpdateTable where
 instance ToJSON UpdateTable where
         toJSON UpdateTable'{..}
           = object
-              ["ProvisionedThroughput" .= _utProvisionedThroughput,
-               "AttributeDefinitions" .= _utAttributeDefinitions,
-               "GlobalSecondaryIndexUpdates" .=
-                 _utGlobalSecondaryIndexUpdates,
-               "StreamSpecification" .= _utStreamSpecification,
-               "TableName" .= _utTableName]
+              (catMaybes
+                 [("ProvisionedThroughput" .=) <$>
+                    _utProvisionedThroughput,
+                  ("AttributeDefinitions" .=) <$>
+                    _utAttributeDefinitions,
+                  ("GlobalSecondaryIndexUpdates" .=) <$>
+                    _utGlobalSecondaryIndexUpdates,
+                  ("StreamSpecification" .=) <$>
+                    _utStreamSpecification,
+                  Just ("TableName" .= _utTableName)])
 
 instance ToPath UpdateTable where
         toPath = const "/"

@@ -67,10 +67,9 @@ dlcLaunchConfigurationName :: Lens' DeleteLaunchConfiguration Text
 dlcLaunchConfigurationName = lens _dlcLaunchConfigurationName (\ s a -> s{_dlcLaunchConfigurationName = a});
 
 instance AWSRequest DeleteLaunchConfiguration where
-        type Sv DeleteLaunchConfiguration = AutoScaling
         type Rs DeleteLaunchConfiguration =
              DeleteLaunchConfigurationResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveNull DeleteLaunchConfigurationResponse'
 

@@ -97,10 +97,9 @@ uServerCertificateName :: Lens' UpdateServerCertificate Text
 uServerCertificateName = lens _uServerCertificateName (\ s a -> s{_uServerCertificateName = a});
 
 instance AWSRequest UpdateServerCertificate where
-        type Sv UpdateServerCertificate = IAM
         type Rs UpdateServerCertificate =
              UpdateServerCertificateResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveNull UpdateServerCertificateResponse'
 

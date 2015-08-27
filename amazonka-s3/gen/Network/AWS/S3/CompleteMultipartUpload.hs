@@ -112,10 +112,9 @@ cUploadId :: Lens' CompleteMultipartUpload Text
 cUploadId = lens _cUploadId (\ s a -> s{_cUploadId = a});
 
 instance AWSRequest CompleteMultipartUpload where
-        type Sv CompleteMultipartUpload = S3
         type Rs CompleteMultipartUpload =
              CompleteMultipartUploadResponse
-        request = postXML
+        request = postXML s3
         response
           = receiveXML
               (\ s h x ->

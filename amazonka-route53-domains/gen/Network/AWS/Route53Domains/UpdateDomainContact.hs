@@ -136,10 +136,9 @@ udcDomainName :: Lens' UpdateDomainContact Text
 udcDomainName = lens _udcDomainName (\ s a -> s{_udcDomainName = a});
 
 instance AWSRequest UpdateDomainContact where
-        type Sv UpdateDomainContact = Route53Domains
         type Rs UpdateDomainContact =
              UpdateDomainContactResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveJSON
               (\ s h x ->
@@ -159,10 +158,11 @@ instance ToHeaders UpdateDomainContact where
 instance ToJSON UpdateDomainContact where
         toJSON UpdateDomainContact'{..}
           = object
-              ["RegistrantContact" .= _udcRegistrantContact,
-               "AdminContact" .= _udcAdminContact,
-               "TechContact" .= _udcTechContact,
-               "DomainName" .= _udcDomainName]
+              (catMaybes
+                 [("RegistrantContact" .=) <$> _udcRegistrantContact,
+                  ("AdminContact" .=) <$> _udcAdminContact,
+                  ("TechContact" .=) <$> _udcTechContact,
+                  Just ("DomainName" .= _udcDomainName)])
 
 instance ToPath UpdateDomainContact where
         toPath = const "/"

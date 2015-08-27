@@ -95,10 +95,9 @@ sipcIdentityPoolId = lens _sipcIdentityPoolId (\ s a -> s{_sipcIdentityPoolId = 
 
 instance AWSRequest SetIdentityPoolConfiguration
          where
-        type Sv SetIdentityPoolConfiguration = CognitoSync
         type Rs SetIdentityPoolConfiguration =
              SetIdentityPoolConfigurationResponse
-        request = postJSON
+        request = postJSON cognitoSync
         response
           = receiveJSON
               (\ s h x ->
@@ -117,8 +116,9 @@ instance ToHeaders SetIdentityPoolConfiguration where
 instance ToJSON SetIdentityPoolConfiguration where
         toJSON SetIdentityPoolConfiguration'{..}
           = object
-              ["CognitoStreams" .= _sipcCognitoStreams,
-               "PushSync" .= _sipcPushSync]
+              (catMaybes
+                 [("CognitoStreams" .=) <$> _sipcCognitoStreams,
+                  ("PushSync" .=) <$> _sipcPushSync])
 
 instance ToPath SetIdentityPoolConfiguration where
         toPath SetIdentityPoolConfiguration'{..}

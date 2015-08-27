@@ -130,9 +130,8 @@ cdApplicationName :: Lens' CreateDeployment Text
 cdApplicationName = lens _cdApplicationName (\ s a -> s{_cdApplicationName = a});
 
 instance AWSRequest CreateDeployment where
-        type Sv CreateDeployment = CodeDeploy
         type Rs CreateDeployment = CreateDeploymentResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -152,13 +151,16 @@ instance ToHeaders CreateDeployment where
 instance ToJSON CreateDeployment where
         toJSON CreateDeployment'{..}
           = object
-              ["deploymentConfigName" .= _cdDeploymentConfigName,
-               "revision" .= _cdRevision,
-               "description" .= _cdDescription,
-               "ignoreApplicationStopFailures" .=
-                 _cdIgnoreApplicationStopFailures,
-               "deploymentGroupName" .= _cdDeploymentGroupName,
-               "applicationName" .= _cdApplicationName]
+              (catMaybes
+                 [("deploymentConfigName" .=) <$>
+                    _cdDeploymentConfigName,
+                  ("revision" .=) <$> _cdRevision,
+                  ("description" .=) <$> _cdDescription,
+                  ("ignoreApplicationStopFailures" .=) <$>
+                    _cdIgnoreApplicationStopFailures,
+                  ("deploymentGroupName" .=) <$>
+                    _cdDeploymentGroupName,
+                  Just ("applicationName" .= _cdApplicationName)])
 
 instance ToPath CreateDeployment where
         toPath = const "/"

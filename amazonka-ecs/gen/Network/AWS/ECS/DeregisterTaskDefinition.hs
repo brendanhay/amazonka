@@ -79,10 +79,9 @@ derTaskDefinition :: Lens' DeregisterTaskDefinition Text
 derTaskDefinition = lens _derTaskDefinition (\ s a -> s{_derTaskDefinition = a});
 
 instance AWSRequest DeregisterTaskDefinition where
-        type Sv DeregisterTaskDefinition = ECS
         type Rs DeregisterTaskDefinition =
              DeregisterTaskDefinitionResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -101,7 +100,9 @@ instance ToHeaders DeregisterTaskDefinition where
 
 instance ToJSON DeregisterTaskDefinition where
         toJSON DeregisterTaskDefinition'{..}
-          = object ["taskDefinition" .= _derTaskDefinition]
+          = object
+              (catMaybes
+                 [Just ("taskDefinition" .= _derTaskDefinition)])
 
 instance ToPath DeregisterTaskDefinition where
         toPath = const "/"

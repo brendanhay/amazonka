@@ -107,9 +107,8 @@ instance AWSPager ListServices where
             Just $ rq & lsNextToken .~ rs ^. lsrsNextToken
 
 instance AWSRequest ListServices where
-        type Sv ListServices = ECS
         type Rs ListServices = ListServicesResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -131,9 +130,10 @@ instance ToHeaders ListServices where
 instance ToJSON ListServices where
         toJSON ListServices'{..}
           = object
-              ["cluster" .= _lsCluster,
-               "nextToken" .= _lsNextToken,
-               "maxResults" .= _lsMaxResults]
+              (catMaybes
+                 [("cluster" .=) <$> _lsCluster,
+                  ("nextToken" .=) <$> _lsNextToken,
+                  ("maxResults" .=) <$> _lsMaxResults])
 
 instance ToPath ListServices where
         toPath = const "/"

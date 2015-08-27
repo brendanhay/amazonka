@@ -63,9 +63,8 @@ dAlarmNames :: Lens' DeleteAlarms [Text]
 dAlarmNames = lens _dAlarmNames (\ s a -> s{_dAlarmNames = a}) . _Coerce;
 
 instance AWSRequest DeleteAlarms where
-        type Sv DeleteAlarms = CloudWatch
         type Rs DeleteAlarms = DeleteAlarmsResponse
-        request = postQuery
+        request = postQuery cloudWatch
         response = receiveNull DeleteAlarmsResponse'
 
 instance ToHeaders DeleteAlarms where

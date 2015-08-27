@@ -70,9 +70,8 @@ riInstanceId :: Lens' RebootInstance Text
 riInstanceId = lens _riInstanceId (\ s a -> s{_riInstanceId = a});
 
 instance AWSRequest RebootInstance where
-        type Sv RebootInstance = OpsWorks
         type Rs RebootInstance = RebootInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull RebootInstanceResponse'
 
 instance ToHeaders RebootInstance where
@@ -86,7 +85,8 @@ instance ToHeaders RebootInstance where
 
 instance ToJSON RebootInstance where
         toJSON RebootInstance'{..}
-          = object ["InstanceId" .= _riInstanceId]
+          = object
+              (catMaybes [Just ("InstanceId" .= _riInstanceId)])
 
 instance ToPath RebootInstance where
         toPath = const "/"

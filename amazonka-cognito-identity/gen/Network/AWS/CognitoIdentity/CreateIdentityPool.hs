@@ -119,9 +119,8 @@ cipAllowUnauthenticatedIdentities :: Lens' CreateIdentityPool Bool
 cipAllowUnauthenticatedIdentities = lens _cipAllowUnauthenticatedIdentities (\ s a -> s{_cipAllowUnauthenticatedIdentities = a});
 
 instance AWSRequest CreateIdentityPool where
-        type Sv CreateIdentityPool = CognitoIdentity
         type Rs CreateIdentityPool = IdentityPool
-        request = postJSON
+        request = postJSON cognitoIdentity
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreateIdentityPool where
@@ -137,14 +136,17 @@ instance ToHeaders CreateIdentityPool where
 instance ToJSON CreateIdentityPool where
         toJSON CreateIdentityPool'{..}
           = object
-              ["SupportedLoginProviders" .=
-                 _cipSupportedLoginProviders,
-               "DeveloperProviderName" .= _cipDeveloperProviderName,
-               "OpenIdConnectProviderARNs" .=
-                 _cipOpenIdConnectProviderARNs,
-               "IdentityPoolName" .= _cipIdentityPoolName,
-               "AllowUnauthenticatedIdentities" .=
-                 _cipAllowUnauthenticatedIdentities]
+              (catMaybes
+                 [("SupportedLoginProviders" .=) <$>
+                    _cipSupportedLoginProviders,
+                  ("DeveloperProviderName" .=) <$>
+                    _cipDeveloperProviderName,
+                  ("OpenIdConnectProviderARNs" .=) <$>
+                    _cipOpenIdConnectProviderARNs,
+                  Just ("IdentityPoolName" .= _cipIdentityPoolName),
+                  Just
+                    ("AllowUnauthenticatedIdentities" .=
+                       _cipAllowUnauthenticatedIdentities)])
 
 instance ToPath CreateIdentityPool where
         toPath = const "/"

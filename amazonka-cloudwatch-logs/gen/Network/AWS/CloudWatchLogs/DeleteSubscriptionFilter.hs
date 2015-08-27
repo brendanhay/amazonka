@@ -74,10 +74,9 @@ dFilterName :: Lens' DeleteSubscriptionFilter Text
 dFilterName = lens _dFilterName (\ s a -> s{_dFilterName = a});
 
 instance AWSRequest DeleteSubscriptionFilter where
-        type Sv DeleteSubscriptionFilter = CloudWatchLogs
         type Rs DeleteSubscriptionFilter =
              DeleteSubscriptionFilterResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response
           = receiveNull DeleteSubscriptionFilterResponse'
 
@@ -94,8 +93,9 @@ instance ToHeaders DeleteSubscriptionFilter where
 instance ToJSON DeleteSubscriptionFilter where
         toJSON DeleteSubscriptionFilter'{..}
           = object
-              ["logGroupName" .= _dLogGroupName,
-               "filterName" .= _dFilterName]
+              (catMaybes
+                 [Just ("logGroupName" .= _dLogGroupName),
+                  Just ("filterName" .= _dFilterName)])
 
 instance ToPath DeleteSubscriptionFilter where
         toPath = const "/"

@@ -75,10 +75,9 @@ prpRetentionInDays :: Lens' PutRetentionPolicy Int
 prpRetentionInDays = lens _prpRetentionInDays (\ s a -> s{_prpRetentionInDays = a});
 
 instance AWSRequest PutRetentionPolicy where
-        type Sv PutRetentionPolicy = CloudWatchLogs
         type Rs PutRetentionPolicy =
              PutRetentionPolicyResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response = receiveNull PutRetentionPolicyResponse'
 
 instance ToHeaders PutRetentionPolicy where
@@ -93,8 +92,9 @@ instance ToHeaders PutRetentionPolicy where
 instance ToJSON PutRetentionPolicy where
         toJSON PutRetentionPolicy'{..}
           = object
-              ["logGroupName" .= _prpLogGroupName,
-               "retentionInDays" .= _prpRetentionInDays]
+              (catMaybes
+                 [Just ("logGroupName" .= _prpLogGroupName),
+                  Just ("retentionInDays" .= _prpRetentionInDays)])
 
 instance ToPath PutRetentionPolicy where
         toPath = const "/"

@@ -85,9 +85,8 @@ mhHAPGARN :: Lens' ModifyHAPG Text
 mhHAPGARN = lens _mhHAPGARN (\ s a -> s{_mhHAPGARN = a});
 
 instance AWSRequest ModifyHAPG where
-        type Sv ModifyHAPG = CloudHSM
         type Rs ModifyHAPG = ModifyHAPGResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->
@@ -106,8 +105,11 @@ instance ToHeaders ModifyHAPG where
 instance ToJSON ModifyHAPG where
         toJSON ModifyHAPG'{..}
           = object
-              ["PartitionSerialList" .= _mhPartitionSerialList,
-               "Label" .= _mhLabel, "HapgArn" .= _mhHAPGARN]
+              (catMaybes
+                 [("PartitionSerialList" .=) <$>
+                    _mhPartitionSerialList,
+                  ("Label" .=) <$> _mhLabel,
+                  Just ("HapgArn" .= _mhHAPGARN)])
 
 instance ToPath ModifyHAPG where
         toPath = const "/"

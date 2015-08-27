@@ -1,5 +1,5 @@
 name:                  amazonka-iam
-version:               1.1.0
+version:               1.2.0
 synopsis:              Amazon Identity and Access Management SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -218,7 +218,7 @@ library
         , Network.AWS.IAM.Types.Sum
 
     build-depends:
-          amazonka-core == 1.1.0.*
+          amazonka-core == 1.2.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-iam-test
@@ -237,9 +237,9 @@ test-suite amazonka-iam-test
         , Test.AWS.IAM.Internal
 
     build-depends:
-          amazonka-core == 1.1.0
-        , amazonka-test == 1.1.0
-        , amazonka-iam == 1.1.0
+          amazonka-core == 1.2.0
+        , amazonka-test == 1.2.0
+        , amazonka-iam == 1.2.0
         , base
         , bytestring
         , lens

@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.ELB.Types
     (
-    -- * Service
-      ELB
+    -- * Service Configuration
+      eLB
 
     -- * Errors
     , _PolicyNotFoundException
@@ -222,39 +221,36 @@ import           Network.AWS.ELB.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2012-06-01@ of the Amazon Elastic Load Balancing SDK.
-data ELB
-
-instance AWSService ELB where
-    type Sg ELB = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "ELB"
-            , _svcPrefix = "elasticloadbalancing"
-            , _svcVersion = "2012-06-01"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseXMLError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2012-06-01' of the Amazon Elastic Load Balancing SDK configuration.
+eLB :: Service
+eLB =
+    Service
+    { _svcAbbrev = "ELB"
+    , _svcSigner = v4
+    , _svcPrefix = "elasticloadbalancing"
+    , _svcVersion = "2012-06-01"
+    , _svcEndpoint = defaultEndpoint eLB
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | One or more of the specified policies do not exist.
 _PolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError

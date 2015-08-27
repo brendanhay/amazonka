@@ -94,10 +94,9 @@ asitsSourceIdentifier = lens _asitsSourceIdentifier (\ s a -> s{_asitsSourceIden
 
 instance AWSRequest AddSourceIdentifierToSubscription
          where
-        type Sv AddSourceIdentifierToSubscription = RDS
         type Rs AddSourceIdentifierToSubscription =
              AddSourceIdentifierToSubscriptionResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "AddSourceIdentifierToSubscriptionResult"

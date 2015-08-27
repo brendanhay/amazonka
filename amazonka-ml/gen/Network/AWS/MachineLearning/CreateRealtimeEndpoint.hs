@@ -69,10 +69,9 @@ creMLModelId :: Lens' CreateRealtimeEndpoint Text
 creMLModelId = lens _creMLModelId (\ s a -> s{_creMLModelId = a});
 
 instance AWSRequest CreateRealtimeEndpoint where
-        type Sv CreateRealtimeEndpoint = MachineLearning
         type Rs CreateRealtimeEndpoint =
              CreateRealtimeEndpointResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -93,7 +92,8 @@ instance ToHeaders CreateRealtimeEndpoint where
 
 instance ToJSON CreateRealtimeEndpoint where
         toJSON CreateRealtimeEndpoint'{..}
-          = object ["MLModelId" .= _creMLModelId]
+          = object
+              (catMaybes [Just ("MLModelId" .= _creMLModelId)])
 
 instance ToPath CreateRealtimeEndpoint where
         toPath = const "/"

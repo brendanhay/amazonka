@@ -76,10 +76,9 @@ rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
 rtacCheckId = lens _rtacCheckId (\ s a -> s{_rtacCheckId = a});
 
 instance AWSRequest RefreshTrustedAdvisorCheck where
-        type Sv RefreshTrustedAdvisorCheck = Support
         type Rs RefreshTrustedAdvisorCheck =
              RefreshTrustedAdvisorCheckResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveEmpty
               (\ s h x ->
@@ -98,7 +97,8 @@ instance ToHeaders RefreshTrustedAdvisorCheck where
 
 instance ToJSON RefreshTrustedAdvisorCheck where
         toJSON RefreshTrustedAdvisorCheck'{..}
-          = object ["checkId" .= _rtacCheckId]
+          = object
+              (catMaybes [Just ("checkId" .= _rtacCheckId)])
 
 instance ToPath RefreshTrustedAdvisorCheck where
         toPath = const "/"

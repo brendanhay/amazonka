@@ -94,10 +94,9 @@ dcsSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
 dcsSnapshotIdentifier = lens _dcsSnapshotIdentifier (\ s a -> s{_dcsSnapshotIdentifier = a});
 
 instance AWSRequest DeleteClusterSnapshot where
-        type Sv DeleteClusterSnapshot = Redshift
         type Rs DeleteClusterSnapshot =
              DeleteClusterSnapshotResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "DeleteClusterSnapshotResult"
               (\ s h x ->

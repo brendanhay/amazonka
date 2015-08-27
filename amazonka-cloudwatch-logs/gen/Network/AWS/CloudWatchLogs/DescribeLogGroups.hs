@@ -106,9 +106,8 @@ instance AWSPager DescribeLogGroups where
             Just $ rq & dlgNextToken .~ rs ^. dlgrsNextToken
 
 instance AWSRequest DescribeLogGroups where
-        type Sv DescribeLogGroups = CloudWatchLogs
         type Rs DescribeLogGroups = DescribeLogGroupsResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response
           = receiveJSON
               (\ s h x ->
@@ -129,9 +128,10 @@ instance ToHeaders DescribeLogGroups where
 instance ToJSON DescribeLogGroups where
         toJSON DescribeLogGroups'{..}
           = object
-              ["nextToken" .= _dlgNextToken,
-               "logGroupNamePrefix" .= _dlgLogGroupNamePrefix,
-               "limit" .= _dlgLimit]
+              (catMaybes
+                 [("nextToken" .=) <$> _dlgNextToken,
+                  ("logGroupNamePrefix" .=) <$> _dlgLogGroupNamePrefix,
+                  ("limit" .=) <$> _dlgLimit])
 
 instance ToPath DescribeLogGroups where
         toPath = const "/"

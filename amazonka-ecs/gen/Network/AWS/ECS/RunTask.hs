@@ -130,9 +130,8 @@ rtTaskDefinition :: Lens' RunTask Text
 rtTaskDefinition = lens _rtTaskDefinition (\ s a -> s{_rtTaskDefinition = a});
 
 instance AWSRequest RunTask where
-        type Sv RunTask = ECS
         type Rs RunTask = RunTaskResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -154,10 +153,12 @@ instance ToHeaders RunTask where
 instance ToJSON RunTask where
         toJSON RunTask'{..}
           = object
-              ["overrides" .= _rtOverrides,
-               "cluster" .= _rtCluster, "count" .= _rtCount,
-               "startedBy" .= _rtStartedBy,
-               "taskDefinition" .= _rtTaskDefinition]
+              (catMaybes
+                 [("overrides" .=) <$> _rtOverrides,
+                  ("cluster" .=) <$> _rtCluster,
+                  ("count" .=) <$> _rtCount,
+                  ("startedBy" .=) <$> _rtStartedBy,
+                  Just ("taskDefinition" .= _rtTaskDefinition)])
 
 instance ToPath RunTask where
         toPath = const "/"

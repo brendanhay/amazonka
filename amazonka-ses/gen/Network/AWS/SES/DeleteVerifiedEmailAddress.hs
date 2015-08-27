@@ -72,10 +72,9 @@ dveaEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
 dveaEmailAddress = lens _dveaEmailAddress (\ s a -> s{_dveaEmailAddress = a});
 
 instance AWSRequest DeleteVerifiedEmailAddress where
-        type Sv DeleteVerifiedEmailAddress = SES
         type Rs DeleteVerifiedEmailAddress =
              DeleteVerifiedEmailAddressResponse
-        request = postQuery
+        request = postQuery sES
         response
           = receiveNull DeleteVerifiedEmailAddressResponse'
 

@@ -82,10 +82,9 @@ edtlDomainName :: Lens' EnableDomainTransferLock Text
 edtlDomainName = lens _edtlDomainName (\ s a -> s{_edtlDomainName = a});
 
 instance AWSRequest EnableDomainTransferLock where
-        type Sv EnableDomainTransferLock = Route53Domains
         type Rs EnableDomainTransferLock =
              EnableDomainTransferLockResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveJSON
               (\ s h x ->
@@ -104,7 +103,8 @@ instance ToHeaders EnableDomainTransferLock where
 
 instance ToJSON EnableDomainTransferLock where
         toJSON EnableDomainTransferLock'{..}
-          = object ["DomainName" .= _edtlDomainName]
+          = object
+              (catMaybes [Just ("DomainName" .= _edtlDomainName)])
 
 instance ToPath EnableDomainTransferLock where
         toPath = const "/"

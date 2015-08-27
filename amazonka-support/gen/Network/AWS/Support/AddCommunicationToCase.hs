@@ -108,10 +108,9 @@ actcCommunicationBody :: Lens' AddCommunicationToCase Text
 actcCommunicationBody = lens _actcCommunicationBody (\ s a -> s{_actcCommunicationBody = a});
 
 instance AWSRequest AddCommunicationToCase where
-        type Sv AddCommunicationToCase = Support
         type Rs AddCommunicationToCase =
              AddCommunicationToCaseResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveJSON
               (\ s h x ->
@@ -131,10 +130,12 @@ instance ToHeaders AddCommunicationToCase where
 instance ToJSON AddCommunicationToCase where
         toJSON AddCommunicationToCase'{..}
           = object
-              ["caseId" .= _actcCaseId,
-               "ccEmailAddresses" .= _actcCcEmailAddresses,
-               "attachmentSetId" .= _actcAttachmentSetId,
-               "communicationBody" .= _actcCommunicationBody]
+              (catMaybes
+                 [("caseId" .=) <$> _actcCaseId,
+                  ("ccEmailAddresses" .=) <$> _actcCcEmailAddresses,
+                  ("attachmentSetId" .=) <$> _actcAttachmentSetId,
+                  Just
+                    ("communicationBody" .= _actcCommunicationBody)])
 
 instance ToPath AddCommunicationToCase where
         toPath = const "/"

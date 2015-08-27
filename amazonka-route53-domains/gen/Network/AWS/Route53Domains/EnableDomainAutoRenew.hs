@@ -74,10 +74,9 @@ edarDomainName :: Lens' EnableDomainAutoRenew Text
 edarDomainName = lens _edarDomainName (\ s a -> s{_edarDomainName = a});
 
 instance AWSRequest EnableDomainAutoRenew where
-        type Sv EnableDomainAutoRenew = Route53Domains
         type Rs EnableDomainAutoRenew =
              EnableDomainAutoRenewResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveEmpty
               (\ s h x ->
@@ -96,7 +95,8 @@ instance ToHeaders EnableDomainAutoRenew where
 
 instance ToJSON EnableDomainAutoRenew where
         toJSON EnableDomainAutoRenew'{..}
-          = object ["DomainName" .= _edarDomainName]
+          = object
+              (catMaybes [Just ("DomainName" .= _edarDomainName)])
 
 instance ToPath EnableDomainAutoRenew where
         toPath = const "/"

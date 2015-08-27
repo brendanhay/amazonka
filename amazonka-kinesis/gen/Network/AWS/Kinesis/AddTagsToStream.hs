@@ -78,9 +78,8 @@ attsTags :: Lens' AddTagsToStream (HashMap Text Text)
 attsTags = lens _attsTags (\ s a -> s{_attsTags = a}) . _Map;
 
 instance AWSRequest AddTagsToStream where
-        type Sv AddTagsToStream = Kinesis
         type Rs AddTagsToStream = AddTagsToStreamResponse
-        request = postJSON
+        request = postJSON kinesis
         response = receiveNull AddTagsToStreamResponse'
 
 instance ToHeaders AddTagsToStream where
@@ -95,8 +94,9 @@ instance ToHeaders AddTagsToStream where
 instance ToJSON AddTagsToStream where
         toJSON AddTagsToStream'{..}
           = object
-              ["StreamName" .= _attsStreamName,
-               "Tags" .= _attsTags]
+              (catMaybes
+                 [Just ("StreamName" .= _attsStreamName),
+                  Just ("Tags" .= _attsTags)])
 
 instance ToPath AddTagsToStream where
         toPath = const "/"

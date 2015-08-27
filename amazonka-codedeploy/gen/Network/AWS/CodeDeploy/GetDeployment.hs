@@ -69,9 +69,8 @@ gdDeploymentId :: Lens' GetDeployment Text
 gdDeploymentId = lens _gdDeploymentId (\ s a -> s{_gdDeploymentId = a});
 
 instance AWSRequest GetDeployment where
-        type Sv GetDeployment = CodeDeploy
         type Rs GetDeployment = GetDeploymentResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -89,7 +88,9 @@ instance ToHeaders GetDeployment where
 
 instance ToJSON GetDeployment where
         toJSON GetDeployment'{..}
-          = object ["deploymentId" .= _gdDeploymentId]
+          = object
+              (catMaybes
+                 [Just ("deploymentId" .= _gdDeploymentId)])
 
 instance ToPath GetDeployment where
         toPath = const "/"

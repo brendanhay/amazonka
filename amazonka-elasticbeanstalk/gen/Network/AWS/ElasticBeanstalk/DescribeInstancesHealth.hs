@@ -101,10 +101,9 @@ dihAttributeNames :: Lens' DescribeInstancesHealth [InstancesHealthAttribute]
 dihAttributeNames = lens _dihAttributeNames (\ s a -> s{_dihAttributeNames = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeInstancesHealth where
-        type Sv DescribeInstancesHealth = ElasticBeanstalk
         type Rs DescribeInstancesHealth =
              DescribeInstancesHealthResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper "DescribeInstancesHealthResult"
               (\ s h x ->

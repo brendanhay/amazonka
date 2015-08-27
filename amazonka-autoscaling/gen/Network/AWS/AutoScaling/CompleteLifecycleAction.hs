@@ -119,10 +119,9 @@ claLifecycleActionResult :: Lens' CompleteLifecycleAction Text
 claLifecycleActionResult = lens _claLifecycleActionResult (\ s a -> s{_claLifecycleActionResult = a});
 
 instance AWSRequest CompleteLifecycleAction where
-        type Sv CompleteLifecycleAction = AutoScaling
         type Rs CompleteLifecycleAction =
              CompleteLifecycleActionResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "CompleteLifecycleActionResult"
               (\ s h x ->

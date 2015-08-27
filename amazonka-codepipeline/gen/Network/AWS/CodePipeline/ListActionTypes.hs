@@ -80,9 +80,8 @@ latNextToken :: Lens' ListActionTypes (Maybe Text)
 latNextToken = lens _latNextToken (\ s a -> s{_latNextToken = a});
 
 instance AWSRequest ListActionTypes where
-        type Sv ListActionTypes = CodePipeline
         type Rs ListActionTypes = ListActionTypesResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -103,8 +102,9 @@ instance ToHeaders ListActionTypes where
 instance ToJSON ListActionTypes where
         toJSON ListActionTypes'{..}
           = object
-              ["actionOwnerFilter" .= _latActionOwnerFilter,
-               "nextToken" .= _latNextToken]
+              (catMaybes
+                 [("actionOwnerFilter" .=) <$> _latActionOwnerFilter,
+                  ("nextToken" .=) <$> _latNextToken])
 
 instance ToPath ListActionTypes where
         toPath = const "/"

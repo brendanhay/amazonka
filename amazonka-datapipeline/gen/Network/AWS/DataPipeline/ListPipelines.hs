@@ -83,9 +83,8 @@ instance AWSPager ListPipelines where
             Just $ rq & lpMarker .~ rs ^. lprsMarker
 
 instance AWSRequest ListPipelines where
-        type Sv ListPipelines = DataPipeline
         type Rs ListPipelines = ListPipelinesResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -105,7 +104,7 @@ instance ToHeaders ListPipelines where
 
 instance ToJSON ListPipelines where
         toJSON ListPipelines'{..}
-          = object ["marker" .= _lpMarker]
+          = object (catMaybes [("marker" .=) <$> _lpMarker])
 
 instance ToPath ListPipelines where
         toPath = const "/"

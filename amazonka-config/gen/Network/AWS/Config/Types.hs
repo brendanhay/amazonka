@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.Config.Types
     (
-    -- * Service
-      Config
+    -- * Service Configuration
+      config
 
     -- * Errors
     , _ValidationException
@@ -144,39 +143,36 @@ import           Network.AWS.Config.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2014-11-12@ of the Amazon Config SDK.
-data Config
-
-instance AWSService Config where
-    type Sg Config = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "Config"
-            , _svcPrefix = "config"
-            , _svcVersion = "2014-11-12"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2014-11-12' of the Amazon Config SDK configuration.
+config :: Service
+config =
+    Service
+    { _svcAbbrev = "Config"
+    , _svcSigner = v4
+    , _svcPrefix = "config"
+    , _svcVersion = "2014-11-12"
+    , _svcEndpoint = defaultEndpoint config
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | The requested action is not valid.
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError

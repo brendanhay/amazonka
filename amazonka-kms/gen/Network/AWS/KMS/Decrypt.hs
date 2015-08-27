@@ -109,9 +109,8 @@ dCiphertextBlob :: Lens' Decrypt ByteString
 dCiphertextBlob = lens _dCiphertextBlob (\ s a -> s{_dCiphertextBlob = a}) . _Base64;
 
 instance AWSRequest Decrypt where
-        type Sv Decrypt = KMS
         type Rs Decrypt = DecryptResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->
@@ -131,9 +130,10 @@ instance ToHeaders Decrypt where
 instance ToJSON Decrypt where
         toJSON Decrypt'{..}
           = object
-              ["EncryptionContext" .= _dEncryptionContext,
-               "GrantTokens" .= _dGrantTokens,
-               "CiphertextBlob" .= _dCiphertextBlob]
+              (catMaybes
+                 [("EncryptionContext" .=) <$> _dEncryptionContext,
+                  ("GrantTokens" .=) <$> _dGrantTokens,
+                  Just ("CiphertextBlob" .= _dCiphertextBlob)])
 
 instance ToPath Decrypt where
         toPath = const "/"

@@ -82,9 +82,8 @@ ddSuggesterName :: Lens' DeleteSuggester Text
 ddSuggesterName = lens _ddSuggesterName (\ s a -> s{_ddSuggesterName = a});
 
 instance AWSRequest DeleteSuggester where
-        type Sv DeleteSuggester = CloudSearch
         type Rs DeleteSuggester = DeleteSuggesterResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "DeleteSuggesterResult"
               (\ s h x ->

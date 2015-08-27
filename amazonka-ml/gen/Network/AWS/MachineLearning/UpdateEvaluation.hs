@@ -80,9 +80,8 @@ ueEvaluationName :: Lens' UpdateEvaluation Text
 ueEvaluationName = lens _ueEvaluationName (\ s a -> s{_ueEvaluationName = a});
 
 instance AWSRequest UpdateEvaluation where
-        type Sv UpdateEvaluation = MachineLearning
         type Rs UpdateEvaluation = UpdateEvaluationResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -101,8 +100,9 @@ instance ToHeaders UpdateEvaluation where
 instance ToJSON UpdateEvaluation where
         toJSON UpdateEvaluation'{..}
           = object
-              ["EvaluationId" .= _ueEvaluationId,
-               "EvaluationName" .= _ueEvaluationName]
+              (catMaybes
+                 [Just ("EvaluationId" .= _ueEvaluationId),
+                  Just ("EvaluationName" .= _ueEvaluationName)])
 
 instance ToPath UpdateEvaluation where
         toPath = const "/"

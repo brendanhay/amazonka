@@ -136,9 +136,8 @@ ePlaintext :: Lens' Encrypt ByteString
 ePlaintext = lens _ePlaintext (\ s a -> s{_ePlaintext = a}) . _Sensitive . _Base64;
 
 instance AWSRequest Encrypt where
-        type Sv Encrypt = KMS
         type Rs Encrypt = EncryptResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->
@@ -158,9 +157,11 @@ instance ToHeaders Encrypt where
 instance ToJSON Encrypt where
         toJSON Encrypt'{..}
           = object
-              ["EncryptionContext" .= _eEncryptionContext,
-               "GrantTokens" .= _eGrantTokens, "KeyId" .= _eKeyId,
-               "Plaintext" .= _ePlaintext]
+              (catMaybes
+                 [("EncryptionContext" .=) <$> _eEncryptionContext,
+                  ("GrantTokens" .=) <$> _eGrantTokens,
+                  Just ("KeyId" .= _eKeyId),
+                  Just ("Plaintext" .= _ePlaintext)])
 
 instance ToPath Encrypt where
         toPath = const "/"

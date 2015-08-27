@@ -89,9 +89,8 @@ lrSortBy :: Lens' ListRepositories (Maybe SortByEnum)
 lrSortBy = lens _lrSortBy (\ s a -> s{_lrSortBy = a});
 
 instance AWSRequest ListRepositories where
-        type Sv ListRepositories = CodeCommit
         type Rs ListRepositories = ListRepositoriesResponse
-        request = postJSON
+        request = postJSON codeCommit
         response
           = receiveJSON
               (\ s h x ->
@@ -113,8 +112,10 @@ instance ToHeaders ListRepositories where
 instance ToJSON ListRepositories where
         toJSON ListRepositories'{..}
           = object
-              ["nextToken" .= _lrNextToken, "order" .= _lrOrder,
-               "sortBy" .= _lrSortBy]
+              (catMaybes
+                 [("nextToken" .=) <$> _lrNextToken,
+                  ("order" .=) <$> _lrOrder,
+                  ("sortBy" .=) <$> _lrSortBy])
 
 instance ToPath ListRepositories where
         toPath = const "/"

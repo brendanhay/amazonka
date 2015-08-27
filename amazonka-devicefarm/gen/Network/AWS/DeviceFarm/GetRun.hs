@@ -68,9 +68,8 @@ grArn :: Lens' GetRun Text
 grArn = lens _grArn (\ s a -> s{_grArn = a});
 
 instance AWSRequest GetRun where
-        type Sv GetRun = DeviceFarm
         type Rs GetRun = GetRunResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -87,7 +86,8 @@ instance ToHeaders GetRun where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetRun where
-        toJSON GetRun'{..} = object ["arn" .= _grArn]
+        toJSON GetRun'{..}
+          = object (catMaybes [Just ("arn" .= _grArn)])
 
 instance ToPath GetRun where
         toPath = const "/"

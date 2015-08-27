@@ -92,10 +92,9 @@ rtfvVaultName :: Lens' RemoveTagsFromVault Text
 rtfvVaultName = lens _rtfvVaultName (\ s a -> s{_rtfvVaultName = a});
 
 instance AWSRequest RemoveTagsFromVault where
-        type Sv RemoveTagsFromVault = Glacier
         type Rs RemoveTagsFromVault =
              RemoveTagsFromVaultResponse
-        request = postJSON
+        request = postJSON glacier
         response = receiveNull RemoveTagsFromVaultResponse'
 
 instance ToHeaders RemoveTagsFromVault where
@@ -103,7 +102,8 @@ instance ToHeaders RemoveTagsFromVault where
 
 instance ToJSON RemoveTagsFromVault where
         toJSON RemoveTagsFromVault'{..}
-          = object ["TagKeys" .= _rtfvTagKeys]
+          = object
+              (catMaybes [("TagKeys" .=) <$> _rtfvTagKeys])
 
 instance ToPath RemoveTagsFromVault where
         toPath RemoveTagsFromVault'{..}

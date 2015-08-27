@@ -92,10 +92,9 @@ slblscSSLCertificateId = lens _slblscSSLCertificateId (\ s a -> s{_slblscSSLCert
 
 instance AWSRequest
          SetLoadBalancerListenerSSLCertificate where
-        type Sv SetLoadBalancerListenerSSLCertificate = ELB
         type Rs SetLoadBalancerListenerSSLCertificate =
              SetLoadBalancerListenerSSLCertificateResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper
               "SetLoadBalancerListenerSSLCertificateResult"

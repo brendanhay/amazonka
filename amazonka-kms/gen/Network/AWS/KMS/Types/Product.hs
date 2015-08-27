@@ -2,7 +2,6 @@
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -111,10 +110,11 @@ instance FromJSON GrantConstraints where
 instance ToJSON GrantConstraints where
         toJSON GrantConstraints'{..}
           = object
-              ["EncryptionContextEquals" .=
-                 _gcEncryptionContextEquals,
-               "EncryptionContextSubset" .=
-                 _gcEncryptionContextSubset]
+              (catMaybes
+                 [("EncryptionContextEquals" .=) <$>
+                    _gcEncryptionContextEquals,
+                  ("EncryptionContextSubset" .=) <$>
+                    _gcEncryptionContextSubset])
 
 -- | Contains information about each entry in the grant list.
 --

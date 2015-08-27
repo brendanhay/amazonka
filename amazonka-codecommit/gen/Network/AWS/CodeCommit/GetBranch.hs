@@ -77,9 +77,8 @@ gbRepositoryName :: Lens' GetBranch (Maybe Text)
 gbRepositoryName = lens _gbRepositoryName (\ s a -> s{_gbRepositoryName = a});
 
 instance AWSRequest GetBranch where
-        type Sv GetBranch = CodeCommit
         type Rs GetBranch = GetBranchResponse
-        request = postJSON
+        request = postJSON codeCommit
         response
           = receiveJSON
               (\ s h x ->
@@ -98,8 +97,9 @@ instance ToHeaders GetBranch where
 instance ToJSON GetBranch where
         toJSON GetBranch'{..}
           = object
-              ["branchName" .= _gbBranchName,
-               "repositoryName" .= _gbRepositoryName]
+              (catMaybes
+                 [("branchName" .=) <$> _gbBranchName,
+                  ("repositoryName" .=) <$> _gbRepositoryName])
 
 instance ToPath GetBranch where
         toPath = const "/"

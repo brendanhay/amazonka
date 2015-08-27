@@ -110,9 +110,8 @@ ccPassword :: Lens' CreateComputer Text
 ccPassword = lens _ccPassword (\ s a -> s{_ccPassword = a}) . _Sensitive;
 
 instance AWSRequest CreateComputer where
-        type Sv CreateComputer = DirectoryService
         type Rs CreateComputer = CreateComputerResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveJSON
               (\ s h x ->
@@ -132,12 +131,13 @@ instance ToHeaders CreateComputer where
 instance ToJSON CreateComputer where
         toJSON CreateComputer'{..}
           = object
-              ["ComputerAttributes" .= _ccComputerAttributes,
-               "OrganizationalUnitDistinguishedName" .=
-                 _ccOrganizationalUnitDistinguishedName,
-               "DirectoryId" .= _ccDirectoryId,
-               "ComputerName" .= _ccComputerName,
-               "Password" .= _ccPassword]
+              (catMaybes
+                 [("ComputerAttributes" .=) <$> _ccComputerAttributes,
+                  ("OrganizationalUnitDistinguishedName" .=) <$>
+                    _ccOrganizationalUnitDistinguishedName,
+                  Just ("DirectoryId" .= _ccDirectoryId),
+                  Just ("ComputerName" .= _ccComputerName),
+                  Just ("Password" .= _ccPassword)])
 
 instance ToPath CreateComputer where
         toPath = const "/"

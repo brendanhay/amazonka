@@ -161,7 +161,7 @@ data Library = Library
     { _versions' :: Versions
     , _config'   :: Config
     , _service'  :: Service Identity SData SData WData
-    , _instance' :: Rendered
+    , _instance' :: Fun
     }
 
 makeLenses ''Library

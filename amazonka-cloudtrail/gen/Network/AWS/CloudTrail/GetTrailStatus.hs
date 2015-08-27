@@ -78,9 +78,8 @@ gtsName :: Lens' GetTrailStatus Text
 gtsName = lens _gtsName (\ s a -> s{_gtsName = a});
 
 instance AWSRequest GetTrailStatus where
-        type Sv GetTrailStatus = CloudTrail
         type Rs GetTrailStatus = GetTrailStatusResponse
-        request = postJSON
+        request = postJSON cloudTrail
         response
           = receiveJSON
               (\ s h x ->
@@ -108,7 +107,7 @@ instance ToHeaders GetTrailStatus where
 
 instance ToJSON GetTrailStatus where
         toJSON GetTrailStatus'{..}
-          = object ["Name" .= _gtsName]
+          = object (catMaybes [Just ("Name" .= _gtsName)])
 
 instance ToPath GetTrailStatus where
         toPath = const "/"

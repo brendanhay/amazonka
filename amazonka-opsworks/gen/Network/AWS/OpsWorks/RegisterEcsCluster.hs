@@ -85,10 +85,9 @@ recStackId :: Lens' RegisterEcsCluster Text
 recStackId = lens _recStackId (\ s a -> s{_recStackId = a});
 
 instance AWSRequest RegisterEcsCluster where
-        type Sv RegisterEcsCluster = OpsWorks
         type Rs RegisterEcsCluster =
              RegisterEcsClusterResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -108,8 +107,9 @@ instance ToHeaders RegisterEcsCluster where
 instance ToJSON RegisterEcsCluster where
         toJSON RegisterEcsCluster'{..}
           = object
-              ["EcsClusterArn" .= _recEcsClusterARN,
-               "StackId" .= _recStackId]
+              (catMaybes
+                 [Just ("EcsClusterArn" .= _recEcsClusterARN),
+                  Just ("StackId" .= _recStackId)])
 
 instance ToPath RegisterEcsCluster where
         toPath = const "/"

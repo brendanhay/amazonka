@@ -79,10 +79,9 @@ bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
 bdaItems = lens _bdaItems (\ s a -> s{_bdaItems = a}) . _Coerce;
 
 instance AWSRequest BatchDeleteAttributes where
-        type Sv BatchDeleteAttributes = SDB
         type Rs BatchDeleteAttributes =
              BatchDeleteAttributesResponse
-        request = postQuery
+        request = postQuery sDB
         response = receiveNull BatchDeleteAttributesResponse'
 
 instance ToHeaders BatchDeleteAttributes where

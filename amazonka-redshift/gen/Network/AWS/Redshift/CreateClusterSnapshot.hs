@@ -102,10 +102,9 @@ ccsClusterIdentifier :: Lens' CreateClusterSnapshot Text
 ccsClusterIdentifier = lens _ccsClusterIdentifier (\ s a -> s{_ccsClusterIdentifier = a});
 
 instance AWSRequest CreateClusterSnapshot where
-        type Sv CreateClusterSnapshot = Redshift
         type Rs CreateClusterSnapshot =
              CreateClusterSnapshotResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "CreateClusterSnapshotResult"
               (\ s h x ->

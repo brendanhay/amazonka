@@ -94,10 +94,9 @@ dmtFileSystemId :: Lens' DescribeMountTargets Text
 dmtFileSystemId = lens _dmtFileSystemId (\ s a -> s{_dmtFileSystemId = a});
 
 instance AWSRequest DescribeMountTargets where
-        type Sv DescribeMountTargets = EFS
         type Rs DescribeMountTargets =
              DescribeMountTargetsResponse
-        request = get
+        request = get eFS
         response
           = receiveJSON
               (\ s h x ->

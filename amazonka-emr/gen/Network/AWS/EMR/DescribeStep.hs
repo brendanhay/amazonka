@@ -78,9 +78,8 @@ dsStepId :: Lens' DescribeStep Text
 dsStepId = lens _dsStepId (\ s a -> s{_dsStepId = a});
 
 instance AWSRequest DescribeStep where
-        type Sv DescribeStep = EMR
         type Rs DescribeStep = DescribeStepResponse
-        request = postJSON
+        request = postJSON eMR
         response
           = receiveJSON
               (\ s h x ->
@@ -99,7 +98,9 @@ instance ToHeaders DescribeStep where
 instance ToJSON DescribeStep where
         toJSON DescribeStep'{..}
           = object
-              ["ClusterId" .= _dsClusterId, "StepId" .= _dsStepId]
+              (catMaybes
+                 [Just ("ClusterId" .= _dsClusterId),
+                  Just ("StepId" .= _dsStepId)])
 
 instance ToPath DescribeStep where
         toPath = const "/"

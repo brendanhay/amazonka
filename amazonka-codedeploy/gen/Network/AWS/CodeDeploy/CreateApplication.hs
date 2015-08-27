@@ -69,9 +69,8 @@ caApplicationName :: Lens' CreateApplication Text
 caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a});
 
 instance AWSRequest CreateApplication where
-        type Sv CreateApplication = CodeDeploy
         type Rs CreateApplication = CreateApplicationResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -90,7 +89,9 @@ instance ToHeaders CreateApplication where
 
 instance ToJSON CreateApplication where
         toJSON CreateApplication'{..}
-          = object ["applicationName" .= _caApplicationName]
+          = object
+              (catMaybes
+                 [Just ("applicationName" .= _caApplicationName)])
 
 instance ToPath CreateApplication where
         toPath = const "/"

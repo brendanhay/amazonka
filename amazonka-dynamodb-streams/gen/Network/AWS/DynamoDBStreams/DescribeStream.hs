@@ -99,9 +99,8 @@ dsStreamARN :: Lens' DescribeStream Text
 dsStreamARN = lens _dsStreamARN (\ s a -> s{_dsStreamARN = a});
 
 instance AWSRequest DescribeStream where
-        type Sv DescribeStream = DynamoDBStreams
         type Rs DescribeStream = DescribeStreamResponse
-        request = postJSON
+        request = postJSON dynamoDBStreams
         response
           = receiveJSON
               (\ s h x ->
@@ -121,8 +120,11 @@ instance ToHeaders DescribeStream where
 instance ToJSON DescribeStream where
         toJSON DescribeStream'{..}
           = object
-              ["ExclusiveStartShardId" .= _dsExclusiveStartShardId,
-               "Limit" .= _dsLimit, "StreamArn" .= _dsStreamARN]
+              (catMaybes
+                 [("ExclusiveStartShardId" .=) <$>
+                    _dsExclusiveStartShardId,
+                  ("Limit" .=) <$> _dsLimit,
+                  Just ("StreamArn" .= _dsStreamARN)])
 
 instance ToPath DescribeStream where
         toPath = const "/"

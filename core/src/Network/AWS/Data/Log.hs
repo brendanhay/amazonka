@@ -23,6 +23,7 @@ import           Data.CaseInsensitive         (CI)
 import qualified Data.CaseInsensitive         as CI
 import           Data.Int
 import           Data.List                    (intersperse)
+import           Data.Maybe
 import           Data.Monoid
 import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
@@ -32,6 +33,7 @@ import           Data.Time                    (UTCTime)
 import           Data.Word
 import           GHC.Float
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
@@ -123,25 +125,26 @@ instance ToLog HttpException where
 
 instance ToLog Request where
     build x = buildLines
-        [ "[Client Request] {"
-        , "  host    = " <> build (host            x)
-        , "  port    = " <> build (port            x)
-        , "  secure  = " <> build (secure          x)
-        , "  headers = " <> build (requestHeaders  x)
-        , "  path    = " <> build (path            x)
-        , "  query   = " <> build (queryString     x)
-        , "  method  = " <> build (method          x)
-        , "  timeout = " <> build (responseTimeout x)
-        , "  body    = " <> build (requestBody     x)
-        , "}"
+        [  "[Client Request] {"
+        ,  "  host      = " <> build (host x) <> ":" <> build (port x)
+        ,  "  secure    = " <> build (secure x)
+        ,  "  method    = " <> build (method x)
+        ,  "  target    = " <> build target
+        ,  "  timeout   = " <> build (responseTimeout x)
+        ,  "  redirects = " <> build (redirectCount x)
+        ,  "  path      = " <> build (path            x)
+        ,  "  query     = " <> build (queryString     x)
+        ,  "  headers   = " <> build (requestHeaders  x)
+        ,  "  body      = " <> build (requestBody     x)
+        ,  "}"
         ]
+      where
+        target = hAMZTarget `lookup` requestHeaders x
 
 instance ToLog (Response a) where
     build x = buildLines
         [ "[Client Response] {"
         , "  status  = " <> build (responseStatus  x)
-        , "  version = " <> build (responseVersion x)
         , "  headers = " <> build (responseHeaders x)
-        , "  cookies = " <> build (show (responseCookieJar x))
         , "}"
         ]

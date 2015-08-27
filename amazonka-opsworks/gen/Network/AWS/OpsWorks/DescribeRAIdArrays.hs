@@ -94,10 +94,9 @@ draiaStackId :: Lens' DescribeRAIdArrays (Maybe Text)
 draiaStackId = lens _draiaStackId (\ s a -> s{_draiaStackId = a});
 
 instance AWSRequest DescribeRAIdArrays where
-        type Sv DescribeRAIdArrays = OpsWorks
         type Rs DescribeRAIdArrays =
              DescribeRAIdArraysResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -118,9 +117,10 @@ instance ToHeaders DescribeRAIdArrays where
 instance ToJSON DescribeRAIdArrays where
         toJSON DescribeRAIdArrays'{..}
           = object
-              ["InstanceId" .= _draiaInstanceId,
-               "RaidArrayIds" .= _draiaRAIdArrayIds,
-               "StackId" .= _draiaStackId]
+              (catMaybes
+                 [("InstanceId" .=) <$> _draiaInstanceId,
+                  ("RaidArrayIds" .=) <$> _draiaRAIdArrayIds,
+                  ("StackId" .=) <$> _draiaStackId])
 
 instance ToPath DescribeRAIdArrays where
         toPath = const "/"

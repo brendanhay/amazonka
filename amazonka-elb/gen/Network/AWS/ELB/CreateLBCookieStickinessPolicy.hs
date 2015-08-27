@@ -107,10 +107,9 @@ clbcspPolicyName = lens _clbcspPolicyName (\ s a -> s{_clbcspPolicyName = a});
 
 instance AWSRequest CreateLBCookieStickinessPolicy
          where
-        type Sv CreateLBCookieStickinessPolicy = ELB
         type Rs CreateLBCookieStickinessPolicy =
              CreateLBCookieStickinessPolicyResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper
               "CreateLBCookieStickinessPolicyResult"

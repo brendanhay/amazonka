@@ -83,10 +83,9 @@ ugsnGatewayARN :: Lens' UpdateGatewaySoftwareNow Text
 ugsnGatewayARN = lens _ugsnGatewayARN (\ s a -> s{_ugsnGatewayARN = a});
 
 instance AWSRequest UpdateGatewaySoftwareNow where
-        type Sv UpdateGatewaySoftwareNow = StorageGateway
         type Rs UpdateGatewaySoftwareNow =
              UpdateGatewaySoftwareNowResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -105,7 +104,8 @@ instance ToHeaders UpdateGatewaySoftwareNow where
 
 instance ToJSON UpdateGatewaySoftwareNow where
         toJSON UpdateGatewaySoftwareNow'{..}
-          = object ["GatewayARN" .= _ugsnGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _ugsnGatewayARN)])
 
 instance ToPath UpdateGatewaySoftwareNow where
         toPath = const "/"

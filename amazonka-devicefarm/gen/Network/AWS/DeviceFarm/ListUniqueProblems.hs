@@ -80,10 +80,9 @@ lupArn :: Lens' ListUniqueProblems Text
 lupArn = lens _lupArn (\ s a -> s{_lupArn = a});
 
 instance AWSRequest ListUniqueProblems where
-        type Sv ListUniqueProblems = DeviceFarm
         type Rs ListUniqueProblems =
              ListUniqueProblemsResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -105,7 +104,9 @@ instance ToHeaders ListUniqueProblems where
 instance ToJSON ListUniqueProblems where
         toJSON ListUniqueProblems'{..}
           = object
-              ["nextToken" .= _lupNextToken, "arn" .= _lupArn]
+              (catMaybes
+                 [("nextToken" .=) <$> _lupNextToken,
+                  Just ("arn" .= _lupArn)])
 
 instance ToPath ListUniqueProblems where
         toPath = const "/"

@@ -317,148 +317,173 @@ testListProjectsResponse :: ListProjectsResponse -> TestTree
 testListProjectsResponse = res
     "ListProjectsResponse"
     "fixture/ListProjectsResponse"
+    deviceFarm
     (Proxy :: Proxy ListProjects)
 
 testGetDevicePoolCompatibilityResponse :: GetDevicePoolCompatibilityResponse -> TestTree
 testGetDevicePoolCompatibilityResponse = res
     "GetDevicePoolCompatibilityResponse"
     "fixture/GetDevicePoolCompatibilityResponse"
+    deviceFarm
     (Proxy :: Proxy GetDevicePoolCompatibility)
 
 testListTestsResponse :: ListTestsResponse -> TestTree
 testListTestsResponse = res
     "ListTestsResponse"
     "fixture/ListTestsResponse"
+    deviceFarm
     (Proxy :: Proxy ListTests)
 
 testCreateUploadResponse :: CreateUploadResponse -> TestTree
 testCreateUploadResponse = res
     "CreateUploadResponse"
     "fixture/CreateUploadResponse"
+    deviceFarm
     (Proxy :: Proxy CreateUpload)
 
 testListArtifactsResponse :: ListArtifactsResponse -> TestTree
 testListArtifactsResponse = res
     "ListArtifactsResponse"
     "fixture/ListArtifactsResponse"
+    deviceFarm
     (Proxy :: Proxy ListArtifacts)
 
 testGetDevicePoolResponse :: GetDevicePoolResponse -> TestTree
 testGetDevicePoolResponse = res
     "GetDevicePoolResponse"
     "fixture/GetDevicePoolResponse"
+    deviceFarm
     (Proxy :: Proxy GetDevicePool)
 
 testGetUploadResponse :: GetUploadResponse -> TestTree
 testGetUploadResponse = res
     "GetUploadResponse"
     "fixture/GetUploadResponse"
+    deviceFarm
     (Proxy :: Proxy GetUpload)
 
 testListDevicePoolsResponse :: ListDevicePoolsResponse -> TestTree
 testListDevicePoolsResponse = res
     "ListDevicePoolsResponse"
     "fixture/ListDevicePoolsResponse"
+    deviceFarm
     (Proxy :: Proxy ListDevicePools)
 
 testGetTestResponse :: GetTestResponse -> TestTree
 testGetTestResponse = res
     "GetTestResponse"
     "fixture/GetTestResponse"
+    deviceFarm
     (Proxy :: Proxy GetTest)
 
 testCreateDevicePoolResponse :: CreateDevicePoolResponse -> TestTree
 testCreateDevicePoolResponse = res
     "CreateDevicePoolResponse"
     "fixture/CreateDevicePoolResponse"
+    deviceFarm
     (Proxy :: Proxy CreateDevicePool)
 
 testListRunsResponse :: ListRunsResponse -> TestTree
 testListRunsResponse = res
     "ListRunsResponse"
     "fixture/ListRunsResponse"
+    deviceFarm
     (Proxy :: Proxy ListRuns)
 
 testListJobsResponse :: ListJobsResponse -> TestTree
 testListJobsResponse = res
     "ListJobsResponse"
     "fixture/ListJobsResponse"
+    deviceFarm
     (Proxy :: Proxy ListJobs)
 
 testGetDeviceResponse :: GetDeviceResponse -> TestTree
 testGetDeviceResponse = res
     "GetDeviceResponse"
     "fixture/GetDeviceResponse"
+    deviceFarm
     (Proxy :: Proxy GetDevice)
 
 testGetJobResponse :: GetJobResponse -> TestTree
 testGetJobResponse = res
     "GetJobResponse"
     "fixture/GetJobResponse"
+    deviceFarm
     (Proxy :: Proxy GetJob)
 
 testScheduleRunResponse :: ScheduleRunResponse -> TestTree
 testScheduleRunResponse = res
     "ScheduleRunResponse"
     "fixture/ScheduleRunResponse"
+    deviceFarm
     (Proxy :: Proxy ScheduleRun)
 
 testGetRunResponse :: GetRunResponse -> TestTree
 testGetRunResponse = res
     "GetRunResponse"
     "fixture/GetRunResponse"
+    deviceFarm
     (Proxy :: Proxy GetRun)
 
 testListSamplesResponse :: ListSamplesResponse -> TestTree
 testListSamplesResponse = res
     "ListSamplesResponse"
     "fixture/ListSamplesResponse"
+    deviceFarm
     (Proxy :: Proxy ListSamples)
 
 testListSuitesResponse :: ListSuitesResponse -> TestTree
 testListSuitesResponse = res
     "ListSuitesResponse"
     "fixture/ListSuitesResponse"
+    deviceFarm
     (Proxy :: Proxy ListSuites)
 
 testGetAccountSettingsResponse :: GetAccountSettingsResponse -> TestTree
 testGetAccountSettingsResponse = res
     "GetAccountSettingsResponse"
     "fixture/GetAccountSettingsResponse"
+    deviceFarm
     (Proxy :: Proxy GetAccountSettings)
 
 testListUploadsResponse :: ListUploadsResponse -> TestTree
 testListUploadsResponse = res
     "ListUploadsResponse"
     "fixture/ListUploadsResponse"
+    deviceFarm
     (Proxy :: Proxy ListUploads)
 
 testGetSuiteResponse :: GetSuiteResponse -> TestTree
 testGetSuiteResponse = res
     "GetSuiteResponse"
     "fixture/GetSuiteResponse"
+    deviceFarm
     (Proxy :: Proxy GetSuite)
 
 testGetProjectResponse :: GetProjectResponse -> TestTree
 testGetProjectResponse = res
     "GetProjectResponse"
     "fixture/GetProjectResponse"
+    deviceFarm
     (Proxy :: Proxy GetProject)
 
 testListDevicesResponse :: ListDevicesResponse -> TestTree
 testListDevicesResponse = res
     "ListDevicesResponse"
     "fixture/ListDevicesResponse"
+    deviceFarm
     (Proxy :: Proxy ListDevices)
 
 testListUniqueProblemsResponse :: ListUniqueProblemsResponse -> TestTree
 testListUniqueProblemsResponse = res
     "ListUniqueProblemsResponse"
     "fixture/ListUniqueProblemsResponse"
+    deviceFarm
     (Proxy :: Proxy ListUniqueProblems)
 
 testCreateProjectResponse :: CreateProjectResponse -> TestTree
 testCreateProjectResponse = res
     "CreateProjectResponse"
     "fixture/CreateProjectResponse"
+    deviceFarm
     (Proxy :: Proxy CreateProject)

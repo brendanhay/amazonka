@@ -67,9 +67,8 @@ dtName :: Lens' DeleteTrail Text
 dtName = lens _dtName (\ s a -> s{_dtName = a});
 
 instance AWSRequest DeleteTrail where
-        type Sv DeleteTrail = CloudTrail
         type Rs DeleteTrail = DeleteTrailResponse
-        request = postJSON
+        request = postJSON cloudTrail
         response
           = receiveEmpty
               (\ s h x ->
@@ -86,7 +85,8 @@ instance ToHeaders DeleteTrail where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DeleteTrail where
-        toJSON DeleteTrail'{..} = object ["Name" .= _dtName]
+        toJSON DeleteTrail'{..}
+          = object (catMaybes [Just ("Name" .= _dtName)])
 
 instance ToPath DeleteTrail where
         toPath = const "/"

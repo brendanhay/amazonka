@@ -151,9 +151,8 @@ urSyncSessionToken :: Lens' UpdateRecords Text
 urSyncSessionToken = lens _urSyncSessionToken (\ s a -> s{_urSyncSessionToken = a});
 
 instance AWSRequest UpdateRecords where
-        type Sv UpdateRecords = CognitoSync
         type Rs UpdateRecords = UpdateRecordsResponse
-        request = postJSON
+        request = postJSON cognitoSync
         response
           = receiveJSON
               (\ s h x ->
@@ -170,9 +169,10 @@ instance ToHeaders UpdateRecords where
 instance ToJSON UpdateRecords where
         toJSON UpdateRecords'{..}
           = object
-              ["RecordPatches" .= _urRecordPatches,
-               "DeviceId" .= _urDeviceId,
-               "SyncSessionToken" .= _urSyncSessionToken]
+              (catMaybes
+                 [("RecordPatches" .=) <$> _urRecordPatches,
+                  ("DeviceId" .=) <$> _urDeviceId,
+                  Just ("SyncSessionToken" .= _urSyncSessionToken)])
 
 instance ToPath UpdateRecords where
         toPath UpdateRecords'{..}

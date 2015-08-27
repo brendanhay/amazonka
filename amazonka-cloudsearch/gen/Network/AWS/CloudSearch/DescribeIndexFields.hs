@@ -98,10 +98,9 @@ difDomainName :: Lens' DescribeIndexFields Text
 difDomainName = lens _difDomainName (\ s a -> s{_difDomainName = a});
 
 instance AWSRequest DescribeIndexFields where
-        type Sv DescribeIndexFields = CloudSearch
         type Rs DescribeIndexFields =
              DescribeIndexFieldsResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "DescribeIndexFieldsResult"
               (\ s h x ->

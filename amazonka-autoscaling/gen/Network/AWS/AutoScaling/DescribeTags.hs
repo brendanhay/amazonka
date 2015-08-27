@@ -104,9 +104,8 @@ instance AWSPager DescribeTags where
             Just $ rq & dtNextToken .~ rs ^. dtrsNextToken
 
 instance AWSRequest DescribeTags where
-        type Sv DescribeTags = AutoScaling
         type Rs DescribeTags = DescribeTagsResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "DescribeTagsResult"
               (\ s h x ->

@@ -394,10 +394,9 @@ rditpitTargetDBInstanceIdentifier = lens _rditpitTargetDBInstanceIdentifier (\ s
 
 instance AWSRequest RestoreDBInstanceToPointInTime
          where
-        type Sv RestoreDBInstanceToPointInTime = RDS
         type Rs RestoreDBInstanceToPointInTime =
              RestoreDBInstanceToPointInTimeResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "RestoreDBInstanceToPointInTimeResult"

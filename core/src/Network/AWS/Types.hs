@@ -5,13 +5,9 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE PackageImports             #-}
 {-# LANGUAGE RankNTypes                 #-}
 {-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE ScopedTypeVariables        #-}
-{-# LANGUAGE StandaloneDeriving         #-}
 {-# LANGUAGE TypeFamilies               #-}
-{-# LANGUAGE ViewPatterns               #-}
 
 -- |
 -- Module      : Network.AWS.Types
@@ -37,34 +33,42 @@ module Network.AWS.Types
     , LogLevel       (..)
     , Logger
 
-    -- * Services
-    , Abbrev
-    , AWSService     (..)
-    , Service        (..)
-    , serviceOf
-
-    -- * Retries
-    , Retry          (..)
-
     -- * Signing
-    , AWSSigner      (..)
-    , AWSPresigner   (..)
-    , Meta
+    , Algorithm
+    , Meta           (..)
+    , Signer         (..)
     , Signed         (..)
-    , sgMeta
-    , sgRequest
+
+    -- * Service
+    , Abbrev
+    , Service        (..)
+    , serviceSigner
+    , serviceEndpoint
+    , serviceTimeout
+    , serviceCheck
+    , serviceRetry
 
     -- * Requests
     , AWSRequest     (..)
     , Request        (..)
+    , rqService
     , rqMethod
     , rqHeaders
     , rqPath
     , rqQuery
     , rqBody
+    , rqSign
+    , rqPresign
 
     -- * Responses
     , Response
+
+    -- * Retries
+    , Retry          (..)
+    , exponentBase
+    , exponentGrowth
+    , retryAttempts
+    , retryCheck
 
     -- * Errors
     , AsError        (..)
@@ -85,13 +89,20 @@ module Network.AWS.Types
     , serviceMessage
     , serviceRequestId
     -- ** Error Types
-    , ErrorCode      (..)
+    , ErrorCode
+    , errorCode
     , ErrorMessage   (..)
     , RequestId      (..)
 
     -- * Regions
-    , Endpoint       (..)
     , Region         (..)
+
+    -- * Endpoints
+    , Endpoint       (..)
+    , endpointHost
+    , endpointPort
+    , endpointSecure
+    , endpointScope
 
     -- * HTTP
     , ClientRequest
@@ -101,7 +112,6 @@ module Network.AWS.Types
 
     -- ** Seconds
     , Seconds         (..)
-    , _Seconds
     , seconds
     , microseconds
 
@@ -110,38 +120,38 @@ module Network.AWS.Types
     , _Default
     ) where
 
-import           Control.Exception
-import           Control.Exception.Lens       (exception)
 import           Control.Applicative
 import           Control.Concurrent           (ThreadId)
+import           Control.Exception
+import           Control.Exception.Lens       (exception)
 import           Control.Lens                 hiding (coerce)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
 import qualified Data.ByteString              as BS
 import           Data.ByteString.Builder      (Builder)
-import qualified Data.ByteString.Builder      as Build
-import qualified Data.ByteString.Lazy.Char8   as LBS8
 import           Data.Coerce
 import           Data.Conduit
 import           Data.Data                    (Data, Typeable)
 import           Data.Hashable
 import           Data.IORef
+import           Data.Maybe
 import           Data.Monoid
 import           Data.Proxy
 import           Data.String
+import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           GHC.Generics                 (Generic)
 import           Network.AWS.Data.Body
-import           Network.AWS.Data.Crypto
-import           Network.AWS.Data.Log
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.JSON
+import           Network.AWS.Data.Log
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
-import           Network.HTTP.Client          hiding (Request, Response, Proxy)
+import           Network.HTTP.Client          hiding (Proxy, Request, Response)
 import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
@@ -159,22 +169,35 @@ type ClientResponse = Client.Response ResponseBody
 -- | A convenience alias encapsulating the common 'Response' body.
 type ResponseBody = ResumableSource (ResourceT IO) ByteString
 
--- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
--- throwing errors when receiving erroneous status codes in respones.
-clientRequest :: ClientRequest
-clientRequest = def
-    { Client.secure        = True
-    , Client.port          = 443
-    , Client.redirectCount = 0
-    , Client.checkStatus   = \_ _ _ -> Nothing
-    }
-
 -- | Abbreviated service name.
 newtype Abbrev = Abbrev Text
     deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToLog)
 
 newtype ErrorCode = ErrorCode Text
-    deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToLog)
+    deriving (Eq, Ord, Show, ToText, ToLog)
+
+instance IsString ErrorCode where fromString = errorCode . fromString
+instance FromJSON ErrorCode where parseJSON  = parseJSONText "ErrorCode"
+instance FromXML  ErrorCode where parseXML   = parseXMLText  "ErrorCode"
+
+instance FromText ErrorCode where
+    parser = errorCode <$> parser
+
+-- | Construct an 'ErrorCode'.
+errorCode :: Text -> ErrorCode
+errorCode = ErrorCode . strip . unnamespace
+  where
+    -- Common suffixes are stripped since the service definitions are ambigiuous
+    -- as to whether the error shape's name, or the error code is present
+    -- in the response.
+    strip x = fromMaybe x $
+        Text.stripSuffix "Exception" x <|> Text.stripSuffix "Fault" x
+
+    -- Removing the (potential) leading ...# namespace.
+    unnamespace x =
+        case Text.break (== '#') x of
+            (ns, e) | Text.null e -> ns
+                    | otherwise   -> Text.drop 1 e
 
 newtype ErrorMessage = ErrorMessage Text
     deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToLog)
@@ -296,16 +319,47 @@ instance AsError Error where
         x              -> Left  x
 
 data Endpoint = Endpoint
-    { _endpointHost  :: ByteString
-    , _endpointScope :: ByteString
+    { _endpointHost   :: ByteString
+    , _endpointSecure :: !Bool
+    , _endpointPort   :: !Int
+    , _endpointScope  :: ByteString
     } deriving (Eq, Show, Data, Typeable)
 
+endpointHost :: Lens' Endpoint ByteString
+endpointHost = lens _endpointHost (\s a -> s { _endpointHost = a })
+
+endpointSecure :: Lens' Endpoint Bool
+endpointSecure = lens _endpointSecure (\s a -> s { _endpointSecure = a })
+
+endpointPort :: Lens' Endpoint Int
+endpointPort = lens _endpointPort (\s a -> s { _endpointPort = a })
+
+endpointScope :: Lens' Endpoint ByteString
+endpointScope = lens _endpointScope (\s a -> s { _endpointScope = a })
+
 data LogLevel
-    = Error -- ^ Error messages only.
-    | Info  -- ^ Info messages supplied by the user - this level is not emitted by the library.
+    = Info  -- ^ Info messages supplied by the user - this level is not emitted by the library.
+    | Error -- ^ Error messages only.
     | Debug -- ^ Useful debug information + info + error levels.
     | Trace -- ^ Includes potentially sensitive signing metadata, and non-streaming response bodies.
       deriving (Eq, Ord, Enum, Show, Data, Typeable)
+
+instance FromText LogLevel where
+    parser = takeLowerText >>= \case
+        "info"  -> pure Info
+        "error" -> pure Error
+        "debug" -> pure Debug
+        "trace" -> pure Trace
+        e       -> fromTextError $ "Failure parsing LogLevel from " <> e
+
+instance ToText LogLevel where
+    toText = \case
+        Info  -> "info"
+        Error -> "error"
+        Debug -> "debug"
+        Trace -> "trace"
+
+instance ToByteString LogLevel
 
 -- | A function threaded through various request and serialisation routines
 -- to log informational and debug messages.
@@ -321,43 +375,92 @@ data Retry = Exponential
       -- if the request should be retried.
     }
 
+exponentBase :: Lens' Retry Double
+exponentBase = lens _retryBase (\s a -> s { _retryBase = a })
+
+exponentGrowth :: Lens' Retry Int
+exponentGrowth = lens _retryGrowth (\s a -> s { _retryGrowth = a })
+
+retryAttempts :: Lens' Retry Int
+retryAttempts = lens _retryAttempts (\s a -> s { _retryAttempts = a })
+
+retryCheck :: Lens' Retry (ServiceError -> Maybe Text)
+retryCheck = lens _retryCheck (\s a -> s { _retryCheck = a })
+
+-- | Signing algorithm specific metadata.
+data Meta where
+    Meta :: ToLog a => a -> Meta
+
+instance ToLog Meta where
+   build (Meta m) = build m
+
+-- | A signed 'ClientRequest' and associated metadata specific
+-- to the signing algorithm, tagged with the initial request type
+-- to be able to obtain the associated response, 'Rs a'.
+data Signed a = Signed
+    { sgMeta    :: !Meta
+    , sgRequest :: !ClientRequest
+    }
+
+type Algorithm a = Request a -> AuthEnv -> Region -> UTCTime -> Signed a
+
+data Signer = Signer
+    { sgSign    :: forall a. Algorithm a
+    , sgPresign :: forall a. Seconds -> Algorithm a
+    }
+
 -- | Attributes and functions specific to an AWS service.
-data Service s = Service
+data Service = Service
     { _svcAbbrev   :: !Abbrev
-    , _svcPrefix   :: ByteString
-    , _svcVersion  :: ByteString
-    , _svcEndpoint :: Region -> Endpoint
-    , _svcTimeout  :: Maybe Seconds
-    , _svcStatus   :: Status -> Bool
-    , _svcError    :: Abbrev -> Status -> [Header] -> LazyByteString -> Error
-    , _svcRetry    :: Retry
+    , _svcSigner   :: !Signer
+    , _svcPrefix   :: !ByteString
+    , _svcVersion  :: !ByteString
+    , _svcEndpoint :: !(Region -> Endpoint)
+    , _svcTimeout  :: !(Maybe Seconds)
+    , _svcCheck    :: !(Status -> Bool)
+    , _svcError    :: !(Abbrev -> Status -> [Header] -> LazyByteString -> Error)
+    , _svcRetry    :: !Retry
+    }
+
+serviceSigner :: Lens' Service Signer
+serviceSigner = lens _svcSigner (\s a -> s { _svcSigner = a })
+
+serviceEndpoint :: Setter' Service Endpoint
+serviceEndpoint = sets (\f s -> s { _svcEndpoint = \r -> f (_svcEndpoint s r) })
+
+serviceTimeout :: Lens' Service (Maybe Seconds)
+serviceTimeout = lens _svcTimeout (\s a -> s { _svcTimeout = a })
+
+serviceCheck :: Lens' Service (Status -> Bool)
+serviceCheck = lens _svcCheck (\s a -> s { _svcCheck = a })
+
+serviceRetry :: Lens' Service Retry
+serviceRetry = lens _svcRetry (\s a -> s { _svcRetry = a })
+
+-- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
+-- throwing errors when receiving erroneous status codes in respones.
+clientRequest :: Endpoint -> Maybe Seconds -> ClientRequest
+clientRequest e t = def
+    { Client.secure          = _endpointSecure e
+    , Client.host            = _endpointHost   e
+    , Client.port            = _endpointPort   e
+    , Client.redirectCount   = 0
+    , Client.checkStatus     = \_ _ _ -> Nothing
+    , Client.responseTimeout = microseconds <$> t
     }
 
 -- | An unsigned request.
 data Request a = Request
-    { _rqMethod    :: !StdMethod
-    , _rqPath      :: !RawPath
-    , _rqQuery     :: !QueryString
-    , _rqHeaders   :: ![Header]
-    , _rqBody      :: !RqBody
+    { _rqService :: !Service
+    , _rqMethod  :: !StdMethod
+    , _rqPath    :: !RawPath
+    , _rqQuery   :: !QueryString
+    , _rqHeaders :: ![Header]
+    , _rqBody    :: !RqBody
     }
 
-instance Show (Request a) where
-    show = LBS8.unpack . Build.toLazyByteString . build
-
-instance ToLog (Request a) where
-    build Request{..} = buildLines
-        [ "[Raw Request] {"
-        , "  method    = "  <> build _rqMethod
-        , "  path      = "  <> build (escapePath _rqPath)
-        , "  query     = "  <> build _rqQuery
-        , "  headers   = "  <> build _rqHeaders
-        , "  body      = {"
-        , "    hash    = "  <> build (digestToBase Base16 (bodySHA256 _rqBody))
-        , "    payload =\n" <> build (bodyRequest _rqBody)
-        , "  }"
-        , "}"
-        ]
+rqService :: Lens' (Request a) Service
+rqService = lens _rqService (\s a -> s { _rqService = a })
 
 rqBody :: Lens' (Request a) RqBody
 rqBody = lens _rqBody (\s a -> s { _rqBody = a })
@@ -374,70 +477,24 @@ rqPath = lens _rqPath (\s a -> s { _rqPath = a })
 rqQuery :: Lens' (Request a) QueryString
 rqQuery = lens _rqQuery (\s a -> s { _rqQuery = a })
 
-class AWSSigner v where
-    signed :: v ~ Sg s
-           => AuthEnv
-           -> Region
-           -> UTCTime
-           -> Service s
-           -> Request a
-           -> Signed  v a
+rqSign :: Algorithm a
+rqSign x = sgSign (_svcSigner (_rqService x)) x
 
-class AWSPresigner v where
-    presigned :: v ~ Sg s
-              => AuthEnv
-              -> Region
-              -> UTCTime
-              -> Seconds
-              -> Service s
-              -> Request a
-              -> Signed  v a
-
--- | Signing metadata data specific to a signing algorithm.
---
--- /Note:/ this is used for logging purposes, and is otherwise ignored.
-data family Meta v :: *
-
--- | A signed 'ClientRequest' and associated metadata specific to the signing
--- algorithm that was used.
-data Signed v a where
-    Signed :: ToLog (Meta v)
-           => { _sgMeta    :: Meta v
-              , _sgRequest :: ClientRequest
-              }
-           -> Signed v a
-
-sgMeta :: ToLog (Meta v) => Lens' (Signed v a) (Meta v)
-sgMeta f (Signed m rq) = f m <&> \y -> Signed y rq
-
--- Lens' specifically since 'a' cannot be substituted.
-sgRequest :: Lens' (Signed v a) ClientRequest
-sgRequest f (Signed m rq) = f rq <&> \y -> Signed m y
-
-class AWSSigner (Sg a) => AWSService a where
-    -- | The default signing algorithm for the service.
-    type Sg a :: *
-
-    service :: Sv p ~ a => Proxy p -> Service a
-
-serviceOf :: forall a. AWSService (Sv a) => a -> Service (Sv a)
-serviceOf = const $ service (Proxy :: Proxy a)
+rqPresign :: Seconds -> Algorithm a
+rqPresign ex x = sgPresign (_svcSigner (_rqService x)) ex x
 
 type Response a = (Status, Rs a)
 
 -- | Specify how a request can be de/serialised.
-class AWSService (Sv a) => AWSRequest a where
+class AWSRequest a where
     -- | The successful, expected response associated with a request.
     type Rs a :: *
-
-    -- | The default sevice configuration for the request.
-    type Sv a :: *
 
     request  :: a -> Request a
     response :: MonadResource m
              => Logger
-             -> Service s
-             -> Request a
+             -> Service
+             -> Proxy a
              -> ClientResponse
              -> m (Response a)
 
@@ -531,8 +588,7 @@ instance FromText Region where
         "us-gov-west-1"      -> pure GovCloud
         "fips-us-gov-west-1" -> pure GovCloudFIPS
         "sa-east-1"          -> pure SaoPaulo
-        e                    -> fail $
-            "Failure parsing Region from " ++ show e
+        e                    -> fromTextError $ "Failure parsing Region from " <> e
 
 instance ToText Region where
     toText = \case
@@ -577,17 +633,16 @@ newtype Seconds = Seconds Int
         , ToText
         )
 
-_Seconds :: Iso' Seconds Int
-_Seconds = iso seconds Seconds
-
 instance ToLog Seconds where
-    build (Seconds n) = build n <> "s"
+    build s = build (seconds s) <> "s"
 
 seconds :: Seconds -> Int
-seconds (Seconds n) = n
+seconds (Seconds n)
+    | n < 0     = 0
+    | otherwise = n
 
 microseconds :: Seconds -> Int
-microseconds (Seconds n) = n * 1000000
+microseconds =  (1000000 *) . seconds
 
 _Coerce :: (Coercible a b, Coercible b a) => Iso' a b
 _Coerce = iso coerce coerce

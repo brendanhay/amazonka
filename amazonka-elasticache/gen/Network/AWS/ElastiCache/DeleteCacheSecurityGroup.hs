@@ -70,10 +70,9 @@ dcsgCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup Text
 dcsgCacheSecurityGroupName = lens _dcsgCacheSecurityGroupName (\ s a -> s{_dcsgCacheSecurityGroupName = a});
 
 instance AWSRequest DeleteCacheSecurityGroup where
-        type Sv DeleteCacheSecurityGroup = ElastiCache
         type Rs DeleteCacheSecurityGroup =
              DeleteCacheSecurityGroupResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveNull DeleteCacheSecurityGroupResponse'
 

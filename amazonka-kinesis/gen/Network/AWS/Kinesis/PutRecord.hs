@@ -170,9 +170,8 @@ prPartitionKey :: Lens' PutRecord Text
 prPartitionKey = lens _prPartitionKey (\ s a -> s{_prPartitionKey = a});
 
 instance AWSRequest PutRecord where
-        type Sv PutRecord = Kinesis
         type Rs PutRecord = PutRecordResponse
-        request = postJSON
+        request = postJSON kinesis
         response
           = receiveJSON
               (\ s h x ->
@@ -192,11 +191,13 @@ instance ToHeaders PutRecord where
 instance ToJSON PutRecord where
         toJSON PutRecord'{..}
           = object
-              ["ExplicitHashKey" .= _prExplicitHashKey,
-               "SequenceNumberForOrdering" .=
-                 _prSequenceNumberForOrdering,
-               "StreamName" .= _prStreamName, "Data" .= _prData,
-               "PartitionKey" .= _prPartitionKey]
+              (catMaybes
+                 [("ExplicitHashKey" .=) <$> _prExplicitHashKey,
+                  ("SequenceNumberForOrdering" .=) <$>
+                    _prSequenceNumberForOrdering,
+                  Just ("StreamName" .= _prStreamName),
+                  Just ("Data" .= _prData),
+                  Just ("PartitionKey" .= _prPartitionKey)])
 
 instance ToPath PutRecord where
         toPath = const "/"

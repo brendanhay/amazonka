@@ -158,9 +158,8 @@ instance AWSPager ListWorkflowTypes where
               lwtNextPageToken .~ rs ^. lwtrsNextPageToken
 
 instance AWSRequest ListWorkflowTypes where
-        type Sv ListWorkflowTypes = SWF
         type Rs ListWorkflowTypes = ListWorkflowTypesResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveJSON
               (\ s h x ->
@@ -181,12 +180,14 @@ instance ToHeaders ListWorkflowTypes where
 instance ToJSON ListWorkflowTypes where
         toJSON ListWorkflowTypes'{..}
           = object
-              ["nextPageToken" .= _lwtNextPageToken,
-               "reverseOrder" .= _lwtReverseOrder,
-               "name" .= _lwtName,
-               "maximumPageSize" .= _lwtMaximumPageSize,
-               "domain" .= _lwtDomain,
-               "registrationStatus" .= _lwtRegistrationStatus]
+              (catMaybes
+                 [("nextPageToken" .=) <$> _lwtNextPageToken,
+                  ("reverseOrder" .=) <$> _lwtReverseOrder,
+                  ("name" .=) <$> _lwtName,
+                  ("maximumPageSize" .=) <$> _lwtMaximumPageSize,
+                  Just ("domain" .= _lwtDomain),
+                  Just
+                    ("registrationStatus" .= _lwtRegistrationStatus)])
 
 instance ToPath ListWorkflowTypes where
         toPath = const "/"

@@ -86,10 +86,9 @@ rniaNetworkInterfaceId = lens _rniaNetworkInterfaceId (\ s a -> s{_rniaNetworkIn
 
 instance AWSRequest ResetNetworkInterfaceAttribute
          where
-        type Sv ResetNetworkInterfaceAttribute = EC2
         type Rs ResetNetworkInterfaceAttribute =
              ResetNetworkInterfaceAttributeResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveNull ResetNetworkInterfaceAttributeResponse'
 

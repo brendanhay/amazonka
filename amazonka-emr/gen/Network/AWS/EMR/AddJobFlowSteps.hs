@@ -102,9 +102,8 @@ ajfsSteps :: Lens' AddJobFlowSteps [StepConfig]
 ajfsSteps = lens _ajfsSteps (\ s a -> s{_ajfsSteps = a}) . _Coerce;
 
 instance AWSRequest AddJobFlowSteps where
-        type Sv AddJobFlowSteps = EMR
         type Rs AddJobFlowSteps = AddJobFlowStepsResponse
-        request = postJSON
+        request = postJSON eMR
         response
           = receiveJSON
               (\ s h x ->
@@ -123,8 +122,9 @@ instance ToHeaders AddJobFlowSteps where
 instance ToJSON AddJobFlowSteps where
         toJSON AddJobFlowSteps'{..}
           = object
-              ["JobFlowId" .= _ajfsJobFlowId,
-               "Steps" .= _ajfsSteps]
+              (catMaybes
+                 [Just ("JobFlowId" .= _ajfsJobFlowId),
+                  Just ("Steps" .= _ajfsSteps)])
 
 instance ToPath AddJobFlowSteps where
         toPath = const "/"

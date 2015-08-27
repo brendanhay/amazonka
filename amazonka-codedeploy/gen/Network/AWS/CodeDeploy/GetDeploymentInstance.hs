@@ -78,10 +78,9 @@ gdiInstanceId :: Lens' GetDeploymentInstance Text
 gdiInstanceId = lens _gdiInstanceId (\ s a -> s{_gdiInstanceId = a});
 
 instance AWSRequest GetDeploymentInstance where
-        type Sv GetDeploymentInstance = CodeDeploy
         type Rs GetDeploymentInstance =
              GetDeploymentInstanceResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -101,8 +100,9 @@ instance ToHeaders GetDeploymentInstance where
 instance ToJSON GetDeploymentInstance where
         toJSON GetDeploymentInstance'{..}
           = object
-              ["deploymentId" .= _gdiDeploymentId,
-               "instanceId" .= _gdiInstanceId]
+              (catMaybes
+                 [Just ("deploymentId" .= _gdiDeploymentId),
+                  Just ("instanceId" .= _gdiInstanceId)])
 
 instance ToPath GetDeploymentInstance where
         toPath = const "/"

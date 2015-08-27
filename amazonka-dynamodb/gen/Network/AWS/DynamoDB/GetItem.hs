@@ -200,9 +200,8 @@ giKey :: Lens' GetItem (HashMap Text AttributeValue)
 giKey = lens _giKey (\ s a -> s{_giKey = a}) . _Map;
 
 instance AWSRequest GetItem where
-        type Sv GetItem = DynamoDB
         type Rs GetItem = GetItemResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->
@@ -223,14 +222,17 @@ instance ToHeaders GetItem where
 instance ToJSON GetItem where
         toJSON GetItem'{..}
           = object
-              ["ProjectionExpression" .= _giProjectionExpression,
-               "ConsistentRead" .= _giConsistentRead,
-               "ExpressionAttributeNames" .=
-                 _giExpressionAttributeNames,
-               "AttributesToGet" .= _giAttributesToGet,
-               "ReturnConsumedCapacity" .=
-                 _giReturnConsumedCapacity,
-               "TableName" .= _giTableName, "Key" .= _giKey]
+              (catMaybes
+                 [("ProjectionExpression" .=) <$>
+                    _giProjectionExpression,
+                  ("ConsistentRead" .=) <$> _giConsistentRead,
+                  ("ExpressionAttributeNames" .=) <$>
+                    _giExpressionAttributeNames,
+                  ("AttributesToGet" .=) <$> _giAttributesToGet,
+                  ("ReturnConsumedCapacity" .=) <$>
+                    _giReturnConsumedCapacity,
+                  Just ("TableName" .= _giTableName),
+                  Just ("Key" .= _giKey)])
 
 instance ToPath GetItem where
         toPath = const "/"

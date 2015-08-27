@@ -153,10 +153,9 @@ instance AWSPager DescribeHSMConfigurations where
             Just $ rq & dhsmcMarker .~ rs ^. dhcrsMarker
 
 instance AWSRequest DescribeHSMConfigurations where
-        type Sv DescribeHSMConfigurations = Redshift
         type Rs DescribeHSMConfigurations =
              DescribeHSMConfigurationsResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "DescribeHsmConfigurationsResult"
               (\ s h x ->

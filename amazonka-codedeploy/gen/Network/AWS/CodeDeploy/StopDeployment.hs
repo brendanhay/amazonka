@@ -68,9 +68,8 @@ sdDeploymentId :: Lens' StopDeployment Text
 sdDeploymentId = lens _sdDeploymentId (\ s a -> s{_sdDeploymentId = a});
 
 instance AWSRequest StopDeployment where
-        type Sv StopDeployment = CodeDeploy
         type Rs StopDeployment = StopDeploymentResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -88,7 +87,9 @@ instance ToHeaders StopDeployment where
 
 instance ToJSON StopDeployment where
         toJSON StopDeployment'{..}
-          = object ["deploymentId" .= _sdDeploymentId]
+          = object
+              (catMaybes
+                 [Just ("deploymentId" .= _sdDeploymentId)])
 
 instance ToPath StopDeployment where
         toPath = const "/"

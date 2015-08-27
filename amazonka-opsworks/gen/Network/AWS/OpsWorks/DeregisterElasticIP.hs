@@ -71,10 +71,9 @@ deipElasticIP :: Lens' DeregisterElasticIP Text
 deipElasticIP = lens _deipElasticIP (\ s a -> s{_deipElasticIP = a});
 
 instance AWSRequest DeregisterElasticIP where
-        type Sv DeregisterElasticIP = OpsWorks
         type Rs DeregisterElasticIP =
              DeregisterElasticIPResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull DeregisterElasticIPResponse'
 
 instance ToHeaders DeregisterElasticIP where
@@ -89,7 +88,8 @@ instance ToHeaders DeregisterElasticIP where
 
 instance ToJSON DeregisterElasticIP where
         toJSON DeregisterElasticIP'{..}
-          = object ["ElasticIp" .= _deipElasticIP]
+          = object
+              (catMaybes [Just ("ElasticIp" .= _deipElasticIP)])
 
 instance ToPath DeregisterElasticIP where
         toPath = const "/"

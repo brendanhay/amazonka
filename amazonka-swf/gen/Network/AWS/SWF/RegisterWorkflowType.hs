@@ -237,10 +237,9 @@ rwtVersion :: Lens' RegisterWorkflowType Text
 rwtVersion = lens _rwtVersion (\ s a -> s{_rwtVersion = a});
 
 instance AWSRequest RegisterWorkflowType where
-        type Sv RegisterWorkflowType = SWF
         type Rs RegisterWorkflowType =
              RegisterWorkflowTypeResponse
-        request = postJSON
+        request = postJSON sWF
         response = receiveNull RegisterWorkflowTypeResponse'
 
 instance ToHeaders RegisterWorkflowType where
@@ -256,17 +255,20 @@ instance ToHeaders RegisterWorkflowType where
 instance ToJSON RegisterWorkflowType where
         toJSON RegisterWorkflowType'{..}
           = object
-              ["defaultLambdaRole" .= _rwtDefaultLambdaRole,
-               "defaultChildPolicy" .= _rwtDefaultChildPolicy,
-               "defaultTaskList" .= _rwtDefaultTaskList,
-               "defaultTaskPriority" .= _rwtDefaultTaskPriority,
-               "defaultExecutionStartToCloseTimeout" .=
-                 _rwtDefaultExecutionStartToCloseTimeout,
-               "defaultTaskStartToCloseTimeout" .=
-                 _rwtDefaultTaskStartToCloseTimeout,
-               "description" .= _rwtDescription,
-               "domain" .= _rwtDomain, "name" .= _rwtName,
-               "version" .= _rwtVersion]
+              (catMaybes
+                 [("defaultLambdaRole" .=) <$> _rwtDefaultLambdaRole,
+                  ("defaultChildPolicy" .=) <$> _rwtDefaultChildPolicy,
+                  ("defaultTaskList" .=) <$> _rwtDefaultTaskList,
+                  ("defaultTaskPriority" .=) <$>
+                    _rwtDefaultTaskPriority,
+                  ("defaultExecutionStartToCloseTimeout" .=) <$>
+                    _rwtDefaultExecutionStartToCloseTimeout,
+                  ("defaultTaskStartToCloseTimeout" .=) <$>
+                    _rwtDefaultTaskStartToCloseTimeout,
+                  ("description" .=) <$> _rwtDescription,
+                  Just ("domain" .= _rwtDomain),
+                  Just ("name" .= _rwtName),
+                  Just ("version" .= _rwtVersion)])
 
 instance ToPath RegisterWorkflowType where
         toPath = const "/"

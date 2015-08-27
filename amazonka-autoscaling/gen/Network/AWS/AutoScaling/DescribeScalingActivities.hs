@@ -111,10 +111,9 @@ instance AWSPager DescribeScalingActivities where
             Just $ rq & desNextToken .~ rs ^. dsasrsNextToken
 
 instance AWSRequest DescribeScalingActivities where
-        type Sv DescribeScalingActivities = AutoScaling
         type Rs DescribeScalingActivities =
              DescribeScalingActivitiesResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "DescribeScalingActivitiesResult"
               (\ s h x ->

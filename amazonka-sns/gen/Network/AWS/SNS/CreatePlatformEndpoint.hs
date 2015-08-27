@@ -119,10 +119,9 @@ cpeToken :: Lens' CreatePlatformEndpoint Text
 cpeToken = lens _cpeToken (\ s a -> s{_cpeToken = a});
 
 instance AWSRequest CreatePlatformEndpoint where
-        type Sv CreatePlatformEndpoint = SNS
         type Rs CreatePlatformEndpoint =
              CreatePlatformEndpointResponse
-        request = postQuery
+        request = postQuery sNS
         response
           = receiveXMLWrapper "CreatePlatformEndpointResult"
               (\ s h x ->

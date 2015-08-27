@@ -120,9 +120,8 @@ cdsTargetDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
 cdsTargetDBSnapshotIdentifier = lens _cdsTargetDBSnapshotIdentifier (\ s a -> s{_cdsTargetDBSnapshotIdentifier = a});
 
 instance AWSRequest CopyDBSnapshot where
-        type Sv CopyDBSnapshot = RDS
         type Rs CopyDBSnapshot = CopyDBSnapshotResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "CopyDBSnapshotResult"
               (\ s h x ->

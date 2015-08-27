@@ -90,10 +90,9 @@ eeExpression :: Lens' EvaluateExpression Text
 eeExpression = lens _eeExpression (\ s a -> s{_eeExpression = a});
 
 instance AWSRequest EvaluateExpression where
-        type Sv EvaluateExpression = DataPipeline
         type Rs EvaluateExpression =
              EvaluateExpressionResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -113,9 +112,10 @@ instance ToHeaders EvaluateExpression where
 instance ToJSON EvaluateExpression where
         toJSON EvaluateExpression'{..}
           = object
-              ["pipelineId" .= _eePipelineId,
-               "objectId" .= _eeObjectId,
-               "expression" .= _eeExpression]
+              (catMaybes
+                 [Just ("pipelineId" .= _eePipelineId),
+                  Just ("objectId" .= _eeObjectId),
+                  Just ("expression" .= _eeExpression)])
 
 instance ToPath EvaluateExpression where
         toPath = const "/"

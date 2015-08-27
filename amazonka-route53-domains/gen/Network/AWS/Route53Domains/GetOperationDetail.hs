@@ -81,10 +81,9 @@ godOperationId :: Lens' GetOperationDetail Text
 godOperationId = lens _godOperationId (\ s a -> s{_godOperationId = a});
 
 instance AWSRequest GetOperationDetail where
-        type Sv GetOperationDetail = Route53Domains
         type Rs GetOperationDetail =
              GetOperationDetailResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveJSON
               (\ s h x ->
@@ -107,7 +106,8 @@ instance ToHeaders GetOperationDetail where
 
 instance ToJSON GetOperationDetail where
         toJSON GetOperationDetail'{..}
-          = object ["OperationId" .= _godOperationId]
+          = object
+              (catMaybes [Just ("OperationId" .= _godOperationId)])
 
 instance ToPath GetOperationDetail where
         toPath = const "/"

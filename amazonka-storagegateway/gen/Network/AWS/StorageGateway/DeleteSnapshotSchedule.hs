@@ -76,10 +76,9 @@ dVolumeARN :: Lens' DeleteSnapshotSchedule Text
 dVolumeARN = lens _dVolumeARN (\ s a -> s{_dVolumeARN = a});
 
 instance AWSRequest DeleteSnapshotSchedule where
-        type Sv DeleteSnapshotSchedule = StorageGateway
         type Rs DeleteSnapshotSchedule =
              DeleteSnapshotScheduleResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -98,7 +97,8 @@ instance ToHeaders DeleteSnapshotSchedule where
 
 instance ToJSON DeleteSnapshotSchedule where
         toJSON DeleteSnapshotSchedule'{..}
-          = object ["VolumeARN" .= _dVolumeARN]
+          = object
+              (catMaybes [Just ("VolumeARN" .= _dVolumeARN)])
 
 instance ToPath DeleteSnapshotSchedule where
         toPath = const "/"

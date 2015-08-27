@@ -127,10 +127,9 @@ rathTaskToken :: Lens' RecordActivityTaskHeartbeat Text
 rathTaskToken = lens _rathTaskToken (\ s a -> s{_rathTaskToken = a});
 
 instance AWSRequest RecordActivityTaskHeartbeat where
-        type Sv RecordActivityTaskHeartbeat = SWF
         type Rs RecordActivityTaskHeartbeat =
              RecordActivityTaskHeartbeatResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveJSON
               (\ s h x ->
@@ -150,8 +149,9 @@ instance ToHeaders RecordActivityTaskHeartbeat where
 instance ToJSON RecordActivityTaskHeartbeat where
         toJSON RecordActivityTaskHeartbeat'{..}
           = object
-              ["details" .= _rathDetails,
-               "taskToken" .= _rathTaskToken]
+              (catMaybes
+                 [("details" .=) <$> _rathDetails,
+                  Just ("taskToken" .= _rathTaskToken)])
 
 instance ToPath RecordActivityTaskHeartbeat where
         toPath = const "/"

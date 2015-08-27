@@ -67,10 +67,9 @@ bgopiInstanceNames :: Lens' BatchGetOnPremisesInstances [Text]
 bgopiInstanceNames = lens _bgopiInstanceNames (\ s a -> s{_bgopiInstanceNames = a}) . _Default . _Coerce;
 
 instance AWSRequest BatchGetOnPremisesInstances where
-        type Sv BatchGetOnPremisesInstances = CodeDeploy
         type Rs BatchGetOnPremisesInstances =
              BatchGetOnPremisesInstancesResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -90,7 +89,9 @@ instance ToHeaders BatchGetOnPremisesInstances where
 
 instance ToJSON BatchGetOnPremisesInstances where
         toJSON BatchGetOnPremisesInstances'{..}
-          = object ["instanceNames" .= _bgopiInstanceNames]
+          = object
+              (catMaybes
+                 [("instanceNames" .=) <$> _bgopiInstanceNames])
 
 instance ToPath BatchGetOnPremisesInstances where
         toPath = const "/"

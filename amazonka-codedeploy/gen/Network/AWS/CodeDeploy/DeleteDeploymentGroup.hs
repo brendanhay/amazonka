@@ -79,10 +79,9 @@ ddgDeploymentGroupName :: Lens' DeleteDeploymentGroup Text
 ddgDeploymentGroupName = lens _ddgDeploymentGroupName (\ s a -> s{_ddgDeploymentGroupName = a});
 
 instance AWSRequest DeleteDeploymentGroup where
-        type Sv DeleteDeploymentGroup = CodeDeploy
         type Rs DeleteDeploymentGroup =
              DeleteDeploymentGroupResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -103,8 +102,10 @@ instance ToHeaders DeleteDeploymentGroup where
 instance ToJSON DeleteDeploymentGroup where
         toJSON DeleteDeploymentGroup'{..}
           = object
-              ["applicationName" .= _ddgApplicationName,
-               "deploymentGroupName" .= _ddgDeploymentGroupName]
+              (catMaybes
+                 [Just ("applicationName" .= _ddgApplicationName),
+                  Just
+                    ("deploymentGroupName" .= _ddgDeploymentGroupName)])
 
 instance ToPath DeleteDeploymentGroup where
         toPath = const "/"

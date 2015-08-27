@@ -98,9 +98,8 @@ gmlmMLModelId :: Lens' GetMLModel Text
 gmlmMLModelId = lens _gmlmMLModelId (\ s a -> s{_gmlmMLModelId = a});
 
 instance AWSRequest GetMLModel where
-        type Sv GetMLModel = MachineLearning
         type Rs GetMLModel = GetMLModelResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -136,8 +135,9 @@ instance ToHeaders GetMLModel where
 instance ToJSON GetMLModel where
         toJSON GetMLModel'{..}
           = object
-              ["Verbose" .= _gmlmVerbose,
-               "MLModelId" .= _gmlmMLModelId]
+              (catMaybes
+                 [("Verbose" .=) <$> _gmlmVerbose,
+                  Just ("MLModelId" .= _gmlmMLModelId)])
 
 instance ToPath GetMLModel where
         toPath = const "/"

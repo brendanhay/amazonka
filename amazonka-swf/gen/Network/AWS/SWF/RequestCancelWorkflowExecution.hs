@@ -113,10 +113,9 @@ rcweWorkflowId = lens _rcweWorkflowId (\ s a -> s{_rcweWorkflowId = a});
 
 instance AWSRequest RequestCancelWorkflowExecution
          where
-        type Sv RequestCancelWorkflowExecution = SWF
         type Rs RequestCancelWorkflowExecution =
              RequestCancelWorkflowExecutionResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveNull RequestCancelWorkflowExecutionResponse'
 
@@ -134,8 +133,10 @@ instance ToHeaders RequestCancelWorkflowExecution
 instance ToJSON RequestCancelWorkflowExecution where
         toJSON RequestCancelWorkflowExecution'{..}
           = object
-              ["runId" .= _rcweRunId, "domain" .= _rcweDomain,
-               "workflowId" .= _rcweWorkflowId]
+              (catMaybes
+                 [("runId" .=) <$> _rcweRunId,
+                  Just ("domain" .= _rcweDomain),
+                  Just ("workflowId" .= _rcweWorkflowId)])
 
 instance ToPath RequestCancelWorkflowExecution where
         toPath = const "/"

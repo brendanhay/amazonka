@@ -101,10 +101,9 @@ mdcpgParameters = lens _mdcpgParameters (\ s a -> s{_mdcpgParameters = a}) . _Co
 
 instance AWSRequest ModifyDBClusterParameterGroup
          where
-        type Sv ModifyDBClusterParameterGroup = RDS
         type Rs ModifyDBClusterParameterGroup =
              DBClusterParameterGroupNameMessage
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "ModifyDBClusterParameterGroupResult"

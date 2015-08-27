@@ -143,10 +143,9 @@ instance AWSPager DescribeCacheEngineVersions where
             Just $ rq & dcevMarker .~ rs ^. dcevrsMarker
 
 instance AWSRequest DescribeCacheEngineVersions where
-        type Sv DescribeCacheEngineVersions = ElastiCache
         type Rs DescribeCacheEngineVersions =
              DescribeCacheEngineVersionsResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper
               "DescribeCacheEngineVersionsResult"

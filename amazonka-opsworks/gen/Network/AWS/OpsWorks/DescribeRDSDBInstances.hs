@@ -82,10 +82,9 @@ drdiStackId :: Lens' DescribeRDSDBInstances Text
 drdiStackId = lens _drdiStackId (\ s a -> s{_drdiStackId = a});
 
 instance AWSRequest DescribeRDSDBInstances where
-        type Sv DescribeRDSDBInstances = OpsWorks
         type Rs DescribeRDSDBInstances =
              DescribeRDSDBInstancesResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -106,8 +105,9 @@ instance ToHeaders DescribeRDSDBInstances where
 instance ToJSON DescribeRDSDBInstances where
         toJSON DescribeRDSDBInstances'{..}
           = object
-              ["RdsDbInstanceArns" .= _drdiRDSDBInstanceARNs,
-               "StackId" .= _drdiStackId]
+              (catMaybes
+                 [("RdsDbInstanceArns" .=) <$> _drdiRDSDBInstanceARNs,
+                  Just ("StackId" .= _drdiStackId)])
 
 instance ToPath DescribeRDSDBInstances where
         toPath = const "/"

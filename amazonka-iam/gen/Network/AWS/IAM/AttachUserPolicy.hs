@@ -80,9 +80,8 @@ aupPolicyARN :: Lens' AttachUserPolicy Text
 aupPolicyARN = lens _aupPolicyARN (\ s a -> s{_aupPolicyARN = a});
 
 instance AWSRequest AttachUserPolicy where
-        type Sv AttachUserPolicy = IAM
         type Rs AttachUserPolicy = AttachUserPolicyResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull AttachUserPolicyResponse'
 
 instance ToHeaders AttachUserPolicy where

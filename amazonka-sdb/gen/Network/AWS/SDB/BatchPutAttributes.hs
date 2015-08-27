@@ -119,10 +119,9 @@ bpaItems :: Lens' BatchPutAttributes [ReplaceableItem]
 bpaItems = lens _bpaItems (\ s a -> s{_bpaItems = a}) . _Coerce;
 
 instance AWSRequest BatchPutAttributes where
-        type Sv BatchPutAttributes = SDB
         type Rs BatchPutAttributes =
              BatchPutAttributesResponse
-        request = postQuery
+        request = postQuery sDB
         response = receiveNull BatchPutAttributesResponse'
 
 instance ToHeaders BatchPutAttributes where

@@ -134,10 +134,9 @@ dvpncDryRun :: Lens' DescribeVPNConnections (Maybe Bool)
 dvpncDryRun = lens _dvpncDryRun (\ s a -> s{_dvpncDryRun = a});
 
 instance AWSRequest DescribeVPNConnections where
-        type Sv DescribeVPNConnections = EC2
         type Rs DescribeVPNConnections =
              DescribeVPNConnectionsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

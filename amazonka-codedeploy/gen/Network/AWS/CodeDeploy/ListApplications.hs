@@ -71,9 +71,8 @@ laNextToken :: Lens' ListApplications (Maybe Text)
 laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
 instance AWSRequest ListApplications where
-        type Sv ListApplications = CodeDeploy
         type Rs ListApplications = ListApplicationsResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -94,7 +93,8 @@ instance ToHeaders ListApplications where
 
 instance ToJSON ListApplications where
         toJSON ListApplications'{..}
-          = object ["nextToken" .= _laNextToken]
+          = object
+              (catMaybes [("nextToken" .=) <$> _laNextToken])
 
 instance ToPath ListApplications where
         toPath = const "/"

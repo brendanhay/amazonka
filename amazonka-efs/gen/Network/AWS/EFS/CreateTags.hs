@@ -81,16 +81,16 @@ ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce;
 
 instance AWSRequest CreateTags where
-        type Sv CreateTags = EFS
         type Rs CreateTags = CreateTagsResponse
-        request = postJSON
+        request = postJSON eFS
         response = receiveNull CreateTagsResponse'
 
 instance ToHeaders CreateTags where
         toHeaders = const mempty
 
 instance ToJSON CreateTags where
-        toJSON CreateTags'{..} = object ["Tags" .= _ctTags]
+        toJSON CreateTags'{..}
+          = object (catMaybes [Just ("Tags" .= _ctTags)])
 
 instance ToPath CreateTags where
         toPath CreateTags'{..}

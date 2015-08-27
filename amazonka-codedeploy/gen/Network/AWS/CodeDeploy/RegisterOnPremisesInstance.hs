@@ -75,10 +75,9 @@ ropiIamUserARN :: Lens' RegisterOnPremisesInstance Text
 ropiIamUserARN = lens _ropiIamUserARN (\ s a -> s{_ropiIamUserARN = a});
 
 instance AWSRequest RegisterOnPremisesInstance where
-        type Sv RegisterOnPremisesInstance = CodeDeploy
         type Rs RegisterOnPremisesInstance =
              RegisterOnPremisesInstanceResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveNull RegisterOnPremisesInstanceResponse'
 
@@ -95,8 +94,9 @@ instance ToHeaders RegisterOnPremisesInstance where
 instance ToJSON RegisterOnPremisesInstance where
         toJSON RegisterOnPremisesInstance'{..}
           = object
-              ["instanceName" .= _ropiInstanceName,
-               "iamUserArn" .= _ropiIamUserARN]
+              (catMaybes
+                 [Just ("instanceName" .= _ropiInstanceName),
+                  Just ("iamUserArn" .= _ropiIamUserARN)])
 
 instance ToPath RegisterOnPremisesInstance where
         toPath = const "/"

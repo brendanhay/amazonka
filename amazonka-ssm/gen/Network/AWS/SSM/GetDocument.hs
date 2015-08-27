@@ -67,9 +67,8 @@ gdName :: Lens' GetDocument Text
 gdName = lens _gdName (\ s a -> s{_gdName = a});
 
 instance AWSRequest GetDocument where
-        type Sv GetDocument = SSM
         type Rs GetDocument = GetDocumentResponse
-        request = postJSON
+        request = postJSON sSM
         response
           = receiveJSON
               (\ s h x ->
@@ -87,7 +86,8 @@ instance ToHeaders GetDocument where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetDocument where
-        toJSON GetDocument'{..} = object ["Name" .= _gdName]
+        toJSON GetDocument'{..}
+          = object (catMaybes [Just ("Name" .= _gdName)])
 
 instance ToPath GetDocument where
         toPath = const "/"

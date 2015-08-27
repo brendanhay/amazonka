@@ -123,10 +123,9 @@ gdkwpKeyId = lens _gdkwpKeyId (\ s a -> s{_gdkwpKeyId = a});
 
 instance AWSRequest GenerateDataKeyWithoutPlaintext
          where
-        type Sv GenerateDataKeyWithoutPlaintext = KMS
         type Rs GenerateDataKeyWithoutPlaintext =
              GenerateDataKeyWithoutPlaintextResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->
@@ -148,11 +147,12 @@ instance ToHeaders GenerateDataKeyWithoutPlaintext
 instance ToJSON GenerateDataKeyWithoutPlaintext where
         toJSON GenerateDataKeyWithoutPlaintext'{..}
           = object
-              ["KeySpec" .= _gdkwpKeySpec,
-               "EncryptionContext" .= _gdkwpEncryptionContext,
-               "NumberOfBytes" .= _gdkwpNumberOfBytes,
-               "GrantTokens" .= _gdkwpGrantTokens,
-               "KeyId" .= _gdkwpKeyId]
+              (catMaybes
+                 [("KeySpec" .=) <$> _gdkwpKeySpec,
+                  ("EncryptionContext" .=) <$> _gdkwpEncryptionContext,
+                  ("NumberOfBytes" .=) <$> _gdkwpNumberOfBytes,
+                  ("GrantTokens" .=) <$> _gdkwpGrantTokens,
+                  Just ("KeyId" .= _gdkwpKeyId)])
 
 instance ToPath GenerateDataKeyWithoutPlaintext where
         toPath = const "/"

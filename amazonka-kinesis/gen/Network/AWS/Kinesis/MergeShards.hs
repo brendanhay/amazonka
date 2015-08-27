@@ -125,9 +125,8 @@ msAdjacentShardToMerge :: Lens' MergeShards Text
 msAdjacentShardToMerge = lens _msAdjacentShardToMerge (\ s a -> s{_msAdjacentShardToMerge = a});
 
 instance AWSRequest MergeShards where
-        type Sv MergeShards = Kinesis
         type Rs MergeShards = MergeShardsResponse
-        request = postJSON
+        request = postJSON kinesis
         response = receiveNull MergeShardsResponse'
 
 instance ToHeaders MergeShards where
@@ -142,9 +141,11 @@ instance ToHeaders MergeShards where
 instance ToJSON MergeShards where
         toJSON MergeShards'{..}
           = object
-              ["StreamName" .= _msStreamName,
-               "ShardToMerge" .= _msShardToMerge,
-               "AdjacentShardToMerge" .= _msAdjacentShardToMerge]
+              (catMaybes
+                 [Just ("StreamName" .= _msStreamName),
+                  Just ("ShardToMerge" .= _msShardToMerge),
+                  Just
+                    ("AdjacentShardToMerge" .= _msAdjacentShardToMerge)])
 
 instance ToPath MergeShards where
         toPath = const "/"

@@ -100,9 +100,8 @@ pmfMetricTransformations :: Lens' PutMetricFilter (NonEmpty MetricTransformation
 pmfMetricTransformations = lens _pmfMetricTransformations (\ s a -> s{_pmfMetricTransformations = a}) . _List1;
 
 instance AWSRequest PutMetricFilter where
-        type Sv PutMetricFilter = CloudWatchLogs
         type Rs PutMetricFilter = PutMetricFilterResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response = receiveNull PutMetricFilterResponse'
 
 instance ToHeaders PutMetricFilter where
@@ -117,10 +116,13 @@ instance ToHeaders PutMetricFilter where
 instance ToJSON PutMetricFilter where
         toJSON PutMetricFilter'{..}
           = object
-              ["logGroupName" .= _pmfLogGroupName,
-               "filterName" .= _pmfFilterName,
-               "filterPattern" .= _pmfFilterPattern,
-               "metricTransformations" .= _pmfMetricTransformations]
+              (catMaybes
+                 [Just ("logGroupName" .= _pmfLogGroupName),
+                  Just ("filterName" .= _pmfFilterName),
+                  Just ("filterPattern" .= _pmfFilterPattern),
+                  Just
+                    ("metricTransformations" .=
+                       _pmfMetricTransformations)])
 
 instance ToPath PutMetricFilter where
         toPath = const "/"

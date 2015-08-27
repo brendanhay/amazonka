@@ -255,9 +255,8 @@ upId :: Lens' UpdatePipeline Text
 upId = lens _upId (\ s a -> s{_upId = a});
 
 instance AWSRequest UpdatePipeline where
-        type Sv UpdatePipeline = ElasticTranscoder
         type Rs UpdatePipeline = UpdatePipelineResponse
-        request = putJSON
+        request = putJSON elasticTranscoder
         response
           = receiveJSON
               (\ s h x ->
@@ -271,12 +270,13 @@ instance ToHeaders UpdatePipeline where
 instance ToJSON UpdatePipeline where
         toJSON UpdatePipeline'{..}
           = object
-              ["InputBucket" .= _upInputBucket,
-               "ContentConfig" .= _upContentConfig,
-               "Role" .= _upRole, "Name" .= _upName,
-               "AwsKmsKeyArn" .= _upAWSKMSKeyARN,
-               "ThumbnailConfig" .= _upThumbnailConfig,
-               "Notifications" .= _upNotifications]
+              (catMaybes
+                 [("InputBucket" .=) <$> _upInputBucket,
+                  ("ContentConfig" .=) <$> _upContentConfig,
+                  ("Role" .=) <$> _upRole, ("Name" .=) <$> _upName,
+                  ("AwsKmsKeyArn" .=) <$> _upAWSKMSKeyARN,
+                  ("ThumbnailConfig" .=) <$> _upThumbnailConfig,
+                  ("Notifications" .=) <$> _upNotifications])
 
 instance ToPath UpdatePipeline where
         toPath UpdatePipeline'{..}

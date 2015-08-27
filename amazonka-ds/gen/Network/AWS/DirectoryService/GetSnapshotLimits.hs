@@ -68,9 +68,8 @@ gslDirectoryId :: Lens' GetSnapshotLimits Text
 gslDirectoryId = lens _gslDirectoryId (\ s a -> s{_gslDirectoryId = a});
 
 instance AWSRequest GetSnapshotLimits where
-        type Sv GetSnapshotLimits = DirectoryService
         type Rs GetSnapshotLimits = GetSnapshotLimitsResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveJSON
               (\ s h x ->
@@ -89,7 +88,8 @@ instance ToHeaders GetSnapshotLimits where
 
 instance ToJSON GetSnapshotLimits where
         toJSON GetSnapshotLimits'{..}
-          = object ["DirectoryId" .= _gslDirectoryId]
+          = object
+              (catMaybes [Just ("DirectoryId" .= _gslDirectoryId)])
 
 instance ToPath GetSnapshotLimits where
         toPath = const "/"

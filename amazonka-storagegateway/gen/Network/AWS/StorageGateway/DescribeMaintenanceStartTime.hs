@@ -75,10 +75,9 @@ dmstGatewayARN = lens _dmstGatewayARN (\ s a -> s{_dmstGatewayARN = a});
 
 instance AWSRequest DescribeMaintenanceStartTime
          where
-        type Sv DescribeMaintenanceStartTime = StorageGateway
         type Rs DescribeMaintenanceStartTime =
              DescribeMaintenanceStartTimeResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -101,7 +100,8 @@ instance ToHeaders DescribeMaintenanceStartTime where
 
 instance ToJSON DescribeMaintenanceStartTime where
         toJSON DescribeMaintenanceStartTime'{..}
-          = object ["GatewayARN" .= _dmstGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _dmstGatewayARN)])
 
 instance ToPath DescribeMaintenanceStartTime where
         toPath = const "/"

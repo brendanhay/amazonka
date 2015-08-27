@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.Kinesis.Types
     (
-    -- * Service
-      Kinesis
+    -- * Service Configuration
+      kinesis
 
     -- * Errors
     , _ExpiredIteratorException
@@ -94,39 +93,36 @@ import           Network.AWS.Kinesis.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2013-12-02@ of the Amazon Kinesis SDK.
-data Kinesis
-
-instance AWSService Kinesis where
-    type Sg Kinesis = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "Kinesis"
-            , _svcPrefix = "kinesis"
-            , _svcVersion = "2013-12-02"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2013-12-02' of the Amazon Kinesis SDK configuration.
+kinesis :: Service
+kinesis =
+    Service
+    { _svcAbbrev = "Kinesis"
+    , _svcSigner = v4
+    , _svcPrefix = "kinesis"
+    , _svcVersion = "2013-12-02"
+    , _svcEndpoint = defaultEndpoint kinesis
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | The provided iterator exceeds the maximum age allowed.
 _ExpiredIteratorException :: AsError a => Getting (First ServiceError) a ServiceError

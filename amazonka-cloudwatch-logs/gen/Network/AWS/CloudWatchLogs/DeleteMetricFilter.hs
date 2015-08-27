@@ -74,10 +74,9 @@ delFilterName :: Lens' DeleteMetricFilter Text
 delFilterName = lens _delFilterName (\ s a -> s{_delFilterName = a});
 
 instance AWSRequest DeleteMetricFilter where
-        type Sv DeleteMetricFilter = CloudWatchLogs
         type Rs DeleteMetricFilter =
              DeleteMetricFilterResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response = receiveNull DeleteMetricFilterResponse'
 
 instance ToHeaders DeleteMetricFilter where
@@ -92,8 +91,9 @@ instance ToHeaders DeleteMetricFilter where
 instance ToJSON DeleteMetricFilter where
         toJSON DeleteMetricFilter'{..}
           = object
-              ["logGroupName" .= _delLogGroupName,
-               "filterName" .= _delFilterName]
+              (catMaybes
+                 [Just ("logGroupName" .= _delLogGroupName),
+                  Just ("filterName" .= _delFilterName)])
 
 instance ToPath DeleteMetricFilter where
         toPath = const "/"

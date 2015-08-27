@@ -103,10 +103,9 @@ dWorkflowType :: Lens' DeprecateWorkflowType WorkflowType
 dWorkflowType = lens _dWorkflowType (\ s a -> s{_dWorkflowType = a});
 
 instance AWSRequest DeprecateWorkflowType where
-        type Sv DeprecateWorkflowType = SWF
         type Rs DeprecateWorkflowType =
              DeprecateWorkflowTypeResponse
-        request = postJSON
+        request = postJSON sWF
         response = receiveNull DeprecateWorkflowTypeResponse'
 
 instance ToHeaders DeprecateWorkflowType where
@@ -122,8 +121,9 @@ instance ToHeaders DeprecateWorkflowType where
 instance ToJSON DeprecateWorkflowType where
         toJSON DeprecateWorkflowType'{..}
           = object
-              ["domain" .= _dDomain,
-               "workflowType" .= _dWorkflowType]
+              (catMaybes
+                 [Just ("domain" .= _dDomain),
+                  Just ("workflowType" .= _dWorkflowType)])
 
 instance ToPath DeprecateWorkflowType where
         toPath = const "/"

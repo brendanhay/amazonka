@@ -94,10 +94,9 @@ cdcDeploymentConfigName :: Lens' CreateDeploymentConfig Text
 cdcDeploymentConfigName = lens _cdcDeploymentConfigName (\ s a -> s{_cdcDeploymentConfigName = a});
 
 instance AWSRequest CreateDeploymentConfig where
-        type Sv CreateDeploymentConfig = CodeDeploy
         type Rs CreateDeploymentConfig =
              CreateDeploymentConfigResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -117,8 +116,12 @@ instance ToHeaders CreateDeploymentConfig where
 instance ToJSON CreateDeploymentConfig where
         toJSON CreateDeploymentConfig'{..}
           = object
-              ["minimumHealthyHosts" .= _cdcMinimumHealthyHosts,
-               "deploymentConfigName" .= _cdcDeploymentConfigName]
+              (catMaybes
+                 [("minimumHealthyHosts" .=) <$>
+                    _cdcMinimumHealthyHosts,
+                  Just
+                    ("deploymentConfigName" .=
+                       _cdcDeploymentConfigName)])
 
 instance ToPath CreateDeploymentConfig where
         toPath = const "/"

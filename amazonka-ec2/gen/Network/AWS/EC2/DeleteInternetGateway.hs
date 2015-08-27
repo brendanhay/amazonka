@@ -76,10 +76,9 @@ digiInternetGatewayId :: Lens' DeleteInternetGateway Text
 digiInternetGatewayId = lens _digiInternetGatewayId (\ s a -> s{_digiInternetGatewayId = a});
 
 instance AWSRequest DeleteInternetGateway where
-        type Sv DeleteInternetGateway = EC2
         type Rs DeleteInternetGateway =
              DeleteInternetGatewayResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull DeleteInternetGatewayResponse'
 
 instance ToHeaders DeleteInternetGateway where

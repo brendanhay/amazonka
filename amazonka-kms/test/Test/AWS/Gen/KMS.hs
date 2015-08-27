@@ -328,154 +328,180 @@ testDisableKeyRotationResponse :: DisableKeyRotationResponse -> TestTree
 testDisableKeyRotationResponse = res
     "DisableKeyRotationResponse"
     "fixture/DisableKeyRotationResponse"
+    kMS
     (Proxy :: Proxy DisableKeyRotation)
 
 testGenerateDataKeyWithoutPlaintextResponse :: GenerateDataKeyWithoutPlaintextResponse -> TestTree
 testGenerateDataKeyWithoutPlaintextResponse = res
     "GenerateDataKeyWithoutPlaintextResponse"
     "fixture/GenerateDataKeyWithoutPlaintextResponse"
+    kMS
     (Proxy :: Proxy GenerateDataKeyWithoutPlaintext)
 
 testListGrantsResponse :: ListGrantsResponse -> TestTree
 testListGrantsResponse = res
     "ListGrantsResponse"
     "fixture/ListGrantsResponse"
+    kMS
     (Proxy :: Proxy ListGrants)
 
 testEncryptResponse :: EncryptResponse -> TestTree
 testEncryptResponse = res
     "EncryptResponse"
     "fixture/EncryptResponse"
+    kMS
     (Proxy :: Proxy Encrypt)
 
 testEnableKeyRotationResponse :: EnableKeyRotationResponse -> TestTree
 testEnableKeyRotationResponse = res
     "EnableKeyRotationResponse"
     "fixture/EnableKeyRotationResponse"
+    kMS
     (Proxy :: Proxy EnableKeyRotation)
 
 testCreateGrantResponse :: CreateGrantResponse -> TestTree
 testCreateGrantResponse = res
     "CreateGrantResponse"
     "fixture/CreateGrantResponse"
+    kMS
     (Proxy :: Proxy CreateGrant)
 
 testCreateAliasResponse :: CreateAliasResponse -> TestTree
 testCreateAliasResponse = res
     "CreateAliasResponse"
     "fixture/CreateAliasResponse"
+    kMS
     (Proxy :: Proxy CreateAlias)
 
 testListAliasesResponse :: ListAliasesResponse -> TestTree
 testListAliasesResponse = res
     "ListAliasesResponse"
     "fixture/ListAliasesResponse"
+    kMS
     (Proxy :: Proxy ListAliases)
 
 testGenerateRandomResponse :: GenerateRandomResponse -> TestTree
 testGenerateRandomResponse = res
     "GenerateRandomResponse"
     "fixture/GenerateRandomResponse"
+    kMS
     (Proxy :: Proxy GenerateRandom)
 
 testDisableKeyResponse :: DisableKeyResponse -> TestTree
 testDisableKeyResponse = res
     "DisableKeyResponse"
     "fixture/DisableKeyResponse"
+    kMS
     (Proxy :: Proxy DisableKey)
 
 testCreateKeyResponse :: CreateKeyResponse -> TestTree
 testCreateKeyResponse = res
     "CreateKeyResponse"
     "fixture/CreateKeyResponse"
+    kMS
     (Proxy :: Proxy CreateKey)
 
 testRetireGrantResponse :: RetireGrantResponse -> TestTree
 testRetireGrantResponse = res
     "RetireGrantResponse"
     "fixture/RetireGrantResponse"
+    kMS
     (Proxy :: Proxy RetireGrant)
 
 testListKeysResponse :: ListKeysResponse -> TestTree
 testListKeysResponse = res
     "ListKeysResponse"
     "fixture/ListKeysResponse"
+    kMS
     (Proxy :: Proxy ListKeys)
 
 testGetKeyRotationStatusResponse :: GetKeyRotationStatusResponse -> TestTree
 testGetKeyRotationStatusResponse = res
     "GetKeyRotationStatusResponse"
     "fixture/GetKeyRotationStatusResponse"
+    kMS
     (Proxy :: Proxy GetKeyRotationStatus)
 
 testGenerateDataKeyResponse :: GenerateDataKeyResponse -> TestTree
 testGenerateDataKeyResponse = res
     "GenerateDataKeyResponse"
     "fixture/GenerateDataKeyResponse"
+    kMS
     (Proxy :: Proxy GenerateDataKey)
 
 testDeleteAliasResponse :: DeleteAliasResponse -> TestTree
 testDeleteAliasResponse = res
     "DeleteAliasResponse"
     "fixture/DeleteAliasResponse"
+    kMS
     (Proxy :: Proxy DeleteAlias)
 
 testUpdateAliasResponse :: UpdateAliasResponse -> TestTree
 testUpdateAliasResponse = res
     "UpdateAliasResponse"
     "fixture/UpdateAliasResponse"
+    kMS
     (Proxy :: Proxy UpdateAlias)
 
 testDescribeKeyResponse :: DescribeKeyResponse -> TestTree
 testDescribeKeyResponse = res
     "DescribeKeyResponse"
     "fixture/DescribeKeyResponse"
+    kMS
     (Proxy :: Proxy DescribeKey)
 
 testDecryptResponse :: DecryptResponse -> TestTree
 testDecryptResponse = res
     "DecryptResponse"
     "fixture/DecryptResponse"
+    kMS
     (Proxy :: Proxy Decrypt)
 
 testUpdateKeyDescriptionResponse :: UpdateKeyDescriptionResponse -> TestTree
 testUpdateKeyDescriptionResponse = res
     "UpdateKeyDescriptionResponse"
     "fixture/UpdateKeyDescriptionResponse"
+    kMS
     (Proxy :: Proxy UpdateKeyDescription)
 
 testReEncryptResponse :: ReEncryptResponse -> TestTree
 testReEncryptResponse = res
     "ReEncryptResponse"
     "fixture/ReEncryptResponse"
+    kMS
     (Proxy :: Proxy ReEncrypt)
 
 testListKeyPoliciesResponse :: ListKeyPoliciesResponse -> TestTree
 testListKeyPoliciesResponse = res
     "ListKeyPoliciesResponse"
     "fixture/ListKeyPoliciesResponse"
+    kMS
     (Proxy :: Proxy ListKeyPolicies)
 
 testEnableKeyResponse :: EnableKeyResponse -> TestTree
 testEnableKeyResponse = res
     "EnableKeyResponse"
     "fixture/EnableKeyResponse"
+    kMS
     (Proxy :: Proxy EnableKey)
 
 testPutKeyPolicyResponse :: PutKeyPolicyResponse -> TestTree
 testPutKeyPolicyResponse = res
     "PutKeyPolicyResponse"
     "fixture/PutKeyPolicyResponse"
+    kMS
     (Proxy :: Proxy PutKeyPolicy)
 
 testRevokeGrantResponse :: RevokeGrantResponse -> TestTree
 testRevokeGrantResponse = res
     "RevokeGrantResponse"
     "fixture/RevokeGrantResponse"
+    kMS
     (Proxy :: Proxy RevokeGrant)
 
 testGetKeyPolicyResponse :: GetKeyPolicyResponse -> TestTree
 testGetKeyPolicyResponse = res
     "GetKeyPolicyResponse"
     "fixture/GetKeyPolicyResponse"
+    kMS
     (Proxy :: Proxy GetKeyPolicy)

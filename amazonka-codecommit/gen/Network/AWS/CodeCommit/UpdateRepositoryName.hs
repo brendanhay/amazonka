@@ -75,10 +75,9 @@ urnNewName :: Lens' UpdateRepositoryName Text
 urnNewName = lens _urnNewName (\ s a -> s{_urnNewName = a});
 
 instance AWSRequest UpdateRepositoryName where
-        type Sv UpdateRepositoryName = CodeCommit
         type Rs UpdateRepositoryName =
              UpdateRepositoryNameResponse
-        request = postJSON
+        request = postJSON codeCommit
         response = receiveNull UpdateRepositoryNameResponse'
 
 instance ToHeaders UpdateRepositoryName where
@@ -94,7 +93,9 @@ instance ToHeaders UpdateRepositoryName where
 instance ToJSON UpdateRepositoryName where
         toJSON UpdateRepositoryName'{..}
           = object
-              ["oldName" .= _urnOldName, "newName" .= _urnNewName]
+              (catMaybes
+                 [Just ("oldName" .= _urnOldName),
+                  Just ("newName" .= _urnNewName)])
 
 instance ToPath UpdateRepositoryName where
         toPath = const "/"

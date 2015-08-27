@@ -107,10 +107,9 @@ instance AWSPager ListJobsByPipeline where
               ljbpPageToken .~ rs ^. ljbprsNextPageToken
 
 instance AWSRequest ListJobsByPipeline where
-        type Sv ListJobsByPipeline = ElasticTranscoder
         type Rs ListJobsByPipeline =
              ListJobsByPipelineResponse
-        request = get
+        request = get elasticTranscoder
         response
           = receiveJSON
               (\ s h x ->

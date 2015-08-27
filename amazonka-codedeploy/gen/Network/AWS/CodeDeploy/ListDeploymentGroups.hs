@@ -83,10 +83,9 @@ ldgApplicationName :: Lens' ListDeploymentGroups Text
 ldgApplicationName = lens _ldgApplicationName (\ s a -> s{_ldgApplicationName = a});
 
 instance AWSRequest ListDeploymentGroups where
-        type Sv ListDeploymentGroups = CodeDeploy
         type Rs ListDeploymentGroups =
              ListDeploymentGroupsResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -108,8 +107,9 @@ instance ToHeaders ListDeploymentGroups where
 instance ToJSON ListDeploymentGroups where
         toJSON ListDeploymentGroups'{..}
           = object
-              ["nextToken" .= _ldgNextToken,
-               "applicationName" .= _ldgApplicationName]
+              (catMaybes
+                 [("nextToken" .=) <$> _ldgNextToken,
+                  Just ("applicationName" .= _ldgApplicationName)])
 
 instance ToPath ListDeploymentGroups where
         toPath = const "/"

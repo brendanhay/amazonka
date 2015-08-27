@@ -130,10 +130,9 @@ pfatTaskList :: Lens' PollForActivityTask TaskList
 pfatTaskList = lens _pfatTaskList (\ s a -> s{_pfatTaskList = a});
 
 instance AWSRequest PollForActivityTask where
-        type Sv PollForActivityTask = SWF
         type Rs PollForActivityTask =
              PollForActivityTaskResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveJSON
               (\ s h x ->
@@ -158,8 +157,10 @@ instance ToHeaders PollForActivityTask where
 instance ToJSON PollForActivityTask where
         toJSON PollForActivityTask'{..}
           = object
-              ["identity" .= _pfatIdentity,
-               "domain" .= _pfatDomain, "taskList" .= _pfatTaskList]
+              (catMaybes
+                 [("identity" .=) <$> _pfatIdentity,
+                  Just ("domain" .= _pfatDomain),
+                  Just ("taskList" .= _pfatTaskList)])
 
 instance ToPath PollForActivityTask where
         toPath = const "/"

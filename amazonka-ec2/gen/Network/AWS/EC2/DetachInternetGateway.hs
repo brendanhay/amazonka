@@ -87,10 +87,9 @@ digVPCId :: Lens' DetachInternetGateway Text
 digVPCId = lens _digVPCId (\ s a -> s{_digVPCId = a});
 
 instance AWSRequest DetachInternetGateway where
-        type Sv DetachInternetGateway = EC2
         type Rs DetachInternetGateway =
              DetachInternetGatewayResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull DetachInternetGatewayResponse'
 
 instance ToHeaders DetachInternetGateway where

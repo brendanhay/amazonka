@@ -149,10 +149,9 @@ udcpDomainName :: Lens' UpdateDomainContactPrivacy Text
 udcpDomainName = lens _udcpDomainName (\ s a -> s{_udcpDomainName = a});
 
 instance AWSRequest UpdateDomainContactPrivacy where
-        type Sv UpdateDomainContactPrivacy = Route53Domains
         type Rs UpdateDomainContactPrivacy =
              UpdateDomainContactPrivacyResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveJSON
               (\ s h x ->
@@ -172,10 +171,11 @@ instance ToHeaders UpdateDomainContactPrivacy where
 instance ToJSON UpdateDomainContactPrivacy where
         toJSON UpdateDomainContactPrivacy'{..}
           = object
-              ["TechPrivacy" .= _udcpTechPrivacy,
-               "RegistrantPrivacy" .= _udcpRegistrantPrivacy,
-               "AdminPrivacy" .= _udcpAdminPrivacy,
-               "DomainName" .= _udcpDomainName]
+              (catMaybes
+                 [("TechPrivacy" .=) <$> _udcpTechPrivacy,
+                  ("RegistrantPrivacy" .=) <$> _udcpRegistrantPrivacy,
+                  ("AdminPrivacy" .=) <$> _udcpAdminPrivacy,
+                  Just ("DomainName" .= _udcpDomainName)])
 
 instance ToPath UpdateDomainContactPrivacy where
         toPath = const "/"

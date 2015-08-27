@@ -169,9 +169,8 @@ agGatewayRegion :: Lens' ActivateGateway Text
 agGatewayRegion = lens _agGatewayRegion (\ s a -> s{_agGatewayRegion = a});
 
 instance AWSRequest ActivateGateway where
-        type Sv ActivateGateway = StorageGateway
         type Rs ActivateGateway = ActivateGatewayResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -191,13 +190,14 @@ instance ToHeaders ActivateGateway where
 instance ToJSON ActivateGateway where
         toJSON ActivateGateway'{..}
           = object
-              ["MediumChangerType" .= _agMediumChangerType,
-               "TapeDriveType" .= _agTapeDriveType,
-               "GatewayType" .= _agGatewayType,
-               "ActivationKey" .= _agActivationKey,
-               "GatewayName" .= _agGatewayName,
-               "GatewayTimezone" .= _agGatewayTimezone,
-               "GatewayRegion" .= _agGatewayRegion]
+              (catMaybes
+                 [("MediumChangerType" .=) <$> _agMediumChangerType,
+                  ("TapeDriveType" .=) <$> _agTapeDriveType,
+                  ("GatewayType" .=) <$> _agGatewayType,
+                  Just ("ActivationKey" .= _agActivationKey),
+                  Just ("GatewayName" .= _agGatewayName),
+                  Just ("GatewayTimezone" .= _agGatewayTimezone),
+                  Just ("GatewayRegion" .= _agGatewayRegion)])
 
 instance ToPath ActivateGateway where
         toPath = const "/"

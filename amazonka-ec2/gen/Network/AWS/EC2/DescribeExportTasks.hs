@@ -65,10 +65,9 @@ detExportTaskIds :: Lens' DescribeExportTasks [Text]
 detExportTaskIds = lens _detExportTaskIds (\ s a -> s{_detExportTaskIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeExportTasks where
-        type Sv DescribeExportTasks = EC2
         type Rs DescribeExportTasks =
              DescribeExportTasksResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

@@ -75,10 +75,9 @@ dubGatewayARN :: Lens' DescribeUploadBuffer Text
 dubGatewayARN = lens _dubGatewayARN (\ s a -> s{_dubGatewayARN = a});
 
 instance AWSRequest DescribeUploadBuffer where
-        type Sv DescribeUploadBuffer = StorageGateway
         type Rs DescribeUploadBuffer =
              DescribeUploadBufferResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -101,7 +100,8 @@ instance ToHeaders DescribeUploadBuffer where
 
 instance ToJSON DescribeUploadBuffer where
         toJSON DescribeUploadBuffer'{..}
-          = object ["GatewayARN" .= _dubGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _dubGatewayARN)])
 
 instance ToPath DescribeUploadBuffer where
         toPath = const "/"

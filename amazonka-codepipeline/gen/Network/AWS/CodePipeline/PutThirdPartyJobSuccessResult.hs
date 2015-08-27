@@ -108,10 +108,9 @@ ptpjsrClientToken = lens _ptpjsrClientToken (\ s a -> s{_ptpjsrClientToken = a})
 
 instance AWSRequest PutThirdPartyJobSuccessResult
          where
-        type Sv PutThirdPartyJobSuccessResult = CodePipeline
         type Rs PutThirdPartyJobSuccessResult =
              PutThirdPartyJobSuccessResultResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveNull PutThirdPartyJobSuccessResultResponse'
 
@@ -129,11 +128,13 @@ instance ToHeaders PutThirdPartyJobSuccessResult
 instance ToJSON PutThirdPartyJobSuccessResult where
         toJSON PutThirdPartyJobSuccessResult'{..}
           = object
-              ["continuationToken" .= _ptpjsrContinuationToken,
-               "executionDetails" .= _ptpjsrExecutionDetails,
-               "currentRevision" .= _ptpjsrCurrentRevision,
-               "jobId" .= _ptpjsrJobId,
-               "clientToken" .= _ptpjsrClientToken]
+              (catMaybes
+                 [("continuationToken" .=) <$>
+                    _ptpjsrContinuationToken,
+                  ("executionDetails" .=) <$> _ptpjsrExecutionDetails,
+                  ("currentRevision" .=) <$> _ptpjsrCurrentRevision,
+                  Just ("jobId" .= _ptpjsrJobId),
+                  Just ("clientToken" .= _ptpjsrClientToken)])
 
 instance ToPath PutThirdPartyJobSuccessResult where
         toPath = const "/"

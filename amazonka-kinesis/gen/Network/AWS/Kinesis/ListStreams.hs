@@ -105,9 +105,8 @@ instance AWSPager ListStreams where
                 rs ^? lsrsStreamNames . _last
 
 instance AWSRequest ListStreams where
-        type Sv ListStreams = Kinesis
         type Rs ListStreams = ListStreamsResponse
-        request = postJSON
+        request = postJSON kinesis
         response
           = receiveJSON
               (\ s h x ->
@@ -128,9 +127,10 @@ instance ToHeaders ListStreams where
 instance ToJSON ListStreams where
         toJSON ListStreams'{..}
           = object
-              ["Limit" .= _lsLimit,
-               "ExclusiveStartStreamName" .=
-                 _lsExclusiveStartStreamName]
+              (catMaybes
+                 [("Limit" .=) <$> _lsLimit,
+                  ("ExclusiveStartStreamName" .=) <$>
+                    _lsExclusiveStartStreamName])
 
 instance ToPath ListStreams where
         toPath = const "/"

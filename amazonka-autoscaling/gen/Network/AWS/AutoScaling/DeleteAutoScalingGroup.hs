@@ -81,10 +81,9 @@ dasgAutoScalingGroupName :: Lens' DeleteAutoScalingGroup Text
 dasgAutoScalingGroupName = lens _dasgAutoScalingGroupName (\ s a -> s{_dasgAutoScalingGroupName = a});
 
 instance AWSRequest DeleteAutoScalingGroup where
-        type Sv DeleteAutoScalingGroup = AutoScaling
         type Rs DeleteAutoScalingGroup =
              DeleteAutoScalingGroupResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveNull DeleteAutoScalingGroupResponse'
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE ConstraintKinds   #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 
@@ -59,62 +60,64 @@ import qualified Network.HTTP.Client.Internal as Client
 import           Network.HTTP.Types           (StdMethod (..))
 import qualified Network.HTTP.Types           as HTTP
 
-head' :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-head' x = get x & rqMethod .~ HEAD
+type ToRequest a = (ToPath a, ToQuery a, ToHeaders a)
 
-delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-delete x = get x & rqMethod .~ DELETE
+head' :: ToRequest a => Service -> a -> Request a
+head' s x = get s x & rqMethod .~ HEAD
 
-get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-get = contentSHA256 . defaultRequest
+delete :: ToRequest a => Service -> a -> Request a
+delete s x = get s x & rqMethod .~ DELETE
 
-post :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-post x = get x & rqMethod .~ POST
+get :: ToRequest a => Service -> a -> Request a
+get s = contentSHA256 . defaultRequest s
 
-put :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-put x = get x & rqMethod .~ PUT
+post :: ToRequest a => Service -> a -> Request a
+post s x = get s x & rqMethod .~ POST
 
-postXML :: (ToQuery a, ToPath a, ToHeaders a, ToElement a) => a -> Request a
-postXML x = putXML x & rqMethod .~ POST
+put :: ToRequest a => Service -> a -> Request a
+put s x = get s x & rqMethod .~ PUT
 
-postJSON :: (ToQuery a, ToPath a, ToHeaders a, ToJSON a) => a -> Request a
-postJSON x = putJSON x & rqMethod .~ POST
+postXML :: (ToRequest a, ToElement a) => Service -> a -> Request a
+postXML s x = putXML s x & rqMethod .~ POST
 
-postQuery :: (ToQuery a, ToPath a, ToHeaders a) => a -> Request a
-postQuery x = Request
-    { _rqMethod  = POST
+postJSON :: (ToRequest a, ToJSON a) => Service -> a -> Request a
+postJSON s x = putJSON s x & rqMethod .~ POST
+
+postQuery :: ToRequest a => Service -> a -> Request a
+postQuery s x = Request
+    { _rqService = s
+    , _rqMethod  = POST
     , _rqPath    = rawPath x
     , _rqQuery   = mempty
     , _rqBody    = toBody (toQuery x)
-    , _rqHeaders =
-        hdr HTTP.hContentType "application/x-www-form-urlencoded; charset=utf-8"
-            (toHeaders x)
+    , _rqHeaders = hdr hContentType hFormEncoded (toHeaders x)
     } & contentSHA256
 
-postBody :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
-postBody x = putBody x & rqMethod .~ POST
+postBody :: (ToRequest a, ToBody a) => Service -> a -> Request a
+postBody s x = putBody s x & rqMethod .~ POST
 
-putXML :: (ToPath a, ToQuery a, ToHeaders a, ToElement a) => a -> Request a
-putXML x = defaultRequest x
+putXML :: (ToRequest a, ToElement a) => Service -> a -> Request a
+putXML s x = defaultRequest s x
     & rqMethod .~ PUT
     & rqBody   .~ toBody (toElement x)
     & contentSHA256
 
-putJSON :: (ToQuery a, ToPath a, ToHeaders a, ToJSON a) => a -> Request a
-putJSON x = defaultRequest x
+putJSON :: (ToRequest a, ToJSON a) => Service -> a -> Request a
+putJSON s x = defaultRequest s x
     & rqMethod .~ PUT
     & rqBody   .~ toBody (toJSON x)
     & contentSHA256
 
-putBody :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
-putBody x = defaultRequest x
+putBody :: (ToRequest a, ToBody a) => Service -> a -> Request a
+putBody s x = defaultRequest s x
     & rqMethod .~ PUT
     & rqBody   .~ toBody x
     & contentSHA256
 
-defaultRequest :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-defaultRequest x = Request
-    { _rqMethod  = GET
+defaultRequest :: ToRequest a => Service -> a -> Request a
+defaultRequest s x = Request
+    { _rqService = s
+    , _rqMethod  = GET
     , _rqPath    = rawPath x
     , _rqQuery   = toQuery x
     , _rqHeaders = toHeaders x
@@ -142,17 +145,19 @@ requestHeaders f x =
     f (Client.requestHeaders x) <&> \y -> x { Client.requestHeaders = y }
 
 requestURL :: ClientRequest -> ByteString
-requestURL x =
-       scheme (Client.secure      x)
-    <> toBS   (Client.host        x)
-    <> port   (Client.port        x)
-    <> toBS   (Client.path        x)
-    <> toBS   (Client.queryString x)
+requestURL x = scheme
+    <> toBS (Client.host        x)
+    <> port (Client.port        x)
+    <> toBS (Client.path        x)
+    <> toBS (Client.queryString x)
   where
-    scheme True = "https://"
-    scheme _    = "http://"
+    scheme
+        | secure    = "https://"
+        | otherwise = "http://"
 
     port = \case
-        80  -> ""
-        443 -> ""
-        n   -> ":" <> toBS n
+        80           -> ""
+        443 | secure -> ""
+        n            -> ":" <> toBS n
+
+    secure = Client.secure x

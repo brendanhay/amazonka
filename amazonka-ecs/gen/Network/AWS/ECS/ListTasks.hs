@@ -168,9 +168,8 @@ instance AWSPager ListTasks where
             Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
 
 instance AWSRequest ListTasks where
-        type Sv ListTasks = ECS
         type Rs ListTasks = ListTasksResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -191,13 +190,15 @@ instance ToHeaders ListTasks where
 instance ToJSON ListTasks where
         toJSON ListTasks'{..}
           = object
-              ["desiredStatus" .= _ltDesiredStatus,
-               "cluster" .= _ltCluster, "family" .= _ltFamily,
-               "nextToken" .= _ltNextToken,
-               "startedBy" .= _ltStartedBy,
-               "serviceName" .= _ltServiceName,
-               "containerInstance" .= _ltContainerInstance,
-               "maxResults" .= _ltMaxResults]
+              (catMaybes
+                 [("desiredStatus" .=) <$> _ltDesiredStatus,
+                  ("cluster" .=) <$> _ltCluster,
+                  ("family" .=) <$> _ltFamily,
+                  ("nextToken" .=) <$> _ltNextToken,
+                  ("startedBy" .=) <$> _ltStartedBy,
+                  ("serviceName" .=) <$> _ltServiceName,
+                  ("containerInstance" .=) <$> _ltContainerInstance,
+                  ("maxResults" .=) <$> _ltMaxResults])
 
 instance ToPath ListTasks where
         toPath = const "/"

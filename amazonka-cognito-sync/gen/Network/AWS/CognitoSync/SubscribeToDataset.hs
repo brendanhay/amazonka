@@ -103,10 +103,9 @@ stdDeviceId :: Lens' SubscribeToDataset Text
 stdDeviceId = lens _stdDeviceId (\ s a -> s{_stdDeviceId = a});
 
 instance AWSRequest SubscribeToDataset where
-        type Sv SubscribeToDataset = CognitoSync
         type Rs SubscribeToDataset =
              SubscribeToDatasetResponse
-        request = postJSON
+        request = postJSON cognitoSync
         response
           = receiveEmpty
               (\ s h x ->

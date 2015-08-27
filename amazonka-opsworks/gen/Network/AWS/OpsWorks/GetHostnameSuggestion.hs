@@ -74,10 +74,9 @@ ghsLayerId :: Lens' GetHostnameSuggestion Text
 ghsLayerId = lens _ghsLayerId (\ s a -> s{_ghsLayerId = a});
 
 instance AWSRequest GetHostnameSuggestion where
-        type Sv GetHostnameSuggestion = OpsWorks
         type Rs GetHostnameSuggestion =
              GetHostnameSuggestionResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -97,7 +96,8 @@ instance ToHeaders GetHostnameSuggestion where
 
 instance ToJSON GetHostnameSuggestion where
         toJSON GetHostnameSuggestion'{..}
-          = object ["LayerId" .= _ghsLayerId]
+          = object
+              (catMaybes [Just ("LayerId" .= _ghsLayerId)])
 
 instance ToPath GetHostnameSuggestion where
         toPath = const "/"

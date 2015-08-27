@@ -29,7 +29,7 @@ import           Prelude
 -- number of seconds expiry has elapsed.
 --
 -- /See:/ 'presign', 'presignWith'
-presignURL :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)
+presignURL :: (MonadIO m, AWSRequest a)
            => Auth
            -> Region
            -> UTCTime     -- ^ Signing time.
@@ -41,30 +41,27 @@ presignURL a r e ts = liftM requestURL . presign a r e ts
 -- | Presign an HTTP request that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
 --
--- This requires the 'Service' signer to be an instance of 'AWSPresigner'.
--- Not all signing algorithms support this.
---
 -- /See:/ 'presignWith'
-presign :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)
+presign :: (MonadIO m, AWSRequest a)
         => Auth
         -> Region
         -> UTCTime     -- ^ Signing time.
         -> Seconds     -- ^ Expiry time.
         -> a           -- ^ Request to presign.
         -> m ClientRequest
-presign a r ts ex = presignWith id a r ts ex
+presign = presignWith id
 
--- | A variant of 'presign' that allows specifying the 'Service' definition
--- used to configure the request.
-presignWith :: (MonadIO m, AWSPresigner (Sg s), AWSRequest a)
-            => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
+-- | A variant of 'presign' that allows modifying the default 'Service'
+-- definition used to configure the request.
+presignWith :: (MonadIO m, AWSRequest a)
+            => (Service -> Service) -- ^ Modify the default service configuration.
             -> Auth
             -> Region
-            -> UTCTime                       -- ^ Signing time.
-            -> Seconds                       -- ^ Expiry time.
-            -> a                             -- ^ Request to presign.
+            -> UTCTime              -- ^ Signing time.
+            -> Seconds              -- ^ Expiry time.
+            -> a                    -- ^ Request to presign.
             -> m ClientRequest
-presignWith s a r ts ex x =
+presignWith f a r ts ex x =
     withAuth a $ \ae ->
-        return . view sgRequest $
-            presigned ae r ts ex (s (serviceOf x)) (request x)
+        return $! sgRequest $
+            rqPresign ex (request x & rqService %~ f) ae r ts

@@ -111,10 +111,9 @@ gdpcAppARN :: Lens' GetDevicePoolCompatibility Text
 gdpcAppARN = lens _gdpcAppARN (\ s a -> s{_gdpcAppARN = a});
 
 instance AWSRequest GetDevicePoolCompatibility where
-        type Sv GetDevicePoolCompatibility = DeviceFarm
         type Rs GetDevicePoolCompatibility =
              GetDevicePoolCompatibilityResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -136,9 +135,10 @@ instance ToHeaders GetDevicePoolCompatibility where
 instance ToJSON GetDevicePoolCompatibility where
         toJSON GetDevicePoolCompatibility'{..}
           = object
-              ["testType" .= _gdpcTestType,
-               "devicePoolArn" .= _gdpcDevicePoolARN,
-               "appArn" .= _gdpcAppARN]
+              (catMaybes
+                 [("testType" .=) <$> _gdpcTestType,
+                  Just ("devicePoolArn" .= _gdpcDevicePoolARN),
+                  Just ("appArn" .= _gdpcAppARN)])
 
 instance ToPath GetDevicePoolCompatibility where
         toPath = const "/"

@@ -87,9 +87,8 @@ caAlias :: Lens' CreateAlias Text
 caAlias = lens _caAlias (\ s a -> s{_caAlias = a});
 
 instance AWSRequest CreateAlias where
-        type Sv CreateAlias = DirectoryService
         type Rs CreateAlias = CreateAliasResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveJSON
               (\ s h x ->
@@ -110,8 +109,9 @@ instance ToHeaders CreateAlias where
 instance ToJSON CreateAlias where
         toJSON CreateAlias'{..}
           = object
-              ["DirectoryId" .= _caDirectoryId,
-               "Alias" .= _caAlias]
+              (catMaybes
+                 [Just ("DirectoryId" .= _caDirectoryId),
+                  Just ("Alias" .= _caAlias)])
 
 instance ToPath CreateAlias where
         toPath = const "/"

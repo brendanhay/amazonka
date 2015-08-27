@@ -75,10 +75,9 @@ ddId :: Lens' DeleteDistribution Text
 ddId = lens _ddId (\ s a -> s{_ddId = a});
 
 instance AWSRequest DeleteDistribution where
-        type Sv DeleteDistribution = CloudFront
         type Rs DeleteDistribution =
              DeleteDistributionResponse
-        request = delete
+        request = delete cloudFront
         response = receiveNull DeleteDistributionResponse'
 
 instance ToHeaders DeleteDistribution where

@@ -21,13 +21,14 @@ import           Data.Aeson
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Data.Monoid
+import           Data.Proxy
 import           Data.Text                    (Text)
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Log
 import           Network.AWS.Data.XML
 import           Network.AWS.Types
-import           Network.HTTP.Client          hiding (Request, Response)
+import           Network.HTTP.Client          hiding (Proxy, Request, Response)
 import           Network.HTTP.Types
 import           Text.XML                     (Node)
 
@@ -36,8 +37,8 @@ import           Prelude
 receiveNull :: MonadResource m
             => Rs a
             -> Logger
-            -> Service s
-            -> Request a
+            -> Service
+            -> Proxy a
             -> ClientResponse
             -> m (Response a)
 receiveNull rs _ = receive $ \_ _ x ->
@@ -46,8 +47,8 @@ receiveNull rs _ = receive $ \_ _ x ->
 receiveEmpty :: MonadResource m
              => (Int -> ResponseHeaders -> () -> Either String (Rs a))
              -> Logger
-             -> Service s
-             -> Request a
+             -> Service
+             -> Proxy a
              -> ClientResponse
              -> m (Response a)
 receiveEmpty f _ = receive $ \s h x ->
@@ -57,8 +58,8 @@ receiveXMLWrapper :: MonadResource m
                   => Text
                   -> (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
                   -> Logger
-                  -> Service s
-                  -> Request a
+                  -> Service
+                  -> Proxy a
                   -> ClientResponse
                   -> m (Response a)
 receiveXMLWrapper n f = receiveXML (\s h x -> x .@ n >>= f s h)
@@ -66,8 +67,8 @@ receiveXMLWrapper n f = receiveXML (\s h x -> x .@ n >>= f s h)
 receiveXML :: MonadResource m
            => (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
            -> Logger
-           -> Service s
-           -> Request a
+           -> Service
+           -> Proxy a
            -> ClientResponse
            -> m (Response a)
 receiveXML = deserialise decodeXML
@@ -75,8 +76,8 @@ receiveXML = deserialise decodeXML
 receiveJSON :: MonadResource m
             => (Int -> ResponseHeaders -> Object -> Either String (Rs a))
             -> Logger
-            -> Service s
-            -> Request a
+            -> Service
+            -> Proxy a
             -> ClientResponse
             -> m (Response a)
 receiveJSON = deserialise eitherDecode'
@@ -84,8 +85,8 @@ receiveJSON = deserialise eitherDecode'
 receiveBody :: MonadResource m
             => (Int -> ResponseHeaders -> RsBody -> Either String (Rs a))
             -> Logger
-            -> Service s
-            -> Request a
+            -> Service
+            -> Proxy a
             -> ClientResponse
             -> m (Response a)
 receiveBody f _ = receive $ \s h x -> return (f s h (RsBody x))
@@ -94,8 +95,8 @@ deserialise :: MonadResource m
             => (LazyByteString -> Either String b)
             -> (Int -> ResponseHeaders -> b -> Either String (Rs a))
             -> Logger
-            -> Service s
-            -> Request a
+            -> Service
+            -> Proxy a
             -> ClientResponse
             -> m (Response a)
 deserialise g f l = receive $ \s h x -> do
@@ -105,12 +106,12 @@ deserialise g f l = receive $ \s h x -> do
 
 receive :: MonadResource m
         => (Int -> ResponseHeaders -> ResponseBody -> m (Either String (Rs a)))
-        -> Service s
-        -> Request a
+        -> Service
+        -> Proxy a
         -> ClientResponse
         -> m (Response a)
-receive f Service{..} _ rs
-    | not (_svcStatus s) = sinkLBS x >>= serviceErr
+receive f  Service{..} _ rs
+    | not (_svcCheck s) = sinkLBS x >>= serviceErr
     | otherwise          = do
         p <- f (fromEnum s) h x
         either serializeErr

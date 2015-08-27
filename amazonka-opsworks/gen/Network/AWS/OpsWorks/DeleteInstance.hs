@@ -91,9 +91,8 @@ diInstanceId :: Lens' DeleteInstance Text
 diInstanceId = lens _diInstanceId (\ s a -> s{_diInstanceId = a});
 
 instance AWSRequest DeleteInstance where
-        type Sv DeleteInstance = OpsWorks
         type Rs DeleteInstance = DeleteInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull DeleteInstanceResponse'
 
 instance ToHeaders DeleteInstance where
@@ -108,9 +107,10 @@ instance ToHeaders DeleteInstance where
 instance ToJSON DeleteInstance where
         toJSON DeleteInstance'{..}
           = object
-              ["DeleteVolumes" .= _diDeleteVolumes,
-               "DeleteElasticIp" .= _diDeleteElasticIP,
-               "InstanceId" .= _diInstanceId]
+              (catMaybes
+                 [("DeleteVolumes" .=) <$> _diDeleteVolumes,
+                  ("DeleteElasticIp" .=) <$> _diDeleteElasticIP,
+                  Just ("InstanceId" .= _diInstanceId)])
 
 instance ToPath DeleteInstance where
         toPath = const "/"

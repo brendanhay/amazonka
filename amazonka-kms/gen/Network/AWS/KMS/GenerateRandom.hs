@@ -66,9 +66,8 @@ grNumberOfBytes :: Lens' GenerateRandom (Maybe Natural)
 grNumberOfBytes = lens _grNumberOfBytes (\ s a -> s{_grNumberOfBytes = a}) . mapping _Nat;
 
 instance AWSRequest GenerateRandom where
-        type Sv GenerateRandom = KMS
         type Rs GenerateRandom = GenerateRandomResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->
@@ -86,7 +85,9 @@ instance ToHeaders GenerateRandom where
 
 instance ToJSON GenerateRandom where
         toJSON GenerateRandom'{..}
-          = object ["NumberOfBytes" .= _grNumberOfBytes]
+          = object
+              (catMaybes
+                 [("NumberOfBytes" .=) <$> _grNumberOfBytes])
 
 instance ToPath GenerateRandom where
         toPath = const "/"

@@ -84,9 +84,8 @@ rebInstanceIds :: Lens' RebootInstances [Text]
 rebInstanceIds = lens _rebInstanceIds (\ s a -> s{_rebInstanceIds = a}) . _Coerce;
 
 instance AWSRequest RebootInstances where
-        type Sv RebootInstances = EC2
         type Rs RebootInstances = RebootInstancesResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull RebootInstancesResponse'
 
 instance ToHeaders RebootInstances where

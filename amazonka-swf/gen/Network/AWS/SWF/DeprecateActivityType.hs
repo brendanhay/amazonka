@@ -102,10 +102,9 @@ depActivityType :: Lens' DeprecateActivityType ActivityType
 depActivityType = lens _depActivityType (\ s a -> s{_depActivityType = a});
 
 instance AWSRequest DeprecateActivityType where
-        type Sv DeprecateActivityType = SWF
         type Rs DeprecateActivityType =
              DeprecateActivityTypeResponse
-        request = postJSON
+        request = postJSON sWF
         response = receiveNull DeprecateActivityTypeResponse'
 
 instance ToHeaders DeprecateActivityType where
@@ -121,8 +120,9 @@ instance ToHeaders DeprecateActivityType where
 instance ToJSON DeprecateActivityType where
         toJSON DeprecateActivityType'{..}
           = object
-              ["domain" .= _depDomain,
-               "activityType" .= _depActivityType]
+              (catMaybes
+                 [Just ("domain" .= _depDomain),
+                  Just ("activityType" .= _depActivityType)])
 
 instance ToPath DeprecateActivityType where
         toPath = const "/"

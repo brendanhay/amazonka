@@ -78,9 +78,8 @@ stTask :: Lens' StopTask Text
 stTask = lens _stTask (\ s a -> s{_stTask = a});
 
 instance AWSRequest StopTask where
-        type Sv StopTask = ECS
         type Rs StopTask = StopTaskResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -99,7 +98,10 @@ instance ToHeaders StopTask where
 
 instance ToJSON StopTask where
         toJSON StopTask'{..}
-          = object ["cluster" .= _stCluster, "task" .= _stTask]
+          = object
+              (catMaybes
+                 [("cluster" .=) <$> _stCluster,
+                  Just ("task" .= _stTask)])
 
 instance ToPath StopTask where
         toPath = const "/"

@@ -82,9 +82,8 @@ acDiskIds :: Lens' AddCache [Text]
 acDiskIds = lens _acDiskIds (\ s a -> s{_acDiskIds = a}) . _Coerce;
 
 instance AWSRequest AddCache where
-        type Sv AddCache = StorageGateway
         type Rs AddCache = AddCacheResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -103,8 +102,9 @@ instance ToHeaders AddCache where
 instance ToJSON AddCache where
         toJSON AddCache'{..}
           = object
-              ["GatewayARN" .= _acGatewayARN,
-               "DiskIds" .= _acDiskIds]
+              (catMaybes
+                 [Just ("GatewayARN" .= _acGatewayARN),
+                  Just ("DiskIds" .= _acDiskIds)])
 
 instance ToPath AddCache where
         toPath = const "/"

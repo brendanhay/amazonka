@@ -110,9 +110,8 @@ instance AWSPager ListClusters where
             Just $ rq & lcMarker .~ rs ^. lcrsMarker
 
 instance AWSRequest ListClusters where
-        type Sv ListClusters = EMR
         type Rs ListClusters = ListClustersResponse
-        request = postJSON
+        request = postJSON eMR
         response
           = receiveJSON
               (\ s h x ->
@@ -132,10 +131,11 @@ instance ToHeaders ListClusters where
 instance ToJSON ListClusters where
         toJSON ListClusters'{..}
           = object
-              ["CreatedAfter" .= _lcCreatedAfter,
-               "Marker" .= _lcMarker,
-               "ClusterStates" .= _lcClusterStates,
-               "CreatedBefore" .= _lcCreatedBefore]
+              (catMaybes
+                 [("CreatedAfter" .=) <$> _lcCreatedAfter,
+                  ("Marker" .=) <$> _lcMarker,
+                  ("ClusterStates" .=) <$> _lcClusterStates,
+                  ("CreatedBefore" .=) <$> _lcCreatedBefore])
 
 instance ToPath ListClusters where
         toPath = const "/"

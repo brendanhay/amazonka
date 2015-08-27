@@ -98,9 +98,8 @@ dhsmHSMARN :: Lens' DescribeHSM (Maybe Text)
 dhsmHSMARN = lens _dhsmHSMARN (\ s a -> s{_dhsmHSMARN = a});
 
 instance AWSRequest DescribeHSM where
-        type Sv DescribeHSM = CloudHSM
         type Rs DescribeHSM = DescribeHSMResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->
@@ -139,8 +138,9 @@ instance ToHeaders DescribeHSM where
 instance ToJSON DescribeHSM where
         toJSON DescribeHSM'{..}
           = object
-              ["HsmSerialNumber" .= _dhsmHSMSerialNumber,
-               "HsmArn" .= _dhsmHSMARN]
+              (catMaybes
+                 [("HsmSerialNumber" .=) <$> _dhsmHSMSerialNumber,
+                  ("HsmArn" .=) <$> _dhsmHSMARN])
 
 instance ToPath DescribeHSM where
         toPath = const "/"

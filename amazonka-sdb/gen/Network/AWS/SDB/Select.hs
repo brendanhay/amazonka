@@ -112,9 +112,8 @@ instance AWSPager Select where
             Just $ rq & sNextToken .~ rs ^. srsNextToken
 
 instance AWSRequest Select where
-        type Sv Select = SDB
         type Rs Select = SelectResponse
-        request = postQuery
+        request = postQuery sDB
         response
           = receiveXMLWrapper "SelectResult"
               (\ s h x ->

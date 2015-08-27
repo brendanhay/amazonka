@@ -75,10 +75,9 @@ dlhAutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
 dlhAutoScalingGroupName = lens _dlhAutoScalingGroupName (\ s a -> s{_dlhAutoScalingGroupName = a});
 
 instance AWSRequest DescribeLifecycleHooks where
-        type Sv DescribeLifecycleHooks = AutoScaling
         type Rs DescribeLifecycleHooks =
              DescribeLifecycleHooksResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "DescribeLifecycleHooksResult"
               (\ s h x ->

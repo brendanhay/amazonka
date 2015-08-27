@@ -72,9 +72,8 @@ dpId :: Lens' DeletePreset Text
 dpId = lens _dpId (\ s a -> s{_dpId = a});
 
 instance AWSRequest DeletePreset where
-        type Sv DeletePreset = ElasticTranscoder
         type Rs DeletePreset = DeletePresetResponse
-        request = delete
+        request = delete elasticTranscoder
         response
           = receiveEmpty
               (\ s h x ->

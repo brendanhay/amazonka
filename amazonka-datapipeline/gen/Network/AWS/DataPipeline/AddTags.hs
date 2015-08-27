@@ -76,9 +76,8 @@ atTags :: Lens' AddTags [Tag]
 atTags = lens _atTags (\ s a -> s{_atTags = a}) . _Coerce;
 
 instance AWSRequest AddTags where
-        type Sv AddTags = DataPipeline
         type Rs AddTags = AddTagsResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveEmpty
               (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))
@@ -95,7 +94,9 @@ instance ToHeaders AddTags where
 instance ToJSON AddTags where
         toJSON AddTags'{..}
           = object
-              ["pipelineId" .= _atPipelineId, "tags" .= _atTags]
+              (catMaybes
+                 [Just ("pipelineId" .= _atPipelineId),
+                  Just ("tags" .= _atTags)])
 
 instance ToPath AddTags where
         toPath = const "/"

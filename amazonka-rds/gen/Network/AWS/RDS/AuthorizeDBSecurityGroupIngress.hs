@@ -129,10 +129,9 @@ adsgiDBSecurityGroupName = lens _adsgiDBSecurityGroupName (\ s a -> s{_adsgiDBSe
 
 instance AWSRequest AuthorizeDBSecurityGroupIngress
          where
-        type Sv AuthorizeDBSecurityGroupIngress = RDS
         type Rs AuthorizeDBSecurityGroupIngress =
              AuthorizeDBSecurityGroupIngressResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "AuthorizeDBSecurityGroupIngressResult"

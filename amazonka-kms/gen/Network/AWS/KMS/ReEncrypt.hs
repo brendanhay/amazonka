@@ -136,9 +136,8 @@ reDestinationKeyId :: Lens' ReEncrypt Text
 reDestinationKeyId = lens _reDestinationKeyId (\ s a -> s{_reDestinationKeyId = a});
 
 instance AWSRequest ReEncrypt where
-        type Sv ReEncrypt = KMS
         type Rs ReEncrypt = ReEncryptResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->
@@ -159,13 +158,14 @@ instance ToHeaders ReEncrypt where
 instance ToJSON ReEncrypt where
         toJSON ReEncrypt'{..}
           = object
-              ["DestinationEncryptionContext" .=
-                 _reDestinationEncryptionContext,
-               "SourceEncryptionContext" .=
-                 _reSourceEncryptionContext,
-               "GrantTokens" .= _reGrantTokens,
-               "CiphertextBlob" .= _reCiphertextBlob,
-               "DestinationKeyId" .= _reDestinationKeyId]
+              (catMaybes
+                 [("DestinationEncryptionContext" .=) <$>
+                    _reDestinationEncryptionContext,
+                  ("SourceEncryptionContext" .=) <$>
+                    _reSourceEncryptionContext,
+                  ("GrantTokens" .=) <$> _reGrantTokens,
+                  Just ("CiphertextBlob" .= _reCiphertextBlob),
+                  Just ("DestinationKeyId" .= _reDestinationKeyId)])
 
 instance ToPath ReEncrypt where
         toPath = const "/"

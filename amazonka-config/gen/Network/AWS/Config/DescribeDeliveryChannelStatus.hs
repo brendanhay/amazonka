@@ -72,10 +72,9 @@ ddcsDeliveryChannelNames = lens _ddcsDeliveryChannelNames (\ s a -> s{_ddcsDeliv
 
 instance AWSRequest DescribeDeliveryChannelStatus
          where
-        type Sv DescribeDeliveryChannelStatus = Config
         type Rs DescribeDeliveryChannelStatus =
              DescribeDeliveryChannelStatusResponse
-        request = postJSON
+        request = postJSON config
         response
           = receiveJSON
               (\ s h x ->
@@ -97,7 +96,9 @@ instance ToHeaders DescribeDeliveryChannelStatus
 instance ToJSON DescribeDeliveryChannelStatus where
         toJSON DescribeDeliveryChannelStatus'{..}
           = object
-              ["DeliveryChannelNames" .= _ddcsDeliveryChannelNames]
+              (catMaybes
+                 [("DeliveryChannelNames" .=) <$>
+                    _ddcsDeliveryChannelNames])
 
 instance ToPath DescribeDeliveryChannelStatus where
         toPath = const "/"

@@ -261,9 +261,8 @@ clShortname :: Lens' CreateLayer Text
 clShortname = lens _clShortname (\ s a -> s{_clShortname = a});
 
 instance AWSRequest CreateLayer where
-        type Sv CreateLayer = OpsWorks
         type Rs CreateLayer = CreateLayerResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -282,25 +281,31 @@ instance ToHeaders CreateLayer where
 instance ToJSON CreateLayer where
         toJSON CreateLayer'{..}
           = object
-              ["CustomInstanceProfileArn" .=
-                 _clCustomInstanceProfileARN,
-               "InstallUpdatesOnBoot" .= _clInstallUpdatesOnBoot,
-               "CustomSecurityGroupIds" .=
-                 _clCustomSecurityGroupIds,
-               "LifecycleEventConfiguration" .=
-                 _clLifecycleEventConfiguration,
-               "CustomRecipes" .= _clCustomRecipes,
-               "VolumeConfigurations" .= _clVolumeConfigurations,
-               "CustomJson" .= _clCustomJSON,
-               "EnableAutoHealing" .= _clEnableAutoHealing,
-               "Packages" .= _clPackages,
-               "Attributes" .= _clAttributes,
-               "AutoAssignPublicIps" .= _clAutoAssignPublicIPs,
-               "UseEbsOptimizedInstances" .=
-                 _clUseEBSOptimizedInstances,
-               "AutoAssignElasticIps" .= _clAutoAssignElasticIPs,
-               "StackId" .= _clStackId, "Type" .= _clType,
-               "Name" .= _clName, "Shortname" .= _clShortname]
+              (catMaybes
+                 [("CustomInstanceProfileArn" .=) <$>
+                    _clCustomInstanceProfileARN,
+                  ("InstallUpdatesOnBoot" .=) <$>
+                    _clInstallUpdatesOnBoot,
+                  ("CustomSecurityGroupIds" .=) <$>
+                    _clCustomSecurityGroupIds,
+                  ("LifecycleEventConfiguration" .=) <$>
+                    _clLifecycleEventConfiguration,
+                  ("CustomRecipes" .=) <$> _clCustomRecipes,
+                  ("VolumeConfigurations" .=) <$>
+                    _clVolumeConfigurations,
+                  ("CustomJson" .=) <$> _clCustomJSON,
+                  ("EnableAutoHealing" .=) <$> _clEnableAutoHealing,
+                  ("Packages" .=) <$> _clPackages,
+                  ("Attributes" .=) <$> _clAttributes,
+                  ("AutoAssignPublicIps" .=) <$>
+                    _clAutoAssignPublicIPs,
+                  ("UseEbsOptimizedInstances" .=) <$>
+                    _clUseEBSOptimizedInstances,
+                  ("AutoAssignElasticIps" .=) <$>
+                    _clAutoAssignElasticIPs,
+                  Just ("StackId" .= _clStackId),
+                  Just ("Type" .= _clType), Just ("Name" .= _clName),
+                  Just ("Shortname" .= _clShortname)])
 
 instance ToPath CreateLayer where
         toPath = const "/"

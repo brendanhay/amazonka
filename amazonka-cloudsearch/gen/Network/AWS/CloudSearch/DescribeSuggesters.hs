@@ -98,10 +98,9 @@ dssDomainName :: Lens' DescribeSuggesters Text
 dssDomainName = lens _dssDomainName (\ s a -> s{_dssDomainName = a});
 
 instance AWSRequest DescribeSuggesters where
-        type Sv DescribeSuggesters = CloudSearch
         type Rs DescribeSuggesters =
              DescribeSuggestersResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "DescribeSuggestersResult"
               (\ s h x ->

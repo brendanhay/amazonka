@@ -98,11 +98,9 @@ csfvrpSnapshotDescription = lens _csfvrpSnapshotDescription (\ s a -> s{_csfvrpS
 
 instance AWSRequest
          CreateSnapshotFromVolumeRecoveryPoint where
-        type Sv CreateSnapshotFromVolumeRecoveryPoint =
-             StorageGateway
         type Rs CreateSnapshotFromVolumeRecoveryPoint =
              CreateSnapshotFromVolumeRecoveryPointResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -127,8 +125,11 @@ instance ToJSON CreateSnapshotFromVolumeRecoveryPoint
          where
         toJSON CreateSnapshotFromVolumeRecoveryPoint'{..}
           = object
-              ["VolumeARN" .= _csfvrpVolumeARN,
-               "SnapshotDescription" .= _csfvrpSnapshotDescription]
+              (catMaybes
+                 [Just ("VolumeARN" .= _csfvrpVolumeARN),
+                  Just
+                    ("SnapshotDescription" .=
+                       _csfvrpSnapshotDescription)])
 
 instance ToPath CreateSnapshotFromVolumeRecoveryPoint
          where

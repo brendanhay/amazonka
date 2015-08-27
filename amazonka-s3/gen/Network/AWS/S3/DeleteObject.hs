@@ -108,9 +108,8 @@ doKey :: Lens' DeleteObject ObjectKey
 doKey = lens _doKey (\ s a -> s{_doKey = a});
 
 instance AWSRequest DeleteObject where
-        type Sv DeleteObject = S3
         type Rs DeleteObject = DeleteObjectResponse
-        request = delete
+        request = delete s3
         response
           = receiveEmpty
               (\ s h x ->

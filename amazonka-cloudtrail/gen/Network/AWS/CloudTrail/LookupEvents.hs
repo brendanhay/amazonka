@@ -128,9 +128,8 @@ leMaxResults :: Lens' LookupEvents (Maybe Natural)
 leMaxResults = lens _leMaxResults (\ s a -> s{_leMaxResults = a}) . mapping _Nat;
 
 instance AWSRequest LookupEvents where
-        type Sv LookupEvents = CloudTrail
         type Rs LookupEvents = LookupEventsResponse
-        request = postJSON
+        request = postJSON cloudTrail
         response
           = receiveJSON
               (\ s h x ->
@@ -151,10 +150,12 @@ instance ToHeaders LookupEvents where
 instance ToJSON LookupEvents where
         toJSON LookupEvents'{..}
           = object
-              ["StartTime" .= _leStartTime,
-               "LookupAttributes" .= _leLookupAttributes,
-               "NextToken" .= _leNextToken, "EndTime" .= _leEndTime,
-               "MaxResults" .= _leMaxResults]
+              (catMaybes
+                 [("StartTime" .=) <$> _leStartTime,
+                  ("LookupAttributes" .=) <$> _leLookupAttributes,
+                  ("NextToken" .=) <$> _leNextToken,
+                  ("EndTime" .=) <$> _leEndTime,
+                  ("MaxResults" .=) <$> _leMaxResults])
 
 instance ToPath LookupEvents where
         toPath = const "/"

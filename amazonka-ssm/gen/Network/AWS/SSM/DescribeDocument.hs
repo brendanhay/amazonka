@@ -66,9 +66,8 @@ ddName :: Lens' DescribeDocument Text
 ddName = lens _ddName (\ s a -> s{_ddName = a});
 
 instance AWSRequest DescribeDocument where
-        type Sv DescribeDocument = SSM
         type Rs DescribeDocument = DescribeDocumentResponse
-        request = postJSON
+        request = postJSON sSM
         response
           = receiveJSON
               (\ s h x ->
@@ -86,7 +85,7 @@ instance ToHeaders DescribeDocument where
 
 instance ToJSON DescribeDocument where
         toJSON DescribeDocument'{..}
-          = object ["Name" .= _ddName]
+          = object (catMaybes [Just ("Name" .= _ddName)])
 
 instance ToPath DescribeDocument where
         toPath = const "/"

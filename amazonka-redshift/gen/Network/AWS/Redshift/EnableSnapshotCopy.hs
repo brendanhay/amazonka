@@ -111,10 +111,9 @@ escDestinationRegion :: Lens' EnableSnapshotCopy Text
 escDestinationRegion = lens _escDestinationRegion (\ s a -> s{_escDestinationRegion = a});
 
 instance AWSRequest EnableSnapshotCopy where
-        type Sv EnableSnapshotCopy = Redshift
         type Rs EnableSnapshotCopy =
              EnableSnapshotCopyResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "EnableSnapshotCopyResult"
               (\ s h x ->

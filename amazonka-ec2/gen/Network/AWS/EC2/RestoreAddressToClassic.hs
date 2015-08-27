@@ -81,10 +81,9 @@ ratcPublicIP :: Lens' RestoreAddressToClassic Text
 ratcPublicIP = lens _ratcPublicIP (\ s a -> s{_ratcPublicIP = a});
 
 instance AWSRequest RestoreAddressToClassic where
-        type Sv RestoreAddressToClassic = EC2
         type Rs RestoreAddressToClassic =
              RestoreAddressToClassicResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

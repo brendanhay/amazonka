@@ -183,9 +183,8 @@ instance AWSPager DescribeEvents where
             Just $ rq & deNextToken .~ rs ^. dersNextToken
 
 instance AWSRequest DescribeEvents where
-        type Sv DescribeEvents = ElasticBeanstalk
         type Rs DescribeEvents = DescribeEventsResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper "DescribeEventsResult"
               (\ s h x ->

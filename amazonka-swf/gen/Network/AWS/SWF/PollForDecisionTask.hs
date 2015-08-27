@@ -202,10 +202,9 @@ instance AWSPager PollForDecisionTask where
               pfdtNextPageToken .~ rs ^. pfdtrsNextPageToken
 
 instance AWSRequest PollForDecisionTask where
-        type Sv PollForDecisionTask = SWF
         type Rs PollForDecisionTask =
              PollForDecisionTaskResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveJSON
               (\ s h x ->
@@ -232,11 +231,13 @@ instance ToHeaders PollForDecisionTask where
 instance ToJSON PollForDecisionTask where
         toJSON PollForDecisionTask'{..}
           = object
-              ["nextPageToken" .= _pfdtNextPageToken,
-               "reverseOrder" .= _pfdtReverseOrder,
-               "identity" .= _pfdtIdentity,
-               "maximumPageSize" .= _pfdtMaximumPageSize,
-               "domain" .= _pfdtDomain, "taskList" .= _pfdtTaskList]
+              (catMaybes
+                 [("nextPageToken" .=) <$> _pfdtNextPageToken,
+                  ("reverseOrder" .=) <$> _pfdtReverseOrder,
+                  ("identity" .=) <$> _pfdtIdentity,
+                  ("maximumPageSize" .=) <$> _pfdtMaximumPageSize,
+                  Just ("domain" .= _pfdtDomain),
+                  Just ("taskList" .= _pfdtTaskList)])
 
 instance ToPath PollForDecisionTask where
         toPath = const "/"

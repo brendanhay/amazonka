@@ -110,10 +110,9 @@ udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
 udnNameservers = lens _udnNameservers (\ s a -> s{_udnNameservers = a}) . _Coerce;
 
 instance AWSRequest UpdateDomainNameservers where
-        type Sv UpdateDomainNameservers = Route53Domains
         type Rs UpdateDomainNameservers =
              UpdateDomainNameserversResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveJSON
               (\ s h x ->
@@ -133,9 +132,10 @@ instance ToHeaders UpdateDomainNameservers where
 instance ToJSON UpdateDomainNameservers where
         toJSON UpdateDomainNameservers'{..}
           = object
-              ["FIAuthKey" .= _udnFIAuthKey,
-               "DomainName" .= _udnDomainName,
-               "Nameservers" .= _udnNameservers]
+              (catMaybes
+                 [("FIAuthKey" .=) <$> _udnFIAuthKey,
+                  Just ("DomainName" .= _udnDomainName),
+                  Just ("Nameservers" .= _udnNameservers)])
 
 instance ToPath UpdateDomainNameservers where
         toPath = const "/"

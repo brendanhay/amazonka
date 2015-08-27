@@ -81,10 +81,9 @@ avpcDryRun :: Lens' AcceptVPCPeeringConnection (Maybe Bool)
 avpcDryRun = lens _avpcDryRun (\ s a -> s{_avpcDryRun = a});
 
 instance AWSRequest AcceptVPCPeeringConnection where
-        type Sv AcceptVPCPeeringConnection = EC2
         type Rs AcceptVPCPeeringConnection =
              AcceptVPCPeeringConnectionResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

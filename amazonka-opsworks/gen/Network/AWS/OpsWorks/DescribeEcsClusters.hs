@@ -113,10 +113,9 @@ decEcsClusterARNs :: Lens' DescribeEcsClusters [Text]
 decEcsClusterARNs = lens _decEcsClusterARNs (\ s a -> s{_decEcsClusterARNs = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeEcsClusters where
-        type Sv DescribeEcsClusters = OpsWorks
         type Rs DescribeEcsClusters =
              DescribeEcsClustersResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -138,10 +137,11 @@ instance ToHeaders DescribeEcsClusters where
 instance ToJSON DescribeEcsClusters where
         toJSON DescribeEcsClusters'{..}
           = object
-              ["NextToken" .= _decNextToken,
-               "StackId" .= _decStackId,
-               "MaxResults" .= _decMaxResults,
-               "EcsClusterArns" .= _decEcsClusterARNs]
+              (catMaybes
+                 [("NextToken" .=) <$> _decNextToken,
+                  ("StackId" .=) <$> _decStackId,
+                  ("MaxResults" .=) <$> _decMaxResults,
+                  ("EcsClusterArns" .=) <$> _decEcsClusterARNs])
 
 instance ToPath DescribeEcsClusters where
         toPath = const "/"

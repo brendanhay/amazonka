@@ -75,9 +75,8 @@ dGatewayARN :: Lens' DisableGateway Text
 dGatewayARN = lens _dGatewayARN (\ s a -> s{_dGatewayARN = a});
 
 instance AWSRequest DisableGateway where
-        type Sv DisableGateway = StorageGateway
         type Rs DisableGateway = DisableGatewayResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -96,7 +95,8 @@ instance ToHeaders DisableGateway where
 
 instance ToJSON DisableGateway where
         toJSON DisableGateway'{..}
-          = object ["GatewayARN" .= _dGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _dGatewayARN)])
 
 instance ToPath DisableGateway where
         toPath = const "/"

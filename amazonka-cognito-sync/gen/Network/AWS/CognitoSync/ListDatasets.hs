@@ -108,9 +108,8 @@ ldIdentityPoolId :: Lens' ListDatasets Text
 ldIdentityPoolId = lens _ldIdentityPoolId (\ s a -> s{_ldIdentityPoolId = a});
 
 instance AWSRequest ListDatasets where
-        type Sv ListDatasets = CognitoSync
         type Rs ListDatasets = ListDatasetsResponse
-        request = get
+        request = get cognitoSync
         response
           = receiveJSON
               (\ s h x ->

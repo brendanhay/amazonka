@@ -260,9 +260,8 @@ ctProvisionedThroughput :: Lens' CreateTable ProvisionedThroughput
 ctProvisionedThroughput = lens _ctProvisionedThroughput (\ s a -> s{_ctProvisionedThroughput = a});
 
 instance AWSRequest CreateTable where
-        type Sv CreateTable = DynamoDB
         type Rs CreateTable = CreateTableResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->
@@ -281,14 +280,20 @@ instance ToHeaders CreateTable where
 instance ToJSON CreateTable where
         toJSON CreateTable'{..}
           = object
-              ["GlobalSecondaryIndexes" .=
-                 _ctGlobalSecondaryIndexes,
-               "LocalSecondaryIndexes" .= _ctLocalSecondaryIndexes,
-               "StreamSpecification" .= _ctStreamSpecification,
-               "AttributeDefinitions" .= _ctAttributeDefinitions,
-               "TableName" .= _ctTableName,
-               "KeySchema" .= _ctKeySchema,
-               "ProvisionedThroughput" .= _ctProvisionedThroughput]
+              (catMaybes
+                 [("GlobalSecondaryIndexes" .=) <$>
+                    _ctGlobalSecondaryIndexes,
+                  ("LocalSecondaryIndexes" .=) <$>
+                    _ctLocalSecondaryIndexes,
+                  ("StreamSpecification" .=) <$>
+                    _ctStreamSpecification,
+                  Just
+                    ("AttributeDefinitions" .= _ctAttributeDefinitions),
+                  Just ("TableName" .= _ctTableName),
+                  Just ("KeySchema" .= _ctKeySchema),
+                  Just
+                    ("ProvisionedThroughput" .=
+                       _ctProvisionedThroughput)])
 
 instance ToPath CreateTable where
         toPath = const "/"

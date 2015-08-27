@@ -81,9 +81,8 @@ rGrantId :: Lens' RevokeGrant Text
 rGrantId = lens _rGrantId (\ s a -> s{_rGrantId = a});
 
 instance AWSRequest RevokeGrant where
-        type Sv RevokeGrant = KMS
         type Rs RevokeGrant = RevokeGrantResponse
-        request = postJSON
+        request = postJSON kMS
         response = receiveNull RevokeGrantResponse'
 
 instance ToHeaders RevokeGrant where
@@ -97,7 +96,10 @@ instance ToHeaders RevokeGrant where
 
 instance ToJSON RevokeGrant where
         toJSON RevokeGrant'{..}
-          = object ["KeyId" .= _rKeyId, "GrantId" .= _rGrantId]
+          = object
+              (catMaybes
+                 [Just ("KeyId" .= _rKeyId),
+                  Just ("GrantId" .= _rGrantId)])
 
 instance ToPath RevokeGrant where
         toPath = const "/"

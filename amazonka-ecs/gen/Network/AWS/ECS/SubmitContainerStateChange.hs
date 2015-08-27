@@ -124,10 +124,9 @@ scscTask :: Lens' SubmitContainerStateChange (Maybe Text)
 scscTask = lens _scscTask (\ s a -> s{_scscTask = a});
 
 instance AWSRequest SubmitContainerStateChange where
-        type Sv SubmitContainerStateChange = ECS
         type Rs SubmitContainerStateChange =
              SubmitContainerStateChangeResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -147,11 +146,14 @@ instance ToHeaders SubmitContainerStateChange where
 instance ToJSON SubmitContainerStateChange where
         toJSON SubmitContainerStateChange'{..}
           = object
-              ["networkBindings" .= _scscNetworkBindings,
-               "status" .= _scscStatus, "cluster" .= _scscCluster,
-               "containerName" .= _scscContainerName,
-               "reason" .= _scscReason, "exitCode" .= _scscExitCode,
-               "task" .= _scscTask]
+              (catMaybes
+                 [("networkBindings" .=) <$> _scscNetworkBindings,
+                  ("status" .=) <$> _scscStatus,
+                  ("cluster" .=) <$> _scscCluster,
+                  ("containerName" .=) <$> _scscContainerName,
+                  ("reason" .=) <$> _scscReason,
+                  ("exitCode" .=) <$> _scscExitCode,
+                  ("task" .=) <$> _scscTask])
 
 instance ToPath SubmitContainerStateChange where
         toPath = const "/"

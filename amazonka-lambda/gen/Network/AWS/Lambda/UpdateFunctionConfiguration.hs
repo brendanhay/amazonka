@@ -146,10 +146,9 @@ ufcFunctionName :: Lens' UpdateFunctionConfiguration Text
 ufcFunctionName = lens _ufcFunctionName (\ s a -> s{_ufcFunctionName = a});
 
 instance AWSRequest UpdateFunctionConfiguration where
-        type Sv UpdateFunctionConfiguration = Lambda
         type Rs UpdateFunctionConfiguration =
              FunctionConfiguration
-        request = putJSON
+        request = putJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateFunctionConfiguration where
@@ -158,9 +157,12 @@ instance ToHeaders UpdateFunctionConfiguration where
 instance ToJSON UpdateFunctionConfiguration where
         toJSON UpdateFunctionConfiguration'{..}
           = object
-              ["MemorySize" .= _ufcMemorySize, "Role" .= _ufcRole,
-               "Handler" .= _ufcHandler, "Timeout" .= _ufcTimeout,
-               "Description" .= _ufcDescription]
+              (catMaybes
+                 [("MemorySize" .=) <$> _ufcMemorySize,
+                  ("Role" .=) <$> _ufcRole,
+                  ("Handler" .=) <$> _ufcHandler,
+                  ("Timeout" .=) <$> _ufcTimeout,
+                  ("Description" .=) <$> _ufcDescription])
 
 instance ToPath UpdateFunctionConfiguration where
         toPath UpdateFunctionConfiguration'{..}

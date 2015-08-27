@@ -78,10 +78,9 @@ twTerminateWorkspaceRequests :: Lens' TerminateWorkspaces (NonEmpty TerminateReq
 twTerminateWorkspaceRequests = lens _twTerminateWorkspaceRequests (\ s a -> s{_twTerminateWorkspaceRequests = a}) . _List1;
 
 instance AWSRequest TerminateWorkspaces where
-        type Sv TerminateWorkspaces = WorkSpaces
         type Rs TerminateWorkspaces =
              TerminateWorkspacesResponse
-        request = postJSON
+        request = postJSON workSpaces
         response
           = receiveJSON
               (\ s h x ->
@@ -102,8 +101,10 @@ instance ToHeaders TerminateWorkspaces where
 instance ToJSON TerminateWorkspaces where
         toJSON TerminateWorkspaces'{..}
           = object
-              ["TerminateWorkspaceRequests" .=
-                 _twTerminateWorkspaceRequests]
+              (catMaybes
+                 [Just
+                    ("TerminateWorkspaceRequests" .=
+                       _twTerminateWorkspaceRequests)])
 
 instance ToPath TerminateWorkspaces where
         toPath = const "/"

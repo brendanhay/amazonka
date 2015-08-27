@@ -102,9 +102,8 @@ lkpKeyId :: Lens' ListKeyPolicies Text
 lkpKeyId = lens _lkpKeyId (\ s a -> s{_lkpKeyId = a});
 
 instance AWSRequest ListKeyPolicies where
-        type Sv ListKeyPolicies = KMS
         type Rs ListKeyPolicies = ListKeyPoliciesResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->
@@ -126,8 +125,10 @@ instance ToHeaders ListKeyPolicies where
 instance ToJSON ListKeyPolicies where
         toJSON ListKeyPolicies'{..}
           = object
-              ["Marker" .= _lkpMarker, "Limit" .= _lkpLimit,
-               "KeyId" .= _lkpKeyId]
+              (catMaybes
+                 [("Marker" .=) <$> _lkpMarker,
+                  ("Limit" .=) <$> _lkpLimit,
+                  Just ("KeyId" .= _lkpKeyId)])
 
 instance ToPath ListKeyPolicies where
         toPath = const "/"

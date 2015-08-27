@@ -89,9 +89,8 @@ attrTags :: Lens' AddTagsToResource [Tag]
 attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
 
 instance AWSRequest AddTagsToResource where
-        type Sv AddTagsToResource = ElastiCache
         type Rs AddTagsToResource = TagListMessage
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "AddTagsToResourceResult"
               (\ s h x -> parseXML x)

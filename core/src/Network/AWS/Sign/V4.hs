@@ -16,13 +16,15 @@
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Sign.V4
-    ( V4
-    , Meta (..)
+    ( V4 (..)
+    , v4
+    , metadata
     ) where
 
 import           Control.Applicative
 import           Control.Lens
 import           Data.Bifunctor
+import qualified Data.ByteString              as BS
 import qualified Data.ByteString.Char8        as BS8
 import qualified Data.CaseInsensitive         as CI
 import qualified Data.Foldable                as Fold
@@ -45,9 +47,7 @@ import           Network.HTTP.Types.Header
 
 import           Prelude
 
-data V4
-
-data instance Meta V4 = Meta
+data V4 = V4
     { metaTime             :: !UTCTime
     , metaMethod           :: !Method
     , metaPath             :: !Path
@@ -61,10 +61,11 @@ data instance Meta V4 = Meta
     , metaSignature        :: !Signature
     , metaHeaders          :: ![Header]
     , metaBody             :: Client.RequestBody
+    , metaTimeout          :: !(Maybe Seconds)
     }
 
-instance ToLog (Meta V4) where
-    build Meta{..} = buildLines
+instance ToLog V4 where
+    build V4{..} = buildLines
         [ "[Version 4 Metadata] {"
         , "  time              = " <> build metaTime
         , "  endpoint          = " <> build (_endpointHost metaEndpoint)
@@ -80,43 +81,48 @@ instance ToLog (Meta V4) where
         , "}"
         ]
 
-instance AWSPresigner V4 where
-    presigned auth reg ts ex svc rq = finalise meta authorise
-      where
-        authorise = queryString
-            <>~ ("&X-Amz-Signature=" <> toBS (metaSignature meta))
+v4 :: Signer
+v4 = Signer sign' presign'
 
-        meta = sign auth reg ts svc presign digest (prepare rq)
+presign' :: Seconds -> Algorithm a
+presign' ex rq auth reg ts = finalise meta authorise
+  where
+    authorise = queryString
+        <>~ ("&X-Amz-Signature=" <> toBS (metaSignature meta))
 
-        presign c shs =
-              pair (CI.original hAMZAlgorithm)     algorithm
-            . pair (CI.original hAMZCredential)    (toBS c)
-            . pair (CI.original hAMZDate)          (Time ts :: AWSTime)
-            . pair (CI.original hAMZExpires)       ex
-            . pair (CI.original hAMZSignedHeaders) (toBS shs)
-            . pair (CI.original hAMZToken)         (toBS <$> _authToken auth)
+    meta = metadata auth reg ts presign digest (prepare rq)
 
-        digest = Tag "UNSIGNED-PAYLOAD"
+    presign c shs =
+          pair (CI.original hAMZAlgorithm)     algorithm
+        . pair (CI.original hAMZCredential)    (toBS c)
+        . pair (CI.original hAMZDate)          (Time ts :: AWSTime)
+        . pair (CI.original hAMZExpires)       ex
+        . pair (CI.original hAMZSignedHeaders) (toBS shs)
+        . pair (CI.original hAMZToken)         (toBS <$> _authToken auth)
 
-        prepare = rqHeaders .~ []
+    digest = Tag "UNSIGNED-PAYLOAD"
 
-instance AWSSigner V4 where
-    signed auth reg ts svc rq = finalise meta authorise
-      where
-        authorise = requestHeaders
-            <>~ [(hAuthorization, authorisation meta)]
+    prepare = rqHeaders .~ []
 
-        meta = sign auth reg ts svc presign digest (prepare rq)
+sign' :: Algorithm a
+sign' rq auth reg ts = finalise meta authorise
+  where
+    authorise = requestHeaders
+        <>~ [(hAuthorization, authorisation meta)]
 
-        presign _ _ = id
+    meta = metadata auth reg ts presign digest (prepare rq)
 
-        digest = Tag . digestToBase Base16 . bodySHA256 $ _rqBody rq
+    presign _ _ = id
 
-        prepare = rqHeaders %~
-            ( hdr hHost    (_endpointHost (_svcEndpoint svc reg))
-            . hdr hAMZDate (toBS (Time ts :: AWSTime))
-            . maybe id (hdr hAMZToken . toBS) (_authToken auth)
-            )
+    digest = Tag . digestToBase Base16 . bodySHA256 $ _rqBody rq
+
+    prepare = rqHeaders %~
+        ( hdr hHost    (_endpointHost end)
+        . hdr hAMZDate (toBS (Time ts :: AWSTime))
+        . maybe id (hdr hAMZToken . toBS) (_authToken auth)
+        )
+
+    end = _svcEndpoint (_rqService rq) reg
 
 -- | Used to tag provenance. This allows keeping the same layout as
 -- the signing documentation, passing 'ByteString's everywhere, with
@@ -145,33 +151,36 @@ type Method            = Tag "method"             ByteString
 type Path              = Tag "path"               ByteString
 type Signature         = Tag "signature"          ByteString
 
-authorisation :: Meta V4 -> ByteString
-authorisation Meta{..} = algorithm
+authorisation :: V4 -> ByteString
+authorisation V4{..} = algorithm
     <> " Credential="     <> toBS metaCredential
     <> ", SignedHeaders=" <> toBS metaSignedHeaders
     <> ", Signature="     <> toBS metaSignature
 
-finalise :: Meta V4 -> (ClientRequest -> ClientRequest) -> Signed V4 a
-finalise meta authorise = Signed meta . authorise $ clientRequest
-    { Client.method         = toBS (metaMethod meta)
-    , Client.host           = _endpointHost (metaEndpoint meta)
-    , Client.path           = toBS (metaPath meta)
-    , Client.queryString    = if BS8.null qbs then qbs else '?' `BS8.cons` qbs
-    , Client.requestHeaders = metaHeaders meta
-    , Client.requestBody    = metaBody meta
-    }
+finalise :: V4 -> (ClientRequest -> ClientRequest) -> Signed a
+finalise m@V4{..} authorise = Signed (Meta m) (authorise rq)
   where
-    qbs = toBS (metaCanonicalQuery meta)
+    rq = (clientRequest metaEndpoint metaTimeout)
+        { Client.method         = toBS metaMethod
+        , Client.path           = toBS metaPath
+        , Client.queryString    = qry
+        , Client.requestHeaders = metaHeaders
+        , Client.requestBody    = metaBody
+        }
 
-sign :: AuthEnv
-     -> Region
-     -> UTCTime
-     -> Service s
-     -> (Credential -> SignedHeaders -> QueryString -> QueryString)
-     -> Hash
-     -> Request a
-     -> Meta V4
-sign auth reg ts svc presign digest rq = Meta
+    qry | BS.null x = x
+        | otherwise = '?' `BS8.cons` x
+      where
+        x = toBS metaCanonicalQuery
+
+metadata :: AuthEnv
+         -> Region
+         -> UTCTime
+         -> (Credential -> SignedHeaders -> QueryString -> QueryString)
+         -> Hash
+         -> Request a
+         -> V4
+metadata auth reg ts presign digest rq = V4
     { metaTime             = ts
     , metaMethod           = method
     , metaPath             = path
@@ -185,6 +194,7 @@ sign auth reg ts svc presign digest rq = Meta
     , metaSignature        = signature (_authSecret auth) scope sts
     , metaHeaders          = _rqHeaders rq
     , metaBody             = bodyRequest (_rqBody rq)
+    , metaTimeout          = _svcTimeout svc
     }
   where
     query = canonicalQuery . presign cred shs $ _rqQuery rq
@@ -200,7 +210,9 @@ sign auth reg ts svc presign digest rq = Meta
 
     end    = _svcEndpoint svc reg
     method = Tag . toBS $ _rqMethod rq
-    path   = escapedPath svc rq
+    path   = escapedPath rq
+
+    svc    = _rqService rq
 
 algorithm :: ByteString
 algorithm = "AWS4-HMAC-SHA256"
@@ -223,7 +235,7 @@ stringToSign t c r = Tag $ BS8.intercalate "\n"
 credential :: AccessKey -> CredentialScope -> Credential
 credential k c = Tag (toBS k <> "/" <> toBS c)
 
-credentialScope :: Service s -> Endpoint -> UTCTime -> CredentialScope
+credentialScope :: Service -> Endpoint -> UTCTime -> CredentialScope
 credentialScope s e t = Tag
     [ toBS (Time t :: BasicTime)
     , toBS (_endpointScope e)
@@ -248,9 +260,9 @@ canonicalRequest meth path digest query chs shs = Tag $
        , toBS digest
        ]
 
-escapedPath :: Service s -> Request a -> Path
-escapedPath s r = Tag . toBS . escapePath $
-    case _svcAbbrev s of
+escapedPath :: Request a -> Path
+escapedPath r = Tag . toBS . escapePath $
+    case _svcAbbrev (_rqService r) of
         "S3" -> _rqPath r
         _    -> collapsePath (_rqPath r)
 

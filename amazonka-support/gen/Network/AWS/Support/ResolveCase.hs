@@ -69,9 +69,8 @@ rcCaseId :: Lens' ResolveCase (Maybe Text)
 rcCaseId = lens _rcCaseId (\ s a -> s{_rcCaseId = a});
 
 instance AWSRequest ResolveCase where
-        type Sv ResolveCase = Support
         type Rs ResolveCase = ResolveCaseResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveJSON
               (\ s h x ->
@@ -91,7 +90,7 @@ instance ToHeaders ResolveCase where
 
 instance ToJSON ResolveCase where
         toJSON ResolveCase'{..}
-          = object ["caseId" .= _rcCaseId]
+          = object (catMaybes [("caseId" .=) <$> _rcCaseId])
 
 instance ToPath ResolveCase where
         toPath = const "/"

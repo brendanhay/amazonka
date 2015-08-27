@@ -107,10 +107,9 @@ slbasLayerId :: Lens' SetLoadBasedAutoScaling Text
 slbasLayerId = lens _slbasLayerId (\ s a -> s{_slbasLayerId = a});
 
 instance AWSRequest SetLoadBasedAutoScaling where
-        type Sv SetLoadBasedAutoScaling = OpsWorks
         type Rs SetLoadBasedAutoScaling =
              SetLoadBasedAutoScalingResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveNull SetLoadBasedAutoScalingResponse'
 
@@ -127,10 +126,11 @@ instance ToHeaders SetLoadBasedAutoScaling where
 instance ToJSON SetLoadBasedAutoScaling where
         toJSON SetLoadBasedAutoScaling'{..}
           = object
-              ["UpScaling" .= _slbasUpScaling,
-               "Enable" .= _slbasEnable,
-               "DownScaling" .= _slbasDownScaling,
-               "LayerId" .= _slbasLayerId]
+              (catMaybes
+                 [("UpScaling" .=) <$> _slbasUpScaling,
+                  ("Enable" .=) <$> _slbasEnable,
+                  ("DownScaling" .=) <$> _slbasDownScaling,
+                  Just ("LayerId" .= _slbasLayerId)])
 
 instance ToPath SetLoadBasedAutoScaling where
         toPath = const "/"

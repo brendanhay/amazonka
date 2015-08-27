@@ -72,9 +72,8 @@ lhNextToken :: Lens' ListHAPGs (Maybe Text)
 lhNextToken = lens _lhNextToken (\ s a -> s{_lhNextToken = a});
 
 instance AWSRequest ListHAPGs where
-        type Sv ListHAPGs = CloudHSM
         type Rs ListHAPGs = ListHAPGsResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->
@@ -93,7 +92,8 @@ instance ToHeaders ListHAPGs where
 
 instance ToJSON ListHAPGs where
         toJSON ListHAPGs'{..}
-          = object ["NextToken" .= _lhNextToken]
+          = object
+              (catMaybes [("NextToken" .=) <$> _lhNextToken])
 
 instance ToPath ListHAPGs where
         toPath = const "/"

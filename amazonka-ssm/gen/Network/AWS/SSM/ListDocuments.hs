@@ -88,9 +88,8 @@ ldMaxResults :: Lens' ListDocuments (Maybe Natural)
 ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a}) . mapping _Nat;
 
 instance AWSRequest ListDocuments where
-        type Sv ListDocuments = SSM
         type Rs ListDocuments = ListDocumentsResponse
-        request = postJSON
+        request = postJSON sSM
         response
           = receiveJSON
               (\ s h x ->
@@ -111,9 +110,10 @@ instance ToHeaders ListDocuments where
 instance ToJSON ListDocuments where
         toJSON ListDocuments'{..}
           = object
-              ["DocumentFilterList" .= _ldDocumentFilterList,
-               "NextToken" .= _ldNextToken,
-               "MaxResults" .= _ldMaxResults]
+              (catMaybes
+                 [("DocumentFilterList" .=) <$> _ldDocumentFilterList,
+                  ("NextToken" .=) <$> _ldNextToken,
+                  ("MaxResults" .=) <$> _ldMaxResults])
 
 instance ToPath ListDocuments where
         toPath = const "/"

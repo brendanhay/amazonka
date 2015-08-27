@@ -185,10 +185,9 @@ asgiDryRun = lens _asgiDryRun (\ s a -> s{_asgiDryRun = a});
 
 instance AWSRequest AuthorizeSecurityGroupIngress
          where
-        type Sv AuthorizeSecurityGroupIngress = EC2
         type Rs AuthorizeSecurityGroupIngress =
              AuthorizeSecurityGroupIngressResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveNull AuthorizeSecurityGroupIngressResponse'
 

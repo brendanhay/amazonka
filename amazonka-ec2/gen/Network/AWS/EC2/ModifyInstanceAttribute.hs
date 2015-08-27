@@ -235,10 +235,9 @@ mInstanceId :: Lens' ModifyInstanceAttribute Text
 mInstanceId = lens _mInstanceId (\ s a -> s{_mInstanceId = a});
 
 instance AWSRequest ModifyInstanceAttribute where
-        type Sv ModifyInstanceAttribute = EC2
         type Rs ModifyInstanceAttribute =
              ModifyInstanceAttributeResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveNull ModifyInstanceAttributeResponse'
 

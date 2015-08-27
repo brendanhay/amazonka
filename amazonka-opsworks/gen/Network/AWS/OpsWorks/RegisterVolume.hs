@@ -85,9 +85,8 @@ rvStackId :: Lens' RegisterVolume Text
 rvStackId = lens _rvStackId (\ s a -> s{_rvStackId = a});
 
 instance AWSRequest RegisterVolume where
-        type Sv RegisterVolume = OpsWorks
         type Rs RegisterVolume = RegisterVolumeResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -106,8 +105,9 @@ instance ToHeaders RegisterVolume where
 instance ToJSON RegisterVolume where
         toJSON RegisterVolume'{..}
           = object
-              ["Ec2VolumeId" .= _rvEC2VolumeId,
-               "StackId" .= _rvStackId]
+              (catMaybes
+                 [("Ec2VolumeId" .=) <$> _rvEC2VolumeId,
+                  Just ("StackId" .= _rvStackId)])
 
 instance ToPath RegisterVolume where
         toPath = const "/"

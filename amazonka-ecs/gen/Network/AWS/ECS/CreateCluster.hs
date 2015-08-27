@@ -70,9 +70,8 @@ ccClusterName :: Lens' CreateCluster (Maybe Text)
 ccClusterName = lens _ccClusterName (\ s a -> s{_ccClusterName = a});
 
 instance AWSRequest CreateCluster where
-        type Sv CreateCluster = ECS
         type Rs CreateCluster = CreateClusterResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -91,7 +90,8 @@ instance ToHeaders CreateCluster where
 
 instance ToJSON CreateCluster where
         toJSON CreateCluster'{..}
-          = object ["clusterName" .= _ccClusterName]
+          = object
+              (catMaybes [("clusterName" .=) <$> _ccClusterName])
 
 instance ToPath CreateCluster where
         toPath = const "/"

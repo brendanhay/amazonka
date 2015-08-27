@@ -89,9 +89,8 @@ dName :: Lens' DeprecateDomain Text
 dName = lens _dName (\ s a -> s{_dName = a});
 
 instance AWSRequest DeprecateDomain where
-        type Sv DeprecateDomain = SWF
         type Rs DeprecateDomain = DeprecateDomainResponse
-        request = postJSON
+        request = postJSON sWF
         response = receiveNull DeprecateDomainResponse'
 
 instance ToHeaders DeprecateDomain where
@@ -106,7 +105,7 @@ instance ToHeaders DeprecateDomain where
 
 instance ToJSON DeprecateDomain where
         toJSON DeprecateDomain'{..}
-          = object ["name" .= _dName]
+          = object (catMaybes [Just ("name" .= _dName)])
 
 instance ToPath DeprecateDomain where
         toPath = const "/"

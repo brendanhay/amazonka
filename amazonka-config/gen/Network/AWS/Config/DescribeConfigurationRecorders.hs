@@ -72,10 +72,9 @@ dcrConfigurationRecorderNames = lens _dcrConfigurationRecorderNames (\ s a -> s{
 
 instance AWSRequest DescribeConfigurationRecorders
          where
-        type Sv DescribeConfigurationRecorders = Config
         type Rs DescribeConfigurationRecorders =
              DescribeConfigurationRecordersResponse
-        request = postJSON
+        request = postJSON config
         response
           = receiveJSON
               (\ s h x ->
@@ -97,8 +96,9 @@ instance ToHeaders DescribeConfigurationRecorders
 instance ToJSON DescribeConfigurationRecorders where
         toJSON DescribeConfigurationRecorders'{..}
           = object
-              ["ConfigurationRecorderNames" .=
-                 _dcrConfigurationRecorderNames]
+              (catMaybes
+                 [("ConfigurationRecorderNames" .=) <$>
+                    _dcrConfigurationRecorderNames])
 
 instance ToPath DescribeConfigurationRecorders where
         toPath = const "/"

@@ -214,9 +214,8 @@ instance AWSPager DescribeMLModels where
             Just $ rq & dmlmNextToken .~ rs ^. dmlmsrsNextToken
 
 instance AWSRequest DescribeMLModels where
-        type Sv DescribeMLModels = MachineLearning
         type Rs DescribeMLModels = DescribeMLModelsResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -236,13 +235,15 @@ instance ToHeaders DescribeMLModels where
 instance ToJSON DescribeMLModels where
         toJSON DescribeMLModels'{..}
           = object
-              ["EQ" .= _dmlmEQ, "GE" .= _dmlmGE,
-               "Prefix" .= _dmlmPrefix, "GT" .= _dmlmGT,
-               "NE" .= _dmlmNE, "NextToken" .= _dmlmNextToken,
-               "SortOrder" .= _dmlmSortOrder, "Limit" .= _dmlmLimit,
-               "LT" .= _dmlmLT,
-               "FilterVariable" .= _dmlmFilterVariable,
-               "LE" .= _dmlmLE]
+              (catMaybes
+                 [("EQ" .=) <$> _dmlmEQ, ("GE" .=) <$> _dmlmGE,
+                  ("Prefix" .=) <$> _dmlmPrefix, ("GT" .=) <$> _dmlmGT,
+                  ("NE" .=) <$> _dmlmNE,
+                  ("NextToken" .=) <$> _dmlmNextToken,
+                  ("SortOrder" .=) <$> _dmlmSortOrder,
+                  ("Limit" .=) <$> _dmlmLimit, ("LT" .=) <$> _dmlmLT,
+                  ("FilterVariable" .=) <$> _dmlmFilterVariable,
+                  ("LE" .=) <$> _dmlmLE])
 
 instance ToPath DescribeMLModels where
         toPath = const "/"

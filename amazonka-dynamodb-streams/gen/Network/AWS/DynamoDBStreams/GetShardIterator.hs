@@ -123,9 +123,8 @@ gsiShardIteratorType :: Lens' GetShardIterator ShardIteratorType
 gsiShardIteratorType = lens _gsiShardIteratorType (\ s a -> s{_gsiShardIteratorType = a});
 
 instance AWSRequest GetShardIterator where
-        type Sv GetShardIterator = DynamoDBStreams
         type Rs GetShardIterator = GetShardIteratorResponse
-        request = postJSON
+        request = postJSON dynamoDBStreams
         response
           = receiveJSON
               (\ s h x ->
@@ -145,10 +144,11 @@ instance ToHeaders GetShardIterator where
 instance ToJSON GetShardIterator where
         toJSON GetShardIterator'{..}
           = object
-              ["SequenceNumber" .= _gsiSequenceNumber,
-               "StreamArn" .= _gsiStreamARN,
-               "ShardId" .= _gsiShardId,
-               "ShardIteratorType" .= _gsiShardIteratorType]
+              (catMaybes
+                 [("SequenceNumber" .=) <$> _gsiSequenceNumber,
+                  Just ("StreamArn" .= _gsiStreamARN),
+                  Just ("ShardId" .= _gsiShardId),
+                  Just ("ShardIteratorType" .= _gsiShardIteratorType)])
 
 instance ToPath GetShardIterator where
         toPath = const "/"

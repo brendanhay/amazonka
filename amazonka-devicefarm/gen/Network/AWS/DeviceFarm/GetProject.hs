@@ -68,9 +68,8 @@ gpArn :: Lens' GetProject Text
 gpArn = lens _gpArn (\ s a -> s{_gpArn = a});
 
 instance AWSRequest GetProject where
-        type Sv GetProject = DeviceFarm
         type Rs GetProject = GetProjectResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -87,7 +86,8 @@ instance ToHeaders GetProject where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetProject where
-        toJSON GetProject'{..} = object ["arn" .= _gpArn]
+        toJSON GetProject'{..}
+          = object (catMaybes [Just ("arn" .= _gpArn)])
 
 instance ToPath GetProject where
         toPath = const "/"

@@ -233,9 +233,8 @@ ulLayerId :: Lens' UpdateLayer Text
 ulLayerId = lens _ulLayerId (\ s a -> s{_ulLayerId = a});
 
 instance AWSRequest UpdateLayer where
-        type Sv UpdateLayer = OpsWorks
         type Rs UpdateLayer = UpdateLayerResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull UpdateLayerResponse'
 
 instance ToHeaders UpdateLayer where
@@ -250,25 +249,31 @@ instance ToHeaders UpdateLayer where
 instance ToJSON UpdateLayer where
         toJSON UpdateLayer'{..}
           = object
-              ["CustomInstanceProfileArn" .=
-                 _ulCustomInstanceProfileARN,
-               "InstallUpdatesOnBoot" .= _ulInstallUpdatesOnBoot,
-               "CustomSecurityGroupIds" .=
-                 _ulCustomSecurityGroupIds,
-               "LifecycleEventConfiguration" .=
-                 _ulLifecycleEventConfiguration,
-               "Shortname" .= _ulShortname,
-               "CustomRecipes" .= _ulCustomRecipes,
-               "VolumeConfigurations" .= _ulVolumeConfigurations,
-               "CustomJson" .= _ulCustomJSON,
-               "EnableAutoHealing" .= _ulEnableAutoHealing,
-               "Packages" .= _ulPackages, "Name" .= _ulName,
-               "Attributes" .= _ulAttributes,
-               "AutoAssignPublicIps" .= _ulAutoAssignPublicIPs,
-               "UseEbsOptimizedInstances" .=
-                 _ulUseEBSOptimizedInstances,
-               "AutoAssignElasticIps" .= _ulAutoAssignElasticIPs,
-               "LayerId" .= _ulLayerId]
+              (catMaybes
+                 [("CustomInstanceProfileArn" .=) <$>
+                    _ulCustomInstanceProfileARN,
+                  ("InstallUpdatesOnBoot" .=) <$>
+                    _ulInstallUpdatesOnBoot,
+                  ("CustomSecurityGroupIds" .=) <$>
+                    _ulCustomSecurityGroupIds,
+                  ("LifecycleEventConfiguration" .=) <$>
+                    _ulLifecycleEventConfiguration,
+                  ("Shortname" .=) <$> _ulShortname,
+                  ("CustomRecipes" .=) <$> _ulCustomRecipes,
+                  ("VolumeConfigurations" .=) <$>
+                    _ulVolumeConfigurations,
+                  ("CustomJson" .=) <$> _ulCustomJSON,
+                  ("EnableAutoHealing" .=) <$> _ulEnableAutoHealing,
+                  ("Packages" .=) <$> _ulPackages,
+                  ("Name" .=) <$> _ulName,
+                  ("Attributes" .=) <$> _ulAttributes,
+                  ("AutoAssignPublicIps" .=) <$>
+                    _ulAutoAssignPublicIPs,
+                  ("UseEbsOptimizedInstances" .=) <$>
+                    _ulUseEBSOptimizedInstances,
+                  ("AutoAssignElasticIps" .=) <$>
+                    _ulAutoAssignElasticIPs,
+                  Just ("LayerId" .= _ulLayerId)])
 
 instance ToPath UpdateLayer where
         toPath = const "/"

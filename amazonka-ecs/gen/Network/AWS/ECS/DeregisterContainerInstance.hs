@@ -114,10 +114,9 @@ derContainerInstance :: Lens' DeregisterContainerInstance Text
 derContainerInstance = lens _derContainerInstance (\ s a -> s{_derContainerInstance = a});
 
 instance AWSRequest DeregisterContainerInstance where
-        type Sv DeregisterContainerInstance = ECS
         type Rs DeregisterContainerInstance =
              DeregisterContainerInstanceResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -137,8 +136,10 @@ instance ToHeaders DeregisterContainerInstance where
 instance ToJSON DeregisterContainerInstance where
         toJSON DeregisterContainerInstance'{..}
           = object
-              ["cluster" .= _derCluster, "force" .= _derForce,
-               "containerInstance" .= _derContainerInstance]
+              (catMaybes
+                 [("cluster" .=) <$> _derCluster,
+                  ("force" .=) <$> _derForce,
+                  Just ("containerInstance" .= _derContainerInstance)])
 
 instance ToPath DeregisterContainerInstance where
         toPath = const "/"

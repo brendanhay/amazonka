@@ -77,10 +77,9 @@ artipRoleName :: Lens' AddRoleToInstanceProfile Text
 artipRoleName = lens _artipRoleName (\ s a -> s{_artipRoleName = a});
 
 instance AWSRequest AddRoleToInstanceProfile where
-        type Sv AddRoleToInstanceProfile = IAM
         type Rs AddRoleToInstanceProfile =
              AddRoleToInstanceProfileResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveNull AddRoleToInstanceProfileResponse'
 

@@ -131,9 +131,8 @@ cdCommand :: Lens' CreateDeployment DeploymentCommand
 cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a});
 
 instance AWSRequest CreateDeployment where
-        type Sv CreateDeployment = OpsWorks
         type Rs CreateDeployment = CreateDeploymentResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -152,10 +151,13 @@ instance ToHeaders CreateDeployment where
 instance ToJSON CreateDeployment where
         toJSON CreateDeployment'{..}
           = object
-              ["CustomJson" .= _cdCustomJSON, "AppId" .= _cdAppId,
-               "InstanceIds" .= _cdInstanceIds,
-               "Comment" .= _cdComment, "StackId" .= _cdStackId,
-               "Command" .= _cdCommand]
+              (catMaybes
+                 [("CustomJson" .=) <$> _cdCustomJSON,
+                  ("AppId" .=) <$> _cdAppId,
+                  ("InstanceIds" .=) <$> _cdInstanceIds,
+                  ("Comment" .=) <$> _cdComment,
+                  Just ("StackId" .= _cdStackId),
+                  Just ("Command" .= _cdCommand)])
 
 instance ToPath CreateDeployment where
         toPath = const "/"

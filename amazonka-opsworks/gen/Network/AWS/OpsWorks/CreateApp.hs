@@ -195,9 +195,8 @@ caType :: Lens' CreateApp AppType
 caType = lens _caType (\ s a -> s{_caType = a});
 
 instance AWSRequest CreateApp where
-        type Sv CreateApp = OpsWorks
         type Rs CreateApp = CreateAppResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -216,17 +215,18 @@ instance ToHeaders CreateApp where
 instance ToJSON CreateApp where
         toJSON CreateApp'{..}
           = object
-              ["SslConfiguration" .= _caSSLConfiguration,
-               "Shortname" .= _caShortname,
-               "EnableSsl" .= _caEnableSSL,
-               "Environment" .= _caEnvironment,
-               "DataSources" .= _caDataSources,
-               "AppSource" .= _caAppSource,
-               "Attributes" .= _caAttributes,
-               "Domains" .= _caDomains,
-               "Description" .= _caDescription,
-               "StackId" .= _caStackId, "Name" .= _caName,
-               "Type" .= _caType]
+              (catMaybes
+                 [("SslConfiguration" .=) <$> _caSSLConfiguration,
+                  ("Shortname" .=) <$> _caShortname,
+                  ("EnableSsl" .=) <$> _caEnableSSL,
+                  ("Environment" .=) <$> _caEnvironment,
+                  ("DataSources" .=) <$> _caDataSources,
+                  ("AppSource" .=) <$> _caAppSource,
+                  ("Attributes" .=) <$> _caAttributes,
+                  ("Domains" .=) <$> _caDomains,
+                  ("Description" .=) <$> _caDescription,
+                  Just ("StackId" .= _caStackId),
+                  Just ("Name" .= _caName), Just ("Type" .= _caType)])
 
 instance ToPath CreateApp where
         toPath = const "/"

@@ -76,9 +76,8 @@ dTableName :: Lens' DescribeTable Text
 dTableName = lens _dTableName (\ s a -> s{_dTableName = a});
 
 instance AWSRequest DescribeTable where
-        type Sv DescribeTable = DynamoDB
         type Rs DescribeTable = DescribeTableResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->
@@ -96,7 +95,8 @@ instance ToHeaders DescribeTable where
 
 instance ToJSON DescribeTable where
         toJSON DescribeTable'{..}
-          = object ["TableName" .= _dTableName]
+          = object
+              (catMaybes [Just ("TableName" .= _dTableName)])
 
 instance ToPath DescribeTable where
         toPath = const "/"

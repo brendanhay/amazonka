@@ -81,9 +81,8 @@ ajNonce :: Lens' AcknowledgeJob Text
 ajNonce = lens _ajNonce (\ s a -> s{_ajNonce = a});
 
 instance AWSRequest AcknowledgeJob where
-        type Sv AcknowledgeJob = CodePipeline
         type Rs AcknowledgeJob = AcknowledgeJobResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveEmpty
               (\ s h x ->
@@ -101,7 +100,10 @@ instance ToHeaders AcknowledgeJob where
 
 instance ToJSON AcknowledgeJob where
         toJSON AcknowledgeJob'{..}
-          = object ["jobId" .= _ajJobId, "nonce" .= _ajNonce]
+          = object
+              (catMaybes
+                 [Just ("jobId" .= _ajJobId),
+                  Just ("nonce" .= _ajNonce)])
 
 instance ToPath AcknowledgeJob where
         toPath = const "/"

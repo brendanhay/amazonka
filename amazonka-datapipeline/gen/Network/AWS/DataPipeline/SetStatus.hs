@@ -92,9 +92,8 @@ ssStatus :: Lens' SetStatus Text
 ssStatus = lens _ssStatus (\ s a -> s{_ssStatus = a});
 
 instance AWSRequest SetStatus where
-        type Sv SetStatus = DataPipeline
         type Rs SetStatus = SetStatusResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response = receiveNull SetStatusResponse'
 
 instance ToHeaders SetStatus where
@@ -109,8 +108,10 @@ instance ToHeaders SetStatus where
 instance ToJSON SetStatus where
         toJSON SetStatus'{..}
           = object
-              ["pipelineId" .= _ssPipelineId,
-               "objectIds" .= _ssObjectIds, "status" .= _ssStatus]
+              (catMaybes
+                 [Just ("pipelineId" .= _ssPipelineId),
+                  Just ("objectIds" .= _ssObjectIds),
+                  Just ("status" .= _ssStatus)])
 
 instance ToPath SetStatus where
         toPath = const "/"

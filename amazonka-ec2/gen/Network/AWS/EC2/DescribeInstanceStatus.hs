@@ -200,10 +200,9 @@ instance AWSPager DescribeInstanceStatus where
             Just $ rq & disNextToken .~ rs ^. disrsNextToken
 
 instance AWSRequest DescribeInstanceStatus where
-        type Sv DescribeInstanceStatus = EC2
         type Rs DescribeInstanceStatus =
              DescribeInstanceStatusResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

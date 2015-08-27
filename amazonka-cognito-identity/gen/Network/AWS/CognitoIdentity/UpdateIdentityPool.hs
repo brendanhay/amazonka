@@ -121,9 +121,8 @@ uipAllowUnauthenticatedIdentities :: Lens' UpdateIdentityPool Bool
 uipAllowUnauthenticatedIdentities = lens _uipAllowUnauthenticatedIdentities (\ s a -> s{_uipAllowUnauthenticatedIdentities = a});
 
 instance AWSRequest UpdateIdentityPool where
-        type Sv UpdateIdentityPool = CognitoIdentity
         type Rs UpdateIdentityPool = IdentityPool
-        request = postJSON
+        request = postJSON cognitoIdentity
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateIdentityPool where
@@ -139,15 +138,18 @@ instance ToHeaders UpdateIdentityPool where
 instance ToJSON UpdateIdentityPool where
         toJSON UpdateIdentityPool'{..}
           = object
-              ["SupportedLoginProviders" .=
-                 _uipSupportedLoginProviders,
-               "DeveloperProviderName" .= _uipDeveloperProviderName,
-               "OpenIdConnectProviderARNs" .=
-                 _uipOpenIdConnectProviderARNs,
-               "IdentityPoolId" .= _uipIdentityPoolId,
-               "IdentityPoolName" .= _uipIdentityPoolName,
-               "AllowUnauthenticatedIdentities" .=
-                 _uipAllowUnauthenticatedIdentities]
+              (catMaybes
+                 [("SupportedLoginProviders" .=) <$>
+                    _uipSupportedLoginProviders,
+                  ("DeveloperProviderName" .=) <$>
+                    _uipDeveloperProviderName,
+                  ("OpenIdConnectProviderARNs" .=) <$>
+                    _uipOpenIdConnectProviderARNs,
+                  Just ("IdentityPoolId" .= _uipIdentityPoolId),
+                  Just ("IdentityPoolName" .= _uipIdentityPoolName),
+                  Just
+                    ("AllowUnauthenticatedIdentities" .=
+                       _uipAllowUnauthenticatedIdentities)])
 
 instance ToPath UpdateIdentityPool where
         toPath = const "/"

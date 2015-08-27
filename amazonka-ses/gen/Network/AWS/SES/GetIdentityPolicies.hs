@@ -99,10 +99,9 @@ gipPolicyNames :: Lens' GetIdentityPolicies [Text]
 gipPolicyNames = lens _gipPolicyNames (\ s a -> s{_gipPolicyNames = a}) . _Coerce;
 
 instance AWSRequest GetIdentityPolicies where
-        type Sv GetIdentityPolicies = SES
         type Rs GetIdentityPolicies =
              GetIdentityPoliciesResponse
-        request = postQuery
+        request = postQuery sES
         response
           = receiveXMLWrapper "GetIdentityPoliciesResult"
               (\ s h x ->

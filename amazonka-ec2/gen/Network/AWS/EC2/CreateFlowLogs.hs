@@ -128,9 +128,8 @@ cflDeliverLogsPermissionARN :: Lens' CreateFlowLogs Text
 cflDeliverLogsPermissionARN = lens _cflDeliverLogsPermissionARN (\ s a -> s{_cflDeliverLogsPermissionARN = a});
 
 instance AWSRequest CreateFlowLogs where
-        type Sv CreateFlowLogs = EC2
         type Rs CreateFlowLogs = CreateFlowLogsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

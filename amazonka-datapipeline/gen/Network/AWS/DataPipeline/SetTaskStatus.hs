@@ -119,9 +119,8 @@ stsTaskStatus :: Lens' SetTaskStatus TaskStatus
 stsTaskStatus = lens _stsTaskStatus (\ s a -> s{_stsTaskStatus = a});
 
 instance AWSRequest SetTaskStatus where
-        type Sv SetTaskStatus = DataPipeline
         type Rs SetTaskStatus = SetTaskStatusResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveEmpty
               (\ s h x ->
@@ -139,11 +138,12 @@ instance ToHeaders SetTaskStatus where
 instance ToJSON SetTaskStatus where
         toJSON SetTaskStatus'{..}
           = object
-              ["errorStackTrace" .= _stsErrorStackTrace,
-               "errorId" .= _stsErrorId,
-               "errorMessage" .= _stsErrorMessage,
-               "taskId" .= _stsTaskId,
-               "taskStatus" .= _stsTaskStatus]
+              (catMaybes
+                 [("errorStackTrace" .=) <$> _stsErrorStackTrace,
+                  ("errorId" .=) <$> _stsErrorId,
+                  ("errorMessage" .=) <$> _stsErrorMessage,
+                  Just ("taskId" .= _stsTaskId),
+                  Just ("taskStatus" .= _stsTaskStatus)])
 
 instance ToPath SetTaskStatus where
         toPath = const "/"

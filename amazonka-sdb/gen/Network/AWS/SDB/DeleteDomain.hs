@@ -65,9 +65,8 @@ ddDomainName :: Lens' DeleteDomain Text
 ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a});
 
 instance AWSRequest DeleteDomain where
-        type Sv DeleteDomain = SDB
         type Rs DeleteDomain = DeleteDomainResponse
-        request = postQuery
+        request = postQuery sDB
         response = receiveNull DeleteDomainResponse'
 
 instance ToHeaders DeleteDomain where

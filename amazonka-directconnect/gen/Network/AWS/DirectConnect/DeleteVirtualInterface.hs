@@ -68,10 +68,9 @@ dVirtualInterfaceId :: Lens' DeleteVirtualInterface Text
 dVirtualInterfaceId = lens _dVirtualInterfaceId (\ s a -> s{_dVirtualInterfaceId = a});
 
 instance AWSRequest DeleteVirtualInterface where
-        type Sv DeleteVirtualInterface = DirectConnect
         type Rs DeleteVirtualInterface =
              DeleteVirtualInterfaceResponse
-        request = postJSON
+        request = postJSON directConnect
         response
           = receiveJSON
               (\ s h x ->
@@ -92,7 +91,9 @@ instance ToHeaders DeleteVirtualInterface where
 instance ToJSON DeleteVirtualInterface where
         toJSON DeleteVirtualInterface'{..}
           = object
-              ["virtualInterfaceId" .= _dVirtualInterfaceId]
+              (catMaybes
+                 [Just
+                    ("virtualInterfaceId" .= _dVirtualInterfaceId)])
 
 instance ToPath DeleteVirtualInterface where
         toPath = const "/"

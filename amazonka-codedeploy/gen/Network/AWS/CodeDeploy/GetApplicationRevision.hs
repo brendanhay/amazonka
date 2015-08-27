@@ -81,10 +81,9 @@ garRevision :: Lens' GetApplicationRevision RevisionLocation
 garRevision = lens _garRevision (\ s a -> s{_garRevision = a});
 
 instance AWSRequest GetApplicationRevision where
-        type Sv GetApplicationRevision = CodeDeploy
         type Rs GetApplicationRevision =
              GetApplicationRevisionResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -106,8 +105,9 @@ instance ToHeaders GetApplicationRevision where
 instance ToJSON GetApplicationRevision where
         toJSON GetApplicationRevision'{..}
           = object
-              ["applicationName" .= _garApplicationName,
-               "revision" .= _garRevision]
+              (catMaybes
+                 [Just ("applicationName" .= _garApplicationName),
+                  Just ("revision" .= _garRevision)])
 
 instance ToPath GetApplicationRevision where
         toPath = const "/"

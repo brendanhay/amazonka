@@ -98,10 +98,9 @@ cpviNewPublicVirtualInterface = lens _cpviNewPublicVirtualInterface (\ s a -> s{
 
 instance AWSRequest CreatePublicVirtualInterface
          where
-        type Sv CreatePublicVirtualInterface = DirectConnect
         type Rs CreatePublicVirtualInterface =
              VirtualInterface
-        request = postJSON
+        request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreatePublicVirtualInterface where
@@ -117,9 +116,11 @@ instance ToHeaders CreatePublicVirtualInterface where
 instance ToJSON CreatePublicVirtualInterface where
         toJSON CreatePublicVirtualInterface'{..}
           = object
-              ["connectionId" .= _cpviConnectionId,
-               "newPublicVirtualInterface" .=
-                 _cpviNewPublicVirtualInterface]
+              (catMaybes
+                 [Just ("connectionId" .= _cpviConnectionId),
+                  Just
+                    ("newPublicVirtualInterface" .=
+                       _cpviNewPublicVirtualInterface)])
 
 instance ToPath CreatePublicVirtualInterface where
         toPath = const "/"

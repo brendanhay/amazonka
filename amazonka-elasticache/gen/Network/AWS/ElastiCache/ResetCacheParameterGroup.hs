@@ -94,10 +94,9 @@ rcpgParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
 rcpgParameterNameValues = lens _rcpgParameterNameValues (\ s a -> s{_rcpgParameterNameValues = a}) . _Coerce;
 
 instance AWSRequest ResetCacheParameterGroup where
-        type Sv ResetCacheParameterGroup = ElastiCache
         type Rs ResetCacheParameterGroup =
              CacheParameterGroupNameMessage
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "ResetCacheParameterGroupResult"
               (\ s h x -> parseXML x)

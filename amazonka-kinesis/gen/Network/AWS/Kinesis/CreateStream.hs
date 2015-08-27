@@ -124,9 +124,8 @@ csShardCount :: Lens' CreateStream Natural
 csShardCount = lens _csShardCount (\ s a -> s{_csShardCount = a}) . _Nat;
 
 instance AWSRequest CreateStream where
-        type Sv CreateStream = Kinesis
         type Rs CreateStream = CreateStreamResponse
-        request = postJSON
+        request = postJSON kinesis
         response = receiveNull CreateStreamResponse'
 
 instance ToHeaders CreateStream where
@@ -141,8 +140,9 @@ instance ToHeaders CreateStream where
 instance ToJSON CreateStream where
         toJSON CreateStream'{..}
           = object
-              ["StreamName" .= _csStreamName,
-               "ShardCount" .= _csShardCount]
+              (catMaybes
+                 [Just ("StreamName" .= _csStreamName),
+                  Just ("ShardCount" .= _csShardCount)])
 
 instance ToPath CreateStream where
         toPath = const "/"

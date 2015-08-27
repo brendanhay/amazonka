@@ -62,10 +62,9 @@ eaaAlarmNames :: Lens' EnableAlarmActions [Text]
 eaaAlarmNames = lens _eaaAlarmNames (\ s a -> s{_eaaAlarmNames = a}) . _Coerce;
 
 instance AWSRequest EnableAlarmActions where
-        type Sv EnableAlarmActions = CloudWatch
         type Rs EnableAlarmActions =
              EnableAlarmActionsResponse
-        request = postQuery
+        request = postQuery cloudWatch
         response = receiveNull EnableAlarmActionsResponse'
 
 instance ToHeaders EnableAlarmActions where

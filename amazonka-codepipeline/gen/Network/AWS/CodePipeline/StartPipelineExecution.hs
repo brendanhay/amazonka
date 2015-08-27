@@ -69,10 +69,9 @@ speName :: Lens' StartPipelineExecution Text
 speName = lens _speName (\ s a -> s{_speName = a});
 
 instance AWSRequest StartPipelineExecution where
-        type Sv StartPipelineExecution = CodePipeline
         type Rs StartPipelineExecution =
              StartPipelineExecutionResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -92,7 +91,7 @@ instance ToHeaders StartPipelineExecution where
 
 instance ToJSON StartPipelineExecution where
         toJSON StartPipelineExecution'{..}
-          = object ["name" .= _speName]
+          = object (catMaybes [Just ("name" .= _speName)])
 
 instance ToPath StartPipelineExecution where
         toPath = const "/"

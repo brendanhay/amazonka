@@ -89,10 +89,9 @@ usdId :: Lens' UpdateStreamingDistribution Text
 usdId = lens _usdId (\ s a -> s{_usdId = a});
 
 instance AWSRequest UpdateStreamingDistribution where
-        type Sv UpdateStreamingDistribution = CloudFront
         type Rs UpdateStreamingDistribution =
              UpdateStreamingDistributionResponse
-        request = putXML
+        request = putXML cloudFront
         response
           = receiveXML
               (\ s h x ->

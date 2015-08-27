@@ -124,10 +124,9 @@ ldiIdentityPoolId :: Lens' LookupDeveloperIdentity Text
 ldiIdentityPoolId = lens _ldiIdentityPoolId (\ s a -> s{_ldiIdentityPoolId = a});
 
 instance AWSRequest LookupDeveloperIdentity where
-        type Sv LookupDeveloperIdentity = CognitoIdentity
         type Rs LookupDeveloperIdentity =
              LookupDeveloperIdentityResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response
           = receiveJSON
               (\ s h x ->
@@ -149,12 +148,13 @@ instance ToHeaders LookupDeveloperIdentity where
 instance ToJSON LookupDeveloperIdentity where
         toJSON LookupDeveloperIdentity'{..}
           = object
-              ["DeveloperUserIdentifier" .=
-                 _ldiDeveloperUserIdentifier,
-               "NextToken" .= _ldiNextToken,
-               "IdentityId" .= _ldiIdentityId,
-               "MaxResults" .= _ldiMaxResults,
-               "IdentityPoolId" .= _ldiIdentityPoolId]
+              (catMaybes
+                 [("DeveloperUserIdentifier" .=) <$>
+                    _ldiDeveloperUserIdentifier,
+                  ("NextToken" .=) <$> _ldiNextToken,
+                  ("IdentityId" .=) <$> _ldiIdentityId,
+                  ("MaxResults" .=) <$> _ldiMaxResults,
+                  Just ("IdentityPoolId" .= _ldiIdentityPoolId)])
 
 instance ToPath LookupDeveloperIdentity where
         toPath = const "/"

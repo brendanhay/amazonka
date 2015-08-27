@@ -88,9 +88,8 @@ uiLoginsToRemove :: Lens' UnlinkIdentity [Text]
 uiLoginsToRemove = lens _uiLoginsToRemove (\ s a -> s{_uiLoginsToRemove = a}) . _Coerce;
 
 instance AWSRequest UnlinkIdentity where
-        type Sv UnlinkIdentity = CognitoIdentity
         type Rs UnlinkIdentity = UnlinkIdentityResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response = receiveNull UnlinkIdentityResponse'
 
 instance ToHeaders UnlinkIdentity where
@@ -106,9 +105,10 @@ instance ToHeaders UnlinkIdentity where
 instance ToJSON UnlinkIdentity where
         toJSON UnlinkIdentity'{..}
           = object
-              ["IdentityId" .= _uiIdentityId,
-               "Logins" .= _uiLogins,
-               "LoginsToRemove" .= _uiLoginsToRemove]
+              (catMaybes
+                 [Just ("IdentityId" .= _uiIdentityId),
+                  Just ("Logins" .= _uiLogins),
+                  Just ("LoginsToRemove" .= _uiLoginsToRemove)])
 
 instance ToPath UnlinkIdentity where
         toPath = const "/"

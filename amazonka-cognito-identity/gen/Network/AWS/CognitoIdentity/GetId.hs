@@ -100,9 +100,8 @@ giIdentityPoolId :: Lens' GetId Text
 giIdentityPoolId = lens _giIdentityPoolId (\ s a -> s{_giIdentityPoolId = a});
 
 instance AWSRequest GetId where
-        type Sv GetId = CognitoIdentity
         type Rs GetId = GetIdResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response
           = receiveJSON
               (\ s h x ->
@@ -121,8 +120,10 @@ instance ToHeaders GetId where
 instance ToJSON GetId where
         toJSON GetId'{..}
           = object
-              ["AccountId" .= _giAccountId, "Logins" .= _giLogins,
-               "IdentityPoolId" .= _giIdentityPoolId]
+              (catMaybes
+                 [("AccountId" .=) <$> _giAccountId,
+                  ("Logins" .=) <$> _giLogins,
+                  Just ("IdentityPoolId" .= _giIdentityPoolId)])
 
 instance ToPath GetId where
         toPath = const "/"

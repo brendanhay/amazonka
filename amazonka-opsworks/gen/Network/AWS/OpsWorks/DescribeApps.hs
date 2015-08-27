@@ -85,9 +85,8 @@ daStackId :: Lens' DescribeApps (Maybe Text)
 daStackId = lens _daStackId (\ s a -> s{_daStackId = a});
 
 instance AWSRequest DescribeApps where
-        type Sv DescribeApps = OpsWorks
         type Rs DescribeApps = DescribeAppsResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -106,7 +105,9 @@ instance ToHeaders DescribeApps where
 instance ToJSON DescribeApps where
         toJSON DescribeApps'{..}
           = object
-              ["AppIds" .= _daAppIds, "StackId" .= _daStackId]
+              (catMaybes
+                 [("AppIds" .=) <$> _daAppIds,
+                  ("StackId" .=) <$> _daStackId])
 
 instance ToPath DescribeApps where
         toPath = const "/"

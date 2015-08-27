@@ -198,10 +198,9 @@ instance AWSPager ListOpenWorkflowExecutions where
               loweNextPageToken .~ rs ^. weiNextPageToken
 
 instance AWSRequest ListOpenWorkflowExecutions where
-        type Sv ListOpenWorkflowExecutions = SWF
         type Rs ListOpenWorkflowExecutions =
              WorkflowExecutionInfos
-        request = postJSON
+        request = postJSON sWF
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders ListOpenWorkflowExecutions where
@@ -217,14 +216,15 @@ instance ToHeaders ListOpenWorkflowExecutions where
 instance ToJSON ListOpenWorkflowExecutions where
         toJSON ListOpenWorkflowExecutions'{..}
           = object
-              ["nextPageToken" .= _loweNextPageToken,
-               "executionFilter" .= _loweExecutionFilter,
-               "typeFilter" .= _loweTypeFilter,
-               "reverseOrder" .= _loweReverseOrder,
-               "tagFilter" .= _loweTagFilter,
-               "maximumPageSize" .= _loweMaximumPageSize,
-               "domain" .= _loweDomain,
-               "startTimeFilter" .= _loweStartTimeFilter]
+              (catMaybes
+                 [("nextPageToken" .=) <$> _loweNextPageToken,
+                  ("executionFilter" .=) <$> _loweExecutionFilter,
+                  ("typeFilter" .=) <$> _loweTypeFilter,
+                  ("reverseOrder" .=) <$> _loweReverseOrder,
+                  ("tagFilter" .=) <$> _loweTagFilter,
+                  ("maximumPageSize" .=) <$> _loweMaximumPageSize,
+                  Just ("domain" .= _loweDomain),
+                  Just ("startTimeFilter" .= _loweStartTimeFilter)])
 
 instance ToPath ListOpenWorkflowExecutions where
         toPath = const "/"

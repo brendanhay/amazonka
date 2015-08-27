@@ -58,10 +58,9 @@ describeAccountLimits
 describeAccountLimits = DescribeAccountLimits'
 
 instance AWSRequest DescribeAccountLimits where
-        type Sv DescribeAccountLimits = AutoScaling
         type Rs DescribeAccountLimits =
              DescribeAccountLimitsResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "DescribeAccountLimitsResult"
               (\ s h x ->

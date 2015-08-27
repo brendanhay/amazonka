@@ -72,10 +72,9 @@ rekClusterIdentifier :: Lens' RotateEncryptionKey Text
 rekClusterIdentifier = lens _rekClusterIdentifier (\ s a -> s{_rekClusterIdentifier = a});
 
 instance AWSRequest RotateEncryptionKey where
-        type Sv RotateEncryptionKey = Redshift
         type Rs RotateEncryptionKey =
              RotateEncryptionKeyResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "RotateEncryptionKeyResult"
               (\ s h x ->

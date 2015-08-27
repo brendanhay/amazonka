@@ -71,10 +71,9 @@ ddarDomainName :: Lens' DisableDomainAutoRenew Text
 ddarDomainName = lens _ddarDomainName (\ s a -> s{_ddarDomainName = a});
 
 instance AWSRequest DisableDomainAutoRenew where
-        type Sv DisableDomainAutoRenew = Route53Domains
         type Rs DisableDomainAutoRenew =
              DisableDomainAutoRenewResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveEmpty
               (\ s h x ->
@@ -93,7 +92,8 @@ instance ToHeaders DisableDomainAutoRenew where
 
 instance ToJSON DisableDomainAutoRenew where
         toJSON DisableDomainAutoRenew'{..}
-          = object ["DomainName" .= _ddarDomainName]
+          = object
+              (catMaybes [Just ("DomainName" .= _ddarDomainName)])
 
 instance ToPath DisableDomainAutoRenew where
         toPath = const "/"

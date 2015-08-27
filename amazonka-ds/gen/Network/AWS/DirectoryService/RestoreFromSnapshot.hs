@@ -76,10 +76,9 @@ rfsSnapshotId :: Lens' RestoreFromSnapshot Text
 rfsSnapshotId = lens _rfsSnapshotId (\ s a -> s{_rfsSnapshotId = a});
 
 instance AWSRequest RestoreFromSnapshot where
-        type Sv RestoreFromSnapshot = DirectoryService
         type Rs RestoreFromSnapshot =
              RestoreFromSnapshotResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveEmpty
               (\ s h x ->
@@ -97,7 +96,8 @@ instance ToHeaders RestoreFromSnapshot where
 
 instance ToJSON RestoreFromSnapshot where
         toJSON RestoreFromSnapshot'{..}
-          = object ["SnapshotId" .= _rfsSnapshotId]
+          = object
+              (catMaybes [Just ("SnapshotId" .= _rfsSnapshotId)])
 
 instance ToPath RestoreFromSnapshot where
         toPath = const "/"

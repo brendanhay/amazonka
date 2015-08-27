@@ -105,10 +105,9 @@ dwbNextToken :: Lens' DescribeWorkspaceBundles (Maybe Text)
 dwbNextToken = lens _dwbNextToken (\ s a -> s{_dwbNextToken = a});
 
 instance AWSRequest DescribeWorkspaceBundles where
-        type Sv DescribeWorkspaceBundles = WorkSpaces
         type Rs DescribeWorkspaceBundles =
              DescribeWorkspaceBundlesResponse
-        request = postJSON
+        request = postJSON workSpaces
         response
           = receiveJSON
               (\ s h x ->
@@ -129,8 +128,10 @@ instance ToHeaders DescribeWorkspaceBundles where
 instance ToJSON DescribeWorkspaceBundles where
         toJSON DescribeWorkspaceBundles'{..}
           = object
-              ["BundleIds" .= _dwbBundleIds, "Owner" .= _dwbOwner,
-               "NextToken" .= _dwbNextToken]
+              (catMaybes
+                 [("BundleIds" .=) <$> _dwbBundleIds,
+                  ("Owner" .=) <$> _dwbOwner,
+                  ("NextToken" .=) <$> _dwbNextToken])
 
 instance ToPath DescribeWorkspaceBundles where
         toPath = const "/"

@@ -103,9 +103,8 @@ rdToken :: Lens' RegisterDevice Text
 rdToken = lens _rdToken (\ s a -> s{_rdToken = a});
 
 instance AWSRequest RegisterDevice where
-        type Sv RegisterDevice = CognitoSync
         type Rs RegisterDevice = RegisterDeviceResponse
-        request = postJSON
+        request = postJSON cognitoSync
         response
           = receiveJSON
               (\ s h x ->
@@ -122,7 +121,9 @@ instance ToHeaders RegisterDevice where
 instance ToJSON RegisterDevice where
         toJSON RegisterDevice'{..}
           = object
-              ["Platform" .= _rdPlatform, "Token" .= _rdToken]
+              (catMaybes
+                 [Just ("Platform" .= _rdPlatform),
+                  Just ("Token" .= _rdToken)])
 
 instance ToPath RegisterDevice where
         toPath RegisterDevice'{..}

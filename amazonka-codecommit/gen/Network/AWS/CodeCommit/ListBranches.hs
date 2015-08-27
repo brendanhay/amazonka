@@ -78,9 +78,8 @@ lbRepositoryName :: Lens' ListBranches Text
 lbRepositoryName = lens _lbRepositoryName (\ s a -> s{_lbRepositoryName = a});
 
 instance AWSRequest ListBranches where
-        type Sv ListBranches = CodeCommit
         type Rs ListBranches = ListBranchesResponse
-        request = postJSON
+        request = postJSON codeCommit
         response
           = receiveJSON
               (\ s h x ->
@@ -100,8 +99,9 @@ instance ToHeaders ListBranches where
 instance ToJSON ListBranches where
         toJSON ListBranches'{..}
           = object
-              ["nextToken" .= _lbNextToken,
-               "repositoryName" .= _lbRepositoryName]
+              (catMaybes
+                 [("nextToken" .=) <$> _lbNextToken,
+                  Just ("repositoryName" .= _lbRepositoryName)])
 
 instance ToPath ListBranches where
         toPath = const "/"

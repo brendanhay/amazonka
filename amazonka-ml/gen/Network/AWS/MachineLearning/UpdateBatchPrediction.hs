@@ -79,10 +79,9 @@ ubpBatchPredictionName :: Lens' UpdateBatchPrediction Text
 ubpBatchPredictionName = lens _ubpBatchPredictionName (\ s a -> s{_ubpBatchPredictionName = a});
 
 instance AWSRequest UpdateBatchPrediction where
-        type Sv UpdateBatchPrediction = MachineLearning
         type Rs UpdateBatchPrediction =
              UpdateBatchPredictionResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -102,8 +101,10 @@ instance ToHeaders UpdateBatchPrediction where
 instance ToJSON UpdateBatchPrediction where
         toJSON UpdateBatchPrediction'{..}
           = object
-              ["BatchPredictionId" .= _ubpBatchPredictionId,
-               "BatchPredictionName" .= _ubpBatchPredictionName]
+              (catMaybes
+                 [Just ("BatchPredictionId" .= _ubpBatchPredictionId),
+                  Just
+                    ("BatchPredictionName" .= _ubpBatchPredictionName)])
 
 instance ToPath UpdateBatchPrediction where
         toPath = const "/"

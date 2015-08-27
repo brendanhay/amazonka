@@ -44,8 +44,8 @@
 -- /See:/ <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/Welcome.html AWS API Reference>
 module Network.AWS.DynamoDBStreams
     (
-    -- * Service
-      DynamoDBStreams
+    -- * Service Configuration
+      dynamoDBStreams
 
     -- * Errors
     -- $errors

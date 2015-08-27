@@ -70,16 +70,19 @@ testSuggestResponse :: SuggestResponse -> TestTree
 testSuggestResponse = res
     "SuggestResponse"
     "fixture/SuggestResponse"
+    cloudSearchDomains
     (Proxy :: Proxy Suggest)
 
 testUploadDocumentsResponse :: UploadDocumentsResponse -> TestTree
 testUploadDocumentsResponse = res
     "UploadDocumentsResponse"
     "fixture/UploadDocumentsResponse"
+    cloudSearchDomains
     (Proxy :: Proxy UploadDocuments)
 
 testSearchResponse :: SearchResponse -> TestTree
 testSearchResponse = res
     "SearchResponse"
     "fixture/SearchResponse"
+    cloudSearchDomains
     (Proxy :: Proxy Search)

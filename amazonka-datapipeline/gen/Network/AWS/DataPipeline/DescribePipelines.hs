@@ -78,9 +78,8 @@ dpPipelineIds :: Lens' DescribePipelines [Text]
 dpPipelineIds = lens _dpPipelineIds (\ s a -> s{_dpPipelineIds = a}) . _Coerce;
 
 instance AWSRequest DescribePipelines where
-        type Sv DescribePipelines = DataPipeline
         type Rs DescribePipelines = DescribePipelinesResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -99,7 +98,8 @@ instance ToHeaders DescribePipelines where
 
 instance ToJSON DescribePipelines where
         toJSON DescribePipelines'{..}
-          = object ["pipelineIds" .= _dpPipelineIds]
+          = object
+              (catMaybes [Just ("pipelineIds" .= _dpPipelineIds)])
 
 instance ToPath DescribePipelines where
         toPath = const "/"

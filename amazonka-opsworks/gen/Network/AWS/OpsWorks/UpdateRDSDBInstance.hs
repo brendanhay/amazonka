@@ -87,10 +87,9 @@ urdiRDSDBInstanceARN :: Lens' UpdateRDSDBInstance Text
 urdiRDSDBInstanceARN = lens _urdiRDSDBInstanceARN (\ s a -> s{_urdiRDSDBInstanceARN = a});
 
 instance AWSRequest UpdateRDSDBInstance where
-        type Sv UpdateRDSDBInstance = OpsWorks
         type Rs UpdateRDSDBInstance =
              UpdateRDSDBInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull UpdateRDSDBInstanceResponse'
 
 instance ToHeaders UpdateRDSDBInstance where
@@ -106,9 +105,10 @@ instance ToHeaders UpdateRDSDBInstance where
 instance ToJSON UpdateRDSDBInstance where
         toJSON UpdateRDSDBInstance'{..}
           = object
-              ["DbUser" .= _urdiDBUser,
-               "DbPassword" .= _urdiDBPassword,
-               "RdsDbInstanceArn" .= _urdiRDSDBInstanceARN]
+              (catMaybes
+                 [("DbUser" .=) <$> _urdiDBUser,
+                  ("DbPassword" .=) <$> _urdiDBPassword,
+                  Just ("RdsDbInstanceArn" .= _urdiRDSDBInstanceARN)])
 
 instance ToPath UpdateRDSDBInstance where
         toPath = const "/"

@@ -74,9 +74,8 @@ dmDomainName :: Lens' DomainMetadata Text
 dmDomainName = lens _dmDomainName (\ s a -> s{_dmDomainName = a});
 
 instance AWSRequest DomainMetadata where
-        type Sv DomainMetadata = SDB
         type Rs DomainMetadata = DomainMetadataResponse
-        request = postQuery
+        request = postQuery sDB
         response
           = receiveXMLWrapper "DomainMetadataResult"
               (\ s h x ->

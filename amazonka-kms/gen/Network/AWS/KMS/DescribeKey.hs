@@ -76,9 +76,8 @@ dKeyId :: Lens' DescribeKey Text
 dKeyId = lens _dKeyId (\ s a -> s{_dKeyId = a});
 
 instance AWSRequest DescribeKey where
-        type Sv DescribeKey = KMS
         type Rs DescribeKey = DescribeKeyResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->
@@ -95,7 +94,8 @@ instance ToHeaders DescribeKey where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DescribeKey where
-        toJSON DescribeKey'{..} = object ["KeyId" .= _dKeyId]
+        toJSON DescribeKey'{..}
+          = object (catMaybes [Just ("KeyId" .= _dKeyId)])
 
 instance ToPath DescribeKey where
         toPath = const "/"

@@ -79,10 +79,9 @@ ukdDescription :: Lens' UpdateKeyDescription Text
 ukdDescription = lens _ukdDescription (\ s a -> s{_ukdDescription = a});
 
 instance AWSRequest UpdateKeyDescription where
-        type Sv UpdateKeyDescription = KMS
         type Rs UpdateKeyDescription =
              UpdateKeyDescriptionResponse
-        request = postJSON
+        request = postJSON kMS
         response = receiveNull UpdateKeyDescriptionResponse'
 
 instance ToHeaders UpdateKeyDescription where
@@ -97,8 +96,9 @@ instance ToHeaders UpdateKeyDescription where
 instance ToJSON UpdateKeyDescription where
         toJSON UpdateKeyDescription'{..}
           = object
-              ["KeyId" .= _ukdKeyId,
-               "Description" .= _ukdDescription]
+              (catMaybes
+                 [Just ("KeyId" .= _ukdKeyId),
+                  Just ("Description" .= _ukdDescription)])
 
 instance ToPath UpdateKeyDescription where
         toPath = const "/"

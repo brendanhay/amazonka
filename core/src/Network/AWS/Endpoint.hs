@@ -1,6 +1,7 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- |
 -- Module      : Network.AWS.Types
@@ -12,6 +13,7 @@
 --
 module Network.AWS.Endpoint where
 
+import           Control.Lens
 import qualified Data.CaseInsensitive        as CI
 import qualified Data.HashSet                as Set
 import           Data.Monoid
@@ -20,10 +22,24 @@ import           Network.AWS.Types
 
 import           Prelude
 
--- | Determine the full host address and credential scope for a 'Service'
+-- | A convenience function for overriding the 'Service' 'Endpoint'.
+--
+-- /See:/ 'serviceEndpoint'.
+setEndpoint :: Bool       -- ^ Whether to use HTTPS (ie. SSL).
+            -> ByteString -- ^ The hostname to connect to.
+            -> Int        -- ^ The port number to connect to.
+            -> Service    -- ^ The service configuration to override.
+            -> Service
+setEndpoint s h p = serviceEndpoint %~ addr
+  where
+    addr = (endpointSecure .~ s)
+         . (endpointHost   .~ h)
+         . (endpointPort   .~ p)
+
+-- | Determine the full host address and credential scope
 -- within the specified 'Region'.
-defaultEndpoint :: Service s -> Region -> Endpoint
-defaultEndpoint Service{..} r = go (CI.mk _svcPrefix)
+defaultEndpoint :: Service -> Region -> Endpoint
+defaultEndpoint (_svcPrefix -> p) r = go (CI.mk p)
   where
     go = \case
         "iam"
@@ -66,8 +82,8 @@ defaultEndpoint Service{..} r = go (CI.mk _svcPrefix)
         "cloudfront"
             | not china -> global "cloudfront.amazonaws.com"
 
-        _   | china     -> region (_svcPrefix <> "." <> reg <> ".amazonaws.com.cn")
-            | otherwise -> region (_svcPrefix <> "." <> reg <> ".amazonaws.com")
+        _   | china     -> region (p <> "." <> reg <> ".amazonaws.com.cn")
+            | otherwise -> region (p <> "." <> reg <> ".amazonaws.com")
 
     virginia  = r == NorthVirginia
     frankfurt = r == Frankfurt
@@ -76,8 +92,19 @@ defaultEndpoint Service{..} r = go (CI.mk _svcPrefix)
 
     s3 = r `Set.member` except
 
-    region h = Endpoint { _endpointHost = h, _endpointScope = reg }
-    global h = Endpoint { _endpointHost = h, _endpointScope = "us-east-1" }
+    region h = Endpoint
+         { _endpointHost   = h
+         , _endpointSecure = True
+         , _endpointPort   = 443
+         , _endpointScope  = reg
+         }
+
+    global h = Endpoint
+         { _endpointHost   = h
+         , _endpointSecure = True
+         , _endpointPort   = 443
+         , _endpointScope  = "us-east-1"
+         }
 
     reg = toBS r
 

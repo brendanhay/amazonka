@@ -74,9 +74,8 @@ rwRebootWorkspaceRequests :: Lens' RebootWorkspaces (NonEmpty RebootRequest)
 rwRebootWorkspaceRequests = lens _rwRebootWorkspaceRequests (\ s a -> s{_rwRebootWorkspaceRequests = a}) . _List1;
 
 instance AWSRequest RebootWorkspaces where
-        type Sv RebootWorkspaces = WorkSpaces
         type Rs RebootWorkspaces = RebootWorkspacesResponse
-        request = postJSON
+        request = postJSON workSpaces
         response
           = receiveJSON
               (\ s h x ->
@@ -96,8 +95,10 @@ instance ToHeaders RebootWorkspaces where
 instance ToJSON RebootWorkspaces where
         toJSON RebootWorkspaces'{..}
           = object
-              ["RebootWorkspaceRequests" .=
-                 _rwRebootWorkspaceRequests]
+              (catMaybes
+                 [Just
+                    ("RebootWorkspaceRequests" .=
+                       _rwRebootWorkspaceRequests)])
 
 instance ToPath RebootWorkspaces where
         toPath = const "/"

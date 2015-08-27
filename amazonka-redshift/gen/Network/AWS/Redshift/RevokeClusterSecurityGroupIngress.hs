@@ -112,10 +112,9 @@ rcsgiClusterSecurityGroupName = lens _rcsgiClusterSecurityGroupName (\ s a -> s{
 
 instance AWSRequest RevokeClusterSecurityGroupIngress
          where
-        type Sv RevokeClusterSecurityGroupIngress = Redshift
         type Rs RevokeClusterSecurityGroupIngress =
              RevokeClusterSecurityGroupIngressResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "RevokeClusterSecurityGroupIngressResult"

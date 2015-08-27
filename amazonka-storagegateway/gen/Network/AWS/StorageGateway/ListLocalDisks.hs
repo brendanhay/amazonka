@@ -78,9 +78,8 @@ lldGatewayARN :: Lens' ListLocalDisks Text
 lldGatewayARN = lens _lldGatewayARN (\ s a -> s{_lldGatewayARN = a});
 
 instance AWSRequest ListLocalDisks where
-        type Sv ListLocalDisks = StorageGateway
         type Rs ListLocalDisks = ListLocalDisksResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -100,7 +99,8 @@ instance ToHeaders ListLocalDisks where
 
 instance ToJSON ListLocalDisks where
         toJSON ListLocalDisks'{..}
-          = object ["GatewayARN" .= _lldGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _lldGatewayARN)])
 
 instance ToPath ListLocalDisks where
         toPath = const "/"

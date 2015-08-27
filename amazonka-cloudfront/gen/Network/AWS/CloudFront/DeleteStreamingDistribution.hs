@@ -75,10 +75,9 @@ dsdId :: Lens' DeleteStreamingDistribution Text
 dsdId = lens _dsdId (\ s a -> s{_dsdId = a});
 
 instance AWSRequest DeleteStreamingDistribution where
-        type Sv DeleteStreamingDistribution = CloudFront
         type Rs DeleteStreamingDistribution =
              DeleteStreamingDistributionResponse
-        request = delete
+        request = delete cloudFront
         response
           = receiveNull DeleteStreamingDistributionResponse'
 

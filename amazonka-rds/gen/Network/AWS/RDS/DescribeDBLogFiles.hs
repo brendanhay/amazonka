@@ -148,10 +148,9 @@ instance AWSPager DescribeDBLogFiles where
             Just $ rq & ddlfMarker .~ rs ^. ddlfrsMarker
 
 instance AWSRequest DescribeDBLogFiles where
-        type Sv DescribeDBLogFiles = RDS
         type Rs DescribeDBLogFiles =
              DescribeDBLogFilesResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "DescribeDBLogFilesResult"
               (\ s h x ->

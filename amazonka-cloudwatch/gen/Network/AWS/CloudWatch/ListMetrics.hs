@@ -106,9 +106,8 @@ instance AWSPager ListMetrics where
             Just $ rq & lmNextToken .~ rs ^. lmrsNextToken
 
 instance AWSRequest ListMetrics where
-        type Sv ListMetrics = CloudWatch
         type Rs ListMetrics = ListMetricsResponse
-        request = postQuery
+        request = postQuery cloudWatch
         response
           = receiveXMLWrapper "ListMetricsResult"
               (\ s h x ->

@@ -135,10 +135,9 @@ dscgsSnapshotCopyGrantName :: Lens' DescribeSnapshotCopyGrants (Maybe Text)
 dscgsSnapshotCopyGrantName = lens _dscgsSnapshotCopyGrantName (\ s a -> s{_dscgsSnapshotCopyGrantName = a});
 
 instance AWSRequest DescribeSnapshotCopyGrants where
-        type Sv DescribeSnapshotCopyGrants = Redshift
         type Rs DescribeSnapshotCopyGrants =
              DescribeSnapshotCopyGrantsResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "DescribeSnapshotCopyGrantsResult"

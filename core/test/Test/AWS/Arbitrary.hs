@@ -18,17 +18,35 @@ import           Data.CaseInsensitive    (CI, FoldCase)
 import qualified Data.CaseInsensitive    as CI
 import           Data.String
 import qualified Data.Text               as Text
+import qualified Data.Text.Encoding      as Text
 import           Data.Time
 import           Network.AWS.Data.Query
 import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 import           Network.HTTP.Types
 import           Test.QuickCheck.Gen     as QC
 import qualified Test.QuickCheck.Unicode as Unicode
 import           Test.Tasty.QuickCheck
 
+instance Arbitrary Service where
+  arbitrary = svc <$> arbitrary
+    where
+      svc a = Service
+        { _svcAbbrev   = a
+        , _svcSigner   = v4
+        , _svcPrefix   = Text.encodeUtf8 . Text.toLower $ toText a
+        , _svcVersion  = "2012-01-01"
+        , _svcEndpoint = defaultEndpoint (svc a)
+        , _svcTimeout  = Nothing
+        , _svcCheck    = const False
+        , _svcError    = error "_svcError not defined."
+        , _svcRetry    = error "_svcRetry not defined."
+        }
+
 instance Arbitrary (Request ()) where
     arbitrary = Request
         <$> arbitrary
+        <*> arbitrary
         <*> arbitrary
         <*> arbitrary
         <*> arbitrary

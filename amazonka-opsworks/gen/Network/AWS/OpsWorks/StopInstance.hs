@@ -73,9 +73,8 @@ siInstanceId :: Lens' StopInstance Text
 siInstanceId = lens _siInstanceId (\ s a -> s{_siInstanceId = a});
 
 instance AWSRequest StopInstance where
-        type Sv StopInstance = OpsWorks
         type Rs StopInstance = StopInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull StopInstanceResponse'
 
 instance ToHeaders StopInstance where
@@ -89,7 +88,8 @@ instance ToHeaders StopInstance where
 
 instance ToJSON StopInstance where
         toJSON StopInstance'{..}
-          = object ["InstanceId" .= _siInstanceId]
+          = object
+              (catMaybes [Just ("InstanceId" .= _siInstanceId)])
 
 instance ToPath StopInstance where
         toPath = const "/"

@@ -76,10 +76,9 @@ aeuEnvironmentId :: Lens' AbortEnvironmentUpdate (Maybe Text)
 aeuEnvironmentId = lens _aeuEnvironmentId (\ s a -> s{_aeuEnvironmentId = a});
 
 instance AWSRequest AbortEnvironmentUpdate where
-        type Sv AbortEnvironmentUpdate = ElasticBeanstalk
         type Rs AbortEnvironmentUpdate =
              AbortEnvironmentUpdateResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveNull AbortEnvironmentUpdateResponse'
 

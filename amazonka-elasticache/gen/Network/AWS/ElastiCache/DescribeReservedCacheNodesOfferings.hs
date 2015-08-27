@@ -188,11 +188,9 @@ instance AWSPager DescribeReservedCacheNodesOfferings
 
 instance AWSRequest
          DescribeReservedCacheNodesOfferings where
-        type Sv DescribeReservedCacheNodesOfferings =
-             ElastiCache
         type Rs DescribeReservedCacheNodesOfferings =
              DescribeReservedCacheNodesOfferingsResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper
               "DescribeReservedCacheNodesOfferingsResult"

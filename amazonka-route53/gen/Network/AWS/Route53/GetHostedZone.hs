@@ -74,9 +74,8 @@ ghzId :: Lens' GetHostedZone Text
 ghzId = lens _ghzId (\ s a -> s{_ghzId = a});
 
 instance AWSRequest GetHostedZone where
-        type Sv GetHostedZone = Route53
         type Rs GetHostedZone = GetHostedZoneResponse
-        request = get
+        request = get route53
         response
           = receiveXML
               (\ s h x ->

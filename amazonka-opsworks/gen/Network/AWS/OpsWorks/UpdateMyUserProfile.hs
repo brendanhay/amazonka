@@ -67,10 +67,9 @@ umupSSHPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
 umupSSHPublicKey = lens _umupSSHPublicKey (\ s a -> s{_umupSSHPublicKey = a});
 
 instance AWSRequest UpdateMyUserProfile where
-        type Sv UpdateMyUserProfile = OpsWorks
         type Rs UpdateMyUserProfile =
              UpdateMyUserProfileResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull UpdateMyUserProfileResponse'
 
 instance ToHeaders UpdateMyUserProfile where
@@ -85,7 +84,9 @@ instance ToHeaders UpdateMyUserProfile where
 
 instance ToJSON UpdateMyUserProfile where
         toJSON UpdateMyUserProfile'{..}
-          = object ["SshPublicKey" .= _umupSSHPublicKey]
+          = object
+              (catMaybes
+                 [("SshPublicKey" .=) <$> _umupSSHPublicKey])
 
 instance ToPath UpdateMyUserProfile where
         toPath = const "/"

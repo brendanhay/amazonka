@@ -160,10 +160,9 @@ tweWorkflowId :: Lens' TerminateWorkflowExecution Text
 tweWorkflowId = lens _tweWorkflowId (\ s a -> s{_tweWorkflowId = a});
 
 instance AWSRequest TerminateWorkflowExecution where
-        type Sv TerminateWorkflowExecution = SWF
         type Rs TerminateWorkflowExecution =
              TerminateWorkflowExecutionResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveNull TerminateWorkflowExecutionResponse'
 
@@ -180,11 +179,13 @@ instance ToHeaders TerminateWorkflowExecution where
 instance ToJSON TerminateWorkflowExecution where
         toJSON TerminateWorkflowExecution'{..}
           = object
-              ["runId" .= _tweRunId, "reason" .= _tweReason,
-               "details" .= _tweDetails,
-               "childPolicy" .= _tweChildPolicy,
-               "domain" .= _tweDomain,
-               "workflowId" .= _tweWorkflowId]
+              (catMaybes
+                 [("runId" .=) <$> _tweRunId,
+                  ("reason" .=) <$> _tweReason,
+                  ("details" .=) <$> _tweDetails,
+                  ("childPolicy" .=) <$> _tweChildPolicy,
+                  Just ("domain" .= _tweDomain),
+                  Just ("workflowId" .= _tweWorkflowId)])
 
 instance ToPath TerminateWorkflowExecution where
         toPath = const "/"

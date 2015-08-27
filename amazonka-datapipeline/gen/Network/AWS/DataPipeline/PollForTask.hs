@@ -112,9 +112,8 @@ pftWorkerGroup :: Lens' PollForTask Text
 pftWorkerGroup = lens _pftWorkerGroup (\ s a -> s{_pftWorkerGroup = a});
 
 instance AWSRequest PollForTask where
-        type Sv PollForTask = DataPipeline
         type Rs PollForTask = PollForTaskResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -133,9 +132,10 @@ instance ToHeaders PollForTask where
 instance ToJSON PollForTask where
         toJSON PollForTask'{..}
           = object
-              ["hostname" .= _pftHostname,
-               "instanceIdentity" .= _pftInstanceIdentity,
-               "workerGroup" .= _pftWorkerGroup]
+              (catMaybes
+                 [("hostname" .=) <$> _pftHostname,
+                  ("instanceIdentity" .=) <$> _pftInstanceIdentity,
+                  Just ("workerGroup" .= _pftWorkerGroup)])
 
 instance ToPath PollForTask where
         toPath = const "/"

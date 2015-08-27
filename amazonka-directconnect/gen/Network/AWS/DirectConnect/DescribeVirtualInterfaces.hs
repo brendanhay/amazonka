@@ -88,10 +88,9 @@ dviVirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
 dviVirtualInterfaceId = lens _dviVirtualInterfaceId (\ s a -> s{_dviVirtualInterfaceId = a});
 
 instance AWSRequest DescribeVirtualInterfaces where
-        type Sv DescribeVirtualInterfaces = DirectConnect
         type Rs DescribeVirtualInterfaces =
              DescribeVirtualInterfacesResponse
-        request = postJSON
+        request = postJSON directConnect
         response
           = receiveJSON
               (\ s h x ->
@@ -112,8 +111,10 @@ instance ToHeaders DescribeVirtualInterfaces where
 instance ToJSON DescribeVirtualInterfaces where
         toJSON DescribeVirtualInterfaces'{..}
           = object
-              ["connectionId" .= _dviConnectionId,
-               "virtualInterfaceId" .= _dviVirtualInterfaceId]
+              (catMaybes
+                 [("connectionId" .=) <$> _dviConnectionId,
+                  ("virtualInterfaceId" .=) <$>
+                    _dviVirtualInterfaceId])
 
 instance ToPath DescribeVirtualInterfaces where
         toPath = const "/"

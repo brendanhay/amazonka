@@ -93,9 +93,8 @@ instance AWSPager ListFunctions where
             Just $ rq & lfMarker .~ rs ^. lfrsNextMarker
 
 instance AWSRequest ListFunctions where
-        type Sv ListFunctions = Lambda
         type Rs ListFunctions = ListFunctionsResponse
-        request = get
+        request = get lambda
         response
           = receiveJSON
               (\ s h x ->

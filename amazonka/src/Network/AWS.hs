@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE RankNTypes        #-}
 
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
@@ -57,10 +58,15 @@ module Network.AWS
 
     , await
 
-    -- ** Overriding Service Configuration
+    -- ** Service Configuration
     -- $service
 
+    -- *** Overriding Defaults
+    , Env.configure
+    , Env.override
+
     -- *** Scoped Actions
+    , reconfigure
     , within
     , once
     , timeout
@@ -120,6 +126,10 @@ module Network.AWS
     -- ** Constructing a Logger
     , newLogger
 
+    -- ** Endpoints
+    , Endpoint
+    , AWST.setEndpoint
+
     -- * Re-exported Types
     , RqBody
     , RsBody
@@ -133,6 +143,7 @@ module Network.AWS
 
 import           Control.Applicative
 import           Control.Monad.Catch          (MonadCatch)
+import           Control.Monad.IO.Class       (MonadIO)
 import           Control.Monad.Morph          (hoist)
 import qualified Control.Monad.RWS.Lazy       as LRW
 import qualified Control.Monad.RWS.Strict     as RW
@@ -141,7 +152,6 @@ import qualified Control.Monad.State.Strict   as S
 import           Control.Monad.Trans.AWS      (AWST)
 import qualified Control.Monad.Trans.AWS      as AWST
 import           Control.Monad.Trans.Class    (lift)
-import           Control.Monad.Trans.Cont     (ContT)
 import           Control.Monad.Trans.Except   (ExceptT)
 import           Control.Monad.Trans.Identity (IdentityT)
 import           Control.Monad.Trans.List     (ListT)
@@ -155,6 +165,7 @@ import           Data.Monoid
 import           Network.AWS.Auth
 import qualified Network.AWS.EC2.Metadata     as EC2
 import           Network.AWS.Env              (Env, HasEnv (..), newEnv)
+import qualified Network.AWS.Env              as Env
 import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.Logger
 import           Network.AWS.Pager            (AWSPager)
@@ -168,7 +179,8 @@ import           Prelude
 type AWS = AWST (ResourceT IO)
 
 -- | Monads in which 'AWS' actions may be embedded.
-class (Functor m, Applicative m, Monad m) => MonadAWS m where
+class (Functor m, Applicative m, Monad m, MonadIO m, MonadCatch m) => MonadAWS m
+  where
     -- | Lift a computation to the 'AWS' monad.
     liftAWS :: AWS a -> m a
 
@@ -179,7 +191,6 @@ instance MonadAWS m => MonadAWS (IdentityT   m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (ListT       m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (MaybeT      m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (ExceptT   e m) where liftAWS = lift . liftAWS
-instance MonadAWS m => MonadAWS (ContT     r m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (ReaderT   r m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (S.StateT  s m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (LS.StateT s m) where liftAWS = lift . liftAWS
@@ -206,6 +217,16 @@ instance (Monoid w, MonadAWS m) => MonadAWS (LRW.RWST r w s m) where
 runAWS :: (MonadResource m, HasEnv r) => r -> AWS a -> m a
 runAWS e = liftResourceT . AWST.runAWST e
 
+-- | Scope an action such that all requests belonging to the supplied service
+-- will use this configuration instead of the default.
+--
+-- It's suggested you use a modified version of the default service, such
+-- as @Network.AWS.DynamoDB.dynamoDB@.
+--
+-- /See:/ 'Env.configure'.
+reconfigure :: MonadAWS m => Service -> AWS a -> m a
+reconfigure s = liftAWS . AWST.reconfigure s
+
 -- | Scope an action within the specific 'Region'.
 within :: MonadAWS m => Region -> AWS a -> m a
 within r = liftAWS . AWST.within r
@@ -220,30 +241,22 @@ timeout :: MonadAWS m => Seconds -> AWS a -> m a
 timeout s = liftAWS . AWST.timeout s
 
 -- | Send a request, returning the associated response if successful.
---
--- /See:/ 'AWST.sendWith'
 send :: (MonadAWS m, AWSRequest a) => a -> m (Rs a)
 send = liftAWS . AWST.send
 
 -- | Repeatedly send a request, automatically setting markers and
 -- paginating over multiple responses while available.
---
--- /See:/ 'AWST.paginateWith'
 paginate :: (MonadAWS m, AWSPager a) => a -> Source m (Rs a)
 paginate = hoist liftAWS . AWST.paginate
 
 -- | Poll the API with the supplied request until a specific 'Wait' condition
 -- is fulfilled.
---
--- /See:/ 'AWST.awaitWith'
 await :: (MonadAWS m, AWSRequest a) => Wait a -> a -> m ()
 await w = liftAWS . AWST.await w
 
 -- | Presign an URL that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
---
--- /See:/ 'AWST.presign', 'AWST.presignWith'
-presignURL :: (MonadAWS m, AWSPresigner (Sg (Sv a)), AWSRequest a)
+presignURL :: (MonadAWS m, AWSRequest a)
            => UTCTime     -- ^ Signing time.
            -> Seconds     -- ^ Expiry time.
            -> a           -- ^ Request to presign.
@@ -329,8 +342,7 @@ parameters using the appropriate lenses. This value can then be sent using 'send
 or 'paginate' and the library will take care of serialisation/authentication and
 so forth.
 
-The default 'Service' configuration for a request (or the supplied 'Service' configuration
-when using the @*With@ variants) contains retry configuration that is used to
+The default 'Service' configuration for a request contains retry configuration that is used to
 determine if a request can safely be retried and what kind of back off/on strategy
 should be used. (Usually exponential.)
 Typically services define retry strategies that handle throttling, general server
@@ -367,13 +379,49 @@ namespace for services which support 'await'.
 -}
 
 {- $service
-When a request is sent, various configuration values such as the endpoint,
+When a request is sent, various values such as the endpoint,
 retry strategy, timeout and error handlers are taken from the associated 'Service'
-configuration.
+for a request. For example, 'DynamoDB' will use the 'Network.AWS.DynamoDB.dynamoDB'
+configuration when sending 'PutItem', 'Query' and all other operations.
 
-You can override the default configuration for a series of one or more actions
-by using 'within', 'once' and 'timeout', or by using the @*With@ suffixed
-functions on an individual request basis below.
+You can modify a specific 'Service''s default configuration by using
+'configure' or 'reconfigure'. To modify all configurations simultaneously, see 'override'.
+
+An example of how you might alter default configuration using these mechanisms
+is demonstrated below. Firstly, the default 'dynamoDB' service is configured to
+use non-SSL localhost as the endpoint:
+
+> let dynamo :: Service
+>     dynamo = setEndpoint False "localhost" 8000 dynamoDB
+
+The updated configuration is then passed to the 'Env' during setup:
+
+> e <- newEnv Frankfurt Discover <&> configure dynamo
+> runAWS e $ do
+>     -- This S3 operation will communicate with remote AWS APIs.
+>     x <- send listBuckets
+>
+>     -- DynamoDB operations will communicate with localhost:8000.
+>     y <- send listTables
+>
+>     -- Any operations for services other than DynamoDB, are not affected.
+>     ...
+
+You can also scope the 'Endpoint' modifications (or any other 'Service' configuration)
+to specific actions:
+
+> e <- newEnv Ireland Discover
+> runAWS e $ do
+>     -- Service operations here will communicate with AWS, even DynamoDB.
+>     x <- send listTables
+>
+>     reconfigure dynamo $ do
+>        -- In here, DynamoDB operations will communicate with localhost:8000,
+>        -- with operations for services not being affected.
+>        ...
+
+Functions such as 'within', 'once', and 'timeout' likewise modify the underlying
+configuration for all service requests within their respective scope.
 -}
 
 {- $streaming

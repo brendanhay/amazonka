@@ -99,10 +99,9 @@ deiStackId :: Lens' DescribeElasticIPs (Maybe Text)
 deiStackId = lens _deiStackId (\ s a -> s{_deiStackId = a});
 
 instance AWSRequest DescribeElasticIPs where
-        type Sv DescribeElasticIPs = OpsWorks
         type Rs DescribeElasticIPs =
              DescribeElasticIPsResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -123,8 +122,10 @@ instance ToHeaders DescribeElasticIPs where
 instance ToJSON DescribeElasticIPs where
         toJSON DescribeElasticIPs'{..}
           = object
-              ["InstanceId" .= _deiInstanceId, "Ips" .= _deiIPs,
-               "StackId" .= _deiStackId]
+              (catMaybes
+                 [("InstanceId" .=) <$> _deiInstanceId,
+                  ("Ips" .=) <$> _deiIPs,
+                  ("StackId" .=) <$> _deiStackId])
 
 instance ToPath DescribeElasticIPs where
         toPath = const "/"

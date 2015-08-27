@@ -90,9 +90,8 @@ laAssociationFilterList :: Lens' ListAssociations (NonEmpty AssociationFilter)
 laAssociationFilterList = lens _laAssociationFilterList (\ s a -> s{_laAssociationFilterList = a}) . _List1;
 
 instance AWSRequest ListAssociations where
-        type Sv ListAssociations = SSM
         type Rs ListAssociations = ListAssociationsResponse
-        request = postJSON
+        request = postJSON sSM
         response
           = receiveJSON
               (\ s h x ->
@@ -113,9 +112,12 @@ instance ToHeaders ListAssociations where
 instance ToJSON ListAssociations where
         toJSON ListAssociations'{..}
           = object
-              ["NextToken" .= _laNextToken,
-               "MaxResults" .= _laMaxResults,
-               "AssociationFilterList" .= _laAssociationFilterList]
+              (catMaybes
+                 [("NextToken" .=) <$> _laNextToken,
+                  ("MaxResults" .=) <$> _laMaxResults,
+                  Just
+                    ("AssociationFilterList" .=
+                       _laAssociationFilterList)])
 
 instance ToPath ListAssociations where
         toPath = const "/"

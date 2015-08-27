@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.ECS.Types
     (
-    -- * Service
-      ECS
+    -- * Service Configuration
+      eCS
 
     -- * Errors
     , _InvalidParameterException
@@ -247,39 +246,36 @@ import           Network.AWS.ECS.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2014-11-13@ of the Amazon EC2 Container Service SDK.
-data ECS
-
-instance AWSService ECS where
-    type Sg ECS = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "ECS"
-            , _svcPrefix = "ecs"
-            , _svcVersion = "2014-11-13"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2014-11-13' of the Amazon EC2 Container Service SDK configuration.
+eCS :: Service
+eCS =
+    Service
+    { _svcAbbrev = "ECS"
+    , _svcSigner = v4
+    , _svcPrefix = "ecs"
+    , _svcVersion = "2014-11-13"
+    , _svcEndpoint = defaultEndpoint eCS
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | The specified parameter is invalid. Review the available parameters for
 -- the API request.

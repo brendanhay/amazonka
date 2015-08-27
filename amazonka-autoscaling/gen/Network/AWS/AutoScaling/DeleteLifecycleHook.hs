@@ -79,10 +79,9 @@ delAutoScalingGroupName :: Lens' DeleteLifecycleHook Text
 delAutoScalingGroupName = lens _delAutoScalingGroupName (\ s a -> s{_delAutoScalingGroupName = a});
 
 instance AWSRequest DeleteLifecycleHook where
-        type Sv DeleteLifecycleHook = AutoScaling
         type Rs DeleteLifecycleHook =
              DeleteLifecycleHookResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "DeleteLifecycleHookResult"
               (\ s h x ->

@@ -98,10 +98,9 @@ instance AWSPager DescribeLaunchConfigurations where
 
 instance AWSRequest DescribeLaunchConfigurations
          where
-        type Sv DescribeLaunchConfigurations = AutoScaling
         type Rs DescribeLaunchConfigurations =
              DescribeLaunchConfigurationsResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper
               "DescribeLaunchConfigurationsResult"

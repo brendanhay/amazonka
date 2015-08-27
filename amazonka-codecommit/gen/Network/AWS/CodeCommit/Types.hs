@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.CodeCommit.Types
     (
-    -- * Service
-      CodeCommit
+    -- * Service Configuration
+      codeCommit
 
     -- * Errors
     , _InvalidContinuationTokenException
@@ -79,39 +78,36 @@ import           Network.AWS.CodeCommit.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2015-04-13@ of the Amazon CodeCommit SDK.
-data CodeCommit
-
-instance AWSService CodeCommit where
-    type Sg CodeCommit = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "CodeCommit"
-            , _svcPrefix = "codecommit"
-            , _svcVersion = "2015-04-13"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2015-04-13' of the Amazon CodeCommit SDK configuration.
+codeCommit :: Service
+codeCommit =
+    Service
+    { _svcAbbrev = "CodeCommit"
+    , _svcSigner = v4
+    , _svcPrefix = "codecommit"
+    , _svcVersion = "2015-04-13"
+    , _svcEndpoint = defaultEndpoint codeCommit
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | The specified continuation token is not valid.
 _InvalidContinuationTokenException :: AsError a => Getting (First ServiceError) a ServiceError

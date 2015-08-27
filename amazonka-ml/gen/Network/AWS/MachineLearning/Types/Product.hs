@@ -2,7 +2,6 @@
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -975,17 +974,21 @@ rdsdsSecurityGroupIds = lens _rdsdsSecurityGroupIds (\ s a -> s{_rdsdsSecurityGr
 instance ToJSON RDSDataSpec where
         toJSON RDSDataSpec'{..}
           = object
-              ["DataSchemaUri" .= _rdsdsDataSchemaURI,
-               "DataSchema" .= _rdsdsDataSchema,
-               "DataRearrangement" .= _rdsdsDataRearrangement,
-               "DatabaseInformation" .= _rdsdsDatabaseInformation,
-               "SelectSqlQuery" .= _rdsdsSelectSqlQuery,
-               "DatabaseCredentials" .= _rdsdsDatabaseCredentials,
-               "S3StagingLocation" .= _rdsdsS3StagingLocation,
-               "ResourceRole" .= _rdsdsResourceRole,
-               "ServiceRole" .= _rdsdsServiceRole,
-               "SubnetId" .= _rdsdsSubnetId,
-               "SecurityGroupIds" .= _rdsdsSecurityGroupIds]
+              (catMaybes
+                 [("DataSchemaUri" .=) <$> _rdsdsDataSchemaURI,
+                  ("DataSchema" .=) <$> _rdsdsDataSchema,
+                  ("DataRearrangement" .=) <$> _rdsdsDataRearrangement,
+                  Just
+                    ("DatabaseInformation" .= _rdsdsDatabaseInformation),
+                  Just ("SelectSqlQuery" .= _rdsdsSelectSqlQuery),
+                  Just
+                    ("DatabaseCredentials" .= _rdsdsDatabaseCredentials),
+                  Just
+                    ("S3StagingLocation" .= _rdsdsS3StagingLocation),
+                  Just ("ResourceRole" .= _rdsdsResourceRole),
+                  Just ("ServiceRole" .= _rdsdsServiceRole),
+                  Just ("SubnetId" .= _rdsdsSubnetId),
+                  Just ("SecurityGroupIds" .= _rdsdsSecurityGroupIds)])
 
 -- | The database details of an Amazon RDS database.
 --
@@ -1031,8 +1034,10 @@ instance FromJSON RDSDatabase where
 instance ToJSON RDSDatabase where
         toJSON RDSDatabase'{..}
           = object
-              ["InstanceIdentifier" .= _rdsdInstanceIdentifier,
-               "DatabaseName" .= _rdsdDatabaseName]
+              (catMaybes
+                 [Just
+                    ("InstanceIdentifier" .= _rdsdInstanceIdentifier),
+                  Just ("DatabaseName" .= _rdsdDatabaseName)])
 
 -- | The database credentials to connect to a database on an RDS DB instance.
 --
@@ -1070,8 +1075,9 @@ rdsdcPassword = lens _rdsdcPassword (\ s a -> s{_rdsdcPassword = a});
 instance ToJSON RDSDatabaseCredentials where
         toJSON RDSDatabaseCredentials'{..}
           = object
-              ["Username" .= _rdsdcUsername,
-               "Password" .= _rdsdcPassword]
+              (catMaybes
+                 [Just ("Username" .= _rdsdcUsername),
+                  Just ("Password" .= _rdsdcPassword)])
 
 -- | The datasource details that are specific to Amazon RDS.
 --
@@ -1309,13 +1315,16 @@ rS3StagingLocation = lens _rS3StagingLocation (\ s a -> s{_rS3StagingLocation = 
 instance ToJSON RedshiftDataSpec where
         toJSON RedshiftDataSpec'{..}
           = object
-              ["DataSchemaUri" .= _rDataSchemaURI,
-               "DataSchema" .= _rDataSchema,
-               "DataRearrangement" .= _rDataRearrangement,
-               "DatabaseInformation" .= _rDatabaseInformation,
-               "SelectSqlQuery" .= _rSelectSqlQuery,
-               "DatabaseCredentials" .= _rDatabaseCredentials,
-               "S3StagingLocation" .= _rS3StagingLocation]
+              (catMaybes
+                 [("DataSchemaUri" .=) <$> _rDataSchemaURI,
+                  ("DataSchema" .=) <$> _rDataSchema,
+                  ("DataRearrangement" .=) <$> _rDataRearrangement,
+                  Just
+                    ("DatabaseInformation" .= _rDatabaseInformation),
+                  Just ("SelectSqlQuery" .= _rSelectSqlQuery),
+                  Just
+                    ("DatabaseCredentials" .= _rDatabaseCredentials),
+                  Just ("S3StagingLocation" .= _rS3StagingLocation)])
 
 -- | Describes the database details required to connect to an Amazon Redshift
 -- database.
@@ -1361,8 +1370,9 @@ instance FromJSON RedshiftDatabase where
 instance ToJSON RedshiftDatabase where
         toJSON RedshiftDatabase'{..}
           = object
-              ["DatabaseName" .= _rdDatabaseName,
-               "ClusterIdentifier" .= _rdClusterIdentifier]
+              (catMaybes
+                 [Just ("DatabaseName" .= _rdDatabaseName),
+                  Just ("ClusterIdentifier" .= _rdClusterIdentifier)])
 
 -- | Describes the database credentials for connecting to a database on an
 -- Amazon Redshift cluster.
@@ -1401,8 +1411,9 @@ rdcPassword = lens _rdcPassword (\ s a -> s{_rdcPassword = a});
 instance ToJSON RedshiftDatabaseCredentials where
         toJSON RedshiftDatabaseCredentials'{..}
           = object
-              ["Username" .= _rdcUsername,
-               "Password" .= _rdcPassword]
+              (catMaybes
+                 [Just ("Username" .= _rdcUsername),
+                  Just ("Password" .= _rdcPassword)])
 
 -- | Describes the 'DataSource' details specific to Amazon Redshift.
 --
@@ -1506,7 +1517,9 @@ sdsDataLocationS3 = lens _sdsDataLocationS3 (\ s a -> s{_sdsDataLocationS3 = a})
 instance ToJSON S3DataSpec where
         toJSON S3DataSpec'{..}
           = object
-              ["DataSchema" .= _sdsDataSchema,
-               "DataSchemaLocationS3" .= _sdsDataSchemaLocationS3,
-               "DataRearrangement" .= _sdsDataRearrangement,
-               "DataLocationS3" .= _sdsDataLocationS3]
+              (catMaybes
+                 [("DataSchema" .=) <$> _sdsDataSchema,
+                  ("DataSchemaLocationS3" .=) <$>
+                    _sdsDataSchemaLocationS3,
+                  ("DataRearrangement" .=) <$> _sdsDataRearrangement,
+                  Just ("DataLocationS3" .= _sdsDataLocationS3)])

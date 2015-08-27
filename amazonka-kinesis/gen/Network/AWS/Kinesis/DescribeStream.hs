@@ -126,9 +126,8 @@ instance AWSPager DescribeStream where
                   dsrsStreamDescription . sdShards . _last . sShardId
 
 instance AWSRequest DescribeStream where
-        type Sv DescribeStream = Kinesis
         type Rs DescribeStream = DescribeStreamResponse
-        request = postJSON
+        request = postJSON kinesis
         response
           = receiveJSON
               (\ s h x ->
@@ -147,8 +146,11 @@ instance ToHeaders DescribeStream where
 instance ToJSON DescribeStream where
         toJSON DescribeStream'{..}
           = object
-              ["ExclusiveStartShardId" .= _dExclusiveStartShardId,
-               "Limit" .= _dLimit, "StreamName" .= _dStreamName]
+              (catMaybes
+                 [("ExclusiveStartShardId" .=) <$>
+                    _dExclusiveStartShardId,
+                  ("Limit" .=) <$> _dLimit,
+                  Just ("StreamName" .= _dStreamName)])
 
 instance ToPath DescribeStream where
         toPath = const "/"

@@ -151,9 +151,8 @@ aasDryRun :: Lens' AssociateAddress (Maybe Bool)
 aasDryRun = lens _aasDryRun (\ s a -> s{_aasDryRun = a});
 
 instance AWSRequest AssociateAddress where
-        type Sv AssociateAddress = EC2
         type Rs AssociateAddress = AssociateAddressResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

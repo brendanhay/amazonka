@@ -185,76 +185,89 @@ testUpdateItemResponse :: UpdateItemResponse -> TestTree
 testUpdateItemResponse = res
     "UpdateItemResponse"
     "fixture/UpdateItemResponse"
+    dynamoDB
     (Proxy :: Proxy UpdateItem)
 
 testDeleteItemResponse :: DeleteItemResponse -> TestTree
 testDeleteItemResponse = res
     "DeleteItemResponse"
     "fixture/DeleteItemResponse"
+    dynamoDB
     (Proxy :: Proxy DeleteItem)
 
 testPutItemResponse :: PutItemResponse -> TestTree
 testPutItemResponse = res
     "PutItemResponse"
     "fixture/PutItemResponse"
+    dynamoDB
     (Proxy :: Proxy PutItem)
 
 testDeleteTableResponse :: DeleteTableResponse -> TestTree
 testDeleteTableResponse = res
     "DeleteTableResponse"
     "fixture/DeleteTableResponse"
+    dynamoDB
     (Proxy :: Proxy DeleteTable)
 
 testUpdateTableResponse :: UpdateTableResponse -> TestTree
 testUpdateTableResponse = res
     "UpdateTableResponse"
     "fixture/UpdateTableResponse"
+    dynamoDB
     (Proxy :: Proxy UpdateTable)
 
 testBatchGetItemResponse :: BatchGetItemResponse -> TestTree
 testBatchGetItemResponse = res
     "BatchGetItemResponse"
     "fixture/BatchGetItemResponse"
+    dynamoDB
     (Proxy :: Proxy BatchGetItem)
 
 testDescribeTableResponse :: DescribeTableResponse -> TestTree
 testDescribeTableResponse = res
     "DescribeTableResponse"
     "fixture/DescribeTableResponse"
+    dynamoDB
     (Proxy :: Proxy DescribeTable)
 
 testGetItemResponse :: GetItemResponse -> TestTree
 testGetItemResponse = res
     "GetItemResponse"
     "fixture/GetItemResponse"
+    dynamoDB
     (Proxy :: Proxy GetItem)
 
 testBatchWriteItemResponse :: BatchWriteItemResponse -> TestTree
 testBatchWriteItemResponse = res
     "BatchWriteItemResponse"
     "fixture/BatchWriteItemResponse"
+    dynamoDB
     (Proxy :: Proxy BatchWriteItem)
 
 testScanResponse :: ScanResponse -> TestTree
 testScanResponse = res
     "ScanResponse"
     "fixture/ScanResponse"
+    dynamoDB
     (Proxy :: Proxy Scan)
 
 testListTablesResponse :: ListTablesResponse -> TestTree
 testListTablesResponse = res
     "ListTablesResponse"
     "fixture/ListTablesResponse"
+    dynamoDB
     (Proxy :: Proxy ListTables)
 
 testQueryResponse :: QueryResponse -> TestTree
 testQueryResponse = res
     "QueryResponse"
     "fixture/QueryResponse"
+    dynamoDB
     (Proxy :: Proxy Query)
 
 testCreateTableResponse :: CreateTableResponse -> TestTree
 testCreateTableResponse = res
     "CreateTableResponse"
     "fixture/CreateTableResponse"
+    dynamoDB
     (Proxy :: Proxy CreateTable)

@@ -84,10 +84,9 @@ gcfiIdentityId :: Lens' GetCredentialsForIdentity Text
 gcfiIdentityId = lens _gcfiIdentityId (\ s a -> s{_gcfiIdentityId = a});
 
 instance AWSRequest GetCredentialsForIdentity where
-        type Sv GetCredentialsForIdentity = CognitoIdentity
         type Rs GetCredentialsForIdentity =
              GetCredentialsForIdentityResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response
           = receiveJSON
               (\ s h x ->
@@ -108,8 +107,9 @@ instance ToHeaders GetCredentialsForIdentity where
 instance ToJSON GetCredentialsForIdentity where
         toJSON GetCredentialsForIdentity'{..}
           = object
-              ["Logins" .= _gcfiLogins,
-               "IdentityId" .= _gcfiIdentityId]
+              (catMaybes
+                 [("Logins" .=) <$> _gcfiLogins,
+                  Just ("IdentityId" .= _gcfiIdentityId)])
 
 instance ToPath GetCredentialsForIdentity where
         toPath = const "/"

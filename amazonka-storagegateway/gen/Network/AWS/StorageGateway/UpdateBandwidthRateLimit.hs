@@ -100,10 +100,9 @@ ubrlGatewayARN :: Lens' UpdateBandwidthRateLimit Text
 ubrlGatewayARN = lens _ubrlGatewayARN (\ s a -> s{_ubrlGatewayARN = a});
 
 instance AWSRequest UpdateBandwidthRateLimit where
-        type Sv UpdateBandwidthRateLimit = StorageGateway
         type Rs UpdateBandwidthRateLimit =
              UpdateBandwidthRateLimitResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -123,11 +122,12 @@ instance ToHeaders UpdateBandwidthRateLimit where
 instance ToJSON UpdateBandwidthRateLimit where
         toJSON UpdateBandwidthRateLimit'{..}
           = object
-              ["AverageUploadRateLimitInBitsPerSec" .=
-                 _ubrlAverageUploadRateLimitInBitsPerSec,
-               "AverageDownloadRateLimitInBitsPerSec" .=
-                 _ubrlAverageDownloadRateLimitInBitsPerSec,
-               "GatewayARN" .= _ubrlGatewayARN]
+              (catMaybes
+                 [("AverageUploadRateLimitInBitsPerSec" .=) <$>
+                    _ubrlAverageUploadRateLimitInBitsPerSec,
+                  ("AverageDownloadRateLimitInBitsPerSec" .=) <$>
+                    _ubrlAverageDownloadRateLimitInBitsPerSec,
+                  Just ("GatewayARN" .= _ubrlGatewayARN)])
 
 instance ToPath UpdateBandwidthRateLimit where
         toPath = const "/"

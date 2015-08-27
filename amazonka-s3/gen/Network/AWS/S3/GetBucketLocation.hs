@@ -66,9 +66,8 @@ gblBucket :: Lens' GetBucketLocation BucketName
 gblBucket = lens _gblBucket (\ s a -> s{_gblBucket = a});
 
 instance AWSRequest GetBucketLocation where
-        type Sv GetBucketLocation = S3
         type Rs GetBucketLocation = GetBucketLocationResponse
-        request = get
+        request = get s3
         response
           = receiveXML
               (\ s h x ->

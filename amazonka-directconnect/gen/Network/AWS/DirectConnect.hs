@@ -36,8 +36,8 @@
 -- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.DirectConnect
     (
-    -- * Service
-      DirectConnect
+    -- * Service Configuration
+      directConnect
 
     -- * Errors
     -- $errors

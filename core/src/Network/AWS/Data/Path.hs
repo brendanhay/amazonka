@@ -1,5 +1,4 @@
 {-# LANGUAGE DataKinds          #-}
-{-# LANGUAGE DefaultSignatures  #-}
 {-# LANGUAGE FlexibleInstances  #-}
 {-# LANGUAGE GADTs              #-}
 {-# LANGUAGE KindSignatures     #-}
@@ -30,6 +29,7 @@ module Network.AWS.Data.Path
     , collapsePath
     ) where
 
+import qualified Data.ByteString             as BS
 import qualified Data.ByteString.Char8       as BS8
 import           Data.Monoid
 import           Network.AWS.Data.ByteString
@@ -48,7 +48,11 @@ instance ToPath Text where
     toPath = toBS
 
 rawPath :: ToPath a => a -> Path 'NoEncoding
-rawPath = Raw . filter (not . BS8.null) . BS8.split sep . toPath
+rawPath = Raw . strip . BS8.split sep . toPath
+  where
+    strip (x:xs)
+        | BS.null x = xs
+    strip xs        = xs
 
 data Encoding = NoEncoding | Percent
     deriving (Eq, Show)

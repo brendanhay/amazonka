@@ -81,9 +81,8 @@ cdName :: Lens' CreateDocument Text
 cdName = lens _cdName (\ s a -> s{_cdName = a});
 
 instance AWSRequest CreateDocument where
-        type Sv CreateDocument = SSM
         type Rs CreateDocument = CreateDocumentResponse
-        request = postJSON
+        request = postJSON sSM
         response
           = receiveJSON
               (\ s h x ->
@@ -102,7 +101,10 @@ instance ToHeaders CreateDocument where
 
 instance ToJSON CreateDocument where
         toJSON CreateDocument'{..}
-          = object ["Content" .= _cdContent, "Name" .= _cdName]
+          = object
+              (catMaybes
+                 [Just ("Content" .= _cdContent),
+                  Just ("Name" .= _cdName)])
 
 instance ToPath CreateDocument where
         toPath = const "/"

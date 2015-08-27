@@ -74,9 +74,8 @@ ddbsDBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
 ddbsDBSnapshotIdentifier = lens _ddbsDBSnapshotIdentifier (\ s a -> s{_ddbsDBSnapshotIdentifier = a});
 
 instance AWSRequest DeleteDBSnapshot where
-        type Sv DeleteDBSnapshot = RDS
         type Rs DeleteDBSnapshot = DeleteDBSnapshotResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "DeleteDBSnapshotResult"
               (\ s h x ->

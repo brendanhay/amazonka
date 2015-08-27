@@ -68,9 +68,8 @@ cpPipeline :: Lens' CreatePipeline PipelineDeclaration
 cpPipeline = lens _cpPipeline (\ s a -> s{_cpPipeline = a});
 
 instance AWSRequest CreatePipeline where
-        type Sv CreatePipeline = CodePipeline
         type Rs CreatePipeline = CreatePipelineResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -89,7 +88,8 @@ instance ToHeaders CreatePipeline where
 
 instance ToJSON CreatePipeline where
         toJSON CreatePipeline'{..}
-          = object ["pipeline" .= _cpPipeline]
+          = object
+              (catMaybes [Just ("pipeline" .= _cpPipeline)])
 
 instance ToPath CreatePipeline where
         toPath = const "/"

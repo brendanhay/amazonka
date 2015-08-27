@@ -74,10 +74,9 @@ dtacLanguage = lens _dtacLanguage (\ s a -> s{_dtacLanguage = a});
 
 instance AWSRequest DescribeTrustedAdvisorChecks
          where
-        type Sv DescribeTrustedAdvisorChecks = Support
         type Rs DescribeTrustedAdvisorChecks =
              DescribeTrustedAdvisorChecksResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveJSON
               (\ s h x ->
@@ -96,7 +95,8 @@ instance ToHeaders DescribeTrustedAdvisorChecks where
 
 instance ToJSON DescribeTrustedAdvisorChecks where
         toJSON DescribeTrustedAdvisorChecks'{..}
-          = object ["language" .= _dtacLanguage]
+          = object
+              (catMaybes [Just ("language" .= _dtacLanguage)])
 
 instance ToPath DescribeTrustedAdvisorChecks where
         toPath = const "/"

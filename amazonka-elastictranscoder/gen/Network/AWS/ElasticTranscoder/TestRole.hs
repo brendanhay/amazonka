@@ -109,9 +109,8 @@ trTopics :: Lens' TestRole [Text]
 trTopics = lens _trTopics (\ s a -> s{_trTopics = a}) . _Coerce;
 
 instance AWSRequest TestRole where
-        type Sv TestRole = ElasticTranscoder
         type Rs TestRole = TestRoleResponse
-        request = postJSON
+        request = postJSON elasticTranscoder
         response
           = receiveJSON
               (\ s h x ->
@@ -125,9 +124,11 @@ instance ToHeaders TestRole where
 instance ToJSON TestRole where
         toJSON TestRole'{..}
           = object
-              ["Role" .= _trRole, "InputBucket" .= _trInputBucket,
-               "OutputBucket" .= _trOutputBucket,
-               "Topics" .= _trTopics]
+              (catMaybes
+                 [Just ("Role" .= _trRole),
+                  Just ("InputBucket" .= _trInputBucket),
+                  Just ("OutputBucket" .= _trOutputBucket),
+                  Just ("Topics" .= _trTopics)])
 
 instance ToPath TestRole where
         toPath = const "/2012-09-25/roleTests"

@@ -97,9 +97,8 @@ dcCommandIds :: Lens' DescribeCommands [Text]
 dcCommandIds = lens _dcCommandIds (\ s a -> s{_dcCommandIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeCommands where
-        type Sv DescribeCommands = OpsWorks
         type Rs DescribeCommands = DescribeCommandsResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -119,9 +118,10 @@ instance ToHeaders DescribeCommands where
 instance ToJSON DescribeCommands where
         toJSON DescribeCommands'{..}
           = object
-              ["InstanceId" .= _dcInstanceId,
-               "DeploymentId" .= _dcDeploymentId,
-               "CommandIds" .= _dcCommandIds]
+              (catMaybes
+                 [("InstanceId" .=) <$> _dcInstanceId,
+                  ("DeploymentId" .=) <$> _dcDeploymentId,
+                  ("CommandIds" .=) <$> _dcCommandIds])
 
 instance ToPath DescribeCommands where
         toPath = const "/"

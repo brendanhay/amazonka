@@ -112,10 +112,9 @@ ppdPipelineObjects :: Lens' PutPipelineDefinition [PipelineObject]
 ppdPipelineObjects = lens _ppdPipelineObjects (\ s a -> s{_ppdPipelineObjects = a}) . _Coerce;
 
 instance AWSRequest PutPipelineDefinition where
-        type Sv PutPipelineDefinition = DataPipeline
         type Rs PutPipelineDefinition =
              PutPipelineDefinitionResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -137,10 +136,11 @@ instance ToHeaders PutPipelineDefinition where
 instance ToJSON PutPipelineDefinition where
         toJSON PutPipelineDefinition'{..}
           = object
-              ["parameterObjects" .= _ppdParameterObjects,
-               "parameterValues" .= _ppdParameterValues,
-               "pipelineId" .= _ppdPipelineId,
-               "pipelineObjects" .= _ppdPipelineObjects]
+              (catMaybes
+                 [("parameterObjects" .=) <$> _ppdParameterObjects,
+                  ("parameterValues" .=) <$> _ppdParameterValues,
+                  Just ("pipelineId" .= _ppdPipelineId),
+                  Just ("pipelineObjects" .= _ppdPipelineObjects)])
 
 instance ToPath PutPipelineDefinition where
         toPath = const "/"

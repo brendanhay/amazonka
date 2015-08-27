@@ -106,9 +106,8 @@ instance AWSPager ListSteps where
             Just $ rq & lsMarker .~ rs ^. lsrsMarker
 
 instance AWSRequest ListSteps where
-        type Sv ListSteps = EMR
         type Rs ListSteps = ListStepsResponse
-        request = postJSON
+        request = postJSON eMR
         response
           = receiveJSON
               (\ s h x ->
@@ -128,9 +127,11 @@ instance ToHeaders ListSteps where
 instance ToJSON ListSteps where
         toJSON ListSteps'{..}
           = object
-              ["StepIds" .= _lsStepIds,
-               "StepStates" .= _lsStepStates, "Marker" .= _lsMarker,
-               "ClusterId" .= _lsClusterId]
+              (catMaybes
+                 [("StepIds" .=) <$> _lsStepIds,
+                  ("StepStates" .=) <$> _lsStepStates,
+                  ("Marker" .=) <$> _lsMarker,
+                  Just ("ClusterId" .= _lsClusterId)])
 
 instance ToPath ListSteps where
         toPath = const "/"

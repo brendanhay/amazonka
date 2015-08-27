@@ -92,10 +92,9 @@ atpjClientToken :: Lens' AcknowledgeThirdPartyJob Text
 atpjClientToken = lens _atpjClientToken (\ s a -> s{_atpjClientToken = a});
 
 instance AWSRequest AcknowledgeThirdPartyJob where
-        type Sv AcknowledgeThirdPartyJob = CodePipeline
         type Rs AcknowledgeThirdPartyJob =
              AcknowledgeThirdPartyJobResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveEmpty
               (\ s h x ->
@@ -115,8 +114,10 @@ instance ToHeaders AcknowledgeThirdPartyJob where
 instance ToJSON AcknowledgeThirdPartyJob where
         toJSON AcknowledgeThirdPartyJob'{..}
           = object
-              ["jobId" .= _atpjJobId, "nonce" .= _atpjNonce,
-               "clientToken" .= _atpjClientToken]
+              (catMaybes
+                 [Just ("jobId" .= _atpjJobId),
+                  Just ("nonce" .= _atpjNonce),
+                  Just ("clientToken" .= _atpjClientToken)])
 
 instance ToPath AcknowledgeThirdPartyJob where
         toPath = const "/"

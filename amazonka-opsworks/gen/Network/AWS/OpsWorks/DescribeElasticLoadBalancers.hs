@@ -85,10 +85,9 @@ delbStackId = lens _delbStackId (\ s a -> s{_delbStackId = a});
 
 instance AWSRequest DescribeElasticLoadBalancers
          where
-        type Sv DescribeElasticLoadBalancers = OpsWorks
         type Rs DescribeElasticLoadBalancers =
              DescribeElasticLoadBalancersResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -109,8 +108,9 @@ instance ToHeaders DescribeElasticLoadBalancers where
 instance ToJSON DescribeElasticLoadBalancers where
         toJSON DescribeElasticLoadBalancers'{..}
           = object
-              ["LayerIds" .= _delbLayerIds,
-               "StackId" .= _delbStackId]
+              (catMaybes
+                 [("LayerIds" .=) <$> _delbLayerIds,
+                  ("StackId" .=) <$> _delbStackId])
 
 instance ToPath DescribeElasticLoadBalancers where
         toPath = const "/"

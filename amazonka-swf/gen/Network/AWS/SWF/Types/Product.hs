@@ -2,7 +2,6 @@
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -558,7 +557,10 @@ instance FromJSON ActivityType where
 
 instance ToJSON ActivityType where
         toJSON ActivityType'{..}
-          = object ["name" .= _atName, "version" .= _atVersion]
+          = object
+              (catMaybes
+                 [Just ("name" .= _atName),
+                  Just ("version" .= _atVersion)])
 
 -- | Configuration settings registered with the activity type.
 --
@@ -794,7 +796,8 @@ ctdaTimerId = lens _ctdaTimerId (\ s a -> s{_ctdaTimerId = a});
 
 instance ToJSON CancelTimerDecisionAttributes where
         toJSON CancelTimerDecisionAttributes'{..}
-          = object ["timerId" .= _ctdaTimerId]
+          = object
+              (catMaybes [Just ("timerId" .= _ctdaTimerId)])
 
 -- | Provides details of the 'CancelTimerFailed' event.
 --
@@ -900,7 +903,8 @@ cwedaDetails = lens _cwedaDetails (\ s a -> s{_cwedaDetails = a});
 instance ToJSON
          CancelWorkflowExecutionDecisionAttributes where
         toJSON CancelWorkflowExecutionDecisionAttributes'{..}
-          = object ["details" .= _cwedaDetails]
+          = object
+              (catMaybes [("details" .=) <$> _cwedaDetails])
 
 -- | Provides details of the 'CancelWorkflowExecutionFailed' event.
 --
@@ -1425,7 +1429,7 @@ csfStatus = lens _csfStatus (\ s a -> s{_csfStatus = a});
 
 instance ToJSON CloseStatusFilter where
         toJSON CloseStatusFilter'{..}
-          = object ["status" .= _csfStatus]
+          = object (catMaybes [Just ("status" .= _csfStatus)])
 
 -- | Provides details of the 'CompleteWorkflowExecution' decision.
 --
@@ -1473,7 +1477,7 @@ instance ToJSON
          CompleteWorkflowExecutionDecisionAttributes where
         toJSON
           CompleteWorkflowExecutionDecisionAttributes'{..}
-          = object ["result" .= _cwedaResult]
+          = object (catMaybes [("result" .=) <$> _cwedaResult])
 
 -- | Provides details of the 'CompleteWorkflowExecutionFailed' event.
 --
@@ -1703,17 +1707,19 @@ instance ToJSON
         toJSON
           ContinueAsNewWorkflowExecutionDecisionAttributes'{..}
           = object
-              ["tagList" .= _canwedaTagList,
-               "taskStartToCloseTimeout" .=
-                 _canwedaTaskStartToCloseTimeout,
-               "lambdaRole" .= _canwedaLambdaRole,
-               "input" .= _canwedaInput,
-               "workflowTypeVersion" .= _canwedaWorkflowTypeVersion,
-               "executionStartToCloseTimeout" .=
-                 _canwedaExecutionStartToCloseTimeout,
-               "taskList" .= _canwedaTaskList,
-               "taskPriority" .= _canwedaTaskPriority,
-               "childPolicy" .= _canwedaChildPolicy]
+              (catMaybes
+                 [("tagList" .=) <$> _canwedaTagList,
+                  ("taskStartToCloseTimeout" .=) <$>
+                    _canwedaTaskStartToCloseTimeout,
+                  ("lambdaRole" .=) <$> _canwedaLambdaRole,
+                  ("input" .=) <$> _canwedaInput,
+                  ("workflowTypeVersion" .=) <$>
+                    _canwedaWorkflowTypeVersion,
+                  ("executionStartToCloseTimeout" .=) <$>
+                    _canwedaExecutionStartToCloseTimeout,
+                  ("taskList" .=) <$> _canwedaTaskList,
+                  ("taskPriority" .=) <$> _canwedaTaskPriority,
+                  ("childPolicy" .=) <$> _canwedaChildPolicy])
 
 -- | Provides details of the 'ContinueAsNewWorkflowExecutionFailed' event.
 --
@@ -2059,35 +2065,40 @@ dDecisionType = lens _dDecisionType (\ s a -> s{_dDecisionType = a});
 instance ToJSON Decision where
         toJSON Decision'{..}
           = object
-              ["requestCancelExternalWorkflowExecutionDecisionAttributes"
-                 .=
-                 _dRequestCancelExternalWorkflowExecutionDecisionAttributes,
-               "scheduleActivityTaskDecisionAttributes" .=
-                 _dScheduleActivityTaskDecisionAttributes,
-               "signalExternalWorkflowExecutionDecisionAttributes"
-                 .=
-                 _dSignalExternalWorkflowExecutionDecisionAttributes,
-               "startTimerDecisionAttributes" .=
-                 _dStartTimerDecisionAttributes,
-               "recordMarkerDecisionAttributes" .=
-                 _dRecordMarkerDecisionAttributes,
-               "failWorkflowExecutionDecisionAttributes" .=
-                 _dFailWorkflowExecutionDecisionAttributes,
-               "startChildWorkflowExecutionDecisionAttributes" .=
-                 _dStartChildWorkflowExecutionDecisionAttributes,
-               "scheduleLambdaFunctionDecisionAttributes" .=
-                 _dScheduleLambdaFunctionDecisionAttributes,
-               "completeWorkflowExecutionDecisionAttributes" .=
-                 _dCompleteWorkflowExecutionDecisionAttributes,
-               "requestCancelActivityTaskDecisionAttributes" .=
-                 _dRequestCancelActivityTaskDecisionAttributes,
-               "cancelWorkflowExecutionDecisionAttributes" .=
-                 _dCancelWorkflowExecutionDecisionAttributes,
-               "cancelTimerDecisionAttributes" .=
-                 _dCancelTimerDecisionAttributes,
-               "continueAsNewWorkflowExecutionDecisionAttributes" .=
-                 _dContinueAsNewWorkflowExecutionDecisionAttributes,
-               "decisionType" .= _dDecisionType]
+              (catMaybes
+                 [("requestCancelExternalWorkflowExecutionDecisionAttributes"
+                     .=)
+                    <$>
+                    _dRequestCancelExternalWorkflowExecutionDecisionAttributes,
+                  ("scheduleActivityTaskDecisionAttributes" .=) <$>
+                    _dScheduleActivityTaskDecisionAttributes,
+                  ("signalExternalWorkflowExecutionDecisionAttributes"
+                     .=)
+                    <$>
+                    _dSignalExternalWorkflowExecutionDecisionAttributes,
+                  ("startTimerDecisionAttributes" .=) <$>
+                    _dStartTimerDecisionAttributes,
+                  ("recordMarkerDecisionAttributes" .=) <$>
+                    _dRecordMarkerDecisionAttributes,
+                  ("failWorkflowExecutionDecisionAttributes" .=) <$>
+                    _dFailWorkflowExecutionDecisionAttributes,
+                  ("startChildWorkflowExecutionDecisionAttributes" .=)
+                    <$> _dStartChildWorkflowExecutionDecisionAttributes,
+                  ("scheduleLambdaFunctionDecisionAttributes" .=) <$>
+                    _dScheduleLambdaFunctionDecisionAttributes,
+                  ("completeWorkflowExecutionDecisionAttributes" .=)
+                    <$> _dCompleteWorkflowExecutionDecisionAttributes,
+                  ("requestCancelActivityTaskDecisionAttributes" .=)
+                    <$> _dRequestCancelActivityTaskDecisionAttributes,
+                  ("cancelWorkflowExecutionDecisionAttributes" .=) <$>
+                    _dCancelWorkflowExecutionDecisionAttributes,
+                  ("cancelTimerDecisionAttributes" .=) <$>
+                    _dCancelTimerDecisionAttributes,
+                  ("continueAsNewWorkflowExecutionDecisionAttributes"
+                     .=)
+                    <$>
+                    _dContinueAsNewWorkflowExecutionDecisionAttributes,
+                  Just ("decisionType" .= _dDecisionType)])
 
 -- | Provides details of the 'DecisionTaskCompleted' event.
 --
@@ -2433,8 +2444,9 @@ etfOldestDate = lens _etfOldestDate (\ s a -> s{_etfOldestDate = a}) . _Time;
 instance ToJSON ExecutionTimeFilter where
         toJSON ExecutionTimeFilter'{..}
           = object
-              ["latestDate" .= _etfLatestDate,
-               "oldestDate" .= _etfOldestDate]
+              (catMaybes
+                 [("latestDate" .=) <$> _etfLatestDate,
+                  Just ("oldestDate" .= _etfOldestDate)])
 
 -- | Provides details of the 'ExternalWorkflowExecutionCancelRequested'
 -- event.
@@ -2587,8 +2599,9 @@ instance ToJSON
          FailWorkflowExecutionDecisionAttributes where
         toJSON FailWorkflowExecutionDecisionAttributes'{..}
           = object
-              ["reason" .= _fwedaReason,
-               "details" .= _fwedaDetails]
+              (catMaybes
+                 [("reason" .=) <$> _fwedaReason,
+                  ("details" .=) <$> _fwedaDetails])
 
 -- | Provides details of the 'FailWorkflowExecutionFailed' event.
 --
@@ -3857,8 +3870,9 @@ rmdaMarkerName = lens _rmdaMarkerName (\ s a -> s{_rmdaMarkerName = a});
 instance ToJSON RecordMarkerDecisionAttributes where
         toJSON RecordMarkerDecisionAttributes'{..}
           = object
-              ["details" .= _rmdaDetails,
-               "markerName" .= _rmdaMarkerName]
+              (catMaybes
+                 [("details" .=) <$> _rmdaDetails,
+                  Just ("markerName" .= _rmdaMarkerName)])
 
 -- | Provides details of the 'RecordMarkerFailed' event.
 --
@@ -3966,7 +3980,9 @@ instance ToJSON
          RequestCancelActivityTaskDecisionAttributes where
         toJSON
           RequestCancelActivityTaskDecisionAttributes'{..}
-          = object ["activityId" .= _rcatdaActivityId]
+          = object
+              (catMaybes
+                 [Just ("activityId" .= _rcatdaActivityId)])
 
 -- | Provides details of the 'RequestCancelActivityTaskFailed' event.
 --
@@ -4098,9 +4114,10 @@ instance ToJSON
         toJSON
           RequestCancelExternalWorkflowExecutionDecisionAttributes'{..}
           = object
-              ["control" .= _rcewedaControl,
-               "runId" .= _rcewedaRunId,
-               "workflowId" .= _rcewedaWorkflowId]
+              (catMaybes
+                 [("control" .=) <$> _rcewedaControl,
+                  ("runId" .=) <$> _rcewedaRunId,
+                  Just ("workflowId" .= _rcewedaWorkflowId)])
 
 -- | Provides details of the 'RequestCancelExternalWorkflowExecutionFailed'
 -- event.
@@ -4458,17 +4475,20 @@ instance ToJSON
          ScheduleActivityTaskDecisionAttributes where
         toJSON ScheduleActivityTaskDecisionAttributes'{..}
           = object
-              ["control" .= _satdaControl,
-               "scheduleToCloseTimeout" .=
-                 _satdaScheduleToCloseTimeout,
-               "heartbeatTimeout" .= _satdaHeartbeatTimeout,
-               "input" .= _satdaInput, "taskList" .= _satdaTaskList,
-               "taskPriority" .= _satdaTaskPriority,
-               "scheduleToStartTimeout" .=
-                 _satdaScheduleToStartTimeout,
-               "startToCloseTimeout" .= _satdaStartToCloseTimeout,
-               "activityType" .= _satdaActivityType,
-               "activityId" .= _satdaActivityId]
+              (catMaybes
+                 [("control" .=) <$> _satdaControl,
+                  ("scheduleToCloseTimeout" .=) <$>
+                    _satdaScheduleToCloseTimeout,
+                  ("heartbeatTimeout" .=) <$> _satdaHeartbeatTimeout,
+                  ("input" .=) <$> _satdaInput,
+                  ("taskList" .=) <$> _satdaTaskList,
+                  ("taskPriority" .=) <$> _satdaTaskPriority,
+                  ("scheduleToStartTimeout" .=) <$>
+                    _satdaScheduleToStartTimeout,
+                  ("startToCloseTimeout" .=) <$>
+                    _satdaStartToCloseTimeout,
+                  Just ("activityType" .= _satdaActivityType),
+                  Just ("activityId" .= _satdaActivityId)])
 
 -- | Provides details of the 'ScheduleActivityTaskFailed' event.
 --
@@ -4625,9 +4645,12 @@ instance ToJSON
          ScheduleLambdaFunctionDecisionAttributes where
         toJSON ScheduleLambdaFunctionDecisionAttributes'{..}
           = object
-              ["input" .= _slfdaInput,
-               "startToCloseTimeout" .= _slfdaStartToCloseTimeout,
-               "id" .= _slfdaId, "name" .= _slfdaName]
+              (catMaybes
+                 [("input" .=) <$> _slfdaInput,
+                  ("startToCloseTimeout" .=) <$>
+                    _slfdaStartToCloseTimeout,
+                  Just ("id" .= _slfdaId),
+                  Just ("name" .= _slfdaName)])
 
 -- | Provides details for the 'ScheduleLambdaFunctionFailed' event.
 --
@@ -4784,10 +4807,12 @@ instance ToJSON
         toJSON
           SignalExternalWorkflowExecutionDecisionAttributes'{..}
           = object
-              ["control" .= _sewedaControl,
-               "input" .= _sewedaInput, "runId" .= _sewedaRunId,
-               "workflowId" .= _sewedaWorkflowId,
-               "signalName" .= _sewedaSignalName]
+              (catMaybes
+                 [("control" .=) <$> _sewedaControl,
+                  ("input" .=) <$> _sewedaInput,
+                  ("runId" .=) <$> _sewedaRunId,
+                  Just ("workflowId" .= _sewedaWorkflowId),
+                  Just ("signalName" .= _sewedaSignalName)])
 
 -- | Provides details of the 'SignalExternalWorkflowExecutionFailed' event.
 --
@@ -5183,19 +5208,20 @@ instance ToJSON
         toJSON
           StartChildWorkflowExecutionDecisionAttributes'{..}
           = object
-              ["control" .= _scwedaControl,
-               "tagList" .= _scwedaTagList,
-               "taskStartToCloseTimeout" .=
-                 _scwedaTaskStartToCloseTimeout,
-               "lambdaRole" .= _scwedaLambdaRole,
-               "input" .= _scwedaInput,
-               "executionStartToCloseTimeout" .=
-                 _scwedaExecutionStartToCloseTimeout,
-               "taskList" .= _scwedaTaskList,
-               "taskPriority" .= _scwedaTaskPriority,
-               "childPolicy" .= _scwedaChildPolicy,
-               "workflowType" .= _scwedaWorkflowType,
-               "workflowId" .= _scwedaWorkflowId]
+              (catMaybes
+                 [("control" .=) <$> _scwedaControl,
+                  ("tagList" .=) <$> _scwedaTagList,
+                  ("taskStartToCloseTimeout" .=) <$>
+                    _scwedaTaskStartToCloseTimeout,
+                  ("lambdaRole" .=) <$> _scwedaLambdaRole,
+                  ("input" .=) <$> _scwedaInput,
+                  ("executionStartToCloseTimeout" .=) <$>
+                    _scwedaExecutionStartToCloseTimeout,
+                  ("taskList" .=) <$> _scwedaTaskList,
+                  ("taskPriority" .=) <$> _scwedaTaskPriority,
+                  ("childPolicy" .=) <$> _scwedaChildPolicy,
+                  Just ("workflowType" .= _scwedaWorkflowType),
+                  Just ("workflowId" .= _scwedaWorkflowId)])
 
 -- | Provides details of the 'StartChildWorkflowExecutionFailed' event.
 --
@@ -5592,9 +5618,11 @@ stdaStartToFireTimeout = lens _stdaStartToFireTimeout (\ s a -> s{_stdaStartToFi
 instance ToJSON StartTimerDecisionAttributes where
         toJSON StartTimerDecisionAttributes'{..}
           = object
-              ["control" .= _stdaControl,
-               "timerId" .= _stdaTimerId,
-               "startToFireTimeout" .= _stdaStartToFireTimeout]
+              (catMaybes
+                 [("control" .=) <$> _stdaControl,
+                  Just ("timerId" .= _stdaTimerId),
+                  Just
+                    ("startToFireTimeout" .= _stdaStartToFireTimeout)])
 
 -- | Provides details of the 'StartTimerFailed' event.
 --
@@ -5683,7 +5711,8 @@ tfTag :: Lens' TagFilter Text
 tfTag = lens _tfTag (\ s a -> s{_tfTag = a});
 
 instance ToJSON TagFilter where
-        toJSON TagFilter'{..} = object ["tag" .= _tfTag]
+        toJSON TagFilter'{..}
+          = object (catMaybes [Just ("tag" .= _tfTag)])
 
 -- | Represents a task list.
 --
@@ -5715,7 +5744,8 @@ instance FromJSON TaskList where
               (\ x -> TaskList' <$> (x .: "name"))
 
 instance ToJSON TaskList where
-        toJSON TaskList'{..} = object ["name" .= _tlName]
+        toJSON TaskList'{..}
+          = object (catMaybes [Just ("name" .= _tlName)])
 
 -- | Provides details of the 'TimerCanceled' event.
 --
@@ -5923,7 +5953,9 @@ instance FromJSON WorkflowExecution where
 instance ToJSON WorkflowExecution where
         toJSON WorkflowExecution'{..}
           = object
-              ["workflowId" .= _weWorkflowId, "runId" .= _weRunId]
+              (catMaybes
+                 [Just ("workflowId" .= _weWorkflowId),
+                  Just ("runId" .= _weRunId)])
 
 -- | Provides details of the 'WorkflowExecutionCancelRequested' event.
 --
@@ -6458,7 +6490,8 @@ wefWorkflowId = lens _wefWorkflowId (\ s a -> s{_wefWorkflowId = a});
 
 instance ToJSON WorkflowExecutionFilter where
         toJSON WorkflowExecutionFilter'{..}
-          = object ["workflowId" .= _wefWorkflowId]
+          = object
+              (catMaybes [Just ("workflowId" .= _wefWorkflowId)])
 
 -- | Contains information about a workflow execution.
 --
@@ -7107,7 +7140,10 @@ instance FromJSON WorkflowType where
 
 instance ToJSON WorkflowType where
         toJSON WorkflowType'{..}
-          = object ["name" .= _wtName, "version" .= _wtVersion]
+          = object
+              (catMaybes
+                 [Just ("name" .= _wtName),
+                  Just ("version" .= _wtVersion)])
 
 -- | The configuration settings of a workflow type.
 --
@@ -7270,7 +7306,9 @@ wtfName = lens _wtfName (\ s a -> s{_wtfName = a});
 instance ToJSON WorkflowTypeFilter where
         toJSON WorkflowTypeFilter'{..}
           = object
-              ["version" .= _wtfVersion, "name" .= _wtfName]
+              (catMaybes
+                 [("version" .=) <$> _wtfVersion,
+                  Just ("name" .= _wtfName)])
 
 -- | Contains information about a workflow type.
 --

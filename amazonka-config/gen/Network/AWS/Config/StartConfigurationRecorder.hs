@@ -70,10 +70,9 @@ sConfigurationRecorderName :: Lens' StartConfigurationRecorder Text
 sConfigurationRecorderName = lens _sConfigurationRecorderName (\ s a -> s{_sConfigurationRecorderName = a});
 
 instance AWSRequest StartConfigurationRecorder where
-        type Sv StartConfigurationRecorder = Config
         type Rs StartConfigurationRecorder =
              StartConfigurationRecorderResponse
-        request = postJSON
+        request = postJSON config
         response
           = receiveNull StartConfigurationRecorderResponse'
 
@@ -90,8 +89,10 @@ instance ToHeaders StartConfigurationRecorder where
 instance ToJSON StartConfigurationRecorder where
         toJSON StartConfigurationRecorder'{..}
           = object
-              ["ConfigurationRecorderName" .=
-                 _sConfigurationRecorderName]
+              (catMaybes
+                 [Just
+                    ("ConfigurationRecorderName" .=
+                       _sConfigurationRecorderName)])
 
 instance ToPath StartConfigurationRecorder where
         toPath = const "/"

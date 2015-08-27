@@ -224,10 +224,9 @@ ratVersion :: Lens' RegisterActivityType Text
 ratVersion = lens _ratVersion (\ s a -> s{_ratVersion = a});
 
 instance AWSRequest RegisterActivityType where
-        type Sv RegisterActivityType = SWF
         type Rs RegisterActivityType =
              RegisterActivityTypeResponse
-        request = postJSON
+        request = postJSON sWF
         response = receiveNull RegisterActivityTypeResponse'
 
 instance ToHeaders RegisterActivityType where
@@ -243,19 +242,22 @@ instance ToHeaders RegisterActivityType where
 instance ToJSON RegisterActivityType where
         toJSON RegisterActivityType'{..}
           = object
-              ["defaultTaskScheduleToStartTimeout" .=
-                 _ratDefaultTaskScheduleToStartTimeout,
-               "defaultTaskList" .= _ratDefaultTaskList,
-               "defaultTaskPriority" .= _ratDefaultTaskPriority,
-               "defaultTaskHeartbeatTimeout" .=
-                 _ratDefaultTaskHeartbeatTimeout,
-               "defaultTaskScheduleToCloseTimeout" .=
-                 _ratDefaultTaskScheduleToCloseTimeout,
-               "defaultTaskStartToCloseTimeout" .=
-                 _ratDefaultTaskStartToCloseTimeout,
-               "description" .= _ratDescription,
-               "domain" .= _ratDomain, "name" .= _ratName,
-               "version" .= _ratVersion]
+              (catMaybes
+                 [("defaultTaskScheduleToStartTimeout" .=) <$>
+                    _ratDefaultTaskScheduleToStartTimeout,
+                  ("defaultTaskList" .=) <$> _ratDefaultTaskList,
+                  ("defaultTaskPriority" .=) <$>
+                    _ratDefaultTaskPriority,
+                  ("defaultTaskHeartbeatTimeout" .=) <$>
+                    _ratDefaultTaskHeartbeatTimeout,
+                  ("defaultTaskScheduleToCloseTimeout" .=) <$>
+                    _ratDefaultTaskScheduleToCloseTimeout,
+                  ("defaultTaskStartToCloseTimeout" .=) <$>
+                    _ratDefaultTaskStartToCloseTimeout,
+                  ("description" .=) <$> _ratDescription,
+                  Just ("domain" .= _ratDomain),
+                  Just ("name" .= _ratName),
+                  Just ("version" .= _ratVersion)])
 
 instance ToPath RegisterActivityType where
         toPath = const "/"

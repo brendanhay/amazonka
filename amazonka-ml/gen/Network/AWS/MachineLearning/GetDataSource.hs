@@ -100,9 +100,8 @@ gdsDataSourceId :: Lens' GetDataSource Text
 gdsDataSourceId = lens _gdsDataSourceId (\ s a -> s{_gdsDataSourceId = a});
 
 instance AWSRequest GetDataSource where
-        type Sv GetDataSource = MachineLearning
         type Rs GetDataSource = GetDataSourceResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -136,8 +135,9 @@ instance ToHeaders GetDataSource where
 instance ToJSON GetDataSource where
         toJSON GetDataSource'{..}
           = object
-              ["Verbose" .= _gdsVerbose,
-               "DataSourceId" .= _gdsDataSourceId]
+              (catMaybes
+                 [("Verbose" .=) <$> _gdsVerbose,
+                  Just ("DataSourceId" .= _gdsDataSourceId)])
 
 instance ToPath GetDataSource where
         toPath = const "/"

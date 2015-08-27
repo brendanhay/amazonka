@@ -102,11 +102,9 @@ upnNotifications :: Lens' UpdatePipelineNotifications Notifications
 upnNotifications = lens _upnNotifications (\ s a -> s{_upnNotifications = a});
 
 instance AWSRequest UpdatePipelineNotifications where
-        type Sv UpdatePipelineNotifications =
-             ElasticTranscoder
         type Rs UpdatePipelineNotifications =
              UpdatePipelineNotificationsResponse
-        request = postJSON
+        request = postJSON elasticTranscoder
         response
           = receiveJSON
               (\ s h x ->
@@ -118,7 +116,9 @@ instance ToHeaders UpdatePipelineNotifications where
 
 instance ToJSON UpdatePipelineNotifications where
         toJSON UpdatePipelineNotifications'{..}
-          = object ["Notifications" .= _upnNotifications]
+          = object
+              (catMaybes
+                 [Just ("Notifications" .= _upnNotifications)])
 
 instance ToPath UpdatePipelineNotifications where
         toPath UpdatePipelineNotifications'{..}

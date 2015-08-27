@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.RDS.Types
     (
-    -- * Service
-      RDS
+    -- * Service Configuration
+      rDS
 
     -- * Errors
     , _CertificateNotFoundFault
@@ -601,39 +600,36 @@ import           Network.AWS.RDS.Types.Product
 import           Network.AWS.RDS.Types.Sum
 import           Network.AWS.Sign.V4
 
--- | Version @2014-10-31@ of the Amazon Relational Database Service SDK.
-data RDS
-
-instance AWSService RDS where
-    type Sg RDS = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "RDS"
-            , _svcPrefix = "rds"
-            , _svcVersion = "2014-10-31"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseXMLError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2014-10-31' of the Amazon Relational Database Service SDK configuration.
+rDS :: Service
+rDS =
+    Service
+    { _svcAbbrev = "RDS"
+    , _svcSigner = v4
+    , _svcPrefix = "rds"
+    , _svcVersion = "2014-10-31"
+    , _svcEndpoint = defaultEndpoint rDS
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | /CertificateIdentifier/ does not refer to an existing certificate.
 _CertificateNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError

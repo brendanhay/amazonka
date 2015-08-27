@@ -75,10 +75,9 @@ cVirtualInterfaceId = lens _cVirtualInterfaceId (\ s a -> s{_cVirtualInterfaceId
 
 instance AWSRequest ConfirmPublicVirtualInterface
          where
-        type Sv ConfirmPublicVirtualInterface = DirectConnect
         type Rs ConfirmPublicVirtualInterface =
              ConfirmPublicVirtualInterfaceResponse
-        request = postJSON
+        request = postJSON directConnect
         response
           = receiveJSON
               (\ s h x ->
@@ -100,7 +99,9 @@ instance ToHeaders ConfirmPublicVirtualInterface
 instance ToJSON ConfirmPublicVirtualInterface where
         toJSON ConfirmPublicVirtualInterface'{..}
           = object
-              ["virtualInterfaceId" .= _cVirtualInterfaceId]
+              (catMaybes
+                 [Just
+                    ("virtualInterfaceId" .= _cVirtualInterfaceId)])
 
 instance ToPath ConfirmPublicVirtualInterface where
         toPath = const "/"

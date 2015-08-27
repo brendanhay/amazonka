@@ -99,10 +99,9 @@ instance AWSPager DescribeAutoScalingInstances where
 
 instance AWSRequest DescribeAutoScalingInstances
          where
-        type Sv DescribeAutoScalingInstances = AutoScaling
         type Rs DescribeAutoScalingInstances =
              DescribeAutoScalingInstancesResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper
               "DescribeAutoScalingInstancesResult"

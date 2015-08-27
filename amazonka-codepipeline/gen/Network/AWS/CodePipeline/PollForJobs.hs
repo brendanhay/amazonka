@@ -96,9 +96,8 @@ pfjActionTypeId :: Lens' PollForJobs ActionTypeId
 pfjActionTypeId = lens _pfjActionTypeId (\ s a -> s{_pfjActionTypeId = a});
 
 instance AWSRequest PollForJobs where
-        type Sv PollForJobs = CodePipeline
         type Rs PollForJobs = PollForJobsResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -117,9 +116,10 @@ instance ToHeaders PollForJobs where
 instance ToJSON PollForJobs where
         toJSON PollForJobs'{..}
           = object
-              ["maxBatchSize" .= _pfjMaxBatchSize,
-               "queryParam" .= _pfjQueryParam,
-               "actionTypeId" .= _pfjActionTypeId]
+              (catMaybes
+                 [("maxBatchSize" .=) <$> _pfjMaxBatchSize,
+                  ("queryParam" .=) <$> _pfjQueryParam,
+                  Just ("actionTypeId" .= _pfjActionTypeId)])
 
 instance ToPath PollForJobs where
         toPath = const "/"

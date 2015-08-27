@@ -71,10 +71,9 @@ dlpUserName :: Lens' DeleteLoginProfile Text
 dlpUserName = lens _dlpUserName (\ s a -> s{_dlpUserName = a});
 
 instance AWSRequest DeleteLoginProfile where
-        type Sv DeleteLoginProfile = IAM
         type Rs DeleteLoginProfile =
              DeleteLoginProfileResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull DeleteLoginProfileResponse'
 
 instance ToHeaders DeleteLoginProfile where

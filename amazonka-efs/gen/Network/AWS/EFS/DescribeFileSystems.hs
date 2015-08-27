@@ -129,10 +129,9 @@ dfsMarker :: Lens' DescribeFileSystems (Maybe Text)
 dfsMarker = lens _dfsMarker (\ s a -> s{_dfsMarker = a});
 
 instance AWSRequest DescribeFileSystems where
-        type Sv DescribeFileSystems = EFS
         type Rs DescribeFileSystems =
              DescribeFileSystemsResponse
-        request = get
+        request = get eFS
         response
           = receiveJSON
               (\ s h x ->

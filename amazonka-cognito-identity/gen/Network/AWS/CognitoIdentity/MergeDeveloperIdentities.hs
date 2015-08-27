@@ -114,10 +114,9 @@ mdiIdentityPoolId :: Lens' MergeDeveloperIdentities Text
 mdiIdentityPoolId = lens _mdiIdentityPoolId (\ s a -> s{_mdiIdentityPoolId = a});
 
 instance AWSRequest MergeDeveloperIdentities where
-        type Sv MergeDeveloperIdentities = CognitoIdentity
         type Rs MergeDeveloperIdentities =
              MergeDeveloperIdentitiesResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response
           = receiveJSON
               (\ s h x ->
@@ -137,11 +136,16 @@ instance ToHeaders MergeDeveloperIdentities where
 instance ToJSON MergeDeveloperIdentities where
         toJSON MergeDeveloperIdentities'{..}
           = object
-              ["SourceUserIdentifier" .= _mdiSourceUserIdentifier,
-               "DestinationUserIdentifier" .=
-                 _mdiDestinationUserIdentifier,
-               "DeveloperProviderName" .= _mdiDeveloperProviderName,
-               "IdentityPoolId" .= _mdiIdentityPoolId]
+              (catMaybes
+                 [Just
+                    ("SourceUserIdentifier" .= _mdiSourceUserIdentifier),
+                  Just
+                    ("DestinationUserIdentifier" .=
+                       _mdiDestinationUserIdentifier),
+                  Just
+                    ("DeveloperProviderName" .=
+                       _mdiDeveloperProviderName),
+                  Just ("IdentityPoolId" .= _mdiIdentityPoolId)])
 
 instance ToPath MergeDeveloperIdentities where
         toPath = const "/"

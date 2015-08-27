@@ -707,9 +707,8 @@ instance AWSPager Query where
               qExclusiveStartKey .~ rs ^. qrsLastEvaluatedKey
 
 instance AWSRequest Query where
-        type Sv Query = DynamoDB
         type Rs Query = QueryResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->
@@ -733,24 +732,28 @@ instance ToHeaders Query where
 instance ToJSON Query where
         toJSON Query'{..}
           = object
-              ["ProjectionExpression" .= _qProjectionExpression,
-               "KeyConditions" .= _qKeyConditions,
-               "FilterExpression" .= _qFilterExpression,
-               "QueryFilter" .= _qQueryFilter,
-               "ConsistentRead" .= _qConsistentRead,
-               "ExpressionAttributeNames" .=
-                 _qExpressionAttributeNames,
-               "AttributesToGet" .= _qAttributesToGet,
-               "ReturnConsumedCapacity" .= _qReturnConsumedCapacity,
-               "ExpressionAttributeValues" .=
-                 _qExpressionAttributeValues,
-               "ScanIndexForward" .= _qScanIndexForward,
-               "Limit" .= _qLimit, "Select" .= _qSelect,
-               "ConditionalOperator" .= _qConditionalOperator,
-               "KeyConditionExpression" .= _qKeyConditionExpression,
-               "ExclusiveStartKey" .= _qExclusiveStartKey,
-               "IndexName" .= _qIndexName,
-               "TableName" .= _qTableName]
+              (catMaybes
+                 [("ProjectionExpression" .=) <$>
+                    _qProjectionExpression,
+                  ("KeyConditions" .=) <$> _qKeyConditions,
+                  ("FilterExpression" .=) <$> _qFilterExpression,
+                  ("QueryFilter" .=) <$> _qQueryFilter,
+                  ("ConsistentRead" .=) <$> _qConsistentRead,
+                  ("ExpressionAttributeNames" .=) <$>
+                    _qExpressionAttributeNames,
+                  ("AttributesToGet" .=) <$> _qAttributesToGet,
+                  ("ReturnConsumedCapacity" .=) <$>
+                    _qReturnConsumedCapacity,
+                  ("ExpressionAttributeValues" .=) <$>
+                    _qExpressionAttributeValues,
+                  ("ScanIndexForward" .=) <$> _qScanIndexForward,
+                  ("Limit" .=) <$> _qLimit, ("Select" .=) <$> _qSelect,
+                  ("ConditionalOperator" .=) <$> _qConditionalOperator,
+                  ("KeyConditionExpression" .=) <$>
+                    _qKeyConditionExpression,
+                  ("ExclusiveStartKey" .=) <$> _qExclusiveStartKey,
+                  ("IndexName" .=) <$> _qIndexName,
+                  Just ("TableName" .= _qTableName)])
 
 instance ToPath Query where
         toPath = const "/"

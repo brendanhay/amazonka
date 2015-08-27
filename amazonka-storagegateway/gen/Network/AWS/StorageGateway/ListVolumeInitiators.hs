@@ -71,10 +71,9 @@ lviVolumeARN :: Lens' ListVolumeInitiators Text
 lviVolumeARN = lens _lviVolumeARN (\ s a -> s{_lviVolumeARN = a});
 
 instance AWSRequest ListVolumeInitiators where
-        type Sv ListVolumeInitiators = StorageGateway
         type Rs ListVolumeInitiators =
              ListVolumeInitiatorsResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -94,7 +93,8 @@ instance ToHeaders ListVolumeInitiators where
 
 instance ToJSON ListVolumeInitiators where
         toJSON ListVolumeInitiators'{..}
-          = object ["VolumeARN" .= _lviVolumeARN]
+          = object
+              (catMaybes [Just ("VolumeARN" .= _lviVolumeARN)])
 
 instance ToPath ListVolumeInitiators where
         toPath = const "/"

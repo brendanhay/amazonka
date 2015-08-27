@@ -100,10 +100,9 @@ lopiRegistrationStatus :: Lens' ListOnPremisesInstances (Maybe RegistrationStatu
 lopiRegistrationStatus = lens _lopiRegistrationStatus (\ s a -> s{_lopiRegistrationStatus = a});
 
 instance AWSRequest ListOnPremisesInstances where
-        type Sv ListOnPremisesInstances = CodeDeploy
         type Rs ListOnPremisesInstances =
              ListOnPremisesInstancesResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -125,9 +124,11 @@ instance ToHeaders ListOnPremisesInstances where
 instance ToJSON ListOnPremisesInstances where
         toJSON ListOnPremisesInstances'{..}
           = object
-              ["tagFilters" .= _lopiTagFilters,
-               "nextToken" .= _lopiNextToken,
-               "registrationStatus" .= _lopiRegistrationStatus]
+              (catMaybes
+                 [("tagFilters" .=) <$> _lopiTagFilters,
+                  ("nextToken" .=) <$> _lopiNextToken,
+                  ("registrationStatus" .=) <$>
+                    _lopiRegistrationStatus])
 
 instance ToPath ListOnPremisesInstances where
         toPath = const "/"

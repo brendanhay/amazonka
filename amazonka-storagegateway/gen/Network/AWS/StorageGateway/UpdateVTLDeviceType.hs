@@ -83,10 +83,9 @@ uvtldtDeviceType :: Lens' UpdateVTLDeviceType Text
 uvtldtDeviceType = lens _uvtldtDeviceType (\ s a -> s{_uvtldtDeviceType = a});
 
 instance AWSRequest UpdateVTLDeviceType where
-        type Sv UpdateVTLDeviceType = StorageGateway
         type Rs UpdateVTLDeviceType =
              UpdateVTLDeviceTypeResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -106,8 +105,9 @@ instance ToHeaders UpdateVTLDeviceType where
 instance ToJSON UpdateVTLDeviceType where
         toJSON UpdateVTLDeviceType'{..}
           = object
-              ["VTLDeviceARN" .= _uvtldtVTLDeviceARN,
-               "DeviceType" .= _uvtldtDeviceType]
+              (catMaybes
+                 [Just ("VTLDeviceARN" .= _uvtldtVTLDeviceARN),
+                  Just ("DeviceType" .= _uvtldtDeviceType)])
 
 instance ToPath UpdateVTLDeviceType where
         toPath = const "/"

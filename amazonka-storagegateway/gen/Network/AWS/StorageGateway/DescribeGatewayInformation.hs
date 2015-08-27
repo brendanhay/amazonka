@@ -78,10 +78,9 @@ dgiGatewayARN :: Lens' DescribeGatewayInformation Text
 dgiGatewayARN = lens _dgiGatewayARN (\ s a -> s{_dgiGatewayARN = a});
 
 instance AWSRequest DescribeGatewayInformation where
-        type Sv DescribeGatewayInformation = StorageGateway
         type Rs DescribeGatewayInformation =
              DescribeGatewayInformationResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -107,7 +106,8 @@ instance ToHeaders DescribeGatewayInformation where
 
 instance ToJSON DescribeGatewayInformation where
         toJSON DescribeGatewayInformation'{..}
-          = object ["GatewayARN" .= _dgiGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _dgiGatewayARN)])
 
 instance ToPath DescribeGatewayInformation where
         toPath = const "/"

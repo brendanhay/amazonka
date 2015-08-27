@@ -101,9 +101,8 @@ uupIAMUserARN :: Lens' UpdateUserProfile Text
 uupIAMUserARN = lens _uupIAMUserARN (\ s a -> s{_uupIAMUserARN = a});
 
 instance AWSRequest UpdateUserProfile where
-        type Sv UpdateUserProfile = OpsWorks
         type Rs UpdateUserProfile = UpdateUserProfileResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull UpdateUserProfileResponse'
 
 instance ToHeaders UpdateUserProfile where
@@ -119,10 +118,12 @@ instance ToHeaders UpdateUserProfile where
 instance ToJSON UpdateUserProfile where
         toJSON UpdateUserProfile'{..}
           = object
-              ["SshUsername" .= _uupSSHUsername,
-               "SshPublicKey" .= _uupSSHPublicKey,
-               "AllowSelfManagement" .= _uupAllowSelfManagement,
-               "IamUserArn" .= _uupIAMUserARN]
+              (catMaybes
+                 [("SshUsername" .=) <$> _uupSSHUsername,
+                  ("SshPublicKey" .=) <$> _uupSSHPublicKey,
+                  ("AllowSelfManagement" .=) <$>
+                    _uupAllowSelfManagement,
+                  Just ("IamUserArn" .= _uupIAMUserARN)])
 
 instance ToPath UpdateUserProfile where
         toPath = const "/"

@@ -68,9 +68,8 @@ gdArn :: Lens' GetDevice Text
 gdArn = lens _gdArn (\ s a -> s{_gdArn = a});
 
 instance AWSRequest GetDevice where
-        type Sv GetDevice = DeviceFarm
         type Rs GetDevice = GetDeviceResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -87,7 +86,8 @@ instance ToHeaders GetDevice where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetDevice where
-        toJSON GetDevice'{..} = object ["arn" .= _gdArn]
+        toJSON GetDevice'{..}
+          = object (catMaybes [Just ("arn" .= _gdArn)])
 
 instance ToPath GetDevice where
         toPath = const "/"

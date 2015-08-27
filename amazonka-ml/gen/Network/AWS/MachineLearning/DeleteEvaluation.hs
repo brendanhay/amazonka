@@ -74,9 +74,8 @@ deEvaluationId :: Lens' DeleteEvaluation Text
 deEvaluationId = lens _deEvaluationId (\ s a -> s{_deEvaluationId = a});
 
 instance AWSRequest DeleteEvaluation where
-        type Sv DeleteEvaluation = MachineLearning
         type Rs DeleteEvaluation = DeleteEvaluationResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -94,7 +93,9 @@ instance ToHeaders DeleteEvaluation where
 
 instance ToJSON DeleteEvaluation where
         toJSON DeleteEvaluation'{..}
-          = object ["EvaluationId" .= _deEvaluationId]
+          = object
+              (catMaybes
+                 [Just ("EvaluationId" .= _deEvaluationId)])
 
 instance ToPath DeleteEvaluation where
         toPath = const "/"

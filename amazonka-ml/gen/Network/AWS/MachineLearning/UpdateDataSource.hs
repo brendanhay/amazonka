@@ -80,9 +80,8 @@ udsDataSourceName :: Lens' UpdateDataSource Text
 udsDataSourceName = lens _udsDataSourceName (\ s a -> s{_udsDataSourceName = a});
 
 instance AWSRequest UpdateDataSource where
-        type Sv UpdateDataSource = MachineLearning
         type Rs UpdateDataSource = UpdateDataSourceResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -101,8 +100,9 @@ instance ToHeaders UpdateDataSource where
 instance ToJSON UpdateDataSource where
         toJSON UpdateDataSource'{..}
           = object
-              ["DataSourceId" .= _udsDataSourceId,
-               "DataSourceName" .= _udsDataSourceName]
+              (catMaybes
+                 [Just ("DataSourceId" .= _udsDataSourceId),
+                  Just ("DataSourceName" .= _udsDataSourceName)])
 
 instance ToPath UpdateDataSource where
         toPath = const "/"

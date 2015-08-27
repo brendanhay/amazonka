@@ -54,11 +54,9 @@ describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes'
 
 instance AWSRequest
          DescribeAutoScalingNotificationTypes where
-        type Sv DescribeAutoScalingNotificationTypes =
-             AutoScaling
         type Rs DescribeAutoScalingNotificationTypes =
              DescribeAutoScalingNotificationTypesResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper
               "DescribeAutoScalingNotificationTypesResult"

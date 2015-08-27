@@ -102,10 +102,9 @@ prdioReservedDBInstancesOfferingId = lens _prdioReservedDBInstancesOfferingId (\
 
 instance AWSRequest
          PurchaseReservedDBInstancesOffering where
-        type Sv PurchaseReservedDBInstancesOffering = RDS
         type Rs PurchaseReservedDBInstancesOffering =
              PurchaseReservedDBInstancesOfferingResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "PurchaseReservedDBInstancesOfferingResult"

@@ -70,10 +70,9 @@ grdsId :: Lens' GetReusableDelegationSet Text
 grdsId = lens _grdsId (\ s a -> s{_grdsId = a});
 
 instance AWSRequest GetReusableDelegationSet where
-        type Sv GetReusableDelegationSet = Route53
         type Rs GetReusableDelegationSet =
              GetReusableDelegationSetResponse
-        request = get
+        request = get route53
         response
           = receiveXML
               (\ s h x ->

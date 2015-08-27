@@ -2,7 +2,6 @@
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -157,13 +156,14 @@ instance FromJSON Artwork where
 instance ToJSON Artwork where
         toJSON Artwork'{..}
           = object
-              ["SizingPolicy" .= _aSizingPolicy,
-               "MaxHeight" .= _aMaxHeight,
-               "AlbumArtFormat" .= _aAlbumArtFormat,
-               "InputKey" .= _aInputKey,
-               "PaddingPolicy" .= _aPaddingPolicy,
-               "Encryption" .= _aEncryption,
-               "MaxWidth" .= _aMaxWidth]
+              (catMaybes
+                 [("SizingPolicy" .=) <$> _aSizingPolicy,
+                  ("MaxHeight" .=) <$> _aMaxHeight,
+                  ("AlbumArtFormat" .=) <$> _aAlbumArtFormat,
+                  ("InputKey" .=) <$> _aInputKey,
+                  ("PaddingPolicy" .=) <$> _aPaddingPolicy,
+                  ("Encryption" .=) <$> _aEncryption,
+                  ("MaxWidth" .=) <$> _aMaxWidth])
 
 -- | Options associated with your audio codec.
 --
@@ -264,8 +264,11 @@ instance FromJSON AudioCodecOptions where
 instance ToJSON AudioCodecOptions where
         toJSON AudioCodecOptions'{..}
           = object
-              ["BitDepth" .= _acoBitDepth, "Signed" .= _acoSigned,
-               "Profile" .= _acoProfile, "BitOrder" .= _acoBitOrder]
+              (catMaybes
+                 [("BitDepth" .=) <$> _acoBitDepth,
+                  ("Signed" .=) <$> _acoSigned,
+                  ("Profile" .=) <$> _acoProfile,
+                  ("BitOrder" .=) <$> _acoBitOrder])
 
 -- | Parameters required for transcoding audio.
 --
@@ -469,11 +472,13 @@ instance FromJSON AudioParameters where
 instance ToJSON AudioParameters where
         toJSON AudioParameters'{..}
           = object
-              ["Channels" .= _apChannels, "Codec" .= _apCodec,
-               "AudioPackingMode" .= _apAudioPackingMode,
-               "SampleRate" .= _apSampleRate,
-               "BitRate" .= _apBitRate,
-               "CodecOptions" .= _apCodecOptions]
+              (catMaybes
+                 [("Channels" .=) <$> _apChannels,
+                  ("Codec" .=) <$> _apCodec,
+                  ("AudioPackingMode" .=) <$> _apAudioPackingMode,
+                  ("SampleRate" .=) <$> _apSampleRate,
+                  ("BitRate" .=) <$> _apBitRate,
+                  ("CodecOptions" .=) <$> _apCodecOptions])
 
 -- | The file format of the output captions. If you leave this value blank,
 -- Elastic Transcoder returns an error.
@@ -569,8 +574,10 @@ instance FromJSON CaptionFormat where
 instance ToJSON CaptionFormat where
         toJSON CaptionFormat'{..}
           = object
-              ["Pattern" .= _cfPattern, "Format" .= _cfFormat,
-               "Encryption" .= _cfEncryption]
+              (catMaybes
+                 [("Pattern" .=) <$> _cfPattern,
+                  ("Format" .=) <$> _cfFormat,
+                  ("Encryption" .=) <$> _cfEncryption])
 
 -- | A source file for the input sidecar captions used during the transcoding
 -- process.
@@ -657,9 +664,12 @@ instance FromJSON CaptionSource where
 instance ToJSON CaptionSource where
         toJSON CaptionSource'{..}
           = object
-              ["TimeOffset" .= _csTimeOffset, "Key" .= _csKey,
-               "Encryption" .= _csEncryption,
-               "Language" .= _csLanguage, "Label" .= _csLabel]
+              (catMaybes
+                 [("TimeOffset" .=) <$> _csTimeOffset,
+                  ("Key" .=) <$> _csKey,
+                  ("Encryption" .=) <$> _csEncryption,
+                  ("Language" .=) <$> _csLanguage,
+                  ("Label" .=) <$> _csLabel])
 
 -- | The captions to be created, if any.
 --
@@ -733,9 +743,10 @@ instance FromJSON Captions where
 instance ToJSON Captions where
         toJSON Captions'{..}
           = object
-              ["MergePolicy" .= _cMergePolicy,
-               "CaptionSources" .= _cCaptionSources,
-               "CaptionFormats" .= _cCaptionFormats]
+              (catMaybes
+                 [("MergePolicy" .=) <$> _cMergePolicy,
+                  ("CaptionSources" .=) <$> _cCaptionSources,
+                  ("CaptionFormats" .=) <$> _cCaptionFormats])
 
 -- | Settings for one clip in a composition. All jobs in a playlist must have
 -- the same clip settings.
@@ -767,7 +778,8 @@ instance FromJSON Clip where
               (\ x -> Clip' <$> (x .:? "TimeSpan"))
 
 instance ToJSON Clip where
-        toJSON Clip'{..} = object ["TimeSpan" .= _cTimeSpan]
+        toJSON Clip'{..}
+          = object (catMaybes [("TimeSpan" .=) <$> _cTimeSpan])
 
 -- | The 'CreateJobOutput' structure.
 --
@@ -999,16 +1011,19 @@ cjoRotate = lens _cjoRotate (\ s a -> s{_cjoRotate = a});
 instance ToJSON CreateJobOutput where
         toJSON CreateJobOutput'{..}
           = object
-              ["ThumbnailPattern" .= _cjoThumbnailPattern,
-               "Captions" .= _cjoCaptions,
-               "PresetId" .= _cjoPresetId,
-               "Composition" .= _cjoComposition,
-               "AlbumArt" .= _cjoAlbumArt,
-               "Watermarks" .= _cjoWatermarks, "Key" .= _cjoKey,
-               "Encryption" .= _cjoEncryption,
-               "SegmentDuration" .= _cjoSegmentDuration,
-               "ThumbnailEncryption" .= _cjoThumbnailEncryption,
-               "Rotate" .= _cjoRotate]
+              (catMaybes
+                 [("ThumbnailPattern" .=) <$> _cjoThumbnailPattern,
+                  ("Captions" .=) <$> _cjoCaptions,
+                  ("PresetId" .=) <$> _cjoPresetId,
+                  ("Composition" .=) <$> _cjoComposition,
+                  ("AlbumArt" .=) <$> _cjoAlbumArt,
+                  ("Watermarks" .=) <$> _cjoWatermarks,
+                  ("Key" .=) <$> _cjoKey,
+                  ("Encryption" .=) <$> _cjoEncryption,
+                  ("SegmentDuration" .=) <$> _cjoSegmentDuration,
+                  ("ThumbnailEncryption" .=) <$>
+                    _cjoThumbnailEncryption,
+                  ("Rotate" .=) <$> _cjoRotate])
 
 -- | Information about the master playlist.
 --
@@ -1119,10 +1134,13 @@ cjpHlsContentProtection = lens _cjpHlsContentProtection (\ s a -> s{_cjpHlsConte
 instance ToJSON CreateJobPlaylist where
         toJSON CreateJobPlaylist'{..}
           = object
-              ["PlayReadyDrm" .= _cjpPlayReadyDrm,
-               "OutputKeys" .= _cjpOutputKeys,
-               "Format" .= _cjpFormat, "Name" .= _cjpName,
-               "HlsContentProtection" .= _cjpHlsContentProtection]
+              (catMaybes
+                 [("PlayReadyDrm" .=) <$> _cjpPlayReadyDrm,
+                  ("OutputKeys" .=) <$> _cjpOutputKeys,
+                  ("Format" .=) <$> _cjpFormat,
+                  ("Name" .=) <$> _cjpName,
+                  ("HlsContentProtection" .=) <$>
+                    _cjpHlsContentProtection])
 
 -- | The detected properties of the input file. Elastic Transcoder identifies
 -- these values from the input file.
@@ -1193,9 +1211,12 @@ instance FromJSON DetectedProperties where
 instance ToJSON DetectedProperties where
         toJSON DetectedProperties'{..}
           = object
-              ["Height" .= _dpHeight, "FrameRate" .= _dpFrameRate,
-               "FileSize" .= _dpFileSize, "Width" .= _dpWidth,
-               "DurationMillis" .= _dpDurationMillis]
+              (catMaybes
+                 [("Height" .=) <$> _dpHeight,
+                  ("FrameRate" .=) <$> _dpFrameRate,
+                  ("FileSize" .=) <$> _dpFileSize,
+                  ("Width" .=) <$> _dpWidth,
+                  ("DurationMillis" .=) <$> _dpDurationMillis])
 
 -- | The encryption settings, if any, that are used for decrypting your input
 -- files or encrypting your output files. If your input file is encrypted,
@@ -1310,9 +1331,11 @@ instance FromJSON Encryption where
 instance ToJSON Encryption where
         toJSON Encryption'{..}
           = object
-              ["KeyMd5" .= _eKeyMD5, "Mode" .= _eMode,
-               "Key" .= _eKey,
-               "InitializationVector" .= _eInitializationVector]
+              (catMaybes
+                 [("KeyMd5" .=) <$> _eKeyMD5, ("Mode" .=) <$> _eMode,
+                  ("Key" .=) <$> _eKey,
+                  ("InitializationVector" .=) <$>
+                    _eInitializationVector])
 
 -- | The HLS content protection settings, if any, that you want Elastic
 -- Transcoder to apply to your output files.
@@ -1422,11 +1445,14 @@ instance FromJSON HlsContentProtection where
 instance ToJSON HlsContentProtection where
         toJSON HlsContentProtection'{..}
           = object
-              ["KeyMd5" .= _hcpKeyMD5,
-               "KeyStoragePolicy" .= _hcpKeyStoragePolicy,
-               "Key" .= _hcpKey, "Method" .= _hcpMethod,
-               "LicenseAcquisitionUrl" .= _hcpLicenseAcquisitionURL,
-               "InitializationVector" .= _hcpInitializationVector]
+              (catMaybes
+                 [("KeyMd5" .=) <$> _hcpKeyMD5,
+                  ("KeyStoragePolicy" .=) <$> _hcpKeyStoragePolicy,
+                  ("Key" .=) <$> _hcpKey, ("Method" .=) <$> _hcpMethod,
+                  ("LicenseAcquisitionUrl" .=) <$>
+                    _hcpLicenseAcquisitionURL,
+                  ("InitializationVector" .=) <$>
+                    _hcpInitializationVector])
 
 -- | A section of the response body that provides information about the job
 -- that is created.
@@ -1653,8 +1679,9 @@ instance FromJSON JobAlbumArt where
 instance ToJSON JobAlbumArt where
         toJSON JobAlbumArt'{..}
           = object
-              ["MergePolicy" .= _jaaMergePolicy,
-               "Artwork" .= _jaaArtwork]
+              (catMaybes
+                 [("MergePolicy" .=) <$> _jaaMergePolicy,
+                  ("Artwork" .=) <$> _jaaArtwork])
 
 -- | Information about the file that you\'re transcoding.
 --
@@ -1791,13 +1818,15 @@ instance FromJSON JobInput where
 instance ToJSON JobInput where
         toJSON JobInput'{..}
           = object
-              ["FrameRate" .= _jiFrameRate,
-               "Resolution" .= _jiResolution,
-               "AspectRatio" .= _jiAspectRatio, "Key" .= _jiKey,
-               "DetectedProperties" .= _jiDetectedProperties,
-               "Encryption" .= _jiEncryption,
-               "Container" .= _jiContainer,
-               "Interlaced" .= _jiInterlaced]
+              (catMaybes
+                 [("FrameRate" .=) <$> _jiFrameRate,
+                  ("Resolution" .=) <$> _jiResolution,
+                  ("AspectRatio" .=) <$> _jiAspectRatio,
+                  ("Key" .=) <$> _jiKey,
+                  ("DetectedProperties" .=) <$> _jiDetectedProperties,
+                  ("Encryption" .=) <$> _jiEncryption,
+                  ("Container" .=) <$> _jiContainer,
+                  ("Interlaced" .=) <$> _jiInterlaced])
 
 -- | Outputs recommended instead.
 -- If you specified one output for a job, information about that output. If
@@ -2234,9 +2263,10 @@ instance FromJSON JobWatermark where
 instance ToJSON JobWatermark where
         toJSON JobWatermark'{..}
           = object
-              ["PresetWatermarkId" .= _jwPresetWatermarkId,
-               "InputKey" .= _jwInputKey,
-               "Encryption" .= _jwEncryption]
+              (catMaybes
+                 [("PresetWatermarkId" .=) <$> _jwPresetWatermarkId,
+                  ("InputKey" .=) <$> _jwInputKey,
+                  ("Encryption" .=) <$> _jwEncryption])
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic or topics to
 -- notify in order to report job status.
@@ -2305,9 +2335,11 @@ instance FromJSON Notifications where
 instance ToJSON Notifications where
         toJSON Notifications'{..}
           = object
-              ["Error" .= _nError, "Warning" .= _nWarning,
-               "Completed" .= _nCompleted,
-               "Progressing" .= _nProgressing]
+              (catMaybes
+                 [("Error" .=) <$> _nError,
+                  ("Warning" .=) <$> _nWarning,
+                  ("Completed" .=) <$> _nCompleted,
+                  ("Progressing" .=) <$> _nProgressing])
 
 -- | The 'Permission' structure.
 --
@@ -2381,9 +2413,10 @@ instance FromJSON Permission where
 instance ToJSON Permission where
         toJSON Permission'{..}
           = object
-              ["Access" .= _pAccess,
-               "GranteeType" .= _pGranteeType,
-               "Grantee" .= _pGrantee]
+              (catMaybes
+                 [("Access" .=) <$> _pAccess,
+                  ("GranteeType" .=) <$> _pGranteeType,
+                  ("Grantee" .=) <$> _pGrantee])
 
 -- | The pipeline (queue) that is used to manage jobs.
 --
@@ -2691,9 +2724,10 @@ instance FromJSON PipelineOutputConfig where
 instance ToJSON PipelineOutputConfig where
         toJSON PipelineOutputConfig'{..}
           = object
-              ["Bucket" .= _pocBucket,
-               "StorageClass" .= _pocStorageClass,
-               "Permissions" .= _pocPermissions]
+              (catMaybes
+                 [("Bucket" .=) <$> _pocBucket,
+                  ("StorageClass" .=) <$> _pocStorageClass,
+                  ("Permissions" .=) <$> _pocPermissions])
 
 -- | The PlayReady DRM settings, if any, that you want Elastic Transcoder to
 -- apply to the output files associated with this playlist.
@@ -2805,10 +2839,14 @@ instance FromJSON PlayReadyDrm where
 instance ToJSON PlayReadyDrm where
         toJSON PlayReadyDrm'{..}
           = object
-              ["KeyId" .= _prdKeyId, "KeyMd5" .= _prdKeyMD5,
-               "Format" .= _prdFormat, "Key" .= _prdKey,
-               "LicenseAcquisitionUrl" .= _prdLicenseAcquisitionURL,
-               "InitializationVector" .= _prdInitializationVector]
+              (catMaybes
+                 [("KeyId" .=) <$> _prdKeyId,
+                  ("KeyMd5" .=) <$> _prdKeyMD5,
+                  ("Format" .=) <$> _prdFormat, ("Key" .=) <$> _prdKey,
+                  ("LicenseAcquisitionUrl" .=) <$>
+                    _prdLicenseAcquisitionURL,
+                  ("InitializationVector" .=) <$>
+                    _prdInitializationVector])
 
 -- | Use Only for Fragmented MP4 or MPEG-TS Outputs. If you specify a preset
 -- for which the value of Container is 'fmp4' (Fragmented MP4) or 'ts'
@@ -3299,15 +3337,16 @@ instance FromJSON PresetWatermark where
 instance ToJSON PresetWatermark where
         toJSON PresetWatermark'{..}
           = object
-              ["VerticalAlign" .= _pwVerticalAlign,
-               "SizingPolicy" .= _pwSizingPolicy,
-               "MaxHeight" .= _pwMaxHeight,
-               "HorizontalOffset" .= _pwHorizontalOffset,
-               "Opacity" .= _pwOpacity,
-               "VerticalOffset" .= _pwVerticalOffset,
-               "MaxWidth" .= _pwMaxWidth, "Id" .= _pwId,
-               "HorizontalAlign" .= _pwHorizontalAlign,
-               "Target" .= _pwTarget]
+              (catMaybes
+                 [("VerticalAlign" .=) <$> _pwVerticalAlign,
+                  ("SizingPolicy" .=) <$> _pwSizingPolicy,
+                  ("MaxHeight" .=) <$> _pwMaxHeight,
+                  ("HorizontalOffset" .=) <$> _pwHorizontalOffset,
+                  ("Opacity" .=) <$> _pwOpacity,
+                  ("VerticalOffset" .=) <$> _pwVerticalOffset,
+                  ("MaxWidth" .=) <$> _pwMaxWidth, ("Id" .=) <$> _pwId,
+                  ("HorizontalAlign" .=) <$> _pwHorizontalAlign,
+                  ("Target" .=) <$> _pwTarget])
 
 -- | Thumbnails for videos.
 --
@@ -3462,12 +3501,15 @@ instance FromJSON Thumbnails where
 instance ToJSON Thumbnails where
         toJSON Thumbnails'{..}
           = object
-              ["SizingPolicy" .= _tSizingPolicy,
-               "Format" .= _tFormat, "MaxHeight" .= _tMaxHeight,
-               "Resolution" .= _tResolution,
-               "PaddingPolicy" .= _tPaddingPolicy,
-               "AspectRatio" .= _tAspectRatio,
-               "Interval" .= _tInterval, "MaxWidth" .= _tMaxWidth]
+              (catMaybes
+                 [("SizingPolicy" .=) <$> _tSizingPolicy,
+                  ("Format" .=) <$> _tFormat,
+                  ("MaxHeight" .=) <$> _tMaxHeight,
+                  ("Resolution" .=) <$> _tResolution,
+                  ("PaddingPolicy" .=) <$> _tPaddingPolicy,
+                  ("AspectRatio" .=) <$> _tAspectRatio,
+                  ("Interval" .=) <$> _tInterval,
+                  ("MaxWidth" .=) <$> _tMaxWidth])
 
 -- | Settings that determine when a clip begins and how long it lasts.
 --
@@ -3520,8 +3562,9 @@ instance FromJSON TimeSpan where
 instance ToJSON TimeSpan where
         toJSON TimeSpan'{..}
           = object
-              ["StartTime" .= _tsStartTime,
-               "Duration" .= _tsDuration]
+              (catMaybes
+                 [("StartTime" .=) <$> _tsStartTime,
+                  ("Duration" .=) <$> _tsDuration])
 
 -- | Details about the timing of a job.
 --
@@ -4065,19 +4108,22 @@ instance FromJSON VideoParameters where
 instance ToJSON VideoParameters where
         toJSON VideoParameters'{..}
           = object
-              ["KeyframesMaxDist" .= _vpKeyframesMaxDist,
-               "FrameRate" .= _vpFrameRate,
-               "SizingPolicy" .= _vpSizingPolicy,
-               "MaxFrameRate" .= _vpMaxFrameRate,
-               "MaxHeight" .= _vpMaxHeight,
-               "DisplayAspectRatio" .= _vpDisplayAspectRatio,
-               "Watermarks" .= _vpWatermarks, "Codec" .= _vpCodec,
-               "Resolution" .= _vpResolution,
-               "PaddingPolicy" .= _vpPaddingPolicy,
-               "AspectRatio" .= _vpAspectRatio,
-               "MaxWidth" .= _vpMaxWidth, "BitRate" .= _vpBitRate,
-               "FixedGOP" .= _vpFixedGOP,
-               "CodecOptions" .= _vpCodecOptions]
+              (catMaybes
+                 [("KeyframesMaxDist" .=) <$> _vpKeyframesMaxDist,
+                  ("FrameRate" .=) <$> _vpFrameRate,
+                  ("SizingPolicy" .=) <$> _vpSizingPolicy,
+                  ("MaxFrameRate" .=) <$> _vpMaxFrameRate,
+                  ("MaxHeight" .=) <$> _vpMaxHeight,
+                  ("DisplayAspectRatio" .=) <$> _vpDisplayAspectRatio,
+                  ("Watermarks" .=) <$> _vpWatermarks,
+                  ("Codec" .=) <$> _vpCodec,
+                  ("Resolution" .=) <$> _vpResolution,
+                  ("PaddingPolicy" .=) <$> _vpPaddingPolicy,
+                  ("AspectRatio" .=) <$> _vpAspectRatio,
+                  ("MaxWidth" .=) <$> _vpMaxWidth,
+                  ("BitRate" .=) <$> _vpBitRate,
+                  ("FixedGOP" .=) <$> _vpFixedGOP,
+                  ("CodecOptions" .=) <$> _vpCodecOptions])
 
 -- | Elastic Transcoder returns a warning if the resources used by your
 -- pipeline are not in the same region as the pipeline.

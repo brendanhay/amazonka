@@ -128,9 +128,8 @@ lglStartContinentCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartContinentCode = lens _lglStartContinentCode (\ s a -> s{_lglStartContinentCode = a});
 
 instance AWSRequest ListGeoLocations where
-        type Sv ListGeoLocations = Route53
         type Rs ListGeoLocations = ListGeoLocationsResponse
-        request = get
+        request = get route53
         response
           = receiveXML
               (\ s h x ->

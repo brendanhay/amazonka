@@ -75,10 +75,9 @@ bgrRepositoryNames :: Lens' BatchGetRepositories [Text]
 bgrRepositoryNames = lens _bgrRepositoryNames (\ s a -> s{_bgrRepositoryNames = a}) . _Coerce;
 
 instance AWSRequest BatchGetRepositories where
-        type Sv BatchGetRepositories = CodeCommit
         type Rs BatchGetRepositories =
              BatchGetRepositoriesResponse
-        request = postJSON
+        request = postJSON codeCommit
         response
           = receiveJSON
               (\ s h x ->
@@ -99,7 +98,9 @@ instance ToHeaders BatchGetRepositories where
 
 instance ToJSON BatchGetRepositories where
         toJSON BatchGetRepositories'{..}
-          = object ["repositoryNames" .= _bgrRepositoryNames]
+          = object
+              (catMaybes
+                 [Just ("repositoryNames" .= _bgrRepositoryNames)])
 
 instance ToPath BatchGetRepositories where
         toPath = const "/"

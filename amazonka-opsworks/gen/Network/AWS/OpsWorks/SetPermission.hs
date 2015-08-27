@@ -118,9 +118,8 @@ spIAMUserARN :: Lens' SetPermission Text
 spIAMUserARN = lens _spIAMUserARN (\ s a -> s{_spIAMUserARN = a});
 
 instance AWSRequest SetPermission where
-        type Sv SetPermission = OpsWorks
         type Rs SetPermission = SetPermissionResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull SetPermissionResponse'
 
 instance ToHeaders SetPermission where
@@ -135,9 +134,12 @@ instance ToHeaders SetPermission where
 instance ToJSON SetPermission where
         toJSON SetPermission'{..}
           = object
-              ["AllowSudo" .= _spAllowSudo, "Level" .= _spLevel,
-               "AllowSsh" .= _spAllowSSH, "StackId" .= _spStackId,
-               "IamUserArn" .= _spIAMUserARN]
+              (catMaybes
+                 [("AllowSudo" .=) <$> _spAllowSudo,
+                  ("Level" .=) <$> _spLevel,
+                  ("AllowSsh" .=) <$> _spAllowSSH,
+                  Just ("StackId" .= _spStackId),
+                  Just ("IamUserArn" .= _spIAMUserARN)])
 
 instance ToPath SetPermission where
         toPath = const "/"

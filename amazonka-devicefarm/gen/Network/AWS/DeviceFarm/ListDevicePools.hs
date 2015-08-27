@@ -98,9 +98,8 @@ ldpArn :: Lens' ListDevicePools Text
 ldpArn = lens _ldpArn (\ s a -> s{_ldpArn = a});
 
 instance AWSRequest ListDevicePools where
-        type Sv ListDevicePools = DeviceFarm
         type Rs ListDevicePools = ListDevicePoolsResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -122,8 +121,9 @@ instance ToHeaders ListDevicePools where
 instance ToJSON ListDevicePools where
         toJSON ListDevicePools'{..}
           = object
-              ["nextToken" .= _ldpNextToken, "type" .= _ldpType,
-               "arn" .= _ldpArn]
+              (catMaybes
+                 [("nextToken" .=) <$> _ldpNextToken,
+                  ("type" .=) <$> _ldpType, Just ("arn" .= _ldpArn)])
 
 instance ToPath ListDevicePools where
         toPath = const "/"

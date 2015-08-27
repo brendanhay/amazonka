@@ -80,9 +80,8 @@ urRadiusSettings :: Lens' UpdateRadius RadiusSettings
 urRadiusSettings = lens _urRadiusSettings (\ s a -> s{_urRadiusSettings = a});
 
 instance AWSRequest UpdateRadius where
-        type Sv UpdateRadius = DirectoryService
         type Rs UpdateRadius = UpdateRadiusResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveEmpty
               (\ s h x ->
@@ -101,8 +100,9 @@ instance ToHeaders UpdateRadius where
 instance ToJSON UpdateRadius where
         toJSON UpdateRadius'{..}
           = object
-              ["DirectoryId" .= _urDirectoryId,
-               "RadiusSettings" .= _urRadiusSettings]
+              (catMaybes
+                 [Just ("DirectoryId" .= _urDirectoryId),
+                  Just ("RadiusSettings" .= _urRadiusSettings)])
 
 instance ToPath UpdateRadius where
         toPath = const "/"

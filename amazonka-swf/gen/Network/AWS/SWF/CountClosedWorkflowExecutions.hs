@@ -175,10 +175,9 @@ ccweDomain = lens _ccweDomain (\ s a -> s{_ccweDomain = a});
 
 instance AWSRequest CountClosedWorkflowExecutions
          where
-        type Sv CountClosedWorkflowExecutions = SWF
         type Rs CountClosedWorkflowExecutions =
              WorkflowExecutionCount
-        request = postJSON
+        request = postJSON sWF
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CountClosedWorkflowExecutions
@@ -195,13 +194,14 @@ instance ToHeaders CountClosedWorkflowExecutions
 instance ToJSON CountClosedWorkflowExecutions where
         toJSON CountClosedWorkflowExecutions'{..}
           = object
-              ["closeStatusFilter" .= _ccweCloseStatusFilter,
-               "executionFilter" .= _ccweExecutionFilter,
-               "typeFilter" .= _ccweTypeFilter,
-               "closeTimeFilter" .= _ccweCloseTimeFilter,
-               "tagFilter" .= _ccweTagFilter,
-               "startTimeFilter" .= _ccweStartTimeFilter,
-               "domain" .= _ccweDomain]
+              (catMaybes
+                 [("closeStatusFilter" .=) <$> _ccweCloseStatusFilter,
+                  ("executionFilter" .=) <$> _ccweExecutionFilter,
+                  ("typeFilter" .=) <$> _ccweTypeFilter,
+                  ("closeTimeFilter" .=) <$> _ccweCloseTimeFilter,
+                  ("tagFilter" .=) <$> _ccweTagFilter,
+                  ("startTimeFilter" .=) <$> _ccweStartTimeFilter,
+                  Just ("domain" .= _ccweDomain)])
 
 instance ToPath CountClosedWorkflowExecutions where
         toPath = const "/"

@@ -93,9 +93,8 @@ umlmMLModelId :: Lens' UpdateMLModel Text
 umlmMLModelId = lens _umlmMLModelId (\ s a -> s{_umlmMLModelId = a});
 
 instance AWSRequest UpdateMLModel where
-        type Sv UpdateMLModel = MachineLearning
         type Rs UpdateMLModel = UpdateMLModelResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -114,9 +113,10 @@ instance ToHeaders UpdateMLModel where
 instance ToJSON UpdateMLModel where
         toJSON UpdateMLModel'{..}
           = object
-              ["MLModelName" .= _umlmMLModelName,
-               "ScoreThreshold" .= _umlmScoreThreshold,
-               "MLModelId" .= _umlmMLModelId]
+              (catMaybes
+                 [("MLModelName" .=) <$> _umlmMLModelName,
+                  ("ScoreThreshold" .=) <$> _umlmScoreThreshold,
+                  Just ("MLModelId" .= _umlmMLModelId)])
 
 instance ToPath UpdateMLModel where
         toPath = const "/"

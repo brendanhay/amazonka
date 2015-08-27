@@ -77,10 +77,9 @@ davStackId :: Lens' DescribeAgentVersions (Maybe Text)
 davStackId = lens _davStackId (\ s a -> s{_davStackId = a});
 
 instance AWSRequest DescribeAgentVersions where
-        type Sv DescribeAgentVersions = OpsWorks
         type Rs DescribeAgentVersions =
              DescribeAgentVersionsResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -101,8 +100,10 @@ instance ToHeaders DescribeAgentVersions where
 instance ToJSON DescribeAgentVersions where
         toJSON DescribeAgentVersions'{..}
           = object
-              ["ConfigurationManager" .= _davConfigurationManager,
-               "StackId" .= _davStackId]
+              (catMaybes
+                 [("ConfigurationManager" .=) <$>
+                    _davConfigurationManager,
+                  ("StackId" .=) <$> _davStackId])
 
 instance ToPath DescribeAgentVersions where
         toPath = const "/"

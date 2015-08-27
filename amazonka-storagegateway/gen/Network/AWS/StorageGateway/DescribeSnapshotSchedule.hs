@@ -76,10 +76,9 @@ dssVolumeARN :: Lens' DescribeSnapshotSchedule Text
 dssVolumeARN = lens _dssVolumeARN (\ s a -> s{_dssVolumeARN = a});
 
 instance AWSRequest DescribeSnapshotSchedule where
-        type Sv DescribeSnapshotSchedule = StorageGateway
         type Rs DescribeSnapshotSchedule =
              DescribeSnapshotScheduleResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -102,7 +101,8 @@ instance ToHeaders DescribeSnapshotSchedule where
 
 instance ToJSON DescribeSnapshotSchedule where
         toJSON DescribeSnapshotSchedule'{..}
-          = object ["VolumeARN" .= _dssVolumeARN]
+          = object
+              (catMaybes [Just ("VolumeARN" .= _dssVolumeARN)])
 
 instance ToPath DescribeSnapshotSchedule where
         toPath = const "/"

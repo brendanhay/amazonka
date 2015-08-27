@@ -114,9 +114,8 @@ instance AWSPager ListVolumes where
             Just $ rq & lvMarker .~ rs ^. lvrsMarker
 
 instance AWSRequest ListVolumes where
-        type Sv ListVolumes = StorageGateway
         type Rs ListVolumes = ListVolumesResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -138,8 +137,10 @@ instance ToHeaders ListVolumes where
 instance ToJSON ListVolumes where
         toJSON ListVolumes'{..}
           = object
-              ["Marker" .= _lvMarker, "Limit" .= _lvLimit,
-               "GatewayARN" .= _lvGatewayARN]
+              (catMaybes
+                 [("Marker" .=) <$> _lvMarker,
+                  ("Limit" .=) <$> _lvLimit,
+                  Just ("GatewayARN" .= _lvGatewayARN)])
 
 instance ToPath ListVolumes where
         toPath = const "/"

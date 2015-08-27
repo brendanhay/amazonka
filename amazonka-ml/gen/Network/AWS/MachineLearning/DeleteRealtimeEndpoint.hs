@@ -67,10 +67,9 @@ dreMLModelId :: Lens' DeleteRealtimeEndpoint Text
 dreMLModelId = lens _dreMLModelId (\ s a -> s{_dreMLModelId = a});
 
 instance AWSRequest DeleteRealtimeEndpoint where
-        type Sv DeleteRealtimeEndpoint = MachineLearning
         type Rs DeleteRealtimeEndpoint =
              DeleteRealtimeEndpointResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -91,7 +90,8 @@ instance ToHeaders DeleteRealtimeEndpoint where
 
 instance ToJSON DeleteRealtimeEndpoint where
         toJSON DeleteRealtimeEndpoint'{..}
-          = object ["MLModelId" .= _dreMLModelId]
+          = object
+              (catMaybes [Just ("MLModelId" .= _dreMLModelId)])
 
 instance ToPath DeleteRealtimeEndpoint where
         toPath = const "/"

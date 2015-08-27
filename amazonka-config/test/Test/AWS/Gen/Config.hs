@@ -163,64 +163,75 @@ testGetResourceConfigHistoryResponse :: GetResourceConfigHistoryResponse -> Test
 testGetResourceConfigHistoryResponse = res
     "GetResourceConfigHistoryResponse"
     "fixture/GetResourceConfigHistoryResponse"
+    config
     (Proxy :: Proxy GetResourceConfigHistory)
 
 testStopConfigurationRecorderResponse :: StopConfigurationRecorderResponse -> TestTree
 testStopConfigurationRecorderResponse = res
     "StopConfigurationRecorderResponse"
     "fixture/StopConfigurationRecorderResponse"
+    config
     (Proxy :: Proxy StopConfigurationRecorder)
 
 testDeliverConfigSnapshotResponse :: DeliverConfigSnapshotResponse -> TestTree
 testDeliverConfigSnapshotResponse = res
     "DeliverConfigSnapshotResponse"
     "fixture/DeliverConfigSnapshotResponse"
+    config
     (Proxy :: Proxy DeliverConfigSnapshot)
 
 testDescribeConfigurationRecordersResponse :: DescribeConfigurationRecordersResponse -> TestTree
 testDescribeConfigurationRecordersResponse = res
     "DescribeConfigurationRecordersResponse"
     "fixture/DescribeConfigurationRecordersResponse"
+    config
     (Proxy :: Proxy DescribeConfigurationRecorders)
 
 testStartConfigurationRecorderResponse :: StartConfigurationRecorderResponse -> TestTree
 testStartConfigurationRecorderResponse = res
     "StartConfigurationRecorderResponse"
     "fixture/StartConfigurationRecorderResponse"
+    config
     (Proxy :: Proxy StartConfigurationRecorder)
 
 testDescribeConfigurationRecorderStatusResponse :: DescribeConfigurationRecorderStatusResponse -> TestTree
 testDescribeConfigurationRecorderStatusResponse = res
     "DescribeConfigurationRecorderStatusResponse"
     "fixture/DescribeConfigurationRecorderStatusResponse"
+    config
     (Proxy :: Proxy DescribeConfigurationRecorderStatus)
 
 testPutConfigurationRecorderResponse :: PutConfigurationRecorderResponse -> TestTree
 testPutConfigurationRecorderResponse = res
     "PutConfigurationRecorderResponse"
     "fixture/PutConfigurationRecorderResponse"
+    config
     (Proxy :: Proxy PutConfigurationRecorder)
 
 testDeleteDeliveryChannelResponse :: DeleteDeliveryChannelResponse -> TestTree
 testDeleteDeliveryChannelResponse = res
     "DeleteDeliveryChannelResponse"
     "fixture/DeleteDeliveryChannelResponse"
+    config
     (Proxy :: Proxy DeleteDeliveryChannel)
 
 testPutDeliveryChannelResponse :: PutDeliveryChannelResponse -> TestTree
 testPutDeliveryChannelResponse = res
     "PutDeliveryChannelResponse"
     "fixture/PutDeliveryChannelResponse"
+    config
     (Proxy :: Proxy PutDeliveryChannel)
 
 testDescribeDeliveryChannelStatusResponse :: DescribeDeliveryChannelStatusResponse -> TestTree
 testDescribeDeliveryChannelStatusResponse = res
     "DescribeDeliveryChannelStatusResponse"
     "fixture/DescribeDeliveryChannelStatusResponse"
+    config
     (Proxy :: Proxy DescribeDeliveryChannelStatus)
 
 testDescribeDeliveryChannelsResponse :: DescribeDeliveryChannelsResponse -> TestTree
 testDescribeDeliveryChannelsResponse = res
     "DescribeDeliveryChannelsResponse"
     "fixture/DescribeDeliveryChannelsResponse"
+    config
     (Proxy :: Proxy DescribeDeliveryChannels)

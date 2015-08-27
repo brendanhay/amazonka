@@ -90,9 +90,8 @@ dsLanguage :: Lens' DescribeServices (Maybe Text)
 dsLanguage = lens _dsLanguage (\ s a -> s{_dsLanguage = a});
 
 instance AWSRequest DescribeServices where
-        type Sv DescribeServices = Support
         type Rs DescribeServices = DescribeServicesResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveJSON
               (\ s h x ->
@@ -113,8 +112,9 @@ instance ToHeaders DescribeServices where
 instance ToJSON DescribeServices where
         toJSON DescribeServices'{..}
           = object
-              ["serviceCodeList" .= _dsServiceCodeList,
-               "language" .= _dsLanguage]
+              (catMaybes
+                 [("serviceCodeList" .=) <$> _dsServiceCodeList,
+                  ("language" .=) <$> _dsLanguage])
 
 instance ToPath DescribeServices where
         toPath = const "/"

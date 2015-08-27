@@ -154,9 +154,8 @@ instance AWSPager DescribeEvents where
             Just $ rq & deMarker .~ rs ^. dersMarker
 
 instance AWSRequest DescribeEvents where
-        type Sv DescribeEvents = ElastiCache
         type Rs DescribeEvents = DescribeEventsResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "DescribeEventsResult"
               (\ s h x ->

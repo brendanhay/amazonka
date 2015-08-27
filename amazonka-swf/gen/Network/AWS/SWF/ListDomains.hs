@@ -144,9 +144,8 @@ instance AWSPager ListDomains where
               ldNextPageToken .~ rs ^. ldrsNextPageToken
 
 instance AWSRequest ListDomains where
-        type Sv ListDomains = SWF
         type Rs ListDomains = ListDomainsResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveJSON
               (\ s h x ->
@@ -166,10 +165,12 @@ instance ToHeaders ListDomains where
 instance ToJSON ListDomains where
         toJSON ListDomains'{..}
           = object
-              ["nextPageToken" .= _ldNextPageToken,
-               "reverseOrder" .= _ldReverseOrder,
-               "maximumPageSize" .= _ldMaximumPageSize,
-               "registrationStatus" .= _ldRegistrationStatus]
+              (catMaybes
+                 [("nextPageToken" .=) <$> _ldNextPageToken,
+                  ("reverseOrder" .=) <$> _ldReverseOrder,
+                  ("maximumPageSize" .=) <$> _ldMaximumPageSize,
+                  Just
+                    ("registrationStatus" .= _ldRegistrationStatus)])
 
 instance ToPath ListDomains where
         toPath = const "/"

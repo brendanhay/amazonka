@@ -72,9 +72,8 @@ ccConnectionId :: Lens' ConfirmConnection Text
 ccConnectionId = lens _ccConnectionId (\ s a -> s{_ccConnectionId = a});
 
 instance AWSRequest ConfirmConnection where
-        type Sv ConfirmConnection = DirectConnect
         type Rs ConfirmConnection = ConfirmConnectionResponse
-        request = postJSON
+        request = postJSON directConnect
         response
           = receiveJSON
               (\ s h x ->
@@ -92,7 +91,9 @@ instance ToHeaders ConfirmConnection where
 
 instance ToJSON ConfirmConnection where
         toJSON ConfirmConnection'{..}
-          = object ["connectionId" .= _ccConnectionId]
+          = object
+              (catMaybes
+                 [Just ("connectionId" .= _ccConnectionId)])
 
 instance ToPath ConfirmConnection where
         toPath = const "/"

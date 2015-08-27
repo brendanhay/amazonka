@@ -101,10 +101,9 @@ avwhzVPC :: Lens' AssociateVPCWithHostedZone VPC
 avwhzVPC = lens _avwhzVPC (\ s a -> s{_avwhzVPC = a});
 
 instance AWSRequest AssociateVPCWithHostedZone where
-        type Sv AssociateVPCWithHostedZone = Route53
         type Rs AssociateVPCWithHostedZone =
              AssociateVPCWithHostedZoneResponse
-        request = postXML
+        request = postXML route53
         response
           = receiveXML
               (\ s h x ->

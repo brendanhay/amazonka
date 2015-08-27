@@ -118,10 +118,9 @@ drilReservedInstancesListingId = lens _drilReservedInstancesListingId (\ s a -> 
 
 instance AWSRequest DescribeReservedInstancesListings
          where
-        type Sv DescribeReservedInstancesListings = EC2
         type Rs DescribeReservedInstancesListings =
              DescribeReservedInstancesListingsResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

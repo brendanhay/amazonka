@@ -71,10 +71,9 @@ ddcDeliveryChannelNames :: Lens' DescribeDeliveryChannels [Text]
 ddcDeliveryChannelNames = lens _ddcDeliveryChannelNames (\ s a -> s{_ddcDeliveryChannelNames = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeDeliveryChannels where
-        type Sv DescribeDeliveryChannels = Config
         type Rs DescribeDeliveryChannels =
              DescribeDeliveryChannelsResponse
-        request = postJSON
+        request = postJSON config
         response
           = receiveJSON
               (\ s h x ->
@@ -95,7 +94,9 @@ instance ToHeaders DescribeDeliveryChannels where
 instance ToJSON DescribeDeliveryChannels where
         toJSON DescribeDeliveryChannels'{..}
           = object
-              ["DeliveryChannelNames" .= _ddcDeliveryChannelNames]
+              (catMaybes
+                 [("DeliveryChannelNames" .=) <$>
+                    _ddcDeliveryChannelNames])
 
 instance ToPath DescribeDeliveryChannels where
         toPath = const "/"

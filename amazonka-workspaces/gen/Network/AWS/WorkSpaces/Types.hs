@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.WorkSpaces.Types
     (
-    -- * Service
-      WorkSpaces
+    -- * Service Configuration
+      workSpaces
 
     -- * Errors
     , _InvalidParameterValuesException
@@ -133,39 +132,36 @@ import           Network.AWS.Sign.V4
 import           Network.AWS.WorkSpaces.Types.Product
 import           Network.AWS.WorkSpaces.Types.Sum
 
--- | Version @2015-04-08@ of the Amazon WorkSpaces SDK.
-data WorkSpaces
-
-instance AWSService WorkSpaces where
-    type Sg WorkSpaces = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "WorkSpaces"
-            , _svcPrefix = "workspaces"
-            , _svcVersion = "2015-04-08"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2015-04-08' of the Amazon WorkSpaces SDK configuration.
+workSpaces :: Service
+workSpaces =
+    Service
+    { _svcAbbrev = "WorkSpaces"
+    , _svcSigner = v4
+    , _svcPrefix = "workspaces"
+    , _svcVersion = "2015-04-08"
+    , _svcEndpoint = defaultEndpoint workSpaces
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | One or more parameter values are not valid.
 _InvalidParameterValuesException :: AsError a => Getting (First ServiceError) a ServiceError

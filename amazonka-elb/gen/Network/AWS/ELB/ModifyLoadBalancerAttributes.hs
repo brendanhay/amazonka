@@ -92,10 +92,9 @@ mlbaLoadBalancerAttributes = lens _mlbaLoadBalancerAttributes (\ s a -> s{_mlbaL
 
 instance AWSRequest ModifyLoadBalancerAttributes
          where
-        type Sv ModifyLoadBalancerAttributes = ELB
         type Rs ModifyLoadBalancerAttributes =
              ModifyLoadBalancerAttributesResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper
               "ModifyLoadBalancerAttributesResult"

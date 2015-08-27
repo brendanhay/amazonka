@@ -102,10 +102,9 @@ apmaOptInType = lens _apmaOptInType (\ s a -> s{_apmaOptInType = a});
 
 instance AWSRequest ApplyPendingMaintenanceAction
          where
-        type Sv ApplyPendingMaintenanceAction = RDS
         type Rs ApplyPendingMaintenanceAction =
              ApplyPendingMaintenanceActionResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "ApplyPendingMaintenanceActionResult"

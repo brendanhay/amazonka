@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.DynamoDB.Types
     (
-    -- * Service
-      DynamoDB
+    -- * Service Configuration
+      dynamoDB
 
     -- * Errors
     , _ProvisionedThroughputExceededException
@@ -270,44 +269,40 @@ import           Network.AWS.DynamoDB.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2012-08-10@ of the Amazon DynamoDB SDK.
-data DynamoDB
-
-instance AWSService DynamoDB where
-    type Sg DynamoDB = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "DynamoDB"
-            , _svcPrefix = "dynamodb"
-            , _svcVersion = "2012-08-10"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has
-               (hasCode "ProvisionedThroughputExceededException" .
-                hasStatus 400)
-               e =
-              Just "throughput_exceeded"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2012-08-10' of the Amazon DynamoDB SDK configuration.
+dynamoDB :: Service
+dynamoDB =
+    Service
+    { _svcAbbrev = "DynamoDB"
+    , _svcSigner = v4
+    , _svcPrefix = "dynamodb"
+    , _svcVersion = "2012-08-10"
+    , _svcEndpoint = defaultEndpoint dynamoDB
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has
+           (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+           e =
+          Just "throughput_exceeded"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | Your request rate is too high. The AWS SDKs for DynamoDB automatically
 -- retry requests that receive this exception. Your request is eventually

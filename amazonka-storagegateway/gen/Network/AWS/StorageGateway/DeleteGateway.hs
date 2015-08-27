@@ -85,9 +85,8 @@ dgGatewayARN :: Lens' DeleteGateway Text
 dgGatewayARN = lens _dgGatewayARN (\ s a -> s{_dgGatewayARN = a});
 
 instance AWSRequest DeleteGateway where
-        type Sv DeleteGateway = StorageGateway
         type Rs DeleteGateway = DeleteGatewayResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -106,7 +105,8 @@ instance ToHeaders DeleteGateway where
 
 instance ToJSON DeleteGateway where
         toJSON DeleteGateway'{..}
-          = object ["GatewayARN" .= _dgGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _dgGatewayARN)])
 
 instance ToPath DeleteGateway where
         toPath = const "/"

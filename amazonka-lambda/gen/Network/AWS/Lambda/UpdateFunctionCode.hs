@@ -134,9 +134,8 @@ uFunctionName :: Lens' UpdateFunctionCode Text
 uFunctionName = lens _uFunctionName (\ s a -> s{_uFunctionName = a});
 
 instance AWSRequest UpdateFunctionCode where
-        type Sv UpdateFunctionCode = Lambda
         type Rs UpdateFunctionCode = FunctionConfiguration
-        request = putJSON
+        request = putJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateFunctionCode where
@@ -145,9 +144,11 @@ instance ToHeaders UpdateFunctionCode where
 instance ToJSON UpdateFunctionCode where
         toJSON UpdateFunctionCode'{..}
           = object
-              ["S3ObjectVersion" .= _uS3ObjectVersion,
-               "S3Key" .= _uS3Key, "ZipFile" .= _uZipFile,
-               "S3Bucket" .= _uS3Bucket]
+              (catMaybes
+                 [("S3ObjectVersion" .=) <$> _uS3ObjectVersion,
+                  ("S3Key" .=) <$> _uS3Key,
+                  ("ZipFile" .=) <$> _uZipFile,
+                  ("S3Bucket" .=) <$> _uS3Bucket])
 
 instance ToPath UpdateFunctionCode where
         toPath UpdateFunctionCode'{..}

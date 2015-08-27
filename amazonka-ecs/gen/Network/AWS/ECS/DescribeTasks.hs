@@ -78,9 +78,8 @@ dtTasks :: Lens' DescribeTasks [Text]
 dtTasks = lens _dtTasks (\ s a -> s{_dtTasks = a}) . _Coerce;
 
 instance AWSRequest DescribeTasks where
-        type Sv DescribeTasks = ECS
         type Rs DescribeTasks = DescribeTasksResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -102,7 +101,9 @@ instance ToHeaders DescribeTasks where
 instance ToJSON DescribeTasks where
         toJSON DescribeTasks'{..}
           = object
-              ["cluster" .= _dtCluster, "tasks" .= _dtTasks]
+              (catMaybes
+                 [("cluster" .=) <$> _dtCluster,
+                  Just ("tasks" .= _dtTasks)])
 
 instance ToPath DescribeTasks where
         toPath = const "/"

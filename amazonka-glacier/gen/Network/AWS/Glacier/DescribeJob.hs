@@ -129,9 +129,8 @@ djJobId :: Lens' DescribeJob Text
 djJobId = lens _djJobId (\ s a -> s{_djJobId = a});
 
 instance AWSRequest DescribeJob where
-        type Sv DescribeJob = Glacier
         type Rs DescribeJob = GlacierJobDescription
-        request = get
+        request = get glacier
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders DescribeJob where

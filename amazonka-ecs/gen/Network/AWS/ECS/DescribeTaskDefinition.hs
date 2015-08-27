@@ -74,10 +74,9 @@ dtdTaskDefinition :: Lens' DescribeTaskDefinition Text
 dtdTaskDefinition = lens _dtdTaskDefinition (\ s a -> s{_dtdTaskDefinition = a});
 
 instance AWSRequest DescribeTaskDefinition where
-        type Sv DescribeTaskDefinition = ECS
         type Rs DescribeTaskDefinition =
              DescribeTaskDefinitionResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -96,7 +95,9 @@ instance ToHeaders DescribeTaskDefinition where
 
 instance ToJSON DescribeTaskDefinition where
         toJSON DescribeTaskDefinition'{..}
-          = object ["taskDefinition" .= _dtdTaskDefinition]
+          = object
+              (catMaybes
+                 [Just ("taskDefinition" .= _dtdTaskDefinition)])
 
 instance ToPath DescribeTaskDefinition where
         toPath = const "/"

@@ -97,10 +97,9 @@ pjsrJobId :: Lens' PutJobSuccessResult Text
 pjsrJobId = lens _pjsrJobId (\ s a -> s{_pjsrJobId = a});
 
 instance AWSRequest PutJobSuccessResult where
-        type Sv PutJobSuccessResult = CodePipeline
         type Rs PutJobSuccessResult =
              PutJobSuccessResultResponse
-        request = postJSON
+        request = postJSON codePipeline
         response = receiveNull PutJobSuccessResultResponse'
 
 instance ToHeaders PutJobSuccessResult where
@@ -116,10 +115,11 @@ instance ToHeaders PutJobSuccessResult where
 instance ToJSON PutJobSuccessResult where
         toJSON PutJobSuccessResult'{..}
           = object
-              ["continuationToken" .= _pjsrContinuationToken,
-               "executionDetails" .= _pjsrExecutionDetails,
-               "currentRevision" .= _pjsrCurrentRevision,
-               "jobId" .= _pjsrJobId]
+              (catMaybes
+                 [("continuationToken" .=) <$> _pjsrContinuationToken,
+                  ("executionDetails" .=) <$> _pjsrExecutionDetails,
+                  ("currentRevision" .=) <$> _pjsrCurrentRevision,
+                  Just ("jobId" .= _pjsrJobId)])
 
 instance ToPath PutJobSuccessResult where
         toPath = const "/"

@@ -96,10 +96,9 @@ ddStackId :: Lens' DescribeDeployments (Maybe Text)
 ddStackId = lens _ddStackId (\ s a -> s{_ddStackId = a});
 
 instance AWSRequest DescribeDeployments where
-        type Sv DescribeDeployments = OpsWorks
         type Rs DescribeDeployments =
              DescribeDeploymentsResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -120,9 +119,10 @@ instance ToHeaders DescribeDeployments where
 instance ToJSON DescribeDeployments where
         toJSON DescribeDeployments'{..}
           = object
-              ["AppId" .= _ddAppId,
-               "DeploymentIds" .= _ddDeploymentIds,
-               "StackId" .= _ddStackId]
+              (catMaybes
+                 [("AppId" .=) <$> _ddAppId,
+                  ("DeploymentIds" .=) <$> _ddDeploymentIds,
+                  ("StackId" .=) <$> _ddStackId])
 
 instance ToPath DescribeDeployments where
         toPath = const "/"

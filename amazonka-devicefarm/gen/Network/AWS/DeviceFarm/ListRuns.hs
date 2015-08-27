@@ -80,9 +80,8 @@ lrArn :: Lens' ListRuns Text
 lrArn = lens _lrArn (\ s a -> s{_lrArn = a});
 
 instance AWSRequest ListRuns where
-        type Sv ListRuns = DeviceFarm
         type Rs ListRuns = ListRunsResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -102,7 +101,9 @@ instance ToHeaders ListRuns where
 instance ToJSON ListRuns where
         toJSON ListRuns'{..}
           = object
-              ["nextToken" .= _lrNextToken, "arn" .= _lrArn]
+              (catMaybes
+                 [("nextToken" .=) <$> _lrNextToken,
+                  Just ("arn" .= _lrArn)])
 
 instance ToPath ListRuns where
         toPath = const "/"

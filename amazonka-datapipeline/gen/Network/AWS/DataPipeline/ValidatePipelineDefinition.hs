@@ -99,10 +99,9 @@ vpdPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
 vpdPipelineObjects = lens _vpdPipelineObjects (\ s a -> s{_vpdPipelineObjects = a}) . _Coerce;
 
 instance AWSRequest ValidatePipelineDefinition where
-        type Sv ValidatePipelineDefinition = DataPipeline
         type Rs ValidatePipelineDefinition =
              ValidatePipelineDefinitionResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -125,10 +124,11 @@ instance ToHeaders ValidatePipelineDefinition where
 instance ToJSON ValidatePipelineDefinition where
         toJSON ValidatePipelineDefinition'{..}
           = object
-              ["parameterObjects" .= _vpdParameterObjects,
-               "parameterValues" .= _vpdParameterValues,
-               "pipelineId" .= _vpdPipelineId,
-               "pipelineObjects" .= _vpdPipelineObjects]
+              (catMaybes
+                 [("parameterObjects" .=) <$> _vpdParameterObjects,
+                  ("parameterValues" .=) <$> _vpdParameterValues,
+                  Just ("pipelineId" .= _vpdPipelineId),
+                  Just ("pipelineObjects" .= _vpdPipelineObjects)])
 
 instance ToPath ValidatePipelineDefinition where
         toPath = const "/"

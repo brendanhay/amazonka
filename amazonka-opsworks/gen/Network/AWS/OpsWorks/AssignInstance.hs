@@ -85,9 +85,8 @@ aiLayerIds :: Lens' AssignInstance [Text]
 aiLayerIds = lens _aiLayerIds (\ s a -> s{_aiLayerIds = a}) . _Coerce;
 
 instance AWSRequest AssignInstance where
-        type Sv AssignInstance = OpsWorks
         type Rs AssignInstance = AssignInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull AssignInstanceResponse'
 
 instance ToHeaders AssignInstance where
@@ -102,8 +101,9 @@ instance ToHeaders AssignInstance where
 instance ToJSON AssignInstance where
         toJSON AssignInstance'{..}
           = object
-              ["InstanceId" .= _aiInstanceId,
-               "LayerIds" .= _aiLayerIds]
+              (catMaybes
+                 [Just ("InstanceId" .= _aiInstanceId),
+                  Just ("LayerIds" .= _aiLayerIds)])
 
 instance ToPath AssignInstance where
         toPath = const "/"

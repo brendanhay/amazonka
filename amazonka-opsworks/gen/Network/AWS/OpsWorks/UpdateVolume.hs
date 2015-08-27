@@ -89,9 +89,8 @@ uVolumeId :: Lens' UpdateVolume Text
 uVolumeId = lens _uVolumeId (\ s a -> s{_uVolumeId = a});
 
 instance AWSRequest UpdateVolume where
-        type Sv UpdateVolume = OpsWorks
         type Rs UpdateVolume = UpdateVolumeResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull UpdateVolumeResponse'
 
 instance ToHeaders UpdateVolume where
@@ -106,8 +105,10 @@ instance ToHeaders UpdateVolume where
 instance ToJSON UpdateVolume where
         toJSON UpdateVolume'{..}
           = object
-              ["Name" .= _uName, "MountPoint" .= _uMountPoint,
-               "VolumeId" .= _uVolumeId]
+              (catMaybes
+                 [("Name" .=) <$> _uName,
+                  ("MountPoint" .=) <$> _uMountPoint,
+                  Just ("VolumeId" .= _uVolumeId)])
 
 instance ToPath UpdateVolume where
         toPath = const "/"

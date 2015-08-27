@@ -111,10 +111,9 @@ dDryRun :: Lens' DescribeInternetGateways (Maybe Bool)
 dDryRun = lens _dDryRun (\ s a -> s{_dDryRun = a});
 
 instance AWSRequest DescribeInternetGateways where
-        type Sv DescribeInternetGateways = EC2
         type Rs DescribeInternetGateways =
              DescribeInternetGatewaysResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

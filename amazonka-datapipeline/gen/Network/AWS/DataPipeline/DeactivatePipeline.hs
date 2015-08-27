@@ -83,10 +83,9 @@ dPipelineId :: Lens' DeactivatePipeline Text
 dPipelineId = lens _dPipelineId (\ s a -> s{_dPipelineId = a});
 
 instance AWSRequest DeactivatePipeline where
-        type Sv DeactivatePipeline = DataPipeline
         type Rs DeactivatePipeline =
              DeactivatePipelineResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveEmpty
               (\ s h x ->
@@ -104,8 +103,9 @@ instance ToHeaders DeactivatePipeline where
 instance ToJSON DeactivatePipeline where
         toJSON DeactivatePipeline'{..}
           = object
-              ["cancelActive" .= _dCancelActive,
-               "pipelineId" .= _dPipelineId]
+              (catMaybes
+                 [("cancelActive" .=) <$> _dCancelActive,
+                  Just ("pipelineId" .= _dPipelineId)])
 
 instance ToPath DeactivatePipeline where
         toPath = const "/"

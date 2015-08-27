@@ -73,10 +73,9 @@ dsscsivVolumeARNs :: Lens' DescribeStorediSCSIVolumes [Text]
 dsscsivVolumeARNs = lens _dsscsivVolumeARNs (\ s a -> s{_dsscsivVolumeARNs = a}) . _Coerce;
 
 instance AWSRequest DescribeStorediSCSIVolumes where
-        type Sv DescribeStorediSCSIVolumes = StorageGateway
         type Rs DescribeStorediSCSIVolumes =
              DescribeStorediSCSIVolumesResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -96,7 +95,9 @@ instance ToHeaders DescribeStorediSCSIVolumes where
 
 instance ToJSON DescribeStorediSCSIVolumes where
         toJSON DescribeStorediSCSIVolumes'{..}
-          = object ["VolumeARNs" .= _dsscsivVolumeARNs]
+          = object
+              (catMaybes
+                 [Just ("VolumeARNs" .= _dsscsivVolumeARNs)])
 
 instance ToPath DescribeStorediSCSIVolumes where
         toPath = const "/"

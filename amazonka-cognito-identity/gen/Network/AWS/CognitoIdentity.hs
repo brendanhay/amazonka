@@ -52,8 +52,8 @@
 -- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CognitoIdentity
     (
-    -- * Service
-      CognitoIdentity
+    -- * Service Configuration
+      cognitoIdentity
 
     -- * Errors
     -- $errors

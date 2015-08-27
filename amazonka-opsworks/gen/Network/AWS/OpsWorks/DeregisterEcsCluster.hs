@@ -71,10 +71,9 @@ decEcsClusterARN :: Lens' DeregisterEcsCluster Text
 decEcsClusterARN = lens _decEcsClusterARN (\ s a -> s{_decEcsClusterARN = a});
 
 instance AWSRequest DeregisterEcsCluster where
-        type Sv DeregisterEcsCluster = OpsWorks
         type Rs DeregisterEcsCluster =
              DeregisterEcsClusterResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull DeregisterEcsClusterResponse'
 
 instance ToHeaders DeregisterEcsCluster where
@@ -89,7 +88,9 @@ instance ToHeaders DeregisterEcsCluster where
 
 instance ToJSON DeregisterEcsCluster where
         toJSON DeregisterEcsCluster'{..}
-          = object ["EcsClusterArn" .= _decEcsClusterARN]
+          = object
+              (catMaybes
+                 [Just ("EcsClusterArn" .= _decEcsClusterARN)])
 
 instance ToPath DeregisterEcsCluster where
         toPath = const "/"

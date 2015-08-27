@@ -76,9 +76,8 @@ dhapgHAPGARN :: Lens' DescribeHAPG Text
 dhapgHAPGARN = lens _dhapgHAPGARN (\ s a -> s{_dhapgHAPGARN = a});
 
 instance AWSRequest DescribeHAPG where
-        type Sv DescribeHAPG = CloudHSM
         type Rs DescribeHAPG = DescribeHAPGResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->
@@ -105,7 +104,8 @@ instance ToHeaders DescribeHAPG where
 
 instance ToJSON DescribeHAPG where
         toJSON DescribeHAPG'{..}
-          = object ["HapgArn" .= _dhapgHAPGARN]
+          = object
+              (catMaybes [Just ("HapgArn" .= _dhapgHAPGARN)])
 
 instance ToPath DescribeHAPG where
         toPath = const "/"

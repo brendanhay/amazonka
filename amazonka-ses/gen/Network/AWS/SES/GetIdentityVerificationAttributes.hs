@@ -74,10 +74,9 @@ givaIdentities = lens _givaIdentities (\ s a -> s{_givaIdentities = a}) . _Coerc
 
 instance AWSRequest GetIdentityVerificationAttributes
          where
-        type Sv GetIdentityVerificationAttributes = SES
         type Rs GetIdentityVerificationAttributes =
              GetIdentityVerificationAttributesResponse
-        request = postQuery
+        request = postQuery sES
         response
           = receiveXMLWrapper
               "GetIdentityVerificationAttributesResult"

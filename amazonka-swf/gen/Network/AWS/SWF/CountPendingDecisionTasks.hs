@@ -99,9 +99,8 @@ cpdtTaskList :: Lens' CountPendingDecisionTasks TaskList
 cpdtTaskList = lens _cpdtTaskList (\ s a -> s{_cpdtTaskList = a});
 
 instance AWSRequest CountPendingDecisionTasks where
-        type Sv CountPendingDecisionTasks = SWF
         type Rs CountPendingDecisionTasks = PendingTaskCount
-        request = postJSON
+        request = postJSON sWF
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CountPendingDecisionTasks where
@@ -117,8 +116,9 @@ instance ToHeaders CountPendingDecisionTasks where
 instance ToJSON CountPendingDecisionTasks where
         toJSON CountPendingDecisionTasks'{..}
           = object
-              ["domain" .= _cpdtDomain,
-               "taskList" .= _cpdtTaskList]
+              (catMaybes
+                 [Just ("domain" .= _cpdtDomain),
+                  Just ("taskList" .= _cpdtTaskList)])
 
 instance ToPath CountPendingDecisionTasks where
         toPath = const "/"

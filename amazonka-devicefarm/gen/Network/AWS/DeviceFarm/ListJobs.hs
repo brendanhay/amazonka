@@ -80,9 +80,8 @@ ljArn :: Lens' ListJobs Text
 ljArn = lens _ljArn (\ s a -> s{_ljArn = a});
 
 instance AWSRequest ListJobs where
-        type Sv ListJobs = DeviceFarm
         type Rs ListJobs = ListJobsResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -102,7 +101,9 @@ instance ToHeaders ListJobs where
 instance ToJSON ListJobs where
         toJSON ListJobs'{..}
           = object
-              ["nextToken" .= _ljNextToken, "arn" .= _ljArn]
+              (catMaybes
+                 [("nextToken" .=) <$> _ljNextToken,
+                  Just ("arn" .= _ljArn)])
 
 instance ToPath ListJobs where
         toPath = const "/"

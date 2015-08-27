@@ -82,9 +82,8 @@ gpName :: Lens' GetPipeline Text
 gpName = lens _gpName (\ s a -> s{_gpName = a});
 
 instance AWSRequest GetPipeline where
-        type Sv GetPipeline = CodePipeline
         type Rs GetPipeline = GetPipelineResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -102,7 +101,10 @@ instance ToHeaders GetPipeline where
 
 instance ToJSON GetPipeline where
         toJSON GetPipeline'{..}
-          = object ["version" .= _gpVersion, "name" .= _gpName]
+          = object
+              (catMaybes
+                 [("version" .=) <$> _gpVersion,
+                  Just ("name" .= _gpName)])
 
 instance ToPath GetPipeline where
         toPath = const "/"

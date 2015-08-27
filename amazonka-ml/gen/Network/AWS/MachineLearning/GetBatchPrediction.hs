@@ -77,10 +77,9 @@ gbpBatchPredictionId :: Lens' GetBatchPrediction Text
 gbpBatchPredictionId = lens _gbpBatchPredictionId (\ s a -> s{_gbpBatchPredictionId = a});
 
 instance AWSRequest GetBatchPrediction where
-        type Sv GetBatchPrediction = MachineLearning
         type Rs GetBatchPrediction =
              GetBatchPredictionResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -110,7 +109,9 @@ instance ToHeaders GetBatchPrediction where
 instance ToJSON GetBatchPrediction where
         toJSON GetBatchPrediction'{..}
           = object
-              ["BatchPredictionId" .= _gbpBatchPredictionId]
+              (catMaybes
+                 [Just
+                    ("BatchPredictionId" .= _gbpBatchPredictionId)])
 
 instance ToPath GetBatchPrediction where
         toPath = const "/"

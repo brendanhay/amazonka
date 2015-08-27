@@ -68,9 +68,8 @@ dupIAMUserARN :: Lens' DeleteUserProfile Text
 dupIAMUserARN = lens _dupIAMUserARN (\ s a -> s{_dupIAMUserARN = a});
 
 instance AWSRequest DeleteUserProfile where
-        type Sv DeleteUserProfile = OpsWorks
         type Rs DeleteUserProfile = DeleteUserProfileResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull DeleteUserProfileResponse'
 
 instance ToHeaders DeleteUserProfile where
@@ -85,7 +84,8 @@ instance ToHeaders DeleteUserProfile where
 
 instance ToJSON DeleteUserProfile where
         toJSON DeleteUserProfile'{..}
-          = object ["IamUserArn" .= _dupIAMUserARN]
+          = object
+              (catMaybes [Just ("IamUserArn" .= _dupIAMUserARN)])
 
 instance ToPath DeleteUserProfile where
         toPath = const "/"

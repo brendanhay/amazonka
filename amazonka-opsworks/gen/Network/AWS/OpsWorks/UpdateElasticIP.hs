@@ -80,9 +80,8 @@ ueiElasticIP :: Lens' UpdateElasticIP Text
 ueiElasticIP = lens _ueiElasticIP (\ s a -> s{_ueiElasticIP = a});
 
 instance AWSRequest UpdateElasticIP where
-        type Sv UpdateElasticIP = OpsWorks
         type Rs UpdateElasticIP = UpdateElasticIPResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull UpdateElasticIPResponse'
 
 instance ToHeaders UpdateElasticIP where
@@ -97,7 +96,9 @@ instance ToHeaders UpdateElasticIP where
 instance ToJSON UpdateElasticIP where
         toJSON UpdateElasticIP'{..}
           = object
-              ["Name" .= _ueiName, "ElasticIp" .= _ueiElasticIP]
+              (catMaybes
+                 [("Name" .=) <$> _ueiName,
+                  Just ("ElasticIp" .= _ueiElasticIP)])
 
 instance ToPath UpdateElasticIP where
         toPath = const "/"

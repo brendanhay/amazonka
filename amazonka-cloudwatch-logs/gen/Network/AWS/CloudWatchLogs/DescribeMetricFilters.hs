@@ -116,10 +116,9 @@ instance AWSPager DescribeMetricFilters where
             Just $ rq & dmfNextToken .~ rs ^. dmfrsNextToken
 
 instance AWSRequest DescribeMetricFilters where
-        type Sv DescribeMetricFilters = CloudWatchLogs
         type Rs DescribeMetricFilters =
              DescribeMetricFiltersResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response
           = receiveJSON
               (\ s h x ->
@@ -141,9 +140,11 @@ instance ToHeaders DescribeMetricFilters where
 instance ToJSON DescribeMetricFilters where
         toJSON DescribeMetricFilters'{..}
           = object
-              ["filterNamePrefix" .= _dmfFilterNamePrefix,
-               "nextToken" .= _dmfNextToken, "limit" .= _dmfLimit,
-               "logGroupName" .= _dmfLogGroupName]
+              (catMaybes
+                 [("filterNamePrefix" .=) <$> _dmfFilterNamePrefix,
+                  ("nextToken" .=) <$> _dmfNextToken,
+                  ("limit" .=) <$> _dmfLimit,
+                  Just ("logGroupName" .= _dmfLogGroupName)])
 
 instance ToPath DescribeMetricFilters where
         toPath = const "/"

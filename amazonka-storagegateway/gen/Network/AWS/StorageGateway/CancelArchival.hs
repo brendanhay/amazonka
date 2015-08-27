@@ -80,9 +80,8 @@ caTapeARN :: Lens' CancelArchival Text
 caTapeARN = lens _caTapeARN (\ s a -> s{_caTapeARN = a});
 
 instance AWSRequest CancelArchival where
-        type Sv CancelArchival = StorageGateway
         type Rs CancelArchival = CancelArchivalResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -102,8 +101,9 @@ instance ToHeaders CancelArchival where
 instance ToJSON CancelArchival where
         toJSON CancelArchival'{..}
           = object
-              ["GatewayARN" .= _caGatewayARN,
-               "TapeARN" .= _caTapeARN]
+              (catMaybes
+                 [Just ("GatewayARN" .= _caGatewayARN),
+                  Just ("TapeARN" .= _caTapeARN)])
 
 instance ToPath CancelArchival where
         toPath = const "/"

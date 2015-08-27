@@ -80,10 +80,9 @@ delBandwidthType :: Lens' DeleteBandwidthRateLimit Text
 delBandwidthType = lens _delBandwidthType (\ s a -> s{_delBandwidthType = a});
 
 instance AWSRequest DeleteBandwidthRateLimit where
-        type Sv DeleteBandwidthRateLimit = StorageGateway
         type Rs DeleteBandwidthRateLimit =
              DeleteBandwidthRateLimitResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -103,8 +102,9 @@ instance ToHeaders DeleteBandwidthRateLimit where
 instance ToJSON DeleteBandwidthRateLimit where
         toJSON DeleteBandwidthRateLimit'{..}
           = object
-              ["GatewayARN" .= _delGatewayARN,
-               "BandwidthType" .= _delBandwidthType]
+              (catMaybes
+                 [Just ("GatewayARN" .= _delGatewayARN),
+                  Just ("BandwidthType" .= _delBandwidthType)])
 
 instance ToPath DeleteBandwidthRateLimit where
         toPath = const "/"

@@ -83,9 +83,8 @@ avVolumeId :: Lens' AssignVolume Text
 avVolumeId = lens _avVolumeId (\ s a -> s{_avVolumeId = a});
 
 instance AWSRequest AssignVolume where
-        type Sv AssignVolume = OpsWorks
         type Rs AssignVolume = AssignVolumeResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull AssignVolumeResponse'
 
 instance ToHeaders AssignVolume where
@@ -100,8 +99,9 @@ instance ToHeaders AssignVolume where
 instance ToJSON AssignVolume where
         toJSON AssignVolume'{..}
           = object
-              ["InstanceId" .= _avInstanceId,
-               "VolumeId" .= _avVolumeId]
+              (catMaybes
+                 [("InstanceId" .=) <$> _avInstanceId,
+                  Just ("VolumeId" .= _avVolumeId)])
 
 instance ToPath AssignVolume where
         toPath = const "/"

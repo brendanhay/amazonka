@@ -195,10 +195,9 @@ dnisDryRun :: Lens' DescribeNetworkInterfaces (Maybe Bool)
 dnisDryRun = lens _dnisDryRun (\ s a -> s{_dnisDryRun = a});
 
 instance AWSRequest DescribeNetworkInterfaces where
-        type Sv DescribeNetworkInterfaces = EC2
         type Rs DescribeNetworkInterfaces =
              DescribeNetworkInterfacesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

@@ -68,9 +68,8 @@ dcClusters :: Lens' DescribeClusters [Text]
 dcClusters = lens _dcClusters (\ s a -> s{_dcClusters = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeClusters where
-        type Sv DescribeClusters = ECS
         type Rs DescribeClusters = DescribeClustersResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -91,7 +90,8 @@ instance ToHeaders DescribeClusters where
 
 instance ToJSON DescribeClusters where
         toJSON DescribeClusters'{..}
-          = object ["clusters" .= _dcClusters]
+          = object
+              (catMaybes [("clusters" .=) <$> _dcClusters])
 
 instance ToPath DescribeClusters where
         toPath = const "/"

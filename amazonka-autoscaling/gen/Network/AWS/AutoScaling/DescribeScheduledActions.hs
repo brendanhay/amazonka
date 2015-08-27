@@ -134,10 +134,9 @@ instance AWSPager DescribeScheduledActions where
             Just $ rq & dsasNextToken .~ rs ^. dsarsNextToken
 
 instance AWSRequest DescribeScheduledActions where
-        type Sv DescribeScheduledActions = AutoScaling
         type Rs DescribeScheduledActions =
              DescribeScheduledActionsResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "DescribeScheduledActionsResult"
               (\ s h x ->

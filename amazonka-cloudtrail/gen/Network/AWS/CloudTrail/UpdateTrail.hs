@@ -141,9 +141,8 @@ utName :: Lens' UpdateTrail Text
 utName = lens _utName (\ s a -> s{_utName = a});
 
 instance AWSRequest UpdateTrail where
-        type Sv UpdateTrail = CloudTrail
         type Rs UpdateTrail = UpdateTrailResponse
-        request = postJSON
+        request = postJSON cloudTrail
         response
           = receiveJSON
               (\ s h x ->
@@ -169,14 +168,17 @@ instance ToHeaders UpdateTrail where
 instance ToJSON UpdateTrail where
         toJSON UpdateTrail'{..}
           = object
-              ["S3KeyPrefix" .= _utS3KeyPrefix,
-               "SnsTopicName" .= _utSNSTopicName,
-               "CloudWatchLogsLogGroupArn" .=
-                 _utCloudWatchLogsLogGroupARN,
-               "IncludeGlobalServiceEvents" .=
-                 _utIncludeGlobalServiceEvents,
-               "CloudWatchLogsRoleArn" .= _utCloudWatchLogsRoleARN,
-               "S3BucketName" .= _utS3BucketName, "Name" .= _utName]
+              (catMaybes
+                 [("S3KeyPrefix" .=) <$> _utS3KeyPrefix,
+                  ("SnsTopicName" .=) <$> _utSNSTopicName,
+                  ("CloudWatchLogsLogGroupArn" .=) <$>
+                    _utCloudWatchLogsLogGroupARN,
+                  ("IncludeGlobalServiceEvents" .=) <$>
+                    _utIncludeGlobalServiceEvents,
+                  ("CloudWatchLogsRoleArn" .=) <$>
+                    _utCloudWatchLogsRoleARN,
+                  ("S3BucketName" .=) <$> _utS3BucketName,
+                  Just ("Name" .= _utName)])
 
 instance ToPath UpdateTrail where
         toPath = const "/"

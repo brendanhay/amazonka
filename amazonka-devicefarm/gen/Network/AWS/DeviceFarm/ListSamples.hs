@@ -80,9 +80,8 @@ lsArn :: Lens' ListSamples Text
 lsArn = lens _lsArn (\ s a -> s{_lsArn = a});
 
 instance AWSRequest ListSamples where
-        type Sv ListSamples = DeviceFarm
         type Rs ListSamples = ListSamplesResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -102,7 +101,9 @@ instance ToHeaders ListSamples where
 instance ToJSON ListSamples where
         toJSON ListSamples'{..}
           = object
-              ["nextToken" .= _lsNextToken, "arn" .= _lsArn]
+              (catMaybes
+                 [("nextToken" .=) <$> _lsNextToken,
+                  Just ("arn" .= _lsArn)])
 
 instance ToPath ListSamples where
         toPath = const "/"

@@ -90,10 +90,9 @@ rtpTaskId :: Lens' ReportTaskProgress Text
 rtpTaskId = lens _rtpTaskId (\ s a -> s{_rtpTaskId = a});
 
 instance AWSRequest ReportTaskProgress where
-        type Sv ReportTaskProgress = DataPipeline
         type Rs ReportTaskProgress =
              ReportTaskProgressResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -112,7 +111,9 @@ instance ToHeaders ReportTaskProgress where
 instance ToJSON ReportTaskProgress where
         toJSON ReportTaskProgress'{..}
           = object
-              ["fields" .= _rtpFields, "taskId" .= _rtpTaskId]
+              (catMaybes
+                 [("fields" .=) <$> _rtpFields,
+                  Just ("taskId" .= _rtpTaskId)])
 
 instance ToPath ReportTaskProgress where
         toPath = const "/"

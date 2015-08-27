@@ -80,10 +80,9 @@ mcpgParameterNameValues :: Lens' ModifyCacheParameterGroup [ParameterNameValue]
 mcpgParameterNameValues = lens _mcpgParameterNameValues (\ s a -> s{_mcpgParameterNameValues = a}) . _Coerce;
 
 instance AWSRequest ModifyCacheParameterGroup where
-        type Sv ModifyCacheParameterGroup = ElastiCache
         type Rs ModifyCacheParameterGroup =
              CacheParameterGroupNameMessage
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper "ModifyCacheParameterGroupResult"
               (\ s h x -> parseXML x)

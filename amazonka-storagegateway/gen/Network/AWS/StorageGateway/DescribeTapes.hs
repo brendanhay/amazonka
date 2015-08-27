@@ -117,9 +117,8 @@ instance AWSPager DescribeTapes where
             Just $ rq & dtMarker .~ rs ^. dtsrsMarker
 
 instance AWSRequest DescribeTapes where
-        type Sv DescribeTapes = StorageGateway
         type Rs DescribeTapes = DescribeTapesResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -140,9 +139,11 @@ instance ToHeaders DescribeTapes where
 instance ToJSON DescribeTapes where
         toJSON DescribeTapes'{..}
           = object
-              ["Marker" .= _dtMarker, "Limit" .= _dtLimit,
-               "TapeARNs" .= _dtTapeARNs,
-               "GatewayARN" .= _dtGatewayARN]
+              (catMaybes
+                 [("Marker" .=) <$> _dtMarker,
+                  ("Limit" .=) <$> _dtLimit,
+                  ("TapeARNs" .=) <$> _dtTapeARNs,
+                  Just ("GatewayARN" .= _dtGatewayARN)])
 
 instance ToPath DescribeTapes where
         toPath = const "/"

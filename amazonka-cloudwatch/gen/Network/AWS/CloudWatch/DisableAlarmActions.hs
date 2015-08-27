@@ -66,10 +66,9 @@ daaAlarmNames :: Lens' DisableAlarmActions [Text]
 daaAlarmNames = lens _daaAlarmNames (\ s a -> s{_daaAlarmNames = a}) . _Coerce;
 
 instance AWSRequest DisableAlarmActions where
-        type Sv DisableAlarmActions = CloudWatch
         type Rs DisableAlarmActions =
              DisableAlarmActionsResponse
-        request = postQuery
+        request = postQuery cloudWatch
         response = receiveNull DisableAlarmActionsResponse'
 
 instance ToHeaders DisableAlarmActions where

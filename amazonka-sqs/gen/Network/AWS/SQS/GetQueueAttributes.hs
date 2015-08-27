@@ -123,10 +123,9 @@ gqaQueueURL :: Lens' GetQueueAttributes Text
 gqaQueueURL = lens _gqaQueueURL (\ s a -> s{_gqaQueueURL = a});
 
 instance AWSRequest GetQueueAttributes where
-        type Sv GetQueueAttributes = SQS
         type Rs GetQueueAttributes =
              GetQueueAttributesResponse
-        request = postQuery
+        request = postQuery sQS
         response
           = receiveXMLWrapper "GetQueueAttributesResult"
               (\ s h x ->

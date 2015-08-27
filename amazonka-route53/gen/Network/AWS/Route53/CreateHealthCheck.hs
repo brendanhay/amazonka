@@ -95,9 +95,8 @@ chcHealthCheckConfig :: Lens' CreateHealthCheck HealthCheckConfig
 chcHealthCheckConfig = lens _chcHealthCheckConfig (\ s a -> s{_chcHealthCheckConfig = a});
 
 instance AWSRequest CreateHealthCheck where
-        type Sv CreateHealthCheck = Route53
         type Rs CreateHealthCheck = CreateHealthCheckResponse
-        request = postXML
+        request = postXML route53
         response
           = receiveXML
               (\ s h x ->

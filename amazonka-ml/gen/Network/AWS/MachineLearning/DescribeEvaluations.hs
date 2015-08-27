@@ -213,10 +213,9 @@ instance AWSPager DescribeEvaluations where
             Just $ rq & deNextToken .~ rs ^. desrsNextToken
 
 instance AWSRequest DescribeEvaluations where
-        type Sv DescribeEvaluations = MachineLearning
         type Rs DescribeEvaluations =
              DescribeEvaluationsResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -237,12 +236,15 @@ instance ToHeaders DescribeEvaluations where
 instance ToJSON DescribeEvaluations where
         toJSON DescribeEvaluations'{..}
           = object
-              ["EQ" .= _deEQ, "GE" .= _deGE, "Prefix" .= _dePrefix,
-               "GT" .= _deGT, "NE" .= _deNE,
-               "NextToken" .= _deNextToken,
-               "SortOrder" .= _deSortOrder, "Limit" .= _deLimit,
-               "LT" .= _deLT, "FilterVariable" .= _deFilterVariable,
-               "LE" .= _deLE]
+              (catMaybes
+                 [("EQ" .=) <$> _deEQ, ("GE" .=) <$> _deGE,
+                  ("Prefix" .=) <$> _dePrefix, ("GT" .=) <$> _deGT,
+                  ("NE" .=) <$> _deNE,
+                  ("NextToken" .=) <$> _deNextToken,
+                  ("SortOrder" .=) <$> _deSortOrder,
+                  ("Limit" .=) <$> _deLimit, ("LT" .=) <$> _deLT,
+                  ("FilterVariable" .=) <$> _deFilterVariable,
+                  ("LE" .=) <$> _deLE])
 
 instance ToPath DescribeEvaluations where
         toPath = const "/"

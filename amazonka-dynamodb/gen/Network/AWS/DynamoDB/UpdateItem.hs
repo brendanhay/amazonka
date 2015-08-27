@@ -698,9 +698,8 @@ uiKey :: Lens' UpdateItem (HashMap Text AttributeValue)
 uiKey = lens _uiKey (\ s a -> s{_uiKey = a}) . _Map;
 
 instance AWSRequest UpdateItem where
-        type Sv UpdateItem = DynamoDB
         type Rs UpdateItem = UpdateItemResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->
@@ -722,21 +721,25 @@ instance ToHeaders UpdateItem where
 instance ToJSON UpdateItem where
         toJSON UpdateItem'{..}
           = object
-              ["ReturnValues" .= _uiReturnValues,
-               "ExpressionAttributeNames" .=
-                 _uiExpressionAttributeNames,
-               "UpdateExpression" .= _uiUpdateExpression,
-               "AttributeUpdates" .= _uiAttributeUpdates,
-               "ReturnConsumedCapacity" .=
-                 _uiReturnConsumedCapacity,
-               "ExpressionAttributeValues" .=
-                 _uiExpressionAttributeValues,
-               "ReturnItemCollectionMetrics" .=
-                 _uiReturnItemCollectionMetrics,
-               "ConditionExpression" .= _uiConditionExpression,
-               "ConditionalOperator" .= _uiConditionalOperator,
-               "Expected" .= _uiExpected,
-               "TableName" .= _uiTableName, "Key" .= _uiKey]
+              (catMaybes
+                 [("ReturnValues" .=) <$> _uiReturnValues,
+                  ("ExpressionAttributeNames" .=) <$>
+                    _uiExpressionAttributeNames,
+                  ("UpdateExpression" .=) <$> _uiUpdateExpression,
+                  ("AttributeUpdates" .=) <$> _uiAttributeUpdates,
+                  ("ReturnConsumedCapacity" .=) <$>
+                    _uiReturnConsumedCapacity,
+                  ("ExpressionAttributeValues" .=) <$>
+                    _uiExpressionAttributeValues,
+                  ("ReturnItemCollectionMetrics" .=) <$>
+                    _uiReturnItemCollectionMetrics,
+                  ("ConditionExpression" .=) <$>
+                    _uiConditionExpression,
+                  ("ConditionalOperator" .=) <$>
+                    _uiConditionalOperator,
+                  ("Expected" .=) <$> _uiExpected,
+                  Just ("TableName" .= _uiTableName),
+                  Just ("Key" .= _uiKey)])
 
 instance ToPath UpdateItem where
         toPath = const "/"

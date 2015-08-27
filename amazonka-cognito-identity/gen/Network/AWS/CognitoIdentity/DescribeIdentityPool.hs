@@ -75,9 +75,8 @@ dipIdentityPoolId :: Lens' DescribeIdentityPool Text
 dipIdentityPoolId = lens _dipIdentityPoolId (\ s a -> s{_dipIdentityPoolId = a});
 
 instance AWSRequest DescribeIdentityPool where
-        type Sv DescribeIdentityPool = CognitoIdentity
         type Rs DescribeIdentityPool = IdentityPool
-        request = postJSON
+        request = postJSON cognitoIdentity
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders DescribeIdentityPool where
@@ -92,7 +91,9 @@ instance ToHeaders DescribeIdentityPool where
 
 instance ToJSON DescribeIdentityPool where
         toJSON DescribeIdentityPool'{..}
-          = object ["IdentityPoolId" .= _dipIdentityPoolId]
+          = object
+              (catMaybes
+                 [Just ("IdentityPoolId" .= _dipIdentityPoolId)])
 
 instance ToPath DescribeIdentityPool where
         toPath = const "/"

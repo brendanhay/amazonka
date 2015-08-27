@@ -96,10 +96,9 @@ asaAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess Text
 asaAccountWithRestoreAccess = lens _asaAccountWithRestoreAccess (\ s a -> s{_asaAccountWithRestoreAccess = a});
 
 instance AWSRequest AuthorizeSnapshotAccess where
-        type Sv AuthorizeSnapshotAccess = Redshift
         type Rs AuthorizeSnapshotAccess =
              AuthorizeSnapshotAccessResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "AuthorizeSnapshotAccessResult"
               (\ s h x ->

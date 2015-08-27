@@ -68,9 +68,8 @@ gjArn :: Lens' GetJob Text
 gjArn = lens _gjArn (\ s a -> s{_gjArn = a});
 
 instance AWSRequest GetJob where
-        type Sv GetJob = DeviceFarm
         type Rs GetJob = GetJobResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -87,7 +86,8 @@ instance ToHeaders GetJob where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetJob where
-        toJSON GetJob'{..} = object ["arn" .= _gjArn]
+        toJSON GetJob'{..}
+          = object (catMaybes [Just ("arn" .= _gjArn)])
 
 instance ToPath GetJob where
         toPath = const "/"

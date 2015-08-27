@@ -240,9 +240,8 @@ mdcPort :: Lens' ModifyDBCluster (Maybe Int)
 mdcPort = lens _mdcPort (\ s a -> s{_mdcPort = a});
 
 instance AWSRequest ModifyDBCluster where
-        type Sv ModifyDBCluster = RDS
         type Rs ModifyDBCluster = ModifyDBClusterResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "ModifyDBClusterResult"
               (\ s h x ->

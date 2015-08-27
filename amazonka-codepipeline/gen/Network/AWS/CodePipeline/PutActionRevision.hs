@@ -102,9 +102,8 @@ parActionRevision :: Lens' PutActionRevision ActionRevision
 parActionRevision = lens _parActionRevision (\ s a -> s{_parActionRevision = a});
 
 instance AWSRequest PutActionRevision where
-        type Sv PutActionRevision = CodePipeline
         type Rs PutActionRevision = PutActionRevisionResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -126,10 +125,11 @@ instance ToHeaders PutActionRevision where
 instance ToJSON PutActionRevision where
         toJSON PutActionRevision'{..}
           = object
-              ["pipelineName" .= _parPipelineName,
-               "stageName" .= _parStageName,
-               "actionName" .= _parActionName,
-               "actionRevision" .= _parActionRevision]
+              (catMaybes
+                 [Just ("pipelineName" .= _parPipelineName),
+                  Just ("stageName" .= _parStageName),
+                  Just ("actionName" .= _parActionName),
+                  Just ("actionRevision" .= _parActionRevision)])
 
 instance ToPath PutActionRevision where
         toPath = const "/"

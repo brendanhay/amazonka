@@ -95,9 +95,8 @@ esDirectoryId :: Lens' EnableSSO Text
 esDirectoryId = lens _esDirectoryId (\ s a -> s{_esDirectoryId = a});
 
 instance AWSRequest EnableSSO where
-        type Sv EnableSSO = DirectoryService
         type Rs EnableSSO = EnableSSOResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveEmpty
               (\ s h x ->
@@ -116,9 +115,10 @@ instance ToHeaders EnableSSO where
 instance ToJSON EnableSSO where
         toJSON EnableSSO'{..}
           = object
-              ["UserName" .= _esUserName,
-               "Password" .= _esPassword,
-               "DirectoryId" .= _esDirectoryId]
+              (catMaybes
+                 [("UserName" .=) <$> _esUserName,
+                  ("Password" .=) <$> _esPassword,
+                  Just ("DirectoryId" .= _esDirectoryId)])
 
 instance ToPath EnableSSO where
         toPath = const "/"

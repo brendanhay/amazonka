@@ -116,9 +116,8 @@ usService :: Lens' UpdateService Text
 usService = lens _usService (\ s a -> s{_usService = a});
 
 instance AWSRequest UpdateService where
-        type Sv UpdateService = ECS
         type Rs UpdateService = UpdateServiceResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -138,10 +137,11 @@ instance ToHeaders UpdateService where
 instance ToJSON UpdateService where
         toJSON UpdateService'{..}
           = object
-              ["cluster" .= _usCluster,
-               "desiredCount" .= _usDesiredCount,
-               "taskDefinition" .= _usTaskDefinition,
-               "service" .= _usService]
+              (catMaybes
+                 [("cluster" .=) <$> _usCluster,
+                  ("desiredCount" .=) <$> _usDesiredCount,
+                  ("taskDefinition" .=) <$> _usTaskDefinition,
+                  Just ("service" .= _usService)])
 
 instance ToPath UpdateService where
         toPath = const "/"

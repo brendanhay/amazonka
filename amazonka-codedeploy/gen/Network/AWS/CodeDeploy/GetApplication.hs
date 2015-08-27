@@ -69,9 +69,8 @@ gaApplicationName :: Lens' GetApplication Text
 gaApplicationName = lens _gaApplicationName (\ s a -> s{_gaApplicationName = a});
 
 instance AWSRequest GetApplication where
-        type Sv GetApplication = CodeDeploy
         type Rs GetApplication = GetApplicationResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -89,7 +88,9 @@ instance ToHeaders GetApplication where
 
 instance ToJSON GetApplication where
         toJSON GetApplication'{..}
-          = object ["applicationName" .= _gaApplicationName]
+          = object
+              (catMaybes
+                 [Just ("applicationName" .= _gaApplicationName)])
 
 instance ToPath GetApplication where
         toPath = const "/"

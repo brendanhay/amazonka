@@ -90,10 +90,9 @@ cdaDomainName :: Lens' CheckDomainAvailability Text
 cdaDomainName = lens _cdaDomainName (\ s a -> s{_cdaDomainName = a});
 
 instance AWSRequest CheckDomainAvailability where
-        type Sv CheckDomainAvailability = Route53Domains
         type Rs CheckDomainAvailability =
              CheckDomainAvailabilityResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveJSON
               (\ s h x ->
@@ -113,8 +112,9 @@ instance ToHeaders CheckDomainAvailability where
 instance ToJSON CheckDomainAvailability where
         toJSON CheckDomainAvailability'{..}
           = object
-              ["IdnLangCode" .= _cdaIdNLangCode,
-               "DomainName" .= _cdaDomainName]
+              (catMaybes
+                 [("IdnLangCode" .=) <$> _cdaIdNLangCode,
+                  Just ("DomainName" .= _cdaDomainName)])
 
 instance ToPath CheckDomainAvailability where
         toPath = const "/"

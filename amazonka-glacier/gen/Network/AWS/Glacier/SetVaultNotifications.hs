@@ -123,10 +123,9 @@ svnVaultName :: Lens' SetVaultNotifications Text
 svnVaultName = lens _svnVaultName (\ s a -> s{_svnVaultName = a});
 
 instance AWSRequest SetVaultNotifications where
-        type Sv SetVaultNotifications = Glacier
         type Rs SetVaultNotifications =
              SetVaultNotificationsResponse
-        request = putJSON
+        request = putJSON glacier
         response = receiveNull SetVaultNotificationsResponse'
 
 instance ToHeaders SetVaultNotifications where
@@ -135,8 +134,9 @@ instance ToHeaders SetVaultNotifications where
 instance ToJSON SetVaultNotifications where
         toJSON SetVaultNotifications'{..}
           = object
-              ["vaultNotificationConfig" .=
-                 _svnVaultNotificationConfig]
+              (catMaybes
+                 [("vaultNotificationConfig" .=) <$>
+                    _svnVaultNotificationConfig])
 
 instance ToPath SetVaultNotifications where
         toPath SetVaultNotifications'{..}

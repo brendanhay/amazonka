@@ -68,9 +68,8 @@ dsSnapshotId :: Lens' DeleteSnapshot Text
 dsSnapshotId = lens _dsSnapshotId (\ s a -> s{_dsSnapshotId = a});
 
 instance AWSRequest DeleteSnapshot where
-        type Sv DeleteSnapshot = DirectoryService
         type Rs DeleteSnapshot = DeleteSnapshotResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveJSON
               (\ s h x ->
@@ -89,7 +88,8 @@ instance ToHeaders DeleteSnapshot where
 
 instance ToJSON DeleteSnapshot where
         toJSON DeleteSnapshot'{..}
-          = object ["SnapshotId" .= _dsSnapshotId]
+          = object
+              (catMaybes [Just ("SnapshotId" .= _dsSnapshotId)])
 
 instance ToPath DeleteSnapshot where
         toPath = const "/"

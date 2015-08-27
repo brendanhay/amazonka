@@ -152,9 +152,8 @@ chzCallerReference :: Lens' CreateHostedZone Text
 chzCallerReference = lens _chzCallerReference (\ s a -> s{_chzCallerReference = a});
 
 instance AWSRequest CreateHostedZone where
-        type Sv CreateHostedZone = Route53
         type Rs CreateHostedZone = CreateHostedZoneResponse
-        request = postXML
+        request = postXML route53
         response
           = receiveXML
               (\ s h x ->

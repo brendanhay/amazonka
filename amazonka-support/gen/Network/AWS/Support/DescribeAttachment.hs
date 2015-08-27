@@ -71,10 +71,9 @@ daAttachmentId :: Lens' DescribeAttachment Text
 daAttachmentId = lens _daAttachmentId (\ s a -> s{_daAttachmentId = a});
 
 instance AWSRequest DescribeAttachment where
-        type Sv DescribeAttachment = Support
         type Rs DescribeAttachment =
              DescribeAttachmentResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveJSON
               (\ s h x ->
@@ -93,7 +92,9 @@ instance ToHeaders DescribeAttachment where
 
 instance ToJSON DescribeAttachment where
         toJSON DescribeAttachment'{..}
-          = object ["attachmentId" .= _daAttachmentId]
+          = object
+              (catMaybes
+                 [Just ("attachmentId" .= _daAttachmentId)])
 
 instance ToPath DescribeAttachment where
         toPath = const "/"

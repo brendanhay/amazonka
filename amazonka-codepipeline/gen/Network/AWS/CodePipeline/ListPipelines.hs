@@ -69,9 +69,8 @@ lpNextToken :: Lens' ListPipelines (Maybe Text)
 lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
 
 instance AWSRequest ListPipelines where
-        type Sv ListPipelines = CodePipeline
         type Rs ListPipelines = ListPipelinesResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -92,7 +91,8 @@ instance ToHeaders ListPipelines where
 
 instance ToJSON ListPipelines where
         toJSON ListPipelines'{..}
-          = object ["nextToken" .= _lpNextToken]
+          = object
+              (catMaybes [("nextToken" .=) <$> _lpNextToken])
 
 instance ToPath ListPipelines where
         toPath = const "/"

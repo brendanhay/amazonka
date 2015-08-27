@@ -83,9 +83,8 @@ dvVolumeARN :: Lens' DeleteVolume Text
 dvVolumeARN = lens _dvVolumeARN (\ s a -> s{_dvVolumeARN = a});
 
 instance AWSRequest DeleteVolume where
-        type Sv DeleteVolume = StorageGateway
         type Rs DeleteVolume = DeleteVolumeResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -104,7 +103,8 @@ instance ToHeaders DeleteVolume where
 
 instance ToJSON DeleteVolume where
         toJSON DeleteVolume'{..}
-          = object ["VolumeARN" .= _dvVolumeARN]
+          = object
+              (catMaybes [Just ("VolumeARN" .= _dvVolumeARN)])
 
 instance ToPath DeleteVolume where
         toPath = const "/"

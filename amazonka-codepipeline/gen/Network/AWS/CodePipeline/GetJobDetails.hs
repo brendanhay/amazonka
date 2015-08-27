@@ -74,9 +74,8 @@ gjdJobId :: Lens' GetJobDetails Text
 gjdJobId = lens _gjdJobId (\ s a -> s{_gjdJobId = a});
 
 instance AWSRequest GetJobDetails where
-        type Sv GetJobDetails = CodePipeline
         type Rs GetJobDetails = GetJobDetailsResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -95,7 +94,7 @@ instance ToHeaders GetJobDetails where
 
 instance ToJSON GetJobDetails where
         toJSON GetJobDetails'{..}
-          = object ["jobId" .= _gjdJobId]
+          = object (catMaybes [Just ("jobId" .= _gjdJobId)])
 
 instance ToPath GetJobDetails where
         toPath = const "/"

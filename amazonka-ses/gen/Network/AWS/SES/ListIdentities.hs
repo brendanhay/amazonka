@@ -103,9 +103,8 @@ instance AWSPager ListIdentities where
             Just $ rq & liNextToken .~ rs ^. lirsNextToken
 
 instance AWSRequest ListIdentities where
-        type Sv ListIdentities = SES
         type Rs ListIdentities = ListIdentitiesResponse
-        request = postQuery
+        request = postQuery sES
         response
           = receiveXMLWrapper "ListIdentitiesResult"
               (\ s h x ->

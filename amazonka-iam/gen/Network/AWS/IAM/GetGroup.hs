@@ -105,9 +105,8 @@ instance AWSPager GetGroup where
             Just $ rq & ggMarker .~ rs ^. ggrsMarker
 
 instance AWSRequest GetGroup where
-        type Sv GetGroup = IAM
         type Rs GetGroup = GetGroupResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "GetGroupResult"
               (\ s h x ->

@@ -122,10 +122,9 @@ dIncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
 dIncludeDeleted = lens _dIncludeDeleted (\ s a -> s{_dIncludeDeleted = a});
 
 instance AWSRequest DescribeEnvironments where
-        type Sv DescribeEnvironments = ElasticBeanstalk
         type Rs DescribeEnvironments =
              DescribeEnvironmentsResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper "DescribeEnvironmentsResult"
               (\ s h x ->

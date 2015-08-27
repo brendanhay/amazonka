@@ -111,10 +111,9 @@ rTaskToken :: Lens' RespondActivityTaskCanceled Text
 rTaskToken = lens _rTaskToken (\ s a -> s{_rTaskToken = a});
 
 instance AWSRequest RespondActivityTaskCanceled where
-        type Sv RespondActivityTaskCanceled = SWF
         type Rs RespondActivityTaskCanceled =
              RespondActivityTaskCanceledResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveNull RespondActivityTaskCanceledResponse'
 
@@ -131,7 +130,9 @@ instance ToHeaders RespondActivityTaskCanceled where
 instance ToJSON RespondActivityTaskCanceled where
         toJSON RespondActivityTaskCanceled'{..}
           = object
-              ["details" .= _rDetails, "taskToken" .= _rTaskToken]
+              (catMaybes
+                 [("details" .=) <$> _rDetails,
+                  Just ("taskToken" .= _rTaskToken)])
 
 instance ToPath RespondActivityTaskCanceled where
         toPath = const "/"

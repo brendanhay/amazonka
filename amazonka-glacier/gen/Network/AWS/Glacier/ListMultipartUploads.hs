@@ -140,10 +140,9 @@ lmuVaultName :: Lens' ListMultipartUploads Text
 lmuVaultName = lens _lmuVaultName (\ s a -> s{_lmuVaultName = a});
 
 instance AWSRequest ListMultipartUploads where
-        type Sv ListMultipartUploads = Glacier
         type Rs ListMultipartUploads =
              ListMultipartUploadsResponse
-        request = get
+        request = get glacier
         response
           = receiveJSON
               (\ s h x ->

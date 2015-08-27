@@ -87,10 +87,9 @@ gtpjdClientToken :: Lens' GetThirdPartyJobDetails Text
 gtpjdClientToken = lens _gtpjdClientToken (\ s a -> s{_gtpjdClientToken = a});
 
 instance AWSRequest GetThirdPartyJobDetails where
-        type Sv GetThirdPartyJobDetails = CodePipeline
         type Rs GetThirdPartyJobDetails =
              GetThirdPartyJobDetailsResponse
-        request = postJSON
+        request = postJSON codePipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -110,8 +109,9 @@ instance ToHeaders GetThirdPartyJobDetails where
 instance ToJSON GetThirdPartyJobDetails where
         toJSON GetThirdPartyJobDetails'{..}
           = object
-              ["jobId" .= _gtpjdJobId,
-               "clientToken" .= _gtpjdClientToken]
+              (catMaybes
+                 [Just ("jobId" .= _gtpjdJobId),
+                  Just ("clientToken" .= _gtpjdClientToken)])
 
 instance ToPath GetThirdPartyJobDetails where
         toPath = const "/"

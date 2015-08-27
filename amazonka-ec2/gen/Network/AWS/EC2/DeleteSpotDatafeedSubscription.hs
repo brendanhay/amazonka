@@ -70,10 +70,9 @@ dsdssDryRun = lens _dsdssDryRun (\ s a -> s{_dsdssDryRun = a});
 
 instance AWSRequest DeleteSpotDatafeedSubscription
          where
-        type Sv DeleteSpotDatafeedSubscription = EC2
         type Rs DeleteSpotDatafeedSubscription =
              DeleteSpotDatafeedSubscriptionResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveNull DeleteSpotDatafeedSubscriptionResponse'
 

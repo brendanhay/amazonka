@@ -98,11 +98,9 @@ acsgiEC2SecurityGroupOwnerId = lens _acsgiEC2SecurityGroupOwnerId (\ s a -> s{_a
 
 instance AWSRequest
          AuthorizeCacheSecurityGroupIngress where
-        type Sv AuthorizeCacheSecurityGroupIngress =
-             ElastiCache
         type Rs AuthorizeCacheSecurityGroupIngress =
              AuthorizeCacheSecurityGroupIngressResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper
               "AuthorizeCacheSecurityGroupIngressResult"

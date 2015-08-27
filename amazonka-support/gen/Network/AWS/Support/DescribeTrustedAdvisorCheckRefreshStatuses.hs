@@ -68,11 +68,9 @@ dtacrsCheckIds = lens _dtacrsCheckIds (\ s a -> s{_dtacrsCheckIds = a}) . _Coerc
 
 instance AWSRequest
          DescribeTrustedAdvisorCheckRefreshStatuses where
-        type Sv DescribeTrustedAdvisorCheckRefreshStatuses =
-             Support
         type Rs DescribeTrustedAdvisorCheckRefreshStatuses =
              DescribeTrustedAdvisorCheckRefreshStatusesResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveJSON
               (\ s h x ->
@@ -96,7 +94,8 @@ instance ToJSON
          DescribeTrustedAdvisorCheckRefreshStatuses where
         toJSON
           DescribeTrustedAdvisorCheckRefreshStatuses'{..}
-          = object ["checkIds" .= _dtacrsCheckIds]
+          = object
+              (catMaybes [Just ("checkIds" .= _dtacrsCheckIds)])
 
 instance ToPath
          DescribeTrustedAdvisorCheckRefreshStatuses where

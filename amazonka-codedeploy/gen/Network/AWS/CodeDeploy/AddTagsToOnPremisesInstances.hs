@@ -77,10 +77,9 @@ attopiInstanceNames = lens _attopiInstanceNames (\ s a -> s{_attopiInstanceNames
 
 instance AWSRequest AddTagsToOnPremisesInstances
          where
-        type Sv AddTagsToOnPremisesInstances = CodeDeploy
         type Rs AddTagsToOnPremisesInstances =
              AddTagsToOnPremisesInstancesResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveNull AddTagsToOnPremisesInstancesResponse'
 
@@ -97,8 +96,9 @@ instance ToHeaders AddTagsToOnPremisesInstances where
 instance ToJSON AddTagsToOnPremisesInstances where
         toJSON AddTagsToOnPremisesInstances'{..}
           = object
-              ["tags" .= _attopiTags,
-               "instanceNames" .= _attopiInstanceNames]
+              (catMaybes
+                 [Just ("tags" .= _attopiTags),
+                  Just ("instanceNames" .= _attopiInstanceNames)])
 
 instance ToPath AddTagsToOnPremisesInstances where
         toPath = const "/"

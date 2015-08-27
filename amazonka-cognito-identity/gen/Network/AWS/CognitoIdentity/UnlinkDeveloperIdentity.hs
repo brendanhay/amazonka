@@ -102,10 +102,9 @@ udiDeveloperUserIdentifier :: Lens' UnlinkDeveloperIdentity Text
 udiDeveloperUserIdentifier = lens _udiDeveloperUserIdentifier (\ s a -> s{_udiDeveloperUserIdentifier = a});
 
 instance AWSRequest UnlinkDeveloperIdentity where
-        type Sv UnlinkDeveloperIdentity = CognitoIdentity
         type Rs UnlinkDeveloperIdentity =
              UnlinkDeveloperIdentityResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response
           = receiveNull UnlinkDeveloperIdentityResponse'
 
@@ -122,11 +121,15 @@ instance ToHeaders UnlinkDeveloperIdentity where
 instance ToJSON UnlinkDeveloperIdentity where
         toJSON UnlinkDeveloperIdentity'{..}
           = object
-              ["IdentityId" .= _udiIdentityId,
-               "IdentityPoolId" .= _udiIdentityPoolId,
-               "DeveloperProviderName" .= _udiDeveloperProviderName,
-               "DeveloperUserIdentifier" .=
-                 _udiDeveloperUserIdentifier]
+              (catMaybes
+                 [Just ("IdentityId" .= _udiIdentityId),
+                  Just ("IdentityPoolId" .= _udiIdentityPoolId),
+                  Just
+                    ("DeveloperProviderName" .=
+                       _udiDeveloperProviderName),
+                  Just
+                    ("DeveloperUserIdentifier" .=
+                       _udiDeveloperUserIdentifier)])
 
 instance ToPath UnlinkDeveloperIdentity where
         toPath = const "/"

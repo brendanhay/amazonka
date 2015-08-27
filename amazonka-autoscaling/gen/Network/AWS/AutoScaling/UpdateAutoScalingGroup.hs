@@ -214,10 +214,9 @@ uasgAutoScalingGroupName :: Lens' UpdateAutoScalingGroup Text
 uasgAutoScalingGroupName = lens _uasgAutoScalingGroupName (\ s a -> s{_uasgAutoScalingGroupName = a});
 
 instance AWSRequest UpdateAutoScalingGroup where
-        type Sv UpdateAutoScalingGroup = AutoScaling
         type Rs UpdateAutoScalingGroup =
              UpdateAutoScalingGroupResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveNull UpdateAutoScalingGroupResponse'
 

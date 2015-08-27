@@ -2,7 +2,6 @@
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -150,7 +149,9 @@ afValue = lens _afValue (\ s a -> s{_afValue = a});
 
 instance ToJSON AssociationFilter where
         toJSON AssociationFilter'{..}
-          = object ["key" .= _afKey, "value" .= _afValue]
+          = object
+              (catMaybes
+                 [Just ("key" .= _afKey), Just ("value" .= _afValue)])
 
 -- | Describes an association status.
 --
@@ -214,9 +215,10 @@ instance FromJSON AssociationStatus where
 instance ToJSON AssociationStatus where
         toJSON AssociationStatus'{..}
           = object
-              ["AdditionalInfo" .= _asAdditionalInfo,
-               "Date" .= _asDate, "Name" .= _asName,
-               "Message" .= _asMessage]
+              (catMaybes
+                 [("AdditionalInfo" .=) <$> _asAdditionalInfo,
+                  Just ("Date" .= _asDate), Just ("Name" .= _asName),
+                  Just ("Message" .= _asMessage)])
 
 -- | Describes the association of a configuration document and an instance.
 --
@@ -261,8 +263,9 @@ instance ToJSON CreateAssociationBatchRequestEntry
          where
         toJSON CreateAssociationBatchRequestEntry'{..}
           = object
-              ["InstanceId" .= _cabreInstanceId,
-               "Name" .= _cabreName]
+              (catMaybes
+                 [("InstanceId" .=) <$> _cabreInstanceId,
+                  ("Name" .=) <$> _cabreName])
 
 -- | Describes a configuration document.
 --
@@ -356,7 +359,9 @@ dfValue = lens _dfValue (\ s a -> s{_dfValue = a});
 
 instance ToJSON DocumentFilter where
         toJSON DocumentFilter'{..}
-          = object ["key" .= _dfKey, "value" .= _dfValue]
+          = object
+              (catMaybes
+                 [Just ("key" .= _dfKey), Just ("value" .= _dfValue)])
 
 -- | Describes the name of a configuration document.
 --

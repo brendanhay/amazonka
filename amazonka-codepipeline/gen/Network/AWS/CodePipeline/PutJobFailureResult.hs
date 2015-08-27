@@ -77,10 +77,9 @@ pjfrFailureDetails :: Lens' PutJobFailureResult FailureDetails
 pjfrFailureDetails = lens _pjfrFailureDetails (\ s a -> s{_pjfrFailureDetails = a});
 
 instance AWSRequest PutJobFailureResult where
-        type Sv PutJobFailureResult = CodePipeline
         type Rs PutJobFailureResult =
              PutJobFailureResultResponse
-        request = postJSON
+        request = postJSON codePipeline
         response = receiveNull PutJobFailureResultResponse'
 
 instance ToHeaders PutJobFailureResult where
@@ -96,8 +95,9 @@ instance ToHeaders PutJobFailureResult where
 instance ToJSON PutJobFailureResult where
         toJSON PutJobFailureResult'{..}
           = object
-              ["jobId" .= _pjfrJobId,
-               "failureDetails" .= _pjfrFailureDetails]
+              (catMaybes
+                 [Just ("jobId" .= _pjfrJobId),
+                  Just ("failureDetails" .= _pjfrFailureDetails)])
 
 instance ToPath PutJobFailureResult where
         toPath = const "/"

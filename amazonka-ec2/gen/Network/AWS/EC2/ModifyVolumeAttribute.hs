@@ -94,10 +94,9 @@ mvaVolumeId :: Lens' ModifyVolumeAttribute Text
 mvaVolumeId = lens _mvaVolumeId (\ s a -> s{_mvaVolumeId = a});
 
 instance AWSRequest ModifyVolumeAttribute where
-        type Sv ModifyVolumeAttribute = EC2
         type Rs ModifyVolumeAttribute =
              ModifyVolumeAttributeResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull ModifyVolumeAttributeResponse'
 
 instance ToHeaders ModifyVolumeAttribute where

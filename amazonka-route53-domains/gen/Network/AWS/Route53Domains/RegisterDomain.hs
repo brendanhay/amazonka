@@ -262,9 +262,8 @@ rdTechContact :: Lens' RegisterDomain ContactDetail
 rdTechContact = lens _rdTechContact (\ s a -> s{_rdTechContact = a}) . _Sensitive;
 
 instance AWSRequest RegisterDomain where
-        type Sv RegisterDomain = Route53Domains
         type Rs RegisterDomain = RegisterDomainResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveJSON
               (\ s h x ->
@@ -284,19 +283,20 @@ instance ToHeaders RegisterDomain where
 instance ToJSON RegisterDomain where
         toJSON RegisterDomain'{..}
           = object
-              ["PrivacyProtectTechContact" .=
-                 _rdPrivacyProtectTechContact,
-               "PrivacyProtectRegistrantContact" .=
-                 _rdPrivacyProtectRegistrantContact,
-               "AutoRenew" .= _rdAutoRenew,
-               "PrivacyProtectAdminContact" .=
-                 _rdPrivacyProtectAdminContact,
-               "IdnLangCode" .= _rdIdNLangCode,
-               "DomainName" .= _rdDomainName,
-               "DurationInYears" .= _rdDurationInYears,
-               "AdminContact" .= _rdAdminContact,
-               "RegistrantContact" .= _rdRegistrantContact,
-               "TechContact" .= _rdTechContact]
+              (catMaybes
+                 [("PrivacyProtectTechContact" .=) <$>
+                    _rdPrivacyProtectTechContact,
+                  ("PrivacyProtectRegistrantContact" .=) <$>
+                    _rdPrivacyProtectRegistrantContact,
+                  ("AutoRenew" .=) <$> _rdAutoRenew,
+                  ("PrivacyProtectAdminContact" .=) <$>
+                    _rdPrivacyProtectAdminContact,
+                  ("IdnLangCode" .=) <$> _rdIdNLangCode,
+                  Just ("DomainName" .= _rdDomainName),
+                  Just ("DurationInYears" .= _rdDurationInYears),
+                  Just ("AdminContact" .= _rdAdminContact),
+                  Just ("RegistrantContact" .= _rdRegistrantContact),
+                  Just ("TechContact" .= _rdTechContact)])
 
 instance ToPath RegisterDomain where
         toPath = const "/"

@@ -80,10 +80,9 @@ delbLayerId :: Lens' DetachElasticLoadBalancer Text
 delbLayerId = lens _delbLayerId (\ s a -> s{_delbLayerId = a});
 
 instance AWSRequest DetachElasticLoadBalancer where
-        type Sv DetachElasticLoadBalancer = OpsWorks
         type Rs DetachElasticLoadBalancer =
              DetachElasticLoadBalancerResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveNull DetachElasticLoadBalancerResponse'
 
@@ -100,9 +99,11 @@ instance ToHeaders DetachElasticLoadBalancer where
 instance ToJSON DetachElasticLoadBalancer where
         toJSON DetachElasticLoadBalancer'{..}
           = object
-              ["ElasticLoadBalancerName" .=
-                 _delbElasticLoadBalancerName,
-               "LayerId" .= _delbLayerId]
+              (catMaybes
+                 [Just
+                    ("ElasticLoadBalancerName" .=
+                       _delbElasticLoadBalancerName),
+                  Just ("LayerId" .= _delbLayerId)])
 
 instance ToPath DetachElasticLoadBalancer where
         toPath = const "/"

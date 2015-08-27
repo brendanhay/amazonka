@@ -69,10 +69,9 @@ gdcDeploymentConfigName :: Lens' GetDeploymentConfig Text
 gdcDeploymentConfigName = lens _gdcDeploymentConfigName (\ s a -> s{_gdcDeploymentConfigName = a});
 
 instance AWSRequest GetDeploymentConfig where
-        type Sv GetDeploymentConfig = CodeDeploy
         type Rs GetDeploymentConfig =
              GetDeploymentConfigResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -93,7 +92,10 @@ instance ToHeaders GetDeploymentConfig where
 instance ToJSON GetDeploymentConfig where
         toJSON GetDeploymentConfig'{..}
           = object
-              ["deploymentConfigName" .= _gdcDeploymentConfigName]
+              (catMaybes
+                 [Just
+                    ("deploymentConfigName" .=
+                       _gdcDeploymentConfigName)])
 
 instance ToPath GetDeploymentConfig where
         toPath = const "/"

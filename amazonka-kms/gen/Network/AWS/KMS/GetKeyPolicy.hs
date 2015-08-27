@@ -83,9 +83,8 @@ gkpPolicyName :: Lens' GetKeyPolicy Text
 gkpPolicyName = lens _gkpPolicyName (\ s a -> s{_gkpPolicyName = a});
 
 instance AWSRequest GetKeyPolicy where
-        type Sv GetKeyPolicy = KMS
         type Rs GetKeyPolicy = GetKeyPolicyResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->
@@ -104,8 +103,9 @@ instance ToHeaders GetKeyPolicy where
 instance ToJSON GetKeyPolicy where
         toJSON GetKeyPolicy'{..}
           = object
-              ["KeyId" .= _gkpKeyId,
-               "PolicyName" .= _gkpPolicyName]
+              (catMaybes
+                 [Just ("KeyId" .= _gkpKeyId),
+                  Just ("PolicyName" .= _gkpPolicyName)])
 
 instance ToPath GetKeyPolicy where
         toPath = const "/"

@@ -16,8 +16,8 @@
 -- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/welcome.html AWS API Reference>
 module Network.AWS.CloudHSM
     (
-    -- * Service
-      CloudHSM
+    -- * Service Configuration
+      cloudHSM
 
     -- * Errors
     -- $errors

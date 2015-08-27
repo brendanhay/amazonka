@@ -95,10 +95,9 @@ dehAttributeNames :: Lens' DescribeEnvironmentHealth [EnvironmentHealthAttribute
 dehAttributeNames = lens _dehAttributeNames (\ s a -> s{_dehAttributeNames = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeEnvironmentHealth where
-        type Sv DescribeEnvironmentHealth = ElasticBeanstalk
         type Rs DescribeEnvironmentHealth =
              DescribeEnvironmentHealthResponse
-        request = postQuery
+        request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper "DescribeEnvironmentHealthResult"
               (\ s h x ->

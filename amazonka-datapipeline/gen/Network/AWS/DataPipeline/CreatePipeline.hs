@@ -113,9 +113,8 @@ cpUniqueId :: Lens' CreatePipeline Text
 cpUniqueId = lens _cpUniqueId (\ s a -> s{_cpUniqueId = a});
 
 instance AWSRequest CreatePipeline where
-        type Sv CreatePipeline = DataPipeline
         type Rs CreatePipeline = CreatePipelineResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -134,8 +133,10 @@ instance ToHeaders CreatePipeline where
 instance ToJSON CreatePipeline where
         toJSON CreatePipeline'{..}
           = object
-              ["description" .= _cpDescription, "tags" .= _cpTags,
-               "name" .= _cpName, "uniqueId" .= _cpUniqueId]
+              (catMaybes
+                 [("description" .=) <$> _cpDescription,
+                  ("tags" .=) <$> _cpTags, Just ("name" .= _cpName),
+                  Just ("uniqueId" .= _cpUniqueId)])
 
 instance ToPath CreatePipeline where
         toPath = const "/"

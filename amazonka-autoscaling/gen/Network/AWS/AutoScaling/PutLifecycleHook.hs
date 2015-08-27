@@ -200,9 +200,8 @@ plhAutoScalingGroupName :: Lens' PutLifecycleHook Text
 plhAutoScalingGroupName = lens _plhAutoScalingGroupName (\ s a -> s{_plhAutoScalingGroupName = a});
 
 instance AWSRequest PutLifecycleHook where
-        type Sv PutLifecycleHook = AutoScaling
         type Rs PutLifecycleHook = PutLifecycleHookResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "PutLifecycleHookResult"
               (\ s h x ->

@@ -110,10 +110,9 @@ crrsChangeBatch :: Lens' ChangeResourceRecordSets ChangeBatch
 crrsChangeBatch = lens _crrsChangeBatch (\ s a -> s{_crrsChangeBatch = a});
 
 instance AWSRequest ChangeResourceRecordSets where
-        type Sv ChangeResourceRecordSets = Route53
         type Rs ChangeResourceRecordSets =
              ChangeResourceRecordSetsResponse
-        request = postXML
+        request = postXML route53
         response
           = receiveXML
               (\ s h x ->

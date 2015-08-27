@@ -32,8 +32,8 @@
 -- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.ELB
     (
-    -- * Service
-      ELB
+    -- * Service Configuration
+      eLB
 
     -- * Errors
     -- $errors

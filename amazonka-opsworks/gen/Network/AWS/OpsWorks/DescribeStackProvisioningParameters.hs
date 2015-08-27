@@ -74,11 +74,9 @@ dsppStackId = lens _dsppStackId (\ s a -> s{_dsppStackId = a});
 
 instance AWSRequest
          DescribeStackProvisioningParameters where
-        type Sv DescribeStackProvisioningParameters =
-             OpsWorks
         type Rs DescribeStackProvisioningParameters =
              DescribeStackProvisioningParametersResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -101,7 +99,8 @@ instance ToHeaders
 instance ToJSON DescribeStackProvisioningParameters
          where
         toJSON DescribeStackProvisioningParameters'{..}
-          = object ["StackId" .= _dsppStackId]
+          = object
+              (catMaybes [Just ("StackId" .= _dsppStackId)])
 
 instance ToPath DescribeStackProvisioningParameters
          where

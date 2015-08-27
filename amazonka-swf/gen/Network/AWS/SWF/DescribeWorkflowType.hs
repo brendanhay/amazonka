@@ -102,10 +102,9 @@ dwtWorkflowType :: Lens' DescribeWorkflowType WorkflowType
 dwtWorkflowType = lens _dwtWorkflowType (\ s a -> s{_dwtWorkflowType = a});
 
 instance AWSRequest DescribeWorkflowType where
-        type Sv DescribeWorkflowType = SWF
         type Rs DescribeWorkflowType =
              DescribeWorkflowTypeResponse
-        request = postJSON
+        request = postJSON sWF
         response
           = receiveJSON
               (\ s h x ->
@@ -126,8 +125,9 @@ instance ToHeaders DescribeWorkflowType where
 instance ToJSON DescribeWorkflowType where
         toJSON DescribeWorkflowType'{..}
           = object
-              ["domain" .= _dwtDomain,
-               "workflowType" .= _dwtWorkflowType]
+              (catMaybes
+                 [Just ("domain" .= _dwtDomain),
+                  Just ("workflowType" .= _dwtWorkflowType)])
 
 instance ToPath DescribeWorkflowType where
         toPath = const "/"

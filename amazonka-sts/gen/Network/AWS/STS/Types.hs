@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.STS.Types
     (
-    -- * Service
-      STS
+    -- * Service Configuration
+      sTS
 
     -- * Errors
     , _MalformedPolicyDocumentException
@@ -51,39 +50,36 @@ import           Network.AWS.Sign.V4
 import           Network.AWS.STS.Types.Product
 import           Network.AWS.STS.Types.Sum
 
--- | Version @2011-06-15@ of the Amazon Security Token Service SDK.
-data STS
-
-instance AWSService STS where
-    type Sg STS = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "STS"
-            , _svcPrefix = "sts"
-            , _svcVersion = "2011-06-15"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseXMLError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2011-06-15' of the Amazon Security Token Service SDK configuration.
+sTS :: Service
+sTS =
+    Service
+    { _svcAbbrev = "STS"
+    , _svcSigner = v4
+    , _svcPrefix = "sts"
+    , _svcVersion = "2011-06-15"
+    , _svcEndpoint = defaultEndpoint sTS
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | The request was rejected because the policy document was malformed. The
 -- error message describes the specific error.

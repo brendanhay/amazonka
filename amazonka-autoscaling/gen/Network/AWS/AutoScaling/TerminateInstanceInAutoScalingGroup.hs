@@ -82,11 +82,9 @@ tiiasgShouldDecrementDesiredCapacity = lens _tiiasgShouldDecrementDesiredCapacit
 
 instance AWSRequest
          TerminateInstanceInAutoScalingGroup where
-        type Sv TerminateInstanceInAutoScalingGroup =
-             AutoScaling
         type Rs TerminateInstanceInAutoScalingGroup =
              TerminateInstanceInAutoScalingGroupResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper
               "TerminateInstanceInAutoScalingGroupResult"

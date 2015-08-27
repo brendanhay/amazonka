@@ -89,9 +89,8 @@ gcHAPGList :: Lens' GetConfig [Text]
 gcHAPGList = lens _gcHAPGList (\ s a -> s{_gcHAPGList = a}) . _Coerce;
 
 instance AWSRequest GetConfig where
-        type Sv GetConfig = CloudHSM
         type Rs GetConfig = GetConfigResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->
@@ -112,9 +111,10 @@ instance ToHeaders GetConfig where
 instance ToJSON GetConfig where
         toJSON GetConfig'{..}
           = object
-              ["ClientArn" .= _gcClientARN,
-               "ClientVersion" .= _gcClientVersion,
-               "HapgList" .= _gcHAPGList]
+              (catMaybes
+                 [Just ("ClientArn" .= _gcClientARN),
+                  Just ("ClientVersion" .= _gcClientVersion),
+                  Just ("HapgList" .= _gcHAPGList)])
 
 instance ToPath GetConfig where
         toPath = const "/"

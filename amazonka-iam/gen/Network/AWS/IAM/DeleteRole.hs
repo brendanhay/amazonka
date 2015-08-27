@@ -70,9 +70,8 @@ drRoleName :: Lens' DeleteRole Text
 drRoleName = lens _drRoleName (\ s a -> s{_drRoleName = a});
 
 instance AWSRequest DeleteRole where
-        type Sv DeleteRole = IAM
         type Rs DeleteRole = DeleteRoleResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull DeleteRoleResponse'
 
 instance ToHeaders DeleteRole where

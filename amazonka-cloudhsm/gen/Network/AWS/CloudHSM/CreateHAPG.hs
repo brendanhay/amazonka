@@ -70,9 +70,8 @@ chLabel :: Lens' CreateHAPG Text
 chLabel = lens _chLabel (\ s a -> s{_chLabel = a});
 
 instance AWSRequest CreateHAPG where
-        type Sv CreateHAPG = CloudHSM
         type Rs CreateHAPG = CreateHAPGResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->
@@ -89,7 +88,8 @@ instance ToHeaders CreateHAPG where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON CreateHAPG where
-        toJSON CreateHAPG'{..} = object ["Label" .= _chLabel]
+        toJSON CreateHAPG'{..}
+          = object (catMaybes [Just ("Label" .= _chLabel)])
 
 instance ToPath CreateHAPG where
         toPath = const "/"

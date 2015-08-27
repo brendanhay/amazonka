@@ -142,10 +142,9 @@ coicpThumbprintList :: Lens' CreateOpenIdConnectProvider [Text]
 coicpThumbprintList = lens _coicpThumbprintList (\ s a -> s{_coicpThumbprintList = a}) . _Coerce;
 
 instance AWSRequest CreateOpenIdConnectProvider where
-        type Sv CreateOpenIdConnectProvider = IAM
         type Rs CreateOpenIdConnectProvider =
              CreateOpenIdConnectProviderResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper
               "CreateOpenIDConnectProviderResult"

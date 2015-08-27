@@ -180,10 +180,9 @@ instance AWSPager DescribeReservedDBInstances where
             Just $ rq & drdiMarker .~ rs ^. drdirsMarker
 
 instance AWSRequest DescribeReservedDBInstances where
-        type Sv DescribeReservedDBInstances = RDS
         type Rs DescribeReservedDBInstances =
              DescribeReservedDBInstancesResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper
               "DescribeReservedDBInstancesResult"

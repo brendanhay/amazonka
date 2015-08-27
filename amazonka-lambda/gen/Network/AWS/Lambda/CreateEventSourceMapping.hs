@@ -150,10 +150,9 @@ cesmStartingPosition :: Lens' CreateEventSourceMapping EventSourcePosition
 cesmStartingPosition = lens _cesmStartingPosition (\ s a -> s{_cesmStartingPosition = a});
 
 instance AWSRequest CreateEventSourceMapping where
-        type Sv CreateEventSourceMapping = Lambda
         type Rs CreateEventSourceMapping =
              EventSourceMappingConfiguration
-        request = postJSON
+        request = postJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreateEventSourceMapping where
@@ -162,11 +161,12 @@ instance ToHeaders CreateEventSourceMapping where
 instance ToJSON CreateEventSourceMapping where
         toJSON CreateEventSourceMapping'{..}
           = object
-              ["Enabled" .= _cesmEnabled,
-               "BatchSize" .= _cesmBatchSize,
-               "EventSourceArn" .= _cesmEventSourceARN,
-               "FunctionName" .= _cesmFunctionName,
-               "StartingPosition" .= _cesmStartingPosition]
+              (catMaybes
+                 [("Enabled" .=) <$> _cesmEnabled,
+                  ("BatchSize" .=) <$> _cesmBatchSize,
+                  Just ("EventSourceArn" .= _cesmEventSourceARN),
+                  Just ("FunctionName" .= _cesmFunctionName),
+                  Just ("StartingPosition" .= _cesmStartingPosition)])
 
 instance ToPath CreateEventSourceMapping where
         toPath = const "/2015-03-31/event-source-mappings/"

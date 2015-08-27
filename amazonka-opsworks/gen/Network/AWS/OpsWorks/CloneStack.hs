@@ -413,9 +413,8 @@ cServiceRoleARN :: Lens' CloneStack Text
 cServiceRoleARN = lens _cServiceRoleARN (\ s a -> s{_cServiceRoleARN = a});
 
 instance AWSRequest CloneStack where
-        type Sv CloneStack = OpsWorks
         type Rs CloneStack = CloneStackResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -434,30 +433,35 @@ instance ToHeaders CloneStack where
 instance ToJSON CloneStack where
         toJSON CloneStack'{..}
           = object
-              ["CloneAppIds" .= _cCloneAppIds,
-               "DefaultInstanceProfileArn" .=
-                 _cDefaultInstanceProfileARN,
-               "DefaultRootDeviceType" .= _cDefaultRootDeviceType,
-               "ChefConfiguration" .= _cChefConfiguration,
-               "VpcId" .= _cVPCId, "AgentVersion" .= _cAgentVersion,
-               "DefaultSshKeyName" .= _cDefaultSSHKeyName,
-               "CustomJson" .= _cCustomJSON,
-               "ClonePermissions" .= _cClonePermissions,
-               "CustomCookbooksSource" .= _cCustomCookbooksSource,
-               "DefaultAvailabilityZone" .=
-                 _cDefaultAvailabilityZone,
-               "Name" .= _cName,
-               "UseOpsworksSecurityGroups" .=
-                 _cUseOpsworksSecurityGroups,
-               "DefaultOs" .= _cDefaultOS,
-               "Attributes" .= _cAttributes,
-               "UseCustomCookbooks" .= _cUseCustomCookbooks,
-               "DefaultSubnetId" .= _cDefaultSubnetId,
-               "Region" .= _cRegion,
-               "ConfigurationManager" .= _cConfigurationManager,
-               "HostnameTheme" .= _cHostnameTheme,
-               "SourceStackId" .= _cSourceStackId,
-               "ServiceRoleArn" .= _cServiceRoleARN]
+              (catMaybes
+                 [("CloneAppIds" .=) <$> _cCloneAppIds,
+                  ("DefaultInstanceProfileArn" .=) <$>
+                    _cDefaultInstanceProfileARN,
+                  ("DefaultRootDeviceType" .=) <$>
+                    _cDefaultRootDeviceType,
+                  ("ChefConfiguration" .=) <$> _cChefConfiguration,
+                  ("VpcId" .=) <$> _cVPCId,
+                  ("AgentVersion" .=) <$> _cAgentVersion,
+                  ("DefaultSshKeyName" .=) <$> _cDefaultSSHKeyName,
+                  ("CustomJson" .=) <$> _cCustomJSON,
+                  ("ClonePermissions" .=) <$> _cClonePermissions,
+                  ("CustomCookbooksSource" .=) <$>
+                    _cCustomCookbooksSource,
+                  ("DefaultAvailabilityZone" .=) <$>
+                    _cDefaultAvailabilityZone,
+                  ("Name" .=) <$> _cName,
+                  ("UseOpsworksSecurityGroups" .=) <$>
+                    _cUseOpsworksSecurityGroups,
+                  ("DefaultOs" .=) <$> _cDefaultOS,
+                  ("Attributes" .=) <$> _cAttributes,
+                  ("UseCustomCookbooks" .=) <$> _cUseCustomCookbooks,
+                  ("DefaultSubnetId" .=) <$> _cDefaultSubnetId,
+                  ("Region" .=) <$> _cRegion,
+                  ("ConfigurationManager" .=) <$>
+                    _cConfigurationManager,
+                  ("HostnameTheme" .=) <$> _cHostnameTheme,
+                  Just ("SourceStackId" .= _cSourceStackId),
+                  Just ("ServiceRoleArn" .= _cServiceRoleARN)])
 
 instance ToPath CloneStack where
         toPath = const "/"

@@ -124,10 +124,9 @@ rciTotalResources :: Lens' RegisterContainerInstance [Resource]
 rciTotalResources = lens _rciTotalResources (\ s a -> s{_rciTotalResources = a}) . _Default . _Coerce;
 
 instance AWSRequest RegisterContainerInstance where
-        type Sv RegisterContainerInstance = ECS
         type Rs RegisterContainerInstance =
              RegisterContainerInstanceResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -147,14 +146,16 @@ instance ToHeaders RegisterContainerInstance where
 instance ToJSON RegisterContainerInstance where
         toJSON RegisterContainerInstance'{..}
           = object
-              ["instanceIdentityDocumentSignature" .=
-                 _rciInstanceIdentityDocumentSignature,
-               "cluster" .= _rciCluster,
-               "instanceIdentityDocument" .=
-                 _rciInstanceIdentityDocument,
-               "containerInstanceArn" .= _rciContainerInstanceARN,
-               "versionInfo" .= _rciVersionInfo,
-               "totalResources" .= _rciTotalResources]
+              (catMaybes
+                 [("instanceIdentityDocumentSignature" .=) <$>
+                    _rciInstanceIdentityDocumentSignature,
+                  ("cluster" .=) <$> _rciCluster,
+                  ("instanceIdentityDocument" .=) <$>
+                    _rciInstanceIdentityDocument,
+                  ("containerInstanceArn" .=) <$>
+                    _rciContainerInstanceARN,
+                  ("versionInfo" .=) <$> _rciVersionInfo,
+                  ("totalResources" .=) <$> _rciTotalResources])
 
 instance ToPath RegisterContainerInstance where
         toPath = const "/"

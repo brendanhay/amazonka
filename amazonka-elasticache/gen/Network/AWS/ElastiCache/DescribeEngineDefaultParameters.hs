@@ -114,10 +114,9 @@ instance AWSPager DescribeEngineDefaultParameters
 
 instance AWSRequest DescribeEngineDefaultParameters
          where
-        type Sv DescribeEngineDefaultParameters = ElastiCache
         type Rs DescribeEngineDefaultParameters =
              DescribeEngineDefaultParametersResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveXMLWrapper
               "DescribeEngineDefaultParametersResult"

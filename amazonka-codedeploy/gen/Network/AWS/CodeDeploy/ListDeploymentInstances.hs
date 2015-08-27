@@ -103,10 +103,9 @@ ldiDeploymentId :: Lens' ListDeploymentInstances Text
 ldiDeploymentId = lens _ldiDeploymentId (\ s a -> s{_ldiDeploymentId = a});
 
 instance AWSRequest ListDeploymentInstances where
-        type Sv ListDeploymentInstances = CodeDeploy
         type Rs ListDeploymentInstances =
              ListDeploymentInstancesResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -128,9 +127,11 @@ instance ToHeaders ListDeploymentInstances where
 instance ToJSON ListDeploymentInstances where
         toJSON ListDeploymentInstances'{..}
           = object
-              ["instanceStatusFilter" .= _ldiInstanceStatusFilter,
-               "nextToken" .= _ldiNextToken,
-               "deploymentId" .= _ldiDeploymentId]
+              (catMaybes
+                 [("instanceStatusFilter" .=) <$>
+                    _ldiInstanceStatusFilter,
+                  ("nextToken" .=) <$> _ldiNextToken,
+                  Just ("deploymentId" .= _ldiDeploymentId)])
 
 instance ToPath ListDeploymentInstances where
         toPath = const "/"

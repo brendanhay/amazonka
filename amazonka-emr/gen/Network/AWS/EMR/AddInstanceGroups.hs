@@ -78,9 +78,8 @@ aigJobFlowId :: Lens' AddInstanceGroups Text
 aigJobFlowId = lens _aigJobFlowId (\ s a -> s{_aigJobFlowId = a});
 
 instance AWSRequest AddInstanceGroups where
-        type Sv AddInstanceGroups = EMR
         type Rs AddInstanceGroups = AddInstanceGroupsResponse
-        request = postJSON
+        request = postJSON eMR
         response
           = receiveJSON
               (\ s h x ->
@@ -101,8 +100,9 @@ instance ToHeaders AddInstanceGroups where
 instance ToJSON AddInstanceGroups where
         toJSON AddInstanceGroups'{..}
           = object
-              ["InstanceGroups" .= _aigInstanceGroups,
-               "JobFlowId" .= _aigJobFlowId]
+              (catMaybes
+                 [Just ("InstanceGroups" .= _aigInstanceGroups),
+                  Just ("JobFlowId" .= _aigJobFlowId)])
 
 instance ToPath AddInstanceGroups where
         toPath = const "/"

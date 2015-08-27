@@ -179,11 +179,9 @@ cdsfrRoleARN = lens _cdsfrRoleARN (\ s a -> s{_cdsfrRoleARN = a});
 
 instance AWSRequest CreateDataSourceFromRedshift
          where
-        type Sv CreateDataSourceFromRedshift =
-             MachineLearning
         type Rs CreateDataSourceFromRedshift =
              CreateDataSourceFromRedshiftResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -203,11 +201,12 @@ instance ToHeaders CreateDataSourceFromRedshift where
 instance ToJSON CreateDataSourceFromRedshift where
         toJSON CreateDataSourceFromRedshift'{..}
           = object
-              ["DataSourceName" .= _cdsfrDataSourceName,
-               "ComputeStatistics" .= _cdsfrComputeStatistics,
-               "DataSourceId" .= _cdsfrDataSourceId,
-               "DataSpec" .= _cdsfrDataSpec,
-               "RoleARN" .= _cdsfrRoleARN]
+              (catMaybes
+                 [("DataSourceName" .=) <$> _cdsfrDataSourceName,
+                  ("ComputeStatistics" .=) <$> _cdsfrComputeStatistics,
+                  Just ("DataSourceId" .= _cdsfrDataSourceId),
+                  Just ("DataSpec" .= _cdsfrDataSpec),
+                  Just ("RoleARN" .= _cdsfrRoleARN)])
 
 instance ToPath CreateDataSourceFromRedshift where
         toPath = const "/"

@@ -93,10 +93,9 @@ mscrpRetentionPeriod = lens _mscrpRetentionPeriod (\ s a -> s{_mscrpRetentionPer
 
 instance AWSRequest ModifySnapshotCopyRetentionPeriod
          where
-        type Sv ModifySnapshotCopyRetentionPeriod = Redshift
         type Rs ModifySnapshotCopyRetentionPeriod =
              ModifySnapshotCopyRetentionPeriodResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "ModifySnapshotCopyRetentionPeriodResult"

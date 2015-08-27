@@ -70,9 +70,8 @@ sInstanceId :: Lens' StartInstance Text
 sInstanceId = lens _sInstanceId (\ s a -> s{_sInstanceId = a});
 
 instance AWSRequest StartInstance where
-        type Sv StartInstance = OpsWorks
         type Rs StartInstance = StartInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull StartInstanceResponse'
 
 instance ToHeaders StartInstance where
@@ -86,7 +85,8 @@ instance ToHeaders StartInstance where
 
 instance ToJSON StartInstance where
         toJSON StartInstance'{..}
-          = object ["InstanceId" .= _sInstanceId]
+          = object
+              (catMaybes [Just ("InstanceId" .= _sInstanceId)])
 
 instance ToPath StartInstance where
         toPath = const "/"

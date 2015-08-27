@@ -87,10 +87,9 @@ cipInstanceProfileName :: Lens' CreateInstanceProfile Text
 cipInstanceProfileName = lens _cipInstanceProfileName (\ s a -> s{_cipInstanceProfileName = a});
 
 instance AWSRequest CreateInstanceProfile where
-        type Sv CreateInstanceProfile = IAM
         type Rs CreateInstanceProfile =
              CreateInstanceProfileResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "CreateInstanceProfileResult"
               (\ s h x ->

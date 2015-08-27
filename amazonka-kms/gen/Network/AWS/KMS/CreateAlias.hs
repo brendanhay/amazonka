@@ -94,9 +94,8 @@ caTargetKeyId :: Lens' CreateAlias Text
 caTargetKeyId = lens _caTargetKeyId (\ s a -> s{_caTargetKeyId = a});
 
 instance AWSRequest CreateAlias where
-        type Sv CreateAlias = KMS
         type Rs CreateAlias = CreateAliasResponse
-        request = postJSON
+        request = postJSON kMS
         response = receiveNull CreateAliasResponse'
 
 instance ToHeaders CreateAlias where
@@ -111,8 +110,9 @@ instance ToHeaders CreateAlias where
 instance ToJSON CreateAlias where
         toJSON CreateAlias'{..}
           = object
-              ["AliasName" .= _caAliasName,
-               "TargetKeyId" .= _caTargetKeyId]
+              (catMaybes
+                 [Just ("AliasName" .= _caAliasName),
+                  Just ("TargetKeyId" .= _caTargetKeyId)])
 
 instance ToPath CreateAlias where
         toPath = const "/"

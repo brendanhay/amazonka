@@ -80,9 +80,8 @@ dcConnectionId :: Lens' DeleteConnection Text
 dcConnectionId = lens _dcConnectionId (\ s a -> s{_dcConnectionId = a});
 
 instance AWSRequest DeleteConnection where
-        type Sv DeleteConnection = DirectConnect
         type Rs DeleteConnection = Connection
-        request = postJSON
+        request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders DeleteConnection where
@@ -96,7 +95,9 @@ instance ToHeaders DeleteConnection where
 
 instance ToJSON DeleteConnection where
         toJSON DeleteConnection'{..}
-          = object ["connectionId" .= _dcConnectionId]
+          = object
+              (catMaybes
+                 [Just ("connectionId" .= _dcConnectionId)])
 
 instance ToPath DeleteConnection where
         toPath = const "/"

@@ -116,10 +116,9 @@ rdpgDBParameterGroupName :: Lens' ResetDBParameterGroup Text
 rdpgDBParameterGroupName = lens _rdpgDBParameterGroupName (\ s a -> s{_rdpgDBParameterGroupName = a});
 
 instance AWSRequest ResetDBParameterGroup where
-        type Sv ResetDBParameterGroup = RDS
         type Rs ResetDBParameterGroup =
              DBParameterGroupNameMessage
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "ResetDBParameterGroupResult"
               (\ s h x -> parseXML x)

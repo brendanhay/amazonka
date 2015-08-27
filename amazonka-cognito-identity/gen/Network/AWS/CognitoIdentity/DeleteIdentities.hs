@@ -71,9 +71,8 @@ diIdentityIdsToDelete :: Lens' DeleteIdentities (NonEmpty Text)
 diIdentityIdsToDelete = lens _diIdentityIdsToDelete (\ s a -> s{_diIdentityIdsToDelete = a}) . _List1;
 
 instance AWSRequest DeleteIdentities where
-        type Sv DeleteIdentities = CognitoIdentity
         type Rs DeleteIdentities = DeleteIdentitiesResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response
           = receiveJSON
               (\ s h x ->
@@ -94,7 +93,9 @@ instance ToHeaders DeleteIdentities where
 instance ToJSON DeleteIdentities where
         toJSON DeleteIdentities'{..}
           = object
-              ["IdentityIdsToDelete" .= _diIdentityIdsToDelete]
+              (catMaybes
+                 [Just
+                    ("IdentityIdsToDelete" .= _diIdentityIdsToDelete)])
 
 instance ToPath DeleteIdentities where
         toPath = const "/"

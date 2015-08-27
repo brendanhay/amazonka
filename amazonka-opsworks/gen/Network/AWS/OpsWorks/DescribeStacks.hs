@@ -73,9 +73,8 @@ dsStackIds :: Lens' DescribeStacks [Text]
 dsStackIds = lens _dsStackIds (\ s a -> s{_dsStackIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeStacks where
-        type Sv DescribeStacks = OpsWorks
         type Rs DescribeStacks = DescribeStacksResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -93,7 +92,8 @@ instance ToHeaders DescribeStacks where
 
 instance ToJSON DescribeStacks where
         toJSON DescribeStacks'{..}
-          = object ["StackIds" .= _dsStackIds]
+          = object
+              (catMaybes [("StackIds" .=) <$> _dsStackIds])
 
 instance ToPath DescribeStacks where
         toPath = const "/"

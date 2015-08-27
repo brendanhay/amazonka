@@ -479,9 +479,8 @@ instance AWSPager Scan where
               sExclusiveStartKey .~ rs ^. srsLastEvaluatedKey
 
 instance AWSRequest Scan where
-        type Sv Scan = DynamoDB
         type Rs Scan = ScanResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->
@@ -505,23 +504,26 @@ instance ToHeaders Scan where
 instance ToJSON Scan where
         toJSON Scan'{..}
           = object
-              ["ProjectionExpression" .= _sProjectionExpression,
-               "ScanFilter" .= _sScanFilter,
-               "TotalSegments" .= _sTotalSegments,
-               "FilterExpression" .= _sFilterExpression,
-               "ConsistentRead" .= _sConsistentRead,
-               "ExpressionAttributeNames" .=
-                 _sExpressionAttributeNames,
-               "AttributesToGet" .= _sAttributesToGet,
-               "ReturnConsumedCapacity" .= _sReturnConsumedCapacity,
-               "ExpressionAttributeValues" .=
-                 _sExpressionAttributeValues,
-               "Limit" .= _sLimit, "Select" .= _sSelect,
-               "Segment" .= _sSegment,
-               "ConditionalOperator" .= _sConditionalOperator,
-               "ExclusiveStartKey" .= _sExclusiveStartKey,
-               "IndexName" .= _sIndexName,
-               "TableName" .= _sTableName]
+              (catMaybes
+                 [("ProjectionExpression" .=) <$>
+                    _sProjectionExpression,
+                  ("ScanFilter" .=) <$> _sScanFilter,
+                  ("TotalSegments" .=) <$> _sTotalSegments,
+                  ("FilterExpression" .=) <$> _sFilterExpression,
+                  ("ConsistentRead" .=) <$> _sConsistentRead,
+                  ("ExpressionAttributeNames" .=) <$>
+                    _sExpressionAttributeNames,
+                  ("AttributesToGet" .=) <$> _sAttributesToGet,
+                  ("ReturnConsumedCapacity" .=) <$>
+                    _sReturnConsumedCapacity,
+                  ("ExpressionAttributeValues" .=) <$>
+                    _sExpressionAttributeValues,
+                  ("Limit" .=) <$> _sLimit, ("Select" .=) <$> _sSelect,
+                  ("Segment" .=) <$> _sSegment,
+                  ("ConditionalOperator" .=) <$> _sConditionalOperator,
+                  ("ExclusiveStartKey" .=) <$> _sExclusiveStartKey,
+                  ("IndexName" .=) <$> _sIndexName,
+                  Just ("TableName" .= _sTableName)])
 
 instance ToPath Scan where
         toPath = const "/"

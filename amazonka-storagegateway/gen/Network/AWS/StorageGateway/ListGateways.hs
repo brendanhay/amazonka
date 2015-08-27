@@ -103,9 +103,8 @@ instance AWSPager ListGateways where
             Just $ rq & lgMarker .~ rs ^. lgrsMarker
 
 instance AWSRequest ListGateways where
-        type Sv ListGateways = StorageGateway
         type Rs ListGateways = ListGatewaysResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -125,7 +124,10 @@ instance ToHeaders ListGateways where
 
 instance ToJSON ListGateways where
         toJSON ListGateways'{..}
-          = object ["Marker" .= _lgMarker, "Limit" .= _lgLimit]
+          = object
+              (catMaybes
+                 [("Marker" .=) <$> _lgMarker,
+                  ("Limit" .=) <$> _lgLimit])
 
 instance ToPath ListGateways where
         toPath = const "/"

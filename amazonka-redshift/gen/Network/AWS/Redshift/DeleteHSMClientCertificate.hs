@@ -65,10 +65,9 @@ dhsmccHSMClientCertificateIdentifier :: Lens' DeleteHSMClientCertificate Text
 dhsmccHSMClientCertificateIdentifier = lens _dhsmccHSMClientCertificateIdentifier (\ s a -> s{_dhsmccHSMClientCertificateIdentifier = a});
 
 instance AWSRequest DeleteHSMClientCertificate where
-        type Sv DeleteHSMClientCertificate = Redshift
         type Rs DeleteHSMClientCertificate =
              DeleteHSMClientCertificateResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveNull DeleteHSMClientCertificateResponse'
 

@@ -130,10 +130,9 @@ instance AWSPager DescribeCommunications where
             Just $ rq & dNextToken .~ rs ^. dcrsNextToken
 
 instance AWSRequest DescribeCommunications where
-        type Sv DescribeCommunications = Support
         type Rs DescribeCommunications =
              DescribeCommunicationsResponse
-        request = postJSON
+        request = postJSON support
         response
           = receiveJSON
               (\ s h x ->
@@ -155,10 +154,12 @@ instance ToHeaders DescribeCommunications where
 instance ToJSON DescribeCommunications where
         toJSON DescribeCommunications'{..}
           = object
-              ["afterTime" .= _dAfterTime,
-               "nextToken" .= _dNextToken,
-               "beforeTime" .= _dBeforeTime,
-               "maxResults" .= _dMaxResults, "caseId" .= _dCaseId]
+              (catMaybes
+                 [("afterTime" .=) <$> _dAfterTime,
+                  ("nextToken" .=) <$> _dNextToken,
+                  ("beforeTime" .=) <$> _dBeforeTime,
+                  ("maxResults" .=) <$> _dMaxResults,
+                  Just ("caseId" .= _dCaseId)])
 
 instance ToPath DescribeCommunications where
         toPath = const "/"

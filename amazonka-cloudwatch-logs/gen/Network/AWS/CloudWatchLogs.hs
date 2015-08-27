@@ -56,8 +56,8 @@
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudWatchLogs
     (
-    -- * Service
-      CloudWatchLogs
+    -- * Service Configuration
+      cloudWatchLogs
 
     -- * Errors
     -- $errors

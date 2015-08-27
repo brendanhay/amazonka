@@ -77,10 +77,9 @@ daInstanceId :: Lens' DescribeAssociation Text
 daInstanceId = lens _daInstanceId (\ s a -> s{_daInstanceId = a});
 
 instance AWSRequest DescribeAssociation where
-        type Sv DescribeAssociation = SSM
         type Rs DescribeAssociation =
              DescribeAssociationResponse
-        request = postJSON
+        request = postJSON sSM
         response
           = receiveJSON
               (\ s h x ->
@@ -100,7 +99,9 @@ instance ToHeaders DescribeAssociation where
 instance ToJSON DescribeAssociation where
         toJSON DescribeAssociation'{..}
           = object
-              ["Name" .= _daName, "InstanceId" .= _daInstanceId]
+              (catMaybes
+                 [Just ("Name" .= _daName),
+                  Just ("InstanceId" .= _daInstanceId)])
 
 instance ToPath DescribeAssociation where
         toPath = const "/"

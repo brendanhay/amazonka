@@ -73,9 +73,8 @@ dvVolumeId :: Lens' DeregisterVolume Text
 dvVolumeId = lens _dvVolumeId (\ s a -> s{_dvVolumeId = a});
 
 instance AWSRequest DeregisterVolume where
-        type Sv DeregisterVolume = OpsWorks
         type Rs DeregisterVolume = DeregisterVolumeResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull DeregisterVolumeResponse'
 
 instance ToHeaders DeregisterVolume where
@@ -89,7 +88,8 @@ instance ToHeaders DeregisterVolume where
 
 instance ToJSON DeregisterVolume where
         toJSON DeregisterVolume'{..}
-          = object ["VolumeId" .= _dvVolumeId]
+          = object
+              (catMaybes [Just ("VolumeId" .= _dvVolumeId)])
 
 instance ToPath DeregisterVolume where
         toPath = const "/"

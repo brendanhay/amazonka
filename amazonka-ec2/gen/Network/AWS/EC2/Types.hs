@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.EC2.Types
     (
-    -- * Service
-      EC2
+    -- * Service Configuration
+      eC2
 
     -- * Errors
 
@@ -1661,38 +1660,35 @@ import           Network.AWS.EC2.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2015-04-15@ of the Amazon Elastic Compute Cloud SDK.
-data EC2
-
-instance AWSService EC2 where
-    type Sg EC2 = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "EC2"
-            , _svcPrefix = "ec2"
-            , _svcVersion = "2015-04-15"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseXMLError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "RequestLimitExceeded" . hasStatus 503) e =
-              Just "request_limit_exceeded"
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2015-04-15' of the Amazon Elastic Compute Cloud SDK configuration.
+eC2 :: Service
+eC2 =
+    Service
+    { _svcAbbrev = "EC2"
+    , _svcSigner = v4
+    , _svcPrefix = "ec2"
+    , _svcVersion = "2015-04-15"
+    , _svcEndpoint = defaultEndpoint eC2
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "RequestLimitExceeded" . hasStatus 503) e =
+          Just "request_limit_exceeded"
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing

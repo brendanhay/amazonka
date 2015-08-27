@@ -79,10 +79,9 @@ rdacDomainName :: Lens' RetrieveDomainAuthCode Text
 rdacDomainName = lens _rdacDomainName (\ s a -> s{_rdacDomainName = a});
 
 instance AWSRequest RetrieveDomainAuthCode where
-        type Sv RetrieveDomainAuthCode = Route53Domains
         type Rs RetrieveDomainAuthCode =
              RetrieveDomainAuthCodeResponse
-        request = postJSON
+        request = postJSON route53Domains
         response
           = receiveJSON
               (\ s h x ->
@@ -101,7 +100,8 @@ instance ToHeaders RetrieveDomainAuthCode where
 
 instance ToJSON RetrieveDomainAuthCode where
         toJSON RetrieveDomainAuthCode'{..}
-          = object ["DomainName" .= _rdacDomainName]
+          = object
+              (catMaybes [Just ("DomainName" .= _rdacDomainName)])
 
 instance ToPath RetrieveDomainAuthCode where
         toPath = const "/"

@@ -97,10 +97,9 @@ rcpgParameterGroupName :: Lens' ResetClusterParameterGroup Text
 rcpgParameterGroupName = lens _rcpgParameterGroupName (\ s a -> s{_rcpgParameterGroupName = a});
 
 instance AWSRequest ResetClusterParameterGroup where
-        type Sv ResetClusterParameterGroup = Redshift
         type Rs ResetClusterParameterGroup =
              ClusterParameterGroupNameMessage
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper
               "ResetClusterParameterGroupResult"

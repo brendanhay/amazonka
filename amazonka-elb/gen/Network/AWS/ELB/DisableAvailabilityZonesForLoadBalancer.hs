@@ -88,10 +88,9 @@ dazflbAvailabilityZones = lens _dazflbAvailabilityZones (\ s a -> s{_dazflbAvail
 
 instance AWSRequest
          DisableAvailabilityZonesForLoadBalancer where
-        type Sv DisableAvailabilityZonesForLoadBalancer = ELB
         type Rs DisableAvailabilityZonesForLoadBalancer =
              DisableAvailabilityZonesForLoadBalancerResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper
               "DisableAvailabilityZonesForLoadBalancerResult"

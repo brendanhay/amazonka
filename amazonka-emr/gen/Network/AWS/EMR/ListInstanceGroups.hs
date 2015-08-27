@@ -88,10 +88,9 @@ instance AWSPager ListInstanceGroups where
             Just $ rq & ligMarker .~ rs ^. ligrsMarker
 
 instance AWSRequest ListInstanceGroups where
-        type Sv ListInstanceGroups = EMR
         type Rs ListInstanceGroups =
              ListInstanceGroupsResponse
-        request = postJSON
+        request = postJSON eMR
         response
           = receiveJSON
               (\ s h x ->
@@ -113,8 +112,9 @@ instance ToHeaders ListInstanceGroups where
 instance ToJSON ListInstanceGroups where
         toJSON ListInstanceGroups'{..}
           = object
-              ["Marker" .= _ligMarker,
-               "ClusterId" .= _ligClusterId]
+              (catMaybes
+                 [("Marker" .=) <$> _ligMarker,
+                  Just ("ClusterId" .= _ligClusterId)])
 
 instance ToPath ListInstanceGroups where
         toPath = const "/"

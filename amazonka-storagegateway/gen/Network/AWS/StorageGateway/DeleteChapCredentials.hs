@@ -85,10 +85,9 @@ dInitiatorName :: Lens' DeleteChapCredentials Text
 dInitiatorName = lens _dInitiatorName (\ s a -> s{_dInitiatorName = a});
 
 instance AWSRequest DeleteChapCredentials where
-        type Sv DeleteChapCredentials = StorageGateway
         type Rs DeleteChapCredentials =
              DeleteChapCredentialsResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -109,8 +108,9 @@ instance ToHeaders DeleteChapCredentials where
 instance ToJSON DeleteChapCredentials where
         toJSON DeleteChapCredentials'{..}
           = object
-              ["TargetARN" .= _dTargetARN,
-               "InitiatorName" .= _dInitiatorName]
+              (catMaybes
+                 [Just ("TargetARN" .= _dTargetARN),
+                  Just ("InitiatorName" .= _dInitiatorName)])
 
 instance ToPath DeleteChapCredentials where
         toPath = const "/"

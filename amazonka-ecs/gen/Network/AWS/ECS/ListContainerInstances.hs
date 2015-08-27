@@ -108,10 +108,9 @@ instance AWSPager ListContainerInstances where
             Just $ rq & lciNextToken .~ rs ^. lcirsNextToken
 
 instance AWSRequest ListContainerInstances where
-        type Sv ListContainerInstances = ECS
         type Rs ListContainerInstances =
              ListContainerInstancesResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -133,9 +132,10 @@ instance ToHeaders ListContainerInstances where
 instance ToJSON ListContainerInstances where
         toJSON ListContainerInstances'{..}
           = object
-              ["cluster" .= _lciCluster,
-               "nextToken" .= _lciNextToken,
-               "maxResults" .= _lciMaxResults]
+              (catMaybes
+                 [("cluster" .=) <$> _lciCluster,
+                  ("nextToken" .=) <$> _lciNextToken,
+                  ("maxResults" .=) <$> _lciMaxResults])
 
 instance ToPath ListContainerInstances where
         toPath = const "/"

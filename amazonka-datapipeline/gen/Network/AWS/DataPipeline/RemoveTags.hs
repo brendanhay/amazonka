@@ -76,9 +76,8 @@ rtTagKeys :: Lens' RemoveTags [Text]
 rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a}) . _Coerce;
 
 instance AWSRequest RemoveTags where
-        type Sv RemoveTags = DataPipeline
         type Rs RemoveTags = RemoveTagsResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveEmpty
               (\ s h x ->
@@ -96,8 +95,9 @@ instance ToHeaders RemoveTags where
 instance ToJSON RemoveTags where
         toJSON RemoveTags'{..}
           = object
-              ["pipelineId" .= _rtPipelineId,
-               "tagKeys" .= _rtTagKeys]
+              (catMaybes
+                 [Just ("pipelineId" .= _rtPipelineId),
+                  Just ("tagKeys" .= _rtTagKeys)])
 
 instance ToPath RemoveTags where
         toPath = const "/"

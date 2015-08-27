@@ -73,10 +73,9 @@ decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
 
 instance AWSRequest DescribeEventCategories where
-        type Sv DescribeEventCategories = Redshift
         type Rs DescribeEventCategories =
              DescribeEventCategoriesResponse
-        request = postQuery
+        request = postQuery redshift
         response
           = receiveXMLWrapper "DescribeEventCategoriesResult"
               (\ s h x ->

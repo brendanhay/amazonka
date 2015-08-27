@@ -74,10 +74,9 @@ lvrpGatewayARN :: Lens' ListVolumeRecoveryPoints Text
 lvrpGatewayARN = lens _lvrpGatewayARN (\ s a -> s{_lvrpGatewayARN = a});
 
 instance AWSRequest ListVolumeRecoveryPoints where
-        type Sv ListVolumeRecoveryPoints = StorageGateway
         type Rs ListVolumeRecoveryPoints =
              ListVolumeRecoveryPointsResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -98,7 +97,8 @@ instance ToHeaders ListVolumeRecoveryPoints where
 
 instance ToJSON ListVolumeRecoveryPoints where
         toJSON ListVolumeRecoveryPoints'{..}
-          = object ["GatewayARN" .= _lvrpGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _lvrpGatewayARN)])
 
 instance ToPath ListVolumeRecoveryPoints where
         toPath = const "/"

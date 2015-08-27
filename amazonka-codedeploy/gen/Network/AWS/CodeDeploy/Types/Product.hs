@@ -2,7 +2,6 @@
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -627,8 +626,9 @@ instance FromJSON EC2TagFilter where
 instance ToJSON EC2TagFilter where
         toJSON EC2TagFilter'{..}
           = object
-              ["Value" .= _etfValue, "Key" .= _etfKey,
-               "Type" .= _etfType]
+              (catMaybes
+                 [("Value" .=) <$> _etfValue, ("Key" .=) <$> _etfKey,
+                  ("Type" .=) <$> _etfType])
 
 -- | Information about a deployment error.
 --
@@ -808,8 +808,9 @@ instance FromJSON GitHubLocation where
 instance ToJSON GitHubLocation where
         toJSON GitHubLocation'{..}
           = object
-              ["commitId" .= _ghlCommitId,
-               "repository" .= _ghlRepository]
+              (catMaybes
+                 [("commitId" .=) <$> _ghlCommitId,
+                  ("repository" .=) <$> _ghlRepository])
 
 -- | Information about an on-premises instance.
 --
@@ -1089,7 +1090,10 @@ instance FromJSON MinimumHealthyHosts where
 
 instance ToJSON MinimumHealthyHosts where
         toJSON MinimumHealthyHosts'{..}
-          = object ["value" .= _mhhValue, "type" .= _mhhType]
+          = object
+              (catMaybes
+                 [("value" .=) <$> _mhhValue,
+                  ("type" .=) <$> _mhhType])
 
 -- | Information about an application revision\'s location.
 --
@@ -1144,9 +1148,10 @@ instance FromJSON RevisionLocation where
 instance ToJSON RevisionLocation where
         toJSON RevisionLocation'{..}
           = object
-              ["revisionType" .= _rlRevisionType,
-               "s3Location" .= _rlS3Location,
-               "gitHubLocation" .= _rlGitHubLocation]
+              (catMaybes
+                 [("revisionType" .=) <$> _rlRevisionType,
+                  ("s3Location" .=) <$> _rlS3Location,
+                  ("gitHubLocation" .=) <$> _rlGitHubLocation])
 
 -- | Information about the location of application artifacts that are stored
 -- in Amazon S3.
@@ -1231,9 +1236,11 @@ instance FromJSON S3Location where
 instance ToJSON S3Location where
         toJSON S3Location'{..}
           = object
-              ["bundleType" .= _slBundleType, "eTag" .= _slETag,
-               "bucket" .= _slBucket, "key" .= _slKey,
-               "version" .= _slVersion]
+              (catMaybes
+                 [("bundleType" .=) <$> _slBundleType,
+                  ("eTag" .=) <$> _slETag, ("bucket" .=) <$> _slBucket,
+                  ("key" .=) <$> _slKey,
+                  ("version" .=) <$> _slVersion])
 
 -- | Information about a tag.
 --
@@ -1273,7 +1280,9 @@ instance FromJSON Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
-          = object ["Value" .= _tagValue, "Key" .= _tagKey]
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _tagValue, ("Key" .=) <$> _tagKey])
 
 -- | Information about an on-premises instance tag filter.
 --
@@ -1328,8 +1337,9 @@ instance FromJSON TagFilter where
 instance ToJSON TagFilter where
         toJSON TagFilter'{..}
           = object
-              ["Value" .= _tfValue, "Key" .= _tfKey,
-               "Type" .= _tfType]
+              (catMaybes
+                 [("Value" .=) <$> _tfValue, ("Key" .=) <$> _tfKey,
+                  ("Type" .=) <$> _tfType])
 
 -- | Information about a time range.
 --
@@ -1368,4 +1378,6 @@ trEnd = lens _trEnd (\ s a -> s{_trEnd = a}) . mapping _Time;
 
 instance ToJSON TimeRange where
         toJSON TimeRange'{..}
-          = object ["start" .= _trStart, "end" .= _trEnd]
+          = object
+              (catMaybes
+                 [("start" .=) <$> _trStart, ("end" .=) <$> _trEnd])

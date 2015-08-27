@@ -117,10 +117,9 @@ lagpGroupName :: Lens' ListAttachedGroupPolicies Text
 lagpGroupName = lens _lagpGroupName (\ s a -> s{_lagpGroupName = a});
 
 instance AWSRequest ListAttachedGroupPolicies where
-        type Sv ListAttachedGroupPolicies = IAM
         type Rs ListAttachedGroupPolicies =
              ListAttachedGroupPoliciesResponse
-        request = postQuery
+        request = postQuery iAM
         response
           = receiveXMLWrapper "ListAttachedGroupPoliciesResult"
               (\ s h x ->

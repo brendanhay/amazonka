@@ -154,10 +154,9 @@ larApplicationName :: Lens' ListApplicationRevisions Text
 larApplicationName = lens _larApplicationName (\ s a -> s{_larApplicationName = a});
 
 instance AWSRequest ListApplicationRevisions where
-        type Sv ListApplicationRevisions = CodeDeploy
         type Rs ListApplicationRevisions =
              ListApplicationRevisionsResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -179,12 +178,14 @@ instance ToHeaders ListApplicationRevisions where
 instance ToJSON ListApplicationRevisions where
         toJSON ListApplicationRevisions'{..}
           = object
-              ["s3KeyPrefix" .= _larS3KeyPrefix,
-               "deployed" .= _larDeployed,
-               "nextToken" .= _larNextToken,
-               "sortOrder" .= _larSortOrder,
-               "s3Bucket" .= _larS3Bucket, "sortBy" .= _larSortBy,
-               "applicationName" .= _larApplicationName]
+              (catMaybes
+                 [("s3KeyPrefix" .=) <$> _larS3KeyPrefix,
+                  ("deployed" .=) <$> _larDeployed,
+                  ("nextToken" .=) <$> _larNextToken,
+                  ("sortOrder" .=) <$> _larSortOrder,
+                  ("s3Bucket" .=) <$> _larS3Bucket,
+                  ("sortBy" .=) <$> _larSortBy,
+                  Just ("applicationName" .= _larApplicationName)])
 
 instance ToPath ListApplicationRevisions where
         toPath = const "/"

@@ -69,9 +69,8 @@ stoStackId :: Lens' StopStack Text
 stoStackId = lens _stoStackId (\ s a -> s{_stoStackId = a});
 
 instance AWSRequest StopStack where
-        type Sv StopStack = OpsWorks
         type Rs StopStack = StopStackResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull StopStackResponse'
 
 instance ToHeaders StopStack where
@@ -85,7 +84,8 @@ instance ToHeaders StopStack where
 
 instance ToJSON StopStack where
         toJSON StopStack'{..}
-          = object ["StackId" .= _stoStackId]
+          = object
+              (catMaybes [Just ("StackId" .= _stoStackId)])
 
 instance ToPath StopStack where
         toPath = const "/"

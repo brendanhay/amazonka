@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.SES.Types
     (
-    -- * Service
-      SES
+    -- * Service Configuration
+      sES
 
     -- * Errors
     , _MessageRejected
@@ -95,39 +94,36 @@ import           Network.AWS.SES.Types.Product
 import           Network.AWS.SES.Types.Sum
 import           Network.AWS.Sign.V4
 
--- | Version @2010-12-01@ of the Amazon Simple Email Service SDK.
-data SES
-
-instance AWSService SES where
-    type Sg SES = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "SES"
-            , _svcPrefix = "email"
-            , _svcVersion = "2010-12-01"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseXMLError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2010-12-01' of the Amazon Simple Email Service SDK configuration.
+sES :: Service
+sES =
+    Service
+    { _svcAbbrev = "SES"
+    , _svcSigner = v4
+    , _svcPrefix = "email"
+    , _svcVersion = "2010-12-01"
+    , _svcEndpoint = defaultEndpoint sES
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | Indicates that the action failed, and the message could not be sent.
 -- Check the error stack for more information about what caused the error.

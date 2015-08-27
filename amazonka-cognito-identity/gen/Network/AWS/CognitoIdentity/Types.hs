@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.CognitoIdentity.Types
     (
-    -- * Service
-      CognitoIdentity
+    -- * Service Configuration
+      cognitoIdentity
 
     -- * Errors
     , _InvalidIdentityPoolConfigurationException
@@ -76,39 +75,36 @@ import           Network.AWS.CognitoIdentity.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2014-06-30@ of the Amazon Cognito Identity SDK.
-data CognitoIdentity
-
-instance AWSService CognitoIdentity where
-    type Sg CognitoIdentity = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "CognitoIdentity"
-            , _svcPrefix = "cognito-identity"
-            , _svcVersion = "2014-06-30"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2014-06-30' of the Amazon Cognito Identity SDK configuration.
+cognitoIdentity :: Service
+cognitoIdentity =
+    Service
+    { _svcAbbrev = "CognitoIdentity"
+    , _svcSigner = v4
+    , _svcPrefix = "cognito-identity"
+    , _svcVersion = "2014-06-30"
+    , _svcEndpoint = defaultEndpoint cognitoIdentity
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | Thrown if the identity pool has no role associated for the given auth
 -- type (auth\/unauth) or if the AssumeRole fails.

@@ -2,7 +2,6 @@
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -837,8 +836,9 @@ lLongitude = lens _lLongitude (\ s a -> s{_lLongitude = a});
 instance ToJSON Location where
         toJSON Location'{..}
           = object
-              ["latitude" .= _lLatitude,
-               "longitude" .= _lLongitude]
+              (catMaybes
+                 [Just ("latitude" .= _lLatitude),
+                  Just ("longitude" .= _lLongitude)])
 
 -- | Represents a specific warning or failure.
 --
@@ -1077,8 +1077,10 @@ rWifi = lens _rWifi (\ s a -> s{_rWifi = a});
 instance ToJSON Radios where
         toJSON Radios'{..}
           = object
-              ["nfc" .= _rNfc, "gps" .= _rGps,
-               "bluetooth" .= _rBluetooth, "wifi" .= _rWifi]
+              (catMaybes
+                 [("nfc" .=) <$> _rNfc, ("gps" .=) <$> _rGps,
+                  ("bluetooth" .=) <$> _rBluetooth,
+                  ("wifi" .=) <$> _rWifi])
 
 -- | Represents the screen resolution of a device in height and width,
 -- expressed in pixels.
@@ -1190,8 +1192,10 @@ instance FromJSON Rule where
 instance ToJSON Rule where
         toJSON Rule'{..}
           = object
-              ["attribute" .= _rAttribute,
-               "operator" .= _rOperator, "value" .= _rValue]
+              (catMaybes
+                 [("attribute" .=) <$> _rAttribute,
+                  ("operator" .=) <$> _rOperator,
+                  ("value" .=) <$> _rValue])
 
 -- | Represents an app on a set of devices with a specific test and
 -- configuration.
@@ -1569,12 +1573,15 @@ srcAuxiliaryApps = lens _srcAuxiliaryApps (\ s a -> s{_srcAuxiliaryApps = a}) . 
 instance ToJSON ScheduleRunConfiguration where
         toJSON ScheduleRunConfiguration'{..}
           = object
-              ["billingMethod" .= _srcBillingMethod,
-               "radios" .= _srcRadios, "location" .= _srcLocation,
-               "locale" .= _srcLocale,
-               "networkProfileArn" .= _srcNetworkProfileARN,
-               "extraDataPackageArn" .= _srcExtraDataPackageARN,
-               "auxiliaryApps" .= _srcAuxiliaryApps]
+              (catMaybes
+                 [("billingMethod" .=) <$> _srcBillingMethod,
+                  ("radios" .=) <$> _srcRadios,
+                  ("location" .=) <$> _srcLocation,
+                  ("locale" .=) <$> _srcLocale,
+                  ("networkProfileArn" .=) <$> _srcNetworkProfileARN,
+                  ("extraDataPackageArn" .=) <$>
+                    _srcExtraDataPackageARN,
+                  ("auxiliaryApps" .=) <$> _srcAuxiliaryApps])
 
 -- | Represents additional test settings.
 --
@@ -1651,9 +1658,11 @@ srtType = lens _srtType (\ s a -> s{_srtType = a});
 instance ToJSON ScheduleRunTest where
         toJSON ScheduleRunTest'{..}
           = object
-              ["testPackageArn" .= _srtTestPackageARN,
-               "parameters" .= _srtParameters,
-               "filter" .= _srtFilter, "type" .= _srtType]
+              (catMaybes
+                 [("testPackageArn" .=) <$> _srtTestPackageARN,
+                  ("parameters" .=) <$> _srtParameters,
+                  ("filter" .=) <$> _srtFilter,
+                  Just ("type" .= _srtType)])
 
 -- | Represents a collection of one or more tests.
 --

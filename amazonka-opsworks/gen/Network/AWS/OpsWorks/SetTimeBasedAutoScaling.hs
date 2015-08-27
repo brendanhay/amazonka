@@ -80,10 +80,9 @@ stbasInstanceId :: Lens' SetTimeBasedAutoScaling Text
 stbasInstanceId = lens _stbasInstanceId (\ s a -> s{_stbasInstanceId = a});
 
 instance AWSRequest SetTimeBasedAutoScaling where
-        type Sv SetTimeBasedAutoScaling = OpsWorks
         type Rs SetTimeBasedAutoScaling =
              SetTimeBasedAutoScalingResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveNull SetTimeBasedAutoScalingResponse'
 
@@ -100,8 +99,10 @@ instance ToHeaders SetTimeBasedAutoScaling where
 instance ToJSON SetTimeBasedAutoScaling where
         toJSON SetTimeBasedAutoScaling'{..}
           = object
-              ["AutoScalingSchedule" .= _stbasAutoScalingSchedule,
-               "InstanceId" .= _stbasInstanceId]
+              (catMaybes
+                 [("AutoScalingSchedule" .=) <$>
+                    _stbasAutoScalingSchedule,
+                  Just ("InstanceId" .= _stbasInstanceId)])
 
 instance ToPath SetTimeBasedAutoScaling where
         toPath = const "/"

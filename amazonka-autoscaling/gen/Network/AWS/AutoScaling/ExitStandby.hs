@@ -79,9 +79,8 @@ eAutoScalingGroupName :: Lens' ExitStandby Text
 eAutoScalingGroupName = lens _eAutoScalingGroupName (\ s a -> s{_eAutoScalingGroupName = a});
 
 instance AWSRequest ExitStandby where
-        type Sv ExitStandby = AutoScaling
         type Rs ExitStandby = ExitStandbyResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "ExitStandbyResult"
               (\ s h x ->

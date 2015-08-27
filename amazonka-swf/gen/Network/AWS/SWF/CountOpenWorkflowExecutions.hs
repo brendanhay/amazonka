@@ -144,10 +144,9 @@ coweStartTimeFilter :: Lens' CountOpenWorkflowExecutions ExecutionTimeFilter
 coweStartTimeFilter = lens _coweStartTimeFilter (\ s a -> s{_coweStartTimeFilter = a});
 
 instance AWSRequest CountOpenWorkflowExecutions where
-        type Sv CountOpenWorkflowExecutions = SWF
         type Rs CountOpenWorkflowExecutions =
              WorkflowExecutionCount
-        request = postJSON
+        request = postJSON sWF
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CountOpenWorkflowExecutions where
@@ -163,11 +162,12 @@ instance ToHeaders CountOpenWorkflowExecutions where
 instance ToJSON CountOpenWorkflowExecutions where
         toJSON CountOpenWorkflowExecutions'{..}
           = object
-              ["executionFilter" .= _coweExecutionFilter,
-               "typeFilter" .= _coweTypeFilter,
-               "tagFilter" .= _coweTagFilter,
-               "domain" .= _coweDomain,
-               "startTimeFilter" .= _coweStartTimeFilter]
+              (catMaybes
+                 [("executionFilter" .=) <$> _coweExecutionFilter,
+                  ("typeFilter" .=) <$> _coweTypeFilter,
+                  ("tagFilter" .=) <$> _coweTagFilter,
+                  Just ("domain" .= _coweDomain),
+                  Just ("startTimeFilter" .= _coweStartTimeFilter)])
 
 instance ToPath CountOpenWorkflowExecutions where
         toPath = const "/"

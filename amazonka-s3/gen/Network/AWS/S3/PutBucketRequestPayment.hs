@@ -87,10 +87,9 @@ pbrpRequestPaymentConfiguration :: Lens' PutBucketRequestPayment RequestPaymentC
 pbrpRequestPaymentConfiguration = lens _pbrpRequestPaymentConfiguration (\ s a -> s{_pbrpRequestPaymentConfiguration = a});
 
 instance AWSRequest PutBucketRequestPayment where
-        type Sv PutBucketRequestPayment = S3
         type Rs PutBucketRequestPayment =
              PutBucketRequestPaymentResponse
-        request = putXML
+        request = putXML s3
         response
           = receiveNull PutBucketRequestPaymentResponse'
 

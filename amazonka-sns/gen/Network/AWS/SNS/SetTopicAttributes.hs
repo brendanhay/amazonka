@@ -87,10 +87,9 @@ staAttributeName :: Lens' SetTopicAttributes Text
 staAttributeName = lens _staAttributeName (\ s a -> s{_staAttributeName = a});
 
 instance AWSRequest SetTopicAttributes where
-        type Sv SetTopicAttributes = SNS
         type Rs SetTopicAttributes =
              SetTopicAttributesResponse
-        request = postQuery
+        request = postQuery sNS
         response = receiveNull SetTopicAttributesResponse'
 
 instance ToHeaders SetTopicAttributes where

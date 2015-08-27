@@ -138,9 +138,8 @@ chSubscriptionType :: Lens' CreateHSM SubscriptionType
 chSubscriptionType = lens _chSubscriptionType (\ s a -> s{_chSubscriptionType = a});
 
 instance AWSRequest CreateHSM where
-        type Sv CreateHSM = CloudHSM
         type Rs CreateHSM = CreateHSMResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->
@@ -159,12 +158,15 @@ instance ToHeaders CreateHSM where
 instance ToJSON CreateHSM where
         toJSON CreateHSM'{..}
           = object
-              ["ClientToken" .= _chClientToken,
-               "SyslogIp" .= _chSyslogIP,
-               "ExternalId" .= _chExternalId, "EniIp" .= _chEniIP,
-               "SubnetId" .= _chSubnetId, "SshKey" .= _chSSHKey,
-               "IamRoleArn" .= _chIAMRoleARN,
-               "SubscriptionType" .= _chSubscriptionType]
+              (catMaybes
+                 [("ClientToken" .=) <$> _chClientToken,
+                  ("SyslogIp" .=) <$> _chSyslogIP,
+                  ("ExternalId" .=) <$> _chExternalId,
+                  ("EniIp" .=) <$> _chEniIP,
+                  Just ("SubnetId" .= _chSubnetId),
+                  Just ("SshKey" .= _chSSHKey),
+                  Just ("IamRoleArn" .= _chIAMRoleARN),
+                  Just ("SubscriptionType" .= _chSubscriptionType)])
 
 instance ToPath CreateHSM where
         toPath = const "/"

@@ -2,7 +2,6 @@
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -317,4 +316,7 @@ instance FromJSON Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
-          = object ["Key" .= _tagKey, "Value" .= _tagValue]
+          = object
+              (catMaybes
+                 [Just ("Key" .= _tagKey),
+                  Just ("Value" .= _tagValue)])

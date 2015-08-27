@@ -116,9 +116,8 @@ ceEvaluationDataSourceId :: Lens' CreateEvaluation Text
 ceEvaluationDataSourceId = lens _ceEvaluationDataSourceId (\ s a -> s{_ceEvaluationDataSourceId = a});
 
 instance AWSRequest CreateEvaluation where
-        type Sv CreateEvaluation = MachineLearning
         type Rs CreateEvaluation = CreateEvaluationResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -137,11 +136,13 @@ instance ToHeaders CreateEvaluation where
 instance ToJSON CreateEvaluation where
         toJSON CreateEvaluation'{..}
           = object
-              ["EvaluationName" .= _ceEvaluationName,
-               "EvaluationId" .= _ceEvaluationId,
-               "MLModelId" .= _ceMLModelId,
-               "EvaluationDataSourceId" .=
-                 _ceEvaluationDataSourceId]
+              (catMaybes
+                 [("EvaluationName" .=) <$> _ceEvaluationName,
+                  Just ("EvaluationId" .= _ceEvaluationId),
+                  Just ("MLModelId" .= _ceMLModelId),
+                  Just
+                    ("EvaluationDataSourceId" .=
+                       _ceEvaluationDataSourceId)])
 
 instance ToPath CreateEvaluation where
         toPath = const "/"

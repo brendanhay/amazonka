@@ -75,10 +75,9 @@ upiaPrivateIPAddresses :: Lens' UnassignPrivateIPAddresses [Text]
 upiaPrivateIPAddresses = lens _upiaPrivateIPAddresses (\ s a -> s{_upiaPrivateIPAddresses = a}) . _Coerce;
 
 instance AWSRequest UnassignPrivateIPAddresses where
-        type Sv UnassignPrivateIPAddresses = EC2
         type Rs UnassignPrivateIPAddresses =
              UnassignPrivateIPAddressesResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveNull UnassignPrivateIPAddressesResponse'
 

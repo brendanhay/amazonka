@@ -96,9 +96,8 @@ cdpRules :: Lens' CreateDevicePool [Rule]
 cdpRules = lens _cdpRules (\ s a -> s{_cdpRules = a}) . _Coerce;
 
 instance AWSRequest CreateDevicePool where
-        type Sv CreateDevicePool = DeviceFarm
         type Rs CreateDevicePool = CreateDevicePoolResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -118,9 +117,11 @@ instance ToHeaders CreateDevicePool where
 instance ToJSON CreateDevicePool where
         toJSON CreateDevicePool'{..}
           = object
-              ["description" .= _cdpDescription,
-               "projectArn" .= _cdpProjectARN, "name" .= _cdpName,
-               "rules" .= _cdpRules]
+              (catMaybes
+                 [("description" .=) <$> _cdpDescription,
+                  Just ("projectArn" .= _cdpProjectARN),
+                  Just ("name" .= _cdpName),
+                  Just ("rules" .= _cdpRules)])
 
 instance ToPath CreateDevicePool where
         toPath = const "/"

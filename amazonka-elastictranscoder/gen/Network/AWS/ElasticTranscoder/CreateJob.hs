@@ -147,9 +147,8 @@ cjInput :: Lens' CreateJob JobInput
 cjInput = lens _cjInput (\ s a -> s{_cjInput = a});
 
 instance AWSRequest CreateJob where
-        type Sv CreateJob = ElasticTranscoder
         type Rs CreateJob = CreateJobResponse
-        request = postJSON
+        request = postJSON elasticTranscoder
         response
           = receiveJSON
               (\ s h x ->
@@ -162,11 +161,14 @@ instance ToHeaders CreateJob where
 instance ToJSON CreateJob where
         toJSON CreateJob'{..}
           = object
-              ["Outputs" .= _cjOutputs,
-               "UserMetadata" .= _cjUserMetadata,
-               "Output" .= _cjOutput, "Playlists" .= _cjPlaylists,
-               "OutputKeyPrefix" .= _cjOutputKeyPrefix,
-               "PipelineId" .= _cjPipelineId, "Input" .= _cjInput]
+              (catMaybes
+                 [("Outputs" .=) <$> _cjOutputs,
+                  ("UserMetadata" .=) <$> _cjUserMetadata,
+                  ("Output" .=) <$> _cjOutput,
+                  ("Playlists" .=) <$> _cjPlaylists,
+                  ("OutputKeyPrefix" .=) <$> _cjOutputKeyPrefix,
+                  Just ("PipelineId" .= _cjPipelineId),
+                  Just ("Input" .= _cjInput)])
 
 instance ToPath CreateJob where
         toPath = const "/2012-09-25/jobs"

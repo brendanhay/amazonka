@@ -104,9 +104,8 @@ rgGrantToken :: Lens' RetireGrant (Maybe Text)
 rgGrantToken = lens _rgGrantToken (\ s a -> s{_rgGrantToken = a});
 
 instance AWSRequest RetireGrant where
-        type Sv RetireGrant = KMS
         type Rs RetireGrant = RetireGrantResponse
-        request = postJSON
+        request = postJSON kMS
         response = receiveNull RetireGrantResponse'
 
 instance ToHeaders RetireGrant where
@@ -121,8 +120,10 @@ instance ToHeaders RetireGrant where
 instance ToJSON RetireGrant where
         toJSON RetireGrant'{..}
           = object
-              ["KeyId" .= _rgKeyId, "GrantId" .= _rgGrantId,
-               "GrantToken" .= _rgGrantToken]
+              (catMaybes
+                 [("KeyId" .=) <$> _rgKeyId,
+                  ("GrantId" .=) <$> _rgGrantId,
+                  ("GrantToken" .=) <$> _rgGrantToken])
 
 instance ToPath RetireGrant where
         toPath = const "/"

@@ -69,10 +69,9 @@ gsdId :: Lens' GetStreamingDistribution Text
 gsdId = lens _gsdId (\ s a -> s{_gsdId = a});
 
 instance AWSRequest GetStreamingDistribution where
-        type Sv GetStreamingDistribution = CloudFront
         type Rs GetStreamingDistribution =
              GetStreamingDistributionResponse
-        request = get
+        request = get cloudFront
         response
           = receiveXML
               (\ s h x ->

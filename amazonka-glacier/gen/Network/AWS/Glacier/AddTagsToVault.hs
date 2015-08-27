@@ -95,9 +95,8 @@ attvVaultName :: Lens' AddTagsToVault Text
 attvVaultName = lens _attvVaultName (\ s a -> s{_attvVaultName = a});
 
 instance AWSRequest AddTagsToVault where
-        type Sv AddTagsToVault = Glacier
         type Rs AddTagsToVault = AddTagsToVaultResponse
-        request = postJSON
+        request = postJSON glacier
         response = receiveNull AddTagsToVaultResponse'
 
 instance ToHeaders AddTagsToVault where
@@ -105,7 +104,7 @@ instance ToHeaders AddTagsToVault where
 
 instance ToJSON AddTagsToVault where
         toJSON AddTagsToVault'{..}
-          = object ["Tags" .= _attvTags]
+          = object (catMaybes [("Tags" .=) <$> _attvTags])
 
 instance ToPath AddTagsToVault where
         toPath AddTagsToVault'{..}

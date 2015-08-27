@@ -95,10 +95,9 @@ uspkStatus :: Lens' UpdateSSHPublicKey StatusType
 uspkStatus = lens _uspkStatus (\ s a -> s{_uspkStatus = a});
 
 instance AWSRequest UpdateSSHPublicKey where
-        type Sv UpdateSSHPublicKey = IAM
         type Rs UpdateSSHPublicKey =
              UpdateSSHPublicKeyResponse
-        request = postQuery
+        request = postQuery iAM
         response = receiveNull UpdateSSHPublicKeyResponse'
 
 instance ToHeaders UpdateSSHPublicKey where

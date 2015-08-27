@@ -88,10 +88,9 @@ upsStatus :: Lens' UpdatePipelineStatus Text
 upsStatus = lens _upsStatus (\ s a -> s{_upsStatus = a});
 
 instance AWSRequest UpdatePipelineStatus where
-        type Sv UpdatePipelineStatus = ElasticTranscoder
         type Rs UpdatePipelineStatus =
              UpdatePipelineStatusResponse
-        request = postJSON
+        request = postJSON elasticTranscoder
         response
           = receiveJSON
               (\ s h x ->
@@ -103,7 +102,7 @@ instance ToHeaders UpdatePipelineStatus where
 
 instance ToJSON UpdatePipelineStatus where
         toJSON UpdatePipelineStatus'{..}
-          = object ["Status" .= _upsStatus]
+          = object (catMaybes [Just ("Status" .= _upsStatus)])
 
 instance ToPath UpdatePipelineStatus where
         toPath UpdatePipelineStatus'{..}

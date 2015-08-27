@@ -39,8 +39,8 @@
 -- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CognitoSync
     (
-    -- * Service
-      CognitoSync
+    -- * Service Configuration
+      cognitoSync
 
     -- * Errors
     -- $errors

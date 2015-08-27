@@ -93,10 +93,9 @@ cpgStrategy :: Lens' CreatePlacementGroup PlacementStrategy
 cpgStrategy = lens _cpgStrategy (\ s a -> s{_cpgStrategy = a});
 
 instance AWSRequest CreatePlacementGroup where
-        type Sv CreatePlacementGroup = EC2
         type Rs CreatePlacementGroup =
              CreatePlacementGroupResponse
-        request = postQuery
+        request = postQuery eC2
         response = receiveNull CreatePlacementGroupResponse'
 
 instance ToHeaders CreatePlacementGroup where

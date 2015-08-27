@@ -224,9 +224,8 @@ bgiRequestItems :: Lens' BatchGetItem (HashMap Text KeysAndAttributes)
 bgiRequestItems = lens _bgiRequestItems (\ s a -> s{_bgiRequestItems = a}) . _Map;
 
 instance AWSRequest BatchGetItem where
-        type Sv BatchGetItem = DynamoDB
         type Rs BatchGetItem = BatchGetItemResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->
@@ -248,9 +247,10 @@ instance ToHeaders BatchGetItem where
 instance ToJSON BatchGetItem where
         toJSON BatchGetItem'{..}
           = object
-              ["ReturnConsumedCapacity" .=
-                 _bgiReturnConsumedCapacity,
-               "RequestItems" .= _bgiRequestItems]
+              (catMaybes
+                 [("ReturnConsumedCapacity" .=) <$>
+                    _bgiReturnConsumedCapacity,
+                  Just ("RequestItems" .= _bgiRequestItems)])
 
 instance ToPath BatchGetItem where
         toPath = const "/"

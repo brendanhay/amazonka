@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.SWF.Types
     (
-    -- * Service
-      SWF
+    -- * Service Configuration
+      sWF
 
     -- * Errors
     , _LimitExceededFault
@@ -876,39 +875,36 @@ import           Network.AWS.Sign.V4
 import           Network.AWS.SWF.Types.Product
 import           Network.AWS.SWF.Types.Sum
 
--- | Version @2012-01-25@ of the Amazon Simple Workflow Service SDK.
-data SWF
-
-instance AWSService SWF where
-    type Sg SWF = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "SWF"
-            , _svcPrefix = "swf"
-            , _svcVersion = "2012-01-25"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2012-01-25' of the Amazon Simple Workflow Service SDK configuration.
+sWF :: Service
+sWF =
+    Service
+    { _svcAbbrev = "SWF"
+    , _svcSigner = v4
+    , _svcPrefix = "swf"
+    , _svcVersion = "2012-01-25"
+    , _svcEndpoint = defaultEndpoint sWF
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | Returned by any operation if a system imposed limitation has been
 -- reached. To address this fault you should either clean up unused

@@ -113,9 +113,8 @@ ujValidateOnly :: Lens' UpdateJob Bool
 ujValidateOnly = lens _ujValidateOnly (\ s a -> s{_ujValidateOnly = a});
 
 instance AWSRequest UpdateJob where
-        type Sv UpdateJob = ImportExport
         type Rs UpdateJob = UpdateJobResponse
-        request = postQuery
+        request = postQuery importExport
         response
           = receiveXMLWrapper "UpdateJobResult"
               (\ s h x ->

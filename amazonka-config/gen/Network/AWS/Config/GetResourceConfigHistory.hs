@@ -139,10 +139,9 @@ grchResourceId :: Lens' GetResourceConfigHistory Text
 grchResourceId = lens _grchResourceId (\ s a -> s{_grchResourceId = a});
 
 instance AWSRequest GetResourceConfigHistory where
-        type Sv GetResourceConfigHistory = Config
         type Rs GetResourceConfigHistory =
              GetResourceConfigHistoryResponse
-        request = postJSON
+        request = postJSON config
         response
           = receiveJSON
               (\ s h x ->
@@ -164,12 +163,15 @@ instance ToHeaders GetResourceConfigHistory where
 instance ToJSON GetResourceConfigHistory where
         toJSON GetResourceConfigHistory'{..}
           = object
-              ["chronologicalOrder" .= _grchChronologicalOrder,
-               "nextToken" .= _grchNextToken, "limit" .= _grchLimit,
-               "laterTime" .= _grchLaterTime,
-               "earlierTime" .= _grchEarlierTime,
-               "resourceType" .= _grchResourceType,
-               "resourceId" .= _grchResourceId]
+              (catMaybes
+                 [("chronologicalOrder" .=) <$>
+                    _grchChronologicalOrder,
+                  ("nextToken" .=) <$> _grchNextToken,
+                  ("limit" .=) <$> _grchLimit,
+                  ("laterTime" .=) <$> _grchLaterTime,
+                  ("earlierTime" .=) <$> _grchEarlierTime,
+                  Just ("resourceType" .= _grchResourceType),
+                  Just ("resourceId" .= _grchResourceId)])
 
 instance ToPath GetResourceConfigHistory where
         toPath = const "/"

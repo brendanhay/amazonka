@@ -75,9 +75,8 @@ grRepositoryName :: Lens' GetRepository Text
 grRepositoryName = lens _grRepositoryName (\ s a -> s{_grRepositoryName = a});
 
 instance AWSRequest GetRepository where
-        type Sv GetRepository = CodeCommit
         type Rs GetRepository = GetRepositoryResponse
-        request = postJSON
+        request = postJSON codeCommit
         response
           = receiveJSON
               (\ s h x ->
@@ -95,7 +94,9 @@ instance ToHeaders GetRepository where
 
 instance ToJSON GetRepository where
         toJSON GetRepository'{..}
-          = object ["repositoryName" .= _grRepositoryName]
+          = object
+              (catMaybes
+                 [Just ("repositoryName" .= _grRepositoryName)])
 
 instance ToPath GetRepository where
         toPath = const "/"

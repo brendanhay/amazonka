@@ -141,10 +141,8 @@ acoiVlan = lens _acoiVlan (\ s a -> s{_acoiVlan = a});
 
 instance AWSRequest AllocateConnectionOnInterconnect
          where
-        type Sv AllocateConnectionOnInterconnect =
-             DirectConnect
         type Rs AllocateConnectionOnInterconnect = Connection
-        request = postJSON
+        request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders AllocateConnectionOnInterconnect
@@ -162,11 +160,12 @@ instance ToJSON AllocateConnectionOnInterconnect
          where
         toJSON AllocateConnectionOnInterconnect'{..}
           = object
-              ["bandwidth" .= _acoiBandwidth,
-               "connectionName" .= _acoiConnectionName,
-               "ownerAccount" .= _acoiOwnerAccount,
-               "interconnectId" .= _acoiInterconnectId,
-               "vlan" .= _acoiVlan]
+              (catMaybes
+                 [Just ("bandwidth" .= _acoiBandwidth),
+                  Just ("connectionName" .= _acoiConnectionName),
+                  Just ("ownerAccount" .= _acoiOwnerAccount),
+                  Just ("interconnectId" .= _acoiInterconnectId),
+                  Just ("vlan" .= _acoiVlan)])
 
 instance ToPath AllocateConnectionOnInterconnect
          where

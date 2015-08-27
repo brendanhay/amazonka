@@ -88,10 +88,9 @@ mmtsgMountTargetId = lens _mmtsgMountTargetId (\ s a -> s{_mmtsgMountTargetId = 
 
 instance AWSRequest ModifyMountTargetSecurityGroups
          where
-        type Sv ModifyMountTargetSecurityGroups = EFS
         type Rs ModifyMountTargetSecurityGroups =
              ModifyMountTargetSecurityGroupsResponse
-        request = putJSON
+        request = putJSON eFS
         response
           = receiveNull
               ModifyMountTargetSecurityGroupsResponse'
@@ -102,7 +101,9 @@ instance ToHeaders ModifyMountTargetSecurityGroups
 
 instance ToJSON ModifyMountTargetSecurityGroups where
         toJSON ModifyMountTargetSecurityGroups'{..}
-          = object ["SecurityGroups" .= _mmtsgSecurityGroups]
+          = object
+              (catMaybes
+                 [("SecurityGroups" .=) <$> _mmtsgSecurityGroups])
 
 instance ToPath ModifyMountTargetSecurityGroups where
         toPath ModifyMountTargetSecurityGroups'{..}

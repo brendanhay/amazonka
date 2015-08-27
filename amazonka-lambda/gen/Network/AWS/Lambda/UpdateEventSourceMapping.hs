@@ -117,10 +117,9 @@ uesmUUId :: Lens' UpdateEventSourceMapping Text
 uesmUUId = lens _uesmUUId (\ s a -> s{_uesmUUId = a});
 
 instance AWSRequest UpdateEventSourceMapping where
-        type Sv UpdateEventSourceMapping = Lambda
         type Rs UpdateEventSourceMapping =
              EventSourceMappingConfiguration
-        request = putJSON
+        request = putJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateEventSourceMapping where
@@ -129,9 +128,10 @@ instance ToHeaders UpdateEventSourceMapping where
 instance ToJSON UpdateEventSourceMapping where
         toJSON UpdateEventSourceMapping'{..}
           = object
-              ["Enabled" .= _uesmEnabled,
-               "BatchSize" .= _uesmBatchSize,
-               "FunctionName" .= _uesmFunctionName]
+              (catMaybes
+                 [("Enabled" .=) <$> _uesmEnabled,
+                  ("BatchSize" .=) <$> _uesmBatchSize,
+                  ("FunctionName" .=) <$> _uesmFunctionName])
 
 instance ToPath UpdateEventSourceMapping where
         toPath UpdateEventSourceMapping'{..}

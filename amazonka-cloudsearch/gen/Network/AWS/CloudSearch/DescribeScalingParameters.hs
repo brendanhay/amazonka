@@ -73,10 +73,9 @@ dspDomainName :: Lens' DescribeScalingParameters Text
 dspDomainName = lens _dspDomainName (\ s a -> s{_dspDomainName = a});
 
 instance AWSRequest DescribeScalingParameters where
-        type Sv DescribeScalingParameters = CloudSearch
         type Rs DescribeScalingParameters =
              DescribeScalingParametersResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "DescribeScalingParametersResult"
               (\ s h x ->

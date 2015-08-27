@@ -104,9 +104,8 @@ ikpPublicKeyMaterial :: Lens' ImportKeyPair ByteString
 ikpPublicKeyMaterial = lens _ikpPublicKeyMaterial (\ s a -> s{_ikpPublicKeyMaterial = a}) . _Base64;
 
 instance AWSRequest ImportKeyPair where
-        type Sv ImportKeyPair = EC2
         type Rs ImportKeyPair = ImportKeyPairResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

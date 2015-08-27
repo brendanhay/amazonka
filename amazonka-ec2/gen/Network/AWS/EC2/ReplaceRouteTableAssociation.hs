@@ -99,10 +99,9 @@ rrtaRouteTableId = lens _rrtaRouteTableId (\ s a -> s{_rrtaRouteTableId = a});
 
 instance AWSRequest ReplaceRouteTableAssociation
          where
-        type Sv ReplaceRouteTableAssociation = EC2
         type Rs ReplaceRouteTableAssociation =
              ReplaceRouteTableAssociationResponse
-        request = postQuery
+        request = postQuery eC2
         response
           = receiveXML
               (\ s h x ->

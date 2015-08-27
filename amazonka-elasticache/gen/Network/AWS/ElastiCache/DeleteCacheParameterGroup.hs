@@ -70,10 +70,9 @@ dCacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
 dCacheParameterGroupName = lens _dCacheParameterGroupName (\ s a -> s{_dCacheParameterGroupName = a});
 
 instance AWSRequest DeleteCacheParameterGroup where
-        type Sv DeleteCacheParameterGroup = ElastiCache
         type Rs DeleteCacheParameterGroup =
              DeleteCacheParameterGroupResponse
-        request = postQuery
+        request = postQuery elastiCache
         response
           = receiveNull DeleteCacheParameterGroupResponse'
 

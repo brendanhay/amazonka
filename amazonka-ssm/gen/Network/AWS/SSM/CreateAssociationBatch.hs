@@ -75,10 +75,9 @@ cabEntries :: Lens' CreateAssociationBatch [CreateAssociationBatchRequestEntry]
 cabEntries = lens _cabEntries (\ s a -> s{_cabEntries = a}) . _Coerce;
 
 instance AWSRequest CreateAssociationBatch where
-        type Sv CreateAssociationBatch = SSM
         type Rs CreateAssociationBatch =
              CreateAssociationBatchResponse
-        request = postJSON
+        request = postJSON sSM
         response
           = receiveJSON
               (\ s h x ->
@@ -98,7 +97,8 @@ instance ToHeaders CreateAssociationBatch where
 
 instance ToJSON CreateAssociationBatch where
         toJSON CreateAssociationBatch'{..}
-          = object ["Entries" .= _cabEntries]
+          = object
+              (catMaybes [Just ("Entries" .= _cabEntries)])
 
 instance ToPath CreateAssociationBatch where
         toPath = const "/"

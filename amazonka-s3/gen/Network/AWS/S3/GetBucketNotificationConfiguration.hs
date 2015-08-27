@@ -68,10 +68,9 @@ gbncBucket = lens _gbncBucket (\ s a -> s{_gbncBucket = a});
 
 instance AWSRequest
          GetBucketNotificationConfiguration where
-        type Sv GetBucketNotificationConfiguration = S3
         type Rs GetBucketNotificationConfiguration =
              NotificationConfiguration
-        request = get
+        request = get s3
         response = receiveXML (\ s h x -> parseXML x)
 
 instance ToHeaders GetBucketNotificationConfiguration

@@ -521,9 +521,8 @@ piItem :: Lens' PutItem (HashMap Text AttributeValue)
 piItem = lens _piItem (\ s a -> s{_piItem = a}) . _Map;
 
 instance AWSRequest PutItem where
-        type Sv PutItem = DynamoDB
         type Rs PutItem = PutItemResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->
@@ -545,19 +544,23 @@ instance ToHeaders PutItem where
 instance ToJSON PutItem where
         toJSON PutItem'{..}
           = object
-              ["ReturnValues" .= _piReturnValues,
-               "ExpressionAttributeNames" .=
-                 _piExpressionAttributeNames,
-               "ReturnConsumedCapacity" .=
-                 _piReturnConsumedCapacity,
-               "ExpressionAttributeValues" .=
-                 _piExpressionAttributeValues,
-               "ReturnItemCollectionMetrics" .=
-                 _piReturnItemCollectionMetrics,
-               "ConditionExpression" .= _piConditionExpression,
-               "ConditionalOperator" .= _piConditionalOperator,
-               "Expected" .= _piExpected,
-               "TableName" .= _piTableName, "Item" .= _piItem]
+              (catMaybes
+                 [("ReturnValues" .=) <$> _piReturnValues,
+                  ("ExpressionAttributeNames" .=) <$>
+                    _piExpressionAttributeNames,
+                  ("ReturnConsumedCapacity" .=) <$>
+                    _piReturnConsumedCapacity,
+                  ("ExpressionAttributeValues" .=) <$>
+                    _piExpressionAttributeValues,
+                  ("ReturnItemCollectionMetrics" .=) <$>
+                    _piReturnItemCollectionMetrics,
+                  ("ConditionExpression" .=) <$>
+                    _piConditionExpression,
+                  ("ConditionalOperator" .=) <$>
+                    _piConditionalOperator,
+                  ("Expected" .=) <$> _piExpected,
+                  Just ("TableName" .= _piTableName),
+                  Just ("Item" .= _piItem)])
 
 instance ToPath PutItem where
         toPath = const "/"

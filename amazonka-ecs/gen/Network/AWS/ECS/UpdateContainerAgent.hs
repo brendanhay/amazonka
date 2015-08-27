@@ -90,10 +90,9 @@ ucaContainerInstance :: Lens' UpdateContainerAgent Text
 ucaContainerInstance = lens _ucaContainerInstance (\ s a -> s{_ucaContainerInstance = a});
 
 instance AWSRequest UpdateContainerAgent where
-        type Sv UpdateContainerAgent = ECS
         type Rs UpdateContainerAgent =
              UpdateContainerAgentResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -113,8 +112,9 @@ instance ToHeaders UpdateContainerAgent where
 instance ToJSON UpdateContainerAgent where
         toJSON UpdateContainerAgent'{..}
           = object
-              ["cluster" .= _ucaCluster,
-               "containerInstance" .= _ucaContainerInstance]
+              (catMaybes
+                 [("cluster" .=) <$> _ucaCluster,
+                  Just ("containerInstance" .= _ucaContainerInstance)])
 
 instance ToPath UpdateContainerAgent where
         toPath = const "/"

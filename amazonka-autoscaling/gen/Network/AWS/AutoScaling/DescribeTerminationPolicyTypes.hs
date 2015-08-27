@@ -54,10 +54,9 @@ describeTerminationPolicyTypes = DescribeTerminationPolicyTypes'
 
 instance AWSRequest DescribeTerminationPolicyTypes
          where
-        type Sv DescribeTerminationPolicyTypes = AutoScaling
         type Rs DescribeTerminationPolicyTypes =
              DescribeTerminationPolicyTypesResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper
               "DescribeTerminationPolicyTypesResult"

@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.S3.Types
     (
-    -- * Service
-      S3
+    -- * Service Configuration
+      s3
 
     -- * Errors
     , _ObjectAlreadyInActiveTierError
@@ -465,41 +464,38 @@ import           Network.AWS.S3.Types.Product
 import           Network.AWS.S3.Types.Sum
 import           Network.AWS.Sign.V4
 
--- | Version @2006-03-01@ of the Amazon Simple Storage Service SDK.
-data S3
-
-instance AWSService S3 where
-    type Sg S3 = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "S3"
-            , _svcPrefix = "s3"
-            , _svcVersion = "2006-03-01"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseXMLError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasCode "BadDigest" . hasStatus 400) e = Just "contentmd5"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasCode "RequestTimeout" . hasStatus 400) e = Just "timeouts"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2006-03-01' of the Amazon Simple Storage Service SDK configuration.
+s3 :: Service
+s3 =
+    Service
+    { _svcAbbrev = "S3"
+    , _svcSigner = v4
+    , _svcPrefix = "s3"
+    , _svcVersion = "2006-03-01"
+    , _svcEndpoint = defaultEndpoint s3
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseXMLError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasCode "BadDigest" . hasStatus 400) e = Just "contentmd5"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasCode "RequestTimeout" . hasStatus 400) e = Just "timeouts"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | This operation is not allowed against this storage tier
 _ObjectAlreadyInActiveTierError :: AsError a => Getting (First ServiceError) a ServiceError

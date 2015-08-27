@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,8 +12,8 @@
 --
 module Network.AWS.ElasticTranscoder.Types
     (
-    -- * Service
-      ElasticTranscoder
+    -- * Service Configuration
+      elasticTranscoder
 
     -- * Errors
     , _ValidationException
@@ -339,39 +338,36 @@ import           Network.AWS.ElasticTranscoder.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | Version @2012-09-25@ of the Amazon Elastic Transcoder SDK.
-data ElasticTranscoder
-
-instance AWSService ElasticTranscoder where
-    type Sg ElasticTranscoder = V4
-    service = const svc
-      where
-        svc =
-            Service
-            { _svcAbbrev = "ElasticTranscoder"
-            , _svcPrefix = "elastictranscoder"
-            , _svcVersion = "2012-09-25"
-            , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70
-            , _svcStatus = statusSuccess
-            , _svcError = parseJSONError
-            , _svcRetry = retry
-            }
-        retry =
-            Exponential
-            { _retryBase = 5.0e-2
-            , _retryGrowth = 2
-            , _retryAttempts = 5
-            , _retryCheck = check
-            }
-        check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
-              Just "throttling_exception"
-          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-          | has (hasStatus 503) e = Just "service_unavailable"
-          | has (hasStatus 500) e = Just "general_server_error"
-          | has (hasStatus 509) e = Just "limit_exceeded"
-          | otherwise = Nothing
+-- | API version '2012-09-25' of the Amazon Elastic Transcoder SDK configuration.
+elasticTranscoder :: Service
+elasticTranscoder =
+    Service
+    { _svcAbbrev = "ElasticTranscoder"
+    , _svcSigner = v4
+    , _svcPrefix = "elastictranscoder"
+    , _svcVersion = "2012-09-25"
+    , _svcEndpoint = defaultEndpoint elasticTranscoder
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
 
 -- | One or more required parameter values were not provided in the request.
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError

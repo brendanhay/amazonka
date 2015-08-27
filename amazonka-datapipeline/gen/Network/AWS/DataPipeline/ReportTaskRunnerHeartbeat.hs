@@ -99,10 +99,9 @@ rtrhTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat Text
 rtrhTaskrunnerId = lens _rtrhTaskrunnerId (\ s a -> s{_rtrhTaskrunnerId = a});
 
 instance AWSRequest ReportTaskRunnerHeartbeat where
-        type Sv ReportTaskRunnerHeartbeat = DataPipeline
         type Rs ReportTaskRunnerHeartbeat =
              ReportTaskRunnerHeartbeatResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -122,9 +121,10 @@ instance ToHeaders ReportTaskRunnerHeartbeat where
 instance ToJSON ReportTaskRunnerHeartbeat where
         toJSON ReportTaskRunnerHeartbeat'{..}
           = object
-              ["hostname" .= _rtrhHostname,
-               "workerGroup" .= _rtrhWorkerGroup,
-               "taskrunnerId" .= _rtrhTaskrunnerId]
+              (catMaybes
+                 [("hostname" .=) <$> _rtrhHostname,
+                  ("workerGroup" .=) <$> _rtrhWorkerGroup,
+                  Just ("taskrunnerId" .= _rtrhTaskrunnerId)])
 
 instance ToPath ReportTaskRunnerHeartbeat where
         toPath = const "/"

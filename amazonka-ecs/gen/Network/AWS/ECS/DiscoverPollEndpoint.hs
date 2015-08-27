@@ -84,10 +84,9 @@ dpeContainerInstance :: Lens' DiscoverPollEndpoint (Maybe Text)
 dpeContainerInstance = lens _dpeContainerInstance (\ s a -> s{_dpeContainerInstance = a});
 
 instance AWSRequest DiscoverPollEndpoint where
-        type Sv DiscoverPollEndpoint = ECS
         type Rs DiscoverPollEndpoint =
              DiscoverPollEndpointResponse
-        request = postJSON
+        request = postJSON eCS
         response
           = receiveJSON
               (\ s h x ->
@@ -108,8 +107,9 @@ instance ToHeaders DiscoverPollEndpoint where
 instance ToJSON DiscoverPollEndpoint where
         toJSON DiscoverPollEndpoint'{..}
           = object
-              ["cluster" .= _dpeCluster,
-               "containerInstance" .= _dpeContainerInstance]
+              (catMaybes
+                 [("cluster" .=) <$> _dpeCluster,
+                  ("containerInstance" .=) <$> _dpeContainerInstance])
 
 instance ToPath DiscoverPollEndpoint where
         toPath = const "/"

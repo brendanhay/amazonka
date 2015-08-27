@@ -103,10 +103,9 @@ cdbsgSubnetIds :: Lens' CreateDBSubnetGroup [Text]
 cdbsgSubnetIds = lens _cdbsgSubnetIds (\ s a -> s{_cdbsgSubnetIds = a}) . _Coerce;
 
 instance AWSRequest CreateDBSubnetGroup where
-        type Sv CreateDBSubnetGroup = RDS
         type Rs CreateDBSubnetGroup =
              CreateDBSubnetGroupResponse
-        request = postQuery
+        request = postQuery rDS
         response
           = receiveXMLWrapper "CreateDBSubnetGroupResult"
               (\ s h x ->

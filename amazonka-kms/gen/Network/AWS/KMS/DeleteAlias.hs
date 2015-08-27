@@ -66,9 +66,8 @@ daAliasName :: Lens' DeleteAlias Text
 daAliasName = lens _daAliasName (\ s a -> s{_daAliasName = a});
 
 instance AWSRequest DeleteAlias where
-        type Sv DeleteAlias = KMS
         type Rs DeleteAlias = DeleteAliasResponse
-        request = postJSON
+        request = postJSON kMS
         response = receiveNull DeleteAliasResponse'
 
 instance ToHeaders DeleteAlias where
@@ -82,7 +81,8 @@ instance ToHeaders DeleteAlias where
 
 instance ToJSON DeleteAlias where
         toJSON DeleteAlias'{..}
-          = object ["AliasName" .= _daAliasName]
+          = object
+              (catMaybes [Just ("AliasName" .= _daAliasName)])
 
 instance ToPath DeleteAlias where
         toPath = const "/"

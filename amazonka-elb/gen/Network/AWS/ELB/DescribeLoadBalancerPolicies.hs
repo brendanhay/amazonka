@@ -83,10 +83,9 @@ dlbpLoadBalancerName = lens _dlbpLoadBalancerName (\ s a -> s{_dlbpLoadBalancerN
 
 instance AWSRequest DescribeLoadBalancerPolicies
          where
-        type Sv DescribeLoadBalancerPolicies = ELB
         type Rs DescribeLoadBalancerPolicies =
              DescribeLoadBalancerPoliciesResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper
               "DescribeLoadBalancerPoliciesResult"

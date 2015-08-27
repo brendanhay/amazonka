@@ -329,9 +329,8 @@ usStackId :: Lens' UpdateStack Text
 usStackId = lens _usStackId (\ s a -> s{_usStackId = a});
 
 instance AWSRequest UpdateStack where
-        type Sv UpdateStack = OpsWorks
         type Rs UpdateStack = UpdateStackResponse
-        request = postJSON
+        request = postJSON opsWorks
         response = receiveNull UpdateStackResponse'
 
 instance ToHeaders UpdateStack where
@@ -346,27 +345,31 @@ instance ToHeaders UpdateStack where
 instance ToJSON UpdateStack where
         toJSON UpdateStack'{..}
           = object
-              ["DefaultInstanceProfileArn" .=
-                 _usDefaultInstanceProfileARN,
-               "ServiceRoleArn" .= _usServiceRoleARN,
-               "DefaultRootDeviceType" .= _usDefaultRootDeviceType,
-               "ChefConfiguration" .= _usChefConfiguration,
-               "AgentVersion" .= _usAgentVersion,
-               "DefaultSshKeyName" .= _usDefaultSSHKeyName,
-               "CustomJson" .= _usCustomJSON,
-               "CustomCookbooksSource" .= _usCustomCookbooksSource,
-               "DefaultAvailabilityZone" .=
-                 _usDefaultAvailabilityZone,
-               "Name" .= _usName,
-               "UseOpsworksSecurityGroups" .=
-                 _usUseOpsworksSecurityGroups,
-               "DefaultOs" .= _usDefaultOS,
-               "Attributes" .= _usAttributes,
-               "UseCustomCookbooks" .= _usUseCustomCookbooks,
-               "DefaultSubnetId" .= _usDefaultSubnetId,
-               "ConfigurationManager" .= _usConfigurationManager,
-               "HostnameTheme" .= _usHostnameTheme,
-               "StackId" .= _usStackId]
+              (catMaybes
+                 [("DefaultInstanceProfileArn" .=) <$>
+                    _usDefaultInstanceProfileARN,
+                  ("ServiceRoleArn" .=) <$> _usServiceRoleARN,
+                  ("DefaultRootDeviceType" .=) <$>
+                    _usDefaultRootDeviceType,
+                  ("ChefConfiguration" .=) <$> _usChefConfiguration,
+                  ("AgentVersion" .=) <$> _usAgentVersion,
+                  ("DefaultSshKeyName" .=) <$> _usDefaultSSHKeyName,
+                  ("CustomJson" .=) <$> _usCustomJSON,
+                  ("CustomCookbooksSource" .=) <$>
+                    _usCustomCookbooksSource,
+                  ("DefaultAvailabilityZone" .=) <$>
+                    _usDefaultAvailabilityZone,
+                  ("Name" .=) <$> _usName,
+                  ("UseOpsworksSecurityGroups" .=) <$>
+                    _usUseOpsworksSecurityGroups,
+                  ("DefaultOs" .=) <$> _usDefaultOS,
+                  ("Attributes" .=) <$> _usAttributes,
+                  ("UseCustomCookbooks" .=) <$> _usUseCustomCookbooks,
+                  ("DefaultSubnetId" .=) <$> _usDefaultSubnetId,
+                  ("ConfigurationManager" .=) <$>
+                    _usConfigurationManager,
+                  ("HostnameTheme" .=) <$> _usHostnameTheme,
+                  Just ("StackId" .= _usStackId)])
 
 instance ToPath UpdateStack where
         toPath = const "/"

@@ -91,9 +91,8 @@ ckDescription :: Lens' CreateKey (Maybe Text)
 ckDescription = lens _ckDescription (\ s a -> s{_ckDescription = a});
 
 instance AWSRequest CreateKey where
-        type Sv CreateKey = KMS
         type Rs CreateKey = CreateKeyResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->
@@ -112,8 +111,10 @@ instance ToHeaders CreateKey where
 instance ToJSON CreateKey where
         toJSON CreateKey'{..}
           = object
-              ["KeyUsage" .= _ckKeyUsage, "Policy" .= _ckPolicy,
-               "Description" .= _ckDescription]
+              (catMaybes
+                 [("KeyUsage" .=) <$> _ckKeyUsage,
+                  ("Policy" .=) <$> _ckPolicy,
+                  ("Description" .=) <$> _ckDescription])
 
 instance ToPath CreateKey where
         toPath = const "/"

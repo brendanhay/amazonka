@@ -88,9 +88,8 @@ rwRebuildWorkspaceRequests :: Lens' RebuildWorkspaces (NonEmpty RebuildRequest)
 rwRebuildWorkspaceRequests = lens _rwRebuildWorkspaceRequests (\ s a -> s{_rwRebuildWorkspaceRequests = a}) . _List1;
 
 instance AWSRequest RebuildWorkspaces where
-        type Sv RebuildWorkspaces = WorkSpaces
         type Rs RebuildWorkspaces = RebuildWorkspacesResponse
-        request = postJSON
+        request = postJSON workSpaces
         response
           = receiveJSON
               (\ s h x ->
@@ -111,8 +110,10 @@ instance ToHeaders RebuildWorkspaces where
 instance ToJSON RebuildWorkspaces where
         toJSON RebuildWorkspaces'{..}
           = object
-              ["RebuildWorkspaceRequests" .=
-                 _rwRebuildWorkspaceRequests]
+              (catMaybes
+                 [Just
+                    ("RebuildWorkspaceRequests" .=
+                       _rwRebuildWorkspaceRequests)])
 
 instance ToPath RebuildWorkspaces where
         toPath = const "/"

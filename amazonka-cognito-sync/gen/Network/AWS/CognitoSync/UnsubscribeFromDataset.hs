@@ -103,10 +103,9 @@ ufdDeviceId :: Lens' UnsubscribeFromDataset Text
 ufdDeviceId = lens _ufdDeviceId (\ s a -> s{_ufdDeviceId = a});
 
 instance AWSRequest UnsubscribeFromDataset where
-        type Sv UnsubscribeFromDataset = CognitoSync
         type Rs UnsubscribeFromDataset =
              UnsubscribeFromDatasetResponse
-        request = delete
+        request = delete cognitoSync
         response
           = receiveEmpty
               (\ s h x ->

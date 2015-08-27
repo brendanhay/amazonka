@@ -2,7 +2,6 @@
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -209,10 +208,14 @@ instance FromJSON ActionConfigurationProperty where
 instance ToJSON ActionConfigurationProperty where
         toJSON ActionConfigurationProperty'{..}
           = object
-              ["queryable" .= _acpQueryable, "type" .= _acpType,
-               "description" .= _acpDescription, "name" .= _acpName,
-               "required" .= _acpRequired, "key" .= _acpKey,
-               "secret" .= _acpSecret]
+              (catMaybes
+                 [("queryable" .=) <$> _acpQueryable,
+                  ("type" .=) <$> _acpType,
+                  ("description" .=) <$> _acpDescription,
+                  Just ("name" .= _acpName),
+                  Just ("required" .= _acpRequired),
+                  Just ("key" .= _acpKey),
+                  Just ("secret" .= _acpSecret)])
 
 -- | Represents the context of an action within the stage of a pipeline to a
 -- job worker.
@@ -335,12 +338,14 @@ instance FromJSON ActionDeclaration where
 instance ToJSON ActionDeclaration where
         toJSON ActionDeclaration'{..}
           = object
-              ["outputArtifacts" .= _adOutputArtifacts,
-               "runOrder" .= _adRunOrder,
-               "configuration" .= _adConfiguration,
-               "inputArtifacts" .= _adInputArtifacts,
-               "roleArn" .= _adRoleARN, "name" .= _adName,
-               "actionTypeId" .= _adActionTypeId]
+              (catMaybes
+                 [("outputArtifacts" .=) <$> _adOutputArtifacts,
+                  ("runOrder" .=) <$> _adRunOrder,
+                  ("configuration" .=) <$> _adConfiguration,
+                  ("inputArtifacts" .=) <$> _adInputArtifacts,
+                  ("roleArn" .=) <$> _adRoleARN,
+                  Just ("name" .= _adName),
+                  Just ("actionTypeId" .= _adActionTypeId)])
 
 -- | Represents information about how an action runs.
 --
@@ -482,9 +487,10 @@ instance FromJSON ActionRevision where
 instance ToJSON ActionRevision where
         toJSON ActionRevision'{..}
           = object
-              ["revisionChangeId" .= _arRevisionChangeId,
-               "revisionId" .= _arRevisionId,
-               "created" .= _arCreated]
+              (catMaybes
+                 [("revisionChangeId" .=) <$> _arRevisionChangeId,
+                  Just ("revisionId" .= _arRevisionId),
+                  Just ("created" .= _arCreated)])
 
 -- | Represents information about the state of an action.
 --
@@ -690,8 +696,11 @@ instance FromJSON ActionTypeId where
 instance ToJSON ActionTypeId where
         toJSON ActionTypeId'{..}
           = object
-              ["category" .= _atiCategory, "owner" .= _atiOwner,
-               "provider" .= _atiProvider, "version" .= _atiVersion]
+              (catMaybes
+                 [Just ("category" .= _atiCategory),
+                  Just ("owner" .= _atiOwner),
+                  Just ("provider" .= _atiProvider),
+                  Just ("version" .= _atiVersion)])
 
 -- | Returns information about the settings for an action type.
 --
@@ -764,11 +773,14 @@ instance FromJSON ActionTypeSettings where
 instance ToJSON ActionTypeSettings where
         toJSON ActionTypeSettings'{..}
           = object
-              ["thirdPartyConfigurationUrl" .=
-                 _atsThirdPartyConfigurationURL,
-               "executionUrlTemplate" .= _atsExecutionURLTemplate,
-               "entityUrlTemplate" .= _atsEntityURLTemplate,
-               "revisionUrlTemplate" .= _atsRevisionURLTemplate]
+              (catMaybes
+                 [("thirdPartyConfigurationUrl" .=) <$>
+                    _atsThirdPartyConfigurationURL,
+                  ("executionUrlTemplate" .=) <$>
+                    _atsExecutionURLTemplate,
+                  ("entityUrlTemplate" .=) <$> _atsEntityURLTemplate,
+                  ("revisionUrlTemplate" .=) <$>
+                    _atsRevisionURLTemplate])
 
 -- | Represents information about an artifact that will be worked upon by
 -- actions in the pipeline.
@@ -862,8 +874,9 @@ instance FromJSON ArtifactDetails where
 instance ToJSON ArtifactDetails where
         toJSON ArtifactDetails'{..}
           = object
-              ["minimumCount" .= _adMinimumCount,
-               "maximumCount" .= _adMaximumCount]
+              (catMaybes
+                 [Just ("minimumCount" .= _adMinimumCount),
+                  Just ("maximumCount" .= _adMaximumCount)])
 
 -- | Represents information about the location of an artifact.
 --
@@ -949,7 +962,9 @@ instance FromJSON ArtifactStore where
 instance ToJSON ArtifactStore where
         toJSON ArtifactStore'{..}
           = object
-              ["type" .= _asType, "location" .= _asLocation]
+              (catMaybes
+                 [Just ("type" .= _asType),
+                  Just ("location" .= _asLocation)])
 
 -- | Represents information about a gate declaration.
 --
@@ -993,7 +1008,9 @@ instance FromJSON BlockerDeclaration where
 
 instance ToJSON BlockerDeclaration where
         toJSON BlockerDeclaration'{..}
-          = object ["name" .= _bdName, "type" .= _bdType]
+          = object
+              (catMaybes
+                 [Just ("name" .= _bdName), Just ("type" .= _bdType)])
 
 -- | Represents information about a current revision.
 --
@@ -1031,8 +1048,9 @@ crChangeIdentifier = lens _crChangeIdentifier (\ s a -> s{_crChangeIdentifier = 
 instance ToJSON CurrentRevision where
         toJSON CurrentRevision'{..}
           = object
-              ["revision" .= _crRevision,
-               "changeIdentifier" .= _crChangeIdentifier]
+              (catMaybes
+                 [Just ("revision" .= _crRevision),
+                  Just ("changeIdentifier" .= _crChangeIdentifier)])
 
 -- | Represents information about an error in AWS CodePipeline.
 --
@@ -1117,9 +1135,11 @@ edExternalExecutionId = lens _edExternalExecutionId (\ s a -> s{_edExternalExecu
 instance ToJSON ExecutionDetails where
         toJSON ExecutionDetails'{..}
           = object
-              ["summary" .= _edSummary,
-               "percentComplete" .= _edPercentComplete,
-               "externalExecutionId" .= _edExternalExecutionId]
+              (catMaybes
+                 [("summary" .=) <$> _edSummary,
+                  ("percentComplete" .=) <$> _edPercentComplete,
+                  ("externalExecutionId" .=) <$>
+                    _edExternalExecutionId])
 
 -- | Represents information about failure details.
 --
@@ -1164,8 +1184,11 @@ fdType = lens _fdType (\ s a -> s{_fdType = a});
 instance ToJSON FailureDetails where
         toJSON FailureDetails'{..}
           = object
-              ["externalExecutionId" .= _fdExternalExecutionId,
-               "message" .= _fdMessage, "type" .= _fdType]
+              (catMaybes
+                 [("externalExecutionId" .=) <$>
+                    _fdExternalExecutionId,
+                  ("message" .=) <$> _fdMessage,
+                  Just ("type" .= _fdType)])
 
 -- | Represents information about an artifact to be worked on, such as a test
 -- or build artifact.
@@ -1205,7 +1228,7 @@ instance FromJSON InputArtifact where
 
 instance ToJSON InputArtifact where
         toJSON InputArtifact'{..}
-          = object ["name" .= _iaName]
+          = object (catMaybes [Just ("name" .= _iaName)])
 
 -- | Represents information about a job.
 --
@@ -1437,7 +1460,7 @@ instance FromJSON OutputArtifact where
 
 instance ToJSON OutputArtifact where
         toJSON OutputArtifact'{..}
-          = object ["name" .= _oaName]
+          = object (catMaybes [Just ("name" .= _oaName)])
 
 -- | Represents information about a pipeline to a job worker.
 --
@@ -1564,10 +1587,12 @@ instance FromJSON PipelineDeclaration where
 instance ToJSON PipelineDeclaration where
         toJSON PipelineDeclaration'{..}
           = object
-              ["version" .= _pdVersion, "name" .= _pdName,
-               "roleArn" .= _pdRoleARN,
-               "artifactStore" .= _pdArtifactStore,
-               "stages" .= _pdStages]
+              (catMaybes
+                 [("version" .=) <$> _pdVersion,
+                  Just ("name" .= _pdName),
+                  Just ("roleArn" .= _pdRoleARN),
+                  Just ("artifactStore" .= _pdArtifactStore),
+                  Just ("stages" .= _pdStages)])
 
 -- | Returns a summary of a pipeline.
 --
@@ -1746,8 +1771,10 @@ instance FromJSON StageDeclaration where
 instance ToJSON StageDeclaration where
         toJSON StageDeclaration'{..}
           = object
-              ["blockers" .= _sdBlockers, "name" .= _sdName,
-               "actions" .= _sdActions]
+              (catMaybes
+                 [("blockers" .=) <$> _sdBlockers,
+                  Just ("name" .= _sdName),
+                  Just ("actions" .= _sdActions)])
 
 -- | Represents information about the state of the stage.
 --

@@ -97,10 +97,9 @@ slbpfbsPolicyNames = lens _slbpfbsPolicyNames (\ s a -> s{_slbpfbsPolicyNames = 
 
 instance AWSRequest
          SetLoadBalancerPoliciesForBackendServer where
-        type Sv SetLoadBalancerPoliciesForBackendServer = ELB
         type Rs SetLoadBalancerPoliciesForBackendServer =
              SetLoadBalancerPoliciesForBackendServerResponse
-        request = postQuery
+        request = postQuery eLB
         response
           = receiveXMLWrapper
               "SetLoadBalancerPoliciesForBackendServerResult"

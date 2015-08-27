@@ -107,9 +107,8 @@ dsLimit :: Lens' DescribeSnapshots (Maybe Natural)
 dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a}) . mapping _Nat;
 
 instance AWSRequest DescribeSnapshots where
-        type Sv DescribeSnapshots = DirectoryService
         type Rs DescribeSnapshots = DescribeSnapshotsResponse
-        request = postJSON
+        request = postJSON directoryService
         response
           = receiveJSON
               (\ s h x ->
@@ -131,9 +130,11 @@ instance ToHeaders DescribeSnapshots where
 instance ToJSON DescribeSnapshots where
         toJSON DescribeSnapshots'{..}
           = object
-              ["DirectoryId" .= _dsDirectoryId,
-               "NextToken" .= _dsNextToken,
-               "SnapshotIds" .= _dsSnapshotIds, "Limit" .= _dsLimit]
+              (catMaybes
+                 [("DirectoryId" .=) <$> _dsDirectoryId,
+                  ("NextToken" .=) <$> _dsNextToken,
+                  ("SnapshotIds" .=) <$> _dsSnapshotIds,
+                  ("Limit" .=) <$> _dsLimit])
 
 instance ToPath DescribeSnapshots where
         toPath = const "/"

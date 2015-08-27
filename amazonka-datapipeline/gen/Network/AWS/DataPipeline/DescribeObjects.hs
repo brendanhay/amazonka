@@ -115,9 +115,8 @@ instance AWSPager DescribeObjects where
             Just $ rq & doMarker .~ rs ^. dorsMarker
 
 instance AWSRequest DescribeObjects where
-        type Sv DescribeObjects = DataPipeline
         type Rs DescribeObjects = DescribeObjectsResponse
-        request = postJSON
+        request = postJSON dataPipeline
         response
           = receiveJSON
               (\ s h x ->
@@ -138,9 +137,12 @@ instance ToHeaders DescribeObjects where
 instance ToJSON DescribeObjects where
         toJSON DescribeObjects'{..}
           = object
-              ["evaluateExpressions" .= _doEvaluateExpressions,
-               "marker" .= _doMarker, "pipelineId" .= _doPipelineId,
-               "objectIds" .= _doObjectIds]
+              (catMaybes
+                 [("evaluateExpressions" .=) <$>
+                    _doEvaluateExpressions,
+                  ("marker" .=) <$> _doMarker,
+                  Just ("pipelineId" .= _doPipelineId),
+                  Just ("objectIds" .= _doObjectIds)])
 
 instance ToPath DescribeObjects where
         toPath = const "/"

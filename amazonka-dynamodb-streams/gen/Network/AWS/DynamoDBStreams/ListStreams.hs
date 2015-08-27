@@ -93,9 +93,8 @@ lsTableName :: Lens' ListStreams (Maybe Text)
 lsTableName = lens _lsTableName (\ s a -> s{_lsTableName = a});
 
 instance AWSRequest ListStreams where
-        type Sv ListStreams = DynamoDBStreams
         type Rs ListStreams = ListStreamsResponse
-        request = postJSON
+        request = postJSON dynamoDBStreams
         response
           = receiveJSON
               (\ s h x ->
@@ -117,9 +116,11 @@ instance ToHeaders ListStreams where
 instance ToJSON ListStreams where
         toJSON ListStreams'{..}
           = object
-              ["ExclusiveStartStreamArn" .=
-                 _lsExclusiveStartStreamARN,
-               "Limit" .= _lsLimit, "TableName" .= _lsTableName]
+              (catMaybes
+                 [("ExclusiveStartStreamArn" .=) <$>
+                    _lsExclusiveStartStreamARN,
+                  ("Limit" .=) <$> _lsLimit,
+                  ("TableName" .=) <$> _lsTableName])
 
 instance ToPath ListStreams where
         toPath = const "/"

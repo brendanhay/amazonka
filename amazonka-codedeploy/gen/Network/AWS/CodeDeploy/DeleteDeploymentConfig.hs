@@ -69,10 +69,9 @@ ddcDeploymentConfigName :: Lens' DeleteDeploymentConfig Text
 ddcDeploymentConfigName = lens _ddcDeploymentConfigName (\ s a -> s{_ddcDeploymentConfigName = a});
 
 instance AWSRequest DeleteDeploymentConfig where
-        type Sv DeleteDeploymentConfig = CodeDeploy
         type Rs DeleteDeploymentConfig =
              DeleteDeploymentConfigResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveNull DeleteDeploymentConfigResponse'
 
@@ -89,7 +88,10 @@ instance ToHeaders DeleteDeploymentConfig where
 instance ToJSON DeleteDeploymentConfig where
         toJSON DeleteDeploymentConfig'{..}
           = object
-              ["deploymentConfigName" .= _ddcDeploymentConfigName]
+              (catMaybes
+                 [Just
+                    ("deploymentConfigName" .=
+                       _ddcDeploymentConfigName)])
 
 instance ToPath DeleteDeploymentConfig where
         toPath = const "/"

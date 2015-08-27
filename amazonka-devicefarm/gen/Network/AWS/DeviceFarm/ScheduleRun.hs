@@ -116,9 +116,8 @@ srTest :: Lens' ScheduleRun ScheduleRunTest
 srTest = lens _srTest (\ s a -> s{_srTest = a});
 
 instance AWSRequest ScheduleRun where
-        type Sv ScheduleRun = DeviceFarm
         type Rs ScheduleRun = ScheduleRunResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -137,11 +136,13 @@ instance ToHeaders ScheduleRun where
 instance ToJSON ScheduleRun where
         toJSON ScheduleRun'{..}
           = object
-              ["name" .= _srName,
-               "configuration" .= _srConfiguration,
-               "projectArn" .= _srProjectARN, "appArn" .= _srAppARN,
-               "devicePoolArn" .= _srDevicePoolARN,
-               "test" .= _srTest]
+              (catMaybes
+                 [("name" .=) <$> _srName,
+                  ("configuration" .=) <$> _srConfiguration,
+                  Just ("projectArn" .= _srProjectARN),
+                  Just ("appArn" .= _srAppARN),
+                  Just ("devicePoolArn" .= _srDevicePoolARN),
+                  Just ("test" .= _srTest)])
 
 instance ToPath ScheduleRun where
         toPath = const "/"

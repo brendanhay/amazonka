@@ -82,9 +82,8 @@ laLimit :: Lens' ListAliases (Maybe Natural)
 laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat;
 
 instance AWSRequest ListAliases where
-        type Sv ListAliases = KMS
         type Rs ListAliases = ListAliasesResponse
-        request = postJSON
+        request = postJSON kMS
         response
           = receiveJSON
               (\ s h x ->
@@ -104,7 +103,10 @@ instance ToHeaders ListAliases where
 
 instance ToJSON ListAliases where
         toJSON ListAliases'{..}
-          = object ["Marker" .= _laMarker, "Limit" .= _laLimit]
+          = object
+              (catMaybes
+                 [("Marker" .=) <$> _laMarker,
+                  ("Limit" .=) <$> _laLimit])
 
 instance ToPath ListAliases where
         toPath = const "/"

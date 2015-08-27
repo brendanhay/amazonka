@@ -115,9 +115,8 @@ ldDeploymentGroupName :: Lens' ListDeployments (Maybe Text)
 ldDeploymentGroupName = lens _ldDeploymentGroupName (\ s a -> s{_ldDeploymentGroupName = a});
 
 instance AWSRequest ListDeployments where
-        type Sv ListDeployments = CodeDeploy
         type Rs ListDeployments = ListDeploymentsResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -139,11 +138,14 @@ instance ToHeaders ListDeployments where
 instance ToJSON ListDeployments where
         toJSON ListDeployments'{..}
           = object
-              ["createTimeRange" .= _ldCreateTimeRange,
-               "nextToken" .= _ldNextToken,
-               "includeOnlyStatuses" .= _ldIncludeOnlyStatuses,
-               "applicationName" .= _ldApplicationName,
-               "deploymentGroupName" .= _ldDeploymentGroupName]
+              (catMaybes
+                 [("createTimeRange" .=) <$> _ldCreateTimeRange,
+                  ("nextToken" .=) <$> _ldNextToken,
+                  ("includeOnlyStatuses" .=) <$>
+                    _ldIncludeOnlyStatuses,
+                  ("applicationName" .=) <$> _ldApplicationName,
+                  ("deploymentGroupName" .=) <$>
+                    _ldDeploymentGroupName])
 
 instance ToPath ListDeployments where
         toPath = const "/"

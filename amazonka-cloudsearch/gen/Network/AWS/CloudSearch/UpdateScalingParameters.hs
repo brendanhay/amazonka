@@ -88,10 +88,9 @@ uspScalingParameters :: Lens' UpdateScalingParameters ScalingParameters
 uspScalingParameters = lens _uspScalingParameters (\ s a -> s{_uspScalingParameters = a});
 
 instance AWSRequest UpdateScalingParameters where
-        type Sv UpdateScalingParameters = CloudSearch
         type Rs UpdateScalingParameters =
              UpdateScalingParametersResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "UpdateScalingParametersResult"
               (\ s h x ->

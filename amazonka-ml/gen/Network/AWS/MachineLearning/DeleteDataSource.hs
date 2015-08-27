@@ -74,9 +74,8 @@ ddsDataSourceId :: Lens' DeleteDataSource Text
 ddsDataSourceId = lens _ddsDataSourceId (\ s a -> s{_ddsDataSourceId = a});
 
 instance AWSRequest DeleteDataSource where
-        type Sv DeleteDataSource = MachineLearning
         type Rs DeleteDataSource = DeleteDataSourceResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -94,7 +93,9 @@ instance ToHeaders DeleteDataSource where
 
 instance ToJSON DeleteDataSource where
         toJSON DeleteDataSource'{..}
-          = object ["DataSourceId" .= _ddsDataSourceId]
+          = object
+              (catMaybes
+                 [Just ("DataSourceId" .= _ddsDataSourceId)])
 
 instance ToPath DeleteDataSource where
         toPath = const "/"

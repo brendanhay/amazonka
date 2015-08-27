@@ -96,9 +96,8 @@ laType :: Lens' ListArtifacts ArtifactCategory
 laType = lens _laType (\ s a -> s{_laType = a});
 
 instance AWSRequest ListArtifacts where
-        type Sv ListArtifacts = DeviceFarm
         type Rs ListArtifacts = ListArtifactsResponse
-        request = postJSON
+        request = postJSON deviceFarm
         response
           = receiveJSON
               (\ s h x ->
@@ -119,8 +118,9 @@ instance ToHeaders ListArtifacts where
 instance ToJSON ListArtifacts where
         toJSON ListArtifacts'{..}
           = object
-              ["nextToken" .= _laNextToken, "arn" .= _laArn,
-               "type" .= _laType]
+              (catMaybes
+                 [("nextToken" .=) <$> _laNextToken,
+                  Just ("arn" .= _laArn), Just ("type" .= _laType)])
 
 instance ToPath ListArtifacts where
         toPath = const "/"

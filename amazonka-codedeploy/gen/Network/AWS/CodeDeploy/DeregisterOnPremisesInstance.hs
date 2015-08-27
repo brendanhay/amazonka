@@ -66,10 +66,9 @@ dopiInstanceName = lens _dopiInstanceName (\ s a -> s{_dopiInstanceName = a});
 
 instance AWSRequest DeregisterOnPremisesInstance
          where
-        type Sv DeregisterOnPremisesInstance = CodeDeploy
         type Rs DeregisterOnPremisesInstance =
              DeregisterOnPremisesInstanceResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveNull DeregisterOnPremisesInstanceResponse'
 
@@ -85,7 +84,9 @@ instance ToHeaders DeregisterOnPremisesInstance where
 
 instance ToJSON DeregisterOnPremisesInstance where
         toJSON DeregisterOnPremisesInstance'{..}
-          = object ["instanceName" .= _dopiInstanceName]
+          = object
+              (catMaybes
+                 [Just ("instanceName" .= _dopiInstanceName)])
 
 instance ToPath DeregisterOnPremisesInstance where
         toPath = const "/"

@@ -92,9 +92,8 @@ ltfsStreamName :: Lens' ListTagsForStream Text
 ltfsStreamName = lens _ltfsStreamName (\ s a -> s{_ltfsStreamName = a});
 
 instance AWSRequest ListTagsForStream where
-        type Sv ListTagsForStream = Kinesis
         type Rs ListTagsForStream = ListTagsForStreamResponse
-        request = postJSON
+        request = postJSON kinesis
         response
           = receiveJSON
               (\ s h x ->
@@ -114,9 +113,11 @@ instance ToHeaders ListTagsForStream where
 instance ToJSON ListTagsForStream where
         toJSON ListTagsForStream'{..}
           = object
-              ["Limit" .= _ltfsLimit,
-               "ExclusiveStartTagKey" .= _ltfsExclusiveStartTagKey,
-               "StreamName" .= _ltfsStreamName]
+              (catMaybes
+                 [("Limit" .=) <$> _ltfsLimit,
+                  ("ExclusiveStartTagKey" .=) <$>
+                    _ltfsExclusiveStartTagKey,
+                  Just ("StreamName" .= _ltfsStreamName)])
 
 instance ToPath ListTagsForStream where
         toPath = const "/"

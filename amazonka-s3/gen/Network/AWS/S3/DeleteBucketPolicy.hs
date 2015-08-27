@@ -63,10 +63,9 @@ dbpBucket :: Lens' DeleteBucketPolicy BucketName
 dbpBucket = lens _dbpBucket (\ s a -> s{_dbpBucket = a});
 
 instance AWSRequest DeleteBucketPolicy where
-        type Sv DeleteBucketPolicy = S3
         type Rs DeleteBucketPolicy =
              DeleteBucketPolicyResponse
-        request = delete
+        request = delete s3
         response = receiveNull DeleteBucketPolicyResponse'
 
 instance ToHeaders DeleteBucketPolicy where

@@ -70,9 +70,8 @@ ekKeyId :: Lens' EnableKey Text
 ekKeyId = lens _ekKeyId (\ s a -> s{_ekKeyId = a});
 
 instance AWSRequest EnableKey where
-        type Sv EnableKey = KMS
         type Rs EnableKey = EnableKeyResponse
-        request = postJSON
+        request = postJSON kMS
         response = receiveNull EnableKeyResponse'
 
 instance ToHeaders EnableKey where
@@ -85,7 +84,8 @@ instance ToHeaders EnableKey where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON EnableKey where
-        toJSON EnableKey'{..} = object ["KeyId" .= _ekKeyId]
+        toJSON EnableKey'{..}
+          = object (catMaybes [Just ("KeyId" .= _ekKeyId)])
 
 instance ToPath EnableKey where
         toPath = const "/"

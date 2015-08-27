@@ -76,9 +76,8 @@ dcGatewayARN :: Lens' DescribeCache Text
 dcGatewayARN = lens _dcGatewayARN (\ s a -> s{_dcGatewayARN = a});
 
 instance AWSRequest DescribeCache where
-        type Sv DescribeCache = StorageGateway
         type Rs DescribeCache = DescribeCacheResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -103,7 +102,8 @@ instance ToHeaders DescribeCache where
 
 instance ToJSON DescribeCache where
         toJSON DescribeCache'{..}
-          = object ["GatewayARN" .= _dcGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _dcGatewayARN)])
 
 instance ToPath DescribeCache where
         toPath = const "/"

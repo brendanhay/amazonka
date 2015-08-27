@@ -79,9 +79,8 @@ geEvaluationId :: Lens' GetEvaluation Text
 geEvaluationId = lens _geEvaluationId (\ s a -> s{_geEvaluationId = a});
 
 instance AWSRequest GetEvaluation where
-        type Sv GetEvaluation = MachineLearning
         type Rs GetEvaluation = GetEvaluationResponse
-        request = postJSON
+        request = postJSON machineLearning
         response
           = receiveJSON
               (\ s h x ->
@@ -110,7 +109,9 @@ instance ToHeaders GetEvaluation where
 
 instance ToJSON GetEvaluation where
         toJSON GetEvaluation'{..}
-          = object ["EvaluationId" .= _geEvaluationId]
+          = object
+              (catMaybes
+                 [Just ("EvaluationId" .= _geEvaluationId)])
 
 instance ToPath GetEvaluation where
         toPath = const "/"

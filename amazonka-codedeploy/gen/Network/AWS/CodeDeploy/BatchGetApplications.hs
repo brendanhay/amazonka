@@ -68,10 +68,9 @@ bgaApplicationNames :: Lens' BatchGetApplications [Text]
 bgaApplicationNames = lens _bgaApplicationNames (\ s a -> s{_bgaApplicationNames = a}) . _Default . _Coerce;
 
 instance AWSRequest BatchGetApplications where
-        type Sv BatchGetApplications = CodeDeploy
         type Rs BatchGetApplications =
              BatchGetApplicationsResponse
-        request = postJSON
+        request = postJSON codeDeploy
         response
           = receiveJSON
               (\ s h x ->
@@ -91,7 +90,9 @@ instance ToHeaders BatchGetApplications where
 
 instance ToJSON BatchGetApplications where
         toJSON BatchGetApplications'{..}
-          = object ["applicationNames" .= _bgaApplicationNames]
+          = object
+              (catMaybes
+                 [("applicationNames" .=) <$> _bgaApplicationNames])
 
 instance ToPath BatchGetApplications where
         toPath = const "/"

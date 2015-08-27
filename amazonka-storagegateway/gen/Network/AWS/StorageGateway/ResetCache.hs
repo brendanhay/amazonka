@@ -78,9 +78,8 @@ rcGatewayARN :: Lens' ResetCache Text
 rcGatewayARN = lens _rcGatewayARN (\ s a -> s{_rcGatewayARN = a});
 
 instance AWSRequest ResetCache where
-        type Sv ResetCache = StorageGateway
         type Rs ResetCache = ResetCacheResponse
-        request = postJSON
+        request = postJSON storageGateway
         response
           = receiveJSON
               (\ s h x ->
@@ -98,7 +97,8 @@ instance ToHeaders ResetCache where
 
 instance ToJSON ResetCache where
         toJSON ResetCache'{..}
-          = object ["GatewayARN" .= _rcGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _rcGatewayARN)])
 
 instance ToPath ResetCache where
         toPath = const "/"

@@ -94,9 +94,8 @@ instance AWSPager ListTables where
                 rs ^. ltrsLastEvaluatedTableName
 
 instance AWSRequest ListTables where
-        type Sv ListTables = DynamoDB
         type Rs ListTables = ListTablesResponse
-        request = postJSON
+        request = postJSON dynamoDB
         response
           = receiveJSON
               (\ s h x ->
@@ -117,9 +116,10 @@ instance ToHeaders ListTables where
 instance ToJSON ListTables where
         toJSON ListTables'{..}
           = object
-              ["ExclusiveStartTableName" .=
-                 _ltExclusiveStartTableName,
-               "Limit" .= _ltLimit]
+              (catMaybes
+                 [("ExclusiveStartTableName" .=) <$>
+                    _ltExclusiveStartTableName,
+                  ("Limit" .=) <$> _ltLimit])
 
 instance ToPath ListTables where
         toPath = const "/"

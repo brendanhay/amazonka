@@ -71,9 +71,8 @@ idDomainName :: Lens' IndexDocuments Text
 idDomainName = lens _idDomainName (\ s a -> s{_idDomainName = a});
 
 instance AWSRequest IndexDocuments where
-        type Sv IndexDocuments = CloudSearch
         type Rs IndexDocuments = IndexDocumentsResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "IndexDocumentsResult"
               (\ s h x ->

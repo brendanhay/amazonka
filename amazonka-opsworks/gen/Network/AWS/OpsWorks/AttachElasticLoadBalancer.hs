@@ -87,10 +87,9 @@ aelbLayerId :: Lens' AttachElasticLoadBalancer Text
 aelbLayerId = lens _aelbLayerId (\ s a -> s{_aelbLayerId = a});
 
 instance AWSRequest AttachElasticLoadBalancer where
-        type Sv AttachElasticLoadBalancer = OpsWorks
         type Rs AttachElasticLoadBalancer =
              AttachElasticLoadBalancerResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveNull AttachElasticLoadBalancerResponse'
 
@@ -107,9 +106,11 @@ instance ToHeaders AttachElasticLoadBalancer where
 instance ToJSON AttachElasticLoadBalancer where
         toJSON AttachElasticLoadBalancer'{..}
           = object
-              ["ElasticLoadBalancerName" .=
-                 _aelbElasticLoadBalancerName,
-               "LayerId" .= _aelbLayerId]
+              (catMaybes
+                 [Just
+                    ("ElasticLoadBalancerName" .=
+                       _aelbElasticLoadBalancerName),
+                  Just ("LayerId" .= _aelbLayerId)])
 
 instance ToPath AttachElasticLoadBalancer where
         toPath = const "/"

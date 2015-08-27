@@ -93,11 +93,9 @@ cpviVirtualGatewayId = lens _cpviVirtualGatewayId (\ s a -> s{_cpviVirtualGatewa
 
 instance AWSRequest ConfirmPrivateVirtualInterface
          where
-        type Sv ConfirmPrivateVirtualInterface =
-             DirectConnect
         type Rs ConfirmPrivateVirtualInterface =
              ConfirmPrivateVirtualInterfaceResponse
-        request = postJSON
+        request = postJSON directConnect
         response
           = receiveJSON
               (\ s h x ->
@@ -119,8 +117,10 @@ instance ToHeaders ConfirmPrivateVirtualInterface
 instance ToJSON ConfirmPrivateVirtualInterface where
         toJSON ConfirmPrivateVirtualInterface'{..}
           = object
-              ["virtualInterfaceId" .= _cpviVirtualInterfaceId,
-               "virtualGatewayId" .= _cpviVirtualGatewayId]
+              (catMaybes
+                 [Just
+                    ("virtualInterfaceId" .= _cpviVirtualInterfaceId),
+                  Just ("virtualGatewayId" .= _cpviVirtualGatewayId)])
 
 instance ToPath ConfirmPrivateVirtualInterface where
         toPath = const "/"

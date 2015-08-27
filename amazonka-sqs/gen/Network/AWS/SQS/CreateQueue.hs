@@ -130,9 +130,8 @@ cqQueueName :: Lens' CreateQueue Text
 cqQueueName = lens _cqQueueName (\ s a -> s{_cqQueueName = a});
 
 instance AWSRequest CreateQueue where
-        type Sv CreateQueue = SQS
         type Rs CreateQueue = CreateQueueResponse
-        request = postQuery
+        request = postQuery sQS
         response
           = receiveXMLWrapper "CreateQueueResult"
               (\ s h x ->

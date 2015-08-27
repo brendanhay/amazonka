@@ -82,9 +82,8 @@ delInstanceId :: Lens' DeleteAssociation Text
 delInstanceId = lens _delInstanceId (\ s a -> s{_delInstanceId = a});
 
 instance AWSRequest DeleteAssociation where
-        type Sv DeleteAssociation = SSM
         type Rs DeleteAssociation = DeleteAssociationResponse
-        request = postJSON
+        request = postJSON sSM
         response
           = receiveEmpty
               (\ s h x ->
@@ -102,7 +101,9 @@ instance ToHeaders DeleteAssociation where
 instance ToJSON DeleteAssociation where
         toJSON DeleteAssociation'{..}
           = object
-              ["Name" .= _delName, "InstanceId" .= _delInstanceId]
+              (catMaybes
+                 [Just ("Name" .= _delName),
+                  Just ("InstanceId" .= _delInstanceId)])
 
 instance ToPath DeleteAssociation where
         toPath = const "/"

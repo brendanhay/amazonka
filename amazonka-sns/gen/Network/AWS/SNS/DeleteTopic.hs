@@ -66,9 +66,8 @@ dtTopicARN :: Lens' DeleteTopic Text
 dtTopicARN = lens _dtTopicARN (\ s a -> s{_dtTopicARN = a});
 
 instance AWSRequest DeleteTopic where
-        type Sv DeleteTopic = SNS
         type Rs DeleteTopic = DeleteTopicResponse
-        request = postQuery
+        request = postQuery sNS
         response = receiveNull DeleteTopicResponse'
 
 instance ToHeaders DeleteTopic where

@@ -114,9 +114,8 @@ mhHSMARN :: Lens' ModifyHSM Text
 mhHSMARN = lens _mhHSMARN (\ s a -> s{_mhHSMARN = a});
 
 instance AWSRequest ModifyHSM where
-        type Sv ModifyHSM = CloudHSM
         type Rs ModifyHSM = ModifyHSMResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->
@@ -135,10 +134,13 @@ instance ToHeaders ModifyHSM where
 instance ToJSON ModifyHSM where
         toJSON ModifyHSM'{..}
           = object
-              ["IamRoleArn" .= _mhIAMRoleARN,
-               "SubnetId" .= _mhSubnetId, "SyslogIp" .= _mhSyslogIP,
-               "ExternalId" .= _mhExternalId, "EniIp" .= _mhEniIP,
-               "HsmArn" .= _mhHSMARN]
+              (catMaybes
+                 [("IamRoleArn" .=) <$> _mhIAMRoleARN,
+                  ("SubnetId" .=) <$> _mhSubnetId,
+                  ("SyslogIp" .=) <$> _mhSyslogIP,
+                  ("ExternalId" .=) <$> _mhExternalId,
+                  ("EniIp" .=) <$> _mhEniIP,
+                  Just ("HsmArn" .= _mhHSMARN)])
 
 instance ToPath ModifyHSM where
         toPath = const "/"

@@ -81,10 +81,9 @@ albLoadBalancerNames :: Lens' AttachLoadBalancers [Text]
 albLoadBalancerNames = lens _albLoadBalancerNames (\ s a -> s{_albLoadBalancerNames = a}) . _Default . _Coerce;
 
 instance AWSRequest AttachLoadBalancers where
-        type Sv AttachLoadBalancers = AutoScaling
         type Rs AttachLoadBalancers =
              AttachLoadBalancersResponse
-        request = postQuery
+        request = postQuery autoScaling
         response
           = receiveXMLWrapper "AttachLoadBalancersResult"
               (\ s h x ->

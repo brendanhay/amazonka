@@ -87,10 +87,9 @@ uasAssociationStatus :: Lens' UpdateAssociationStatus AssociationStatus
 uasAssociationStatus = lens _uasAssociationStatus (\ s a -> s{_uasAssociationStatus = a});
 
 instance AWSRequest UpdateAssociationStatus where
-        type Sv UpdateAssociationStatus = SSM
         type Rs UpdateAssociationStatus =
              UpdateAssociationStatusResponse
-        request = postJSON
+        request = postJSON sSM
         response
           = receiveJSON
               (\ s h x ->
@@ -110,8 +109,10 @@ instance ToHeaders UpdateAssociationStatus where
 instance ToJSON UpdateAssociationStatus where
         toJSON UpdateAssociationStatus'{..}
           = object
-              ["Name" .= _uasName, "InstanceId" .= _uasInstanceId,
-               "AssociationStatus" .= _uasAssociationStatus]
+              (catMaybes
+                 [Just ("Name" .= _uasName),
+                  Just ("InstanceId" .= _uasInstanceId),
+                  Just ("AssociationStatus" .= _uasAssociationStatus)])
 
 instance ToPath UpdateAssociationStatus where
         toPath = const "/"

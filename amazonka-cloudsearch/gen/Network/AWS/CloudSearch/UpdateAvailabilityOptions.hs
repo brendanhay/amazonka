@@ -89,10 +89,9 @@ uaoMultiAZ :: Lens' UpdateAvailabilityOptions Bool
 uaoMultiAZ = lens _uaoMultiAZ (\ s a -> s{_uaoMultiAZ = a});
 
 instance AWSRequest UpdateAvailabilityOptions where
-        type Sv UpdateAvailabilityOptions = CloudSearch
         type Rs UpdateAvailabilityOptions =
              UpdateAvailabilityOptionsResponse
-        request = postQuery
+        request = postQuery cloudSearch
         response
           = receiveXMLWrapper "UpdateAvailabilityOptionsResult"
               (\ s h x ->

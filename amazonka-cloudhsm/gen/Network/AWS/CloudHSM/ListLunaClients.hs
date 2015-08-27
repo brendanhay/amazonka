@@ -72,9 +72,8 @@ llcNextToken :: Lens' ListLunaClients (Maybe Text)
 llcNextToken = lens _llcNextToken (\ s a -> s{_llcNextToken = a});
 
 instance AWSRequest ListLunaClients where
-        type Sv ListLunaClients = CloudHSM
         type Rs ListLunaClients = ListLunaClientsResponse
-        request = postJSON
+        request = postJSON cloudHSM
         response
           = receiveJSON
               (\ s h x ->
@@ -94,7 +93,8 @@ instance ToHeaders ListLunaClients where
 
 instance ToJSON ListLunaClients where
         toJSON ListLunaClients'{..}
-          = object ["NextToken" .= _llcNextToken]
+          = object
+              (catMaybes [("NextToken" .=) <$> _llcNextToken])
 
 instance ToPath ListLunaClients where
         toPath = const "/"

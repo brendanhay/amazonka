@@ -65,9 +65,8 @@ dpName :: Lens' DeletePipeline Text
 dpName = lens _dpName (\ s a -> s{_dpName = a});
 
 instance AWSRequest DeletePipeline where
-        type Sv DeletePipeline = CodePipeline
         type Rs DeletePipeline = DeletePipelineResponse
-        request = postJSON
+        request = postJSON codePipeline
         response = receiveNull DeletePipelineResponse'
 
 instance ToHeaders DeletePipeline where
@@ -82,7 +81,7 @@ instance ToHeaders DeletePipeline where
 
 instance ToJSON DeletePipeline where
         toJSON DeletePipeline'{..}
-          = object ["name" .= _dpName]
+          = object (catMaybes [Just ("name" .= _dpName)])
 
 instance ToPath DeletePipeline where
         toPath = const "/"

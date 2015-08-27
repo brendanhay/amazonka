@@ -99,9 +99,8 @@ pdRoleARN :: Lens' PutDestination Text
 pdRoleARN = lens _pdRoleARN (\ s a -> s{_pdRoleARN = a});
 
 instance AWSRequest PutDestination where
-        type Sv PutDestination = CloudWatchLogs
         type Rs PutDestination = PutDestinationResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response
           = receiveJSON
               (\ s h x ->
@@ -120,8 +119,10 @@ instance ToHeaders PutDestination where
 instance ToJSON PutDestination where
         toJSON PutDestination'{..}
           = object
-              ["destinationName" .= _pdDestinationName,
-               "targetArn" .= _pdTargetARN, "roleArn" .= _pdRoleARN]
+              (catMaybes
+                 [Just ("destinationName" .= _pdDestinationName),
+                  Just ("targetArn" .= _pdTargetARN),
+                  Just ("roleArn" .= _pdRoleARN)])
 
 instance ToPath PutDestination where
         toPath = const "/"

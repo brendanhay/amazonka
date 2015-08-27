@@ -380,9 +380,8 @@ rMaxCount :: Lens' RunInstances Int
 rMaxCount = lens _rMaxCount (\ s a -> s{_rMaxCount = a});
 
 instance AWSRequest RunInstances where
-        type Sv RunInstances = EC2
         type Rs RunInstances = Reservation
-        request = postQuery
+        request = postQuery eC2
         response = receiveXML (\ s h x -> parseXML x)
 
 instance ToHeaders RunInstances where

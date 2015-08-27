@@ -136,9 +136,8 @@ riStackId :: Lens' RegisterInstance Text
 riStackId = lens _riStackId (\ s a -> s{_riStackId = a});
 
 instance AWSRequest RegisterInstance where
-        type Sv RegisterInstance = OpsWorks
         type Rs RegisterInstance = RegisterInstanceResponse
-        request = postJSON
+        request = postJSON opsWorks
         response
           = receiveJSON
               (\ s h x ->
@@ -157,14 +156,15 @@ instance ToHeaders RegisterInstance where
 instance ToJSON RegisterInstance where
         toJSON RegisterInstance'{..}
           = object
-              ["PrivateIp" .= _riPrivateIP,
-               "Hostname" .= _riHostname,
-               "InstanceIdentity" .= _riInstanceIdentity,
-               "PublicIp" .= _riPublicIP,
-               "RsaPublicKeyFingerprint" .=
-                 _riRsaPublicKeyFingerprint,
-               "RsaPublicKey" .= _riRsaPublicKey,
-               "StackId" .= _riStackId]
+              (catMaybes
+                 [("PrivateIp" .=) <$> _riPrivateIP,
+                  ("Hostname" .=) <$> _riHostname,
+                  ("InstanceIdentity" .=) <$> _riInstanceIdentity,
+                  ("PublicIp" .=) <$> _riPublicIP,
+                  ("RsaPublicKeyFingerprint" .=) <$>
+                    _riRsaPublicKeyFingerprint,
+                  ("RsaPublicKey" .=) <$> _riRsaPublicKey,
+                  Just ("StackId" .= _riStackId)])
 
 instance ToPath RegisterInstance where
         toPath = const "/"

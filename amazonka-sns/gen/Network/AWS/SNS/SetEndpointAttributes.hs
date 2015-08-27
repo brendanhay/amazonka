@@ -90,10 +90,9 @@ seaAttributes :: Lens' SetEndpointAttributes (HashMap Text Text)
 seaAttributes = lens _seaAttributes (\ s a -> s{_seaAttributes = a}) . _Map;
 
 instance AWSRequest SetEndpointAttributes where
-        type Sv SetEndpointAttributes = SNS
         type Rs SetEndpointAttributes =
              SetEndpointAttributesResponse
-        request = postQuery
+        request = postQuery sNS
         response = receiveNull SetEndpointAttributesResponse'
 
 instance ToHeaders SetEndpointAttributes where

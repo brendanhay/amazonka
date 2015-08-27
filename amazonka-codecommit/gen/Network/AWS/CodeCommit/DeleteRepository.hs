@@ -73,9 +73,8 @@ drRepositoryName :: Lens' DeleteRepository Text
 drRepositoryName = lens _drRepositoryName (\ s a -> s{_drRepositoryName = a});
 
 instance AWSRequest DeleteRepository where
-        type Sv DeleteRepository = CodeCommit
         type Rs DeleteRepository = DeleteRepositoryResponse
-        request = postJSON
+        request = postJSON codeCommit
         response
           = receiveJSON
               (\ s h x ->
@@ -94,7 +93,9 @@ instance ToHeaders DeleteRepository where
 
 instance ToJSON DeleteRepository where
         toJSON DeleteRepository'{..}
-          = object ["repositoryName" .= _drRepositoryName]
+          = object
+              (catMaybes
+                 [Just ("repositoryName" .= _drRepositoryName)])
 
 instance ToPath DeleteRepository where
         toPath = const "/"

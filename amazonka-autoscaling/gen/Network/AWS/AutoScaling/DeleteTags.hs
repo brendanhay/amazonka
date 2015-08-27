@@ -65,9 +65,8 @@ dtTags :: Lens' DeleteTags [Tag]
 dtTags = lens _dtTags (\ s a -> s{_dtTags = a}) . _Coerce;
 
 instance AWSRequest DeleteTags where
-        type Sv DeleteTags = AutoScaling
         type Rs DeleteTags = DeleteTagsResponse
-        request = postQuery
+        request = postQuery autoScaling
         response = receiveNull DeleteTagsResponse'
 
 instance ToHeaders DeleteTags where

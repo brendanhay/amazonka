@@ -138,9 +138,8 @@ gleLogStreamName :: Lens' GetLogEvents Text
 gleLogStreamName = lens _gleLogStreamName (\ s a -> s{_gleLogStreamName = a});
 
 instance AWSRequest GetLogEvents where
-        type Sv GetLogEvents = CloudWatchLogs
         type Rs GetLogEvents = GetLogEventsResponse
-        request = postJSON
+        request = postJSON cloudWatchLogs
         response
           = receiveJSON
               (\ s h x ->
@@ -162,12 +161,14 @@ instance ToHeaders GetLogEvents where
 instance ToJSON GetLogEvents where
         toJSON GetLogEvents'{..}
           = object
-              ["startTime" .= _gleStartTime,
-               "startFromHead" .= _gleStartFromHead,
-               "nextToken" .= _gleNextToken,
-               "endTime" .= _gleEndTime, "limit" .= _gleLimit,
-               "logGroupName" .= _gleLogGroupName,
-               "logStreamName" .= _gleLogStreamName]
+              (catMaybes
+                 [("startTime" .=) <$> _gleStartTime,
+                  ("startFromHead" .=) <$> _gleStartFromHead,
+                  ("nextToken" .=) <$> _gleNextToken,
+                  ("endTime" .=) <$> _gleEndTime,
+                  ("limit" .=) <$> _gleLimit,
+                  Just ("logGroupName" .= _gleLogGroupName),
+                  Just ("logStreamName" .= _gleLogStreamName)])
 
 instance ToPath GetLogEvents where
         toPath = const "/"

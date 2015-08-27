@@ -130,11 +130,9 @@ goitfdiLogins = lens _goitfdiLogins (\ s a -> s{_goitfdiLogins = a}) . _Map;
 
 instance AWSRequest
          GetOpenIdTokenForDeveloperIdentity where
-        type Sv GetOpenIdTokenForDeveloperIdentity =
-             CognitoIdentity
         type Rs GetOpenIdTokenForDeveloperIdentity =
              GetOpenIdTokenForDeveloperIdentityResponse
-        request = postJSON
+        request = postJSON cognitoIdentity
         response
           = receiveJSON
               (\ s h x ->
@@ -157,10 +155,11 @@ instance ToJSON GetOpenIdTokenForDeveloperIdentity
          where
         toJSON GetOpenIdTokenForDeveloperIdentity'{..}
           = object
-              ["TokenDuration" .= _goitfdiTokenDuration,
-               "IdentityId" .= _goitfdiIdentityId,
-               "IdentityPoolId" .= _goitfdiIdentityPoolId,
-               "Logins" .= _goitfdiLogins]
+              (catMaybes
+                 [("TokenDuration" .=) <$> _goitfdiTokenDuration,
+                  ("IdentityId" .=) <$> _goitfdiIdentityId,
+                  Just ("IdentityPoolId" .= _goitfdiIdentityPoolId),
+                  Just ("Logins" .= _goitfdiLogins)])
 
 instance ToPath GetOpenIdTokenForDeveloperIdentity
          where

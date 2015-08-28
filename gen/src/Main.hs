@@ -23,7 +23,6 @@ import           Control.Monad
 import           Control.Monad.Except
 import           Control.Monad.State
 import           Data.Monoid
-import qualified Data.SemVer               as SemVer
 import           Data.String
 import qualified Data.Text                 as Text
 import qualified Filesystem                as FS
@@ -116,7 +115,7 @@ isPath :: ReadM Path
 isPath = eitherReader (Right . fromText . Text.dropWhileEnd (== '/') . fromString)
 
 version :: ReadM (Version v)
-version = eitherReader (fmap Version . SemVer.fromText . Text.pack)
+version = eitherReader (Right . Version . Text.pack)
 
 options :: ParserInfo Opt
 options = info (helper <*> parser) fullDesc

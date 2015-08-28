@@ -1,5 +1,5 @@
 name:                  amazonka-efs
-version:               1.2.0
+version:               1.2.0.1
 synopsis:              Amazon Elastic File System SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -79,9 +79,9 @@ test-suite amazonka-efs-test
         , Test.AWS.EFS.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-efs == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-efs == 1.2.0.*
         , base
         , bytestring
         , lens

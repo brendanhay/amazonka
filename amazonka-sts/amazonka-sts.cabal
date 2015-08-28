@@ -1,5 +1,5 @@
 name:                  amazonka-sts
-version:               1.2.0
+version:               1.2.0.1
 synopsis:              Amazon Security Token Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -129,9 +129,9 @@ test-suite amazonka-sts-test
         , Test.AWS.STS.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-sts == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-sts == 1.2.0.*
         , base
         , bytestring
         , lens

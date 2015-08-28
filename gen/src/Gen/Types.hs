@@ -38,7 +38,6 @@ import           Data.Aeson
 import           Data.List                 (nub, sort, sortOn)
 import           Data.Monoid               hiding (Product, Sum)
 import           Data.Ord
-import qualified Data.SemVer               as SemVer
 import           Data.Text                 (Text)
 import qualified Data.Text.Lazy            as LText
 import qualified Data.Text.Lazy.Builder    as Build
@@ -110,14 +109,14 @@ defaultOverride = Override
     , _renamedFields  = mempty
     }
 
-newtype Version (v :: Symbol) = Version SemVer.Version
+newtype Version (v :: Symbol) = Version Text
     deriving (Eq, Show)
 
 instance ToJSON (Version v) where
-    toJSON (Version v) = toJSON (SemVer.toText v)
+    toJSON (Version v) = toJSON v
 
 semver :: Format a (Version v -> a)
-semver = later (\(Version v) -> Build.fromText (SemVer.toText v))
+semver = later (\(Version v) -> Build.fromText v)
 
 type LibraryVer = Version "library"
 type ClientVer  = Version "client"

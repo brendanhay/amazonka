@@ -1,5 +1,5 @@
 name:                  amazonka-devicefarm
-version:               1.2.0
+version:               1.2.0.1
 synopsis:              Amazon Device Farm SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -95,9 +95,9 @@ test-suite amazonka-devicefarm-test
         , Test.AWS.DeviceFarm.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-devicefarm == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-devicefarm == 1.2.0.*
         , base
         , bytestring
         , lens

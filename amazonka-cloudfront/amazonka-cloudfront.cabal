@@ -1,5 +1,5 @@
 name:                  amazonka-cloudfront
-version:               1.2.0
+version:               1.2.0.1
 synopsis:              Amazon CloudFront SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -99,9 +99,9 @@ test-suite amazonka-cloudfront-test
         , Test.AWS.CloudFront.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-cloudfront == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-cloudfront == 1.2.0.*
         , base
         , bytestring
         , lens

@@ -1,5 +1,5 @@
 name:                  amazonka-swf
-version:               1.2.0
+version:               1.2.0.1
 synopsis:              Amazon Simple Workflow Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -115,9 +115,9 @@ test-suite amazonka-swf-test
         , Test.AWS.SWF.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-swf == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-swf == 1.2.0.*
         , base
         , bytestring
         , lens

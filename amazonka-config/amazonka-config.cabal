@@ -1,5 +1,5 @@
 name:                  amazonka-config
-version:               1.2.0
+version:               1.2.0.1
 synopsis:              Amazon Config SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -107,9 +107,9 @@ test-suite amazonka-config-test
         , Test.AWS.Config.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-config == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-config == 1.2.0.*
         , base
         , bytestring
         , lens

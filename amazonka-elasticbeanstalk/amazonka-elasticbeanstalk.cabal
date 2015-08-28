@@ -124,9 +124,9 @@ test-suite amazonka-elasticbeanstalk-test
         , Test.AWS.ElasticBeanstalk.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-elasticbeanstalk == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-elasticbeanstalk == 1.2.0.*
         , base
         , bytestring
         , lens

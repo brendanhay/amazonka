@@ -98,9 +98,9 @@ test-suite amazonka-cloudtrail-test
         , Test.AWS.CloudTrail.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-cloudtrail == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-cloudtrail == 1.2.0.*
         , base
         , bytestring
         , lens

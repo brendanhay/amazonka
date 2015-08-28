@@ -85,9 +85,9 @@ test-suite amazonka-cloudhsm-test
         , Test.AWS.CloudHSM.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-cloudhsm == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-cloudhsm == 1.2.0.*
         , base
         , bytestring
         , lens

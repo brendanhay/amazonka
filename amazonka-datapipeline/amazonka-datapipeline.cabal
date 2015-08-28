@@ -109,9 +109,9 @@ test-suite amazonka-datapipeline-test
         , Test.AWS.DataPipeline.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-datapipeline == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-datapipeline == 1.2.0.*
         , base
         , bytestring
         , lens

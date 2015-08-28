@@ -108,9 +108,9 @@ test-suite amazonka-ecs-test
         , Test.AWS.ECS.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-ecs == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-ecs == 1.2.0.*
         , base
         , bytestring
         , lens

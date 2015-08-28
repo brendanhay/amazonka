@@ -181,9 +181,9 @@ test-suite amazonka-codepipeline-test
         , Test.AWS.CodePipeline.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-codepipeline == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-codepipeline == 1.2.0.*
         , base
         , bytestring
         , lens

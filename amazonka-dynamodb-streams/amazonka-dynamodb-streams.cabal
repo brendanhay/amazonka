@@ -99,9 +99,9 @@ test-suite amazonka-dynamodb-streams-test
         , Test.AWS.DynamoDBStreams.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-dynamodb-streams == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-dynamodb-streams == 1.2.0.*
         , base
         , bytestring
         , lens

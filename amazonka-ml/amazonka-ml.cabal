@@ -93,9 +93,9 @@ test-suite amazonka-ml-test
         , Test.AWS.MachineLearning.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-ml == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-ml == 1.2.0.*
         , base
         , bytestring
         , lens

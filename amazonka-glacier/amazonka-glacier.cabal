@@ -132,9 +132,9 @@ test-suite amazonka-glacier-test
         , Test.AWS.Glacier.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-glacier == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-glacier == 1.2.0.*
         , base
         , bytestring
         , lens

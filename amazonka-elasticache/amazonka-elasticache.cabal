@@ -118,9 +118,9 @@ test-suite amazonka-elasticache-test
         , Test.AWS.ElastiCache.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-elasticache == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-elasticache == 1.2.0.*
         , base
         , bytestring
         , lens

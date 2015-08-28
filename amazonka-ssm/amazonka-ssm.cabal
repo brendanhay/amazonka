@@ -94,9 +94,9 @@ test-suite amazonka-ssm-test
         , Test.AWS.SSM.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-ssm == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-ssm == 1.2.0.*
         , base
         , bytestring
         , lens

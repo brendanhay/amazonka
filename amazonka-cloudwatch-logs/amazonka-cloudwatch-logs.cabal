@@ -130,9 +130,9 @@ test-suite amazonka-cloudwatch-logs-test
         , Test.AWS.CloudWatchLogs.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-cloudwatch-logs == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-cloudwatch-logs == 1.2.0.*
         , base
         , bytestring
         , lens

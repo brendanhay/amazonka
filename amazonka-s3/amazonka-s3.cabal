@@ -129,9 +129,9 @@ test-suite amazonka-s3-test
         , Test.AWS.S3.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-s3 == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-s3 == 1.2.0.*
         , base
         , bytestring
         , lens

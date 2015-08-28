@@ -104,9 +104,9 @@ test-suite amazonka-route53-test
         , Test.AWS.Route53.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-route53 == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-route53 == 1.2.0.*
         , base
         , bytestring
         , lens

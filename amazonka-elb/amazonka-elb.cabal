@@ -112,9 +112,9 @@ test-suite amazonka-elb-test
         , Test.AWS.ELB.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-elb == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-elb == 1.2.0.*
         , base
         , bytestring
         , lens

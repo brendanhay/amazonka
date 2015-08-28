@@ -5,7 +5,7 @@ MODEL_DIR := model
 OUT_DIR   := ..
 
 define version =
-$(shell sed -n 's/^version: *\(.*\)$$/\1/p' $(1))
+$(shell sed -n 's/^version: *\([0-9]*\.[0-9]*\.[0-9]\).*$$/\1/p' $(1))
 endef
 
 VERSION        = $(call version,amazonka-gen.cabal)
@@ -39,10 +39,7 @@ format:
  -printf ' -> %p\n' \
  -exec stylish-haskell -i {} \;
 
-build: $(MODEL_DIR)
-	stack build amazonka-gen
-
-$(BIN)/amazonka-gen: $(BIN) build
+$(BIN)/amazonka-gen: $(BIN)
 	stack build amazonka-gen --copy-bins --local-bin-path $(BIN)
 
 $(BIN):

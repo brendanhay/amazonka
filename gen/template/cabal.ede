@@ -73,9 +73,9 @@ test-suite {{ libraryName }}-test
         , Test.AWS.{{ serviceAbbrev }}.Internal
 
     build-depends:
-          amazonka-core == {{ coreVersion }}
-        , amazonka-test == {{ coreVersion }}
-        , {{ libraryName }} == {{ libraryVersion }}
+          amazonka-core == {{ coreVersion }}.*
+        , amazonka-test == {{ coreVersion }}.*
+        , {{ libraryName }} == {{ libraryVersion }}.*
         , base
         , bytestring
         , lens

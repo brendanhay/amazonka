@@ -80,7 +80,6 @@ executable amazonka-gen
         , parsec
         , scientific
         , semigroups
-        , semver
         , system-fileio
         , system-filepath
         , template-haskell

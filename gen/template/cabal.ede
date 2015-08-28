@@ -75,7 +75,7 @@ test-suite {{ libraryName }}-test
     build-depends:
           amazonka-core == {{ coreVersion }}.*
         , amazonka-test == {{ coreVersion }}.*
-        , {{ libraryName }} == {{ libraryVersion }}.*
+        , {{ libraryName }} == {{ clientVersion }}.*
         , base
         , bytestring
         , lens

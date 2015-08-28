@@ -1,5 +1,5 @@
 name:                  amazonka-glacier
-version:               1.2.0
+version:               1.2.0.1
 synopsis:              Amazon Glacier SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense

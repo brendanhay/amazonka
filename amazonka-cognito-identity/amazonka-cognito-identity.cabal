@@ -1,5 +1,5 @@
 name:                  amazonka-cognito-identity
-version:               1.2.0
+version:               1.2.0.1
 synopsis:              Amazon Cognito Identity SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense

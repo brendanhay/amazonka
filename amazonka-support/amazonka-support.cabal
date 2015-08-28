@@ -1,5 +1,5 @@
 name:                  amazonka-support
-version:               1.2.0
+version:               1.2.0.1
 synopsis:              Amazon Support SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense

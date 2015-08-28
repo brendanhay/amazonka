@@ -1,5 +1,5 @@
 name:                  amazonka-ecs
-version:               1.2.0
+version:               1.2.0.1
 synopsis:              Amazon EC2 Container Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense

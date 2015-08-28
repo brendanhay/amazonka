@@ -1,5 +1,5 @@
 name:                  amazonka-gen
-version:               1.2.0
+version:               1.2.0.1
 synopsis:              Amazonka Code Generator
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -80,7 +80,6 @@ executable amazonka-gen
         , parsec
         , scientific
         , semigroups
-        , semver
         , system-fileio
         , system-filepath
         , template-haskell

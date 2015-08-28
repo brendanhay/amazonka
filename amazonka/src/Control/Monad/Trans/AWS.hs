@@ -157,6 +157,7 @@ import           Control.Monad.Trans.Resource
 import           Control.Monad.Writer.Class
 import           Data.Conduit                 hiding (await)
 import           Data.IORef
+import           Data.Monoid
 import           Network.AWS.Auth
 import qualified Network.AWS.EC2.Metadata     as EC2
 import           Network.AWS.Env
@@ -304,7 +305,7 @@ presign :: ( MonadIO m
         -> m ClientRequest
 presign ts ex x = do
     Env{..} <- view environment
-    Sign.presignWith (applyOverride _envOverride) _envAuth _envRegion ts ex x
+    Sign.presignWith (appEndo (getDual _envOverride)) _envAuth _envRegion ts ex x
 
 -- | Test whether the underlying host is running on EC2.
 -- This is memoised and any external check occurs for the first invocation only.

@@ -1,5 +1,5 @@
 name:                  amazonka-redshift
-version:               1.2.0
+version:               1.2.0.1
 synopsis:              Amazon Redshift SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -153,9 +153,9 @@ test-suite amazonka-redshift-test
         , Test.AWS.Redshift.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-redshift == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-redshift == 1.2.0.*
         , base
         , bytestring
         , lens

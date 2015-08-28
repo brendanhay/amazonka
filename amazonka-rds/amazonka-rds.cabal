@@ -1,5 +1,5 @@
 name:                  amazonka-rds
-version:               1.2.0
+version:               1.2.0.1
 synopsis:              Amazon Relational Database Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -171,9 +171,9 @@ test-suite amazonka-rds-test
         , Test.AWS.RDS.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-rds == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-rds == 1.2.0.*
         , base
         , bytestring
         , lens

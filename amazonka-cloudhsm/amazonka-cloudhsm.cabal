@@ -1,5 +1,5 @@
 name:                  amazonka-cloudhsm
-version:               1.2.0
+version:               1.2.0.1
 synopsis:              Amazon CloudHSM SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -85,9 +85,9 @@ test-suite amazonka-cloudhsm-test
         , Test.AWS.CloudHSM.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-cloudhsm == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-cloudhsm == 1.2.0.*
         , base
         , bytestring
         , lens

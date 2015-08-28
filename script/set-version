@@ -2,10 +2,15 @@
 
 set -e
 
-version="$1"
+#!/usr/bin/env bash
 
-if [ -z "$version" ]; then
-    echo "Usage: bump-version <NEW_VERSION>"
+set -e
+
+pvp="$1"
+semantic="$2"
+
+if [ -z "$pvp" ] || [ -z "$semantic" ]; then
+    echo "Usage: bump-version <VERSION> <DEPENDENCY>"
     exit 1
 fi
 
@@ -17,10 +22,12 @@ specs=(
  test/amazonka-test.cabal
 )
 
+echo "Bumping version to $pvp and dependencies to == $semantic ..."
+
 for cabal in ${specs[@]}; do
-    sed -i"" "s/^\(version: *\).*$/\1$version/" $cabal
-    sed -i"" "s/^\(.*amazonka-core *== *\)\([0-9\.]\+\*\)$/\1$version.*/" $cabal
-    sed -i"" "s/^\(.*amazonka *== *\)\([0-9\.]\+\*\)$/\1$version.*/" $cabal
+    sed -i"" "s/^\(version: *\).*$/\1$pvp/" $cabal
+    sed -i"" "s/^\(.*amazonka-core *== *\)\([0-9\.]\+\*\)$/\1$semantic.*/" $cabal
+    sed -i"" "s/^\(.*amazonka *== *\)\([0-9\.]\+\*\)$/\1$semantic.*/" $cabal
 done
 
 echo "Done."

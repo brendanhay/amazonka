@@ -1,5 +1,5 @@
 name:                  amazonka-kms
-version:               1.2.0
+version:               1.2.0.1
 synopsis:              Amazon Key Management Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -166,9 +166,9 @@ test-suite amazonka-kms-test
         , Test.AWS.KMS.Internal
 
     build-depends:
-          amazonka-core == 1.2.0
-        , amazonka-test == 1.2.0
-        , amazonka-kms == 1.2.0
+          amazonka-core == 1.2.0.*
+        , amazonka-test == 1.2.0.*
+        , amazonka-kms == 1.2.0.*
         , base
         , bytestring
         , lens

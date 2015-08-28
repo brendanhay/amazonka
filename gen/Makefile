@@ -5,12 +5,12 @@ MODEL_DIR := model
 OUT_DIR   := ..
 
 define version =
-$(shell sed -n 's/^version: *\(.*\)$$/\1/p' $(1))
+$(shell sed -n 's/^version: *\([0-9]*\.[0-9]*\.[0-9]\).*$$/\1/p' $(1))
 endef
 
-VERSION        = $(call version,amazonka-gen.cabal)
-CLIENT_VERSION = $(call version,$(TOP)/amazonka/amazonka.cabal)
+VERSION        = $(shell sed -n 's/^version: *\(.*\)$$/\1/p' amazonka-gen.cabal)
 CORE_VERSION   = $(call version,$(TOP)/core/amazonka-core.cabal)
+CLIENT_VERSION = $(call version,$(TOP)/gen/amazonka-gen.cabal)
 
 MODELS ?= $(sort $(dir $(wildcard $(MODEL_DIR)/*/*)))
 
@@ -22,7 +22,7 @@ gen: $(BIN)/amazonka-gen
 	$(BIN)/amazonka-gen \
  --out=$(OUT_DIR) \
  --library-version=$(VERSION) \
- --client-version=$(VERSION) \
+ --client-version=$(CLIENT_VERSION) \
  --core-version=$(CORE_VERSION) \
  --annexes=annex \
  --configs=config \
@@ -39,10 +39,7 @@ format:
  -printf ' -> %p\n' \
  -exec stylish-haskell -i {} \;
 
-build: $(MODEL_DIR)
-	stack build amazonka-gen
-
-$(BIN)/amazonka-gen: $(BIN) build
+$(BIN)/amazonka-gen: $(BIN)
 	stack build amazonka-gen --copy-bins --local-bin-path $(BIN)
 
 $(BIN):

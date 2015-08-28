@@ -23,7 +23,6 @@ module Network.AWS.Env
     , HasEnv   (..)
 
     -- * Overriding Default Configuration
-    , Override (..)
     , override
     , configure
 
@@ -56,7 +55,7 @@ data Env = Env
     { _envRegion     :: !Region
     , _envLogger     :: !Logger
     , _envRetryCheck :: !(Int -> HttpException -> Bool)
-    , _envOverride   :: !Override
+    , _envOverride   :: !(Dual (Endo Service))
     , _envManager    :: !Manager
     , _envEC2        :: !(IORef (Maybe Bool))
     , _envAuth       :: !Auth
@@ -79,7 +78,7 @@ class HasEnv a where
     envRetryCheck :: Lens' a (Int -> HttpException -> Bool)
 
     -- | The currently applied overrides to all 'Service' configuration.
-    envOverride   :: Lens' a Override
+    envOverride   :: Lens' a (Dual (Endo Service))
 
     -- | The 'Manager' used to create and manage open HTTP connections.
     envManager    :: Lens' a Manager
@@ -110,13 +109,6 @@ instance ToLog Env where
             , "}"
             ]
 
--- | An override function to apply to service configuration before use.
-newtype Override = Override { applyOverride :: Service -> Service }
-
-instance Monoid Override where
-    mempty      = Override id
-    mappend a b = Override (applyOverride b . applyOverride a)
-
 -- | Provide a function which will be added to the existing stack
 -- of overrides applied to all service configuration.
 --
@@ -124,7 +116,7 @@ instance Monoid Override where
 -- either 'configure' or 'reconfigure' with a modified version of the default
 -- service, such as @Network.AWS.DynamoDB.dynamoDB@.
 override :: HasEnv a => (Service -> Service) -> a -> a
-override f = envOverride <>~ Override f
+override f = envOverride <>~ Dual (Endo f)
 
 -- | Configure a specific service. All requests belonging to the
 -- supplied service will use this configuration instead of the default.

@@ -3,7 +3,7 @@
 set -e
 
 docs=( documentation )
-core=( amazonka-core amazonka )
+core=( amazonka-core amazonka amazonka-test )
 examples=( amazonka-examples )
 
 priority_=( s3 autoscaling elb sqs iam ec2 )

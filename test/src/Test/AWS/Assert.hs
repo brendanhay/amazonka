@@ -10,8 +10,7 @@ module Test.AWS.Assert where
 
 import           Control.Monad
 import           Test.AWS.Diff
-import           Test.AWS.Orphans
-import           Test.Tasty
+import           Test.AWS.Orphans ()
 import           Test.Tasty.HUnit
 
 assertDiff :: (Eq a, Show a) => String -> a -> Either String a -> Assertion

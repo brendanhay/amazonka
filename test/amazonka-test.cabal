@@ -1,6 +1,6 @@
 name:                  amazonka-test
 version:               1.2.0.1
-synopsis:              Test framework for Amazonka libraries.
+synopsis:              Common test functionality for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
@@ -11,6 +11,14 @@ category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
+
+description:
+    Common functionality depended upon by test suites of the various @amazonka-*@
+    service libraries.
+    .
+    The external interface of this library is stable with respect to the
+    downstream Amazonka libraries, only, and as such is not suitable
+    for use in non-Amazonka projects.
 
 library
     default-language:  Haskell2010

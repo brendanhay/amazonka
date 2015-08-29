@@ -15,7 +15,7 @@ cabal-version:         >= 1.10
 
 description:
     Common functionality depended upon by test suites of the various @amazonka-*@
-    service libraries.n
+    service libraries.
     .
     The external interface of this library is stable with respect to the
     downstream Amazonka libraries, only, and as such is not suitable

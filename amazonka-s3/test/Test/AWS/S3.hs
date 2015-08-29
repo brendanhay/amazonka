@@ -19,6 +19,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.S3
 import           Test.AWS.Gen.S3
 import           Test.AWS.Prelude
+import           Test.AWS.S3.Internal
 import           Test.Tasty
 
 tests :: [TestTree]

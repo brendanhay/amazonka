@@ -117,157 +117,157 @@ import Test.AWS.DynamoDB.Internal
 testUpdateItem :: UpdateItem -> TestTree
 testUpdateItem = req
     "UpdateItem"
-    "fixture/UpdateItem"
+    "fixture/UpdateItem.yaml"
 
 testDeleteItem :: DeleteItem -> TestTree
 testDeleteItem = req
     "DeleteItem"
-    "fixture/DeleteItem"
+    "fixture/DeleteItem.yaml"
 
 testPutItem :: PutItem -> TestTree
 testPutItem = req
     "PutItem"
-    "fixture/PutItem"
+    "fixture/PutItem.yaml"
 
 testDeleteTable :: DeleteTable -> TestTree
 testDeleteTable = req
     "DeleteTable"
-    "fixture/DeleteTable"
+    "fixture/DeleteTable.yaml"
 
 testUpdateTable :: UpdateTable -> TestTree
 testUpdateTable = req
     "UpdateTable"
-    "fixture/UpdateTable"
+    "fixture/UpdateTable.yaml"
 
 testBatchGetItem :: BatchGetItem -> TestTree
 testBatchGetItem = req
     "BatchGetItem"
-    "fixture/BatchGetItem"
+    "fixture/BatchGetItem.yaml"
 
 testDescribeTable :: DescribeTable -> TestTree
 testDescribeTable = req
     "DescribeTable"
-    "fixture/DescribeTable"
+    "fixture/DescribeTable.yaml"
 
 testGetItem :: GetItem -> TestTree
 testGetItem = req
     "GetItem"
-    "fixture/GetItem"
+    "fixture/GetItem.yaml"
 
 testBatchWriteItem :: BatchWriteItem -> TestTree
 testBatchWriteItem = req
     "BatchWriteItem"
-    "fixture/BatchWriteItem"
+    "fixture/BatchWriteItem.yaml"
 
 testScan :: Scan -> TestTree
 testScan = req
     "Scan"
-    "fixture/Scan"
+    "fixture/Scan.yaml"
 
 testListTables :: ListTables -> TestTree
 testListTables = req
     "ListTables"
-    "fixture/ListTables"
+    "fixture/ListTables.yaml"
 
 testQuery :: Query -> TestTree
 testQuery = req
     "Query"
-    "fixture/Query"
+    "fixture/Query.yaml"
 
 testCreateTable :: CreateTable -> TestTree
 testCreateTable = req
     "CreateTable"
-    "fixture/CreateTable"
+    "fixture/CreateTable.yaml"
 
 -- Responses
 
 testUpdateItemResponse :: UpdateItemResponse -> TestTree
 testUpdateItemResponse = res
     "UpdateItemResponse"
-    "fixture/UpdateItemResponse"
+    "fixture/UpdateItemResponse.proto"
     dynamoDB
     (Proxy :: Proxy UpdateItem)
 
 testDeleteItemResponse :: DeleteItemResponse -> TestTree
 testDeleteItemResponse = res
     "DeleteItemResponse"
-    "fixture/DeleteItemResponse"
+    "fixture/DeleteItemResponse.proto"
     dynamoDB
     (Proxy :: Proxy DeleteItem)
 
 testPutItemResponse :: PutItemResponse -> TestTree
 testPutItemResponse = res
     "PutItemResponse"
-    "fixture/PutItemResponse"
+    "fixture/PutItemResponse.proto"
     dynamoDB
     (Proxy :: Proxy PutItem)
 
 testDeleteTableResponse :: DeleteTableResponse -> TestTree
 testDeleteTableResponse = res
     "DeleteTableResponse"
-    "fixture/DeleteTableResponse"
+    "fixture/DeleteTableResponse.proto"
     dynamoDB
     (Proxy :: Proxy DeleteTable)
 
 testUpdateTableResponse :: UpdateTableResponse -> TestTree
 testUpdateTableResponse = res
     "UpdateTableResponse"
-    "fixture/UpdateTableResponse"
+    "fixture/UpdateTableResponse.proto"
     dynamoDB
     (Proxy :: Proxy UpdateTable)
 
 testBatchGetItemResponse :: BatchGetItemResponse -> TestTree
 testBatchGetItemResponse = res
     "BatchGetItemResponse"
-    "fixture/BatchGetItemResponse"
+    "fixture/BatchGetItemResponse.proto"
     dynamoDB
     (Proxy :: Proxy BatchGetItem)
 
 testDescribeTableResponse :: DescribeTableResponse -> TestTree
 testDescribeTableResponse = res
     "DescribeTableResponse"
-    "fixture/DescribeTableResponse"
+    "fixture/DescribeTableResponse.proto"
     dynamoDB
     (Proxy :: Proxy DescribeTable)
 
 testGetItemResponse :: GetItemResponse -> TestTree
 testGetItemResponse = res
     "GetItemResponse"
-    "fixture/GetItemResponse"
+    "fixture/GetItemResponse.proto"
     dynamoDB
     (Proxy :: Proxy GetItem)
 
 testBatchWriteItemResponse :: BatchWriteItemResponse -> TestTree
 testBatchWriteItemResponse = res
     "BatchWriteItemResponse"
-    "fixture/BatchWriteItemResponse"
+    "fixture/BatchWriteItemResponse.proto"
     dynamoDB
     (Proxy :: Proxy BatchWriteItem)
 
 testScanResponse :: ScanResponse -> TestTree
 testScanResponse = res
     "ScanResponse"
-    "fixture/ScanResponse"
+    "fixture/ScanResponse.proto"
     dynamoDB
     (Proxy :: Proxy Scan)
 
 testListTablesResponse :: ListTablesResponse -> TestTree
 testListTablesResponse = res
     "ListTablesResponse"
-    "fixture/ListTablesResponse"
+    "fixture/ListTablesResponse.proto"
     dynamoDB
     (Proxy :: Proxy ListTables)
 
 testQueryResponse :: QueryResponse -> TestTree
 testQueryResponse = res
     "QueryResponse"
-    "fixture/QueryResponse"
+    "fixture/QueryResponse.proto"
     dynamoDB
     (Proxy :: Proxy Query)
 
 testCreateTableResponse :: CreateTableResponse -> TestTree
 testCreateTableResponse = res
     "CreateTableResponse"
-    "fixture/CreateTableResponse"
+    "fixture/CreateTableResponse.proto"
     dynamoDB
     (Proxy :: Proxy CreateTable)

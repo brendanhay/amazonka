@@ -135,193 +135,193 @@ import Test.AWS.EMR.Internal
 testRunJobFlow :: RunJobFlow -> TestTree
 testRunJobFlow = req
     "RunJobFlow"
-    "fixture/RunJobFlow"
+    "fixture/RunJobFlow.yaml"
 
 testSetVisibleToAllUsers :: SetVisibleToAllUsers -> TestTree
 testSetVisibleToAllUsers = req
     "SetVisibleToAllUsers"
-    "fixture/SetVisibleToAllUsers"
+    "fixture/SetVisibleToAllUsers.yaml"
 
 testTerminateJobFlows :: TerminateJobFlows -> TestTree
 testTerminateJobFlows = req
     "TerminateJobFlows"
-    "fixture/TerminateJobFlows"
+    "fixture/TerminateJobFlows.yaml"
 
 testRemoveTags :: RemoveTags -> TestTree
 testRemoveTags = req
     "RemoveTags"
-    "fixture/RemoveTags"
+    "fixture/RemoveTags.yaml"
 
 testDescribeStep :: DescribeStep -> TestTree
 testDescribeStep = req
     "DescribeStep"
-    "fixture/DescribeStep"
+    "fixture/DescribeStep.yaml"
 
 testDescribeCluster :: DescribeCluster -> TestTree
 testDescribeCluster = req
     "DescribeCluster"
-    "fixture/DescribeCluster"
+    "fixture/DescribeCluster.yaml"
 
 testModifyInstanceGroups :: ModifyInstanceGroups -> TestTree
 testModifyInstanceGroups = req
     "ModifyInstanceGroups"
-    "fixture/ModifyInstanceGroups"
+    "fixture/ModifyInstanceGroups.yaml"
 
 testAddJobFlowSteps :: AddJobFlowSteps -> TestTree
 testAddJobFlowSteps = req
     "AddJobFlowSteps"
-    "fixture/AddJobFlowSteps"
+    "fixture/AddJobFlowSteps.yaml"
 
 testSetTerminationProtection :: SetTerminationProtection -> TestTree
 testSetTerminationProtection = req
     "SetTerminationProtection"
-    "fixture/SetTerminationProtection"
+    "fixture/SetTerminationProtection.yaml"
 
 testListSteps :: ListSteps -> TestTree
 testListSteps = req
     "ListSteps"
-    "fixture/ListSteps"
+    "fixture/ListSteps.yaml"
 
 testAddInstanceGroups :: AddInstanceGroups -> TestTree
 testAddInstanceGroups = req
     "AddInstanceGroups"
-    "fixture/AddInstanceGroups"
+    "fixture/AddInstanceGroups.yaml"
 
 testListInstanceGroups :: ListInstanceGroups -> TestTree
 testListInstanceGroups = req
     "ListInstanceGroups"
-    "fixture/ListInstanceGroups"
+    "fixture/ListInstanceGroups.yaml"
 
 testListBootstrapActions :: ListBootstrapActions -> TestTree
 testListBootstrapActions = req
     "ListBootstrapActions"
-    "fixture/ListBootstrapActions"
+    "fixture/ListBootstrapActions.yaml"
 
 testAddTags :: AddTags -> TestTree
 testAddTags = req
     "AddTags"
-    "fixture/AddTags"
+    "fixture/AddTags.yaml"
 
 testListInstances :: ListInstances -> TestTree
 testListInstances = req
     "ListInstances"
-    "fixture/ListInstances"
+    "fixture/ListInstances.yaml"
 
 testListClusters :: ListClusters -> TestTree
 testListClusters = req
     "ListClusters"
-    "fixture/ListClusters"
+    "fixture/ListClusters.yaml"
 
 -- Responses
 
 testRunJobFlowResponse :: RunJobFlowResponse -> TestTree
 testRunJobFlowResponse = res
     "RunJobFlowResponse"
-    "fixture/RunJobFlowResponse"
+    "fixture/RunJobFlowResponse.proto"
     eMR
     (Proxy :: Proxy RunJobFlow)
 
 testSetVisibleToAllUsersResponse :: SetVisibleToAllUsersResponse -> TestTree
 testSetVisibleToAllUsersResponse = res
     "SetVisibleToAllUsersResponse"
-    "fixture/SetVisibleToAllUsersResponse"
+    "fixture/SetVisibleToAllUsersResponse.proto"
     eMR
     (Proxy :: Proxy SetVisibleToAllUsers)
 
 testTerminateJobFlowsResponse :: TerminateJobFlowsResponse -> TestTree
 testTerminateJobFlowsResponse = res
     "TerminateJobFlowsResponse"
-    "fixture/TerminateJobFlowsResponse"
+    "fixture/TerminateJobFlowsResponse.proto"
     eMR
     (Proxy :: Proxy TerminateJobFlows)
 
 testRemoveTagsResponse :: RemoveTagsResponse -> TestTree
 testRemoveTagsResponse = res
     "RemoveTagsResponse"
-    "fixture/RemoveTagsResponse"
+    "fixture/RemoveTagsResponse.proto"
     eMR
     (Proxy :: Proxy RemoveTags)
 
 testDescribeStepResponse :: DescribeStepResponse -> TestTree
 testDescribeStepResponse = res
     "DescribeStepResponse"
-    "fixture/DescribeStepResponse"
+    "fixture/DescribeStepResponse.proto"
     eMR
     (Proxy :: Proxy DescribeStep)
 
 testDescribeClusterResponse :: DescribeClusterResponse -> TestTree
 testDescribeClusterResponse = res
     "DescribeClusterResponse"
-    "fixture/DescribeClusterResponse"
+    "fixture/DescribeClusterResponse.proto"
     eMR
     (Proxy :: Proxy DescribeCluster)
 
 testModifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse -> TestTree
 testModifyInstanceGroupsResponse = res
     "ModifyInstanceGroupsResponse"
-    "fixture/ModifyInstanceGroupsResponse"
+    "fixture/ModifyInstanceGroupsResponse.proto"
     eMR
     (Proxy :: Proxy ModifyInstanceGroups)
 
 testAddJobFlowStepsResponse :: AddJobFlowStepsResponse -> TestTree
 testAddJobFlowStepsResponse = res
     "AddJobFlowStepsResponse"
-    "fixture/AddJobFlowStepsResponse"
+    "fixture/AddJobFlowStepsResponse.proto"
     eMR
     (Proxy :: Proxy AddJobFlowSteps)
 
 testSetTerminationProtectionResponse :: SetTerminationProtectionResponse -> TestTree
 testSetTerminationProtectionResponse = res
     "SetTerminationProtectionResponse"
-    "fixture/SetTerminationProtectionResponse"
+    "fixture/SetTerminationProtectionResponse.proto"
     eMR
     (Proxy :: Proxy SetTerminationProtection)
 
 testListStepsResponse :: ListStepsResponse -> TestTree
 testListStepsResponse = res
     "ListStepsResponse"
-    "fixture/ListStepsResponse"
+    "fixture/ListStepsResponse.proto"
     eMR
     (Proxy :: Proxy ListSteps)
 
 testAddInstanceGroupsResponse :: AddInstanceGroupsResponse -> TestTree
 testAddInstanceGroupsResponse = res
     "AddInstanceGroupsResponse"
-    "fixture/AddInstanceGroupsResponse"
+    "fixture/AddInstanceGroupsResponse.proto"
     eMR
     (Proxy :: Proxy AddInstanceGroups)
 
 testListInstanceGroupsResponse :: ListInstanceGroupsResponse -> TestTree
 testListInstanceGroupsResponse = res
     "ListInstanceGroupsResponse"
-    "fixture/ListInstanceGroupsResponse"
+    "fixture/ListInstanceGroupsResponse.proto"
     eMR
     (Proxy :: Proxy ListInstanceGroups)
 
 testListBootstrapActionsResponse :: ListBootstrapActionsResponse -> TestTree
 testListBootstrapActionsResponse = res
     "ListBootstrapActionsResponse"
-    "fixture/ListBootstrapActionsResponse"
+    "fixture/ListBootstrapActionsResponse.proto"
     eMR
     (Proxy :: Proxy ListBootstrapActions)
 
 testAddTagsResponse :: AddTagsResponse -> TestTree
 testAddTagsResponse = res
     "AddTagsResponse"
-    "fixture/AddTagsResponse"
+    "fixture/AddTagsResponse.proto"
     eMR
     (Proxy :: Proxy AddTags)
 
 testListInstancesResponse :: ListInstancesResponse -> TestTree
 testListInstancesResponse = res
     "ListInstancesResponse"
-    "fixture/ListInstancesResponse"
+    "fixture/ListInstancesResponse.proto"
     eMR
     (Proxy :: Proxy ListInstances)
 
 testListClustersResponse :: ListClustersResponse -> TestTree
 testListClustersResponse = res
     "ListClustersResponse"
-    "fixture/ListClustersResponse"
+    "fixture/ListClustersResponse.proto"
     eMR
     (Proxy :: Proxy ListClusters)

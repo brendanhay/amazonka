@@ -57,32 +57,32 @@ import Test.AWS.CloudSearchDomains.Internal
 testSuggest :: Suggest -> TestTree
 testSuggest = req
     "Suggest"
-    "fixture/Suggest"
+    "fixture/Suggest.yaml"
 
 testSearch :: Search -> TestTree
 testSearch = req
     "Search"
-    "fixture/Search"
+    "fixture/Search.yaml"
 
 -- Responses
 
 testSuggestResponse :: SuggestResponse -> TestTree
 testSuggestResponse = res
     "SuggestResponse"
-    "fixture/SuggestResponse"
+    "fixture/SuggestResponse.proto"
     cloudSearchDomains
     (Proxy :: Proxy Suggest)
 
 testUploadDocumentsResponse :: UploadDocumentsResponse -> TestTree
 testUploadDocumentsResponse = res
     "UploadDocumentsResponse"
-    "fixture/UploadDocumentsResponse"
+    "fixture/UploadDocumentsResponse.proto"
     cloudSearchDomains
     (Proxy :: Proxy UploadDocuments)
 
 testSearchResponse :: SearchResponse -> TestTree
 testSearchResponse = res
     "SearchResponse"
-    "fixture/SearchResponse"
+    "fixture/SearchResponse.proto"
     cloudSearchDomains
     (Proxy :: Proxy Search)

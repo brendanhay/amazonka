@@ -81,85 +81,85 @@ import Test.AWS.WorkSpaces.Internal
 testDescribeWorkspaceDirectories :: DescribeWorkspaceDirectories -> TestTree
 testDescribeWorkspaceDirectories = req
     "DescribeWorkspaceDirectories"
-    "fixture/DescribeWorkspaceDirectories"
+    "fixture/DescribeWorkspaceDirectories.yaml"
 
 testDescribeWorkspaceBundles :: DescribeWorkspaceBundles -> TestTree
 testDescribeWorkspaceBundles = req
     "DescribeWorkspaceBundles"
-    "fixture/DescribeWorkspaceBundles"
+    "fixture/DescribeWorkspaceBundles.yaml"
 
 testRebuildWorkspaces :: RebuildWorkspaces -> TestTree
 testRebuildWorkspaces = req
     "RebuildWorkspaces"
-    "fixture/RebuildWorkspaces"
+    "fixture/RebuildWorkspaces.yaml"
 
 testRebootWorkspaces :: RebootWorkspaces -> TestTree
 testRebootWorkspaces = req
     "RebootWorkspaces"
-    "fixture/RebootWorkspaces"
+    "fixture/RebootWorkspaces.yaml"
 
 testTerminateWorkspaces :: TerminateWorkspaces -> TestTree
 testTerminateWorkspaces = req
     "TerminateWorkspaces"
-    "fixture/TerminateWorkspaces"
+    "fixture/TerminateWorkspaces.yaml"
 
 testCreateWorkspaces :: CreateWorkspaces -> TestTree
 testCreateWorkspaces = req
     "CreateWorkspaces"
-    "fixture/CreateWorkspaces"
+    "fixture/CreateWorkspaces.yaml"
 
 testDescribeWorkspaces :: DescribeWorkspaces -> TestTree
 testDescribeWorkspaces = req
     "DescribeWorkspaces"
-    "fixture/DescribeWorkspaces"
+    "fixture/DescribeWorkspaces.yaml"
 
 -- Responses
 
 testDescribeWorkspaceDirectoriesResponse :: DescribeWorkspaceDirectoriesResponse -> TestTree
 testDescribeWorkspaceDirectoriesResponse = res
     "DescribeWorkspaceDirectoriesResponse"
-    "fixture/DescribeWorkspaceDirectoriesResponse"
+    "fixture/DescribeWorkspaceDirectoriesResponse.proto"
     workSpaces
     (Proxy :: Proxy DescribeWorkspaceDirectories)
 
 testDescribeWorkspaceBundlesResponse :: DescribeWorkspaceBundlesResponse -> TestTree
 testDescribeWorkspaceBundlesResponse = res
     "DescribeWorkspaceBundlesResponse"
-    "fixture/DescribeWorkspaceBundlesResponse"
+    "fixture/DescribeWorkspaceBundlesResponse.proto"
     workSpaces
     (Proxy :: Proxy DescribeWorkspaceBundles)
 
 testRebuildWorkspacesResponse :: RebuildWorkspacesResponse -> TestTree
 testRebuildWorkspacesResponse = res
     "RebuildWorkspacesResponse"
-    "fixture/RebuildWorkspacesResponse"
+    "fixture/RebuildWorkspacesResponse.proto"
     workSpaces
     (Proxy :: Proxy RebuildWorkspaces)
 
 testRebootWorkspacesResponse :: RebootWorkspacesResponse -> TestTree
 testRebootWorkspacesResponse = res
     "RebootWorkspacesResponse"
-    "fixture/RebootWorkspacesResponse"
+    "fixture/RebootWorkspacesResponse.proto"
     workSpaces
     (Proxy :: Proxy RebootWorkspaces)
 
 testTerminateWorkspacesResponse :: TerminateWorkspacesResponse -> TestTree
 testTerminateWorkspacesResponse = res
     "TerminateWorkspacesResponse"
-    "fixture/TerminateWorkspacesResponse"
+    "fixture/TerminateWorkspacesResponse.proto"
     workSpaces
     (Proxy :: Proxy TerminateWorkspaces)
 
 testCreateWorkspacesResponse :: CreateWorkspacesResponse -> TestTree
 testCreateWorkspacesResponse = res
     "CreateWorkspacesResponse"
-    "fixture/CreateWorkspacesResponse"
+    "fixture/CreateWorkspacesResponse.proto"
     workSpaces
     (Proxy :: Proxy CreateWorkspaces)
 
 testDescribeWorkspacesResponse :: DescribeWorkspacesResponse -> TestTree
 testDescribeWorkspacesResponse = res
     "DescribeWorkspacesResponse"
-    "fixture/DescribeWorkspacesResponse"
+    "fixture/DescribeWorkspacesResponse.proto"
     workSpaces
     (Proxy :: Proxy DescribeWorkspaces)

@@ -105,133 +105,133 @@ import Test.AWS.EFS.Internal
 testDescribeTags :: DescribeTags -> TestTree
 testDescribeTags = req
     "DescribeTags"
-    "fixture/DescribeTags"
+    "fixture/DescribeTags.yaml"
 
 testDescribeMountTargets :: DescribeMountTargets -> TestTree
 testDescribeMountTargets = req
     "DescribeMountTargets"
-    "fixture/DescribeMountTargets"
+    "fixture/DescribeMountTargets.yaml"
 
 testDeleteMountTarget :: DeleteMountTarget -> TestTree
 testDeleteMountTarget = req
     "DeleteMountTarget"
-    "fixture/DeleteMountTarget"
+    "fixture/DeleteMountTarget.yaml"
 
 testCreateTags :: CreateTags -> TestTree
 testCreateTags = req
     "CreateTags"
-    "fixture/CreateTags"
+    "fixture/CreateTags.yaml"
 
 testDescribeFileSystems :: DescribeFileSystems -> TestTree
 testDescribeFileSystems = req
     "DescribeFileSystems"
-    "fixture/DescribeFileSystems"
+    "fixture/DescribeFileSystems.yaml"
 
 testDeleteTags :: DeleteTags -> TestTree
 testDeleteTags = req
     "DeleteTags"
-    "fixture/DeleteTags"
+    "fixture/DeleteTags.yaml"
 
 testDescribeMountTargetSecurityGroups :: DescribeMountTargetSecurityGroups -> TestTree
 testDescribeMountTargetSecurityGroups = req
     "DescribeMountTargetSecurityGroups"
-    "fixture/DescribeMountTargetSecurityGroups"
+    "fixture/DescribeMountTargetSecurityGroups.yaml"
 
 testModifyMountTargetSecurityGroups :: ModifyMountTargetSecurityGroups -> TestTree
 testModifyMountTargetSecurityGroups = req
     "ModifyMountTargetSecurityGroups"
-    "fixture/ModifyMountTargetSecurityGroups"
+    "fixture/ModifyMountTargetSecurityGroups.yaml"
 
 testCreateFileSystem :: CreateFileSystem -> TestTree
 testCreateFileSystem = req
     "CreateFileSystem"
-    "fixture/CreateFileSystem"
+    "fixture/CreateFileSystem.yaml"
 
 testDeleteFileSystem :: DeleteFileSystem -> TestTree
 testDeleteFileSystem = req
     "DeleteFileSystem"
-    "fixture/DeleteFileSystem"
+    "fixture/DeleteFileSystem.yaml"
 
 testCreateMountTarget :: CreateMountTarget -> TestTree
 testCreateMountTarget = req
     "CreateMountTarget"
-    "fixture/CreateMountTarget"
+    "fixture/CreateMountTarget.yaml"
 
 -- Responses
 
 testDescribeTagsResponse :: DescribeTagsResponse -> TestTree
 testDescribeTagsResponse = res
     "DescribeTagsResponse"
-    "fixture/DescribeTagsResponse"
+    "fixture/DescribeTagsResponse.proto"
     eFS
     (Proxy :: Proxy DescribeTags)
 
 testDescribeMountTargetsResponse :: DescribeMountTargetsResponse -> TestTree
 testDescribeMountTargetsResponse = res
     "DescribeMountTargetsResponse"
-    "fixture/DescribeMountTargetsResponse"
+    "fixture/DescribeMountTargetsResponse.proto"
     eFS
     (Proxy :: Proxy DescribeMountTargets)
 
 testDeleteMountTargetResponse :: DeleteMountTargetResponse -> TestTree
 testDeleteMountTargetResponse = res
     "DeleteMountTargetResponse"
-    "fixture/DeleteMountTargetResponse"
+    "fixture/DeleteMountTargetResponse.proto"
     eFS
     (Proxy :: Proxy DeleteMountTarget)
 
 testCreateTagsResponse :: CreateTagsResponse -> TestTree
 testCreateTagsResponse = res
     "CreateTagsResponse"
-    "fixture/CreateTagsResponse"
+    "fixture/CreateTagsResponse.proto"
     eFS
     (Proxy :: Proxy CreateTags)
 
 testDescribeFileSystemsResponse :: DescribeFileSystemsResponse -> TestTree
 testDescribeFileSystemsResponse = res
     "DescribeFileSystemsResponse"
-    "fixture/DescribeFileSystemsResponse"
+    "fixture/DescribeFileSystemsResponse.proto"
     eFS
     (Proxy :: Proxy DescribeFileSystems)
 
 testDeleteTagsResponse :: DeleteTagsResponse -> TestTree
 testDeleteTagsResponse = res
     "DeleteTagsResponse"
-    "fixture/DeleteTagsResponse"
+    "fixture/DeleteTagsResponse.proto"
     eFS
     (Proxy :: Proxy DeleteTags)
 
 testDescribeMountTargetSecurityGroupsResponse :: DescribeMountTargetSecurityGroupsResponse -> TestTree
 testDescribeMountTargetSecurityGroupsResponse = res
     "DescribeMountTargetSecurityGroupsResponse"
-    "fixture/DescribeMountTargetSecurityGroupsResponse"
+    "fixture/DescribeMountTargetSecurityGroupsResponse.proto"
     eFS
     (Proxy :: Proxy DescribeMountTargetSecurityGroups)
 
 testModifyMountTargetSecurityGroupsResponse :: ModifyMountTargetSecurityGroupsResponse -> TestTree
 testModifyMountTargetSecurityGroupsResponse = res
     "ModifyMountTargetSecurityGroupsResponse"
-    "fixture/ModifyMountTargetSecurityGroupsResponse"
+    "fixture/ModifyMountTargetSecurityGroupsResponse.proto"
     eFS
     (Proxy :: Proxy ModifyMountTargetSecurityGroups)
 
 testCreateFileSystemResponse :: FileSystemDescription -> TestTree
 testCreateFileSystemResponse = res
     "CreateFileSystemResponse"
-    "fixture/CreateFileSystemResponse"
+    "fixture/CreateFileSystemResponse.proto"
     eFS
     (Proxy :: Proxy CreateFileSystem)
 
 testDeleteFileSystemResponse :: DeleteFileSystemResponse -> TestTree
 testDeleteFileSystemResponse = res
     "DeleteFileSystemResponse"
-    "fixture/DeleteFileSystemResponse"
+    "fixture/DeleteFileSystemResponse.proto"
     eFS
     (Proxy :: Proxy DeleteFileSystem)
 
 testCreateMountTargetResponse :: MountTargetDescription -> TestTree
 testCreateMountTargetResponse = res
     "CreateMountTargetResponse"
-    "fixture/CreateMountTargetResponse"
+    "fixture/CreateMountTargetResponse.proto"
     eFS
     (Proxy :: Proxy CreateMountTarget)

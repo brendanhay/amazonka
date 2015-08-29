@@ -141,205 +141,205 @@ import Test.AWS.DirectoryService.Internal
 testGetSnapshotLimits :: GetSnapshotLimits -> TestTree
 testGetSnapshotLimits = req
     "GetSnapshotLimits"
-    "fixture/GetSnapshotLimits"
+    "fixture/GetSnapshotLimits.yaml"
 
 testConnectDirectory :: ConnectDirectory -> TestTree
 testConnectDirectory = req
     "ConnectDirectory"
-    "fixture/ConnectDirectory"
+    "fixture/ConnectDirectory.yaml"
 
 testDescribeDirectories :: DescribeDirectories -> TestTree
 testDescribeDirectories = req
     "DescribeDirectories"
-    "fixture/DescribeDirectories"
+    "fixture/DescribeDirectories.yaml"
 
 testCreateAlias :: CreateAlias -> TestTree
 testCreateAlias = req
     "CreateAlias"
-    "fixture/CreateAlias"
+    "fixture/CreateAlias.yaml"
 
 testCreateDirectory :: CreateDirectory -> TestTree
 testCreateDirectory = req
     "CreateDirectory"
-    "fixture/CreateDirectory"
+    "fixture/CreateDirectory.yaml"
 
 testEnableSSO :: EnableSSO -> TestTree
 testEnableSSO = req
     "EnableSSO"
-    "fixture/EnableSSO"
+    "fixture/EnableSSO.yaml"
 
 testEnableRadius :: EnableRadius -> TestTree
 testEnableRadius = req
     "EnableRadius"
-    "fixture/EnableRadius"
+    "fixture/EnableRadius.yaml"
 
 testDisableRadius :: DisableRadius -> TestTree
 testDisableRadius = req
     "DisableRadius"
-    "fixture/DisableRadius"
+    "fixture/DisableRadius.yaml"
 
 testDescribeSnapshots :: DescribeSnapshots -> TestTree
 testDescribeSnapshots = req
     "DescribeSnapshots"
-    "fixture/DescribeSnapshots"
+    "fixture/DescribeSnapshots.yaml"
 
 testRestoreFromSnapshot :: RestoreFromSnapshot -> TestTree
 testRestoreFromSnapshot = req
     "RestoreFromSnapshot"
-    "fixture/RestoreFromSnapshot"
+    "fixture/RestoreFromSnapshot.yaml"
 
 testDeleteSnapshot :: DeleteSnapshot -> TestTree
 testDeleteSnapshot = req
     "DeleteSnapshot"
-    "fixture/DeleteSnapshot"
+    "fixture/DeleteSnapshot.yaml"
 
 testCreateSnapshot :: CreateSnapshot -> TestTree
 testCreateSnapshot = req
     "CreateSnapshot"
-    "fixture/CreateSnapshot"
+    "fixture/CreateSnapshot.yaml"
 
 testDeleteDirectory :: DeleteDirectory -> TestTree
 testDeleteDirectory = req
     "DeleteDirectory"
-    "fixture/DeleteDirectory"
+    "fixture/DeleteDirectory.yaml"
 
 testDisableSSO :: DisableSSO -> TestTree
 testDisableSSO = req
     "DisableSSO"
-    "fixture/DisableSSO"
+    "fixture/DisableSSO.yaml"
 
 testCreateComputer :: CreateComputer -> TestTree
 testCreateComputer = req
     "CreateComputer"
-    "fixture/CreateComputer"
+    "fixture/CreateComputer.yaml"
 
 testGetDirectoryLimits :: GetDirectoryLimits -> TestTree
 testGetDirectoryLimits = req
     "GetDirectoryLimits"
-    "fixture/GetDirectoryLimits"
+    "fixture/GetDirectoryLimits.yaml"
 
 testUpdateRadius :: UpdateRadius -> TestTree
 testUpdateRadius = req
     "UpdateRadius"
-    "fixture/UpdateRadius"
+    "fixture/UpdateRadius.yaml"
 
 -- Responses
 
 testGetSnapshotLimitsResponse :: GetSnapshotLimitsResponse -> TestTree
 testGetSnapshotLimitsResponse = res
     "GetSnapshotLimitsResponse"
-    "fixture/GetSnapshotLimitsResponse"
+    "fixture/GetSnapshotLimitsResponse.proto"
     directoryService
     (Proxy :: Proxy GetSnapshotLimits)
 
 testConnectDirectoryResponse :: ConnectDirectoryResponse -> TestTree
 testConnectDirectoryResponse = res
     "ConnectDirectoryResponse"
-    "fixture/ConnectDirectoryResponse"
+    "fixture/ConnectDirectoryResponse.proto"
     directoryService
     (Proxy :: Proxy ConnectDirectory)
 
 testDescribeDirectoriesResponse :: DescribeDirectoriesResponse -> TestTree
 testDescribeDirectoriesResponse = res
     "DescribeDirectoriesResponse"
-    "fixture/DescribeDirectoriesResponse"
+    "fixture/DescribeDirectoriesResponse.proto"
     directoryService
     (Proxy :: Proxy DescribeDirectories)
 
 testCreateAliasResponse :: CreateAliasResponse -> TestTree
 testCreateAliasResponse = res
     "CreateAliasResponse"
-    "fixture/CreateAliasResponse"
+    "fixture/CreateAliasResponse.proto"
     directoryService
     (Proxy :: Proxy CreateAlias)
 
 testCreateDirectoryResponse :: CreateDirectoryResponse -> TestTree
 testCreateDirectoryResponse = res
     "CreateDirectoryResponse"
-    "fixture/CreateDirectoryResponse"
+    "fixture/CreateDirectoryResponse.proto"
     directoryService
     (Proxy :: Proxy CreateDirectory)
 
 testEnableSSOResponse :: EnableSSOResponse -> TestTree
 testEnableSSOResponse = res
     "EnableSSOResponse"
-    "fixture/EnableSSOResponse"
+    "fixture/EnableSSOResponse.proto"
     directoryService
     (Proxy :: Proxy EnableSSO)
 
 testEnableRadiusResponse :: EnableRadiusResponse -> TestTree
 testEnableRadiusResponse = res
     "EnableRadiusResponse"
-    "fixture/EnableRadiusResponse"
+    "fixture/EnableRadiusResponse.proto"
     directoryService
     (Proxy :: Proxy EnableRadius)
 
 testDisableRadiusResponse :: DisableRadiusResponse -> TestTree
 testDisableRadiusResponse = res
     "DisableRadiusResponse"
-    "fixture/DisableRadiusResponse"
+    "fixture/DisableRadiusResponse.proto"
     directoryService
     (Proxy :: Proxy DisableRadius)
 
 testDescribeSnapshotsResponse :: DescribeSnapshotsResponse -> TestTree
 testDescribeSnapshotsResponse = res
     "DescribeSnapshotsResponse"
-    "fixture/DescribeSnapshotsResponse"
+    "fixture/DescribeSnapshotsResponse.proto"
     directoryService
     (Proxy :: Proxy DescribeSnapshots)
 
 testRestoreFromSnapshotResponse :: RestoreFromSnapshotResponse -> TestTree
 testRestoreFromSnapshotResponse = res
     "RestoreFromSnapshotResponse"
-    "fixture/RestoreFromSnapshotResponse"
+    "fixture/RestoreFromSnapshotResponse.proto"
     directoryService
     (Proxy :: Proxy RestoreFromSnapshot)
 
 testDeleteSnapshotResponse :: DeleteSnapshotResponse -> TestTree
 testDeleteSnapshotResponse = res
     "DeleteSnapshotResponse"
-    "fixture/DeleteSnapshotResponse"
+    "fixture/DeleteSnapshotResponse.proto"
     directoryService
     (Proxy :: Proxy DeleteSnapshot)
 
 testCreateSnapshotResponse :: CreateSnapshotResponse -> TestTree
 testCreateSnapshotResponse = res
     "CreateSnapshotResponse"
-    "fixture/CreateSnapshotResponse"
+    "fixture/CreateSnapshotResponse.proto"
     directoryService
     (Proxy :: Proxy CreateSnapshot)
 
 testDeleteDirectoryResponse :: DeleteDirectoryResponse -> TestTree
 testDeleteDirectoryResponse = res
     "DeleteDirectoryResponse"
-    "fixture/DeleteDirectoryResponse"
+    "fixture/DeleteDirectoryResponse.proto"
     directoryService
     (Proxy :: Proxy DeleteDirectory)
 
 testDisableSSOResponse :: DisableSSOResponse -> TestTree
 testDisableSSOResponse = res
     "DisableSSOResponse"
-    "fixture/DisableSSOResponse"
+    "fixture/DisableSSOResponse.proto"
     directoryService
     (Proxy :: Proxy DisableSSO)
 
 testCreateComputerResponse :: CreateComputerResponse -> TestTree
 testCreateComputerResponse = res
     "CreateComputerResponse"
-    "fixture/CreateComputerResponse"
+    "fixture/CreateComputerResponse.proto"
     directoryService
     (Proxy :: Proxy CreateComputer)
 
 testGetDirectoryLimitsResponse :: GetDirectoryLimitsResponse -> TestTree
 testGetDirectoryLimitsResponse = res
     "GetDirectoryLimitsResponse"
-    "fixture/GetDirectoryLimitsResponse"
+    "fixture/GetDirectoryLimitsResponse.proto"
     directoryService
     (Proxy :: Proxy GetDirectoryLimits)
 
 testUpdateRadiusResponse :: UpdateRadiusResponse -> TestTree
 testUpdateRadiusResponse = res
     "UpdateRadiusResponse"
-    "fixture/UpdateRadiusResponse"
+    "fixture/UpdateRadiusResponse.proto"
     directoryService
     (Proxy :: Proxy UpdateRadius)

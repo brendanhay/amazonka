@@ -105,133 +105,133 @@ import Test.AWS.SSM.Internal
 testDescribeDocument :: DescribeDocument -> TestTree
 testDescribeDocument = req
     "DescribeDocument"
-    "fixture/DescribeDocument"
+    "fixture/DescribeDocument.yaml"
 
 testCreateAssociation :: CreateAssociation -> TestTree
 testCreateAssociation = req
     "CreateAssociation"
-    "fixture/CreateAssociation"
+    "fixture/CreateAssociation.yaml"
 
 testCreateDocument :: CreateDocument -> TestTree
 testCreateDocument = req
     "CreateDocument"
-    "fixture/CreateDocument"
+    "fixture/CreateDocument.yaml"
 
 testListDocuments :: ListDocuments -> TestTree
 testListDocuments = req
     "ListDocuments"
-    "fixture/ListDocuments"
+    "fixture/ListDocuments.yaml"
 
 testGetDocument :: GetDocument -> TestTree
 testGetDocument = req
     "GetDocument"
-    "fixture/GetDocument"
+    "fixture/GetDocument.yaml"
 
 testDescribeAssociation :: DescribeAssociation -> TestTree
 testDescribeAssociation = req
     "DescribeAssociation"
-    "fixture/DescribeAssociation"
+    "fixture/DescribeAssociation.yaml"
 
 testUpdateAssociationStatus :: UpdateAssociationStatus -> TestTree
 testUpdateAssociationStatus = req
     "UpdateAssociationStatus"
-    "fixture/UpdateAssociationStatus"
+    "fixture/UpdateAssociationStatus.yaml"
 
 testDeleteAssociation :: DeleteAssociation -> TestTree
 testDeleteAssociation = req
     "DeleteAssociation"
-    "fixture/DeleteAssociation"
+    "fixture/DeleteAssociation.yaml"
 
 testListAssociations :: ListAssociations -> TestTree
 testListAssociations = req
     "ListAssociations"
-    "fixture/ListAssociations"
+    "fixture/ListAssociations.yaml"
 
 testDeleteDocument :: DeleteDocument -> TestTree
 testDeleteDocument = req
     "DeleteDocument"
-    "fixture/DeleteDocument"
+    "fixture/DeleteDocument.yaml"
 
 testCreateAssociationBatch :: CreateAssociationBatch -> TestTree
 testCreateAssociationBatch = req
     "CreateAssociationBatch"
-    "fixture/CreateAssociationBatch"
+    "fixture/CreateAssociationBatch.yaml"
 
 -- Responses
 
 testDescribeDocumentResponse :: DescribeDocumentResponse -> TestTree
 testDescribeDocumentResponse = res
     "DescribeDocumentResponse"
-    "fixture/DescribeDocumentResponse"
+    "fixture/DescribeDocumentResponse.proto"
     sSM
     (Proxy :: Proxy DescribeDocument)
 
 testCreateAssociationResponse :: CreateAssociationResponse -> TestTree
 testCreateAssociationResponse = res
     "CreateAssociationResponse"
-    "fixture/CreateAssociationResponse"
+    "fixture/CreateAssociationResponse.proto"
     sSM
     (Proxy :: Proxy CreateAssociation)
 
 testCreateDocumentResponse :: CreateDocumentResponse -> TestTree
 testCreateDocumentResponse = res
     "CreateDocumentResponse"
-    "fixture/CreateDocumentResponse"
+    "fixture/CreateDocumentResponse.proto"
     sSM
     (Proxy :: Proxy CreateDocument)
 
 testListDocumentsResponse :: ListDocumentsResponse -> TestTree
 testListDocumentsResponse = res
     "ListDocumentsResponse"
-    "fixture/ListDocumentsResponse"
+    "fixture/ListDocumentsResponse.proto"
     sSM
     (Proxy :: Proxy ListDocuments)
 
 testGetDocumentResponse :: GetDocumentResponse -> TestTree
 testGetDocumentResponse = res
     "GetDocumentResponse"
-    "fixture/GetDocumentResponse"
+    "fixture/GetDocumentResponse.proto"
     sSM
     (Proxy :: Proxy GetDocument)
 
 testDescribeAssociationResponse :: DescribeAssociationResponse -> TestTree
 testDescribeAssociationResponse = res
     "DescribeAssociationResponse"
-    "fixture/DescribeAssociationResponse"
+    "fixture/DescribeAssociationResponse.proto"
     sSM
     (Proxy :: Proxy DescribeAssociation)
 
 testUpdateAssociationStatusResponse :: UpdateAssociationStatusResponse -> TestTree
 testUpdateAssociationStatusResponse = res
     "UpdateAssociationStatusResponse"
-    "fixture/UpdateAssociationStatusResponse"
+    "fixture/UpdateAssociationStatusResponse.proto"
     sSM
     (Proxy :: Proxy UpdateAssociationStatus)
 
 testDeleteAssociationResponse :: DeleteAssociationResponse -> TestTree
 testDeleteAssociationResponse = res
     "DeleteAssociationResponse"
-    "fixture/DeleteAssociationResponse"
+    "fixture/DeleteAssociationResponse.proto"
     sSM
     (Proxy :: Proxy DeleteAssociation)
 
 testListAssociationsResponse :: ListAssociationsResponse -> TestTree
 testListAssociationsResponse = res
     "ListAssociationsResponse"
-    "fixture/ListAssociationsResponse"
+    "fixture/ListAssociationsResponse.proto"
     sSM
     (Proxy :: Proxy ListAssociations)
 
 testDeleteDocumentResponse :: DeleteDocumentResponse -> TestTree
 testDeleteDocumentResponse = res
     "DeleteDocumentResponse"
-    "fixture/DeleteDocumentResponse"
+    "fixture/DeleteDocumentResponse.proto"
     sSM
     (Proxy :: Proxy DeleteDocument)
 
 testCreateAssociationBatchResponse :: CreateAssociationBatchResponse -> TestTree
 testCreateAssociationBatchResponse = res
     "CreateAssociationBatchResponse"
-    "fixture/CreateAssociationBatchResponse"
+    "fixture/CreateAssociationBatchResponse.proto"
     sSM
     (Proxy :: Proxy CreateAssociationBatch)

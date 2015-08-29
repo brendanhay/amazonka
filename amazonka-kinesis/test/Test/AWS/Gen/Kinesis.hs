@@ -117,157 +117,157 @@ import Test.AWS.Kinesis.Internal
 testPutRecord :: PutRecord -> TestTree
 testPutRecord = req
     "PutRecord"
-    "fixture/PutRecord"
+    "fixture/PutRecord.yaml"
 
 testMergeShards :: MergeShards -> TestTree
 testMergeShards = req
     "MergeShards"
-    "fixture/MergeShards"
+    "fixture/MergeShards.yaml"
 
 testGetRecords :: GetRecords -> TestTree
 testGetRecords = req
     "GetRecords"
-    "fixture/GetRecords"
+    "fixture/GetRecords.yaml"
 
 testGetShardIterator :: GetShardIterator -> TestTree
 testGetShardIterator = req
     "GetShardIterator"
-    "fixture/GetShardIterator"
+    "fixture/GetShardIterator.yaml"
 
 testListTagsForStream :: ListTagsForStream -> TestTree
 testListTagsForStream = req
     "ListTagsForStream"
-    "fixture/ListTagsForStream"
+    "fixture/ListTagsForStream.yaml"
 
 testAddTagsToStream :: AddTagsToStream -> TestTree
 testAddTagsToStream = req
     "AddTagsToStream"
-    "fixture/AddTagsToStream"
+    "fixture/AddTagsToStream.yaml"
 
 testPutRecords :: PutRecords -> TestTree
 testPutRecords = req
     "PutRecords"
-    "fixture/PutRecords"
+    "fixture/PutRecords.yaml"
 
 testDeleteStream :: DeleteStream -> TestTree
 testDeleteStream = req
     "DeleteStream"
-    "fixture/DeleteStream"
+    "fixture/DeleteStream.yaml"
 
 testRemoveTagsFromStream :: RemoveTagsFromStream -> TestTree
 testRemoveTagsFromStream = req
     "RemoveTagsFromStream"
-    "fixture/RemoveTagsFromStream"
+    "fixture/RemoveTagsFromStream.yaml"
 
 testListStreams :: ListStreams -> TestTree
 testListStreams = req
     "ListStreams"
-    "fixture/ListStreams"
+    "fixture/ListStreams.yaml"
 
 testCreateStream :: CreateStream -> TestTree
 testCreateStream = req
     "CreateStream"
-    "fixture/CreateStream"
+    "fixture/CreateStream.yaml"
 
 testSplitShard :: SplitShard -> TestTree
 testSplitShard = req
     "SplitShard"
-    "fixture/SplitShard"
+    "fixture/SplitShard.yaml"
 
 testDescribeStream :: DescribeStream -> TestTree
 testDescribeStream = req
     "DescribeStream"
-    "fixture/DescribeStream"
+    "fixture/DescribeStream.yaml"
 
 -- Responses
 
 testPutRecordResponse :: PutRecordResponse -> TestTree
 testPutRecordResponse = res
     "PutRecordResponse"
-    "fixture/PutRecordResponse"
+    "fixture/PutRecordResponse.proto"
     kinesis
     (Proxy :: Proxy PutRecord)
 
 testMergeShardsResponse :: MergeShardsResponse -> TestTree
 testMergeShardsResponse = res
     "MergeShardsResponse"
-    "fixture/MergeShardsResponse"
+    "fixture/MergeShardsResponse.proto"
     kinesis
     (Proxy :: Proxy MergeShards)
 
 testGetRecordsResponse :: GetRecordsResponse -> TestTree
 testGetRecordsResponse = res
     "GetRecordsResponse"
-    "fixture/GetRecordsResponse"
+    "fixture/GetRecordsResponse.proto"
     kinesis
     (Proxy :: Proxy GetRecords)
 
 testGetShardIteratorResponse :: GetShardIteratorResponse -> TestTree
 testGetShardIteratorResponse = res
     "GetShardIteratorResponse"
-    "fixture/GetShardIteratorResponse"
+    "fixture/GetShardIteratorResponse.proto"
     kinesis
     (Proxy :: Proxy GetShardIterator)
 
 testListTagsForStreamResponse :: ListTagsForStreamResponse -> TestTree
 testListTagsForStreamResponse = res
     "ListTagsForStreamResponse"
-    "fixture/ListTagsForStreamResponse"
+    "fixture/ListTagsForStreamResponse.proto"
     kinesis
     (Proxy :: Proxy ListTagsForStream)
 
 testAddTagsToStreamResponse :: AddTagsToStreamResponse -> TestTree
 testAddTagsToStreamResponse = res
     "AddTagsToStreamResponse"
-    "fixture/AddTagsToStreamResponse"
+    "fixture/AddTagsToStreamResponse.proto"
     kinesis
     (Proxy :: Proxy AddTagsToStream)
 
 testPutRecordsResponse :: PutRecordsResponse -> TestTree
 testPutRecordsResponse = res
     "PutRecordsResponse"
-    "fixture/PutRecordsResponse"
+    "fixture/PutRecordsResponse.proto"
     kinesis
     (Proxy :: Proxy PutRecords)
 
 testDeleteStreamResponse :: DeleteStreamResponse -> TestTree
 testDeleteStreamResponse = res
     "DeleteStreamResponse"
-    "fixture/DeleteStreamResponse"
+    "fixture/DeleteStreamResponse.proto"
     kinesis
     (Proxy :: Proxy DeleteStream)
 
 testRemoveTagsFromStreamResponse :: RemoveTagsFromStreamResponse -> TestTree
 testRemoveTagsFromStreamResponse = res
     "RemoveTagsFromStreamResponse"
-    "fixture/RemoveTagsFromStreamResponse"
+    "fixture/RemoveTagsFromStreamResponse.proto"
     kinesis
     (Proxy :: Proxy RemoveTagsFromStream)
 
 testListStreamsResponse :: ListStreamsResponse -> TestTree
 testListStreamsResponse = res
     "ListStreamsResponse"
-    "fixture/ListStreamsResponse"
+    "fixture/ListStreamsResponse.proto"
     kinesis
     (Proxy :: Proxy ListStreams)
 
 testCreateStreamResponse :: CreateStreamResponse -> TestTree
 testCreateStreamResponse = res
     "CreateStreamResponse"
-    "fixture/CreateStreamResponse"
+    "fixture/CreateStreamResponse.proto"
     kinesis
     (Proxy :: Proxy CreateStream)
 
 testSplitShardResponse :: SplitShardResponse -> TestTree
 testSplitShardResponse = res
     "SplitShardResponse"
-    "fixture/SplitShardResponse"
+    "fixture/SplitShardResponse.proto"
     kinesis
     (Proxy :: Proxy SplitShard)
 
 testDescribeStreamResponse :: DescribeStreamResponse -> TestTree
 testDescribeStreamResponse = res
     "DescribeStreamResponse"
-    "fixture/DescribeStreamResponse"
+    "fixture/DescribeStreamResponse.proto"
     kinesis
     (Proxy :: Proxy DescribeStream)

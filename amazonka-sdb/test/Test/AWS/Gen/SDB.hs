@@ -99,121 +99,121 @@ import Test.AWS.SDB.Internal
 testBatchDeleteAttributes :: BatchDeleteAttributes -> TestTree
 testBatchDeleteAttributes = req
     "BatchDeleteAttributes"
-    "fixture/BatchDeleteAttributes"
+    "fixture/BatchDeleteAttributes.yaml"
 
 testBatchPutAttributes :: BatchPutAttributes -> TestTree
 testBatchPutAttributes = req
     "BatchPutAttributes"
-    "fixture/BatchPutAttributes"
+    "fixture/BatchPutAttributes.yaml"
 
 testGetAttributes :: GetAttributes -> TestTree
 testGetAttributes = req
     "GetAttributes"
-    "fixture/GetAttributes"
+    "fixture/GetAttributes.yaml"
 
 testCreateDomain :: CreateDomain -> TestTree
 testCreateDomain = req
     "CreateDomain"
-    "fixture/CreateDomain"
+    "fixture/CreateDomain.yaml"
 
 testDomainMetadata :: DomainMetadata -> TestTree
 testDomainMetadata = req
     "DomainMetadata"
-    "fixture/DomainMetadata"
+    "fixture/DomainMetadata.yaml"
 
 testSelect :: Select -> TestTree
 testSelect = req
     "Select"
-    "fixture/Select"
+    "fixture/Select.yaml"
 
 testPutAttributes :: PutAttributes -> TestTree
 testPutAttributes = req
     "PutAttributes"
-    "fixture/PutAttributes"
+    "fixture/PutAttributes.yaml"
 
 testDeleteAttributes :: DeleteAttributes -> TestTree
 testDeleteAttributes = req
     "DeleteAttributes"
-    "fixture/DeleteAttributes"
+    "fixture/DeleteAttributes.yaml"
 
 testListDomains :: ListDomains -> TestTree
 testListDomains = req
     "ListDomains"
-    "fixture/ListDomains"
+    "fixture/ListDomains.yaml"
 
 testDeleteDomain :: DeleteDomain -> TestTree
 testDeleteDomain = req
     "DeleteDomain"
-    "fixture/DeleteDomain"
+    "fixture/DeleteDomain.yaml"
 
 -- Responses
 
 testBatchDeleteAttributesResponse :: BatchDeleteAttributesResponse -> TestTree
 testBatchDeleteAttributesResponse = res
     "BatchDeleteAttributesResponse"
-    "fixture/BatchDeleteAttributesResponse"
+    "fixture/BatchDeleteAttributesResponse.proto"
     sDB
     (Proxy :: Proxy BatchDeleteAttributes)
 
 testBatchPutAttributesResponse :: BatchPutAttributesResponse -> TestTree
 testBatchPutAttributesResponse = res
     "BatchPutAttributesResponse"
-    "fixture/BatchPutAttributesResponse"
+    "fixture/BatchPutAttributesResponse.proto"
     sDB
     (Proxy :: Proxy BatchPutAttributes)
 
 testGetAttributesResponse :: GetAttributesResponse -> TestTree
 testGetAttributesResponse = res
     "GetAttributesResponse"
-    "fixture/GetAttributesResponse"
+    "fixture/GetAttributesResponse.proto"
     sDB
     (Proxy :: Proxy GetAttributes)
 
 testCreateDomainResponse :: CreateDomainResponse -> TestTree
 testCreateDomainResponse = res
     "CreateDomainResponse"
-    "fixture/CreateDomainResponse"
+    "fixture/CreateDomainResponse.proto"
     sDB
     (Proxy :: Proxy CreateDomain)
 
 testDomainMetadataResponse :: DomainMetadataResponse -> TestTree
 testDomainMetadataResponse = res
     "DomainMetadataResponse"
-    "fixture/DomainMetadataResponse"
+    "fixture/DomainMetadataResponse.proto"
     sDB
     (Proxy :: Proxy DomainMetadata)
 
 testSelectResponse :: SelectResponse -> TestTree
 testSelectResponse = res
     "SelectResponse"
-    "fixture/SelectResponse"
+    "fixture/SelectResponse.proto"
     sDB
     (Proxy :: Proxy Select)
 
 testPutAttributesResponse :: PutAttributesResponse -> TestTree
 testPutAttributesResponse = res
     "PutAttributesResponse"
-    "fixture/PutAttributesResponse"
+    "fixture/PutAttributesResponse.proto"
     sDB
     (Proxy :: Proxy PutAttributes)
 
 testDeleteAttributesResponse :: DeleteAttributesResponse -> TestTree
 testDeleteAttributesResponse = res
     "DeleteAttributesResponse"
-    "fixture/DeleteAttributesResponse"
+    "fixture/DeleteAttributesResponse.proto"
     sDB
     (Proxy :: Proxy DeleteAttributes)
 
 testListDomainsResponse :: ListDomainsResponse -> TestTree
 testListDomainsResponse = res
     "ListDomainsResponse"
-    "fixture/ListDomainsResponse"
+    "fixture/ListDomainsResponse.proto"
     sDB
     (Proxy :: Proxy ListDomains)
 
 testDeleteDomainResponse :: DeleteDomainResponse -> TestTree
 testDeleteDomainResponse = res
     "DeleteDomainResponse"
-    "fixture/DeleteDomainResponse"
+    "fixture/DeleteDomainResponse.proto"
     sDB
     (Proxy :: Proxy DeleteDomain)

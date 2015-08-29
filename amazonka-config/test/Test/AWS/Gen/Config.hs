@@ -105,133 +105,133 @@ import Test.AWS.Config.Internal
 testGetResourceConfigHistory :: GetResourceConfigHistory -> TestTree
 testGetResourceConfigHistory = req
     "GetResourceConfigHistory"
-    "fixture/GetResourceConfigHistory"
+    "fixture/GetResourceConfigHistory.yaml"
 
 testStopConfigurationRecorder :: StopConfigurationRecorder -> TestTree
 testStopConfigurationRecorder = req
     "StopConfigurationRecorder"
-    "fixture/StopConfigurationRecorder"
+    "fixture/StopConfigurationRecorder.yaml"
 
 testDeliverConfigSnapshot :: DeliverConfigSnapshot -> TestTree
 testDeliverConfigSnapshot = req
     "DeliverConfigSnapshot"
-    "fixture/DeliverConfigSnapshot"
+    "fixture/DeliverConfigSnapshot.yaml"
 
 testDescribeConfigurationRecorders :: DescribeConfigurationRecorders -> TestTree
 testDescribeConfigurationRecorders = req
     "DescribeConfigurationRecorders"
-    "fixture/DescribeConfigurationRecorders"
+    "fixture/DescribeConfigurationRecorders.yaml"
 
 testStartConfigurationRecorder :: StartConfigurationRecorder -> TestTree
 testStartConfigurationRecorder = req
     "StartConfigurationRecorder"
-    "fixture/StartConfigurationRecorder"
+    "fixture/StartConfigurationRecorder.yaml"
 
 testDescribeConfigurationRecorderStatus :: DescribeConfigurationRecorderStatus -> TestTree
 testDescribeConfigurationRecorderStatus = req
     "DescribeConfigurationRecorderStatus"
-    "fixture/DescribeConfigurationRecorderStatus"
+    "fixture/DescribeConfigurationRecorderStatus.yaml"
 
 testPutConfigurationRecorder :: PutConfigurationRecorder -> TestTree
 testPutConfigurationRecorder = req
     "PutConfigurationRecorder"
-    "fixture/PutConfigurationRecorder"
+    "fixture/PutConfigurationRecorder.yaml"
 
 testDeleteDeliveryChannel :: DeleteDeliveryChannel -> TestTree
 testDeleteDeliveryChannel = req
     "DeleteDeliveryChannel"
-    "fixture/DeleteDeliveryChannel"
+    "fixture/DeleteDeliveryChannel.yaml"
 
 testPutDeliveryChannel :: PutDeliveryChannel -> TestTree
 testPutDeliveryChannel = req
     "PutDeliveryChannel"
-    "fixture/PutDeliveryChannel"
+    "fixture/PutDeliveryChannel.yaml"
 
 testDescribeDeliveryChannelStatus :: DescribeDeliveryChannelStatus -> TestTree
 testDescribeDeliveryChannelStatus = req
     "DescribeDeliveryChannelStatus"
-    "fixture/DescribeDeliveryChannelStatus"
+    "fixture/DescribeDeliveryChannelStatus.yaml"
 
 testDescribeDeliveryChannels :: DescribeDeliveryChannels -> TestTree
 testDescribeDeliveryChannels = req
     "DescribeDeliveryChannels"
-    "fixture/DescribeDeliveryChannels"
+    "fixture/DescribeDeliveryChannels.yaml"
 
 -- Responses
 
 testGetResourceConfigHistoryResponse :: GetResourceConfigHistoryResponse -> TestTree
 testGetResourceConfigHistoryResponse = res
     "GetResourceConfigHistoryResponse"
-    "fixture/GetResourceConfigHistoryResponse"
+    "fixture/GetResourceConfigHistoryResponse.proto"
     config
     (Proxy :: Proxy GetResourceConfigHistory)
 
 testStopConfigurationRecorderResponse :: StopConfigurationRecorderResponse -> TestTree
 testStopConfigurationRecorderResponse = res
     "StopConfigurationRecorderResponse"
-    "fixture/StopConfigurationRecorderResponse"
+    "fixture/StopConfigurationRecorderResponse.proto"
     config
     (Proxy :: Proxy StopConfigurationRecorder)
 
 testDeliverConfigSnapshotResponse :: DeliverConfigSnapshotResponse -> TestTree
 testDeliverConfigSnapshotResponse = res
     "DeliverConfigSnapshotResponse"
-    "fixture/DeliverConfigSnapshotResponse"
+    "fixture/DeliverConfigSnapshotResponse.proto"
     config
     (Proxy :: Proxy DeliverConfigSnapshot)
 
 testDescribeConfigurationRecordersResponse :: DescribeConfigurationRecordersResponse -> TestTree
 testDescribeConfigurationRecordersResponse = res
     "DescribeConfigurationRecordersResponse"
-    "fixture/DescribeConfigurationRecordersResponse"
+    "fixture/DescribeConfigurationRecordersResponse.proto"
     config
     (Proxy :: Proxy DescribeConfigurationRecorders)
 
 testStartConfigurationRecorderResponse :: StartConfigurationRecorderResponse -> TestTree
 testStartConfigurationRecorderResponse = res
     "StartConfigurationRecorderResponse"
-    "fixture/StartConfigurationRecorderResponse"
+    "fixture/StartConfigurationRecorderResponse.proto"
     config
     (Proxy :: Proxy StartConfigurationRecorder)
 
 testDescribeConfigurationRecorderStatusResponse :: DescribeConfigurationRecorderStatusResponse -> TestTree
 testDescribeConfigurationRecorderStatusResponse = res
     "DescribeConfigurationRecorderStatusResponse"
-    "fixture/DescribeConfigurationRecorderStatusResponse"
+    "fixture/DescribeConfigurationRecorderStatusResponse.proto"
     config
     (Proxy :: Proxy DescribeConfigurationRecorderStatus)
 
 testPutConfigurationRecorderResponse :: PutConfigurationRecorderResponse -> TestTree
 testPutConfigurationRecorderResponse = res
     "PutConfigurationRecorderResponse"
-    "fixture/PutConfigurationRecorderResponse"
+    "fixture/PutConfigurationRecorderResponse.proto"
     config
     (Proxy :: Proxy PutConfigurationRecorder)
 
 testDeleteDeliveryChannelResponse :: DeleteDeliveryChannelResponse -> TestTree
 testDeleteDeliveryChannelResponse = res
     "DeleteDeliveryChannelResponse"
-    "fixture/DeleteDeliveryChannelResponse"
+    "fixture/DeleteDeliveryChannelResponse.proto"
     config
     (Proxy :: Proxy DeleteDeliveryChannel)
 
 testPutDeliveryChannelResponse :: PutDeliveryChannelResponse -> TestTree
 testPutDeliveryChannelResponse = res
     "PutDeliveryChannelResponse"
-    "fixture/PutDeliveryChannelResponse"
+    "fixture/PutDeliveryChannelResponse.proto"
     config
     (Proxy :: Proxy PutDeliveryChannel)
 
 testDescribeDeliveryChannelStatusResponse :: DescribeDeliveryChannelStatusResponse -> TestTree
 testDescribeDeliveryChannelStatusResponse = res
     "DescribeDeliveryChannelStatusResponse"
-    "fixture/DescribeDeliveryChannelStatusResponse"
+    "fixture/DescribeDeliveryChannelStatusResponse.proto"
     config
     (Proxy :: Proxy DescribeDeliveryChannelStatus)
 
 testDescribeDeliveryChannelsResponse :: DescribeDeliveryChannelsResponse -> TestTree
 testDescribeDeliveryChannelsResponse = res
     "DescribeDeliveryChannelsResponse"
-    "fixture/DescribeDeliveryChannelsResponse"
+    "fixture/DescribeDeliveryChannelsResponse.proto"
     config
     (Proxy :: Proxy DescribeDeliveryChannels)

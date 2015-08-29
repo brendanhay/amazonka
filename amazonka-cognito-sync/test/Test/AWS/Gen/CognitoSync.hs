@@ -141,205 +141,205 @@ import Test.AWS.CognitoSync.Internal
 testDescribeDataset :: DescribeDataset -> TestTree
 testDescribeDataset = req
     "DescribeDataset"
-    "fixture/DescribeDataset"
+    "fixture/DescribeDataset.yaml"
 
 testDescribeIdentityPoolUsage :: DescribeIdentityPoolUsage -> TestTree
 testDescribeIdentityPoolUsage = req
     "DescribeIdentityPoolUsage"
-    "fixture/DescribeIdentityPoolUsage"
+    "fixture/DescribeIdentityPoolUsage.yaml"
 
 testSetCognitoEvents :: SetCognitoEvents -> TestTree
 testSetCognitoEvents = req
     "SetCognitoEvents"
-    "fixture/SetCognitoEvents"
+    "fixture/SetCognitoEvents.yaml"
 
 testListIdentityPoolUsage :: ListIdentityPoolUsage -> TestTree
 testListIdentityPoolUsage = req
     "ListIdentityPoolUsage"
-    "fixture/ListIdentityPoolUsage"
+    "fixture/ListIdentityPoolUsage.yaml"
 
 testGetBulkPublishDetails :: GetBulkPublishDetails -> TestTree
 testGetBulkPublishDetails = req
     "GetBulkPublishDetails"
-    "fixture/GetBulkPublishDetails"
+    "fixture/GetBulkPublishDetails.yaml"
 
 testSetIdentityPoolConfiguration :: SetIdentityPoolConfiguration -> TestTree
 testSetIdentityPoolConfiguration = req
     "SetIdentityPoolConfiguration"
-    "fixture/SetIdentityPoolConfiguration"
+    "fixture/SetIdentityPoolConfiguration.yaml"
 
 testDeleteDataset :: DeleteDataset -> TestTree
 testDeleteDataset = req
     "DeleteDataset"
-    "fixture/DeleteDataset"
+    "fixture/DeleteDataset.yaml"
 
 testDescribeIdentityUsage :: DescribeIdentityUsage -> TestTree
 testDescribeIdentityUsage = req
     "DescribeIdentityUsage"
-    "fixture/DescribeIdentityUsage"
+    "fixture/DescribeIdentityUsage.yaml"
 
 testGetCognitoEvents :: GetCognitoEvents -> TestTree
 testGetCognitoEvents = req
     "GetCognitoEvents"
-    "fixture/GetCognitoEvents"
+    "fixture/GetCognitoEvents.yaml"
 
 testRegisterDevice :: RegisterDevice -> TestTree
 testRegisterDevice = req
     "RegisterDevice"
-    "fixture/RegisterDevice"
+    "fixture/RegisterDevice.yaml"
 
 testSubscribeToDataset :: SubscribeToDataset -> TestTree
 testSubscribeToDataset = req
     "SubscribeToDataset"
-    "fixture/SubscribeToDataset"
+    "fixture/SubscribeToDataset.yaml"
 
 testGetIdentityPoolConfiguration :: GetIdentityPoolConfiguration -> TestTree
 testGetIdentityPoolConfiguration = req
     "GetIdentityPoolConfiguration"
-    "fixture/GetIdentityPoolConfiguration"
+    "fixture/GetIdentityPoolConfiguration.yaml"
 
 testListRecords :: ListRecords -> TestTree
 testListRecords = req
     "ListRecords"
-    "fixture/ListRecords"
+    "fixture/ListRecords.yaml"
 
 testUnsubscribeFromDataset :: UnsubscribeFromDataset -> TestTree
 testUnsubscribeFromDataset = req
     "UnsubscribeFromDataset"
-    "fixture/UnsubscribeFromDataset"
+    "fixture/UnsubscribeFromDataset.yaml"
 
 testUpdateRecords :: UpdateRecords -> TestTree
 testUpdateRecords = req
     "UpdateRecords"
-    "fixture/UpdateRecords"
+    "fixture/UpdateRecords.yaml"
 
 testListDatasets :: ListDatasets -> TestTree
 testListDatasets = req
     "ListDatasets"
-    "fixture/ListDatasets"
+    "fixture/ListDatasets.yaml"
 
 testBulkPublish :: BulkPublish -> TestTree
 testBulkPublish = req
     "BulkPublish"
-    "fixture/BulkPublish"
+    "fixture/BulkPublish.yaml"
 
 -- Responses
 
 testDescribeDatasetResponse :: DescribeDatasetResponse -> TestTree
 testDescribeDatasetResponse = res
     "DescribeDatasetResponse"
-    "fixture/DescribeDatasetResponse"
+    "fixture/DescribeDatasetResponse.proto"
     cognitoSync
     (Proxy :: Proxy DescribeDataset)
 
 testDescribeIdentityPoolUsageResponse :: DescribeIdentityPoolUsageResponse -> TestTree
 testDescribeIdentityPoolUsageResponse = res
     "DescribeIdentityPoolUsageResponse"
-    "fixture/DescribeIdentityPoolUsageResponse"
+    "fixture/DescribeIdentityPoolUsageResponse.proto"
     cognitoSync
     (Proxy :: Proxy DescribeIdentityPoolUsage)
 
 testSetCognitoEventsResponse :: SetCognitoEventsResponse -> TestTree
 testSetCognitoEventsResponse = res
     "SetCognitoEventsResponse"
-    "fixture/SetCognitoEventsResponse"
+    "fixture/SetCognitoEventsResponse.proto"
     cognitoSync
     (Proxy :: Proxy SetCognitoEvents)
 
 testListIdentityPoolUsageResponse :: ListIdentityPoolUsageResponse -> TestTree
 testListIdentityPoolUsageResponse = res
     "ListIdentityPoolUsageResponse"
-    "fixture/ListIdentityPoolUsageResponse"
+    "fixture/ListIdentityPoolUsageResponse.proto"
     cognitoSync
     (Proxy :: Proxy ListIdentityPoolUsage)
 
 testGetBulkPublishDetailsResponse :: GetBulkPublishDetailsResponse -> TestTree
 testGetBulkPublishDetailsResponse = res
     "GetBulkPublishDetailsResponse"
-    "fixture/GetBulkPublishDetailsResponse"
+    "fixture/GetBulkPublishDetailsResponse.proto"
     cognitoSync
     (Proxy :: Proxy GetBulkPublishDetails)
 
 testSetIdentityPoolConfigurationResponse :: SetIdentityPoolConfigurationResponse -> TestTree
 testSetIdentityPoolConfigurationResponse = res
     "SetIdentityPoolConfigurationResponse"
-    "fixture/SetIdentityPoolConfigurationResponse"
+    "fixture/SetIdentityPoolConfigurationResponse.proto"
     cognitoSync
     (Proxy :: Proxy SetIdentityPoolConfiguration)
 
 testDeleteDatasetResponse :: DeleteDatasetResponse -> TestTree
 testDeleteDatasetResponse = res
     "DeleteDatasetResponse"
-    "fixture/DeleteDatasetResponse"
+    "fixture/DeleteDatasetResponse.proto"
     cognitoSync
     (Proxy :: Proxy DeleteDataset)
 
 testDescribeIdentityUsageResponse :: DescribeIdentityUsageResponse -> TestTree
 testDescribeIdentityUsageResponse = res
     "DescribeIdentityUsageResponse"
-    "fixture/DescribeIdentityUsageResponse"
+    "fixture/DescribeIdentityUsageResponse.proto"
     cognitoSync
     (Proxy :: Proxy DescribeIdentityUsage)
 
 testGetCognitoEventsResponse :: GetCognitoEventsResponse -> TestTree
 testGetCognitoEventsResponse = res
     "GetCognitoEventsResponse"
-    "fixture/GetCognitoEventsResponse"
+    "fixture/GetCognitoEventsResponse.proto"
     cognitoSync
     (Proxy :: Proxy GetCognitoEvents)
 
 testRegisterDeviceResponse :: RegisterDeviceResponse -> TestTree
 testRegisterDeviceResponse = res
     "RegisterDeviceResponse"
-    "fixture/RegisterDeviceResponse"
+    "fixture/RegisterDeviceResponse.proto"
     cognitoSync
     (Proxy :: Proxy RegisterDevice)
 
 testSubscribeToDatasetResponse :: SubscribeToDatasetResponse -> TestTree
 testSubscribeToDatasetResponse = res
     "SubscribeToDatasetResponse"
-    "fixture/SubscribeToDatasetResponse"
+    "fixture/SubscribeToDatasetResponse.proto"
     cognitoSync
     (Proxy :: Proxy SubscribeToDataset)
 
 testGetIdentityPoolConfigurationResponse :: GetIdentityPoolConfigurationResponse -> TestTree
 testGetIdentityPoolConfigurationResponse = res
     "GetIdentityPoolConfigurationResponse"
-    "fixture/GetIdentityPoolConfigurationResponse"
+    "fixture/GetIdentityPoolConfigurationResponse.proto"
     cognitoSync
     (Proxy :: Proxy GetIdentityPoolConfiguration)
 
 testListRecordsResponse :: ListRecordsResponse -> TestTree
 testListRecordsResponse = res
     "ListRecordsResponse"
-    "fixture/ListRecordsResponse"
+    "fixture/ListRecordsResponse.proto"
     cognitoSync
     (Proxy :: Proxy ListRecords)
 
 testUnsubscribeFromDatasetResponse :: UnsubscribeFromDatasetResponse -> TestTree
 testUnsubscribeFromDatasetResponse = res
     "UnsubscribeFromDatasetResponse"
-    "fixture/UnsubscribeFromDatasetResponse"
+    "fixture/UnsubscribeFromDatasetResponse.proto"
     cognitoSync
     (Proxy :: Proxy UnsubscribeFromDataset)
 
 testUpdateRecordsResponse :: UpdateRecordsResponse -> TestTree
 testUpdateRecordsResponse = res
     "UpdateRecordsResponse"
-    "fixture/UpdateRecordsResponse"
+    "fixture/UpdateRecordsResponse.proto"
     cognitoSync
     (Proxy :: Proxy UpdateRecords)
 
 testListDatasetsResponse :: ListDatasetsResponse -> TestTree
 testListDatasetsResponse = res
     "ListDatasetsResponse"
-    "fixture/ListDatasetsResponse"
+    "fixture/ListDatasetsResponse.proto"
     cognitoSync
     (Proxy :: Proxy ListDatasets)
 
 testBulkPublishResponse :: BulkPublishResponse -> TestTree
 testBulkPublishResponse = res
     "BulkPublishResponse"
-    "fixture/BulkPublishResponse"
+    "fixture/BulkPublishResponse.proto"
     cognitoSync
     (Proxy :: Proxy BulkPublish)

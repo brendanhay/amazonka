@@ -75,73 +75,73 @@ import Test.AWS.ImportExport.Internal
 testGetShippingLabel :: GetShippingLabel -> TestTree
 testGetShippingLabel = req
     "GetShippingLabel"
-    "fixture/GetShippingLabel"
+    "fixture/GetShippingLabel.yaml"
 
 testCreateJob :: CreateJob -> TestTree
 testCreateJob = req
     "CreateJob"
-    "fixture/CreateJob"
+    "fixture/CreateJob.yaml"
 
 testListJobs :: ListJobs -> TestTree
 testListJobs = req
     "ListJobs"
-    "fixture/ListJobs"
+    "fixture/ListJobs.yaml"
 
 testUpdateJob :: UpdateJob -> TestTree
 testUpdateJob = req
     "UpdateJob"
-    "fixture/UpdateJob"
+    "fixture/UpdateJob.yaml"
 
 testGetStatus :: GetStatus -> TestTree
 testGetStatus = req
     "GetStatus"
-    "fixture/GetStatus"
+    "fixture/GetStatus.yaml"
 
 testCancelJob :: CancelJob -> TestTree
 testCancelJob = req
     "CancelJob"
-    "fixture/CancelJob"
+    "fixture/CancelJob.yaml"
 
 -- Responses
 
 testGetShippingLabelResponse :: GetShippingLabelResponse -> TestTree
 testGetShippingLabelResponse = res
     "GetShippingLabelResponse"
-    "fixture/GetShippingLabelResponse"
+    "fixture/GetShippingLabelResponse.proto"
     importExport
     (Proxy :: Proxy GetShippingLabel)
 
 testCreateJobResponse :: CreateJobResponse -> TestTree
 testCreateJobResponse = res
     "CreateJobResponse"
-    "fixture/CreateJobResponse"
+    "fixture/CreateJobResponse.proto"
     importExport
     (Proxy :: Proxy CreateJob)
 
 testListJobsResponse :: ListJobsResponse -> TestTree
 testListJobsResponse = res
     "ListJobsResponse"
-    "fixture/ListJobsResponse"
+    "fixture/ListJobsResponse.proto"
     importExport
     (Proxy :: Proxy ListJobs)
 
 testUpdateJobResponse :: UpdateJobResponse -> TestTree
 testUpdateJobResponse = res
     "UpdateJobResponse"
-    "fixture/UpdateJobResponse"
+    "fixture/UpdateJobResponse.proto"
     importExport
     (Proxy :: Proxy UpdateJob)
 
 testGetStatusResponse :: GetStatusResponse -> TestTree
 testGetStatusResponse = res
     "GetStatusResponse"
-    "fixture/GetStatusResponse"
+    "fixture/GetStatusResponse.proto"
     importExport
     (Proxy :: Proxy GetStatus)
 
 testCancelJobResponse :: CancelJobResponse -> TestTree
 testCancelJobResponse = res
     "CancelJobResponse"
-    "fixture/CancelJobResponse"
+    "fixture/CancelJobResponse.proto"
     importExport
     (Proxy :: Proxy CancelJob)

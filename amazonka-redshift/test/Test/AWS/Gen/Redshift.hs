@@ -393,709 +393,709 @@ import Test.AWS.Redshift.Internal
 testDescribeClusters :: DescribeClusters -> TestTree
 testDescribeClusters = req
     "DescribeClusters"
-    "fixture/DescribeClusters"
+    "fixture/DescribeClusters.yaml"
 
 testDescribeTags :: DescribeTags -> TestTree
 testDescribeTags = req
     "DescribeTags"
-    "fixture/DescribeTags"
+    "fixture/DescribeTags.yaml"
 
 testModifyEventSubscription :: ModifyEventSubscription -> TestTree
 testModifyEventSubscription = req
     "ModifyEventSubscription"
-    "fixture/ModifyEventSubscription"
+    "fixture/ModifyEventSubscription.yaml"
 
 testDisableLogging :: DisableLogging -> TestTree
 testDisableLogging = req
     "DisableLogging"
-    "fixture/DisableLogging"
+    "fixture/DisableLogging.yaml"
 
 testPurchaseReservedNodeOffering :: PurchaseReservedNodeOffering -> TestTree
 testPurchaseReservedNodeOffering = req
     "PurchaseReservedNodeOffering"
-    "fixture/PurchaseReservedNodeOffering"
+    "fixture/PurchaseReservedNodeOffering.yaml"
 
 testDeleteClusterSubnetGroup :: DeleteClusterSubnetGroup -> TestTree
 testDeleteClusterSubnetGroup = req
     "DeleteClusterSubnetGroup"
-    "fixture/DeleteClusterSubnetGroup"
+    "fixture/DeleteClusterSubnetGroup.yaml"
 
 testDeleteClusterSnapshot :: DeleteClusterSnapshot -> TestTree
 testDeleteClusterSnapshot = req
     "DeleteClusterSnapshot"
-    "fixture/DeleteClusterSnapshot"
+    "fixture/DeleteClusterSnapshot.yaml"
 
 testDescribeEvents :: DescribeEvents -> TestTree
 testDescribeEvents = req
     "DescribeEvents"
-    "fixture/DescribeEvents"
+    "fixture/DescribeEvents.yaml"
 
 testDescribeReservedNodeOfferings :: DescribeReservedNodeOfferings -> TestTree
 testDescribeReservedNodeOfferings = req
     "DescribeReservedNodeOfferings"
-    "fixture/DescribeReservedNodeOfferings"
+    "fixture/DescribeReservedNodeOfferings.yaml"
 
 testDescribeClusterParameterGroups :: DescribeClusterParameterGroups -> TestTree
 testDescribeClusterParameterGroups = req
     "DescribeClusterParameterGroups"
-    "fixture/DescribeClusterParameterGroups"
+    "fixture/DescribeClusterParameterGroups.yaml"
 
 testCreateClusterSubnetGroup :: CreateClusterSubnetGroup -> TestTree
 testCreateClusterSubnetGroup = req
     "CreateClusterSubnetGroup"
-    "fixture/CreateClusterSubnetGroup"
+    "fixture/CreateClusterSubnetGroup.yaml"
 
 testDescribeReservedNodes :: DescribeReservedNodes -> TestTree
 testDescribeReservedNodes = req
     "DescribeReservedNodes"
-    "fixture/DescribeReservedNodes"
+    "fixture/DescribeReservedNodes.yaml"
 
 testEnableLogging :: EnableLogging -> TestTree
 testEnableLogging = req
     "EnableLogging"
-    "fixture/EnableLogging"
+    "fixture/EnableLogging.yaml"
 
 testCreateTags :: CreateTags -> TestTree
 testCreateTags = req
     "CreateTags"
-    "fixture/CreateTags"
+    "fixture/CreateTags.yaml"
 
 testDescribeClusterSecurityGroups :: DescribeClusterSecurityGroups -> TestTree
 testDescribeClusterSecurityGroups = req
     "DescribeClusterSecurityGroups"
-    "fixture/DescribeClusterSecurityGroups"
+    "fixture/DescribeClusterSecurityGroups.yaml"
 
 testDeleteClusterParameterGroup :: DeleteClusterParameterGroup -> TestTree
 testDeleteClusterParameterGroup = req
     "DeleteClusterParameterGroup"
-    "fixture/DeleteClusterParameterGroup"
+    "fixture/DeleteClusterParameterGroup.yaml"
 
 testDeleteTags :: DeleteTags -> TestTree
 testDeleteTags = req
     "DeleteTags"
-    "fixture/DeleteTags"
+    "fixture/DeleteTags.yaml"
 
 testEnableSnapshotCopy :: EnableSnapshotCopy -> TestTree
 testEnableSnapshotCopy = req
     "EnableSnapshotCopy"
-    "fixture/EnableSnapshotCopy"
+    "fixture/EnableSnapshotCopy.yaml"
 
 testModifySnapshotCopyRetentionPeriod :: ModifySnapshotCopyRetentionPeriod -> TestTree
 testModifySnapshotCopyRetentionPeriod = req
     "ModifySnapshotCopyRetentionPeriod"
-    "fixture/ModifySnapshotCopyRetentionPeriod"
+    "fixture/ModifySnapshotCopyRetentionPeriod.yaml"
 
 testDescribeClusterSnapshots :: DescribeClusterSnapshots -> TestTree
 testDescribeClusterSnapshots = req
     "DescribeClusterSnapshots"
-    "fixture/DescribeClusterSnapshots"
+    "fixture/DescribeClusterSnapshots.yaml"
 
 testDescribeClusterSubnetGroups :: DescribeClusterSubnetGroups -> TestTree
 testDescribeClusterSubnetGroups = req
     "DescribeClusterSubnetGroups"
-    "fixture/DescribeClusterSubnetGroups"
+    "fixture/DescribeClusterSubnetGroups.yaml"
 
 testAuthorizeSnapshotAccess :: AuthorizeSnapshotAccess -> TestTree
 testAuthorizeSnapshotAccess = req
     "AuthorizeSnapshotAccess"
-    "fixture/AuthorizeSnapshotAccess"
+    "fixture/AuthorizeSnapshotAccess.yaml"
 
 testCreateEventSubscription :: CreateEventSubscription -> TestTree
 testCreateEventSubscription = req
     "CreateEventSubscription"
-    "fixture/CreateEventSubscription"
+    "fixture/CreateEventSubscription.yaml"
 
 testRebootCluster :: RebootCluster -> TestTree
 testRebootCluster = req
     "RebootCluster"
-    "fixture/RebootCluster"
+    "fixture/RebootCluster.yaml"
 
 testDescribeOrderableClusterOptions :: DescribeOrderableClusterOptions -> TestTree
 testDescribeOrderableClusterOptions = req
     "DescribeOrderableClusterOptions"
-    "fixture/DescribeOrderableClusterOptions"
+    "fixture/DescribeOrderableClusterOptions.yaml"
 
 testDeleteCluster :: DeleteCluster -> TestTree
 testDeleteCluster = req
     "DeleteCluster"
-    "fixture/DeleteCluster"
+    "fixture/DeleteCluster.yaml"
 
 testDeleteEventSubscription :: DeleteEventSubscription -> TestTree
 testDeleteEventSubscription = req
     "DeleteEventSubscription"
-    "fixture/DeleteEventSubscription"
+    "fixture/DeleteEventSubscription.yaml"
 
 testDescribeDefaultClusterParameters :: DescribeDefaultClusterParameters -> TestTree
 testDescribeDefaultClusterParameters = req
     "DescribeDefaultClusterParameters"
-    "fixture/DescribeDefaultClusterParameters"
+    "fixture/DescribeDefaultClusterParameters.yaml"
 
 testCreateCluster :: CreateCluster -> TestTree
 testCreateCluster = req
     "CreateCluster"
-    "fixture/CreateCluster"
+    "fixture/CreateCluster.yaml"
 
 testCreateHSMClientCertificate :: CreateHSMClientCertificate -> TestTree
 testCreateHSMClientCertificate = req
     "CreateHSMClientCertificate"
-    "fixture/CreateHSMClientCertificate"
+    "fixture/CreateHSMClientCertificate.yaml"
 
 testResetClusterParameterGroup :: ResetClusterParameterGroup -> TestTree
 testResetClusterParameterGroup = req
     "ResetClusterParameterGroup"
-    "fixture/ResetClusterParameterGroup"
+    "fixture/ResetClusterParameterGroup.yaml"
 
 testDescribeEventSubscriptions :: DescribeEventSubscriptions -> TestTree
 testDescribeEventSubscriptions = req
     "DescribeEventSubscriptions"
-    "fixture/DescribeEventSubscriptions"
+    "fixture/DescribeEventSubscriptions.yaml"
 
 testDescribeHSMClientCertificates :: DescribeHSMClientCertificates -> TestTree
 testDescribeHSMClientCertificates = req
     "DescribeHSMClientCertificates"
-    "fixture/DescribeHSMClientCertificates"
+    "fixture/DescribeHSMClientCertificates.yaml"
 
 testModifyClusterParameterGroup :: ModifyClusterParameterGroup -> TestTree
 testModifyClusterParameterGroup = req
     "ModifyClusterParameterGroup"
-    "fixture/ModifyClusterParameterGroup"
+    "fixture/ModifyClusterParameterGroup.yaml"
 
 testRevokeClusterSecurityGroupIngress :: RevokeClusterSecurityGroupIngress -> TestTree
 testRevokeClusterSecurityGroupIngress = req
     "RevokeClusterSecurityGroupIngress"
-    "fixture/RevokeClusterSecurityGroupIngress"
+    "fixture/RevokeClusterSecurityGroupIngress.yaml"
 
 testAuthorizeClusterSecurityGroupIngress :: AuthorizeClusterSecurityGroupIngress -> TestTree
 testAuthorizeClusterSecurityGroupIngress = req
     "AuthorizeClusterSecurityGroupIngress"
-    "fixture/AuthorizeClusterSecurityGroupIngress"
+    "fixture/AuthorizeClusterSecurityGroupIngress.yaml"
 
 testCreateClusterSecurityGroup :: CreateClusterSecurityGroup -> TestTree
 testCreateClusterSecurityGroup = req
     "CreateClusterSecurityGroup"
-    "fixture/CreateClusterSecurityGroup"
+    "fixture/CreateClusterSecurityGroup.yaml"
 
 testDescribeResize :: DescribeResize -> TestTree
 testDescribeResize = req
     "DescribeResize"
-    "fixture/DescribeResize"
+    "fixture/DescribeResize.yaml"
 
 testDescribeEventCategories :: DescribeEventCategories -> TestTree
 testDescribeEventCategories = req
     "DescribeEventCategories"
-    "fixture/DescribeEventCategories"
+    "fixture/DescribeEventCategories.yaml"
 
 testDeleteHSMConfiguration :: DeleteHSMConfiguration -> TestTree
 testDeleteHSMConfiguration = req
     "DeleteHSMConfiguration"
-    "fixture/DeleteHSMConfiguration"
+    "fixture/DeleteHSMConfiguration.yaml"
 
 testDeleteClusterSecurityGroup :: DeleteClusterSecurityGroup -> TestTree
 testDeleteClusterSecurityGroup = req
     "DeleteClusterSecurityGroup"
-    "fixture/DeleteClusterSecurityGroup"
+    "fixture/DeleteClusterSecurityGroup.yaml"
 
 testCreateHSMConfiguration :: CreateHSMConfiguration -> TestTree
 testCreateHSMConfiguration = req
     "CreateHSMConfiguration"
-    "fixture/CreateHSMConfiguration"
+    "fixture/CreateHSMConfiguration.yaml"
 
 testModifyCluster :: ModifyCluster -> TestTree
 testModifyCluster = req
     "ModifyCluster"
-    "fixture/ModifyCluster"
+    "fixture/ModifyCluster.yaml"
 
 testCreateClusterSnapshot :: CreateClusterSnapshot -> TestTree
 testCreateClusterSnapshot = req
     "CreateClusterSnapshot"
-    "fixture/CreateClusterSnapshot"
+    "fixture/CreateClusterSnapshot.yaml"
 
 testDescribeLoggingStatus :: DescribeLoggingStatus -> TestTree
 testDescribeLoggingStatus = req
     "DescribeLoggingStatus"
-    "fixture/DescribeLoggingStatus"
+    "fixture/DescribeLoggingStatus.yaml"
 
 testDescribeClusterParameters :: DescribeClusterParameters -> TestTree
 testDescribeClusterParameters = req
     "DescribeClusterParameters"
-    "fixture/DescribeClusterParameters"
+    "fixture/DescribeClusterParameters.yaml"
 
 testDisableSnapshotCopy :: DisableSnapshotCopy -> TestTree
 testDisableSnapshotCopy = req
     "DisableSnapshotCopy"
-    "fixture/DisableSnapshotCopy"
+    "fixture/DisableSnapshotCopy.yaml"
 
 testRestoreFromClusterSnapshot :: RestoreFromClusterSnapshot -> TestTree
 testRestoreFromClusterSnapshot = req
     "RestoreFromClusterSnapshot"
-    "fixture/RestoreFromClusterSnapshot"
+    "fixture/RestoreFromClusterSnapshot.yaml"
 
 testDescribeHSMConfigurations :: DescribeHSMConfigurations -> TestTree
 testDescribeHSMConfigurations = req
     "DescribeHSMConfigurations"
-    "fixture/DescribeHSMConfigurations"
+    "fixture/DescribeHSMConfigurations.yaml"
 
 testCreateClusterParameterGroup :: CreateClusterParameterGroup -> TestTree
 testCreateClusterParameterGroup = req
     "CreateClusterParameterGroup"
-    "fixture/CreateClusterParameterGroup"
+    "fixture/CreateClusterParameterGroup.yaml"
 
 testRevokeSnapshotAccess :: RevokeSnapshotAccess -> TestTree
 testRevokeSnapshotAccess = req
     "RevokeSnapshotAccess"
-    "fixture/RevokeSnapshotAccess"
+    "fixture/RevokeSnapshotAccess.yaml"
 
 testDeleteHSMClientCertificate :: DeleteHSMClientCertificate -> TestTree
 testDeleteHSMClientCertificate = req
     "DeleteHSMClientCertificate"
-    "fixture/DeleteHSMClientCertificate"
+    "fixture/DeleteHSMClientCertificate.yaml"
 
 testCreateSnapshotCopyGrant :: CreateSnapshotCopyGrant -> TestTree
 testCreateSnapshotCopyGrant = req
     "CreateSnapshotCopyGrant"
-    "fixture/CreateSnapshotCopyGrant"
+    "fixture/CreateSnapshotCopyGrant.yaml"
 
 testCopyClusterSnapshot :: CopyClusterSnapshot -> TestTree
 testCopyClusterSnapshot = req
     "CopyClusterSnapshot"
-    "fixture/CopyClusterSnapshot"
+    "fixture/CopyClusterSnapshot.yaml"
 
 testDescribeClusterVersions :: DescribeClusterVersions -> TestTree
 testDescribeClusterVersions = req
     "DescribeClusterVersions"
-    "fixture/DescribeClusterVersions"
+    "fixture/DescribeClusterVersions.yaml"
 
 testModifyClusterSubnetGroup :: ModifyClusterSubnetGroup -> TestTree
 testModifyClusterSubnetGroup = req
     "ModifyClusterSubnetGroup"
-    "fixture/ModifyClusterSubnetGroup"
+    "fixture/ModifyClusterSubnetGroup.yaml"
 
 testDeleteSnapshotCopyGrant :: DeleteSnapshotCopyGrant -> TestTree
 testDeleteSnapshotCopyGrant = req
     "DeleteSnapshotCopyGrant"
-    "fixture/DeleteSnapshotCopyGrant"
+    "fixture/DeleteSnapshotCopyGrant.yaml"
 
 testDescribeSnapshotCopyGrants :: DescribeSnapshotCopyGrants -> TestTree
 testDescribeSnapshotCopyGrants = req
     "DescribeSnapshotCopyGrants"
-    "fixture/DescribeSnapshotCopyGrants"
+    "fixture/DescribeSnapshotCopyGrants.yaml"
 
 testRotateEncryptionKey :: RotateEncryptionKey -> TestTree
 testRotateEncryptionKey = req
     "RotateEncryptionKey"
-    "fixture/RotateEncryptionKey"
+    "fixture/RotateEncryptionKey.yaml"
 
 -- Responses
 
 testDescribeClustersResponse :: DescribeClustersResponse -> TestTree
 testDescribeClustersResponse = res
     "DescribeClustersResponse"
-    "fixture/DescribeClustersResponse"
+    "fixture/DescribeClustersResponse.proto"
     redshift
     (Proxy :: Proxy DescribeClusters)
 
 testDescribeTagsResponse :: DescribeTagsResponse -> TestTree
 testDescribeTagsResponse = res
     "DescribeTagsResponse"
-    "fixture/DescribeTagsResponse"
+    "fixture/DescribeTagsResponse.proto"
     redshift
     (Proxy :: Proxy DescribeTags)
 
 testModifyEventSubscriptionResponse :: ModifyEventSubscriptionResponse -> TestTree
 testModifyEventSubscriptionResponse = res
     "ModifyEventSubscriptionResponse"
-    "fixture/ModifyEventSubscriptionResponse"
+    "fixture/ModifyEventSubscriptionResponse.proto"
     redshift
     (Proxy :: Proxy ModifyEventSubscription)
 
 testDisableLoggingResponse :: LoggingStatus -> TestTree
 testDisableLoggingResponse = res
     "DisableLoggingResponse"
-    "fixture/DisableLoggingResponse"
+    "fixture/DisableLoggingResponse.proto"
     redshift
     (Proxy :: Proxy DisableLogging)
 
 testPurchaseReservedNodeOfferingResponse :: PurchaseReservedNodeOfferingResponse -> TestTree
 testPurchaseReservedNodeOfferingResponse = res
     "PurchaseReservedNodeOfferingResponse"
-    "fixture/PurchaseReservedNodeOfferingResponse"
+    "fixture/PurchaseReservedNodeOfferingResponse.proto"
     redshift
     (Proxy :: Proxy PurchaseReservedNodeOffering)
 
 testDeleteClusterSubnetGroupResponse :: DeleteClusterSubnetGroupResponse -> TestTree
 testDeleteClusterSubnetGroupResponse = res
     "DeleteClusterSubnetGroupResponse"
-    "fixture/DeleteClusterSubnetGroupResponse"
+    "fixture/DeleteClusterSubnetGroupResponse.proto"
     redshift
     (Proxy :: Proxy DeleteClusterSubnetGroup)
 
 testDeleteClusterSnapshotResponse :: DeleteClusterSnapshotResponse -> TestTree
 testDeleteClusterSnapshotResponse = res
     "DeleteClusterSnapshotResponse"
-    "fixture/DeleteClusterSnapshotResponse"
+    "fixture/DeleteClusterSnapshotResponse.proto"
     redshift
     (Proxy :: Proxy DeleteClusterSnapshot)
 
 testDescribeEventsResponse :: DescribeEventsResponse -> TestTree
 testDescribeEventsResponse = res
     "DescribeEventsResponse"
-    "fixture/DescribeEventsResponse"
+    "fixture/DescribeEventsResponse.proto"
     redshift
     (Proxy :: Proxy DescribeEvents)
 
 testDescribeReservedNodeOfferingsResponse :: DescribeReservedNodeOfferingsResponse -> TestTree
 testDescribeReservedNodeOfferingsResponse = res
     "DescribeReservedNodeOfferingsResponse"
-    "fixture/DescribeReservedNodeOfferingsResponse"
+    "fixture/DescribeReservedNodeOfferingsResponse.proto"
     redshift
     (Proxy :: Proxy DescribeReservedNodeOfferings)
 
 testDescribeClusterParameterGroupsResponse :: DescribeClusterParameterGroupsResponse -> TestTree
 testDescribeClusterParameterGroupsResponse = res
     "DescribeClusterParameterGroupsResponse"
-    "fixture/DescribeClusterParameterGroupsResponse"
+    "fixture/DescribeClusterParameterGroupsResponse.proto"
     redshift
     (Proxy :: Proxy DescribeClusterParameterGroups)
 
 testCreateClusterSubnetGroupResponse :: CreateClusterSubnetGroupResponse -> TestTree
 testCreateClusterSubnetGroupResponse = res
     "CreateClusterSubnetGroupResponse"
-    "fixture/CreateClusterSubnetGroupResponse"
+    "fixture/CreateClusterSubnetGroupResponse.proto"
     redshift
     (Proxy :: Proxy CreateClusterSubnetGroup)
 
 testDescribeReservedNodesResponse :: DescribeReservedNodesResponse -> TestTree
 testDescribeReservedNodesResponse = res
     "DescribeReservedNodesResponse"
-    "fixture/DescribeReservedNodesResponse"
+    "fixture/DescribeReservedNodesResponse.proto"
     redshift
     (Proxy :: Proxy DescribeReservedNodes)
 
 testEnableLoggingResponse :: LoggingStatus -> TestTree
 testEnableLoggingResponse = res
     "EnableLoggingResponse"
-    "fixture/EnableLoggingResponse"
+    "fixture/EnableLoggingResponse.proto"
     redshift
     (Proxy :: Proxy EnableLogging)
 
 testCreateTagsResponse :: CreateTagsResponse -> TestTree
 testCreateTagsResponse = res
     "CreateTagsResponse"
-    "fixture/CreateTagsResponse"
+    "fixture/CreateTagsResponse.proto"
     redshift
     (Proxy :: Proxy CreateTags)
 
 testDescribeClusterSecurityGroupsResponse :: DescribeClusterSecurityGroupsResponse -> TestTree
 testDescribeClusterSecurityGroupsResponse = res
     "DescribeClusterSecurityGroupsResponse"
-    "fixture/DescribeClusterSecurityGroupsResponse"
+    "fixture/DescribeClusterSecurityGroupsResponse.proto"
     redshift
     (Proxy :: Proxy DescribeClusterSecurityGroups)
 
 testDeleteClusterParameterGroupResponse :: DeleteClusterParameterGroupResponse -> TestTree
 testDeleteClusterParameterGroupResponse = res
     "DeleteClusterParameterGroupResponse"
-    "fixture/DeleteClusterParameterGroupResponse"
+    "fixture/DeleteClusterParameterGroupResponse.proto"
     redshift
     (Proxy :: Proxy DeleteClusterParameterGroup)
 
 testDeleteTagsResponse :: DeleteTagsResponse -> TestTree
 testDeleteTagsResponse = res
     "DeleteTagsResponse"
-    "fixture/DeleteTagsResponse"
+    "fixture/DeleteTagsResponse.proto"
     redshift
     (Proxy :: Proxy DeleteTags)
 
 testEnableSnapshotCopyResponse :: EnableSnapshotCopyResponse -> TestTree
 testEnableSnapshotCopyResponse = res
     "EnableSnapshotCopyResponse"
-    "fixture/EnableSnapshotCopyResponse"
+    "fixture/EnableSnapshotCopyResponse.proto"
     redshift
     (Proxy :: Proxy EnableSnapshotCopy)
 
 testModifySnapshotCopyRetentionPeriodResponse :: ModifySnapshotCopyRetentionPeriodResponse -> TestTree
 testModifySnapshotCopyRetentionPeriodResponse = res
     "ModifySnapshotCopyRetentionPeriodResponse"
-    "fixture/ModifySnapshotCopyRetentionPeriodResponse"
+    "fixture/ModifySnapshotCopyRetentionPeriodResponse.proto"
     redshift
     (Proxy :: Proxy ModifySnapshotCopyRetentionPeriod)
 
 testDescribeClusterSnapshotsResponse :: DescribeClusterSnapshotsResponse -> TestTree
 testDescribeClusterSnapshotsResponse = res
     "DescribeClusterSnapshotsResponse"
-    "fixture/DescribeClusterSnapshotsResponse"
+    "fixture/DescribeClusterSnapshotsResponse.proto"
     redshift
     (Proxy :: Proxy DescribeClusterSnapshots)
 
 testDescribeClusterSubnetGroupsResponse :: DescribeClusterSubnetGroupsResponse -> TestTree
 testDescribeClusterSubnetGroupsResponse = res
     "DescribeClusterSubnetGroupsResponse"
-    "fixture/DescribeClusterSubnetGroupsResponse"
+    "fixture/DescribeClusterSubnetGroupsResponse.proto"
     redshift
     (Proxy :: Proxy DescribeClusterSubnetGroups)
 
 testAuthorizeSnapshotAccessResponse :: AuthorizeSnapshotAccessResponse -> TestTree
 testAuthorizeSnapshotAccessResponse = res
     "AuthorizeSnapshotAccessResponse"
-    "fixture/AuthorizeSnapshotAccessResponse"
+    "fixture/AuthorizeSnapshotAccessResponse.proto"
     redshift
     (Proxy :: Proxy AuthorizeSnapshotAccess)
 
 testCreateEventSubscriptionResponse :: CreateEventSubscriptionResponse -> TestTree
 testCreateEventSubscriptionResponse = res
     "CreateEventSubscriptionResponse"
-    "fixture/CreateEventSubscriptionResponse"
+    "fixture/CreateEventSubscriptionResponse.proto"
     redshift
     (Proxy :: Proxy CreateEventSubscription)
 
 testRebootClusterResponse :: RebootClusterResponse -> TestTree
 testRebootClusterResponse = res
     "RebootClusterResponse"
-    "fixture/RebootClusterResponse"
+    "fixture/RebootClusterResponse.proto"
     redshift
     (Proxy :: Proxy RebootCluster)
 
 testDescribeOrderableClusterOptionsResponse :: DescribeOrderableClusterOptionsResponse -> TestTree
 testDescribeOrderableClusterOptionsResponse = res
     "DescribeOrderableClusterOptionsResponse"
-    "fixture/DescribeOrderableClusterOptionsResponse"
+    "fixture/DescribeOrderableClusterOptionsResponse.proto"
     redshift
     (Proxy :: Proxy DescribeOrderableClusterOptions)
 
 testDeleteClusterResponse :: DeleteClusterResponse -> TestTree
 testDeleteClusterResponse = res
     "DeleteClusterResponse"
-    "fixture/DeleteClusterResponse"
+    "fixture/DeleteClusterResponse.proto"
     redshift
     (Proxy :: Proxy DeleteCluster)
 
 testDeleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse -> TestTree
 testDeleteEventSubscriptionResponse = res
     "DeleteEventSubscriptionResponse"
-    "fixture/DeleteEventSubscriptionResponse"
+    "fixture/DeleteEventSubscriptionResponse.proto"
     redshift
     (Proxy :: Proxy DeleteEventSubscription)
 
 testDescribeDefaultClusterParametersResponse :: DescribeDefaultClusterParametersResponse -> TestTree
 testDescribeDefaultClusterParametersResponse = res
     "DescribeDefaultClusterParametersResponse"
-    "fixture/DescribeDefaultClusterParametersResponse"
+    "fixture/DescribeDefaultClusterParametersResponse.proto"
     redshift
     (Proxy :: Proxy DescribeDefaultClusterParameters)
 
 testCreateClusterResponse :: CreateClusterResponse -> TestTree
 testCreateClusterResponse = res
     "CreateClusterResponse"
-    "fixture/CreateClusterResponse"
+    "fixture/CreateClusterResponse.proto"
     redshift
     (Proxy :: Proxy CreateCluster)
 
 testCreateHSMClientCertificateResponse :: CreateHSMClientCertificateResponse -> TestTree
 testCreateHSMClientCertificateResponse = res
     "CreateHSMClientCertificateResponse"
-    "fixture/CreateHSMClientCertificateResponse"
+    "fixture/CreateHSMClientCertificateResponse.proto"
     redshift
     (Proxy :: Proxy CreateHSMClientCertificate)
 
 testResetClusterParameterGroupResponse :: ClusterParameterGroupNameMessage -> TestTree
 testResetClusterParameterGroupResponse = res
     "ResetClusterParameterGroupResponse"
-    "fixture/ResetClusterParameterGroupResponse"
+    "fixture/ResetClusterParameterGroupResponse.proto"
     redshift
     (Proxy :: Proxy ResetClusterParameterGroup)
 
 testDescribeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse -> TestTree
 testDescribeEventSubscriptionsResponse = res
     "DescribeEventSubscriptionsResponse"
-    "fixture/DescribeEventSubscriptionsResponse"
+    "fixture/DescribeEventSubscriptionsResponse.proto"
     redshift
     (Proxy :: Proxy DescribeEventSubscriptions)
 
 testDescribeHSMClientCertificatesResponse :: DescribeHSMClientCertificatesResponse -> TestTree
 testDescribeHSMClientCertificatesResponse = res
     "DescribeHSMClientCertificatesResponse"
-    "fixture/DescribeHSMClientCertificatesResponse"
+    "fixture/DescribeHSMClientCertificatesResponse.proto"
     redshift
     (Proxy :: Proxy DescribeHSMClientCertificates)
 
 testModifyClusterParameterGroupResponse :: ClusterParameterGroupNameMessage -> TestTree
 testModifyClusterParameterGroupResponse = res
     "ModifyClusterParameterGroupResponse"
-    "fixture/ModifyClusterParameterGroupResponse"
+    "fixture/ModifyClusterParameterGroupResponse.proto"
     redshift
     (Proxy :: Proxy ModifyClusterParameterGroup)
 
 testRevokeClusterSecurityGroupIngressResponse :: RevokeClusterSecurityGroupIngressResponse -> TestTree
 testRevokeClusterSecurityGroupIngressResponse = res
     "RevokeClusterSecurityGroupIngressResponse"
-    "fixture/RevokeClusterSecurityGroupIngressResponse"
+    "fixture/RevokeClusterSecurityGroupIngressResponse.proto"
     redshift
     (Proxy :: Proxy RevokeClusterSecurityGroupIngress)
 
 testAuthorizeClusterSecurityGroupIngressResponse :: AuthorizeClusterSecurityGroupIngressResponse -> TestTree
 testAuthorizeClusterSecurityGroupIngressResponse = res
     "AuthorizeClusterSecurityGroupIngressResponse"
-    "fixture/AuthorizeClusterSecurityGroupIngressResponse"
+    "fixture/AuthorizeClusterSecurityGroupIngressResponse.proto"
     redshift
     (Proxy :: Proxy AuthorizeClusterSecurityGroupIngress)
 
 testCreateClusterSecurityGroupResponse :: CreateClusterSecurityGroupResponse -> TestTree
 testCreateClusterSecurityGroupResponse = res
     "CreateClusterSecurityGroupResponse"
-    "fixture/CreateClusterSecurityGroupResponse"
+    "fixture/CreateClusterSecurityGroupResponse.proto"
     redshift
     (Proxy :: Proxy CreateClusterSecurityGroup)
 
 testDescribeResizeResponse :: DescribeResizeResponse -> TestTree
 testDescribeResizeResponse = res
     "DescribeResizeResponse"
-    "fixture/DescribeResizeResponse"
+    "fixture/DescribeResizeResponse.proto"
     redshift
     (Proxy :: Proxy DescribeResize)
 
 testDescribeEventCategoriesResponse :: DescribeEventCategoriesResponse -> TestTree
 testDescribeEventCategoriesResponse = res
     "DescribeEventCategoriesResponse"
-    "fixture/DescribeEventCategoriesResponse"
+    "fixture/DescribeEventCategoriesResponse.proto"
     redshift
     (Proxy :: Proxy DescribeEventCategories)
 
 testDeleteHSMConfigurationResponse :: DeleteHSMConfigurationResponse -> TestTree
 testDeleteHSMConfigurationResponse = res
     "DeleteHSMConfigurationResponse"
-    "fixture/DeleteHSMConfigurationResponse"
+    "fixture/DeleteHSMConfigurationResponse.proto"
     redshift
     (Proxy :: Proxy DeleteHSMConfiguration)
 
 testDeleteClusterSecurityGroupResponse :: DeleteClusterSecurityGroupResponse -> TestTree
 testDeleteClusterSecurityGroupResponse = res
     "DeleteClusterSecurityGroupResponse"
-    "fixture/DeleteClusterSecurityGroupResponse"
+    "fixture/DeleteClusterSecurityGroupResponse.proto"
     redshift
     (Proxy :: Proxy DeleteClusterSecurityGroup)
 
 testCreateHSMConfigurationResponse :: CreateHSMConfigurationResponse -> TestTree
 testCreateHSMConfigurationResponse = res
     "CreateHSMConfigurationResponse"
-    "fixture/CreateHSMConfigurationResponse"
+    "fixture/CreateHSMConfigurationResponse.proto"
     redshift
     (Proxy :: Proxy CreateHSMConfiguration)
 
 testModifyClusterResponse :: ModifyClusterResponse -> TestTree
 testModifyClusterResponse = res
     "ModifyClusterResponse"
-    "fixture/ModifyClusterResponse"
+    "fixture/ModifyClusterResponse.proto"
     redshift
     (Proxy :: Proxy ModifyCluster)
 
 testCreateClusterSnapshotResponse :: CreateClusterSnapshotResponse -> TestTree
 testCreateClusterSnapshotResponse = res
     "CreateClusterSnapshotResponse"
-    "fixture/CreateClusterSnapshotResponse"
+    "fixture/CreateClusterSnapshotResponse.proto"
     redshift
     (Proxy :: Proxy CreateClusterSnapshot)
 
 testDescribeLoggingStatusResponse :: LoggingStatus -> TestTree
 testDescribeLoggingStatusResponse = res
     "DescribeLoggingStatusResponse"
-    "fixture/DescribeLoggingStatusResponse"
+    "fixture/DescribeLoggingStatusResponse.proto"
     redshift
     (Proxy :: Proxy DescribeLoggingStatus)
 
 testDescribeClusterParametersResponse :: DescribeClusterParametersResponse -> TestTree
 testDescribeClusterParametersResponse = res
     "DescribeClusterParametersResponse"
-    "fixture/DescribeClusterParametersResponse"
+    "fixture/DescribeClusterParametersResponse.proto"
     redshift
     (Proxy :: Proxy DescribeClusterParameters)
 
 testDisableSnapshotCopyResponse :: DisableSnapshotCopyResponse -> TestTree
 testDisableSnapshotCopyResponse = res
     "DisableSnapshotCopyResponse"
-    "fixture/DisableSnapshotCopyResponse"
+    "fixture/DisableSnapshotCopyResponse.proto"
     redshift
     (Proxy :: Proxy DisableSnapshotCopy)
 
 testRestoreFromClusterSnapshotResponse :: RestoreFromClusterSnapshotResponse -> TestTree
 testRestoreFromClusterSnapshotResponse = res
     "RestoreFromClusterSnapshotResponse"
-    "fixture/RestoreFromClusterSnapshotResponse"
+    "fixture/RestoreFromClusterSnapshotResponse.proto"
     redshift
     (Proxy :: Proxy RestoreFromClusterSnapshot)
 
 testDescribeHSMConfigurationsResponse :: DescribeHSMConfigurationsResponse -> TestTree
 testDescribeHSMConfigurationsResponse = res
     "DescribeHSMConfigurationsResponse"
-    "fixture/DescribeHSMConfigurationsResponse"
+    "fixture/DescribeHSMConfigurationsResponse.proto"
     redshift
     (Proxy :: Proxy DescribeHSMConfigurations)
 
 testCreateClusterParameterGroupResponse :: CreateClusterParameterGroupResponse -> TestTree
 testCreateClusterParameterGroupResponse = res
     "CreateClusterParameterGroupResponse"
-    "fixture/CreateClusterParameterGroupResponse"
+    "fixture/CreateClusterParameterGroupResponse.proto"
     redshift
     (Proxy :: Proxy CreateClusterParameterGroup)
 
 testRevokeSnapshotAccessResponse :: RevokeSnapshotAccessResponse -> TestTree
 testRevokeSnapshotAccessResponse = res
     "RevokeSnapshotAccessResponse"
-    "fixture/RevokeSnapshotAccessResponse"
+    "fixture/RevokeSnapshotAccessResponse.proto"
     redshift
     (Proxy :: Proxy RevokeSnapshotAccess)
 
 testDeleteHSMClientCertificateResponse :: DeleteHSMClientCertificateResponse -> TestTree
 testDeleteHSMClientCertificateResponse = res
     "DeleteHSMClientCertificateResponse"
-    "fixture/DeleteHSMClientCertificateResponse"
+    "fixture/DeleteHSMClientCertificateResponse.proto"
     redshift
     (Proxy :: Proxy DeleteHSMClientCertificate)
 
 testCreateSnapshotCopyGrantResponse :: CreateSnapshotCopyGrantResponse -> TestTree
 testCreateSnapshotCopyGrantResponse = res
     "CreateSnapshotCopyGrantResponse"
-    "fixture/CreateSnapshotCopyGrantResponse"
+    "fixture/CreateSnapshotCopyGrantResponse.proto"
     redshift
     (Proxy :: Proxy CreateSnapshotCopyGrant)
 
 testCopyClusterSnapshotResponse :: CopyClusterSnapshotResponse -> TestTree
 testCopyClusterSnapshotResponse = res
     "CopyClusterSnapshotResponse"
-    "fixture/CopyClusterSnapshotResponse"
+    "fixture/CopyClusterSnapshotResponse.proto"
     redshift
     (Proxy :: Proxy CopyClusterSnapshot)
 
 testDescribeClusterVersionsResponse :: DescribeClusterVersionsResponse -> TestTree
 testDescribeClusterVersionsResponse = res
     "DescribeClusterVersionsResponse"
-    "fixture/DescribeClusterVersionsResponse"
+    "fixture/DescribeClusterVersionsResponse.proto"
     redshift
     (Proxy :: Proxy DescribeClusterVersions)
 
 testModifyClusterSubnetGroupResponse :: ModifyClusterSubnetGroupResponse -> TestTree
 testModifyClusterSubnetGroupResponse = res
     "ModifyClusterSubnetGroupResponse"
-    "fixture/ModifyClusterSubnetGroupResponse"
+    "fixture/ModifyClusterSubnetGroupResponse.proto"
     redshift
     (Proxy :: Proxy ModifyClusterSubnetGroup)
 
 testDeleteSnapshotCopyGrantResponse :: DeleteSnapshotCopyGrantResponse -> TestTree
 testDeleteSnapshotCopyGrantResponse = res
     "DeleteSnapshotCopyGrantResponse"
-    "fixture/DeleteSnapshotCopyGrantResponse"
+    "fixture/DeleteSnapshotCopyGrantResponse.proto"
     redshift
     (Proxy :: Proxy DeleteSnapshotCopyGrant)
 
 testDescribeSnapshotCopyGrantsResponse :: DescribeSnapshotCopyGrantsResponse -> TestTree
 testDescribeSnapshotCopyGrantsResponse = res
     "DescribeSnapshotCopyGrantsResponse"
-    "fixture/DescribeSnapshotCopyGrantsResponse"
+    "fixture/DescribeSnapshotCopyGrantsResponse.proto"
     redshift
     (Proxy :: Proxy DescribeSnapshotCopyGrants)
 
 testRotateEncryptionKeyResponse :: RotateEncryptionKeyResponse -> TestTree
 testRotateEncryptionKeyResponse = res
     "RotateEncryptionKeyResponse"
-    "fixture/RotateEncryptionKeyResponse"
+    "fixture/RotateEncryptionKeyResponse.proto"
     redshift
     (Proxy :: Proxy RotateEncryptionKey)

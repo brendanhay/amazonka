@@ -1,7 +1,8 @@
 name:                  amazonka-ssm
-version:               1.2.0.1
+version:               1.2.0.2
 synopsis:              Amazon Simple Systems Management Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
@@ -9,9 +10,8 @@ maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
-extra-source-files:    README.md
 cabal-version:         >= 1.10
-
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     Amazon EC2 Simple Systems Manager (SSM) enables you to configure and
     manage your EC2 instances. You can create a configuration document and
@@ -86,8 +86,9 @@ test-suite amazonka-ssm-test
 
     ghc-options:       -Wall -threaded
 
-    -- This is not comprehensive if modules have manually been added.
-    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
     other-modules:
           Test.AWS.SSM
         , Test.AWS.Gen.SSM

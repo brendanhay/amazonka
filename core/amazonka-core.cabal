@@ -1,7 +1,8 @@
 name:                  amazonka-core
-version:               1.2.0.1
+version:               1.2.0.2
 synopsis:              Core data types and functionality for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay

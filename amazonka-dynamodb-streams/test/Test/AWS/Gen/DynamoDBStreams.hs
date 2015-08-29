@@ -63,49 +63,49 @@ import Test.AWS.DynamoDBStreams.Internal
 testGetRecords :: GetRecords -> TestTree
 testGetRecords = req
     "GetRecords"
-    "fixture/GetRecords"
+    "fixture/GetRecords.yaml"
 
 testGetShardIterator :: GetShardIterator -> TestTree
 testGetShardIterator = req
     "GetShardIterator"
-    "fixture/GetShardIterator"
+    "fixture/GetShardIterator.yaml"
 
 testListStreams :: ListStreams -> TestTree
 testListStreams = req
     "ListStreams"
-    "fixture/ListStreams"
+    "fixture/ListStreams.yaml"
 
 testDescribeStream :: DescribeStream -> TestTree
 testDescribeStream = req
     "DescribeStream"
-    "fixture/DescribeStream"
+    "fixture/DescribeStream.yaml"
 
 -- Responses
 
 testGetRecordsResponse :: GetRecordsResponse -> TestTree
 testGetRecordsResponse = res
     "GetRecordsResponse"
-    "fixture/GetRecordsResponse"
+    "fixture/GetRecordsResponse.proto"
     dynamoDBStreams
     (Proxy :: Proxy GetRecords)
 
 testGetShardIteratorResponse :: GetShardIteratorResponse -> TestTree
 testGetShardIteratorResponse = res
     "GetShardIteratorResponse"
-    "fixture/GetShardIteratorResponse"
+    "fixture/GetShardIteratorResponse.proto"
     dynamoDBStreams
     (Proxy :: Proxy GetShardIterator)
 
 testListStreamsResponse :: ListStreamsResponse -> TestTree
 testListStreamsResponse = res
     "ListStreamsResponse"
-    "fixture/ListStreamsResponse"
+    "fixture/ListStreamsResponse.proto"
     dynamoDBStreams
     (Proxy :: Proxy ListStreams)
 
 testDescribeStreamResponse :: DescribeStreamResponse -> TestTree
 testDescribeStreamResponse = res
     "DescribeStreamResponse"
-    "fixture/DescribeStreamResponse"
+    "fixture/DescribeStreamResponse.proto"
     dynamoDBStreams
     (Proxy :: Proxy DescribeStream)

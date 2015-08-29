@@ -231,385 +231,385 @@ import Test.AWS.ElasticBeanstalk.Internal
 testDescribeApplications :: DescribeApplications -> TestTree
 testDescribeApplications = req
     "DescribeApplications"
-    "fixture/DescribeApplications"
+    "fixture/DescribeApplications.yaml"
 
 testCreateApplicationVersion :: CreateApplicationVersion -> TestTree
 testCreateApplicationVersion = req
     "CreateApplicationVersion"
-    "fixture/CreateApplicationVersion"
+    "fixture/CreateApplicationVersion.yaml"
 
 testUpdateEnvironment :: UpdateEnvironment -> TestTree
 testUpdateEnvironment = req
     "UpdateEnvironment"
-    "fixture/UpdateEnvironment"
+    "fixture/UpdateEnvironment.yaml"
 
 testTerminateEnvironment :: TerminateEnvironment -> TestTree
 testTerminateEnvironment = req
     "TerminateEnvironment"
-    "fixture/TerminateEnvironment"
+    "fixture/TerminateEnvironment.yaml"
 
 testDescribeEvents :: DescribeEvents -> TestTree
 testDescribeEvents = req
     "DescribeEvents"
-    "fixture/DescribeEvents"
+    "fixture/DescribeEvents.yaml"
 
 testRequestEnvironmentInfo :: RequestEnvironmentInfo -> TestTree
 testRequestEnvironmentInfo = req
     "RequestEnvironmentInfo"
-    "fixture/RequestEnvironmentInfo"
+    "fixture/RequestEnvironmentInfo.yaml"
 
 testRetrieveEnvironmentInfo :: RetrieveEnvironmentInfo -> TestTree
 testRetrieveEnvironmentInfo = req
     "RetrieveEnvironmentInfo"
-    "fixture/RetrieveEnvironmentInfo"
+    "fixture/RetrieveEnvironmentInfo.yaml"
 
 testDeleteApplication :: DeleteApplication -> TestTree
 testDeleteApplication = req
     "DeleteApplication"
-    "fixture/DeleteApplication"
+    "fixture/DeleteApplication.yaml"
 
 testUpdateApplication :: UpdateApplication -> TestTree
 testUpdateApplication = req
     "UpdateApplication"
-    "fixture/UpdateApplication"
+    "fixture/UpdateApplication.yaml"
 
 testDescribeInstancesHealth :: DescribeInstancesHealth -> TestTree
 testDescribeInstancesHealth = req
     "DescribeInstancesHealth"
-    "fixture/DescribeInstancesHealth"
+    "fixture/DescribeInstancesHealth.yaml"
 
 testCreateApplication :: CreateApplication -> TestTree
 testCreateApplication = req
     "CreateApplication"
-    "fixture/CreateApplication"
+    "fixture/CreateApplication.yaml"
 
 testAbortEnvironmentUpdate :: AbortEnvironmentUpdate -> TestTree
 testAbortEnvironmentUpdate = req
     "AbortEnvironmentUpdate"
-    "fixture/AbortEnvironmentUpdate"
+    "fixture/AbortEnvironmentUpdate.yaml"
 
 testDeleteApplicationVersion :: DeleteApplicationVersion -> TestTree
 testDeleteApplicationVersion = req
     "DeleteApplicationVersion"
-    "fixture/DeleteApplicationVersion"
+    "fixture/DeleteApplicationVersion.yaml"
 
 testUpdateApplicationVersion :: UpdateApplicationVersion -> TestTree
 testUpdateApplicationVersion = req
     "UpdateApplicationVersion"
-    "fixture/UpdateApplicationVersion"
+    "fixture/UpdateApplicationVersion.yaml"
 
 testDescribeEnvironmentResources :: DescribeEnvironmentResources -> TestTree
 testDescribeEnvironmentResources = req
     "DescribeEnvironmentResources"
-    "fixture/DescribeEnvironmentResources"
+    "fixture/DescribeEnvironmentResources.yaml"
 
 testDeleteConfigurationTemplate :: DeleteConfigurationTemplate -> TestTree
 testDeleteConfigurationTemplate = req
     "DeleteConfigurationTemplate"
-    "fixture/DeleteConfigurationTemplate"
+    "fixture/DeleteConfigurationTemplate.yaml"
 
 testUpdateConfigurationTemplate :: UpdateConfigurationTemplate -> TestTree
 testUpdateConfigurationTemplate = req
     "UpdateConfigurationTemplate"
-    "fixture/UpdateConfigurationTemplate"
+    "fixture/UpdateConfigurationTemplate.yaml"
 
 testDescribeEnvironmentHealth :: DescribeEnvironmentHealth -> TestTree
 testDescribeEnvironmentHealth = req
     "DescribeEnvironmentHealth"
-    "fixture/DescribeEnvironmentHealth"
+    "fixture/DescribeEnvironmentHealth.yaml"
 
 testRebuildEnvironment :: RebuildEnvironment -> TestTree
 testRebuildEnvironment = req
     "RebuildEnvironment"
-    "fixture/RebuildEnvironment"
+    "fixture/RebuildEnvironment.yaml"
 
 testDeleteEnvironmentConfiguration :: DeleteEnvironmentConfiguration -> TestTree
 testDeleteEnvironmentConfiguration = req
     "DeleteEnvironmentConfiguration"
-    "fixture/DeleteEnvironmentConfiguration"
+    "fixture/DeleteEnvironmentConfiguration.yaml"
 
 testCreateConfigurationTemplate :: CreateConfigurationTemplate -> TestTree
 testCreateConfigurationTemplate = req
     "CreateConfigurationTemplate"
-    "fixture/CreateConfigurationTemplate"
+    "fixture/CreateConfigurationTemplate.yaml"
 
 testListAvailableSolutionStacks :: ListAvailableSolutionStacks -> TestTree
 testListAvailableSolutionStacks = req
     "ListAvailableSolutionStacks"
-    "fixture/ListAvailableSolutionStacks"
+    "fixture/ListAvailableSolutionStacks.yaml"
 
 testSwapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs -> TestTree
 testSwapEnvironmentCNAMEs = req
     "SwapEnvironmentCNAMEs"
-    "fixture/SwapEnvironmentCNAMEs"
+    "fixture/SwapEnvironmentCNAMEs.yaml"
 
 testDescribeConfigurationOptions :: DescribeConfigurationOptions -> TestTree
 testDescribeConfigurationOptions = req
     "DescribeConfigurationOptions"
-    "fixture/DescribeConfigurationOptions"
+    "fixture/DescribeConfigurationOptions.yaml"
 
 testDescribeConfigurationSettings :: DescribeConfigurationSettings -> TestTree
 testDescribeConfigurationSettings = req
     "DescribeConfigurationSettings"
-    "fixture/DescribeConfigurationSettings"
+    "fixture/DescribeConfigurationSettings.yaml"
 
 testCreateStorageLocation :: CreateStorageLocation -> TestTree
 testCreateStorageLocation = req
     "CreateStorageLocation"
-    "fixture/CreateStorageLocation"
+    "fixture/CreateStorageLocation.yaml"
 
 testDescribeEnvironments :: DescribeEnvironments -> TestTree
 testDescribeEnvironments = req
     "DescribeEnvironments"
-    "fixture/DescribeEnvironments"
+    "fixture/DescribeEnvironments.yaml"
 
 testRestartAppServer :: RestartAppServer -> TestTree
 testRestartAppServer = req
     "RestartAppServer"
-    "fixture/RestartAppServer"
+    "fixture/RestartAppServer.yaml"
 
 testValidateConfigurationSettings :: ValidateConfigurationSettings -> TestTree
 testValidateConfigurationSettings = req
     "ValidateConfigurationSettings"
-    "fixture/ValidateConfigurationSettings"
+    "fixture/ValidateConfigurationSettings.yaml"
 
 testDescribeApplicationVersions :: DescribeApplicationVersions -> TestTree
 testDescribeApplicationVersions = req
     "DescribeApplicationVersions"
-    "fixture/DescribeApplicationVersions"
+    "fixture/DescribeApplicationVersions.yaml"
 
 testCheckDNSAvailability :: CheckDNSAvailability -> TestTree
 testCheckDNSAvailability = req
     "CheckDNSAvailability"
-    "fixture/CheckDNSAvailability"
+    "fixture/CheckDNSAvailability.yaml"
 
 testCreateEnvironment :: CreateEnvironment -> TestTree
 testCreateEnvironment = req
     "CreateEnvironment"
-    "fixture/CreateEnvironment"
+    "fixture/CreateEnvironment.yaml"
 
 -- Responses
 
 testDescribeApplicationsResponse :: DescribeApplicationsResponse -> TestTree
 testDescribeApplicationsResponse = res
     "DescribeApplicationsResponse"
-    "fixture/DescribeApplicationsResponse"
+    "fixture/DescribeApplicationsResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy DescribeApplications)
 
 testCreateApplicationVersionResponse :: ApplicationVersionDescriptionMessage -> TestTree
 testCreateApplicationVersionResponse = res
     "CreateApplicationVersionResponse"
-    "fixture/CreateApplicationVersionResponse"
+    "fixture/CreateApplicationVersionResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy CreateApplicationVersion)
 
 testUpdateEnvironmentResponse :: EnvironmentDescription -> TestTree
 testUpdateEnvironmentResponse = res
     "UpdateEnvironmentResponse"
-    "fixture/UpdateEnvironmentResponse"
+    "fixture/UpdateEnvironmentResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy UpdateEnvironment)
 
 testTerminateEnvironmentResponse :: EnvironmentDescription -> TestTree
 testTerminateEnvironmentResponse = res
     "TerminateEnvironmentResponse"
-    "fixture/TerminateEnvironmentResponse"
+    "fixture/TerminateEnvironmentResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy TerminateEnvironment)
 
 testDescribeEventsResponse :: DescribeEventsResponse -> TestTree
 testDescribeEventsResponse = res
     "DescribeEventsResponse"
-    "fixture/DescribeEventsResponse"
+    "fixture/DescribeEventsResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy DescribeEvents)
 
 testRequestEnvironmentInfoResponse :: RequestEnvironmentInfoResponse -> TestTree
 testRequestEnvironmentInfoResponse = res
     "RequestEnvironmentInfoResponse"
-    "fixture/RequestEnvironmentInfoResponse"
+    "fixture/RequestEnvironmentInfoResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy RequestEnvironmentInfo)
 
 testRetrieveEnvironmentInfoResponse :: RetrieveEnvironmentInfoResponse -> TestTree
 testRetrieveEnvironmentInfoResponse = res
     "RetrieveEnvironmentInfoResponse"
-    "fixture/RetrieveEnvironmentInfoResponse"
+    "fixture/RetrieveEnvironmentInfoResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy RetrieveEnvironmentInfo)
 
 testDeleteApplicationResponse :: DeleteApplicationResponse -> TestTree
 testDeleteApplicationResponse = res
     "DeleteApplicationResponse"
-    "fixture/DeleteApplicationResponse"
+    "fixture/DeleteApplicationResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy DeleteApplication)
 
 testUpdateApplicationResponse :: ApplicationDescriptionMessage -> TestTree
 testUpdateApplicationResponse = res
     "UpdateApplicationResponse"
-    "fixture/UpdateApplicationResponse"
+    "fixture/UpdateApplicationResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy UpdateApplication)
 
 testDescribeInstancesHealthResponse :: DescribeInstancesHealthResponse -> TestTree
 testDescribeInstancesHealthResponse = res
     "DescribeInstancesHealthResponse"
-    "fixture/DescribeInstancesHealthResponse"
+    "fixture/DescribeInstancesHealthResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy DescribeInstancesHealth)
 
 testCreateApplicationResponse :: ApplicationDescriptionMessage -> TestTree
 testCreateApplicationResponse = res
     "CreateApplicationResponse"
-    "fixture/CreateApplicationResponse"
+    "fixture/CreateApplicationResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy CreateApplication)
 
 testAbortEnvironmentUpdateResponse :: AbortEnvironmentUpdateResponse -> TestTree
 testAbortEnvironmentUpdateResponse = res
     "AbortEnvironmentUpdateResponse"
-    "fixture/AbortEnvironmentUpdateResponse"
+    "fixture/AbortEnvironmentUpdateResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy AbortEnvironmentUpdate)
 
 testDeleteApplicationVersionResponse :: DeleteApplicationVersionResponse -> TestTree
 testDeleteApplicationVersionResponse = res
     "DeleteApplicationVersionResponse"
-    "fixture/DeleteApplicationVersionResponse"
+    "fixture/DeleteApplicationVersionResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy DeleteApplicationVersion)
 
 testUpdateApplicationVersionResponse :: ApplicationVersionDescriptionMessage -> TestTree
 testUpdateApplicationVersionResponse = res
     "UpdateApplicationVersionResponse"
-    "fixture/UpdateApplicationVersionResponse"
+    "fixture/UpdateApplicationVersionResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy UpdateApplicationVersion)
 
 testDescribeEnvironmentResourcesResponse :: DescribeEnvironmentResourcesResponse -> TestTree
 testDescribeEnvironmentResourcesResponse = res
     "DescribeEnvironmentResourcesResponse"
-    "fixture/DescribeEnvironmentResourcesResponse"
+    "fixture/DescribeEnvironmentResourcesResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy DescribeEnvironmentResources)
 
 testDeleteConfigurationTemplateResponse :: DeleteConfigurationTemplateResponse -> TestTree
 testDeleteConfigurationTemplateResponse = res
     "DeleteConfigurationTemplateResponse"
-    "fixture/DeleteConfigurationTemplateResponse"
+    "fixture/DeleteConfigurationTemplateResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy DeleteConfigurationTemplate)
 
 testUpdateConfigurationTemplateResponse :: ConfigurationSettingsDescription -> TestTree
 testUpdateConfigurationTemplateResponse = res
     "UpdateConfigurationTemplateResponse"
-    "fixture/UpdateConfigurationTemplateResponse"
+    "fixture/UpdateConfigurationTemplateResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy UpdateConfigurationTemplate)
 
 testDescribeEnvironmentHealthResponse :: DescribeEnvironmentHealthResponse -> TestTree
 testDescribeEnvironmentHealthResponse = res
     "DescribeEnvironmentHealthResponse"
-    "fixture/DescribeEnvironmentHealthResponse"
+    "fixture/DescribeEnvironmentHealthResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy DescribeEnvironmentHealth)
 
 testRebuildEnvironmentResponse :: RebuildEnvironmentResponse -> TestTree
 testRebuildEnvironmentResponse = res
     "RebuildEnvironmentResponse"
-    "fixture/RebuildEnvironmentResponse"
+    "fixture/RebuildEnvironmentResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy RebuildEnvironment)
 
 testDeleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse -> TestTree
 testDeleteEnvironmentConfigurationResponse = res
     "DeleteEnvironmentConfigurationResponse"
-    "fixture/DeleteEnvironmentConfigurationResponse"
+    "fixture/DeleteEnvironmentConfigurationResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy DeleteEnvironmentConfiguration)
 
 testCreateConfigurationTemplateResponse :: ConfigurationSettingsDescription -> TestTree
 testCreateConfigurationTemplateResponse = res
     "CreateConfigurationTemplateResponse"
-    "fixture/CreateConfigurationTemplateResponse"
+    "fixture/CreateConfigurationTemplateResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy CreateConfigurationTemplate)
 
 testListAvailableSolutionStacksResponse :: ListAvailableSolutionStacksResponse -> TestTree
 testListAvailableSolutionStacksResponse = res
     "ListAvailableSolutionStacksResponse"
-    "fixture/ListAvailableSolutionStacksResponse"
+    "fixture/ListAvailableSolutionStacksResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy ListAvailableSolutionStacks)
 
 testSwapEnvironmentCNAMEsResponse :: SwapEnvironmentCNAMEsResponse -> TestTree
 testSwapEnvironmentCNAMEsResponse = res
     "SwapEnvironmentCNAMEsResponse"
-    "fixture/SwapEnvironmentCNAMEsResponse"
+    "fixture/SwapEnvironmentCNAMEsResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy SwapEnvironmentCNAMEs)
 
 testDescribeConfigurationOptionsResponse :: DescribeConfigurationOptionsResponse -> TestTree
 testDescribeConfigurationOptionsResponse = res
     "DescribeConfigurationOptionsResponse"
-    "fixture/DescribeConfigurationOptionsResponse"
+    "fixture/DescribeConfigurationOptionsResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy DescribeConfigurationOptions)
 
 testDescribeConfigurationSettingsResponse :: DescribeConfigurationSettingsResponse -> TestTree
 testDescribeConfigurationSettingsResponse = res
     "DescribeConfigurationSettingsResponse"
-    "fixture/DescribeConfigurationSettingsResponse"
+    "fixture/DescribeConfigurationSettingsResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy DescribeConfigurationSettings)
 
 testCreateStorageLocationResponse :: CreateStorageLocationResponse -> TestTree
 testCreateStorageLocationResponse = res
     "CreateStorageLocationResponse"
-    "fixture/CreateStorageLocationResponse"
+    "fixture/CreateStorageLocationResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy CreateStorageLocation)
 
 testDescribeEnvironmentsResponse :: DescribeEnvironmentsResponse -> TestTree
 testDescribeEnvironmentsResponse = res
     "DescribeEnvironmentsResponse"
-    "fixture/DescribeEnvironmentsResponse"
+    "fixture/DescribeEnvironmentsResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy DescribeEnvironments)
 
 testRestartAppServerResponse :: RestartAppServerResponse -> TestTree
 testRestartAppServerResponse = res
     "RestartAppServerResponse"
-    "fixture/RestartAppServerResponse"
+    "fixture/RestartAppServerResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy RestartAppServer)
 
 testValidateConfigurationSettingsResponse :: ValidateConfigurationSettingsResponse -> TestTree
 testValidateConfigurationSettingsResponse = res
     "ValidateConfigurationSettingsResponse"
-    "fixture/ValidateConfigurationSettingsResponse"
+    "fixture/ValidateConfigurationSettingsResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy ValidateConfigurationSettings)
 
 testDescribeApplicationVersionsResponse :: DescribeApplicationVersionsResponse -> TestTree
 testDescribeApplicationVersionsResponse = res
     "DescribeApplicationVersionsResponse"
-    "fixture/DescribeApplicationVersionsResponse"
+    "fixture/DescribeApplicationVersionsResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy DescribeApplicationVersions)
 
 testCheckDNSAvailabilityResponse :: CheckDNSAvailabilityResponse -> TestTree
 testCheckDNSAvailabilityResponse = res
     "CheckDNSAvailabilityResponse"
-    "fixture/CheckDNSAvailabilityResponse"
+    "fixture/CheckDNSAvailabilityResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy CheckDNSAvailability)
 
 testCreateEnvironmentResponse :: EnvironmentDescription -> TestTree
 testCreateEnvironmentResponse = res
     "CreateEnvironmentResponse"
-    "fixture/CreateEnvironmentResponse"
+    "fixture/CreateEnvironmentResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy CreateEnvironment)

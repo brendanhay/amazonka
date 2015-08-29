@@ -48,8 +48,8 @@ $path/travis-timeout \
 {
     cat <<-HTML
     <!DOCTYPE html>
-    <h1>Amazonka Library Documentation</h1>
-    <h4><a href="https://travis-ci.org/brendanhay/amazonka/builds/${BUILD_ID}">Build #${BUILD_NUMBER}</a></h4>
+    <h2>Amazonka Library Documentation</h2>
+    <h4>Build <a href="https://travis-ci.org/brendanhay/amazonka/builds/${BUILD_ID}">#${BUILD_NUMBER}</a>, GHC ${GHCVER}</h4>
     <ul>
 HTML
 

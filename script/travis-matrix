@@ -3,7 +3,8 @@
 set -e
 
 docs=( documentation )
-core=( amazonka-core amazonka amazonka-test )
+core=( amazonka-core amazonka )
+test=( amazonka-test )
 examples=( amazonka-examples )
 
 priority_=( s3 autoscaling elb sqs iam ec2 )
@@ -39,11 +40,12 @@ TITLE
     done
 }
 
-ghc_710=( 7.10.1 )
-ghc_all=( 7.10.1 7.8.4 )
+ghc_710=( 7.10.2 )
+ghc_all=( 7.10.2 7.8.4 )
 
 matrix "Documentation" ghc_710[@] docs[@]
 matrix "Core" ghc_all[@] core[@]
+matrix "Test" ghc_710[@] test[@]
 matrix "Priority" ghc_all[@] priority[@]
 matrix "Remainder" ghc_710[@] library[@]
 matrix "Examples" ghc_710[@] examples[@]

@@ -141,205 +141,205 @@ import Test.AWS.CloudHSM.Internal
 testListHAPGs :: ListHAPGs -> TestTree
 testListHAPGs = req
     "ListHAPGs"
-    "fixture/ListHAPGs"
+    "fixture/ListHAPGs.yaml"
 
 testListHSMs :: ListHSMs -> TestTree
 testListHSMs = req
     "ListHSMs"
-    "fixture/ListHSMs"
+    "fixture/ListHSMs.yaml"
 
 testDeleteHAPG :: DeleteHAPG -> TestTree
 testDeleteHAPG = req
     "DeleteHAPG"
-    "fixture/DeleteHAPG"
+    "fixture/DeleteHAPG.yaml"
 
 testModifyLunaClient :: ModifyLunaClient -> TestTree
 testModifyLunaClient = req
     "ModifyLunaClient"
-    "fixture/ModifyLunaClient"
+    "fixture/ModifyLunaClient.yaml"
 
 testDescribeLunaClient :: DescribeLunaClient -> TestTree
 testDescribeLunaClient = req
     "DescribeLunaClient"
-    "fixture/DescribeLunaClient"
+    "fixture/DescribeLunaClient.yaml"
 
 testCreateHSM :: CreateHSM -> TestTree
 testCreateHSM = req
     "CreateHSM"
-    "fixture/CreateHSM"
+    "fixture/CreateHSM.yaml"
 
 testCreateHAPG :: CreateHAPG -> TestTree
 testCreateHAPG = req
     "CreateHAPG"
-    "fixture/CreateHAPG"
+    "fixture/CreateHAPG.yaml"
 
 testCreateLunaClient :: CreateLunaClient -> TestTree
 testCreateLunaClient = req
     "CreateLunaClient"
-    "fixture/CreateLunaClient"
+    "fixture/CreateLunaClient.yaml"
 
 testDescribeHAPG :: DescribeHAPG -> TestTree
 testDescribeHAPG = req
     "DescribeHAPG"
-    "fixture/DescribeHAPG"
+    "fixture/DescribeHAPG.yaml"
 
 testListLunaClients :: ListLunaClients -> TestTree
 testListLunaClients = req
     "ListLunaClients"
-    "fixture/ListLunaClients"
+    "fixture/ListLunaClients.yaml"
 
 testGetConfig :: GetConfig -> TestTree
 testGetConfig = req
     "GetConfig"
-    "fixture/GetConfig"
+    "fixture/GetConfig.yaml"
 
 testDeleteHSM :: DeleteHSM -> TestTree
 testDeleteHSM = req
     "DeleteHSM"
-    "fixture/DeleteHSM"
+    "fixture/DeleteHSM.yaml"
 
 testDescribeHSM :: DescribeHSM -> TestTree
 testDescribeHSM = req
     "DescribeHSM"
-    "fixture/DescribeHSM"
+    "fixture/DescribeHSM.yaml"
 
 testModifyHAPG :: ModifyHAPG -> TestTree
 testModifyHAPG = req
     "ModifyHAPG"
-    "fixture/ModifyHAPG"
+    "fixture/ModifyHAPG.yaml"
 
 testListAvailableZones :: ListAvailableZones -> TestTree
 testListAvailableZones = req
     "ListAvailableZones"
-    "fixture/ListAvailableZones"
+    "fixture/ListAvailableZones.yaml"
 
 testModifyHSM :: ModifyHSM -> TestTree
 testModifyHSM = req
     "ModifyHSM"
-    "fixture/ModifyHSM"
+    "fixture/ModifyHSM.yaml"
 
 testDeleteLunaClient :: DeleteLunaClient -> TestTree
 testDeleteLunaClient = req
     "DeleteLunaClient"
-    "fixture/DeleteLunaClient"
+    "fixture/DeleteLunaClient.yaml"
 
 -- Responses
 
 testListHAPGsResponse :: ListHAPGsResponse -> TestTree
 testListHAPGsResponse = res
     "ListHAPGsResponse"
-    "fixture/ListHAPGsResponse"
+    "fixture/ListHAPGsResponse.proto"
     cloudHSM
     (Proxy :: Proxy ListHAPGs)
 
 testListHSMsResponse :: ListHSMsResponse -> TestTree
 testListHSMsResponse = res
     "ListHSMsResponse"
-    "fixture/ListHSMsResponse"
+    "fixture/ListHSMsResponse.proto"
     cloudHSM
     (Proxy :: Proxy ListHSMs)
 
 testDeleteHAPGResponse :: DeleteHAPGResponse -> TestTree
 testDeleteHAPGResponse = res
     "DeleteHAPGResponse"
-    "fixture/DeleteHAPGResponse"
+    "fixture/DeleteHAPGResponse.proto"
     cloudHSM
     (Proxy :: Proxy DeleteHAPG)
 
 testModifyLunaClientResponse :: ModifyLunaClientResponse -> TestTree
 testModifyLunaClientResponse = res
     "ModifyLunaClientResponse"
-    "fixture/ModifyLunaClientResponse"
+    "fixture/ModifyLunaClientResponse.proto"
     cloudHSM
     (Proxy :: Proxy ModifyLunaClient)
 
 testDescribeLunaClientResponse :: DescribeLunaClientResponse -> TestTree
 testDescribeLunaClientResponse = res
     "DescribeLunaClientResponse"
-    "fixture/DescribeLunaClientResponse"
+    "fixture/DescribeLunaClientResponse.proto"
     cloudHSM
     (Proxy :: Proxy DescribeLunaClient)
 
 testCreateHSMResponse :: CreateHSMResponse -> TestTree
 testCreateHSMResponse = res
     "CreateHSMResponse"
-    "fixture/CreateHSMResponse"
+    "fixture/CreateHSMResponse.proto"
     cloudHSM
     (Proxy :: Proxy CreateHSM)
 
 testCreateHAPGResponse :: CreateHAPGResponse -> TestTree
 testCreateHAPGResponse = res
     "CreateHAPGResponse"
-    "fixture/CreateHAPGResponse"
+    "fixture/CreateHAPGResponse.proto"
     cloudHSM
     (Proxy :: Proxy CreateHAPG)
 
 testCreateLunaClientResponse :: CreateLunaClientResponse -> TestTree
 testCreateLunaClientResponse = res
     "CreateLunaClientResponse"
-    "fixture/CreateLunaClientResponse"
+    "fixture/CreateLunaClientResponse.proto"
     cloudHSM
     (Proxy :: Proxy CreateLunaClient)
 
 testDescribeHAPGResponse :: DescribeHAPGResponse -> TestTree
 testDescribeHAPGResponse = res
     "DescribeHAPGResponse"
-    "fixture/DescribeHAPGResponse"
+    "fixture/DescribeHAPGResponse.proto"
     cloudHSM
     (Proxy :: Proxy DescribeHAPG)
 
 testListLunaClientsResponse :: ListLunaClientsResponse -> TestTree
 testListLunaClientsResponse = res
     "ListLunaClientsResponse"
-    "fixture/ListLunaClientsResponse"
+    "fixture/ListLunaClientsResponse.proto"
     cloudHSM
     (Proxy :: Proxy ListLunaClients)
 
 testGetConfigResponse :: GetConfigResponse -> TestTree
 testGetConfigResponse = res
     "GetConfigResponse"
-    "fixture/GetConfigResponse"
+    "fixture/GetConfigResponse.proto"
     cloudHSM
     (Proxy :: Proxy GetConfig)
 
 testDeleteHSMResponse :: DeleteHSMResponse -> TestTree
 testDeleteHSMResponse = res
     "DeleteHSMResponse"
-    "fixture/DeleteHSMResponse"
+    "fixture/DeleteHSMResponse.proto"
     cloudHSM
     (Proxy :: Proxy DeleteHSM)
 
 testDescribeHSMResponse :: DescribeHSMResponse -> TestTree
 testDescribeHSMResponse = res
     "DescribeHSMResponse"
-    "fixture/DescribeHSMResponse"
+    "fixture/DescribeHSMResponse.proto"
     cloudHSM
     (Proxy :: Proxy DescribeHSM)
 
 testModifyHAPGResponse :: ModifyHAPGResponse -> TestTree
 testModifyHAPGResponse = res
     "ModifyHAPGResponse"
-    "fixture/ModifyHAPGResponse"
+    "fixture/ModifyHAPGResponse.proto"
     cloudHSM
     (Proxy :: Proxy ModifyHAPG)
 
 testListAvailableZonesResponse :: ListAvailableZonesResponse -> TestTree
 testListAvailableZonesResponse = res
     "ListAvailableZonesResponse"
-    "fixture/ListAvailableZonesResponse"
+    "fixture/ListAvailableZonesResponse.proto"
     cloudHSM
     (Proxy :: Proxy ListAvailableZones)
 
 testModifyHSMResponse :: ModifyHSMResponse -> TestTree
 testModifyHSMResponse = res
     "ModifyHSMResponse"
-    "fixture/ModifyHSMResponse"
+    "fixture/ModifyHSMResponse.proto"
     cloudHSM
     (Proxy :: Proxy ModifyHSM)
 
 testDeleteLunaClientResponse :: DeleteLunaClientResponse -> TestTree
 testDeleteLunaClientResponse = res
     "DeleteLunaClientResponse"
-    "fixture/DeleteLunaClientResponse"
+    "fixture/DeleteLunaClientResponse.proto"
     cloudHSM
     (Proxy :: Proxy DeleteLunaClient)

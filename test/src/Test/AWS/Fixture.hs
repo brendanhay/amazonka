@@ -23,8 +23,6 @@ import           Control.Exception.Lens       (trying)
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import           Data.Bifunctor
-import qualified Data.ByteString              as BS
-import qualified Data.ByteString.Char8        as BS8
 import qualified Data.ByteString.Lazy         as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
@@ -32,23 +30,15 @@ import qualified Data.HashMap.Strict          as Map
 import           Data.List                    (sortBy)
 import           Data.Ord
 import           Data.Proxy
-import qualified Data.Text                    as Text
-import qualified Data.Text.Encoding           as Text
 import           Data.Time
-import           Data.Typeable
 import qualified Data.Yaml                    as YAML
-import           GHC.Generics                 (Generic)
-import           Language.Haskell.TH
-import           Language.Haskell.TH.Quote
 import           Network.AWS.Data.ByteString
-import           Network.AWS.Data.XML
 import           Network.AWS.Prelude          hiding ((<.>))
-import           Network.AWS.Types
 import           Network.HTTP.Client.Internal hiding (Proxy, Request, Response)
 import qualified Network.HTTP.Client.Internal as Client
 import           Network.HTTP.Types
 import           Test.AWS.Assert
-import           Test.AWS.Orphans
+import           Test.AWS.Orphans             ()
 import           Test.AWS.TH
 import           Test.Tasty
 import           Test.Tasty.HUnit

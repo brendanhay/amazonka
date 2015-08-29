@@ -10,12 +10,10 @@
 --
 module Test.AWS.Diff where
 
-import           System.Exit
 import           System.IO
 import           System.IO.Temp
 import           System.Process
 import           Text.Groom
-import           Text.Printf
 
 -- | Display the difference between two Haskell values,
 -- with control over the diff parameters.

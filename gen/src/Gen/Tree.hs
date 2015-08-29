@@ -125,9 +125,11 @@ populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
 
     fixture :: Operation Identity SData a -> [DirTree (Either Error Touch)]
     fixture o =
-        [ touch (typeId (inputName  o))
-        , touch (typeId (outputName o))
+        [ touch (n <> ".yaml")
+        , touch (n <> "Response.proto")
         ]
+      where
+       n = typeId (_opName o)
 
     mod :: NS -> [NS] -> Template -> DirTree (Either Error Touch)
     mod n is t = write . module' n is t . pure $ toJSON l

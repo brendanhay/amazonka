@@ -141,205 +141,205 @@ import Test.AWS.ElasticTranscoder.Internal
 testDeletePreset :: DeletePreset -> TestTree
 testDeletePreset = req
     "DeletePreset"
-    "fixture/DeletePreset"
+    "fixture/DeletePreset.yaml"
 
 testListJobsByPipeline :: ListJobsByPipeline -> TestTree
 testListJobsByPipeline = req
     "ListJobsByPipeline"
-    "fixture/ListJobsByPipeline"
+    "fixture/ListJobsByPipeline.yaml"
 
 testUpdatePipelineStatus :: UpdatePipelineStatus -> TestTree
 testUpdatePipelineStatus = req
     "UpdatePipelineStatus"
-    "fixture/UpdatePipelineStatus"
+    "fixture/UpdatePipelineStatus.yaml"
 
 testTestRole :: TestRole -> TestTree
 testTestRole = req
     "TestRole"
-    "fixture/TestRole"
+    "fixture/TestRole.yaml"
 
 testUpdatePipeline :: UpdatePipeline -> TestTree
 testUpdatePipeline = req
     "UpdatePipeline"
-    "fixture/UpdatePipeline"
+    "fixture/UpdatePipeline.yaml"
 
 testDeletePipeline :: DeletePipeline -> TestTree
 testDeletePipeline = req
     "DeletePipeline"
-    "fixture/DeletePipeline"
+    "fixture/DeletePipeline.yaml"
 
 testCreateJob :: CreateJob -> TestTree
 testCreateJob = req
     "CreateJob"
-    "fixture/CreateJob"
+    "fixture/CreateJob.yaml"
 
 testListPipelines :: ListPipelines -> TestTree
 testListPipelines = req
     "ListPipelines"
-    "fixture/ListPipelines"
+    "fixture/ListPipelines.yaml"
 
 testCreatePreset :: CreatePreset -> TestTree
 testCreatePreset = req
     "CreatePreset"
-    "fixture/CreatePreset"
+    "fixture/CreatePreset.yaml"
 
 testListPresets :: ListPresets -> TestTree
 testListPresets = req
     "ListPresets"
-    "fixture/ListPresets"
+    "fixture/ListPresets.yaml"
 
 testReadPreset :: ReadPreset -> TestTree
 testReadPreset = req
     "ReadPreset"
-    "fixture/ReadPreset"
+    "fixture/ReadPreset.yaml"
 
 testUpdatePipelineNotifications :: UpdatePipelineNotifications -> TestTree
 testUpdatePipelineNotifications = req
     "UpdatePipelineNotifications"
-    "fixture/UpdatePipelineNotifications"
+    "fixture/UpdatePipelineNotifications.yaml"
 
 testReadJob :: ReadJob -> TestTree
 testReadJob = req
     "ReadJob"
-    "fixture/ReadJob"
+    "fixture/ReadJob.yaml"
 
 testReadPipeline :: ReadPipeline -> TestTree
 testReadPipeline = req
     "ReadPipeline"
-    "fixture/ReadPipeline"
+    "fixture/ReadPipeline.yaml"
 
 testCreatePipeline :: CreatePipeline -> TestTree
 testCreatePipeline = req
     "CreatePipeline"
-    "fixture/CreatePipeline"
+    "fixture/CreatePipeline.yaml"
 
 testListJobsByStatus :: ListJobsByStatus -> TestTree
 testListJobsByStatus = req
     "ListJobsByStatus"
-    "fixture/ListJobsByStatus"
+    "fixture/ListJobsByStatus.yaml"
 
 testCancelJob :: CancelJob -> TestTree
 testCancelJob = req
     "CancelJob"
-    "fixture/CancelJob"
+    "fixture/CancelJob.yaml"
 
 -- Responses
 
 testDeletePresetResponse :: DeletePresetResponse -> TestTree
 testDeletePresetResponse = res
     "DeletePresetResponse"
-    "fixture/DeletePresetResponse"
+    "fixture/DeletePresetResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy DeletePreset)
 
 testListJobsByPipelineResponse :: ListJobsByPipelineResponse -> TestTree
 testListJobsByPipelineResponse = res
     "ListJobsByPipelineResponse"
-    "fixture/ListJobsByPipelineResponse"
+    "fixture/ListJobsByPipelineResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy ListJobsByPipeline)
 
 testUpdatePipelineStatusResponse :: UpdatePipelineStatusResponse -> TestTree
 testUpdatePipelineStatusResponse = res
     "UpdatePipelineStatusResponse"
-    "fixture/UpdatePipelineStatusResponse"
+    "fixture/UpdatePipelineStatusResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy UpdatePipelineStatus)
 
 testTestRoleResponse :: TestRoleResponse -> TestTree
 testTestRoleResponse = res
     "TestRoleResponse"
-    "fixture/TestRoleResponse"
+    "fixture/TestRoleResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy TestRole)
 
 testUpdatePipelineResponse :: UpdatePipelineResponse -> TestTree
 testUpdatePipelineResponse = res
     "UpdatePipelineResponse"
-    "fixture/UpdatePipelineResponse"
+    "fixture/UpdatePipelineResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy UpdatePipeline)
 
 testDeletePipelineResponse :: DeletePipelineResponse -> TestTree
 testDeletePipelineResponse = res
     "DeletePipelineResponse"
-    "fixture/DeletePipelineResponse"
+    "fixture/DeletePipelineResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy DeletePipeline)
 
 testCreateJobResponse :: CreateJobResponse -> TestTree
 testCreateJobResponse = res
     "CreateJobResponse"
-    "fixture/CreateJobResponse"
+    "fixture/CreateJobResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy CreateJob)
 
 testListPipelinesResponse :: ListPipelinesResponse -> TestTree
 testListPipelinesResponse = res
     "ListPipelinesResponse"
-    "fixture/ListPipelinesResponse"
+    "fixture/ListPipelinesResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy ListPipelines)
 
 testCreatePresetResponse :: CreatePresetResponse -> TestTree
 testCreatePresetResponse = res
     "CreatePresetResponse"
-    "fixture/CreatePresetResponse"
+    "fixture/CreatePresetResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy CreatePreset)
 
 testListPresetsResponse :: ListPresetsResponse -> TestTree
 testListPresetsResponse = res
     "ListPresetsResponse"
-    "fixture/ListPresetsResponse"
+    "fixture/ListPresetsResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy ListPresets)
 
 testReadPresetResponse :: ReadPresetResponse -> TestTree
 testReadPresetResponse = res
     "ReadPresetResponse"
-    "fixture/ReadPresetResponse"
+    "fixture/ReadPresetResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy ReadPreset)
 
 testUpdatePipelineNotificationsResponse :: UpdatePipelineNotificationsResponse -> TestTree
 testUpdatePipelineNotificationsResponse = res
     "UpdatePipelineNotificationsResponse"
-    "fixture/UpdatePipelineNotificationsResponse"
+    "fixture/UpdatePipelineNotificationsResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy UpdatePipelineNotifications)
 
 testReadJobResponse :: ReadJobResponse -> TestTree
 testReadJobResponse = res
     "ReadJobResponse"
-    "fixture/ReadJobResponse"
+    "fixture/ReadJobResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy ReadJob)
 
 testReadPipelineResponse :: ReadPipelineResponse -> TestTree
 testReadPipelineResponse = res
     "ReadPipelineResponse"
-    "fixture/ReadPipelineResponse"
+    "fixture/ReadPipelineResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy ReadPipeline)
 
 testCreatePipelineResponse :: CreatePipelineResponse -> TestTree
 testCreatePipelineResponse = res
     "CreatePipelineResponse"
-    "fixture/CreatePipelineResponse"
+    "fixture/CreatePipelineResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy CreatePipeline)
 
 testListJobsByStatusResponse :: ListJobsByStatusResponse -> TestTree
 testListJobsByStatusResponse = res
     "ListJobsByStatusResponse"
-    "fixture/ListJobsByStatusResponse"
+    "fixture/ListJobsByStatusResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy ListJobsByStatus)
 
 testCancelJobResponse :: CancelJobResponse -> TestTree
 testCancelJobResponse = res
     "CancelJobResponse"
-    "fixture/CancelJobResponse"
+    "fixture/CancelJobResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy CancelJob)

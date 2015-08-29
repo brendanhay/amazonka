@@ -1,5 +1,5 @@
 name:                  amazonka-dynamodb
-version:               1.2.0.1
+version:               1.2.0.2
 synopsis:              Amazon DynamoDB SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues

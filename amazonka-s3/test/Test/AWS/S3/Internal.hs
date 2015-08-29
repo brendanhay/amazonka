@@ -15,3 +15,28 @@ module Test.AWS.S3.Internal where
 
 import           Network.AWS.S3
 import           Test.AWS.Prelude
+
+-- FIXME: expand, convert to quick/smallcheck properties.
+objectKeyTests :: TestTree
+objectKeyTests = testGroup "object key"
+    [ testGroup "encoding"
+        [ testCase "without delimiters" $
+            "/key" @=?
+                enc (ObjectKey "key")
+
+        , testCase "without leading prefix" $
+            "/some/obj%23ect" @=?
+                enc (ObjectKey "some/obj#ect")
+
+        , testCase "custom delimiter" $
+            "/%5Esome%5Eobj%25ect%5Efoo" @=?
+                enc (ObjectKey "^some^obj%ect^foo")
+
+        , testCase "leading prefix" $
+            "/some%3D1/path%20to/foo%3Dbar/object%20here" @=?
+                enc (ObjectKey "/some=1/path to/foo=bar/object here")
+        ]
+    ]
+  where
+    enc :: ObjectKey -> ByteString
+    enc = toBS . escapePath . rawPath

@@ -2,6 +2,7 @@ name:                  {{ libraryName }}
 version:               {{ libraryVersion }}
 synopsis:              {{ serviceFullName }}.
 homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
@@ -9,9 +10,8 @@ maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
-extra-source-files:    README.md
 cabal-version:         >= 1.10
-
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
 {{ cabalDescription }}
     .

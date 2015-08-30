@@ -156,6 +156,7 @@ import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Writer.Class
 import           Data.Conduit                 hiding (await)
+import           Data.Conduit.Lazy            (MonadActive (..))
 import           Data.IORef
 import           Data.Monoid
 import           Network.AWS.Auth
@@ -181,6 +182,7 @@ newtype AWST m a = AWST { unAWST :: ReaderT Env m a }
         , MonadPlus
         , MonadIO
         , MonadReader Env
+        , MonadActive
         )
 
 instance MonadThrow m => MonadThrow (AWST m) where

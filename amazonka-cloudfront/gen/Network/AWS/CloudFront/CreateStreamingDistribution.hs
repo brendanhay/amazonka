@@ -36,7 +36,7 @@ module Network.AWS.CloudFront.CreateStreamingDistribution
     , csdrsETag
     , csdrsLocation
     , csdrsStreamingDistribution
-    , csdrsStatus
+    , csdrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -104,7 +104,7 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
     { _csdrsETag                  :: !(Maybe Text)
     , _csdrsLocation              :: !(Maybe Text)
     , _csdrsStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _csdrsStatus                :: !Int
+    , _csdrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateStreamingDistributionResponse' with the minimum fields required to make a request.
@@ -117,16 +117,16 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
 --
 -- * 'csdrsStreamingDistribution'
 --
--- * 'csdrsStatus'
+-- * 'csdrsResponseStatus'
 createStreamingDistributionResponse
-    :: Int -- ^ 'csdrsStatus'
+    :: Int -- ^ 'csdrsResponseStatus'
     -> CreateStreamingDistributionResponse
-createStreamingDistributionResponse pStatus_ =
+createStreamingDistributionResponse pResponseStatus_ =
     CreateStreamingDistributionResponse'
     { _csdrsETag = Nothing
     , _csdrsLocation = Nothing
     , _csdrsStreamingDistribution = Nothing
-    , _csdrsStatus = pStatus_
+    , _csdrsResponseStatus = pResponseStatus_
     }
 
 -- | The current version of the streaming distribution created.
@@ -144,5 +144,5 @@ csdrsStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe S
 csdrsStreamingDistribution = lens _csdrsStreamingDistribution (\ s a -> s{_csdrsStreamingDistribution = a});
 
 -- | The response status code.
-csdrsStatus :: Lens' CreateStreamingDistributionResponse Int
-csdrsStatus = lens _csdrsStatus (\ s a -> s{_csdrsStatus = a});
+csdrsResponseStatus :: Lens' CreateStreamingDistributionResponse Int
+csdrsResponseStatus = lens _csdrsResponseStatus (\ s a -> s{_csdrsResponseStatus = a});

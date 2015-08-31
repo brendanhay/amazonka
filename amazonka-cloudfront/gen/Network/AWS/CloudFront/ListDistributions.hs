@@ -34,7 +34,7 @@ module Network.AWS.CloudFront.ListDistributions
     , listDistributionsResponse
     , ListDistributionsResponse
     -- * Response Lenses
-    , ldrsStatus
+    , ldrsResponseStatus
     , ldrsDistributionList
     ) where
 
@@ -103,7 +103,7 @@ instance ToQuery ListDistributions where
 --
 -- /See:/ 'listDistributionsResponse' smart constructor.
 data ListDistributionsResponse = ListDistributionsResponse'
-    { _ldrsStatus           :: !Int
+    { _ldrsResponseStatus   :: !Int
     , _ldrsDistributionList :: !DistributionList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -111,22 +111,22 @@ data ListDistributionsResponse = ListDistributionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldrsStatus'
+-- * 'ldrsResponseStatus'
 --
 -- * 'ldrsDistributionList'
 listDistributionsResponse
-    :: Int -- ^ 'ldrsStatus'
+    :: Int -- ^ 'ldrsResponseStatus'
     -> DistributionList -- ^ 'ldrsDistributionList'
     -> ListDistributionsResponse
-listDistributionsResponse pStatus_ pDistributionList_ =
+listDistributionsResponse pResponseStatus_ pDistributionList_ =
     ListDistributionsResponse'
-    { _ldrsStatus = pStatus_
+    { _ldrsResponseStatus = pResponseStatus_
     , _ldrsDistributionList = pDistributionList_
     }
 
 -- | The response status code.
-ldrsStatus :: Lens' ListDistributionsResponse Int
-ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
+ldrsResponseStatus :: Lens' ListDistributionsResponse Int
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 
 -- | The DistributionList type.
 ldrsDistributionList :: Lens' ListDistributionsResponse DistributionList

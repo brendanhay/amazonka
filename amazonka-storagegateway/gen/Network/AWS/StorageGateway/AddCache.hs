@@ -42,7 +42,7 @@ module Network.AWS.StorageGateway.AddCache
     , AddCacheResponse
     -- * Response Lenses
     , acrsGatewayARN
-    , acrsStatus
+    , acrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -114,8 +114,8 @@ instance ToQuery AddCache where
 
 -- | /See:/ 'addCacheResponse' smart constructor.
 data AddCacheResponse = AddCacheResponse'
-    { _acrsGatewayARN :: !(Maybe Text)
-    , _acrsStatus     :: !Int
+    { _acrsGatewayARN     :: !(Maybe Text)
+    , _acrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddCacheResponse' with the minimum fields required to make a request.
@@ -124,14 +124,14 @@ data AddCacheResponse = AddCacheResponse'
 --
 -- * 'acrsGatewayARN'
 --
--- * 'acrsStatus'
+-- * 'acrsResponseStatus'
 addCacheResponse
-    :: Int -- ^ 'acrsStatus'
+    :: Int -- ^ 'acrsResponseStatus'
     -> AddCacheResponse
-addCacheResponse pStatus_ =
+addCacheResponse pResponseStatus_ =
     AddCacheResponse'
     { _acrsGatewayARN = Nothing
-    , _acrsStatus = pStatus_
+    , _acrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -139,5 +139,5 @@ acrsGatewayARN :: Lens' AddCacheResponse (Maybe Text)
 acrsGatewayARN = lens _acrsGatewayARN (\ s a -> s{_acrsGatewayARN = a});
 
 -- | The response status code.
-acrsStatus :: Lens' AddCacheResponse Int
-acrsStatus = lens _acrsStatus (\ s a -> s{_acrsStatus = a});
+acrsResponseStatus :: Lens' AddCacheResponse Int
+acrsResponseStatus = lens _acrsResponseStatus (\ s a -> s{_acrsResponseStatus = a});

@@ -39,7 +39,7 @@ module Network.AWS.EC2.DescribeVPCAttribute
     , dvpcarsEnableDNSHostnames
     , dvpcarsEnableDNSSupport
     , dvpcarsVPCId
-    , dvpcarsStatus
+    , dvpcarsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -121,7 +121,7 @@ data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
     { _dvpcarsEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
     , _dvpcarsEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
     , _dvpcarsVPCId              :: !(Maybe Text)
-    , _dvpcarsStatus             :: !Int
+    , _dvpcarsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVPCAttributeResponse' with the minimum fields required to make a request.
@@ -134,16 +134,16 @@ data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
 --
 -- * 'dvpcarsVPCId'
 --
--- * 'dvpcarsStatus'
+-- * 'dvpcarsResponseStatus'
 describeVPCAttributeResponse
-    :: Int -- ^ 'dvpcarsStatus'
+    :: Int -- ^ 'dvpcarsResponseStatus'
     -> DescribeVPCAttributeResponse
-describeVPCAttributeResponse pStatus_ =
+describeVPCAttributeResponse pResponseStatus_ =
     DescribeVPCAttributeResponse'
     { _dvpcarsEnableDNSHostnames = Nothing
     , _dvpcarsEnableDNSSupport = Nothing
     , _dvpcarsVPCId = Nothing
-    , _dvpcarsStatus = pStatus_
+    , _dvpcarsResponseStatus = pResponseStatus_
     }
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames.
@@ -164,5 +164,5 @@ dvpcarsVPCId :: Lens' DescribeVPCAttributeResponse (Maybe Text)
 dvpcarsVPCId = lens _dvpcarsVPCId (\ s a -> s{_dvpcarsVPCId = a});
 
 -- | The response status code.
-dvpcarsStatus :: Lens' DescribeVPCAttributeResponse Int
-dvpcarsStatus = lens _dvpcarsStatus (\ s a -> s{_dvpcarsStatus = a});
+dvpcarsResponseStatus :: Lens' DescribeVPCAttributeResponse Int
+dvpcarsResponseStatus = lens _dvpcarsResponseStatus (\ s a -> s{_dvpcarsResponseStatus = a});

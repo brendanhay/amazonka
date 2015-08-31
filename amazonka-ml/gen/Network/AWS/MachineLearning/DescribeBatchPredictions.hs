@@ -48,7 +48,7 @@ module Network.AWS.MachineLearning.DescribeBatchPredictions
     -- * Response Lenses
     , drsResults
     , drsNextToken
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -258,9 +258,9 @@ instance ToQuery DescribeBatchPredictions where
 --
 -- /See:/ 'describeBatchPredictionsResponse' smart constructor.
 data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
-    { _drsResults   :: !(Maybe [BatchPrediction])
-    , _drsNextToken :: !(Maybe Text)
-    , _drsStatus    :: !Int
+    { _drsResults        :: !(Maybe [BatchPrediction])
+    , _drsNextToken      :: !(Maybe Text)
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeBatchPredictionsResponse' with the minimum fields required to make a request.
@@ -271,15 +271,15 @@ data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
 --
 -- * 'drsNextToken'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 describeBatchPredictionsResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DescribeBatchPredictionsResponse
-describeBatchPredictionsResponse pStatus_ =
+describeBatchPredictionsResponse pResponseStatus_ =
     DescribeBatchPredictionsResponse'
     { _drsResults = Nothing
     , _drsNextToken = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | A list of BatchPrediction objects that meet the search criteria.
@@ -292,5 +292,5 @@ drsNextToken :: Lens' DescribeBatchPredictionsResponse (Maybe Text)
 drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
 -- | The response status code.
-drsStatus :: Lens' DescribeBatchPredictionsResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DescribeBatchPredictionsResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

@@ -33,6 +33,7 @@ module Network.AWS.CloudHSM.DeleteLunaClient
     , deleteLunaClientResponse
     , DeleteLunaClientResponse
     -- * Response Lenses
+    , dlcrsResponseStatus
     , dlcrsStatus
     ) where
 
@@ -68,9 +69,10 @@ instance AWSRequest DeleteLunaClient where
         type Rs DeleteLunaClient = DeleteLunaClientResponse
         request = postJSON cloudHSM
         response
-          = receiveEmpty
+          = receiveJSON
               (\ s h x ->
-                 DeleteLunaClientResponse' <$> (pure (fromEnum s)))
+                 DeleteLunaClientResponse' <$>
+                   (pure (fromEnum s)) <*> (x .:> "Status"))
 
 instance ToHeaders DeleteLunaClient where
         toHeaders
@@ -94,23 +96,32 @@ instance ToQuery DeleteLunaClient where
         toQuery = const mempty
 
 -- | /See:/ 'deleteLunaClientResponse' smart constructor.
-newtype DeleteLunaClientResponse = DeleteLunaClientResponse'
-    { _dlcrsStatus :: Int
+data DeleteLunaClientResponse = DeleteLunaClientResponse'
+    { _dlcrsResponseStatus :: !Int
+    , _dlcrsStatus         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteLunaClientResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dlcrsResponseStatus'
+--
 -- * 'dlcrsStatus'
 deleteLunaClientResponse
-    :: Int -- ^ 'dlcrsStatus'
+    :: Int -- ^ 'dlcrsResponseStatus'
+    -> Text -- ^ 'dlcrsStatus'
     -> DeleteLunaClientResponse
-deleteLunaClientResponse pStatus_ =
+deleteLunaClientResponse pResponseStatus_ pStatus_ =
     DeleteLunaClientResponse'
-    { _dlcrsStatus = pStatus_
+    { _dlcrsResponseStatus = pResponseStatus_
+    , _dlcrsStatus = pStatus_
     }
 
 -- | The response status code.
-dlcrsStatus :: Lens' DeleteLunaClientResponse Int
+dlcrsResponseStatus :: Lens' DeleteLunaClientResponse Int
+dlcrsResponseStatus = lens _dlcrsResponseStatus (\ s a -> s{_dlcrsResponseStatus = a});
+
+-- | The status of the action.
+dlcrsStatus :: Lens' DeleteLunaClientResponse Text
 dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});

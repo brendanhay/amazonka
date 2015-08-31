@@ -38,7 +38,7 @@ module Network.AWS.MachineLearning.UpdateEvaluation
     , UpdateEvaluationResponse
     -- * Response Lenses
     , uersEvaluationId
-    , uersStatus
+    , uersResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -116,8 +116,8 @@ instance ToQuery UpdateEvaluation where
 --
 -- /See:/ 'updateEvaluationResponse' smart constructor.
 data UpdateEvaluationResponse = UpdateEvaluationResponse'
-    { _uersEvaluationId :: !(Maybe Text)
-    , _uersStatus       :: !Int
+    { _uersEvaluationId   :: !(Maybe Text)
+    , _uersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateEvaluationResponse' with the minimum fields required to make a request.
@@ -126,14 +126,14 @@ data UpdateEvaluationResponse = UpdateEvaluationResponse'
 --
 -- * 'uersEvaluationId'
 --
--- * 'uersStatus'
+-- * 'uersResponseStatus'
 updateEvaluationResponse
-    :: Int -- ^ 'uersStatus'
+    :: Int -- ^ 'uersResponseStatus'
     -> UpdateEvaluationResponse
-updateEvaluationResponse pStatus_ =
+updateEvaluationResponse pResponseStatus_ =
     UpdateEvaluationResponse'
     { _uersEvaluationId = Nothing
-    , _uersStatus = pStatus_
+    , _uersResponseStatus = pResponseStatus_
     }
 
 -- | The ID assigned to the 'Evaluation' during creation. This value should
@@ -142,5 +142,5 @@ uersEvaluationId :: Lens' UpdateEvaluationResponse (Maybe Text)
 uersEvaluationId = lens _uersEvaluationId (\ s a -> s{_uersEvaluationId = a});
 
 -- | The response status code.
-uersStatus :: Lens' UpdateEvaluationResponse Int
-uersStatus = lens _uersStatus (\ s a -> s{_uersStatus = a});
+uersResponseStatus :: Lens' UpdateEvaluationResponse Int
+uersResponseStatus = lens _uersResponseStatus (\ s a -> s{_uersResponseStatus = a});

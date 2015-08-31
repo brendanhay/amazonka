@@ -35,7 +35,7 @@ module Network.AWS.ECS.StopTask
     , StopTaskResponse
     -- * Response Lenses
     , srsTask
-    , srsStatus
+    , srsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -111,8 +111,8 @@ instance ToQuery StopTask where
 
 -- | /See:/ 'stopTaskResponse' smart constructor.
 data StopTaskResponse = StopTaskResponse'
-    { _srsTask   :: !(Maybe Task)
-    , _srsStatus :: !Int
+    { _srsTask           :: !(Maybe Task)
+    , _srsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StopTaskResponse' with the minimum fields required to make a request.
@@ -121,14 +121,14 @@ data StopTaskResponse = StopTaskResponse'
 --
 -- * 'srsTask'
 --
--- * 'srsStatus'
+-- * 'srsResponseStatus'
 stopTaskResponse
-    :: Int -- ^ 'srsStatus'
+    :: Int -- ^ 'srsResponseStatus'
     -> StopTaskResponse
-stopTaskResponse pStatus_ =
+stopTaskResponse pResponseStatus_ =
     StopTaskResponse'
     { _srsTask = Nothing
-    , _srsStatus = pStatus_
+    , _srsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -136,5 +136,5 @@ srsTask :: Lens' StopTaskResponse (Maybe Task)
 srsTask = lens _srsTask (\ s a -> s{_srsTask = a});
 
 -- | The response status code.
-srsStatus :: Lens' StopTaskResponse Int
-srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
+srsResponseStatus :: Lens' StopTaskResponse Int
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});

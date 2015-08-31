@@ -49,7 +49,7 @@ module Network.AWS.KMS.CreateGrant
     -- * Response Lenses
     , cgrsGrantId
     , cgrsGrantToken
-    , cgrsStatus
+    , cgrsResponseStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -179,9 +179,9 @@ instance ToQuery CreateGrant where
 
 -- | /See:/ 'createGrantResponse' smart constructor.
 data CreateGrantResponse = CreateGrantResponse'
-    { _cgrsGrantId    :: !(Maybe Text)
-    , _cgrsGrantToken :: !(Maybe Text)
-    , _cgrsStatus     :: !Int
+    { _cgrsGrantId        :: !(Maybe Text)
+    , _cgrsGrantToken     :: !(Maybe Text)
+    , _cgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateGrantResponse' with the minimum fields required to make a request.
@@ -192,15 +192,15 @@ data CreateGrantResponse = CreateGrantResponse'
 --
 -- * 'cgrsGrantToken'
 --
--- * 'cgrsStatus'
+-- * 'cgrsResponseStatus'
 createGrantResponse
-    :: Int -- ^ 'cgrsStatus'
+    :: Int -- ^ 'cgrsResponseStatus'
     -> CreateGrantResponse
-createGrantResponse pStatus_ =
+createGrantResponse pResponseStatus_ =
     CreateGrantResponse'
     { _cgrsGrantId = Nothing
     , _cgrsGrantToken = Nothing
-    , _cgrsStatus = pStatus_
+    , _cgrsResponseStatus = pResponseStatus_
     }
 
 -- | Unique grant identifier. You can use the /GrantId/ value to revoke a
@@ -214,5 +214,5 @@ cgrsGrantToken :: Lens' CreateGrantResponse (Maybe Text)
 cgrsGrantToken = lens _cgrsGrantToken (\ s a -> s{_cgrsGrantToken = a});
 
 -- | The response status code.
-cgrsStatus :: Lens' CreateGrantResponse Int
-cgrsStatus = lens _cgrsStatus (\ s a -> s{_cgrsStatus = a});
+cgrsResponseStatus :: Lens' CreateGrantResponse Int
+cgrsResponseStatus = lens _cgrsResponseStatus (\ s a -> s{_cgrsResponseStatus = a});

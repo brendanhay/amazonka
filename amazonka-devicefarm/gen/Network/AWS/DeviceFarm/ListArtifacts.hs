@@ -37,7 +37,7 @@ module Network.AWS.DeviceFarm.ListArtifacts
     -- * Response Lenses
     , larsArtifacts
     , larsNextToken
-    , larsStatus
+    , larsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -132,9 +132,9 @@ instance ToQuery ListArtifacts where
 --
 -- /See:/ 'listArtifactsResponse' smart constructor.
 data ListArtifactsResponse = ListArtifactsResponse'
-    { _larsArtifacts :: !(Maybe [Artifact])
-    , _larsNextToken :: !(Maybe Text)
-    , _larsStatus    :: !Int
+    { _larsArtifacts      :: !(Maybe [Artifact])
+    , _larsNextToken      :: !(Maybe Text)
+    , _larsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListArtifactsResponse' with the minimum fields required to make a request.
@@ -145,15 +145,15 @@ data ListArtifactsResponse = ListArtifactsResponse'
 --
 -- * 'larsNextToken'
 --
--- * 'larsStatus'
+-- * 'larsResponseStatus'
 listArtifactsResponse
-    :: Int -- ^ 'larsStatus'
+    :: Int -- ^ 'larsResponseStatus'
     -> ListArtifactsResponse
-listArtifactsResponse pStatus_ =
+listArtifactsResponse pResponseStatus_ =
     ListArtifactsResponse'
     { _larsArtifacts = Nothing
     , _larsNextToken = Nothing
-    , _larsStatus = pStatus_
+    , _larsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the artifacts.
@@ -167,5 +167,5 @@ larsNextToken :: Lens' ListArtifactsResponse (Maybe Text)
 larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 
 -- | The response status code.
-larsStatus :: Lens' ListArtifactsResponse Int
-larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});
+larsResponseStatus :: Lens' ListArtifactsResponse Int
+larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});

@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeSpotFleetInstances
     , DescribeSpotFleetInstancesResponse
     -- * Response Lenses
     , dsfirsNextToken
-    , dsfirsStatus
+    , dsfirsResponseStatus
     , dsfirsSpotFleetRequestId
     , dsfirsActiveInstances
     ) where
@@ -138,7 +138,7 @@ instance ToQuery DescribeSpotFleetInstances where
 -- /See:/ 'describeSpotFleetInstancesResponse' smart constructor.
 data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
     { _dsfirsNextToken          :: !(Maybe Text)
-    , _dsfirsStatus             :: !Int
+    , _dsfirsResponseStatus     :: !Int
     , _dsfirsSpotFleetRequestId :: !Text
     , _dsfirsActiveInstances    :: ![ActiveInstance]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -149,19 +149,19 @@ data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
 --
 -- * 'dsfirsNextToken'
 --
--- * 'dsfirsStatus'
+-- * 'dsfirsResponseStatus'
 --
 -- * 'dsfirsSpotFleetRequestId'
 --
 -- * 'dsfirsActiveInstances'
 describeSpotFleetInstancesResponse
-    :: Int -- ^ 'dsfirsStatus'
+    :: Int -- ^ 'dsfirsResponseStatus'
     -> Text -- ^ 'dsfirsSpotFleetRequestId'
     -> DescribeSpotFleetInstancesResponse
-describeSpotFleetInstancesResponse pStatus_ pSpotFleetRequestId_ =
+describeSpotFleetInstancesResponse pResponseStatus_ pSpotFleetRequestId_ =
     DescribeSpotFleetInstancesResponse'
     { _dsfirsNextToken = Nothing
-    , _dsfirsStatus = pStatus_
+    , _dsfirsResponseStatus = pResponseStatus_
     , _dsfirsSpotFleetRequestId = pSpotFleetRequestId_
     , _dsfirsActiveInstances = mempty
     }
@@ -172,8 +172,8 @@ dsfirsNextToken :: Lens' DescribeSpotFleetInstancesResponse (Maybe Text)
 dsfirsNextToken = lens _dsfirsNextToken (\ s a -> s{_dsfirsNextToken = a});
 
 -- | The response status code.
-dsfirsStatus :: Lens' DescribeSpotFleetInstancesResponse Int
-dsfirsStatus = lens _dsfirsStatus (\ s a -> s{_dsfirsStatus = a});
+dsfirsResponseStatus :: Lens' DescribeSpotFleetInstancesResponse Int
+dsfirsResponseStatus = lens _dsfirsResponseStatus (\ s a -> s{_dsfirsResponseStatus = a});
 
 -- | The ID of the Spot fleet request.
 dsfirsSpotFleetRequestId :: Lens' DescribeSpotFleetInstancesResponse Text

@@ -35,6 +35,7 @@ module Network.AWS.CloudHSM.DescribeHSM
     , describeHSMResponse
     , DescribeHSMResponse
     -- * Response Lenses
+    , desrsStatus
     , desrsIAMRoleARN
     , desrsEniId
     , desrsVPCId
@@ -55,7 +56,7 @@ module Network.AWS.CloudHSM.DescribeHSM
     , desrsHSMARN
     , desrsEniIP
     , desrsHSMType
-    , desrsStatus
+    , desrsResponseStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -104,8 +105,9 @@ instance AWSRequest DescribeHSM where
           = receiveJSON
               (\ s h x ->
                  DescribeHSMResponse' <$>
-                   (x .?> "IamRoleArn") <*> (x .?> "EniId") <*>
-                     (x .?> "VpcId")
+                   (x .?> "Status") <*> (x .?> "IamRoleArn") <*>
+                     (x .?> "EniId")
+                     <*> (x .?> "VpcId")
                      <*> (x .?> "SshKeyLastUpdated")
                      <*> (x .?> "SubscriptionEndDate")
                      <*> (x .?> "ServerCertUri")
@@ -152,7 +154,8 @@ instance ToQuery DescribeHSM where
 --
 -- /See:/ 'describeHSMResponse' smart constructor.
 data DescribeHSMResponse = DescribeHSMResponse'
-    { _desrsIAMRoleARN            :: !(Maybe Text)
+    { _desrsStatus                :: !(Maybe HSMStatus)
+    , _desrsIAMRoleARN            :: !(Maybe Text)
     , _desrsEniId                 :: !(Maybe Text)
     , _desrsVPCId                 :: !(Maybe Text)
     , _desrsSSHKeyLastUpdated     :: !(Maybe Text)
@@ -172,12 +175,14 @@ data DescribeHSMResponse = DescribeHSMResponse'
     , _desrsHSMARN                :: !(Maybe Text)
     , _desrsEniIP                 :: !(Maybe Text)
     , _desrsHSMType               :: !(Maybe Text)
-    , _desrsStatus                :: !Int
+    , _desrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeHSMResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'desrsStatus'
 --
 -- * 'desrsIAMRoleARN'
 --
@@ -219,13 +224,14 @@ data DescribeHSMResponse = DescribeHSMResponse'
 --
 -- * 'desrsHSMType'
 --
--- * 'desrsStatus'
+-- * 'desrsResponseStatus'
 describeHSMResponse
-    :: Int -- ^ 'desrsStatus'
+    :: Int -- ^ 'desrsResponseStatus'
     -> DescribeHSMResponse
-describeHSMResponse pStatus_ =
+describeHSMResponse pResponseStatus_ =
     DescribeHSMResponse'
-    { _desrsIAMRoleARN = Nothing
+    { _desrsStatus = Nothing
+    , _desrsIAMRoleARN = Nothing
     , _desrsEniId = Nothing
     , _desrsVPCId = Nothing
     , _desrsSSHKeyLastUpdated = Nothing
@@ -245,8 +251,12 @@ describeHSMResponse pStatus_ =
     , _desrsHSMARN = Nothing
     , _desrsEniIP = Nothing
     , _desrsHSMType = Nothing
-    , _desrsStatus = pStatus_
+    , _desrsResponseStatus = pResponseStatus_
     }
+
+-- | The status of the HSM.
+desrsStatus :: Lens' DescribeHSMResponse (Maybe HSMStatus)
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
 
 -- | The ARN of the IAM role assigned to the HSM.
 desrsIAMRoleARN :: Lens' DescribeHSMResponse (Maybe Text)
@@ -330,5 +340,5 @@ desrsHSMType :: Lens' DescribeHSMResponse (Maybe Text)
 desrsHSMType = lens _desrsHSMType (\ s a -> s{_desrsHSMType = a});
 
 -- | The response status code.
-desrsStatus :: Lens' DescribeHSMResponse Int
-desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
+desrsResponseStatus :: Lens' DescribeHSMResponse Int
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});

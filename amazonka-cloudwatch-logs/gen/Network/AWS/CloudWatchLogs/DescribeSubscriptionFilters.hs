@@ -47,7 +47,7 @@ module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
     -- * Response Lenses
     , dsfrsSubscriptionFilters
     , dsfrsNextToken
-    , dsfrsStatus
+    , dsfrsResponseStatus
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -153,7 +153,7 @@ instance ToQuery DescribeSubscriptionFilters where
 data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
     { _dsfrsSubscriptionFilters :: !(Maybe [SubscriptionFilter])
     , _dsfrsNextToken           :: !(Maybe Text)
-    , _dsfrsStatus              :: !Int
+    , _dsfrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSubscriptionFiltersResponse' with the minimum fields required to make a request.
@@ -164,15 +164,15 @@ data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
 --
 -- * 'dsfrsNextToken'
 --
--- * 'dsfrsStatus'
+-- * 'dsfrsResponseStatus'
 describeSubscriptionFiltersResponse
-    :: Int -- ^ 'dsfrsStatus'
+    :: Int -- ^ 'dsfrsResponseStatus'
     -> DescribeSubscriptionFiltersResponse
-describeSubscriptionFiltersResponse pStatus_ =
+describeSubscriptionFiltersResponse pResponseStatus_ =
     DescribeSubscriptionFiltersResponse'
     { _dsfrsSubscriptionFilters = Nothing
     , _dsfrsNextToken = Nothing
-    , _dsfrsStatus = pStatus_
+    , _dsfrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -184,5 +184,5 @@ dsfrsNextToken :: Lens' DescribeSubscriptionFiltersResponse (Maybe Text)
 dsfrsNextToken = lens _dsfrsNextToken (\ s a -> s{_dsfrsNextToken = a});
 
 -- | The response status code.
-dsfrsStatus :: Lens' DescribeSubscriptionFiltersResponse Int
-dsfrsStatus = lens _dsfrsStatus (\ s a -> s{_dsfrsStatus = a});
+dsfrsResponseStatus :: Lens' DescribeSubscriptionFiltersResponse Int
+dsfrsResponseStatus = lens _dsfrsResponseStatus (\ s a -> s{_dsfrsResponseStatus = a});

@@ -44,7 +44,7 @@ module Network.AWS.Route53.DisassociateVPCFromHostedZone
     , disassociateVPCFromHostedZoneResponse
     , DisassociateVPCFromHostedZoneResponse
     -- * Response Lenses
-    , dvfhzrsStatus
+    , dvfhzrsResponseStatus
     , dvfhzrsChangeInfo
     ) where
 
@@ -138,30 +138,30 @@ instance ToXML DisassociateVPCFromHostedZone where
 --
 -- /See:/ 'disassociateVPCFromHostedZoneResponse' smart constructor.
 data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse'
-    { _dvfhzrsStatus     :: !Int
-    , _dvfhzrsChangeInfo :: !ChangeInfo
+    { _dvfhzrsResponseStatus :: !Int
+    , _dvfhzrsChangeInfo     :: !ChangeInfo
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DisassociateVPCFromHostedZoneResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvfhzrsStatus'
+-- * 'dvfhzrsResponseStatus'
 --
 -- * 'dvfhzrsChangeInfo'
 disassociateVPCFromHostedZoneResponse
-    :: Int -- ^ 'dvfhzrsStatus'
+    :: Int -- ^ 'dvfhzrsResponseStatus'
     -> ChangeInfo -- ^ 'dvfhzrsChangeInfo'
     -> DisassociateVPCFromHostedZoneResponse
-disassociateVPCFromHostedZoneResponse pStatus_ pChangeInfo_ =
+disassociateVPCFromHostedZoneResponse pResponseStatus_ pChangeInfo_ =
     DisassociateVPCFromHostedZoneResponse'
-    { _dvfhzrsStatus = pStatus_
+    { _dvfhzrsResponseStatus = pResponseStatus_
     , _dvfhzrsChangeInfo = pChangeInfo_
     }
 
 -- | The response status code.
-dvfhzrsStatus :: Lens' DisassociateVPCFromHostedZoneResponse Int
-dvfhzrsStatus = lens _dvfhzrsStatus (\ s a -> s{_dvfhzrsStatus = a});
+dvfhzrsResponseStatus :: Lens' DisassociateVPCFromHostedZoneResponse Int
+dvfhzrsResponseStatus = lens _dvfhzrsResponseStatus (\ s a -> s{_dvfhzrsResponseStatus = a});
 
 -- | A complex type that contains the ID, the status, and the date and time
 -- of your 'DisassociateVPCFromHostedZoneRequest'.

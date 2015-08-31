@@ -34,7 +34,7 @@ module Network.AWS.DirectoryService.GetSnapshotLimits
     , GetSnapshotLimitsResponse
     -- * Response Lenses
     , gslrsSnapshotLimits
-    , gslrsStatus
+    , gslrsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -102,7 +102,7 @@ instance ToQuery GetSnapshotLimits where
 -- /See:/ 'getSnapshotLimitsResponse' smart constructor.
 data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
     { _gslrsSnapshotLimits :: !(Maybe SnapshotLimits)
-    , _gslrsStatus         :: !Int
+    , _gslrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetSnapshotLimitsResponse' with the minimum fields required to make a request.
@@ -111,14 +111,14 @@ data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
 --
 -- * 'gslrsSnapshotLimits'
 --
--- * 'gslrsStatus'
+-- * 'gslrsResponseStatus'
 getSnapshotLimitsResponse
-    :: Int -- ^ 'gslrsStatus'
+    :: Int -- ^ 'gslrsResponseStatus'
     -> GetSnapshotLimitsResponse
-getSnapshotLimitsResponse pStatus_ =
+getSnapshotLimitsResponse pResponseStatus_ =
     GetSnapshotLimitsResponse'
     { _gslrsSnapshotLimits = Nothing
-    , _gslrsStatus = pStatus_
+    , _gslrsResponseStatus = pResponseStatus_
     }
 
 -- | A SnapshotLimits object that contains the manual snapshot limits for the
@@ -127,5 +127,5 @@ gslrsSnapshotLimits :: Lens' GetSnapshotLimitsResponse (Maybe SnapshotLimits)
 gslrsSnapshotLimits = lens _gslrsSnapshotLimits (\ s a -> s{_gslrsSnapshotLimits = a});
 
 -- | The response status code.
-gslrsStatus :: Lens' GetSnapshotLimitsResponse Int
-gslrsStatus = lens _gslrsStatus (\ s a -> s{_gslrsStatus = a});
+gslrsResponseStatus :: Lens' GetSnapshotLimitsResponse Int
+gslrsResponseStatus = lens _gslrsResponseStatus (\ s a -> s{_gslrsResponseStatus = a});

@@ -48,7 +48,7 @@ module Network.AWS.ImportExport.CreateJob
     , cjrsSignatureFileContents
     , cjrsWarningMessage
     , cjrsArtifactList
-    , cjrsStatus
+    , cjrsResponseStatus
     ) where
 
 import           Network.AWS.ImportExport.Types
@@ -158,7 +158,7 @@ data CreateJobResponse = CreateJobResponse'
     , _cjrsSignatureFileContents :: !(Maybe Text)
     , _cjrsWarningMessage        :: !(Maybe Text)
     , _cjrsArtifactList          :: !(Maybe [Artifact])
-    , _cjrsStatus                :: !Int
+    , _cjrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.
@@ -177,11 +177,11 @@ data CreateJobResponse = CreateJobResponse'
 --
 -- * 'cjrsArtifactList'
 --
--- * 'cjrsStatus'
+-- * 'cjrsResponseStatus'
 createJobResponse
-    :: Int -- ^ 'cjrsStatus'
+    :: Int -- ^ 'cjrsResponseStatus'
     -> CreateJobResponse
-createJobResponse pStatus_ =
+createJobResponse pResponseStatus_ =
     CreateJobResponse'
     { _cjrsSignature = Nothing
     , _cjrsJobType = Nothing
@@ -189,7 +189,7 @@ createJobResponse pStatus_ =
     , _cjrsSignatureFileContents = Nothing
     , _cjrsWarningMessage = Nothing
     , _cjrsArtifactList = Nothing
-    , _cjrsStatus = pStatus_
+    , _cjrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -217,5 +217,5 @@ cjrsArtifactList :: Lens' CreateJobResponse [Artifact]
 cjrsArtifactList = lens _cjrsArtifactList (\ s a -> s{_cjrsArtifactList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-cjrsStatus :: Lens' CreateJobResponse Int
-cjrsStatus = lens _cjrsStatus (\ s a -> s{_cjrsStatus = a});
+cjrsResponseStatus :: Lens' CreateJobResponse Int
+cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a});

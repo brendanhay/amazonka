@@ -37,7 +37,7 @@ module Network.AWS.AutoScaling.DescribeLoadBalancers
     -- * Response Lenses
     , dlbrsLoadBalancers
     , dlbrsNextToken
-    , dlbrsStatus
+    , dlbrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -115,9 +115,9 @@ instance ToQuery DescribeLoadBalancers where
 
 -- | /See:/ 'describeLoadBalancersResponse' smart constructor.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
-    { _dlbrsLoadBalancers :: !(Maybe [LoadBalancerState])
-    , _dlbrsNextToken     :: !(Maybe Text)
-    , _dlbrsStatus        :: !Int
+    { _dlbrsLoadBalancers  :: !(Maybe [LoadBalancerState])
+    , _dlbrsNextToken      :: !(Maybe Text)
+    , _dlbrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLoadBalancersResponse' with the minimum fields required to make a request.
@@ -128,15 +128,15 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
 --
 -- * 'dlbrsNextToken'
 --
--- * 'dlbrsStatus'
+-- * 'dlbrsResponseStatus'
 describeLoadBalancersResponse
-    :: Int -- ^ 'dlbrsStatus'
+    :: Int -- ^ 'dlbrsResponseStatus'
     -> DescribeLoadBalancersResponse
-describeLoadBalancersResponse pStatus_ =
+describeLoadBalancersResponse pResponseStatus_ =
     DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancers = Nothing
     , _dlbrsNextToken = Nothing
-    , _dlbrsStatus = pStatus_
+    , _dlbrsResponseStatus = pResponseStatus_
     }
 
 -- | The load balancers.
@@ -149,5 +149,5 @@ dlbrsNextToken :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrsNextToken = lens _dlbrsNextToken (\ s a -> s{_dlbrsNextToken = a});
 
 -- | The response status code.
-dlbrsStatus :: Lens' DescribeLoadBalancersResponse Int
-dlbrsStatus = lens _dlbrsStatus (\ s a -> s{_dlbrsStatus = a});
+dlbrsResponseStatus :: Lens' DescribeLoadBalancersResponse Int
+dlbrsResponseStatus = lens _dlbrsResponseStatus (\ s a -> s{_dlbrsResponseStatus = a});

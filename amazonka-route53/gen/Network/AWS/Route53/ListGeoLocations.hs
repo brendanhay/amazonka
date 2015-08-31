@@ -53,7 +53,7 @@ module Network.AWS.Route53.ListGeoLocations
     , lglrsNextContinentCode
     , lglrsNextCountryCode
     , lglrsNextSubdivisionCode
-    , lglrsStatus
+    , lglrsResponseStatus
     , lglrsGeoLocationDetailsList
     , lglrsIsTruncated
     , lglrsMaxItems
@@ -166,7 +166,7 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse'
     { _lglrsNextContinentCode      :: !(Maybe Text)
     , _lglrsNextCountryCode        :: !(Maybe Text)
     , _lglrsNextSubdivisionCode    :: !(Maybe Text)
-    , _lglrsStatus                 :: !Int
+    , _lglrsResponseStatus         :: !Int
     , _lglrsGeoLocationDetailsList :: ![GeoLocationDetails]
     , _lglrsIsTruncated            :: !Bool
     , _lglrsMaxItems               :: !Text
@@ -182,7 +182,7 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse'
 --
 -- * 'lglrsNextSubdivisionCode'
 --
--- * 'lglrsStatus'
+-- * 'lglrsResponseStatus'
 --
 -- * 'lglrsGeoLocationDetailsList'
 --
@@ -190,16 +190,16 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse'
 --
 -- * 'lglrsMaxItems'
 listGeoLocationsResponse
-    :: Int -- ^ 'lglrsStatus'
+    :: Int -- ^ 'lglrsResponseStatus'
     -> Bool -- ^ 'lglrsIsTruncated'
     -> Text -- ^ 'lglrsMaxItems'
     -> ListGeoLocationsResponse
-listGeoLocationsResponse pStatus_ pIsTruncated_ pMaxItems_ =
+listGeoLocationsResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
     ListGeoLocationsResponse'
     { _lglrsNextContinentCode = Nothing
     , _lglrsNextCountryCode = Nothing
     , _lglrsNextSubdivisionCode = Nothing
-    , _lglrsStatus = pStatus_
+    , _lglrsResponseStatus = pResponseStatus_
     , _lglrsGeoLocationDetailsList = mempty
     , _lglrsIsTruncated = pIsTruncated_
     , _lglrsMaxItems = pMaxItems_
@@ -227,8 +227,8 @@ lglrsNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrsNextSubdivisionCode = lens _lglrsNextSubdivisionCode (\ s a -> s{_lglrsNextSubdivisionCode = a});
 
 -- | The response status code.
-lglrsStatus :: Lens' ListGeoLocationsResponse Int
-lglrsStatus = lens _lglrsStatus (\ s a -> s{_lglrsStatus = a});
+lglrsResponseStatus :: Lens' ListGeoLocationsResponse Int
+lglrsResponseStatus = lens _lglrsResponseStatus (\ s a -> s{_lglrsResponseStatus = a});
 
 -- | A complex type that contains information about the geo locations that
 -- are returned by the request.

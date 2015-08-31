@@ -42,7 +42,7 @@ module Network.AWS.IAM.ListGroups
     -- * Response Lenses
     , lgrsMarker
     , lgrsIsTruncated
-    , lgrsStatus
+    , lgrsResponseStatus
     , lgrsGroups
     ) where
 
@@ -140,10 +140,10 @@ instance ToQuery ListGroups where
 --
 -- /See:/ 'listGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-    { _lgrsMarker      :: !(Maybe Text)
-    , _lgrsIsTruncated :: !(Maybe Bool)
-    , _lgrsStatus      :: !Int
-    , _lgrsGroups      :: ![Group]
+    { _lgrsMarker         :: !(Maybe Text)
+    , _lgrsIsTruncated    :: !(Maybe Bool)
+    , _lgrsResponseStatus :: !Int
+    , _lgrsGroups         :: ![Group]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListGroupsResponse' with the minimum fields required to make a request.
@@ -154,17 +154,17 @@ data ListGroupsResponse = ListGroupsResponse'
 --
 -- * 'lgrsIsTruncated'
 --
--- * 'lgrsStatus'
+-- * 'lgrsResponseStatus'
 --
 -- * 'lgrsGroups'
 listGroupsResponse
-    :: Int -- ^ 'lgrsStatus'
+    :: Int -- ^ 'lgrsResponseStatus'
     -> ListGroupsResponse
-listGroupsResponse pStatus_ =
+listGroupsResponse pResponseStatus_ =
     ListGroupsResponse'
     { _lgrsMarker = Nothing
     , _lgrsIsTruncated = Nothing
-    , _lgrsStatus = pStatus_
+    , _lgrsResponseStatus = pResponseStatus_
     , _lgrsGroups = mempty
     }
 
@@ -181,8 +181,8 @@ lgrsIsTruncated :: Lens' ListGroupsResponse (Maybe Bool)
 lgrsIsTruncated = lens _lgrsIsTruncated (\ s a -> s{_lgrsIsTruncated = a});
 
 -- | The response status code.
-lgrsStatus :: Lens' ListGroupsResponse Int
-lgrsStatus = lens _lgrsStatus (\ s a -> s{_lgrsStatus = a});
+lgrsResponseStatus :: Lens' ListGroupsResponse Int
+lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a});
 
 -- | A list of groups.
 lgrsGroups :: Lens' ListGroupsResponse [Group]

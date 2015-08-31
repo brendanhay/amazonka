@@ -40,7 +40,7 @@ module Network.AWS.Redshift.DisableSnapshotCopy
     , DisableSnapshotCopyResponse
     -- * Response Lenses
     , dscrsCluster
-    , dscrsStatus
+    , dscrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -102,8 +102,8 @@ instance ToQuery DisableSnapshotCopy where
 
 -- | /See:/ 'disableSnapshotCopyResponse' smart constructor.
 data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
-    { _dscrsCluster :: !(Maybe Cluster)
-    , _dscrsStatus  :: !Int
+    { _dscrsCluster        :: !(Maybe Cluster)
+    , _dscrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DisableSnapshotCopyResponse' with the minimum fields required to make a request.
@@ -112,14 +112,14 @@ data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
 --
 -- * 'dscrsCluster'
 --
--- * 'dscrsStatus'
+-- * 'dscrsResponseStatus'
 disableSnapshotCopyResponse
-    :: Int -- ^ 'dscrsStatus'
+    :: Int -- ^ 'dscrsResponseStatus'
     -> DisableSnapshotCopyResponse
-disableSnapshotCopyResponse pStatus_ =
+disableSnapshotCopyResponse pResponseStatus_ =
     DisableSnapshotCopyResponse'
     { _dscrsCluster = Nothing
-    , _dscrsStatus = pStatus_
+    , _dscrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -127,5 +127,5 @@ dscrsCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
 dscrsCluster = lens _dscrsCluster (\ s a -> s{_dscrsCluster = a});
 
 -- | The response status code.
-dscrsStatus :: Lens' DisableSnapshotCopyResponse Int
-dscrsStatus = lens _dscrsStatus (\ s a -> s{_dscrsStatus = a});
+dscrsResponseStatus :: Lens' DisableSnapshotCopyResponse Int
+dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus = a});

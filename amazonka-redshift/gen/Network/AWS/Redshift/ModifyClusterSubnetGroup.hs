@@ -38,7 +38,7 @@ module Network.AWS.Redshift.ModifyClusterSubnetGroup
     , ModifyClusterSubnetGroupResponse
     -- * Response Lenses
     , mcsgrsClusterSubnetGroup
-    , mcsgrsStatus
+    , mcsgrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -119,7 +119,7 @@ instance ToQuery ModifyClusterSubnetGroup where
 -- | /See:/ 'modifyClusterSubnetGroupResponse' smart constructor.
 data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'
     { _mcsgrsClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
-    , _mcsgrsStatus             :: !Int
+    , _mcsgrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyClusterSubnetGroupResponse' with the minimum fields required to make a request.
@@ -128,14 +128,14 @@ data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'
 --
 -- * 'mcsgrsClusterSubnetGroup'
 --
--- * 'mcsgrsStatus'
+-- * 'mcsgrsResponseStatus'
 modifyClusterSubnetGroupResponse
-    :: Int -- ^ 'mcsgrsStatus'
+    :: Int -- ^ 'mcsgrsResponseStatus'
     -> ModifyClusterSubnetGroupResponse
-modifyClusterSubnetGroupResponse pStatus_ =
+modifyClusterSubnetGroupResponse pResponseStatus_ =
     ModifyClusterSubnetGroupResponse'
     { _mcsgrsClusterSubnetGroup = Nothing
-    , _mcsgrsStatus = pStatus_
+    , _mcsgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -143,5 +143,5 @@ mcsgrsClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe Cluste
 mcsgrsClusterSubnetGroup = lens _mcsgrsClusterSubnetGroup (\ s a -> s{_mcsgrsClusterSubnetGroup = a});
 
 -- | The response status code.
-mcsgrsStatus :: Lens' ModifyClusterSubnetGroupResponse Int
-mcsgrsStatus = lens _mcsgrsStatus (\ s a -> s{_mcsgrsStatus = a});
+mcsgrsResponseStatus :: Lens' ModifyClusterSubnetGroupResponse Int
+mcsgrsResponseStatus = lens _mcsgrsResponseStatus (\ s a -> s{_mcsgrsResponseStatus = a});

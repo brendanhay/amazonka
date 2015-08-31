@@ -47,7 +47,7 @@ module Network.AWS.IAM.CreatePolicy
     , CreatePolicyResponse
     -- * Response Lenses
     , cprsPolicy
-    , cprsStatus
+    , cprsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -144,8 +144,8 @@ instance ToQuery CreatePolicy where
 --
 -- /See:/ 'createPolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
-    { _cprsPolicy :: !(Maybe Policy)
-    , _cprsStatus :: !Int
+    { _cprsPolicy         :: !(Maybe Policy)
+    , _cprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreatePolicyResponse' with the minimum fields required to make a request.
@@ -154,14 +154,14 @@ data CreatePolicyResponse = CreatePolicyResponse'
 --
 -- * 'cprsPolicy'
 --
--- * 'cprsStatus'
+-- * 'cprsResponseStatus'
 createPolicyResponse
-    :: Int -- ^ 'cprsStatus'
+    :: Int -- ^ 'cprsResponseStatus'
     -> CreatePolicyResponse
-createPolicyResponse pStatus_ =
+createPolicyResponse pResponseStatus_ =
     CreatePolicyResponse'
     { _cprsPolicy = Nothing
-    , _cprsStatus = pStatus_
+    , _cprsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the policy.
@@ -169,5 +169,5 @@ cprsPolicy :: Lens' CreatePolicyResponse (Maybe Policy)
 cprsPolicy = lens _cprsPolicy (\ s a -> s{_cprsPolicy = a});
 
 -- | The response status code.
-cprsStatus :: Lens' CreatePolicyResponse Int
-cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});
+cprsResponseStatus :: Lens' CreatePolicyResponse Int
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});

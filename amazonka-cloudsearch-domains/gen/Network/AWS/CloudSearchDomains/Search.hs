@@ -72,7 +72,7 @@ module Network.AWS.CloudSearchDomains.Search
     , searsStatus
     , searsFacets
     , searsHits
-    , searsStatus
+    , searsResponseStatus
     ) where
 
 import           Network.AWS.CloudSearchDomains.Types
@@ -524,10 +524,10 @@ instance ToQuery Search where
 --
 -- /See:/ 'searchResponse' smart constructor.
 data SearchResponse = SearchResponse'
-    { _searsStatus :: !(Maybe SearchStatus)
-    , _searsFacets :: !(Maybe (Map Text BucketInfo))
-    , _searsHits   :: !(Maybe Hits)
-    , _searsStatus :: !Int
+    { _searsStatus         :: !(Maybe SearchStatus)
+    , _searsFacets         :: !(Maybe (Map Text BucketInfo))
+    , _searsHits           :: !(Maybe Hits)
+    , _searsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SearchResponse' with the minimum fields required to make a request.
@@ -540,16 +540,16 @@ data SearchResponse = SearchResponse'
 --
 -- * 'searsHits'
 --
--- * 'searsStatus'
+-- * 'searsResponseStatus'
 searchResponse
-    :: Int -- ^ 'searsStatus'
+    :: Int -- ^ 'searsResponseStatus'
     -> SearchResponse
-searchResponse pStatus_ =
+searchResponse pResponseStatus_ =
     SearchResponse'
     { _searsStatus = Nothing
     , _searsFacets = Nothing
     , _searsHits = Nothing
-    , _searsStatus = pStatus_
+    , _searsResponseStatus = pResponseStatus_
     }
 
 -- | The status information returned for the search request.
@@ -565,5 +565,5 @@ searsHits :: Lens' SearchResponse (Maybe Hits)
 searsHits = lens _searsHits (\ s a -> s{_searsHits = a});
 
 -- | The response status code.
-searsStatus :: Lens' SearchResponse Int
-searsStatus = lens _searsStatus (\ s a -> s{_searsStatus = a});
+searsResponseStatus :: Lens' SearchResponse Int
+searsResponseStatus = lens _searsResponseStatus (\ s a -> s{_searsResponseStatus = a});

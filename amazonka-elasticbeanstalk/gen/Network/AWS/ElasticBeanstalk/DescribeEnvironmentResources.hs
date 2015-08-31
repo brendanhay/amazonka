@@ -35,7 +35,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     , DescribeEnvironmentResourcesResponse
     -- * Response Lenses
     , derrsEnvironmentResources
-    , derrsStatus
+    , derrsResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -116,7 +116,7 @@ instance ToQuery DescribeEnvironmentResources where
 -- /See:/ 'describeEnvironmentResourcesResponse' smart constructor.
 data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'
     { _derrsEnvironmentResources :: !(Maybe EnvironmentResourceDescription)
-    , _derrsStatus               :: !Int
+    , _derrsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEnvironmentResourcesResponse' with the minimum fields required to make a request.
@@ -125,14 +125,14 @@ data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
 --
 -- * 'derrsEnvironmentResources'
 --
--- * 'derrsStatus'
+-- * 'derrsResponseStatus'
 describeEnvironmentResourcesResponse
-    :: Int -- ^ 'derrsStatus'
+    :: Int -- ^ 'derrsResponseStatus'
     -> DescribeEnvironmentResourcesResponse
-describeEnvironmentResourcesResponse pStatus_ =
+describeEnvironmentResourcesResponse pResponseStatus_ =
     DescribeEnvironmentResourcesResponse'
     { _derrsEnvironmentResources = Nothing
-    , _derrsStatus = pStatus_
+    , _derrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of EnvironmentResourceDescription.
@@ -140,5 +140,5 @@ derrsEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe E
 derrsEnvironmentResources = lens _derrsEnvironmentResources (\ s a -> s{_derrsEnvironmentResources = a});
 
 -- | The response status code.
-derrsStatus :: Lens' DescribeEnvironmentResourcesResponse Int
-derrsStatus = lens _derrsStatus (\ s a -> s{_derrsStatus = a});
+derrsResponseStatus :: Lens' DescribeEnvironmentResourcesResponse Int
+derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});

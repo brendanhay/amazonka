@@ -45,7 +45,7 @@ module Network.AWS.SNS.ListPlatformApplications
     -- * Response Lenses
     , lparsPlatformApplications
     , lparsNextToken
-    , lparsStatus
+    , lparsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -120,7 +120,7 @@ instance ToQuery ListPlatformApplications where
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'
     { _lparsPlatformApplications :: !(Maybe [PlatformApplication])
     , _lparsNextToken            :: !(Maybe Text)
-    , _lparsStatus               :: !Int
+    , _lparsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListPlatformApplicationsResponse' with the minimum fields required to make a request.
@@ -131,15 +131,15 @@ data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'
 --
 -- * 'lparsNextToken'
 --
--- * 'lparsStatus'
+-- * 'lparsResponseStatus'
 listPlatformApplicationsResponse
-    :: Int -- ^ 'lparsStatus'
+    :: Int -- ^ 'lparsResponseStatus'
     -> ListPlatformApplicationsResponse
-listPlatformApplicationsResponse pStatus_ =
+listPlatformApplicationsResponse pResponseStatus_ =
     ListPlatformApplicationsResponse'
     { _lparsPlatformApplications = Nothing
     , _lparsNextToken = Nothing
-    , _lparsStatus = pStatus_
+    , _lparsResponseStatus = pResponseStatus_
     }
 
 -- | Platform applications returned when calling ListPlatformApplications
@@ -153,5 +153,5 @@ lparsNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
 lparsNextToken = lens _lparsNextToken (\ s a -> s{_lparsNextToken = a});
 
 -- | The response status code.
-lparsStatus :: Lens' ListPlatformApplicationsResponse Int
-lparsStatus = lens _lparsStatus (\ s a -> s{_lparsStatus = a});
+lparsResponseStatus :: Lens' ListPlatformApplicationsResponse Int
+lparsResponseStatus = lens _lparsResponseStatus (\ s a -> s{_lparsResponseStatus = a});

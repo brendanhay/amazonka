@@ -37,7 +37,7 @@ module Network.AWS.RDS.CopyDBParameterGroup
     , CopyDBParameterGroupResponse
     -- * Response Lenses
     , cdbpgrsDBParameterGroup
-    , cdbpgrsStatus
+    , cdbpgrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -149,7 +149,7 @@ instance ToQuery CopyDBParameterGroup where
 -- | /See:/ 'copyDBParameterGroupResponse' smart constructor.
 data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'
     { _cdbpgrsDBParameterGroup :: !(Maybe DBParameterGroup)
-    , _cdbpgrsStatus           :: !Int
+    , _cdbpgrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CopyDBParameterGroupResponse' with the minimum fields required to make a request.
@@ -158,14 +158,14 @@ data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'
 --
 -- * 'cdbpgrsDBParameterGroup'
 --
--- * 'cdbpgrsStatus'
+-- * 'cdbpgrsResponseStatus'
 copyDBParameterGroupResponse
-    :: Int -- ^ 'cdbpgrsStatus'
+    :: Int -- ^ 'cdbpgrsResponseStatus'
     -> CopyDBParameterGroupResponse
-copyDBParameterGroupResponse pStatus_ =
+copyDBParameterGroupResponse pResponseStatus_ =
     CopyDBParameterGroupResponse'
     { _cdbpgrsDBParameterGroup = Nothing
-    , _cdbpgrsStatus = pStatus_
+    , _cdbpgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -173,5 +173,5 @@ cdbpgrsDBParameterGroup :: Lens' CopyDBParameterGroupResponse (Maybe DBParameter
 cdbpgrsDBParameterGroup = lens _cdbpgrsDBParameterGroup (\ s a -> s{_cdbpgrsDBParameterGroup = a});
 
 -- | The response status code.
-cdbpgrsStatus :: Lens' CopyDBParameterGroupResponse Int
-cdbpgrsStatus = lens _cdbpgrsStatus (\ s a -> s{_cdbpgrsStatus = a});
+cdbpgrsResponseStatus :: Lens' CopyDBParameterGroupResponse Int
+cdbpgrsResponseStatus = lens _cdbpgrsResponseStatus (\ s a -> s{_cdbpgrsResponseStatus = a});

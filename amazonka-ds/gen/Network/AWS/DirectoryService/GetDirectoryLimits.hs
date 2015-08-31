@@ -32,7 +32,7 @@ module Network.AWS.DirectoryService.GetDirectoryLimits
     , GetDirectoryLimitsResponse
     -- * Response Lenses
     , gdlrsDirectoryLimits
-    , gdlrsStatus
+    , gdlrsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -88,7 +88,7 @@ instance ToQuery GetDirectoryLimits where
 -- /See:/ 'getDirectoryLimitsResponse' smart constructor.
 data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
     { _gdlrsDirectoryLimits :: !(Maybe DirectoryLimits)
-    , _gdlrsStatus          :: !Int
+    , _gdlrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDirectoryLimitsResponse' with the minimum fields required to make a request.
@@ -97,14 +97,14 @@ data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
 --
 -- * 'gdlrsDirectoryLimits'
 --
--- * 'gdlrsStatus'
+-- * 'gdlrsResponseStatus'
 getDirectoryLimitsResponse
-    :: Int -- ^ 'gdlrsStatus'
+    :: Int -- ^ 'gdlrsResponseStatus'
     -> GetDirectoryLimitsResponse
-getDirectoryLimitsResponse pStatus_ =
+getDirectoryLimitsResponse pResponseStatus_ =
     GetDirectoryLimitsResponse'
     { _gdlrsDirectoryLimits = Nothing
-    , _gdlrsStatus = pStatus_
+    , _gdlrsResponseStatus = pResponseStatus_
     }
 
 -- | A DirectoryLimits object that contains the directory limits for the
@@ -113,5 +113,5 @@ gdlrsDirectoryLimits :: Lens' GetDirectoryLimitsResponse (Maybe DirectoryLimits)
 gdlrsDirectoryLimits = lens _gdlrsDirectoryLimits (\ s a -> s{_gdlrsDirectoryLimits = a});
 
 -- | The response status code.
-gdlrsStatus :: Lens' GetDirectoryLimitsResponse Int
-gdlrsStatus = lens _gdlrsStatus (\ s a -> s{_gdlrsStatus = a});
+gdlrsResponseStatus :: Lens' GetDirectoryLimitsResponse Int
+gdlrsResponseStatus = lens _gdlrsResponseStatus (\ s a -> s{_gdlrsResponseStatus = a});

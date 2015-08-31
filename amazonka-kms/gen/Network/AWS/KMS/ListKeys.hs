@@ -37,7 +37,7 @@ module Network.AWS.KMS.ListKeys
     , lkrsTruncated
     , lkrsKeys
     , lkrsNextMarker
-    , lkrsStatus
+    , lkrsResponseStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -116,10 +116,10 @@ instance ToQuery ListKeys where
 
 -- | /See:/ 'listKeysResponse' smart constructor.
 data ListKeysResponse = ListKeysResponse'
-    { _lkrsTruncated  :: !(Maybe Bool)
-    , _lkrsKeys       :: !(Maybe [KeyListEntry])
-    , _lkrsNextMarker :: !(Maybe Text)
-    , _lkrsStatus     :: !Int
+    { _lkrsTruncated      :: !(Maybe Bool)
+    , _lkrsKeys           :: !(Maybe [KeyListEntry])
+    , _lkrsNextMarker     :: !(Maybe Text)
+    , _lkrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListKeysResponse' with the minimum fields required to make a request.
@@ -132,16 +132,16 @@ data ListKeysResponse = ListKeysResponse'
 --
 -- * 'lkrsNextMarker'
 --
--- * 'lkrsStatus'
+-- * 'lkrsResponseStatus'
 listKeysResponse
-    :: Int -- ^ 'lkrsStatus'
+    :: Int -- ^ 'lkrsResponseStatus'
     -> ListKeysResponse
-listKeysResponse pStatus_ =
+listKeysResponse pResponseStatus_ =
     ListKeysResponse'
     { _lkrsTruncated = Nothing
     , _lkrsKeys = Nothing
     , _lkrsNextMarker = Nothing
-    , _lkrsStatus = pStatus_
+    , _lkrsResponseStatus = pResponseStatus_
     }
 
 -- | A flag that indicates whether there are more items in the list. If your
@@ -161,5 +161,5 @@ lkrsNextMarker :: Lens' ListKeysResponse (Maybe Text)
 lkrsNextMarker = lens _lkrsNextMarker (\ s a -> s{_lkrsNextMarker = a});
 
 -- | The response status code.
-lkrsStatus :: Lens' ListKeysResponse Int
-lkrsStatus = lens _lkrsStatus (\ s a -> s{_lkrsStatus = a});
+lkrsResponseStatus :: Lens' ListKeysResponse Int
+lkrsResponseStatus = lens _lkrsResponseStatus (\ s a -> s{_lkrsResponseStatus = a});

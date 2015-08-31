@@ -43,7 +43,7 @@ module Network.AWS.EFS.DescribeTags
     -- * Response Lenses
     , dtrsMarker
     , dtrsNextMarker
-    , dtrsStatus
+    , dtrsResponseStatus
     , dtrsTags
     ) where
 
@@ -120,10 +120,10 @@ instance ToQuery DescribeTags where
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrsMarker     :: !(Maybe Text)
-    , _dtrsNextMarker :: !(Maybe Text)
-    , _dtrsStatus     :: !Int
-    , _dtrsTags       :: ![Tag]
+    { _dtrsMarker         :: !(Maybe Text)
+    , _dtrsNextMarker     :: !(Maybe Text)
+    , _dtrsResponseStatus :: !Int
+    , _dtrsTags           :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
@@ -134,17 +134,17 @@ data DescribeTagsResponse = DescribeTagsResponse'
 --
 -- * 'dtrsNextMarker'
 --
--- * 'dtrsStatus'
+-- * 'dtrsResponseStatus'
 --
 -- * 'dtrsTags'
 describeTagsResponse
-    :: Int -- ^ 'dtrsStatus'
+    :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
-describeTagsResponse pStatus_ =
+describeTagsResponse pResponseStatus_ =
     DescribeTagsResponse'
     { _dtrsMarker = Nothing
     , _dtrsNextMarker = Nothing
-    , _dtrsStatus = pStatus_
+    , _dtrsResponseStatus = pResponseStatus_
     , _dtrsTags = mempty
     }
 
@@ -161,8 +161,8 @@ dtrsNextMarker :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsNextMarker = lens _dtrsNextMarker (\ s a -> s{_dtrsNextMarker = a});
 
 -- | The response status code.
-dtrsStatus :: Lens' DescribeTagsResponse Int
-dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
+dtrsResponseStatus :: Lens' DescribeTagsResponse Int
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
 -- | Returns tags associated with the file system as an array of 'Tag'
 -- objects.

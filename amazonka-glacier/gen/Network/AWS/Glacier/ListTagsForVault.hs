@@ -38,7 +38,7 @@ module Network.AWS.Glacier.ListTagsForVault
     , ListTagsForVaultResponse
     -- * Response Lenses
     , ltfvrsTags
-    , ltfvrsStatus
+    , ltfvrsResponseStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -109,8 +109,8 @@ instance ToQuery ListTagsForVault where
 --
 -- /See:/ 'listTagsForVaultResponse' smart constructor.
 data ListTagsForVaultResponse = ListTagsForVaultResponse'
-    { _ltfvrsTags   :: !(Maybe (Map Text Text))
-    , _ltfvrsStatus :: !Int
+    { _ltfvrsTags           :: !(Maybe (Map Text Text))
+    , _ltfvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListTagsForVaultResponse' with the minimum fields required to make a request.
@@ -119,14 +119,14 @@ data ListTagsForVaultResponse = ListTagsForVaultResponse'
 --
 -- * 'ltfvrsTags'
 --
--- * 'ltfvrsStatus'
+-- * 'ltfvrsResponseStatus'
 listTagsForVaultResponse
-    :: Int -- ^ 'ltfvrsStatus'
+    :: Int -- ^ 'ltfvrsResponseStatus'
     -> ListTagsForVaultResponse
-listTagsForVaultResponse pStatus_ =
+listTagsForVaultResponse pResponseStatus_ =
     ListTagsForVaultResponse'
     { _ltfvrsTags = Nothing
-    , _ltfvrsStatus = pStatus_
+    , _ltfvrsResponseStatus = pResponseStatus_
     }
 
 -- | The tags attached to the vault. Each tag is composed of a key and a
@@ -135,5 +135,5 @@ ltfvrsTags :: Lens' ListTagsForVaultResponse (HashMap Text Text)
 ltfvrsTags = lens _ltfvrsTags (\ s a -> s{_ltfvrsTags = a}) . _Default . _Map;
 
 -- | The response status code.
-ltfvrsStatus :: Lens' ListTagsForVaultResponse Int
-ltfvrsStatus = lens _ltfvrsStatus (\ s a -> s{_ltfvrsStatus = a});
+ltfvrsResponseStatus :: Lens' ListTagsForVaultResponse Int
+ltfvrsResponseStatus = lens _ltfvrsResponseStatus (\ s a -> s{_ltfvrsResponseStatus = a});

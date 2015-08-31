@@ -42,7 +42,7 @@ module Network.AWS.EC2.CreateInstanceExportTask
     , CreateInstanceExportTaskResponse
     -- * Response Lenses
     , cietrsExportTask
-    , cietrsStatus
+    , cietrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -127,8 +127,8 @@ instance ToQuery CreateInstanceExportTask where
 
 -- | /See:/ 'createInstanceExportTaskResponse' smart constructor.
 data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
-    { _cietrsExportTask :: !(Maybe ExportTask)
-    , _cietrsStatus     :: !Int
+    { _cietrsExportTask     :: !(Maybe ExportTask)
+    , _cietrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateInstanceExportTaskResponse' with the minimum fields required to make a request.
@@ -137,14 +137,14 @@ data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
 --
 -- * 'cietrsExportTask'
 --
--- * 'cietrsStatus'
+-- * 'cietrsResponseStatus'
 createInstanceExportTaskResponse
-    :: Int -- ^ 'cietrsStatus'
+    :: Int -- ^ 'cietrsResponseStatus'
     -> CreateInstanceExportTaskResponse
-createInstanceExportTaskResponse pStatus_ =
+createInstanceExportTaskResponse pResponseStatus_ =
     CreateInstanceExportTaskResponse'
     { _cietrsExportTask = Nothing
-    , _cietrsStatus = pStatus_
+    , _cietrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the instance export task.
@@ -152,5 +152,5 @@ cietrsExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
 cietrsExportTask = lens _cietrsExportTask (\ s a -> s{_cietrsExportTask = a});
 
 -- | The response status code.
-cietrsStatus :: Lens' CreateInstanceExportTaskResponse Int
-cietrsStatus = lens _cietrsStatus (\ s a -> s{_cietrsStatus = a});
+cietrsResponseStatus :: Lens' CreateInstanceExportTaskResponse Int
+cietrsResponseStatus = lens _cietrsResponseStatus (\ s a -> s{_cietrsResponseStatus = a});

@@ -42,7 +42,7 @@ module Network.AWS.IAM.ListGroupsForUser
     -- * Response Lenses
     , lgfursMarker
     , lgfursIsTruncated
-    , lgfursStatus
+    , lgfursResponseStatus
     , lgfursGroups
     ) where
 
@@ -136,10 +136,10 @@ instance ToQuery ListGroupsForUser where
 --
 -- /See:/ 'listGroupsForUserResponse' smart constructor.
 data ListGroupsForUserResponse = ListGroupsForUserResponse'
-    { _lgfursMarker      :: !(Maybe Text)
-    , _lgfursIsTruncated :: !(Maybe Bool)
-    , _lgfursStatus      :: !Int
-    , _lgfursGroups      :: ![Group]
+    { _lgfursMarker         :: !(Maybe Text)
+    , _lgfursIsTruncated    :: !(Maybe Bool)
+    , _lgfursResponseStatus :: !Int
+    , _lgfursGroups         :: ![Group]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListGroupsForUserResponse' with the minimum fields required to make a request.
@@ -150,17 +150,17 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse'
 --
 -- * 'lgfursIsTruncated'
 --
--- * 'lgfursStatus'
+-- * 'lgfursResponseStatus'
 --
 -- * 'lgfursGroups'
 listGroupsForUserResponse
-    :: Int -- ^ 'lgfursStatus'
+    :: Int -- ^ 'lgfursResponseStatus'
     -> ListGroupsForUserResponse
-listGroupsForUserResponse pStatus_ =
+listGroupsForUserResponse pResponseStatus_ =
     ListGroupsForUserResponse'
     { _lgfursMarker = Nothing
     , _lgfursIsTruncated = Nothing
-    , _lgfursStatus = pStatus_
+    , _lgfursResponseStatus = pResponseStatus_
     , _lgfursGroups = mempty
     }
 
@@ -177,8 +177,8 @@ lgfursIsTruncated :: Lens' ListGroupsForUserResponse (Maybe Bool)
 lgfursIsTruncated = lens _lgfursIsTruncated (\ s a -> s{_lgfursIsTruncated = a});
 
 -- | The response status code.
-lgfursStatus :: Lens' ListGroupsForUserResponse Int
-lgfursStatus = lens _lgfursStatus (\ s a -> s{_lgfursStatus = a});
+lgfursResponseStatus :: Lens' ListGroupsForUserResponse Int
+lgfursResponseStatus = lens _lgfursResponseStatus (\ s a -> s{_lgfursResponseStatus = a});
 
 -- | A list of groups.
 lgfursGroups :: Lens' ListGroupsForUserResponse [Group]

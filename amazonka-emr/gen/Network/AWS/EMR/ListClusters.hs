@@ -44,7 +44,7 @@ module Network.AWS.EMR.ListClusters
     -- * Response Lenses
     , lcrsMarker
     , lcrsClusters
-    , lcrsStatus
+    , lcrsResponseStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -148,9 +148,9 @@ instance ToQuery ListClusters where
 --
 -- /See:/ 'listClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'
-    { _lcrsMarker   :: !(Maybe Text)
-    , _lcrsClusters :: !(Maybe [ClusterSummary])
-    , _lcrsStatus   :: !Int
+    { _lcrsMarker         :: !(Maybe Text)
+    , _lcrsClusters       :: !(Maybe [ClusterSummary])
+    , _lcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListClustersResponse' with the minimum fields required to make a request.
@@ -161,15 +161,15 @@ data ListClustersResponse = ListClustersResponse'
 --
 -- * 'lcrsClusters'
 --
--- * 'lcrsStatus'
+-- * 'lcrsResponseStatus'
 listClustersResponse
-    :: Int -- ^ 'lcrsStatus'
+    :: Int -- ^ 'lcrsResponseStatus'
     -> ListClustersResponse
-listClustersResponse pStatus_ =
+listClustersResponse pResponseStatus_ =
     ListClustersResponse'
     { _lcrsMarker = Nothing
     , _lcrsClusters = Nothing
-    , _lcrsStatus = pStatus_
+    , _lcrsResponseStatus = pResponseStatus_
     }
 
 -- | The pagination token that indicates the next set of results to retrieve.
@@ -181,5 +181,5 @@ lcrsClusters :: Lens' ListClustersResponse [ClusterSummary]
 lcrsClusters = lens _lcrsClusters (\ s a -> s{_lcrsClusters = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lcrsStatus :: Lens' ListClustersResponse Int
-lcrsStatus = lens _lcrsStatus (\ s a -> s{_lcrsStatus = a});
+lcrsResponseStatus :: Lens' ListClustersResponse Int
+lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});

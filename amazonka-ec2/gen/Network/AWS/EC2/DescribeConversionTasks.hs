@@ -39,7 +39,7 @@ module Network.AWS.EC2.DescribeConversionTasks
     , DescribeConversionTasksResponse
     -- * Response Lenses
     , dctrsConversionTasks
-    , dctrsStatus
+    , dctrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -121,7 +121,7 @@ instance ToQuery DescribeConversionTasks where
 -- | /See:/ 'describeConversionTasksResponse' smart constructor.
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
     { _dctrsConversionTasks :: !(Maybe [ConversionTask])
-    , _dctrsStatus          :: !Int
+    , _dctrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeConversionTasksResponse' with the minimum fields required to make a request.
@@ -130,14 +130,14 @@ data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
 --
 -- * 'dctrsConversionTasks'
 --
--- * 'dctrsStatus'
+-- * 'dctrsResponseStatus'
 describeConversionTasksResponse
-    :: Int -- ^ 'dctrsStatus'
+    :: Int -- ^ 'dctrsResponseStatus'
     -> DescribeConversionTasksResponse
-describeConversionTasksResponse pStatus_ =
+describeConversionTasksResponse pResponseStatus_ =
     DescribeConversionTasksResponse'
     { _dctrsConversionTasks = Nothing
-    , _dctrsStatus = pStatus_
+    , _dctrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the conversion tasks.
@@ -145,5 +145,5 @@ dctrsConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
 dctrsConversionTasks = lens _dctrsConversionTasks (\ s a -> s{_dctrsConversionTasks = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dctrsStatus :: Lens' DescribeConversionTasksResponse Int
-dctrsStatus = lens _dctrsStatus (\ s a -> s{_dctrsStatus = a});
+dctrsResponseStatus :: Lens' DescribeConversionTasksResponse Int
+dctrsResponseStatus = lens _dctrsResponseStatus (\ s a -> s{_dctrsResponseStatus = a});

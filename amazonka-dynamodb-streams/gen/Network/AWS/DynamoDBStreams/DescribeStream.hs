@@ -47,7 +47,7 @@ module Network.AWS.DynamoDBStreams.DescribeStream
     , DescribeStreamResponse
     -- * Response Lenses
     , dsrsStreamDescription
-    , dsrsStatus
+    , dsrsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDBStreams.Types
@@ -137,7 +137,7 @@ instance ToQuery DescribeStream where
 -- /See:/ 'describeStreamResponse' smart constructor.
 data DescribeStreamResponse = DescribeStreamResponse'
     { _dsrsStreamDescription :: !(Maybe StreamDescription)
-    , _dsrsStatus            :: !Int
+    , _dsrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeStreamResponse' with the minimum fields required to make a request.
@@ -146,14 +146,14 @@ data DescribeStreamResponse = DescribeStreamResponse'
 --
 -- * 'dsrsStreamDescription'
 --
--- * 'dsrsStatus'
+-- * 'dsrsResponseStatus'
 describeStreamResponse
-    :: Int -- ^ 'dsrsStatus'
+    :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeStreamResponse
-describeStreamResponse pStatus_ =
+describeStreamResponse pResponseStatus_ =
     DescribeStreamResponse'
     { _dsrsStreamDescription = Nothing
-    , _dsrsStatus = pStatus_
+    , _dsrsResponseStatus = pResponseStatus_
     }
 
 -- | A complete description of the stream, including its creation date and
@@ -164,5 +164,5 @@ dsrsStreamDescription :: Lens' DescribeStreamResponse (Maybe StreamDescription)
 dsrsStreamDescription = lens _dsrsStreamDescription (\ s a -> s{_dsrsStreamDescription = a});
 
 -- | The response status code.
-dsrsStatus :: Lens' DescribeStreamResponse Int
-dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
+dsrsResponseStatus :: Lens' DescribeStreamResponse Int
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});

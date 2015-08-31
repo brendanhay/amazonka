@@ -54,7 +54,7 @@ module Network.AWS.S3.ListObjectVersions
     , lovrsMaxKeys
     , lovrsIsTruncated
     , lovrsDelimiter
-    , lovrsStatus
+    , lovrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -200,7 +200,7 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
     , _lovrsMaxKeys             :: !(Maybe Int)
     , _lovrsIsTruncated         :: !(Maybe Bool)
     , _lovrsDelimiter           :: !(Maybe Delimiter)
-    , _lovrsStatus              :: !Int
+    , _lovrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListObjectVersionsResponse' with the minimum fields required to make a request.
@@ -233,11 +233,11 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
 --
 -- * 'lovrsDelimiter'
 --
--- * 'lovrsStatus'
+-- * 'lovrsResponseStatus'
 listObjectVersionsResponse
-    :: Int -- ^ 'lovrsStatus'
+    :: Int -- ^ 'lovrsResponseStatus'
     -> ListObjectVersionsResponse
-listObjectVersionsResponse pStatus_ =
+listObjectVersionsResponse pResponseStatus_ =
     ListObjectVersionsResponse'
     { _lovrsNextVersionIdMarker = Nothing
     , _lovrsKeyMarker = Nothing
@@ -252,7 +252,7 @@ listObjectVersionsResponse pStatus_ =
     , _lovrsMaxKeys = Nothing
     , _lovrsIsTruncated = Nothing
     , _lovrsDelimiter = Nothing
-    , _lovrsStatus = pStatus_
+    , _lovrsResponseStatus = pResponseStatus_
     }
 
 -- | Use this value for the next version id marker parameter in a subsequent
@@ -314,5 +314,5 @@ lovrsDelimiter :: Lens' ListObjectVersionsResponse (Maybe Delimiter)
 lovrsDelimiter = lens _lovrsDelimiter (\ s a -> s{_lovrsDelimiter = a});
 
 -- | The response status code.
-lovrsStatus :: Lens' ListObjectVersionsResponse Int
-lovrsStatus = lens _lovrsStatus (\ s a -> s{_lovrsStatus = a});
+lovrsResponseStatus :: Lens' ListObjectVersionsResponse Int
+lovrsResponseStatus = lens _lovrsResponseStatus (\ s a -> s{_lovrsResponseStatus = a});

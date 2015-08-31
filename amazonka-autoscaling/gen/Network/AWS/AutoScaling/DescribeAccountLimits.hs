@@ -37,7 +37,7 @@ module Network.AWS.AutoScaling.DescribeAccountLimits
     -- * Response Lenses
     , dalrsMaxNumberOfAutoScalingGroups
     , dalrsMaxNumberOfLaunchConfigurations
-    , dalrsStatus
+    , dalrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -86,7 +86,7 @@ instance ToQuery DescribeAccountLimits where
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
     { _dalrsMaxNumberOfAutoScalingGroups    :: !(Maybe Int)
     , _dalrsMaxNumberOfLaunchConfigurations :: !(Maybe Int)
-    , _dalrsStatus                          :: !Int
+    , _dalrsResponseStatus                  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAccountLimitsResponse' with the minimum fields required to make a request.
@@ -97,15 +97,15 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
 --
 -- * 'dalrsMaxNumberOfLaunchConfigurations'
 --
--- * 'dalrsStatus'
+-- * 'dalrsResponseStatus'
 describeAccountLimitsResponse
-    :: Int -- ^ 'dalrsStatus'
+    :: Int -- ^ 'dalrsResponseStatus'
     -> DescribeAccountLimitsResponse
-describeAccountLimitsResponse pStatus_ =
+describeAccountLimitsResponse pResponseStatus_ =
     DescribeAccountLimitsResponse'
     { _dalrsMaxNumberOfAutoScalingGroups = Nothing
     , _dalrsMaxNumberOfLaunchConfigurations = Nothing
-    , _dalrsStatus = pStatus_
+    , _dalrsResponseStatus = pResponseStatus_
     }
 
 -- | The maximum number of groups allowed for your AWS account. The default
@@ -119,5 +119,5 @@ dalrsMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (May
 dalrsMaxNumberOfLaunchConfigurations = lens _dalrsMaxNumberOfLaunchConfigurations (\ s a -> s{_dalrsMaxNumberOfLaunchConfigurations = a});
 
 -- | The response status code.
-dalrsStatus :: Lens' DescribeAccountLimitsResponse Int
-dalrsStatus = lens _dalrsStatus (\ s a -> s{_dalrsStatus = a});
+dalrsResponseStatus :: Lens' DescribeAccountLimitsResponse Int
+dalrsResponseStatus = lens _dalrsResponseStatus (\ s a -> s{_dalrsResponseStatus = a});

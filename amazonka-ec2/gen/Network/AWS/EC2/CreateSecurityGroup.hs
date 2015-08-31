@@ -64,7 +64,7 @@ module Network.AWS.EC2.CreateSecurityGroup
     , createSecurityGroupResponse
     , CreateSecurityGroupResponse
     -- * Response Lenses
-    , csgrsStatus
+    , csgrsResponseStatus
     , csgrsGroupId
     ) where
 
@@ -165,30 +165,30 @@ instance ToQuery CreateSecurityGroup where
 
 -- | /See:/ 'createSecurityGroupResponse' smart constructor.
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse'
-    { _csgrsStatus  :: !Int
-    , _csgrsGroupId :: !Text
+    { _csgrsResponseStatus :: !Int
+    , _csgrsGroupId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateSecurityGroupResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csgrsStatus'
+-- * 'csgrsResponseStatus'
 --
 -- * 'csgrsGroupId'
 createSecurityGroupResponse
-    :: Int -- ^ 'csgrsStatus'
+    :: Int -- ^ 'csgrsResponseStatus'
     -> Text -- ^ 'csgrsGroupId'
     -> CreateSecurityGroupResponse
-createSecurityGroupResponse pStatus_ pGroupId_ =
+createSecurityGroupResponse pResponseStatus_ pGroupId_ =
     CreateSecurityGroupResponse'
-    { _csgrsStatus = pStatus_
+    { _csgrsResponseStatus = pResponseStatus_
     , _csgrsGroupId = pGroupId_
     }
 
 -- | The response status code.
-csgrsStatus :: Lens' CreateSecurityGroupResponse Int
-csgrsStatus = lens _csgrsStatus (\ s a -> s{_csgrsStatus = a});
+csgrsResponseStatus :: Lens' CreateSecurityGroupResponse Int
+csgrsResponseStatus = lens _csgrsResponseStatus (\ s a -> s{_csgrsResponseStatus = a});
 
 -- | The ID of the security group.
 csgrsGroupId :: Lens' CreateSecurityGroupResponse Text

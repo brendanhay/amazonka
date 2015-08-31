@@ -35,7 +35,7 @@ module Network.AWS.SNS.GetTopicAttributes
     , GetTopicAttributesResponse
     -- * Response Lenses
     , gtarsAttributes
-    , gtarsStatus
+    , gtarsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -97,8 +97,8 @@ instance ToQuery GetTopicAttributes where
 --
 -- /See:/ 'getTopicAttributesResponse' smart constructor.
 data GetTopicAttributesResponse = GetTopicAttributesResponse'
-    { _gtarsAttributes :: !(Maybe (Map Text Text))
-    , _gtarsStatus     :: !Int
+    { _gtarsAttributes     :: !(Maybe (Map Text Text))
+    , _gtarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetTopicAttributesResponse' with the minimum fields required to make a request.
@@ -107,14 +107,14 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
 --
 -- * 'gtarsAttributes'
 --
--- * 'gtarsStatus'
+-- * 'gtarsResponseStatus'
 getTopicAttributesResponse
-    :: Int -- ^ 'gtarsStatus'
+    :: Int -- ^ 'gtarsResponseStatus'
     -> GetTopicAttributesResponse
-getTopicAttributesResponse pStatus_ =
+getTopicAttributesResponse pResponseStatus_ =
     GetTopicAttributesResponse'
     { _gtarsAttributes = Nothing
-    , _gtarsStatus = pStatus_
+    , _gtarsResponseStatus = pResponseStatus_
     }
 
 -- | A map of the topic\'s attributes. Attributes in this map include the
@@ -140,5 +140,5 @@ gtarsAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
 gtarsAttributes = lens _gtarsAttributes (\ s a -> s{_gtarsAttributes = a}) . _Default . _Map;
 
 -- | The response status code.
-gtarsStatus :: Lens' GetTopicAttributesResponse Int
-gtarsStatus = lens _gtarsStatus (\ s a -> s{_gtarsStatus = a});
+gtarsResponseStatus :: Lens' GetTopicAttributesResponse Int
+gtarsResponseStatus = lens _gtarsResponseStatus (\ s a -> s{_gtarsResponseStatus = a});

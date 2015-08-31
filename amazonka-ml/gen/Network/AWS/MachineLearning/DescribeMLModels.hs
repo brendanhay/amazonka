@@ -48,7 +48,7 @@ module Network.AWS.MachineLearning.DescribeMLModels
     -- * Response Lenses
     , dmlmsrsResults
     , dmlmsrsNextToken
-    , dmlmsrsStatus
+    , dmlmsrsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -256,9 +256,9 @@ instance ToQuery DescribeMLModels where
 --
 -- /See:/ 'describeMLModelsResponse' smart constructor.
 data DescribeMLModelsResponse = DescribeMLModelsResponse'
-    { _dmlmsrsResults   :: !(Maybe [MLModel])
-    , _dmlmsrsNextToken :: !(Maybe Text)
-    , _dmlmsrsStatus    :: !Int
+    { _dmlmsrsResults        :: !(Maybe [MLModel])
+    , _dmlmsrsNextToken      :: !(Maybe Text)
+    , _dmlmsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeMLModelsResponse' with the minimum fields required to make a request.
@@ -269,15 +269,15 @@ data DescribeMLModelsResponse = DescribeMLModelsResponse'
 --
 -- * 'dmlmsrsNextToken'
 --
--- * 'dmlmsrsStatus'
+-- * 'dmlmsrsResponseStatus'
 describeMLModelsResponse
-    :: Int -- ^ 'dmlmsrsStatus'
+    :: Int -- ^ 'dmlmsrsResponseStatus'
     -> DescribeMLModelsResponse
-describeMLModelsResponse pStatus_ =
+describeMLModelsResponse pResponseStatus_ =
     DescribeMLModelsResponse'
     { _dmlmsrsResults = Nothing
     , _dmlmsrsNextToken = Nothing
-    , _dmlmsrsStatus = pStatus_
+    , _dmlmsrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of MLModel that meet the search criteria.
@@ -290,5 +290,5 @@ dmlmsrsNextToken :: Lens' DescribeMLModelsResponse (Maybe Text)
 dmlmsrsNextToken = lens _dmlmsrsNextToken (\ s a -> s{_dmlmsrsNextToken = a});
 
 -- | The response status code.
-dmlmsrsStatus :: Lens' DescribeMLModelsResponse Int
-dmlmsrsStatus = lens _dmlmsrsStatus (\ s a -> s{_dmlmsrsStatus = a});
+dmlmsrsResponseStatus :: Lens' DescribeMLModelsResponse Int
+dmlmsrsResponseStatus = lens _dmlmsrsResponseStatus (\ s a -> s{_dmlmsrsResponseStatus = a});

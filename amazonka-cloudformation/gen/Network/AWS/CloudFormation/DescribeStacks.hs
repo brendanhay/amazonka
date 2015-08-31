@@ -39,7 +39,7 @@ module Network.AWS.CloudFormation.DescribeStacks
     -- * Response Lenses
     , dsrsNextToken
     , dsrsStacks
-    , dsrsStatus
+    , dsrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -125,9 +125,9 @@ instance ToQuery DescribeStacks where
 --
 -- /See:/ 'describeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
-    { _dsrsNextToken :: !(Maybe Text)
-    , _dsrsStacks    :: !(Maybe [Stack])
-    , _dsrsStatus    :: !Int
+    { _dsrsNextToken      :: !(Maybe Text)
+    , _dsrsStacks         :: !(Maybe [Stack])
+    , _dsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeStacksResponse' with the minimum fields required to make a request.
@@ -138,15 +138,15 @@ data DescribeStacksResponse = DescribeStacksResponse'
 --
 -- * 'dsrsStacks'
 --
--- * 'dsrsStatus'
+-- * 'dsrsResponseStatus'
 describeStacksResponse
-    :: Int -- ^ 'dsrsStatus'
+    :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeStacksResponse
-describeStacksResponse pStatus_ =
+describeStacksResponse pResponseStatus_ =
     DescribeStacksResponse'
     { _dsrsNextToken = Nothing
     , _dsrsStacks = Nothing
-    , _dsrsStatus = pStatus_
+    , _dsrsResponseStatus = pResponseStatus_
     }
 
 -- | String that identifies the start of the next list of stacks, if there is
@@ -159,5 +159,5 @@ dsrsStacks :: Lens' DescribeStacksResponse [Stack]
 dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dsrsStatus :: Lens' DescribeStacksResponse Int
-dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
+dsrsResponseStatus :: Lens' DescribeStacksResponse Int
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});

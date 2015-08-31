@@ -59,7 +59,7 @@ module Network.AWS.SWF.DescribeWorkflowType
     , describeWorkflowTypeResponse
     , DescribeWorkflowTypeResponse
     -- * Response Lenses
-    , dwtrsStatus
+    , dwtrsResponseStatus
     , dwtrsTypeInfo
     , dwtrsConfiguration
     ) where
@@ -139,35 +139,35 @@ instance ToQuery DescribeWorkflowType where
 --
 -- /See:/ 'describeWorkflowTypeResponse' smart constructor.
 data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
-    { _dwtrsStatus        :: !Int
-    , _dwtrsTypeInfo      :: !WorkflowTypeInfo
-    , _dwtrsConfiguration :: !WorkflowTypeConfiguration
+    { _dwtrsResponseStatus :: !Int
+    , _dwtrsTypeInfo       :: !WorkflowTypeInfo
+    , _dwtrsConfiguration  :: !WorkflowTypeConfiguration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeWorkflowTypeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwtrsStatus'
+-- * 'dwtrsResponseStatus'
 --
 -- * 'dwtrsTypeInfo'
 --
 -- * 'dwtrsConfiguration'
 describeWorkflowTypeResponse
-    :: Int -- ^ 'dwtrsStatus'
+    :: Int -- ^ 'dwtrsResponseStatus'
     -> WorkflowTypeInfo -- ^ 'dwtrsTypeInfo'
     -> WorkflowTypeConfiguration -- ^ 'dwtrsConfiguration'
     -> DescribeWorkflowTypeResponse
-describeWorkflowTypeResponse pStatus_ pTypeInfo_ pConfiguration_ =
+describeWorkflowTypeResponse pResponseStatus_ pTypeInfo_ pConfiguration_ =
     DescribeWorkflowTypeResponse'
-    { _dwtrsStatus = pStatus_
+    { _dwtrsResponseStatus = pResponseStatus_
     , _dwtrsTypeInfo = pTypeInfo_
     , _dwtrsConfiguration = pConfiguration_
     }
 
 -- | The response status code.
-dwtrsStatus :: Lens' DescribeWorkflowTypeResponse Int
-dwtrsStatus = lens _dwtrsStatus (\ s a -> s{_dwtrsStatus = a});
+dwtrsResponseStatus :: Lens' DescribeWorkflowTypeResponse Int
+dwtrsResponseStatus = lens _dwtrsResponseStatus (\ s a -> s{_dwtrsResponseStatus = a});
 
 -- | General information about the workflow type.
 --

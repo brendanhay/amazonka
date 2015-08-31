@@ -52,7 +52,7 @@ module Network.AWS.S3.ListObjects
     , lorsMaxKeys
     , lorsIsTruncated
     , lorsDelimiter
-    , lorsStatus
+    , lorsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -186,7 +186,7 @@ data ListObjectsResponse = ListObjectsResponse'
     , _lorsMaxKeys        :: !(Maybe Int)
     , _lorsIsTruncated    :: !(Maybe Bool)
     , _lorsDelimiter      :: !(Maybe Delimiter)
-    , _lorsStatus         :: !Int
+    , _lorsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListObjectsResponse' with the minimum fields required to make a request.
@@ -213,11 +213,11 @@ data ListObjectsResponse = ListObjectsResponse'
 --
 -- * 'lorsDelimiter'
 --
--- * 'lorsStatus'
+-- * 'lorsResponseStatus'
 listObjectsResponse
-    :: Int -- ^ 'lorsStatus'
+    :: Int -- ^ 'lorsResponseStatus'
     -> ListObjectsResponse
-listObjectsResponse pStatus_ =
+listObjectsResponse pResponseStatus_ =
     ListObjectsResponse'
     { _lorsContents = Nothing
     , _lorsPrefix = Nothing
@@ -229,7 +229,7 @@ listObjectsResponse pStatus_ =
     , _lorsMaxKeys = Nothing
     , _lorsIsTruncated = Nothing
     , _lorsDelimiter = Nothing
-    , _lorsStatus = pStatus_
+    , _lorsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -281,5 +281,5 @@ lorsDelimiter :: Lens' ListObjectsResponse (Maybe Delimiter)
 lorsDelimiter = lens _lorsDelimiter (\ s a -> s{_lorsDelimiter = a});
 
 -- | The response status code.
-lorsStatus :: Lens' ListObjectsResponse Int
-lorsStatus = lens _lorsStatus (\ s a -> s{_lorsStatus = a});
+lorsResponseStatus :: Lens' ListObjectsResponse Int
+lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a});

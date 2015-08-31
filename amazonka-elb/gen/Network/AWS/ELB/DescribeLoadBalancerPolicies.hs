@@ -43,7 +43,7 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     , DescribeLoadBalancerPoliciesResponse
     -- * Response Lenses
     , dlbprsPolicyDescriptions
-    , dlbprsStatus
+    , dlbprsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -114,7 +114,7 @@ instance ToQuery DescribeLoadBalancerPolicies where
 -- | /See:/ 'describeLoadBalancerPoliciesResponse' smart constructor.
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'
     { _dlbprsPolicyDescriptions :: !(Maybe [PolicyDescription])
-    , _dlbprsStatus             :: !Int
+    , _dlbprsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLoadBalancerPoliciesResponse' with the minimum fields required to make a request.
@@ -123,14 +123,14 @@ data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
 --
 -- * 'dlbprsPolicyDescriptions'
 --
--- * 'dlbprsStatus'
+-- * 'dlbprsResponseStatus'
 describeLoadBalancerPoliciesResponse
-    :: Int -- ^ 'dlbprsStatus'
+    :: Int -- ^ 'dlbprsResponseStatus'
     -> DescribeLoadBalancerPoliciesResponse
-describeLoadBalancerPoliciesResponse pStatus_ =
+describeLoadBalancerPoliciesResponse pResponseStatus_ =
     DescribeLoadBalancerPoliciesResponse'
     { _dlbprsPolicyDescriptions = Nothing
-    , _dlbprsStatus = pStatus_
+    , _dlbprsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the policies.
@@ -138,5 +138,5 @@ dlbprsPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDe
 dlbprsPolicyDescriptions = lens _dlbprsPolicyDescriptions (\ s a -> s{_dlbprsPolicyDescriptions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dlbprsStatus :: Lens' DescribeLoadBalancerPoliciesResponse Int
-dlbprsStatus = lens _dlbprsStatus (\ s a -> s{_dlbprsStatus = a});
+dlbprsResponseStatus :: Lens' DescribeLoadBalancerPoliciesResponse Int
+dlbprsResponseStatus = lens _dlbprsResponseStatus (\ s a -> s{_dlbprsResponseStatus = a});

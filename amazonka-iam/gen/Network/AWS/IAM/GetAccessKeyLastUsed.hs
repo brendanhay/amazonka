@@ -38,7 +38,7 @@ module Network.AWS.IAM.GetAccessKeyLastUsed
     -- * Response Lenses
     , gaklursUserName
     , gaklursAccessKeyLastUsed
-    , gaklursStatus
+    , gaklursResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -101,7 +101,7 @@ instance ToQuery GetAccessKeyLastUsed where
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
     { _gaklursUserName          :: !(Maybe Text)
     , _gaklursAccessKeyLastUsed :: !(Maybe AccessKeyLastUsed)
-    , _gaklursStatus            :: !Int
+    , _gaklursResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetAccessKeyLastUsedResponse' with the minimum fields required to make a request.
@@ -112,15 +112,15 @@ data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
 --
 -- * 'gaklursAccessKeyLastUsed'
 --
--- * 'gaklursStatus'
+-- * 'gaklursResponseStatus'
 getAccessKeyLastUsedResponse
-    :: Int -- ^ 'gaklursStatus'
+    :: Int -- ^ 'gaklursResponseStatus'
     -> GetAccessKeyLastUsedResponse
-getAccessKeyLastUsedResponse pStatus_ =
+getAccessKeyLastUsedResponse pResponseStatus_ =
     GetAccessKeyLastUsedResponse'
     { _gaklursUserName = Nothing
     , _gaklursAccessKeyLastUsed = Nothing
-    , _gaklursStatus = pStatus_
+    , _gaklursResponseStatus = pResponseStatus_
     }
 
 -- | The name of the AWS IAM user that owns this access key.
@@ -132,5 +132,5 @@ gaklursAccessKeyLastUsed :: Lens' GetAccessKeyLastUsedResponse (Maybe AccessKeyL
 gaklursAccessKeyLastUsed = lens _gaklursAccessKeyLastUsed (\ s a -> s{_gaklursAccessKeyLastUsed = a});
 
 -- | The response status code.
-gaklursStatus :: Lens' GetAccessKeyLastUsedResponse Int
-gaklursStatus = lens _gaklursStatus (\ s a -> s{_gaklursStatus = a});
+gaklursResponseStatus :: Lens' GetAccessKeyLastUsedResponse Int
+gaklursResponseStatus = lens _gaklursResponseStatus (\ s a -> s{_gaklursResponseStatus = a});

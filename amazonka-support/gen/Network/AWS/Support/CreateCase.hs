@@ -84,7 +84,7 @@ module Network.AWS.Support.CreateCase
     , CreateCaseResponse
     -- * Response Lenses
     , ccrsCaseId
-    , ccrsStatus
+    , ccrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -236,8 +236,8 @@ instance ToQuery CreateCase where
 --
 -- /See:/ 'createCaseResponse' smart constructor.
 data CreateCaseResponse = CreateCaseResponse'
-    { _ccrsCaseId :: !(Maybe Text)
-    , _ccrsStatus :: !Int
+    { _ccrsCaseId         :: !(Maybe Text)
+    , _ccrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateCaseResponse' with the minimum fields required to make a request.
@@ -246,14 +246,14 @@ data CreateCaseResponse = CreateCaseResponse'
 --
 -- * 'ccrsCaseId'
 --
--- * 'ccrsStatus'
+-- * 'ccrsResponseStatus'
 createCaseResponse
-    :: Int -- ^ 'ccrsStatus'
+    :: Int -- ^ 'ccrsResponseStatus'
     -> CreateCaseResponse
-createCaseResponse pStatus_ =
+createCaseResponse pResponseStatus_ =
     CreateCaseResponse'
     { _ccrsCaseId = Nothing
-    , _ccrsStatus = pStatus_
+    , _ccrsResponseStatus = pResponseStatus_
     }
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
@@ -263,5 +263,5 @@ ccrsCaseId :: Lens' CreateCaseResponse (Maybe Text)
 ccrsCaseId = lens _ccrsCaseId (\ s a -> s{_ccrsCaseId = a});
 
 -- | The response status code.
-ccrsStatus :: Lens' CreateCaseResponse Int
-ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});
+ccrsResponseStatus :: Lens' CreateCaseResponse Int
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});

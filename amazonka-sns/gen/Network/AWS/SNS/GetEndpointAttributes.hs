@@ -37,7 +37,7 @@ module Network.AWS.SNS.GetEndpointAttributes
     , GetEndpointAttributesResponse
     -- * Response Lenses
     , gearsAttributes
-    , gearsStatus
+    , gearsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -99,8 +99,8 @@ instance ToQuery GetEndpointAttributes where
 --
 -- /See:/ 'getEndpointAttributesResponse' smart constructor.
 data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
-    { _gearsAttributes :: !(Maybe (Map Text Text))
-    , _gearsStatus     :: !Int
+    { _gearsAttributes     :: !(Maybe (Map Text Text))
+    , _gearsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetEndpointAttributesResponse' with the minimum fields required to make a request.
@@ -109,14 +109,14 @@ data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
 --
 -- * 'gearsAttributes'
 --
--- * 'gearsStatus'
+-- * 'gearsResponseStatus'
 getEndpointAttributesResponse
-    :: Int -- ^ 'gearsStatus'
+    :: Int -- ^ 'gearsResponseStatus'
     -> GetEndpointAttributesResponse
-getEndpointAttributesResponse pStatus_ =
+getEndpointAttributesResponse pResponseStatus_ =
     GetEndpointAttributesResponse'
     { _gearsAttributes = Nothing
-    , _gearsStatus = pStatus_
+    , _gearsResponseStatus = pResponseStatus_
     }
 
 -- | Attributes include the following:
@@ -136,5 +136,5 @@ gearsAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
 gearsAttributes = lens _gearsAttributes (\ s a -> s{_gearsAttributes = a}) . _Default . _Map;
 
 -- | The response status code.
-gearsStatus :: Lens' GetEndpointAttributesResponse Int
-gearsStatus = lens _gearsStatus (\ s a -> s{_gearsStatus = a});
+gearsResponseStatus :: Lens' GetEndpointAttributesResponse Int
+gearsResponseStatus = lens _gearsResponseStatus (\ s a -> s{_gearsResponseStatus = a});

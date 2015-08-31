@@ -44,7 +44,7 @@ module Network.AWS.Redshift.DeleteClusterSnapshot
     , DeleteClusterSnapshotResponse
     -- * Response Lenses
     , dcsrsSnapshot
-    , dcsrsStatus
+    , dcsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -120,8 +120,8 @@ instance ToQuery DeleteClusterSnapshot where
 
 -- | /See:/ 'deleteClusterSnapshotResponse' smart constructor.
 data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'
-    { _dcsrsSnapshot :: !(Maybe Snapshot)
-    , _dcsrsStatus   :: !Int
+    { _dcsrsSnapshot       :: !(Maybe Snapshot)
+    , _dcsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteClusterSnapshotResponse' with the minimum fields required to make a request.
@@ -130,14 +130,14 @@ data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'
 --
 -- * 'dcsrsSnapshot'
 --
--- * 'dcsrsStatus'
+-- * 'dcsrsResponseStatus'
 deleteClusterSnapshotResponse
-    :: Int -- ^ 'dcsrsStatus'
+    :: Int -- ^ 'dcsrsResponseStatus'
     -> DeleteClusterSnapshotResponse
-deleteClusterSnapshotResponse pStatus_ =
+deleteClusterSnapshotResponse pResponseStatus_ =
     DeleteClusterSnapshotResponse'
     { _dcsrsSnapshot = Nothing
-    , _dcsrsStatus = pStatus_
+    , _dcsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -145,5 +145,5 @@ dcsrsSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
 dcsrsSnapshot = lens _dcsrsSnapshot (\ s a -> s{_dcsrsSnapshot = a});
 
 -- | The response status code.
-dcsrsStatus :: Lens' DeleteClusterSnapshotResponse Int
-dcsrsStatus = lens _dcsrsStatus (\ s a -> s{_dcsrsStatus = a});
+dcsrsResponseStatus :: Lens' DeleteClusterSnapshotResponse Int
+dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});

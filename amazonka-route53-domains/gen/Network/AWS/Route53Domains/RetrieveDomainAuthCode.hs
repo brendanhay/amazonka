@@ -34,7 +34,7 @@ module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     , retrieveDomainAuthCodeResponse
     , RetrieveDomainAuthCodeResponse
     -- * Response Lenses
-    , rdacrsStatus
+    , rdacrsResponseStatus
     , rdacrsAuthCode
     ) where
 
@@ -113,30 +113,30 @@ instance ToQuery RetrieveDomainAuthCode where
 --
 -- /See:/ 'retrieveDomainAuthCodeResponse' smart constructor.
 data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
-    { _rdacrsStatus   :: !Int
-    , _rdacrsAuthCode :: !(Sensitive Text)
+    { _rdacrsResponseStatus :: !Int
+    , _rdacrsAuthCode       :: !(Sensitive Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RetrieveDomainAuthCodeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdacrsStatus'
+-- * 'rdacrsResponseStatus'
 --
 -- * 'rdacrsAuthCode'
 retrieveDomainAuthCodeResponse
-    :: Int -- ^ 'rdacrsStatus'
+    :: Int -- ^ 'rdacrsResponseStatus'
     -> Text -- ^ 'rdacrsAuthCode'
     -> RetrieveDomainAuthCodeResponse
-retrieveDomainAuthCodeResponse pStatus_ pAuthCode_ =
+retrieveDomainAuthCodeResponse pResponseStatus_ pAuthCode_ =
     RetrieveDomainAuthCodeResponse'
-    { _rdacrsStatus = pStatus_
+    { _rdacrsResponseStatus = pResponseStatus_
     , _rdacrsAuthCode = _Sensitive # pAuthCode_
     }
 
 -- | The response status code.
-rdacrsStatus :: Lens' RetrieveDomainAuthCodeResponse Int
-rdacrsStatus = lens _rdacrsStatus (\ s a -> s{_rdacrsStatus = a});
+rdacrsResponseStatus :: Lens' RetrieveDomainAuthCodeResponse Int
+rdacrsResponseStatus = lens _rdacrsResponseStatus (\ s a -> s{_rdacrsResponseStatus = a});
 
 -- | The authorization code for the domain.
 --

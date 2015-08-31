@@ -44,7 +44,7 @@ module Network.AWS.EC2.DescribeSecurityGroups
     , DescribeSecurityGroupsResponse
     -- * Response Lenses
     , dsgrsSecurityGroups
-    , dsgrsStatus
+    , dsgrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -182,7 +182,7 @@ instance ToQuery DescribeSecurityGroups where
 -- | /See:/ 'describeSecurityGroupsResponse' smart constructor.
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
     { _dsgrsSecurityGroups :: !(Maybe [SecurityGroup])
-    , _dsgrsStatus         :: !Int
+    , _dsgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSecurityGroupsResponse' with the minimum fields required to make a request.
@@ -191,14 +191,14 @@ data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
 --
 -- * 'dsgrsSecurityGroups'
 --
--- * 'dsgrsStatus'
+-- * 'dsgrsResponseStatus'
 describeSecurityGroupsResponse
-    :: Int -- ^ 'dsgrsStatus'
+    :: Int -- ^ 'dsgrsResponseStatus'
     -> DescribeSecurityGroupsResponse
-describeSecurityGroupsResponse pStatus_ =
+describeSecurityGroupsResponse pResponseStatus_ =
     DescribeSecurityGroupsResponse'
     { _dsgrsSecurityGroups = Nothing
-    , _dsgrsStatus = pStatus_
+    , _dsgrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more security groups.
@@ -206,5 +206,5 @@ dsgrsSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgrsSecurityGroups = lens _dsgrsSecurityGroups (\ s a -> s{_dsgrsSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dsgrsStatus :: Lens' DescribeSecurityGroupsResponse Int
-dsgrsStatus = lens _dsgrsStatus (\ s a -> s{_dsgrsStatus = a});
+dsgrsResponseStatus :: Lens' DescribeSecurityGroupsResponse Int
+dsgrsResponseStatus = lens _dsgrsResponseStatus (\ s a -> s{_dsgrsResponseStatus = a});

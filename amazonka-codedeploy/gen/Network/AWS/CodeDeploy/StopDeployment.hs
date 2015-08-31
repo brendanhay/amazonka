@@ -35,7 +35,7 @@ module Network.AWS.CodeDeploy.StopDeployment
     -- * Response Lenses
     , sdrsStatus
     , sdrsStatusMessage
-    , sdrsStatus
+    , sdrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -103,9 +103,9 @@ instance ToQuery StopDeployment where
 --
 -- /See:/ 'stopDeploymentResponse' smart constructor.
 data StopDeploymentResponse = StopDeploymentResponse'
-    { _sdrsStatus        :: !(Maybe StopStatus)
-    , _sdrsStatusMessage :: !(Maybe Text)
-    , _sdrsStatus        :: !Int
+    { _sdrsStatus         :: !(Maybe StopStatus)
+    , _sdrsStatusMessage  :: !(Maybe Text)
+    , _sdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StopDeploymentResponse' with the minimum fields required to make a request.
@@ -116,15 +116,15 @@ data StopDeploymentResponse = StopDeploymentResponse'
 --
 -- * 'sdrsStatusMessage'
 --
--- * 'sdrsStatus'
+-- * 'sdrsResponseStatus'
 stopDeploymentResponse
-    :: Int -- ^ 'sdrsStatus'
+    :: Int -- ^ 'sdrsResponseStatus'
     -> StopDeploymentResponse
-stopDeploymentResponse pStatus_ =
+stopDeploymentResponse pResponseStatus_ =
     StopDeploymentResponse'
     { _sdrsStatus = Nothing
     , _sdrsStatusMessage = Nothing
-    , _sdrsStatus = pStatus_
+    , _sdrsResponseStatus = pResponseStatus_
     }
 
 -- | The status of the stop deployment operation:
@@ -139,5 +139,5 @@ sdrsStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)
 sdrsStatusMessage = lens _sdrsStatusMessage (\ s a -> s{_sdrsStatusMessage = a});
 
 -- | The response status code.
-sdrsStatus :: Lens' StopDeploymentResponse Int
-sdrsStatus = lens _sdrsStatus (\ s a -> s{_sdrsStatus = a});
+sdrsResponseStatus :: Lens' StopDeploymentResponse Int
+sdrsResponseStatus = lens _sdrsResponseStatus (\ s a -> s{_sdrsResponseStatus = a});

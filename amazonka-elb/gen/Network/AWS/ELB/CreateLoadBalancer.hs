@@ -53,7 +53,7 @@ module Network.AWS.ELB.CreateLoadBalancer
     , CreateLoadBalancerResponse
     -- * Response Lenses
     , clbrsDNSName
-    , clbrsStatus
+    , clbrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -200,8 +200,8 @@ instance ToQuery CreateLoadBalancer where
 
 -- | /See:/ 'createLoadBalancerResponse' smart constructor.
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
-    { _clbrsDNSName :: !(Maybe Text)
-    , _clbrsStatus  :: !Int
+    { _clbrsDNSName        :: !(Maybe Text)
+    , _clbrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateLoadBalancerResponse' with the minimum fields required to make a request.
@@ -210,14 +210,14 @@ data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
 --
 -- * 'clbrsDNSName'
 --
--- * 'clbrsStatus'
+-- * 'clbrsResponseStatus'
 createLoadBalancerResponse
-    :: Int -- ^ 'clbrsStatus'
+    :: Int -- ^ 'clbrsResponseStatus'
     -> CreateLoadBalancerResponse
-createLoadBalancerResponse pStatus_ =
+createLoadBalancerResponse pResponseStatus_ =
     CreateLoadBalancerResponse'
     { _clbrsDNSName = Nothing
-    , _clbrsStatus = pStatus_
+    , _clbrsResponseStatus = pResponseStatus_
     }
 
 -- | The DNS name of the load balancer.
@@ -225,5 +225,5 @@ clbrsDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
 clbrsDNSName = lens _clbrsDNSName (\ s a -> s{_clbrsDNSName = a});
 
 -- | The response status code.
-clbrsStatus :: Lens' CreateLoadBalancerResponse Int
-clbrsStatus = lens _clbrsStatus (\ s a -> s{_clbrsStatus = a});
+clbrsResponseStatus :: Lens' CreateLoadBalancerResponse Int
+clbrsResponseStatus = lens _clbrsResponseStatus (\ s a -> s{_clbrsResponseStatus = a});

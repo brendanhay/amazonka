@@ -41,7 +41,7 @@ module Network.AWS.OpsWorks.DescribeStackSummary
     , DescribeStackSummaryResponse
     -- * Response Lenses
     , dssrsStackSummary
-    , dssrsStatus
+    , dssrsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -107,8 +107,8 @@ instance ToQuery DescribeStackSummary where
 --
 -- /See:/ 'describeStackSummaryResponse' smart constructor.
 data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
-    { _dssrsStackSummary :: !(Maybe StackSummary)
-    , _dssrsStatus       :: !Int
+    { _dssrsStackSummary   :: !(Maybe StackSummary)
+    , _dssrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeStackSummaryResponse' with the minimum fields required to make a request.
@@ -117,14 +117,14 @@ data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
 --
 -- * 'dssrsStackSummary'
 --
--- * 'dssrsStatus'
+-- * 'dssrsResponseStatus'
 describeStackSummaryResponse
-    :: Int -- ^ 'dssrsStatus'
+    :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeStackSummaryResponse
-describeStackSummaryResponse pStatus_ =
+describeStackSummaryResponse pResponseStatus_ =
     DescribeStackSummaryResponse'
     { _dssrsStackSummary = Nothing
-    , _dssrsStatus = pStatus_
+    , _dssrsResponseStatus = pResponseStatus_
     }
 
 -- | A 'StackSummary' object that contains the results.
@@ -132,5 +132,5 @@ dssrsStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
 dssrsStackSummary = lens _dssrsStackSummary (\ s a -> s{_dssrsStackSummary = a});
 
 -- | The response status code.
-dssrsStatus :: Lens' DescribeStackSummaryResponse Int
-dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});
+dssrsResponseStatus :: Lens' DescribeStackSummaryResponse Int
+dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});

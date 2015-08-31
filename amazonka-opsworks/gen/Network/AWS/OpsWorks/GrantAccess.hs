@@ -37,7 +37,7 @@ module Network.AWS.OpsWorks.GrantAccess
     , GrantAccessResponse
     -- * Response Lenses
     , garsTemporaryCredential
-    , garsStatus
+    , garsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -116,7 +116,7 @@ instance ToQuery GrantAccess where
 -- /See:/ 'grantAccessResponse' smart constructor.
 data GrantAccessResponse = GrantAccessResponse'
     { _garsTemporaryCredential :: !(Maybe TemporaryCredential)
-    , _garsStatus              :: !Int
+    , _garsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GrantAccessResponse' with the minimum fields required to make a request.
@@ -125,14 +125,14 @@ data GrantAccessResponse = GrantAccessResponse'
 --
 -- * 'garsTemporaryCredential'
 --
--- * 'garsStatus'
+-- * 'garsResponseStatus'
 grantAccessResponse
-    :: Int -- ^ 'garsStatus'
+    :: Int -- ^ 'garsResponseStatus'
     -> GrantAccessResponse
-grantAccessResponse pStatus_ =
+grantAccessResponse pResponseStatus_ =
     GrantAccessResponse'
     { _garsTemporaryCredential = Nothing
-    , _garsStatus = pStatus_
+    , _garsResponseStatus = pResponseStatus_
     }
 
 -- | A 'TemporaryCredential' object that contains the data needed to log in
@@ -142,5 +142,5 @@ garsTemporaryCredential :: Lens' GrantAccessResponse (Maybe TemporaryCredential)
 garsTemporaryCredential = lens _garsTemporaryCredential (\ s a -> s{_garsTemporaryCredential = a});
 
 -- | The response status code.
-garsStatus :: Lens' GrantAccessResponse Int
-garsStatus = lens _garsStatus (\ s a -> s{_garsStatus = a});
+garsResponseStatus :: Lens' GrantAccessResponse Int
+garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});

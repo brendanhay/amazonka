@@ -37,7 +37,7 @@ module Network.AWS.DirectConnect.DescribeInterconnects
     , DescribeInterconnectsResponse
     -- * Response Lenses
     , dirsInterconnects
-    , dirsStatus
+    , dirsResponseStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -106,8 +106,8 @@ instance ToQuery DescribeInterconnects where
 --
 -- /See:/ 'describeInterconnectsResponse' smart constructor.
 data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
-    { _dirsInterconnects :: !(Maybe [Interconnect])
-    , _dirsStatus        :: !Int
+    { _dirsInterconnects  :: !(Maybe [Interconnect])
+    , _dirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeInterconnectsResponse' with the minimum fields required to make a request.
@@ -116,14 +116,14 @@ data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
 --
 -- * 'dirsInterconnects'
 --
--- * 'dirsStatus'
+-- * 'dirsResponseStatus'
 describeInterconnectsResponse
-    :: Int -- ^ 'dirsStatus'
+    :: Int -- ^ 'dirsResponseStatus'
     -> DescribeInterconnectsResponse
-describeInterconnectsResponse pStatus_ =
+describeInterconnectsResponse pResponseStatus_ =
     DescribeInterconnectsResponse'
     { _dirsInterconnects = Nothing
-    , _dirsStatus = pStatus_
+    , _dirsResponseStatus = pResponseStatus_
     }
 
 -- | A list of interconnects.
@@ -131,5 +131,5 @@ dirsInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
 dirsInterconnects = lens _dirsInterconnects (\ s a -> s{_dirsInterconnects = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dirsStatus :: Lens' DescribeInterconnectsResponse Int
-dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});
+dirsResponseStatus :: Lens' DescribeInterconnectsResponse Int
+dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});

@@ -40,7 +40,7 @@ module Network.AWS.SNS.ListSubscriptions
     -- * Response Lenses
     , lsrsNextToken
     , lsrsSubscriptions
-    , lsrsStatus
+    , lsrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -109,9 +109,9 @@ instance ToQuery ListSubscriptions where
 --
 -- /See:/ 'listSubscriptionsResponse' smart constructor.
 data ListSubscriptionsResponse = ListSubscriptionsResponse'
-    { _lsrsNextToken     :: !(Maybe Text)
-    , _lsrsSubscriptions :: !(Maybe [Subscription])
-    , _lsrsStatus        :: !Int
+    { _lsrsNextToken      :: !(Maybe Text)
+    , _lsrsSubscriptions  :: !(Maybe [Subscription])
+    , _lsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListSubscriptionsResponse' with the minimum fields required to make a request.
@@ -122,15 +122,15 @@ data ListSubscriptionsResponse = ListSubscriptionsResponse'
 --
 -- * 'lsrsSubscriptions'
 --
--- * 'lsrsStatus'
+-- * 'lsrsResponseStatus'
 listSubscriptionsResponse
-    :: Int -- ^ 'lsrsStatus'
+    :: Int -- ^ 'lsrsResponseStatus'
     -> ListSubscriptionsResponse
-listSubscriptionsResponse pStatus_ =
+listSubscriptionsResponse pResponseStatus_ =
     ListSubscriptionsResponse'
     { _lsrsNextToken = Nothing
     , _lsrsSubscriptions = Nothing
-    , _lsrsStatus = pStatus_
+    , _lsrsResponseStatus = pResponseStatus_
     }
 
 -- | Token to pass along to the next 'ListSubscriptions' request. This
@@ -143,5 +143,5 @@ lsrsSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
 lsrsSubscriptions = lens _lsrsSubscriptions (\ s a -> s{_lsrsSubscriptions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lsrsStatus :: Lens' ListSubscriptionsResponse Int
-lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});
+lsrsResponseStatus :: Lens' ListSubscriptionsResponse Int
+lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});

@@ -49,7 +49,7 @@ module Network.AWS.CloudTrail.CreateTrail
     , ctrsIncludeGlobalServiceEvents
     , ctrsCloudWatchLogsRoleARN
     , ctrsS3BucketName
-    , ctrsStatus
+    , ctrsResponseStatus
     ) where
 
 import           Network.AWS.CloudTrail.Types
@@ -196,7 +196,7 @@ data CreateTrailResponse = CreateTrailResponse'
     , _ctrsIncludeGlobalServiceEvents :: !(Maybe Bool)
     , _ctrsCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _ctrsS3BucketName               :: !(Maybe Text)
-    , _ctrsStatus                     :: !Int
+    , _ctrsResponseStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateTrailResponse' with the minimum fields required to make a request.
@@ -217,11 +217,11 @@ data CreateTrailResponse = CreateTrailResponse'
 --
 -- * 'ctrsS3BucketName'
 --
--- * 'ctrsStatus'
+-- * 'ctrsResponseStatus'
 createTrailResponse
-    :: Int -- ^ 'ctrsStatus'
+    :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTrailResponse
-createTrailResponse pStatus_ =
+createTrailResponse pResponseStatus_ =
     CreateTrailResponse'
     { _ctrsS3KeyPrefix = Nothing
     , _ctrsSNSTopicName = Nothing
@@ -230,7 +230,7 @@ createTrailResponse pStatus_ =
     , _ctrsIncludeGlobalServiceEvents = Nothing
     , _ctrsCloudWatchLogsRoleARN = Nothing
     , _ctrsS3BucketName = Nothing
-    , _ctrsStatus = pStatus_
+    , _ctrsResponseStatus = pResponseStatus_
     }
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
@@ -268,5 +268,5 @@ ctrsS3BucketName :: Lens' CreateTrailResponse (Maybe Text)
 ctrsS3BucketName = lens _ctrsS3BucketName (\ s a -> s{_ctrsS3BucketName = a});
 
 -- | The response status code.
-ctrsStatus :: Lens' CreateTrailResponse Int
-ctrsStatus = lens _ctrsStatus (\ s a -> s{_ctrsStatus = a});
+ctrsResponseStatus :: Lens' CreateTrailResponse Int
+ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});

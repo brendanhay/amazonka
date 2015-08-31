@@ -39,7 +39,7 @@ module Network.AWS.DataPipeline.DeactivatePipeline
     , deactivatePipelineResponse
     , DeactivatePipelineResponse
     -- * Response Lenses
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -117,22 +117,22 @@ instance ToQuery DeactivatePipeline where
 --
 -- /See:/ 'deactivatePipelineResponse' smart constructor.
 newtype DeactivatePipelineResponse = DeactivatePipelineResponse'
-    { _drsStatus :: Int
+    { _drsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeactivatePipelineResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 deactivatePipelineResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DeactivatePipelineResponse
-deactivatePipelineResponse pStatus_ =
+deactivatePipelineResponse pResponseStatus_ =
     DeactivatePipelineResponse'
-    { _drsStatus = pStatus_
+    { _drsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-drsStatus :: Lens' DeactivatePipelineResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DeactivatePipelineResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

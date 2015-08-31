@@ -54,7 +54,7 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     -- * Response Lenses
     , dcsgrsClusterSubnetGroups
     , dcsgrsMarker
-    , dcsgrsStatus
+    , dcsgrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -191,7 +191,7 @@ instance ToQuery DescribeClusterSubnetGroups where
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'
     { _dcsgrsClusterSubnetGroups :: !(Maybe [ClusterSubnetGroup])
     , _dcsgrsMarker              :: !(Maybe Text)
-    , _dcsgrsStatus              :: !Int
+    , _dcsgrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClusterSubnetGroupsResponse' with the minimum fields required to make a request.
@@ -202,15 +202,15 @@ data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'
 --
 -- * 'dcsgrsMarker'
 --
--- * 'dcsgrsStatus'
+-- * 'dcsgrsResponseStatus'
 describeClusterSubnetGroupsResponse
-    :: Int -- ^ 'dcsgrsStatus'
+    :: Int -- ^ 'dcsgrsResponseStatus'
     -> DescribeClusterSubnetGroupsResponse
-describeClusterSubnetGroupsResponse pStatus_ =
+describeClusterSubnetGroupsResponse pResponseStatus_ =
     DescribeClusterSubnetGroupsResponse'
     { _dcsgrsClusterSubnetGroups = Nothing
     , _dcsgrsMarker = Nothing
-    , _dcsgrsStatus = pStatus_
+    , _dcsgrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of ClusterSubnetGroup instances.
@@ -227,5 +227,5 @@ dcsgrsMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
 dcsgrsMarker = lens _dcsgrsMarker (\ s a -> s{_dcsgrsMarker = a});
 
 -- | The response status code.
-dcsgrsStatus :: Lens' DescribeClusterSubnetGroupsResponse Int
-dcsgrsStatus = lens _dcsgrsStatus (\ s a -> s{_dcsgrsStatus = a});
+dcsgrsResponseStatus :: Lens' DescribeClusterSubnetGroupsResponse Int
+dcsgrsResponseStatus = lens _dcsgrsResponseStatus (\ s a -> s{_dcsgrsResponseStatus = a});

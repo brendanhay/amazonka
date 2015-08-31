@@ -47,7 +47,7 @@ module Network.AWS.CloudFormation.CreateStack
     , CreateStackResponse
     -- * Response Lenses
     , csrsStackId
-    , csrsStatus
+    , csrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -267,8 +267,8 @@ instance ToQuery CreateStack where
 --
 -- /See:/ 'createStackResponse' smart constructor.
 data CreateStackResponse = CreateStackResponse'
-    { _csrsStackId :: !(Maybe Text)
-    , _csrsStatus  :: !Int
+    { _csrsStackId        :: !(Maybe Text)
+    , _csrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateStackResponse' with the minimum fields required to make a request.
@@ -277,14 +277,14 @@ data CreateStackResponse = CreateStackResponse'
 --
 -- * 'csrsStackId'
 --
--- * 'csrsStatus'
+-- * 'csrsResponseStatus'
 createStackResponse
-    :: Int -- ^ 'csrsStatus'
+    :: Int -- ^ 'csrsResponseStatus'
     -> CreateStackResponse
-createStackResponse pStatus_ =
+createStackResponse pResponseStatus_ =
     CreateStackResponse'
     { _csrsStackId = Nothing
-    , _csrsStatus = pStatus_
+    , _csrsResponseStatus = pResponseStatus_
     }
 
 -- | Unique identifier of the stack.
@@ -292,5 +292,5 @@ csrsStackId :: Lens' CreateStackResponse (Maybe Text)
 csrsStackId = lens _csrsStackId (\ s a -> s{_csrsStackId = a});
 
 -- | The response status code.
-csrsStatus :: Lens' CreateStackResponse Int
-csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});
+csrsResponseStatus :: Lens' CreateStackResponse Int
+csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});

@@ -52,7 +52,7 @@ module Network.AWS.SNS.CreatePlatformEndpoint
     , CreatePlatformEndpointResponse
     -- * Response Lenses
     , cpersEndpointARN
-    , cpersStatus
+    , cpersResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -153,8 +153,8 @@ instance ToQuery CreatePlatformEndpoint where
 --
 -- /See:/ 'createPlatformEndpointResponse' smart constructor.
 data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse'
-    { _cpersEndpointARN :: !(Maybe Text)
-    , _cpersStatus      :: !Int
+    { _cpersEndpointARN    :: !(Maybe Text)
+    , _cpersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreatePlatformEndpointResponse' with the minimum fields required to make a request.
@@ -163,14 +163,14 @@ data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse'
 --
 -- * 'cpersEndpointARN'
 --
--- * 'cpersStatus'
+-- * 'cpersResponseStatus'
 createPlatformEndpointResponse
-    :: Int -- ^ 'cpersStatus'
+    :: Int -- ^ 'cpersResponseStatus'
     -> CreatePlatformEndpointResponse
-createPlatformEndpointResponse pStatus_ =
+createPlatformEndpointResponse pResponseStatus_ =
     CreatePlatformEndpointResponse'
     { _cpersEndpointARN = Nothing
-    , _cpersStatus = pStatus_
+    , _cpersResponseStatus = pResponseStatus_
     }
 
 -- | EndpointArn returned from CreateEndpoint action.
@@ -178,5 +178,5 @@ cpersEndpointARN :: Lens' CreatePlatformEndpointResponse (Maybe Text)
 cpersEndpointARN = lens _cpersEndpointARN (\ s a -> s{_cpersEndpointARN = a});
 
 -- | The response status code.
-cpersStatus :: Lens' CreatePlatformEndpointResponse Int
-cpersStatus = lens _cpersStatus (\ s a -> s{_cpersStatus = a});
+cpersResponseStatus :: Lens' CreatePlatformEndpointResponse Int
+cpersResponseStatus = lens _cpersResponseStatus (\ s a -> s{_cpersResponseStatus = a});

@@ -75,7 +75,7 @@ module Network.AWS.S3.GetObject
     , gorsContentRange
     , gorsServerSideEncryption
     , gorsContentType
-    , gorsStatus
+    , gorsResponseStatus
     , gorsBody
     ) where
 
@@ -357,7 +357,7 @@ data GetObjectResponse = GetObjectResponse'
     , _gorsContentRange            :: !(Maybe Text)
     , _gorsServerSideEncryption    :: !(Maybe ServerSideEncryption)
     , _gorsContentType             :: !(Maybe Text)
-    , _gorsStatus                  :: !Int
+    , _gorsResponseStatus          :: !Int
     , _gorsBody                    :: !RsBody
     } deriving (Show,Generic)
 
@@ -415,14 +415,14 @@ data GetObjectResponse = GetObjectResponse'
 --
 -- * 'gorsContentType'
 --
--- * 'gorsStatus'
+-- * 'gorsResponseStatus'
 --
 -- * 'gorsBody'
 getObjectResponse
-    :: Int -- ^ 'gorsStatus'
+    :: Int -- ^ 'gorsResponseStatus'
     -> RsBody -- ^ 'gorsBody'
     -> GetObjectResponse
-getObjectResponse pStatus_ pBody_ =
+getObjectResponse pResponseStatus_ pBody_ =
     GetObjectResponse'
     { _gorsRequestCharged = Nothing
     , _gorsETag = Nothing
@@ -449,7 +449,7 @@ getObjectResponse pStatus_ pBody_ =
     , _gorsContentRange = Nothing
     , _gorsServerSideEncryption = Nothing
     , _gorsContentType = Nothing
-    , _gorsStatus = pStatus_
+    , _gorsResponseStatus = pResponseStatus_
     , _gorsBody = pBody_
     }
 
@@ -575,8 +575,8 @@ gorsContentType :: Lens' GetObjectResponse (Maybe Text)
 gorsContentType = lens _gorsContentType (\ s a -> s{_gorsContentType = a});
 
 -- | The response status code.
-gorsStatus :: Lens' GetObjectResponse Int
-gorsStatus = lens _gorsStatus (\ s a -> s{_gorsStatus = a});
+gorsResponseStatus :: Lens' GetObjectResponse Int
+gorsResponseStatus = lens _gorsResponseStatus (\ s a -> s{_gorsResponseStatus = a});
 
 -- | Object data.
 gorsBody :: Lens' GetObjectResponse RsBody

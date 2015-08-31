@@ -50,7 +50,7 @@ module Network.AWS.IAM.ListRolePolicies
     -- * Response Lenses
     , lrprsMarker
     , lrprsIsTruncated
-    , lrprsStatus
+    , lrprsResponseStatus
     , lrprsPolicyNames
     ) where
 
@@ -144,10 +144,10 @@ instance ToQuery ListRolePolicies where
 --
 -- /See:/ 'listRolePoliciesResponse' smart constructor.
 data ListRolePoliciesResponse = ListRolePoliciesResponse'
-    { _lrprsMarker      :: !(Maybe Text)
-    , _lrprsIsTruncated :: !(Maybe Bool)
-    , _lrprsStatus      :: !Int
-    , _lrprsPolicyNames :: ![Text]
+    { _lrprsMarker         :: !(Maybe Text)
+    , _lrprsIsTruncated    :: !(Maybe Bool)
+    , _lrprsResponseStatus :: !Int
+    , _lrprsPolicyNames    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListRolePoliciesResponse' with the minimum fields required to make a request.
@@ -158,17 +158,17 @@ data ListRolePoliciesResponse = ListRolePoliciesResponse'
 --
 -- * 'lrprsIsTruncated'
 --
--- * 'lrprsStatus'
+-- * 'lrprsResponseStatus'
 --
 -- * 'lrprsPolicyNames'
 listRolePoliciesResponse
-    :: Int -- ^ 'lrprsStatus'
+    :: Int -- ^ 'lrprsResponseStatus'
     -> ListRolePoliciesResponse
-listRolePoliciesResponse pStatus_ =
+listRolePoliciesResponse pResponseStatus_ =
     ListRolePoliciesResponse'
     { _lrprsMarker = Nothing
     , _lrprsIsTruncated = Nothing
-    , _lrprsStatus = pStatus_
+    , _lrprsResponseStatus = pResponseStatus_
     , _lrprsPolicyNames = mempty
     }
 
@@ -185,8 +185,8 @@ lrprsIsTruncated :: Lens' ListRolePoliciesResponse (Maybe Bool)
 lrprsIsTruncated = lens _lrprsIsTruncated (\ s a -> s{_lrprsIsTruncated = a});
 
 -- | The response status code.
-lrprsStatus :: Lens' ListRolePoliciesResponse Int
-lrprsStatus = lens _lrprsStatus (\ s a -> s{_lrprsStatus = a});
+lrprsResponseStatus :: Lens' ListRolePoliciesResponse Int
+lrprsResponseStatus = lens _lrprsResponseStatus (\ s a -> s{_lrprsResponseStatus = a});
 
 -- | A list of policy names.
 lrprsPolicyNames :: Lens' ListRolePoliciesResponse [Text]

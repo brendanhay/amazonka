@@ -36,7 +36,7 @@ module Network.AWS.DeviceFarm.ListUploads
     -- * Response Lenses
     , lursNextToken
     , lursUploads
-    , lursStatus
+    , lursResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -115,9 +115,9 @@ instance ToQuery ListUploads where
 --
 -- /See:/ 'listUploadsResponse' smart constructor.
 data ListUploadsResponse = ListUploadsResponse'
-    { _lursNextToken :: !(Maybe Text)
-    , _lursUploads   :: !(Maybe [Upload])
-    , _lursStatus    :: !Int
+    { _lursNextToken      :: !(Maybe Text)
+    , _lursUploads        :: !(Maybe [Upload])
+    , _lursResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListUploadsResponse' with the minimum fields required to make a request.
@@ -128,15 +128,15 @@ data ListUploadsResponse = ListUploadsResponse'
 --
 -- * 'lursUploads'
 --
--- * 'lursStatus'
+-- * 'lursResponseStatus'
 listUploadsResponse
-    :: Int -- ^ 'lursStatus'
+    :: Int -- ^ 'lursResponseStatus'
     -> ListUploadsResponse
-listUploadsResponse pStatus_ =
+listUploadsResponse pResponseStatus_ =
     ListUploadsResponse'
     { _lursNextToken = Nothing
     , _lursUploads = Nothing
-    , _lursStatus = pStatus_
+    , _lursResponseStatus = pResponseStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is
@@ -150,5 +150,5 @@ lursUploads :: Lens' ListUploadsResponse [Upload]
 lursUploads = lens _lursUploads (\ s a -> s{_lursUploads = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lursStatus :: Lens' ListUploadsResponse Int
-lursStatus = lens _lursStatus (\ s a -> s{_lursStatus = a});
+lursResponseStatus :: Lens' ListUploadsResponse Int
+lursResponseStatus = lens _lursResponseStatus (\ s a -> s{_lursResponseStatus = a});

@@ -34,7 +34,7 @@ module Network.AWS.KMS.GenerateRandom
     , GenerateRandomResponse
     -- * Response Lenses
     , grrsPlaintext
-    , grrsStatus
+    , grrsResponseStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -97,8 +97,8 @@ instance ToQuery GenerateRandom where
 
 -- | /See:/ 'generateRandomResponse' smart constructor.
 data GenerateRandomResponse = GenerateRandomResponse'
-    { _grrsPlaintext :: !(Maybe (Sensitive Base64))
-    , _grrsStatus    :: !Int
+    { _grrsPlaintext      :: !(Maybe (Sensitive Base64))
+    , _grrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GenerateRandomResponse' with the minimum fields required to make a request.
@@ -107,14 +107,14 @@ data GenerateRandomResponse = GenerateRandomResponse'
 --
 -- * 'grrsPlaintext'
 --
--- * 'grrsStatus'
+-- * 'grrsResponseStatus'
 generateRandomResponse
-    :: Int -- ^ 'grrsStatus'
+    :: Int -- ^ 'grrsResponseStatus'
     -> GenerateRandomResponse
-generateRandomResponse pStatus_ =
+generateRandomResponse pResponseStatus_ =
     GenerateRandomResponse'
     { _grrsPlaintext = Nothing
-    , _grrsStatus = pStatus_
+    , _grrsResponseStatus = pResponseStatus_
     }
 
 -- | Plaintext that contains the unpredictable byte string.
@@ -128,5 +128,5 @@ grrsPlaintext :: Lens' GenerateRandomResponse (Maybe ByteString)
 grrsPlaintext = lens _grrsPlaintext (\ s a -> s{_grrsPlaintext = a}) . mapping (_Sensitive . _Base64);
 
 -- | The response status code.
-grrsStatus :: Lens' GenerateRandomResponse Int
-grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});
+grrsResponseStatus :: Lens' GenerateRandomResponse Int
+grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});

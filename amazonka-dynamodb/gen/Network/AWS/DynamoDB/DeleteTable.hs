@@ -53,7 +53,7 @@ module Network.AWS.DynamoDB.DeleteTable
     , DeleteTableResponse
     -- * Response Lenses
     , dtrsTableDescription
-    , dtrsStatus
+    , dtrsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -120,7 +120,7 @@ instance ToQuery DeleteTable where
 -- /See:/ 'deleteTableResponse' smart constructor.
 data DeleteTableResponse = DeleteTableResponse'
     { _dtrsTableDescription :: !(Maybe TableDescription)
-    , _dtrsStatus           :: !Int
+    , _dtrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteTableResponse' with the minimum fields required to make a request.
@@ -129,14 +129,14 @@ data DeleteTableResponse = DeleteTableResponse'
 --
 -- * 'dtrsTableDescription'
 --
--- * 'dtrsStatus'
+-- * 'dtrsResponseStatus'
 deleteTableResponse
-    :: Int -- ^ 'dtrsStatus'
+    :: Int -- ^ 'dtrsResponseStatus'
     -> DeleteTableResponse
-deleteTableResponse pStatus_ =
+deleteTableResponse pResponseStatus_ =
     DeleteTableResponse'
     { _dtrsTableDescription = Nothing
-    , _dtrsStatus = pStatus_
+    , _dtrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -144,5 +144,5 @@ dtrsTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
 dtrsTableDescription = lens _dtrsTableDescription (\ s a -> s{_dtrsTableDescription = a});
 
 -- | The response status code.
-dtrsStatus :: Lens' DeleteTableResponse Int
-dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
+dtrsResponseStatus :: Lens' DeleteTableResponse Int
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});

@@ -56,7 +56,7 @@ module Network.AWS.Redshift.DescribeClusters
     -- * Response Lenses
     , dcrsMarker
     , dcrsClusters
-    , dcrsStatus
+    , dcrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -191,9 +191,9 @@ instance ToQuery DescribeClusters where
 --
 -- /See:/ 'describeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
-    { _dcrsMarker   :: !(Maybe Text)
-    , _dcrsClusters :: !(Maybe [Cluster])
-    , _dcrsStatus   :: !Int
+    { _dcrsMarker         :: !(Maybe Text)
+    , _dcrsClusters       :: !(Maybe [Cluster])
+    , _dcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClustersResponse' with the minimum fields required to make a request.
@@ -204,15 +204,15 @@ data DescribeClustersResponse = DescribeClustersResponse'
 --
 -- * 'dcrsClusters'
 --
--- * 'dcrsStatus'
+-- * 'dcrsResponseStatus'
 describeClustersResponse
-    :: Int -- ^ 'dcrsStatus'
+    :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeClustersResponse
-describeClustersResponse pStatus_ =
+describeClustersResponse pResponseStatus_ =
     DescribeClustersResponse'
     { _dcrsMarker = Nothing
     , _dcrsClusters = Nothing
-    , _dcrsStatus = pStatus_
+    , _dcrsResponseStatus = pResponseStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -229,5 +229,5 @@ dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcrsStatus :: Lens' DescribeClustersResponse Int
-dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});
+dcrsResponseStatus :: Lens' DescribeClustersResponse Int
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});

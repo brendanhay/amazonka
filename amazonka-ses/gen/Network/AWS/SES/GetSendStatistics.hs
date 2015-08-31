@@ -38,7 +38,7 @@ module Network.AWS.SES.GetSendStatistics
     , GetSendStatisticsResponse
     -- * Response Lenses
     , gssrsSendDataPoints
-    , gssrsStatus
+    , gssrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -89,7 +89,7 @@ instance ToQuery GetSendStatistics where
 -- /See:/ 'getSendStatisticsResponse' smart constructor.
 data GetSendStatisticsResponse = GetSendStatisticsResponse'
     { _gssrsSendDataPoints :: !(Maybe [SendDataPoint])
-    , _gssrsStatus         :: !Int
+    , _gssrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetSendStatisticsResponse' with the minimum fields required to make a request.
@@ -98,14 +98,14 @@ data GetSendStatisticsResponse = GetSendStatisticsResponse'
 --
 -- * 'gssrsSendDataPoints'
 --
--- * 'gssrsStatus'
+-- * 'gssrsResponseStatus'
 getSendStatisticsResponse
-    :: Int -- ^ 'gssrsStatus'
+    :: Int -- ^ 'gssrsResponseStatus'
     -> GetSendStatisticsResponse
-getSendStatisticsResponse pStatus_ =
+getSendStatisticsResponse pResponseStatus_ =
     GetSendStatisticsResponse'
     { _gssrsSendDataPoints = Nothing
-    , _gssrsStatus = pStatus_
+    , _gssrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of data points, each of which represents 15 minutes of activity.
@@ -113,5 +113,5 @@ gssrsSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrsSendDataPoints = lens _gssrsSendDataPoints (\ s a -> s{_gssrsSendDataPoints = a}) . _Default . _Coerce;
 
 -- | The response status code.
-gssrsStatus :: Lens' GetSendStatisticsResponse Int
-gssrsStatus = lens _gssrsStatus (\ s a -> s{_gssrsStatus = a});
+gssrsResponseStatus :: Lens' GetSendStatisticsResponse Int
+gssrsResponseStatus = lens _gssrsResponseStatus (\ s a -> s{_gssrsResponseStatus = a});

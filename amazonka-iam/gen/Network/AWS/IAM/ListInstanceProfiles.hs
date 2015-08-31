@@ -45,7 +45,7 @@ module Network.AWS.IAM.ListInstanceProfiles
     -- * Response Lenses
     , liprsMarker
     , liprsIsTruncated
-    , liprsStatus
+    , liprsResponseStatus
     , liprsInstanceProfiles
     ) where
 
@@ -146,7 +146,7 @@ instance ToQuery ListInstanceProfiles where
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
     { _liprsMarker           :: !(Maybe Text)
     , _liprsIsTruncated      :: !(Maybe Bool)
-    , _liprsStatus           :: !Int
+    , _liprsResponseStatus   :: !Int
     , _liprsInstanceProfiles :: ![InstanceProfile]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -158,17 +158,17 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
 --
 -- * 'liprsIsTruncated'
 --
--- * 'liprsStatus'
+-- * 'liprsResponseStatus'
 --
 -- * 'liprsInstanceProfiles'
 listInstanceProfilesResponse
-    :: Int -- ^ 'liprsStatus'
+    :: Int -- ^ 'liprsResponseStatus'
     -> ListInstanceProfilesResponse
-listInstanceProfilesResponse pStatus_ =
+listInstanceProfilesResponse pResponseStatus_ =
     ListInstanceProfilesResponse'
     { _liprsMarker = Nothing
     , _liprsIsTruncated = Nothing
-    , _liprsStatus = pStatus_
+    , _liprsResponseStatus = pResponseStatus_
     , _liprsInstanceProfiles = mempty
     }
 
@@ -185,8 +185,8 @@ liprsIsTruncated :: Lens' ListInstanceProfilesResponse (Maybe Bool)
 liprsIsTruncated = lens _liprsIsTruncated (\ s a -> s{_liprsIsTruncated = a});
 
 -- | The response status code.
-liprsStatus :: Lens' ListInstanceProfilesResponse Int
-liprsStatus = lens _liprsStatus (\ s a -> s{_liprsStatus = a});
+liprsResponseStatus :: Lens' ListInstanceProfilesResponse Int
+liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a});
 
 -- | A list of instance profiles.
 liprsInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]

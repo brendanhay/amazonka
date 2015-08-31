@@ -37,7 +37,7 @@ module Network.AWS.ElasticTranscoder.CancelJob
     , cancelJobResponse
     , CancelJobResponse
     -- * Response Lenses
-    , canrsStatus
+    , canrsResponseStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -96,22 +96,22 @@ instance ToQuery CancelJob where
 --
 -- /See:/ 'cancelJobResponse' smart constructor.
 newtype CancelJobResponse = CancelJobResponse'
-    { _canrsStatus :: Int
+    { _canrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CancelJobResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'canrsStatus'
+-- * 'canrsResponseStatus'
 cancelJobResponse
-    :: Int -- ^ 'canrsStatus'
+    :: Int -- ^ 'canrsResponseStatus'
     -> CancelJobResponse
-cancelJobResponse pStatus_ =
+cancelJobResponse pResponseStatus_ =
     CancelJobResponse'
-    { _canrsStatus = pStatus_
+    { _canrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-canrsStatus :: Lens' CancelJobResponse Int
-canrsStatus = lens _canrsStatus (\ s a -> s{_canrsStatus = a});
+canrsResponseStatus :: Lens' CancelJobResponse Int
+canrsResponseStatus = lens _canrsResponseStatus (\ s a -> s{_canrsResponseStatus = a});

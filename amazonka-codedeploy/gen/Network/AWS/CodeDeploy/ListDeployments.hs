@@ -40,7 +40,7 @@ module Network.AWS.CodeDeploy.ListDeployments
     -- * Response Lenses
     , ldrsNextToken
     , ldrsDeployments
-    , ldrsStatus
+    , ldrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -157,9 +157,9 @@ instance ToQuery ListDeployments where
 --
 -- /See:/ 'listDeploymentsResponse' smart constructor.
 data ListDeploymentsResponse = ListDeploymentsResponse'
-    { _ldrsNextToken   :: !(Maybe Text)
-    , _ldrsDeployments :: !(Maybe [Text])
-    , _ldrsStatus      :: !Int
+    { _ldrsNextToken      :: !(Maybe Text)
+    , _ldrsDeployments    :: !(Maybe [Text])
+    , _ldrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListDeploymentsResponse' with the minimum fields required to make a request.
@@ -170,15 +170,15 @@ data ListDeploymentsResponse = ListDeploymentsResponse'
 --
 -- * 'ldrsDeployments'
 --
--- * 'ldrsStatus'
+-- * 'ldrsResponseStatus'
 listDeploymentsResponse
-    :: Int -- ^ 'ldrsStatus'
+    :: Int -- ^ 'ldrsResponseStatus'
     -> ListDeploymentsResponse
-listDeploymentsResponse pStatus_ =
+listDeploymentsResponse pResponseStatus_ =
     ListDeploymentsResponse'
     { _ldrsNextToken = Nothing
     , _ldrsDeployments = Nothing
-    , _ldrsStatus = pStatus_
+    , _ldrsResponseStatus = pResponseStatus_
     }
 
 -- | If the amount of information that is returned is significantly large, an
@@ -192,5 +192,5 @@ ldrsDeployments :: Lens' ListDeploymentsResponse [Text]
 ldrsDeployments = lens _ldrsDeployments (\ s a -> s{_ldrsDeployments = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ldrsStatus :: Lens' ListDeploymentsResponse Int
-ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
+ldrsResponseStatus :: Lens' ListDeploymentsResponse Int
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});

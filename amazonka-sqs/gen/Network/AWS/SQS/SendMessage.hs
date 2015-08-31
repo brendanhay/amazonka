@@ -51,7 +51,7 @@ module Network.AWS.SQS.SendMessage
     , smrsMessageId
     , smrsMD5OfMessageBody
     , smrsMD5OfMessageAttributes
-    , smrsStatus
+    , smrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -149,7 +149,7 @@ data SendMessageResponse = SendMessageResponse'
     { _smrsMessageId              :: !(Maybe Text)
     , _smrsMD5OfMessageBody       :: !(Maybe Text)
     , _smrsMD5OfMessageAttributes :: !(Maybe Text)
-    , _smrsStatus                 :: !Int
+    , _smrsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SendMessageResponse' with the minimum fields required to make a request.
@@ -162,16 +162,16 @@ data SendMessageResponse = SendMessageResponse'
 --
 -- * 'smrsMD5OfMessageAttributes'
 --
--- * 'smrsStatus'
+-- * 'smrsResponseStatus'
 sendMessageResponse
-    :: Int -- ^ 'smrsStatus'
+    :: Int -- ^ 'smrsResponseStatus'
     -> SendMessageResponse
-sendMessageResponse pStatus_ =
+sendMessageResponse pResponseStatus_ =
     SendMessageResponse'
     { _smrsMessageId = Nothing
     , _smrsMD5OfMessageBody = Nothing
     , _smrsMD5OfMessageAttributes = Nothing
-    , _smrsStatus = pStatus_
+    , _smrsResponseStatus = pResponseStatus_
     }
 
 -- | An element containing the message ID of the message sent to the queue.
@@ -196,5 +196,5 @@ smrsMD5OfMessageAttributes :: Lens' SendMessageResponse (Maybe Text)
 smrsMD5OfMessageAttributes = lens _smrsMD5OfMessageAttributes (\ s a -> s{_smrsMD5OfMessageAttributes = a});
 
 -- | The response status code.
-smrsStatus :: Lens' SendMessageResponse Int
-smrsStatus = lens _smrsStatus (\ s a -> s{_smrsStatus = a});
+smrsResponseStatus :: Lens' SendMessageResponse Int
+smrsResponseStatus = lens _smrsResponseStatus (\ s a -> s{_smrsResponseStatus = a});

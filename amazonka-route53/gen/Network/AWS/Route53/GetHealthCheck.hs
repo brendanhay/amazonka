@@ -34,7 +34,7 @@ module Network.AWS.Route53.GetHealthCheck
     , getHealthCheckResponse
     , GetHealthCheckResponse
     -- * Response Lenses
-    , ghcrsStatus
+    , ghcrsResponseStatus
     , ghcrsHealthCheck
     ) where
 
@@ -93,30 +93,30 @@ instance ToQuery GetHealthCheck where
 --
 -- /See:/ 'getHealthCheckResponse' smart constructor.
 data GetHealthCheckResponse = GetHealthCheckResponse'
-    { _ghcrsStatus      :: !Int
-    , _ghcrsHealthCheck :: !HealthCheck
+    { _ghcrsResponseStatus :: !Int
+    , _ghcrsHealthCheck    :: !HealthCheck
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetHealthCheckResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghcrsStatus'
+-- * 'ghcrsResponseStatus'
 --
 -- * 'ghcrsHealthCheck'
 getHealthCheckResponse
-    :: Int -- ^ 'ghcrsStatus'
+    :: Int -- ^ 'ghcrsResponseStatus'
     -> HealthCheck -- ^ 'ghcrsHealthCheck'
     -> GetHealthCheckResponse
-getHealthCheckResponse pStatus_ pHealthCheck_ =
+getHealthCheckResponse pResponseStatus_ pHealthCheck_ =
     GetHealthCheckResponse'
-    { _ghcrsStatus = pStatus_
+    { _ghcrsResponseStatus = pResponseStatus_
     , _ghcrsHealthCheck = pHealthCheck_
     }
 
 -- | The response status code.
-ghcrsStatus :: Lens' GetHealthCheckResponse Int
-ghcrsStatus = lens _ghcrsStatus (\ s a -> s{_ghcrsStatus = a});
+ghcrsResponseStatus :: Lens' GetHealthCheckResponse Int
+ghcrsResponseStatus = lens _ghcrsResponseStatus (\ s a -> s{_ghcrsResponseStatus = a});
 
 -- | A complex type that contains the information about the specified health
 -- check.

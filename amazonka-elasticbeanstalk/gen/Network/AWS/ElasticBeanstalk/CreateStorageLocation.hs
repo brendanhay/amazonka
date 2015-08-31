@@ -34,7 +34,7 @@ module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     , CreateStorageLocationResponse
     -- * Response Lenses
     , cslrsS3Bucket
-    , cslrsStatus
+    , cslrsResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -81,8 +81,8 @@ instance ToQuery CreateStorageLocation where
 --
 -- /See:/ 'createStorageLocationResponse' smart constructor.
 data CreateStorageLocationResponse = CreateStorageLocationResponse'
-    { _cslrsS3Bucket :: !(Maybe Text)
-    , _cslrsStatus   :: !Int
+    { _cslrsS3Bucket       :: !(Maybe Text)
+    , _cslrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateStorageLocationResponse' with the minimum fields required to make a request.
@@ -91,14 +91,14 @@ data CreateStorageLocationResponse = CreateStorageLocationResponse'
 --
 -- * 'cslrsS3Bucket'
 --
--- * 'cslrsStatus'
+-- * 'cslrsResponseStatus'
 createStorageLocationResponse
-    :: Int -- ^ 'cslrsStatus'
+    :: Int -- ^ 'cslrsResponseStatus'
     -> CreateStorageLocationResponse
-createStorageLocationResponse pStatus_ =
+createStorageLocationResponse pResponseStatus_ =
     CreateStorageLocationResponse'
     { _cslrsS3Bucket = Nothing
-    , _cslrsStatus = pStatus_
+    , _cslrsResponseStatus = pResponseStatus_
     }
 
 -- | The name of the Amazon S3 bucket created.
@@ -106,5 +106,5 @@ cslrsS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
 cslrsS3Bucket = lens _cslrsS3Bucket (\ s a -> s{_cslrsS3Bucket = a});
 
 -- | The response status code.
-cslrsStatus :: Lens' CreateStorageLocationResponse Int
-cslrsStatus = lens _cslrsStatus (\ s a -> s{_cslrsStatus = a});
+cslrsResponseStatus :: Lens' CreateStorageLocationResponse Int
+cslrsResponseStatus = lens _cslrsResponseStatus (\ s a -> s{_cslrsResponseStatus = a});

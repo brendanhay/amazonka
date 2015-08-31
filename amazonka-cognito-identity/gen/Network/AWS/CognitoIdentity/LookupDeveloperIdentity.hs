@@ -51,7 +51,7 @@ module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     , ldirsNextToken
     , ldirsIdentityId
     , ldirsDeveloperUserIdentifierList
-    , ldirsStatus
+    , ldirsResponseStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -169,7 +169,7 @@ data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'
     { _ldirsNextToken                   :: !(Maybe Text)
     , _ldirsIdentityId                  :: !(Maybe Text)
     , _ldirsDeveloperUserIdentifierList :: !(Maybe [Text])
-    , _ldirsStatus                      :: !Int
+    , _ldirsResponseStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LookupDeveloperIdentityResponse' with the minimum fields required to make a request.
@@ -182,16 +182,16 @@ data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'
 --
 -- * 'ldirsDeveloperUserIdentifierList'
 --
--- * 'ldirsStatus'
+-- * 'ldirsResponseStatus'
 lookupDeveloperIdentityResponse
-    :: Int -- ^ 'ldirsStatus'
+    :: Int -- ^ 'ldirsResponseStatus'
     -> LookupDeveloperIdentityResponse
-lookupDeveloperIdentityResponse pStatus_ =
+lookupDeveloperIdentityResponse pResponseStatus_ =
     LookupDeveloperIdentityResponse'
     { _ldirsNextToken = Nothing
     , _ldirsIdentityId = Nothing
     , _ldirsDeveloperUserIdentifierList = Nothing
-    , _ldirsStatus = pStatus_
+    , _ldirsResponseStatus = pResponseStatus_
     }
 
 -- | A pagination token. The first call you make will have 'NextToken' set to
@@ -214,5 +214,5 @@ ldirsDeveloperUserIdentifierList :: Lens' LookupDeveloperIdentityResponse [Text]
 ldirsDeveloperUserIdentifierList = lens _ldirsDeveloperUserIdentifierList (\ s a -> s{_ldirsDeveloperUserIdentifierList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ldirsStatus :: Lens' LookupDeveloperIdentityResponse Int
-ldirsStatus = lens _ldirsStatus (\ s a -> s{_ldirsStatus = a});
+ldirsResponseStatus :: Lens' LookupDeveloperIdentityResponse Int
+ldirsResponseStatus = lens _ldirsResponseStatus (\ s a -> s{_ldirsResponseStatus = a});

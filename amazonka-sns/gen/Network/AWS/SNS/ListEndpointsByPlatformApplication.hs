@@ -47,7 +47,7 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
     -- * Response Lenses
     , lebparsNextToken
     , lebparsEndpoints
-    , lebparsStatus
+    , lebparsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -138,9 +138,9 @@ instance ToQuery ListEndpointsByPlatformApplication
 --
 -- /See:/ 'listEndpointsByPlatformApplicationResponse' smart constructor.
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'
-    { _lebparsNextToken :: !(Maybe Text)
-    , _lebparsEndpoints :: !(Maybe [Endpoint])
-    , _lebparsStatus    :: !Int
+    { _lebparsNextToken      :: !(Maybe Text)
+    , _lebparsEndpoints      :: !(Maybe [Endpoint])
+    , _lebparsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListEndpointsByPlatformApplicationResponse' with the minimum fields required to make a request.
@@ -151,15 +151,15 @@ data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplica
 --
 -- * 'lebparsEndpoints'
 --
--- * 'lebparsStatus'
+-- * 'lebparsResponseStatus'
 listEndpointsByPlatformApplicationResponse
-    :: Int -- ^ 'lebparsStatus'
+    :: Int -- ^ 'lebparsResponseStatus'
     -> ListEndpointsByPlatformApplicationResponse
-listEndpointsByPlatformApplicationResponse pStatus_ =
+listEndpointsByPlatformApplicationResponse pResponseStatus_ =
     ListEndpointsByPlatformApplicationResponse'
     { _lebparsNextToken = Nothing
     , _lebparsEndpoints = Nothing
-    , _lebparsStatus = pStatus_
+    , _lebparsResponseStatus = pResponseStatus_
     }
 
 -- | NextToken string is returned when calling
@@ -173,5 +173,5 @@ lebparsEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
 lebparsEndpoints = lens _lebparsEndpoints (\ s a -> s{_lebparsEndpoints = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lebparsStatus :: Lens' ListEndpointsByPlatformApplicationResponse Int
-lebparsStatus = lens _lebparsStatus (\ s a -> s{_lebparsStatus = a});
+lebparsResponseStatus :: Lens' ListEndpointsByPlatformApplicationResponse Int
+lebparsResponseStatus = lens _lebparsResponseStatus (\ s a -> s{_lebparsResponseStatus = a});

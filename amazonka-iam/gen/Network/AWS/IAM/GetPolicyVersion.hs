@@ -46,7 +46,7 @@ module Network.AWS.IAM.GetPolicyVersion
     , GetPolicyVersionResponse
     -- * Response Lenses
     , gpvrsPolicyVersion
-    , gpvrsStatus
+    , gpvrsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -113,8 +113,8 @@ instance ToQuery GetPolicyVersion where
 --
 -- /See:/ 'getPolicyVersionResponse' smart constructor.
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
-    { _gpvrsPolicyVersion :: !(Maybe PolicyVersion)
-    , _gpvrsStatus        :: !Int
+    { _gpvrsPolicyVersion  :: !(Maybe PolicyVersion)
+    , _gpvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetPolicyVersionResponse' with the minimum fields required to make a request.
@@ -123,14 +123,14 @@ data GetPolicyVersionResponse = GetPolicyVersionResponse'
 --
 -- * 'gpvrsPolicyVersion'
 --
--- * 'gpvrsStatus'
+-- * 'gpvrsResponseStatus'
 getPolicyVersionResponse
-    :: Int -- ^ 'gpvrsStatus'
+    :: Int -- ^ 'gpvrsResponseStatus'
     -> GetPolicyVersionResponse
-getPolicyVersionResponse pStatus_ =
+getPolicyVersionResponse pResponseStatus_ =
     GetPolicyVersionResponse'
     { _gpvrsPolicyVersion = Nothing
-    , _gpvrsStatus = pStatus_
+    , _gpvrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the policy version.
@@ -142,5 +142,5 @@ gpvrsPolicyVersion :: Lens' GetPolicyVersionResponse (Maybe PolicyVersion)
 gpvrsPolicyVersion = lens _gpvrsPolicyVersion (\ s a -> s{_gpvrsPolicyVersion = a});
 
 -- | The response status code.
-gpvrsStatus :: Lens' GetPolicyVersionResponse Int
-gpvrsStatus = lens _gpvrsStatus (\ s a -> s{_gpvrsStatus = a});
+gpvrsResponseStatus :: Lens' GetPolicyVersionResponse Int
+gpvrsResponseStatus = lens _gpvrsResponseStatus (\ s a -> s{_gpvrsResponseStatus = a});

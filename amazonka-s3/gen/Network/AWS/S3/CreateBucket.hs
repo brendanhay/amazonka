@@ -41,7 +41,7 @@ module Network.AWS.S3.CreateBucket
     , CreateBucketResponse
     -- * Response Lenses
     , cbrsLocation
-    , cbrsStatus
+    , cbrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -165,8 +165,8 @@ instance ToQuery CreateBucket where
 
 -- | /See:/ 'createBucketResponse' smart constructor.
 data CreateBucketResponse = CreateBucketResponse'
-    { _cbrsLocation :: !(Maybe Text)
-    , _cbrsStatus   :: !Int
+    { _cbrsLocation       :: !(Maybe Text)
+    , _cbrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateBucketResponse' with the minimum fields required to make a request.
@@ -175,14 +175,14 @@ data CreateBucketResponse = CreateBucketResponse'
 --
 -- * 'cbrsLocation'
 --
--- * 'cbrsStatus'
+-- * 'cbrsResponseStatus'
 createBucketResponse
-    :: Int -- ^ 'cbrsStatus'
+    :: Int -- ^ 'cbrsResponseStatus'
     -> CreateBucketResponse
-createBucketResponse pStatus_ =
+createBucketResponse pResponseStatus_ =
     CreateBucketResponse'
     { _cbrsLocation = Nothing
-    , _cbrsStatus = pStatus_
+    , _cbrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -190,5 +190,5 @@ cbrsLocation :: Lens' CreateBucketResponse (Maybe Text)
 cbrsLocation = lens _cbrsLocation (\ s a -> s{_cbrsLocation = a});
 
 -- | The response status code.
-cbrsStatus :: Lens' CreateBucketResponse Int
-cbrsStatus = lens _cbrsStatus (\ s a -> s{_cbrsStatus = a});
+cbrsResponseStatus :: Lens' CreateBucketResponse Int
+cbrsResponseStatus = lens _cbrsResponseStatus (\ s a -> s{_cbrsResponseStatus = a});

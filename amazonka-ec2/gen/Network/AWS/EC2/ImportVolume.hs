@@ -43,7 +43,7 @@ module Network.AWS.EC2.ImportVolume
     , ImportVolumeResponse
     -- * Response Lenses
     , ivrsConversionTask
-    , ivrsStatus
+    , ivrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -139,7 +139,7 @@ instance ToQuery ImportVolume where
 -- | /See:/ 'importVolumeResponse' smart constructor.
 data ImportVolumeResponse = ImportVolumeResponse'
     { _ivrsConversionTask :: !(Maybe ConversionTask)
-    , _ivrsStatus         :: !Int
+    , _ivrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImportVolumeResponse' with the minimum fields required to make a request.
@@ -148,14 +148,14 @@ data ImportVolumeResponse = ImportVolumeResponse'
 --
 -- * 'ivrsConversionTask'
 --
--- * 'ivrsStatus'
+-- * 'ivrsResponseStatus'
 importVolumeResponse
-    :: Int -- ^ 'ivrsStatus'
+    :: Int -- ^ 'ivrsResponseStatus'
     -> ImportVolumeResponse
-importVolumeResponse pStatus_ =
+importVolumeResponse pResponseStatus_ =
     ImportVolumeResponse'
     { _ivrsConversionTask = Nothing
-    , _ivrsStatus = pStatus_
+    , _ivrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the conversion task.
@@ -163,5 +163,5 @@ ivrsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
 ivrsConversionTask = lens _ivrsConversionTask (\ s a -> s{_ivrsConversionTask = a});
 
 -- | The response status code.
-ivrsStatus :: Lens' ImportVolumeResponse Int
-ivrsStatus = lens _ivrsStatus (\ s a -> s{_ivrsStatus = a});
+ivrsResponseStatus :: Lens' ImportVolumeResponse Int
+ivrsResponseStatus = lens _ivrsResponseStatus (\ s a -> s{_ivrsResponseStatus = a});

@@ -42,7 +42,7 @@ module Network.AWS.CloudHSM.DescribeHAPG
     , dhapgrsPartitionSerialList
     , dhapgrsHAPGARN
     , dhapgrsLabel
-    , dhapgrsStatus
+    , dhapgrsResponseStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -126,7 +126,7 @@ data DescribeHAPGResponse = DescribeHAPGResponse'
     , _dhapgrsPartitionSerialList     :: !(Maybe [Text])
     , _dhapgrsHAPGARN                 :: !(Maybe Text)
     , _dhapgrsLabel                   :: !(Maybe Text)
-    , _dhapgrsStatus                  :: !Int
+    , _dhapgrsResponseStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeHAPGResponse' with the minimum fields required to make a request.
@@ -151,11 +151,11 @@ data DescribeHAPGResponse = DescribeHAPGResponse'
 --
 -- * 'dhapgrsLabel'
 --
--- * 'dhapgrsStatus'
+-- * 'dhapgrsResponseStatus'
 describeHAPGResponse
-    :: Int -- ^ 'dhapgrsStatus'
+    :: Int -- ^ 'dhapgrsResponseStatus'
     -> DescribeHAPGResponse
-describeHAPGResponse pStatus_ =
+describeHAPGResponse pResponseStatus_ =
     DescribeHAPGResponse'
     { _dhapgrsState = Nothing
     , _dhapgrsLastModifiedTimestamp = Nothing
@@ -166,7 +166,7 @@ describeHAPGResponse pStatus_ =
     , _dhapgrsPartitionSerialList = Nothing
     , _dhapgrsHAPGARN = Nothing
     , _dhapgrsLabel = Nothing
-    , _dhapgrsStatus = pStatus_
+    , _dhapgrsResponseStatus = pResponseStatus_
     }
 
 -- | The state of the high-availability partition group.
@@ -208,5 +208,5 @@ dhapgrsLabel :: Lens' DescribeHAPGResponse (Maybe Text)
 dhapgrsLabel = lens _dhapgrsLabel (\ s a -> s{_dhapgrsLabel = a});
 
 -- | The response status code.
-dhapgrsStatus :: Lens' DescribeHAPGResponse Int
-dhapgrsStatus = lens _dhapgrsStatus (\ s a -> s{_dhapgrsStatus = a});
+dhapgrsResponseStatus :: Lens' DescribeHAPGResponse Int
+dhapgrsResponseStatus = lens _dhapgrsResponseStatus (\ s a -> s{_dhapgrsResponseStatus = a});

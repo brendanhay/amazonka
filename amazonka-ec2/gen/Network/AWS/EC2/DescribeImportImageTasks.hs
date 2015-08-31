@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeImportImageTasks
     -- * Response Lenses
     , diitrsNextToken
     , diitrsImportImageTasks
-    , diitrsStatus
+    , diitrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -141,7 +141,7 @@ instance ToQuery DescribeImportImageTasks where
 data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
     { _diitrsNextToken        :: !(Maybe Text)
     , _diitrsImportImageTasks :: !(Maybe [ImportImageTask])
-    , _diitrsStatus           :: !Int
+    , _diitrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeImportImageTasksResponse' with the minimum fields required to make a request.
@@ -152,15 +152,15 @@ data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
 --
 -- * 'diitrsImportImageTasks'
 --
--- * 'diitrsStatus'
+-- * 'diitrsResponseStatus'
 describeImportImageTasksResponse
-    :: Int -- ^ 'diitrsStatus'
+    :: Int -- ^ 'diitrsResponseStatus'
     -> DescribeImportImageTasksResponse
-describeImportImageTasksResponse pStatus_ =
+describeImportImageTasksResponse pResponseStatus_ =
     DescribeImportImageTasksResponse'
     { _diitrsNextToken = Nothing
     , _diitrsImportImageTasks = Nothing
-    , _diitrsStatus = pStatus_
+    , _diitrsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use to get the next page of results. This value is 'null'
@@ -174,5 +174,5 @@ diitrsImportImageTasks :: Lens' DescribeImportImageTasksResponse [ImportImageTas
 diitrsImportImageTasks = lens _diitrsImportImageTasks (\ s a -> s{_diitrsImportImageTasks = a}) . _Default . _Coerce;
 
 -- | The response status code.
-diitrsStatus :: Lens' DescribeImportImageTasksResponse Int
-diitrsStatus = lens _diitrsStatus (\ s a -> s{_diitrsStatus = a});
+diitrsResponseStatus :: Lens' DescribeImportImageTasksResponse Int
+diitrsResponseStatus = lens _diitrsResponseStatus (\ s a -> s{_diitrsResponseStatus = a});

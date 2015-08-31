@@ -66,7 +66,7 @@ module Network.AWS.RDS.CreateDBInstance
     , CreateDBInstanceResponse
     -- * Response Lenses
     , cdirsDBInstance
-    , cdirsStatus
+    , cdirsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -931,8 +931,8 @@ instance ToQuery CreateDBInstance where
 
 -- | /See:/ 'createDBInstanceResponse' smart constructor.
 data CreateDBInstanceResponse = CreateDBInstanceResponse'
-    { _cdirsDBInstance :: !(Maybe DBInstance)
-    , _cdirsStatus     :: !Int
+    { _cdirsDBInstance     :: !(Maybe DBInstance)
+    , _cdirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDBInstanceResponse' with the minimum fields required to make a request.
@@ -941,14 +941,14 @@ data CreateDBInstanceResponse = CreateDBInstanceResponse'
 --
 -- * 'cdirsDBInstance'
 --
--- * 'cdirsStatus'
+-- * 'cdirsResponseStatus'
 createDBInstanceResponse
-    :: Int -- ^ 'cdirsStatus'
+    :: Int -- ^ 'cdirsResponseStatus'
     -> CreateDBInstanceResponse
-createDBInstanceResponse pStatus_ =
+createDBInstanceResponse pResponseStatus_ =
     CreateDBInstanceResponse'
     { _cdirsDBInstance = Nothing
-    , _cdirsStatus = pStatus_
+    , _cdirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -956,5 +956,5 @@ cdirsDBInstance :: Lens' CreateDBInstanceResponse (Maybe DBInstance)
 cdirsDBInstance = lens _cdirsDBInstance (\ s a -> s{_cdirsDBInstance = a});
 
 -- | The response status code.
-cdirsStatus :: Lens' CreateDBInstanceResponse Int
-cdirsStatus = lens _cdirsStatus (\ s a -> s{_cdirsStatus = a});
+cdirsResponseStatus :: Lens' CreateDBInstanceResponse Int
+cdirsResponseStatus = lens _cdirsResponseStatus (\ s a -> s{_cdirsResponseStatus = a});

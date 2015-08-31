@@ -71,7 +71,7 @@ module Network.AWS.S3.CopyObject
     , corsSSEKMSKeyId
     , corsServerSideEncryption
     , corsCopyObjectResult
-    , corsStatus
+    , corsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -453,7 +453,7 @@ data CopyObjectResponse = CopyObjectResponse'
     , _corsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _corsServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _corsCopyObjectResult     :: !(Maybe CopyObjectResult)
-    , _corsStatus               :: !Int
+    , _corsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CopyObjectResponse' with the minimum fields required to make a request.
@@ -476,11 +476,11 @@ data CopyObjectResponse = CopyObjectResponse'
 --
 -- * 'corsCopyObjectResult'
 --
--- * 'corsStatus'
+-- * 'corsResponseStatus'
 copyObjectResponse
-    :: Int -- ^ 'corsStatus'
+    :: Int -- ^ 'corsResponseStatus'
     -> CopyObjectResponse
-copyObjectResponse pStatus_ =
+copyObjectResponse pResponseStatus_ =
     CopyObjectResponse'
     { _corsRequestCharged = Nothing
     , _corsExpiration = Nothing
@@ -490,7 +490,7 @@ copyObjectResponse pStatus_ =
     , _corsSSEKMSKeyId = Nothing
     , _corsServerSideEncryption = Nothing
     , _corsCopyObjectResult = Nothing
-    , _corsStatus = pStatus_
+    , _corsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -533,5 +533,5 @@ corsCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
 corsCopyObjectResult = lens _corsCopyObjectResult (\ s a -> s{_corsCopyObjectResult = a});
 
 -- | The response status code.
-corsStatus :: Lens' CopyObjectResponse Int
-corsStatus = lens _corsStatus (\ s a -> s{_corsStatus = a});
+corsResponseStatus :: Lens' CopyObjectResponse Int
+corsResponseStatus = lens _corsResponseStatus (\ s a -> s{_corsResponseStatus = a});

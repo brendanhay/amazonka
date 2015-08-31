@@ -34,7 +34,7 @@ module Network.AWS.CodeDeploy.GetDeploymentConfig
     , GetDeploymentConfigResponse
     -- * Response Lenses
     , gdcrsDeploymentConfigInfo
-    , gdcrsStatus
+    , gdcrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -108,7 +108,7 @@ instance ToQuery GetDeploymentConfig where
 -- /See:/ 'getDeploymentConfigResponse' smart constructor.
 data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
     { _gdcrsDeploymentConfigInfo :: !(Maybe DeploymentConfigInfo)
-    , _gdcrsStatus               :: !Int
+    , _gdcrsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDeploymentConfigResponse' with the minimum fields required to make a request.
@@ -117,14 +117,14 @@ data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
 --
 -- * 'gdcrsDeploymentConfigInfo'
 --
--- * 'gdcrsStatus'
+-- * 'gdcrsResponseStatus'
 getDeploymentConfigResponse
-    :: Int -- ^ 'gdcrsStatus'
+    :: Int -- ^ 'gdcrsResponseStatus'
     -> GetDeploymentConfigResponse
-getDeploymentConfigResponse pStatus_ =
+getDeploymentConfigResponse pResponseStatus_ =
     GetDeploymentConfigResponse'
     { _gdcrsDeploymentConfigInfo = Nothing
-    , _gdcrsStatus = pStatus_
+    , _gdcrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the deployment configuration.
@@ -132,5 +132,5 @@ gdcrsDeploymentConfigInfo :: Lens' GetDeploymentConfigResponse (Maybe Deployment
 gdcrsDeploymentConfigInfo = lens _gdcrsDeploymentConfigInfo (\ s a -> s{_gdcrsDeploymentConfigInfo = a});
 
 -- | The response status code.
-gdcrsStatus :: Lens' GetDeploymentConfigResponse Int
-gdcrsStatus = lens _gdcrsStatus (\ s a -> s{_gdcrsStatus = a});
+gdcrsResponseStatus :: Lens' GetDeploymentConfigResponse Int
+gdcrsResponseStatus = lens _gdcrsResponseStatus (\ s a -> s{_gdcrsResponseStatus = a});

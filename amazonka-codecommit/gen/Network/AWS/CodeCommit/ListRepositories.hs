@@ -37,7 +37,7 @@ module Network.AWS.CodeCommit.ListRepositories
     -- * Response Lenses
     , lrrsRepositories
     , lrrsNextToken
-    , lrrsStatus
+    , lrrsResponseStatus
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -127,9 +127,9 @@ instance ToQuery ListRepositories where
 --
 -- /See:/ 'listRepositoriesResponse' smart constructor.
 data ListRepositoriesResponse = ListRepositoriesResponse'
-    { _lrrsRepositories :: !(Maybe [RepositoryNameIdPair])
-    , _lrrsNextToken    :: !(Maybe Text)
-    , _lrrsStatus       :: !Int
+    { _lrrsRepositories   :: !(Maybe [RepositoryNameIdPair])
+    , _lrrsNextToken      :: !(Maybe Text)
+    , _lrrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListRepositoriesResponse' with the minimum fields required to make a request.
@@ -140,15 +140,15 @@ data ListRepositoriesResponse = ListRepositoriesResponse'
 --
 -- * 'lrrsNextToken'
 --
--- * 'lrrsStatus'
+-- * 'lrrsResponseStatus'
 listRepositoriesResponse
-    :: Int -- ^ 'lrrsStatus'
+    :: Int -- ^ 'lrrsResponseStatus'
     -> ListRepositoriesResponse
-listRepositoriesResponse pStatus_ =
+listRepositoriesResponse pResponseStatus_ =
     ListRepositoriesResponse'
     { _lrrsRepositories = Nothing
     , _lrrsNextToken = Nothing
-    , _lrrsStatus = pStatus_
+    , _lrrsResponseStatus = pResponseStatus_
     }
 
 -- | Lists the repositories called by the list repositories operation.
@@ -163,5 +163,5 @@ lrrsNextToken :: Lens' ListRepositoriesResponse (Maybe Text)
 lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 
 -- | The response status code.
-lrrsStatus :: Lens' ListRepositoriesResponse Int
-lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});
+lrrsResponseStatus :: Lens' ListRepositoriesResponse Int
+lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});

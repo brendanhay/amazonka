@@ -42,7 +42,7 @@ module Network.AWS.ECS.ListTaskDefinitionFamilies
     -- * Response Lenses
     , ltdfrsFamilies
     , ltdfrsNextToken
-    , ltdfrsStatus
+    , ltdfrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -148,9 +148,9 @@ instance ToQuery ListTaskDefinitionFamilies where
 
 -- | /See:/ 'listTaskDefinitionFamiliesResponse' smart constructor.
 data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'
-    { _ltdfrsFamilies  :: !(Maybe [Text])
-    , _ltdfrsNextToken :: !(Maybe Text)
-    , _ltdfrsStatus    :: !Int
+    { _ltdfrsFamilies       :: !(Maybe [Text])
+    , _ltdfrsNextToken      :: !(Maybe Text)
+    , _ltdfrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListTaskDefinitionFamiliesResponse' with the minimum fields required to make a request.
@@ -161,15 +161,15 @@ data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'
 --
 -- * 'ltdfrsNextToken'
 --
--- * 'ltdfrsStatus'
+-- * 'ltdfrsResponseStatus'
 listTaskDefinitionFamiliesResponse
-    :: Int -- ^ 'ltdfrsStatus'
+    :: Int -- ^ 'ltdfrsResponseStatus'
     -> ListTaskDefinitionFamiliesResponse
-listTaskDefinitionFamiliesResponse pStatus_ =
+listTaskDefinitionFamiliesResponse pResponseStatus_ =
     ListTaskDefinitionFamiliesResponse'
     { _ltdfrsFamilies = Nothing
     , _ltdfrsNextToken = Nothing
-    , _ltdfrsStatus = pStatus_
+    , _ltdfrsResponseStatus = pResponseStatus_
     }
 
 -- | The list of task definition family names that match the
@@ -186,5 +186,5 @@ ltdfrsNextToken :: Lens' ListTaskDefinitionFamiliesResponse (Maybe Text)
 ltdfrsNextToken = lens _ltdfrsNextToken (\ s a -> s{_ltdfrsNextToken = a});
 
 -- | The response status code.
-ltdfrsStatus :: Lens' ListTaskDefinitionFamiliesResponse Int
-ltdfrsStatus = lens _ltdfrsStatus (\ s a -> s{_ltdfrsStatus = a});
+ltdfrsResponseStatus :: Lens' ListTaskDefinitionFamiliesResponse Int
+ltdfrsResponseStatus = lens _ltdfrsResponseStatus (\ s a -> s{_ltdfrsResponseStatus = a});

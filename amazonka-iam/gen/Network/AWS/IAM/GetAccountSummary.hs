@@ -37,7 +37,7 @@ module Network.AWS.IAM.GetAccountSummary
     , GetAccountSummaryResponse
     -- * Response Lenses
     , gasrsSummaryMap
-    , gasrsStatus
+    , gasrsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -85,8 +85,8 @@ instance ToQuery GetAccountSummary where
 --
 -- /See:/ 'getAccountSummaryResponse' smart constructor.
 data GetAccountSummaryResponse = GetAccountSummaryResponse'
-    { _gasrsSummaryMap :: !(Maybe (Map SummaryKeyType Int))
-    , _gasrsStatus     :: !Int
+    { _gasrsSummaryMap     :: !(Maybe (Map SummaryKeyType Int))
+    , _gasrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetAccountSummaryResponse' with the minimum fields required to make a request.
@@ -95,14 +95,14 @@ data GetAccountSummaryResponse = GetAccountSummaryResponse'
 --
 -- * 'gasrsSummaryMap'
 --
--- * 'gasrsStatus'
+-- * 'gasrsResponseStatus'
 getAccountSummaryResponse
-    :: Int -- ^ 'gasrsStatus'
+    :: Int -- ^ 'gasrsResponseStatus'
     -> GetAccountSummaryResponse
-getAccountSummaryResponse pStatus_ =
+getAccountSummaryResponse pResponseStatus_ =
     GetAccountSummaryResponse'
     { _gasrsSummaryMap = Nothing
-    , _gasrsStatus = pStatus_
+    , _gasrsResponseStatus = pResponseStatus_
     }
 
 -- | A set of key value pairs containing information about IAM entity usage
@@ -262,5 +262,5 @@ gasrsSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
 gasrsSummaryMap = lens _gasrsSummaryMap (\ s a -> s{_gasrsSummaryMap = a}) . _Default . _Map;
 
 -- | The response status code.
-gasrsStatus :: Lens' GetAccountSummaryResponse Int
-gasrsStatus = lens _gasrsStatus (\ s a -> s{_gasrsStatus = a});
+gasrsResponseStatus :: Lens' GetAccountSummaryResponse Int
+gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a});

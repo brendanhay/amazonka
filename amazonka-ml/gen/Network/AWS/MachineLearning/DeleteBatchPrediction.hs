@@ -43,7 +43,7 @@ module Network.AWS.MachineLearning.DeleteBatchPrediction
     , DeleteBatchPredictionResponse
     -- * Response Lenses
     , dbprsBatchPredictionId
-    , dbprsStatus
+    , dbprsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -116,7 +116,7 @@ instance ToQuery DeleteBatchPrediction where
 -- /See:/ 'deleteBatchPredictionResponse' smart constructor.
 data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'
     { _dbprsBatchPredictionId :: !(Maybe Text)
-    , _dbprsStatus            :: !Int
+    , _dbprsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteBatchPredictionResponse' with the minimum fields required to make a request.
@@ -125,14 +125,14 @@ data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'
 --
 -- * 'dbprsBatchPredictionId'
 --
--- * 'dbprsStatus'
+-- * 'dbprsResponseStatus'
 deleteBatchPredictionResponse
-    :: Int -- ^ 'dbprsStatus'
+    :: Int -- ^ 'dbprsResponseStatus'
     -> DeleteBatchPredictionResponse
-deleteBatchPredictionResponse pStatus_ =
+deleteBatchPredictionResponse pResponseStatus_ =
     DeleteBatchPredictionResponse'
     { _dbprsBatchPredictionId = Nothing
-    , _dbprsStatus = pStatus_
+    , _dbprsResponseStatus = pResponseStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the 'BatchPrediction'. This
@@ -142,5 +142,5 @@ dbprsBatchPredictionId :: Lens' DeleteBatchPredictionResponse (Maybe Text)
 dbprsBatchPredictionId = lens _dbprsBatchPredictionId (\ s a -> s{_dbprsBatchPredictionId = a});
 
 -- | The response status code.
-dbprsStatus :: Lens' DeleteBatchPredictionResponse Int
-dbprsStatus = lens _dbprsStatus (\ s a -> s{_dbprsStatus = a});
+dbprsResponseStatus :: Lens' DeleteBatchPredictionResponse Int
+dbprsResponseStatus = lens _dbprsResponseStatus (\ s a -> s{_dbprsResponseStatus = a});

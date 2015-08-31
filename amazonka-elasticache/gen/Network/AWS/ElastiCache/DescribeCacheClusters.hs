@@ -63,7 +63,7 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     -- * Response Lenses
     , drsCacheClusters
     , drsMarker
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -170,9 +170,9 @@ instance ToQuery DescribeCacheClusters where
 --
 -- /See:/ 'describeCacheClustersResponse' smart constructor.
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
-    { _drsCacheClusters :: !(Maybe [CacheCluster])
-    , _drsMarker        :: !(Maybe Text)
-    , _drsStatus        :: !Int
+    { _drsCacheClusters  :: !(Maybe [CacheCluster])
+    , _drsMarker         :: !(Maybe Text)
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCacheClustersResponse' with the minimum fields required to make a request.
@@ -183,15 +183,15 @@ data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
 --
 -- * 'drsMarker'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 describeCacheClustersResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DescribeCacheClustersResponse
-describeCacheClustersResponse pStatus_ =
+describeCacheClustersResponse pResponseStatus_ =
     DescribeCacheClustersResponse'
     { _drsCacheClusters = Nothing
     , _drsMarker = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | A list of cache clusters. Each item in the list contains detailed
@@ -204,5 +204,5 @@ drsMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
 drsMarker = lens _drsMarker (\ s a -> s{_drsMarker = a});
 
 -- | The response status code.
-drsStatus :: Lens' DescribeCacheClustersResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DescribeCacheClustersResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

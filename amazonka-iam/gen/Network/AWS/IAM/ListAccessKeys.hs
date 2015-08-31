@@ -52,7 +52,7 @@ module Network.AWS.IAM.ListAccessKeys
     -- * Response Lenses
     , lakrsMarker
     , lakrsIsTruncated
-    , lakrsStatus
+    , lakrsResponseStatus
     , lakrsAccessKeyMetadata
     ) where
 
@@ -147,7 +147,7 @@ instance ToQuery ListAccessKeys where
 data ListAccessKeysResponse = ListAccessKeysResponse'
     { _lakrsMarker            :: !(Maybe Text)
     , _lakrsIsTruncated       :: !(Maybe Bool)
-    , _lakrsStatus            :: !Int
+    , _lakrsResponseStatus    :: !Int
     , _lakrsAccessKeyMetadata :: ![AccessKeyMetadata]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -159,17 +159,17 @@ data ListAccessKeysResponse = ListAccessKeysResponse'
 --
 -- * 'lakrsIsTruncated'
 --
--- * 'lakrsStatus'
+-- * 'lakrsResponseStatus'
 --
 -- * 'lakrsAccessKeyMetadata'
 listAccessKeysResponse
-    :: Int -- ^ 'lakrsStatus'
+    :: Int -- ^ 'lakrsResponseStatus'
     -> ListAccessKeysResponse
-listAccessKeysResponse pStatus_ =
+listAccessKeysResponse pResponseStatus_ =
     ListAccessKeysResponse'
     { _lakrsMarker = Nothing
     , _lakrsIsTruncated = Nothing
-    , _lakrsStatus = pStatus_
+    , _lakrsResponseStatus = pResponseStatus_
     , _lakrsAccessKeyMetadata = mempty
     }
 
@@ -186,8 +186,8 @@ lakrsIsTruncated :: Lens' ListAccessKeysResponse (Maybe Bool)
 lakrsIsTruncated = lens _lakrsIsTruncated (\ s a -> s{_lakrsIsTruncated = a});
 
 -- | The response status code.
-lakrsStatus :: Lens' ListAccessKeysResponse Int
-lakrsStatus = lens _lakrsStatus (\ s a -> s{_lakrsStatus = a});
+lakrsResponseStatus :: Lens' ListAccessKeysResponse Int
+lakrsResponseStatus = lens _lakrsResponseStatus (\ s a -> s{_lakrsResponseStatus = a});
 
 -- | A list of access key metadata.
 lakrsAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]

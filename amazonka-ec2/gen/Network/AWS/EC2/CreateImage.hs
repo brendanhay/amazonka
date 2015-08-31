@@ -50,7 +50,7 @@ module Network.AWS.EC2.CreateImage
     , CreateImageResponse
     -- * Response Lenses
     , cirsImageId
-    , cirsStatus
+    , cirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -164,8 +164,8 @@ instance ToQuery CreateImage where
 
 -- | /See:/ 'createImageResponse' smart constructor.
 data CreateImageResponse = CreateImageResponse'
-    { _cirsImageId :: !(Maybe Text)
-    , _cirsStatus  :: !Int
+    { _cirsImageId        :: !(Maybe Text)
+    , _cirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateImageResponse' with the minimum fields required to make a request.
@@ -174,14 +174,14 @@ data CreateImageResponse = CreateImageResponse'
 --
 -- * 'cirsImageId'
 --
--- * 'cirsStatus'
+-- * 'cirsResponseStatus'
 createImageResponse
-    :: Int -- ^ 'cirsStatus'
+    :: Int -- ^ 'cirsResponseStatus'
     -> CreateImageResponse
-createImageResponse pStatus_ =
+createImageResponse pResponseStatus_ =
     CreateImageResponse'
     { _cirsImageId = Nothing
-    , _cirsStatus = pStatus_
+    , _cirsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the new AMI.
@@ -189,5 +189,5 @@ cirsImageId :: Lens' CreateImageResponse (Maybe Text)
 cirsImageId = lens _cirsImageId (\ s a -> s{_cirsImageId = a});
 
 -- | The response status code.
-cirsStatus :: Lens' CreateImageResponse Int
-cirsStatus = lens _cirsStatus (\ s a -> s{_cirsStatus = a});
+cirsResponseStatus :: Lens' CreateImageResponse Int
+cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});

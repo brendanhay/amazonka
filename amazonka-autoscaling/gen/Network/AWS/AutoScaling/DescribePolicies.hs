@@ -41,7 +41,7 @@ module Network.AWS.AutoScaling.DescribePolicies
     -- * Response Lenses
     , dprsNextToken
     , dprsScalingPolicies
-    , dprsStatus
+    , dprsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -151,7 +151,7 @@ instance ToQuery DescribePolicies where
 data DescribePoliciesResponse = DescribePoliciesResponse'
     { _dprsNextToken       :: !(Maybe Text)
     , _dprsScalingPolicies :: !(Maybe [ScalingPolicy])
-    , _dprsStatus          :: !Int
+    , _dprsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribePoliciesResponse' with the minimum fields required to make a request.
@@ -162,15 +162,15 @@ data DescribePoliciesResponse = DescribePoliciesResponse'
 --
 -- * 'dprsScalingPolicies'
 --
--- * 'dprsStatus'
+-- * 'dprsResponseStatus'
 describePoliciesResponse
-    :: Int -- ^ 'dprsStatus'
+    :: Int -- ^ 'dprsResponseStatus'
     -> DescribePoliciesResponse
-describePoliciesResponse pStatus_ =
+describePoliciesResponse pResponseStatus_ =
     DescribePoliciesResponse'
     { _dprsNextToken = Nothing
     , _dprsScalingPolicies = Nothing
-    , _dprsStatus = pStatus_
+    , _dprsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
@@ -183,5 +183,5 @@ dprsScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
 dprsScalingPolicies = lens _dprsScalingPolicies (\ s a -> s{_dprsScalingPolicies = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dprsStatus :: Lens' DescribePoliciesResponse Int
-dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});
+dprsResponseStatus :: Lens' DescribePoliciesResponse Int
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});

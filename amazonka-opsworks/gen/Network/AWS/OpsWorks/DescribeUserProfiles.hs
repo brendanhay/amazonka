@@ -39,7 +39,7 @@ module Network.AWS.OpsWorks.DescribeUserProfiles
     , DescribeUserProfilesResponse
     -- * Response Lenses
     , duprsUserProfiles
-    , duprsStatus
+    , duprsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -105,8 +105,8 @@ instance ToQuery DescribeUserProfiles where
 --
 -- /See:/ 'describeUserProfilesResponse' smart constructor.
 data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
-    { _duprsUserProfiles :: !(Maybe [UserProfile])
-    , _duprsStatus       :: !Int
+    { _duprsUserProfiles   :: !(Maybe [UserProfile])
+    , _duprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeUserProfilesResponse' with the minimum fields required to make a request.
@@ -115,14 +115,14 @@ data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
 --
 -- * 'duprsUserProfiles'
 --
--- * 'duprsStatus'
+-- * 'duprsResponseStatus'
 describeUserProfilesResponse
-    :: Int -- ^ 'duprsStatus'
+    :: Int -- ^ 'duprsResponseStatus'
     -> DescribeUserProfilesResponse
-describeUserProfilesResponse pStatus_ =
+describeUserProfilesResponse pResponseStatus_ =
     DescribeUserProfilesResponse'
     { _duprsUserProfiles = Nothing
-    , _duprsStatus = pStatus_
+    , _duprsResponseStatus = pResponseStatus_
     }
 
 -- | A 'Users' object that describes the specified users.
@@ -130,5 +130,5 @@ duprsUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
 duprsUserProfiles = lens _duprsUserProfiles (\ s a -> s{_duprsUserProfiles = a}) . _Default . _Coerce;
 
 -- | The response status code.
-duprsStatus :: Lens' DescribeUserProfilesResponse Int
-duprsStatus = lens _duprsStatus (\ s a -> s{_duprsStatus = a});
+duprsResponseStatus :: Lens' DescribeUserProfilesResponse Int
+duprsResponseStatus = lens _duprsResponseStatus (\ s a -> s{_duprsResponseStatus = a});

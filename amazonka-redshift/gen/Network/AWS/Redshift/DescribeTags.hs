@@ -61,7 +61,7 @@ module Network.AWS.Redshift.DescribeTags
     -- * Response Lenses
     , dtrsMarker
     , dtrsTaggedResources
-    , dtrsStatus
+    , dtrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -207,7 +207,7 @@ instance ToQuery DescribeTags where
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsMarker          :: !(Maybe Text)
     , _dtrsTaggedResources :: !(Maybe [TaggedResource])
-    , _dtrsStatus          :: !Int
+    , _dtrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
@@ -218,15 +218,15 @@ data DescribeTagsResponse = DescribeTagsResponse'
 --
 -- * 'dtrsTaggedResources'
 --
--- * 'dtrsStatus'
+-- * 'dtrsResponseStatus'
 describeTagsResponse
-    :: Int -- ^ 'dtrsStatus'
+    :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
-describeTagsResponse pStatus_ =
+describeTagsResponse pResponseStatus_ =
     DescribeTagsResponse'
     { _dtrsMarker = Nothing
     , _dtrsTaggedResources = Nothing
-    , _dtrsStatus = pStatus_
+    , _dtrsResponseStatus = pResponseStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -243,5 +243,5 @@ dtrsTaggedResources :: Lens' DescribeTagsResponse [TaggedResource]
 dtrsTaggedResources = lens _dtrsTaggedResources (\ s a -> s{_dtrsTaggedResources = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dtrsStatus :: Lens' DescribeTagsResponse Int
-dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
+dtrsResponseStatus :: Lens' DescribeTagsResponse Int
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});

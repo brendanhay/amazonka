@@ -43,7 +43,7 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     , dvarsVolumeId
     , dvarsProductCodes
     , dvarsAutoEnableIO
-    , dvarsStatus
+    , dvarsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -124,10 +124,10 @@ instance ToQuery DescribeVolumeAttribute where
 
 -- | /See:/ 'describeVolumeAttributeResponse' smart constructor.
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
-    { _dvarsVolumeId     :: !(Maybe Text)
-    , _dvarsProductCodes :: !(Maybe [ProductCode])
-    , _dvarsAutoEnableIO :: !(Maybe AttributeBooleanValue)
-    , _dvarsStatus       :: !Int
+    { _dvarsVolumeId       :: !(Maybe Text)
+    , _dvarsProductCodes   :: !(Maybe [ProductCode])
+    , _dvarsAutoEnableIO   :: !(Maybe AttributeBooleanValue)
+    , _dvarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVolumeAttributeResponse' with the minimum fields required to make a request.
@@ -140,16 +140,16 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
 --
 -- * 'dvarsAutoEnableIO'
 --
--- * 'dvarsStatus'
+-- * 'dvarsResponseStatus'
 describeVolumeAttributeResponse
-    :: Int -- ^ 'dvarsStatus'
+    :: Int -- ^ 'dvarsResponseStatus'
     -> DescribeVolumeAttributeResponse
-describeVolumeAttributeResponse pStatus_ =
+describeVolumeAttributeResponse pResponseStatus_ =
     DescribeVolumeAttributeResponse'
     { _dvarsVolumeId = Nothing
     , _dvarsProductCodes = Nothing
     , _dvarsAutoEnableIO = Nothing
-    , _dvarsStatus = pStatus_
+    , _dvarsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the volume.
@@ -165,5 +165,5 @@ dvarsAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBoole
 dvarsAutoEnableIO = lens _dvarsAutoEnableIO (\ s a -> s{_dvarsAutoEnableIO = a});
 
 -- | The response status code.
-dvarsStatus :: Lens' DescribeVolumeAttributeResponse Int
-dvarsStatus = lens _dvarsStatus (\ s a -> s{_dvarsStatus = a});
+dvarsResponseStatus :: Lens' DescribeVolumeAttributeResponse Int
+dvarsResponseStatus = lens _dvarsResponseStatus (\ s a -> s{_dvarsResponseStatus = a});

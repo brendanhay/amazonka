@@ -32,7 +32,7 @@ module Network.AWS.CloudSearch.ListDomainNames
     , ListDomainNamesResponse
     -- * Response Lenses
     , ldnrsDomainNames
-    , ldnrsStatus
+    , ldnrsResponseStatus
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -81,8 +81,8 @@ instance ToQuery ListDomainNames where
 --
 -- /See:/ 'listDomainNamesResponse' smart constructor.
 data ListDomainNamesResponse = ListDomainNamesResponse'
-    { _ldnrsDomainNames :: !(Maybe (Map Text Text))
-    , _ldnrsStatus      :: !Int
+    { _ldnrsDomainNames    :: !(Maybe (Map Text Text))
+    , _ldnrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListDomainNamesResponse' with the minimum fields required to make a request.
@@ -91,14 +91,14 @@ data ListDomainNamesResponse = ListDomainNamesResponse'
 --
 -- * 'ldnrsDomainNames'
 --
--- * 'ldnrsStatus'
+-- * 'ldnrsResponseStatus'
 listDomainNamesResponse
-    :: Int -- ^ 'ldnrsStatus'
+    :: Int -- ^ 'ldnrsResponseStatus'
     -> ListDomainNamesResponse
-listDomainNamesResponse pStatus_ =
+listDomainNamesResponse pResponseStatus_ =
     ListDomainNamesResponse'
     { _ldnrsDomainNames = Nothing
-    , _ldnrsStatus = pStatus_
+    , _ldnrsResponseStatus = pResponseStatus_
     }
 
 -- | The names of the search domains owned by an account.
@@ -106,5 +106,5 @@ ldnrsDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
 ldnrsDomainNames = lens _ldnrsDomainNames (\ s a -> s{_ldnrsDomainNames = a}) . _Default . _Map;
 
 -- | The response status code.
-ldnrsStatus :: Lens' ListDomainNamesResponse Int
-ldnrsStatus = lens _ldnrsStatus (\ s a -> s{_ldnrsStatus = a});
+ldnrsResponseStatus :: Lens' ListDomainNamesResponse Int
+ldnrsResponseStatus = lens _ldnrsResponseStatus (\ s a -> s{_ldnrsResponseStatus = a});

@@ -54,7 +54,7 @@ module Network.AWS.WorkSpaces.RebuildWorkspaces
     , RebuildWorkspacesResponse
     -- * Response Lenses
     , rwrsFailedRequests
-    , rwrsStatus
+    , rwrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -126,7 +126,7 @@ instance ToQuery RebuildWorkspaces where
 -- /See:/ 'rebuildWorkspacesResponse' smart constructor.
 data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
     { _rwrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
-    , _rwrsStatus         :: !Int
+    , _rwrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RebuildWorkspacesResponse' with the minimum fields required to make a request.
@@ -135,14 +135,14 @@ data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
 --
 -- * 'rwrsFailedRequests'
 --
--- * 'rwrsStatus'
+-- * 'rwrsResponseStatus'
 rebuildWorkspacesResponse
-    :: Int -- ^ 'rwrsStatus'
+    :: Int -- ^ 'rwrsResponseStatus'
     -> RebuildWorkspacesResponse
-rebuildWorkspacesResponse pStatus_ =
+rebuildWorkspacesResponse pResponseStatus_ =
     RebuildWorkspacesResponse'
     { _rwrsFailedRequests = Nothing
-    , _rwrsStatus = pStatus_
+    , _rwrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of structures that represent any WorkSpaces that could not be
@@ -151,5 +151,5 @@ rwrsFailedRequests :: Lens' RebuildWorkspacesResponse [FailedWorkspaceChangeRequ
 rwrsFailedRequests = lens _rwrsFailedRequests (\ s a -> s{_rwrsFailedRequests = a}) . _Default . _Coerce;
 
 -- | The response status code.
-rwrsStatus :: Lens' RebuildWorkspacesResponse Int
-rwrsStatus = lens _rwrsStatus (\ s a -> s{_rwrsStatus = a});
+rwrsResponseStatus :: Lens' RebuildWorkspacesResponse Int
+rwrsResponseStatus = lens _rwrsResponseStatus (\ s a -> s{_rwrsResponseStatus = a});

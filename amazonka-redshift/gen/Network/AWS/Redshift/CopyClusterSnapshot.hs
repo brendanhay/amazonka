@@ -49,7 +49,7 @@ module Network.AWS.Redshift.CopyClusterSnapshot
     , CopyClusterSnapshotResponse
     -- * Response Lenses
     , ccsrsSnapshot
-    , ccsrsStatus
+    , ccsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -149,8 +149,8 @@ instance ToQuery CopyClusterSnapshot where
 
 -- | /See:/ 'copyClusterSnapshotResponse' smart constructor.
 data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'
-    { _ccsrsSnapshot :: !(Maybe Snapshot)
-    , _ccsrsStatus   :: !Int
+    { _ccsrsSnapshot       :: !(Maybe Snapshot)
+    , _ccsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CopyClusterSnapshotResponse' with the minimum fields required to make a request.
@@ -159,14 +159,14 @@ data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'
 --
 -- * 'ccsrsSnapshot'
 --
--- * 'ccsrsStatus'
+-- * 'ccsrsResponseStatus'
 copyClusterSnapshotResponse
-    :: Int -- ^ 'ccsrsStatus'
+    :: Int -- ^ 'ccsrsResponseStatus'
     -> CopyClusterSnapshotResponse
-copyClusterSnapshotResponse pStatus_ =
+copyClusterSnapshotResponse pResponseStatus_ =
     CopyClusterSnapshotResponse'
     { _ccsrsSnapshot = Nothing
-    , _ccsrsStatus = pStatus_
+    , _ccsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -174,5 +174,5 @@ ccsrsSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
 ccsrsSnapshot = lens _ccsrsSnapshot (\ s a -> s{_ccsrsSnapshot = a});
 
 -- | The response status code.
-ccsrsStatus :: Lens' CopyClusterSnapshotResponse Int
-ccsrsStatus = lens _ccsrsStatus (\ s a -> s{_ccsrsStatus = a});
+ccsrsResponseStatus :: Lens' CopyClusterSnapshotResponse Int
+ccsrsResponseStatus = lens _ccsrsResponseStatus (\ s a -> s{_ccsrsResponseStatus = a});

@@ -38,7 +38,7 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
     , UpdateGatewayInformationResponse
     -- * Response Lenses
     , ugirsGatewayARN
-    , ugirsStatus
+    , ugirsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -123,8 +123,8 @@ instance ToQuery UpdateGatewayInformation where
 --
 -- /See:/ 'updateGatewayInformationResponse' smart constructor.
 data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
-    { _ugirsGatewayARN :: !(Maybe Text)
-    , _ugirsStatus     :: !Int
+    { _ugirsGatewayARN     :: !(Maybe Text)
+    , _ugirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateGatewayInformationResponse' with the minimum fields required to make a request.
@@ -133,14 +133,14 @@ data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
 --
 -- * 'ugirsGatewayARN'
 --
--- * 'ugirsStatus'
+-- * 'ugirsResponseStatus'
 updateGatewayInformationResponse
-    :: Int -- ^ 'ugirsStatus'
+    :: Int -- ^ 'ugirsResponseStatus'
     -> UpdateGatewayInformationResponse
-updateGatewayInformationResponse pStatus_ =
+updateGatewayInformationResponse pResponseStatus_ =
     UpdateGatewayInformationResponse'
     { _ugirsGatewayARN = Nothing
-    , _ugirsStatus = pStatus_
+    , _ugirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -148,5 +148,5 @@ ugirsGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugirsGatewayARN = lens _ugirsGatewayARN (\ s a -> s{_ugirsGatewayARN = a});
 
 -- | The response status code.
-ugirsStatus :: Lens' UpdateGatewayInformationResponse Int
-ugirsStatus = lens _ugirsStatus (\ s a -> s{_ugirsStatus = a});
+ugirsResponseStatus :: Lens' UpdateGatewayInformationResponse Int
+ugirsResponseStatus = lens _ugirsResponseStatus (\ s a -> s{_ugirsResponseStatus = a});

@@ -43,7 +43,7 @@ module Network.AWS.EC2.EnableVPCClassicLink
     , EnableVPCClassicLinkResponse
     -- * Response Lenses
     , evclrsReturn
-    , evclrsStatus
+    , evclrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -110,8 +110,8 @@ instance ToQuery EnableVPCClassicLink where
 
 -- | /See:/ 'enableVPCClassicLinkResponse' smart constructor.
 data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'
-    { _evclrsReturn :: !(Maybe Bool)
-    , _evclrsStatus :: !Int
+    { _evclrsReturn         :: !(Maybe Bool)
+    , _evclrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnableVPCClassicLinkResponse' with the minimum fields required to make a request.
@@ -120,14 +120,14 @@ data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'
 --
 -- * 'evclrsReturn'
 --
--- * 'evclrsStatus'
+-- * 'evclrsResponseStatus'
 enableVPCClassicLinkResponse
-    :: Int -- ^ 'evclrsStatus'
+    :: Int -- ^ 'evclrsResponseStatus'
     -> EnableVPCClassicLinkResponse
-enableVPCClassicLinkResponse pStatus_ =
+enableVPCClassicLinkResponse pResponseStatus_ =
     EnableVPCClassicLinkResponse'
     { _evclrsReturn = Nothing
-    , _evclrsStatus = pStatus_
+    , _evclrsResponseStatus = pResponseStatus_
     }
 
 -- | Returns 'true' if the request succeeds; otherwise, it returns an error.
@@ -135,5 +135,5 @@ evclrsReturn :: Lens' EnableVPCClassicLinkResponse (Maybe Bool)
 evclrsReturn = lens _evclrsReturn (\ s a -> s{_evclrsReturn = a});
 
 -- | The response status code.
-evclrsStatus :: Lens' EnableVPCClassicLinkResponse Int
-evclrsStatus = lens _evclrsStatus (\ s a -> s{_evclrsStatus = a});
+evclrsResponseStatus :: Lens' EnableVPCClassicLinkResponse Int
+evclrsResponseStatus = lens _evclrsResponseStatus (\ s a -> s{_evclrsResponseStatus = a});

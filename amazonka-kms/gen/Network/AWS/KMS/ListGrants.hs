@@ -38,7 +38,7 @@ module Network.AWS.KMS.ListGrants
     , lgrsTruncated
     , lgrsGrants
     , lgrsNextMarker
-    , lgrsStatus
+    , lgrsResponseStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -133,10 +133,10 @@ instance ToQuery ListGrants where
 
 -- | /See:/ 'listGrantsResponse' smart constructor.
 data ListGrantsResponse = ListGrantsResponse'
-    { _lgrsTruncated  :: !(Maybe Bool)
-    , _lgrsGrants     :: !(Maybe [GrantListEntry])
-    , _lgrsNextMarker :: !(Maybe Text)
-    , _lgrsStatus     :: !Int
+    { _lgrsTruncated      :: !(Maybe Bool)
+    , _lgrsGrants         :: !(Maybe [GrantListEntry])
+    , _lgrsNextMarker     :: !(Maybe Text)
+    , _lgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListGrantsResponse' with the minimum fields required to make a request.
@@ -149,16 +149,16 @@ data ListGrantsResponse = ListGrantsResponse'
 --
 -- * 'lgrsNextMarker'
 --
--- * 'lgrsStatus'
+-- * 'lgrsResponseStatus'
 listGrantsResponse
-    :: Int -- ^ 'lgrsStatus'
+    :: Int -- ^ 'lgrsResponseStatus'
     -> ListGrantsResponse
-listGrantsResponse pStatus_ =
+listGrantsResponse pResponseStatus_ =
     ListGrantsResponse'
     { _lgrsTruncated = Nothing
     , _lgrsGrants = Nothing
     , _lgrsNextMarker = Nothing
-    , _lgrsStatus = pStatus_
+    , _lgrsResponseStatus = pResponseStatus_
     }
 
 -- | A flag that indicates whether there are more items in the list. If your
@@ -179,5 +179,5 @@ lgrsNextMarker :: Lens' ListGrantsResponse (Maybe Text)
 lgrsNextMarker = lens _lgrsNextMarker (\ s a -> s{_lgrsNextMarker = a});
 
 -- | The response status code.
-lgrsStatus :: Lens' ListGrantsResponse Int
-lgrsStatus = lens _lgrsStatus (\ s a -> s{_lgrsStatus = a});
+lgrsResponseStatus :: Lens' ListGrantsResponse Int
+lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a});

@@ -39,7 +39,7 @@ module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     , CreateCacheSubnetGroupResponse
     -- * Response Lenses
     , crsCacheSubnetGroup
-    , crsStatus
+    , crsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -126,7 +126,7 @@ instance ToQuery CreateCacheSubnetGroup where
 -- | /See:/ 'createCacheSubnetGroupResponse' smart constructor.
 data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
     { _crsCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
-    , _crsStatus           :: !Int
+    , _crsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateCacheSubnetGroupResponse' with the minimum fields required to make a request.
@@ -135,14 +135,14 @@ data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
 --
 -- * 'crsCacheSubnetGroup'
 --
--- * 'crsStatus'
+-- * 'crsResponseStatus'
 createCacheSubnetGroupResponse
-    :: Int -- ^ 'crsStatus'
+    :: Int -- ^ 'crsResponseStatus'
     -> CreateCacheSubnetGroupResponse
-createCacheSubnetGroupResponse pStatus_ =
+createCacheSubnetGroupResponse pResponseStatus_ =
     CreateCacheSubnetGroupResponse'
     { _crsCacheSubnetGroup = Nothing
-    , _crsStatus = pStatus_
+    , _crsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -150,5 +150,5 @@ crsCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGr
 crsCacheSubnetGroup = lens _crsCacheSubnetGroup (\ s a -> s{_crsCacheSubnetGroup = a});
 
 -- | The response status code.
-crsStatus :: Lens' CreateCacheSubnetGroupResponse Int
-crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});
+crsResponseStatus :: Lens' CreateCacheSubnetGroupResponse Int
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});

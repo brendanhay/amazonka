@@ -51,7 +51,7 @@ module Network.AWS.IAM.ListEntitiesForPolicy
     , lefprsMarker
     , lefprsPolicyUsers
     , lefprsIsTruncated
-    , lefprsStatus
+    , lefprsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -168,12 +168,12 @@ instance ToQuery ListEntitiesForPolicy where
 --
 -- /See:/ 'listEntitiesForPolicyResponse' smart constructor.
 data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'
-    { _lefprsPolicyGroups :: !(Maybe [PolicyGroup])
-    , _lefprsPolicyRoles  :: !(Maybe [PolicyRole])
-    , _lefprsMarker       :: !(Maybe Text)
-    , _lefprsPolicyUsers  :: !(Maybe [PolicyUser])
-    , _lefprsIsTruncated  :: !(Maybe Bool)
-    , _lefprsStatus       :: !Int
+    { _lefprsPolicyGroups   :: !(Maybe [PolicyGroup])
+    , _lefprsPolicyRoles    :: !(Maybe [PolicyRole])
+    , _lefprsMarker         :: !(Maybe Text)
+    , _lefprsPolicyUsers    :: !(Maybe [PolicyUser])
+    , _lefprsIsTruncated    :: !(Maybe Bool)
+    , _lefprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListEntitiesForPolicyResponse' with the minimum fields required to make a request.
@@ -190,18 +190,18 @@ data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'
 --
 -- * 'lefprsIsTruncated'
 --
--- * 'lefprsStatus'
+-- * 'lefprsResponseStatus'
 listEntitiesForPolicyResponse
-    :: Int -- ^ 'lefprsStatus'
+    :: Int -- ^ 'lefprsResponseStatus'
     -> ListEntitiesForPolicyResponse
-listEntitiesForPolicyResponse pStatus_ =
+listEntitiesForPolicyResponse pResponseStatus_ =
     ListEntitiesForPolicyResponse'
     { _lefprsPolicyGroups = Nothing
     , _lefprsPolicyRoles = Nothing
     , _lefprsMarker = Nothing
     , _lefprsPolicyUsers = Nothing
     , _lefprsIsTruncated = Nothing
-    , _lefprsStatus = pStatus_
+    , _lefprsResponseStatus = pResponseStatus_
     }
 
 -- | A list of groups that the policy is attached to.
@@ -229,5 +229,5 @@ lefprsIsTruncated :: Lens' ListEntitiesForPolicyResponse (Maybe Bool)
 lefprsIsTruncated = lens _lefprsIsTruncated (\ s a -> s{_lefprsIsTruncated = a});
 
 -- | The response status code.
-lefprsStatus :: Lens' ListEntitiesForPolicyResponse Int
-lefprsStatus = lens _lefprsStatus (\ s a -> s{_lefprsStatus = a});
+lefprsResponseStatus :: Lens' ListEntitiesForPolicyResponse Int
+lefprsResponseStatus = lens _lefprsResponseStatus (\ s a -> s{_lefprsResponseStatus = a});

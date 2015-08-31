@@ -67,7 +67,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     , RestoreFromClusterSnapshotResponse
     -- * Response Lenses
     , rfcsrsCluster
-    , rfcsrsStatus
+    , rfcsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -389,8 +389,8 @@ instance ToQuery RestoreFromClusterSnapshot where
 
 -- | /See:/ 'restoreFromClusterSnapshotResponse' smart constructor.
 data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'
-    { _rfcsrsCluster :: !(Maybe Cluster)
-    , _rfcsrsStatus  :: !Int
+    { _rfcsrsCluster        :: !(Maybe Cluster)
+    , _rfcsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestoreFromClusterSnapshotResponse' with the minimum fields required to make a request.
@@ -399,14 +399,14 @@ data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'
 --
 -- * 'rfcsrsCluster'
 --
--- * 'rfcsrsStatus'
+-- * 'rfcsrsResponseStatus'
 restoreFromClusterSnapshotResponse
-    :: Int -- ^ 'rfcsrsStatus'
+    :: Int -- ^ 'rfcsrsResponseStatus'
     -> RestoreFromClusterSnapshotResponse
-restoreFromClusterSnapshotResponse pStatus_ =
+restoreFromClusterSnapshotResponse pResponseStatus_ =
     RestoreFromClusterSnapshotResponse'
     { _rfcsrsCluster = Nothing
-    , _rfcsrsStatus = pStatus_
+    , _rfcsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -414,5 +414,5 @@ rfcsrsCluster :: Lens' RestoreFromClusterSnapshotResponse (Maybe Cluster)
 rfcsrsCluster = lens _rfcsrsCluster (\ s a -> s{_rfcsrsCluster = a});
 
 -- | The response status code.
-rfcsrsStatus :: Lens' RestoreFromClusterSnapshotResponse Int
-rfcsrsStatus = lens _rfcsrsStatus (\ s a -> s{_rfcsrsStatus = a});
+rfcsrsResponseStatus :: Lens' RestoreFromClusterSnapshotResponse Int
+rfcsrsResponseStatus = lens _rfcsrsResponseStatus (\ s a -> s{_rfcsrsResponseStatus = a});

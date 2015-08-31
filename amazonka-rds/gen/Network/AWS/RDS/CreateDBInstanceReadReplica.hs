@@ -54,7 +54,7 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     , CreateDBInstanceReadReplicaResponse
     -- * Response Lenses
     , cdirrrsDBInstance
-    , cdirrrsStatus
+    , cdirrrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -303,8 +303,8 @@ instance ToQuery CreateDBInstanceReadReplica where
 
 -- | /See:/ 'createDBInstanceReadReplicaResponse' smart constructor.
 data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'
-    { _cdirrrsDBInstance :: !(Maybe DBInstance)
-    , _cdirrrsStatus     :: !Int
+    { _cdirrrsDBInstance     :: !(Maybe DBInstance)
+    , _cdirrrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDBInstanceReadReplicaResponse' with the minimum fields required to make a request.
@@ -313,14 +313,14 @@ data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'
 --
 -- * 'cdirrrsDBInstance'
 --
--- * 'cdirrrsStatus'
+-- * 'cdirrrsResponseStatus'
 createDBInstanceReadReplicaResponse
-    :: Int -- ^ 'cdirrrsStatus'
+    :: Int -- ^ 'cdirrrsResponseStatus'
     -> CreateDBInstanceReadReplicaResponse
-createDBInstanceReadReplicaResponse pStatus_ =
+createDBInstanceReadReplicaResponse pResponseStatus_ =
     CreateDBInstanceReadReplicaResponse'
     { _cdirrrsDBInstance = Nothing
-    , _cdirrrsStatus = pStatus_
+    , _cdirrrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -328,5 +328,5 @@ cdirrrsDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance
 cdirrrsDBInstance = lens _cdirrrsDBInstance (\ s a -> s{_cdirrrsDBInstance = a});
 
 -- | The response status code.
-cdirrrsStatus :: Lens' CreateDBInstanceReadReplicaResponse Int
-cdirrrsStatus = lens _cdirrrsStatus (\ s a -> s{_cdirrrsStatus = a});
+cdirrrsResponseStatus :: Lens' CreateDBInstanceReadReplicaResponse Int
+cdirrrsResponseStatus = lens _cdirrrsResponseStatus (\ s a -> s{_cdirrrsResponseStatus = a});

@@ -42,7 +42,7 @@ module Network.AWS.Redshift.RevokeSnapshotAccess
     , RevokeSnapshotAccessResponse
     -- * Response Lenses
     , rsarsSnapshot
-    , rsarsStatus
+    , rsarsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -125,8 +125,8 @@ instance ToQuery RevokeSnapshotAccess where
 
 -- | /See:/ 'revokeSnapshotAccessResponse' smart constructor.
 data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
-    { _rsarsSnapshot :: !(Maybe Snapshot)
-    , _rsarsStatus   :: !Int
+    { _rsarsSnapshot       :: !(Maybe Snapshot)
+    , _rsarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RevokeSnapshotAccessResponse' with the minimum fields required to make a request.
@@ -135,14 +135,14 @@ data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
 --
 -- * 'rsarsSnapshot'
 --
--- * 'rsarsStatus'
+-- * 'rsarsResponseStatus'
 revokeSnapshotAccessResponse
-    :: Int -- ^ 'rsarsStatus'
+    :: Int -- ^ 'rsarsResponseStatus'
     -> RevokeSnapshotAccessResponse
-revokeSnapshotAccessResponse pStatus_ =
+revokeSnapshotAccessResponse pResponseStatus_ =
     RevokeSnapshotAccessResponse'
     { _rsarsSnapshot = Nothing
-    , _rsarsStatus = pStatus_
+    , _rsarsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -150,5 +150,5 @@ rsarsSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
 rsarsSnapshot = lens _rsarsSnapshot (\ s a -> s{_rsarsSnapshot = a});
 
 -- | The response status code.
-rsarsStatus :: Lens' RevokeSnapshotAccessResponse Int
-rsarsStatus = lens _rsarsStatus (\ s a -> s{_rsarsStatus = a});
+rsarsResponseStatus :: Lens' RevokeSnapshotAccessResponse Int
+rsarsResponseStatus = lens _rsarsResponseStatus (\ s a -> s{_rsarsResponseStatus = a});

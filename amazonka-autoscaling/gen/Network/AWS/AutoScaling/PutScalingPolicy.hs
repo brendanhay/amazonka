@@ -53,7 +53,7 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     , PutScalingPolicyResponse
     -- * Response Lenses
     , psprsPolicyARN
-    , psprsStatus
+    , psprsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -240,8 +240,8 @@ instance ToQuery PutScalingPolicy where
 
 -- | /See:/ 'putScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
-    { _psprsPolicyARN :: !(Maybe Text)
-    , _psprsStatus    :: !Int
+    { _psprsPolicyARN      :: !(Maybe Text)
+    , _psprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutScalingPolicyResponse' with the minimum fields required to make a request.
@@ -250,14 +250,14 @@ data PutScalingPolicyResponse = PutScalingPolicyResponse'
 --
 -- * 'psprsPolicyARN'
 --
--- * 'psprsStatus'
+-- * 'psprsResponseStatus'
 putScalingPolicyResponse
-    :: Int -- ^ 'psprsStatus'
+    :: Int -- ^ 'psprsResponseStatus'
     -> PutScalingPolicyResponse
-putScalingPolicyResponse pStatus_ =
+putScalingPolicyResponse pResponseStatus_ =
     PutScalingPolicyResponse'
     { _psprsPolicyARN = Nothing
-    , _psprsStatus = pStatus_
+    , _psprsResponseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the policy.
@@ -265,5 +265,5 @@ psprsPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
 psprsPolicyARN = lens _psprsPolicyARN (\ s a -> s{_psprsPolicyARN = a});
 
 -- | The response status code.
-psprsStatus :: Lens' PutScalingPolicyResponse Int
-psprsStatus = lens _psprsStatus (\ s a -> s{_psprsStatus = a});
+psprsResponseStatus :: Lens' PutScalingPolicyResponse Int
+psprsResponseStatus = lens _psprsResponseStatus (\ s a -> s{_psprsResponseStatus = a});

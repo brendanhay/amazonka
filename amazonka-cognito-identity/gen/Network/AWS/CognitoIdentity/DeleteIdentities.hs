@@ -37,7 +37,7 @@ module Network.AWS.CognitoIdentity.DeleteIdentities
     , DeleteIdentitiesResponse
     -- * Response Lenses
     , dirsUnprocessedIdentityIds
-    , dirsStatus
+    , dirsResponseStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -108,7 +108,7 @@ instance ToQuery DeleteIdentities where
 -- /See:/ 'deleteIdentitiesResponse' smart constructor.
 data DeleteIdentitiesResponse = DeleteIdentitiesResponse'
     { _dirsUnprocessedIdentityIds :: !(Maybe [UnprocessedIdentityId])
-    , _dirsStatus                 :: !Int
+    , _dirsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteIdentitiesResponse' with the minimum fields required to make a request.
@@ -117,14 +117,14 @@ data DeleteIdentitiesResponse = DeleteIdentitiesResponse'
 --
 -- * 'dirsUnprocessedIdentityIds'
 --
--- * 'dirsStatus'
+-- * 'dirsResponseStatus'
 deleteIdentitiesResponse
-    :: Int -- ^ 'dirsStatus'
+    :: Int -- ^ 'dirsResponseStatus'
     -> DeleteIdentitiesResponse
-deleteIdentitiesResponse pStatus_ =
+deleteIdentitiesResponse pResponseStatus_ =
     DeleteIdentitiesResponse'
     { _dirsUnprocessedIdentityIds = Nothing
-    , _dirsStatus = pStatus_
+    , _dirsResponseStatus = pResponseStatus_
     }
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an
@@ -133,5 +133,5 @@ dirsUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse [UnprocessedIdentit
 dirsUnprocessedIdentityIds = lens _dirsUnprocessedIdentityIds (\ s a -> s{_dirsUnprocessedIdentityIds = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dirsStatus :: Lens' DeleteIdentitiesResponse Int
-dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});
+dirsResponseStatus :: Lens' DeleteIdentitiesResponse Int
+dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});

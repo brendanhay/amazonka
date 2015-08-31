@@ -43,7 +43,7 @@ module Network.AWS.IAM.ListPolicyVersions
     , lpvrsVersions
     , lpvrsMarker
     , lpvrsIsTruncated
-    , lpvrsStatus
+    , lpvrsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -129,10 +129,10 @@ instance ToQuery ListPolicyVersions where
 --
 -- /See:/ 'listPolicyVersionsResponse' smart constructor.
 data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
-    { _lpvrsVersions    :: !(Maybe [PolicyVersion])
-    , _lpvrsMarker      :: !(Maybe Text)
-    , _lpvrsIsTruncated :: !(Maybe Bool)
-    , _lpvrsStatus      :: !Int
+    { _lpvrsVersions       :: !(Maybe [PolicyVersion])
+    , _lpvrsMarker         :: !(Maybe Text)
+    , _lpvrsIsTruncated    :: !(Maybe Bool)
+    , _lpvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListPolicyVersionsResponse' with the minimum fields required to make a request.
@@ -145,16 +145,16 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
 --
 -- * 'lpvrsIsTruncated'
 --
--- * 'lpvrsStatus'
+-- * 'lpvrsResponseStatus'
 listPolicyVersionsResponse
-    :: Int -- ^ 'lpvrsStatus'
+    :: Int -- ^ 'lpvrsResponseStatus'
     -> ListPolicyVersionsResponse
-listPolicyVersionsResponse pStatus_ =
+listPolicyVersionsResponse pResponseStatus_ =
     ListPolicyVersionsResponse'
     { _lpvrsVersions = Nothing
     , _lpvrsMarker = Nothing
     , _lpvrsIsTruncated = Nothing
-    , _lpvrsStatus = pStatus_
+    , _lpvrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of policy versions.
@@ -178,5 +178,5 @@ lpvrsIsTruncated :: Lens' ListPolicyVersionsResponse (Maybe Bool)
 lpvrsIsTruncated = lens _lpvrsIsTruncated (\ s a -> s{_lpvrsIsTruncated = a});
 
 -- | The response status code.
-lpvrsStatus :: Lens' ListPolicyVersionsResponse Int
-lpvrsStatus = lens _lpvrsStatus (\ s a -> s{_lpvrsStatus = a});
+lpvrsResponseStatus :: Lens' ListPolicyVersionsResponse Int
+lpvrsResponseStatus = lens _lpvrsResponseStatus (\ s a -> s{_lpvrsResponseStatus = a});

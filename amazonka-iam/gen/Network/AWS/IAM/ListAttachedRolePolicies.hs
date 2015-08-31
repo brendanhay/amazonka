@@ -51,7 +51,7 @@ module Network.AWS.IAM.ListAttachedRolePolicies
     , larprsAttachedPolicies
     , larprsMarker
     , larprsIsTruncated
-    , larprsStatus
+    , larprsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -153,7 +153,7 @@ data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
     { _larprsAttachedPolicies :: !(Maybe [AttachedPolicy])
     , _larprsMarker           :: !(Maybe Text)
     , _larprsIsTruncated      :: !(Maybe Bool)
-    , _larprsStatus           :: !Int
+    , _larprsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListAttachedRolePoliciesResponse' with the minimum fields required to make a request.
@@ -166,16 +166,16 @@ data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
 --
 -- * 'larprsIsTruncated'
 --
--- * 'larprsStatus'
+-- * 'larprsResponseStatus'
 listAttachedRolePoliciesResponse
-    :: Int -- ^ 'larprsStatus'
+    :: Int -- ^ 'larprsResponseStatus'
     -> ListAttachedRolePoliciesResponse
-listAttachedRolePoliciesResponse pStatus_ =
+listAttachedRolePoliciesResponse pResponseStatus_ =
     ListAttachedRolePoliciesResponse'
     { _larprsAttachedPolicies = Nothing
     , _larprsMarker = Nothing
     , _larprsIsTruncated = Nothing
-    , _larprsStatus = pStatus_
+    , _larprsResponseStatus = pResponseStatus_
     }
 
 -- | A list of the attached policies.
@@ -195,5 +195,5 @@ larprsIsTruncated :: Lens' ListAttachedRolePoliciesResponse (Maybe Bool)
 larprsIsTruncated = lens _larprsIsTruncated (\ s a -> s{_larprsIsTruncated = a});
 
 -- | The response status code.
-larprsStatus :: Lens' ListAttachedRolePoliciesResponse Int
-larprsStatus = lens _larprsStatus (\ s a -> s{_larprsStatus = a});
+larprsResponseStatus :: Lens' ListAttachedRolePoliciesResponse Int
+larprsResponseStatus = lens _larprsResponseStatus (\ s a -> s{_larprsResponseStatus = a});

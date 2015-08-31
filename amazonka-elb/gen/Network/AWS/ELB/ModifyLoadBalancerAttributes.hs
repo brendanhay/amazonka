@@ -50,7 +50,7 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     -- * Response Lenses
     , mlbarsLoadBalancerName
     , mlbarsLoadBalancerAttributes
-    , mlbarsStatus
+    , mlbarsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -124,7 +124,7 @@ instance ToQuery ModifyLoadBalancerAttributes where
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
     { _mlbarsLoadBalancerName       :: !(Maybe Text)
     , _mlbarsLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
-    , _mlbarsStatus                 :: !Int
+    , _mlbarsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyLoadBalancerAttributesResponse' with the minimum fields required to make a request.
@@ -135,15 +135,15 @@ data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
 --
 -- * 'mlbarsLoadBalancerAttributes'
 --
--- * 'mlbarsStatus'
+-- * 'mlbarsResponseStatus'
 modifyLoadBalancerAttributesResponse
-    :: Int -- ^ 'mlbarsStatus'
+    :: Int -- ^ 'mlbarsResponseStatus'
     -> ModifyLoadBalancerAttributesResponse
-modifyLoadBalancerAttributesResponse pStatus_ =
+modifyLoadBalancerAttributesResponse pResponseStatus_ =
     ModifyLoadBalancerAttributesResponse'
     { _mlbarsLoadBalancerName = Nothing
     , _mlbarsLoadBalancerAttributes = Nothing
-    , _mlbarsStatus = pStatus_
+    , _mlbarsResponseStatus = pResponseStatus_
     }
 
 -- | The name of the load balancer.
@@ -155,5 +155,5 @@ mlbarsLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Mayb
 mlbarsLoadBalancerAttributes = lens _mlbarsLoadBalancerAttributes (\ s a -> s{_mlbarsLoadBalancerAttributes = a});
 
 -- | The response status code.
-mlbarsStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
-mlbarsStatus = lens _mlbarsStatus (\ s a -> s{_mlbarsStatus = a});
+mlbarsResponseStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
+mlbarsResponseStatus = lens _mlbarsResponseStatus (\ s a -> s{_mlbarsResponseStatus = a});

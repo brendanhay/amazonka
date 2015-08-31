@@ -34,7 +34,7 @@ module Network.AWS.DeviceFarm.CreateProject
     , CreateProjectResponse
     -- * Response Lenses
     , cprsProject
-    , cprsStatus
+    , cprsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -99,8 +99,8 @@ instance ToQuery CreateProject where
 --
 -- /See:/ 'createProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
-    { _cprsProject :: !(Maybe Project)
-    , _cprsStatus  :: !Int
+    { _cprsProject        :: !(Maybe Project)
+    , _cprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateProjectResponse' with the minimum fields required to make a request.
@@ -109,14 +109,14 @@ data CreateProjectResponse = CreateProjectResponse'
 --
 -- * 'cprsProject'
 --
--- * 'cprsStatus'
+-- * 'cprsResponseStatus'
 createProjectResponse
-    :: Int -- ^ 'cprsStatus'
+    :: Int -- ^ 'cprsResponseStatus'
     -> CreateProjectResponse
-createProjectResponse pStatus_ =
+createProjectResponse pResponseStatus_ =
     CreateProjectResponse'
     { _cprsProject = Nothing
-    , _cprsStatus = pStatus_
+    , _cprsResponseStatus = pResponseStatus_
     }
 
 -- | The newly created project.
@@ -124,5 +124,5 @@ cprsProject :: Lens' CreateProjectResponse (Maybe Project)
 cprsProject = lens _cprsProject (\ s a -> s{_cprsProject = a});
 
 -- | The response status code.
-cprsStatus :: Lens' CreateProjectResponse Int
-cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});
+cprsResponseStatus :: Lens' CreateProjectResponse Int
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});

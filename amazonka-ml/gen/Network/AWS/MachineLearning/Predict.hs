@@ -42,7 +42,7 @@ module Network.AWS.MachineLearning.Predict
     , PredictResponse
     -- * Response Lenses
     , prsPrediction
-    , prsStatus
+    , prsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -124,8 +124,8 @@ instance ToQuery Predict where
 
 -- | /See:/ 'predictResponse' smart constructor.
 data PredictResponse = PredictResponse'
-    { _prsPrediction :: !(Maybe Prediction)
-    , _prsStatus     :: !Int
+    { _prsPrediction     :: !(Maybe Prediction)
+    , _prsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PredictResponse' with the minimum fields required to make a request.
@@ -134,14 +134,14 @@ data PredictResponse = PredictResponse'
 --
 -- * 'prsPrediction'
 --
--- * 'prsStatus'
+-- * 'prsResponseStatus'
 predictResponse
-    :: Int -- ^ 'prsStatus'
+    :: Int -- ^ 'prsResponseStatus'
     -> PredictResponse
-predictResponse pStatus_ =
+predictResponse pResponseStatus_ =
     PredictResponse'
     { _prsPrediction = Nothing
-    , _prsStatus = pStatus_
+    , _prsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -149,5 +149,5 @@ prsPrediction :: Lens' PredictResponse (Maybe Prediction)
 prsPrediction = lens _prsPrediction (\ s a -> s{_prsPrediction = a});
 
 -- | The response status code.
-prsStatus :: Lens' PredictResponse Int
-prsStatus = lens _prsStatus (\ s a -> s{_prsStatus = a});
+prsResponseStatus :: Lens' PredictResponse Int
+prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a});

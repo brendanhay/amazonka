@@ -51,7 +51,7 @@ module Network.AWS.IAM.ListAttachedGroupPolicies
     , lagprsAttachedPolicies
     , lagprsMarker
     , lagprsIsTruncated
-    , lagprsStatus
+    , lagprsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -153,7 +153,7 @@ data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
     { _lagprsAttachedPolicies :: !(Maybe [AttachedPolicy])
     , _lagprsMarker           :: !(Maybe Text)
     , _lagprsIsTruncated      :: !(Maybe Bool)
-    , _lagprsStatus           :: !Int
+    , _lagprsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListAttachedGroupPoliciesResponse' with the minimum fields required to make a request.
@@ -166,16 +166,16 @@ data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
 --
 -- * 'lagprsIsTruncated'
 --
--- * 'lagprsStatus'
+-- * 'lagprsResponseStatus'
 listAttachedGroupPoliciesResponse
-    :: Int -- ^ 'lagprsStatus'
+    :: Int -- ^ 'lagprsResponseStatus'
     -> ListAttachedGroupPoliciesResponse
-listAttachedGroupPoliciesResponse pStatus_ =
+listAttachedGroupPoliciesResponse pResponseStatus_ =
     ListAttachedGroupPoliciesResponse'
     { _lagprsAttachedPolicies = Nothing
     , _lagprsMarker = Nothing
     , _lagprsIsTruncated = Nothing
-    , _lagprsStatus = pStatus_
+    , _lagprsResponseStatus = pResponseStatus_
     }
 
 -- | A list of the attached policies.
@@ -195,5 +195,5 @@ lagprsIsTruncated :: Lens' ListAttachedGroupPoliciesResponse (Maybe Bool)
 lagprsIsTruncated = lens _lagprsIsTruncated (\ s a -> s{_lagprsIsTruncated = a});
 
 -- | The response status code.
-lagprsStatus :: Lens' ListAttachedGroupPoliciesResponse Int
-lagprsStatus = lens _lagprsStatus (\ s a -> s{_lagprsStatus = a});
+lagprsResponseStatus :: Lens' ListAttachedGroupPoliciesResponse Int
+lagprsResponseStatus = lens _lagprsResponseStatus (\ s a -> s{_lagprsResponseStatus = a});

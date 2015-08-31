@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.CreateUserProfile
     , CreateUserProfileResponse
     -- * Response Lenses
     , cuprsIAMUserARN
-    , cuprsStatus
+    , cuprsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -142,8 +142,8 @@ instance ToQuery CreateUserProfile where
 --
 -- /See:/ 'createUserProfileResponse' smart constructor.
 data CreateUserProfileResponse = CreateUserProfileResponse'
-    { _cuprsIAMUserARN :: !(Maybe Text)
-    , _cuprsStatus     :: !Int
+    { _cuprsIAMUserARN     :: !(Maybe Text)
+    , _cuprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateUserProfileResponse' with the minimum fields required to make a request.
@@ -152,14 +152,14 @@ data CreateUserProfileResponse = CreateUserProfileResponse'
 --
 -- * 'cuprsIAMUserARN'
 --
--- * 'cuprsStatus'
+-- * 'cuprsResponseStatus'
 createUserProfileResponse
-    :: Int -- ^ 'cuprsStatus'
+    :: Int -- ^ 'cuprsResponseStatus'
     -> CreateUserProfileResponse
-createUserProfileResponse pStatus_ =
+createUserProfileResponse pResponseStatus_ =
     CreateUserProfileResponse'
     { _cuprsIAMUserARN = Nothing
-    , _cuprsStatus = pStatus_
+    , _cuprsResponseStatus = pResponseStatus_
     }
 
 -- | The user\'s IAM ARN.
@@ -167,5 +167,5 @@ cuprsIAMUserARN :: Lens' CreateUserProfileResponse (Maybe Text)
 cuprsIAMUserARN = lens _cuprsIAMUserARN (\ s a -> s{_cuprsIAMUserARN = a});
 
 -- | The response status code.
-cuprsStatus :: Lens' CreateUserProfileResponse Int
-cuprsStatus = lens _cuprsStatus (\ s a -> s{_cuprsStatus = a});
+cuprsResponseStatus :: Lens' CreateUserProfileResponse Int
+cuprsResponseStatus = lens _cuprsResponseStatus (\ s a -> s{_cuprsResponseStatus = a});

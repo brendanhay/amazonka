@@ -38,7 +38,7 @@ module Network.AWS.EC2.DeleteVPCPeeringConnection
     , DeleteVPCPeeringConnectionResponse
     -- * Response Lenses
     , dvpcrsReturn
-    , dvpcrsStatus
+    , dvpcrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -108,8 +108,8 @@ instance ToQuery DeleteVPCPeeringConnection where
 
 -- | /See:/ 'deleteVPCPeeringConnectionResponse' smart constructor.
 data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
-    { _dvpcrsReturn :: !(Maybe Bool)
-    , _dvpcrsStatus :: !Int
+    { _dvpcrsReturn         :: !(Maybe Bool)
+    , _dvpcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteVPCPeeringConnectionResponse' with the minimum fields required to make a request.
@@ -118,14 +118,14 @@ data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
 --
 -- * 'dvpcrsReturn'
 --
--- * 'dvpcrsStatus'
+-- * 'dvpcrsResponseStatus'
 deleteVPCPeeringConnectionResponse
-    :: Int -- ^ 'dvpcrsStatus'
+    :: Int -- ^ 'dvpcrsResponseStatus'
     -> DeleteVPCPeeringConnectionResponse
-deleteVPCPeeringConnectionResponse pStatus_ =
+deleteVPCPeeringConnectionResponse pResponseStatus_ =
     DeleteVPCPeeringConnectionResponse'
     { _dvpcrsReturn = Nothing
-    , _dvpcrsStatus = pStatus_
+    , _dvpcrsResponseStatus = pResponseStatus_
     }
 
 -- | Returns 'true' if the request succeeds; otherwise, it returns an error.
@@ -133,5 +133,5 @@ dvpcrsReturn :: Lens' DeleteVPCPeeringConnectionResponse (Maybe Bool)
 dvpcrsReturn = lens _dvpcrsReturn (\ s a -> s{_dvpcrsReturn = a});
 
 -- | The response status code.
-dvpcrsStatus :: Lens' DeleteVPCPeeringConnectionResponse Int
-dvpcrsStatus = lens _dvpcrsStatus (\ s a -> s{_dvpcrsStatus = a});
+dvpcrsResponseStatus :: Lens' DeleteVPCPeeringConnectionResponse Int
+dvpcrsResponseStatus = lens _dvpcrsResponseStatus (\ s a -> s{_dvpcrsResponseStatus = a});

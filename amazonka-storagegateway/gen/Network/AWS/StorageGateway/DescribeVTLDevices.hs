@@ -45,7 +45,7 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     , dvtldrsVTLDevices
     , dvtldrsGatewayARN
     , dvtldrsMarker
-    , dvtldrsStatus
+    , dvtldrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -159,10 +159,10 @@ instance ToQuery DescribeVTLDevices where
 --
 -- /See:/ 'describeVTLDevicesResponse' smart constructor.
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
-    { _dvtldrsVTLDevices :: !(Maybe [VTLDevice])
-    , _dvtldrsGatewayARN :: !(Maybe Text)
-    , _dvtldrsMarker     :: !(Maybe Text)
-    , _dvtldrsStatus     :: !Int
+    { _dvtldrsVTLDevices     :: !(Maybe [VTLDevice])
+    , _dvtldrsGatewayARN     :: !(Maybe Text)
+    , _dvtldrsMarker         :: !(Maybe Text)
+    , _dvtldrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVTLDevicesResponse' with the minimum fields required to make a request.
@@ -175,16 +175,16 @@ data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
 --
 -- * 'dvtldrsMarker'
 --
--- * 'dvtldrsStatus'
+-- * 'dvtldrsResponseStatus'
 describeVTLDevicesResponse
-    :: Int -- ^ 'dvtldrsStatus'
+    :: Int -- ^ 'dvtldrsResponseStatus'
     -> DescribeVTLDevicesResponse
-describeVTLDevicesResponse pStatus_ =
+describeVTLDevicesResponse pResponseStatus_ =
     DescribeVTLDevicesResponse'
     { _dvtldrsVTLDevices = Nothing
     , _dvtldrsGatewayARN = Nothing
     , _dvtldrsMarker = Nothing
-    , _dvtldrsStatus = pStatus_
+    , _dvtldrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of VTL device objects composed of the Amazon Resource Name(ARN)
@@ -205,5 +205,5 @@ dvtldrsMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
 dvtldrsMarker = lens _dvtldrsMarker (\ s a -> s{_dvtldrsMarker = a});
 
 -- | The response status code.
-dvtldrsStatus :: Lens' DescribeVTLDevicesResponse Int
-dvtldrsStatus = lens _dvtldrsStatus (\ s a -> s{_dvtldrsStatus = a});
+dvtldrsResponseStatus :: Lens' DescribeVTLDevicesResponse Int
+dvtldrsResponseStatus = lens _dvtldrsResponseStatus (\ s a -> s{_dvtldrsResponseStatus = a});

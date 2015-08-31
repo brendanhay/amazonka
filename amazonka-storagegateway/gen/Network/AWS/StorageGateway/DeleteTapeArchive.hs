@@ -34,7 +34,7 @@ module Network.AWS.StorageGateway.DeleteTapeArchive
     , DeleteTapeArchiveResponse
     -- * Response Lenses
     , dtatrsTapeARN
-    , dtatrsStatus
+    , dtatrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -102,8 +102,8 @@ instance ToQuery DeleteTapeArchive where
 --
 -- /See:/ 'deleteTapeArchiveResponse' smart constructor.
 data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'
-    { _dtatrsTapeARN :: !(Maybe Text)
-    , _dtatrsStatus  :: !Int
+    { _dtatrsTapeARN        :: !(Maybe Text)
+    , _dtatrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteTapeArchiveResponse' with the minimum fields required to make a request.
@@ -112,14 +112,14 @@ data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'
 --
 -- * 'dtatrsTapeARN'
 --
--- * 'dtatrsStatus'
+-- * 'dtatrsResponseStatus'
 deleteTapeArchiveResponse
-    :: Int -- ^ 'dtatrsStatus'
+    :: Int -- ^ 'dtatrsResponseStatus'
     -> DeleteTapeArchiveResponse
-deleteTapeArchiveResponse pStatus_ =
+deleteTapeArchiveResponse pResponseStatus_ =
     DeleteTapeArchiveResponse'
     { _dtatrsTapeARN = Nothing
-    , _dtatrsStatus = pStatus_
+    , _dtatrsResponseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape that was deleted from
@@ -128,5 +128,5 @@ dtatrsTapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
 dtatrsTapeARN = lens _dtatrsTapeARN (\ s a -> s{_dtatrsTapeARN = a});
 
 -- | The response status code.
-dtatrsStatus :: Lens' DeleteTapeArchiveResponse Int
-dtatrsStatus = lens _dtatrsStatus (\ s a -> s{_dtatrsStatus = a});
+dtatrsResponseStatus :: Lens' DeleteTapeArchiveResponse Int
+dtatrsResponseStatus = lens _dtatrsResponseStatus (\ s a -> s{_dtatrsResponseStatus = a});

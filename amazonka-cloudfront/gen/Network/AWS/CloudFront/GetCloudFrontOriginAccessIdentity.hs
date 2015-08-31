@@ -35,7 +35,7 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
     -- * Response Lenses
     , gcfoairsETag
     , gcfoairsCloudFrontOriginAccessIdentity
-    , gcfoairsStatus
+    , gcfoairsResponseStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -101,7 +101,7 @@ instance ToQuery GetCloudFrontOriginAccessIdentity
 data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse'
     { _gcfoairsETag                           :: !(Maybe Text)
     , _gcfoairsCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
-    , _gcfoairsStatus                         :: !Int
+    , _gcfoairsResponseStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
@@ -112,15 +112,15 @@ data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdenti
 --
 -- * 'gcfoairsCloudFrontOriginAccessIdentity'
 --
--- * 'gcfoairsStatus'
+-- * 'gcfoairsResponseStatus'
 getCloudFrontOriginAccessIdentityResponse
-    :: Int -- ^ 'gcfoairsStatus'
+    :: Int -- ^ 'gcfoairsResponseStatus'
     -> GetCloudFrontOriginAccessIdentityResponse
-getCloudFrontOriginAccessIdentityResponse pStatus_ =
+getCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
     GetCloudFrontOriginAccessIdentityResponse'
     { _gcfoairsETag = Nothing
     , _gcfoairsCloudFrontOriginAccessIdentity = Nothing
-    , _gcfoairsStatus = pStatus_
+    , _gcfoairsResponseStatus = pResponseStatus_
     }
 
 -- | The current version of the origin access identity\'s information. For
@@ -133,5 +133,5 @@ gcfoairsCloudFrontOriginAccessIdentity :: Lens' GetCloudFrontOriginAccessIdentit
 gcfoairsCloudFrontOriginAccessIdentity = lens _gcfoairsCloudFrontOriginAccessIdentity (\ s a -> s{_gcfoairsCloudFrontOriginAccessIdentity = a});
 
 -- | The response status code.
-gcfoairsStatus :: Lens' GetCloudFrontOriginAccessIdentityResponse Int
-gcfoairsStatus = lens _gcfoairsStatus (\ s a -> s{_gcfoairsStatus = a});
+gcfoairsResponseStatus :: Lens' GetCloudFrontOriginAccessIdentityResponse Int
+gcfoairsResponseStatus = lens _gcfoairsResponseStatus (\ s a -> s{_gcfoairsResponseStatus = a});

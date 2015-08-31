@@ -50,7 +50,7 @@ module Network.AWS.IAM.CreateAccessKey
     , createAccessKeyResponse
     , CreateAccessKeyResponse
     -- * Response Lenses
-    , cakrsStatus
+    , cakrsResponseStatus
     , cakrsAccessKey
     ) where
 
@@ -107,30 +107,30 @@ instance ToQuery CreateAccessKey where
 --
 -- /See:/ 'createAccessKeyResponse' smart constructor.
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
-    { _cakrsStatus    :: !Int
-    , _cakrsAccessKey :: !AccessKey
+    { _cakrsResponseStatus :: !Int
+    , _cakrsAccessKey      :: !AccessKey
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAccessKeyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cakrsStatus'
+-- * 'cakrsResponseStatus'
 --
 -- * 'cakrsAccessKey'
 createAccessKeyResponse
-    :: Int -- ^ 'cakrsStatus'
+    :: Int -- ^ 'cakrsResponseStatus'
     -> AccessKey -- ^ 'cakrsAccessKey'
     -> CreateAccessKeyResponse
-createAccessKeyResponse pStatus_ pAccessKey_ =
+createAccessKeyResponse pResponseStatus_ pAccessKey_ =
     CreateAccessKeyResponse'
-    { _cakrsStatus = pStatus_
+    { _cakrsResponseStatus = pResponseStatus_
     , _cakrsAccessKey = pAccessKey_
     }
 
 -- | The response status code.
-cakrsStatus :: Lens' CreateAccessKeyResponse Int
-cakrsStatus = lens _cakrsStatus (\ s a -> s{_cakrsStatus = a});
+cakrsResponseStatus :: Lens' CreateAccessKeyResponse Int
+cakrsResponseStatus = lens _cakrsResponseStatus (\ s a -> s{_cakrsResponseStatus = a});
 
 -- | Information about the access key.
 cakrsAccessKey :: Lens' CreateAccessKeyResponse AccessKey

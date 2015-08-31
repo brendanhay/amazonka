@@ -49,7 +49,7 @@ module Network.AWS.EC2.AttachClassicLinkVPC
     , AttachClassicLinkVPCResponse
     -- * Response Lenses
     , aclvrsReturn
-    , aclvrsStatus
+    , aclvrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -138,8 +138,8 @@ instance ToQuery AttachClassicLinkVPC where
 
 -- | /See:/ 'attachClassicLinkVPCResponse' smart constructor.
 data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
-    { _aclvrsReturn :: !(Maybe Bool)
-    , _aclvrsStatus :: !Int
+    { _aclvrsReturn         :: !(Maybe Bool)
+    , _aclvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AttachClassicLinkVPCResponse' with the minimum fields required to make a request.
@@ -148,14 +148,14 @@ data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
 --
 -- * 'aclvrsReturn'
 --
--- * 'aclvrsStatus'
+-- * 'aclvrsResponseStatus'
 attachClassicLinkVPCResponse
-    :: Int -- ^ 'aclvrsStatus'
+    :: Int -- ^ 'aclvrsResponseStatus'
     -> AttachClassicLinkVPCResponse
-attachClassicLinkVPCResponse pStatus_ =
+attachClassicLinkVPCResponse pResponseStatus_ =
     AttachClassicLinkVPCResponse'
     { _aclvrsReturn = Nothing
-    , _aclvrsStatus = pStatus_
+    , _aclvrsResponseStatus = pResponseStatus_
     }
 
 -- | Returns 'true' if the request succeeds; otherwise, it returns an error.
@@ -163,5 +163,5 @@ aclvrsReturn :: Lens' AttachClassicLinkVPCResponse (Maybe Bool)
 aclvrsReturn = lens _aclvrsReturn (\ s a -> s{_aclvrsReturn = a});
 
 -- | The response status code.
-aclvrsStatus :: Lens' AttachClassicLinkVPCResponse Int
-aclvrsStatus = lens _aclvrsStatus (\ s a -> s{_aclvrsStatus = a});
+aclvrsResponseStatus :: Lens' AttachClassicLinkVPCResponse Int
+aclvrsResponseStatus = lens _aclvrsResponseStatus (\ s a -> s{_aclvrsResponseStatus = a});

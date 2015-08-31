@@ -59,7 +59,7 @@ module Network.AWS.RDS.ModifyDBInstance
     , ModifyDBInstanceResponse
     -- * Response Lenses
     , mdirsDBInstance
-    , mdirsStatus
+    , mdirsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -614,8 +614,8 @@ instance ToQuery ModifyDBInstance where
 
 -- | /See:/ 'modifyDBInstanceResponse' smart constructor.
 data ModifyDBInstanceResponse = ModifyDBInstanceResponse'
-    { _mdirsDBInstance :: !(Maybe DBInstance)
-    , _mdirsStatus     :: !Int
+    { _mdirsDBInstance     :: !(Maybe DBInstance)
+    , _mdirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyDBInstanceResponse' with the minimum fields required to make a request.
@@ -624,14 +624,14 @@ data ModifyDBInstanceResponse = ModifyDBInstanceResponse'
 --
 -- * 'mdirsDBInstance'
 --
--- * 'mdirsStatus'
+-- * 'mdirsResponseStatus'
 modifyDBInstanceResponse
-    :: Int -- ^ 'mdirsStatus'
+    :: Int -- ^ 'mdirsResponseStatus'
     -> ModifyDBInstanceResponse
-modifyDBInstanceResponse pStatus_ =
+modifyDBInstanceResponse pResponseStatus_ =
     ModifyDBInstanceResponse'
     { _mdirsDBInstance = Nothing
-    , _mdirsStatus = pStatus_
+    , _mdirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -639,5 +639,5 @@ mdirsDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
 mdirsDBInstance = lens _mdirsDBInstance (\ s a -> s{_mdirsDBInstance = a});
 
 -- | The response status code.
-mdirsStatus :: Lens' ModifyDBInstanceResponse Int
-mdirsStatus = lens _mdirsStatus (\ s a -> s{_mdirsStatus = a});
+mdirsResponseStatus :: Lens' ModifyDBInstanceResponse Int
+mdirsResponseStatus = lens _mdirsResponseStatus (\ s a -> s{_mdirsResponseStatus = a});

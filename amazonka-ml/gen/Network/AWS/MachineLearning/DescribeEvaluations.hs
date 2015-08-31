@@ -48,7 +48,7 @@ module Network.AWS.MachineLearning.DescribeEvaluations
     -- * Response Lenses
     , desrsResults
     , desrsNextToken
-    , desrsStatus
+    , desrsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -257,9 +257,9 @@ instance ToQuery DescribeEvaluations where
 --
 -- /See:/ 'describeEvaluationsResponse' smart constructor.
 data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
-    { _desrsResults   :: !(Maybe [Evaluation])
-    , _desrsNextToken :: !(Maybe Text)
-    , _desrsStatus    :: !Int
+    { _desrsResults        :: !(Maybe [Evaluation])
+    , _desrsNextToken      :: !(Maybe Text)
+    , _desrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEvaluationsResponse' with the minimum fields required to make a request.
@@ -270,15 +270,15 @@ data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
 --
 -- * 'desrsNextToken'
 --
--- * 'desrsStatus'
+-- * 'desrsResponseStatus'
 describeEvaluationsResponse
-    :: Int -- ^ 'desrsStatus'
+    :: Int -- ^ 'desrsResponseStatus'
     -> DescribeEvaluationsResponse
-describeEvaluationsResponse pStatus_ =
+describeEvaluationsResponse pResponseStatus_ =
     DescribeEvaluationsResponse'
     { _desrsResults = Nothing
     , _desrsNextToken = Nothing
-    , _desrsStatus = pStatus_
+    , _desrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of Evaluation that meet the search criteria.
@@ -291,5 +291,5 @@ desrsNextToken :: Lens' DescribeEvaluationsResponse (Maybe Text)
 desrsNextToken = lens _desrsNextToken (\ s a -> s{_desrsNextToken = a});
 
 -- | The response status code.
-desrsStatus :: Lens' DescribeEvaluationsResponse Int
-desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
+desrsResponseStatus :: Lens' DescribeEvaluationsResponse Int
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});

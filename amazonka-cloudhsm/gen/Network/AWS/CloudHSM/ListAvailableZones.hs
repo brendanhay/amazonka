@@ -32,7 +32,7 @@ module Network.AWS.CloudHSM.ListAvailableZones
     , ListAvailableZonesResponse
     -- * Response Lenses
     , lazrsAZList
-    , lazrsStatus
+    , lazrsResponseStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -85,8 +85,8 @@ instance ToQuery ListAvailableZones where
 
 -- | /See:/ 'listAvailableZonesResponse' smart constructor.
 data ListAvailableZonesResponse = ListAvailableZonesResponse'
-    { _lazrsAZList :: !(Maybe [Text])
-    , _lazrsStatus :: !Int
+    { _lazrsAZList         :: !(Maybe [Text])
+    , _lazrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListAvailableZonesResponse' with the minimum fields required to make a request.
@@ -95,14 +95,14 @@ data ListAvailableZonesResponse = ListAvailableZonesResponse'
 --
 -- * 'lazrsAZList'
 --
--- * 'lazrsStatus'
+-- * 'lazrsResponseStatus'
 listAvailableZonesResponse
-    :: Int -- ^ 'lazrsStatus'
+    :: Int -- ^ 'lazrsResponseStatus'
     -> ListAvailableZonesResponse
-listAvailableZonesResponse pStatus_ =
+listAvailableZonesResponse pResponseStatus_ =
     ListAvailableZonesResponse'
     { _lazrsAZList = Nothing
-    , _lazrsStatus = pStatus_
+    , _lazrsResponseStatus = pResponseStatus_
     }
 
 -- | The list of Availability Zones that have available AWS CloudHSM
@@ -111,5 +111,5 @@ lazrsAZList :: Lens' ListAvailableZonesResponse [Text]
 lazrsAZList = lens _lazrsAZList (\ s a -> s{_lazrsAZList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lazrsStatus :: Lens' ListAvailableZonesResponse Int
-lazrsStatus = lens _lazrsStatus (\ s a -> s{_lazrsStatus = a});
+lazrsResponseStatus :: Lens' ListAvailableZonesResponse Int
+lazrsResponseStatus = lens _lazrsResponseStatus (\ s a -> s{_lazrsResponseStatus = a});

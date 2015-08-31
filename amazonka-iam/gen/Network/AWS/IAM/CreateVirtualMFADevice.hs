@@ -50,7 +50,7 @@ module Network.AWS.IAM.CreateVirtualMFADevice
     , createVirtualMFADeviceResponse
     , CreateVirtualMFADeviceResponse
     -- * Response Lenses
-    , cvmdrsStatus
+    , cvmdrsResponseStatus
     , cvmdrsVirtualMFADevice
     ) where
 
@@ -126,7 +126,7 @@ instance ToQuery CreateVirtualMFADevice where
 --
 -- /See:/ 'createVirtualMFADeviceResponse' smart constructor.
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
-    { _cvmdrsStatus           :: !Int
+    { _cvmdrsResponseStatus   :: !Int
     , _cvmdrsVirtualMFADevice :: !VirtualMFADevice
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -134,22 +134,22 @@ data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvmdrsStatus'
+-- * 'cvmdrsResponseStatus'
 --
 -- * 'cvmdrsVirtualMFADevice'
 createVirtualMFADeviceResponse
-    :: Int -- ^ 'cvmdrsStatus'
+    :: Int -- ^ 'cvmdrsResponseStatus'
     -> VirtualMFADevice -- ^ 'cvmdrsVirtualMFADevice'
     -> CreateVirtualMFADeviceResponse
-createVirtualMFADeviceResponse pStatus_ pVirtualMFADevice_ =
+createVirtualMFADeviceResponse pResponseStatus_ pVirtualMFADevice_ =
     CreateVirtualMFADeviceResponse'
-    { _cvmdrsStatus = pStatus_
+    { _cvmdrsResponseStatus = pResponseStatus_
     , _cvmdrsVirtualMFADevice = pVirtualMFADevice_
     }
 
 -- | The response status code.
-cvmdrsStatus :: Lens' CreateVirtualMFADeviceResponse Int
-cvmdrsStatus = lens _cvmdrsStatus (\ s a -> s{_cvmdrsStatus = a});
+cvmdrsResponseStatus :: Lens' CreateVirtualMFADeviceResponse Int
+cvmdrsResponseStatus = lens _cvmdrsResponseStatus (\ s a -> s{_cvmdrsResponseStatus = a});
 
 -- | A newly created virtual MFA device.
 cvmdrsVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice

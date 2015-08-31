@@ -61,7 +61,7 @@ module Network.AWS.Redshift.ModifyCluster
     , ModifyClusterResponse
     -- * Response Lenses
     , mcrsCluster
-    , mcrsStatus
+    , mcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -379,8 +379,8 @@ instance ToQuery ModifyCluster where
 
 -- | /See:/ 'modifyClusterResponse' smart constructor.
 data ModifyClusterResponse = ModifyClusterResponse'
-    { _mcrsCluster :: !(Maybe Cluster)
-    , _mcrsStatus  :: !Int
+    { _mcrsCluster        :: !(Maybe Cluster)
+    , _mcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyClusterResponse' with the minimum fields required to make a request.
@@ -389,14 +389,14 @@ data ModifyClusterResponse = ModifyClusterResponse'
 --
 -- * 'mcrsCluster'
 --
--- * 'mcrsStatus'
+-- * 'mcrsResponseStatus'
 modifyClusterResponse
-    :: Int -- ^ 'mcrsStatus'
+    :: Int -- ^ 'mcrsResponseStatus'
     -> ModifyClusterResponse
-modifyClusterResponse pStatus_ =
+modifyClusterResponse pResponseStatus_ =
     ModifyClusterResponse'
     { _mcrsCluster = Nothing
-    , _mcrsStatus = pStatus_
+    , _mcrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -404,5 +404,5 @@ mcrsCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
 mcrsCluster = lens _mcrsCluster (\ s a -> s{_mcrsCluster = a});
 
 -- | The response status code.
-mcrsStatus :: Lens' ModifyClusterResponse Int
-mcrsStatus = lens _mcrsStatus (\ s a -> s{_mcrsStatus = a});
+mcrsResponseStatus :: Lens' ModifyClusterResponse Int
+mcrsResponseStatus = lens _mcrsResponseStatus (\ s a -> s{_mcrsResponseStatus = a});

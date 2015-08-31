@@ -35,7 +35,7 @@ module Network.AWS.DirectoryService.UpdateRadius
     , updateRadiusResponse
     , UpdateRadiusResponse
     -- * Response Lenses
-    , urrsStatus
+    , urrsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -114,22 +114,22 @@ instance ToQuery UpdateRadius where
 --
 -- /See:/ 'updateRadiusResponse' smart constructor.
 newtype UpdateRadiusResponse = UpdateRadiusResponse'
-    { _urrsStatus :: Int
+    { _urrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateRadiusResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urrsStatus'
+-- * 'urrsResponseStatus'
 updateRadiusResponse
-    :: Int -- ^ 'urrsStatus'
+    :: Int -- ^ 'urrsResponseStatus'
     -> UpdateRadiusResponse
-updateRadiusResponse pStatus_ =
+updateRadiusResponse pResponseStatus_ =
     UpdateRadiusResponse'
-    { _urrsStatus = pStatus_
+    { _urrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-urrsStatus :: Lens' UpdateRadiusResponse Int
-urrsStatus = lens _urrsStatus (\ s a -> s{_urrsStatus = a});
+urrsResponseStatus :: Lens' UpdateRadiusResponse Int
+urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});

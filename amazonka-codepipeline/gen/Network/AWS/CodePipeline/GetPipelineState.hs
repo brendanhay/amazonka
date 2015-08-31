@@ -39,7 +39,7 @@ module Network.AWS.CodePipeline.GetPipelineState
     , gpsrsStageStates
     , gpsrsPipelineVersion
     , gpsrsUpdated
-    , gpsrsStatus
+    , gpsrsResponseStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -114,7 +114,7 @@ data GetPipelineStateResponse = GetPipelineStateResponse'
     , _gpsrsStageStates     :: !(Maybe [StageState])
     , _gpsrsPipelineVersion :: !(Maybe Nat)
     , _gpsrsUpdated         :: !(Maybe POSIX)
-    , _gpsrsStatus          :: !Int
+    , _gpsrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetPipelineStateResponse' with the minimum fields required to make a request.
@@ -131,18 +131,18 @@ data GetPipelineStateResponse = GetPipelineStateResponse'
 --
 -- * 'gpsrsUpdated'
 --
--- * 'gpsrsStatus'
+-- * 'gpsrsResponseStatus'
 getPipelineStateResponse
-    :: Int -- ^ 'gpsrsStatus'
+    :: Int -- ^ 'gpsrsResponseStatus'
     -> GetPipelineStateResponse
-getPipelineStateResponse pStatus_ =
+getPipelineStateResponse pResponseStatus_ =
     GetPipelineStateResponse'
     { _gpsrsPipelineName = Nothing
     , _gpsrsCreated = Nothing
     , _gpsrsStageStates = Nothing
     , _gpsrsPipelineVersion = Nothing
     , _gpsrsUpdated = Nothing
-    , _gpsrsStatus = pStatus_
+    , _gpsrsResponseStatus = pResponseStatus_
     }
 
 -- | The name of the pipeline for which you want to get the state.
@@ -170,5 +170,5 @@ gpsrsUpdated :: Lens' GetPipelineStateResponse (Maybe UTCTime)
 gpsrsUpdated = lens _gpsrsUpdated (\ s a -> s{_gpsrsUpdated = a}) . mapping _Time;
 
 -- | The response status code.
-gpsrsStatus :: Lens' GetPipelineStateResponse Int
-gpsrsStatus = lens _gpsrsStatus (\ s a -> s{_gpsrsStatus = a});
+gpsrsResponseStatus :: Lens' GetPipelineStateResponse Int
+gpsrsResponseStatus = lens _gpsrsResponseStatus (\ s a -> s{_gpsrsResponseStatus = a});

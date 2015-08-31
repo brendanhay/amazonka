@@ -44,7 +44,7 @@ module Network.AWS.EC2.CreateNetworkInterface
     , CreateNetworkInterfaceResponse
     -- * Response Lenses
     , cnirsNetworkInterface
-    , cnirsStatus
+    , cnirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -175,7 +175,7 @@ instance ToQuery CreateNetworkInterface where
 -- | /See:/ 'createNetworkInterfaceResponse' smart constructor.
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
     { _cnirsNetworkInterface :: !(Maybe NetworkInterface)
-    , _cnirsStatus           :: !Int
+    , _cnirsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateNetworkInterfaceResponse' with the minimum fields required to make a request.
@@ -184,14 +184,14 @@ data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
 --
 -- * 'cnirsNetworkInterface'
 --
--- * 'cnirsStatus'
+-- * 'cnirsResponseStatus'
 createNetworkInterfaceResponse
-    :: Int -- ^ 'cnirsStatus'
+    :: Int -- ^ 'cnirsResponseStatus'
     -> CreateNetworkInterfaceResponse
-createNetworkInterfaceResponse pStatus_ =
+createNetworkInterfaceResponse pResponseStatus_ =
     CreateNetworkInterfaceResponse'
     { _cnirsNetworkInterface = Nothing
-    , _cnirsStatus = pStatus_
+    , _cnirsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the network interface.
@@ -199,5 +199,5 @@ cnirsNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInte
 cnirsNetworkInterface = lens _cnirsNetworkInterface (\ s a -> s{_cnirsNetworkInterface = a});
 
 -- | The response status code.
-cnirsStatus :: Lens' CreateNetworkInterfaceResponse Int
-cnirsStatus = lens _cnirsStatus (\ s a -> s{_cnirsStatus = a});
+cnirsResponseStatus :: Lens' CreateNetworkInterfaceResponse Int
+cnirsResponseStatus = lens _cnirsResponseStatus (\ s a -> s{_cnirsResponseStatus = a});

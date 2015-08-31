@@ -37,7 +37,7 @@ module Network.AWS.SSM.ListDocuments
     -- * Response Lenses
     , ldrsDocumentIdentifiers
     , ldrsNextToken
-    , ldrsStatus
+    , ldrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -125,7 +125,7 @@ instance ToQuery ListDocuments where
 data ListDocumentsResponse = ListDocumentsResponse'
     { _ldrsDocumentIdentifiers :: !(Maybe [DocumentIdentifier])
     , _ldrsNextToken           :: !(Maybe Text)
-    , _ldrsStatus              :: !Int
+    , _ldrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListDocumentsResponse' with the minimum fields required to make a request.
@@ -136,15 +136,15 @@ data ListDocumentsResponse = ListDocumentsResponse'
 --
 -- * 'ldrsNextToken'
 --
--- * 'ldrsStatus'
+-- * 'ldrsResponseStatus'
 listDocumentsResponse
-    :: Int -- ^ 'ldrsStatus'
+    :: Int -- ^ 'ldrsResponseStatus'
     -> ListDocumentsResponse
-listDocumentsResponse pStatus_ =
+listDocumentsResponse pResponseStatus_ =
     ListDocumentsResponse'
     { _ldrsDocumentIdentifiers = Nothing
     , _ldrsNextToken = Nothing
-    , _ldrsStatus = pStatus_
+    , _ldrsResponseStatus = pResponseStatus_
     }
 
 -- | The names of the configuration documents.
@@ -157,5 +157,5 @@ ldrsNextToken :: Lens' ListDocumentsResponse (Maybe Text)
 ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
 -- | The response status code.
-ldrsStatus :: Lens' ListDocumentsResponse Int
-ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
+ldrsResponseStatus :: Lens' ListDocumentsResponse Int
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});

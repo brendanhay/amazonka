@@ -49,7 +49,7 @@ module Network.AWS.Route53.ListHostedZonesByName
     , lhzbnrsNextHostedZoneId
     , lhzbnrsDNSName
     , lhzbnrsNextDNSName
-    , lhzbnrsStatus
+    , lhzbnrsResponseStatus
     , lhzbnrsHostedZones
     , lhzbnrsIsTruncated
     , lhzbnrsMaxItems
@@ -160,7 +160,7 @@ data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
     , _lhzbnrsNextHostedZoneId :: !(Maybe Text)
     , _lhzbnrsDNSName          :: !(Maybe Text)
     , _lhzbnrsNextDNSName      :: !(Maybe Text)
-    , _lhzbnrsStatus           :: !Int
+    , _lhzbnrsResponseStatus   :: !Int
     , _lhzbnrsHostedZones      :: ![HostedZone]
     , _lhzbnrsIsTruncated      :: !Bool
     , _lhzbnrsMaxItems         :: !Text
@@ -178,7 +178,7 @@ data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
 --
 -- * 'lhzbnrsNextDNSName'
 --
--- * 'lhzbnrsStatus'
+-- * 'lhzbnrsResponseStatus'
 --
 -- * 'lhzbnrsHostedZones'
 --
@@ -186,17 +186,17 @@ data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
 --
 -- * 'lhzbnrsMaxItems'
 listHostedZonesByNameResponse
-    :: Int -- ^ 'lhzbnrsStatus'
+    :: Int -- ^ 'lhzbnrsResponseStatus'
     -> Bool -- ^ 'lhzbnrsIsTruncated'
     -> Text -- ^ 'lhzbnrsMaxItems'
     -> ListHostedZonesByNameResponse
-listHostedZonesByNameResponse pStatus_ pIsTruncated_ pMaxItems_ =
+listHostedZonesByNameResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
     ListHostedZonesByNameResponse'
     { _lhzbnrsHostedZoneId = Nothing
     , _lhzbnrsNextHostedZoneId = Nothing
     , _lhzbnrsDNSName = Nothing
     , _lhzbnrsNextDNSName = Nothing
-    , _lhzbnrsStatus = pStatus_
+    , _lhzbnrsResponseStatus = pResponseStatus_
     , _lhzbnrsHostedZones = mempty
     , _lhzbnrsIsTruncated = pIsTruncated_
     , _lhzbnrsMaxItems = pMaxItems_
@@ -231,8 +231,8 @@ lhzbnrsNextDNSName :: Lens' ListHostedZonesByNameResponse (Maybe Text)
 lhzbnrsNextDNSName = lens _lhzbnrsNextDNSName (\ s a -> s{_lhzbnrsNextDNSName = a});
 
 -- | The response status code.
-lhzbnrsStatus :: Lens' ListHostedZonesByNameResponse Int
-lhzbnrsStatus = lens _lhzbnrsStatus (\ s a -> s{_lhzbnrsStatus = a});
+lhzbnrsResponseStatus :: Lens' ListHostedZonesByNameResponse Int
+lhzbnrsResponseStatus = lens _lhzbnrsResponseStatus (\ s a -> s{_lhzbnrsResponseStatus = a});
 
 -- | A complex type that contains information about the hosted zones
 -- associated with the current AWS account.

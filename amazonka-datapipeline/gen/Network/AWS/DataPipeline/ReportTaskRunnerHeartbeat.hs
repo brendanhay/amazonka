@@ -39,7 +39,7 @@ module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     , reportTaskRunnerHeartbeatResponse
     , ReportTaskRunnerHeartbeatResponse
     -- * Response Lenses
-    , rtrhrsStatus
+    , rtrhrsResponseStatus
     , rtrhrsTerminate
     ) where
 
@@ -136,30 +136,30 @@ instance ToQuery ReportTaskRunnerHeartbeat where
 --
 -- /See:/ 'reportTaskRunnerHeartbeatResponse' smart constructor.
 data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'
-    { _rtrhrsStatus    :: !Int
-    , _rtrhrsTerminate :: !Bool
+    { _rtrhrsResponseStatus :: !Int
+    , _rtrhrsTerminate      :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReportTaskRunnerHeartbeatResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrhrsStatus'
+-- * 'rtrhrsResponseStatus'
 --
 -- * 'rtrhrsTerminate'
 reportTaskRunnerHeartbeatResponse
-    :: Int -- ^ 'rtrhrsStatus'
+    :: Int -- ^ 'rtrhrsResponseStatus'
     -> Bool -- ^ 'rtrhrsTerminate'
     -> ReportTaskRunnerHeartbeatResponse
-reportTaskRunnerHeartbeatResponse pStatus_ pTerminate_ =
+reportTaskRunnerHeartbeatResponse pResponseStatus_ pTerminate_ =
     ReportTaskRunnerHeartbeatResponse'
-    { _rtrhrsStatus = pStatus_
+    { _rtrhrsResponseStatus = pResponseStatus_
     , _rtrhrsTerminate = pTerminate_
     }
 
 -- | The response status code.
-rtrhrsStatus :: Lens' ReportTaskRunnerHeartbeatResponse Int
-rtrhrsStatus = lens _rtrhrsStatus (\ s a -> s{_rtrhrsStatus = a});
+rtrhrsResponseStatus :: Lens' ReportTaskRunnerHeartbeatResponse Int
+rtrhrsResponseStatus = lens _rtrhrsResponseStatus (\ s a -> s{_rtrhrsResponseStatus = a});
 
 -- | Indicates whether the calling task runner should terminate.
 rtrhrsTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool

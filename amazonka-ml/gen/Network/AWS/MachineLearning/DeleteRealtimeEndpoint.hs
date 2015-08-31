@@ -35,7 +35,7 @@ module Network.AWS.MachineLearning.DeleteRealtimeEndpoint
     -- * Response Lenses
     , drersRealtimeEndpointInfo
     , drersMLModelId
-    , drersStatus
+    , drersResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -108,7 +108,7 @@ instance ToQuery DeleteRealtimeEndpoint where
 data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'
     { _drersRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
     , _drersMLModelId            :: !(Maybe Text)
-    , _drersStatus               :: !Int
+    , _drersResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteRealtimeEndpointResponse' with the minimum fields required to make a request.
@@ -119,15 +119,15 @@ data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'
 --
 -- * 'drersMLModelId'
 --
--- * 'drersStatus'
+-- * 'drersResponseStatus'
 deleteRealtimeEndpointResponse
-    :: Int -- ^ 'drersStatus'
+    :: Int -- ^ 'drersResponseStatus'
     -> DeleteRealtimeEndpointResponse
-deleteRealtimeEndpointResponse pStatus_ =
+deleteRealtimeEndpointResponse pResponseStatus_ =
     DeleteRealtimeEndpointResponse'
     { _drersRealtimeEndpointInfo = Nothing
     , _drersMLModelId = Nothing
-    , _drersStatus = pStatus_
+    , _drersResponseStatus = pResponseStatus_
     }
 
 -- | The endpoint information of the 'MLModel'
@@ -140,5 +140,5 @@ drersMLModelId :: Lens' DeleteRealtimeEndpointResponse (Maybe Text)
 drersMLModelId = lens _drersMLModelId (\ s a -> s{_drersMLModelId = a});
 
 -- | The response status code.
-drersStatus :: Lens' DeleteRealtimeEndpointResponse Int
-drersStatus = lens _drersStatus (\ s a -> s{_drersStatus = a});
+drersResponseStatus :: Lens' DeleteRealtimeEndpointResponse Int
+drersResponseStatus = lens _drersResponseStatus (\ s a -> s{_drersResponseStatus = a});

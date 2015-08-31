@@ -37,7 +37,7 @@ module Network.AWS.RDS.DeleteDBSnapshot
     , DeleteDBSnapshotResponse
     -- * Response Lenses
     , ddbsrsDBSnapshot
-    , ddbsrsStatus
+    , ddbsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -97,8 +97,8 @@ instance ToQuery DeleteDBSnapshot where
 
 -- | /See:/ 'deleteDBSnapshotResponse' smart constructor.
 data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'
-    { _ddbsrsDBSnapshot :: !(Maybe DBSnapshot)
-    , _ddbsrsStatus     :: !Int
+    { _ddbsrsDBSnapshot     :: !(Maybe DBSnapshot)
+    , _ddbsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDBSnapshotResponse' with the minimum fields required to make a request.
@@ -107,14 +107,14 @@ data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'
 --
 -- * 'ddbsrsDBSnapshot'
 --
--- * 'ddbsrsStatus'
+-- * 'ddbsrsResponseStatus'
 deleteDBSnapshotResponse
-    :: Int -- ^ 'ddbsrsStatus'
+    :: Int -- ^ 'ddbsrsResponseStatus'
     -> DeleteDBSnapshotResponse
-deleteDBSnapshotResponse pStatus_ =
+deleteDBSnapshotResponse pResponseStatus_ =
     DeleteDBSnapshotResponse'
     { _ddbsrsDBSnapshot = Nothing
-    , _ddbsrsStatus = pStatus_
+    , _ddbsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -122,5 +122,5 @@ ddbsrsDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
 ddbsrsDBSnapshot = lens _ddbsrsDBSnapshot (\ s a -> s{_ddbsrsDBSnapshot = a});
 
 -- | The response status code.
-ddbsrsStatus :: Lens' DeleteDBSnapshotResponse Int
-ddbsrsStatus = lens _ddbsrsStatus (\ s a -> s{_ddbsrsStatus = a});
+ddbsrsResponseStatus :: Lens' DeleteDBSnapshotResponse Int
+ddbsrsResponseStatus = lens _ddbsrsResponseStatus (\ s a -> s{_ddbsrsResponseStatus = a});

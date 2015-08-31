@@ -66,7 +66,7 @@ module Network.AWS.EFS.DescribeFileSystems
     , dfsrsFileSystems
     , dfsrsMarker
     , dfsrsNextMarker
-    , dfsrsStatus
+    , dfsrsResponseStatus
     ) where
 
 import           Network.AWS.EFS.Types
@@ -155,10 +155,10 @@ instance ToQuery DescribeFileSystems where
 
 -- | /See:/ 'describeFileSystemsResponse' smart constructor.
 data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
-    { _dfsrsFileSystems :: !(Maybe [FileSystemDescription])
-    , _dfsrsMarker      :: !(Maybe Text)
-    , _dfsrsNextMarker  :: !(Maybe Text)
-    , _dfsrsStatus      :: !Int
+    { _dfsrsFileSystems    :: !(Maybe [FileSystemDescription])
+    , _dfsrsMarker         :: !(Maybe Text)
+    , _dfsrsNextMarker     :: !(Maybe Text)
+    , _dfsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeFileSystemsResponse' with the minimum fields required to make a request.
@@ -171,16 +171,16 @@ data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
 --
 -- * 'dfsrsNextMarker'
 --
--- * 'dfsrsStatus'
+-- * 'dfsrsResponseStatus'
 describeFileSystemsResponse
-    :: Int -- ^ 'dfsrsStatus'
+    :: Int -- ^ 'dfsrsResponseStatus'
     -> DescribeFileSystemsResponse
-describeFileSystemsResponse pStatus_ =
+describeFileSystemsResponse pResponseStatus_ =
     DescribeFileSystemsResponse'
     { _dfsrsFileSystems = Nothing
     , _dfsrsMarker = Nothing
     , _dfsrsNextMarker = Nothing
-    , _dfsrsStatus = pStatus_
+    , _dfsrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of file system descriptions.
@@ -198,5 +198,5 @@ dfsrsNextMarker :: Lens' DescribeFileSystemsResponse (Maybe Text)
 dfsrsNextMarker = lens _dfsrsNextMarker (\ s a -> s{_dfsrsNextMarker = a});
 
 -- | The response status code.
-dfsrsStatus :: Lens' DescribeFileSystemsResponse Int
-dfsrsStatus = lens _dfsrsStatus (\ s a -> s{_dfsrsStatus = a});
+dfsrsResponseStatus :: Lens' DescribeFileSystemsResponse Int
+dfsrsResponseStatus = lens _dfsrsResponseStatus (\ s a -> s{_dfsrsResponseStatus = a});

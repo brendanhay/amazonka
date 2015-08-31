@@ -42,7 +42,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     , dcprsCacheNodeTypeSpecificParameters
     , dcprsMarker
     , dcprsParameters
-    , dcprsStatus
+    , dcprsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -160,7 +160,7 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
     { _dcprsCacheNodeTypeSpecificParameters :: !(Maybe [CacheNodeTypeSpecificParameter])
     , _dcprsMarker                          :: !(Maybe Text)
     , _dcprsParameters                      :: !(Maybe [Parameter])
-    , _dcprsStatus                          :: !Int
+    , _dcprsResponseStatus                  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCacheParametersResponse' with the minimum fields required to make a request.
@@ -173,16 +173,16 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
 --
 -- * 'dcprsParameters'
 --
--- * 'dcprsStatus'
+-- * 'dcprsResponseStatus'
 describeCacheParametersResponse
-    :: Int -- ^ 'dcprsStatus'
+    :: Int -- ^ 'dcprsResponseStatus'
     -> DescribeCacheParametersResponse
-describeCacheParametersResponse pStatus_ =
+describeCacheParametersResponse pResponseStatus_ =
     DescribeCacheParametersResponse'
     { _dcprsCacheNodeTypeSpecificParameters = Nothing
     , _dcprsMarker = Nothing
     , _dcprsParameters = Nothing
-    , _dcprsStatus = pStatus_
+    , _dcprsResponseStatus = pResponseStatus_
     }
 
 -- | A list of parameters specific to a particular cache node type. Each
@@ -199,5 +199,5 @@ dcprsParameters :: Lens' DescribeCacheParametersResponse [Parameter]
 dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcprsStatus :: Lens' DescribeCacheParametersResponse Int
-dcprsStatus = lens _dcprsStatus (\ s a -> s{_dcprsStatus = a});
+dcprsResponseStatus :: Lens' DescribeCacheParametersResponse Int
+dcprsResponseStatus = lens _dcprsResponseStatus (\ s a -> s{_dcprsResponseStatus = a});

@@ -49,7 +49,7 @@ module Network.AWS.SNS.Publish
     , PublishResponse
     -- * Response Lenses
     , prsMessageId
-    , prsStatus
+    , prsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -209,8 +209,8 @@ instance ToQuery Publish where
 --
 -- /See:/ 'publishResponse' smart constructor.
 data PublishResponse = PublishResponse'
-    { _prsMessageId :: !(Maybe Text)
-    , _prsStatus    :: !Int
+    { _prsMessageId      :: !(Maybe Text)
+    , _prsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PublishResponse' with the minimum fields required to make a request.
@@ -219,14 +219,14 @@ data PublishResponse = PublishResponse'
 --
 -- * 'prsMessageId'
 --
--- * 'prsStatus'
+-- * 'prsResponseStatus'
 publishResponse
-    :: Int -- ^ 'prsStatus'
+    :: Int -- ^ 'prsResponseStatus'
     -> PublishResponse
-publishResponse pStatus_ =
+publishResponse pResponseStatus_ =
     PublishResponse'
     { _prsMessageId = Nothing
-    , _prsStatus = pStatus_
+    , _prsResponseStatus = pResponseStatus_
     }
 
 -- | Unique identifier assigned to the published message.
@@ -236,5 +236,5 @@ prsMessageId :: Lens' PublishResponse (Maybe Text)
 prsMessageId = lens _prsMessageId (\ s a -> s{_prsMessageId = a});
 
 -- | The response status code.
-prsStatus :: Lens' PublishResponse Int
-prsStatus = lens _prsStatus (\ s a -> s{_prsStatus = a});
+prsResponseStatus :: Lens' PublishResponse Int
+prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a});

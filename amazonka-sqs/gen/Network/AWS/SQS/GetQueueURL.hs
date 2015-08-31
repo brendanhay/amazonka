@@ -43,7 +43,7 @@ module Network.AWS.SQS.GetQueueURL
     , getQueueURLResponse
     , GetQueueURLResponse
     -- * Response Lenses
-    , gqursStatus
+    , gqursResponseStatus
     , gqursQueueURL
     ) where
 
@@ -114,30 +114,30 @@ instance ToQuery GetQueueURL where
 --
 -- /See:/ 'getQueueURLResponse' smart constructor.
 data GetQueueURLResponse = GetQueueURLResponse'
-    { _gqursStatus   :: !Int
-    , _gqursQueueURL :: !Text
+    { _gqursResponseStatus :: !Int
+    , _gqursQueueURL       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetQueueURLResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gqursStatus'
+-- * 'gqursResponseStatus'
 --
 -- * 'gqursQueueURL'
 getQueueURLResponse
-    :: Int -- ^ 'gqursStatus'
+    :: Int -- ^ 'gqursResponseStatus'
     -> Text -- ^ 'gqursQueueURL'
     -> GetQueueURLResponse
-getQueueURLResponse pStatus_ pQueueURL_ =
+getQueueURLResponse pResponseStatus_ pQueueURL_ =
     GetQueueURLResponse'
-    { _gqursStatus = pStatus_
+    { _gqursResponseStatus = pResponseStatus_
     , _gqursQueueURL = pQueueURL_
     }
 
 -- | The response status code.
-gqursStatus :: Lens' GetQueueURLResponse Int
-gqursStatus = lens _gqursStatus (\ s a -> s{_gqursStatus = a});
+gqursResponseStatus :: Lens' GetQueueURLResponse Int
+gqursResponseStatus = lens _gqursResponseStatus (\ s a -> s{_gqursResponseStatus = a});
 
 -- | The URL for the queue.
 gqursQueueURL :: Lens' GetQueueURLResponse Text

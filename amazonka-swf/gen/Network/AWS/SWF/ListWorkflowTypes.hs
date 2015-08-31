@@ -61,7 +61,7 @@ module Network.AWS.SWF.ListWorkflowTypes
     , ListWorkflowTypesResponse
     -- * Response Lenses
     , lwtrsNextPageToken
-    , lwtrsStatus
+    , lwtrsResponseStatus
     , lwtrsTypeInfos
     ) where
 
@@ -200,9 +200,9 @@ instance ToQuery ListWorkflowTypes where
 --
 -- /See:/ 'listWorkflowTypesResponse' smart constructor.
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse'
-    { _lwtrsNextPageToken :: !(Maybe Text)
-    , _lwtrsStatus        :: !Int
-    , _lwtrsTypeInfos     :: ![WorkflowTypeInfo]
+    { _lwtrsNextPageToken  :: !(Maybe Text)
+    , _lwtrsResponseStatus :: !Int
+    , _lwtrsTypeInfos      :: ![WorkflowTypeInfo]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListWorkflowTypesResponse' with the minimum fields required to make a request.
@@ -211,16 +211,16 @@ data ListWorkflowTypesResponse = ListWorkflowTypesResponse'
 --
 -- * 'lwtrsNextPageToken'
 --
--- * 'lwtrsStatus'
+-- * 'lwtrsResponseStatus'
 --
 -- * 'lwtrsTypeInfos'
 listWorkflowTypesResponse
-    :: Int -- ^ 'lwtrsStatus'
+    :: Int -- ^ 'lwtrsResponseStatus'
     -> ListWorkflowTypesResponse
-listWorkflowTypesResponse pStatus_ =
+listWorkflowTypesResponse pResponseStatus_ =
     ListWorkflowTypesResponse'
     { _lwtrsNextPageToken = Nothing
-    , _lwtrsStatus = pStatus_
+    , _lwtrsResponseStatus = pResponseStatus_
     , _lwtrsTypeInfos = mempty
     }
 
@@ -235,8 +235,8 @@ lwtrsNextPageToken :: Lens' ListWorkflowTypesResponse (Maybe Text)
 lwtrsNextPageToken = lens _lwtrsNextPageToken (\ s a -> s{_lwtrsNextPageToken = a});
 
 -- | The response status code.
-lwtrsStatus :: Lens' ListWorkflowTypesResponse Int
-lwtrsStatus = lens _lwtrsStatus (\ s a -> s{_lwtrsStatus = a});
+lwtrsResponseStatus :: Lens' ListWorkflowTypesResponse Int
+lwtrsResponseStatus = lens _lwtrsResponseStatus (\ s a -> s{_lwtrsResponseStatus = a});
 
 -- | The list of workflow type information.
 lwtrsTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]

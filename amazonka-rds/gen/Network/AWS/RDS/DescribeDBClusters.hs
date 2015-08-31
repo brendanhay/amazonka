@@ -43,7 +43,7 @@ module Network.AWS.RDS.DescribeDBClusters
     -- * Response Lenses
     , ddcrsDBClusters
     , ddcrsMarker
-    , ddcrsStatus
+    , ddcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -151,9 +151,9 @@ instance ToQuery DescribeDBClusters where
 --
 -- /See:/ 'describeDBClustersResponse' smart constructor.
 data DescribeDBClustersResponse = DescribeDBClustersResponse'
-    { _ddcrsDBClusters :: !(Maybe [DBCluster])
-    , _ddcrsMarker     :: !(Maybe Text)
-    , _ddcrsStatus     :: !Int
+    { _ddcrsDBClusters     :: !(Maybe [DBCluster])
+    , _ddcrsMarker         :: !(Maybe Text)
+    , _ddcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBClustersResponse' with the minimum fields required to make a request.
@@ -164,15 +164,15 @@ data DescribeDBClustersResponse = DescribeDBClustersResponse'
 --
 -- * 'ddcrsMarker'
 --
--- * 'ddcrsStatus'
+-- * 'ddcrsResponseStatus'
 describeDBClustersResponse
-    :: Int -- ^ 'ddcrsStatus'
+    :: Int -- ^ 'ddcrsResponseStatus'
     -> DescribeDBClustersResponse
-describeDBClustersResponse pStatus_ =
+describeDBClustersResponse pResponseStatus_ =
     DescribeDBClustersResponse'
     { _ddcrsDBClusters = Nothing
     , _ddcrsMarker = Nothing
-    , _ddcrsStatus = pStatus_
+    , _ddcrsResponseStatus = pResponseStatus_
     }
 
 -- | Contains a list of DB clusters for the user.
@@ -185,5 +185,5 @@ ddcrsMarker :: Lens' DescribeDBClustersResponse (Maybe Text)
 ddcrsMarker = lens _ddcrsMarker (\ s a -> s{_ddcrsMarker = a});
 
 -- | The response status code.
-ddcrsStatus :: Lens' DescribeDBClustersResponse Int
-ddcrsStatus = lens _ddcrsStatus (\ s a -> s{_ddcrsStatus = a});
+ddcrsResponseStatus :: Lens' DescribeDBClustersResponse Int
+ddcrsResponseStatus = lens _ddcrsResponseStatus (\ s a -> s{_ddcrsResponseStatus = a});

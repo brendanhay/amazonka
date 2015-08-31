@@ -36,7 +36,7 @@ module Network.AWS.CloudFront.CreateInvalidation
     -- * Response Lenses
     , cirsInvalidation
     , cirsLocation
-    , cirsStatus
+    , cirsResponseStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -112,9 +112,9 @@ instance ToQuery CreateInvalidation where
 --
 -- /See:/ 'createInvalidationResponse' smart constructor.
 data CreateInvalidationResponse = CreateInvalidationResponse'
-    { _cirsInvalidation :: !(Maybe Invalidation)
-    , _cirsLocation     :: !(Maybe Text)
-    , _cirsStatus       :: !Int
+    { _cirsInvalidation   :: !(Maybe Invalidation)
+    , _cirsLocation       :: !(Maybe Text)
+    , _cirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateInvalidationResponse' with the minimum fields required to make a request.
@@ -125,15 +125,15 @@ data CreateInvalidationResponse = CreateInvalidationResponse'
 --
 -- * 'cirsLocation'
 --
--- * 'cirsStatus'
+-- * 'cirsResponseStatus'
 createInvalidationResponse
-    :: Int -- ^ 'cirsStatus'
+    :: Int -- ^ 'cirsResponseStatus'
     -> CreateInvalidationResponse
-createInvalidationResponse pStatus_ =
+createInvalidationResponse pResponseStatus_ =
     CreateInvalidationResponse'
     { _cirsInvalidation = Nothing
     , _cirsLocation = Nothing
-    , _cirsStatus = pStatus_
+    , _cirsResponseStatus = pResponseStatus_
     }
 
 -- | The invalidation\'s information.
@@ -146,5 +146,5 @@ cirsLocation :: Lens' CreateInvalidationResponse (Maybe Text)
 cirsLocation = lens _cirsLocation (\ s a -> s{_cirsLocation = a});
 
 -- | The response status code.
-cirsStatus :: Lens' CreateInvalidationResponse Int
-cirsStatus = lens _cirsStatus (\ s a -> s{_cirsStatus = a});
+cirsResponseStatus :: Lens' CreateInvalidationResponse Int
+cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});

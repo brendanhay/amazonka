@@ -35,7 +35,7 @@ module Network.AWS.IAM.ListSAMLProviders
     , ListSAMLProvidersResponse
     -- * Response Lenses
     , lsamlprsSAMLProviderList
-    , lsamlprsStatus
+    , lsamlprsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -84,7 +84,7 @@ instance ToQuery ListSAMLProviders where
 -- /See:/ 'listSAMLProvidersResponse' smart constructor.
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
     { _lsamlprsSAMLProviderList :: !(Maybe [SAMLProviderListEntry])
-    , _lsamlprsStatus           :: !Int
+    , _lsamlprsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListSAMLProvidersResponse' with the minimum fields required to make a request.
@@ -93,14 +93,14 @@ data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
 --
 -- * 'lsamlprsSAMLProviderList'
 --
--- * 'lsamlprsStatus'
+-- * 'lsamlprsResponseStatus'
 listSAMLProvidersResponse
-    :: Int -- ^ 'lsamlprsStatus'
+    :: Int -- ^ 'lsamlprsResponseStatus'
     -> ListSAMLProvidersResponse
-listSAMLProvidersResponse pStatus_ =
+listSAMLProvidersResponse pResponseStatus_ =
     ListSAMLProvidersResponse'
     { _lsamlprsSAMLProviderList = Nothing
-    , _lsamlprsStatus = pStatus_
+    , _lsamlprsResponseStatus = pResponseStatus_
     }
 
 -- | The list of SAML providers for this account.
@@ -108,5 +108,5 @@ lsamlprsSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEnt
 lsamlprsSAMLProviderList = lens _lsamlprsSAMLProviderList (\ s a -> s{_lsamlprsSAMLProviderList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lsamlprsStatus :: Lens' ListSAMLProvidersResponse Int
-lsamlprsStatus = lens _lsamlprsStatus (\ s a -> s{_lsamlprsStatus = a});
+lsamlprsResponseStatus :: Lens' ListSAMLProvidersResponse Int
+lsamlprsResponseStatus = lens _lsamlprsResponseStatus (\ s a -> s{_lsamlprsResponseStatus = a});

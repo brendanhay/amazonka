@@ -43,7 +43,7 @@ module Network.AWS.EFS.DescribeMountTargetSecurityGroups
     , describeMountTargetSecurityGroupsResponse
     , DescribeMountTargetSecurityGroupsResponse
     -- * Response Lenses
-    , dmtsgrsStatus
+    , dmtsgrsResponseStatus
     , dmtsgrsSecurityGroups
     ) where
 
@@ -104,7 +104,7 @@ instance ToQuery DescribeMountTargetSecurityGroups
 
 -- | /See:/ 'describeMountTargetSecurityGroupsResponse' smart constructor.
 data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'
-    { _dmtsgrsStatus         :: !Int
+    { _dmtsgrsResponseStatus :: !Int
     , _dmtsgrsSecurityGroups :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -112,21 +112,21 @@ data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGrou
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmtsgrsStatus'
+-- * 'dmtsgrsResponseStatus'
 --
 -- * 'dmtsgrsSecurityGroups'
 describeMountTargetSecurityGroupsResponse
-    :: Int -- ^ 'dmtsgrsStatus'
+    :: Int -- ^ 'dmtsgrsResponseStatus'
     -> DescribeMountTargetSecurityGroupsResponse
-describeMountTargetSecurityGroupsResponse pStatus_ =
+describeMountTargetSecurityGroupsResponse pResponseStatus_ =
     DescribeMountTargetSecurityGroupsResponse'
-    { _dmtsgrsStatus = pStatus_
+    { _dmtsgrsResponseStatus = pResponseStatus_
     , _dmtsgrsSecurityGroups = mempty
     }
 
 -- | The response status code.
-dmtsgrsStatus :: Lens' DescribeMountTargetSecurityGroupsResponse Int
-dmtsgrsStatus = lens _dmtsgrsStatus (\ s a -> s{_dmtsgrsStatus = a});
+dmtsgrsResponseStatus :: Lens' DescribeMountTargetSecurityGroupsResponse Int
+dmtsgrsResponseStatus = lens _dmtsgrsResponseStatus (\ s a -> s{_dmtsgrsResponseStatus = a});
 
 -- | An array of security groups.
 dmtsgrsSecurityGroups :: Lens' DescribeMountTargetSecurityGroupsResponse [Text]

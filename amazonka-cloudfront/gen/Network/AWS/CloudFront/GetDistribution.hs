@@ -35,7 +35,7 @@ module Network.AWS.CloudFront.GetDistribution
     -- * Response Lenses
     , gdrsETag
     , gdrsDistribution
-    , gdrsStatus
+    , gdrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -92,9 +92,9 @@ instance ToQuery GetDistribution where
 --
 -- /See:/ 'getDistributionResponse' smart constructor.
 data GetDistributionResponse = GetDistributionResponse'
-    { _gdrsETag         :: !(Maybe Text)
-    , _gdrsDistribution :: !(Maybe Distribution)
-    , _gdrsStatus       :: !Int
+    { _gdrsETag           :: !(Maybe Text)
+    , _gdrsDistribution   :: !(Maybe Distribution)
+    , _gdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDistributionResponse' with the minimum fields required to make a request.
@@ -105,15 +105,15 @@ data GetDistributionResponse = GetDistributionResponse'
 --
 -- * 'gdrsDistribution'
 --
--- * 'gdrsStatus'
+-- * 'gdrsResponseStatus'
 getDistributionResponse
-    :: Int -- ^ 'gdrsStatus'
+    :: Int -- ^ 'gdrsResponseStatus'
     -> GetDistributionResponse
-getDistributionResponse pStatus_ =
+getDistributionResponse pResponseStatus_ =
     GetDistributionResponse'
     { _gdrsETag = Nothing
     , _gdrsDistribution = Nothing
-    , _gdrsStatus = pStatus_
+    , _gdrsResponseStatus = pResponseStatus_
     }
 
 -- | The current version of the distribution\'s information. For example:
@@ -126,5 +126,5 @@ gdrsDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
 gdrsDistribution = lens _gdrsDistribution (\ s a -> s{_gdrsDistribution = a});
 
 -- | The response status code.
-gdrsStatus :: Lens' GetDistributionResponse Int
-gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});
+gdrsResponseStatus :: Lens' GetDistributionResponse Int
+gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});

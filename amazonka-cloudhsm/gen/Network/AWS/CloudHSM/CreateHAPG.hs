@@ -36,7 +36,7 @@ module Network.AWS.CloudHSM.CreateHAPG
     , CreateHAPGResponse
     -- * Response Lenses
     , chapgrsHAPGARN
-    , chapgrsStatus
+    , chapgrsResponseStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -101,8 +101,8 @@ instance ToQuery CreateHAPG where
 --
 -- /See:/ 'createHAPGResponse' smart constructor.
 data CreateHAPGResponse = CreateHAPGResponse'
-    { _chapgrsHAPGARN :: !(Maybe Text)
-    , _chapgrsStatus  :: !Int
+    { _chapgrsHAPGARN        :: !(Maybe Text)
+    , _chapgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateHAPGResponse' with the minimum fields required to make a request.
@@ -111,14 +111,14 @@ data CreateHAPGResponse = CreateHAPGResponse'
 --
 -- * 'chapgrsHAPGARN'
 --
--- * 'chapgrsStatus'
+-- * 'chapgrsResponseStatus'
 createHAPGResponse
-    :: Int -- ^ 'chapgrsStatus'
+    :: Int -- ^ 'chapgrsResponseStatus'
     -> CreateHAPGResponse
-createHAPGResponse pStatus_ =
+createHAPGResponse pResponseStatus_ =
     CreateHAPGResponse'
     { _chapgrsHAPGARN = Nothing
-    , _chapgrsStatus = pStatus_
+    , _chapgrsResponseStatus = pResponseStatus_
     }
 
 -- | The ARN of the high-availability partition group.
@@ -126,5 +126,5 @@ chapgrsHAPGARN :: Lens' CreateHAPGResponse (Maybe Text)
 chapgrsHAPGARN = lens _chapgrsHAPGARN (\ s a -> s{_chapgrsHAPGARN = a});
 
 -- | The response status code.
-chapgrsStatus :: Lens' CreateHAPGResponse Int
-chapgrsStatus = lens _chapgrsStatus (\ s a -> s{_chapgrsStatus = a});
+chapgrsResponseStatus :: Lens' CreateHAPGResponse Int
+chapgrsResponseStatus = lens _chapgrsResponseStatus (\ s a -> s{_chapgrsResponseStatus = a});

@@ -34,7 +34,7 @@ module Network.AWS.CodePipeline.CreatePipeline
     , CreatePipelineResponse
     -- * Response Lenses
     , cprsPipeline
-    , cprsStatus
+    , cprsResponseStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -101,8 +101,8 @@ instance ToQuery CreatePipeline where
 --
 -- /See:/ 'createPipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
-    { _cprsPipeline :: !(Maybe PipelineDeclaration)
-    , _cprsStatus   :: !Int
+    { _cprsPipeline       :: !(Maybe PipelineDeclaration)
+    , _cprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreatePipelineResponse' with the minimum fields required to make a request.
@@ -111,14 +111,14 @@ data CreatePipelineResponse = CreatePipelineResponse'
 --
 -- * 'cprsPipeline'
 --
--- * 'cprsStatus'
+-- * 'cprsResponseStatus'
 createPipelineResponse
-    :: Int -- ^ 'cprsStatus'
+    :: Int -- ^ 'cprsResponseStatus'
     -> CreatePipelineResponse
-createPipelineResponse pStatus_ =
+createPipelineResponse pResponseStatus_ =
     CreatePipelineResponse'
     { _cprsPipeline = Nothing
-    , _cprsStatus = pStatus_
+    , _cprsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -126,5 +126,5 @@ cprsPipeline :: Lens' CreatePipelineResponse (Maybe PipelineDeclaration)
 cprsPipeline = lens _cprsPipeline (\ s a -> s{_cprsPipeline = a});
 
 -- | The response status code.
-cprsStatus :: Lens' CreatePipelineResponse Int
-cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});
+cprsResponseStatus :: Lens' CreatePipelineResponse Int
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});

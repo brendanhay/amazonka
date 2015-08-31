@@ -50,7 +50,7 @@ module Network.AWS.IAM.ListSigningCertificates
     -- * Response Lenses
     , lrsMarker
     , lrsIsTruncated
-    , lrsStatus
+    , lrsResponseStatus
     , lrsCertificates
     ) where
 
@@ -144,10 +144,10 @@ instance ToQuery ListSigningCertificates where
 --
 -- /See:/ 'listSigningCertificatesResponse' smart constructor.
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
-    { _lrsMarker       :: !(Maybe Text)
-    , _lrsIsTruncated  :: !(Maybe Bool)
-    , _lrsStatus       :: !Int
-    , _lrsCertificates :: ![SigningCertificate]
+    { _lrsMarker         :: !(Maybe Text)
+    , _lrsIsTruncated    :: !(Maybe Bool)
+    , _lrsResponseStatus :: !Int
+    , _lrsCertificates   :: ![SigningCertificate]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListSigningCertificatesResponse' with the minimum fields required to make a request.
@@ -158,17 +158,17 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
 --
 -- * 'lrsIsTruncated'
 --
--- * 'lrsStatus'
+-- * 'lrsResponseStatus'
 --
 -- * 'lrsCertificates'
 listSigningCertificatesResponse
-    :: Int -- ^ 'lrsStatus'
+    :: Int -- ^ 'lrsResponseStatus'
     -> ListSigningCertificatesResponse
-listSigningCertificatesResponse pStatus_ =
+listSigningCertificatesResponse pResponseStatus_ =
     ListSigningCertificatesResponse'
     { _lrsMarker = Nothing
     , _lrsIsTruncated = Nothing
-    , _lrsStatus = pStatus_
+    , _lrsResponseStatus = pResponseStatus_
     , _lrsCertificates = mempty
     }
 
@@ -185,8 +185,8 @@ lrsIsTruncated :: Lens' ListSigningCertificatesResponse (Maybe Bool)
 lrsIsTruncated = lens _lrsIsTruncated (\ s a -> s{_lrsIsTruncated = a});
 
 -- | The response status code.
-lrsStatus :: Lens' ListSigningCertificatesResponse Int
-lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});
+lrsResponseStatus :: Lens' ListSigningCertificatesResponse Int
+lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 
 -- | A list of the user\'s signing certificate information.
 lrsCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]

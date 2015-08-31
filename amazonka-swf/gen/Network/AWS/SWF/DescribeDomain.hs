@@ -52,7 +52,7 @@ module Network.AWS.SWF.DescribeDomain
     , describeDomainResponse
     , DescribeDomainResponse
     -- * Response Lenses
-    , ddrsStatus
+    , ddrsResponseStatus
     , ddrsDomainInfo
     , ddrsConfiguration
     ) where
@@ -119,35 +119,35 @@ instance ToQuery DescribeDomain where
 --
 -- /See:/ 'describeDomainResponse' smart constructor.
 data DescribeDomainResponse = DescribeDomainResponse'
-    { _ddrsStatus        :: !Int
-    , _ddrsDomainInfo    :: !DomainInfo
-    , _ddrsConfiguration :: !DomainConfiguration
+    { _ddrsResponseStatus :: !Int
+    , _ddrsDomainInfo     :: !DomainInfo
+    , _ddrsConfiguration  :: !DomainConfiguration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDomainResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddrsStatus'
+-- * 'ddrsResponseStatus'
 --
 -- * 'ddrsDomainInfo'
 --
 -- * 'ddrsConfiguration'
 describeDomainResponse
-    :: Int -- ^ 'ddrsStatus'
+    :: Int -- ^ 'ddrsResponseStatus'
     -> DomainInfo -- ^ 'ddrsDomainInfo'
     -> DomainConfiguration -- ^ 'ddrsConfiguration'
     -> DescribeDomainResponse
-describeDomainResponse pStatus_ pDomainInfo_ pConfiguration_ =
+describeDomainResponse pResponseStatus_ pDomainInfo_ pConfiguration_ =
     DescribeDomainResponse'
-    { _ddrsStatus = pStatus_
+    { _ddrsResponseStatus = pResponseStatus_
     , _ddrsDomainInfo = pDomainInfo_
     , _ddrsConfiguration = pConfiguration_
     }
 
 -- | The response status code.
-ddrsStatus :: Lens' DescribeDomainResponse Int
-ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
+ddrsResponseStatus :: Lens' DescribeDomainResponse Int
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
 
 -- | Undocumented member.
 ddrsDomainInfo :: Lens' DescribeDomainResponse DomainInfo

@@ -40,7 +40,7 @@ module Network.AWS.EC2.CreateRouteTable
     , CreateRouteTableResponse
     -- * Response Lenses
     , crtrsRouteTable
-    , crtrsStatus
+    , crtrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -106,8 +106,8 @@ instance ToQuery CreateRouteTable where
 
 -- | /See:/ 'createRouteTableResponse' smart constructor.
 data CreateRouteTableResponse = CreateRouteTableResponse'
-    { _crtrsRouteTable :: !(Maybe RouteTable)
-    , _crtrsStatus     :: !Int
+    { _crtrsRouteTable     :: !(Maybe RouteTable)
+    , _crtrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateRouteTableResponse' with the minimum fields required to make a request.
@@ -116,14 +116,14 @@ data CreateRouteTableResponse = CreateRouteTableResponse'
 --
 -- * 'crtrsRouteTable'
 --
--- * 'crtrsStatus'
+-- * 'crtrsResponseStatus'
 createRouteTableResponse
-    :: Int -- ^ 'crtrsStatus'
+    :: Int -- ^ 'crtrsResponseStatus'
     -> CreateRouteTableResponse
-createRouteTableResponse pStatus_ =
+createRouteTableResponse pResponseStatus_ =
     CreateRouteTableResponse'
     { _crtrsRouteTable = Nothing
-    , _crtrsStatus = pStatus_
+    , _crtrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the route table.
@@ -131,5 +131,5 @@ crtrsRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
 crtrsRouteTable = lens _crtrsRouteTable (\ s a -> s{_crtrsRouteTable = a});
 
 -- | The response status code.
-crtrsStatus :: Lens' CreateRouteTableResponse Int
-crtrsStatus = lens _crtrsStatus (\ s a -> s{_crtrsStatus = a});
+crtrsResponseStatus :: Lens' CreateRouteTableResponse Int
+crtrsResponseStatus = lens _crtrsResponseStatus (\ s a -> s{_crtrsResponseStatus = a});

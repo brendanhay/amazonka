@@ -50,7 +50,7 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     , ModifyReplicationGroupResponse
     -- * Response Lenses
     , mrgrsReplicationGroup
-    , mrgrsStatus
+    , mrgrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -330,7 +330,7 @@ instance ToQuery ModifyReplicationGroup where
 -- | /See:/ 'modifyReplicationGroupResponse' smart constructor.
 data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
     { _mrgrsReplicationGroup :: !(Maybe ReplicationGroup)
-    , _mrgrsStatus           :: !Int
+    , _mrgrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyReplicationGroupResponse' with the minimum fields required to make a request.
@@ -339,14 +339,14 @@ data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
 --
 -- * 'mrgrsReplicationGroup'
 --
--- * 'mrgrsStatus'
+-- * 'mrgrsResponseStatus'
 modifyReplicationGroupResponse
-    :: Int -- ^ 'mrgrsStatus'
+    :: Int -- ^ 'mrgrsResponseStatus'
     -> ModifyReplicationGroupResponse
-modifyReplicationGroupResponse pStatus_ =
+modifyReplicationGroupResponse pResponseStatus_ =
     ModifyReplicationGroupResponse'
     { _mrgrsReplicationGroup = Nothing
-    , _mrgrsStatus = pStatus_
+    , _mrgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -354,5 +354,5 @@ mrgrsReplicationGroup :: Lens' ModifyReplicationGroupResponse (Maybe Replication
 mrgrsReplicationGroup = lens _mrgrsReplicationGroup (\ s a -> s{_mrgrsReplicationGroup = a});
 
 -- | The response status code.
-mrgrsStatus :: Lens' ModifyReplicationGroupResponse Int
-mrgrsStatus = lens _mrgrsStatus (\ s a -> s{_mrgrsStatus = a});
+mrgrsResponseStatus :: Lens' ModifyReplicationGroupResponse Int
+mrgrsResponseStatus = lens _mrgrsResponseStatus (\ s a -> s{_mrgrsResponseStatus = a});

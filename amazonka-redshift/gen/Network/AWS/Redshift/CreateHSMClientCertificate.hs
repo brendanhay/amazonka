@@ -45,7 +45,7 @@ module Network.AWS.Redshift.CreateHSMClientCertificate
     , CreateHSMClientCertificateResponse
     -- * Response Lenses
     , chccrsHSMClientCertificate
-    , chccrsStatus
+    , chccrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -119,7 +119,7 @@ instance ToQuery CreateHSMClientCertificate where
 -- | /See:/ 'createHSMClientCertificateResponse' smart constructor.
 data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'
     { _chccrsHSMClientCertificate :: !(Maybe HSMClientCertificate)
-    , _chccrsStatus               :: !Int
+    , _chccrsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateHSMClientCertificateResponse' with the minimum fields required to make a request.
@@ -128,14 +128,14 @@ data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'
 --
 -- * 'chccrsHSMClientCertificate'
 --
--- * 'chccrsStatus'
+-- * 'chccrsResponseStatus'
 createHSMClientCertificateResponse
-    :: Int -- ^ 'chccrsStatus'
+    :: Int -- ^ 'chccrsResponseStatus'
     -> CreateHSMClientCertificateResponse
-createHSMClientCertificateResponse pStatus_ =
+createHSMClientCertificateResponse pResponseStatus_ =
     CreateHSMClientCertificateResponse'
     { _chccrsHSMClientCertificate = Nothing
-    , _chccrsStatus = pStatus_
+    , _chccrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -143,5 +143,5 @@ chccrsHSMClientCertificate :: Lens' CreateHSMClientCertificateResponse (Maybe HS
 chccrsHSMClientCertificate = lens _chccrsHSMClientCertificate (\ s a -> s{_chccrsHSMClientCertificate = a});
 
 -- | The response status code.
-chccrsStatus :: Lens' CreateHSMClientCertificateResponse Int
-chccrsStatus = lens _chccrsStatus (\ s a -> s{_chccrsStatus = a});
+chccrsResponseStatus :: Lens' CreateHSMClientCertificateResponse Int
+chccrsResponseStatus = lens _chccrsResponseStatus (\ s a -> s{_chccrsResponseStatus = a});

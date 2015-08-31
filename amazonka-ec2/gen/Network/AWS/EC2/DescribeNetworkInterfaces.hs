@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
     , DescribeNetworkInterfacesResponse
     -- * Response Lenses
     , dnirsNetworkInterfaces
-    , dnirsStatus
+    , dnirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -227,7 +227,7 @@ instance ToQuery DescribeNetworkInterfaces where
 -- | /See:/ 'describeNetworkInterfacesResponse' smart constructor.
 data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
     { _dnirsNetworkInterfaces :: !(Maybe [NetworkInterface])
-    , _dnirsStatus            :: !Int
+    , _dnirsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeNetworkInterfacesResponse' with the minimum fields required to make a request.
@@ -236,14 +236,14 @@ data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
 --
 -- * 'dnirsNetworkInterfaces'
 --
--- * 'dnirsStatus'
+-- * 'dnirsResponseStatus'
 describeNetworkInterfacesResponse
-    :: Int -- ^ 'dnirsStatus'
+    :: Int -- ^ 'dnirsResponseStatus'
     -> DescribeNetworkInterfacesResponse
-describeNetworkInterfacesResponse pStatus_ =
+describeNetworkInterfacesResponse pResponseStatus_ =
     DescribeNetworkInterfacesResponse'
     { _dnirsNetworkInterfaces = Nothing
-    , _dnirsStatus = pStatus_
+    , _dnirsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more network interfaces.
@@ -251,5 +251,5 @@ dnirsNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterf
 dnirsNetworkInterfaces = lens _dnirsNetworkInterfaces (\ s a -> s{_dnirsNetworkInterfaces = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dnirsStatus :: Lens' DescribeNetworkInterfacesResponse Int
-dnirsStatus = lens _dnirsStatus (\ s a -> s{_dnirsStatus = a});
+dnirsResponseStatus :: Lens' DescribeNetworkInterfacesResponse Int
+dnirsResponseStatus = lens _dnirsResponseStatus (\ s a -> s{_dnirsResponseStatus = a});

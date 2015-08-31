@@ -39,7 +39,7 @@ module Network.AWS.EC2.AcceptVPCPeeringConnection
     , AcceptVPCPeeringConnectionResponse
     -- * Response Lenses
     , avpcrsVPCPeeringConnection
-    , avpcrsStatus
+    , avpcrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -110,7 +110,7 @@ instance ToQuery AcceptVPCPeeringConnection where
 -- | /See:/ 'acceptVPCPeeringConnectionResponse' smart constructor.
 data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'
     { _avpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
-    , _avpcrsStatus               :: !Int
+    , _avpcrsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AcceptVPCPeeringConnectionResponse' with the minimum fields required to make a request.
@@ -119,14 +119,14 @@ data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'
 --
 -- * 'avpcrsVPCPeeringConnection'
 --
--- * 'avpcrsStatus'
+-- * 'avpcrsResponseStatus'
 acceptVPCPeeringConnectionResponse
-    :: Int -- ^ 'avpcrsStatus'
+    :: Int -- ^ 'avpcrsResponseStatus'
     -> AcceptVPCPeeringConnectionResponse
-acceptVPCPeeringConnectionResponse pStatus_ =
+acceptVPCPeeringConnectionResponse pResponseStatus_ =
     AcceptVPCPeeringConnectionResponse'
     { _avpcrsVPCPeeringConnection = Nothing
-    , _avpcrsStatus = pStatus_
+    , _avpcrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the VPC peering connection.
@@ -134,5 +134,5 @@ avpcrsVPCPeeringConnection :: Lens' AcceptVPCPeeringConnectionResponse (Maybe VP
 avpcrsVPCPeeringConnection = lens _avpcrsVPCPeeringConnection (\ s a -> s{_avpcrsVPCPeeringConnection = a});
 
 -- | The response status code.
-avpcrsStatus :: Lens' AcceptVPCPeeringConnectionResponse Int
-avpcrsStatus = lens _avpcrsStatus (\ s a -> s{_avpcrsStatus = a});
+avpcrsResponseStatus :: Lens' AcceptVPCPeeringConnectionResponse Int
+avpcrsResponseStatus = lens _avpcrsResponseStatus (\ s a -> s{_avpcrsResponseStatus = a});

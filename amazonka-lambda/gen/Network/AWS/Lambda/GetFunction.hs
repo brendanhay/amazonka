@@ -41,7 +41,7 @@ module Network.AWS.Lambda.GetFunction
     -- * Response Lenses
     , gfrsCode
     , gfrsConfiguration
-    , gfrsStatus
+    , gfrsResponseStatus
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -108,9 +108,9 @@ instance ToQuery GetFunction where
 --
 -- /See:/ 'getFunctionResponse' smart constructor.
 data GetFunctionResponse = GetFunctionResponse'
-    { _gfrsCode          :: !(Maybe FunctionCodeLocation)
-    , _gfrsConfiguration :: !(Maybe FunctionConfiguration)
-    , _gfrsStatus        :: !Int
+    { _gfrsCode           :: !(Maybe FunctionCodeLocation)
+    , _gfrsConfiguration  :: !(Maybe FunctionConfiguration)
+    , _gfrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetFunctionResponse' with the minimum fields required to make a request.
@@ -121,15 +121,15 @@ data GetFunctionResponse = GetFunctionResponse'
 --
 -- * 'gfrsConfiguration'
 --
--- * 'gfrsStatus'
+-- * 'gfrsResponseStatus'
 getFunctionResponse
-    :: Int -- ^ 'gfrsStatus'
+    :: Int -- ^ 'gfrsResponseStatus'
     -> GetFunctionResponse
-getFunctionResponse pStatus_ =
+getFunctionResponse pResponseStatus_ =
     GetFunctionResponse'
     { _gfrsCode = Nothing
     , _gfrsConfiguration = Nothing
-    , _gfrsStatus = pStatus_
+    , _gfrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -141,5 +141,5 @@ gfrsConfiguration :: Lens' GetFunctionResponse (Maybe FunctionConfiguration)
 gfrsConfiguration = lens _gfrsConfiguration (\ s a -> s{_gfrsConfiguration = a});
 
 -- | The response status code.
-gfrsStatus :: Lens' GetFunctionResponse Int
-gfrsStatus = lens _gfrsStatus (\ s a -> s{_gfrsStatus = a});
+gfrsResponseStatus :: Lens' GetFunctionResponse Int
+gfrsResponseStatus = lens _gfrsResponseStatus (\ s a -> s{_gfrsResponseStatus = a});

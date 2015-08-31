@@ -38,7 +38,7 @@ module Network.AWS.Route53Domains.ListDomains
     , ListDomainsResponse
     -- * Response Lenses
     , ldrsNextPageMarker
-    , ldrsStatus
+    , ldrsResponseStatus
     , ldrsDomains
     ) where
 
@@ -147,7 +147,7 @@ instance ToQuery ListDomains where
 -- /See:/ 'listDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
     { _ldrsNextPageMarker :: !(Maybe Text)
-    , _ldrsStatus         :: !Int
+    , _ldrsResponseStatus :: !Int
     , _ldrsDomains        :: ![DomainSummary]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -157,16 +157,16 @@ data ListDomainsResponse = ListDomainsResponse'
 --
 -- * 'ldrsNextPageMarker'
 --
--- * 'ldrsStatus'
+-- * 'ldrsResponseStatus'
 --
 -- * 'ldrsDomains'
 listDomainsResponse
-    :: Int -- ^ 'ldrsStatus'
+    :: Int -- ^ 'ldrsResponseStatus'
     -> ListDomainsResponse
-listDomainsResponse pStatus_ =
+listDomainsResponse pResponseStatus_ =
     ListDomainsResponse'
     { _ldrsNextPageMarker = Nothing
-    , _ldrsStatus = pStatus_
+    , _ldrsResponseStatus = pResponseStatus_
     , _ldrsDomains = mempty
     }
 
@@ -181,8 +181,8 @@ ldrsNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
 ldrsNextPageMarker = lens _ldrsNextPageMarker (\ s a -> s{_ldrsNextPageMarker = a});
 
 -- | The response status code.
-ldrsStatus :: Lens' ListDomainsResponse Int
-ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
+ldrsResponseStatus :: Lens' ListDomainsResponse Int
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 
 -- | A summary of domains.
 --

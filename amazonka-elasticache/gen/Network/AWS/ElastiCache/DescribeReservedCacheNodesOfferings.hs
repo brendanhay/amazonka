@@ -44,7 +44,7 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     -- * Response Lenses
     , drcnorsMarker
     , drcnorsReservedCacheNodesOfferings
-    , drcnorsStatus
+    , drcnorsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -232,7 +232,7 @@ instance ToQuery DescribeReservedCacheNodesOfferings
 data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse'
     { _drcnorsMarker                      :: !(Maybe Text)
     , _drcnorsReservedCacheNodesOfferings :: !(Maybe [ReservedCacheNodesOffering])
-    , _drcnorsStatus                      :: !Int
+    , _drcnorsResponseStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedCacheNodesOfferingsResponse' with the minimum fields required to make a request.
@@ -243,15 +243,15 @@ data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOff
 --
 -- * 'drcnorsReservedCacheNodesOfferings'
 --
--- * 'drcnorsStatus'
+-- * 'drcnorsResponseStatus'
 describeReservedCacheNodesOfferingsResponse
-    :: Int -- ^ 'drcnorsStatus'
+    :: Int -- ^ 'drcnorsResponseStatus'
     -> DescribeReservedCacheNodesOfferingsResponse
-describeReservedCacheNodesOfferingsResponse pStatus_ =
+describeReservedCacheNodesOfferingsResponse pResponseStatus_ =
     DescribeReservedCacheNodesOfferingsResponse'
     { _drcnorsMarker = Nothing
     , _drcnorsReservedCacheNodesOfferings = Nothing
-    , _drcnorsStatus = pStatus_
+    , _drcnorsResponseStatus = pResponseStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -264,5 +264,5 @@ drcnorsReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsR
 drcnorsReservedCacheNodesOfferings = lens _drcnorsReservedCacheNodesOfferings (\ s a -> s{_drcnorsReservedCacheNodesOfferings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drcnorsStatus :: Lens' DescribeReservedCacheNodesOfferingsResponse Int
-drcnorsStatus = lens _drcnorsStatus (\ s a -> s{_drcnorsStatus = a});
+drcnorsResponseStatus :: Lens' DescribeReservedCacheNodesOfferingsResponse Int
+drcnorsResponseStatus = lens _drcnorsResponseStatus (\ s a -> s{_drcnorsResponseStatus = a});

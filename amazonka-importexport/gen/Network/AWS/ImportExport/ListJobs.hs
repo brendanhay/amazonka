@@ -43,7 +43,7 @@ module Network.AWS.ImportExport.ListJobs
     -- * Response Lenses
     , ljrsJobs
     , ljrsIsTruncated
-    , ljrsStatus
+    , ljrsResponseStatus
     ) where
 
 import           Network.AWS.ImportExport.Types
@@ -132,9 +132,9 @@ instance ToQuery ListJobs where
 --
 -- /See:/ 'listJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-    { _ljrsJobs        :: !(Maybe [Job])
-    , _ljrsIsTruncated :: !(Maybe Bool)
-    , _ljrsStatus      :: !Int
+    { _ljrsJobs           :: !(Maybe [Job])
+    , _ljrsIsTruncated    :: !(Maybe Bool)
+    , _ljrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
@@ -145,15 +145,15 @@ data ListJobsResponse = ListJobsResponse'
 --
 -- * 'ljrsIsTruncated'
 --
--- * 'ljrsStatus'
+-- * 'ljrsResponseStatus'
 listJobsResponse
-    :: Int -- ^ 'ljrsStatus'
+    :: Int -- ^ 'ljrsResponseStatus'
     -> ListJobsResponse
-listJobsResponse pStatus_ =
+listJobsResponse pResponseStatus_ =
     ListJobsResponse'
     { _ljrsJobs = Nothing
     , _ljrsIsTruncated = Nothing
-    , _ljrsStatus = pStatus_
+    , _ljrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -165,5 +165,5 @@ ljrsIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
 ljrsIsTruncated = lens _ljrsIsTruncated (\ s a -> s{_ljrsIsTruncated = a});
 
 -- | The response status code.
-ljrsStatus :: Lens' ListJobsResponse Int
-ljrsStatus = lens _ljrsStatus (\ s a -> s{_ljrsStatus = a});
+ljrsResponseStatus :: Lens' ListJobsResponse Int
+ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});

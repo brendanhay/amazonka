@@ -43,7 +43,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     -- * Response Lenses
     , dcorsSolutionStackName
     , dcorsOptions
-    , dcorsStatus
+    , dcorsResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -153,7 +153,7 @@ instance ToQuery DescribeConfigurationOptions where
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'
     { _dcorsSolutionStackName :: !(Maybe Text)
     , _dcorsOptions           :: !(Maybe [ConfigurationOptionDescription])
-    , _dcorsStatus            :: !Int
+    , _dcorsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeConfigurationOptionsResponse' with the minimum fields required to make a request.
@@ -164,15 +164,15 @@ data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
 --
 -- * 'dcorsOptions'
 --
--- * 'dcorsStatus'
+-- * 'dcorsResponseStatus'
 describeConfigurationOptionsResponse
-    :: Int -- ^ 'dcorsStatus'
+    :: Int -- ^ 'dcorsResponseStatus'
     -> DescribeConfigurationOptionsResponse
-describeConfigurationOptionsResponse pStatus_ =
+describeConfigurationOptionsResponse pResponseStatus_ =
     DescribeConfigurationOptionsResponse'
     { _dcorsSolutionStackName = Nothing
     , _dcorsOptions = Nothing
-    , _dcorsStatus = pStatus_
+    , _dcorsResponseStatus = pResponseStatus_
     }
 
 -- | The name of the solution stack these configuration options belong to.
@@ -184,5 +184,5 @@ dcorsOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionD
 dcorsOptions = lens _dcorsOptions (\ s a -> s{_dcorsOptions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcorsStatus :: Lens' DescribeConfigurationOptionsResponse Int
-dcorsStatus = lens _dcorsStatus (\ s a -> s{_dcorsStatus = a});
+dcorsResponseStatus :: Lens' DescribeConfigurationOptionsResponse Int
+dcorsResponseStatus = lens _dcorsResponseStatus (\ s a -> s{_dcorsResponseStatus = a});

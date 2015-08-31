@@ -42,7 +42,7 @@ module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     , AuthorizeCacheSecurityGroupIngressResponse
     -- * Response Lenses
     , acsgirsCacheSecurityGroup
-    , acsgirsStatus
+    , acsgirsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -132,7 +132,7 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress
 -- | /See:/ 'authorizeCacheSecurityGroupIngressResponse' smart constructor.
 data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'
     { _acsgirsCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
-    , _acsgirsStatus             :: !Int
+    , _acsgirsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AuthorizeCacheSecurityGroupIngressResponse' with the minimum fields required to make a request.
@@ -141,14 +141,14 @@ data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIng
 --
 -- * 'acsgirsCacheSecurityGroup'
 --
--- * 'acsgirsStatus'
+-- * 'acsgirsResponseStatus'
 authorizeCacheSecurityGroupIngressResponse
-    :: Int -- ^ 'acsgirsStatus'
+    :: Int -- ^ 'acsgirsResponseStatus'
     -> AuthorizeCacheSecurityGroupIngressResponse
-authorizeCacheSecurityGroupIngressResponse pStatus_ =
+authorizeCacheSecurityGroupIngressResponse pResponseStatus_ =
     AuthorizeCacheSecurityGroupIngressResponse'
     { _acsgirsCacheSecurityGroup = Nothing
-    , _acsgirsStatus = pStatus_
+    , _acsgirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -156,5 +156,5 @@ acsgirsCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (M
 acsgirsCacheSecurityGroup = lens _acsgirsCacheSecurityGroup (\ s a -> s{_acsgirsCacheSecurityGroup = a});
 
 -- | The response status code.
-acsgirsStatus :: Lens' AuthorizeCacheSecurityGroupIngressResponse Int
-acsgirsStatus = lens _acsgirsStatus (\ s a -> s{_acsgirsStatus = a});
+acsgirsResponseStatus :: Lens' AuthorizeCacheSecurityGroupIngressResponse Int
+acsgirsResponseStatus = lens _acsgirsResponseStatus (\ s a -> s{_acsgirsResponseStatus = a});

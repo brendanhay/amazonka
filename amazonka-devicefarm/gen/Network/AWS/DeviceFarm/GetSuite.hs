@@ -34,7 +34,7 @@ module Network.AWS.DeviceFarm.GetSuite
     , GetSuiteResponse
     -- * Response Lenses
     , gsrsSuite
-    , gsrsStatus
+    , gsrsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -99,8 +99,8 @@ instance ToQuery GetSuite where
 --
 -- /See:/ 'getSuiteResponse' smart constructor.
 data GetSuiteResponse = GetSuiteResponse'
-    { _gsrsSuite  :: !(Maybe Suite)
-    , _gsrsStatus :: !Int
+    { _gsrsSuite          :: !(Maybe Suite)
+    , _gsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetSuiteResponse' with the minimum fields required to make a request.
@@ -109,14 +109,14 @@ data GetSuiteResponse = GetSuiteResponse'
 --
 -- * 'gsrsSuite'
 --
--- * 'gsrsStatus'
+-- * 'gsrsResponseStatus'
 getSuiteResponse
-    :: Int -- ^ 'gsrsStatus'
+    :: Int -- ^ 'gsrsResponseStatus'
     -> GetSuiteResponse
-getSuiteResponse pStatus_ =
+getSuiteResponse pResponseStatus_ =
     GetSuiteResponse'
     { _gsrsSuite = Nothing
-    , _gsrsStatus = pStatus_
+    , _gsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -124,5 +124,5 @@ gsrsSuite :: Lens' GetSuiteResponse (Maybe Suite)
 gsrsSuite = lens _gsrsSuite (\ s a -> s{_gsrsSuite = a});
 
 -- | The response status code.
-gsrsStatus :: Lens' GetSuiteResponse Int
-gsrsStatus = lens _gsrsStatus (\ s a -> s{_gsrsStatus = a});
+gsrsResponseStatus :: Lens' GetSuiteResponse Int
+gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});

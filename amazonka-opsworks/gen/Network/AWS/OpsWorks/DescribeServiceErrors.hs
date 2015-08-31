@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.DescribeServiceErrors
     , DescribeServiceErrorsResponse
     -- * Response Lenses
     , dsersServiceErrors
-    , dsersStatus
+    , dsersResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -132,8 +132,8 @@ instance ToQuery DescribeServiceErrors where
 --
 -- /See:/ 'describeServiceErrorsResponse' smart constructor.
 data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'
-    { _dsersServiceErrors :: !(Maybe [ServiceError'])
-    , _dsersStatus        :: !Int
+    { _dsersServiceErrors  :: !(Maybe [ServiceError'])
+    , _dsersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeServiceErrorsResponse' with the minimum fields required to make a request.
@@ -142,14 +142,14 @@ data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'
 --
 -- * 'dsersServiceErrors'
 --
--- * 'dsersStatus'
+-- * 'dsersResponseStatus'
 describeServiceErrorsResponse
-    :: Int -- ^ 'dsersStatus'
+    :: Int -- ^ 'dsersResponseStatus'
     -> DescribeServiceErrorsResponse
-describeServiceErrorsResponse pStatus_ =
+describeServiceErrorsResponse pResponseStatus_ =
     DescribeServiceErrorsResponse'
     { _dsersServiceErrors = Nothing
-    , _dsersStatus = pStatus_
+    , _dsersResponseStatus = pResponseStatus_
     }
 
 -- | An array of 'ServiceError' objects that describe the specified service
@@ -158,5 +158,5 @@ dsersServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
 dsersServiceErrors = lens _dsersServiceErrors (\ s a -> s{_dsersServiceErrors = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dsersStatus :: Lens' DescribeServiceErrorsResponse Int
-dsersStatus = lens _dsersStatus (\ s a -> s{_dsersStatus = a});
+dsersResponseStatus :: Lens' DescribeServiceErrorsResponse Int
+dsersResponseStatus = lens _dsersResponseStatus (\ s a -> s{_dsersResponseStatus = a});

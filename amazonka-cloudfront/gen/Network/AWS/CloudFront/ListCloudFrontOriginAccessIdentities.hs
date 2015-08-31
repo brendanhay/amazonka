@@ -34,7 +34,7 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     , listCloudFrontOriginAccessIdentitiesResponse
     , ListCloudFrontOriginAccessIdentitiesResponse
     -- * Response Lenses
-    , lcfoairsStatus
+    , lcfoairsResponseStatus
     , lcfoairsCloudFrontOriginAccessIdentityList
     ) where
 
@@ -112,7 +112,7 @@ instance ToQuery ListCloudFrontOriginAccessIdentities
 --
 -- /See:/ 'listCloudFrontOriginAccessIdentitiesResponse' smart constructor.
 data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'
-    { _lcfoairsStatus                             :: !Int
+    { _lcfoairsResponseStatus                     :: !Int
     , _lcfoairsCloudFrontOriginAccessIdentityList :: !CloudFrontOriginAccessIdentityList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -120,22 +120,22 @@ data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessId
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcfoairsStatus'
+-- * 'lcfoairsResponseStatus'
 --
 -- * 'lcfoairsCloudFrontOriginAccessIdentityList'
 listCloudFrontOriginAccessIdentitiesResponse
-    :: Int -- ^ 'lcfoairsStatus'
+    :: Int -- ^ 'lcfoairsResponseStatus'
     -> CloudFrontOriginAccessIdentityList -- ^ 'lcfoairsCloudFrontOriginAccessIdentityList'
     -> ListCloudFrontOriginAccessIdentitiesResponse
-listCloudFrontOriginAccessIdentitiesResponse pStatus_ pCloudFrontOriginAccessIdentityList_ =
+listCloudFrontOriginAccessIdentitiesResponse pResponseStatus_ pCloudFrontOriginAccessIdentityList_ =
     ListCloudFrontOriginAccessIdentitiesResponse'
-    { _lcfoairsStatus = pStatus_
+    { _lcfoairsResponseStatus = pResponseStatus_
     , _lcfoairsCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList_
     }
 
 -- | The response status code.
-lcfoairsStatus :: Lens' ListCloudFrontOriginAccessIdentitiesResponse Int
-lcfoairsStatus = lens _lcfoairsStatus (\ s a -> s{_lcfoairsStatus = a});
+lcfoairsResponseStatus :: Lens' ListCloudFrontOriginAccessIdentitiesResponse Int
+lcfoairsResponseStatus = lens _lcfoairsResponseStatus (\ s a -> s{_lcfoairsResponseStatus = a});
 
 -- | The CloudFrontOriginAccessIdentityList type.
 lcfoairsCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList

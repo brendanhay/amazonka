@@ -59,7 +59,7 @@ module Network.AWS.DynamoDB.DeleteItem
     , dirsItemCollectionMetrics
     , dirsConsumedCapacity
     , dirsAttributes
-    , dirsStatus
+    , dirsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -549,7 +549,7 @@ data DeleteItemResponse = DeleteItemResponse'
     { _dirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
     , _dirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
     , _dirsAttributes            :: !(Maybe (Map Text AttributeValue))
-    , _dirsStatus                :: !Int
+    , _dirsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteItemResponse' with the minimum fields required to make a request.
@@ -562,16 +562,16 @@ data DeleteItemResponse = DeleteItemResponse'
 --
 -- * 'dirsAttributes'
 --
--- * 'dirsStatus'
+-- * 'dirsResponseStatus'
 deleteItemResponse
-    :: Int -- ^ 'dirsStatus'
+    :: Int -- ^ 'dirsResponseStatus'
     -> DeleteItemResponse
-deleteItemResponse pStatus_ =
+deleteItemResponse pResponseStatus_ =
     DeleteItemResponse'
     { _dirsItemCollectionMetrics = Nothing
     , _dirsConsumedCapacity = Nothing
     , _dirsAttributes = Nothing
-    , _dirsStatus = pStatus_
+    , _dirsResponseStatus = pResponseStatus_
     }
 
 -- | Information about item collections, if any, that were affected by the
@@ -610,5 +610,5 @@ dirsAttributes :: Lens' DeleteItemResponse (HashMap Text AttributeValue)
 dirsAttributes = lens _dirsAttributes (\ s a -> s{_dirsAttributes = a}) . _Default . _Map;
 
 -- | The response status code.
-dirsStatus :: Lens' DeleteItemResponse Int
-dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});
+dirsResponseStatus :: Lens' DeleteItemResponse Int
+dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});

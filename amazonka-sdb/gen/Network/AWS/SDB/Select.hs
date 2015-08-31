@@ -51,7 +51,7 @@ module Network.AWS.SDB.Select
     -- * Response Lenses
     , srsItems
     , srsNextToken
-    , srsStatus
+    , srsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -138,9 +138,9 @@ instance ToQuery Select where
 
 -- | /See:/ 'selectResponse' smart constructor.
 data SelectResponse = SelectResponse'
-    { _srsItems     :: !(Maybe [Item])
-    , _srsNextToken :: !(Maybe Text)
-    , _srsStatus    :: !Int
+    { _srsItems          :: !(Maybe [Item])
+    , _srsNextToken      :: !(Maybe Text)
+    , _srsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SelectResponse' with the minimum fields required to make a request.
@@ -151,15 +151,15 @@ data SelectResponse = SelectResponse'
 --
 -- * 'srsNextToken'
 --
--- * 'srsStatus'
+-- * 'srsResponseStatus'
 selectResponse
-    :: Int -- ^ 'srsStatus'
+    :: Int -- ^ 'srsResponseStatus'
     -> SelectResponse
-selectResponse pStatus_ =
+selectResponse pResponseStatus_ =
     SelectResponse'
     { _srsItems = Nothing
     , _srsNextToken = Nothing
-    , _srsStatus = pStatus_
+    , _srsResponseStatus = pResponseStatus_
     }
 
 -- | A list of items that match the select expression.
@@ -173,5 +173,5 @@ srsNextToken :: Lens' SelectResponse (Maybe Text)
 srsNextToken = lens _srsNextToken (\ s a -> s{_srsNextToken = a});
 
 -- | The response status code.
-srsStatus :: Lens' SelectResponse Int
-srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
+srsResponseStatus :: Lens' SelectResponse Int
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});

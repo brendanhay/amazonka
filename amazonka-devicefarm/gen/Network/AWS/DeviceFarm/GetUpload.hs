@@ -34,7 +34,7 @@ module Network.AWS.DeviceFarm.GetUpload
     , GetUploadResponse
     -- * Response Lenses
     , gursUpload
-    , gursStatus
+    , gursResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -99,8 +99,8 @@ instance ToQuery GetUpload where
 --
 -- /See:/ 'getUploadResponse' smart constructor.
 data GetUploadResponse = GetUploadResponse'
-    { _gursUpload :: !(Maybe Upload)
-    , _gursStatus :: !Int
+    { _gursUpload         :: !(Maybe Upload)
+    , _gursResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetUploadResponse' with the minimum fields required to make a request.
@@ -109,14 +109,14 @@ data GetUploadResponse = GetUploadResponse'
 --
 -- * 'gursUpload'
 --
--- * 'gursStatus'
+-- * 'gursResponseStatus'
 getUploadResponse
-    :: Int -- ^ 'gursStatus'
+    :: Int -- ^ 'gursResponseStatus'
     -> GetUploadResponse
-getUploadResponse pStatus_ =
+getUploadResponse pResponseStatus_ =
     GetUploadResponse'
     { _gursUpload = Nothing
-    , _gursStatus = pStatus_
+    , _gursResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -124,5 +124,5 @@ gursUpload :: Lens' GetUploadResponse (Maybe Upload)
 gursUpload = lens _gursUpload (\ s a -> s{_gursUpload = a});
 
 -- | The response status code.
-gursStatus :: Lens' GetUploadResponse Int
-gursStatus = lens _gursStatus (\ s a -> s{_gursStatus = a});
+gursResponseStatus :: Lens' GetUploadResponse Int
+gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a});

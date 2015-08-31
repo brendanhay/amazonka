@@ -53,7 +53,7 @@ module Network.AWS.Support.DescribeCommunications
     -- * Response Lenses
     , dcrsNextToken
     , dcrsCommunications
-    , dcrsStatus
+    , dcrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -173,7 +173,7 @@ instance ToQuery DescribeCommunications where
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
     { _dcrsNextToken      :: !(Maybe Text)
     , _dcrsCommunications :: !(Maybe [Communication])
-    , _dcrsStatus         :: !Int
+    , _dcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCommunicationsResponse' with the minimum fields required to make a request.
@@ -184,15 +184,15 @@ data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
 --
 -- * 'dcrsCommunications'
 --
--- * 'dcrsStatus'
+-- * 'dcrsResponseStatus'
 describeCommunicationsResponse
-    :: Int -- ^ 'dcrsStatus'
+    :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCommunicationsResponse
-describeCommunicationsResponse pStatus_ =
+describeCommunicationsResponse pResponseStatus_ =
     DescribeCommunicationsResponse'
     { _dcrsNextToken = Nothing
     , _dcrsCommunications = Nothing
-    , _dcrsStatus = pStatus_
+    , _dcrsResponseStatus = pResponseStatus_
     }
 
 -- | A resumption point for pagination.
@@ -204,5 +204,5 @@ dcrsCommunications :: Lens' DescribeCommunicationsResponse [Communication]
 dcrsCommunications = lens _dcrsCommunications (\ s a -> s{_dcrsCommunications = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcrsStatus :: Lens' DescribeCommunicationsResponse Int
-dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});
+dcrsResponseStatus :: Lens' DescribeCommunicationsResponse Int
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});

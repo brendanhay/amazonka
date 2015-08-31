@@ -44,7 +44,7 @@ module Network.AWS.EMR.ListInstances
     -- * Response Lenses
     , lirsMarker
     , lirsInstances
-    , lirsStatus
+    , lirsResponseStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -147,9 +147,9 @@ instance ToQuery ListInstances where
 --
 -- /See:/ 'listInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
-    { _lirsMarker    :: !(Maybe Text)
-    , _lirsInstances :: !(Maybe [Instance])
-    , _lirsStatus    :: !Int
+    { _lirsMarker         :: !(Maybe Text)
+    , _lirsInstances      :: !(Maybe [Instance])
+    , _lirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListInstancesResponse' with the minimum fields required to make a request.
@@ -160,15 +160,15 @@ data ListInstancesResponse = ListInstancesResponse'
 --
 -- * 'lirsInstances'
 --
--- * 'lirsStatus'
+-- * 'lirsResponseStatus'
 listInstancesResponse
-    :: Int -- ^ 'lirsStatus'
+    :: Int -- ^ 'lirsResponseStatus'
     -> ListInstancesResponse
-listInstancesResponse pStatus_ =
+listInstancesResponse pResponseStatus_ =
     ListInstancesResponse'
     { _lirsMarker = Nothing
     , _lirsInstances = Nothing
-    , _lirsStatus = pStatus_
+    , _lirsResponseStatus = pResponseStatus_
     }
 
 -- | The pagination token that indicates the next set of results to retrieve.
@@ -180,5 +180,5 @@ lirsInstances :: Lens' ListInstancesResponse [Instance]
 lirsInstances = lens _lirsInstances (\ s a -> s{_lirsInstances = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lirsStatus :: Lens' ListInstancesResponse Int
-lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});
+lirsResponseStatus :: Lens' ListInstancesResponse Int
+lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});

@@ -64,7 +64,7 @@ module Network.AWS.Route53Domains.RegisterDomain
     , registerDomainResponse
     , RegisterDomainResponse
     -- * Response Lenses
-    , rdrsStatus
+    , rdrsResponseStatus
     , rdrsOperationId
     ) where
 
@@ -308,30 +308,30 @@ instance ToQuery RegisterDomain where
 --
 -- /See:/ 'registerDomainResponse' smart constructor.
 data RegisterDomainResponse = RegisterDomainResponse'
-    { _rdrsStatus      :: !Int
-    , _rdrsOperationId :: !Text
+    { _rdrsResponseStatus :: !Int
+    , _rdrsOperationId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterDomainResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdrsStatus'
+-- * 'rdrsResponseStatus'
 --
 -- * 'rdrsOperationId'
 registerDomainResponse
-    :: Int -- ^ 'rdrsStatus'
+    :: Int -- ^ 'rdrsResponseStatus'
     -> Text -- ^ 'rdrsOperationId'
     -> RegisterDomainResponse
-registerDomainResponse pStatus_ pOperationId_ =
+registerDomainResponse pResponseStatus_ pOperationId_ =
     RegisterDomainResponse'
-    { _rdrsStatus = pStatus_
+    { _rdrsResponseStatus = pResponseStatus_
     , _rdrsOperationId = pOperationId_
     }
 
 -- | The response status code.
-rdrsStatus :: Lens' RegisterDomainResponse Int
-rdrsStatus = lens _rdrsStatus (\ s a -> s{_rdrsStatus = a});
+rdrsResponseStatus :: Lens' RegisterDomainResponse Int
+rdrsResponseStatus = lens _rdrsResponseStatus (\ s a -> s{_rdrsResponseStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.

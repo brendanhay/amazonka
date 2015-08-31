@@ -42,7 +42,7 @@ module Network.AWS.RDS.DescribeDBSnapshots
     -- * Response Lenses
     , ddsrsMarker
     , ddsrsDBSnapshots
-    , ddsrsStatus
+    , ddsrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -189,9 +189,9 @@ instance ToQuery DescribeDBSnapshots where
 --
 -- /See:/ 'describeDBSnapshotsResponse' smart constructor.
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
-    { _ddsrsMarker      :: !(Maybe Text)
-    , _ddsrsDBSnapshots :: !(Maybe [DBSnapshot])
-    , _ddsrsStatus      :: !Int
+    { _ddsrsMarker         :: !(Maybe Text)
+    , _ddsrsDBSnapshots    :: !(Maybe [DBSnapshot])
+    , _ddsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBSnapshotsResponse' with the minimum fields required to make a request.
@@ -202,15 +202,15 @@ data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
 --
 -- * 'ddsrsDBSnapshots'
 --
--- * 'ddsrsStatus'
+-- * 'ddsrsResponseStatus'
 describeDBSnapshotsResponse
-    :: Int -- ^ 'ddsrsStatus'
+    :: Int -- ^ 'ddsrsResponseStatus'
     -> DescribeDBSnapshotsResponse
-describeDBSnapshotsResponse pStatus_ =
+describeDBSnapshotsResponse pResponseStatus_ =
     DescribeDBSnapshotsResponse'
     { _ddsrsMarker = Nothing
     , _ddsrsDBSnapshots = Nothing
-    , _ddsrsStatus = pStatus_
+    , _ddsrsResponseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -224,5 +224,5 @@ ddsrsDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
 ddsrsDBSnapshots = lens _ddsrsDBSnapshots (\ s a -> s{_ddsrsDBSnapshots = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddsrsStatus :: Lens' DescribeDBSnapshotsResponse Int
-ddsrsStatus = lens _ddsrsStatus (\ s a -> s{_ddsrsStatus = a});
+ddsrsResponseStatus :: Lens' DescribeDBSnapshotsResponse Int
+ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus = a});

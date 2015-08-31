@@ -51,7 +51,7 @@ module Network.AWS.RDS.RestoreDBClusterFromSnapshot
     , RestoreDBClusterFromSnapshotResponse
     -- * Response Lenses
     , rdcfsrsDBCluster
-    , rdcfsrsStatus
+    , rdcfsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -234,8 +234,8 @@ instance ToQuery RestoreDBClusterFromSnapshot where
 
 -- | /See:/ 'restoreDBClusterFromSnapshotResponse' smart constructor.
 data RestoreDBClusterFromSnapshotResponse = RestoreDBClusterFromSnapshotResponse'
-    { _rdcfsrsDBCluster :: !(Maybe DBCluster)
-    , _rdcfsrsStatus    :: !Int
+    { _rdcfsrsDBCluster      :: !(Maybe DBCluster)
+    , _rdcfsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestoreDBClusterFromSnapshotResponse' with the minimum fields required to make a request.
@@ -244,14 +244,14 @@ data RestoreDBClusterFromSnapshotResponse = RestoreDBClusterFromSnapshotResponse
 --
 -- * 'rdcfsrsDBCluster'
 --
--- * 'rdcfsrsStatus'
+-- * 'rdcfsrsResponseStatus'
 restoreDBClusterFromSnapshotResponse
-    :: Int -- ^ 'rdcfsrsStatus'
+    :: Int -- ^ 'rdcfsrsResponseStatus'
     -> RestoreDBClusterFromSnapshotResponse
-restoreDBClusterFromSnapshotResponse pStatus_ =
+restoreDBClusterFromSnapshotResponse pResponseStatus_ =
     RestoreDBClusterFromSnapshotResponse'
     { _rdcfsrsDBCluster = Nothing
-    , _rdcfsrsStatus = pStatus_
+    , _rdcfsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -259,5 +259,5 @@ rdcfsrsDBCluster :: Lens' RestoreDBClusterFromSnapshotResponse (Maybe DBCluster)
 rdcfsrsDBCluster = lens _rdcfsrsDBCluster (\ s a -> s{_rdcfsrsDBCluster = a});
 
 -- | The response status code.
-rdcfsrsStatus :: Lens' RestoreDBClusterFromSnapshotResponse Int
-rdcfsrsStatus = lens _rdcfsrsStatus (\ s a -> s{_rdcfsrsStatus = a});
+rdcfsrsResponseStatus :: Lens' RestoreDBClusterFromSnapshotResponse Int
+rdcfsrsResponseStatus = lens _rdcfsrsResponseStatus (\ s a -> s{_rdcfsrsResponseStatus = a});

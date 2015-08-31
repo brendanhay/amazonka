@@ -62,7 +62,7 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     -- * Response Lenses
     , dcssrsSnapshots
     , dcssrsMarker
-    , dcssrsStatus
+    , dcssrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -256,9 +256,9 @@ instance ToQuery DescribeClusterSnapshots where
 --
 -- /See:/ 'describeClusterSnapshotsResponse' smart constructor.
 data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'
-    { _dcssrsSnapshots :: !(Maybe [Snapshot])
-    , _dcssrsMarker    :: !(Maybe Text)
-    , _dcssrsStatus    :: !Int
+    { _dcssrsSnapshots      :: !(Maybe [Snapshot])
+    , _dcssrsMarker         :: !(Maybe Text)
+    , _dcssrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClusterSnapshotsResponse' with the minimum fields required to make a request.
@@ -269,15 +269,15 @@ data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'
 --
 -- * 'dcssrsMarker'
 --
--- * 'dcssrsStatus'
+-- * 'dcssrsResponseStatus'
 describeClusterSnapshotsResponse
-    :: Int -- ^ 'dcssrsStatus'
+    :: Int -- ^ 'dcssrsResponseStatus'
     -> DescribeClusterSnapshotsResponse
-describeClusterSnapshotsResponse pStatus_ =
+describeClusterSnapshotsResponse pResponseStatus_ =
     DescribeClusterSnapshotsResponse'
     { _dcssrsSnapshots = Nothing
     , _dcssrsMarker = Nothing
-    , _dcssrsStatus = pStatus_
+    , _dcssrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of Snapshot instances.
@@ -294,5 +294,5 @@ dcssrsMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
 dcssrsMarker = lens _dcssrsMarker (\ s a -> s{_dcssrsMarker = a});
 
 -- | The response status code.
-dcssrsStatus :: Lens' DescribeClusterSnapshotsResponse Int
-dcssrsStatus = lens _dcssrsStatus (\ s a -> s{_dcssrsStatus = a});
+dcssrsResponseStatus :: Lens' DescribeClusterSnapshotsResponse Int
+dcssrsResponseStatus = lens _dcssrsResponseStatus (\ s a -> s{_dcssrsResponseStatus = a});

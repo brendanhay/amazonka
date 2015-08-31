@@ -43,7 +43,7 @@ module Network.AWS.SDB.GetAttributes
     , GetAttributesResponse
     -- * Response Lenses
     , garsAttributes
-    , garsStatus
+    , garsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -132,8 +132,8 @@ instance ToQuery GetAttributes where
 
 -- | /See:/ 'getAttributesResponse' smart constructor.
 data GetAttributesResponse = GetAttributesResponse'
-    { _garsAttributes :: !(Maybe [Attribute])
-    , _garsStatus     :: !Int
+    { _garsAttributes     :: !(Maybe [Attribute])
+    , _garsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetAttributesResponse' with the minimum fields required to make a request.
@@ -142,14 +142,14 @@ data GetAttributesResponse = GetAttributesResponse'
 --
 -- * 'garsAttributes'
 --
--- * 'garsStatus'
+-- * 'garsResponseStatus'
 getAttributesResponse
-    :: Int -- ^ 'garsStatus'
+    :: Int -- ^ 'garsResponseStatus'
     -> GetAttributesResponse
-getAttributesResponse pStatus_ =
+getAttributesResponse pResponseStatus_ =
     GetAttributesResponse'
     { _garsAttributes = Nothing
-    , _garsStatus = pStatus_
+    , _garsResponseStatus = pResponseStatus_
     }
 
 -- | The list of attributes returned by the operation.
@@ -157,5 +157,5 @@ garsAttributes :: Lens' GetAttributesResponse [Attribute]
 garsAttributes = lens _garsAttributes (\ s a -> s{_garsAttributes = a}) . _Default . _Coerce;
 
 -- | The response status code.
-garsStatus :: Lens' GetAttributesResponse Int
-garsStatus = lens _garsStatus (\ s a -> s{_garsStatus = a});
+garsResponseStatus :: Lens' GetAttributesResponse Int
+garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});

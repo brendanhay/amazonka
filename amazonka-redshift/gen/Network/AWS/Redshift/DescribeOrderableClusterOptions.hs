@@ -49,7 +49,7 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
     -- * Response Lenses
     , docorsMarker
     , docorsOrderableClusterOptions
-    , docorsStatus
+    , docorsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -176,7 +176,7 @@ instance ToQuery DescribeOrderableClusterOptions
 data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'
     { _docorsMarker                  :: !(Maybe Text)
     , _docorsOrderableClusterOptions :: !(Maybe [OrderableClusterOption])
-    , _docorsStatus                  :: !Int
+    , _docorsResponseStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeOrderableClusterOptionsResponse' with the minimum fields required to make a request.
@@ -187,15 +187,15 @@ data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsRe
 --
 -- * 'docorsOrderableClusterOptions'
 --
--- * 'docorsStatus'
+-- * 'docorsResponseStatus'
 describeOrderableClusterOptionsResponse
-    :: Int -- ^ 'docorsStatus'
+    :: Int -- ^ 'docorsResponseStatus'
     -> DescribeOrderableClusterOptionsResponse
-describeOrderableClusterOptionsResponse pStatus_ =
+describeOrderableClusterOptionsResponse pResponseStatus_ =
     DescribeOrderableClusterOptionsResponse'
     { _docorsMarker = Nothing
     , _docorsOrderableClusterOptions = Nothing
-    , _docorsStatus = pStatus_
+    , _docorsResponseStatus = pResponseStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -213,5 +213,5 @@ docorsOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [
 docorsOrderableClusterOptions = lens _docorsOrderableClusterOptions (\ s a -> s{_docorsOrderableClusterOptions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-docorsStatus :: Lens' DescribeOrderableClusterOptionsResponse Int
-docorsStatus = lens _docorsStatus (\ s a -> s{_docorsStatus = a});
+docorsResponseStatus :: Lens' DescribeOrderableClusterOptionsResponse Int
+docorsResponseStatus = lens _docorsResponseStatus (\ s a -> s{_docorsResponseStatus = a});

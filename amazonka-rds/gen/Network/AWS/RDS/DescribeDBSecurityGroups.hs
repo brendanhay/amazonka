@@ -42,7 +42,7 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     -- * Response Lenses
     , ddbsgrsDBSecurityGroups
     , ddbsgrsMarker
-    , ddbsgrsStatus
+    , ddbsgrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -154,7 +154,7 @@ instance ToQuery DescribeDBSecurityGroups where
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'
     { _ddbsgrsDBSecurityGroups :: !(Maybe [DBSecurityGroup])
     , _ddbsgrsMarker           :: !(Maybe Text)
-    , _ddbsgrsStatus           :: !Int
+    , _ddbsgrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBSecurityGroupsResponse' with the minimum fields required to make a request.
@@ -165,15 +165,15 @@ data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'
 --
 -- * 'ddbsgrsMarker'
 --
--- * 'ddbsgrsStatus'
+-- * 'ddbsgrsResponseStatus'
 describeDBSecurityGroupsResponse
-    :: Int -- ^ 'ddbsgrsStatus'
+    :: Int -- ^ 'ddbsgrsResponseStatus'
     -> DescribeDBSecurityGroupsResponse
-describeDBSecurityGroupsResponse pStatus_ =
+describeDBSecurityGroupsResponse pResponseStatus_ =
     DescribeDBSecurityGroupsResponse'
     { _ddbsgrsDBSecurityGroups = Nothing
     , _ddbsgrsMarker = Nothing
-    , _ddbsgrsStatus = pStatus_
+    , _ddbsgrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of DBSecurityGroup instances.
@@ -187,5 +187,5 @@ ddbsgrsMarker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
 ddbsgrsMarker = lens _ddbsgrsMarker (\ s a -> s{_ddbsgrsMarker = a});
 
 -- | The response status code.
-ddbsgrsStatus :: Lens' DescribeDBSecurityGroupsResponse Int
-ddbsgrsStatus = lens _ddbsgrsStatus (\ s a -> s{_ddbsgrsStatus = a});
+ddbsgrsResponseStatus :: Lens' DescribeDBSecurityGroupsResponse Int
+ddbsgrsResponseStatus = lens _ddbsgrsResponseStatus (\ s a -> s{_ddbsgrsResponseStatus = a});

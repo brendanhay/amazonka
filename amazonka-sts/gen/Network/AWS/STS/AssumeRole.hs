@@ -119,7 +119,7 @@ module Network.AWS.STS.AssumeRole
     , arrsPackedPolicySize
     , arrsCredentials
     , arrsAssumedRoleUser
-    , arrsStatus
+    , arrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -283,7 +283,7 @@ data AssumeRoleResponse = AssumeRoleResponse'
     { _arrsPackedPolicySize :: !(Maybe Nat)
     , _arrsCredentials      :: !(Maybe Credentials)
     , _arrsAssumedRoleUser  :: !(Maybe AssumedRoleUser)
-    , _arrsStatus           :: !Int
+    , _arrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AssumeRoleResponse' with the minimum fields required to make a request.
@@ -296,16 +296,16 @@ data AssumeRoleResponse = AssumeRoleResponse'
 --
 -- * 'arrsAssumedRoleUser'
 --
--- * 'arrsStatus'
+-- * 'arrsResponseStatus'
 assumeRoleResponse
-    :: Int -- ^ 'arrsStatus'
+    :: Int -- ^ 'arrsResponseStatus'
     -> AssumeRoleResponse
-assumeRoleResponse pStatus_ =
+assumeRoleResponse pResponseStatus_ =
     AssumeRoleResponse'
     { _arrsPackedPolicySize = Nothing
     , _arrsCredentials = Nothing
     , _arrsAssumedRoleUser = Nothing
-    , _arrsStatus = pStatus_
+    , _arrsResponseStatus = pResponseStatus_
     }
 
 -- | A percentage value that indicates the size of the policy in packed form.
@@ -329,5 +329,5 @@ arrsAssumedRoleUser :: Lens' AssumeRoleResponse (Maybe AssumedRoleUser)
 arrsAssumedRoleUser = lens _arrsAssumedRoleUser (\ s a -> s{_arrsAssumedRoleUser = a});
 
 -- | The response status code.
-arrsStatus :: Lens' AssumeRoleResponse Int
-arrsStatus = lens _arrsStatus (\ s a -> s{_arrsStatus = a});
+arrsResponseStatus :: Lens' AssumeRoleResponse Int
+arrsResponseStatus = lens _arrsResponseStatus (\ s a -> s{_arrsResponseStatus = a});

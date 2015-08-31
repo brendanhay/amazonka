@@ -38,7 +38,7 @@ module Network.AWS.DirectConnect.ConfirmConnection
     , ConfirmConnectionResponse
     -- * Response Lenses
     , ccrsConnectionState
-    , ccrsStatus
+    , ccrsResponseStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -106,7 +106,7 @@ instance ToQuery ConfirmConnection where
 -- /See:/ 'confirmConnectionResponse' smart constructor.
 data ConfirmConnectionResponse = ConfirmConnectionResponse'
     { _ccrsConnectionState :: !(Maybe ConnectionState)
-    , _ccrsStatus          :: !Int
+    , _ccrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ConfirmConnectionResponse' with the minimum fields required to make a request.
@@ -115,14 +115,14 @@ data ConfirmConnectionResponse = ConfirmConnectionResponse'
 --
 -- * 'ccrsConnectionState'
 --
--- * 'ccrsStatus'
+-- * 'ccrsResponseStatus'
 confirmConnectionResponse
-    :: Int -- ^ 'ccrsStatus'
+    :: Int -- ^ 'ccrsResponseStatus'
     -> ConfirmConnectionResponse
-confirmConnectionResponse pStatus_ =
+confirmConnectionResponse pResponseStatus_ =
     ConfirmConnectionResponse'
     { _ccrsConnectionState = Nothing
-    , _ccrsStatus = pStatus_
+    , _ccrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -130,5 +130,5 @@ ccrsConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
 ccrsConnectionState = lens _ccrsConnectionState (\ s a -> s{_ccrsConnectionState = a});
 
 -- | The response status code.
-ccrsStatus :: Lens' ConfirmConnectionResponse Int
-ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});
+ccrsResponseStatus :: Lens' ConfirmConnectionResponse Int
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});

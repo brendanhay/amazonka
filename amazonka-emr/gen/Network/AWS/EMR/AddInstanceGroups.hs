@@ -36,7 +36,7 @@ module Network.AWS.EMR.AddInstanceGroups
     -- * Response Lenses
     , aigrsJobFlowId
     , aigrsInstanceGroupIds
-    , aigrsStatus
+    , aigrsResponseStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -116,7 +116,7 @@ instance ToQuery AddInstanceGroups where
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
     { _aigrsJobFlowId        :: !(Maybe Text)
     , _aigrsInstanceGroupIds :: !(Maybe [Text])
-    , _aigrsStatus           :: !Int
+    , _aigrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddInstanceGroupsResponse' with the minimum fields required to make a request.
@@ -127,15 +127,15 @@ data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
 --
 -- * 'aigrsInstanceGroupIds'
 --
--- * 'aigrsStatus'
+-- * 'aigrsResponseStatus'
 addInstanceGroupsResponse
-    :: Int -- ^ 'aigrsStatus'
+    :: Int -- ^ 'aigrsResponseStatus'
     -> AddInstanceGroupsResponse
-addInstanceGroupsResponse pStatus_ =
+addInstanceGroupsResponse pResponseStatus_ =
     AddInstanceGroupsResponse'
     { _aigrsJobFlowId = Nothing
     , _aigrsInstanceGroupIds = Nothing
-    , _aigrsStatus = pStatus_
+    , _aigrsResponseStatus = pResponseStatus_
     }
 
 -- | The job flow ID in which the instance groups are added.
@@ -147,5 +147,5 @@ aigrsInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
 aigrsInstanceGroupIds = lens _aigrsInstanceGroupIds (\ s a -> s{_aigrsInstanceGroupIds = a}) . _Default . _Coerce;
 
 -- | The response status code.
-aigrsStatus :: Lens' AddInstanceGroupsResponse Int
-aigrsStatus = lens _aigrsStatus (\ s a -> s{_aigrsStatus = a});
+aigrsResponseStatus :: Lens' AddInstanceGroupsResponse Int
+aigrsResponseStatus = lens _aigrsResponseStatus (\ s a -> s{_aigrsResponseStatus = a});

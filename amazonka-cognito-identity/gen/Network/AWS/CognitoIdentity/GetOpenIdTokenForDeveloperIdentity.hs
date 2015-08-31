@@ -54,7 +54,7 @@ module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     -- * Response Lenses
     , goitfdirsToken
     , goitfdirsIdentityId
-    , goitfdirsStatus
+    , goitfdirsResponseStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -174,9 +174,9 @@ instance ToQuery GetOpenIdTokenForDeveloperIdentity
 --
 -- /See:/ 'getOpenIdTokenForDeveloperIdentityResponse' smart constructor.
 data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'
-    { _goitfdirsToken      :: !(Maybe Text)
-    , _goitfdirsIdentityId :: !(Maybe Text)
-    , _goitfdirsStatus     :: !Int
+    { _goitfdirsToken          :: !(Maybe Text)
+    , _goitfdirsIdentityId     :: !(Maybe Text)
+    , _goitfdirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetOpenIdTokenForDeveloperIdentityResponse' with the minimum fields required to make a request.
@@ -187,15 +187,15 @@ data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIden
 --
 -- * 'goitfdirsIdentityId'
 --
--- * 'goitfdirsStatus'
+-- * 'goitfdirsResponseStatus'
 getOpenIdTokenForDeveloperIdentityResponse
-    :: Int -- ^ 'goitfdirsStatus'
+    :: Int -- ^ 'goitfdirsResponseStatus'
     -> GetOpenIdTokenForDeveloperIdentityResponse
-getOpenIdTokenForDeveloperIdentityResponse pStatus_ =
+getOpenIdTokenForDeveloperIdentityResponse pResponseStatus_ =
     GetOpenIdTokenForDeveloperIdentityResponse'
     { _goitfdirsToken = Nothing
     , _goitfdirsIdentityId = Nothing
-    , _goitfdirsStatus = pStatus_
+    , _goitfdirsResponseStatus = pResponseStatus_
     }
 
 -- | An OpenID token.
@@ -207,5 +207,5 @@ goitfdirsIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe T
 goitfdirsIdentityId = lens _goitfdirsIdentityId (\ s a -> s{_goitfdirsIdentityId = a});
 
 -- | The response status code.
-goitfdirsStatus :: Lens' GetOpenIdTokenForDeveloperIdentityResponse Int
-goitfdirsStatus = lens _goitfdirsStatus (\ s a -> s{_goitfdirsStatus = a});
+goitfdirsResponseStatus :: Lens' GetOpenIdTokenForDeveloperIdentityResponse Int
+goitfdirsResponseStatus = lens _goitfdirsResponseStatus (\ s a -> s{_goitfdirsResponseStatus = a});

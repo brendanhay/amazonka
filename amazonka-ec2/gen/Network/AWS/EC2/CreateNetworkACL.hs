@@ -41,7 +41,7 @@ module Network.AWS.EC2.CreateNetworkACL
     , CreateNetworkACLResponse
     -- * Response Lenses
     , cnarsNetworkACL
-    , cnarsStatus
+    , cnarsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -107,8 +107,8 @@ instance ToQuery CreateNetworkACL where
 
 -- | /See:/ 'createNetworkACLResponse' smart constructor.
 data CreateNetworkACLResponse = CreateNetworkACLResponse'
-    { _cnarsNetworkACL :: !(Maybe NetworkACL)
-    , _cnarsStatus     :: !Int
+    { _cnarsNetworkACL     :: !(Maybe NetworkACL)
+    , _cnarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateNetworkACLResponse' with the minimum fields required to make a request.
@@ -117,14 +117,14 @@ data CreateNetworkACLResponse = CreateNetworkACLResponse'
 --
 -- * 'cnarsNetworkACL'
 --
--- * 'cnarsStatus'
+-- * 'cnarsResponseStatus'
 createNetworkACLResponse
-    :: Int -- ^ 'cnarsStatus'
+    :: Int -- ^ 'cnarsResponseStatus'
     -> CreateNetworkACLResponse
-createNetworkACLResponse pStatus_ =
+createNetworkACLResponse pResponseStatus_ =
     CreateNetworkACLResponse'
     { _cnarsNetworkACL = Nothing
-    , _cnarsStatus = pStatus_
+    , _cnarsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the network ACL.
@@ -132,5 +132,5 @@ cnarsNetworkACL :: Lens' CreateNetworkACLResponse (Maybe NetworkACL)
 cnarsNetworkACL = lens _cnarsNetworkACL (\ s a -> s{_cnarsNetworkACL = a});
 
 -- | The response status code.
-cnarsStatus :: Lens' CreateNetworkACLResponse Int
-cnarsStatus = lens _cnarsStatus (\ s a -> s{_cnarsStatus = a});
+cnarsResponseStatus :: Lens' CreateNetworkACLResponse Int
+cnarsResponseStatus = lens _cnarsResponseStatus (\ s a -> s{_cnarsResponseStatus = a});

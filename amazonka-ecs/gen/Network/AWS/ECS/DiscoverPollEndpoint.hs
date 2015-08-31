@@ -40,7 +40,7 @@ module Network.AWS.ECS.DiscoverPollEndpoint
     -- * Response Lenses
     , dpersTelemetryEndpoint
     , dpersEndpoint
-    , dpersStatus
+    , dpersResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -121,7 +121,7 @@ instance ToQuery DiscoverPollEndpoint where
 data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
     { _dpersTelemetryEndpoint :: !(Maybe Text)
     , _dpersEndpoint          :: !(Maybe Text)
-    , _dpersStatus            :: !Int
+    , _dpersResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DiscoverPollEndpointResponse' with the minimum fields required to make a request.
@@ -132,15 +132,15 @@ data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
 --
 -- * 'dpersEndpoint'
 --
--- * 'dpersStatus'
+-- * 'dpersResponseStatus'
 discoverPollEndpointResponse
-    :: Int -- ^ 'dpersStatus'
+    :: Int -- ^ 'dpersResponseStatus'
     -> DiscoverPollEndpointResponse
-discoverPollEndpointResponse pStatus_ =
+discoverPollEndpointResponse pResponseStatus_ =
     DiscoverPollEndpointResponse'
     { _dpersTelemetryEndpoint = Nothing
     , _dpersEndpoint = Nothing
-    , _dpersStatus = pStatus_
+    , _dpersResponseStatus = pResponseStatus_
     }
 
 -- | The telemetry endpoint for the Amazon ECS agent.
@@ -152,5 +152,5 @@ dpersEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
 dpersEndpoint = lens _dpersEndpoint (\ s a -> s{_dpersEndpoint = a});
 
 -- | The response status code.
-dpersStatus :: Lens' DiscoverPollEndpointResponse Int
-dpersStatus = lens _dpersStatus (\ s a -> s{_dpersStatus = a});
+dpersResponseStatus :: Lens' DiscoverPollEndpointResponse Int
+dpersResponseStatus = lens _dpersResponseStatus (\ s a -> s{_dpersResponseStatus = a});

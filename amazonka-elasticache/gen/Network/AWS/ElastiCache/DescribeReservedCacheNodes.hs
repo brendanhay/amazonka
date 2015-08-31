@@ -46,7 +46,7 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     -- * Response Lenses
     , drcnrsMarker
     , drcnrsReservedCacheNodes
-    , drcnrsStatus
+    , drcnrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -234,7 +234,7 @@ instance ToQuery DescribeReservedCacheNodes where
 data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse'
     { _drcnrsMarker             :: !(Maybe Text)
     , _drcnrsReservedCacheNodes :: !(Maybe [ReservedCacheNode])
-    , _drcnrsStatus             :: !Int
+    , _drcnrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedCacheNodesResponse' with the minimum fields required to make a request.
@@ -245,15 +245,15 @@ data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse'
 --
 -- * 'drcnrsReservedCacheNodes'
 --
--- * 'drcnrsStatus'
+-- * 'drcnrsResponseStatus'
 describeReservedCacheNodesResponse
-    :: Int -- ^ 'drcnrsStatus'
+    :: Int -- ^ 'drcnrsResponseStatus'
     -> DescribeReservedCacheNodesResponse
-describeReservedCacheNodesResponse pStatus_ =
+describeReservedCacheNodesResponse pResponseStatus_ =
     DescribeReservedCacheNodesResponse'
     { _drcnrsMarker = Nothing
     , _drcnrsReservedCacheNodes = Nothing
-    , _drcnrsStatus = pStatus_
+    , _drcnrsResponseStatus = pResponseStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -266,5 +266,5 @@ drcnrsReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse [ReservedCa
 drcnrsReservedCacheNodes = lens _drcnrsReservedCacheNodes (\ s a -> s{_drcnrsReservedCacheNodes = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drcnrsStatus :: Lens' DescribeReservedCacheNodesResponse Int
-drcnrsStatus = lens _drcnrsStatus (\ s a -> s{_drcnrsStatus = a});
+drcnrsResponseStatus :: Lens' DescribeReservedCacheNodesResponse Int
+drcnrsResponseStatus = lens _drcnrsResponseStatus (\ s a -> s{_drcnrsResponseStatus = a});

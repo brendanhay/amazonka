@@ -41,7 +41,7 @@ module Network.AWS.StorageGateway.AddUploadBuffer
     , AddUploadBufferResponse
     -- * Response Lenses
     , aubrsGatewayARN
-    , aubrsStatus
+    , aubrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -114,8 +114,8 @@ instance ToQuery AddUploadBuffer where
 
 -- | /See:/ 'addUploadBufferResponse' smart constructor.
 data AddUploadBufferResponse = AddUploadBufferResponse'
-    { _aubrsGatewayARN :: !(Maybe Text)
-    , _aubrsStatus     :: !Int
+    { _aubrsGatewayARN     :: !(Maybe Text)
+    , _aubrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddUploadBufferResponse' with the minimum fields required to make a request.
@@ -124,14 +124,14 @@ data AddUploadBufferResponse = AddUploadBufferResponse'
 --
 -- * 'aubrsGatewayARN'
 --
--- * 'aubrsStatus'
+-- * 'aubrsResponseStatus'
 addUploadBufferResponse
-    :: Int -- ^ 'aubrsStatus'
+    :: Int -- ^ 'aubrsResponseStatus'
     -> AddUploadBufferResponse
-addUploadBufferResponse pStatus_ =
+addUploadBufferResponse pResponseStatus_ =
     AddUploadBufferResponse'
     { _aubrsGatewayARN = Nothing
-    , _aubrsStatus = pStatus_
+    , _aubrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -139,5 +139,5 @@ aubrsGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
 aubrsGatewayARN = lens _aubrsGatewayARN (\ s a -> s{_aubrsGatewayARN = a});
 
 -- | The response status code.
-aubrsStatus :: Lens' AddUploadBufferResponse Int
-aubrsStatus = lens _aubrsStatus (\ s a -> s{_aubrsStatus = a});
+aubrsResponseStatus :: Lens' AddUploadBufferResponse Int
+aubrsResponseStatus = lens _aubrsResponseStatus (\ s a -> s{_aubrsResponseStatus = a});

@@ -59,7 +59,7 @@ module Network.AWS.Glacier.CreateVault
     , CreateVaultResponse
     -- * Response Lenses
     , cvrsLocation
-    , cvrsStatus
+    , cvrsResponseStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -135,8 +135,8 @@ instance ToQuery CreateVault where
 --
 -- /See:/ 'createVaultResponse' smart constructor.
 data CreateVaultResponse = CreateVaultResponse'
-    { _cvrsLocation :: !(Maybe Text)
-    , _cvrsStatus   :: !Int
+    { _cvrsLocation       :: !(Maybe Text)
+    , _cvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateVaultResponse' with the minimum fields required to make a request.
@@ -145,14 +145,14 @@ data CreateVaultResponse = CreateVaultResponse'
 --
 -- * 'cvrsLocation'
 --
--- * 'cvrsStatus'
+-- * 'cvrsResponseStatus'
 createVaultResponse
-    :: Int -- ^ 'cvrsStatus'
+    :: Int -- ^ 'cvrsResponseStatus'
     -> CreateVaultResponse
-createVaultResponse pStatus_ =
+createVaultResponse pResponseStatus_ =
     CreateVaultResponse'
     { _cvrsLocation = Nothing
-    , _cvrsStatus = pStatus_
+    , _cvrsResponseStatus = pResponseStatus_
     }
 
 -- | The URI of the vault that was created.
@@ -160,5 +160,5 @@ cvrsLocation :: Lens' CreateVaultResponse (Maybe Text)
 cvrsLocation = lens _cvrsLocation (\ s a -> s{_cvrsLocation = a});
 
 -- | The response status code.
-cvrsStatus :: Lens' CreateVaultResponse Int
-cvrsStatus = lens _cvrsStatus (\ s a -> s{_cvrsStatus = a});
+cvrsResponseStatus :: Lens' CreateVaultResponse Int
+cvrsResponseStatus = lens _cvrsResponseStatus (\ s a -> s{_cvrsResponseStatus = a});

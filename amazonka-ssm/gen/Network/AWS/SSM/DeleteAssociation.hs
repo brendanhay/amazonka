@@ -41,7 +41,7 @@ module Network.AWS.SSM.DeleteAssociation
     , deleteAssociationResponse
     , DeleteAssociationResponse
     -- * Response Lenses
-    , delrsStatus
+    , delrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -113,22 +113,22 @@ instance ToQuery DeleteAssociation where
 
 -- | /See:/ 'deleteAssociationResponse' smart constructor.
 newtype DeleteAssociationResponse = DeleteAssociationResponse'
-    { _delrsStatus :: Int
+    { _delrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteAssociationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsStatus'
+-- * 'delrsResponseStatus'
 deleteAssociationResponse
-    :: Int -- ^ 'delrsStatus'
+    :: Int -- ^ 'delrsResponseStatus'
     -> DeleteAssociationResponse
-deleteAssociationResponse pStatus_ =
+deleteAssociationResponse pResponseStatus_ =
     DeleteAssociationResponse'
-    { _delrsStatus = pStatus_
+    { _delrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-delrsStatus :: Lens' DeleteAssociationResponse Int
-delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});
+delrsResponseStatus :: Lens' DeleteAssociationResponse Int
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});

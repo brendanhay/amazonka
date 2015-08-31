@@ -35,7 +35,7 @@ module Network.AWS.Route53.GetCheckerIPRanges
     , getCheckerIPRangesResponse
     , GetCheckerIPRangesResponse
     -- * Response Lenses
-    , gcirrsStatus
+    , gcirrsResponseStatus
     , gcirrsCheckerIPRanges
     ) where
 
@@ -83,7 +83,7 @@ instance ToQuery GetCheckerIPRanges where
 --
 -- /See:/ 'getCheckerIPRangesResponse' smart constructor.
 data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
-    { _gcirrsStatus          :: !Int
+    { _gcirrsResponseStatus  :: !Int
     , _gcirrsCheckerIPRanges :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -91,21 +91,21 @@ data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcirrsStatus'
+-- * 'gcirrsResponseStatus'
 --
 -- * 'gcirrsCheckerIPRanges'
 getCheckerIPRangesResponse
-    :: Int -- ^ 'gcirrsStatus'
+    :: Int -- ^ 'gcirrsResponseStatus'
     -> GetCheckerIPRangesResponse
-getCheckerIPRangesResponse pStatus_ =
+getCheckerIPRangesResponse pResponseStatus_ =
     GetCheckerIPRangesResponse'
-    { _gcirrsStatus = pStatus_
+    { _gcirrsResponseStatus = pResponseStatus_
     , _gcirrsCheckerIPRanges = mempty
     }
 
 -- | The response status code.
-gcirrsStatus :: Lens' GetCheckerIPRangesResponse Int
-gcirrsStatus = lens _gcirrsStatus (\ s a -> s{_gcirrsStatus = a});
+gcirrsResponseStatus :: Lens' GetCheckerIPRangesResponse Int
+gcirrsResponseStatus = lens _gcirrsResponseStatus (\ s a -> s{_gcirrsResponseStatus = a});
 
 -- | A complex type that contains sorted list of IP ranges in CIDR format for
 -- Amazon Route 53 health checkers.

@@ -45,7 +45,7 @@ module Network.AWS.OpsWorks.DescribeVolumes
     , DescribeVolumesResponse
     -- * Response Lenses
     , dvrsVolumes
-    , dvrsStatus
+    , dvrsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -141,8 +141,8 @@ instance ToQuery DescribeVolumes where
 --
 -- /See:/ 'describeVolumesResponse' smart constructor.
 data DescribeVolumesResponse = DescribeVolumesResponse'
-    { _dvrsVolumes :: !(Maybe [Volume])
-    , _dvrsStatus  :: !Int
+    { _dvrsVolumes        :: !(Maybe [Volume])
+    , _dvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVolumesResponse' with the minimum fields required to make a request.
@@ -151,14 +151,14 @@ data DescribeVolumesResponse = DescribeVolumesResponse'
 --
 -- * 'dvrsVolumes'
 --
--- * 'dvrsStatus'
+-- * 'dvrsResponseStatus'
 describeVolumesResponse
-    :: Int -- ^ 'dvrsStatus'
+    :: Int -- ^ 'dvrsResponseStatus'
     -> DescribeVolumesResponse
-describeVolumesResponse pStatus_ =
+describeVolumesResponse pResponseStatus_ =
     DescribeVolumesResponse'
     { _dvrsVolumes = Nothing
-    , _dvrsStatus = pStatus_
+    , _dvrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of volume IDs.
@@ -166,5 +166,5 @@ dvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrsVolumes = lens _dvrsVolumes (\ s a -> s{_dvrsVolumes = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dvrsStatus :: Lens' DescribeVolumesResponse Int
-dvrsStatus = lens _dvrsStatus (\ s a -> s{_dvrsStatus = a});
+dvrsResponseStatus :: Lens' DescribeVolumesResponse Int
+dvrsResponseStatus = lens _dvrsResponseStatus (\ s a -> s{_dvrsResponseStatus = a});

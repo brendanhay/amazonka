@@ -34,7 +34,7 @@ module Network.AWS.KMS.DescribeKey
     , DescribeKeyResponse
     -- * Response Lenses
     , dkrsKeyMetadata
-    , dkrsStatus
+    , dkrsResponseStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -105,8 +105,8 @@ instance ToQuery DescribeKey where
 
 -- | /See:/ 'describeKeyResponse' smart constructor.
 data DescribeKeyResponse = DescribeKeyResponse'
-    { _dkrsKeyMetadata :: !(Maybe KeyMetadata)
-    , _dkrsStatus      :: !Int
+    { _dkrsKeyMetadata    :: !(Maybe KeyMetadata)
+    , _dkrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeKeyResponse' with the minimum fields required to make a request.
@@ -115,14 +115,14 @@ data DescribeKeyResponse = DescribeKeyResponse'
 --
 -- * 'dkrsKeyMetadata'
 --
--- * 'dkrsStatus'
+-- * 'dkrsResponseStatus'
 describeKeyResponse
-    :: Int -- ^ 'dkrsStatus'
+    :: Int -- ^ 'dkrsResponseStatus'
     -> DescribeKeyResponse
-describeKeyResponse pStatus_ =
+describeKeyResponse pResponseStatus_ =
     DescribeKeyResponse'
     { _dkrsKeyMetadata = Nothing
-    , _dkrsStatus = pStatus_
+    , _dkrsResponseStatus = pResponseStatus_
     }
 
 -- | Metadata associated with the key.
@@ -130,5 +130,5 @@ dkrsKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
 dkrsKeyMetadata = lens _dkrsKeyMetadata (\ s a -> s{_dkrsKeyMetadata = a});
 
 -- | The response status code.
-dkrsStatus :: Lens' DescribeKeyResponse Int
-dkrsStatus = lens _dkrsStatus (\ s a -> s{_dkrsStatus = a});
+dkrsResponseStatus :: Lens' DescribeKeyResponse Int
+dkrsResponseStatus = lens _dkrsResponseStatus (\ s a -> s{_dkrsResponseStatus = a});

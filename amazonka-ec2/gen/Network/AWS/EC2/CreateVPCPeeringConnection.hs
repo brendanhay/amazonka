@@ -48,7 +48,7 @@ module Network.AWS.EC2.CreateVPCPeeringConnection
     , CreateVPCPeeringConnectionResponse
     -- * Response Lenses
     , cvpcrsVPCPeeringConnection
-    , cvpcrsStatus
+    , cvpcrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -138,7 +138,7 @@ instance ToQuery CreateVPCPeeringConnection where
 -- | /See:/ 'createVPCPeeringConnectionResponse' smart constructor.
 data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
     { _cvpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
-    , _cvpcrsStatus               :: !Int
+    , _cvpcrsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateVPCPeeringConnectionResponse' with the minimum fields required to make a request.
@@ -147,14 +147,14 @@ data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
 --
 -- * 'cvpcrsVPCPeeringConnection'
 --
--- * 'cvpcrsStatus'
+-- * 'cvpcrsResponseStatus'
 createVPCPeeringConnectionResponse
-    :: Int -- ^ 'cvpcrsStatus'
+    :: Int -- ^ 'cvpcrsResponseStatus'
     -> CreateVPCPeeringConnectionResponse
-createVPCPeeringConnectionResponse pStatus_ =
+createVPCPeeringConnectionResponse pResponseStatus_ =
     CreateVPCPeeringConnectionResponse'
     { _cvpcrsVPCPeeringConnection = Nothing
-    , _cvpcrsStatus = pStatus_
+    , _cvpcrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the VPC peering connection.
@@ -162,5 +162,5 @@ cvpcrsVPCPeeringConnection :: Lens' CreateVPCPeeringConnectionResponse (Maybe VP
 cvpcrsVPCPeeringConnection = lens _cvpcrsVPCPeeringConnection (\ s a -> s{_cvpcrsVPCPeeringConnection = a});
 
 -- | The response status code.
-cvpcrsStatus :: Lens' CreateVPCPeeringConnectionResponse Int
-cvpcrsStatus = lens _cvpcrsStatus (\ s a -> s{_cvpcrsStatus = a});
+cvpcrsResponseStatus :: Lens' CreateVPCPeeringConnectionResponse Int
+cvpcrsResponseStatus = lens _cvpcrsResponseStatus (\ s a -> s{_cvpcrsResponseStatus = a});

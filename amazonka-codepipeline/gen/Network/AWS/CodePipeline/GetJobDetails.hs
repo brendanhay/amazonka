@@ -40,7 +40,7 @@ module Network.AWS.CodePipeline.GetJobDetails
     , GetJobDetailsResponse
     -- * Response Lenses
     , gjdrsJobDetails
-    , gjdrsStatus
+    , gjdrsResponseStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -106,8 +106,8 @@ instance ToQuery GetJobDetails where
 --
 -- /See:/ 'getJobDetailsResponse' smart constructor.
 data GetJobDetailsResponse = GetJobDetailsResponse'
-    { _gjdrsJobDetails :: !(Maybe JobDetails)
-    , _gjdrsStatus     :: !Int
+    { _gjdrsJobDetails     :: !(Maybe JobDetails)
+    , _gjdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetJobDetailsResponse' with the minimum fields required to make a request.
@@ -116,14 +116,14 @@ data GetJobDetailsResponse = GetJobDetailsResponse'
 --
 -- * 'gjdrsJobDetails'
 --
--- * 'gjdrsStatus'
+-- * 'gjdrsResponseStatus'
 getJobDetailsResponse
-    :: Int -- ^ 'gjdrsStatus'
+    :: Int -- ^ 'gjdrsResponseStatus'
     -> GetJobDetailsResponse
-getJobDetailsResponse pStatus_ =
+getJobDetailsResponse pResponseStatus_ =
     GetJobDetailsResponse'
     { _gjdrsJobDetails = Nothing
-    , _gjdrsStatus = pStatus_
+    , _gjdrsResponseStatus = pResponseStatus_
     }
 
 -- | The details of the job.
@@ -134,5 +134,5 @@ gjdrsJobDetails :: Lens' GetJobDetailsResponse (Maybe JobDetails)
 gjdrsJobDetails = lens _gjdrsJobDetails (\ s a -> s{_gjdrsJobDetails = a});
 
 -- | The response status code.
-gjdrsStatus :: Lens' GetJobDetailsResponse Int
-gjdrsStatus = lens _gjdrsStatus (\ s a -> s{_gjdrsStatus = a});
+gjdrsResponseStatus :: Lens' GetJobDetailsResponse Int
+gjdrsResponseStatus = lens _gjdrsResponseStatus (\ s a -> s{_gjdrsResponseStatus = a});

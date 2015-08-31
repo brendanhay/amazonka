@@ -47,7 +47,7 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
     -- * Response Lenses
     , dlgrsLogGroups
     , dlgrsNextToken
-    , dlgrsStatus
+    , dlgrsResponseStatus
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -142,9 +142,9 @@ instance ToQuery DescribeLogGroups where
 
 -- | /See:/ 'describeLogGroupsResponse' smart constructor.
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
-    { _dlgrsLogGroups :: !(Maybe [LogGroup])
-    , _dlgrsNextToken :: !(Maybe Text)
-    , _dlgrsStatus    :: !Int
+    { _dlgrsLogGroups      :: !(Maybe [LogGroup])
+    , _dlgrsNextToken      :: !(Maybe Text)
+    , _dlgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLogGroupsResponse' with the minimum fields required to make a request.
@@ -155,15 +155,15 @@ data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
 --
 -- * 'dlgrsNextToken'
 --
--- * 'dlgrsStatus'
+-- * 'dlgrsResponseStatus'
 describeLogGroupsResponse
-    :: Int -- ^ 'dlgrsStatus'
+    :: Int -- ^ 'dlgrsResponseStatus'
     -> DescribeLogGroupsResponse
-describeLogGroupsResponse pStatus_ =
+describeLogGroupsResponse pResponseStatus_ =
     DescribeLogGroupsResponse'
     { _dlgrsLogGroups = Nothing
     , _dlgrsNextToken = Nothing
-    , _dlgrsStatus = pStatus_
+    , _dlgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -175,5 +175,5 @@ dlgrsNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
 dlgrsNextToken = lens _dlgrsNextToken (\ s a -> s{_dlgrsNextToken = a});
 
 -- | The response status code.
-dlgrsStatus :: Lens' DescribeLogGroupsResponse Int
-dlgrsStatus = lens _dlgrsStatus (\ s a -> s{_dlgrsStatus = a});
+dlgrsResponseStatus :: Lens' DescribeLogGroupsResponse Int
+dlgrsResponseStatus = lens _dlgrsResponseStatus (\ s a -> s{_dlgrsResponseStatus = a});

@@ -64,7 +64,7 @@ module Network.AWS.Redshift.CreateEventSubscription
     , CreateEventSubscriptionResponse
     -- * Response Lenses
     , cesrsEventSubscription
-    , cesrsStatus
+    , cesrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -223,7 +223,7 @@ instance ToQuery CreateEventSubscription where
 -- | /See:/ 'createEventSubscriptionResponse' smart constructor.
 data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'
     { _cesrsEventSubscription :: !(Maybe EventSubscription)
-    , _cesrsStatus            :: !Int
+    , _cesrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateEventSubscriptionResponse' with the minimum fields required to make a request.
@@ -232,14 +232,14 @@ data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'
 --
 -- * 'cesrsEventSubscription'
 --
--- * 'cesrsStatus'
+-- * 'cesrsResponseStatus'
 createEventSubscriptionResponse
-    :: Int -- ^ 'cesrsStatus'
+    :: Int -- ^ 'cesrsResponseStatus'
     -> CreateEventSubscriptionResponse
-createEventSubscriptionResponse pStatus_ =
+createEventSubscriptionResponse pResponseStatus_ =
     CreateEventSubscriptionResponse'
     { _cesrsEventSubscription = Nothing
-    , _cesrsStatus = pStatus_
+    , _cesrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -247,5 +247,5 @@ cesrsEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubs
 cesrsEventSubscription = lens _cesrsEventSubscription (\ s a -> s{_cesrsEventSubscription = a});
 
 -- | The response status code.
-cesrsStatus :: Lens' CreateEventSubscriptionResponse Int
-cesrsStatus = lens _cesrsStatus (\ s a -> s{_cesrsStatus = a});
+cesrsResponseStatus :: Lens' CreateEventSubscriptionResponse Int
+cesrsResponseStatus = lens _cesrsResponseStatus (\ s a -> s{_cesrsResponseStatus = a});

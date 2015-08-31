@@ -39,7 +39,7 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
     -- * Response Lenses
     , vpdrsValidationErrors
     , vpdrsValidationWarnings
-    , vpdrsStatus
+    , vpdrsResponseStatus
     , vpdrsErrored
     ) where
 
@@ -142,7 +142,7 @@ instance ToQuery ValidatePipelineDefinition where
 data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
     { _vpdrsValidationErrors   :: !(Maybe [ValidationError])
     , _vpdrsValidationWarnings :: !(Maybe [ValidationWarning])
-    , _vpdrsStatus             :: !Int
+    , _vpdrsResponseStatus     :: !Int
     , _vpdrsErrored            :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -154,18 +154,18 @@ data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
 --
 -- * 'vpdrsValidationWarnings'
 --
--- * 'vpdrsStatus'
+-- * 'vpdrsResponseStatus'
 --
 -- * 'vpdrsErrored'
 validatePipelineDefinitionResponse
-    :: Int -- ^ 'vpdrsStatus'
+    :: Int -- ^ 'vpdrsResponseStatus'
     -> Bool -- ^ 'vpdrsErrored'
     -> ValidatePipelineDefinitionResponse
-validatePipelineDefinitionResponse pStatus_ pErrored_ =
+validatePipelineDefinitionResponse pResponseStatus_ pErrored_ =
     ValidatePipelineDefinitionResponse'
     { _vpdrsValidationErrors = Nothing
     , _vpdrsValidationWarnings = Nothing
-    , _vpdrsStatus = pStatus_
+    , _vpdrsResponseStatus = pResponseStatus_
     , _vpdrsErrored = pErrored_
     }
 
@@ -178,8 +178,8 @@ vpdrsValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationW
 vpdrsValidationWarnings = lens _vpdrsValidationWarnings (\ s a -> s{_vpdrsValidationWarnings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-vpdrsStatus :: Lens' ValidatePipelineDefinitionResponse Int
-vpdrsStatus = lens _vpdrsStatus (\ s a -> s{_vpdrsStatus = a});
+vpdrsResponseStatus :: Lens' ValidatePipelineDefinitionResponse Int
+vpdrsResponseStatus = lens _vpdrsResponseStatus (\ s a -> s{_vpdrsResponseStatus = a});
 
 -- | Indicates whether there were validation errors.
 vpdrsErrored :: Lens' ValidatePipelineDefinitionResponse Bool

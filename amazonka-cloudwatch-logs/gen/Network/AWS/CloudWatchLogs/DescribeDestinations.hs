@@ -45,7 +45,7 @@ module Network.AWS.CloudWatchLogs.DescribeDestinations
     -- * Response Lenses
     , ddrsNextToken
     , ddrsDestinations
-    , ddrsStatus
+    , ddrsResponseStatus
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -131,9 +131,9 @@ instance ToQuery DescribeDestinations where
 
 -- | /See:/ 'describeDestinationsResponse' smart constructor.
 data DescribeDestinationsResponse = DescribeDestinationsResponse'
-    { _ddrsNextToken    :: !(Maybe Text)
-    , _ddrsDestinations :: !(Maybe [Destination])
-    , _ddrsStatus       :: !Int
+    { _ddrsNextToken      :: !(Maybe Text)
+    , _ddrsDestinations   :: !(Maybe [Destination])
+    , _ddrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDestinationsResponse' with the minimum fields required to make a request.
@@ -144,15 +144,15 @@ data DescribeDestinationsResponse = DescribeDestinationsResponse'
 --
 -- * 'ddrsDestinations'
 --
--- * 'ddrsStatus'
+-- * 'ddrsResponseStatus'
 describeDestinationsResponse
-    :: Int -- ^ 'ddrsStatus'
+    :: Int -- ^ 'ddrsResponseStatus'
     -> DescribeDestinationsResponse
-describeDestinationsResponse pStatus_ =
+describeDestinationsResponse pResponseStatus_ =
     DescribeDestinationsResponse'
     { _ddrsNextToken = Nothing
     , _ddrsDestinations = Nothing
-    , _ddrsStatus = pStatus_
+    , _ddrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -164,5 +164,5 @@ ddrsDestinations :: Lens' DescribeDestinationsResponse [Destination]
 ddrsDestinations = lens _ddrsDestinations (\ s a -> s{_ddrsDestinations = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddrsStatus :: Lens' DescribeDestinationsResponse Int
-ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
+ddrsResponseStatus :: Lens' DescribeDestinationsResponse Int
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});

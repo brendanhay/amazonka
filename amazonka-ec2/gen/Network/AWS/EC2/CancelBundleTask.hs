@@ -36,7 +36,7 @@ module Network.AWS.EC2.CancelBundleTask
     , CancelBundleTaskResponse
     -- * Response Lenses
     , cbtrsBundleTask
-    , cbtrsStatus
+    , cbtrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -102,8 +102,8 @@ instance ToQuery CancelBundleTask where
 
 -- | /See:/ 'cancelBundleTaskResponse' smart constructor.
 data CancelBundleTaskResponse = CancelBundleTaskResponse'
-    { _cbtrsBundleTask :: !(Maybe BundleTask)
-    , _cbtrsStatus     :: !Int
+    { _cbtrsBundleTask     :: !(Maybe BundleTask)
+    , _cbtrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CancelBundleTaskResponse' with the minimum fields required to make a request.
@@ -112,14 +112,14 @@ data CancelBundleTaskResponse = CancelBundleTaskResponse'
 --
 -- * 'cbtrsBundleTask'
 --
--- * 'cbtrsStatus'
+-- * 'cbtrsResponseStatus'
 cancelBundleTaskResponse
-    :: Int -- ^ 'cbtrsStatus'
+    :: Int -- ^ 'cbtrsResponseStatus'
     -> CancelBundleTaskResponse
-cancelBundleTaskResponse pStatus_ =
+cancelBundleTaskResponse pResponseStatus_ =
     CancelBundleTaskResponse'
     { _cbtrsBundleTask = Nothing
-    , _cbtrsStatus = pStatus_
+    , _cbtrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the bundle task.
@@ -127,5 +127,5 @@ cbtrsBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
 cbtrsBundleTask = lens _cbtrsBundleTask (\ s a -> s{_cbtrsBundleTask = a});
 
 -- | The response status code.
-cbtrsStatus :: Lens' CancelBundleTaskResponse Int
-cbtrsStatus = lens _cbtrsStatus (\ s a -> s{_cbtrsStatus = a});
+cbtrsResponseStatus :: Lens' CancelBundleTaskResponse Int
+cbtrsResponseStatus = lens _cbtrsResponseStatus (\ s a -> s{_cbtrsResponseStatus = a});

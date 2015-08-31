@@ -45,7 +45,7 @@ module Network.AWS.OpsWorks.RegisterElasticIP
     , RegisterElasticIPResponse
     -- * Response Lenses
     , reirsElasticIP
-    , reirsStatus
+    , reirsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -121,8 +121,8 @@ instance ToQuery RegisterElasticIP where
 --
 -- /See:/ 'registerElasticIPResponse' smart constructor.
 data RegisterElasticIPResponse = RegisterElasticIPResponse'
-    { _reirsElasticIP :: !(Maybe Text)
-    , _reirsStatus    :: !Int
+    { _reirsElasticIP      :: !(Maybe Text)
+    , _reirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterElasticIPResponse' with the minimum fields required to make a request.
@@ -131,14 +131,14 @@ data RegisterElasticIPResponse = RegisterElasticIPResponse'
 --
 -- * 'reirsElasticIP'
 --
--- * 'reirsStatus'
+-- * 'reirsResponseStatus'
 registerElasticIPResponse
-    :: Int -- ^ 'reirsStatus'
+    :: Int -- ^ 'reirsResponseStatus'
     -> RegisterElasticIPResponse
-registerElasticIPResponse pStatus_ =
+registerElasticIPResponse pResponseStatus_ =
     RegisterElasticIPResponse'
     { _reirsElasticIP = Nothing
-    , _reirsStatus = pStatus_
+    , _reirsResponseStatus = pResponseStatus_
     }
 
 -- | The Elastic IP address.
@@ -146,5 +146,5 @@ reirsElasticIP :: Lens' RegisterElasticIPResponse (Maybe Text)
 reirsElasticIP = lens _reirsElasticIP (\ s a -> s{_reirsElasticIP = a});
 
 -- | The response status code.
-reirsStatus :: Lens' RegisterElasticIPResponse Int
-reirsStatus = lens _reirsStatus (\ s a -> s{_reirsStatus = a});
+reirsResponseStatus :: Lens' RegisterElasticIPResponse Int
+reirsResponseStatus = lens _reirsResponseStatus (\ s a -> s{_reirsResponseStatus = a});

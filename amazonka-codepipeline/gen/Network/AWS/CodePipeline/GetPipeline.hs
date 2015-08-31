@@ -38,7 +38,7 @@ module Network.AWS.CodePipeline.GetPipeline
     , GetPipelineResponse
     -- * Response Lenses
     , gprsPipeline
-    , gprsStatus
+    , gprsResponseStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -116,8 +116,8 @@ instance ToQuery GetPipeline where
 --
 -- /See:/ 'getPipelineResponse' smart constructor.
 data GetPipelineResponse = GetPipelineResponse'
-    { _gprsPipeline :: !(Maybe PipelineDeclaration)
-    , _gprsStatus   :: !Int
+    { _gprsPipeline       :: !(Maybe PipelineDeclaration)
+    , _gprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetPipelineResponse' with the minimum fields required to make a request.
@@ -126,14 +126,14 @@ data GetPipelineResponse = GetPipelineResponse'
 --
 -- * 'gprsPipeline'
 --
--- * 'gprsStatus'
+-- * 'gprsResponseStatus'
 getPipelineResponse
-    :: Int -- ^ 'gprsStatus'
+    :: Int -- ^ 'gprsResponseStatus'
     -> GetPipelineResponse
-getPipelineResponse pStatus_ =
+getPipelineResponse pResponseStatus_ =
     GetPipelineResponse'
     { _gprsPipeline = Nothing
-    , _gprsStatus = pStatus_
+    , _gprsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -141,5 +141,5 @@ gprsPipeline :: Lens' GetPipelineResponse (Maybe PipelineDeclaration)
 gprsPipeline = lens _gprsPipeline (\ s a -> s{_gprsPipeline = a});
 
 -- | The response status code.
-gprsStatus :: Lens' GetPipelineResponse Int
-gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});
+gprsResponseStatus :: Lens' GetPipelineResponse Int
+gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});

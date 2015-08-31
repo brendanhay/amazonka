@@ -46,7 +46,7 @@ module Network.AWS.DynamoDBStreams.GetRecords
     -- * Response Lenses
     , grrsRecords
     , grrsNextShardIterator
-    , grrsStatus
+    , grrsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDBStreams.Types
@@ -130,7 +130,7 @@ instance ToQuery GetRecords where
 data GetRecordsResponse = GetRecordsResponse'
     { _grrsRecords           :: !(Maybe [Record])
     , _grrsNextShardIterator :: !(Maybe Text)
-    , _grrsStatus            :: !Int
+    , _grrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetRecordsResponse' with the minimum fields required to make a request.
@@ -141,15 +141,15 @@ data GetRecordsResponse = GetRecordsResponse'
 --
 -- * 'grrsNextShardIterator'
 --
--- * 'grrsStatus'
+-- * 'grrsResponseStatus'
 getRecordsResponse
-    :: Int -- ^ 'grrsStatus'
+    :: Int -- ^ 'grrsResponseStatus'
     -> GetRecordsResponse
-getRecordsResponse pStatus_ =
+getRecordsResponse pResponseStatus_ =
     GetRecordsResponse'
     { _grrsRecords = Nothing
     , _grrsNextShardIterator = Nothing
-    , _grrsStatus = pStatus_
+    , _grrsResponseStatus = pResponseStatus_
     }
 
 -- | The stream records from the shard, which were retrieved using the shard
@@ -164,5 +164,5 @@ grrsNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
 grrsNextShardIterator = lens _grrsNextShardIterator (\ s a -> s{_grrsNextShardIterator = a});
 
 -- | The response status code.
-grrsStatus :: Lens' GetRecordsResponse Int
-grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});
+grrsResponseStatus :: Lens' GetRecordsResponse Int
+grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});

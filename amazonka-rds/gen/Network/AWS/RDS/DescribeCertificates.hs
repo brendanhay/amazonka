@@ -39,7 +39,7 @@ module Network.AWS.RDS.DescribeCertificates
     -- * Response Lenses
     , dcrsCertificates
     , dcrsMarker
-    , dcrsStatus
+    , dcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -145,9 +145,9 @@ instance ToQuery DescribeCertificates where
 --
 -- /See:/ 'describeCertificatesResponse' smart constructor.
 data DescribeCertificatesResponse = DescribeCertificatesResponse'
-    { _dcrsCertificates :: !(Maybe [Certificate])
-    , _dcrsMarker       :: !(Maybe Text)
-    , _dcrsStatus       :: !Int
+    { _dcrsCertificates   :: !(Maybe [Certificate])
+    , _dcrsMarker         :: !(Maybe Text)
+    , _dcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCertificatesResponse' with the minimum fields required to make a request.
@@ -158,15 +158,15 @@ data DescribeCertificatesResponse = DescribeCertificatesResponse'
 --
 -- * 'dcrsMarker'
 --
--- * 'dcrsStatus'
+-- * 'dcrsResponseStatus'
 describeCertificatesResponse
-    :: Int -- ^ 'dcrsStatus'
+    :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCertificatesResponse
-describeCertificatesResponse pStatus_ =
+describeCertificatesResponse pResponseStatus_ =
     DescribeCertificatesResponse'
     { _dcrsCertificates = Nothing
     , _dcrsMarker = Nothing
-    , _dcrsStatus = pStatus_
+    , _dcrsResponseStatus = pResponseStatus_
     }
 
 -- | The list of Certificate objects for the AWS account.
@@ -180,5 +180,5 @@ dcrsMarker :: Lens' DescribeCertificatesResponse (Maybe Text)
 dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
 
 -- | The response status code.
-dcrsStatus :: Lens' DescribeCertificatesResponse Int
-dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});
+dcrsResponseStatus :: Lens' DescribeCertificatesResponse Int
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});

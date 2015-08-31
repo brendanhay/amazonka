@@ -73,7 +73,7 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     , RestoreDBInstanceFromDBSnapshotResponse
     -- * Response Lenses
     , rdifdsrsDBInstance
-    , rdifdsrsStatus
+    , rdifdsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -433,8 +433,8 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
 
 -- | /See:/ 'restoreDBInstanceFromDBSnapshotResponse' smart constructor.
 data RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse'
-    { _rdifdsrsDBInstance :: !(Maybe DBInstance)
-    , _rdifdsrsStatus     :: !Int
+    { _rdifdsrsDBInstance     :: !(Maybe DBInstance)
+    , _rdifdsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestoreDBInstanceFromDBSnapshotResponse' with the minimum fields required to make a request.
@@ -443,14 +443,14 @@ data RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotRe
 --
 -- * 'rdifdsrsDBInstance'
 --
--- * 'rdifdsrsStatus'
+-- * 'rdifdsrsResponseStatus'
 restoreDBInstanceFromDBSnapshotResponse
-    :: Int -- ^ 'rdifdsrsStatus'
+    :: Int -- ^ 'rdifdsrsResponseStatus'
     -> RestoreDBInstanceFromDBSnapshotResponse
-restoreDBInstanceFromDBSnapshotResponse pStatus_ =
+restoreDBInstanceFromDBSnapshotResponse pResponseStatus_ =
     RestoreDBInstanceFromDBSnapshotResponse'
     { _rdifdsrsDBInstance = Nothing
-    , _rdifdsrsStatus = pStatus_
+    , _rdifdsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -458,5 +458,5 @@ rdifdsrsDBInstance :: Lens' RestoreDBInstanceFromDBSnapshotResponse (Maybe DBIns
 rdifdsrsDBInstance = lens _rdifdsrsDBInstance (\ s a -> s{_rdifdsrsDBInstance = a});
 
 -- | The response status code.
-rdifdsrsStatus :: Lens' RestoreDBInstanceFromDBSnapshotResponse Int
-rdifdsrsStatus = lens _rdifdsrsStatus (\ s a -> s{_rdifdsrsStatus = a});
+rdifdsrsResponseStatus :: Lens' RestoreDBInstanceFromDBSnapshotResponse Int
+rdifdsrsResponseStatus = lens _rdifdsrsResponseStatus (\ s a -> s{_rdifdsrsResponseStatus = a});

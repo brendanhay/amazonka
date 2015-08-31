@@ -64,7 +64,7 @@ module Network.AWS.SQS.SendMessageBatch
     , sendMessageBatchResponse
     , SendMessageBatchResponse
     -- * Response Lenses
-    , smbrsStatus
+    , smbrsResponseStatus
     , smbrsSuccessful
     , smbrsFailed
     ) where
@@ -137,33 +137,33 @@ instance ToQuery SendMessageBatch where
 --
 -- /See:/ 'sendMessageBatchResponse' smart constructor.
 data SendMessageBatchResponse = SendMessageBatchResponse'
-    { _smbrsStatus     :: !Int
-    , _smbrsSuccessful :: ![SendMessageBatchResultEntry]
-    , _smbrsFailed     :: ![BatchResultErrorEntry]
+    { _smbrsResponseStatus :: !Int
+    , _smbrsSuccessful     :: ![SendMessageBatchResultEntry]
+    , _smbrsFailed         :: ![BatchResultErrorEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SendMessageBatchResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'smbrsStatus'
+-- * 'smbrsResponseStatus'
 --
 -- * 'smbrsSuccessful'
 --
 -- * 'smbrsFailed'
 sendMessageBatchResponse
-    :: Int -- ^ 'smbrsStatus'
+    :: Int -- ^ 'smbrsResponseStatus'
     -> SendMessageBatchResponse
-sendMessageBatchResponse pStatus_ =
+sendMessageBatchResponse pResponseStatus_ =
     SendMessageBatchResponse'
-    { _smbrsStatus = pStatus_
+    { _smbrsResponseStatus = pResponseStatus_
     , _smbrsSuccessful = mempty
     , _smbrsFailed = mempty
     }
 
 -- | The response status code.
-smbrsStatus :: Lens' SendMessageBatchResponse Int
-smbrsStatus = lens _smbrsStatus (\ s a -> s{_smbrsStatus = a});
+smbrsResponseStatus :: Lens' SendMessageBatchResponse Int
+smbrsResponseStatus = lens _smbrsResponseStatus (\ s a -> s{_smbrsResponseStatus = a});
 
 -- | A list of SendMessageBatchResultEntry items.
 smbrsSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]

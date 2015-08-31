@@ -37,7 +37,7 @@ module Network.AWS.Lambda.GetPolicy
     , GetPolicyResponse
     -- * Response Lenses
     , gprsPolicy
-    , gprsStatus
+    , gprsResponseStatus
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -100,8 +100,8 @@ instance ToQuery GetPolicy where
 
 -- | /See:/ 'getPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
-    { _gprsPolicy :: !(Maybe Text)
-    , _gprsStatus :: !Int
+    { _gprsPolicy         :: !(Maybe Text)
+    , _gprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetPolicyResponse' with the minimum fields required to make a request.
@@ -110,14 +110,14 @@ data GetPolicyResponse = GetPolicyResponse'
 --
 -- * 'gprsPolicy'
 --
--- * 'gprsStatus'
+-- * 'gprsResponseStatus'
 getPolicyResponse
-    :: Int -- ^ 'gprsStatus'
+    :: Int -- ^ 'gprsResponseStatus'
     -> GetPolicyResponse
-getPolicyResponse pStatus_ =
+getPolicyResponse pResponseStatus_ =
     GetPolicyResponse'
     { _gprsPolicy = Nothing
-    , _gprsStatus = pStatus_
+    , _gprsResponseStatus = pResponseStatus_
     }
 
 -- | The access policy associated with the specified function. The response
@@ -127,5 +127,5 @@ gprsPolicy :: Lens' GetPolicyResponse (Maybe Text)
 gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
 
 -- | The response status code.
-gprsStatus :: Lens' GetPolicyResponse Int
-gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});
+gprsResponseStatus :: Lens' GetPolicyResponse Int
+gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});

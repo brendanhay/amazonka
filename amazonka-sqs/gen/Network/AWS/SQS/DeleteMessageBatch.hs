@@ -48,7 +48,7 @@ module Network.AWS.SQS.DeleteMessageBatch
     , deleteMessageBatchResponse
     , DeleteMessageBatchResponse
     -- * Response Lenses
-    , dmbrsStatus
+    , dmbrsResponseStatus
     , dmbrsSuccessful
     , dmbrsFailed
     ) where
@@ -122,33 +122,33 @@ instance ToQuery DeleteMessageBatch where
 --
 -- /See:/ 'deleteMessageBatchResponse' smart constructor.
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
-    { _dmbrsStatus     :: !Int
-    , _dmbrsSuccessful :: ![DeleteMessageBatchResultEntry]
-    , _dmbrsFailed     :: ![BatchResultErrorEntry]
+    { _dmbrsResponseStatus :: !Int
+    , _dmbrsSuccessful     :: ![DeleteMessageBatchResultEntry]
+    , _dmbrsFailed         :: ![BatchResultErrorEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteMessageBatchResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmbrsStatus'
+-- * 'dmbrsResponseStatus'
 --
 -- * 'dmbrsSuccessful'
 --
 -- * 'dmbrsFailed'
 deleteMessageBatchResponse
-    :: Int -- ^ 'dmbrsStatus'
+    :: Int -- ^ 'dmbrsResponseStatus'
     -> DeleteMessageBatchResponse
-deleteMessageBatchResponse pStatus_ =
+deleteMessageBatchResponse pResponseStatus_ =
     DeleteMessageBatchResponse'
-    { _dmbrsStatus = pStatus_
+    { _dmbrsResponseStatus = pResponseStatus_
     , _dmbrsSuccessful = mempty
     , _dmbrsFailed = mempty
     }
 
 -- | The response status code.
-dmbrsStatus :: Lens' DeleteMessageBatchResponse Int
-dmbrsStatus = lens _dmbrsStatus (\ s a -> s{_dmbrsStatus = a});
+dmbrsResponseStatus :: Lens' DeleteMessageBatchResponse Int
+dmbrsResponseStatus = lens _dmbrsResponseStatus (\ s a -> s{_dmbrsResponseStatus = a});
 
 -- | A list of DeleteMessageBatchResultEntry items.
 dmbrsSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]

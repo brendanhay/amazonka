@@ -48,7 +48,7 @@ module Network.AWS.Redshift.CreateClusterParameterGroup
     , CreateClusterParameterGroupResponse
     -- * Response Lenses
     , ccpgrsClusterParameterGroup
-    , ccpgrsStatus
+    , ccpgrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -157,7 +157,7 @@ instance ToQuery CreateClusterParameterGroup where
 -- | /See:/ 'createClusterParameterGroupResponse' smart constructor.
 data CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse'
     { _ccpgrsClusterParameterGroup :: !(Maybe ClusterParameterGroup)
-    , _ccpgrsStatus                :: !Int
+    , _ccpgrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateClusterParameterGroupResponse' with the minimum fields required to make a request.
@@ -166,14 +166,14 @@ data CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse'
 --
 -- * 'ccpgrsClusterParameterGroup'
 --
--- * 'ccpgrsStatus'
+-- * 'ccpgrsResponseStatus'
 createClusterParameterGroupResponse
-    :: Int -- ^ 'ccpgrsStatus'
+    :: Int -- ^ 'ccpgrsResponseStatus'
     -> CreateClusterParameterGroupResponse
-createClusterParameterGroupResponse pStatus_ =
+createClusterParameterGroupResponse pResponseStatus_ =
     CreateClusterParameterGroupResponse'
     { _ccpgrsClusterParameterGroup = Nothing
-    , _ccpgrsStatus = pStatus_
+    , _ccpgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -181,5 +181,5 @@ ccpgrsClusterParameterGroup :: Lens' CreateClusterParameterGroupResponse (Maybe 
 ccpgrsClusterParameterGroup = lens _ccpgrsClusterParameterGroup (\ s a -> s{_ccpgrsClusterParameterGroup = a});
 
 -- | The response status code.
-ccpgrsStatus :: Lens' CreateClusterParameterGroupResponse Int
-ccpgrsStatus = lens _ccpgrsStatus (\ s a -> s{_ccpgrsStatus = a});
+ccpgrsResponseStatus :: Lens' CreateClusterParameterGroupResponse Int
+ccpgrsResponseStatus = lens _ccpgrsResponseStatus (\ s a -> s{_ccpgrsResponseStatus = a});

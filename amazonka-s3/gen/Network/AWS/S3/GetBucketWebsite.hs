@@ -37,7 +37,7 @@ module Network.AWS.S3.GetBucketWebsite
     , gbwrsErrorDocument
     , gbwrsIndexDocument
     , gbwrsRoutingRules
-    , gbwrsStatus
+    , gbwrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -99,7 +99,7 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
     , _gbwrsErrorDocument         :: !(Maybe ErrorDocument)
     , _gbwrsIndexDocument         :: !(Maybe IndexDocument)
     , _gbwrsRoutingRules          :: !(Maybe [RoutingRule])
-    , _gbwrsStatus                :: !Int
+    , _gbwrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketWebsiteResponse' with the minimum fields required to make a request.
@@ -114,17 +114,17 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
 --
 -- * 'gbwrsRoutingRules'
 --
--- * 'gbwrsStatus'
+-- * 'gbwrsResponseStatus'
 getBucketWebsiteResponse
-    :: Int -- ^ 'gbwrsStatus'
+    :: Int -- ^ 'gbwrsResponseStatus'
     -> GetBucketWebsiteResponse
-getBucketWebsiteResponse pStatus_ =
+getBucketWebsiteResponse pResponseStatus_ =
     GetBucketWebsiteResponse'
     { _gbwrsRedirectAllRequestsTo = Nothing
     , _gbwrsErrorDocument = Nothing
     , _gbwrsIndexDocument = Nothing
     , _gbwrsRoutingRules = Nothing
-    , _gbwrsStatus = pStatus_
+    , _gbwrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -144,5 +144,5 @@ gbwrsRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
 gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a}) . _Default . _Coerce;
 
 -- | The response status code.
-gbwrsStatus :: Lens' GetBucketWebsiteResponse Int
-gbwrsStatus = lens _gbwrsStatus (\ s a -> s{_gbwrsStatus = a});
+gbwrsResponseStatus :: Lens' GetBucketWebsiteResponse Int
+gbwrsResponseStatus = lens _gbwrsResponseStatus (\ s a -> s{_gbwrsResponseStatus = a});

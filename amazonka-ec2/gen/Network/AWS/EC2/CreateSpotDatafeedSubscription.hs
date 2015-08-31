@@ -40,7 +40,7 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
     , CreateSpotDatafeedSubscriptionResponse
     -- * Response Lenses
     , csdsrsSpotDatafeedSubscription
-    , csdsrsStatus
+    , csdsrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -125,7 +125,7 @@ instance ToQuery CreateSpotDatafeedSubscription where
 -- /See:/ 'createSpotDatafeedSubscriptionResponse' smart constructor.
 data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse'
     { _csdsrsSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
-    , _csdsrsStatus                   :: !Int
+    , _csdsrsResponseStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateSpotDatafeedSubscriptionResponse' with the minimum fields required to make a request.
@@ -134,14 +134,14 @@ data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResp
 --
 -- * 'csdsrsSpotDatafeedSubscription'
 --
--- * 'csdsrsStatus'
+-- * 'csdsrsResponseStatus'
 createSpotDatafeedSubscriptionResponse
-    :: Int -- ^ 'csdsrsStatus'
+    :: Int -- ^ 'csdsrsResponseStatus'
     -> CreateSpotDatafeedSubscriptionResponse
-createSpotDatafeedSubscriptionResponse pStatus_ =
+createSpotDatafeedSubscriptionResponse pResponseStatus_ =
     CreateSpotDatafeedSubscriptionResponse'
     { _csdsrsSpotDatafeedSubscription = Nothing
-    , _csdsrsStatus = pStatus_
+    , _csdsrsResponseStatus = pResponseStatus_
     }
 
 -- | The Spot Instance data feed subscription.
@@ -149,5 +149,5 @@ csdsrsSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (
 csdsrsSpotDatafeedSubscription = lens _csdsrsSpotDatafeedSubscription (\ s a -> s{_csdsrsSpotDatafeedSubscription = a});
 
 -- | The response status code.
-csdsrsStatus :: Lens' CreateSpotDatafeedSubscriptionResponse Int
-csdsrsStatus = lens _csdsrsStatus (\ s a -> s{_csdsrsStatus = a});
+csdsrsResponseStatus :: Lens' CreateSpotDatafeedSubscriptionResponse Int
+csdsrsResponseStatus = lens _csdsrsResponseStatus (\ s a -> s{_csdsrsResponseStatus = a});

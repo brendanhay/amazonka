@@ -36,7 +36,7 @@ module Network.AWS.StorageGateway.DescribeChapCredentials
     , DescribeChapCredentialsResponse
     -- * Response Lenses
     , dccrsChapCredentials
-    , dccrsStatus
+    , dccrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -109,7 +109,7 @@ instance ToQuery DescribeChapCredentials where
 -- /See:/ 'describeChapCredentialsResponse' smart constructor.
 data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'
     { _dccrsChapCredentials :: !(Maybe [ChapInfo])
-    , _dccrsStatus          :: !Int
+    , _dccrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeChapCredentialsResponse' with the minimum fields required to make a request.
@@ -118,14 +118,14 @@ data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'
 --
 -- * 'dccrsChapCredentials'
 --
--- * 'dccrsStatus'
+-- * 'dccrsResponseStatus'
 describeChapCredentialsResponse
-    :: Int -- ^ 'dccrsStatus'
+    :: Int -- ^ 'dccrsResponseStatus'
     -> DescribeChapCredentialsResponse
-describeChapCredentialsResponse pStatus_ =
+describeChapCredentialsResponse pResponseStatus_ =
     DescribeChapCredentialsResponse'
     { _dccrsChapCredentials = Nothing
-    , _dccrsStatus = pStatus_
+    , _dccrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of ChapInfo objects that represent CHAP credentials. Each
@@ -150,5 +150,5 @@ dccrsChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
 dccrsChapCredentials = lens _dccrsChapCredentials (\ s a -> s{_dccrsChapCredentials = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dccrsStatus :: Lens' DescribeChapCredentialsResponse Int
-dccrsStatus = lens _dccrsStatus (\ s a -> s{_dccrsStatus = a});
+dccrsResponseStatus :: Lens' DescribeChapCredentialsResponse Int
+dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});

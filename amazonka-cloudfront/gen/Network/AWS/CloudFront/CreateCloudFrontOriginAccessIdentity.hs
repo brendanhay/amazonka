@@ -36,7 +36,7 @@ module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     , ccfoairsETag
     , ccfoairsLocation
     , ccfoairsCloudFrontOriginAccessIdentity
-    , ccfoairsStatus
+    , ccfoairsResponseStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -111,7 +111,7 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
     { _ccfoairsETag                           :: !(Maybe Text)
     , _ccfoairsLocation                       :: !(Maybe Text)
     , _ccfoairsCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
-    , _ccfoairsStatus                         :: !Int
+    , _ccfoairsResponseStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
@@ -124,16 +124,16 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
 --
 -- * 'ccfoairsCloudFrontOriginAccessIdentity'
 --
--- * 'ccfoairsStatus'
+-- * 'ccfoairsResponseStatus'
 createCloudFrontOriginAccessIdentityResponse
-    :: Int -- ^ 'ccfoairsStatus'
+    :: Int -- ^ 'ccfoairsResponseStatus'
     -> CreateCloudFrontOriginAccessIdentityResponse
-createCloudFrontOriginAccessIdentityResponse pStatus_ =
+createCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
     CreateCloudFrontOriginAccessIdentityResponse'
     { _ccfoairsETag = Nothing
     , _ccfoairsLocation = Nothing
     , _ccfoairsCloudFrontOriginAccessIdentity = Nothing
-    , _ccfoairsStatus = pStatus_
+    , _ccfoairsResponseStatus = pResponseStatus_
     }
 
 -- | The current version of the origin access identity created.
@@ -151,5 +151,5 @@ ccfoairsCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIden
 ccfoairsCloudFrontOriginAccessIdentity = lens _ccfoairsCloudFrontOriginAccessIdentity (\ s a -> s{_ccfoairsCloudFrontOriginAccessIdentity = a});
 
 -- | The response status code.
-ccfoairsStatus :: Lens' CreateCloudFrontOriginAccessIdentityResponse Int
-ccfoairsStatus = lens _ccfoairsStatus (\ s a -> s{_ccfoairsStatus = a});
+ccfoairsResponseStatus :: Lens' CreateCloudFrontOriginAccessIdentityResponse Int
+ccfoairsResponseStatus = lens _ccfoairsResponseStatus (\ s a -> s{_ccfoairsResponseStatus = a});

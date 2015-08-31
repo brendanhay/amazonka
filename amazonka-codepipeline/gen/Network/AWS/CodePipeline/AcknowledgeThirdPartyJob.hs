@@ -37,7 +37,7 @@ module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
     , AcknowledgeThirdPartyJobResponse
     -- * Response Lenses
     , atpjrsStatus
-    , atpjrsStatus
+    , atpjrsResponseStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -130,8 +130,8 @@ instance ToQuery AcknowledgeThirdPartyJob where
 --
 -- /See:/ 'acknowledgeThirdPartyJobResponse' smart constructor.
 data AcknowledgeThirdPartyJobResponse = AcknowledgeThirdPartyJobResponse'
-    { _atpjrsStatus :: !(Maybe JobStatus)
-    , _atpjrsStatus :: !Int
+    { _atpjrsStatus         :: !(Maybe JobStatus)
+    , _atpjrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AcknowledgeThirdPartyJobResponse' with the minimum fields required to make a request.
@@ -140,14 +140,14 @@ data AcknowledgeThirdPartyJobResponse = AcknowledgeThirdPartyJobResponse'
 --
 -- * 'atpjrsStatus'
 --
--- * 'atpjrsStatus'
+-- * 'atpjrsResponseStatus'
 acknowledgeThirdPartyJobResponse
-    :: Int -- ^ 'atpjrsStatus'
+    :: Int -- ^ 'atpjrsResponseStatus'
     -> AcknowledgeThirdPartyJobResponse
-acknowledgeThirdPartyJobResponse pStatus_ =
+acknowledgeThirdPartyJobResponse pResponseStatus_ =
     AcknowledgeThirdPartyJobResponse'
     { _atpjrsStatus = Nothing
-    , _atpjrsStatus = pStatus_
+    , _atpjrsResponseStatus = pResponseStatus_
     }
 
 -- | The status information for the third party job, if any.
@@ -155,5 +155,5 @@ atpjrsStatus :: Lens' AcknowledgeThirdPartyJobResponse (Maybe JobStatus)
 atpjrsStatus = lens _atpjrsStatus (\ s a -> s{_atpjrsStatus = a});
 
 -- | The response status code.
-atpjrsStatus :: Lens' AcknowledgeThirdPartyJobResponse Int
-atpjrsStatus = lens _atpjrsStatus (\ s a -> s{_atpjrsStatus = a});
+atpjrsResponseStatus :: Lens' AcknowledgeThirdPartyJobResponse Int
+atpjrsResponseStatus = lens _atpjrsResponseStatus (\ s a -> s{_atpjrsResponseStatus = a});

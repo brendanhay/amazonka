@@ -37,7 +37,7 @@ module Network.AWS.CodeDeploy.GetApplicationRevision
     , garrsApplicationName
     , garrsRevisionInfo
     , garrsRevision
-    , garrsStatus
+    , garrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -122,7 +122,7 @@ data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
     { _garrsApplicationName :: !(Maybe Text)
     , _garrsRevisionInfo    :: !(Maybe GenericRevisionInfo)
     , _garrsRevision        :: !(Maybe RevisionLocation)
-    , _garrsStatus          :: !Int
+    , _garrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetApplicationRevisionResponse' with the minimum fields required to make a request.
@@ -135,16 +135,16 @@ data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
 --
 -- * 'garrsRevision'
 --
--- * 'garrsStatus'
+-- * 'garrsResponseStatus'
 getApplicationRevisionResponse
-    :: Int -- ^ 'garrsStatus'
+    :: Int -- ^ 'garrsResponseStatus'
     -> GetApplicationRevisionResponse
-getApplicationRevisionResponse pStatus_ =
+getApplicationRevisionResponse pResponseStatus_ =
     GetApplicationRevisionResponse'
     { _garrsApplicationName = Nothing
     , _garrsRevisionInfo = Nothing
     , _garrsRevision = Nothing
-    , _garrsStatus = pStatus_
+    , _garrsResponseStatus = pResponseStatus_
     }
 
 -- | The name of the application that corresponds to the revision.
@@ -161,5 +161,5 @@ garrsRevision :: Lens' GetApplicationRevisionResponse (Maybe RevisionLocation)
 garrsRevision = lens _garrsRevision (\ s a -> s{_garrsRevision = a});
 
 -- | The response status code.
-garrsStatus :: Lens' GetApplicationRevisionResponse Int
-garrsStatus = lens _garrsStatus (\ s a -> s{_garrsStatus = a});
+garrsResponseStatus :: Lens' GetApplicationRevisionResponse Int
+garrsResponseStatus = lens _garrsResponseStatus (\ s a -> s{_garrsResponseStatus = a});

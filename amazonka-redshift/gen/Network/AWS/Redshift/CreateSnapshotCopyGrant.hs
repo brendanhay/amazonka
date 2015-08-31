@@ -42,7 +42,7 @@ module Network.AWS.Redshift.CreateSnapshotCopyGrant
     , CreateSnapshotCopyGrantResponse
     -- * Response Lenses
     , cscgrsSnapshotCopyGrant
-    , cscgrsStatus
+    , cscgrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -132,7 +132,7 @@ instance ToQuery CreateSnapshotCopyGrant where
 -- | /See:/ 'createSnapshotCopyGrantResponse' smart constructor.
 data CreateSnapshotCopyGrantResponse = CreateSnapshotCopyGrantResponse'
     { _cscgrsSnapshotCopyGrant :: !(Maybe SnapshotCopyGrant)
-    , _cscgrsStatus            :: !Int
+    , _cscgrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateSnapshotCopyGrantResponse' with the minimum fields required to make a request.
@@ -141,14 +141,14 @@ data CreateSnapshotCopyGrantResponse = CreateSnapshotCopyGrantResponse'
 --
 -- * 'cscgrsSnapshotCopyGrant'
 --
--- * 'cscgrsStatus'
+-- * 'cscgrsResponseStatus'
 createSnapshotCopyGrantResponse
-    :: Int -- ^ 'cscgrsStatus'
+    :: Int -- ^ 'cscgrsResponseStatus'
     -> CreateSnapshotCopyGrantResponse
-createSnapshotCopyGrantResponse pStatus_ =
+createSnapshotCopyGrantResponse pResponseStatus_ =
     CreateSnapshotCopyGrantResponse'
     { _cscgrsSnapshotCopyGrant = Nothing
-    , _cscgrsStatus = pStatus_
+    , _cscgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -156,5 +156,5 @@ cscgrsSnapshotCopyGrant :: Lens' CreateSnapshotCopyGrantResponse (Maybe Snapshot
 cscgrsSnapshotCopyGrant = lens _cscgrsSnapshotCopyGrant (\ s a -> s{_cscgrsSnapshotCopyGrant = a});
 
 -- | The response status code.
-cscgrsStatus :: Lens' CreateSnapshotCopyGrantResponse Int
-cscgrsStatus = lens _cscgrsStatus (\ s a -> s{_cscgrsStatus = a});
+cscgrsResponseStatus :: Lens' CreateSnapshotCopyGrantResponse Int
+cscgrsResponseStatus = lens _cscgrsResponseStatus (\ s a -> s{_cscgrsResponseStatus = a});

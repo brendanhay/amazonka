@@ -48,7 +48,7 @@ module Network.AWS.Route53.ListHostedZones
     -- * Response Lenses
     , lhzrsMarker
     , lhzrsNextMarker
-    , lhzrsStatus
+    , lhzrsResponseStatus
     , lhzrsHostedZones
     , lhzrsIsTruncated
     , lhzrsMaxItems
@@ -153,12 +153,12 @@ instance ToQuery ListHostedZones where
 --
 -- /See:/ 'listHostedZonesResponse' smart constructor.
 data ListHostedZonesResponse = ListHostedZonesResponse'
-    { _lhzrsMarker      :: !(Maybe Text)
-    , _lhzrsNextMarker  :: !(Maybe Text)
-    , _lhzrsStatus      :: !Int
-    , _lhzrsHostedZones :: ![HostedZone]
-    , _lhzrsIsTruncated :: !Bool
-    , _lhzrsMaxItems    :: !Text
+    { _lhzrsMarker         :: !(Maybe Text)
+    , _lhzrsNextMarker     :: !(Maybe Text)
+    , _lhzrsResponseStatus :: !Int
+    , _lhzrsHostedZones    :: ![HostedZone]
+    , _lhzrsIsTruncated    :: !Bool
+    , _lhzrsMaxItems       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListHostedZonesResponse' with the minimum fields required to make a request.
@@ -169,7 +169,7 @@ data ListHostedZonesResponse = ListHostedZonesResponse'
 --
 -- * 'lhzrsNextMarker'
 --
--- * 'lhzrsStatus'
+-- * 'lhzrsResponseStatus'
 --
 -- * 'lhzrsHostedZones'
 --
@@ -177,15 +177,15 @@ data ListHostedZonesResponse = ListHostedZonesResponse'
 --
 -- * 'lhzrsMaxItems'
 listHostedZonesResponse
-    :: Int -- ^ 'lhzrsStatus'
+    :: Int -- ^ 'lhzrsResponseStatus'
     -> Bool -- ^ 'lhzrsIsTruncated'
     -> Text -- ^ 'lhzrsMaxItems'
     -> ListHostedZonesResponse
-listHostedZonesResponse pStatus_ pIsTruncated_ pMaxItems_ =
+listHostedZonesResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
     ListHostedZonesResponse'
     { _lhzrsMarker = Nothing
     , _lhzrsNextMarker = Nothing
-    , _lhzrsStatus = pStatus_
+    , _lhzrsResponseStatus = pResponseStatus_
     , _lhzrsHostedZones = mempty
     , _lhzrsIsTruncated = pIsTruncated_
     , _lhzrsMaxItems = pMaxItems_
@@ -205,8 +205,8 @@ lhzrsNextMarker :: Lens' ListHostedZonesResponse (Maybe Text)
 lhzrsNextMarker = lens _lhzrsNextMarker (\ s a -> s{_lhzrsNextMarker = a});
 
 -- | The response status code.
-lhzrsStatus :: Lens' ListHostedZonesResponse Int
-lhzrsStatus = lens _lhzrsStatus (\ s a -> s{_lhzrsStatus = a});
+lhzrsResponseStatus :: Lens' ListHostedZonesResponse Int
+lhzrsResponseStatus = lens _lhzrsResponseStatus (\ s a -> s{_lhzrsResponseStatus = a});
 
 -- | A complex type that contains information about the hosted zones
 -- associated with the current AWS account.

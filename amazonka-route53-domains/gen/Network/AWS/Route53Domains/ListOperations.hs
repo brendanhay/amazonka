@@ -38,7 +38,7 @@ module Network.AWS.Route53Domains.ListOperations
     , ListOperationsResponse
     -- * Response Lenses
     , lorsNextPageMarker
-    , lorsStatus
+    , lorsResponseStatus
     , lorsOperations
     ) where
 
@@ -144,7 +144,7 @@ instance ToQuery ListOperations where
 -- /See:/ 'listOperationsResponse' smart constructor.
 data ListOperationsResponse = ListOperationsResponse'
     { _lorsNextPageMarker :: !(Maybe Text)
-    , _lorsStatus         :: !Int
+    , _lorsResponseStatus :: !Int
     , _lorsOperations     :: ![OperationSummary]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -154,16 +154,16 @@ data ListOperationsResponse = ListOperationsResponse'
 --
 -- * 'lorsNextPageMarker'
 --
--- * 'lorsStatus'
+-- * 'lorsResponseStatus'
 --
 -- * 'lorsOperations'
 listOperationsResponse
-    :: Int -- ^ 'lorsStatus'
+    :: Int -- ^ 'lorsResponseStatus'
     -> ListOperationsResponse
-listOperationsResponse pStatus_ =
+listOperationsResponse pResponseStatus_ =
     ListOperationsResponse'
     { _lorsNextPageMarker = Nothing
-    , _lorsStatus = pStatus_
+    , _lorsResponseStatus = pResponseStatus_
     , _lorsOperations = mempty
     }
 
@@ -178,8 +178,8 @@ lorsNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
 lorsNextPageMarker = lens _lorsNextPageMarker (\ s a -> s{_lorsNextPageMarker = a});
 
 -- | The response status code.
-lorsStatus :: Lens' ListOperationsResponse Int
-lorsStatus = lens _lorsStatus (\ s a -> s{_lorsStatus = a});
+lorsResponseStatus :: Lens' ListOperationsResponse Int
+lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a});
 
 -- | Lists summaries of the operations.
 --

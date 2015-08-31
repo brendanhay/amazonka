@@ -63,7 +63,7 @@ module Network.AWS.SQS.CreateQueue
     , CreateQueueResponse
     -- * Response Lenses
     , cqrsQueueURL
-    , cqrsStatus
+    , cqrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -158,8 +158,8 @@ instance ToQuery CreateQueue where
 --
 -- /See:/ 'createQueueResponse' smart constructor.
 data CreateQueueResponse = CreateQueueResponse'
-    { _cqrsQueueURL :: !(Maybe Text)
-    , _cqrsStatus   :: !Int
+    { _cqrsQueueURL       :: !(Maybe Text)
+    , _cqrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateQueueResponse' with the minimum fields required to make a request.
@@ -168,14 +168,14 @@ data CreateQueueResponse = CreateQueueResponse'
 --
 -- * 'cqrsQueueURL'
 --
--- * 'cqrsStatus'
+-- * 'cqrsResponseStatus'
 createQueueResponse
-    :: Int -- ^ 'cqrsStatus'
+    :: Int -- ^ 'cqrsResponseStatus'
     -> CreateQueueResponse
-createQueueResponse pStatus_ =
+createQueueResponse pResponseStatus_ =
     CreateQueueResponse'
     { _cqrsQueueURL = Nothing
-    , _cqrsStatus = pStatus_
+    , _cqrsResponseStatus = pResponseStatus_
     }
 
 -- | The URL for the created Amazon SQS queue.
@@ -183,5 +183,5 @@ cqrsQueueURL :: Lens' CreateQueueResponse (Maybe Text)
 cqrsQueueURL = lens _cqrsQueueURL (\ s a -> s{_cqrsQueueURL = a});
 
 -- | The response status code.
-cqrsStatus :: Lens' CreateQueueResponse Int
-cqrsStatus = lens _cqrsStatus (\ s a -> s{_cqrsStatus = a});
+cqrsResponseStatus :: Lens' CreateQueueResponse Int
+cqrsResponseStatus = lens _cqrsResponseStatus (\ s a -> s{_cqrsResponseStatus = a});

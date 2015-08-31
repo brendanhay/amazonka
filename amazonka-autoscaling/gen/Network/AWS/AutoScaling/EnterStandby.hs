@@ -40,7 +40,7 @@ module Network.AWS.AutoScaling.EnterStandby
     , EnterStandbyResponse
     -- * Response Lenses
     , ersActivities
-    , ersStatus
+    , ersResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -122,8 +122,8 @@ instance ToQuery EnterStandby where
 
 -- | /See:/ 'enterStandbyResponse' smart constructor.
 data EnterStandbyResponse = EnterStandbyResponse'
-    { _ersActivities :: !(Maybe [Activity])
-    , _ersStatus     :: !Int
+    { _ersActivities     :: !(Maybe [Activity])
+    , _ersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnterStandbyResponse' with the minimum fields required to make a request.
@@ -132,14 +132,14 @@ data EnterStandbyResponse = EnterStandbyResponse'
 --
 -- * 'ersActivities'
 --
--- * 'ersStatus'
+-- * 'ersResponseStatus'
 enterStandbyResponse
-    :: Int -- ^ 'ersStatus'
+    :: Int -- ^ 'ersResponseStatus'
     -> EnterStandbyResponse
-enterStandbyResponse pStatus_ =
+enterStandbyResponse pResponseStatus_ =
     EnterStandbyResponse'
     { _ersActivities = Nothing
-    , _ersStatus = pStatus_
+    , _ersResponseStatus = pResponseStatus_
     }
 
 -- | The activities related to moving instances into 'Standby' mode.
@@ -147,5 +147,5 @@ ersActivities :: Lens' EnterStandbyResponse [Activity]
 ersActivities = lens _ersActivities (\ s a -> s{_ersActivities = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ersStatus :: Lens' EnterStandbyResponse Int
-ersStatus = lens _ersStatus (\ s a -> s{_ersStatus = a});
+ersResponseStatus :: Lens' EnterStandbyResponse Int
+ersResponseStatus = lens _ersResponseStatus (\ s a -> s{_ersResponseStatus = a});

@@ -88,7 +88,7 @@ module Network.AWS.SES.SendRawEmail
     , sendRawEmailResponse
     , SendRawEmailResponse
     -- * Response Lenses
-    , srersStatus
+    , srersResponseStatus
     , srersMessageId
     ) where
 
@@ -272,30 +272,30 @@ instance ToQuery SendRawEmail where
 --
 -- /See:/ 'sendRawEmailResponse' smart constructor.
 data SendRawEmailResponse = SendRawEmailResponse'
-    { _srersStatus    :: !Int
-    , _srersMessageId :: !Text
+    { _srersResponseStatus :: !Int
+    , _srersMessageId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SendRawEmailResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srersStatus'
+-- * 'srersResponseStatus'
 --
 -- * 'srersMessageId'
 sendRawEmailResponse
-    :: Int -- ^ 'srersStatus'
+    :: Int -- ^ 'srersResponseStatus'
     -> Text -- ^ 'srersMessageId'
     -> SendRawEmailResponse
-sendRawEmailResponse pStatus_ pMessageId_ =
+sendRawEmailResponse pResponseStatus_ pMessageId_ =
     SendRawEmailResponse'
-    { _srersStatus = pStatus_
+    { _srersResponseStatus = pResponseStatus_
     , _srersMessageId = pMessageId_
     }
 
 -- | The response status code.
-srersStatus :: Lens' SendRawEmailResponse Int
-srersStatus = lens _srersStatus (\ s a -> s{_srersStatus = a});
+srersResponseStatus :: Lens' SendRawEmailResponse Int
+srersResponseStatus = lens _srersResponseStatus (\ s a -> s{_srersResponseStatus = a});
 
 -- | The unique message identifier returned from the 'SendRawEmail' action.
 srersMessageId :: Lens' SendRawEmailResponse Text

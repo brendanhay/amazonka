@@ -53,7 +53,7 @@ module Network.AWS.IAM.UploadSigningCertificate
     , uploadSigningCertificateResponse
     , UploadSigningCertificateResponse
     -- * Response Lenses
-    , uscrsStatus
+    , uscrsResponseStatus
     , uscrsCertificate
     ) where
 
@@ -122,30 +122,30 @@ instance ToQuery UploadSigningCertificate where
 --
 -- /See:/ 'uploadSigningCertificateResponse' smart constructor.
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
-    { _uscrsStatus      :: !Int
-    , _uscrsCertificate :: !SigningCertificate
+    { _uscrsResponseStatus :: !Int
+    , _uscrsCertificate    :: !SigningCertificate
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UploadSigningCertificateResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uscrsStatus'
+-- * 'uscrsResponseStatus'
 --
 -- * 'uscrsCertificate'
 uploadSigningCertificateResponse
-    :: Int -- ^ 'uscrsStatus'
+    :: Int -- ^ 'uscrsResponseStatus'
     -> SigningCertificate -- ^ 'uscrsCertificate'
     -> UploadSigningCertificateResponse
-uploadSigningCertificateResponse pStatus_ pCertificate_ =
+uploadSigningCertificateResponse pResponseStatus_ pCertificate_ =
     UploadSigningCertificateResponse'
-    { _uscrsStatus = pStatus_
+    { _uscrsResponseStatus = pResponseStatus_
     , _uscrsCertificate = pCertificate_
     }
 
 -- | The response status code.
-uscrsStatus :: Lens' UploadSigningCertificateResponse Int
-uscrsStatus = lens _uscrsStatus (\ s a -> s{_uscrsStatus = a});
+uscrsResponseStatus :: Lens' UploadSigningCertificateResponse Int
+uscrsResponseStatus = lens _uscrsResponseStatus (\ s a -> s{_uscrsResponseStatus = a});
 
 -- | Information about the certificate.
 uscrsCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate

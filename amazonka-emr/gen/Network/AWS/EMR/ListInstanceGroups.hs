@@ -38,7 +38,7 @@ module Network.AWS.EMR.ListInstanceGroups
     -- * Response Lenses
     , ligrsMarker
     , ligrsInstanceGroups
-    , ligrsStatus
+    , ligrsResponseStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -128,7 +128,7 @@ instance ToQuery ListInstanceGroups where
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
     { _ligrsMarker         :: !(Maybe Text)
     , _ligrsInstanceGroups :: !(Maybe [InstanceGroup])
-    , _ligrsStatus         :: !Int
+    , _ligrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListInstanceGroupsResponse' with the minimum fields required to make a request.
@@ -139,15 +139,15 @@ data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
 --
 -- * 'ligrsInstanceGroups'
 --
--- * 'ligrsStatus'
+-- * 'ligrsResponseStatus'
 listInstanceGroupsResponse
-    :: Int -- ^ 'ligrsStatus'
+    :: Int -- ^ 'ligrsResponseStatus'
     -> ListInstanceGroupsResponse
-listInstanceGroupsResponse pStatus_ =
+listInstanceGroupsResponse pResponseStatus_ =
     ListInstanceGroupsResponse'
     { _ligrsMarker = Nothing
     , _ligrsInstanceGroups = Nothing
-    , _ligrsStatus = pStatus_
+    , _ligrsResponseStatus = pResponseStatus_
     }
 
 -- | The pagination token that indicates the next set of results to retrieve.
@@ -159,5 +159,5 @@ ligrsInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
 ligrsInstanceGroups = lens _ligrsInstanceGroups (\ s a -> s{_ligrsInstanceGroups = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ligrsStatus :: Lens' ListInstanceGroupsResponse Int
-ligrsStatus = lens _ligrsStatus (\ s a -> s{_ligrsStatus = a});
+ligrsResponseStatus :: Lens' ListInstanceGroupsResponse Int
+ligrsResponseStatus = lens _ligrsResponseStatus (\ s a -> s{_ligrsResponseStatus = a});

@@ -52,7 +52,7 @@ module Network.AWS.Kinesis.ListStreams
     , listStreamsResponse
     , ListStreamsResponse
     -- * Response Lenses
-    , lsrsStatus
+    , lsrsResponseStatus
     , lsrsStreamNames
     , lsrsHasMoreStreams
     ) where
@@ -142,7 +142,7 @@ instance ToQuery ListStreams where
 --
 -- /See:/ 'listStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
-    { _lsrsStatus         :: !Int
+    { _lsrsResponseStatus :: !Int
     , _lsrsStreamNames    :: ![Text]
     , _lsrsHasMoreStreams :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -151,25 +151,25 @@ data ListStreamsResponse = ListStreamsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsrsStatus'
+-- * 'lsrsResponseStatus'
 --
 -- * 'lsrsStreamNames'
 --
 -- * 'lsrsHasMoreStreams'
 listStreamsResponse
-    :: Int -- ^ 'lsrsStatus'
+    :: Int -- ^ 'lsrsResponseStatus'
     -> Bool -- ^ 'lsrsHasMoreStreams'
     -> ListStreamsResponse
-listStreamsResponse pStatus_ pHasMoreStreams_ =
+listStreamsResponse pResponseStatus_ pHasMoreStreams_ =
     ListStreamsResponse'
-    { _lsrsStatus = pStatus_
+    { _lsrsResponseStatus = pResponseStatus_
     , _lsrsStreamNames = mempty
     , _lsrsHasMoreStreams = pHasMoreStreams_
     }
 
 -- | The response status code.
-lsrsStatus :: Lens' ListStreamsResponse Int
-lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});
+lsrsResponseStatus :: Lens' ListStreamsResponse Int
+lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
 
 -- | The names of the streams that are associated with the AWS account making
 -- the 'ListStreams' request.

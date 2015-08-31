@@ -49,7 +49,7 @@ module Network.AWS.StorageGateway.ListGateways
     -- * Response Lenses
     , lgrsMarker
     , lgrsGateways
-    , lgrsStatus
+    , lgrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -137,9 +137,9 @@ instance ToQuery ListGateways where
 
 -- | /See:/ 'listGatewaysResponse' smart constructor.
 data ListGatewaysResponse = ListGatewaysResponse'
-    { _lgrsMarker   :: !(Maybe Text)
-    , _lgrsGateways :: !(Maybe [GatewayInfo])
-    , _lgrsStatus   :: !Int
+    { _lgrsMarker         :: !(Maybe Text)
+    , _lgrsGateways       :: !(Maybe [GatewayInfo])
+    , _lgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListGatewaysResponse' with the minimum fields required to make a request.
@@ -150,15 +150,15 @@ data ListGatewaysResponse = ListGatewaysResponse'
 --
 -- * 'lgrsGateways'
 --
--- * 'lgrsStatus'
+-- * 'lgrsResponseStatus'
 listGatewaysResponse
-    :: Int -- ^ 'lgrsStatus'
+    :: Int -- ^ 'lgrsResponseStatus'
     -> ListGatewaysResponse
-listGatewaysResponse pStatus_ =
+listGatewaysResponse pResponseStatus_ =
     ListGatewaysResponse'
     { _lgrsMarker = Nothing
     , _lgrsGateways = Nothing
-    , _lgrsStatus = pStatus_
+    , _lgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -170,5 +170,5 @@ lgrsGateways :: Lens' ListGatewaysResponse [GatewayInfo]
 lgrsGateways = lens _lgrsGateways (\ s a -> s{_lgrsGateways = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lgrsStatus :: Lens' ListGatewaysResponse Int
-lgrsStatus = lens _lgrsStatus (\ s a -> s{_lgrsStatus = a});
+lgrsResponseStatus :: Lens' ListGatewaysResponse Int
+lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a});

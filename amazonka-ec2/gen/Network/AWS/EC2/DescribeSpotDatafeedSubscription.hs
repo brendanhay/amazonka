@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     , DescribeSpotDatafeedSubscriptionResponse
     -- * Response Lenses
     , dsdsrsSpotDatafeedSubscription
-    , dsdsrsStatus
+    , dsdsrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -105,7 +105,7 @@ instance ToQuery DescribeSpotDatafeedSubscription
 -- /See:/ 'describeSpotDatafeedSubscriptionResponse' smart constructor.
 data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'
     { _dsdsrsSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
-    , _dsdsrsStatus                   :: !Int
+    , _dsdsrsResponseStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSpotDatafeedSubscriptionResponse' with the minimum fields required to make a request.
@@ -114,14 +114,14 @@ data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscription
 --
 -- * 'dsdsrsSpotDatafeedSubscription'
 --
--- * 'dsdsrsStatus'
+-- * 'dsdsrsResponseStatus'
 describeSpotDatafeedSubscriptionResponse
-    :: Int -- ^ 'dsdsrsStatus'
+    :: Int -- ^ 'dsdsrsResponseStatus'
     -> DescribeSpotDatafeedSubscriptionResponse
-describeSpotDatafeedSubscriptionResponse pStatus_ =
+describeSpotDatafeedSubscriptionResponse pResponseStatus_ =
     DescribeSpotDatafeedSubscriptionResponse'
     { _dsdsrsSpotDatafeedSubscription = Nothing
-    , _dsdsrsStatus = pStatus_
+    , _dsdsrsResponseStatus = pResponseStatus_
     }
 
 -- | The Spot Instance data feed subscription.
@@ -129,5 +129,5 @@ dsdsrsSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse
 dsdsrsSpotDatafeedSubscription = lens _dsdsrsSpotDatafeedSubscription (\ s a -> s{_dsdsrsSpotDatafeedSubscription = a});
 
 -- | The response status code.
-dsdsrsStatus :: Lens' DescribeSpotDatafeedSubscriptionResponse Int
-dsdsrsStatus = lens _dsdsrsStatus (\ s a -> s{_dsdsrsStatus = a});
+dsdsrsResponseStatus :: Lens' DescribeSpotDatafeedSubscriptionResponse Int
+dsdsrsResponseStatus = lens _dsdsrsResponseStatus (\ s a -> s{_dsdsrsResponseStatus = a});

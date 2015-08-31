@@ -61,7 +61,7 @@ module Network.AWS.EC2.CreateRoute
     , CreateRouteResponse
     -- * Response Lenses
     , crrsReturn
-    , crrsStatus
+    , crrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -177,8 +177,8 @@ instance ToQuery CreateRoute where
 
 -- | /See:/ 'createRouteResponse' smart constructor.
 data CreateRouteResponse = CreateRouteResponse'
-    { _crrsReturn :: !(Maybe Bool)
-    , _crrsStatus :: !Int
+    { _crrsReturn         :: !(Maybe Bool)
+    , _crrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateRouteResponse' with the minimum fields required to make a request.
@@ -187,14 +187,14 @@ data CreateRouteResponse = CreateRouteResponse'
 --
 -- * 'crrsReturn'
 --
--- * 'crrsStatus'
+-- * 'crrsResponseStatus'
 createRouteResponse
-    :: Int -- ^ 'crrsStatus'
+    :: Int -- ^ 'crrsResponseStatus'
     -> CreateRouteResponse
-createRouteResponse pStatus_ =
+createRouteResponse pResponseStatus_ =
     CreateRouteResponse'
     { _crrsReturn = Nothing
-    , _crrsStatus = pStatus_
+    , _crrsResponseStatus = pResponseStatus_
     }
 
 -- | Returns 'true' if the request succeeds; otherwise, it returns an error.
@@ -202,5 +202,5 @@ crrsReturn :: Lens' CreateRouteResponse (Maybe Bool)
 crrsReturn = lens _crrsReturn (\ s a -> s{_crrsReturn = a});
 
 -- | The response status code.
-crrsStatus :: Lens' CreateRouteResponse Int
-crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});
+crrsResponseStatus :: Lens' CreateRouteResponse Int
+crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});

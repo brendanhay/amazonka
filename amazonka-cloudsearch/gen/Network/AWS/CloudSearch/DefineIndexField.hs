@@ -42,7 +42,7 @@ module Network.AWS.CloudSearch.DefineIndexField
     , defineIndexFieldResponse
     , DefineIndexFieldResponse
     -- * Response Lenses
-    , defrsStatus
+    , defrsResponseStatus
     , defrsIndexField
     ) where
 
@@ -115,30 +115,30 @@ instance ToQuery DefineIndexField where
 --
 -- /See:/ 'defineIndexFieldResponse' smart constructor.
 data DefineIndexFieldResponse = DefineIndexFieldResponse'
-    { _defrsStatus     :: !Int
-    , _defrsIndexField :: !IndexFieldStatus
+    { _defrsResponseStatus :: !Int
+    , _defrsIndexField     :: !IndexFieldStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DefineIndexFieldResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'defrsStatus'
+-- * 'defrsResponseStatus'
 --
 -- * 'defrsIndexField'
 defineIndexFieldResponse
-    :: Int -- ^ 'defrsStatus'
+    :: Int -- ^ 'defrsResponseStatus'
     -> IndexFieldStatus -- ^ 'defrsIndexField'
     -> DefineIndexFieldResponse
-defineIndexFieldResponse pStatus_ pIndexField_ =
+defineIndexFieldResponse pResponseStatus_ pIndexField_ =
     DefineIndexFieldResponse'
-    { _defrsStatus = pStatus_
+    { _defrsResponseStatus = pResponseStatus_
     , _defrsIndexField = pIndexField_
     }
 
 -- | The response status code.
-defrsStatus :: Lens' DefineIndexFieldResponse Int
-defrsStatus = lens _defrsStatus (\ s a -> s{_defrsStatus = a});
+defrsResponseStatus :: Lens' DefineIndexFieldResponse Int
+defrsResponseStatus = lens _defrsResponseStatus (\ s a -> s{_defrsResponseStatus = a});
 
 -- | Undocumented member.
 defrsIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus

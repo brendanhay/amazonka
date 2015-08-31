@@ -34,7 +34,7 @@ module Network.AWS.DeviceFarm.GetTest
     , GetTestResponse
     -- * Response Lenses
     , gtrsTest
-    , gtrsStatus
+    , gtrsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -99,8 +99,8 @@ instance ToQuery GetTest where
 --
 -- /See:/ 'getTestResponse' smart constructor.
 data GetTestResponse = GetTestResponse'
-    { _gtrsTest   :: !(Maybe Test)
-    , _gtrsStatus :: !Int
+    { _gtrsTest           :: !(Maybe Test)
+    , _gtrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetTestResponse' with the minimum fields required to make a request.
@@ -109,14 +109,14 @@ data GetTestResponse = GetTestResponse'
 --
 -- * 'gtrsTest'
 --
--- * 'gtrsStatus'
+-- * 'gtrsResponseStatus'
 getTestResponse
-    :: Int -- ^ 'gtrsStatus'
+    :: Int -- ^ 'gtrsResponseStatus'
     -> GetTestResponse
-getTestResponse pStatus_ =
+getTestResponse pResponseStatus_ =
     GetTestResponse'
     { _gtrsTest = Nothing
-    , _gtrsStatus = pStatus_
+    , _gtrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -124,5 +124,5 @@ gtrsTest :: Lens' GetTestResponse (Maybe Test)
 gtrsTest = lens _gtrsTest (\ s a -> s{_gtrsTest = a});
 
 -- | The response status code.
-gtrsStatus :: Lens' GetTestResponse Int
-gtrsStatus = lens _gtrsStatus (\ s a -> s{_gtrsStatus = a});
+gtrsResponseStatus :: Lens' GetTestResponse Int
+gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a});

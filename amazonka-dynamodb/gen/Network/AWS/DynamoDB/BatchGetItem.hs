@@ -94,7 +94,7 @@ module Network.AWS.DynamoDB.BatchGetItem
     , bgirsUnprocessedKeys
     , bgirsResponses
     , bgirsConsumedCapacity
-    , bgirsStatus
+    , bgirsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -265,7 +265,7 @@ data BatchGetItemResponse = BatchGetItemResponse'
     { _bgirsUnprocessedKeys  :: !(Maybe (Map Text KeysAndAttributes))
     , _bgirsResponses        :: !(Maybe (Map Text [Map Text AttributeValue]))
     , _bgirsConsumedCapacity :: !(Maybe [ConsumedCapacity])
-    , _bgirsStatus           :: !Int
+    , _bgirsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BatchGetItemResponse' with the minimum fields required to make a request.
@@ -278,16 +278,16 @@ data BatchGetItemResponse = BatchGetItemResponse'
 --
 -- * 'bgirsConsumedCapacity'
 --
--- * 'bgirsStatus'
+-- * 'bgirsResponseStatus'
 batchGetItemResponse
-    :: Int -- ^ 'bgirsStatus'
+    :: Int -- ^ 'bgirsResponseStatus'
     -> BatchGetItemResponse
-batchGetItemResponse pStatus_ =
+batchGetItemResponse pResponseStatus_ =
     BatchGetItemResponse'
     { _bgirsUnprocessedKeys = Nothing
     , _bgirsResponses = Nothing
     , _bgirsConsumedCapacity = Nothing
-    , _bgirsStatus = pStatus_
+    , _bgirsResponseStatus = pResponseStatus_
     }
 
 -- | A map of tables and their respective keys that were not processed with
@@ -332,5 +332,5 @@ bgirsConsumedCapacity :: Lens' BatchGetItemResponse [ConsumedCapacity]
 bgirsConsumedCapacity = lens _bgirsConsumedCapacity (\ s a -> s{_bgirsConsumedCapacity = a}) . _Default . _Coerce;
 
 -- | The response status code.
-bgirsStatus :: Lens' BatchGetItemResponse Int
-bgirsStatus = lens _bgirsStatus (\ s a -> s{_bgirsStatus = a});
+bgirsResponseStatus :: Lens' BatchGetItemResponse Int
+bgirsResponseStatus = lens _bgirsResponseStatus (\ s a -> s{_bgirsResponseStatus = a});

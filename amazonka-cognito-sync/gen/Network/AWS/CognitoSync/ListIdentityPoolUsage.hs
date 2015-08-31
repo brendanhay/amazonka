@@ -42,7 +42,7 @@ module Network.AWS.CognitoSync.ListIdentityPoolUsage
     , lipursCount
     , lipursNextToken
     , lipursMaxResults
-    , lipursStatus
+    , lipursResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -120,7 +120,7 @@ data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
     , _lipursCount              :: !(Maybe Int)
     , _lipursNextToken          :: !(Maybe Text)
     , _lipursMaxResults         :: !(Maybe Int)
-    , _lipursStatus             :: !Int
+    , _lipursResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListIdentityPoolUsageResponse' with the minimum fields required to make a request.
@@ -135,17 +135,17 @@ data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
 --
 -- * 'lipursMaxResults'
 --
--- * 'lipursStatus'
+-- * 'lipursResponseStatus'
 listIdentityPoolUsageResponse
-    :: Int -- ^ 'lipursStatus'
+    :: Int -- ^ 'lipursResponseStatus'
     -> ListIdentityPoolUsageResponse
-listIdentityPoolUsageResponse pStatus_ =
+listIdentityPoolUsageResponse pResponseStatus_ =
     ListIdentityPoolUsageResponse'
     { _lipursIdentityPoolUsages = Nothing
     , _lipursCount = Nothing
     , _lipursNextToken = Nothing
     , _lipursMaxResults = Nothing
-    , _lipursStatus = pStatus_
+    , _lipursResponseStatus = pResponseStatus_
     }
 
 -- | Usage information for the identity pools.
@@ -165,5 +165,5 @@ lipursMaxResults :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
 lipursMaxResults = lens _lipursMaxResults (\ s a -> s{_lipursMaxResults = a});
 
 -- | The response status code.
-lipursStatus :: Lens' ListIdentityPoolUsageResponse Int
-lipursStatus = lens _lipursStatus (\ s a -> s{_lipursStatus = a});
+lipursResponseStatus :: Lens' ListIdentityPoolUsageResponse Int
+lipursResponseStatus = lens _lipursResponseStatus (\ s a -> s{_lipursResponseStatus = a});

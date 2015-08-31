@@ -39,7 +39,7 @@ module Network.AWS.RDS.DescribeEventCategories
     , DescribeEventCategoriesResponse
     -- * Response Lenses
     , decrsEventCategoriesMapList
-    , decrsStatus
+    , decrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -115,7 +115,7 @@ instance ToQuery DescribeEventCategories where
 -- /See:/ 'describeEventCategoriesResponse' smart constructor.
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
     { _decrsEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
-    , _decrsStatus                 :: !Int
+    , _decrsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEventCategoriesResponse' with the minimum fields required to make a request.
@@ -124,14 +124,14 @@ data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
 --
 -- * 'decrsEventCategoriesMapList'
 --
--- * 'decrsStatus'
+-- * 'decrsResponseStatus'
 describeEventCategoriesResponse
-    :: Int -- ^ 'decrsStatus'
+    :: Int -- ^ 'decrsResponseStatus'
     -> DescribeEventCategoriesResponse
-describeEventCategoriesResponse pStatus_ =
+describeEventCategoriesResponse pResponseStatus_ =
     DescribeEventCategoriesResponse'
     { _decrsEventCategoriesMapList = Nothing
-    , _decrsStatus = pStatus_
+    , _decrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of EventCategoriesMap data types.
@@ -139,5 +139,5 @@ decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCateg
 decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_decrsEventCategoriesMapList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-decrsStatus :: Lens' DescribeEventCategoriesResponse Int
-decrsStatus = lens _decrsStatus (\ s a -> s{_decrsStatus = a});
+decrsResponseStatus :: Lens' DescribeEventCategoriesResponse Int
+decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a});

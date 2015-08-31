@@ -59,7 +59,7 @@ module Network.AWS.SWF.DescribeActivityType
     , describeActivityTypeResponse
     , DescribeActivityTypeResponse
     -- * Response Lenses
-    , datrsStatus
+    , datrsResponseStatus
     , datrsTypeInfo
     , datrsConfiguration
     ) where
@@ -141,35 +141,35 @@ instance ToQuery DescribeActivityType where
 --
 -- /See:/ 'describeActivityTypeResponse' smart constructor.
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
-    { _datrsStatus        :: !Int
-    , _datrsTypeInfo      :: !ActivityTypeInfo
-    , _datrsConfiguration :: !ActivityTypeConfiguration
+    { _datrsResponseStatus :: !Int
+    , _datrsTypeInfo       :: !ActivityTypeInfo
+    , _datrsConfiguration  :: !ActivityTypeConfiguration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeActivityTypeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datrsStatus'
+-- * 'datrsResponseStatus'
 --
 -- * 'datrsTypeInfo'
 --
 -- * 'datrsConfiguration'
 describeActivityTypeResponse
-    :: Int -- ^ 'datrsStatus'
+    :: Int -- ^ 'datrsResponseStatus'
     -> ActivityTypeInfo -- ^ 'datrsTypeInfo'
     -> ActivityTypeConfiguration -- ^ 'datrsConfiguration'
     -> DescribeActivityTypeResponse
-describeActivityTypeResponse pStatus_ pTypeInfo_ pConfiguration_ =
+describeActivityTypeResponse pResponseStatus_ pTypeInfo_ pConfiguration_ =
     DescribeActivityTypeResponse'
-    { _datrsStatus = pStatus_
+    { _datrsResponseStatus = pResponseStatus_
     , _datrsTypeInfo = pTypeInfo_
     , _datrsConfiguration = pConfiguration_
     }
 
 -- | The response status code.
-datrsStatus :: Lens' DescribeActivityTypeResponse Int
-datrsStatus = lens _datrsStatus (\ s a -> s{_datrsStatus = a});
+datrsResponseStatus :: Lens' DescribeActivityTypeResponse Int
+datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus = a});
 
 -- | General information about the activity type.
 --

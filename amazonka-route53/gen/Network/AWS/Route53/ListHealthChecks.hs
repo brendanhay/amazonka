@@ -46,7 +46,7 @@ module Network.AWS.Route53.ListHealthChecks
     , ListHealthChecksResponse
     -- * Response Lenses
     , lhcrsNextMarker
-    , lhcrsStatus
+    , lhcrsResponseStatus
     , lhcrsHealthChecks
     , lhcrsMarker
     , lhcrsIsTruncated
@@ -139,12 +139,12 @@ instance ToQuery ListHealthChecks where
 --
 -- /See:/ 'listHealthChecksResponse' smart constructor.
 data ListHealthChecksResponse = ListHealthChecksResponse'
-    { _lhcrsNextMarker   :: !(Maybe Text)
-    , _lhcrsStatus       :: !Int
-    , _lhcrsHealthChecks :: ![HealthCheck]
-    , _lhcrsMarker       :: !Text
-    , _lhcrsIsTruncated  :: !Bool
-    , _lhcrsMaxItems     :: !Text
+    { _lhcrsNextMarker     :: !(Maybe Text)
+    , _lhcrsResponseStatus :: !Int
+    , _lhcrsHealthChecks   :: ![HealthCheck]
+    , _lhcrsMarker         :: !Text
+    , _lhcrsIsTruncated    :: !Bool
+    , _lhcrsMaxItems       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListHealthChecksResponse' with the minimum fields required to make a request.
@@ -153,7 +153,7 @@ data ListHealthChecksResponse = ListHealthChecksResponse'
 --
 -- * 'lhcrsNextMarker'
 --
--- * 'lhcrsStatus'
+-- * 'lhcrsResponseStatus'
 --
 -- * 'lhcrsHealthChecks'
 --
@@ -163,15 +163,15 @@ data ListHealthChecksResponse = ListHealthChecksResponse'
 --
 -- * 'lhcrsMaxItems'
 listHealthChecksResponse
-    :: Int -- ^ 'lhcrsStatus'
+    :: Int -- ^ 'lhcrsResponseStatus'
     -> Text -- ^ 'lhcrsMarker'
     -> Bool -- ^ 'lhcrsIsTruncated'
     -> Text -- ^ 'lhcrsMaxItems'
     -> ListHealthChecksResponse
-listHealthChecksResponse pStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
+listHealthChecksResponse pResponseStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
     ListHealthChecksResponse'
     { _lhcrsNextMarker = Nothing
-    , _lhcrsStatus = pStatus_
+    , _lhcrsResponseStatus = pResponseStatus_
     , _lhcrsHealthChecks = mempty
     , _lhcrsMarker = pMarker_
     , _lhcrsIsTruncated = pIsTruncated_
@@ -186,8 +186,8 @@ lhcrsNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
 lhcrsNextMarker = lens _lhcrsNextMarker (\ s a -> s{_lhcrsNextMarker = a});
 
 -- | The response status code.
-lhcrsStatus :: Lens' ListHealthChecksResponse Int
-lhcrsStatus = lens _lhcrsStatus (\ s a -> s{_lhcrsStatus = a});
+lhcrsResponseStatus :: Lens' ListHealthChecksResponse Int
+lhcrsResponseStatus = lens _lhcrsResponseStatus (\ s a -> s{_lhcrsResponseStatus = a});
 
 -- | A complex type that contains information about the health checks
 -- associated with the current AWS account.

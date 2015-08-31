@@ -83,7 +83,7 @@ module Network.AWS.DynamoDB.Query
     , qrsScannedCount
     , qrsItems
     , qrsConsumedCapacity
-    , qrsStatus
+    , qrsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -770,7 +770,7 @@ data QueryResponse = QueryResponse'
     , _qrsScannedCount     :: !(Maybe Int)
     , _qrsItems            :: !(Maybe [Map Text AttributeValue])
     , _qrsConsumedCapacity :: !(Maybe ConsumedCapacity)
-    , _qrsStatus           :: !Int
+    , _qrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'QueryResponse' with the minimum fields required to make a request.
@@ -787,18 +787,18 @@ data QueryResponse = QueryResponse'
 --
 -- * 'qrsConsumedCapacity'
 --
--- * 'qrsStatus'
+-- * 'qrsResponseStatus'
 queryResponse
-    :: Int -- ^ 'qrsStatus'
+    :: Int -- ^ 'qrsResponseStatus'
     -> QueryResponse
-queryResponse pStatus_ =
+queryResponse pResponseStatus_ =
     QueryResponse'
     { _qrsLastEvaluatedKey = Nothing
     , _qrsCount = Nothing
     , _qrsScannedCount = Nothing
     , _qrsItems = Nothing
     , _qrsConsumedCapacity = Nothing
-    , _qrsStatus = pStatus_
+    , _qrsResponseStatus = pResponseStatus_
     }
 
 -- | The primary key of the item where the operation stopped, inclusive of
@@ -847,5 +847,5 @@ qrsConsumedCapacity :: Lens' QueryResponse (Maybe ConsumedCapacity)
 qrsConsumedCapacity = lens _qrsConsumedCapacity (\ s a -> s{_qrsConsumedCapacity = a});
 
 -- | The response status code.
-qrsStatus :: Lens' QueryResponse Int
-qrsStatus = lens _qrsStatus (\ s a -> s{_qrsStatus = a});
+qrsResponseStatus :: Lens' QueryResponse Int
+qrsResponseStatus = lens _qrsResponseStatus (\ s a -> s{_qrsResponseStatus = a});

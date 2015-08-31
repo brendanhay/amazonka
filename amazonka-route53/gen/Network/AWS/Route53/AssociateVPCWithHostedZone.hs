@@ -44,7 +44,7 @@ module Network.AWS.Route53.AssociateVPCWithHostedZone
     , associateVPCWithHostedZoneResponse
     , AssociateVPCWithHostedZoneResponse
     -- * Response Lenses
-    , avwhzrsStatus
+    , avwhzrsResponseStatus
     , avwhzrsChangeInfo
     ) where
 
@@ -136,30 +136,30 @@ instance ToXML AssociateVPCWithHostedZone where
 --
 -- /See:/ 'associateVPCWithHostedZoneResponse' smart constructor.
 data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'
-    { _avwhzrsStatus     :: !Int
-    , _avwhzrsChangeInfo :: !ChangeInfo
+    { _avwhzrsResponseStatus :: !Int
+    , _avwhzrsChangeInfo     :: !ChangeInfo
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AssociateVPCWithHostedZoneResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avwhzrsStatus'
+-- * 'avwhzrsResponseStatus'
 --
 -- * 'avwhzrsChangeInfo'
 associateVPCWithHostedZoneResponse
-    :: Int -- ^ 'avwhzrsStatus'
+    :: Int -- ^ 'avwhzrsResponseStatus'
     -> ChangeInfo -- ^ 'avwhzrsChangeInfo'
     -> AssociateVPCWithHostedZoneResponse
-associateVPCWithHostedZoneResponse pStatus_ pChangeInfo_ =
+associateVPCWithHostedZoneResponse pResponseStatus_ pChangeInfo_ =
     AssociateVPCWithHostedZoneResponse'
-    { _avwhzrsStatus = pStatus_
+    { _avwhzrsResponseStatus = pResponseStatus_
     , _avwhzrsChangeInfo = pChangeInfo_
     }
 
 -- | The response status code.
-avwhzrsStatus :: Lens' AssociateVPCWithHostedZoneResponse Int
-avwhzrsStatus = lens _avwhzrsStatus (\ s a -> s{_avwhzrsStatus = a});
+avwhzrsResponseStatus :: Lens' AssociateVPCWithHostedZoneResponse Int
+avwhzrsResponseStatus = lens _avwhzrsResponseStatus (\ s a -> s{_avwhzrsResponseStatus = a});
 
 -- | A complex type that contains the ID, the status, and the date and time
 -- of your 'AssociateVPCWithHostedZoneRequest'.

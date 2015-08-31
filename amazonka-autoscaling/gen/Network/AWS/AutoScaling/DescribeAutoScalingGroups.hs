@@ -39,7 +39,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     , DescribeAutoScalingGroupsResponse
     -- * Response Lenses
     , dasgrsNextToken
-    , dasgrsStatus
+    , dasgrsResponseStatus
     , dasgrsAutoScalingGroups
     ) where
 
@@ -129,7 +129,7 @@ instance ToQuery DescribeAutoScalingGroups where
 -- | /See:/ 'describeAutoScalingGroupsResponse' smart constructor.
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
     { _dasgrsNextToken         :: !(Maybe Text)
-    , _dasgrsStatus            :: !Int
+    , _dasgrsResponseStatus    :: !Int
     , _dasgrsAutoScalingGroups :: ![AutoScalingGroup]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -139,16 +139,16 @@ data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
 --
 -- * 'dasgrsNextToken'
 --
--- * 'dasgrsStatus'
+-- * 'dasgrsResponseStatus'
 --
 -- * 'dasgrsAutoScalingGroups'
 describeAutoScalingGroupsResponse
-    :: Int -- ^ 'dasgrsStatus'
+    :: Int -- ^ 'dasgrsResponseStatus'
     -> DescribeAutoScalingGroupsResponse
-describeAutoScalingGroupsResponse pStatus_ =
+describeAutoScalingGroupsResponse pResponseStatus_ =
     DescribeAutoScalingGroupsResponse'
     { _dasgrsNextToken = Nothing
-    , _dasgrsStatus = pStatus_
+    , _dasgrsResponseStatus = pResponseStatus_
     , _dasgrsAutoScalingGroups = mempty
     }
 
@@ -158,8 +158,8 @@ dasgrsNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
 dasgrsNextToken = lens _dasgrsNextToken (\ s a -> s{_dasgrsNextToken = a});
 
 -- | The response status code.
-dasgrsStatus :: Lens' DescribeAutoScalingGroupsResponse Int
-dasgrsStatus = lens _dasgrsStatus (\ s a -> s{_dasgrsStatus = a});
+dasgrsResponseStatus :: Lens' DescribeAutoScalingGroupsResponse Int
+dasgrsResponseStatus = lens _dasgrsResponseStatus (\ s a -> s{_dasgrsResponseStatus = a});
 
 -- | The groups.
 dasgrsAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]

@@ -41,7 +41,7 @@ module Network.AWS.RDS.DescribeDBInstances
     -- * Response Lenses
     , ddbirsDBInstances
     , ddbirsMarker
-    , ddbirsStatus
+    , ddbirsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -158,9 +158,9 @@ instance ToQuery DescribeDBInstances where
 --
 -- /See:/ 'describeDBInstancesResponse' smart constructor.
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
-    { _ddbirsDBInstances :: !(Maybe [DBInstance])
-    , _ddbirsMarker      :: !(Maybe Text)
-    , _ddbirsStatus      :: !Int
+    { _ddbirsDBInstances    :: !(Maybe [DBInstance])
+    , _ddbirsMarker         :: !(Maybe Text)
+    , _ddbirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBInstancesResponse' with the minimum fields required to make a request.
@@ -171,15 +171,15 @@ data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
 --
 -- * 'ddbirsMarker'
 --
--- * 'ddbirsStatus'
+-- * 'ddbirsResponseStatus'
 describeDBInstancesResponse
-    :: Int -- ^ 'ddbirsStatus'
+    :: Int -- ^ 'ddbirsResponseStatus'
     -> DescribeDBInstancesResponse
-describeDBInstancesResponse pStatus_ =
+describeDBInstancesResponse pResponseStatus_ =
     DescribeDBInstancesResponse'
     { _ddbirsDBInstances = Nothing
     , _ddbirsMarker = Nothing
-    , _ddbirsStatus = pStatus_
+    , _ddbirsResponseStatus = pResponseStatus_
     }
 
 -- | A list of DBInstance instances.
@@ -193,5 +193,5 @@ ddbirsMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
 ddbirsMarker = lens _ddbirsMarker (\ s a -> s{_ddbirsMarker = a});
 
 -- | The response status code.
-ddbirsStatus :: Lens' DescribeDBInstancesResponse Int
-ddbirsStatus = lens _ddbirsStatus (\ s a -> s{_ddbirsStatus = a});
+ddbirsResponseStatus :: Lens' DescribeDBInstancesResponse Int
+ddbirsResponseStatus = lens _ddbirsResponseStatus (\ s a -> s{_ddbirsResponseStatus = a});

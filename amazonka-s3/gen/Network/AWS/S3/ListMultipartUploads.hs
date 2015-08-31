@@ -53,7 +53,7 @@ module Network.AWS.S3.ListMultipartUploads
     , lmursIsTruncated
     , lmursNextUploadIdMarker
     , lmursDelimiter
-    , lmursStatus
+    , lmursResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -201,7 +201,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
     , _lmursIsTruncated        :: !(Maybe Bool)
     , _lmursNextUploadIdMarker :: !(Maybe Text)
     , _lmursDelimiter          :: !(Maybe Delimiter)
-    , _lmursStatus             :: !Int
+    , _lmursResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListMultipartUploadsResponse' with the minimum fields required to make a request.
@@ -232,11 +232,11 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
 --
 -- * 'lmursDelimiter'
 --
--- * 'lmursStatus'
+-- * 'lmursResponseStatus'
 listMultipartUploadsResponse
-    :: Int -- ^ 'lmursStatus'
+    :: Int -- ^ 'lmursResponseStatus'
     -> ListMultipartUploadsResponse
-listMultipartUploadsResponse pStatus_ =
+listMultipartUploadsResponse pResponseStatus_ =
     ListMultipartUploadsResponse'
     { _lmursKeyMarker = Nothing
     , _lmursPrefix = Nothing
@@ -250,7 +250,7 @@ listMultipartUploadsResponse pStatus_ =
     , _lmursIsTruncated = Nothing
     , _lmursNextUploadIdMarker = Nothing
     , _lmursDelimiter = Nothing
-    , _lmursStatus = pStatus_
+    , _lmursResponseStatus = pResponseStatus_
     }
 
 -- | The key at or after which the listing began.
@@ -311,5 +311,5 @@ lmursDelimiter :: Lens' ListMultipartUploadsResponse (Maybe Delimiter)
 lmursDelimiter = lens _lmursDelimiter (\ s a -> s{_lmursDelimiter = a});
 
 -- | The response status code.
-lmursStatus :: Lens' ListMultipartUploadsResponse Int
-lmursStatus = lens _lmursStatus (\ s a -> s{_lmursStatus = a});
+lmursResponseStatus :: Lens' ListMultipartUploadsResponse Int
+lmursResponseStatus = lens _lmursResponseStatus (\ s a -> s{_lmursResponseStatus = a});

@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeNetworkACLs
     , DescribeNetworkACLsResponse
     -- * Response Lenses
     , dnarsNetworkACLs
-    , dnarsStatus
+    , dnarsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -176,8 +176,8 @@ instance ToQuery DescribeNetworkACLs where
 
 -- | /See:/ 'describeNetworkACLsResponse' smart constructor.
 data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'
-    { _dnarsNetworkACLs :: !(Maybe [NetworkACL])
-    , _dnarsStatus      :: !Int
+    { _dnarsNetworkACLs    :: !(Maybe [NetworkACL])
+    , _dnarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeNetworkACLsResponse' with the minimum fields required to make a request.
@@ -186,14 +186,14 @@ data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'
 --
 -- * 'dnarsNetworkACLs'
 --
--- * 'dnarsStatus'
+-- * 'dnarsResponseStatus'
 describeNetworkACLsResponse
-    :: Int -- ^ 'dnarsStatus'
+    :: Int -- ^ 'dnarsResponseStatus'
     -> DescribeNetworkACLsResponse
-describeNetworkACLsResponse pStatus_ =
+describeNetworkACLsResponse pResponseStatus_ =
     DescribeNetworkACLsResponse'
     { _dnarsNetworkACLs = Nothing
-    , _dnarsStatus = pStatus_
+    , _dnarsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more network ACLs.
@@ -201,5 +201,5 @@ dnarsNetworkACLs :: Lens' DescribeNetworkACLsResponse [NetworkACL]
 dnarsNetworkACLs = lens _dnarsNetworkACLs (\ s a -> s{_dnarsNetworkACLs = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dnarsStatus :: Lens' DescribeNetworkACLsResponse Int
-dnarsStatus = lens _dnarsStatus (\ s a -> s{_dnarsStatus = a});
+dnarsResponseStatus :: Lens' DescribeNetworkACLsResponse Int
+dnarsResponseStatus = lens _dnarsResponseStatus (\ s a -> s{_dnarsResponseStatus = a});

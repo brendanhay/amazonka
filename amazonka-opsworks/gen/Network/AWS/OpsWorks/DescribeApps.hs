@@ -43,7 +43,7 @@ module Network.AWS.OpsWorks.DescribeApps
     , DescribeAppsResponse
     -- * Response Lenses
     , darsApps
-    , darsStatus
+    , darsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -119,8 +119,8 @@ instance ToQuery DescribeApps where
 --
 -- /See:/ 'describeAppsResponse' smart constructor.
 data DescribeAppsResponse = DescribeAppsResponse'
-    { _darsApps   :: !(Maybe [App])
-    , _darsStatus :: !Int
+    { _darsApps           :: !(Maybe [App])
+    , _darsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAppsResponse' with the minimum fields required to make a request.
@@ -129,14 +129,14 @@ data DescribeAppsResponse = DescribeAppsResponse'
 --
 -- * 'darsApps'
 --
--- * 'darsStatus'
+-- * 'darsResponseStatus'
 describeAppsResponse
-    :: Int -- ^ 'darsStatus'
+    :: Int -- ^ 'darsResponseStatus'
     -> DescribeAppsResponse
-describeAppsResponse pStatus_ =
+describeAppsResponse pResponseStatus_ =
     DescribeAppsResponse'
     { _darsApps = Nothing
-    , _darsStatus = pStatus_
+    , _darsResponseStatus = pResponseStatus_
     }
 
 -- | An array of 'App' objects that describe the specified apps.
@@ -144,5 +144,5 @@ darsApps :: Lens' DescribeAppsResponse [App]
 darsApps = lens _darsApps (\ s a -> s{_darsApps = a}) . _Default . _Coerce;
 
 -- | The response status code.
-darsStatus :: Lens' DescribeAppsResponse Int
-darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});
+darsResponseStatus :: Lens' DescribeAppsResponse Int
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});

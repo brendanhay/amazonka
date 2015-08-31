@@ -38,7 +38,7 @@ module Network.AWS.EC2.DescribeVPCEndpointServices
     -- * Response Lenses
     , dvesrsServiceNames
     , dvesrsNextToken
-    , dvesrsStatus
+    , dvesrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -124,9 +124,9 @@ instance ToQuery DescribeVPCEndpointServices where
 
 -- | /See:/ 'describeVPCEndpointServicesResponse' smart constructor.
 data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
-    { _dvesrsServiceNames :: !(Maybe [Text])
-    , _dvesrsNextToken    :: !(Maybe Text)
-    , _dvesrsStatus       :: !Int
+    { _dvesrsServiceNames   :: !(Maybe [Text])
+    , _dvesrsNextToken      :: !(Maybe Text)
+    , _dvesrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVPCEndpointServicesResponse' with the minimum fields required to make a request.
@@ -137,15 +137,15 @@ data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
 --
 -- * 'dvesrsNextToken'
 --
--- * 'dvesrsStatus'
+-- * 'dvesrsResponseStatus'
 describeVPCEndpointServicesResponse
-    :: Int -- ^ 'dvesrsStatus'
+    :: Int -- ^ 'dvesrsResponseStatus'
     -> DescribeVPCEndpointServicesResponse
-describeVPCEndpointServicesResponse pStatus_ =
+describeVPCEndpointServicesResponse pResponseStatus_ =
     DescribeVPCEndpointServicesResponse'
     { _dvesrsServiceNames = Nothing
     , _dvesrsNextToken = Nothing
-    , _dvesrsStatus = pStatus_
+    , _dvesrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of supported AWS services.
@@ -158,5 +158,5 @@ dvesrsNextToken :: Lens' DescribeVPCEndpointServicesResponse (Maybe Text)
 dvesrsNextToken = lens _dvesrsNextToken (\ s a -> s{_dvesrsNextToken = a});
 
 -- | The response status code.
-dvesrsStatus :: Lens' DescribeVPCEndpointServicesResponse Int
-dvesrsStatus = lens _dvesrsStatus (\ s a -> s{_dvesrsStatus = a});
+dvesrsResponseStatus :: Lens' DescribeVPCEndpointServicesResponse Int
+dvesrsResponseStatus = lens _dvesrsResponseStatus (\ s a -> s{_dvesrsResponseStatus = a});

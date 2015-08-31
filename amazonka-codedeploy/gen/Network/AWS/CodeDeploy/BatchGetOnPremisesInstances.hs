@@ -34,7 +34,7 @@ module Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
     , BatchGetOnPremisesInstancesResponse
     -- * Response Lenses
     , bgopirsInstanceInfos
-    , bgopirsStatus
+    , bgopirsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -103,8 +103,8 @@ instance ToQuery BatchGetOnPremisesInstances where
 --
 -- /See:/ 'batchGetOnPremisesInstancesResponse' smart constructor.
 data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'
-    { _bgopirsInstanceInfos :: !(Maybe [InstanceInfo])
-    , _bgopirsStatus        :: !Int
+    { _bgopirsInstanceInfos  :: !(Maybe [InstanceInfo])
+    , _bgopirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BatchGetOnPremisesInstancesResponse' with the minimum fields required to make a request.
@@ -113,14 +113,14 @@ data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'
 --
 -- * 'bgopirsInstanceInfos'
 --
--- * 'bgopirsStatus'
+-- * 'bgopirsResponseStatus'
 batchGetOnPremisesInstancesResponse
-    :: Int -- ^ 'bgopirsStatus'
+    :: Int -- ^ 'bgopirsResponseStatus'
     -> BatchGetOnPremisesInstancesResponse
-batchGetOnPremisesInstancesResponse pStatus_ =
+batchGetOnPremisesInstancesResponse pResponseStatus_ =
     BatchGetOnPremisesInstancesResponse'
     { _bgopirsInstanceInfos = Nothing
-    , _bgopirsStatus = pStatus_
+    , _bgopirsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the on-premises instances.
@@ -128,5 +128,5 @@ bgopirsInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse [InstanceInfo]
 bgopirsInstanceInfos = lens _bgopirsInstanceInfos (\ s a -> s{_bgopirsInstanceInfos = a}) . _Default . _Coerce;
 
 -- | The response status code.
-bgopirsStatus :: Lens' BatchGetOnPremisesInstancesResponse Int
-bgopirsStatus = lens _bgopirsStatus (\ s a -> s{_bgopirsStatus = a});
+bgopirsResponseStatus :: Lens' BatchGetOnPremisesInstancesResponse Int
+bgopirsResponseStatus = lens _bgopirsResponseStatus (\ s a -> s{_bgopirsResponseStatus = a});

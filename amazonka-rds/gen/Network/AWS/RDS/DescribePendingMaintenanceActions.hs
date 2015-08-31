@@ -39,7 +39,7 @@ module Network.AWS.RDS.DescribePendingMaintenanceActions
     -- * Response Lenses
     , dpmarsPendingMaintenanceActions
     , dpmarsMarker
-    , dpmarsStatus
+    , dpmarsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -156,7 +156,7 @@ instance ToQuery DescribePendingMaintenanceActions
 data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'
     { _dpmarsPendingMaintenanceActions :: !(Maybe [ResourcePendingMaintenanceActions])
     , _dpmarsMarker                    :: !(Maybe Text)
-    , _dpmarsStatus                    :: !Int
+    , _dpmarsResponseStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribePendingMaintenanceActionsResponse' with the minimum fields required to make a request.
@@ -167,15 +167,15 @@ data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActio
 --
 -- * 'dpmarsMarker'
 --
--- * 'dpmarsStatus'
+-- * 'dpmarsResponseStatus'
 describePendingMaintenanceActionsResponse
-    :: Int -- ^ 'dpmarsStatus'
+    :: Int -- ^ 'dpmarsResponseStatus'
     -> DescribePendingMaintenanceActionsResponse
-describePendingMaintenanceActionsResponse pStatus_ =
+describePendingMaintenanceActionsResponse pResponseStatus_ =
     DescribePendingMaintenanceActionsResponse'
     { _dpmarsPendingMaintenanceActions = Nothing
     , _dpmarsMarker = Nothing
-    , _dpmarsStatus = pStatus_
+    , _dpmarsResponseStatus = pResponseStatus_
     }
 
 -- | A list of the pending maintenance actions for the resource.
@@ -190,5 +190,5 @@ dpmarsMarker :: Lens' DescribePendingMaintenanceActionsResponse (Maybe Text)
 dpmarsMarker = lens _dpmarsMarker (\ s a -> s{_dpmarsMarker = a});
 
 -- | The response status code.
-dpmarsStatus :: Lens' DescribePendingMaintenanceActionsResponse Int
-dpmarsStatus = lens _dpmarsStatus (\ s a -> s{_dpmarsStatus = a});
+dpmarsResponseStatus :: Lens' DescribePendingMaintenanceActionsResponse Int
+dpmarsResponseStatus = lens _dpmarsResponseStatus (\ s a -> s{_dpmarsResponseStatus = a});

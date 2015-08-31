@@ -53,7 +53,7 @@ module Network.AWS.Redshift.DescribeHSMConfigurations
     -- * Response Lenses
     , dhcrsMarker
     , dhcrsHSMConfigurations
-    , dhcrsStatus
+    , dhcrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -192,7 +192,7 @@ instance ToQuery DescribeHSMConfigurations where
 data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'
     { _dhcrsMarker            :: !(Maybe Text)
     , _dhcrsHSMConfigurations :: !(Maybe [HSMConfiguration])
-    , _dhcrsStatus            :: !Int
+    , _dhcrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeHSMConfigurationsResponse' with the minimum fields required to make a request.
@@ -203,15 +203,15 @@ data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'
 --
 -- * 'dhcrsHSMConfigurations'
 --
--- * 'dhcrsStatus'
+-- * 'dhcrsResponseStatus'
 describeHSMConfigurationsResponse
-    :: Int -- ^ 'dhcrsStatus'
+    :: Int -- ^ 'dhcrsResponseStatus'
     -> DescribeHSMConfigurationsResponse
-describeHSMConfigurationsResponse pStatus_ =
+describeHSMConfigurationsResponse pResponseStatus_ =
     DescribeHSMConfigurationsResponse'
     { _dhcrsMarker = Nothing
     , _dhcrsHSMConfigurations = Nothing
-    , _dhcrsStatus = pStatus_
+    , _dhcrsResponseStatus = pResponseStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -228,5 +228,5 @@ dhcrsHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfigurat
 dhcrsHSMConfigurations = lens _dhcrsHSMConfigurations (\ s a -> s{_dhcrsHSMConfigurations = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dhcrsStatus :: Lens' DescribeHSMConfigurationsResponse Int
-dhcrsStatus = lens _dhcrsStatus (\ s a -> s{_dhcrsStatus = a});
+dhcrsResponseStatus :: Lens' DescribeHSMConfigurationsResponse Int
+dhcrsResponseStatus = lens _dhcrsResponseStatus (\ s a -> s{_dhcrsResponseStatus = a});

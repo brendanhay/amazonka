@@ -36,7 +36,7 @@ module Network.AWS.Route53.ChangeTagsForResource
     , changeTagsForResourceResponse
     , ChangeTagsForResourceResponse
     -- * Response Lenses
-    , ctfrrsStatus
+    , ctfrrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -142,22 +142,22 @@ instance ToXML ChangeTagsForResource where
 --
 -- /See:/ 'changeTagsForResourceResponse' smart constructor.
 newtype ChangeTagsForResourceResponse = ChangeTagsForResourceResponse'
-    { _ctfrrsStatus :: Int
+    { _ctfrrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ChangeTagsForResourceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctfrrsStatus'
+-- * 'ctfrrsResponseStatus'
 changeTagsForResourceResponse
-    :: Int -- ^ 'ctfrrsStatus'
+    :: Int -- ^ 'ctfrrsResponseStatus'
     -> ChangeTagsForResourceResponse
-changeTagsForResourceResponse pStatus_ =
+changeTagsForResourceResponse pResponseStatus_ =
     ChangeTagsForResourceResponse'
-    { _ctfrrsStatus = pStatus_
+    { _ctfrrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-ctfrrsStatus :: Lens' ChangeTagsForResourceResponse Int
-ctfrrsStatus = lens _ctfrrsStatus (\ s a -> s{_ctfrrsStatus = a});
+ctfrrsResponseStatus :: Lens' ChangeTagsForResourceResponse Int
+ctfrrsResponseStatus = lens _ctfrrsResponseStatus (\ s a -> s{_ctfrrsResponseStatus = a});

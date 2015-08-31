@@ -63,7 +63,7 @@ module Network.AWS.EC2.CreateCustomerGateway
     , CreateCustomerGatewayResponse
     -- * Response Lenses
     , ccgrsCustomerGateway
-    , ccgrsStatus
+    , ccgrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -154,7 +154,7 @@ instance ToQuery CreateCustomerGateway where
 -- | /See:/ 'createCustomerGatewayResponse' smart constructor.
 data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
     { _ccgrsCustomerGateway :: !(Maybe CustomerGateway)
-    , _ccgrsStatus          :: !Int
+    , _ccgrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateCustomerGatewayResponse' with the minimum fields required to make a request.
@@ -163,14 +163,14 @@ data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
 --
 -- * 'ccgrsCustomerGateway'
 --
--- * 'ccgrsStatus'
+-- * 'ccgrsResponseStatus'
 createCustomerGatewayResponse
-    :: Int -- ^ 'ccgrsStatus'
+    :: Int -- ^ 'ccgrsResponseStatus'
     -> CreateCustomerGatewayResponse
-createCustomerGatewayResponse pStatus_ =
+createCustomerGatewayResponse pResponseStatus_ =
     CreateCustomerGatewayResponse'
     { _ccgrsCustomerGateway = Nothing
-    , _ccgrsStatus = pStatus_
+    , _ccgrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the customer gateway.
@@ -178,5 +178,5 @@ ccgrsCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGatew
 ccgrsCustomerGateway = lens _ccgrsCustomerGateway (\ s a -> s{_ccgrsCustomerGateway = a});
 
 -- | The response status code.
-ccgrsStatus :: Lens' CreateCustomerGatewayResponse Int
-ccgrsStatus = lens _ccgrsStatus (\ s a -> s{_ccgrsStatus = a});
+ccgrsResponseStatus :: Lens' CreateCustomerGatewayResponse Int
+ccgrsResponseStatus = lens _ccgrsResponseStatus (\ s a -> s{_ccgrsResponseStatus = a});

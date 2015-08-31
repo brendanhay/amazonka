@@ -37,7 +37,7 @@ module Network.AWS.IAM.GetCredentialReport
     , grsContent
     , grsGeneratedTime
     , grsReportFormat
-    , grsStatus
+    , grsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -86,10 +86,10 @@ instance ToQuery GetCredentialReport where
 --
 -- /See:/ 'getCredentialReportResponse' smart constructor.
 data GetCredentialReportResponse = GetCredentialReportResponse'
-    { _grsContent       :: !(Maybe Base64)
-    , _grsGeneratedTime :: !(Maybe ISO8601)
-    , _grsReportFormat  :: !(Maybe ReportFormatType)
-    , _grsStatus        :: !Int
+    { _grsContent        :: !(Maybe Base64)
+    , _grsGeneratedTime  :: !(Maybe ISO8601)
+    , _grsReportFormat   :: !(Maybe ReportFormatType)
+    , _grsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetCredentialReportResponse' with the minimum fields required to make a request.
@@ -102,16 +102,16 @@ data GetCredentialReportResponse = GetCredentialReportResponse'
 --
 -- * 'grsReportFormat'
 --
--- * 'grsStatus'
+-- * 'grsResponseStatus'
 getCredentialReportResponse
-    :: Int -- ^ 'grsStatus'
+    :: Int -- ^ 'grsResponseStatus'
     -> GetCredentialReportResponse
-getCredentialReportResponse pStatus_ =
+getCredentialReportResponse pResponseStatus_ =
     GetCredentialReportResponse'
     { _grsContent = Nothing
     , _grsGeneratedTime = Nothing
     , _grsReportFormat = Nothing
-    , _grsStatus = pStatus_
+    , _grsResponseStatus = pResponseStatus_
     }
 
 -- | Contains the credential report. The report is Base64-encoded.
@@ -134,5 +134,5 @@ grsReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
 grsReportFormat = lens _grsReportFormat (\ s a -> s{_grsReportFormat = a});
 
 -- | The response status code.
-grsStatus :: Lens' GetCredentialReportResponse Int
-grsStatus = lens _grsStatus (\ s a -> s{_grsStatus = a});
+grsResponseStatus :: Lens' GetCredentialReportResponse Int
+grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});

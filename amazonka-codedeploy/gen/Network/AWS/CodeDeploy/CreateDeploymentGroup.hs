@@ -41,7 +41,7 @@ module Network.AWS.CodeDeploy.CreateDeploymentGroup
     , CreateDeploymentGroupResponse
     -- * Response Lenses
     , cdgrsDeploymentGroupId
-    , cdgrsStatus
+    , cdgrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -206,7 +206,7 @@ instance ToQuery CreateDeploymentGroup where
 -- /See:/ 'createDeploymentGroupResponse' smart constructor.
 data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
     { _cdgrsDeploymentGroupId :: !(Maybe Text)
-    , _cdgrsStatus            :: !Int
+    , _cdgrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDeploymentGroupResponse' with the minimum fields required to make a request.
@@ -215,14 +215,14 @@ data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
 --
 -- * 'cdgrsDeploymentGroupId'
 --
--- * 'cdgrsStatus'
+-- * 'cdgrsResponseStatus'
 createDeploymentGroupResponse
-    :: Int -- ^ 'cdgrsStatus'
+    :: Int -- ^ 'cdgrsResponseStatus'
     -> CreateDeploymentGroupResponse
-createDeploymentGroupResponse pStatus_ =
+createDeploymentGroupResponse pResponseStatus_ =
     CreateDeploymentGroupResponse'
     { _cdgrsDeploymentGroupId = Nothing
-    , _cdgrsStatus = pStatus_
+    , _cdgrsResponseStatus = pResponseStatus_
     }
 
 -- | A unique deployment group ID.
@@ -230,5 +230,5 @@ cdgrsDeploymentGroupId :: Lens' CreateDeploymentGroupResponse (Maybe Text)
 cdgrsDeploymentGroupId = lens _cdgrsDeploymentGroupId (\ s a -> s{_cdgrsDeploymentGroupId = a});
 
 -- | The response status code.
-cdgrsStatus :: Lens' CreateDeploymentGroupResponse Int
-cdgrsStatus = lens _cdgrsStatus (\ s a -> s{_cdgrsStatus = a});
+cdgrsResponseStatus :: Lens' CreateDeploymentGroupResponse Int
+cdgrsResponseStatus = lens _cdgrsResponseStatus (\ s a -> s{_cdgrsResponseStatus = a});

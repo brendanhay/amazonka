@@ -74,7 +74,7 @@ module Network.AWS.Glacier.InitiateMultipartUpload
     -- * Response Lenses
     , imursLocation
     , imursUploadId
-    , imursStatus
+    , imursResponseStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -178,9 +178,9 @@ instance ToQuery InitiateMultipartUpload where
 --
 -- /See:/ 'initiateMultipartUploadResponse' smart constructor.
 data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
-    { _imursLocation :: !(Maybe Text)
-    , _imursUploadId :: !(Maybe Text)
-    , _imursStatus   :: !Int
+    { _imursLocation       :: !(Maybe Text)
+    , _imursUploadId       :: !(Maybe Text)
+    , _imursResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InitiateMultipartUploadResponse' with the minimum fields required to make a request.
@@ -191,15 +191,15 @@ data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
 --
 -- * 'imursUploadId'
 --
--- * 'imursStatus'
+-- * 'imursResponseStatus'
 initiateMultipartUploadResponse
-    :: Int -- ^ 'imursStatus'
+    :: Int -- ^ 'imursResponseStatus'
     -> InitiateMultipartUploadResponse
-initiateMultipartUploadResponse pStatus_ =
+initiateMultipartUploadResponse pResponseStatus_ =
     InitiateMultipartUploadResponse'
     { _imursLocation = Nothing
     , _imursUploadId = Nothing
-    , _imursStatus = pStatus_
+    , _imursResponseStatus = pResponseStatus_
     }
 
 -- | The relative URI path of the multipart upload ID Amazon Glacier created.
@@ -212,5 +212,5 @@ imursUploadId :: Lens' InitiateMultipartUploadResponse (Maybe Text)
 imursUploadId = lens _imursUploadId (\ s a -> s{_imursUploadId = a});
 
 -- | The response status code.
-imursStatus :: Lens' InitiateMultipartUploadResponse Int
-imursStatus = lens _imursStatus (\ s a -> s{_imursStatus = a});
+imursResponseStatus :: Lens' InitiateMultipartUploadResponse Int
+imursResponseStatus = lens _imursResponseStatus (\ s a -> s{_imursResponseStatus = a});

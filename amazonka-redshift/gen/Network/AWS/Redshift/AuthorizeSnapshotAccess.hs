@@ -41,7 +41,7 @@ module Network.AWS.Redshift.AuthorizeSnapshotAccess
     , AuthorizeSnapshotAccessResponse
     -- * Response Lenses
     , asarsSnapshot
-    , asarsStatus
+    , asarsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -125,8 +125,8 @@ instance ToQuery AuthorizeSnapshotAccess where
 
 -- | /See:/ 'authorizeSnapshotAccessResponse' smart constructor.
 data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
-    { _asarsSnapshot :: !(Maybe Snapshot)
-    , _asarsStatus   :: !Int
+    { _asarsSnapshot       :: !(Maybe Snapshot)
+    , _asarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AuthorizeSnapshotAccessResponse' with the minimum fields required to make a request.
@@ -135,14 +135,14 @@ data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
 --
 -- * 'asarsSnapshot'
 --
--- * 'asarsStatus'
+-- * 'asarsResponseStatus'
 authorizeSnapshotAccessResponse
-    :: Int -- ^ 'asarsStatus'
+    :: Int -- ^ 'asarsResponseStatus'
     -> AuthorizeSnapshotAccessResponse
-authorizeSnapshotAccessResponse pStatus_ =
+authorizeSnapshotAccessResponse pResponseStatus_ =
     AuthorizeSnapshotAccessResponse'
     { _asarsSnapshot = Nothing
-    , _asarsStatus = pStatus_
+    , _asarsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -150,5 +150,5 @@ asarsSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
 asarsSnapshot = lens _asarsSnapshot (\ s a -> s{_asarsSnapshot = a});
 
 -- | The response status code.
-asarsStatus :: Lens' AuthorizeSnapshotAccessResponse Int
-asarsStatus = lens _asarsStatus (\ s a -> s{_asarsStatus = a});
+asarsResponseStatus :: Lens' AuthorizeSnapshotAccessResponse Int
+asarsResponseStatus = lens _asarsResponseStatus (\ s a -> s{_asarsResponseStatus = a});

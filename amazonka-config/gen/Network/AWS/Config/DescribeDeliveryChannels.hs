@@ -38,7 +38,7 @@ module Network.AWS.Config.DescribeDeliveryChannels
     , DescribeDeliveryChannelsResponse
     -- * Response Lenses
     , ddcrsDeliveryChannels
-    , ddcrsStatus
+    , ddcrsResponseStatus
     ) where
 
 import           Network.AWS.Config.Types
@@ -109,7 +109,7 @@ instance ToQuery DescribeDeliveryChannels where
 -- /See:/ 'describeDeliveryChannelsResponse' smart constructor.
 data DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'
     { _ddcrsDeliveryChannels :: !(Maybe [DeliveryChannel])
-    , _ddcrsStatus           :: !Int
+    , _ddcrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDeliveryChannelsResponse' with the minimum fields required to make a request.
@@ -118,14 +118,14 @@ data DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'
 --
 -- * 'ddcrsDeliveryChannels'
 --
--- * 'ddcrsStatus'
+-- * 'ddcrsResponseStatus'
 describeDeliveryChannelsResponse
-    :: Int -- ^ 'ddcrsStatus'
+    :: Int -- ^ 'ddcrsResponseStatus'
     -> DescribeDeliveryChannelsResponse
-describeDeliveryChannelsResponse pStatus_ =
+describeDeliveryChannelsResponse pResponseStatus_ =
     DescribeDeliveryChannelsResponse'
     { _ddcrsDeliveryChannels = Nothing
-    , _ddcrsStatus = pStatus_
+    , _ddcrsResponseStatus = pResponseStatus_
     }
 
 -- | A list that contains the descriptions of the specified delivery channel.
@@ -133,5 +133,5 @@ ddcrsDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse [DeliveryChannel
 ddcrsDeliveryChannels = lens _ddcrsDeliveryChannels (\ s a -> s{_ddcrsDeliveryChannels = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddcrsStatus :: Lens' DescribeDeliveryChannelsResponse Int
-ddcrsStatus = lens _ddcrsStatus (\ s a -> s{_ddcrsStatus = a});
+ddcrsResponseStatus :: Lens' DescribeDeliveryChannelsResponse Int
+ddcrsResponseStatus = lens _ddcrsResponseStatus (\ s a -> s{_ddcrsResponseStatus = a});

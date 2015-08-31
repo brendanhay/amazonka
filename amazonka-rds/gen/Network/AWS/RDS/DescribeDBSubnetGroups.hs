@@ -45,7 +45,7 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     -- * Response Lenses
     , ddsgrsDBSubnetGroups
     , ddsgrsMarker
-    , ddsgrsStatus
+    , ddsgrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -157,7 +157,7 @@ instance ToQuery DescribeDBSubnetGroups where
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
     { _ddsgrsDBSubnetGroups :: !(Maybe [DBSubnetGroup])
     , _ddsgrsMarker         :: !(Maybe Text)
-    , _ddsgrsStatus         :: !Int
+    , _ddsgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBSubnetGroupsResponse' with the minimum fields required to make a request.
@@ -168,15 +168,15 @@ data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
 --
 -- * 'ddsgrsMarker'
 --
--- * 'ddsgrsStatus'
+-- * 'ddsgrsResponseStatus'
 describeDBSubnetGroupsResponse
-    :: Int -- ^ 'ddsgrsStatus'
+    :: Int -- ^ 'ddsgrsResponseStatus'
     -> DescribeDBSubnetGroupsResponse
-describeDBSubnetGroupsResponse pStatus_ =
+describeDBSubnetGroupsResponse pResponseStatus_ =
     DescribeDBSubnetGroupsResponse'
     { _ddsgrsDBSubnetGroups = Nothing
     , _ddsgrsMarker = Nothing
-    , _ddsgrsStatus = pStatus_
+    , _ddsgrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of DBSubnetGroup instances.
@@ -190,5 +190,5 @@ ddsgrsMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
 ddsgrsMarker = lens _ddsgrsMarker (\ s a -> s{_ddsgrsMarker = a});
 
 -- | The response status code.
-ddsgrsStatus :: Lens' DescribeDBSubnetGroupsResponse Int
-ddsgrsStatus = lens _ddsgrsStatus (\ s a -> s{_ddsgrsStatus = a});
+ddsgrsResponseStatus :: Lens' DescribeDBSubnetGroupsResponse Int
+ddsgrsResponseStatus = lens _ddsgrsResponseStatus (\ s a -> s{_ddsgrsResponseStatus = a});

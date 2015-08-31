@@ -45,7 +45,7 @@ module Network.AWS.DataPipeline.ReportTaskProgress
     , reportTaskProgressResponse
     , ReportTaskProgressResponse
     -- * Response Lenses
-    , rtprsStatus
+    , rtprsResponseStatus
     , rtprsCanceled
     ) where
 
@@ -125,30 +125,30 @@ instance ToQuery ReportTaskProgress where
 --
 -- /See:/ 'reportTaskProgressResponse' smart constructor.
 data ReportTaskProgressResponse = ReportTaskProgressResponse'
-    { _rtprsStatus   :: !Int
-    , _rtprsCanceled :: !Bool
+    { _rtprsResponseStatus :: !Int
+    , _rtprsCanceled       :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReportTaskProgressResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtprsStatus'
+-- * 'rtprsResponseStatus'
 --
 -- * 'rtprsCanceled'
 reportTaskProgressResponse
-    :: Int -- ^ 'rtprsStatus'
+    :: Int -- ^ 'rtprsResponseStatus'
     -> Bool -- ^ 'rtprsCanceled'
     -> ReportTaskProgressResponse
-reportTaskProgressResponse pStatus_ pCanceled_ =
+reportTaskProgressResponse pResponseStatus_ pCanceled_ =
     ReportTaskProgressResponse'
-    { _rtprsStatus = pStatus_
+    { _rtprsResponseStatus = pResponseStatus_
     , _rtprsCanceled = pCanceled_
     }
 
 -- | The response status code.
-rtprsStatus :: Lens' ReportTaskProgressResponse Int
-rtprsStatus = lens _rtprsStatus (\ s a -> s{_rtprsStatus = a});
+rtprsResponseStatus :: Lens' ReportTaskProgressResponse Int
+rtprsResponseStatus = lens _rtprsResponseStatus (\ s a -> s{_rtprsResponseStatus = a});
 
 -- | If true, the calling task runner should cancel processing of the task.
 -- The task runner does not need to call SetTaskStatus for canceled tasks.

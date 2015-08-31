@@ -35,7 +35,7 @@ module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     -- * Response Lenses
     , cdarsFullyQualifiedCNAME
     , cdarsAvailable
-    , cdarsStatus
+    , cdarsResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -98,7 +98,7 @@ instance ToQuery CheckDNSAvailability where
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
     { _cdarsFullyQualifiedCNAME :: !(Maybe Text)
     , _cdarsAvailable           :: !(Maybe Bool)
-    , _cdarsStatus              :: !Int
+    , _cdarsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CheckDNSAvailabilityResponse' with the minimum fields required to make a request.
@@ -109,15 +109,15 @@ data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
 --
 -- * 'cdarsAvailable'
 --
--- * 'cdarsStatus'
+-- * 'cdarsResponseStatus'
 checkDNSAvailabilityResponse
-    :: Int -- ^ 'cdarsStatus'
+    :: Int -- ^ 'cdarsResponseStatus'
     -> CheckDNSAvailabilityResponse
-checkDNSAvailabilityResponse pStatus_ =
+checkDNSAvailabilityResponse pResponseStatus_ =
     CheckDNSAvailabilityResponse'
     { _cdarsFullyQualifiedCNAME = Nothing
     , _cdarsAvailable = Nothing
-    , _cdarsStatus = pStatus_
+    , _cdarsResponseStatus = pResponseStatus_
     }
 
 -- | The fully qualified CNAME to reserve when CreateEnvironment is called
@@ -137,5 +137,5 @@ cdarsAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
 cdarsAvailable = lens _cdarsAvailable (\ s a -> s{_cdarsAvailable = a});
 
 -- | The response status code.
-cdarsStatus :: Lens' CheckDNSAvailabilityResponse Int
-cdarsStatus = lens _cdarsStatus (\ s a -> s{_cdarsStatus = a});
+cdarsResponseStatus :: Lens' CheckDNSAvailabilityResponse Int
+cdarsResponseStatus = lens _cdarsResponseStatus (\ s a -> s{_cdarsResponseStatus = a});

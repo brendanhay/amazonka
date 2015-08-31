@@ -44,7 +44,7 @@ module Network.AWS.StorageGateway.DescribeCache
     , dcrsCacheMissPercentage
     , dcrsCacheAllocatedInBytes
     , dcrsCacheDirtyPercentage
-    , dcrsStatus
+    , dcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -120,7 +120,7 @@ data DescribeCacheResponse = DescribeCacheResponse'
     , _dcrsCacheMissPercentage   :: !(Maybe Double)
     , _dcrsCacheAllocatedInBytes :: !(Maybe Integer)
     , _dcrsCacheDirtyPercentage  :: !(Maybe Double)
-    , _dcrsStatus                :: !Int
+    , _dcrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCacheResponse' with the minimum fields required to make a request.
@@ -141,11 +141,11 @@ data DescribeCacheResponse = DescribeCacheResponse'
 --
 -- * 'dcrsCacheDirtyPercentage'
 --
--- * 'dcrsStatus'
+-- * 'dcrsResponseStatus'
 describeCacheResponse
-    :: Int -- ^ 'dcrsStatus'
+    :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCacheResponse
-describeCacheResponse pStatus_ =
+describeCacheResponse pResponseStatus_ =
     DescribeCacheResponse'
     { _dcrsGatewayARN = Nothing
     , _dcrsDiskIds = Nothing
@@ -154,7 +154,7 @@ describeCacheResponse pStatus_ =
     , _dcrsCacheMissPercentage = Nothing
     , _dcrsCacheAllocatedInBytes = Nothing
     , _dcrsCacheDirtyPercentage = Nothing
-    , _dcrsStatus = pStatus_
+    , _dcrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -186,5 +186,5 @@ dcrsCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcrsCacheDirtyPercentage = lens _dcrsCacheDirtyPercentage (\ s a -> s{_dcrsCacheDirtyPercentage = a});
 
 -- | The response status code.
-dcrsStatus :: Lens' DescribeCacheResponse Int
-dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});
+dcrsResponseStatus :: Lens' DescribeCacheResponse Int
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});

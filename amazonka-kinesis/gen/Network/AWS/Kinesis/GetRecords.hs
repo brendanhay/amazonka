@@ -83,7 +83,7 @@ module Network.AWS.Kinesis.GetRecords
     -- * Response Lenses
     , grrsNextShardIterator
     , grrsMillisBehindLatest
-    , grrsStatus
+    , grrsResponseStatus
     , grrsRecords
     ) where
 
@@ -169,7 +169,7 @@ instance ToQuery GetRecords where
 data GetRecordsResponse = GetRecordsResponse'
     { _grrsNextShardIterator  :: !(Maybe Text)
     , _grrsMillisBehindLatest :: !(Maybe Nat)
-    , _grrsStatus             :: !Int
+    , _grrsResponseStatus     :: !Int
     , _grrsRecords            :: ![Record]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -181,17 +181,17 @@ data GetRecordsResponse = GetRecordsResponse'
 --
 -- * 'grrsMillisBehindLatest'
 --
--- * 'grrsStatus'
+-- * 'grrsResponseStatus'
 --
 -- * 'grrsRecords'
 getRecordsResponse
-    :: Int -- ^ 'grrsStatus'
+    :: Int -- ^ 'grrsResponseStatus'
     -> GetRecordsResponse
-getRecordsResponse pStatus_ =
+getRecordsResponse pResponseStatus_ =
     GetRecordsResponse'
     { _grrsNextShardIterator = Nothing
     , _grrsMillisBehindLatest = Nothing
-    , _grrsStatus = pStatus_
+    , _grrsResponseStatus = pResponseStatus_
     , _grrsRecords = mempty
     }
 
@@ -209,8 +209,8 @@ grrsMillisBehindLatest :: Lens' GetRecordsResponse (Maybe Natural)
 grrsMillisBehindLatest = lens _grrsMillisBehindLatest (\ s a -> s{_grrsMillisBehindLatest = a}) . mapping _Nat;
 
 -- | The response status code.
-grrsStatus :: Lens' GetRecordsResponse Int
-grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});
+grrsResponseStatus :: Lens' GetRecordsResponse Int
+grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 
 -- | The data records retrieved from the shard.
 grrsRecords :: Lens' GetRecordsResponse [Record]

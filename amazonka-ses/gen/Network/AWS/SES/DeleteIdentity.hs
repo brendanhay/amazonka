@@ -36,7 +36,7 @@ module Network.AWS.SES.DeleteIdentity
     , deleteIdentityResponse
     , DeleteIdentityResponse
     -- * Response Lenses
-    , dirsStatus
+    , dirsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -97,22 +97,22 @@ instance ToQuery DeleteIdentity where
 --
 -- /See:/ 'deleteIdentityResponse' smart constructor.
 newtype DeleteIdentityResponse = DeleteIdentityResponse'
-    { _dirsStatus :: Int
+    { _dirsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteIdentityResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dirsStatus'
+-- * 'dirsResponseStatus'
 deleteIdentityResponse
-    :: Int -- ^ 'dirsStatus'
+    :: Int -- ^ 'dirsResponseStatus'
     -> DeleteIdentityResponse
-deleteIdentityResponse pStatus_ =
+deleteIdentityResponse pResponseStatus_ =
     DeleteIdentityResponse'
-    { _dirsStatus = pStatus_
+    { _dirsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-dirsStatus :: Lens' DeleteIdentityResponse Int
-dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});
+dirsResponseStatus :: Lens' DeleteIdentityResponse Int
+dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});

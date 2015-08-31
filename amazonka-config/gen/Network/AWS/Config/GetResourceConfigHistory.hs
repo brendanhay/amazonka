@@ -51,7 +51,7 @@ module Network.AWS.Config.GetResourceConfigHistory
     -- * Response Lenses
     , grchrsNextToken
     , grchrsConfigurationItems
-    , grchrsStatus
+    , grchrsResponseStatus
     ) where
 
 import           Network.AWS.Config.Types
@@ -185,7 +185,7 @@ instance ToQuery GetResourceConfigHistory where
 data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'
     { _grchrsNextToken          :: !(Maybe Text)
     , _grchrsConfigurationItems :: !(Maybe [ConfigurationItem])
-    , _grchrsStatus             :: !Int
+    , _grchrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetResourceConfigHistoryResponse' with the minimum fields required to make a request.
@@ -196,15 +196,15 @@ data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'
 --
 -- * 'grchrsConfigurationItems'
 --
--- * 'grchrsStatus'
+-- * 'grchrsResponseStatus'
 getResourceConfigHistoryResponse
-    :: Int -- ^ 'grchrsStatus'
+    :: Int -- ^ 'grchrsResponseStatus'
     -> GetResourceConfigHistoryResponse
-getResourceConfigHistoryResponse pStatus_ =
+getResourceConfigHistoryResponse pResponseStatus_ =
     GetResourceConfigHistoryResponse'
     { _grchrsNextToken = Nothing
     , _grchrsConfigurationItems = Nothing
-    , _grchrsStatus = pStatus_
+    , _grchrsResponseStatus = pResponseStatus_
     }
 
 -- | A token used for pagination of results.
@@ -216,5 +216,5 @@ grchrsConfigurationItems :: Lens' GetResourceConfigHistoryResponse [Configuratio
 grchrsConfigurationItems = lens _grchrsConfigurationItems (\ s a -> s{_grchrsConfigurationItems = a}) . _Default . _Coerce;
 
 -- | The response status code.
-grchrsStatus :: Lens' GetResourceConfigHistoryResponse Int
-grchrsStatus = lens _grchrsStatus (\ s a -> s{_grchrsStatus = a});
+grchrsResponseStatus :: Lens' GetResourceConfigHistoryResponse Int
+grchrsResponseStatus = lens _grchrsResponseStatus (\ s a -> s{_grchrsResponseStatus = a});

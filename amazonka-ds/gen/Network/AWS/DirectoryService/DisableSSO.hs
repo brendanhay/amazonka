@@ -35,7 +35,7 @@ module Network.AWS.DirectoryService.DisableSSO
     , disableSSOResponse
     , DisableSSOResponse
     -- * Response Lenses
-    , dssorsStatus
+    , dssorsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -130,22 +130,22 @@ instance ToQuery DisableSSO where
 --
 -- /See:/ 'disableSSOResponse' smart constructor.
 newtype DisableSSOResponse = DisableSSOResponse'
-    { _dssorsStatus :: Int
+    { _dssorsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DisableSSOResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssorsStatus'
+-- * 'dssorsResponseStatus'
 disableSSOResponse
-    :: Int -- ^ 'dssorsStatus'
+    :: Int -- ^ 'dssorsResponseStatus'
     -> DisableSSOResponse
-disableSSOResponse pStatus_ =
+disableSSOResponse pResponseStatus_ =
     DisableSSOResponse'
-    { _dssorsStatus = pStatus_
+    { _dssorsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-dssorsStatus :: Lens' DisableSSOResponse Int
-dssorsStatus = lens _dssorsStatus (\ s a -> s{_dssorsStatus = a});
+dssorsResponseStatus :: Lens' DisableSSOResponse Int
+dssorsResponseStatus = lens _dssorsResponseStatus (\ s a -> s{_dssorsResponseStatus = a});

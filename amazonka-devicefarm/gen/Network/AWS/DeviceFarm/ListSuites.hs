@@ -36,7 +36,7 @@ module Network.AWS.DeviceFarm.ListSuites
     -- * Response Lenses
     , lsrsNextToken
     , lsrsSuites
-    , lsrsStatus
+    , lsrsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -115,9 +115,9 @@ instance ToQuery ListSuites where
 --
 -- /See:/ 'listSuitesResponse' smart constructor.
 data ListSuitesResponse = ListSuitesResponse'
-    { _lsrsNextToken :: !(Maybe Text)
-    , _lsrsSuites    :: !(Maybe [Suite])
-    , _lsrsStatus    :: !Int
+    { _lsrsNextToken      :: !(Maybe Text)
+    , _lsrsSuites         :: !(Maybe [Suite])
+    , _lsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListSuitesResponse' with the minimum fields required to make a request.
@@ -128,15 +128,15 @@ data ListSuitesResponse = ListSuitesResponse'
 --
 -- * 'lsrsSuites'
 --
--- * 'lsrsStatus'
+-- * 'lsrsResponseStatus'
 listSuitesResponse
-    :: Int -- ^ 'lsrsStatus'
+    :: Int -- ^ 'lsrsResponseStatus'
     -> ListSuitesResponse
-listSuitesResponse pStatus_ =
+listSuitesResponse pResponseStatus_ =
     ListSuitesResponse'
     { _lsrsNextToken = Nothing
     , _lsrsSuites = Nothing
-    , _lsrsStatus = pStatus_
+    , _lsrsResponseStatus = pResponseStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is
@@ -150,5 +150,5 @@ lsrsSuites :: Lens' ListSuitesResponse [Suite]
 lsrsSuites = lens _lsrsSuites (\ s a -> s{_lsrsSuites = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lsrsStatus :: Lens' ListSuitesResponse Int
-lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});
+lsrsResponseStatus :: Lens' ListSuitesResponse Int
+lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});

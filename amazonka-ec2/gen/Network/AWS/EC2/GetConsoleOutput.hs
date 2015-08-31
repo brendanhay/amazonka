@@ -56,7 +56,7 @@ module Network.AWS.EC2.GetConsoleOutput
     , gcorsInstanceId
     , gcorsOutput
     , gcorsTimestamp
-    , gcorsStatus
+    , gcorsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -125,10 +125,10 @@ instance ToQuery GetConsoleOutput where
 
 -- | /See:/ 'getConsoleOutputResponse' smart constructor.
 data GetConsoleOutputResponse = GetConsoleOutputResponse'
-    { _gcorsInstanceId :: !(Maybe Text)
-    , _gcorsOutput     :: !(Maybe Text)
-    , _gcorsTimestamp  :: !(Maybe ISO8601)
-    , _gcorsStatus     :: !Int
+    { _gcorsInstanceId     :: !(Maybe Text)
+    , _gcorsOutput         :: !(Maybe Text)
+    , _gcorsTimestamp      :: !(Maybe ISO8601)
+    , _gcorsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetConsoleOutputResponse' with the minimum fields required to make a request.
@@ -141,16 +141,16 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse'
 --
 -- * 'gcorsTimestamp'
 --
--- * 'gcorsStatus'
+-- * 'gcorsResponseStatus'
 getConsoleOutputResponse
-    :: Int -- ^ 'gcorsStatus'
+    :: Int -- ^ 'gcorsResponseStatus'
     -> GetConsoleOutputResponse
-getConsoleOutputResponse pStatus_ =
+getConsoleOutputResponse pResponseStatus_ =
     GetConsoleOutputResponse'
     { _gcorsInstanceId = Nothing
     , _gcorsOutput = Nothing
     , _gcorsTimestamp = Nothing
-    , _gcorsStatus = pStatus_
+    , _gcorsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the instance.
@@ -166,5 +166,5 @@ gcorsTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
 gcorsTimestamp = lens _gcorsTimestamp (\ s a -> s{_gcorsTimestamp = a}) . mapping _Time;
 
 -- | The response status code.
-gcorsStatus :: Lens' GetConsoleOutputResponse Int
-gcorsStatus = lens _gcorsStatus (\ s a -> s{_gcorsStatus = a});
+gcorsResponseStatus :: Lens' GetConsoleOutputResponse Int
+gcorsResponseStatus = lens _gcorsResponseStatus (\ s a -> s{_gcorsResponseStatus = a});

@@ -49,7 +49,7 @@ module Network.AWS.Lambda.ListEventSourceMappings
     -- * Response Lenses
     , lesmrsEventSourceMappings
     , lesmrsNextMarker
-    , lesmrsStatus
+    , lesmrsResponseStatus
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -155,7 +155,7 @@ instance ToQuery ListEventSourceMappings where
 data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
     { _lesmrsEventSourceMappings :: !(Maybe [EventSourceMappingConfiguration])
     , _lesmrsNextMarker          :: !(Maybe Text)
-    , _lesmrsStatus              :: !Int
+    , _lesmrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListEventSourceMappingsResponse' with the minimum fields required to make a request.
@@ -166,15 +166,15 @@ data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
 --
 -- * 'lesmrsNextMarker'
 --
--- * 'lesmrsStatus'
+-- * 'lesmrsResponseStatus'
 listEventSourceMappingsResponse
-    :: Int -- ^ 'lesmrsStatus'
+    :: Int -- ^ 'lesmrsResponseStatus'
     -> ListEventSourceMappingsResponse
-listEventSourceMappingsResponse pStatus_ =
+listEventSourceMappingsResponse pResponseStatus_ =
     ListEventSourceMappingsResponse'
     { _lesmrsEventSourceMappings = Nothing
     , _lesmrsNextMarker = Nothing
-    , _lesmrsStatus = pStatus_
+    , _lesmrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of 'EventSourceMappingConfiguration' objects.
@@ -186,5 +186,5 @@ lesmrsNextMarker :: Lens' ListEventSourceMappingsResponse (Maybe Text)
 lesmrsNextMarker = lens _lesmrsNextMarker (\ s a -> s{_lesmrsNextMarker = a});
 
 -- | The response status code.
-lesmrsStatus :: Lens' ListEventSourceMappingsResponse Int
-lesmrsStatus = lens _lesmrsStatus (\ s a -> s{_lesmrsStatus = a});
+lesmrsResponseStatus :: Lens' ListEventSourceMappingsResponse Int
+lesmrsResponseStatus = lens _lesmrsResponseStatus (\ s a -> s{_lesmrsResponseStatus = a});

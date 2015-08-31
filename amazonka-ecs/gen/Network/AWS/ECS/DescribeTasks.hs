@@ -36,7 +36,7 @@ module Network.AWS.ECS.DescribeTasks
     -- * Response Lenses
     , dtrsFailures
     , dtrsTasks
-    , dtrsStatus
+    , dtrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -113,9 +113,9 @@ instance ToQuery DescribeTasks where
 
 -- | /See:/ 'describeTasksResponse' smart constructor.
 data DescribeTasksResponse = DescribeTasksResponse'
-    { _dtrsFailures :: !(Maybe [Failure])
-    , _dtrsTasks    :: !(Maybe [Task])
-    , _dtrsStatus   :: !Int
+    { _dtrsFailures       :: !(Maybe [Failure])
+    , _dtrsTasks          :: !(Maybe [Task])
+    , _dtrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTasksResponse' with the minimum fields required to make a request.
@@ -126,15 +126,15 @@ data DescribeTasksResponse = DescribeTasksResponse'
 --
 -- * 'dtrsTasks'
 --
--- * 'dtrsStatus'
+-- * 'dtrsResponseStatus'
 describeTasksResponse
-    :: Int -- ^ 'dtrsStatus'
+    :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTasksResponse
-describeTasksResponse pStatus_ =
+describeTasksResponse pResponseStatus_ =
     DescribeTasksResponse'
     { _dtrsFailures = Nothing
     , _dtrsTasks = Nothing
-    , _dtrsStatus = pStatus_
+    , _dtrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -146,5 +146,5 @@ dtrsTasks :: Lens' DescribeTasksResponse [Task]
 dtrsTasks = lens _dtrsTasks (\ s a -> s{_dtrsTasks = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dtrsStatus :: Lens' DescribeTasksResponse Int
-dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
+dtrsResponseStatus :: Lens' DescribeTasksResponse Int
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});

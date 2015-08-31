@@ -37,7 +37,7 @@ module Network.AWS.EC2.AttachNetworkInterface
     , AttachNetworkInterfaceResponse
     -- * Response Lenses
     , anirsAttachmentId
-    , anirsStatus
+    , anirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -126,8 +126,8 @@ instance ToQuery AttachNetworkInterface where
 
 -- | /See:/ 'attachNetworkInterfaceResponse' smart constructor.
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
-    { _anirsAttachmentId :: !(Maybe Text)
-    , _anirsStatus       :: !Int
+    { _anirsAttachmentId   :: !(Maybe Text)
+    , _anirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AttachNetworkInterfaceResponse' with the minimum fields required to make a request.
@@ -136,14 +136,14 @@ data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
 --
 -- * 'anirsAttachmentId'
 --
--- * 'anirsStatus'
+-- * 'anirsResponseStatus'
 attachNetworkInterfaceResponse
-    :: Int -- ^ 'anirsStatus'
+    :: Int -- ^ 'anirsResponseStatus'
     -> AttachNetworkInterfaceResponse
-attachNetworkInterfaceResponse pStatus_ =
+attachNetworkInterfaceResponse pResponseStatus_ =
     AttachNetworkInterfaceResponse'
     { _anirsAttachmentId = Nothing
-    , _anirsStatus = pStatus_
+    , _anirsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the network interface attachment.
@@ -151,5 +151,5 @@ anirsAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
 anirsAttachmentId = lens _anirsAttachmentId (\ s a -> s{_anirsAttachmentId = a});
 
 -- | The response status code.
-anirsStatus :: Lens' AttachNetworkInterfaceResponse Int
-anirsStatus = lens _anirsStatus (\ s a -> s{_anirsStatus = a});
+anirsResponseStatus :: Lens' AttachNetworkInterfaceResponse Int
+anirsResponseStatus = lens _anirsResponseStatus (\ s a -> s{_anirsResponseStatus = a});

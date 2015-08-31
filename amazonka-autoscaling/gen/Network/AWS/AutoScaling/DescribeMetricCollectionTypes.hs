@@ -37,7 +37,7 @@ module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     -- * Response Lenses
     , dmctrsMetrics
     , dmctrsGranularities
-    , dmctrsStatus
+    , dmctrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -91,9 +91,9 @@ instance ToQuery DescribeMetricCollectionTypes where
 
 -- | /See:/ 'describeMetricCollectionTypesResponse' smart constructor.
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
-    { _dmctrsMetrics       :: !(Maybe [MetricCollectionType])
-    , _dmctrsGranularities :: !(Maybe [MetricGranularityType])
-    , _dmctrsStatus        :: !Int
+    { _dmctrsMetrics        :: !(Maybe [MetricCollectionType])
+    , _dmctrsGranularities  :: !(Maybe [MetricGranularityType])
+    , _dmctrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeMetricCollectionTypesResponse' with the minimum fields required to make a request.
@@ -104,15 +104,15 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
 --
 -- * 'dmctrsGranularities'
 --
--- * 'dmctrsStatus'
+-- * 'dmctrsResponseStatus'
 describeMetricCollectionTypesResponse
-    :: Int -- ^ 'dmctrsStatus'
+    :: Int -- ^ 'dmctrsResponseStatus'
     -> DescribeMetricCollectionTypesResponse
-describeMetricCollectionTypesResponse pStatus_ =
+describeMetricCollectionTypesResponse pResponseStatus_ =
     DescribeMetricCollectionTypesResponse'
     { _dmctrsMetrics = Nothing
     , _dmctrsGranularities = Nothing
-    , _dmctrsStatus = pStatus_
+    , _dmctrsResponseStatus = pResponseStatus_
     }
 
 -- | One or more metrics.
@@ -124,5 +124,5 @@ dmctrsGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranul
 dmctrsGranularities = lens _dmctrsGranularities (\ s a -> s{_dmctrsGranularities = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dmctrsStatus :: Lens' DescribeMetricCollectionTypesResponse Int
-dmctrsStatus = lens _dmctrsStatus (\ s a -> s{_dmctrsStatus = a});
+dmctrsResponseStatus :: Lens' DescribeMetricCollectionTypesResponse Int
+dmctrsResponseStatus = lens _dmctrsResponseStatus (\ s a -> s{_dmctrsResponseStatus = a});

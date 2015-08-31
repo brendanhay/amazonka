@@ -34,7 +34,7 @@ module Network.AWS.EC2.DescribeExportTasks
     , DescribeExportTasksResponse
     -- * Response Lenses
     , detrsExportTasks
-    , detrsStatus
+    , detrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -92,8 +92,8 @@ instance ToQuery DescribeExportTasks where
 
 -- | /See:/ 'describeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-    { _detrsExportTasks :: !(Maybe [ExportTask])
-    , _detrsStatus      :: !Int
+    { _detrsExportTasks    :: !(Maybe [ExportTask])
+    , _detrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeExportTasksResponse' with the minimum fields required to make a request.
@@ -102,14 +102,14 @@ data DescribeExportTasksResponse = DescribeExportTasksResponse'
 --
 -- * 'detrsExportTasks'
 --
--- * 'detrsStatus'
+-- * 'detrsResponseStatus'
 describeExportTasksResponse
-    :: Int -- ^ 'detrsStatus'
+    :: Int -- ^ 'detrsResponseStatus'
     -> DescribeExportTasksResponse
-describeExportTasksResponse pStatus_ =
+describeExportTasksResponse pResponseStatus_ =
     DescribeExportTasksResponse'
     { _detrsExportTasks = Nothing
-    , _detrsStatus = pStatus_
+    , _detrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the export tasks.
@@ -117,5 +117,5 @@ detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . _Default . _Coerce;
 
 -- | The response status code.
-detrsStatus :: Lens' DescribeExportTasksResponse Int
-detrsStatus = lens _detrsStatus (\ s a -> s{_detrsStatus = a});
+detrsResponseStatus :: Lens' DescribeExportTasksResponse Int
+detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});

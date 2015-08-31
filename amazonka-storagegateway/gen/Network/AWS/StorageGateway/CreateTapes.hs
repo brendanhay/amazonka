@@ -43,7 +43,7 @@ module Network.AWS.StorageGateway.CreateTapes
     , CreateTapesResponse
     -- * Response Lenses
     , ctrsTapeARNs
-    , ctrsStatus
+    , ctrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -164,8 +164,8 @@ instance ToQuery CreateTapes where
 --
 -- /See:/ 'createTapesResponse' smart constructor.
 data CreateTapesResponse = CreateTapesResponse'
-    { _ctrsTapeARNs :: !(Maybe [Text])
-    , _ctrsStatus   :: !Int
+    { _ctrsTapeARNs       :: !(Maybe [Text])
+    , _ctrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateTapesResponse' with the minimum fields required to make a request.
@@ -174,14 +174,14 @@ data CreateTapesResponse = CreateTapesResponse'
 --
 -- * 'ctrsTapeARNs'
 --
--- * 'ctrsStatus'
+-- * 'ctrsResponseStatus'
 createTapesResponse
-    :: Int -- ^ 'ctrsStatus'
+    :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTapesResponse
-createTapesResponse pStatus_ =
+createTapesResponse pResponseStatus_ =
     CreateTapesResponse'
     { _ctrsTapeARNs = Nothing
-    , _ctrsStatus = pStatus_
+    , _ctrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of unique Amazon Resource Named (ARN) the represents the virtual
@@ -190,5 +190,5 @@ ctrsTapeARNs :: Lens' CreateTapesResponse [Text]
 ctrsTapeARNs = lens _ctrsTapeARNs (\ s a -> s{_ctrsTapeARNs = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ctrsStatus :: Lens' CreateTapesResponse Int
-ctrsStatus = lens _ctrsStatus (\ s a -> s{_ctrsStatus = a});
+ctrsResponseStatus :: Lens' CreateTapesResponse Int
+ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});

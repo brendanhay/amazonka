@@ -41,7 +41,7 @@ module Network.AWS.EC2.DescribeReservedInstances
     , DescribeReservedInstancesResponse
     -- * Response Lenses
     , drirsReservedInstances
-    , drirsStatus
+    , drirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -192,7 +192,7 @@ instance ToQuery DescribeReservedInstances where
 -- | /See:/ 'describeReservedInstancesResponse' smart constructor.
 data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'
     { _drirsReservedInstances :: !(Maybe [ReservedInstances])
-    , _drirsStatus            :: !Int
+    , _drirsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedInstancesResponse' with the minimum fields required to make a request.
@@ -201,14 +201,14 @@ data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'
 --
 -- * 'drirsReservedInstances'
 --
--- * 'drirsStatus'
+-- * 'drirsResponseStatus'
 describeReservedInstancesResponse
-    :: Int -- ^ 'drirsStatus'
+    :: Int -- ^ 'drirsResponseStatus'
     -> DescribeReservedInstancesResponse
-describeReservedInstancesResponse pStatus_ =
+describeReservedInstancesResponse pResponseStatus_ =
     DescribeReservedInstancesResponse'
     { _drirsReservedInstances = Nothing
-    , _drirsStatus = pStatus_
+    , _drirsResponseStatus = pResponseStatus_
     }
 
 -- | A list of Reserved Instances.
@@ -216,5 +216,5 @@ drirsReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInsta
 drirsReservedInstances = lens _drirsReservedInstances (\ s a -> s{_drirsReservedInstances = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drirsStatus :: Lens' DescribeReservedInstancesResponse Int
-drirsStatus = lens _drirsStatus (\ s a -> s{_drirsStatus = a});
+drirsResponseStatus :: Lens' DescribeReservedInstancesResponse Int
+drirsResponseStatus = lens _drirsResponseStatus (\ s a -> s{_drirsResponseStatus = a});

@@ -42,7 +42,7 @@ module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     , RevokeDBSecurityGroupIngressResponse
     -- * Response Lenses
     , rdsgirsDBSecurityGroup
-    , rdsgirsStatus
+    , rdsgirsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -153,7 +153,7 @@ instance ToQuery RevokeDBSecurityGroupIngress where
 -- | /See:/ 'revokeDBSecurityGroupIngressResponse' smart constructor.
 data RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse'
     { _rdsgirsDBSecurityGroup :: !(Maybe DBSecurityGroup)
-    , _rdsgirsStatus          :: !Int
+    , _rdsgirsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RevokeDBSecurityGroupIngressResponse' with the minimum fields required to make a request.
@@ -162,14 +162,14 @@ data RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
 --
 -- * 'rdsgirsDBSecurityGroup'
 --
--- * 'rdsgirsStatus'
+-- * 'rdsgirsResponseStatus'
 revokeDBSecurityGroupIngressResponse
-    :: Int -- ^ 'rdsgirsStatus'
+    :: Int -- ^ 'rdsgirsResponseStatus'
     -> RevokeDBSecurityGroupIngressResponse
-revokeDBSecurityGroupIngressResponse pStatus_ =
+revokeDBSecurityGroupIngressResponse pResponseStatus_ =
     RevokeDBSecurityGroupIngressResponse'
     { _rdsgirsDBSecurityGroup = Nothing
-    , _rdsgirsStatus = pStatus_
+    , _rdsgirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -177,5 +177,5 @@ rdsgirsDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResponse (Maybe DBSe
 rdsgirsDBSecurityGroup = lens _rdsgirsDBSecurityGroup (\ s a -> s{_rdsgirsDBSecurityGroup = a});
 
 -- | The response status code.
-rdsgirsStatus :: Lens' RevokeDBSecurityGroupIngressResponse Int
-rdsgirsStatus = lens _rdsgirsStatus (\ s a -> s{_rdsgirsStatus = a});
+rdsgirsResponseStatus :: Lens' RevokeDBSecurityGroupIngressResponse Int
+rdsgirsResponseStatus = lens _rdsgirsResponseStatus (\ s a -> s{_rdsgirsResponseStatus = a});

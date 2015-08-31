@@ -44,7 +44,7 @@ module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
     , dbrlrsGatewayARN
     , dbrlrsAverageUploadRateLimitInBitsPerSec
     , dbrlrsAverageDownloadRateLimitInBitsPerSec
-    , dbrlrsStatus
+    , dbrlrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -118,7 +118,7 @@ data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
     { _dbrlrsGatewayARN                           :: !(Maybe Text)
     , _dbrlrsAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
     , _dbrlrsAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
-    , _dbrlrsStatus                               :: !Int
+    , _dbrlrsResponseStatus                       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeBandwidthRateLimitResponse' with the minimum fields required to make a request.
@@ -131,16 +131,16 @@ data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
 --
 -- * 'dbrlrsAverageDownloadRateLimitInBitsPerSec'
 --
--- * 'dbrlrsStatus'
+-- * 'dbrlrsResponseStatus'
 describeBandwidthRateLimitResponse
-    :: Int -- ^ 'dbrlrsStatus'
+    :: Int -- ^ 'dbrlrsResponseStatus'
     -> DescribeBandwidthRateLimitResponse
-describeBandwidthRateLimitResponse pStatus_ =
+describeBandwidthRateLimitResponse pResponseStatus_ =
     DescribeBandwidthRateLimitResponse'
     { _dbrlrsGatewayARN = Nothing
     , _dbrlrsAverageUploadRateLimitInBitsPerSec = Nothing
     , _dbrlrsAverageDownloadRateLimitInBitsPerSec = Nothing
-    , _dbrlrsStatus = pStatus_
+    , _dbrlrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -158,5 +158,5 @@ dbrlrsAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitRe
 dbrlrsAverageDownloadRateLimitInBitsPerSec = lens _dbrlrsAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_dbrlrsAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat;
 
 -- | The response status code.
-dbrlrsStatus :: Lens' DescribeBandwidthRateLimitResponse Int
-dbrlrsStatus = lens _dbrlrsStatus (\ s a -> s{_dbrlrsStatus = a});
+dbrlrsResponseStatus :: Lens' DescribeBandwidthRateLimitResponse Int
+dbrlrsResponseStatus = lens _dbrlrsResponseStatus (\ s a -> s{_dbrlrsResponseStatus = a});

@@ -43,7 +43,7 @@ module Network.AWS.ECS.CreateService
     , CreateServiceResponse
     -- * Response Lenses
     , csrsService
-    , csrsStatus
+    , csrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -177,8 +177,8 @@ instance ToQuery CreateService where
 
 -- | /See:/ 'createServiceResponse' smart constructor.
 data CreateServiceResponse = CreateServiceResponse'
-    { _csrsService :: !(Maybe ContainerService)
-    , _csrsStatus  :: !Int
+    { _csrsService        :: !(Maybe ContainerService)
+    , _csrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateServiceResponse' with the minimum fields required to make a request.
@@ -187,14 +187,14 @@ data CreateServiceResponse = CreateServiceResponse'
 --
 -- * 'csrsService'
 --
--- * 'csrsStatus'
+-- * 'csrsResponseStatus'
 createServiceResponse
-    :: Int -- ^ 'csrsStatus'
+    :: Int -- ^ 'csrsResponseStatus'
     -> CreateServiceResponse
-createServiceResponse pStatus_ =
+createServiceResponse pResponseStatus_ =
     CreateServiceResponse'
     { _csrsService = Nothing
-    , _csrsStatus = pStatus_
+    , _csrsResponseStatus = pResponseStatus_
     }
 
 -- | The full description of your service following the create call.
@@ -202,5 +202,5 @@ csrsService :: Lens' CreateServiceResponse (Maybe ContainerService)
 csrsService = lens _csrsService (\ s a -> s{_csrsService = a});
 
 -- | The response status code.
-csrsStatus :: Lens' CreateServiceResponse Int
-csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});
+csrsResponseStatus :: Lens' CreateServiceResponse Int
+csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});

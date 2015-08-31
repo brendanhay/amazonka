@@ -50,7 +50,7 @@ module Network.AWS.Route53Domains.GetDomainDetail
     , gddrsRegistrarName
     , gddrsReseller
     , gddrsStatusList
-    , gddrsStatus
+    , gddrsResponseStatus
     , gddrsDomainName
     , gddrsNameservers
     , gddrsAdminContact
@@ -168,7 +168,7 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
     , _gddrsRegistrarName     :: !(Maybe Text)
     , _gddrsReseller          :: !(Maybe Text)
     , _gddrsStatusList        :: !(Maybe [Text])
-    , _gddrsStatus            :: !Int
+    , _gddrsResponseStatus    :: !Int
     , _gddrsDomainName        :: !Text
     , _gddrsNameservers       :: ![Nameserver]
     , _gddrsAdminContact      :: !(Sensitive ContactDetail)
@@ -212,7 +212,7 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
 --
 -- * 'gddrsStatusList'
 --
--- * 'gddrsStatus'
+-- * 'gddrsResponseStatus'
 --
 -- * 'gddrsDomainName'
 --
@@ -224,13 +224,13 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
 --
 -- * 'gddrsTechContact'
 getDomainDetailResponse
-    :: Int -- ^ 'gddrsStatus'
+    :: Int -- ^ 'gddrsResponseStatus'
     -> Text -- ^ 'gddrsDomainName'
     -> ContactDetail -- ^ 'gddrsAdminContact'
     -> ContactDetail -- ^ 'gddrsRegistrantContact'
     -> ContactDetail -- ^ 'gddrsTechContact'
     -> GetDomainDetailResponse
-getDomainDetailResponse pStatus_ pDomainName_ pAdminContact_ pRegistrantContact_ pTechContact_ =
+getDomainDetailResponse pResponseStatus_ pDomainName_ pAdminContact_ pRegistrantContact_ pTechContact_ =
     GetDomainDetailResponse'
     { _gddrsTechPrivacy = Nothing
     , _gddrsDNSSec = Nothing
@@ -248,7 +248,7 @@ getDomainDetailResponse pStatus_ pDomainName_ pAdminContact_ pRegistrantContact_
     , _gddrsRegistrarName = Nothing
     , _gddrsReseller = Nothing
     , _gddrsStatusList = Nothing
-    , _gddrsStatus = pStatus_
+    , _gddrsResponseStatus = pResponseStatus_
     , _gddrsDomainName = pDomainName_
     , _gddrsNameservers = mempty
     , _gddrsAdminContact = _Sensitive # pAdminContact_
@@ -375,8 +375,8 @@ gddrsStatusList :: Lens' GetDomainDetailResponse [Text]
 gddrsStatusList = lens _gddrsStatusList (\ s a -> s{_gddrsStatusList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-gddrsStatus :: Lens' GetDomainDetailResponse Int
-gddrsStatus = lens _gddrsStatus (\ s a -> s{_gddrsStatus = a});
+gddrsResponseStatus :: Lens' GetDomainDetailResponse Int
+gddrsResponseStatus = lens _gddrsResponseStatus (\ s a -> s{_gddrsResponseStatus = a});
 
 -- | The name of a domain.
 --

@@ -38,7 +38,7 @@ module Network.AWS.MachineLearning.UpdateDataSource
     , UpdateDataSourceResponse
     -- * Response Lenses
     , udsrsDataSourceId
-    , udsrsStatus
+    , udsrsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -117,8 +117,8 @@ instance ToQuery UpdateDataSource where
 --
 -- /See:/ 'updateDataSourceResponse' smart constructor.
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
-    { _udsrsDataSourceId :: !(Maybe Text)
-    , _udsrsStatus       :: !Int
+    { _udsrsDataSourceId   :: !(Maybe Text)
+    , _udsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateDataSourceResponse' with the minimum fields required to make a request.
@@ -127,14 +127,14 @@ data UpdateDataSourceResponse = UpdateDataSourceResponse'
 --
 -- * 'udsrsDataSourceId'
 --
--- * 'udsrsStatus'
+-- * 'udsrsResponseStatus'
 updateDataSourceResponse
-    :: Int -- ^ 'udsrsStatus'
+    :: Int -- ^ 'udsrsResponseStatus'
     -> UpdateDataSourceResponse
-updateDataSourceResponse pStatus_ =
+updateDataSourceResponse pResponseStatus_ =
     UpdateDataSourceResponse'
     { _udsrsDataSourceId = Nothing
-    , _udsrsStatus = pStatus_
+    , _udsrsResponseStatus = pResponseStatus_
     }
 
 -- | The ID assigned to the 'DataSource' during creation. This value should
@@ -143,5 +143,5 @@ udsrsDataSourceId :: Lens' UpdateDataSourceResponse (Maybe Text)
 udsrsDataSourceId = lens _udsrsDataSourceId (\ s a -> s{_udsrsDataSourceId = a});
 
 -- | The response status code.
-udsrsStatus :: Lens' UpdateDataSourceResponse Int
-udsrsStatus = lens _udsrsStatus (\ s a -> s{_udsrsStatus = a});
+udsrsResponseStatus :: Lens' UpdateDataSourceResponse Int
+udsrsResponseStatus = lens _udsrsResponseStatus (\ s a -> s{_udsrsResponseStatus = a});

@@ -40,7 +40,7 @@ module Network.AWS.SES.GetIdentityNotificationAttributes
     , getIdentityNotificationAttributesResponse
     , GetIdentityNotificationAttributesResponse
     -- * Response Lenses
-    , ginarsStatus
+    , ginarsResponseStatus
     , ginarsNotificationAttributes
     ) where
 
@@ -112,7 +112,7 @@ instance ToQuery GetIdentityNotificationAttributes
 --
 -- /See:/ 'getIdentityNotificationAttributesResponse' smart constructor.
 data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'
-    { _ginarsStatus                 :: !Int
+    { _ginarsResponseStatus         :: !Int
     , _ginarsNotificationAttributes :: !(Map Text IdentityNotificationAttributes)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -120,21 +120,21 @@ data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttribut
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ginarsStatus'
+-- * 'ginarsResponseStatus'
 --
 -- * 'ginarsNotificationAttributes'
 getIdentityNotificationAttributesResponse
-    :: Int -- ^ 'ginarsStatus'
+    :: Int -- ^ 'ginarsResponseStatus'
     -> GetIdentityNotificationAttributesResponse
-getIdentityNotificationAttributesResponse pStatus_ =
+getIdentityNotificationAttributesResponse pResponseStatus_ =
     GetIdentityNotificationAttributesResponse'
-    { _ginarsStatus = pStatus_
+    { _ginarsResponseStatus = pResponseStatus_
     , _ginarsNotificationAttributes = mempty
     }
 
 -- | The response status code.
-ginarsStatus :: Lens' GetIdentityNotificationAttributesResponse Int
-ginarsStatus = lens _ginarsStatus (\ s a -> s{_ginarsStatus = a});
+ginarsResponseStatus :: Lens' GetIdentityNotificationAttributesResponse Int
+ginarsResponseStatus = lens _ginarsResponseStatus (\ s a -> s{_ginarsResponseStatus = a});
 
 -- | A map of Identity to IdentityNotificationAttributes.
 ginarsNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text IdentityNotificationAttributes)

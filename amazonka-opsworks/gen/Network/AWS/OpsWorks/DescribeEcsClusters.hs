@@ -48,7 +48,7 @@ module Network.AWS.OpsWorks.DescribeEcsClusters
     -- * Response Lenses
     , decrsNextToken
     , decrsEcsClusters
-    , decrsStatus
+    , decrsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -153,9 +153,9 @@ instance ToQuery DescribeEcsClusters where
 --
 -- /See:/ 'describeEcsClustersResponse' smart constructor.
 data DescribeEcsClustersResponse = DescribeEcsClustersResponse'
-    { _decrsNextToken   :: !(Maybe Text)
-    , _decrsEcsClusters :: !(Maybe [EcsCluster])
-    , _decrsStatus      :: !Int
+    { _decrsNextToken      :: !(Maybe Text)
+    , _decrsEcsClusters    :: !(Maybe [EcsCluster])
+    , _decrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEcsClustersResponse' with the minimum fields required to make a request.
@@ -166,15 +166,15 @@ data DescribeEcsClustersResponse = DescribeEcsClustersResponse'
 --
 -- * 'decrsEcsClusters'
 --
--- * 'decrsStatus'
+-- * 'decrsResponseStatus'
 describeEcsClustersResponse
-    :: Int -- ^ 'decrsStatus'
+    :: Int -- ^ 'decrsResponseStatus'
     -> DescribeEcsClustersResponse
-describeEcsClustersResponse pStatus_ =
+describeEcsClustersResponse pResponseStatus_ =
     DescribeEcsClustersResponse'
     { _decrsNextToken = Nothing
     , _decrsEcsClusters = Nothing
-    , _decrsStatus = pStatus_
+    , _decrsResponseStatus = pResponseStatus_
     }
 
 -- | If a paginated request does not return all of the remaining results,
@@ -190,5 +190,5 @@ decrsEcsClusters :: Lens' DescribeEcsClustersResponse [EcsCluster]
 decrsEcsClusters = lens _decrsEcsClusters (\ s a -> s{_decrsEcsClusters = a}) . _Default . _Coerce;
 
 -- | The response status code.
-decrsStatus :: Lens' DescribeEcsClustersResponse Int
-decrsStatus = lens _decrsStatus (\ s a -> s{_decrsStatus = a});
+decrsResponseStatus :: Lens' DescribeEcsClustersResponse Int
+decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a});

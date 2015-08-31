@@ -45,7 +45,7 @@ module Network.AWS.IAM.ListMFADevices
     -- * Response Lenses
     , lmdrsMarker
     , lmdrsIsTruncated
-    , lmdrsStatus
+    , lmdrsResponseStatus
     , lmdrsMFADevices
     ) where
 
@@ -138,10 +138,10 @@ instance ToQuery ListMFADevices where
 --
 -- /See:/ 'listMFADevicesResponse' smart constructor.
 data ListMFADevicesResponse = ListMFADevicesResponse'
-    { _lmdrsMarker      :: !(Maybe Text)
-    , _lmdrsIsTruncated :: !(Maybe Bool)
-    , _lmdrsStatus      :: !Int
-    , _lmdrsMFADevices  :: ![MFADevice]
+    { _lmdrsMarker         :: !(Maybe Text)
+    , _lmdrsIsTruncated    :: !(Maybe Bool)
+    , _lmdrsResponseStatus :: !Int
+    , _lmdrsMFADevices     :: ![MFADevice]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListMFADevicesResponse' with the minimum fields required to make a request.
@@ -152,17 +152,17 @@ data ListMFADevicesResponse = ListMFADevicesResponse'
 --
 -- * 'lmdrsIsTruncated'
 --
--- * 'lmdrsStatus'
+-- * 'lmdrsResponseStatus'
 --
 -- * 'lmdrsMFADevices'
 listMFADevicesResponse
-    :: Int -- ^ 'lmdrsStatus'
+    :: Int -- ^ 'lmdrsResponseStatus'
     -> ListMFADevicesResponse
-listMFADevicesResponse pStatus_ =
+listMFADevicesResponse pResponseStatus_ =
     ListMFADevicesResponse'
     { _lmdrsMarker = Nothing
     , _lmdrsIsTruncated = Nothing
-    , _lmdrsStatus = pStatus_
+    , _lmdrsResponseStatus = pResponseStatus_
     , _lmdrsMFADevices = mempty
     }
 
@@ -179,8 +179,8 @@ lmdrsIsTruncated :: Lens' ListMFADevicesResponse (Maybe Bool)
 lmdrsIsTruncated = lens _lmdrsIsTruncated (\ s a -> s{_lmdrsIsTruncated = a});
 
 -- | The response status code.
-lmdrsStatus :: Lens' ListMFADevicesResponse Int
-lmdrsStatus = lens _lmdrsStatus (\ s a -> s{_lmdrsStatus = a});
+lmdrsResponseStatus :: Lens' ListMFADevicesResponse Int
+lmdrsResponseStatus = lens _lmdrsResponseStatus (\ s a -> s{_lmdrsResponseStatus = a});
 
 -- | A list of MFA devices.
 lmdrsMFADevices :: Lens' ListMFADevicesResponse [MFADevice]

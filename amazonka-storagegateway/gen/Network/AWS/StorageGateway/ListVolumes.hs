@@ -50,7 +50,7 @@ module Network.AWS.StorageGateway.ListVolumes
     , lvrsGatewayARN
     , lvrsMarker
     , lvrsVolumeInfos
-    , lvrsStatus
+    , lvrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -150,10 +150,10 @@ instance ToQuery ListVolumes where
 
 -- | /See:/ 'listVolumesResponse' smart constructor.
 data ListVolumesResponse = ListVolumesResponse'
-    { _lvrsGatewayARN  :: !(Maybe Text)
-    , _lvrsMarker      :: !(Maybe Text)
-    , _lvrsVolumeInfos :: !(Maybe [VolumeInfo])
-    , _lvrsStatus      :: !Int
+    { _lvrsGatewayARN     :: !(Maybe Text)
+    , _lvrsMarker         :: !(Maybe Text)
+    , _lvrsVolumeInfos    :: !(Maybe [VolumeInfo])
+    , _lvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListVolumesResponse' with the minimum fields required to make a request.
@@ -166,16 +166,16 @@ data ListVolumesResponse = ListVolumesResponse'
 --
 -- * 'lvrsVolumeInfos'
 --
--- * 'lvrsStatus'
+-- * 'lvrsResponseStatus'
 listVolumesResponse
-    :: Int -- ^ 'lvrsStatus'
+    :: Int -- ^ 'lvrsResponseStatus'
     -> ListVolumesResponse
-listVolumesResponse pStatus_ =
+listVolumesResponse pResponseStatus_ =
     ListVolumesResponse'
     { _lvrsGatewayARN = Nothing
     , _lvrsMarker = Nothing
     , _lvrsVolumeInfos = Nothing
-    , _lvrsStatus = pStatus_
+    , _lvrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -191,5 +191,5 @@ lvrsVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
 lvrsVolumeInfos = lens _lvrsVolumeInfos (\ s a -> s{_lvrsVolumeInfos = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lvrsStatus :: Lens' ListVolumesResponse Int
-lvrsStatus = lens _lvrsStatus (\ s a -> s{_lvrsStatus = a});
+lvrsResponseStatus :: Lens' ListVolumesResponse Int
+lvrsResponseStatus = lens _lvrsResponseStatus (\ s a -> s{_lvrsResponseStatus = a});

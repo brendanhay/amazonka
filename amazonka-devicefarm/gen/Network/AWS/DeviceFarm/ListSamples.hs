@@ -36,7 +36,7 @@ module Network.AWS.DeviceFarm.ListSamples
     -- * Response Lenses
     , lrsNextToken
     , lrsSamples
-    , lrsStatus
+    , lrsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -115,9 +115,9 @@ instance ToQuery ListSamples where
 --
 -- /See:/ 'listSamplesResponse' smart constructor.
 data ListSamplesResponse = ListSamplesResponse'
-    { _lrsNextToken :: !(Maybe Text)
-    , _lrsSamples   :: !(Maybe [Sample])
-    , _lrsStatus    :: !Int
+    { _lrsNextToken      :: !(Maybe Text)
+    , _lrsSamples        :: !(Maybe [Sample])
+    , _lrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListSamplesResponse' with the minimum fields required to make a request.
@@ -128,15 +128,15 @@ data ListSamplesResponse = ListSamplesResponse'
 --
 -- * 'lrsSamples'
 --
--- * 'lrsStatus'
+-- * 'lrsResponseStatus'
 listSamplesResponse
-    :: Int -- ^ 'lrsStatus'
+    :: Int -- ^ 'lrsResponseStatus'
     -> ListSamplesResponse
-listSamplesResponse pStatus_ =
+listSamplesResponse pResponseStatus_ =
     ListSamplesResponse'
     { _lrsNextToken = Nothing
     , _lrsSamples = Nothing
-    , _lrsStatus = pStatus_
+    , _lrsResponseStatus = pResponseStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is
@@ -150,5 +150,5 @@ lrsSamples :: Lens' ListSamplesResponse [Sample]
 lrsSamples = lens _lrsSamples (\ s a -> s{_lrsSamples = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lrsStatus :: Lens' ListSamplesResponse Int
-lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});
+lrsResponseStatus :: Lens' ListSamplesResponse Int
+lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});

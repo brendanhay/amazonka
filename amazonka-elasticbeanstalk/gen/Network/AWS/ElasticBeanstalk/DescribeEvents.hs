@@ -51,7 +51,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     -- * Response Lenses
     , dersNextToken
     , dersEvents
-    , dersStatus
+    , dersResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -221,9 +221,9 @@ instance ToQuery DescribeEvents where
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-    { _dersNextToken :: !(Maybe Text)
-    , _dersEvents    :: !(Maybe [EventDescription])
-    , _dersStatus    :: !Int
+    { _dersNextToken      :: !(Maybe Text)
+    , _dersEvents         :: !(Maybe [EventDescription])
+    , _dersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
@@ -234,15 +234,15 @@ data DescribeEventsResponse = DescribeEventsResponse'
 --
 -- * 'dersEvents'
 --
--- * 'dersStatus'
+-- * 'dersResponseStatus'
 describeEventsResponse
-    :: Int -- ^ 'dersStatus'
+    :: Int -- ^ 'dersResponseStatus'
     -> DescribeEventsResponse
-describeEventsResponse pStatus_ =
+describeEventsResponse pResponseStatus_ =
     DescribeEventsResponse'
     { _dersNextToken = Nothing
     , _dersEvents = Nothing
-    , _dersStatus = pStatus_
+    , _dersResponseStatus = pResponseStatus_
     }
 
 -- | If returned, this indicates that there are more results to obtain. Use
@@ -256,5 +256,5 @@ dersEvents :: Lens' DescribeEventsResponse [EventDescription]
 dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dersStatus :: Lens' DescribeEventsResponse Int
-dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});
+dersResponseStatus :: Lens' DescribeEventsResponse Int
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});

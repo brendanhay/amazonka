@@ -48,7 +48,7 @@ module Network.AWS.StorageGateway.DeleteVolume
     , DeleteVolumeResponse
     -- * Response Lenses
     , dvrsVolumeARN
-    , dvrsStatus
+    , dvrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -116,8 +116,8 @@ instance ToQuery DeleteVolume where
 --
 -- /See:/ 'deleteVolumeResponse' smart constructor.
 data DeleteVolumeResponse = DeleteVolumeResponse'
-    { _dvrsVolumeARN :: !(Maybe Text)
-    , _dvrsStatus    :: !Int
+    { _dvrsVolumeARN      :: !(Maybe Text)
+    , _dvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteVolumeResponse' with the minimum fields required to make a request.
@@ -126,14 +126,14 @@ data DeleteVolumeResponse = DeleteVolumeResponse'
 --
 -- * 'dvrsVolumeARN'
 --
--- * 'dvrsStatus'
+-- * 'dvrsResponseStatus'
 deleteVolumeResponse
-    :: Int -- ^ 'dvrsStatus'
+    :: Int -- ^ 'dvrsResponseStatus'
     -> DeleteVolumeResponse
-deleteVolumeResponse pStatus_ =
+deleteVolumeResponse pResponseStatus_ =
     DeleteVolumeResponse'
     { _dvrsVolumeARN = Nothing
-    , _dvrsStatus = pStatus_
+    , _dvrsResponseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the storage volume that was deleted.
@@ -142,5 +142,5 @@ dvrsVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
 dvrsVolumeARN = lens _dvrsVolumeARN (\ s a -> s{_dvrsVolumeARN = a});
 
 -- | The response status code.
-dvrsStatus :: Lens' DeleteVolumeResponse Int
-dvrsStatus = lens _dvrsStatus (\ s a -> s{_dvrsStatus = a});
+dvrsResponseStatus :: Lens' DeleteVolumeResponse Int
+dvrsResponseStatus = lens _dvrsResponseStatus (\ s a -> s{_dvrsResponseStatus = a});

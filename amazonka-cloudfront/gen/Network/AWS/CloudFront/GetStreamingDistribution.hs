@@ -35,7 +35,7 @@ module Network.AWS.CloudFront.GetStreamingDistribution
     -- * Response Lenses
     , gsdrsETag
     , gsdrsStreamingDistribution
-    , gsdrsStatus
+    , gsdrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -96,7 +96,7 @@ instance ToQuery GetStreamingDistribution where
 data GetStreamingDistributionResponse = GetStreamingDistributionResponse'
     { _gsdrsETag                  :: !(Maybe Text)
     , _gsdrsStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _gsdrsStatus                :: !Int
+    , _gsdrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetStreamingDistributionResponse' with the minimum fields required to make a request.
@@ -107,15 +107,15 @@ data GetStreamingDistributionResponse = GetStreamingDistributionResponse'
 --
 -- * 'gsdrsStreamingDistribution'
 --
--- * 'gsdrsStatus'
+-- * 'gsdrsResponseStatus'
 getStreamingDistributionResponse
-    :: Int -- ^ 'gsdrsStatus'
+    :: Int -- ^ 'gsdrsResponseStatus'
     -> GetStreamingDistributionResponse
-getStreamingDistributionResponse pStatus_ =
+getStreamingDistributionResponse pResponseStatus_ =
     GetStreamingDistributionResponse'
     { _gsdrsETag = Nothing
     , _gsdrsStreamingDistribution = Nothing
-    , _gsdrsStatus = pStatus_
+    , _gsdrsResponseStatus = pResponseStatus_
     }
 
 -- | The current version of the streaming distribution\'s information. For
@@ -128,5 +128,5 @@ gsdrsStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe Stre
 gsdrsStreamingDistribution = lens _gsdrsStreamingDistribution (\ s a -> s{_gsdrsStreamingDistribution = a});
 
 -- | The response status code.
-gsdrsStatus :: Lens' GetStreamingDistributionResponse Int
-gsdrsStatus = lens _gsdrsStatus (\ s a -> s{_gsdrsStatus = a});
+gsdrsResponseStatus :: Lens' GetStreamingDistributionResponse Int
+gsdrsResponseStatus = lens _gsdrsResponseStatus (\ s a -> s{_gsdrsResponseStatus = a});

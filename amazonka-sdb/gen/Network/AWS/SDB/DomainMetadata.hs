@@ -42,7 +42,7 @@ module Network.AWS.SDB.DomainMetadata
     , dmrsAttributeValueCount
     , dmrsItemCount
     , dmrsTimestamp
-    , dmrsStatus
+    , dmrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -111,7 +111,7 @@ data DomainMetadataResponse = DomainMetadataResponse'
     , _dmrsAttributeValueCount      :: !(Maybe Int)
     , _dmrsItemCount                :: !(Maybe Int)
     , _dmrsTimestamp                :: !(Maybe Int)
-    , _dmrsStatus                   :: !Int
+    , _dmrsResponseStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DomainMetadataResponse' with the minimum fields required to make a request.
@@ -132,11 +132,11 @@ data DomainMetadataResponse = DomainMetadataResponse'
 --
 -- * 'dmrsTimestamp'
 --
--- * 'dmrsStatus'
+-- * 'dmrsResponseStatus'
 domainMetadataResponse
-    :: Int -- ^ 'dmrsStatus'
+    :: Int -- ^ 'dmrsResponseStatus'
     -> DomainMetadataResponse
-domainMetadataResponse pStatus_ =
+domainMetadataResponse pResponseStatus_ =
     DomainMetadataResponse'
     { _dmrsItemNamesSizeBytes = Nothing
     , _dmrsAttributeValuesSizeBytes = Nothing
@@ -145,7 +145,7 @@ domainMetadataResponse pStatus_ =
     , _dmrsAttributeValueCount = Nothing
     , _dmrsItemCount = Nothing
     , _dmrsTimestamp = Nothing
-    , _dmrsStatus = pStatus_
+    , _dmrsResponseStatus = pResponseStatus_
     }
 
 -- | The total size of all item names in the domain, in bytes.
@@ -177,5 +177,5 @@ dmrsTimestamp :: Lens' DomainMetadataResponse (Maybe Int)
 dmrsTimestamp = lens _dmrsTimestamp (\ s a -> s{_dmrsTimestamp = a});
 
 -- | The response status code.
-dmrsStatus :: Lens' DomainMetadataResponse Int
-dmrsStatus = lens _dmrsStatus (\ s a -> s{_dmrsStatus = a});
+dmrsResponseStatus :: Lens' DomainMetadataResponse Int
+dmrsResponseStatus = lens _dmrsResponseStatus (\ s a -> s{_dmrsResponseStatus = a});

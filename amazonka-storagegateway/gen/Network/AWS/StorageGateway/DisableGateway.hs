@@ -41,7 +41,7 @@ module Network.AWS.StorageGateway.DisableGateway
     , DisableGatewayResponse
     -- * Response Lenses
     , disrsGatewayARN
-    , disrsStatus
+    , disrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -108,8 +108,8 @@ instance ToQuery DisableGateway where
 --
 -- /See:/ 'disableGatewayResponse' smart constructor.
 data DisableGatewayResponse = DisableGatewayResponse'
-    { _disrsGatewayARN :: !(Maybe Text)
-    , _disrsStatus     :: !Int
+    { _disrsGatewayARN     :: !(Maybe Text)
+    , _disrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DisableGatewayResponse' with the minimum fields required to make a request.
@@ -118,14 +118,14 @@ data DisableGatewayResponse = DisableGatewayResponse'
 --
 -- * 'disrsGatewayARN'
 --
--- * 'disrsStatus'
+-- * 'disrsResponseStatus'
 disableGatewayResponse
-    :: Int -- ^ 'disrsStatus'
+    :: Int -- ^ 'disrsResponseStatus'
     -> DisableGatewayResponse
-disableGatewayResponse pStatus_ =
+disableGatewayResponse pResponseStatus_ =
     DisableGatewayResponse'
     { _disrsGatewayARN = Nothing
-    , _disrsStatus = pStatus_
+    , _disrsResponseStatus = pResponseStatus_
     }
 
 -- | The unique Amazon Resource Name of the disabled gateway.
@@ -133,5 +133,5 @@ disrsGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 disrsGatewayARN = lens _disrsGatewayARN (\ s a -> s{_disrsGatewayARN = a});
 
 -- | The response status code.
-disrsStatus :: Lens' DisableGatewayResponse Int
-disrsStatus = lens _disrsStatus (\ s a -> s{_disrsStatus = a});
+disrsResponseStatus :: Lens' DisableGatewayResponse Int
+disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});

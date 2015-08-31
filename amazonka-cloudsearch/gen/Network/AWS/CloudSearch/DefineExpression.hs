@@ -38,7 +38,7 @@ module Network.AWS.CloudSearch.DefineExpression
     , defineExpressionResponse
     , DefineExpressionResponse
     -- * Response Lenses
-    , dersStatus
+    , dersResponseStatus
     , dersExpression
     ) where
 
@@ -111,30 +111,30 @@ instance ToQuery DefineExpression where
 --
 -- /See:/ 'defineExpressionResponse' smart constructor.
 data DefineExpressionResponse = DefineExpressionResponse'
-    { _dersStatus     :: !Int
-    , _dersExpression :: !ExpressionStatus
+    { _dersResponseStatus :: !Int
+    , _dersExpression     :: !ExpressionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DefineExpressionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dersStatus'
+-- * 'dersResponseStatus'
 --
 -- * 'dersExpression'
 defineExpressionResponse
-    :: Int -- ^ 'dersStatus'
+    :: Int -- ^ 'dersResponseStatus'
     -> ExpressionStatus -- ^ 'dersExpression'
     -> DefineExpressionResponse
-defineExpressionResponse pStatus_ pExpression_ =
+defineExpressionResponse pResponseStatus_ pExpression_ =
     DefineExpressionResponse'
-    { _dersStatus = pStatus_
+    { _dersResponseStatus = pResponseStatus_
     , _dersExpression = pExpression_
     }
 
 -- | The response status code.
-dersStatus :: Lens' DefineExpressionResponse Int
-dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});
+dersResponseStatus :: Lens' DefineExpressionResponse Int
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 
 -- | Undocumented member.
 dersExpression :: Lens' DefineExpressionResponse ExpressionStatus

@@ -38,7 +38,7 @@ module Network.AWS.MachineLearning.UpdateBatchPrediction
     , UpdateBatchPredictionResponse
     -- * Response Lenses
     , ubprsBatchPredictionId
-    , ubprsStatus
+    , ubprsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -120,7 +120,7 @@ instance ToQuery UpdateBatchPrediction where
 -- /See:/ 'updateBatchPredictionResponse' smart constructor.
 data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
     { _ubprsBatchPredictionId :: !(Maybe Text)
-    , _ubprsStatus            :: !Int
+    , _ubprsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateBatchPredictionResponse' with the minimum fields required to make a request.
@@ -129,14 +129,14 @@ data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
 --
 -- * 'ubprsBatchPredictionId'
 --
--- * 'ubprsStatus'
+-- * 'ubprsResponseStatus'
 updateBatchPredictionResponse
-    :: Int -- ^ 'ubprsStatus'
+    :: Int -- ^ 'ubprsResponseStatus'
     -> UpdateBatchPredictionResponse
-updateBatchPredictionResponse pStatus_ =
+updateBatchPredictionResponse pResponseStatus_ =
     UpdateBatchPredictionResponse'
     { _ubprsBatchPredictionId = Nothing
-    , _ubprsStatus = pStatus_
+    , _ubprsResponseStatus = pResponseStatus_
     }
 
 -- | The ID assigned to the 'BatchPrediction' during creation. This value
@@ -146,5 +146,5 @@ ubprsBatchPredictionId :: Lens' UpdateBatchPredictionResponse (Maybe Text)
 ubprsBatchPredictionId = lens _ubprsBatchPredictionId (\ s a -> s{_ubprsBatchPredictionId = a});
 
 -- | The response status code.
-ubprsStatus :: Lens' UpdateBatchPredictionResponse Int
-ubprsStatus = lens _ubprsStatus (\ s a -> s{_ubprsStatus = a});
+ubprsResponseStatus :: Lens' UpdateBatchPredictionResponse Int
+ubprsResponseStatus = lens _ubprsResponseStatus (\ s a -> s{_ubprsResponseStatus = a});

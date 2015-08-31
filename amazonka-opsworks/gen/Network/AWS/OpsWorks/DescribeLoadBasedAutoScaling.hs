@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     , DescribeLoadBasedAutoScalingResponse
     -- * Response Lenses
     , dlbasrsLoadBasedAutoScalingConfigurations
-    , dlbasrsStatus
+    , dlbasrsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -111,7 +111,7 @@ instance ToQuery DescribeLoadBasedAutoScaling where
 -- /See:/ 'describeLoadBasedAutoScalingResponse' smart constructor.
 data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'
     { _dlbasrsLoadBasedAutoScalingConfigurations :: !(Maybe [LoadBasedAutoScalingConfiguration])
-    , _dlbasrsStatus                             :: !Int
+    , _dlbasrsResponseStatus                     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLoadBasedAutoScalingResponse' with the minimum fields required to make a request.
@@ -120,14 +120,14 @@ data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
 --
 -- * 'dlbasrsLoadBasedAutoScalingConfigurations'
 --
--- * 'dlbasrsStatus'
+-- * 'dlbasrsResponseStatus'
 describeLoadBasedAutoScalingResponse
-    :: Int -- ^ 'dlbasrsStatus'
+    :: Int -- ^ 'dlbasrsResponseStatus'
     -> DescribeLoadBasedAutoScalingResponse
-describeLoadBasedAutoScalingResponse pStatus_ =
+describeLoadBasedAutoScalingResponse pResponseStatus_ =
     DescribeLoadBasedAutoScalingResponse'
     { _dlbasrsLoadBasedAutoScalingConfigurations = Nothing
-    , _dlbasrsStatus = pStatus_
+    , _dlbasrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of 'LoadBasedAutoScalingConfiguration' objects that describe
@@ -136,5 +136,5 @@ dlbasrsLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingR
 dlbasrsLoadBasedAutoScalingConfigurations = lens _dlbasrsLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrsLoadBasedAutoScalingConfigurations = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dlbasrsStatus :: Lens' DescribeLoadBasedAutoScalingResponse Int
-dlbasrsStatus = lens _dlbasrsStatus (\ s a -> s{_dlbasrsStatus = a});
+dlbasrsResponseStatus :: Lens' DescribeLoadBasedAutoScalingResponse Int
+dlbasrsResponseStatus = lens _dlbasrsResponseStatus (\ s a -> s{_dlbasrsResponseStatus = a});

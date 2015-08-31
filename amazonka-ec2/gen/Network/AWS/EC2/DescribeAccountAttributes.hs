@@ -55,7 +55,7 @@ module Network.AWS.EC2.DescribeAccountAttributes
     , DescribeAccountAttributesResponse
     -- * Response Lenses
     , daarsAccountAttributes
-    , daarsStatus
+    , daarsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -127,7 +127,7 @@ instance ToQuery DescribeAccountAttributes where
 -- | /See:/ 'describeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
     { _daarsAccountAttributes :: !(Maybe [AccountAttribute])
-    , _daarsStatus            :: !Int
+    , _daarsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.
@@ -136,14 +136,14 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
 --
 -- * 'daarsAccountAttributes'
 --
--- * 'daarsStatus'
+-- * 'daarsResponseStatus'
 describeAccountAttributesResponse
-    :: Int -- ^ 'daarsStatus'
+    :: Int -- ^ 'daarsResponseStatus'
     -> DescribeAccountAttributesResponse
-describeAccountAttributesResponse pStatus_ =
+describeAccountAttributesResponse pResponseStatus_ =
     DescribeAccountAttributesResponse'
     { _daarsAccountAttributes = Nothing
-    , _daarsStatus = pStatus_
+    , _daarsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more account attributes.
@@ -151,5 +151,5 @@ daarsAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttrib
 daarsAccountAttributes = lens _daarsAccountAttributes (\ s a -> s{_daarsAccountAttributes = a}) . _Default . _Coerce;
 
 -- | The response status code.
-daarsStatus :: Lens' DescribeAccountAttributesResponse Int
-daarsStatus = lens _daarsStatus (\ s a -> s{_daarsStatus = a});
+daarsResponseStatus :: Lens' DescribeAccountAttributesResponse Int
+daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});

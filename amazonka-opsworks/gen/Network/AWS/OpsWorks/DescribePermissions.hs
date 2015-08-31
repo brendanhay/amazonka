@@ -41,7 +41,7 @@ module Network.AWS.OpsWorks.DescribePermissions
     , DescribePermissionsResponse
     -- * Response Lenses
     , dprsPermissions
-    , dprsStatus
+    , dprsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -118,8 +118,8 @@ instance ToQuery DescribePermissions where
 --
 -- /See:/ 'describePermissionsResponse' smart constructor.
 data DescribePermissionsResponse = DescribePermissionsResponse'
-    { _dprsPermissions :: !(Maybe [Permission])
-    , _dprsStatus      :: !Int
+    { _dprsPermissions    :: !(Maybe [Permission])
+    , _dprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribePermissionsResponse' with the minimum fields required to make a request.
@@ -128,14 +128,14 @@ data DescribePermissionsResponse = DescribePermissionsResponse'
 --
 -- * 'dprsPermissions'
 --
--- * 'dprsStatus'
+-- * 'dprsResponseStatus'
 describePermissionsResponse
-    :: Int -- ^ 'dprsStatus'
+    :: Int -- ^ 'dprsResponseStatus'
     -> DescribePermissionsResponse
-describePermissionsResponse pStatus_ =
+describePermissionsResponse pResponseStatus_ =
     DescribePermissionsResponse'
     { _dprsPermissions = Nothing
-    , _dprsStatus = pStatus_
+    , _dprsResponseStatus = pResponseStatus_
     }
 
 -- | An array of 'Permission' objects that describe the stack permissions.
@@ -152,5 +152,5 @@ dprsPermissions :: Lens' DescribePermissionsResponse [Permission]
 dprsPermissions = lens _dprsPermissions (\ s a -> s{_dprsPermissions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dprsStatus :: Lens' DescribePermissionsResponse Int
-dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});
+dprsResponseStatus :: Lens' DescribePermissionsResponse Int
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});

@@ -44,7 +44,7 @@ module Network.AWS.OpsWorks.DescribeCommands
     , DescribeCommandsResponse
     -- * Response Lenses
     , dcrsCommands
-    , dcrsStatus
+    , dcrsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -133,8 +133,8 @@ instance ToQuery DescribeCommands where
 --
 -- /See:/ 'describeCommandsResponse' smart constructor.
 data DescribeCommandsResponse = DescribeCommandsResponse'
-    { _dcrsCommands :: !(Maybe [Command])
-    , _dcrsStatus   :: !Int
+    { _dcrsCommands       :: !(Maybe [Command])
+    , _dcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCommandsResponse' with the minimum fields required to make a request.
@@ -143,14 +143,14 @@ data DescribeCommandsResponse = DescribeCommandsResponse'
 --
 -- * 'dcrsCommands'
 --
--- * 'dcrsStatus'
+-- * 'dcrsResponseStatus'
 describeCommandsResponse
-    :: Int -- ^ 'dcrsStatus'
+    :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCommandsResponse
-describeCommandsResponse pStatus_ =
+describeCommandsResponse pResponseStatus_ =
     DescribeCommandsResponse'
     { _dcrsCommands = Nothing
-    , _dcrsStatus = pStatus_
+    , _dcrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of 'Command' objects that describe each of the specified
@@ -159,5 +159,5 @@ dcrsCommands :: Lens' DescribeCommandsResponse [Command]
 dcrsCommands = lens _dcrsCommands (\ s a -> s{_dcrsCommands = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcrsStatus :: Lens' DescribeCommandsResponse Int
-dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});
+dcrsResponseStatus :: Lens' DescribeCommandsResponse Int
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});

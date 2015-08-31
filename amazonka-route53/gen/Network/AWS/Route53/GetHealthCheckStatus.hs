@@ -35,7 +35,7 @@ module Network.AWS.Route53.GetHealthCheckStatus
     , getHealthCheckStatusResponse
     , GetHealthCheckStatusResponse
     -- * Response Lenses
-    , ghcsrsStatus
+    , ghcsrsResponseStatus
     , ghcsrsHealthCheckObservations
     ) where
 
@@ -100,7 +100,7 @@ instance ToQuery GetHealthCheckStatus where
 --
 -- /See:/ 'getHealthCheckStatusResponse' smart constructor.
 data GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'
-    { _ghcsrsStatus                  :: !Int
+    { _ghcsrsResponseStatus          :: !Int
     , _ghcsrsHealthCheckObservations :: ![HealthCheckObservation]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -108,21 +108,21 @@ data GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghcsrsStatus'
+-- * 'ghcsrsResponseStatus'
 --
 -- * 'ghcsrsHealthCheckObservations'
 getHealthCheckStatusResponse
-    :: Int -- ^ 'ghcsrsStatus'
+    :: Int -- ^ 'ghcsrsResponseStatus'
     -> GetHealthCheckStatusResponse
-getHealthCheckStatusResponse pStatus_ =
+getHealthCheckStatusResponse pResponseStatus_ =
     GetHealthCheckStatusResponse'
-    { _ghcsrsStatus = pStatus_
+    { _ghcsrsResponseStatus = pResponseStatus_
     , _ghcsrsHealthCheckObservations = mempty
     }
 
 -- | The response status code.
-ghcsrsStatus :: Lens' GetHealthCheckStatusResponse Int
-ghcsrsStatus = lens _ghcsrsStatus (\ s a -> s{_ghcsrsStatus = a});
+ghcsrsResponseStatus :: Lens' GetHealthCheckStatusResponse Int
+ghcsrsResponseStatus = lens _ghcsrsResponseStatus (\ s a -> s{_ghcsrsResponseStatus = a});
 
 -- | A list that contains one 'HealthCheckObservation' element for each Route
 -- 53 health checker.

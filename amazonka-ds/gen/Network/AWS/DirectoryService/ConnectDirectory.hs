@@ -39,7 +39,7 @@ module Network.AWS.DirectoryService.ConnectDirectory
     , ConnectDirectoryResponse
     -- * Response Lenses
     , cdrsDirectoryId
-    , cdrsStatus
+    , cdrsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -157,8 +157,8 @@ instance ToQuery ConnectDirectory where
 --
 -- /See:/ 'connectDirectoryResponse' smart constructor.
 data ConnectDirectoryResponse = ConnectDirectoryResponse'
-    { _cdrsDirectoryId :: !(Maybe Text)
-    , _cdrsStatus      :: !Int
+    { _cdrsDirectoryId    :: !(Maybe Text)
+    , _cdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ConnectDirectoryResponse' with the minimum fields required to make a request.
@@ -167,14 +167,14 @@ data ConnectDirectoryResponse = ConnectDirectoryResponse'
 --
 -- * 'cdrsDirectoryId'
 --
--- * 'cdrsStatus'
+-- * 'cdrsResponseStatus'
 connectDirectoryResponse
-    :: Int -- ^ 'cdrsStatus'
+    :: Int -- ^ 'cdrsResponseStatus'
     -> ConnectDirectoryResponse
-connectDirectoryResponse pStatus_ =
+connectDirectoryResponse pResponseStatus_ =
     ConnectDirectoryResponse'
     { _cdrsDirectoryId = Nothing
-    , _cdrsStatus = pStatus_
+    , _cdrsResponseStatus = pResponseStatus_
     }
 
 -- | The identifier of the new directory.
@@ -182,5 +182,5 @@ cdrsDirectoryId :: Lens' ConnectDirectoryResponse (Maybe Text)
 cdrsDirectoryId = lens _cdrsDirectoryId (\ s a -> s{_cdrsDirectoryId = a});
 
 -- | The response status code.
-cdrsStatus :: Lens' ConnectDirectoryResponse Int
-cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});
+cdrsResponseStatus :: Lens' ConnectDirectoryResponse Int
+cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});

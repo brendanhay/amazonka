@@ -36,7 +36,7 @@ module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     , ModifySnapshotCopyRetentionPeriodResponse
     -- * Response Lenses
     , mscrprsCluster
-    , mscrprsStatus
+    , mscrprsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -123,8 +123,8 @@ instance ToQuery ModifySnapshotCopyRetentionPeriod
 
 -- | /See:/ 'modifySnapshotCopyRetentionPeriodResponse' smart constructor.
 data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse'
-    { _mscrprsCluster :: !(Maybe Cluster)
-    , _mscrprsStatus  :: !Int
+    { _mscrprsCluster        :: !(Maybe Cluster)
+    , _mscrprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifySnapshotCopyRetentionPeriodResponse' with the minimum fields required to make a request.
@@ -133,14 +133,14 @@ data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeri
 --
 -- * 'mscrprsCluster'
 --
--- * 'mscrprsStatus'
+-- * 'mscrprsResponseStatus'
 modifySnapshotCopyRetentionPeriodResponse
-    :: Int -- ^ 'mscrprsStatus'
+    :: Int -- ^ 'mscrprsResponseStatus'
     -> ModifySnapshotCopyRetentionPeriodResponse
-modifySnapshotCopyRetentionPeriodResponse pStatus_ =
+modifySnapshotCopyRetentionPeriodResponse pResponseStatus_ =
     ModifySnapshotCopyRetentionPeriodResponse'
     { _mscrprsCluster = Nothing
-    , _mscrprsStatus = pStatus_
+    , _mscrprsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -148,5 +148,5 @@ mscrprsCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster
 mscrprsCluster = lens _mscrprsCluster (\ s a -> s{_mscrprsCluster = a});
 
 -- | The response status code.
-mscrprsStatus :: Lens' ModifySnapshotCopyRetentionPeriodResponse Int
-mscrprsStatus = lens _mscrprsStatus (\ s a -> s{_mscrprsStatus = a});
+mscrprsResponseStatus :: Lens' ModifySnapshotCopyRetentionPeriodResponse Int
+mscrprsResponseStatus = lens _mscrprsResponseStatus (\ s a -> s{_mscrprsResponseStatus = a});

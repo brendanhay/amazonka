@@ -34,7 +34,7 @@ module Network.AWS.RDS.DeleteEventSubscription
     , DeleteEventSubscriptionResponse
     -- * Response Lenses
     , drsEventSubscription
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -94,7 +94,7 @@ instance ToQuery DeleteEventSubscription where
 -- | /See:/ 'deleteEventSubscriptionResponse' smart constructor.
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
     { _drsEventSubscription :: !(Maybe EventSubscription)
-    , _drsStatus            :: !Int
+    , _drsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteEventSubscriptionResponse' with the minimum fields required to make a request.
@@ -103,14 +103,14 @@ data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
 --
 -- * 'drsEventSubscription'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 deleteEventSubscriptionResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DeleteEventSubscriptionResponse
-deleteEventSubscriptionResponse pStatus_ =
+deleteEventSubscriptionResponse pResponseStatus_ =
     DeleteEventSubscriptionResponse'
     { _drsEventSubscription = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -118,5 +118,5 @@ drsEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscr
 drsEventSubscription = lens _drsEventSubscription (\ s a -> s{_drsEventSubscription = a});
 
 -- | The response status code.
-drsStatus :: Lens' DeleteEventSubscriptionResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DeleteEventSubscriptionResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

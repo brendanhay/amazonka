@@ -57,7 +57,7 @@ module Network.AWS.OpsWorks.CreateInstance
     , CreateInstanceResponse
     -- * Response Lenses
     , cirsInstanceId
-    , cirsStatus
+    , cirsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -327,8 +327,8 @@ instance ToQuery CreateInstance where
 --
 -- /See:/ 'createInstanceResponse' smart constructor.
 data CreateInstanceResponse = CreateInstanceResponse'
-    { _cirsInstanceId :: !(Maybe Text)
-    , _cirsStatus     :: !Int
+    { _cirsInstanceId     :: !(Maybe Text)
+    , _cirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateInstanceResponse' with the minimum fields required to make a request.
@@ -337,14 +337,14 @@ data CreateInstanceResponse = CreateInstanceResponse'
 --
 -- * 'cirsInstanceId'
 --
--- * 'cirsStatus'
+-- * 'cirsResponseStatus'
 createInstanceResponse
-    :: Int -- ^ 'cirsStatus'
+    :: Int -- ^ 'cirsResponseStatus'
     -> CreateInstanceResponse
-createInstanceResponse pStatus_ =
+createInstanceResponse pResponseStatus_ =
     CreateInstanceResponse'
     { _cirsInstanceId = Nothing
-    , _cirsStatus = pStatus_
+    , _cirsResponseStatus = pResponseStatus_
     }
 
 -- | The instance ID.
@@ -352,5 +352,5 @@ cirsInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
 cirsInstanceId = lens _cirsInstanceId (\ s a -> s{_cirsInstanceId = a});
 
 -- | The response status code.
-cirsStatus :: Lens' CreateInstanceResponse Int
-cirsStatus = lens _cirsStatus (\ s a -> s{_cirsStatus = a});
+cirsResponseStatus :: Lens' CreateInstanceResponse Int
+cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});

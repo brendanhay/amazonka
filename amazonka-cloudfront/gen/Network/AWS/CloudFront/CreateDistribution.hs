@@ -36,7 +36,7 @@ module Network.AWS.CloudFront.CreateDistribution
     , cdrsETag
     , cdrsDistribution
     , cdrsLocation
-    , cdrsStatus
+    , cdrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -101,10 +101,10 @@ instance ToQuery CreateDistribution where
 --
 -- /See:/ 'createDistributionResponse' smart constructor.
 data CreateDistributionResponse = CreateDistributionResponse'
-    { _cdrsETag         :: !(Maybe Text)
-    , _cdrsDistribution :: !(Maybe Distribution)
-    , _cdrsLocation     :: !(Maybe Text)
-    , _cdrsStatus       :: !Int
+    { _cdrsETag           :: !(Maybe Text)
+    , _cdrsDistribution   :: !(Maybe Distribution)
+    , _cdrsLocation       :: !(Maybe Text)
+    , _cdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDistributionResponse' with the minimum fields required to make a request.
@@ -117,16 +117,16 @@ data CreateDistributionResponse = CreateDistributionResponse'
 --
 -- * 'cdrsLocation'
 --
--- * 'cdrsStatus'
+-- * 'cdrsResponseStatus'
 createDistributionResponse
-    :: Int -- ^ 'cdrsStatus'
+    :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDistributionResponse
-createDistributionResponse pStatus_ =
+createDistributionResponse pResponseStatus_ =
     CreateDistributionResponse'
     { _cdrsETag = Nothing
     , _cdrsDistribution = Nothing
     , _cdrsLocation = Nothing
-    , _cdrsStatus = pStatus_
+    , _cdrsResponseStatus = pResponseStatus_
     }
 
 -- | The current version of the distribution created.
@@ -144,5 +144,5 @@ cdrsLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdrsLocation = lens _cdrsLocation (\ s a -> s{_cdrsLocation = a});
 
 -- | The response status code.
-cdrsStatus :: Lens' CreateDistributionResponse Int
-cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});
+cdrsResponseStatus :: Lens' CreateDistributionResponse Int
+cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});

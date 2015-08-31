@@ -43,7 +43,7 @@ module Network.AWS.Lambda.ListFunctions
     -- * Response Lenses
     , lfrsNextMarker
     , lfrsFunctions
-    , lfrsStatus
+    , lfrsResponseStatus
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -119,9 +119,9 @@ instance ToQuery ListFunctions where
 --
 -- /See:/ 'listFunctionsResponse' smart constructor.
 data ListFunctionsResponse = ListFunctionsResponse'
-    { _lfrsNextMarker :: !(Maybe Text)
-    , _lfrsFunctions  :: !(Maybe [FunctionConfiguration])
-    , _lfrsStatus     :: !Int
+    { _lfrsNextMarker     :: !(Maybe Text)
+    , _lfrsFunctions      :: !(Maybe [FunctionConfiguration])
+    , _lfrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListFunctionsResponse' with the minimum fields required to make a request.
@@ -132,15 +132,15 @@ data ListFunctionsResponse = ListFunctionsResponse'
 --
 -- * 'lfrsFunctions'
 --
--- * 'lfrsStatus'
+-- * 'lfrsResponseStatus'
 listFunctionsResponse
-    :: Int -- ^ 'lfrsStatus'
+    :: Int -- ^ 'lfrsResponseStatus'
     -> ListFunctionsResponse
-listFunctionsResponse pStatus_ =
+listFunctionsResponse pResponseStatus_ =
     ListFunctionsResponse'
     { _lfrsNextMarker = Nothing
     , _lfrsFunctions = Nothing
-    , _lfrsStatus = pStatus_
+    , _lfrsResponseStatus = pResponseStatus_
     }
 
 -- | A string, present if there are more functions.
@@ -152,5 +152,5 @@ lfrsFunctions :: Lens' ListFunctionsResponse [FunctionConfiguration]
 lfrsFunctions = lens _lfrsFunctions (\ s a -> s{_lfrsFunctions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lfrsStatus :: Lens' ListFunctionsResponse Int
-lfrsStatus = lens _lfrsStatus (\ s a -> s{_lfrsStatus = a});
+lfrsResponseStatus :: Lens' ListFunctionsResponse Int
+lfrsResponseStatus = lens _lfrsResponseStatus (\ s a -> s{_lfrsResponseStatus = a});

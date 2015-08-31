@@ -40,7 +40,7 @@ module Network.AWS.CloudSearch.DefineSuggester
     , defineSuggesterResponse
     , DefineSuggesterResponse
     -- * Response Lenses
-    , dsrsStatus
+    , dsrsResponseStatus
     , dsrsSuggester
     ) where
 
@@ -113,30 +113,30 @@ instance ToQuery DefineSuggester where
 --
 -- /See:/ 'defineSuggesterResponse' smart constructor.
 data DefineSuggesterResponse = DefineSuggesterResponse'
-    { _dsrsStatus    :: !Int
-    , _dsrsSuggester :: !SuggesterStatus
+    { _dsrsResponseStatus :: !Int
+    , _dsrsSuggester      :: !SuggesterStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DefineSuggesterResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsStatus'
+-- * 'dsrsResponseStatus'
 --
 -- * 'dsrsSuggester'
 defineSuggesterResponse
-    :: Int -- ^ 'dsrsStatus'
+    :: Int -- ^ 'dsrsResponseStatus'
     -> SuggesterStatus -- ^ 'dsrsSuggester'
     -> DefineSuggesterResponse
-defineSuggesterResponse pStatus_ pSuggester_ =
+defineSuggesterResponse pResponseStatus_ pSuggester_ =
     DefineSuggesterResponse'
-    { _dsrsStatus = pStatus_
+    { _dsrsResponseStatus = pResponseStatus_
     , _dsrsSuggester = pSuggester_
     }
 
 -- | The response status code.
-dsrsStatus :: Lens' DefineSuggesterResponse Int
-dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
+dsrsResponseStatus :: Lens' DefineSuggesterResponse Int
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
 -- | Undocumented member.
 dsrsSuggester :: Lens' DefineSuggesterResponse SuggesterStatus

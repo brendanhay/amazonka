@@ -38,7 +38,7 @@ module Network.AWS.CloudFormation.ValidateTemplate
     , vtrsParameters
     , vtrsDescription
     , vtrsCapabilities
-    , vtrsStatus
+    , vtrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -129,7 +129,7 @@ data ValidateTemplateResponse = ValidateTemplateResponse'
     , _vtrsParameters         :: !(Maybe [TemplateParameter])
     , _vtrsDescription        :: !(Maybe Text)
     , _vtrsCapabilities       :: !(Maybe [Capability])
-    , _vtrsStatus             :: !Int
+    , _vtrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ValidateTemplateResponse' with the minimum fields required to make a request.
@@ -144,17 +144,17 @@ data ValidateTemplateResponse = ValidateTemplateResponse'
 --
 -- * 'vtrsCapabilities'
 --
--- * 'vtrsStatus'
+-- * 'vtrsResponseStatus'
 validateTemplateResponse
-    :: Int -- ^ 'vtrsStatus'
+    :: Int -- ^ 'vtrsResponseStatus'
     -> ValidateTemplateResponse
-validateTemplateResponse pStatus_ =
+validateTemplateResponse pResponseStatus_ =
     ValidateTemplateResponse'
     { _vtrsCapabilitiesReason = Nothing
     , _vtrsParameters = Nothing
     , _vtrsDescription = Nothing
     , _vtrsCapabilities = Nothing
-    , _vtrsStatus = pStatus_
+    , _vtrsResponseStatus = pResponseStatus_
     }
 
 -- | The list of resources that generated the values in the 'Capabilities'
@@ -180,5 +180,5 @@ vtrsCapabilities :: Lens' ValidateTemplateResponse [Capability]
 vtrsCapabilities = lens _vtrsCapabilities (\ s a -> s{_vtrsCapabilities = a}) . _Default . _Coerce;
 
 -- | The response status code.
-vtrsStatus :: Lens' ValidateTemplateResponse Int
-vtrsStatus = lens _vtrsStatus (\ s a -> s{_vtrsStatus = a});
+vtrsResponseStatus :: Lens' ValidateTemplateResponse Int
+vtrsResponseStatus = lens _vtrsResponseStatus (\ s a -> s{_vtrsResponseStatus = a});

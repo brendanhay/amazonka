@@ -34,6 +34,7 @@ module Network.AWS.MachineLearning.GetEvaluation
     , getEvaluationResponse
     , GetEvaluationResponse
     -- * Response Lenses
+    , gersStatus
     , gersPerformanceMetrics
     , gersLastUpdatedAt
     , gersCreatedAt
@@ -45,7 +46,7 @@ module Network.AWS.MachineLearning.GetEvaluation
     , gersEvaluationId
     , gersMessage
     , gersEvaluationDataSourceId
-    , gersStatus
+    , gersResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -85,7 +86,7 @@ instance AWSRequest GetEvaluation where
           = receiveJSON
               (\ s h x ->
                  GetEvaluationResponse' <$>
-                   (x .?> "PerformanceMetrics") <*>
+                   (x .?> "Status") <*> (x .?> "PerformanceMetrics") <*>
                      (x .?> "LastUpdatedAt")
                      <*> (x .?> "CreatedAt")
                      <*> (x .?> "InputDataLocationS3")
@@ -124,7 +125,8 @@ instance ToQuery GetEvaluation where
 --
 -- /See:/ 'getEvaluationResponse' smart constructor.
 data GetEvaluationResponse = GetEvaluationResponse'
-    { _gersPerformanceMetrics     :: !(Maybe PerformanceMetrics)
+    { _gersStatus                 :: !(Maybe EntityStatus)
+    , _gersPerformanceMetrics     :: !(Maybe PerformanceMetrics)
     , _gersLastUpdatedAt          :: !(Maybe POSIX)
     , _gersCreatedAt              :: !(Maybe POSIX)
     , _gersInputDataLocationS3    :: !(Maybe Text)
@@ -135,12 +137,14 @@ data GetEvaluationResponse = GetEvaluationResponse'
     , _gersEvaluationId           :: !(Maybe Text)
     , _gersMessage                :: !(Maybe Text)
     , _gersEvaluationDataSourceId :: !(Maybe Text)
-    , _gersStatus                 :: !Int
+    , _gersResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetEvaluationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gersStatus'
 --
 -- * 'gersPerformanceMetrics'
 --
@@ -164,13 +168,14 @@ data GetEvaluationResponse = GetEvaluationResponse'
 --
 -- * 'gersEvaluationDataSourceId'
 --
--- * 'gersStatus'
+-- * 'gersResponseStatus'
 getEvaluationResponse
-    :: Int -- ^ 'gersStatus'
+    :: Int -- ^ 'gersResponseStatus'
     -> GetEvaluationResponse
-getEvaluationResponse pStatus_ =
+getEvaluationResponse pResponseStatus_ =
     GetEvaluationResponse'
-    { _gersPerformanceMetrics = Nothing
+    { _gersStatus = Nothing
+    , _gersPerformanceMetrics = Nothing
     , _gersLastUpdatedAt = Nothing
     , _gersCreatedAt = Nothing
     , _gersInputDataLocationS3 = Nothing
@@ -181,8 +186,21 @@ getEvaluationResponse pStatus_ =
     , _gersEvaluationId = Nothing
     , _gersMessage = Nothing
     , _gersEvaluationDataSourceId = Nothing
-    , _gersStatus = pStatus_
+    , _gersResponseStatus = pResponseStatus_
     }
+
+-- | The status of the evaluation. This element can have one of the following
+-- values:
+--
+-- -   'PENDING' - Amazon Machine Language (Amazon ML) submitted a request
+--     to evaluate an 'MLModel'.
+-- -   'INPROGRESS' - The evaluation is underway.
+-- -   'FAILED' - The request to evaluate an 'MLModel' did not run to
+--     completion. It is not usable.
+-- -   'COMPLETED' - The evaluation process completed successfully.
+-- -   'DELETED' - The 'Evaluation' is marked as deleted. It is not usable.
+gersStatus :: Lens' GetEvaluationResponse (Maybe EntityStatus)
+gersStatus = lens _gersStatus (\ s a -> s{_gersStatus = a});
 
 -- | Measurements of how well the 'MLModel' performed using observations
 -- referenced by the 'DataSource'. One of the following metric is returned
@@ -250,5 +268,5 @@ gersEvaluationDataSourceId :: Lens' GetEvaluationResponse (Maybe Text)
 gersEvaluationDataSourceId = lens _gersEvaluationDataSourceId (\ s a -> s{_gersEvaluationDataSourceId = a});
 
 -- | The response status code.
-gersStatus :: Lens' GetEvaluationResponse Int
-gersStatus = lens _gersStatus (\ s a -> s{_gersStatus = a});
+gersResponseStatus :: Lens' GetEvaluationResponse Int
+gersResponseStatus = lens _gersResponseStatus (\ s a -> s{_gersResponseStatus = a});

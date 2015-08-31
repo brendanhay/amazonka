@@ -36,7 +36,7 @@ module Network.AWS.CodeCommit.ListBranches
     -- * Response Lenses
     , lbrsBranches
     , lbrsNextToken
-    , lbrsStatus
+    , lbrsResponseStatus
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -113,9 +113,9 @@ instance ToQuery ListBranches where
 --
 -- /See:/ 'listBranchesResponse' smart constructor.
 data ListBranchesResponse = ListBranchesResponse'
-    { _lbrsBranches  :: !(Maybe [Text])
-    , _lbrsNextToken :: !(Maybe Text)
-    , _lbrsStatus    :: !Int
+    { _lbrsBranches       :: !(Maybe [Text])
+    , _lbrsNextToken      :: !(Maybe Text)
+    , _lbrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListBranchesResponse' with the minimum fields required to make a request.
@@ -126,15 +126,15 @@ data ListBranchesResponse = ListBranchesResponse'
 --
 -- * 'lbrsNextToken'
 --
--- * 'lbrsStatus'
+-- * 'lbrsResponseStatus'
 listBranchesResponse
-    :: Int -- ^ 'lbrsStatus'
+    :: Int -- ^ 'lbrsResponseStatus'
     -> ListBranchesResponse
-listBranchesResponse pStatus_ =
+listBranchesResponse pResponseStatus_ =
     ListBranchesResponse'
     { _lbrsBranches = Nothing
     , _lbrsNextToken = Nothing
-    , _lbrsStatus = pStatus_
+    , _lbrsResponseStatus = pResponseStatus_
     }
 
 -- | The list of branch names.
@@ -146,5 +146,5 @@ lbrsNextToken :: Lens' ListBranchesResponse (Maybe Text)
 lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a});
 
 -- | The response status code.
-lbrsStatus :: Lens' ListBranchesResponse Int
-lbrsStatus = lens _lbrsStatus (\ s a -> s{_lbrsStatus = a});
+lbrsResponseStatus :: Lens' ListBranchesResponse Int
+lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});

@@ -35,7 +35,7 @@ module Network.AWS.SES.VerifyDomainIdentity
     , verifyDomainIdentityResponse
     , VerifyDomainIdentityResponse
     -- * Response Lenses
-    , vdirsStatus
+    , vdirsResponseStatus
     , vdirsVerificationToken
     ) where
 
@@ -97,7 +97,7 @@ instance ToQuery VerifyDomainIdentity where
 --
 -- /See:/ 'verifyDomainIdentityResponse' smart constructor.
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
-    { _vdirsStatus            :: !Int
+    { _vdirsResponseStatus    :: !Int
     , _vdirsVerificationToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -105,22 +105,22 @@ data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vdirsStatus'
+-- * 'vdirsResponseStatus'
 --
 -- * 'vdirsVerificationToken'
 verifyDomainIdentityResponse
-    :: Int -- ^ 'vdirsStatus'
+    :: Int -- ^ 'vdirsResponseStatus'
     -> Text -- ^ 'vdirsVerificationToken'
     -> VerifyDomainIdentityResponse
-verifyDomainIdentityResponse pStatus_ pVerificationToken_ =
+verifyDomainIdentityResponse pResponseStatus_ pVerificationToken_ =
     VerifyDomainIdentityResponse'
-    { _vdirsStatus = pStatus_
+    { _vdirsResponseStatus = pResponseStatus_
     , _vdirsVerificationToken = pVerificationToken_
     }
 
 -- | The response status code.
-vdirsStatus :: Lens' VerifyDomainIdentityResponse Int
-vdirsStatus = lens _vdirsStatus (\ s a -> s{_vdirsStatus = a});
+vdirsResponseStatus :: Lens' VerifyDomainIdentityResponse Int
+vdirsResponseStatus = lens _vdirsResponseStatus (\ s a -> s{_vdirsResponseStatus = a});
 
 -- | A TXT record that must be placed in the DNS settings for the domain, in
 -- order to complete domain verification.

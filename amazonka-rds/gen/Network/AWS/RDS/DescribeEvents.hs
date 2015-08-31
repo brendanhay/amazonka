@@ -49,7 +49,7 @@ module Network.AWS.RDS.DescribeEvents
     -- * Response Lenses
     , dersEvents
     , dersMarker
-    , dersStatus
+    , dersResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -227,9 +227,9 @@ instance ToQuery DescribeEvents where
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-    { _dersEvents :: !(Maybe [Event])
-    , _dersMarker :: !(Maybe Text)
-    , _dersStatus :: !Int
+    { _dersEvents         :: !(Maybe [Event])
+    , _dersMarker         :: !(Maybe Text)
+    , _dersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
@@ -240,15 +240,15 @@ data DescribeEventsResponse = DescribeEventsResponse'
 --
 -- * 'dersMarker'
 --
--- * 'dersStatus'
+-- * 'dersResponseStatus'
 describeEventsResponse
-    :: Int -- ^ 'dersStatus'
+    :: Int -- ^ 'dersResponseStatus'
     -> DescribeEventsResponse
-describeEventsResponse pStatus_ =
+describeEventsResponse pResponseStatus_ =
     DescribeEventsResponse'
     { _dersEvents = Nothing
     , _dersMarker = Nothing
-    , _dersStatus = pStatus_
+    , _dersResponseStatus = pResponseStatus_
     }
 
 -- | A list of Event instances.
@@ -262,5 +262,5 @@ dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
 dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 
 -- | The response status code.
-dersStatus :: Lens' DescribeEventsResponse Int
-dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});
+dersResponseStatus :: Lens' DescribeEventsResponse Int
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});

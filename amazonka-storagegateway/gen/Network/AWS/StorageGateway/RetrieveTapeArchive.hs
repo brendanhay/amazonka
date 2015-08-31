@@ -42,7 +42,7 @@ module Network.AWS.StorageGateway.RetrieveTapeArchive
     , RetrieveTapeArchiveResponse
     -- * Response Lenses
     , rtarsTapeARN
-    , rtarsStatus
+    , rtarsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -127,8 +127,8 @@ instance ToQuery RetrieveTapeArchive where
 --
 -- /See:/ 'retrieveTapeArchiveResponse' smart constructor.
 data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'
-    { _rtarsTapeARN :: !(Maybe Text)
-    , _rtarsStatus  :: !Int
+    { _rtarsTapeARN        :: !(Maybe Text)
+    , _rtarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RetrieveTapeArchiveResponse' with the minimum fields required to make a request.
@@ -137,14 +137,14 @@ data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'
 --
 -- * 'rtarsTapeARN'
 --
--- * 'rtarsStatus'
+-- * 'rtarsResponseStatus'
 retrieveTapeArchiveResponse
-    :: Int -- ^ 'rtarsStatus'
+    :: Int -- ^ 'rtarsResponseStatus'
     -> RetrieveTapeArchiveResponse
-retrieveTapeArchiveResponse pStatus_ =
+retrieveTapeArchiveResponse pResponseStatus_ =
     RetrieveTapeArchiveResponse'
     { _rtarsTapeARN = Nothing
-    , _rtarsStatus = pStatus_
+    , _rtarsResponseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the retrieved virtual tape.
@@ -152,5 +152,5 @@ rtarsTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
 rtarsTapeARN = lens _rtarsTapeARN (\ s a -> s{_rtarsTapeARN = a});
 
 -- | The response status code.
-rtarsStatus :: Lens' RetrieveTapeArchiveResponse Int
-rtarsStatus = lens _rtarsStatus (\ s a -> s{_rtarsStatus = a});
+rtarsResponseStatus :: Lens' RetrieveTapeArchiveResponse Int
+rtarsResponseStatus = lens _rtarsResponseStatus (\ s a -> s{_rtarsResponseStatus = a});

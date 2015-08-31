@@ -39,7 +39,7 @@ module Network.AWS.Route53.UpdateHostedZoneComment
     , updateHostedZoneCommentResponse
     , UpdateHostedZoneCommentResponse
     -- * Response Lenses
-    , uhzcrsStatus
+    , uhzcrsResponseStatus
     , uhzcrsHostedZone
     ) where
 
@@ -116,30 +116,30 @@ instance ToXML UpdateHostedZoneComment where
 --
 -- /See:/ 'updateHostedZoneCommentResponse' smart constructor.
 data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
-    { _uhzcrsStatus     :: !Int
-    , _uhzcrsHostedZone :: !HostedZone
+    { _uhzcrsResponseStatus :: !Int
+    , _uhzcrsHostedZone     :: !HostedZone
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateHostedZoneCommentResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uhzcrsStatus'
+-- * 'uhzcrsResponseStatus'
 --
 -- * 'uhzcrsHostedZone'
 updateHostedZoneCommentResponse
-    :: Int -- ^ 'uhzcrsStatus'
+    :: Int -- ^ 'uhzcrsResponseStatus'
     -> HostedZone -- ^ 'uhzcrsHostedZone'
     -> UpdateHostedZoneCommentResponse
-updateHostedZoneCommentResponse pStatus_ pHostedZone_ =
+updateHostedZoneCommentResponse pResponseStatus_ pHostedZone_ =
     UpdateHostedZoneCommentResponse'
-    { _uhzcrsStatus = pStatus_
+    { _uhzcrsResponseStatus = pResponseStatus_
     , _uhzcrsHostedZone = pHostedZone_
     }
 
 -- | The response status code.
-uhzcrsStatus :: Lens' UpdateHostedZoneCommentResponse Int
-uhzcrsStatus = lens _uhzcrsStatus (\ s a -> s{_uhzcrsStatus = a});
+uhzcrsResponseStatus :: Lens' UpdateHostedZoneCommentResponse Int
+uhzcrsResponseStatus = lens _uhzcrsResponseStatus (\ s a -> s{_uhzcrsResponseStatus = a});
 
 -- | Undocumented member.
 uhzcrsHostedZone :: Lens' UpdateHostedZoneCommentResponse HostedZone

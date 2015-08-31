@@ -45,7 +45,7 @@ module Network.AWS.Route53.ListReusableDelegationSets
     , ListReusableDelegationSetsResponse
     -- * Response Lenses
     , lrdsrsNextMarker
-    , lrdsrsStatus
+    , lrdsrsResponseStatus
     , lrdsrsDelegationSets
     , lrdsrsMarker
     , lrdsrsIsTruncated
@@ -134,7 +134,7 @@ instance ToQuery ListReusableDelegationSets where
 -- /See:/ 'listReusableDelegationSetsResponse' smart constructor.
 data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
     { _lrdsrsNextMarker     :: !(Maybe Text)
-    , _lrdsrsStatus         :: !Int
+    , _lrdsrsResponseStatus :: !Int
     , _lrdsrsDelegationSets :: ![DelegationSet]
     , _lrdsrsMarker         :: !Text
     , _lrdsrsIsTruncated    :: !Bool
@@ -147,7 +147,7 @@ data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
 --
 -- * 'lrdsrsNextMarker'
 --
--- * 'lrdsrsStatus'
+-- * 'lrdsrsResponseStatus'
 --
 -- * 'lrdsrsDelegationSets'
 --
@@ -157,15 +157,15 @@ data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
 --
 -- * 'lrdsrsMaxItems'
 listReusableDelegationSetsResponse
-    :: Int -- ^ 'lrdsrsStatus'
+    :: Int -- ^ 'lrdsrsResponseStatus'
     -> Text -- ^ 'lrdsrsMarker'
     -> Bool -- ^ 'lrdsrsIsTruncated'
     -> Text -- ^ 'lrdsrsMaxItems'
     -> ListReusableDelegationSetsResponse
-listReusableDelegationSetsResponse pStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
+listReusableDelegationSetsResponse pResponseStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
     ListReusableDelegationSetsResponse'
     { _lrdsrsNextMarker = Nothing
-    , _lrdsrsStatus = pStatus_
+    , _lrdsrsResponseStatus = pResponseStatus_
     , _lrdsrsDelegationSets = mempty
     , _lrdsrsMarker = pMarker_
     , _lrdsrsIsTruncated = pIsTruncated_
@@ -181,8 +181,8 @@ lrdsrsNextMarker :: Lens' ListReusableDelegationSetsResponse (Maybe Text)
 lrdsrsNextMarker = lens _lrdsrsNextMarker (\ s a -> s{_lrdsrsNextMarker = a});
 
 -- | The response status code.
-lrdsrsStatus :: Lens' ListReusableDelegationSetsResponse Int
-lrdsrsStatus = lens _lrdsrsStatus (\ s a -> s{_lrdsrsStatus = a});
+lrdsrsResponseStatus :: Lens' ListReusableDelegationSetsResponse Int
+lrdsrsResponseStatus = lens _lrdsrsResponseStatus (\ s a -> s{_lrdsrsResponseStatus = a});
 
 -- | A complex type that contains information about the reusable delegation
 -- sets associated with the current AWS account.

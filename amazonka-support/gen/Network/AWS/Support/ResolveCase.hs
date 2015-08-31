@@ -36,7 +36,7 @@ module Network.AWS.Support.ResolveCase
     -- * Response Lenses
     , rcrsInitialCaseStatus
     , rcrsFinalCaseStatus
-    , rcrsStatus
+    , rcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -104,7 +104,7 @@ instance ToQuery ResolveCase where
 data ResolveCaseResponse = ResolveCaseResponse'
     { _rcrsInitialCaseStatus :: !(Maybe Text)
     , _rcrsFinalCaseStatus   :: !(Maybe Text)
-    , _rcrsStatus            :: !Int
+    , _rcrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ResolveCaseResponse' with the minimum fields required to make a request.
@@ -115,15 +115,15 @@ data ResolveCaseResponse = ResolveCaseResponse'
 --
 -- * 'rcrsFinalCaseStatus'
 --
--- * 'rcrsStatus'
+-- * 'rcrsResponseStatus'
 resolveCaseResponse
-    :: Int -- ^ 'rcrsStatus'
+    :: Int -- ^ 'rcrsResponseStatus'
     -> ResolveCaseResponse
-resolveCaseResponse pStatus_ =
+resolveCaseResponse pResponseStatus_ =
     ResolveCaseResponse'
     { _rcrsInitialCaseStatus = Nothing
     , _rcrsFinalCaseStatus = Nothing
-    , _rcrsStatus = pStatus_
+    , _rcrsResponseStatus = pResponseStatus_
     }
 
 -- | The status of the case when the ResolveCase request was sent.
@@ -135,5 +135,5 @@ rcrsFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrsFinalCaseStatus = lens _rcrsFinalCaseStatus (\ s a -> s{_rcrsFinalCaseStatus = a});
 
 -- | The response status code.
-rcrsStatus :: Lens' ResolveCaseResponse Int
-rcrsStatus = lens _rcrsStatus (\ s a -> s{_rcrsStatus = a});
+rcrsResponseStatus :: Lens' ResolveCaseResponse Int
+rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});

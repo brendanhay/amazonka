@@ -39,7 +39,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     , UpdatePipelineNotificationsResponse
     -- * Response Lenses
     , upnrsPipeline
-    , upnrsStatus
+    , upnrsResponseStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -133,8 +133,8 @@ instance ToQuery UpdatePipelineNotifications where
 --
 -- /See:/ 'updatePipelineNotificationsResponse' smart constructor.
 data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
-    { _upnrsPipeline :: !(Maybe Pipeline)
-    , _upnrsStatus   :: !Int
+    { _upnrsPipeline       :: !(Maybe Pipeline)
+    , _upnrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdatePipelineNotificationsResponse' with the minimum fields required to make a request.
@@ -143,14 +143,14 @@ data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
 --
 -- * 'upnrsPipeline'
 --
--- * 'upnrsStatus'
+-- * 'upnrsResponseStatus'
 updatePipelineNotificationsResponse
-    :: Int -- ^ 'upnrsStatus'
+    :: Int -- ^ 'upnrsResponseStatus'
     -> UpdatePipelineNotificationsResponse
-updatePipelineNotificationsResponse pStatus_ =
+updatePipelineNotificationsResponse pResponseStatus_ =
     UpdatePipelineNotificationsResponse'
     { _upnrsPipeline = Nothing
-    , _upnrsStatus = pStatus_
+    , _upnrsResponseStatus = pResponseStatus_
     }
 
 -- | A section of the response body that provides information about the
@@ -159,5 +159,5 @@ upnrsPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
 upnrsPipeline = lens _upnrsPipeline (\ s a -> s{_upnrsPipeline = a});
 
 -- | The response status code.
-upnrsStatus :: Lens' UpdatePipelineNotificationsResponse Int
-upnrsStatus = lens _upnrsStatus (\ s a -> s{_upnrsStatus = a});
+upnrsResponseStatus :: Lens' UpdatePipelineNotificationsResponse Int
+upnrsResponseStatus = lens _upnrsResponseStatus (\ s a -> s{_upnrsResponseStatus = a});

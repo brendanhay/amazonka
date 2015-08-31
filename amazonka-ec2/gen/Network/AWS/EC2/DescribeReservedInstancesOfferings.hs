@@ -58,7 +58,7 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     -- * Response Lenses
     , driorsNextToken
     , driorsReservedInstancesOfferings
-    , driorsStatus
+    , driorsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -316,7 +316,7 @@ instance ToQuery DescribeReservedInstancesOfferings
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'
     { _driorsNextToken                  :: !(Maybe Text)
     , _driorsReservedInstancesOfferings :: !(Maybe [ReservedInstancesOffering])
-    , _driorsStatus                     :: !Int
+    , _driorsResponseStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedInstancesOfferingsResponse' with the minimum fields required to make a request.
@@ -327,15 +327,15 @@ data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOffer
 --
 -- * 'driorsReservedInstancesOfferings'
 --
--- * 'driorsStatus'
+-- * 'driorsResponseStatus'
 describeReservedInstancesOfferingsResponse
-    :: Int -- ^ 'driorsStatus'
+    :: Int -- ^ 'driorsResponseStatus'
     -> DescribeReservedInstancesOfferingsResponse
-describeReservedInstancesOfferingsResponse pStatus_ =
+describeReservedInstancesOfferingsResponse pResponseStatus_ =
     DescribeReservedInstancesOfferingsResponse'
     { _driorsNextToken = Nothing
     , _driorsReservedInstancesOfferings = Nothing
-    , _driorsStatus = pStatus_
+    , _driorsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
@@ -348,5 +348,5 @@ driorsReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResp
 driorsReservedInstancesOfferings = lens _driorsReservedInstancesOfferings (\ s a -> s{_driorsReservedInstancesOfferings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-driorsStatus :: Lens' DescribeReservedInstancesOfferingsResponse Int
-driorsStatus = lens _driorsStatus (\ s a -> s{_driorsStatus = a});
+driorsResponseStatus :: Lens' DescribeReservedInstancesOfferingsResponse Int
+driorsResponseStatus = lens _driorsResponseStatus (\ s a -> s{_driorsResponseStatus = a});

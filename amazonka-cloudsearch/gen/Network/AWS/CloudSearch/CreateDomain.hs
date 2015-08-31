@@ -36,7 +36,7 @@ module Network.AWS.CloudSearch.CreateDomain
     , CreateDomainResponse
     -- * Response Lenses
     , cdrsDomainStatus
-    , cdrsStatus
+    , cdrsResponseStatus
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -100,8 +100,8 @@ instance ToQuery CreateDomain where
 --
 -- /See:/ 'createDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
-    { _cdrsDomainStatus :: !(Maybe DomainStatus)
-    , _cdrsStatus       :: !Int
+    { _cdrsDomainStatus   :: !(Maybe DomainStatus)
+    , _cdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
@@ -110,14 +110,14 @@ data CreateDomainResponse = CreateDomainResponse'
 --
 -- * 'cdrsDomainStatus'
 --
--- * 'cdrsStatus'
+-- * 'cdrsResponseStatus'
 createDomainResponse
-    :: Int -- ^ 'cdrsStatus'
+    :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDomainResponse
-createDomainResponse pStatus_ =
+createDomainResponse pResponseStatus_ =
     CreateDomainResponse'
     { _cdrsDomainStatus = Nothing
-    , _cdrsStatus = pStatus_
+    , _cdrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -125,5 +125,5 @@ cdrsDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
 cdrsDomainStatus = lens _cdrsDomainStatus (\ s a -> s{_cdrsDomainStatus = a});
 
 -- | The response status code.
-cdrsStatus :: Lens' CreateDomainResponse Int
-cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});
+cdrsResponseStatus :: Lens' CreateDomainResponse Int
+cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});

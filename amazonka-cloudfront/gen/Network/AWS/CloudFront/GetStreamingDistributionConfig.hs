@@ -35,7 +35,7 @@ module Network.AWS.CloudFront.GetStreamingDistributionConfig
     -- * Response Lenses
     , gsdcrsStreamingDistributionConfig
     , gsdcrsETag
-    , gsdcrsStatus
+    , gsdcrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -99,7 +99,7 @@ instance ToQuery GetStreamingDistributionConfig where
 data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse'
     { _gsdcrsStreamingDistributionConfig :: !(Maybe StreamingDistributionConfig)
     , _gsdcrsETag                        :: !(Maybe Text)
-    , _gsdcrsStatus                      :: !Int
+    , _gsdcrsResponseStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetStreamingDistributionConfigResponse' with the minimum fields required to make a request.
@@ -110,15 +110,15 @@ data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResp
 --
 -- * 'gsdcrsETag'
 --
--- * 'gsdcrsStatus'
+-- * 'gsdcrsResponseStatus'
 getStreamingDistributionConfigResponse
-    :: Int -- ^ 'gsdcrsStatus'
+    :: Int -- ^ 'gsdcrsResponseStatus'
     -> GetStreamingDistributionConfigResponse
-getStreamingDistributionConfigResponse pStatus_ =
+getStreamingDistributionConfigResponse pResponseStatus_ =
     GetStreamingDistributionConfigResponse'
     { _gsdcrsStreamingDistributionConfig = Nothing
     , _gsdcrsETag = Nothing
-    , _gsdcrsStatus = pStatus_
+    , _gsdcrsResponseStatus = pResponseStatus_
     }
 
 -- | The streaming distribution\'s configuration information.
@@ -130,5 +130,5 @@ gsdcrsETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
 gsdcrsETag = lens _gsdcrsETag (\ s a -> s{_gsdcrsETag = a});
 
 -- | The response status code.
-gsdcrsStatus :: Lens' GetStreamingDistributionConfigResponse Int
-gsdcrsStatus = lens _gsdcrsStatus (\ s a -> s{_gsdcrsStatus = a});
+gsdcrsResponseStatus :: Lens' GetStreamingDistributionConfigResponse Int
+gsdcrsResponseStatus = lens _gsdcrsResponseStatus (\ s a -> s{_gsdcrsResponseStatus = a});

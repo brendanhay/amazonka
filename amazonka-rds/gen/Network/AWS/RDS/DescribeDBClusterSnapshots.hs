@@ -45,7 +45,7 @@ module Network.AWS.RDS.DescribeDBClusterSnapshots
     -- * Response Lenses
     , ddbcsrsMarker
     , ddbcsrsDBClusterSnapshots
-    , ddbcsrsStatus
+    , ddbcsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -190,7 +190,7 @@ instance ToQuery DescribeDBClusterSnapshots where
 data DescribeDBClusterSnapshotsResponse = DescribeDBClusterSnapshotsResponse'
     { _ddbcsrsMarker             :: !(Maybe Text)
     , _ddbcsrsDBClusterSnapshots :: !(Maybe [DBClusterSnapshot])
-    , _ddbcsrsStatus             :: !Int
+    , _ddbcsrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBClusterSnapshotsResponse' with the minimum fields required to make a request.
@@ -201,15 +201,15 @@ data DescribeDBClusterSnapshotsResponse = DescribeDBClusterSnapshotsResponse'
 --
 -- * 'ddbcsrsDBClusterSnapshots'
 --
--- * 'ddbcsrsStatus'
+-- * 'ddbcsrsResponseStatus'
 describeDBClusterSnapshotsResponse
-    :: Int -- ^ 'ddbcsrsStatus'
+    :: Int -- ^ 'ddbcsrsResponseStatus'
     -> DescribeDBClusterSnapshotsResponse
-describeDBClusterSnapshotsResponse pStatus_ =
+describeDBClusterSnapshotsResponse pResponseStatus_ =
     DescribeDBClusterSnapshotsResponse'
     { _ddbcsrsMarker = Nothing
     , _ddbcsrsDBClusterSnapshots = Nothing
-    , _ddbcsrsStatus = pStatus_
+    , _ddbcsrsResponseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous
@@ -224,5 +224,5 @@ ddbcsrsDBClusterSnapshots :: Lens' DescribeDBClusterSnapshotsResponse [DBCluster
 ddbcsrsDBClusterSnapshots = lens _ddbcsrsDBClusterSnapshots (\ s a -> s{_ddbcsrsDBClusterSnapshots = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddbcsrsStatus :: Lens' DescribeDBClusterSnapshotsResponse Int
-ddbcsrsStatus = lens _ddbcsrsStatus (\ s a -> s{_ddbcsrsStatus = a});
+ddbcsrsResponseStatus :: Lens' DescribeDBClusterSnapshotsResponse Int
+ddbcsrsResponseStatus = lens _ddbcsrsResponseStatus (\ s a -> s{_ddbcsrsResponseStatus = a});

@@ -41,7 +41,7 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , UpdateDeploymentGroupResponse
     -- * Response Lenses
     , udgrsHooksNotCleanedUp
-    , udgrsStatus
+    , udgrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -185,7 +185,7 @@ instance ToQuery UpdateDeploymentGroup where
 -- /See:/ 'updateDeploymentGroupResponse' smart constructor.
 data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
     { _udgrsHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
-    , _udgrsStatus            :: !Int
+    , _udgrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateDeploymentGroupResponse' with the minimum fields required to make a request.
@@ -194,14 +194,14 @@ data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
 --
 -- * 'udgrsHooksNotCleanedUp'
 --
--- * 'udgrsStatus'
+-- * 'udgrsResponseStatus'
 updateDeploymentGroupResponse
-    :: Int -- ^ 'udgrsStatus'
+    :: Int -- ^ 'udgrsResponseStatus'
     -> UpdateDeploymentGroupResponse
-updateDeploymentGroupResponse pStatus_ =
+updateDeploymentGroupResponse pResponseStatus_ =
     UpdateDeploymentGroupResponse'
     { _udgrsHooksNotCleanedUp = Nothing
-    , _udgrsStatus = pStatus_
+    , _udgrsResponseStatus = pResponseStatus_
     }
 
 -- | If the output contains no data, and the corresponding deployment group
@@ -213,5 +213,5 @@ udgrsHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
 udgrsHooksNotCleanedUp = lens _udgrsHooksNotCleanedUp (\ s a -> s{_udgrsHooksNotCleanedUp = a}) . _Default . _Coerce;
 
 -- | The response status code.
-udgrsStatus :: Lens' UpdateDeploymentGroupResponse Int
-udgrsStatus = lens _udgrsStatus (\ s a -> s{_udgrsStatus = a});
+udgrsResponseStatus :: Lens' UpdateDeploymentGroupResponse Int
+udgrsResponseStatus = lens _udgrsResponseStatus (\ s a -> s{_udgrsResponseStatus = a});

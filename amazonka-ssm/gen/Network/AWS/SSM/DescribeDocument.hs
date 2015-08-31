@@ -34,7 +34,7 @@ module Network.AWS.SSM.DescribeDocument
     , DescribeDocumentResponse
     -- * Response Lenses
     , drsDocument
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -95,8 +95,8 @@ instance ToQuery DescribeDocument where
 
 -- | /See:/ 'describeDocumentResponse' smart constructor.
 data DescribeDocumentResponse = DescribeDocumentResponse'
-    { _drsDocument :: !(Maybe DocumentDescription)
-    , _drsStatus   :: !Int
+    { _drsDocument       :: !(Maybe DocumentDescription)
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDocumentResponse' with the minimum fields required to make a request.
@@ -105,14 +105,14 @@ data DescribeDocumentResponse = DescribeDocumentResponse'
 --
 -- * 'drsDocument'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 describeDocumentResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DescribeDocumentResponse
-describeDocumentResponse pStatus_ =
+describeDocumentResponse pResponseStatus_ =
     DescribeDocumentResponse'
     { _drsDocument = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the configuration document.
@@ -120,5 +120,5 @@ drsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
 drsDocument = lens _drsDocument (\ s a -> s{_drsDocument = a});
 
 -- | The response status code.
-drsStatus :: Lens' DescribeDocumentResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DescribeDocumentResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

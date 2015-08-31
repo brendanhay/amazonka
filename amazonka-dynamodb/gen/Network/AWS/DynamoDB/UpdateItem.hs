@@ -56,7 +56,7 @@ module Network.AWS.DynamoDB.UpdateItem
     , uirsItemCollectionMetrics
     , uirsConsumedCapacity
     , uirsAttributes
-    , uirsStatus
+    , uirsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -754,7 +754,7 @@ data UpdateItemResponse = UpdateItemResponse'
     { _uirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
     , _uirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
     , _uirsAttributes            :: !(Maybe (Map Text AttributeValue))
-    , _uirsStatus                :: !Int
+    , _uirsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateItemResponse' with the minimum fields required to make a request.
@@ -767,16 +767,16 @@ data UpdateItemResponse = UpdateItemResponse'
 --
 -- * 'uirsAttributes'
 --
--- * 'uirsStatus'
+-- * 'uirsResponseStatus'
 updateItemResponse
-    :: Int -- ^ 'uirsStatus'
+    :: Int -- ^ 'uirsResponseStatus'
     -> UpdateItemResponse
-updateItemResponse pStatus_ =
+updateItemResponse pResponseStatus_ =
     UpdateItemResponse'
     { _uirsItemCollectionMetrics = Nothing
     , _uirsConsumedCapacity = Nothing
     , _uirsAttributes = Nothing
-    , _uirsStatus = pStatus_
+    , _uirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -795,5 +795,5 @@ uirsAttributes :: Lens' UpdateItemResponse (HashMap Text AttributeValue)
 uirsAttributes = lens _uirsAttributes (\ s a -> s{_uirsAttributes = a}) . _Default . _Map;
 
 -- | The response status code.
-uirsStatus :: Lens' UpdateItemResponse Int
-uirsStatus = lens _uirsStatus (\ s a -> s{_uirsStatus = a});
+uirsResponseStatus :: Lens' UpdateItemResponse Int
+uirsResponseStatus = lens _uirsResponseStatus (\ s a -> s{_uirsResponseStatus = a});

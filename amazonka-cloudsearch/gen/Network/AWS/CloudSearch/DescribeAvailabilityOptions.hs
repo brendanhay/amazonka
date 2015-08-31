@@ -40,7 +40,7 @@ module Network.AWS.CloudSearch.DescribeAvailabilityOptions
     , DescribeAvailabilityOptionsResponse
     -- * Response Lenses
     , daorsAvailabilityOptions
-    , daorsStatus
+    , daorsResponseStatus
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -119,7 +119,7 @@ instance ToQuery DescribeAvailabilityOptions where
 -- /See:/ 'describeAvailabilityOptionsResponse' smart constructor.
 data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'
     { _daorsAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
-    , _daorsStatus              :: !Int
+    , _daorsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAvailabilityOptionsResponse' with the minimum fields required to make a request.
@@ -128,14 +128,14 @@ data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'
 --
 -- * 'daorsAvailabilityOptions'
 --
--- * 'daorsStatus'
+-- * 'daorsResponseStatus'
 describeAvailabilityOptionsResponse
-    :: Int -- ^ 'daorsStatus'
+    :: Int -- ^ 'daorsResponseStatus'
     -> DescribeAvailabilityOptionsResponse
-describeAvailabilityOptionsResponse pStatus_ =
+describeAvailabilityOptionsResponse pResponseStatus_ =
     DescribeAvailabilityOptionsResponse'
     { _daorsAvailabilityOptions = Nothing
-    , _daorsStatus = pStatus_
+    , _daorsResponseStatus = pResponseStatus_
     }
 
 -- | The availability options configured for the domain. Indicates whether
@@ -144,5 +144,5 @@ daorsAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe Ava
 daorsAvailabilityOptions = lens _daorsAvailabilityOptions (\ s a -> s{_daorsAvailabilityOptions = a});
 
 -- | The response status code.
-daorsStatus :: Lens' DescribeAvailabilityOptionsResponse Int
-daorsStatus = lens _daorsStatus (\ s a -> s{_daorsStatus = a});
+daorsResponseStatus :: Lens' DescribeAvailabilityOptionsResponse Int
+daorsResponseStatus = lens _daorsResponseStatus (\ s a -> s{_daorsResponseStatus = a});

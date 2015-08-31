@@ -51,7 +51,7 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     , createAppCookieStickinessPolicyResponse
     , CreateAppCookieStickinessPolicyResponse
     -- * Response Lenses
-    , cacsprsStatus
+    , cacsprsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -133,22 +133,22 @@ instance ToQuery CreateAppCookieStickinessPolicy
 
 -- | /See:/ 'createAppCookieStickinessPolicyResponse' smart constructor.
 newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse'
-    { _cacsprsStatus :: Int
+    { _cacsprsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAppCookieStickinessPolicyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cacsprsStatus'
+-- * 'cacsprsResponseStatus'
 createAppCookieStickinessPolicyResponse
-    :: Int -- ^ 'cacsprsStatus'
+    :: Int -- ^ 'cacsprsResponseStatus'
     -> CreateAppCookieStickinessPolicyResponse
-createAppCookieStickinessPolicyResponse pStatus_ =
+createAppCookieStickinessPolicyResponse pResponseStatus_ =
     CreateAppCookieStickinessPolicyResponse'
-    { _cacsprsStatus = pStatus_
+    { _cacsprsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-cacsprsStatus :: Lens' CreateAppCookieStickinessPolicyResponse Int
-cacsprsStatus = lens _cacsprsStatus (\ s a -> s{_cacsprsStatus = a});
+cacsprsResponseStatus :: Lens' CreateAppCookieStickinessPolicyResponse Int
+cacsprsResponseStatus = lens _cacsprsResponseStatus (\ s a -> s{_cacsprsResponseStatus = a});

@@ -72,7 +72,7 @@ module Network.AWS.DynamoDB.PutItem
     , pirsItemCollectionMetrics
     , pirsConsumedCapacity
     , pirsAttributes
-    , pirsStatus
+    , pirsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -575,7 +575,7 @@ data PutItemResponse = PutItemResponse'
     { _pirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
     , _pirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
     , _pirsAttributes            :: !(Maybe (Map Text AttributeValue))
-    , _pirsStatus                :: !Int
+    , _pirsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutItemResponse' with the minimum fields required to make a request.
@@ -588,16 +588,16 @@ data PutItemResponse = PutItemResponse'
 --
 -- * 'pirsAttributes'
 --
--- * 'pirsStatus'
+-- * 'pirsResponseStatus'
 putItemResponse
-    :: Int -- ^ 'pirsStatus'
+    :: Int -- ^ 'pirsResponseStatus'
     -> PutItemResponse
-putItemResponse pStatus_ =
+putItemResponse pResponseStatus_ =
     PutItemResponse'
     { _pirsItemCollectionMetrics = Nothing
     , _pirsConsumedCapacity = Nothing
     , _pirsAttributes = Nothing
-    , _pirsStatus = pStatus_
+    , _pirsResponseStatus = pResponseStatus_
     }
 
 -- | Information about item collections, if any, that were affected by the
@@ -635,5 +635,5 @@ pirsAttributes :: Lens' PutItemResponse (HashMap Text AttributeValue)
 pirsAttributes = lens _pirsAttributes (\ s a -> s{_pirsAttributes = a}) . _Default . _Map;
 
 -- | The response status code.
-pirsStatus :: Lens' PutItemResponse Int
-pirsStatus = lens _pirsStatus (\ s a -> s{_pirsStatus = a});
+pirsResponseStatus :: Lens' PutItemResponse Int
+pirsResponseStatus = lens _pirsResponseStatus (\ s a -> s{_pirsResponseStatus = a});

@@ -83,7 +83,7 @@ module Network.AWS.Glacier.ListJobs
     -- * Response Lenses
     , ljrsMarker
     , ljrsJobList
-    , ljrsStatus
+    , ljrsResponseStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -198,9 +198,9 @@ instance ToQuery ListJobs where
 --
 -- /See:/ 'listJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-    { _ljrsMarker  :: !(Maybe Text)
-    , _ljrsJobList :: !(Maybe [GlacierJobDescription])
-    , _ljrsStatus  :: !Int
+    { _ljrsMarker         :: !(Maybe Text)
+    , _ljrsJobList        :: !(Maybe [GlacierJobDescription])
+    , _ljrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
@@ -211,15 +211,15 @@ data ListJobsResponse = ListJobsResponse'
 --
 -- * 'ljrsJobList'
 --
--- * 'ljrsStatus'
+-- * 'ljrsResponseStatus'
 listJobsResponse
-    :: Int -- ^ 'ljrsStatus'
+    :: Int -- ^ 'ljrsResponseStatus'
     -> ListJobsResponse
-listJobsResponse pStatus_ =
+listJobsResponse pResponseStatus_ =
     ListJobsResponse'
     { _ljrsMarker = Nothing
     , _ljrsJobList = Nothing
-    , _ljrsStatus = pStatus_
+    , _ljrsResponseStatus = pResponseStatus_
     }
 
 -- | An opaque string that represents where to continue pagination of the
@@ -234,5 +234,5 @@ ljrsJobList :: Lens' ListJobsResponse [GlacierJobDescription]
 ljrsJobList = lens _ljrsJobList (\ s a -> s{_ljrsJobList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ljrsStatus :: Lens' ListJobsResponse Int
-ljrsStatus = lens _ljrsStatus (\ s a -> s{_ljrsStatus = a});
+ljrsResponseStatus :: Lens' ListJobsResponse Int
+ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});

@@ -37,7 +37,7 @@ module Network.AWS.DeviceFarm.CreateDevicePool
     , CreateDevicePoolResponse
     -- * Response Lenses
     , cdprsDevicePool
-    , cdprsStatus
+    , cdprsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -133,8 +133,8 @@ instance ToQuery CreateDevicePool where
 --
 -- /See:/ 'createDevicePoolResponse' smart constructor.
 data CreateDevicePoolResponse = CreateDevicePoolResponse'
-    { _cdprsDevicePool :: !(Maybe DevicePool)
-    , _cdprsStatus     :: !Int
+    { _cdprsDevicePool     :: !(Maybe DevicePool)
+    , _cdprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDevicePoolResponse' with the minimum fields required to make a request.
@@ -143,14 +143,14 @@ data CreateDevicePoolResponse = CreateDevicePoolResponse'
 --
 -- * 'cdprsDevicePool'
 --
--- * 'cdprsStatus'
+-- * 'cdprsResponseStatus'
 createDevicePoolResponse
-    :: Int -- ^ 'cdprsStatus'
+    :: Int -- ^ 'cdprsResponseStatus'
     -> CreateDevicePoolResponse
-createDevicePoolResponse pStatus_ =
+createDevicePoolResponse pResponseStatus_ =
     CreateDevicePoolResponse'
     { _cdprsDevicePool = Nothing
-    , _cdprsStatus = pStatus_
+    , _cdprsResponseStatus = pResponseStatus_
     }
 
 -- | The newly created device pool.
@@ -158,5 +158,5 @@ cdprsDevicePool :: Lens' CreateDevicePoolResponse (Maybe DevicePool)
 cdprsDevicePool = lens _cdprsDevicePool (\ s a -> s{_cdprsDevicePool = a});
 
 -- | The response status code.
-cdprsStatus :: Lens' CreateDevicePoolResponse Int
-cdprsStatus = lens _cdprsStatus (\ s a -> s{_cdprsStatus = a});
+cdprsResponseStatus :: Lens' CreateDevicePoolResponse Int
+cdprsResponseStatus = lens _cdprsResponseStatus (\ s a -> s{_cdprsResponseStatus = a});

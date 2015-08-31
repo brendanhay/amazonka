@@ -45,7 +45,7 @@ module Network.AWS.Redshift.DescribeClusterVersions
     -- * Response Lenses
     , dcvrsClusterVersions
     , dcvrsMarker
-    , dcvrsStatus
+    , dcvrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -166,7 +166,7 @@ instance ToQuery DescribeClusterVersions where
 data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'
     { _dcvrsClusterVersions :: !(Maybe [ClusterVersion])
     , _dcvrsMarker          :: !(Maybe Text)
-    , _dcvrsStatus          :: !Int
+    , _dcvrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClusterVersionsResponse' with the minimum fields required to make a request.
@@ -177,15 +177,15 @@ data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'
 --
 -- * 'dcvrsMarker'
 --
--- * 'dcvrsStatus'
+-- * 'dcvrsResponseStatus'
 describeClusterVersionsResponse
-    :: Int -- ^ 'dcvrsStatus'
+    :: Int -- ^ 'dcvrsResponseStatus'
     -> DescribeClusterVersionsResponse
-describeClusterVersionsResponse pStatus_ =
+describeClusterVersionsResponse pResponseStatus_ =
     DescribeClusterVersionsResponse'
     { _dcvrsClusterVersions = Nothing
     , _dcvrsMarker = Nothing
-    , _dcvrsStatus = pStatus_
+    , _dcvrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of 'Version' elements.
@@ -202,5 +202,5 @@ dcvrsMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
 dcvrsMarker = lens _dcvrsMarker (\ s a -> s{_dcvrsMarker = a});
 
 -- | The response status code.
-dcvrsStatus :: Lens' DescribeClusterVersionsResponse Int
-dcvrsStatus = lens _dcvrsStatus (\ s a -> s{_dcvrsStatus = a});
+dcvrsResponseStatus :: Lens' DescribeClusterVersionsResponse Int
+dcvrsResponseStatus = lens _dcvrsResponseStatus (\ s a -> s{_dcvrsResponseStatus = a});

@@ -41,7 +41,7 @@ module Network.AWS.OpsWorks.DescribeStackProvisioningParameters
     -- * Response Lenses
     , dspprsAgentInstallerURL
     , dspprsParameters
-    , dspprsStatus
+    , dspprsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -117,7 +117,7 @@ instance ToQuery DescribeStackProvisioningParameters
 data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'
     { _dspprsAgentInstallerURL :: !(Maybe Text)
     , _dspprsParameters        :: !(Maybe (Map Text Text))
-    , _dspprsStatus            :: !Int
+    , _dspprsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeStackProvisioningParametersResponse' with the minimum fields required to make a request.
@@ -128,15 +128,15 @@ data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningPara
 --
 -- * 'dspprsParameters'
 --
--- * 'dspprsStatus'
+-- * 'dspprsResponseStatus'
 describeStackProvisioningParametersResponse
-    :: Int -- ^ 'dspprsStatus'
+    :: Int -- ^ 'dspprsResponseStatus'
     -> DescribeStackProvisioningParametersResponse
-describeStackProvisioningParametersResponse pStatus_ =
+describeStackProvisioningParametersResponse pResponseStatus_ =
     DescribeStackProvisioningParametersResponse'
     { _dspprsAgentInstallerURL = Nothing
     , _dspprsParameters = Nothing
-    , _dspprsStatus = pStatus_
+    , _dspprsResponseStatus = pResponseStatus_
     }
 
 -- | The AWS OpsWorks agent installer\'s URL.
@@ -148,5 +148,5 @@ dspprsParameters :: Lens' DescribeStackProvisioningParametersResponse (HashMap T
 dspprsParameters = lens _dspprsParameters (\ s a -> s{_dspprsParameters = a}) . _Default . _Map;
 
 -- | The response status code.
-dspprsStatus :: Lens' DescribeStackProvisioningParametersResponse Int
-dspprsStatus = lens _dspprsStatus (\ s a -> s{_dspprsStatus = a});
+dspprsResponseStatus :: Lens' DescribeStackProvisioningParametersResponse Int
+dspprsResponseStatus = lens _dspprsResponseStatus (\ s a -> s{_dspprsResponseStatus = a});

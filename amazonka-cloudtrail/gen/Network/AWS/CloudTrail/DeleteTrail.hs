@@ -33,7 +33,7 @@ module Network.AWS.CloudTrail.DeleteTrail
     , deleteTrailResponse
     , DeleteTrailResponse
     -- * Response Lenses
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.CloudTrail.Types
@@ -99,22 +99,22 @@ instance ToQuery DeleteTrail where
 --
 -- /See:/ 'deleteTrailResponse' smart constructor.
 newtype DeleteTrailResponse = DeleteTrailResponse'
-    { _drsStatus :: Int
+    { _drsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteTrailResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 deleteTrailResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DeleteTrailResponse
-deleteTrailResponse pStatus_ =
+deleteTrailResponse pResponseStatus_ =
     DeleteTrailResponse'
-    { _drsStatus = pStatus_
+    { _drsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-drsStatus :: Lens' DeleteTrailResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DeleteTrailResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

@@ -39,7 +39,7 @@ module Network.AWS.ECS.ListServices
     -- * Response Lenses
     , lsrsServiceARNs
     , lsrsNextToken
-    , lsrsStatus
+    , lsrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -143,9 +143,9 @@ instance ToQuery ListServices where
 
 -- | /See:/ 'listServicesResponse' smart constructor.
 data ListServicesResponse = ListServicesResponse'
-    { _lsrsServiceARNs :: !(Maybe [Text])
-    , _lsrsNextToken   :: !(Maybe Text)
-    , _lsrsStatus      :: !Int
+    { _lsrsServiceARNs    :: !(Maybe [Text])
+    , _lsrsNextToken      :: !(Maybe Text)
+    , _lsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListServicesResponse' with the minimum fields required to make a request.
@@ -156,15 +156,15 @@ data ListServicesResponse = ListServicesResponse'
 --
 -- * 'lsrsNextToken'
 --
--- * 'lsrsStatus'
+-- * 'lsrsResponseStatus'
 listServicesResponse
-    :: Int -- ^ 'lsrsStatus'
+    :: Int -- ^ 'lsrsResponseStatus'
     -> ListServicesResponse
-listServicesResponse pStatus_ =
+listServicesResponse pResponseStatus_ =
     ListServicesResponse'
     { _lsrsServiceARNs = Nothing
     , _lsrsNextToken = Nothing
-    , _lsrsStatus = pStatus_
+    , _lsrsResponseStatus = pResponseStatus_
     }
 
 -- | The list of full Amazon Resource Name (ARN) entries for each service
@@ -180,5 +180,5 @@ lsrsNextToken :: Lens' ListServicesResponse (Maybe Text)
 lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
 -- | The response status code.
-lsrsStatus :: Lens' ListServicesResponse Int
-lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});
+lsrsResponseStatus :: Lens' ListServicesResponse Int
+lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});

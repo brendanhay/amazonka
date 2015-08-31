@@ -38,7 +38,7 @@ module Network.AWS.EC2.MonitorInstances
     , MonitorInstancesResponse
     -- * Response Lenses
     , mirsInstanceMonitorings
-    , mirsStatus
+    , mirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -107,7 +107,7 @@ instance ToQuery MonitorInstances where
 -- | /See:/ 'monitorInstancesResponse' smart constructor.
 data MonitorInstancesResponse = MonitorInstancesResponse'
     { _mirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
-    , _mirsStatus              :: !Int
+    , _mirsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MonitorInstancesResponse' with the minimum fields required to make a request.
@@ -116,14 +116,14 @@ data MonitorInstancesResponse = MonitorInstancesResponse'
 --
 -- * 'mirsInstanceMonitorings'
 --
--- * 'mirsStatus'
+-- * 'mirsResponseStatus'
 monitorInstancesResponse
-    :: Int -- ^ 'mirsStatus'
+    :: Int -- ^ 'mirsResponseStatus'
     -> MonitorInstancesResponse
-monitorInstancesResponse pStatus_ =
+monitorInstancesResponse pResponseStatus_ =
     MonitorInstancesResponse'
     { _mirsInstanceMonitorings = Nothing
-    , _mirsStatus = pStatus_
+    , _mirsResponseStatus = pResponseStatus_
     }
 
 -- | Monitoring information for one or more instances.
@@ -131,5 +131,5 @@ mirsInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\ s a -> s{_mirsInstanceMonitorings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-mirsStatus :: Lens' MonitorInstancesResponse Int
-mirsStatus = lens _mirsStatus (\ s a -> s{_mirsStatus = a});
+mirsResponseStatus :: Lens' MonitorInstancesResponse Int
+mirsResponseStatus = lens _mirsResponseStatus (\ s a -> s{_mirsResponseStatus = a});

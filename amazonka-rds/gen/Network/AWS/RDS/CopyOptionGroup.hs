@@ -37,7 +37,7 @@ module Network.AWS.RDS.CopyOptionGroup
     , CopyOptionGroupResponse
     -- * Response Lenses
     , cogrsOptionGroup
-    , cogrsStatus
+    , cogrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -147,8 +147,8 @@ instance ToQuery CopyOptionGroup where
 
 -- | /See:/ 'copyOptionGroupResponse' smart constructor.
 data CopyOptionGroupResponse = CopyOptionGroupResponse'
-    { _cogrsOptionGroup :: !(Maybe OptionGroup)
-    , _cogrsStatus      :: !Int
+    { _cogrsOptionGroup    :: !(Maybe OptionGroup)
+    , _cogrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CopyOptionGroupResponse' with the minimum fields required to make a request.
@@ -157,14 +157,14 @@ data CopyOptionGroupResponse = CopyOptionGroupResponse'
 --
 -- * 'cogrsOptionGroup'
 --
--- * 'cogrsStatus'
+-- * 'cogrsResponseStatus'
 copyOptionGroupResponse
-    :: Int -- ^ 'cogrsStatus'
+    :: Int -- ^ 'cogrsResponseStatus'
     -> CopyOptionGroupResponse
-copyOptionGroupResponse pStatus_ =
+copyOptionGroupResponse pResponseStatus_ =
     CopyOptionGroupResponse'
     { _cogrsOptionGroup = Nothing
-    , _cogrsStatus = pStatus_
+    , _cogrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -172,5 +172,5 @@ cogrsOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
 cogrsOptionGroup = lens _cogrsOptionGroup (\ s a -> s{_cogrsOptionGroup = a});
 
 -- | The response status code.
-cogrsStatus :: Lens' CopyOptionGroupResponse Int
-cogrsStatus = lens _cogrsStatus (\ s a -> s{_cogrsStatus = a});
+cogrsResponseStatus :: Lens' CopyOptionGroupResponse Int
+cogrsResponseStatus = lens _cogrsResponseStatus (\ s a -> s{_cogrsResponseStatus = a});

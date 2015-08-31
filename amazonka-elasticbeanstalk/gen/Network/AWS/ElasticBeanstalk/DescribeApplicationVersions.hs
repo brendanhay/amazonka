@@ -35,7 +35,7 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     , DescribeApplicationVersionsResponse
     -- * Response Lenses
     , davrsApplicationVersions
-    , davrsStatus
+    , davrsResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -112,7 +112,7 @@ instance ToQuery DescribeApplicationVersions where
 -- /See:/ 'describeApplicationVersionsResponse' smart constructor.
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
     { _davrsApplicationVersions :: !(Maybe [ApplicationVersionDescription])
-    , _davrsStatus              :: !Int
+    , _davrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeApplicationVersionsResponse' with the minimum fields required to make a request.
@@ -121,14 +121,14 @@ data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
 --
 -- * 'davrsApplicationVersions'
 --
--- * 'davrsStatus'
+-- * 'davrsResponseStatus'
 describeApplicationVersionsResponse
-    :: Int -- ^ 'davrsStatus'
+    :: Int -- ^ 'davrsResponseStatus'
     -> DescribeApplicationVersionsResponse
-describeApplicationVersionsResponse pStatus_ =
+describeApplicationVersionsResponse pResponseStatus_ =
     DescribeApplicationVersionsResponse'
     { _davrsApplicationVersions = Nothing
-    , _davrsStatus = pStatus_
+    , _davrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of ApplicationVersionDescription .
@@ -136,5 +136,5 @@ davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [Applicati
 davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsApplicationVersions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-davrsStatus :: Lens' DescribeApplicationVersionsResponse Int
-davrsStatus = lens _davrsStatus (\ s a -> s{_davrsStatus = a});
+davrsResponseStatus :: Lens' DescribeApplicationVersionsResponse Int
+davrsResponseStatus = lens _davrsResponseStatus (\ s a -> s{_davrsResponseStatus = a});

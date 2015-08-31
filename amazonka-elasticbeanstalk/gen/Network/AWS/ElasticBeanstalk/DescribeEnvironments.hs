@@ -39,7 +39,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     , DescribeEnvironmentsResponse
     -- * Response Lenses
     , drsEnvironments
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -158,8 +158,8 @@ instance ToQuery DescribeEnvironments where
 --
 -- /See:/ 'describeEnvironmentsResponse' smart constructor.
 data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
-    { _drsEnvironments :: !(Maybe [EnvironmentDescription])
-    , _drsStatus       :: !Int
+    { _drsEnvironments   :: !(Maybe [EnvironmentDescription])
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEnvironmentsResponse' with the minimum fields required to make a request.
@@ -168,14 +168,14 @@ data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
 --
 -- * 'drsEnvironments'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 describeEnvironmentsResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DescribeEnvironmentsResponse
-describeEnvironmentsResponse pStatus_ =
+describeEnvironmentsResponse pResponseStatus_ =
     DescribeEnvironmentsResponse'
     { _drsEnvironments = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | Returns an EnvironmentDescription list.
@@ -183,5 +183,5 @@ drsEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
 drsEnvironments = lens _drsEnvironments (\ s a -> s{_drsEnvironments = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drsStatus :: Lens' DescribeEnvironmentsResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DescribeEnvironmentsResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

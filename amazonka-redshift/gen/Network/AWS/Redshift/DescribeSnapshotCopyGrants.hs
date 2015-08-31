@@ -44,7 +44,7 @@ module Network.AWS.Redshift.DescribeSnapshotCopyGrants
     -- * Response Lenses
     , dscgrsSnapshotCopyGrants
     , dscgrsMarker
-    , dscgrsStatus
+    , dscgrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -175,7 +175,7 @@ instance ToQuery DescribeSnapshotCopyGrants where
 data DescribeSnapshotCopyGrantsResponse = DescribeSnapshotCopyGrantsResponse'
     { _dscgrsSnapshotCopyGrants :: !(Maybe [SnapshotCopyGrant])
     , _dscgrsMarker             :: !(Maybe Text)
-    , _dscgrsStatus             :: !Int
+    , _dscgrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSnapshotCopyGrantsResponse' with the minimum fields required to make a request.
@@ -186,15 +186,15 @@ data DescribeSnapshotCopyGrantsResponse = DescribeSnapshotCopyGrantsResponse'
 --
 -- * 'dscgrsMarker'
 --
--- * 'dscgrsStatus'
+-- * 'dscgrsResponseStatus'
 describeSnapshotCopyGrantsResponse
-    :: Int -- ^ 'dscgrsStatus'
+    :: Int -- ^ 'dscgrsResponseStatus'
     -> DescribeSnapshotCopyGrantsResponse
-describeSnapshotCopyGrantsResponse pStatus_ =
+describeSnapshotCopyGrantsResponse pResponseStatus_ =
     DescribeSnapshotCopyGrantsResponse'
     { _dscgrsSnapshotCopyGrants = Nothing
     , _dscgrsMarker = Nothing
-    , _dscgrsStatus = pStatus_
+    , _dscgrsResponseStatus = pResponseStatus_
     }
 
 -- | The list of snapshot copy grants.
@@ -214,5 +214,5 @@ dscgrsMarker :: Lens' DescribeSnapshotCopyGrantsResponse (Maybe Text)
 dscgrsMarker = lens _dscgrsMarker (\ s a -> s{_dscgrsMarker = a});
 
 -- | The response status code.
-dscgrsStatus :: Lens' DescribeSnapshotCopyGrantsResponse Int
-dscgrsStatus = lens _dscgrsStatus (\ s a -> s{_dscgrsStatus = a});
+dscgrsResponseStatus :: Lens' DescribeSnapshotCopyGrantsResponse Int
+dscgrsResponseStatus = lens _dscgrsResponseStatus (\ s a -> s{_dscgrsResponseStatus = a});

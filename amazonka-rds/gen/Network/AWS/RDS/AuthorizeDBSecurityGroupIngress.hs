@@ -52,7 +52,7 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     , AuthorizeDBSecurityGroupIngressResponse
     -- * Response Lenses
     , adsgirsDBSecurityGroup
-    , adsgirsStatus
+    , adsgirsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -163,7 +163,7 @@ instance ToQuery AuthorizeDBSecurityGroupIngress
 -- | /See:/ 'authorizeDBSecurityGroupIngressResponse' smart constructor.
 data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse'
     { _adsgirsDBSecurityGroup :: !(Maybe DBSecurityGroup)
-    , _adsgirsStatus          :: !Int
+    , _adsgirsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AuthorizeDBSecurityGroupIngressResponse' with the minimum fields required to make a request.
@@ -172,14 +172,14 @@ data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressRe
 --
 -- * 'adsgirsDBSecurityGroup'
 --
--- * 'adsgirsStatus'
+-- * 'adsgirsResponseStatus'
 authorizeDBSecurityGroupIngressResponse
-    :: Int -- ^ 'adsgirsStatus'
+    :: Int -- ^ 'adsgirsResponseStatus'
     -> AuthorizeDBSecurityGroupIngressResponse
-authorizeDBSecurityGroupIngressResponse pStatus_ =
+authorizeDBSecurityGroupIngressResponse pResponseStatus_ =
     AuthorizeDBSecurityGroupIngressResponse'
     { _adsgirsDBSecurityGroup = Nothing
-    , _adsgirsStatus = pStatus_
+    , _adsgirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -187,5 +187,5 @@ adsgirsDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe D
 adsgirsDBSecurityGroup = lens _adsgirsDBSecurityGroup (\ s a -> s{_adsgirsDBSecurityGroup = a});
 
 -- | The response status code.
-adsgirsStatus :: Lens' AuthorizeDBSecurityGroupIngressResponse Int
-adsgirsStatus = lens _adsgirsStatus (\ s a -> s{_adsgirsStatus = a});
+adsgirsResponseStatus :: Lens' AuthorizeDBSecurityGroupIngressResponse Int
+adsgirsResponseStatus = lens _adsgirsResponseStatus (\ s a -> s{_adsgirsResponseStatus = a});

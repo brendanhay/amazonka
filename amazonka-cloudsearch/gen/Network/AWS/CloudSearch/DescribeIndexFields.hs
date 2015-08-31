@@ -41,7 +41,7 @@ module Network.AWS.CloudSearch.DescribeIndexFields
     , describeIndexFieldsResponse
     , DescribeIndexFieldsResponse
     -- * Response Lenses
-    , difsrsStatus
+    , difsrsResponseStatus
     , difsrsIndexFields
     ) where
 
@@ -130,29 +130,29 @@ instance ToQuery DescribeIndexFields where
 --
 -- /See:/ 'describeIndexFieldsResponse' smart constructor.
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
-    { _difsrsStatus      :: !Int
-    , _difsrsIndexFields :: ![IndexFieldStatus]
+    { _difsrsResponseStatus :: !Int
+    , _difsrsIndexFields    :: ![IndexFieldStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeIndexFieldsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'difsrsStatus'
+-- * 'difsrsResponseStatus'
 --
 -- * 'difsrsIndexFields'
 describeIndexFieldsResponse
-    :: Int -- ^ 'difsrsStatus'
+    :: Int -- ^ 'difsrsResponseStatus'
     -> DescribeIndexFieldsResponse
-describeIndexFieldsResponse pStatus_ =
+describeIndexFieldsResponse pResponseStatus_ =
     DescribeIndexFieldsResponse'
-    { _difsrsStatus = pStatus_
+    { _difsrsResponseStatus = pResponseStatus_
     , _difsrsIndexFields = mempty
     }
 
 -- | The response status code.
-difsrsStatus :: Lens' DescribeIndexFieldsResponse Int
-difsrsStatus = lens _difsrsStatus (\ s a -> s{_difsrsStatus = a});
+difsrsResponseStatus :: Lens' DescribeIndexFieldsResponse Int
+difsrsResponseStatus = lens _difsrsResponseStatus (\ s a -> s{_difsrsResponseStatus = a});
 
 -- | The index fields configured for the domain.
 difsrsIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]

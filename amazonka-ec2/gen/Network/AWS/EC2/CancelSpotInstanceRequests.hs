@@ -44,7 +44,7 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
     , CancelSpotInstanceRequestsResponse
     -- * Response Lenses
     , csirrsCancelledSpotInstanceRequests
-    , csirrsStatus
+    , csirrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -120,7 +120,7 @@ instance ToQuery CancelSpotInstanceRequests where
 -- /See:/ 'cancelSpotInstanceRequestsResponse' smart constructor.
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
     { _csirrsCancelledSpotInstanceRequests :: !(Maybe [CancelledSpotInstanceRequest])
-    , _csirrsStatus                        :: !Int
+    , _csirrsResponseStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CancelSpotInstanceRequestsResponse' with the minimum fields required to make a request.
@@ -129,14 +129,14 @@ data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
 --
 -- * 'csirrsCancelledSpotInstanceRequests'
 --
--- * 'csirrsStatus'
+-- * 'csirrsResponseStatus'
 cancelSpotInstanceRequestsResponse
-    :: Int -- ^ 'csirrsStatus'
+    :: Int -- ^ 'csirrsResponseStatus'
     -> CancelSpotInstanceRequestsResponse
-cancelSpotInstanceRequestsResponse pStatus_ =
+cancelSpotInstanceRequestsResponse pResponseStatus_ =
     CancelSpotInstanceRequestsResponse'
     { _csirrsCancelledSpotInstanceRequests = Nothing
-    , _csirrsStatus = pStatus_
+    , _csirrsResponseStatus = pResponseStatus_
     }
 
 -- | One or more Spot Instance requests.
@@ -144,5 +144,5 @@ csirrsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse 
 csirrsCancelledSpotInstanceRequests = lens _csirrsCancelledSpotInstanceRequests (\ s a -> s{_csirrsCancelledSpotInstanceRequests = a}) . _Default . _Coerce;
 
 -- | The response status code.
-csirrsStatus :: Lens' CancelSpotInstanceRequestsResponse Int
-csirrsStatus = lens _csirrsStatus (\ s a -> s{_csirrsStatus = a});
+csirrsResponseStatus :: Lens' CancelSpotInstanceRequestsResponse Int
+csirrsResponseStatus = lens _csirrsResponseStatus (\ s a -> s{_csirrsResponseStatus = a});

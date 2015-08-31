@@ -78,7 +78,7 @@ module Network.AWS.Kinesis.PutRecord
     , putRecordResponse
     , PutRecordResponse
     -- * Response Lenses
-    , prrsStatus
+    , prrsResponseStatus
     , prrsShardId
     , prrsSequenceNumber
     ) where
@@ -209,7 +209,7 @@ instance ToQuery PutRecord where
 --
 -- /See:/ 'putRecordResponse' smart constructor.
 data PutRecordResponse = PutRecordResponse'
-    { _prrsStatus         :: !Int
+    { _prrsResponseStatus :: !Int
     , _prrsShardId        :: !Text
     , _prrsSequenceNumber :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -218,26 +218,26 @@ data PutRecordResponse = PutRecordResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prrsStatus'
+-- * 'prrsResponseStatus'
 --
 -- * 'prrsShardId'
 --
 -- * 'prrsSequenceNumber'
 putRecordResponse
-    :: Int -- ^ 'prrsStatus'
+    :: Int -- ^ 'prrsResponseStatus'
     -> Text -- ^ 'prrsShardId'
     -> Text -- ^ 'prrsSequenceNumber'
     -> PutRecordResponse
-putRecordResponse pStatus_ pShardId_ pSequenceNumber_ =
+putRecordResponse pResponseStatus_ pShardId_ pSequenceNumber_ =
     PutRecordResponse'
-    { _prrsStatus = pStatus_
+    { _prrsResponseStatus = pResponseStatus_
     , _prrsShardId = pShardId_
     , _prrsSequenceNumber = pSequenceNumber_
     }
 
 -- | The response status code.
-prrsStatus :: Lens' PutRecordResponse Int
-prrsStatus = lens _prrsStatus (\ s a -> s{_prrsStatus = a});
+prrsResponseStatus :: Lens' PutRecordResponse Int
+prrsResponseStatus = lens _prrsResponseStatus (\ s a -> s{_prrsResponseStatus = a});
 
 -- | The shard ID of the shard where the data record was placed.
 prrsShardId :: Lens' PutRecordResponse Text

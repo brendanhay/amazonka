@@ -59,7 +59,7 @@ module Network.AWS.Support.DescribeCases
     -- * Response Lenses
     , drsCases
     , drsNextToken
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -216,9 +216,9 @@ instance ToQuery DescribeCases where
 --
 -- /See:/ 'describeCasesResponse' smart constructor.
 data DescribeCasesResponse = DescribeCasesResponse'
-    { _drsCases     :: !(Maybe [CaseDetails])
-    , _drsNextToken :: !(Maybe Text)
-    , _drsStatus    :: !Int
+    { _drsCases          :: !(Maybe [CaseDetails])
+    , _drsNextToken      :: !(Maybe Text)
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCasesResponse' with the minimum fields required to make a request.
@@ -229,15 +229,15 @@ data DescribeCasesResponse = DescribeCasesResponse'
 --
 -- * 'drsNextToken'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 describeCasesResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DescribeCasesResponse
-describeCasesResponse pStatus_ =
+describeCasesResponse pResponseStatus_ =
     DescribeCasesResponse'
     { _drsCases = Nothing
     , _drsNextToken = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | The details for the cases that match the request.
@@ -249,5 +249,5 @@ drsNextToken :: Lens' DescribeCasesResponse (Maybe Text)
 drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
 -- | The response status code.
-drsStatus :: Lens' DescribeCasesResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DescribeCasesResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

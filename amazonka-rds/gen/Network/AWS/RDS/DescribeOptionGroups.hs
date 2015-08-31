@@ -42,7 +42,7 @@ module Network.AWS.RDS.DescribeOptionGroups
     -- * Response Lenses
     , dogrsMarker
     , dogrsOptionGroupsList
-    , dogrsStatus
+    , dogrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -173,7 +173,7 @@ instance ToQuery DescribeOptionGroups where
 data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
     { _dogrsMarker           :: !(Maybe Text)
     , _dogrsOptionGroupsList :: !(Maybe [OptionGroup])
-    , _dogrsStatus           :: !Int
+    , _dogrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeOptionGroupsResponse' with the minimum fields required to make a request.
@@ -184,15 +184,15 @@ data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
 --
 -- * 'dogrsOptionGroupsList'
 --
--- * 'dogrsStatus'
+-- * 'dogrsResponseStatus'
 describeOptionGroupsResponse
-    :: Int -- ^ 'dogrsStatus'
+    :: Int -- ^ 'dogrsResponseStatus'
     -> DescribeOptionGroupsResponse
-describeOptionGroupsResponse pStatus_ =
+describeOptionGroupsResponse pResponseStatus_ =
     DescribeOptionGroupsResponse'
     { _dogrsMarker = Nothing
     , _dogrsOptionGroupsList = Nothing
-    , _dogrsStatus = pStatus_
+    , _dogrsResponseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -206,5 +206,5 @@ dogrsOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
 dogrsOptionGroupsList = lens _dogrsOptionGroupsList (\ s a -> s{_dogrsOptionGroupsList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dogrsStatus :: Lens' DescribeOptionGroupsResponse Int
-dogrsStatus = lens _dogrsStatus (\ s a -> s{_dogrsStatus = a});
+dogrsResponseStatus :: Lens' DescribeOptionGroupsResponse Int
+dogrsResponseStatus = lens _dogrsResponseStatus (\ s a -> s{_dogrsResponseStatus = a});

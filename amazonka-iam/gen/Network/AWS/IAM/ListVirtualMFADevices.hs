@@ -45,7 +45,7 @@ module Network.AWS.IAM.ListVirtualMFADevices
     -- * Response Lenses
     , lvmdrsMarker
     , lvmdrsIsTruncated
-    , lvmdrsStatus
+    , lvmdrsResponseStatus
     , lvmdrsVirtualMFADevices
     ) where
 
@@ -143,7 +143,7 @@ instance ToQuery ListVirtualMFADevices where
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
     { _lvmdrsMarker            :: !(Maybe Text)
     , _lvmdrsIsTruncated       :: !(Maybe Bool)
-    , _lvmdrsStatus            :: !Int
+    , _lvmdrsResponseStatus    :: !Int
     , _lvmdrsVirtualMFADevices :: ![VirtualMFADevice]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -155,17 +155,17 @@ data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
 --
 -- * 'lvmdrsIsTruncated'
 --
--- * 'lvmdrsStatus'
+-- * 'lvmdrsResponseStatus'
 --
 -- * 'lvmdrsVirtualMFADevices'
 listVirtualMFADevicesResponse
-    :: Int -- ^ 'lvmdrsStatus'
+    :: Int -- ^ 'lvmdrsResponseStatus'
     -> ListVirtualMFADevicesResponse
-listVirtualMFADevicesResponse pStatus_ =
+listVirtualMFADevicesResponse pResponseStatus_ =
     ListVirtualMFADevicesResponse'
     { _lvmdrsMarker = Nothing
     , _lvmdrsIsTruncated = Nothing
-    , _lvmdrsStatus = pStatus_
+    , _lvmdrsResponseStatus = pResponseStatus_
     , _lvmdrsVirtualMFADevices = mempty
     }
 
@@ -182,8 +182,8 @@ lvmdrsIsTruncated :: Lens' ListVirtualMFADevicesResponse (Maybe Bool)
 lvmdrsIsTruncated = lens _lvmdrsIsTruncated (\ s a -> s{_lvmdrsIsTruncated = a});
 
 -- | The response status code.
-lvmdrsStatus :: Lens' ListVirtualMFADevicesResponse Int
-lvmdrsStatus = lens _lvmdrsStatus (\ s a -> s{_lvmdrsStatus = a});
+lvmdrsResponseStatus :: Lens' ListVirtualMFADevicesResponse Int
+lvmdrsResponseStatus = lens _lvmdrsResponseStatus (\ s a -> s{_lvmdrsResponseStatus = a});
 
 -- | The list of virtual MFA devices in the current account that match the
 -- 'AssignmentStatus' value that was passed in the request.

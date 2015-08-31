@@ -41,7 +41,7 @@ module Network.AWS.Glacier.GetVaultAccessPolicy
     , GetVaultAccessPolicyResponse
     -- * Response Lenses
     , gvaprsPolicy
-    , gvaprsStatus
+    , gvaprsResponseStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -113,8 +113,8 @@ instance ToQuery GetVaultAccessPolicy where
 --
 -- /See:/ 'getVaultAccessPolicyResponse' smart constructor.
 data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
-    { _gvaprsPolicy :: !(Maybe VaultAccessPolicy)
-    , _gvaprsStatus :: !Int
+    { _gvaprsPolicy         :: !(Maybe VaultAccessPolicy)
+    , _gvaprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetVaultAccessPolicyResponse' with the minimum fields required to make a request.
@@ -123,14 +123,14 @@ data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
 --
 -- * 'gvaprsPolicy'
 --
--- * 'gvaprsStatus'
+-- * 'gvaprsResponseStatus'
 getVaultAccessPolicyResponse
-    :: Int -- ^ 'gvaprsStatus'
+    :: Int -- ^ 'gvaprsResponseStatus'
     -> GetVaultAccessPolicyResponse
-getVaultAccessPolicyResponse pStatus_ =
+getVaultAccessPolicyResponse pResponseStatus_ =
     GetVaultAccessPolicyResponse'
     { _gvaprsPolicy = Nothing
-    , _gvaprsStatus = pStatus_
+    , _gvaprsResponseStatus = pResponseStatus_
     }
 
 -- | Contains the returned vault access policy as a JSON string.
@@ -138,5 +138,5 @@ gvaprsPolicy :: Lens' GetVaultAccessPolicyResponse (Maybe VaultAccessPolicy)
 gvaprsPolicy = lens _gvaprsPolicy (\ s a -> s{_gvaprsPolicy = a});
 
 -- | The response status code.
-gvaprsStatus :: Lens' GetVaultAccessPolicyResponse Int
-gvaprsStatus = lens _gvaprsStatus (\ s a -> s{_gvaprsStatus = a});
+gvaprsResponseStatus :: Lens' GetVaultAccessPolicyResponse Int
+gvaprsResponseStatus = lens _gvaprsResponseStatus (\ s a -> s{_gvaprsResponseStatus = a});

@@ -33,7 +33,7 @@ module Network.AWS.CloudTrail.StartLogging
     , startLoggingResponse
     , StartLoggingResponse
     -- * Response Lenses
-    , srsStatus
+    , srsResponseStatus
     ) where
 
 import           Network.AWS.CloudTrail.Types
@@ -99,22 +99,22 @@ instance ToQuery StartLogging where
 --
 -- /See:/ 'startLoggingResponse' smart constructor.
 newtype StartLoggingResponse = StartLoggingResponse'
-    { _srsStatus :: Int
+    { _srsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StartLoggingResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsStatus'
+-- * 'srsResponseStatus'
 startLoggingResponse
-    :: Int -- ^ 'srsStatus'
+    :: Int -- ^ 'srsResponseStatus'
     -> StartLoggingResponse
-startLoggingResponse pStatus_ =
+startLoggingResponse pResponseStatus_ =
     StartLoggingResponse'
-    { _srsStatus = pStatus_
+    { _srsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-srsStatus :: Lens' StartLoggingResponse Int
-srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
+srsResponseStatus :: Lens' StartLoggingResponse Int
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});

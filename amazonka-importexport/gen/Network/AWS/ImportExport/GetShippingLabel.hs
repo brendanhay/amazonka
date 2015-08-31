@@ -47,7 +47,7 @@ module Network.AWS.ImportExport.GetShippingLabel
     -- * Response Lenses
     , gslrsShippingLabelURL
     , gslrsWarning
-    , gslrsStatus
+    , gslrsResponseStatus
     ) where
 
 import           Network.AWS.ImportExport.Types
@@ -202,7 +202,7 @@ instance ToQuery GetShippingLabel where
 data GetShippingLabelResponse = GetShippingLabelResponse'
     { _gslrsShippingLabelURL :: !(Maybe Text)
     , _gslrsWarning          :: !(Maybe Text)
-    , _gslrsStatus           :: !Int
+    , _gslrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetShippingLabelResponse' with the minimum fields required to make a request.
@@ -213,15 +213,15 @@ data GetShippingLabelResponse = GetShippingLabelResponse'
 --
 -- * 'gslrsWarning'
 --
--- * 'gslrsStatus'
+-- * 'gslrsResponseStatus'
 getShippingLabelResponse
-    :: Int -- ^ 'gslrsStatus'
+    :: Int -- ^ 'gslrsResponseStatus'
     -> GetShippingLabelResponse
-getShippingLabelResponse pStatus_ =
+getShippingLabelResponse pResponseStatus_ =
     GetShippingLabelResponse'
     { _gslrsShippingLabelURL = Nothing
     , _gslrsWarning = Nothing
-    , _gslrsStatus = pStatus_
+    , _gslrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -233,5 +233,5 @@ gslrsWarning :: Lens' GetShippingLabelResponse (Maybe Text)
 gslrsWarning = lens _gslrsWarning (\ s a -> s{_gslrsWarning = a});
 
 -- | The response status code.
-gslrsStatus :: Lens' GetShippingLabelResponse Int
-gslrsStatus = lens _gslrsStatus (\ s a -> s{_gslrsStatus = a});
+gslrsResponseStatus :: Lens' GetShippingLabelResponse Int
+gslrsResponseStatus = lens _gslrsResponseStatus (\ s a -> s{_gslrsResponseStatus = a});

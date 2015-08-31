@@ -66,7 +66,7 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     , CreateReplicationGroupResponse
     -- * Response Lenses
     , crgrsReplicationGroup
-    , crgrsStatus
+    , crgrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -470,7 +470,7 @@ instance ToQuery CreateReplicationGroup where
 -- | /See:/ 'createReplicationGroupResponse' smart constructor.
 data CreateReplicationGroupResponse = CreateReplicationGroupResponse'
     { _crgrsReplicationGroup :: !(Maybe ReplicationGroup)
-    , _crgrsStatus           :: !Int
+    , _crgrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateReplicationGroupResponse' with the minimum fields required to make a request.
@@ -479,14 +479,14 @@ data CreateReplicationGroupResponse = CreateReplicationGroupResponse'
 --
 -- * 'crgrsReplicationGroup'
 --
--- * 'crgrsStatus'
+-- * 'crgrsResponseStatus'
 createReplicationGroupResponse
-    :: Int -- ^ 'crgrsStatus'
+    :: Int -- ^ 'crgrsResponseStatus'
     -> CreateReplicationGroupResponse
-createReplicationGroupResponse pStatus_ =
+createReplicationGroupResponse pResponseStatus_ =
     CreateReplicationGroupResponse'
     { _crgrsReplicationGroup = Nothing
-    , _crgrsStatus = pStatus_
+    , _crgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -494,5 +494,5 @@ crgrsReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe Replication
 crgrsReplicationGroup = lens _crgrsReplicationGroup (\ s a -> s{_crgrsReplicationGroup = a});
 
 -- | The response status code.
-crgrsStatus :: Lens' CreateReplicationGroupResponse Int
-crgrsStatus = lens _crgrsStatus (\ s a -> s{_crgrsStatus = a});
+crgrsResponseStatus :: Lens' CreateReplicationGroupResponse Int
+crgrsResponseStatus = lens _crgrsResponseStatus (\ s a -> s{_crgrsResponseStatus = a});

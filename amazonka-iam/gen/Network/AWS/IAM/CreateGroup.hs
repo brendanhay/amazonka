@@ -38,7 +38,7 @@ module Network.AWS.IAM.CreateGroup
     , createGroupResponse
     , CreateGroupResponse
     -- * Response Lenses
-    , cgrsStatus
+    , cgrsResponseStatus
     , cgrsGroup
     ) where
 
@@ -109,30 +109,30 @@ instance ToQuery CreateGroup where
 --
 -- /See:/ 'createGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
-    { _cgrsStatus :: !Int
-    , _cgrsGroup  :: !Group
+    { _cgrsResponseStatus :: !Int
+    , _cgrsGroup          :: !Group
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateGroupResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cgrsStatus'
+-- * 'cgrsResponseStatus'
 --
 -- * 'cgrsGroup'
 createGroupResponse
-    :: Int -- ^ 'cgrsStatus'
+    :: Int -- ^ 'cgrsResponseStatus'
     -> Group -- ^ 'cgrsGroup'
     -> CreateGroupResponse
-createGroupResponse pStatus_ pGroup_ =
+createGroupResponse pResponseStatus_ pGroup_ =
     CreateGroupResponse'
-    { _cgrsStatus = pStatus_
+    { _cgrsResponseStatus = pResponseStatus_
     , _cgrsGroup = pGroup_
     }
 
 -- | The response status code.
-cgrsStatus :: Lens' CreateGroupResponse Int
-cgrsStatus = lens _cgrsStatus (\ s a -> s{_cgrsStatus = a});
+cgrsResponseStatus :: Lens' CreateGroupResponse Int
+cgrsResponseStatus = lens _cgrsResponseStatus (\ s a -> s{_cgrsResponseStatus = a});
 
 -- | Information about the group.
 cgrsGroup :: Lens' CreateGroupResponse Group

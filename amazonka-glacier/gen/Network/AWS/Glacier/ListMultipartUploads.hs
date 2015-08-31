@@ -70,7 +70,7 @@ module Network.AWS.Glacier.ListMultipartUploads
     -- * Response Lenses
     , lmursUploadsList
     , lmursMarker
-    , lmursStatus
+    , lmursResponseStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -168,9 +168,9 @@ instance ToQuery ListMultipartUploads where
 --
 -- /See:/ 'listMultipartUploadsResponse' smart constructor.
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
-    { _lmursUploadsList :: !(Maybe [UploadListElement])
-    , _lmursMarker      :: !(Maybe Text)
-    , _lmursStatus      :: !Int
+    { _lmursUploadsList    :: !(Maybe [UploadListElement])
+    , _lmursMarker         :: !(Maybe Text)
+    , _lmursResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListMultipartUploadsResponse' with the minimum fields required to make a request.
@@ -181,15 +181,15 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
 --
 -- * 'lmursMarker'
 --
--- * 'lmursStatus'
+-- * 'lmursResponseStatus'
 listMultipartUploadsResponse
-    :: Int -- ^ 'lmursStatus'
+    :: Int -- ^ 'lmursResponseStatus'
     -> ListMultipartUploadsResponse
-listMultipartUploadsResponse pStatus_ =
+listMultipartUploadsResponse pResponseStatus_ =
     ListMultipartUploadsResponse'
     { _lmursUploadsList = Nothing
     , _lmursMarker = Nothing
-    , _lmursStatus = pStatus_
+    , _lmursResponseStatus = pResponseStatus_
     }
 
 -- | A list of in-progress multipart uploads.
@@ -204,5 +204,5 @@ lmursMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursMarker = lens _lmursMarker (\ s a -> s{_lmursMarker = a});
 
 -- | The response status code.
-lmursStatus :: Lens' ListMultipartUploadsResponse Int
-lmursStatus = lens _lmursStatus (\ s a -> s{_lmursStatus = a});
+lmursResponseStatus :: Lens' ListMultipartUploadsResponse Int
+lmursResponseStatus = lens _lmursResponseStatus (\ s a -> s{_lmursResponseStatus = a});

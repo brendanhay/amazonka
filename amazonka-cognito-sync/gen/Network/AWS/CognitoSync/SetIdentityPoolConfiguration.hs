@@ -42,7 +42,7 @@ module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     , sipcrsIdentityPoolId
     , sipcrsCognitoStreams
     , sipcrsPushSync
-    , sipcrsStatus
+    , sipcrsResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -136,7 +136,7 @@ data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse
     { _sipcrsIdentityPoolId :: !(Maybe Text)
     , _sipcrsCognitoStreams :: !(Maybe CognitoStreams)
     , _sipcrsPushSync       :: !(Maybe PushSync)
-    , _sipcrsStatus         :: !Int
+    , _sipcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SetIdentityPoolConfigurationResponse' with the minimum fields required to make a request.
@@ -149,16 +149,16 @@ data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse
 --
 -- * 'sipcrsPushSync'
 --
--- * 'sipcrsStatus'
+-- * 'sipcrsResponseStatus'
 setIdentityPoolConfigurationResponse
-    :: Int -- ^ 'sipcrsStatus'
+    :: Int -- ^ 'sipcrsResponseStatus'
     -> SetIdentityPoolConfigurationResponse
-setIdentityPoolConfigurationResponse pStatus_ =
+setIdentityPoolConfigurationResponse pResponseStatus_ =
     SetIdentityPoolConfigurationResponse'
     { _sipcrsIdentityPoolId = Nothing
     , _sipcrsCognitoStreams = Nothing
     , _sipcrsPushSync = Nothing
-    , _sipcrsStatus = pStatus_
+    , _sipcrsResponseStatus = pResponseStatus_
     }
 
 -- | A name-spaced GUID (for example,
@@ -176,5 +176,5 @@ sipcrsPushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
 sipcrsPushSync = lens _sipcrsPushSync (\ s a -> s{_sipcrsPushSync = a});
 
 -- | The response status code.
-sipcrsStatus :: Lens' SetIdentityPoolConfigurationResponse Int
-sipcrsStatus = lens _sipcrsStatus (\ s a -> s{_sipcrsStatus = a});
+sipcrsResponseStatus :: Lens' SetIdentityPoolConfigurationResponse Int
+sipcrsResponseStatus = lens _sipcrsResponseStatus (\ s a -> s{_sipcrsResponseStatus = a});

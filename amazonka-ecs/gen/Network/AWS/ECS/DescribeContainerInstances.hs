@@ -38,7 +38,7 @@ module Network.AWS.ECS.DescribeContainerInstances
     -- * Response Lenses
     , dcisrsFailures
     , dcisrsContainerInstances
-    , dcisrsStatus
+    , dcisrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -119,7 +119,7 @@ instance ToQuery DescribeContainerInstances where
 data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
     { _dcisrsFailures           :: !(Maybe [Failure])
     , _dcisrsContainerInstances :: !(Maybe [ContainerInstance])
-    , _dcisrsStatus             :: !Int
+    , _dcisrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeContainerInstancesResponse' with the minimum fields required to make a request.
@@ -130,15 +130,15 @@ data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
 --
 -- * 'dcisrsContainerInstances'
 --
--- * 'dcisrsStatus'
+-- * 'dcisrsResponseStatus'
 describeContainerInstancesResponse
-    :: Int -- ^ 'dcisrsStatus'
+    :: Int -- ^ 'dcisrsResponseStatus'
     -> DescribeContainerInstancesResponse
-describeContainerInstancesResponse pStatus_ =
+describeContainerInstancesResponse pResponseStatus_ =
     DescribeContainerInstancesResponse'
     { _dcisrsFailures = Nothing
     , _dcisrsContainerInstances = Nothing
-    , _dcisrsStatus = pStatus_
+    , _dcisrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -150,5 +150,5 @@ dcisrsContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerI
 dcisrsContainerInstances = lens _dcisrsContainerInstances (\ s a -> s{_dcisrsContainerInstances = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcisrsStatus :: Lens' DescribeContainerInstancesResponse Int
-dcisrsStatus = lens _dcisrsStatus (\ s a -> s{_dcisrsStatus = a});
+dcisrsResponseStatus :: Lens' DescribeContainerInstancesResponse Int
+dcisrsResponseStatus = lens _dcisrsResponseStatus (\ s a -> s{_dcisrsResponseStatus = a});

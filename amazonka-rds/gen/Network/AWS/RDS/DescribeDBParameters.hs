@@ -41,7 +41,7 @@ module Network.AWS.RDS.DescribeDBParameters
     -- * Response Lenses
     , ddprsMarker
     , ddprsParameters
-    , ddprsStatus
+    , ddprsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -168,9 +168,9 @@ instance ToQuery DescribeDBParameters where
 --
 -- /See:/ 'describeDBParametersResponse' smart constructor.
 data DescribeDBParametersResponse = DescribeDBParametersResponse'
-    { _ddprsMarker     :: !(Maybe Text)
-    , _ddprsParameters :: !(Maybe [Parameter])
-    , _ddprsStatus     :: !Int
+    { _ddprsMarker         :: !(Maybe Text)
+    , _ddprsParameters     :: !(Maybe [Parameter])
+    , _ddprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBParametersResponse' with the minimum fields required to make a request.
@@ -181,15 +181,15 @@ data DescribeDBParametersResponse = DescribeDBParametersResponse'
 --
 -- * 'ddprsParameters'
 --
--- * 'ddprsStatus'
+-- * 'ddprsResponseStatus'
 describeDBParametersResponse
-    :: Int -- ^ 'ddprsStatus'
+    :: Int -- ^ 'ddprsResponseStatus'
     -> DescribeDBParametersResponse
-describeDBParametersResponse pStatus_ =
+describeDBParametersResponse pResponseStatus_ =
     DescribeDBParametersResponse'
     { _ddprsMarker = Nothing
     , _ddprsParameters = Nothing
-    , _ddprsStatus = pStatus_
+    , _ddprsResponseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -203,5 +203,5 @@ ddprsParameters :: Lens' DescribeDBParametersResponse [Parameter]
 ddprsParameters = lens _ddprsParameters (\ s a -> s{_ddprsParameters = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddprsStatus :: Lens' DescribeDBParametersResponse Int
-ddprsStatus = lens _ddprsStatus (\ s a -> s{_ddprsStatus = a});
+ddprsResponseStatus :: Lens' DescribeDBParametersResponse Int
+ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a});

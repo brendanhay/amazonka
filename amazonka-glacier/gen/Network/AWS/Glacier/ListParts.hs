@@ -70,7 +70,7 @@ module Network.AWS.Glacier.ListParts
     , lprsVaultARN
     , lprsMarker
     , lprsCreationDate
-    , lprsStatus
+    , lprsResponseStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -190,7 +190,7 @@ data ListPartsResponse = ListPartsResponse'
     , _lprsVaultARN           :: !(Maybe Text)
     , _lprsMarker             :: !(Maybe Text)
     , _lprsCreationDate       :: !(Maybe Text)
-    , _lprsStatus             :: !Int
+    , _lprsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListPartsResponse' with the minimum fields required to make a request.
@@ -211,11 +211,11 @@ data ListPartsResponse = ListPartsResponse'
 --
 -- * 'lprsCreationDate'
 --
--- * 'lprsStatus'
+-- * 'lprsResponseStatus'
 listPartsResponse
-    :: Int -- ^ 'lprsStatus'
+    :: Int -- ^ 'lprsResponseStatus'
     -> ListPartsResponse
-listPartsResponse pStatus_ =
+listPartsResponse pResponseStatus_ =
     ListPartsResponse'
     { _lprsParts = Nothing
     , _lprsMultipartUploadId = Nothing
@@ -224,7 +224,7 @@ listPartsResponse pStatus_ =
     , _lprsVaultARN = Nothing
     , _lprsMarker = Nothing
     , _lprsCreationDate = Nothing
-    , _lprsStatus = pStatus_
+    , _lprsResponseStatus = pResponseStatus_
     }
 
 -- | A list of the part sizes of the multipart upload.
@@ -260,5 +260,5 @@ lprsCreationDate :: Lens' ListPartsResponse (Maybe Text)
 lprsCreationDate = lens _lprsCreationDate (\ s a -> s{_lprsCreationDate = a});
 
 -- | The response status code.
-lprsStatus :: Lens' ListPartsResponse Int
-lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});
+lprsResponseStatus :: Lens' ListPartsResponse Int
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});

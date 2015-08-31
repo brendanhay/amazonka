@@ -46,7 +46,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     -- * Response Lenses
     , uprsWarnings
     , uprsPipeline
-    , uprsStatus
+    , uprsResponseStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -290,9 +290,9 @@ instance ToQuery UpdatePipeline where
 --
 -- /See:/ 'updatePipelineResponse' smart constructor.
 data UpdatePipelineResponse = UpdatePipelineResponse'
-    { _uprsWarnings :: !(Maybe [Warning])
-    , _uprsPipeline :: !(Maybe Pipeline)
-    , _uprsStatus   :: !Int
+    { _uprsWarnings       :: !(Maybe [Warning])
+    , _uprsPipeline       :: !(Maybe Pipeline)
+    , _uprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdatePipelineResponse' with the minimum fields required to make a request.
@@ -303,15 +303,15 @@ data UpdatePipelineResponse = UpdatePipelineResponse'
 --
 -- * 'uprsPipeline'
 --
--- * 'uprsStatus'
+-- * 'uprsResponseStatus'
 updatePipelineResponse
-    :: Int -- ^ 'uprsStatus'
+    :: Int -- ^ 'uprsResponseStatus'
     -> UpdatePipelineResponse
-updatePipelineResponse pStatus_ =
+updatePipelineResponse pResponseStatus_ =
     UpdatePipelineResponse'
     { _uprsWarnings = Nothing
     , _uprsPipeline = Nothing
-    , _uprsStatus = pStatus_
+    , _uprsResponseStatus = pResponseStatus_
     }
 
 -- | Elastic Transcoder returns a warning if the resources used by your
@@ -328,5 +328,5 @@ uprsPipeline :: Lens' UpdatePipelineResponse (Maybe Pipeline)
 uprsPipeline = lens _uprsPipeline (\ s a -> s{_uprsPipeline = a});
 
 -- | The response status code.
-uprsStatus :: Lens' UpdatePipelineResponse Int
-uprsStatus = lens _uprsStatus (\ s a -> s{_uprsStatus = a});
+uprsResponseStatus :: Lens' UpdatePipelineResponse Int
+uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});

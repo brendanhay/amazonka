@@ -49,7 +49,7 @@ module Network.AWS.EC2.RequestSpotInstances
     , RequestSpotInstancesResponse
     -- * Response Lenses
     , rsirsSpotInstanceRequests
-    , rsirsStatus
+    , rsirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -235,7 +235,7 @@ instance ToQuery RequestSpotInstances where
 -- /See:/ 'requestSpotInstancesResponse' smart constructor.
 data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
     { _rsirsSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
-    , _rsirsStatus               :: !Int
+    , _rsirsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RequestSpotInstancesResponse' with the minimum fields required to make a request.
@@ -244,14 +244,14 @@ data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
 --
 -- * 'rsirsSpotInstanceRequests'
 --
--- * 'rsirsStatus'
+-- * 'rsirsResponseStatus'
 requestSpotInstancesResponse
-    :: Int -- ^ 'rsirsStatus'
+    :: Int -- ^ 'rsirsResponseStatus'
     -> RequestSpotInstancesResponse
-requestSpotInstancesResponse pStatus_ =
+requestSpotInstancesResponse pResponseStatus_ =
     RequestSpotInstancesResponse'
     { _rsirsSpotInstanceRequests = Nothing
-    , _rsirsStatus = pStatus_
+    , _rsirsResponseStatus = pResponseStatus_
     }
 
 -- | One or more Spot Instance requests.
@@ -259,5 +259,5 @@ rsirsSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceReq
 rsirsSpotInstanceRequests = lens _rsirsSpotInstanceRequests (\ s a -> s{_rsirsSpotInstanceRequests = a}) . _Default . _Coerce;
 
 -- | The response status code.
-rsirsStatus :: Lens' RequestSpotInstancesResponse Int
-rsirsStatus = lens _rsirsStatus (\ s a -> s{_rsirsStatus = a});
+rsirsResponseStatus :: Lens' RequestSpotInstancesResponse Int
+rsirsResponseStatus = lens _rsirsResponseStatus (\ s a -> s{_rsirsResponseStatus = a});

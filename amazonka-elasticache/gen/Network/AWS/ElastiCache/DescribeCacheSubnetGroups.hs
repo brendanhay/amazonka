@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     -- * Response Lenses
     , dcsgrsMarker
     , dcsgrsCacheSubnetGroups
-    , dcsgrsStatus
+    , dcsgrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -141,7 +141,7 @@ instance ToQuery DescribeCacheSubnetGroups where
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
     { _dcsgrsMarker            :: !(Maybe Text)
     , _dcsgrsCacheSubnetGroups :: !(Maybe [CacheSubnetGroup])
-    , _dcsgrsStatus            :: !Int
+    , _dcsgrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCacheSubnetGroupsResponse' with the minimum fields required to make a request.
@@ -152,15 +152,15 @@ data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
 --
 -- * 'dcsgrsCacheSubnetGroups'
 --
--- * 'dcsgrsStatus'
+-- * 'dcsgrsResponseStatus'
 describeCacheSubnetGroupsResponse
-    :: Int -- ^ 'dcsgrsStatus'
+    :: Int -- ^ 'dcsgrsResponseStatus'
     -> DescribeCacheSubnetGroupsResponse
-describeCacheSubnetGroupsResponse pStatus_ =
+describeCacheSubnetGroupsResponse pResponseStatus_ =
     DescribeCacheSubnetGroupsResponse'
     { _dcsgrsMarker = Nothing
     , _dcsgrsCacheSubnetGroups = Nothing
-    , _dcsgrsStatus = pStatus_
+    , _dcsgrsResponseStatus = pResponseStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -173,5 +173,5 @@ dcsgrsCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetG
 dcsgrsCacheSubnetGroups = lens _dcsgrsCacheSubnetGroups (\ s a -> s{_dcsgrsCacheSubnetGroups = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcsgrsStatus :: Lens' DescribeCacheSubnetGroupsResponse Int
-dcsgrsStatus = lens _dcsgrsStatus (\ s a -> s{_dcsgrsStatus = a});
+dcsgrsResponseStatus :: Lens' DescribeCacheSubnetGroupsResponse Int
+dcsgrsResponseStatus = lens _dcsgrsResponseStatus (\ s a -> s{_dcsgrsResponseStatus = a});

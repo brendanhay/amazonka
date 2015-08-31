@@ -40,7 +40,7 @@ module Network.AWS.Route53.CreateHealthCheck
     , createHealthCheckResponse
     , CreateHealthCheckResponse
     -- * Response Lenses
-    , chcrsStatus
+    , chcrsResponseStatus
     , chcrsHealthCheck
     , chcrsLocation
     ) where
@@ -129,35 +129,35 @@ instance ToXML CreateHealthCheck where
 --
 -- /See:/ 'createHealthCheckResponse' smart constructor.
 data CreateHealthCheckResponse = CreateHealthCheckResponse'
-    { _chcrsStatus      :: !Int
-    , _chcrsHealthCheck :: !HealthCheck
-    , _chcrsLocation    :: !Text
+    { _chcrsResponseStatus :: !Int
+    , _chcrsHealthCheck    :: !HealthCheck
+    , _chcrsLocation       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateHealthCheckResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chcrsStatus'
+-- * 'chcrsResponseStatus'
 --
 -- * 'chcrsHealthCheck'
 --
 -- * 'chcrsLocation'
 createHealthCheckResponse
-    :: Int -- ^ 'chcrsStatus'
+    :: Int -- ^ 'chcrsResponseStatus'
     -> HealthCheck -- ^ 'chcrsHealthCheck'
     -> Text -- ^ 'chcrsLocation'
     -> CreateHealthCheckResponse
-createHealthCheckResponse pStatus_ pHealthCheck_ pLocation_ =
+createHealthCheckResponse pResponseStatus_ pHealthCheck_ pLocation_ =
     CreateHealthCheckResponse'
-    { _chcrsStatus = pStatus_
+    { _chcrsResponseStatus = pResponseStatus_
     , _chcrsHealthCheck = pHealthCheck_
     , _chcrsLocation = pLocation_
     }
 
 -- | The response status code.
-chcrsStatus :: Lens' CreateHealthCheckResponse Int
-chcrsStatus = lens _chcrsStatus (\ s a -> s{_chcrsStatus = a});
+chcrsResponseStatus :: Lens' CreateHealthCheckResponse Int
+chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a});
 
 -- | A complex type that contains identifying information about the health
 -- check.

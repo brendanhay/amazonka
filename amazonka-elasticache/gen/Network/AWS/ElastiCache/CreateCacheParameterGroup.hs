@@ -38,7 +38,7 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     , CreateCacheParameterGroupResponse
     -- * Response Lenses
     , ccpgrsCacheParameterGroup
-    , ccpgrsStatus
+    , ccpgrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -124,7 +124,7 @@ instance ToQuery CreateCacheParameterGroup where
 -- | /See:/ 'createCacheParameterGroupResponse' smart constructor.
 data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'
     { _ccpgrsCacheParameterGroup :: !(Maybe CacheParameterGroup)
-    , _ccpgrsStatus              :: !Int
+    , _ccpgrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateCacheParameterGroupResponse' with the minimum fields required to make a request.
@@ -133,14 +133,14 @@ data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'
 --
 -- * 'ccpgrsCacheParameterGroup'
 --
--- * 'ccpgrsStatus'
+-- * 'ccpgrsResponseStatus'
 createCacheParameterGroupResponse
-    :: Int -- ^ 'ccpgrsStatus'
+    :: Int -- ^ 'ccpgrsResponseStatus'
     -> CreateCacheParameterGroupResponse
-createCacheParameterGroupResponse pStatus_ =
+createCacheParameterGroupResponse pResponseStatus_ =
     CreateCacheParameterGroupResponse'
     { _ccpgrsCacheParameterGroup = Nothing
-    , _ccpgrsStatus = pStatus_
+    , _ccpgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -148,5 +148,5 @@ ccpgrsCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe Cach
 ccpgrsCacheParameterGroup = lens _ccpgrsCacheParameterGroup (\ s a -> s{_ccpgrsCacheParameterGroup = a});
 
 -- | The response status code.
-ccpgrsStatus :: Lens' CreateCacheParameterGroupResponse Int
-ccpgrsStatus = lens _ccpgrsStatus (\ s a -> s{_ccpgrsStatus = a});
+ccpgrsResponseStatus :: Lens' CreateCacheParameterGroupResponse Int
+ccpgrsResponseStatus = lens _ccpgrsResponseStatus (\ s a -> s{_ccpgrsResponseStatus = a});

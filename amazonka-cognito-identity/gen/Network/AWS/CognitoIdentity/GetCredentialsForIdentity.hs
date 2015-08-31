@@ -41,7 +41,7 @@ module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
     -- * Response Lenses
     , gcfirsCredentials
     , gcfirsIdentityId
-    , gcfirsStatus
+    , gcfirsResponseStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -122,9 +122,9 @@ instance ToQuery GetCredentialsForIdentity where
 --
 -- /See:/ 'getCredentialsForIdentityResponse' smart constructor.
 data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
-    { _gcfirsCredentials :: !(Maybe Credentials)
-    , _gcfirsIdentityId  :: !(Maybe Text)
-    , _gcfirsStatus      :: !Int
+    { _gcfirsCredentials    :: !(Maybe Credentials)
+    , _gcfirsIdentityId     :: !(Maybe Text)
+    , _gcfirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetCredentialsForIdentityResponse' with the minimum fields required to make a request.
@@ -135,15 +135,15 @@ data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
 --
 -- * 'gcfirsIdentityId'
 --
--- * 'gcfirsStatus'
+-- * 'gcfirsResponseStatus'
 getCredentialsForIdentityResponse
-    :: Int -- ^ 'gcfirsStatus'
+    :: Int -- ^ 'gcfirsResponseStatus'
     -> GetCredentialsForIdentityResponse
-getCredentialsForIdentityResponse pStatus_ =
+getCredentialsForIdentityResponse pResponseStatus_ =
     GetCredentialsForIdentityResponse'
     { _gcfirsCredentials = Nothing
     , _gcfirsIdentityId = Nothing
-    , _gcfirsStatus = pStatus_
+    , _gcfirsResponseStatus = pResponseStatus_
     }
 
 -- | Credentials for the the provided identity ID.
@@ -155,5 +155,5 @@ gcfirsIdentityId :: Lens' GetCredentialsForIdentityResponse (Maybe Text)
 gcfirsIdentityId = lens _gcfirsIdentityId (\ s a -> s{_gcfirsIdentityId = a});
 
 -- | The response status code.
-gcfirsStatus :: Lens' GetCredentialsForIdentityResponse Int
-gcfirsStatus = lens _gcfirsStatus (\ s a -> s{_gcfirsStatus = a});
+gcfirsResponseStatus :: Lens' GetCredentialsForIdentityResponse Int
+gcfirsResponseStatus = lens _gcfirsResponseStatus (\ s a -> s{_gcfirsResponseStatus = a});

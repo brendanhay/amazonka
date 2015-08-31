@@ -44,7 +44,7 @@ module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     -- * Response Lenses
     , ljbprsNextPageToken
     , ljbprsJobs
-    , ljbprsStatus
+    , ljbprsResponseStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -135,9 +135,9 @@ instance ToQuery ListJobsByPipeline where
 --
 -- /See:/ 'listJobsByPipelineResponse' smart constructor.
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse'
-    { _ljbprsNextPageToken :: !(Maybe Text)
-    , _ljbprsJobs          :: !(Maybe [Job'])
-    , _ljbprsStatus        :: !Int
+    { _ljbprsNextPageToken  :: !(Maybe Text)
+    , _ljbprsJobs           :: !(Maybe [Job'])
+    , _ljbprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListJobsByPipelineResponse' with the minimum fields required to make a request.
@@ -148,15 +148,15 @@ data ListJobsByPipelineResponse = ListJobsByPipelineResponse'
 --
 -- * 'ljbprsJobs'
 --
--- * 'ljbprsStatus'
+-- * 'ljbprsResponseStatus'
 listJobsByPipelineResponse
-    :: Int -- ^ 'ljbprsStatus'
+    :: Int -- ^ 'ljbprsResponseStatus'
     -> ListJobsByPipelineResponse
-listJobsByPipelineResponse pStatus_ =
+listJobsByPipelineResponse pResponseStatus_ =
     ListJobsByPipelineResponse'
     { _ljbprsNextPageToken = Nothing
     , _ljbprsJobs = Nothing
-    , _ljbprsStatus = pStatus_
+    , _ljbprsResponseStatus = pResponseStatus_
     }
 
 -- | A value that you use to access the second and subsequent pages of
@@ -171,5 +171,5 @@ ljbprsJobs :: Lens' ListJobsByPipelineResponse [Job']
 ljbprsJobs = lens _ljbprsJobs (\ s a -> s{_ljbprsJobs = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ljbprsStatus :: Lens' ListJobsByPipelineResponse Int
-ljbprsStatus = lens _ljbprsStatus (\ s a -> s{_ljbprsStatus = a});
+ljbprsResponseStatus :: Lens' ListJobsByPipelineResponse Int
+ljbprsResponseStatus = lens _ljbprsResponseStatus (\ s a -> s{_ljbprsResponseStatus = a});

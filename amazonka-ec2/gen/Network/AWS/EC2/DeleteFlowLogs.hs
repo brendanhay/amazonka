@@ -34,7 +34,7 @@ module Network.AWS.EC2.DeleteFlowLogs
     , DeleteFlowLogsResponse
     -- * Response Lenses
     , dflrsUnsuccessful
-    , dflrsStatus
+    , dflrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -90,8 +90,8 @@ instance ToQuery DeleteFlowLogs where
 
 -- | /See:/ 'deleteFlowLogsResponse' smart constructor.
 data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
-    { _dflrsUnsuccessful :: !(Maybe [UnsuccessfulItem])
-    , _dflrsStatus       :: !Int
+    { _dflrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
+    , _dflrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteFlowLogsResponse' with the minimum fields required to make a request.
@@ -100,14 +100,14 @@ data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
 --
 -- * 'dflrsUnsuccessful'
 --
--- * 'dflrsStatus'
+-- * 'dflrsResponseStatus'
 deleteFlowLogsResponse
-    :: Int -- ^ 'dflrsStatus'
+    :: Int -- ^ 'dflrsResponseStatus'
     -> DeleteFlowLogsResponse
-deleteFlowLogsResponse pStatus_ =
+deleteFlowLogsResponse pResponseStatus_ =
     DeleteFlowLogsResponse'
     { _dflrsUnsuccessful = Nothing
-    , _dflrsStatus = pStatus_
+    , _dflrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the flow logs that could not be deleted successfully.
@@ -115,5 +115,5 @@ dflrsUnsuccessful :: Lens' DeleteFlowLogsResponse [UnsuccessfulItem]
 dflrsUnsuccessful = lens _dflrsUnsuccessful (\ s a -> s{_dflrsUnsuccessful = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dflrsStatus :: Lens' DeleteFlowLogsResponse Int
-dflrsStatus = lens _dflrsStatus (\ s a -> s{_dflrsStatus = a});
+dflrsResponseStatus :: Lens' DeleteFlowLogsResponse Int
+dflrsResponseStatus = lens _dflrsResponseStatus (\ s a -> s{_dflrsResponseStatus = a});

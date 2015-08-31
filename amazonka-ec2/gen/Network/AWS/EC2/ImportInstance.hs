@@ -44,7 +44,7 @@ module Network.AWS.EC2.ImportInstance
     , ImportInstanceResponse
     -- * Response Lenses
     , iirsConversionTask
-    , iirsStatus
+    , iirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -138,7 +138,7 @@ instance ToQuery ImportInstance where
 -- | /See:/ 'importInstanceResponse' smart constructor.
 data ImportInstanceResponse = ImportInstanceResponse'
     { _iirsConversionTask :: !(Maybe ConversionTask)
-    , _iirsStatus         :: !Int
+    , _iirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImportInstanceResponse' with the minimum fields required to make a request.
@@ -147,14 +147,14 @@ data ImportInstanceResponse = ImportInstanceResponse'
 --
 -- * 'iirsConversionTask'
 --
--- * 'iirsStatus'
+-- * 'iirsResponseStatus'
 importInstanceResponse
-    :: Int -- ^ 'iirsStatus'
+    :: Int -- ^ 'iirsResponseStatus'
     -> ImportInstanceResponse
-importInstanceResponse pStatus_ =
+importInstanceResponse pResponseStatus_ =
     ImportInstanceResponse'
     { _iirsConversionTask = Nothing
-    , _iirsStatus = pStatus_
+    , _iirsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the conversion task.
@@ -162,5 +162,5 @@ iirsConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
 iirsConversionTask = lens _iirsConversionTask (\ s a -> s{_iirsConversionTask = a});
 
 -- | The response status code.
-iirsStatus :: Lens' ImportInstanceResponse Int
-iirsStatus = lens _iirsStatus (\ s a -> s{_iirsStatus = a});
+iirsResponseStatus :: Lens' ImportInstanceResponse Int
+iirsResponseStatus = lens _iirsResponseStatus (\ s a -> s{_iirsResponseStatus = a});

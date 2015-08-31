@@ -45,7 +45,7 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     -- * Response Lenses
     , dodiorsOrderableDBInstanceOptions
     , dodiorsMarker
-    , dodiorsStatus
+    , dodiorsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -204,7 +204,7 @@ instance ToQuery DescribeOrderableDBInstanceOptions
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'
     { _dodiorsOrderableDBInstanceOptions :: !(Maybe [OrderableDBInstanceOption])
     , _dodiorsMarker                     :: !(Maybe Text)
-    , _dodiorsStatus                     :: !Int
+    , _dodiorsResponseStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeOrderableDBInstanceOptionsResponse' with the minimum fields required to make a request.
@@ -215,15 +215,15 @@ data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOpt
 --
 -- * 'dodiorsMarker'
 --
--- * 'dodiorsStatus'
+-- * 'dodiorsResponseStatus'
 describeOrderableDBInstanceOptionsResponse
-    :: Int -- ^ 'dodiorsStatus'
+    :: Int -- ^ 'dodiorsResponseStatus'
     -> DescribeOrderableDBInstanceOptionsResponse
-describeOrderableDBInstanceOptionsResponse pStatus_ =
+describeOrderableDBInstanceOptionsResponse pResponseStatus_ =
     DescribeOrderableDBInstanceOptionsResponse'
     { _dodiorsOrderableDBInstanceOptions = Nothing
     , _dodiorsMarker = Nothing
-    , _dodiorsStatus = pStatus_
+    , _dodiorsResponseStatus = pResponseStatus_
     }
 
 -- | An OrderableDBInstanceOption structure containing information about
@@ -239,5 +239,5 @@ dodiorsMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
 dodiorsMarker = lens _dodiorsMarker (\ s a -> s{_dodiorsMarker = a});
 
 -- | The response status code.
-dodiorsStatus :: Lens' DescribeOrderableDBInstanceOptionsResponse Int
-dodiorsStatus = lens _dodiorsStatus (\ s a -> s{_dodiorsStatus = a});
+dodiorsResponseStatus :: Lens' DescribeOrderableDBInstanceOptionsResponse Int
+dodiorsResponseStatus = lens _dodiorsResponseStatus (\ s a -> s{_dodiorsResponseStatus = a});

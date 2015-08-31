@@ -69,7 +69,7 @@ module Network.AWS.EC2.StopInstances
     , StopInstancesResponse
     -- * Response Lenses
     , sirsStoppingInstances
-    , sirsStatus
+    , sirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -151,7 +151,7 @@ instance ToQuery StopInstances where
 -- | /See:/ 'stopInstancesResponse' smart constructor.
 data StopInstancesResponse = StopInstancesResponse'
     { _sirsStoppingInstances :: !(Maybe [InstanceStateChange])
-    , _sirsStatus            :: !Int
+    , _sirsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StopInstancesResponse' with the minimum fields required to make a request.
@@ -160,14 +160,14 @@ data StopInstancesResponse = StopInstancesResponse'
 --
 -- * 'sirsStoppingInstances'
 --
--- * 'sirsStatus'
+-- * 'sirsResponseStatus'
 stopInstancesResponse
-    :: Int -- ^ 'sirsStatus'
+    :: Int -- ^ 'sirsResponseStatus'
     -> StopInstancesResponse
-stopInstancesResponse pStatus_ =
+stopInstancesResponse pResponseStatus_ =
     StopInstancesResponse'
     { _sirsStoppingInstances = Nothing
-    , _sirsStatus = pStatus_
+    , _sirsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more stopped instances.
@@ -175,5 +175,5 @@ sirsStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
 sirsStoppingInstances = lens _sirsStoppingInstances (\ s a -> s{_sirsStoppingInstances = a}) . _Default . _Coerce;
 
 -- | The response status code.
-sirsStatus :: Lens' StopInstancesResponse Int
-sirsStatus = lens _sirsStatus (\ s a -> s{_sirsStatus = a});
+sirsResponseStatus :: Lens' StopInstancesResponse Int
+sirsResponseStatus = lens _sirsResponseStatus (\ s a -> s{_sirsResponseStatus = a});

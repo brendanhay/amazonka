@@ -71,7 +71,7 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
     , CreateDataSourceFromRedshiftResponse
     -- * Response Lenses
     , cdsfrrsDataSourceId
-    , cdsfrrsStatus
+    , cdsfrrsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -223,8 +223,8 @@ instance ToQuery CreateDataSourceFromRedshift where
 --
 -- /See:/ 'createDataSourceFromRedshiftResponse' smart constructor.
 data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'
-    { _cdsfrrsDataSourceId :: !(Maybe Text)
-    , _cdsfrrsStatus       :: !Int
+    { _cdsfrrsDataSourceId   :: !(Maybe Text)
+    , _cdsfrrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDataSourceFromRedshiftResponse' with the minimum fields required to make a request.
@@ -233,14 +233,14 @@ data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse
 --
 -- * 'cdsfrrsDataSourceId'
 --
--- * 'cdsfrrsStatus'
+-- * 'cdsfrrsResponseStatus'
 createDataSourceFromRedshiftResponse
-    :: Int -- ^ 'cdsfrrsStatus'
+    :: Int -- ^ 'cdsfrrsResponseStatus'
     -> CreateDataSourceFromRedshiftResponse
-createDataSourceFromRedshiftResponse pStatus_ =
+createDataSourceFromRedshiftResponse pResponseStatus_ =
     CreateDataSourceFromRedshiftResponse'
     { _cdsfrrsDataSourceId = Nothing
-    , _cdsfrrsStatus = pStatus_
+    , _cdsfrrsResponseStatus = pResponseStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
@@ -249,5 +249,5 @@ cdsfrrsDataSourceId :: Lens' CreateDataSourceFromRedshiftResponse (Maybe Text)
 cdsfrrsDataSourceId = lens _cdsfrrsDataSourceId (\ s a -> s{_cdsfrrsDataSourceId = a});
 
 -- | The response status code.
-cdsfrrsStatus :: Lens' CreateDataSourceFromRedshiftResponse Int
-cdsfrrsStatus = lens _cdsfrrsStatus (\ s a -> s{_cdsfrrsStatus = a});
+cdsfrrsResponseStatus :: Lens' CreateDataSourceFromRedshiftResponse Int
+cdsfrrsResponseStatus = lens _cdsfrrsResponseStatus (\ s a -> s{_cdsfrrsResponseStatus = a});

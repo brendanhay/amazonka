@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeVPNGateways
     , DescribeVPNGatewaysResponse
     -- * Response Lenses
     , dvgrsVPNGateways
-    , dvgrsStatus
+    , dvgrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -153,8 +153,8 @@ instance ToQuery DescribeVPNGateways where
 
 -- | /See:/ 'describeVPNGatewaysResponse' smart constructor.
 data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
-    { _dvgrsVPNGateways :: !(Maybe [VPNGateway])
-    , _dvgrsStatus      :: !Int
+    { _dvgrsVPNGateways    :: !(Maybe [VPNGateway])
+    , _dvgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVPNGatewaysResponse' with the minimum fields required to make a request.
@@ -163,14 +163,14 @@ data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
 --
 -- * 'dvgrsVPNGateways'
 --
--- * 'dvgrsStatus'
+-- * 'dvgrsResponseStatus'
 describeVPNGatewaysResponse
-    :: Int -- ^ 'dvgrsStatus'
+    :: Int -- ^ 'dvgrsResponseStatus'
     -> DescribeVPNGatewaysResponse
-describeVPNGatewaysResponse pStatus_ =
+describeVPNGatewaysResponse pResponseStatus_ =
     DescribeVPNGatewaysResponse'
     { _dvgrsVPNGateways = Nothing
-    , _dvgrsStatus = pStatus_
+    , _dvgrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more virtual private gateways.
@@ -178,5 +178,5 @@ dvgrsVPNGateways :: Lens' DescribeVPNGatewaysResponse [VPNGateway]
 dvgrsVPNGateways = lens _dvgrsVPNGateways (\ s a -> s{_dvgrsVPNGateways = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dvgrsStatus :: Lens' DescribeVPNGatewaysResponse Int
-dvgrsStatus = lens _dvgrsStatus (\ s a -> s{_dvgrsStatus = a});
+dvgrsResponseStatus :: Lens' DescribeVPNGatewaysResponse Int
+dvgrsResponseStatus = lens _dvgrsResponseStatus (\ s a -> s{_dvgrsResponseStatus = a});

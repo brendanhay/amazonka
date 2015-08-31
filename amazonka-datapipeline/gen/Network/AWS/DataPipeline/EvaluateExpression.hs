@@ -37,7 +37,7 @@ module Network.AWS.DataPipeline.EvaluateExpression
     , evaluateExpressionResponse
     , EvaluateExpressionResponse
     -- * Response Lenses
-    , eersStatus
+    , eersResponseStatus
     , eersEvaluatedExpression
     ) where
 
@@ -127,7 +127,7 @@ instance ToQuery EvaluateExpression where
 --
 -- /See:/ 'evaluateExpressionResponse' smart constructor.
 data EvaluateExpressionResponse = EvaluateExpressionResponse'
-    { _eersStatus              :: !Int
+    { _eersResponseStatus      :: !Int
     , _eersEvaluatedExpression :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -135,22 +135,22 @@ data EvaluateExpressionResponse = EvaluateExpressionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eersStatus'
+-- * 'eersResponseStatus'
 --
 -- * 'eersEvaluatedExpression'
 evaluateExpressionResponse
-    :: Int -- ^ 'eersStatus'
+    :: Int -- ^ 'eersResponseStatus'
     -> Text -- ^ 'eersEvaluatedExpression'
     -> EvaluateExpressionResponse
-evaluateExpressionResponse pStatus_ pEvaluatedExpression_ =
+evaluateExpressionResponse pResponseStatus_ pEvaluatedExpression_ =
     EvaluateExpressionResponse'
-    { _eersStatus = pStatus_
+    { _eersResponseStatus = pResponseStatus_
     , _eersEvaluatedExpression = pEvaluatedExpression_
     }
 
 -- | The response status code.
-eersStatus :: Lens' EvaluateExpressionResponse Int
-eersStatus = lens _eersStatus (\ s a -> s{_eersStatus = a});
+eersResponseStatus :: Lens' EvaluateExpressionResponse Int
+eersResponseStatus = lens _eersResponseStatus (\ s a -> s{_eersResponseStatus = a});
 
 -- | The evaluated expression.
 eersEvaluatedExpression :: Lens' EvaluateExpressionResponse Text

@@ -39,7 +39,7 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     , describeEngineDefaultParametersResponse
     , DescribeEngineDefaultParametersResponse
     -- * Response Lenses
-    , dedprsStatus
+    , dedprsResponseStatus
     , dedprsEngineDefaults
     ) where
 
@@ -156,7 +156,7 @@ instance ToQuery DescribeEngineDefaultParameters
 
 -- | /See:/ 'describeEngineDefaultParametersResponse' smart constructor.
 data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
-    { _dedprsStatus         :: !Int
+    { _dedprsResponseStatus :: !Int
     , _dedprsEngineDefaults :: !EngineDefaults
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -164,22 +164,22 @@ data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dedprsStatus'
+-- * 'dedprsResponseStatus'
 --
 -- * 'dedprsEngineDefaults'
 describeEngineDefaultParametersResponse
-    :: Int -- ^ 'dedprsStatus'
+    :: Int -- ^ 'dedprsResponseStatus'
     -> EngineDefaults -- ^ 'dedprsEngineDefaults'
     -> DescribeEngineDefaultParametersResponse
-describeEngineDefaultParametersResponse pStatus_ pEngineDefaults_ =
+describeEngineDefaultParametersResponse pResponseStatus_ pEngineDefaults_ =
     DescribeEngineDefaultParametersResponse'
-    { _dedprsStatus = pStatus_
+    { _dedprsResponseStatus = pResponseStatus_
     , _dedprsEngineDefaults = pEngineDefaults_
     }
 
 -- | The response status code.
-dedprsStatus :: Lens' DescribeEngineDefaultParametersResponse Int
-dedprsStatus = lens _dedprsStatus (\ s a -> s{_dedprsStatus = a});
+dedprsResponseStatus :: Lens' DescribeEngineDefaultParametersResponse Int
+dedprsResponseStatus = lens _dedprsResponseStatus (\ s a -> s{_dedprsResponseStatus = a});
 
 -- | Undocumented member.
 dedprsEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults

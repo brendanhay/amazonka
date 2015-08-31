@@ -45,7 +45,7 @@ module Network.AWS.RDS.DescribeEventSubscriptions
     -- * Response Lenses
     , desrsEventSubscriptionsList
     , desrsMarker
-    , desrsStatus
+    , desrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -157,7 +157,7 @@ instance ToQuery DescribeEventSubscriptions where
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
     { _desrsEventSubscriptionsList :: !(Maybe [EventSubscription])
     , _desrsMarker                 :: !(Maybe Text)
-    , _desrsStatus                 :: !Int
+    , _desrsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEventSubscriptionsResponse' with the minimum fields required to make a request.
@@ -168,15 +168,15 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
 --
 -- * 'desrsMarker'
 --
--- * 'desrsStatus'
+-- * 'desrsResponseStatus'
 describeEventSubscriptionsResponse
-    :: Int -- ^ 'desrsStatus'
+    :: Int -- ^ 'desrsResponseStatus'
     -> DescribeEventSubscriptionsResponse
-describeEventSubscriptionsResponse pStatus_ =
+describeEventSubscriptionsResponse pResponseStatus_ =
     DescribeEventSubscriptionsResponse'
     { _desrsEventSubscriptionsList = Nothing
     , _desrsMarker = Nothing
-    , _desrsStatus = pStatus_
+    , _desrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of EventSubscriptions data types.
@@ -191,5 +191,5 @@ desrsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrsMarker = lens _desrsMarker (\ s a -> s{_desrsMarker = a});
 
 -- | The response status code.
-desrsStatus :: Lens' DescribeEventSubscriptionsResponse Int
-desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
+desrsResponseStatus :: Lens' DescribeEventSubscriptionsResponse Int
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});

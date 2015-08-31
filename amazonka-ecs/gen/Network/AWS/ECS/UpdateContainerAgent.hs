@@ -46,7 +46,7 @@ module Network.AWS.ECS.UpdateContainerAgent
     , UpdateContainerAgentResponse
     -- * Response Lenses
     , ucarsContainerInstance
-    , ucarsStatus
+    , ucarsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -125,7 +125,7 @@ instance ToQuery UpdateContainerAgent where
 -- | /See:/ 'updateContainerAgentResponse' smart constructor.
 data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
     { _ucarsContainerInstance :: !(Maybe ContainerInstance)
-    , _ucarsStatus            :: !Int
+    , _ucarsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateContainerAgentResponse' with the minimum fields required to make a request.
@@ -134,14 +134,14 @@ data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
 --
 -- * 'ucarsContainerInstance'
 --
--- * 'ucarsStatus'
+-- * 'ucarsResponseStatus'
 updateContainerAgentResponse
-    :: Int -- ^ 'ucarsStatus'
+    :: Int -- ^ 'ucarsResponseStatus'
     -> UpdateContainerAgentResponse
-updateContainerAgentResponse pStatus_ =
+updateContainerAgentResponse pResponseStatus_ =
     UpdateContainerAgentResponse'
     { _ucarsContainerInstance = Nothing
-    , _ucarsStatus = pStatus_
+    , _ucarsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -149,5 +149,5 @@ ucarsContainerInstance :: Lens' UpdateContainerAgentResponse (Maybe ContainerIns
 ucarsContainerInstance = lens _ucarsContainerInstance (\ s a -> s{_ucarsContainerInstance = a});
 
 -- | The response status code.
-ucarsStatus :: Lens' UpdateContainerAgentResponse Int
-ucarsStatus = lens _ucarsStatus (\ s a -> s{_ucarsStatus = a});
+ucarsResponseStatus :: Lens' UpdateContainerAgentResponse Int
+ucarsResponseStatus = lens _ucarsResponseStatus (\ s a -> s{_ucarsResponseStatus = a});

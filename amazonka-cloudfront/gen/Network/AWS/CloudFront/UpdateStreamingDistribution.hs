@@ -37,7 +37,7 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
     -- * Response Lenses
     , usdrsETag
     , usdrsStreamingDistribution
-    , usdrsStatus
+    , usdrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -125,7 +125,7 @@ instance ToQuery UpdateStreamingDistribution where
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
     { _usdrsETag                  :: !(Maybe Text)
     , _usdrsStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _usdrsStatus                :: !Int
+    , _usdrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateStreamingDistributionResponse' with the minimum fields required to make a request.
@@ -136,15 +136,15 @@ data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
 --
 -- * 'usdrsStreamingDistribution'
 --
--- * 'usdrsStatus'
+-- * 'usdrsResponseStatus'
 updateStreamingDistributionResponse
-    :: Int -- ^ 'usdrsStatus'
+    :: Int -- ^ 'usdrsResponseStatus'
     -> UpdateStreamingDistributionResponse
-updateStreamingDistributionResponse pStatus_ =
+updateStreamingDistributionResponse pResponseStatus_ =
     UpdateStreamingDistributionResponse'
     { _usdrsETag = Nothing
     , _usdrsStreamingDistribution = Nothing
-    , _usdrsStatus = pStatus_
+    , _usdrsResponseStatus = pResponseStatus_
     }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
@@ -156,5 +156,5 @@ usdrsStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe S
 usdrsStreamingDistribution = lens _usdrsStreamingDistribution (\ s a -> s{_usdrsStreamingDistribution = a});
 
 -- | The response status code.
-usdrsStatus :: Lens' UpdateStreamingDistributionResponse Int
-usdrsStatus = lens _usdrsStatus (\ s a -> s{_usdrsStatus = a});
+usdrsResponseStatus :: Lens' UpdateStreamingDistributionResponse Int
+usdrsResponseStatus = lens _usdrsResponseStatus (\ s a -> s{_usdrsResponseStatus = a});

@@ -45,7 +45,7 @@ module Network.AWS.RDS.DescribeDBClusterParameterGroups
     -- * Response Lenses
     , ddcpgrsMarker
     , ddcpgrsDBClusterParameterGroups
-    , ddcpgrsStatus
+    , ddcpgrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -160,7 +160,7 @@ instance ToQuery DescribeDBClusterParameterGroups
 data DescribeDBClusterParameterGroupsResponse = DescribeDBClusterParameterGroupsResponse'
     { _ddcpgrsMarker                   :: !(Maybe Text)
     , _ddcpgrsDBClusterParameterGroups :: !(Maybe [DBClusterParameterGroup])
-    , _ddcpgrsStatus                   :: !Int
+    , _ddcpgrsResponseStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBClusterParameterGroupsResponse' with the minimum fields required to make a request.
@@ -171,15 +171,15 @@ data DescribeDBClusterParameterGroupsResponse = DescribeDBClusterParameterGroups
 --
 -- * 'ddcpgrsDBClusterParameterGroups'
 --
--- * 'ddcpgrsStatus'
+-- * 'ddcpgrsResponseStatus'
 describeDBClusterParameterGroupsResponse
-    :: Int -- ^ 'ddcpgrsStatus'
+    :: Int -- ^ 'ddcpgrsResponseStatus'
     -> DescribeDBClusterParameterGroupsResponse
-describeDBClusterParameterGroupsResponse pStatus_ =
+describeDBClusterParameterGroupsResponse pResponseStatus_ =
     DescribeDBClusterParameterGroupsResponse'
     { _ddcpgrsMarker = Nothing
     , _ddcpgrsDBClusterParameterGroups = Nothing
-    , _ddcpgrsStatus = pStatus_
+    , _ddcpgrsResponseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous
@@ -194,5 +194,5 @@ ddcpgrsDBClusterParameterGroups :: Lens' DescribeDBClusterParameterGroupsRespons
 ddcpgrsDBClusterParameterGroups = lens _ddcpgrsDBClusterParameterGroups (\ s a -> s{_ddcpgrsDBClusterParameterGroups = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddcpgrsStatus :: Lens' DescribeDBClusterParameterGroupsResponse Int
-ddcpgrsStatus = lens _ddcpgrsStatus (\ s a -> s{_ddcpgrsStatus = a});
+ddcpgrsResponseStatus :: Lens' DescribeDBClusterParameterGroupsResponse Int
+ddcpgrsResponseStatus = lens _ddcpgrsResponseStatus (\ s a -> s{_ddcpgrsResponseStatus = a});

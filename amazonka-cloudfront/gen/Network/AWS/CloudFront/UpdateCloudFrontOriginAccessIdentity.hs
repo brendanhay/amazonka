@@ -37,7 +37,7 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     -- * Response Lenses
     , ucfoairsETag
     , ucfoairsCloudFrontOriginAccessIdentity
-    , ucfoairsStatus
+    , ucfoairsResponseStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -130,7 +130,7 @@ instance ToQuery UpdateCloudFrontOriginAccessIdentity
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'
     { _ucfoairsETag                           :: !(Maybe Text)
     , _ucfoairsCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
-    , _ucfoairsStatus                         :: !Int
+    , _ucfoairsResponseStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
@@ -141,15 +141,15 @@ data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccess
 --
 -- * 'ucfoairsCloudFrontOriginAccessIdentity'
 --
--- * 'ucfoairsStatus'
+-- * 'ucfoairsResponseStatus'
 updateCloudFrontOriginAccessIdentityResponse
-    :: Int -- ^ 'ucfoairsStatus'
+    :: Int -- ^ 'ucfoairsResponseStatus'
     -> UpdateCloudFrontOriginAccessIdentityResponse
-updateCloudFrontOriginAccessIdentityResponse pStatus_ =
+updateCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
     UpdateCloudFrontOriginAccessIdentityResponse'
     { _ucfoairsETag = Nothing
     , _ucfoairsCloudFrontOriginAccessIdentity = Nothing
-    , _ucfoairsStatus = pStatus_
+    , _ucfoairsResponseStatus = pResponseStatus_
     }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
@@ -161,5 +161,5 @@ ucfoairsCloudFrontOriginAccessIdentity :: Lens' UpdateCloudFrontOriginAccessIden
 ucfoairsCloudFrontOriginAccessIdentity = lens _ucfoairsCloudFrontOriginAccessIdentity (\ s a -> s{_ucfoairsCloudFrontOriginAccessIdentity = a});
 
 -- | The response status code.
-ucfoairsStatus :: Lens' UpdateCloudFrontOriginAccessIdentityResponse Int
-ucfoairsStatus = lens _ucfoairsStatus (\ s a -> s{_ucfoairsStatus = a});
+ucfoairsResponseStatus :: Lens' UpdateCloudFrontOriginAccessIdentityResponse Int
+ucfoairsResponseStatus = lens _ucfoairsResponseStatus (\ s a -> s{_ucfoairsResponseStatus = a});

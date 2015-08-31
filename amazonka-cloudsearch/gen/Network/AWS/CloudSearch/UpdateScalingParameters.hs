@@ -42,7 +42,7 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
     , updateScalingParametersResponse
     , UpdateScalingParametersResponse
     -- * Response Lenses
-    , usprsStatus
+    , usprsResponseStatus
     , usprsScalingParameters
     ) where
 
@@ -117,7 +117,7 @@ instance ToQuery UpdateScalingParameters where
 --
 -- /See:/ 'updateScalingParametersResponse' smart constructor.
 data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
-    { _usprsStatus            :: !Int
+    { _usprsResponseStatus    :: !Int
     , _usprsScalingParameters :: !ScalingParametersStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -125,22 +125,22 @@ data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usprsStatus'
+-- * 'usprsResponseStatus'
 --
 -- * 'usprsScalingParameters'
 updateScalingParametersResponse
-    :: Int -- ^ 'usprsStatus'
+    :: Int -- ^ 'usprsResponseStatus'
     -> ScalingParametersStatus -- ^ 'usprsScalingParameters'
     -> UpdateScalingParametersResponse
-updateScalingParametersResponse pStatus_ pScalingParameters_ =
+updateScalingParametersResponse pResponseStatus_ pScalingParameters_ =
     UpdateScalingParametersResponse'
-    { _usprsStatus = pStatus_
+    { _usprsResponseStatus = pResponseStatus_
     , _usprsScalingParameters = pScalingParameters_
     }
 
 -- | The response status code.
-usprsStatus :: Lens' UpdateScalingParametersResponse Int
-usprsStatus = lens _usprsStatus (\ s a -> s{_usprsStatus = a});
+usprsResponseStatus :: Lens' UpdateScalingParametersResponse Int
+usprsResponseStatus = lens _usprsResponseStatus (\ s a -> s{_usprsResponseStatus = a});
 
 -- | Undocumented member.
 usprsScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus

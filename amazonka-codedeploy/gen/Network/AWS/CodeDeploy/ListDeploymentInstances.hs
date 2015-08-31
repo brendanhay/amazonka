@@ -38,7 +38,7 @@ module Network.AWS.CodeDeploy.ListDeploymentInstances
     -- * Response Lenses
     , ldirsNextToken
     , ldirsInstancesList
-    , ldirsStatus
+    , ldirsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -143,9 +143,9 @@ instance ToQuery ListDeploymentInstances where
 --
 -- /See:/ 'listDeploymentInstancesResponse' smart constructor.
 data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'
-    { _ldirsNextToken     :: !(Maybe Text)
-    , _ldirsInstancesList :: !(Maybe [Text])
-    , _ldirsStatus        :: !Int
+    { _ldirsNextToken      :: !(Maybe Text)
+    , _ldirsInstancesList  :: !(Maybe [Text])
+    , _ldirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListDeploymentInstancesResponse' with the minimum fields required to make a request.
@@ -156,15 +156,15 @@ data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'
 --
 -- * 'ldirsInstancesList'
 --
--- * 'ldirsStatus'
+-- * 'ldirsResponseStatus'
 listDeploymentInstancesResponse
-    :: Int -- ^ 'ldirsStatus'
+    :: Int -- ^ 'ldirsResponseStatus'
     -> ListDeploymentInstancesResponse
-listDeploymentInstancesResponse pStatus_ =
+listDeploymentInstancesResponse pResponseStatus_ =
     ListDeploymentInstancesResponse'
     { _ldirsNextToken = Nothing
     , _ldirsInstancesList = Nothing
-    , _ldirsStatus = pStatus_
+    , _ldirsResponseStatus = pResponseStatus_
     }
 
 -- | If the amount of information that is returned is significantly large, an
@@ -179,5 +179,5 @@ ldirsInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
 ldirsInstancesList = lens _ldirsInstancesList (\ s a -> s{_ldirsInstancesList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ldirsStatus :: Lens' ListDeploymentInstancesResponse Int
-ldirsStatus = lens _ldirsStatus (\ s a -> s{_ldirsStatus = a});
+ldirsResponseStatus :: Lens' ListDeploymentInstancesResponse Int
+ldirsResponseStatus = lens _ldirsResponseStatus (\ s a -> s{_ldirsResponseStatus = a});

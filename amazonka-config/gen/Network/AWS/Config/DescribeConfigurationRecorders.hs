@@ -38,7 +38,7 @@ module Network.AWS.Config.DescribeConfigurationRecorders
     , DescribeConfigurationRecordersResponse
     -- * Response Lenses
     , dcrrsConfigurationRecorders
-    , dcrrsStatus
+    , dcrrsResponseStatus
     ) where
 
 import           Network.AWS.Config.Types
@@ -111,7 +111,7 @@ instance ToQuery DescribeConfigurationRecorders where
 -- /See:/ 'describeConfigurationRecordersResponse' smart constructor.
 data DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'
     { _dcrrsConfigurationRecorders :: !(Maybe [ConfigurationRecorder])
-    , _dcrrsStatus                 :: !Int
+    , _dcrrsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeConfigurationRecordersResponse' with the minimum fields required to make a request.
@@ -120,14 +120,14 @@ data DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResp
 --
 -- * 'dcrrsConfigurationRecorders'
 --
--- * 'dcrrsStatus'
+-- * 'dcrrsResponseStatus'
 describeConfigurationRecordersResponse
-    :: Int -- ^ 'dcrrsStatus'
+    :: Int -- ^ 'dcrrsResponseStatus'
     -> DescribeConfigurationRecordersResponse
-describeConfigurationRecordersResponse pStatus_ =
+describeConfigurationRecordersResponse pResponseStatus_ =
     DescribeConfigurationRecordersResponse'
     { _dcrrsConfigurationRecorders = Nothing
-    , _dcrrsStatus = pStatus_
+    , _dcrrsResponseStatus = pResponseStatus_
     }
 
 -- | A list that contains the descriptions of the specified configuration
@@ -136,5 +136,5 @@ dcrrsConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse [Con
 dcrrsConfigurationRecorders = lens _dcrrsConfigurationRecorders (\ s a -> s{_dcrrsConfigurationRecorders = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcrrsStatus :: Lens' DescribeConfigurationRecordersResponse Int
-dcrrsStatus = lens _dcrrsStatus (\ s a -> s{_dcrrsStatus = a});
+dcrrsResponseStatus :: Lens' DescribeConfigurationRecordersResponse Int
+dcrrsResponseStatus = lens _dcrrsResponseStatus (\ s a -> s{_dcrrsResponseStatus = a});

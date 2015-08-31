@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     , DescribeAdjustmentTypesResponse
     -- * Response Lenses
     , datrsAdjustmentTypes
-    , datrsStatus
+    , datrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -81,7 +81,7 @@ instance ToQuery DescribeAdjustmentTypes where
 -- | /See:/ 'describeAdjustmentTypesResponse' smart constructor.
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
     { _datrsAdjustmentTypes :: !(Maybe [AdjustmentType])
-    , _datrsStatus          :: !Int
+    , _datrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAdjustmentTypesResponse' with the minimum fields required to make a request.
@@ -90,14 +90,14 @@ data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
 --
 -- * 'datrsAdjustmentTypes'
 --
--- * 'datrsStatus'
+-- * 'datrsResponseStatus'
 describeAdjustmentTypesResponse
-    :: Int -- ^ 'datrsStatus'
+    :: Int -- ^ 'datrsResponseStatus'
     -> DescribeAdjustmentTypesResponse
-describeAdjustmentTypesResponse pStatus_ =
+describeAdjustmentTypesResponse pResponseStatus_ =
     DescribeAdjustmentTypesResponse'
     { _datrsAdjustmentTypes = Nothing
-    , _datrsStatus = pStatus_
+    , _datrsResponseStatus = pResponseStatus_
     }
 
 -- | The policy adjustment types.
@@ -105,5 +105,5 @@ datrsAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
 datrsAdjustmentTypes = lens _datrsAdjustmentTypes (\ s a -> s{_datrsAdjustmentTypes = a}) . _Default . _Coerce;
 
 -- | The response status code.
-datrsStatus :: Lens' DescribeAdjustmentTypesResponse Int
-datrsStatus = lens _datrsStatus (\ s a -> s{_datrsStatus = a});
+datrsResponseStatus :: Lens' DescribeAdjustmentTypesResponse Int
+datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus = a});

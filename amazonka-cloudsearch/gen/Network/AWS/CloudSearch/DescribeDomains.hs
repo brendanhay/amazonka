@@ -40,7 +40,7 @@ module Network.AWS.CloudSearch.DescribeDomains
     , describeDomainsResponse
     , DescribeDomainsResponse
     -- * Response Lenses
-    , ddsrsStatus
+    , ddsrsResponseStatus
     , ddsrsDomainStatusList
     ) where
 
@@ -106,7 +106,7 @@ instance ToQuery DescribeDomains where
 --
 -- /See:/ 'describeDomainsResponse' smart constructor.
 data DescribeDomainsResponse = DescribeDomainsResponse'
-    { _ddsrsStatus           :: !Int
+    { _ddsrsResponseStatus   :: !Int
     , _ddsrsDomainStatusList :: ![DomainStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -114,21 +114,21 @@ data DescribeDomainsResponse = DescribeDomainsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddsrsStatus'
+-- * 'ddsrsResponseStatus'
 --
 -- * 'ddsrsDomainStatusList'
 describeDomainsResponse
-    :: Int -- ^ 'ddsrsStatus'
+    :: Int -- ^ 'ddsrsResponseStatus'
     -> DescribeDomainsResponse
-describeDomainsResponse pStatus_ =
+describeDomainsResponse pResponseStatus_ =
     DescribeDomainsResponse'
-    { _ddsrsStatus = pStatus_
+    { _ddsrsResponseStatus = pResponseStatus_
     , _ddsrsDomainStatusList = mempty
     }
 
 -- | The response status code.
-ddsrsStatus :: Lens' DescribeDomainsResponse Int
-ddsrsStatus = lens _ddsrsStatus (\ s a -> s{_ddsrsStatus = a});
+ddsrsResponseStatus :: Lens' DescribeDomainsResponse Int
+ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus = a});
 
 -- | Undocumented member.
 ddsrsDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]

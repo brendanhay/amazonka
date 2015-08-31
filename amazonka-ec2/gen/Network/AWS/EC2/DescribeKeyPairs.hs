@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeKeyPairs
     , DescribeKeyPairsResponse
     -- * Response Lenses
     , dkprsKeyPairs
-    , dkprsStatus
+    , dkprsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -124,8 +124,8 @@ instance ToQuery DescribeKeyPairs where
 
 -- | /See:/ 'describeKeyPairsResponse' smart constructor.
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
-    { _dkprsKeyPairs :: !(Maybe [KeyPairInfo])
-    , _dkprsStatus   :: !Int
+    { _dkprsKeyPairs       :: !(Maybe [KeyPairInfo])
+    , _dkprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeKeyPairsResponse' with the minimum fields required to make a request.
@@ -134,14 +134,14 @@ data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
 --
 -- * 'dkprsKeyPairs'
 --
--- * 'dkprsStatus'
+-- * 'dkprsResponseStatus'
 describeKeyPairsResponse
-    :: Int -- ^ 'dkprsStatus'
+    :: Int -- ^ 'dkprsResponseStatus'
     -> DescribeKeyPairsResponse
-describeKeyPairsResponse pStatus_ =
+describeKeyPairsResponse pResponseStatus_ =
     DescribeKeyPairsResponse'
     { _dkprsKeyPairs = Nothing
-    , _dkprsStatus = pStatus_
+    , _dkprsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more key pairs.
@@ -149,5 +149,5 @@ dkprsKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
 dkprsKeyPairs = lens _dkprsKeyPairs (\ s a -> s{_dkprsKeyPairs = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dkprsStatus :: Lens' DescribeKeyPairsResponse Int
-dkprsStatus = lens _dkprsStatus (\ s a -> s{_dkprsStatus = a});
+dkprsResponseStatus :: Lens' DescribeKeyPairsResponse Int
+dkprsResponseStatus = lens _dkprsResponseStatus (\ s a -> s{_dkprsResponseStatus = a});

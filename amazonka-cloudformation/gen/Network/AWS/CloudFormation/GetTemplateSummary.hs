@@ -51,7 +51,7 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     , gtsrsMetadata
     , gtsrsDescription
     , gtsrsCapabilities
-    , gtsrsStatus
+    , gtsrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -163,7 +163,7 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
     , _gtsrsMetadata           :: !(Maybe Text)
     , _gtsrsDescription        :: !(Maybe Text)
     , _gtsrsCapabilities       :: !(Maybe [Capability])
-    , _gtsrsStatus             :: !Int
+    , _gtsrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetTemplateSummaryResponse' with the minimum fields required to make a request.
@@ -182,11 +182,11 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
 --
 -- * 'gtsrsCapabilities'
 --
--- * 'gtsrsStatus'
+-- * 'gtsrsResponseStatus'
 getTemplateSummaryResponse
-    :: Int -- ^ 'gtsrsStatus'
+    :: Int -- ^ 'gtsrsResponseStatus'
     -> GetTemplateSummaryResponse
-getTemplateSummaryResponse pStatus_ =
+getTemplateSummaryResponse pResponseStatus_ =
     GetTemplateSummaryResponse'
     { _gtsrsVersion = Nothing
     , _gtsrsCapabilitiesReason = Nothing
@@ -194,7 +194,7 @@ getTemplateSummaryResponse pStatus_ =
     , _gtsrsMetadata = Nothing
     , _gtsrsDescription = Nothing
     , _gtsrsCapabilities = Nothing
-    , _gtsrsStatus = pStatus_
+    , _gtsrsResponseStatus = pResponseStatus_
     }
 
 -- | The AWS template format version, which identifies the capabilities of
@@ -230,5 +230,5 @@ gtsrsCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
 gtsrsCapabilities = lens _gtsrsCapabilities (\ s a -> s{_gtsrsCapabilities = a}) . _Default . _Coerce;
 
 -- | The response status code.
-gtsrsStatus :: Lens' GetTemplateSummaryResponse Int
-gtsrsStatus = lens _gtsrsStatus (\ s a -> s{_gtsrsStatus = a});
+gtsrsResponseStatus :: Lens' GetTemplateSummaryResponse Int
+gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a});

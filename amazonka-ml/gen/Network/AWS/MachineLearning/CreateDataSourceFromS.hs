@@ -70,7 +70,7 @@ module Network.AWS.MachineLearning.CreateDataSourceFromS
     , CreateDataSourceFromSResponse
     -- * Response Lenses
     , cdsfsrsDataSourceId
-    , cdsfsrsStatus
+    , cdsfsrsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -189,8 +189,8 @@ instance ToQuery CreateDataSourceFromS where
 --
 -- /See:/ 'createDataSourceFromSResponse' smart constructor.
 data CreateDataSourceFromSResponse = CreateDataSourceFromSResponse'
-    { _cdsfsrsDataSourceId :: !(Maybe Text)
-    , _cdsfsrsStatus       :: !Int
+    { _cdsfsrsDataSourceId   :: !(Maybe Text)
+    , _cdsfsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDataSourceFromSResponse' with the minimum fields required to make a request.
@@ -199,14 +199,14 @@ data CreateDataSourceFromSResponse = CreateDataSourceFromSResponse'
 --
 -- * 'cdsfsrsDataSourceId'
 --
--- * 'cdsfsrsStatus'
+-- * 'cdsfsrsResponseStatus'
 createDataSourceFromSResponse
-    :: Int -- ^ 'cdsfsrsStatus'
+    :: Int -- ^ 'cdsfsrsResponseStatus'
     -> CreateDataSourceFromSResponse
-createDataSourceFromSResponse pStatus_ =
+createDataSourceFromSResponse pResponseStatus_ =
     CreateDataSourceFromSResponse'
     { _cdsfsrsDataSourceId = Nothing
-    , _cdsfsrsStatus = pStatus_
+    , _cdsfsrsResponseStatus = pResponseStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
@@ -215,5 +215,5 @@ cdsfsrsDataSourceId :: Lens' CreateDataSourceFromSResponse (Maybe Text)
 cdsfsrsDataSourceId = lens _cdsfsrsDataSourceId (\ s a -> s{_cdsfsrsDataSourceId = a});
 
 -- | The response status code.
-cdsfsrsStatus :: Lens' CreateDataSourceFromSResponse Int
-cdsfsrsStatus = lens _cdsfsrsStatus (\ s a -> s{_cdsfsrsStatus = a});
+cdsfsrsResponseStatus :: Lens' CreateDataSourceFromSResponse Int
+cdsfsrsResponseStatus = lens _cdsfsrsResponseStatus (\ s a -> s{_cdsfsrsResponseStatus = a});

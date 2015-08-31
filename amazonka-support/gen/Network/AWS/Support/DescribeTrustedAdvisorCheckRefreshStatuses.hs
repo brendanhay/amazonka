@@ -35,7 +35,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     , describeTrustedAdvisorCheckRefreshStatusesResponse
     , DescribeTrustedAdvisorCheckRefreshStatusesResponse
     -- * Response Lenses
-    , dtacrsrsStatus
+    , dtacrsrsResponseStatus
     , dtacrsrsStatuses
     ) where
 
@@ -110,29 +110,29 @@ instance ToQuery
 --
 -- /See:/ 'describeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'
-    { _dtacrsrsStatus   :: !Int
-    , _dtacrsrsStatuses :: ![TrustedAdvisorCheckRefreshStatus]
+    { _dtacrsrsResponseStatus :: !Int
+    , _dtacrsrsStatuses       :: ![TrustedAdvisorCheckRefreshStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTrustedAdvisorCheckRefreshStatusesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtacrsrsStatus'
+-- * 'dtacrsrsResponseStatus'
 --
 -- * 'dtacrsrsStatuses'
 describeTrustedAdvisorCheckRefreshStatusesResponse
-    :: Int -- ^ 'dtacrsrsStatus'
+    :: Int -- ^ 'dtacrsrsResponseStatus'
     -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
-describeTrustedAdvisorCheckRefreshStatusesResponse pStatus_ =
+describeTrustedAdvisorCheckRefreshStatusesResponse pResponseStatus_ =
     DescribeTrustedAdvisorCheckRefreshStatusesResponse'
-    { _dtacrsrsStatus = pStatus_
+    { _dtacrsrsResponseStatus = pResponseStatus_
     , _dtacrsrsStatuses = mempty
     }
 
 -- | The response status code.
-dtacrsrsStatus :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Int
-dtacrsrsStatus = lens _dtacrsrsStatus (\ s a -> s{_dtacrsrsStatus = a});
+dtacrsrsResponseStatus :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Int
+dtacrsrsResponseStatus = lens _dtacrsrsResponseStatus (\ s a -> s{_dtacrsrsResponseStatus = a});
 
 -- | The refresh status of the specified Trusted Advisor checks.
 dtacrsrsStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]

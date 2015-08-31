@@ -41,7 +41,7 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     , AttachLoadBalancerToSubnetsResponse
     -- * Response Lenses
     , albtsrsSubnets
-    , albtsrsStatus
+    , albtsrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -111,8 +111,8 @@ instance ToQuery AttachLoadBalancerToSubnets where
 
 -- | /See:/ 'attachLoadBalancerToSubnetsResponse' smart constructor.
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
-    { _albtsrsSubnets :: !(Maybe [Text])
-    , _albtsrsStatus  :: !Int
+    { _albtsrsSubnets        :: !(Maybe [Text])
+    , _albtsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AttachLoadBalancerToSubnetsResponse' with the minimum fields required to make a request.
@@ -121,14 +121,14 @@ data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
 --
 -- * 'albtsrsSubnets'
 --
--- * 'albtsrsStatus'
+-- * 'albtsrsResponseStatus'
 attachLoadBalancerToSubnetsResponse
-    :: Int -- ^ 'albtsrsStatus'
+    :: Int -- ^ 'albtsrsResponseStatus'
     -> AttachLoadBalancerToSubnetsResponse
-attachLoadBalancerToSubnetsResponse pStatus_ =
+attachLoadBalancerToSubnetsResponse pResponseStatus_ =
     AttachLoadBalancerToSubnetsResponse'
     { _albtsrsSubnets = Nothing
-    , _albtsrsStatus = pStatus_
+    , _albtsrsResponseStatus = pResponseStatus_
     }
 
 -- | The IDs of the subnets attached to the load balancer.
@@ -136,5 +136,5 @@ albtsrsSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
 albtsrsSubnets = lens _albtsrsSubnets (\ s a -> s{_albtsrsSubnets = a}) . _Default . _Coerce;
 
 -- | The response status code.
-albtsrsStatus :: Lens' AttachLoadBalancerToSubnetsResponse Int
-albtsrsStatus = lens _albtsrsStatus (\ s a -> s{_albtsrsStatus = a});
+albtsrsResponseStatus :: Lens' AttachLoadBalancerToSubnetsResponse Int
+albtsrsResponseStatus = lens _albtsrsResponseStatus (\ s a -> s{_albtsrsResponseStatus = a});

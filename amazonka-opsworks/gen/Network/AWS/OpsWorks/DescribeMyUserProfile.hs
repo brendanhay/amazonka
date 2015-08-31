@@ -37,7 +37,7 @@ module Network.AWS.OpsWorks.DescribeMyUserProfile
     , DescribeMyUserProfileResponse
     -- * Response Lenses
     , dmuprsUserProfile
-    , dmuprsStatus
+    , dmuprsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -90,8 +90,8 @@ instance ToQuery DescribeMyUserProfile where
 --
 -- /See:/ 'describeMyUserProfileResponse' smart constructor.
 data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
-    { _dmuprsUserProfile :: !(Maybe SelfUserProfile)
-    , _dmuprsStatus      :: !Int
+    { _dmuprsUserProfile    :: !(Maybe SelfUserProfile)
+    , _dmuprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeMyUserProfileResponse' with the minimum fields required to make a request.
@@ -100,14 +100,14 @@ data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
 --
 -- * 'dmuprsUserProfile'
 --
--- * 'dmuprsStatus'
+-- * 'dmuprsResponseStatus'
 describeMyUserProfileResponse
-    :: Int -- ^ 'dmuprsStatus'
+    :: Int -- ^ 'dmuprsResponseStatus'
     -> DescribeMyUserProfileResponse
-describeMyUserProfileResponse pStatus_ =
+describeMyUserProfileResponse pResponseStatus_ =
     DescribeMyUserProfileResponse'
     { _dmuprsUserProfile = Nothing
-    , _dmuprsStatus = pStatus_
+    , _dmuprsResponseStatus = pResponseStatus_
     }
 
 -- | A 'UserProfile' object that describes the user\'s SSH information.
@@ -115,5 +115,5 @@ dmuprsUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
 dmuprsUserProfile = lens _dmuprsUserProfile (\ s a -> s{_dmuprsUserProfile = a});
 
 -- | The response status code.
-dmuprsStatus :: Lens' DescribeMyUserProfileResponse Int
-dmuprsStatus = lens _dmuprsStatus (\ s a -> s{_dmuprsStatus = a});
+dmuprsResponseStatus :: Lens' DescribeMyUserProfileResponse Int
+dmuprsResponseStatus = lens _dmuprsResponseStatus (\ s a -> s{_dmuprsResponseStatus = a});

@@ -38,7 +38,7 @@ module Network.AWS.Redshift.EnableSnapshotCopy
     , EnableSnapshotCopyResponse
     -- * Response Lenses
     , escrsCluster
-    , escrsStatus
+    , escrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -138,8 +138,8 @@ instance ToQuery EnableSnapshotCopy where
 
 -- | /See:/ 'enableSnapshotCopyResponse' smart constructor.
 data EnableSnapshotCopyResponse = EnableSnapshotCopyResponse'
-    { _escrsCluster :: !(Maybe Cluster)
-    , _escrsStatus  :: !Int
+    { _escrsCluster        :: !(Maybe Cluster)
+    , _escrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnableSnapshotCopyResponse' with the minimum fields required to make a request.
@@ -148,14 +148,14 @@ data EnableSnapshotCopyResponse = EnableSnapshotCopyResponse'
 --
 -- * 'escrsCluster'
 --
--- * 'escrsStatus'
+-- * 'escrsResponseStatus'
 enableSnapshotCopyResponse
-    :: Int -- ^ 'escrsStatus'
+    :: Int -- ^ 'escrsResponseStatus'
     -> EnableSnapshotCopyResponse
-enableSnapshotCopyResponse pStatus_ =
+enableSnapshotCopyResponse pResponseStatus_ =
     EnableSnapshotCopyResponse'
     { _escrsCluster = Nothing
-    , _escrsStatus = pStatus_
+    , _escrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -163,5 +163,5 @@ escrsCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
 escrsCluster = lens _escrsCluster (\ s a -> s{_escrsCluster = a});
 
 -- | The response status code.
-escrsStatus :: Lens' EnableSnapshotCopyResponse Int
-escrsStatus = lens _escrsStatus (\ s a -> s{_escrsStatus = a});
+escrsResponseStatus :: Lens' EnableSnapshotCopyResponse Int
+escrsResponseStatus = lens _escrsResponseStatus (\ s a -> s{_escrsResponseStatus = a});

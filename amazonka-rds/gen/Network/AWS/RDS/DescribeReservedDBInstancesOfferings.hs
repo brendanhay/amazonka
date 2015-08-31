@@ -45,7 +45,7 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     -- * Response Lenses
     , drdiorsMarker
     , drdiorsReservedDBInstancesOfferings
-    , drdiorsStatus
+    , drdiorsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -223,7 +223,7 @@ instance ToQuery DescribeReservedDBInstancesOfferings
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'
     { _drdiorsMarker                       :: !(Maybe Text)
     , _drdiorsReservedDBInstancesOfferings :: !(Maybe [ReservedDBInstancesOffering])
-    , _drdiorsStatus                       :: !Int
+    , _drdiorsResponseStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedDBInstancesOfferingsResponse' with the minimum fields required to make a request.
@@ -234,15 +234,15 @@ data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesO
 --
 -- * 'drdiorsReservedDBInstancesOfferings'
 --
--- * 'drdiorsStatus'
+-- * 'drdiorsResponseStatus'
 describeReservedDBInstancesOfferingsResponse
-    :: Int -- ^ 'drdiorsStatus'
+    :: Int -- ^ 'drdiorsResponseStatus'
     -> DescribeReservedDBInstancesOfferingsResponse
-describeReservedDBInstancesOfferingsResponse pStatus_ =
+describeReservedDBInstancesOfferingsResponse pResponseStatus_ =
     DescribeReservedDBInstancesOfferingsResponse'
     { _drdiorsMarker = Nothing
     , _drdiorsReservedDBInstancesOfferings = Nothing
-    , _drdiorsStatus = pStatus_
+    , _drdiorsResponseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -256,5 +256,5 @@ drdiorsReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOffering
 drdiorsReservedDBInstancesOfferings = lens _drdiorsReservedDBInstancesOfferings (\ s a -> s{_drdiorsReservedDBInstancesOfferings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drdiorsStatus :: Lens' DescribeReservedDBInstancesOfferingsResponse Int
-drdiorsStatus = lens _drdiorsStatus (\ s a -> s{_drdiorsStatus = a});
+drdiorsResponseStatus :: Lens' DescribeReservedDBInstancesOfferingsResponse Int
+drdiorsResponseStatus = lens _drdiorsResponseStatus (\ s a -> s{_drdiorsResponseStatus = a});

@@ -44,7 +44,7 @@ module Network.AWS.EC2.DescribeImageAttribute
     , diarsProductCodes
     , diarsDescription
     , diarsBlockDeviceMappings
-    , diarsStatus
+    , diarsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -150,7 +150,7 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
     , _diarsProductCodes        :: !(Maybe [ProductCode])
     , _diarsDescription         :: !(Maybe AttributeValue)
     , _diarsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _diarsStatus              :: !Int
+    , _diarsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeImageAttributeResponse' with the minimum fields required to make a request.
@@ -173,11 +173,11 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
 --
 -- * 'diarsBlockDeviceMappings'
 --
--- * 'diarsStatus'
+-- * 'diarsResponseStatus'
 describeImageAttributeResponse
-    :: Int -- ^ 'diarsStatus'
+    :: Int -- ^ 'diarsResponseStatus'
     -> DescribeImageAttributeResponse
-describeImageAttributeResponse pStatus_ =
+describeImageAttributeResponse pResponseStatus_ =
     DescribeImageAttributeResponse'
     { _diarsLaunchPermissions = Nothing
     , _diarsRAMDiskId = Nothing
@@ -187,7 +187,7 @@ describeImageAttributeResponse pStatus_ =
     , _diarsProductCodes = Nothing
     , _diarsDescription = Nothing
     , _diarsBlockDeviceMappings = Nothing
-    , _diarsStatus = pStatus_
+    , _diarsResponseStatus = pResponseStatus_
     }
 
 -- | One or more launch permissions.
@@ -223,5 +223,5 @@ diarsBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMap
 diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-diarsStatus :: Lens' DescribeImageAttributeResponse Int
-diarsStatus = lens _diarsStatus (\ s a -> s{_diarsStatus = a});
+diarsResponseStatus :: Lens' DescribeImageAttributeResponse Int
+diarsResponseStatus = lens _diarsResponseStatus (\ s a -> s{_diarsResponseStatus = a});

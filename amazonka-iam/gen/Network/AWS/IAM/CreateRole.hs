@@ -44,7 +44,7 @@ module Network.AWS.IAM.CreateRole
     , createRoleResponse
     , CreateRoleResponse
     -- * Response Lenses
-    , crrsStatus
+    , crrsResponseStatus
     , crrsRole
     ) where
 
@@ -126,30 +126,30 @@ instance ToQuery CreateRole where
 --
 -- /See:/ 'createRoleResponse' smart constructor.
 data CreateRoleResponse = CreateRoleResponse'
-    { _crrsStatus :: !Int
-    , _crrsRole   :: !Role
+    { _crrsResponseStatus :: !Int
+    , _crrsRole           :: !Role
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateRoleResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crrsStatus'
+-- * 'crrsResponseStatus'
 --
 -- * 'crrsRole'
 createRoleResponse
-    :: Int -- ^ 'crrsStatus'
+    :: Int -- ^ 'crrsResponseStatus'
     -> Role -- ^ 'crrsRole'
     -> CreateRoleResponse
-createRoleResponse pStatus_ pRole_ =
+createRoleResponse pResponseStatus_ pRole_ =
     CreateRoleResponse'
-    { _crrsStatus = pStatus_
+    { _crrsResponseStatus = pResponseStatus_
     , _crrsRole = pRole_
     }
 
 -- | The response status code.
-crrsStatus :: Lens' CreateRoleResponse Int
-crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});
+crrsResponseStatus :: Lens' CreateRoleResponse Int
+crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
 
 -- | Information about the role.
 crrsRole :: Lens' CreateRoleResponse Role

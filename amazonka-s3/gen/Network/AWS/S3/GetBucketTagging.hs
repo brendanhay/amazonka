@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketTagging
     , getBucketTaggingResponse
     , GetBucketTaggingResponse
     -- * Response Lenses
-    , gbtrsStatus
+    , gbtrsResponseStatus
     , gbtrsTagSet
     ) where
 
@@ -87,29 +87,29 @@ instance ToQuery GetBucketTagging where
 
 -- | /See:/ 'getBucketTaggingResponse' smart constructor.
 data GetBucketTaggingResponse = GetBucketTaggingResponse'
-    { _gbtrsStatus :: !Int
-    , _gbtrsTagSet :: ![Tag]
+    { _gbtrsResponseStatus :: !Int
+    , _gbtrsTagSet         :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketTaggingResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbtrsStatus'
+-- * 'gbtrsResponseStatus'
 --
 -- * 'gbtrsTagSet'
 getBucketTaggingResponse
-    :: Int -- ^ 'gbtrsStatus'
+    :: Int -- ^ 'gbtrsResponseStatus'
     -> GetBucketTaggingResponse
-getBucketTaggingResponse pStatus_ =
+getBucketTaggingResponse pResponseStatus_ =
     GetBucketTaggingResponse'
-    { _gbtrsStatus = pStatus_
+    { _gbtrsResponseStatus = pResponseStatus_
     , _gbtrsTagSet = mempty
     }
 
 -- | The response status code.
-gbtrsStatus :: Lens' GetBucketTaggingResponse Int
-gbtrsStatus = lens _gbtrsStatus (\ s a -> s{_gbtrsStatus = a});
+gbtrsResponseStatus :: Lens' GetBucketTaggingResponse Int
+gbtrsResponseStatus = lens _gbtrsResponseStatus (\ s a -> s{_gbtrsResponseStatus = a});
 
 -- | Undocumented member.
 gbtrsTagSet :: Lens' GetBucketTaggingResponse [Tag]

@@ -37,7 +37,7 @@ module Network.AWS.CloudSearch.DeleteExpression
     , deleteExpressionResponse
     , DeleteExpressionResponse
     -- * Response Lenses
-    , delrsStatus
+    , delrsResponseStatus
     , delrsExpression
     ) where
 
@@ -110,30 +110,30 @@ instance ToQuery DeleteExpression where
 --
 -- /See:/ 'deleteExpressionResponse' smart constructor.
 data DeleteExpressionResponse = DeleteExpressionResponse'
-    { _delrsStatus     :: !Int
-    , _delrsExpression :: !ExpressionStatus
+    { _delrsResponseStatus :: !Int
+    , _delrsExpression     :: !ExpressionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteExpressionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsStatus'
+-- * 'delrsResponseStatus'
 --
 -- * 'delrsExpression'
 deleteExpressionResponse
-    :: Int -- ^ 'delrsStatus'
+    :: Int -- ^ 'delrsResponseStatus'
     -> ExpressionStatus -- ^ 'delrsExpression'
     -> DeleteExpressionResponse
-deleteExpressionResponse pStatus_ pExpression_ =
+deleteExpressionResponse pResponseStatus_ pExpression_ =
     DeleteExpressionResponse'
-    { _delrsStatus = pStatus_
+    { _delrsResponseStatus = pResponseStatus_
     , _delrsExpression = pExpression_
     }
 
 -- | The response status code.
-delrsStatus :: Lens' DeleteExpressionResponse Int
-delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});
+delrsResponseStatus :: Lens' DeleteExpressionResponse Int
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
 -- | The status of the expression being deleted.
 delrsExpression :: Lens' DeleteExpressionResponse ExpressionStatus

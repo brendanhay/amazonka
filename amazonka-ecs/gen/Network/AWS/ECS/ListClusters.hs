@@ -38,7 +38,7 @@ module Network.AWS.ECS.ListClusters
     -- * Response Lenses
     , lcrsClusterARNs
     , lcrsNextToken
-    , lcrsStatus
+    , lcrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -131,9 +131,9 @@ instance ToQuery ListClusters where
 
 -- | /See:/ 'listClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'
-    { _lcrsClusterARNs :: !(Maybe [Text])
-    , _lcrsNextToken   :: !(Maybe Text)
-    , _lcrsStatus      :: !Int
+    { _lcrsClusterARNs    :: !(Maybe [Text])
+    , _lcrsNextToken      :: !(Maybe Text)
+    , _lcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListClustersResponse' with the minimum fields required to make a request.
@@ -144,15 +144,15 @@ data ListClustersResponse = ListClustersResponse'
 --
 -- * 'lcrsNextToken'
 --
--- * 'lcrsStatus'
+-- * 'lcrsResponseStatus'
 listClustersResponse
-    :: Int -- ^ 'lcrsStatus'
+    :: Int -- ^ 'lcrsResponseStatus'
     -> ListClustersResponse
-listClustersResponse pStatus_ =
+listClustersResponse pResponseStatus_ =
     ListClustersResponse'
     { _lcrsClusterARNs = Nothing
     , _lcrsNextToken = Nothing
-    , _lcrsStatus = pStatus_
+    , _lcrsResponseStatus = pResponseStatus_
     }
 
 -- | The list of full Amazon Resource Name (ARN) entries for each cluster
@@ -168,5 +168,5 @@ lcrsNextToken :: Lens' ListClustersResponse (Maybe Text)
 lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 
 -- | The response status code.
-lcrsStatus :: Lens' ListClustersResponse Int
-lcrsStatus = lens _lcrsStatus (\ s a -> s{_lcrsStatus = a});
+lcrsResponseStatus :: Lens' ListClustersResponse Int
+lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});

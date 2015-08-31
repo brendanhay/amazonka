@@ -36,7 +36,7 @@ module Network.AWS.CodeDeploy.ListApplications
     -- * Response Lenses
     , larsNextToken
     , larsApplications
-    , larsStatus
+    , larsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -106,9 +106,9 @@ instance ToQuery ListApplications where
 --
 -- /See:/ 'listApplicationsResponse' smart constructor.
 data ListApplicationsResponse = ListApplicationsResponse'
-    { _larsNextToken    :: !(Maybe Text)
-    , _larsApplications :: !(Maybe [Text])
-    , _larsStatus       :: !Int
+    { _larsNextToken      :: !(Maybe Text)
+    , _larsApplications   :: !(Maybe [Text])
+    , _larsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListApplicationsResponse' with the minimum fields required to make a request.
@@ -119,15 +119,15 @@ data ListApplicationsResponse = ListApplicationsResponse'
 --
 -- * 'larsApplications'
 --
--- * 'larsStatus'
+-- * 'larsResponseStatus'
 listApplicationsResponse
-    :: Int -- ^ 'larsStatus'
+    :: Int -- ^ 'larsResponseStatus'
     -> ListApplicationsResponse
-listApplicationsResponse pStatus_ =
+listApplicationsResponse pResponseStatus_ =
     ListApplicationsResponse'
     { _larsNextToken = Nothing
     , _larsApplications = Nothing
-    , _larsStatus = pStatus_
+    , _larsResponseStatus = pResponseStatus_
     }
 
 -- | If the amount of information that is returned is significantly large, an
@@ -141,5 +141,5 @@ larsApplications :: Lens' ListApplicationsResponse [Text]
 larsApplications = lens _larsApplications (\ s a -> s{_larsApplications = a}) . _Default . _Coerce;
 
 -- | The response status code.
-larsStatus :: Lens' ListApplicationsResponse Int
-larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});
+larsResponseStatus :: Lens' ListApplicationsResponse Int
+larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});

@@ -42,7 +42,7 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
     , describeDefaultClusterParametersResponse
     , DescribeDefaultClusterParametersResponse
     -- * Response Lenses
-    , ddcprsStatus
+    , ddcprsResponseStatus
     , ddcprsDefaultClusterParameters
     ) where
 
@@ -158,7 +158,7 @@ instance ToQuery DescribeDefaultClusterParameters
 
 -- | /See:/ 'describeDefaultClusterParametersResponse' smart constructor.
 data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'
-    { _ddcprsStatus                   :: !Int
+    { _ddcprsResponseStatus           :: !Int
     , _ddcprsDefaultClusterParameters :: !DefaultClusterParameters
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -166,22 +166,22 @@ data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParameters
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcprsStatus'
+-- * 'ddcprsResponseStatus'
 --
 -- * 'ddcprsDefaultClusterParameters'
 describeDefaultClusterParametersResponse
-    :: Int -- ^ 'ddcprsStatus'
+    :: Int -- ^ 'ddcprsResponseStatus'
     -> DefaultClusterParameters -- ^ 'ddcprsDefaultClusterParameters'
     -> DescribeDefaultClusterParametersResponse
-describeDefaultClusterParametersResponse pStatus_ pDefaultClusterParameters_ =
+describeDefaultClusterParametersResponse pResponseStatus_ pDefaultClusterParameters_ =
     DescribeDefaultClusterParametersResponse'
-    { _ddcprsStatus = pStatus_
+    { _ddcprsResponseStatus = pResponseStatus_
     , _ddcprsDefaultClusterParameters = pDefaultClusterParameters_
     }
 
 -- | The response status code.
-ddcprsStatus :: Lens' DescribeDefaultClusterParametersResponse Int
-ddcprsStatus = lens _ddcprsStatus (\ s a -> s{_ddcprsStatus = a});
+ddcprsResponseStatus :: Lens' DescribeDefaultClusterParametersResponse Int
+ddcprsResponseStatus = lens _ddcprsResponseStatus (\ s a -> s{_ddcprsResponseStatus = a});
 
 -- | Undocumented member.
 ddcprsDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters

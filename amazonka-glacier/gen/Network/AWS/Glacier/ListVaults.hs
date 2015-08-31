@@ -59,7 +59,7 @@ module Network.AWS.Glacier.ListVaults
     -- * Response Lenses
     , lvrsMarker
     , lvrsVaultList
-    , lvrsStatus
+    , lvrsResponseStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -143,9 +143,9 @@ instance ToQuery ListVaults where
 --
 -- /See:/ 'listVaultsResponse' smart constructor.
 data ListVaultsResponse = ListVaultsResponse'
-    { _lvrsMarker    :: !(Maybe Text)
-    , _lvrsVaultList :: !(Maybe [DescribeVaultOutput])
-    , _lvrsStatus    :: !Int
+    { _lvrsMarker         :: !(Maybe Text)
+    , _lvrsVaultList      :: !(Maybe [DescribeVaultOutput])
+    , _lvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListVaultsResponse' with the minimum fields required to make a request.
@@ -156,15 +156,15 @@ data ListVaultsResponse = ListVaultsResponse'
 --
 -- * 'lvrsVaultList'
 --
--- * 'lvrsStatus'
+-- * 'lvrsResponseStatus'
 listVaultsResponse
-    :: Int -- ^ 'lvrsStatus'
+    :: Int -- ^ 'lvrsResponseStatus'
     -> ListVaultsResponse
-listVaultsResponse pStatus_ =
+listVaultsResponse pResponseStatus_ =
     ListVaultsResponse'
     { _lvrsMarker = Nothing
     , _lvrsVaultList = Nothing
-    , _lvrsStatus = pStatus_
+    , _lvrsResponseStatus = pResponseStatus_
     }
 
 -- | The vault ARN at which to continue pagination of the results. You use
@@ -178,5 +178,5 @@ lvrsVaultList :: Lens' ListVaultsResponse [DescribeVaultOutput]
 lvrsVaultList = lens _lvrsVaultList (\ s a -> s{_lvrsVaultList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lvrsStatus :: Lens' ListVaultsResponse Int
-lvrsStatus = lens _lvrsStatus (\ s a -> s{_lvrsStatus = a});
+lvrsResponseStatus :: Lens' ListVaultsResponse Int
+lvrsResponseStatus = lens _lvrsResponseStatus (\ s a -> s{_lvrsResponseStatus = a});

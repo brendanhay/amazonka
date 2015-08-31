@@ -35,7 +35,7 @@ module Network.AWS.KMS.GetKeyRotationStatus
     , GetKeyRotationStatusResponse
     -- * Response Lenses
     , gkrsrsKeyRotationEnabled
-    , gkrsrsStatus
+    , gkrsrsResponseStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -104,7 +104,7 @@ instance ToQuery GetKeyRotationStatus where
 -- | /See:/ 'getKeyRotationStatusResponse' smart constructor.
 data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
     { _gkrsrsKeyRotationEnabled :: !(Maybe Bool)
-    , _gkrsrsStatus             :: !Int
+    , _gkrsrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetKeyRotationStatusResponse' with the minimum fields required to make a request.
@@ -113,14 +113,14 @@ data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
 --
 -- * 'gkrsrsKeyRotationEnabled'
 --
--- * 'gkrsrsStatus'
+-- * 'gkrsrsResponseStatus'
 getKeyRotationStatusResponse
-    :: Int -- ^ 'gkrsrsStatus'
+    :: Int -- ^ 'gkrsrsResponseStatus'
     -> GetKeyRotationStatusResponse
-getKeyRotationStatusResponse pStatus_ =
+getKeyRotationStatusResponse pResponseStatus_ =
     GetKeyRotationStatusResponse'
     { _gkrsrsKeyRotationEnabled = Nothing
-    , _gkrsrsStatus = pStatus_
+    , _gkrsrsResponseStatus = pResponseStatus_
     }
 
 -- | A Boolean value that specifies whether key rotation is enabled.
@@ -128,5 +128,5 @@ gkrsrsKeyRotationEnabled :: Lens' GetKeyRotationStatusResponse (Maybe Bool)
 gkrsrsKeyRotationEnabled = lens _gkrsrsKeyRotationEnabled (\ s a -> s{_gkrsrsKeyRotationEnabled = a});
 
 -- | The response status code.
-gkrsrsStatus :: Lens' GetKeyRotationStatusResponse Int
-gkrsrsStatus = lens _gkrsrsStatus (\ s a -> s{_gkrsrsStatus = a});
+gkrsrsResponseStatus :: Lens' GetKeyRotationStatusResponse Int
+gkrsrsResponseStatus = lens _gkrsrsResponseStatus (\ s a -> s{_gkrsrsResponseStatus = a});

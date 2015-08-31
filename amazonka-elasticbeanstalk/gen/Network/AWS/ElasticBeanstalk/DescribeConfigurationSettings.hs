@@ -48,7 +48,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     , DescribeConfigurationSettingsResponse
     -- * Response Lenses
     , dcsrsConfigurationSettings
-    , dcsrsStatus
+    , dcsrsResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -146,7 +146,7 @@ instance ToQuery DescribeConfigurationSettings where
 -- /See:/ 'describeConfigurationSettingsResponse' smart constructor.
 data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'
     { _dcsrsConfigurationSettings :: !(Maybe [ConfigurationSettingsDescription])
-    , _dcsrsStatus                :: !Int
+    , _dcsrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeConfigurationSettingsResponse' with the minimum fields required to make a request.
@@ -155,14 +155,14 @@ data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsRespon
 --
 -- * 'dcsrsConfigurationSettings'
 --
--- * 'dcsrsStatus'
+-- * 'dcsrsResponseStatus'
 describeConfigurationSettingsResponse
-    :: Int -- ^ 'dcsrsStatus'
+    :: Int -- ^ 'dcsrsResponseStatus'
     -> DescribeConfigurationSettingsResponse
-describeConfigurationSettingsResponse pStatus_ =
+describeConfigurationSettingsResponse pResponseStatus_ =
     DescribeConfigurationSettingsResponse'
     { _dcsrsConfigurationSettings = Nothing
-    , _dcsrsStatus = pStatus_
+    , _dcsrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of ConfigurationSettingsDescription.
@@ -170,5 +170,5 @@ dcsrsConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [Confi
 dcsrsConfigurationSettings = lens _dcsrsConfigurationSettings (\ s a -> s{_dcsrsConfigurationSettings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcsrsStatus :: Lens' DescribeConfigurationSettingsResponse Int
-dcsrsStatus = lens _dcsrsStatus (\ s a -> s{_dcsrsStatus = a});
+dcsrsResponseStatus :: Lens' DescribeConfigurationSettingsResponse Int
+dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});

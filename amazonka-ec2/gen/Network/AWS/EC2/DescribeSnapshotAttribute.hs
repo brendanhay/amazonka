@@ -43,7 +43,7 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     , dsarsCreateVolumePermissions
     , dsarsProductCodes
     , dsarsSnapshotId
-    , dsarsStatus
+    , dsarsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -131,7 +131,7 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
     { _dsarsCreateVolumePermissions :: !(Maybe [CreateVolumePermission])
     , _dsarsProductCodes            :: !(Maybe [ProductCode])
     , _dsarsSnapshotId              :: !(Maybe Text)
-    , _dsarsStatus                  :: !Int
+    , _dsarsResponseStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSnapshotAttributeResponse' with the minimum fields required to make a request.
@@ -144,16 +144,16 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
 --
 -- * 'dsarsSnapshotId'
 --
--- * 'dsarsStatus'
+-- * 'dsarsResponseStatus'
 describeSnapshotAttributeResponse
-    :: Int -- ^ 'dsarsStatus'
+    :: Int -- ^ 'dsarsResponseStatus'
     -> DescribeSnapshotAttributeResponse
-describeSnapshotAttributeResponse pStatus_ =
+describeSnapshotAttributeResponse pResponseStatus_ =
     DescribeSnapshotAttributeResponse'
     { _dsarsCreateVolumePermissions = Nothing
     , _dsarsProductCodes = Nothing
     , _dsarsSnapshotId = Nothing
-    , _dsarsStatus = pStatus_
+    , _dsarsResponseStatus = pResponseStatus_
     }
 
 -- | A list of permissions for creating volumes from the snapshot.
@@ -169,5 +169,5 @@ dsarsSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
 dsarsSnapshotId = lens _dsarsSnapshotId (\ s a -> s{_dsarsSnapshotId = a});
 
 -- | The response status code.
-dsarsStatus :: Lens' DescribeSnapshotAttributeResponse Int
-dsarsStatus = lens _dsarsStatus (\ s a -> s{_dsarsStatus = a});
+dsarsResponseStatus :: Lens' DescribeSnapshotAttributeResponse Int
+dsarsResponseStatus = lens _dsarsResponseStatus (\ s a -> s{_dsarsResponseStatus = a});

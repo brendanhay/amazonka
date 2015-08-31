@@ -75,7 +75,7 @@ module Network.AWS.DynamoDB.Scan
     , srsScannedCount
     , srsItems
     , srsConsumedCapacity
-    , srsStatus
+    , srsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -540,7 +540,7 @@ data ScanResponse = ScanResponse'
     , _srsScannedCount     :: !(Maybe Int)
     , _srsItems            :: !(Maybe [Map Text AttributeValue])
     , _srsConsumedCapacity :: !(Maybe ConsumedCapacity)
-    , _srsStatus           :: !Int
+    , _srsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ScanResponse' with the minimum fields required to make a request.
@@ -557,18 +557,18 @@ data ScanResponse = ScanResponse'
 --
 -- * 'srsConsumedCapacity'
 --
--- * 'srsStatus'
+-- * 'srsResponseStatus'
 scanResponse
-    :: Int -- ^ 'srsStatus'
+    :: Int -- ^ 'srsResponseStatus'
     -> ScanResponse
-scanResponse pStatus_ =
+scanResponse pResponseStatus_ =
     ScanResponse'
     { _srsLastEvaluatedKey = Nothing
     , _srsCount = Nothing
     , _srsScannedCount = Nothing
     , _srsItems = Nothing
     , _srsConsumedCapacity = Nothing
-    , _srsStatus = pStatus_
+    , _srsResponseStatus = pResponseStatus_
     }
 
 -- | The primary key of the item where the operation stopped, inclusive of
@@ -617,5 +617,5 @@ srsConsumedCapacity :: Lens' ScanResponse (Maybe ConsumedCapacity)
 srsConsumedCapacity = lens _srsConsumedCapacity (\ s a -> s{_srsConsumedCapacity = a});
 
 -- | The response status code.
-srsStatus :: Lens' ScanResponse Int
-srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
+srsResponseStatus :: Lens' ScanResponse Int
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});

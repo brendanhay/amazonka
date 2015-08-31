@@ -42,7 +42,7 @@ module Network.AWS.CloudWatch.ListMetrics
     -- * Response Lenses
     , lmrsMetrics
     , lmrsNextToken
-    , lmrsStatus
+    , lmrsResponseStatus
     ) where
 
 import           Network.AWS.CloudWatch.Types
@@ -138,9 +138,9 @@ instance ToQuery ListMetrics where
 --
 -- /See:/ 'listMetricsResponse' smart constructor.
 data ListMetricsResponse = ListMetricsResponse'
-    { _lmrsMetrics   :: !(Maybe [Metric])
-    , _lmrsNextToken :: !(Maybe Text)
-    , _lmrsStatus    :: !Int
+    { _lmrsMetrics        :: !(Maybe [Metric])
+    , _lmrsNextToken      :: !(Maybe Text)
+    , _lmrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListMetricsResponse' with the minimum fields required to make a request.
@@ -151,15 +151,15 @@ data ListMetricsResponse = ListMetricsResponse'
 --
 -- * 'lmrsNextToken'
 --
--- * 'lmrsStatus'
+-- * 'lmrsResponseStatus'
 listMetricsResponse
-    :: Int -- ^ 'lmrsStatus'
+    :: Int -- ^ 'lmrsResponseStatus'
     -> ListMetricsResponse
-listMetricsResponse pStatus_ =
+listMetricsResponse pResponseStatus_ =
     ListMetricsResponse'
     { _lmrsMetrics = Nothing
     , _lmrsNextToken = Nothing
-    , _lmrsStatus = pStatus_
+    , _lmrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of metrics used to generate statistics for an AWS account.
@@ -171,5 +171,5 @@ lmrsNextToken :: Lens' ListMetricsResponse (Maybe Text)
 lmrsNextToken = lens _lmrsNextToken (\ s a -> s{_lmrsNextToken = a});
 
 -- | The response status code.
-lmrsStatus :: Lens' ListMetricsResponse Int
-lmrsStatus = lens _lmrsStatus (\ s a -> s{_lmrsStatus = a});
+lmrsResponseStatus :: Lens' ListMetricsResponse Int
+lmrsResponseStatus = lens _lmrsResponseStatus (\ s a -> s{_lmrsResponseStatus = a});

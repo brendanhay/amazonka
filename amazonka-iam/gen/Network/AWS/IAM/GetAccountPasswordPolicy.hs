@@ -33,7 +33,7 @@ module Network.AWS.IAM.GetAccountPasswordPolicy
     , getAccountPasswordPolicyResponse
     , GetAccountPasswordPolicyResponse
     -- * Response Lenses
-    , gapprsStatus
+    , gapprsResponseStatus
     , gapprsPasswordPolicy
     ) where
 
@@ -82,7 +82,7 @@ instance ToQuery GetAccountPasswordPolicy where
 --
 -- /See:/ 'getAccountPasswordPolicyResponse' smart constructor.
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
-    { _gapprsStatus         :: !Int
+    { _gapprsResponseStatus :: !Int
     , _gapprsPasswordPolicy :: !PasswordPolicy
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -90,22 +90,22 @@ data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gapprsStatus'
+-- * 'gapprsResponseStatus'
 --
 -- * 'gapprsPasswordPolicy'
 getAccountPasswordPolicyResponse
-    :: Int -- ^ 'gapprsStatus'
+    :: Int -- ^ 'gapprsResponseStatus'
     -> PasswordPolicy -- ^ 'gapprsPasswordPolicy'
     -> GetAccountPasswordPolicyResponse
-getAccountPasswordPolicyResponse pStatus_ pPasswordPolicy_ =
+getAccountPasswordPolicyResponse pResponseStatus_ pPasswordPolicy_ =
     GetAccountPasswordPolicyResponse'
-    { _gapprsStatus = pStatus_
+    { _gapprsResponseStatus = pResponseStatus_
     , _gapprsPasswordPolicy = pPasswordPolicy_
     }
 
 -- | The response status code.
-gapprsStatus :: Lens' GetAccountPasswordPolicyResponse Int
-gapprsStatus = lens _gapprsStatus (\ s a -> s{_gapprsStatus = a});
+gapprsResponseStatus :: Lens' GetAccountPasswordPolicyResponse Int
+gapprsResponseStatus = lens _gapprsResponseStatus (\ s a -> s{_gapprsResponseStatus = a});
 
 -- | Undocumented member.
 gapprsPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy

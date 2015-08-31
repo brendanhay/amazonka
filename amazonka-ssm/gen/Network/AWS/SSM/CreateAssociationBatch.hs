@@ -44,7 +44,7 @@ module Network.AWS.SSM.CreateAssociationBatch
     -- * Response Lenses
     , cabrsSuccessful
     , cabrsFailed
-    , cabrsStatus
+    , cabrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -108,9 +108,9 @@ instance ToQuery CreateAssociationBatch where
 
 -- | /See:/ 'createAssociationBatchResponse' smart constructor.
 data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
-    { _cabrsSuccessful :: !(Maybe [AssociationDescription])
-    , _cabrsFailed     :: !(Maybe [FailedCreateAssociation])
-    , _cabrsStatus     :: !Int
+    { _cabrsSuccessful     :: !(Maybe [AssociationDescription])
+    , _cabrsFailed         :: !(Maybe [FailedCreateAssociation])
+    , _cabrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAssociationBatchResponse' with the minimum fields required to make a request.
@@ -121,15 +121,15 @@ data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
 --
 -- * 'cabrsFailed'
 --
--- * 'cabrsStatus'
+-- * 'cabrsResponseStatus'
 createAssociationBatchResponse
-    :: Int -- ^ 'cabrsStatus'
+    :: Int -- ^ 'cabrsResponseStatus'
     -> CreateAssociationBatchResponse
-createAssociationBatchResponse pStatus_ =
+createAssociationBatchResponse pResponseStatus_ =
     CreateAssociationBatchResponse'
     { _cabrsSuccessful = Nothing
     , _cabrsFailed = Nothing
-    , _cabrsStatus = pStatus_
+    , _cabrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the associations that succeeded.
@@ -141,5 +141,5 @@ cabrsFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
 cabrsFailed = lens _cabrsFailed (\ s a -> s{_cabrsFailed = a}) . _Default . _Coerce;
 
 -- | The response status code.
-cabrsStatus :: Lens' CreateAssociationBatchResponse Int
-cabrsStatus = lens _cabrsStatus (\ s a -> s{_cabrsStatus = a});
+cabrsResponseStatus :: Lens' CreateAssociationBatchResponse Int
+cabrsResponseStatus = lens _cabrsResponseStatus (\ s a -> s{_cabrsResponseStatus = a});

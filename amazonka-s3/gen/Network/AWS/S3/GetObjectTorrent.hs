@@ -36,7 +36,7 @@ module Network.AWS.S3.GetObjectTorrent
     , GetObjectTorrentResponse
     -- * Response Lenses
     , gotrsRequestCharged
-    , gotrsStatus
+    , gotrsResponseStatus
     , gotrsBody
     ) where
 
@@ -110,7 +110,7 @@ instance ToQuery GetObjectTorrent where
 -- | /See:/ 'getObjectTorrentResponse' smart constructor.
 data GetObjectTorrentResponse = GetObjectTorrentResponse'
     { _gotrsRequestCharged :: !(Maybe RequestCharged)
-    , _gotrsStatus         :: !Int
+    , _gotrsResponseStatus :: !Int
     , _gotrsBody           :: !RsBody
     } deriving (Show,Generic)
 
@@ -120,17 +120,17 @@ data GetObjectTorrentResponse = GetObjectTorrentResponse'
 --
 -- * 'gotrsRequestCharged'
 --
--- * 'gotrsStatus'
+-- * 'gotrsResponseStatus'
 --
 -- * 'gotrsBody'
 getObjectTorrentResponse
-    :: Int -- ^ 'gotrsStatus'
+    :: Int -- ^ 'gotrsResponseStatus'
     -> RsBody -- ^ 'gotrsBody'
     -> GetObjectTorrentResponse
-getObjectTorrentResponse pStatus_ pBody_ =
+getObjectTorrentResponse pResponseStatus_ pBody_ =
     GetObjectTorrentResponse'
     { _gotrsRequestCharged = Nothing
-    , _gotrsStatus = pStatus_
+    , _gotrsResponseStatus = pResponseStatus_
     , _gotrsBody = pBody_
     }
 
@@ -139,8 +139,8 @@ gotrsRequestCharged :: Lens' GetObjectTorrentResponse (Maybe RequestCharged)
 gotrsRequestCharged = lens _gotrsRequestCharged (\ s a -> s{_gotrsRequestCharged = a});
 
 -- | The response status code.
-gotrsStatus :: Lens' GetObjectTorrentResponse Int
-gotrsStatus = lens _gotrsStatus (\ s a -> s{_gotrsStatus = a});
+gotrsResponseStatus :: Lens' GetObjectTorrentResponse Int
+gotrsResponseStatus = lens _gotrsResponseStatus (\ s a -> s{_gotrsResponseStatus = a});
 
 -- | Undocumented member.
 gotrsBody :: Lens' GetObjectTorrentResponse RsBody

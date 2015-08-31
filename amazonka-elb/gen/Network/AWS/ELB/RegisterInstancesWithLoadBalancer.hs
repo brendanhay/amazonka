@@ -65,7 +65,7 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     , RegisterInstancesWithLoadBalancerResponse
     -- * Response Lenses
     , riwlbrsInstances
-    , riwlbrsStatus
+    , riwlbrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -138,8 +138,8 @@ instance ToQuery RegisterInstancesWithLoadBalancer
 
 -- | /See:/ 'registerInstancesWithLoadBalancerResponse' smart constructor.
 data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'
-    { _riwlbrsInstances :: !(Maybe [Instance])
-    , _riwlbrsStatus    :: !Int
+    { _riwlbrsInstances      :: !(Maybe [Instance])
+    , _riwlbrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterInstancesWithLoadBalancerResponse' with the minimum fields required to make a request.
@@ -148,14 +148,14 @@ data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalanc
 --
 -- * 'riwlbrsInstances'
 --
--- * 'riwlbrsStatus'
+-- * 'riwlbrsResponseStatus'
 registerInstancesWithLoadBalancerResponse
-    :: Int -- ^ 'riwlbrsStatus'
+    :: Int -- ^ 'riwlbrsResponseStatus'
     -> RegisterInstancesWithLoadBalancerResponse
-registerInstancesWithLoadBalancerResponse pStatus_ =
+registerInstancesWithLoadBalancerResponse pResponseStatus_ =
     RegisterInstancesWithLoadBalancerResponse'
     { _riwlbrsInstances = Nothing
-    , _riwlbrsStatus = pStatus_
+    , _riwlbrsResponseStatus = pResponseStatus_
     }
 
 -- | The updated list of instances for the load balancer.
@@ -163,5 +163,5 @@ riwlbrsInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
 riwlbrsInstances = lens _riwlbrsInstances (\ s a -> s{_riwlbrsInstances = a}) . _Default . _Coerce;
 
 -- | The response status code.
-riwlbrsStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Int
-riwlbrsStatus = lens _riwlbrsStatus (\ s a -> s{_riwlbrsStatus = a});
+riwlbrsResponseStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Int
+riwlbrsResponseStatus = lens _riwlbrsResponseStatus (\ s a -> s{_riwlbrsResponseStatus = a});

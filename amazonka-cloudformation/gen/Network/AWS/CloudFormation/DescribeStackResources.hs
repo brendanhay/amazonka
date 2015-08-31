@@ -55,7 +55,7 @@ module Network.AWS.CloudFormation.DescribeStackResources
     , DescribeStackResourcesResponse
     -- * Response Lenses
     , drsStackResources
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -159,7 +159,7 @@ instance ToQuery DescribeStackResources where
 -- /See:/ 'describeStackResourcesResponse' smart constructor.
 data DescribeStackResourcesResponse = DescribeStackResourcesResponse'
     { _drsStackResources :: !(Maybe [StackResource])
-    , _drsStatus         :: !Int
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeStackResourcesResponse' with the minimum fields required to make a request.
@@ -168,14 +168,14 @@ data DescribeStackResourcesResponse = DescribeStackResourcesResponse'
 --
 -- * 'drsStackResources'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 describeStackResourcesResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DescribeStackResourcesResponse
-describeStackResourcesResponse pStatus_ =
+describeStackResourcesResponse pResponseStatus_ =
     DescribeStackResourcesResponse'
     { _drsStackResources = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | A list of 'StackResource' structures.
@@ -183,5 +183,5 @@ drsStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
 drsStackResources = lens _drsStackResources (\ s a -> s{_drsStackResources = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drsStatus :: Lens' DescribeStackResourcesResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DescribeStackResourcesResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

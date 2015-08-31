@@ -63,7 +63,7 @@ module Network.AWS.EC2.CreateSubnet
     , CreateSubnetResponse
     -- * Response Lenses
     , crsSubnet
-    , crsStatus
+    , crsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -151,8 +151,8 @@ instance ToQuery CreateSubnet where
 
 -- | /See:/ 'createSubnetResponse' smart constructor.
 data CreateSubnetResponse = CreateSubnetResponse'
-    { _crsSubnet :: !(Maybe Subnet)
-    , _crsStatus :: !Int
+    { _crsSubnet         :: !(Maybe Subnet)
+    , _crsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateSubnetResponse' with the minimum fields required to make a request.
@@ -161,14 +161,14 @@ data CreateSubnetResponse = CreateSubnetResponse'
 --
 -- * 'crsSubnet'
 --
--- * 'crsStatus'
+-- * 'crsResponseStatus'
 createSubnetResponse
-    :: Int -- ^ 'crsStatus'
+    :: Int -- ^ 'crsResponseStatus'
     -> CreateSubnetResponse
-createSubnetResponse pStatus_ =
+createSubnetResponse pResponseStatus_ =
     CreateSubnetResponse'
     { _crsSubnet = Nothing
-    , _crsStatus = pStatus_
+    , _crsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the subnet.
@@ -176,5 +176,5 @@ crsSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
 crsSubnet = lens _crsSubnet (\ s a -> s{_crsSubnet = a});
 
 -- | The response status code.
-crsStatus :: Lens' CreateSubnetResponse Int
-crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});
+crsResponseStatus :: Lens' CreateSubnetResponse Int
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});

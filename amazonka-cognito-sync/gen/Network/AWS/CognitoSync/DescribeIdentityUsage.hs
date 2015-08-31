@@ -39,7 +39,7 @@ module Network.AWS.CognitoSync.DescribeIdentityUsage
     , DescribeIdentityUsageResponse
     -- * Response Lenses
     , diursIdentityUsage
-    , diursStatus
+    , diursResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -115,8 +115,8 @@ instance ToQuery DescribeIdentityUsage where
 --
 -- /See:/ 'describeIdentityUsageResponse' smart constructor.
 data DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'
-    { _diursIdentityUsage :: !(Maybe IdentityUsage)
-    , _diursStatus        :: !Int
+    { _diursIdentityUsage  :: !(Maybe IdentityUsage)
+    , _diursResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeIdentityUsageResponse' with the minimum fields required to make a request.
@@ -125,14 +125,14 @@ data DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'
 --
 -- * 'diursIdentityUsage'
 --
--- * 'diursStatus'
+-- * 'diursResponseStatus'
 describeIdentityUsageResponse
-    :: Int -- ^ 'diursStatus'
+    :: Int -- ^ 'diursResponseStatus'
     -> DescribeIdentityUsageResponse
-describeIdentityUsageResponse pStatus_ =
+describeIdentityUsageResponse pResponseStatus_ =
     DescribeIdentityUsageResponse'
     { _diursIdentityUsage = Nothing
-    , _diursStatus = pStatus_
+    , _diursResponseStatus = pResponseStatus_
     }
 
 -- | Usage information for the identity.
@@ -140,5 +140,5 @@ diursIdentityUsage :: Lens' DescribeIdentityUsageResponse (Maybe IdentityUsage)
 diursIdentityUsage = lens _diursIdentityUsage (\ s a -> s{_diursIdentityUsage = a});
 
 -- | The response status code.
-diursStatus :: Lens' DescribeIdentityUsageResponse Int
-diursStatus = lens _diursStatus (\ s a -> s{_diursStatus = a});
+diursResponseStatus :: Lens' DescribeIdentityUsageResponse Int
+diursResponseStatus = lens _diursResponseStatus (\ s a -> s{_diursResponseStatus = a});

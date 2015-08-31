@@ -46,7 +46,7 @@ module Network.AWS.Route53.UpdateHealthCheck
     , updateHealthCheckResponse
     , UpdateHealthCheckResponse
     -- * Response Lenses
-    , uhcrsStatus
+    , uhcrsResponseStatus
     , uhcrsHealthCheck
     ) where
 
@@ -205,30 +205,30 @@ instance ToXML UpdateHealthCheck where
 
 -- | /See:/ 'updateHealthCheckResponse' smart constructor.
 data UpdateHealthCheckResponse = UpdateHealthCheckResponse'
-    { _uhcrsStatus      :: !Int
-    , _uhcrsHealthCheck :: !HealthCheck
+    { _uhcrsResponseStatus :: !Int
+    , _uhcrsHealthCheck    :: !HealthCheck
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateHealthCheckResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uhcrsStatus'
+-- * 'uhcrsResponseStatus'
 --
 -- * 'uhcrsHealthCheck'
 updateHealthCheckResponse
-    :: Int -- ^ 'uhcrsStatus'
+    :: Int -- ^ 'uhcrsResponseStatus'
     -> HealthCheck -- ^ 'uhcrsHealthCheck'
     -> UpdateHealthCheckResponse
-updateHealthCheckResponse pStatus_ pHealthCheck_ =
+updateHealthCheckResponse pResponseStatus_ pHealthCheck_ =
     UpdateHealthCheckResponse'
-    { _uhcrsStatus = pStatus_
+    { _uhcrsResponseStatus = pResponseStatus_
     , _uhcrsHealthCheck = pHealthCheck_
     }
 
 -- | The response status code.
-uhcrsStatus :: Lens' UpdateHealthCheckResponse Int
-uhcrsStatus = lens _uhcrsStatus (\ s a -> s{_uhcrsStatus = a});
+uhcrsResponseStatus :: Lens' UpdateHealthCheckResponse Int
+uhcrsResponseStatus = lens _uhcrsResponseStatus (\ s a -> s{_uhcrsResponseStatus = a});
 
 -- | Undocumented member.
 uhcrsHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck

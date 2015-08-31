@@ -38,7 +38,7 @@ module Network.AWS.ELB.DescribeInstanceHealth
     , DescribeInstanceHealthResponse
     -- * Response Lenses
     , dihrsInstanceStates
-    , dihrsStatus
+    , dihrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -108,7 +108,7 @@ instance ToQuery DescribeInstanceHealth where
 -- | /See:/ 'describeInstanceHealthResponse' smart constructor.
 data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
     { _dihrsInstanceStates :: !(Maybe [InstanceState])
-    , _dihrsStatus         :: !Int
+    , _dihrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeInstanceHealthResponse' with the minimum fields required to make a request.
@@ -117,14 +117,14 @@ data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
 --
 -- * 'dihrsInstanceStates'
 --
--- * 'dihrsStatus'
+-- * 'dihrsResponseStatus'
 describeInstanceHealthResponse
-    :: Int -- ^ 'dihrsStatus'
+    :: Int -- ^ 'dihrsResponseStatus'
     -> DescribeInstanceHealthResponse
-describeInstanceHealthResponse pStatus_ =
+describeInstanceHealthResponse pResponseStatus_ =
     DescribeInstanceHealthResponse'
     { _dihrsInstanceStates = Nothing
-    , _dihrsStatus = pStatus_
+    , _dihrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the health of the instances.
@@ -132,5 +132,5 @@ dihrsInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
 dihrsInstanceStates = lens _dihrsInstanceStates (\ s a -> s{_dihrsInstanceStates = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dihrsStatus :: Lens' DescribeInstanceHealthResponse Int
-dihrsStatus = lens _dihrsStatus (\ s a -> s{_dihrsStatus = a});
+dihrsResponseStatus :: Lens' DescribeInstanceHealthResponse Int
+dihrsResponseStatus = lens _dihrsResponseStatus (\ s a -> s{_dihrsResponseStatus = a});

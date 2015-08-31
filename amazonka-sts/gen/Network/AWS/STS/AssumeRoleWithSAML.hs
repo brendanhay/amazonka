@@ -97,7 +97,7 @@ module Network.AWS.STS.AssumeRoleWithSAML
     , arwsamlrsNameQualifier
     , arwsamlrsAssumedRoleUser
     , arwsamlrsIssuer
-    , arwsamlrsStatus
+    , arwsamlrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -239,7 +239,7 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
     , _arwsamlrsNameQualifier    :: !(Maybe Text)
     , _arwsamlrsAssumedRoleUser  :: !(Maybe AssumedRoleUser)
     , _arwsamlrsIssuer           :: !(Maybe Text)
-    , _arwsamlrsStatus           :: !Int
+    , _arwsamlrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AssumeRoleWithSAMLResponse' with the minimum fields required to make a request.
@@ -262,11 +262,11 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
 --
 -- * 'arwsamlrsIssuer'
 --
--- * 'arwsamlrsStatus'
+-- * 'arwsamlrsResponseStatus'
 assumeRoleWithSAMLResponse
-    :: Int -- ^ 'arwsamlrsStatus'
+    :: Int -- ^ 'arwsamlrsResponseStatus'
     -> AssumeRoleWithSAMLResponse
-assumeRoleWithSAMLResponse pStatus_ =
+assumeRoleWithSAMLResponse pResponseStatus_ =
     AssumeRoleWithSAMLResponse'
     { _arwsamlrsSubject = Nothing
     , _arwsamlrsAudience = Nothing
@@ -276,7 +276,7 @@ assumeRoleWithSAMLResponse pStatus_ =
     , _arwsamlrsNameQualifier = Nothing
     , _arwsamlrsAssumedRoleUser = Nothing
     , _arwsamlrsIssuer = Nothing
-    , _arwsamlrsStatus = pStatus_
+    , _arwsamlrsResponseStatus = pResponseStatus_
     }
 
 -- | The value of the 'NameID' element in the 'Subject' element of the SAML
@@ -331,5 +331,5 @@ arwsamlrsIssuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsIssuer = lens _arwsamlrsIssuer (\ s a -> s{_arwsamlrsIssuer = a});
 
 -- | The response status code.
-arwsamlrsStatus :: Lens' AssumeRoleWithSAMLResponse Int
-arwsamlrsStatus = lens _arwsamlrsStatus (\ s a -> s{_arwsamlrsStatus = a});
+arwsamlrsResponseStatus :: Lens' AssumeRoleWithSAMLResponse Int
+arwsamlrsResponseStatus = lens _arwsamlrsResponseStatus (\ s a -> s{_arwsamlrsResponseStatus = a});

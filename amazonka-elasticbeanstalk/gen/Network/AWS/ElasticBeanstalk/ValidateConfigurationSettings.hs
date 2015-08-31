@@ -41,7 +41,7 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     , ValidateConfigurationSettingsResponse
     -- * Response Lenses
     , vcsrsMessages
-    , vcsrsStatus
+    , vcsrsResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -141,8 +141,8 @@ instance ToQuery ValidateConfigurationSettings where
 --
 -- /See:/ 'validateConfigurationSettingsResponse' smart constructor.
 data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'
-    { _vcsrsMessages :: !(Maybe [ValidationMessage])
-    , _vcsrsStatus   :: !Int
+    { _vcsrsMessages       :: !(Maybe [ValidationMessage])
+    , _vcsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ValidateConfigurationSettingsResponse' with the minimum fields required to make a request.
@@ -151,14 +151,14 @@ data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsRespon
 --
 -- * 'vcsrsMessages'
 --
--- * 'vcsrsStatus'
+-- * 'vcsrsResponseStatus'
 validateConfigurationSettingsResponse
-    :: Int -- ^ 'vcsrsStatus'
+    :: Int -- ^ 'vcsrsResponseStatus'
     -> ValidateConfigurationSettingsResponse
-validateConfigurationSettingsResponse pStatus_ =
+validateConfigurationSettingsResponse pResponseStatus_ =
     ValidateConfigurationSettingsResponse'
     { _vcsrsMessages = Nothing
-    , _vcsrsStatus = pStatus_
+    , _vcsrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of ValidationMessage.
@@ -166,5 +166,5 @@ vcsrsMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
 vcsrsMessages = lens _vcsrsMessages (\ s a -> s{_vcsrsMessages = a}) . _Default . _Coerce;
 
 -- | The response status code.
-vcsrsStatus :: Lens' ValidateConfigurationSettingsResponse Int
-vcsrsStatus = lens _vcsrsStatus (\ s a -> s{_vcsrsStatus = a});
+vcsrsResponseStatus :: Lens' ValidateConfigurationSettingsResponse Int
+vcsrsResponseStatus = lens _vcsrsResponseStatus (\ s a -> s{_vcsrsResponseStatus = a});

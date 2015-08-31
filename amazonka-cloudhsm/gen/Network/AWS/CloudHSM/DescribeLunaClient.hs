@@ -39,7 +39,7 @@ module Network.AWS.CloudHSM.DescribeLunaClient
     , drsCertificateFingerprint
     , drsCertificate
     , drsLabel
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -123,7 +123,7 @@ data DescribeLunaClientResponse = DescribeLunaClientResponse'
     , _drsCertificateFingerprint :: !(Maybe Text)
     , _drsCertificate            :: !(Maybe Text)
     , _drsLabel                  :: !(Maybe Text)
-    , _drsStatus                 :: !Int
+    , _drsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLunaClientResponse' with the minimum fields required to make a request.
@@ -140,18 +140,18 @@ data DescribeLunaClientResponse = DescribeLunaClientResponse'
 --
 -- * 'drsLabel'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 describeLunaClientResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DescribeLunaClientResponse
-describeLunaClientResponse pStatus_ =
+describeLunaClientResponse pResponseStatus_ =
     DescribeLunaClientResponse'
     { _drsClientARN = Nothing
     , _drsLastModifiedTimestamp = Nothing
     , _drsCertificateFingerprint = Nothing
     , _drsCertificate = Nothing
     , _drsLabel = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | The ARN of the client.
@@ -175,5 +175,5 @@ drsLabel :: Lens' DescribeLunaClientResponse (Maybe Text)
 drsLabel = lens _drsLabel (\ s a -> s{_drsLabel = a});
 
 -- | The response status code.
-drsStatus :: Lens' DescribeLunaClientResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DescribeLunaClientResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

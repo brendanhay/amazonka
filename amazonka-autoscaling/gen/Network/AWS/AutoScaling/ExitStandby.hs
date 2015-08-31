@@ -39,7 +39,7 @@ module Network.AWS.AutoScaling.ExitStandby
     , ExitStandbyResponse
     -- * Response Lenses
     , esrsActivities
-    , esrsStatus
+    , esrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -106,8 +106,8 @@ instance ToQuery ExitStandby where
 
 -- | /See:/ 'exitStandbyResponse' smart constructor.
 data ExitStandbyResponse = ExitStandbyResponse'
-    { _esrsActivities :: !(Maybe [Activity])
-    , _esrsStatus     :: !Int
+    { _esrsActivities     :: !(Maybe [Activity])
+    , _esrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ExitStandbyResponse' with the minimum fields required to make a request.
@@ -116,14 +116,14 @@ data ExitStandbyResponse = ExitStandbyResponse'
 --
 -- * 'esrsActivities'
 --
--- * 'esrsStatus'
+-- * 'esrsResponseStatus'
 exitStandbyResponse
-    :: Int -- ^ 'esrsStatus'
+    :: Int -- ^ 'esrsResponseStatus'
     -> ExitStandbyResponse
-exitStandbyResponse pStatus_ =
+exitStandbyResponse pResponseStatus_ =
     ExitStandbyResponse'
     { _esrsActivities = Nothing
-    , _esrsStatus = pStatus_
+    , _esrsResponseStatus = pResponseStatus_
     }
 
 -- | The activities related to moving instances out of 'Standby' mode.
@@ -131,5 +131,5 @@ esrsActivities :: Lens' ExitStandbyResponse [Activity]
 esrsActivities = lens _esrsActivities (\ s a -> s{_esrsActivities = a}) . _Default . _Coerce;
 
 -- | The response status code.
-esrsStatus :: Lens' ExitStandbyResponse Int
-esrsStatus = lens _esrsStatus (\ s a -> s{_esrsStatus = a});
+esrsResponseStatus :: Lens' ExitStandbyResponse Int
+esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a});

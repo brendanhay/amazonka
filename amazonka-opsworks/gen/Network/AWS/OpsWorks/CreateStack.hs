@@ -58,7 +58,7 @@ module Network.AWS.OpsWorks.CreateStack
     , CreateStackResponse
     -- * Response Lenses
     , crsStackId
-    , crsStatus
+    , crsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -434,8 +434,8 @@ instance ToQuery CreateStack where
 --
 -- /See:/ 'createStackResponse' smart constructor.
 data CreateStackResponse = CreateStackResponse'
-    { _crsStackId :: !(Maybe Text)
-    , _crsStatus  :: !Int
+    { _crsStackId        :: !(Maybe Text)
+    , _crsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateStackResponse' with the minimum fields required to make a request.
@@ -444,14 +444,14 @@ data CreateStackResponse = CreateStackResponse'
 --
 -- * 'crsStackId'
 --
--- * 'crsStatus'
+-- * 'crsResponseStatus'
 createStackResponse
-    :: Int -- ^ 'crsStatus'
+    :: Int -- ^ 'crsResponseStatus'
     -> CreateStackResponse
-createStackResponse pStatus_ =
+createStackResponse pResponseStatus_ =
     CreateStackResponse'
     { _crsStackId = Nothing
-    , _crsStatus = pStatus_
+    , _crsResponseStatus = pResponseStatus_
     }
 
 -- | The stack ID, which is an opaque string that you use to identify the
@@ -460,5 +460,5 @@ crsStackId :: Lens' CreateStackResponse (Maybe Text)
 crsStackId = lens _crsStackId (\ s a -> s{_crsStackId = a});
 
 -- | The response status code.
-crsStatus :: Lens' CreateStackResponse Int
-crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});
+crsResponseStatus :: Lens' CreateStackResponse Int
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});

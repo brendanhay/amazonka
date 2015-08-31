@@ -37,7 +37,7 @@ module Network.AWS.RDS.ModifyDBSubnetGroup
     , ModifyDBSubnetGroupResponse
     -- * Response Lenses
     , mdsgrsDBSubnetGroup
-    , mdsgrsStatus
+    , mdsgrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -121,8 +121,8 @@ instance ToQuery ModifyDBSubnetGroup where
 
 -- | /See:/ 'modifyDBSubnetGroupResponse' smart constructor.
 data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'
-    { _mdsgrsDBSubnetGroup :: !(Maybe DBSubnetGroup)
-    , _mdsgrsStatus        :: !Int
+    { _mdsgrsDBSubnetGroup  :: !(Maybe DBSubnetGroup)
+    , _mdsgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyDBSubnetGroupResponse' with the minimum fields required to make a request.
@@ -131,14 +131,14 @@ data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'
 --
 -- * 'mdsgrsDBSubnetGroup'
 --
--- * 'mdsgrsStatus'
+-- * 'mdsgrsResponseStatus'
 modifyDBSubnetGroupResponse
-    :: Int -- ^ 'mdsgrsStatus'
+    :: Int -- ^ 'mdsgrsResponseStatus'
     -> ModifyDBSubnetGroupResponse
-modifyDBSubnetGroupResponse pStatus_ =
+modifyDBSubnetGroupResponse pResponseStatus_ =
     ModifyDBSubnetGroupResponse'
     { _mdsgrsDBSubnetGroup = Nothing
-    , _mdsgrsStatus = pStatus_
+    , _mdsgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -146,5 +146,5 @@ mdsgrsDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
 mdsgrsDBSubnetGroup = lens _mdsgrsDBSubnetGroup (\ s a -> s{_mdsgrsDBSubnetGroup = a});
 
 -- | The response status code.
-mdsgrsStatus :: Lens' ModifyDBSubnetGroupResponse Int
-mdsgrsStatus = lens _mdsgrsStatus (\ s a -> s{_mdsgrsStatus = a});
+mdsgrsResponseStatus :: Lens' ModifyDBSubnetGroupResponse Int
+mdsgrsResponseStatus = lens _mdsgrsResponseStatus (\ s a -> s{_mdsgrsResponseStatus = a});

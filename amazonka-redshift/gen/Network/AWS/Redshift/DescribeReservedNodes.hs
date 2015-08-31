@@ -39,7 +39,7 @@ module Network.AWS.Redshift.DescribeReservedNodes
     -- * Response Lenses
     , drnrsReservedNodes
     , drnrsMarker
-    , drnrsStatus
+    , drnrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -140,9 +140,9 @@ instance ToQuery DescribeReservedNodes where
 --
 -- /See:/ 'describeReservedNodesResponse' smart constructor.
 data DescribeReservedNodesResponse = DescribeReservedNodesResponse'
-    { _drnrsReservedNodes :: !(Maybe [ReservedNode])
-    , _drnrsMarker        :: !(Maybe Text)
-    , _drnrsStatus        :: !Int
+    { _drnrsReservedNodes  :: !(Maybe [ReservedNode])
+    , _drnrsMarker         :: !(Maybe Text)
+    , _drnrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedNodesResponse' with the minimum fields required to make a request.
@@ -153,15 +153,15 @@ data DescribeReservedNodesResponse = DescribeReservedNodesResponse'
 --
 -- * 'drnrsMarker'
 --
--- * 'drnrsStatus'
+-- * 'drnrsResponseStatus'
 describeReservedNodesResponse
-    :: Int -- ^ 'drnrsStatus'
+    :: Int -- ^ 'drnrsResponseStatus'
     -> DescribeReservedNodesResponse
-describeReservedNodesResponse pStatus_ =
+describeReservedNodesResponse pResponseStatus_ =
     DescribeReservedNodesResponse'
     { _drnrsReservedNodes = Nothing
     , _drnrsMarker = Nothing
-    , _drnrsStatus = pStatus_
+    , _drnrsResponseStatus = pResponseStatus_
     }
 
 -- | The list of reserved nodes.
@@ -178,5 +178,5 @@ drnrsMarker :: Lens' DescribeReservedNodesResponse (Maybe Text)
 drnrsMarker = lens _drnrsMarker (\ s a -> s{_drnrsMarker = a});
 
 -- | The response status code.
-drnrsStatus :: Lens' DescribeReservedNodesResponse Int
-drnrsStatus = lens _drnrsStatus (\ s a -> s{_drnrsStatus = a});
+drnrsResponseStatus :: Lens' DescribeReservedNodesResponse Int
+drnrsResponseStatus = lens _drnrsResponseStatus (\ s a -> s{_drnrsResponseStatus = a});

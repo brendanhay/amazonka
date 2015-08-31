@@ -38,7 +38,7 @@ module Network.AWS.StorageGateway.UpdateVTLDeviceType
     , UpdateVTLDeviceTypeResponse
     -- * Response Lenses
     , uvtldtrsVTLDeviceARN
-    , uvtldtrsStatus
+    , uvtldtrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -119,8 +119,8 @@ instance ToQuery UpdateVTLDeviceType where
 --
 -- /See:/ 'updateVTLDeviceTypeResponse' smart constructor.
 data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
-    { _uvtldtrsVTLDeviceARN :: !(Maybe Text)
-    , _uvtldtrsStatus       :: !Int
+    { _uvtldtrsVTLDeviceARN   :: !(Maybe Text)
+    , _uvtldtrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateVTLDeviceTypeResponse' with the minimum fields required to make a request.
@@ -129,14 +129,14 @@ data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
 --
 -- * 'uvtldtrsVTLDeviceARN'
 --
--- * 'uvtldtrsStatus'
+-- * 'uvtldtrsResponseStatus'
 updateVTLDeviceTypeResponse
-    :: Int -- ^ 'uvtldtrsStatus'
+    :: Int -- ^ 'uvtldtrsResponseStatus'
     -> UpdateVTLDeviceTypeResponse
-updateVTLDeviceTypeResponse pStatus_ =
+updateVTLDeviceTypeResponse pResponseStatus_ =
     UpdateVTLDeviceTypeResponse'
     { _uvtldtrsVTLDeviceARN = Nothing
-    , _uvtldtrsStatus = pStatus_
+    , _uvtldtrsResponseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the medium changer you have selected.
@@ -144,5 +144,5 @@ uvtldtrsVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse (Maybe Text)
 uvtldtrsVTLDeviceARN = lens _uvtldtrsVTLDeviceARN (\ s a -> s{_uvtldtrsVTLDeviceARN = a});
 
 -- | The response status code.
-uvtldtrsStatus :: Lens' UpdateVTLDeviceTypeResponse Int
-uvtldtrsStatus = lens _uvtldtrsStatus (\ s a -> s{_uvtldtrsStatus = a});
+uvtldtrsResponseStatus :: Lens' UpdateVTLDeviceTypeResponse Int
+uvtldtrsResponseStatus = lens _uvtldtrsResponseStatus (\ s a -> s{_uvtldtrsResponseStatus = a});

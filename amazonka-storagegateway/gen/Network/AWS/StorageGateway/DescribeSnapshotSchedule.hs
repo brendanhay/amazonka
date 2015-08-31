@@ -40,7 +40,7 @@ module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     , dssrsRecurrenceInHours
     , dssrsTimezone
     , dssrsDescription
-    , dssrsStatus
+    , dssrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -117,7 +117,7 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
     , _dssrsRecurrenceInHours :: !(Maybe Nat)
     , _dssrsTimezone          :: !(Maybe Text)
     , _dssrsDescription       :: !(Maybe Text)
-    , _dssrsStatus            :: !Int
+    , _dssrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSnapshotScheduleResponse' with the minimum fields required to make a request.
@@ -134,18 +134,18 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
 --
 -- * 'dssrsDescription'
 --
--- * 'dssrsStatus'
+-- * 'dssrsResponseStatus'
 describeSnapshotScheduleResponse
-    :: Int -- ^ 'dssrsStatus'
+    :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeSnapshotScheduleResponse
-describeSnapshotScheduleResponse pStatus_ =
+describeSnapshotScheduleResponse pResponseStatus_ =
     DescribeSnapshotScheduleResponse'
     { _dssrsStartAt = Nothing
     , _dssrsVolumeARN = Nothing
     , _dssrsRecurrenceInHours = Nothing
     , _dssrsTimezone = Nothing
     , _dssrsDescription = Nothing
-    , _dssrsStatus = pStatus_
+    , _dssrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -169,5 +169,5 @@ dssrsDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrsDescription = lens _dssrsDescription (\ s a -> s{_dssrsDescription = a});
 
 -- | The response status code.
-dssrsStatus :: Lens' DescribeSnapshotScheduleResponse Int
-dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});
+dssrsResponseStatus :: Lens' DescribeSnapshotScheduleResponse Int
+dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});

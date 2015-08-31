@@ -69,7 +69,7 @@ module Network.AWS.Route53Domains.TransferDomain
     , transferDomainResponse
     , TransferDomainResponse
     -- * Response Lenses
-    , tdrsStatus
+    , tdrsResponseStatus
     , tdrsOperationId
     ) where
 
@@ -341,30 +341,30 @@ instance ToQuery TransferDomain where
 --
 -- /See:/ 'transferDomainResponse' smart constructor.
 data TransferDomainResponse = TransferDomainResponse'
-    { _tdrsStatus      :: !Int
-    , _tdrsOperationId :: !Text
+    { _tdrsResponseStatus :: !Int
+    , _tdrsOperationId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TransferDomainResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tdrsStatus'
+-- * 'tdrsResponseStatus'
 --
 -- * 'tdrsOperationId'
 transferDomainResponse
-    :: Int -- ^ 'tdrsStatus'
+    :: Int -- ^ 'tdrsResponseStatus'
     -> Text -- ^ 'tdrsOperationId'
     -> TransferDomainResponse
-transferDomainResponse pStatus_ pOperationId_ =
+transferDomainResponse pResponseStatus_ pOperationId_ =
     TransferDomainResponse'
-    { _tdrsStatus = pStatus_
+    { _tdrsResponseStatus = pResponseStatus_
     , _tdrsOperationId = pOperationId_
     }
 
 -- | The response status code.
-tdrsStatus :: Lens' TransferDomainResponse Int
-tdrsStatus = lens _tdrsStatus (\ s a -> s{_tdrsStatus = a});
+tdrsResponseStatus :: Lens' TransferDomainResponse Int
+tdrsResponseStatus = lens _tdrsResponseStatus (\ s a -> s{_tdrsResponseStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.

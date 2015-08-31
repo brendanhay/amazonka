@@ -49,7 +49,7 @@ module Network.AWS.IAM.ListUserPolicies
     -- * Response Lenses
     , luprsMarker
     , luprsIsTruncated
-    , luprsStatus
+    , luprsResponseStatus
     , luprsPolicyNames
     ) where
 
@@ -143,10 +143,10 @@ instance ToQuery ListUserPolicies where
 --
 -- /See:/ 'listUserPoliciesResponse' smart constructor.
 data ListUserPoliciesResponse = ListUserPoliciesResponse'
-    { _luprsMarker      :: !(Maybe Text)
-    , _luprsIsTruncated :: !(Maybe Bool)
-    , _luprsStatus      :: !Int
-    , _luprsPolicyNames :: ![Text]
+    { _luprsMarker         :: !(Maybe Text)
+    , _luprsIsTruncated    :: !(Maybe Bool)
+    , _luprsResponseStatus :: !Int
+    , _luprsPolicyNames    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListUserPoliciesResponse' with the minimum fields required to make a request.
@@ -157,17 +157,17 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse'
 --
 -- * 'luprsIsTruncated'
 --
--- * 'luprsStatus'
+-- * 'luprsResponseStatus'
 --
 -- * 'luprsPolicyNames'
 listUserPoliciesResponse
-    :: Int -- ^ 'luprsStatus'
+    :: Int -- ^ 'luprsResponseStatus'
     -> ListUserPoliciesResponse
-listUserPoliciesResponse pStatus_ =
+listUserPoliciesResponse pResponseStatus_ =
     ListUserPoliciesResponse'
     { _luprsMarker = Nothing
     , _luprsIsTruncated = Nothing
-    , _luprsStatus = pStatus_
+    , _luprsResponseStatus = pResponseStatus_
     , _luprsPolicyNames = mempty
     }
 
@@ -184,8 +184,8 @@ luprsIsTruncated :: Lens' ListUserPoliciesResponse (Maybe Bool)
 luprsIsTruncated = lens _luprsIsTruncated (\ s a -> s{_luprsIsTruncated = a});
 
 -- | The response status code.
-luprsStatus :: Lens' ListUserPoliciesResponse Int
-luprsStatus = lens _luprsStatus (\ s a -> s{_luprsStatus = a});
+luprsResponseStatus :: Lens' ListUserPoliciesResponse Int
+luprsResponseStatus = lens _luprsResponseStatus (\ s a -> s{_luprsResponseStatus = a});
 
 -- | A list of policy names.
 luprsPolicyNames :: Lens' ListUserPoliciesResponse [Text]

@@ -47,7 +47,7 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     -- * Response Lenses
     , drdirsReservedDBInstances
     , drdirsMarker
-    , drdirsStatus
+    , drdirsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -225,7 +225,7 @@ instance ToQuery DescribeReservedDBInstances where
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'
     { _drdirsReservedDBInstances :: !(Maybe [ReservedDBInstance])
     , _drdirsMarker              :: !(Maybe Text)
-    , _drdirsStatus              :: !Int
+    , _drdirsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedDBInstancesResponse' with the minimum fields required to make a request.
@@ -236,15 +236,15 @@ data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'
 --
 -- * 'drdirsMarker'
 --
--- * 'drdirsStatus'
+-- * 'drdirsResponseStatus'
 describeReservedDBInstancesResponse
-    :: Int -- ^ 'drdirsStatus'
+    :: Int -- ^ 'drdirsResponseStatus'
     -> DescribeReservedDBInstancesResponse
-describeReservedDBInstancesResponse pStatus_ =
+describeReservedDBInstancesResponse pResponseStatus_ =
     DescribeReservedDBInstancesResponse'
     { _drdirsReservedDBInstances = Nothing
     , _drdirsMarker = Nothing
-    , _drdirsStatus = pStatus_
+    , _drdirsResponseStatus = pResponseStatus_
     }
 
 -- | A list of reserved DB instances.
@@ -258,5 +258,5 @@ drdirsMarker :: Lens' DescribeReservedDBInstancesResponse (Maybe Text)
 drdirsMarker = lens _drdirsMarker (\ s a -> s{_drdirsMarker = a});
 
 -- | The response status code.
-drdirsStatus :: Lens' DescribeReservedDBInstancesResponse Int
-drdirsStatus = lens _drdirsStatus (\ s a -> s{_drdirsStatus = a});
+drdirsResponseStatus :: Lens' DescribeReservedDBInstancesResponse Int
+drdirsResponseStatus = lens _drdirsResponseStatus (\ s a -> s{_drdirsResponseStatus = a});

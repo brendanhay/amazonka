@@ -37,6 +37,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
     , describeEnvironmentHealthResponse
     , DescribeEnvironmentHealthResponse
     -- * Response Lenses
+    , dehrsStatus
     , dehrsCauses
     , dehrsApplicationMetrics
     , dehrsColor
@@ -44,7 +45,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
     , dehrsHealthStatus
     , dehrsInstancesHealth
     , dehrsRefreshedAt
-    , dehrsStatus
+    , dehrsResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -102,8 +103,9 @@ instance AWSRequest DescribeEnvironmentHealth where
           = receiveXMLWrapper "DescribeEnvironmentHealthResult"
               (\ s h x ->
                  DescribeEnvironmentHealthResponse' <$>
-                   (x .@? "Causes" .!@ mempty >>=
-                      may (parseXMLList "member"))
+                   (x .@? "Status") <*>
+                     (x .@? "Causes" .!@ mempty >>=
+                        may (parseXMLList "member"))
                      <*> (x .@? "ApplicationMetrics")
                      <*> (x .@? "Color")
                      <*> (x .@? "EnvironmentName")
@@ -134,19 +136,22 @@ instance ToQuery DescribeEnvironmentHealth where
 --
 -- /See:/ 'describeEnvironmentHealthResponse' smart constructor.
 data DescribeEnvironmentHealthResponse = DescribeEnvironmentHealthResponse'
-    { _dehrsCauses             :: !(Maybe [Text])
+    { _dehrsStatus             :: !(Maybe EnvironmentHealth)
+    , _dehrsCauses             :: !(Maybe [Text])
     , _dehrsApplicationMetrics :: !(Maybe ApplicationMetrics)
     , _dehrsColor              :: !(Maybe Text)
     , _dehrsEnvironmentName    :: !(Maybe Text)
     , _dehrsHealthStatus       :: !(Maybe Text)
     , _dehrsInstancesHealth    :: !(Maybe InstanceHealthSummary)
     , _dehrsRefreshedAt        :: !(Maybe ISO8601)
-    , _dehrsStatus             :: !Int
+    , _dehrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEnvironmentHealthResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dehrsStatus'
 --
 -- * 'dehrsCauses'
 --
@@ -162,21 +167,28 @@ data DescribeEnvironmentHealthResponse = DescribeEnvironmentHealthResponse'
 --
 -- * 'dehrsRefreshedAt'
 --
--- * 'dehrsStatus'
+-- * 'dehrsResponseStatus'
 describeEnvironmentHealthResponse
-    :: Int -- ^ 'dehrsStatus'
+    :: Int -- ^ 'dehrsResponseStatus'
     -> DescribeEnvironmentHealthResponse
-describeEnvironmentHealthResponse pStatus_ =
+describeEnvironmentHealthResponse pResponseStatus_ =
     DescribeEnvironmentHealthResponse'
-    { _dehrsCauses = Nothing
+    { _dehrsStatus = Nothing
+    , _dehrsCauses = Nothing
     , _dehrsApplicationMetrics = Nothing
     , _dehrsColor = Nothing
     , _dehrsEnvironmentName = Nothing
     , _dehrsHealthStatus = Nothing
     , _dehrsInstancesHealth = Nothing
     , _dehrsRefreshedAt = Nothing
-    , _dehrsStatus = pStatus_
+    , _dehrsResponseStatus = pResponseStatus_
     }
+
+-- | Returns the health status value of the environment. For more
+-- information, see
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+dehrsStatus :: Lens' DescribeEnvironmentHealthResponse (Maybe EnvironmentHealth)
+dehrsStatus = lens _dehrsStatus (\ s a -> s{_dehrsStatus = a});
 
 -- | Returns potential causes for the reported status.
 dehrsCauses :: Lens' DescribeEnvironmentHealthResponse [Text]
@@ -210,5 +222,5 @@ dehrsRefreshedAt :: Lens' DescribeEnvironmentHealthResponse (Maybe UTCTime)
 dehrsRefreshedAt = lens _dehrsRefreshedAt (\ s a -> s{_dehrsRefreshedAt = a}) . mapping _Time;
 
 -- | The response status code.
-dehrsStatus :: Lens' DescribeEnvironmentHealthResponse Int
-dehrsStatus = lens _dehrsStatus (\ s a -> s{_dehrsStatus = a});
+dehrsResponseStatus :: Lens' DescribeEnvironmentHealthResponse Int
+dehrsResponseStatus = lens _dehrsResponseStatus (\ s a -> s{_dehrsResponseStatus = a});

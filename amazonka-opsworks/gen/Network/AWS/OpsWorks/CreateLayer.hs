@@ -64,7 +64,7 @@ module Network.AWS.OpsWorks.CreateLayer
     , CreateLayerResponse
     -- * Response Lenses
     , clrsLayerId
-    , clrsStatus
+    , clrsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -317,8 +317,8 @@ instance ToQuery CreateLayer where
 --
 -- /See:/ 'createLayerResponse' smart constructor.
 data CreateLayerResponse = CreateLayerResponse'
-    { _clrsLayerId :: !(Maybe Text)
-    , _clrsStatus  :: !Int
+    { _clrsLayerId        :: !(Maybe Text)
+    , _clrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateLayerResponse' with the minimum fields required to make a request.
@@ -327,14 +327,14 @@ data CreateLayerResponse = CreateLayerResponse'
 --
 -- * 'clrsLayerId'
 --
--- * 'clrsStatus'
+-- * 'clrsResponseStatus'
 createLayerResponse
-    :: Int -- ^ 'clrsStatus'
+    :: Int -- ^ 'clrsResponseStatus'
     -> CreateLayerResponse
-createLayerResponse pStatus_ =
+createLayerResponse pResponseStatus_ =
     CreateLayerResponse'
     { _clrsLayerId = Nothing
-    , _clrsStatus = pStatus_
+    , _clrsResponseStatus = pResponseStatus_
     }
 
 -- | The layer ID.
@@ -342,5 +342,5 @@ clrsLayerId :: Lens' CreateLayerResponse (Maybe Text)
 clrsLayerId = lens _clrsLayerId (\ s a -> s{_clrsLayerId = a});
 
 -- | The response status code.
-clrsStatus :: Lens' CreateLayerResponse Int
-clrsStatus = lens _clrsStatus (\ s a -> s{_clrsStatus = a});
+clrsResponseStatus :: Lens' CreateLayerResponse Int
+clrsResponseStatus = lens _clrsResponseStatus (\ s a -> s{_clrsResponseStatus = a});

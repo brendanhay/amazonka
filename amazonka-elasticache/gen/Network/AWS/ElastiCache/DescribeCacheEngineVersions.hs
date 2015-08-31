@@ -43,7 +43,7 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     -- * Response Lenses
     , dcevrsCacheEngineVersions
     , dcevrsMarker
-    , dcevrsStatus
+    , dcevrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -181,7 +181,7 @@ instance ToQuery DescribeCacheEngineVersions where
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'
     { _dcevrsCacheEngineVersions :: !(Maybe [CacheEngineVersion])
     , _dcevrsMarker              :: !(Maybe Text)
-    , _dcevrsStatus              :: !Int
+    , _dcevrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCacheEngineVersionsResponse' with the minimum fields required to make a request.
@@ -192,15 +192,15 @@ data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'
 --
 -- * 'dcevrsMarker'
 --
--- * 'dcevrsStatus'
+-- * 'dcevrsResponseStatus'
 describeCacheEngineVersionsResponse
-    :: Int -- ^ 'dcevrsStatus'
+    :: Int -- ^ 'dcevrsResponseStatus'
     -> DescribeCacheEngineVersionsResponse
-describeCacheEngineVersionsResponse pStatus_ =
+describeCacheEngineVersionsResponse pResponseStatus_ =
     DescribeCacheEngineVersionsResponse'
     { _dcevrsCacheEngineVersions = Nothing
     , _dcevrsMarker = Nothing
-    , _dcevrsStatus = pStatus_
+    , _dcevrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of cache engine version details. Each element in the list
@@ -213,5 +213,5 @@ dcevrsMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
 dcevrsMarker = lens _dcevrsMarker (\ s a -> s{_dcevrsMarker = a});
 
 -- | The response status code.
-dcevrsStatus :: Lens' DescribeCacheEngineVersionsResponse Int
-dcevrsStatus = lens _dcevrsStatus (\ s a -> s{_dcevrsStatus = a});
+dcevrsResponseStatus :: Lens' DescribeCacheEngineVersionsResponse Int
+dcevrsResponseStatus = lens _dcevrsResponseStatus (\ s a -> s{_dcevrsResponseStatus = a});

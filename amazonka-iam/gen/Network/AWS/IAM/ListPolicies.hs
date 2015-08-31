@@ -56,7 +56,7 @@ module Network.AWS.IAM.ListPolicies
     , lprsMarker
     , lprsIsTruncated
     , lprsPolicies
-    , lprsStatus
+    , lprsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -179,10 +179,10 @@ instance ToQuery ListPolicies where
 --
 -- /See:/ 'listPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
-    { _lprsMarker      :: !(Maybe Text)
-    , _lprsIsTruncated :: !(Maybe Bool)
-    , _lprsPolicies    :: !(Maybe [Policy])
-    , _lprsStatus      :: !Int
+    { _lprsMarker         :: !(Maybe Text)
+    , _lprsIsTruncated    :: !(Maybe Bool)
+    , _lprsPolicies       :: !(Maybe [Policy])
+    , _lprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListPoliciesResponse' with the minimum fields required to make a request.
@@ -195,16 +195,16 @@ data ListPoliciesResponse = ListPoliciesResponse'
 --
 -- * 'lprsPolicies'
 --
--- * 'lprsStatus'
+-- * 'lprsResponseStatus'
 listPoliciesResponse
-    :: Int -- ^ 'lprsStatus'
+    :: Int -- ^ 'lprsResponseStatus'
     -> ListPoliciesResponse
-listPoliciesResponse pStatus_ =
+listPoliciesResponse pResponseStatus_ =
     ListPoliciesResponse'
     { _lprsMarker = Nothing
     , _lprsIsTruncated = Nothing
     , _lprsPolicies = Nothing
-    , _lprsStatus = pStatus_
+    , _lprsResponseStatus = pResponseStatus_
     }
 
 -- | When 'IsTruncated' is 'true', this element is present and contains the
@@ -224,5 +224,5 @@ lprsPolicies :: Lens' ListPoliciesResponse [Policy]
 lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lprsStatus :: Lens' ListPoliciesResponse Int
-lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});
+lprsResponseStatus :: Lens' ListPoliciesResponse Int
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});

@@ -37,7 +37,7 @@ module Network.AWS.CloudSearch.DeleteIndexField
     , deleteIndexFieldResponse
     , DeleteIndexFieldResponse
     -- * Response Lenses
-    , difrsStatus
+    , difrsResponseStatus
     , difrsIndexField
     ) where
 
@@ -110,30 +110,30 @@ instance ToQuery DeleteIndexField where
 --
 -- /See:/ 'deleteIndexFieldResponse' smart constructor.
 data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
-    { _difrsStatus     :: !Int
-    , _difrsIndexField :: !IndexFieldStatus
+    { _difrsResponseStatus :: !Int
+    , _difrsIndexField     :: !IndexFieldStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteIndexFieldResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'difrsStatus'
+-- * 'difrsResponseStatus'
 --
 -- * 'difrsIndexField'
 deleteIndexFieldResponse
-    :: Int -- ^ 'difrsStatus'
+    :: Int -- ^ 'difrsResponseStatus'
     -> IndexFieldStatus -- ^ 'difrsIndexField'
     -> DeleteIndexFieldResponse
-deleteIndexFieldResponse pStatus_ pIndexField_ =
+deleteIndexFieldResponse pResponseStatus_ pIndexField_ =
     DeleteIndexFieldResponse'
-    { _difrsStatus = pStatus_
+    { _difrsResponseStatus = pResponseStatus_
     , _difrsIndexField = pIndexField_
     }
 
 -- | The response status code.
-difrsStatus :: Lens' DeleteIndexFieldResponse Int
-difrsStatus = lens _difrsStatus (\ s a -> s{_difrsStatus = a});
+difrsResponseStatus :: Lens' DeleteIndexFieldResponse Int
+difrsResponseStatus = lens _difrsResponseStatus (\ s a -> s{_difrsResponseStatus = a});
 
 -- | The status of the index field being deleted.
 difrsIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus

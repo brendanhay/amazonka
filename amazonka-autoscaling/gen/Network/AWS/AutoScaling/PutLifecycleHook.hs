@@ -70,7 +70,7 @@ module Network.AWS.AutoScaling.PutLifecycleHook
     , putLifecycleHookResponse
     , PutLifecycleHookResponse
     -- * Response Lenses
-    , plhrsStatus
+    , plhrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -229,22 +229,22 @@ instance ToQuery PutLifecycleHook where
 
 -- | /See:/ 'putLifecycleHookResponse' smart constructor.
 newtype PutLifecycleHookResponse = PutLifecycleHookResponse'
-    { _plhrsStatus :: Int
+    { _plhrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutLifecycleHookResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'plhrsStatus'
+-- * 'plhrsResponseStatus'
 putLifecycleHookResponse
-    :: Int -- ^ 'plhrsStatus'
+    :: Int -- ^ 'plhrsResponseStatus'
     -> PutLifecycleHookResponse
-putLifecycleHookResponse pStatus_ =
+putLifecycleHookResponse pResponseStatus_ =
     PutLifecycleHookResponse'
-    { _plhrsStatus = pStatus_
+    { _plhrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-plhrsStatus :: Lens' PutLifecycleHookResponse Int
-plhrsStatus = lens _plhrsStatus (\ s a -> s{_plhrsStatus = a});
+plhrsResponseStatus :: Lens' PutLifecycleHookResponse Int
+plhrsResponseStatus = lens _plhrsResponseStatus (\ s a -> s{_plhrsResponseStatus = a});

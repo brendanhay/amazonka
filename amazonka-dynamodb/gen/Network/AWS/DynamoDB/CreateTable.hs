@@ -57,7 +57,7 @@ module Network.AWS.DynamoDB.CreateTable
     , CreateTableResponse
     -- * Response Lenses
     , ctrsTableDescription
-    , ctrsStatus
+    , ctrsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -306,7 +306,7 @@ instance ToQuery CreateTable where
 -- /See:/ 'createTableResponse' smart constructor.
 data CreateTableResponse = CreateTableResponse'
     { _ctrsTableDescription :: !(Maybe TableDescription)
-    , _ctrsStatus           :: !Int
+    , _ctrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateTableResponse' with the minimum fields required to make a request.
@@ -315,14 +315,14 @@ data CreateTableResponse = CreateTableResponse'
 --
 -- * 'ctrsTableDescription'
 --
--- * 'ctrsStatus'
+-- * 'ctrsResponseStatus'
 createTableResponse
-    :: Int -- ^ 'ctrsStatus'
+    :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTableResponse
-createTableResponse pStatus_ =
+createTableResponse pResponseStatus_ =
     CreateTableResponse'
     { _ctrsTableDescription = Nothing
-    , _ctrsStatus = pStatus_
+    , _ctrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -330,5 +330,5 @@ ctrsTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
 ctrsTableDescription = lens _ctrsTableDescription (\ s a -> s{_ctrsTableDescription = a});
 
 -- | The response status code.
-ctrsStatus :: Lens' CreateTableResponse Int
-ctrsStatus = lens _ctrsStatus (\ s a -> s{_ctrsStatus = a});
+ctrsResponseStatus :: Lens' CreateTableResponse Int
+ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});

@@ -44,7 +44,7 @@ module Network.AWS.CloudFormation.DescribeStackEvents
     -- * Response Lenses
     , dsersNextToken
     , dsersStackEvents
-    , dsersStatus
+    , dsersResponseStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -133,9 +133,9 @@ instance ToQuery DescribeStackEvents where
 --
 -- /See:/ 'describeStackEventsResponse' smart constructor.
 data DescribeStackEventsResponse = DescribeStackEventsResponse'
-    { _dsersNextToken   :: !(Maybe Text)
-    , _dsersStackEvents :: !(Maybe [StackEvent])
-    , _dsersStatus      :: !Int
+    { _dsersNextToken      :: !(Maybe Text)
+    , _dsersStackEvents    :: !(Maybe [StackEvent])
+    , _dsersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeStackEventsResponse' with the minimum fields required to make a request.
@@ -146,15 +146,15 @@ data DescribeStackEventsResponse = DescribeStackEventsResponse'
 --
 -- * 'dsersStackEvents'
 --
--- * 'dsersStatus'
+-- * 'dsersResponseStatus'
 describeStackEventsResponse
-    :: Int -- ^ 'dsersStatus'
+    :: Int -- ^ 'dsersResponseStatus'
     -> DescribeStackEventsResponse
-describeStackEventsResponse pStatus_ =
+describeStackEventsResponse pResponseStatus_ =
     DescribeStackEventsResponse'
     { _dsersNextToken = Nothing
     , _dsersStackEvents = Nothing
-    , _dsersStatus = pStatus_
+    , _dsersResponseStatus = pResponseStatus_
     }
 
 -- | String that identifies the start of the next list of events, if there is
@@ -167,5 +167,5 @@ dsersStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
 dsersStackEvents = lens _dsersStackEvents (\ s a -> s{_dsersStackEvents = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dsersStatus :: Lens' DescribeStackEventsResponse Int
-dsersStatus = lens _dsersStatus (\ s a -> s{_dsersStatus = a});
+dsersResponseStatus :: Lens' DescribeStackEventsResponse Int
+dsersResponseStatus = lens _dsersResponseStatus (\ s a -> s{_dsersResponseStatus = a});

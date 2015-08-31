@@ -55,7 +55,7 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     -- * Response Lenses
     , dsphrsNextToken
     , dsphrsSpotPriceHistory
-    , dsphrsStatus
+    , dsphrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -232,7 +232,7 @@ instance ToQuery DescribeSpotPriceHistory where
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
     { _dsphrsNextToken        :: !(Maybe Text)
     , _dsphrsSpotPriceHistory :: !(Maybe [SpotPrice])
-    , _dsphrsStatus           :: !Int
+    , _dsphrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSpotPriceHistoryResponse' with the minimum fields required to make a request.
@@ -243,15 +243,15 @@ data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
 --
 -- * 'dsphrsSpotPriceHistory'
 --
--- * 'dsphrsStatus'
+-- * 'dsphrsResponseStatus'
 describeSpotPriceHistoryResponse
-    :: Int -- ^ 'dsphrsStatus'
+    :: Int -- ^ 'dsphrsResponseStatus'
     -> DescribeSpotPriceHistoryResponse
-describeSpotPriceHistoryResponse pStatus_ =
+describeSpotPriceHistoryResponse pResponseStatus_ =
     DescribeSpotPriceHistoryResponse'
     { _dsphrsNextToken = Nothing
     , _dsphrsSpotPriceHistory = Nothing
-    , _dsphrsStatus = pStatus_
+    , _dsphrsResponseStatus = pResponseStatus_
     }
 
 -- | The token required to retrieve the next set of results. This value is
@@ -264,5 +264,5 @@ dsphrsSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
 dsphrsSpotPriceHistory = lens _dsphrsSpotPriceHistory (\ s a -> s{_dsphrsSpotPriceHistory = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dsphrsStatus :: Lens' DescribeSpotPriceHistoryResponse Int
-dsphrsStatus = lens _dsphrsStatus (\ s a -> s{_dsphrsStatus = a});
+dsphrsResponseStatus :: Lens' DescribeSpotPriceHistoryResponse Int
+dsphrsResponseStatus = lens _dsphrsResponseStatus (\ s a -> s{_dsphrsResponseStatus = a});

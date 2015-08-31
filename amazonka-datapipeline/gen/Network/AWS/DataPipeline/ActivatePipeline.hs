@@ -42,7 +42,7 @@ module Network.AWS.DataPipeline.ActivatePipeline
     , activatePipelineResponse
     , ActivatePipelineResponse
     -- * Response Lenses
-    , aprsStatus
+    , aprsResponseStatus
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -127,22 +127,22 @@ instance ToQuery ActivatePipeline where
 --
 -- /See:/ 'activatePipelineResponse' smart constructor.
 newtype ActivatePipelineResponse = ActivatePipelineResponse'
-    { _aprsStatus :: Int
+    { _aprsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ActivatePipelineResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aprsStatus'
+-- * 'aprsResponseStatus'
 activatePipelineResponse
-    :: Int -- ^ 'aprsStatus'
+    :: Int -- ^ 'aprsResponseStatus'
     -> ActivatePipelineResponse
-activatePipelineResponse pStatus_ =
+activatePipelineResponse pResponseStatus_ =
     ActivatePipelineResponse'
-    { _aprsStatus = pStatus_
+    { _aprsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-aprsStatus :: Lens' ActivatePipelineResponse Int
-aprsStatus = lens _aprsStatus (\ s a -> s{_aprsStatus = a});
+aprsResponseStatus :: Lens' ActivatePipelineResponse Int
+aprsResponseStatus = lens _aprsResponseStatus (\ s a -> s{_aprsResponseStatus = a});

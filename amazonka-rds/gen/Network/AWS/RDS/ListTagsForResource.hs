@@ -38,7 +38,7 @@ module Network.AWS.RDS.ListTagsForResource
     , ListTagsForResourceResponse
     -- * Response Lenses
     , ltfrrsTagList
-    , ltfrrsStatus
+    , ltfrrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -112,8 +112,8 @@ instance ToQuery ListTagsForResource where
 --
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrsTagList :: !(Maybe [Tag])
-    , _ltfrrsStatus  :: !Int
+    { _ltfrrsTagList        :: !(Maybe [Tag])
+    , _ltfrrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
@@ -122,14 +122,14 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 --
 -- * 'ltfrrsTagList'
 --
--- * 'ltfrrsStatus'
+-- * 'ltfrrsResponseStatus'
 listTagsForResourceResponse
-    :: Int -- ^ 'ltfrrsStatus'
+    :: Int -- ^ 'ltfrrsResponseStatus'
     -> ListTagsForResourceResponse
-listTagsForResourceResponse pStatus_ =
+listTagsForResourceResponse pResponseStatus_ =
     ListTagsForResourceResponse'
     { _ltfrrsTagList = Nothing
-    , _ltfrrsStatus = pStatus_
+    , _ltfrrsResponseStatus = pResponseStatus_
     }
 
 -- | List of tags returned by the ListTagsForResource operation.
@@ -137,5 +137,5 @@ ltfrrsTagList :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ltfrrsStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrsStatus = lens _ltfrrsStatus (\ s a -> s{_ltfrrsStatus = a});
+ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
+ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});

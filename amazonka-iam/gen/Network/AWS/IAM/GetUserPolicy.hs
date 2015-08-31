@@ -44,7 +44,7 @@ module Network.AWS.IAM.GetUserPolicy
     , getUserPolicyResponse
     , GetUserPolicyResponse
     -- * Response Lenses
-    , guprsStatus
+    , guprsResponseStatus
     , guprsUserName
     , guprsPolicyName
     , guprsPolicyDocument
@@ -116,7 +116,7 @@ instance ToQuery GetUserPolicy where
 --
 -- /See:/ 'getUserPolicyResponse' smart constructor.
 data GetUserPolicyResponse = GetUserPolicyResponse'
-    { _guprsStatus         :: !Int
+    { _guprsResponseStatus :: !Int
     , _guprsUserName       :: !Text
     , _guprsPolicyName     :: !Text
     , _guprsPolicyDocument :: !Text
@@ -126,7 +126,7 @@ data GetUserPolicyResponse = GetUserPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'guprsStatus'
+-- * 'guprsResponseStatus'
 --
 -- * 'guprsUserName'
 --
@@ -134,22 +134,22 @@ data GetUserPolicyResponse = GetUserPolicyResponse'
 --
 -- * 'guprsPolicyDocument'
 getUserPolicyResponse
-    :: Int -- ^ 'guprsStatus'
+    :: Int -- ^ 'guprsResponseStatus'
     -> Text -- ^ 'guprsUserName'
     -> Text -- ^ 'guprsPolicyName'
     -> Text -- ^ 'guprsPolicyDocument'
     -> GetUserPolicyResponse
-getUserPolicyResponse pStatus_ pUserName_ pPolicyName_ pPolicyDocument_ =
+getUserPolicyResponse pResponseStatus_ pUserName_ pPolicyName_ pPolicyDocument_ =
     GetUserPolicyResponse'
-    { _guprsStatus = pStatus_
+    { _guprsResponseStatus = pResponseStatus_
     , _guprsUserName = pUserName_
     , _guprsPolicyName = pPolicyName_
     , _guprsPolicyDocument = pPolicyDocument_
     }
 
 -- | The response status code.
-guprsStatus :: Lens' GetUserPolicyResponse Int
-guprsStatus = lens _guprsStatus (\ s a -> s{_guprsStatus = a});
+guprsResponseStatus :: Lens' GetUserPolicyResponse Int
+guprsResponseStatus = lens _guprsResponseStatus (\ s a -> s{_guprsResponseStatus = a});
 
 -- | The user the policy is associated with.
 guprsUserName :: Lens' GetUserPolicyResponse Text

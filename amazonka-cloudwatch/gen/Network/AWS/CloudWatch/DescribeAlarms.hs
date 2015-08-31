@@ -45,7 +45,7 @@ module Network.AWS.CloudWatch.DescribeAlarms
     -- * Response Lenses
     , darsMetricAlarms
     , darsNextToken
-    , darsStatus
+    , darsResponseStatus
     ) where
 
 import           Network.AWS.CloudWatch.Types
@@ -160,9 +160,9 @@ instance ToQuery DescribeAlarms where
 --
 -- /See:/ 'describeAlarmsResponse' smart constructor.
 data DescribeAlarmsResponse = DescribeAlarmsResponse'
-    { _darsMetricAlarms :: !(Maybe [MetricAlarm])
-    , _darsNextToken    :: !(Maybe Text)
-    , _darsStatus       :: !Int
+    { _darsMetricAlarms   :: !(Maybe [MetricAlarm])
+    , _darsNextToken      :: !(Maybe Text)
+    , _darsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAlarmsResponse' with the minimum fields required to make a request.
@@ -173,15 +173,15 @@ data DescribeAlarmsResponse = DescribeAlarmsResponse'
 --
 -- * 'darsNextToken'
 --
--- * 'darsStatus'
+-- * 'darsResponseStatus'
 describeAlarmsResponse
-    :: Int -- ^ 'darsStatus'
+    :: Int -- ^ 'darsResponseStatus'
     -> DescribeAlarmsResponse
-describeAlarmsResponse pStatus_ =
+describeAlarmsResponse pResponseStatus_ =
     DescribeAlarmsResponse'
     { _darsMetricAlarms = Nothing
     , _darsNextToken = Nothing
-    , _darsStatus = pStatus_
+    , _darsResponseStatus = pResponseStatus_
     }
 
 -- | A list of information for the specified alarms.
@@ -193,5 +193,5 @@ darsNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
 darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a});
 
 -- | The response status code.
-darsStatus :: Lens' DescribeAlarmsResponse Int
-darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});
+darsResponseStatus :: Lens' DescribeAlarmsResponse Int
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});

@@ -35,7 +35,7 @@ module Network.AWS.CloudFront.GetInvalidation
     , GetInvalidationResponse
     -- * Response Lenses
     , girsInvalidation
-    , girsStatus
+    , girsResponseStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -102,8 +102,8 @@ instance ToQuery GetInvalidation where
 --
 -- /See:/ 'getInvalidationResponse' smart constructor.
 data GetInvalidationResponse = GetInvalidationResponse'
-    { _girsInvalidation :: !(Maybe Invalidation)
-    , _girsStatus       :: !Int
+    { _girsInvalidation   :: !(Maybe Invalidation)
+    , _girsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetInvalidationResponse' with the minimum fields required to make a request.
@@ -112,14 +112,14 @@ data GetInvalidationResponse = GetInvalidationResponse'
 --
 -- * 'girsInvalidation'
 --
--- * 'girsStatus'
+-- * 'girsResponseStatus'
 getInvalidationResponse
-    :: Int -- ^ 'girsStatus'
+    :: Int -- ^ 'girsResponseStatus'
     -> GetInvalidationResponse
-getInvalidationResponse pStatus_ =
+getInvalidationResponse pResponseStatus_ =
     GetInvalidationResponse'
     { _girsInvalidation = Nothing
-    , _girsStatus = pStatus_
+    , _girsResponseStatus = pResponseStatus_
     }
 
 -- | The invalidation\'s information.
@@ -127,5 +127,5 @@ girsInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
 girsInvalidation = lens _girsInvalidation (\ s a -> s{_girsInvalidation = a});
 
 -- | The response status code.
-girsStatus :: Lens' GetInvalidationResponse Int
-girsStatus = lens _girsStatus (\ s a -> s{_girsStatus = a});
+girsResponseStatus :: Lens' GetInvalidationResponse Int
+girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});

@@ -93,7 +93,7 @@ module Network.AWS.Kinesis.PutRecords
     , PutRecordsResponse
     -- * Response Lenses
     , prsFailedRecordCount
-    , prsStatus
+    , prsResponseStatus
     , prsRecords
     ) where
 
@@ -173,7 +173,7 @@ instance ToQuery PutRecords where
 -- /See:/ 'putRecordsResponse' smart constructor.
 data PutRecordsResponse = PutRecordsResponse'
     { _prsFailedRecordCount :: !(Maybe Nat)
-    , _prsStatus            :: !Int
+    , _prsResponseStatus    :: !Int
     , _prsRecords           :: !(List1 PutRecordsResultEntry)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -183,17 +183,17 @@ data PutRecordsResponse = PutRecordsResponse'
 --
 -- * 'prsFailedRecordCount'
 --
--- * 'prsStatus'
+-- * 'prsResponseStatus'
 --
 -- * 'prsRecords'
 putRecordsResponse
-    :: Int -- ^ 'prsStatus'
+    :: Int -- ^ 'prsResponseStatus'
     -> NonEmpty PutRecordsResultEntry -- ^ 'prsRecords'
     -> PutRecordsResponse
-putRecordsResponse pStatus_ pRecords_ =
+putRecordsResponse pResponseStatus_ pRecords_ =
     PutRecordsResponse'
     { _prsFailedRecordCount = Nothing
-    , _prsStatus = pStatus_
+    , _prsResponseStatus = pResponseStatus_
     , _prsRecords = _List1 # pRecords_
     }
 
@@ -203,8 +203,8 @@ prsFailedRecordCount :: Lens' PutRecordsResponse (Maybe Natural)
 prsFailedRecordCount = lens _prsFailedRecordCount (\ s a -> s{_prsFailedRecordCount = a}) . mapping _Nat;
 
 -- | The response status code.
-prsStatus :: Lens' PutRecordsResponse Int
-prsStatus = lens _prsStatus (\ s a -> s{_prsStatus = a});
+prsResponseStatus :: Lens' PutRecordsResponse Int
+prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a});
 
 -- | An array of successfully and unsuccessfully processed record results,
 -- correlated with the request by natural ordering. A record that is

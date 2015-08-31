@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeFlowLogs
     -- * Response Lenses
     , dflsrsNextToken
     , dflsrsFlowLogs
-    , dflsrsStatus
+    , dflsrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -141,9 +141,9 @@ instance ToQuery DescribeFlowLogs where
 
 -- | /See:/ 'describeFlowLogsResponse' smart constructor.
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
-    { _dflsrsNextToken :: !(Maybe Text)
-    , _dflsrsFlowLogs  :: !(Maybe [FlowLog])
-    , _dflsrsStatus    :: !Int
+    { _dflsrsNextToken      :: !(Maybe Text)
+    , _dflsrsFlowLogs       :: !(Maybe [FlowLog])
+    , _dflsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeFlowLogsResponse' with the minimum fields required to make a request.
@@ -154,15 +154,15 @@ data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
 --
 -- * 'dflsrsFlowLogs'
 --
--- * 'dflsrsStatus'
+-- * 'dflsrsResponseStatus'
 describeFlowLogsResponse
-    :: Int -- ^ 'dflsrsStatus'
+    :: Int -- ^ 'dflsrsResponseStatus'
     -> DescribeFlowLogsResponse
-describeFlowLogsResponse pStatus_ =
+describeFlowLogsResponse pResponseStatus_ =
     DescribeFlowLogsResponse'
     { _dflsrsNextToken = Nothing
     , _dflsrsFlowLogs = Nothing
-    , _dflsrsStatus = pStatus_
+    , _dflsrsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
@@ -175,5 +175,5 @@ dflsrsFlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
 dflsrsFlowLogs = lens _dflsrsFlowLogs (\ s a -> s{_dflsrsFlowLogs = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dflsrsStatus :: Lens' DescribeFlowLogsResponse Int
-dflsrsStatus = lens _dflsrsStatus (\ s a -> s{_dflsrsStatus = a});
+dflsrsResponseStatus :: Lens' DescribeFlowLogsResponse Int
+dflsrsResponseStatus = lens _dflsrsResponseStatus (\ s a -> s{_dflsrsResponseStatus = a});

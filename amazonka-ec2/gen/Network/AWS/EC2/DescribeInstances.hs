@@ -51,7 +51,7 @@ module Network.AWS.EC2.DescribeInstances
     -- * Response Lenses
     , dirsNextToken
     , dirsReservations
-    , dirsStatus
+    , dirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -407,9 +407,9 @@ instance ToQuery DescribeInstances where
 
 -- | /See:/ 'describeInstancesResponse' smart constructor.
 data DescribeInstancesResponse = DescribeInstancesResponse'
-    { _dirsNextToken    :: !(Maybe Text)
-    , _dirsReservations :: !(Maybe [Reservation])
-    , _dirsStatus       :: !Int
+    { _dirsNextToken      :: !(Maybe Text)
+    , _dirsReservations   :: !(Maybe [Reservation])
+    , _dirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeInstancesResponse' with the minimum fields required to make a request.
@@ -420,15 +420,15 @@ data DescribeInstancesResponse = DescribeInstancesResponse'
 --
 -- * 'dirsReservations'
 --
--- * 'dirsStatus'
+-- * 'dirsResponseStatus'
 describeInstancesResponse
-    :: Int -- ^ 'dirsStatus'
+    :: Int -- ^ 'dirsResponseStatus'
     -> DescribeInstancesResponse
-describeInstancesResponse pStatus_ =
+describeInstancesResponse pResponseStatus_ =
     DescribeInstancesResponse'
     { _dirsNextToken = Nothing
     , _dirsReservations = Nothing
-    , _dirsStatus = pStatus_
+    , _dirsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
@@ -441,5 +441,5 @@ dirsReservations :: Lens' DescribeInstancesResponse [Reservation]
 dirsReservations = lens _dirsReservations (\ s a -> s{_dirsReservations = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dirsStatus :: Lens' DescribeInstancesResponse Int
-dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});
+dirsResponseStatus :: Lens' DescribeInstancesResponse Int
+dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});

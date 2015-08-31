@@ -36,7 +36,7 @@ module Network.AWS.CloudSearch.IndexDocuments
     , IndexDocumentsResponse
     -- * Response Lenses
     , idrsFieldNames
-    , idrsStatus
+    , idrsResponseStatus
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -99,8 +99,8 @@ instance ToQuery IndexDocuments where
 --
 -- /See:/ 'indexDocumentsResponse' smart constructor.
 data IndexDocumentsResponse = IndexDocumentsResponse'
-    { _idrsFieldNames :: !(Maybe [Text])
-    , _idrsStatus     :: !Int
+    { _idrsFieldNames     :: !(Maybe [Text])
+    , _idrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'IndexDocumentsResponse' with the minimum fields required to make a request.
@@ -109,14 +109,14 @@ data IndexDocumentsResponse = IndexDocumentsResponse'
 --
 -- * 'idrsFieldNames'
 --
--- * 'idrsStatus'
+-- * 'idrsResponseStatus'
 indexDocumentsResponse
-    :: Int -- ^ 'idrsStatus'
+    :: Int -- ^ 'idrsResponseStatus'
     -> IndexDocumentsResponse
-indexDocumentsResponse pStatus_ =
+indexDocumentsResponse pResponseStatus_ =
     IndexDocumentsResponse'
     { _idrsFieldNames = Nothing
-    , _idrsStatus = pStatus_
+    , _idrsResponseStatus = pResponseStatus_
     }
 
 -- | The names of the fields that are currently being indexed.
@@ -124,5 +124,5 @@ idrsFieldNames :: Lens' IndexDocumentsResponse [Text]
 idrsFieldNames = lens _idrsFieldNames (\ s a -> s{_idrsFieldNames = a}) . _Default . _Coerce;
 
 -- | The response status code.
-idrsStatus :: Lens' IndexDocumentsResponse Int
-idrsStatus = lens _idrsStatus (\ s a -> s{_idrsStatus = a});
+idrsResponseStatus :: Lens' IndexDocumentsResponse Int
+idrsResponseStatus = lens _idrsResponseStatus (\ s a -> s{_idrsResponseStatus = a});

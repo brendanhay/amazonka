@@ -42,7 +42,7 @@ module Network.AWS.EC2.DescribeClassicLinkInstances
     -- * Response Lenses
     , dclirsNextToken
     , dclirsInstances
-    , dclirsStatus
+    , dclirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -173,9 +173,9 @@ instance ToQuery DescribeClassicLinkInstances where
 
 -- | /See:/ 'describeClassicLinkInstancesResponse' smart constructor.
 data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'
-    { _dclirsNextToken :: !(Maybe Text)
-    , _dclirsInstances :: !(Maybe [ClassicLinkInstance])
-    , _dclirsStatus    :: !Int
+    { _dclirsNextToken      :: !(Maybe Text)
+    , _dclirsInstances      :: !(Maybe [ClassicLinkInstance])
+    , _dclirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClassicLinkInstancesResponse' with the minimum fields required to make a request.
@@ -186,15 +186,15 @@ data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse
 --
 -- * 'dclirsInstances'
 --
--- * 'dclirsStatus'
+-- * 'dclirsResponseStatus'
 describeClassicLinkInstancesResponse
-    :: Int -- ^ 'dclirsStatus'
+    :: Int -- ^ 'dclirsResponseStatus'
     -> DescribeClassicLinkInstancesResponse
-describeClassicLinkInstancesResponse pStatus_ =
+describeClassicLinkInstancesResponse pResponseStatus_ =
     DescribeClassicLinkInstancesResponse'
     { _dclirsNextToken = Nothing
     , _dclirsInstances = Nothing
-    , _dclirsStatus = pStatus_
+    , _dclirsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
@@ -207,5 +207,5 @@ dclirsInstances :: Lens' DescribeClassicLinkInstancesResponse [ClassicLinkInstan
 dclirsInstances = lens _dclirsInstances (\ s a -> s{_dclirsInstances = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dclirsStatus :: Lens' DescribeClassicLinkInstancesResponse Int
-dclirsStatus = lens _dclirsStatus (\ s a -> s{_dclirsStatus = a});
+dclirsResponseStatus :: Lens' DescribeClassicLinkInstancesResponse Int
+dclirsResponseStatus = lens _dclirsResponseStatus (\ s a -> s{_dclirsResponseStatus = a});

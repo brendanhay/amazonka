@@ -42,7 +42,7 @@ module Network.AWS.EC2.DescribeMovingAddresses
     -- * Response Lenses
     , dmarsMovingAddressStatuses
     , dmarsNextToken
-    , dmarsStatus
+    , dmarsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -151,7 +151,7 @@ instance ToQuery DescribeMovingAddresses where
 data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
     { _dmarsMovingAddressStatuses :: !(Maybe [MovingAddressStatus])
     , _dmarsNextToken             :: !(Maybe Text)
-    , _dmarsStatus                :: !Int
+    , _dmarsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeMovingAddressesResponse' with the minimum fields required to make a request.
@@ -162,15 +162,15 @@ data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
 --
 -- * 'dmarsNextToken'
 --
--- * 'dmarsStatus'
+-- * 'dmarsResponseStatus'
 describeMovingAddressesResponse
-    :: Int -- ^ 'dmarsStatus'
+    :: Int -- ^ 'dmarsResponseStatus'
     -> DescribeMovingAddressesResponse
-describeMovingAddressesResponse pStatus_ =
+describeMovingAddressesResponse pResponseStatus_ =
     DescribeMovingAddressesResponse'
     { _dmarsMovingAddressStatuses = Nothing
     , _dmarsNextToken = Nothing
-    , _dmarsStatus = pStatus_
+    , _dmarsResponseStatus = pResponseStatus_
     }
 
 -- | The status for each Elastic IP address.
@@ -183,5 +183,5 @@ dmarsNextToken :: Lens' DescribeMovingAddressesResponse (Maybe Text)
 dmarsNextToken = lens _dmarsNextToken (\ s a -> s{_dmarsNextToken = a});
 
 -- | The response status code.
-dmarsStatus :: Lens' DescribeMovingAddressesResponse Int
-dmarsStatus = lens _dmarsStatus (\ s a -> s{_dmarsStatus = a});
+dmarsResponseStatus :: Lens' DescribeMovingAddressesResponse Int
+dmarsResponseStatus = lens _dmarsResponseStatus (\ s a -> s{_dmarsResponseStatus = a});

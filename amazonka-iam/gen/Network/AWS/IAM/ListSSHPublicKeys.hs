@@ -49,7 +49,7 @@ module Network.AWS.IAM.ListSSHPublicKeys
     , lspkrsSSHPublicKeys
     , lspkrsMarker
     , lspkrsIsTruncated
-    , lspkrsStatus
+    , lspkrsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -135,10 +135,10 @@ instance ToQuery ListSSHPublicKeys where
 --
 -- /See:/ 'listSSHPublicKeysResponse' smart constructor.
 data ListSSHPublicKeysResponse = ListSSHPublicKeysResponse'
-    { _lspkrsSSHPublicKeys :: !(Maybe [SSHPublicKeyMetadata])
-    , _lspkrsMarker        :: !(Maybe Text)
-    , _lspkrsIsTruncated   :: !(Maybe Bool)
-    , _lspkrsStatus        :: !Int
+    { _lspkrsSSHPublicKeys  :: !(Maybe [SSHPublicKeyMetadata])
+    , _lspkrsMarker         :: !(Maybe Text)
+    , _lspkrsIsTruncated    :: !(Maybe Bool)
+    , _lspkrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListSSHPublicKeysResponse' with the minimum fields required to make a request.
@@ -151,16 +151,16 @@ data ListSSHPublicKeysResponse = ListSSHPublicKeysResponse'
 --
 -- * 'lspkrsIsTruncated'
 --
--- * 'lspkrsStatus'
+-- * 'lspkrsResponseStatus'
 listSSHPublicKeysResponse
-    :: Int -- ^ 'lspkrsStatus'
+    :: Int -- ^ 'lspkrsResponseStatus'
     -> ListSSHPublicKeysResponse
-listSSHPublicKeysResponse pStatus_ =
+listSSHPublicKeysResponse pResponseStatus_ =
     ListSSHPublicKeysResponse'
     { _lspkrsSSHPublicKeys = Nothing
     , _lspkrsMarker = Nothing
     , _lspkrsIsTruncated = Nothing
-    , _lspkrsStatus = pStatus_
+    , _lspkrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of SSH public keys.
@@ -180,5 +180,5 @@ lspkrsIsTruncated :: Lens' ListSSHPublicKeysResponse (Maybe Bool)
 lspkrsIsTruncated = lens _lspkrsIsTruncated (\ s a -> s{_lspkrsIsTruncated = a});
 
 -- | The response status code.
-lspkrsStatus :: Lens' ListSSHPublicKeysResponse Int
-lspkrsStatus = lens _lspkrsStatus (\ s a -> s{_lspkrsStatus = a});
+lspkrsResponseStatus :: Lens' ListSSHPublicKeysResponse Int
+lspkrsResponseStatus = lens _lspkrsResponseStatus (\ s a -> s{_lspkrsResponseStatus = a});

@@ -83,7 +83,7 @@ module Network.AWS.Route53.ListResourceRecordSets
     , lrrsrsNextRecordType
     , lrrsrsNextRecordName
     , lrrsrsNextRecordIdentifier
-    , lrrsrsStatus
+    , lrrsrsResponseStatus
     , lrrsrsResourceRecordSets
     , lrrsrsIsTruncated
     , lrrsrsMaxItems
@@ -227,7 +227,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
     { _lrrsrsNextRecordType       :: !(Maybe RecordType)
     , _lrrsrsNextRecordName       :: !(Maybe Text)
     , _lrrsrsNextRecordIdentifier :: !(Maybe Text)
-    , _lrrsrsStatus               :: !Int
+    , _lrrsrsResponseStatus       :: !Int
     , _lrrsrsResourceRecordSets   :: ![ResourceRecordSet]
     , _lrrsrsIsTruncated          :: !Bool
     , _lrrsrsMaxItems             :: !Text
@@ -243,7 +243,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
 --
 -- * 'lrrsrsNextRecordIdentifier'
 --
--- * 'lrrsrsStatus'
+-- * 'lrrsrsResponseStatus'
 --
 -- * 'lrrsrsResourceRecordSets'
 --
@@ -251,16 +251,16 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
 --
 -- * 'lrrsrsMaxItems'
 listResourceRecordSetsResponse
-    :: Int -- ^ 'lrrsrsStatus'
+    :: Int -- ^ 'lrrsrsResponseStatus'
     -> Bool -- ^ 'lrrsrsIsTruncated'
     -> Text -- ^ 'lrrsrsMaxItems'
     -> ListResourceRecordSetsResponse
-listResourceRecordSetsResponse pStatus_ pIsTruncated_ pMaxItems_ =
+listResourceRecordSetsResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
     ListResourceRecordSetsResponse'
     { _lrrsrsNextRecordType = Nothing
     , _lrrsrsNextRecordName = Nothing
     , _lrrsrsNextRecordIdentifier = Nothing
-    , _lrrsrsStatus = pStatus_
+    , _lrrsrsResponseStatus = pResponseStatus_
     , _lrrsrsResourceRecordSets = mempty
     , _lrrsrsIsTruncated = pIsTruncated_
     , _lrrsrsMaxItems = pMaxItems_
@@ -285,8 +285,8 @@ lrrsrsNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrsNextRecordIdentifier = lens _lrrsrsNextRecordIdentifier (\ s a -> s{_lrrsrsNextRecordIdentifier = a});
 
 -- | The response status code.
-lrrsrsStatus :: Lens' ListResourceRecordSetsResponse Int
-lrrsrsStatus = lens _lrrsrsStatus (\ s a -> s{_lrrsrsStatus = a});
+lrrsrsResponseStatus :: Lens' ListResourceRecordSetsResponse Int
+lrrsrsResponseStatus = lens _lrrsrsResponseStatus (\ s a -> s{_lrrsrsResponseStatus = a});
 
 -- | A complex type that contains information about the resource record sets
 -- that are returned by the request.

@@ -39,7 +39,7 @@ module Network.AWS.DirectoryService.CreateComputer
     , CreateComputerResponse
     -- * Response Lenses
     , ccrsComputer
-    , ccrsStatus
+    , ccrsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -149,8 +149,8 @@ instance ToQuery CreateComputer where
 --
 -- /See:/ 'createComputerResponse' smart constructor.
 data CreateComputerResponse = CreateComputerResponse'
-    { _ccrsComputer :: !(Maybe Computer)
-    , _ccrsStatus   :: !Int
+    { _ccrsComputer       :: !(Maybe Computer)
+    , _ccrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateComputerResponse' with the minimum fields required to make a request.
@@ -159,14 +159,14 @@ data CreateComputerResponse = CreateComputerResponse'
 --
 -- * 'ccrsComputer'
 --
--- * 'ccrsStatus'
+-- * 'ccrsResponseStatus'
 createComputerResponse
-    :: Int -- ^ 'ccrsStatus'
+    :: Int -- ^ 'ccrsResponseStatus'
     -> CreateComputerResponse
-createComputerResponse pStatus_ =
+createComputerResponse pResponseStatus_ =
     CreateComputerResponse'
     { _ccrsComputer = Nothing
-    , _ccrsStatus = pStatus_
+    , _ccrsResponseStatus = pResponseStatus_
     }
 
 -- | A Computer object the represents the computer account.
@@ -174,5 +174,5 @@ ccrsComputer :: Lens' CreateComputerResponse (Maybe Computer)
 ccrsComputer = lens _ccrsComputer (\ s a -> s{_ccrsComputer = a});
 
 -- | The response status code.
-ccrsStatus :: Lens' CreateComputerResponse Int
-ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});
+ccrsResponseStatus :: Lens' CreateComputerResponse Int
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});

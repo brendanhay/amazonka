@@ -68,7 +68,7 @@ module Network.AWS.S3.CreateMultipartUpload
     , cmursSSEKMSKeyId
     , cmursUploadId
     , cmursServerSideEncryption
-    , cmursStatus
+    , cmursResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -354,7 +354,7 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
     , _cmursSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _cmursUploadId             :: !(Maybe Text)
     , _cmursServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _cmursStatus               :: !Int
+    , _cmursResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateMultipartUploadResponse' with the minimum fields required to make a request.
@@ -377,11 +377,11 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
 --
 -- * 'cmursServerSideEncryption'
 --
--- * 'cmursStatus'
+-- * 'cmursResponseStatus'
 createMultipartUploadResponse
-    :: Int -- ^ 'cmursStatus'
+    :: Int -- ^ 'cmursResponseStatus'
     -> CreateMultipartUploadResponse
-createMultipartUploadResponse pStatus_ =
+createMultipartUploadResponse pResponseStatus_ =
     CreateMultipartUploadResponse'
     { _cmursRequestCharged = Nothing
     , _cmursBucket = Nothing
@@ -391,7 +391,7 @@ createMultipartUploadResponse pStatus_ =
     , _cmursSSEKMSKeyId = Nothing
     , _cmursUploadId = Nothing
     , _cmursServerSideEncryption = Nothing
-    , _cmursStatus = pStatus_
+    , _cmursResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -433,5 +433,5 @@ cmursServerSideEncryption :: Lens' CreateMultipartUploadResponse (Maybe ServerSi
 cmursServerSideEncryption = lens _cmursServerSideEncryption (\ s a -> s{_cmursServerSideEncryption = a});
 
 -- | The response status code.
-cmursStatus :: Lens' CreateMultipartUploadResponse Int
-cmursStatus = lens _cmursStatus (\ s a -> s{_cmursStatus = a});
+cmursResponseStatus :: Lens' CreateMultipartUploadResponse Int
+cmursResponseStatus = lens _cmursResponseStatus (\ s a -> s{_cmursResponseStatus = a});

@@ -42,7 +42,7 @@ module Network.AWS.MachineLearning.DeleteDataSource
     , DeleteDataSourceResponse
     -- * Response Lenses
     , ddsrsDataSourceId
-    , ddsrsStatus
+    , ddsrsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -107,8 +107,8 @@ instance ToQuery DeleteDataSource where
 --
 -- /See:/ 'deleteDataSourceResponse' smart constructor.
 data DeleteDataSourceResponse = DeleteDataSourceResponse'
-    { _ddsrsDataSourceId :: !(Maybe Text)
-    , _ddsrsStatus       :: !Int
+    { _ddsrsDataSourceId   :: !(Maybe Text)
+    , _ddsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDataSourceResponse' with the minimum fields required to make a request.
@@ -117,14 +117,14 @@ data DeleteDataSourceResponse = DeleteDataSourceResponse'
 --
 -- * 'ddsrsDataSourceId'
 --
--- * 'ddsrsStatus'
+-- * 'ddsrsResponseStatus'
 deleteDataSourceResponse
-    :: Int -- ^ 'ddsrsStatus'
+    :: Int -- ^ 'ddsrsResponseStatus'
     -> DeleteDataSourceResponse
-deleteDataSourceResponse pStatus_ =
+deleteDataSourceResponse pResponseStatus_ =
     DeleteDataSourceResponse'
     { _ddsrsDataSourceId = Nothing
-    , _ddsrsStatus = pStatus_
+    , _ddsrsResponseStatus = pResponseStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the 'DataSource'. This value
@@ -133,5 +133,5 @@ ddsrsDataSourceId :: Lens' DeleteDataSourceResponse (Maybe Text)
 ddsrsDataSourceId = lens _ddsrsDataSourceId (\ s a -> s{_ddsrsDataSourceId = a});
 
 -- | The response status code.
-ddsrsStatus :: Lens' DeleteDataSourceResponse Int
-ddsrsStatus = lens _ddsrsStatus (\ s a -> s{_ddsrsStatus = a});
+ddsrsResponseStatus :: Lens' DeleteDataSourceResponse Int
+ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus = a});

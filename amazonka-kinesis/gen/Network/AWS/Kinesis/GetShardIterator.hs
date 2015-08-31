@@ -77,7 +77,7 @@ module Network.AWS.Kinesis.GetShardIterator
     , GetShardIteratorResponse
     -- * Response Lenses
     , gsirsShardIterator
-    , gsirsStatus
+    , gsirsResponseStatus
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -187,8 +187,8 @@ instance ToQuery GetShardIterator where
 --
 -- /See:/ 'getShardIteratorResponse' smart constructor.
 data GetShardIteratorResponse = GetShardIteratorResponse'
-    { _gsirsShardIterator :: !(Maybe Text)
-    , _gsirsStatus        :: !Int
+    { _gsirsShardIterator  :: !(Maybe Text)
+    , _gsirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetShardIteratorResponse' with the minimum fields required to make a request.
@@ -197,14 +197,14 @@ data GetShardIteratorResponse = GetShardIteratorResponse'
 --
 -- * 'gsirsShardIterator'
 --
--- * 'gsirsStatus'
+-- * 'gsirsResponseStatus'
 getShardIteratorResponse
-    :: Int -- ^ 'gsirsStatus'
+    :: Int -- ^ 'gsirsResponseStatus'
     -> GetShardIteratorResponse
-getShardIteratorResponse pStatus_ =
+getShardIteratorResponse pResponseStatus_ =
     GetShardIteratorResponse'
     { _gsirsShardIterator = Nothing
-    , _gsirsStatus = pStatus_
+    , _gsirsResponseStatus = pResponseStatus_
     }
 
 -- | The position in the shard from which to start reading data records
@@ -214,5 +214,5 @@ gsirsShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
 gsirsShardIterator = lens _gsirsShardIterator (\ s a -> s{_gsirsShardIterator = a});
 
 -- | The response status code.
-gsirsStatus :: Lens' GetShardIteratorResponse Int
-gsirsStatus = lens _gsirsStatus (\ s a -> s{_gsirsStatus = a});
+gsirsResponseStatus :: Lens' GetShardIteratorResponse Int
+gsirsResponseStatus = lens _gsirsResponseStatus (\ s a -> s{_gsirsResponseStatus = a});

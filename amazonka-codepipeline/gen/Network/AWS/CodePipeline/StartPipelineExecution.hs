@@ -35,7 +35,7 @@ module Network.AWS.CodePipeline.StartPipelineExecution
     , StartPipelineExecutionResponse
     -- * Response Lenses
     , spersPipelineExecutionId
-    , spersStatus
+    , spersResponseStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -104,7 +104,7 @@ instance ToQuery StartPipelineExecution where
 -- /See:/ 'startPipelineExecutionResponse' smart constructor.
 data StartPipelineExecutionResponse = StartPipelineExecutionResponse'
     { _spersPipelineExecutionId :: !(Maybe Text)
-    , _spersStatus              :: !Int
+    , _spersResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StartPipelineExecutionResponse' with the minimum fields required to make a request.
@@ -113,14 +113,14 @@ data StartPipelineExecutionResponse = StartPipelineExecutionResponse'
 --
 -- * 'spersPipelineExecutionId'
 --
--- * 'spersStatus'
+-- * 'spersResponseStatus'
 startPipelineExecutionResponse
-    :: Int -- ^ 'spersStatus'
+    :: Int -- ^ 'spersResponseStatus'
     -> StartPipelineExecutionResponse
-startPipelineExecutionResponse pStatus_ =
+startPipelineExecutionResponse pResponseStatus_ =
     StartPipelineExecutionResponse'
     { _spersPipelineExecutionId = Nothing
-    , _spersStatus = pStatus_
+    , _spersResponseStatus = pResponseStatus_
     }
 
 -- | The unique system-generated ID of the pipeline that was started.
@@ -128,5 +128,5 @@ spersPipelineExecutionId :: Lens' StartPipelineExecutionResponse (Maybe Text)
 spersPipelineExecutionId = lens _spersPipelineExecutionId (\ s a -> s{_spersPipelineExecutionId = a});
 
 -- | The response status code.
-spersStatus :: Lens' StartPipelineExecutionResponse Int
-spersStatus = lens _spersStatus (\ s a -> s{_spersStatus = a});
+spersResponseStatus :: Lens' StartPipelineExecutionResponse Int
+spersResponseStatus = lens _spersResponseStatus (\ s a -> s{_spersResponseStatus = a});

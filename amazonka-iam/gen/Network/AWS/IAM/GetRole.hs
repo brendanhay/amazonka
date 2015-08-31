@@ -38,7 +38,7 @@ module Network.AWS.IAM.GetRole
     , getRoleResponse
     , GetRoleResponse
     -- * Response Lenses
-    , grrsStatus
+    , grrsResponseStatus
     , grrsRole
     ) where
 
@@ -96,30 +96,30 @@ instance ToQuery GetRole where
 --
 -- /See:/ 'getRoleResponse' smart constructor.
 data GetRoleResponse = GetRoleResponse'
-    { _grrsStatus :: !Int
-    , _grrsRole   :: !Role
+    { _grrsResponseStatus :: !Int
+    , _grrsRole           :: !Role
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetRoleResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grrsStatus'
+-- * 'grrsResponseStatus'
 --
 -- * 'grrsRole'
 getRoleResponse
-    :: Int -- ^ 'grrsStatus'
+    :: Int -- ^ 'grrsResponseStatus'
     -> Role -- ^ 'grrsRole'
     -> GetRoleResponse
-getRoleResponse pStatus_ pRole_ =
+getRoleResponse pResponseStatus_ pRole_ =
     GetRoleResponse'
-    { _grrsStatus = pStatus_
+    { _grrsResponseStatus = pResponseStatus_
     , _grrsRole = pRole_
     }
 
 -- | The response status code.
-grrsStatus :: Lens' GetRoleResponse Int
-grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});
+grrsResponseStatus :: Lens' GetRoleResponse Int
+grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 
 -- | Information about the role.
 grrsRole :: Lens' GetRoleResponse Role

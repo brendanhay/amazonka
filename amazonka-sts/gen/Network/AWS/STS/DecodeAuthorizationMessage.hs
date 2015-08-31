@@ -62,7 +62,7 @@ module Network.AWS.STS.DecodeAuthorizationMessage
     , DecodeAuthorizationMessageResponse
     -- * Response Lenses
     , damrsDecodedMessage
-    , damrsStatus
+    , damrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -125,7 +125,7 @@ instance ToQuery DecodeAuthorizationMessage where
 -- /See:/ 'decodeAuthorizationMessageResponse' smart constructor.
 data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'
     { _damrsDecodedMessage :: !(Maybe Text)
-    , _damrsStatus         :: !Int
+    , _damrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DecodeAuthorizationMessageResponse' with the minimum fields required to make a request.
@@ -134,14 +134,14 @@ data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'
 --
 -- * 'damrsDecodedMessage'
 --
--- * 'damrsStatus'
+-- * 'damrsResponseStatus'
 decodeAuthorizationMessageResponse
-    :: Int -- ^ 'damrsStatus'
+    :: Int -- ^ 'damrsResponseStatus'
     -> DecodeAuthorizationMessageResponse
-decodeAuthorizationMessageResponse pStatus_ =
+decodeAuthorizationMessageResponse pResponseStatus_ =
     DecodeAuthorizationMessageResponse'
     { _damrsDecodedMessage = Nothing
-    , _damrsStatus = pStatus_
+    , _damrsResponseStatus = pResponseStatus_
     }
 
 -- | An XML document that contains the decoded message. For more information,
@@ -150,5 +150,5 @@ damrsDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
 damrsDecodedMessage = lens _damrsDecodedMessage (\ s a -> s{_damrsDecodedMessage = a});
 
 -- | The response status code.
-damrsStatus :: Lens' DecodeAuthorizationMessageResponse Int
-damrsStatus = lens _damrsStatus (\ s a -> s{_damrsStatus = a});
+damrsResponseStatus :: Lens' DecodeAuthorizationMessageResponse Int
+damrsResponseStatus = lens _damrsResponseStatus (\ s a -> s{_damrsResponseStatus = a});

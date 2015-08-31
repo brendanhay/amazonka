@@ -38,7 +38,7 @@ module Network.AWS.SSM.CreateDocument
     , CreateDocumentResponse
     -- * Response Lenses
     , cdrsDocumentDescription
-    , cdrsStatus
+    , cdrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -115,7 +115,7 @@ instance ToQuery CreateDocument where
 -- | /See:/ 'createDocumentResponse' smart constructor.
 data CreateDocumentResponse = CreateDocumentResponse'
     { _cdrsDocumentDescription :: !(Maybe DocumentDescription)
-    , _cdrsStatus              :: !Int
+    , _cdrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDocumentResponse' with the minimum fields required to make a request.
@@ -124,14 +124,14 @@ data CreateDocumentResponse = CreateDocumentResponse'
 --
 -- * 'cdrsDocumentDescription'
 --
--- * 'cdrsStatus'
+-- * 'cdrsResponseStatus'
 createDocumentResponse
-    :: Int -- ^ 'cdrsStatus'
+    :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDocumentResponse
-createDocumentResponse pStatus_ =
+createDocumentResponse pResponseStatus_ =
     CreateDocumentResponse'
     { _cdrsDocumentDescription = Nothing
-    , _cdrsStatus = pStatus_
+    , _cdrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the configuration document.
@@ -139,5 +139,5 @@ cdrsDocumentDescription :: Lens' CreateDocumentResponse (Maybe DocumentDescripti
 cdrsDocumentDescription = lens _cdrsDocumentDescription (\ s a -> s{_cdrsDocumentDescription = a});
 
 -- | The response status code.
-cdrsStatus :: Lens' CreateDocumentResponse Int
-cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});
+cdrsResponseStatus :: Lens' CreateDocumentResponse Int
+cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});

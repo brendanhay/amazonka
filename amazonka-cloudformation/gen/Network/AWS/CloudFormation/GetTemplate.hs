@@ -40,7 +40,7 @@ module Network.AWS.CloudFormation.GetTemplate
     , GetTemplateResponse
     -- * Response Lenses
     , gtrsTemplateBody
-    , gtrsStatus
+    , gtrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -106,8 +106,8 @@ instance ToQuery GetTemplate where
 --
 -- /See:/ 'getTemplateResponse' smart constructor.
 data GetTemplateResponse = GetTemplateResponse'
-    { _gtrsTemplateBody :: !(Maybe Text)
-    , _gtrsStatus       :: !Int
+    { _gtrsTemplateBody   :: !(Maybe Text)
+    , _gtrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetTemplateResponse' with the minimum fields required to make a request.
@@ -116,14 +116,14 @@ data GetTemplateResponse = GetTemplateResponse'
 --
 -- * 'gtrsTemplateBody'
 --
--- * 'gtrsStatus'
+-- * 'gtrsResponseStatus'
 getTemplateResponse
-    :: Int -- ^ 'gtrsStatus'
+    :: Int -- ^ 'gtrsResponseStatus'
     -> GetTemplateResponse
-getTemplateResponse pStatus_ =
+getTemplateResponse pResponseStatus_ =
     GetTemplateResponse'
     { _gtrsTemplateBody = Nothing
-    , _gtrsStatus = pStatus_
+    , _gtrsResponseStatus = pResponseStatus_
     }
 
 -- | Structure containing the template body. (For more information, go to
@@ -133,5 +133,5 @@ gtrsTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
 gtrsTemplateBody = lens _gtrsTemplateBody (\ s a -> s{_gtrsTemplateBody = a});
 
 -- | The response status code.
-gtrsStatus :: Lens' GetTemplateResponse Int
-gtrsStatus = lens _gtrsStatus (\ s a -> s{_gtrsStatus = a});
+gtrsResponseStatus :: Lens' GetTemplateResponse Int
+gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a});

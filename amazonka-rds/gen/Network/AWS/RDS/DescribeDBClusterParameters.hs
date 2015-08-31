@@ -44,7 +44,7 @@ module Network.AWS.RDS.DescribeDBClusterParameters
     -- * Response Lenses
     , ddcprsMarker
     , ddcprsParameters
-    , ddcprsStatus
+    , ddcprsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -166,9 +166,9 @@ instance ToQuery DescribeDBClusterParameters where
 --
 -- /See:/ 'describeDBClusterParametersResponse' smart constructor.
 data DescribeDBClusterParametersResponse = DescribeDBClusterParametersResponse'
-    { _ddcprsMarker     :: !(Maybe Text)
-    , _ddcprsParameters :: !(Maybe [Parameter])
-    , _ddcprsStatus     :: !Int
+    { _ddcprsMarker         :: !(Maybe Text)
+    , _ddcprsParameters     :: !(Maybe [Parameter])
+    , _ddcprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBClusterParametersResponse' with the minimum fields required to make a request.
@@ -179,15 +179,15 @@ data DescribeDBClusterParametersResponse = DescribeDBClusterParametersResponse'
 --
 -- * 'ddcprsParameters'
 --
--- * 'ddcprsStatus'
+-- * 'ddcprsResponseStatus'
 describeDBClusterParametersResponse
-    :: Int -- ^ 'ddcprsStatus'
+    :: Int -- ^ 'ddcprsResponseStatus'
     -> DescribeDBClusterParametersResponse
-describeDBClusterParametersResponse pStatus_ =
+describeDBClusterParametersResponse pResponseStatus_ =
     DescribeDBClusterParametersResponse'
     { _ddcprsMarker = Nothing
     , _ddcprsParameters = Nothing
-    , _ddcprsStatus = pStatus_
+    , _ddcprsResponseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous
@@ -202,5 +202,5 @@ ddcprsParameters :: Lens' DescribeDBClusterParametersResponse [Parameter]
 ddcprsParameters = lens _ddcprsParameters (\ s a -> s{_ddcprsParameters = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddcprsStatus :: Lens' DescribeDBClusterParametersResponse Int
-ddcprsStatus = lens _ddcprsStatus (\ s a -> s{_ddcprsStatus = a});
+ddcprsResponseStatus :: Lens' DescribeDBClusterParametersResponse Int
+ddcprsResponseStatus = lens _ddcprsResponseStatus (\ s a -> s{_ddcprsResponseStatus = a});

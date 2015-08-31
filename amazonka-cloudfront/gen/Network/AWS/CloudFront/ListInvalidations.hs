@@ -35,7 +35,7 @@ module Network.AWS.CloudFront.ListInvalidations
     , listInvalidationsResponse
     , ListInvalidationsResponse
     -- * Response Lenses
-    , lirsStatus
+    , lirsResponseStatus
     , lirsInvalidationList
     ) where
 
@@ -119,7 +119,7 @@ instance ToQuery ListInvalidations where
 --
 -- /See:/ 'listInvalidationsResponse' smart constructor.
 data ListInvalidationsResponse = ListInvalidationsResponse'
-    { _lirsStatus           :: !Int
+    { _lirsResponseStatus   :: !Int
     , _lirsInvalidationList :: !InvalidationList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -127,22 +127,22 @@ data ListInvalidationsResponse = ListInvalidationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lirsStatus'
+-- * 'lirsResponseStatus'
 --
 -- * 'lirsInvalidationList'
 listInvalidationsResponse
-    :: Int -- ^ 'lirsStatus'
+    :: Int -- ^ 'lirsResponseStatus'
     -> InvalidationList -- ^ 'lirsInvalidationList'
     -> ListInvalidationsResponse
-listInvalidationsResponse pStatus_ pInvalidationList_ =
+listInvalidationsResponse pResponseStatus_ pInvalidationList_ =
     ListInvalidationsResponse'
-    { _lirsStatus = pStatus_
+    { _lirsResponseStatus = pResponseStatus_
     , _lirsInvalidationList = pInvalidationList_
     }
 
 -- | The response status code.
-lirsStatus :: Lens' ListInvalidationsResponse Int
-lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});
+lirsResponseStatus :: Lens' ListInvalidationsResponse Int
+lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
 
 -- | Information about invalidation batches.
 lirsInvalidationList :: Lens' ListInvalidationsResponse InvalidationList

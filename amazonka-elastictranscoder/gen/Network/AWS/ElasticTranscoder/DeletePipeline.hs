@@ -37,7 +37,7 @@ module Network.AWS.ElasticTranscoder.DeletePipeline
     , deletePipelineResponse
     , DeletePipelineResponse
     -- * Response Lenses
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -92,22 +92,22 @@ instance ToQuery DeletePipeline where
 --
 -- /See:/ 'deletePipelineResponse' smart constructor.
 newtype DeletePipelineResponse = DeletePipelineResponse'
-    { _drsStatus :: Int
+    { _drsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeletePipelineResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 deletePipelineResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DeletePipelineResponse
-deletePipelineResponse pStatus_ =
+deletePipelineResponse pResponseStatus_ =
     DeletePipelineResponse'
-    { _drsStatus = pStatus_
+    { _drsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-drsStatus :: Lens' DeletePipelineResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DeletePipelineResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

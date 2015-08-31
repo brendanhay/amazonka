@@ -53,7 +53,7 @@ module Network.AWS.ImportExport.GetStatus
     , gsrsLogKey
     , gsrsLocationMessage
     , gsrsProgressMessage
-    , gsrsStatus
+    , gsrsResponseStatus
     ) where
 
 import           Network.AWS.ImportExport.Types
@@ -154,7 +154,7 @@ data GetStatusResponse = GetStatusResponse'
     , _gsrsLogKey                :: !(Maybe Text)
     , _gsrsLocationMessage       :: !(Maybe Text)
     , _gsrsProgressMessage       :: !(Maybe Text)
-    , _gsrsStatus                :: !Int
+    , _gsrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetStatusResponse' with the minimum fields required to make a request.
@@ -193,11 +193,11 @@ data GetStatusResponse = GetStatusResponse'
 --
 -- * 'gsrsProgressMessage'
 --
--- * 'gsrsStatus'
+-- * 'gsrsResponseStatus'
 getStatusResponse
-    :: Int -- ^ 'gsrsStatus'
+    :: Int -- ^ 'gsrsResponseStatus'
     -> GetStatusResponse
-getStatusResponse pStatus_ =
+getStatusResponse pResponseStatus_ =
     GetStatusResponse'
     { _gsrsCarrier = Nothing
     , _gsrsTrackingNumber = Nothing
@@ -215,7 +215,7 @@ getStatusResponse pStatus_ =
     , _gsrsLogKey = Nothing
     , _gsrsLocationMessage = Nothing
     , _gsrsProgressMessage = Nothing
-    , _gsrsStatus = pStatus_
+    , _gsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -283,5 +283,5 @@ gsrsProgressMessage :: Lens' GetStatusResponse (Maybe Text)
 gsrsProgressMessage = lens _gsrsProgressMessage (\ s a -> s{_gsrsProgressMessage = a});
 
 -- | The response status code.
-gsrsStatus :: Lens' GetStatusResponse Int
-gsrsStatus = lens _gsrsStatus (\ s a -> s{_gsrsStatus = a});
+gsrsResponseStatus :: Lens' GetStatusResponse Int
+gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});

@@ -66,7 +66,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     , RestoreDBInstanceToPointInTimeResponse
     -- * Response Lenses
     , rditpitrsDBInstance
-    , rditpitrsStatus
+    , rditpitrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -455,8 +455,8 @@ instance ToQuery RestoreDBInstanceToPointInTime where
 
 -- | /See:/ 'restoreDBInstanceToPointInTimeResponse' smart constructor.
 data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'
-    { _rditpitrsDBInstance :: !(Maybe DBInstance)
-    , _rditpitrsStatus     :: !Int
+    { _rditpitrsDBInstance     :: !(Maybe DBInstance)
+    , _rditpitrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestoreDBInstanceToPointInTimeResponse' with the minimum fields required to make a request.
@@ -465,14 +465,14 @@ data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResp
 --
 -- * 'rditpitrsDBInstance'
 --
--- * 'rditpitrsStatus'
+-- * 'rditpitrsResponseStatus'
 restoreDBInstanceToPointInTimeResponse
-    :: Int -- ^ 'rditpitrsStatus'
+    :: Int -- ^ 'rditpitrsResponseStatus'
     -> RestoreDBInstanceToPointInTimeResponse
-restoreDBInstanceToPointInTimeResponse pStatus_ =
+restoreDBInstanceToPointInTimeResponse pResponseStatus_ =
     RestoreDBInstanceToPointInTimeResponse'
     { _rditpitrsDBInstance = Nothing
-    , _rditpitrsStatus = pStatus_
+    , _rditpitrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -480,5 +480,5 @@ rditpitrsDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBIns
 rditpitrsDBInstance = lens _rditpitrsDBInstance (\ s a -> s{_rditpitrsDBInstance = a});
 
 -- | The response status code.
-rditpitrsStatus :: Lens' RestoreDBInstanceToPointInTimeResponse Int
-rditpitrsStatus = lens _rditpitrsStatus (\ s a -> s{_rditpitrsStatus = a});
+rditpitrsResponseStatus :: Lens' RestoreDBInstanceToPointInTimeResponse Int
+rditpitrsResponseStatus = lens _rditpitrsResponseStatus (\ s a -> s{_rditpitrsResponseStatus = a});

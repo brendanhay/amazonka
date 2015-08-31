@@ -50,7 +50,7 @@ module Network.AWS.SNS.CreatePlatformApplication
     , CreatePlatformApplicationResponse
     -- * Response Lenses
     , cparsPlatformApplicationARN
-    , cparsStatus
+    , cparsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -137,7 +137,7 @@ instance ToQuery CreatePlatformApplication where
 -- /See:/ 'createPlatformApplicationResponse' smart constructor.
 data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
     { _cparsPlatformApplicationARN :: !(Maybe Text)
-    , _cparsStatus                 :: !Int
+    , _cparsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreatePlatformApplicationResponse' with the minimum fields required to make a request.
@@ -146,14 +146,14 @@ data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
 --
 -- * 'cparsPlatformApplicationARN'
 --
--- * 'cparsStatus'
+-- * 'cparsResponseStatus'
 createPlatformApplicationResponse
-    :: Int -- ^ 'cparsStatus'
+    :: Int -- ^ 'cparsResponseStatus'
     -> CreatePlatformApplicationResponse
-createPlatformApplicationResponse pStatus_ =
+createPlatformApplicationResponse pResponseStatus_ =
     CreatePlatformApplicationResponse'
     { _cparsPlatformApplicationARN = Nothing
-    , _cparsStatus = pStatus_
+    , _cparsResponseStatus = pResponseStatus_
     }
 
 -- | PlatformApplicationArn is returned.
@@ -161,5 +161,5 @@ cparsPlatformApplicationARN :: Lens' CreatePlatformApplicationResponse (Maybe Te
 cparsPlatformApplicationARN = lens _cparsPlatformApplicationARN (\ s a -> s{_cparsPlatformApplicationARN = a});
 
 -- | The response status code.
-cparsStatus :: Lens' CreatePlatformApplicationResponse Int
-cparsStatus = lens _cparsStatus (\ s a -> s{_cparsStatus = a});
+cparsResponseStatus :: Lens' CreatePlatformApplicationResponse Int
+cparsResponseStatus = lens _cparsResponseStatus (\ s a -> s{_cparsResponseStatus = a});

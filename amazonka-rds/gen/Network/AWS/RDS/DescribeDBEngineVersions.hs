@@ -44,7 +44,7 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     -- * Response Lenses
     , ddevrsMarker
     , ddevrsDBEngineVersions
-    , ddevrsStatus
+    , ddevrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -202,7 +202,7 @@ instance ToQuery DescribeDBEngineVersions where
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'
     { _ddevrsMarker           :: !(Maybe Text)
     , _ddevrsDBEngineVersions :: !(Maybe [DBEngineVersion])
-    , _ddevrsStatus           :: !Int
+    , _ddevrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBEngineVersionsResponse' with the minimum fields required to make a request.
@@ -213,15 +213,15 @@ data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'
 --
 -- * 'ddevrsDBEngineVersions'
 --
--- * 'ddevrsStatus'
+-- * 'ddevrsResponseStatus'
 describeDBEngineVersionsResponse
-    :: Int -- ^ 'ddevrsStatus'
+    :: Int -- ^ 'ddevrsResponseStatus'
     -> DescribeDBEngineVersionsResponse
-describeDBEngineVersionsResponse pStatus_ =
+describeDBEngineVersionsResponse pResponseStatus_ =
     DescribeDBEngineVersionsResponse'
     { _ddevrsMarker = Nothing
     , _ddevrsDBEngineVersions = Nothing
-    , _ddevrsStatus = pStatus_
+    , _ddevrsResponseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -235,5 +235,5 @@ ddevrsDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersio
 ddevrsDBEngineVersions = lens _ddevrsDBEngineVersions (\ s a -> s{_ddevrsDBEngineVersions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddevrsStatus :: Lens' DescribeDBEngineVersionsResponse Int
-ddevrsStatus = lens _ddevrsStatus (\ s a -> s{_ddevrsStatus = a});
+ddevrsResponseStatus :: Lens' DescribeDBEngineVersionsResponse Int
+ddevrsResponseStatus = lens _ddevrsResponseStatus (\ s a -> s{_ddevrsResponseStatus = a});

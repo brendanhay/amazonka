@@ -42,7 +42,7 @@ module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
     , DescribeEngineDefaultClusterParametersResponse
     -- * Response Lenses
     , dedcprsEngineDefaults
-    , dedcprsStatus
+    , dedcprsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -148,7 +148,7 @@ instance ToQuery
 -- | /See:/ 'describeEngineDefaultClusterParametersResponse' smart constructor.
 data DescribeEngineDefaultClusterParametersResponse = DescribeEngineDefaultClusterParametersResponse'
     { _dedcprsEngineDefaults :: !(Maybe EngineDefaults)
-    , _dedcprsStatus         :: !Int
+    , _dedcprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEngineDefaultClusterParametersResponse' with the minimum fields required to make a request.
@@ -157,14 +157,14 @@ data DescribeEngineDefaultClusterParametersResponse = DescribeEngineDefaultClust
 --
 -- * 'dedcprsEngineDefaults'
 --
--- * 'dedcprsStatus'
+-- * 'dedcprsResponseStatus'
 describeEngineDefaultClusterParametersResponse
-    :: Int -- ^ 'dedcprsStatus'
+    :: Int -- ^ 'dedcprsResponseStatus'
     -> DescribeEngineDefaultClusterParametersResponse
-describeEngineDefaultClusterParametersResponse pStatus_ =
+describeEngineDefaultClusterParametersResponse pResponseStatus_ =
     DescribeEngineDefaultClusterParametersResponse'
     { _dedcprsEngineDefaults = Nothing
-    , _dedcprsStatus = pStatus_
+    , _dedcprsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -172,5 +172,5 @@ dedcprsEngineDefaults :: Lens' DescribeEngineDefaultClusterParametersResponse (M
 dedcprsEngineDefaults = lens _dedcprsEngineDefaults (\ s a -> s{_dedcprsEngineDefaults = a});
 
 -- | The response status code.
-dedcprsStatus :: Lens' DescribeEngineDefaultClusterParametersResponse Int
-dedcprsStatus = lens _dedcprsStatus (\ s a -> s{_dedcprsStatus = a});
+dedcprsResponseStatus :: Lens' DescribeEngineDefaultClusterParametersResponse Int
+dedcprsResponseStatus = lens _dedcprsResponseStatus (\ s a -> s{_dedcprsResponseStatus = a});

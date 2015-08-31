@@ -57,7 +57,7 @@ module Network.AWS.DynamoDB.UpdateTable
     , UpdateTableResponse
     -- * Response Lenses
     , utrsTableDescription
-    , utrsStatus
+    , utrsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -183,7 +183,7 @@ instance ToQuery UpdateTable where
 -- /See:/ 'updateTableResponse' smart constructor.
 data UpdateTableResponse = UpdateTableResponse'
     { _utrsTableDescription :: !(Maybe TableDescription)
-    , _utrsStatus           :: !Int
+    , _utrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateTableResponse' with the minimum fields required to make a request.
@@ -192,14 +192,14 @@ data UpdateTableResponse = UpdateTableResponse'
 --
 -- * 'utrsTableDescription'
 --
--- * 'utrsStatus'
+-- * 'utrsResponseStatus'
 updateTableResponse
-    :: Int -- ^ 'utrsStatus'
+    :: Int -- ^ 'utrsResponseStatus'
     -> UpdateTableResponse
-updateTableResponse pStatus_ =
+updateTableResponse pResponseStatus_ =
     UpdateTableResponse'
     { _utrsTableDescription = Nothing
-    , _utrsStatus = pStatus_
+    , _utrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -207,5 +207,5 @@ utrsTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
 utrsTableDescription = lens _utrsTableDescription (\ s a -> s{_utrsTableDescription = a});
 
 -- | The response status code.
-utrsStatus :: Lens' UpdateTableResponse Int
-utrsStatus = lens _utrsStatus (\ s a -> s{_utrsStatus = a});
+utrsResponseStatus :: Lens' UpdateTableResponse Int
+utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a});

@@ -37,7 +37,7 @@ module Network.AWS.DataPipeline.CreatePipeline
     , createPipelineResponse
     , CreatePipelineResponse
     -- * Response Lenses
-    , cprsStatus
+    , cprsResponseStatus
     , cprsPipelineId
     ) where
 
@@ -148,30 +148,30 @@ instance ToQuery CreatePipeline where
 --
 -- /See:/ 'createPipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
-    { _cprsStatus     :: !Int
-    , _cprsPipelineId :: !Text
+    { _cprsResponseStatus :: !Int
+    , _cprsPipelineId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreatePipelineResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cprsStatus'
+-- * 'cprsResponseStatus'
 --
 -- * 'cprsPipelineId'
 createPipelineResponse
-    :: Int -- ^ 'cprsStatus'
+    :: Int -- ^ 'cprsResponseStatus'
     -> Text -- ^ 'cprsPipelineId'
     -> CreatePipelineResponse
-createPipelineResponse pStatus_ pPipelineId_ =
+createPipelineResponse pResponseStatus_ pPipelineId_ =
     CreatePipelineResponse'
-    { _cprsStatus = pStatus_
+    { _cprsResponseStatus = pResponseStatus_
     , _cprsPipelineId = pPipelineId_
     }
 
 -- | The response status code.
-cprsStatus :: Lens' CreatePipelineResponse Int
-cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});
+cprsResponseStatus :: Lens' CreatePipelineResponse Int
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. For
 -- example, 'df-06372391ZG65EXAMPLE'.

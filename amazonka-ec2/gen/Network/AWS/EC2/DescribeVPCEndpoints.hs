@@ -39,7 +39,7 @@ module Network.AWS.EC2.DescribeVPCEndpoints
     -- * Response Lenses
     , dvpcersNextToken
     , dvpcersVPCEndpoints
-    , dvpcersStatus
+    , dvpcersResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -154,9 +154,9 @@ instance ToQuery DescribeVPCEndpoints where
 
 -- | /See:/ 'describeVPCEndpointsResponse' smart constructor.
 data DescribeVPCEndpointsResponse = DescribeVPCEndpointsResponse'
-    { _dvpcersNextToken    :: !(Maybe Text)
-    , _dvpcersVPCEndpoints :: !(Maybe [VPCEndpoint])
-    , _dvpcersStatus       :: !Int
+    { _dvpcersNextToken      :: !(Maybe Text)
+    , _dvpcersVPCEndpoints   :: !(Maybe [VPCEndpoint])
+    , _dvpcersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVPCEndpointsResponse' with the minimum fields required to make a request.
@@ -167,15 +167,15 @@ data DescribeVPCEndpointsResponse = DescribeVPCEndpointsResponse'
 --
 -- * 'dvpcersVPCEndpoints'
 --
--- * 'dvpcersStatus'
+-- * 'dvpcersResponseStatus'
 describeVPCEndpointsResponse
-    :: Int -- ^ 'dvpcersStatus'
+    :: Int -- ^ 'dvpcersResponseStatus'
     -> DescribeVPCEndpointsResponse
-describeVPCEndpointsResponse pStatus_ =
+describeVPCEndpointsResponse pResponseStatus_ =
     DescribeVPCEndpointsResponse'
     { _dvpcersNextToken = Nothing
     , _dvpcersVPCEndpoints = Nothing
-    , _dvpcersStatus = pStatus_
+    , _dvpcersResponseStatus = pResponseStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
@@ -188,5 +188,5 @@ dvpcersVPCEndpoints :: Lens' DescribeVPCEndpointsResponse [VPCEndpoint]
 dvpcersVPCEndpoints = lens _dvpcersVPCEndpoints (\ s a -> s{_dvpcersVPCEndpoints = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dvpcersStatus :: Lens' DescribeVPCEndpointsResponse Int
-dvpcersStatus = lens _dvpcersStatus (\ s a -> s{_dvpcersStatus = a});
+dvpcersResponseStatus :: Lens' DescribeVPCEndpointsResponse Int
+dvpcersResponseStatus = lens _dvpcersResponseStatus (\ s a -> s{_dvpcersResponseStatus = a});

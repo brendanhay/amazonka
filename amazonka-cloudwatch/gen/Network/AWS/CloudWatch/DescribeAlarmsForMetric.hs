@@ -40,7 +40,7 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     , DescribeAlarmsForMetricResponse
     -- * Response Lenses
     , dafmrsMetricAlarms
-    , dafmrsStatus
+    , dafmrsResponseStatus
     ) where
 
 import           Network.AWS.CloudWatch.Types
@@ -147,8 +147,8 @@ instance ToQuery DescribeAlarmsForMetric where
 --
 -- /See:/ 'describeAlarmsForMetricResponse' smart constructor.
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
-    { _dafmrsMetricAlarms :: !(Maybe [MetricAlarm])
-    , _dafmrsStatus       :: !Int
+    { _dafmrsMetricAlarms   :: !(Maybe [MetricAlarm])
+    , _dafmrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAlarmsForMetricResponse' with the minimum fields required to make a request.
@@ -157,14 +157,14 @@ data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
 --
 -- * 'dafmrsMetricAlarms'
 --
--- * 'dafmrsStatus'
+-- * 'dafmrsResponseStatus'
 describeAlarmsForMetricResponse
-    :: Int -- ^ 'dafmrsStatus'
+    :: Int -- ^ 'dafmrsResponseStatus'
     -> DescribeAlarmsForMetricResponse
-describeAlarmsForMetricResponse pStatus_ =
+describeAlarmsForMetricResponse pResponseStatus_ =
     DescribeAlarmsForMetricResponse'
     { _dafmrsMetricAlarms = Nothing
-    , _dafmrsStatus = pStatus_
+    , _dafmrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of information for each alarm with the specified metric.
@@ -172,5 +172,5 @@ dafmrsMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
 dafmrsMetricAlarms = lens _dafmrsMetricAlarms (\ s a -> s{_dafmrsMetricAlarms = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dafmrsStatus :: Lens' DescribeAlarmsForMetricResponse Int
-dafmrsStatus = lens _dafmrsStatus (\ s a -> s{_dafmrsStatus = a});
+dafmrsResponseStatus :: Lens' DescribeAlarmsForMetricResponse Int
+dafmrsResponseStatus = lens _dafmrsResponseStatus (\ s a -> s{_dafmrsResponseStatus = a});

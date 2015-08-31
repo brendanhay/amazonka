@@ -38,7 +38,7 @@ module Network.AWS.DirectConnect.DescribeVirtualGateways
     , DescribeVirtualGatewaysResponse
     -- * Response Lenses
     , dvgrsVirtualGateways
-    , dvgrsStatus
+    , dvgrsResponseStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -93,7 +93,7 @@ instance ToQuery DescribeVirtualGateways where
 -- /See:/ 'describeVirtualGatewaysResponse' smart constructor.
 data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
     { _dvgrsVirtualGateways :: !(Maybe [VirtualGateway])
-    , _dvgrsStatus          :: !Int
+    , _dvgrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVirtualGatewaysResponse' with the minimum fields required to make a request.
@@ -102,14 +102,14 @@ data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
 --
 -- * 'dvgrsVirtualGateways'
 --
--- * 'dvgrsStatus'
+-- * 'dvgrsResponseStatus'
 describeVirtualGatewaysResponse
-    :: Int -- ^ 'dvgrsStatus'
+    :: Int -- ^ 'dvgrsResponseStatus'
     -> DescribeVirtualGatewaysResponse
-describeVirtualGatewaysResponse pStatus_ =
+describeVirtualGatewaysResponse pResponseStatus_ =
     DescribeVirtualGatewaysResponse'
     { _dvgrsVirtualGateways = Nothing
-    , _dvgrsStatus = pStatus_
+    , _dvgrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of virtual private gateways.
@@ -117,5 +117,5 @@ dvgrsVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
 dvgrsVirtualGateways = lens _dvgrsVirtualGateways (\ s a -> s{_dvgrsVirtualGateways = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dvgrsStatus :: Lens' DescribeVirtualGatewaysResponse Int
-dvgrsStatus = lens _dvgrsStatus (\ s a -> s{_dvgrsStatus = a});
+dvgrsResponseStatus :: Lens' DescribeVirtualGatewaysResponse Int
+dvgrsResponseStatus = lens _dvgrsResponseStatus (\ s a -> s{_dvgrsResponseStatus = a});

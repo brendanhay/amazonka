@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     , ModifyCacheSubnetGroupResponse
     -- * Response Lenses
     , mcsgrsCacheSubnetGroup
-    , mcsgrsStatus
+    , mcsgrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -124,7 +124,7 @@ instance ToQuery ModifyCacheSubnetGroup where
 -- | /See:/ 'modifyCacheSubnetGroupResponse' smart constructor.
 data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'
     { _mcsgrsCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
-    , _mcsgrsStatus           :: !Int
+    , _mcsgrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyCacheSubnetGroupResponse' with the minimum fields required to make a request.
@@ -133,14 +133,14 @@ data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'
 --
 -- * 'mcsgrsCacheSubnetGroup'
 --
--- * 'mcsgrsStatus'
+-- * 'mcsgrsResponseStatus'
 modifyCacheSubnetGroupResponse
-    :: Int -- ^ 'mcsgrsStatus'
+    :: Int -- ^ 'mcsgrsResponseStatus'
     -> ModifyCacheSubnetGroupResponse
-modifyCacheSubnetGroupResponse pStatus_ =
+modifyCacheSubnetGroupResponse pResponseStatus_ =
     ModifyCacheSubnetGroupResponse'
     { _mcsgrsCacheSubnetGroup = Nothing
-    , _mcsgrsStatus = pStatus_
+    , _mcsgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -148,5 +148,5 @@ mcsgrsCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubne
 mcsgrsCacheSubnetGroup = lens _mcsgrsCacheSubnetGroup (\ s a -> s{_mcsgrsCacheSubnetGroup = a});
 
 -- | The response status code.
-mcsgrsStatus :: Lens' ModifyCacheSubnetGroupResponse Int
-mcsgrsStatus = lens _mcsgrsStatus (\ s a -> s{_mcsgrsStatus = a});
+mcsgrsResponseStatus :: Lens' ModifyCacheSubnetGroupResponse Int
+mcsgrsResponseStatus = lens _mcsgrsResponseStatus (\ s a -> s{_mcsgrsResponseStatus = a});

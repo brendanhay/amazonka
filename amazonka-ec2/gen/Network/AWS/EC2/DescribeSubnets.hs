@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeSubnets
     , DescribeSubnetsResponse
     -- * Response Lenses
     , dsrsSubnets
-    , dsrsStatus
+    , dsrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -155,8 +155,8 @@ instance ToQuery DescribeSubnets where
 
 -- | /See:/ 'describeSubnetsResponse' smart constructor.
 data DescribeSubnetsResponse = DescribeSubnetsResponse'
-    { _dsrsSubnets :: !(Maybe [Subnet])
-    , _dsrsStatus  :: !Int
+    { _dsrsSubnets        :: !(Maybe [Subnet])
+    , _dsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSubnetsResponse' with the minimum fields required to make a request.
@@ -165,14 +165,14 @@ data DescribeSubnetsResponse = DescribeSubnetsResponse'
 --
 -- * 'dsrsSubnets'
 --
--- * 'dsrsStatus'
+-- * 'dsrsResponseStatus'
 describeSubnetsResponse
-    :: Int -- ^ 'dsrsStatus'
+    :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeSubnetsResponse
-describeSubnetsResponse pStatus_ =
+describeSubnetsResponse pResponseStatus_ =
     DescribeSubnetsResponse'
     { _dsrsSubnets = Nothing
-    , _dsrsStatus = pStatus_
+    , _dsrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more subnets.
@@ -180,5 +180,5 @@ dsrsSubnets :: Lens' DescribeSubnetsResponse [Subnet]
 dsrsSubnets = lens _dsrsSubnets (\ s a -> s{_dsrsSubnets = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dsrsStatus :: Lens' DescribeSubnetsResponse Int
-dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
+dsrsResponseStatus :: Lens' DescribeSubnetsResponse Int
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});

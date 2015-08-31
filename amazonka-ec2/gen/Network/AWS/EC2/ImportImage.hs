@@ -43,6 +43,7 @@ module Network.AWS.EC2.ImportImage
     , importImageResponse
     , ImportImageResponse
     -- * Response Lenses
+    , irsStatus
     , irsHypervisor
     , irsPlatform
     , irsProgress
@@ -53,7 +54,7 @@ module Network.AWS.EC2.ImportImage
     , irsImportTaskId
     , irsArchitecture
     , irsDescription
-    , irsStatus
+    , irsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -181,8 +182,9 @@ instance AWSRequest ImportImage where
           = receiveXML
               (\ s h x ->
                  ImportImageResponse' <$>
-                   (x .@? "hypervisor") <*> (x .@? "platform") <*>
-                     (x .@? "progress")
+                   (x .@? "status") <*> (x .@? "hypervisor") <*>
+                     (x .@? "platform")
+                     <*> (x .@? "progress")
                      <*> (x .@? "licenseType")
                      <*>
                      (x .@? "snapshotDetailSet" .!@ mempty >>=
@@ -219,7 +221,8 @@ instance ToQuery ImportImage where
 
 -- | /See:/ 'importImageResponse' smart constructor.
 data ImportImageResponse = ImportImageResponse'
-    { _irsHypervisor      :: !(Maybe Text)
+    { _irsStatus          :: !(Maybe Text)
+    , _irsHypervisor      :: !(Maybe Text)
     , _irsPlatform        :: !(Maybe Text)
     , _irsProgress        :: !(Maybe Text)
     , _irsLicenseType     :: !(Maybe Text)
@@ -229,12 +232,14 @@ data ImportImageResponse = ImportImageResponse'
     , _irsImportTaskId    :: !(Maybe Text)
     , _irsArchitecture    :: !(Maybe Text)
     , _irsDescription     :: !(Maybe Text)
-    , _irsStatus          :: !Int
+    , _irsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImportImageResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'irsStatus'
 --
 -- * 'irsHypervisor'
 --
@@ -256,13 +261,14 @@ data ImportImageResponse = ImportImageResponse'
 --
 -- * 'irsDescription'
 --
--- * 'irsStatus'
+-- * 'irsResponseStatus'
 importImageResponse
-    :: Int -- ^ 'irsStatus'
+    :: Int -- ^ 'irsResponseStatus'
     -> ImportImageResponse
-importImageResponse pStatus_ =
+importImageResponse pResponseStatus_ =
     ImportImageResponse'
-    { _irsHypervisor = Nothing
+    { _irsStatus = Nothing
+    , _irsHypervisor = Nothing
     , _irsPlatform = Nothing
     , _irsProgress = Nothing
     , _irsLicenseType = Nothing
@@ -272,8 +278,12 @@ importImageResponse pStatus_ =
     , _irsImportTaskId = Nothing
     , _irsArchitecture = Nothing
     , _irsDescription = Nothing
-    , _irsStatus = pStatus_
+    , _irsResponseStatus = pResponseStatus_
     }
+
+-- | A brief status of the task.
+irsStatus :: Lens' ImportImageResponse (Maybe Text)
+irsStatus = lens _irsStatus (\ s a -> s{_irsStatus = a});
 
 -- | The target hypervisor of the import task.
 irsHypervisor :: Lens' ImportImageResponse (Maybe Text)
@@ -316,5 +326,5 @@ irsDescription :: Lens' ImportImageResponse (Maybe Text)
 irsDescription = lens _irsDescription (\ s a -> s{_irsDescription = a});
 
 -- | The response status code.
-irsStatus :: Lens' ImportImageResponse Int
-irsStatus = lens _irsStatus (\ s a -> s{_irsStatus = a});
+irsResponseStatus :: Lens' ImportImageResponse Int
+irsResponseStatus = lens _irsResponseStatus (\ s a -> s{_irsResponseStatus = a});

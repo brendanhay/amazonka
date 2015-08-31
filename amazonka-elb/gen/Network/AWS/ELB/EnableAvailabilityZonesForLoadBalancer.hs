@@ -43,7 +43,7 @@ module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     , EnableAvailabilityZonesForLoadBalancerResponse
     -- * Response Lenses
     , eazflbrsAvailabilityZones
-    , eazflbrsStatus
+    , eazflbrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -120,7 +120,7 @@ instance ToQuery
 -- | /See:/ 'enableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'
     { _eazflbrsAvailabilityZones :: !(Maybe [Text])
-    , _eazflbrsStatus            :: !Int
+    , _eazflbrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnableAvailabilityZonesForLoadBalancerResponse' with the minimum fields required to make a request.
@@ -129,14 +129,14 @@ data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesFor
 --
 -- * 'eazflbrsAvailabilityZones'
 --
--- * 'eazflbrsStatus'
+-- * 'eazflbrsResponseStatus'
 enableAvailabilityZonesForLoadBalancerResponse
-    :: Int -- ^ 'eazflbrsStatus'
+    :: Int -- ^ 'eazflbrsResponseStatus'
     -> EnableAvailabilityZonesForLoadBalancerResponse
-enableAvailabilityZonesForLoadBalancerResponse pStatus_ =
+enableAvailabilityZonesForLoadBalancerResponse pResponseStatus_ =
     EnableAvailabilityZonesForLoadBalancerResponse'
     { _eazflbrsAvailabilityZones = Nothing
-    , _eazflbrsStatus = pStatus_
+    , _eazflbrsResponseStatus = pResponseStatus_
     }
 
 -- | The updated list of Availability Zones for the load balancer.
@@ -144,5 +144,5 @@ eazflbrsAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerRespons
 eazflbrsAvailabilityZones = lens _eazflbrsAvailabilityZones (\ s a -> s{_eazflbrsAvailabilityZones = a}) . _Default . _Coerce;
 
 -- | The response status code.
-eazflbrsStatus :: Lens' EnableAvailabilityZonesForLoadBalancerResponse Int
-eazflbrsStatus = lens _eazflbrsStatus (\ s a -> s{_eazflbrsStatus = a});
+eazflbrsResponseStatus :: Lens' EnableAvailabilityZonesForLoadBalancerResponse Int
+eazflbrsResponseStatus = lens _eazflbrsResponseStatus (\ s a -> s{_eazflbrsResponseStatus = a});

@@ -49,7 +49,7 @@ module Network.AWS.Redshift.CreateHSMConfiguration
     , CreateHSMConfigurationResponse
     -- * Response Lenses
     , chcrsHSMConfiguration
-    , chcrsStatus
+    , chcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -174,7 +174,7 @@ instance ToQuery CreateHSMConfiguration where
 -- | /See:/ 'createHSMConfigurationResponse' smart constructor.
 data CreateHSMConfigurationResponse = CreateHSMConfigurationResponse'
     { _chcrsHSMConfiguration :: !(Maybe HSMConfiguration)
-    , _chcrsStatus           :: !Int
+    , _chcrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateHSMConfigurationResponse' with the minimum fields required to make a request.
@@ -183,14 +183,14 @@ data CreateHSMConfigurationResponse = CreateHSMConfigurationResponse'
 --
 -- * 'chcrsHSMConfiguration'
 --
--- * 'chcrsStatus'
+-- * 'chcrsResponseStatus'
 createHSMConfigurationResponse
-    :: Int -- ^ 'chcrsStatus'
+    :: Int -- ^ 'chcrsResponseStatus'
     -> CreateHSMConfigurationResponse
-createHSMConfigurationResponse pStatus_ =
+createHSMConfigurationResponse pResponseStatus_ =
     CreateHSMConfigurationResponse'
     { _chcrsHSMConfiguration = Nothing
-    , _chcrsStatus = pStatus_
+    , _chcrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -198,5 +198,5 @@ chcrsHSMConfiguration :: Lens' CreateHSMConfigurationResponse (Maybe HSMConfigur
 chcrsHSMConfiguration = lens _chcrsHSMConfiguration (\ s a -> s{_chcrsHSMConfiguration = a});
 
 -- | The response status code.
-chcrsStatus :: Lens' CreateHSMConfigurationResponse Int
-chcrsStatus = lens _chcrsStatus (\ s a -> s{_chcrsStatus = a});
+chcrsResponseStatus :: Lens' CreateHSMConfigurationResponse Int
+chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a});

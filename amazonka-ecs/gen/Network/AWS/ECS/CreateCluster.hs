@@ -37,7 +37,7 @@ module Network.AWS.ECS.CreateCluster
     , CreateClusterResponse
     -- * Response Lenses
     , ccrsCluster
-    , ccrsStatus
+    , ccrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -101,8 +101,8 @@ instance ToQuery CreateCluster where
 
 -- | /See:/ 'createClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
-    { _ccrsCluster :: !(Maybe Cluster)
-    , _ccrsStatus  :: !Int
+    { _ccrsCluster        :: !(Maybe Cluster)
+    , _ccrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateClusterResponse' with the minimum fields required to make a request.
@@ -111,14 +111,14 @@ data CreateClusterResponse = CreateClusterResponse'
 --
 -- * 'ccrsCluster'
 --
--- * 'ccrsStatus'
+-- * 'ccrsResponseStatus'
 createClusterResponse
-    :: Int -- ^ 'ccrsStatus'
+    :: Int -- ^ 'ccrsResponseStatus'
     -> CreateClusterResponse
-createClusterResponse pStatus_ =
+createClusterResponse pResponseStatus_ =
     CreateClusterResponse'
     { _ccrsCluster = Nothing
-    , _ccrsStatus = pStatus_
+    , _ccrsResponseStatus = pResponseStatus_
     }
 
 -- | The full description of your new cluster.
@@ -126,5 +126,5 @@ ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
 ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a});
 
 -- | The response status code.
-ccrsStatus :: Lens' CreateClusterResponse Int
-ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});
+ccrsResponseStatus :: Lens' CreateClusterResponse Int
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});

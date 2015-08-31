@@ -38,7 +38,7 @@ module Network.AWS.OpsWorks.DescribeAgentVersions
     , DescribeAgentVersionsResponse
     -- * Response Lenses
     , davrsAgentVersions
-    , davrsStatus
+    , davrsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -115,8 +115,8 @@ instance ToQuery DescribeAgentVersions where
 --
 -- /See:/ 'describeAgentVersionsResponse' smart constructor.
 data DescribeAgentVersionsResponse = DescribeAgentVersionsResponse'
-    { _davrsAgentVersions :: !(Maybe [AgentVersion])
-    , _davrsStatus        :: !Int
+    { _davrsAgentVersions  :: !(Maybe [AgentVersion])
+    , _davrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAgentVersionsResponse' with the minimum fields required to make a request.
@@ -125,14 +125,14 @@ data DescribeAgentVersionsResponse = DescribeAgentVersionsResponse'
 --
 -- * 'davrsAgentVersions'
 --
--- * 'davrsStatus'
+-- * 'davrsResponseStatus'
 describeAgentVersionsResponse
-    :: Int -- ^ 'davrsStatus'
+    :: Int -- ^ 'davrsResponseStatus'
     -> DescribeAgentVersionsResponse
-describeAgentVersionsResponse pStatus_ =
+describeAgentVersionsResponse pResponseStatus_ =
     DescribeAgentVersionsResponse'
     { _davrsAgentVersions = Nothing
-    , _davrsStatus = pStatus_
+    , _davrsResponseStatus = pResponseStatus_
     }
 
 -- | The agent versions for the specified stack or configuration manager.
@@ -142,5 +142,5 @@ davrsAgentVersions :: Lens' DescribeAgentVersionsResponse [AgentVersion]
 davrsAgentVersions = lens _davrsAgentVersions (\ s a -> s{_davrsAgentVersions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-davrsStatus :: Lens' DescribeAgentVersionsResponse Int
-davrsStatus = lens _davrsStatus (\ s a -> s{_davrsStatus = a});
+davrsResponseStatus :: Lens' DescribeAgentVersionsResponse Int
+davrsResponseStatus = lens _davrsResponseStatus (\ s a -> s{_davrsResponseStatus = a});

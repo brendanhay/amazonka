@@ -45,7 +45,7 @@ module Network.AWS.ElastiCache.RebootCacheCluster
     , RebootCacheClusterResponse
     -- * Response Lenses
     , rccrsCacheCluster
-    , rccrsStatus
+    , rccrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -116,8 +116,8 @@ instance ToQuery RebootCacheCluster where
 
 -- | /See:/ 'rebootCacheClusterResponse' smart constructor.
 data RebootCacheClusterResponse = RebootCacheClusterResponse'
-    { _rccrsCacheCluster :: !(Maybe CacheCluster)
-    , _rccrsStatus       :: !Int
+    { _rccrsCacheCluster   :: !(Maybe CacheCluster)
+    , _rccrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RebootCacheClusterResponse' with the minimum fields required to make a request.
@@ -126,14 +126,14 @@ data RebootCacheClusterResponse = RebootCacheClusterResponse'
 --
 -- * 'rccrsCacheCluster'
 --
--- * 'rccrsStatus'
+-- * 'rccrsResponseStatus'
 rebootCacheClusterResponse
-    :: Int -- ^ 'rccrsStatus'
+    :: Int -- ^ 'rccrsResponseStatus'
     -> RebootCacheClusterResponse
-rebootCacheClusterResponse pStatus_ =
+rebootCacheClusterResponse pResponseStatus_ =
     RebootCacheClusterResponse'
     { _rccrsCacheCluster = Nothing
-    , _rccrsStatus = pStatus_
+    , _rccrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -141,5 +141,5 @@ rccrsCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
 rccrsCacheCluster = lens _rccrsCacheCluster (\ s a -> s{_rccrsCacheCluster = a});
 
 -- | The response status code.
-rccrsStatus :: Lens' RebootCacheClusterResponse Int
-rccrsStatus = lens _rccrsStatus (\ s a -> s{_rccrsStatus = a});
+rccrsResponseStatus :: Lens' RebootCacheClusterResponse Int
+rccrsResponseStatus = lens _rccrsResponseStatus (\ s a -> s{_rccrsResponseStatus = a});

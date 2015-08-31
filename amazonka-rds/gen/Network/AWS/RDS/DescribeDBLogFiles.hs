@@ -43,7 +43,7 @@ module Network.AWS.RDS.DescribeDBLogFiles
     -- * Response Lenses
     , ddlfrsDescribeDBLogFiles
     , ddlfrsMarker
-    , ddlfrsStatus
+    , ddlfrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -186,7 +186,7 @@ instance ToQuery DescribeDBLogFiles where
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
     { _ddlfrsDescribeDBLogFiles :: !(Maybe [DescribeDBLogFilesDetails])
     , _ddlfrsMarker             :: !(Maybe Text)
-    , _ddlfrsStatus             :: !Int
+    , _ddlfrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBLogFilesResponse' with the minimum fields required to make a request.
@@ -197,15 +197,15 @@ data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
 --
 -- * 'ddlfrsMarker'
 --
--- * 'ddlfrsStatus'
+-- * 'ddlfrsResponseStatus'
 describeDBLogFilesResponse
-    :: Int -- ^ 'ddlfrsStatus'
+    :: Int -- ^ 'ddlfrsResponseStatus'
     -> DescribeDBLogFilesResponse
-describeDBLogFilesResponse pStatus_ =
+describeDBLogFilesResponse pResponseStatus_ =
     DescribeDBLogFilesResponse'
     { _ddlfrsDescribeDBLogFiles = Nothing
     , _ddlfrsMarker = Nothing
-    , _ddlfrsStatus = pStatus_
+    , _ddlfrsResponseStatus = pResponseStatus_
     }
 
 -- | The DB log files returned.
@@ -218,5 +218,5 @@ ddlfrsMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
 ddlfrsMarker = lens _ddlfrsMarker (\ s a -> s{_ddlfrsMarker = a});
 
 -- | The response status code.
-ddlfrsStatus :: Lens' DescribeDBLogFilesResponse Int
-ddlfrsStatus = lens _ddlfrsStatus (\ s a -> s{_ddlfrsStatus = a});
+ddlfrsResponseStatus :: Lens' DescribeDBLogFilesResponse Int
+ddlfrsResponseStatus = lens _ddlfrsResponseStatus (\ s a -> s{_ddlfrsResponseStatus = a});

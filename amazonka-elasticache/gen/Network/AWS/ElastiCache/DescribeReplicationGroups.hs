@@ -42,7 +42,7 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
     -- * Response Lenses
     , drgrsMarker
     , drgrsReplicationGroups
-    , drgrsStatus
+    , drgrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -146,7 +146,7 @@ instance ToQuery DescribeReplicationGroups where
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
     { _drgrsMarker            :: !(Maybe Text)
     , _drgrsReplicationGroups :: !(Maybe [ReplicationGroup])
-    , _drgrsStatus            :: !Int
+    , _drgrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReplicationGroupsResponse' with the minimum fields required to make a request.
@@ -157,15 +157,15 @@ data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
 --
 -- * 'drgrsReplicationGroups'
 --
--- * 'drgrsStatus'
+-- * 'drgrsResponseStatus'
 describeReplicationGroupsResponse
-    :: Int -- ^ 'drgrsStatus'
+    :: Int -- ^ 'drgrsResponseStatus'
     -> DescribeReplicationGroupsResponse
-describeReplicationGroupsResponse pStatus_ =
+describeReplicationGroupsResponse pResponseStatus_ =
     DescribeReplicationGroupsResponse'
     { _drgrsMarker = Nothing
     , _drgrsReplicationGroups = Nothing
-    , _drgrsStatus = pStatus_
+    , _drgrsResponseStatus = pResponseStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -178,5 +178,5 @@ drgrsReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGr
 drgrsReplicationGroups = lens _drgrsReplicationGroups (\ s a -> s{_drgrsReplicationGroups = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drgrsStatus :: Lens' DescribeReplicationGroupsResponse Int
-drgrsStatus = lens _drgrsStatus (\ s a -> s{_drgrsStatus = a});
+drgrsResponseStatus :: Lens' DescribeReplicationGroupsResponse Int
+drgrsResponseStatus = lens _drgrsResponseStatus (\ s a -> s{_drgrsResponseStatus = a});

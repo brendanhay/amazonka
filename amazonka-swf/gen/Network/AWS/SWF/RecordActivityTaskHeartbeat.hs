@@ -81,7 +81,7 @@ module Network.AWS.SWF.RecordActivityTaskHeartbeat
     , recordActivityTaskHeartbeatResponse
     , RecordActivityTaskHeartbeatResponse
     -- * Response Lenses
-    , rathrsStatus
+    , rathrsResponseStatus
     , rathrsCancelRequested
     ) where
 
@@ -163,7 +163,7 @@ instance ToQuery RecordActivityTaskHeartbeat where
 --
 -- /See:/ 'recordActivityTaskHeartbeatResponse' smart constructor.
 data RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse'
-    { _rathrsStatus          :: !Int
+    { _rathrsResponseStatus  :: !Int
     , _rathrsCancelRequested :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -171,22 +171,22 @@ data RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rathrsStatus'
+-- * 'rathrsResponseStatus'
 --
 -- * 'rathrsCancelRequested'
 recordActivityTaskHeartbeatResponse
-    :: Int -- ^ 'rathrsStatus'
+    :: Int -- ^ 'rathrsResponseStatus'
     -> Bool -- ^ 'rathrsCancelRequested'
     -> RecordActivityTaskHeartbeatResponse
-recordActivityTaskHeartbeatResponse pStatus_ pCancelRequested_ =
+recordActivityTaskHeartbeatResponse pResponseStatus_ pCancelRequested_ =
     RecordActivityTaskHeartbeatResponse'
-    { _rathrsStatus = pStatus_
+    { _rathrsResponseStatus = pResponseStatus_
     , _rathrsCancelRequested = pCancelRequested_
     }
 
 -- | The response status code.
-rathrsStatus :: Lens' RecordActivityTaskHeartbeatResponse Int
-rathrsStatus = lens _rathrsStatus (\ s a -> s{_rathrsStatus = a});
+rathrsResponseStatus :: Lens' RecordActivityTaskHeartbeatResponse Int
+rathrsResponseStatus = lens _rathrsResponseStatus (\ s a -> s{_rathrsResponseStatus = a});
 
 -- | Set to 'true' if cancellation of the task is requested.
 rathrsCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse Bool

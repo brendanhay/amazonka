@@ -44,7 +44,7 @@ module Network.AWS.SDB.ListDomains
     -- * Response Lenses
     , ldrsDomainNames
     , ldrsNextToken
-    , ldrsStatus
+    , ldrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -119,9 +119,9 @@ instance ToQuery ListDomains where
 
 -- | /See:/ 'listDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
-    { _ldrsDomainNames :: !(Maybe [Text])
-    , _ldrsNextToken   :: !(Maybe Text)
-    , _ldrsStatus      :: !Int
+    { _ldrsDomainNames    :: !(Maybe [Text])
+    , _ldrsNextToken      :: !(Maybe Text)
+    , _ldrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListDomainsResponse' with the minimum fields required to make a request.
@@ -132,15 +132,15 @@ data ListDomainsResponse = ListDomainsResponse'
 --
 -- * 'ldrsNextToken'
 --
--- * 'ldrsStatus'
+-- * 'ldrsResponseStatus'
 listDomainsResponse
-    :: Int -- ^ 'ldrsStatus'
+    :: Int -- ^ 'ldrsResponseStatus'
     -> ListDomainsResponse
-listDomainsResponse pStatus_ =
+listDomainsResponse pResponseStatus_ =
     ListDomainsResponse'
     { _ldrsDomainNames = Nothing
     , _ldrsNextToken = Nothing
-    , _ldrsStatus = pStatus_
+    , _ldrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of domain names that match the expression.
@@ -153,5 +153,5 @@ ldrsNextToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
 -- | The response status code.
-ldrsStatus :: Lens' ListDomainsResponse Int
-ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
+ldrsResponseStatus :: Lens' ListDomainsResponse Int
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});

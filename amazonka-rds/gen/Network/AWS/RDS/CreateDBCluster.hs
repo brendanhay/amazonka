@@ -53,7 +53,7 @@ module Network.AWS.RDS.CreateDBCluster
     , CreateDBClusterResponse
     -- * Response Lenses
     , cdcrsDBCluster
-    , cdcrsStatus
+    , cdcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -341,8 +341,8 @@ instance ToQuery CreateDBCluster where
 
 -- | /See:/ 'createDBClusterResponse' smart constructor.
 data CreateDBClusterResponse = CreateDBClusterResponse'
-    { _cdcrsDBCluster :: !(Maybe DBCluster)
-    , _cdcrsStatus    :: !Int
+    { _cdcrsDBCluster      :: !(Maybe DBCluster)
+    , _cdcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDBClusterResponse' with the minimum fields required to make a request.
@@ -351,14 +351,14 @@ data CreateDBClusterResponse = CreateDBClusterResponse'
 --
 -- * 'cdcrsDBCluster'
 --
--- * 'cdcrsStatus'
+-- * 'cdcrsResponseStatus'
 createDBClusterResponse
-    :: Int -- ^ 'cdcrsStatus'
+    :: Int -- ^ 'cdcrsResponseStatus'
     -> CreateDBClusterResponse
-createDBClusterResponse pStatus_ =
+createDBClusterResponse pResponseStatus_ =
     CreateDBClusterResponse'
     { _cdcrsDBCluster = Nothing
-    , _cdcrsStatus = pStatus_
+    , _cdcrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -366,5 +366,5 @@ cdcrsDBCluster :: Lens' CreateDBClusterResponse (Maybe DBCluster)
 cdcrsDBCluster = lens _cdcrsDBCluster (\ s a -> s{_cdcrsDBCluster = a});
 
 -- | The response status code.
-cdcrsStatus :: Lens' CreateDBClusterResponse Int
-cdcrsStatus = lens _cdcrsStatus (\ s a -> s{_cdcrsStatus = a});
+cdcrsResponseStatus :: Lens' CreateDBClusterResponse Int
+cdcrsResponseStatus = lens _cdcrsResponseStatus (\ s a -> s{_cdcrsResponseStatus = a});

@@ -41,7 +41,7 @@ module Network.AWS.Redshift.CreateClusterSnapshot
     , CreateClusterSnapshotResponse
     -- * Response Lenses
     , crersSnapshot
-    , crersStatus
+    , crersResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -128,8 +128,8 @@ instance ToQuery CreateClusterSnapshot where
 
 -- | /See:/ 'createClusterSnapshotResponse' smart constructor.
 data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'
-    { _crersSnapshot :: !(Maybe Snapshot)
-    , _crersStatus   :: !Int
+    { _crersSnapshot       :: !(Maybe Snapshot)
+    , _crersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateClusterSnapshotResponse' with the minimum fields required to make a request.
@@ -138,14 +138,14 @@ data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'
 --
 -- * 'crersSnapshot'
 --
--- * 'crersStatus'
+-- * 'crersResponseStatus'
 createClusterSnapshotResponse
-    :: Int -- ^ 'crersStatus'
+    :: Int -- ^ 'crersResponseStatus'
     -> CreateClusterSnapshotResponse
-createClusterSnapshotResponse pStatus_ =
+createClusterSnapshotResponse pResponseStatus_ =
     CreateClusterSnapshotResponse'
     { _crersSnapshot = Nothing
-    , _crersStatus = pStatus_
+    , _crersResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -153,5 +153,5 @@ crersSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
 crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a});
 
 -- | The response status code.
-crersStatus :: Lens' CreateClusterSnapshotResponse Int
-crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});
+crersResponseStatus :: Lens' CreateClusterSnapshotResponse Int
+crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});

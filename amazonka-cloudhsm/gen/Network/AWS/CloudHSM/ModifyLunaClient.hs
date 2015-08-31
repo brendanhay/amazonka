@@ -38,7 +38,7 @@ module Network.AWS.CloudHSM.ModifyLunaClient
     , ModifyLunaClientResponse
     -- * Response Lenses
     , mlcrsClientARN
-    , mlcrsStatus
+    , mlcrsResponseStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -112,8 +112,8 @@ instance ToQuery ModifyLunaClient where
 
 -- | /See:/ 'modifyLunaClientResponse' smart constructor.
 data ModifyLunaClientResponse = ModifyLunaClientResponse'
-    { _mlcrsClientARN :: !(Maybe Text)
-    , _mlcrsStatus    :: !Int
+    { _mlcrsClientARN      :: !(Maybe Text)
+    , _mlcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyLunaClientResponse' with the minimum fields required to make a request.
@@ -122,14 +122,14 @@ data ModifyLunaClientResponse = ModifyLunaClientResponse'
 --
 -- * 'mlcrsClientARN'
 --
--- * 'mlcrsStatus'
+-- * 'mlcrsResponseStatus'
 modifyLunaClientResponse
-    :: Int -- ^ 'mlcrsStatus'
+    :: Int -- ^ 'mlcrsResponseStatus'
     -> ModifyLunaClientResponse
-modifyLunaClientResponse pStatus_ =
+modifyLunaClientResponse pResponseStatus_ =
     ModifyLunaClientResponse'
     { _mlcrsClientARN = Nothing
-    , _mlcrsStatus = pStatus_
+    , _mlcrsResponseStatus = pResponseStatus_
     }
 
 -- | The ARN of the client.
@@ -137,5 +137,5 @@ mlcrsClientARN :: Lens' ModifyLunaClientResponse (Maybe Text)
 mlcrsClientARN = lens _mlcrsClientARN (\ s a -> s{_mlcrsClientARN = a});
 
 -- | The response status code.
-mlcrsStatus :: Lens' ModifyLunaClientResponse Int
-mlcrsStatus = lens _mlcrsStatus (\ s a -> s{_mlcrsStatus = a});
+mlcrsResponseStatus :: Lens' ModifyLunaClientResponse Int
+mlcrsResponseStatus = lens _mlcrsResponseStatus (\ s a -> s{_mlcrsResponseStatus = a});

@@ -44,7 +44,7 @@ module Network.AWS.IAM.ListAccountAliases
     -- * Response Lenses
     , laarsMarker
     , laarsIsTruncated
-    , laarsStatus
+    , laarsResponseStatus
     , laarsAccountAliases
     ) where
 
@@ -131,7 +131,7 @@ instance ToQuery ListAccountAliases where
 data ListAccountAliasesResponse = ListAccountAliasesResponse'
     { _laarsMarker         :: !(Maybe Text)
     , _laarsIsTruncated    :: !(Maybe Bool)
-    , _laarsStatus         :: !Int
+    , _laarsResponseStatus :: !Int
     , _laarsAccountAliases :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -143,17 +143,17 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse'
 --
 -- * 'laarsIsTruncated'
 --
--- * 'laarsStatus'
+-- * 'laarsResponseStatus'
 --
 -- * 'laarsAccountAliases'
 listAccountAliasesResponse
-    :: Int -- ^ 'laarsStatus'
+    :: Int -- ^ 'laarsResponseStatus'
     -> ListAccountAliasesResponse
-listAccountAliasesResponse pStatus_ =
+listAccountAliasesResponse pResponseStatus_ =
     ListAccountAliasesResponse'
     { _laarsMarker = Nothing
     , _laarsIsTruncated = Nothing
-    , _laarsStatus = pStatus_
+    , _laarsResponseStatus = pResponseStatus_
     , _laarsAccountAliases = mempty
     }
 
@@ -170,8 +170,8 @@ laarsIsTruncated :: Lens' ListAccountAliasesResponse (Maybe Bool)
 laarsIsTruncated = lens _laarsIsTruncated (\ s a -> s{_laarsIsTruncated = a});
 
 -- | The response status code.
-laarsStatus :: Lens' ListAccountAliasesResponse Int
-laarsStatus = lens _laarsStatus (\ s a -> s{_laarsStatus = a});
+laarsResponseStatus :: Lens' ListAccountAliasesResponse Int
+laarsResponseStatus = lens _laarsResponseStatus (\ s a -> s{_laarsResponseStatus = a});
 
 -- | A list of aliases associated with the account.
 laarsAccountAliases :: Lens' ListAccountAliasesResponse [Text]

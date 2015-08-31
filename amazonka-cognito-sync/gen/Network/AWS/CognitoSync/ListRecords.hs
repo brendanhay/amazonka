@@ -55,7 +55,7 @@ module Network.AWS.CognitoSync.ListRecords
     , lrrsSyncSessionToken
     , lrrsLastModifiedBy
     , lrrsDatasetSyncCount
-    , lrrsStatus
+    , lrrsResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -196,7 +196,7 @@ data ListRecordsResponse = ListRecordsResponse'
     , _lrrsSyncSessionToken                      :: !(Maybe Text)
     , _lrrsLastModifiedBy                        :: !(Maybe Text)
     , _lrrsDatasetSyncCount                      :: !(Maybe Integer)
-    , _lrrsStatus                                :: !Int
+    , _lrrsResponseStatus                        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListRecordsResponse' with the minimum fields required to make a request.
@@ -221,11 +221,11 @@ data ListRecordsResponse = ListRecordsResponse'
 --
 -- * 'lrrsDatasetSyncCount'
 --
--- * 'lrrsStatus'
+-- * 'lrrsResponseStatus'
 listRecordsResponse
-    :: Int -- ^ 'lrrsStatus'
+    :: Int -- ^ 'lrrsResponseStatus'
     -> ListRecordsResponse
-listRecordsResponse pStatus_ =
+listRecordsResponse pResponseStatus_ =
     ListRecordsResponse'
     { _lrrsDatasetDeletedAfterRequestedSyncCount = Nothing
     , _lrrsDatasetExists = Nothing
@@ -236,7 +236,7 @@ listRecordsResponse pStatus_ =
     , _lrrsSyncSessionToken = Nothing
     , _lrrsLastModifiedBy = Nothing
     , _lrrsDatasetSyncCount = Nothing
-    , _lrrsStatus = pStatus_
+    , _lrrsResponseStatus = pResponseStatus_
     }
 
 -- | A boolean value specifying whether to delete the dataset locally.
@@ -276,5 +276,5 @@ lrrsDatasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer)
 lrrsDatasetSyncCount = lens _lrrsDatasetSyncCount (\ s a -> s{_lrrsDatasetSyncCount = a});
 
 -- | The response status code.
-lrrsStatus :: Lens' ListRecordsResponse Int
-lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});
+lrrsResponseStatus :: Lens' ListRecordsResponse Int
+lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});

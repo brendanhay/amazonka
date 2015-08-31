@@ -39,7 +39,7 @@ module Network.AWS.ECS.ListContainerInstances
     -- * Response Lenses
     , lcirsContainerInstanceARNs
     , lcirsNextToken
-    , lcirsStatus
+    , lcirsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -147,7 +147,7 @@ instance ToQuery ListContainerInstances where
 data ListContainerInstancesResponse = ListContainerInstancesResponse'
     { _lcirsContainerInstanceARNs :: !(Maybe [Text])
     , _lcirsNextToken             :: !(Maybe Text)
-    , _lcirsStatus                :: !Int
+    , _lcirsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListContainerInstancesResponse' with the minimum fields required to make a request.
@@ -158,15 +158,15 @@ data ListContainerInstancesResponse = ListContainerInstancesResponse'
 --
 -- * 'lcirsNextToken'
 --
--- * 'lcirsStatus'
+-- * 'lcirsResponseStatus'
 listContainerInstancesResponse
-    :: Int -- ^ 'lcirsStatus'
+    :: Int -- ^ 'lcirsResponseStatus'
     -> ListContainerInstancesResponse
-listContainerInstancesResponse pStatus_ =
+listContainerInstancesResponse pResponseStatus_ =
     ListContainerInstancesResponse'
     { _lcirsContainerInstanceARNs = Nothing
     , _lcirsNextToken = Nothing
-    , _lcirsStatus = pStatus_
+    , _lcirsResponseStatus = pResponseStatus_
     }
 
 -- | The list of container instance full Amazon Resource Name (ARN) entries
@@ -182,5 +182,5 @@ lcirsNextToken :: Lens' ListContainerInstancesResponse (Maybe Text)
 lcirsNextToken = lens _lcirsNextToken (\ s a -> s{_lcirsNextToken = a});
 
 -- | The response status code.
-lcirsStatus :: Lens' ListContainerInstancesResponse Int
-lcirsStatus = lens _lcirsStatus (\ s a -> s{_lcirsStatus = a});
+lcirsResponseStatus :: Lens' ListContainerInstancesResponse Int
+lcirsResponseStatus = lens _lcirsResponseStatus (\ s a -> s{_lcirsResponseStatus = a});

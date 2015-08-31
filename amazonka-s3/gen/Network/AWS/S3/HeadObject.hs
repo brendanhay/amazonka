@@ -71,7 +71,7 @@ module Network.AWS.S3.HeadObject
     , horsContentDisposition
     , horsServerSideEncryption
     , horsContentType
-    , horsStatus
+    , horsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -291,7 +291,7 @@ data HeadObjectResponse = HeadObjectResponse'
     , _horsContentDisposition      :: !(Maybe Text)
     , _horsServerSideEncryption    :: !(Maybe ServerSideEncryption)
     , _horsContentType             :: !(Maybe Text)
-    , _horsStatus                  :: !Int
+    , _horsResponseStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'HeadObjectResponse' with the minimum fields required to make a request.
@@ -346,11 +346,11 @@ data HeadObjectResponse = HeadObjectResponse'
 --
 -- * 'horsContentType'
 --
--- * 'horsStatus'
+-- * 'horsResponseStatus'
 headObjectResponse
-    :: Int -- ^ 'horsStatus'
+    :: Int -- ^ 'horsResponseStatus'
     -> HeadObjectResponse
-headObjectResponse pStatus_ =
+headObjectResponse pResponseStatus_ =
     HeadObjectResponse'
     { _horsRequestCharged = Nothing
     , _horsETag = Nothing
@@ -376,7 +376,7 @@ headObjectResponse pStatus_ =
     , _horsContentDisposition = Nothing
     , _horsServerSideEncryption = Nothing
     , _horsContentType = Nothing
-    , _horsStatus = pStatus_
+    , _horsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -497,5 +497,5 @@ horsContentType :: Lens' HeadObjectResponse (Maybe Text)
 horsContentType = lens _horsContentType (\ s a -> s{_horsContentType = a});
 
 -- | The response status code.
-horsStatus :: Lens' HeadObjectResponse Int
-horsStatus = lens _horsStatus (\ s a -> s{_horsStatus = a});
+horsResponseStatus :: Lens' HeadObjectResponse Int
+horsResponseStatus = lens _horsResponseStatus (\ s a -> s{_horsResponseStatus = a});

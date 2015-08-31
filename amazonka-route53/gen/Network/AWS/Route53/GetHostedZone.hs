@@ -38,7 +38,7 @@ module Network.AWS.Route53.GetHostedZone
     -- * Response Lenses
     , ghzrsVPCs
     , ghzrsDelegationSet
-    , ghzrsStatus
+    , ghzrsResponseStatus
     , ghzrsHostedZone
     ) where
 
@@ -100,10 +100,10 @@ instance ToQuery GetHostedZone where
 --
 -- /See:/ 'getHostedZoneResponse' smart constructor.
 data GetHostedZoneResponse = GetHostedZoneResponse'
-    { _ghzrsVPCs          :: !(Maybe (List1 VPC))
-    , _ghzrsDelegationSet :: !(Maybe DelegationSet)
-    , _ghzrsStatus        :: !Int
-    , _ghzrsHostedZone    :: !HostedZone
+    { _ghzrsVPCs           :: !(Maybe (List1 VPC))
+    , _ghzrsDelegationSet  :: !(Maybe DelegationSet)
+    , _ghzrsResponseStatus :: !Int
+    , _ghzrsHostedZone     :: !HostedZone
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetHostedZoneResponse' with the minimum fields required to make a request.
@@ -114,18 +114,18 @@ data GetHostedZoneResponse = GetHostedZoneResponse'
 --
 -- * 'ghzrsDelegationSet'
 --
--- * 'ghzrsStatus'
+-- * 'ghzrsResponseStatus'
 --
 -- * 'ghzrsHostedZone'
 getHostedZoneResponse
-    :: Int -- ^ 'ghzrsStatus'
+    :: Int -- ^ 'ghzrsResponseStatus'
     -> HostedZone -- ^ 'ghzrsHostedZone'
     -> GetHostedZoneResponse
-getHostedZoneResponse pStatus_ pHostedZone_ =
+getHostedZoneResponse pResponseStatus_ pHostedZone_ =
     GetHostedZoneResponse'
     { _ghzrsVPCs = Nothing
     , _ghzrsDelegationSet = Nothing
-    , _ghzrsStatus = pStatus_
+    , _ghzrsResponseStatus = pResponseStatus_
     , _ghzrsHostedZone = pHostedZone_
     }
 
@@ -140,8 +140,8 @@ ghzrsDelegationSet :: Lens' GetHostedZoneResponse (Maybe DelegationSet)
 ghzrsDelegationSet = lens _ghzrsDelegationSet (\ s a -> s{_ghzrsDelegationSet = a});
 
 -- | The response status code.
-ghzrsStatus :: Lens' GetHostedZoneResponse Int
-ghzrsStatus = lens _ghzrsStatus (\ s a -> s{_ghzrsStatus = a});
+ghzrsResponseStatus :: Lens' GetHostedZoneResponse Int
+ghzrsResponseStatus = lens _ghzrsResponseStatus (\ s a -> s{_ghzrsResponseStatus = a});
 
 -- | A complex type that contains the information about the specified hosted
 -- zone.

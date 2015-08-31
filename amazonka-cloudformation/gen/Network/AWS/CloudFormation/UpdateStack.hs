@@ -56,7 +56,7 @@ module Network.AWS.CloudFormation.UpdateStack
     , UpdateStackResponse
     -- * Response Lenses
     , usrsStackId
-    , usrsStatus
+    , usrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -275,8 +275,8 @@ instance ToQuery UpdateStack where
 --
 -- /See:/ 'updateStackResponse' smart constructor.
 data UpdateStackResponse = UpdateStackResponse'
-    { _usrsStackId :: !(Maybe Text)
-    , _usrsStatus  :: !Int
+    { _usrsStackId        :: !(Maybe Text)
+    , _usrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateStackResponse' with the minimum fields required to make a request.
@@ -285,14 +285,14 @@ data UpdateStackResponse = UpdateStackResponse'
 --
 -- * 'usrsStackId'
 --
--- * 'usrsStatus'
+-- * 'usrsResponseStatus'
 updateStackResponse
-    :: Int -- ^ 'usrsStatus'
+    :: Int -- ^ 'usrsResponseStatus'
     -> UpdateStackResponse
-updateStackResponse pStatus_ =
+updateStackResponse pResponseStatus_ =
     UpdateStackResponse'
     { _usrsStackId = Nothing
-    , _usrsStatus = pStatus_
+    , _usrsResponseStatus = pResponseStatus_
     }
 
 -- | Unique identifier of the stack.
@@ -300,5 +300,5 @@ usrsStackId :: Lens' UpdateStackResponse (Maybe Text)
 usrsStackId = lens _usrsStackId (\ s a -> s{_usrsStackId = a});
 
 -- | The response status code.
-usrsStatus :: Lens' UpdateStackResponse Int
-usrsStatus = lens _usrsStatus (\ s a -> s{_usrsStatus = a});
+usrsResponseStatus :: Lens' UpdateStackResponse Int
+usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});

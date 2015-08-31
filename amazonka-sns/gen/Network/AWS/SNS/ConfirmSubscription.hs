@@ -40,7 +40,7 @@ module Network.AWS.SNS.ConfirmSubscription
     , ConfirmSubscriptionResponse
     -- * Response Lenses
     , csrsSubscriptionARN
-    , csrsStatus
+    , csrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -123,7 +123,7 @@ instance ToQuery ConfirmSubscription where
 -- /See:/ 'confirmSubscriptionResponse' smart constructor.
 data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'
     { _csrsSubscriptionARN :: !(Maybe Text)
-    , _csrsStatus          :: !Int
+    , _csrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ConfirmSubscriptionResponse' with the minimum fields required to make a request.
@@ -132,14 +132,14 @@ data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'
 --
 -- * 'csrsSubscriptionARN'
 --
--- * 'csrsStatus'
+-- * 'csrsResponseStatus'
 confirmSubscriptionResponse
-    :: Int -- ^ 'csrsStatus'
+    :: Int -- ^ 'csrsResponseStatus'
     -> ConfirmSubscriptionResponse
-confirmSubscriptionResponse pStatus_ =
+confirmSubscriptionResponse pResponseStatus_ =
     ConfirmSubscriptionResponse'
     { _csrsSubscriptionARN = Nothing
-    , _csrsStatus = pStatus_
+    , _csrsResponseStatus = pResponseStatus_
     }
 
 -- | The ARN of the created subscription.
@@ -147,5 +147,5 @@ csrsSubscriptionARN :: Lens' ConfirmSubscriptionResponse (Maybe Text)
 csrsSubscriptionARN = lens _csrsSubscriptionARN (\ s a -> s{_csrsSubscriptionARN = a});
 
 -- | The response status code.
-csrsStatus :: Lens' ConfirmSubscriptionResponse Int
-csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});
+csrsResponseStatus :: Lens' ConfirmSubscriptionResponse Int
+csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});

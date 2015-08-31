@@ -54,7 +54,7 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     , drsInstanceInitiatedShutdownBehavior
     , drsProductCodes
     , drsBlockDeviceMappings
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -168,7 +168,7 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
     , _drsInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
     , _drsProductCodes                      :: !(Maybe [ProductCode])
     , _drsBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMapping])
-    , _drsStatus                            :: !Int
+    , _drsResponseStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeInstanceAttributeResponse' with the minimum fields required to make a request.
@@ -203,11 +203,11 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
 --
 -- * 'drsBlockDeviceMappings'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 describeInstanceAttributeResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DescribeInstanceAttributeResponse
-describeInstanceAttributeResponse pStatus_ =
+describeInstanceAttributeResponse pResponseStatus_ =
     DescribeInstanceAttributeResponse'
     { _drsInstanceId = Nothing
     , _drsGroups = Nothing
@@ -223,7 +223,7 @@ describeInstanceAttributeResponse pStatus_ =
     , _drsInstanceInitiatedShutdownBehavior = Nothing
     , _drsProductCodes = Nothing
     , _drsBlockDeviceMappings = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the instance.
@@ -289,5 +289,5 @@ drsBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlock
 drsBlockDeviceMappings = lens _drsBlockDeviceMappings (\ s a -> s{_drsBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drsStatus :: Lens' DescribeInstanceAttributeResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DescribeInstanceAttributeResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

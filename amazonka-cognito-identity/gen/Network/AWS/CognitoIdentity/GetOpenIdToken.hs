@@ -42,7 +42,7 @@ module Network.AWS.CognitoIdentity.GetOpenIdToken
     -- * Response Lenses
     , goitrsToken
     , goitrsIdentityId
-    , goitrsStatus
+    , goitrsResponseStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -124,9 +124,9 @@ instance ToQuery GetOpenIdToken where
 --
 -- /See:/ 'getOpenIdTokenResponse' smart constructor.
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
-    { _goitrsToken      :: !(Maybe Text)
-    , _goitrsIdentityId :: !(Maybe Text)
-    , _goitrsStatus     :: !Int
+    { _goitrsToken          :: !(Maybe Text)
+    , _goitrsIdentityId     :: !(Maybe Text)
+    , _goitrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetOpenIdTokenResponse' with the minimum fields required to make a request.
@@ -137,15 +137,15 @@ data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
 --
 -- * 'goitrsIdentityId'
 --
--- * 'goitrsStatus'
+-- * 'goitrsResponseStatus'
 getOpenIdTokenResponse
-    :: Int -- ^ 'goitrsStatus'
+    :: Int -- ^ 'goitrsResponseStatus'
     -> GetOpenIdTokenResponse
-getOpenIdTokenResponse pStatus_ =
+getOpenIdTokenResponse pResponseStatus_ =
     GetOpenIdTokenResponse'
     { _goitrsToken = Nothing
     , _goitrsIdentityId = Nothing
-    , _goitrsStatus = pStatus_
+    , _goitrsResponseStatus = pResponseStatus_
     }
 
 -- | An OpenID token, valid for 15 minutes.
@@ -158,5 +158,5 @@ goitrsIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
 goitrsIdentityId = lens _goitrsIdentityId (\ s a -> s{_goitrsIdentityId = a});
 
 -- | The response status code.
-goitrsStatus :: Lens' GetOpenIdTokenResponse Int
-goitrsStatus = lens _goitrsStatus (\ s a -> s{_goitrsStatus = a});
+goitrsResponseStatus :: Lens' GetOpenIdTokenResponse Int
+goitrsResponseStatus = lens _goitrsResponseStatus (\ s a -> s{_goitrsResponseStatus = a});

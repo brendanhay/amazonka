@@ -40,7 +40,7 @@ module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     , ConfirmPrivateVirtualInterfaceResponse
     -- * Response Lenses
     , cpvirsVirtualInterfaceState
-    , cpvirsStatus
+    , cpvirsResponseStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -133,7 +133,7 @@ instance ToQuery ConfirmPrivateVirtualInterface where
 -- /See:/ 'confirmPrivateVirtualInterfaceResponse' smart constructor.
 data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'
     { _cpvirsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _cpvirsStatus                :: !Int
+    , _cpvirsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ConfirmPrivateVirtualInterfaceResponse' with the minimum fields required to make a request.
@@ -142,14 +142,14 @@ data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResp
 --
 -- * 'cpvirsVirtualInterfaceState'
 --
--- * 'cpvirsStatus'
+-- * 'cpvirsResponseStatus'
 confirmPrivateVirtualInterfaceResponse
-    :: Int -- ^ 'cpvirsStatus'
+    :: Int -- ^ 'cpvirsResponseStatus'
     -> ConfirmPrivateVirtualInterfaceResponse
-confirmPrivateVirtualInterfaceResponse pStatus_ =
+confirmPrivateVirtualInterfaceResponse pResponseStatus_ =
     ConfirmPrivateVirtualInterfaceResponse'
     { _cpvirsVirtualInterfaceState = Nothing
-    , _cpvirsStatus = pStatus_
+    , _cpvirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -157,5 +157,5 @@ cpvirsVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (May
 cpvirsVirtualInterfaceState = lens _cpvirsVirtualInterfaceState (\ s a -> s{_cpvirsVirtualInterfaceState = a});
 
 -- | The response status code.
-cpvirsStatus :: Lens' ConfirmPrivateVirtualInterfaceResponse Int
-cpvirsStatus = lens _cpvirsStatus (\ s a -> s{_cpvirsStatus = a});
+cpvirsResponseStatus :: Lens' ConfirmPrivateVirtualInterfaceResponse Int
+cpvirsResponseStatus = lens _cpvirsResponseStatus (\ s a -> s{_cpvirsResponseStatus = a});

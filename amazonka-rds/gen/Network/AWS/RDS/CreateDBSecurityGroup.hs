@@ -37,7 +37,7 @@ module Network.AWS.RDS.CreateDBSecurityGroup
     , CreateDBSecurityGroupResponse
     -- * Response Lenses
     , cdbsgrsDBSecurityGroup
-    , cdbsgrsStatus
+    , cdbsgrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -127,7 +127,7 @@ instance ToQuery CreateDBSecurityGroup where
 -- | /See:/ 'createDBSecurityGroupResponse' smart constructor.
 data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'
     { _cdbsgrsDBSecurityGroup :: !(Maybe DBSecurityGroup)
-    , _cdbsgrsStatus          :: !Int
+    , _cdbsgrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDBSecurityGroupResponse' with the minimum fields required to make a request.
@@ -136,14 +136,14 @@ data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'
 --
 -- * 'cdbsgrsDBSecurityGroup'
 --
--- * 'cdbsgrsStatus'
+-- * 'cdbsgrsResponseStatus'
 createDBSecurityGroupResponse
-    :: Int -- ^ 'cdbsgrsStatus'
+    :: Int -- ^ 'cdbsgrsResponseStatus'
     -> CreateDBSecurityGroupResponse
-createDBSecurityGroupResponse pStatus_ =
+createDBSecurityGroupResponse pResponseStatus_ =
     CreateDBSecurityGroupResponse'
     { _cdbsgrsDBSecurityGroup = Nothing
-    , _cdbsgrsStatus = pStatus_
+    , _cdbsgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -151,5 +151,5 @@ cdbsgrsDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityG
 cdbsgrsDBSecurityGroup = lens _cdbsgrsDBSecurityGroup (\ s a -> s{_cdbsgrsDBSecurityGroup = a});
 
 -- | The response status code.
-cdbsgrsStatus :: Lens' CreateDBSecurityGroupResponse Int
-cdbsgrsStatus = lens _cdbsgrsStatus (\ s a -> s{_cdbsgrsStatus = a});
+cdbsgrsResponseStatus :: Lens' CreateDBSecurityGroupResponse Int
+cdbsgrsResponseStatus = lens _cdbsgrsResponseStatus (\ s a -> s{_cdbsgrsResponseStatus = a});

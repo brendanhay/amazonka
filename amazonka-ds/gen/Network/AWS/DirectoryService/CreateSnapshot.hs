@@ -37,7 +37,7 @@ module Network.AWS.DirectoryService.CreateSnapshot
     , CreateSnapshotResponse
     -- * Response Lenses
     , csrsSnapshotId
-    , csrsStatus
+    , csrsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -114,8 +114,8 @@ instance ToQuery CreateSnapshot where
 --
 -- /See:/ 'createSnapshotResponse' smart constructor.
 data CreateSnapshotResponse = CreateSnapshotResponse'
-    { _csrsSnapshotId :: !(Maybe Text)
-    , _csrsStatus     :: !Int
+    { _csrsSnapshotId     :: !(Maybe Text)
+    , _csrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateSnapshotResponse' with the minimum fields required to make a request.
@@ -124,14 +124,14 @@ data CreateSnapshotResponse = CreateSnapshotResponse'
 --
 -- * 'csrsSnapshotId'
 --
--- * 'csrsStatus'
+-- * 'csrsResponseStatus'
 createSnapshotResponse
-    :: Int -- ^ 'csrsStatus'
+    :: Int -- ^ 'csrsResponseStatus'
     -> CreateSnapshotResponse
-createSnapshotResponse pStatus_ =
+createSnapshotResponse pResponseStatus_ =
     CreateSnapshotResponse'
     { _csrsSnapshotId = Nothing
-    , _csrsStatus = pStatus_
+    , _csrsResponseStatus = pResponseStatus_
     }
 
 -- | The identifier of the snapshot that was created.
@@ -139,5 +139,5 @@ csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 
 -- | The response status code.
-csrsStatus :: Lens' CreateSnapshotResponse Int
-csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});
+csrsResponseStatus :: Lens' CreateSnapshotResponse Int
+csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});

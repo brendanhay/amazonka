@@ -34,7 +34,7 @@ module Network.AWS.Route53.ListTagsForResource
     , listTagsForResourceResponse
     , ListTagsForResourceResponse
     -- * Response Lenses
-    , ltfrrsStatus
+    , ltfrrsResponseStatus
     , ltfrrsResourceTagSet
     ) where
 
@@ -108,7 +108,7 @@ instance ToQuery ListTagsForResource where
 --
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrsStatus         :: !Int
+    { _ltfrrsResponseStatus :: !Int
     , _ltfrrsResourceTagSet :: !ResourceTagSet
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -116,22 +116,22 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrrsStatus'
+-- * 'ltfrrsResponseStatus'
 --
 -- * 'ltfrrsResourceTagSet'
 listTagsForResourceResponse
-    :: Int -- ^ 'ltfrrsStatus'
+    :: Int -- ^ 'ltfrrsResponseStatus'
     -> ResourceTagSet -- ^ 'ltfrrsResourceTagSet'
     -> ListTagsForResourceResponse
-listTagsForResourceResponse pStatus_ pResourceTagSet_ =
+listTagsForResourceResponse pResponseStatus_ pResourceTagSet_ =
     ListTagsForResourceResponse'
-    { _ltfrrsStatus = pStatus_
+    { _ltfrrsResponseStatus = pResponseStatus_
     , _ltfrrsResourceTagSet = pResourceTagSet_
     }
 
 -- | The response status code.
-ltfrrsStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrsStatus = lens _ltfrrsStatus (\ s a -> s{_ltfrrsStatus = a});
+ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
+ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 
 -- | A 'ResourceTagSet' containing tags associated with the specified
 -- resource.

@@ -36,7 +36,7 @@ module Network.AWS.DeviceFarm.ListDevices
     -- * Response Lenses
     , ldrsNextToken
     , ldrsDevices
-    , ldrsStatus
+    , ldrsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -114,9 +114,9 @@ instance ToQuery ListDevices where
 --
 -- /See:/ 'listDevicesResponse' smart constructor.
 data ListDevicesResponse = ListDevicesResponse'
-    { _ldrsNextToken :: !(Maybe Text)
-    , _ldrsDevices   :: !(Maybe [Device])
-    , _ldrsStatus    :: !Int
+    { _ldrsNextToken      :: !(Maybe Text)
+    , _ldrsDevices        :: !(Maybe [Device])
+    , _ldrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListDevicesResponse' with the minimum fields required to make a request.
@@ -127,15 +127,15 @@ data ListDevicesResponse = ListDevicesResponse'
 --
 -- * 'ldrsDevices'
 --
--- * 'ldrsStatus'
+-- * 'ldrsResponseStatus'
 listDevicesResponse
-    :: Int -- ^ 'ldrsStatus'
+    :: Int -- ^ 'ldrsResponseStatus'
     -> ListDevicesResponse
-listDevicesResponse pStatus_ =
+listDevicesResponse pResponseStatus_ =
     ListDevicesResponse'
     { _ldrsNextToken = Nothing
     , _ldrsDevices = Nothing
-    , _ldrsStatus = pStatus_
+    , _ldrsResponseStatus = pResponseStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is
@@ -149,5 +149,5 @@ ldrsDevices :: Lens' ListDevicesResponse [Device]
 ldrsDevices = lens _ldrsDevices (\ s a -> s{_ldrsDevices = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ldrsStatus :: Lens' ListDevicesResponse Int
-ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
+ldrsResponseStatus :: Lens' ListDevicesResponse Int
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});

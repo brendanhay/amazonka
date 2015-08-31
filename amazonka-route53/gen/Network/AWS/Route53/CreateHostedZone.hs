@@ -60,7 +60,7 @@ module Network.AWS.Route53.CreateHostedZone
     , CreateHostedZoneResponse
     -- * Response Lenses
     , chzrsVPC
-    , chzrsStatus
+    , chzrsResponseStatus
     , chzrsHostedZone
     , chzrsChangeInfo
     , chzrsDelegationSet
@@ -192,12 +192,12 @@ instance ToXML CreateHostedZone where
 --
 -- /See:/ 'createHostedZoneResponse' smart constructor.
 data CreateHostedZoneResponse = CreateHostedZoneResponse'
-    { _chzrsVPC           :: !(Maybe VPC)
-    , _chzrsStatus        :: !Int
-    , _chzrsHostedZone    :: !HostedZone
-    , _chzrsChangeInfo    :: !ChangeInfo
-    , _chzrsDelegationSet :: !DelegationSet
-    , _chzrsLocation      :: !Text
+    { _chzrsVPC            :: !(Maybe VPC)
+    , _chzrsResponseStatus :: !Int
+    , _chzrsHostedZone     :: !HostedZone
+    , _chzrsChangeInfo     :: !ChangeInfo
+    , _chzrsDelegationSet  :: !DelegationSet
+    , _chzrsLocation       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateHostedZoneResponse' with the minimum fields required to make a request.
@@ -206,7 +206,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse'
 --
 -- * 'chzrsVPC'
 --
--- * 'chzrsStatus'
+-- * 'chzrsResponseStatus'
 --
 -- * 'chzrsHostedZone'
 --
@@ -216,16 +216,16 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse'
 --
 -- * 'chzrsLocation'
 createHostedZoneResponse
-    :: Int -- ^ 'chzrsStatus'
+    :: Int -- ^ 'chzrsResponseStatus'
     -> HostedZone -- ^ 'chzrsHostedZone'
     -> ChangeInfo -- ^ 'chzrsChangeInfo'
     -> DelegationSet -- ^ 'chzrsDelegationSet'
     -> Text -- ^ 'chzrsLocation'
     -> CreateHostedZoneResponse
-createHostedZoneResponse pStatus_ pHostedZone_ pChangeInfo_ pDelegationSet_ pLocation_ =
+createHostedZoneResponse pResponseStatus_ pHostedZone_ pChangeInfo_ pDelegationSet_ pLocation_ =
     CreateHostedZoneResponse'
     { _chzrsVPC = Nothing
-    , _chzrsStatus = pStatus_
+    , _chzrsResponseStatus = pResponseStatus_
     , _chzrsHostedZone = pHostedZone_
     , _chzrsChangeInfo = pChangeInfo_
     , _chzrsDelegationSet = pDelegationSet_
@@ -237,8 +237,8 @@ chzrsVPC :: Lens' CreateHostedZoneResponse (Maybe VPC)
 chzrsVPC = lens _chzrsVPC (\ s a -> s{_chzrsVPC = a});
 
 -- | The response status code.
-chzrsStatus :: Lens' CreateHostedZoneResponse Int
-chzrsStatus = lens _chzrsStatus (\ s a -> s{_chzrsStatus = a});
+chzrsResponseStatus :: Lens' CreateHostedZoneResponse Int
+chzrsResponseStatus = lens _chzrsResponseStatus (\ s a -> s{_chzrsResponseStatus = a});
 
 -- | A complex type that contains identifying information about the hosted
 -- zone.

@@ -34,7 +34,7 @@ module Network.AWS.S3.GetBucketPolicy
     , GetBucketPolicyResponse
     -- * Response Lenses
     , gbprsPolicy
-    , gbprsStatus
+    , gbprsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -86,8 +86,8 @@ instance ToQuery GetBucketPolicy where
 
 -- | /See:/ 'getBucketPolicyResponse' smart constructor.
 data GetBucketPolicyResponse = GetBucketPolicyResponse'
-    { _gbprsPolicy :: !(Maybe Text)
-    , _gbprsStatus :: !Int
+    { _gbprsPolicy         :: !(Maybe Text)
+    , _gbprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketPolicyResponse' with the minimum fields required to make a request.
@@ -96,14 +96,14 @@ data GetBucketPolicyResponse = GetBucketPolicyResponse'
 --
 -- * 'gbprsPolicy'
 --
--- * 'gbprsStatus'
+-- * 'gbprsResponseStatus'
 getBucketPolicyResponse
-    :: Int -- ^ 'gbprsStatus'
+    :: Int -- ^ 'gbprsResponseStatus'
     -> GetBucketPolicyResponse
-getBucketPolicyResponse pStatus_ =
+getBucketPolicyResponse pResponseStatus_ =
     GetBucketPolicyResponse'
     { _gbprsPolicy = Nothing
-    , _gbprsStatus = pStatus_
+    , _gbprsResponseStatus = pResponseStatus_
     }
 
 -- | The bucket policy as a JSON document.
@@ -111,5 +111,5 @@ gbprsPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
 gbprsPolicy = lens _gbprsPolicy (\ s a -> s{_gbprsPolicy = a});
 
 -- | The response status code.
-gbprsStatus :: Lens' GetBucketPolicyResponse Int
-gbprsStatus = lens _gbprsStatus (\ s a -> s{_gbprsStatus = a});
+gbprsResponseStatus :: Lens' GetBucketPolicyResponse Int
+gbprsResponseStatus = lens _gbprsResponseStatus (\ s a -> s{_gbprsResponseStatus = a});

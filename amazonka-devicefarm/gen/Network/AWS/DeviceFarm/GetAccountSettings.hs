@@ -33,7 +33,7 @@ module Network.AWS.DeviceFarm.GetAccountSettings
     , GetAccountSettingsResponse
     -- * Response Lenses
     , gasrsAccountSettings
-    , gasrsStatus
+    , gasrsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -85,7 +85,7 @@ instance ToQuery GetAccountSettings where
 -- | /See:/ 'getAccountSettingsResponse' smart constructor.
 data GetAccountSettingsResponse = GetAccountSettingsResponse'
     { _gasrsAccountSettings :: !(Maybe AccountSettings)
-    , _gasrsStatus          :: !Int
+    , _gasrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetAccountSettingsResponse' with the minimum fields required to make a request.
@@ -94,14 +94,14 @@ data GetAccountSettingsResponse = GetAccountSettingsResponse'
 --
 -- * 'gasrsAccountSettings'
 --
--- * 'gasrsStatus'
+-- * 'gasrsResponseStatus'
 getAccountSettingsResponse
-    :: Int -- ^ 'gasrsStatus'
+    :: Int -- ^ 'gasrsResponseStatus'
     -> GetAccountSettingsResponse
-getAccountSettingsResponse pStatus_ =
+getAccountSettingsResponse pResponseStatus_ =
     GetAccountSettingsResponse'
     { _gasrsAccountSettings = Nothing
-    , _gasrsStatus = pStatus_
+    , _gasrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -109,5 +109,5 @@ gasrsAccountSettings :: Lens' GetAccountSettingsResponse (Maybe AccountSettings)
 gasrsAccountSettings = lens _gasrsAccountSettings (\ s a -> s{_gasrsAccountSettings = a});
 
 -- | The response status code.
-gasrsStatus :: Lens' GetAccountSettingsResponse Int
-gasrsStatus = lens _gasrsStatus (\ s a -> s{_gasrsStatus = a});
+gasrsResponseStatus :: Lens' GetAccountSettingsResponse Int
+gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a});

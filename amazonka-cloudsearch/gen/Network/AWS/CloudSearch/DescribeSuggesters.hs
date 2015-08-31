@@ -42,7 +42,7 @@ module Network.AWS.CloudSearch.DescribeSuggesters
     , describeSuggestersResponse
     , DescribeSuggestersResponse
     -- * Response Lenses
-    , dssrsStatus
+    , dssrsResponseStatus
     , dssrsSuggesters
     ) where
 
@@ -130,29 +130,29 @@ instance ToQuery DescribeSuggesters where
 --
 -- /See:/ 'describeSuggestersResponse' smart constructor.
 data DescribeSuggestersResponse = DescribeSuggestersResponse'
-    { _dssrsStatus     :: !Int
-    , _dssrsSuggesters :: ![SuggesterStatus]
+    { _dssrsResponseStatus :: !Int
+    , _dssrsSuggesters     :: ![SuggesterStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSuggestersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssrsStatus'
+-- * 'dssrsResponseStatus'
 --
 -- * 'dssrsSuggesters'
 describeSuggestersResponse
-    :: Int -- ^ 'dssrsStatus'
+    :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeSuggestersResponse
-describeSuggestersResponse pStatus_ =
+describeSuggestersResponse pResponseStatus_ =
     DescribeSuggestersResponse'
-    { _dssrsStatus = pStatus_
+    { _dssrsResponseStatus = pResponseStatus_
     , _dssrsSuggesters = mempty
     }
 
 -- | The response status code.
-dssrsStatus :: Lens' DescribeSuggestersResponse Int
-dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});
+dssrsResponseStatus :: Lens' DescribeSuggestersResponse Int
+dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
 
 -- | The suggesters configured for the domain specified in the request.
 dssrsSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]

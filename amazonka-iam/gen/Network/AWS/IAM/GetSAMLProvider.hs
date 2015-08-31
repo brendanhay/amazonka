@@ -40,7 +40,7 @@ module Network.AWS.IAM.GetSAMLProvider
     , gsamlprsCreateDate
     , gsamlprsValidUntil
     , gsamlprsSAMLMetadataDocument
-    , gsamlprsStatus
+    , gsamlprsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -103,7 +103,7 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse'
     { _gsamlprsCreateDate           :: !(Maybe ISO8601)
     , _gsamlprsValidUntil           :: !(Maybe ISO8601)
     , _gsamlprsSAMLMetadataDocument :: !(Maybe Text)
-    , _gsamlprsStatus               :: !Int
+    , _gsamlprsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetSAMLProviderResponse' with the minimum fields required to make a request.
@@ -116,16 +116,16 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse'
 --
 -- * 'gsamlprsSAMLMetadataDocument'
 --
--- * 'gsamlprsStatus'
+-- * 'gsamlprsResponseStatus'
 getSAMLProviderResponse
-    :: Int -- ^ 'gsamlprsStatus'
+    :: Int -- ^ 'gsamlprsResponseStatus'
     -> GetSAMLProviderResponse
-getSAMLProviderResponse pStatus_ =
+getSAMLProviderResponse pResponseStatus_ =
     GetSAMLProviderResponse'
     { _gsamlprsCreateDate = Nothing
     , _gsamlprsValidUntil = Nothing
     , _gsamlprsSAMLMetadataDocument = Nothing
-    , _gsamlprsStatus = pStatus_
+    , _gsamlprsResponseStatus = pResponseStatus_
     }
 
 -- | The date and time when the SAML provider was created.
@@ -142,5 +142,5 @@ gsamlprsSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
 gsamlprsSAMLMetadataDocument = lens _gsamlprsSAMLMetadataDocument (\ s a -> s{_gsamlprsSAMLMetadataDocument = a});
 
 -- | The response status code.
-gsamlprsStatus :: Lens' GetSAMLProviderResponse Int
-gsamlprsStatus = lens _gsamlprsStatus (\ s a -> s{_gsamlprsStatus = a});
+gsamlprsResponseStatus :: Lens' GetSAMLProviderResponse Int
+gsamlprsResponseStatus = lens _gsamlprsResponseStatus (\ s a -> s{_gsamlprsResponseStatus = a});

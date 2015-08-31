@@ -43,7 +43,7 @@ module Network.AWS.Route53.CreateReusableDelegationSet
     , createReusableDelegationSetResponse
     , CreateReusableDelegationSetResponse
     -- * Response Lenses
-    , crdsrsStatus
+    , crdsrsResponseStatus
     , crdsrsDelegationSet
     , crdsrsLocation
     ) where
@@ -127,35 +127,35 @@ instance ToXML CreateReusableDelegationSet where
 
 -- | /See:/ 'createReusableDelegationSetResponse' smart constructor.
 data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'
-    { _crdsrsStatus        :: !Int
-    , _crdsrsDelegationSet :: !DelegationSet
-    , _crdsrsLocation      :: !Text
+    { _crdsrsResponseStatus :: !Int
+    , _crdsrsDelegationSet  :: !DelegationSet
+    , _crdsrsLocation       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateReusableDelegationSetResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crdsrsStatus'
+-- * 'crdsrsResponseStatus'
 --
 -- * 'crdsrsDelegationSet'
 --
 -- * 'crdsrsLocation'
 createReusableDelegationSetResponse
-    :: Int -- ^ 'crdsrsStatus'
+    :: Int -- ^ 'crdsrsResponseStatus'
     -> DelegationSet -- ^ 'crdsrsDelegationSet'
     -> Text -- ^ 'crdsrsLocation'
     -> CreateReusableDelegationSetResponse
-createReusableDelegationSetResponse pStatus_ pDelegationSet_ pLocation_ =
+createReusableDelegationSetResponse pResponseStatus_ pDelegationSet_ pLocation_ =
     CreateReusableDelegationSetResponse'
-    { _crdsrsStatus = pStatus_
+    { _crdsrsResponseStatus = pResponseStatus_
     , _crdsrsDelegationSet = pDelegationSet_
     , _crdsrsLocation = pLocation_
     }
 
 -- | The response status code.
-crdsrsStatus :: Lens' CreateReusableDelegationSetResponse Int
-crdsrsStatus = lens _crdsrsStatus (\ s a -> s{_crdsrsStatus = a});
+crdsrsResponseStatus :: Lens' CreateReusableDelegationSetResponse Int
+crdsrsResponseStatus = lens _crdsrsResponseStatus (\ s a -> s{_crdsrsResponseStatus = a});
 
 -- | A complex type that contains name server information.
 crdsrsDelegationSet :: Lens' CreateReusableDelegationSetResponse DelegationSet

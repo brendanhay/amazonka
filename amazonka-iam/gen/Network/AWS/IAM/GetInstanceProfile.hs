@@ -38,7 +38,7 @@ module Network.AWS.IAM.GetInstanceProfile
     , getInstanceProfileResponse
     , GetInstanceProfileResponse
     -- * Response Lenses
-    , giprsStatus
+    , giprsResponseStatus
     , giprsInstanceProfile
     ) where
 
@@ -97,7 +97,7 @@ instance ToQuery GetInstanceProfile where
 --
 -- /See:/ 'getInstanceProfileResponse' smart constructor.
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
-    { _giprsStatus          :: !Int
+    { _giprsResponseStatus  :: !Int
     , _giprsInstanceProfile :: !InstanceProfile
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -105,22 +105,22 @@ data GetInstanceProfileResponse = GetInstanceProfileResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giprsStatus'
+-- * 'giprsResponseStatus'
 --
 -- * 'giprsInstanceProfile'
 getInstanceProfileResponse
-    :: Int -- ^ 'giprsStatus'
+    :: Int -- ^ 'giprsResponseStatus'
     -> InstanceProfile -- ^ 'giprsInstanceProfile'
     -> GetInstanceProfileResponse
-getInstanceProfileResponse pStatus_ pInstanceProfile_ =
+getInstanceProfileResponse pResponseStatus_ pInstanceProfile_ =
     GetInstanceProfileResponse'
-    { _giprsStatus = pStatus_
+    { _giprsResponseStatus = pResponseStatus_
     , _giprsInstanceProfile = pInstanceProfile_
     }
 
 -- | The response status code.
-giprsStatus :: Lens' GetInstanceProfileResponse Int
-giprsStatus = lens _giprsStatus (\ s a -> s{_giprsStatus = a});
+giprsResponseStatus :: Lens' GetInstanceProfileResponse Int
+giprsResponseStatus = lens _giprsResponseStatus (\ s a -> s{_giprsResponseStatus = a});
 
 -- | Information about the instance profile.
 giprsInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile

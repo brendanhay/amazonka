@@ -42,7 +42,7 @@ module Network.AWS.Route53Domains.EnableDomainAutoRenew
     , enableDomainAutoRenewResponse
     , EnableDomainAutoRenewResponse
     -- * Response Lenses
-    , edarrsStatus
+    , edarrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -106,22 +106,22 @@ instance ToQuery EnableDomainAutoRenew where
 
 -- | /See:/ 'enableDomainAutoRenewResponse' smart constructor.
 newtype EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse'
-    { _edarrsStatus :: Int
+    { _edarrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnableDomainAutoRenewResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edarrsStatus'
+-- * 'edarrsResponseStatus'
 enableDomainAutoRenewResponse
-    :: Int -- ^ 'edarrsStatus'
+    :: Int -- ^ 'edarrsResponseStatus'
     -> EnableDomainAutoRenewResponse
-enableDomainAutoRenewResponse pStatus_ =
+enableDomainAutoRenewResponse pResponseStatus_ =
     EnableDomainAutoRenewResponse'
-    { _edarrsStatus = pStatus_
+    { _edarrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-edarrsStatus :: Lens' EnableDomainAutoRenewResponse Int
-edarrsStatus = lens _edarrsStatus (\ s a -> s{_edarrsStatus = a});
+edarrsResponseStatus :: Lens' EnableDomainAutoRenewResponse Int
+edarrsResponseStatus = lens _edarrsResponseStatus (\ s a -> s{_edarrsResponseStatus = a});

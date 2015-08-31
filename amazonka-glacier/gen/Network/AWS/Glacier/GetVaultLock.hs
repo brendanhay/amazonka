@@ -61,7 +61,7 @@ module Network.AWS.Glacier.GetVaultLock
     , gvlrsExpirationDate
     , gvlrsCreationDate
     , gvlrsPolicy
-    , gvlrsStatus
+    , gvlrsResponseStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -139,7 +139,7 @@ data GetVaultLockResponse = GetVaultLockResponse'
     , _gvlrsExpirationDate :: !(Maybe Text)
     , _gvlrsCreationDate   :: !(Maybe Text)
     , _gvlrsPolicy         :: !(Maybe Text)
-    , _gvlrsStatus         :: !Int
+    , _gvlrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetVaultLockResponse' with the minimum fields required to make a request.
@@ -154,17 +154,17 @@ data GetVaultLockResponse = GetVaultLockResponse'
 --
 -- * 'gvlrsPolicy'
 --
--- * 'gvlrsStatus'
+-- * 'gvlrsResponseStatus'
 getVaultLockResponse
-    :: Int -- ^ 'gvlrsStatus'
+    :: Int -- ^ 'gvlrsResponseStatus'
     -> GetVaultLockResponse
-getVaultLockResponse pStatus_ =
+getVaultLockResponse pResponseStatus_ =
     GetVaultLockResponse'
     { _gvlrsState = Nothing
     , _gvlrsExpirationDate = Nothing
     , _gvlrsCreationDate = Nothing
     , _gvlrsPolicy = Nothing
-    , _gvlrsStatus = pStatus_
+    , _gvlrsResponseStatus = pResponseStatus_
     }
 
 -- | The state of the vault lock. 'InProgress' or 'Locked'.
@@ -187,5 +187,5 @@ gvlrsPolicy :: Lens' GetVaultLockResponse (Maybe Text)
 gvlrsPolicy = lens _gvlrsPolicy (\ s a -> s{_gvlrsPolicy = a});
 
 -- | The response status code.
-gvlrsStatus :: Lens' GetVaultLockResponse Int
-gvlrsStatus = lens _gvlrsStatus (\ s a -> s{_gvlrsStatus = a});
+gvlrsResponseStatus :: Lens' GetVaultLockResponse Int
+gvlrsResponseStatus = lens _gvlrsResponseStatus (\ s a -> s{_gvlrsResponseStatus = a});

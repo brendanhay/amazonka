@@ -39,7 +39,7 @@ module Network.AWS.EC2.CancelReservedInstancesListing
     , CancelReservedInstancesListingResponse
     -- * Response Lenses
     , crilrsReservedInstancesListings
-    , crilrsStatus
+    , crilrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -102,7 +102,7 @@ instance ToQuery CancelReservedInstancesListing where
 -- | /See:/ 'cancelReservedInstancesListingResponse' smart constructor.
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'
     { _crilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
-    , _crilrsStatus                    :: !Int
+    , _crilrsResponseStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CancelReservedInstancesListingResponse' with the minimum fields required to make a request.
@@ -111,14 +111,14 @@ data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResp
 --
 -- * 'crilrsReservedInstancesListings'
 --
--- * 'crilrsStatus'
+-- * 'crilrsResponseStatus'
 cancelReservedInstancesListingResponse
-    :: Int -- ^ 'crilrsStatus'
+    :: Int -- ^ 'crilrsResponseStatus'
     -> CancelReservedInstancesListingResponse
-cancelReservedInstancesListingResponse pStatus_ =
+cancelReservedInstancesListingResponse pResponseStatus_ =
     CancelReservedInstancesListingResponse'
     { _crilrsReservedInstancesListings = Nothing
-    , _crilrsStatus = pStatus_
+    , _crilrsResponseStatus = pResponseStatus_
     }
 
 -- | The Reserved Instance listing.
@@ -126,5 +126,5 @@ crilrsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse 
 crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -> s{_crilrsReservedInstancesListings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-crilrsStatus :: Lens' CancelReservedInstancesListingResponse Int
-crilrsStatus = lens _crilrsStatus (\ s a -> s{_crilrsStatus = a});
+crilrsResponseStatus :: Lens' CancelReservedInstancesListingResponse Int
+crilrsResponseStatus = lens _crilrsResponseStatus (\ s a -> s{_crilrsResponseStatus = a});

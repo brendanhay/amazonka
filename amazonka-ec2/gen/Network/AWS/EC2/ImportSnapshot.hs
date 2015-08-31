@@ -41,7 +41,7 @@ module Network.AWS.EC2.ImportSnapshot
     , isrsSnapshotTaskDetail
     , isrsImportTaskId
     , isrsDescription
-    , isrsStatus
+    , isrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -149,7 +149,7 @@ data ImportSnapshotResponse = ImportSnapshotResponse'
     { _isrsSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
     , _isrsImportTaskId       :: !(Maybe Text)
     , _isrsDescription        :: !(Maybe Text)
-    , _isrsStatus             :: !Int
+    , _isrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImportSnapshotResponse' with the minimum fields required to make a request.
@@ -162,16 +162,16 @@ data ImportSnapshotResponse = ImportSnapshotResponse'
 --
 -- * 'isrsDescription'
 --
--- * 'isrsStatus'
+-- * 'isrsResponseStatus'
 importSnapshotResponse
-    :: Int -- ^ 'isrsStatus'
+    :: Int -- ^ 'isrsResponseStatus'
     -> ImportSnapshotResponse
-importSnapshotResponse pStatus_ =
+importSnapshotResponse pResponseStatus_ =
     ImportSnapshotResponse'
     { _isrsSnapshotTaskDetail = Nothing
     , _isrsImportTaskId = Nothing
     , _isrsDescription = Nothing
-    , _isrsStatus = pStatus_
+    , _isrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the import snapshot task.
@@ -187,5 +187,5 @@ isrsDescription :: Lens' ImportSnapshotResponse (Maybe Text)
 isrsDescription = lens _isrsDescription (\ s a -> s{_isrsDescription = a});
 
 -- | The response status code.
-isrsStatus :: Lens' ImportSnapshotResponse Int
-isrsStatus = lens _isrsStatus (\ s a -> s{_isrsStatus = a});
+isrsResponseStatus :: Lens' ImportSnapshotResponse Int
+isrsResponseStatus = lens _isrsResponseStatus (\ s a -> s{_isrsResponseStatus = a});

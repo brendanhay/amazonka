@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     -- * Response Lenses
     , dcsgsrsCacheSecurityGroups
     , dcsgsrsMarker
-    , dcsgsrsStatus
+    , dcsgsrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -143,7 +143,7 @@ instance ToQuery DescribeCacheSecurityGroups where
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
     { _dcsgsrsCacheSecurityGroups :: !(Maybe [CacheSecurityGroup])
     , _dcsgsrsMarker              :: !(Maybe Text)
-    , _dcsgsrsStatus              :: !Int
+    , _dcsgsrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCacheSecurityGroupsResponse' with the minimum fields required to make a request.
@@ -154,15 +154,15 @@ data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
 --
 -- * 'dcsgsrsMarker'
 --
--- * 'dcsgsrsStatus'
+-- * 'dcsgsrsResponseStatus'
 describeCacheSecurityGroupsResponse
-    :: Int -- ^ 'dcsgsrsStatus'
+    :: Int -- ^ 'dcsgsrsResponseStatus'
     -> DescribeCacheSecurityGroupsResponse
-describeCacheSecurityGroupsResponse pStatus_ =
+describeCacheSecurityGroupsResponse pResponseStatus_ =
     DescribeCacheSecurityGroupsResponse'
     { _dcsgsrsCacheSecurityGroups = Nothing
     , _dcsgsrsMarker = Nothing
-    , _dcsgsrsStatus = pStatus_
+    , _dcsgsrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of cache security groups. Each element in the list contains
@@ -175,5 +175,5 @@ dcsgsrsMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
 dcsgsrsMarker = lens _dcsgsrsMarker (\ s a -> s{_dcsgsrsMarker = a});
 
 -- | The response status code.
-dcsgsrsStatus :: Lens' DescribeCacheSecurityGroupsResponse Int
-dcsgsrsStatus = lens _dcsgsrsStatus (\ s a -> s{_dcsgsrsStatus = a});
+dcsgsrsResponseStatus :: Lens' DescribeCacheSecurityGroupsResponse Int
+dcsgsrsResponseStatus = lens _dcsgsrsResponseStatus (\ s a -> s{_dcsgsrsResponseStatus = a});

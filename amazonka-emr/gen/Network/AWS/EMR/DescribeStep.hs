@@ -35,7 +35,7 @@ module Network.AWS.EMR.DescribeStep
     , DescribeStepResponse
     -- * Response Lenses
     , dsrsStep
-    , dsrsStatus
+    , dsrsResponseStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -112,8 +112,8 @@ instance ToQuery DescribeStep where
 --
 -- /See:/ 'describeStepResponse' smart constructor.
 data DescribeStepResponse = DescribeStepResponse'
-    { _dsrsStep   :: !(Maybe Step)
-    , _dsrsStatus :: !Int
+    { _dsrsStep           :: !(Maybe Step)
+    , _dsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeStepResponse' with the minimum fields required to make a request.
@@ -122,14 +122,14 @@ data DescribeStepResponse = DescribeStepResponse'
 --
 -- * 'dsrsStep'
 --
--- * 'dsrsStatus'
+-- * 'dsrsResponseStatus'
 describeStepResponse
-    :: Int -- ^ 'dsrsStatus'
+    :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeStepResponse
-describeStepResponse pStatus_ =
+describeStepResponse pResponseStatus_ =
     DescribeStepResponse'
     { _dsrsStep = Nothing
-    , _dsrsStatus = pStatus_
+    , _dsrsResponseStatus = pResponseStatus_
     }
 
 -- | The step details for the requested step identifier.
@@ -137,5 +137,5 @@ dsrsStep :: Lens' DescribeStepResponse (Maybe Step)
 dsrsStep = lens _dsrsStep (\ s a -> s{_dsrsStep = a});
 
 -- | The response status code.
-dsrsStatus :: Lens' DescribeStepResponse Int
-dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
+dsrsResponseStatus :: Lens' DescribeStepResponse Int
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});

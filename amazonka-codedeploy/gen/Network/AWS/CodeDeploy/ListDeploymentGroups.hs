@@ -38,7 +38,7 @@ module Network.AWS.CodeDeploy.ListDeploymentGroups
     , ldgrsNextToken
     , ldgrsApplicationName
     , ldgrsDeploymentGroups
-    , ldgrsStatus
+    , ldgrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -124,7 +124,7 @@ data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
     { _ldgrsNextToken        :: !(Maybe Text)
     , _ldgrsApplicationName  :: !(Maybe Text)
     , _ldgrsDeploymentGroups :: !(Maybe [Text])
-    , _ldgrsStatus           :: !Int
+    , _ldgrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListDeploymentGroupsResponse' with the minimum fields required to make a request.
@@ -137,16 +137,16 @@ data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
 --
 -- * 'ldgrsDeploymentGroups'
 --
--- * 'ldgrsStatus'
+-- * 'ldgrsResponseStatus'
 listDeploymentGroupsResponse
-    :: Int -- ^ 'ldgrsStatus'
+    :: Int -- ^ 'ldgrsResponseStatus'
     -> ListDeploymentGroupsResponse
-listDeploymentGroupsResponse pStatus_ =
+listDeploymentGroupsResponse pResponseStatus_ =
     ListDeploymentGroupsResponse'
     { _ldgrsNextToken = Nothing
     , _ldgrsApplicationName = Nothing
     , _ldgrsDeploymentGroups = Nothing
-    , _ldgrsStatus = pStatus_
+    , _ldgrsResponseStatus = pResponseStatus_
     }
 
 -- | If the amount of information that is returned is significantly large, an
@@ -165,5 +165,5 @@ ldgrsDeploymentGroups :: Lens' ListDeploymentGroupsResponse [Text]
 ldgrsDeploymentGroups = lens _ldgrsDeploymentGroups (\ s a -> s{_ldgrsDeploymentGroups = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ldgrsStatus :: Lens' ListDeploymentGroupsResponse Int
-ldgrsStatus = lens _ldgrsStatus (\ s a -> s{_ldgrsStatus = a});
+ldgrsResponseStatus :: Lens' ListDeploymentGroupsResponse Int
+ldgrsResponseStatus = lens _ldgrsResponseStatus (\ s a -> s{_ldgrsResponseStatus = a});

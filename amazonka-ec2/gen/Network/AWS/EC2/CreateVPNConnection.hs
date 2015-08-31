@@ -54,7 +54,7 @@ module Network.AWS.EC2.CreateVPNConnection
     , CreateVPNConnectionResponse
     -- * Response Lenses
     , cvcrsVPNConnection
-    , cvcrsStatus
+    , cvcrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -154,8 +154,8 @@ instance ToQuery CreateVPNConnection where
 
 -- | /See:/ 'createVPNConnectionResponse' smart constructor.
 data CreateVPNConnectionResponse = CreateVPNConnectionResponse'
-    { _cvcrsVPNConnection :: !(Maybe VPNConnection)
-    , _cvcrsStatus        :: !Int
+    { _cvcrsVPNConnection  :: !(Maybe VPNConnection)
+    , _cvcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateVPNConnectionResponse' with the minimum fields required to make a request.
@@ -164,14 +164,14 @@ data CreateVPNConnectionResponse = CreateVPNConnectionResponse'
 --
 -- * 'cvcrsVPNConnection'
 --
--- * 'cvcrsStatus'
+-- * 'cvcrsResponseStatus'
 createVPNConnectionResponse
-    :: Int -- ^ 'cvcrsStatus'
+    :: Int -- ^ 'cvcrsResponseStatus'
     -> CreateVPNConnectionResponse
-createVPNConnectionResponse pStatus_ =
+createVPNConnectionResponse pResponseStatus_ =
     CreateVPNConnectionResponse'
     { _cvcrsVPNConnection = Nothing
-    , _cvcrsStatus = pStatus_
+    , _cvcrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the VPN connection.
@@ -179,5 +179,5 @@ cvcrsVPNConnection :: Lens' CreateVPNConnectionResponse (Maybe VPNConnection)
 cvcrsVPNConnection = lens _cvcrsVPNConnection (\ s a -> s{_cvcrsVPNConnection = a});
 
 -- | The response status code.
-cvcrsStatus :: Lens' CreateVPNConnectionResponse Int
-cvcrsStatus = lens _cvcrsStatus (\ s a -> s{_cvcrsStatus = a});
+cvcrsResponseStatus :: Lens' CreateVPNConnectionResponse Int
+cvcrsResponseStatus = lens _cvcrsResponseStatus (\ s a -> s{_cvcrsResponseStatus = a});

@@ -56,7 +56,7 @@ module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     , csfvrprsVolumeRecoveryPointTime
     , csfvrprsVolumeARN
     , csfvrprsSnapshotId
-    , csfvrprsStatus
+    , csfvrprsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -144,7 +144,7 @@ data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRec
     { _csfvrprsVolumeRecoveryPointTime :: !(Maybe Text)
     , _csfvrprsVolumeARN               :: !(Maybe Text)
     , _csfvrprsSnapshotId              :: !(Maybe Text)
-    , _csfvrprsStatus                  :: !Int
+    , _csfvrprsResponseStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateSnapshotFromVolumeRecoveryPointResponse' with the minimum fields required to make a request.
@@ -157,16 +157,16 @@ data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRec
 --
 -- * 'csfvrprsSnapshotId'
 --
--- * 'csfvrprsStatus'
+-- * 'csfvrprsResponseStatus'
 createSnapshotFromVolumeRecoveryPointResponse
-    :: Int -- ^ 'csfvrprsStatus'
+    :: Int -- ^ 'csfvrprsResponseStatus'
     -> CreateSnapshotFromVolumeRecoveryPointResponse
-createSnapshotFromVolumeRecoveryPointResponse pStatus_ =
+createSnapshotFromVolumeRecoveryPointResponse pResponseStatus_ =
     CreateSnapshotFromVolumeRecoveryPointResponse'
     { _csfvrprsVolumeRecoveryPointTime = Nothing
     , _csfvrprsVolumeARN = Nothing
     , _csfvrprsSnapshotId = Nothing
-    , _csfvrprsStatus = pStatus_
+    , _csfvrprsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -182,5 +182,5 @@ csfvrprsSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe
 csfvrprsSnapshotId = lens _csfvrprsSnapshotId (\ s a -> s{_csfvrprsSnapshotId = a});
 
 -- | The response status code.
-csfvrprsStatus :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse Int
-csfvrprsStatus = lens _csfvrprsStatus (\ s a -> s{_csfvrprsStatus = a});
+csfvrprsResponseStatus :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse Int
+csfvrprsResponseStatus = lens _csfvrprsResponseStatus (\ s a -> s{_csfvrprsResponseStatus = a});

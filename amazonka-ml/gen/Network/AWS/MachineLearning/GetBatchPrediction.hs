@@ -34,6 +34,7 @@ module Network.AWS.MachineLearning.GetBatchPrediction
     , getBatchPredictionResponse
     , GetBatchPredictionResponse
     -- * Response Lenses
+    , gbprsStatus
     , gbprsLastUpdatedAt
     , gbprsCreatedAt
     , gbprsInputDataLocationS3
@@ -45,7 +46,7 @@ module Network.AWS.MachineLearning.GetBatchPrediction
     , gbprsLogURI
     , gbprsMessage
     , gbprsOutputURI
-    , gbprsStatus
+    , gbprsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -84,8 +85,9 @@ instance AWSRequest GetBatchPrediction where
           = receiveJSON
               (\ s h x ->
                  GetBatchPredictionResponse' <$>
-                   (x .?> "LastUpdatedAt") <*> (x .?> "CreatedAt") <*>
-                     (x .?> "InputDataLocationS3")
+                   (x .?> "Status") <*> (x .?> "LastUpdatedAt") <*>
+                     (x .?> "CreatedAt")
+                     <*> (x .?> "InputDataLocationS3")
                      <*> (x .?> "MLModelId")
                      <*> (x .?> "BatchPredictionDataSourceId")
                      <*> (x .?> "BatchPredictionId")
@@ -124,7 +126,8 @@ instance ToQuery GetBatchPrediction where
 --
 -- /See:/ 'getBatchPredictionResponse' smart constructor.
 data GetBatchPredictionResponse = GetBatchPredictionResponse'
-    { _gbprsLastUpdatedAt               :: !(Maybe POSIX)
+    { _gbprsStatus                      :: !(Maybe EntityStatus)
+    , _gbprsLastUpdatedAt               :: !(Maybe POSIX)
     , _gbprsCreatedAt                   :: !(Maybe POSIX)
     , _gbprsInputDataLocationS3         :: !(Maybe Text)
     , _gbprsMLModelId                   :: !(Maybe Text)
@@ -135,12 +138,14 @@ data GetBatchPredictionResponse = GetBatchPredictionResponse'
     , _gbprsLogURI                      :: !(Maybe Text)
     , _gbprsMessage                     :: !(Maybe Text)
     , _gbprsOutputURI                   :: !(Maybe Text)
-    , _gbprsStatus                      :: !Int
+    , _gbprsResponseStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBatchPredictionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbprsStatus'
 --
 -- * 'gbprsLastUpdatedAt'
 --
@@ -164,13 +169,14 @@ data GetBatchPredictionResponse = GetBatchPredictionResponse'
 --
 -- * 'gbprsOutputURI'
 --
--- * 'gbprsStatus'
+-- * 'gbprsResponseStatus'
 getBatchPredictionResponse
-    :: Int -- ^ 'gbprsStatus'
+    :: Int -- ^ 'gbprsResponseStatus'
     -> GetBatchPredictionResponse
-getBatchPredictionResponse pStatus_ =
+getBatchPredictionResponse pResponseStatus_ =
     GetBatchPredictionResponse'
-    { _gbprsLastUpdatedAt = Nothing
+    { _gbprsStatus = Nothing
+    , _gbprsLastUpdatedAt = Nothing
     , _gbprsCreatedAt = Nothing
     , _gbprsInputDataLocationS3 = Nothing
     , _gbprsMLModelId = Nothing
@@ -181,8 +187,22 @@ getBatchPredictionResponse pStatus_ =
     , _gbprsLogURI = Nothing
     , _gbprsMessage = Nothing
     , _gbprsOutputURI = Nothing
-    , _gbprsStatus = pStatus_
+    , _gbprsResponseStatus = pResponseStatus_
     }
+
+-- | The status of the 'BatchPrediction', which can be one of the following
+-- values:
+--
+-- -   'PENDING' - Amazon Machine Learning (Amazon ML) submitted a request
+--     to generate batch predictions.
+-- -   'INPROGRESS' - The batch predictions are in progress.
+-- -   'FAILED' - The request to perform a batch prediction did not run to
+--     completion. It is not usable.
+-- -   'COMPLETED' - The batch prediction process completed successfully.
+-- -   'DELETED' - The 'BatchPrediction' is marked as deleted. It is not
+--     usable.
+gbprsStatus :: Lens' GetBatchPredictionResponse (Maybe EntityStatus)
+gbprsStatus = lens _gbprsStatus (\ s a -> s{_gbprsStatus = a});
 
 -- | The time of the most recent edit to 'BatchPrediction'. The time is
 -- expressed in epoch time.
@@ -240,5 +260,5 @@ gbprsOutputURI :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprsOutputURI = lens _gbprsOutputURI (\ s a -> s{_gbprsOutputURI = a});
 
 -- | The response status code.
-gbprsStatus :: Lens' GetBatchPredictionResponse Int
-gbprsStatus = lens _gbprsStatus (\ s a -> s{_gbprsStatus = a});
+gbprsResponseStatus :: Lens' GetBatchPredictionResponse Int
+gbprsResponseStatus = lens _gbprsResponseStatus (\ s a -> s{_gbprsResponseStatus = a});

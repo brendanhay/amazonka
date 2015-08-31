@@ -41,7 +41,7 @@ module Network.AWS.OpsWorks.DescribeRDSDBInstances
     , DescribeRDSDBInstancesResponse
     -- * Response Lenses
     , drdirsRDSDBInstances
-    , drdirsStatus
+    , drdirsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -120,7 +120,7 @@ instance ToQuery DescribeRDSDBInstances where
 -- /See:/ 'describeRDSDBInstancesResponse' smart constructor.
 data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'
     { _drdirsRDSDBInstances :: !(Maybe [RDSDBInstance])
-    , _drdirsStatus         :: !Int
+    , _drdirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeRDSDBInstancesResponse' with the minimum fields required to make a request.
@@ -129,14 +129,14 @@ data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'
 --
 -- * 'drdirsRDSDBInstances'
 --
--- * 'drdirsStatus'
+-- * 'drdirsResponseStatus'
 describeRDSDBInstancesResponse
-    :: Int -- ^ 'drdirsStatus'
+    :: Int -- ^ 'drdirsResponseStatus'
     -> DescribeRDSDBInstancesResponse
-describeRDSDBInstancesResponse pStatus_ =
+describeRDSDBInstancesResponse pResponseStatus_ =
     DescribeRDSDBInstancesResponse'
     { _drdirsRDSDBInstances = Nothing
-    , _drdirsStatus = pStatus_
+    , _drdirsResponseStatus = pResponseStatus_
     }
 
 -- | An a array of 'RdsDbInstance' objects that describe the instances.
@@ -144,5 +144,5 @@ drdirsRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse [RDSDBInstance]
 drdirsRDSDBInstances = lens _drdirsRDSDBInstances (\ s a -> s{_drdirsRDSDBInstances = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drdirsStatus :: Lens' DescribeRDSDBInstancesResponse Int
-drdirsStatus = lens _drdirsStatus (\ s a -> s{_drdirsStatus = a});
+drdirsResponseStatus :: Lens' DescribeRDSDBInstancesResponse Int
+drdirsResponseStatus = lens _drdirsResponseStatus (\ s a -> s{_drdirsResponseStatus = a});

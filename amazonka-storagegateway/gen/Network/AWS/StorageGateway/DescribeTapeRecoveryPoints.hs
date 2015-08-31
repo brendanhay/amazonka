@@ -46,7 +46,7 @@ module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     , dtrprsTapeRecoveryPointInfos
     , dtrprsGatewayARN
     , dtrprsMarker
-    , dtrprsStatus
+    , dtrprsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -149,7 +149,7 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
     { _dtrprsTapeRecoveryPointInfos :: !(Maybe [TapeRecoveryPointInfo])
     , _dtrprsGatewayARN             :: !(Maybe Text)
     , _dtrprsMarker                 :: !(Maybe Text)
-    , _dtrprsStatus                 :: !Int
+    , _dtrprsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTapeRecoveryPointsResponse' with the minimum fields required to make a request.
@@ -162,16 +162,16 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
 --
 -- * 'dtrprsMarker'
 --
--- * 'dtrprsStatus'
+-- * 'dtrprsResponseStatus'
 describeTapeRecoveryPointsResponse
-    :: Int -- ^ 'dtrprsStatus'
+    :: Int -- ^ 'dtrprsResponseStatus'
     -> DescribeTapeRecoveryPointsResponse
-describeTapeRecoveryPointsResponse pStatus_ =
+describeTapeRecoveryPointsResponse pResponseStatus_ =
     DescribeTapeRecoveryPointsResponse'
     { _dtrprsTapeRecoveryPointInfos = Nothing
     , _dtrprsGatewayARN = Nothing
     , _dtrprsMarker = Nothing
-    , _dtrprsStatus = pStatus_
+    , _dtrprsResponseStatus = pResponseStatus_
     }
 
 -- | An array of TapeRecoveryPointInfos that are available for the specified
@@ -193,5 +193,5 @@ dtrprsMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
 dtrprsMarker = lens _dtrprsMarker (\ s a -> s{_dtrprsMarker = a});
 
 -- | The response status code.
-dtrprsStatus :: Lens' DescribeTapeRecoveryPointsResponse Int
-dtrprsStatus = lens _dtrprsStatus (\ s a -> s{_dtrprsStatus = a});
+dtrprsResponseStatus :: Lens' DescribeTapeRecoveryPointsResponse Int
+dtrprsResponseStatus = lens _dtrprsResponseStatus (\ s a -> s{_dtrprsResponseStatus = a});

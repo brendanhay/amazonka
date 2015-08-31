@@ -33,7 +33,7 @@ module Network.AWS.IAM.GetServerCertificate
     , getServerCertificateResponse
     , GetServerCertificateResponse
     -- * Response Lenses
-    , gscrsStatus
+    , gscrsResponseStatus
     , gscrsServerCertificate
     ) where
 
@@ -93,7 +93,7 @@ instance ToQuery GetServerCertificate where
 --
 -- /See:/ 'getServerCertificateResponse' smart constructor.
 data GetServerCertificateResponse = GetServerCertificateResponse'
-    { _gscrsStatus            :: !Int
+    { _gscrsResponseStatus    :: !Int
     , _gscrsServerCertificate :: !ServerCertificate
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -101,22 +101,22 @@ data GetServerCertificateResponse = GetServerCertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gscrsStatus'
+-- * 'gscrsResponseStatus'
 --
 -- * 'gscrsServerCertificate'
 getServerCertificateResponse
-    :: Int -- ^ 'gscrsStatus'
+    :: Int -- ^ 'gscrsResponseStatus'
     -> ServerCertificate -- ^ 'gscrsServerCertificate'
     -> GetServerCertificateResponse
-getServerCertificateResponse pStatus_ pServerCertificate_ =
+getServerCertificateResponse pResponseStatus_ pServerCertificate_ =
     GetServerCertificateResponse'
-    { _gscrsStatus = pStatus_
+    { _gscrsResponseStatus = pResponseStatus_
     , _gscrsServerCertificate = pServerCertificate_
     }
 
 -- | The response status code.
-gscrsStatus :: Lens' GetServerCertificateResponse Int
-gscrsStatus = lens _gscrsStatus (\ s a -> s{_gscrsStatus = a});
+gscrsResponseStatus :: Lens' GetServerCertificateResponse Int
+gscrsResponseStatus = lens _gscrsResponseStatus (\ s a -> s{_gscrsResponseStatus = a});
 
 -- | Information about the server certificate.
 gscrsServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate

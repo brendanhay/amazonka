@@ -37,7 +37,7 @@ module Network.AWS.Glacier.GetDataRetrievalPolicy
     , GetDataRetrievalPolicyResponse
     -- * Response Lenses
     , gdrprsPolicy
-    , gdrprsStatus
+    , gdrprsResponseStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -103,8 +103,8 @@ instance ToQuery GetDataRetrievalPolicy where
 --
 -- /See:/ 'getDataRetrievalPolicyResponse' smart constructor.
 data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'
-    { _gdrprsPolicy :: !(Maybe DataRetrievalPolicy)
-    , _gdrprsStatus :: !Int
+    { _gdrprsPolicy         :: !(Maybe DataRetrievalPolicy)
+    , _gdrprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDataRetrievalPolicyResponse' with the minimum fields required to make a request.
@@ -113,14 +113,14 @@ data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'
 --
 -- * 'gdrprsPolicy'
 --
--- * 'gdrprsStatus'
+-- * 'gdrprsResponseStatus'
 getDataRetrievalPolicyResponse
-    :: Int -- ^ 'gdrprsStatus'
+    :: Int -- ^ 'gdrprsResponseStatus'
     -> GetDataRetrievalPolicyResponse
-getDataRetrievalPolicyResponse pStatus_ =
+getDataRetrievalPolicyResponse pResponseStatus_ =
     GetDataRetrievalPolicyResponse'
     { _gdrprsPolicy = Nothing
-    , _gdrprsStatus = pStatus_
+    , _gdrprsResponseStatus = pResponseStatus_
     }
 
 -- | Contains the returned data retrieval policy in JSON format.
@@ -128,5 +128,5 @@ gdrprsPolicy :: Lens' GetDataRetrievalPolicyResponse (Maybe DataRetrievalPolicy)
 gdrprsPolicy = lens _gdrprsPolicy (\ s a -> s{_gdrprsPolicy = a});
 
 -- | The response status code.
-gdrprsStatus :: Lens' GetDataRetrievalPolicyResponse Int
-gdrprsStatus = lens _gdrprsStatus (\ s a -> s{_gdrprsStatus = a});
+gdrprsResponseStatus :: Lens' GetDataRetrievalPolicyResponse Int
+gdrprsResponseStatus = lens _gdrprsResponseStatus (\ s a -> s{_gdrprsResponseStatus = a});

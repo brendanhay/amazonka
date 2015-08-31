@@ -52,7 +52,7 @@ module Network.AWS.CloudTrail.UpdateTrail
     , utrsIncludeGlobalServiceEvents
     , utrsCloudWatchLogsRoleARN
     , utrsS3BucketName
-    , utrsStatus
+    , utrsResponseStatus
     ) where
 
 import           Network.AWS.CloudTrail.Types
@@ -198,7 +198,7 @@ data UpdateTrailResponse = UpdateTrailResponse'
     , _utrsIncludeGlobalServiceEvents :: !(Maybe Bool)
     , _utrsCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _utrsS3BucketName               :: !(Maybe Text)
-    , _utrsStatus                     :: !Int
+    , _utrsResponseStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateTrailResponse' with the minimum fields required to make a request.
@@ -219,11 +219,11 @@ data UpdateTrailResponse = UpdateTrailResponse'
 --
 -- * 'utrsS3BucketName'
 --
--- * 'utrsStatus'
+-- * 'utrsResponseStatus'
 updateTrailResponse
-    :: Int -- ^ 'utrsStatus'
+    :: Int -- ^ 'utrsResponseStatus'
     -> UpdateTrailResponse
-updateTrailResponse pStatus_ =
+updateTrailResponse pResponseStatus_ =
     UpdateTrailResponse'
     { _utrsS3KeyPrefix = Nothing
     , _utrsSNSTopicName = Nothing
@@ -232,7 +232,7 @@ updateTrailResponse pStatus_ =
     , _utrsIncludeGlobalServiceEvents = Nothing
     , _utrsCloudWatchLogsRoleARN = Nothing
     , _utrsS3BucketName = Nothing
-    , _utrsStatus = pStatus_
+    , _utrsResponseStatus = pResponseStatus_
     }
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
@@ -270,5 +270,5 @@ utrsS3BucketName :: Lens' UpdateTrailResponse (Maybe Text)
 utrsS3BucketName = lens _utrsS3BucketName (\ s a -> s{_utrsS3BucketName = a});
 
 -- | The response status code.
-utrsStatus :: Lens' UpdateTrailResponse Int
-utrsStatus = lens _utrsStatus (\ s a -> s{_utrsStatus = a});
+utrsResponseStatus :: Lens' UpdateTrailResponse Int
+utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a});

@@ -41,7 +41,7 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
     -- * Response Lenses
     , dogorsOptionGroupOptions
     , dogorsMarker
-    , dogorsStatus
+    , dogorsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -164,7 +164,7 @@ instance ToQuery DescribeOptionGroupOptions where
 data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'
     { _dogorsOptionGroupOptions :: !(Maybe [OptionGroupOption])
     , _dogorsMarker             :: !(Maybe Text)
-    , _dogorsStatus             :: !Int
+    , _dogorsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeOptionGroupOptionsResponse' with the minimum fields required to make a request.
@@ -175,15 +175,15 @@ data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'
 --
 -- * 'dogorsMarker'
 --
--- * 'dogorsStatus'
+-- * 'dogorsResponseStatus'
 describeOptionGroupOptionsResponse
-    :: Int -- ^ 'dogorsStatus'
+    :: Int -- ^ 'dogorsResponseStatus'
     -> DescribeOptionGroupOptionsResponse
-describeOptionGroupOptionsResponse pStatus_ =
+describeOptionGroupOptionsResponse pResponseStatus_ =
     DescribeOptionGroupOptionsResponse'
     { _dogorsOptionGroupOptions = Nothing
     , _dogorsMarker = Nothing
-    , _dogorsStatus = pStatus_
+    , _dogorsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -197,5 +197,5 @@ dogorsMarker :: Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
 dogorsMarker = lens _dogorsMarker (\ s a -> s{_dogorsMarker = a});
 
 -- | The response status code.
-dogorsStatus :: Lens' DescribeOptionGroupOptionsResponse Int
-dogorsStatus = lens _dogorsStatus (\ s a -> s{_dogorsStatus = a});
+dogorsResponseStatus :: Lens' DescribeOptionGroupOptionsResponse Int
+dogorsResponseStatus = lens _dogorsResponseStatus (\ s a -> s{_dogorsResponseStatus = a});

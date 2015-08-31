@@ -46,7 +46,7 @@ module Network.AWS.S3.CompleteMultipartUpload
     , crsKey
     , crsSSEKMSKeyId
     , crsServerSideEncryption
-    , crsStatus
+    , crsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -160,7 +160,7 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
     , _crsKey                  :: !(Maybe ObjectKey)
     , _crsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _crsServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _crsStatus               :: !Int
+    , _crsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CompleteMultipartUploadResponse' with the minimum fields required to make a request.
@@ -185,11 +185,11 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
 --
 -- * 'crsServerSideEncryption'
 --
--- * 'crsStatus'
+-- * 'crsResponseStatus'
 completeMultipartUploadResponse
-    :: Int -- ^ 'crsStatus'
+    :: Int -- ^ 'crsResponseStatus'
     -> CompleteMultipartUploadResponse
-completeMultipartUploadResponse pStatus_ =
+completeMultipartUploadResponse pResponseStatus_ =
     CompleteMultipartUploadResponse'
     { _crsRequestCharged = Nothing
     , _crsETag = Nothing
@@ -200,7 +200,7 @@ completeMultipartUploadResponse pStatus_ =
     , _crsKey = Nothing
     , _crsSSEKMSKeyId = Nothing
     , _crsServerSideEncryption = Nothing
-    , _crsStatus = pStatus_
+    , _crsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -244,5 +244,5 @@ crsServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSi
 crsServerSideEncryption = lens _crsServerSideEncryption (\ s a -> s{_crsServerSideEncryption = a});
 
 -- | The response status code.
-crsStatus :: Lens' CompleteMultipartUploadResponse Int
-crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});
+crsResponseStatus :: Lens' CompleteMultipartUploadResponse Int
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});

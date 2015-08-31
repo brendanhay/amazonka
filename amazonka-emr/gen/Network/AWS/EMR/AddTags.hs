@@ -37,7 +37,7 @@ module Network.AWS.EMR.AddTags
     , addTagsResponse
     , AddTagsResponse
     -- * Response Lenses
-    , atrsStatus
+    , atrsResponseStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -115,22 +115,22 @@ instance ToQuery AddTags where
 --
 -- /See:/ 'addTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
-    { _atrsStatus :: Int
+    { _atrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atrsStatus'
+-- * 'atrsResponseStatus'
 addTagsResponse
-    :: Int -- ^ 'atrsStatus'
+    :: Int -- ^ 'atrsResponseStatus'
     -> AddTagsResponse
-addTagsResponse pStatus_ =
+addTagsResponse pResponseStatus_ =
     AddTagsResponse'
-    { _atrsStatus = pStatus_
+    { _atrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-atrsStatus :: Lens' AddTagsResponse Int
-atrsStatus = lens _atrsStatus (\ s a -> s{_atrsStatus = a});
+atrsResponseStatus :: Lens' AddTagsResponse Int
+atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});

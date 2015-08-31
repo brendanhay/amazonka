@@ -43,7 +43,7 @@ module Network.AWS.StorageGateway.DescribeUploadBuffer
     , dubrsGatewayARN
     , dubrsDiskIds
     , dubrsUploadBufferUsedInBytes
-    , dubrsStatus
+    , dubrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -115,7 +115,7 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
     , _dubrsGatewayARN                   :: !(Maybe Text)
     , _dubrsDiskIds                      :: !(Maybe [Text])
     , _dubrsUploadBufferUsedInBytes      :: !(Maybe Integer)
-    , _dubrsStatus                       :: !Int
+    , _dubrsResponseStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeUploadBufferResponse' with the minimum fields required to make a request.
@@ -130,17 +130,17 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
 --
 -- * 'dubrsUploadBufferUsedInBytes'
 --
--- * 'dubrsStatus'
+-- * 'dubrsResponseStatus'
 describeUploadBufferResponse
-    :: Int -- ^ 'dubrsStatus'
+    :: Int -- ^ 'dubrsResponseStatus'
     -> DescribeUploadBufferResponse
-describeUploadBufferResponse pStatus_ =
+describeUploadBufferResponse pResponseStatus_ =
     DescribeUploadBufferResponse'
     { _dubrsUploadBufferAllocatedInBytes = Nothing
     , _dubrsGatewayARN = Nothing
     , _dubrsDiskIds = Nothing
     , _dubrsUploadBufferUsedInBytes = Nothing
-    , _dubrsStatus = pStatus_
+    , _dubrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -160,5 +160,5 @@ dubrsUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Intege
 dubrsUploadBufferUsedInBytes = lens _dubrsUploadBufferUsedInBytes (\ s a -> s{_dubrsUploadBufferUsedInBytes = a});
 
 -- | The response status code.
-dubrsStatus :: Lens' DescribeUploadBufferResponse Int
-dubrsStatus = lens _dubrsStatus (\ s a -> s{_dubrsStatus = a});
+dubrsResponseStatus :: Lens' DescribeUploadBufferResponse Int
+dubrsResponseStatus = lens _dubrsResponseStatus (\ s a -> s{_dubrsResponseStatus = a});

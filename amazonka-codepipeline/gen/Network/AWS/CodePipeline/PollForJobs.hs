@@ -42,7 +42,7 @@ module Network.AWS.CodePipeline.PollForJobs
     , PollForJobsResponse
     -- * Response Lenses
     , pfjrsJobs
-    , pfjrsStatus
+    , pfjrsResponseStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -131,8 +131,8 @@ instance ToQuery PollForJobs where
 --
 -- /See:/ 'pollForJobsResponse' smart constructor.
 data PollForJobsResponse = PollForJobsResponse'
-    { _pfjrsJobs   :: !(Maybe [Job])
-    , _pfjrsStatus :: !Int
+    { _pfjrsJobs           :: !(Maybe [Job])
+    , _pfjrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PollForJobsResponse' with the minimum fields required to make a request.
@@ -141,14 +141,14 @@ data PollForJobsResponse = PollForJobsResponse'
 --
 -- * 'pfjrsJobs'
 --
--- * 'pfjrsStatus'
+-- * 'pfjrsResponseStatus'
 pollForJobsResponse
-    :: Int -- ^ 'pfjrsStatus'
+    :: Int -- ^ 'pfjrsResponseStatus'
     -> PollForJobsResponse
-pollForJobsResponse pStatus_ =
+pollForJobsResponse pResponseStatus_ =
     PollForJobsResponse'
     { _pfjrsJobs = Nothing
-    , _pfjrsStatus = pStatus_
+    , _pfjrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the jobs to take action on.
@@ -156,5 +156,5 @@ pfjrsJobs :: Lens' PollForJobsResponse [Job]
 pfjrsJobs = lens _pfjrsJobs (\ s a -> s{_pfjrsJobs = a}) . _Default . _Coerce;
 
 -- | The response status code.
-pfjrsStatus :: Lens' PollForJobsResponse Int
-pfjrsStatus = lens _pfjrsStatus (\ s a -> s{_pfjrsStatus = a});
+pfjrsResponseStatus :: Lens' PollForJobsResponse Int
+pfjrsResponseStatus = lens _pfjrsResponseStatus (\ s a -> s{_pfjrsResponseStatus = a});

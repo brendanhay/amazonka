@@ -38,7 +38,7 @@ module Network.AWS.EC2.RequestSpotFleet
     , requestSpotFleetResponse
     , RequestSpotFleetResponse
     -- * Response Lenses
-    , rsfrsStatus
+    , rsfrsResponseStatus
     , rsfrsSpotFleetRequestId
     ) where
 
@@ -111,7 +111,7 @@ instance ToQuery RequestSpotFleet where
 --
 -- /See:/ 'requestSpotFleetResponse' smart constructor.
 data RequestSpotFleetResponse = RequestSpotFleetResponse'
-    { _rsfrsStatus             :: !Int
+    { _rsfrsResponseStatus     :: !Int
     , _rsfrsSpotFleetRequestId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -119,22 +119,22 @@ data RequestSpotFleetResponse = RequestSpotFleetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsfrsStatus'
+-- * 'rsfrsResponseStatus'
 --
 -- * 'rsfrsSpotFleetRequestId'
 requestSpotFleetResponse
-    :: Int -- ^ 'rsfrsStatus'
+    :: Int -- ^ 'rsfrsResponseStatus'
     -> Text -- ^ 'rsfrsSpotFleetRequestId'
     -> RequestSpotFleetResponse
-requestSpotFleetResponse pStatus_ pSpotFleetRequestId_ =
+requestSpotFleetResponse pResponseStatus_ pSpotFleetRequestId_ =
     RequestSpotFleetResponse'
-    { _rsfrsStatus = pStatus_
+    { _rsfrsResponseStatus = pResponseStatus_
     , _rsfrsSpotFleetRequestId = pSpotFleetRequestId_
     }
 
 -- | The response status code.
-rsfrsStatus :: Lens' RequestSpotFleetResponse Int
-rsfrsStatus = lens _rsfrsStatus (\ s a -> s{_rsfrsStatus = a});
+rsfrsResponseStatus :: Lens' RequestSpotFleetResponse Int
+rsfrsResponseStatus = lens _rsfrsResponseStatus (\ s a -> s{_rsfrsResponseStatus = a});
 
 -- | The ID of the Spot fleet request.
 rsfrsSpotFleetRequestId :: Lens' RequestSpotFleetResponse Text

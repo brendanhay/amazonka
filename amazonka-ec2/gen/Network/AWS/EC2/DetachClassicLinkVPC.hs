@@ -39,7 +39,7 @@ module Network.AWS.EC2.DetachClassicLinkVPC
     , DetachClassicLinkVPCResponse
     -- * Response Lenses
     , dclvrsReturn
-    , dclvrsStatus
+    , dclvrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -117,8 +117,8 @@ instance ToQuery DetachClassicLinkVPC where
 
 -- | /See:/ 'detachClassicLinkVPCResponse' smart constructor.
 data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'
-    { _dclvrsReturn :: !(Maybe Bool)
-    , _dclvrsStatus :: !Int
+    { _dclvrsReturn         :: !(Maybe Bool)
+    , _dclvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DetachClassicLinkVPCResponse' with the minimum fields required to make a request.
@@ -127,14 +127,14 @@ data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'
 --
 -- * 'dclvrsReturn'
 --
--- * 'dclvrsStatus'
+-- * 'dclvrsResponseStatus'
 detachClassicLinkVPCResponse
-    :: Int -- ^ 'dclvrsStatus'
+    :: Int -- ^ 'dclvrsResponseStatus'
     -> DetachClassicLinkVPCResponse
-detachClassicLinkVPCResponse pStatus_ =
+detachClassicLinkVPCResponse pResponseStatus_ =
     DetachClassicLinkVPCResponse'
     { _dclvrsReturn = Nothing
-    , _dclvrsStatus = pStatus_
+    , _dclvrsResponseStatus = pResponseStatus_
     }
 
 -- | Returns 'true' if the request succeeds; otherwise, it returns an error.
@@ -142,5 +142,5 @@ dclvrsReturn :: Lens' DetachClassicLinkVPCResponse (Maybe Bool)
 dclvrsReturn = lens _dclvrsReturn (\ s a -> s{_dclvrsReturn = a});
 
 -- | The response status code.
-dclvrsStatus :: Lens' DetachClassicLinkVPCResponse Int
-dclvrsStatus = lens _dclvrsStatus (\ s a -> s{_dclvrsStatus = a});
+dclvrsResponseStatus :: Lens' DetachClassicLinkVPCResponse Int
+dclvrsResponseStatus = lens _dclvrsResponseStatus (\ s a -> s{_dclvrsResponseStatus = a});

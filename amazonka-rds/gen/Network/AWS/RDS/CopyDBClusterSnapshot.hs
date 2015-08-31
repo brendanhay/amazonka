@@ -39,7 +39,7 @@ module Network.AWS.RDS.CopyDBClusterSnapshot
     , CopyDBClusterSnapshotResponse
     -- * Response Lenses
     , cdcsrsDBClusterSnapshot
-    , cdcsrsStatus
+    , cdcsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -137,7 +137,7 @@ instance ToQuery CopyDBClusterSnapshot where
 -- | /See:/ 'copyDBClusterSnapshotResponse' smart constructor.
 data CopyDBClusterSnapshotResponse = CopyDBClusterSnapshotResponse'
     { _cdcsrsDBClusterSnapshot :: !(Maybe DBClusterSnapshot)
-    , _cdcsrsStatus            :: !Int
+    , _cdcsrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CopyDBClusterSnapshotResponse' with the minimum fields required to make a request.
@@ -146,14 +146,14 @@ data CopyDBClusterSnapshotResponse = CopyDBClusterSnapshotResponse'
 --
 -- * 'cdcsrsDBClusterSnapshot'
 --
--- * 'cdcsrsStatus'
+-- * 'cdcsrsResponseStatus'
 copyDBClusterSnapshotResponse
-    :: Int -- ^ 'cdcsrsStatus'
+    :: Int -- ^ 'cdcsrsResponseStatus'
     -> CopyDBClusterSnapshotResponse
-copyDBClusterSnapshotResponse pStatus_ =
+copyDBClusterSnapshotResponse pResponseStatus_ =
     CopyDBClusterSnapshotResponse'
     { _cdcsrsDBClusterSnapshot = Nothing
-    , _cdcsrsStatus = pStatus_
+    , _cdcsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -161,5 +161,5 @@ cdcsrsDBClusterSnapshot :: Lens' CopyDBClusterSnapshotResponse (Maybe DBClusterS
 cdcsrsDBClusterSnapshot = lens _cdcsrsDBClusterSnapshot (\ s a -> s{_cdcsrsDBClusterSnapshot = a});
 
 -- | The response status code.
-cdcsrsStatus :: Lens' CopyDBClusterSnapshotResponse Int
-cdcsrsStatus = lens _cdcsrsStatus (\ s a -> s{_cdcsrsStatus = a});
+cdcsrsResponseStatus :: Lens' CopyDBClusterSnapshotResponse Int
+cdcsrsResponseStatus = lens _cdcsrsResponseStatus (\ s a -> s{_cdcsrsResponseStatus = a});

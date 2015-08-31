@@ -44,7 +44,7 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     , DescribeAvailabilityZonesResponse
     -- * Response Lenses
     , dazrsAvailabilityZones
-    , dazrsStatus
+    , dazrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -136,7 +136,7 @@ instance ToQuery DescribeAvailabilityZones where
 -- | /See:/ 'describeAvailabilityZonesResponse' smart constructor.
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
     { _dazrsAvailabilityZones :: !(Maybe [AvailabilityZone])
-    , _dazrsStatus            :: !Int
+    , _dazrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAvailabilityZonesResponse' with the minimum fields required to make a request.
@@ -145,14 +145,14 @@ data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
 --
 -- * 'dazrsAvailabilityZones'
 --
--- * 'dazrsStatus'
+-- * 'dazrsResponseStatus'
 describeAvailabilityZonesResponse
-    :: Int -- ^ 'dazrsStatus'
+    :: Int -- ^ 'dazrsResponseStatus'
     -> DescribeAvailabilityZonesResponse
-describeAvailabilityZonesResponse pStatus_ =
+describeAvailabilityZonesResponse pResponseStatus_ =
     DescribeAvailabilityZonesResponse'
     { _dazrsAvailabilityZones = Nothing
-    , _dazrsStatus = pStatus_
+    , _dazrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more Availability Zones.
@@ -160,5 +160,5 @@ dazrsAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZ
 dazrsAvailabilityZones = lens _dazrsAvailabilityZones (\ s a -> s{_dazrsAvailabilityZones = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dazrsStatus :: Lens' DescribeAvailabilityZonesResponse Int
-dazrsStatus = lens _dazrsStatus (\ s a -> s{_dazrsStatus = a});
+dazrsResponseStatus :: Lens' DescribeAvailabilityZonesResponse Int
+dazrsResponseStatus = lens _dazrsResponseStatus (\ s a -> s{_dazrsResponseStatus = a});

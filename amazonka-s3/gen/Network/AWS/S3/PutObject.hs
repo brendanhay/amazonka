@@ -65,7 +65,7 @@ module Network.AWS.S3.PutObject
     , porsSSECustomerKeyMD5
     , porsSSEKMSKeyId
     , porsServerSideEncryption
-    , porsStatus
+    , porsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -381,7 +381,7 @@ data PutObjectResponse = PutObjectResponse'
     , _porsSSECustomerKeyMD5    :: !(Maybe Text)
     , _porsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _porsServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _porsStatus               :: !Int
+    , _porsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutObjectResponse' with the minimum fields required to make a request.
@@ -404,11 +404,11 @@ data PutObjectResponse = PutObjectResponse'
 --
 -- * 'porsServerSideEncryption'
 --
--- * 'porsStatus'
+-- * 'porsResponseStatus'
 putObjectResponse
-    :: Int -- ^ 'porsStatus'
+    :: Int -- ^ 'porsResponseStatus'
     -> PutObjectResponse
-putObjectResponse pStatus_ =
+putObjectResponse pResponseStatus_ =
     PutObjectResponse'
     { _porsRequestCharged = Nothing
     , _porsETag = Nothing
@@ -418,7 +418,7 @@ putObjectResponse pStatus_ =
     , _porsSSECustomerKeyMD5 = Nothing
     , _porsSSEKMSKeyId = Nothing
     , _porsServerSideEncryption = Nothing
-    , _porsStatus = pStatus_
+    , _porsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -462,5 +462,5 @@ porsServerSideEncryption :: Lens' PutObjectResponse (Maybe ServerSideEncryption)
 porsServerSideEncryption = lens _porsServerSideEncryption (\ s a -> s{_porsServerSideEncryption = a});
 
 -- | The response status code.
-porsStatus :: Lens' PutObjectResponse Int
-porsStatus = lens _porsStatus (\ s a -> s{_porsStatus = a});
+porsResponseStatus :: Lens' PutObjectResponse Int
+porsResponseStatus = lens _porsResponseStatus (\ s a -> s{_porsResponseStatus = a});

@@ -47,7 +47,7 @@ module Network.AWS.ElasticTranscoder.CreateJob
     , CreateJobResponse
     -- * Response Lenses
     , cjrsJob
-    , cjrsStatus
+    , cjrsResponseStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -180,8 +180,8 @@ instance ToQuery CreateJob where
 --
 -- /See:/ 'createJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-    { _cjrsJob    :: !(Maybe Job')
-    , _cjrsStatus :: !Int
+    { _cjrsJob            :: !(Maybe Job')
+    , _cjrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.
@@ -190,14 +190,14 @@ data CreateJobResponse = CreateJobResponse'
 --
 -- * 'cjrsJob'
 --
--- * 'cjrsStatus'
+-- * 'cjrsResponseStatus'
 createJobResponse
-    :: Int -- ^ 'cjrsStatus'
+    :: Int -- ^ 'cjrsResponseStatus'
     -> CreateJobResponse
-createJobResponse pStatus_ =
+createJobResponse pResponseStatus_ =
     CreateJobResponse'
     { _cjrsJob = Nothing
-    , _cjrsStatus = pStatus_
+    , _cjrsResponseStatus = pResponseStatus_
     }
 
 -- | A section of the response body that provides information about the job
@@ -206,5 +206,5 @@ cjrsJob :: Lens' CreateJobResponse (Maybe Job')
 cjrsJob = lens _cjrsJob (\ s a -> s{_cjrsJob = a});
 
 -- | The response status code.
-cjrsStatus :: Lens' CreateJobResponse Int
-cjrsStatus = lens _cjrsStatus (\ s a -> s{_cjrsStatus = a});
+cjrsResponseStatus :: Lens' CreateJobResponse Int
+cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a});

@@ -37,7 +37,7 @@ module Network.AWS.StorageGateway.DeleteChapCredentials
     -- * Response Lenses
     , drsTargetARN
     , drsInitiatorName
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -122,9 +122,9 @@ instance ToQuery DeleteChapCredentials where
 --
 -- /See:/ 'deleteChapCredentialsResponse' smart constructor.
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
-    { _drsTargetARN     :: !(Maybe Text)
-    , _drsInitiatorName :: !(Maybe Text)
-    , _drsStatus        :: !Int
+    { _drsTargetARN      :: !(Maybe Text)
+    , _drsInitiatorName  :: !(Maybe Text)
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteChapCredentialsResponse' with the minimum fields required to make a request.
@@ -135,15 +135,15 @@ data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
 --
 -- * 'drsInitiatorName'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 deleteChapCredentialsResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DeleteChapCredentialsResponse
-deleteChapCredentialsResponse pStatus_ =
+deleteChapCredentialsResponse pResponseStatus_ =
     DeleteChapCredentialsResponse'
     { _drsTargetARN = Nothing
     , _drsInitiatorName = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the target.
@@ -155,5 +155,5 @@ drsInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
 drsInitiatorName = lens _drsInitiatorName (\ s a -> s{_drsInitiatorName = a});
 
 -- | The response status code.
-drsStatus :: Lens' DeleteChapCredentialsResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DeleteChapCredentialsResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

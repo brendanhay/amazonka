@@ -36,7 +36,7 @@ module Network.AWS.CloudSearch.DeleteSuggester
     , deleteSuggesterResponse
     , DeleteSuggesterResponse
     -- * Response Lenses
-    , delersStatus
+    , delersResponseStatus
     , delersSuggester
     ) where
 
@@ -109,30 +109,30 @@ instance ToQuery DeleteSuggester where
 --
 -- /See:/ 'deleteSuggesterResponse' smart constructor.
 data DeleteSuggesterResponse = DeleteSuggesterResponse'
-    { _delersStatus    :: !Int
-    , _delersSuggester :: !SuggesterStatus
+    { _delersResponseStatus :: !Int
+    , _delersSuggester      :: !SuggesterStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteSuggesterResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delersStatus'
+-- * 'delersResponseStatus'
 --
 -- * 'delersSuggester'
 deleteSuggesterResponse
-    :: Int -- ^ 'delersStatus'
+    :: Int -- ^ 'delersResponseStatus'
     -> SuggesterStatus -- ^ 'delersSuggester'
     -> DeleteSuggesterResponse
-deleteSuggesterResponse pStatus_ pSuggester_ =
+deleteSuggesterResponse pResponseStatus_ pSuggester_ =
     DeleteSuggesterResponse'
-    { _delersStatus = pStatus_
+    { _delersResponseStatus = pResponseStatus_
     , _delersSuggester = pSuggester_
     }
 
 -- | The response status code.
-delersStatus :: Lens' DeleteSuggesterResponse Int
-delersStatus = lens _delersStatus (\ s a -> s{_delersStatus = a});
+delersResponseStatus :: Lens' DeleteSuggesterResponse Int
+delersResponseStatus = lens _delersResponseStatus (\ s a -> s{_delersResponseStatus = a});
 
 -- | The status of the suggester being deleted.
 delersSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus

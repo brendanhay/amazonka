@@ -54,7 +54,7 @@ module Network.AWS.Redshift.DescribeHSMClientCertificates
     -- * Response Lenses
     , dhccrsMarker
     , dhccrsHSMClientCertificates
-    , dhccrsStatus
+    , dhccrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -196,7 +196,7 @@ instance ToQuery DescribeHSMClientCertificates where
 data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'
     { _dhccrsMarker                :: !(Maybe Text)
     , _dhccrsHSMClientCertificates :: !(Maybe [HSMClientCertificate])
-    , _dhccrsStatus                :: !Int
+    , _dhccrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeHSMClientCertificatesResponse' with the minimum fields required to make a request.
@@ -207,15 +207,15 @@ data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesRespon
 --
 -- * 'dhccrsHSMClientCertificates'
 --
--- * 'dhccrsStatus'
+-- * 'dhccrsResponseStatus'
 describeHSMClientCertificatesResponse
-    :: Int -- ^ 'dhccrsStatus'
+    :: Int -- ^ 'dhccrsResponseStatus'
     -> DescribeHSMClientCertificatesResponse
-describeHSMClientCertificatesResponse pStatus_ =
+describeHSMClientCertificatesResponse pResponseStatus_ =
     DescribeHSMClientCertificatesResponse'
     { _dhccrsMarker = Nothing
     , _dhccrsHSMClientCertificates = Nothing
-    , _dhccrsStatus = pStatus_
+    , _dhccrsResponseStatus = pResponseStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -234,5 +234,5 @@ dhccrsHSMClientCertificates :: Lens' DescribeHSMClientCertificatesResponse [HSMC
 dhccrsHSMClientCertificates = lens _dhccrsHSMClientCertificates (\ s a -> s{_dhccrsHSMClientCertificates = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dhccrsStatus :: Lens' DescribeHSMClientCertificatesResponse Int
-dhccrsStatus = lens _dhccrsStatus (\ s a -> s{_dhccrsStatus = a});
+dhccrsResponseStatus :: Lens' DescribeHSMClientCertificatesResponse Int
+dhccrsResponseStatus = lens _dhccrsResponseStatus (\ s a -> s{_dhccrsResponseStatus = a});

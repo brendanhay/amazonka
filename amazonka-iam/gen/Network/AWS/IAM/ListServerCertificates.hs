@@ -43,7 +43,7 @@ module Network.AWS.IAM.ListServerCertificates
     -- * Response Lenses
     , lscrsMarker
     , lscrsIsTruncated
-    , lscrsStatus
+    , lscrsResponseStatus
     , lscrsServerCertificateMetadataList
     ) where
 
@@ -145,7 +145,7 @@ instance ToQuery ListServerCertificates where
 data ListServerCertificatesResponse = ListServerCertificatesResponse'
     { _lscrsMarker                        :: !(Maybe Text)
     , _lscrsIsTruncated                   :: !(Maybe Bool)
-    , _lscrsStatus                        :: !Int
+    , _lscrsResponseStatus                :: !Int
     , _lscrsServerCertificateMetadataList :: ![ServerCertificateMetadata]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -157,17 +157,17 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse'
 --
 -- * 'lscrsIsTruncated'
 --
--- * 'lscrsStatus'
+-- * 'lscrsResponseStatus'
 --
 -- * 'lscrsServerCertificateMetadataList'
 listServerCertificatesResponse
-    :: Int -- ^ 'lscrsStatus'
+    :: Int -- ^ 'lscrsResponseStatus'
     -> ListServerCertificatesResponse
-listServerCertificatesResponse pStatus_ =
+listServerCertificatesResponse pResponseStatus_ =
     ListServerCertificatesResponse'
     { _lscrsMarker = Nothing
     , _lscrsIsTruncated = Nothing
-    , _lscrsStatus = pStatus_
+    , _lscrsResponseStatus = pResponseStatus_
     , _lscrsServerCertificateMetadataList = mempty
     }
 
@@ -184,8 +184,8 @@ lscrsIsTruncated :: Lens' ListServerCertificatesResponse (Maybe Bool)
 lscrsIsTruncated = lens _lscrsIsTruncated (\ s a -> s{_lscrsIsTruncated = a});
 
 -- | The response status code.
-lscrsStatus :: Lens' ListServerCertificatesResponse Int
-lscrsStatus = lens _lscrsStatus (\ s a -> s{_lscrsStatus = a});
+lscrsResponseStatus :: Lens' ListServerCertificatesResponse Int
+lscrsResponseStatus = lens _lscrsResponseStatus (\ s a -> s{_lscrsResponseStatus = a});
 
 -- | A list of server certificates.
 lscrsServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [ServerCertificateMetadata]

@@ -46,7 +46,7 @@ module Network.AWS.StorageGateway.ResetCache
     , ResetCacheResponse
     -- * Response Lenses
     , rcrsGatewayARN
-    , rcrsStatus
+    , rcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -108,8 +108,8 @@ instance ToQuery ResetCache where
 
 -- | /See:/ 'resetCacheResponse' smart constructor.
 data ResetCacheResponse = ResetCacheResponse'
-    { _rcrsGatewayARN :: !(Maybe Text)
-    , _rcrsStatus     :: !Int
+    { _rcrsGatewayARN     :: !(Maybe Text)
+    , _rcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ResetCacheResponse' with the minimum fields required to make a request.
@@ -118,14 +118,14 @@ data ResetCacheResponse = ResetCacheResponse'
 --
 -- * 'rcrsGatewayARN'
 --
--- * 'rcrsStatus'
+-- * 'rcrsResponseStatus'
 resetCacheResponse
-    :: Int -- ^ 'rcrsStatus'
+    :: Int -- ^ 'rcrsResponseStatus'
     -> ResetCacheResponse
-resetCacheResponse pStatus_ =
+resetCacheResponse pResponseStatus_ =
     ResetCacheResponse'
     { _rcrsGatewayARN = Nothing
-    , _rcrsStatus = pStatus_
+    , _rcrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -133,5 +133,5 @@ rcrsGatewayARN :: Lens' ResetCacheResponse (Maybe Text)
 rcrsGatewayARN = lens _rcrsGatewayARN (\ s a -> s{_rcrsGatewayARN = a});
 
 -- | The response status code.
-rcrsStatus :: Lens' ResetCacheResponse Int
-rcrsStatus = lens _rcrsStatus (\ s a -> s{_rcrsStatus = a});
+rcrsResponseStatus :: Lens' ResetCacheResponse Int
+rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});

@@ -44,7 +44,7 @@ module Network.AWS.CloudTrail.GetTrailStatus
     , gtsrsLatestCloudWatchLogsDeliveryError
     , gtsrsLatestNotificationTime
     , gtsrsStopLoggingTime
-    , gtsrsStatus
+    , gtsrsResponseStatus
     ) where
 
 import           Network.AWS.CloudTrail.Types
@@ -129,7 +129,7 @@ data GetTrailStatusResponse = GetTrailStatusResponse'
     , _gtsrsLatestCloudWatchLogsDeliveryError :: !(Maybe Text)
     , _gtsrsLatestNotificationTime            :: !(Maybe POSIX)
     , _gtsrsStopLoggingTime                   :: !(Maybe POSIX)
-    , _gtsrsStatus                            :: !Int
+    , _gtsrsResponseStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetTrailStatusResponse' with the minimum fields required to make a request.
@@ -154,11 +154,11 @@ data GetTrailStatusResponse = GetTrailStatusResponse'
 --
 -- * 'gtsrsStopLoggingTime'
 --
--- * 'gtsrsStatus'
+-- * 'gtsrsResponseStatus'
 getTrailStatusResponse
-    :: Int -- ^ 'gtsrsStatus'
+    :: Int -- ^ 'gtsrsResponseStatus'
     -> GetTrailStatusResponse
-getTrailStatusResponse pStatus_ =
+getTrailStatusResponse pResponseStatus_ =
     GetTrailStatusResponse'
     { _gtsrsLatestDeliveryError = Nothing
     , _gtsrsStartLoggingTime = Nothing
@@ -169,7 +169,7 @@ getTrailStatusResponse pStatus_ =
     , _gtsrsLatestCloudWatchLogsDeliveryError = Nothing
     , _gtsrsLatestNotificationTime = Nothing
     , _gtsrsStopLoggingTime = Nothing
-    , _gtsrsStatus = pStatus_
+    , _gtsrsResponseStatus = pResponseStatus_
     }
 
 -- | Displays any Amazon S3 error that CloudTrail encountered when attempting
@@ -223,5 +223,5 @@ gtsrsStopLoggingTime :: Lens' GetTrailStatusResponse (Maybe UTCTime)
 gtsrsStopLoggingTime = lens _gtsrsStopLoggingTime (\ s a -> s{_gtsrsStopLoggingTime = a}) . mapping _Time;
 
 -- | The response status code.
-gtsrsStatus :: Lens' GetTrailStatusResponse Int
-gtsrsStatus = lens _gtsrsStatus (\ s a -> s{_gtsrsStatus = a});
+gtsrsResponseStatus :: Lens' GetTrailStatusResponse Int
+gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a});

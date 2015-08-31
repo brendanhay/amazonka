@@ -73,7 +73,7 @@ module Network.AWS.EC2.CreateDHCPOptions
     , CreateDHCPOptionsResponse
     -- * Response Lenses
     , cdorsDHCPOptions
-    , cdorsStatus
+    , cdorsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -140,8 +140,8 @@ instance ToQuery CreateDHCPOptions where
 
 -- | /See:/ 'createDHCPOptionsResponse' smart constructor.
 data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'
-    { _cdorsDHCPOptions :: !(Maybe DHCPOptions)
-    , _cdorsStatus      :: !Int
+    { _cdorsDHCPOptions    :: !(Maybe DHCPOptions)
+    , _cdorsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDHCPOptionsResponse' with the minimum fields required to make a request.
@@ -150,14 +150,14 @@ data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'
 --
 -- * 'cdorsDHCPOptions'
 --
--- * 'cdorsStatus'
+-- * 'cdorsResponseStatus'
 createDHCPOptionsResponse
-    :: Int -- ^ 'cdorsStatus'
+    :: Int -- ^ 'cdorsResponseStatus'
     -> CreateDHCPOptionsResponse
-createDHCPOptionsResponse pStatus_ =
+createDHCPOptionsResponse pResponseStatus_ =
     CreateDHCPOptionsResponse'
     { _cdorsDHCPOptions = Nothing
-    , _cdorsStatus = pStatus_
+    , _cdorsResponseStatus = pResponseStatus_
     }
 
 -- | A set of DHCP options.
@@ -165,5 +165,5 @@ cdorsDHCPOptions :: Lens' CreateDHCPOptionsResponse (Maybe DHCPOptions)
 cdorsDHCPOptions = lens _cdorsDHCPOptions (\ s a -> s{_cdorsDHCPOptions = a});
 
 -- | The response status code.
-cdorsStatus :: Lens' CreateDHCPOptionsResponse Int
-cdorsStatus = lens _cdorsStatus (\ s a -> s{_cdorsStatus = a});
+cdorsResponseStatus :: Lens' CreateDHCPOptionsResponse Int
+cdorsResponseStatus = lens _cdorsResponseStatus (\ s a -> s{_cdorsResponseStatus = a});

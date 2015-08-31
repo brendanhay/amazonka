@@ -52,7 +52,7 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     , ModifyCacheClusterResponse
     -- * Response Lenses
     , mccrsCacheCluster
-    , mccrsStatus
+    , mccrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -426,8 +426,8 @@ instance ToQuery ModifyCacheCluster where
 
 -- | /See:/ 'modifyCacheClusterResponse' smart constructor.
 data ModifyCacheClusterResponse = ModifyCacheClusterResponse'
-    { _mccrsCacheCluster :: !(Maybe CacheCluster)
-    , _mccrsStatus       :: !Int
+    { _mccrsCacheCluster   :: !(Maybe CacheCluster)
+    , _mccrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyCacheClusterResponse' with the minimum fields required to make a request.
@@ -436,14 +436,14 @@ data ModifyCacheClusterResponse = ModifyCacheClusterResponse'
 --
 -- * 'mccrsCacheCluster'
 --
--- * 'mccrsStatus'
+-- * 'mccrsResponseStatus'
 modifyCacheClusterResponse
-    :: Int -- ^ 'mccrsStatus'
+    :: Int -- ^ 'mccrsResponseStatus'
     -> ModifyCacheClusterResponse
-modifyCacheClusterResponse pStatus_ =
+modifyCacheClusterResponse pResponseStatus_ =
     ModifyCacheClusterResponse'
     { _mccrsCacheCluster = Nothing
-    , _mccrsStatus = pStatus_
+    , _mccrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -451,5 +451,5 @@ mccrsCacheCluster :: Lens' ModifyCacheClusterResponse (Maybe CacheCluster)
 mccrsCacheCluster = lens _mccrsCacheCluster (\ s a -> s{_mccrsCacheCluster = a});
 
 -- | The response status code.
-mccrsStatus :: Lens' ModifyCacheClusterResponse Int
-mccrsStatus = lens _mccrsStatus (\ s a -> s{_mccrsStatus = a});
+mccrsResponseStatus :: Lens' ModifyCacheClusterResponse Int
+mccrsResponseStatus = lens _mccrsResponseStatus (\ s a -> s{_mccrsResponseStatus = a});

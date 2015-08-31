@@ -44,7 +44,7 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     -- * Response Lenses
     , dssrsSnapshots
     , dssrsMarker
-    , dssrsStatus
+    , dssrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -162,9 +162,9 @@ instance ToQuery DescribeSnapshots where
 --
 -- /See:/ 'describeSnapshotsResponse' smart constructor.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-    { _dssrsSnapshots :: !(Maybe [Snapshot])
-    , _dssrsMarker    :: !(Maybe Text)
-    , _dssrsStatus    :: !Int
+    { _dssrsSnapshots      :: !(Maybe [Snapshot])
+    , _dssrsMarker         :: !(Maybe Text)
+    , _dssrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSnapshotsResponse' with the minimum fields required to make a request.
@@ -175,15 +175,15 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
 --
 -- * 'dssrsMarker'
 --
--- * 'dssrsStatus'
+-- * 'dssrsResponseStatus'
 describeSnapshotsResponse
-    :: Int -- ^ 'dssrsStatus'
+    :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeSnapshotsResponse
-describeSnapshotsResponse pStatus_ =
+describeSnapshotsResponse pResponseStatus_ =
     DescribeSnapshotsResponse'
     { _dssrsSnapshots = Nothing
     , _dssrsMarker = Nothing
-    , _dssrsStatus = pStatus_
+    , _dssrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of snapshots. Each item in the list contains detailed information
@@ -199,5 +199,5 @@ dssrsMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
 dssrsMarker = lens _dssrsMarker (\ s a -> s{_dssrsMarker = a});
 
 -- | The response status code.
-dssrsStatus :: Lens' DescribeSnapshotsResponse Int
-dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});
+dssrsResponseStatus :: Lens' DescribeSnapshotsResponse Int
+dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});

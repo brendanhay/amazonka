@@ -34,7 +34,7 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     , listStreamingDistributionsResponse
     , ListStreamingDistributionsResponse
     -- * Response Lenses
-    , lsdrsStatus
+    , lsdrsResponseStatus
     , lsdrsStreamingDistributionList
     ) where
 
@@ -105,7 +105,7 @@ instance ToQuery ListStreamingDistributions where
 --
 -- /See:/ 'listStreamingDistributionsResponse' smart constructor.
 data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
-    { _lsdrsStatus                    :: !Int
+    { _lsdrsResponseStatus            :: !Int
     , _lsdrsStreamingDistributionList :: !StreamingDistributionList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -113,22 +113,22 @@ data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsdrsStatus'
+-- * 'lsdrsResponseStatus'
 --
 -- * 'lsdrsStreamingDistributionList'
 listStreamingDistributionsResponse
-    :: Int -- ^ 'lsdrsStatus'
+    :: Int -- ^ 'lsdrsResponseStatus'
     -> StreamingDistributionList -- ^ 'lsdrsStreamingDistributionList'
     -> ListStreamingDistributionsResponse
-listStreamingDistributionsResponse pStatus_ pStreamingDistributionList_ =
+listStreamingDistributionsResponse pResponseStatus_ pStreamingDistributionList_ =
     ListStreamingDistributionsResponse'
-    { _lsdrsStatus = pStatus_
+    { _lsdrsResponseStatus = pResponseStatus_
     , _lsdrsStreamingDistributionList = pStreamingDistributionList_
     }
 
 -- | The response status code.
-lsdrsStatus :: Lens' ListStreamingDistributionsResponse Int
-lsdrsStatus = lens _lsdrsStatus (\ s a -> s{_lsdrsStatus = a});
+lsdrsResponseStatus :: Lens' ListStreamingDistributionsResponse Int
+lsdrsResponseStatus = lens _lsdrsResponseStatus (\ s a -> s{_lsdrsResponseStatus = a});
 
 -- | The StreamingDistributionList type.
 lsdrsStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList

@@ -56,7 +56,7 @@ module Network.AWS.S3.UploadPartCopy
     , upcrsSSECustomerKeyMD5
     , upcrsSSEKMSKeyId
     , upcrsServerSideEncryption
-    , upcrsStatus
+    , upcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -305,7 +305,7 @@ data UploadPartCopyResponse = UploadPartCopyResponse'
     , _upcrsSSECustomerKeyMD5    :: !(Maybe Text)
     , _upcrsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _upcrsServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _upcrsStatus               :: !Int
+    , _upcrsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UploadPartCopyResponse' with the minimum fields required to make a request.
@@ -326,11 +326,11 @@ data UploadPartCopyResponse = UploadPartCopyResponse'
 --
 -- * 'upcrsServerSideEncryption'
 --
--- * 'upcrsStatus'
+-- * 'upcrsResponseStatus'
 uploadPartCopyResponse
-    :: Int -- ^ 'upcrsStatus'
+    :: Int -- ^ 'upcrsResponseStatus'
     -> UploadPartCopyResponse
-uploadPartCopyResponse pStatus_ =
+uploadPartCopyResponse pResponseStatus_ =
     UploadPartCopyResponse'
     { _upcrsRequestCharged = Nothing
     , _upcrsCopyPartResult = Nothing
@@ -339,7 +339,7 @@ uploadPartCopyResponse pStatus_ =
     , _upcrsSSECustomerKeyMD5 = Nothing
     , _upcrsSSEKMSKeyId = Nothing
     , _upcrsServerSideEncryption = Nothing
-    , _upcrsStatus = pStatus_
+    , _upcrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -378,5 +378,5 @@ upcrsServerSideEncryption :: Lens' UploadPartCopyResponse (Maybe ServerSideEncry
 upcrsServerSideEncryption = lens _upcrsServerSideEncryption (\ s a -> s{_upcrsServerSideEncryption = a});
 
 -- | The response status code.
-upcrsStatus :: Lens' UploadPartCopyResponse Int
-upcrsStatus = lens _upcrsStatus (\ s a -> s{_upcrsStatus = a});
+upcrsResponseStatus :: Lens' UploadPartCopyResponse Int
+upcrsResponseStatus = lens _upcrsResponseStatus (\ s a -> s{_upcrsResponseStatus = a});

@@ -35,7 +35,7 @@ module Network.AWS.CloudFormation.GetStackPolicy
     , GetStackPolicyResponse
     -- * Response Lenses
     , gsprsStackPolicyBody
-    , gsprsStatus
+    , gsprsResponseStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -96,7 +96,7 @@ instance ToQuery GetStackPolicy where
 -- /See:/ 'getStackPolicyResponse' smart constructor.
 data GetStackPolicyResponse = GetStackPolicyResponse'
     { _gsprsStackPolicyBody :: !(Maybe Text)
-    , _gsprsStatus          :: !Int
+    , _gsprsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetStackPolicyResponse' with the minimum fields required to make a request.
@@ -105,14 +105,14 @@ data GetStackPolicyResponse = GetStackPolicyResponse'
 --
 -- * 'gsprsStackPolicyBody'
 --
--- * 'gsprsStatus'
+-- * 'gsprsResponseStatus'
 getStackPolicyResponse
-    :: Int -- ^ 'gsprsStatus'
+    :: Int -- ^ 'gsprsResponseStatus'
     -> GetStackPolicyResponse
-getStackPolicyResponse pStatus_ =
+getStackPolicyResponse pResponseStatus_ =
     GetStackPolicyResponse'
     { _gsprsStackPolicyBody = Nothing
-    , _gsprsStatus = pStatus_
+    , _gsprsResponseStatus = pResponseStatus_
     }
 
 -- | Structure containing the stack policy body. (For more information, go to
@@ -122,5 +122,5 @@ gsprsStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gsprsStackPolicyBody = lens _gsprsStackPolicyBody (\ s a -> s{_gsprsStackPolicyBody = a});
 
 -- | The response status code.
-gsprsStatus :: Lens' GetStackPolicyResponse Int
-gsprsStatus = lens _gsprsStatus (\ s a -> s{_gsprsStatus = a});
+gsprsResponseStatus :: Lens' GetStackPolicyResponse Int
+gsprsResponseStatus = lens _gsprsResponseStatus (\ s a -> s{_gsprsResponseStatus = a});

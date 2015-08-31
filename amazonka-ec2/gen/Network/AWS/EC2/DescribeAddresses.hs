@@ -42,7 +42,7 @@ module Network.AWS.EC2.DescribeAddresses
     , DescribeAddressesResponse
     -- * Response Lenses
     , darsAddresses
-    , darsStatus
+    , darsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -154,8 +154,8 @@ instance ToQuery DescribeAddresses where
 
 -- | /See:/ 'describeAddressesResponse' smart constructor.
 data DescribeAddressesResponse = DescribeAddressesResponse'
-    { _darsAddresses :: !(Maybe [Address])
-    , _darsStatus    :: !Int
+    { _darsAddresses      :: !(Maybe [Address])
+    , _darsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAddressesResponse' with the minimum fields required to make a request.
@@ -164,14 +164,14 @@ data DescribeAddressesResponse = DescribeAddressesResponse'
 --
 -- * 'darsAddresses'
 --
--- * 'darsStatus'
+-- * 'darsResponseStatus'
 describeAddressesResponse
-    :: Int -- ^ 'darsStatus'
+    :: Int -- ^ 'darsResponseStatus'
     -> DescribeAddressesResponse
-describeAddressesResponse pStatus_ =
+describeAddressesResponse pResponseStatus_ =
     DescribeAddressesResponse'
     { _darsAddresses = Nothing
-    , _darsStatus = pStatus_
+    , _darsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more Elastic IP addresses.
@@ -179,5 +179,5 @@ darsAddresses :: Lens' DescribeAddressesResponse [Address]
 darsAddresses = lens _darsAddresses (\ s a -> s{_darsAddresses = a}) . _Default . _Coerce;
 
 -- | The response status code.
-darsStatus :: Lens' DescribeAddressesResponse Int
-darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});
+darsResponseStatus :: Lens' DescribeAddressesResponse Int
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});

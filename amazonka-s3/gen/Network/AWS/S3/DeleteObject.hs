@@ -42,7 +42,7 @@ module Network.AWS.S3.DeleteObject
     , dorsRequestCharged
     , dorsVersionId
     , dorsDeleteMarker
-    , dorsStatus
+    , dorsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -138,7 +138,7 @@ data DeleteObjectResponse = DeleteObjectResponse'
     { _dorsRequestCharged :: !(Maybe RequestCharged)
     , _dorsVersionId      :: !(Maybe ObjectVersionId)
     , _dorsDeleteMarker   :: !(Maybe Bool)
-    , _dorsStatus         :: !Int
+    , _dorsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteObjectResponse' with the minimum fields required to make a request.
@@ -151,16 +151,16 @@ data DeleteObjectResponse = DeleteObjectResponse'
 --
 -- * 'dorsDeleteMarker'
 --
--- * 'dorsStatus'
+-- * 'dorsResponseStatus'
 deleteObjectResponse
-    :: Int -- ^ 'dorsStatus'
+    :: Int -- ^ 'dorsResponseStatus'
     -> DeleteObjectResponse
-deleteObjectResponse pStatus_ =
+deleteObjectResponse pResponseStatus_ =
     DeleteObjectResponse'
     { _dorsRequestCharged = Nothing
     , _dorsVersionId = Nothing
     , _dorsDeleteMarker = Nothing
-    , _dorsStatus = pStatus_
+    , _dorsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -178,5 +178,5 @@ dorsDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
 dorsDeleteMarker = lens _dorsDeleteMarker (\ s a -> s{_dorsDeleteMarker = a});
 
 -- | The response status code.
-dorsStatus :: Lens' DeleteObjectResponse Int
-dorsStatus = lens _dorsStatus (\ s a -> s{_dorsStatus = a});
+dorsResponseStatus :: Lens' DeleteObjectResponse Int
+dorsResponseStatus = lens _dorsResponseStatus (\ s a -> s{_dorsResponseStatus = a});

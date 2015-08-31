@@ -70,7 +70,7 @@ module Network.AWS.EC2.RegisterImage
     , RegisterImageResponse
     -- * Response Lenses
     , rirsImageId
-    , rirsStatus
+    , rirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -235,8 +235,8 @@ instance ToQuery RegisterImage where
 
 -- | /See:/ 'registerImageResponse' smart constructor.
 data RegisterImageResponse = RegisterImageResponse'
-    { _rirsImageId :: !(Maybe Text)
-    , _rirsStatus  :: !Int
+    { _rirsImageId        :: !(Maybe Text)
+    , _rirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterImageResponse' with the minimum fields required to make a request.
@@ -245,14 +245,14 @@ data RegisterImageResponse = RegisterImageResponse'
 --
 -- * 'rirsImageId'
 --
--- * 'rirsStatus'
+-- * 'rirsResponseStatus'
 registerImageResponse
-    :: Int -- ^ 'rirsStatus'
+    :: Int -- ^ 'rirsResponseStatus'
     -> RegisterImageResponse
-registerImageResponse pStatus_ =
+registerImageResponse pResponseStatus_ =
     RegisterImageResponse'
     { _rirsImageId = Nothing
-    , _rirsStatus = pStatus_
+    , _rirsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the newly registered AMI.
@@ -260,5 +260,5 @@ rirsImageId :: Lens' RegisterImageResponse (Maybe Text)
 rirsImageId = lens _rirsImageId (\ s a -> s{_rirsImageId = a});
 
 -- | The response status code.
-rirsStatus :: Lens' RegisterImageResponse Int
-rirsStatus = lens _rirsStatus (\ s a -> s{_rirsStatus = a});
+rirsResponseStatus :: Lens' RegisterImageResponse Int
+rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a});

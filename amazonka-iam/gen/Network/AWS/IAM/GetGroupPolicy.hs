@@ -44,7 +44,7 @@ module Network.AWS.IAM.GetGroupPolicy
     , getGroupPolicyResponse
     , GetGroupPolicyResponse
     -- * Response Lenses
-    , ggprsStatus
+    , ggprsResponseStatus
     , ggprsGroupName
     , ggprsPolicyName
     , ggprsPolicyDocument
@@ -116,7 +116,7 @@ instance ToQuery GetGroupPolicy where
 --
 -- /See:/ 'getGroupPolicyResponse' smart constructor.
 data GetGroupPolicyResponse = GetGroupPolicyResponse'
-    { _ggprsStatus         :: !Int
+    { _ggprsResponseStatus :: !Int
     , _ggprsGroupName      :: !Text
     , _ggprsPolicyName     :: !Text
     , _ggprsPolicyDocument :: !Text
@@ -126,7 +126,7 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggprsStatus'
+-- * 'ggprsResponseStatus'
 --
 -- * 'ggprsGroupName'
 --
@@ -134,22 +134,22 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse'
 --
 -- * 'ggprsPolicyDocument'
 getGroupPolicyResponse
-    :: Int -- ^ 'ggprsStatus'
+    :: Int -- ^ 'ggprsResponseStatus'
     -> Text -- ^ 'ggprsGroupName'
     -> Text -- ^ 'ggprsPolicyName'
     -> Text -- ^ 'ggprsPolicyDocument'
     -> GetGroupPolicyResponse
-getGroupPolicyResponse pStatus_ pGroupName_ pPolicyName_ pPolicyDocument_ =
+getGroupPolicyResponse pResponseStatus_ pGroupName_ pPolicyName_ pPolicyDocument_ =
     GetGroupPolicyResponse'
-    { _ggprsStatus = pStatus_
+    { _ggprsResponseStatus = pResponseStatus_
     , _ggprsGroupName = pGroupName_
     , _ggprsPolicyName = pPolicyName_
     , _ggprsPolicyDocument = pPolicyDocument_
     }
 
 -- | The response status code.
-ggprsStatus :: Lens' GetGroupPolicyResponse Int
-ggprsStatus = lens _ggprsStatus (\ s a -> s{_ggprsStatus = a});
+ggprsResponseStatus :: Lens' GetGroupPolicyResponse Int
+ggprsResponseStatus = lens _ggprsResponseStatus (\ s a -> s{_ggprsResponseStatus = a});
 
 -- | The group the policy is associated with.
 ggprsGroupName :: Lens' GetGroupPolicyResponse Text

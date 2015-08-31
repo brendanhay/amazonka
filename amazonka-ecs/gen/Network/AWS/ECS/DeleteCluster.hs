@@ -37,7 +37,7 @@ module Network.AWS.ECS.DeleteCluster
     , DeleteClusterResponse
     -- * Response Lenses
     , drsCluster
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -100,8 +100,8 @@ instance ToQuery DeleteCluster where
 
 -- | /See:/ 'deleteClusterResponse' smart constructor.
 data DeleteClusterResponse = DeleteClusterResponse'
-    { _drsCluster :: !(Maybe Cluster)
-    , _drsStatus  :: !Int
+    { _drsCluster        :: !(Maybe Cluster)
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteClusterResponse' with the minimum fields required to make a request.
@@ -110,14 +110,14 @@ data DeleteClusterResponse = DeleteClusterResponse'
 --
 -- * 'drsCluster'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 deleteClusterResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DeleteClusterResponse
-deleteClusterResponse pStatus_ =
+deleteClusterResponse pResponseStatus_ =
     DeleteClusterResponse'
     { _drsCluster = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | The full description of the deleted cluster.
@@ -125,5 +125,5 @@ drsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a});
 
 -- | The response status code.
-drsStatus :: Lens' DeleteClusterResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DeleteClusterResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

@@ -44,7 +44,7 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     , DeregisterInstancesFromLoadBalancerResponse
     -- * Response Lenses
     , diflbrsInstances
-    , diflbrsStatus
+    , diflbrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -118,8 +118,8 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
 
 -- | /See:/ 'deregisterInstancesFromLoadBalancerResponse' smart constructor.
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
-    { _diflbrsInstances :: !(Maybe [Instance])
-    , _diflbrsStatus    :: !Int
+    { _diflbrsInstances      :: !(Maybe [Instance])
+    , _diflbrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeregisterInstancesFromLoadBalancerResponse' with the minimum fields required to make a request.
@@ -128,14 +128,14 @@ data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBa
 --
 -- * 'diflbrsInstances'
 --
--- * 'diflbrsStatus'
+-- * 'diflbrsResponseStatus'
 deregisterInstancesFromLoadBalancerResponse
-    :: Int -- ^ 'diflbrsStatus'
+    :: Int -- ^ 'diflbrsResponseStatus'
     -> DeregisterInstancesFromLoadBalancerResponse
-deregisterInstancesFromLoadBalancerResponse pStatus_ =
+deregisterInstancesFromLoadBalancerResponse pResponseStatus_ =
     DeregisterInstancesFromLoadBalancerResponse'
     { _diflbrsInstances = Nothing
-    , _diflbrsStatus = pStatus_
+    , _diflbrsResponseStatus = pResponseStatus_
     }
 
 -- | The remaining instances registered with the load balancer.
@@ -143,5 +143,5 @@ diflbrsInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
 diflbrsInstances = lens _diflbrsInstances (\ s a -> s{_diflbrsInstances = a}) . _Default . _Coerce;
 
 -- | The response status code.
-diflbrsStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
-diflbrsStatus = lens _diflbrsStatus (\ s a -> s{_diflbrsStatus = a});
+diflbrsResponseStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
+diflbrsResponseStatus = lens _diflbrsResponseStatus (\ s a -> s{_diflbrsResponseStatus = a});

@@ -40,7 +40,7 @@ module Network.AWS.ElasticTranscoder.ListPresets
     -- * Response Lenses
     , lrsNextPageToken
     , lrsPresets
-    , lrsStatus
+    , lrsResponseStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -119,9 +119,9 @@ instance ToQuery ListPresets where
 --
 -- /See:/ 'listPresetsResponse' smart constructor.
 data ListPresetsResponse = ListPresetsResponse'
-    { _lrsNextPageToken :: !(Maybe Text)
-    , _lrsPresets       :: !(Maybe [Preset])
-    , _lrsStatus        :: !Int
+    { _lrsNextPageToken  :: !(Maybe Text)
+    , _lrsPresets        :: !(Maybe [Preset])
+    , _lrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListPresetsResponse' with the minimum fields required to make a request.
@@ -132,15 +132,15 @@ data ListPresetsResponse = ListPresetsResponse'
 --
 -- * 'lrsPresets'
 --
--- * 'lrsStatus'
+-- * 'lrsResponseStatus'
 listPresetsResponse
-    :: Int -- ^ 'lrsStatus'
+    :: Int -- ^ 'lrsResponseStatus'
     -> ListPresetsResponse
-listPresetsResponse pStatus_ =
+listPresetsResponse pResponseStatus_ =
     ListPresetsResponse'
     { _lrsNextPageToken = Nothing
     , _lrsPresets = Nothing
-    , _lrsStatus = pStatus_
+    , _lrsResponseStatus = pResponseStatus_
     }
 
 -- | A value that you use to access the second and subsequent pages of
@@ -155,5 +155,5 @@ lrsPresets :: Lens' ListPresetsResponse [Preset]
 lrsPresets = lens _lrsPresets (\ s a -> s{_lrsPresets = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lrsStatus :: Lens' ListPresetsResponse Int
-lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});
+lrsResponseStatus :: Lens' ListPresetsResponse Int
+lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});

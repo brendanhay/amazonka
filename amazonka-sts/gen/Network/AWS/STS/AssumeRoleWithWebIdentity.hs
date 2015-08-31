@@ -118,7 +118,7 @@ module Network.AWS.STS.AssumeRoleWithWebIdentity
     , arwwirsCredentials
     , arwwirsAssumedRoleUser
     , arwwirsProvider
-    , arwwirsStatus
+    , arwwirsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -272,7 +272,7 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
     , _arwwirsCredentials                 :: !(Maybe Credentials)
     , _arwwirsAssumedRoleUser             :: !(Maybe AssumedRoleUser)
     , _arwwirsProvider                    :: !(Maybe Text)
-    , _arwwirsStatus                      :: !Int
+    , _arwwirsResponseStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AssumeRoleWithWebIdentityResponse' with the minimum fields required to make a request.
@@ -291,11 +291,11 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
 --
 -- * 'arwwirsProvider'
 --
--- * 'arwwirsStatus'
+-- * 'arwwirsResponseStatus'
 assumeRoleWithWebIdentityResponse
-    :: Int -- ^ 'arwwirsStatus'
+    :: Int -- ^ 'arwwirsResponseStatus'
     -> AssumeRoleWithWebIdentityResponse
-assumeRoleWithWebIdentityResponse pStatus_ =
+assumeRoleWithWebIdentityResponse pResponseStatus_ =
     AssumeRoleWithWebIdentityResponse'
     { _arwwirsAudience = Nothing
     , _arwwirsSubjectFromWebIdentityToken = Nothing
@@ -303,7 +303,7 @@ assumeRoleWithWebIdentityResponse pStatus_ =
     , _arwwirsCredentials = Nothing
     , _arwwirsAssumedRoleUser = Nothing
     , _arwwirsProvider = Nothing
-    , _arwwirsStatus = pStatus_
+    , _arwwirsResponseStatus = pResponseStatus_
     }
 
 -- | The intended audience (also known as client ID) of the web identity
@@ -350,5 +350,5 @@ arwwirsProvider :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwirsProvider = lens _arwwirsProvider (\ s a -> s{_arwwirsProvider = a});
 
 -- | The response status code.
-arwwirsStatus :: Lens' AssumeRoleWithWebIdentityResponse Int
-arwwirsStatus = lens _arwwirsStatus (\ s a -> s{_arwwirsStatus = a});
+arwwirsResponseStatus :: Lens' AssumeRoleWithWebIdentityResponse Int
+arwwirsResponseStatus = lens _arwwirsResponseStatus (\ s a -> s{_arwwirsResponseStatus = a});

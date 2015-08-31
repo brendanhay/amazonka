@@ -46,7 +46,7 @@ module Network.AWS.StorageGateway.AddWorkingStorage
     , AddWorkingStorageResponse
     -- * Response Lenses
     , awsrsGatewayARN
-    , awsrsStatus
+    , awsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -128,8 +128,8 @@ instance ToQuery AddWorkingStorage where
 --
 -- /See:/ 'addWorkingStorageResponse' smart constructor.
 data AddWorkingStorageResponse = AddWorkingStorageResponse'
-    { _awsrsGatewayARN :: !(Maybe Text)
-    , _awsrsStatus     :: !Int
+    { _awsrsGatewayARN     :: !(Maybe Text)
+    , _awsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddWorkingStorageResponse' with the minimum fields required to make a request.
@@ -138,14 +138,14 @@ data AddWorkingStorageResponse = AddWorkingStorageResponse'
 --
 -- * 'awsrsGatewayARN'
 --
--- * 'awsrsStatus'
+-- * 'awsrsResponseStatus'
 addWorkingStorageResponse
-    :: Int -- ^ 'awsrsStatus'
+    :: Int -- ^ 'awsrsResponseStatus'
     -> AddWorkingStorageResponse
-addWorkingStorageResponse pStatus_ =
+addWorkingStorageResponse pResponseStatus_ =
     AddWorkingStorageResponse'
     { _awsrsGatewayARN = Nothing
-    , _awsrsStatus = pStatus_
+    , _awsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -153,5 +153,5 @@ awsrsGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
 awsrsGatewayARN = lens _awsrsGatewayARN (\ s a -> s{_awsrsGatewayARN = a});
 
 -- | The response status code.
-awsrsStatus :: Lens' AddWorkingStorageResponse Int
-awsrsStatus = lens _awsrsStatus (\ s a -> s{_awsrsStatus = a});
+awsrsResponseStatus :: Lens' AddWorkingStorageResponse Int
+awsrsResponseStatus = lens _awsrsResponseStatus (\ s a -> s{_awsrsResponseStatus = a});

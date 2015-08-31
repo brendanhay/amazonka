@@ -39,7 +39,7 @@ module Network.AWS.CodeDeploy.CreateDeployment
     , CreateDeploymentResponse
     -- * Response Lenses
     , cdrsDeploymentId
-    , cdrsStatus
+    , cdrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -172,8 +172,8 @@ instance ToQuery CreateDeployment where
 --
 -- /See:/ 'createDeploymentResponse' smart constructor.
 data CreateDeploymentResponse = CreateDeploymentResponse'
-    { _cdrsDeploymentId :: !(Maybe Text)
-    , _cdrsStatus       :: !Int
+    { _cdrsDeploymentId   :: !(Maybe Text)
+    , _cdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDeploymentResponse' with the minimum fields required to make a request.
@@ -182,14 +182,14 @@ data CreateDeploymentResponse = CreateDeploymentResponse'
 --
 -- * 'cdrsDeploymentId'
 --
--- * 'cdrsStatus'
+-- * 'cdrsResponseStatus'
 createDeploymentResponse
-    :: Int -- ^ 'cdrsStatus'
+    :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDeploymentResponse
-createDeploymentResponse pStatus_ =
+createDeploymentResponse pResponseStatus_ =
     CreateDeploymentResponse'
     { _cdrsDeploymentId = Nothing
-    , _cdrsStatus = pStatus_
+    , _cdrsResponseStatus = pResponseStatus_
     }
 
 -- | A unique deployment ID.
@@ -197,5 +197,5 @@ cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrsDeploymentId = lens _cdrsDeploymentId (\ s a -> s{_cdrsDeploymentId = a});
 
 -- | The response status code.
-cdrsStatus :: Lens' CreateDeploymentResponse Int
-cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});
+cdrsResponseStatus :: Lens' CreateDeploymentResponse Int
+cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});

@@ -52,7 +52,7 @@ module Network.AWS.Redshift.DescribeClusterParameters
     -- * Response Lenses
     , dcprsMarker
     , dcprsParameters
-    , dcprsStatus
+    , dcprsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -168,9 +168,9 @@ instance ToQuery DescribeClusterParameters where
 --
 -- /See:/ 'describeClusterParametersResponse' smart constructor.
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse'
-    { _dcprsMarker     :: !(Maybe Text)
-    , _dcprsParameters :: !(Maybe [Parameter])
-    , _dcprsStatus     :: !Int
+    { _dcprsMarker         :: !(Maybe Text)
+    , _dcprsParameters     :: !(Maybe [Parameter])
+    , _dcprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClusterParametersResponse' with the minimum fields required to make a request.
@@ -181,15 +181,15 @@ data DescribeClusterParametersResponse = DescribeClusterParametersResponse'
 --
 -- * 'dcprsParameters'
 --
--- * 'dcprsStatus'
+-- * 'dcprsResponseStatus'
 describeClusterParametersResponse
-    :: Int -- ^ 'dcprsStatus'
+    :: Int -- ^ 'dcprsResponseStatus'
     -> DescribeClusterParametersResponse
-describeClusterParametersResponse pStatus_ =
+describeClusterParametersResponse pResponseStatus_ =
     DescribeClusterParametersResponse'
     { _dcprsMarker = Nothing
     , _dcprsParameters = Nothing
-    , _dcprsStatus = pStatus_
+    , _dcprsResponseStatus = pResponseStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -207,5 +207,5 @@ dcprsParameters :: Lens' DescribeClusterParametersResponse [Parameter]
 dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcprsStatus :: Lens' DescribeClusterParametersResponse Int
-dcprsStatus = lens _dcprsStatus (\ s a -> s{_dcprsStatus = a});
+dcprsResponseStatus :: Lens' DescribeClusterParametersResponse Int
+dcprsResponseStatus = lens _dcprsResponseStatus (\ s a -> s{_dcprsResponseStatus = a});

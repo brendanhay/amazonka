@@ -42,7 +42,7 @@ module Network.AWS.DirectoryService.RestoreFromSnapshot
     , restoreFromSnapshotResponse
     , RestoreFromSnapshotResponse
     -- * Response Lenses
-    , rfsrsStatus
+    , rfsrsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -109,22 +109,22 @@ instance ToQuery RestoreFromSnapshot where
 --
 -- /See:/ 'restoreFromSnapshotResponse' smart constructor.
 newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
-    { _rfsrsStatus :: Int
+    { _rfsrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestoreFromSnapshotResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rfsrsStatus'
+-- * 'rfsrsResponseStatus'
 restoreFromSnapshotResponse
-    :: Int -- ^ 'rfsrsStatus'
+    :: Int -- ^ 'rfsrsResponseStatus'
     -> RestoreFromSnapshotResponse
-restoreFromSnapshotResponse pStatus_ =
+restoreFromSnapshotResponse pResponseStatus_ =
     RestoreFromSnapshotResponse'
-    { _rfsrsStatus = pStatus_
+    { _rfsrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-rfsrsStatus :: Lens' RestoreFromSnapshotResponse Int
-rfsrsStatus = lens _rfsrsStatus (\ s a -> s{_rfsrsStatus = a});
+rfsrsResponseStatus :: Lens' RestoreFromSnapshotResponse Int
+rfsrsResponseStatus = lens _rfsrsResponseStatus (\ s a -> s{_rfsrsResponseStatus = a});

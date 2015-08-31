@@ -42,7 +42,7 @@ module Network.AWS.MachineLearning.DeleteEvaluation
     , DeleteEvaluationResponse
     -- * Response Lenses
     , dersEvaluationId
-    , dersStatus
+    , dersResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -112,8 +112,8 @@ instance ToQuery DeleteEvaluation where
 --
 -- /See:/ 'deleteEvaluationResponse' smart constructor.
 data DeleteEvaluationResponse = DeleteEvaluationResponse'
-    { _dersEvaluationId :: !(Maybe Text)
-    , _dersStatus       :: !Int
+    { _dersEvaluationId   :: !(Maybe Text)
+    , _dersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteEvaluationResponse' with the minimum fields required to make a request.
@@ -122,14 +122,14 @@ data DeleteEvaluationResponse = DeleteEvaluationResponse'
 --
 -- * 'dersEvaluationId'
 --
--- * 'dersStatus'
+-- * 'dersResponseStatus'
 deleteEvaluationResponse
-    :: Int -- ^ 'dersStatus'
+    :: Int -- ^ 'dersResponseStatus'
     -> DeleteEvaluationResponse
-deleteEvaluationResponse pStatus_ =
+deleteEvaluationResponse pResponseStatus_ =
     DeleteEvaluationResponse'
     { _dersEvaluationId = Nothing
-    , _dersStatus = pStatus_
+    , _dersResponseStatus = pResponseStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the 'Evaluation'. This value
@@ -138,5 +138,5 @@ dersEvaluationId :: Lens' DeleteEvaluationResponse (Maybe Text)
 dersEvaluationId = lens _dersEvaluationId (\ s a -> s{_dersEvaluationId = a});
 
 -- | The response status code.
-dersStatus :: Lens' DeleteEvaluationResponse Int
-dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});
+dersResponseStatus :: Lens' DeleteEvaluationResponse Int
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});

@@ -48,7 +48,7 @@ module Network.AWS.MachineLearning.DescribeDataSources
     -- * Response Lenses
     , ddssrsResults
     , ddssrsNextToken
-    , ddssrsStatus
+    , ddssrsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -252,9 +252,9 @@ instance ToQuery DescribeDataSources where
 --
 -- /See:/ 'describeDataSourcesResponse' smart constructor.
 data DescribeDataSourcesResponse = DescribeDataSourcesResponse'
-    { _ddssrsResults   :: !(Maybe [DataSource])
-    , _ddssrsNextToken :: !(Maybe Text)
-    , _ddssrsStatus    :: !Int
+    { _ddssrsResults        :: !(Maybe [DataSource])
+    , _ddssrsNextToken      :: !(Maybe Text)
+    , _ddssrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDataSourcesResponse' with the minimum fields required to make a request.
@@ -265,15 +265,15 @@ data DescribeDataSourcesResponse = DescribeDataSourcesResponse'
 --
 -- * 'ddssrsNextToken'
 --
--- * 'ddssrsStatus'
+-- * 'ddssrsResponseStatus'
 describeDataSourcesResponse
-    :: Int -- ^ 'ddssrsStatus'
+    :: Int -- ^ 'ddssrsResponseStatus'
     -> DescribeDataSourcesResponse
-describeDataSourcesResponse pStatus_ =
+describeDataSourcesResponse pResponseStatus_ =
     DescribeDataSourcesResponse'
     { _ddssrsResults = Nothing
     , _ddssrsNextToken = Nothing
-    , _ddssrsStatus = pStatus_
+    , _ddssrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of 'DataSource' that meet the search criteria.
@@ -286,5 +286,5 @@ ddssrsNextToken :: Lens' DescribeDataSourcesResponse (Maybe Text)
 ddssrsNextToken = lens _ddssrsNextToken (\ s a -> s{_ddssrsNextToken = a});
 
 -- | The response status code.
-ddssrsStatus :: Lens' DescribeDataSourcesResponse Int
-ddssrsStatus = lens _ddssrsStatus (\ s a -> s{_ddssrsStatus = a});
+ddssrsResponseStatus :: Lens' DescribeDataSourcesResponse Int
+ddssrsResponseStatus = lens _ddssrsResponseStatus (\ s a -> s{_ddssrsResponseStatus = a});

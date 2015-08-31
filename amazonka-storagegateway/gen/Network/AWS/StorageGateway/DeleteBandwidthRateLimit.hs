@@ -39,7 +39,7 @@ module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     , DeleteBandwidthRateLimitResponse
     -- * Response Lenses
     , delrsGatewayARN
-    , delrsStatus
+    , delrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -117,8 +117,8 @@ instance ToQuery DeleteBandwidthRateLimit where
 --
 -- /See:/ 'deleteBandwidthRateLimitResponse' smart constructor.
 data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'
-    { _delrsGatewayARN :: !(Maybe Text)
-    , _delrsStatus     :: !Int
+    { _delrsGatewayARN     :: !(Maybe Text)
+    , _delrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteBandwidthRateLimitResponse' with the minimum fields required to make a request.
@@ -127,14 +127,14 @@ data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'
 --
 -- * 'delrsGatewayARN'
 --
--- * 'delrsStatus'
+-- * 'delrsResponseStatus'
 deleteBandwidthRateLimitResponse
-    :: Int -- ^ 'delrsStatus'
+    :: Int -- ^ 'delrsResponseStatus'
     -> DeleteBandwidthRateLimitResponse
-deleteBandwidthRateLimitResponse pStatus_ =
+deleteBandwidthRateLimitResponse pResponseStatus_ =
     DeleteBandwidthRateLimitResponse'
     { _delrsGatewayARN = Nothing
-    , _delrsStatus = pStatus_
+    , _delrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -142,5 +142,5 @@ delrsGatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
 delrsGatewayARN = lens _delrsGatewayARN (\ s a -> s{_delrsGatewayARN = a});
 
 -- | The response status code.
-delrsStatus :: Lens' DeleteBandwidthRateLimitResponse Int
-delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});
+delrsResponseStatus :: Lens' DeleteBandwidthRateLimitResponse Int
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});

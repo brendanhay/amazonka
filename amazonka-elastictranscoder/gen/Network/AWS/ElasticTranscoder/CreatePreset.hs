@@ -57,7 +57,7 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     -- * Response Lenses
     , cprsWarning
     , cprsPreset
-    , cprsStatus
+    , cprsResponseStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -168,9 +168,9 @@ instance ToQuery CreatePreset where
 --
 -- /See:/ 'createPresetResponse' smart constructor.
 data CreatePresetResponse = CreatePresetResponse'
-    { _cprsWarning :: !(Maybe Text)
-    , _cprsPreset  :: !(Maybe Preset)
-    , _cprsStatus  :: !Int
+    { _cprsWarning        :: !(Maybe Text)
+    , _cprsPreset         :: !(Maybe Preset)
+    , _cprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreatePresetResponse' with the minimum fields required to make a request.
@@ -181,15 +181,15 @@ data CreatePresetResponse = CreatePresetResponse'
 --
 -- * 'cprsPreset'
 --
--- * 'cprsStatus'
+-- * 'cprsResponseStatus'
 createPresetResponse
-    :: Int -- ^ 'cprsStatus'
+    :: Int -- ^ 'cprsResponseStatus'
     -> CreatePresetResponse
-createPresetResponse pStatus_ =
+createPresetResponse pResponseStatus_ =
     CreatePresetResponse'
     { _cprsWarning = Nothing
     , _cprsPreset = Nothing
-    , _cprsStatus = pStatus_
+    , _cprsResponseStatus = pResponseStatus_
     }
 
 -- | If the preset settings don\'t comply with the standards for the video
@@ -206,5 +206,5 @@ cprsPreset :: Lens' CreatePresetResponse (Maybe Preset)
 cprsPreset = lens _cprsPreset (\ s a -> s{_cprsPreset = a});
 
 -- | The response status code.
-cprsStatus :: Lens' CreatePresetResponse Int
-cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});
+cprsResponseStatus :: Lens' CreatePresetResponse Int
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});

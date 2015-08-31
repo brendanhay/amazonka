@@ -39,7 +39,7 @@ module Network.AWS.Route53Domains.DisableDomainAutoRenew
     , disableDomainAutoRenewResponse
     , DisableDomainAutoRenewResponse
     -- * Response Lenses
-    , ddarrsStatus
+    , ddarrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -103,22 +103,22 @@ instance ToQuery DisableDomainAutoRenew where
 
 -- | /See:/ 'disableDomainAutoRenewResponse' smart constructor.
 newtype DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'
-    { _ddarrsStatus :: Int
+    { _ddarrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DisableDomainAutoRenewResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddarrsStatus'
+-- * 'ddarrsResponseStatus'
 disableDomainAutoRenewResponse
-    :: Int -- ^ 'ddarrsStatus'
+    :: Int -- ^ 'ddarrsResponseStatus'
     -> DisableDomainAutoRenewResponse
-disableDomainAutoRenewResponse pStatus_ =
+disableDomainAutoRenewResponse pResponseStatus_ =
     DisableDomainAutoRenewResponse'
-    { _ddarrsStatus = pStatus_
+    { _ddarrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-ddarrsStatus :: Lens' DisableDomainAutoRenewResponse Int
-ddarrsStatus = lens _ddarrsStatus (\ s a -> s{_ddarrsStatus = a});
+ddarrsResponseStatus :: Lens' DisableDomainAutoRenewResponse Int
+ddarrsResponseStatus = lens _ddarrsResponseStatus (\ s a -> s{_ddarrsResponseStatus = a});

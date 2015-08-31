@@ -41,7 +41,7 @@ module Network.AWS.CognitoIdentity.ListIdentities
     , lirsIdentityPoolId
     , lirsNextToken
     , lirsIdentities
-    , lirsStatus
+    , lirsResponseStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -144,7 +144,7 @@ data ListIdentitiesResponse = ListIdentitiesResponse'
     { _lirsIdentityPoolId :: !(Maybe Text)
     , _lirsNextToken      :: !(Maybe Text)
     , _lirsIdentities     :: !(Maybe [IdentityDescription])
-    , _lirsStatus         :: !Int
+    , _lirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListIdentitiesResponse' with the minimum fields required to make a request.
@@ -157,16 +157,16 @@ data ListIdentitiesResponse = ListIdentitiesResponse'
 --
 -- * 'lirsIdentities'
 --
--- * 'lirsStatus'
+-- * 'lirsResponseStatus'
 listIdentitiesResponse
-    :: Int -- ^ 'lirsStatus'
+    :: Int -- ^ 'lirsResponseStatus'
     -> ListIdentitiesResponse
-listIdentitiesResponse pStatus_ =
+listIdentitiesResponse pResponseStatus_ =
     ListIdentitiesResponse'
     { _lirsIdentityPoolId = Nothing
     , _lirsNextToken = Nothing
     , _lirsIdentities = Nothing
-    , _lirsStatus = pStatus_
+    , _lirsResponseStatus = pResponseStatus_
     }
 
 -- | An identity pool ID in the format REGION:GUID.
@@ -182,5 +182,5 @@ lirsIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
 lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lirsStatus :: Lens' ListIdentitiesResponse Int
-lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});
+lirsResponseStatus :: Lens' ListIdentitiesResponse Int
+lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});

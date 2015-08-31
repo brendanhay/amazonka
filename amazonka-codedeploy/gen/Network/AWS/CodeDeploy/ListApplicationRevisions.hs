@@ -41,7 +41,7 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
     -- * Response Lenses
     , larrsNextToken
     , larrsRevisions
-    , larrsStatus
+    , larrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -197,9 +197,9 @@ instance ToQuery ListApplicationRevisions where
 --
 -- /See:/ 'listApplicationRevisionsResponse' smart constructor.
 data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
-    { _larrsNextToken :: !(Maybe Text)
-    , _larrsRevisions :: !(Maybe [RevisionLocation])
-    , _larrsStatus    :: !Int
+    { _larrsNextToken      :: !(Maybe Text)
+    , _larrsRevisions      :: !(Maybe [RevisionLocation])
+    , _larrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListApplicationRevisionsResponse' with the minimum fields required to make a request.
@@ -210,15 +210,15 @@ data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
 --
 -- * 'larrsRevisions'
 --
--- * 'larrsStatus'
+-- * 'larrsResponseStatus'
 listApplicationRevisionsResponse
-    :: Int -- ^ 'larrsStatus'
+    :: Int -- ^ 'larrsResponseStatus'
     -> ListApplicationRevisionsResponse
-listApplicationRevisionsResponse pStatus_ =
+listApplicationRevisionsResponse pResponseStatus_ =
     ListApplicationRevisionsResponse'
     { _larrsNextToken = Nothing
     , _larrsRevisions = Nothing
-    , _larrsStatus = pStatus_
+    , _larrsResponseStatus = pResponseStatus_
     }
 
 -- | If the amount of information that is returned is significantly large, an
@@ -233,5 +233,5 @@ larrsRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
 larrsRevisions = lens _larrsRevisions (\ s a -> s{_larrsRevisions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-larrsStatus :: Lens' ListApplicationRevisionsResponse Int
-larrsStatus = lens _larrsStatus (\ s a -> s{_larrsStatus = a});
+larrsResponseStatus :: Lens' ListApplicationRevisionsResponse Int
+larrsResponseStatus = lens _larrsResponseStatus (\ s a -> s{_larrsResponseStatus = a});

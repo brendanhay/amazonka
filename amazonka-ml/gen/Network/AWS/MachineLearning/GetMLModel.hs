@@ -37,6 +37,7 @@ module Network.AWS.MachineLearning.GetMLModel
     , getMLModelResponse
     , GetMLModelResponse
     -- * Response Lenses
+    , gmlmrsStatus
     , gmlmrsLastUpdatedAt
     , gmlmrsTrainingParameters
     , gmlmrsScoreThresholdLastUpdatedAt
@@ -54,7 +55,7 @@ module Network.AWS.MachineLearning.GetMLModel
     , gmlmrsTrainingDataSourceId
     , gmlmrsMessage
     , gmlmrsMLModelType
-    , gmlmrsStatus
+    , gmlmrsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -104,7 +105,7 @@ instance AWSRequest GetMLModel where
           = receiveJSON
               (\ s h x ->
                  GetMLModelResponse' <$>
-                   (x .?> "LastUpdatedAt") <*>
+                   (x .?> "Status") <*> (x .?> "LastUpdatedAt") <*>
                      (x .?> "TrainingParameters" .!@ mempty)
                      <*> (x .?> "ScoreThresholdLastUpdatedAt")
                      <*> (x .?> "CreatedAt")
@@ -150,7 +151,8 @@ instance ToQuery GetMLModel where
 --
 -- /See:/ 'getMLModelResponse' smart constructor.
 data GetMLModelResponse = GetMLModelResponse'
-    { _gmlmrsLastUpdatedAt               :: !(Maybe POSIX)
+    { _gmlmrsStatus                      :: !(Maybe EntityStatus)
+    , _gmlmrsLastUpdatedAt               :: !(Maybe POSIX)
     , _gmlmrsTrainingParameters          :: !(Maybe (Map Text Text))
     , _gmlmrsScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
     , _gmlmrsCreatedAt                   :: !(Maybe POSIX)
@@ -167,12 +169,14 @@ data GetMLModelResponse = GetMLModelResponse'
     , _gmlmrsTrainingDataSourceId        :: !(Maybe Text)
     , _gmlmrsMessage                     :: !(Maybe Text)
     , _gmlmrsMLModelType                 :: !(Maybe MLModelType)
-    , _gmlmrsStatus                      :: !Int
+    , _gmlmrsResponseStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetMLModelResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gmlmrsStatus'
 --
 -- * 'gmlmrsLastUpdatedAt'
 --
@@ -208,13 +212,14 @@ data GetMLModelResponse = GetMLModelResponse'
 --
 -- * 'gmlmrsMLModelType'
 --
--- * 'gmlmrsStatus'
+-- * 'gmlmrsResponseStatus'
 getMLModelResponse
-    :: Int -- ^ 'gmlmrsStatus'
+    :: Int -- ^ 'gmlmrsResponseStatus'
     -> GetMLModelResponse
-getMLModelResponse pStatus_ =
+getMLModelResponse pResponseStatus_ =
     GetMLModelResponse'
-    { _gmlmrsLastUpdatedAt = Nothing
+    { _gmlmrsStatus = Nothing
+    , _gmlmrsLastUpdatedAt = Nothing
     , _gmlmrsTrainingParameters = Nothing
     , _gmlmrsScoreThresholdLastUpdatedAt = Nothing
     , _gmlmrsCreatedAt = Nothing
@@ -231,8 +236,20 @@ getMLModelResponse pStatus_ =
     , _gmlmrsTrainingDataSourceId = Nothing
     , _gmlmrsMessage = Nothing
     , _gmlmrsMLModelType = Nothing
-    , _gmlmrsStatus = pStatus_
+    , _gmlmrsResponseStatus = pResponseStatus_
     }
+
+-- | The current status of the 'MLModel'. This element can have one of the
+-- following values:
+--
+-- -   'PENDING' - Amazon Machine Learning (Amazon ML) submitted a request
+--     to describe a 'MLModel'.
+-- -   'INPROGRESS' - The request is processing.
+-- -   'FAILED' - The request did not run to completion. It is not usable.
+-- -   'COMPLETED' - The request completed successfully.
+-- -   'DELETED' - The 'MLModel' is marked as deleted. It is not usable.
+gmlmrsStatus :: Lens' GetMLModelResponse (Maybe EntityStatus)
+gmlmrsStatus = lens _gmlmrsStatus (\ s a -> s{_gmlmrsStatus = a});
 
 -- | The time of the most recent edit to the 'MLModel'. The time is expressed
 -- in epoch time.
@@ -369,5 +386,5 @@ gmlmrsMLModelType :: Lens' GetMLModelResponse (Maybe MLModelType)
 gmlmrsMLModelType = lens _gmlmrsMLModelType (\ s a -> s{_gmlmrsMLModelType = a});
 
 -- | The response status code.
-gmlmrsStatus :: Lens' GetMLModelResponse Int
-gmlmrsStatus = lens _gmlmrsStatus (\ s a -> s{_gmlmrsStatus = a});
+gmlmrsResponseStatus :: Lens' GetMLModelResponse Int
+gmlmrsResponseStatus = lens _gmlmrsResponseStatus (\ s a -> s{_gmlmrsResponseStatus = a});

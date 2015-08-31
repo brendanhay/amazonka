@@ -46,7 +46,7 @@ module Network.AWS.EC2.CopyImage
     , CopyImageResponse
     -- * Response Lenses
     , coprsImageId
-    , coprsStatus
+    , coprsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -154,8 +154,8 @@ instance ToQuery CopyImage where
 
 -- | /See:/ 'copyImageResponse' smart constructor.
 data CopyImageResponse = CopyImageResponse'
-    { _coprsImageId :: !(Maybe Text)
-    , _coprsStatus  :: !Int
+    { _coprsImageId        :: !(Maybe Text)
+    , _coprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CopyImageResponse' with the minimum fields required to make a request.
@@ -164,14 +164,14 @@ data CopyImageResponse = CopyImageResponse'
 --
 -- * 'coprsImageId'
 --
--- * 'coprsStatus'
+-- * 'coprsResponseStatus'
 copyImageResponse
-    :: Int -- ^ 'coprsStatus'
+    :: Int -- ^ 'coprsResponseStatus'
     -> CopyImageResponse
-copyImageResponse pStatus_ =
+copyImageResponse pResponseStatus_ =
     CopyImageResponse'
     { _coprsImageId = Nothing
-    , _coprsStatus = pStatus_
+    , _coprsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the new AMI.
@@ -179,5 +179,5 @@ coprsImageId :: Lens' CopyImageResponse (Maybe Text)
 coprsImageId = lens _coprsImageId (\ s a -> s{_coprsImageId = a});
 
 -- | The response status code.
-coprsStatus :: Lens' CopyImageResponse Int
-coprsStatus = lens _coprsStatus (\ s a -> s{_coprsStatus = a});
+coprsResponseStatus :: Lens' CopyImageResponse Int
+coprsResponseStatus = lens _coprsResponseStatus (\ s a -> s{_coprsResponseStatus = a});

@@ -50,7 +50,7 @@ module Network.AWS.IAM.ListGroupPolicies
     -- * Response Lenses
     , lgprsMarker
     , lgprsIsTruncated
-    , lgprsStatus
+    , lgprsResponseStatus
     , lgprsPolicyNames
     ) where
 
@@ -144,10 +144,10 @@ instance ToQuery ListGroupPolicies where
 --
 -- /See:/ 'listGroupPoliciesResponse' smart constructor.
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
-    { _lgprsMarker      :: !(Maybe Text)
-    , _lgprsIsTruncated :: !(Maybe Bool)
-    , _lgprsStatus      :: !Int
-    , _lgprsPolicyNames :: ![Text]
+    { _lgprsMarker         :: !(Maybe Text)
+    , _lgprsIsTruncated    :: !(Maybe Bool)
+    , _lgprsResponseStatus :: !Int
+    , _lgprsPolicyNames    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListGroupPoliciesResponse' with the minimum fields required to make a request.
@@ -158,17 +158,17 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
 --
 -- * 'lgprsIsTruncated'
 --
--- * 'lgprsStatus'
+-- * 'lgprsResponseStatus'
 --
 -- * 'lgprsPolicyNames'
 listGroupPoliciesResponse
-    :: Int -- ^ 'lgprsStatus'
+    :: Int -- ^ 'lgprsResponseStatus'
     -> ListGroupPoliciesResponse
-listGroupPoliciesResponse pStatus_ =
+listGroupPoliciesResponse pResponseStatus_ =
     ListGroupPoliciesResponse'
     { _lgprsMarker = Nothing
     , _lgprsIsTruncated = Nothing
-    , _lgprsStatus = pStatus_
+    , _lgprsResponseStatus = pResponseStatus_
     , _lgprsPolicyNames = mempty
     }
 
@@ -185,8 +185,8 @@ lgprsIsTruncated :: Lens' ListGroupPoliciesResponse (Maybe Bool)
 lgprsIsTruncated = lens _lgprsIsTruncated (\ s a -> s{_lgprsIsTruncated = a});
 
 -- | The response status code.
-lgprsStatus :: Lens' ListGroupPoliciesResponse Int
-lgprsStatus = lens _lgprsStatus (\ s a -> s{_lgprsStatus = a});
+lgprsResponseStatus :: Lens' ListGroupPoliciesResponse Int
+lgprsResponseStatus = lens _lgprsResponseStatus (\ s a -> s{_lgprsResponseStatus = a});
 
 -- | A list of policy names.
 lgprsPolicyNames :: Lens' ListGroupPoliciesResponse [Text]

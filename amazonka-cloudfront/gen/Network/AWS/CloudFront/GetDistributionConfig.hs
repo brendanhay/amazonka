@@ -35,7 +35,7 @@ module Network.AWS.CloudFront.GetDistributionConfig
     -- * Response Lenses
     , gdcrsETag
     , gdcrsDistributionConfig
-    , gdcrsStatus
+    , gdcrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -96,7 +96,7 @@ instance ToQuery GetDistributionConfig where
 data GetDistributionConfigResponse = GetDistributionConfigResponse'
     { _gdcrsETag               :: !(Maybe Text)
     , _gdcrsDistributionConfig :: !(Maybe DistributionConfig)
-    , _gdcrsStatus             :: !Int
+    , _gdcrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDistributionConfigResponse' with the minimum fields required to make a request.
@@ -107,15 +107,15 @@ data GetDistributionConfigResponse = GetDistributionConfigResponse'
 --
 -- * 'gdcrsDistributionConfig'
 --
--- * 'gdcrsStatus'
+-- * 'gdcrsResponseStatus'
 getDistributionConfigResponse
-    :: Int -- ^ 'gdcrsStatus'
+    :: Int -- ^ 'gdcrsResponseStatus'
     -> GetDistributionConfigResponse
-getDistributionConfigResponse pStatus_ =
+getDistributionConfigResponse pResponseStatus_ =
     GetDistributionConfigResponse'
     { _gdcrsETag = Nothing
     , _gdcrsDistributionConfig = Nothing
-    , _gdcrsStatus = pStatus_
+    , _gdcrsResponseStatus = pResponseStatus_
     }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
@@ -127,5 +127,5 @@ gdcrsDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe Distributi
 gdcrsDistributionConfig = lens _gdcrsDistributionConfig (\ s a -> s{_gdcrsDistributionConfig = a});
 
 -- | The response status code.
-gdcrsStatus :: Lens' GetDistributionConfigResponse Int
-gdcrsStatus = lens _gdcrsStatus (\ s a -> s{_gdcrsStatus = a});
+gdcrsResponseStatus :: Lens' GetDistributionConfigResponse Int
+gdcrsResponseStatus = lens _gdcrsResponseStatus (\ s a -> s{_gdcrsResponseStatus = a});

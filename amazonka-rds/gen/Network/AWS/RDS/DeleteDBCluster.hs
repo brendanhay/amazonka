@@ -44,7 +44,7 @@ module Network.AWS.RDS.DeleteDBCluster
     , DeleteDBClusterResponse
     -- * Response Lenses
     , ddbcrsDBCluster
-    , ddbcrsStatus
+    , ddbcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -144,8 +144,8 @@ instance ToQuery DeleteDBCluster where
 
 -- | /See:/ 'deleteDBClusterResponse' smart constructor.
 data DeleteDBClusterResponse = DeleteDBClusterResponse'
-    { _ddbcrsDBCluster :: !(Maybe DBCluster)
-    , _ddbcrsStatus    :: !Int
+    { _ddbcrsDBCluster      :: !(Maybe DBCluster)
+    , _ddbcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDBClusterResponse' with the minimum fields required to make a request.
@@ -154,14 +154,14 @@ data DeleteDBClusterResponse = DeleteDBClusterResponse'
 --
 -- * 'ddbcrsDBCluster'
 --
--- * 'ddbcrsStatus'
+-- * 'ddbcrsResponseStatus'
 deleteDBClusterResponse
-    :: Int -- ^ 'ddbcrsStatus'
+    :: Int -- ^ 'ddbcrsResponseStatus'
     -> DeleteDBClusterResponse
-deleteDBClusterResponse pStatus_ =
+deleteDBClusterResponse pResponseStatus_ =
     DeleteDBClusterResponse'
     { _ddbcrsDBCluster = Nothing
-    , _ddbcrsStatus = pStatus_
+    , _ddbcrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -169,5 +169,5 @@ ddbcrsDBCluster :: Lens' DeleteDBClusterResponse (Maybe DBCluster)
 ddbcrsDBCluster = lens _ddbcrsDBCluster (\ s a -> s{_ddbcrsDBCluster = a});
 
 -- | The response status code.
-ddbcrsStatus :: Lens' DeleteDBClusterResponse Int
-ddbcrsStatus = lens _ddbcrsStatus (\ s a -> s{_ddbcrsStatus = a});
+ddbcrsResponseStatus :: Lens' DeleteDBClusterResponse Int
+ddbcrsResponseStatus = lens _ddbcrsResponseStatus (\ s a -> s{_ddbcrsResponseStatus = a});

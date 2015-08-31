@@ -39,7 +39,7 @@ module Network.AWS.ElasticTranscoder.ListPipelines
     -- * Response Lenses
     , lprsNextPageToken
     , lprsPipelines
-    , lprsStatus
+    , lprsResponseStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -118,9 +118,9 @@ instance ToQuery ListPipelines where
 --
 -- /See:/ 'listPipelinesResponse' smart constructor.
 data ListPipelinesResponse = ListPipelinesResponse'
-    { _lprsNextPageToken :: !(Maybe Text)
-    , _lprsPipelines     :: !(Maybe [Pipeline])
-    , _lprsStatus        :: !Int
+    { _lprsNextPageToken  :: !(Maybe Text)
+    , _lprsPipelines      :: !(Maybe [Pipeline])
+    , _lprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListPipelinesResponse' with the minimum fields required to make a request.
@@ -131,15 +131,15 @@ data ListPipelinesResponse = ListPipelinesResponse'
 --
 -- * 'lprsPipelines'
 --
--- * 'lprsStatus'
+-- * 'lprsResponseStatus'
 listPipelinesResponse
-    :: Int -- ^ 'lprsStatus'
+    :: Int -- ^ 'lprsResponseStatus'
     -> ListPipelinesResponse
-listPipelinesResponse pStatus_ =
+listPipelinesResponse pResponseStatus_ =
     ListPipelinesResponse'
     { _lprsNextPageToken = Nothing
     , _lprsPipelines = Nothing
-    , _lprsStatus = pStatus_
+    , _lprsResponseStatus = pResponseStatus_
     }
 
 -- | A value that you use to access the second and subsequent pages of
@@ -154,5 +154,5 @@ lprsPipelines :: Lens' ListPipelinesResponse [Pipeline]
 lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lprsStatus :: Lens' ListPipelinesResponse Int
-lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});
+lprsResponseStatus :: Lens' ListPipelinesResponse Int
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});

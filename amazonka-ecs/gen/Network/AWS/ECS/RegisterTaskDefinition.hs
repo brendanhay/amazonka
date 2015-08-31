@@ -41,7 +41,7 @@ module Network.AWS.ECS.RegisterTaskDefinition
     , RegisterTaskDefinitionResponse
     -- * Response Lenses
     , rtdrsTaskDefinition
-    , rtdrsStatus
+    , rtdrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -133,7 +133,7 @@ instance ToQuery RegisterTaskDefinition where
 -- | /See:/ 'registerTaskDefinitionResponse' smart constructor.
 data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
     { _rtdrsTaskDefinition :: !(Maybe TaskDefinition)
-    , _rtdrsStatus         :: !Int
+    , _rtdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterTaskDefinitionResponse' with the minimum fields required to make a request.
@@ -142,14 +142,14 @@ data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
 --
 -- * 'rtdrsTaskDefinition'
 --
--- * 'rtdrsStatus'
+-- * 'rtdrsResponseStatus'
 registerTaskDefinitionResponse
-    :: Int -- ^ 'rtdrsStatus'
+    :: Int -- ^ 'rtdrsResponseStatus'
     -> RegisterTaskDefinitionResponse
-registerTaskDefinitionResponse pStatus_ =
+registerTaskDefinitionResponse pResponseStatus_ =
     RegisterTaskDefinitionResponse'
     { _rtdrsTaskDefinition = Nothing
-    , _rtdrsStatus = pStatus_
+    , _rtdrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -157,5 +157,5 @@ rtdrsTaskDefinition :: Lens' RegisterTaskDefinitionResponse (Maybe TaskDefinitio
 rtdrsTaskDefinition = lens _rtdrsTaskDefinition (\ s a -> s{_rtdrsTaskDefinition = a});
 
 -- | The response status code.
-rtdrsStatus :: Lens' RegisterTaskDefinitionResponse Int
-rtdrsStatus = lens _rtdrsStatus (\ s a -> s{_rtdrsStatus = a});
+rtdrsResponseStatus :: Lens' RegisterTaskDefinitionResponse Int
+rtdrsResponseStatus = lens _rtdrsResponseStatus (\ s a -> s{_rtdrsResponseStatus = a});

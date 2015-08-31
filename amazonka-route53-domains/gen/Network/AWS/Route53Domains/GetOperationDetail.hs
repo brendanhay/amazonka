@@ -34,12 +34,13 @@ module Network.AWS.Route53Domains.GetOperationDetail
     , getOperationDetailResponse
     , GetOperationDetailResponse
     -- * Response Lenses
+    , godrsStatus
     , godrsSubmittedDate
     , godrsDomainName
     , godrsOperationId
     , godrsType
     , godrsMessage
-    , godrsStatus
+    , godrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -88,8 +89,9 @@ instance AWSRequest GetOperationDetail where
           = receiveJSON
               (\ s h x ->
                  GetOperationDetailResponse' <$>
-                   (x .?> "SubmittedDate") <*> (x .?> "DomainName") <*>
-                     (x .?> "OperationId")
+                   (x .?> "Status") <*> (x .?> "SubmittedDate") <*>
+                     (x .?> "DomainName")
+                     <*> (x .?> "OperationId")
                      <*> (x .?> "Type")
                      <*> (x .?> "Message")
                      <*> (pure (fromEnum s)))
@@ -119,17 +121,20 @@ instance ToQuery GetOperationDetail where
 --
 -- /See:/ 'getOperationDetailResponse' smart constructor.
 data GetOperationDetailResponse = GetOperationDetailResponse'
-    { _godrsSubmittedDate :: !(Maybe POSIX)
-    , _godrsDomainName    :: !(Maybe Text)
-    , _godrsOperationId   :: !(Maybe Text)
-    , _godrsType          :: !(Maybe OperationType)
-    , _godrsMessage       :: !(Maybe Text)
-    , _godrsStatus        :: !Int
+    { _godrsStatus         :: !(Maybe OperationStatus)
+    , _godrsSubmittedDate  :: !(Maybe POSIX)
+    , _godrsDomainName     :: !(Maybe Text)
+    , _godrsOperationId    :: !(Maybe Text)
+    , _godrsType           :: !(Maybe OperationType)
+    , _godrsMessage        :: !(Maybe Text)
+    , _godrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetOperationDetailResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'godrsStatus'
 --
 -- * 'godrsSubmittedDate'
 --
@@ -141,19 +146,26 @@ data GetOperationDetailResponse = GetOperationDetailResponse'
 --
 -- * 'godrsMessage'
 --
--- * 'godrsStatus'
+-- * 'godrsResponseStatus'
 getOperationDetailResponse
-    :: Int -- ^ 'godrsStatus'
+    :: Int -- ^ 'godrsResponseStatus'
     -> GetOperationDetailResponse
-getOperationDetailResponse pStatus_ =
+getOperationDetailResponse pResponseStatus_ =
     GetOperationDetailResponse'
-    { _godrsSubmittedDate = Nothing
+    { _godrsStatus = Nothing
+    , _godrsSubmittedDate = Nothing
     , _godrsDomainName = Nothing
     , _godrsOperationId = Nothing
     , _godrsType = Nothing
     , _godrsMessage = Nothing
-    , _godrsStatus = pStatus_
+    , _godrsResponseStatus = pResponseStatus_
     }
+
+-- | The current status of the requested operation in the system.
+--
+-- Type: String
+godrsStatus :: Lens' GetOperationDetailResponse (Maybe OperationStatus)
+godrsStatus = lens _godrsStatus (\ s a -> s{_godrsStatus = a});
 
 -- | The date when the request was submitted.
 godrsSubmittedDate :: Lens' GetOperationDetailResponse (Maybe UTCTime)
@@ -184,5 +196,5 @@ godrsMessage :: Lens' GetOperationDetailResponse (Maybe Text)
 godrsMessage = lens _godrsMessage (\ s a -> s{_godrsMessage = a});
 
 -- | The response status code.
-godrsStatus :: Lens' GetOperationDetailResponse Int
-godrsStatus = lens _godrsStatus (\ s a -> s{_godrsStatus = a});
+godrsResponseStatus :: Lens' GetOperationDetailResponse Int
+godrsResponseStatus = lens _godrsResponseStatus (\ s a -> s{_godrsResponseStatus = a});

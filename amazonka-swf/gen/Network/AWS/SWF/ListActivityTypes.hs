@@ -64,7 +64,7 @@ module Network.AWS.SWF.ListActivityTypes
     , ListActivityTypesResponse
     -- * Response Lenses
     , latrsNextPageToken
-    , latrsStatus
+    , latrsResponseStatus
     , latrsTypeInfos
     ) where
 
@@ -202,9 +202,9 @@ instance ToQuery ListActivityTypes where
 --
 -- /See:/ 'listActivityTypesResponse' smart constructor.
 data ListActivityTypesResponse = ListActivityTypesResponse'
-    { _latrsNextPageToken :: !(Maybe Text)
-    , _latrsStatus        :: !Int
-    , _latrsTypeInfos     :: ![ActivityTypeInfo]
+    { _latrsNextPageToken  :: !(Maybe Text)
+    , _latrsResponseStatus :: !Int
+    , _latrsTypeInfos      :: ![ActivityTypeInfo]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListActivityTypesResponse' with the minimum fields required to make a request.
@@ -213,16 +213,16 @@ data ListActivityTypesResponse = ListActivityTypesResponse'
 --
 -- * 'latrsNextPageToken'
 --
--- * 'latrsStatus'
+-- * 'latrsResponseStatus'
 --
 -- * 'latrsTypeInfos'
 listActivityTypesResponse
-    :: Int -- ^ 'latrsStatus'
+    :: Int -- ^ 'latrsResponseStatus'
     -> ListActivityTypesResponse
-listActivityTypesResponse pStatus_ =
+listActivityTypesResponse pResponseStatus_ =
     ListActivityTypesResponse'
     { _latrsNextPageToken = Nothing
-    , _latrsStatus = pStatus_
+    , _latrsResponseStatus = pResponseStatus_
     , _latrsTypeInfos = mempty
     }
 
@@ -237,8 +237,8 @@ latrsNextPageToken :: Lens' ListActivityTypesResponse (Maybe Text)
 latrsNextPageToken = lens _latrsNextPageToken (\ s a -> s{_latrsNextPageToken = a});
 
 -- | The response status code.
-latrsStatus :: Lens' ListActivityTypesResponse Int
-latrsStatus = lens _latrsStatus (\ s a -> s{_latrsStatus = a});
+latrsResponseStatus :: Lens' ListActivityTypesResponse Int
+latrsResponseStatus = lens _latrsResponseStatus (\ s a -> s{_latrsResponseStatus = a});
 
 -- | List of activity type information.
 latrsTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]

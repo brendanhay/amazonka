@@ -36,7 +36,7 @@ module Network.AWS.CodePipeline.AcknowledgeJob
     , AcknowledgeJobResponse
     -- * Response Lenses
     , ajrsStatus
-    , ajrsStatus
+    , ajrsResponseStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -117,8 +117,8 @@ instance ToQuery AcknowledgeJob where
 --
 -- /See:/ 'acknowledgeJobResponse' smart constructor.
 data AcknowledgeJobResponse = AcknowledgeJobResponse'
-    { _ajrsStatus :: !(Maybe JobStatus)
-    , _ajrsStatus :: !Int
+    { _ajrsStatus         :: !(Maybe JobStatus)
+    , _ajrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AcknowledgeJobResponse' with the minimum fields required to make a request.
@@ -127,14 +127,14 @@ data AcknowledgeJobResponse = AcknowledgeJobResponse'
 --
 -- * 'ajrsStatus'
 --
--- * 'ajrsStatus'
+-- * 'ajrsResponseStatus'
 acknowledgeJobResponse
-    :: Int -- ^ 'ajrsStatus'
+    :: Int -- ^ 'ajrsResponseStatus'
     -> AcknowledgeJobResponse
-acknowledgeJobResponse pStatus_ =
+acknowledgeJobResponse pResponseStatus_ =
     AcknowledgeJobResponse'
     { _ajrsStatus = Nothing
-    , _ajrsStatus = pStatus_
+    , _ajrsResponseStatus = pResponseStatus_
     }
 
 -- | Whether the job worker has received the specified job.
@@ -142,5 +142,5 @@ ajrsStatus :: Lens' AcknowledgeJobResponse (Maybe JobStatus)
 ajrsStatus = lens _ajrsStatus (\ s a -> s{_ajrsStatus = a});
 
 -- | The response status code.
-ajrsStatus :: Lens' AcknowledgeJobResponse Int
-ajrsStatus = lens _ajrsStatus (\ s a -> s{_ajrsStatus = a});
+ajrsResponseStatus :: Lens' AcknowledgeJobResponse Int
+ajrsResponseStatus = lens _ajrsResponseStatus (\ s a -> s{_ajrsResponseStatus = a});

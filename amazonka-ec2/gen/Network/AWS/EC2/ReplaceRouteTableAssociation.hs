@@ -46,7 +46,7 @@ module Network.AWS.EC2.ReplaceRouteTableAssociation
     , ReplaceRouteTableAssociationResponse
     -- * Response Lenses
     , rrtarsNewAssociationId
-    , rrtarsStatus
+    , rrtarsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -127,7 +127,7 @@ instance ToQuery ReplaceRouteTableAssociation where
 -- | /See:/ 'replaceRouteTableAssociationResponse' smart constructor.
 data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'
     { _rrtarsNewAssociationId :: !(Maybe Text)
-    , _rrtarsStatus           :: !Int
+    , _rrtarsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReplaceRouteTableAssociationResponse' with the minimum fields required to make a request.
@@ -136,14 +136,14 @@ data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
 --
 -- * 'rrtarsNewAssociationId'
 --
--- * 'rrtarsStatus'
+-- * 'rrtarsResponseStatus'
 replaceRouteTableAssociationResponse
-    :: Int -- ^ 'rrtarsStatus'
+    :: Int -- ^ 'rrtarsResponseStatus'
     -> ReplaceRouteTableAssociationResponse
-replaceRouteTableAssociationResponse pStatus_ =
+replaceRouteTableAssociationResponse pResponseStatus_ =
     ReplaceRouteTableAssociationResponse'
     { _rrtarsNewAssociationId = Nothing
-    , _rrtarsStatus = pStatus_
+    , _rrtarsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the new association.
@@ -151,5 +151,5 @@ rrtarsNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text
 rrtarsNewAssociationId = lens _rrtarsNewAssociationId (\ s a -> s{_rrtarsNewAssociationId = a});
 
 -- | The response status code.
-rrtarsStatus :: Lens' ReplaceRouteTableAssociationResponse Int
-rrtarsStatus = lens _rrtarsStatus (\ s a -> s{_rrtarsStatus = a});
+rrtarsResponseStatus :: Lens' ReplaceRouteTableAssociationResponse Int
+rrtarsResponseStatus = lens _rrtarsResponseStatus (\ s a -> s{_rrtarsResponseStatus = a});

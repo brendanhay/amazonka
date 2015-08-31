@@ -39,6 +39,7 @@ module Network.AWS.MachineLearning.GetDataSource
     , getDataSourceResponse
     , GetDataSourceResponse
     -- * Response Lenses
+    , gdsrsStatus
     , gdsrsNumberOfFiles
     , gdsrsLastUpdatedAt
     , gdsrsCreatedAt
@@ -55,7 +56,7 @@ module Network.AWS.MachineLearning.GetDataSource
     , gdsrsRedshiftMetadata
     , gdsrsDataRearrangement
     , gdsrsRoleARN
-    , gdsrsStatus
+    , gdsrsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -106,7 +107,8 @@ instance AWSRequest GetDataSource where
           = receiveJSON
               (\ s h x ->
                  GetDataSourceResponse' <$>
-                   (x .?> "NumberOfFiles") <*> (x .?> "LastUpdatedAt")
+                   (x .?> "Status") <*> (x .?> "NumberOfFiles") <*>
+                     (x .?> "LastUpdatedAt")
                      <*> (x .?> "CreatedAt")
                      <*> (x .?> "DataSourceId")
                      <*> (x .?> "RDSMetadata")
@@ -150,7 +152,8 @@ instance ToQuery GetDataSource where
 --
 -- /See:/ 'getDataSourceResponse' smart constructor.
 data GetDataSourceResponse = GetDataSourceResponse'
-    { _gdsrsNumberOfFiles     :: !(Maybe Integer)
+    { _gdsrsStatus            :: !(Maybe EntityStatus)
+    , _gdsrsNumberOfFiles     :: !(Maybe Integer)
     , _gdsrsLastUpdatedAt     :: !(Maybe POSIX)
     , _gdsrsCreatedAt         :: !(Maybe POSIX)
     , _gdsrsDataSourceId      :: !(Maybe Text)
@@ -166,12 +169,14 @@ data GetDataSourceResponse = GetDataSourceResponse'
     , _gdsrsRedshiftMetadata  :: !(Maybe RedshiftMetadata)
     , _gdsrsDataRearrangement :: !(Maybe Text)
     , _gdsrsRoleARN           :: !(Maybe Text)
-    , _gdsrsStatus            :: !Int
+    , _gdsrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDataSourceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdsrsStatus'
 --
 -- * 'gdsrsNumberOfFiles'
 --
@@ -205,13 +210,14 @@ data GetDataSourceResponse = GetDataSourceResponse'
 --
 -- * 'gdsrsRoleARN'
 --
--- * 'gdsrsStatus'
+-- * 'gdsrsResponseStatus'
 getDataSourceResponse
-    :: Int -- ^ 'gdsrsStatus'
+    :: Int -- ^ 'gdsrsResponseStatus'
     -> GetDataSourceResponse
-getDataSourceResponse pStatus_ =
+getDataSourceResponse pResponseStatus_ =
     GetDataSourceResponse'
-    { _gdsrsNumberOfFiles = Nothing
+    { _gdsrsStatus = Nothing
+    , _gdsrsNumberOfFiles = Nothing
     , _gdsrsLastUpdatedAt = Nothing
     , _gdsrsCreatedAt = Nothing
     , _gdsrsDataSourceId = Nothing
@@ -227,8 +233,21 @@ getDataSourceResponse pStatus_ =
     , _gdsrsRedshiftMetadata = Nothing
     , _gdsrsDataRearrangement = Nothing
     , _gdsrsRoleARN = Nothing
-    , _gdsrsStatus = pStatus_
+    , _gdsrsResponseStatus = pResponseStatus_
     }
+
+-- | The current status of the 'DataSource'. This element can have one of the
+-- following values:
+--
+-- -   'PENDING' - Amazon Machine Language (Amazon ML) submitted a request
+--     to create a 'DataSource'.
+-- -   'INPROGRESS' - The creation process is underway.
+-- -   'FAILED' - The request to create a 'DataSource' did not run to
+--     completion. It is not usable.
+-- -   'COMPLETED' - The creation process completed successfully.
+-- -   'DELETED' - The 'DataSource' is marked as deleted. It is not usable.
+gdsrsStatus :: Lens' GetDataSourceResponse (Maybe EntityStatus)
+gdsrsStatus = lens _gdsrsStatus (\ s a -> s{_gdsrsStatus = a});
 
 -- | The number of data files referenced by the 'DataSource'.
 gdsrsNumberOfFiles :: Lens' GetDataSourceResponse (Maybe Integer)
@@ -309,5 +328,5 @@ gdsrsRoleARN :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrsRoleARN = lens _gdsrsRoleARN (\ s a -> s{_gdsrsRoleARN = a});
 
 -- | The response status code.
-gdsrsStatus :: Lens' GetDataSourceResponse Int
-gdsrsStatus = lens _gdsrsStatus (\ s a -> s{_gdsrsStatus = a});
+gdsrsResponseStatus :: Lens' GetDataSourceResponse Int
+gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a});

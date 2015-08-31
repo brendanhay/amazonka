@@ -39,7 +39,7 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
     , gpdrsPipelineObjects
     , gpdrsParameterObjects
     , gpdrsParameterValues
-    , gpdrsStatus
+    , gpdrsResponseStatus
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -124,7 +124,7 @@ data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
     { _gpdrsPipelineObjects  :: !(Maybe [PipelineObject])
     , _gpdrsParameterObjects :: !(Maybe [ParameterObject])
     , _gpdrsParameterValues  :: !(Maybe [ParameterValue])
-    , _gpdrsStatus           :: !Int
+    , _gpdrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetPipelineDefinitionResponse' with the minimum fields required to make a request.
@@ -137,16 +137,16 @@ data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
 --
 -- * 'gpdrsParameterValues'
 --
--- * 'gpdrsStatus'
+-- * 'gpdrsResponseStatus'
 getPipelineDefinitionResponse
-    :: Int -- ^ 'gpdrsStatus'
+    :: Int -- ^ 'gpdrsResponseStatus'
     -> GetPipelineDefinitionResponse
-getPipelineDefinitionResponse pStatus_ =
+getPipelineDefinitionResponse pResponseStatus_ =
     GetPipelineDefinitionResponse'
     { _gpdrsPipelineObjects = Nothing
     , _gpdrsParameterObjects = Nothing
     , _gpdrsParameterValues = Nothing
-    , _gpdrsStatus = pStatus_
+    , _gpdrsResponseStatus = pResponseStatus_
     }
 
 -- | The objects defined in the pipeline.
@@ -162,5 +162,5 @@ gpdrsParameterValues :: Lens' GetPipelineDefinitionResponse [ParameterValue]
 gpdrsParameterValues = lens _gpdrsParameterValues (\ s a -> s{_gpdrsParameterValues = a}) . _Default . _Coerce;
 
 -- | The response status code.
-gpdrsStatus :: Lens' GetPipelineDefinitionResponse Int
-gpdrsStatus = lens _gpdrsStatus (\ s a -> s{_gpdrsStatus = a});
+gpdrsResponseStatus :: Lens' GetPipelineDefinitionResponse Int
+gpdrsResponseStatus = lens _gpdrsResponseStatus (\ s a -> s{_gpdrsResponseStatus = a});

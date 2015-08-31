@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     -- * Response Lenses
     , dcpgrsCacheParameterGroups
     , dcpgrsMarker
-    , dcpgrsStatus
+    , dcpgrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -144,7 +144,7 @@ instance ToQuery DescribeCacheParameterGroups where
 data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse'
     { _dcpgrsCacheParameterGroups :: !(Maybe [CacheParameterGroup])
     , _dcpgrsMarker               :: !(Maybe Text)
-    , _dcpgrsStatus               :: !Int
+    , _dcpgrsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCacheParameterGroupsResponse' with the minimum fields required to make a request.
@@ -155,15 +155,15 @@ data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
 --
 -- * 'dcpgrsMarker'
 --
--- * 'dcpgrsStatus'
+-- * 'dcpgrsResponseStatus'
 describeCacheParameterGroupsResponse
-    :: Int -- ^ 'dcpgrsStatus'
+    :: Int -- ^ 'dcpgrsResponseStatus'
     -> DescribeCacheParameterGroupsResponse
-describeCacheParameterGroupsResponse pStatus_ =
+describeCacheParameterGroupsResponse pResponseStatus_ =
     DescribeCacheParameterGroupsResponse'
     { _dcpgrsCacheParameterGroups = Nothing
     , _dcpgrsMarker = Nothing
-    , _dcpgrsStatus = pStatus_
+    , _dcpgrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of cache parameter groups. Each element in the list contains
@@ -176,5 +176,5 @@ dcpgrsMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
 dcpgrsMarker = lens _dcpgrsMarker (\ s a -> s{_dcpgrsMarker = a});
 
 -- | The response status code.
-dcpgrsStatus :: Lens' DescribeCacheParameterGroupsResponse Int
-dcpgrsStatus = lens _dcpgrsStatus (\ s a -> s{_dcpgrsStatus = a});
+dcpgrsResponseStatus :: Lens' DescribeCacheParameterGroupsResponse Int
+dcpgrsResponseStatus = lens _dcpgrsResponseStatus (\ s a -> s{_dcpgrsResponseStatus = a});

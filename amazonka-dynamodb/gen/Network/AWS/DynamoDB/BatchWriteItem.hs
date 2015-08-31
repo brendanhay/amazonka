@@ -114,7 +114,7 @@ module Network.AWS.DynamoDB.BatchWriteItem
     , bwirsItemCollectionMetrics
     , bwirsConsumedCapacity
     , bwirsUnprocessedItems
-    , bwirsStatus
+    , bwirsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -237,7 +237,7 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
     { _bwirsItemCollectionMetrics :: !(Maybe (Map Text [ItemCollectionMetrics]))
     , _bwirsConsumedCapacity      :: !(Maybe [ConsumedCapacity])
     , _bwirsUnprocessedItems      :: !(Maybe (Map Text (List1 WriteRequest)))
-    , _bwirsStatus                :: !Int
+    , _bwirsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BatchWriteItemResponse' with the minimum fields required to make a request.
@@ -250,16 +250,16 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
 --
 -- * 'bwirsUnprocessedItems'
 --
--- * 'bwirsStatus'
+-- * 'bwirsResponseStatus'
 batchWriteItemResponse
-    :: Int -- ^ 'bwirsStatus'
+    :: Int -- ^ 'bwirsResponseStatus'
     -> BatchWriteItemResponse
-batchWriteItemResponse pStatus_ =
+batchWriteItemResponse pResponseStatus_ =
     BatchWriteItemResponse'
     { _bwirsItemCollectionMetrics = Nothing
     , _bwirsConsumedCapacity = Nothing
     , _bwirsUnprocessedItems = Nothing
-    , _bwirsStatus = pStatus_
+    , _bwirsResponseStatus = pResponseStatus_
     }
 
 -- | A list of tables that were processed by /BatchWriteItem/ and, for each
@@ -333,5 +333,5 @@ bwirsUnprocessedItems :: Lens' BatchWriteItemResponse (HashMap Text (NonEmpty Wr
 bwirsUnprocessedItems = lens _bwirsUnprocessedItems (\ s a -> s{_bwirsUnprocessedItems = a}) . _Default . _Map;
 
 -- | The response status code.
-bwirsStatus :: Lens' BatchWriteItemResponse Int
-bwirsStatus = lens _bwirsStatus (\ s a -> s{_bwirsStatus = a});
+bwirsResponseStatus :: Lens' BatchWriteItemResponse Int
+bwirsResponseStatus = lens _bwirsResponseStatus (\ s a -> s{_bwirsResponseStatus = a});

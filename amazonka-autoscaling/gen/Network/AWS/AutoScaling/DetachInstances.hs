@@ -42,7 +42,7 @@ module Network.AWS.AutoScaling.DetachInstances
     , DetachInstancesResponse
     -- * Response Lenses
     , dirsActivities
-    , dirsStatus
+    , dirsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -121,8 +121,8 @@ instance ToQuery DetachInstances where
 
 -- | /See:/ 'detachInstancesResponse' smart constructor.
 data DetachInstancesResponse = DetachInstancesResponse'
-    { _dirsActivities :: !(Maybe [Activity])
-    , _dirsStatus     :: !Int
+    { _dirsActivities     :: !(Maybe [Activity])
+    , _dirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DetachInstancesResponse' with the minimum fields required to make a request.
@@ -131,14 +131,14 @@ data DetachInstancesResponse = DetachInstancesResponse'
 --
 -- * 'dirsActivities'
 --
--- * 'dirsStatus'
+-- * 'dirsResponseStatus'
 detachInstancesResponse
-    :: Int -- ^ 'dirsStatus'
+    :: Int -- ^ 'dirsResponseStatus'
     -> DetachInstancesResponse
-detachInstancesResponse pStatus_ =
+detachInstancesResponse pResponseStatus_ =
     DetachInstancesResponse'
     { _dirsActivities = Nothing
-    , _dirsStatus = pStatus_
+    , _dirsResponseStatus = pResponseStatus_
     }
 
 -- | The activities related to detaching the instances from the Auto Scaling
@@ -147,5 +147,5 @@ dirsActivities :: Lens' DetachInstancesResponse [Activity]
 dirsActivities = lens _dirsActivities (\ s a -> s{_dirsActivities = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dirsStatus :: Lens' DetachInstancesResponse Int
-dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});
+dirsResponseStatus :: Lens' DetachInstancesResponse Int
+dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});

@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeCustomerGateways
     , DescribeCustomerGatewaysResponse
     -- * Response Lenses
     , dcgrsCustomerGateways
-    , dcgrsStatus
+    , dcgrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -153,7 +153,7 @@ instance ToQuery DescribeCustomerGateways where
 -- | /See:/ 'describeCustomerGatewaysResponse' smart constructor.
 data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
     { _dcgrsCustomerGateways :: !(Maybe [CustomerGateway])
-    , _dcgrsStatus           :: !Int
+    , _dcgrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCustomerGatewaysResponse' with the minimum fields required to make a request.
@@ -162,14 +162,14 @@ data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
 --
 -- * 'dcgrsCustomerGateways'
 --
--- * 'dcgrsStatus'
+-- * 'dcgrsResponseStatus'
 describeCustomerGatewaysResponse
-    :: Int -- ^ 'dcgrsStatus'
+    :: Int -- ^ 'dcgrsResponseStatus'
     -> DescribeCustomerGatewaysResponse
-describeCustomerGatewaysResponse pStatus_ =
+describeCustomerGatewaysResponse pResponseStatus_ =
     DescribeCustomerGatewaysResponse'
     { _dcgrsCustomerGateways = Nothing
-    , _dcgrsStatus = pStatus_
+    , _dcgrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more customer gateways.
@@ -177,5 +177,5 @@ dcgrsCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway
 dcgrsCustomerGateways = lens _dcgrsCustomerGateways (\ s a -> s{_dcgrsCustomerGateways = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcgrsStatus :: Lens' DescribeCustomerGatewaysResponse Int
-dcgrsStatus = lens _dcgrsStatus (\ s a -> s{_dcgrsStatus = a});
+dcgrsResponseStatus :: Lens' DescribeCustomerGatewaysResponse Int
+dcgrsResponseStatus = lens _dcgrsResponseStatus (\ s a -> s{_dcgrsResponseStatus = a});

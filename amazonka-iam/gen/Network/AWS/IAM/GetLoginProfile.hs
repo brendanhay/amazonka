@@ -35,7 +35,7 @@ module Network.AWS.IAM.GetLoginProfile
     , getLoginProfileResponse
     , GetLoginProfileResponse
     -- * Response Lenses
-    , glprsStatus
+    , glprsResponseStatus
     , glprsLoginProfile
     ) where
 
@@ -93,30 +93,30 @@ instance ToQuery GetLoginProfile where
 --
 -- /See:/ 'getLoginProfileResponse' smart constructor.
 data GetLoginProfileResponse = GetLoginProfileResponse'
-    { _glprsStatus       :: !Int
-    , _glprsLoginProfile :: !LoginProfile
+    { _glprsResponseStatus :: !Int
+    , _glprsLoginProfile   :: !LoginProfile
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetLoginProfileResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'glprsStatus'
+-- * 'glprsResponseStatus'
 --
 -- * 'glprsLoginProfile'
 getLoginProfileResponse
-    :: Int -- ^ 'glprsStatus'
+    :: Int -- ^ 'glprsResponseStatus'
     -> LoginProfile -- ^ 'glprsLoginProfile'
     -> GetLoginProfileResponse
-getLoginProfileResponse pStatus_ pLoginProfile_ =
+getLoginProfileResponse pResponseStatus_ pLoginProfile_ =
     GetLoginProfileResponse'
-    { _glprsStatus = pStatus_
+    { _glprsResponseStatus = pResponseStatus_
     , _glprsLoginProfile = pLoginProfile_
     }
 
 -- | The response status code.
-glprsStatus :: Lens' GetLoginProfileResponse Int
-glprsStatus = lens _glprsStatus (\ s a -> s{_glprsStatus = a});
+glprsResponseStatus :: Lens' GetLoginProfileResponse Int
+glprsResponseStatus = lens _glprsResponseStatus (\ s a -> s{_glprsResponseStatus = a});
 
 -- | The user name and password create date for the user.
 glprsLoginProfile :: Lens' GetLoginProfileResponse LoginProfile

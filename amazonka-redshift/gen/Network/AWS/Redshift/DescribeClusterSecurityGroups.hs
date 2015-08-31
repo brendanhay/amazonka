@@ -57,7 +57,7 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     -- * Response Lenses
     , dcsgsrsClusterSecurityGroups
     , dcsgsrsMarker
-    , dcsgsrsStatus
+    , dcsgsrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -203,7 +203,7 @@ instance ToQuery DescribeClusterSecurityGroups where
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'
     { _dcsgsrsClusterSecurityGroups :: !(Maybe [ClusterSecurityGroup])
     , _dcsgsrsMarker                :: !(Maybe Text)
-    , _dcsgsrsStatus                :: !Int
+    , _dcsgsrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClusterSecurityGroupsResponse' with the minimum fields required to make a request.
@@ -214,15 +214,15 @@ data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsRespon
 --
 -- * 'dcsgsrsMarker'
 --
--- * 'dcsgsrsStatus'
+-- * 'dcsgsrsResponseStatus'
 describeClusterSecurityGroupsResponse
-    :: Int -- ^ 'dcsgsrsStatus'
+    :: Int -- ^ 'dcsgsrsResponseStatus'
     -> DescribeClusterSecurityGroupsResponse
-describeClusterSecurityGroupsResponse pStatus_ =
+describeClusterSecurityGroupsResponse pResponseStatus_ =
     DescribeClusterSecurityGroupsResponse'
     { _dcsgsrsClusterSecurityGroups = Nothing
     , _dcsgsrsMarker = Nothing
-    , _dcsgsrsStatus = pStatus_
+    , _dcsgsrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of ClusterSecurityGroup instances.
@@ -239,5 +239,5 @@ dcsgsrsMarker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
 dcsgsrsMarker = lens _dcsgsrsMarker (\ s a -> s{_dcsgsrsMarker = a});
 
 -- | The response status code.
-dcsgsrsStatus :: Lens' DescribeClusterSecurityGroupsResponse Int
-dcsgsrsStatus = lens _dcsgsrsStatus (\ s a -> s{_dcsgsrsStatus = a});
+dcsgsrsResponseStatus :: Lens' DescribeClusterSecurityGroupsResponse Int
+dcsgsrsResponseStatus = lens _dcsgsrsResponseStatus (\ s a -> s{_dcsgsrsResponseStatus = a});

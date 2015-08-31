@@ -37,7 +37,7 @@ module Network.AWS.EC2.DeleteVPCEndpoints
     , DeleteVPCEndpointsResponse
     -- * Response Lenses
     , dversUnsuccessful
-    , dversStatus
+    , dversResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -106,8 +106,8 @@ instance ToQuery DeleteVPCEndpoints where
 
 -- | /See:/ 'deleteVPCEndpointsResponse' smart constructor.
 data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
-    { _dversUnsuccessful :: !(Maybe [UnsuccessfulItem])
-    , _dversStatus       :: !Int
+    { _dversUnsuccessful   :: !(Maybe [UnsuccessfulItem])
+    , _dversResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteVPCEndpointsResponse' with the minimum fields required to make a request.
@@ -116,14 +116,14 @@ data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
 --
 -- * 'dversUnsuccessful'
 --
--- * 'dversStatus'
+-- * 'dversResponseStatus'
 deleteVPCEndpointsResponse
-    :: Int -- ^ 'dversStatus'
+    :: Int -- ^ 'dversResponseStatus'
     -> DeleteVPCEndpointsResponse
-deleteVPCEndpointsResponse pStatus_ =
+deleteVPCEndpointsResponse pResponseStatus_ =
     DeleteVPCEndpointsResponse'
     { _dversUnsuccessful = Nothing
-    , _dversStatus = pStatus_
+    , _dversResponseStatus = pResponseStatus_
     }
 
 -- | Information about the endpoints that were not successfully deleted.
@@ -131,5 +131,5 @@ dversUnsuccessful :: Lens' DeleteVPCEndpointsResponse [UnsuccessfulItem]
 dversUnsuccessful = lens _dversUnsuccessful (\ s a -> s{_dversUnsuccessful = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dversStatus :: Lens' DeleteVPCEndpointsResponse Int
-dversStatus = lens _dversStatus (\ s a -> s{_dversStatus = a});
+dversResponseStatus :: Lens' DeleteVPCEndpointsResponse Int
+dversResponseStatus = lens _dversResponseStatus (\ s a -> s{_dversResponseStatus = a});

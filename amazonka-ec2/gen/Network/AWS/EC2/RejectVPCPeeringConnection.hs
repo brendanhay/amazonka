@@ -40,7 +40,7 @@ module Network.AWS.EC2.RejectVPCPeeringConnection
     , RejectVPCPeeringConnectionResponse
     -- * Response Lenses
     , rvpcrsReturn
-    , rvpcrsStatus
+    , rvpcrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -110,8 +110,8 @@ instance ToQuery RejectVPCPeeringConnection where
 
 -- | /See:/ 'rejectVPCPeeringConnectionResponse' smart constructor.
 data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'
-    { _rvpcrsReturn :: !(Maybe Bool)
-    , _rvpcrsStatus :: !Int
+    { _rvpcrsReturn         :: !(Maybe Bool)
+    , _rvpcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RejectVPCPeeringConnectionResponse' with the minimum fields required to make a request.
@@ -120,14 +120,14 @@ data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'
 --
 -- * 'rvpcrsReturn'
 --
--- * 'rvpcrsStatus'
+-- * 'rvpcrsResponseStatus'
 rejectVPCPeeringConnectionResponse
-    :: Int -- ^ 'rvpcrsStatus'
+    :: Int -- ^ 'rvpcrsResponseStatus'
     -> RejectVPCPeeringConnectionResponse
-rejectVPCPeeringConnectionResponse pStatus_ =
+rejectVPCPeeringConnectionResponse pResponseStatus_ =
     RejectVPCPeeringConnectionResponse'
     { _rvpcrsReturn = Nothing
-    , _rvpcrsStatus = pStatus_
+    , _rvpcrsResponseStatus = pResponseStatus_
     }
 
 -- | Returns 'true' if the request succeeds; otherwise, it returns an error.
@@ -135,5 +135,5 @@ rvpcrsReturn :: Lens' RejectVPCPeeringConnectionResponse (Maybe Bool)
 rvpcrsReturn = lens _rvpcrsReturn (\ s a -> s{_rvpcrsReturn = a});
 
 -- | The response status code.
-rvpcrsStatus :: Lens' RejectVPCPeeringConnectionResponse Int
-rvpcrsStatus = lens _rvpcrsStatus (\ s a -> s{_rvpcrsStatus = a});
+rvpcrsResponseStatus :: Lens' RejectVPCPeeringConnectionResponse Int
+rvpcrsResponseStatus = lens _rvpcrsResponseStatus (\ s a -> s{_rvpcrsResponseStatus = a});

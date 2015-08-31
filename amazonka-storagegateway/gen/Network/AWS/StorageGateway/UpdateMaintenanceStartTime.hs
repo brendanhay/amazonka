@@ -39,7 +39,7 @@ module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     , UpdateMaintenanceStartTimeResponse
     -- * Response Lenses
     , umstrsGatewayARN
-    , umstrsStatus
+    , umstrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -147,8 +147,8 @@ instance ToQuery UpdateMaintenanceStartTime where
 --
 -- /See:/ 'updateMaintenanceStartTimeResponse' smart constructor.
 data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'
-    { _umstrsGatewayARN :: !(Maybe Text)
-    , _umstrsStatus     :: !Int
+    { _umstrsGatewayARN     :: !(Maybe Text)
+    , _umstrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateMaintenanceStartTimeResponse' with the minimum fields required to make a request.
@@ -157,14 +157,14 @@ data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'
 --
 -- * 'umstrsGatewayARN'
 --
--- * 'umstrsStatus'
+-- * 'umstrsResponseStatus'
 updateMaintenanceStartTimeResponse
-    :: Int -- ^ 'umstrsStatus'
+    :: Int -- ^ 'umstrsResponseStatus'
     -> UpdateMaintenanceStartTimeResponse
-updateMaintenanceStartTimeResponse pStatus_ =
+updateMaintenanceStartTimeResponse pResponseStatus_ =
     UpdateMaintenanceStartTimeResponse'
     { _umstrsGatewayARN = Nothing
-    , _umstrsStatus = pStatus_
+    , _umstrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -172,5 +172,5 @@ umstrsGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse (Maybe Text)
 umstrsGatewayARN = lens _umstrsGatewayARN (\ s a -> s{_umstrsGatewayARN = a});
 
 -- | The response status code.
-umstrsStatus :: Lens' UpdateMaintenanceStartTimeResponse Int
-umstrsStatus = lens _umstrsStatus (\ s a -> s{_umstrsStatus = a});
+umstrsResponseStatus :: Lens' UpdateMaintenanceStartTimeResponse Int
+umstrsResponseStatus = lens _umstrsResponseStatus (\ s a -> s{_umstrsResponseStatus = a});

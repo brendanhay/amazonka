@@ -47,7 +47,7 @@ module Network.AWS.RDS.ModifyEventSubscription
     , ModifyEventSubscriptionResponse
     -- * Response Lenses
     , mesrsEventSubscription
-    , mesrsStatus
+    , mesrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -158,7 +158,7 @@ instance ToQuery ModifyEventSubscription where
 -- | /See:/ 'modifyEventSubscriptionResponse' smart constructor.
 data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'
     { _mesrsEventSubscription :: !(Maybe EventSubscription)
-    , _mesrsStatus            :: !Int
+    , _mesrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyEventSubscriptionResponse' with the minimum fields required to make a request.
@@ -167,14 +167,14 @@ data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'
 --
 -- * 'mesrsEventSubscription'
 --
--- * 'mesrsStatus'
+-- * 'mesrsResponseStatus'
 modifyEventSubscriptionResponse
-    :: Int -- ^ 'mesrsStatus'
+    :: Int -- ^ 'mesrsResponseStatus'
     -> ModifyEventSubscriptionResponse
-modifyEventSubscriptionResponse pStatus_ =
+modifyEventSubscriptionResponse pResponseStatus_ =
     ModifyEventSubscriptionResponse'
     { _mesrsEventSubscription = Nothing
-    , _mesrsStatus = pStatus_
+    , _mesrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -182,5 +182,5 @@ mesrsEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubs
 mesrsEventSubscription = lens _mesrsEventSubscription (\ s a -> s{_mesrsEventSubscription = a});
 
 -- | The response status code.
-mesrsStatus :: Lens' ModifyEventSubscriptionResponse Int
-mesrsStatus = lens _mesrsStatus (\ s a -> s{_mesrsStatus = a});
+mesrsResponseStatus :: Lens' ModifyEventSubscriptionResponse Int
+mesrsResponseStatus = lens _mesrsResponseStatus (\ s a -> s{_mesrsResponseStatus = a});

@@ -43,7 +43,7 @@ module Network.AWS.ECS.StartTask
     -- * Response Lenses
     , strsFailures
     , strsTasks
-    , strsStatus
+    , strsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -168,9 +168,9 @@ instance ToQuery StartTask where
 
 -- | /See:/ 'startTaskResponse' smart constructor.
 data StartTaskResponse = StartTaskResponse'
-    { _strsFailures :: !(Maybe [Failure])
-    , _strsTasks    :: !(Maybe [Task])
-    , _strsStatus   :: !Int
+    { _strsFailures       :: !(Maybe [Failure])
+    , _strsTasks          :: !(Maybe [Task])
+    , _strsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StartTaskResponse' with the minimum fields required to make a request.
@@ -181,15 +181,15 @@ data StartTaskResponse = StartTaskResponse'
 --
 -- * 'strsTasks'
 --
--- * 'strsStatus'
+-- * 'strsResponseStatus'
 startTaskResponse
-    :: Int -- ^ 'strsStatus'
+    :: Int -- ^ 'strsResponseStatus'
     -> StartTaskResponse
-startTaskResponse pStatus_ =
+startTaskResponse pResponseStatus_ =
     StartTaskResponse'
     { _strsFailures = Nothing
     , _strsTasks = Nothing
-    , _strsStatus = pStatus_
+    , _strsResponseStatus = pResponseStatus_
     }
 
 -- | Any failed tasks from your 'StartTask' action are listed here.
@@ -202,5 +202,5 @@ strsTasks :: Lens' StartTaskResponse [Task]
 strsTasks = lens _strsTasks (\ s a -> s{_strsTasks = a}) . _Default . _Coerce;
 
 -- | The response status code.
-strsStatus :: Lens' StartTaskResponse Int
-strsStatus = lens _strsStatus (\ s a -> s{_strsStatus = a});
+strsResponseStatus :: Lens' StartTaskResponse Int
+strsResponseStatus = lens _strsResponseStatus (\ s a -> s{_strsResponseStatus = a});

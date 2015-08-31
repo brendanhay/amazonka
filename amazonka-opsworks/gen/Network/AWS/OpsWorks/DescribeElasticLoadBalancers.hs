@@ -43,7 +43,7 @@ module Network.AWS.OpsWorks.DescribeElasticLoadBalancers
     , DescribeElasticLoadBalancersResponse
     -- * Response Lenses
     , delbrsElasticLoadBalancers
-    , delbrsStatus
+    , delbrsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -123,7 +123,7 @@ instance ToQuery DescribeElasticLoadBalancers where
 -- /See:/ 'describeElasticLoadBalancersResponse' smart constructor.
 data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'
     { _delbrsElasticLoadBalancers :: !(Maybe [ElasticLoadBalancer])
-    , _delbrsStatus               :: !Int
+    , _delbrsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeElasticLoadBalancersResponse' with the minimum fields required to make a request.
@@ -132,14 +132,14 @@ data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
 --
 -- * 'delbrsElasticLoadBalancers'
 --
--- * 'delbrsStatus'
+-- * 'delbrsResponseStatus'
 describeElasticLoadBalancersResponse
-    :: Int -- ^ 'delbrsStatus'
+    :: Int -- ^ 'delbrsResponseStatus'
     -> DescribeElasticLoadBalancersResponse
-describeElasticLoadBalancersResponse pStatus_ =
+describeElasticLoadBalancersResponse pResponseStatus_ =
     DescribeElasticLoadBalancersResponse'
     { _delbrsElasticLoadBalancers = Nothing
-    , _delbrsStatus = pStatus_
+    , _delbrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of 'ElasticLoadBalancer' objects that describe the specified
@@ -148,5 +148,5 @@ delbrsElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [Elasti
 delbrsElasticLoadBalancers = lens _delbrsElasticLoadBalancers (\ s a -> s{_delbrsElasticLoadBalancers = a}) . _Default . _Coerce;
 
 -- | The response status code.
-delbrsStatus :: Lens' DescribeElasticLoadBalancersResponse Int
-delbrsStatus = lens _delbrsStatus (\ s a -> s{_delbrsStatus = a});
+delbrsResponseStatus :: Lens' DescribeElasticLoadBalancersResponse Int
+delbrsResponseStatus = lens _delbrsResponseStatus (\ s a -> s{_delbrsResponseStatus = a});

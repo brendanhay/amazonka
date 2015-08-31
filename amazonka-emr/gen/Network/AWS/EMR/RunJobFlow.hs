@@ -74,7 +74,7 @@ module Network.AWS.EMR.RunJobFlow
     , RunJobFlowResponse
     -- * Response Lenses
     , rjfrsJobFlowId
-    , rjfrsStatus
+    , rjfrsResponseStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -344,8 +344,8 @@ instance ToQuery RunJobFlow where
 --
 -- /See:/ 'runJobFlowResponse' smart constructor.
 data RunJobFlowResponse = RunJobFlowResponse'
-    { _rjfrsJobFlowId :: !(Maybe Text)
-    , _rjfrsStatus    :: !Int
+    { _rjfrsJobFlowId      :: !(Maybe Text)
+    , _rjfrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RunJobFlowResponse' with the minimum fields required to make a request.
@@ -354,14 +354,14 @@ data RunJobFlowResponse = RunJobFlowResponse'
 --
 -- * 'rjfrsJobFlowId'
 --
--- * 'rjfrsStatus'
+-- * 'rjfrsResponseStatus'
 runJobFlowResponse
-    :: Int -- ^ 'rjfrsStatus'
+    :: Int -- ^ 'rjfrsResponseStatus'
     -> RunJobFlowResponse
-runJobFlowResponse pStatus_ =
+runJobFlowResponse pResponseStatus_ =
     RunJobFlowResponse'
     { _rjfrsJobFlowId = Nothing
-    , _rjfrsStatus = pStatus_
+    , _rjfrsResponseStatus = pResponseStatus_
     }
 
 -- | An unique identifier for the job flow.
@@ -369,5 +369,5 @@ rjfrsJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
 rjfrsJobFlowId = lens _rjfrsJobFlowId (\ s a -> s{_rjfrsJobFlowId = a});
 
 -- | The response status code.
-rjfrsStatus :: Lens' RunJobFlowResponse Int
-rjfrsStatus = lens _rjfrsStatus (\ s a -> s{_rjfrsStatus = a});
+rjfrsResponseStatus :: Lens' RunJobFlowResponse Int
+rjfrsResponseStatus = lens _rjfrsResponseStatus (\ s a -> s{_rjfrsResponseStatus = a});

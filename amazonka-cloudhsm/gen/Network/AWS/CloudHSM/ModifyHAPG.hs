@@ -36,7 +36,7 @@ module Network.AWS.CloudHSM.ModifyHAPG
     , ModifyHAPGResponse
     -- * Response Lenses
     , mhrsHAPGARN
-    , mhrsStatus
+    , mhrsResponseStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -119,8 +119,8 @@ instance ToQuery ModifyHAPG where
 
 -- | /See:/ 'modifyHAPGResponse' smart constructor.
 data ModifyHAPGResponse = ModifyHAPGResponse'
-    { _mhrsHAPGARN :: !(Maybe Text)
-    , _mhrsStatus  :: !Int
+    { _mhrsHAPGARN        :: !(Maybe Text)
+    , _mhrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyHAPGResponse' with the minimum fields required to make a request.
@@ -129,14 +129,14 @@ data ModifyHAPGResponse = ModifyHAPGResponse'
 --
 -- * 'mhrsHAPGARN'
 --
--- * 'mhrsStatus'
+-- * 'mhrsResponseStatus'
 modifyHAPGResponse
-    :: Int -- ^ 'mhrsStatus'
+    :: Int -- ^ 'mhrsResponseStatus'
     -> ModifyHAPGResponse
-modifyHAPGResponse pStatus_ =
+modifyHAPGResponse pResponseStatus_ =
     ModifyHAPGResponse'
     { _mhrsHAPGARN = Nothing
-    , _mhrsStatus = pStatus_
+    , _mhrsResponseStatus = pResponseStatus_
     }
 
 -- | The ARN of the high-availability partition group.
@@ -144,5 +144,5 @@ mhrsHAPGARN :: Lens' ModifyHAPGResponse (Maybe Text)
 mhrsHAPGARN = lens _mhrsHAPGARN (\ s a -> s{_mhrsHAPGARN = a});
 
 -- | The response status code.
-mhrsStatus :: Lens' ModifyHAPGResponse Int
-mhrsStatus = lens _mhrsStatus (\ s a -> s{_mhrsStatus = a});
+mhrsResponseStatus :: Lens' ModifyHAPGResponse Int
+mhrsResponseStatus = lens _mhrsResponseStatus (\ s a -> s{_mhrsResponseStatus = a});

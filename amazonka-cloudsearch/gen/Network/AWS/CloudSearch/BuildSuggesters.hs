@@ -36,7 +36,7 @@ module Network.AWS.CloudSearch.BuildSuggesters
     , BuildSuggestersResponse
     -- * Response Lenses
     , bsrsFieldNames
-    , bsrsStatus
+    , bsrsResponseStatus
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -99,8 +99,8 @@ instance ToQuery BuildSuggesters where
 --
 -- /See:/ 'buildSuggestersResponse' smart constructor.
 data BuildSuggestersResponse = BuildSuggestersResponse'
-    { _bsrsFieldNames :: !(Maybe [Text])
-    , _bsrsStatus     :: !Int
+    { _bsrsFieldNames     :: !(Maybe [Text])
+    , _bsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BuildSuggestersResponse' with the minimum fields required to make a request.
@@ -109,14 +109,14 @@ data BuildSuggestersResponse = BuildSuggestersResponse'
 --
 -- * 'bsrsFieldNames'
 --
--- * 'bsrsStatus'
+-- * 'bsrsResponseStatus'
 buildSuggestersResponse
-    :: Int -- ^ 'bsrsStatus'
+    :: Int -- ^ 'bsrsResponseStatus'
     -> BuildSuggestersResponse
-buildSuggestersResponse pStatus_ =
+buildSuggestersResponse pResponseStatus_ =
     BuildSuggestersResponse'
     { _bsrsFieldNames = Nothing
-    , _bsrsStatus = pStatus_
+    , _bsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -124,5 +124,5 @@ bsrsFieldNames :: Lens' BuildSuggestersResponse [Text]
 bsrsFieldNames = lens _bsrsFieldNames (\ s a -> s{_bsrsFieldNames = a}) . _Default . _Coerce;
 
 -- | The response status code.
-bsrsStatus :: Lens' BuildSuggestersResponse Int
-bsrsStatus = lens _bsrsStatus (\ s a -> s{_bsrsStatus = a});
+bsrsResponseStatus :: Lens' BuildSuggestersResponse Int
+bsrsResponseStatus = lens _bsrsResponseStatus (\ s a -> s{_bsrsResponseStatus = a});

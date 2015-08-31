@@ -44,7 +44,7 @@ module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     , DeleteSnapshotScheduleResponse
     -- * Response Lenses
     , dsssrsVolumeARN
-    , dsssrsStatus
+    , dsssrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -108,8 +108,8 @@ instance ToQuery DeleteSnapshotSchedule where
 
 -- | /See:/ 'deleteSnapshotScheduleResponse' smart constructor.
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
-    { _dsssrsVolumeARN :: !(Maybe Text)
-    , _dsssrsStatus    :: !Int
+    { _dsssrsVolumeARN      :: !(Maybe Text)
+    , _dsssrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteSnapshotScheduleResponse' with the minimum fields required to make a request.
@@ -118,14 +118,14 @@ data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
 --
 -- * 'dsssrsVolumeARN'
 --
--- * 'dsssrsStatus'
+-- * 'dsssrsResponseStatus'
 deleteSnapshotScheduleResponse
-    :: Int -- ^ 'dsssrsStatus'
+    :: Int -- ^ 'dsssrsResponseStatus'
     -> DeleteSnapshotScheduleResponse
-deleteSnapshotScheduleResponse pStatus_ =
+deleteSnapshotScheduleResponse pResponseStatus_ =
     DeleteSnapshotScheduleResponse'
     { _dsssrsVolumeARN = Nothing
-    , _dsssrsStatus = pStatus_
+    , _dsssrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -133,5 +133,5 @@ dsssrsVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
 dsssrsVolumeARN = lens _dsssrsVolumeARN (\ s a -> s{_dsssrsVolumeARN = a});
 
 -- | The response status code.
-dsssrsStatus :: Lens' DeleteSnapshotScheduleResponse Int
-dsssrsStatus = lens _dsssrsStatus (\ s a -> s{_dsssrsStatus = a});
+dsssrsResponseStatus :: Lens' DeleteSnapshotScheduleResponse Int
+dsssrsResponseStatus = lens _dsssrsResponseStatus (\ s a -> s{_dsssrsResponseStatus = a});

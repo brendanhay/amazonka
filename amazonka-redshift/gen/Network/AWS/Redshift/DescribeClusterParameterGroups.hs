@@ -59,7 +59,7 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     -- * Response Lenses
     , dcpgrsMarker
     , dcpgrsParameterGroups
-    , dcpgrsStatus
+    , dcpgrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -202,7 +202,7 @@ instance ToQuery DescribeClusterParameterGroups where
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'
     { _dcpgrsMarker          :: !(Maybe Text)
     , _dcpgrsParameterGroups :: !(Maybe [ClusterParameterGroup])
-    , _dcpgrsStatus          :: !Int
+    , _dcpgrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClusterParameterGroupsResponse' with the minimum fields required to make a request.
@@ -213,15 +213,15 @@ data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResp
 --
 -- * 'dcpgrsParameterGroups'
 --
--- * 'dcpgrsStatus'
+-- * 'dcpgrsResponseStatus'
 describeClusterParameterGroupsResponse
-    :: Int -- ^ 'dcpgrsStatus'
+    :: Int -- ^ 'dcpgrsResponseStatus'
     -> DescribeClusterParameterGroupsResponse
-describeClusterParameterGroupsResponse pStatus_ =
+describeClusterParameterGroupsResponse pResponseStatus_ =
     DescribeClusterParameterGroupsResponse'
     { _dcpgrsMarker = Nothing
     , _dcpgrsParameterGroups = Nothing
-    , _dcpgrsStatus = pStatus_
+    , _dcpgrsResponseStatus = pResponseStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -239,5 +239,5 @@ dcpgrsParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterPa
 dcpgrsParameterGroups = lens _dcpgrsParameterGroups (\ s a -> s{_dcpgrsParameterGroups = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcpgrsStatus :: Lens' DescribeClusterParameterGroupsResponse Int
-dcpgrsStatus = lens _dcpgrsStatus (\ s a -> s{_dcpgrsStatus = a});
+dcpgrsResponseStatus :: Lens' DescribeClusterParameterGroupsResponse Int
+dcpgrsResponseStatus = lens _dcpgrsResponseStatus (\ s a -> s{_dcpgrsResponseStatus = a});

@@ -52,7 +52,7 @@ module Network.AWS.RDS.RebootDBInstance
     , RebootDBInstanceResponse
     -- * Response Lenses
     , rdirsDBInstance
-    , rdirsStatus
+    , rdirsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -128,8 +128,8 @@ instance ToQuery RebootDBInstance where
 
 -- | /See:/ 'rebootDBInstanceResponse' smart constructor.
 data RebootDBInstanceResponse = RebootDBInstanceResponse'
-    { _rdirsDBInstance :: !(Maybe DBInstance)
-    , _rdirsStatus     :: !Int
+    { _rdirsDBInstance     :: !(Maybe DBInstance)
+    , _rdirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RebootDBInstanceResponse' with the minimum fields required to make a request.
@@ -138,14 +138,14 @@ data RebootDBInstanceResponse = RebootDBInstanceResponse'
 --
 -- * 'rdirsDBInstance'
 --
--- * 'rdirsStatus'
+-- * 'rdirsResponseStatus'
 rebootDBInstanceResponse
-    :: Int -- ^ 'rdirsStatus'
+    :: Int -- ^ 'rdirsResponseStatus'
     -> RebootDBInstanceResponse
-rebootDBInstanceResponse pStatus_ =
+rebootDBInstanceResponse pResponseStatus_ =
     RebootDBInstanceResponse'
     { _rdirsDBInstance = Nothing
-    , _rdirsStatus = pStatus_
+    , _rdirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -153,5 +153,5 @@ rdirsDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
 rdirsDBInstance = lens _rdirsDBInstance (\ s a -> s{_rdirsDBInstance = a});
 
 -- | The response status code.
-rdirsStatus :: Lens' RebootDBInstanceResponse Int
-rdirsStatus = lens _rdirsStatus (\ s a -> s{_rdirsStatus = a});
+rdirsResponseStatus :: Lens' RebootDBInstanceResponse Int
+rdirsResponseStatus = lens _rdirsResponseStatus (\ s a -> s{_rdirsResponseStatus = a});

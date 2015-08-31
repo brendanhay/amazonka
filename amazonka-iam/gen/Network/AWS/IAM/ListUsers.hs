@@ -44,7 +44,7 @@ module Network.AWS.IAM.ListUsers
     -- * Response Lenses
     , lursMarker
     , lursIsTruncated
-    , lursStatus
+    , lursResponseStatus
     , lursUsers
     ) where
 
@@ -141,10 +141,10 @@ instance ToQuery ListUsers where
 --
 -- /See:/ 'listUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
-    { _lursMarker      :: !(Maybe Text)
-    , _lursIsTruncated :: !(Maybe Bool)
-    , _lursStatus      :: !Int
-    , _lursUsers       :: ![User]
+    { _lursMarker         :: !(Maybe Text)
+    , _lursIsTruncated    :: !(Maybe Bool)
+    , _lursResponseStatus :: !Int
+    , _lursUsers          :: ![User]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListUsersResponse' with the minimum fields required to make a request.
@@ -155,17 +155,17 @@ data ListUsersResponse = ListUsersResponse'
 --
 -- * 'lursIsTruncated'
 --
--- * 'lursStatus'
+-- * 'lursResponseStatus'
 --
 -- * 'lursUsers'
 listUsersResponse
-    :: Int -- ^ 'lursStatus'
+    :: Int -- ^ 'lursResponseStatus'
     -> ListUsersResponse
-listUsersResponse pStatus_ =
+listUsersResponse pResponseStatus_ =
     ListUsersResponse'
     { _lursMarker = Nothing
     , _lursIsTruncated = Nothing
-    , _lursStatus = pStatus_
+    , _lursResponseStatus = pResponseStatus_
     , _lursUsers = mempty
     }
 
@@ -182,8 +182,8 @@ lursIsTruncated :: Lens' ListUsersResponse (Maybe Bool)
 lursIsTruncated = lens _lursIsTruncated (\ s a -> s{_lursIsTruncated = a});
 
 -- | The response status code.
-lursStatus :: Lens' ListUsersResponse Int
-lursStatus = lens _lursStatus (\ s a -> s{_lursStatus = a});
+lursResponseStatus :: Lens' ListUsersResponse Int
+lursResponseStatus = lens _lursResponseStatus (\ s a -> s{_lursResponseStatus = a});
 
 -- | A list of users.
 lursUsers :: Lens' ListUsersResponse [User]

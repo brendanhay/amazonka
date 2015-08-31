@@ -45,7 +45,7 @@ module Network.AWS.IAM.ListInstanceProfilesForRole
     -- * Response Lenses
     , lipfrrsMarker
     , lipfrrsIsTruncated
-    , lipfrrsStatus
+    , lipfrrsResponseStatus
     , lipfrrsInstanceProfiles
     ) where
 
@@ -146,7 +146,7 @@ instance ToQuery ListInstanceProfilesForRole where
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
     { _lipfrrsMarker           :: !(Maybe Text)
     , _lipfrrsIsTruncated      :: !(Maybe Bool)
-    , _lipfrrsStatus           :: !Int
+    , _lipfrrsResponseStatus   :: !Int
     , _lipfrrsInstanceProfiles :: ![InstanceProfile]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -158,17 +158,17 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
 --
 -- * 'lipfrrsIsTruncated'
 --
--- * 'lipfrrsStatus'
+-- * 'lipfrrsResponseStatus'
 --
 -- * 'lipfrrsInstanceProfiles'
 listInstanceProfilesForRoleResponse
-    :: Int -- ^ 'lipfrrsStatus'
+    :: Int -- ^ 'lipfrrsResponseStatus'
     -> ListInstanceProfilesForRoleResponse
-listInstanceProfilesForRoleResponse pStatus_ =
+listInstanceProfilesForRoleResponse pResponseStatus_ =
     ListInstanceProfilesForRoleResponse'
     { _lipfrrsMarker = Nothing
     , _lipfrrsIsTruncated = Nothing
-    , _lipfrrsStatus = pStatus_
+    , _lipfrrsResponseStatus = pResponseStatus_
     , _lipfrrsInstanceProfiles = mempty
     }
 
@@ -185,8 +185,8 @@ lipfrrsIsTruncated :: Lens' ListInstanceProfilesForRoleResponse (Maybe Bool)
 lipfrrsIsTruncated = lens _lipfrrsIsTruncated (\ s a -> s{_lipfrrsIsTruncated = a});
 
 -- | The response status code.
-lipfrrsStatus :: Lens' ListInstanceProfilesForRoleResponse Int
-lipfrrsStatus = lens _lipfrrsStatus (\ s a -> s{_lipfrrsStatus = a});
+lipfrrsResponseStatus :: Lens' ListInstanceProfilesForRoleResponse Int
+lipfrrsResponseStatus = lens _lipfrrsResponseStatus (\ s a -> s{_lipfrrsResponseStatus = a});
 
 -- | A list of instance profiles.
 lipfrrsInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstanceProfile]

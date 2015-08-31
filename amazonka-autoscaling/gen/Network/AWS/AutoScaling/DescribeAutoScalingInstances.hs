@@ -40,7 +40,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     -- * Response Lenses
     , dasirsNextToken
     , dasirsAutoScalingInstances
-    , dasirsStatus
+    , dasirsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -133,7 +133,7 @@ instance ToQuery DescribeAutoScalingInstances where
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'
     { _dasirsNextToken            :: !(Maybe Text)
     , _dasirsAutoScalingInstances :: !(Maybe [AutoScalingInstanceDetails])
-    , _dasirsStatus               :: !Int
+    , _dasirsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAutoScalingInstancesResponse' with the minimum fields required to make a request.
@@ -144,15 +144,15 @@ data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
 --
 -- * 'dasirsAutoScalingInstances'
 --
--- * 'dasirsStatus'
+-- * 'dasirsResponseStatus'
 describeAutoScalingInstancesResponse
-    :: Int -- ^ 'dasirsStatus'
+    :: Int -- ^ 'dasirsResponseStatus'
     -> DescribeAutoScalingInstancesResponse
-describeAutoScalingInstancesResponse pStatus_ =
+describeAutoScalingInstancesResponse pResponseStatus_ =
     DescribeAutoScalingInstancesResponse'
     { _dasirsNextToken = Nothing
     , _dasirsAutoScalingInstances = Nothing
-    , _dasirsStatus = pStatus_
+    , _dasirsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
@@ -165,5 +165,5 @@ dasirsAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoSc
 dasirsAutoScalingInstances = lens _dasirsAutoScalingInstances (\ s a -> s{_dasirsAutoScalingInstances = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dasirsStatus :: Lens' DescribeAutoScalingInstancesResponse Int
-dasirsStatus = lens _dasirsStatus (\ s a -> s{_dasirsStatus = a});
+dasirsResponseStatus :: Lens' DescribeAutoScalingInstancesResponse Int
+dasirsResponseStatus = lens _dasirsResponseStatus (\ s a -> s{_dasirsResponseStatus = a});

@@ -46,7 +46,7 @@ module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     , MergeDeveloperIdentitiesResponse
     -- * Response Lenses
     , mdirsIdentityId
-    , mdirsStatus
+    , mdirsResponseStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -157,8 +157,8 @@ instance ToQuery MergeDeveloperIdentities where
 --
 -- /See:/ 'mergeDeveloperIdentitiesResponse' smart constructor.
 data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'
-    { _mdirsIdentityId :: !(Maybe Text)
-    , _mdirsStatus     :: !Int
+    { _mdirsIdentityId     :: !(Maybe Text)
+    , _mdirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MergeDeveloperIdentitiesResponse' with the minimum fields required to make a request.
@@ -167,14 +167,14 @@ data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'
 --
 -- * 'mdirsIdentityId'
 --
--- * 'mdirsStatus'
+-- * 'mdirsResponseStatus'
 mergeDeveloperIdentitiesResponse
-    :: Int -- ^ 'mdirsStatus'
+    :: Int -- ^ 'mdirsResponseStatus'
     -> MergeDeveloperIdentitiesResponse
-mergeDeveloperIdentitiesResponse pStatus_ =
+mergeDeveloperIdentitiesResponse pResponseStatus_ =
     MergeDeveloperIdentitiesResponse'
     { _mdirsIdentityId = Nothing
-    , _mdirsStatus = pStatus_
+    , _mdirsResponseStatus = pResponseStatus_
     }
 
 -- | A unique identifier in the format REGION:GUID.
@@ -182,5 +182,5 @@ mdirsIdentityId :: Lens' MergeDeveloperIdentitiesResponse (Maybe Text)
 mdirsIdentityId = lens _mdirsIdentityId (\ s a -> s{_mdirsIdentityId = a});
 
 -- | The response status code.
-mdirsStatus :: Lens' MergeDeveloperIdentitiesResponse Int
-mdirsStatus = lens _mdirsStatus (\ s a -> s{_mdirsStatus = a});
+mdirsResponseStatus :: Lens' MergeDeveloperIdentitiesResponse Int
+mdirsResponseStatus = lens _mdirsResponseStatus (\ s a -> s{_mdirsResponseStatus = a});

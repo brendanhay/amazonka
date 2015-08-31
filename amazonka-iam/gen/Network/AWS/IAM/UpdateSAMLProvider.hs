@@ -38,7 +38,7 @@ module Network.AWS.IAM.UpdateSAMLProvider
     , UpdateSAMLProviderResponse
     -- * Response Lenses
     , usamlprsSAMLProviderARN
-    , usamlprsStatus
+    , usamlprsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -113,7 +113,7 @@ instance ToQuery UpdateSAMLProvider where
 -- /See:/ 'updateSAMLProviderResponse' smart constructor.
 data UpdateSAMLProviderResponse = UpdateSAMLProviderResponse'
     { _usamlprsSAMLProviderARN :: !(Maybe Text)
-    , _usamlprsStatus          :: !Int
+    , _usamlprsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateSAMLProviderResponse' with the minimum fields required to make a request.
@@ -122,14 +122,14 @@ data UpdateSAMLProviderResponse = UpdateSAMLProviderResponse'
 --
 -- * 'usamlprsSAMLProviderARN'
 --
--- * 'usamlprsStatus'
+-- * 'usamlprsResponseStatus'
 updateSAMLProviderResponse
-    :: Int -- ^ 'usamlprsStatus'
+    :: Int -- ^ 'usamlprsResponseStatus'
     -> UpdateSAMLProviderResponse
-updateSAMLProviderResponse pStatus_ =
+updateSAMLProviderResponse pResponseStatus_ =
     UpdateSAMLProviderResponse'
     { _usamlprsSAMLProviderARN = Nothing
-    , _usamlprsStatus = pStatus_
+    , _usamlprsResponseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider that was updated.
@@ -137,5 +137,5 @@ usamlprsSAMLProviderARN :: Lens' UpdateSAMLProviderResponse (Maybe Text)
 usamlprsSAMLProviderARN = lens _usamlprsSAMLProviderARN (\ s a -> s{_usamlprsSAMLProviderARN = a});
 
 -- | The response status code.
-usamlprsStatus :: Lens' UpdateSAMLProviderResponse Int
-usamlprsStatus = lens _usamlprsStatus (\ s a -> s{_usamlprsStatus = a});
+usamlprsResponseStatus :: Lens' UpdateSAMLProviderResponse Int
+usamlprsResponseStatus = lens _usamlprsResponseStatus (\ s a -> s{_usamlprsResponseStatus = a});

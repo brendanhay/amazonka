@@ -56,7 +56,7 @@ module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     , recordLifecycleActionHeartbeatResponse
     , RecordLifecycleActionHeartbeatResponse
     -- * Response Lenses
-    , rlahrsStatus
+    , rlahrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -138,22 +138,22 @@ instance ToQuery RecordLifecycleActionHeartbeat where
 
 -- | /See:/ 'recordLifecycleActionHeartbeatResponse' smart constructor.
 newtype RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse'
-    { _rlahrsStatus :: Int
+    { _rlahrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RecordLifecycleActionHeartbeatResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rlahrsStatus'
+-- * 'rlahrsResponseStatus'
 recordLifecycleActionHeartbeatResponse
-    :: Int -- ^ 'rlahrsStatus'
+    :: Int -- ^ 'rlahrsResponseStatus'
     -> RecordLifecycleActionHeartbeatResponse
-recordLifecycleActionHeartbeatResponse pStatus_ =
+recordLifecycleActionHeartbeatResponse pResponseStatus_ =
     RecordLifecycleActionHeartbeatResponse'
-    { _rlahrsStatus = pStatus_
+    { _rlahrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-rlahrsStatus :: Lens' RecordLifecycleActionHeartbeatResponse Int
-rlahrsStatus = lens _rlahrsStatus (\ s a -> s{_rlahrsStatus = a});
+rlahrsResponseStatus :: Lens' RecordLifecycleActionHeartbeatResponse Int
+rlahrsResponseStatus = lens _rlahrsResponseStatus (\ s a -> s{_rlahrsResponseStatus = a});

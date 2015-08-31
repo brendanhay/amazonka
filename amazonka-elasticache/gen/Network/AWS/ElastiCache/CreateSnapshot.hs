@@ -36,7 +36,7 @@ module Network.AWS.ElastiCache.CreateSnapshot
     , CreateSnapshotResponse
     -- * Response Lenses
     , crersSnapshot
-    , crersStatus
+    , crersResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -104,8 +104,8 @@ instance ToQuery CreateSnapshot where
 
 -- | /See:/ 'createSnapshotResponse' smart constructor.
 data CreateSnapshotResponse = CreateSnapshotResponse'
-    { _crersSnapshot :: !(Maybe Snapshot)
-    , _crersStatus   :: !Int
+    { _crersSnapshot       :: !(Maybe Snapshot)
+    , _crersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateSnapshotResponse' with the minimum fields required to make a request.
@@ -114,14 +114,14 @@ data CreateSnapshotResponse = CreateSnapshotResponse'
 --
 -- * 'crersSnapshot'
 --
--- * 'crersStatus'
+-- * 'crersResponseStatus'
 createSnapshotResponse
-    :: Int -- ^ 'crersStatus'
+    :: Int -- ^ 'crersResponseStatus'
     -> CreateSnapshotResponse
-createSnapshotResponse pStatus_ =
+createSnapshotResponse pResponseStatus_ =
     CreateSnapshotResponse'
     { _crersSnapshot = Nothing
-    , _crersStatus = pStatus_
+    , _crersResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -129,5 +129,5 @@ crersSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
 crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a});
 
 -- | The response status code.
-crersStatus :: Lens' CreateSnapshotResponse Int
-crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});
+crersResponseStatus :: Lens' CreateSnapshotResponse Int
+crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});

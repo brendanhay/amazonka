@@ -38,7 +38,7 @@ module Network.AWS.RDS.CreateOptionGroup
     , CreateOptionGroupResponse
     -- * Response Lenses
     , crsOptionGroup
-    , crsStatus
+    , crsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -145,8 +145,8 @@ instance ToQuery CreateOptionGroup where
 
 -- | /See:/ 'createOptionGroupResponse' smart constructor.
 data CreateOptionGroupResponse = CreateOptionGroupResponse'
-    { _crsOptionGroup :: !(Maybe OptionGroup)
-    , _crsStatus      :: !Int
+    { _crsOptionGroup    :: !(Maybe OptionGroup)
+    , _crsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateOptionGroupResponse' with the minimum fields required to make a request.
@@ -155,14 +155,14 @@ data CreateOptionGroupResponse = CreateOptionGroupResponse'
 --
 -- * 'crsOptionGroup'
 --
--- * 'crsStatus'
+-- * 'crsResponseStatus'
 createOptionGroupResponse
-    :: Int -- ^ 'crsStatus'
+    :: Int -- ^ 'crsResponseStatus'
     -> CreateOptionGroupResponse
-createOptionGroupResponse pStatus_ =
+createOptionGroupResponse pResponseStatus_ =
     CreateOptionGroupResponse'
     { _crsOptionGroup = Nothing
-    , _crsStatus = pStatus_
+    , _crsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -170,5 +170,5 @@ crsOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
 crsOptionGroup = lens _crsOptionGroup (\ s a -> s{_crsOptionGroup = a});
 
 -- | The response status code.
-crsStatus :: Lens' CreateOptionGroupResponse Int
-crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});
+crsResponseStatus :: Lens' CreateOptionGroupResponse Int
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});

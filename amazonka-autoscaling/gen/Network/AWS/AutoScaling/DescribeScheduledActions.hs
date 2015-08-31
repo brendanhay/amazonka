@@ -44,7 +44,7 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     -- * Response Lenses
     , dsarsScheduledUpdateGroupActions
     , dsarsNextToken
-    , dsarsStatus
+    , dsarsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -171,7 +171,7 @@ instance ToQuery DescribeScheduledActions where
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
     { _dsarsScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
     , _dsarsNextToken                   :: !(Maybe Text)
-    , _dsarsStatus                      :: !Int
+    , _dsarsResponseStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeScheduledActionsResponse' with the minimum fields required to make a request.
@@ -182,15 +182,15 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
 --
 -- * 'dsarsNextToken'
 --
--- * 'dsarsStatus'
+-- * 'dsarsResponseStatus'
 describeScheduledActionsResponse
-    :: Int -- ^ 'dsarsStatus'
+    :: Int -- ^ 'dsarsResponseStatus'
     -> DescribeScheduledActionsResponse
-describeScheduledActionsResponse pStatus_ =
+describeScheduledActionsResponse pResponseStatus_ =
     DescribeScheduledActionsResponse'
     { _dsarsScheduledUpdateGroupActions = Nothing
     , _dsarsNextToken = Nothing
-    , _dsarsStatus = pStatus_
+    , _dsarsResponseStatus = pResponseStatus_
     }
 
 -- | The scheduled actions.
@@ -203,5 +203,5 @@ dsarsNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
 dsarsNextToken = lens _dsarsNextToken (\ s a -> s{_dsarsNextToken = a});
 
 -- | The response status code.
-dsarsStatus :: Lens' DescribeScheduledActionsResponse Int
-dsarsStatus = lens _dsarsStatus (\ s a -> s{_dsarsStatus = a});
+dsarsResponseStatus :: Lens' DescribeScheduledActionsResponse Int
+dsarsResponseStatus = lens _dsarsResponseStatus (\ s a -> s{_dsarsResponseStatus = a});

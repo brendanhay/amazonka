@@ -55,7 +55,7 @@ module Network.AWS.CloudSearchDomains.Suggest
     -- * Response Lenses
     , srsSuggest
     , srsStatus
-    , srsStatus
+    , srsResponseStatus
     ) where
 
 import           Network.AWS.CloudSearchDomains.Types
@@ -135,9 +135,9 @@ instance ToQuery Suggest where
 --
 -- /See:/ 'suggestResponse' smart constructor.
 data SuggestResponse = SuggestResponse'
-    { _srsSuggest :: !(Maybe SuggestModel)
-    , _srsStatus  :: !(Maybe SuggestStatus)
-    , _srsStatus  :: !Int
+    { _srsSuggest        :: !(Maybe SuggestModel)
+    , _srsStatus         :: !(Maybe SuggestStatus)
+    , _srsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SuggestResponse' with the minimum fields required to make a request.
@@ -148,15 +148,15 @@ data SuggestResponse = SuggestResponse'
 --
 -- * 'srsStatus'
 --
--- * 'srsStatus'
+-- * 'srsResponseStatus'
 suggestResponse
-    :: Int -- ^ 'srsStatus'
+    :: Int -- ^ 'srsResponseStatus'
     -> SuggestResponse
-suggestResponse pStatus_ =
+suggestResponse pResponseStatus_ =
     SuggestResponse'
     { _srsSuggest = Nothing
     , _srsStatus = Nothing
-    , _srsStatus = pStatus_
+    , _srsResponseStatus = pResponseStatus_
     }
 
 -- | Container for the matching search suggestion information.
@@ -169,5 +169,5 @@ srsStatus :: Lens' SuggestResponse (Maybe SuggestStatus)
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
 
 -- | The response status code.
-srsStatus :: Lens' SuggestResponse Int
-srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
+srsResponseStatus :: Lens' SuggestResponse Int
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});

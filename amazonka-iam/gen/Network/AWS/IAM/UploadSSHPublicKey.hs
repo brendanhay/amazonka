@@ -42,7 +42,7 @@ module Network.AWS.IAM.UploadSSHPublicKey
     , UploadSSHPublicKeyResponse
     -- * Response Lenses
     , uspkrsSSHPublicKey
-    , uspkrsStatus
+    , uspkrsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -111,8 +111,8 @@ instance ToQuery UploadSSHPublicKey where
 --
 -- /See:/ 'uploadSSHPublicKeyResponse' smart constructor.
 data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'
-    { _uspkrsSSHPublicKey :: !(Maybe SSHPublicKey)
-    , _uspkrsStatus       :: !Int
+    { _uspkrsSSHPublicKey   :: !(Maybe SSHPublicKey)
+    , _uspkrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UploadSSHPublicKeyResponse' with the minimum fields required to make a request.
@@ -121,14 +121,14 @@ data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'
 --
 -- * 'uspkrsSSHPublicKey'
 --
--- * 'uspkrsStatus'
+-- * 'uspkrsResponseStatus'
 uploadSSHPublicKeyResponse
-    :: Int -- ^ 'uspkrsStatus'
+    :: Int -- ^ 'uspkrsResponseStatus'
     -> UploadSSHPublicKeyResponse
-uploadSSHPublicKeyResponse pStatus_ =
+uploadSSHPublicKeyResponse pResponseStatus_ =
     UploadSSHPublicKeyResponse'
     { _uspkrsSSHPublicKey = Nothing
-    , _uspkrsStatus = pStatus_
+    , _uspkrsResponseStatus = pResponseStatus_
     }
 
 -- | Contains information about the SSH public key.
@@ -136,5 +136,5 @@ uspkrsSSHPublicKey :: Lens' UploadSSHPublicKeyResponse (Maybe SSHPublicKey)
 uspkrsSSHPublicKey = lens _uspkrsSSHPublicKey (\ s a -> s{_uspkrsSSHPublicKey = a});
 
 -- | The response status code.
-uspkrsStatus :: Lens' UploadSSHPublicKeyResponse Int
-uspkrsStatus = lens _uspkrsStatus (\ s a -> s{_uspkrsStatus = a});
+uspkrsResponseStatus :: Lens' UploadSSHPublicKeyResponse Int
+uspkrsResponseStatus = lens _uspkrsResponseStatus (\ s a -> s{_uspkrsResponseStatus = a});

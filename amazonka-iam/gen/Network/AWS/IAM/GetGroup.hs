@@ -40,7 +40,7 @@ module Network.AWS.IAM.GetGroup
     -- * Response Lenses
     , ggrsMarker
     , ggrsIsTruncated
-    , ggrsStatus
+    , ggrsResponseStatus
     , ggrsGroup
     , ggrsUsers
     ) where
@@ -135,11 +135,11 @@ instance ToQuery GetGroup where
 --
 -- /See:/ 'getGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
-    { _ggrsMarker      :: !(Maybe Text)
-    , _ggrsIsTruncated :: !(Maybe Bool)
-    , _ggrsStatus      :: !Int
-    , _ggrsGroup       :: !Group
-    , _ggrsUsers       :: ![User]
+    { _ggrsMarker         :: !(Maybe Text)
+    , _ggrsIsTruncated    :: !(Maybe Bool)
+    , _ggrsResponseStatus :: !Int
+    , _ggrsGroup          :: !Group
+    , _ggrsUsers          :: ![User]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetGroupResponse' with the minimum fields required to make a request.
@@ -150,20 +150,20 @@ data GetGroupResponse = GetGroupResponse'
 --
 -- * 'ggrsIsTruncated'
 --
--- * 'ggrsStatus'
+-- * 'ggrsResponseStatus'
 --
 -- * 'ggrsGroup'
 --
 -- * 'ggrsUsers'
 getGroupResponse
-    :: Int -- ^ 'ggrsStatus'
+    :: Int -- ^ 'ggrsResponseStatus'
     -> Group -- ^ 'ggrsGroup'
     -> GetGroupResponse
-getGroupResponse pStatus_ pGroup_ =
+getGroupResponse pResponseStatus_ pGroup_ =
     GetGroupResponse'
     { _ggrsMarker = Nothing
     , _ggrsIsTruncated = Nothing
-    , _ggrsStatus = pStatus_
+    , _ggrsResponseStatus = pResponseStatus_
     , _ggrsGroup = pGroup_
     , _ggrsUsers = mempty
     }
@@ -181,8 +181,8 @@ ggrsIsTruncated :: Lens' GetGroupResponse (Maybe Bool)
 ggrsIsTruncated = lens _ggrsIsTruncated (\ s a -> s{_ggrsIsTruncated = a});
 
 -- | The response status code.
-ggrsStatus :: Lens' GetGroupResponse Int
-ggrsStatus = lens _ggrsStatus (\ s a -> s{_ggrsStatus = a});
+ggrsResponseStatus :: Lens' GetGroupResponse Int
+ggrsResponseStatus = lens _ggrsResponseStatus (\ s a -> s{_ggrsResponseStatus = a});
 
 -- | Information about the group.
 ggrsGroup :: Lens' GetGroupResponse Group

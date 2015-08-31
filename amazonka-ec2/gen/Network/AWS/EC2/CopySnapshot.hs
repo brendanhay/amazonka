@@ -56,7 +56,7 @@ module Network.AWS.EC2.CopySnapshot
     , CopySnapshotResponse
     -- * Response Lenses
     , csrsSnapshotId
-    , csrsStatus
+    , csrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -213,8 +213,8 @@ instance ToQuery CopySnapshot where
 
 -- | /See:/ 'copySnapshotResponse' smart constructor.
 data CopySnapshotResponse = CopySnapshotResponse'
-    { _csrsSnapshotId :: !(Maybe Text)
-    , _csrsStatus     :: !Int
+    { _csrsSnapshotId     :: !(Maybe Text)
+    , _csrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CopySnapshotResponse' with the minimum fields required to make a request.
@@ -223,14 +223,14 @@ data CopySnapshotResponse = CopySnapshotResponse'
 --
 -- * 'csrsSnapshotId'
 --
--- * 'csrsStatus'
+-- * 'csrsResponseStatus'
 copySnapshotResponse
-    :: Int -- ^ 'csrsStatus'
+    :: Int -- ^ 'csrsResponseStatus'
     -> CopySnapshotResponse
-copySnapshotResponse pStatus_ =
+copySnapshotResponse pResponseStatus_ =
     CopySnapshotResponse'
     { _csrsSnapshotId = Nothing
-    , _csrsStatus = pStatus_
+    , _csrsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the new snapshot.
@@ -238,5 +238,5 @@ csrsSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
 csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 
 -- | The response status code.
-csrsStatus :: Lens' CopySnapshotResponse Int
-csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});
+csrsResponseStatus :: Lens' CopySnapshotResponse Int
+csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});

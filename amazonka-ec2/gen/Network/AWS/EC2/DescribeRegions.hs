@@ -39,7 +39,7 @@ module Network.AWS.EC2.DescribeRegions
     , DescribeRegionsResponse
     -- * Response Lenses
     , drrsRegions
-    , drrsStatus
+    , drrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -123,8 +123,8 @@ instance ToQuery DescribeRegions where
 
 -- | /See:/ 'describeRegionsResponse' smart constructor.
 data DescribeRegionsResponse = DescribeRegionsResponse'
-    { _drrsRegions :: !(Maybe [RegionInfo])
-    , _drrsStatus  :: !Int
+    { _drrsRegions        :: !(Maybe [RegionInfo])
+    , _drrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeRegionsResponse' with the minimum fields required to make a request.
@@ -133,14 +133,14 @@ data DescribeRegionsResponse = DescribeRegionsResponse'
 --
 -- * 'drrsRegions'
 --
--- * 'drrsStatus'
+-- * 'drrsResponseStatus'
 describeRegionsResponse
-    :: Int -- ^ 'drrsStatus'
+    :: Int -- ^ 'drrsResponseStatus'
     -> DescribeRegionsResponse
-describeRegionsResponse pStatus_ =
+describeRegionsResponse pResponseStatus_ =
     DescribeRegionsResponse'
     { _drrsRegions = Nothing
-    , _drrsStatus = pStatus_
+    , _drrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more regions.
@@ -148,5 +148,5 @@ drrsRegions :: Lens' DescribeRegionsResponse [RegionInfo]
 drrsRegions = lens _drrsRegions (\ s a -> s{_drrsRegions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drrsStatus :: Lens' DescribeRegionsResponse Int
-drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});
+drrsResponseStatus :: Lens' DescribeRegionsResponse Int
+drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});

@@ -41,6 +41,7 @@ module Network.AWS.Redshift.DescribeResize
     , DescribeResizeResponse
     -- * Response Lenses
     , drrsImportTablesNotStarted
+    , drrsStatus
     , drrsEstimatedTimeToCompletionInSeconds
     , drrsAvgResizeRateInMegaBytesPerSecond
     , drrsTargetNumberOfNodes
@@ -51,7 +52,7 @@ module Network.AWS.Redshift.DescribeResize
     , drrsTotalResizeDataInMegaBytes
     , drrsTargetClusterType
     , drrsElapsedTimeInSeconds
-    , drrsStatus
+    , drrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -97,6 +98,7 @@ instance AWSRequest DescribeResize where
                  DescribeResizeResponse' <$>
                    (x .@? "ImportTablesNotStarted" .!@ mempty >>=
                       may (parseXMLList "member"))
+                     <*> (x .@? "Status")
                      <*> (x .@? "EstimatedTimeToCompletionInSeconds")
                      <*> (x .@? "AvgResizeRateInMegaBytesPerSecond")
                      <*> (x .@? "TargetNumberOfNodes")
@@ -131,6 +133,7 @@ instance ToQuery DescribeResize where
 -- /See:/ 'describeResizeResponse' smart constructor.
 data DescribeResizeResponse = DescribeResizeResponse'
     { _drrsImportTablesNotStarted             :: !(Maybe [Text])
+    , _drrsStatus                             :: !(Maybe Text)
     , _drrsEstimatedTimeToCompletionInSeconds :: !(Maybe Integer)
     , _drrsAvgResizeRateInMegaBytesPerSecond  :: !(Maybe Double)
     , _drrsTargetNumberOfNodes                :: !(Maybe Int)
@@ -141,7 +144,7 @@ data DescribeResizeResponse = DescribeResizeResponse'
     , _drrsTotalResizeDataInMegaBytes         :: !(Maybe Integer)
     , _drrsTargetClusterType                  :: !(Maybe Text)
     , _drrsElapsedTimeInSeconds               :: !(Maybe Integer)
-    , _drrsStatus                             :: !Int
+    , _drrsResponseStatus                     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeResizeResponse' with the minimum fields required to make a request.
@@ -149,6 +152,8 @@ data DescribeResizeResponse = DescribeResizeResponse'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'drrsImportTablesNotStarted'
+--
+-- * 'drrsStatus'
 --
 -- * 'drrsEstimatedTimeToCompletionInSeconds'
 --
@@ -170,13 +175,14 @@ data DescribeResizeResponse = DescribeResizeResponse'
 --
 -- * 'drrsElapsedTimeInSeconds'
 --
--- * 'drrsStatus'
+-- * 'drrsResponseStatus'
 describeResizeResponse
-    :: Int -- ^ 'drrsStatus'
+    :: Int -- ^ 'drrsResponseStatus'
     -> DescribeResizeResponse
-describeResizeResponse pStatus_ =
+describeResizeResponse pResponseStatus_ =
     DescribeResizeResponse'
     { _drrsImportTablesNotStarted = Nothing
+    , _drrsStatus = Nothing
     , _drrsEstimatedTimeToCompletionInSeconds = Nothing
     , _drrsAvgResizeRateInMegaBytesPerSecond = Nothing
     , _drrsTargetNumberOfNodes = Nothing
@@ -187,7 +193,7 @@ describeResizeResponse pStatus_ =
     , _drrsTotalResizeDataInMegaBytes = Nothing
     , _drrsTargetClusterType = Nothing
     , _drrsElapsedTimeInSeconds = Nothing
-    , _drrsStatus = pStatus_
+    , _drrsResponseStatus = pResponseStatus_
     }
 
 -- | The names of tables that have not been yet imported.
@@ -195,6 +201,12 @@ describeResizeResponse pStatus_ =
 -- Valid Values: List of table names
 drrsImportTablesNotStarted :: Lens' DescribeResizeResponse [Text]
 drrsImportTablesNotStarted = lens _drrsImportTablesNotStarted (\ s a -> s{_drrsImportTablesNotStarted = a}) . _Default . _Coerce;
+
+-- | The status of the resize operation.
+--
+-- Valid Values: 'NONE' | 'IN_PROGRESS' | 'FAILED' | 'SUCCEEDED'
+drrsStatus :: Lens' DescribeResizeResponse (Maybe Text)
+drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});
 
 -- | The estimated time remaining, in seconds, until the resize operation is
 -- complete. This value is calculated based on the average resize rate and
@@ -258,5 +270,5 @@ drrsElapsedTimeInSeconds :: Lens' DescribeResizeResponse (Maybe Integer)
 drrsElapsedTimeInSeconds = lens _drrsElapsedTimeInSeconds (\ s a -> s{_drrsElapsedTimeInSeconds = a});
 
 -- | The response status code.
-drrsStatus :: Lens' DescribeResizeResponse Int
-drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});
+drrsResponseStatus :: Lens' DescribeResizeResponse Int
+drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});

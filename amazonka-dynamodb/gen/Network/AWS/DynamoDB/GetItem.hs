@@ -48,7 +48,7 @@ module Network.AWS.DynamoDB.GetItem
     -- * Response Lenses
     , girsConsumedCapacity
     , girsItem
-    , girsStatus
+    , girsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -246,7 +246,7 @@ instance ToQuery GetItem where
 data GetItemResponse = GetItemResponse'
     { _girsConsumedCapacity :: !(Maybe ConsumedCapacity)
     , _girsItem             :: !(Maybe (Map Text AttributeValue))
-    , _girsStatus           :: !Int
+    , _girsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetItemResponse' with the minimum fields required to make a request.
@@ -257,15 +257,15 @@ data GetItemResponse = GetItemResponse'
 --
 -- * 'girsItem'
 --
--- * 'girsStatus'
+-- * 'girsResponseStatus'
 getItemResponse
-    :: Int -- ^ 'girsStatus'
+    :: Int -- ^ 'girsResponseStatus'
     -> GetItemResponse
-getItemResponse pStatus_ =
+getItemResponse pResponseStatus_ =
     GetItemResponse'
     { _girsConsumedCapacity = Nothing
     , _girsItem = Nothing
-    , _girsStatus = pStatus_
+    , _girsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -278,5 +278,5 @@ girsItem :: Lens' GetItemResponse (HashMap Text AttributeValue)
 girsItem = lens _girsItem (\ s a -> s{_girsItem = a}) . _Default . _Map;
 
 -- | The response status code.
-girsStatus :: Lens' GetItemResponse Int
-girsStatus = lens _girsStatus (\ s a -> s{_girsStatus = a});
+girsResponseStatus :: Lens' GetItemResponse Int
+girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});

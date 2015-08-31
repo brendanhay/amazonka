@@ -34,7 +34,7 @@ module Network.AWS.DirectoryService.DeleteSnapshot
     , DeleteSnapshotResponse
     -- * Response Lenses
     , dsrsSnapshotId
-    , dsrsStatus
+    , dsrsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -101,8 +101,8 @@ instance ToQuery DeleteSnapshot where
 --
 -- /See:/ 'deleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
-    { _dsrsSnapshotId :: !(Maybe Text)
-    , _dsrsStatus     :: !Int
+    { _dsrsSnapshotId     :: !(Maybe Text)
+    , _dsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteSnapshotResponse' with the minimum fields required to make a request.
@@ -111,14 +111,14 @@ data DeleteSnapshotResponse = DeleteSnapshotResponse'
 --
 -- * 'dsrsSnapshotId'
 --
--- * 'dsrsStatus'
+-- * 'dsrsResponseStatus'
 deleteSnapshotResponse
-    :: Int -- ^ 'dsrsStatus'
+    :: Int -- ^ 'dsrsResponseStatus'
     -> DeleteSnapshotResponse
-deleteSnapshotResponse pStatus_ =
+deleteSnapshotResponse pResponseStatus_ =
     DeleteSnapshotResponse'
     { _dsrsSnapshotId = Nothing
-    , _dsrsStatus = pStatus_
+    , _dsrsResponseStatus = pResponseStatus_
     }
 
 -- | The identifier of the directory snapshot that was deleted.
@@ -126,5 +126,5 @@ dsrsSnapshotId :: Lens' DeleteSnapshotResponse (Maybe Text)
 dsrsSnapshotId = lens _dsrsSnapshotId (\ s a -> s{_dsrsSnapshotId = a});
 
 -- | The response status code.
-dsrsStatus :: Lens' DeleteSnapshotResponse Int
-dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
+dsrsResponseStatus :: Lens' DeleteSnapshotResponse Int
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});

@@ -53,7 +53,7 @@ module Network.AWS.SES.GetIdentityDkimAttributes
     , getIdentityDkimAttributesResponse
     , GetIdentityDkimAttributesResponse
     -- * Response Lenses
-    , gidarsStatus
+    , gidarsResponseStatus
     , gidarsDkimAttributes
     ) where
 
@@ -122,7 +122,7 @@ instance ToQuery GetIdentityDkimAttributes where
 --
 -- /See:/ 'getIdentityDkimAttributesResponse' smart constructor.
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
-    { _gidarsStatus         :: !Int
+    { _gidarsResponseStatus :: !Int
     , _gidarsDkimAttributes :: !(Map Text IdentityDkimAttributes)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -130,21 +130,21 @@ data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gidarsStatus'
+-- * 'gidarsResponseStatus'
 --
 -- * 'gidarsDkimAttributes'
 getIdentityDkimAttributesResponse
-    :: Int -- ^ 'gidarsStatus'
+    :: Int -- ^ 'gidarsResponseStatus'
     -> GetIdentityDkimAttributesResponse
-getIdentityDkimAttributesResponse pStatus_ =
+getIdentityDkimAttributesResponse pResponseStatus_ =
     GetIdentityDkimAttributesResponse'
-    { _gidarsStatus = pStatus_
+    { _gidarsResponseStatus = pResponseStatus_
     , _gidarsDkimAttributes = mempty
     }
 
 -- | The response status code.
-gidarsStatus :: Lens' GetIdentityDkimAttributesResponse Int
-gidarsStatus = lens _gidarsStatus (\ s a -> s{_gidarsStatus = a});
+gidarsResponseStatus :: Lens' GetIdentityDkimAttributesResponse Int
+gidarsResponseStatus = lens _gidarsResponseStatus (\ s a -> s{_gidarsResponseStatus = a});
 
 -- | The DKIM attributes for an email address or a domain.
 gidarsDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)

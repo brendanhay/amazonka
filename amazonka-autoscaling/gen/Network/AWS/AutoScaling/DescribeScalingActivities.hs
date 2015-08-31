@@ -42,7 +42,7 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     , DescribeScalingActivitiesResponse
     -- * Response Lenses
     , dsasrsNextToken
-    , dsasrsStatus
+    , dsasrsResponseStatus
     , dsasrsActivities
     ) where
 
@@ -142,9 +142,9 @@ instance ToQuery DescribeScalingActivities where
 
 -- | /See:/ 'describeScalingActivitiesResponse' smart constructor.
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
-    { _dsasrsNextToken  :: !(Maybe Text)
-    , _dsasrsStatus     :: !Int
-    , _dsasrsActivities :: ![Activity]
+    { _dsasrsNextToken      :: !(Maybe Text)
+    , _dsasrsResponseStatus :: !Int
+    , _dsasrsActivities     :: ![Activity]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeScalingActivitiesResponse' with the minimum fields required to make a request.
@@ -153,16 +153,16 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
 --
 -- * 'dsasrsNextToken'
 --
--- * 'dsasrsStatus'
+-- * 'dsasrsResponseStatus'
 --
 -- * 'dsasrsActivities'
 describeScalingActivitiesResponse
-    :: Int -- ^ 'dsasrsStatus'
+    :: Int -- ^ 'dsasrsResponseStatus'
     -> DescribeScalingActivitiesResponse
-describeScalingActivitiesResponse pStatus_ =
+describeScalingActivitiesResponse pResponseStatus_ =
     DescribeScalingActivitiesResponse'
     { _dsasrsNextToken = Nothing
-    , _dsasrsStatus = pStatus_
+    , _dsasrsResponseStatus = pResponseStatus_
     , _dsasrsActivities = mempty
     }
 
@@ -172,8 +172,8 @@ dsasrsNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
 dsasrsNextToken = lens _dsasrsNextToken (\ s a -> s{_dsasrsNextToken = a});
 
 -- | The response status code.
-dsasrsStatus :: Lens' DescribeScalingActivitiesResponse Int
-dsasrsStatus = lens _dsasrsStatus (\ s a -> s{_dsasrsStatus = a});
+dsasrsResponseStatus :: Lens' DescribeScalingActivitiesResponse Int
+dsasrsResponseStatus = lens _dsasrsResponseStatus (\ s a -> s{_dsasrsResponseStatus = a});
 
 -- | The scaling activities.
 dsasrsActivities :: Lens' DescribeScalingActivitiesResponse [Activity]

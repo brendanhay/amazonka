@@ -43,7 +43,7 @@ module Network.AWS.ECS.RegisterContainerInstance
     , RegisterContainerInstanceResponse
     -- * Response Lenses
     , rcirsContainerInstance
-    , rcirsStatus
+    , rcirsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -166,7 +166,7 @@ instance ToQuery RegisterContainerInstance where
 -- | /See:/ 'registerContainerInstanceResponse' smart constructor.
 data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
     { _rcirsContainerInstance :: !(Maybe ContainerInstance)
-    , _rcirsStatus            :: !Int
+    , _rcirsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterContainerInstanceResponse' with the minimum fields required to make a request.
@@ -175,14 +175,14 @@ data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
 --
 -- * 'rcirsContainerInstance'
 --
--- * 'rcirsStatus'
+-- * 'rcirsResponseStatus'
 registerContainerInstanceResponse
-    :: Int -- ^ 'rcirsStatus'
+    :: Int -- ^ 'rcirsResponseStatus'
     -> RegisterContainerInstanceResponse
-registerContainerInstanceResponse pStatus_ =
+registerContainerInstanceResponse pResponseStatus_ =
     RegisterContainerInstanceResponse'
     { _rcirsContainerInstance = Nothing
-    , _rcirsStatus = pStatus_
+    , _rcirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -190,5 +190,5 @@ rcirsContainerInstance :: Lens' RegisterContainerInstanceResponse (Maybe Contain
 rcirsContainerInstance = lens _rcirsContainerInstance (\ s a -> s{_rcirsContainerInstance = a});
 
 -- | The response status code.
-rcirsStatus :: Lens' RegisterContainerInstanceResponse Int
-rcirsStatus = lens _rcirsStatus (\ s a -> s{_rcirsStatus = a});
+rcirsResponseStatus :: Lens' RegisterContainerInstanceResponse Int
+rcirsResponseStatus = lens _rcirsResponseStatus (\ s a -> s{_rcirsResponseStatus = a});

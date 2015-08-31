@@ -44,7 +44,7 @@ module Network.AWS.OpsWorks.DescribeInstances
     , DescribeInstancesResponse
     -- * Response Lenses
     , dirsInstances
-    , dirsStatus
+    , dirsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -132,8 +132,8 @@ instance ToQuery DescribeInstances where
 --
 -- /See:/ 'describeInstancesResponse' smart constructor.
 data DescribeInstancesResponse = DescribeInstancesResponse'
-    { _dirsInstances :: !(Maybe [Instance])
-    , _dirsStatus    :: !Int
+    { _dirsInstances      :: !(Maybe [Instance])
+    , _dirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeInstancesResponse' with the minimum fields required to make a request.
@@ -142,14 +142,14 @@ data DescribeInstancesResponse = DescribeInstancesResponse'
 --
 -- * 'dirsInstances'
 --
--- * 'dirsStatus'
+-- * 'dirsResponseStatus'
 describeInstancesResponse
-    :: Int -- ^ 'dirsStatus'
+    :: Int -- ^ 'dirsResponseStatus'
     -> DescribeInstancesResponse
-describeInstancesResponse pStatus_ =
+describeInstancesResponse pResponseStatus_ =
     DescribeInstancesResponse'
     { _dirsInstances = Nothing
-    , _dirsStatus = pStatus_
+    , _dirsResponseStatus = pResponseStatus_
     }
 
 -- | An array of 'Instance' objects that describe the instances.
@@ -157,5 +157,5 @@ dirsInstances :: Lens' DescribeInstancesResponse [Instance]
 dirsInstances = lens _dirsInstances (\ s a -> s{_dirsInstances = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dirsStatus :: Lens' DescribeInstancesResponse Int
-dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});
+dirsResponseStatus :: Lens' DescribeInstancesResponse Int
+dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});

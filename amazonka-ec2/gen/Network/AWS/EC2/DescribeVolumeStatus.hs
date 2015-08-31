@@ -79,7 +79,7 @@ module Network.AWS.EC2.DescribeVolumeStatus
     -- * Response Lenses
     , dvsrsNextToken
     , dvsrsVolumeStatuses
-    , dvsrsStatus
+    , dvsrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -232,7 +232,7 @@ instance ToQuery DescribeVolumeStatus where
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
     { _dvsrsNextToken      :: !(Maybe Text)
     , _dvsrsVolumeStatuses :: !(Maybe [VolumeStatusItem])
-    , _dvsrsStatus         :: !Int
+    , _dvsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVolumeStatusResponse' with the minimum fields required to make a request.
@@ -243,15 +243,15 @@ data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
 --
 -- * 'dvsrsVolumeStatuses'
 --
--- * 'dvsrsStatus'
+-- * 'dvsrsResponseStatus'
 describeVolumeStatusResponse
-    :: Int -- ^ 'dvsrsStatus'
+    :: Int -- ^ 'dvsrsResponseStatus'
     -> DescribeVolumeStatusResponse
-describeVolumeStatusResponse pStatus_ =
+describeVolumeStatusResponse pResponseStatus_ =
     DescribeVolumeStatusResponse'
     { _dvsrsNextToken = Nothing
     , _dvsrsVolumeStatuses = Nothing
-    , _dvsrsStatus = pStatus_
+    , _dvsrsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
@@ -264,5 +264,5 @@ dvsrsVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
 dvsrsVolumeStatuses = lens _dvsrsVolumeStatuses (\ s a -> s{_dvsrsVolumeStatuses = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dvsrsStatus :: Lens' DescribeVolumeStatusResponse Int
-dvsrsStatus = lens _dvsrsStatus (\ s a -> s{_dvsrsStatus = a});
+dvsrsResponseStatus :: Lens' DescribeVolumeStatusResponse Int
+dvsrsResponseStatus = lens _dvsrsResponseStatus (\ s a -> s{_dvsrsResponseStatus = a});

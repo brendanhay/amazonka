@@ -44,7 +44,7 @@ module Network.AWS.StorageGateway.ListLocalDisks
     -- * Response Lenses
     , lldrsGatewayARN
     , lldrsDisks
-    , lldrsStatus
+    , lldrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -110,9 +110,9 @@ instance ToQuery ListLocalDisks where
 
 -- | /See:/ 'listLocalDisksResponse' smart constructor.
 data ListLocalDisksResponse = ListLocalDisksResponse'
-    { _lldrsGatewayARN :: !(Maybe Text)
-    , _lldrsDisks      :: !(Maybe [Disk])
-    , _lldrsStatus     :: !Int
+    { _lldrsGatewayARN     :: !(Maybe Text)
+    , _lldrsDisks          :: !(Maybe [Disk])
+    , _lldrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListLocalDisksResponse' with the minimum fields required to make a request.
@@ -123,15 +123,15 @@ data ListLocalDisksResponse = ListLocalDisksResponse'
 --
 -- * 'lldrsDisks'
 --
--- * 'lldrsStatus'
+-- * 'lldrsResponseStatus'
 listLocalDisksResponse
-    :: Int -- ^ 'lldrsStatus'
+    :: Int -- ^ 'lldrsResponseStatus'
     -> ListLocalDisksResponse
-listLocalDisksResponse pStatus_ =
+listLocalDisksResponse pResponseStatus_ =
     ListLocalDisksResponse'
     { _lldrsGatewayARN = Nothing
     , _lldrsDisks = Nothing
-    , _lldrsStatus = pStatus_
+    , _lldrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -143,5 +143,5 @@ lldrsDisks :: Lens' ListLocalDisksResponse [Disk]
 lldrsDisks = lens _lldrsDisks (\ s a -> s{_lldrsDisks = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lldrsStatus :: Lens' ListLocalDisksResponse Int
-lldrsStatus = lens _lldrsStatus (\ s a -> s{_lldrsStatus = a});
+lldrsResponseStatus :: Lens' ListLocalDisksResponse Int
+lldrsResponseStatus = lens _lldrsResponseStatus (\ s a -> s{_lldrsResponseStatus = a});

@@ -47,7 +47,7 @@ module Network.AWS.IAM.GetAccountAuthorizationDetails
     , gaadrsMarker
     , gaadrsIsTruncated
     , gaadrsPolicies
-    , gaadrsStatus
+    , gaadrsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -154,7 +154,7 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
     , _gaadrsMarker          :: !(Maybe Text)
     , _gaadrsIsTruncated     :: !(Maybe Bool)
     , _gaadrsPolicies        :: !(Maybe [ManagedPolicyDetail])
-    , _gaadrsStatus          :: !Int
+    , _gaadrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetAccountAuthorizationDetailsResponse' with the minimum fields required to make a request.
@@ -173,11 +173,11 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
 --
 -- * 'gaadrsPolicies'
 --
--- * 'gaadrsStatus'
+-- * 'gaadrsResponseStatus'
 getAccountAuthorizationDetailsResponse
-    :: Int -- ^ 'gaadrsStatus'
+    :: Int -- ^ 'gaadrsResponseStatus'
     -> GetAccountAuthorizationDetailsResponse
-getAccountAuthorizationDetailsResponse pStatus_ =
+getAccountAuthorizationDetailsResponse pResponseStatus_ =
     GetAccountAuthorizationDetailsResponse'
     { _gaadrsRoleDetailList = Nothing
     , _gaadrsGroupDetailList = Nothing
@@ -185,7 +185,7 @@ getAccountAuthorizationDetailsResponse pStatus_ =
     , _gaadrsMarker = Nothing
     , _gaadrsIsTruncated = Nothing
     , _gaadrsPolicies = Nothing
-    , _gaadrsStatus = pStatus_
+    , _gaadrsResponseStatus = pResponseStatus_
     }
 
 -- | A list containing information about IAM roles.
@@ -217,5 +217,5 @@ gaadrsPolicies :: Lens' GetAccountAuthorizationDetailsResponse [ManagedPolicyDet
 gaadrsPolicies = lens _gaadrsPolicies (\ s a -> s{_gaadrsPolicies = a}) . _Default . _Coerce;
 
 -- | The response status code.
-gaadrsStatus :: Lens' GetAccountAuthorizationDetailsResponse Int
-gaadrsStatus = lens _gaadrsStatus (\ s a -> s{_gaadrsStatus = a});
+gaadrsResponseStatus :: Lens' GetAccountAuthorizationDetailsResponse Int
+gaadrsResponseStatus = lens _gaadrsResponseStatus (\ s a -> s{_gaadrsResponseStatus = a});

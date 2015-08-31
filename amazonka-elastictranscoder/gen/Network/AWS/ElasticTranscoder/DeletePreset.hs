@@ -37,7 +37,7 @@ module Network.AWS.ElasticTranscoder.DeletePreset
     , deletePresetResponse
     , DeletePresetResponse
     -- * Response Lenses
-    , dprsStatus
+    , dprsResponseStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -93,22 +93,22 @@ instance ToQuery DeletePreset where
 --
 -- /See:/ 'deletePresetResponse' smart constructor.
 newtype DeletePresetResponse = DeletePresetResponse'
-    { _dprsStatus :: Int
+    { _dprsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeletePresetResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dprsStatus'
+-- * 'dprsResponseStatus'
 deletePresetResponse
-    :: Int -- ^ 'dprsStatus'
+    :: Int -- ^ 'dprsResponseStatus'
     -> DeletePresetResponse
-deletePresetResponse pStatus_ =
+deletePresetResponse pResponseStatus_ =
     DeletePresetResponse'
-    { _dprsStatus = pStatus_
+    { _dprsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-dprsStatus :: Lens' DeletePresetResponse Int
-dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});
+dprsResponseStatus :: Lens' DeletePresetResponse Int
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});

@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     , DescribeAutoScalingNotificationTypesResponse
     -- * Response Lenses
     , dasntrsAutoScalingNotificationTypes
-    , dasntrsStatus
+    , dasntrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -87,7 +87,7 @@ instance ToQuery DescribeAutoScalingNotificationTypes
 -- | /See:/ 'describeAutoScalingNotificationTypesResponse' smart constructor.
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'
     { _dasntrsAutoScalingNotificationTypes :: !(Maybe [Text])
-    , _dasntrsStatus                       :: !Int
+    , _dasntrsResponseStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAutoScalingNotificationTypesResponse' with the minimum fields required to make a request.
@@ -96,14 +96,14 @@ data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificat
 --
 -- * 'dasntrsAutoScalingNotificationTypes'
 --
--- * 'dasntrsStatus'
+-- * 'dasntrsResponseStatus'
 describeAutoScalingNotificationTypesResponse
-    :: Int -- ^ 'dasntrsStatus'
+    :: Int -- ^ 'dasntrsResponseStatus'
     -> DescribeAutoScalingNotificationTypesResponse
-describeAutoScalingNotificationTypesResponse pStatus_ =
+describeAutoScalingNotificationTypesResponse pResponseStatus_ =
     DescribeAutoScalingNotificationTypesResponse'
     { _dasntrsAutoScalingNotificationTypes = Nothing
-    , _dasntrsStatus = pStatus_
+    , _dasntrsResponseStatus = pResponseStatus_
     }
 
 -- | One or more of the following notification types:
@@ -122,5 +122,5 @@ dasntrsAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationType
 dasntrsAutoScalingNotificationTypes = lens _dasntrsAutoScalingNotificationTypes (\ s a -> s{_dasntrsAutoScalingNotificationTypes = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dasntrsStatus :: Lens' DescribeAutoScalingNotificationTypesResponse Int
-dasntrsStatus = lens _dasntrsStatus (\ s a -> s{_dasntrsStatus = a});
+dasntrsResponseStatus :: Lens' DescribeAutoScalingNotificationTypesResponse Int
+dasntrsResponseStatus = lens _dasntrsResponseStatus (\ s a -> s{_dasntrsResponseStatus = a});

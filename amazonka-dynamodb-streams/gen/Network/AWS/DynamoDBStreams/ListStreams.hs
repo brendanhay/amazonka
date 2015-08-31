@@ -41,7 +41,7 @@ module Network.AWS.DynamoDBStreams.ListStreams
     -- * Response Lenses
     , lsrsLastEvaluatedStreamARN
     , lsrsStreams
-    , lsrsStatus
+    , lsrsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDBStreams.Types
@@ -134,7 +134,7 @@ instance ToQuery ListStreams where
 data ListStreamsResponse = ListStreamsResponse'
     { _lsrsLastEvaluatedStreamARN :: !(Maybe Text)
     , _lsrsStreams                :: !(Maybe [Stream])
-    , _lsrsStatus                 :: !Int
+    , _lsrsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListStreamsResponse' with the minimum fields required to make a request.
@@ -145,15 +145,15 @@ data ListStreamsResponse = ListStreamsResponse'
 --
 -- * 'lsrsStreams'
 --
--- * 'lsrsStatus'
+-- * 'lsrsResponseStatus'
 listStreamsResponse
-    :: Int -- ^ 'lsrsStatus'
+    :: Int -- ^ 'lsrsResponseStatus'
     -> ListStreamsResponse
-listStreamsResponse pStatus_ =
+listStreamsResponse pResponseStatus_ =
     ListStreamsResponse'
     { _lsrsLastEvaluatedStreamARN = Nothing
     , _lsrsStreams = Nothing
-    , _lsrsStatus = pStatus_
+    , _lsrsResponseStatus = pResponseStatus_
     }
 
 -- | The stream ARN of the item where the operation stopped, inclusive of the
@@ -176,5 +176,5 @@ lsrsStreams :: Lens' ListStreamsResponse [Stream]
 lsrsStreams = lens _lsrsStreams (\ s a -> s{_lsrsStreams = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lsrsStatus :: Lens' ListStreamsResponse Int
-lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});
+lsrsResponseStatus :: Lens' ListStreamsResponse Int
+lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});

@@ -37,7 +37,7 @@ module Network.AWS.MachineLearning.CreateRealtimeEndpoint
     -- * Response Lenses
     , crersRealtimeEndpointInfo
     , crersMLModelId
-    , crersStatus
+    , crersResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -113,7 +113,7 @@ instance ToQuery CreateRealtimeEndpoint where
 data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'
     { _crersRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
     , _crersMLModelId            :: !(Maybe Text)
-    , _crersStatus               :: !Int
+    , _crersResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateRealtimeEndpointResponse' with the minimum fields required to make a request.
@@ -124,15 +124,15 @@ data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'
 --
 -- * 'crersMLModelId'
 --
--- * 'crersStatus'
+-- * 'crersResponseStatus'
 createRealtimeEndpointResponse
-    :: Int -- ^ 'crersStatus'
+    :: Int -- ^ 'crersResponseStatus'
     -> CreateRealtimeEndpointResponse
-createRealtimeEndpointResponse pStatus_ =
+createRealtimeEndpointResponse pResponseStatus_ =
     CreateRealtimeEndpointResponse'
     { _crersRealtimeEndpointInfo = Nothing
     , _crersMLModelId = Nothing
-    , _crersStatus = pStatus_
+    , _crersResponseStatus = pResponseStatus_
     }
 
 -- | The endpoint information of the 'MLModel'
@@ -145,5 +145,5 @@ crersMLModelId :: Lens' CreateRealtimeEndpointResponse (Maybe Text)
 crersMLModelId = lens _crersMLModelId (\ s a -> s{_crersMLModelId = a});
 
 -- | The response status code.
-crersStatus :: Lens' CreateRealtimeEndpointResponse Int
-crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});
+crersResponseStatus :: Lens' CreateRealtimeEndpointResponse Int
+crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});

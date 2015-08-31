@@ -40,7 +40,7 @@ module Network.AWS.CognitoSync.SubscribeToDataset
     , subscribeToDatasetResponse
     , SubscribeToDatasetResponse
     -- * Response Lenses
-    , stdrsStatus
+    , stdrsResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -136,22 +136,22 @@ instance ToQuery SubscribeToDataset where
 --
 -- /See:/ 'subscribeToDatasetResponse' smart constructor.
 newtype SubscribeToDatasetResponse = SubscribeToDatasetResponse'
-    { _stdrsStatus :: Int
+    { _stdrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SubscribeToDatasetResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stdrsStatus'
+-- * 'stdrsResponseStatus'
 subscribeToDatasetResponse
-    :: Int -- ^ 'stdrsStatus'
+    :: Int -- ^ 'stdrsResponseStatus'
     -> SubscribeToDatasetResponse
-subscribeToDatasetResponse pStatus_ =
+subscribeToDatasetResponse pResponseStatus_ =
     SubscribeToDatasetResponse'
-    { _stdrsStatus = pStatus_
+    { _stdrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-stdrsStatus :: Lens' SubscribeToDatasetResponse Int
-stdrsStatus = lens _stdrsStatus (\ s a -> s{_stdrsStatus = a});
+stdrsResponseStatus :: Lens' SubscribeToDatasetResponse Int
+stdrsResponseStatus = lens _stdrsResponseStatus (\ s a -> s{_stdrsResponseStatus = a});

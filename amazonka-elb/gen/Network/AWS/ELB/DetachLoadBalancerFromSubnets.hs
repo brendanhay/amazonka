@@ -41,7 +41,7 @@ module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     , DetachLoadBalancerFromSubnetsResponse
     -- * Response Lenses
     , dlbfsrsSubnets
-    , dlbfsrsStatus
+    , dlbfsrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -112,8 +112,8 @@ instance ToQuery DetachLoadBalancerFromSubnets where
 
 -- | /See:/ 'detachLoadBalancerFromSubnetsResponse' smart constructor.
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'
-    { _dlbfsrsSubnets :: !(Maybe [Text])
-    , _dlbfsrsStatus  :: !Int
+    { _dlbfsrsSubnets        :: !(Maybe [Text])
+    , _dlbfsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DetachLoadBalancerFromSubnetsResponse' with the minimum fields required to make a request.
@@ -122,14 +122,14 @@ data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsRespon
 --
 -- * 'dlbfsrsSubnets'
 --
--- * 'dlbfsrsStatus'
+-- * 'dlbfsrsResponseStatus'
 detachLoadBalancerFromSubnetsResponse
-    :: Int -- ^ 'dlbfsrsStatus'
+    :: Int -- ^ 'dlbfsrsResponseStatus'
     -> DetachLoadBalancerFromSubnetsResponse
-detachLoadBalancerFromSubnetsResponse pStatus_ =
+detachLoadBalancerFromSubnetsResponse pResponseStatus_ =
     DetachLoadBalancerFromSubnetsResponse'
     { _dlbfsrsSubnets = Nothing
-    , _dlbfsrsStatus = pStatus_
+    , _dlbfsrsResponseStatus = pResponseStatus_
     }
 
 -- | The IDs of the remaining subnets for the load balancer.
@@ -137,5 +137,5 @@ dlbfsrsSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
 dlbfsrsSubnets = lens _dlbfsrsSubnets (\ s a -> s{_dlbfsrsSubnets = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dlbfsrsStatus :: Lens' DetachLoadBalancerFromSubnetsResponse Int
-dlbfsrsStatus = lens _dlbfsrsStatus (\ s a -> s{_dlbfsrsStatus = a});
+dlbfsrsResponseStatus :: Lens' DetachLoadBalancerFromSubnetsResponse Int
+dlbfsrsResponseStatus = lens _dlbfsrsResponseStatus (\ s a -> s{_dlbfsrsResponseStatus = a});

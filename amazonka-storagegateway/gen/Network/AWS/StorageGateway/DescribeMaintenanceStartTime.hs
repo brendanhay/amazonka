@@ -40,7 +40,7 @@ module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     , dmstrsHourOfDay
     , dmstrsTimezone
     , dmstrsDayOfWeek
-    , dmstrsStatus
+    , dmstrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -111,12 +111,12 @@ instance ToQuery DescribeMaintenanceStartTime where
 
 -- | /See:/ 'describeMaintenanceStartTimeResponse' smart constructor.
 data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse'
-    { _dmstrsGatewayARN   :: !(Maybe Text)
-    , _dmstrsMinuteOfHour :: !(Maybe Nat)
-    , _dmstrsHourOfDay    :: !(Maybe Nat)
-    , _dmstrsTimezone     :: !(Maybe Text)
-    , _dmstrsDayOfWeek    :: !(Maybe Nat)
-    , _dmstrsStatus       :: !Int
+    { _dmstrsGatewayARN     :: !(Maybe Text)
+    , _dmstrsMinuteOfHour   :: !(Maybe Nat)
+    , _dmstrsHourOfDay      :: !(Maybe Nat)
+    , _dmstrsTimezone       :: !(Maybe Text)
+    , _dmstrsDayOfWeek      :: !(Maybe Nat)
+    , _dmstrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeMaintenanceStartTimeResponse' with the minimum fields required to make a request.
@@ -133,18 +133,18 @@ data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
 --
 -- * 'dmstrsDayOfWeek'
 --
--- * 'dmstrsStatus'
+-- * 'dmstrsResponseStatus'
 describeMaintenanceStartTimeResponse
-    :: Int -- ^ 'dmstrsStatus'
+    :: Int -- ^ 'dmstrsResponseStatus'
     -> DescribeMaintenanceStartTimeResponse
-describeMaintenanceStartTimeResponse pStatus_ =
+describeMaintenanceStartTimeResponse pResponseStatus_ =
     DescribeMaintenanceStartTimeResponse'
     { _dmstrsGatewayARN = Nothing
     , _dmstrsMinuteOfHour = Nothing
     , _dmstrsHourOfDay = Nothing
     , _dmstrsTimezone = Nothing
     , _dmstrsDayOfWeek = Nothing
-    , _dmstrsStatus = pStatus_
+    , _dmstrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -168,5 +168,5 @@ dmstrsDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrsDayOfWeek = lens _dmstrsDayOfWeek (\ s a -> s{_dmstrsDayOfWeek = a}) . mapping _Nat;
 
 -- | The response status code.
-dmstrsStatus :: Lens' DescribeMaintenanceStartTimeResponse Int
-dmstrsStatus = lens _dmstrsStatus (\ s a -> s{_dmstrsStatus = a});
+dmstrsResponseStatus :: Lens' DescribeMaintenanceStartTimeResponse Int
+dmstrsResponseStatus = lens _dmstrsResponseStatus (\ s a -> s{_dmstrsResponseStatus = a});

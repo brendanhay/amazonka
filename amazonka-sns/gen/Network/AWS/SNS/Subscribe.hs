@@ -52,7 +52,7 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'subscribe' smart constructor.
 data Subscribe = Subscribe'
-    { _subEndpoint :: !(Maybe Endpoint)
+    { _subEndpoint :: !(Maybe Text)
     , _subTopicARN :: !Text
     , _subProtocol :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -92,7 +92,7 @@ subscribe pTopicARN_ pProtocol_ =
 --     queue
 -- -   For the 'application' protocol, the endpoint is the EndpointArn of a
 --     mobile app and device.
-subEndpoint :: Lens' Subscribe (Maybe Endpoint)
+subEndpoint :: Lens' Subscribe (Maybe Text)
 subEndpoint = lens _subEndpoint (\ s a -> s{_subEndpoint = a});
 
 -- | The ARN of the topic you want to subscribe to.

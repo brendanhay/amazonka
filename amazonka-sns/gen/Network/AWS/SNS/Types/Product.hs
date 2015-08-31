@@ -58,14 +58,6 @@ instance FromXML Endpoint where
                  may (parseXMLMap "entry" "key" "value"))
                 <*> (x .@? "EndpointArn")
 
-instance ToQuery Endpoint where
-        toQuery Endpoint'{..}
-          = mconcat
-              ["Attributes" =:
-                 toQuery
-                   (toQueryMap "entry" "key" "value" <$> _eAttributes),
-               "EndpointArn" =: _eEndpointARN]
-
 -- | The user-specified message attribute value. For string data types, the
 -- value attribute has the same restrictions on the content as the message
 -- body. For more information, see
@@ -179,7 +171,7 @@ data Subscription = Subscription'
     { _sProtocol        :: !(Maybe Text)
     , _sOwner           :: !(Maybe Text)
     , _sTopicARN        :: !(Maybe Text)
-    , _sEndpoint        :: !(Maybe Endpoint)
+    , _sEndpoint        :: !(Maybe Text)
     , _sSubscriptionARN :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -220,7 +212,7 @@ sTopicARN :: Lens' Subscription (Maybe Text)
 sTopicARN = lens _sTopicARN (\ s a -> s{_sTopicARN = a});
 
 -- | The subscription\'s endpoint (format depends on the protocol).
-sEndpoint :: Lens' Subscription (Maybe Endpoint)
+sEndpoint :: Lens' Subscription (Maybe Text)
 sEndpoint = lens _sEndpoint (\ s a -> s{_sEndpoint = a});
 
 -- | The subscription\'s ARN.

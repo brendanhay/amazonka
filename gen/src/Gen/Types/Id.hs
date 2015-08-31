@@ -39,8 +39,6 @@ import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens
 import           Data.Aeson
-import           Data.CaseInsensitive   (CI)
-import qualified Data.CaseInsensitive   as CI
 import           Data.Hashable
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
@@ -59,7 +57,7 @@ instance (Functor f, HasId a) => HasId (Cofree f a) where
 
 -- | A type where the actual identifier is immutable,
 -- but the usable representation can be appended/modified.
-data Id = Id (CI Text) Text
+data Id = Id Text Text
     deriving (Show)
 
 instance Eq Id where
@@ -75,7 +73,7 @@ instance ToJSON Id where
     toJSON = toJSON . view representation
 
 mkId :: Text -> Id
-mkId t = Id (CI.mk t) (format t)
+mkId t = Id t (format t)
 
 format :: Text -> Text
 format = upperHead . upperAcronym
@@ -86,7 +84,7 @@ representation =
          (\(Id x _) t -> Id x (format t))
 
 memberId :: Id -> Text
-memberId (Id x _) = CI.original x
+memberId (Id x _) = x
 
 typeId :: Id -> Text
 typeId = view representation

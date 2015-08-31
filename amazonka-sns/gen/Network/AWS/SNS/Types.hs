@@ -22,8 +22,8 @@ module Network.AWS.SNS.Types
     , _SubscriptionLimitExceededException
     , _PlatformApplicationDisabledException
     , _InternalErrorException
-    , _NotFoundException
     , _InvalidParameterValueException
+    , _NotFoundException
     , _TopicLimitExceededException
 
     -- * Endpoint
@@ -129,15 +129,15 @@ _InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceEr
 _InternalErrorException =
     _ServiceError . hasStatus 500 . hasCode "InternalError"
 
--- | Indicates that the requested resource does not exist.
-_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotFoundException = _ServiceError . hasStatus 404 . hasCode "NotFound"
-
 -- | Indicates that a request parameter does not comply with the associated
 -- constraints.
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
     _ServiceError . hasStatus 400 . hasCode "ParameterValueInvalid"
+
+-- | Indicates that the requested resource does not exist.
+_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_NotFoundException = _ServiceError . hasStatus 404 . hasCode "NotFound"
 
 -- | Indicates that the customer already owns the maximum allowed number of
 -- topics.

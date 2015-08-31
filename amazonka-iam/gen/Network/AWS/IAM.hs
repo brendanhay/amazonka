@@ -97,17 +97,17 @@ module Network.AWS.IAM
     -- ** MalformedCertificateException
     , _MalformedCertificateException
 
-    -- ** DuplicateCertificateException
-    , _DuplicateCertificateException
-
     -- ** CredentialReportExpiredException
     , _CredentialReportExpiredException
 
-    -- ** NoSuchEntityException
-    , _NoSuchEntityException
+    -- ** DuplicateCertificateException
+    , _DuplicateCertificateException
 
     -- ** DeleteConflictException
     , _DeleteConflictException
+
+    -- ** NoSuchEntityException
+    , _NoSuchEntityException
 
     -- ** InvalidCertificateException
     , _InvalidCertificateException
@@ -139,11 +139,11 @@ module Network.AWS.IAM
     -- ** KeyPairMismatchException
     , _KeyPairMismatchException
 
-    -- ** LimitExceededException
-    , _LimitExceededException
-
     -- ** PasswordPolicyViolationException
     , _PasswordPolicyViolationException
+
+    -- ** LimitExceededException
+    , _LimitExceededException
 
     -- * Waiters
     -- $waiters
@@ -157,32 +157,29 @@ module Network.AWS.IAM
     -- * Operations
     -- $operations
 
-    -- ** AttachGroupPolicy
-    , module Network.AWS.IAM.AttachGroupPolicy
-
-    -- ** ListInstanceProfilesForRole (Paginated)
-    , module Network.AWS.IAM.ListInstanceProfilesForRole
+    -- ** ListPolicies (Paginated)
+    , module Network.AWS.IAM.ListPolicies
 
     -- ** CreatePolicy
     , module Network.AWS.IAM.CreatePolicy
 
-    -- ** ListPolicies (Paginated)
-    , module Network.AWS.IAM.ListPolicies
+    -- ** ListInstanceProfilesForRole (Paginated)
+    , module Network.AWS.IAM.ListInstanceProfilesForRole
 
-    -- ** AttachRolePolicy
-    , module Network.AWS.IAM.AttachRolePolicy
+    -- ** AttachGroupPolicy
+    , module Network.AWS.IAM.AttachGroupPolicy
+
+    -- ** CreateAccessKey
+    , module Network.AWS.IAM.CreateAccessKey
 
     -- ** ListSSHPublicKeys
     , module Network.AWS.IAM.ListSSHPublicKeys
 
-    -- ** DeleteSSHPublicKey
-    , module Network.AWS.IAM.DeleteSSHPublicKey
-
-    -- ** UpdateSSHPublicKey
-    , module Network.AWS.IAM.UpdateSSHPublicKey
-
     -- ** ListOpenIdConnectProviders
     , module Network.AWS.IAM.ListOpenIdConnectProviders
+
+    -- ** CreateVirtualMFADevice
+    , module Network.AWS.IAM.CreateVirtualMFADevice
 
     -- ** DeleteAccountPasswordPolicy
     , module Network.AWS.IAM.DeleteAccountPasswordPolicy
@@ -190,23 +187,20 @@ module Network.AWS.IAM
     -- ** UpdateAccountPasswordPolicy
     , module Network.AWS.IAM.UpdateAccountPasswordPolicy
 
-    -- ** CreateAccessKey
-    , module Network.AWS.IAM.CreateAccessKey
+    -- ** AttachRolePolicy
+    , module Network.AWS.IAM.AttachRolePolicy
+
+    -- ** UpdateSSHPublicKey
+    , module Network.AWS.IAM.UpdateSSHPublicKey
+
+    -- ** DeleteSSHPublicKey
+    , module Network.AWS.IAM.DeleteSSHPublicKey
 
     -- ** GetUserPolicy
     , module Network.AWS.IAM.GetUserPolicy
 
-    -- ** CreateVirtualMFADevice
-    , module Network.AWS.IAM.CreateVirtualMFADevice
-
-    -- ** CreateOpenIdConnectProvider
-    , module Network.AWS.IAM.CreateOpenIdConnectProvider
-
     -- ** ListAttachedRolePolicies
     , module Network.AWS.IAM.ListAttachedRolePolicies
-
-    -- ** DeleteVirtualMFADevice
-    , module Network.AWS.IAM.DeleteVirtualMFADevice
 
     -- ** GetRole
     , module Network.AWS.IAM.GetRole
@@ -214,11 +208,14 @@ module Network.AWS.IAM
     -- ** DeactivateMFADevice
     , module Network.AWS.IAM.DeactivateMFADevice
 
+    -- ** CreateOpenIdConnectProvider
+    , module Network.AWS.IAM.CreateOpenIdConnectProvider
+
+    -- ** DeleteVirtualMFADevice
+    , module Network.AWS.IAM.DeleteVirtualMFADevice
+
     -- ** ListRoles (Paginated)
     , module Network.AWS.IAM.ListRoles
-
-    -- ** DeleteRole
-    , module Network.AWS.IAM.DeleteRole
 
     -- ** ListUserPolicies (Paginated)
     , module Network.AWS.IAM.ListUserPolicies
@@ -226,56 +223,62 @@ module Network.AWS.IAM
     -- ** UploadSSHPublicKey
     , module Network.AWS.IAM.UploadSSHPublicKey
 
+    -- ** DeleteRole
+    , module Network.AWS.IAM.DeleteRole
+
     -- ** ListUsers (Paginated)
     , module Network.AWS.IAM.ListUsers
 
     -- ** UpdateOpenIdConnectProviderThumbprint
     , module Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
 
-    -- ** GetSSHPublicKey
-    , module Network.AWS.IAM.GetSSHPublicKey
-
     -- ** PutUserPolicy
     , module Network.AWS.IAM.PutUserPolicy
 
-    -- ** CreateRole
-    , module Network.AWS.IAM.CreateRole
-
-    -- ** DeleteUserPolicy
-    , module Network.AWS.IAM.DeleteUserPolicy
-
-    -- ** GetOpenIdConnectProvider
-    , module Network.AWS.IAM.GetOpenIdConnectProvider
+    -- ** GetSSHPublicKey
+    , module Network.AWS.IAM.GetSSHPublicKey
 
     -- ** DetachGroupPolicy
     , module Network.AWS.IAM.DetachGroupPolicy
 
+    -- ** GetOpenIdConnectProvider
+    , module Network.AWS.IAM.GetOpenIdConnectProvider
+
+    -- ** DeleteUserPolicy
+    , module Network.AWS.IAM.DeleteUserPolicy
+
+    -- ** CreateRole
+    , module Network.AWS.IAM.CreateRole
+
     -- ** GetCredentialReport
     , module Network.AWS.IAM.GetCredentialReport
-
-    -- ** DeletePolicyVersion
-    , module Network.AWS.IAM.DeletePolicyVersion
-
-    -- ** DetachRolePolicy
-    , module Network.AWS.IAM.DetachRolePolicy
-
-    -- ** DeleteInstanceProfile
-    , module Network.AWS.IAM.DeleteInstanceProfile
-
-    -- ** ListGroupPolicies (Paginated)
-    , module Network.AWS.IAM.ListGroupPolicies
 
     -- ** GetAccountSummary
     , module Network.AWS.IAM.GetAccountSummary
 
+    -- ** ListGroupPolicies (Paginated)
+    , module Network.AWS.IAM.ListGroupPolicies
+
+    -- ** DeletePolicyVersion
+    , module Network.AWS.IAM.DeletePolicyVersion
+
+    -- ** DeleteInstanceProfile
+    , module Network.AWS.IAM.DeleteInstanceProfile
+
+    -- ** DetachRolePolicy
+    , module Network.AWS.IAM.DetachRolePolicy
+
+    -- ** RemoveRoleFromInstanceProfile
+    , module Network.AWS.IAM.RemoveRoleFromInstanceProfile
+
+    -- ** CreatePolicyVersion
+    , module Network.AWS.IAM.CreatePolicyVersion
+
     -- ** CreateInstanceProfile
     , module Network.AWS.IAM.CreateInstanceProfile
 
-    -- ** PutGroupPolicy
-    , module Network.AWS.IAM.PutGroupPolicy
-
-    -- ** DeleteGroupPolicy
-    , module Network.AWS.IAM.DeleteGroupPolicy
+    -- ** CreateSAMLProvider
+    , module Network.AWS.IAM.CreateSAMLProvider
 
     -- ** GetAccountAuthorizationDetails
     , module Network.AWS.IAM.GetAccountAuthorizationDetails
@@ -283,53 +286,41 @@ module Network.AWS.IAM
     -- ** DeleteAccountAlias
     , module Network.AWS.IAM.DeleteAccountAlias
 
-    -- ** RemoveRoleFromInstanceProfile
-    , module Network.AWS.IAM.RemoveRoleFromInstanceProfile
-
-    -- ** GetLoginProfile
-    , module Network.AWS.IAM.GetLoginProfile
+    -- ** DetachUserPolicy
+    , module Network.AWS.IAM.DetachUserPolicy
 
     -- ** RemoveUserFromGroup
     , module Network.AWS.IAM.RemoveUserFromGroup
 
-    -- ** DetachUserPolicy
-    , module Network.AWS.IAM.DetachUserPolicy
+    -- ** DeleteGroupPolicy
+    , module Network.AWS.IAM.DeleteGroupPolicy
 
-    -- ** CreateSAMLProvider
-    , module Network.AWS.IAM.CreateSAMLProvider
+    -- ** PutGroupPolicy
+    , module Network.AWS.IAM.PutGroupPolicy
 
-    -- ** CreatePolicyVersion
-    , module Network.AWS.IAM.CreatePolicyVersion
+    -- ** GetLoginProfile
+    , module Network.AWS.IAM.GetLoginProfile
 
     -- ** GetGroupPolicy
     , module Network.AWS.IAM.GetGroupPolicy
 
-    -- ** DeletePolicy
-    , module Network.AWS.IAM.DeletePolicy
+    -- ** ChangePassword
+    , module Network.AWS.IAM.ChangePassword
 
     -- ** ListServerCertificates (Paginated)
     , module Network.AWS.IAM.ListServerCertificates
 
+    -- ** DeletePolicy
+    , module Network.AWS.IAM.DeletePolicy
+
     -- ** UpdateAssumeRolePolicy
     , module Network.AWS.IAM.UpdateAssumeRolePolicy
-
-    -- ** ChangePassword
-    , module Network.AWS.IAM.ChangePassword
-
-    -- ** ListGroupsForUser (Paginated)
-    , module Network.AWS.IAM.ListGroupsForUser
-
-    -- ** GetPolicyVersion
-    , module Network.AWS.IAM.GetPolicyVersion
-
-    -- ** CreateLoginProfile
-    , module Network.AWS.IAM.CreateLoginProfile
 
     -- ** GetInstanceProfile
     , module Network.AWS.IAM.GetInstanceProfile
 
-    -- ** ListEntitiesForPolicy
-    , module Network.AWS.IAM.ListEntitiesForPolicy
+    -- ** CreateLoginProfile
+    , module Network.AWS.IAM.CreateLoginProfile
 
     -- ** GetSAMLProvider
     , module Network.AWS.IAM.GetSAMLProvider
@@ -337,8 +328,17 @@ module Network.AWS.IAM
     -- ** AddRoleToInstanceProfile
     , module Network.AWS.IAM.AddRoleToInstanceProfile
 
+    -- ** ListGroupsForUser (Paginated)
+    , module Network.AWS.IAM.ListGroupsForUser
+
+    -- ** ListEntitiesForPolicy
+    , module Network.AWS.IAM.ListEntitiesForPolicy
+
     -- ** AddUserToGroup
     , module Network.AWS.IAM.AddUserToGroup
+
+    -- ** GetPolicyVersion
+    , module Network.AWS.IAM.GetPolicyVersion
 
     -- ** DeleteOpenIdConnectProvider
     , module Network.AWS.IAM.DeleteOpenIdConnectProvider
@@ -346,8 +346,8 @@ module Network.AWS.IAM
     -- ** GetUser
     , module Network.AWS.IAM.GetUser
 
-    -- ** ListAttachedUserPolicies
-    , module Network.AWS.IAM.ListAttachedUserPolicies
+    -- ** ListSigningCertificates (Paginated)
+    , module Network.AWS.IAM.ListSigningCertificates
 
     -- ** DeleteSigningCertificate
     , module Network.AWS.IAM.DeleteSigningCertificate
@@ -355,17 +355,20 @@ module Network.AWS.IAM
     -- ** UpdateSigningCertificate
     , module Network.AWS.IAM.UpdateSigningCertificate
 
-    -- ** ListSigningCertificates (Paginated)
-    , module Network.AWS.IAM.ListSigningCertificates
+    -- ** ListAttachedUserPolicies
+    , module Network.AWS.IAM.ListAttachedUserPolicies
 
     -- ** RemoveClientIdFromOpenIdConnectProvider
     , module Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
 
-    -- ** ListAccessKeys (Paginated)
-    , module Network.AWS.IAM.ListAccessKeys
+    -- ** AttachUserPolicy
+    , module Network.AWS.IAM.AttachUserPolicy
 
     -- ** ListVirtualMFADevices (Paginated)
     , module Network.AWS.IAM.ListVirtualMFADevices
+
+    -- ** ResyncMFADevice
+    , module Network.AWS.IAM.ResyncMFADevice
 
     -- ** DeleteAccessKey
     , module Network.AWS.IAM.DeleteAccessKey
@@ -373,26 +376,29 @@ module Network.AWS.IAM
     -- ** UpdateAccessKey
     , module Network.AWS.IAM.UpdateAccessKey
 
+    -- ** ListAccessKeys (Paginated)
+    , module Network.AWS.IAM.ListAccessKeys
+
     -- ** GetRolePolicy
     , module Network.AWS.IAM.GetRolePolicy
-
-    -- ** AttachUserPolicy
-    , module Network.AWS.IAM.AttachUserPolicy
-
-    -- ** ResyncMFADevice
-    , module Network.AWS.IAM.ResyncMFADevice
 
     -- ** CreateUser
     , module Network.AWS.IAM.CreateUser
 
-    -- ** UploadSigningCertificate
-    , module Network.AWS.IAM.UploadSigningCertificate
-
     -- ** PutRolePolicy
     , module Network.AWS.IAM.PutRolePolicy
 
+    -- ** UploadSigningCertificate
+    , module Network.AWS.IAM.UploadSigningCertificate
+
     -- ** DeleteRolePolicy
     , module Network.AWS.IAM.DeleteRolePolicy
+
+    -- ** GetAccountPasswordPolicy
+    , module Network.AWS.IAM.GetAccountPasswordPolicy
+
+    -- ** GetAccessKeyLastUsed
+    , module Network.AWS.IAM.GetAccessKeyLastUsed
 
     -- ** UpdateUser
     , module Network.AWS.IAM.UpdateUser
@@ -400,32 +406,41 @@ module Network.AWS.IAM
     -- ** DeleteUser
     , module Network.AWS.IAM.DeleteUser
 
-    -- ** ListRolePolicies (Paginated)
-    , module Network.AWS.IAM.ListRolePolicies
-
     -- ** AddClientIdToOpenIdConnectProvider
     , module Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
 
-    -- ** GetAccessKeyLastUsed
-    , module Network.AWS.IAM.GetAccessKeyLastUsed
-
-    -- ** GetAccountPasswordPolicy
-    , module Network.AWS.IAM.GetAccountPasswordPolicy
-
-    -- ** ListAccountAliases (Paginated)
-    , module Network.AWS.IAM.ListAccountAliases
+    -- ** ListRolePolicies (Paginated)
+    , module Network.AWS.IAM.ListRolePolicies
 
     -- ** CreateAccountAlias
     , module Network.AWS.IAM.CreateAccountAlias
 
-    -- ** UploadServerCertificate
-    , module Network.AWS.IAM.UploadServerCertificate
+    -- ** ListInstanceProfiles (Paginated)
+    , module Network.AWS.IAM.ListInstanceProfiles
+
+    -- ** EnableMFADevice
+    , module Network.AWS.IAM.EnableMFADevice
+
+    -- ** ListAccountAliases (Paginated)
+    , module Network.AWS.IAM.ListAccountAliases
+
+    -- ** DeleteSAMLProvider
+    , module Network.AWS.IAM.DeleteSAMLProvider
+
+    -- ** UpdateSAMLProvider
+    , module Network.AWS.IAM.UpdateSAMLProvider
+
+    -- ** CreateGroup
+    , module Network.AWS.IAM.CreateGroup
 
     -- ** ListMFADevices (Paginated)
     , module Network.AWS.IAM.ListMFADevices
 
-    -- ** EnableMFADevice
-    , module Network.AWS.IAM.EnableMFADevice
+    -- ** UploadServerCertificate
+    , module Network.AWS.IAM.UploadServerCertificate
+
+    -- ** SetDefaultPolicyVersion
+    , module Network.AWS.IAM.SetDefaultPolicyVersion
 
     -- ** ListPolicyVersions
     , module Network.AWS.IAM.ListPolicyVersions
@@ -433,23 +448,8 @@ module Network.AWS.IAM
     -- ** ListSAMLProviders
     , module Network.AWS.IAM.ListSAMLProviders
 
-    -- ** UpdateSAMLProvider
-    , module Network.AWS.IAM.UpdateSAMLProvider
-
-    -- ** DeleteSAMLProvider
-    , module Network.AWS.IAM.DeleteSAMLProvider
-
-    -- ** CreateGroup
-    , module Network.AWS.IAM.CreateGroup
-
-    -- ** SetDefaultPolicyVersion
-    , module Network.AWS.IAM.SetDefaultPolicyVersion
-
-    -- ** ListInstanceProfiles (Paginated)
-    , module Network.AWS.IAM.ListInstanceProfiles
-
-    -- ** ListGroups (Paginated)
-    , module Network.AWS.IAM.ListGroups
+    -- ** GetServerCertificate
+    , module Network.AWS.IAM.GetServerCertificate
 
     -- ** DeleteGroup
     , module Network.AWS.IAM.DeleteGroup
@@ -457,14 +457,20 @@ module Network.AWS.IAM
     -- ** UpdateGroup
     , module Network.AWS.IAM.UpdateGroup
 
-    -- ** GetServerCertificate
-    , module Network.AWS.IAM.GetServerCertificate
+    -- ** ListGroups (Paginated)
+    , module Network.AWS.IAM.ListGroups
+
+    -- ** GenerateCredentialReport
+    , module Network.AWS.IAM.GenerateCredentialReport
 
     -- ** GetPolicy
     , module Network.AWS.IAM.GetPolicy
 
-    -- ** GenerateCredentialReport
-    , module Network.AWS.IAM.GenerateCredentialReport
+    -- ** UpdateLoginProfile
+    , module Network.AWS.IAM.UpdateLoginProfile
+
+    -- ** DeleteLoginProfile
+    , module Network.AWS.IAM.DeleteLoginProfile
 
     -- ** GetGroup (Paginated)
     , module Network.AWS.IAM.GetGroup
@@ -474,12 +480,6 @@ module Network.AWS.IAM
 
     -- ** UpdateServerCertificate
     , module Network.AWS.IAM.UpdateServerCertificate
-
-    -- ** DeleteLoginProfile
-    , module Network.AWS.IAM.DeleteLoginProfile
-
-    -- ** UpdateLoginProfile
-    , module Network.AWS.IAM.UpdateLoginProfile
 
     -- ** ListAttachedGroupPolicies
     , module Network.AWS.IAM.ListAttachedGroupPolicies
@@ -589,11 +589,11 @@ module Network.AWS.IAM
     , managedPolicyDetail
     , mpdPolicyName
     , mpdARN
-    , mpdPath
     , mpdUpdateDate
     , mpdPolicyId
-    , mpdCreateDate
+    , mpdPath
     , mpdPolicyVersionList
+    , mpdCreateDate
     , mpdIsAttachable
     , mpdDefaultVersionId
     , mpdAttachmentCount
@@ -608,8 +608,8 @@ module Network.AWS.IAM
     , PasswordPolicy
     , passwordPolicy
     , ppExpirePasswords
-    , ppRequireNumbers
     , ppMinimumPasswordLength
+    , ppRequireNumbers
     , ppPasswordReusePrevention
     , ppRequireLowercaseCharacters
     , ppMaxPasswordAge
@@ -623,9 +623,9 @@ module Network.AWS.IAM
     , policy
     , pPolicyName
     , pARN
-    , pPath
     , pUpdateDate
     , pPolicyId
+    , pPath
     , pCreateDate
     , pIsAttachable
     , pDefaultVersionId
@@ -748,9 +748,9 @@ module Network.AWS.IAM
     -- ** UserDetail
     , UserDetail
     , userDetail
+    , udGroupList
     , udARN
     , udPath
-    , udGroupList
     , udCreateDate
     , udUserName
     , udUserId

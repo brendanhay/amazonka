@@ -97,8 +97,8 @@ module Network.AWS.CloudSearchDomains
     -- ** SearchStatus
     , SearchStatus
     , searchStatus
-    , ssRid
-    , ssTimems
+    , sRid
+    , sTimems
 
     -- ** SuggestModel
     , SuggestModel
@@ -110,8 +110,8 @@ module Network.AWS.CloudSearchDomains
     -- ** SuggestStatus
     , SuggestStatus
     , suggestStatus
-    , sRid
-    , sTimems
+    , ssRid
+    , ssTimems
 
     -- ** SuggestionMatch
     , SuggestionMatch

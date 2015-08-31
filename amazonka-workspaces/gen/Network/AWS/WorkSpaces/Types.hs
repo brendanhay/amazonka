@@ -16,8 +16,8 @@ module Network.AWS.WorkSpaces.Types
       workSpaces
 
     -- * Errors
-    , _InvalidParameterValuesException
     , _ResourceUnavailableException
+    , _InvalidParameterValuesException
     , _ResourceLimitExceededException
 
     -- * Compute
@@ -84,8 +84,8 @@ module Network.AWS.WorkSpaces.Types
     , Workspace
     , workspace
     , wDirectoryId
-    , wIPAddress
     , wState
+    , wIPAddress
     , wUserName
     , wSubnetId
     , wBundleId
@@ -96,8 +96,8 @@ module Network.AWS.WorkSpaces.Types
     -- * WorkspaceBundle
     , WorkspaceBundle
     , workspaceBundle
-    , wbOwner
     , wbBundleId
+    , wbOwner
     , wbName
     , wbComputeType
     , wbUserStorage
@@ -113,8 +113,8 @@ module Network.AWS.WorkSpaces.Types
     , wdCustomerUserName
     , wdSubnetIds
     , wdAlias
-    , wdDirectoryType
     , wdWorkspaceSecurityGroupId
+    , wdDirectoryType
     , wdWorkspaceCreationProperties
     , wdDNSIPAddresses
     , wdDirectoryName
@@ -163,15 +163,15 @@ workSpaces =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | One or more parameter values are not valid.
-_InvalidParameterValuesException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterValuesException =
-    _ServiceError . hasCode "InvalidParameterValuesException"
-
 -- | The specified resource is not available.
 _ResourceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceUnavailableException =
     _ServiceError . hasCode "ResourceUnavailableException"
+
+-- | One or more parameter values are not valid.
+_InvalidParameterValuesException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterValuesException =
+    _ServiceError . hasCode "InvalidParameterValuesException"
 
 -- | Your resource limits have been exceeded.
 _ResourceLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError

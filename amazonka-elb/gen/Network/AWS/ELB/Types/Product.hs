@@ -808,9 +808,9 @@ instance ToQuery LoadBalancerAttributes where
 -- /See:/ 'loadBalancerDescription' smart constructor.
 data LoadBalancerDescription = LoadBalancerDescription'
     { _lbdSourceSecurityGroup       :: !(Maybe SourceSecurityGroup)
-    , _lbdHealthCheck               :: !(Maybe HealthCheck)
     , _lbdCanonicalHostedZoneName   :: !(Maybe Text)
     , _lbdSecurityGroups            :: !(Maybe [Text])
+    , _lbdHealthCheck               :: !(Maybe HealthCheck)
     , _lbdLoadBalancerName          :: !(Maybe Text)
     , _lbdCreatedTime               :: !(Maybe ISO8601)
     , _lbdVPCId                     :: !(Maybe Text)
@@ -831,11 +831,11 @@ data LoadBalancerDescription = LoadBalancerDescription'
 --
 -- * 'lbdSourceSecurityGroup'
 --
--- * 'lbdHealthCheck'
---
 -- * 'lbdCanonicalHostedZoneName'
 --
 -- * 'lbdSecurityGroups'
+--
+-- * 'lbdHealthCheck'
 --
 -- * 'lbdLoadBalancerName'
 --
@@ -865,9 +865,9 @@ loadBalancerDescription
 loadBalancerDescription =
     LoadBalancerDescription'
     { _lbdSourceSecurityGroup = Nothing
-    , _lbdHealthCheck = Nothing
     , _lbdCanonicalHostedZoneName = Nothing
     , _lbdSecurityGroups = Nothing
+    , _lbdHealthCheck = Nothing
     , _lbdLoadBalancerName = Nothing
     , _lbdCreatedTime = Nothing
     , _lbdVPCId = Nothing
@@ -890,10 +890,6 @@ loadBalancerDescription =
 lbdSourceSecurityGroup :: Lens' LoadBalancerDescription (Maybe SourceSecurityGroup)
 lbdSourceSecurityGroup = lens _lbdSourceSecurityGroup (\ s a -> s{_lbdSourceSecurityGroup = a});
 
--- | Information about the health checks conducted on the load balancer.
-lbdHealthCheck :: Lens' LoadBalancerDescription (Maybe HealthCheck)
-lbdHealthCheck = lens _lbdHealthCheck (\ s a -> s{_lbdHealthCheck = a});
-
 -- | The Amazon Route 53 hosted zone associated with the load balancer.
 --
 -- For more information, see
@@ -906,6 +902,10 @@ lbdCanonicalHostedZoneName = lens _lbdCanonicalHostedZoneName (\ s a -> s{_lbdCa
 -- in a VPC.
 lbdSecurityGroups :: Lens' LoadBalancerDescription [Text]
 lbdSecurityGroups = lens _lbdSecurityGroups (\ s a -> s{_lbdSecurityGroups = a}) . _Default . _Coerce;
+
+-- | Information about the health checks conducted on the load balancer.
+lbdHealthCheck :: Lens' LoadBalancerDescription (Maybe HealthCheck)
+lbdHealthCheck = lens _lbdHealthCheck (\ s a -> s{_lbdHealthCheck = a});
 
 -- | The name of the load balancer.
 lbdLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
@@ -966,11 +966,11 @@ instance FromXML LoadBalancerDescription where
         parseXML x
           = LoadBalancerDescription' <$>
               (x .@? "SourceSecurityGroup") <*>
-                (x .@? "HealthCheck")
-                <*> (x .@? "CanonicalHostedZoneName")
+                (x .@? "CanonicalHostedZoneName")
                 <*>
                 (x .@? "SecurityGroups" .!@ mempty >>=
                    may (parseXMLList "member"))
+                <*> (x .@? "HealthCheck")
                 <*> (x .@? "LoadBalancerName")
                 <*> (x .@? "CreatedTime")
                 <*> (x .@? "VPCId")

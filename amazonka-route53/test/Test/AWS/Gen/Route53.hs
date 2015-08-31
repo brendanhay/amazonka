@@ -31,32 +31,29 @@ import Test.AWS.Route53.Internal
 --         [ testAssociateVPCWithHostedZone $
 --             associateVPCWithHostedZone
 --
+--         , testGetCheckerIPRanges $
+--             getCheckerIPRanges
+--
 --         , testGetHealthCheckLastFailureReason $
 --             getHealthCheckLastFailureReason
---
---         , testListHostedZonesByName $
---             listHostedZonesByName
 --
 --         , testDeleteReusableDelegationSet $
 --             deleteReusableDelegationSet
 --
+--         , testListHostedZonesByName $
+--             listHostedZonesByName
+--
 --         , testListReusableDelegationSets $
 --             listReusableDelegationSets
---
---         , testGetCheckerIPRanges $
---             getCheckerIPRanges
 --
 --         , testListTagsForResource $
 --             listTagsForResource
 --
---         , testChangeResourceRecordSets $
---             changeResourceRecordSets
---
 --         , testGetChange $
 --             getChange
 --
---         , testCreateHostedZone $
---             createHostedZone
+--         , testChangeResourceRecordSets $
+--             changeResourceRecordSets
 --
 --         , testDeleteHealthCheck $
 --             deleteHealthCheck
@@ -64,23 +61,26 @@ import Test.AWS.Route53.Internal
 --         , testUpdateHealthCheck $
 --             updateHealthCheck
 --
---         , testChangeTagsForResource $
---             changeTagsForResource
---
---         , testCreateHealthCheck $
---             createHealthCheck
---
---         , testListHostedZones $
---             listHostedZones
+--         , testCreateHostedZone $
+--             createHostedZone
 --
 --         , testDisassociateVPCFromHostedZone $
 --             disassociateVPCFromHostedZone
 --
---         , testGetHostedZone $
---             getHostedZone
+--         , testCreateHealthCheck $
+--             createHealthCheck
+--
+--         , testChangeTagsForResource $
+--             changeTagsForResource
+--
+--         , testListHostedZones $
+--             listHostedZones
 --
 --         , testListGeoLocations $
 --             listGeoLocations
+--
+--         , testGetHostedZone $
+--             getHostedZone
 --
 --         , testGetHealthCheck $
 --             getHealthCheck
@@ -88,11 +88,11 @@ import Test.AWS.Route53.Internal
 --         , testListResourceRecordSets $
 --             listResourceRecordSets
 --
---         , testGetHealthCheckCount $
---             getHealthCheckCount
---
 --         , testCreateReusableDelegationSet $
 --             createReusableDelegationSet
+--
+--         , testGetHealthCheckCount $
+--             getHealthCheckCount
 --
 --         , testGetHostedZoneCount $
 --             getHostedZoneCount
@@ -124,32 +124,29 @@ import Test.AWS.Route53.Internal
 --         [ testAssociateVPCWithHostedZoneResponse $
 --             associateVPCWithHostedZoneResponse
 --
+--         , testGetCheckerIPRangesResponse $
+--             getCheckerIPRangesResponse
+--
 --         , testGetHealthCheckLastFailureReasonResponse $
 --             getHealthCheckLastFailureReasonResponse
---
---         , testListHostedZonesByNameResponse $
---             listHostedZonesByNameResponse
 --
 --         , testDeleteReusableDelegationSetResponse $
 --             deleteReusableDelegationSetResponse
 --
+--         , testListHostedZonesByNameResponse $
+--             listHostedZonesByNameResponse
+--
 --         , testListReusableDelegationSetsResponse $
 --             listReusableDelegationSetsResponse
---
---         , testGetCheckerIPRangesResponse $
---             getCheckerIPRangesResponse
 --
 --         , testListTagsForResourceResponse $
 --             listTagsForResourceResponse
 --
---         , testChangeResourceRecordSetsResponse $
---             changeResourceRecordSetsResponse
---
 --         , testGetChangeResponse $
 --             getChangeResponse
 --
---         , testCreateHostedZoneResponse $
---             createHostedZoneResponse
+--         , testChangeResourceRecordSetsResponse $
+--             changeResourceRecordSetsResponse
 --
 --         , testDeleteHealthCheckResponse $
 --             deleteHealthCheckResponse
@@ -157,23 +154,26 @@ import Test.AWS.Route53.Internal
 --         , testUpdateHealthCheckResponse $
 --             updateHealthCheckResponse
 --
---         , testChangeTagsForResourceResponse $
---             changeTagsForResourceResponse
---
---         , testCreateHealthCheckResponse $
---             createHealthCheckResponse
---
---         , testListHostedZonesResponse $
---             listHostedZonesResponse
+--         , testCreateHostedZoneResponse $
+--             createHostedZoneResponse
 --
 --         , testDisassociateVPCFromHostedZoneResponse $
 --             disassociateVPCFromHostedZoneResponse
 --
---         , testGetHostedZoneResponse $
---             getHostedZoneResponse
+--         , testCreateHealthCheckResponse $
+--             createHealthCheckResponse
+--
+--         , testChangeTagsForResourceResponse $
+--             changeTagsForResourceResponse
+--
+--         , testListHostedZonesResponse $
+--             listHostedZonesResponse
 --
 --         , testListGeoLocationsResponse $
 --             listGeoLocationsResponse
+--
+--         , testGetHostedZoneResponse $
+--             getHostedZoneResponse
 --
 --         , testGetHealthCheckResponse $
 --             getHealthCheckResponse
@@ -181,11 +181,11 @@ import Test.AWS.Route53.Internal
 --         , testListResourceRecordSetsResponse $
 --             listResourceRecordSetsResponse
 --
---         , testGetHealthCheckCountResponse $
---             getHealthCheckCountResponse
---
 --         , testCreateReusableDelegationSetResponse $
 --             createReusableDelegationSetResponse
+--
+--         , testGetHealthCheckCountResponse $
+--             getHealthCheckCountResponse
 --
 --         , testGetHostedZoneCountResponse $
 --             getHostedZoneCountResponse
@@ -221,50 +221,45 @@ testAssociateVPCWithHostedZone = req
     "AssociateVPCWithHostedZone"
     "fixture/AssociateVPCWithHostedZone.yaml"
 
+testGetCheckerIPRanges :: GetCheckerIPRanges -> TestTree
+testGetCheckerIPRanges = req
+    "GetCheckerIPRanges"
+    "fixture/GetCheckerIPRanges.yaml"
+
 testGetHealthCheckLastFailureReason :: GetHealthCheckLastFailureReason -> TestTree
 testGetHealthCheckLastFailureReason = req
     "GetHealthCheckLastFailureReason"
     "fixture/GetHealthCheckLastFailureReason.yaml"
-
-testListHostedZonesByName :: ListHostedZonesByName -> TestTree
-testListHostedZonesByName = req
-    "ListHostedZonesByName"
-    "fixture/ListHostedZonesByName.yaml"
 
 testDeleteReusableDelegationSet :: DeleteReusableDelegationSet -> TestTree
 testDeleteReusableDelegationSet = req
     "DeleteReusableDelegationSet"
     "fixture/DeleteReusableDelegationSet.yaml"
 
+testListHostedZonesByName :: ListHostedZonesByName -> TestTree
+testListHostedZonesByName = req
+    "ListHostedZonesByName"
+    "fixture/ListHostedZonesByName.yaml"
+
 testListReusableDelegationSets :: ListReusableDelegationSets -> TestTree
 testListReusableDelegationSets = req
     "ListReusableDelegationSets"
     "fixture/ListReusableDelegationSets.yaml"
-
-testGetCheckerIPRanges :: GetCheckerIPRanges -> TestTree
-testGetCheckerIPRanges = req
-    "GetCheckerIPRanges"
-    "fixture/GetCheckerIPRanges.yaml"
 
 testListTagsForResource :: ListTagsForResource -> TestTree
 testListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
-testChangeResourceRecordSets :: ChangeResourceRecordSets -> TestTree
-testChangeResourceRecordSets = req
-    "ChangeResourceRecordSets"
-    "fixture/ChangeResourceRecordSets.yaml"
-
 testGetChange :: GetChange -> TestTree
 testGetChange = req
     "GetChange"
     "fixture/GetChange.yaml"
 
-testCreateHostedZone :: CreateHostedZone -> TestTree
-testCreateHostedZone = req
-    "CreateHostedZone"
-    "fixture/CreateHostedZone.yaml"
+testChangeResourceRecordSets :: ChangeResourceRecordSets -> TestTree
+testChangeResourceRecordSets = req
+    "ChangeResourceRecordSets"
+    "fixture/ChangeResourceRecordSets.yaml"
 
 testDeleteHealthCheck :: DeleteHealthCheck -> TestTree
 testDeleteHealthCheck = req
@@ -276,35 +271,40 @@ testUpdateHealthCheck = req
     "UpdateHealthCheck"
     "fixture/UpdateHealthCheck.yaml"
 
-testChangeTagsForResource :: ChangeTagsForResource -> TestTree
-testChangeTagsForResource = req
-    "ChangeTagsForResource"
-    "fixture/ChangeTagsForResource.yaml"
-
-testCreateHealthCheck :: CreateHealthCheck -> TestTree
-testCreateHealthCheck = req
-    "CreateHealthCheck"
-    "fixture/CreateHealthCheck.yaml"
-
-testListHostedZones :: ListHostedZones -> TestTree
-testListHostedZones = req
-    "ListHostedZones"
-    "fixture/ListHostedZones.yaml"
+testCreateHostedZone :: CreateHostedZone -> TestTree
+testCreateHostedZone = req
+    "CreateHostedZone"
+    "fixture/CreateHostedZone.yaml"
 
 testDisassociateVPCFromHostedZone :: DisassociateVPCFromHostedZone -> TestTree
 testDisassociateVPCFromHostedZone = req
     "DisassociateVPCFromHostedZone"
     "fixture/DisassociateVPCFromHostedZone.yaml"
 
-testGetHostedZone :: GetHostedZone -> TestTree
-testGetHostedZone = req
-    "GetHostedZone"
-    "fixture/GetHostedZone.yaml"
+testCreateHealthCheck :: CreateHealthCheck -> TestTree
+testCreateHealthCheck = req
+    "CreateHealthCheck"
+    "fixture/CreateHealthCheck.yaml"
+
+testChangeTagsForResource :: ChangeTagsForResource -> TestTree
+testChangeTagsForResource = req
+    "ChangeTagsForResource"
+    "fixture/ChangeTagsForResource.yaml"
+
+testListHostedZones :: ListHostedZones -> TestTree
+testListHostedZones = req
+    "ListHostedZones"
+    "fixture/ListHostedZones.yaml"
 
 testListGeoLocations :: ListGeoLocations -> TestTree
 testListGeoLocations = req
     "ListGeoLocations"
     "fixture/ListGeoLocations.yaml"
+
+testGetHostedZone :: GetHostedZone -> TestTree
+testGetHostedZone = req
+    "GetHostedZone"
+    "fixture/GetHostedZone.yaml"
 
 testGetHealthCheck :: GetHealthCheck -> TestTree
 testGetHealthCheck = req
@@ -316,15 +316,15 @@ testListResourceRecordSets = req
     "ListResourceRecordSets"
     "fixture/ListResourceRecordSets.yaml"
 
-testGetHealthCheckCount :: GetHealthCheckCount -> TestTree
-testGetHealthCheckCount = req
-    "GetHealthCheckCount"
-    "fixture/GetHealthCheckCount.yaml"
-
 testCreateReusableDelegationSet :: CreateReusableDelegationSet -> TestTree
 testCreateReusableDelegationSet = req
     "CreateReusableDelegationSet"
     "fixture/CreateReusableDelegationSet.yaml"
+
+testGetHealthCheckCount :: GetHealthCheckCount -> TestTree
+testGetHealthCheckCount = req
+    "GetHealthCheckCount"
+    "fixture/GetHealthCheckCount.yaml"
 
 testGetHostedZoneCount :: GetHostedZoneCount -> TestTree
 testGetHostedZoneCount = req
@@ -375,19 +375,19 @@ testAssociateVPCWithHostedZoneResponse = res
     route53
     (Proxy :: Proxy AssociateVPCWithHostedZone)
 
+testGetCheckerIPRangesResponse :: GetCheckerIPRangesResponse -> TestTree
+testGetCheckerIPRangesResponse = res
+    "GetCheckerIPRangesResponse"
+    "fixture/GetCheckerIPRangesResponse.proto"
+    route53
+    (Proxy :: Proxy GetCheckerIPRanges)
+
 testGetHealthCheckLastFailureReasonResponse :: GetHealthCheckLastFailureReasonResponse -> TestTree
 testGetHealthCheckLastFailureReasonResponse = res
     "GetHealthCheckLastFailureReasonResponse"
     "fixture/GetHealthCheckLastFailureReasonResponse.proto"
     route53
     (Proxy :: Proxy GetHealthCheckLastFailureReason)
-
-testListHostedZonesByNameResponse :: ListHostedZonesByNameResponse -> TestTree
-testListHostedZonesByNameResponse = res
-    "ListHostedZonesByNameResponse"
-    "fixture/ListHostedZonesByNameResponse.proto"
-    route53
-    (Proxy :: Proxy ListHostedZonesByName)
 
 testDeleteReusableDelegationSetResponse :: DeleteReusableDelegationSetResponse -> TestTree
 testDeleteReusableDelegationSetResponse = res
@@ -396,19 +396,19 @@ testDeleteReusableDelegationSetResponse = res
     route53
     (Proxy :: Proxy DeleteReusableDelegationSet)
 
+testListHostedZonesByNameResponse :: ListHostedZonesByNameResponse -> TestTree
+testListHostedZonesByNameResponse = res
+    "ListHostedZonesByNameResponse"
+    "fixture/ListHostedZonesByNameResponse.proto"
+    route53
+    (Proxy :: Proxy ListHostedZonesByName)
+
 testListReusableDelegationSetsResponse :: ListReusableDelegationSetsResponse -> TestTree
 testListReusableDelegationSetsResponse = res
     "ListReusableDelegationSetsResponse"
     "fixture/ListReusableDelegationSetsResponse.proto"
     route53
     (Proxy :: Proxy ListReusableDelegationSets)
-
-testGetCheckerIPRangesResponse :: GetCheckerIPRangesResponse -> TestTree
-testGetCheckerIPRangesResponse = res
-    "GetCheckerIPRangesResponse"
-    "fixture/GetCheckerIPRangesResponse.proto"
-    route53
-    (Proxy :: Proxy GetCheckerIPRanges)
 
 testListTagsForResourceResponse :: ListTagsForResourceResponse -> TestTree
 testListTagsForResourceResponse = res
@@ -417,13 +417,6 @@ testListTagsForResourceResponse = res
     route53
     (Proxy :: Proxy ListTagsForResource)
 
-testChangeResourceRecordSetsResponse :: ChangeResourceRecordSetsResponse -> TestTree
-testChangeResourceRecordSetsResponse = res
-    "ChangeResourceRecordSetsResponse"
-    "fixture/ChangeResourceRecordSetsResponse.proto"
-    route53
-    (Proxy :: Proxy ChangeResourceRecordSets)
-
 testGetChangeResponse :: GetChangeResponse -> TestTree
 testGetChangeResponse = res
     "GetChangeResponse"
@@ -431,12 +424,12 @@ testGetChangeResponse = res
     route53
     (Proxy :: Proxy GetChange)
 
-testCreateHostedZoneResponse :: CreateHostedZoneResponse -> TestTree
-testCreateHostedZoneResponse = res
-    "CreateHostedZoneResponse"
-    "fixture/CreateHostedZoneResponse.proto"
+testChangeResourceRecordSetsResponse :: ChangeResourceRecordSetsResponse -> TestTree
+testChangeResourceRecordSetsResponse = res
+    "ChangeResourceRecordSetsResponse"
+    "fixture/ChangeResourceRecordSetsResponse.proto"
     route53
-    (Proxy :: Proxy CreateHostedZone)
+    (Proxy :: Proxy ChangeResourceRecordSets)
 
 testDeleteHealthCheckResponse :: DeleteHealthCheckResponse -> TestTree
 testDeleteHealthCheckResponse = res
@@ -452,26 +445,12 @@ testUpdateHealthCheckResponse = res
     route53
     (Proxy :: Proxy UpdateHealthCheck)
 
-testChangeTagsForResourceResponse :: ChangeTagsForResourceResponse -> TestTree
-testChangeTagsForResourceResponse = res
-    "ChangeTagsForResourceResponse"
-    "fixture/ChangeTagsForResourceResponse.proto"
+testCreateHostedZoneResponse :: CreateHostedZoneResponse -> TestTree
+testCreateHostedZoneResponse = res
+    "CreateHostedZoneResponse"
+    "fixture/CreateHostedZoneResponse.proto"
     route53
-    (Proxy :: Proxy ChangeTagsForResource)
-
-testCreateHealthCheckResponse :: CreateHealthCheckResponse -> TestTree
-testCreateHealthCheckResponse = res
-    "CreateHealthCheckResponse"
-    "fixture/CreateHealthCheckResponse.proto"
-    route53
-    (Proxy :: Proxy CreateHealthCheck)
-
-testListHostedZonesResponse :: ListHostedZonesResponse -> TestTree
-testListHostedZonesResponse = res
-    "ListHostedZonesResponse"
-    "fixture/ListHostedZonesResponse.proto"
-    route53
-    (Proxy :: Proxy ListHostedZones)
+    (Proxy :: Proxy CreateHostedZone)
 
 testDisassociateVPCFromHostedZoneResponse :: DisassociateVPCFromHostedZoneResponse -> TestTree
 testDisassociateVPCFromHostedZoneResponse = res
@@ -480,12 +459,26 @@ testDisassociateVPCFromHostedZoneResponse = res
     route53
     (Proxy :: Proxy DisassociateVPCFromHostedZone)
 
-testGetHostedZoneResponse :: GetHostedZoneResponse -> TestTree
-testGetHostedZoneResponse = res
-    "GetHostedZoneResponse"
-    "fixture/GetHostedZoneResponse.proto"
+testCreateHealthCheckResponse :: CreateHealthCheckResponse -> TestTree
+testCreateHealthCheckResponse = res
+    "CreateHealthCheckResponse"
+    "fixture/CreateHealthCheckResponse.proto"
     route53
-    (Proxy :: Proxy GetHostedZone)
+    (Proxy :: Proxy CreateHealthCheck)
+
+testChangeTagsForResourceResponse :: ChangeTagsForResourceResponse -> TestTree
+testChangeTagsForResourceResponse = res
+    "ChangeTagsForResourceResponse"
+    "fixture/ChangeTagsForResourceResponse.proto"
+    route53
+    (Proxy :: Proxy ChangeTagsForResource)
+
+testListHostedZonesResponse :: ListHostedZonesResponse -> TestTree
+testListHostedZonesResponse = res
+    "ListHostedZonesResponse"
+    "fixture/ListHostedZonesResponse.proto"
+    route53
+    (Proxy :: Proxy ListHostedZones)
 
 testListGeoLocationsResponse :: ListGeoLocationsResponse -> TestTree
 testListGeoLocationsResponse = res
@@ -493,6 +486,13 @@ testListGeoLocationsResponse = res
     "fixture/ListGeoLocationsResponse.proto"
     route53
     (Proxy :: Proxy ListGeoLocations)
+
+testGetHostedZoneResponse :: GetHostedZoneResponse -> TestTree
+testGetHostedZoneResponse = res
+    "GetHostedZoneResponse"
+    "fixture/GetHostedZoneResponse.proto"
+    route53
+    (Proxy :: Proxy GetHostedZone)
 
 testGetHealthCheckResponse :: GetHealthCheckResponse -> TestTree
 testGetHealthCheckResponse = res
@@ -508,19 +508,19 @@ testListResourceRecordSetsResponse = res
     route53
     (Proxy :: Proxy ListResourceRecordSets)
 
-testGetHealthCheckCountResponse :: GetHealthCheckCountResponse -> TestTree
-testGetHealthCheckCountResponse = res
-    "GetHealthCheckCountResponse"
-    "fixture/GetHealthCheckCountResponse.proto"
-    route53
-    (Proxy :: Proxy GetHealthCheckCount)
-
 testCreateReusableDelegationSetResponse :: CreateReusableDelegationSetResponse -> TestTree
 testCreateReusableDelegationSetResponse = res
     "CreateReusableDelegationSetResponse"
     "fixture/CreateReusableDelegationSetResponse.proto"
     route53
     (Proxy :: Proxy CreateReusableDelegationSet)
+
+testGetHealthCheckCountResponse :: GetHealthCheckCountResponse -> TestTree
+testGetHealthCheckCountResponse = res
+    "GetHealthCheckCountResponse"
+    "fixture/GetHealthCheckCountResponse.proto"
+    route53
+    (Proxy :: Proxy GetHealthCheckCount)
 
 testGetHostedZoneCountResponse :: GetHostedZoneCountResponse -> TestTree
 testGetHostedZoneCountResponse = res

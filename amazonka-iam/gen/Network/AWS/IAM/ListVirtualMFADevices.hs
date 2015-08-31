@@ -36,8 +36,8 @@ module Network.AWS.IAM.ListVirtualMFADevices
     , ListVirtualMFADevices
     -- * Request Lenses
     , lvmdAssignmentStatus
-    , lvmdMaxItems
     , lvmdMarker
+    , lvmdMaxItems
 
     -- * Destructuring the Response
     , listVirtualMFADevicesResponse
@@ -59,8 +59,8 @@ import           Network.AWS.Response
 -- | /See:/ 'listVirtualMFADevices' smart constructor.
 data ListVirtualMFADevices = ListVirtualMFADevices'
     { _lvmdAssignmentStatus :: !(Maybe AssignmentStatusType)
-    , _lvmdMaxItems         :: !(Maybe Nat)
     , _lvmdMarker           :: !(Maybe Text)
+    , _lvmdMaxItems         :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListVirtualMFADevices' with the minimum fields required to make a request.
@@ -69,16 +69,16 @@ data ListVirtualMFADevices = ListVirtualMFADevices'
 --
 -- * 'lvmdAssignmentStatus'
 --
--- * 'lvmdMaxItems'
---
 -- * 'lvmdMarker'
+--
+-- * 'lvmdMaxItems'
 listVirtualMFADevices
     :: ListVirtualMFADevices
 listVirtualMFADevices =
     ListVirtualMFADevices'
     { _lvmdAssignmentStatus = Nothing
-    , _lvmdMaxItems = Nothing
     , _lvmdMarker = Nothing
+    , _lvmdMaxItems = Nothing
     }
 
 -- | The status (unassigned or assigned) of the devices to list. If you do
@@ -86,6 +86,12 @@ listVirtualMFADevices =
 -- lists both assigned and unassigned virtual MFA devices.
 lvmdAssignmentStatus :: Lens' ListVirtualMFADevices (Maybe AssignmentStatusType)
 lvmdAssignmentStatus = lens _lvmdAssignmentStatus (\ s a -> s{_lvmdAssignmentStatus = a});
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lvmdMarker :: Lens' ListVirtualMFADevices (Maybe Text)
+lvmdMarker = lens _lvmdMarker (\ s a -> s{_lvmdMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -95,12 +101,6 @@ lvmdAssignmentStatus = lens _lvmdAssignmentStatus (\ s a -> s{_lvmdAssignmentSta
 -- 100.
 lvmdMaxItems :: Lens' ListVirtualMFADevices (Maybe Natural)
 lvmdMaxItems = lens _lvmdMaxItems (\ s a -> s{_lvmdMaxItems = a}) . mapping _Nat;
-
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lvmdMarker :: Lens' ListVirtualMFADevices (Maybe Text)
-lvmdMarker = lens _lvmdMarker (\ s a -> s{_lvmdMarker = a});
 
 instance AWSPager ListVirtualMFADevices where
         page rq rs
@@ -135,7 +135,7 @@ instance ToQuery ListVirtualMFADevices where
               ["Action" =: ("ListVirtualMFADevices" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "AssignmentStatus" =: _lvmdAssignmentStatus,
-               "MaxItems" =: _lvmdMaxItems, "Marker" =: _lvmdMarker]
+               "Marker" =: _lvmdMarker, "MaxItems" =: _lvmdMaxItems]
 
 -- | Contains the response to a successful ListVirtualMFADevices request.
 --

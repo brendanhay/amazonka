@@ -31,8 +31,8 @@ module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     , mniaGroups
     , mniaSourceDestCheck
     , mniaAttachment
-    , mniaDryRun
     , mniaDescription
+    , mniaDryRun
     , mniaNetworkInterfaceId
 
     -- * Destructuring the Response
@@ -51,8 +51,8 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
     { _mniaGroups             :: !(Maybe [Text])
     , _mniaSourceDestCheck    :: !(Maybe AttributeBooleanValue)
     , _mniaAttachment         :: !(Maybe NetworkInterfaceAttachmentChanges)
-    , _mniaDryRun             :: !(Maybe Bool)
     , _mniaDescription        :: !(Maybe AttributeValue)
+    , _mniaDryRun             :: !(Maybe Bool)
     , _mniaNetworkInterfaceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -66,9 +66,9 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
 --
 -- * 'mniaAttachment'
 --
--- * 'mniaDryRun'
---
 -- * 'mniaDescription'
+--
+-- * 'mniaDryRun'
 --
 -- * 'mniaNetworkInterfaceId'
 modifyNetworkInterfaceAttribute
@@ -79,8 +79,8 @@ modifyNetworkInterfaceAttribute pNetworkInterfaceId_ =
     { _mniaGroups = Nothing
     , _mniaSourceDestCheck = Nothing
     , _mniaAttachment = Nothing
-    , _mniaDryRun = Nothing
     , _mniaDescription = Nothing
+    , _mniaDryRun = Nothing
     , _mniaNetworkInterfaceId = pNetworkInterfaceId_
     }
 
@@ -106,16 +106,16 @@ mniaSourceDestCheck = lens _mniaSourceDestCheck (\ s a -> s{_mniaSourceDestCheck
 mniaAttachment :: Lens' ModifyNetworkInterfaceAttribute (Maybe NetworkInterfaceAttachmentChanges)
 mniaAttachment = lens _mniaAttachment (\ s a -> s{_mniaAttachment = a});
 
+-- | A description for the network interface.
+mniaDescription :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeValue)
+mniaDescription = lens _mniaDescription (\ s a -> s{_mniaDescription = a});
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is 'DryRunOperation'.
 -- Otherwise, it is 'UnauthorizedOperation'.
 mniaDryRun :: Lens' ModifyNetworkInterfaceAttribute (Maybe Bool)
 mniaDryRun = lens _mniaDryRun (\ s a -> s{_mniaDryRun = a});
-
--- | A description for the network interface.
-mniaDescription :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeValue)
-mniaDescription = lens _mniaDescription (\ s a -> s{_mniaDescription = a});
 
 -- | The ID of the network interface.
 mniaNetworkInterfaceId :: Lens' ModifyNetworkInterfaceAttribute Text
@@ -148,8 +148,8 @@ instance ToQuery ModifyNetworkInterfaceAttribute
                  (toQueryList "SecurityGroupId" <$> _mniaGroups),
                "SourceDestCheck" =: _mniaSourceDestCheck,
                "Attachment" =: _mniaAttachment,
-               "DryRun" =: _mniaDryRun,
                "Description" =: _mniaDescription,
+               "DryRun" =: _mniaDryRun,
                "NetworkInterfaceId" =: _mniaNetworkInterfaceId]
 
 -- | /See:/ 'modifyNetworkInterfaceAttributeResponse' smart constructor.

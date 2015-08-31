@@ -1272,18 +1272,18 @@ instance FromXML OfferingTypeValues where
     parseXML = parseXMLText "OfferingTypeValues"
 
 data PermissionGroup =
-    PGAll
+    All
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PermissionGroup where
     parser = takeLowerText >>= \case
-        "all" -> pure PGAll
+        "all" -> pure All
         e -> fromTextError $ "Failure parsing PermissionGroup from value: '" <> e
            <> "'. Accepted values: all"
 
 instance ToText PermissionGroup where
     toText = \case
-        PGAll -> "all"
+        All -> "all"
 
 instance Hashable     PermissionGroup
 instance ToByteString PermissionGroup
@@ -1294,27 +1294,27 @@ instance FromXML PermissionGroup where
     parseXML = parseXMLText "PermissionGroup"
 
 data PlacementGroupState
-    = PGSAvailable
-    | PGSDeleted
-    | PGSDeleting
-    | PGSPending
+    = Available
+    | Deleted
+    | Deleting
+    | Pending
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PlacementGroupState where
     parser = takeLowerText >>= \case
-        "available" -> pure PGSAvailable
-        "deleted" -> pure PGSDeleted
-        "deleting" -> pure PGSDeleting
-        "pending" -> pure PGSPending
+        "available" -> pure Available
+        "deleted" -> pure Deleted
+        "deleting" -> pure Deleting
+        "pending" -> pure Pending
         e -> fromTextError $ "Failure parsing PlacementGroupState from value: '" <> e
            <> "'. Accepted values: available, deleted, deleting, pending"
 
 instance ToText PlacementGroupState where
     toText = \case
-        PGSAvailable -> "available"
-        PGSDeleted -> "deleted"
-        PGSDeleting -> "deleting"
-        PGSPending -> "pending"
+        Available -> "available"
+        Deleted -> "deleted"
+        Deleting -> "deleting"
+        Pending -> "pending"
 
 instance Hashable     PlacementGroupState
 instance ToByteString PlacementGroupState
@@ -1347,18 +1347,18 @@ instance FromXML PlacementStrategy where
     parseXML = parseXMLText "PlacementStrategy"
 
 data PlatformValues =
-    PVWindows
+    Windows
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PlatformValues where
     parser = takeLowerText >>= \case
-        "windows" -> pure PVWindows
+        "windows" -> pure Windows
         e -> fromTextError $ "Failure parsing PlatformValues from value: '" <> e
            <> "'. Accepted values: Windows"
 
 instance ToText PlatformValues where
     toText = \case
-        PVWindows -> "Windows"
+        Windows -> "Windows"
 
 instance Hashable     PlatformValues
 instance ToByteString PlatformValues
@@ -1394,27 +1394,27 @@ instance FromXML ProductCodeValues where
     parseXML = parseXMLText "ProductCodeValues"
 
 data RIProductDescription
-    = LinuxUnix
-    | LinuxUnixAmazonVPC
-    | Windows
-    | WindowsAmazonVPC
+    = RIDLinuxUnix
+    | RIDLinuxUnixAmazonVPC
+    | RIDWindows
+    | RIDWindowsAmazonVPC
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RIProductDescription where
     parser = takeLowerText >>= \case
-        "linux/unix" -> pure LinuxUnix
-        "linux/unix (amazon vpc)" -> pure LinuxUnixAmazonVPC
-        "windows" -> pure Windows
-        "windows (amazon vpc)" -> pure WindowsAmazonVPC
+        "linux/unix" -> pure RIDLinuxUnix
+        "linux/unix (amazon vpc)" -> pure RIDLinuxUnixAmazonVPC
+        "windows" -> pure RIDWindows
+        "windows (amazon vpc)" -> pure RIDWindowsAmazonVPC
         e -> fromTextError $ "Failure parsing RIProductDescription from value: '" <> e
            <> "'. Accepted values: Linux/UNIX, Linux/UNIX (Amazon VPC), Windows, Windows (Amazon VPC)"
 
 instance ToText RIProductDescription where
     toText = \case
-        LinuxUnix -> "Linux/UNIX"
-        LinuxUnixAmazonVPC -> "Linux/UNIX (Amazon VPC)"
-        Windows -> "Windows"
-        WindowsAmazonVPC -> "Windows (Amazon VPC)"
+        RIDLinuxUnix -> "Linux/UNIX"
+        RIDLinuxUnixAmazonVPC -> "Linux/UNIX (Amazon VPC)"
+        RIDWindows -> "Windows"
+        RIDWindowsAmazonVPC -> "Windows (Amazon VPC)"
 
 instance Hashable     RIProductDescription
 instance ToByteString RIProductDescription
@@ -1490,21 +1490,21 @@ instance ToQuery      ReportInstanceReasonCodes
 instance ToHeader     ReportInstanceReasonCodes
 
 data ReportStatusType
-    = Impaired
-    | OK
+    = RSTImpaired
+    | RSTOK
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReportStatusType where
     parser = takeLowerText >>= \case
-        "impaired" -> pure Impaired
-        "ok" -> pure OK
+        "impaired" -> pure RSTImpaired
+        "ok" -> pure RSTOK
         e -> fromTextError $ "Failure parsing ReportStatusType from value: '" <> e
            <> "'. Accepted values: impaired, ok"
 
 instance ToText ReportStatusType where
     toText = \case
-        Impaired -> "impaired"
-        OK -> "ok"
+        RSTImpaired -> "impaired"
+        RSTOK -> "ok"
 
 instance Hashable     ReportStatusType
 instance ToByteString ReportStatusType
@@ -1841,27 +1841,27 @@ instance FromXML SpotInstanceType where
     parseXML = parseXMLText "SpotInstanceType"
 
 data State
-    = Available
-    | Deleted
-    | Deleting
-    | Pending
+    = SAvailable
+    | SDeleted
+    | SDeleting
+    | SPending
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText State where
     parser = takeLowerText >>= \case
-        "available" -> pure Available
-        "deleted" -> pure Deleted
-        "deleting" -> pure Deleting
-        "pending" -> pure Pending
+        "available" -> pure SAvailable
+        "deleted" -> pure SDeleted
+        "deleting" -> pure SDeleting
+        "pending" -> pure SPending
         e -> fromTextError $ "Failure parsing State from value: '" <> e
            <> "'. Accepted values: Available, Deleted, Deleting, Pending"
 
 instance ToText State where
     toText = \case
-        Available -> "Available"
-        Deleted -> "Deleted"
-        Deleting -> "Deleting"
-        Pending -> "Pending"
+        SAvailable -> "Available"
+        SDeleted -> "Deleted"
+        SDeleting -> "Deleting"
+        SPending -> "Pending"
 
 instance Hashable     State
 instance ToByteString State
@@ -1894,27 +1894,27 @@ instance FromXML StatusName where
     parseXML = parseXMLText "StatusName"
 
 data StatusType
-    = Failed
-    | Initializing
-    | InsufficientData
-    | Passed
+    = STFailed
+    | STInitializing
+    | STInsufficientData
+    | STPassed
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StatusType where
     parser = takeLowerText >>= \case
-        "failed" -> pure Failed
-        "initializing" -> pure Initializing
-        "insufficient-data" -> pure InsufficientData
-        "passed" -> pure Passed
+        "failed" -> pure STFailed
+        "initializing" -> pure STInitializing
+        "insufficient-data" -> pure STInsufficientData
+        "passed" -> pure STPassed
         e -> fromTextError $ "Failure parsing StatusType from value: '" <> e
            <> "'. Accepted values: failed, initializing, insufficient-data, passed"
 
 instance ToText StatusType where
     toText = \case
-        Failed -> "failed"
-        Initializing -> "initializing"
-        InsufficientData -> "insufficient-data"
-        Passed -> "passed"
+        STFailed -> "failed"
+        STInitializing -> "initializing"
+        STInsufficientData -> "insufficient-data"
+        STPassed -> "passed"
 
 instance Hashable     StatusType
 instance ToByteString StatusType
@@ -1925,21 +1925,21 @@ instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
 
 data SubnetState
-    = SAvailable
-    | SPending
+    = SubAvailable
+    | SubPending
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SubnetState where
     parser = takeLowerText >>= \case
-        "available" -> pure SAvailable
-        "pending" -> pure SPending
+        "available" -> pure SubAvailable
+        "pending" -> pure SubPending
         e -> fromTextError $ "Failure parsing SubnetState from value: '" <> e
            <> "'. Accepted values: available, pending"
 
 instance ToText SubnetState where
     toText = \case
-        SAvailable -> "available"
-        SPending -> "pending"
+        SubAvailable -> "available"
+        SubPending -> "pending"
 
 instance Hashable     SubnetState
 instance ToByteString SubnetState
@@ -2034,24 +2034,24 @@ instance FromXML Tenancy where
     parseXML = parseXMLText "Tenancy"
 
 data TrafficType
-    = Accept
-    | All
-    | Reject
+    = TTAccept
+    | TTAll
+    | TTReject
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TrafficType where
     parser = takeLowerText >>= \case
-        "accept" -> pure Accept
-        "all" -> pure All
-        "reject" -> pure Reject
+        "accept" -> pure TTAccept
+        "all" -> pure TTAll
+        "reject" -> pure TTReject
         e -> fromTextError $ "Failure parsing TrafficType from value: '" <> e
            <> "'. Accepted values: ACCEPT, ALL, REJECT"
 
 instance ToText TrafficType where
     toText = \case
-        Accept -> "ACCEPT"
-        All -> "ALL"
-        Reject -> "REJECT"
+        TTAccept -> "ACCEPT"
+        TTAll -> "ALL"
+        TTReject -> "REJECT"
 
 instance Hashable     TrafficType
 instance ToByteString TrafficType
@@ -2323,24 +2323,24 @@ instance FromXML VolumeState where
     parseXML = parseXMLText "VolumeState"
 
 data VolumeStatusInfoStatus
-    = VSISImpaired
-    | VSISInsufficientData
-    | VSISOK
+    = Impaired
+    | InsufficientData
+    | OK
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VolumeStatusInfoStatus where
     parser = takeLowerText >>= \case
-        "impaired" -> pure VSISImpaired
-        "insufficient-data" -> pure VSISInsufficientData
-        "ok" -> pure VSISOK
+        "impaired" -> pure Impaired
+        "insufficient-data" -> pure InsufficientData
+        "ok" -> pure OK
         e -> fromTextError $ "Failure parsing VolumeStatusInfoStatus from value: '" <> e
            <> "'. Accepted values: impaired, insufficient-data, ok"
 
 instance ToText VolumeStatusInfoStatus where
     toText = \case
-        VSISImpaired -> "impaired"
-        VSISInsufficientData -> "insufficient-data"
-        VSISOK -> "ok"
+        Impaired -> "impaired"
+        InsufficientData -> "insufficient-data"
+        OK -> "ok"
 
 instance Hashable     VolumeStatusInfoStatus
 instance ToByteString VolumeStatusInfoStatus

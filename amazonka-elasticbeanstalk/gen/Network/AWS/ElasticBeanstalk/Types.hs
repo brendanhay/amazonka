@@ -17,13 +17,13 @@ module Network.AWS.ElasticBeanstalk.Types
 
     -- * Errors
     , _InvalidRequestException
-    , _S3SubscriptionRequiredException
     , _TooManyBucketsException
+    , _S3SubscriptionRequiredException
     , _OperationInProgressException
-    , _TooManyConfigurationTemplatesException
     , _TooManyApplicationVersionsException
-    , _ElasticBeanstalkServiceException
+    , _TooManyConfigurationTemplatesException
     , _InsufficientPrivilegesException
+    , _ElasticBeanstalkServiceException
     , _TooManyApplicationsException
     , _SourceBundleDeletionException
     , _S3LocationNotInServiceRegionException
@@ -62,8 +62,8 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * ApplicationDescription
     , ApplicationDescription
     , applicationDescription
-    , adDateUpdated
     , adVersions
+    , adDateUpdated
     , adDateCreated
     , adApplicationName
     , adConfigurationTemplates
@@ -85,10 +85,10 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * ApplicationVersionDescription
     , ApplicationVersionDescription
     , applicationVersionDescription
-    , avdDateUpdated
     , avdSourceBundle
-    , avdVersionLabel
+    , avdDateUpdated
     , avdDateCreated
+    , avdVersionLabel
     , avdApplicationName
     , avdDescription
 
@@ -105,8 +105,8 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * CPUUtilization
     , CPUUtilization
     , cpuUtilization
-    , cuIdle
     , cuSoftIRQ
+    , cuIdle
     , cuIRQ
     , cuSystem
     , cuUser
@@ -118,10 +118,10 @@ module Network.AWS.ElasticBeanstalk.Types
     , configurationOptionDescription
     , codMaxValue
     , codRegex
-    , codUserDefined
     , codMaxLength
-    , codValueOptions
+    , codUserDefined
     , codNamespace
+    , codValueOptions
     , codName
     , codChangeSeverity
     , codDefaultValue
@@ -133,8 +133,8 @@ module Network.AWS.ElasticBeanstalk.Types
     , configurationOptionSetting
     , cosOptionName
     , cosResourceName
-    , cosValue
     , cosNamespace
+    , cosValue
 
     -- * ConfigurationSettingsDescription
     , ConfigurationSettingsDescription
@@ -152,22 +152,22 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * EnvironmentDescription
     , EnvironmentDescription
     , environmentDescription
-    , eCNAME
     , eStatus
+    , eCNAME
     , eTemplateName
     , eAbortableOperationInProgress
     , eEndpointURL
-    , eDateUpdated
     , eResources
+    , eDateUpdated
+    , eDateCreated
     , eHealth
     , eVersionLabel
-    , eDateCreated
     , eTier
     , eEnvironmentName
     , eApplicationName
-    , eHealthStatus
-    , eEnvironmentId
     , eSolutionStackName
+    , eEnvironmentId
+    , eHealthStatus
     , eDescription
 
     -- * EnvironmentInfoDescription
@@ -184,8 +184,8 @@ module Network.AWS.ElasticBeanstalk.Types
     , erdQueues
     , erdTriggers
     , erdLoadBalancers
-    , erdInstances
     , erdEnvironmentName
+    , erdInstances
     , erdLaunchConfigurations
     , erdAutoScalingGroups
 
@@ -295,9 +295,9 @@ module Network.AWS.ElasticBeanstalk.Types
     , singleInstanceHealth
     , sihInstanceId
     , sihCauses
+    , sihSystem
     , sihApplicationMetrics
     , sihColor
-    , sihSystem
     , sihHealthStatus
     , sihLaunchedAt
 
@@ -388,22 +388,28 @@ _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceE
 _InvalidRequestException =
     _ServiceError . hasStatus 400 . hasCode "InvalidRequestException"
 
--- | The caller does not have a subscription to Amazon S3.
-_S3SubscriptionRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_S3SubscriptionRequiredException =
-    _ServiceError . hasStatus 400 . hasCode "S3SubscriptionRequiredException"
-
 -- | The web service attempted to create a bucket in an Amazon S3 account
 -- that already has 100 buckets.
 _TooManyBucketsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyBucketsException =
     _ServiceError . hasStatus 400 . hasCode "TooManyBucketsException"
 
+-- | The caller does not have a subscription to Amazon S3.
+_S3SubscriptionRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+_S3SubscriptionRequiredException =
+    _ServiceError . hasStatus 400 . hasCode "S3SubscriptionRequiredException"
+
 -- | Unable to perform the specified operation because another operation is
 -- already in progress affecting an element in this activity.
 _OperationInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationInProgressException =
     _ServiceError . hasStatus 400 . hasCode "OperationInProgressFailure"
+
+-- | The caller has exceeded the limit on the number of application versions
+-- associated with their account.
+_TooManyApplicationVersionsException :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyApplicationVersionsException =
+    _ServiceError . hasCode "TooManyApplicationVersionsException"
 
 -- | The caller has exceeded the limit on the number of configuration
 -- templates associated with their account.
@@ -412,22 +418,16 @@ _TooManyConfigurationTemplatesException =
     _ServiceError .
     hasStatus 400 . hasCode "TooManyConfigurationTemplatesException"
 
--- | The caller has exceeded the limit on the number of application versions
--- associated with their account.
-_TooManyApplicationVersionsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyApplicationVersionsException =
-    _ServiceError . hasCode "TooManyApplicationVersionsException"
-
--- | Prism for ElasticBeanstalkServiceException' errors.
-_ElasticBeanstalkServiceException :: AsError a => Getting (First ServiceError) a ServiceError
-_ElasticBeanstalkServiceException =
-    _ServiceError . hasCode "ElasticBeanstalkServiceException"
-
 -- | Unable to perform the specified operation because the user does not have
 -- enough privileges for one of more downstream aws services
 _InsufficientPrivilegesException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientPrivilegesException =
     _ServiceError . hasStatus 403 . hasCode "InsufficientPrivilegesException"
+
+-- | Prism for ElasticBeanstalkServiceException' errors.
+_ElasticBeanstalkServiceException :: AsError a => Getting (First ServiceError) a ServiceError
+_ElasticBeanstalkServiceException =
+    _ServiceError . hasCode "ElasticBeanstalkServiceException"
 
 -- | The caller has exceeded the limit on the number of applications
 -- associated with their account.

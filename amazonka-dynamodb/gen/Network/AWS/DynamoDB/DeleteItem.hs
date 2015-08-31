@@ -41,10 +41,10 @@ module Network.AWS.DynamoDB.DeleteItem
       deleteItem
     , DeleteItem
     -- * Request Lenses
-    , diReturnValues
     , diExpressionAttributeNames
-    , diReturnConsumedCapacity
+    , diReturnValues
     , diExpressionAttributeValues
+    , diReturnConsumedCapacity
     , diReturnItemCollectionMetrics
     , diConditionExpression
     , diConditionalOperator
@@ -56,8 +56,8 @@ module Network.AWS.DynamoDB.DeleteItem
     , deleteItemResponse
     , DeleteItemResponse
     -- * Response Lenses
-    , dirsConsumedCapacity
     , dirsItemCollectionMetrics
+    , dirsConsumedCapacity
     , dirsAttributes
     , dirsStatus
     ) where
@@ -72,10 +72,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteItem' smart constructor.
 data DeleteItem = DeleteItem'
-    { _diReturnValues                :: !(Maybe ReturnValue)
-    , _diExpressionAttributeNames    :: !(Maybe (Map Text Text))
-    , _diReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    { _diExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    , _diReturnValues                :: !(Maybe ReturnValue)
     , _diExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
+    , _diReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
     , _diReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
     , _diConditionExpression         :: !(Maybe Text)
     , _diConditionalOperator         :: !(Maybe ConditionalOperator)
@@ -88,13 +88,13 @@ data DeleteItem = DeleteItem'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diReturnValues'
---
 -- * 'diExpressionAttributeNames'
 --
--- * 'diReturnConsumedCapacity'
+-- * 'diReturnValues'
 --
 -- * 'diExpressionAttributeValues'
+--
+-- * 'diReturnConsumedCapacity'
 --
 -- * 'diReturnItemCollectionMetrics'
 --
@@ -112,10 +112,10 @@ deleteItem
     -> DeleteItem
 deleteItem pTableName_ =
     DeleteItem'
-    { _diReturnValues = Nothing
-    , _diExpressionAttributeNames = Nothing
-    , _diReturnConsumedCapacity = Nothing
+    { _diExpressionAttributeNames = Nothing
+    , _diReturnValues = Nothing
     , _diExpressionAttributeValues = Nothing
+    , _diReturnConsumedCapacity = Nothing
     , _diReturnItemCollectionMetrics = Nothing
     , _diConditionExpression = Nothing
     , _diConditionalOperator = Nothing
@@ -123,19 +123,6 @@ deleteItem pTableName_ =
     , _diTableName = pTableName_
     , _diKey = mempty
     }
-
--- | Use /ReturnValues/ if you want to get the item attributes as they
--- appeared before they were deleted. For /DeleteItem/, the valid values
--- are:
---
--- -   'NONE' - If /ReturnValues/ is not specified, or if its value is
---     'NONE', then nothing is returned. (This setting is the default for
---     /ReturnValues/.)
---
--- -   'ALL_OLD' - The content of the old item is returned.
---
-diReturnValues :: Lens' DeleteItem (Maybe ReturnValue)
-diReturnValues = lens _diReturnValues (\ s a -> s{_diReturnValues = a});
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using /ExpressionAttributeNames/:
@@ -177,9 +164,18 @@ diReturnValues = lens _diReturnValues (\ s a -> s{_diReturnValues = a});
 diExpressionAttributeNames :: Lens' DeleteItem (HashMap Text Text)
 diExpressionAttributeNames = lens _diExpressionAttributeNames (\ s a -> s{_diExpressionAttributeNames = a}) . _Default . _Map;
 
--- | Undocumented member.
-diReturnConsumedCapacity :: Lens' DeleteItem (Maybe ReturnConsumedCapacity)
-diReturnConsumedCapacity = lens _diReturnConsumedCapacity (\ s a -> s{_diReturnConsumedCapacity = a});
+-- | Use /ReturnValues/ if you want to get the item attributes as they
+-- appeared before they were deleted. For /DeleteItem/, the valid values
+-- are:
+--
+-- -   'NONE' - If /ReturnValues/ is not specified, or if its value is
+--     'NONE', then nothing is returned. (This setting is the default for
+--     /ReturnValues/.)
+--
+-- -   'ALL_OLD' - The content of the old item is returned.
+--
+diReturnValues :: Lens' DeleteItem (Maybe ReturnValue)
+diReturnValues = lens _diReturnValues (\ s a -> s{_diReturnValues = a});
 
 -- | One or more values that can be substituted in an expression.
 --
@@ -202,6 +198,10 @@ diReturnConsumedCapacity = lens _diReturnConsumedCapacity (\ s a -> s{_diReturnC
 -- in the /Amazon DynamoDB Developer Guide/.
 diExpressionAttributeValues :: Lens' DeleteItem (HashMap Text AttributeValue)
 diExpressionAttributeValues = lens _diExpressionAttributeValues (\ s a -> s{_diExpressionAttributeValues = a}) . _Default . _Map;
+
+-- | Undocumented member.
+diReturnConsumedCapacity :: Lens' DeleteItem (Maybe ReturnConsumedCapacity)
+diReturnConsumedCapacity = lens _diReturnConsumedCapacity (\ s a -> s{_diReturnConsumedCapacity = a});
 
 -- | Determines whether item collection metrics are returned. If set to
 -- 'SIZE', the response includes statistics about item collections, if any,
@@ -501,8 +501,8 @@ instance AWSRequest DeleteItem where
           = receiveJSON
               (\ s h x ->
                  DeleteItemResponse' <$>
-                   (x .?> "ConsumedCapacity") <*>
-                     (x .?> "ItemCollectionMetrics")
+                   (x .?> "ItemCollectionMetrics") <*>
+                     (x .?> "ConsumedCapacity")
                      <*> (x .?> "Attributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
@@ -519,13 +519,13 @@ instance ToJSON DeleteItem where
         toJSON DeleteItem'{..}
           = object
               (catMaybes
-                 [("ReturnValues" .=) <$> _diReturnValues,
-                  ("ExpressionAttributeNames" .=) <$>
+                 [("ExpressionAttributeNames" .=) <$>
                     _diExpressionAttributeNames,
-                  ("ReturnConsumedCapacity" .=) <$>
-                    _diReturnConsumedCapacity,
+                  ("ReturnValues" .=) <$> _diReturnValues,
                   ("ExpressionAttributeValues" .=) <$>
                     _diExpressionAttributeValues,
+                  ("ReturnConsumedCapacity" .=) <$>
+                    _diReturnConsumedCapacity,
                   ("ReturnItemCollectionMetrics" .=) <$>
                     _diReturnItemCollectionMetrics,
                   ("ConditionExpression" .=) <$>
@@ -546,8 +546,8 @@ instance ToQuery DeleteItem where
 --
 -- /See:/ 'deleteItemResponse' smart constructor.
 data DeleteItemResponse = DeleteItemResponse'
-    { _dirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
-    , _dirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
+    { _dirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
+    , _dirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
     , _dirsAttributes            :: !(Maybe (Map Text AttributeValue))
     , _dirsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -556,9 +556,9 @@ data DeleteItemResponse = DeleteItemResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dirsConsumedCapacity'
---
 -- * 'dirsItemCollectionMetrics'
+--
+-- * 'dirsConsumedCapacity'
 --
 -- * 'dirsAttributes'
 --
@@ -568,15 +568,11 @@ deleteItemResponse
     -> DeleteItemResponse
 deleteItemResponse pStatus_ =
     DeleteItemResponse'
-    { _dirsConsumedCapacity = Nothing
-    , _dirsItemCollectionMetrics = Nothing
+    { _dirsItemCollectionMetrics = Nothing
+    , _dirsConsumedCapacity = Nothing
     , _dirsAttributes = Nothing
     , _dirsStatus = pStatus_
     }
-
--- | Undocumented member.
-dirsConsumedCapacity :: Lens' DeleteItemResponse (Maybe ConsumedCapacity)
-dirsConsumedCapacity = lens _dirsConsumedCapacity (\ s a -> s{_dirsConsumedCapacity = a});
 
 -- | Information about item collections, if any, that were affected by the
 -- operation. /ItemCollectionMetrics/ is only returned if the request asked
@@ -601,6 +597,10 @@ dirsConsumedCapacity = lens _dirsConsumedCapacity (\ s a -> s{_dirsConsumedCapac
 --
 dirsItemCollectionMetrics :: Lens' DeleteItemResponse (Maybe ItemCollectionMetrics)
 dirsItemCollectionMetrics = lens _dirsItemCollectionMetrics (\ s a -> s{_dirsItemCollectionMetrics = a});
+
+-- | Undocumented member.
+dirsConsumedCapacity :: Lens' DeleteItemResponse (Maybe ConsumedCapacity)
+dirsConsumedCapacity = lens _dirsConsumedCapacity (\ s a -> s{_dirsConsumedCapacity = a});
 
 -- | A map of attribute names to /AttributeValue/ objects, representing the
 -- item as it appeared before the /DeleteItem/ operation. This map appears

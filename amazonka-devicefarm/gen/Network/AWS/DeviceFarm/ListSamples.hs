@@ -34,9 +34,9 @@ module Network.AWS.DeviceFarm.ListSamples
     , listSamplesResponse
     , ListSamplesResponse
     -- * Response Lenses
-    , lsrsNextToken
-    , lsrsSamples
-    , lsrsStatus
+    , lrsNextToken
+    , lrsSamples
+    , lrsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -115,40 +115,40 @@ instance ToQuery ListSamples where
 --
 -- /See:/ 'listSamplesResponse' smart constructor.
 data ListSamplesResponse = ListSamplesResponse'
-    { _lsrsNextToken :: !(Maybe Text)
-    , _lsrsSamples   :: !(Maybe [Sample])
-    , _lsrsStatus    :: !Int
+    { _lrsNextToken :: !(Maybe Text)
+    , _lrsSamples   :: !(Maybe [Sample])
+    , _lrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListSamplesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsrsNextToken'
+-- * 'lrsNextToken'
 --
--- * 'lsrsSamples'
+-- * 'lrsSamples'
 --
--- * 'lsrsStatus'
+-- * 'lrsStatus'
 listSamplesResponse
-    :: Int -- ^ 'lsrsStatus'
+    :: Int -- ^ 'lrsStatus'
     -> ListSamplesResponse
 listSamplesResponse pStatus_ =
     ListSamplesResponse'
-    { _lsrsNextToken = Nothing
-    , _lsrsSamples = Nothing
-    , _lsrsStatus = pStatus_
+    { _lrsNextToken = Nothing
+    , _lrsSamples = Nothing
+    , _lrsStatus = pStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent
 -- call to this operation to return the next set of items in the list.
-lsrsNextToken :: Lens' ListSamplesResponse (Maybe Text)
-lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
+lrsNextToken :: Lens' ListSamplesResponse (Maybe Text)
+lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a});
 
 -- | Information about the samples.
-lsrsSamples :: Lens' ListSamplesResponse [Sample]
-lsrsSamples = lens _lsrsSamples (\ s a -> s{_lsrsSamples = a}) . _Default . _Coerce;
+lrsSamples :: Lens' ListSamplesResponse [Sample]
+lrsSamples = lens _lrsSamples (\ s a -> s{_lrsSamples = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lsrsStatus :: Lens' ListSamplesResponse Int
-lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});
+lrsStatus :: Lens' ListSamplesResponse Int
+lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});

@@ -45,30 +45,30 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     , ueVersionLabel
     , ueTier
     , ueEnvironmentName
-    , ueEnvironmentId
     , ueSolutionStackName
+    , ueEnvironmentId
     , ueDescription
 
     -- * Destructuring the Response
     , environmentDescription
     , EnvironmentDescription
     -- * Response Lenses
-    , eCNAME
     , eStatus
+    , eCNAME
     , eTemplateName
     , eAbortableOperationInProgress
     , eEndpointURL
-    , eDateUpdated
     , eResources
+    , eDateUpdated
+    , eDateCreated
     , eHealth
     , eVersionLabel
-    , eDateCreated
     , eTier
     , eEnvironmentName
     , eApplicationName
-    , eHealthStatus
-    , eEnvironmentId
     , eSolutionStackName
+    , eEnvironmentId
+    , eHealthStatus
     , eDescription
     ) where
 
@@ -88,8 +88,8 @@ data UpdateEnvironment = UpdateEnvironment'
     , _ueVersionLabel      :: !(Maybe Text)
     , _ueTier              :: !(Maybe EnvironmentTier)
     , _ueEnvironmentName   :: !(Maybe Text)
-    , _ueEnvironmentId     :: !(Maybe Text)
     , _ueSolutionStackName :: !(Maybe Text)
+    , _ueEnvironmentId     :: !(Maybe Text)
     , _ueDescription       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -109,9 +109,9 @@ data UpdateEnvironment = UpdateEnvironment'
 --
 -- * 'ueEnvironmentName'
 --
--- * 'ueEnvironmentId'
---
 -- * 'ueSolutionStackName'
+--
+-- * 'ueEnvironmentId'
 --
 -- * 'ueDescription'
 updateEnvironment
@@ -124,8 +124,8 @@ updateEnvironment =
     , _ueVersionLabel = Nothing
     , _ueTier = Nothing
     , _ueEnvironmentName = Nothing
-    , _ueEnvironmentId = Nothing
     , _ueSolutionStackName = Nothing
+    , _ueEnvironmentId = Nothing
     , _ueDescription = Nothing
     }
 
@@ -169,6 +169,11 @@ ueTier = lens _ueTier (\ s a -> s{_ueTier = a});
 ueEnvironmentName :: Lens' UpdateEnvironment (Maybe Text)
 ueEnvironmentName = lens _ueEnvironmentName (\ s a -> s{_ueEnvironmentName = a});
 
+-- | This specifies the platform version that the environment will run after
+-- the environment is updated.
+ueSolutionStackName :: Lens' UpdateEnvironment (Maybe Text)
+ueSolutionStackName = lens _ueSolutionStackName (\ s a -> s{_ueSolutionStackName = a});
+
 -- | The ID of the environment to update.
 --
 -- If no environment with this ID exists, AWS Elastic Beanstalk returns an
@@ -179,11 +184,6 @@ ueEnvironmentName = lens _ueEnvironmentName (\ s a -> s{_ueEnvironmentName = a})
 -- 'MissingRequiredParameter' error.
 ueEnvironmentId :: Lens' UpdateEnvironment (Maybe Text)
 ueEnvironmentId = lens _ueEnvironmentId (\ s a -> s{_ueEnvironmentId = a});
-
--- | This specifies the platform version that the environment will run after
--- the environment is updated.
-ueSolutionStackName :: Lens' UpdateEnvironment (Maybe Text)
-ueSolutionStackName = lens _ueSolutionStackName (\ s a -> s{_ueSolutionStackName = a});
 
 -- | If this parameter is specified, AWS Elastic Beanstalk updates the
 -- description of this environment.
@@ -216,6 +216,6 @@ instance ToQuery UpdateEnvironment where
                  toQuery (toQueryList "member" <$> _ueOptionSettings),
                "VersionLabel" =: _ueVersionLabel, "Tier" =: _ueTier,
                "EnvironmentName" =: _ueEnvironmentName,
-               "EnvironmentId" =: _ueEnvironmentId,
                "SolutionStackName" =: _ueSolutionStackName,
+               "EnvironmentId" =: _ueEnvironmentId,
                "Description" =: _ueDescription]

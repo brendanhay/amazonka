@@ -30,8 +30,8 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
       describeCacheParameters
     , DescribeCacheParameters
     -- * Request Lenses
-    , dcpMaxRecords
     , dcpMarker
+    , dcpMaxRecords
     , dcpSource
     , dcpCacheParameterGroupName
 
@@ -40,8 +40,8 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     , DescribeCacheParametersResponse
     -- * Response Lenses
     , dcprsCacheNodeTypeSpecificParameters
-    , dcprsParameters
     , dcprsMarker
+    , dcprsParameters
     , dcprsStatus
     ) where
 
@@ -56,8 +56,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeCacheParameters' smart constructor.
 data DescribeCacheParameters = DescribeCacheParameters'
-    { _dcpMaxRecords              :: !(Maybe Int)
-    , _dcpMarker                  :: !(Maybe Text)
+    { _dcpMarker                  :: !(Maybe Text)
+    , _dcpMaxRecords              :: !(Maybe Int)
     , _dcpSource                  :: !(Maybe Text)
     , _dcpCacheParameterGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -66,9 +66,9 @@ data DescribeCacheParameters = DescribeCacheParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcpMaxRecords'
---
 -- * 'dcpMarker'
+--
+-- * 'dcpMaxRecords'
 --
 -- * 'dcpSource'
 --
@@ -78,11 +78,18 @@ describeCacheParameters
     -> DescribeCacheParameters
 describeCacheParameters pCacheParameterGroupName_ =
     DescribeCacheParameters'
-    { _dcpMaxRecords = Nothing
-    , _dcpMarker = Nothing
+    { _dcpMarker = Nothing
+    , _dcpMaxRecords = Nothing
     , _dcpSource = Nothing
     , _dcpCacheParameterGroupName = pCacheParameterGroupName_
     }
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+dcpMarker :: Lens' DescribeCacheParameters (Maybe Text)
+dcpMarker = lens _dcpMarker (\ s a -> s{_dcpMarker = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a marker is
@@ -93,13 +100,6 @@ describeCacheParameters pCacheParameterGroupName_ =
 -- Constraints: minimum 20; maximum 100.
 dcpMaxRecords :: Lens' DescribeCacheParameters (Maybe Int)
 dcpMaxRecords = lens _dcpMaxRecords (\ s a -> s{_dcpMaxRecords = a});
-
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
-dcpMarker :: Lens' DescribeCacheParameters (Maybe Text)
-dcpMarker = lens _dcpMarker (\ s a -> s{_dcpMarker = a});
 
 -- | The parameter types to return.
 --
@@ -129,10 +129,10 @@ instance AWSRequest DescribeCacheParameters where
                    (x .@? "CacheNodeTypeSpecificParameters" .!@ mempty
                       >>=
                       may (parseXMLList "CacheNodeTypeSpecificParameter"))
+                     <*> (x .@? "Marker")
                      <*>
                      (x .@? "Parameters" .!@ mempty >>=
                         may (parseXMLList "Parameter"))
-                     <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeCacheParameters where
@@ -147,8 +147,9 @@ instance ToQuery DescribeCacheParameters where
               ["Action" =:
                  ("DescribeCacheParameters" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
+               "Marker" =: _dcpMarker,
                "MaxRecords" =: _dcpMaxRecords,
-               "Marker" =: _dcpMarker, "Source" =: _dcpSource,
+               "Source" =: _dcpSource,
                "CacheParameterGroupName" =:
                  _dcpCacheParameterGroupName]
 
@@ -157,8 +158,8 @@ instance ToQuery DescribeCacheParameters where
 -- /See:/ 'describeCacheParametersResponse' smart constructor.
 data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
     { _dcprsCacheNodeTypeSpecificParameters :: !(Maybe [CacheNodeTypeSpecificParameter])
-    , _dcprsParameters                      :: !(Maybe [Parameter])
     , _dcprsMarker                          :: !(Maybe Text)
+    , _dcprsParameters                      :: !(Maybe [Parameter])
     , _dcprsStatus                          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -168,9 +169,9 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
 --
 -- * 'dcprsCacheNodeTypeSpecificParameters'
 --
--- * 'dcprsParameters'
---
 -- * 'dcprsMarker'
+--
+-- * 'dcprsParameters'
 --
 -- * 'dcprsStatus'
 describeCacheParametersResponse
@@ -179,8 +180,8 @@ describeCacheParametersResponse
 describeCacheParametersResponse pStatus_ =
     DescribeCacheParametersResponse'
     { _dcprsCacheNodeTypeSpecificParameters = Nothing
-    , _dcprsParameters = Nothing
     , _dcprsMarker = Nothing
+    , _dcprsParameters = Nothing
     , _dcprsStatus = pStatus_
     }
 
@@ -189,13 +190,13 @@ describeCacheParametersResponse pStatus_ =
 dcprsCacheNodeTypeSpecificParameters :: Lens' DescribeCacheParametersResponse [CacheNodeTypeSpecificParameter]
 dcprsCacheNodeTypeSpecificParameters = lens _dcprsCacheNodeTypeSpecificParameters (\ s a -> s{_dcprsCacheNodeTypeSpecificParameters = a}) . _Default . _Coerce;
 
--- | A list of Parameter instances.
-dcprsParameters :: Lens' DescribeCacheParametersResponse [Parameter]
-dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _Default . _Coerce;
-
 -- | Provides an identifier to allow retrieval of paginated results.
 dcprsMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
 dcprsMarker = lens _dcprsMarker (\ s a -> s{_dcprsMarker = a});
+
+-- | A list of Parameter instances.
+dcprsParameters :: Lens' DescribeCacheParametersResponse [Parameter]
+dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _Default . _Coerce;
 
 -- | The response status code.
 dcprsStatus :: Lens' DescribeCacheParametersResponse Int

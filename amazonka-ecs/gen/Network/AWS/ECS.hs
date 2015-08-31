@@ -50,11 +50,11 @@ module Network.AWS.ECS
     -- ** ServiceNotActiveException
     , _ServiceNotActiveException
 
-    -- ** NoUpdateAvailableException
-    , _NoUpdateAvailableException
-
     -- ** ClusterNotFoundException
     , _ClusterNotFoundException
+
+    -- ** NoUpdateAvailableException
+    , _NoUpdateAvailableException
 
     -- ** ServiceNotFoundException
     , _ServiceNotFoundException
@@ -122,20 +122,20 @@ module Network.AWS.ECS
     -- ** ListTaskDefinitions (Paginated)
     , module Network.AWS.ECS.ListTaskDefinitions
 
-    -- ** ListTasks (Paginated)
-    , module Network.AWS.ECS.ListTasks
-
     -- ** RunTask
     , module Network.AWS.ECS.RunTask
 
-    -- ** ListContainerInstances (Paginated)
-    , module Network.AWS.ECS.ListContainerInstances
+    -- ** ListTasks (Paginated)
+    , module Network.AWS.ECS.ListTasks
 
     -- ** RegisterContainerInstance
     , module Network.AWS.ECS.RegisterContainerInstance
 
     -- ** UpdateContainerAgent
     , module Network.AWS.ECS.UpdateContainerAgent
+
+    -- ** ListContainerInstances (Paginated)
+    , module Network.AWS.ECS.ListContainerInstances
 
     -- ** ListTaskDefinitionFamilies (Paginated)
     , module Network.AWS.ECS.ListTaskDefinitionFamilies
@@ -243,30 +243,30 @@ module Network.AWS.ECS
     -- ** ContainerService
     , ContainerService
     , containerService
-    , csStatus
     , csRunningCount
+    , csStatus
     , csClusterARN
     , csDesiredCount
     , csLoadBalancers
     , csPendingCount
     , csEvents
-    , csServiceName
     , csDeployments
-    , csTaskDefinition
+    , csServiceName
     , csServiceARN
+    , csTaskDefinition
     , csRoleARN
 
     -- ** Deployment
     , Deployment
     , deployment
-    , dStatus
     , dRunningCount
+    , dStatus
     , dCreatedAt
     , dDesiredCount
     , dPendingCount
     , dId
-    , dTaskDefinition
     , dUpdatedAt
+    , dTaskDefinition
 
     -- ** Failure
     , Failure
@@ -335,8 +335,8 @@ module Network.AWS.ECS
     , Task
     , task
     , tDesiredStatus
-    , tClusterARN
     , tOverrides
+    , tClusterARN
     , tTaskARN
     , tContainerInstanceARN
     , tLastStatus
@@ -362,8 +362,8 @@ module Network.AWS.ECS
     -- ** VersionInfo
     , VersionInfo
     , versionInfo
-    , viAgentVersion
     , viAgentHash
+    , viAgentVersion
     , viDockerVersion
 
     -- ** Volume

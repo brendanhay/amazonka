@@ -42,8 +42,8 @@ module Network.AWS.CloudHSM.CreateHSM
     , createHSMResponse
     , CreateHSMResponse
     -- * Response Lenses
-    , chsmrsHSMARN
-    , chsmrsStatus
+    , chrsHSMARN
+    , chrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -178,30 +178,30 @@ instance ToQuery CreateHSM where
 --
 -- /See:/ 'createHSMResponse' smart constructor.
 data CreateHSMResponse = CreateHSMResponse'
-    { _chsmrsHSMARN :: !(Maybe Text)
-    , _chsmrsStatus :: !Int
+    { _chrsHSMARN :: !(Maybe Text)
+    , _chrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateHSMResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chsmrsHSMARN'
+-- * 'chrsHSMARN'
 --
--- * 'chsmrsStatus'
+-- * 'chrsStatus'
 createHSMResponse
-    :: Int -- ^ 'chsmrsStatus'
+    :: Int -- ^ 'chrsStatus'
     -> CreateHSMResponse
 createHSMResponse pStatus_ =
     CreateHSMResponse'
-    { _chsmrsHSMARN = Nothing
-    , _chsmrsStatus = pStatus_
+    { _chrsHSMARN = Nothing
+    , _chrsStatus = pStatus_
     }
 
 -- | The ARN of the HSM.
-chsmrsHSMARN :: Lens' CreateHSMResponse (Maybe Text)
-chsmrsHSMARN = lens _chsmrsHSMARN (\ s a -> s{_chsmrsHSMARN = a});
+chrsHSMARN :: Lens' CreateHSMResponse (Maybe Text)
+chrsHSMARN = lens _chrsHSMARN (\ s a -> s{_chrsHSMARN = a});
 
 -- | The response status code.
-chsmrsStatus :: Lens' CreateHSMResponse Int
-chsmrsStatus = lens _chsmrsStatus (\ s a -> s{_chsmrsStatus = a});
+chrsStatus :: Lens' CreateHSMResponse Int
+chrsStatus = lens _chrsStatus (\ s a -> s{_chrsStatus = a});

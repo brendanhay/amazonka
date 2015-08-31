@@ -40,8 +40,8 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     , describeVolumeAttributeResponse
     , DescribeVolumeAttributeResponse
     -- * Response Lenses
-    , dvarsProductCodes
     , dvarsVolumeId
+    , dvarsProductCodes
     , dvarsAutoEnableIO
     , dvarsStatus
     ) where
@@ -101,9 +101,9 @@ instance AWSRequest DescribeVolumeAttribute where
           = receiveXML
               (\ s h x ->
                  DescribeVolumeAttributeResponse' <$>
-                   (x .@? "productCodes" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (x .@? "volumeId")
+                   (x .@? "volumeId") <*>
+                     (x .@? "productCodes" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (x .@? "autoEnableIO")
                      <*> (pure (fromEnum s)))
 
@@ -124,8 +124,8 @@ instance ToQuery DescribeVolumeAttribute where
 
 -- | /See:/ 'describeVolumeAttributeResponse' smart constructor.
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
-    { _dvarsProductCodes :: !(Maybe [ProductCode])
-    , _dvarsVolumeId     :: !(Maybe Text)
+    { _dvarsVolumeId     :: !(Maybe Text)
+    , _dvarsProductCodes :: !(Maybe [ProductCode])
     , _dvarsAutoEnableIO :: !(Maybe AttributeBooleanValue)
     , _dvarsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -134,9 +134,9 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvarsProductCodes'
---
 -- * 'dvarsVolumeId'
+--
+-- * 'dvarsProductCodes'
 --
 -- * 'dvarsAutoEnableIO'
 --
@@ -146,19 +146,19 @@ describeVolumeAttributeResponse
     -> DescribeVolumeAttributeResponse
 describeVolumeAttributeResponse pStatus_ =
     DescribeVolumeAttributeResponse'
-    { _dvarsProductCodes = Nothing
-    , _dvarsVolumeId = Nothing
+    { _dvarsVolumeId = Nothing
+    , _dvarsProductCodes = Nothing
     , _dvarsAutoEnableIO = Nothing
     , _dvarsStatus = pStatus_
     }
 
--- | A list of product codes.
-dvarsProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
-dvarsProductCodes = lens _dvarsProductCodes (\ s a -> s{_dvarsProductCodes = a}) . _Default . _Coerce;
-
 -- | The ID of the volume.
 dvarsVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
 dvarsVolumeId = lens _dvarsVolumeId (\ s a -> s{_dvarsVolumeId = a});
+
+-- | A list of product codes.
+dvarsProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
+dvarsProductCodes = lens _dvarsProductCodes (\ s a -> s{_dvarsProductCodes = a}) . _Default . _Coerce;
 
 -- | The state of 'autoEnableIO' attribute.
 dvarsAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)

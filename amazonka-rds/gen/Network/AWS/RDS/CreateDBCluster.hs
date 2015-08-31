@@ -37,12 +37,12 @@ module Network.AWS.RDS.CreateDBCluster
     , cdcDBSubnetGroupName
     , cdcEngine
     , cdcPreferredMaintenanceWindow
-    , cdcCharacterSetName
     , cdcAvailabilityZones
+    , cdcCharacterSetName
     , cdcPreferredBackupWindow
     , cdcBackupRetentionPeriod
-    , cdcDatabaseName
     , cdcVPCSecurityGroupIds
+    , cdcDatabaseName
     , cdcDBClusterParameterGroupName
     , cdcOptionGroupName
     , cdcTags
@@ -73,12 +73,12 @@ data CreateDBCluster = CreateDBCluster'
     , _cdcDBSubnetGroupName           :: !(Maybe Text)
     , _cdcEngine                      :: !(Maybe Text)
     , _cdcPreferredMaintenanceWindow  :: !(Maybe Text)
-    , _cdcCharacterSetName            :: !(Maybe Text)
     , _cdcAvailabilityZones           :: !(Maybe [Text])
+    , _cdcCharacterSetName            :: !(Maybe Text)
     , _cdcPreferredBackupWindow       :: !(Maybe Text)
     , _cdcBackupRetentionPeriod       :: !(Maybe Int)
-    , _cdcDatabaseName                :: !(Maybe Text)
     , _cdcVPCSecurityGroupIds         :: !(Maybe [Text])
+    , _cdcDatabaseName                :: !(Maybe Text)
     , _cdcDBClusterParameterGroupName :: !(Maybe Text)
     , _cdcOptionGroupName             :: !(Maybe Text)
     , _cdcTags                        :: !(Maybe [Tag])
@@ -103,17 +103,17 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- * 'cdcPreferredMaintenanceWindow'
 --
--- * 'cdcCharacterSetName'
---
 -- * 'cdcAvailabilityZones'
+--
+-- * 'cdcCharacterSetName'
 --
 -- * 'cdcPreferredBackupWindow'
 --
 -- * 'cdcBackupRetentionPeriod'
 --
--- * 'cdcDatabaseName'
---
 -- * 'cdcVPCSecurityGroupIds'
+--
+-- * 'cdcDatabaseName'
 --
 -- * 'cdcDBClusterParameterGroupName'
 --
@@ -133,12 +133,12 @@ createDBCluster =
     , _cdcDBSubnetGroupName = Nothing
     , _cdcEngine = Nothing
     , _cdcPreferredMaintenanceWindow = Nothing
-    , _cdcCharacterSetName = Nothing
     , _cdcAvailabilityZones = Nothing
+    , _cdcCharacterSetName = Nothing
     , _cdcPreferredBackupWindow = Nothing
     , _cdcBackupRetentionPeriod = Nothing
-    , _cdcDatabaseName = Nothing
     , _cdcVPCSecurityGroupIds = Nothing
+    , _cdcDatabaseName = Nothing
     , _cdcDBClusterParameterGroupName = Nothing
     , _cdcOptionGroupName = Nothing
     , _cdcTags = Nothing
@@ -210,16 +210,16 @@ cdcEngine = lens _cdcEngine (\ s a -> s{_cdcEngine = a});
 cdcPreferredMaintenanceWindow :: Lens' CreateDBCluster (Maybe Text)
 cdcPreferredMaintenanceWindow = lens _cdcPreferredMaintenanceWindow (\ s a -> s{_cdcPreferredMaintenanceWindow = a});
 
--- | A value that indicates that the DB cluster should be associated with the
--- specified CharacterSet.
-cdcCharacterSetName :: Lens' CreateDBCluster (Maybe Text)
-cdcCharacterSetName = lens _cdcCharacterSetName (\ s a -> s{_cdcCharacterSetName = a});
-
 -- | A list of EC2 Availability Zones that instances in the DB cluster can be
 -- created in. For information on regions and Availability Zones, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones>.
 cdcAvailabilityZones :: Lens' CreateDBCluster [Text]
 cdcAvailabilityZones = lens _cdcAvailabilityZones (\ s a -> s{_cdcAvailabilityZones = a}) . _Default . _Coerce;
+
+-- | A value that indicates that the DB cluster should be associated with the
+-- specified CharacterSet.
+cdcCharacterSetName :: Lens' CreateDBCluster (Maybe Text)
+cdcCharacterSetName = lens _cdcCharacterSetName (\ s a -> s{_cdcCharacterSetName = a});
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled using the 'BackupRetentionPeriod'
@@ -251,15 +251,15 @@ cdcPreferredBackupWindow = lens _cdcPreferredBackupWindow (\ s a -> s{_cdcPrefer
 cdcBackupRetentionPeriod :: Lens' CreateDBCluster (Maybe Int)
 cdcBackupRetentionPeriod = lens _cdcBackupRetentionPeriod (\ s a -> s{_cdcBackupRetentionPeriod = a});
 
+-- | A list of EC2 VPC security groups to associate with this DB cluster.
+cdcVPCSecurityGroupIds :: Lens' CreateDBCluster [Text]
+cdcVPCSecurityGroupIds = lens _cdcVPCSecurityGroupIds (\ s a -> s{_cdcVPCSecurityGroupIds = a}) . _Default . _Coerce;
+
 -- | The name for your database of up to 8 alpha-numeric characters. If you
 -- do not provide a name, Amazon RDS will not create a database in the DB
 -- cluster you are creating.
 cdcDatabaseName :: Lens' CreateDBCluster (Maybe Text)
 cdcDatabaseName = lens _cdcDatabaseName (\ s a -> s{_cdcDatabaseName = a});
-
--- | A list of EC2 VPC security groups to associate with this DB cluster.
-cdcVPCSecurityGroupIds :: Lens' CreateDBCluster [Text]
-cdcVPCSecurityGroupIds = lens _cdcVPCSecurityGroupIds (\ s a -> s{_cdcVPCSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | The name of the DB cluster parameter group to associate with this DB
 -- cluster. If this argument is omitted, 'default.aurora5.6' for the
@@ -321,18 +321,18 @@ instance ToQuery CreateDBCluster where
                "Engine" =: _cdcEngine,
                "PreferredMaintenanceWindow" =:
                  _cdcPreferredMaintenanceWindow,
-               "CharacterSetName" =: _cdcCharacterSetName,
                "AvailabilityZones" =:
                  toQuery
                    (toQueryList "AvailabilityZone" <$>
                       _cdcAvailabilityZones),
+               "CharacterSetName" =: _cdcCharacterSetName,
                "PreferredBackupWindow" =: _cdcPreferredBackupWindow,
                "BackupRetentionPeriod" =: _cdcBackupRetentionPeriod,
-               "DatabaseName" =: _cdcDatabaseName,
                "VpcSecurityGroupIds" =:
                  toQuery
                    (toQueryList "VpcSecurityGroupId" <$>
                       _cdcVPCSecurityGroupIds),
+               "DatabaseName" =: _cdcDatabaseName,
                "DBClusterParameterGroupName" =:
                  _cdcDBClusterParameterGroupName,
                "OptionGroupName" =: _cdcOptionGroupName,

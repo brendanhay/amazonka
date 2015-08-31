@@ -50,22 +50,22 @@ module Network.AWS.S3.GetObject
     , getObjectResponse
     , GetObjectResponse
     -- * Response Lenses
-    , gorsVersionId
-    , gorsETag
     , gorsRequestCharged
+    , gorsETag
+    , gorsVersionId
     , gorsContentLength
-    , gorsRestore
     , gorsExpires
-    , gorsDeleteMarker
+    , gorsRestore
     , gorsExpiration
+    , gorsDeleteMarker
     , gorsSSECustomerAlgorithm
     , gorsMissingMeta
     , gorsWebsiteRedirectLocation
     , gorsAcceptRanges
     , gorsStorageClass
-    , gorsContentEncoding
-    , gorsSSEKMSKeyId
     , gorsSSECustomerKeyMD5
+    , gorsSSEKMSKeyId
+    , gorsContentEncoding
     , gorsMetadata
     , gorsReplicationStatus
     , gorsCacheControl
@@ -264,13 +264,13 @@ instance AWSRequest GetObject where
           = receiveBody
               (\ s h x ->
                  GetObjectResponse' <$>
-                   (h .#? "x-amz-version-id") <*> (h .#? "ETag") <*>
-                     (h .#? "x-amz-request-charged")
+                   (h .#? "x-amz-request-charged") <*> (h .#? "ETag")
+                     <*> (h .#? "x-amz-version-id")
                      <*> (h .#? "Content-Length")
-                     <*> (h .#? "x-amz-restore")
                      <*> (h .#? "Expires")
-                     <*> (h .#? "x-amz-delete-marker")
+                     <*> (h .#? "x-amz-restore")
                      <*> (h .#? "x-amz-expiration")
+                     <*> (h .#? "x-amz-delete-marker")
                      <*>
                      (h .#?
                         "x-amz-server-side-encryption-customer-algorithm")
@@ -278,12 +278,12 @@ instance AWSRequest GetObject where
                      <*> (h .#? "x-amz-website-redirect-location")
                      <*> (h .#? "accept-ranges")
                      <*> (h .#? "x-amz-storage-class")
-                     <*> (h .#? "Content-Encoding")
-                     <*>
-                     (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
                      <*>
                      (h .#?
                         "x-amz-server-side-encryption-customer-key-MD5")
+                     <*>
+                     (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
+                     <*> (h .#? "Content-Encoding")
                      <*> (parseHeadersMap "x-amz-meta-" h)
                      <*> (h .#? "x-amz-replication-status")
                      <*> (h .#? "Cache-Control")
@@ -332,22 +332,22 @@ instance ToQuery GetObject where
 
 -- | /See:/ 'getObjectResponse' smart constructor.
 data GetObjectResponse = GetObjectResponse'
-    { _gorsVersionId               :: !(Maybe ObjectVersionId)
+    { _gorsRequestCharged          :: !(Maybe RequestCharged)
     , _gorsETag                    :: !(Maybe ETag)
-    , _gorsRequestCharged          :: !(Maybe RequestCharged)
+    , _gorsVersionId               :: !(Maybe ObjectVersionId)
     , _gorsContentLength           :: !(Maybe Int)
-    , _gorsRestore                 :: !(Maybe Text)
     , _gorsExpires                 :: !(Maybe RFC822)
-    , _gorsDeleteMarker            :: !(Maybe Bool)
+    , _gorsRestore                 :: !(Maybe Text)
     , _gorsExpiration              :: !(Maybe Text)
+    , _gorsDeleteMarker            :: !(Maybe Bool)
     , _gorsSSECustomerAlgorithm    :: !(Maybe Text)
     , _gorsMissingMeta             :: !(Maybe Int)
     , _gorsWebsiteRedirectLocation :: !(Maybe Text)
     , _gorsAcceptRanges            :: !(Maybe Text)
     , _gorsStorageClass            :: !(Maybe StorageClass)
-    , _gorsContentEncoding         :: !(Maybe Text)
-    , _gorsSSEKMSKeyId             :: !(Maybe (Sensitive Text))
     , _gorsSSECustomerKeyMD5       :: !(Maybe Text)
+    , _gorsSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+    , _gorsContentEncoding         :: !(Maybe Text)
     , _gorsMetadata                :: !(Map Text Text)
     , _gorsReplicationStatus       :: !(Maybe ReplicationStatus)
     , _gorsCacheControl            :: !(Maybe Text)
@@ -365,21 +365,21 @@ data GetObjectResponse = GetObjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gorsVersionId'
+-- * 'gorsRequestCharged'
 --
 -- * 'gorsETag'
 --
--- * 'gorsRequestCharged'
+-- * 'gorsVersionId'
 --
 -- * 'gorsContentLength'
 --
--- * 'gorsRestore'
---
 -- * 'gorsExpires'
 --
--- * 'gorsDeleteMarker'
+-- * 'gorsRestore'
 --
 -- * 'gorsExpiration'
+--
+-- * 'gorsDeleteMarker'
 --
 -- * 'gorsSSECustomerAlgorithm'
 --
@@ -391,11 +391,11 @@ data GetObjectResponse = GetObjectResponse'
 --
 -- * 'gorsStorageClass'
 --
--- * 'gorsContentEncoding'
+-- * 'gorsSSECustomerKeyMD5'
 --
 -- * 'gorsSSEKMSKeyId'
 --
--- * 'gorsSSECustomerKeyMD5'
+-- * 'gorsContentEncoding'
 --
 -- * 'gorsMetadata'
 --
@@ -424,22 +424,22 @@ getObjectResponse
     -> GetObjectResponse
 getObjectResponse pStatus_ pBody_ =
     GetObjectResponse'
-    { _gorsVersionId = Nothing
+    { _gorsRequestCharged = Nothing
     , _gorsETag = Nothing
-    , _gorsRequestCharged = Nothing
+    , _gorsVersionId = Nothing
     , _gorsContentLength = Nothing
-    , _gorsRestore = Nothing
     , _gorsExpires = Nothing
-    , _gorsDeleteMarker = Nothing
+    , _gorsRestore = Nothing
     , _gorsExpiration = Nothing
+    , _gorsDeleteMarker = Nothing
     , _gorsSSECustomerAlgorithm = Nothing
     , _gorsMissingMeta = Nothing
     , _gorsWebsiteRedirectLocation = Nothing
     , _gorsAcceptRanges = Nothing
     , _gorsStorageClass = Nothing
-    , _gorsContentEncoding = Nothing
-    , _gorsSSEKMSKeyId = Nothing
     , _gorsSSECustomerKeyMD5 = Nothing
+    , _gorsSSEKMSKeyId = Nothing
+    , _gorsContentEncoding = Nothing
     , _gorsMetadata = mempty
     , _gorsReplicationStatus = Nothing
     , _gorsCacheControl = Nothing
@@ -453,37 +453,31 @@ getObjectResponse pStatus_ pBody_ =
     , _gorsBody = pBody_
     }
 
--- | Version of the object.
-gorsVersionId :: Lens' GetObjectResponse (Maybe ObjectVersionId)
-gorsVersionId = lens _gorsVersionId (\ s a -> s{_gorsVersionId = a});
+-- | Undocumented member.
+gorsRequestCharged :: Lens' GetObjectResponse (Maybe RequestCharged)
+gorsRequestCharged = lens _gorsRequestCharged (\ s a -> s{_gorsRequestCharged = a});
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific
 -- version of a resource found at a URL
 gorsETag :: Lens' GetObjectResponse (Maybe ETag)
 gorsETag = lens _gorsETag (\ s a -> s{_gorsETag = a});
 
--- | Undocumented member.
-gorsRequestCharged :: Lens' GetObjectResponse (Maybe RequestCharged)
-gorsRequestCharged = lens _gorsRequestCharged (\ s a -> s{_gorsRequestCharged = a});
+-- | Version of the object.
+gorsVersionId :: Lens' GetObjectResponse (Maybe ObjectVersionId)
+gorsVersionId = lens _gorsVersionId (\ s a -> s{_gorsVersionId = a});
 
 -- | Size of the body in bytes.
 gorsContentLength :: Lens' GetObjectResponse (Maybe Int)
 gorsContentLength = lens _gorsContentLength (\ s a -> s{_gorsContentLength = a});
 
--- | Provides information about object restoration operation and expiration
--- time of the restored object copy.
-gorsRestore :: Lens' GetObjectResponse (Maybe Text)
-gorsRestore = lens _gorsRestore (\ s a -> s{_gorsRestore = a});
-
 -- | The date and time at which the object is no longer cacheable.
 gorsExpires :: Lens' GetObjectResponse (Maybe UTCTime)
 gorsExpires = lens _gorsExpires (\ s a -> s{_gorsExpires = a}) . mapping _Time;
 
--- | Specifies whether the object retrieved was (true) or was not (false) a
--- Delete Marker. If false, this response header does not appear in the
--- response.
-gorsDeleteMarker :: Lens' GetObjectResponse (Maybe Bool)
-gorsDeleteMarker = lens _gorsDeleteMarker (\ s a -> s{_gorsDeleteMarker = a});
+-- | Provides information about object restoration operation and expiration
+-- time of the restored object copy.
+gorsRestore :: Lens' GetObjectResponse (Maybe Text)
+gorsRestore = lens _gorsRestore (\ s a -> s{_gorsRestore = a});
 
 -- | If the object expiration is configured (see PUT Bucket lifecycle), the
 -- response includes this header. It includes the expiry-date and rule-id
@@ -491,6 +485,12 @@ gorsDeleteMarker = lens _gorsDeleteMarker (\ s a -> s{_gorsDeleteMarker = a});
 -- the rule-id is URL encoded.
 gorsExpiration :: Lens' GetObjectResponse (Maybe Text)
 gorsExpiration = lens _gorsExpiration (\ s a -> s{_gorsExpiration = a});
+
+-- | Specifies whether the object retrieved was (true) or was not (false) a
+-- Delete Marker. If false, this response header does not appear in the
+-- response.
+gorsDeleteMarker :: Lens' GetObjectResponse (Maybe Bool)
+gorsDeleteMarker = lens _gorsDeleteMarker (\ s a -> s{_gorsDeleteMarker = a});
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the
@@ -520,22 +520,22 @@ gorsAcceptRanges = lens _gorsAcceptRanges (\ s a -> s{_gorsAcceptRanges = a});
 gorsStorageClass :: Lens' GetObjectResponse (Maybe StorageClass)
 gorsStorageClass = lens _gorsStorageClass (\ s a -> s{_gorsStorageClass = a});
 
--- | Specifies what content encodings have been applied to the object and
--- thus what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
-gorsContentEncoding :: Lens' GetObjectResponse (Maybe Text)
-gorsContentEncoding = lens _gorsContentEncoding (\ s a -> s{_gorsContentEncoding = a});
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header to provide round trip
+-- message integrity verification of the customer-provided encryption key.
+gorsSSECustomerKeyMD5 :: Lens' GetObjectResponse (Maybe Text)
+gorsSSECustomerKeyMD5 = lens _gorsSSECustomerKeyMD5 (\ s a -> s{_gorsSSECustomerKeyMD5 = a});
 
 -- | If present, specifies the ID of the AWS Key Management Service (KMS)
 -- master encryption key that was used for the object.
 gorsSSEKMSKeyId :: Lens' GetObjectResponse (Maybe Text)
 gorsSSEKMSKeyId = lens _gorsSSEKMSKeyId (\ s a -> s{_gorsSSEKMSKeyId = a}) . mapping _Sensitive;
 
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header to provide round trip
--- message integrity verification of the customer-provided encryption key.
-gorsSSECustomerKeyMD5 :: Lens' GetObjectResponse (Maybe Text)
-gorsSSECustomerKeyMD5 = lens _gorsSSECustomerKeyMD5 (\ s a -> s{_gorsSSECustomerKeyMD5 = a});
+-- | Specifies what content encodings have been applied to the object and
+-- thus what decoding mechanisms must be applied to obtain the media-type
+-- referenced by the Content-Type header field.
+gorsContentEncoding :: Lens' GetObjectResponse (Maybe Text)
+gorsContentEncoding = lens _gorsContentEncoding (\ s a -> s{_gorsContentEncoding = a});
 
 -- | A map of metadata to store with the object in S3.
 gorsMetadata :: Lens' GetObjectResponse (HashMap Text Text)

@@ -34,8 +34,8 @@ module Network.AWS.Redshift.DisableLogging
     , loggingStatus
     , LoggingStatus
     -- * Response Lenses
-    , lsLastSuccessfulDeliveryTime
     , lsLastFailureTime
+    , lsLastSuccessfulDeliveryTime
     , lsS3KeyPrefix
     , lsBucketName
     , lsLoggingEnabled

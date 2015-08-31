@@ -28,11 +28,11 @@ import Test.AWS.DynamoDBStreams.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testGetRecords $
---             getRecords
---
---         , testGetShardIterator $
+--         [ testGetShardIterator $
 --             getShardIterator
+--
+--         , testGetRecords $
+--             getRecords
 --
 --         , testListStreams $
 --             listStreams
@@ -43,11 +43,11 @@ import Test.AWS.DynamoDBStreams.Internal
 --           ]
 
 --     , testGroup "response"
---         [ testGetRecordsResponse $
---             getRecordsResponse
---
---         , testGetShardIteratorResponse $
+--         [ testGetShardIteratorResponse $
 --             getShardIteratorResponse
+--
+--         , testGetRecordsResponse $
+--             getRecordsResponse
 --
 --         , testListStreamsResponse $
 --             listStreamsResponse
@@ -60,15 +60,15 @@ import Test.AWS.DynamoDBStreams.Internal
 
 -- Requests
 
-testGetRecords :: GetRecords -> TestTree
-testGetRecords = req
-    "GetRecords"
-    "fixture/GetRecords.yaml"
-
 testGetShardIterator :: GetShardIterator -> TestTree
 testGetShardIterator = req
     "GetShardIterator"
     "fixture/GetShardIterator.yaml"
+
+testGetRecords :: GetRecords -> TestTree
+testGetRecords = req
+    "GetRecords"
+    "fixture/GetRecords.yaml"
 
 testListStreams :: ListStreams -> TestTree
 testListStreams = req
@@ -82,19 +82,19 @@ testDescribeStream = req
 
 -- Responses
 
-testGetRecordsResponse :: GetRecordsResponse -> TestTree
-testGetRecordsResponse = res
-    "GetRecordsResponse"
-    "fixture/GetRecordsResponse.proto"
-    dynamoDBStreams
-    (Proxy :: Proxy GetRecords)
-
 testGetShardIteratorResponse :: GetShardIteratorResponse -> TestTree
 testGetShardIteratorResponse = res
     "GetShardIteratorResponse"
     "fixture/GetShardIteratorResponse.proto"
     dynamoDBStreams
     (Proxy :: Proxy GetShardIterator)
+
+testGetRecordsResponse :: GetRecordsResponse -> TestTree
+testGetRecordsResponse = res
+    "GetRecordsResponse"
+    "fixture/GetRecordsResponse.proto"
+    dynamoDBStreams
+    (Proxy :: Proxy GetRecords)
 
 testListStreamsResponse :: ListStreamsResponse -> TestTree
 testListStreamsResponse = res

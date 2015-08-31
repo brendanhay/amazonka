@@ -56,8 +56,8 @@ module Network.AWS.StorageGateway.ShutdownGateway
     , shutdownGatewayResponse
     , ShutdownGatewayResponse
     -- * Response Lenses
-    , sgrsGatewayARN
-    , sgrsStatus
+    , srsGatewayARN
+    , srsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -124,30 +124,30 @@ instance ToQuery ShutdownGateway where
 --
 -- /See:/ 'shutdownGatewayResponse' smart constructor.
 data ShutdownGatewayResponse = ShutdownGatewayResponse'
-    { _sgrsGatewayARN :: !(Maybe Text)
-    , _sgrsStatus     :: !Int
+    { _srsGatewayARN :: !(Maybe Text)
+    , _srsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ShutdownGatewayResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sgrsGatewayARN'
+-- * 'srsGatewayARN'
 --
--- * 'sgrsStatus'
+-- * 'srsStatus'
 shutdownGatewayResponse
-    :: Int -- ^ 'sgrsStatus'
+    :: Int -- ^ 'srsStatus'
     -> ShutdownGatewayResponse
 shutdownGatewayResponse pStatus_ =
     ShutdownGatewayResponse'
-    { _sgrsGatewayARN = Nothing
-    , _sgrsStatus = pStatus_
+    { _srsGatewayARN = Nothing
+    , _srsStatus = pStatus_
     }
 
 -- | Undocumented member.
-sgrsGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
-sgrsGatewayARN = lens _sgrsGatewayARN (\ s a -> s{_sgrsGatewayARN = a});
+srsGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
+srsGatewayARN = lens _srsGatewayARN (\ s a -> s{_srsGatewayARN = a});
 
 -- | The response status code.
-sgrsStatus :: Lens' ShutdownGatewayResponse Int
-sgrsStatus = lens _sgrsStatus (\ s a -> s{_sgrsStatus = a});
+srsStatus :: Lens' ShutdownGatewayResponse Int
+srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

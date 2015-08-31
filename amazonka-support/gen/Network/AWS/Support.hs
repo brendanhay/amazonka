@@ -116,11 +116,11 @@ module Network.AWS.Support
     -- ** DescribeTrustedAdvisorCheckRefreshStatuses
     , module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
 
-    -- ** CreateCase
-    , module Network.AWS.Support.CreateCase
-
     -- ** DescribeTrustedAdvisorCheckSummaries
     , module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
+
+    -- ** CreateCase
+    , module Network.AWS.Support.CreateCase
 
     -- ** ResolveCase
     , module Network.AWS.Support.ResolveCase
@@ -175,8 +175,8 @@ module Network.AWS.Support
     , cdDisplayId
     , cdSubmittedBy
     , cdLanguage
-    , cdCategoryCode
     , cdTimeCreated
+    , cdCategoryCode
     , cdServiceCode
 
     -- ** Category

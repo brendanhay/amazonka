@@ -73,11 +73,11 @@ module Network.AWS.CognitoIdentity
     -- ** ExternalServiceException
     , _ExternalServiceException
 
-    -- ** ConcurrentModificationException
-    , _ConcurrentModificationException
-
     -- ** TooManyRequestsException
     , _TooManyRequestsException
+
+    -- ** ConcurrentModificationException
+    , _ConcurrentModificationException
 
     -- ** ResourceConflictException
     , _ResourceConflictException
@@ -100,23 +100,14 @@ module Network.AWS.CognitoIdentity
     -- ** GetOpenIdToken
     , module Network.AWS.CognitoIdentity.GetOpenIdToken
 
-    -- ** DescribeIdentityPool
-    , module Network.AWS.CognitoIdentity.DescribeIdentityPool
-
     -- ** GetOpenIdTokenForDeveloperIdentity
     , module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
 
-    -- ** UnlinkDeveloperIdentity
-    , module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
+    -- ** DescribeIdentityPool
+    , module Network.AWS.CognitoIdentity.DescribeIdentityPool
 
-    -- ** GetCredentialsForIdentity
-    , module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
-
-    -- ** ListIdentityPools
-    , module Network.AWS.CognitoIdentity.ListIdentityPools
-
-    -- ** GetIdentityPoolRoles
-    , module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
+    -- ** GetId
+    , module Network.AWS.CognitoIdentity.GetId
 
     -- ** DeleteIdentityPool
     , module Network.AWS.CognitoIdentity.DeleteIdentityPool
@@ -124,8 +115,17 @@ module Network.AWS.CognitoIdentity
     -- ** UpdateIdentityPool
     , module Network.AWS.CognitoIdentity.UpdateIdentityPool
 
-    -- ** GetId
-    , module Network.AWS.CognitoIdentity.GetId
+    -- ** UnlinkDeveloperIdentity
+    , module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
+
+    -- ** GetIdentityPoolRoles
+    , module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
+
+    -- ** ListIdentityPools
+    , module Network.AWS.CognitoIdentity.ListIdentityPools
+
+    -- ** GetCredentialsForIdentity
+    , module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
 
     -- ** DeleteIdentities
     , module Network.AWS.CognitoIdentity.DeleteIdentities

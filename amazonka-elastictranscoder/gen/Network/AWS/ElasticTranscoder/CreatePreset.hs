@@ -46,8 +46,8 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     -- * Request Lenses
     , cpVideo
     , cpThumbnails
-    , cpAudio
     , cpDescription
+    , cpAudio
     , cpName
     , cpContainer
 
@@ -72,8 +72,8 @@ import           Network.AWS.Response
 data CreatePreset = CreatePreset'
     { _cpVideo       :: !(Maybe VideoParameters)
     , _cpThumbnails  :: !(Maybe Thumbnails)
-    , _cpAudio       :: !(Maybe AudioParameters)
     , _cpDescription :: !(Maybe Text)
+    , _cpAudio       :: !(Maybe AudioParameters)
     , _cpName        :: !Text
     , _cpContainer   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -86,9 +86,9 @@ data CreatePreset = CreatePreset'
 --
 -- * 'cpThumbnails'
 --
--- * 'cpAudio'
---
 -- * 'cpDescription'
+--
+-- * 'cpAudio'
 --
 -- * 'cpName'
 --
@@ -101,8 +101,8 @@ createPreset pName_ pContainer_ =
     CreatePreset'
     { _cpVideo = Nothing
     , _cpThumbnails = Nothing
-    , _cpAudio = Nothing
     , _cpDescription = Nothing
+    , _cpAudio = Nothing
     , _cpName = pName_
     , _cpContainer = pContainer_
     }
@@ -116,13 +116,13 @@ cpVideo = lens _cpVideo (\ s a -> s{_cpVideo = a});
 cpThumbnails :: Lens' CreatePreset (Maybe Thumbnails)
 cpThumbnails = lens _cpThumbnails (\ s a -> s{_cpThumbnails = a});
 
--- | A section of the request body that specifies the audio parameters.
-cpAudio :: Lens' CreatePreset (Maybe AudioParameters)
-cpAudio = lens _cpAudio (\ s a -> s{_cpAudio = a});
-
 -- | A description of the preset.
 cpDescription :: Lens' CreatePreset (Maybe Text)
 cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
+
+-- | A section of the request body that specifies the audio parameters.
+cpAudio :: Lens' CreatePreset (Maybe AudioParameters)
+cpAudio = lens _cpAudio (\ s a -> s{_cpAudio = a});
 
 -- | The name of the preset. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced.
@@ -154,9 +154,8 @@ instance ToJSON CreatePreset where
               (catMaybes
                  [("Video" .=) <$> _cpVideo,
                   ("Thumbnails" .=) <$> _cpThumbnails,
-                  ("Audio" .=) <$> _cpAudio,
                   ("Description" .=) <$> _cpDescription,
-                  Just ("Name" .= _cpName),
+                  ("Audio" .=) <$> _cpAudio, Just ("Name" .= _cpName),
                   Just ("Container" .= _cpContainer)])
 
 instance ToPath CreatePreset where

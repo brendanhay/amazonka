@@ -30,8 +30,8 @@ module Network.AWS.CodeDeploy.CreateDeployment
     , cdDeploymentConfigName
     , cdRevision
     , cdDescription
-    , cdIgnoreApplicationStopFailures
     , cdDeploymentGroupName
+    , cdIgnoreApplicationStopFailures
     , cdApplicationName
 
     -- * Destructuring the Response
@@ -55,8 +55,8 @@ data CreateDeployment = CreateDeployment'
     { _cdDeploymentConfigName          :: !(Maybe Text)
     , _cdRevision                      :: !(Maybe RevisionLocation)
     , _cdDescription                   :: !(Maybe Text)
-    , _cdIgnoreApplicationStopFailures :: !(Maybe Bool)
     , _cdDeploymentGroupName           :: !(Maybe Text)
+    , _cdIgnoreApplicationStopFailures :: !(Maybe Bool)
     , _cdApplicationName               :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -70,9 +70,9 @@ data CreateDeployment = CreateDeployment'
 --
 -- * 'cdDescription'
 --
--- * 'cdIgnoreApplicationStopFailures'
---
 -- * 'cdDeploymentGroupName'
+--
+-- * 'cdIgnoreApplicationStopFailures'
 --
 -- * 'cdApplicationName'
 createDeployment
@@ -83,8 +83,8 @@ createDeployment pApplicationName_ =
     { _cdDeploymentConfigName = Nothing
     , _cdRevision = Nothing
     , _cdDescription = Nothing
-    , _cdIgnoreApplicationStopFailures = Nothing
     , _cdDeploymentGroupName = Nothing
+    , _cdIgnoreApplicationStopFailures = Nothing
     , _cdApplicationName = pApplicationName_
     }
 
@@ -107,6 +107,10 @@ cdRevision = lens _cdRevision (\ s a -> s{_cdRevision = a});
 cdDescription :: Lens' CreateDeployment (Maybe Text)
 cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
 
+-- | The deployment group\'s name.
+cdDeploymentGroupName :: Lens' CreateDeployment (Maybe Text)
+cdDeploymentGroupName = lens _cdDeploymentGroupName (\ s a -> s{_cdDeploymentGroupName = a});
+
 -- | If set to true, then if the deployment causes the ApplicationStop
 -- deployment lifecycle event to fail to a specific instance, the
 -- deployment will not be considered to have failed to that instance at
@@ -119,10 +123,6 @@ cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
 -- to that instance will be considered to have failed.
 cdIgnoreApplicationStopFailures :: Lens' CreateDeployment (Maybe Bool)
 cdIgnoreApplicationStopFailures = lens _cdIgnoreApplicationStopFailures (\ s a -> s{_cdIgnoreApplicationStopFailures = a});
-
--- | The deployment group\'s name.
-cdDeploymentGroupName :: Lens' CreateDeployment (Maybe Text)
-cdDeploymentGroupName = lens _cdDeploymentGroupName (\ s a -> s{_cdDeploymentGroupName = a});
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
@@ -156,10 +156,10 @@ instance ToJSON CreateDeployment where
                     _cdDeploymentConfigName,
                   ("revision" .=) <$> _cdRevision,
                   ("description" .=) <$> _cdDescription,
-                  ("ignoreApplicationStopFailures" .=) <$>
-                    _cdIgnoreApplicationStopFailures,
                   ("deploymentGroupName" .=) <$>
                     _cdDeploymentGroupName,
+                  ("ignoreApplicationStopFailures" .=) <$>
+                    _cdIgnoreApplicationStopFailures,
                   Just ("applicationName" .= _cdApplicationName)])
 
 instance ToPath CreateDeployment where

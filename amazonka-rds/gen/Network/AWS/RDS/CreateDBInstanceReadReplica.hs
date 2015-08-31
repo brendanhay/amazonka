@@ -35,8 +35,8 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
       createDBInstanceReadReplica
     , CreateDBInstanceReadReplica
     -- * Request Lenses
-    , cdirrAutoMinorVersionUpgrade
     , cdirrPubliclyAccessible
+    , cdirrAutoMinorVersionUpgrade
     , cdirrDBSubnetGroupName
     , cdirrIOPS
     , cdirrDBInstanceClass
@@ -65,8 +65,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'createDBInstanceReadReplica' smart constructor.
 data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
-    { _cdirrAutoMinorVersionUpgrade    :: !(Maybe Bool)
-    , _cdirrPubliclyAccessible         :: !(Maybe Bool)
+    { _cdirrPubliclyAccessible         :: !(Maybe Bool)
+    , _cdirrAutoMinorVersionUpgrade    :: !(Maybe Bool)
     , _cdirrDBSubnetGroupName          :: !(Maybe Text)
     , _cdirrIOPS                       :: !(Maybe Int)
     , _cdirrDBInstanceClass            :: !(Maybe Text)
@@ -84,9 +84,9 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdirrAutoMinorVersionUpgrade'
---
 -- * 'cdirrPubliclyAccessible'
+--
+-- * 'cdirrAutoMinorVersionUpgrade'
 --
 -- * 'cdirrDBSubnetGroupName'
 --
@@ -115,8 +115,8 @@ createDBInstanceReadReplica
     -> CreateDBInstanceReadReplica
 createDBInstanceReadReplica pDBInstanceIdentifier_ pSourceDBInstanceIdentifier_ =
     CreateDBInstanceReadReplica'
-    { _cdirrAutoMinorVersionUpgrade = Nothing
-    , _cdirrPubliclyAccessible = Nothing
+    { _cdirrPubliclyAccessible = Nothing
+    , _cdirrAutoMinorVersionUpgrade = Nothing
     , _cdirrDBSubnetGroupName = Nothing
     , _cdirrIOPS = Nothing
     , _cdirrDBInstanceClass = Nothing
@@ -129,13 +129,6 @@ createDBInstanceReadReplica pDBInstanceIdentifier_ pSourceDBInstanceIdentifier_ 
     , _cdirrDBInstanceIdentifier = pDBInstanceIdentifier_
     , _cdirrSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier_
     }
-
--- | Indicates that minor engine upgrades will be applied automatically to
--- the Read Replica during the maintenance window.
---
--- Default: Inherits from the source DB instance
-cdirrAutoMinorVersionUpgrade :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
-cdirrAutoMinorVersionUpgrade = lens _cdirrAutoMinorVersionUpgrade (\ s a -> s{_cdirrAutoMinorVersionUpgrade = a});
 
 -- | Specifies the accessibility options for the DB instance. A value of true
 -- specifies an Internet-facing instance with a publicly resolvable DNS
@@ -157,6 +150,13 @@ cdirrAutoMinorVersionUpgrade = lens _cdirrAutoMinorVersionUpgrade (\ s a -> s{_c
 -- the DB instance will be private.
 cdirrPubliclyAccessible :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
 cdirrPubliclyAccessible = lens _cdirrPubliclyAccessible (\ s a -> s{_cdirrPubliclyAccessible = a});
+
+-- | Indicates that minor engine upgrades will be applied automatically to
+-- the Read Replica during the maintenance window.
+--
+-- Default: Inherits from the source DB instance
+cdirrAutoMinorVersionUpgrade :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
+cdirrAutoMinorVersionUpgrade = lens _cdirrAutoMinorVersionUpgrade (\ s a -> s{_cdirrAutoMinorVersionUpgrade = a});
 
 -- | Specifies a DB subnet group for the DB instance. The new DB instance
 -- will be created in the VPC associated with the DB subnet group. If no DB
@@ -285,9 +285,9 @@ instance ToQuery CreateDBInstanceReadReplica where
               ["Action" =:
                  ("CreateDBInstanceReadReplica" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
+               "PubliclyAccessible" =: _cdirrPubliclyAccessible,
                "AutoMinorVersionUpgrade" =:
                  _cdirrAutoMinorVersionUpgrade,
-               "PubliclyAccessible" =: _cdirrPubliclyAccessible,
                "DBSubnetGroupName" =: _cdirrDBSubnetGroupName,
                "Iops" =: _cdirrIOPS,
                "DBInstanceClass" =: _cdirrDBInstanceClass,

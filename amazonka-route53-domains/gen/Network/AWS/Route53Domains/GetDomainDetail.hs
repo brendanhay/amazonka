@@ -41,15 +41,15 @@ module Network.AWS.Route53Domains.GetDomainDetail
     , gddrsRegistrantPrivacy
     , gddrsUpdatedDate
     , gddrsAdminPrivacy
-    , gddrsAbuseContactEmail
-    , gddrsRegistrarURL
     , gddrsAutoRenew
     , gddrsAbuseContactPhone
+    , gddrsRegistrarURL
+    , gddrsAbuseContactEmail
     , gddrsExpirationDate
     , gddrsCreationDate
     , gddrsRegistrarName
-    , gddrsStatusList
     , gddrsReseller
+    , gddrsStatusList
     , gddrsStatus
     , gddrsDomainName
     , gddrsNameservers
@@ -111,15 +111,15 @@ instance AWSRequest GetDomainDetail where
                      <*> (x .?> "RegistrantPrivacy")
                      <*> (x .?> "UpdatedDate")
                      <*> (x .?> "AdminPrivacy")
-                     <*> (x .?> "AbuseContactEmail")
-                     <*> (x .?> "RegistrarUrl")
                      <*> (x .?> "AutoRenew")
                      <*> (x .?> "AbuseContactPhone")
+                     <*> (x .?> "RegistrarUrl")
+                     <*> (x .?> "AbuseContactEmail")
                      <*> (x .?> "ExpirationDate")
                      <*> (x .?> "CreationDate")
                      <*> (x .?> "RegistrarName")
-                     <*> (x .?> "StatusList" .!@ mempty)
                      <*> (x .?> "Reseller")
+                     <*> (x .?> "StatusList" .!@ mempty)
                      <*> (pure (fromEnum s))
                      <*> (x .:> "DomainName")
                      <*> (x .?> "Nameservers" .!@ mempty)
@@ -159,15 +159,15 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
     , _gddrsRegistrantPrivacy :: !(Maybe Bool)
     , _gddrsUpdatedDate       :: !(Maybe POSIX)
     , _gddrsAdminPrivacy      :: !(Maybe Bool)
-    , _gddrsAbuseContactEmail :: !(Maybe Text)
-    , _gddrsRegistrarURL      :: !(Maybe Text)
     , _gddrsAutoRenew         :: !(Maybe Bool)
     , _gddrsAbuseContactPhone :: !(Maybe Text)
+    , _gddrsRegistrarURL      :: !(Maybe Text)
+    , _gddrsAbuseContactEmail :: !(Maybe Text)
     , _gddrsExpirationDate    :: !(Maybe POSIX)
     , _gddrsCreationDate      :: !(Maybe POSIX)
     , _gddrsRegistrarName     :: !(Maybe Text)
-    , _gddrsStatusList        :: !(Maybe [Text])
     , _gddrsReseller          :: !(Maybe Text)
+    , _gddrsStatusList        :: !(Maybe [Text])
     , _gddrsStatus            :: !Int
     , _gddrsDomainName        :: !Text
     , _gddrsNameservers       :: ![Nameserver]
@@ -194,13 +194,13 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
 --
 -- * 'gddrsAdminPrivacy'
 --
--- * 'gddrsAbuseContactEmail'
---
--- * 'gddrsRegistrarURL'
---
 -- * 'gddrsAutoRenew'
 --
 -- * 'gddrsAbuseContactPhone'
+--
+-- * 'gddrsRegistrarURL'
+--
+-- * 'gddrsAbuseContactEmail'
 --
 -- * 'gddrsExpirationDate'
 --
@@ -208,9 +208,9 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
 --
 -- * 'gddrsRegistrarName'
 --
--- * 'gddrsStatusList'
---
 -- * 'gddrsReseller'
+--
+-- * 'gddrsStatusList'
 --
 -- * 'gddrsStatus'
 --
@@ -239,15 +239,15 @@ getDomainDetailResponse pStatus_ pDomainName_ pAdminContact_ pRegistrantContact_
     , _gddrsRegistrantPrivacy = Nothing
     , _gddrsUpdatedDate = Nothing
     , _gddrsAdminPrivacy = Nothing
-    , _gddrsAbuseContactEmail = Nothing
-    , _gddrsRegistrarURL = Nothing
     , _gddrsAutoRenew = Nothing
     , _gddrsAbuseContactPhone = Nothing
+    , _gddrsRegistrarURL = Nothing
+    , _gddrsAbuseContactEmail = Nothing
     , _gddrsExpirationDate = Nothing
     , _gddrsCreationDate = Nothing
     , _gddrsRegistrarName = Nothing
-    , _gddrsStatusList = Nothing
     , _gddrsReseller = Nothing
+    , _gddrsStatusList = Nothing
     , _gddrsStatus = pStatus_
     , _gddrsDomainName = pDomainName_
     , _gddrsNameservers = mempty
@@ -303,21 +303,6 @@ gddrsUpdatedDate = lens _gddrsUpdatedDate (\ s a -> s{_gddrsUpdatedDate = a}) . 
 gddrsAdminPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
 gddrsAdminPrivacy = lens _gddrsAdminPrivacy (\ s a -> s{_gddrsAdminPrivacy = a});
 
--- | Email address to contact to report incorrect contact information for a
--- domain, to report that the domain is being used to send spam, to report
--- that someone is cybersquatting on a domain name, or report some other
--- type of abuse.
---
--- Type: String
-gddrsAbuseContactEmail :: Lens' GetDomainDetailResponse (Maybe Text)
-gddrsAbuseContactEmail = lens _gddrsAbuseContactEmail (\ s a -> s{_gddrsAbuseContactEmail = a});
-
--- | Web address of the registrar.
---
--- Type: String
-gddrsRegistrarURL :: Lens' GetDomainDetailResponse (Maybe Text)
-gddrsRegistrarURL = lens _gddrsRegistrarURL (\ s a -> s{_gddrsRegistrarURL = a});
-
 -- | Specifies whether the domain registration is set to renew automatically.
 --
 -- Type: Boolean
@@ -329,6 +314,21 @@ gddrsAutoRenew = lens _gddrsAutoRenew (\ s a -> s{_gddrsAutoRenew = a});
 -- Type: String
 gddrsAbuseContactPhone :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrsAbuseContactPhone = lens _gddrsAbuseContactPhone (\ s a -> s{_gddrsAbuseContactPhone = a});
+
+-- | Web address of the registrar.
+--
+-- Type: String
+gddrsRegistrarURL :: Lens' GetDomainDetailResponse (Maybe Text)
+gddrsRegistrarURL = lens _gddrsRegistrarURL (\ s a -> s{_gddrsRegistrarURL = a});
+
+-- | Email address to contact to report incorrect contact information for a
+-- domain, to report that the domain is being used to send spam, to report
+-- that someone is cybersquatting on a domain name, or report some other
+-- type of abuse.
+--
+-- Type: String
+gddrsAbuseContactEmail :: Lens' GetDomainDetailResponse (Maybe Text)
+gddrsAbuseContactEmail = lens _gddrsAbuseContactEmail (\ s a -> s{_gddrsAbuseContactEmail = a});
 
 -- | The date when the registration for the domain is set to expire. The date
 -- format is Unix time.
@@ -348,6 +348,13 @@ gddrsCreationDate = lens _gddrsCreationDate (\ s a -> s{_gddrsCreationDate = a})
 gddrsRegistrarName :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrsRegistrarName = lens _gddrsRegistrarName (\ s a -> s{_gddrsRegistrarName = a});
 
+-- | Reseller of the domain. Domains registered or transferred using Amazon
+-- Route 53 domains will have '\"Amazon\"' as the reseller.
+--
+-- Type: String
+gddrsReseller :: Lens' GetDomainDetailResponse (Maybe Text)
+gddrsReseller = lens _gddrsReseller (\ s a -> s{_gddrsReseller = a});
+
 -- | An array of domain name status codes, also known as Extensible
 -- Provisioning Protocol (EPP) status codes.
 --
@@ -366,13 +373,6 @@ gddrsRegistrarName = lens _gddrsRegistrarName (\ s a -> s{_gddrsRegistrarName = 
 -- Type: Array of String
 gddrsStatusList :: Lens' GetDomainDetailResponse [Text]
 gddrsStatusList = lens _gddrsStatusList (\ s a -> s{_gddrsStatusList = a}) . _Default . _Coerce;
-
--- | Reseller of the domain. Domains registered or transferred using Amazon
--- Route 53 domains will have '\"Amazon\"' as the reseller.
---
--- Type: String
-gddrsReseller :: Lens' GetDomainDetailResponse (Maybe Text)
-gddrsReseller = lens _gddrsReseller (\ s a -> s{_gddrsReseller = a});
 
 -- | The response status code.
 gddrsStatus :: Lens' GetDomainDetailResponse Int

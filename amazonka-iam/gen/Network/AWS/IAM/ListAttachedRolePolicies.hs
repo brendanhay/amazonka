@@ -40,8 +40,8 @@ module Network.AWS.IAM.ListAttachedRolePolicies
     , ListAttachedRolePolicies
     -- * Request Lenses
     , larpPathPrefix
-    , larpMaxItems
     , larpMarker
+    , larpMaxItems
     , larpRoleName
 
     -- * Destructuring the Response
@@ -63,8 +63,8 @@ import           Network.AWS.Response
 -- | /See:/ 'listAttachedRolePolicies' smart constructor.
 data ListAttachedRolePolicies = ListAttachedRolePolicies'
     { _larpPathPrefix :: !(Maybe Text)
-    , _larpMaxItems   :: !(Maybe Nat)
     , _larpMarker     :: !(Maybe Text)
+    , _larpMaxItems   :: !(Maybe Nat)
     , _larpRoleName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -74,9 +74,9 @@ data ListAttachedRolePolicies = ListAttachedRolePolicies'
 --
 -- * 'larpPathPrefix'
 --
--- * 'larpMaxItems'
---
 -- * 'larpMarker'
+--
+-- * 'larpMaxItems'
 --
 -- * 'larpRoleName'
 listAttachedRolePolicies
@@ -85,8 +85,8 @@ listAttachedRolePolicies
 listAttachedRolePolicies pRoleName_ =
     ListAttachedRolePolicies'
     { _larpPathPrefix = Nothing
-    , _larpMaxItems = Nothing
     , _larpMarker = Nothing
+    , _larpMaxItems = Nothing
     , _larpRoleName = pRoleName_
     }
 
@@ -96,6 +96,12 @@ listAttachedRolePolicies pRoleName_ =
 larpPathPrefix :: Lens' ListAttachedRolePolicies (Maybe Text)
 larpPathPrefix = lens _larpPathPrefix (\ s a -> s{_larpPathPrefix = a});
 
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+larpMarker :: Lens' ListAttachedRolePolicies (Maybe Text)
+larpMarker = lens _larpMarker (\ s a -> s{_larpMarker = a});
+
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
@@ -104,12 +110,6 @@ larpPathPrefix = lens _larpPathPrefix (\ s a -> s{_larpPathPrefix = a});
 -- 100.
 larpMaxItems :: Lens' ListAttachedRolePolicies (Maybe Natural)
 larpMaxItems = lens _larpMaxItems (\ s a -> s{_larpMaxItems = a}) . mapping _Nat;
-
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-larpMarker :: Lens' ListAttachedRolePolicies (Maybe Text)
-larpMarker = lens _larpMarker (\ s a -> s{_larpMarker = a});
 
 -- | The name (friendly name, not ARN) of the role to list attached policies
 -- for.
@@ -143,7 +143,7 @@ instance ToQuery ListAttachedRolePolicies where
                  ("ListAttachedRolePolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "PathPrefix" =: _larpPathPrefix,
-               "MaxItems" =: _larpMaxItems, "Marker" =: _larpMarker,
+               "Marker" =: _larpMarker, "MaxItems" =: _larpMaxItems,
                "RoleName" =: _larpRoleName]
 
 -- | Contains the response to a successful ListAttachedRolePolicies request.

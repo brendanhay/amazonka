@@ -40,11 +40,11 @@ import Test.AWS.CloudFormation.Internal
 --         , testListStackResources $
 --             listStackResources
 --
---         , testDescribeStacks $
---             describeStacks
---
 --         , testGetStackPolicy $
 --             getStackPolicy
+--
+--         , testDescribeStacks $
+--             describeStacks
 --
 --         , testValidateTemplate $
 --             validateTemplate
@@ -52,23 +52,23 @@ import Test.AWS.CloudFormation.Internal
 --         , testCancelUpdateStack $
 --             cancelUpdateStack
 --
---         , testSetStackPolicy $
---             setStackPolicy
---
 --         , testDescribeStackEvents $
 --             describeStackEvents
 --
 --         , testSignalResource $
 --             signalResource
 --
+--         , testSetStackPolicy $
+--             setStackPolicy
+--
 --         , testListStacks $
 --             listStacks
 --
---         , testCreateStack $
---             createStack
---
 --         , testDescribeStackResources $
 --             describeStackResources
+--
+--         , testCreateStack $
+--             createStack
 --
 --         , testEstimateTemplateCost $
 --             estimateTemplateCost
@@ -94,11 +94,11 @@ import Test.AWS.CloudFormation.Internal
 --         , testListStackResourcesResponse $
 --             listStackResourcesResponse
 --
---         , testDescribeStacksResponse $
---             describeStacksResponse
---
 --         , testGetStackPolicyResponse $
 --             getStackPolicyResponse
+--
+--         , testDescribeStacksResponse $
+--             describeStacksResponse
 --
 --         , testValidateTemplateResponse $
 --             validateTemplateResponse
@@ -106,23 +106,23 @@ import Test.AWS.CloudFormation.Internal
 --         , testCancelUpdateStackResponse $
 --             cancelUpdateStackResponse
 --
---         , testSetStackPolicyResponse $
---             setStackPolicyResponse
---
 --         , testDescribeStackEventsResponse $
 --             describeStackEventsResponse
 --
 --         , testSignalResourceResponse $
 --             signalResourceResponse
 --
+--         , testSetStackPolicyResponse $
+--             setStackPolicyResponse
+--
 --         , testListStacksResponse $
 --             listStacksResponse
 --
---         , testCreateStackResponse $
---             createStackResponse
---
 --         , testDescribeStackResourcesResponse $
 --             describeStackResourcesResponse
+--
+--         , testCreateStackResponse $
+--             createStackResponse
 --
 --         , testEstimateTemplateCostResponse $
 --             estimateTemplateCostResponse
@@ -158,15 +158,15 @@ testListStackResources = req
     "ListStackResources"
     "fixture/ListStackResources.yaml"
 
-testDescribeStacks :: DescribeStacks -> TestTree
-testDescribeStacks = req
-    "DescribeStacks"
-    "fixture/DescribeStacks.yaml"
-
 testGetStackPolicy :: GetStackPolicy -> TestTree
 testGetStackPolicy = req
     "GetStackPolicy"
     "fixture/GetStackPolicy.yaml"
+
+testDescribeStacks :: DescribeStacks -> TestTree
+testDescribeStacks = req
+    "DescribeStacks"
+    "fixture/DescribeStacks.yaml"
 
 testValidateTemplate :: ValidateTemplate -> TestTree
 testValidateTemplate = req
@@ -178,11 +178,6 @@ testCancelUpdateStack = req
     "CancelUpdateStack"
     "fixture/CancelUpdateStack.yaml"
 
-testSetStackPolicy :: SetStackPolicy -> TestTree
-testSetStackPolicy = req
-    "SetStackPolicy"
-    "fixture/SetStackPolicy.yaml"
-
 testDescribeStackEvents :: DescribeStackEvents -> TestTree
 testDescribeStackEvents = req
     "DescribeStackEvents"
@@ -193,20 +188,25 @@ testSignalResource = req
     "SignalResource"
     "fixture/SignalResource.yaml"
 
+testSetStackPolicy :: SetStackPolicy -> TestTree
+testSetStackPolicy = req
+    "SetStackPolicy"
+    "fixture/SetStackPolicy.yaml"
+
 testListStacks :: ListStacks -> TestTree
 testListStacks = req
     "ListStacks"
     "fixture/ListStacks.yaml"
 
-testCreateStack :: CreateStack -> TestTree
-testCreateStack = req
-    "CreateStack"
-    "fixture/CreateStack.yaml"
-
 testDescribeStackResources :: DescribeStackResources -> TestTree
 testDescribeStackResources = req
     "DescribeStackResources"
     "fixture/DescribeStackResources.yaml"
+
+testCreateStack :: CreateStack -> TestTree
+testCreateStack = req
+    "CreateStack"
+    "fixture/CreateStack.yaml"
 
 testEstimateTemplateCost :: EstimateTemplateCost -> TestTree
 testEstimateTemplateCost = req
@@ -253,19 +253,19 @@ testListStackResourcesResponse = res
     cloudFormation
     (Proxy :: Proxy ListStackResources)
 
-testDescribeStacksResponse :: DescribeStacksResponse -> TestTree
-testDescribeStacksResponse = res
-    "DescribeStacksResponse"
-    "fixture/DescribeStacksResponse.proto"
-    cloudFormation
-    (Proxy :: Proxy DescribeStacks)
-
 testGetStackPolicyResponse :: GetStackPolicyResponse -> TestTree
 testGetStackPolicyResponse = res
     "GetStackPolicyResponse"
     "fixture/GetStackPolicyResponse.proto"
     cloudFormation
     (Proxy :: Proxy GetStackPolicy)
+
+testDescribeStacksResponse :: DescribeStacksResponse -> TestTree
+testDescribeStacksResponse = res
+    "DescribeStacksResponse"
+    "fixture/DescribeStacksResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy DescribeStacks)
 
 testValidateTemplateResponse :: ValidateTemplateResponse -> TestTree
 testValidateTemplateResponse = res
@@ -281,13 +281,6 @@ testCancelUpdateStackResponse = res
     cloudFormation
     (Proxy :: Proxy CancelUpdateStack)
 
-testSetStackPolicyResponse :: SetStackPolicyResponse -> TestTree
-testSetStackPolicyResponse = res
-    "SetStackPolicyResponse"
-    "fixture/SetStackPolicyResponse.proto"
-    cloudFormation
-    (Proxy :: Proxy SetStackPolicy)
-
 testDescribeStackEventsResponse :: DescribeStackEventsResponse -> TestTree
 testDescribeStackEventsResponse = res
     "DescribeStackEventsResponse"
@@ -302,6 +295,13 @@ testSignalResourceResponse = res
     cloudFormation
     (Proxy :: Proxy SignalResource)
 
+testSetStackPolicyResponse :: SetStackPolicyResponse -> TestTree
+testSetStackPolicyResponse = res
+    "SetStackPolicyResponse"
+    "fixture/SetStackPolicyResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy SetStackPolicy)
+
 testListStacksResponse :: ListStacksResponse -> TestTree
 testListStacksResponse = res
     "ListStacksResponse"
@@ -309,19 +309,19 @@ testListStacksResponse = res
     cloudFormation
     (Proxy :: Proxy ListStacks)
 
-testCreateStackResponse :: CreateStackResponse -> TestTree
-testCreateStackResponse = res
-    "CreateStackResponse"
-    "fixture/CreateStackResponse.proto"
-    cloudFormation
-    (Proxy :: Proxy CreateStack)
-
 testDescribeStackResourcesResponse :: DescribeStackResourcesResponse -> TestTree
 testDescribeStackResourcesResponse = res
     "DescribeStackResourcesResponse"
     "fixture/DescribeStackResourcesResponse.proto"
     cloudFormation
     (Proxy :: Proxy DescribeStackResources)
+
+testCreateStackResponse :: CreateStackResponse -> TestTree
+testCreateStackResponse = res
+    "CreateStackResponse"
+    "fixture/CreateStackResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy CreateStack)
 
 testEstimateTemplateCostResponse :: EstimateTemplateCostResponse -> TestTree
 testEstimateTemplateCostResponse = res

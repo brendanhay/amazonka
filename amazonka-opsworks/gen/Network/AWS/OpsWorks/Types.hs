@@ -65,18 +65,18 @@ module Network.AWS.OpsWorks.Types
     , App
     , app
     , appSSLConfiguration
-    , appShortname
+    , appEnvironment
     , appEnableSSL
     , appCreatedAt
-    , appEnvironment
+    , appShortname
     , appDataSources
-    , appAppId
     , appAppSource
-    , appName
+    , appAppId
     , appAttributes
+    , appName
     , appType
-    , appDomains
     , appStackId
+    , appDomains
     , appDescription
 
     -- * AutoScalingThresholds
@@ -107,8 +107,8 @@ module Network.AWS.OpsWorks.Types
     -- * Command
     , Command
     , command
-    , cInstanceId
     , cDeploymentId
+    , cInstanceId
     , cStatus
     , cLogURL
     , cCreatedAt
@@ -181,8 +181,8 @@ module Network.AWS.OpsWorks.Types
     , elbAvailabilityZones
     , elbRegion
     , elbElasticLoadBalancerName
-    , elbEC2InstanceIds
     , elbStackId
+    , elbEC2InstanceIds
     , elbLayerId
     , elbDNSName
 
@@ -196,29 +196,29 @@ module Network.AWS.OpsWorks.Types
     -- * Instance
     , Instance
     , instance'
+    , iPrivateDNS
+    , iReportedAgentVersion
     , iInstanceId
+    , iStatus
     , iPrivateIP
     , iInstallUpdatesOnBoot
-    , iReportedAgentVersion
-    , iStatus
-    , iPrivateDNS
     , iVirtualizationType
-    , iSecurityGroupIds
-    , iSSHHostRsaKeyFingerprint
     , iInstanceProfileARN
     , iPlatform
     , iHostname
+    , iSSHHostRsaKeyFingerprint
+    , iSecurityGroupIds
     , iEcsClusterARN
     , iCreatedAt
-    , iSSHKeyName
     , iEC2InstanceId
+    , iSSHKeyName
     , iAgentVersion
     , iRootDeviceVolumeId
     , iSubnetId
-    , iInstanceType
     , iInfrastructureClass
-    , iEBSOptimized
     , iSSHHostDsaKeyFingerprint
+    , iInstanceType
+    , iEBSOptimized
     , iElasticIP
     , iOS
     , iAvailabilityZone
@@ -227,14 +227,14 @@ module Network.AWS.OpsWorks.Types
     , iLayerIds
     , iArchitecture
     , iPublicDNS
-    , iPublicIP
     , iAMIId
+    , iPublicIP
     , iReportedOS
-    , iStackId
     , iRegisteredBy
-    , iBlockDeviceMappings
-    , iEcsContainerInstanceARN
+    , iStackId
     , iRootDeviceType
+    , iEcsContainerInstanceARN
+    , iBlockDeviceMappings
 
     -- * InstanceIdentity
     , InstanceIdentity
@@ -249,9 +249,9 @@ module Network.AWS.OpsWorks.Types
     , icPending
     , icOnline
     , icUnassigning
-    , icRequested
-    , icRunningSetup
     , icDeregistering
+    , icRunningSetup
+    , icRequested
     , icBooting
     , icStopped
     , icRebooting
@@ -269,22 +269,22 @@ module Network.AWS.OpsWorks.Types
     , Layer
     , layer
     , lCustomInstanceProfileARN
-    , lInstallUpdatesOnBoot
     , lCustomSecurityGroupIds
+    , lInstallUpdatesOnBoot
     , lLifecycleEventConfiguration
-    , lShortname
     , lCreatedAt
+    , lShortname
     , lDefaultRecipes
     , lCustomRecipes
-    , lVolumeConfigurations
     , lCustomJSON
+    , lVolumeConfigurations
     , lEnableAutoHealing
     , lPackages
-    , lName
     , lAttributes
+    , lName
     , lAutoAssignPublicIPs
-    , lUseEBSOptimizedInstances
     , lType
+    , lUseEBSOptimizedInstances
     , lStackId
     , lLayerId
     , lDefaultSecurityGroupNames
@@ -317,13 +317,13 @@ module Network.AWS.OpsWorks.Types
     , rAIdArray
     , raiaInstanceId
     , raiaSize
-    , raiaCreatedAt
     , raiaIOPS
+    , raiaCreatedAt
     , raiaRAIdLevel
     , raiaDevice
     , raiaNumberOfDisks
-    , raiaName
     , raiaAvailabilityZone
+    , raiaName
     , raiaRAIdArrayId
     , raiaVolumeType
     , raiaStackId
@@ -332,8 +332,8 @@ module Network.AWS.OpsWorks.Types
     -- * RDSDBInstance
     , RDSDBInstance
     , rdsDBInstance
-    , rdiDBUser
     , rdiRDSDBInstanceARN
+    , rdiDBUser
     , rdiMissingOnRDS
     , rdiEngine
     , rdiAddress
@@ -346,8 +346,8 @@ module Network.AWS.OpsWorks.Types
     , Recipes
     , recipes
     , rSetup
-    , rUndeploy
     , rShutdown
+    , rUndeploy
     , rConfigure
     , rDeploy
 
@@ -368,8 +368,8 @@ module Network.AWS.OpsWorks.Types
     -- * SelfUserProfile
     , SelfUserProfile
     , selfUserProfile
-    , supSSHUsername
     , supSSHPublicKey
+    , supSSHUsername
     , supIAMUserARN
     , supName
 
@@ -380,8 +380,8 @@ module Network.AWS.OpsWorks.Types
     , seCreatedAt
     , seServiceErrorId
     , seType
-    , seMessage
     , seStackId
+    , seMessage
 
     -- * ShutdownEventConfiguration
     , ShutdownEventConfiguration
@@ -404,20 +404,20 @@ module Network.AWS.OpsWorks.Types
     , stack
     , sDefaultInstanceProfileARN
     , sServiceRoleARN
-    , sARN
     , sDefaultRootDeviceType
+    , sARN
     , sCreatedAt
-    , sChefConfiguration
     , sVPCId
+    , sChefConfiguration
     , sAgentVersion
     , sDefaultSSHKeyName
     , sCustomJSON
     , sCustomCookbooksSource
     , sDefaultAvailabilityZone
-    , sName
-    , sUseOpsworksSecurityGroups
-    , sDefaultOS
     , sAttributes
+    , sName
+    , sDefaultOS
+    , sUseOpsworksSecurityGroups
     , sUseCustomCookbooks
     , sDefaultSubnetId
     , sRegion
@@ -458,9 +458,9 @@ module Network.AWS.OpsWorks.Types
     -- * UserProfile
     , UserProfile
     , userProfile
-    , upSSHUsername
-    , upSSHPublicKey
     , upAllowSelfManagement
+    , upSSHPublicKey
+    , upSSHUsername
     , upIAMUserARN
     , upName
 
@@ -472,8 +472,8 @@ module Network.AWS.OpsWorks.Types
     , vSize
     , vIOPS
     , vDevice
-    , vName
     , vAvailabilityZone
+    , vName
     , vRAIdArrayId
     , vVolumeId
     , vRegion

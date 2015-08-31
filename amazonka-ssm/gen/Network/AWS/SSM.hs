@@ -40,14 +40,14 @@ module Network.AWS.SSM
     -- ** AssociatedInstances
     , _AssociatedInstances
 
-    -- ** InvalidNextToken
-    , _InvalidNextToken
-
     -- ** InvalidInstanceId
     , _InvalidInstanceId
 
     -- ** StatusUnchanged
     , _StatusUnchanged
+
+    -- ** InvalidNextToken
+    , _InvalidNextToken
 
     -- ** DuplicateInstanceId
     , _DuplicateInstanceId
@@ -55,14 +55,14 @@ module Network.AWS.SSM
     -- ** InvalidDocument
     , _InvalidDocument
 
-    -- ** AssociationLimitExceeded
-    , _AssociationLimitExceeded
+    -- ** AssociationAlreadyExists
+    , _AssociationAlreadyExists
 
     -- ** InvalidDocumentContent
     , _InvalidDocumentContent
 
-    -- ** AssociationAlreadyExists
-    , _AssociationAlreadyExists
+    -- ** AssociationLimitExceeded
+    , _AssociationLimitExceeded
 
     -- ** AssociationDoesNotExist
     , _AssociationDoesNotExist
@@ -70,11 +70,11 @@ module Network.AWS.SSM
     -- ** InternalServerError
     , _InternalServerError
 
-    -- ** MaxDocumentSizeExceeded
-    , _MaxDocumentSizeExceeded
-
     -- ** TooManyUpdates
     , _TooManyUpdates
+
+    -- ** MaxDocumentSizeExceeded
+    , _MaxDocumentSizeExceeded
 
     -- ** DocumentAlreadyExists
     , _DocumentAlreadyExists
@@ -109,11 +109,11 @@ module Network.AWS.SSM
     -- ** UpdateAssociationStatus
     , module Network.AWS.SSM.UpdateAssociationStatus
 
-    -- ** DeleteAssociation
-    , module Network.AWS.SSM.DeleteAssociation
-
     -- ** ListAssociations
     , module Network.AWS.SSM.ListAssociations
+
+    -- ** DeleteAssociation
+    , module Network.AWS.SSM.DeleteAssociation
 
     -- ** DeleteDocument
     , module Network.AWS.SSM.DeleteDocument

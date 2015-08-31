@@ -80,14 +80,14 @@ module Network.AWS.DataPipeline
     -- ** ListPipelines (Paginated)
     , module Network.AWS.DataPipeline.ListPipelines
 
+    -- ** EvaluateExpression
+    , module Network.AWS.DataPipeline.EvaluateExpression
+
     -- ** GetPipelineDefinition
     , module Network.AWS.DataPipeline.GetPipelineDefinition
 
     -- ** PollForTask
     , module Network.AWS.DataPipeline.PollForTask
-
-    -- ** EvaluateExpression
-    , module Network.AWS.DataPipeline.EvaluateExpression
 
     -- ** DeactivatePipeline
     , module Network.AWS.DataPipeline.DeactivatePipeline
@@ -107,14 +107,14 @@ module Network.AWS.DataPipeline
     -- ** SetTaskStatus
     , module Network.AWS.DataPipeline.SetTaskStatus
 
+    -- ** SetStatus
+    , module Network.AWS.DataPipeline.SetStatus
+
     -- ** ReportTaskProgress
     , module Network.AWS.DataPipeline.ReportTaskProgress
 
     -- ** CreatePipeline
     , module Network.AWS.DataPipeline.CreatePipeline
-
-    -- ** SetStatus
-    , module Network.AWS.DataPipeline.SetStatus
 
     -- ** PutPipelineDefinition
     , module Network.AWS.DataPipeline.PutPipelineDefinition
@@ -210,8 +210,8 @@ module Network.AWS.DataPipeline
     , TaskObject
     , taskObject
     , toPipelineId
-    , toTaskId
     , toAttemptId
+    , toTaskId
     , toObjects
 
     -- ** ValidationError

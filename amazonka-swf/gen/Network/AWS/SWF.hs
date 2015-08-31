@@ -38,20 +38,20 @@ module Network.AWS.SWF
     -- * Errors
     -- $errors
 
+    -- ** DomainAlreadyExistsFault
+    , _DomainAlreadyExistsFault
+
     -- ** LimitExceededFault
     , _LimitExceededFault
 
     -- ** WorkflowExecutionAlreadyStartedFault
     , _WorkflowExecutionAlreadyStartedFault
 
-    -- ** DomainAlreadyExistsFault
-    , _DomainAlreadyExistsFault
+    -- ** OperationNotPermittedFault
+    , _OperationNotPermittedFault
 
     -- ** UnknownResourceFault
     , _UnknownResourceFault
-
-    -- ** OperationNotPermittedFault
-    , _OperationNotPermittedFault
 
     -- ** DefaultUndefinedFault
     , _DefaultUndefinedFault
@@ -71,14 +71,14 @@ module Network.AWS.SWF
     -- * Operations
     -- $operations
 
-    -- ** ListActivityTypes (Paginated)
-    , module Network.AWS.SWF.ListActivityTypes
-
     -- ** ListOpenWorkflowExecutions (Paginated)
     , module Network.AWS.SWF.ListOpenWorkflowExecutions
 
     -- ** RegisterActivityType
     , module Network.AWS.SWF.RegisterActivityType
+
+    -- ** ListActivityTypes (Paginated)
+    , module Network.AWS.SWF.ListActivityTypes
 
     -- ** CountPendingActivityTasks
     , module Network.AWS.SWF.CountPendingActivityTasks
@@ -86,11 +86,11 @@ module Network.AWS.SWF
     -- ** RegisterWorkflowType
     , module Network.AWS.SWF.RegisterWorkflowType
 
-    -- ** RespondActivityTaskFailed
-    , module Network.AWS.SWF.RespondActivityTaskFailed
-
     -- ** ListWorkflowTypes (Paginated)
     , module Network.AWS.SWF.ListWorkflowTypes
+
+    -- ** RespondActivityTaskFailed
+    , module Network.AWS.SWF.RespondActivityTaskFailed
 
     -- ** CountOpenWorkflowExecutions
     , module Network.AWS.SWF.CountOpenWorkflowExecutions
@@ -98,26 +98,26 @@ module Network.AWS.SWF
     -- ** DescribeWorkflowType
     , module Network.AWS.SWF.DescribeWorkflowType
 
-    -- ** RequestCancelWorkflowExecution
-    , module Network.AWS.SWF.RequestCancelWorkflowExecution
-
     -- ** DeprecateWorkflowType
     , module Network.AWS.SWF.DeprecateWorkflowType
 
-    -- ** RespondDecisionTaskCompleted
-    , module Network.AWS.SWF.RespondDecisionTaskCompleted
+    -- ** RequestCancelWorkflowExecution
+    , module Network.AWS.SWF.RequestCancelWorkflowExecution
 
     -- ** RegisterDomain
     , module Network.AWS.SWF.RegisterDomain
 
-    -- ** DescribeWorkflowExecution
-    , module Network.AWS.SWF.DescribeWorkflowExecution
+    -- ** RespondDecisionTaskCompleted
+    , module Network.AWS.SWF.RespondDecisionTaskCompleted
 
     -- ** PollForActivityTask
     , module Network.AWS.SWF.PollForActivityTask
 
     -- ** RespondActivityTaskCompleted
     , module Network.AWS.SWF.RespondActivityTaskCompleted
+
+    -- ** DescribeWorkflowExecution
+    , module Network.AWS.SWF.DescribeWorkflowExecution
 
     -- ** SignalWorkflowExecution
     , module Network.AWS.SWF.SignalWorkflowExecution
@@ -134,11 +134,14 @@ module Network.AWS.SWF
     -- ** DescribeDomain
     , module Network.AWS.SWF.DescribeDomain
 
+    -- ** GetWorkflowExecutionHistory (Paginated)
+    , module Network.AWS.SWF.GetWorkflowExecutionHistory
+
     -- ** DeprecateDomain
     , module Network.AWS.SWF.DeprecateDomain
 
-    -- ** GetWorkflowExecutionHistory (Paginated)
-    , module Network.AWS.SWF.GetWorkflowExecutionHistory
+    -- ** TerminateWorkflowExecution
+    , module Network.AWS.SWF.TerminateWorkflowExecution
 
     -- ** DescribeActivityType
     , module Network.AWS.SWF.DescribeActivityType
@@ -146,23 +149,20 @@ module Network.AWS.SWF
     -- ** DeprecateActivityType
     , module Network.AWS.SWF.DeprecateActivityType
 
-    -- ** TerminateWorkflowExecution
-    , module Network.AWS.SWF.TerminateWorkflowExecution
-
     -- ** CountClosedWorkflowExecutions
     , module Network.AWS.SWF.CountClosedWorkflowExecutions
 
     -- ** RespondActivityTaskCanceled
     , module Network.AWS.SWF.RespondActivityTaskCanceled
 
-    -- ** ListDomains (Paginated)
-    , module Network.AWS.SWF.ListDomains
-
     -- ** StartWorkflowExecution
     , module Network.AWS.SWF.StartWorkflowExecution
 
     -- ** PollForDecisionTask (Paginated)
     , module Network.AWS.SWF.PollForDecisionTask
+
+    -- ** ListDomains (Paginated)
+    , module Network.AWS.SWF.ListDomains
 
     -- * Types
 
@@ -277,8 +277,8 @@ module Network.AWS.SWF
     , ActivityTaskScheduledEventAttributes
     , activityTaskScheduledEventAttributes
     , atseaControl
-    , atseaScheduleToCloseTimeout
     , atseaHeartbeatTimeout
+    , atseaScheduleToCloseTimeout
     , atseaInput
     , atseaTaskPriority
     , atseaScheduleToStartTimeout
@@ -447,8 +447,8 @@ module Network.AWS.SWF
     , dRecordMarkerDecisionAttributes
     , dFailWorkflowExecutionDecisionAttributes
     , dStartChildWorkflowExecutionDecisionAttributes
-    , dScheduleLambdaFunctionDecisionAttributes
     , dCompleteWorkflowExecutionDecisionAttributes
+    , dScheduleLambdaFunctionDecisionAttributes
     , dRequestCancelActivityTaskDecisionAttributes
     , dCancelWorkflowExecutionDecisionAttributes
     , dCancelTimerDecisionAttributes
@@ -528,59 +528,59 @@ module Network.AWS.SWF
     , HistoryEvent
     , historyEvent
     , heWorkflowExecutionCancelRequestedEventAttributes
-    , heDecisionTaskScheduledEventAttributes
-    , heStartTimerFailedEventAttributes
-    , heLambdaFunctionStartedEventAttributes
     , heRecordMarkerFailedEventAttributes
     , heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes
+    , heLambdaFunctionStartedEventAttributes
+    , heDecisionTaskScheduledEventAttributes
     , heWorkflowExecutionCompletedEventAttributes
+    , heStartTimerFailedEventAttributes
     , heActivityTaskScheduledEventAttributes
-    , heChildWorkflowExecutionCompletedEventAttributes
     , heScheduleActivityTaskFailedEventAttributes
+    , heChildWorkflowExecutionCompletedEventAttributes
     , heMarkerRecordedEventAttributes
     , heScheduleLambdaFunctionFailedEventAttributes
     , heCompleteWorkflowExecutionFailedEventAttributes
-    , heRequestCancelExternalWorkflowExecutionFailedEventAttributes
     , heLambdaFunctionCompletedEventAttributes
+    , heRequestCancelExternalWorkflowExecutionFailedEventAttributes
     , heTimerCanceledEventAttributes
     , heWorkflowExecutionStartedEventAttributes
     , heActivityTaskCompletedEventAttributes
-    , heChildWorkflowExecutionStartedEventAttributes
     , heDecisionTaskTimedOutEventAttributes
     , heCancelTimerFailedEventAttributes
-    , heActivityTaskTimedOutEventAttributes
+    , heChildWorkflowExecutionStartedEventAttributes
     , heActivityTaskCanceledEventAttributes
-    , heChildWorkflowExecutionCanceledEventAttributes
+    , heActivityTaskTimedOutEventAttributes
     , heDecisionTaskStartedEventAttributes
-    , heCancelWorkflowExecutionFailedEventAttributes
+    , heWorkflowExecutionTerminatedEventAttributes
+    , heChildWorkflowExecutionCanceledEventAttributes
+    , heRequestCancelActivityTaskFailedEventAttributes
     , heLambdaFunctionScheduledEventAttributes
     , heChildWorkflowExecutionTimedOutEventAttributes
-    , heRequestCancelActivityTaskFailedEventAttributes
-    , heWorkflowExecutionTerminatedEventAttributes
+    , heCancelWorkflowExecutionFailedEventAttributes
     , heStartChildWorkflowExecutionInitiatedEventAttributes
-    , heActivityTaskStartedEventAttributes
     , heSignalExternalWorkflowExecutionFailedEventAttributes
-    , heTimerStartedEventAttributes
-    , heWorkflowExecutionTimedOutEventAttributes
-    , heActivityTaskCancelRequestedEventAttributes
+    , heActivityTaskStartedEventAttributes
     , heStartLambdaFunctionFailedEventAttributes
     , heChildWorkflowExecutionTerminatedEventAttributes
     , heLambdaFunctionFailedEventAttributes
     , heWorkflowExecutionCanceledEventAttributes
+    , heTimerStartedEventAttributes
+    , heActivityTaskCancelRequestedEventAttributes
+    , heWorkflowExecutionTimedOutEventAttributes
     , heWorkflowExecutionSignaledEventAttributes
+    , heTimerFiredEventAttributes
     , heActivityTaskFailedEventAttributes
     , heExternalWorkflowExecutionSignaledEventAttributes
-    , heTimerFiredEventAttributes
-    , heFailWorkflowExecutionFailedEventAttributes
-    , heChildWorkflowExecutionFailedEventAttributes
     , heDecisionTaskCompletedEventAttributes
     , heStartChildWorkflowExecutionFailedEventAttributes
-    , heSignalExternalWorkflowExecutionInitiatedEventAttributes
+    , heChildWorkflowExecutionFailedEventAttributes
+    , heFailWorkflowExecutionFailedEventAttributes
     , heContinueAsNewWorkflowExecutionFailedEventAttributes
+    , heSignalExternalWorkflowExecutionInitiatedEventAttributes
+    , heLambdaFunctionTimedOutEventAttributes
     , heWorkflowExecutionFailedEventAttributes
     , heWorkflowExecutionContinuedAsNewEventAttributes
     , heExternalWorkflowExecutionCancelRequestedEventAttributes
-    , heLambdaFunctionTimedOutEventAttributes
     , heEventTimestamp
     , heEventType
     , heEventId
@@ -688,8 +688,8 @@ module Network.AWS.SWF
     , ScheduleActivityTaskDecisionAttributes
     , scheduleActivityTaskDecisionAttributes
     , satdaControl
-    , satdaScheduleToCloseTimeout
     , satdaHeartbeatTimeout
+    , satdaScheduleToCloseTimeout
     , satdaInput
     , satdaTaskList
     , satdaTaskPriority

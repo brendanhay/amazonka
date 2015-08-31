@@ -70,23 +70,20 @@ module Network.AWS.S3
     -- ** PutObject
     , module Network.AWS.S3.PutObject
 
-    -- ** PutBucketLogging
-    , module Network.AWS.S3.PutBucketLogging
-
     -- ** DeleteObject
     , module Network.AWS.S3.DeleteObject
 
-    -- ** DeleteBucket
-    , module Network.AWS.S3.DeleteBucket
+    -- ** PutBucketLogging
+    , module Network.AWS.S3.PutBucketLogging
 
     -- ** ListBuckets
     , module Network.AWS.S3.ListBuckets
 
+    -- ** DeleteBucket
+    , module Network.AWS.S3.DeleteBucket
+
     -- ** CreateBucket
     , module Network.AWS.S3.CreateBucket
-
-    -- ** PutBucketTagging
-    , module Network.AWS.S3.PutBucketTagging
 
     -- ** DeleteBucketTagging
     , module Network.AWS.S3.DeleteBucketTagging
@@ -94,11 +91,17 @@ module Network.AWS.S3
     -- ** PutObjectACL
     , module Network.AWS.S3.PutObjectACL
 
-    -- ** GetBucketNotificationConfiguration
-    , module Network.AWS.S3.GetBucketNotificationConfiguration
+    -- ** PutBucketTagging
+    , module Network.AWS.S3.PutBucketTagging
 
     -- ** GetBucketLocation
     , module Network.AWS.S3.GetBucketLocation
+
+    -- ** GetBucketNotificationConfiguration
+    , module Network.AWS.S3.GetBucketNotificationConfiguration
+
+    -- ** GetObject
+    , module Network.AWS.S3.GetObject
 
     -- ** PutBucketReplication
     , module Network.AWS.S3.PutBucketReplication
@@ -106,20 +109,17 @@ module Network.AWS.S3
     -- ** GetBucketWebsite
     , module Network.AWS.S3.GetBucketWebsite
 
-    -- ** GetObject
-    , module Network.AWS.S3.GetObject
+    -- ** GetBucketRequestPayment
+    , module Network.AWS.S3.GetBucketRequestPayment
 
     -- ** DeleteBucketReplication
     , module Network.AWS.S3.DeleteBucketReplication
 
-    -- ** GetBucketRequestPayment
-    , module Network.AWS.S3.GetBucketRequestPayment
+    -- ** GetBucketLifecycle
+    , module Network.AWS.S3.GetBucketLifecycle
 
     -- ** ListObjectVersions (Paginated)
     , module Network.AWS.S3.ListObjectVersions
-
-    -- ** GetBucketLifecycle
-    , module Network.AWS.S3.GetBucketLifecycle
 
     -- ** HeadBucket
     , module Network.AWS.S3.HeadBucket
@@ -127,11 +127,14 @@ module Network.AWS.S3
     -- ** PutBucketLifecycle
     , module Network.AWS.S3.PutBucketLifecycle
 
+    -- ** DeleteBucketLifecycle
+    , module Network.AWS.S3.DeleteBucketLifecycle
+
     -- ** CreateMultipartUpload
     , module Network.AWS.S3.CreateMultipartUpload
 
-    -- ** DeleteBucketLifecycle
-    , module Network.AWS.S3.DeleteBucketLifecycle
+    -- ** UploadPart
+    , module Network.AWS.S3.UploadPart
 
     -- ** GetBucketReplication
     , module Network.AWS.S3.GetBucketReplication
@@ -139,26 +142,17 @@ module Network.AWS.S3
     -- ** PutBucketWebsite
     , module Network.AWS.S3.PutBucketWebsite
 
+    -- ** DeleteBucketWebsite
+    , module Network.AWS.S3.DeleteBucketWebsite
+
     -- ** CompleteMultipartUpload
     , module Network.AWS.S3.CompleteMultipartUpload
-
-    -- ** UploadPart
-    , module Network.AWS.S3.UploadPart
 
     -- ** ListMultipartUploads (Paginated)
     , module Network.AWS.S3.ListMultipartUploads
 
-    -- ** DeleteBucketWebsite
-    , module Network.AWS.S3.DeleteBucketWebsite
-
     -- ** ListObjects (Paginated)
     , module Network.AWS.S3.ListObjects
-
-    -- ** DeleteObjects
-    , module Network.AWS.S3.DeleteObjects
-
-    -- ** PutBucketPolicy
-    , module Network.AWS.S3.PutBucketPolicy
 
     -- ** DeleteBucketPolicy
     , module Network.AWS.S3.DeleteBucketPolicy
@@ -166,29 +160,29 @@ module Network.AWS.S3
     -- ** AbortMultipartUpload
     , module Network.AWS.S3.AbortMultipartUpload
 
+    -- ** PutBucketPolicy
+    , module Network.AWS.S3.PutBucketPolicy
+
     -- ** GetObjectTorrent
     , module Network.AWS.S3.GetObjectTorrent
 
-    -- ** PutBucketCORS
-    , module Network.AWS.S3.PutBucketCORS
-
-    -- ** DeleteBucketCORS
-    , module Network.AWS.S3.DeleteBucketCORS
-
-    -- ** GetBucketVersioning
-    , module Network.AWS.S3.GetBucketVersioning
+    -- ** DeleteObjects
+    , module Network.AWS.S3.DeleteObjects
 
     -- ** PutBucketNotificationConfiguration
     , module Network.AWS.S3.PutBucketNotificationConfiguration
 
-    -- ** GetBucketTagging
-    , module Network.AWS.S3.GetBucketTagging
+    -- ** GetBucketVersioning
+    , module Network.AWS.S3.GetBucketVersioning
 
-    -- ** HeadObject
-    , module Network.AWS.S3.HeadObject
+    -- ** DeleteBucketCORS
+    , module Network.AWS.S3.DeleteBucketCORS
 
-    -- ** PutBucketVersioning
-    , module Network.AWS.S3.PutBucketVersioning
+    -- ** PutBucketCORS
+    , module Network.AWS.S3.PutBucketCORS
+
+    -- ** GetBucketCORS
+    , module Network.AWS.S3.GetBucketCORS
 
     -- ** GetObjectACL
     , module Network.AWS.S3.GetObjectACL
@@ -196,8 +190,14 @@ module Network.AWS.S3
     -- ** RestoreObject
     , module Network.AWS.S3.RestoreObject
 
-    -- ** GetBucketCORS
-    , module Network.AWS.S3.GetBucketCORS
+    -- ** HeadObject
+    , module Network.AWS.S3.HeadObject
+
+    -- ** PutBucketVersioning
+    , module Network.AWS.S3.PutBucketVersioning
+
+    -- ** GetBucketTagging
+    , module Network.AWS.S3.GetBucketTagging
 
     -- ** CopyObject
     , module Network.AWS.S3.CopyObject
@@ -208,17 +208,17 @@ module Network.AWS.S3
     -- ** GetBucketLogging
     , module Network.AWS.S3.GetBucketLogging
 
-    -- ** ListParts (Paginated)
-    , module Network.AWS.S3.ListParts
-
     -- ** GetBucketACL
     , module Network.AWS.S3.GetBucketACL
 
-    -- ** PutBucketACL
-    , module Network.AWS.S3.PutBucketACL
+    -- ** ListParts (Paginated)
+    , module Network.AWS.S3.ListParts
 
     -- ** UploadPartCopy
     , module Network.AWS.S3.UploadPartCopy
+
+    -- ** PutBucketACL
+    , module Network.AWS.S3.PutBucketACL
 
     -- * Types
 
@@ -417,8 +417,8 @@ module Network.AWS.S3
     , grantee
     , gURI
     , gEmailAddress
-    , gId
     , gDisplayName
+    , gId
     , gType
 
     -- ** IndexDocument
@@ -429,8 +429,8 @@ module Network.AWS.S3
     -- ** Initiator
     , Initiator
     , initiator
-    , iId
     , iDisplayName
+    , iId
 
     -- ** LambdaFunctionConfiguration
     , LambdaFunctionConfiguration
@@ -510,8 +510,8 @@ module Network.AWS.S3
     -- ** ObjectVersion
     , ObjectVersion
     , objectVersion
-    , ovVersionId
     , ovETag
+    , ovVersionId
     , ovSize
     , ovIsLatest
     , ovOwner
@@ -522,8 +522,8 @@ module Network.AWS.S3
     -- ** Owner
     , Owner
     , owner
-    , oId
     , oDisplayName
+    , oId
 
     -- ** Part
     , Part
@@ -653,8 +653,8 @@ module Network.AWS.S3
     , websiteConfiguration
     , wcRedirectAllRequestsTo
     , wcErrorDocument
-    , wcRoutingRules
     , wcIndexDocument
+    , wcRoutingRules
     ) where
 
 import           Network.AWS.S3.AbortMultipartUpload

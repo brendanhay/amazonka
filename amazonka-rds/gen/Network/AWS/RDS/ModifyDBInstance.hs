@@ -29,10 +29,10 @@ module Network.AWS.RDS.ModifyDBInstance
       modifyDBInstance
     , ModifyDBInstance
     -- * Request Lenses
-    , mdiDBSecurityGroups
     , mdiEngineVersion
-    , mdiAutoMinorVersionUpgrade
+    , mdiDBSecurityGroups
     , mdiMasterUserPassword
+    , mdiAutoMinorVersionUpgrade
     , mdiIOPS
     , mdiAllowMajorVersionUpgrade
     , mdiNewDBInstanceIdentifier
@@ -41,16 +41,16 @@ module Network.AWS.RDS.ModifyDBInstance
     , mdiDBInstanceClass
     , mdiPreferredMaintenanceWindow
     , mdiCACertificateIdentifier
+    , mdiDBParameterGroupName
     , mdiPreferredBackupWindow
     , mdiBackupRetentionPeriod
-    , mdiDBParameterGroupName
     , mdiVPCSecurityGroupIds
     , mdiMultiAZ
     , mdiAllocatedStorage
     , mdiApplyImmediately
-    , mdiTDECredentialARN
     , mdiOptionGroupName
     , mdiCopyTagsToSnapshot
+    , mdiTDECredentialARN
     , mdiStorageType
     , mdiDBInstanceIdentifier
 
@@ -72,10 +72,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyDBInstance' smart constructor.
 data ModifyDBInstance = ModifyDBInstance'
-    { _mdiDBSecurityGroups           :: !(Maybe [Text])
-    , _mdiEngineVersion              :: !(Maybe Text)
-    , _mdiAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    { _mdiEngineVersion              :: !(Maybe Text)
+    , _mdiDBSecurityGroups           :: !(Maybe [Text])
     , _mdiMasterUserPassword         :: !(Maybe Text)
+    , _mdiAutoMinorVersionUpgrade    :: !(Maybe Bool)
     , _mdiIOPS                       :: !(Maybe Int)
     , _mdiAllowMajorVersionUpgrade   :: !(Maybe Bool)
     , _mdiNewDBInstanceIdentifier    :: !(Maybe Text)
@@ -84,16 +84,16 @@ data ModifyDBInstance = ModifyDBInstance'
     , _mdiDBInstanceClass            :: !(Maybe Text)
     , _mdiPreferredMaintenanceWindow :: !(Maybe Text)
     , _mdiCACertificateIdentifier    :: !(Maybe Text)
+    , _mdiDBParameterGroupName       :: !(Maybe Text)
     , _mdiPreferredBackupWindow      :: !(Maybe Text)
     , _mdiBackupRetentionPeriod      :: !(Maybe Int)
-    , _mdiDBParameterGroupName       :: !(Maybe Text)
     , _mdiVPCSecurityGroupIds        :: !(Maybe [Text])
     , _mdiMultiAZ                    :: !(Maybe Bool)
     , _mdiAllocatedStorage           :: !(Maybe Int)
     , _mdiApplyImmediately           :: !(Maybe Bool)
-    , _mdiTDECredentialARN           :: !(Maybe Text)
     , _mdiOptionGroupName            :: !(Maybe Text)
     , _mdiCopyTagsToSnapshot         :: !(Maybe Bool)
+    , _mdiTDECredentialARN           :: !(Maybe Text)
     , _mdiStorageType                :: !(Maybe Text)
     , _mdiDBInstanceIdentifier       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -102,13 +102,13 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdiDBSecurityGroups'
---
 -- * 'mdiEngineVersion'
 --
--- * 'mdiAutoMinorVersionUpgrade'
+-- * 'mdiDBSecurityGroups'
 --
 -- * 'mdiMasterUserPassword'
+--
+-- * 'mdiAutoMinorVersionUpgrade'
 --
 -- * 'mdiIOPS'
 --
@@ -126,11 +126,11 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- * 'mdiCACertificateIdentifier'
 --
+-- * 'mdiDBParameterGroupName'
+--
 -- * 'mdiPreferredBackupWindow'
 --
 -- * 'mdiBackupRetentionPeriod'
---
--- * 'mdiDBParameterGroupName'
 --
 -- * 'mdiVPCSecurityGroupIds'
 --
@@ -140,11 +140,11 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- * 'mdiApplyImmediately'
 --
--- * 'mdiTDECredentialARN'
---
 -- * 'mdiOptionGroupName'
 --
 -- * 'mdiCopyTagsToSnapshot'
+--
+-- * 'mdiTDECredentialARN'
 --
 -- * 'mdiStorageType'
 --
@@ -154,10 +154,10 @@ modifyDBInstance
     -> ModifyDBInstance
 modifyDBInstance pDBInstanceIdentifier_ =
     ModifyDBInstance'
-    { _mdiDBSecurityGroups = Nothing
-    , _mdiEngineVersion = Nothing
-    , _mdiAutoMinorVersionUpgrade = Nothing
+    { _mdiEngineVersion = Nothing
+    , _mdiDBSecurityGroups = Nothing
     , _mdiMasterUserPassword = Nothing
+    , _mdiAutoMinorVersionUpgrade = Nothing
     , _mdiIOPS = Nothing
     , _mdiAllowMajorVersionUpgrade = Nothing
     , _mdiNewDBInstanceIdentifier = Nothing
@@ -166,31 +166,19 @@ modifyDBInstance pDBInstanceIdentifier_ =
     , _mdiDBInstanceClass = Nothing
     , _mdiPreferredMaintenanceWindow = Nothing
     , _mdiCACertificateIdentifier = Nothing
+    , _mdiDBParameterGroupName = Nothing
     , _mdiPreferredBackupWindow = Nothing
     , _mdiBackupRetentionPeriod = Nothing
-    , _mdiDBParameterGroupName = Nothing
     , _mdiVPCSecurityGroupIds = Nothing
     , _mdiMultiAZ = Nothing
     , _mdiAllocatedStorage = Nothing
     , _mdiApplyImmediately = Nothing
-    , _mdiTDECredentialARN = Nothing
     , _mdiOptionGroupName = Nothing
     , _mdiCopyTagsToSnapshot = Nothing
+    , _mdiTDECredentialARN = Nothing
     , _mdiStorageType = Nothing
     , _mdiDBInstanceIdentifier = pDBInstanceIdentifier_
     }
-
--- | A list of DB security groups to authorize on this DB instance. Changing
--- this setting does not result in an outage and the change is
--- asynchronously applied as soon as possible.
---
--- Constraints:
---
--- -   Must be 1 to 255 alphanumeric characters
--- -   First character must be a letter
--- -   Cannot end with a hyphen or contain two consecutive hyphens
-mdiDBSecurityGroups :: Lens' ModifyDBInstance [Text]
-mdiDBSecurityGroups = lens _mdiDBSecurityGroups (\ s a -> s{_mdiDBSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The version number of the database engine to upgrade to. Changing this
 -- parameter results in an outage and the change is applied during the next
@@ -206,15 +194,17 @@ mdiDBSecurityGroups = lens _mdiDBSecurityGroups (\ s a -> s{_mdiDBSecurityGroups
 mdiEngineVersion :: Lens' ModifyDBInstance (Maybe Text)
 mdiEngineVersion = lens _mdiEngineVersion (\ s a -> s{_mdiEngineVersion = a});
 
--- | Indicates that minor version upgrades will be applied automatically to
--- the DB instance during the maintenance window. Changing this parameter
--- does not result in an outage except in the following case and the change
--- is asynchronously applied as soon as possible. An outage will result if
--- this parameter is set to 'true' during the maintenance window, and a
--- newer minor version is available, and RDS has enabled auto patching for
--- that engine version.
-mdiAutoMinorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
-mdiAutoMinorVersionUpgrade = lens _mdiAutoMinorVersionUpgrade (\ s a -> s{_mdiAutoMinorVersionUpgrade = a});
+-- | A list of DB security groups to authorize on this DB instance. Changing
+-- this setting does not result in an outage and the change is
+-- asynchronously applied as soon as possible.
+--
+-- Constraints:
+--
+-- -   Must be 1 to 255 alphanumeric characters
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+mdiDBSecurityGroups :: Lens' ModifyDBInstance [Text]
+mdiDBSecurityGroups = lens _mdiDBSecurityGroups (\ s a -> s{_mdiDBSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The new password for the DB instance master user. Can be any printable
 -- ASCII character except \"\/\", \"\"\", or \"\'\".
@@ -237,6 +227,16 @@ mdiAutoMinorVersionUpgrade = lens _mdiAutoMinorVersionUpgrade (\ s a -> s{_mdiAu
 -- been accidentally revoked.
 mdiMasterUserPassword :: Lens' ModifyDBInstance (Maybe Text)
 mdiMasterUserPassword = lens _mdiMasterUserPassword (\ s a -> s{_mdiMasterUserPassword = a});
+
+-- | Indicates that minor version upgrades will be applied automatically to
+-- the DB instance during the maintenance window. Changing this parameter
+-- does not result in an outage except in the following case and the change
+-- is asynchronously applied as soon as possible. An outage will result if
+-- this parameter is set to 'true' during the maintenance window, and a
+-- newer minor version is available, and RDS has enabled auto patching for
+-- that engine version.
+mdiAutoMinorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
+mdiAutoMinorVersionUpgrade = lens _mdiAutoMinorVersionUpgrade (\ s a -> s{_mdiAutoMinorVersionUpgrade = a});
 
 -- | The new Provisioned IOPS (I\/O operations per second) value for the RDS
 -- instance. Changing this setting does not result in an outage and the
@@ -351,6 +351,20 @@ mdiPreferredMaintenanceWindow = lens _mdiPreferredMaintenanceWindow (\ s a -> s{
 mdiCACertificateIdentifier :: Lens' ModifyDBInstance (Maybe Text)
 mdiCACertificateIdentifier = lens _mdiCACertificateIdentifier (\ s a -> s{_mdiCACertificateIdentifier = a});
 
+-- | The name of the DB parameter group to apply to the DB instance. Changing
+-- this setting does not result in an outage. The parameter group name
+-- itself is changed immediately, but the actual parameter changes are not
+-- applied until you reboot the instance without failover. The db instance
+-- will NOT be rebooted automatically and the parameter changes will NOT be
+-- applied during the next maintenance window.
+--
+-- Default: Uses existing setting
+--
+-- Constraints: The DB parameter group must be in the same DB parameter
+-- group family as this DB instance.
+mdiDBParameterGroupName :: Lens' ModifyDBInstance (Maybe Text)
+mdiDBParameterGroupName = lens _mdiDBParameterGroupName (\ s a -> s{_mdiDBParameterGroupName = a});
+
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled, as determined by the
 -- 'BackupRetentionPeriod' parameter. Changing this parameter does not
@@ -389,20 +403,6 @@ mdiPreferredBackupWindow = lens _mdiPreferredBackupWindow (\ s a -> s{_mdiPrefer
 -- -   Cannot be set to 0 if the DB instance is a source to Read Replicas
 mdiBackupRetentionPeriod :: Lens' ModifyDBInstance (Maybe Int)
 mdiBackupRetentionPeriod = lens _mdiBackupRetentionPeriod (\ s a -> s{_mdiBackupRetentionPeriod = a});
-
--- | The name of the DB parameter group to apply to the DB instance. Changing
--- this setting does not result in an outage. The parameter group name
--- itself is changed immediately, but the actual parameter changes are not
--- applied until you reboot the instance without failover. The db instance
--- will NOT be rebooted automatically and the parameter changes will NOT be
--- applied during the next maintenance window.
---
--- Default: Uses existing setting
---
--- Constraints: The DB parameter group must be in the same DB parameter
--- group family as this DB instance.
-mdiDBParameterGroupName :: Lens' ModifyDBInstance (Maybe Text)
-mdiDBParameterGroupName = lens _mdiDBParameterGroupName (\ s a -> s{_mdiDBParameterGroupName = a});
 
 -- | A list of EC2 VPC security groups to authorize on this DB instance. This
 -- change is asynchronously applied as soon as possible.
@@ -508,11 +508,6 @@ mdiAllocatedStorage = lens _mdiAllocatedStorage (\ s a -> s{_mdiAllocatedStorage
 mdiApplyImmediately :: Lens' ModifyDBInstance (Maybe Bool)
 mdiApplyImmediately = lens _mdiApplyImmediately (\ s a -> s{_mdiApplyImmediately = a});
 
--- | The ARN from the Key Store with which to associate the instance for TDE
--- encryption.
-mdiTDECredentialARN :: Lens' ModifyDBInstance (Maybe Text)
-mdiTDECredentialARN = lens _mdiTDECredentialARN (\ s a -> s{_mdiTDECredentialARN = a});
-
 -- | Indicates that the DB instance should be associated with the specified
 -- option group. Changing this parameter does not result in an outage
 -- except in the following case and the change is applied during the next
@@ -532,6 +527,11 @@ mdiOptionGroupName = lens _mdiOptionGroupName (\ s a -> s{_mdiOptionGroupName = 
 -- | This property is not currently implemented.
 mdiCopyTagsToSnapshot :: Lens' ModifyDBInstance (Maybe Bool)
 mdiCopyTagsToSnapshot = lens _mdiCopyTagsToSnapshot (\ s a -> s{_mdiCopyTagsToSnapshot = a});
+
+-- | The ARN from the Key Store with which to associate the instance for TDE
+-- encryption.
+mdiTDECredentialARN :: Lens' ModifyDBInstance (Maybe Text)
+mdiTDECredentialARN = lens _mdiTDECredentialARN (\ s a -> s{_mdiTDECredentialARN = a});
 
 -- | Specifies the storage type to be associated with the DB instance.
 --
@@ -576,14 +576,14 @@ instance ToQuery ModifyDBInstance where
           = mconcat
               ["Action" =: ("ModifyDBInstance" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
+               "EngineVersion" =: _mdiEngineVersion,
                "DBSecurityGroups" =:
                  toQuery
                    (toQueryList "DBSecurityGroupName" <$>
                       _mdiDBSecurityGroups),
-               "EngineVersion" =: _mdiEngineVersion,
+               "MasterUserPassword" =: _mdiMasterUserPassword,
                "AutoMinorVersionUpgrade" =:
                  _mdiAutoMinorVersionUpgrade,
-               "MasterUserPassword" =: _mdiMasterUserPassword,
                "Iops" =: _mdiIOPS,
                "AllowMajorVersionUpgrade" =:
                  _mdiAllowMajorVersionUpgrade,
@@ -596,9 +596,9 @@ instance ToQuery ModifyDBInstance where
                  _mdiPreferredMaintenanceWindow,
                "CACertificateIdentifier" =:
                  _mdiCACertificateIdentifier,
+               "DBParameterGroupName" =: _mdiDBParameterGroupName,
                "PreferredBackupWindow" =: _mdiPreferredBackupWindow,
                "BackupRetentionPeriod" =: _mdiBackupRetentionPeriod,
-               "DBParameterGroupName" =: _mdiDBParameterGroupName,
                "VpcSecurityGroupIds" =:
                  toQuery
                    (toQueryList "VpcSecurityGroupId" <$>
@@ -606,9 +606,9 @@ instance ToQuery ModifyDBInstance where
                "MultiAZ" =: _mdiMultiAZ,
                "AllocatedStorage" =: _mdiAllocatedStorage,
                "ApplyImmediately" =: _mdiApplyImmediately,
-               "TdeCredentialArn" =: _mdiTDECredentialARN,
                "OptionGroupName" =: _mdiOptionGroupName,
                "CopyTagsToSnapshot" =: _mdiCopyTagsToSnapshot,
+               "TdeCredentialArn" =: _mdiTDECredentialARN,
                "StorageType" =: _mdiStorageType,
                "DBInstanceIdentifier" =: _mdiDBInstanceIdentifier]
 

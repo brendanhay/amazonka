@@ -35,21 +35,21 @@ module Network.AWS.OpsWorks.CloneStack
       cloneStack
     , CloneStack
     -- * Request Lenses
-    , cCloneAppIds
     , cDefaultInstanceProfileARN
+    , cCloneAppIds
     , cDefaultRootDeviceType
-    , cChefConfiguration
     , cVPCId
+    , cChefConfiguration
     , cAgentVersion
     , cDefaultSSHKeyName
     , cCustomJSON
     , cClonePermissions
     , cCustomCookbooksSource
     , cDefaultAvailabilityZone
-    , cName
-    , cUseOpsworksSecurityGroups
-    , cDefaultOS
     , cAttributes
+    , cName
+    , cDefaultOS
+    , cUseOpsworksSecurityGroups
     , cUseCustomCookbooks
     , cDefaultSubnetId
     , cRegion
@@ -74,21 +74,21 @@ import           Network.AWS.Response
 
 -- | /See:/ 'cloneStack' smart constructor.
 data CloneStack = CloneStack'
-    { _cCloneAppIds               :: !(Maybe [Text])
-    , _cDefaultInstanceProfileARN :: !(Maybe Text)
+    { _cDefaultInstanceProfileARN :: !(Maybe Text)
+    , _cCloneAppIds               :: !(Maybe [Text])
     , _cDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _cChefConfiguration         :: !(Maybe ChefConfiguration)
     , _cVPCId                     :: !(Maybe Text)
+    , _cChefConfiguration         :: !(Maybe ChefConfiguration)
     , _cAgentVersion              :: !(Maybe Text)
     , _cDefaultSSHKeyName         :: !(Maybe Text)
     , _cCustomJSON                :: !(Maybe Text)
     , _cClonePermissions          :: !(Maybe Bool)
     , _cCustomCookbooksSource     :: !(Maybe Source)
     , _cDefaultAvailabilityZone   :: !(Maybe Text)
-    , _cName                      :: !(Maybe Text)
-    , _cUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _cDefaultOS                 :: !(Maybe Text)
     , _cAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+    , _cName                      :: !(Maybe Text)
+    , _cDefaultOS                 :: !(Maybe Text)
+    , _cUseOpsworksSecurityGroups :: !(Maybe Bool)
     , _cUseCustomCookbooks        :: !(Maybe Bool)
     , _cDefaultSubnetId           :: !(Maybe Text)
     , _cRegion                    :: !(Maybe Text)
@@ -102,15 +102,15 @@ data CloneStack = CloneStack'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cCloneAppIds'
---
 -- * 'cDefaultInstanceProfileARN'
+--
+-- * 'cCloneAppIds'
 --
 -- * 'cDefaultRootDeviceType'
 --
--- * 'cChefConfiguration'
---
 -- * 'cVPCId'
+--
+-- * 'cChefConfiguration'
 --
 -- * 'cAgentVersion'
 --
@@ -124,13 +124,13 @@ data CloneStack = CloneStack'
 --
 -- * 'cDefaultAvailabilityZone'
 --
--- * 'cName'
+-- * 'cAttributes'
 --
--- * 'cUseOpsworksSecurityGroups'
+-- * 'cName'
 --
 -- * 'cDefaultOS'
 --
--- * 'cAttributes'
+-- * 'cUseOpsworksSecurityGroups'
 --
 -- * 'cUseCustomCookbooks'
 --
@@ -151,21 +151,21 @@ cloneStack
     -> CloneStack
 cloneStack pSourceStackId_ pServiceRoleARN_ =
     CloneStack'
-    { _cCloneAppIds = Nothing
-    , _cDefaultInstanceProfileARN = Nothing
+    { _cDefaultInstanceProfileARN = Nothing
+    , _cCloneAppIds = Nothing
     , _cDefaultRootDeviceType = Nothing
-    , _cChefConfiguration = Nothing
     , _cVPCId = Nothing
+    , _cChefConfiguration = Nothing
     , _cAgentVersion = Nothing
     , _cDefaultSSHKeyName = Nothing
     , _cCustomJSON = Nothing
     , _cClonePermissions = Nothing
     , _cCustomCookbooksSource = Nothing
     , _cDefaultAvailabilityZone = Nothing
-    , _cName = Nothing
-    , _cUseOpsworksSecurityGroups = Nothing
-    , _cDefaultOS = Nothing
     , _cAttributes = Nothing
+    , _cName = Nothing
+    , _cDefaultOS = Nothing
+    , _cUseOpsworksSecurityGroups = Nothing
     , _cUseCustomCookbooks = Nothing
     , _cDefaultSubnetId = Nothing
     , _cRegion = Nothing
@@ -175,10 +175,6 @@ cloneStack pSourceStackId_ pServiceRoleARN_ =
     , _cServiceRoleARN = pServiceRoleARN_
     }
 
--- | A list of source stack app IDs to be included in the cloned stack.
-cCloneAppIds :: Lens' CloneStack [Text]
-cCloneAppIds = lens _cCloneAppIds (\ s a -> s{_cCloneAppIds = a}) . _Default . _Coerce;
-
 -- | The Amazon Resource Name (ARN) of an IAM profile that is the default
 -- profile for all of the stack\'s EC2 instances. For more information
 -- about IAM ARNs, see
@@ -186,19 +182,16 @@ cCloneAppIds = lens _cCloneAppIds (\ s a -> s{_cCloneAppIds = a}) . _Default . _
 cDefaultInstanceProfileARN :: Lens' CloneStack (Maybe Text)
 cDefaultInstanceProfileARN = lens _cDefaultInstanceProfileARN (\ s a -> s{_cDefaultInstanceProfileARN = a});
 
+-- | A list of source stack app IDs to be included in the cloned stack.
+cCloneAppIds :: Lens' CloneStack [Text]
+cCloneAppIds = lens _cCloneAppIds (\ s a -> s{_cCloneAppIds = a}) . _Default . _Coerce;
+
 -- | The default root device type. This value is used by default for all
 -- instances in the cloned stack, but you can override it when you create
 -- an instance. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
 cDefaultRootDeviceType :: Lens' CloneStack (Maybe RootDeviceType)
 cDefaultRootDeviceType = lens _cDefaultRootDeviceType (\ s a -> s{_cDefaultRootDeviceType = a});
-
--- | A 'ChefConfiguration' object that specifies whether to enable Berkshelf
--- and the Berkshelf version on Chef 11.10 stacks. For more information,
--- see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-cChefConfiguration :: Lens' CloneStack (Maybe ChefConfiguration)
-cChefConfiguration = lens _cChefConfiguration (\ s a -> s{_cChefConfiguration = a});
 
 -- | The ID of the VPC that the cloned stack is to be launched into. It must
 -- be in the specified region. All instances are launched into this VPC,
@@ -227,6 +220,13 @@ cChefConfiguration = lens _cChefConfiguration (\ s a -> s{_cChefConfiguration = 
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
 cVPCId :: Lens' CloneStack (Maybe Text)
 cVPCId = lens _cVPCId (\ s a -> s{_cVPCId = a});
+
+-- | A 'ChefConfiguration' object that specifies whether to enable Berkshelf
+-- and the Berkshelf version on Chef 11.10 stacks. For more information,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+cChefConfiguration :: Lens' CloneStack (Maybe ChefConfiguration)
+cChefConfiguration = lens _cChefConfiguration (\ s a -> s{_cChefConfiguration = a});
 
 -- | The default AWS OpsWorks agent version. You have the following options:
 --
@@ -290,9 +290,35 @@ cCustomCookbooksSource = lens _cCustomCookbooksSource (\ s a -> s{_cCustomCookbo
 cDefaultAvailabilityZone :: Lens' CloneStack (Maybe Text)
 cDefaultAvailabilityZone = lens _cDefaultAvailabilityZone (\ s a -> s{_cDefaultAvailabilityZone = a});
 
+-- | A list of stack attributes and values as key\/value pairs to be added to
+-- the cloned stack.
+cAttributes :: Lens' CloneStack (HashMap StackAttributesKeys Text)
+cAttributes = lens _cAttributes (\ s a -> s{_cAttributes = a}) . _Default . _Map;
+
 -- | The cloned stack name.
 cName :: Lens' CloneStack (Maybe Text)
 cName = lens _cName (\ s a -> s{_cName = a});
+
+-- | The stack\'s operating system, which must be set to one of the
+-- following.
+--
+-- -   A supported Linux operating system: An Amazon Linux version, such as
+--     'Amazon Linux 2015.03', 'Red Hat Enterprise Linux 7',
+--     'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'.
+-- -   'Microsoft Windows Server 2012 R2 Base'.
+-- -   A custom AMI: 'Custom'. You specify the custom AMI you want to use
+--     when you create instances. For more information on how to use custom
+--     AMIs with OpsWorks, see
+--     <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
+--
+-- The default option is the parent stack\'s operating system. For more
+-- information on the supported operating systems, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.
+--
+-- You can specify a different Linux operating system for the cloned stack,
+-- but you cannot change from Linux to Windows or Windows to Linux.
+cDefaultOS :: Lens' CloneStack (Maybe Text)
+cDefaultOS = lens _cDefaultOS (\ s a -> s{_cDefaultOS = a});
 
 -- | Whether to associate the AWS OpsWorks built-in security groups with the
 -- stack\'s layers.
@@ -318,32 +344,6 @@ cName = lens _cName (\ s a -> s{_cName = a});
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
 cUseOpsworksSecurityGroups :: Lens' CloneStack (Maybe Bool)
 cUseOpsworksSecurityGroups = lens _cUseOpsworksSecurityGroups (\ s a -> s{_cUseOpsworksSecurityGroups = a});
-
--- | The stack\'s operating system, which must be set to one of the
--- following.
---
--- -   A supported Linux operating system: An Amazon Linux version, such as
---     'Amazon Linux 2015.03', 'Red Hat Enterprise Linux 7',
---     'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'.
--- -   'Microsoft Windows Server 2012 R2 Base'.
--- -   A custom AMI: 'Custom'. You specify the custom AMI you want to use
---     when you create instances. For more information on how to use custom
---     AMIs with OpsWorks, see
---     <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
---
--- The default option is the parent stack\'s operating system. For more
--- information on the supported operating systems, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.
---
--- You can specify a different Linux operating system for the cloned stack,
--- but you cannot change from Linux to Windows or Windows to Linux.
-cDefaultOS :: Lens' CloneStack (Maybe Text)
-cDefaultOS = lens _cDefaultOS (\ s a -> s{_cDefaultOS = a});
-
--- | A list of stack attributes and values as key\/value pairs to be added to
--- the cloned stack.
-cAttributes :: Lens' CloneStack (HashMap StackAttributesKeys Text)
-cAttributes = lens _cAttributes (\ s a -> s{_cAttributes = a}) . _Default . _Map;
 
 -- | Whether to use custom cookbooks.
 cUseCustomCookbooks :: Lens' CloneStack (Maybe Bool)
@@ -434,13 +434,13 @@ instance ToJSON CloneStack where
         toJSON CloneStack'{..}
           = object
               (catMaybes
-                 [("CloneAppIds" .=) <$> _cCloneAppIds,
-                  ("DefaultInstanceProfileArn" .=) <$>
+                 [("DefaultInstanceProfileArn" .=) <$>
                     _cDefaultInstanceProfileARN,
+                  ("CloneAppIds" .=) <$> _cCloneAppIds,
                   ("DefaultRootDeviceType" .=) <$>
                     _cDefaultRootDeviceType,
-                  ("ChefConfiguration" .=) <$> _cChefConfiguration,
                   ("VpcId" .=) <$> _cVPCId,
+                  ("ChefConfiguration" .=) <$> _cChefConfiguration,
                   ("AgentVersion" .=) <$> _cAgentVersion,
                   ("DefaultSshKeyName" .=) <$> _cDefaultSSHKeyName,
                   ("CustomJson" .=) <$> _cCustomJSON,
@@ -449,11 +449,11 @@ instance ToJSON CloneStack where
                     _cCustomCookbooksSource,
                   ("DefaultAvailabilityZone" .=) <$>
                     _cDefaultAvailabilityZone,
+                  ("Attributes" .=) <$> _cAttributes,
                   ("Name" .=) <$> _cName,
+                  ("DefaultOs" .=) <$> _cDefaultOS,
                   ("UseOpsworksSecurityGroups" .=) <$>
                     _cUseOpsworksSecurityGroups,
-                  ("DefaultOs" .=) <$> _cDefaultOS,
-                  ("Attributes" .=) <$> _cAttributes,
                   ("UseCustomCookbooks" .=) <$> _cUseCustomCookbooks,
                   ("DefaultSubnetId" .=) <$> _cDefaultSubnetId,
                   ("Region" .=) <$> _cRegion,

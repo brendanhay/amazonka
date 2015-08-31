@@ -47,22 +47,22 @@ module Network.AWS.S3.HeadObject
     , headObjectResponse
     , HeadObjectResponse
     -- * Response Lenses
-    , horsVersionId
-    , horsETag
     , horsRequestCharged
+    , horsETag
+    , horsVersionId
     , horsContentLength
-    , horsRestore
     , horsExpires
-    , horsDeleteMarker
+    , horsRestore
     , horsExpiration
+    , horsDeleteMarker
     , horsSSECustomerAlgorithm
     , horsMissingMeta
     , horsWebsiteRedirectLocation
     , horsAcceptRanges
     , horsStorageClass
-    , horsContentEncoding
-    , horsSSEKMSKeyId
     , horsSSECustomerKeyMD5
+    , horsSSEKMSKeyId
+    , horsContentEncoding
     , horsMetadata
     , horsReplicationStatus
     , horsCacheControl
@@ -211,13 +211,13 @@ instance AWSRequest HeadObject where
           = receiveEmpty
               (\ s h x ->
                  HeadObjectResponse' <$>
-                   (h .#? "x-amz-version-id") <*> (h .#? "ETag") <*>
-                     (h .#? "x-amz-request-charged")
+                   (h .#? "x-amz-request-charged") <*> (h .#? "ETag")
+                     <*> (h .#? "x-amz-version-id")
                      <*> (h .#? "Content-Length")
-                     <*> (h .#? "x-amz-restore")
                      <*> (h .#? "Expires")
-                     <*> (h .#? "x-amz-delete-marker")
+                     <*> (h .#? "x-amz-restore")
                      <*> (h .#? "x-amz-expiration")
+                     <*> (h .#? "x-amz-delete-marker")
                      <*>
                      (h .#?
                         "x-amz-server-side-encryption-customer-algorithm")
@@ -225,12 +225,12 @@ instance AWSRequest HeadObject where
                      <*> (h .#? "x-amz-website-redirect-location")
                      <*> (h .#? "accept-ranges")
                      <*> (h .#? "x-amz-storage-class")
-                     <*> (h .#? "Content-Encoding")
-                     <*>
-                     (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
                      <*>
                      (h .#?
                         "x-amz-server-side-encryption-customer-key-MD5")
+                     <*>
+                     (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
+                     <*> (h .#? "Content-Encoding")
                      <*> (parseHeadersMap "x-amz-meta-" h)
                      <*> (h .#? "x-amz-replication-status")
                      <*> (h .#? "Cache-Control")
@@ -267,22 +267,22 @@ instance ToQuery HeadObject where
 
 -- | /See:/ 'headObjectResponse' smart constructor.
 data HeadObjectResponse = HeadObjectResponse'
-    { _horsVersionId               :: !(Maybe ObjectVersionId)
+    { _horsRequestCharged          :: !(Maybe RequestCharged)
     , _horsETag                    :: !(Maybe ETag)
-    , _horsRequestCharged          :: !(Maybe RequestCharged)
+    , _horsVersionId               :: !(Maybe ObjectVersionId)
     , _horsContentLength           :: !(Maybe Int)
-    , _horsRestore                 :: !(Maybe Text)
     , _horsExpires                 :: !(Maybe RFC822)
-    , _horsDeleteMarker            :: !(Maybe Bool)
+    , _horsRestore                 :: !(Maybe Text)
     , _horsExpiration              :: !(Maybe Text)
+    , _horsDeleteMarker            :: !(Maybe Bool)
     , _horsSSECustomerAlgorithm    :: !(Maybe Text)
     , _horsMissingMeta             :: !(Maybe Int)
     , _horsWebsiteRedirectLocation :: !(Maybe Text)
     , _horsAcceptRanges            :: !(Maybe Text)
     , _horsStorageClass            :: !(Maybe StorageClass)
-    , _horsContentEncoding         :: !(Maybe Text)
-    , _horsSSEKMSKeyId             :: !(Maybe (Sensitive Text))
     , _horsSSECustomerKeyMD5       :: !(Maybe Text)
+    , _horsSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+    , _horsContentEncoding         :: !(Maybe Text)
     , _horsMetadata                :: !(Map Text Text)
     , _horsReplicationStatus       :: !(Maybe ReplicationStatus)
     , _horsCacheControl            :: !(Maybe Text)
@@ -298,21 +298,21 @@ data HeadObjectResponse = HeadObjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'horsVersionId'
+-- * 'horsRequestCharged'
 --
 -- * 'horsETag'
 --
--- * 'horsRequestCharged'
+-- * 'horsVersionId'
 --
 -- * 'horsContentLength'
 --
--- * 'horsRestore'
---
 -- * 'horsExpires'
 --
--- * 'horsDeleteMarker'
+-- * 'horsRestore'
 --
 -- * 'horsExpiration'
+--
+-- * 'horsDeleteMarker'
 --
 -- * 'horsSSECustomerAlgorithm'
 --
@@ -324,11 +324,11 @@ data HeadObjectResponse = HeadObjectResponse'
 --
 -- * 'horsStorageClass'
 --
--- * 'horsContentEncoding'
+-- * 'horsSSECustomerKeyMD5'
 --
 -- * 'horsSSEKMSKeyId'
 --
--- * 'horsSSECustomerKeyMD5'
+-- * 'horsContentEncoding'
 --
 -- * 'horsMetadata'
 --
@@ -352,22 +352,22 @@ headObjectResponse
     -> HeadObjectResponse
 headObjectResponse pStatus_ =
     HeadObjectResponse'
-    { _horsVersionId = Nothing
+    { _horsRequestCharged = Nothing
     , _horsETag = Nothing
-    , _horsRequestCharged = Nothing
+    , _horsVersionId = Nothing
     , _horsContentLength = Nothing
-    , _horsRestore = Nothing
     , _horsExpires = Nothing
-    , _horsDeleteMarker = Nothing
+    , _horsRestore = Nothing
     , _horsExpiration = Nothing
+    , _horsDeleteMarker = Nothing
     , _horsSSECustomerAlgorithm = Nothing
     , _horsMissingMeta = Nothing
     , _horsWebsiteRedirectLocation = Nothing
     , _horsAcceptRanges = Nothing
     , _horsStorageClass = Nothing
-    , _horsContentEncoding = Nothing
-    , _horsSSEKMSKeyId = Nothing
     , _horsSSECustomerKeyMD5 = Nothing
+    , _horsSSEKMSKeyId = Nothing
+    , _horsContentEncoding = Nothing
     , _horsMetadata = mempty
     , _horsReplicationStatus = Nothing
     , _horsCacheControl = Nothing
@@ -379,37 +379,31 @@ headObjectResponse pStatus_ =
     , _horsStatus = pStatus_
     }
 
--- | Version of the object.
-horsVersionId :: Lens' HeadObjectResponse (Maybe ObjectVersionId)
-horsVersionId = lens _horsVersionId (\ s a -> s{_horsVersionId = a});
+-- | Undocumented member.
+horsRequestCharged :: Lens' HeadObjectResponse (Maybe RequestCharged)
+horsRequestCharged = lens _horsRequestCharged (\ s a -> s{_horsRequestCharged = a});
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific
 -- version of a resource found at a URL
 horsETag :: Lens' HeadObjectResponse (Maybe ETag)
 horsETag = lens _horsETag (\ s a -> s{_horsETag = a});
 
--- | Undocumented member.
-horsRequestCharged :: Lens' HeadObjectResponse (Maybe RequestCharged)
-horsRequestCharged = lens _horsRequestCharged (\ s a -> s{_horsRequestCharged = a});
+-- | Version of the object.
+horsVersionId :: Lens' HeadObjectResponse (Maybe ObjectVersionId)
+horsVersionId = lens _horsVersionId (\ s a -> s{_horsVersionId = a});
 
 -- | Size of the body in bytes.
 horsContentLength :: Lens' HeadObjectResponse (Maybe Int)
 horsContentLength = lens _horsContentLength (\ s a -> s{_horsContentLength = a});
 
--- | Provides information about object restoration operation and expiration
--- time of the restored object copy.
-horsRestore :: Lens' HeadObjectResponse (Maybe Text)
-horsRestore = lens _horsRestore (\ s a -> s{_horsRestore = a});
-
 -- | The date and time at which the object is no longer cacheable.
 horsExpires :: Lens' HeadObjectResponse (Maybe UTCTime)
 horsExpires = lens _horsExpires (\ s a -> s{_horsExpires = a}) . mapping _Time;
 
--- | Specifies whether the object retrieved was (true) or was not (false) a
--- Delete Marker. If false, this response header does not appear in the
--- response.
-horsDeleteMarker :: Lens' HeadObjectResponse (Maybe Bool)
-horsDeleteMarker = lens _horsDeleteMarker (\ s a -> s{_horsDeleteMarker = a});
+-- | Provides information about object restoration operation and expiration
+-- time of the restored object copy.
+horsRestore :: Lens' HeadObjectResponse (Maybe Text)
+horsRestore = lens _horsRestore (\ s a -> s{_horsRestore = a});
 
 -- | If the object expiration is configured (see PUT Bucket lifecycle), the
 -- response includes this header. It includes the expiry-date and rule-id
@@ -417,6 +411,12 @@ horsDeleteMarker = lens _horsDeleteMarker (\ s a -> s{_horsDeleteMarker = a});
 -- the rule-id is URL encoded.
 horsExpiration :: Lens' HeadObjectResponse (Maybe Text)
 horsExpiration = lens _horsExpiration (\ s a -> s{_horsExpiration = a});
+
+-- | Specifies whether the object retrieved was (true) or was not (false) a
+-- Delete Marker. If false, this response header does not appear in the
+-- response.
+horsDeleteMarker :: Lens' HeadObjectResponse (Maybe Bool)
+horsDeleteMarker = lens _horsDeleteMarker (\ s a -> s{_horsDeleteMarker = a});
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the
@@ -446,22 +446,22 @@ horsAcceptRanges = lens _horsAcceptRanges (\ s a -> s{_horsAcceptRanges = a});
 horsStorageClass :: Lens' HeadObjectResponse (Maybe StorageClass)
 horsStorageClass = lens _horsStorageClass (\ s a -> s{_horsStorageClass = a});
 
--- | Specifies what content encodings have been applied to the object and
--- thus what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
-horsContentEncoding :: Lens' HeadObjectResponse (Maybe Text)
-horsContentEncoding = lens _horsContentEncoding (\ s a -> s{_horsContentEncoding = a});
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header to provide round trip
+-- message integrity verification of the customer-provided encryption key.
+horsSSECustomerKeyMD5 :: Lens' HeadObjectResponse (Maybe Text)
+horsSSECustomerKeyMD5 = lens _horsSSECustomerKeyMD5 (\ s a -> s{_horsSSECustomerKeyMD5 = a});
 
 -- | If present, specifies the ID of the AWS Key Management Service (KMS)
 -- master encryption key that was used for the object.
 horsSSEKMSKeyId :: Lens' HeadObjectResponse (Maybe Text)
 horsSSEKMSKeyId = lens _horsSSEKMSKeyId (\ s a -> s{_horsSSEKMSKeyId = a}) . mapping _Sensitive;
 
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header to provide round trip
--- message integrity verification of the customer-provided encryption key.
-horsSSECustomerKeyMD5 :: Lens' HeadObjectResponse (Maybe Text)
-horsSSECustomerKeyMD5 = lens _horsSSECustomerKeyMD5 (\ s a -> s{_horsSSECustomerKeyMD5 = a});
+-- | Specifies what content encodings have been applied to the object and
+-- thus what decoding mechanisms must be applied to obtain the media-type
+-- referenced by the Content-Type header field.
+horsContentEncoding :: Lens' HeadObjectResponse (Maybe Text)
+horsContentEncoding = lens _horsContentEncoding (\ s a -> s{_horsContentEncoding = a});
 
 -- | A map of metadata to store with the object in S3.
 horsMetadata :: Lens' HeadObjectResponse (HashMap Text Text)

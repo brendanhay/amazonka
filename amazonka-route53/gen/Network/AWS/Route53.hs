@@ -48,14 +48,11 @@ module Network.AWS.Route53
     -- ** InvalidChangeBatch
     , _InvalidChangeBatch
 
-    -- ** InvalidDomainName
-    , _InvalidDomainName
-
     -- ** DelegationSetNotReusable
     , _DelegationSetNotReusable
 
-    -- ** HealthCheckAlreadyExists
-    , _HealthCheckAlreadyExists
+    -- ** InvalidDomainName
+    , _InvalidDomainName
 
     -- ** HostedZoneNotFound
     , _HostedZoneNotFound
@@ -65,6 +62,9 @@ module Network.AWS.Route53
 
     -- ** NoSuchDelegationSet
     , _NoSuchDelegationSet
+
+    -- ** HealthCheckAlreadyExists
+    , _HealthCheckAlreadyExists
 
     -- ** NoSuchGeoLocation
     , _NoSuchGeoLocation
@@ -87,20 +87,14 @@ module Network.AWS.Route53
     -- ** IncompatibleVersion
     , _IncompatibleVersion
 
+    -- ** PublicZoneVPCAssociation
+    , _PublicZoneVPCAssociation
+
     -- ** NoSuchHostedZone
     , _NoSuchHostedZone
 
     -- ** TooManyHostedZones
     , _TooManyHostedZones
-
-    -- ** PublicZoneVPCAssociation
-    , _PublicZoneVPCAssociation
-
-    -- ** ConflictingDomainExists
-    , _ConflictingDomainExists
-
-    -- ** LastVPCAssociation
-    , _LastVPCAssociation
 
     -- ** HealthCheckInUse
     , _HealthCheckInUse
@@ -108,17 +102,23 @@ module Network.AWS.Route53
     -- ** DelegationSetAlreadyCreated
     , _DelegationSetAlreadyCreated
 
+    -- ** ConflictingDomainExists
+    , _ConflictingDomainExists
+
+    -- ** LastVPCAssociation
+    , _LastVPCAssociation
+
     -- ** TooManyHealthChecks
     , _TooManyHealthChecks
 
     -- ** NoSuchHealthCheck
     , _NoSuchHealthCheck
 
-    -- ** HostedZoneAlreadyExists
-    , _HostedZoneAlreadyExists
-
     -- ** InvalidVPCId
     , _InvalidVPCId
+
+    -- ** HostedZoneAlreadyExists
+    , _HostedZoneAlreadyExists
 
     -- * Waiters
     -- $waiters
@@ -132,32 +132,29 @@ module Network.AWS.Route53
     -- ** AssociateVPCWithHostedZone
     , module Network.AWS.Route53.AssociateVPCWithHostedZone
 
+    -- ** GetCheckerIPRanges
+    , module Network.AWS.Route53.GetCheckerIPRanges
+
     -- ** GetHealthCheckLastFailureReason
     , module Network.AWS.Route53.GetHealthCheckLastFailureReason
-
-    -- ** ListHostedZonesByName
-    , module Network.AWS.Route53.ListHostedZonesByName
 
     -- ** DeleteReusableDelegationSet
     , module Network.AWS.Route53.DeleteReusableDelegationSet
 
+    -- ** ListHostedZonesByName
+    , module Network.AWS.Route53.ListHostedZonesByName
+
     -- ** ListReusableDelegationSets
     , module Network.AWS.Route53.ListReusableDelegationSets
-
-    -- ** GetCheckerIPRanges
-    , module Network.AWS.Route53.GetCheckerIPRanges
 
     -- ** ListTagsForResource
     , module Network.AWS.Route53.ListTagsForResource
 
-    -- ** ChangeResourceRecordSets
-    , module Network.AWS.Route53.ChangeResourceRecordSets
-
     -- ** GetChange
     , module Network.AWS.Route53.GetChange
 
-    -- ** CreateHostedZone
-    , module Network.AWS.Route53.CreateHostedZone
+    -- ** ChangeResourceRecordSets
+    , module Network.AWS.Route53.ChangeResourceRecordSets
 
     -- ** DeleteHealthCheck
     , module Network.AWS.Route53.DeleteHealthCheck
@@ -165,23 +162,26 @@ module Network.AWS.Route53
     -- ** UpdateHealthCheck
     , module Network.AWS.Route53.UpdateHealthCheck
 
-    -- ** ChangeTagsForResource
-    , module Network.AWS.Route53.ChangeTagsForResource
-
-    -- ** CreateHealthCheck
-    , module Network.AWS.Route53.CreateHealthCheck
-
-    -- ** ListHostedZones (Paginated)
-    , module Network.AWS.Route53.ListHostedZones
+    -- ** CreateHostedZone
+    , module Network.AWS.Route53.CreateHostedZone
 
     -- ** DisassociateVPCFromHostedZone
     , module Network.AWS.Route53.DisassociateVPCFromHostedZone
 
-    -- ** GetHostedZone
-    , module Network.AWS.Route53.GetHostedZone
+    -- ** CreateHealthCheck
+    , module Network.AWS.Route53.CreateHealthCheck
+
+    -- ** ChangeTagsForResource
+    , module Network.AWS.Route53.ChangeTagsForResource
+
+    -- ** ListHostedZones (Paginated)
+    , module Network.AWS.Route53.ListHostedZones
 
     -- ** ListGeoLocations
     , module Network.AWS.Route53.ListGeoLocations
+
+    -- ** GetHostedZone
+    , module Network.AWS.Route53.GetHostedZone
 
     -- ** GetHealthCheck
     , module Network.AWS.Route53.GetHealthCheck
@@ -189,11 +189,11 @@ module Network.AWS.Route53
     -- ** ListResourceRecordSets (Paginated)
     , module Network.AWS.Route53.ListResourceRecordSets
 
-    -- ** GetHealthCheckCount
-    , module Network.AWS.Route53.GetHealthCheckCount
-
     -- ** CreateReusableDelegationSet
     , module Network.AWS.Route53.CreateReusableDelegationSet
+
+    -- ** GetHealthCheckCount
+    , module Network.AWS.Route53.GetHealthCheckCount
 
     -- ** GetHostedZoneCount
     , module Network.AWS.Route53.GetHostedZoneCount
@@ -307,8 +307,8 @@ module Network.AWS.Route53
     -- ** HealthCheckConfig
     , HealthCheckConfig
     , healthCheckConfig
-    , hccIPAddress
     , hccFailureThreshold
+    , hccIPAddress
     , hccSearchString
     , hccResourcePath
     , hccFullyQualifiedDomainName
@@ -345,8 +345,8 @@ module Network.AWS.Route53
     -- ** ResourceRecordSet
     , ResourceRecordSet
     , resourceRecordSet
-    , rrsResourceRecords
     , rrsTTL
+    , rrsResourceRecords
     , rrsAliasTarget
     , rrsWeight
     , rrsSetIdentifier

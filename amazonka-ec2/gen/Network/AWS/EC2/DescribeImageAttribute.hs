@@ -42,8 +42,8 @@ module Network.AWS.EC2.DescribeImageAttribute
     , diarsSRIOVNetSupport
     , diarsImageId
     , diarsProductCodes
-    , diarsBlockDeviceMappings
     , diarsDescription
+    , diarsBlockDeviceMappings
     , diarsStatus
     ) where
 
@@ -117,10 +117,10 @@ instance AWSRequest DescribeImageAttribute where
                      <*>
                      (x .@? "productCodes" .!@ mempty >>=
                         may (parseXMLList "item"))
+                     <*> (x .@? "description")
                      <*>
                      (x .@? "blockDeviceMapping" .!@ mempty >>=
                         may (parseXMLList "item"))
-                     <*> (x .@? "description")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeImageAttribute where
@@ -148,8 +148,8 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
     , _diarsSRIOVNetSupport     :: !(Maybe AttributeValue)
     , _diarsImageId             :: !(Maybe Text)
     , _diarsProductCodes        :: !(Maybe [ProductCode])
-    , _diarsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _diarsDescription         :: !(Maybe AttributeValue)
+    , _diarsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _diarsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -169,9 +169,9 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
 --
 -- * 'diarsProductCodes'
 --
--- * 'diarsBlockDeviceMappings'
---
 -- * 'diarsDescription'
+--
+-- * 'diarsBlockDeviceMappings'
 --
 -- * 'diarsStatus'
 describeImageAttributeResponse
@@ -185,8 +185,8 @@ describeImageAttributeResponse pStatus_ =
     , _diarsSRIOVNetSupport = Nothing
     , _diarsImageId = Nothing
     , _diarsProductCodes = Nothing
-    , _diarsBlockDeviceMappings = Nothing
     , _diarsDescription = Nothing
+    , _diarsBlockDeviceMappings = Nothing
     , _diarsStatus = pStatus_
     }
 
@@ -214,13 +214,13 @@ diarsImageId = lens _diarsImageId (\ s a -> s{_diarsImageId = a});
 diarsProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
 diarsProductCodes = lens _diarsProductCodes (\ s a -> s{_diarsProductCodes = a}) . _Default . _Coerce;
 
--- | One or more block device mapping entries.
-diarsBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
-diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBlockDeviceMappings = a}) . _Default . _Coerce;
-
 -- | A description for the AMI.
 diarsDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarsDescription = lens _diarsDescription (\ s a -> s{_diarsDescription = a});
+
+-- | One or more block device mapping entries.
+diarsBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
+diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | The response status code.
 diarsStatus :: Lens' DescribeImageAttributeResponse Int

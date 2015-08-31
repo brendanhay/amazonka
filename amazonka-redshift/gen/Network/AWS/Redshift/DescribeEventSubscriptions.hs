@@ -31,9 +31,9 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
       describeEventSubscriptions
     , DescribeEventSubscriptions
     -- * Request Lenses
-    , dSubscriptionName
-    , dMaxRecords
-    , dMarker
+    , dessSubscriptionName
+    , dessMarker
+    , dessMaxRecords
 
     -- * Destructuring the Response
     , describeEventSubscriptionsResponse
@@ -55,33 +55,42 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEventSubscriptions' smart constructor.
 data DescribeEventSubscriptions = DescribeEventSubscriptions'
-    { _dSubscriptionName :: !(Maybe Text)
-    , _dMaxRecords       :: !(Maybe Int)
-    , _dMarker           :: !(Maybe Text)
+    { _dessSubscriptionName :: !(Maybe Text)
+    , _dessMarker           :: !(Maybe Text)
+    , _dessMaxRecords       :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEventSubscriptions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dSubscriptionName'
+-- * 'dessSubscriptionName'
 --
--- * 'dMaxRecords'
+-- * 'dessMarker'
 --
--- * 'dMarker'
+-- * 'dessMaxRecords'
 describeEventSubscriptions
     :: DescribeEventSubscriptions
 describeEventSubscriptions =
     DescribeEventSubscriptions'
-    { _dSubscriptionName = Nothing
-    , _dMaxRecords = Nothing
-    , _dMarker = Nothing
+    { _dessSubscriptionName = Nothing
+    , _dessMarker = Nothing
+    , _dessMaxRecords = Nothing
     }
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- described.
-dSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
-dSubscriptionName = lens _dSubscriptionName (\ s a -> s{_dSubscriptionName = a});
+dessSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
+dessSubscriptionName = lens _dessSubscriptionName (\ s a -> s{_dessSubscriptionName = a});
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeEventSubscriptions
+-- request exceed the value specified in 'MaxRecords', AWS returns a value
+-- in the 'Marker' field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the 'Marker'
+-- parameter and retrying the request.
+dessMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
+dessMarker = lens _dessMarker (\ s a -> s{_dessMarker = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified 'MaxRecords'
@@ -92,24 +101,15 @@ dSubscriptionName = lens _dSubscriptionName (\ s a -> s{_dSubscriptionName = a})
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
-dMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
-dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeEventSubscriptions
--- request exceed the value specified in 'MaxRecords', AWS returns a value
--- in the 'Marker' field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the 'Marker'
--- parameter and retrying the request.
-dMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
-dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
+dessMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
+dessMaxRecords = lens _dessMaxRecords (\ s a -> s{_dessMaxRecords = a});
 
 instance AWSPager DescribeEventSubscriptions where
         page rq rs
           | stop (rs ^. desrsMarker) = Nothing
           | stop (rs ^. desrsEventSubscriptionsList) = Nothing
           | otherwise =
-            Just $ rq & dMarker .~ rs ^. desrsMarker
+            Just $ rq & dessMarker .~ rs ^. desrsMarker
 
 instance AWSRequest DescribeEventSubscriptions where
         type Rs DescribeEventSubscriptions =
@@ -137,8 +137,9 @@ instance ToQuery DescribeEventSubscriptions where
               ["Action" =:
                  ("DescribeEventSubscriptions" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "SubscriptionName" =: _dSubscriptionName,
-               "MaxRecords" =: _dMaxRecords, "Marker" =: _dMarker]
+               "SubscriptionName" =: _dessSubscriptionName,
+               "Marker" =: _dessMarker,
+               "MaxRecords" =: _dessMaxRecords]
 
 -- |
 --

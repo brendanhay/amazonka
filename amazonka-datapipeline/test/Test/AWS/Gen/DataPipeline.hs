@@ -43,14 +43,14 @@ import Test.AWS.DataPipeline.Internal
 --         , testListPipelines $
 --             listPipelines
 --
+--         , testEvaluateExpression $
+--             evaluateExpression
+--
 --         , testGetPipelineDefinition $
 --             getPipelineDefinition
 --
 --         , testPollForTask $
 --             pollForTask
---
---         , testEvaluateExpression $
---             evaluateExpression
 --
 --         , testDeactivatePipeline $
 --             deactivatePipeline
@@ -70,14 +70,14 @@ import Test.AWS.DataPipeline.Internal
 --         , testSetTaskStatus $
 --             setTaskStatus
 --
+--         , testSetStatus $
+--             setStatus
+--
 --         , testReportTaskProgress $
 --             reportTaskProgress
 --
 --         , testCreatePipeline $
 --             createPipeline
---
---         , testSetStatus $
---             setStatus
 --
 --         , testPutPipelineDefinition $
 --             putPipelineDefinition
@@ -103,14 +103,14 @@ import Test.AWS.DataPipeline.Internal
 --         , testListPipelinesResponse $
 --             listPipelinesResponse
 --
+--         , testEvaluateExpressionResponse $
+--             evaluateExpressionResponse
+--
 --         , testGetPipelineDefinitionResponse $
 --             getPipelineDefinitionResponse
 --
 --         , testPollForTaskResponse $
 --             pollForTaskResponse
---
---         , testEvaluateExpressionResponse $
---             evaluateExpressionResponse
 --
 --         , testDeactivatePipelineResponse $
 --             deactivatePipelineResponse
@@ -130,14 +130,14 @@ import Test.AWS.DataPipeline.Internal
 --         , testSetTaskStatusResponse $
 --             setTaskStatusResponse
 --
+--         , testSetStatusResponse $
+--             setStatusResponse
+--
 --         , testReportTaskProgressResponse $
 --             reportTaskProgressResponse
 --
 --         , testCreatePipelineResponse $
 --             createPipelineResponse
---
---         , testSetStatusResponse $
---             setStatusResponse
 --
 --         , testPutPipelineDefinitionResponse $
 --             putPipelineDefinitionResponse
@@ -175,6 +175,11 @@ testListPipelines = req
     "ListPipelines"
     "fixture/ListPipelines.yaml"
 
+testEvaluateExpression :: EvaluateExpression -> TestTree
+testEvaluateExpression = req
+    "EvaluateExpression"
+    "fixture/EvaluateExpression.yaml"
+
 testGetPipelineDefinition :: GetPipelineDefinition -> TestTree
 testGetPipelineDefinition = req
     "GetPipelineDefinition"
@@ -184,11 +189,6 @@ testPollForTask :: PollForTask -> TestTree
 testPollForTask = req
     "PollForTask"
     "fixture/PollForTask.yaml"
-
-testEvaluateExpression :: EvaluateExpression -> TestTree
-testEvaluateExpression = req
-    "EvaluateExpression"
-    "fixture/EvaluateExpression.yaml"
 
 testDeactivatePipeline :: DeactivatePipeline -> TestTree
 testDeactivatePipeline = req
@@ -220,6 +220,11 @@ testSetTaskStatus = req
     "SetTaskStatus"
     "fixture/SetTaskStatus.yaml"
 
+testSetStatus :: SetStatus -> TestTree
+testSetStatus = req
+    "SetStatus"
+    "fixture/SetStatus.yaml"
+
 testReportTaskProgress :: ReportTaskProgress -> TestTree
 testReportTaskProgress = req
     "ReportTaskProgress"
@@ -229,11 +234,6 @@ testCreatePipeline :: CreatePipeline -> TestTree
 testCreatePipeline = req
     "CreatePipeline"
     "fixture/CreatePipeline.yaml"
-
-testSetStatus :: SetStatus -> TestTree
-testSetStatus = req
-    "SetStatus"
-    "fixture/SetStatus.yaml"
 
 testPutPipelineDefinition :: PutPipelineDefinition -> TestTree
 testPutPipelineDefinition = req
@@ -282,6 +282,13 @@ testListPipelinesResponse = res
     dataPipeline
     (Proxy :: Proxy ListPipelines)
 
+testEvaluateExpressionResponse :: EvaluateExpressionResponse -> TestTree
+testEvaluateExpressionResponse = res
+    "EvaluateExpressionResponse"
+    "fixture/EvaluateExpressionResponse.proto"
+    dataPipeline
+    (Proxy :: Proxy EvaluateExpression)
+
 testGetPipelineDefinitionResponse :: GetPipelineDefinitionResponse -> TestTree
 testGetPipelineDefinitionResponse = res
     "GetPipelineDefinitionResponse"
@@ -295,13 +302,6 @@ testPollForTaskResponse = res
     "fixture/PollForTaskResponse.proto"
     dataPipeline
     (Proxy :: Proxy PollForTask)
-
-testEvaluateExpressionResponse :: EvaluateExpressionResponse -> TestTree
-testEvaluateExpressionResponse = res
-    "EvaluateExpressionResponse"
-    "fixture/EvaluateExpressionResponse.proto"
-    dataPipeline
-    (Proxy :: Proxy EvaluateExpression)
 
 testDeactivatePipelineResponse :: DeactivatePipelineResponse -> TestTree
 testDeactivatePipelineResponse = res
@@ -345,6 +345,13 @@ testSetTaskStatusResponse = res
     dataPipeline
     (Proxy :: Proxy SetTaskStatus)
 
+testSetStatusResponse :: SetStatusResponse -> TestTree
+testSetStatusResponse = res
+    "SetStatusResponse"
+    "fixture/SetStatusResponse.proto"
+    dataPipeline
+    (Proxy :: Proxy SetStatus)
+
 testReportTaskProgressResponse :: ReportTaskProgressResponse -> TestTree
 testReportTaskProgressResponse = res
     "ReportTaskProgressResponse"
@@ -358,13 +365,6 @@ testCreatePipelineResponse = res
     "fixture/CreatePipelineResponse.proto"
     dataPipeline
     (Proxy :: Proxy CreatePipeline)
-
-testSetStatusResponse :: SetStatusResponse -> TestTree
-testSetStatusResponse = res
-    "SetStatusResponse"
-    "fixture/SetStatusResponse.proto"
-    dataPipeline
-    (Proxy :: Proxy SetStatus)
 
 testPutPipelineDefinitionResponse :: PutPipelineDefinitionResponse -> TestTree
 testPutPipelineDefinitionResponse = res

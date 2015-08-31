@@ -28,17 +28,14 @@ module Network.AWS.EFS
     -- ** SecurityGroupLimitExceeded
     , _SecurityGroupLimitExceeded
 
+    -- ** SecurityGroupNotFound
+    , _SecurityGroupNotFound
+
     -- ** MountTargetConflict
     , _MountTargetConflict
 
     -- ** UnsupportedAvailabilityZone
     , _UnsupportedAvailabilityZone
-
-    -- ** SecurityGroupNotFound
-    , _SecurityGroupNotFound
-
-    -- ** FileSystemAlreadyExists
-    , _FileSystemAlreadyExists
 
     -- ** FileSystemLimitExceeded
     , _FileSystemLimitExceeded
@@ -46,11 +43,14 @@ module Network.AWS.EFS
     -- ** NetworkInterfaceLimitExceeded
     , _NetworkInterfaceLimitExceeded
 
-    -- ** FileSystemNotFound
-    , _FileSystemNotFound
+    -- ** FileSystemAlreadyExists
+    , _FileSystemAlreadyExists
 
     -- ** SubnetNotFound
     , _SubnetNotFound
+
+    -- ** FileSystemNotFound
+    , _FileSystemNotFound
 
     -- ** IncorrectFileSystemLifeCycleState
     , _IncorrectFileSystemLifeCycleState
@@ -88,14 +88,14 @@ module Network.AWS.EFS
     -- ** DescribeMountTargets
     , module Network.AWS.EFS.DescribeMountTargets
 
+    -- ** DescribeFileSystems
+    , module Network.AWS.EFS.DescribeFileSystems
+
     -- ** DeleteMountTarget
     , module Network.AWS.EFS.DeleteMountTarget
 
     -- ** CreateTags
     , module Network.AWS.EFS.CreateTags
-
-    -- ** DescribeFileSystems
-    , module Network.AWS.EFS.DescribeFileSystems
 
     -- ** DeleteTags
     , module Network.AWS.EFS.DeleteTags

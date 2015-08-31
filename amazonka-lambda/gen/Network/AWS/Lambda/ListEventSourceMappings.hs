@@ -39,8 +39,8 @@ module Network.AWS.Lambda.ListEventSourceMappings
     , ListEventSourceMappings
     -- * Request Lenses
     , lesmEventSourceARN
-    , lesmMaxItems
     , lesmMarker
+    , lesmMaxItems
     , lesmFunctionName
 
     -- * Destructuring the Response
@@ -62,8 +62,8 @@ import           Network.AWS.Response
 -- | /See:/ 'listEventSourceMappings' smart constructor.
 data ListEventSourceMappings = ListEventSourceMappings'
     { _lesmEventSourceARN :: !(Maybe Text)
-    , _lesmMaxItems       :: !(Maybe Nat)
     , _lesmMarker         :: !(Maybe Text)
+    , _lesmMaxItems       :: !(Maybe Nat)
     , _lesmFunctionName   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -73,9 +73,9 @@ data ListEventSourceMappings = ListEventSourceMappings'
 --
 -- * 'lesmEventSourceARN'
 --
--- * 'lesmMaxItems'
---
 -- * 'lesmMarker'
+--
+-- * 'lesmMaxItems'
 --
 -- * 'lesmFunctionName'
 listEventSourceMappings
@@ -83,8 +83,8 @@ listEventSourceMappings
 listEventSourceMappings =
     ListEventSourceMappings'
     { _lesmEventSourceARN = Nothing
-    , _lesmMaxItems = Nothing
     , _lesmMarker = Nothing
+    , _lesmMaxItems = Nothing
     , _lesmFunctionName = Nothing
     }
 
@@ -92,16 +92,16 @@ listEventSourceMappings =
 lesmEventSourceARN :: Lens' ListEventSourceMappings (Maybe Text)
 lesmEventSourceARN = lens _lesmEventSourceARN (\ s a -> s{_lesmEventSourceARN = a});
 
--- | Optional integer. Specifies the maximum number of event sources to
--- return in response. This value must be greater than 0.
-lesmMaxItems :: Lens' ListEventSourceMappings (Maybe Natural)
-lesmMaxItems = lens _lesmMaxItems (\ s a -> s{_lesmMaxItems = a}) . mapping _Nat;
-
 -- | Optional string. An opaque pagination token returned from a previous
 -- 'ListEventSourceMappings' operation. If present, specifies to continue
 -- the list from where the returning call left off.
 lesmMarker :: Lens' ListEventSourceMappings (Maybe Text)
 lesmMarker = lens _lesmMarker (\ s a -> s{_lesmMarker = a});
+
+-- | Optional integer. Specifies the maximum number of event sources to
+-- return in response. This value must be greater than 0.
+lesmMaxItems :: Lens' ListEventSourceMappings (Maybe Natural)
+lesmMaxItems = lens _lesmMaxItems (\ s a -> s{_lesmMaxItems = a}) . mapping _Nat;
 
 -- | The name of the Lambda function.
 --
@@ -145,7 +145,7 @@ instance ToQuery ListEventSourceMappings where
         toQuery ListEventSourceMappings'{..}
           = mconcat
               ["EventSourceArn" =: _lesmEventSourceARN,
-               "MaxItems" =: _lesmMaxItems, "Marker" =: _lesmMarker,
+               "Marker" =: _lesmMarker, "MaxItems" =: _lesmMaxItems,
                "FunctionName" =: _lesmFunctionName]
 
 -- | Contains a list of event sources (see

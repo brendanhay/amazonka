@@ -35,8 +35,8 @@ module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     , describeSnapshotScheduleResponse
     , DescribeSnapshotScheduleResponse
     -- * Response Lenses
-    , dssrsVolumeARN
     , dssrsStartAt
+    , dssrsVolumeARN
     , dssrsRecurrenceInHours
     , dssrsTimezone
     , dssrsDescription
@@ -83,7 +83,7 @@ instance AWSRequest DescribeSnapshotSchedule where
           = receiveJSON
               (\ s h x ->
                  DescribeSnapshotScheduleResponse' <$>
-                   (x .?> "VolumeARN") <*> (x .?> "StartAt") <*>
+                   (x .?> "StartAt") <*> (x .?> "VolumeARN") <*>
                      (x .?> "RecurrenceInHours")
                      <*> (x .?> "Timezone")
                      <*> (x .?> "Description")
@@ -112,8 +112,8 @@ instance ToQuery DescribeSnapshotSchedule where
 
 -- | /See:/ 'describeSnapshotScheduleResponse' smart constructor.
 data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
-    { _dssrsVolumeARN         :: !(Maybe Text)
-    , _dssrsStartAt           :: !(Maybe Nat)
+    { _dssrsStartAt           :: !(Maybe Nat)
+    , _dssrsVolumeARN         :: !(Maybe Text)
     , _dssrsRecurrenceInHours :: !(Maybe Nat)
     , _dssrsTimezone          :: !(Maybe Text)
     , _dssrsDescription       :: !(Maybe Text)
@@ -124,9 +124,9 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssrsVolumeARN'
---
 -- * 'dssrsStartAt'
+--
+-- * 'dssrsVolumeARN'
 --
 -- * 'dssrsRecurrenceInHours'
 --
@@ -140,8 +140,8 @@ describeSnapshotScheduleResponse
     -> DescribeSnapshotScheduleResponse
 describeSnapshotScheduleResponse pStatus_ =
     DescribeSnapshotScheduleResponse'
-    { _dssrsVolumeARN = Nothing
-    , _dssrsStartAt = Nothing
+    { _dssrsStartAt = Nothing
+    , _dssrsVolumeARN = Nothing
     , _dssrsRecurrenceInHours = Nothing
     , _dssrsTimezone = Nothing
     , _dssrsDescription = Nothing
@@ -149,12 +149,12 @@ describeSnapshotScheduleResponse pStatus_ =
     }
 
 -- | Undocumented member.
-dssrsVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dssrsVolumeARN = lens _dssrsVolumeARN (\ s a -> s{_dssrsVolumeARN = a});
-
--- | Undocumented member.
 dssrsStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
 dssrsStartAt = lens _dssrsStartAt (\ s a -> s{_dssrsStartAt = a}) . mapping _Nat;
+
+-- | Undocumented member.
+dssrsVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
+dssrsVolumeARN = lens _dssrsVolumeARN (\ s a -> s{_dssrsVolumeARN = a});
 
 -- | Undocumented member.
 dssrsRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)

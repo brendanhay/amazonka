@@ -42,19 +42,19 @@ module Network.AWS.MachineLearning.GetDataSource
     , gdsrsNumberOfFiles
     , gdsrsLastUpdatedAt
     , gdsrsCreatedAt
-    , gdsrsRDSMetadata
     , gdsrsDataSourceId
+    , gdsrsRDSMetadata
     , gdsrsDataSizeInBytes
     , gdsrsDataSourceSchema
-    , gdsrsName
     , gdsrsCreatedByIAMUser
+    , gdsrsName
     , gdsrsLogURI
     , gdsrsDataLocationS3
     , gdsrsComputeStatistics
     , gdsrsMessage
     , gdsrsRedshiftMetadata
-    , gdsrsRoleARN
     , gdsrsDataRearrangement
+    , gdsrsRoleARN
     , gdsrsStatus
     ) where
 
@@ -108,19 +108,19 @@ instance AWSRequest GetDataSource where
                  GetDataSourceResponse' <$>
                    (x .?> "NumberOfFiles") <*> (x .?> "LastUpdatedAt")
                      <*> (x .?> "CreatedAt")
-                     <*> (x .?> "RDSMetadata")
                      <*> (x .?> "DataSourceId")
+                     <*> (x .?> "RDSMetadata")
                      <*> (x .?> "DataSizeInBytes")
                      <*> (x .?> "DataSourceSchema")
-                     <*> (x .?> "Name")
                      <*> (x .?> "CreatedByIamUser")
+                     <*> (x .?> "Name")
                      <*> (x .?> "LogUri")
                      <*> (x .?> "DataLocationS3")
                      <*> (x .?> "ComputeStatistics")
                      <*> (x .?> "Message")
                      <*> (x .?> "RedshiftMetadata")
-                     <*> (x .?> "RoleARN")
                      <*> (x .?> "DataRearrangement")
+                     <*> (x .?> "RoleARN")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders GetDataSource where
@@ -153,19 +153,19 @@ data GetDataSourceResponse = GetDataSourceResponse'
     { _gdsrsNumberOfFiles     :: !(Maybe Integer)
     , _gdsrsLastUpdatedAt     :: !(Maybe POSIX)
     , _gdsrsCreatedAt         :: !(Maybe POSIX)
-    , _gdsrsRDSMetadata       :: !(Maybe RDSMetadata)
     , _gdsrsDataSourceId      :: !(Maybe Text)
+    , _gdsrsRDSMetadata       :: !(Maybe RDSMetadata)
     , _gdsrsDataSizeInBytes   :: !(Maybe Integer)
     , _gdsrsDataSourceSchema  :: !(Maybe Text)
-    , _gdsrsName              :: !(Maybe Text)
     , _gdsrsCreatedByIAMUser  :: !(Maybe Text)
+    , _gdsrsName              :: !(Maybe Text)
     , _gdsrsLogURI            :: !(Maybe Text)
     , _gdsrsDataLocationS3    :: !(Maybe Text)
     , _gdsrsComputeStatistics :: !(Maybe Bool)
     , _gdsrsMessage           :: !(Maybe Text)
     , _gdsrsRedshiftMetadata  :: !(Maybe RedshiftMetadata)
-    , _gdsrsRoleARN           :: !(Maybe Text)
     , _gdsrsDataRearrangement :: !(Maybe Text)
+    , _gdsrsRoleARN           :: !(Maybe Text)
     , _gdsrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -179,17 +179,17 @@ data GetDataSourceResponse = GetDataSourceResponse'
 --
 -- * 'gdsrsCreatedAt'
 --
--- * 'gdsrsRDSMetadata'
---
 -- * 'gdsrsDataSourceId'
+--
+-- * 'gdsrsRDSMetadata'
 --
 -- * 'gdsrsDataSizeInBytes'
 --
 -- * 'gdsrsDataSourceSchema'
 --
--- * 'gdsrsName'
---
 -- * 'gdsrsCreatedByIAMUser'
+--
+-- * 'gdsrsName'
 --
 -- * 'gdsrsLogURI'
 --
@@ -201,9 +201,9 @@ data GetDataSourceResponse = GetDataSourceResponse'
 --
 -- * 'gdsrsRedshiftMetadata'
 --
--- * 'gdsrsRoleARN'
---
 -- * 'gdsrsDataRearrangement'
+--
+-- * 'gdsrsRoleARN'
 --
 -- * 'gdsrsStatus'
 getDataSourceResponse
@@ -214,19 +214,19 @@ getDataSourceResponse pStatus_ =
     { _gdsrsNumberOfFiles = Nothing
     , _gdsrsLastUpdatedAt = Nothing
     , _gdsrsCreatedAt = Nothing
-    , _gdsrsRDSMetadata = Nothing
     , _gdsrsDataSourceId = Nothing
+    , _gdsrsRDSMetadata = Nothing
     , _gdsrsDataSizeInBytes = Nothing
     , _gdsrsDataSourceSchema = Nothing
-    , _gdsrsName = Nothing
     , _gdsrsCreatedByIAMUser = Nothing
+    , _gdsrsName = Nothing
     , _gdsrsLogURI = Nothing
     , _gdsrsDataLocationS3 = Nothing
     , _gdsrsComputeStatistics = Nothing
     , _gdsrsMessage = Nothing
     , _gdsrsRedshiftMetadata = Nothing
-    , _gdsrsRoleARN = Nothing
     , _gdsrsDataRearrangement = Nothing
+    , _gdsrsRoleARN = Nothing
     , _gdsrsStatus = pStatus_
     }
 
@@ -244,14 +244,14 @@ gdsrsLastUpdatedAt = lens _gdsrsLastUpdatedAt (\ s a -> s{_gdsrsLastUpdatedAt = 
 gdsrsCreatedAt :: Lens' GetDataSourceResponse (Maybe UTCTime)
 gdsrsCreatedAt = lens _gdsrsCreatedAt (\ s a -> s{_gdsrsCreatedAt = a}) . mapping _Time;
 
--- | Undocumented member.
-gdsrsRDSMetadata :: Lens' GetDataSourceResponse (Maybe RDSMetadata)
-gdsrsRDSMetadata = lens _gdsrsRDSMetadata (\ s a -> s{_gdsrsRDSMetadata = a});
-
 -- | The ID assigned to the 'DataSource' at creation. This value should be
 -- identical to the value of the 'DataSourceId' in the request.
 gdsrsDataSourceId :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrsDataSourceId = lens _gdsrsDataSourceId (\ s a -> s{_gdsrsDataSourceId = a});
+
+-- | Undocumented member.
+gdsrsRDSMetadata :: Lens' GetDataSourceResponse (Maybe RDSMetadata)
+gdsrsRDSMetadata = lens _gdsrsRDSMetadata (\ s a -> s{_gdsrsRDSMetadata = a});
 
 -- | The total size of observations in the data files.
 gdsrsDataSizeInBytes :: Lens' GetDataSourceResponse (Maybe Integer)
@@ -265,15 +265,15 @@ gdsrsDataSizeInBytes = lens _gdsrsDataSizeInBytes (\ s a -> s{_gdsrsDataSizeInBy
 gdsrsDataSourceSchema :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrsDataSourceSchema = lens _gdsrsDataSourceSchema (\ s a -> s{_gdsrsDataSourceSchema = a});
 
--- | A user-supplied name or description of the 'DataSource'.
-gdsrsName :: Lens' GetDataSourceResponse (Maybe Text)
-gdsrsName = lens _gdsrsName (\ s a -> s{_gdsrsName = a});
-
 -- | The AWS user account from which the 'DataSource' was created. The
 -- account type can be either an AWS root account or an AWS Identity and
 -- Access Management (IAM) user account.
 gdsrsCreatedByIAMUser :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrsCreatedByIAMUser = lens _gdsrsCreatedByIAMUser (\ s a -> s{_gdsrsCreatedByIAMUser = a});
+
+-- | A user-supplied name or description of the 'DataSource'.
+gdsrsName :: Lens' GetDataSourceResponse (Maybe Text)
+gdsrsName = lens _gdsrsName (\ s a -> s{_gdsrsName = a});
 
 -- | A link to the file containining logs of either create 'DataSource'
 -- operation.
@@ -299,14 +299,14 @@ gdsrsMessage = lens _gdsrsMessage (\ s a -> s{_gdsrsMessage = a});
 gdsrsRedshiftMetadata :: Lens' GetDataSourceResponse (Maybe RedshiftMetadata)
 gdsrsRedshiftMetadata = lens _gdsrsRedshiftMetadata (\ s a -> s{_gdsrsRedshiftMetadata = a});
 
--- | Undocumented member.
-gdsrsRoleARN :: Lens' GetDataSourceResponse (Maybe Text)
-gdsrsRoleARN = lens _gdsrsRoleARN (\ s a -> s{_gdsrsRoleARN = a});
-
 -- | A JSON string that captures the splitting rearrangement requirement of
 -- the 'DataSource'.
 gdsrsDataRearrangement :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrsDataRearrangement = lens _gdsrsDataRearrangement (\ s a -> s{_gdsrsDataRearrangement = a});
+
+-- | Undocumented member.
+gdsrsRoleARN :: Lens' GetDataSourceResponse (Maybe Text)
+gdsrsRoleARN = lens _gdsrsRoleARN (\ s a -> s{_gdsrsRoleARN = a});
 
 -- | The response status code.
 gdsrsStatus :: Lens' GetDataSourceResponse Int

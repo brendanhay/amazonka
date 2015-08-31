@@ -34,16 +34,16 @@ module Network.AWS.OpsWorks.CreateStack
     , CreateStack
     -- * Request Lenses
     , csDefaultRootDeviceType
-    , csChefConfiguration
     , csVPCId
+    , csChefConfiguration
     , csAgentVersion
     , csDefaultSSHKeyName
     , csCustomJSON
     , csCustomCookbooksSource
     , csDefaultAvailabilityZone
-    , csUseOpsworksSecurityGroups
-    , csDefaultOS
     , csAttributes
+    , csDefaultOS
+    , csUseOpsworksSecurityGroups
     , csUseCustomCookbooks
     , csDefaultSubnetId
     , csConfigurationManager
@@ -70,16 +70,16 @@ import           Network.AWS.Response
 -- | /See:/ 'createStack' smart constructor.
 data CreateStack = CreateStack'
     { _csDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _csChefConfiguration         :: !(Maybe ChefConfiguration)
     , _csVPCId                     :: !(Maybe Text)
+    , _csChefConfiguration         :: !(Maybe ChefConfiguration)
     , _csAgentVersion              :: !(Maybe Text)
     , _csDefaultSSHKeyName         :: !(Maybe Text)
     , _csCustomJSON                :: !(Maybe Text)
     , _csCustomCookbooksSource     :: !(Maybe Source)
     , _csDefaultAvailabilityZone   :: !(Maybe Text)
-    , _csUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _csDefaultOS                 :: !(Maybe Text)
     , _csAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+    , _csDefaultOS                 :: !(Maybe Text)
+    , _csUseOpsworksSecurityGroups :: !(Maybe Bool)
     , _csUseCustomCookbooks        :: !(Maybe Bool)
     , _csDefaultSubnetId           :: !(Maybe Text)
     , _csConfigurationManager      :: !(Maybe StackConfigurationManager)
@@ -96,9 +96,9 @@ data CreateStack = CreateStack'
 --
 -- * 'csDefaultRootDeviceType'
 --
--- * 'csChefConfiguration'
---
 -- * 'csVPCId'
+--
+-- * 'csChefConfiguration'
 --
 -- * 'csAgentVersion'
 --
@@ -110,11 +110,11 @@ data CreateStack = CreateStack'
 --
 -- * 'csDefaultAvailabilityZone'
 --
--- * 'csUseOpsworksSecurityGroups'
+-- * 'csAttributes'
 --
 -- * 'csDefaultOS'
 --
--- * 'csAttributes'
+-- * 'csUseOpsworksSecurityGroups'
 --
 -- * 'csUseCustomCookbooks'
 --
@@ -140,16 +140,16 @@ createStack
 createStack pName_ pRegion_ pServiceRoleARN_ pDefaultInstanceProfileARN_ =
     CreateStack'
     { _csDefaultRootDeviceType = Nothing
-    , _csChefConfiguration = Nothing
     , _csVPCId = Nothing
+    , _csChefConfiguration = Nothing
     , _csAgentVersion = Nothing
     , _csDefaultSSHKeyName = Nothing
     , _csCustomJSON = Nothing
     , _csCustomCookbooksSource = Nothing
     , _csDefaultAvailabilityZone = Nothing
-    , _csUseOpsworksSecurityGroups = Nothing
-    , _csDefaultOS = Nothing
     , _csAttributes = Nothing
+    , _csDefaultOS = Nothing
+    , _csUseOpsworksSecurityGroups = Nothing
     , _csUseCustomCookbooks = Nothing
     , _csDefaultSubnetId = Nothing
     , _csConfigurationManager = Nothing
@@ -167,13 +167,6 @@ createStack pName_ pRegion_ pServiceRoleARN_ pDefaultInstanceProfileARN_ =
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
 csDefaultRootDeviceType :: Lens' CreateStack (Maybe RootDeviceType)
 csDefaultRootDeviceType = lens _csDefaultRootDeviceType (\ s a -> s{_csDefaultRootDeviceType = a});
-
--- | A 'ChefConfiguration' object that specifies whether to enable Berkshelf
--- and the Berkshelf version on Chef 11.10 stacks. For more information,
--- see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-csChefConfiguration :: Lens' CreateStack (Maybe ChefConfiguration)
-csChefConfiguration = lens _csChefConfiguration (\ s a -> s{_csChefConfiguration = a});
 
 -- | The ID of the VPC that the stack is to be launched into. The VPC must be
 -- in the stack\'s region. All instances are launched into this VPC. You
@@ -202,6 +195,13 @@ csChefConfiguration = lens _csChefConfiguration (\ s a -> s{_csChefConfiguration
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
 csVPCId :: Lens' CreateStack (Maybe Text)
 csVPCId = lens _csVPCId (\ s a -> s{_csVPCId = a});
+
+-- | A 'ChefConfiguration' object that specifies whether to enable Berkshelf
+-- and the Berkshelf version on Chef 11.10 stacks. For more information,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+csChefConfiguration :: Lens' CreateStack (Maybe ChefConfiguration)
+csChefConfiguration = lens _csChefConfiguration (\ s a -> s{_csChefConfiguration = a});
 
 -- | The default AWS OpsWorks agent version. You have the following options:
 --
@@ -261,6 +261,29 @@ csCustomCookbooksSource = lens _csCustomCookbooksSource (\ s a -> s{_csCustomCoo
 csDefaultAvailabilityZone :: Lens' CreateStack (Maybe Text)
 csDefaultAvailabilityZone = lens _csDefaultAvailabilityZone (\ s a -> s{_csDefaultAvailabilityZone = a});
 
+-- | One or more user-defined key-value pairs to be added to the stack
+-- attributes.
+csAttributes :: Lens' CreateStack (HashMap StackAttributesKeys Text)
+csAttributes = lens _csAttributes (\ s a -> s{_csAttributes = a}) . _Default . _Map;
+
+-- | The stack\'s default operating system, which is installed on every
+-- instance unless you specify a different operating system when you create
+-- the instance. You can specify one of the following.
+--
+-- -   A supported Linux operating system: An Amazon Linux version, such as
+--     'Amazon Linux 2015.03', 'Red Hat Enterprise Linux 7',
+--     'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'.
+-- -   'Microsoft Windows Server 2012 R2 Base'.
+-- -   A custom AMI: 'Custom'. You specify the custom AMI you want to use
+--     when you create instances. For more information, see
+--     <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
+--
+-- The default option is the current Amazon Linux version. For more
+-- information on the supported operating systems, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.
+csDefaultOS :: Lens' CreateStack (Maybe Text)
+csDefaultOS = lens _csDefaultOS (\ s a -> s{_csDefaultOS = a});
+
 -- | Whether to associate the AWS OpsWorks built-in security groups with the
 -- stack\'s layers.
 --
@@ -284,29 +307,6 @@ csDefaultAvailabilityZone = lens _csDefaultAvailabilityZone (\ s a -> s{_csDefau
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
 csUseOpsworksSecurityGroups :: Lens' CreateStack (Maybe Bool)
 csUseOpsworksSecurityGroups = lens _csUseOpsworksSecurityGroups (\ s a -> s{_csUseOpsworksSecurityGroups = a});
-
--- | The stack\'s default operating system, which is installed on every
--- instance unless you specify a different operating system when you create
--- the instance. You can specify one of the following.
---
--- -   A supported Linux operating system: An Amazon Linux version, such as
---     'Amazon Linux 2015.03', 'Red Hat Enterprise Linux 7',
---     'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'.
--- -   'Microsoft Windows Server 2012 R2 Base'.
--- -   A custom AMI: 'Custom'. You specify the custom AMI you want to use
---     when you create instances. For more information, see
---     <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
---
--- The default option is the current Amazon Linux version. For more
--- information on the supported operating systems, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.
-csDefaultOS :: Lens' CreateStack (Maybe Text)
-csDefaultOS = lens _csDefaultOS (\ s a -> s{_csDefaultOS = a});
-
--- | One or more user-defined key-value pairs to be added to the stack
--- attributes.
-csAttributes :: Lens' CreateStack (HashMap StackAttributesKeys Text)
-csAttributes = lens _csAttributes (\ s a -> s{_csAttributes = a}) . _Default . _Map;
 
 -- | Whether the stack uses custom cookbooks.
 csUseCustomCookbooks :: Lens' CreateStack (Maybe Bool)
@@ -399,8 +399,8 @@ instance ToJSON CreateStack where
               (catMaybes
                  [("DefaultRootDeviceType" .=) <$>
                     _csDefaultRootDeviceType,
-                  ("ChefConfiguration" .=) <$> _csChefConfiguration,
                   ("VpcId" .=) <$> _csVPCId,
+                  ("ChefConfiguration" .=) <$> _csChefConfiguration,
                   ("AgentVersion" .=) <$> _csAgentVersion,
                   ("DefaultSshKeyName" .=) <$> _csDefaultSSHKeyName,
                   ("CustomJson" .=) <$> _csCustomJSON,
@@ -408,10 +408,10 @@ instance ToJSON CreateStack where
                     _csCustomCookbooksSource,
                   ("DefaultAvailabilityZone" .=) <$>
                     _csDefaultAvailabilityZone,
+                  ("Attributes" .=) <$> _csAttributes,
+                  ("DefaultOs" .=) <$> _csDefaultOS,
                   ("UseOpsworksSecurityGroups" .=) <$>
                     _csUseOpsworksSecurityGroups,
-                  ("DefaultOs" .=) <$> _csDefaultOS,
-                  ("Attributes" .=) <$> _csAttributes,
                   ("UseCustomCookbooks" .=) <$> _csUseCustomCookbooks,
                   ("DefaultSubnetId" .=) <$> _csDefaultSubnetId,
                   ("ConfigurationManager" .=) <$>

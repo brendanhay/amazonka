@@ -50,8 +50,8 @@ module Network.AWS.Route53.CreateHostedZone
     , CreateHostedZone
     -- * Request Lenses
     , chzDelegationSetId
-    , chzHostedZoneConfig
     , chzVPC
+    , chzHostedZoneConfig
     , chzName
     , chzCallerReference
 
@@ -79,8 +79,8 @@ import           Network.AWS.Route53.Types.Product
 -- /See:/ 'createHostedZone' smart constructor.
 data CreateHostedZone = CreateHostedZone'
     { _chzDelegationSetId  :: !(Maybe Text)
-    , _chzHostedZoneConfig :: !(Maybe HostedZoneConfig)
     , _chzVPC              :: !(Maybe VPC)
+    , _chzHostedZoneConfig :: !(Maybe HostedZoneConfig)
     , _chzName             :: !Text
     , _chzCallerReference  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -91,9 +91,9 @@ data CreateHostedZone = CreateHostedZone'
 --
 -- * 'chzDelegationSetId'
 --
--- * 'chzHostedZoneConfig'
---
 -- * 'chzVPC'
+--
+-- * 'chzHostedZoneConfig'
 --
 -- * 'chzName'
 --
@@ -105,8 +105,8 @@ createHostedZone
 createHostedZone pName_ pCallerReference_ =
     CreateHostedZone'
     { _chzDelegationSetId = Nothing
-    , _chzHostedZoneConfig = Nothing
     , _chzVPC = Nothing
+    , _chzHostedZoneConfig = Nothing
     , _chzName = pName_
     , _chzCallerReference = pCallerReference_
     }
@@ -116,15 +116,15 @@ createHostedZone pName_ pCallerReference_ =
 chzDelegationSetId :: Lens' CreateHostedZone (Maybe Text)
 chzDelegationSetId = lens _chzDelegationSetId (\ s a -> s{_chzDelegationSetId = a});
 
--- | A complex type that contains an optional comment about your hosted zone.
-chzHostedZoneConfig :: Lens' CreateHostedZone (Maybe HostedZoneConfig)
-chzHostedZoneConfig = lens _chzHostedZoneConfig (\ s a -> s{_chzHostedZoneConfig = a});
-
 -- | The VPC that you want your hosted zone to be associated with. By
 -- providing this parameter, your newly created hosted cannot be resolved
 -- anywhere other than the given VPC.
 chzVPC :: Lens' CreateHostedZone (Maybe VPC)
 chzVPC = lens _chzVPC (\ s a -> s{_chzVPC = a});
+
+-- | A complex type that contains an optional comment about your hosted zone.
+chzHostedZoneConfig :: Lens' CreateHostedZone (Maybe HostedZoneConfig)
+chzHostedZoneConfig = lens _chzHostedZoneConfig (\ s a -> s{_chzHostedZoneConfig = a});
 
 -- | The name of the domain. This must be a fully-specified domain, for
 -- example, www.example.com. The trailing dot is optional; Route 53 assumes
@@ -182,8 +182,9 @@ instance ToXML CreateHostedZone where
         toXML CreateHostedZone'{..}
           = mconcat
               ["DelegationSetId" @= _chzDelegationSetId,
+               "VPC" @= _chzVPC,
                "HostedZoneConfig" @= _chzHostedZoneConfig,
-               "VPC" @= _chzVPC, "Name" @= _chzName,
+               "Name" @= _chzName,
                "CallerReference" @= _chzCallerReference]
 
 -- | A complex type containing the response information for the new hosted

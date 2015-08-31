@@ -35,9 +35,9 @@ module Network.AWS.DynamoDB.GetItem
     , GetItem
     -- * Request Lenses
     , giProjectionExpression
-    , giConsistentRead
-    , giExpressionAttributeNames
     , giAttributesToGet
+    , giExpressionAttributeNames
+    , giConsistentRead
     , giReturnConsumedCapacity
     , giTableName
     , giKey
@@ -62,9 +62,9 @@ import           Network.AWS.Response
 -- /See:/ 'getItem' smart constructor.
 data GetItem = GetItem'
     { _giProjectionExpression     :: !(Maybe Text)
-    , _giConsistentRead           :: !(Maybe Bool)
-    , _giExpressionAttributeNames :: !(Maybe (Map Text Text))
     , _giAttributesToGet          :: !(Maybe (List1 Text))
+    , _giExpressionAttributeNames :: !(Maybe (Map Text Text))
+    , _giConsistentRead           :: !(Maybe Bool)
     , _giReturnConsumedCapacity   :: !(Maybe ReturnConsumedCapacity)
     , _giTableName                :: !Text
     , _giKey                      :: !(Map Text AttributeValue)
@@ -76,11 +76,11 @@ data GetItem = GetItem'
 --
 -- * 'giProjectionExpression'
 --
--- * 'giConsistentRead'
+-- * 'giAttributesToGet'
 --
 -- * 'giExpressionAttributeNames'
 --
--- * 'giAttributesToGet'
+-- * 'giConsistentRead'
 --
 -- * 'giReturnConsumedCapacity'
 --
@@ -93,9 +93,9 @@ getItem
 getItem pTableName_ =
     GetItem'
     { _giProjectionExpression = Nothing
-    , _giConsistentRead = Nothing
-    , _giExpressionAttributeNames = Nothing
     , _giAttributesToGet = Nothing
+    , _giExpressionAttributeNames = Nothing
+    , _giConsistentRead = Nothing
     , _giReturnConsumedCapacity = Nothing
     , _giTableName = pTableName_
     , _giKey = mempty
@@ -117,11 +117,23 @@ getItem pTableName_ =
 giProjectionExpression :: Lens' GetItem (Maybe Text)
 giProjectionExpression = lens _giProjectionExpression (\ s a -> s{_giProjectionExpression = a});
 
--- | Determines the read consistency model: If set to 'true', then the
--- operation uses strongly consistent reads; otherwise, the operation uses
--- eventually consistent reads.
-giConsistentRead :: Lens' GetItem (Maybe Bool)
-giConsistentRead = lens _giConsistentRead (\ s a -> s{_giConsistentRead = a});
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /ProjectionExpression/ instead. Do not combine legacy
+-- parameters and expression parameters in a single API call; otherwise,
+-- DynamoDB will return a /ValidationException/ exception.
+--
+-- This parameter allows you to retrieve attributes of type List or Map;
+-- however, it cannot retrieve individual elements within a List or a Map.
+--
+-- The names of one or more attributes to retrieve. If no attribute names
+-- are provided, then all attributes will be returned. If any of the
+-- requested attributes are not found, they will not appear in the result.
+--
+-- Note that /AttributesToGet/ has no effect on provisioned throughput
+-- consumption. DynamoDB determines capacity units consumed based on item
+-- size, not on the amount of data that is returned to an application.
+giAttributesToGet :: Lens' GetItem (Maybe (NonEmpty Text))
+giAttributesToGet = lens _giAttributesToGet (\ s a -> s{_giAttributesToGet = a}) . mapping _List1;
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using /ExpressionAttributeNames/:
@@ -163,23 +175,11 @@ giConsistentRead = lens _giConsistentRead (\ s a -> s{_giConsistentRead = a});
 giExpressionAttributeNames :: Lens' GetItem (HashMap Text Text)
 giExpressionAttributeNames = lens _giExpressionAttributeNames (\ s a -> s{_giExpressionAttributeNames = a}) . _Default . _Map;
 
--- | This is a legacy parameter, for backward compatibility. New applications
--- should use /ProjectionExpression/ instead. Do not combine legacy
--- parameters and expression parameters in a single API call; otherwise,
--- DynamoDB will return a /ValidationException/ exception.
---
--- This parameter allows you to retrieve attributes of type List or Map;
--- however, it cannot retrieve individual elements within a List or a Map.
---
--- The names of one or more attributes to retrieve. If no attribute names
--- are provided, then all attributes will be returned. If any of the
--- requested attributes are not found, they will not appear in the result.
---
--- Note that /AttributesToGet/ has no effect on provisioned throughput
--- consumption. DynamoDB determines capacity units consumed based on item
--- size, not on the amount of data that is returned to an application.
-giAttributesToGet :: Lens' GetItem (Maybe (NonEmpty Text))
-giAttributesToGet = lens _giAttributesToGet (\ s a -> s{_giAttributesToGet = a}) . mapping _List1;
+-- | Determines the read consistency model: If set to 'true', then the
+-- operation uses strongly consistent reads; otherwise, the operation uses
+-- eventually consistent reads.
+giConsistentRead :: Lens' GetItem (Maybe Bool)
+giConsistentRead = lens _giConsistentRead (\ s a -> s{_giConsistentRead = a});
 
 -- | Undocumented member.
 giReturnConsumedCapacity :: Lens' GetItem (Maybe ReturnConsumedCapacity)
@@ -225,10 +225,10 @@ instance ToJSON GetItem where
               (catMaybes
                  [("ProjectionExpression" .=) <$>
                     _giProjectionExpression,
-                  ("ConsistentRead" .=) <$> _giConsistentRead,
+                  ("AttributesToGet" .=) <$> _giAttributesToGet,
                   ("ExpressionAttributeNames" .=) <$>
                     _giExpressionAttributeNames,
-                  ("AttributesToGet" .=) <$> _giAttributesToGet,
+                  ("ConsistentRead" .=) <$> _giConsistentRead,
                   ("ReturnConsumedCapacity" .=) <$>
                     _giReturnConsumedCapacity,
                   Just ("TableName" .= _giTableName),

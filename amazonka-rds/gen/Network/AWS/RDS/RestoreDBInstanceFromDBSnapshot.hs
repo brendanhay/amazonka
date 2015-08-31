@@ -46,8 +46,8 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     , RestoreDBInstanceFromDBSnapshot
     -- * Request Lenses
     , rdifdsDBSecurityGroups
-    , rdifdsAutoMinorVersionUpgrade
     , rdifdsPubliclyAccessible
+    , rdifdsAutoMinorVersionUpgrade
     , rdifdsDBSubnetGroupName
     , rdifdsIOPS
     , rdifdsDomain
@@ -58,13 +58,13 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     , rdifdsAvailabilityZone
     , rdifdsVPCSecurityGroupIds
     , rdifdsMultiAZ
-    , rdifdsTDECredentialARN
     , rdifdsOptionGroupName
     , rdifdsCopyTagsToSnapshot
-    , rdifdsDBName
+    , rdifdsTDECredentialARN
     , rdifdsTags
     , rdifdsPort
     , rdifdsStorageType
+    , rdifdsDBName
     , rdifdsDBInstanceIdentifier
     , rdifdsDBSnapshotIdentifier
 
@@ -87,8 +87,8 @@ import           Network.AWS.Response
 -- /See:/ 'restoreDBInstanceFromDBSnapshot' smart constructor.
 data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     { _rdifdsDBSecurityGroups        :: !(Maybe [Text])
-    , _rdifdsAutoMinorVersionUpgrade :: !(Maybe Bool)
     , _rdifdsPubliclyAccessible      :: !(Maybe Bool)
+    , _rdifdsAutoMinorVersionUpgrade :: !(Maybe Bool)
     , _rdifdsDBSubnetGroupName       :: !(Maybe Text)
     , _rdifdsIOPS                    :: !(Maybe Int)
     , _rdifdsDomain                  :: !(Maybe Text)
@@ -99,13 +99,13 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     , _rdifdsAvailabilityZone        :: !(Maybe Text)
     , _rdifdsVPCSecurityGroupIds     :: !(Maybe [Text])
     , _rdifdsMultiAZ                 :: !(Maybe Bool)
-    , _rdifdsTDECredentialARN        :: !(Maybe Text)
     , _rdifdsOptionGroupName         :: !(Maybe Text)
     , _rdifdsCopyTagsToSnapshot      :: !(Maybe Bool)
-    , _rdifdsDBName                  :: !(Maybe Text)
+    , _rdifdsTDECredentialARN        :: !(Maybe Text)
     , _rdifdsTags                    :: !(Maybe [Tag])
     , _rdifdsPort                    :: !(Maybe Int)
     , _rdifdsStorageType             :: !(Maybe Text)
+    , _rdifdsDBName                  :: !(Maybe Text)
     , _rdifdsDBInstanceIdentifier    :: !Text
     , _rdifdsDBSnapshotIdentifier    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -116,9 +116,9 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- * 'rdifdsDBSecurityGroups'
 --
--- * 'rdifdsAutoMinorVersionUpgrade'
---
 -- * 'rdifdsPubliclyAccessible'
+--
+-- * 'rdifdsAutoMinorVersionUpgrade'
 --
 -- * 'rdifdsDBSubnetGroupName'
 --
@@ -140,19 +140,19 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- * 'rdifdsMultiAZ'
 --
--- * 'rdifdsTDECredentialARN'
---
 -- * 'rdifdsOptionGroupName'
 --
 -- * 'rdifdsCopyTagsToSnapshot'
 --
--- * 'rdifdsDBName'
+-- * 'rdifdsTDECredentialARN'
 --
 -- * 'rdifdsTags'
 --
 -- * 'rdifdsPort'
 --
 -- * 'rdifdsStorageType'
+--
+-- * 'rdifdsDBName'
 --
 -- * 'rdifdsDBInstanceIdentifier'
 --
@@ -164,8 +164,8 @@ restoreDBInstanceFromDBSnapshot
 restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier_ pDBSnapshotIdentifier_ =
     RestoreDBInstanceFromDBSnapshot'
     { _rdifdsDBSecurityGroups = Nothing
-    , _rdifdsAutoMinorVersionUpgrade = Nothing
     , _rdifdsPubliclyAccessible = Nothing
+    , _rdifdsAutoMinorVersionUpgrade = Nothing
     , _rdifdsDBSubnetGroupName = Nothing
     , _rdifdsIOPS = Nothing
     , _rdifdsDomain = Nothing
@@ -176,13 +176,13 @@ restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier_ pDBSnapshotIdentifier_ =
     , _rdifdsAvailabilityZone = Nothing
     , _rdifdsVPCSecurityGroupIds = Nothing
     , _rdifdsMultiAZ = Nothing
-    , _rdifdsTDECredentialARN = Nothing
     , _rdifdsOptionGroupName = Nothing
     , _rdifdsCopyTagsToSnapshot = Nothing
-    , _rdifdsDBName = Nothing
+    , _rdifdsTDECredentialARN = Nothing
     , _rdifdsTags = Nothing
     , _rdifdsPort = Nothing
     , _rdifdsStorageType = Nothing
+    , _rdifdsDBName = Nothing
     , _rdifdsDBInstanceIdentifier = pDBInstanceIdentifier_
     , _rdifdsDBSnapshotIdentifier = pDBSnapshotIdentifier_
     }
@@ -192,11 +192,6 @@ restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier_ pDBSnapshotIdentifier_ =
 -- Default: The default DB security group for the database engine.
 rdifdsDBSecurityGroups :: Lens' RestoreDBInstanceFromDBSnapshot [Text]
 rdifdsDBSecurityGroups = lens _rdifdsDBSecurityGroups (\ s a -> s{_rdifdsDBSecurityGroups = a}) . _Default . _Coerce;
-
--- | Indicates that minor version upgrades will be applied automatically to
--- the DB instance during the maintenance window.
-rdifdsAutoMinorVersionUpgrade :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
-rdifdsAutoMinorVersionUpgrade = lens _rdifdsAutoMinorVersionUpgrade (\ s a -> s{_rdifdsAutoMinorVersionUpgrade = a});
 
 -- | Specifies the accessibility options for the DB instance. A value of true
 -- specifies an Internet-facing instance with a publicly resolvable DNS
@@ -218,6 +213,11 @@ rdifdsAutoMinorVersionUpgrade = lens _rdifdsAutoMinorVersionUpgrade (\ s a -> s{
 -- the DB instance will be private.
 rdifdsPubliclyAccessible :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
 rdifdsPubliclyAccessible = lens _rdifdsPubliclyAccessible (\ s a -> s{_rdifdsPubliclyAccessible = a});
+
+-- | Indicates that minor version upgrades will be applied automatically to
+-- the DB instance during the maintenance window.
+rdifdsAutoMinorVersionUpgrade :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
+rdifdsAutoMinorVersionUpgrade = lens _rdifdsAutoMinorVersionUpgrade (\ s a -> s{_rdifdsAutoMinorVersionUpgrade = a});
 
 -- | The DB subnet group name to use for the new instance.
 rdifdsDBSubnetGroupName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
@@ -301,11 +301,6 @@ rdifdsVPCSecurityGroupIds = lens _rdifdsVPCSecurityGroupIds (\ s a -> s{_rdifdsV
 rdifdsMultiAZ :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
 rdifdsMultiAZ = lens _rdifdsMultiAZ (\ s a -> s{_rdifdsMultiAZ = a});
 
--- | The ARN from the Key Store with which to associate the instance for TDE
--- encryption.
-rdifdsTDECredentialARN :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
-rdifdsTDECredentialARN = lens _rdifdsTDECredentialARN (\ s a -> s{_rdifdsTDECredentialARN = a});
-
 -- | The name of the option group to be used for the restored DB instance.
 --
 -- Permanent options, such as the TDE option for Oracle Advanced Security
@@ -319,11 +314,10 @@ rdifdsOptionGroupName = lens _rdifdsOptionGroupName (\ s a -> s{_rdifdsOptionGro
 rdifdsCopyTagsToSnapshot :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
 rdifdsCopyTagsToSnapshot = lens _rdifdsCopyTagsToSnapshot (\ s a -> s{_rdifdsCopyTagsToSnapshot = a});
 
--- | The database name for the restored DB instance.
---
--- This parameter doesn\'t apply to the MySQL engine.
-rdifdsDBName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
-rdifdsDBName = lens _rdifdsDBName (\ s a -> s{_rdifdsDBName = a});
+-- | The ARN from the Key Store with which to associate the instance for TDE
+-- encryption.
+rdifdsTDECredentialARN :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
+rdifdsTDECredentialARN = lens _rdifdsTDECredentialARN (\ s a -> s{_rdifdsTDECredentialARN = a});
 
 -- | Undocumented member.
 rdifdsTags :: Lens' RestoreDBInstanceFromDBSnapshot [Tag]
@@ -348,6 +342,12 @@ rdifdsPort = lens _rdifdsPort (\ s a -> s{_rdifdsPort = a});
 -- 'standard'
 rdifdsStorageType :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsStorageType = lens _rdifdsStorageType (\ s a -> s{_rdifdsStorageType = a});
+
+-- | The database name for the restored DB instance.
+--
+-- This parameter doesn\'t apply to the MySQL engine.
+rdifdsDBName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
+rdifdsDBName = lens _rdifdsDBName (\ s a -> s{_rdifdsDBName = a});
 
 -- | Name of the DB instance to create from the DB snapshot. This parameter
 -- isn\'t case-sensitive.
@@ -402,9 +402,9 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
                  toQuery
                    (toQueryList "DBSecurityGroupName" <$>
                       _rdifdsDBSecurityGroups),
+               "PubliclyAccessible" =: _rdifdsPubliclyAccessible,
                "AutoMinorVersionUpgrade" =:
                  _rdifdsAutoMinorVersionUpgrade,
-               "PubliclyAccessible" =: _rdifdsPubliclyAccessible,
                "DBSubnetGroupName" =: _rdifdsDBSubnetGroupName,
                "Iops" =: _rdifdsIOPS, "Domain" =: _rdifdsDomain,
                "Engine" =: _rdifdsEngine,
@@ -418,14 +418,14 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
                    (toQueryList "VpcSecurityGroupId" <$>
                       _rdifdsVPCSecurityGroupIds),
                "MultiAZ" =: _rdifdsMultiAZ,
-               "TdeCredentialArn" =: _rdifdsTDECredentialARN,
                "OptionGroupName" =: _rdifdsOptionGroupName,
                "CopyTagsToSnapshot" =: _rdifdsCopyTagsToSnapshot,
-               "DBName" =: _rdifdsDBName,
+               "TdeCredentialArn" =: _rdifdsTDECredentialARN,
                "Tags" =:
                  toQuery (toQueryList "Tag" <$> _rdifdsTags),
                "Port" =: _rdifdsPort,
                "StorageType" =: _rdifdsStorageType,
+               "DBName" =: _rdifdsDBName,
                "DBInstanceIdentifier" =:
                  _rdifdsDBInstanceIdentifier,
                "DBSnapshotIdentifier" =:

@@ -37,8 +37,8 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
       describeLogGroups
     , DescribeLogGroups
     -- * Request Lenses
-    , dlgNextToken
     , dlgLogGroupNamePrefix
+    , dlgNextToken
     , dlgLimit
 
     -- * Destructuring the Response
@@ -59,8 +59,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeLogGroups' smart constructor.
 data DescribeLogGroups = DescribeLogGroups'
-    { _dlgNextToken          :: !(Maybe Text)
-    , _dlgLogGroupNamePrefix :: !(Maybe Text)
+    { _dlgLogGroupNamePrefix :: !(Maybe Text)
+    , _dlgNextToken          :: !(Maybe Text)
     , _dlgLimit              :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -68,30 +68,30 @@ data DescribeLogGroups = DescribeLogGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlgNextToken'
---
 -- * 'dlgLogGroupNamePrefix'
+--
+-- * 'dlgNextToken'
 --
 -- * 'dlgLimit'
 describeLogGroups
     :: DescribeLogGroups
 describeLogGroups =
     DescribeLogGroups'
-    { _dlgNextToken = Nothing
-    , _dlgLogGroupNamePrefix = Nothing
+    { _dlgLogGroupNamePrefix = Nothing
+    , _dlgNextToken = Nothing
     , _dlgLimit = Nothing
     }
+
+-- | Will only return log groups that match the provided logGroupNamePrefix.
+-- If you don\'t specify a value, no prefix filter is applied.
+dlgLogGroupNamePrefix :: Lens' DescribeLogGroups (Maybe Text)
+dlgLogGroupNamePrefix = lens _dlgLogGroupNamePrefix (\ s a -> s{_dlgLogGroupNamePrefix = a});
 
 -- | A string token used for pagination that points to the next page of
 -- results. It must be a value obtained from the response of the previous
 -- 'DescribeLogGroups' request.
 dlgNextToken :: Lens' DescribeLogGroups (Maybe Text)
 dlgNextToken = lens _dlgNextToken (\ s a -> s{_dlgNextToken = a});
-
--- | Will only return log groups that match the provided logGroupNamePrefix.
--- If you don\'t specify a value, no prefix filter is applied.
-dlgLogGroupNamePrefix :: Lens' DescribeLogGroups (Maybe Text)
-dlgLogGroupNamePrefix = lens _dlgLogGroupNamePrefix (\ s a -> s{_dlgLogGroupNamePrefix = a});
 
 -- | The maximum number of items returned in the response. If you don\'t
 -- specify a value, the request would return up to 50 items.
@@ -129,8 +129,9 @@ instance ToJSON DescribeLogGroups where
         toJSON DescribeLogGroups'{..}
           = object
               (catMaybes
-                 [("nextToken" .=) <$> _dlgNextToken,
-                  ("logGroupNamePrefix" .=) <$> _dlgLogGroupNamePrefix,
+                 [("logGroupNamePrefix" .=) <$>
+                    _dlgLogGroupNamePrefix,
+                  ("nextToken" .=) <$> _dlgNextToken,
                   ("limit" .=) <$> _dlgLimit])
 
 instance ToPath DescribeLogGroups where

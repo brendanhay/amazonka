@@ -34,8 +34,8 @@ module Network.AWS.OpsWorks.DescribeServiceErrors
     , DescribeServiceErrors
     -- * Request Lenses
     , dseInstanceId
-    , dseServiceErrorIds
     , dseStackId
+    , dseServiceErrorIds
 
     -- * Destructuring the Response
     , describeServiceErrorsResponse
@@ -54,8 +54,8 @@ import           Network.AWS.Response
 -- | /See:/ 'describeServiceErrors' smart constructor.
 data DescribeServiceErrors = DescribeServiceErrors'
     { _dseInstanceId      :: !(Maybe Text)
-    , _dseServiceErrorIds :: !(Maybe [Text])
     , _dseStackId         :: !(Maybe Text)
+    , _dseServiceErrorIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeServiceErrors' with the minimum fields required to make a request.
@@ -64,16 +64,16 @@ data DescribeServiceErrors = DescribeServiceErrors'
 --
 -- * 'dseInstanceId'
 --
--- * 'dseServiceErrorIds'
---
 -- * 'dseStackId'
+--
+-- * 'dseServiceErrorIds'
 describeServiceErrors
     :: DescribeServiceErrors
 describeServiceErrors =
     DescribeServiceErrors'
     { _dseInstanceId = Nothing
-    , _dseServiceErrorIds = Nothing
     , _dseStackId = Nothing
+    , _dseServiceErrorIds = Nothing
     }
 
 -- | The instance ID. If you use this parameter, 'DescribeServiceErrors'
@@ -82,16 +82,16 @@ describeServiceErrors =
 dseInstanceId :: Lens' DescribeServiceErrors (Maybe Text)
 dseInstanceId = lens _dseInstanceId (\ s a -> s{_dseInstanceId = a});
 
+-- | The stack ID. If you use this parameter, 'DescribeServiceErrors' returns
+-- descriptions of the errors associated with the specified stack.
+dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
+dseStackId = lens _dseStackId (\ s a -> s{_dseStackId = a});
+
 -- | An array of service error IDs. If you use this parameter,
 -- 'DescribeServiceErrors' returns descriptions of the specified errors.
 -- Otherwise, it returns a description of every error.
 dseServiceErrorIds :: Lens' DescribeServiceErrors [Text]
 dseServiceErrorIds = lens _dseServiceErrorIds (\ s a -> s{_dseServiceErrorIds = a}) . _Default . _Coerce;
-
--- | The stack ID. If you use this parameter, 'DescribeServiceErrors' returns
--- descriptions of the errors associated with the specified stack.
-dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
-dseStackId = lens _dseStackId (\ s a -> s{_dseStackId = a});
 
 instance AWSRequest DescribeServiceErrors where
         type Rs DescribeServiceErrors =
@@ -119,8 +119,8 @@ instance ToJSON DescribeServiceErrors where
           = object
               (catMaybes
                  [("InstanceId" .=) <$> _dseInstanceId,
-                  ("ServiceErrorIds" .=) <$> _dseServiceErrorIds,
-                  ("StackId" .=) <$> _dseStackId])
+                  ("StackId" .=) <$> _dseStackId,
+                  ("ServiceErrorIds" .=) <$> _dseServiceErrorIds])
 
 instance ToPath DescribeServiceErrors where
         toPath = const "/"

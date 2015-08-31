@@ -28,20 +28,8 @@ import Test.AWS.EC2.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testDetachNetworkInterface $
---             detachNetworkInterface
---
---         , testDeleteVPCEndpoints $
---             deleteVPCEndpoints
---
---         , testDeleteKeyPair $
---             deleteKeyPair
---
---         , testDeleteFlowLogs $
---             deleteFlowLogs
---
---         , testDescribeTags $
---             describeTags
+--         [ testImportInstance $
+--             importInstance
 --
 --         , testRevokeSecurityGroupEgress $
 --             revokeSecurityGroupEgress
@@ -49,47 +37,59 @@ import Test.AWS.EC2.Internal
 --         , testCreateVPNGateway $
 --             createVPNGateway
 --
---         , testDetachInternetGateway $
---             detachInternetGateway
---
 --         , testCreateNetworkACL $
 --             createNetworkACL
 --
---         , testImportInstance $
---             importInstance
+--         , testDeleteKeyPair $
+--             deleteKeyPair
+--
+--         , testDescribeTags $
+--             describeTags
+--
+--         , testDetachNetworkInterface $
+--             detachNetworkInterface
+--
+--         , testDetachInternetGateway $
+--             detachInternetGateway
+--
+--         , testDeleteVPCEndpoints $
+--             deleteVPCEndpoints
+--
+--         , testDeleteFlowLogs $
+--             deleteFlowLogs
 --
 --         , testDescribeVPCClassicLink $
 --             describeVPCClassicLink
 --
---         , testDeleteVPNConnection $
---             deleteVPNConnection
+--         , testModifySubnetAttribute $
+--             modifySubnetAttribute
 --
---         , testAuthorizeSecurityGroupEgress $
---             authorizeSecurityGroupEgress
---
---         , testDescribeBundleTasks $
---             describeBundleTasks
---
---         , testCreateInternetGateway $
---             createInternetGateway
---
---         , testReleaseAddress $
---             releaseAddress
+--         , testDetachVolume $
+--             detachVolume
 --
 --         , testCancelBundleTask $
 --             cancelBundleTask
 --
---         , testModifyNetworkInterfaceAttribute $
---             modifyNetworkInterfaceAttribute
+--         , testReleaseAddress $
+--             releaseAddress
 --
---         , testModifySubnetAttribute $
---             modifySubnetAttribute
+--         , testCreateInternetGateway $
+--             createInternetGateway
+--
+--         , testDeleteVPNConnection $
+--             deleteVPNConnection
+--
+--         , testDescribeBundleTasks $
+--             describeBundleTasks
+--
+--         , testAuthorizeSecurityGroupEgress $
+--             authorizeSecurityGroupEgress
 --
 --         , testDeregisterImage $
 --             deregisterImage
 --
---         , testDetachVolume $
---             detachVolume
+--         , testModifyNetworkInterfaceAttribute $
+--             modifyNetworkInterfaceAttribute
 --
 --         , testCancelReservedInstancesListing $
 --             cancelReservedInstancesListing
@@ -100,110 +100,80 @@ import Test.AWS.EC2.Internal
 --         , testCancelSpotFleetRequests $
 --             cancelSpotFleetRequests
 --
---         , testDescribeDHCPOptions $
---             describeDHCPOptions
---
 --         , testDescribeSpotPriceHistory $
 --             describeSpotPriceHistory
 --
---         , testStopInstances $
---             stopInstances
+--         , testDescribeDHCPOptions $
+--             describeDHCPOptions
 --
 --         , testImportImage $
 --             importImage
 --
---         , testDeleteNetworkACLEntry $
---             deleteNetworkACLEntry
---
---         , testDisableVPCClassicLink $
---             disableVPCClassicLink
---
---         , testAuthorizeSecurityGroupIngress $
---             authorizeSecurityGroupIngress
---
---         , testBundleInstance $
---             bundleInstance
---
---         , testDescribeVPCEndpointServices $
---             describeVPCEndpointServices
---
---         , testReplaceNetworkACLAssociation $
---             replaceNetworkACLAssociation
---
---         , testCreateVPCPeeringConnection $
---             createVPCPeeringConnection
---
---         , testResetSnapshotAttribute $
---             resetSnapshotAttribute
---
---         , testDescribeAddresses $
---             describeAddresses
+--         , testStopInstances $
+--             stopInstances
 --
 --         , testDescribeInternetGateways $
 --             describeInternetGateways
 --
---         , testReplaceRoute $
---             replaceRoute
+--         , testDisableVPCClassicLink $
+--             disableVPCClassicLink
 --
---         , testCreateTags $
---             createTags
---
---         , testDescribeSubnets $
---             describeSubnets
+--         , testBundleInstance $
+--             bundleInstance
 --
 --         , testDescribeNetworkInterfaces $
 --             describeNetworkInterfaces
 --
---         , testPurchaseReservedInstancesOffering $
---             purchaseReservedInstancesOffering
+--         , testReplaceNetworkACLAssociation $
+--             replaceNetworkACLAssociation
+--
+--         , testDescribeAddresses $
+--             describeAddresses
 --
 --         , testDescribeSnapshotAttribute $
 --             describeSnapshotAttribute
 --
---         , testCreateCustomerGateway $
---             createCustomerGateway
+--         , testReplaceRoute $
+--             replaceRoute
 --
---         , testAttachInternetGateway $
---             attachInternetGateway
+--         , testDescribeVPCEndpointServices $
+--             describeVPCEndpointServices
 --
---         , testDeleteTags $
---             deleteTags
+--         , testAuthorizeSecurityGroupIngress $
+--             authorizeSecurityGroupIngress
 --
---         , testReplaceNetworkACLEntry $
---             replaceNetworkACLEntry
+--         , testCreateVPCPeeringConnection $
+--             createVPCPeeringConnection
 --
---         , testResetInstanceAttribute $
---             resetInstanceAttribute
+--         , testDescribeSubnets $
+--             describeSubnets
 --
---         , testDeleteRoute $
---             deleteRoute
+--         , testCreateTags $
+--             createTags
+--
+--         , testPurchaseReservedInstancesOffering $
+--             purchaseReservedInstancesOffering
+--
+--         , testDeleteNetworkACLEntry $
+--             deleteNetworkACLEntry
+--
+--         , testResetSnapshotAttribute $
+--             resetSnapshotAttribute
 --
 --         , testDescribeVPNConnections $
 --             describeVPNConnections
 --
---         , testDescribeFlowLogs $
---             describeFlowLogs
+--         , testDeleteRoute $
+--             deleteRoute
 --
---         , testDeleteSecurityGroup $
---             deleteSecurityGroup
---
---         , testDescribeReservedInstancesOfferings $
---             describeReservedInstancesOfferings
---
---         , testDeleteVPCPeeringConnection $
---             deleteVPCPeeringConnection
+--         , testReplaceNetworkACLEntry $
+--             replaceNetworkACLEntry
 --
 --         , testDescribeVPCEndpoints $
 --             describeVPCEndpoints
 --
---         , testDescribeInstanceAttribute $
---             describeInstanceAttribute
---
---         , testConfirmProductInstance $
---             confirmProductInstance
---
---         , testImportKeyPair $
---             importKeyPair
+--         , testResetInstanceAttribute $
+--             resetInstanceAttribute
 --
 --         , testAttachNetworkInterface $
 --             attachNetworkInterface
@@ -211,104 +181,125 @@ import Test.AWS.EC2.Internal
 --         , testDescribeInstanceStatus $
 --             describeInstanceStatus
 --
---         , testCancelConversionTask $
---             cancelConversionTask
+--         , testImportKeyPair $
+--             importKeyPair
 --
---         , testReportInstanceStatus $
---             reportInstanceStatus
+--         , testDeleteTags $
+--             deleteTags
 --
---         , testAssociateDHCPOptions $
---             associateDHCPOptions
+--         , testConfirmProductInstance $
+--             confirmProductInstance
 --
---         , testDescribeVPCs $
---             describeVPCs
+--         , testDescribeInstanceAttribute $
+--             describeInstanceAttribute
 --
---         , testRequestSpotInstances $
---             requestSpotInstances
+--         , testDescribeReservedInstancesOfferings $
+--             describeReservedInstancesOfferings
 --
---         , testModifyImageAttribute $
---             modifyImageAttribute
+--         , testCreateCustomerGateway $
+--             createCustomerGateway
 --
---         , testDescribeReservedInstances $
---             describeReservedInstances
+--         , testDeleteSecurityGroup $
+--             deleteSecurityGroup
 --
---         , testAllocateAddress $
---             allocateAddress
+--         , testDeleteVPCPeeringConnection $
+--             deleteVPCPeeringConnection
+--
+--         , testAttachInternetGateway $
+--             attachInternetGateway
+--
+--         , testDescribeFlowLogs $
+--             describeFlowLogs
 --
 --         , testRunInstances $
 --             runInstances
 --
---         , testCreateRouteTable $
---             createRouteTable
+--         , testAssociateDHCPOptions $
+--             associateDHCPOptions
 --
---         , testAttachVolume $
---             attachVolume
+--         , testDescribeReservedInstances $
+--             describeReservedInstances
+--
+--         , testDescribeVPCs $
+--             describeVPCs
 --
 --         , testDescribeConversionTasks $
 --             describeConversionTasks
 --
---         , testRejectVPCPeeringConnection $
---             rejectVPCPeeringConnection
+--         , testAllocateAddress $
+--             allocateAddress
 --
---         , testRevokeSecurityGroupIngress $
---             revokeSecurityGroupIngress
+--         , testCancelConversionTask $
+--             cancelConversionTask
+--
+--         , testModifyImageAttribute $
+--             modifyImageAttribute
+--
+--         , testCreateRouteTable $
+--             createRouteTable
+--
+--         , testReportInstanceStatus $
+--             reportInstanceStatus
+--
+--         , testAttachVolume $
+--             attachVolume
+--
+--         , testRequestSpotInstances $
+--             requestSpotInstances
 --
 --         , testDescribeVolumes $
 --             describeVolumes
 --
+--         , testRejectVPCPeeringConnection $
+--             rejectVPCPeeringConnection
+--
 --         , testDeleteVPNConnectionRoute $
 --             deleteVPNConnectionRoute
---
---         , testModifyReservedInstances $
---             modifyReservedInstances
---
---         , testRegisterImage $
---             registerImage
 --
 --         , testModifyVPCEndpoint $
 --             modifyVPCEndpoint
 --
---         , testDeleteVPNGateway $
---             deleteVPNGateway
+--         , testRegisterImage $
+--             registerImage
 --
---         , testCreateVPC $
---             createVPC
+--         , testRevokeSecurityGroupIngress $
+--             revokeSecurityGroupIngress
 --
---         , testDescribeMovingAddresses $
---             describeMovingAddresses
---
---         , testDescribeVolumeAttribute $
---             describeVolumeAttribute
---
---         , testMoveAddressToVPC $
---             moveAddressToVPC
---
---         , testGetPasswordData $
---             getPasswordData
+--         , testModifyReservedInstances $
+--             modifyReservedInstances
 --
 --         , testCreateFlowLogs $
 --             createFlowLogs
 --
---         , testDescribeImportImageTasks $
---             describeImportImageTasks
+--         , testDescribeSpotFleetRequests $
+--             describeSpotFleetRequests
+--
+--         , testMoveAddressToVPC $
+--             moveAddressToVPC
 --
 --         , testDeleteNetworkACL $
 --             deleteNetworkACL
 --
---         , testDescribeSpotFleetRequests $
---             describeSpotFleetRequests
+--         , testDeleteVPNGateway $
+--             deleteVPNGateway
+--
+--         , testDescribeImportImageTasks $
+--             describeImportImageTasks
+--
+--         , testDescribeVolumeAttribute $
+--             describeVolumeAttribute
+--
+--         , testDescribeMovingAddresses $
+--             describeMovingAddresses
+--
+--         , testGetPasswordData $
+--             getPasswordData
+--
+--         , testCreateVPC $
+--             createVPC
 --
 --         , testCopySnapshot $
 --             copySnapshot
---
---         , testModifyVolumeAttribute $
---             modifyVolumeAttribute
---
---         , testDescribeVPCAttribute $
---             describeVPCAttribute
---
---         , testCreateVolume $
---             createVolume
 --
 --         , testDisassociateAddress $
 --             disassociateAddress
@@ -316,101 +307,110 @@ import Test.AWS.EC2.Internal
 --         , testDeleteVPC $
 --             deleteVPC
 --
---         , testDescribePrefixLists $
---             describePrefixLists
---
 --         , testCreateInstanceExportTask $
 --             createInstanceExportTask
+--
+--         , testDescribeVPCAttribute $
+--             describeVPCAttribute
+--
+--         , testCreateVolume $
+--             createVolume
+--
+--         , testModifyVolumeAttribute $
+--             modifyVolumeAttribute
 --
 --         , testDescribeSpotDatafeedSubscription $
 --             describeSpotDatafeedSubscription
 --
---         , testDetachVPNGateway $
---             detachVPNGateway
---
---         , testDescribeExportTasks $
---             describeExportTasks
+--         , testDescribePrefixLists $
+--             describePrefixLists
 --
 --         , testDeletePlacementGroup $
 --             deletePlacementGroup
 --
---         , testCreateSubnet $
---             createSubnet
---
---         , testEnableVolumeIO $
---             enableVolumeIO
---
---         , testCancelExportTask $
---             cancelExportTask
---
 --         , testRequestSpotFleet $
 --             requestSpotFleet
 --
---         , testDescribeInstances $
---             describeInstances
---
---         , testDescribeSecurityGroups $
---             describeSecurityGroups
---
---         , testDescribeVPCPeeringConnections $
---             describeVPCPeeringConnections
+--         , testCreateSubnet $
+--             createSubnet
 --
 --         , testCreateNetworkInterface $
 --             createNetworkInterface
 --
---         , testAssociateAddress $
---             associateAddress
+--         , testDescribeSecurityGroups $
+--             describeSecurityGroups
 --
---         , testStartInstances $
---             startInstances
+--         , testDescribeExportTasks $
+--             describeExportTasks
 --
---         , testDescribeCustomerGateways $
---             describeCustomerGateways
+--         , testDetachVPNGateway $
+--             detachVPNGateway
 --
---         , testResetNetworkInterfaceAttribute $
---             resetNetworkInterfaceAttribute
+--         , testEnableVolumeIO $
+--             enableVolumeIO
 --
---         , testCreateVPNConnection $
---             createVPNConnection
+--         , testDescribeInstances $
+--             describeInstances
 --
---         , testDescribeSnapshots $
---             describeSnapshots
+--         , testDescribeVPCPeeringConnections $
+--             describeVPCPeeringConnections
 --
---         , testCreatePlacementGroup $
---             createPlacementGroup
---
---         , testReplaceRouteTableAssociation $
---             replaceRouteTableAssociation
---
---         , testDescribeNetworkInterfaceAttribute $
---             describeNetworkInterfaceAttribute
---
---         , testDescribeReservedInstancesListings $
---             describeReservedInstancesListings
+--         , testCancelExportTask $
+--             cancelExportTask
 --
 --         , testDeleteNetworkInterface $
 --             deleteNetworkInterface
 --
+--         , testReplaceRouteTableAssociation $
+--             replaceRouteTableAssociation
+--
+--         , testStartInstances $
+--             startInstances
+--
+--         , testCreatePlacementGroup $
+--             createPlacementGroup
+--
+--         , testDescribeSnapshots $
+--             describeSnapshots
+--
+--         , testAssociateAddress $
+--             associateAddress
+--
+--         , testDescribeNetworkInterfaceAttribute $
+--             describeNetworkInterfaceAttribute
+--
+--         , testResetNetworkInterfaceAttribute $
+--             resetNetworkInterfaceAttribute
+--
 --         , testDeleteInternetGateway $
 --             deleteInternetGateway
 --
---         , testDeleteSubnet $
---             deleteSubnet
+--         , testDescribeReservedInstancesListings $
+--             describeReservedInstancesListings
 --
---         , testCreateVPCEndpoint $
---             createVPCEndpoint
+--         , testCreateVPNConnection $
+--             createVPNConnection
 --
 --         , testDescribeImportSnapshotTasks $
 --             describeImportSnapshotTasks
 --
+--         , testDescribeCustomerGateways $
+--             describeCustomerGateways
+--
+--         , testDeleteSubnet $
+--             deleteSubnet
+--
 --         , testCopyImage $
 --             copyImage
 --
---         , testDisassociateRouteTable $
---             disassociateRouteTable
+--         , testCreateVPCEndpoint $
+--             createVPCEndpoint
 --
 --         , testUnmonitorInstances $
 --             unmonitorInstances
+--
+--         , testCreateSecurityGroup $
+--             createSecurityGroup
 --
 --         , testImportVolume $
 --             importVolume
@@ -421,65 +421,68 @@ import Test.AWS.EC2.Internal
 --         , testCreateSpotDatafeedSubscription $
 --             createSpotDatafeedSubscription
 --
---         , testAssignPrivateIPAddresses $
---             assignPrivateIPAddresses
---
---         , testDeleteSnapshot $
---             deleteSnapshot
---
---         , testDeleteCustomerGateway $
---             deleteCustomerGateway
---
---         , testModifyInstanceAttribute $
---             modifyInstanceAttribute
---
---         , testCreateSecurityGroup $
---             createSecurityGroup
---
 --         , testCancelSpotInstanceRequests $
 --             cancelSpotInstanceRequests
 --
 --         , testCreateRoute $
 --             createRoute
 --
---         , testCreateNetworkACLEntry $
---             createNetworkACLEntry
+--         , testDeleteSnapshot $
+--             deleteSnapshot
 --
---         , testModifySnapshotAttribute $
---             modifySnapshotAttribute
+--         , testAssignPrivateIPAddresses $
+--             assignPrivateIPAddresses
 --
---         , testEnableVGWRoutePropagation $
---             enableVGWRoutePropagation
+--         , testModifyInstanceAttribute $
+--             modifyInstanceAttribute
 --
---         , testCreateSnapshot $
---             createSnapshot
+--         , testDeleteCustomerGateway $
+--             deleteCustomerGateway
 --
---         , testDescribeSpotFleetRequestHistory $
---             describeSpotFleetRequestHistory
+--         , testDisassociateRouteTable $
+--             disassociateRouteTable
 --
 --         , testDeleteSpotDatafeedSubscription $
 --             deleteSpotDatafeedSubscription
 --
+--         , testEnableVPCClassicLink $
+--             enableVPCClassicLink
+--
 --         , testDescribePlacementGroups $
 --             describePlacementGroups
+--
+--         , testEnableVGWRoutePropagation $
+--             enableVGWRoutePropagation
+--
+--         , testDescribeSpotFleetRequestHistory $
+--             describeSpotFleetRequestHistory
+--
+--         , testModifySnapshotAttribute $
+--             modifySnapshotAttribute
+--
+--         , testCreateSnapshot $
+--             createSnapshot
+--
+--         , testCreateNetworkACLEntry $
+--             createNetworkACLEntry
 --
 --         , testCreateReservedInstancesListing $
 --             createReservedInstancesListing
 --
---         , testEnableVPCClassicLink $
---             enableVPCClassicLink
+--         , testAttachVPNGateway $
+--             attachVPNGateway
 --
---         , testDescribeKeyPairs $
---             describeKeyPairs
+--         , testCreateDHCPOptions $
+--             createDHCPOptions
+--
+--         , testDescribeAccountAttributes $
+--             describeAccountAttributes
 --
 --         , testRebootInstances $
 --             rebootInstances
 --
---         , testAttachVPNGateway $
---             attachVPNGateway
---
---         , testCreateVPNConnectionRoute $
---             createVPNConnectionRoute
+--         , testCreateImage $
+--             createImage
 --
 --         , testDescribeClassicLinkInstances $
 --             describeClassicLinkInstances
@@ -487,47 +490,29 @@ import Test.AWS.EC2.Internal
 --         , testTerminateInstances $
 --             terminateInstances
 --
---         , testCreateDHCPOptions $
---             createDHCPOptions
+--         , testDescribeKeyPairs $
+--             describeKeyPairs
+--
+--         , testCreateVPNConnectionRoute $
+--             createVPNConnectionRoute
 --
 --         , testAssociateRouteTable $
 --             associateRouteTable
 --
---         , testCreateImage $
---             createImage
---
---         , testDescribeAccountAttributes $
---             describeAccountAttributes
---
---         , testResetImageAttribute $
---             resetImageAttribute
---
---         , testDescribeNetworkACLs $
---             describeNetworkACLs
---
---         , testCancelImportTask $
---             cancelImportTask
+--         , testDescribeVPNGateways $
+--             describeVPNGateways
 --
 --         , testGetConsoleOutput $
 --             getConsoleOutput
 --
---         , testUnassignPrivateIPAddresses $
---             unassignPrivateIPAddresses
+--         , testDescribeImageAttribute $
+--             describeImageAttribute
 --
 --         , testDeleteRouteTable $
 --             deleteRouteTable
 --
---         , testDescribeImageAttribute $
---             describeImageAttribute
---
---         , testDeleteDHCPOptions $
---             deleteDHCPOptions
---
---         , testDescribeVPNGateways $
---             describeVPNGateways
---
---         , testDetachClassicLinkVPC $
---             detachClassicLinkVPC
+--         , testResetImageAttribute $
+--             resetImageAttribute
 --
 --         , testDescribeReservedInstancesModifications $
 --             describeReservedInstancesModifications
@@ -535,62 +520,65 @@ import Test.AWS.EC2.Internal
 --         , testDescribeSpotInstanceRequests $
 --             describeSpotInstanceRequests
 --
---         , testMonitorInstances $
---             monitorInstances
+--         , testUnassignPrivateIPAddresses $
+--             unassignPrivateIPAddresses
+--
+--         , testDeleteDHCPOptions $
+--             deleteDHCPOptions
+--
+--         , testDescribeNetworkACLs $
+--             describeNetworkACLs
+--
+--         , testCancelImportTask $
+--             cancelImportTask
+--
+--         , testDetachClassicLinkVPC $
+--             detachClassicLinkVPC
 --
 --         , testDescribeRegions $
 --             describeRegions
 --
---         , testModifyVPCAttribute $
---             modifyVPCAttribute
---
---         , testDescribeSpotFleetInstances $
---             describeSpotFleetInstances
---
---         , testDescribeVolumeStatus $
---             describeVolumeStatus
---
---         , testDeleteVolume $
---             deleteVolume
---
---         , testDescribeImages $
---             describeImages
---
---         , testCreateKeyPair $
---             createKeyPair
---
---         , testRestoreAddressToClassic $
---             restoreAddressToClassic
---
---         , testDescribeAvailabilityZones $
---             describeAvailabilityZones
---
---         , testImportSnapshot $
---             importSnapshot
+--         , testMonitorInstances $
+--             monitorInstances
 --
 --         , testAcceptVPCPeeringConnection $
 --             acceptVPCPeeringConnection
 --
+--         , testImportSnapshot $
+--             importSnapshot
+--
+--         , testDescribeVolumeStatus $
+--             describeVolumeStatus
+--
 --         , testDescribeRouteTables $
 --             describeRouteTables
+--
+--         , testDescribeAvailabilityZones $
+--             describeAvailabilityZones
+--
+--         , testModifyVPCAttribute $
+--             modifyVPCAttribute
+--
+--         , testDescribeImages $
+--             describeImages
+--
+--         , testRestoreAddressToClassic $
+--             restoreAddressToClassic
+--
+--         , testCreateKeyPair $
+--             createKeyPair
+--
+--         , testDeleteVolume $
+--             deleteVolume
+--
+--         , testDescribeSpotFleetInstances $
+--             describeSpotFleetInstances
 --
 --           ]
 
 --     , testGroup "response"
---         [ testDetachNetworkInterfaceResponse $
---             detachNetworkInterfaceResponse
---
---         , testDeleteVPCEndpointsResponse $
---             deleteVPCEndpointsResponse
---
---         , testDeleteKeyPairResponse $
---             deleteKeyPairResponse
---
---         , testDeleteFlowLogsResponse $
---             deleteFlowLogsResponse
---
---         , testDescribeTagsResponse $
---             describeTagsResponse
+--         [ testImportInstanceResponse $
+--             importInstanceResponse
 --
 --         , testRevokeSecurityGroupEgressResponse $
 --             revokeSecurityGroupEgressResponse
@@ -598,47 +586,59 @@ import Test.AWS.EC2.Internal
 --         , testCreateVPNGatewayResponse $
 --             createVPNGatewayResponse
 --
---         , testDetachInternetGatewayResponse $
---             detachInternetGatewayResponse
---
 --         , testCreateNetworkACLResponse $
 --             createNetworkACLResponse
 --
---         , testImportInstanceResponse $
---             importInstanceResponse
+--         , testDeleteKeyPairResponse $
+--             deleteKeyPairResponse
+--
+--         , testDescribeTagsResponse $
+--             describeTagsResponse
+--
+--         , testDetachNetworkInterfaceResponse $
+--             detachNetworkInterfaceResponse
+--
+--         , testDetachInternetGatewayResponse $
+--             detachInternetGatewayResponse
+--
+--         , testDeleteVPCEndpointsResponse $
+--             deleteVPCEndpointsResponse
+--
+--         , testDeleteFlowLogsResponse $
+--             deleteFlowLogsResponse
 --
 --         , testDescribeVPCClassicLinkResponse $
 --             describeVPCClassicLinkResponse
 --
---         , testDeleteVPNConnectionResponse $
---             deleteVPNConnectionResponse
+--         , testModifySubnetAttributeResponse $
+--             modifySubnetAttributeResponse
 --
---         , testAuthorizeSecurityGroupEgressResponse $
---             authorizeSecurityGroupEgressResponse
---
---         , testDescribeBundleTasksResponse $
---             describeBundleTasksResponse
---
---         , testCreateInternetGatewayResponse $
---             createInternetGatewayResponse
---
---         , testReleaseAddressResponse $
---             releaseAddressResponse
+--         , testDetachVolumeResponse $
+--             volumeAttachment
 --
 --         , testCancelBundleTaskResponse $
 --             cancelBundleTaskResponse
 --
---         , testModifyNetworkInterfaceAttributeResponse $
---             modifyNetworkInterfaceAttributeResponse
+--         , testReleaseAddressResponse $
+--             releaseAddressResponse
 --
---         , testModifySubnetAttributeResponse $
---             modifySubnetAttributeResponse
+--         , testCreateInternetGatewayResponse $
+--             createInternetGatewayResponse
+--
+--         , testDeleteVPNConnectionResponse $
+--             deleteVPNConnectionResponse
+--
+--         , testDescribeBundleTasksResponse $
+--             describeBundleTasksResponse
+--
+--         , testAuthorizeSecurityGroupEgressResponse $
+--             authorizeSecurityGroupEgressResponse
 --
 --         , testDeregisterImageResponse $
 --             deregisterImageResponse
 --
---         , testDetachVolumeResponse $
---             volumeAttachment
+--         , testModifyNetworkInterfaceAttributeResponse $
+--             modifyNetworkInterfaceAttributeResponse
 --
 --         , testCancelReservedInstancesListingResponse $
 --             cancelReservedInstancesListingResponse
@@ -649,110 +649,80 @@ import Test.AWS.EC2.Internal
 --         , testCancelSpotFleetRequestsResponse $
 --             cancelSpotFleetRequestsResponse
 --
---         , testDescribeDHCPOptionsResponse $
---             describeDHCPOptionsResponse
---
 --         , testDescribeSpotPriceHistoryResponse $
 --             describeSpotPriceHistoryResponse
 --
---         , testStopInstancesResponse $
---             stopInstancesResponse
+--         , testDescribeDHCPOptionsResponse $
+--             describeDHCPOptionsResponse
 --
 --         , testImportImageResponse $
 --             importImageResponse
 --
---         , testDeleteNetworkACLEntryResponse $
---             deleteNetworkACLEntryResponse
---
---         , testDisableVPCClassicLinkResponse $
---             disableVPCClassicLinkResponse
---
---         , testAuthorizeSecurityGroupIngressResponse $
---             authorizeSecurityGroupIngressResponse
---
---         , testBundleInstanceResponse $
---             bundleInstanceResponse
---
---         , testDescribeVPCEndpointServicesResponse $
---             describeVPCEndpointServicesResponse
---
---         , testReplaceNetworkACLAssociationResponse $
---             replaceNetworkACLAssociationResponse
---
---         , testCreateVPCPeeringConnectionResponse $
---             createVPCPeeringConnectionResponse
---
---         , testResetSnapshotAttributeResponse $
---             resetSnapshotAttributeResponse
---
---         , testDescribeAddressesResponse $
---             describeAddressesResponse
+--         , testStopInstancesResponse $
+--             stopInstancesResponse
 --
 --         , testDescribeInternetGatewaysResponse $
 --             describeInternetGatewaysResponse
 --
---         , testReplaceRouteResponse $
---             replaceRouteResponse
+--         , testDisableVPCClassicLinkResponse $
+--             disableVPCClassicLinkResponse
 --
---         , testCreateTagsResponse $
---             createTagsResponse
---
---         , testDescribeSubnetsResponse $
---             describeSubnetsResponse
+--         , testBundleInstanceResponse $
+--             bundleInstanceResponse
 --
 --         , testDescribeNetworkInterfacesResponse $
 --             describeNetworkInterfacesResponse
 --
---         , testPurchaseReservedInstancesOfferingResponse $
---             purchaseReservedInstancesOfferingResponse
+--         , testReplaceNetworkACLAssociationResponse $
+--             replaceNetworkACLAssociationResponse
+--
+--         , testDescribeAddressesResponse $
+--             describeAddressesResponse
 --
 --         , testDescribeSnapshotAttributeResponse $
 --             describeSnapshotAttributeResponse
 --
---         , testCreateCustomerGatewayResponse $
---             createCustomerGatewayResponse
+--         , testReplaceRouteResponse $
+--             replaceRouteResponse
 --
---         , testAttachInternetGatewayResponse $
---             attachInternetGatewayResponse
+--         , testDescribeVPCEndpointServicesResponse $
+--             describeVPCEndpointServicesResponse
 --
---         , testDeleteTagsResponse $
---             deleteTagsResponse
+--         , testAuthorizeSecurityGroupIngressResponse $
+--             authorizeSecurityGroupIngressResponse
 --
---         , testReplaceNetworkACLEntryResponse $
---             replaceNetworkACLEntryResponse
+--         , testCreateVPCPeeringConnectionResponse $
+--             createVPCPeeringConnectionResponse
 --
---         , testResetInstanceAttributeResponse $
---             resetInstanceAttributeResponse
+--         , testDescribeSubnetsResponse $
+--             describeSubnetsResponse
 --
---         , testDeleteRouteResponse $
---             deleteRouteResponse
+--         , testCreateTagsResponse $
+--             createTagsResponse
+--
+--         , testPurchaseReservedInstancesOfferingResponse $
+--             purchaseReservedInstancesOfferingResponse
+--
+--         , testDeleteNetworkACLEntryResponse $
+--             deleteNetworkACLEntryResponse
+--
+--         , testResetSnapshotAttributeResponse $
+--             resetSnapshotAttributeResponse
 --
 --         , testDescribeVPNConnectionsResponse $
 --             describeVPNConnectionsResponse
 --
---         , testDescribeFlowLogsResponse $
---             describeFlowLogsResponse
+--         , testDeleteRouteResponse $
+--             deleteRouteResponse
 --
---         , testDeleteSecurityGroupResponse $
---             deleteSecurityGroupResponse
---
---         , testDescribeReservedInstancesOfferingsResponse $
---             describeReservedInstancesOfferingsResponse
---
---         , testDeleteVPCPeeringConnectionResponse $
---             deleteVPCPeeringConnectionResponse
+--         , testReplaceNetworkACLEntryResponse $
+--             replaceNetworkACLEntryResponse
 --
 --         , testDescribeVPCEndpointsResponse $
 --             describeVPCEndpointsResponse
 --
---         , testDescribeInstanceAttributeResponse $
---             describeInstanceAttributeResponse
---
---         , testConfirmProductInstanceResponse $
---             confirmProductInstanceResponse
---
---         , testImportKeyPairResponse $
---             importKeyPairResponse
+--         , testResetInstanceAttributeResponse $
+--             resetInstanceAttributeResponse
 --
 --         , testAttachNetworkInterfaceResponse $
 --             attachNetworkInterfaceResponse
@@ -760,104 +730,125 @@ import Test.AWS.EC2.Internal
 --         , testDescribeInstanceStatusResponse $
 --             describeInstanceStatusResponse
 --
---         , testCancelConversionTaskResponse $
---             cancelConversionTaskResponse
+--         , testImportKeyPairResponse $
+--             importKeyPairResponse
 --
---         , testReportInstanceStatusResponse $
---             reportInstanceStatusResponse
+--         , testDeleteTagsResponse $
+--             deleteTagsResponse
 --
---         , testAssociateDHCPOptionsResponse $
---             associateDHCPOptionsResponse
+--         , testConfirmProductInstanceResponse $
+--             confirmProductInstanceResponse
 --
---         , testDescribeVPCsResponse $
---             describeVPCsResponse
+--         , testDescribeInstanceAttributeResponse $
+--             describeInstanceAttributeResponse
 --
---         , testRequestSpotInstancesResponse $
---             requestSpotInstancesResponse
+--         , testDescribeReservedInstancesOfferingsResponse $
+--             describeReservedInstancesOfferingsResponse
 --
---         , testModifyImageAttributeResponse $
---             modifyImageAttributeResponse
+--         , testCreateCustomerGatewayResponse $
+--             createCustomerGatewayResponse
 --
---         , testDescribeReservedInstancesResponse $
---             describeReservedInstancesResponse
+--         , testDeleteSecurityGroupResponse $
+--             deleteSecurityGroupResponse
 --
---         , testAllocateAddressResponse $
---             allocateAddressResponse
+--         , testDeleteVPCPeeringConnectionResponse $
+--             deleteVPCPeeringConnectionResponse
+--
+--         , testAttachInternetGatewayResponse $
+--             attachInternetGatewayResponse
+--
+--         , testDescribeFlowLogsResponse $
+--             describeFlowLogsResponse
 --
 --         , testRunInstancesResponse $
 --             reservation
 --
---         , testCreateRouteTableResponse $
---             createRouteTableResponse
+--         , testAssociateDHCPOptionsResponse $
+--             associateDHCPOptionsResponse
 --
---         , testAttachVolumeResponse $
---             volumeAttachment
+--         , testDescribeReservedInstancesResponse $
+--             describeReservedInstancesResponse
+--
+--         , testDescribeVPCsResponse $
+--             describeVPCsResponse
 --
 --         , testDescribeConversionTasksResponse $
 --             describeConversionTasksResponse
 --
---         , testRejectVPCPeeringConnectionResponse $
---             rejectVPCPeeringConnectionResponse
+--         , testAllocateAddressResponse $
+--             allocateAddressResponse
 --
---         , testRevokeSecurityGroupIngressResponse $
---             revokeSecurityGroupIngressResponse
+--         , testCancelConversionTaskResponse $
+--             cancelConversionTaskResponse
+--
+--         , testModifyImageAttributeResponse $
+--             modifyImageAttributeResponse
+--
+--         , testCreateRouteTableResponse $
+--             createRouteTableResponse
+--
+--         , testReportInstanceStatusResponse $
+--             reportInstanceStatusResponse
+--
+--         , testAttachVolumeResponse $
+--             volumeAttachment
+--
+--         , testRequestSpotInstancesResponse $
+--             requestSpotInstancesResponse
 --
 --         , testDescribeVolumesResponse $
 --             describeVolumesResponse
 --
+--         , testRejectVPCPeeringConnectionResponse $
+--             rejectVPCPeeringConnectionResponse
+--
 --         , testDeleteVPNConnectionRouteResponse $
 --             deleteVPNConnectionRouteResponse
---
---         , testModifyReservedInstancesResponse $
---             modifyReservedInstancesResponse
---
---         , testRegisterImageResponse $
---             registerImageResponse
 --
 --         , testModifyVPCEndpointResponse $
 --             modifyVPCEndpointResponse
 --
---         , testDeleteVPNGatewayResponse $
---             deleteVPNGatewayResponse
+--         , testRegisterImageResponse $
+--             registerImageResponse
 --
---         , testCreateVPCResponse $
---             createVPCResponse
+--         , testRevokeSecurityGroupIngressResponse $
+--             revokeSecurityGroupIngressResponse
 --
---         , testDescribeMovingAddressesResponse $
---             describeMovingAddressesResponse
---
---         , testDescribeVolumeAttributeResponse $
---             describeVolumeAttributeResponse
---
---         , testMoveAddressToVPCResponse $
---             moveAddressToVPCResponse
---
---         , testGetPasswordDataResponse $
---             getPasswordDataResponse
+--         , testModifyReservedInstancesResponse $
+--             modifyReservedInstancesResponse
 --
 --         , testCreateFlowLogsResponse $
 --             createFlowLogsResponse
 --
---         , testDescribeImportImageTasksResponse $
---             describeImportImageTasksResponse
+--         , testDescribeSpotFleetRequestsResponse $
+--             describeSpotFleetRequestsResponse
+--
+--         , testMoveAddressToVPCResponse $
+--             moveAddressToVPCResponse
 --
 --         , testDeleteNetworkACLResponse $
 --             deleteNetworkACLResponse
 --
---         , testDescribeSpotFleetRequestsResponse $
---             describeSpotFleetRequestsResponse
+--         , testDeleteVPNGatewayResponse $
+--             deleteVPNGatewayResponse
+--
+--         , testDescribeImportImageTasksResponse $
+--             describeImportImageTasksResponse
+--
+--         , testDescribeVolumeAttributeResponse $
+--             describeVolumeAttributeResponse
+--
+--         , testDescribeMovingAddressesResponse $
+--             describeMovingAddressesResponse
+--
+--         , testGetPasswordDataResponse $
+--             getPasswordDataResponse
+--
+--         , testCreateVPCResponse $
+--             createVPCResponse
 --
 --         , testCopySnapshotResponse $
 --             copySnapshotResponse
---
---         , testModifyVolumeAttributeResponse $
---             modifyVolumeAttributeResponse
---
---         , testDescribeVPCAttributeResponse $
---             describeVPCAttributeResponse
---
---         , testCreateVolumeResponse $
---             volume
 --
 --         , testDisassociateAddressResponse $
 --             disassociateAddressResponse
@@ -865,101 +856,110 @@ import Test.AWS.EC2.Internal
 --         , testDeleteVPCResponse $
 --             deleteVPCResponse
 --
---         , testDescribePrefixListsResponse $
---             describePrefixListsResponse
---
 --         , testCreateInstanceExportTaskResponse $
 --             createInstanceExportTaskResponse
+--
+--         , testDescribeVPCAttributeResponse $
+--             describeVPCAttributeResponse
+--
+--         , testCreateVolumeResponse $
+--             volume
+--
+--         , testModifyVolumeAttributeResponse $
+--             modifyVolumeAttributeResponse
 --
 --         , testDescribeSpotDatafeedSubscriptionResponse $
 --             describeSpotDatafeedSubscriptionResponse
 --
---         , testDetachVPNGatewayResponse $
---             detachVPNGatewayResponse
---
---         , testDescribeExportTasksResponse $
---             describeExportTasksResponse
+--         , testDescribePrefixListsResponse $
+--             describePrefixListsResponse
 --
 --         , testDeletePlacementGroupResponse $
 --             deletePlacementGroupResponse
 --
---         , testCreateSubnetResponse $
---             createSubnetResponse
---
---         , testEnableVolumeIOResponse $
---             enableVolumeIOResponse
---
---         , testCancelExportTaskResponse $
---             cancelExportTaskResponse
---
 --         , testRequestSpotFleetResponse $
 --             requestSpotFleetResponse
 --
---         , testDescribeInstancesResponse $
---             describeInstancesResponse
---
---         , testDescribeSecurityGroupsResponse $
---             describeSecurityGroupsResponse
---
---         , testDescribeVPCPeeringConnectionsResponse $
---             describeVPCPeeringConnectionsResponse
+--         , testCreateSubnetResponse $
+--             createSubnetResponse
 --
 --         , testCreateNetworkInterfaceResponse $
 --             createNetworkInterfaceResponse
 --
---         , testAssociateAddressResponse $
---             associateAddressResponse
+--         , testDescribeSecurityGroupsResponse $
+--             describeSecurityGroupsResponse
 --
---         , testStartInstancesResponse $
---             startInstancesResponse
+--         , testDescribeExportTasksResponse $
+--             describeExportTasksResponse
 --
---         , testDescribeCustomerGatewaysResponse $
---             describeCustomerGatewaysResponse
+--         , testDetachVPNGatewayResponse $
+--             detachVPNGatewayResponse
 --
---         , testResetNetworkInterfaceAttributeResponse $
---             resetNetworkInterfaceAttributeResponse
+--         , testEnableVolumeIOResponse $
+--             enableVolumeIOResponse
 --
---         , testCreateVPNConnectionResponse $
---             createVPNConnectionResponse
+--         , testDescribeInstancesResponse $
+--             describeInstancesResponse
 --
---         , testDescribeSnapshotsResponse $
---             describeSnapshotsResponse
+--         , testDescribeVPCPeeringConnectionsResponse $
+--             describeVPCPeeringConnectionsResponse
 --
---         , testCreatePlacementGroupResponse $
---             createPlacementGroupResponse
---
---         , testReplaceRouteTableAssociationResponse $
---             replaceRouteTableAssociationResponse
---
---         , testDescribeNetworkInterfaceAttributeResponse $
---             describeNetworkInterfaceAttributeResponse
---
---         , testDescribeReservedInstancesListingsResponse $
---             describeReservedInstancesListingsResponse
+--         , testCancelExportTaskResponse $
+--             cancelExportTaskResponse
 --
 --         , testDeleteNetworkInterfaceResponse $
 --             deleteNetworkInterfaceResponse
 --
+--         , testReplaceRouteTableAssociationResponse $
+--             replaceRouteTableAssociationResponse
+--
+--         , testStartInstancesResponse $
+--             startInstancesResponse
+--
+--         , testCreatePlacementGroupResponse $
+--             createPlacementGroupResponse
+--
+--         , testDescribeSnapshotsResponse $
+--             describeSnapshotsResponse
+--
+--         , testAssociateAddressResponse $
+--             associateAddressResponse
+--
+--         , testDescribeNetworkInterfaceAttributeResponse $
+--             describeNetworkInterfaceAttributeResponse
+--
+--         , testResetNetworkInterfaceAttributeResponse $
+--             resetNetworkInterfaceAttributeResponse
+--
 --         , testDeleteInternetGatewayResponse $
 --             deleteInternetGatewayResponse
 --
---         , testDeleteSubnetResponse $
---             deleteSubnetResponse
+--         , testDescribeReservedInstancesListingsResponse $
+--             describeReservedInstancesListingsResponse
 --
---         , testCreateVPCEndpointResponse $
---             createVPCEndpointResponse
+--         , testCreateVPNConnectionResponse $
+--             createVPNConnectionResponse
 --
 --         , testDescribeImportSnapshotTasksResponse $
 --             describeImportSnapshotTasksResponse
 --
+--         , testDescribeCustomerGatewaysResponse $
+--             describeCustomerGatewaysResponse
+--
+--         , testDeleteSubnetResponse $
+--             deleteSubnetResponse
+--
 --         , testCopyImageResponse $
 --             copyImageResponse
 --
---         , testDisassociateRouteTableResponse $
---             disassociateRouteTableResponse
+--         , testCreateVPCEndpointResponse $
+--             createVPCEndpointResponse
 --
 --         , testUnmonitorInstancesResponse $
 --             unmonitorInstancesResponse
+--
+--         , testCreateSecurityGroupResponse $
+--             createSecurityGroupResponse
 --
 --         , testImportVolumeResponse $
 --             importVolumeResponse
@@ -970,65 +970,68 @@ import Test.AWS.EC2.Internal
 --         , testCreateSpotDatafeedSubscriptionResponse $
 --             createSpotDatafeedSubscriptionResponse
 --
---         , testAssignPrivateIPAddressesResponse $
---             assignPrivateIPAddressesResponse
---
---         , testDeleteSnapshotResponse $
---             deleteSnapshotResponse
---
---         , testDeleteCustomerGatewayResponse $
---             deleteCustomerGatewayResponse
---
---         , testModifyInstanceAttributeResponse $
---             modifyInstanceAttributeResponse
---
---         , testCreateSecurityGroupResponse $
---             createSecurityGroupResponse
---
 --         , testCancelSpotInstanceRequestsResponse $
 --             cancelSpotInstanceRequestsResponse
 --
 --         , testCreateRouteResponse $
 --             createRouteResponse
 --
---         , testCreateNetworkACLEntryResponse $
---             createNetworkACLEntryResponse
+--         , testDeleteSnapshotResponse $
+--             deleteSnapshotResponse
 --
---         , testModifySnapshotAttributeResponse $
---             modifySnapshotAttributeResponse
+--         , testAssignPrivateIPAddressesResponse $
+--             assignPrivateIPAddressesResponse
 --
---         , testEnableVGWRoutePropagationResponse $
---             enableVGWRoutePropagationResponse
+--         , testModifyInstanceAttributeResponse $
+--             modifyInstanceAttributeResponse
 --
---         , testCreateSnapshotResponse $
---             snapshot
+--         , testDeleteCustomerGatewayResponse $
+--             deleteCustomerGatewayResponse
 --
---         , testDescribeSpotFleetRequestHistoryResponse $
---             describeSpotFleetRequestHistoryResponse
+--         , testDisassociateRouteTableResponse $
+--             disassociateRouteTableResponse
 --
 --         , testDeleteSpotDatafeedSubscriptionResponse $
 --             deleteSpotDatafeedSubscriptionResponse
 --
+--         , testEnableVPCClassicLinkResponse $
+--             enableVPCClassicLinkResponse
+--
 --         , testDescribePlacementGroupsResponse $
 --             describePlacementGroupsResponse
+--
+--         , testEnableVGWRoutePropagationResponse $
+--             enableVGWRoutePropagationResponse
+--
+--         , testDescribeSpotFleetRequestHistoryResponse $
+--             describeSpotFleetRequestHistoryResponse
+--
+--         , testModifySnapshotAttributeResponse $
+--             modifySnapshotAttributeResponse
+--
+--         , testCreateSnapshotResponse $
+--             snapshot
+--
+--         , testCreateNetworkACLEntryResponse $
+--             createNetworkACLEntryResponse
 --
 --         , testCreateReservedInstancesListingResponse $
 --             createReservedInstancesListingResponse
 --
---         , testEnableVPCClassicLinkResponse $
---             enableVPCClassicLinkResponse
+--         , testAttachVPNGatewayResponse $
+--             attachVPNGatewayResponse
 --
---         , testDescribeKeyPairsResponse $
---             describeKeyPairsResponse
+--         , testCreateDHCPOptionsResponse $
+--             createDHCPOptionsResponse
+--
+--         , testDescribeAccountAttributesResponse $
+--             describeAccountAttributesResponse
 --
 --         , testRebootInstancesResponse $
 --             rebootInstancesResponse
 --
---         , testAttachVPNGatewayResponse $
---             attachVPNGatewayResponse
---
---         , testCreateVPNConnectionRouteResponse $
---             createVPNConnectionRouteResponse
+--         , testCreateImageResponse $
+--             createImageResponse
 --
 --         , testDescribeClassicLinkInstancesResponse $
 --             describeClassicLinkInstancesResponse
@@ -1036,47 +1039,29 @@ import Test.AWS.EC2.Internal
 --         , testTerminateInstancesResponse $
 --             terminateInstancesResponse
 --
---         , testCreateDHCPOptionsResponse $
---             createDHCPOptionsResponse
+--         , testDescribeKeyPairsResponse $
+--             describeKeyPairsResponse
+--
+--         , testCreateVPNConnectionRouteResponse $
+--             createVPNConnectionRouteResponse
 --
 --         , testAssociateRouteTableResponse $
 --             associateRouteTableResponse
 --
---         , testCreateImageResponse $
---             createImageResponse
---
---         , testDescribeAccountAttributesResponse $
---             describeAccountAttributesResponse
---
---         , testResetImageAttributeResponse $
---             resetImageAttributeResponse
---
---         , testDescribeNetworkACLsResponse $
---             describeNetworkACLsResponse
---
---         , testCancelImportTaskResponse $
---             cancelImportTaskResponse
+--         , testDescribeVPNGatewaysResponse $
+--             describeVPNGatewaysResponse
 --
 --         , testGetConsoleOutputResponse $
 --             getConsoleOutputResponse
 --
---         , testUnassignPrivateIPAddressesResponse $
---             unassignPrivateIPAddressesResponse
+--         , testDescribeImageAttributeResponse $
+--             describeImageAttributeResponse
 --
 --         , testDeleteRouteTableResponse $
 --             deleteRouteTableResponse
 --
---         , testDescribeImageAttributeResponse $
---             describeImageAttributeResponse
---
---         , testDeleteDHCPOptionsResponse $
---             deleteDHCPOptionsResponse
---
---         , testDescribeVPNGatewaysResponse $
---             describeVPNGatewaysResponse
---
---         , testDetachClassicLinkVPCResponse $
---             detachClassicLinkVPCResponse
+--         , testResetImageAttributeResponse $
+--             resetImageAttributeResponse
 --
 --         , testDescribeReservedInstancesModificationsResponse $
 --             describeReservedInstancesModificationsResponse
@@ -1084,74 +1069,69 @@ import Test.AWS.EC2.Internal
 --         , testDescribeSpotInstanceRequestsResponse $
 --             describeSpotInstanceRequestsResponse
 --
---         , testMonitorInstancesResponse $
---             monitorInstancesResponse
+--         , testUnassignPrivateIPAddressesResponse $
+--             unassignPrivateIPAddressesResponse
+--
+--         , testDeleteDHCPOptionsResponse $
+--             deleteDHCPOptionsResponse
+--
+--         , testDescribeNetworkACLsResponse $
+--             describeNetworkACLsResponse
+--
+--         , testCancelImportTaskResponse $
+--             cancelImportTaskResponse
+--
+--         , testDetachClassicLinkVPCResponse $
+--             detachClassicLinkVPCResponse
 --
 --         , testDescribeRegionsResponse $
 --             describeRegionsResponse
 --
---         , testModifyVPCAttributeResponse $
---             modifyVPCAttributeResponse
---
---         , testDescribeSpotFleetInstancesResponse $
---             describeSpotFleetInstancesResponse
---
---         , testDescribeVolumeStatusResponse $
---             describeVolumeStatusResponse
---
---         , testDeleteVolumeResponse $
---             deleteVolumeResponse
---
---         , testDescribeImagesResponse $
---             describeImagesResponse
---
---         , testCreateKeyPairResponse $
---             createKeyPairResponse
---
---         , testRestoreAddressToClassicResponse $
---             restoreAddressToClassicResponse
---
---         , testDescribeAvailabilityZonesResponse $
---             describeAvailabilityZonesResponse
---
---         , testImportSnapshotResponse $
---             importSnapshotResponse
+--         , testMonitorInstancesResponse $
+--             monitorInstancesResponse
 --
 --         , testAcceptVPCPeeringConnectionResponse $
 --             acceptVPCPeeringConnectionResponse
 --
+--         , testImportSnapshotResponse $
+--             importSnapshotResponse
+--
+--         , testDescribeVolumeStatusResponse $
+--             describeVolumeStatusResponse
+--
 --         , testDescribeRouteTablesResponse $
 --             describeRouteTablesResponse
+--
+--         , testDescribeAvailabilityZonesResponse $
+--             describeAvailabilityZonesResponse
+--
+--         , testModifyVPCAttributeResponse $
+--             modifyVPCAttributeResponse
+--
+--         , testDescribeImagesResponse $
+--             describeImagesResponse
+--
+--         , testRestoreAddressToClassicResponse $
+--             restoreAddressToClassicResponse
+--
+--         , testCreateKeyPairResponse $
+--             createKeyPairResponse
+--
+--         , testDeleteVolumeResponse $
+--             deleteVolumeResponse
+--
+--         , testDescribeSpotFleetInstancesResponse $
+--             describeSpotFleetInstancesResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-testDetachNetworkInterface :: DetachNetworkInterface -> TestTree
-testDetachNetworkInterface = req
-    "DetachNetworkInterface"
-    "fixture/DetachNetworkInterface.yaml"
-
-testDeleteVPCEndpoints :: DeleteVPCEndpoints -> TestTree
-testDeleteVPCEndpoints = req
-    "DeleteVPCEndpoints"
-    "fixture/DeleteVPCEndpoints.yaml"
-
-testDeleteKeyPair :: DeleteKeyPair -> TestTree
-testDeleteKeyPair = req
-    "DeleteKeyPair"
-    "fixture/DeleteKeyPair.yaml"
-
-testDeleteFlowLogs :: DeleteFlowLogs -> TestTree
-testDeleteFlowLogs = req
-    "DeleteFlowLogs"
-    "fixture/DeleteFlowLogs.yaml"
-
-testDescribeTags :: DescribeTags -> TestTree
-testDescribeTags = req
-    "DescribeTags"
-    "fixture/DescribeTags.yaml"
+testImportInstance :: ImportInstance -> TestTree
+testImportInstance = req
+    "ImportInstance"
+    "fixture/ImportInstance.yaml"
 
 testRevokeSecurityGroupEgress :: RevokeSecurityGroupEgress -> TestTree
 testRevokeSecurityGroupEgress = req
@@ -1163,75 +1143,95 @@ testCreateVPNGateway = req
     "CreateVPNGateway"
     "fixture/CreateVPNGateway.yaml"
 
-testDetachInternetGateway :: DetachInternetGateway -> TestTree
-testDetachInternetGateway = req
-    "DetachInternetGateway"
-    "fixture/DetachInternetGateway.yaml"
-
 testCreateNetworkACL :: CreateNetworkACL -> TestTree
 testCreateNetworkACL = req
     "CreateNetworkACL"
     "fixture/CreateNetworkACL.yaml"
 
-testImportInstance :: ImportInstance -> TestTree
-testImportInstance = req
-    "ImportInstance"
-    "fixture/ImportInstance.yaml"
+testDeleteKeyPair :: DeleteKeyPair -> TestTree
+testDeleteKeyPair = req
+    "DeleteKeyPair"
+    "fixture/DeleteKeyPair.yaml"
+
+testDescribeTags :: DescribeTags -> TestTree
+testDescribeTags = req
+    "DescribeTags"
+    "fixture/DescribeTags.yaml"
+
+testDetachNetworkInterface :: DetachNetworkInterface -> TestTree
+testDetachNetworkInterface = req
+    "DetachNetworkInterface"
+    "fixture/DetachNetworkInterface.yaml"
+
+testDetachInternetGateway :: DetachInternetGateway -> TestTree
+testDetachInternetGateway = req
+    "DetachInternetGateway"
+    "fixture/DetachInternetGateway.yaml"
+
+testDeleteVPCEndpoints :: DeleteVPCEndpoints -> TestTree
+testDeleteVPCEndpoints = req
+    "DeleteVPCEndpoints"
+    "fixture/DeleteVPCEndpoints.yaml"
+
+testDeleteFlowLogs :: DeleteFlowLogs -> TestTree
+testDeleteFlowLogs = req
+    "DeleteFlowLogs"
+    "fixture/DeleteFlowLogs.yaml"
 
 testDescribeVPCClassicLink :: DescribeVPCClassicLink -> TestTree
 testDescribeVPCClassicLink = req
     "DescribeVPCClassicLink"
     "fixture/DescribeVPCClassicLink.yaml"
 
-testDeleteVPNConnection :: DeleteVPNConnection -> TestTree
-testDeleteVPNConnection = req
-    "DeleteVPNConnection"
-    "fixture/DeleteVPNConnection.yaml"
+testModifySubnetAttribute :: ModifySubnetAttribute -> TestTree
+testModifySubnetAttribute = req
+    "ModifySubnetAttribute"
+    "fixture/ModifySubnetAttribute.yaml"
 
-testAuthorizeSecurityGroupEgress :: AuthorizeSecurityGroupEgress -> TestTree
-testAuthorizeSecurityGroupEgress = req
-    "AuthorizeSecurityGroupEgress"
-    "fixture/AuthorizeSecurityGroupEgress.yaml"
-
-testDescribeBundleTasks :: DescribeBundleTasks -> TestTree
-testDescribeBundleTasks = req
-    "DescribeBundleTasks"
-    "fixture/DescribeBundleTasks.yaml"
-
-testCreateInternetGateway :: CreateInternetGateway -> TestTree
-testCreateInternetGateway = req
-    "CreateInternetGateway"
-    "fixture/CreateInternetGateway.yaml"
-
-testReleaseAddress :: ReleaseAddress -> TestTree
-testReleaseAddress = req
-    "ReleaseAddress"
-    "fixture/ReleaseAddress.yaml"
+testDetachVolume :: DetachVolume -> TestTree
+testDetachVolume = req
+    "DetachVolume"
+    "fixture/DetachVolume.yaml"
 
 testCancelBundleTask :: CancelBundleTask -> TestTree
 testCancelBundleTask = req
     "CancelBundleTask"
     "fixture/CancelBundleTask.yaml"
 
-testModifyNetworkInterfaceAttribute :: ModifyNetworkInterfaceAttribute -> TestTree
-testModifyNetworkInterfaceAttribute = req
-    "ModifyNetworkInterfaceAttribute"
-    "fixture/ModifyNetworkInterfaceAttribute.yaml"
+testReleaseAddress :: ReleaseAddress -> TestTree
+testReleaseAddress = req
+    "ReleaseAddress"
+    "fixture/ReleaseAddress.yaml"
 
-testModifySubnetAttribute :: ModifySubnetAttribute -> TestTree
-testModifySubnetAttribute = req
-    "ModifySubnetAttribute"
-    "fixture/ModifySubnetAttribute.yaml"
+testCreateInternetGateway :: CreateInternetGateway -> TestTree
+testCreateInternetGateway = req
+    "CreateInternetGateway"
+    "fixture/CreateInternetGateway.yaml"
+
+testDeleteVPNConnection :: DeleteVPNConnection -> TestTree
+testDeleteVPNConnection = req
+    "DeleteVPNConnection"
+    "fixture/DeleteVPNConnection.yaml"
+
+testDescribeBundleTasks :: DescribeBundleTasks -> TestTree
+testDescribeBundleTasks = req
+    "DescribeBundleTasks"
+    "fixture/DescribeBundleTasks.yaml"
+
+testAuthorizeSecurityGroupEgress :: AuthorizeSecurityGroupEgress -> TestTree
+testAuthorizeSecurityGroupEgress = req
+    "AuthorizeSecurityGroupEgress"
+    "fixture/AuthorizeSecurityGroupEgress.yaml"
 
 testDeregisterImage :: DeregisterImage -> TestTree
 testDeregisterImage = req
     "DeregisterImage"
     "fixture/DeregisterImage.yaml"
 
-testDetachVolume :: DetachVolume -> TestTree
-testDetachVolume = req
-    "DetachVolume"
-    "fixture/DetachVolume.yaml"
+testModifyNetworkInterfaceAttribute :: ModifyNetworkInterfaceAttribute -> TestTree
+testModifyNetworkInterfaceAttribute = req
+    "ModifyNetworkInterfaceAttribute"
+    "fixture/ModifyNetworkInterfaceAttribute.yaml"
 
 testCancelReservedInstancesListing :: CancelReservedInstancesListing -> TestTree
 testCancelReservedInstancesListing = req
@@ -1248,180 +1248,130 @@ testCancelSpotFleetRequests = req
     "CancelSpotFleetRequests"
     "fixture/CancelSpotFleetRequests.yaml"
 
-testDescribeDHCPOptions :: DescribeDHCPOptions -> TestTree
-testDescribeDHCPOptions = req
-    "DescribeDHCPOptions"
-    "fixture/DescribeDHCPOptions.yaml"
-
 testDescribeSpotPriceHistory :: DescribeSpotPriceHistory -> TestTree
 testDescribeSpotPriceHistory = req
     "DescribeSpotPriceHistory"
     "fixture/DescribeSpotPriceHistory.yaml"
 
-testStopInstances :: StopInstances -> TestTree
-testStopInstances = req
-    "StopInstances"
-    "fixture/StopInstances.yaml"
+testDescribeDHCPOptions :: DescribeDHCPOptions -> TestTree
+testDescribeDHCPOptions = req
+    "DescribeDHCPOptions"
+    "fixture/DescribeDHCPOptions.yaml"
 
 testImportImage :: ImportImage -> TestTree
 testImportImage = req
     "ImportImage"
     "fixture/ImportImage.yaml"
 
-testDeleteNetworkACLEntry :: DeleteNetworkACLEntry -> TestTree
-testDeleteNetworkACLEntry = req
-    "DeleteNetworkACLEntry"
-    "fixture/DeleteNetworkACLEntry.yaml"
-
-testDisableVPCClassicLink :: DisableVPCClassicLink -> TestTree
-testDisableVPCClassicLink = req
-    "DisableVPCClassicLink"
-    "fixture/DisableVPCClassicLink.yaml"
-
-testAuthorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngress -> TestTree
-testAuthorizeSecurityGroupIngress = req
-    "AuthorizeSecurityGroupIngress"
-    "fixture/AuthorizeSecurityGroupIngress.yaml"
-
-testBundleInstance :: BundleInstance -> TestTree
-testBundleInstance = req
-    "BundleInstance"
-    "fixture/BundleInstance.yaml"
-
-testDescribeVPCEndpointServices :: DescribeVPCEndpointServices -> TestTree
-testDescribeVPCEndpointServices = req
-    "DescribeVPCEndpointServices"
-    "fixture/DescribeVPCEndpointServices.yaml"
-
-testReplaceNetworkACLAssociation :: ReplaceNetworkACLAssociation -> TestTree
-testReplaceNetworkACLAssociation = req
-    "ReplaceNetworkACLAssociation"
-    "fixture/ReplaceNetworkACLAssociation.yaml"
-
-testCreateVPCPeeringConnection :: CreateVPCPeeringConnection -> TestTree
-testCreateVPCPeeringConnection = req
-    "CreateVPCPeeringConnection"
-    "fixture/CreateVPCPeeringConnection.yaml"
-
-testResetSnapshotAttribute :: ResetSnapshotAttribute -> TestTree
-testResetSnapshotAttribute = req
-    "ResetSnapshotAttribute"
-    "fixture/ResetSnapshotAttribute.yaml"
-
-testDescribeAddresses :: DescribeAddresses -> TestTree
-testDescribeAddresses = req
-    "DescribeAddresses"
-    "fixture/DescribeAddresses.yaml"
+testStopInstances :: StopInstances -> TestTree
+testStopInstances = req
+    "StopInstances"
+    "fixture/StopInstances.yaml"
 
 testDescribeInternetGateways :: DescribeInternetGateways -> TestTree
 testDescribeInternetGateways = req
     "DescribeInternetGateways"
     "fixture/DescribeInternetGateways.yaml"
 
-testReplaceRoute :: ReplaceRoute -> TestTree
-testReplaceRoute = req
-    "ReplaceRoute"
-    "fixture/ReplaceRoute.yaml"
+testDisableVPCClassicLink :: DisableVPCClassicLink -> TestTree
+testDisableVPCClassicLink = req
+    "DisableVPCClassicLink"
+    "fixture/DisableVPCClassicLink.yaml"
 
-testCreateTags :: CreateTags -> TestTree
-testCreateTags = req
-    "CreateTags"
-    "fixture/CreateTags.yaml"
-
-testDescribeSubnets :: DescribeSubnets -> TestTree
-testDescribeSubnets = req
-    "DescribeSubnets"
-    "fixture/DescribeSubnets.yaml"
+testBundleInstance :: BundleInstance -> TestTree
+testBundleInstance = req
+    "BundleInstance"
+    "fixture/BundleInstance.yaml"
 
 testDescribeNetworkInterfaces :: DescribeNetworkInterfaces -> TestTree
 testDescribeNetworkInterfaces = req
     "DescribeNetworkInterfaces"
     "fixture/DescribeNetworkInterfaces.yaml"
 
-testPurchaseReservedInstancesOffering :: PurchaseReservedInstancesOffering -> TestTree
-testPurchaseReservedInstancesOffering = req
-    "PurchaseReservedInstancesOffering"
-    "fixture/PurchaseReservedInstancesOffering.yaml"
+testReplaceNetworkACLAssociation :: ReplaceNetworkACLAssociation -> TestTree
+testReplaceNetworkACLAssociation = req
+    "ReplaceNetworkACLAssociation"
+    "fixture/ReplaceNetworkACLAssociation.yaml"
+
+testDescribeAddresses :: DescribeAddresses -> TestTree
+testDescribeAddresses = req
+    "DescribeAddresses"
+    "fixture/DescribeAddresses.yaml"
 
 testDescribeSnapshotAttribute :: DescribeSnapshotAttribute -> TestTree
 testDescribeSnapshotAttribute = req
     "DescribeSnapshotAttribute"
     "fixture/DescribeSnapshotAttribute.yaml"
 
-testCreateCustomerGateway :: CreateCustomerGateway -> TestTree
-testCreateCustomerGateway = req
-    "CreateCustomerGateway"
-    "fixture/CreateCustomerGateway.yaml"
+testReplaceRoute :: ReplaceRoute -> TestTree
+testReplaceRoute = req
+    "ReplaceRoute"
+    "fixture/ReplaceRoute.yaml"
 
-testAttachInternetGateway :: AttachInternetGateway -> TestTree
-testAttachInternetGateway = req
-    "AttachInternetGateway"
-    "fixture/AttachInternetGateway.yaml"
+testDescribeVPCEndpointServices :: DescribeVPCEndpointServices -> TestTree
+testDescribeVPCEndpointServices = req
+    "DescribeVPCEndpointServices"
+    "fixture/DescribeVPCEndpointServices.yaml"
 
-testDeleteTags :: DeleteTags -> TestTree
-testDeleteTags = req
-    "DeleteTags"
-    "fixture/DeleteTags.yaml"
+testAuthorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngress -> TestTree
+testAuthorizeSecurityGroupIngress = req
+    "AuthorizeSecurityGroupIngress"
+    "fixture/AuthorizeSecurityGroupIngress.yaml"
 
-testReplaceNetworkACLEntry :: ReplaceNetworkACLEntry -> TestTree
-testReplaceNetworkACLEntry = req
-    "ReplaceNetworkACLEntry"
-    "fixture/ReplaceNetworkACLEntry.yaml"
+testCreateVPCPeeringConnection :: CreateVPCPeeringConnection -> TestTree
+testCreateVPCPeeringConnection = req
+    "CreateVPCPeeringConnection"
+    "fixture/CreateVPCPeeringConnection.yaml"
 
-testResetInstanceAttribute :: ResetInstanceAttribute -> TestTree
-testResetInstanceAttribute = req
-    "ResetInstanceAttribute"
-    "fixture/ResetInstanceAttribute.yaml"
+testDescribeSubnets :: DescribeSubnets -> TestTree
+testDescribeSubnets = req
+    "DescribeSubnets"
+    "fixture/DescribeSubnets.yaml"
 
-testDeleteRoute :: DeleteRoute -> TestTree
-testDeleteRoute = req
-    "DeleteRoute"
-    "fixture/DeleteRoute.yaml"
+testCreateTags :: CreateTags -> TestTree
+testCreateTags = req
+    "CreateTags"
+    "fixture/CreateTags.yaml"
+
+testPurchaseReservedInstancesOffering :: PurchaseReservedInstancesOffering -> TestTree
+testPurchaseReservedInstancesOffering = req
+    "PurchaseReservedInstancesOffering"
+    "fixture/PurchaseReservedInstancesOffering.yaml"
+
+testDeleteNetworkACLEntry :: DeleteNetworkACLEntry -> TestTree
+testDeleteNetworkACLEntry = req
+    "DeleteNetworkACLEntry"
+    "fixture/DeleteNetworkACLEntry.yaml"
+
+testResetSnapshotAttribute :: ResetSnapshotAttribute -> TestTree
+testResetSnapshotAttribute = req
+    "ResetSnapshotAttribute"
+    "fixture/ResetSnapshotAttribute.yaml"
 
 testDescribeVPNConnections :: DescribeVPNConnections -> TestTree
 testDescribeVPNConnections = req
     "DescribeVPNConnections"
     "fixture/DescribeVPNConnections.yaml"
 
-testDescribeFlowLogs :: DescribeFlowLogs -> TestTree
-testDescribeFlowLogs = req
-    "DescribeFlowLogs"
-    "fixture/DescribeFlowLogs.yaml"
+testDeleteRoute :: DeleteRoute -> TestTree
+testDeleteRoute = req
+    "DeleteRoute"
+    "fixture/DeleteRoute.yaml"
 
-testDeleteSecurityGroup :: DeleteSecurityGroup -> TestTree
-testDeleteSecurityGroup = req
-    "DeleteSecurityGroup"
-    "fixture/DeleteSecurityGroup.yaml"
-
-testDescribeReservedInstancesOfferings :: DescribeReservedInstancesOfferings -> TestTree
-testDescribeReservedInstancesOfferings = req
-    "DescribeReservedInstancesOfferings"
-    "fixture/DescribeReservedInstancesOfferings.yaml"
-
-testDeleteVPCPeeringConnection :: DeleteVPCPeeringConnection -> TestTree
-testDeleteVPCPeeringConnection = req
-    "DeleteVPCPeeringConnection"
-    "fixture/DeleteVPCPeeringConnection.yaml"
+testReplaceNetworkACLEntry :: ReplaceNetworkACLEntry -> TestTree
+testReplaceNetworkACLEntry = req
+    "ReplaceNetworkACLEntry"
+    "fixture/ReplaceNetworkACLEntry.yaml"
 
 testDescribeVPCEndpoints :: DescribeVPCEndpoints -> TestTree
 testDescribeVPCEndpoints = req
     "DescribeVPCEndpoints"
     "fixture/DescribeVPCEndpoints.yaml"
 
-testDescribeInstanceAttribute :: DescribeInstanceAttribute -> TestTree
-testDescribeInstanceAttribute = req
-    "DescribeInstanceAttribute"
-    "fixture/DescribeInstanceAttribute.yaml"
-
-testConfirmProductInstance :: ConfirmProductInstance -> TestTree
-testConfirmProductInstance = req
-    "ConfirmProductInstance"
-    "fixture/ConfirmProductInstance.yaml"
-
-testImportKeyPair :: ImportKeyPair -> TestTree
-testImportKeyPair = req
-    "ImportKeyPair"
-    "fixture/ImportKeyPair.yaml"
+testResetInstanceAttribute :: ResetInstanceAttribute -> TestTree
+testResetInstanceAttribute = req
+    "ResetInstanceAttribute"
+    "fixture/ResetInstanceAttribute.yaml"
 
 testAttachNetworkInterface :: AttachNetworkInterface -> TestTree
 testAttachNetworkInterface = req
@@ -1433,170 +1383,205 @@ testDescribeInstanceStatus = req
     "DescribeInstanceStatus"
     "fixture/DescribeInstanceStatus.yaml"
 
-testCancelConversionTask :: CancelConversionTask -> TestTree
-testCancelConversionTask = req
-    "CancelConversionTask"
-    "fixture/CancelConversionTask.yaml"
+testImportKeyPair :: ImportKeyPair -> TestTree
+testImportKeyPair = req
+    "ImportKeyPair"
+    "fixture/ImportKeyPair.yaml"
 
-testReportInstanceStatus :: ReportInstanceStatus -> TestTree
-testReportInstanceStatus = req
-    "ReportInstanceStatus"
-    "fixture/ReportInstanceStatus.yaml"
+testDeleteTags :: DeleteTags -> TestTree
+testDeleteTags = req
+    "DeleteTags"
+    "fixture/DeleteTags.yaml"
 
-testAssociateDHCPOptions :: AssociateDHCPOptions -> TestTree
-testAssociateDHCPOptions = req
-    "AssociateDHCPOptions"
-    "fixture/AssociateDHCPOptions.yaml"
+testConfirmProductInstance :: ConfirmProductInstance -> TestTree
+testConfirmProductInstance = req
+    "ConfirmProductInstance"
+    "fixture/ConfirmProductInstance.yaml"
 
-testDescribeVPCs :: DescribeVPCs -> TestTree
-testDescribeVPCs = req
-    "DescribeVPCs"
-    "fixture/DescribeVPCs.yaml"
+testDescribeInstanceAttribute :: DescribeInstanceAttribute -> TestTree
+testDescribeInstanceAttribute = req
+    "DescribeInstanceAttribute"
+    "fixture/DescribeInstanceAttribute.yaml"
 
-testRequestSpotInstances :: RequestSpotInstances -> TestTree
-testRequestSpotInstances = req
-    "RequestSpotInstances"
-    "fixture/RequestSpotInstances.yaml"
+testDescribeReservedInstancesOfferings :: DescribeReservedInstancesOfferings -> TestTree
+testDescribeReservedInstancesOfferings = req
+    "DescribeReservedInstancesOfferings"
+    "fixture/DescribeReservedInstancesOfferings.yaml"
 
-testModifyImageAttribute :: ModifyImageAttribute -> TestTree
-testModifyImageAttribute = req
-    "ModifyImageAttribute"
-    "fixture/ModifyImageAttribute.yaml"
+testCreateCustomerGateway :: CreateCustomerGateway -> TestTree
+testCreateCustomerGateway = req
+    "CreateCustomerGateway"
+    "fixture/CreateCustomerGateway.yaml"
 
-testDescribeReservedInstances :: DescribeReservedInstances -> TestTree
-testDescribeReservedInstances = req
-    "DescribeReservedInstances"
-    "fixture/DescribeReservedInstances.yaml"
+testDeleteSecurityGroup :: DeleteSecurityGroup -> TestTree
+testDeleteSecurityGroup = req
+    "DeleteSecurityGroup"
+    "fixture/DeleteSecurityGroup.yaml"
 
-testAllocateAddress :: AllocateAddress -> TestTree
-testAllocateAddress = req
-    "AllocateAddress"
-    "fixture/AllocateAddress.yaml"
+testDeleteVPCPeeringConnection :: DeleteVPCPeeringConnection -> TestTree
+testDeleteVPCPeeringConnection = req
+    "DeleteVPCPeeringConnection"
+    "fixture/DeleteVPCPeeringConnection.yaml"
+
+testAttachInternetGateway :: AttachInternetGateway -> TestTree
+testAttachInternetGateway = req
+    "AttachInternetGateway"
+    "fixture/AttachInternetGateway.yaml"
+
+testDescribeFlowLogs :: DescribeFlowLogs -> TestTree
+testDescribeFlowLogs = req
+    "DescribeFlowLogs"
+    "fixture/DescribeFlowLogs.yaml"
 
 testRunInstances :: RunInstances -> TestTree
 testRunInstances = req
     "RunInstances"
     "fixture/RunInstances.yaml"
 
-testCreateRouteTable :: CreateRouteTable -> TestTree
-testCreateRouteTable = req
-    "CreateRouteTable"
-    "fixture/CreateRouteTable.yaml"
+testAssociateDHCPOptions :: AssociateDHCPOptions -> TestTree
+testAssociateDHCPOptions = req
+    "AssociateDHCPOptions"
+    "fixture/AssociateDHCPOptions.yaml"
 
-testAttachVolume :: AttachVolume -> TestTree
-testAttachVolume = req
-    "AttachVolume"
-    "fixture/AttachVolume.yaml"
+testDescribeReservedInstances :: DescribeReservedInstances -> TestTree
+testDescribeReservedInstances = req
+    "DescribeReservedInstances"
+    "fixture/DescribeReservedInstances.yaml"
+
+testDescribeVPCs :: DescribeVPCs -> TestTree
+testDescribeVPCs = req
+    "DescribeVPCs"
+    "fixture/DescribeVPCs.yaml"
 
 testDescribeConversionTasks :: DescribeConversionTasks -> TestTree
 testDescribeConversionTasks = req
     "DescribeConversionTasks"
     "fixture/DescribeConversionTasks.yaml"
 
-testRejectVPCPeeringConnection :: RejectVPCPeeringConnection -> TestTree
-testRejectVPCPeeringConnection = req
-    "RejectVPCPeeringConnection"
-    "fixture/RejectVPCPeeringConnection.yaml"
+testAllocateAddress :: AllocateAddress -> TestTree
+testAllocateAddress = req
+    "AllocateAddress"
+    "fixture/AllocateAddress.yaml"
 
-testRevokeSecurityGroupIngress :: RevokeSecurityGroupIngress -> TestTree
-testRevokeSecurityGroupIngress = req
-    "RevokeSecurityGroupIngress"
-    "fixture/RevokeSecurityGroupIngress.yaml"
+testCancelConversionTask :: CancelConversionTask -> TestTree
+testCancelConversionTask = req
+    "CancelConversionTask"
+    "fixture/CancelConversionTask.yaml"
+
+testModifyImageAttribute :: ModifyImageAttribute -> TestTree
+testModifyImageAttribute = req
+    "ModifyImageAttribute"
+    "fixture/ModifyImageAttribute.yaml"
+
+testCreateRouteTable :: CreateRouteTable -> TestTree
+testCreateRouteTable = req
+    "CreateRouteTable"
+    "fixture/CreateRouteTable.yaml"
+
+testReportInstanceStatus :: ReportInstanceStatus -> TestTree
+testReportInstanceStatus = req
+    "ReportInstanceStatus"
+    "fixture/ReportInstanceStatus.yaml"
+
+testAttachVolume :: AttachVolume -> TestTree
+testAttachVolume = req
+    "AttachVolume"
+    "fixture/AttachVolume.yaml"
+
+testRequestSpotInstances :: RequestSpotInstances -> TestTree
+testRequestSpotInstances = req
+    "RequestSpotInstances"
+    "fixture/RequestSpotInstances.yaml"
 
 testDescribeVolumes :: DescribeVolumes -> TestTree
 testDescribeVolumes = req
     "DescribeVolumes"
     "fixture/DescribeVolumes.yaml"
 
+testRejectVPCPeeringConnection :: RejectVPCPeeringConnection -> TestTree
+testRejectVPCPeeringConnection = req
+    "RejectVPCPeeringConnection"
+    "fixture/RejectVPCPeeringConnection.yaml"
+
 testDeleteVPNConnectionRoute :: DeleteVPNConnectionRoute -> TestTree
 testDeleteVPNConnectionRoute = req
     "DeleteVPNConnectionRoute"
     "fixture/DeleteVPNConnectionRoute.yaml"
-
-testModifyReservedInstances :: ModifyReservedInstances -> TestTree
-testModifyReservedInstances = req
-    "ModifyReservedInstances"
-    "fixture/ModifyReservedInstances.yaml"
-
-testRegisterImage :: RegisterImage -> TestTree
-testRegisterImage = req
-    "RegisterImage"
-    "fixture/RegisterImage.yaml"
 
 testModifyVPCEndpoint :: ModifyVPCEndpoint -> TestTree
 testModifyVPCEndpoint = req
     "ModifyVPCEndpoint"
     "fixture/ModifyVPCEndpoint.yaml"
 
-testDeleteVPNGateway :: DeleteVPNGateway -> TestTree
-testDeleteVPNGateway = req
-    "DeleteVPNGateway"
-    "fixture/DeleteVPNGateway.yaml"
+testRegisterImage :: RegisterImage -> TestTree
+testRegisterImage = req
+    "RegisterImage"
+    "fixture/RegisterImage.yaml"
 
-testCreateVPC :: CreateVPC -> TestTree
-testCreateVPC = req
-    "CreateVPC"
-    "fixture/CreateVPC.yaml"
+testRevokeSecurityGroupIngress :: RevokeSecurityGroupIngress -> TestTree
+testRevokeSecurityGroupIngress = req
+    "RevokeSecurityGroupIngress"
+    "fixture/RevokeSecurityGroupIngress.yaml"
 
-testDescribeMovingAddresses :: DescribeMovingAddresses -> TestTree
-testDescribeMovingAddresses = req
-    "DescribeMovingAddresses"
-    "fixture/DescribeMovingAddresses.yaml"
-
-testDescribeVolumeAttribute :: DescribeVolumeAttribute -> TestTree
-testDescribeVolumeAttribute = req
-    "DescribeVolumeAttribute"
-    "fixture/DescribeVolumeAttribute.yaml"
-
-testMoveAddressToVPC :: MoveAddressToVPC -> TestTree
-testMoveAddressToVPC = req
-    "MoveAddressToVPC"
-    "fixture/MoveAddressToVPC.yaml"
-
-testGetPasswordData :: GetPasswordData -> TestTree
-testGetPasswordData = req
-    "GetPasswordData"
-    "fixture/GetPasswordData.yaml"
+testModifyReservedInstances :: ModifyReservedInstances -> TestTree
+testModifyReservedInstances = req
+    "ModifyReservedInstances"
+    "fixture/ModifyReservedInstances.yaml"
 
 testCreateFlowLogs :: CreateFlowLogs -> TestTree
 testCreateFlowLogs = req
     "CreateFlowLogs"
     "fixture/CreateFlowLogs.yaml"
 
-testDescribeImportImageTasks :: DescribeImportImageTasks -> TestTree
-testDescribeImportImageTasks = req
-    "DescribeImportImageTasks"
-    "fixture/DescribeImportImageTasks.yaml"
+testDescribeSpotFleetRequests :: DescribeSpotFleetRequests -> TestTree
+testDescribeSpotFleetRequests = req
+    "DescribeSpotFleetRequests"
+    "fixture/DescribeSpotFleetRequests.yaml"
+
+testMoveAddressToVPC :: MoveAddressToVPC -> TestTree
+testMoveAddressToVPC = req
+    "MoveAddressToVPC"
+    "fixture/MoveAddressToVPC.yaml"
 
 testDeleteNetworkACL :: DeleteNetworkACL -> TestTree
 testDeleteNetworkACL = req
     "DeleteNetworkACL"
     "fixture/DeleteNetworkACL.yaml"
 
-testDescribeSpotFleetRequests :: DescribeSpotFleetRequests -> TestTree
-testDescribeSpotFleetRequests = req
-    "DescribeSpotFleetRequests"
-    "fixture/DescribeSpotFleetRequests.yaml"
+testDeleteVPNGateway :: DeleteVPNGateway -> TestTree
+testDeleteVPNGateway = req
+    "DeleteVPNGateway"
+    "fixture/DeleteVPNGateway.yaml"
+
+testDescribeImportImageTasks :: DescribeImportImageTasks -> TestTree
+testDescribeImportImageTasks = req
+    "DescribeImportImageTasks"
+    "fixture/DescribeImportImageTasks.yaml"
+
+testDescribeVolumeAttribute :: DescribeVolumeAttribute -> TestTree
+testDescribeVolumeAttribute = req
+    "DescribeVolumeAttribute"
+    "fixture/DescribeVolumeAttribute.yaml"
+
+testDescribeMovingAddresses :: DescribeMovingAddresses -> TestTree
+testDescribeMovingAddresses = req
+    "DescribeMovingAddresses"
+    "fixture/DescribeMovingAddresses.yaml"
+
+testGetPasswordData :: GetPasswordData -> TestTree
+testGetPasswordData = req
+    "GetPasswordData"
+    "fixture/GetPasswordData.yaml"
+
+testCreateVPC :: CreateVPC -> TestTree
+testCreateVPC = req
+    "CreateVPC"
+    "fixture/CreateVPC.yaml"
 
 testCopySnapshot :: CopySnapshot -> TestTree
 testCopySnapshot = req
     "CopySnapshot"
     "fixture/CopySnapshot.yaml"
-
-testModifyVolumeAttribute :: ModifyVolumeAttribute -> TestTree
-testModifyVolumeAttribute = req
-    "ModifyVolumeAttribute"
-    "fixture/ModifyVolumeAttribute.yaml"
-
-testDescribeVPCAttribute :: DescribeVPCAttribute -> TestTree
-testDescribeVPCAttribute = req
-    "DescribeVPCAttribute"
-    "fixture/DescribeVPCAttribute.yaml"
-
-testCreateVolume :: CreateVolume -> TestTree
-testCreateVolume = req
-    "CreateVolume"
-    "fixture/CreateVolume.yaml"
 
 testDisassociateAddress :: DisassociateAddress -> TestTree
 testDisassociateAddress = req
@@ -1608,165 +1593,180 @@ testDeleteVPC = req
     "DeleteVPC"
     "fixture/DeleteVPC.yaml"
 
-testDescribePrefixLists :: DescribePrefixLists -> TestTree
-testDescribePrefixLists = req
-    "DescribePrefixLists"
-    "fixture/DescribePrefixLists.yaml"
-
 testCreateInstanceExportTask :: CreateInstanceExportTask -> TestTree
 testCreateInstanceExportTask = req
     "CreateInstanceExportTask"
     "fixture/CreateInstanceExportTask.yaml"
+
+testDescribeVPCAttribute :: DescribeVPCAttribute -> TestTree
+testDescribeVPCAttribute = req
+    "DescribeVPCAttribute"
+    "fixture/DescribeVPCAttribute.yaml"
+
+testCreateVolume :: CreateVolume -> TestTree
+testCreateVolume = req
+    "CreateVolume"
+    "fixture/CreateVolume.yaml"
+
+testModifyVolumeAttribute :: ModifyVolumeAttribute -> TestTree
+testModifyVolumeAttribute = req
+    "ModifyVolumeAttribute"
+    "fixture/ModifyVolumeAttribute.yaml"
 
 testDescribeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription -> TestTree
 testDescribeSpotDatafeedSubscription = req
     "DescribeSpotDatafeedSubscription"
     "fixture/DescribeSpotDatafeedSubscription.yaml"
 
-testDetachVPNGateway :: DetachVPNGateway -> TestTree
-testDetachVPNGateway = req
-    "DetachVPNGateway"
-    "fixture/DetachVPNGateway.yaml"
-
-testDescribeExportTasks :: DescribeExportTasks -> TestTree
-testDescribeExportTasks = req
-    "DescribeExportTasks"
-    "fixture/DescribeExportTasks.yaml"
+testDescribePrefixLists :: DescribePrefixLists -> TestTree
+testDescribePrefixLists = req
+    "DescribePrefixLists"
+    "fixture/DescribePrefixLists.yaml"
 
 testDeletePlacementGroup :: DeletePlacementGroup -> TestTree
 testDeletePlacementGroup = req
     "DeletePlacementGroup"
     "fixture/DeletePlacementGroup.yaml"
 
-testCreateSubnet :: CreateSubnet -> TestTree
-testCreateSubnet = req
-    "CreateSubnet"
-    "fixture/CreateSubnet.yaml"
-
-testEnableVolumeIO :: EnableVolumeIO -> TestTree
-testEnableVolumeIO = req
-    "EnableVolumeIO"
-    "fixture/EnableVolumeIO.yaml"
-
-testCancelExportTask :: CancelExportTask -> TestTree
-testCancelExportTask = req
-    "CancelExportTask"
-    "fixture/CancelExportTask.yaml"
-
 testRequestSpotFleet :: RequestSpotFleet -> TestTree
 testRequestSpotFleet = req
     "RequestSpotFleet"
     "fixture/RequestSpotFleet.yaml"
 
-testDescribeInstances :: DescribeInstances -> TestTree
-testDescribeInstances = req
-    "DescribeInstances"
-    "fixture/DescribeInstances.yaml"
-
-testDescribeSecurityGroups :: DescribeSecurityGroups -> TestTree
-testDescribeSecurityGroups = req
-    "DescribeSecurityGroups"
-    "fixture/DescribeSecurityGroups.yaml"
-
-testDescribeVPCPeeringConnections :: DescribeVPCPeeringConnections -> TestTree
-testDescribeVPCPeeringConnections = req
-    "DescribeVPCPeeringConnections"
-    "fixture/DescribeVPCPeeringConnections.yaml"
+testCreateSubnet :: CreateSubnet -> TestTree
+testCreateSubnet = req
+    "CreateSubnet"
+    "fixture/CreateSubnet.yaml"
 
 testCreateNetworkInterface :: CreateNetworkInterface -> TestTree
 testCreateNetworkInterface = req
     "CreateNetworkInterface"
     "fixture/CreateNetworkInterface.yaml"
 
-testAssociateAddress :: AssociateAddress -> TestTree
-testAssociateAddress = req
-    "AssociateAddress"
-    "fixture/AssociateAddress.yaml"
+testDescribeSecurityGroups :: DescribeSecurityGroups -> TestTree
+testDescribeSecurityGroups = req
+    "DescribeSecurityGroups"
+    "fixture/DescribeSecurityGroups.yaml"
 
-testStartInstances :: StartInstances -> TestTree
-testStartInstances = req
-    "StartInstances"
-    "fixture/StartInstances.yaml"
+testDescribeExportTasks :: DescribeExportTasks -> TestTree
+testDescribeExportTasks = req
+    "DescribeExportTasks"
+    "fixture/DescribeExportTasks.yaml"
 
-testDescribeCustomerGateways :: DescribeCustomerGateways -> TestTree
-testDescribeCustomerGateways = req
-    "DescribeCustomerGateways"
-    "fixture/DescribeCustomerGateways.yaml"
+testDetachVPNGateway :: DetachVPNGateway -> TestTree
+testDetachVPNGateway = req
+    "DetachVPNGateway"
+    "fixture/DetachVPNGateway.yaml"
 
-testResetNetworkInterfaceAttribute :: ResetNetworkInterfaceAttribute -> TestTree
-testResetNetworkInterfaceAttribute = req
-    "ResetNetworkInterfaceAttribute"
-    "fixture/ResetNetworkInterfaceAttribute.yaml"
+testEnableVolumeIO :: EnableVolumeIO -> TestTree
+testEnableVolumeIO = req
+    "EnableVolumeIO"
+    "fixture/EnableVolumeIO.yaml"
 
-testCreateVPNConnection :: CreateVPNConnection -> TestTree
-testCreateVPNConnection = req
-    "CreateVPNConnection"
-    "fixture/CreateVPNConnection.yaml"
+testDescribeInstances :: DescribeInstances -> TestTree
+testDescribeInstances = req
+    "DescribeInstances"
+    "fixture/DescribeInstances.yaml"
 
-testDescribeSnapshots :: DescribeSnapshots -> TestTree
-testDescribeSnapshots = req
-    "DescribeSnapshots"
-    "fixture/DescribeSnapshots.yaml"
+testDescribeVPCPeeringConnections :: DescribeVPCPeeringConnections -> TestTree
+testDescribeVPCPeeringConnections = req
+    "DescribeVPCPeeringConnections"
+    "fixture/DescribeVPCPeeringConnections.yaml"
 
-testCreatePlacementGroup :: CreatePlacementGroup -> TestTree
-testCreatePlacementGroup = req
-    "CreatePlacementGroup"
-    "fixture/CreatePlacementGroup.yaml"
-
-testReplaceRouteTableAssociation :: ReplaceRouteTableAssociation -> TestTree
-testReplaceRouteTableAssociation = req
-    "ReplaceRouteTableAssociation"
-    "fixture/ReplaceRouteTableAssociation.yaml"
-
-testDescribeNetworkInterfaceAttribute :: DescribeNetworkInterfaceAttribute -> TestTree
-testDescribeNetworkInterfaceAttribute = req
-    "DescribeNetworkInterfaceAttribute"
-    "fixture/DescribeNetworkInterfaceAttribute.yaml"
-
-testDescribeReservedInstancesListings :: DescribeReservedInstancesListings -> TestTree
-testDescribeReservedInstancesListings = req
-    "DescribeReservedInstancesListings"
-    "fixture/DescribeReservedInstancesListings.yaml"
+testCancelExportTask :: CancelExportTask -> TestTree
+testCancelExportTask = req
+    "CancelExportTask"
+    "fixture/CancelExportTask.yaml"
 
 testDeleteNetworkInterface :: DeleteNetworkInterface -> TestTree
 testDeleteNetworkInterface = req
     "DeleteNetworkInterface"
     "fixture/DeleteNetworkInterface.yaml"
 
+testReplaceRouteTableAssociation :: ReplaceRouteTableAssociation -> TestTree
+testReplaceRouteTableAssociation = req
+    "ReplaceRouteTableAssociation"
+    "fixture/ReplaceRouteTableAssociation.yaml"
+
+testStartInstances :: StartInstances -> TestTree
+testStartInstances = req
+    "StartInstances"
+    "fixture/StartInstances.yaml"
+
+testCreatePlacementGroup :: CreatePlacementGroup -> TestTree
+testCreatePlacementGroup = req
+    "CreatePlacementGroup"
+    "fixture/CreatePlacementGroup.yaml"
+
+testDescribeSnapshots :: DescribeSnapshots -> TestTree
+testDescribeSnapshots = req
+    "DescribeSnapshots"
+    "fixture/DescribeSnapshots.yaml"
+
+testAssociateAddress :: AssociateAddress -> TestTree
+testAssociateAddress = req
+    "AssociateAddress"
+    "fixture/AssociateAddress.yaml"
+
+testDescribeNetworkInterfaceAttribute :: DescribeNetworkInterfaceAttribute -> TestTree
+testDescribeNetworkInterfaceAttribute = req
+    "DescribeNetworkInterfaceAttribute"
+    "fixture/DescribeNetworkInterfaceAttribute.yaml"
+
+testResetNetworkInterfaceAttribute :: ResetNetworkInterfaceAttribute -> TestTree
+testResetNetworkInterfaceAttribute = req
+    "ResetNetworkInterfaceAttribute"
+    "fixture/ResetNetworkInterfaceAttribute.yaml"
+
 testDeleteInternetGateway :: DeleteInternetGateway -> TestTree
 testDeleteInternetGateway = req
     "DeleteInternetGateway"
     "fixture/DeleteInternetGateway.yaml"
 
-testDeleteSubnet :: DeleteSubnet -> TestTree
-testDeleteSubnet = req
-    "DeleteSubnet"
-    "fixture/DeleteSubnet.yaml"
+testDescribeReservedInstancesListings :: DescribeReservedInstancesListings -> TestTree
+testDescribeReservedInstancesListings = req
+    "DescribeReservedInstancesListings"
+    "fixture/DescribeReservedInstancesListings.yaml"
 
-testCreateVPCEndpoint :: CreateVPCEndpoint -> TestTree
-testCreateVPCEndpoint = req
-    "CreateVPCEndpoint"
-    "fixture/CreateVPCEndpoint.yaml"
+testCreateVPNConnection :: CreateVPNConnection -> TestTree
+testCreateVPNConnection = req
+    "CreateVPNConnection"
+    "fixture/CreateVPNConnection.yaml"
 
 testDescribeImportSnapshotTasks :: DescribeImportSnapshotTasks -> TestTree
 testDescribeImportSnapshotTasks = req
     "DescribeImportSnapshotTasks"
     "fixture/DescribeImportSnapshotTasks.yaml"
 
+testDescribeCustomerGateways :: DescribeCustomerGateways -> TestTree
+testDescribeCustomerGateways = req
+    "DescribeCustomerGateways"
+    "fixture/DescribeCustomerGateways.yaml"
+
+testDeleteSubnet :: DeleteSubnet -> TestTree
+testDeleteSubnet = req
+    "DeleteSubnet"
+    "fixture/DeleteSubnet.yaml"
+
 testCopyImage :: CopyImage -> TestTree
 testCopyImage = req
     "CopyImage"
     "fixture/CopyImage.yaml"
 
-testDisassociateRouteTable :: DisassociateRouteTable -> TestTree
-testDisassociateRouteTable = req
-    "DisassociateRouteTable"
-    "fixture/DisassociateRouteTable.yaml"
+testCreateVPCEndpoint :: CreateVPCEndpoint -> TestTree
+testCreateVPCEndpoint = req
+    "CreateVPCEndpoint"
+    "fixture/CreateVPCEndpoint.yaml"
 
 testUnmonitorInstances :: UnmonitorInstances -> TestTree
 testUnmonitorInstances = req
     "UnmonitorInstances"
     "fixture/UnmonitorInstances.yaml"
+
+testCreateSecurityGroup :: CreateSecurityGroup -> TestTree
+testCreateSecurityGroup = req
+    "CreateSecurityGroup"
+    "fixture/CreateSecurityGroup.yaml"
 
 testImportVolume :: ImportVolume -> TestTree
 testImportVolume = req
@@ -1783,31 +1783,6 @@ testCreateSpotDatafeedSubscription = req
     "CreateSpotDatafeedSubscription"
     "fixture/CreateSpotDatafeedSubscription.yaml"
 
-testAssignPrivateIPAddresses :: AssignPrivateIPAddresses -> TestTree
-testAssignPrivateIPAddresses = req
-    "AssignPrivateIPAddresses"
-    "fixture/AssignPrivateIPAddresses.yaml"
-
-testDeleteSnapshot :: DeleteSnapshot -> TestTree
-testDeleteSnapshot = req
-    "DeleteSnapshot"
-    "fixture/DeleteSnapshot.yaml"
-
-testDeleteCustomerGateway :: DeleteCustomerGateway -> TestTree
-testDeleteCustomerGateway = req
-    "DeleteCustomerGateway"
-    "fixture/DeleteCustomerGateway.yaml"
-
-testModifyInstanceAttribute :: ModifyInstanceAttribute -> TestTree
-testModifyInstanceAttribute = req
-    "ModifyInstanceAttribute"
-    "fixture/ModifyInstanceAttribute.yaml"
-
-testCreateSecurityGroup :: CreateSecurityGroup -> TestTree
-testCreateSecurityGroup = req
-    "CreateSecurityGroup"
-    "fixture/CreateSecurityGroup.yaml"
-
 testCancelSpotInstanceRequests :: CancelSpotInstanceRequests -> TestTree
 testCancelSpotInstanceRequests = req
     "CancelSpotInstanceRequests"
@@ -1818,70 +1793,100 @@ testCreateRoute = req
     "CreateRoute"
     "fixture/CreateRoute.yaml"
 
-testCreateNetworkACLEntry :: CreateNetworkACLEntry -> TestTree
-testCreateNetworkACLEntry = req
-    "CreateNetworkACLEntry"
-    "fixture/CreateNetworkACLEntry.yaml"
+testDeleteSnapshot :: DeleteSnapshot -> TestTree
+testDeleteSnapshot = req
+    "DeleteSnapshot"
+    "fixture/DeleteSnapshot.yaml"
 
-testModifySnapshotAttribute :: ModifySnapshotAttribute -> TestTree
-testModifySnapshotAttribute = req
-    "ModifySnapshotAttribute"
-    "fixture/ModifySnapshotAttribute.yaml"
+testAssignPrivateIPAddresses :: AssignPrivateIPAddresses -> TestTree
+testAssignPrivateIPAddresses = req
+    "AssignPrivateIPAddresses"
+    "fixture/AssignPrivateIPAddresses.yaml"
 
-testEnableVGWRoutePropagation :: EnableVGWRoutePropagation -> TestTree
-testEnableVGWRoutePropagation = req
-    "EnableVGWRoutePropagation"
-    "fixture/EnableVGWRoutePropagation.yaml"
+testModifyInstanceAttribute :: ModifyInstanceAttribute -> TestTree
+testModifyInstanceAttribute = req
+    "ModifyInstanceAttribute"
+    "fixture/ModifyInstanceAttribute.yaml"
 
-testCreateSnapshot :: CreateSnapshot -> TestTree
-testCreateSnapshot = req
-    "CreateSnapshot"
-    "fixture/CreateSnapshot.yaml"
+testDeleteCustomerGateway :: DeleteCustomerGateway -> TestTree
+testDeleteCustomerGateway = req
+    "DeleteCustomerGateway"
+    "fixture/DeleteCustomerGateway.yaml"
 
-testDescribeSpotFleetRequestHistory :: DescribeSpotFleetRequestHistory -> TestTree
-testDescribeSpotFleetRequestHistory = req
-    "DescribeSpotFleetRequestHistory"
-    "fixture/DescribeSpotFleetRequestHistory.yaml"
+testDisassociateRouteTable :: DisassociateRouteTable -> TestTree
+testDisassociateRouteTable = req
+    "DisassociateRouteTable"
+    "fixture/DisassociateRouteTable.yaml"
 
 testDeleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription -> TestTree
 testDeleteSpotDatafeedSubscription = req
     "DeleteSpotDatafeedSubscription"
     "fixture/DeleteSpotDatafeedSubscription.yaml"
 
+testEnableVPCClassicLink :: EnableVPCClassicLink -> TestTree
+testEnableVPCClassicLink = req
+    "EnableVPCClassicLink"
+    "fixture/EnableVPCClassicLink.yaml"
+
 testDescribePlacementGroups :: DescribePlacementGroups -> TestTree
 testDescribePlacementGroups = req
     "DescribePlacementGroups"
     "fixture/DescribePlacementGroups.yaml"
+
+testEnableVGWRoutePropagation :: EnableVGWRoutePropagation -> TestTree
+testEnableVGWRoutePropagation = req
+    "EnableVGWRoutePropagation"
+    "fixture/EnableVGWRoutePropagation.yaml"
+
+testDescribeSpotFleetRequestHistory :: DescribeSpotFleetRequestHistory -> TestTree
+testDescribeSpotFleetRequestHistory = req
+    "DescribeSpotFleetRequestHistory"
+    "fixture/DescribeSpotFleetRequestHistory.yaml"
+
+testModifySnapshotAttribute :: ModifySnapshotAttribute -> TestTree
+testModifySnapshotAttribute = req
+    "ModifySnapshotAttribute"
+    "fixture/ModifySnapshotAttribute.yaml"
+
+testCreateSnapshot :: CreateSnapshot -> TestTree
+testCreateSnapshot = req
+    "CreateSnapshot"
+    "fixture/CreateSnapshot.yaml"
+
+testCreateNetworkACLEntry :: CreateNetworkACLEntry -> TestTree
+testCreateNetworkACLEntry = req
+    "CreateNetworkACLEntry"
+    "fixture/CreateNetworkACLEntry.yaml"
 
 testCreateReservedInstancesListing :: CreateReservedInstancesListing -> TestTree
 testCreateReservedInstancesListing = req
     "CreateReservedInstancesListing"
     "fixture/CreateReservedInstancesListing.yaml"
 
-testEnableVPCClassicLink :: EnableVPCClassicLink -> TestTree
-testEnableVPCClassicLink = req
-    "EnableVPCClassicLink"
-    "fixture/EnableVPCClassicLink.yaml"
+testAttachVPNGateway :: AttachVPNGateway -> TestTree
+testAttachVPNGateway = req
+    "AttachVPNGateway"
+    "fixture/AttachVPNGateway.yaml"
 
-testDescribeKeyPairs :: DescribeKeyPairs -> TestTree
-testDescribeKeyPairs = req
-    "DescribeKeyPairs"
-    "fixture/DescribeKeyPairs.yaml"
+testCreateDHCPOptions :: CreateDHCPOptions -> TestTree
+testCreateDHCPOptions = req
+    "CreateDHCPOptions"
+    "fixture/CreateDHCPOptions.yaml"
+
+testDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
+testDescribeAccountAttributes = req
+    "DescribeAccountAttributes"
+    "fixture/DescribeAccountAttributes.yaml"
 
 testRebootInstances :: RebootInstances -> TestTree
 testRebootInstances = req
     "RebootInstances"
     "fixture/RebootInstances.yaml"
 
-testAttachVPNGateway :: AttachVPNGateway -> TestTree
-testAttachVPNGateway = req
-    "AttachVPNGateway"
-    "fixture/AttachVPNGateway.yaml"
-
-testCreateVPNConnectionRoute :: CreateVPNConnectionRoute -> TestTree
-testCreateVPNConnectionRoute = req
-    "CreateVPNConnectionRoute"
-    "fixture/CreateVPNConnectionRoute.yaml"
+testCreateImage :: CreateImage -> TestTree
+testCreateImage = req
+    "CreateImage"
+    "fixture/CreateImage.yaml"
 
 testDescribeClassicLinkInstances :: DescribeClassicLinkInstances -> TestTree
 testDescribeClassicLinkInstances = req
@@ -1893,75 +1898,45 @@ testTerminateInstances = req
     "TerminateInstances"
     "fixture/TerminateInstances.yaml"
 
-testCreateDHCPOptions :: CreateDHCPOptions -> TestTree
-testCreateDHCPOptions = req
-    "CreateDHCPOptions"
-    "fixture/CreateDHCPOptions.yaml"
+testDescribeKeyPairs :: DescribeKeyPairs -> TestTree
+testDescribeKeyPairs = req
+    "DescribeKeyPairs"
+    "fixture/DescribeKeyPairs.yaml"
+
+testCreateVPNConnectionRoute :: CreateVPNConnectionRoute -> TestTree
+testCreateVPNConnectionRoute = req
+    "CreateVPNConnectionRoute"
+    "fixture/CreateVPNConnectionRoute.yaml"
 
 testAssociateRouteTable :: AssociateRouteTable -> TestTree
 testAssociateRouteTable = req
     "AssociateRouteTable"
     "fixture/AssociateRouteTable.yaml"
 
-testCreateImage :: CreateImage -> TestTree
-testCreateImage = req
-    "CreateImage"
-    "fixture/CreateImage.yaml"
-
-testDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
-testDescribeAccountAttributes = req
-    "DescribeAccountAttributes"
-    "fixture/DescribeAccountAttributes.yaml"
-
-testResetImageAttribute :: ResetImageAttribute -> TestTree
-testResetImageAttribute = req
-    "ResetImageAttribute"
-    "fixture/ResetImageAttribute.yaml"
-
-testDescribeNetworkACLs :: DescribeNetworkACLs -> TestTree
-testDescribeNetworkACLs = req
-    "DescribeNetworkACLs"
-    "fixture/DescribeNetworkACLs.yaml"
-
-testCancelImportTask :: CancelImportTask -> TestTree
-testCancelImportTask = req
-    "CancelImportTask"
-    "fixture/CancelImportTask.yaml"
+testDescribeVPNGateways :: DescribeVPNGateways -> TestTree
+testDescribeVPNGateways = req
+    "DescribeVPNGateways"
+    "fixture/DescribeVPNGateways.yaml"
 
 testGetConsoleOutput :: GetConsoleOutput -> TestTree
 testGetConsoleOutput = req
     "GetConsoleOutput"
     "fixture/GetConsoleOutput.yaml"
 
-testUnassignPrivateIPAddresses :: UnassignPrivateIPAddresses -> TestTree
-testUnassignPrivateIPAddresses = req
-    "UnassignPrivateIPAddresses"
-    "fixture/UnassignPrivateIPAddresses.yaml"
+testDescribeImageAttribute :: DescribeImageAttribute -> TestTree
+testDescribeImageAttribute = req
+    "DescribeImageAttribute"
+    "fixture/DescribeImageAttribute.yaml"
 
 testDeleteRouteTable :: DeleteRouteTable -> TestTree
 testDeleteRouteTable = req
     "DeleteRouteTable"
     "fixture/DeleteRouteTable.yaml"
 
-testDescribeImageAttribute :: DescribeImageAttribute -> TestTree
-testDescribeImageAttribute = req
-    "DescribeImageAttribute"
-    "fixture/DescribeImageAttribute.yaml"
-
-testDeleteDHCPOptions :: DeleteDHCPOptions -> TestTree
-testDeleteDHCPOptions = req
-    "DeleteDHCPOptions"
-    "fixture/DeleteDHCPOptions.yaml"
-
-testDescribeVPNGateways :: DescribeVPNGateways -> TestTree
-testDescribeVPNGateways = req
-    "DescribeVPNGateways"
-    "fixture/DescribeVPNGateways.yaml"
-
-testDetachClassicLinkVPC :: DetachClassicLinkVPC -> TestTree
-testDetachClassicLinkVPC = req
-    "DetachClassicLinkVPC"
-    "fixture/DetachClassicLinkVPC.yaml"
+testResetImageAttribute :: ResetImageAttribute -> TestTree
+testResetImageAttribute = req
+    "ResetImageAttribute"
+    "fixture/ResetImageAttribute.yaml"
 
 testDescribeReservedInstancesModifications :: DescribeReservedInstancesModifications -> TestTree
 testDescribeReservedInstancesModifications = req
@@ -1973,107 +1948,104 @@ testDescribeSpotInstanceRequests = req
     "DescribeSpotInstanceRequests"
     "fixture/DescribeSpotInstanceRequests.yaml"
 
-testMonitorInstances :: MonitorInstances -> TestTree
-testMonitorInstances = req
-    "MonitorInstances"
-    "fixture/MonitorInstances.yaml"
+testUnassignPrivateIPAddresses :: UnassignPrivateIPAddresses -> TestTree
+testUnassignPrivateIPAddresses = req
+    "UnassignPrivateIPAddresses"
+    "fixture/UnassignPrivateIPAddresses.yaml"
+
+testDeleteDHCPOptions :: DeleteDHCPOptions -> TestTree
+testDeleteDHCPOptions = req
+    "DeleteDHCPOptions"
+    "fixture/DeleteDHCPOptions.yaml"
+
+testDescribeNetworkACLs :: DescribeNetworkACLs -> TestTree
+testDescribeNetworkACLs = req
+    "DescribeNetworkACLs"
+    "fixture/DescribeNetworkACLs.yaml"
+
+testCancelImportTask :: CancelImportTask -> TestTree
+testCancelImportTask = req
+    "CancelImportTask"
+    "fixture/CancelImportTask.yaml"
+
+testDetachClassicLinkVPC :: DetachClassicLinkVPC -> TestTree
+testDetachClassicLinkVPC = req
+    "DetachClassicLinkVPC"
+    "fixture/DetachClassicLinkVPC.yaml"
 
 testDescribeRegions :: DescribeRegions -> TestTree
 testDescribeRegions = req
     "DescribeRegions"
     "fixture/DescribeRegions.yaml"
 
-testModifyVPCAttribute :: ModifyVPCAttribute -> TestTree
-testModifyVPCAttribute = req
-    "ModifyVPCAttribute"
-    "fixture/ModifyVPCAttribute.yaml"
-
-testDescribeSpotFleetInstances :: DescribeSpotFleetInstances -> TestTree
-testDescribeSpotFleetInstances = req
-    "DescribeSpotFleetInstances"
-    "fixture/DescribeSpotFleetInstances.yaml"
-
-testDescribeVolumeStatus :: DescribeVolumeStatus -> TestTree
-testDescribeVolumeStatus = req
-    "DescribeVolumeStatus"
-    "fixture/DescribeVolumeStatus.yaml"
-
-testDeleteVolume :: DeleteVolume -> TestTree
-testDeleteVolume = req
-    "DeleteVolume"
-    "fixture/DeleteVolume.yaml"
-
-testDescribeImages :: DescribeImages -> TestTree
-testDescribeImages = req
-    "DescribeImages"
-    "fixture/DescribeImages.yaml"
-
-testCreateKeyPair :: CreateKeyPair -> TestTree
-testCreateKeyPair = req
-    "CreateKeyPair"
-    "fixture/CreateKeyPair.yaml"
-
-testRestoreAddressToClassic :: RestoreAddressToClassic -> TestTree
-testRestoreAddressToClassic = req
-    "RestoreAddressToClassic"
-    "fixture/RestoreAddressToClassic.yaml"
-
-testDescribeAvailabilityZones :: DescribeAvailabilityZones -> TestTree
-testDescribeAvailabilityZones = req
-    "DescribeAvailabilityZones"
-    "fixture/DescribeAvailabilityZones.yaml"
-
-testImportSnapshot :: ImportSnapshot -> TestTree
-testImportSnapshot = req
-    "ImportSnapshot"
-    "fixture/ImportSnapshot.yaml"
+testMonitorInstances :: MonitorInstances -> TestTree
+testMonitorInstances = req
+    "MonitorInstances"
+    "fixture/MonitorInstances.yaml"
 
 testAcceptVPCPeeringConnection :: AcceptVPCPeeringConnection -> TestTree
 testAcceptVPCPeeringConnection = req
     "AcceptVPCPeeringConnection"
     "fixture/AcceptVPCPeeringConnection.yaml"
 
+testImportSnapshot :: ImportSnapshot -> TestTree
+testImportSnapshot = req
+    "ImportSnapshot"
+    "fixture/ImportSnapshot.yaml"
+
+testDescribeVolumeStatus :: DescribeVolumeStatus -> TestTree
+testDescribeVolumeStatus = req
+    "DescribeVolumeStatus"
+    "fixture/DescribeVolumeStatus.yaml"
+
 testDescribeRouteTables :: DescribeRouteTables -> TestTree
 testDescribeRouteTables = req
     "DescribeRouteTables"
     "fixture/DescribeRouteTables.yaml"
 
+testDescribeAvailabilityZones :: DescribeAvailabilityZones -> TestTree
+testDescribeAvailabilityZones = req
+    "DescribeAvailabilityZones"
+    "fixture/DescribeAvailabilityZones.yaml"
+
+testModifyVPCAttribute :: ModifyVPCAttribute -> TestTree
+testModifyVPCAttribute = req
+    "ModifyVPCAttribute"
+    "fixture/ModifyVPCAttribute.yaml"
+
+testDescribeImages :: DescribeImages -> TestTree
+testDescribeImages = req
+    "DescribeImages"
+    "fixture/DescribeImages.yaml"
+
+testRestoreAddressToClassic :: RestoreAddressToClassic -> TestTree
+testRestoreAddressToClassic = req
+    "RestoreAddressToClassic"
+    "fixture/RestoreAddressToClassic.yaml"
+
+testCreateKeyPair :: CreateKeyPair -> TestTree
+testCreateKeyPair = req
+    "CreateKeyPair"
+    "fixture/CreateKeyPair.yaml"
+
+testDeleteVolume :: DeleteVolume -> TestTree
+testDeleteVolume = req
+    "DeleteVolume"
+    "fixture/DeleteVolume.yaml"
+
+testDescribeSpotFleetInstances :: DescribeSpotFleetInstances -> TestTree
+testDescribeSpotFleetInstances = req
+    "DescribeSpotFleetInstances"
+    "fixture/DescribeSpotFleetInstances.yaml"
+
 -- Responses
 
-testDetachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse -> TestTree
-testDetachNetworkInterfaceResponse = res
-    "DetachNetworkInterfaceResponse"
-    "fixture/DetachNetworkInterfaceResponse.proto"
+testImportInstanceResponse :: ImportInstanceResponse -> TestTree
+testImportInstanceResponse = res
+    "ImportInstanceResponse"
+    "fixture/ImportInstanceResponse.proto"
     eC2
-    (Proxy :: Proxy DetachNetworkInterface)
-
-testDeleteVPCEndpointsResponse :: DeleteVPCEndpointsResponse -> TestTree
-testDeleteVPCEndpointsResponse = res
-    "DeleteVPCEndpointsResponse"
-    "fixture/DeleteVPCEndpointsResponse.proto"
-    eC2
-    (Proxy :: Proxy DeleteVPCEndpoints)
-
-testDeleteKeyPairResponse :: DeleteKeyPairResponse -> TestTree
-testDeleteKeyPairResponse = res
-    "DeleteKeyPairResponse"
-    "fixture/DeleteKeyPairResponse.proto"
-    eC2
-    (Proxy :: Proxy DeleteKeyPair)
-
-testDeleteFlowLogsResponse :: DeleteFlowLogsResponse -> TestTree
-testDeleteFlowLogsResponse = res
-    "DeleteFlowLogsResponse"
-    "fixture/DeleteFlowLogsResponse.proto"
-    eC2
-    (Proxy :: Proxy DeleteFlowLogs)
-
-testDescribeTagsResponse :: DescribeTagsResponse -> TestTree
-testDescribeTagsResponse = res
-    "DescribeTagsResponse"
-    "fixture/DescribeTagsResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeTags)
+    (Proxy :: Proxy ImportInstance)
 
 testRevokeSecurityGroupEgressResponse :: RevokeSecurityGroupEgressResponse -> TestTree
 testRevokeSecurityGroupEgressResponse = res
@@ -2089,13 +2061,6 @@ testCreateVPNGatewayResponse = res
     eC2
     (Proxy :: Proxy CreateVPNGateway)
 
-testDetachInternetGatewayResponse :: DetachInternetGatewayResponse -> TestTree
-testDetachInternetGatewayResponse = res
-    "DetachInternetGatewayResponse"
-    "fixture/DetachInternetGatewayResponse.proto"
-    eC2
-    (Proxy :: Proxy DetachInternetGateway)
-
 testCreateNetworkACLResponse :: CreateNetworkACLResponse -> TestTree
 testCreateNetworkACLResponse = res
     "CreateNetworkACLResponse"
@@ -2103,12 +2068,47 @@ testCreateNetworkACLResponse = res
     eC2
     (Proxy :: Proxy CreateNetworkACL)
 
-testImportInstanceResponse :: ImportInstanceResponse -> TestTree
-testImportInstanceResponse = res
-    "ImportInstanceResponse"
-    "fixture/ImportInstanceResponse.proto"
+testDeleteKeyPairResponse :: DeleteKeyPairResponse -> TestTree
+testDeleteKeyPairResponse = res
+    "DeleteKeyPairResponse"
+    "fixture/DeleteKeyPairResponse.proto"
     eC2
-    (Proxy :: Proxy ImportInstance)
+    (Proxy :: Proxy DeleteKeyPair)
+
+testDescribeTagsResponse :: DescribeTagsResponse -> TestTree
+testDescribeTagsResponse = res
+    "DescribeTagsResponse"
+    "fixture/DescribeTagsResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeTags)
+
+testDetachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse -> TestTree
+testDetachNetworkInterfaceResponse = res
+    "DetachNetworkInterfaceResponse"
+    "fixture/DetachNetworkInterfaceResponse.proto"
+    eC2
+    (Proxy :: Proxy DetachNetworkInterface)
+
+testDetachInternetGatewayResponse :: DetachInternetGatewayResponse -> TestTree
+testDetachInternetGatewayResponse = res
+    "DetachInternetGatewayResponse"
+    "fixture/DetachInternetGatewayResponse.proto"
+    eC2
+    (Proxy :: Proxy DetachInternetGateway)
+
+testDeleteVPCEndpointsResponse :: DeleteVPCEndpointsResponse -> TestTree
+testDeleteVPCEndpointsResponse = res
+    "DeleteVPCEndpointsResponse"
+    "fixture/DeleteVPCEndpointsResponse.proto"
+    eC2
+    (Proxy :: Proxy DeleteVPCEndpoints)
+
+testDeleteFlowLogsResponse :: DeleteFlowLogsResponse -> TestTree
+testDeleteFlowLogsResponse = res
+    "DeleteFlowLogsResponse"
+    "fixture/DeleteFlowLogsResponse.proto"
+    eC2
+    (Proxy :: Proxy DeleteFlowLogs)
 
 testDescribeVPCClassicLinkResponse :: DescribeVPCClassicLinkResponse -> TestTree
 testDescribeVPCClassicLinkResponse = res
@@ -2117,40 +2117,19 @@ testDescribeVPCClassicLinkResponse = res
     eC2
     (Proxy :: Proxy DescribeVPCClassicLink)
 
-testDeleteVPNConnectionResponse :: DeleteVPNConnectionResponse -> TestTree
-testDeleteVPNConnectionResponse = res
-    "DeleteVPNConnectionResponse"
-    "fixture/DeleteVPNConnectionResponse.proto"
+testModifySubnetAttributeResponse :: ModifySubnetAttributeResponse -> TestTree
+testModifySubnetAttributeResponse = res
+    "ModifySubnetAttributeResponse"
+    "fixture/ModifySubnetAttributeResponse.proto"
     eC2
-    (Proxy :: Proxy DeleteVPNConnection)
+    (Proxy :: Proxy ModifySubnetAttribute)
 
-testAuthorizeSecurityGroupEgressResponse :: AuthorizeSecurityGroupEgressResponse -> TestTree
-testAuthorizeSecurityGroupEgressResponse = res
-    "AuthorizeSecurityGroupEgressResponse"
-    "fixture/AuthorizeSecurityGroupEgressResponse.proto"
+testDetachVolumeResponse :: VolumeAttachment -> TestTree
+testDetachVolumeResponse = res
+    "DetachVolumeResponse"
+    "fixture/DetachVolumeResponse.proto"
     eC2
-    (Proxy :: Proxy AuthorizeSecurityGroupEgress)
-
-testDescribeBundleTasksResponse :: DescribeBundleTasksResponse -> TestTree
-testDescribeBundleTasksResponse = res
-    "DescribeBundleTasksResponse"
-    "fixture/DescribeBundleTasksResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeBundleTasks)
-
-testCreateInternetGatewayResponse :: CreateInternetGatewayResponse -> TestTree
-testCreateInternetGatewayResponse = res
-    "CreateInternetGatewayResponse"
-    "fixture/CreateInternetGatewayResponse.proto"
-    eC2
-    (Proxy :: Proxy CreateInternetGateway)
-
-testReleaseAddressResponse :: ReleaseAddressResponse -> TestTree
-testReleaseAddressResponse = res
-    "ReleaseAddressResponse"
-    "fixture/ReleaseAddressResponse.proto"
-    eC2
-    (Proxy :: Proxy ReleaseAddress)
+    (Proxy :: Proxy DetachVolume)
 
 testCancelBundleTaskResponse :: CancelBundleTaskResponse -> TestTree
 testCancelBundleTaskResponse = res
@@ -2159,19 +2138,40 @@ testCancelBundleTaskResponse = res
     eC2
     (Proxy :: Proxy CancelBundleTask)
 
-testModifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse -> TestTree
-testModifyNetworkInterfaceAttributeResponse = res
-    "ModifyNetworkInterfaceAttributeResponse"
-    "fixture/ModifyNetworkInterfaceAttributeResponse.proto"
+testReleaseAddressResponse :: ReleaseAddressResponse -> TestTree
+testReleaseAddressResponse = res
+    "ReleaseAddressResponse"
+    "fixture/ReleaseAddressResponse.proto"
     eC2
-    (Proxy :: Proxy ModifyNetworkInterfaceAttribute)
+    (Proxy :: Proxy ReleaseAddress)
 
-testModifySubnetAttributeResponse :: ModifySubnetAttributeResponse -> TestTree
-testModifySubnetAttributeResponse = res
-    "ModifySubnetAttributeResponse"
-    "fixture/ModifySubnetAttributeResponse.proto"
+testCreateInternetGatewayResponse :: CreateInternetGatewayResponse -> TestTree
+testCreateInternetGatewayResponse = res
+    "CreateInternetGatewayResponse"
+    "fixture/CreateInternetGatewayResponse.proto"
     eC2
-    (Proxy :: Proxy ModifySubnetAttribute)
+    (Proxy :: Proxy CreateInternetGateway)
+
+testDeleteVPNConnectionResponse :: DeleteVPNConnectionResponse -> TestTree
+testDeleteVPNConnectionResponse = res
+    "DeleteVPNConnectionResponse"
+    "fixture/DeleteVPNConnectionResponse.proto"
+    eC2
+    (Proxy :: Proxy DeleteVPNConnection)
+
+testDescribeBundleTasksResponse :: DescribeBundleTasksResponse -> TestTree
+testDescribeBundleTasksResponse = res
+    "DescribeBundleTasksResponse"
+    "fixture/DescribeBundleTasksResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeBundleTasks)
+
+testAuthorizeSecurityGroupEgressResponse :: AuthorizeSecurityGroupEgressResponse -> TestTree
+testAuthorizeSecurityGroupEgressResponse = res
+    "AuthorizeSecurityGroupEgressResponse"
+    "fixture/AuthorizeSecurityGroupEgressResponse.proto"
+    eC2
+    (Proxy :: Proxy AuthorizeSecurityGroupEgress)
 
 testDeregisterImageResponse :: DeregisterImageResponse -> TestTree
 testDeregisterImageResponse = res
@@ -2180,12 +2180,12 @@ testDeregisterImageResponse = res
     eC2
     (Proxy :: Proxy DeregisterImage)
 
-testDetachVolumeResponse :: VolumeAttachment -> TestTree
-testDetachVolumeResponse = res
-    "DetachVolumeResponse"
-    "fixture/DetachVolumeResponse.proto"
+testModifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse -> TestTree
+testModifyNetworkInterfaceAttributeResponse = res
+    "ModifyNetworkInterfaceAttributeResponse"
+    "fixture/ModifyNetworkInterfaceAttributeResponse.proto"
     eC2
-    (Proxy :: Proxy DetachVolume)
+    (Proxy :: Proxy ModifyNetworkInterfaceAttribute)
 
 testCancelReservedInstancesListingResponse :: CancelReservedInstancesListingResponse -> TestTree
 testCancelReservedInstancesListingResponse = res
@@ -2208,13 +2208,6 @@ testCancelSpotFleetRequestsResponse = res
     eC2
     (Proxy :: Proxy CancelSpotFleetRequests)
 
-testDescribeDHCPOptionsResponse :: DescribeDHCPOptionsResponse -> TestTree
-testDescribeDHCPOptionsResponse = res
-    "DescribeDHCPOptionsResponse"
-    "fixture/DescribeDHCPOptionsResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeDHCPOptions)
-
 testDescribeSpotPriceHistoryResponse :: DescribeSpotPriceHistoryResponse -> TestTree
 testDescribeSpotPriceHistoryResponse = res
     "DescribeSpotPriceHistoryResponse"
@@ -2222,12 +2215,12 @@ testDescribeSpotPriceHistoryResponse = res
     eC2
     (Proxy :: Proxy DescribeSpotPriceHistory)
 
-testStopInstancesResponse :: StopInstancesResponse -> TestTree
-testStopInstancesResponse = res
-    "StopInstancesResponse"
-    "fixture/StopInstancesResponse.proto"
+testDescribeDHCPOptionsResponse :: DescribeDHCPOptionsResponse -> TestTree
+testDescribeDHCPOptionsResponse = res
+    "DescribeDHCPOptionsResponse"
+    "fixture/DescribeDHCPOptionsResponse.proto"
     eC2
-    (Proxy :: Proxy StopInstances)
+    (Proxy :: Proxy DescribeDHCPOptions)
 
 testImportImageResponse :: ImportImageResponse -> TestTree
 testImportImageResponse = res
@@ -2236,68 +2229,12 @@ testImportImageResponse = res
     eC2
     (Proxy :: Proxy ImportImage)
 
-testDeleteNetworkACLEntryResponse :: DeleteNetworkACLEntryResponse -> TestTree
-testDeleteNetworkACLEntryResponse = res
-    "DeleteNetworkACLEntryResponse"
-    "fixture/DeleteNetworkACLEntryResponse.proto"
+testStopInstancesResponse :: StopInstancesResponse -> TestTree
+testStopInstancesResponse = res
+    "StopInstancesResponse"
+    "fixture/StopInstancesResponse.proto"
     eC2
-    (Proxy :: Proxy DeleteNetworkACLEntry)
-
-testDisableVPCClassicLinkResponse :: DisableVPCClassicLinkResponse -> TestTree
-testDisableVPCClassicLinkResponse = res
-    "DisableVPCClassicLinkResponse"
-    "fixture/DisableVPCClassicLinkResponse.proto"
-    eC2
-    (Proxy :: Proxy DisableVPCClassicLink)
-
-testAuthorizeSecurityGroupIngressResponse :: AuthorizeSecurityGroupIngressResponse -> TestTree
-testAuthorizeSecurityGroupIngressResponse = res
-    "AuthorizeSecurityGroupIngressResponse"
-    "fixture/AuthorizeSecurityGroupIngressResponse.proto"
-    eC2
-    (Proxy :: Proxy AuthorizeSecurityGroupIngress)
-
-testBundleInstanceResponse :: BundleInstanceResponse -> TestTree
-testBundleInstanceResponse = res
-    "BundleInstanceResponse"
-    "fixture/BundleInstanceResponse.proto"
-    eC2
-    (Proxy :: Proxy BundleInstance)
-
-testDescribeVPCEndpointServicesResponse :: DescribeVPCEndpointServicesResponse -> TestTree
-testDescribeVPCEndpointServicesResponse = res
-    "DescribeVPCEndpointServicesResponse"
-    "fixture/DescribeVPCEndpointServicesResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeVPCEndpointServices)
-
-testReplaceNetworkACLAssociationResponse :: ReplaceNetworkACLAssociationResponse -> TestTree
-testReplaceNetworkACLAssociationResponse = res
-    "ReplaceNetworkACLAssociationResponse"
-    "fixture/ReplaceNetworkACLAssociationResponse.proto"
-    eC2
-    (Proxy :: Proxy ReplaceNetworkACLAssociation)
-
-testCreateVPCPeeringConnectionResponse :: CreateVPCPeeringConnectionResponse -> TestTree
-testCreateVPCPeeringConnectionResponse = res
-    "CreateVPCPeeringConnectionResponse"
-    "fixture/CreateVPCPeeringConnectionResponse.proto"
-    eC2
-    (Proxy :: Proxy CreateVPCPeeringConnection)
-
-testResetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse -> TestTree
-testResetSnapshotAttributeResponse = res
-    "ResetSnapshotAttributeResponse"
-    "fixture/ResetSnapshotAttributeResponse.proto"
-    eC2
-    (Proxy :: Proxy ResetSnapshotAttribute)
-
-testDescribeAddressesResponse :: DescribeAddressesResponse -> TestTree
-testDescribeAddressesResponse = res
-    "DescribeAddressesResponse"
-    "fixture/DescribeAddressesResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeAddresses)
+    (Proxy :: Proxy StopInstances)
 
 testDescribeInternetGatewaysResponse :: DescribeInternetGatewaysResponse -> TestTree
 testDescribeInternetGatewaysResponse = res
@@ -2306,26 +2243,19 @@ testDescribeInternetGatewaysResponse = res
     eC2
     (Proxy :: Proxy DescribeInternetGateways)
 
-testReplaceRouteResponse :: ReplaceRouteResponse -> TestTree
-testReplaceRouteResponse = res
-    "ReplaceRouteResponse"
-    "fixture/ReplaceRouteResponse.proto"
+testDisableVPCClassicLinkResponse :: DisableVPCClassicLinkResponse -> TestTree
+testDisableVPCClassicLinkResponse = res
+    "DisableVPCClassicLinkResponse"
+    "fixture/DisableVPCClassicLinkResponse.proto"
     eC2
-    (Proxy :: Proxy ReplaceRoute)
+    (Proxy :: Proxy DisableVPCClassicLink)
 
-testCreateTagsResponse :: CreateTagsResponse -> TestTree
-testCreateTagsResponse = res
-    "CreateTagsResponse"
-    "fixture/CreateTagsResponse.proto"
+testBundleInstanceResponse :: BundleInstanceResponse -> TestTree
+testBundleInstanceResponse = res
+    "BundleInstanceResponse"
+    "fixture/BundleInstanceResponse.proto"
     eC2
-    (Proxy :: Proxy CreateTags)
-
-testDescribeSubnetsResponse :: DescribeSubnetsResponse -> TestTree
-testDescribeSubnetsResponse = res
-    "DescribeSubnetsResponse"
-    "fixture/DescribeSubnetsResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeSubnets)
+    (Proxy :: Proxy BundleInstance)
 
 testDescribeNetworkInterfacesResponse :: DescribeNetworkInterfacesResponse -> TestTree
 testDescribeNetworkInterfacesResponse = res
@@ -2334,12 +2264,19 @@ testDescribeNetworkInterfacesResponse = res
     eC2
     (Proxy :: Proxy DescribeNetworkInterfaces)
 
-testPurchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResponse -> TestTree
-testPurchaseReservedInstancesOfferingResponse = res
-    "PurchaseReservedInstancesOfferingResponse"
-    "fixture/PurchaseReservedInstancesOfferingResponse.proto"
+testReplaceNetworkACLAssociationResponse :: ReplaceNetworkACLAssociationResponse -> TestTree
+testReplaceNetworkACLAssociationResponse = res
+    "ReplaceNetworkACLAssociationResponse"
+    "fixture/ReplaceNetworkACLAssociationResponse.proto"
     eC2
-    (Proxy :: Proxy PurchaseReservedInstancesOffering)
+    (Proxy :: Proxy ReplaceNetworkACLAssociation)
+
+testDescribeAddressesResponse :: DescribeAddressesResponse -> TestTree
+testDescribeAddressesResponse = res
+    "DescribeAddressesResponse"
+    "fixture/DescribeAddressesResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeAddresses)
 
 testDescribeSnapshotAttributeResponse :: DescribeSnapshotAttributeResponse -> TestTree
 testDescribeSnapshotAttributeResponse = res
@@ -2348,47 +2285,68 @@ testDescribeSnapshotAttributeResponse = res
     eC2
     (Proxy :: Proxy DescribeSnapshotAttribute)
 
-testCreateCustomerGatewayResponse :: CreateCustomerGatewayResponse -> TestTree
-testCreateCustomerGatewayResponse = res
-    "CreateCustomerGatewayResponse"
-    "fixture/CreateCustomerGatewayResponse.proto"
+testReplaceRouteResponse :: ReplaceRouteResponse -> TestTree
+testReplaceRouteResponse = res
+    "ReplaceRouteResponse"
+    "fixture/ReplaceRouteResponse.proto"
     eC2
-    (Proxy :: Proxy CreateCustomerGateway)
+    (Proxy :: Proxy ReplaceRoute)
 
-testAttachInternetGatewayResponse :: AttachInternetGatewayResponse -> TestTree
-testAttachInternetGatewayResponse = res
-    "AttachInternetGatewayResponse"
-    "fixture/AttachInternetGatewayResponse.proto"
+testDescribeVPCEndpointServicesResponse :: DescribeVPCEndpointServicesResponse -> TestTree
+testDescribeVPCEndpointServicesResponse = res
+    "DescribeVPCEndpointServicesResponse"
+    "fixture/DescribeVPCEndpointServicesResponse.proto"
     eC2
-    (Proxy :: Proxy AttachInternetGateway)
+    (Proxy :: Proxy DescribeVPCEndpointServices)
 
-testDeleteTagsResponse :: DeleteTagsResponse -> TestTree
-testDeleteTagsResponse = res
-    "DeleteTagsResponse"
-    "fixture/DeleteTagsResponse.proto"
+testAuthorizeSecurityGroupIngressResponse :: AuthorizeSecurityGroupIngressResponse -> TestTree
+testAuthorizeSecurityGroupIngressResponse = res
+    "AuthorizeSecurityGroupIngressResponse"
+    "fixture/AuthorizeSecurityGroupIngressResponse.proto"
     eC2
-    (Proxy :: Proxy DeleteTags)
+    (Proxy :: Proxy AuthorizeSecurityGroupIngress)
 
-testReplaceNetworkACLEntryResponse :: ReplaceNetworkACLEntryResponse -> TestTree
-testReplaceNetworkACLEntryResponse = res
-    "ReplaceNetworkACLEntryResponse"
-    "fixture/ReplaceNetworkACLEntryResponse.proto"
+testCreateVPCPeeringConnectionResponse :: CreateVPCPeeringConnectionResponse -> TestTree
+testCreateVPCPeeringConnectionResponse = res
+    "CreateVPCPeeringConnectionResponse"
+    "fixture/CreateVPCPeeringConnectionResponse.proto"
     eC2
-    (Proxy :: Proxy ReplaceNetworkACLEntry)
+    (Proxy :: Proxy CreateVPCPeeringConnection)
 
-testResetInstanceAttributeResponse :: ResetInstanceAttributeResponse -> TestTree
-testResetInstanceAttributeResponse = res
-    "ResetInstanceAttributeResponse"
-    "fixture/ResetInstanceAttributeResponse.proto"
+testDescribeSubnetsResponse :: DescribeSubnetsResponse -> TestTree
+testDescribeSubnetsResponse = res
+    "DescribeSubnetsResponse"
+    "fixture/DescribeSubnetsResponse.proto"
     eC2
-    (Proxy :: Proxy ResetInstanceAttribute)
+    (Proxy :: Proxy DescribeSubnets)
 
-testDeleteRouteResponse :: DeleteRouteResponse -> TestTree
-testDeleteRouteResponse = res
-    "DeleteRouteResponse"
-    "fixture/DeleteRouteResponse.proto"
+testCreateTagsResponse :: CreateTagsResponse -> TestTree
+testCreateTagsResponse = res
+    "CreateTagsResponse"
+    "fixture/CreateTagsResponse.proto"
     eC2
-    (Proxy :: Proxy DeleteRoute)
+    (Proxy :: Proxy CreateTags)
+
+testPurchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResponse -> TestTree
+testPurchaseReservedInstancesOfferingResponse = res
+    "PurchaseReservedInstancesOfferingResponse"
+    "fixture/PurchaseReservedInstancesOfferingResponse.proto"
+    eC2
+    (Proxy :: Proxy PurchaseReservedInstancesOffering)
+
+testDeleteNetworkACLEntryResponse :: DeleteNetworkACLEntryResponse -> TestTree
+testDeleteNetworkACLEntryResponse = res
+    "DeleteNetworkACLEntryResponse"
+    "fixture/DeleteNetworkACLEntryResponse.proto"
+    eC2
+    (Proxy :: Proxy DeleteNetworkACLEntry)
+
+testResetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse -> TestTree
+testResetSnapshotAttributeResponse = res
+    "ResetSnapshotAttributeResponse"
+    "fixture/ResetSnapshotAttributeResponse.proto"
+    eC2
+    (Proxy :: Proxy ResetSnapshotAttribute)
 
 testDescribeVPNConnectionsResponse :: DescribeVPNConnectionsResponse -> TestTree
 testDescribeVPNConnectionsResponse = res
@@ -2397,33 +2355,19 @@ testDescribeVPNConnectionsResponse = res
     eC2
     (Proxy :: Proxy DescribeVPNConnections)
 
-testDescribeFlowLogsResponse :: DescribeFlowLogsResponse -> TestTree
-testDescribeFlowLogsResponse = res
-    "DescribeFlowLogsResponse"
-    "fixture/DescribeFlowLogsResponse.proto"
+testDeleteRouteResponse :: DeleteRouteResponse -> TestTree
+testDeleteRouteResponse = res
+    "DeleteRouteResponse"
+    "fixture/DeleteRouteResponse.proto"
     eC2
-    (Proxy :: Proxy DescribeFlowLogs)
+    (Proxy :: Proxy DeleteRoute)
 
-testDeleteSecurityGroupResponse :: DeleteSecurityGroupResponse -> TestTree
-testDeleteSecurityGroupResponse = res
-    "DeleteSecurityGroupResponse"
-    "fixture/DeleteSecurityGroupResponse.proto"
+testReplaceNetworkACLEntryResponse :: ReplaceNetworkACLEntryResponse -> TestTree
+testReplaceNetworkACLEntryResponse = res
+    "ReplaceNetworkACLEntryResponse"
+    "fixture/ReplaceNetworkACLEntryResponse.proto"
     eC2
-    (Proxy :: Proxy DeleteSecurityGroup)
-
-testDescribeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResponse -> TestTree
-testDescribeReservedInstancesOfferingsResponse = res
-    "DescribeReservedInstancesOfferingsResponse"
-    "fixture/DescribeReservedInstancesOfferingsResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeReservedInstancesOfferings)
-
-testDeleteVPCPeeringConnectionResponse :: DeleteVPCPeeringConnectionResponse -> TestTree
-testDeleteVPCPeeringConnectionResponse = res
-    "DeleteVPCPeeringConnectionResponse"
-    "fixture/DeleteVPCPeeringConnectionResponse.proto"
-    eC2
-    (Proxy :: Proxy DeleteVPCPeeringConnection)
+    (Proxy :: Proxy ReplaceNetworkACLEntry)
 
 testDescribeVPCEndpointsResponse :: DescribeVPCEndpointsResponse -> TestTree
 testDescribeVPCEndpointsResponse = res
@@ -2432,26 +2376,12 @@ testDescribeVPCEndpointsResponse = res
     eC2
     (Proxy :: Proxy DescribeVPCEndpoints)
 
-testDescribeInstanceAttributeResponse :: DescribeInstanceAttributeResponse -> TestTree
-testDescribeInstanceAttributeResponse = res
-    "DescribeInstanceAttributeResponse"
-    "fixture/DescribeInstanceAttributeResponse.proto"
+testResetInstanceAttributeResponse :: ResetInstanceAttributeResponse -> TestTree
+testResetInstanceAttributeResponse = res
+    "ResetInstanceAttributeResponse"
+    "fixture/ResetInstanceAttributeResponse.proto"
     eC2
-    (Proxy :: Proxy DescribeInstanceAttribute)
-
-testConfirmProductInstanceResponse :: ConfirmProductInstanceResponse -> TestTree
-testConfirmProductInstanceResponse = res
-    "ConfirmProductInstanceResponse"
-    "fixture/ConfirmProductInstanceResponse.proto"
-    eC2
-    (Proxy :: Proxy ConfirmProductInstance)
-
-testImportKeyPairResponse :: ImportKeyPairResponse -> TestTree
-testImportKeyPairResponse = res
-    "ImportKeyPairResponse"
-    "fixture/ImportKeyPairResponse.proto"
-    eC2
-    (Proxy :: Proxy ImportKeyPair)
+    (Proxy :: Proxy ResetInstanceAttribute)
 
 testAttachNetworkInterfaceResponse :: AttachNetworkInterfaceResponse -> TestTree
 testAttachNetworkInterfaceResponse = res
@@ -2467,61 +2397,75 @@ testDescribeInstanceStatusResponse = res
     eC2
     (Proxy :: Proxy DescribeInstanceStatus)
 
-testCancelConversionTaskResponse :: CancelConversionTaskResponse -> TestTree
-testCancelConversionTaskResponse = res
-    "CancelConversionTaskResponse"
-    "fixture/CancelConversionTaskResponse.proto"
+testImportKeyPairResponse :: ImportKeyPairResponse -> TestTree
+testImportKeyPairResponse = res
+    "ImportKeyPairResponse"
+    "fixture/ImportKeyPairResponse.proto"
     eC2
-    (Proxy :: Proxy CancelConversionTask)
+    (Proxy :: Proxy ImportKeyPair)
 
-testReportInstanceStatusResponse :: ReportInstanceStatusResponse -> TestTree
-testReportInstanceStatusResponse = res
-    "ReportInstanceStatusResponse"
-    "fixture/ReportInstanceStatusResponse.proto"
+testDeleteTagsResponse :: DeleteTagsResponse -> TestTree
+testDeleteTagsResponse = res
+    "DeleteTagsResponse"
+    "fixture/DeleteTagsResponse.proto"
     eC2
-    (Proxy :: Proxy ReportInstanceStatus)
+    (Proxy :: Proxy DeleteTags)
 
-testAssociateDHCPOptionsResponse :: AssociateDHCPOptionsResponse -> TestTree
-testAssociateDHCPOptionsResponse = res
-    "AssociateDHCPOptionsResponse"
-    "fixture/AssociateDHCPOptionsResponse.proto"
+testConfirmProductInstanceResponse :: ConfirmProductInstanceResponse -> TestTree
+testConfirmProductInstanceResponse = res
+    "ConfirmProductInstanceResponse"
+    "fixture/ConfirmProductInstanceResponse.proto"
     eC2
-    (Proxy :: Proxy AssociateDHCPOptions)
+    (Proxy :: Proxy ConfirmProductInstance)
 
-testDescribeVPCsResponse :: DescribeVPCsResponse -> TestTree
-testDescribeVPCsResponse = res
-    "DescribeVPCsResponse"
-    "fixture/DescribeVPCsResponse.proto"
+testDescribeInstanceAttributeResponse :: DescribeInstanceAttributeResponse -> TestTree
+testDescribeInstanceAttributeResponse = res
+    "DescribeInstanceAttributeResponse"
+    "fixture/DescribeInstanceAttributeResponse.proto"
     eC2
-    (Proxy :: Proxy DescribeVPCs)
+    (Proxy :: Proxy DescribeInstanceAttribute)
 
-testRequestSpotInstancesResponse :: RequestSpotInstancesResponse -> TestTree
-testRequestSpotInstancesResponse = res
-    "RequestSpotInstancesResponse"
-    "fixture/RequestSpotInstancesResponse.proto"
+testDescribeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResponse -> TestTree
+testDescribeReservedInstancesOfferingsResponse = res
+    "DescribeReservedInstancesOfferingsResponse"
+    "fixture/DescribeReservedInstancesOfferingsResponse.proto"
     eC2
-    (Proxy :: Proxy RequestSpotInstances)
+    (Proxy :: Proxy DescribeReservedInstancesOfferings)
 
-testModifyImageAttributeResponse :: ModifyImageAttributeResponse -> TestTree
-testModifyImageAttributeResponse = res
-    "ModifyImageAttributeResponse"
-    "fixture/ModifyImageAttributeResponse.proto"
+testCreateCustomerGatewayResponse :: CreateCustomerGatewayResponse -> TestTree
+testCreateCustomerGatewayResponse = res
+    "CreateCustomerGatewayResponse"
+    "fixture/CreateCustomerGatewayResponse.proto"
     eC2
-    (Proxy :: Proxy ModifyImageAttribute)
+    (Proxy :: Proxy CreateCustomerGateway)
 
-testDescribeReservedInstancesResponse :: DescribeReservedInstancesResponse -> TestTree
-testDescribeReservedInstancesResponse = res
-    "DescribeReservedInstancesResponse"
-    "fixture/DescribeReservedInstancesResponse.proto"
+testDeleteSecurityGroupResponse :: DeleteSecurityGroupResponse -> TestTree
+testDeleteSecurityGroupResponse = res
+    "DeleteSecurityGroupResponse"
+    "fixture/DeleteSecurityGroupResponse.proto"
     eC2
-    (Proxy :: Proxy DescribeReservedInstances)
+    (Proxy :: Proxy DeleteSecurityGroup)
 
-testAllocateAddressResponse :: AllocateAddressResponse -> TestTree
-testAllocateAddressResponse = res
-    "AllocateAddressResponse"
-    "fixture/AllocateAddressResponse.proto"
+testDeleteVPCPeeringConnectionResponse :: DeleteVPCPeeringConnectionResponse -> TestTree
+testDeleteVPCPeeringConnectionResponse = res
+    "DeleteVPCPeeringConnectionResponse"
+    "fixture/DeleteVPCPeeringConnectionResponse.proto"
     eC2
-    (Proxy :: Proxy AllocateAddress)
+    (Proxy :: Proxy DeleteVPCPeeringConnection)
+
+testAttachInternetGatewayResponse :: AttachInternetGatewayResponse -> TestTree
+testAttachInternetGatewayResponse = res
+    "AttachInternetGatewayResponse"
+    "fixture/AttachInternetGatewayResponse.proto"
+    eC2
+    (Proxy :: Proxy AttachInternetGateway)
+
+testDescribeFlowLogsResponse :: DescribeFlowLogsResponse -> TestTree
+testDescribeFlowLogsResponse = res
+    "DescribeFlowLogsResponse"
+    "fixture/DescribeFlowLogsResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeFlowLogs)
 
 testRunInstancesResponse :: Reservation -> TestTree
 testRunInstancesResponse = res
@@ -2530,19 +2474,26 @@ testRunInstancesResponse = res
     eC2
     (Proxy :: Proxy RunInstances)
 
-testCreateRouteTableResponse :: CreateRouteTableResponse -> TestTree
-testCreateRouteTableResponse = res
-    "CreateRouteTableResponse"
-    "fixture/CreateRouteTableResponse.proto"
+testAssociateDHCPOptionsResponse :: AssociateDHCPOptionsResponse -> TestTree
+testAssociateDHCPOptionsResponse = res
+    "AssociateDHCPOptionsResponse"
+    "fixture/AssociateDHCPOptionsResponse.proto"
     eC2
-    (Proxy :: Proxy CreateRouteTable)
+    (Proxy :: Proxy AssociateDHCPOptions)
 
-testAttachVolumeResponse :: VolumeAttachment -> TestTree
-testAttachVolumeResponse = res
-    "AttachVolumeResponse"
-    "fixture/AttachVolumeResponse.proto"
+testDescribeReservedInstancesResponse :: DescribeReservedInstancesResponse -> TestTree
+testDescribeReservedInstancesResponse = res
+    "DescribeReservedInstancesResponse"
+    "fixture/DescribeReservedInstancesResponse.proto"
     eC2
-    (Proxy :: Proxy AttachVolume)
+    (Proxy :: Proxy DescribeReservedInstances)
+
+testDescribeVPCsResponse :: DescribeVPCsResponse -> TestTree
+testDescribeVPCsResponse = res
+    "DescribeVPCsResponse"
+    "fixture/DescribeVPCsResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeVPCs)
 
 testDescribeConversionTasksResponse :: DescribeConversionTasksResponse -> TestTree
 testDescribeConversionTasksResponse = res
@@ -2551,19 +2502,54 @@ testDescribeConversionTasksResponse = res
     eC2
     (Proxy :: Proxy DescribeConversionTasks)
 
-testRejectVPCPeeringConnectionResponse :: RejectVPCPeeringConnectionResponse -> TestTree
-testRejectVPCPeeringConnectionResponse = res
-    "RejectVPCPeeringConnectionResponse"
-    "fixture/RejectVPCPeeringConnectionResponse.proto"
+testAllocateAddressResponse :: AllocateAddressResponse -> TestTree
+testAllocateAddressResponse = res
+    "AllocateAddressResponse"
+    "fixture/AllocateAddressResponse.proto"
     eC2
-    (Proxy :: Proxy RejectVPCPeeringConnection)
+    (Proxy :: Proxy AllocateAddress)
 
-testRevokeSecurityGroupIngressResponse :: RevokeSecurityGroupIngressResponse -> TestTree
-testRevokeSecurityGroupIngressResponse = res
-    "RevokeSecurityGroupIngressResponse"
-    "fixture/RevokeSecurityGroupIngressResponse.proto"
+testCancelConversionTaskResponse :: CancelConversionTaskResponse -> TestTree
+testCancelConversionTaskResponse = res
+    "CancelConversionTaskResponse"
+    "fixture/CancelConversionTaskResponse.proto"
     eC2
-    (Proxy :: Proxy RevokeSecurityGroupIngress)
+    (Proxy :: Proxy CancelConversionTask)
+
+testModifyImageAttributeResponse :: ModifyImageAttributeResponse -> TestTree
+testModifyImageAttributeResponse = res
+    "ModifyImageAttributeResponse"
+    "fixture/ModifyImageAttributeResponse.proto"
+    eC2
+    (Proxy :: Proxy ModifyImageAttribute)
+
+testCreateRouteTableResponse :: CreateRouteTableResponse -> TestTree
+testCreateRouteTableResponse = res
+    "CreateRouteTableResponse"
+    "fixture/CreateRouteTableResponse.proto"
+    eC2
+    (Proxy :: Proxy CreateRouteTable)
+
+testReportInstanceStatusResponse :: ReportInstanceStatusResponse -> TestTree
+testReportInstanceStatusResponse = res
+    "ReportInstanceStatusResponse"
+    "fixture/ReportInstanceStatusResponse.proto"
+    eC2
+    (Proxy :: Proxy ReportInstanceStatus)
+
+testAttachVolumeResponse :: VolumeAttachment -> TestTree
+testAttachVolumeResponse = res
+    "AttachVolumeResponse"
+    "fixture/AttachVolumeResponse.proto"
+    eC2
+    (Proxy :: Proxy AttachVolume)
+
+testRequestSpotInstancesResponse :: RequestSpotInstancesResponse -> TestTree
+testRequestSpotInstancesResponse = res
+    "RequestSpotInstancesResponse"
+    "fixture/RequestSpotInstancesResponse.proto"
+    eC2
+    (Proxy :: Proxy RequestSpotInstances)
 
 testDescribeVolumesResponse :: DescribeVolumesResponse -> TestTree
 testDescribeVolumesResponse = res
@@ -2572,26 +2558,19 @@ testDescribeVolumesResponse = res
     eC2
     (Proxy :: Proxy DescribeVolumes)
 
+testRejectVPCPeeringConnectionResponse :: RejectVPCPeeringConnectionResponse -> TestTree
+testRejectVPCPeeringConnectionResponse = res
+    "RejectVPCPeeringConnectionResponse"
+    "fixture/RejectVPCPeeringConnectionResponse.proto"
+    eC2
+    (Proxy :: Proxy RejectVPCPeeringConnection)
+
 testDeleteVPNConnectionRouteResponse :: DeleteVPNConnectionRouteResponse -> TestTree
 testDeleteVPNConnectionRouteResponse = res
     "DeleteVPNConnectionRouteResponse"
     "fixture/DeleteVPNConnectionRouteResponse.proto"
     eC2
     (Proxy :: Proxy DeleteVPNConnectionRoute)
-
-testModifyReservedInstancesResponse :: ModifyReservedInstancesResponse -> TestTree
-testModifyReservedInstancesResponse = res
-    "ModifyReservedInstancesResponse"
-    "fixture/ModifyReservedInstancesResponse.proto"
-    eC2
-    (Proxy :: Proxy ModifyReservedInstances)
-
-testRegisterImageResponse :: RegisterImageResponse -> TestTree
-testRegisterImageResponse = res
-    "RegisterImageResponse"
-    "fixture/RegisterImageResponse.proto"
-    eC2
-    (Proxy :: Proxy RegisterImage)
 
 testModifyVPCEndpointResponse :: ModifyVPCEndpointResponse -> TestTree
 testModifyVPCEndpointResponse = res
@@ -2600,47 +2579,26 @@ testModifyVPCEndpointResponse = res
     eC2
     (Proxy :: Proxy ModifyVPCEndpoint)
 
-testDeleteVPNGatewayResponse :: DeleteVPNGatewayResponse -> TestTree
-testDeleteVPNGatewayResponse = res
-    "DeleteVPNGatewayResponse"
-    "fixture/DeleteVPNGatewayResponse.proto"
+testRegisterImageResponse :: RegisterImageResponse -> TestTree
+testRegisterImageResponse = res
+    "RegisterImageResponse"
+    "fixture/RegisterImageResponse.proto"
     eC2
-    (Proxy :: Proxy DeleteVPNGateway)
+    (Proxy :: Proxy RegisterImage)
 
-testCreateVPCResponse :: CreateVPCResponse -> TestTree
-testCreateVPCResponse = res
-    "CreateVPCResponse"
-    "fixture/CreateVPCResponse.proto"
+testRevokeSecurityGroupIngressResponse :: RevokeSecurityGroupIngressResponse -> TestTree
+testRevokeSecurityGroupIngressResponse = res
+    "RevokeSecurityGroupIngressResponse"
+    "fixture/RevokeSecurityGroupIngressResponse.proto"
     eC2
-    (Proxy :: Proxy CreateVPC)
+    (Proxy :: Proxy RevokeSecurityGroupIngress)
 
-testDescribeMovingAddressesResponse :: DescribeMovingAddressesResponse -> TestTree
-testDescribeMovingAddressesResponse = res
-    "DescribeMovingAddressesResponse"
-    "fixture/DescribeMovingAddressesResponse.proto"
+testModifyReservedInstancesResponse :: ModifyReservedInstancesResponse -> TestTree
+testModifyReservedInstancesResponse = res
+    "ModifyReservedInstancesResponse"
+    "fixture/ModifyReservedInstancesResponse.proto"
     eC2
-    (Proxy :: Proxy DescribeMovingAddresses)
-
-testDescribeVolumeAttributeResponse :: DescribeVolumeAttributeResponse -> TestTree
-testDescribeVolumeAttributeResponse = res
-    "DescribeVolumeAttributeResponse"
-    "fixture/DescribeVolumeAttributeResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeVolumeAttribute)
-
-testMoveAddressToVPCResponse :: MoveAddressToVPCResponse -> TestTree
-testMoveAddressToVPCResponse = res
-    "MoveAddressToVPCResponse"
-    "fixture/MoveAddressToVPCResponse.proto"
-    eC2
-    (Proxy :: Proxy MoveAddressToVPC)
-
-testGetPasswordDataResponse :: GetPasswordDataResponse -> TestTree
-testGetPasswordDataResponse = res
-    "GetPasswordDataResponse"
-    "fixture/GetPasswordDataResponse.proto"
-    eC2
-    (Proxy :: Proxy GetPasswordData)
+    (Proxy :: Proxy ModifyReservedInstances)
 
 testCreateFlowLogsResponse :: CreateFlowLogsResponse -> TestTree
 testCreateFlowLogsResponse = res
@@ -2649,12 +2607,19 @@ testCreateFlowLogsResponse = res
     eC2
     (Proxy :: Proxy CreateFlowLogs)
 
-testDescribeImportImageTasksResponse :: DescribeImportImageTasksResponse -> TestTree
-testDescribeImportImageTasksResponse = res
-    "DescribeImportImageTasksResponse"
-    "fixture/DescribeImportImageTasksResponse.proto"
+testDescribeSpotFleetRequestsResponse :: DescribeSpotFleetRequestsResponse -> TestTree
+testDescribeSpotFleetRequestsResponse = res
+    "DescribeSpotFleetRequestsResponse"
+    "fixture/DescribeSpotFleetRequestsResponse.proto"
     eC2
-    (Proxy :: Proxy DescribeImportImageTasks)
+    (Proxy :: Proxy DescribeSpotFleetRequests)
+
+testMoveAddressToVPCResponse :: MoveAddressToVPCResponse -> TestTree
+testMoveAddressToVPCResponse = res
+    "MoveAddressToVPCResponse"
+    "fixture/MoveAddressToVPCResponse.proto"
+    eC2
+    (Proxy :: Proxy MoveAddressToVPC)
 
 testDeleteNetworkACLResponse :: DeleteNetworkACLResponse -> TestTree
 testDeleteNetworkACLResponse = res
@@ -2663,12 +2628,47 @@ testDeleteNetworkACLResponse = res
     eC2
     (Proxy :: Proxy DeleteNetworkACL)
 
-testDescribeSpotFleetRequestsResponse :: DescribeSpotFleetRequestsResponse -> TestTree
-testDescribeSpotFleetRequestsResponse = res
-    "DescribeSpotFleetRequestsResponse"
-    "fixture/DescribeSpotFleetRequestsResponse.proto"
+testDeleteVPNGatewayResponse :: DeleteVPNGatewayResponse -> TestTree
+testDeleteVPNGatewayResponse = res
+    "DeleteVPNGatewayResponse"
+    "fixture/DeleteVPNGatewayResponse.proto"
     eC2
-    (Proxy :: Proxy DescribeSpotFleetRequests)
+    (Proxy :: Proxy DeleteVPNGateway)
+
+testDescribeImportImageTasksResponse :: DescribeImportImageTasksResponse -> TestTree
+testDescribeImportImageTasksResponse = res
+    "DescribeImportImageTasksResponse"
+    "fixture/DescribeImportImageTasksResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeImportImageTasks)
+
+testDescribeVolumeAttributeResponse :: DescribeVolumeAttributeResponse -> TestTree
+testDescribeVolumeAttributeResponse = res
+    "DescribeVolumeAttributeResponse"
+    "fixture/DescribeVolumeAttributeResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeVolumeAttribute)
+
+testDescribeMovingAddressesResponse :: DescribeMovingAddressesResponse -> TestTree
+testDescribeMovingAddressesResponse = res
+    "DescribeMovingAddressesResponse"
+    "fixture/DescribeMovingAddressesResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeMovingAddresses)
+
+testGetPasswordDataResponse :: GetPasswordDataResponse -> TestTree
+testGetPasswordDataResponse = res
+    "GetPasswordDataResponse"
+    "fixture/GetPasswordDataResponse.proto"
+    eC2
+    (Proxy :: Proxy GetPasswordData)
+
+testCreateVPCResponse :: CreateVPCResponse -> TestTree
+testCreateVPCResponse = res
+    "CreateVPCResponse"
+    "fixture/CreateVPCResponse.proto"
+    eC2
+    (Proxy :: Proxy CreateVPC)
 
 testCopySnapshotResponse :: CopySnapshotResponse -> TestTree
 testCopySnapshotResponse = res
@@ -2676,27 +2676,6 @@ testCopySnapshotResponse = res
     "fixture/CopySnapshotResponse.proto"
     eC2
     (Proxy :: Proxy CopySnapshot)
-
-testModifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse -> TestTree
-testModifyVolumeAttributeResponse = res
-    "ModifyVolumeAttributeResponse"
-    "fixture/ModifyVolumeAttributeResponse.proto"
-    eC2
-    (Proxy :: Proxy ModifyVolumeAttribute)
-
-testDescribeVPCAttributeResponse :: DescribeVPCAttributeResponse -> TestTree
-testDescribeVPCAttributeResponse = res
-    "DescribeVPCAttributeResponse"
-    "fixture/DescribeVPCAttributeResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeVPCAttribute)
-
-testCreateVolumeResponse :: Volume -> TestTree
-testCreateVolumeResponse = res
-    "CreateVolumeResponse"
-    "fixture/CreateVolumeResponse.proto"
-    eC2
-    (Proxy :: Proxy CreateVolume)
 
 testDisassociateAddressResponse :: DisassociateAddressResponse -> TestTree
 testDisassociateAddressResponse = res
@@ -2712,19 +2691,33 @@ testDeleteVPCResponse = res
     eC2
     (Proxy :: Proxy DeleteVPC)
 
-testDescribePrefixListsResponse :: DescribePrefixListsResponse -> TestTree
-testDescribePrefixListsResponse = res
-    "DescribePrefixListsResponse"
-    "fixture/DescribePrefixListsResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribePrefixLists)
-
 testCreateInstanceExportTaskResponse :: CreateInstanceExportTaskResponse -> TestTree
 testCreateInstanceExportTaskResponse = res
     "CreateInstanceExportTaskResponse"
     "fixture/CreateInstanceExportTaskResponse.proto"
     eC2
     (Proxy :: Proxy CreateInstanceExportTask)
+
+testDescribeVPCAttributeResponse :: DescribeVPCAttributeResponse -> TestTree
+testDescribeVPCAttributeResponse = res
+    "DescribeVPCAttributeResponse"
+    "fixture/DescribeVPCAttributeResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeVPCAttribute)
+
+testCreateVolumeResponse :: Volume -> TestTree
+testCreateVolumeResponse = res
+    "CreateVolumeResponse"
+    "fixture/CreateVolumeResponse.proto"
+    eC2
+    (Proxy :: Proxy CreateVolume)
+
+testModifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse -> TestTree
+testModifyVolumeAttributeResponse = res
+    "ModifyVolumeAttributeResponse"
+    "fixture/ModifyVolumeAttributeResponse.proto"
+    eC2
+    (Proxy :: Proxy ModifyVolumeAttribute)
 
 testDescribeSpotDatafeedSubscriptionResponse :: DescribeSpotDatafeedSubscriptionResponse -> TestTree
 testDescribeSpotDatafeedSubscriptionResponse = res
@@ -2733,19 +2726,12 @@ testDescribeSpotDatafeedSubscriptionResponse = res
     eC2
     (Proxy :: Proxy DescribeSpotDatafeedSubscription)
 
-testDetachVPNGatewayResponse :: DetachVPNGatewayResponse -> TestTree
-testDetachVPNGatewayResponse = res
-    "DetachVPNGatewayResponse"
-    "fixture/DetachVPNGatewayResponse.proto"
+testDescribePrefixListsResponse :: DescribePrefixListsResponse -> TestTree
+testDescribePrefixListsResponse = res
+    "DescribePrefixListsResponse"
+    "fixture/DescribePrefixListsResponse.proto"
     eC2
-    (Proxy :: Proxy DetachVPNGateway)
-
-testDescribeExportTasksResponse :: DescribeExportTasksResponse -> TestTree
-testDescribeExportTasksResponse = res
-    "DescribeExportTasksResponse"
-    "fixture/DescribeExportTasksResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeExportTasks)
+    (Proxy :: Proxy DescribePrefixLists)
 
 testDeletePlacementGroupResponse :: DeletePlacementGroupResponse -> TestTree
 testDeletePlacementGroupResponse = res
@@ -2754,27 +2740,6 @@ testDeletePlacementGroupResponse = res
     eC2
     (Proxy :: Proxy DeletePlacementGroup)
 
-testCreateSubnetResponse :: CreateSubnetResponse -> TestTree
-testCreateSubnetResponse = res
-    "CreateSubnetResponse"
-    "fixture/CreateSubnetResponse.proto"
-    eC2
-    (Proxy :: Proxy CreateSubnet)
-
-testEnableVolumeIOResponse :: EnableVolumeIOResponse -> TestTree
-testEnableVolumeIOResponse = res
-    "EnableVolumeIOResponse"
-    "fixture/EnableVolumeIOResponse.proto"
-    eC2
-    (Proxy :: Proxy EnableVolumeIO)
-
-testCancelExportTaskResponse :: CancelExportTaskResponse -> TestTree
-testCancelExportTaskResponse = res
-    "CancelExportTaskResponse"
-    "fixture/CancelExportTaskResponse.proto"
-    eC2
-    (Proxy :: Proxy CancelExportTask)
-
 testRequestSpotFleetResponse :: RequestSpotFleetResponse -> TestTree
 testRequestSpotFleetResponse = res
     "RequestSpotFleetResponse"
@@ -2782,26 +2747,12 @@ testRequestSpotFleetResponse = res
     eC2
     (Proxy :: Proxy RequestSpotFleet)
 
-testDescribeInstancesResponse :: DescribeInstancesResponse -> TestTree
-testDescribeInstancesResponse = res
-    "DescribeInstancesResponse"
-    "fixture/DescribeInstancesResponse.proto"
+testCreateSubnetResponse :: CreateSubnetResponse -> TestTree
+testCreateSubnetResponse = res
+    "CreateSubnetResponse"
+    "fixture/CreateSubnetResponse.proto"
     eC2
-    (Proxy :: Proxy DescribeInstances)
-
-testDescribeSecurityGroupsResponse :: DescribeSecurityGroupsResponse -> TestTree
-testDescribeSecurityGroupsResponse = res
-    "DescribeSecurityGroupsResponse"
-    "fixture/DescribeSecurityGroupsResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeSecurityGroups)
-
-testDescribeVPCPeeringConnectionsResponse :: DescribeVPCPeeringConnectionsResponse -> TestTree
-testDescribeVPCPeeringConnectionsResponse = res
-    "DescribeVPCPeeringConnectionsResponse"
-    "fixture/DescribeVPCPeeringConnectionsResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeVPCPeeringConnections)
+    (Proxy :: Proxy CreateSubnet)
 
 testCreateNetworkInterfaceResponse :: CreateNetworkInterfaceResponse -> TestTree
 testCreateNetworkInterfaceResponse = res
@@ -2810,75 +2761,54 @@ testCreateNetworkInterfaceResponse = res
     eC2
     (Proxy :: Proxy CreateNetworkInterface)
 
-testAssociateAddressResponse :: AssociateAddressResponse -> TestTree
-testAssociateAddressResponse = res
-    "AssociateAddressResponse"
-    "fixture/AssociateAddressResponse.proto"
+testDescribeSecurityGroupsResponse :: DescribeSecurityGroupsResponse -> TestTree
+testDescribeSecurityGroupsResponse = res
+    "DescribeSecurityGroupsResponse"
+    "fixture/DescribeSecurityGroupsResponse.proto"
     eC2
-    (Proxy :: Proxy AssociateAddress)
+    (Proxy :: Proxy DescribeSecurityGroups)
 
-testStartInstancesResponse :: StartInstancesResponse -> TestTree
-testStartInstancesResponse = res
-    "StartInstancesResponse"
-    "fixture/StartInstancesResponse.proto"
+testDescribeExportTasksResponse :: DescribeExportTasksResponse -> TestTree
+testDescribeExportTasksResponse = res
+    "DescribeExportTasksResponse"
+    "fixture/DescribeExportTasksResponse.proto"
     eC2
-    (Proxy :: Proxy StartInstances)
+    (Proxy :: Proxy DescribeExportTasks)
 
-testDescribeCustomerGatewaysResponse :: DescribeCustomerGatewaysResponse -> TestTree
-testDescribeCustomerGatewaysResponse = res
-    "DescribeCustomerGatewaysResponse"
-    "fixture/DescribeCustomerGatewaysResponse.proto"
+testDetachVPNGatewayResponse :: DetachVPNGatewayResponse -> TestTree
+testDetachVPNGatewayResponse = res
+    "DetachVPNGatewayResponse"
+    "fixture/DetachVPNGatewayResponse.proto"
     eC2
-    (Proxy :: Proxy DescribeCustomerGateways)
+    (Proxy :: Proxy DetachVPNGateway)
 
-testResetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse -> TestTree
-testResetNetworkInterfaceAttributeResponse = res
-    "ResetNetworkInterfaceAttributeResponse"
-    "fixture/ResetNetworkInterfaceAttributeResponse.proto"
+testEnableVolumeIOResponse :: EnableVolumeIOResponse -> TestTree
+testEnableVolumeIOResponse = res
+    "EnableVolumeIOResponse"
+    "fixture/EnableVolumeIOResponse.proto"
     eC2
-    (Proxy :: Proxy ResetNetworkInterfaceAttribute)
+    (Proxy :: Proxy EnableVolumeIO)
 
-testCreateVPNConnectionResponse :: CreateVPNConnectionResponse -> TestTree
-testCreateVPNConnectionResponse = res
-    "CreateVPNConnectionResponse"
-    "fixture/CreateVPNConnectionResponse.proto"
+testDescribeInstancesResponse :: DescribeInstancesResponse -> TestTree
+testDescribeInstancesResponse = res
+    "DescribeInstancesResponse"
+    "fixture/DescribeInstancesResponse.proto"
     eC2
-    (Proxy :: Proxy CreateVPNConnection)
+    (Proxy :: Proxy DescribeInstances)
 
-testDescribeSnapshotsResponse :: DescribeSnapshotsResponse -> TestTree
-testDescribeSnapshotsResponse = res
-    "DescribeSnapshotsResponse"
-    "fixture/DescribeSnapshotsResponse.proto"
+testDescribeVPCPeeringConnectionsResponse :: DescribeVPCPeeringConnectionsResponse -> TestTree
+testDescribeVPCPeeringConnectionsResponse = res
+    "DescribeVPCPeeringConnectionsResponse"
+    "fixture/DescribeVPCPeeringConnectionsResponse.proto"
     eC2
-    (Proxy :: Proxy DescribeSnapshots)
+    (Proxy :: Proxy DescribeVPCPeeringConnections)
 
-testCreatePlacementGroupResponse :: CreatePlacementGroupResponse -> TestTree
-testCreatePlacementGroupResponse = res
-    "CreatePlacementGroupResponse"
-    "fixture/CreatePlacementGroupResponse.proto"
+testCancelExportTaskResponse :: CancelExportTaskResponse -> TestTree
+testCancelExportTaskResponse = res
+    "CancelExportTaskResponse"
+    "fixture/CancelExportTaskResponse.proto"
     eC2
-    (Proxy :: Proxy CreatePlacementGroup)
-
-testReplaceRouteTableAssociationResponse :: ReplaceRouteTableAssociationResponse -> TestTree
-testReplaceRouteTableAssociationResponse = res
-    "ReplaceRouteTableAssociationResponse"
-    "fixture/ReplaceRouteTableAssociationResponse.proto"
-    eC2
-    (Proxy :: Proxy ReplaceRouteTableAssociation)
-
-testDescribeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResponse -> TestTree
-testDescribeNetworkInterfaceAttributeResponse = res
-    "DescribeNetworkInterfaceAttributeResponse"
-    "fixture/DescribeNetworkInterfaceAttributeResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeNetworkInterfaceAttribute)
-
-testDescribeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResponse -> TestTree
-testDescribeReservedInstancesListingsResponse = res
-    "DescribeReservedInstancesListingsResponse"
-    "fixture/DescribeReservedInstancesListingsResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeReservedInstancesListings)
+    (Proxy :: Proxy CancelExportTask)
 
 testDeleteNetworkInterfaceResponse :: DeleteNetworkInterfaceResponse -> TestTree
 testDeleteNetworkInterfaceResponse = res
@@ -2887,6 +2817,55 @@ testDeleteNetworkInterfaceResponse = res
     eC2
     (Proxy :: Proxy DeleteNetworkInterface)
 
+testReplaceRouteTableAssociationResponse :: ReplaceRouteTableAssociationResponse -> TestTree
+testReplaceRouteTableAssociationResponse = res
+    "ReplaceRouteTableAssociationResponse"
+    "fixture/ReplaceRouteTableAssociationResponse.proto"
+    eC2
+    (Proxy :: Proxy ReplaceRouteTableAssociation)
+
+testStartInstancesResponse :: StartInstancesResponse -> TestTree
+testStartInstancesResponse = res
+    "StartInstancesResponse"
+    "fixture/StartInstancesResponse.proto"
+    eC2
+    (Proxy :: Proxy StartInstances)
+
+testCreatePlacementGroupResponse :: CreatePlacementGroupResponse -> TestTree
+testCreatePlacementGroupResponse = res
+    "CreatePlacementGroupResponse"
+    "fixture/CreatePlacementGroupResponse.proto"
+    eC2
+    (Proxy :: Proxy CreatePlacementGroup)
+
+testDescribeSnapshotsResponse :: DescribeSnapshotsResponse -> TestTree
+testDescribeSnapshotsResponse = res
+    "DescribeSnapshotsResponse"
+    "fixture/DescribeSnapshotsResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeSnapshots)
+
+testAssociateAddressResponse :: AssociateAddressResponse -> TestTree
+testAssociateAddressResponse = res
+    "AssociateAddressResponse"
+    "fixture/AssociateAddressResponse.proto"
+    eC2
+    (Proxy :: Proxy AssociateAddress)
+
+testDescribeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResponse -> TestTree
+testDescribeNetworkInterfaceAttributeResponse = res
+    "DescribeNetworkInterfaceAttributeResponse"
+    "fixture/DescribeNetworkInterfaceAttributeResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeNetworkInterfaceAttribute)
+
+testResetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse -> TestTree
+testResetNetworkInterfaceAttributeResponse = res
+    "ResetNetworkInterfaceAttributeResponse"
+    "fixture/ResetNetworkInterfaceAttributeResponse.proto"
+    eC2
+    (Proxy :: Proxy ResetNetworkInterfaceAttribute)
+
 testDeleteInternetGatewayResponse :: DeleteInternetGatewayResponse -> TestTree
 testDeleteInternetGatewayResponse = res
     "DeleteInternetGatewayResponse"
@@ -2894,19 +2873,19 @@ testDeleteInternetGatewayResponse = res
     eC2
     (Proxy :: Proxy DeleteInternetGateway)
 
-testDeleteSubnetResponse :: DeleteSubnetResponse -> TestTree
-testDeleteSubnetResponse = res
-    "DeleteSubnetResponse"
-    "fixture/DeleteSubnetResponse.proto"
+testDescribeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResponse -> TestTree
+testDescribeReservedInstancesListingsResponse = res
+    "DescribeReservedInstancesListingsResponse"
+    "fixture/DescribeReservedInstancesListingsResponse.proto"
     eC2
-    (Proxy :: Proxy DeleteSubnet)
+    (Proxy :: Proxy DescribeReservedInstancesListings)
 
-testCreateVPCEndpointResponse :: CreateVPCEndpointResponse -> TestTree
-testCreateVPCEndpointResponse = res
-    "CreateVPCEndpointResponse"
-    "fixture/CreateVPCEndpointResponse.proto"
+testCreateVPNConnectionResponse :: CreateVPNConnectionResponse -> TestTree
+testCreateVPNConnectionResponse = res
+    "CreateVPNConnectionResponse"
+    "fixture/CreateVPNConnectionResponse.proto"
     eC2
-    (Proxy :: Proxy CreateVPCEndpoint)
+    (Proxy :: Proxy CreateVPNConnection)
 
 testDescribeImportSnapshotTasksResponse :: DescribeImportSnapshotTasksResponse -> TestTree
 testDescribeImportSnapshotTasksResponse = res
@@ -2915,6 +2894,20 @@ testDescribeImportSnapshotTasksResponse = res
     eC2
     (Proxy :: Proxy DescribeImportSnapshotTasks)
 
+testDescribeCustomerGatewaysResponse :: DescribeCustomerGatewaysResponse -> TestTree
+testDescribeCustomerGatewaysResponse = res
+    "DescribeCustomerGatewaysResponse"
+    "fixture/DescribeCustomerGatewaysResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeCustomerGateways)
+
+testDeleteSubnetResponse :: DeleteSubnetResponse -> TestTree
+testDeleteSubnetResponse = res
+    "DeleteSubnetResponse"
+    "fixture/DeleteSubnetResponse.proto"
+    eC2
+    (Proxy :: Proxy DeleteSubnet)
+
 testCopyImageResponse :: CopyImageResponse -> TestTree
 testCopyImageResponse = res
     "CopyImageResponse"
@@ -2922,12 +2915,12 @@ testCopyImageResponse = res
     eC2
     (Proxy :: Proxy CopyImage)
 
-testDisassociateRouteTableResponse :: DisassociateRouteTableResponse -> TestTree
-testDisassociateRouteTableResponse = res
-    "DisassociateRouteTableResponse"
-    "fixture/DisassociateRouteTableResponse.proto"
+testCreateVPCEndpointResponse :: CreateVPCEndpointResponse -> TestTree
+testCreateVPCEndpointResponse = res
+    "CreateVPCEndpointResponse"
+    "fixture/CreateVPCEndpointResponse.proto"
     eC2
-    (Proxy :: Proxy DisassociateRouteTable)
+    (Proxy :: Proxy CreateVPCEndpoint)
 
 testUnmonitorInstancesResponse :: UnmonitorInstancesResponse -> TestTree
 testUnmonitorInstancesResponse = res
@@ -2935,6 +2928,13 @@ testUnmonitorInstancesResponse = res
     "fixture/UnmonitorInstancesResponse.proto"
     eC2
     (Proxy :: Proxy UnmonitorInstances)
+
+testCreateSecurityGroupResponse :: CreateSecurityGroupResponse -> TestTree
+testCreateSecurityGroupResponse = res
+    "CreateSecurityGroupResponse"
+    "fixture/CreateSecurityGroupResponse.proto"
+    eC2
+    (Proxy :: Proxy CreateSecurityGroup)
 
 testImportVolumeResponse :: ImportVolumeResponse -> TestTree
 testImportVolumeResponse = res
@@ -2957,41 +2957,6 @@ testCreateSpotDatafeedSubscriptionResponse = res
     eC2
     (Proxy :: Proxy CreateSpotDatafeedSubscription)
 
-testAssignPrivateIPAddressesResponse :: AssignPrivateIPAddressesResponse -> TestTree
-testAssignPrivateIPAddressesResponse = res
-    "AssignPrivateIPAddressesResponse"
-    "fixture/AssignPrivateIPAddressesResponse.proto"
-    eC2
-    (Proxy :: Proxy AssignPrivateIPAddresses)
-
-testDeleteSnapshotResponse :: DeleteSnapshotResponse -> TestTree
-testDeleteSnapshotResponse = res
-    "DeleteSnapshotResponse"
-    "fixture/DeleteSnapshotResponse.proto"
-    eC2
-    (Proxy :: Proxy DeleteSnapshot)
-
-testDeleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse -> TestTree
-testDeleteCustomerGatewayResponse = res
-    "DeleteCustomerGatewayResponse"
-    "fixture/DeleteCustomerGatewayResponse.proto"
-    eC2
-    (Proxy :: Proxy DeleteCustomerGateway)
-
-testModifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse -> TestTree
-testModifyInstanceAttributeResponse = res
-    "ModifyInstanceAttributeResponse"
-    "fixture/ModifyInstanceAttributeResponse.proto"
-    eC2
-    (Proxy :: Proxy ModifyInstanceAttribute)
-
-testCreateSecurityGroupResponse :: CreateSecurityGroupResponse -> TestTree
-testCreateSecurityGroupResponse = res
-    "CreateSecurityGroupResponse"
-    "fixture/CreateSecurityGroupResponse.proto"
-    eC2
-    (Proxy :: Proxy CreateSecurityGroup)
-
 testCancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResponse -> TestTree
 testCancelSpotInstanceRequestsResponse = res
     "CancelSpotInstanceRequestsResponse"
@@ -3006,40 +2971,40 @@ testCreateRouteResponse = res
     eC2
     (Proxy :: Proxy CreateRoute)
 
-testCreateNetworkACLEntryResponse :: CreateNetworkACLEntryResponse -> TestTree
-testCreateNetworkACLEntryResponse = res
-    "CreateNetworkACLEntryResponse"
-    "fixture/CreateNetworkACLEntryResponse.proto"
+testDeleteSnapshotResponse :: DeleteSnapshotResponse -> TestTree
+testDeleteSnapshotResponse = res
+    "DeleteSnapshotResponse"
+    "fixture/DeleteSnapshotResponse.proto"
     eC2
-    (Proxy :: Proxy CreateNetworkACLEntry)
+    (Proxy :: Proxy DeleteSnapshot)
 
-testModifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse -> TestTree
-testModifySnapshotAttributeResponse = res
-    "ModifySnapshotAttributeResponse"
-    "fixture/ModifySnapshotAttributeResponse.proto"
+testAssignPrivateIPAddressesResponse :: AssignPrivateIPAddressesResponse -> TestTree
+testAssignPrivateIPAddressesResponse = res
+    "AssignPrivateIPAddressesResponse"
+    "fixture/AssignPrivateIPAddressesResponse.proto"
     eC2
-    (Proxy :: Proxy ModifySnapshotAttribute)
+    (Proxy :: Proxy AssignPrivateIPAddresses)
 
-testEnableVGWRoutePropagationResponse :: EnableVGWRoutePropagationResponse -> TestTree
-testEnableVGWRoutePropagationResponse = res
-    "EnableVGWRoutePropagationResponse"
-    "fixture/EnableVGWRoutePropagationResponse.proto"
+testModifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse -> TestTree
+testModifyInstanceAttributeResponse = res
+    "ModifyInstanceAttributeResponse"
+    "fixture/ModifyInstanceAttributeResponse.proto"
     eC2
-    (Proxy :: Proxy EnableVGWRoutePropagation)
+    (Proxy :: Proxy ModifyInstanceAttribute)
 
-testCreateSnapshotResponse :: Snapshot -> TestTree
-testCreateSnapshotResponse = res
-    "CreateSnapshotResponse"
-    "fixture/CreateSnapshotResponse.proto"
+testDeleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse -> TestTree
+testDeleteCustomerGatewayResponse = res
+    "DeleteCustomerGatewayResponse"
+    "fixture/DeleteCustomerGatewayResponse.proto"
     eC2
-    (Proxy :: Proxy CreateSnapshot)
+    (Proxy :: Proxy DeleteCustomerGateway)
 
-testDescribeSpotFleetRequestHistoryResponse :: DescribeSpotFleetRequestHistoryResponse -> TestTree
-testDescribeSpotFleetRequestHistoryResponse = res
-    "DescribeSpotFleetRequestHistoryResponse"
-    "fixture/DescribeSpotFleetRequestHistoryResponse.proto"
+testDisassociateRouteTableResponse :: DisassociateRouteTableResponse -> TestTree
+testDisassociateRouteTableResponse = res
+    "DisassociateRouteTableResponse"
+    "fixture/DisassociateRouteTableResponse.proto"
     eC2
-    (Proxy :: Proxy DescribeSpotFleetRequestHistory)
+    (Proxy :: Proxy DisassociateRouteTable)
 
 testDeleteSpotDatafeedSubscriptionResponse :: DeleteSpotDatafeedSubscriptionResponse -> TestTree
 testDeleteSpotDatafeedSubscriptionResponse = res
@@ -3048,12 +3013,54 @@ testDeleteSpotDatafeedSubscriptionResponse = res
     eC2
     (Proxy :: Proxy DeleteSpotDatafeedSubscription)
 
+testEnableVPCClassicLinkResponse :: EnableVPCClassicLinkResponse -> TestTree
+testEnableVPCClassicLinkResponse = res
+    "EnableVPCClassicLinkResponse"
+    "fixture/EnableVPCClassicLinkResponse.proto"
+    eC2
+    (Proxy :: Proxy EnableVPCClassicLink)
+
 testDescribePlacementGroupsResponse :: DescribePlacementGroupsResponse -> TestTree
 testDescribePlacementGroupsResponse = res
     "DescribePlacementGroupsResponse"
     "fixture/DescribePlacementGroupsResponse.proto"
     eC2
     (Proxy :: Proxy DescribePlacementGroups)
+
+testEnableVGWRoutePropagationResponse :: EnableVGWRoutePropagationResponse -> TestTree
+testEnableVGWRoutePropagationResponse = res
+    "EnableVGWRoutePropagationResponse"
+    "fixture/EnableVGWRoutePropagationResponse.proto"
+    eC2
+    (Proxy :: Proxy EnableVGWRoutePropagation)
+
+testDescribeSpotFleetRequestHistoryResponse :: DescribeSpotFleetRequestHistoryResponse -> TestTree
+testDescribeSpotFleetRequestHistoryResponse = res
+    "DescribeSpotFleetRequestHistoryResponse"
+    "fixture/DescribeSpotFleetRequestHistoryResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeSpotFleetRequestHistory)
+
+testModifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse -> TestTree
+testModifySnapshotAttributeResponse = res
+    "ModifySnapshotAttributeResponse"
+    "fixture/ModifySnapshotAttributeResponse.proto"
+    eC2
+    (Proxy :: Proxy ModifySnapshotAttribute)
+
+testCreateSnapshotResponse :: Snapshot -> TestTree
+testCreateSnapshotResponse = res
+    "CreateSnapshotResponse"
+    "fixture/CreateSnapshotResponse.proto"
+    eC2
+    (Proxy :: Proxy CreateSnapshot)
+
+testCreateNetworkACLEntryResponse :: CreateNetworkACLEntryResponse -> TestTree
+testCreateNetworkACLEntryResponse = res
+    "CreateNetworkACLEntryResponse"
+    "fixture/CreateNetworkACLEntryResponse.proto"
+    eC2
+    (Proxy :: Proxy CreateNetworkACLEntry)
 
 testCreateReservedInstancesListingResponse :: CreateReservedInstancesListingResponse -> TestTree
 testCreateReservedInstancesListingResponse = res
@@ -3062,19 +3069,26 @@ testCreateReservedInstancesListingResponse = res
     eC2
     (Proxy :: Proxy CreateReservedInstancesListing)
 
-testEnableVPCClassicLinkResponse :: EnableVPCClassicLinkResponse -> TestTree
-testEnableVPCClassicLinkResponse = res
-    "EnableVPCClassicLinkResponse"
-    "fixture/EnableVPCClassicLinkResponse.proto"
+testAttachVPNGatewayResponse :: AttachVPNGatewayResponse -> TestTree
+testAttachVPNGatewayResponse = res
+    "AttachVPNGatewayResponse"
+    "fixture/AttachVPNGatewayResponse.proto"
     eC2
-    (Proxy :: Proxy EnableVPCClassicLink)
+    (Proxy :: Proxy AttachVPNGateway)
 
-testDescribeKeyPairsResponse :: DescribeKeyPairsResponse -> TestTree
-testDescribeKeyPairsResponse = res
-    "DescribeKeyPairsResponse"
-    "fixture/DescribeKeyPairsResponse.proto"
+testCreateDHCPOptionsResponse :: CreateDHCPOptionsResponse -> TestTree
+testCreateDHCPOptionsResponse = res
+    "CreateDHCPOptionsResponse"
+    "fixture/CreateDHCPOptionsResponse.proto"
     eC2
-    (Proxy :: Proxy DescribeKeyPairs)
+    (Proxy :: Proxy CreateDHCPOptions)
+
+testDescribeAccountAttributesResponse :: DescribeAccountAttributesResponse -> TestTree
+testDescribeAccountAttributesResponse = res
+    "DescribeAccountAttributesResponse"
+    "fixture/DescribeAccountAttributesResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeAccountAttributes)
 
 testRebootInstancesResponse :: RebootInstancesResponse -> TestTree
 testRebootInstancesResponse = res
@@ -3083,19 +3097,12 @@ testRebootInstancesResponse = res
     eC2
     (Proxy :: Proxy RebootInstances)
 
-testAttachVPNGatewayResponse :: AttachVPNGatewayResponse -> TestTree
-testAttachVPNGatewayResponse = res
-    "AttachVPNGatewayResponse"
-    "fixture/AttachVPNGatewayResponse.proto"
+testCreateImageResponse :: CreateImageResponse -> TestTree
+testCreateImageResponse = res
+    "CreateImageResponse"
+    "fixture/CreateImageResponse.proto"
     eC2
-    (Proxy :: Proxy AttachVPNGateway)
-
-testCreateVPNConnectionRouteResponse :: CreateVPNConnectionRouteResponse -> TestTree
-testCreateVPNConnectionRouteResponse = res
-    "CreateVPNConnectionRouteResponse"
-    "fixture/CreateVPNConnectionRouteResponse.proto"
-    eC2
-    (Proxy :: Proxy CreateVPNConnectionRoute)
+    (Proxy :: Proxy CreateImage)
 
 testDescribeClassicLinkInstancesResponse :: DescribeClassicLinkInstancesResponse -> TestTree
 testDescribeClassicLinkInstancesResponse = res
@@ -3111,12 +3118,19 @@ testTerminateInstancesResponse = res
     eC2
     (Proxy :: Proxy TerminateInstances)
 
-testCreateDHCPOptionsResponse :: CreateDHCPOptionsResponse -> TestTree
-testCreateDHCPOptionsResponse = res
-    "CreateDHCPOptionsResponse"
-    "fixture/CreateDHCPOptionsResponse.proto"
+testDescribeKeyPairsResponse :: DescribeKeyPairsResponse -> TestTree
+testDescribeKeyPairsResponse = res
+    "DescribeKeyPairsResponse"
+    "fixture/DescribeKeyPairsResponse.proto"
     eC2
-    (Proxy :: Proxy CreateDHCPOptions)
+    (Proxy :: Proxy DescribeKeyPairs)
+
+testCreateVPNConnectionRouteResponse :: CreateVPNConnectionRouteResponse -> TestTree
+testCreateVPNConnectionRouteResponse = res
+    "CreateVPNConnectionRouteResponse"
+    "fixture/CreateVPNConnectionRouteResponse.proto"
+    eC2
+    (Proxy :: Proxy CreateVPNConnectionRoute)
 
 testAssociateRouteTableResponse :: AssociateRouteTableResponse -> TestTree
 testAssociateRouteTableResponse = res
@@ -3125,40 +3139,12 @@ testAssociateRouteTableResponse = res
     eC2
     (Proxy :: Proxy AssociateRouteTable)
 
-testCreateImageResponse :: CreateImageResponse -> TestTree
-testCreateImageResponse = res
-    "CreateImageResponse"
-    "fixture/CreateImageResponse.proto"
+testDescribeVPNGatewaysResponse :: DescribeVPNGatewaysResponse -> TestTree
+testDescribeVPNGatewaysResponse = res
+    "DescribeVPNGatewaysResponse"
+    "fixture/DescribeVPNGatewaysResponse.proto"
     eC2
-    (Proxy :: Proxy CreateImage)
-
-testDescribeAccountAttributesResponse :: DescribeAccountAttributesResponse -> TestTree
-testDescribeAccountAttributesResponse = res
-    "DescribeAccountAttributesResponse"
-    "fixture/DescribeAccountAttributesResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeAccountAttributes)
-
-testResetImageAttributeResponse :: ResetImageAttributeResponse -> TestTree
-testResetImageAttributeResponse = res
-    "ResetImageAttributeResponse"
-    "fixture/ResetImageAttributeResponse.proto"
-    eC2
-    (Proxy :: Proxy ResetImageAttribute)
-
-testDescribeNetworkACLsResponse :: DescribeNetworkACLsResponse -> TestTree
-testDescribeNetworkACLsResponse = res
-    "DescribeNetworkACLsResponse"
-    "fixture/DescribeNetworkACLsResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeNetworkACLs)
-
-testCancelImportTaskResponse :: CancelImportTaskResponse -> TestTree
-testCancelImportTaskResponse = res
-    "CancelImportTaskResponse"
-    "fixture/CancelImportTaskResponse.proto"
-    eC2
-    (Proxy :: Proxy CancelImportTask)
+    (Proxy :: Proxy DescribeVPNGateways)
 
 testGetConsoleOutputResponse :: GetConsoleOutputResponse -> TestTree
 testGetConsoleOutputResponse = res
@@ -3167,12 +3153,12 @@ testGetConsoleOutputResponse = res
     eC2
     (Proxy :: Proxy GetConsoleOutput)
 
-testUnassignPrivateIPAddressesResponse :: UnassignPrivateIPAddressesResponse -> TestTree
-testUnassignPrivateIPAddressesResponse = res
-    "UnassignPrivateIPAddressesResponse"
-    "fixture/UnassignPrivateIPAddressesResponse.proto"
+testDescribeImageAttributeResponse :: DescribeImageAttributeResponse -> TestTree
+testDescribeImageAttributeResponse = res
+    "DescribeImageAttributeResponse"
+    "fixture/DescribeImageAttributeResponse.proto"
     eC2
-    (Proxy :: Proxy UnassignPrivateIPAddresses)
+    (Proxy :: Proxy DescribeImageAttribute)
 
 testDeleteRouteTableResponse :: DeleteRouteTableResponse -> TestTree
 testDeleteRouteTableResponse = res
@@ -3181,33 +3167,12 @@ testDeleteRouteTableResponse = res
     eC2
     (Proxy :: Proxy DeleteRouteTable)
 
-testDescribeImageAttributeResponse :: DescribeImageAttributeResponse -> TestTree
-testDescribeImageAttributeResponse = res
-    "DescribeImageAttributeResponse"
-    "fixture/DescribeImageAttributeResponse.proto"
+testResetImageAttributeResponse :: ResetImageAttributeResponse -> TestTree
+testResetImageAttributeResponse = res
+    "ResetImageAttributeResponse"
+    "fixture/ResetImageAttributeResponse.proto"
     eC2
-    (Proxy :: Proxy DescribeImageAttribute)
-
-testDeleteDHCPOptionsResponse :: DeleteDHCPOptionsResponse -> TestTree
-testDeleteDHCPOptionsResponse = res
-    "DeleteDHCPOptionsResponse"
-    "fixture/DeleteDHCPOptionsResponse.proto"
-    eC2
-    (Proxy :: Proxy DeleteDHCPOptions)
-
-testDescribeVPNGatewaysResponse :: DescribeVPNGatewaysResponse -> TestTree
-testDescribeVPNGatewaysResponse = res
-    "DescribeVPNGatewaysResponse"
-    "fixture/DescribeVPNGatewaysResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeVPNGateways)
-
-testDetachClassicLinkVPCResponse :: DetachClassicLinkVPCResponse -> TestTree
-testDetachClassicLinkVPCResponse = res
-    "DetachClassicLinkVPCResponse"
-    "fixture/DetachClassicLinkVPCResponse.proto"
-    eC2
-    (Proxy :: Proxy DetachClassicLinkVPC)
+    (Proxy :: Proxy ResetImageAttribute)
 
 testDescribeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResponse -> TestTree
 testDescribeReservedInstancesModificationsResponse = res
@@ -3223,12 +3188,40 @@ testDescribeSpotInstanceRequestsResponse = res
     eC2
     (Proxy :: Proxy DescribeSpotInstanceRequests)
 
-testMonitorInstancesResponse :: MonitorInstancesResponse -> TestTree
-testMonitorInstancesResponse = res
-    "MonitorInstancesResponse"
-    "fixture/MonitorInstancesResponse.proto"
+testUnassignPrivateIPAddressesResponse :: UnassignPrivateIPAddressesResponse -> TestTree
+testUnassignPrivateIPAddressesResponse = res
+    "UnassignPrivateIPAddressesResponse"
+    "fixture/UnassignPrivateIPAddressesResponse.proto"
     eC2
-    (Proxy :: Proxy MonitorInstances)
+    (Proxy :: Proxy UnassignPrivateIPAddresses)
+
+testDeleteDHCPOptionsResponse :: DeleteDHCPOptionsResponse -> TestTree
+testDeleteDHCPOptionsResponse = res
+    "DeleteDHCPOptionsResponse"
+    "fixture/DeleteDHCPOptionsResponse.proto"
+    eC2
+    (Proxy :: Proxy DeleteDHCPOptions)
+
+testDescribeNetworkACLsResponse :: DescribeNetworkACLsResponse -> TestTree
+testDescribeNetworkACLsResponse = res
+    "DescribeNetworkACLsResponse"
+    "fixture/DescribeNetworkACLsResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeNetworkACLs)
+
+testCancelImportTaskResponse :: CancelImportTaskResponse -> TestTree
+testCancelImportTaskResponse = res
+    "CancelImportTaskResponse"
+    "fixture/CancelImportTaskResponse.proto"
+    eC2
+    (Proxy :: Proxy CancelImportTask)
+
+testDetachClassicLinkVPCResponse :: DetachClassicLinkVPCResponse -> TestTree
+testDetachClassicLinkVPCResponse = res
+    "DetachClassicLinkVPCResponse"
+    "fixture/DetachClassicLinkVPCResponse.proto"
+    eC2
+    (Proxy :: Proxy DetachClassicLinkVPC)
 
 testDescribeRegionsResponse :: DescribeRegionsResponse -> TestTree
 testDescribeRegionsResponse = res
@@ -3237,68 +3230,12 @@ testDescribeRegionsResponse = res
     eC2
     (Proxy :: Proxy DescribeRegions)
 
-testModifyVPCAttributeResponse :: ModifyVPCAttributeResponse -> TestTree
-testModifyVPCAttributeResponse = res
-    "ModifyVPCAttributeResponse"
-    "fixture/ModifyVPCAttributeResponse.proto"
+testMonitorInstancesResponse :: MonitorInstancesResponse -> TestTree
+testMonitorInstancesResponse = res
+    "MonitorInstancesResponse"
+    "fixture/MonitorInstancesResponse.proto"
     eC2
-    (Proxy :: Proxy ModifyVPCAttribute)
-
-testDescribeSpotFleetInstancesResponse :: DescribeSpotFleetInstancesResponse -> TestTree
-testDescribeSpotFleetInstancesResponse = res
-    "DescribeSpotFleetInstancesResponse"
-    "fixture/DescribeSpotFleetInstancesResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeSpotFleetInstances)
-
-testDescribeVolumeStatusResponse :: DescribeVolumeStatusResponse -> TestTree
-testDescribeVolumeStatusResponse = res
-    "DescribeVolumeStatusResponse"
-    "fixture/DescribeVolumeStatusResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeVolumeStatus)
-
-testDeleteVolumeResponse :: DeleteVolumeResponse -> TestTree
-testDeleteVolumeResponse = res
-    "DeleteVolumeResponse"
-    "fixture/DeleteVolumeResponse.proto"
-    eC2
-    (Proxy :: Proxy DeleteVolume)
-
-testDescribeImagesResponse :: DescribeImagesResponse -> TestTree
-testDescribeImagesResponse = res
-    "DescribeImagesResponse"
-    "fixture/DescribeImagesResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeImages)
-
-testCreateKeyPairResponse :: CreateKeyPairResponse -> TestTree
-testCreateKeyPairResponse = res
-    "CreateKeyPairResponse"
-    "fixture/CreateKeyPairResponse.proto"
-    eC2
-    (Proxy :: Proxy CreateKeyPair)
-
-testRestoreAddressToClassicResponse :: RestoreAddressToClassicResponse -> TestTree
-testRestoreAddressToClassicResponse = res
-    "RestoreAddressToClassicResponse"
-    "fixture/RestoreAddressToClassicResponse.proto"
-    eC2
-    (Proxy :: Proxy RestoreAddressToClassic)
-
-testDescribeAvailabilityZonesResponse :: DescribeAvailabilityZonesResponse -> TestTree
-testDescribeAvailabilityZonesResponse = res
-    "DescribeAvailabilityZonesResponse"
-    "fixture/DescribeAvailabilityZonesResponse.proto"
-    eC2
-    (Proxy :: Proxy DescribeAvailabilityZones)
-
-testImportSnapshotResponse :: ImportSnapshotResponse -> TestTree
-testImportSnapshotResponse = res
-    "ImportSnapshotResponse"
-    "fixture/ImportSnapshotResponse.proto"
-    eC2
-    (Proxy :: Proxy ImportSnapshot)
+    (Proxy :: Proxy MonitorInstances)
 
 testAcceptVPCPeeringConnectionResponse :: AcceptVPCPeeringConnectionResponse -> TestTree
 testAcceptVPCPeeringConnectionResponse = res
@@ -3307,9 +3244,72 @@ testAcceptVPCPeeringConnectionResponse = res
     eC2
     (Proxy :: Proxy AcceptVPCPeeringConnection)
 
+testImportSnapshotResponse :: ImportSnapshotResponse -> TestTree
+testImportSnapshotResponse = res
+    "ImportSnapshotResponse"
+    "fixture/ImportSnapshotResponse.proto"
+    eC2
+    (Proxy :: Proxy ImportSnapshot)
+
+testDescribeVolumeStatusResponse :: DescribeVolumeStatusResponse -> TestTree
+testDescribeVolumeStatusResponse = res
+    "DescribeVolumeStatusResponse"
+    "fixture/DescribeVolumeStatusResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeVolumeStatus)
+
 testDescribeRouteTablesResponse :: DescribeRouteTablesResponse -> TestTree
 testDescribeRouteTablesResponse = res
     "DescribeRouteTablesResponse"
     "fixture/DescribeRouteTablesResponse.proto"
     eC2
     (Proxy :: Proxy DescribeRouteTables)
+
+testDescribeAvailabilityZonesResponse :: DescribeAvailabilityZonesResponse -> TestTree
+testDescribeAvailabilityZonesResponse = res
+    "DescribeAvailabilityZonesResponse"
+    "fixture/DescribeAvailabilityZonesResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeAvailabilityZones)
+
+testModifyVPCAttributeResponse :: ModifyVPCAttributeResponse -> TestTree
+testModifyVPCAttributeResponse = res
+    "ModifyVPCAttributeResponse"
+    "fixture/ModifyVPCAttributeResponse.proto"
+    eC2
+    (Proxy :: Proxy ModifyVPCAttribute)
+
+testDescribeImagesResponse :: DescribeImagesResponse -> TestTree
+testDescribeImagesResponse = res
+    "DescribeImagesResponse"
+    "fixture/DescribeImagesResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeImages)
+
+testRestoreAddressToClassicResponse :: RestoreAddressToClassicResponse -> TestTree
+testRestoreAddressToClassicResponse = res
+    "RestoreAddressToClassicResponse"
+    "fixture/RestoreAddressToClassicResponse.proto"
+    eC2
+    (Proxy :: Proxy RestoreAddressToClassic)
+
+testCreateKeyPairResponse :: CreateKeyPairResponse -> TestTree
+testCreateKeyPairResponse = res
+    "CreateKeyPairResponse"
+    "fixture/CreateKeyPairResponse.proto"
+    eC2
+    (Proxy :: Proxy CreateKeyPair)
+
+testDeleteVolumeResponse :: DeleteVolumeResponse -> TestTree
+testDeleteVolumeResponse = res
+    "DeleteVolumeResponse"
+    "fixture/DeleteVolumeResponse.proto"
+    eC2
+    (Proxy :: Proxy DeleteVolume)
+
+testDescribeSpotFleetInstancesResponse :: DescribeSpotFleetInstancesResponse -> TestTree
+testDescribeSpotFleetInstancesResponse = res
+    "DescribeSpotFleetInstancesResponse"
+    "fixture/DescribeSpotFleetInstancesResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeSpotFleetInstances)

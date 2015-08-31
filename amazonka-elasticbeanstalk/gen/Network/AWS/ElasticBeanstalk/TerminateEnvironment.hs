@@ -35,22 +35,22 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     , environmentDescription
     , EnvironmentDescription
     -- * Response Lenses
-    , eCNAME
     , eStatus
+    , eCNAME
     , eTemplateName
     , eAbortableOperationInProgress
     , eEndpointURL
-    , eDateUpdated
     , eResources
+    , eDateUpdated
+    , eDateCreated
     , eHealth
     , eVersionLabel
-    , eDateCreated
     , eTier
     , eEnvironmentName
     , eApplicationName
-    , eHealthStatus
-    , eEnvironmentId
     , eSolutionStackName
+    , eEnvironmentId
+    , eHealthStatus
     , eDescription
     ) where
 

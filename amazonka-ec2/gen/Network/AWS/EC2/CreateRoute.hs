@@ -48,8 +48,8 @@ module Network.AWS.EC2.CreateRoute
       createRoute
     , CreateRoute
     -- * Request Lenses
-    , crInstanceId
     , crVPCPeeringConnectionId
+    , crInstanceId
     , crNetworkInterfaceId
     , crGatewayId
     , crDryRun
@@ -72,8 +72,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'createRoute' smart constructor.
 data CreateRoute = CreateRoute'
-    { _crInstanceId             :: !(Maybe Text)
-    , _crVPCPeeringConnectionId :: !(Maybe Text)
+    { _crVPCPeeringConnectionId :: !(Maybe Text)
+    , _crInstanceId             :: !(Maybe Text)
     , _crNetworkInterfaceId     :: !(Maybe Text)
     , _crGatewayId              :: !(Maybe Text)
     , _crDryRun                 :: !(Maybe Bool)
@@ -85,9 +85,9 @@ data CreateRoute = CreateRoute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crInstanceId'
---
 -- * 'crVPCPeeringConnectionId'
+--
+-- * 'crInstanceId'
 --
 -- * 'crNetworkInterfaceId'
 --
@@ -104,8 +104,8 @@ createRoute
     -> CreateRoute
 createRoute pRouteTableId_ pDestinationCIdRBlock_ =
     CreateRoute'
-    { _crInstanceId = Nothing
-    , _crVPCPeeringConnectionId = Nothing
+    { _crVPCPeeringConnectionId = Nothing
+    , _crInstanceId = Nothing
     , _crNetworkInterfaceId = Nothing
     , _crGatewayId = Nothing
     , _crDryRun = Nothing
@@ -113,14 +113,14 @@ createRoute pRouteTableId_ pDestinationCIdRBlock_ =
     , _crDestinationCIdRBlock = pDestinationCIdRBlock_
     }
 
+-- | The ID of a VPC peering connection.
+crVPCPeeringConnectionId :: Lens' CreateRoute (Maybe Text)
+crVPCPeeringConnectionId = lens _crVPCPeeringConnectionId (\ s a -> s{_crVPCPeeringConnectionId = a});
+
 -- | The ID of a NAT instance in your VPC. The operation fails if you specify
 -- an instance ID unless exactly one network interface is attached.
 crInstanceId :: Lens' CreateRoute (Maybe Text)
 crInstanceId = lens _crInstanceId (\ s a -> s{_crInstanceId = a});
-
--- | The ID of a VPC peering connection.
-crVPCPeeringConnectionId :: Lens' CreateRoute (Maybe Text)
-crVPCPeeringConnectionId = lens _crVPCPeeringConnectionId (\ s a -> s{_crVPCPeeringConnectionId = a});
 
 -- | The ID of a network interface.
 crNetworkInterfaceId :: Lens' CreateRoute (Maybe Text)
@@ -167,9 +167,9 @@ instance ToQuery CreateRoute where
           = mconcat
               ["Action" =: ("CreateRoute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "InstanceId" =: _crInstanceId,
                "VpcPeeringConnectionId" =:
                  _crVPCPeeringConnectionId,
+               "InstanceId" =: _crInstanceId,
                "NetworkInterfaceId" =: _crNetworkInterfaceId,
                "GatewayId" =: _crGatewayId, "DryRun" =: _crDryRun,
                "RouteTableId" =: _crRouteTableId,

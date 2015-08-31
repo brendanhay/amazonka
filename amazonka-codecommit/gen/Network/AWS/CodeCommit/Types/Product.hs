@@ -69,8 +69,8 @@ data RepositoryMetadata = RepositoryMetadata'
     , _rmAccountId             :: !(Maybe Text)
     , _rmDefaultBranch         :: !(Maybe Text)
     , _rmRepositoryId          :: !(Maybe Text)
-    , _rmCreationDate          :: !(Maybe POSIX)
     , _rmRepositoryName        :: !(Maybe Text)
+    , _rmCreationDate          :: !(Maybe POSIX)
     , _rmCloneURLSSH           :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -92,9 +92,9 @@ data RepositoryMetadata = RepositoryMetadata'
 --
 -- * 'rmRepositoryId'
 --
--- * 'rmCreationDate'
---
 -- * 'rmRepositoryName'
+--
+-- * 'rmCreationDate'
 --
 -- * 'rmCloneURLSSH'
 repositoryMetadata
@@ -108,8 +108,8 @@ repositoryMetadata =
     , _rmAccountId = Nothing
     , _rmDefaultBranch = Nothing
     , _rmRepositoryId = Nothing
-    , _rmCreationDate = Nothing
     , _rmRepositoryName = Nothing
+    , _rmCreationDate = Nothing
     , _rmCloneURLSSH = Nothing
     }
 
@@ -141,13 +141,13 @@ rmDefaultBranch = lens _rmDefaultBranch (\ s a -> s{_rmDefaultBranch = a});
 rmRepositoryId :: Lens' RepositoryMetadata (Maybe Text)
 rmRepositoryId = lens _rmRepositoryId (\ s a -> s{_rmRepositoryId = a});
 
--- | The date and time the repository was created, in timestamp format.
-rmCreationDate :: Lens' RepositoryMetadata (Maybe UTCTime)
-rmCreationDate = lens _rmCreationDate (\ s a -> s{_rmCreationDate = a}) . mapping _Time;
-
 -- | The repository\'s name.
 rmRepositoryName :: Lens' RepositoryMetadata (Maybe Text)
 rmRepositoryName = lens _rmRepositoryName (\ s a -> s{_rmRepositoryName = a});
+
+-- | The date and time the repository was created, in timestamp format.
+rmCreationDate :: Lens' RepositoryMetadata (Maybe UTCTime)
+rmCreationDate = lens _rmCreationDate (\ s a -> s{_rmCreationDate = a}) . mapping _Time;
 
 -- | The URL to use for cloning the repository over SSH.
 rmCloneURLSSH :: Lens' RepositoryMetadata (Maybe Text)
@@ -165,8 +165,8 @@ instance FromJSON RepositoryMetadata where
                      <*> (x .:? "accountId")
                      <*> (x .:? "defaultBranch")
                      <*> (x .:? "repositoryId")
-                     <*> (x .:? "creationDate")
                      <*> (x .:? "repositoryName")
+                     <*> (x .:? "creationDate")
                      <*> (x .:? "cloneUrlSsh"))
 
 -- | Information about a repository name and ID.

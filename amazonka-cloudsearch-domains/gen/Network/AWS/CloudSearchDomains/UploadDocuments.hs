@@ -59,6 +59,7 @@ module Network.AWS.CloudSearchDomains.UploadDocuments
     , uploadDocumentsResponse
     , UploadDocumentsResponse
     -- * Response Lenses
+    , udrsStatus
     , udrsAdds
     , udrsWarnings
     , udrsDeletes
@@ -115,8 +116,9 @@ instance AWSRequest UploadDocuments where
           = receiveJSON
               (\ s h x ->
                  UploadDocumentsResponse' <$>
-                   (x .?> "adds") <*> (x .?> "warnings" .!@ mempty) <*>
-                     (x .?> "deletes")
+                   (x .?> "status") <*> (x .?> "adds") <*>
+                     (x .?> "warnings" .!@ mempty)
+                     <*> (x .?> "deletes")
                      <*> (pure (fromEnum s)))
 
 instance ToBody UploadDocuments where
@@ -139,7 +141,8 @@ instance ToQuery UploadDocuments where
 --
 -- /See:/ 'uploadDocumentsResponse' smart constructor.
 data UploadDocumentsResponse = UploadDocumentsResponse'
-    { _udrsAdds     :: !(Maybe Integer)
+    { _udrsStatus   :: !(Maybe Text)
+    , _udrsAdds     :: !(Maybe Integer)
     , _udrsWarnings :: !(Maybe [DocumentServiceWarning])
     , _udrsDeletes  :: !(Maybe Integer)
     , _udrsStatus   :: !Int
@@ -148,6 +151,8 @@ data UploadDocumentsResponse = UploadDocumentsResponse'
 -- | Creates a value of 'UploadDocumentsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udrsStatus'
 --
 -- * 'udrsAdds'
 --
@@ -161,11 +166,16 @@ uploadDocumentsResponse
     -> UploadDocumentsResponse
 uploadDocumentsResponse pStatus_ =
     UploadDocumentsResponse'
-    { _udrsAdds = Nothing
+    { _udrsStatus = Nothing
+    , _udrsAdds = Nothing
     , _udrsWarnings = Nothing
     , _udrsDeletes = Nothing
     , _udrsStatus = pStatus_
     }
+
+-- | The status of an 'UploadDocumentsRequest'.
+udrsStatus :: Lens' UploadDocumentsResponse (Maybe Text)
+udrsStatus = lens _udrsStatus (\ s a -> s{_udrsStatus = a});
 
 -- | The number of documents that were added to the search domain.
 udrsAdds :: Lens' UploadDocumentsResponse (Maybe Integer)

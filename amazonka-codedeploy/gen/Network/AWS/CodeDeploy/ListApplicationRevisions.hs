@@ -29,8 +29,8 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
     -- * Request Lenses
     , larS3KeyPrefix
     , larDeployed
-    , larNextToken
     , larSortOrder
+    , larNextToken
     , larS3Bucket
     , larSortBy
     , larApplicationName
@@ -56,8 +56,8 @@ import           Network.AWS.Response
 data ListApplicationRevisions = ListApplicationRevisions'
     { _larS3KeyPrefix     :: !(Maybe Text)
     , _larDeployed        :: !(Maybe ListStateFilterAction)
-    , _larNextToken       :: !(Maybe Text)
     , _larSortOrder       :: !(Maybe SortOrder)
+    , _larNextToken       :: !(Maybe Text)
     , _larS3Bucket        :: !(Maybe Text)
     , _larSortBy          :: !(Maybe ApplicationRevisionSortBy)
     , _larApplicationName :: !Text
@@ -71,9 +71,9 @@ data ListApplicationRevisions = ListApplicationRevisions'
 --
 -- * 'larDeployed'
 --
--- * 'larNextToken'
---
 -- * 'larSortOrder'
+--
+-- * 'larNextToken'
 --
 -- * 'larS3Bucket'
 --
@@ -87,8 +87,8 @@ listApplicationRevisions pApplicationName_ =
     ListApplicationRevisions'
     { _larS3KeyPrefix = Nothing
     , _larDeployed = Nothing
-    , _larNextToken = Nothing
     , _larSortOrder = Nothing
+    , _larNextToken = Nothing
     , _larS3Bucket = Nothing
     , _larSortBy = Nothing
     , _larApplicationName = pApplicationName_
@@ -111,12 +111,6 @@ larS3KeyPrefix = lens _larS3KeyPrefix (\ s a -> s{_larS3KeyPrefix = a});
 larDeployed :: Lens' ListApplicationRevisions (Maybe ListStateFilterAction)
 larDeployed = lens _larDeployed (\ s a -> s{_larDeployed = a});
 
--- | An identifier that was returned from the previous list application
--- revisions call, which can be used to return the next set of applications
--- in the list.
-larNextToken :: Lens' ListApplicationRevisions (Maybe Text)
-larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a});
-
 -- | The order to sort the list results by:
 --
 -- -   ascending: Sort the list of results in ascending order.
@@ -127,6 +121,12 @@ larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a});
 -- If set to null, the results will be sorted in an arbitrary order.
 larSortOrder :: Lens' ListApplicationRevisions (Maybe SortOrder)
 larSortOrder = lens _larSortOrder (\ s a -> s{_larSortOrder = a});
+
+-- | An identifier that was returned from the previous list application
+-- revisions call, which can be used to return the next set of applications
+-- in the list.
+larNextToken :: Lens' ListApplicationRevisions (Maybe Text)
+larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a});
 
 -- | A specific Amazon S3 bucket name to limit the search for revisions.
 --
@@ -181,8 +181,8 @@ instance ToJSON ListApplicationRevisions where
               (catMaybes
                  [("s3KeyPrefix" .=) <$> _larS3KeyPrefix,
                   ("deployed" .=) <$> _larDeployed,
-                  ("nextToken" .=) <$> _larNextToken,
                   ("sortOrder" .=) <$> _larSortOrder,
+                  ("nextToken" .=) <$> _larNextToken,
                   ("s3Bucket" .=) <$> _larS3Bucket,
                   ("sortBy" .=) <$> _larSortBy,
                   Just ("applicationName" .= _larApplicationName)])

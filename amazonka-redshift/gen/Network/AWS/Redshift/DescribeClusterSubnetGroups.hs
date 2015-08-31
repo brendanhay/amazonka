@@ -45,8 +45,8 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     , dcsgsTagValues
     , dcsgsTagKeys
     , dcsgsClusterSubnetGroupName
-    , dcsgsMaxRecords
     , dcsgsMarker
+    , dcsgsMaxRecords
 
     -- * Destructuring the Response
     , describeClusterSubnetGroupsResponse
@@ -71,8 +71,8 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'
     { _dcsgsTagValues              :: !(Maybe [Text])
     , _dcsgsTagKeys                :: !(Maybe [Text])
     , _dcsgsClusterSubnetGroupName :: !(Maybe Text)
-    , _dcsgsMaxRecords             :: !(Maybe Int)
     , _dcsgsMarker                 :: !(Maybe Text)
+    , _dcsgsMaxRecords             :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClusterSubnetGroups' with the minimum fields required to make a request.
@@ -85,9 +85,9 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'
 --
 -- * 'dcsgsClusterSubnetGroupName'
 --
--- * 'dcsgsMaxRecords'
---
 -- * 'dcsgsMarker'
+--
+-- * 'dcsgsMaxRecords'
 describeClusterSubnetGroups
     :: DescribeClusterSubnetGroups
 describeClusterSubnetGroups =
@@ -95,8 +95,8 @@ describeClusterSubnetGroups =
     { _dcsgsTagValues = Nothing
     , _dcsgsTagKeys = Nothing
     , _dcsgsClusterSubnetGroupName = Nothing
-    , _dcsgsMaxRecords = Nothing
     , _dcsgsMarker = Nothing
+    , _dcsgsMaxRecords = Nothing
     }
 
 -- | A tag value or values for which you want to return all matching cluster
@@ -122,6 +122,15 @@ dcsgsTagKeys = lens _dcsgsTagKeys (\ s a -> s{_dcsgsTagKeys = a}) . _Default . _
 dcsgsClusterSubnetGroupName :: Lens' DescribeClusterSubnetGroups (Maybe Text)
 dcsgsClusterSubnetGroupName = lens _dcsgsClusterSubnetGroupName (\ s a -> s{_dcsgsClusterSubnetGroupName = a});
 
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterSubnetGroups
+-- request exceed the value specified in 'MaxRecords', AWS returns a value
+-- in the 'Marker' field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the 'Marker'
+-- parameter and retrying the request.
+dcsgsMarker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
+dcsgsMarker = lens _dcsgsMarker (\ s a -> s{_dcsgsMarker = a});
+
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified 'MaxRecords'
 -- value, a value is returned in a 'marker' field of the response. You can
@@ -133,15 +142,6 @@ dcsgsClusterSubnetGroupName = lens _dcsgsClusterSubnetGroupName (\ s a -> s{_dcs
 -- Constraints: minimum 20, maximum 100.
 dcsgsMaxRecords :: Lens' DescribeClusterSubnetGroups (Maybe Int)
 dcsgsMaxRecords = lens _dcsgsMaxRecords (\ s a -> s{_dcsgsMaxRecords = a});
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSubnetGroups
--- request exceed the value specified in 'MaxRecords', AWS returns a value
--- in the 'Marker' field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the 'Marker'
--- parameter and retrying the request.
-dcsgsMarker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
-dcsgsMarker = lens _dcsgsMarker (\ s a -> s{_dcsgsMarker = a});
 
 instance AWSPager DescribeClusterSubnetGroups where
         page rq rs
@@ -182,8 +182,8 @@ instance ToQuery DescribeClusterSubnetGroups where
                  toQuery (toQueryList "TagKey" <$> _dcsgsTagKeys),
                "ClusterSubnetGroupName" =:
                  _dcsgsClusterSubnetGroupName,
-               "MaxRecords" =: _dcsgsMaxRecords,
-               "Marker" =: _dcsgsMarker]
+               "Marker" =: _dcsgsMarker,
+               "MaxRecords" =: _dcsgsMaxRecords]
 
 -- | Contains the output from the DescribeClusterSubnetGroups action.
 --

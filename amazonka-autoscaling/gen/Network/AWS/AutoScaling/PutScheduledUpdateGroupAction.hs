@@ -34,11 +34,11 @@ module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
       putScheduledUpdateGroupAction
     , PutScheduledUpdateGroupAction
     -- * Request Lenses
-    , psugaTime
     , psugaStartTime
+    , psugaTime
     , psugaMaxSize
-    , psugaDesiredCapacity
     , psugaRecurrence
+    , psugaDesiredCapacity
     , psugaMinSize
     , psugaEndTime
     , psugaAutoScalingGroupName
@@ -57,11 +57,11 @@ import           Network.AWS.Response
 
 -- | /See:/ 'putScheduledUpdateGroupAction' smart constructor.
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
-    { _psugaTime                 :: !(Maybe ISO8601)
-    , _psugaStartTime            :: !(Maybe ISO8601)
+    { _psugaStartTime            :: !(Maybe ISO8601)
+    , _psugaTime                 :: !(Maybe ISO8601)
     , _psugaMaxSize              :: !(Maybe Int)
-    , _psugaDesiredCapacity      :: !(Maybe Int)
     , _psugaRecurrence           :: !(Maybe Text)
+    , _psugaDesiredCapacity      :: !(Maybe Int)
     , _psugaMinSize              :: !(Maybe Int)
     , _psugaEndTime              :: !(Maybe ISO8601)
     , _psugaAutoScalingGroupName :: !Text
@@ -72,15 +72,15 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psugaTime'
---
 -- * 'psugaStartTime'
+--
+-- * 'psugaTime'
 --
 -- * 'psugaMaxSize'
 --
--- * 'psugaDesiredCapacity'
---
 -- * 'psugaRecurrence'
+--
+-- * 'psugaDesiredCapacity'
 --
 -- * 'psugaMinSize'
 --
@@ -95,23 +95,16 @@ putScheduledUpdateGroupAction
     -> PutScheduledUpdateGroupAction
 putScheduledUpdateGroupAction pAutoScalingGroupName_ pScheduledActionName_ =
     PutScheduledUpdateGroupAction'
-    { _psugaTime = Nothing
-    , _psugaStartTime = Nothing
+    { _psugaStartTime = Nothing
+    , _psugaTime = Nothing
     , _psugaMaxSize = Nothing
-    , _psugaDesiredCapacity = Nothing
     , _psugaRecurrence = Nothing
+    , _psugaDesiredCapacity = Nothing
     , _psugaMinSize = Nothing
     , _psugaEndTime = Nothing
     , _psugaAutoScalingGroupName = pAutoScalingGroupName_
     , _psugaScheduledActionName = pScheduledActionName_
     }
-
--- | This parameter is deprecated; use 'StartTime' instead.
---
--- The time for this action to start. If both 'Time' and 'StartTime' are
--- specified, their values must be identical.
-psugaTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
-psugaTime = lens _psugaTime (\ s a -> s{_psugaTime = a}) . mapping _Time;
 
 -- | The time for this action to start, in \"YYYY-MM-DDThh:mm:ssZ\" format in
 -- UTC\/GMT only (for example, '2014-06-01T00:00:00Z').
@@ -124,13 +117,16 @@ psugaTime = lens _psugaTime (\ s a -> s{_psugaTime = a}) . mapping _Time;
 psugaStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaStartTime = lens _psugaStartTime (\ s a -> s{_psugaStartTime = a}) . mapping _Time;
 
+-- | This parameter is deprecated; use 'StartTime' instead.
+--
+-- The time for this action to start. If both 'Time' and 'StartTime' are
+-- specified, their values must be identical.
+psugaTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
+psugaTime = lens _psugaTime (\ s a -> s{_psugaTime = a}) . mapping _Time;
+
 -- | The maximum size for the Auto Scaling group.
 psugaMaxSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
 psugaMaxSize = lens _psugaMaxSize (\ s a -> s{_psugaMaxSize = a});
-
--- | The number of EC2 instances that should be running in the group.
-psugaDesiredCapacity :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
-psugaDesiredCapacity = lens _psugaDesiredCapacity (\ s a -> s{_psugaDesiredCapacity = a});
 
 -- | The time when recurring future actions will start. Start time is
 -- specified by the user following the Unix cron syntax format. For more
@@ -140,6 +136,10 @@ psugaDesiredCapacity = lens _psugaDesiredCapacity (\ s a -> s{_psugaDesiredCapac
 -- form the boundaries of when the recurring action will start and stop.
 psugaRecurrence :: Lens' PutScheduledUpdateGroupAction (Maybe Text)
 psugaRecurrence = lens _psugaRecurrence (\ s a -> s{_psugaRecurrence = a});
+
+-- | The number of EC2 instances that should be running in the group.
+psugaDesiredCapacity :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
+psugaDesiredCapacity = lens _psugaDesiredCapacity (\ s a -> s{_psugaDesiredCapacity = a});
 
 -- | The minimum size for the Auto Scaling group.
 psugaMinSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
@@ -178,10 +178,10 @@ instance ToQuery PutScheduledUpdateGroupAction where
               ["Action" =:
                  ("PutScheduledUpdateGroupAction" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "Time" =: _psugaTime, "StartTime" =: _psugaStartTime,
+               "StartTime" =: _psugaStartTime, "Time" =: _psugaTime,
                "MaxSize" =: _psugaMaxSize,
-               "DesiredCapacity" =: _psugaDesiredCapacity,
                "Recurrence" =: _psugaRecurrence,
+               "DesiredCapacity" =: _psugaDesiredCapacity,
                "MinSize" =: _psugaMinSize,
                "EndTime" =: _psugaEndTime,
                "AutoScalingGroupName" =: _psugaAutoScalingGroupName,

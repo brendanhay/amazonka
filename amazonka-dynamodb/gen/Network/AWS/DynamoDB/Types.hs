@@ -21,8 +21,8 @@ module Network.AWS.DynamoDB.Types
     , _ItemCollectionSizeLimitExceededException
     , _InternalServerError
     , _ResourceNotFoundException
-    , _ResourceInUseException
     , _LimitExceededException
+    , _ResourceInUseException
 
     -- * AttributeAction
     , AttributeAction (..)
@@ -73,8 +73,8 @@ module Network.AWS.DynamoDB.Types
     , AttributeValue
     , attributeValue
     , avL
-    , avM
     , avNS
+    , avM
     , avNULL
     , avN
     , avBS
@@ -103,8 +103,8 @@ module Network.AWS.DynamoDB.Types
     -- * ConsumedCapacity
     , ConsumedCapacity
     , consumedCapacity
-    , ccCapacityUnits
     , ccGlobalSecondaryIndexes
+    , ccCapacityUnits
     , ccLocalSecondaryIndexes
     , ccTable
     , ccTableName
@@ -147,9 +147,9 @@ module Network.AWS.DynamoDB.Types
     , GlobalSecondaryIndexDescription
     , globalSecondaryIndexDescription
     , gsidBackfilling
-    , gsidProvisionedThroughput
-    , gsidIndexStatus
     , gsidIndexSizeBytes
+    , gsidIndexStatus
+    , gsidProvisionedThroughput
     , gsidIndexARN
     , gsidKeySchema
     , gsidProjection
@@ -179,9 +179,9 @@ module Network.AWS.DynamoDB.Types
     , KeysAndAttributes
     , keysAndAttributes
     , kaaProjectionExpression
-    , kaaConsistentRead
-    , kaaExpressionAttributeNames
     , kaaAttributesToGet
+    , kaaExpressionAttributeNames
+    , kaaConsistentRead
     , kaaKeys
 
     -- * LocalSecondaryIndex
@@ -230,21 +230,21 @@ module Network.AWS.DynamoDB.Types
     -- * StreamSpecification
     , StreamSpecification
     , streamSpecification
-    , ssStreamEnabled
     , ssStreamViewType
+    , ssStreamEnabled
 
     -- * TableDescription
     , TableDescription
     , tableDescription
-    , tdProvisionedThroughput
+    , tdTableSizeBytes
     , tdAttributeDefinitions
     , tdLatestStreamARN
-    , tdTableSizeBytes
+    , tdProvisionedThroughput
     , tdTableStatus
     , tdTableARN
     , tdKeySchema
-    , tdLatestStreamLabel
     , tdGlobalSecondaryIndexes
+    , tdLatestStreamLabel
     , tdLocalSecondaryIndexes
     , tdCreationDateTime
     , tdItemCount
@@ -260,8 +260,8 @@ module Network.AWS.DynamoDB.Types
     -- * WriteRequest
     , WriteRequest
     , writeRequest
-    , wrPutRequest
     , wrDeleteRequest
+    , wrPutRequest
     ) where
 
 import           Network.AWS.DynamoDB.Types.Product
@@ -336,12 +336,6 @@ _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a Servic
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
--- | The operation conflicts with the resource\'s availability. For example,
--- you attempted to recreate an existing table, or tried to delete a table
--- currently in the 'CREATING' state.
-_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"
-
 -- | The number of concurrent table requests (cumulative number of tables in
 -- the 'CREATING', 'DELETING' or 'UPDATING' state) exceeds the maximum
 -- allowed of 10.
@@ -353,3 +347,9 @@ _ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"
 -- The total limit of tables in the 'ACTIVE' state is 250.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+
+-- | The operation conflicts with the resource\'s availability. For example,
+-- you attempted to recreate an existing table, or tried to delete a table
+-- currently in the 'CREATING' state.
+_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"

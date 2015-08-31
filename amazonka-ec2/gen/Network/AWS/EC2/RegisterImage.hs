@@ -60,9 +60,9 @@ module Network.AWS.EC2.RegisterImage
     , riRootDeviceName
     , riSRIOVNetSupport
     , riArchitecture
+    , riDescription
     , riBlockDeviceMappings
     , riDryRun
-    , riDescription
     , riName
 
     -- * Destructuring the Response
@@ -88,9 +88,9 @@ data RegisterImage = RegisterImage'
     , _riRootDeviceName      :: !(Maybe Text)
     , _riSRIOVNetSupport     :: !(Maybe Text)
     , _riArchitecture        :: !(Maybe ArchitectureValues)
+    , _riDescription         :: !(Maybe Text)
     , _riBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _riDryRun              :: !(Maybe Bool)
-    , _riDescription         :: !(Maybe Text)
     , _riName                :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -112,11 +112,11 @@ data RegisterImage = RegisterImage'
 --
 -- * 'riArchitecture'
 --
+-- * 'riDescription'
+--
 -- * 'riBlockDeviceMappings'
 --
 -- * 'riDryRun'
---
--- * 'riDescription'
 --
 -- * 'riName'
 registerImage
@@ -131,9 +131,9 @@ registerImage pName_ =
     , _riRootDeviceName = Nothing
     , _riSRIOVNetSupport = Nothing
     , _riArchitecture = Nothing
+    , _riDescription = Nothing
     , _riBlockDeviceMappings = Nothing
     , _riDryRun = Nothing
-    , _riDescription = Nothing
     , _riName = pName_
     }
 
@@ -177,6 +177,10 @@ riSRIOVNetSupport = lens _riSRIOVNetSupport (\ s a -> s{_riSRIOVNetSupport = a})
 riArchitecture :: Lens' RegisterImage (Maybe ArchitectureValues)
 riArchitecture = lens _riArchitecture (\ s a -> s{_riArchitecture = a});
 
+-- | A description for your AMI.
+riDescription :: Lens' RegisterImage (Maybe Text)
+riDescription = lens _riDescription (\ s a -> s{_riDescription = a});
+
 -- | One or more block device mapping entries.
 riBlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
 riBlockDeviceMappings = lens _riBlockDeviceMappings (\ s a -> s{_riBlockDeviceMappings = a}) . _Default . _Coerce;
@@ -187,10 +191,6 @@ riBlockDeviceMappings = lens _riBlockDeviceMappings (\ s a -> s{_riBlockDeviceMa
 -- Otherwise, it is 'UnauthorizedOperation'.
 riDryRun :: Lens' RegisterImage (Maybe Bool)
 riDryRun = lens _riDryRun (\ s a -> s{_riDryRun = a});
-
--- | A description for your AMI.
-riDescription :: Lens' RegisterImage (Maybe Text)
-riDescription = lens _riDescription (\ s a -> s{_riDescription = a});
 
 -- | A name for your AMI.
 --
@@ -227,11 +227,11 @@ instance ToQuery RegisterImage where
                "RootDeviceName" =: _riRootDeviceName,
                "SriovNetSupport" =: _riSRIOVNetSupport,
                "Architecture" =: _riArchitecture,
+               "Description" =: _riDescription,
                toQuery
                  (toQueryList "BlockDeviceMapping" <$>
                     _riBlockDeviceMappings),
-               "DryRun" =: _riDryRun,
-               "Description" =: _riDescription, "Name" =: _riName]
+               "DryRun" =: _riDryRun, "Name" =: _riName]
 
 -- | /See:/ 'registerImageResponse' smart constructor.
 data RegisterImageResponse = RegisterImageResponse'

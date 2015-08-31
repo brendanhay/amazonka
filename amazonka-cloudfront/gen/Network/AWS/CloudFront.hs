@@ -38,32 +38,23 @@ module Network.AWS.CloudFront
     -- ** TooManyCacheBehaviors
     , _TooManyCacheBehaviors
 
-    -- ** DistributionNotDisabled
-    , _DistributionNotDisabled
+    -- ** TooManyCloudFrontOriginAccessIdentities
+    , _TooManyCloudFrontOriginAccessIdentities
 
     -- ** InvalidOriginAccessIdentity
     , _InvalidOriginAccessIdentity
 
-    -- ** TooManyCloudFrontOriginAccessIdentities
-    , _TooManyCloudFrontOriginAccessIdentities
-
-    -- ** TooManyStreamingDistributions
-    , _TooManyStreamingDistributions
-
-    -- ** InvalidArgument
-    , _InvalidArgument
-
-    -- ** NoSuchCloudFrontOriginAccessIdentity
-    , _NoSuchCloudFrontOriginAccessIdentity
+    -- ** DistributionNotDisabled
+    , _DistributionNotDisabled
 
     -- ** NoSuchStreamingDistribution
     , _NoSuchStreamingDistribution
 
-    -- ** CloudFrontOriginAccessIdentityInUse
-    , _CloudFrontOriginAccessIdentityInUse
-
     -- ** InconsistentQuantities
     , _InconsistentQuantities
+
+    -- ** InvalidArgument
+    , _InvalidArgument
 
     -- ** TooManyInvalidationsInProgress
     , _TooManyInvalidationsInProgress
@@ -71,59 +62,65 @@ module Network.AWS.CloudFront
     -- ** TooManyDistributionCNAMEs
     , _TooManyDistributionCNAMEs
 
-    -- ** InvalidForwardCookies
-    , _InvalidForwardCookies
+    -- ** NoSuchCloudFrontOriginAccessIdentity
+    , _NoSuchCloudFrontOriginAccessIdentity
 
-    -- ** TooManyCookieNamesInWhiteList
-    , _TooManyCookieNamesInWhiteList
+    -- ** CloudFrontOriginAccessIdentityInUse
+    , _CloudFrontOriginAccessIdentityInUse
+
+    -- ** TooManyStreamingDistributions
+    , _TooManyStreamingDistributions
 
     -- ** BatchTooLarge
     , _BatchTooLarge
 
-    -- ** InvalidOrigin
-    , _InvalidOrigin
+    -- ** TooManyCookieNamesInWhiteList
+    , _TooManyCookieNamesInWhiteList
+
+    -- ** InvalidForwardCookies
+    , _InvalidForwardCookies
 
     -- ** TooManyTrustedSigners
     , _TooManyTrustedSigners
 
-    -- ** NoSuchOrigin
-    , _NoSuchOrigin
+    -- ** InvalidOrigin
+    , _InvalidOrigin
 
     -- ** NoSuchInvalidation
     , _NoSuchInvalidation
 
-    -- ** StreamingDistributionNotDisabled
-    , _StreamingDistributionNotDisabled
+    -- ** NoSuchOrigin
+    , _NoSuchOrigin
 
     -- ** InvalidTTLOrder
     , _InvalidTTLOrder
 
-    -- ** TooManyStreamingDistributionCNAMEs
-    , _TooManyStreamingDistributionCNAMEs
-
-    -- ** TooManyDistributions
-    , _TooManyDistributions
-
-    -- ** InvalidRequiredProtocol
-    , _InvalidRequiredProtocol
+    -- ** StreamingDistributionNotDisabled
+    , _StreamingDistributionNotDisabled
 
     -- ** TooManyHeadersInForwardedValues
     , _TooManyHeadersInForwardedValues
 
+    -- ** TooManyStreamingDistributionCNAMEs
+    , _TooManyStreamingDistributionCNAMEs
+
+    -- ** InvalidRequiredProtocol
+    , _InvalidRequiredProtocol
+
+    -- ** TooManyDistributions
+    , _TooManyDistributions
+
     -- ** TooManyCertificates
     , _TooManyCertificates
-
-    -- ** MissingBody
-    , _MissingBody
 
     -- ** DistributionAlreadyExists
     , _DistributionAlreadyExists
 
+    -- ** MissingBody
+    , _MissingBody
+
     -- ** IllegalUpdate
     , _IllegalUpdate
-
-    -- ** InvalidResponseCode
-    , _InvalidResponseCode
 
     -- ** InvalidIfMatchVersion
     , _InvalidIfMatchVersion
@@ -131,11 +128,8 @@ module Network.AWS.CloudFront
     -- ** PreconditionFailed
     , _PreconditionFailed
 
-    -- ** InvalidProtocolSettings
-    , _InvalidProtocolSettings
-
-    -- ** TrustedSignerDoesNotExist
-    , _TrustedSignerDoesNotExist
+    -- ** InvalidResponseCode
+    , _InvalidResponseCode
 
     -- ** InvalidHeadersForS3Origin
     , _InvalidHeadersForS3Origin
@@ -143,17 +137,23 @@ module Network.AWS.CloudFront
     -- ** CNAMEAlreadyExists
     , _CNAMEAlreadyExists
 
-    -- ** StreamingDistributionAlreadyExists
-    , _StreamingDistributionAlreadyExists
+    -- ** TrustedSignerDoesNotExist
+    , _TrustedSignerDoesNotExist
 
-    -- ** TooManyOrigins
-    , _TooManyOrigins
+    -- ** InvalidProtocolSettings
+    , _InvalidProtocolSettings
 
     -- ** CloudFrontOriginAccessIdentityAlreadyExists
     , _CloudFrontOriginAccessIdentityAlreadyExists
 
+    -- ** TooManyOrigins
+    , _TooManyOrigins
+
     -- ** InvalidRelativePath
     , _InvalidRelativePath
+
+    -- ** StreamingDistributionAlreadyExists
+    , _StreamingDistributionAlreadyExists
 
     -- ** InvalidMinimumProtocolVersion
     , _InvalidMinimumProtocolVersion
@@ -161,20 +161,20 @@ module Network.AWS.CloudFront
     -- ** AccessDenied
     , _AccessDenied
 
-    -- ** NoSuchDistribution
-    , _NoSuchDistribution
-
     -- ** InvalidViewerCertificate
     , _InvalidViewerCertificate
+
+    -- ** NoSuchDistribution
+    , _NoSuchDistribution
 
     -- ** InvalidDefaultRootObject
     , _InvalidDefaultRootObject
 
-    -- ** InvalidLocationCode
-    , _InvalidLocationCode
-
     -- ** InvalidGeoRestrictionParameter
     , _InvalidGeoRestrictionParameter
+
+    -- ** InvalidLocationCode
+    , _InvalidLocationCode
 
     -- * Waiters
     -- $waiters
@@ -197,11 +197,11 @@ module Network.AWS.CloudFront
     -- ** GetDistribution
     , module Network.AWS.CloudFront.GetDistribution
 
-    -- ** DeleteCloudFrontOriginAccessIdentity
-    , module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
-
     -- ** UpdateCloudFrontOriginAccessIdentity
     , module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
+
+    -- ** DeleteCloudFrontOriginAccessIdentity
+    , module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
 
     -- ** ListStreamingDistributions
     , module Network.AWS.CloudFront.ListStreamingDistributions
@@ -227,14 +227,14 @@ module Network.AWS.CloudFront
     -- ** ListInvalidations
     , module Network.AWS.CloudFront.ListInvalidations
 
-    -- ** GetStreamingDistribution
-    , module Network.AWS.CloudFront.GetStreamingDistribution
+    -- ** CreateInvalidation
+    , module Network.AWS.CloudFront.CreateInvalidation
 
     -- ** GetCloudFrontOriginAccessIdentity
     , module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
 
-    -- ** CreateInvalidation
-    , module Network.AWS.CloudFront.CreateInvalidation
+    -- ** GetStreamingDistribution
+    , module Network.AWS.CloudFront.GetStreamingDistribution
 
     -- ** UpdateDistribution
     , module Network.AWS.CloudFront.UpdateDistribution
@@ -407,14 +407,14 @@ module Network.AWS.CloudFront
     -- ** DistributionConfig
     , DistributionConfig
     , distributionConfig
-    , dcDefaultRootObject
     , dcAliases
-    , dcCustomErrorResponses
+    , dcDefaultRootObject
     , dcPriceClass
+    , dcCustomErrorResponses
     , dcViewerCertificate
     , dcRestrictions
-    , dcCacheBehaviors
     , dcLogging
+    , dcCacheBehaviors
     , dcCallerReference
     , dcOrigins
     , dcDefaultCacheBehavior

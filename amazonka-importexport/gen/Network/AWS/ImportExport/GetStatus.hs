@@ -38,8 +38,8 @@ module Network.AWS.ImportExport.GetStatus
     , GetStatusResponse
     -- * Response Lenses
     , gsrsCarrier
-    , gsrsSignature
     , gsrsTrackingNumber
+    , gsrsSignature
     , gsrsJobType
     , gsrsJobId
     , gsrsSignatureFileContents
@@ -51,8 +51,8 @@ module Network.AWS.ImportExport.GetStatus
     , gsrsProgressCode
     , gsrsLocationCode
     , gsrsLogKey
-    , gsrsProgressMessage
     , gsrsLocationMessage
+    , gsrsProgressMessage
     , gsrsStatus
     ) where
 
@@ -101,8 +101,8 @@ instance AWSRequest GetStatus where
           = receiveXMLWrapper "GetStatusResult"
               (\ s h x ->
                  GetStatusResponse' <$>
-                   (x .@? "Carrier") <*> (x .@? "Signature") <*>
-                     (x .@? "TrackingNumber")
+                   (x .@? "Carrier") <*> (x .@? "TrackingNumber") <*>
+                     (x .@? "Signature")
                      <*> (x .@? "JobType")
                      <*> (x .@? "JobId")
                      <*> (x .@? "SignatureFileContents")
@@ -116,8 +116,8 @@ instance AWSRequest GetStatus where
                      <*> (x .@? "ProgressCode")
                      <*> (x .@? "LocationCode")
                      <*> (x .@? "LogKey")
-                     <*> (x .@? "ProgressMessage")
                      <*> (x .@? "LocationMessage")
+                     <*> (x .@? "ProgressMessage")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders GetStatus where
@@ -139,8 +139,8 @@ instance ToQuery GetStatus where
 -- /See:/ 'getStatusResponse' smart constructor.
 data GetStatusResponse = GetStatusResponse'
     { _gsrsCarrier               :: !(Maybe Text)
-    , _gsrsSignature             :: !(Maybe Text)
     , _gsrsTrackingNumber        :: !(Maybe Text)
+    , _gsrsSignature             :: !(Maybe Text)
     , _gsrsJobType               :: !(Maybe JobType)
     , _gsrsJobId                 :: !(Maybe Text)
     , _gsrsSignatureFileContents :: !(Maybe Text)
@@ -152,8 +152,8 @@ data GetStatusResponse = GetStatusResponse'
     , _gsrsProgressCode          :: !(Maybe Text)
     , _gsrsLocationCode          :: !(Maybe Text)
     , _gsrsLogKey                :: !(Maybe Text)
-    , _gsrsProgressMessage       :: !(Maybe Text)
     , _gsrsLocationMessage       :: !(Maybe Text)
+    , _gsrsProgressMessage       :: !(Maybe Text)
     , _gsrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -163,9 +163,9 @@ data GetStatusResponse = GetStatusResponse'
 --
 -- * 'gsrsCarrier'
 --
--- * 'gsrsSignature'
---
 -- * 'gsrsTrackingNumber'
+--
+-- * 'gsrsSignature'
 --
 -- * 'gsrsJobType'
 --
@@ -189,9 +189,9 @@ data GetStatusResponse = GetStatusResponse'
 --
 -- * 'gsrsLogKey'
 --
--- * 'gsrsProgressMessage'
---
 -- * 'gsrsLocationMessage'
+--
+-- * 'gsrsProgressMessage'
 --
 -- * 'gsrsStatus'
 getStatusResponse
@@ -200,8 +200,8 @@ getStatusResponse
 getStatusResponse pStatus_ =
     GetStatusResponse'
     { _gsrsCarrier = Nothing
-    , _gsrsSignature = Nothing
     , _gsrsTrackingNumber = Nothing
+    , _gsrsSignature = Nothing
     , _gsrsJobType = Nothing
     , _gsrsJobId = Nothing
     , _gsrsSignatureFileContents = Nothing
@@ -213,8 +213,8 @@ getStatusResponse pStatus_ =
     , _gsrsProgressCode = Nothing
     , _gsrsLocationCode = Nothing
     , _gsrsLogKey = Nothing
-    , _gsrsProgressMessage = Nothing
     , _gsrsLocationMessage = Nothing
+    , _gsrsProgressMessage = Nothing
     , _gsrsStatus = pStatus_
     }
 
@@ -223,12 +223,12 @@ gsrsCarrier :: Lens' GetStatusResponse (Maybe Text)
 gsrsCarrier = lens _gsrsCarrier (\ s a -> s{_gsrsCarrier = a});
 
 -- | Undocumented member.
-gsrsSignature :: Lens' GetStatusResponse (Maybe Text)
-gsrsSignature = lens _gsrsSignature (\ s a -> s{_gsrsSignature = a});
-
--- | Undocumented member.
 gsrsTrackingNumber :: Lens' GetStatusResponse (Maybe Text)
 gsrsTrackingNumber = lens _gsrsTrackingNumber (\ s a -> s{_gsrsTrackingNumber = a});
+
+-- | Undocumented member.
+gsrsSignature :: Lens' GetStatusResponse (Maybe Text)
+gsrsSignature = lens _gsrsSignature (\ s a -> s{_gsrsSignature = a});
 
 -- | Undocumented member.
 gsrsJobType :: Lens' GetStatusResponse (Maybe JobType)
@@ -275,12 +275,12 @@ gsrsLogKey :: Lens' GetStatusResponse (Maybe Text)
 gsrsLogKey = lens _gsrsLogKey (\ s a -> s{_gsrsLogKey = a});
 
 -- | Undocumented member.
-gsrsProgressMessage :: Lens' GetStatusResponse (Maybe Text)
-gsrsProgressMessage = lens _gsrsProgressMessage (\ s a -> s{_gsrsProgressMessage = a});
-
--- | Undocumented member.
 gsrsLocationMessage :: Lens' GetStatusResponse (Maybe Text)
 gsrsLocationMessage = lens _gsrsLocationMessage (\ s a -> s{_gsrsLocationMessage = a});
+
+-- | Undocumented member.
+gsrsProgressMessage :: Lens' GetStatusResponse (Maybe Text)
+gsrsProgressMessage = lens _gsrsProgressMessage (\ s a -> s{_gsrsProgressMessage = a});
 
 -- | The response status code.
 gsrsStatus :: Lens' GetStatusResponse Int

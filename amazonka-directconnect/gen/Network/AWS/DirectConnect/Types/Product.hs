@@ -28,11 +28,11 @@ data Connection = Connection'
     { _cVlan            :: !(Maybe Int)
     , _cLocation        :: !(Maybe Text)
     , _cConnectionId    :: !(Maybe Text)
-    , _cConnectionName  :: !(Maybe Text)
     , _cPartnerName     :: !(Maybe Text)
+    , _cConnectionName  :: !(Maybe Text)
     , _cBandwidth       :: !(Maybe Text)
-    , _cRegion          :: !(Maybe Text)
     , _cOwnerAccount    :: !(Maybe Text)
+    , _cRegion          :: !(Maybe Text)
     , _cConnectionState :: !(Maybe ConnectionState)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -46,15 +46,15 @@ data Connection = Connection'
 --
 -- * 'cConnectionId'
 --
--- * 'cConnectionName'
---
 -- * 'cPartnerName'
+--
+-- * 'cConnectionName'
 --
 -- * 'cBandwidth'
 --
--- * 'cRegion'
---
 -- * 'cOwnerAccount'
+--
+-- * 'cRegion'
 --
 -- * 'cConnectionState'
 connection
@@ -64,11 +64,11 @@ connection =
     { _cVlan = Nothing
     , _cLocation = Nothing
     , _cConnectionId = Nothing
-    , _cConnectionName = Nothing
     , _cPartnerName = Nothing
+    , _cConnectionName = Nothing
     , _cBandwidth = Nothing
-    , _cRegion = Nothing
     , _cOwnerAccount = Nothing
+    , _cRegion = Nothing
     , _cConnectionState = Nothing
     }
 
@@ -85,12 +85,12 @@ cConnectionId :: Lens' Connection (Maybe Text)
 cConnectionId = lens _cConnectionId (\ s a -> s{_cConnectionId = a});
 
 -- | Undocumented member.
-cConnectionName :: Lens' Connection (Maybe Text)
-cConnectionName = lens _cConnectionName (\ s a -> s{_cConnectionName = a});
-
--- | Undocumented member.
 cPartnerName :: Lens' Connection (Maybe Text)
 cPartnerName = lens _cPartnerName (\ s a -> s{_cPartnerName = a});
+
+-- | Undocumented member.
+cConnectionName :: Lens' Connection (Maybe Text)
+cConnectionName = lens _cConnectionName (\ s a -> s{_cConnectionName = a});
 
 -- | Bandwidth of the connection.
 --
@@ -102,12 +102,12 @@ cBandwidth :: Lens' Connection (Maybe Text)
 cBandwidth = lens _cBandwidth (\ s a -> s{_cBandwidth = a});
 
 -- | Undocumented member.
-cRegion :: Lens' Connection (Maybe Text)
-cRegion = lens _cRegion (\ s a -> s{_cRegion = a});
-
--- | Undocumented member.
 cOwnerAccount :: Lens' Connection (Maybe Text)
 cOwnerAccount = lens _cOwnerAccount (\ s a -> s{_cOwnerAccount = a});
+
+-- | Undocumented member.
+cRegion :: Lens' Connection (Maybe Text)
+cRegion = lens _cRegion (\ s a -> s{_cRegion = a});
 
 -- | Undocumented member.
 cConnectionState :: Lens' Connection (Maybe ConnectionState)
@@ -120,11 +120,11 @@ instance FromJSON Connection where
                  Connection' <$>
                    (x .:? "vlan") <*> (x .:? "location") <*>
                      (x .:? "connectionId")
-                     <*> (x .:? "connectionName")
                      <*> (x .:? "partnerName")
+                     <*> (x .:? "connectionName")
                      <*> (x .:? "bandwidth")
-                     <*> (x .:? "region")
                      <*> (x .:? "ownerAccount")
+                     <*> (x .:? "region")
                      <*> (x .:? "connectionState"))
 
 -- | A structure containing a list of connections.
@@ -172,8 +172,8 @@ instance FromJSON Connections where
 -- /See:/ 'interconnect' smart constructor.
 data Interconnect = Interconnect'
     { _iInterconnectId    :: !(Maybe Text)
-    , _iInterconnectName  :: !(Maybe Text)
     , _iLocation          :: !(Maybe Text)
+    , _iInterconnectName  :: !(Maybe Text)
     , _iBandwidth         :: !(Maybe Text)
     , _iInterconnectState :: !(Maybe InterconnectState)
     , _iRegion            :: !(Maybe Text)
@@ -185,9 +185,9 @@ data Interconnect = Interconnect'
 --
 -- * 'iInterconnectId'
 --
--- * 'iInterconnectName'
---
 -- * 'iLocation'
+--
+-- * 'iInterconnectName'
 --
 -- * 'iBandwidth'
 --
@@ -199,8 +199,8 @@ interconnect
 interconnect =
     Interconnect'
     { _iInterconnectId = Nothing
-    , _iInterconnectName = Nothing
     , _iLocation = Nothing
+    , _iInterconnectName = Nothing
     , _iBandwidth = Nothing
     , _iInterconnectState = Nothing
     , _iRegion = Nothing
@@ -211,12 +211,12 @@ iInterconnectId :: Lens' Interconnect (Maybe Text)
 iInterconnectId = lens _iInterconnectId (\ s a -> s{_iInterconnectId = a});
 
 -- | Undocumented member.
-iInterconnectName :: Lens' Interconnect (Maybe Text)
-iInterconnectName = lens _iInterconnectName (\ s a -> s{_iInterconnectName = a});
-
--- | Undocumented member.
 iLocation :: Lens' Interconnect (Maybe Text)
 iLocation = lens _iLocation (\ s a -> s{_iLocation = a});
+
+-- | Undocumented member.
+iInterconnectName :: Lens' Interconnect (Maybe Text)
+iInterconnectName = lens _iInterconnectName (\ s a -> s{_iInterconnectName = a});
 
 -- | Undocumented member.
 iBandwidth :: Lens' Interconnect (Maybe Text)
@@ -235,9 +235,8 @@ instance FromJSON Interconnect where
           = withObject "Interconnect"
               (\ x ->
                  Interconnect' <$>
-                   (x .:? "interconnectId") <*>
+                   (x .:? "interconnectId") <*> (x .:? "location") <*>
                      (x .:? "interconnectName")
-                     <*> (x .:? "location")
                      <*> (x .:? "bandwidth")
                      <*> (x .:? "interconnectState")
                      <*> (x .:? "region"))
@@ -725,8 +724,8 @@ data VirtualInterface = VirtualInterface'
     , _viAmazonAddress         :: !(Maybe Text)
     , _viVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
     , _viConnectionId          :: !(Maybe Text)
-    , _viAsn                   :: !(Maybe Int)
     , _viVirtualInterfaceType  :: !(Maybe Text)
+    , _viAsn                   :: !(Maybe Int)
     , _viAuthKey               :: !(Maybe Text)
     , _viCustomerRouterConfig  :: !(Maybe Text)
     , _viOwnerAccount          :: !(Maybe Text)
@@ -754,9 +753,9 @@ data VirtualInterface = VirtualInterface'
 --
 -- * 'viConnectionId'
 --
--- * 'viAsn'
---
 -- * 'viVirtualInterfaceType'
+--
+-- * 'viAsn'
 --
 -- * 'viAuthKey'
 --
@@ -779,8 +778,8 @@ virtualInterface =
     , _viAmazonAddress = Nothing
     , _viVirtualInterfaceState = Nothing
     , _viConnectionId = Nothing
-    , _viAsn = Nothing
     , _viVirtualInterfaceType = Nothing
+    , _viAsn = Nothing
     , _viAuthKey = Nothing
     , _viCustomerRouterConfig = Nothing
     , _viOwnerAccount = Nothing
@@ -821,12 +820,12 @@ viConnectionId :: Lens' VirtualInterface (Maybe Text)
 viConnectionId = lens _viConnectionId (\ s a -> s{_viConnectionId = a});
 
 -- | Undocumented member.
-viAsn :: Lens' VirtualInterface (Maybe Int)
-viAsn = lens _viAsn (\ s a -> s{_viAsn = a});
-
--- | Undocumented member.
 viVirtualInterfaceType :: Lens' VirtualInterface (Maybe Text)
 viVirtualInterfaceType = lens _viVirtualInterfaceType (\ s a -> s{_viVirtualInterfaceType = a});
+
+-- | Undocumented member.
+viAsn :: Lens' VirtualInterface (Maybe Int)
+viAsn = lens _viAsn (\ s a -> s{_viAsn = a});
 
 -- | Undocumented member.
 viAuthKey :: Lens' VirtualInterface (Maybe Text)
@@ -861,8 +860,8 @@ instance FromJSON VirtualInterface where
                      <*> (x .:? "amazonAddress")
                      <*> (x .:? "virtualInterfaceState")
                      <*> (x .:? "connectionId")
-                     <*> (x .:? "asn")
                      <*> (x .:? "virtualInterfaceType")
+                     <*> (x .:? "asn")
                      <*> (x .:? "authKey")
                      <*> (x .:? "customerRouterConfig")
                      <*> (x .:? "ownerAccount")

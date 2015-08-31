@@ -55,6 +55,7 @@ module Network.AWS.CloudSearchDomains.Suggest
     -- * Response Lenses
     , srsSuggest
     , srsStatus
+    , srsStatus
     ) where
 
 import           Network.AWS.CloudSearchDomains.Types
@@ -111,7 +112,8 @@ instance AWSRequest Suggest where
           = receiveJSON
               (\ s h x ->
                  SuggestResponse' <$>
-                   (x .?> "suggest") <*> (pure (fromEnum s)))
+                   (x .?> "suggest") <*> (x .?> "status") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders Suggest where
         toHeaders
@@ -134,6 +136,7 @@ instance ToQuery Suggest where
 -- /See:/ 'suggestResponse' smart constructor.
 data SuggestResponse = SuggestResponse'
     { _srsSuggest :: !(Maybe SuggestModel)
+    , _srsStatus  :: !(Maybe SuggestStatus)
     , _srsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -144,18 +147,26 @@ data SuggestResponse = SuggestResponse'
 -- * 'srsSuggest'
 --
 -- * 'srsStatus'
+--
+-- * 'srsStatus'
 suggestResponse
     :: Int -- ^ 'srsStatus'
     -> SuggestResponse
 suggestResponse pStatus_ =
     SuggestResponse'
     { _srsSuggest = Nothing
+    , _srsStatus = Nothing
     , _srsStatus = pStatus_
     }
 
 -- | Container for the matching search suggestion information.
 srsSuggest :: Lens' SuggestResponse (Maybe SuggestModel)
 srsSuggest = lens _srsSuggest (\ s a -> s{_srsSuggest = a});
+
+-- | The status of a 'SuggestRequest'. Contains the resource ID ('rid') and
+-- how long it took to process the request ('timems').
+srsStatus :: Lens' SuggestResponse (Maybe SuggestStatus)
+srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
 
 -- | The response status code.
 srsStatus :: Lens' SuggestResponse Int

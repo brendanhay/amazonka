@@ -40,10 +40,10 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     , casgHealthCheckGracePeriod
     , casgVPCZoneIdentifier
     , casgDefaultCooldown
-    , casgDesiredCapacity
     , casgAvailabilityZones
-    , casgHealthCheckType
+    , casgDesiredCapacity
     , casgLaunchConfigurationName
+    , casgHealthCheckType
     , casgPlacementGroup
     , casgLoadBalancerNames
     , casgTags
@@ -69,10 +69,10 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
     , _casgHealthCheckGracePeriod  :: !(Maybe Int)
     , _casgVPCZoneIdentifier       :: !(Maybe Text)
     , _casgDefaultCooldown         :: !(Maybe Int)
-    , _casgDesiredCapacity         :: !(Maybe Int)
     , _casgAvailabilityZones       :: !(Maybe (List1 Text))
-    , _casgHealthCheckType         :: !(Maybe Text)
+    , _casgDesiredCapacity         :: !(Maybe Int)
     , _casgLaunchConfigurationName :: !(Maybe Text)
+    , _casgHealthCheckType         :: !(Maybe Text)
     , _casgPlacementGroup          :: !(Maybe Text)
     , _casgLoadBalancerNames       :: !(Maybe [Text])
     , _casgTags                    :: !(Maybe [Tag])
@@ -95,13 +95,13 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
 --
 -- * 'casgDefaultCooldown'
 --
--- * 'casgDesiredCapacity'
---
 -- * 'casgAvailabilityZones'
 --
--- * 'casgHealthCheckType'
+-- * 'casgDesiredCapacity'
 --
 -- * 'casgLaunchConfigurationName'
+--
+-- * 'casgHealthCheckType'
 --
 -- * 'casgPlacementGroup'
 --
@@ -126,10 +126,10 @@ createAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ =
     , _casgHealthCheckGracePeriod = Nothing
     , _casgVPCZoneIdentifier = Nothing
     , _casgDefaultCooldown = Nothing
-    , _casgDesiredCapacity = Nothing
     , _casgAvailabilityZones = Nothing
-    , _casgHealthCheckType = Nothing
+    , _casgDesiredCapacity = Nothing
     , _casgLaunchConfigurationName = Nothing
+    , _casgHealthCheckType = Nothing
     , _casgPlacementGroup = Nothing
     , _casgLoadBalancerNames = Nothing
     , _casgTags = Nothing
@@ -202,16 +202,22 @@ casgVPCZoneIdentifier = lens _casgVPCZoneIdentifier (\ s a -> s{_casgVPCZoneIden
 casgDefaultCooldown :: Lens' CreateAutoScalingGroup (Maybe Int)
 casgDefaultCooldown = lens _casgDefaultCooldown (\ s a -> s{_casgDefaultCooldown = a});
 
+-- | One or more Availability Zones for the group. This parameter is optional
+-- if you specify subnets using the 'VPCZoneIdentifier' parameter.
+casgAvailabilityZones :: Lens' CreateAutoScalingGroup (Maybe (NonEmpty Text))
+casgAvailabilityZones = lens _casgAvailabilityZones (\ s a -> s{_casgAvailabilityZones = a}) . mapping _List1;
+
 -- | The number of EC2 instances that should be running in the group. This
 -- number must be greater than or equal to the minimum size of the group
 -- and less than or equal to the maximum size of the group.
 casgDesiredCapacity :: Lens' CreateAutoScalingGroup (Maybe Int)
 casgDesiredCapacity = lens _casgDesiredCapacity (\ s a -> s{_casgDesiredCapacity = a});
 
--- | One or more Availability Zones for the group. This parameter is optional
--- if you specify subnets using the 'VPCZoneIdentifier' parameter.
-casgAvailabilityZones :: Lens' CreateAutoScalingGroup (Maybe (NonEmpty Text))
-casgAvailabilityZones = lens _casgAvailabilityZones (\ s a -> s{_casgAvailabilityZones = a}) . mapping _List1;
+-- | The name of the launch configuration. Alternatively, use the
+-- 'InstanceId' parameter to specify an EC2 instance instead of a launch
+-- configuration.
+casgLaunchConfigurationName :: Lens' CreateAutoScalingGroup (Maybe Text)
+casgLaunchConfigurationName = lens _casgLaunchConfigurationName (\ s a -> s{_casgLaunchConfigurationName = a});
 
 -- | The service to use for the health checks. The valid values are 'EC2' and
 -- 'ELB'.
@@ -221,12 +227,6 @@ casgAvailabilityZones = lens _casgAvailabilityZones (\ s a -> s{_casgAvailabilit
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks>.
 casgHealthCheckType :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgHealthCheckType = lens _casgHealthCheckType (\ s a -> s{_casgHealthCheckType = a});
-
--- | The name of the launch configuration. Alternatively, use the
--- 'InstanceId' parameter to specify an EC2 instance instead of a launch
--- configuration.
-casgLaunchConfigurationName :: Lens' CreateAutoScalingGroup (Maybe Text)
-casgLaunchConfigurationName = lens _casgLaunchConfigurationName (\ s a -> s{_casgLaunchConfigurationName = a});
 
 -- | The name of the placement group into which you\'ll launch your
 -- instances, if any. For more information, see
@@ -294,13 +294,13 @@ instance ToQuery CreateAutoScalingGroup where
                  _casgHealthCheckGracePeriod,
                "VPCZoneIdentifier" =: _casgVPCZoneIdentifier,
                "DefaultCooldown" =: _casgDefaultCooldown,
-               "DesiredCapacity" =: _casgDesiredCapacity,
                "AvailabilityZones" =:
                  toQuery
                    (toQueryList "member" <$> _casgAvailabilityZones),
-               "HealthCheckType" =: _casgHealthCheckType,
+               "DesiredCapacity" =: _casgDesiredCapacity,
                "LaunchConfigurationName" =:
                  _casgLaunchConfigurationName,
+               "HealthCheckType" =: _casgHealthCheckType,
                "PlacementGroup" =: _casgPlacementGroup,
                "LoadBalancerNames" =:
                  toQuery

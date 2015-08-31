@@ -26,11 +26,11 @@ module Network.AWS.WorkSpaces
     -- * Errors
     -- $errors
 
-    -- ** InvalidParameterValuesException
-    , _InvalidParameterValuesException
-
     -- ** ResourceUnavailableException
     , _ResourceUnavailableException
+
+    -- ** InvalidParameterValuesException
+    , _InvalidParameterValuesException
 
     -- ** ResourceLimitExceededException
     , _ResourceLimitExceededException
@@ -128,8 +128,8 @@ module Network.AWS.WorkSpaces
     , Workspace
     , workspace
     , wDirectoryId
-    , wIPAddress
     , wState
+    , wIPAddress
     , wUserName
     , wSubnetId
     , wBundleId
@@ -140,8 +140,8 @@ module Network.AWS.WorkSpaces
     -- ** WorkspaceBundle
     , WorkspaceBundle
     , workspaceBundle
-    , wbOwner
     , wbBundleId
+    , wbOwner
     , wbName
     , wbComputeType
     , wbUserStorage
@@ -157,8 +157,8 @@ module Network.AWS.WorkSpaces
     , wdCustomerUserName
     , wdSubnetIds
     , wdAlias
-    , wdDirectoryType
     , wdWorkspaceSecurityGroupId
+    , wdDirectoryType
     , wdWorkspaceCreationProperties
     , wdDNSIPAddresses
     , wdDirectoryName

@@ -31,8 +31,8 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     , DescribeEngineDefaultParameters
     -- * Request Lenses
     , dedpFilters
-    , dedpMaxRecords
     , dedpMarker
+    , dedpMaxRecords
     , dedpDBParameterGroupFamily
 
     -- * Destructuring the Response
@@ -55,8 +55,8 @@ import           Network.AWS.Response
 -- /See:/ 'describeEngineDefaultParameters' smart constructor.
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
     { _dedpFilters                :: !(Maybe [Filter])
-    , _dedpMaxRecords             :: !(Maybe Int)
     , _dedpMarker                 :: !(Maybe Text)
+    , _dedpMaxRecords             :: !(Maybe Int)
     , _dedpDBParameterGroupFamily :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -66,9 +66,9 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 --
 -- * 'dedpFilters'
 --
--- * 'dedpMaxRecords'
---
 -- * 'dedpMarker'
+--
+-- * 'dedpMaxRecords'
 --
 -- * 'dedpDBParameterGroupFamily'
 describeEngineDefaultParameters
@@ -77,14 +77,21 @@ describeEngineDefaultParameters
 describeEngineDefaultParameters pDBParameterGroupFamily_ =
     DescribeEngineDefaultParameters'
     { _dedpFilters = Nothing
-    , _dedpMaxRecords = Nothing
     , _dedpMarker = Nothing
+    , _dedpMaxRecords = Nothing
     , _dedpDBParameterGroupFamily = pDBParameterGroupFamily_
     }
 
 -- | Not currently supported.
 dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
 dedpFilters = lens _dedpFilters (\ s a -> s{_dedpFilters = a}) . _Default . _Coerce;
+
+-- | An optional pagination token provided by a previous
+-- 'DescribeEngineDefaultParameters' request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by 'MaxRecords'.
+dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
+dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a pagination token
@@ -96,13 +103,6 @@ dedpFilters = lens _dedpFilters (\ s a -> s{_dedpFilters = a}) . _Default . _Coe
 -- Constraints: Minimum 20, maximum 100.
 dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
 dedpMaxRecords = lens _dedpMaxRecords (\ s a -> s{_dedpMaxRecords = a});
-
--- | An optional pagination token provided by a previous
--- 'DescribeEngineDefaultParameters' request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by 'MaxRecords'.
-dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
-dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 
 -- | The name of the DB parameter group family.
 dedpDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
@@ -149,8 +149,8 @@ instance ToQuery DescribeEngineDefaultParameters
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
                  toQuery (toQueryList "Filter" <$> _dedpFilters),
-               "MaxRecords" =: _dedpMaxRecords,
                "Marker" =: _dedpMarker,
+               "MaxRecords" =: _dedpMaxRecords,
                "DBParameterGroupFamily" =:
                  _dedpDBParameterGroupFamily]
 

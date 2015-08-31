@@ -32,8 +32,8 @@ module Network.AWS.EC2.DescribeReservedInstances
     , DescribeReservedInstances
     -- * Request Lenses
     , driFilters
-    , driOfferingType
     , driReservedInstancesIds
+    , driOfferingType
     , driDryRun
 
     -- * Destructuring the Response
@@ -53,8 +53,8 @@ import           Network.AWS.Response
 -- | /See:/ 'describeReservedInstances' smart constructor.
 data DescribeReservedInstances = DescribeReservedInstances'
     { _driFilters              :: !(Maybe [Filter])
-    , _driOfferingType         :: !(Maybe OfferingTypeValues)
     , _driReservedInstancesIds :: !(Maybe [Text])
+    , _driOfferingType         :: !(Maybe OfferingTypeValues)
     , _driDryRun               :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -64,9 +64,9 @@ data DescribeReservedInstances = DescribeReservedInstances'
 --
 -- * 'driFilters'
 --
--- * 'driOfferingType'
---
 -- * 'driReservedInstancesIds'
+--
+-- * 'driOfferingType'
 --
 -- * 'driDryRun'
 describeReservedInstances
@@ -74,8 +74,8 @@ describeReservedInstances
 describeReservedInstances =
     DescribeReservedInstances'
     { _driFilters = Nothing
-    , _driOfferingType = Nothing
     , _driReservedInstancesIds = Nothing
+    , _driOfferingType = Nothing
     , _driDryRun = Nothing
     }
 
@@ -138,18 +138,18 @@ describeReservedInstances =
 driFilters :: Lens' DescribeReservedInstances [Filter]
 driFilters = lens _driFilters (\ s a -> s{_driFilters = a}) . _Default . _Coerce;
 
--- | The Reserved Instance offering type. If you are using tools that predate
--- the 2011-11-01 API version, you only have access to the
--- 'Medium Utilization' Reserved Instance offering type.
-driOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
-driOfferingType = lens _driOfferingType (\ s a -> s{_driOfferingType = a});
-
 -- | One or more Reserved Instance IDs.
 --
 -- Default: Describes all your Reserved Instances, or only those otherwise
 -- specified.
 driReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
 driReservedInstancesIds = lens _driReservedInstancesIds (\ s a -> s{_driReservedInstancesIds = a}) . _Default . _Coerce;
+
+-- | The Reserved Instance offering type. If you are using tools that predate
+-- the 2011-11-01 API version, you only have access to the
+-- 'Medium Utilization' Reserved Instance offering type.
+driOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
+driOfferingType = lens _driOfferingType (\ s a -> s{_driOfferingType = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -183,10 +183,10 @@ instance ToQuery DescribeReservedInstances where
                  ("DescribeReservedInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _driFilters),
-               "OfferingType" =: _driOfferingType,
                toQuery
                  (toQueryList "ReservedInstancesId" <$>
                     _driReservedInstancesIds),
+               "OfferingType" =: _driOfferingType,
                "DryRun" =: _driDryRun]
 
 -- | /See:/ 'describeReservedInstancesResponse' smart constructor.

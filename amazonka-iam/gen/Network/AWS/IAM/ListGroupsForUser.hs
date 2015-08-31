@@ -32,8 +32,8 @@ module Network.AWS.IAM.ListGroupsForUser
       listGroupsForUser
     , ListGroupsForUser
     -- * Request Lenses
-    , lgfuMaxItems
     , lgfuMarker
+    , lgfuMaxItems
     , lgfuUserName
 
     -- * Destructuring the Response
@@ -55,8 +55,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'listGroupsForUser' smart constructor.
 data ListGroupsForUser = ListGroupsForUser'
-    { _lgfuMaxItems :: !(Maybe Nat)
-    , _lgfuMarker   :: !(Maybe Text)
+    { _lgfuMarker   :: !(Maybe Text)
+    , _lgfuMaxItems :: !(Maybe Nat)
     , _lgfuUserName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -64,9 +64,9 @@ data ListGroupsForUser = ListGroupsForUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgfuMaxItems'
---
 -- * 'lgfuMarker'
+--
+-- * 'lgfuMaxItems'
 --
 -- * 'lgfuUserName'
 listGroupsForUser
@@ -74,10 +74,16 @@ listGroupsForUser
     -> ListGroupsForUser
 listGroupsForUser pUserName_ =
     ListGroupsForUser'
-    { _lgfuMaxItems = Nothing
-    , _lgfuMarker = Nothing
+    { _lgfuMarker = Nothing
+    , _lgfuMaxItems = Nothing
     , _lgfuUserName = pUserName_
     }
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lgfuMarker :: Lens' ListGroupsForUser (Maybe Text)
+lgfuMarker = lens _lgfuMarker (\ s a -> s{_lgfuMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -87,12 +93,6 @@ listGroupsForUser pUserName_ =
 -- 100.
 lgfuMaxItems :: Lens' ListGroupsForUser (Maybe Natural)
 lgfuMaxItems = lens _lgfuMaxItems (\ s a -> s{_lgfuMaxItems = a}) . mapping _Nat;
-
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lgfuMarker :: Lens' ListGroupsForUser (Maybe Text)
-lgfuMarker = lens _lgfuMarker (\ s a -> s{_lgfuMarker = a});
 
 -- | The name of the user to list groups for.
 lgfuUserName :: Lens' ListGroupsForUser Text
@@ -129,7 +129,7 @@ instance ToQuery ListGroupsForUser where
           = mconcat
               ["Action" =: ("ListGroupsForUser" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _lgfuMaxItems, "Marker" =: _lgfuMarker,
+               "Marker" =: _lgfuMarker, "MaxItems" =: _lgfuMaxItems,
                "UserName" =: _lgfuUserName]
 
 -- | Contains the response to a successful ListGroupsForUser request.

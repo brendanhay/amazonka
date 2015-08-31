@@ -34,8 +34,8 @@ module Network.AWS.EC2.ImportImage
     , impLicenseType
     , impRoleName
     , impArchitecture
-    , impDryRun
     , impDescription
+    , impDryRun
     , impClientData
     , impDiskContainers
 
@@ -70,8 +70,8 @@ data ImportImage = ImportImage'
     , _impLicenseType    :: !(Maybe Text)
     , _impRoleName       :: !(Maybe Text)
     , _impArchitecture   :: !(Maybe Text)
-    , _impDryRun         :: !(Maybe Bool)
     , _impDescription    :: !(Maybe Text)
+    , _impDryRun         :: !(Maybe Bool)
     , _impClientData     :: !(Maybe ClientData)
     , _impDiskContainers :: !(Maybe [ImageDiskContainer])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -92,9 +92,9 @@ data ImportImage = ImportImage'
 --
 -- * 'impArchitecture'
 --
--- * 'impDryRun'
---
 -- * 'impDescription'
+--
+-- * 'impDryRun'
 --
 -- * 'impClientData'
 --
@@ -109,8 +109,8 @@ importImage =
     , _impLicenseType = Nothing
     , _impRoleName = Nothing
     , _impArchitecture = Nothing
-    , _impDryRun = Nothing
     , _impDescription = Nothing
+    , _impDryRun = Nothing
     , _impClientData = Nothing
     , _impDiskContainers = Nothing
     }
@@ -155,16 +155,16 @@ impRoleName = lens _impRoleName (\ s a -> s{_impRoleName = a});
 impArchitecture :: Lens' ImportImage (Maybe Text)
 impArchitecture = lens _impArchitecture (\ s a -> s{_impArchitecture = a});
 
+-- | A description string for the import image task.
+impDescription :: Lens' ImportImage (Maybe Text)
+impDescription = lens _impDescription (\ s a -> s{_impDescription = a});
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is 'DryRunOperation'.
 -- Otherwise, it is 'UnauthorizedOperation'.
 impDryRun :: Lens' ImportImage (Maybe Bool)
 impDryRun = lens _impDryRun (\ s a -> s{_impDryRun = a});
-
--- | A description string for the import image task.
-impDescription :: Lens' ImportImage (Maybe Text)
-impDescription = lens _impDescription (\ s a -> s{_impDescription = a});
 
 -- | The client-specific data.
 impClientData :: Lens' ImportImage (Maybe ClientData)
@@ -211,8 +211,8 @@ instance ToQuery ImportImage where
                "LicenseType" =: _impLicenseType,
                "RoleName" =: _impRoleName,
                "Architecture" =: _impArchitecture,
-               "DryRun" =: _impDryRun,
                "Description" =: _impDescription,
+               "DryRun" =: _impDryRun,
                "ClientData" =: _impClientData,
                toQuery
                  (toQueryList "DiskContainer" <$> _impDiskContainers)]

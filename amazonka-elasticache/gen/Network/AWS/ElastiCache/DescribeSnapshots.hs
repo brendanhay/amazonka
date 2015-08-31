@@ -33,8 +33,8 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     , DescribeSnapshots
     -- * Request Lenses
     , dsCacheClusterId
-    , dsMaxRecords
     , dsMarker
+    , dsMaxRecords
     , dsSnapshotName
     , dsSnapshotSource
 
@@ -59,8 +59,8 @@ import           Network.AWS.Response
 -- /See:/ 'describeSnapshots' smart constructor.
 data DescribeSnapshots = DescribeSnapshots'
     { _dsCacheClusterId :: !(Maybe Text)
-    , _dsMaxRecords     :: !(Maybe Int)
     , _dsMarker         :: !(Maybe Text)
+    , _dsMaxRecords     :: !(Maybe Int)
     , _dsSnapshotName   :: !(Maybe Text)
     , _dsSnapshotSource :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -71,9 +71,9 @@ data DescribeSnapshots = DescribeSnapshots'
 --
 -- * 'dsCacheClusterId'
 --
--- * 'dsMaxRecords'
---
 -- * 'dsMarker'
+--
+-- * 'dsMaxRecords'
 --
 -- * 'dsSnapshotName'
 --
@@ -83,8 +83,8 @@ describeSnapshots
 describeSnapshots =
     DescribeSnapshots'
     { _dsCacheClusterId = Nothing
-    , _dsMaxRecords = Nothing
     , _dsMarker = Nothing
+    , _dsMaxRecords = Nothing
     , _dsSnapshotName = Nothing
     , _dsSnapshotSource = Nothing
     }
@@ -93,6 +93,13 @@ describeSnapshots =
 -- snapshots associated with that specific cache cluster will be described.
 dsCacheClusterId :: Lens' DescribeSnapshots (Maybe Text)
 dsCacheClusterId = lens _dsCacheClusterId (\ s a -> s{_dsCacheClusterId = a});
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+dsMarker :: Lens' DescribeSnapshots (Maybe Text)
+dsMarker = lens _dsMarker (\ s a -> s{_dsMarker = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a marker is
@@ -103,13 +110,6 @@ dsCacheClusterId = lens _dsCacheClusterId (\ s a -> s{_dsCacheClusterId = a});
 -- Constraints: minimum 20; maximum 50.
 dsMaxRecords :: Lens' DescribeSnapshots (Maybe Int)
 dsMaxRecords = lens _dsMaxRecords (\ s a -> s{_dsMaxRecords = a});
-
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
-dsMarker :: Lens' DescribeSnapshots (Maybe Text)
-dsMarker = lens _dsMarker (\ s a -> s{_dsMarker = a});
 
 -- | A user-supplied name of the snapshot. If this parameter is specified,
 -- only this snapshot will be described.
@@ -154,7 +154,7 @@ instance ToQuery DescribeSnapshots where
               ["Action" =: ("DescribeSnapshots" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheClusterId" =: _dsCacheClusterId,
-               "MaxRecords" =: _dsMaxRecords, "Marker" =: _dsMarker,
+               "Marker" =: _dsMarker, "MaxRecords" =: _dsMaxRecords,
                "SnapshotName" =: _dsSnapshotName,
                "SnapshotSource" =: _dsSnapshotSource]
 

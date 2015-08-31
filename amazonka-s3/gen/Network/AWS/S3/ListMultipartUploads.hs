@@ -32,8 +32,8 @@ module Network.AWS.S3.ListMultipartUploads
     , lmuKeyMarker
     , lmuPrefix
     , lmuEncodingType
-    , lmuMaxUploads
     , lmuUploadIdMarker
+    , lmuMaxUploads
     , lmuDelimiter
     , lmuBucket
 
@@ -43,11 +43,11 @@ module Network.AWS.S3.ListMultipartUploads
     -- * Response Lenses
     , lmursKeyMarker
     , lmursPrefix
-    , lmursEncodingType
     , lmursCommonPrefixes
+    , lmursEncodingType
     , lmursBucket
-    , lmursMaxUploads
     , lmursUploadIdMarker
+    , lmursMaxUploads
     , lmursNextKeyMarker
     , lmursUploads
     , lmursIsTruncated
@@ -68,8 +68,8 @@ data ListMultipartUploads = ListMultipartUploads'
     { _lmuKeyMarker      :: !(Maybe Text)
     , _lmuPrefix         :: !(Maybe Text)
     , _lmuEncodingType   :: !(Maybe EncodingType)
-    , _lmuMaxUploads     :: !(Maybe Int)
     , _lmuUploadIdMarker :: !(Maybe Text)
+    , _lmuMaxUploads     :: !(Maybe Int)
     , _lmuDelimiter      :: !(Maybe Delimiter)
     , _lmuBucket         :: !BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -84,9 +84,9 @@ data ListMultipartUploads = ListMultipartUploads'
 --
 -- * 'lmuEncodingType'
 --
--- * 'lmuMaxUploads'
---
 -- * 'lmuUploadIdMarker'
+--
+-- * 'lmuMaxUploads'
 --
 -- * 'lmuDelimiter'
 --
@@ -99,8 +99,8 @@ listMultipartUploads pBucket_ =
     { _lmuKeyMarker = Nothing
     , _lmuPrefix = Nothing
     , _lmuEncodingType = Nothing
-    , _lmuMaxUploads = Nothing
     , _lmuUploadIdMarker = Nothing
+    , _lmuMaxUploads = Nothing
     , _lmuDelimiter = Nothing
     , _lmuBucket = pBucket_
     }
@@ -119,17 +119,17 @@ lmuPrefix = lens _lmuPrefix (\ s a -> s{_lmuPrefix = a});
 lmuEncodingType :: Lens' ListMultipartUploads (Maybe EncodingType)
 lmuEncodingType = lens _lmuEncodingType (\ s a -> s{_lmuEncodingType = a});
 
--- | Sets the maximum number of multipart uploads, from 1 to 1,000, to return
--- in the response body. 1,000 is the maximum number of uploads that can be
--- returned in a response.
-lmuMaxUploads :: Lens' ListMultipartUploads (Maybe Int)
-lmuMaxUploads = lens _lmuMaxUploads (\ s a -> s{_lmuMaxUploads = a});
-
 -- | Together with key-marker, specifies the multipart upload after which
 -- listing should begin. If key-marker is not specified, the
 -- upload-id-marker parameter is ignored.
 lmuUploadIdMarker :: Lens' ListMultipartUploads (Maybe Text)
 lmuUploadIdMarker = lens _lmuUploadIdMarker (\ s a -> s{_lmuUploadIdMarker = a});
+
+-- | Sets the maximum number of multipart uploads, from 1 to 1,000, to return
+-- in the response body. 1,000 is the maximum number of uploads that can be
+-- returned in a response.
+lmuMaxUploads :: Lens' ListMultipartUploads (Maybe Int)
+lmuMaxUploads = lens _lmuMaxUploads (\ s a -> s{_lmuMaxUploads = a});
 
 -- | Character you use to group keys.
 lmuDelimiter :: Lens' ListMultipartUploads (Maybe Delimiter)
@@ -158,11 +158,11 @@ instance AWSRequest ListMultipartUploads where
               (\ s h x ->
                  ListMultipartUploadsResponse' <$>
                    (x .@? "KeyMarker") <*> (x .@? "Prefix") <*>
-                     (x .@? "EncodingType")
-                     <*> (may (parseXMLList "CommonPrefixes") x)
+                     (may (parseXMLList "CommonPrefixes") x)
+                     <*> (x .@? "EncodingType")
                      <*> (x .@? "Bucket")
-                     <*> (x .@? "MaxUploads")
                      <*> (x .@? "UploadIdMarker")
+                     <*> (x .@? "MaxUploads")
                      <*> (x .@? "NextKeyMarker")
                      <*> (may (parseXMLList "Upload") x)
                      <*> (x .@? "IsTruncated")
@@ -183,19 +183,19 @@ instance ToQuery ListMultipartUploads where
               ["key-marker" =: _lmuKeyMarker,
                "prefix" =: _lmuPrefix,
                "encoding-type" =: _lmuEncodingType,
-               "max-uploads" =: _lmuMaxUploads,
                "upload-id-marker" =: _lmuUploadIdMarker,
+               "max-uploads" =: _lmuMaxUploads,
                "delimiter" =: _lmuDelimiter, "uploads"]
 
 -- | /See:/ 'listMultipartUploadsResponse' smart constructor.
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
     { _lmursKeyMarker          :: !(Maybe Text)
     , _lmursPrefix             :: !(Maybe Text)
-    , _lmursEncodingType       :: !(Maybe EncodingType)
     , _lmursCommonPrefixes     :: !(Maybe [CommonPrefix])
+    , _lmursEncodingType       :: !(Maybe EncodingType)
     , _lmursBucket             :: !(Maybe BucketName)
-    , _lmursMaxUploads         :: !(Maybe Int)
     , _lmursUploadIdMarker     :: !(Maybe Text)
+    , _lmursMaxUploads         :: !(Maybe Int)
     , _lmursNextKeyMarker      :: !(Maybe Text)
     , _lmursUploads            :: !(Maybe [MultipartUpload])
     , _lmursIsTruncated        :: !(Maybe Bool)
@@ -212,15 +212,15 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
 --
 -- * 'lmursPrefix'
 --
--- * 'lmursEncodingType'
---
 -- * 'lmursCommonPrefixes'
+--
+-- * 'lmursEncodingType'
 --
 -- * 'lmursBucket'
 --
--- * 'lmursMaxUploads'
---
 -- * 'lmursUploadIdMarker'
+--
+-- * 'lmursMaxUploads'
 --
 -- * 'lmursNextKeyMarker'
 --
@@ -240,11 +240,11 @@ listMultipartUploadsResponse pStatus_ =
     ListMultipartUploadsResponse'
     { _lmursKeyMarker = Nothing
     , _lmursPrefix = Nothing
-    , _lmursEncodingType = Nothing
     , _lmursCommonPrefixes = Nothing
+    , _lmursEncodingType = Nothing
     , _lmursBucket = Nothing
-    , _lmursMaxUploads = Nothing
     , _lmursUploadIdMarker = Nothing
+    , _lmursMaxUploads = Nothing
     , _lmursNextKeyMarker = Nothing
     , _lmursUploads = Nothing
     , _lmursIsTruncated = Nothing
@@ -263,26 +263,26 @@ lmursKeyMarker = lens _lmursKeyMarker (\ s a -> s{_lmursKeyMarker = a});
 lmursPrefix :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursPrefix = lens _lmursPrefix (\ s a -> s{_lmursPrefix = a});
 
--- | Encoding type used by Amazon S3 to encode object keys in the response.
-lmursEncodingType :: Lens' ListMultipartUploadsResponse (Maybe EncodingType)
-lmursEncodingType = lens _lmursEncodingType (\ s a -> s{_lmursEncodingType = a});
-
 -- | Undocumented member.
 lmursCommonPrefixes :: Lens' ListMultipartUploadsResponse [CommonPrefix]
 lmursCommonPrefixes = lens _lmursCommonPrefixes (\ s a -> s{_lmursCommonPrefixes = a}) . _Default . _Coerce;
+
+-- | Encoding type used by Amazon S3 to encode object keys in the response.
+lmursEncodingType :: Lens' ListMultipartUploadsResponse (Maybe EncodingType)
+lmursEncodingType = lens _lmursEncodingType (\ s a -> s{_lmursEncodingType = a});
 
 -- | Name of the bucket to which the multipart upload was initiated.
 lmursBucket :: Lens' ListMultipartUploadsResponse (Maybe BucketName)
 lmursBucket = lens _lmursBucket (\ s a -> s{_lmursBucket = a});
 
+-- | Upload ID after which listing began.
+lmursUploadIdMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
+lmursUploadIdMarker = lens _lmursUploadIdMarker (\ s a -> s{_lmursUploadIdMarker = a});
+
 -- | Maximum number of multipart uploads that could have been included in the
 -- response.
 lmursMaxUploads :: Lens' ListMultipartUploadsResponse (Maybe Int)
 lmursMaxUploads = lens _lmursMaxUploads (\ s a -> s{_lmursMaxUploads = a});
-
--- | Upload ID after which listing began.
-lmursUploadIdMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
-lmursUploadIdMarker = lens _lmursUploadIdMarker (\ s a -> s{_lmursUploadIdMarker = a});
 
 -- | When a list is truncated, this element specifies the value that should
 -- be used for the key-marker request parameter in a subsequent request.

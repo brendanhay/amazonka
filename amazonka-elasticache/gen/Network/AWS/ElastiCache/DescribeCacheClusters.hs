@@ -53,8 +53,8 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     , DescribeCacheClusters
     -- * Request Lenses
     , dCacheClusterId
-    , dMaxRecords
     , dMarker
+    , dMaxRecords
     , dShowCacheNodeInfo
 
     -- * Destructuring the Response
@@ -78,8 +78,8 @@ import           Network.AWS.Response
 -- /See:/ 'describeCacheClusters' smart constructor.
 data DescribeCacheClusters = DescribeCacheClusters'
     { _dCacheClusterId    :: !(Maybe Text)
-    , _dMaxRecords        :: !(Maybe Int)
     , _dMarker            :: !(Maybe Text)
+    , _dMaxRecords        :: !(Maybe Int)
     , _dShowCacheNodeInfo :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -89,9 +89,9 @@ data DescribeCacheClusters = DescribeCacheClusters'
 --
 -- * 'dCacheClusterId'
 --
--- * 'dMaxRecords'
---
 -- * 'dMarker'
+--
+-- * 'dMaxRecords'
 --
 -- * 'dShowCacheNodeInfo'
 describeCacheClusters
@@ -99,8 +99,8 @@ describeCacheClusters
 describeCacheClusters =
     DescribeCacheClusters'
     { _dCacheClusterId = Nothing
-    , _dMaxRecords = Nothing
     , _dMarker = Nothing
+    , _dMaxRecords = Nothing
     , _dShowCacheNodeInfo = Nothing
     }
 
@@ -109,6 +109,13 @@ describeCacheClusters =
 -- parameter isn\'t case sensitive.
 dCacheClusterId :: Lens' DescribeCacheClusters (Maybe Text)
 dCacheClusterId = lens _dCacheClusterId (\ s a -> s{_dCacheClusterId = a});
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+dMarker :: Lens' DescribeCacheClusters (Maybe Text)
+dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a marker is
@@ -119,13 +126,6 @@ dCacheClusterId = lens _dCacheClusterId (\ s a -> s{_dCacheClusterId = a});
 -- Constraints: minimum 20; maximum 100.
 dMaxRecords :: Lens' DescribeCacheClusters (Maybe Int)
 dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
-
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
-dMarker :: Lens' DescribeCacheClusters (Maybe Text)
-dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
 -- | An optional flag that can be included in the DescribeCacheCluster
 -- request to retrieve information about the individual cache nodes.
@@ -163,7 +163,7 @@ instance ToQuery DescribeCacheClusters where
               ["Action" =: ("DescribeCacheClusters" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheClusterId" =: _dCacheClusterId,
-               "MaxRecords" =: _dMaxRecords, "Marker" =: _dMarker,
+               "Marker" =: _dMarker, "MaxRecords" =: _dMaxRecords,
                "ShowCacheNodeInfo" =: _dShowCacheNodeInfo]
 
 -- | Represents the output of a /DescribeCacheClusters/ action.

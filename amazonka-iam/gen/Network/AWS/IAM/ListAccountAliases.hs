@@ -35,8 +35,8 @@ module Network.AWS.IAM.ListAccountAliases
       listAccountAliases
     , ListAccountAliases
     -- * Request Lenses
-    , laaMaxItems
     , laaMarker
+    , laaMaxItems
 
     -- * Destructuring the Response
     , listAccountAliasesResponse
@@ -57,24 +57,30 @@ import           Network.AWS.Response
 
 -- | /See:/ 'listAccountAliases' smart constructor.
 data ListAccountAliases = ListAccountAliases'
-    { _laaMaxItems :: !(Maybe Nat)
-    , _laaMarker   :: !(Maybe Text)
+    { _laaMarker   :: !(Maybe Text)
+    , _laaMaxItems :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListAccountAliases' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laaMaxItems'
---
 -- * 'laaMarker'
+--
+-- * 'laaMaxItems'
 listAccountAliases
     :: ListAccountAliases
 listAccountAliases =
     ListAccountAliases'
-    { _laaMaxItems = Nothing
-    , _laaMarker = Nothing
+    { _laaMarker = Nothing
+    , _laaMaxItems = Nothing
     }
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+laaMarker :: Lens' ListAccountAliases (Maybe Text)
+laaMarker = lens _laaMarker (\ s a -> s{_laaMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -84,12 +90,6 @@ listAccountAliases =
 -- 100.
 laaMaxItems :: Lens' ListAccountAliases (Maybe Natural)
 laaMaxItems = lens _laaMaxItems (\ s a -> s{_laaMaxItems = a}) . mapping _Nat;
-
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-laaMarker :: Lens' ListAccountAliases (Maybe Text)
-laaMarker = lens _laaMarker (\ s a -> s{_laaMarker = a});
 
 instance AWSPager ListAccountAliases where
         page rq rs
@@ -123,7 +123,7 @@ instance ToQuery ListAccountAliases where
           = mconcat
               ["Action" =: ("ListAccountAliases" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _laaMaxItems, "Marker" =: _laaMarker]
+               "Marker" =: _laaMarker, "MaxItems" =: _laaMaxItems]
 
 -- | Contains the response to a successful ListAccountAliases request.
 --

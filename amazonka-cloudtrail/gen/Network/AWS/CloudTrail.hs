@@ -59,32 +59,32 @@ module Network.AWS.CloudTrail
     -- ** InvalidCloudWatchLogsRoleARNException
     , _InvalidCloudWatchLogsRoleARNException
 
-    -- ** InvalidTrailNameException
-    , _InvalidTrailNameException
-
     -- ** InvalidLookupAttributesException
     , _InvalidLookupAttributesException
 
-    -- ** TrailNotFoundException
-    , _TrailNotFoundException
-
-    -- ** CloudWatchLogsDeliveryUnavailableException
-    , _CloudWatchLogsDeliveryUnavailableException
+    -- ** InvalidTrailNameException
+    , _InvalidTrailNameException
 
     -- ** InvalidSNSTopicNameException
     , _InvalidSNSTopicNameException
 
-    -- ** InvalidCloudWatchLogsLogGroupARNException
-    , _InvalidCloudWatchLogsLogGroupARNException
+    -- ** CloudWatchLogsDeliveryUnavailableException
+    , _CloudWatchLogsDeliveryUnavailableException
+
+    -- ** TrailNotFoundException
+    , _TrailNotFoundException
 
     -- ** InvalidS3BucketNameException
     , _InvalidS3BucketNameException
 
-    -- ** InvalidNextTokenException
-    , _InvalidNextTokenException
+    -- ** InvalidCloudWatchLogsLogGroupARNException
+    , _InvalidCloudWatchLogsLogGroupARNException
 
     -- ** S3BucketDoesNotExistException
     , _S3BucketDoesNotExistException
+
+    -- ** InvalidNextTokenException
+    , _InvalidNextTokenException
 
     -- ** InvalidMaxResultsException
     , _InvalidMaxResultsException
@@ -134,8 +134,8 @@ module Network.AWS.CloudTrail
     , Event
     , event
     , eUsername
-    , eEventTime
     , eResources
+    , eEventTime
     , eCloudTrailEvent
     , eEventName
     , eEventId

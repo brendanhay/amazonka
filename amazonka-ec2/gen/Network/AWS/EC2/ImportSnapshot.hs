@@ -30,8 +30,8 @@ module Network.AWS.EC2.ImportSnapshot
     , isDiskContainer
     , isClientToken
     , isRoleName
-    , isDryRun
     , isDescription
+    , isDryRun
     , isClientData
 
     -- * Destructuring the Response
@@ -55,8 +55,8 @@ data ImportSnapshot = ImportSnapshot'
     { _isDiskContainer :: !(Maybe SnapshotDiskContainer)
     , _isClientToken   :: !(Maybe Text)
     , _isRoleName      :: !(Maybe Text)
-    , _isDryRun        :: !(Maybe Bool)
     , _isDescription   :: !(Maybe Text)
+    , _isDryRun        :: !(Maybe Bool)
     , _isClientData    :: !(Maybe ClientData)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -70,9 +70,9 @@ data ImportSnapshot = ImportSnapshot'
 --
 -- * 'isRoleName'
 --
--- * 'isDryRun'
---
 -- * 'isDescription'
+--
+-- * 'isDryRun'
 --
 -- * 'isClientData'
 importSnapshot
@@ -82,8 +82,8 @@ importSnapshot =
     { _isDiskContainer = Nothing
     , _isClientToken = Nothing
     , _isRoleName = Nothing
-    , _isDryRun = Nothing
     , _isDescription = Nothing
+    , _isDryRun = Nothing
     , _isClientData = Nothing
     }
 
@@ -100,16 +100,16 @@ isClientToken = lens _isClientToken (\ s a -> s{_isClientToken = a});
 isRoleName :: Lens' ImportSnapshot (Maybe Text)
 isRoleName = lens _isRoleName (\ s a -> s{_isRoleName = a});
 
+-- | The description string for the import snapshot task.
+isDescription :: Lens' ImportSnapshot (Maybe Text)
+isDescription = lens _isDescription (\ s a -> s{_isDescription = a});
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is 'DryRunOperation'.
 -- Otherwise, it is 'UnauthorizedOperation'.
 isDryRun :: Lens' ImportSnapshot (Maybe Bool)
 isDryRun = lens _isDryRun (\ s a -> s{_isDryRun = a});
-
--- | The description string for the import snapshot task.
-isDescription :: Lens' ImportSnapshot (Maybe Text)
-isDescription = lens _isDescription (\ s a -> s{_isDescription = a});
 
 -- | The client-specific data.
 isClientData :: Lens' ImportSnapshot (Maybe ClientData)
@@ -140,9 +140,9 @@ instance ToQuery ImportSnapshot where
                "Version" =: ("2015-04-15" :: ByteString),
                "DiskContainer" =: _isDiskContainer,
                "ClientToken" =: _isClientToken,
-               "RoleName" =: _isRoleName, "DryRun" =: _isDryRun,
+               "RoleName" =: _isRoleName,
                "Description" =: _isDescription,
-               "ClientData" =: _isClientData]
+               "DryRun" =: _isDryRun, "ClientData" =: _isClientData]
 
 -- | /See:/ 'importSnapshotResponse' smart constructor.
 data ImportSnapshotResponse = ImportSnapshotResponse'

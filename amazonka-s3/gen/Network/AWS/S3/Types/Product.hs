@@ -753,8 +753,8 @@ instance ToXML Grant where
 data Grantee = Grantee'
     { _gURI          :: !(Maybe Text)
     , _gEmailAddress :: !(Maybe Text)
-    , _gId           :: !(Maybe Text)
     , _gDisplayName  :: !(Maybe Text)
+    , _gId           :: !(Maybe Text)
     , _gType         :: !Type
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -766,9 +766,9 @@ data Grantee = Grantee'
 --
 -- * 'gEmailAddress'
 --
--- * 'gId'
---
 -- * 'gDisplayName'
+--
+-- * 'gId'
 --
 -- * 'gType'
 grantee
@@ -778,8 +778,8 @@ grantee pType_ =
     Grantee'
     { _gURI = Nothing
     , _gEmailAddress = Nothing
-    , _gId = Nothing
     , _gDisplayName = Nothing
+    , _gId = Nothing
     , _gType = pType_
     }
 
@@ -791,13 +791,13 @@ gURI = lens _gURI (\ s a -> s{_gURI = a});
 gEmailAddress :: Lens' Grantee (Maybe Text)
 gEmailAddress = lens _gEmailAddress (\ s a -> s{_gEmailAddress = a});
 
--- | The canonical user ID of the grantee.
-gId :: Lens' Grantee (Maybe Text)
-gId = lens _gId (\ s a -> s{_gId = a});
-
 -- | Screen name of the grantee.
 gDisplayName :: Lens' Grantee (Maybe Text)
 gDisplayName = lens _gDisplayName (\ s a -> s{_gDisplayName = a});
+
+-- | The canonical user ID of the grantee.
+gId :: Lens' Grantee (Maybe Text)
+gId = lens _gId (\ s a -> s{_gId = a});
 
 -- | Type of grantee
 gType :: Lens' Grantee Type
@@ -807,15 +807,15 @@ instance FromXML Grantee where
         parseXML x
           = Grantee' <$>
               (x .@? "URI") <*> (x .@? "EmailAddress") <*>
-                (x .@? "ID")
-                <*> (x .@? "DisplayName")
+                (x .@? "DisplayName")
+                <*> (x .@? "ID")
                 <*> (x .@ "xsi:type")
 
 instance ToXML Grantee where
         toXML Grantee'{..}
           = mconcat
               ["URI" @= _gURI, "EmailAddress" @= _gEmailAddress,
-               "ID" @= _gId, "DisplayName" @= _gDisplayName,
+               "DisplayName" @= _gDisplayName, "ID" @= _gId,
                "xsi:type" @= _gType]
 
 -- | /See:/ 'indexDocument' smart constructor.
@@ -853,38 +853,38 @@ instance ToXML IndexDocument where
 
 -- | /See:/ 'initiator' smart constructor.
 data Initiator = Initiator'
-    { _iId          :: !(Maybe Text)
-    , _iDisplayName :: !(Maybe Text)
+    { _iDisplayName :: !(Maybe Text)
+    , _iId          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Initiator' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iId'
---
 -- * 'iDisplayName'
+--
+-- * 'iId'
 initiator
     :: Initiator
 initiator =
     Initiator'
-    { _iId = Nothing
-    , _iDisplayName = Nothing
+    { _iDisplayName = Nothing
+    , _iId = Nothing
     }
+
+-- | Name of the Principal.
+iDisplayName :: Lens' Initiator (Maybe Text)
+iDisplayName = lens _iDisplayName (\ s a -> s{_iDisplayName = a});
 
 -- | If the principal is an AWS account, it provides the Canonical User ID.
 -- If the principal is an IAM User, it provides a user ARN value.
 iId :: Lens' Initiator (Maybe Text)
 iId = lens _iId (\ s a -> s{_iId = a});
 
--- | Name of the Principal.
-iDisplayName :: Lens' Initiator (Maybe Text)
-iDisplayName = lens _iDisplayName (\ s a -> s{_iDisplayName = a});
-
 instance FromXML Initiator where
         parseXML x
           = Initiator' <$>
-              (x .@? "ID") <*> (x .@? "DisplayName")
+              (x .@? "DisplayName") <*> (x .@? "ID")
 
 -- | Container for specifying the AWS Lambda notification configuration.
 --
@@ -1444,8 +1444,8 @@ instance ToXML ObjectIdentifier where
 
 -- | /See:/ 'objectVersion' smart constructor.
 data ObjectVersion = ObjectVersion'
-    { _ovVersionId    :: !(Maybe ObjectVersionId)
-    , _ovETag         :: !(Maybe ETag)
+    { _ovETag         :: !(Maybe ETag)
+    , _ovVersionId    :: !(Maybe ObjectVersionId)
     , _ovSize         :: !(Maybe Int)
     , _ovIsLatest     :: !(Maybe Bool)
     , _ovOwner        :: !(Maybe Owner)
@@ -1458,9 +1458,9 @@ data ObjectVersion = ObjectVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ovVersionId'
---
 -- * 'ovETag'
+--
+-- * 'ovVersionId'
 --
 -- * 'ovSize'
 --
@@ -1477,8 +1477,8 @@ objectVersion
     :: ObjectVersion
 objectVersion =
     ObjectVersion'
-    { _ovVersionId = Nothing
-    , _ovETag = Nothing
+    { _ovETag = Nothing
+    , _ovVersionId = Nothing
     , _ovSize = Nothing
     , _ovIsLatest = Nothing
     , _ovOwner = Nothing
@@ -1487,13 +1487,13 @@ objectVersion =
     , _ovLastModified = Nothing
     }
 
--- | Version ID of an object.
-ovVersionId :: Lens' ObjectVersion (Maybe ObjectVersionId)
-ovVersionId = lens _ovVersionId (\ s a -> s{_ovVersionId = a});
-
 -- | Undocumented member.
 ovETag :: Lens' ObjectVersion (Maybe ETag)
 ovETag = lens _ovETag (\ s a -> s{_ovETag = a});
+
+-- | Version ID of an object.
+ovVersionId :: Lens' ObjectVersion (Maybe ObjectVersionId)
+ovVersionId = lens _ovVersionId (\ s a -> s{_ovVersionId = a});
 
 -- | Size in bytes of the object.
 ovSize :: Lens' ObjectVersion (Maybe Int)
@@ -1523,7 +1523,7 @@ ovLastModified = lens _ovLastModified (\ s a -> s{_ovLastModified = a}) . mappin
 instance FromXML ObjectVersion where
         parseXML x
           = ObjectVersion' <$>
-              (x .@? "VersionId") <*> (x .@? "ETag") <*>
+              (x .@? "ETag") <*> (x .@? "VersionId") <*>
                 (x .@? "Size")
                 <*> (x .@? "IsLatest")
                 <*> (x .@? "Owner")
@@ -1533,41 +1533,41 @@ instance FromXML ObjectVersion where
 
 -- | /See:/ 'owner' smart constructor.
 data Owner = Owner'
-    { _oId          :: !(Maybe Text)
-    , _oDisplayName :: !(Maybe Text)
+    { _oDisplayName :: !(Maybe Text)
+    , _oId          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Owner' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oId'
---
 -- * 'oDisplayName'
+--
+-- * 'oId'
 owner
     :: Owner
 owner =
     Owner'
-    { _oId = Nothing
-    , _oDisplayName = Nothing
+    { _oDisplayName = Nothing
+    , _oId = Nothing
     }
-
--- | Undocumented member.
-oId :: Lens' Owner (Maybe Text)
-oId = lens _oId (\ s a -> s{_oId = a});
 
 -- | Undocumented member.
 oDisplayName :: Lens' Owner (Maybe Text)
 oDisplayName = lens _oDisplayName (\ s a -> s{_oDisplayName = a});
 
+-- | Undocumented member.
+oId :: Lens' Owner (Maybe Text)
+oId = lens _oId (\ s a -> s{_oId = a});
+
 instance FromXML Owner where
         parseXML x
-          = Owner' <$> (x .@? "ID") <*> (x .@? "DisplayName")
+          = Owner' <$> (x .@? "DisplayName") <*> (x .@? "ID")
 
 instance ToXML Owner where
         toXML Owner'{..}
           = mconcat
-              ["ID" @= _oId, "DisplayName" @= _oDisplayName]
+              ["DisplayName" @= _oDisplayName, "ID" @= _oId]
 
 -- | /See:/ 'part' smart constructor.
 data Part = Part'
@@ -2452,8 +2452,8 @@ instance ToXML VersioningConfiguration where
 data WebsiteConfiguration = WebsiteConfiguration'
     { _wcRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
     , _wcErrorDocument         :: !(Maybe ErrorDocument)
-    , _wcRoutingRules          :: !(Maybe [RoutingRule])
     , _wcIndexDocument         :: !(Maybe IndexDocument)
+    , _wcRoutingRules          :: !(Maybe [RoutingRule])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'WebsiteConfiguration' with the minimum fields required to make a request.
@@ -2464,17 +2464,17 @@ data WebsiteConfiguration = WebsiteConfiguration'
 --
 -- * 'wcErrorDocument'
 --
--- * 'wcRoutingRules'
---
 -- * 'wcIndexDocument'
+--
+-- * 'wcRoutingRules'
 websiteConfiguration
     :: WebsiteConfiguration
 websiteConfiguration =
     WebsiteConfiguration'
     { _wcRedirectAllRequestsTo = Nothing
     , _wcErrorDocument = Nothing
-    , _wcRoutingRules = Nothing
     , _wcIndexDocument = Nothing
+    , _wcRoutingRules = Nothing
     }
 
 -- | Undocumented member.
@@ -2486,18 +2486,18 @@ wcErrorDocument :: Lens' WebsiteConfiguration (Maybe ErrorDocument)
 wcErrorDocument = lens _wcErrorDocument (\ s a -> s{_wcErrorDocument = a});
 
 -- | Undocumented member.
-wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
-wcRoutingRules = lens _wcRoutingRules (\ s a -> s{_wcRoutingRules = a}) . _Default . _Coerce;
-
--- | Undocumented member.
 wcIndexDocument :: Lens' WebsiteConfiguration (Maybe IndexDocument)
 wcIndexDocument = lens _wcIndexDocument (\ s a -> s{_wcIndexDocument = a});
+
+-- | Undocumented member.
+wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
+wcRoutingRules = lens _wcRoutingRules (\ s a -> s{_wcRoutingRules = a}) . _Default . _Coerce;
 
 instance ToXML WebsiteConfiguration where
         toXML WebsiteConfiguration'{..}
           = mconcat
               ["RedirectAllRequestsTo" @= _wcRedirectAllRequestsTo,
                "ErrorDocument" @= _wcErrorDocument,
+               "IndexDocument" @= _wcIndexDocument,
                "RoutingRules" @=
-                 toXML (toXMLList "RoutingRule" <$> _wcRoutingRules),
-               "IndexDocument" @= _wcIndexDocument]
+                 toXML (toXMLList "RoutingRule" <$> _wcRoutingRules)]

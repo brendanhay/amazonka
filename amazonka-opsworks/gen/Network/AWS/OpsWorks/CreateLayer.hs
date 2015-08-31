@@ -42,12 +42,12 @@ module Network.AWS.OpsWorks.CreateLayer
     , CreateLayer
     -- * Request Lenses
     , clCustomInstanceProfileARN
-    , clInstallUpdatesOnBoot
     , clCustomSecurityGroupIds
+    , clInstallUpdatesOnBoot
     , clLifecycleEventConfiguration
     , clCustomRecipes
-    , clVolumeConfigurations
     , clCustomJSON
+    , clVolumeConfigurations
     , clEnableAutoHealing
     , clPackages
     , clAttributes
@@ -76,12 +76,12 @@ import           Network.AWS.Response
 -- | /See:/ 'createLayer' smart constructor.
 data CreateLayer = CreateLayer'
     { _clCustomInstanceProfileARN    :: !(Maybe Text)
-    , _clInstallUpdatesOnBoot        :: !(Maybe Bool)
     , _clCustomSecurityGroupIds      :: !(Maybe [Text])
+    , _clInstallUpdatesOnBoot        :: !(Maybe Bool)
     , _clLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
     , _clCustomRecipes               :: !(Maybe Recipes)
-    , _clVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
     , _clCustomJSON                  :: !(Maybe Text)
+    , _clVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
     , _clEnableAutoHealing           :: !(Maybe Bool)
     , _clPackages                    :: !(Maybe [Text])
     , _clAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
@@ -100,17 +100,17 @@ data CreateLayer = CreateLayer'
 --
 -- * 'clCustomInstanceProfileARN'
 --
--- * 'clInstallUpdatesOnBoot'
---
 -- * 'clCustomSecurityGroupIds'
+--
+-- * 'clInstallUpdatesOnBoot'
 --
 -- * 'clLifecycleEventConfiguration'
 --
 -- * 'clCustomRecipes'
 --
--- * 'clVolumeConfigurations'
---
 -- * 'clCustomJSON'
+--
+-- * 'clVolumeConfigurations'
 --
 -- * 'clEnableAutoHealing'
 --
@@ -140,12 +140,12 @@ createLayer
 createLayer pStackId_ pType_ pName_ pShortname_ =
     CreateLayer'
     { _clCustomInstanceProfileARN = Nothing
-    , _clInstallUpdatesOnBoot = Nothing
     , _clCustomSecurityGroupIds = Nothing
+    , _clInstallUpdatesOnBoot = Nothing
     , _clLifecycleEventConfiguration = Nothing
     , _clCustomRecipes = Nothing
-    , _clVolumeConfigurations = Nothing
     , _clCustomJSON = Nothing
+    , _clVolumeConfigurations = Nothing
     , _clEnableAutoHealing = Nothing
     , _clPackages = Nothing
     , _clAttributes = Nothing
@@ -164,6 +164,10 @@ createLayer pStackId_ pType_ pName_ pShortname_ =
 clCustomInstanceProfileARN :: Lens' CreateLayer (Maybe Text)
 clCustomInstanceProfileARN = lens _clCustomInstanceProfileARN (\ s a -> s{_clCustomInstanceProfileARN = a});
 
+-- | An array containing the layer custom security group IDs.
+clCustomSecurityGroupIds :: Lens' CreateLayer [Text]
+clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\ s a -> s{_clCustomSecurityGroupIds = a}) . _Default . _Coerce;
+
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is 'true'. To control when updates are
 -- installed, set this value to 'false'. You must then update your
@@ -176,10 +180,6 @@ clCustomInstanceProfileARN = lens _clCustomInstanceProfileARN (\ s a -> s{_clCus
 clInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
 clInstallUpdatesOnBoot = lens _clInstallUpdatesOnBoot (\ s a -> s{_clInstallUpdatesOnBoot = a});
 
--- | An array containing the layer custom security group IDs.
-clCustomSecurityGroupIds :: Lens' CreateLayer [Text]
-clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\ s a -> s{_clCustomSecurityGroupIds = a}) . _Default . _Coerce;
-
 -- | A 'LifeCycleEventConfiguration' object that you can use to configure the
 -- Shutdown event to specify an execution timeout and enable or disable
 -- Elastic Load Balancer connection draining.
@@ -190,17 +190,17 @@ clLifecycleEventConfiguration = lens _clLifecycleEventConfiguration (\ s a -> s{
 clCustomRecipes :: Lens' CreateLayer (Maybe Recipes)
 clCustomRecipes = lens _clCustomRecipes (\ s a -> s{_clCustomRecipes = a});
 
--- | A 'VolumeConfigurations' object that describes the layer\'s Amazon EBS
--- volumes.
-clVolumeConfigurations :: Lens' CreateLayer [VolumeConfiguration]
-clVolumeConfigurations = lens _clVolumeConfigurations (\ s a -> s{_clVolumeConfigurations = a}) . _Default . _Coerce;
-
 -- | A JSON-formatted string containing custom stack configuration and
 -- deployment attributes to be installed on the layer\'s instances. For
 -- more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON>.
 clCustomJSON :: Lens' CreateLayer (Maybe Text)
 clCustomJSON = lens _clCustomJSON (\ s a -> s{_clCustomJSON = a});
+
+-- | A 'VolumeConfigurations' object that describes the layer\'s Amazon EBS
+-- volumes.
+clVolumeConfigurations :: Lens' CreateLayer [VolumeConfiguration]
+clVolumeConfigurations = lens _clVolumeConfigurations (\ s a -> s{_clVolumeConfigurations = a}) . _Default . _Coerce;
 
 -- | Whether to disable auto healing for the layer.
 clEnableAutoHealing :: Lens' CreateLayer (Maybe Bool)
@@ -284,16 +284,16 @@ instance ToJSON CreateLayer where
               (catMaybes
                  [("CustomInstanceProfileArn" .=) <$>
                     _clCustomInstanceProfileARN,
-                  ("InstallUpdatesOnBoot" .=) <$>
-                    _clInstallUpdatesOnBoot,
                   ("CustomSecurityGroupIds" .=) <$>
                     _clCustomSecurityGroupIds,
+                  ("InstallUpdatesOnBoot" .=) <$>
+                    _clInstallUpdatesOnBoot,
                   ("LifecycleEventConfiguration" .=) <$>
                     _clLifecycleEventConfiguration,
                   ("CustomRecipes" .=) <$> _clCustomRecipes,
+                  ("CustomJson" .=) <$> _clCustomJSON,
                   ("VolumeConfigurations" .=) <$>
                     _clVolumeConfigurations,
-                  ("CustomJson" .=) <$> _clCustomJSON,
                   ("EnableAutoHealing" .=) <$> _clEnableAutoHealing,
                   ("Packages" .=) <$> _clPackages,
                   ("Attributes" .=) <$> _clAttributes,

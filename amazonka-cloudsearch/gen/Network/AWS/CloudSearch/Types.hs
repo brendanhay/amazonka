@@ -52,9 +52,9 @@ module Network.AWS.CloudSearch.Types
     , analysisOptions
     , aoAlgorithmicStemming
     , aoStopwords
-    , aoStemmingDictionary
-    , aoSynonyms
     , aoJapaneseTokenizationDictionary
+    , aoSynonyms
+    , aoStemmingDictionary
 
     -- * AnalysisScheme
     , AnalysisScheme
@@ -106,8 +106,8 @@ module Network.AWS.CloudSearch.Types
     , domainStatus
     , dsSearchInstanceCount
     , dsSearchInstanceType
-    , dsARN
     , dsDocService
+    , dsARN
     , dsCreated
     , dsSearchService
     , dsLimits
@@ -152,17 +152,17 @@ module Network.AWS.CloudSearch.Types
     -- * IndexField
     , IndexField
     , indexField
+    , ifDoubleArrayOptions
     , ifDateOptions
     , ifTextArrayOptions
-    , ifDoubleArrayOptions
     , ifDoubleOptions
     , ifTextOptions
     , ifLatLonOptions
-    , ifIntArrayOptions
     , ifLiteralArrayOptions
+    , ifIntArrayOptions
     , ifDateArrayOptions
-    , ifLiteralOptions
     , ifIntOptions
+    , ifLiteralOptions
     , ifIndexFieldName
     , ifIndexFieldType
 

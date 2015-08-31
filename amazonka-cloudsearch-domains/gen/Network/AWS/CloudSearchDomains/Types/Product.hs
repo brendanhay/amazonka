@@ -235,32 +235,32 @@ instance FromJSON Hits where
 --
 -- /See:/ 'searchStatus' smart constructor.
 data SearchStatus = SearchStatus'
-    { _ssRid    :: !(Maybe Text)
-    , _ssTimems :: !(Maybe Integer)
+    { _sRid    :: !(Maybe Text)
+    , _sTimems :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SearchStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssRid'
+-- * 'sRid'
 --
--- * 'ssTimems'
+-- * 'sTimems'
 searchStatus
     :: SearchStatus
 searchStatus =
     SearchStatus'
-    { _ssRid = Nothing
-    , _ssTimems = Nothing
+    { _sRid = Nothing
+    , _sTimems = Nothing
     }
 
 -- | The encrypted resource ID for the request.
-ssRid :: Lens' SearchStatus (Maybe Text)
-ssRid = lens _ssRid (\ s a -> s{_ssRid = a});
+sRid :: Lens' SearchStatus (Maybe Text)
+sRid = lens _sRid (\ s a -> s{_sRid = a});
 
 -- | How long it took to process the request, in milliseconds.
-ssTimems :: Lens' SearchStatus (Maybe Integer)
-ssTimems = lens _ssTimems (\ s a -> s{_ssTimems = a});
+sTimems :: Lens' SearchStatus (Maybe Integer)
+sTimems = lens _sTimems (\ s a -> s{_sTimems = a});
 
 instance FromJSON SearchStatus where
         parseJSON
@@ -321,32 +321,32 @@ instance FromJSON SuggestModel where
 --
 -- /See:/ 'suggestStatus' smart constructor.
 data SuggestStatus = SuggestStatus'
-    { _sRid    :: !(Maybe Text)
-    , _sTimems :: !(Maybe Integer)
+    { _ssRid    :: !(Maybe Text)
+    , _ssTimems :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SuggestStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sRid'
+-- * 'ssRid'
 --
--- * 'sTimems'
+-- * 'ssTimems'
 suggestStatus
     :: SuggestStatus
 suggestStatus =
     SuggestStatus'
-    { _sRid = Nothing
-    , _sTimems = Nothing
+    { _ssRid = Nothing
+    , _ssTimems = Nothing
     }
 
 -- | The encrypted resource ID for the request.
-sRid :: Lens' SuggestStatus (Maybe Text)
-sRid = lens _sRid (\ s a -> s{_sRid = a});
+ssRid :: Lens' SuggestStatus (Maybe Text)
+ssRid = lens _ssRid (\ s a -> s{_ssRid = a});
 
 -- | How long it took to process the request, in milliseconds.
-sTimems :: Lens' SuggestStatus (Maybe Integer)
-sTimems = lens _sTimems (\ s a -> s{_sTimems = a});
+ssTimems :: Lens' SuggestStatus (Maybe Integer)
+ssTimems = lens _ssTimems (\ s a -> s{_ssTimems = a});
 
 instance FromJSON SuggestStatus where
         parseJSON

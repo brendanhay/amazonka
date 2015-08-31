@@ -18,19 +18,19 @@ module Network.AWS.KMS.Types
     -- * Errors
     , _InvalidMarkerException
     , _InvalidKeyUsageException
-    , _UnsupportedOperationException
     , _MalformedPolicyDocumentException
+    , _UnsupportedOperationException
     , _DisabledException
     , _KeyUnavailableException
     , _KMSInternalException
     , _NotFoundException
     , _InvalidAliasNameException
+    , _InvalidGrantTokenException
     , _InvalidARNException
     , _DependencyTimeoutException
-    , _InvalidGrantTokenException
     , _InvalidCiphertextException
-    , _LimitExceededException
     , _AlreadyExistsException
+    , _LimitExceededException
 
     -- * DataKeySpec
     , DataKeySpec (..)
@@ -67,14 +67,14 @@ module Network.AWS.KMS.Types
     -- * KeyListEntry
     , KeyListEntry
     , keyListEntry
-    , kleKeyARN
     , kleKeyId
+    , kleKeyARN
 
     -- * KeyMetadata
     , KeyMetadata
     , keyMetadata
-    , kmARN
     , kmEnabled
+    , kmARN
     , kmAWSAccountId
     , kmKeyUsage
     , kmCreationDate
@@ -130,16 +130,16 @@ _InvalidKeyUsageException :: AsError a => Getting (First ServiceError) a Service
 _InvalidKeyUsageException =
     _ServiceError . hasStatus 400 . hasCode "InvalidKeyUsage"
 
--- | The request was rejected because a specified parameter is not supported.
-_UnsupportedOperationException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedOperationException =
-    _ServiceError . hasStatus 400 . hasCode "UnsupportedOperation"
-
 -- | The request was rejected because the specified policy is not
 -- syntactically or semantically correct.
 _MalformedPolicyDocumentException :: AsError a => Getting (First ServiceError) a ServiceError
 _MalformedPolicyDocumentException =
     _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument"
+
+-- | The request was rejected because a specified parameter is not supported.
+_UnsupportedOperationException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedOperationException =
+    _ServiceError . hasStatus 400 . hasCode "UnsupportedOperation"
 
 -- | A request was rejected because the specified key was marked as disabled.
 _DisabledException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -166,6 +166,11 @@ _InvalidAliasNameException :: AsError a => Getting (First ServiceError) a Servic
 _InvalidAliasNameException =
     _ServiceError . hasStatus 400 . hasCode "InvalidAliasName"
 
+-- | A grant token provided as part of the request is invalid.
+_InvalidGrantTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidGrantTokenException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidGrantToken"
+
 -- | The request was rejected because a specified ARN was not valid.
 _InvalidARNException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidARNException = _ServiceError . hasStatus 400 . hasCode "InvalidArn"
@@ -175,24 +180,19 @@ _DependencyTimeoutException :: AsError a => Getting (First ServiceError) a Servi
 _DependencyTimeoutException =
     _ServiceError . hasStatus 503 . hasCode "DependencyTimeout"
 
--- | A grant token provided as part of the request is invalid.
-_InvalidGrantTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidGrantTokenException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidGrantToken"
-
 -- | The request was rejected because the specified ciphertext has been
 -- corrupted or is otherwise invalid.
 _InvalidCiphertextException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCiphertextException =
     _ServiceError . hasStatus 400 . hasCode "InvalidCiphertext"
 
--- | The request was rejected because a quota was exceeded.
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException =
-    _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
-
 -- | The request was rejected because it attempted to create a resource that
 -- already exists.
 _AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _AlreadyExistsException =
     _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
+
+-- | The request was rejected because a quota was exceeded.
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException =
+    _ServiceError . hasStatus 400 . hasCode "LimitExceeded"

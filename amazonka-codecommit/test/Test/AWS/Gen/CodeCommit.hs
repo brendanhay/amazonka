@@ -37,20 +37,20 @@ import Test.AWS.CodeCommit.Internal
 --         , testUpdateRepositoryDescription $
 --             updateRepositoryDescription
 --
---         , testListBranches $
---             listBranches
---
 --         , testCreateBranch $
 --             createBranch
 --
---         , testUpdateDefaultBranch $
---             updateDefaultBranch
+--         , testListBranches $
+--             listBranches
+--
+--         , testListRepositories $
+--             listRepositories
 --
 --         , testCreateRepository $
 --             createRepository
 --
---         , testListRepositories $
---             listRepositories
+--         , testUpdateDefaultBranch $
+--             updateDefaultBranch
 --
 --         , testGetRepository $
 --             getRepository
@@ -73,20 +73,20 @@ import Test.AWS.CodeCommit.Internal
 --         , testUpdateRepositoryDescriptionResponse $
 --             updateRepositoryDescriptionResponse
 --
---         , testListBranchesResponse $
---             listBranchesResponse
---
 --         , testCreateBranchResponse $
 --             createBranchResponse
 --
---         , testUpdateDefaultBranchResponse $
---             updateDefaultBranchResponse
+--         , testListBranchesResponse $
+--             listBranchesResponse
+--
+--         , testListRepositoriesResponse $
+--             listRepositoriesResponse
 --
 --         , testCreateRepositoryResponse $
 --             createRepositoryResponse
 --
---         , testListRepositoriesResponse $
---             listRepositoriesResponse
+--         , testUpdateDefaultBranchResponse $
+--             updateDefaultBranchResponse
 --
 --         , testGetRepositoryResponse $
 --             getRepositoryResponse
@@ -117,30 +117,30 @@ testUpdateRepositoryDescription = req
     "UpdateRepositoryDescription"
     "fixture/UpdateRepositoryDescription.yaml"
 
-testListBranches :: ListBranches -> TestTree
-testListBranches = req
-    "ListBranches"
-    "fixture/ListBranches.yaml"
-
 testCreateBranch :: CreateBranch -> TestTree
 testCreateBranch = req
     "CreateBranch"
     "fixture/CreateBranch.yaml"
 
-testUpdateDefaultBranch :: UpdateDefaultBranch -> TestTree
-testUpdateDefaultBranch = req
-    "UpdateDefaultBranch"
-    "fixture/UpdateDefaultBranch.yaml"
+testListBranches :: ListBranches -> TestTree
+testListBranches = req
+    "ListBranches"
+    "fixture/ListBranches.yaml"
+
+testListRepositories :: ListRepositories -> TestTree
+testListRepositories = req
+    "ListRepositories"
+    "fixture/ListRepositories.yaml"
 
 testCreateRepository :: CreateRepository -> TestTree
 testCreateRepository = req
     "CreateRepository"
     "fixture/CreateRepository.yaml"
 
-testListRepositories :: ListRepositories -> TestTree
-testListRepositories = req
-    "ListRepositories"
-    "fixture/ListRepositories.yaml"
+testUpdateDefaultBranch :: UpdateDefaultBranch -> TestTree
+testUpdateDefaultBranch = req
+    "UpdateDefaultBranch"
+    "fixture/UpdateDefaultBranch.yaml"
 
 testGetRepository :: GetRepository -> TestTree
 testGetRepository = req
@@ -180,13 +180,6 @@ testUpdateRepositoryDescriptionResponse = res
     codeCommit
     (Proxy :: Proxy UpdateRepositoryDescription)
 
-testListBranchesResponse :: ListBranchesResponse -> TestTree
-testListBranchesResponse = res
-    "ListBranchesResponse"
-    "fixture/ListBranchesResponse.proto"
-    codeCommit
-    (Proxy :: Proxy ListBranches)
-
 testCreateBranchResponse :: CreateBranchResponse -> TestTree
 testCreateBranchResponse = res
     "CreateBranchResponse"
@@ -194,12 +187,19 @@ testCreateBranchResponse = res
     codeCommit
     (Proxy :: Proxy CreateBranch)
 
-testUpdateDefaultBranchResponse :: UpdateDefaultBranchResponse -> TestTree
-testUpdateDefaultBranchResponse = res
-    "UpdateDefaultBranchResponse"
-    "fixture/UpdateDefaultBranchResponse.proto"
+testListBranchesResponse :: ListBranchesResponse -> TestTree
+testListBranchesResponse = res
+    "ListBranchesResponse"
+    "fixture/ListBranchesResponse.proto"
     codeCommit
-    (Proxy :: Proxy UpdateDefaultBranch)
+    (Proxy :: Proxy ListBranches)
+
+testListRepositoriesResponse :: ListRepositoriesResponse -> TestTree
+testListRepositoriesResponse = res
+    "ListRepositoriesResponse"
+    "fixture/ListRepositoriesResponse.proto"
+    codeCommit
+    (Proxy :: Proxy ListRepositories)
 
 testCreateRepositoryResponse :: CreateRepositoryResponse -> TestTree
 testCreateRepositoryResponse = res
@@ -208,12 +208,12 @@ testCreateRepositoryResponse = res
     codeCommit
     (Proxy :: Proxy CreateRepository)
 
-testListRepositoriesResponse :: ListRepositoriesResponse -> TestTree
-testListRepositoriesResponse = res
-    "ListRepositoriesResponse"
-    "fixture/ListRepositoriesResponse.proto"
+testUpdateDefaultBranchResponse :: UpdateDefaultBranchResponse -> TestTree
+testUpdateDefaultBranchResponse = res
+    "UpdateDefaultBranchResponse"
+    "fixture/UpdateDefaultBranchResponse.proto"
     codeCommit
-    (Proxy :: Proxy ListRepositories)
+    (Proxy :: Proxy UpdateDefaultBranch)
 
 testGetRepositoryResponse :: GetRepositoryResponse -> TestTree
 testGetRepositoryResponse = res

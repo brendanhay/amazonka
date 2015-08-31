@@ -39,8 +39,8 @@ module Network.AWS.Route53.ListHostedZones
     , ListHostedZones
     -- * Request Lenses
     , lhzDelegationSetId
-    , lhzMaxItems
     , lhzMarker
+    , lhzMaxItems
 
     -- * Destructuring the Response
     , listHostedZonesResponse
@@ -78,8 +78,8 @@ import           Network.AWS.Route53.Types.Product
 -- /See:/ 'listHostedZones' smart constructor.
 data ListHostedZones = ListHostedZones'
     { _lhzDelegationSetId :: !(Maybe Text)
-    , _lhzMaxItems        :: !(Maybe Text)
     , _lhzMarker          :: !(Maybe Text)
+    , _lhzMaxItems        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListHostedZones' with the minimum fields required to make a request.
@@ -88,32 +88,32 @@ data ListHostedZones = ListHostedZones'
 --
 -- * 'lhzDelegationSetId'
 --
--- * 'lhzMaxItems'
---
 -- * 'lhzMarker'
+--
+-- * 'lhzMaxItems'
 listHostedZones
     :: ListHostedZones
 listHostedZones =
     ListHostedZones'
     { _lhzDelegationSetId = Nothing
-    , _lhzMaxItems = Nothing
     , _lhzMarker = Nothing
+    , _lhzMaxItems = Nothing
     }
 
 -- | Undocumented member.
 lhzDelegationSetId :: Lens' ListHostedZones (Maybe Text)
 lhzDelegationSetId = lens _lhzDelegationSetId (\ s a -> s{_lhzDelegationSetId = a});
 
--- | Specify the maximum number of hosted zones to return per page of
--- results.
-lhzMaxItems :: Lens' ListHostedZones (Maybe Text)
-lhzMaxItems = lens _lhzMaxItems (\ s a -> s{_lhzMaxItems = a});
-
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of 'NextMarker' from the last response in
 -- the 'marker' parameter to get the next page of results.
 lhzMarker :: Lens' ListHostedZones (Maybe Text)
 lhzMarker = lens _lhzMarker (\ s a -> s{_lhzMarker = a});
+
+-- | Specify the maximum number of hosted zones to return per page of
+-- results.
+lhzMaxItems :: Lens' ListHostedZones (Maybe Text)
+lhzMaxItems = lens _lhzMaxItems (\ s a -> s{_lhzMaxItems = a});
 
 instance AWSPager ListHostedZones where
         page rq rs
@@ -147,7 +147,7 @@ instance ToQuery ListHostedZones where
         toQuery ListHostedZones'{..}
           = mconcat
               ["delegationsetid" =: _lhzDelegationSetId,
-               "maxitems" =: _lhzMaxItems, "marker" =: _lhzMarker]
+               "marker" =: _lhzMarker, "maxitems" =: _lhzMaxItems]
 
 -- | A complex type that contains the response for the request.
 --

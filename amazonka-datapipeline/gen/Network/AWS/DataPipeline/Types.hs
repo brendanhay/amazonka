@@ -108,8 +108,8 @@ module Network.AWS.DataPipeline.Types
     , TaskObject
     , taskObject
     , toPipelineId
-    , toTaskId
     , toAttemptId
+    , toTaskId
     , toObjects
 
     -- * ValidationError

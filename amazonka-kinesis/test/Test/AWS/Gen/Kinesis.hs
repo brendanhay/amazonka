@@ -34,11 +34,11 @@ import Test.AWS.Kinesis.Internal
 --         , testMergeShards $
 --             mergeShards
 --
---         , testGetRecords $
---             getRecords
---
 --         , testGetShardIterator $
 --             getShardIterator
+--
+--         , testGetRecords $
+--             getRecords
 --
 --         , testListTagsForStream $
 --             listTagsForStream
@@ -76,11 +76,11 @@ import Test.AWS.Kinesis.Internal
 --         , testMergeShardsResponse $
 --             mergeShardsResponse
 --
---         , testGetRecordsResponse $
---             getRecordsResponse
---
 --         , testGetShardIteratorResponse $
 --             getShardIteratorResponse
+--
+--         , testGetRecordsResponse $
+--             getRecordsResponse
 --
 --         , testListTagsForStreamResponse $
 --             listTagsForStreamResponse
@@ -124,15 +124,15 @@ testMergeShards = req
     "MergeShards"
     "fixture/MergeShards.yaml"
 
-testGetRecords :: GetRecords -> TestTree
-testGetRecords = req
-    "GetRecords"
-    "fixture/GetRecords.yaml"
-
 testGetShardIterator :: GetShardIterator -> TestTree
 testGetShardIterator = req
     "GetShardIterator"
     "fixture/GetShardIterator.yaml"
+
+testGetRecords :: GetRecords -> TestTree
+testGetRecords = req
+    "GetRecords"
+    "fixture/GetRecords.yaml"
 
 testListTagsForStream :: ListTagsForStream -> TestTree
 testListTagsForStream = req
@@ -195,19 +195,19 @@ testMergeShardsResponse = res
     kinesis
     (Proxy :: Proxy MergeShards)
 
-testGetRecordsResponse :: GetRecordsResponse -> TestTree
-testGetRecordsResponse = res
-    "GetRecordsResponse"
-    "fixture/GetRecordsResponse.proto"
-    kinesis
-    (Proxy :: Proxy GetRecords)
-
 testGetShardIteratorResponse :: GetShardIteratorResponse -> TestTree
 testGetShardIteratorResponse = res
     "GetShardIteratorResponse"
     "fixture/GetShardIteratorResponse.proto"
     kinesis
     (Proxy :: Proxy GetShardIterator)
+
+testGetRecordsResponse :: GetRecordsResponse -> TestTree
+testGetRecordsResponse = res
+    "GetRecordsResponse"
+    "fixture/GetRecordsResponse.proto"
+    kinesis
+    (Proxy :: Proxy GetRecords)
 
 testListTagsForStreamResponse :: ListTagsForStreamResponse -> TestTree
 testListTagsForStreamResponse = res

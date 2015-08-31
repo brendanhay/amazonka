@@ -36,8 +36,8 @@ module Network.AWS.EC2.ReportInstanceStatus
     -- * Request Lenses
     , risStartTime
     , risEndTime
-    , risDryRun
     , risDescription
+    , risDryRun
     , risInstances
     , risStatus
     , risReasonCodes
@@ -57,8 +57,8 @@ import           Network.AWS.Response
 data ReportInstanceStatus = ReportInstanceStatus'
     { _risStartTime   :: !(Maybe ISO8601)
     , _risEndTime     :: !(Maybe ISO8601)
-    , _risDryRun      :: !(Maybe Bool)
     , _risDescription :: !(Maybe Text)
+    , _risDryRun      :: !(Maybe Bool)
     , _risInstances   :: ![Text]
     , _risStatus      :: !ReportStatusType
     , _risReasonCodes :: ![ReportInstanceReasonCodes]
@@ -72,9 +72,9 @@ data ReportInstanceStatus = ReportInstanceStatus'
 --
 -- * 'risEndTime'
 --
--- * 'risDryRun'
---
 -- * 'risDescription'
+--
+-- * 'risDryRun'
 --
 -- * 'risInstances'
 --
@@ -88,8 +88,8 @@ reportInstanceStatus pStatus_ =
     ReportInstanceStatus'
     { _risStartTime = Nothing
     , _risEndTime = Nothing
-    , _risDryRun = Nothing
     , _risDescription = Nothing
+    , _risDryRun = Nothing
     , _risInstances = mempty
     , _risStatus = pStatus_
     , _risReasonCodes = mempty
@@ -103,16 +103,16 @@ risStartTime = lens _risStartTime (\ s a -> s{_risStartTime = a}) . mapping _Tim
 risEndTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
 risEndTime = lens _risEndTime (\ s a -> s{_risEndTime = a}) . mapping _Time;
 
+-- | Descriptive text about the health state of your instance.
+risDescription :: Lens' ReportInstanceStatus (Maybe Text)
+risDescription = lens _risDescription (\ s a -> s{_risDescription = a});
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is 'DryRunOperation'.
 -- Otherwise, it is 'UnauthorizedOperation'.
 risDryRun :: Lens' ReportInstanceStatus (Maybe Bool)
 risDryRun = lens _risDryRun (\ s a -> s{_risDryRun = a});
-
--- | Descriptive text about the health state of your instance.
-risDescription :: Lens' ReportInstanceStatus (Maybe Text)
-risDescription = lens _risDescription (\ s a -> s{_risDescription = a});
 
 -- | One or more instances.
 risInstances :: Lens' ReportInstanceStatus [Text]
@@ -171,8 +171,9 @@ instance ToQuery ReportInstanceStatus where
               ["Action" =: ("ReportInstanceStatus" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "StartTime" =: _risStartTime,
-               "EndTime" =: _risEndTime, "DryRun" =: _risDryRun,
+               "EndTime" =: _risEndTime,
                "Description" =: _risDescription,
+               "DryRun" =: _risDryRun,
                toQueryList "InstanceId" _risInstances,
                "Status" =: _risStatus,
                toQueryList "ReasonCode" _risReasonCodes]

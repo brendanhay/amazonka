@@ -40,11 +40,11 @@ import Test.AWS.Glacier.Internal
 --         , testDeleteVaultAccessPolicy $
 --             deleteVaultAccessPolicy
 --
---         , testListTagsForVault $
---             listTagsForVault
---
 --         , testGetVaultNotifications $
 --             getVaultNotifications
+--
+--         , testListTagsForVault $
+--             listTagsForVault
 --
 --         , testUploadMultipartPart $
 --             uploadMultipartPart
@@ -61,14 +61,14 @@ import Test.AWS.Glacier.Internal
 --         , testListVaults $
 --             listVaults
 --
---         , testGetJobOutput $
---             getJobOutput
---
 --         , testListJobs $
 --             listJobs
 --
 --         , testSetVaultNotifications $
 --             setVaultNotifications
+--
+--         , testGetJobOutput $
+--             getJobOutput
 --
 --         , testCompleteMultipartUpload $
 --             completeMultipartUpload
@@ -76,11 +76,11 @@ import Test.AWS.Glacier.Internal
 --         , testListMultipartUploads $
 --             listMultipartUploads
 --
---         , testDescribeVault $
---             describeVault
---
 --         , testAbortMultipartUpload $
 --             abortMultipartUpload
+--
+--         , testDescribeVault $
+--             describeVault
 --
 --         , testGetVaultLock $
 --             getVaultLock
@@ -100,20 +100,20 @@ import Test.AWS.Glacier.Internal
 --         , testRemoveTagsFromVault $
 --             removeTagsFromVault
 --
+--         , testDeleteVault $
+--             deleteVault
+--
 --         , testDeleteArchive $
 --             deleteArchive
 --
---         , testDeleteVault $
---             deleteVault
+--         , testCreateVault $
+--             createVault
 --
 --         , testInitiateMultipartUpload $
 --             initiateMultipartUpload
 --
 --         , testListParts $
 --             listParts
---
---         , testCreateVault $
---             createVault
 --
 --         , testAddTagsToVault $
 --             addTagsToVault
@@ -136,11 +136,11 @@ import Test.AWS.Glacier.Internal
 --         , testDeleteVaultAccessPolicyResponse $
 --             deleteVaultAccessPolicyResponse
 --
---         , testListTagsForVaultResponse $
---             listTagsForVaultResponse
---
 --         , testGetVaultNotificationsResponse $
 --             getVaultNotificationsResponse
+--
+--         , testListTagsForVaultResponse $
+--             listTagsForVaultResponse
 --
 --         , testUploadMultipartPartResponse $
 --             uploadMultipartPartResponse
@@ -157,14 +157,14 @@ import Test.AWS.Glacier.Internal
 --         , testListVaultsResponse $
 --             listVaultsResponse
 --
---         , testGetJobOutputResponse $
---             getJobOutputResponse
---
 --         , testListJobsResponse $
 --             listJobsResponse
 --
 --         , testSetVaultNotificationsResponse $
 --             setVaultNotificationsResponse
+--
+--         , testGetJobOutputResponse $
+--             getJobOutputResponse
 --
 --         , testCompleteMultipartUploadResponse $
 --             archiveCreationOutput
@@ -172,11 +172,11 @@ import Test.AWS.Glacier.Internal
 --         , testListMultipartUploadsResponse $
 --             listMultipartUploadsResponse
 --
---         , testDescribeVaultResponse $
---             describeVaultOutput
---
 --         , testAbortMultipartUploadResponse $
 --             abortMultipartUploadResponse
+--
+--         , testDescribeVaultResponse $
+--             describeVaultOutput
 --
 --         , testGetVaultLockResponse $
 --             getVaultLockResponse
@@ -196,20 +196,20 @@ import Test.AWS.Glacier.Internal
 --         , testRemoveTagsFromVaultResponse $
 --             removeTagsFromVaultResponse
 --
+--         , testDeleteVaultResponse $
+--             deleteVaultResponse
+--
 --         , testDeleteArchiveResponse $
 --             deleteArchiveResponse
 --
---         , testDeleteVaultResponse $
---             deleteVaultResponse
+--         , testCreateVaultResponse $
+--             createVaultResponse
 --
 --         , testInitiateMultipartUploadResponse $
 --             initiateMultipartUploadResponse
 --
 --         , testListPartsResponse $
 --             listPartsResponse
---
---         , testCreateVaultResponse $
---             createVaultResponse
 --
 --         , testAddTagsToVaultResponse $
 --             addTagsToVaultResponse
@@ -242,15 +242,15 @@ testDeleteVaultAccessPolicy = req
     "DeleteVaultAccessPolicy"
     "fixture/DeleteVaultAccessPolicy.yaml"
 
-testListTagsForVault :: ListTagsForVault -> TestTree
-testListTagsForVault = req
-    "ListTagsForVault"
-    "fixture/ListTagsForVault.yaml"
-
 testGetVaultNotifications :: GetVaultNotifications -> TestTree
 testGetVaultNotifications = req
     "GetVaultNotifications"
     "fixture/GetVaultNotifications.yaml"
+
+testListTagsForVault :: ListTagsForVault -> TestTree
+testListTagsForVault = req
+    "ListTagsForVault"
+    "fixture/ListTagsForVault.yaml"
 
 testDeleteVaultNotifications :: DeleteVaultNotifications -> TestTree
 testDeleteVaultNotifications = req
@@ -272,11 +272,6 @@ testListVaults = req
     "ListVaults"
     "fixture/ListVaults.yaml"
 
-testGetJobOutput :: GetJobOutput -> TestTree
-testGetJobOutput = req
-    "GetJobOutput"
-    "fixture/GetJobOutput.yaml"
-
 testListJobs :: ListJobs -> TestTree
 testListJobs = req
     "ListJobs"
@@ -286,6 +281,11 @@ testSetVaultNotifications :: SetVaultNotifications -> TestTree
 testSetVaultNotifications = req
     "SetVaultNotifications"
     "fixture/SetVaultNotifications.yaml"
+
+testGetJobOutput :: GetJobOutput -> TestTree
+testGetJobOutput = req
+    "GetJobOutput"
+    "fixture/GetJobOutput.yaml"
 
 testCompleteMultipartUpload :: CompleteMultipartUpload -> TestTree
 testCompleteMultipartUpload = req
@@ -297,15 +297,15 @@ testListMultipartUploads = req
     "ListMultipartUploads"
     "fixture/ListMultipartUploads.yaml"
 
-testDescribeVault :: DescribeVault -> TestTree
-testDescribeVault = req
-    "DescribeVault"
-    "fixture/DescribeVault.yaml"
-
 testAbortMultipartUpload :: AbortMultipartUpload -> TestTree
 testAbortMultipartUpload = req
     "AbortMultipartUpload"
     "fixture/AbortMultipartUpload.yaml"
+
+testDescribeVault :: DescribeVault -> TestTree
+testDescribeVault = req
+    "DescribeVault"
+    "fixture/DescribeVault.yaml"
 
 testGetVaultLock :: GetVaultLock -> TestTree
 testGetVaultLock = req
@@ -337,15 +337,20 @@ testRemoveTagsFromVault = req
     "RemoveTagsFromVault"
     "fixture/RemoveTagsFromVault.yaml"
 
+testDeleteVault :: DeleteVault -> TestTree
+testDeleteVault = req
+    "DeleteVault"
+    "fixture/DeleteVault.yaml"
+
 testDeleteArchive :: DeleteArchive -> TestTree
 testDeleteArchive = req
     "DeleteArchive"
     "fixture/DeleteArchive.yaml"
 
-testDeleteVault :: DeleteVault -> TestTree
-testDeleteVault = req
-    "DeleteVault"
-    "fixture/DeleteVault.yaml"
+testCreateVault :: CreateVault -> TestTree
+testCreateVault = req
+    "CreateVault"
+    "fixture/CreateVault.yaml"
 
 testInitiateMultipartUpload :: InitiateMultipartUpload -> TestTree
 testInitiateMultipartUpload = req
@@ -356,11 +361,6 @@ testListParts :: ListParts -> TestTree
 testListParts = req
     "ListParts"
     "fixture/ListParts.yaml"
-
-testCreateVault :: CreateVault -> TestTree
-testCreateVault = req
-    "CreateVault"
-    "fixture/CreateVault.yaml"
 
 testAddTagsToVault :: AddTagsToVault -> TestTree
 testAddTagsToVault = req
@@ -397,19 +397,19 @@ testDeleteVaultAccessPolicyResponse = res
     glacier
     (Proxy :: Proxy DeleteVaultAccessPolicy)
 
-testListTagsForVaultResponse :: ListTagsForVaultResponse -> TestTree
-testListTagsForVaultResponse = res
-    "ListTagsForVaultResponse"
-    "fixture/ListTagsForVaultResponse.proto"
-    glacier
-    (Proxy :: Proxy ListTagsForVault)
-
 testGetVaultNotificationsResponse :: GetVaultNotificationsResponse -> TestTree
 testGetVaultNotificationsResponse = res
     "GetVaultNotificationsResponse"
     "fixture/GetVaultNotificationsResponse.proto"
     glacier
     (Proxy :: Proxy GetVaultNotifications)
+
+testListTagsForVaultResponse :: ListTagsForVaultResponse -> TestTree
+testListTagsForVaultResponse = res
+    "ListTagsForVaultResponse"
+    "fixture/ListTagsForVaultResponse.proto"
+    glacier
+    (Proxy :: Proxy ListTagsForVault)
 
 testUploadMultipartPartResponse :: UploadMultipartPartResponse -> TestTree
 testUploadMultipartPartResponse = res
@@ -474,19 +474,19 @@ testListMultipartUploadsResponse = res
     glacier
     (Proxy :: Proxy ListMultipartUploads)
 
-testDescribeVaultResponse :: DescribeVaultOutput -> TestTree
-testDescribeVaultResponse = res
-    "DescribeVaultResponse"
-    "fixture/DescribeVaultResponse.proto"
-    glacier
-    (Proxy :: Proxy DescribeVault)
-
 testAbortMultipartUploadResponse :: AbortMultipartUploadResponse -> TestTree
 testAbortMultipartUploadResponse = res
     "AbortMultipartUploadResponse"
     "fixture/AbortMultipartUploadResponse.proto"
     glacier
     (Proxy :: Proxy AbortMultipartUpload)
+
+testDescribeVaultResponse :: DescribeVaultOutput -> TestTree
+testDescribeVaultResponse = res
+    "DescribeVaultResponse"
+    "fixture/DescribeVaultResponse.proto"
+    glacier
+    (Proxy :: Proxy DescribeVault)
 
 testGetVaultLockResponse :: GetVaultLockResponse -> TestTree
 testGetVaultLockResponse = res
@@ -530,6 +530,13 @@ testRemoveTagsFromVaultResponse = res
     glacier
     (Proxy :: Proxy RemoveTagsFromVault)
 
+testDeleteVaultResponse :: DeleteVaultResponse -> TestTree
+testDeleteVaultResponse = res
+    "DeleteVaultResponse"
+    "fixture/DeleteVaultResponse.proto"
+    glacier
+    (Proxy :: Proxy DeleteVault)
+
 testDeleteArchiveResponse :: DeleteArchiveResponse -> TestTree
 testDeleteArchiveResponse = res
     "DeleteArchiveResponse"
@@ -537,12 +544,12 @@ testDeleteArchiveResponse = res
     glacier
     (Proxy :: Proxy DeleteArchive)
 
-testDeleteVaultResponse :: DeleteVaultResponse -> TestTree
-testDeleteVaultResponse = res
-    "DeleteVaultResponse"
-    "fixture/DeleteVaultResponse.proto"
+testCreateVaultResponse :: CreateVaultResponse -> TestTree
+testCreateVaultResponse = res
+    "CreateVaultResponse"
+    "fixture/CreateVaultResponse.proto"
     glacier
-    (Proxy :: Proxy DeleteVault)
+    (Proxy :: Proxy CreateVault)
 
 testInitiateMultipartUploadResponse :: InitiateMultipartUploadResponse -> TestTree
 testInitiateMultipartUploadResponse = res
@@ -557,13 +564,6 @@ testListPartsResponse = res
     "fixture/ListPartsResponse.proto"
     glacier
     (Proxy :: Proxy ListParts)
-
-testCreateVaultResponse :: CreateVaultResponse -> TestTree
-testCreateVaultResponse = res
-    "CreateVaultResponse"
-    "fixture/CreateVaultResponse.proto"
-    glacier
-    (Proxy :: Proxy CreateVault)
 
 testAddTagsToVaultResponse :: AddTagsToVaultResponse -> TestTree
 testAddTagsToVaultResponse = res

@@ -26,8 +26,8 @@ import           Network.AWS.Prelude
 -- /See:/ 'eventSourceMappingConfiguration' smart constructor.
 data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
     { _esmcEventSourceARN        :: !(Maybe Text)
-    , _esmcFunctionARN           :: !(Maybe Text)
     , _esmcState                 :: !(Maybe Text)
+    , _esmcFunctionARN           :: !(Maybe Text)
     , _esmcUUId                  :: !(Maybe Text)
     , _esmcLastProcessingResult  :: !(Maybe Text)
     , _esmcBatchSize             :: !(Maybe Nat)
@@ -41,9 +41,9 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
 --
 -- * 'esmcEventSourceARN'
 --
--- * 'esmcFunctionARN'
---
 -- * 'esmcState'
+--
+-- * 'esmcFunctionARN'
 --
 -- * 'esmcUUId'
 --
@@ -59,8 +59,8 @@ eventSourceMappingConfiguration
 eventSourceMappingConfiguration =
     EventSourceMappingConfiguration'
     { _esmcEventSourceARN = Nothing
-    , _esmcFunctionARN = Nothing
     , _esmcState = Nothing
+    , _esmcFunctionARN = Nothing
     , _esmcUUId = Nothing
     , _esmcLastProcessingResult = Nothing
     , _esmcBatchSize = Nothing
@@ -73,16 +73,16 @@ eventSourceMappingConfiguration =
 esmcEventSourceARN :: Lens' EventSourceMappingConfiguration (Maybe Text)
 esmcEventSourceARN = lens _esmcEventSourceARN (\ s a -> s{_esmcEventSourceARN = a});
 
--- | The Lambda function to invoke when AWS Lambda detects an event on the
--- stream.
-esmcFunctionARN :: Lens' EventSourceMappingConfiguration (Maybe Text)
-esmcFunctionARN = lens _esmcFunctionARN (\ s a -> s{_esmcFunctionARN = a});
-
 -- | The state of the event source mapping. It can be \"Creating\",
 -- \"Enabled\", \"Disabled\", \"Enabling\", \"Disabling\", \"Updating\", or
 -- \"Deleting\".
 esmcState :: Lens' EventSourceMappingConfiguration (Maybe Text)
 esmcState = lens _esmcState (\ s a -> s{_esmcState = a});
+
+-- | The Lambda function to invoke when AWS Lambda detects an event on the
+-- stream.
+esmcFunctionARN :: Lens' EventSourceMappingConfiguration (Maybe Text)
+esmcFunctionARN = lens _esmcFunctionARN (\ s a -> s{_esmcFunctionARN = a});
 
 -- | The AWS Lambda assigned opaque identifier for the mapping.
 esmcUUId :: Lens' EventSourceMappingConfiguration (Maybe Text)
@@ -114,8 +114,8 @@ instance FromJSON EventSourceMappingConfiguration
           = withObject "EventSourceMappingConfiguration"
               (\ x ->
                  EventSourceMappingConfiguration' <$>
-                   (x .:? "EventSourceArn") <*> (x .:? "FunctionArn")
-                     <*> (x .:? "State")
+                   (x .:? "EventSourceArn") <*> (x .:? "State") <*>
+                     (x .:? "FunctionArn")
                      <*> (x .:? "UUID")
                      <*> (x .:? "LastProcessingResult")
                      <*> (x .:? "BatchSize")
@@ -234,8 +234,8 @@ instance FromJSON FunctionCodeLocation where
 --
 -- /See:/ 'functionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
-    { _fcRuntime      :: !(Maybe Runtime)
-    , _fcMemorySize   :: !(Maybe Nat)
+    { _fcMemorySize   :: !(Maybe Nat)
+    , _fcRuntime      :: !(Maybe Runtime)
     , _fcFunctionARN  :: !(Maybe Text)
     , _fcRole         :: !(Maybe Text)
     , _fcFunctionName :: !(Maybe Text)
@@ -250,9 +250,9 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fcRuntime'
---
 -- * 'fcMemorySize'
+--
+-- * 'fcRuntime'
 --
 -- * 'fcFunctionARN'
 --
@@ -273,8 +273,8 @@ functionConfiguration
     :: FunctionConfiguration
 functionConfiguration =
     FunctionConfiguration'
-    { _fcRuntime = Nothing
-    , _fcMemorySize = Nothing
+    { _fcMemorySize = Nothing
+    , _fcRuntime = Nothing
     , _fcFunctionARN = Nothing
     , _fcRole = Nothing
     , _fcFunctionName = Nothing
@@ -285,14 +285,14 @@ functionConfiguration =
     , _fcDescription = Nothing
     }
 
--- | The runtime environment for the Lambda function.
-fcRuntime :: Lens' FunctionConfiguration (Maybe Runtime)
-fcRuntime = lens _fcRuntime (\ s a -> s{_fcRuntime = a});
-
 -- | The memory size, in MB, you configured for the function. Must be a
 -- multiple of 64 MB.
 fcMemorySize :: Lens' FunctionConfiguration (Maybe Natural)
 fcMemorySize = lens _fcMemorySize (\ s a -> s{_fcMemorySize = a}) . mapping _Nat;
+
+-- | The runtime environment for the Lambda function.
+fcRuntime :: Lens' FunctionConfiguration (Maybe Runtime)
+fcRuntime = lens _fcRuntime (\ s a -> s{_fcRuntime = a});
 
 -- | The Amazon Resource Name (ARN) assigned to the function.
 fcFunctionARN :: Lens' FunctionConfiguration (Maybe Text)
@@ -336,7 +336,7 @@ instance FromJSON FunctionConfiguration where
           = withObject "FunctionConfiguration"
               (\ x ->
                  FunctionConfiguration' <$>
-                   (x .:? "Runtime") <*> (x .:? "MemorySize") <*>
+                   (x .:? "MemorySize") <*> (x .:? "Runtime") <*>
                      (x .:? "FunctionArn")
                      <*> (x .:? "Role")
                      <*> (x .:? "FunctionName")

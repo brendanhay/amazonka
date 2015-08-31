@@ -40,8 +40,8 @@ module Network.AWS.CloudFormation.ListStacks
     , listStacksResponse
     , ListStacksResponse
     -- * Response Lenses
-    , lsrsStackSummaries
     , lsrsNextToken
+    , lsrsStackSummaries
     , lsrsStatus
     ) where
 
@@ -103,9 +103,9 @@ instance AWSRequest ListStacks where
           = receiveXMLWrapper "ListStacksResult"
               (\ s h x ->
                  ListStacksResponse' <$>
-                   (x .@? "StackSummaries" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (x .@? "NextToken")
+                   (x .@? "NextToken") <*>
+                     (x .@? "StackSummaries" .!@ mempty >>=
+                        may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders ListStacks where
@@ -128,8 +128,8 @@ instance ToQuery ListStacks where
 --
 -- /See:/ 'listStacksResponse' smart constructor.
 data ListStacksResponse = ListStacksResponse'
-    { _lsrsStackSummaries :: !(Maybe [StackSummary])
-    , _lsrsNextToken      :: !(Maybe Text)
+    { _lsrsNextToken      :: !(Maybe Text)
+    , _lsrsStackSummaries :: !(Maybe [StackSummary])
     , _lsrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -137,9 +137,9 @@ data ListStacksResponse = ListStacksResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsrsStackSummaries'
---
 -- * 'lsrsNextToken'
+--
+-- * 'lsrsStackSummaries'
 --
 -- * 'lsrsStatus'
 listStacksResponse
@@ -147,20 +147,20 @@ listStacksResponse
     -> ListStacksResponse
 listStacksResponse pStatus_ =
     ListStacksResponse'
-    { _lsrsStackSummaries = Nothing
-    , _lsrsNextToken = Nothing
+    { _lsrsNextToken = Nothing
+    , _lsrsStackSummaries = Nothing
     , _lsrsStatus = pStatus_
     }
-
--- | A list of 'StackSummary' structures containing information about the
--- specified stacks.
-lsrsStackSummaries :: Lens' ListStacksResponse [StackSummary]
-lsrsStackSummaries = lens _lsrsStackSummaries (\ s a -> s{_lsrsStackSummaries = a}) . _Default . _Coerce;
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
 lsrsNextToken :: Lens' ListStacksResponse (Maybe Text)
 lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
+
+-- | A list of 'StackSummary' structures containing information about the
+-- specified stacks.
+lsrsStackSummaries :: Lens' ListStacksResponse [StackSummary]
+lsrsStackSummaries = lens _lsrsStackSummaries (\ s a -> s{_lsrsStackSummaries = a}) . _Default . _Coerce;
 
 -- | The response status code.
 lsrsStatus :: Lens' ListStacksResponse Int

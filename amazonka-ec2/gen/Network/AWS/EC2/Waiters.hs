@@ -171,21 +171,6 @@ conversionTaskCompleted =
                               ctState . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a
--- successful state is reached. An error is returned after 40 failed checks.
-conversionTaskDeleted :: Wait DescribeConversionTasks
-conversionTaskDeleted =
-    Wait
-    { _waitName = "ConversionTaskDeleted"
-    , _waitAttempts = 40
-    , _waitDelay = 15
-    , _waitAcceptors = [ matchAll
-                             "deleted"
-                             AcceptSuccess
-                             (folding (concatOf dctrsConversionTasks) .
-                              ctState . to toTextCI)]
-    }
-
 -- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 instanceStopped :: Wait DescribeInstances
@@ -212,6 +197,21 @@ instanceStopped =
                              (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
                               insState . isName . to toTextCI)]
+    }
+
+-- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
+conversionTaskDeleted :: Wait DescribeConversionTasks
+conversionTaskDeleted =
+    Wait
+    { _waitName = "ConversionTaskDeleted"
+    , _waitAttempts = 40
+    , _waitDelay = 15
+    , _waitAcceptors = [ matchAll
+                             "deleted"
+                             AcceptSuccess
+                             (folding (concatOf dctrsConversionTasks) .
+                              ctState . to toTextCI)]
     }
 
 -- | Polls 'Network.AWS.EC2.GetPasswordData' every 15 seconds until a
@@ -297,21 +297,6 @@ spotInstanceRequestFulfilled =
                               sirStatus . _Just . sisCode . _Just . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a
--- successful state is reached. An error is returned after 40 failed checks.
-exportTaskCompleted :: Wait DescribeExportTasks
-exportTaskCompleted =
-    Wait
-    { _waitName = "ExportTaskCompleted"
-    , _waitAttempts = 40
-    , _waitDelay = 15
-    , _waitAcceptors = [ matchAll
-                             "completed"
-                             AcceptSuccess
-                             (folding (concatOf detrsExportTasks) .
-                              etState . to toTextCI)]
-    }
-
 -- | Polls 'Network.AWS.EC2.DescribeVPCs' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 vpcAvailable :: Wait DescribeVPCs
@@ -325,6 +310,21 @@ vpcAvailable =
                              AcceptSuccess
                              (folding (concatOf dvrsVPCs) .
                               vpcState . to toTextCI)]
+    }
+
+-- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
+exportTaskCompleted :: Wait DescribeExportTasks
+exportTaskCompleted =
+    Wait
+    { _waitName = "ExportTaskCompleted"
+    , _waitAttempts = 40
+    , _waitDelay = 15
+    , _waitAcceptors = [ matchAll
+                             "completed"
+                             AcceptSuccess
+                             (folding (concatOf detrsExportTasks) .
+                              etState . to toTextCI)]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeVPNConnections' every 15 seconds until a
@@ -423,6 +423,21 @@ vpnConnectionDeleted =
                               vcState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
+conversionTaskCancelled :: Wait DescribeConversionTasks
+conversionTaskCancelled =
+    Wait
+    { _waitName = "ConversionTaskCancelled"
+    , _waitAttempts = 40
+    , _waitDelay = 15
+    , _waitAcceptors = [ matchAll
+                             "cancelled"
+                             AcceptSuccess
+                             (folding (concatOf dctrsConversionTasks) .
+                              ctState . to toTextCI)]
+    }
+
 -- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 imageAvailable :: Wait DescribeImages
@@ -443,19 +458,19 @@ imageAvailable =
                               iState . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a
+-- | Polls 'Network.AWS.EC2.DescribeSnapshots' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
-conversionTaskCancelled :: Wait DescribeConversionTasks
-conversionTaskCancelled =
+snapshotCompleted :: Wait DescribeSnapshots
+snapshotCompleted =
     Wait
-    { _waitName = "ConversionTaskCancelled"
+    { _waitName = "SnapshotCompleted"
     , _waitAttempts = 40
     , _waitDelay = 15
     , _waitAcceptors = [ matchAll
-                             "cancelled"
+                             "completed"
                              AcceptSuccess
-                             (folding (concatOf dctrsConversionTasks) .
-                              ctState . to toTextCI)]
+                             (folding (concatOf dssrsSnapshots) .
+                              sState . to toTextCI)]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeInstances' every 5 seconds until a
@@ -468,6 +483,22 @@ instanceExists =
     , _waitDelay = 5
     , _waitAcceptors = [ matchStatus 200 AcceptSuccess
                        , matchError "InvalidInstanceIDNotFound" AcceptRetry]
+    }
+
+-- | Polls 'Network.AWS.EC2.DescribeInstanceStatus' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
+instanceStatusOK :: Wait DescribeInstanceStatus
+instanceStatusOK =
+    Wait
+    { _waitName = "InstanceStatusOk"
+    , _waitAttempts = 40
+    , _waitDelay = 15
+    , _waitAcceptors = [ matchAll
+                             "ok"
+                             AcceptSuccess
+                             (folding (concatOf disrsInstanceStatuses) .
+                              isInstanceStatus .
+                              _Just . issStatus . to toTextCI)]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a
@@ -488,35 +519,4 @@ volumeAvailable =
                              AcceptFailure
                              (folding (concatOf dvvrsVolumes) .
                               vState . to toTextCI)]
-    }
-
--- | Polls 'Network.AWS.EC2.DescribeSnapshots' every 15 seconds until a
--- successful state is reached. An error is returned after 40 failed checks.
-snapshotCompleted :: Wait DescribeSnapshots
-snapshotCompleted =
-    Wait
-    { _waitName = "SnapshotCompleted"
-    , _waitAttempts = 40
-    , _waitDelay = 15
-    , _waitAcceptors = [ matchAll
-                             "completed"
-                             AcceptSuccess
-                             (folding (concatOf dssrsSnapshots) .
-                              sState . to toTextCI)]
-    }
-
--- | Polls 'Network.AWS.EC2.DescribeInstanceStatus' every 15 seconds until a
--- successful state is reached. An error is returned after 40 failed checks.
-instanceStatusOK :: Wait DescribeInstanceStatus
-instanceStatusOK =
-    Wait
-    { _waitName = "InstanceStatusOk"
-    , _waitAttempts = 40
-    , _waitDelay = 15
-    , _waitAcceptors = [ matchAll
-                             "ok"
-                             AcceptSuccess
-                             (folding (concatOf disrsInstanceStatuses) .
-                              isInstanceStatus .
-                              _Just . issStatus . to toTextCI)]
     }

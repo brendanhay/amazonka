@@ -42,10 +42,10 @@ module Network.AWS.OpsWorks.UpdateStack
     , usCustomJSON
     , usCustomCookbooksSource
     , usDefaultAvailabilityZone
-    , usName
-    , usUseOpsworksSecurityGroups
-    , usDefaultOS
     , usAttributes
+    , usName
+    , usDefaultOS
+    , usUseOpsworksSecurityGroups
     , usUseCustomCookbooks
     , usDefaultSubnetId
     , usConfigurationManager
@@ -74,10 +74,10 @@ data UpdateStack = UpdateStack'
     , _usCustomJSON                :: !(Maybe Text)
     , _usCustomCookbooksSource     :: !(Maybe Source)
     , _usDefaultAvailabilityZone   :: !(Maybe Text)
-    , _usName                      :: !(Maybe Text)
-    , _usUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _usDefaultOS                 :: !(Maybe Text)
     , _usAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+    , _usName                      :: !(Maybe Text)
+    , _usDefaultOS                 :: !(Maybe Text)
+    , _usUseOpsworksSecurityGroups :: !(Maybe Bool)
     , _usUseCustomCookbooks        :: !(Maybe Bool)
     , _usDefaultSubnetId           :: !(Maybe Text)
     , _usConfigurationManager      :: !(Maybe StackConfigurationManager)
@@ -107,13 +107,13 @@ data UpdateStack = UpdateStack'
 --
 -- * 'usDefaultAvailabilityZone'
 --
--- * 'usName'
+-- * 'usAttributes'
 --
--- * 'usUseOpsworksSecurityGroups'
+-- * 'usName'
 --
 -- * 'usDefaultOS'
 --
--- * 'usAttributes'
+-- * 'usUseOpsworksSecurityGroups'
 --
 -- * 'usUseCustomCookbooks'
 --
@@ -138,10 +138,10 @@ updateStack pStackId_ =
     , _usCustomJSON = Nothing
     , _usCustomCookbooksSource = Nothing
     , _usDefaultAvailabilityZone = Nothing
-    , _usName = Nothing
-    , _usUseOpsworksSecurityGroups = Nothing
-    , _usDefaultOS = Nothing
     , _usAttributes = Nothing
+    , _usName = Nothing
+    , _usDefaultOS = Nothing
+    , _usUseOpsworksSecurityGroups = Nothing
     , _usUseCustomCookbooks = Nothing
     , _usDefaultSubnetId = Nothing
     , _usConfigurationManager = Nothing
@@ -230,9 +230,32 @@ usCustomCookbooksSource = lens _usCustomCookbooksSource (\ s a -> s{_usCustomCoo
 usDefaultAvailabilityZone :: Lens' UpdateStack (Maybe Text)
 usDefaultAvailabilityZone = lens _usDefaultAvailabilityZone (\ s a -> s{_usDefaultAvailabilityZone = a});
 
+-- | One or more user-defined key-value pairs to be added to the stack
+-- attributes.
+usAttributes :: Lens' UpdateStack (HashMap StackAttributesKeys Text)
+usAttributes = lens _usAttributes (\ s a -> s{_usAttributes = a}) . _Default . _Map;
+
 -- | The stack\'s new name.
 usName :: Lens' UpdateStack (Maybe Text)
 usName = lens _usName (\ s a -> s{_usName = a});
+
+-- | The stack\'s operating system, which must be set to one of the
+-- following:
+--
+-- -   A supported Linux operating system: An Amazon Linux version, such as
+--     'Amazon Linux 2015.03', 'Red Hat Enterprise Linux 7',
+--     'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'.
+-- -   'Microsoft Windows Server 2012 R2 Base'.
+-- -   A custom AMI: 'Custom'. You specify the custom AMI you want to use
+--     when you create instances. For more information on how to use custom
+--     AMIs with OpsWorks, see
+--     <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
+--
+-- The default option is the stack\'s current operating system. For more
+-- information on the supported operating systems, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.
+usDefaultOS :: Lens' UpdateStack (Maybe Text)
+usDefaultOS = lens _usDefaultOS (\ s a -> s{_usDefaultOS = a});
 
 -- | Whether to associate the AWS OpsWorks built-in security groups with the
 -- stack\'s layers.
@@ -258,29 +281,6 @@ usName = lens _usName (\ s a -> s{_usName = a});
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
 usUseOpsworksSecurityGroups :: Lens' UpdateStack (Maybe Bool)
 usUseOpsworksSecurityGroups = lens _usUseOpsworksSecurityGroups (\ s a -> s{_usUseOpsworksSecurityGroups = a});
-
--- | The stack\'s operating system, which must be set to one of the
--- following:
---
--- -   A supported Linux operating system: An Amazon Linux version, such as
---     'Amazon Linux 2015.03', 'Red Hat Enterprise Linux 7',
---     'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'.
--- -   'Microsoft Windows Server 2012 R2 Base'.
--- -   A custom AMI: 'Custom'. You specify the custom AMI you want to use
---     when you create instances. For more information on how to use custom
---     AMIs with OpsWorks, see
---     <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
---
--- The default option is the stack\'s current operating system. For more
--- information on the supported operating systems, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.
-usDefaultOS :: Lens' UpdateStack (Maybe Text)
-usDefaultOS = lens _usDefaultOS (\ s a -> s{_usDefaultOS = a});
-
--- | One or more user-defined key-value pairs to be added to the stack
--- attributes.
-usAttributes :: Lens' UpdateStack (HashMap StackAttributesKeys Text)
-usAttributes = lens _usAttributes (\ s a -> s{_usAttributes = a}) . _Default . _Map;
 
 -- | Whether the stack uses custom cookbooks.
 usUseCustomCookbooks :: Lens' UpdateStack (Maybe Bool)
@@ -359,11 +359,11 @@ instance ToJSON UpdateStack where
                     _usCustomCookbooksSource,
                   ("DefaultAvailabilityZone" .=) <$>
                     _usDefaultAvailabilityZone,
+                  ("Attributes" .=) <$> _usAttributes,
                   ("Name" .=) <$> _usName,
+                  ("DefaultOs" .=) <$> _usDefaultOS,
                   ("UseOpsworksSecurityGroups" .=) <$>
                     _usUseOpsworksSecurityGroups,
-                  ("DefaultOs" .=) <$> _usDefaultOS,
-                  ("Attributes" .=) <$> _usAttributes,
                   ("UseCustomCookbooks" .=) <$> _usUseCustomCookbooks,
                   ("DefaultSubnetId" .=) <$> _usDefaultSubnetId,
                   ("ConfigurationManager" .=) <$>

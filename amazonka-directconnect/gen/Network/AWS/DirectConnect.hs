@@ -66,14 +66,14 @@ module Network.AWS.DirectConnect
     -- ** DescribeConnections
     , module Network.AWS.DirectConnect.DescribeConnections
 
+    -- ** DescribeConnectionsOnInterconnect
+    , module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
+
     -- ** DeleteInterconnect
     , module Network.AWS.DirectConnect.DeleteInterconnect
 
     -- ** ConfirmPrivateVirtualInterface
     , module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
-
-    -- ** DescribeConnectionsOnInterconnect
-    , module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
 
     -- ** DescribeLocations
     , module Network.AWS.DirectConnect.DescribeLocations
@@ -87,20 +87,20 @@ module Network.AWS.DirectConnect
     -- ** ConfirmConnection
     , module Network.AWS.DirectConnect.ConfirmConnection
 
-    -- ** DescribeVirtualGateways
-    , module Network.AWS.DirectConnect.DescribeVirtualGateways
-
     -- ** ConfirmPublicVirtualInterface
     , module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
+
+    -- ** DescribeVirtualGateways
+    , module Network.AWS.DirectConnect.DescribeVirtualGateways
 
     -- ** DescribeVirtualInterfaces
     , module Network.AWS.DirectConnect.DescribeVirtualInterfaces
 
-    -- ** CreatePrivateVirtualInterface
-    , module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
-
     -- ** DeleteVirtualInterface
     , module Network.AWS.DirectConnect.DeleteVirtualInterface
+
+    -- ** CreatePrivateVirtualInterface
+    , module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
 
     -- ** AllocatePublicVirtualInterface
     , module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
@@ -128,11 +128,11 @@ module Network.AWS.DirectConnect
     , cVlan
     , cLocation
     , cConnectionId
-    , cConnectionName
     , cPartnerName
+    , cConnectionName
     , cBandwidth
-    , cRegion
     , cOwnerAccount
+    , cRegion
     , cConnectionState
 
     -- ** Connections
@@ -144,8 +144,8 @@ module Network.AWS.DirectConnect
     , Interconnect
     , interconnect
     , iInterconnectId
-    , iInterconnectName
     , iLocation
+    , iInterconnectName
     , iBandwidth
     , iInterconnectState
     , iRegion
@@ -221,8 +221,8 @@ module Network.AWS.DirectConnect
     , viAmazonAddress
     , viVirtualInterfaceState
     , viConnectionId
-    , viAsn
     , viVirtualInterfaceType
+    , viAsn
     , viAuthKey
     , viCustomerRouterConfig
     , viOwnerAccount

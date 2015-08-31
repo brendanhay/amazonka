@@ -35,8 +35,8 @@ module Network.AWS.CodeCommit.ListRepositories
     , listRepositoriesResponse
     , ListRepositoriesResponse
     -- * Response Lenses
-    , lrrsNextToken
     , lrrsRepositories
+    , lrrsNextToken
     , lrrsStatus
     ) where
 
@@ -95,8 +95,8 @@ instance AWSRequest ListRepositories where
           = receiveJSON
               (\ s h x ->
                  ListRepositoriesResponse' <$>
-                   (x .?> "nextToken") <*>
-                     (x .?> "repositories" .!@ mempty)
+                   (x .?> "repositories" .!@ mempty) <*>
+                     (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders ListRepositories where
@@ -127,8 +127,8 @@ instance ToQuery ListRepositories where
 --
 -- /See:/ 'listRepositoriesResponse' smart constructor.
 data ListRepositoriesResponse = ListRepositoriesResponse'
-    { _lrrsNextToken    :: !(Maybe Text)
-    , _lrrsRepositories :: !(Maybe [RepositoryNameIdPair])
+    { _lrrsRepositories :: !(Maybe [RepositoryNameIdPair])
+    , _lrrsNextToken    :: !(Maybe Text)
     , _lrrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -136,9 +136,9 @@ data ListRepositoriesResponse = ListRepositoriesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrrsNextToken'
---
 -- * 'lrrsRepositories'
+--
+-- * 'lrrsNextToken'
 --
 -- * 'lrrsStatus'
 listRepositoriesResponse
@@ -146,10 +146,14 @@ listRepositoriesResponse
     -> ListRepositoriesResponse
 listRepositoriesResponse pStatus_ =
     ListRepositoriesResponse'
-    { _lrrsNextToken = Nothing
-    , _lrrsRepositories = Nothing
+    { _lrrsRepositories = Nothing
+    , _lrrsNextToken = Nothing
     , _lrrsStatus = pStatus_
     }
+
+-- | Lists the repositories called by the list repositories operation.
+lrrsRepositories :: Lens' ListRepositoriesResponse [RepositoryNameIdPair]
+lrrsRepositories = lens _lrrsRepositories (\ s a -> s{_lrrsRepositories = a}) . _Default . _Coerce;
 
 -- | An enumeration token that allows the operation to batch the results of
 -- the operation. Batch sizes are 1,000 for list repository operations.
@@ -157,10 +161,6 @@ listRepositoriesResponse pStatus_ =
 -- 1,000 records is retrieved.
 lrrsNextToken :: Lens' ListRepositoriesResponse (Maybe Text)
 lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
-
--- | Lists the repositories called by the list repositories operation.
-lrrsRepositories :: Lens' ListRepositoriesResponse [RepositoryNameIdPair]
-lrrsRepositories = lens _lrrsRepositories (\ s a -> s{_lrrsRepositories = a}) . _Default . _Coerce;
 
 -- | The response status code.
 lrrsStatus :: Lens' ListRepositoriesResponse Int

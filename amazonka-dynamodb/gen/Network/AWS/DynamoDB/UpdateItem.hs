@@ -36,12 +36,12 @@ module Network.AWS.DynamoDB.UpdateItem
       updateItem
     , UpdateItem
     -- * Request Lenses
-    , uiReturnValues
     , uiExpressionAttributeNames
+    , uiReturnValues
     , uiUpdateExpression
+    , uiExpressionAttributeValues
     , uiAttributeUpdates
     , uiReturnConsumedCapacity
-    , uiExpressionAttributeValues
     , uiReturnItemCollectionMetrics
     , uiConditionExpression
     , uiConditionalOperator
@@ -53,8 +53,8 @@ module Network.AWS.DynamoDB.UpdateItem
     , updateItemResponse
     , UpdateItemResponse
     -- * Response Lenses
-    , uirsConsumedCapacity
     , uirsItemCollectionMetrics
+    , uirsConsumedCapacity
     , uirsAttributes
     , uirsStatus
     ) where
@@ -69,12 +69,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateItem' smart constructor.
 data UpdateItem = UpdateItem'
-    { _uiReturnValues                :: !(Maybe ReturnValue)
-    , _uiExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    { _uiExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    , _uiReturnValues                :: !(Maybe ReturnValue)
     , _uiUpdateExpression            :: !(Maybe Text)
+    , _uiExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
     , _uiAttributeUpdates            :: !(Maybe (Map Text AttributeValueUpdate))
     , _uiReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
-    , _uiExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
     , _uiReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
     , _uiConditionExpression         :: !(Maybe Text)
     , _uiConditionalOperator         :: !(Maybe ConditionalOperator)
@@ -87,17 +87,17 @@ data UpdateItem = UpdateItem'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uiReturnValues'
---
 -- * 'uiExpressionAttributeNames'
 --
+-- * 'uiReturnValues'
+--
 -- * 'uiUpdateExpression'
+--
+-- * 'uiExpressionAttributeValues'
 --
 -- * 'uiAttributeUpdates'
 --
 -- * 'uiReturnConsumedCapacity'
---
--- * 'uiExpressionAttributeValues'
 --
 -- * 'uiReturnItemCollectionMetrics'
 --
@@ -115,12 +115,12 @@ updateItem
     -> UpdateItem
 updateItem pTableName_ =
     UpdateItem'
-    { _uiReturnValues = Nothing
-    , _uiExpressionAttributeNames = Nothing
+    { _uiExpressionAttributeNames = Nothing
+    , _uiReturnValues = Nothing
     , _uiUpdateExpression = Nothing
+    , _uiExpressionAttributeValues = Nothing
     , _uiAttributeUpdates = Nothing
     , _uiReturnConsumedCapacity = Nothing
-    , _uiExpressionAttributeValues = Nothing
     , _uiReturnItemCollectionMetrics = Nothing
     , _uiConditionExpression = Nothing
     , _uiConditionalOperator = Nothing
@@ -128,29 +128,6 @@ updateItem pTableName_ =
     , _uiTableName = pTableName_
     , _uiKey = mempty
     }
-
--- | Use /ReturnValues/ if you want to get the item attributes as they
--- appeared either before or after they were updated. For /UpdateItem/, the
--- valid values are:
---
--- -   'NONE' - If /ReturnValues/ is not specified, or if its value is
---     'NONE', then nothing is returned. (This setting is the default for
---     /ReturnValues/.)
---
--- -   'ALL_OLD' - If /UpdateItem/ overwrote an attribute name-value pair,
---     then the content of the old item is returned.
---
--- -   'UPDATED_OLD' - The old versions of only the updated attributes are
---     returned.
---
--- -   'ALL_NEW' - All of the attributes of the new version of the item are
---     returned.
---
--- -   'UPDATED_NEW' - The new versions of only the updated attributes are
---     returned.
---
-uiReturnValues :: Lens' UpdateItem (Maybe ReturnValue)
-uiReturnValues = lens _uiReturnValues (\ s a -> s{_uiReturnValues = a});
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using /ExpressionAttributeNames/:
@@ -191,6 +168,29 @@ uiReturnValues = lens _uiReturnValues (\ s a -> s{_uiReturnValues = a});
 -- in the /Amazon DynamoDB Developer Guide/.
 uiExpressionAttributeNames :: Lens' UpdateItem (HashMap Text Text)
 uiExpressionAttributeNames = lens _uiExpressionAttributeNames (\ s a -> s{_uiExpressionAttributeNames = a}) . _Default . _Map;
+
+-- | Use /ReturnValues/ if you want to get the item attributes as they
+-- appeared either before or after they were updated. For /UpdateItem/, the
+-- valid values are:
+--
+-- -   'NONE' - If /ReturnValues/ is not specified, or if its value is
+--     'NONE', then nothing is returned. (This setting is the default for
+--     /ReturnValues/.)
+--
+-- -   'ALL_OLD' - If /UpdateItem/ overwrote an attribute name-value pair,
+--     then the content of the old item is returned.
+--
+-- -   'UPDATED_OLD' - The old versions of only the updated attributes are
+--     returned.
+--
+-- -   'ALL_NEW' - All of the attributes of the new version of the item are
+--     returned.
+--
+-- -   'UPDATED_NEW' - The new versions of only the updated attributes are
+--     returned.
+--
+uiReturnValues :: Lens' UpdateItem (Maybe ReturnValue)
+uiReturnValues = lens _uiReturnValues (\ s a -> s{_uiReturnValues = a});
 
 -- | An expression that defines one or more attributes to be updated, the
 -- action to be performed on them, and new value(s) for them.
@@ -279,6 +279,28 @@ uiExpressionAttributeNames = lens _uiExpressionAttributeNames (\ s a -> s{_uiExp
 -- /UpdateExpression/ replaces the legacy /AttributeUpdates/ parameter.
 uiUpdateExpression :: Lens' UpdateItem (Maybe Text)
 uiUpdateExpression = lens _uiUpdateExpression (\ s a -> s{_uiUpdateExpression = a});
+
+-- | One or more values that can be substituted in an expression.
+--
+-- Use the __:__ (colon) character in an expression to dereference an
+-- attribute value. For example, suppose that you wanted to check whether
+-- the value of the /ProductStatus/ attribute was one of the following:
+--
+-- 'Available | Backordered | Discontinued'
+--
+-- You would first need to specify /ExpressionAttributeValues/ as follows:
+--
+-- '{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }'
+--
+-- You could then use these values in an expression, such as this:
+--
+-- 'ProductStatus IN (:avail, :back, :disc)'
+--
+-- For more information on expression attribute values, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
+-- in the /Amazon DynamoDB Developer Guide/.
+uiExpressionAttributeValues :: Lens' UpdateItem (HashMap Text AttributeValue)
+uiExpressionAttributeValues = lens _uiExpressionAttributeValues (\ s a -> s{_uiExpressionAttributeValues = a}) . _Default . _Map;
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /UpdateExpression/ instead. Do not combine legacy parameters
@@ -383,28 +405,6 @@ uiAttributeUpdates = lens _uiAttributeUpdates (\ s a -> s{_uiAttributeUpdates = 
 -- | Undocumented member.
 uiReturnConsumedCapacity :: Lens' UpdateItem (Maybe ReturnConsumedCapacity)
 uiReturnConsumedCapacity = lens _uiReturnConsumedCapacity (\ s a -> s{_uiReturnConsumedCapacity = a});
-
--- | One or more values that can be substituted in an expression.
---
--- Use the __:__ (colon) character in an expression to dereference an
--- attribute value. For example, suppose that you wanted to check whether
--- the value of the /ProductStatus/ attribute was one of the following:
---
--- 'Available | Backordered | Discontinued'
---
--- You would first need to specify /ExpressionAttributeValues/ as follows:
---
--- '{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }'
---
--- You could then use these values in an expression, such as this:
---
--- 'ProductStatus IN (:avail, :back, :disc)'
---
--- For more information on expression attribute values, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
--- in the /Amazon DynamoDB Developer Guide/.
-uiExpressionAttributeValues :: Lens' UpdateItem (HashMap Text AttributeValue)
-uiExpressionAttributeValues = lens _uiExpressionAttributeValues (\ s a -> s{_uiExpressionAttributeValues = a}) . _Default . _Map;
 
 -- | Determines whether item collection metrics are returned. If set to
 -- 'SIZE', the response includes statistics about item collections, if any,
@@ -704,8 +704,8 @@ instance AWSRequest UpdateItem where
           = receiveJSON
               (\ s h x ->
                  UpdateItemResponse' <$>
-                   (x .?> "ConsumedCapacity") <*>
-                     (x .?> "ItemCollectionMetrics")
+                   (x .?> "ItemCollectionMetrics") <*>
+                     (x .?> "ConsumedCapacity")
                      <*> (x .?> "Attributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
@@ -722,15 +722,15 @@ instance ToJSON UpdateItem where
         toJSON UpdateItem'{..}
           = object
               (catMaybes
-                 [("ReturnValues" .=) <$> _uiReturnValues,
-                  ("ExpressionAttributeNames" .=) <$>
+                 [("ExpressionAttributeNames" .=) <$>
                     _uiExpressionAttributeNames,
+                  ("ReturnValues" .=) <$> _uiReturnValues,
                   ("UpdateExpression" .=) <$> _uiUpdateExpression,
+                  ("ExpressionAttributeValues" .=) <$>
+                    _uiExpressionAttributeValues,
                   ("AttributeUpdates" .=) <$> _uiAttributeUpdates,
                   ("ReturnConsumedCapacity" .=) <$>
                     _uiReturnConsumedCapacity,
-                  ("ExpressionAttributeValues" .=) <$>
-                    _uiExpressionAttributeValues,
                   ("ReturnItemCollectionMetrics" .=) <$>
                     _uiReturnItemCollectionMetrics,
                   ("ConditionExpression" .=) <$>
@@ -751,8 +751,8 @@ instance ToQuery UpdateItem where
 --
 -- /See:/ 'updateItemResponse' smart constructor.
 data UpdateItemResponse = UpdateItemResponse'
-    { _uirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
-    , _uirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
+    { _uirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
+    , _uirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
     , _uirsAttributes            :: !(Maybe (Map Text AttributeValue))
     , _uirsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -761,9 +761,9 @@ data UpdateItemResponse = UpdateItemResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uirsConsumedCapacity'
---
 -- * 'uirsItemCollectionMetrics'
+--
+-- * 'uirsConsumedCapacity'
 --
 -- * 'uirsAttributes'
 --
@@ -773,19 +773,19 @@ updateItemResponse
     -> UpdateItemResponse
 updateItemResponse pStatus_ =
     UpdateItemResponse'
-    { _uirsConsumedCapacity = Nothing
-    , _uirsItemCollectionMetrics = Nothing
+    { _uirsItemCollectionMetrics = Nothing
+    , _uirsConsumedCapacity = Nothing
     , _uirsAttributes = Nothing
     , _uirsStatus = pStatus_
     }
 
 -- | Undocumented member.
-uirsConsumedCapacity :: Lens' UpdateItemResponse (Maybe ConsumedCapacity)
-uirsConsumedCapacity = lens _uirsConsumedCapacity (\ s a -> s{_uirsConsumedCapacity = a});
-
--- | Undocumented member.
 uirsItemCollectionMetrics :: Lens' UpdateItemResponse (Maybe ItemCollectionMetrics)
 uirsItemCollectionMetrics = lens _uirsItemCollectionMetrics (\ s a -> s{_uirsItemCollectionMetrics = a});
+
+-- | Undocumented member.
+uirsConsumedCapacity :: Lens' UpdateItemResponse (Maybe ConsumedCapacity)
+uirsConsumedCapacity = lens _uirsConsumedCapacity (\ s a -> s{_uirsConsumedCapacity = a});
 
 -- | A map of attribute values as they appeared before the /UpdateItem/
 -- operation. This map only appears if /ReturnValues/ was specified as

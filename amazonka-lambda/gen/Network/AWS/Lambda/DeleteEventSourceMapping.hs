@@ -38,8 +38,8 @@ module Network.AWS.Lambda.DeleteEventSourceMapping
     , EventSourceMappingConfiguration
     -- * Response Lenses
     , esmcEventSourceARN
-    , esmcFunctionARN
     , esmcState
+    , esmcFunctionARN
     , esmcUUId
     , esmcLastProcessingResult
     , esmcBatchSize

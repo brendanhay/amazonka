@@ -31,8 +31,8 @@ module Network.AWS.AutoScaling.DescribePolicies
     -- * Request Lenses
     , dpsPolicyNames
     , dpsNextToken
-    , dpsMaxRecords
     , dpsAutoScalingGroupName
+    , dpsMaxRecords
     , dpsPolicyTypes
 
     -- * Destructuring the Response
@@ -55,8 +55,8 @@ import           Network.AWS.Response
 data DescribePolicies = DescribePolicies'
     { _dpsPolicyNames          :: !(Maybe [Text])
     , _dpsNextToken            :: !(Maybe Text)
-    , _dpsMaxRecords           :: !(Maybe Int)
     , _dpsAutoScalingGroupName :: !(Maybe Text)
+    , _dpsMaxRecords           :: !(Maybe Int)
     , _dpsPolicyTypes          :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -68,9 +68,9 @@ data DescribePolicies = DescribePolicies'
 --
 -- * 'dpsNextToken'
 --
--- * 'dpsMaxRecords'
---
 -- * 'dpsAutoScalingGroupName'
+--
+-- * 'dpsMaxRecords'
 --
 -- * 'dpsPolicyTypes'
 describePolicies
@@ -79,8 +79,8 @@ describePolicies =
     DescribePolicies'
     { _dpsPolicyNames = Nothing
     , _dpsNextToken = Nothing
-    , _dpsMaxRecords = Nothing
     , _dpsAutoScalingGroupName = Nothing
+    , _dpsMaxRecords = Nothing
     , _dpsPolicyTypes = Nothing
     }
 
@@ -96,13 +96,13 @@ dpsPolicyNames = lens _dpsPolicyNames (\ s a -> s{_dpsPolicyNames = a}) . _Defau
 dpsNextToken :: Lens' DescribePolicies (Maybe Text)
 dpsNextToken = lens _dpsNextToken (\ s a -> s{_dpsNextToken = a});
 
--- | The maximum number of items to be returned with each call.
-dpsMaxRecords :: Lens' DescribePolicies (Maybe Int)
-dpsMaxRecords = lens _dpsMaxRecords (\ s a -> s{_dpsMaxRecords = a});
-
 -- | The name of the group.
 dpsAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
 dpsAutoScalingGroupName = lens _dpsAutoScalingGroupName (\ s a -> s{_dpsAutoScalingGroupName = a});
+
+-- | The maximum number of items to be returned with each call.
+dpsMaxRecords :: Lens' DescribePolicies (Maybe Int)
+dpsMaxRecords = lens _dpsMaxRecords (\ s a -> s{_dpsMaxRecords = a});
 
 -- | One or more policy types. Valid values are 'SimpleScaling' and
 -- 'StepScaling'.
@@ -142,8 +142,8 @@ instance ToQuery DescribePolicies where
                "PolicyNames" =:
                  toQuery (toQueryList "member" <$> _dpsPolicyNames),
                "NextToken" =: _dpsNextToken,
-               "MaxRecords" =: _dpsMaxRecords,
                "AutoScalingGroupName" =: _dpsAutoScalingGroupName,
+               "MaxRecords" =: _dpsMaxRecords,
                "PolicyTypes" =:
                  toQuery (toQueryList "member" <$> _dpsPolicyTypes)]
 

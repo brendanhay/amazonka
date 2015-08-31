@@ -34,35 +34,35 @@ import Test.AWS.StorageGateway.Internal
 --         , testCreateStorediSCSIVolume $
 --             createStorediSCSIVolume
 --
+--         , testDescribeChapCredentials $
+--             describeChapCredentials
+--
 --         , testCreateTapes $
 --             createTapes
---
---         , testCreateCachediSCSIVolume $
---             createCachediSCSIVolume
 --
 --         , testUpdateVTLDeviceType $
 --             updateVTLDeviceType
 --
---         , testDescribeChapCredentials $
---             describeChapCredentials
---
---         , testAddUploadBuffer $
---             addUploadBuffer
+--         , testCreateCachediSCSIVolume $
+--             createCachediSCSIVolume
 --
 --         , testListVolumeInitiators $
 --             listVolumeInitiators
 --
---         , testDescribeWorkingStorage $
---             describeWorkingStorage
---
---         , testDescribeCachediSCSIVolumes $
---             describeCachediSCSIVolumes
+--         , testAddUploadBuffer $
+--             addUploadBuffer
 --
 --         , testUpdateGatewayInformation $
 --             updateGatewayInformation
 --
 --         , testDescribeMaintenanceStartTime $
 --             describeMaintenanceStartTime
+--
+--         , testDescribeWorkingStorage $
+--             describeWorkingStorage
+--
+--         , testDescribeCachediSCSIVolumes $
+--             describeCachediSCSIVolumes
 --
 --         , testAddCache $
 --             addCache
@@ -82,29 +82,35 @@ import Test.AWS.StorageGateway.Internal
 --         , testUpdateChapCredentials $
 --             updateChapCredentials
 --
---         , testDescribeStorediSCSIVolumes $
---             describeStorediSCSIVolumes
+--         , testDescribeUploadBuffer $
+--             describeUploadBuffer
 --
 --         , testDescribeTapes $
 --             describeTapes
 --
---         , testDescribeUploadBuffer $
---             describeUploadBuffer
+--         , testDescribeStorediSCSIVolumes $
+--             describeStorediSCSIVolumes
 --
 --         , testCreateSnapshotFromVolumeRecoveryPoint $
 --             createSnapshotFromVolumeRecoveryPoint
 --
---         , testDescribeGatewayInformation $
---             describeGatewayInformation
---
 --         , testRetrieveTapeRecoveryPoint $
 --             retrieveTapeRecoveryPoint
+--
+--         , testDeleteGateway $
+--             deleteGateway
 --
 --         , testUpdateMaintenanceStartTime $
 --             updateMaintenanceStartTime
 --
---         , testDeleteGateway $
---             deleteGateway
+--         , testDescribeGatewayInformation $
+--             describeGatewayInformation
+--
+--         , testRetrieveTapeArchive $
+--             retrieveTapeArchive
+--
+--         , testDescribeTapeArchives $
+--             describeTapeArchives
 --
 --         , testDisableGateway $
 --             disableGateway
@@ -112,29 +118,23 @@ import Test.AWS.StorageGateway.Internal
 --         , testDescribeSnapshotSchedule $
 --             describeSnapshotSchedule
 --
---         , testDescribeTapeArchives $
---             describeTapeArchives
---
---         , testRetrieveTapeArchive $
---             retrieveTapeArchive
---
 --         , testDescribeBandwidthRateLimit $
 --             describeBandwidthRateLimit
 --
---         , testDescribeVTLDevices $
---             describeVTLDevices
---
---         , testCreateSnapshot $
---             createSnapshot
+--         , testDeleteSnapshotSchedule $
+--             deleteSnapshotSchedule
 --
 --         , testUpdateSnapshotSchedule $
 --             updateSnapshotSchedule
 --
+--         , testCreateSnapshot $
+--             createSnapshot
+--
 --         , testCancelRetrieval $
 --             cancelRetrieval
 --
---         , testDeleteSnapshotSchedule $
---             deleteSnapshotSchedule
+--         , testDescribeVTLDevices $
+--             describeVTLDevices
 --
 --         , testDeleteTapeArchive $
 --             deleteTapeArchive
@@ -142,23 +142,32 @@ import Test.AWS.StorageGateway.Internal
 --         , testListVolumeRecoveryPoints $
 --             listVolumeRecoveryPoints
 --
---         , testAddWorkingStorage $
---             addWorkingStorage
+--         , testResetCache $
+--             resetCache
 --
 --         , testListGateways $
 --             listGateways
 --
+--         , testDeleteTape $
+--             deleteTape
+--
+--         , testListLocalDisks $
+--             listLocalDisks
+--
 --         , testListVolumes $
 --             listVolumes
+--
+--         , testUpdateBandwidthRateLimit $
+--             updateBandwidthRateLimit
+--
+--         , testAddWorkingStorage $
+--             addWorkingStorage
 --
 --         , testDescribeTapeRecoveryPoints $
 --             describeTapeRecoveryPoints
 --
---         , testDeleteVolume $
---             deleteVolume
---
---         , testResetCache $
---             resetCache
+--         , testDeleteBandwidthRateLimit $
+--             deleteBandwidthRateLimit
 --
 --         , testActivateGateway $
 --             activateGateway
@@ -166,17 +175,8 @@ import Test.AWS.StorageGateway.Internal
 --         , testDescribeCache $
 --             describeCache
 --
---         , testUpdateBandwidthRateLimit $
---             updateBandwidthRateLimit
---
---         , testDeleteBandwidthRateLimit $
---             deleteBandwidthRateLimit
---
---         , testListLocalDisks $
---             listLocalDisks
---
---         , testDeleteTape $
---             deleteTape
+--         , testDeleteVolume $
+--             deleteVolume
 --
 --           ]
 
@@ -187,35 +187,35 @@ import Test.AWS.StorageGateway.Internal
 --         , testCreateStorediSCSIVolumeResponse $
 --             createStorediSCSIVolumeResponse
 --
+--         , testDescribeChapCredentialsResponse $
+--             describeChapCredentialsResponse
+--
 --         , testCreateTapesResponse $
 --             createTapesResponse
---
---         , testCreateCachediSCSIVolumeResponse $
---             createCachediSCSIVolumeResponse
 --
 --         , testUpdateVTLDeviceTypeResponse $
 --             updateVTLDeviceTypeResponse
 --
---         , testDescribeChapCredentialsResponse $
---             describeChapCredentialsResponse
---
---         , testAddUploadBufferResponse $
---             addUploadBufferResponse
+--         , testCreateCachediSCSIVolumeResponse $
+--             createCachediSCSIVolumeResponse
 --
 --         , testListVolumeInitiatorsResponse $
 --             listVolumeInitiatorsResponse
 --
---         , testDescribeWorkingStorageResponse $
---             describeWorkingStorageResponse
---
---         , testDescribeCachediSCSIVolumesResponse $
---             describeCachediSCSIVolumesResponse
+--         , testAddUploadBufferResponse $
+--             addUploadBufferResponse
 --
 --         , testUpdateGatewayInformationResponse $
 --             updateGatewayInformationResponse
 --
 --         , testDescribeMaintenanceStartTimeResponse $
 --             describeMaintenanceStartTimeResponse
+--
+--         , testDescribeWorkingStorageResponse $
+--             describeWorkingStorageResponse
+--
+--         , testDescribeCachediSCSIVolumesResponse $
+--             describeCachediSCSIVolumesResponse
 --
 --         , testAddCacheResponse $
 --             addCacheResponse
@@ -235,29 +235,35 @@ import Test.AWS.StorageGateway.Internal
 --         , testUpdateChapCredentialsResponse $
 --             updateChapCredentialsResponse
 --
---         , testDescribeStorediSCSIVolumesResponse $
---             describeStorediSCSIVolumesResponse
+--         , testDescribeUploadBufferResponse $
+--             describeUploadBufferResponse
 --
 --         , testDescribeTapesResponse $
 --             describeTapesResponse
 --
---         , testDescribeUploadBufferResponse $
---             describeUploadBufferResponse
+--         , testDescribeStorediSCSIVolumesResponse $
+--             describeStorediSCSIVolumesResponse
 --
 --         , testCreateSnapshotFromVolumeRecoveryPointResponse $
 --             createSnapshotFromVolumeRecoveryPointResponse
 --
---         , testDescribeGatewayInformationResponse $
---             describeGatewayInformationResponse
---
 --         , testRetrieveTapeRecoveryPointResponse $
 --             retrieveTapeRecoveryPointResponse
+--
+--         , testDeleteGatewayResponse $
+--             deleteGatewayResponse
 --
 --         , testUpdateMaintenanceStartTimeResponse $
 --             updateMaintenanceStartTimeResponse
 --
---         , testDeleteGatewayResponse $
---             deleteGatewayResponse
+--         , testDescribeGatewayInformationResponse $
+--             describeGatewayInformationResponse
+--
+--         , testRetrieveTapeArchiveResponse $
+--             retrieveTapeArchiveResponse
+--
+--         , testDescribeTapeArchivesResponse $
+--             describeTapeArchivesResponse
 --
 --         , testDisableGatewayResponse $
 --             disableGatewayResponse
@@ -265,29 +271,23 @@ import Test.AWS.StorageGateway.Internal
 --         , testDescribeSnapshotScheduleResponse $
 --             describeSnapshotScheduleResponse
 --
---         , testDescribeTapeArchivesResponse $
---             describeTapeArchivesResponse
---
---         , testRetrieveTapeArchiveResponse $
---             retrieveTapeArchiveResponse
---
 --         , testDescribeBandwidthRateLimitResponse $
 --             describeBandwidthRateLimitResponse
 --
---         , testDescribeVTLDevicesResponse $
---             describeVTLDevicesResponse
---
---         , testCreateSnapshotResponse $
---             createSnapshotResponse
+--         , testDeleteSnapshotScheduleResponse $
+--             deleteSnapshotScheduleResponse
 --
 --         , testUpdateSnapshotScheduleResponse $
 --             updateSnapshotScheduleResponse
 --
+--         , testCreateSnapshotResponse $
+--             createSnapshotResponse
+--
 --         , testCancelRetrievalResponse $
 --             cancelRetrievalResponse
 --
---         , testDeleteSnapshotScheduleResponse $
---             deleteSnapshotScheduleResponse
+--         , testDescribeVTLDevicesResponse $
+--             describeVTLDevicesResponse
 --
 --         , testDeleteTapeArchiveResponse $
 --             deleteTapeArchiveResponse
@@ -295,23 +295,32 @@ import Test.AWS.StorageGateway.Internal
 --         , testListVolumeRecoveryPointsResponse $
 --             listVolumeRecoveryPointsResponse
 --
---         , testAddWorkingStorageResponse $
---             addWorkingStorageResponse
+--         , testResetCacheResponse $
+--             resetCacheResponse
 --
 --         , testListGatewaysResponse $
 --             listGatewaysResponse
 --
+--         , testDeleteTapeResponse $
+--             deleteTapeResponse
+--
+--         , testListLocalDisksResponse $
+--             listLocalDisksResponse
+--
 --         , testListVolumesResponse $
 --             listVolumesResponse
+--
+--         , testUpdateBandwidthRateLimitResponse $
+--             updateBandwidthRateLimitResponse
+--
+--         , testAddWorkingStorageResponse $
+--             addWorkingStorageResponse
 --
 --         , testDescribeTapeRecoveryPointsResponse $
 --             describeTapeRecoveryPointsResponse
 --
---         , testDeleteVolumeResponse $
---             deleteVolumeResponse
---
---         , testResetCacheResponse $
---             resetCacheResponse
+--         , testDeleteBandwidthRateLimitResponse $
+--             deleteBandwidthRateLimitResponse
 --
 --         , testActivateGatewayResponse $
 --             activateGatewayResponse
@@ -319,17 +328,8 @@ import Test.AWS.StorageGateway.Internal
 --         , testDescribeCacheResponse $
 --             describeCacheResponse
 --
---         , testUpdateBandwidthRateLimitResponse $
---             updateBandwidthRateLimitResponse
---
---         , testDeleteBandwidthRateLimitResponse $
---             deleteBandwidthRateLimitResponse
---
---         , testListLocalDisksResponse $
---             listLocalDisksResponse
---
---         , testDeleteTapeResponse $
---             deleteTapeResponse
+--         , testDeleteVolumeResponse $
+--             deleteVolumeResponse
 --
 --           ]
 --     ]
@@ -346,45 +346,35 @@ testCreateStorediSCSIVolume = req
     "CreateStorediSCSIVolume"
     "fixture/CreateStorediSCSIVolume.yaml"
 
+testDescribeChapCredentials :: DescribeChapCredentials -> TestTree
+testDescribeChapCredentials = req
+    "DescribeChapCredentials"
+    "fixture/DescribeChapCredentials.yaml"
+
 testCreateTapes :: CreateTapes -> TestTree
 testCreateTapes = req
     "CreateTapes"
     "fixture/CreateTapes.yaml"
-
-testCreateCachediSCSIVolume :: CreateCachediSCSIVolume -> TestTree
-testCreateCachediSCSIVolume = req
-    "CreateCachediSCSIVolume"
-    "fixture/CreateCachediSCSIVolume.yaml"
 
 testUpdateVTLDeviceType :: UpdateVTLDeviceType -> TestTree
 testUpdateVTLDeviceType = req
     "UpdateVTLDeviceType"
     "fixture/UpdateVTLDeviceType.yaml"
 
-testDescribeChapCredentials :: DescribeChapCredentials -> TestTree
-testDescribeChapCredentials = req
-    "DescribeChapCredentials"
-    "fixture/DescribeChapCredentials.yaml"
-
-testAddUploadBuffer :: AddUploadBuffer -> TestTree
-testAddUploadBuffer = req
-    "AddUploadBuffer"
-    "fixture/AddUploadBuffer.yaml"
+testCreateCachediSCSIVolume :: CreateCachediSCSIVolume -> TestTree
+testCreateCachediSCSIVolume = req
+    "CreateCachediSCSIVolume"
+    "fixture/CreateCachediSCSIVolume.yaml"
 
 testListVolumeInitiators :: ListVolumeInitiators -> TestTree
 testListVolumeInitiators = req
     "ListVolumeInitiators"
     "fixture/ListVolumeInitiators.yaml"
 
-testDescribeWorkingStorage :: DescribeWorkingStorage -> TestTree
-testDescribeWorkingStorage = req
-    "DescribeWorkingStorage"
-    "fixture/DescribeWorkingStorage.yaml"
-
-testDescribeCachediSCSIVolumes :: DescribeCachediSCSIVolumes -> TestTree
-testDescribeCachediSCSIVolumes = req
-    "DescribeCachediSCSIVolumes"
-    "fixture/DescribeCachediSCSIVolumes.yaml"
+testAddUploadBuffer :: AddUploadBuffer -> TestTree
+testAddUploadBuffer = req
+    "AddUploadBuffer"
+    "fixture/AddUploadBuffer.yaml"
 
 testUpdateGatewayInformation :: UpdateGatewayInformation -> TestTree
 testUpdateGatewayInformation = req
@@ -395,6 +385,16 @@ testDescribeMaintenanceStartTime :: DescribeMaintenanceStartTime -> TestTree
 testDescribeMaintenanceStartTime = req
     "DescribeMaintenanceStartTime"
     "fixture/DescribeMaintenanceStartTime.yaml"
+
+testDescribeWorkingStorage :: DescribeWorkingStorage -> TestTree
+testDescribeWorkingStorage = req
+    "DescribeWorkingStorage"
+    "fixture/DescribeWorkingStorage.yaml"
+
+testDescribeCachediSCSIVolumes :: DescribeCachediSCSIVolumes -> TestTree
+testDescribeCachediSCSIVolumes = req
+    "DescribeCachediSCSIVolumes"
+    "fixture/DescribeCachediSCSIVolumes.yaml"
 
 testAddCache :: AddCache -> TestTree
 testAddCache = req
@@ -426,45 +426,55 @@ testUpdateChapCredentials = req
     "UpdateChapCredentials"
     "fixture/UpdateChapCredentials.yaml"
 
-testDescribeStorediSCSIVolumes :: DescribeStorediSCSIVolumes -> TestTree
-testDescribeStorediSCSIVolumes = req
-    "DescribeStorediSCSIVolumes"
-    "fixture/DescribeStorediSCSIVolumes.yaml"
+testDescribeUploadBuffer :: DescribeUploadBuffer -> TestTree
+testDescribeUploadBuffer = req
+    "DescribeUploadBuffer"
+    "fixture/DescribeUploadBuffer.yaml"
 
 testDescribeTapes :: DescribeTapes -> TestTree
 testDescribeTapes = req
     "DescribeTapes"
     "fixture/DescribeTapes.yaml"
 
-testDescribeUploadBuffer :: DescribeUploadBuffer -> TestTree
-testDescribeUploadBuffer = req
-    "DescribeUploadBuffer"
-    "fixture/DescribeUploadBuffer.yaml"
+testDescribeStorediSCSIVolumes :: DescribeStorediSCSIVolumes -> TestTree
+testDescribeStorediSCSIVolumes = req
+    "DescribeStorediSCSIVolumes"
+    "fixture/DescribeStorediSCSIVolumes.yaml"
 
 testCreateSnapshotFromVolumeRecoveryPoint :: CreateSnapshotFromVolumeRecoveryPoint -> TestTree
 testCreateSnapshotFromVolumeRecoveryPoint = req
     "CreateSnapshotFromVolumeRecoveryPoint"
     "fixture/CreateSnapshotFromVolumeRecoveryPoint.yaml"
 
-testDescribeGatewayInformation :: DescribeGatewayInformation -> TestTree
-testDescribeGatewayInformation = req
-    "DescribeGatewayInformation"
-    "fixture/DescribeGatewayInformation.yaml"
-
 testRetrieveTapeRecoveryPoint :: RetrieveTapeRecoveryPoint -> TestTree
 testRetrieveTapeRecoveryPoint = req
     "RetrieveTapeRecoveryPoint"
     "fixture/RetrieveTapeRecoveryPoint.yaml"
+
+testDeleteGateway :: DeleteGateway -> TestTree
+testDeleteGateway = req
+    "DeleteGateway"
+    "fixture/DeleteGateway.yaml"
 
 testUpdateMaintenanceStartTime :: UpdateMaintenanceStartTime -> TestTree
 testUpdateMaintenanceStartTime = req
     "UpdateMaintenanceStartTime"
     "fixture/UpdateMaintenanceStartTime.yaml"
 
-testDeleteGateway :: DeleteGateway -> TestTree
-testDeleteGateway = req
-    "DeleteGateway"
-    "fixture/DeleteGateway.yaml"
+testDescribeGatewayInformation :: DescribeGatewayInformation -> TestTree
+testDescribeGatewayInformation = req
+    "DescribeGatewayInformation"
+    "fixture/DescribeGatewayInformation.yaml"
+
+testRetrieveTapeArchive :: RetrieveTapeArchive -> TestTree
+testRetrieveTapeArchive = req
+    "RetrieveTapeArchive"
+    "fixture/RetrieveTapeArchive.yaml"
+
+testDescribeTapeArchives :: DescribeTapeArchives -> TestTree
+testDescribeTapeArchives = req
+    "DescribeTapeArchives"
+    "fixture/DescribeTapeArchives.yaml"
 
 testDisableGateway :: DisableGateway -> TestTree
 testDisableGateway = req
@@ -476,45 +486,35 @@ testDescribeSnapshotSchedule = req
     "DescribeSnapshotSchedule"
     "fixture/DescribeSnapshotSchedule.yaml"
 
-testDescribeTapeArchives :: DescribeTapeArchives -> TestTree
-testDescribeTapeArchives = req
-    "DescribeTapeArchives"
-    "fixture/DescribeTapeArchives.yaml"
-
-testRetrieveTapeArchive :: RetrieveTapeArchive -> TestTree
-testRetrieveTapeArchive = req
-    "RetrieveTapeArchive"
-    "fixture/RetrieveTapeArchive.yaml"
-
 testDescribeBandwidthRateLimit :: DescribeBandwidthRateLimit -> TestTree
 testDescribeBandwidthRateLimit = req
     "DescribeBandwidthRateLimit"
     "fixture/DescribeBandwidthRateLimit.yaml"
 
-testDescribeVTLDevices :: DescribeVTLDevices -> TestTree
-testDescribeVTLDevices = req
-    "DescribeVTLDevices"
-    "fixture/DescribeVTLDevices.yaml"
-
-testCreateSnapshot :: CreateSnapshot -> TestTree
-testCreateSnapshot = req
-    "CreateSnapshot"
-    "fixture/CreateSnapshot.yaml"
+testDeleteSnapshotSchedule :: DeleteSnapshotSchedule -> TestTree
+testDeleteSnapshotSchedule = req
+    "DeleteSnapshotSchedule"
+    "fixture/DeleteSnapshotSchedule.yaml"
 
 testUpdateSnapshotSchedule :: UpdateSnapshotSchedule -> TestTree
 testUpdateSnapshotSchedule = req
     "UpdateSnapshotSchedule"
     "fixture/UpdateSnapshotSchedule.yaml"
 
+testCreateSnapshot :: CreateSnapshot -> TestTree
+testCreateSnapshot = req
+    "CreateSnapshot"
+    "fixture/CreateSnapshot.yaml"
+
 testCancelRetrieval :: CancelRetrieval -> TestTree
 testCancelRetrieval = req
     "CancelRetrieval"
     "fixture/CancelRetrieval.yaml"
 
-testDeleteSnapshotSchedule :: DeleteSnapshotSchedule -> TestTree
-testDeleteSnapshotSchedule = req
-    "DeleteSnapshotSchedule"
-    "fixture/DeleteSnapshotSchedule.yaml"
+testDescribeVTLDevices :: DescribeVTLDevices -> TestTree
+testDescribeVTLDevices = req
+    "DescribeVTLDevices"
+    "fixture/DescribeVTLDevices.yaml"
 
 testDeleteTapeArchive :: DeleteTapeArchive -> TestTree
 testDeleteTapeArchive = req
@@ -526,35 +526,50 @@ testListVolumeRecoveryPoints = req
     "ListVolumeRecoveryPoints"
     "fixture/ListVolumeRecoveryPoints.yaml"
 
-testAddWorkingStorage :: AddWorkingStorage -> TestTree
-testAddWorkingStorage = req
-    "AddWorkingStorage"
-    "fixture/AddWorkingStorage.yaml"
+testResetCache :: ResetCache -> TestTree
+testResetCache = req
+    "ResetCache"
+    "fixture/ResetCache.yaml"
 
 testListGateways :: ListGateways -> TestTree
 testListGateways = req
     "ListGateways"
     "fixture/ListGateways.yaml"
 
+testDeleteTape :: DeleteTape -> TestTree
+testDeleteTape = req
+    "DeleteTape"
+    "fixture/DeleteTape.yaml"
+
+testListLocalDisks :: ListLocalDisks -> TestTree
+testListLocalDisks = req
+    "ListLocalDisks"
+    "fixture/ListLocalDisks.yaml"
+
 testListVolumes :: ListVolumes -> TestTree
 testListVolumes = req
     "ListVolumes"
     "fixture/ListVolumes.yaml"
+
+testUpdateBandwidthRateLimit :: UpdateBandwidthRateLimit -> TestTree
+testUpdateBandwidthRateLimit = req
+    "UpdateBandwidthRateLimit"
+    "fixture/UpdateBandwidthRateLimit.yaml"
+
+testAddWorkingStorage :: AddWorkingStorage -> TestTree
+testAddWorkingStorage = req
+    "AddWorkingStorage"
+    "fixture/AddWorkingStorage.yaml"
 
 testDescribeTapeRecoveryPoints :: DescribeTapeRecoveryPoints -> TestTree
 testDescribeTapeRecoveryPoints = req
     "DescribeTapeRecoveryPoints"
     "fixture/DescribeTapeRecoveryPoints.yaml"
 
-testDeleteVolume :: DeleteVolume -> TestTree
-testDeleteVolume = req
-    "DeleteVolume"
-    "fixture/DeleteVolume.yaml"
-
-testResetCache :: ResetCache -> TestTree
-testResetCache = req
-    "ResetCache"
-    "fixture/ResetCache.yaml"
+testDeleteBandwidthRateLimit :: DeleteBandwidthRateLimit -> TestTree
+testDeleteBandwidthRateLimit = req
+    "DeleteBandwidthRateLimit"
+    "fixture/DeleteBandwidthRateLimit.yaml"
 
 testActivateGateway :: ActivateGateway -> TestTree
 testActivateGateway = req
@@ -566,25 +581,10 @@ testDescribeCache = req
     "DescribeCache"
     "fixture/DescribeCache.yaml"
 
-testUpdateBandwidthRateLimit :: UpdateBandwidthRateLimit -> TestTree
-testUpdateBandwidthRateLimit = req
-    "UpdateBandwidthRateLimit"
-    "fixture/UpdateBandwidthRateLimit.yaml"
-
-testDeleteBandwidthRateLimit :: DeleteBandwidthRateLimit -> TestTree
-testDeleteBandwidthRateLimit = req
-    "DeleteBandwidthRateLimit"
-    "fixture/DeleteBandwidthRateLimit.yaml"
-
-testListLocalDisks :: ListLocalDisks -> TestTree
-testListLocalDisks = req
-    "ListLocalDisks"
-    "fixture/ListLocalDisks.yaml"
-
-testDeleteTape :: DeleteTape -> TestTree
-testDeleteTape = req
-    "DeleteTape"
-    "fixture/DeleteTape.yaml"
+testDeleteVolume :: DeleteVolume -> TestTree
+testDeleteVolume = req
+    "DeleteVolume"
+    "fixture/DeleteVolume.yaml"
 
 -- Responses
 
@@ -602,19 +602,19 @@ testCreateStorediSCSIVolumeResponse = res
     storageGateway
     (Proxy :: Proxy CreateStorediSCSIVolume)
 
+testDescribeChapCredentialsResponse :: DescribeChapCredentialsResponse -> TestTree
+testDescribeChapCredentialsResponse = res
+    "DescribeChapCredentialsResponse"
+    "fixture/DescribeChapCredentialsResponse.proto"
+    storageGateway
+    (Proxy :: Proxy DescribeChapCredentials)
+
 testCreateTapesResponse :: CreateTapesResponse -> TestTree
 testCreateTapesResponse = res
     "CreateTapesResponse"
     "fixture/CreateTapesResponse.proto"
     storageGateway
     (Proxy :: Proxy CreateTapes)
-
-testCreateCachediSCSIVolumeResponse :: CreateCachediSCSIVolumeResponse -> TestTree
-testCreateCachediSCSIVolumeResponse = res
-    "CreateCachediSCSIVolumeResponse"
-    "fixture/CreateCachediSCSIVolumeResponse.proto"
-    storageGateway
-    (Proxy :: Proxy CreateCachediSCSIVolume)
 
 testUpdateVTLDeviceTypeResponse :: UpdateVTLDeviceTypeResponse -> TestTree
 testUpdateVTLDeviceTypeResponse = res
@@ -623,19 +623,12 @@ testUpdateVTLDeviceTypeResponse = res
     storageGateway
     (Proxy :: Proxy UpdateVTLDeviceType)
 
-testDescribeChapCredentialsResponse :: DescribeChapCredentialsResponse -> TestTree
-testDescribeChapCredentialsResponse = res
-    "DescribeChapCredentialsResponse"
-    "fixture/DescribeChapCredentialsResponse.proto"
+testCreateCachediSCSIVolumeResponse :: CreateCachediSCSIVolumeResponse -> TestTree
+testCreateCachediSCSIVolumeResponse = res
+    "CreateCachediSCSIVolumeResponse"
+    "fixture/CreateCachediSCSIVolumeResponse.proto"
     storageGateway
-    (Proxy :: Proxy DescribeChapCredentials)
-
-testAddUploadBufferResponse :: AddUploadBufferResponse -> TestTree
-testAddUploadBufferResponse = res
-    "AddUploadBufferResponse"
-    "fixture/AddUploadBufferResponse.proto"
-    storageGateway
-    (Proxy :: Proxy AddUploadBuffer)
+    (Proxy :: Proxy CreateCachediSCSIVolume)
 
 testListVolumeInitiatorsResponse :: ListVolumeInitiatorsResponse -> TestTree
 testListVolumeInitiatorsResponse = res
@@ -644,19 +637,12 @@ testListVolumeInitiatorsResponse = res
     storageGateway
     (Proxy :: Proxy ListVolumeInitiators)
 
-testDescribeWorkingStorageResponse :: DescribeWorkingStorageResponse -> TestTree
-testDescribeWorkingStorageResponse = res
-    "DescribeWorkingStorageResponse"
-    "fixture/DescribeWorkingStorageResponse.proto"
+testAddUploadBufferResponse :: AddUploadBufferResponse -> TestTree
+testAddUploadBufferResponse = res
+    "AddUploadBufferResponse"
+    "fixture/AddUploadBufferResponse.proto"
     storageGateway
-    (Proxy :: Proxy DescribeWorkingStorage)
-
-testDescribeCachediSCSIVolumesResponse :: DescribeCachediSCSIVolumesResponse -> TestTree
-testDescribeCachediSCSIVolumesResponse = res
-    "DescribeCachediSCSIVolumesResponse"
-    "fixture/DescribeCachediSCSIVolumesResponse.proto"
-    storageGateway
-    (Proxy :: Proxy DescribeCachediSCSIVolumes)
+    (Proxy :: Proxy AddUploadBuffer)
 
 testUpdateGatewayInformationResponse :: UpdateGatewayInformationResponse -> TestTree
 testUpdateGatewayInformationResponse = res
@@ -671,6 +657,20 @@ testDescribeMaintenanceStartTimeResponse = res
     "fixture/DescribeMaintenanceStartTimeResponse.proto"
     storageGateway
     (Proxy :: Proxy DescribeMaintenanceStartTime)
+
+testDescribeWorkingStorageResponse :: DescribeWorkingStorageResponse -> TestTree
+testDescribeWorkingStorageResponse = res
+    "DescribeWorkingStorageResponse"
+    "fixture/DescribeWorkingStorageResponse.proto"
+    storageGateway
+    (Proxy :: Proxy DescribeWorkingStorage)
+
+testDescribeCachediSCSIVolumesResponse :: DescribeCachediSCSIVolumesResponse -> TestTree
+testDescribeCachediSCSIVolumesResponse = res
+    "DescribeCachediSCSIVolumesResponse"
+    "fixture/DescribeCachediSCSIVolumesResponse.proto"
+    storageGateway
+    (Proxy :: Proxy DescribeCachediSCSIVolumes)
 
 testAddCacheResponse :: AddCacheResponse -> TestTree
 testAddCacheResponse = res
@@ -714,12 +714,12 @@ testUpdateChapCredentialsResponse = res
     storageGateway
     (Proxy :: Proxy UpdateChapCredentials)
 
-testDescribeStorediSCSIVolumesResponse :: DescribeStorediSCSIVolumesResponse -> TestTree
-testDescribeStorediSCSIVolumesResponse = res
-    "DescribeStorediSCSIVolumesResponse"
-    "fixture/DescribeStorediSCSIVolumesResponse.proto"
+testDescribeUploadBufferResponse :: DescribeUploadBufferResponse -> TestTree
+testDescribeUploadBufferResponse = res
+    "DescribeUploadBufferResponse"
+    "fixture/DescribeUploadBufferResponse.proto"
     storageGateway
-    (Proxy :: Proxy DescribeStorediSCSIVolumes)
+    (Proxy :: Proxy DescribeUploadBuffer)
 
 testDescribeTapesResponse :: DescribeTapesResponse -> TestTree
 testDescribeTapesResponse = res
@@ -728,12 +728,12 @@ testDescribeTapesResponse = res
     storageGateway
     (Proxy :: Proxy DescribeTapes)
 
-testDescribeUploadBufferResponse :: DescribeUploadBufferResponse -> TestTree
-testDescribeUploadBufferResponse = res
-    "DescribeUploadBufferResponse"
-    "fixture/DescribeUploadBufferResponse.proto"
+testDescribeStorediSCSIVolumesResponse :: DescribeStorediSCSIVolumesResponse -> TestTree
+testDescribeStorediSCSIVolumesResponse = res
+    "DescribeStorediSCSIVolumesResponse"
+    "fixture/DescribeStorediSCSIVolumesResponse.proto"
     storageGateway
-    (Proxy :: Proxy DescribeUploadBuffer)
+    (Proxy :: Proxy DescribeStorediSCSIVolumes)
 
 testCreateSnapshotFromVolumeRecoveryPointResponse :: CreateSnapshotFromVolumeRecoveryPointResponse -> TestTree
 testCreateSnapshotFromVolumeRecoveryPointResponse = res
@@ -742,19 +742,19 @@ testCreateSnapshotFromVolumeRecoveryPointResponse = res
     storageGateway
     (Proxy :: Proxy CreateSnapshotFromVolumeRecoveryPoint)
 
-testDescribeGatewayInformationResponse :: DescribeGatewayInformationResponse -> TestTree
-testDescribeGatewayInformationResponse = res
-    "DescribeGatewayInformationResponse"
-    "fixture/DescribeGatewayInformationResponse.proto"
-    storageGateway
-    (Proxy :: Proxy DescribeGatewayInformation)
-
 testRetrieveTapeRecoveryPointResponse :: RetrieveTapeRecoveryPointResponse -> TestTree
 testRetrieveTapeRecoveryPointResponse = res
     "RetrieveTapeRecoveryPointResponse"
     "fixture/RetrieveTapeRecoveryPointResponse.proto"
     storageGateway
     (Proxy :: Proxy RetrieveTapeRecoveryPoint)
+
+testDeleteGatewayResponse :: DeleteGatewayResponse -> TestTree
+testDeleteGatewayResponse = res
+    "DeleteGatewayResponse"
+    "fixture/DeleteGatewayResponse.proto"
+    storageGateway
+    (Proxy :: Proxy DeleteGateway)
 
 testUpdateMaintenanceStartTimeResponse :: UpdateMaintenanceStartTimeResponse -> TestTree
 testUpdateMaintenanceStartTimeResponse = res
@@ -763,12 +763,26 @@ testUpdateMaintenanceStartTimeResponse = res
     storageGateway
     (Proxy :: Proxy UpdateMaintenanceStartTime)
 
-testDeleteGatewayResponse :: DeleteGatewayResponse -> TestTree
-testDeleteGatewayResponse = res
-    "DeleteGatewayResponse"
-    "fixture/DeleteGatewayResponse.proto"
+testDescribeGatewayInformationResponse :: DescribeGatewayInformationResponse -> TestTree
+testDescribeGatewayInformationResponse = res
+    "DescribeGatewayInformationResponse"
+    "fixture/DescribeGatewayInformationResponse.proto"
     storageGateway
-    (Proxy :: Proxy DeleteGateway)
+    (Proxy :: Proxy DescribeGatewayInformation)
+
+testRetrieveTapeArchiveResponse :: RetrieveTapeArchiveResponse -> TestTree
+testRetrieveTapeArchiveResponse = res
+    "RetrieveTapeArchiveResponse"
+    "fixture/RetrieveTapeArchiveResponse.proto"
+    storageGateway
+    (Proxy :: Proxy RetrieveTapeArchive)
+
+testDescribeTapeArchivesResponse :: DescribeTapeArchivesResponse -> TestTree
+testDescribeTapeArchivesResponse = res
+    "DescribeTapeArchivesResponse"
+    "fixture/DescribeTapeArchivesResponse.proto"
+    storageGateway
+    (Proxy :: Proxy DescribeTapeArchives)
 
 testDisableGatewayResponse :: DisableGatewayResponse -> TestTree
 testDisableGatewayResponse = res
@@ -784,20 +798,6 @@ testDescribeSnapshotScheduleResponse = res
     storageGateway
     (Proxy :: Proxy DescribeSnapshotSchedule)
 
-testDescribeTapeArchivesResponse :: DescribeTapeArchivesResponse -> TestTree
-testDescribeTapeArchivesResponse = res
-    "DescribeTapeArchivesResponse"
-    "fixture/DescribeTapeArchivesResponse.proto"
-    storageGateway
-    (Proxy :: Proxy DescribeTapeArchives)
-
-testRetrieveTapeArchiveResponse :: RetrieveTapeArchiveResponse -> TestTree
-testRetrieveTapeArchiveResponse = res
-    "RetrieveTapeArchiveResponse"
-    "fixture/RetrieveTapeArchiveResponse.proto"
-    storageGateway
-    (Proxy :: Proxy RetrieveTapeArchive)
-
 testDescribeBandwidthRateLimitResponse :: DescribeBandwidthRateLimitResponse -> TestTree
 testDescribeBandwidthRateLimitResponse = res
     "DescribeBandwidthRateLimitResponse"
@@ -805,19 +805,12 @@ testDescribeBandwidthRateLimitResponse = res
     storageGateway
     (Proxy :: Proxy DescribeBandwidthRateLimit)
 
-testDescribeVTLDevicesResponse :: DescribeVTLDevicesResponse -> TestTree
-testDescribeVTLDevicesResponse = res
-    "DescribeVTLDevicesResponse"
-    "fixture/DescribeVTLDevicesResponse.proto"
+testDeleteSnapshotScheduleResponse :: DeleteSnapshotScheduleResponse -> TestTree
+testDeleteSnapshotScheduleResponse = res
+    "DeleteSnapshotScheduleResponse"
+    "fixture/DeleteSnapshotScheduleResponse.proto"
     storageGateway
-    (Proxy :: Proxy DescribeVTLDevices)
-
-testCreateSnapshotResponse :: CreateSnapshotResponse -> TestTree
-testCreateSnapshotResponse = res
-    "CreateSnapshotResponse"
-    "fixture/CreateSnapshotResponse.proto"
-    storageGateway
-    (Proxy :: Proxy CreateSnapshot)
+    (Proxy :: Proxy DeleteSnapshotSchedule)
 
 testUpdateSnapshotScheduleResponse :: UpdateSnapshotScheduleResponse -> TestTree
 testUpdateSnapshotScheduleResponse = res
@@ -826,6 +819,13 @@ testUpdateSnapshotScheduleResponse = res
     storageGateway
     (Proxy :: Proxy UpdateSnapshotSchedule)
 
+testCreateSnapshotResponse :: CreateSnapshotResponse -> TestTree
+testCreateSnapshotResponse = res
+    "CreateSnapshotResponse"
+    "fixture/CreateSnapshotResponse.proto"
+    storageGateway
+    (Proxy :: Proxy CreateSnapshot)
+
 testCancelRetrievalResponse :: CancelRetrievalResponse -> TestTree
 testCancelRetrievalResponse = res
     "CancelRetrievalResponse"
@@ -833,12 +833,12 @@ testCancelRetrievalResponse = res
     storageGateway
     (Proxy :: Proxy CancelRetrieval)
 
-testDeleteSnapshotScheduleResponse :: DeleteSnapshotScheduleResponse -> TestTree
-testDeleteSnapshotScheduleResponse = res
-    "DeleteSnapshotScheduleResponse"
-    "fixture/DeleteSnapshotScheduleResponse.proto"
+testDescribeVTLDevicesResponse :: DescribeVTLDevicesResponse -> TestTree
+testDescribeVTLDevicesResponse = res
+    "DescribeVTLDevicesResponse"
+    "fixture/DescribeVTLDevicesResponse.proto"
     storageGateway
-    (Proxy :: Proxy DeleteSnapshotSchedule)
+    (Proxy :: Proxy DescribeVTLDevices)
 
 testDeleteTapeArchiveResponse :: DeleteTapeArchiveResponse -> TestTree
 testDeleteTapeArchiveResponse = res
@@ -854,12 +854,12 @@ testListVolumeRecoveryPointsResponse = res
     storageGateway
     (Proxy :: Proxy ListVolumeRecoveryPoints)
 
-testAddWorkingStorageResponse :: AddWorkingStorageResponse -> TestTree
-testAddWorkingStorageResponse = res
-    "AddWorkingStorageResponse"
-    "fixture/AddWorkingStorageResponse.proto"
+testResetCacheResponse :: ResetCacheResponse -> TestTree
+testResetCacheResponse = res
+    "ResetCacheResponse"
+    "fixture/ResetCacheResponse.proto"
     storageGateway
-    (Proxy :: Proxy AddWorkingStorage)
+    (Proxy :: Proxy ResetCache)
 
 testListGatewaysResponse :: ListGatewaysResponse -> TestTree
 testListGatewaysResponse = res
@@ -868,12 +868,40 @@ testListGatewaysResponse = res
     storageGateway
     (Proxy :: Proxy ListGateways)
 
+testDeleteTapeResponse :: DeleteTapeResponse -> TestTree
+testDeleteTapeResponse = res
+    "DeleteTapeResponse"
+    "fixture/DeleteTapeResponse.proto"
+    storageGateway
+    (Proxy :: Proxy DeleteTape)
+
+testListLocalDisksResponse :: ListLocalDisksResponse -> TestTree
+testListLocalDisksResponse = res
+    "ListLocalDisksResponse"
+    "fixture/ListLocalDisksResponse.proto"
+    storageGateway
+    (Proxy :: Proxy ListLocalDisks)
+
 testListVolumesResponse :: ListVolumesResponse -> TestTree
 testListVolumesResponse = res
     "ListVolumesResponse"
     "fixture/ListVolumesResponse.proto"
     storageGateway
     (Proxy :: Proxy ListVolumes)
+
+testUpdateBandwidthRateLimitResponse :: UpdateBandwidthRateLimitResponse -> TestTree
+testUpdateBandwidthRateLimitResponse = res
+    "UpdateBandwidthRateLimitResponse"
+    "fixture/UpdateBandwidthRateLimitResponse.proto"
+    storageGateway
+    (Proxy :: Proxy UpdateBandwidthRateLimit)
+
+testAddWorkingStorageResponse :: AddWorkingStorageResponse -> TestTree
+testAddWorkingStorageResponse = res
+    "AddWorkingStorageResponse"
+    "fixture/AddWorkingStorageResponse.proto"
+    storageGateway
+    (Proxy :: Proxy AddWorkingStorage)
 
 testDescribeTapeRecoveryPointsResponse :: DescribeTapeRecoveryPointsResponse -> TestTree
 testDescribeTapeRecoveryPointsResponse = res
@@ -882,19 +910,12 @@ testDescribeTapeRecoveryPointsResponse = res
     storageGateway
     (Proxy :: Proxy DescribeTapeRecoveryPoints)
 
-testDeleteVolumeResponse :: DeleteVolumeResponse -> TestTree
-testDeleteVolumeResponse = res
-    "DeleteVolumeResponse"
-    "fixture/DeleteVolumeResponse.proto"
+testDeleteBandwidthRateLimitResponse :: DeleteBandwidthRateLimitResponse -> TestTree
+testDeleteBandwidthRateLimitResponse = res
+    "DeleteBandwidthRateLimitResponse"
+    "fixture/DeleteBandwidthRateLimitResponse.proto"
     storageGateway
-    (Proxy :: Proxy DeleteVolume)
-
-testResetCacheResponse :: ResetCacheResponse -> TestTree
-testResetCacheResponse = res
-    "ResetCacheResponse"
-    "fixture/ResetCacheResponse.proto"
-    storageGateway
-    (Proxy :: Proxy ResetCache)
+    (Proxy :: Proxy DeleteBandwidthRateLimit)
 
 testActivateGatewayResponse :: ActivateGatewayResponse -> TestTree
 testActivateGatewayResponse = res
@@ -910,30 +931,9 @@ testDescribeCacheResponse = res
     storageGateway
     (Proxy :: Proxy DescribeCache)
 
-testUpdateBandwidthRateLimitResponse :: UpdateBandwidthRateLimitResponse -> TestTree
-testUpdateBandwidthRateLimitResponse = res
-    "UpdateBandwidthRateLimitResponse"
-    "fixture/UpdateBandwidthRateLimitResponse.proto"
+testDeleteVolumeResponse :: DeleteVolumeResponse -> TestTree
+testDeleteVolumeResponse = res
+    "DeleteVolumeResponse"
+    "fixture/DeleteVolumeResponse.proto"
     storageGateway
-    (Proxy :: Proxy UpdateBandwidthRateLimit)
-
-testDeleteBandwidthRateLimitResponse :: DeleteBandwidthRateLimitResponse -> TestTree
-testDeleteBandwidthRateLimitResponse = res
-    "DeleteBandwidthRateLimitResponse"
-    "fixture/DeleteBandwidthRateLimitResponse.proto"
-    storageGateway
-    (Proxy :: Proxy DeleteBandwidthRateLimit)
-
-testListLocalDisksResponse :: ListLocalDisksResponse -> TestTree
-testListLocalDisksResponse = res
-    "ListLocalDisksResponse"
-    "fixture/ListLocalDisksResponse.proto"
-    storageGateway
-    (Proxy :: Proxy ListLocalDisks)
-
-testDeleteTapeResponse :: DeleteTapeResponse -> TestTree
-testDeleteTapeResponse = res
-    "DeleteTapeResponse"
-    "fixture/DeleteTapeResponse.proto"
-    storageGateway
-    (Proxy :: Proxy DeleteTape)
+    (Proxy :: Proxy DeleteVolume)

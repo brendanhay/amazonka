@@ -16,8 +16,8 @@ module Network.AWS.DirectoryService.Types
       directoryService
 
     -- * Errors
-    , _AuthenticationFailedException
     , _DirectoryUnavailableException
+    , _AuthenticationFailedException
     , _InvalidParameterException
     , _UnsupportedOperationException
     , _EntityAlreadyExistsException
@@ -77,16 +77,16 @@ module Network.AWS.DirectoryService.Types
     , dcsdCustomerUserName
     , dcsdSubnetIds
     , dcsdVPCId
-    , dcsdConnectIPs
     , dcsdSecurityGroupId
+    , dcsdConnectIPs
     , dcsdAvailabilityZones
 
     -- * DirectoryDescription
     , DirectoryDescription
     , directoryDescription
     , ddRadiusStatus
-    , ddDirectoryId
     , ddStage
+    , ddDirectoryId
     , ddAccessURL
     , ddShortName
     , ddSize
@@ -94,12 +94,12 @@ module Network.AWS.DirectoryService.Types
     , ddLaunchTime
     , ddAlias
     , ddName
-    , ddSSOEnabled
     , ddStageLastUpdatedDateTime
-    , ddStageReason
+    , ddSSOEnabled
     , ddDNSIPAddrs
     , ddVPCSettings
     , ddType
+    , ddStageReason
     , ddConnectSettings
     , ddDescription
 
@@ -131,9 +131,9 @@ module Network.AWS.DirectoryService.Types
     , RadiusSettings
     , radiusSettings
     , rsDisplayLabel
-    , rsRadiusServers
     , rsRadiusRetries
     , rsAuthenticationProtocol
+    , rsRadiusServers
     , rsUseSameUsername
     , rsSharedSecret
     , rsRadiusTimeout
@@ -142,8 +142,8 @@ module Network.AWS.DirectoryService.Types
     -- * Snapshot
     , Snapshot
     , snapshot
-    , sDirectoryId
     , sStatus
+    , sDirectoryId
     , sStartTime
     , sName
     , sType
@@ -193,15 +193,15 @@ directoryService =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | An authentication error occurred.
-_AuthenticationFailedException :: AsError a => Getting (First ServiceError) a ServiceError
-_AuthenticationFailedException =
-    _ServiceError . hasCode "AuthenticationFailedException"
-
 -- | The specified directory is unavailable or could not be found.
 _DirectoryUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectoryUnavailableException =
     _ServiceError . hasCode "DirectoryUnavailableException"
+
+-- | An authentication error occurred.
+_AuthenticationFailedException :: AsError a => Getting (First ServiceError) a ServiceError
+_AuthenticationFailedException =
+    _ServiceError . hasCode "AuthenticationFailedException"
 
 -- | One or more parameters are not valid.
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError

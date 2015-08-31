@@ -35,8 +35,8 @@ module Network.AWS.EC2.CopyImage
     , CopyImage
     -- * Request Lenses
     , ciClientToken
-    , ciDryRun
     , ciDescription
+    , ciDryRun
     , ciSourceRegion
     , ciSourceImageId
     , ciName
@@ -58,8 +58,8 @@ import           Network.AWS.Response
 -- | /See:/ 'copyImage' smart constructor.
 data CopyImage = CopyImage'
     { _ciClientToken   :: !(Maybe Text)
-    , _ciDryRun        :: !(Maybe Bool)
     , _ciDescription   :: !(Maybe Text)
+    , _ciDryRun        :: !(Maybe Bool)
     , _ciSourceRegion  :: !Text
     , _ciSourceImageId :: !Text
     , _ciName          :: !Text
@@ -71,9 +71,9 @@ data CopyImage = CopyImage'
 --
 -- * 'ciClientToken'
 --
--- * 'ciDryRun'
---
 -- * 'ciDescription'
+--
+-- * 'ciDryRun'
 --
 -- * 'ciSourceRegion'
 --
@@ -88,8 +88,8 @@ copyImage
 copyImage pSourceRegion_ pSourceImageId_ pName_ =
     CopyImage'
     { _ciClientToken = Nothing
-    , _ciDryRun = Nothing
     , _ciDescription = Nothing
+    , _ciDryRun = Nothing
     , _ciSourceRegion = pSourceRegion_
     , _ciSourceImageId = pSourceImageId_
     , _ciName = pName_
@@ -102,16 +102,16 @@ copyImage pSourceRegion_ pSourceImageId_ pName_ =
 ciClientToken :: Lens' CopyImage (Maybe Text)
 ciClientToken = lens _ciClientToken (\ s a -> s{_ciClientToken = a});
 
+-- | A description for the new AMI in the destination region.
+ciDescription :: Lens' CopyImage (Maybe Text)
+ciDescription = lens _ciDescription (\ s a -> s{_ciDescription = a});
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is 'DryRunOperation'.
 -- Otherwise, it is 'UnauthorizedOperation'.
 ciDryRun :: Lens' CopyImage (Maybe Bool)
 ciDryRun = lens _ciDryRun (\ s a -> s{_ciDryRun = a});
-
--- | A description for the new AMI in the destination region.
-ciDescription :: Lens' CopyImage (Maybe Text)
-ciDescription = lens _ciDescription (\ s a -> s{_ciDescription = a});
 
 -- | The name of the region that contains the AMI to copy.
 ciSourceRegion :: Lens' CopyImage Text
@@ -146,8 +146,8 @@ instance ToQuery CopyImage where
               ["Action" =: ("CopyImage" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "ClientToken" =: _ciClientToken,
-               "DryRun" =: _ciDryRun,
                "Description" =: _ciDescription,
+               "DryRun" =: _ciDryRun,
                "SourceRegion" =: _ciSourceRegion,
                "SourceImageId" =: _ciSourceImageId,
                "Name" =: _ciName]

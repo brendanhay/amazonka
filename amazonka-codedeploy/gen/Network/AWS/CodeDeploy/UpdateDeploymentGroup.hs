@@ -29,8 +29,8 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     -- * Request Lenses
     , udgServiceRoleARN
     , udgDeploymentConfigName
-    , udgEc2TagFilters
     , udgNewDeploymentGroupName
+    , udgEc2TagFilters
     , udgOnPremisesInstanceTagFilters
     , udgAutoScalingGroups
     , udgApplicationName
@@ -56,8 +56,8 @@ import           Network.AWS.Response
 data UpdateDeploymentGroup = UpdateDeploymentGroup'
     { _udgServiceRoleARN               :: !(Maybe Text)
     , _udgDeploymentConfigName         :: !(Maybe Text)
-    , _udgEc2TagFilters                :: !(Maybe [EC2TagFilter])
     , _udgNewDeploymentGroupName       :: !(Maybe Text)
+    , _udgEc2TagFilters                :: !(Maybe [EC2TagFilter])
     , _udgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
     , _udgAutoScalingGroups            :: !(Maybe [Text])
     , _udgApplicationName              :: !Text
@@ -72,9 +72,9 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 --
 -- * 'udgDeploymentConfigName'
 --
--- * 'udgEc2TagFilters'
---
 -- * 'udgNewDeploymentGroupName'
+--
+-- * 'udgEc2TagFilters'
 --
 -- * 'udgOnPremisesInstanceTagFilters'
 --
@@ -91,8 +91,8 @@ updateDeploymentGroup pApplicationName_ pCurrentDeploymentGroupName_ =
     UpdateDeploymentGroup'
     { _udgServiceRoleARN = Nothing
     , _udgDeploymentConfigName = Nothing
-    , _udgEc2TagFilters = Nothing
     , _udgNewDeploymentGroupName = Nothing
+    , _udgEc2TagFilters = Nothing
     , _udgOnPremisesInstanceTagFilters = Nothing
     , _udgAutoScalingGroups = Nothing
     , _udgApplicationName = pApplicationName_
@@ -108,14 +108,14 @@ udgServiceRoleARN = lens _udgServiceRoleARN (\ s a -> s{_udgServiceRoleARN = a})
 udgDeploymentConfigName :: Lens' UpdateDeploymentGroup (Maybe Text)
 udgDeploymentConfigName = lens _udgDeploymentConfigName (\ s a -> s{_udgDeploymentConfigName = a});
 
+-- | The new name of the deployment group, if you want to change it.
+udgNewDeploymentGroupName :: Lens' UpdateDeploymentGroup (Maybe Text)
+udgNewDeploymentGroupName = lens _udgNewDeploymentGroupName (\ s a -> s{_udgNewDeploymentGroupName = a});
+
 -- | The replacement set of Amazon EC2 tags to filter on, if you want to
 -- change them.
 udgEc2TagFilters :: Lens' UpdateDeploymentGroup [EC2TagFilter]
 udgEc2TagFilters = lens _udgEc2TagFilters (\ s a -> s{_udgEc2TagFilters = a}) . _Default . _Coerce;
-
--- | The new name of the deployment group, if you want to change it.
-udgNewDeploymentGroupName :: Lens' UpdateDeploymentGroup (Maybe Text)
-udgNewDeploymentGroupName = lens _udgNewDeploymentGroupName (\ s a -> s{_udgNewDeploymentGroupName = a});
 
 -- | The replacement set of on-premises instance tags for filter on, if you
 -- want to change them.
@@ -163,9 +163,9 @@ instance ToJSON UpdateDeploymentGroup where
                  [("serviceRoleArn" .=) <$> _udgServiceRoleARN,
                   ("deploymentConfigName" .=) <$>
                     _udgDeploymentConfigName,
-                  ("ec2TagFilters" .=) <$> _udgEc2TagFilters,
                   ("newDeploymentGroupName" .=) <$>
                     _udgNewDeploymentGroupName,
+                  ("ec2TagFilters" .=) <$> _udgEc2TagFilters,
                   ("onPremisesInstanceTagFilters" .=) <$>
                     _udgOnPremisesInstanceTagFilters,
                   ("autoScalingGroups" .=) <$> _udgAutoScalingGroups,

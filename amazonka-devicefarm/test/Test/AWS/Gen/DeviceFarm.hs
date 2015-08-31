@@ -37,23 +37,20 @@ import Test.AWS.DeviceFarm.Internal
 --         , testListTests $
 --             listTests
 --
---         , testCreateUpload $
---             createUpload
---
 --         , testListArtifacts $
 --             listArtifacts
+--
+--         , testCreateUpload $
+--             createUpload
 --
 --         , testGetDevicePool $
 --             getDevicePool
 --
---         , testGetUpload $
---             getUpload
---
 --         , testListDevicePools $
 --             listDevicePools
 --
---         , testGetTest $
---             getTest
+--         , testGetUpload $
+--             getUpload
 --
 --         , testCreateDevicePool $
 --             createDevicePool
@@ -61,11 +58,14 @@ import Test.AWS.DeviceFarm.Internal
 --         , testListRuns $
 --             listRuns
 --
---         , testListJobs $
---             listJobs
+--         , testGetTest $
+--             getTest
 --
 --         , testGetDevice $
 --             getDevice
+--
+--         , testListJobs $
+--             listJobs
 --
 --         , testGetJob $
 --             getJob
@@ -94,11 +94,11 @@ import Test.AWS.DeviceFarm.Internal
 --         , testGetProject $
 --             getProject
 --
---         , testListDevices $
---             listDevices
---
 --         , testListUniqueProblems $
 --             listUniqueProblems
+--
+--         , testListDevices $
+--             listDevices
 --
 --         , testCreateProject $
 --             createProject
@@ -115,23 +115,20 @@ import Test.AWS.DeviceFarm.Internal
 --         , testListTestsResponse $
 --             listTestsResponse
 --
---         , testCreateUploadResponse $
---             createUploadResponse
---
 --         , testListArtifactsResponse $
 --             listArtifactsResponse
+--
+--         , testCreateUploadResponse $
+--             createUploadResponse
 --
 --         , testGetDevicePoolResponse $
 --             getDevicePoolResponse
 --
---         , testGetUploadResponse $
---             getUploadResponse
---
 --         , testListDevicePoolsResponse $
 --             listDevicePoolsResponse
 --
---         , testGetTestResponse $
---             getTestResponse
+--         , testGetUploadResponse $
+--             getUploadResponse
 --
 --         , testCreateDevicePoolResponse $
 --             createDevicePoolResponse
@@ -139,11 +136,14 @@ import Test.AWS.DeviceFarm.Internal
 --         , testListRunsResponse $
 --             listRunsResponse
 --
---         , testListJobsResponse $
---             listJobsResponse
+--         , testGetTestResponse $
+--             getTestResponse
 --
 --         , testGetDeviceResponse $
 --             getDeviceResponse
+--
+--         , testListJobsResponse $
+--             listJobsResponse
 --
 --         , testGetJobResponse $
 --             getJobResponse
@@ -172,11 +172,11 @@ import Test.AWS.DeviceFarm.Internal
 --         , testGetProjectResponse $
 --             getProjectResponse
 --
---         , testListDevicesResponse $
---             listDevicesResponse
---
 --         , testListUniqueProblemsResponse $
 --             listUniqueProblemsResponse
+--
+--         , testListDevicesResponse $
+--             listDevicesResponse
 --
 --         , testCreateProjectResponse $
 --             createProjectResponse
@@ -201,35 +201,30 @@ testListTests = req
     "ListTests"
     "fixture/ListTests.yaml"
 
-testCreateUpload :: CreateUpload -> TestTree
-testCreateUpload = req
-    "CreateUpload"
-    "fixture/CreateUpload.yaml"
-
 testListArtifacts :: ListArtifacts -> TestTree
 testListArtifacts = req
     "ListArtifacts"
     "fixture/ListArtifacts.yaml"
+
+testCreateUpload :: CreateUpload -> TestTree
+testCreateUpload = req
+    "CreateUpload"
+    "fixture/CreateUpload.yaml"
 
 testGetDevicePool :: GetDevicePool -> TestTree
 testGetDevicePool = req
     "GetDevicePool"
     "fixture/GetDevicePool.yaml"
 
-testGetUpload :: GetUpload -> TestTree
-testGetUpload = req
-    "GetUpload"
-    "fixture/GetUpload.yaml"
-
 testListDevicePools :: ListDevicePools -> TestTree
 testListDevicePools = req
     "ListDevicePools"
     "fixture/ListDevicePools.yaml"
 
-testGetTest :: GetTest -> TestTree
-testGetTest = req
-    "GetTest"
-    "fixture/GetTest.yaml"
+testGetUpload :: GetUpload -> TestTree
+testGetUpload = req
+    "GetUpload"
+    "fixture/GetUpload.yaml"
 
 testCreateDevicePool :: CreateDevicePool -> TestTree
 testCreateDevicePool = req
@@ -241,15 +236,20 @@ testListRuns = req
     "ListRuns"
     "fixture/ListRuns.yaml"
 
-testListJobs :: ListJobs -> TestTree
-testListJobs = req
-    "ListJobs"
-    "fixture/ListJobs.yaml"
+testGetTest :: GetTest -> TestTree
+testGetTest = req
+    "GetTest"
+    "fixture/GetTest.yaml"
 
 testGetDevice :: GetDevice -> TestTree
 testGetDevice = req
     "GetDevice"
     "fixture/GetDevice.yaml"
+
+testListJobs :: ListJobs -> TestTree
+testListJobs = req
+    "ListJobs"
+    "fixture/ListJobs.yaml"
 
 testGetJob :: GetJob -> TestTree
 testGetJob = req
@@ -296,15 +296,15 @@ testGetProject = req
     "GetProject"
     "fixture/GetProject.yaml"
 
-testListDevices :: ListDevices -> TestTree
-testListDevices = req
-    "ListDevices"
-    "fixture/ListDevices.yaml"
-
 testListUniqueProblems :: ListUniqueProblems -> TestTree
 testListUniqueProblems = req
     "ListUniqueProblems"
     "fixture/ListUniqueProblems.yaml"
+
+testListDevices :: ListDevices -> TestTree
+testListDevices = req
+    "ListDevices"
+    "fixture/ListDevices.yaml"
 
 testCreateProject :: CreateProject -> TestTree
 testCreateProject = req
@@ -334,19 +334,19 @@ testListTestsResponse = res
     deviceFarm
     (Proxy :: Proxy ListTests)
 
-testCreateUploadResponse :: CreateUploadResponse -> TestTree
-testCreateUploadResponse = res
-    "CreateUploadResponse"
-    "fixture/CreateUploadResponse.proto"
-    deviceFarm
-    (Proxy :: Proxy CreateUpload)
-
 testListArtifactsResponse :: ListArtifactsResponse -> TestTree
 testListArtifactsResponse = res
     "ListArtifactsResponse"
     "fixture/ListArtifactsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListArtifacts)
+
+testCreateUploadResponse :: CreateUploadResponse -> TestTree
+testCreateUploadResponse = res
+    "CreateUploadResponse"
+    "fixture/CreateUploadResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy CreateUpload)
 
 testGetDevicePoolResponse :: GetDevicePoolResponse -> TestTree
 testGetDevicePoolResponse = res
@@ -355,13 +355,6 @@ testGetDevicePoolResponse = res
     deviceFarm
     (Proxy :: Proxy GetDevicePool)
 
-testGetUploadResponse :: GetUploadResponse -> TestTree
-testGetUploadResponse = res
-    "GetUploadResponse"
-    "fixture/GetUploadResponse.proto"
-    deviceFarm
-    (Proxy :: Proxy GetUpload)
-
 testListDevicePoolsResponse :: ListDevicePoolsResponse -> TestTree
 testListDevicePoolsResponse = res
     "ListDevicePoolsResponse"
@@ -369,12 +362,12 @@ testListDevicePoolsResponse = res
     deviceFarm
     (Proxy :: Proxy ListDevicePools)
 
-testGetTestResponse :: GetTestResponse -> TestTree
-testGetTestResponse = res
-    "GetTestResponse"
-    "fixture/GetTestResponse.proto"
+testGetUploadResponse :: GetUploadResponse -> TestTree
+testGetUploadResponse = res
+    "GetUploadResponse"
+    "fixture/GetUploadResponse.proto"
     deviceFarm
-    (Proxy :: Proxy GetTest)
+    (Proxy :: Proxy GetUpload)
 
 testCreateDevicePoolResponse :: CreateDevicePoolResponse -> TestTree
 testCreateDevicePoolResponse = res
@@ -390,12 +383,12 @@ testListRunsResponse = res
     deviceFarm
     (Proxy :: Proxy ListRuns)
 
-testListJobsResponse :: ListJobsResponse -> TestTree
-testListJobsResponse = res
-    "ListJobsResponse"
-    "fixture/ListJobsResponse.proto"
+testGetTestResponse :: GetTestResponse -> TestTree
+testGetTestResponse = res
+    "GetTestResponse"
+    "fixture/GetTestResponse.proto"
     deviceFarm
-    (Proxy :: Proxy ListJobs)
+    (Proxy :: Proxy GetTest)
 
 testGetDeviceResponse :: GetDeviceResponse -> TestTree
 testGetDeviceResponse = res
@@ -403,6 +396,13 @@ testGetDeviceResponse = res
     "fixture/GetDeviceResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetDevice)
+
+testListJobsResponse :: ListJobsResponse -> TestTree
+testListJobsResponse = res
+    "ListJobsResponse"
+    "fixture/ListJobsResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListJobs)
 
 testGetJobResponse :: GetJobResponse -> TestTree
 testGetJobResponse = res
@@ -467,19 +467,19 @@ testGetProjectResponse = res
     deviceFarm
     (Proxy :: Proxy GetProject)
 
-testListDevicesResponse :: ListDevicesResponse -> TestTree
-testListDevicesResponse = res
-    "ListDevicesResponse"
-    "fixture/ListDevicesResponse.proto"
-    deviceFarm
-    (Proxy :: Proxy ListDevices)
-
 testListUniqueProblemsResponse :: ListUniqueProblemsResponse -> TestTree
 testListUniqueProblemsResponse = res
     "ListUniqueProblemsResponse"
     "fixture/ListUniqueProblemsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListUniqueProblems)
+
+testListDevicesResponse :: ListDevicesResponse -> TestTree
+testListDevicesResponse = res
+    "ListDevicesResponse"
+    "fixture/ListDevicesResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListDevices)
 
 testCreateProjectResponse :: CreateProjectResponse -> TestTree
 testCreateProjectResponse = res

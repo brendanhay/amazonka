@@ -16,8 +16,8 @@ module Network.AWS.AutoScaling.Types
       autoScaling
 
     -- * Errors
-    , _LimitExceededFault
     , _AlreadyExistsFault
+    , _LimitExceededFault
     , _ResourceInUseFault
     , _InvalidNextToken
     , _ScalingActivityInProgressFault
@@ -34,8 +34,8 @@ module Network.AWS.AutoScaling.Types
     , activity
     , aProgress
     , aStatusMessage
-    , aDetails
     , aEndTime
+    , aDetails
     , aDescription
     , aActivityId
     , aAutoScalingGroupName
@@ -62,11 +62,11 @@ module Network.AWS.AutoScaling.Types
     , asgHealthCheckGracePeriod
     , asgVPCZoneIdentifier
     , asgEnabledMetrics
-    , asgInstances
     , asgLaunchConfigurationName
+    , asgInstances
     , asgAutoScalingGroupARN
-    , asgSuspendedProcesses
     , asgPlacementGroup
+    , asgSuspendedProcesses
     , asgLoadBalancerNames
     , asgTags
     , asgAutoScalingGroupName
@@ -134,10 +134,10 @@ module Network.AWS.AutoScaling.Types
     -- * LaunchConfiguration
     , LaunchConfiguration
     , launchConfiguration
-    , lcSecurityGroups
     , lcAssociatePublicIPAddress
-    , lcInstanceMonitoring
+    , lcSecurityGroups
     , lcSpotPrice
+    , lcInstanceMonitoring
     , lcKeyName
     , lcClassicLinkVPCSecurityGroups
     , lcRAMDiskId
@@ -163,9 +163,9 @@ module Network.AWS.AutoScaling.Types
     , lhAutoScalingGroupName
     , lhNotificationMetadata
     , lhGlobalTimeout
-    , lhRoleARN
-    , lhLifecycleTransition
     , lhNotificationTargetARN
+    , lhLifecycleTransition
+    , lhRoleARN
 
     -- * LoadBalancerState
     , LoadBalancerState
@@ -198,14 +198,14 @@ module Network.AWS.AutoScaling.Types
     -- * ScalingPolicy
     , ScalingPolicy
     , scalingPolicy
-    , sEstimatedInstanceWarmup
     , sMinAdjustmentStep
+    , sEstimatedInstanceWarmup
     , sPolicyName
     , sPolicyType
     , sStepAdjustments
     , sAdjustmentType
-    , sScalingAdjustment
     , sAutoScalingGroupName
+    , sScalingAdjustment
     , sCooldown
     , sPolicyARN
     , sAlarms
@@ -222,15 +222,15 @@ module Network.AWS.AutoScaling.Types
     , ScheduledUpdateGroupAction
     , scheduledUpdateGroupAction
     , sugaScheduledActionARN
-    , sugaTime
     , sugaStartTime
+    , sugaTime
     , sugaScheduledActionName
     , sugaMaxSize
-    , sugaDesiredCapacity
     , sugaRecurrence
+    , sugaDesiredCapacity
     , sugaMinSize
-    , sugaEndTime
     , sugaAutoScalingGroupName
+    , sugaEndTime
 
     -- * StepAdjustment
     , StepAdjustment
@@ -300,16 +300,16 @@ autoScaling =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+-- | You already have an Auto Scaling group or launch configuration with this
+-- name.
+_AlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
+_AlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
+
 -- | You have already reached a limit for your Auto Scaling resources (for
 -- example, groups, launch configurations, or lifecycle hooks). For more
 -- information, see DescribeAccountLimits.
 _LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
-
--- | You already have an Auto Scaling group or launch configuration with this
--- name.
-_AlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
-_AlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
 
 -- | The Auto Scaling group or launch configuration can\'t be deleted because
 -- it is in use.

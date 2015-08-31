@@ -31,23 +31,23 @@ import Test.AWS.CodeDeploy.Internal
 --         [ testRemoveTagsFromOnPremisesInstances $
 --             removeTagsFromOnPremisesInstances
 --
---         , testGetDeployment $
---             getDeployment
---
---         , testCreateDeploymentConfig $
---             createDeploymentConfig
+--         , testDeleteDeploymentGroup $
+--             deleteDeploymentGroup
 --
 --         , testUpdateDeploymentGroup $
 --             updateDeploymentGroup
 --
---         , testDeleteDeploymentGroup $
---             deleteDeploymentGroup
---
 --         , testListOnPremisesInstances $
 --             listOnPremisesInstances
 --
+--         , testCreateDeploymentConfig $
+--             createDeploymentConfig
+--
 --         , testGetApplicationRevision $
 --             getApplicationRevision
+--
+--         , testGetDeployment $
+--             getDeployment
 --
 --         , testDeleteDeploymentConfig $
 --             deleteDeploymentConfig
@@ -58,14 +58,17 @@ import Test.AWS.CodeDeploy.Internal
 --         , testCreateDeployment $
 --             createDeployment
 --
---         , testGetOnPremisesInstance $
---             getOnPremisesInstance
---
 --         , testBatchGetDeployments $
 --             batchGetDeployments
 --
+--         , testGetOnPremisesInstance $
+--             getOnPremisesInstance
+--
 --         , testRegisterApplicationRevision $
 --             registerApplicationRevision
+--
+--         , testBatchGetApplications $
+--             batchGetApplications
 --
 --         , testDeleteApplication $
 --             deleteApplication
@@ -73,17 +76,14 @@ import Test.AWS.CodeDeploy.Internal
 --         , testUpdateApplication $
 --             updateApplication
 --
---         , testBatchGetApplications $
---             batchGetApplications
---
---         , testCreateApplication $
---             createApplication
+--         , testGetDeploymentInstance $
+--             getDeploymentInstance
 --
 --         , testDeregisterOnPremisesInstance $
 --             deregisterOnPremisesInstance
 --
---         , testGetDeploymentInstance $
---             getDeploymentInstance
+--         , testCreateApplication $
+--             createApplication
 --
 --         , testStopDeployment $
 --             stopDeployment
@@ -94,17 +94,17 @@ import Test.AWS.CodeDeploy.Internal
 --         , testListDeploymentGroups $
 --             listDeploymentGroups
 --
---         , testRegisterOnPremisesInstance $
---             registerOnPremisesInstance
---
 --         , testBatchGetOnPremisesInstances $
 --             batchGetOnPremisesInstances
 --
---         , testListDeploymentConfigs $
---             listDeploymentConfigs
+--         , testRegisterOnPremisesInstance $
+--             registerOnPremisesInstance
 --
 --         , testCreateDeploymentGroup $
 --             createDeploymentGroup
+--
+--         , testListDeploymentConfigs $
+--             listDeploymentConfigs
 --
 --         , testGetDeploymentGroup $
 --             getDeploymentGroup
@@ -130,23 +130,23 @@ import Test.AWS.CodeDeploy.Internal
 --         [ testRemoveTagsFromOnPremisesInstancesResponse $
 --             removeTagsFromOnPremisesInstancesResponse
 --
---         , testGetDeploymentResponse $
---             getDeploymentResponse
---
---         , testCreateDeploymentConfigResponse $
---             createDeploymentConfigResponse
+--         , testDeleteDeploymentGroupResponse $
+--             deleteDeploymentGroupResponse
 --
 --         , testUpdateDeploymentGroupResponse $
 --             updateDeploymentGroupResponse
 --
---         , testDeleteDeploymentGroupResponse $
---             deleteDeploymentGroupResponse
---
 --         , testListOnPremisesInstancesResponse $
 --             listOnPremisesInstancesResponse
 --
+--         , testCreateDeploymentConfigResponse $
+--             createDeploymentConfigResponse
+--
 --         , testGetApplicationRevisionResponse $
 --             getApplicationRevisionResponse
+--
+--         , testGetDeploymentResponse $
+--             getDeploymentResponse
 --
 --         , testDeleteDeploymentConfigResponse $
 --             deleteDeploymentConfigResponse
@@ -157,14 +157,17 @@ import Test.AWS.CodeDeploy.Internal
 --         , testCreateDeploymentResponse $
 --             createDeploymentResponse
 --
---         , testGetOnPremisesInstanceResponse $
---             getOnPremisesInstanceResponse
---
 --         , testBatchGetDeploymentsResponse $
 --             batchGetDeploymentsResponse
 --
+--         , testGetOnPremisesInstanceResponse $
+--             getOnPremisesInstanceResponse
+--
 --         , testRegisterApplicationRevisionResponse $
 --             registerApplicationRevisionResponse
+--
+--         , testBatchGetApplicationsResponse $
+--             batchGetApplicationsResponse
 --
 --         , testDeleteApplicationResponse $
 --             deleteApplicationResponse
@@ -172,17 +175,14 @@ import Test.AWS.CodeDeploy.Internal
 --         , testUpdateApplicationResponse $
 --             updateApplicationResponse
 --
---         , testBatchGetApplicationsResponse $
---             batchGetApplicationsResponse
---
---         , testCreateApplicationResponse $
---             createApplicationResponse
+--         , testGetDeploymentInstanceResponse $
+--             getDeploymentInstanceResponse
 --
 --         , testDeregisterOnPremisesInstanceResponse $
 --             deregisterOnPremisesInstanceResponse
 --
---         , testGetDeploymentInstanceResponse $
---             getDeploymentInstanceResponse
+--         , testCreateApplicationResponse $
+--             createApplicationResponse
 --
 --         , testStopDeploymentResponse $
 --             stopDeploymentResponse
@@ -193,17 +193,17 @@ import Test.AWS.CodeDeploy.Internal
 --         , testListDeploymentGroupsResponse $
 --             listDeploymentGroupsResponse
 --
---         , testRegisterOnPremisesInstanceResponse $
---             registerOnPremisesInstanceResponse
---
 --         , testBatchGetOnPremisesInstancesResponse $
 --             batchGetOnPremisesInstancesResponse
 --
---         , testListDeploymentConfigsResponse $
---             listDeploymentConfigsResponse
+--         , testRegisterOnPremisesInstanceResponse $
+--             registerOnPremisesInstanceResponse
 --
 --         , testCreateDeploymentGroupResponse $
 --             createDeploymentGroupResponse
+--
+--         , testListDeploymentConfigsResponse $
+--             listDeploymentConfigsResponse
 --
 --         , testGetDeploymentGroupResponse $
 --             getDeploymentGroupResponse
@@ -233,35 +233,35 @@ testRemoveTagsFromOnPremisesInstances = req
     "RemoveTagsFromOnPremisesInstances"
     "fixture/RemoveTagsFromOnPremisesInstances.yaml"
 
-testGetDeployment :: GetDeployment -> TestTree
-testGetDeployment = req
-    "GetDeployment"
-    "fixture/GetDeployment.yaml"
-
-testCreateDeploymentConfig :: CreateDeploymentConfig -> TestTree
-testCreateDeploymentConfig = req
-    "CreateDeploymentConfig"
-    "fixture/CreateDeploymentConfig.yaml"
+testDeleteDeploymentGroup :: DeleteDeploymentGroup -> TestTree
+testDeleteDeploymentGroup = req
+    "DeleteDeploymentGroup"
+    "fixture/DeleteDeploymentGroup.yaml"
 
 testUpdateDeploymentGroup :: UpdateDeploymentGroup -> TestTree
 testUpdateDeploymentGroup = req
     "UpdateDeploymentGroup"
     "fixture/UpdateDeploymentGroup.yaml"
 
-testDeleteDeploymentGroup :: DeleteDeploymentGroup -> TestTree
-testDeleteDeploymentGroup = req
-    "DeleteDeploymentGroup"
-    "fixture/DeleteDeploymentGroup.yaml"
-
 testListOnPremisesInstances :: ListOnPremisesInstances -> TestTree
 testListOnPremisesInstances = req
     "ListOnPremisesInstances"
     "fixture/ListOnPremisesInstances.yaml"
 
+testCreateDeploymentConfig :: CreateDeploymentConfig -> TestTree
+testCreateDeploymentConfig = req
+    "CreateDeploymentConfig"
+    "fixture/CreateDeploymentConfig.yaml"
+
 testGetApplicationRevision :: GetApplicationRevision -> TestTree
 testGetApplicationRevision = req
     "GetApplicationRevision"
     "fixture/GetApplicationRevision.yaml"
+
+testGetDeployment :: GetDeployment -> TestTree
+testGetDeployment = req
+    "GetDeployment"
+    "fixture/GetDeployment.yaml"
 
 testDeleteDeploymentConfig :: DeleteDeploymentConfig -> TestTree
 testDeleteDeploymentConfig = req
@@ -278,20 +278,25 @@ testCreateDeployment = req
     "CreateDeployment"
     "fixture/CreateDeployment.yaml"
 
-testGetOnPremisesInstance :: GetOnPremisesInstance -> TestTree
-testGetOnPremisesInstance = req
-    "GetOnPremisesInstance"
-    "fixture/GetOnPremisesInstance.yaml"
-
 testBatchGetDeployments :: BatchGetDeployments -> TestTree
 testBatchGetDeployments = req
     "BatchGetDeployments"
     "fixture/BatchGetDeployments.yaml"
 
+testGetOnPremisesInstance :: GetOnPremisesInstance -> TestTree
+testGetOnPremisesInstance = req
+    "GetOnPremisesInstance"
+    "fixture/GetOnPremisesInstance.yaml"
+
 testRegisterApplicationRevision :: RegisterApplicationRevision -> TestTree
 testRegisterApplicationRevision = req
     "RegisterApplicationRevision"
     "fixture/RegisterApplicationRevision.yaml"
+
+testBatchGetApplications :: BatchGetApplications -> TestTree
+testBatchGetApplications = req
+    "BatchGetApplications"
+    "fixture/BatchGetApplications.yaml"
 
 testDeleteApplication :: DeleteApplication -> TestTree
 testDeleteApplication = req
@@ -303,25 +308,20 @@ testUpdateApplication = req
     "UpdateApplication"
     "fixture/UpdateApplication.yaml"
 
-testBatchGetApplications :: BatchGetApplications -> TestTree
-testBatchGetApplications = req
-    "BatchGetApplications"
-    "fixture/BatchGetApplications.yaml"
-
-testCreateApplication :: CreateApplication -> TestTree
-testCreateApplication = req
-    "CreateApplication"
-    "fixture/CreateApplication.yaml"
+testGetDeploymentInstance :: GetDeploymentInstance -> TestTree
+testGetDeploymentInstance = req
+    "GetDeploymentInstance"
+    "fixture/GetDeploymentInstance.yaml"
 
 testDeregisterOnPremisesInstance :: DeregisterOnPremisesInstance -> TestTree
 testDeregisterOnPremisesInstance = req
     "DeregisterOnPremisesInstance"
     "fixture/DeregisterOnPremisesInstance.yaml"
 
-testGetDeploymentInstance :: GetDeploymentInstance -> TestTree
-testGetDeploymentInstance = req
-    "GetDeploymentInstance"
-    "fixture/GetDeploymentInstance.yaml"
+testCreateApplication :: CreateApplication -> TestTree
+testCreateApplication = req
+    "CreateApplication"
+    "fixture/CreateApplication.yaml"
 
 testStopDeployment :: StopDeployment -> TestTree
 testStopDeployment = req
@@ -338,25 +338,25 @@ testListDeploymentGroups = req
     "ListDeploymentGroups"
     "fixture/ListDeploymentGroups.yaml"
 
-testRegisterOnPremisesInstance :: RegisterOnPremisesInstance -> TestTree
-testRegisterOnPremisesInstance = req
-    "RegisterOnPremisesInstance"
-    "fixture/RegisterOnPremisesInstance.yaml"
-
 testBatchGetOnPremisesInstances :: BatchGetOnPremisesInstances -> TestTree
 testBatchGetOnPremisesInstances = req
     "BatchGetOnPremisesInstances"
     "fixture/BatchGetOnPremisesInstances.yaml"
 
-testListDeploymentConfigs :: ListDeploymentConfigs -> TestTree
-testListDeploymentConfigs = req
-    "ListDeploymentConfigs"
-    "fixture/ListDeploymentConfigs.yaml"
+testRegisterOnPremisesInstance :: RegisterOnPremisesInstance -> TestTree
+testRegisterOnPremisesInstance = req
+    "RegisterOnPremisesInstance"
+    "fixture/RegisterOnPremisesInstance.yaml"
 
 testCreateDeploymentGroup :: CreateDeploymentGroup -> TestTree
 testCreateDeploymentGroup = req
     "CreateDeploymentGroup"
     "fixture/CreateDeploymentGroup.yaml"
+
+testListDeploymentConfigs :: ListDeploymentConfigs -> TestTree
+testListDeploymentConfigs = req
+    "ListDeploymentConfigs"
+    "fixture/ListDeploymentConfigs.yaml"
 
 testGetDeploymentGroup :: GetDeploymentGroup -> TestTree
 testGetDeploymentGroup = req
@@ -397,19 +397,12 @@ testRemoveTagsFromOnPremisesInstancesResponse = res
     codeDeploy
     (Proxy :: Proxy RemoveTagsFromOnPremisesInstances)
 
-testGetDeploymentResponse :: GetDeploymentResponse -> TestTree
-testGetDeploymentResponse = res
-    "GetDeploymentResponse"
-    "fixture/GetDeploymentResponse.proto"
+testDeleteDeploymentGroupResponse :: DeleteDeploymentGroupResponse -> TestTree
+testDeleteDeploymentGroupResponse = res
+    "DeleteDeploymentGroupResponse"
+    "fixture/DeleteDeploymentGroupResponse.proto"
     codeDeploy
-    (Proxy :: Proxy GetDeployment)
-
-testCreateDeploymentConfigResponse :: CreateDeploymentConfigResponse -> TestTree
-testCreateDeploymentConfigResponse = res
-    "CreateDeploymentConfigResponse"
-    "fixture/CreateDeploymentConfigResponse.proto"
-    codeDeploy
-    (Proxy :: Proxy CreateDeploymentConfig)
+    (Proxy :: Proxy DeleteDeploymentGroup)
 
 testUpdateDeploymentGroupResponse :: UpdateDeploymentGroupResponse -> TestTree
 testUpdateDeploymentGroupResponse = res
@@ -418,13 +411,6 @@ testUpdateDeploymentGroupResponse = res
     codeDeploy
     (Proxy :: Proxy UpdateDeploymentGroup)
 
-testDeleteDeploymentGroupResponse :: DeleteDeploymentGroupResponse -> TestTree
-testDeleteDeploymentGroupResponse = res
-    "DeleteDeploymentGroupResponse"
-    "fixture/DeleteDeploymentGroupResponse.proto"
-    codeDeploy
-    (Proxy :: Proxy DeleteDeploymentGroup)
-
 testListOnPremisesInstancesResponse :: ListOnPremisesInstancesResponse -> TestTree
 testListOnPremisesInstancesResponse = res
     "ListOnPremisesInstancesResponse"
@@ -432,12 +418,26 @@ testListOnPremisesInstancesResponse = res
     codeDeploy
     (Proxy :: Proxy ListOnPremisesInstances)
 
+testCreateDeploymentConfigResponse :: CreateDeploymentConfigResponse -> TestTree
+testCreateDeploymentConfigResponse = res
+    "CreateDeploymentConfigResponse"
+    "fixture/CreateDeploymentConfigResponse.proto"
+    codeDeploy
+    (Proxy :: Proxy CreateDeploymentConfig)
+
 testGetApplicationRevisionResponse :: GetApplicationRevisionResponse -> TestTree
 testGetApplicationRevisionResponse = res
     "GetApplicationRevisionResponse"
     "fixture/GetApplicationRevisionResponse.proto"
     codeDeploy
     (Proxy :: Proxy GetApplicationRevision)
+
+testGetDeploymentResponse :: GetDeploymentResponse -> TestTree
+testGetDeploymentResponse = res
+    "GetDeploymentResponse"
+    "fixture/GetDeploymentResponse.proto"
+    codeDeploy
+    (Proxy :: Proxy GetDeployment)
 
 testDeleteDeploymentConfigResponse :: DeleteDeploymentConfigResponse -> TestTree
 testDeleteDeploymentConfigResponse = res
@@ -460,13 +460,6 @@ testCreateDeploymentResponse = res
     codeDeploy
     (Proxy :: Proxy CreateDeployment)
 
-testGetOnPremisesInstanceResponse :: GetOnPremisesInstanceResponse -> TestTree
-testGetOnPremisesInstanceResponse = res
-    "GetOnPremisesInstanceResponse"
-    "fixture/GetOnPremisesInstanceResponse.proto"
-    codeDeploy
-    (Proxy :: Proxy GetOnPremisesInstance)
-
 testBatchGetDeploymentsResponse :: BatchGetDeploymentsResponse -> TestTree
 testBatchGetDeploymentsResponse = res
     "BatchGetDeploymentsResponse"
@@ -474,12 +467,26 @@ testBatchGetDeploymentsResponse = res
     codeDeploy
     (Proxy :: Proxy BatchGetDeployments)
 
+testGetOnPremisesInstanceResponse :: GetOnPremisesInstanceResponse -> TestTree
+testGetOnPremisesInstanceResponse = res
+    "GetOnPremisesInstanceResponse"
+    "fixture/GetOnPremisesInstanceResponse.proto"
+    codeDeploy
+    (Proxy :: Proxy GetOnPremisesInstance)
+
 testRegisterApplicationRevisionResponse :: RegisterApplicationRevisionResponse -> TestTree
 testRegisterApplicationRevisionResponse = res
     "RegisterApplicationRevisionResponse"
     "fixture/RegisterApplicationRevisionResponse.proto"
     codeDeploy
     (Proxy :: Proxy RegisterApplicationRevision)
+
+testBatchGetApplicationsResponse :: BatchGetApplicationsResponse -> TestTree
+testBatchGetApplicationsResponse = res
+    "BatchGetApplicationsResponse"
+    "fixture/BatchGetApplicationsResponse.proto"
+    codeDeploy
+    (Proxy :: Proxy BatchGetApplications)
 
 testDeleteApplicationResponse :: DeleteApplicationResponse -> TestTree
 testDeleteApplicationResponse = res
@@ -495,19 +502,12 @@ testUpdateApplicationResponse = res
     codeDeploy
     (Proxy :: Proxy UpdateApplication)
 
-testBatchGetApplicationsResponse :: BatchGetApplicationsResponse -> TestTree
-testBatchGetApplicationsResponse = res
-    "BatchGetApplicationsResponse"
-    "fixture/BatchGetApplicationsResponse.proto"
+testGetDeploymentInstanceResponse :: GetDeploymentInstanceResponse -> TestTree
+testGetDeploymentInstanceResponse = res
+    "GetDeploymentInstanceResponse"
+    "fixture/GetDeploymentInstanceResponse.proto"
     codeDeploy
-    (Proxy :: Proxy BatchGetApplications)
-
-testCreateApplicationResponse :: CreateApplicationResponse -> TestTree
-testCreateApplicationResponse = res
-    "CreateApplicationResponse"
-    "fixture/CreateApplicationResponse.proto"
-    codeDeploy
-    (Proxy :: Proxy CreateApplication)
+    (Proxy :: Proxy GetDeploymentInstance)
 
 testDeregisterOnPremisesInstanceResponse :: DeregisterOnPremisesInstanceResponse -> TestTree
 testDeregisterOnPremisesInstanceResponse = res
@@ -516,12 +516,12 @@ testDeregisterOnPremisesInstanceResponse = res
     codeDeploy
     (Proxy :: Proxy DeregisterOnPremisesInstance)
 
-testGetDeploymentInstanceResponse :: GetDeploymentInstanceResponse -> TestTree
-testGetDeploymentInstanceResponse = res
-    "GetDeploymentInstanceResponse"
-    "fixture/GetDeploymentInstanceResponse.proto"
+testCreateApplicationResponse :: CreateApplicationResponse -> TestTree
+testCreateApplicationResponse = res
+    "CreateApplicationResponse"
+    "fixture/CreateApplicationResponse.proto"
     codeDeploy
-    (Proxy :: Proxy GetDeploymentInstance)
+    (Proxy :: Proxy CreateApplication)
 
 testStopDeploymentResponse :: StopDeploymentResponse -> TestTree
 testStopDeploymentResponse = res
@@ -544,13 +544,6 @@ testListDeploymentGroupsResponse = res
     codeDeploy
     (Proxy :: Proxy ListDeploymentGroups)
 
-testRegisterOnPremisesInstanceResponse :: RegisterOnPremisesInstanceResponse -> TestTree
-testRegisterOnPremisesInstanceResponse = res
-    "RegisterOnPremisesInstanceResponse"
-    "fixture/RegisterOnPremisesInstanceResponse.proto"
-    codeDeploy
-    (Proxy :: Proxy RegisterOnPremisesInstance)
-
 testBatchGetOnPremisesInstancesResponse :: BatchGetOnPremisesInstancesResponse -> TestTree
 testBatchGetOnPremisesInstancesResponse = res
     "BatchGetOnPremisesInstancesResponse"
@@ -558,12 +551,12 @@ testBatchGetOnPremisesInstancesResponse = res
     codeDeploy
     (Proxy :: Proxy BatchGetOnPremisesInstances)
 
-testListDeploymentConfigsResponse :: ListDeploymentConfigsResponse -> TestTree
-testListDeploymentConfigsResponse = res
-    "ListDeploymentConfigsResponse"
-    "fixture/ListDeploymentConfigsResponse.proto"
+testRegisterOnPremisesInstanceResponse :: RegisterOnPremisesInstanceResponse -> TestTree
+testRegisterOnPremisesInstanceResponse = res
+    "RegisterOnPremisesInstanceResponse"
+    "fixture/RegisterOnPremisesInstanceResponse.proto"
     codeDeploy
-    (Proxy :: Proxy ListDeploymentConfigs)
+    (Proxy :: Proxy RegisterOnPremisesInstance)
 
 testCreateDeploymentGroupResponse :: CreateDeploymentGroupResponse -> TestTree
 testCreateDeploymentGroupResponse = res
@@ -571,6 +564,13 @@ testCreateDeploymentGroupResponse = res
     "fixture/CreateDeploymentGroupResponse.proto"
     codeDeploy
     (Proxy :: Proxy CreateDeploymentGroup)
+
+testListDeploymentConfigsResponse :: ListDeploymentConfigsResponse -> TestTree
+testListDeploymentConfigsResponse = res
+    "ListDeploymentConfigsResponse"
+    "fixture/ListDeploymentConfigsResponse.proto"
+    codeDeploy
+    (Proxy :: Proxy ListDeploymentConfigs)
 
 testGetDeploymentGroupResponse :: GetDeploymentGroupResponse -> TestTree
 testGetDeploymentGroupResponse = res

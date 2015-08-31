@@ -26,11 +26,11 @@ module Network.AWS.DirectoryService
     -- * Errors
     -- $errors
 
-    -- ** AuthenticationFailedException
-    , _AuthenticationFailedException
-
     -- ** DirectoryUnavailableException
     , _DirectoryUnavailableException
+
+    -- ** AuthenticationFailedException
+    , _AuthenticationFailedException
 
     -- ** InvalidParameterException
     , _InvalidParameterException
@@ -74,11 +74,11 @@ module Network.AWS.DirectoryService
     -- ** ConnectDirectory
     , module Network.AWS.DirectoryService.ConnectDirectory
 
-    -- ** DescribeDirectories
-    , module Network.AWS.DirectoryService.DescribeDirectories
-
     -- ** CreateAlias
     , module Network.AWS.DirectoryService.CreateAlias
+
+    -- ** DescribeDirectories
+    , module Network.AWS.DirectoryService.DescribeDirectories
 
     -- ** CreateDirectory
     , module Network.AWS.DirectoryService.CreateDirectory
@@ -92,26 +92,26 @@ module Network.AWS.DirectoryService
     -- ** DisableRadius
     , module Network.AWS.DirectoryService.DisableRadius
 
-    -- ** DescribeSnapshots
-    , module Network.AWS.DirectoryService.DescribeSnapshots
-
     -- ** RestoreFromSnapshot
     , module Network.AWS.DirectoryService.RestoreFromSnapshot
+
+    -- ** DescribeSnapshots
+    , module Network.AWS.DirectoryService.DescribeSnapshots
 
     -- ** DeleteSnapshot
     , module Network.AWS.DirectoryService.DeleteSnapshot
 
-    -- ** CreateSnapshot
-    , module Network.AWS.DirectoryService.CreateSnapshot
-
     -- ** DeleteDirectory
     , module Network.AWS.DirectoryService.DeleteDirectory
 
-    -- ** DisableSSO
-    , module Network.AWS.DirectoryService.DisableSSO
+    -- ** CreateSnapshot
+    , module Network.AWS.DirectoryService.CreateSnapshot
 
     -- ** CreateComputer
     , module Network.AWS.DirectoryService.CreateComputer
+
+    -- ** DisableSSO
+    , module Network.AWS.DirectoryService.DisableSSO
 
     -- ** GetDirectoryLimits
     , module Network.AWS.DirectoryService.GetDirectoryLimits
@@ -169,16 +169,16 @@ module Network.AWS.DirectoryService
     , dcsdCustomerUserName
     , dcsdSubnetIds
     , dcsdVPCId
-    , dcsdConnectIPs
     , dcsdSecurityGroupId
+    , dcsdConnectIPs
     , dcsdAvailabilityZones
 
     -- ** DirectoryDescription
     , DirectoryDescription
     , directoryDescription
     , ddRadiusStatus
-    , ddDirectoryId
     , ddStage
+    , ddDirectoryId
     , ddAccessURL
     , ddShortName
     , ddSize
@@ -186,12 +186,12 @@ module Network.AWS.DirectoryService
     , ddLaunchTime
     , ddAlias
     , ddName
-    , ddSSOEnabled
     , ddStageLastUpdatedDateTime
-    , ddStageReason
+    , ddSSOEnabled
     , ddDNSIPAddrs
     , ddVPCSettings
     , ddType
+    , ddStageReason
     , ddConnectSettings
     , ddDescription
 
@@ -223,9 +223,9 @@ module Network.AWS.DirectoryService
     , RadiusSettings
     , radiusSettings
     , rsDisplayLabel
-    , rsRadiusServers
     , rsRadiusRetries
     , rsAuthenticationProtocol
+    , rsRadiusServers
     , rsUseSameUsername
     , rsSharedSecret
     , rsRadiusTimeout
@@ -234,8 +234,8 @@ module Network.AWS.DirectoryService
     -- ** Snapshot
     , Snapshot
     , snapshot
-    , sDirectoryId
     , sStatus
+    , sDirectoryId
     , sStartTime
     , sName
     , sType

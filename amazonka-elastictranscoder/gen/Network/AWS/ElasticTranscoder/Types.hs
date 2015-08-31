@@ -16,20 +16,20 @@ module Network.AWS.ElasticTranscoder.Types
       elasticTranscoder
 
     -- * Errors
-    , _ValidationException
     , _IncompatibleVersionException
+    , _ValidationException
     , _AccessDeniedException
     , _InternalServiceException
     , _ResourceNotFoundException
-    , _ResourceInUseException
     , _LimitExceededException
+    , _ResourceInUseException
 
     -- * Artwork
     , Artwork
     , artwork
     , aSizingPolicy
-    , aMaxHeight
     , aAlbumArtFormat
+    , aMaxHeight
     , aInputKey
     , aPaddingPolicy
     , aEncryption
@@ -38,8 +38,8 @@ module Network.AWS.ElasticTranscoder.Types
     -- * AudioCodecOptions
     , AudioCodecOptions
     , audioCodecOptions
-    , acoBitDepth
     , acoSigned
+    , acoBitDepth
     , acoProfile
     , acoBitOrder
 
@@ -64,8 +64,8 @@ module Network.AWS.ElasticTranscoder.Types
     , CaptionSource
     , captionSource
     , csTimeOffset
-    , csKey
     , csEncryption
+    , csKey
     , csLanguage
     , csLabel
 
@@ -90,8 +90,8 @@ module Network.AWS.ElasticTranscoder.Types
     , cjoComposition
     , cjoAlbumArt
     , cjoWatermarks
-    , cjoKey
     , cjoEncryption
+    , cjoKey
     , cjoSegmentDuration
     , cjoThumbnailEncryption
     , cjoRotate
@@ -100,8 +100,8 @@ module Network.AWS.ElasticTranscoder.Types
     , CreateJobPlaylist
     , createJobPlaylist
     , cjpPlayReadyDrm
-    , cjpOutputKeys
     , cjpFormat
+    , cjpOutputKeys
     , cjpName
     , cjpHlsContentProtection
 
@@ -117,8 +117,8 @@ module Network.AWS.ElasticTranscoder.Types
     -- * Encryption
     , Encryption
     , encryption
-    , eKeyMD5
     , eMode
+    , eKeyMD5
     , eKey
     , eInitializationVector
 
@@ -129,8 +129,8 @@ module Network.AWS.ElasticTranscoder.Types
     , hcpKeyStoragePolicy
     , hcpKey
     , hcpMethod
-    , hcpLicenseAcquisitionURL
     , hcpInitializationVector
+    , hcpLicenseAcquisitionURL
 
     -- * Job'
     , Job'
@@ -139,13 +139,13 @@ module Network.AWS.ElasticTranscoder.Types
     , jPipelineId
     , jARN
     , jInput
-    , jOutputs
     , jUserMetadata
+    , jOutputs
     , jOutput
     , jId
     , jPlaylists
-    , jTiming
     , jOutputKeyPrefix
+    , jTiming
 
     -- * JobAlbumArt
     , JobAlbumArt
@@ -159,9 +159,9 @@ module Network.AWS.ElasticTranscoder.Types
     , jiFrameRate
     , jiResolution
     , jiAspectRatio
+    , jiEncryption
     , jiKey
     , jiDetectedProperties
-    , jiEncryption
     , jiContainer
     , jiInterlaced
 
@@ -169,8 +169,8 @@ module Network.AWS.ElasticTranscoder.Types
     , JobOutput
     , jobOutput
     , joAppliedColorSpaceConversion
-    , joStatus
     , joThumbnailPattern
+    , joStatus
     , joHeight
     , joFrameRate
     , joCaptions
@@ -180,11 +180,11 @@ module Network.AWS.ElasticTranscoder.Types
     , joFileSize
     , joWatermarks
     , joWidth
-    , joKey
     , joEncryption
+    , joKey
+    , joStatusDetail
     , joId
     , joSegmentDuration
-    , joStatusDetail
     , joDurationMillis
     , joThumbnailEncryption
     , joDuration
@@ -202,8 +202,8 @@ module Network.AWS.ElasticTranscoder.Types
     , notifications
     , nError
     , nWarning
-    , nCompleted
     , nProgressing
+    , nCompleted
 
     -- * Permission
     , Permission
@@ -224,8 +224,8 @@ module Network.AWS.ElasticTranscoder.Types
     , pipName
     , pipAWSKMSKeyARN
     , pipId
-    , pipThumbnailConfig
     , pipNotifications
+    , pipThumbnailConfig
 
     -- * PipelineOutputConfig
     , PipelineOutputConfig
@@ -238,43 +238,43 @@ module Network.AWS.ElasticTranscoder.Types
     , PlayReadyDrm
     , playReadyDrm
     , prdKeyId
-    , prdKeyMD5
     , prdFormat
+    , prdKeyMD5
     , prdKey
-    , prdLicenseAcquisitionURL
     , prdInitializationVector
+    , prdLicenseAcquisitionURL
 
     -- * Playlist
     , Playlist
     , playlist
-    , pPlayReadyDrm
     , pStatus
-    , pOutputKeys
+    , pPlayReadyDrm
     , pFormat
+    , pOutputKeys
     , pName
-    , pHlsContentProtection
     , pStatusDetail
+    , pHlsContentProtection
 
     -- * Preset
     , Preset
     , preset
     , preARN
     , preVideo
-    , preName
     , preThumbnails
+    , preName
     , preContainer
     , preId
     , preType
-    , preAudio
     , preDescription
+    , preAudio
 
     -- * PresetWatermark
     , PresetWatermark
     , presetWatermark
     , pwVerticalAlign
     , pwSizingPolicy
-    , pwMaxHeight
     , pwHorizontalOffset
+    , pwMaxHeight
     , pwOpacity
     , pwVerticalOffset
     , pwMaxWidth
@@ -289,8 +289,8 @@ module Network.AWS.ElasticTranscoder.Types
     , tFormat
     , tMaxHeight
     , tResolution
-    , tPaddingPolicy
     , tAspectRatio
+    , tPaddingPolicy
     , tInterval
     , tMaxWidth
 
@@ -315,12 +315,12 @@ module Network.AWS.ElasticTranscoder.Types
     , vpSizingPolicy
     , vpMaxFrameRate
     , vpMaxHeight
-    , vpDisplayAspectRatio
     , vpWatermarks
-    , vpCodec
+    , vpDisplayAspectRatio
     , vpResolution
-    , vpPaddingPolicy
+    , vpCodec
     , vpAspectRatio
+    , vpPaddingPolicy
     , vpMaxWidth
     , vpBitRate
     , vpFixedGOP
@@ -369,15 +369,15 @@ elasticTranscoder =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | One or more required parameter values were not provided in the request.
-_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-_ValidationException =
-    _ServiceError . hasStatus 400 . hasCode "ValidationException"
-
 -- | Prism for IncompatibleVersionException' errors.
 _IncompatibleVersionException :: AsError a => Getting (First ServiceError) a ServiceError
 _IncompatibleVersionException =
     _ServiceError . hasStatus 400 . hasCode "IncompatibleVersionException"
+
+-- | One or more required parameter values were not provided in the request.
+_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
+_ValidationException =
+    _ServiceError . hasStatus 400 . hasCode "ValidationException"
 
 -- | General authentication failure. The request was not signed correctly.
 _AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -396,14 +396,14 @@ _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a Servic
 _ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
--- | The resource you are attempting to change is in use. For example, you
--- are attempting to delete a pipeline that is currently in use.
-_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceInUseException =
-    _ServiceError . hasStatus 409 . hasCode "ResourceInUseException"
-
 -- | Too many operations for a given AWS account. For example, the number of
 -- pipelines exceeds the maximum allowed.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 429 . hasCode "LimitExceededException"
+
+-- | The resource you are attempting to change is in use. For example, you
+-- are attempting to delete a pipeline that is currently in use.
+_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException =
+    _ServiceError . hasStatus 409 . hasCode "ResourceInUseException"

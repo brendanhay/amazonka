@@ -38,8 +38,8 @@ module Network.AWS.Lambda.GetEventSourceMapping
     , EventSourceMappingConfiguration
     -- * Response Lenses
     , esmcEventSourceARN
-    , esmcFunctionARN
     , esmcState
+    , esmcFunctionARN
     , esmcUUId
     , esmcLastProcessingResult
     , esmcBatchSize

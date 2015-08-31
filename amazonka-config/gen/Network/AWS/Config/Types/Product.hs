@@ -157,13 +157,13 @@ instance FromJSON ConfigStreamDeliveryInfo where
 -- /See:/ 'configurationItem' smart constructor.
 data ConfigurationItem = ConfigurationItem'
     { _ciResourceId                   :: !(Maybe Text)
-    , _ciConfigurationStateId         :: !(Maybe Text)
     , _ciResourceType                 :: !(Maybe ResourceType)
+    , _ciConfigurationStateId         :: !(Maybe Text)
     , _ciArn                          :: !(Maybe Text)
     , _ciResourceCreationTime         :: !(Maybe POSIX)
     , _ciConfigurationItemStatus      :: !(Maybe ConfigurationItemStatus)
-    , _ciAccountId                    :: !(Maybe Text)
     , _ciConfigurationItemCaptureTime :: !(Maybe POSIX)
+    , _ciAccountId                    :: !(Maybe Text)
     , _ciAvailabilityZone             :: !(Maybe Text)
     , _ciRelationships                :: !(Maybe [Relationship])
     , _ciVersion                      :: !(Maybe Text)
@@ -179,9 +179,9 @@ data ConfigurationItem = ConfigurationItem'
 --
 -- * 'ciResourceId'
 --
--- * 'ciConfigurationStateId'
---
 -- * 'ciResourceType'
+--
+-- * 'ciConfigurationStateId'
 --
 -- * 'ciArn'
 --
@@ -189,9 +189,9 @@ data ConfigurationItem = ConfigurationItem'
 --
 -- * 'ciConfigurationItemStatus'
 --
--- * 'ciAccountId'
---
 -- * 'ciConfigurationItemCaptureTime'
+--
+-- * 'ciAccountId'
 --
 -- * 'ciAvailabilityZone'
 --
@@ -211,13 +211,13 @@ configurationItem
 configurationItem =
     ConfigurationItem'
     { _ciResourceId = Nothing
-    , _ciConfigurationStateId = Nothing
     , _ciResourceType = Nothing
+    , _ciConfigurationStateId = Nothing
     , _ciArn = Nothing
     , _ciResourceCreationTime = Nothing
     , _ciConfigurationItemStatus = Nothing
-    , _ciAccountId = Nothing
     , _ciConfigurationItemCaptureTime = Nothing
+    , _ciAccountId = Nothing
     , _ciAvailabilityZone = Nothing
     , _ciRelationships = Nothing
     , _ciVersion = Nothing
@@ -231,14 +231,14 @@ configurationItem =
 ciResourceId :: Lens' ConfigurationItem (Maybe Text)
 ciResourceId = lens _ciResourceId (\ s a -> s{_ciResourceId = a});
 
+-- | The type of AWS resource.
+ciResourceType :: Lens' ConfigurationItem (Maybe ResourceType)
+ciResourceType = lens _ciResourceType (\ s a -> s{_ciResourceType = a});
+
 -- | An identifier that indicates the ordering of the configuration items of
 -- a resource.
 ciConfigurationStateId :: Lens' ConfigurationItem (Maybe Text)
 ciConfigurationStateId = lens _ciConfigurationStateId (\ s a -> s{_ciConfigurationStateId = a});
-
--- | The type of AWS resource.
-ciResourceType :: Lens' ConfigurationItem (Maybe ResourceType)
-ciResourceType = lens _ciResourceType (\ s a -> s{_ciResourceType = a});
 
 -- | The Amazon Resource Name (ARN) of the resource.
 ciArn :: Lens' ConfigurationItem (Maybe Text)
@@ -252,13 +252,13 @@ ciResourceCreationTime = lens _ciResourceCreationTime (\ s a -> s{_ciResourceCre
 ciConfigurationItemStatus :: Lens' ConfigurationItem (Maybe ConfigurationItemStatus)
 ciConfigurationItemStatus = lens _ciConfigurationItemStatus (\ s a -> s{_ciConfigurationItemStatus = a});
 
--- | The 12 digit AWS account ID associated with the resource.
-ciAccountId :: Lens' ConfigurationItem (Maybe Text)
-ciAccountId = lens _ciAccountId (\ s a -> s{_ciAccountId = a});
-
 -- | The time when the configuration recording was initiated.
 ciConfigurationItemCaptureTime :: Lens' ConfigurationItem (Maybe UTCTime)
 ciConfigurationItemCaptureTime = lens _ciConfigurationItemCaptureTime (\ s a -> s{_ciConfigurationItemCaptureTime = a}) . mapping _Time;
+
+-- | The 12 digit AWS account ID associated with the resource.
+ciAccountId :: Lens' ConfigurationItem (Maybe Text)
+ciAccountId = lens _ciAccountId (\ s a -> s{_ciAccountId = a});
 
 -- | The Availability Zone associated with the resource.
 ciAvailabilityZone :: Lens' ConfigurationItem (Maybe Text)
@@ -304,14 +304,13 @@ instance FromJSON ConfigurationItem where
           = withObject "ConfigurationItem"
               (\ x ->
                  ConfigurationItem' <$>
-                   (x .:? "resourceId") <*>
+                   (x .:? "resourceId") <*> (x .:? "resourceType") <*>
                      (x .:? "configurationStateId")
-                     <*> (x .:? "resourceType")
                      <*> (x .:? "arn")
                      <*> (x .:? "resourceCreationTime")
                      <*> (x .:? "configurationItemStatus")
-                     <*> (x .:? "accountId")
                      <*> (x .:? "configurationItemCaptureTime")
+                     <*> (x .:? "accountId")
                      <*> (x .:? "availabilityZone")
                      <*> (x .:? "relationships" .!= mempty)
                      <*> (x .:? "version")
@@ -549,8 +548,8 @@ instance ToJSON DeliveryChannel where
 --
 -- /See:/ 'deliveryChannelStatus' smart constructor.
 data DeliveryChannelStatus = DeliveryChannelStatus'
-    { _dcsConfigStreamDeliveryInfo   :: !(Maybe ConfigStreamDeliveryInfo)
-    , _dcsConfigSnapshotDeliveryInfo :: !(Maybe ConfigExportDeliveryInfo)
+    { _dcsConfigSnapshotDeliveryInfo :: !(Maybe ConfigExportDeliveryInfo)
+    , _dcsConfigStreamDeliveryInfo   :: !(Maybe ConfigStreamDeliveryInfo)
     , _dcsConfigHistoryDeliveryInfo  :: !(Maybe ConfigExportDeliveryInfo)
     , _dcsName                       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -559,9 +558,9 @@ data DeliveryChannelStatus = DeliveryChannelStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsConfigStreamDeliveryInfo'
---
 -- * 'dcsConfigSnapshotDeliveryInfo'
+--
+-- * 'dcsConfigStreamDeliveryInfo'
 --
 -- * 'dcsConfigHistoryDeliveryInfo'
 --
@@ -570,21 +569,21 @@ deliveryChannelStatus
     :: DeliveryChannelStatus
 deliveryChannelStatus =
     DeliveryChannelStatus'
-    { _dcsConfigStreamDeliveryInfo = Nothing
-    , _dcsConfigSnapshotDeliveryInfo = Nothing
+    { _dcsConfigSnapshotDeliveryInfo = Nothing
+    , _dcsConfigStreamDeliveryInfo = Nothing
     , _dcsConfigHistoryDeliveryInfo = Nothing
     , _dcsName = Nothing
     }
-
--- | A list containing the status of the delivery of the configuration stream
--- notification to the specified Amazon SNS topic.
-dcsConfigStreamDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigStreamDeliveryInfo)
-dcsConfigStreamDeliveryInfo = lens _dcsConfigStreamDeliveryInfo (\ s a -> s{_dcsConfigStreamDeliveryInfo = a});
 
 -- | A list containing the status of the delivery of the snapshot to the
 -- specified Amazon S3 bucket.
 dcsConfigSnapshotDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigExportDeliveryInfo)
 dcsConfigSnapshotDeliveryInfo = lens _dcsConfigSnapshotDeliveryInfo (\ s a -> s{_dcsConfigSnapshotDeliveryInfo = a});
+
+-- | A list containing the status of the delivery of the configuration stream
+-- notification to the specified Amazon SNS topic.
+dcsConfigStreamDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigStreamDeliveryInfo)
+dcsConfigStreamDeliveryInfo = lens _dcsConfigStreamDeliveryInfo (\ s a -> s{_dcsConfigStreamDeliveryInfo = a});
 
 -- | A list that contains the status of the delivery of the configuration
 -- history to the specified Amazon S3 bucket.
@@ -600,8 +599,8 @@ instance FromJSON DeliveryChannelStatus where
           = withObject "DeliveryChannelStatus"
               (\ x ->
                  DeliveryChannelStatus' <$>
-                   (x .:? "configStreamDeliveryInfo") <*>
-                     (x .:? "configSnapshotDeliveryInfo")
+                   (x .:? "configSnapshotDeliveryInfo") <*>
+                     (x .:? "configStreamDeliveryInfo")
                      <*> (x .:? "configHistoryDeliveryInfo")
                      <*> (x .:? "name"))
 

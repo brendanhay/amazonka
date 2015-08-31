@@ -635,8 +635,8 @@ instance ToJSON Tag where
 -- /See:/ 'taskObject' smart constructor.
 data TaskObject = TaskObject'
     { _toPipelineId :: !(Maybe Text)
-    , _toTaskId     :: !(Maybe Text)
     , _toAttemptId  :: !(Maybe Text)
+    , _toTaskId     :: !(Maybe Text)
     , _toObjects    :: !(Maybe (Map Text PipelineObject))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -646,9 +646,9 @@ data TaskObject = TaskObject'
 --
 -- * 'toPipelineId'
 --
--- * 'toTaskId'
---
 -- * 'toAttemptId'
+--
+-- * 'toTaskId'
 --
 -- * 'toObjects'
 taskObject
@@ -656,8 +656,8 @@ taskObject
 taskObject =
     TaskObject'
     { _toPipelineId = Nothing
-    , _toTaskId = Nothing
     , _toAttemptId = Nothing
+    , _toTaskId = Nothing
     , _toObjects = Nothing
     }
 
@@ -665,15 +665,15 @@ taskObject =
 toPipelineId :: Lens' TaskObject (Maybe Text)
 toPipelineId = lens _toPipelineId (\ s a -> s{_toPipelineId = a});
 
--- | An internal identifier for the task. This ID is passed to the
--- SetTaskStatus and ReportTaskProgress actions.
-toTaskId :: Lens' TaskObject (Maybe Text)
-toTaskId = lens _toTaskId (\ s a -> s{_toTaskId = a});
-
 -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this
 -- value to track how many times a task is attempted.
 toAttemptId :: Lens' TaskObject (Maybe Text)
 toAttemptId = lens _toAttemptId (\ s a -> s{_toAttemptId = a});
+
+-- | An internal identifier for the task. This ID is passed to the
+-- SetTaskStatus and ReportTaskProgress actions.
+toTaskId :: Lens' TaskObject (Maybe Text)
+toTaskId = lens _toTaskId (\ s a -> s{_toTaskId = a});
 
 -- | Connection information for the location where the task runner will
 -- publish the output of the task.
@@ -685,8 +685,8 @@ instance FromJSON TaskObject where
           = withObject "TaskObject"
               (\ x ->
                  TaskObject' <$>
-                   (x .:? "pipelineId") <*> (x .:? "taskId") <*>
-                     (x .:? "attemptId")
+                   (x .:? "pipelineId") <*> (x .:? "attemptId") <*>
+                     (x .:? "taskId")
                      <*> (x .:? "objects" .!= mempty))
 
 -- | Defines a validation error. Validation errors prevent pipeline

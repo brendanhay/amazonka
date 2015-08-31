@@ -22,8 +22,8 @@ import           Network.AWS.StorageGateway.Types.Sum
 
 -- | /See:/ 'cachediSCSIVolume' smart constructor.
 data CachediSCSIVolume = CachediSCSIVolume'
-    { _cscsivVolumeStatus          :: !(Maybe Text)
-    , _cscsivVolumeiSCSIAttributes :: !(Maybe VolumeiSCSIAttributes)
+    { _cscsivVolumeiSCSIAttributes :: !(Maybe VolumeiSCSIAttributes)
+    , _cscsivVolumeStatus          :: !(Maybe Text)
     , _cscsivSourceSnapshotId      :: !(Maybe Text)
     , _cscsivVolumeARN             :: !(Maybe Text)
     , _cscsivVolumeProgress        :: !(Maybe Double)
@@ -36,9 +36,9 @@ data CachediSCSIVolume = CachediSCSIVolume'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cscsivVolumeStatus'
---
 -- * 'cscsivVolumeiSCSIAttributes'
+--
+-- * 'cscsivVolumeStatus'
 --
 -- * 'cscsivSourceSnapshotId'
 --
@@ -55,8 +55,8 @@ cachediSCSIVolume
     :: CachediSCSIVolume
 cachediSCSIVolume =
     CachediSCSIVolume'
-    { _cscsivVolumeStatus = Nothing
-    , _cscsivVolumeiSCSIAttributes = Nothing
+    { _cscsivVolumeiSCSIAttributes = Nothing
+    , _cscsivVolumeStatus = Nothing
     , _cscsivSourceSnapshotId = Nothing
     , _cscsivVolumeARN = Nothing
     , _cscsivVolumeProgress = Nothing
@@ -66,12 +66,12 @@ cachediSCSIVolume =
     }
 
 -- | Undocumented member.
-cscsivVolumeStatus :: Lens' CachediSCSIVolume (Maybe Text)
-cscsivVolumeStatus = lens _cscsivVolumeStatus (\ s a -> s{_cscsivVolumeStatus = a});
-
--- | Undocumented member.
 cscsivVolumeiSCSIAttributes :: Lens' CachediSCSIVolume (Maybe VolumeiSCSIAttributes)
 cscsivVolumeiSCSIAttributes = lens _cscsivVolumeiSCSIAttributes (\ s a -> s{_cscsivVolumeiSCSIAttributes = a});
+
+-- | Undocumented member.
+cscsivVolumeStatus :: Lens' CachediSCSIVolume (Maybe Text)
+cscsivVolumeStatus = lens _cscsivVolumeStatus (\ s a -> s{_cscsivVolumeStatus = a});
 
 -- | Undocumented member.
 cscsivSourceSnapshotId :: Lens' CachediSCSIVolume (Maybe Text)
@@ -102,8 +102,8 @@ instance FromJSON CachediSCSIVolume where
           = withObject "CachediSCSIVolume"
               (\ x ->
                  CachediSCSIVolume' <$>
-                   (x .:? "VolumeStatus") <*>
-                     (x .:? "VolumeiSCSIAttributes")
+                   (x .:? "VolumeiSCSIAttributes") <*>
+                     (x .:? "VolumeStatus")
                      <*> (x .:? "SourceSnapshotId")
                      <*> (x .:? "VolumeARN")
                      <*> (x .:? "VolumeProgress")
@@ -411,25 +411,25 @@ instance FromJSON NetworkInterface where
 
 -- | /See:/ 'storediSCSIVolume' smart constructor.
 data StorediSCSIVolume = StorediSCSIVolume'
-    { _sscsivVolumeStatus          :: !(Maybe Text)
-    , _sscsivVolumeiSCSIAttributes :: !(Maybe VolumeiSCSIAttributes)
+    { _sscsivVolumeiSCSIAttributes :: !(Maybe VolumeiSCSIAttributes)
+    , _sscsivVolumeStatus          :: !(Maybe Text)
     , _sscsivSourceSnapshotId      :: !(Maybe Text)
     , _sscsivPreservedExistingData :: !(Maybe Bool)
     , _sscsivVolumeARN             :: !(Maybe Text)
     , _sscsivVolumeProgress        :: !(Maybe Double)
     , _sscsivVolumeSizeInBytes     :: !(Maybe Integer)
     , _sscsivVolumeId              :: !(Maybe Text)
-    , _sscsivVolumeType            :: !(Maybe Text)
     , _sscsivVolumeDiskId          :: !(Maybe Text)
+    , _sscsivVolumeType            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StorediSCSIVolume' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sscsivVolumeStatus'
---
 -- * 'sscsivVolumeiSCSIAttributes'
+--
+-- * 'sscsivVolumeStatus'
 --
 -- * 'sscsivSourceSnapshotId'
 --
@@ -443,32 +443,32 @@ data StorediSCSIVolume = StorediSCSIVolume'
 --
 -- * 'sscsivVolumeId'
 --
--- * 'sscsivVolumeType'
---
 -- * 'sscsivVolumeDiskId'
+--
+-- * 'sscsivVolumeType'
 storediSCSIVolume
     :: StorediSCSIVolume
 storediSCSIVolume =
     StorediSCSIVolume'
-    { _sscsivVolumeStatus = Nothing
-    , _sscsivVolumeiSCSIAttributes = Nothing
+    { _sscsivVolumeiSCSIAttributes = Nothing
+    , _sscsivVolumeStatus = Nothing
     , _sscsivSourceSnapshotId = Nothing
     , _sscsivPreservedExistingData = Nothing
     , _sscsivVolumeARN = Nothing
     , _sscsivVolumeProgress = Nothing
     , _sscsivVolumeSizeInBytes = Nothing
     , _sscsivVolumeId = Nothing
-    , _sscsivVolumeType = Nothing
     , _sscsivVolumeDiskId = Nothing
+    , _sscsivVolumeType = Nothing
     }
-
--- | Undocumented member.
-sscsivVolumeStatus :: Lens' StorediSCSIVolume (Maybe Text)
-sscsivVolumeStatus = lens _sscsivVolumeStatus (\ s a -> s{_sscsivVolumeStatus = a});
 
 -- | Undocumented member.
 sscsivVolumeiSCSIAttributes :: Lens' StorediSCSIVolume (Maybe VolumeiSCSIAttributes)
 sscsivVolumeiSCSIAttributes = lens _sscsivVolumeiSCSIAttributes (\ s a -> s{_sscsivVolumeiSCSIAttributes = a});
+
+-- | Undocumented member.
+sscsivVolumeStatus :: Lens' StorediSCSIVolume (Maybe Text)
+sscsivVolumeStatus = lens _sscsivVolumeStatus (\ s a -> s{_sscsivVolumeStatus = a});
 
 -- | Undocumented member.
 sscsivSourceSnapshotId :: Lens' StorediSCSIVolume (Maybe Text)
@@ -495,28 +495,28 @@ sscsivVolumeId :: Lens' StorediSCSIVolume (Maybe Text)
 sscsivVolumeId = lens _sscsivVolumeId (\ s a -> s{_sscsivVolumeId = a});
 
 -- | Undocumented member.
-sscsivVolumeType :: Lens' StorediSCSIVolume (Maybe Text)
-sscsivVolumeType = lens _sscsivVolumeType (\ s a -> s{_sscsivVolumeType = a});
-
--- | Undocumented member.
 sscsivVolumeDiskId :: Lens' StorediSCSIVolume (Maybe Text)
 sscsivVolumeDiskId = lens _sscsivVolumeDiskId (\ s a -> s{_sscsivVolumeDiskId = a});
+
+-- | Undocumented member.
+sscsivVolumeType :: Lens' StorediSCSIVolume (Maybe Text)
+sscsivVolumeType = lens _sscsivVolumeType (\ s a -> s{_sscsivVolumeType = a});
 
 instance FromJSON StorediSCSIVolume where
         parseJSON
           = withObject "StorediSCSIVolume"
               (\ x ->
                  StorediSCSIVolume' <$>
-                   (x .:? "VolumeStatus") <*>
-                     (x .:? "VolumeiSCSIAttributes")
+                   (x .:? "VolumeiSCSIAttributes") <*>
+                     (x .:? "VolumeStatus")
                      <*> (x .:? "SourceSnapshotId")
                      <*> (x .:? "PreservedExistingData")
                      <*> (x .:? "VolumeARN")
                      <*> (x .:? "VolumeProgress")
                      <*> (x .:? "VolumeSizeInBytes")
                      <*> (x .:? "VolumeId")
-                     <*> (x .:? "VolumeType")
-                     <*> (x .:? "VolumeDiskId"))
+                     <*> (x .:? "VolumeDiskId")
+                     <*> (x .:? "VolumeType"))
 
 -- | Describes a virtual tape object.
 --
@@ -524,8 +524,8 @@ instance FromJSON StorediSCSIVolume where
 data Tape = Tape'
     { _tTapeBarcode     :: !(Maybe Text)
     , _tTapeStatus      :: !(Maybe Text)
-    , _tProgress        :: !(Maybe Double)
     , _tTapeARN         :: !(Maybe Text)
+    , _tProgress        :: !(Maybe Double)
     , _tTapeSizeInBytes :: !(Maybe Integer)
     , _tVTLDevice       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -538,9 +538,9 @@ data Tape = Tape'
 --
 -- * 'tTapeStatus'
 --
--- * 'tProgress'
---
 -- * 'tTapeARN'
+--
+-- * 'tProgress'
 --
 -- * 'tTapeSizeInBytes'
 --
@@ -551,8 +551,8 @@ tape =
     Tape'
     { _tTapeBarcode = Nothing
     , _tTapeStatus = Nothing
-    , _tProgress = Nothing
     , _tTapeARN = Nothing
+    , _tProgress = Nothing
     , _tTapeSizeInBytes = Nothing
     , _tVTLDevice = Nothing
     }
@@ -565,16 +565,16 @@ tTapeBarcode = lens _tTapeBarcode (\ s a -> s{_tTapeBarcode = a});
 tTapeStatus :: Lens' Tape (Maybe Text)
 tTapeStatus = lens _tTapeStatus (\ s a -> s{_tTapeStatus = a});
 
+-- | The Amazon Resource Name (ARN) of the virtual tape.
+tTapeARN :: Lens' Tape (Maybe Text)
+tTapeARN = lens _tTapeARN (\ s a -> s{_tTapeARN = a});
+
 -- | For archiving virtual tapes, indicates how much data remains to be
 -- uploaded before archiving is complete.
 --
 -- Range: 0 (not started) to 100 (complete).
 tProgress :: Lens' Tape (Maybe Double)
 tProgress = lens _tProgress (\ s a -> s{_tProgress = a});
-
--- | The Amazon Resource Name (ARN) of the virtual tape.
-tTapeARN :: Lens' Tape (Maybe Text)
-tTapeARN = lens _tTapeARN (\ s a -> s{_tTapeARN = a});
 
 -- | The size, in bytes, of the virtual tape.
 tTapeSizeInBytes :: Lens' Tape (Maybe Integer)
@@ -591,8 +591,8 @@ instance FromJSON Tape where
               (\ x ->
                  Tape' <$>
                    (x .:? "TapeBarcode") <*> (x .:? "TapeStatus") <*>
-                     (x .:? "Progress")
-                     <*> (x .:? "TapeARN")
+                     (x .:? "TapeARN")
+                     <*> (x .:? "Progress")
                      <*> (x .:? "TapeSizeInBytes")
                      <*> (x .:? "VTLDevice"))
 

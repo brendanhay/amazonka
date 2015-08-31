@@ -34,8 +34,8 @@ module Network.AWS.Lambda.ListFunctions
       listFunctions
     , ListFunctions
     -- * Request Lenses
-    , lfMaxItems
     , lfMarker
+    , lfMaxItems
 
     -- * Destructuring the Response
     , listFunctionsResponse
@@ -55,35 +55,35 @@ import           Network.AWS.Response
 
 -- | /See:/ 'listFunctions' smart constructor.
 data ListFunctions = ListFunctions'
-    { _lfMaxItems :: !(Maybe Nat)
-    , _lfMarker   :: !(Maybe Text)
+    { _lfMarker   :: !(Maybe Text)
+    , _lfMaxItems :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListFunctions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfMaxItems'
---
 -- * 'lfMarker'
+--
+-- * 'lfMaxItems'
 listFunctions
     :: ListFunctions
 listFunctions =
     ListFunctions'
-    { _lfMaxItems = Nothing
-    , _lfMarker = Nothing
+    { _lfMarker = Nothing
+    , _lfMaxItems = Nothing
     }
-
--- | Optional integer. Specifies the maximum number of AWS Lambda functions
--- to return in response. This parameter value must be greater than 0.
-lfMaxItems :: Lens' ListFunctions (Maybe Natural)
-lfMaxItems = lens _lfMaxItems (\ s a -> s{_lfMaxItems = a}) . mapping _Nat;
 
 -- | Optional string. An opaque pagination token returned from a previous
 -- 'ListFunctions' operation. If present, indicates where to continue the
 -- listing.
 lfMarker :: Lens' ListFunctions (Maybe Text)
 lfMarker = lens _lfMarker (\ s a -> s{_lfMarker = a});
+
+-- | Optional integer. Specifies the maximum number of AWS Lambda functions
+-- to return in response. This parameter value must be greater than 0.
+lfMaxItems :: Lens' ListFunctions (Maybe Natural)
+lfMaxItems = lens _lfMaxItems (\ s a -> s{_lfMaxItems = a}) . mapping _Nat;
 
 instance AWSPager ListFunctions where
         page rq rs
@@ -112,7 +112,7 @@ instance ToPath ListFunctions where
 instance ToQuery ListFunctions where
         toQuery ListFunctions'{..}
           = mconcat
-              ["MaxItems" =: _lfMaxItems, "Marker" =: _lfMarker]
+              ["Marker" =: _lfMarker, "MaxItems" =: _lfMaxItems]
 
 -- | Contains a list of AWS Lambda function configurations (see
 -- FunctionConfiguration.

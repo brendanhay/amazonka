@@ -44,8 +44,8 @@ module Network.AWS.CloudWatchLogs.FilterLogEvents
     , FilterLogEvents
     -- * Request Lenses
     , fleStartTime
-    , fleLogStreamNames
     , fleNextToken
+    , fleLogStreamNames
     , fleEndTime
     , fleLimit
     , fleFilterPattern
@@ -72,8 +72,8 @@ import           Network.AWS.Response
 -- | /See:/ 'filterLogEvents' smart constructor.
 data FilterLogEvents = FilterLogEvents'
     { _fleStartTime      :: !(Maybe Nat)
-    , _fleLogStreamNames :: !(Maybe (List1 Text))
     , _fleNextToken      :: !(Maybe Text)
+    , _fleLogStreamNames :: !(Maybe (List1 Text))
     , _fleEndTime        :: !(Maybe Nat)
     , _fleLimit          :: !(Maybe Nat)
     , _fleFilterPattern  :: !(Maybe Text)
@@ -87,9 +87,9 @@ data FilterLogEvents = FilterLogEvents'
 --
 -- * 'fleStartTime'
 --
--- * 'fleLogStreamNames'
---
 -- * 'fleNextToken'
+--
+-- * 'fleLogStreamNames'
 --
 -- * 'fleEndTime'
 --
@@ -106,8 +106,8 @@ filterLogEvents
 filterLogEvents pLogGroupName_ =
     FilterLogEvents'
     { _fleStartTime = Nothing
-    , _fleLogStreamNames = Nothing
     , _fleNextToken = Nothing
+    , _fleLogStreamNames = Nothing
     , _fleEndTime = Nothing
     , _fleLimit = Nothing
     , _fleFilterPattern = Nothing
@@ -121,15 +121,15 @@ filterLogEvents pLogGroupName_ =
 fleStartTime :: Lens' FilterLogEvents (Maybe Natural)
 fleStartTime = lens _fleStartTime (\ s a -> s{_fleStartTime = a}) . mapping _Nat;
 
--- | Optional list of log stream names within the specified log group to
--- search. Defaults to all the log streams in the log group.
-fleLogStreamNames :: Lens' FilterLogEvents (Maybe (NonEmpty Text))
-fleLogStreamNames = lens _fleLogStreamNames (\ s a -> s{_fleLogStreamNames = a}) . mapping _List1;
-
 -- | A pagination token obtained from a 'FilterLogEvents' response to
 -- continue paginating the FilterLogEvents results.
 fleNextToken :: Lens' FilterLogEvents (Maybe Text)
 fleNextToken = lens _fleNextToken (\ s a -> s{_fleNextToken = a});
+
+-- | Optional list of log stream names within the specified log group to
+-- search. Defaults to all the log streams in the log group.
+fleLogStreamNames :: Lens' FilterLogEvents (Maybe (NonEmpty Text))
+fleLogStreamNames = lens _fleLogStreamNames (\ s a -> s{_fleLogStreamNames = a}) . mapping _List1;
 
 -- | A unix timestamp indicating the end time of the range for the request.
 -- If provided, events with a timestamp later than this time will not be
@@ -192,8 +192,8 @@ instance ToJSON FilterLogEvents where
           = object
               (catMaybes
                  [("startTime" .=) <$> _fleStartTime,
-                  ("logStreamNames" .=) <$> _fleLogStreamNames,
                   ("nextToken" .=) <$> _fleNextToken,
+                  ("logStreamNames" .=) <$> _fleLogStreamNames,
                   ("endTime" .=) <$> _fleEndTime,
                   ("limit" .=) <$> _fleLimit,
                   ("filterPattern" .=) <$> _fleFilterPattern,

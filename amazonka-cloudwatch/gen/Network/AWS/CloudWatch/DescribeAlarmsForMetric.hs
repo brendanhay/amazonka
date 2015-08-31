@@ -30,8 +30,8 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     -- * Request Lenses
     , dafmPeriod
     , dafmDimensions
-    , dafmStatistic
     , dafmUnit
+    , dafmStatistic
     , dafmMetricName
     , dafmNamespace
 
@@ -53,8 +53,8 @@ import           Network.AWS.Response
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
     { _dafmPeriod     :: !(Maybe Nat)
     , _dafmDimensions :: !(Maybe [Dimension])
-    , _dafmStatistic  :: !(Maybe Statistic)
     , _dafmUnit       :: !(Maybe StandardUnit)
+    , _dafmStatistic  :: !(Maybe Statistic)
     , _dafmMetricName :: !Text
     , _dafmNamespace  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -67,9 +67,9 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
 --
 -- * 'dafmDimensions'
 --
--- * 'dafmStatistic'
---
 -- * 'dafmUnit'
+--
+-- * 'dafmStatistic'
 --
 -- * 'dafmMetricName'
 --
@@ -82,8 +82,8 @@ describeAlarmsForMetric pMetricName_ pNamespace_ =
     DescribeAlarmsForMetric'
     { _dafmPeriod = Nothing
     , _dafmDimensions = Nothing
-    , _dafmStatistic = Nothing
     , _dafmUnit = Nothing
+    , _dafmStatistic = Nothing
     , _dafmMetricName = pMetricName_
     , _dafmNamespace = pNamespace_
     }
@@ -96,13 +96,13 @@ dafmPeriod = lens _dafmPeriod (\ s a -> s{_dafmPeriod = a}) . mapping _Nat;
 dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
 dafmDimensions = lens _dafmDimensions (\ s a -> s{_dafmDimensions = a}) . _Default . _Coerce;
 
--- | The statistic for the metric.
-dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Statistic)
-dafmStatistic = lens _dafmStatistic (\ s a -> s{_dafmStatistic = a});
-
 -- | The unit for the metric.
 dafmUnit :: Lens' DescribeAlarmsForMetric (Maybe StandardUnit)
 dafmUnit = lens _dafmUnit (\ s a -> s{_dafmUnit = a});
+
+-- | The statistic for the metric.
+dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Statistic)
+dafmStatistic = lens _dafmStatistic (\ s a -> s{_dafmStatistic = a});
 
 -- | The name of the metric.
 dafmMetricName :: Lens' DescribeAlarmsForMetric Text
@@ -139,7 +139,7 @@ instance ToQuery DescribeAlarmsForMetric where
                "Period" =: _dafmPeriod,
                "Dimensions" =:
                  toQuery (toQueryList "member" <$> _dafmDimensions),
-               "Statistic" =: _dafmStatistic, "Unit" =: _dafmUnit,
+               "Unit" =: _dafmUnit, "Statistic" =: _dafmStatistic,
                "MetricName" =: _dafmMetricName,
                "Namespace" =: _dafmNamespace]
 

@@ -27,8 +27,8 @@ module Network.AWS.StorageGateway.DeleteTape
       deleteTape
     , DeleteTape
     -- * Request Lenses
-    , dttGatewayARN
-    , dttTapeARN
+    , delGatewayARN
+    , delTapeARN
 
     -- * Destructuring the Response
     , deleteTapeResponse
@@ -48,36 +48,36 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'deleteTape' smart constructor.
 data DeleteTape = DeleteTape'
-    { _dttGatewayARN :: !Text
-    , _dttTapeARN    :: !Text
+    { _delGatewayARN :: !Text
+    , _delTapeARN    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteTape' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dttGatewayARN'
+-- * 'delGatewayARN'
 --
--- * 'dttTapeARN'
+-- * 'delTapeARN'
 deleteTape
-    :: Text -- ^ 'dttGatewayARN'
-    -> Text -- ^ 'dttTapeARN'
+    :: Text -- ^ 'delGatewayARN'
+    -> Text -- ^ 'delTapeARN'
     -> DeleteTape
 deleteTape pGatewayARN_ pTapeARN_ =
     DeleteTape'
-    { _dttGatewayARN = pGatewayARN_
-    , _dttTapeARN = pTapeARN_
+    { _delGatewayARN = pGatewayARN_
+    , _delTapeARN = pTapeARN_
     }
 
 -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
 -- tape to delete is associated with. Use the ListGateways operation to
 -- return a list of gateways for your account and region.
-dttGatewayARN :: Lens' DeleteTape Text
-dttGatewayARN = lens _dttGatewayARN (\ s a -> s{_dttGatewayARN = a});
+delGatewayARN :: Lens' DeleteTape Text
+delGatewayARN = lens _delGatewayARN (\ s a -> s{_delGatewayARN = a});
 
 -- | The Amazon Resource Name (ARN) of the virtual tape to delete.
-dttTapeARN :: Lens' DeleteTape Text
-dttTapeARN = lens _dttTapeARN (\ s a -> s{_dttTapeARN = a});
+delTapeARN :: Lens' DeleteTape Text
+delTapeARN = lens _delTapeARN (\ s a -> s{_delTapeARN = a});
 
 instance AWSRequest DeleteTape where
         type Rs DeleteTape = DeleteTapeResponse
@@ -101,8 +101,8 @@ instance ToJSON DeleteTape where
         toJSON DeleteTape'{..}
           = object
               (catMaybes
-                 [Just ("GatewayARN" .= _dttGatewayARN),
-                  Just ("TapeARN" .= _dttTapeARN)])
+                 [Just ("GatewayARN" .= _delGatewayARN),
+                  Just ("TapeARN" .= _delTapeARN)])
 
 instance ToPath DeleteTape where
         toPath = const "/"

@@ -37,8 +37,8 @@ module Network.AWS.KMS.CreateGrant
     , CreateGrant
     -- * Request Lenses
     , cgRetiringPrincipal
-    , cgConstraints
     , cgGrantTokens
+    , cgConstraints
     , cgOperations
     , cgKeyId
     , cgGranteePrincipal
@@ -61,8 +61,8 @@ import           Network.AWS.Response
 -- | /See:/ 'createGrant' smart constructor.
 data CreateGrant = CreateGrant'
     { _cgRetiringPrincipal :: !(Maybe Text)
-    , _cgConstraints       :: !(Maybe GrantConstraints)
     , _cgGrantTokens       :: !(Maybe [Text])
+    , _cgConstraints       :: !(Maybe GrantConstraints)
     , _cgOperations        :: !(Maybe [GrantOperation])
     , _cgKeyId             :: !Text
     , _cgGranteePrincipal  :: !Text
@@ -74,9 +74,9 @@ data CreateGrant = CreateGrant'
 --
 -- * 'cgRetiringPrincipal'
 --
--- * 'cgConstraints'
---
 -- * 'cgGrantTokens'
+--
+-- * 'cgConstraints'
 --
 -- * 'cgOperations'
 --
@@ -90,8 +90,8 @@ createGrant
 createGrant pKeyId_ pGranteePrincipal_ =
     CreateGrant'
     { _cgRetiringPrincipal = Nothing
-    , _cgConstraints = Nothing
     , _cgGrantTokens = Nothing
+    , _cgConstraints = Nothing
     , _cgOperations = Nothing
     , _cgKeyId = pKeyId_
     , _cgGranteePrincipal = pGranteePrincipal_
@@ -102,15 +102,15 @@ createGrant pKeyId_ pGranteePrincipal_ =
 cgRetiringPrincipal :: Lens' CreateGrant (Maybe Text)
 cgRetiringPrincipal = lens _cgRetiringPrincipal (\ s a -> s{_cgRetiringPrincipal = a});
 
--- | Specifies the conditions under which the actions specified by the
--- 'Operations' parameter are allowed.
-cgConstraints :: Lens' CreateGrant (Maybe GrantConstraints)
-cgConstraints = lens _cgConstraints (\ s a -> s{_cgConstraints = a});
-
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
 cgGrantTokens :: Lens' CreateGrant [Text]
 cgGrantTokens = lens _cgGrantTokens (\ s a -> s{_cgGrantTokens = a}) . _Default . _Coerce;
+
+-- | Specifies the conditions under which the actions specified by the
+-- 'Operations' parameter are allowed.
+cgConstraints :: Lens' CreateGrant (Maybe GrantConstraints)
+cgConstraints = lens _cgConstraints (\ s a -> s{_cgConstraints = a});
 
 -- | List of operations permitted by the grant. This can be any combination
 -- of one or more of the following values:
@@ -165,8 +165,8 @@ instance ToJSON CreateGrant where
           = object
               (catMaybes
                  [("RetiringPrincipal" .=) <$> _cgRetiringPrincipal,
-                  ("Constraints" .=) <$> _cgConstraints,
                   ("GrantTokens" .=) <$> _cgGrantTokens,
+                  ("Constraints" .=) <$> _cgConstraints,
                   ("Operations" .=) <$> _cgOperations,
                   Just ("KeyId" .= _cgKeyId),
                   Just ("GranteePrincipal" .= _cgGranteePrincipal)])

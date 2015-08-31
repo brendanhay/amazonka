@@ -41,11 +41,11 @@ module Network.AWS.DirectConnect.DeleteConnection
     , cVlan
     , cLocation
     , cConnectionId
-    , cConnectionName
     , cPartnerName
+    , cConnectionName
     , cBandwidth
-    , cRegion
     , cOwnerAccount
+    , cRegion
     , cConnectionState
     ) where
 

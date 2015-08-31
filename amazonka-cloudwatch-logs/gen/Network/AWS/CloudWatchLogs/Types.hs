@@ -20,8 +20,8 @@ module Network.AWS.CloudWatchLogs.Types
     , _InvalidSequenceTokenException
     , _ResourceAlreadyExistsException
     , _OperationAbortedException
-    , _DataAlreadyAcceptedException
     , _ServiceUnavailableException
+    , _DataAlreadyAcceptedException
     , _ResourceNotFoundException
     , _LimitExceededException
 
@@ -87,8 +87,8 @@ module Network.AWS.CloudWatchLogs.Types
     , MetricFilterMatchRecord
     , metricFilterMatchRecord
     , mfmrExtractedValues
-    , mfmrEventMessage
     , mfmrEventNumber
+    , mfmrEventMessage
 
     -- * MetricTransformation
     , MetricTransformation
@@ -185,15 +185,15 @@ _OperationAbortedException :: AsError a => Getting (First ServiceError) a Servic
 _OperationAbortedException =
     _ServiceError . hasCode "OperationAbortedException"
 
--- | Prism for DataAlreadyAcceptedException' errors.
-_DataAlreadyAcceptedException :: AsError a => Getting (First ServiceError) a ServiceError
-_DataAlreadyAcceptedException =
-    _ServiceError . hasCode "DataAlreadyAcceptedException"
-
 -- | Returned if the service cannot complete the request.
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
     _ServiceError . hasCode "ServiceUnavailableException"
+
+-- | Prism for DataAlreadyAcceptedException' errors.
+_DataAlreadyAcceptedException :: AsError a => Getting (First ServiceError) a ServiceError
+_DataAlreadyAcceptedException =
+    _ServiceError . hasCode "DataAlreadyAcceptedException"
 
 -- | Returned if the specified resource does not exist.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError

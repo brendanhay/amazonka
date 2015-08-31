@@ -38,8 +38,8 @@ module Network.AWS.EC2.ModifyImageAttribute
     , miaLaunchPermission
     , miaOperationType
     , miaProductCodes
-    , miaDryRun
     , miaDescription
+    , miaDryRun
     , miaImageId
 
     -- * Destructuring the Response
@@ -62,8 +62,8 @@ data ModifyImageAttribute = ModifyImageAttribute'
     , _miaLaunchPermission :: !(Maybe LaunchPermissionModifications)
     , _miaOperationType    :: !(Maybe Text)
     , _miaProductCodes     :: !(Maybe [Text])
-    , _miaDryRun           :: !(Maybe Bool)
     , _miaDescription      :: !(Maybe AttributeValue)
+    , _miaDryRun           :: !(Maybe Bool)
     , _miaImageId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -85,9 +85,9 @@ data ModifyImageAttribute = ModifyImageAttribute'
 --
 -- * 'miaProductCodes'
 --
--- * 'miaDryRun'
---
 -- * 'miaDescription'
+--
+-- * 'miaDryRun'
 --
 -- * 'miaImageId'
 modifyImageAttribute
@@ -102,8 +102,8 @@ modifyImageAttribute pImageId_ =
     , _miaLaunchPermission = Nothing
     , _miaOperationType = Nothing
     , _miaProductCodes = Nothing
-    , _miaDryRun = Nothing
     , _miaDescription = Nothing
+    , _miaDryRun = Nothing
     , _miaImageId = pImageId_
     }
 
@@ -140,16 +140,16 @@ miaOperationType = lens _miaOperationType (\ s a -> s{_miaOperationType = a});
 miaProductCodes :: Lens' ModifyImageAttribute [Text]
 miaProductCodes = lens _miaProductCodes (\ s a -> s{_miaProductCodes = a}) . _Default . _Coerce;
 
+-- | A description for the AMI.
+miaDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
+miaDescription = lens _miaDescription (\ s a -> s{_miaDescription = a});
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is 'DryRunOperation'.
 -- Otherwise, it is 'UnauthorizedOperation'.
 miaDryRun :: Lens' ModifyImageAttribute (Maybe Bool)
 miaDryRun = lens _miaDryRun (\ s a -> s{_miaDryRun = a});
-
--- | A description for the AMI.
-miaDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
-miaDescription = lens _miaDescription (\ s a -> s{_miaDescription = a});
 
 -- | The ID of the AMI.
 miaImageId :: Lens' ModifyImageAttribute Text
@@ -180,9 +180,8 @@ instance ToQuery ModifyImageAttribute where
                "OperationType" =: _miaOperationType,
                toQuery
                  (toQueryList "ProductCode" <$> _miaProductCodes),
-               "DryRun" =: _miaDryRun,
                "Description" =: _miaDescription,
-               "ImageId" =: _miaImageId]
+               "DryRun" =: _miaDryRun, "ImageId" =: _miaImageId]
 
 -- | /See:/ 'modifyImageAttributeResponse' smart constructor.
 data ModifyImageAttributeResponse =

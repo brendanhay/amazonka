@@ -597,17 +597,17 @@ instance ToJSON ContainerOverride where
 --
 -- /See:/ 'containerService' smart constructor.
 data ContainerService = ContainerService'
-    { _csStatus         :: !(Maybe Text)
-    , _csRunningCount   :: !(Maybe Int)
+    { _csRunningCount   :: !(Maybe Int)
+    , _csStatus         :: !(Maybe Text)
     , _csClusterARN     :: !(Maybe Text)
     , _csDesiredCount   :: !(Maybe Int)
     , _csLoadBalancers  :: !(Maybe [LoadBalancer])
     , _csPendingCount   :: !(Maybe Int)
     , _csEvents         :: !(Maybe [ServiceEvent])
-    , _csServiceName    :: !(Maybe Text)
     , _csDeployments    :: !(Maybe [Deployment])
-    , _csTaskDefinition :: !(Maybe Text)
+    , _csServiceName    :: !(Maybe Text)
     , _csServiceARN     :: !(Maybe Text)
+    , _csTaskDefinition :: !(Maybe Text)
     , _csRoleARN        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -615,9 +615,9 @@ data ContainerService = ContainerService'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csStatus'
---
 -- * 'csRunningCount'
+--
+-- * 'csStatus'
 --
 -- * 'csClusterARN'
 --
@@ -629,41 +629,41 @@ data ContainerService = ContainerService'
 --
 -- * 'csEvents'
 --
--- * 'csServiceName'
---
 -- * 'csDeployments'
 --
--- * 'csTaskDefinition'
+-- * 'csServiceName'
 --
 -- * 'csServiceARN'
+--
+-- * 'csTaskDefinition'
 --
 -- * 'csRoleARN'
 containerService
     :: ContainerService
 containerService =
     ContainerService'
-    { _csStatus = Nothing
-    , _csRunningCount = Nothing
+    { _csRunningCount = Nothing
+    , _csStatus = Nothing
     , _csClusterARN = Nothing
     , _csDesiredCount = Nothing
     , _csLoadBalancers = Nothing
     , _csPendingCount = Nothing
     , _csEvents = Nothing
-    , _csServiceName = Nothing
     , _csDeployments = Nothing
-    , _csTaskDefinition = Nothing
+    , _csServiceName = Nothing
     , _csServiceARN = Nothing
+    , _csTaskDefinition = Nothing
     , _csRoleARN = Nothing
     }
+
+-- | The number of tasks in the cluster that are in the 'RUNNING' state.
+csRunningCount :: Lens' ContainerService (Maybe Int)
+csRunningCount = lens _csRunningCount (\ s a -> s{_csRunningCount = a});
 
 -- | The status of the service. The valid values are 'ACTIVE', 'DRAINING', or
 -- 'INACTIVE'.
 csStatus :: Lens' ContainerService (Maybe Text)
 csStatus = lens _csStatus (\ s a -> s{_csStatus = a});
-
--- | The number of tasks in the cluster that are in the 'RUNNING' state.
-csRunningCount :: Lens' ContainerService (Maybe Int)
-csRunningCount = lens _csRunningCount (\ s a -> s{_csRunningCount = a});
 
 -- | The Amazon Resource Name (ARN) of the of the cluster that hosts the
 -- service.
@@ -691,19 +691,13 @@ csPendingCount = lens _csPendingCount (\ s a -> s{_csPendingCount = a});
 csEvents :: Lens' ContainerService [ServiceEvent]
 csEvents = lens _csEvents (\ s a -> s{_csEvents = a}) . _Default . _Coerce;
 
--- | A user-generated string that you can use to identify your service.
-csServiceName :: Lens' ContainerService (Maybe Text)
-csServiceName = lens _csServiceName (\ s a -> s{_csServiceName = a});
-
 -- | The current state of deployments for the service.
 csDeployments :: Lens' ContainerService [Deployment]
 csDeployments = lens _csDeployments (\ s a -> s{_csDeployments = a}) . _Default . _Coerce;
 
--- | The task definition to use for tasks in the service. This value is
--- specified when the service is created with CreateService, and it can be
--- modified with UpdateService.
-csTaskDefinition :: Lens' ContainerService (Maybe Text)
-csTaskDefinition = lens _csTaskDefinition (\ s a -> s{_csTaskDefinition = a});
+-- | A user-generated string that you can use to identify your service.
+csServiceName :: Lens' ContainerService (Maybe Text)
+csServiceName = lens _csServiceName (\ s a -> s{_csServiceName = a});
 
 -- | The Amazon Resource Name (ARN) that identifies the service. The ARN
 -- contains the 'arn:aws:ecs' namespace, followed by the region of the
@@ -712,6 +706,12 @@ csTaskDefinition = lens _csTaskDefinition (\ s a -> s{_csTaskDefinition = a});
 -- arn:aws:ecs:/region/:/012345678910/:service\//my-service/.
 csServiceARN :: Lens' ContainerService (Maybe Text)
 csServiceARN = lens _csServiceARN (\ s a -> s{_csServiceARN = a});
+
+-- | The task definition to use for tasks in the service. This value is
+-- specified when the service is created with CreateService, and it can be
+-- modified with UpdateService.
+csTaskDefinition :: Lens' ContainerService (Maybe Text)
+csTaskDefinition = lens _csTaskDefinition (\ s a -> s{_csTaskDefinition = a});
 
 -- | The Amazon Resource Name (ARN) of the IAM role associated with the
 -- service that allows the Amazon ECS container agent to register container
@@ -724,39 +724,39 @@ instance FromJSON ContainerService where
           = withObject "ContainerService"
               (\ x ->
                  ContainerService' <$>
-                   (x .:? "status") <*> (x .:? "runningCount") <*>
+                   (x .:? "runningCount") <*> (x .:? "status") <*>
                      (x .:? "clusterArn")
                      <*> (x .:? "desiredCount")
                      <*> (x .:? "loadBalancers" .!= mempty)
                      <*> (x .:? "pendingCount")
                      <*> (x .:? "events" .!= mempty)
-                     <*> (x .:? "serviceName")
                      <*> (x .:? "deployments" .!= mempty)
-                     <*> (x .:? "taskDefinition")
+                     <*> (x .:? "serviceName")
                      <*> (x .:? "serviceArn")
+                     <*> (x .:? "taskDefinition")
                      <*> (x .:? "roleArn"))
 
 -- | The details of an Amazon ECS service deployment.
 --
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
-    { _dStatus         :: !(Maybe Text)
-    , _dRunningCount   :: !(Maybe Int)
+    { _dRunningCount   :: !(Maybe Int)
+    , _dStatus         :: !(Maybe Text)
     , _dCreatedAt      :: !(Maybe POSIX)
     , _dDesiredCount   :: !(Maybe Int)
     , _dPendingCount   :: !(Maybe Int)
     , _dId             :: !(Maybe Text)
-    , _dTaskDefinition :: !(Maybe Text)
     , _dUpdatedAt      :: !(Maybe POSIX)
+    , _dTaskDefinition :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Deployment' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dStatus'
---
 -- * 'dRunningCount'
+--
+-- * 'dStatus'
 --
 -- * 'dCreatedAt'
 --
@@ -766,22 +766,26 @@ data Deployment = Deployment'
 --
 -- * 'dId'
 --
--- * 'dTaskDefinition'
---
 -- * 'dUpdatedAt'
+--
+-- * 'dTaskDefinition'
 deployment
     :: Deployment
 deployment =
     Deployment'
-    { _dStatus = Nothing
-    , _dRunningCount = Nothing
+    { _dRunningCount = Nothing
+    , _dStatus = Nothing
     , _dCreatedAt = Nothing
     , _dDesiredCount = Nothing
     , _dPendingCount = Nothing
     , _dId = Nothing
-    , _dTaskDefinition = Nothing
     , _dUpdatedAt = Nothing
+    , _dTaskDefinition = Nothing
     }
+
+-- | The number of tasks in the deployment that are in the 'RUNNING' status.
+dRunningCount :: Lens' Deployment (Maybe Int)
+dRunningCount = lens _dRunningCount (\ s a -> s{_dRunningCount = a});
 
 -- | The status of the deployment. Valid values are 'PRIMARY' (for the most
 -- recent deployment), 'ACTIVE' (for previous deployments that still have
@@ -789,10 +793,6 @@ deployment =
 -- and 'INACTIVE' (for deployments that have been completely replaced).
 dStatus :: Lens' Deployment (Maybe Text)
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
-
--- | The number of tasks in the deployment that are in the 'RUNNING' status.
-dRunningCount :: Lens' Deployment (Maybe Int)
-dRunningCount = lens _dRunningCount (\ s a -> s{_dRunningCount = a});
 
 -- | The Unix time in seconds and milliseconds when the service was created.
 dCreatedAt :: Lens' Deployment (Maybe UTCTime)
@@ -811,28 +811,28 @@ dPendingCount = lens _dPendingCount (\ s a -> s{_dPendingCount = a});
 dId :: Lens' Deployment (Maybe Text)
 dId = lens _dId (\ s a -> s{_dId = a});
 
--- | The most recent task definition that was specified for the service to
--- use.
-dTaskDefinition :: Lens' Deployment (Maybe Text)
-dTaskDefinition = lens _dTaskDefinition (\ s a -> s{_dTaskDefinition = a});
-
 -- | The Unix time in seconds and milliseconds when the service was last
 -- updated.
 dUpdatedAt :: Lens' Deployment (Maybe UTCTime)
 dUpdatedAt = lens _dUpdatedAt (\ s a -> s{_dUpdatedAt = a}) . mapping _Time;
+
+-- | The most recent task definition that was specified for the service to
+-- use.
+dTaskDefinition :: Lens' Deployment (Maybe Text)
+dTaskDefinition = lens _dTaskDefinition (\ s a -> s{_dTaskDefinition = a});
 
 instance FromJSON Deployment where
         parseJSON
           = withObject "Deployment"
               (\ x ->
                  Deployment' <$>
-                   (x .:? "status") <*> (x .:? "runningCount") <*>
+                   (x .:? "runningCount") <*> (x .:? "status") <*>
                      (x .:? "createdAt")
                      <*> (x .:? "desiredCount")
                      <*> (x .:? "pendingCount")
                      <*> (x .:? "id")
-                     <*> (x .:? "taskDefinition")
-                     <*> (x .:? "updatedAt"))
+                     <*> (x .:? "updatedAt")
+                     <*> (x .:? "taskDefinition"))
 
 -- | A failed resource.
 --
@@ -1363,8 +1363,8 @@ instance FromJSON ServiceEvent where
 -- /See:/ 'task' smart constructor.
 data Task = Task'
     { _tDesiredStatus        :: !(Maybe Text)
-    , _tClusterARN           :: !(Maybe Text)
     , _tOverrides            :: !(Maybe TaskOverride)
+    , _tClusterARN           :: !(Maybe Text)
     , _tTaskARN              :: !(Maybe Text)
     , _tContainerInstanceARN :: !(Maybe Text)
     , _tLastStatus           :: !(Maybe Text)
@@ -1379,9 +1379,9 @@ data Task = Task'
 --
 -- * 'tDesiredStatus'
 --
--- * 'tClusterARN'
---
 -- * 'tOverrides'
+--
+-- * 'tClusterARN'
 --
 -- * 'tTaskARN'
 --
@@ -1399,8 +1399,8 @@ task
 task =
     Task'
     { _tDesiredStatus = Nothing
-    , _tClusterARN = Nothing
     , _tOverrides = Nothing
+    , _tClusterARN = Nothing
     , _tTaskARN = Nothing
     , _tContainerInstanceARN = Nothing
     , _tLastStatus = Nothing
@@ -1413,14 +1413,14 @@ task =
 tDesiredStatus :: Lens' Task (Maybe Text)
 tDesiredStatus = lens _tDesiredStatus (\ s a -> s{_tDesiredStatus = a});
 
+-- | One or more container overrides.
+tOverrides :: Lens' Task (Maybe TaskOverride)
+tOverrides = lens _tOverrides (\ s a -> s{_tOverrides = a});
+
 -- | The Amazon Resource Name (ARN) of the of the cluster that hosts the
 -- task.
 tClusterARN :: Lens' Task (Maybe Text)
 tClusterARN = lens _tClusterARN (\ s a -> s{_tClusterARN = a});
-
--- | One or more container overrides.
-tOverrides :: Lens' Task (Maybe TaskOverride)
-tOverrides = lens _tOverrides (\ s a -> s{_tOverrides = a});
 
 -- | The Amazon Resource Name (ARN) of the task.
 tTaskARN :: Lens' Task (Maybe Text)
@@ -1455,8 +1455,8 @@ instance FromJSON Task where
           = withObject "Task"
               (\ x ->
                  Task' <$>
-                   (x .:? "desiredStatus") <*> (x .:? "clusterArn") <*>
-                     (x .:? "overrides")
+                   (x .:? "desiredStatus") <*> (x .:? "overrides") <*>
+                     (x .:? "clusterArn")
                      <*> (x .:? "taskArn")
                      <*> (x .:? "containerInstanceArn")
                      <*> (x .:? "lastStatus")
@@ -1593,8 +1593,8 @@ instance ToJSON TaskOverride where
 --
 -- /See:/ 'versionInfo' smart constructor.
 data VersionInfo = VersionInfo'
-    { _viAgentVersion  :: !(Maybe Text)
-    , _viAgentHash     :: !(Maybe Text)
+    { _viAgentHash     :: !(Maybe Text)
+    , _viAgentVersion  :: !(Maybe Text)
     , _viDockerVersion :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1602,29 +1602,29 @@ data VersionInfo = VersionInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'viAgentVersion'
---
 -- * 'viAgentHash'
+--
+-- * 'viAgentVersion'
 --
 -- * 'viDockerVersion'
 versionInfo
     :: VersionInfo
 versionInfo =
     VersionInfo'
-    { _viAgentVersion = Nothing
-    , _viAgentHash = Nothing
+    { _viAgentHash = Nothing
+    , _viAgentVersion = Nothing
     , _viDockerVersion = Nothing
     }
-
--- | The version number of the Amazon ECS container agent.
-viAgentVersion :: Lens' VersionInfo (Maybe Text)
-viAgentVersion = lens _viAgentVersion (\ s a -> s{_viAgentVersion = a});
 
 -- | The Git commit hash for the Amazon ECS container agent build on the
 -- <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent>
 -- GitHub repository.
 viAgentHash :: Lens' VersionInfo (Maybe Text)
 viAgentHash = lens _viAgentHash (\ s a -> s{_viAgentHash = a});
+
+-- | The version number of the Amazon ECS container agent.
+viAgentVersion :: Lens' VersionInfo (Maybe Text)
+viAgentVersion = lens _viAgentVersion (\ s a -> s{_viAgentVersion = a});
 
 -- | The Docker version running on the container instance.
 viDockerVersion :: Lens' VersionInfo (Maybe Text)
@@ -1635,15 +1635,15 @@ instance FromJSON VersionInfo where
           = withObject "VersionInfo"
               (\ x ->
                  VersionInfo' <$>
-                   (x .:? "agentVersion") <*> (x .:? "agentHash") <*>
+                   (x .:? "agentHash") <*> (x .:? "agentVersion") <*>
                      (x .:? "dockerVersion"))
 
 instance ToJSON VersionInfo where
         toJSON VersionInfo'{..}
           = object
               (catMaybes
-                 [("agentVersion" .=) <$> _viAgentVersion,
-                  ("agentHash" .=) <$> _viAgentHash,
+                 [("agentHash" .=) <$> _viAgentHash,
+                  ("agentVersion" .=) <$> _viAgentVersion,
                   ("dockerVersion" .=) <$> _viDockerVersion])
 
 -- | A data volume used in a task definition.

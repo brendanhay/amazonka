@@ -58,11 +58,11 @@ module Network.AWS.MachineLearning
     -- * Operations
     -- $operations
 
-    -- ** DeleteDataSource
-    , module Network.AWS.MachineLearning.DeleteDataSource
-
     -- ** UpdateDataSource
     , module Network.AWS.MachineLearning.UpdateDataSource
+
+    -- ** DeleteDataSource
+    , module Network.AWS.MachineLearning.DeleteDataSource
 
     -- ** CreateDataSourceFromRedshift
     , module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
@@ -85,32 +85,29 @@ module Network.AWS.MachineLearning
     -- ** GetDataSource
     , module Network.AWS.MachineLearning.GetDataSource
 
-    -- ** DeleteMLModel
-    , module Network.AWS.MachineLearning.DeleteMLModel
-
-    -- ** UpdateMLModel
-    , module Network.AWS.MachineLearning.UpdateMLModel
-
-    -- ** DescribeBatchPredictions (Paginated)
-    , module Network.AWS.MachineLearning.DescribeBatchPredictions
-
     -- ** UpdateEvaluation
     , module Network.AWS.MachineLearning.UpdateEvaluation
 
     -- ** DeleteEvaluation
     , module Network.AWS.MachineLearning.DeleteEvaluation
 
+    -- ** DeleteMLModel
+    , module Network.AWS.MachineLearning.DeleteMLModel
+
+    -- ** UpdateMLModel
+    , module Network.AWS.MachineLearning.UpdateMLModel
+
     -- ** GetBatchPrediction
     , module Network.AWS.MachineLearning.GetBatchPrediction
 
-    -- ** CreateEvaluation
-    , module Network.AWS.MachineLearning.CreateEvaluation
+    -- ** DescribeBatchPredictions (Paginated)
+    , module Network.AWS.MachineLearning.DescribeBatchPredictions
 
     -- ** CreateDataSourceFromRDS
     , module Network.AWS.MachineLearning.CreateDataSourceFromRDS
 
-    -- ** CreateBatchPrediction
-    , module Network.AWS.MachineLearning.CreateBatchPrediction
+    -- ** CreateEvaluation
+    , module Network.AWS.MachineLearning.CreateEvaluation
 
     -- ** Predict
     , module Network.AWS.MachineLearning.Predict
@@ -118,11 +115,14 @@ module Network.AWS.MachineLearning
     -- ** DeleteRealtimeEndpoint
     , module Network.AWS.MachineLearning.DeleteRealtimeEndpoint
 
-    -- ** DescribeEvaluations (Paginated)
-    , module Network.AWS.MachineLearning.DescribeEvaluations
+    -- ** CreateBatchPrediction
+    , module Network.AWS.MachineLearning.CreateBatchPrediction
 
     -- ** GetEvaluation
     , module Network.AWS.MachineLearning.GetEvaluation
+
+    -- ** DescribeEvaluations (Paginated)
+    , module Network.AWS.MachineLearning.DescribeEvaluations
 
     -- ** CreateRealtimeEndpoint
     , module Network.AWS.MachineLearning.CreateRealtimeEndpoint
@@ -175,8 +175,8 @@ module Network.AWS.MachineLearning
     , bpMLModelId
     , bpBatchPredictionDataSourceId
     , bpBatchPredictionId
-    , bpName
     , bpCreatedByIAMUser
+    , bpName
     , bpMessage
     , bpOutputURI
 
@@ -187,17 +187,17 @@ module Network.AWS.MachineLearning
     , dsNumberOfFiles
     , dsLastUpdatedAt
     , dsCreatedAt
-    , dsRDSMetadata
     , dsDataSourceId
+    , dsRDSMetadata
     , dsDataSizeInBytes
-    , dsName
     , dsCreatedByIAMUser
+    , dsName
     , dsDataLocationS3
     , dsComputeStatistics
     , dsMessage
     , dsRedshiftMetadata
-    , dsRoleARN
     , dsDataRearrangement
+    , dsRoleARN
 
     -- ** Evaluation
     , Evaluation
@@ -208,27 +208,27 @@ module Network.AWS.MachineLearning
     , eCreatedAt
     , eInputDataLocationS3
     , eMLModelId
-    , eName
     , eCreatedByIAMUser
-    , eMessage
+    , eName
     , eEvaluationId
+    , eMessage
     , eEvaluationDataSourceId
 
     -- ** MLModel
     , MLModel
     , mLModel
     , mlmStatus
-    , mlmTrainingParameters
     , mlmLastUpdatedAt
-    , mlmCreatedAt
+    , mlmTrainingParameters
     , mlmScoreThresholdLastUpdatedAt
+    , mlmCreatedAt
     , mlmInputDataLocationS3
-    , mlmSizeInBytes
     , mlmMLModelId
+    , mlmSizeInBytes
     , mlmScoreThreshold
-    , mlmName
     , mlmAlgorithm
     , mlmCreatedByIAMUser
+    , mlmName
     , mlmEndpointInfo
     , mlmTrainingDataSourceId
     , mlmMessage

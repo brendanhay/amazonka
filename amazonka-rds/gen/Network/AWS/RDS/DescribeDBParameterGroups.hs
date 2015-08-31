@@ -33,8 +33,8 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     -- * Request Lenses
     , ddpgFilters
     , ddpgDBParameterGroupName
-    , ddpgMaxRecords
     , ddpgMarker
+    , ddpgMaxRecords
 
     -- * Destructuring the Response
     , describeDBParameterGroupsResponse
@@ -58,8 +58,8 @@ import           Network.AWS.Response
 data DescribeDBParameterGroups = DescribeDBParameterGroups'
     { _ddpgFilters              :: !(Maybe [Filter])
     , _ddpgDBParameterGroupName :: !(Maybe Text)
-    , _ddpgMaxRecords           :: !(Maybe Int)
     , _ddpgMarker               :: !(Maybe Text)
+    , _ddpgMaxRecords           :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBParameterGroups' with the minimum fields required to make a request.
@@ -70,17 +70,17 @@ data DescribeDBParameterGroups = DescribeDBParameterGroups'
 --
 -- * 'ddpgDBParameterGroupName'
 --
--- * 'ddpgMaxRecords'
---
 -- * 'ddpgMarker'
+--
+-- * 'ddpgMaxRecords'
 describeDBParameterGroups
     :: DescribeDBParameterGroups
 describeDBParameterGroups =
     DescribeDBParameterGroups'
     { _ddpgFilters = Nothing
     , _ddpgDBParameterGroupName = Nothing
-    , _ddpgMaxRecords = Nothing
     , _ddpgMarker = Nothing
+    , _ddpgMaxRecords = Nothing
     }
 
 -- | This parameter is not currently supported.
@@ -97,6 +97,13 @@ ddpgFilters = lens _ddpgFilters (\ s a -> s{_ddpgFilters = a}) . _Default . _Coe
 ddpgDBParameterGroupName :: Lens' DescribeDBParameterGroups (Maybe Text)
 ddpgDBParameterGroupName = lens _ddpgDBParameterGroupName (\ s a -> s{_ddpgDBParameterGroupName = a});
 
+-- | An optional pagination token provided by a previous
+-- 'DescribeDBParameterGroups' request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by 'MaxRecords'.
+ddpgMarker :: Lens' DescribeDBParameterGroups (Maybe Text)
+ddpgMarker = lens _ddpgMarker (\ s a -> s{_ddpgMarker = a});
+
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -107,13 +114,6 @@ ddpgDBParameterGroupName = lens _ddpgDBParameterGroupName (\ s a -> s{_ddpgDBPar
 -- Constraints: Minimum 20, maximum 100.
 ddpgMaxRecords :: Lens' DescribeDBParameterGroups (Maybe Int)
 ddpgMaxRecords = lens _ddpgMaxRecords (\ s a -> s{_ddpgMaxRecords = a});
-
--- | An optional pagination token provided by a previous
--- 'DescribeDBParameterGroups' request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
-ddpgMarker :: Lens' DescribeDBParameterGroups (Maybe Text)
-ddpgMarker = lens _ddpgMarker (\ s a -> s{_ddpgMarker = a});
 
 instance AWSPager DescribeDBParameterGroups where
         page rq rs
@@ -150,8 +150,8 @@ instance ToQuery DescribeDBParameterGroups where
                "Filters" =:
                  toQuery (toQueryList "Filter" <$> _ddpgFilters),
                "DBParameterGroupName" =: _ddpgDBParameterGroupName,
-               "MaxRecords" =: _ddpgMaxRecords,
-               "Marker" =: _ddpgMarker]
+               "Marker" =: _ddpgMarker,
+               "MaxRecords" =: _ddpgMaxRecords]
 
 -- | Contains the result of a successful invocation of the
 -- DescribeDBParameterGroups action.

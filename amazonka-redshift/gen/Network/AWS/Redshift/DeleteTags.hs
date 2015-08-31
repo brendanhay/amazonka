@@ -28,8 +28,8 @@ module Network.AWS.Redshift.DeleteTags
       deleteTags
     , DeleteTags
     -- * Request Lenses
-    , dResourceName
-    , dTagKeys
+    , dtsResourceName
+    , dtsTagKeys
 
     -- * Destructuring the Response
     , deleteTagsResponse
@@ -46,34 +46,34 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-    { _dResourceName :: !Text
-    , _dTagKeys      :: ![Text]
+    { _dtsResourceName :: !Text
+    , _dtsTagKeys      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dResourceName'
+-- * 'dtsResourceName'
 --
--- * 'dTagKeys'
+-- * 'dtsTagKeys'
 deleteTags
-    :: Text -- ^ 'dResourceName'
+    :: Text -- ^ 'dtsResourceName'
     -> DeleteTags
 deleteTags pResourceName_ =
     DeleteTags'
-    { _dResourceName = pResourceName_
-    , _dTagKeys = mempty
+    { _dtsResourceName = pResourceName_
+    , _dtsTagKeys = mempty
     }
 
 -- | The Amazon Resource Name (ARN) from which you want to remove the tag or
 -- tags. For example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
-dResourceName :: Lens' DeleteTags Text
-dResourceName = lens _dResourceName (\ s a -> s{_dResourceName = a});
+dtsResourceName :: Lens' DeleteTags Text
+dtsResourceName = lens _dtsResourceName (\ s a -> s{_dtsResourceName = a});
 
 -- | The tag key that you want to delete.
-dTagKeys :: Lens' DeleteTags [Text]
-dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Coerce;
+dtsTagKeys :: Lens' DeleteTags [Text]
+dtsTagKeys = lens _dtsTagKeys (\ s a -> s{_dtsTagKeys = a}) . _Coerce;
 
 instance AWSRequest DeleteTags where
         type Rs DeleteTags = DeleteTagsResponse
@@ -91,8 +91,8 @@ instance ToQuery DeleteTags where
           = mconcat
               ["Action" =: ("DeleteTags" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ResourceName" =: _dResourceName,
-               "TagKeys" =: toQueryList "TagKey" _dTagKeys]
+               "ResourceName" =: _dtsResourceName,
+               "TagKeys" =: toQueryList "TagKey" _dtsTagKeys]
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse =

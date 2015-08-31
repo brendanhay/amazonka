@@ -17,18 +17,18 @@ module Network.AWS.SSM.Types
 
     -- * Errors
     , _AssociatedInstances
-    , _InvalidNextToken
     , _InvalidInstanceId
     , _StatusUnchanged
+    , _InvalidNextToken
     , _DuplicateInstanceId
     , _InvalidDocument
-    , _AssociationLimitExceeded
-    , _InvalidDocumentContent
     , _AssociationAlreadyExists
+    , _InvalidDocumentContent
+    , _AssociationLimitExceeded
     , _AssociationDoesNotExist
     , _InternalServerError
-    , _MaxDocumentSizeExceeded
     , _TooManyUpdates
+    , _MaxDocumentSizeExceeded
     , _DocumentAlreadyExists
     , _DocumentLimitExceeded
 
@@ -150,10 +150,6 @@ _AssociatedInstances :: AsError a => Getting (First ServiceError) a ServiceError
 _AssociatedInstances =
     _ServiceError . hasStatus 400 . hasCode "AssociatedInstances"
 
--- | The specified token is not valid.
-_InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
-
 -- | You must specify the ID of a running instance.
 _InvalidInstanceId :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInstanceId =
@@ -162,6 +158,10 @@ _InvalidInstanceId =
 -- | The updated status is the same as the current status.
 _StatusUnchanged :: AsError a => Getting (First ServiceError) a ServiceError
 _StatusUnchanged = _ServiceError . hasStatus 400 . hasCode "StatusUnchanged"
+
+-- | The specified token is not valid.
+_InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
 -- | You cannot specify an instance ID in more than one association.
 _DuplicateInstanceId :: AsError a => Getting (First ServiceError) a ServiceError
@@ -172,20 +172,20 @@ _DuplicateInstanceId =
 _InvalidDocument :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDocument = _ServiceError . hasStatus 404 . hasCode "InvalidDocument"
 
--- | You can have at most 2,000 active associations.
-_AssociationLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_AssociationLimitExceeded =
-    _ServiceError . hasStatus 400 . hasCode "AssociationLimitExceeded"
+-- | The specified association already exists.
+_AssociationAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
+_AssociationAlreadyExists =
+    _ServiceError . hasStatus 400 . hasCode "AssociationAlreadyExists"
 
 -- | The content for the configuration document is not valid.
 _InvalidDocumentContent :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDocumentContent =
     _ServiceError . hasStatus 400 . hasCode "InvalidDocumentContent"
 
--- | The specified association already exists.
-_AssociationAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
-_AssociationAlreadyExists =
-    _ServiceError . hasStatus 400 . hasCode "AssociationAlreadyExists"
+-- | You can have at most 2,000 active associations.
+_AssociationLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
+_AssociationLimitExceeded =
+    _ServiceError . hasStatus 400 . hasCode "AssociationLimitExceeded"
 
 -- | The specified association does not exist.
 _AssociationDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
@@ -197,15 +197,15 @@ _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError =
     _ServiceError . hasStatus 500 . hasCode "InternalServerError"
 
--- | The size limit of a configuration document is 64 KB.
-_MaxDocumentSizeExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_MaxDocumentSizeExceeded =
-    _ServiceError . hasStatus 400 . hasCode "MaxDocumentSizeExceeded"
-
 -- | There are concurrent updates for a resource that supports one update at
 -- a time.
 _TooManyUpdates :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyUpdates = _ServiceError . hasStatus 429 . hasCode "TooManyUpdates"
+
+-- | The size limit of a configuration document is 64 KB.
+_MaxDocumentSizeExceeded :: AsError a => Getting (First ServiceError) a ServiceError
+_MaxDocumentSizeExceeded =
+    _ServiceError . hasStatus 400 . hasCode "MaxDocumentSizeExceeded"
 
 -- | The specified configuration document already exists.
 _DocumentAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError

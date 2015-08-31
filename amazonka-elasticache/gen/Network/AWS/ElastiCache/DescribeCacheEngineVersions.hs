@@ -30,12 +30,12 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
       describeCacheEngineVersions
     , DescribeCacheEngineVersions
     -- * Request Lenses
-    , dcevCacheParameterGroupFamily
     , dcevEngineVersion
+    , dcevCacheParameterGroupFamily
     , dcevDefaultOnly
     , dcevEngine
-    , dcevMaxRecords
     , dcevMarker
+    , dcevMaxRecords
 
     -- * Destructuring the Response
     , describeCacheEngineVersionsResponse
@@ -57,40 +57,46 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeCacheEngineVersions' smart constructor.
 data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
-    { _dcevCacheParameterGroupFamily :: !(Maybe Text)
-    , _dcevEngineVersion             :: !(Maybe Text)
+    { _dcevEngineVersion             :: !(Maybe Text)
+    , _dcevCacheParameterGroupFamily :: !(Maybe Text)
     , _dcevDefaultOnly               :: !(Maybe Bool)
     , _dcevEngine                    :: !(Maybe Text)
-    , _dcevMaxRecords                :: !(Maybe Int)
     , _dcevMarker                    :: !(Maybe Text)
+    , _dcevMaxRecords                :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCacheEngineVersions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcevCacheParameterGroupFamily'
---
 -- * 'dcevEngineVersion'
+--
+-- * 'dcevCacheParameterGroupFamily'
 --
 -- * 'dcevDefaultOnly'
 --
 -- * 'dcevEngine'
 --
--- * 'dcevMaxRecords'
---
 -- * 'dcevMarker'
+--
+-- * 'dcevMaxRecords'
 describeCacheEngineVersions
     :: DescribeCacheEngineVersions
 describeCacheEngineVersions =
     DescribeCacheEngineVersions'
-    { _dcevCacheParameterGroupFamily = Nothing
-    , _dcevEngineVersion = Nothing
+    { _dcevEngineVersion = Nothing
+    , _dcevCacheParameterGroupFamily = Nothing
     , _dcevDefaultOnly = Nothing
     , _dcevEngine = Nothing
-    , _dcevMaxRecords = Nothing
     , _dcevMarker = Nothing
+    , _dcevMaxRecords = Nothing
     }
+
+-- | The cache engine version to return.
+--
+-- Example: '1.4.14'
+dcevEngineVersion :: Lens' DescribeCacheEngineVersions (Maybe Text)
+dcevEngineVersion = lens _dcevEngineVersion (\ s a -> s{_dcevEngineVersion = a});
 
 -- | The name of a specific cache parameter group family to return details
 -- for.
@@ -103,12 +109,6 @@ describeCacheEngineVersions =
 dcevCacheParameterGroupFamily :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevCacheParameterGroupFamily = lens _dcevCacheParameterGroupFamily (\ s a -> s{_dcevCacheParameterGroupFamily = a});
 
--- | The cache engine version to return.
---
--- Example: '1.4.14'
-dcevEngineVersion :: Lens' DescribeCacheEngineVersions (Maybe Text)
-dcevEngineVersion = lens _dcevEngineVersion (\ s a -> s{_dcevEngineVersion = a});
-
 -- | If /true/, specifies that only the default version of the specified
 -- engine or engine and major version combination is to be returned.
 dcevDefaultOnly :: Lens' DescribeCacheEngineVersions (Maybe Bool)
@@ -117,6 +117,13 @@ dcevDefaultOnly = lens _dcevDefaultOnly (\ s a -> s{_dcevDefaultOnly = a});
 -- | The cache engine to return. Valid values: 'memcached' | 'redis'
 dcevEngine :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevEngine = lens _dcevEngine (\ s a -> s{_dcevEngine = a});
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+dcevMarker :: Lens' DescribeCacheEngineVersions (Maybe Text)
+dcevMarker = lens _dcevMarker (\ s a -> s{_dcevMarker = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a marker is
@@ -127,13 +134,6 @@ dcevEngine = lens _dcevEngine (\ s a -> s{_dcevEngine = a});
 -- Constraints: minimum 20; maximum 100.
 dcevMaxRecords :: Lens' DescribeCacheEngineVersions (Maybe Int)
 dcevMaxRecords = lens _dcevMaxRecords (\ s a -> s{_dcevMaxRecords = a});
-
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
-dcevMarker :: Lens' DescribeCacheEngineVersions (Maybe Text)
-dcevMarker = lens _dcevMarker (\ s a -> s{_dcevMarker = a});
 
 instance AWSPager DescribeCacheEngineVersions where
         page rq rs
@@ -168,13 +168,12 @@ instance ToQuery DescribeCacheEngineVersions where
               ["Action" =:
                  ("DescribeCacheEngineVersions" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
+               "EngineVersion" =: _dcevEngineVersion,
                "CacheParameterGroupFamily" =:
                  _dcevCacheParameterGroupFamily,
-               "EngineVersion" =: _dcevEngineVersion,
                "DefaultOnly" =: _dcevDefaultOnly,
-               "Engine" =: _dcevEngine,
-               "MaxRecords" =: _dcevMaxRecords,
-               "Marker" =: _dcevMarker]
+               "Engine" =: _dcevEngine, "Marker" =: _dcevMarker,
+               "MaxRecords" =: _dcevMaxRecords]
 
 -- | Represents the output of a DescribeCacheEngineVersions action.
 --

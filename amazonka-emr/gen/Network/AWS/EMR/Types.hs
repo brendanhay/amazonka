@@ -59,8 +59,8 @@ module Network.AWS.EMR.Types
     -- * Application
     , Application
     , application
-    , aAdditionalInfo
     , aArgs
+    , aAdditionalInfo
     , aName
     , aVersion
 
@@ -81,9 +81,9 @@ module Network.AWS.EMR.Types
     , cluLogURI
     , cluRunningAMIVersion
     , cluMasterPublicDNSName
-    , cluAutoTerminate
     , cluTerminationProtected
     , cluVisibleToAllUsers
+    , cluAutoTerminate
     , cluApplications
     , cluTags
     , cluServiceRole
@@ -139,8 +139,8 @@ module Network.AWS.EMR.Types
     , eiaEC2KeyName
     , eiaEmrManagedSlaveSecurityGroup
     , eiaAdditionalSlaveSecurityGroups
-    , eiaIAMInstanceProfile
     , eiaAdditionalMasterSecurityGroups
+    , eiaIAMInstanceProfile
     , eiaEmrManagedMasterSecurityGroup
     , eiaEC2SubnetId
     , eiaEC2AvailabilityZone
@@ -247,8 +247,8 @@ module Network.AWS.EMR.Types
     -- * JobFlowInstancesConfig
     , JobFlowInstancesConfig
     , jobFlowInstancesConfig
-    , jficSlaveInstanceType
     , jficEC2KeyName
+    , jficSlaveInstanceType
     , jficInstanceCount
     , jficEmrManagedSlaveSecurityGroup
     , jficAdditionalSlaveSecurityGroups

@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeFlowLogs
     , DescribeFlowLogs
     -- * Request Lenses
     , dNextToken
-    , dFilter
     , dFlowLogIds
+    , dFilter
     , dMaxResults
 
     -- * Destructuring the Response
@@ -52,8 +52,8 @@ import           Network.AWS.Response
 -- | /See:/ 'describeFlowLogs' smart constructor.
 data DescribeFlowLogs = DescribeFlowLogs'
     { _dNextToken  :: !(Maybe Text)
-    , _dFilter     :: !(Maybe [Filter])
     , _dFlowLogIds :: !(Maybe [Text])
+    , _dFilter     :: !(Maybe [Filter])
     , _dMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -63,9 +63,9 @@ data DescribeFlowLogs = DescribeFlowLogs'
 --
 -- * 'dNextToken'
 --
--- * 'dFilter'
---
 -- * 'dFlowLogIds'
+--
+-- * 'dFilter'
 --
 -- * 'dMaxResults'
 describeFlowLogs
@@ -73,14 +73,18 @@ describeFlowLogs
 describeFlowLogs =
     DescribeFlowLogs'
     { _dNextToken = Nothing
-    , _dFilter = Nothing
     , _dFlowLogIds = Nothing
+    , _dFilter = Nothing
     , _dMaxResults = Nothing
     }
 
 -- | The token to retrieve the next page of results.
 dNextToken :: Lens' DescribeFlowLogs (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
+
+-- | One or more flow log IDs.
+dFlowLogIds :: Lens' DescribeFlowLogs [Text]
+dFlowLogIds = lens _dFlowLogIds (\ s a -> s{_dFlowLogIds = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -97,10 +101,6 @@ dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 --
 dFilter :: Lens' DescribeFlowLogs [Filter]
 dFilter = lens _dFilter (\ s a -> s{_dFilter = a}) . _Default . _Coerce;
-
--- | One or more flow log IDs.
-dFlowLogIds :: Lens' DescribeFlowLogs [Text]
-dFlowLogIds = lens _dFlowLogIds (\ s a -> s{_dFlowLogIds = a}) . _Default . _Coerce;
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
@@ -135,8 +135,8 @@ instance ToQuery DescribeFlowLogs where
               ["Action" =: ("DescribeFlowLogs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "NextToken" =: _dNextToken,
-               toQuery (toQueryList "Filter" <$> _dFilter),
                toQuery (toQueryList "FlowLogId" <$> _dFlowLogIds),
+               toQuery (toQueryList "Filter" <$> _dFilter),
                "MaxResults" =: _dMaxResults]
 
 -- | /See:/ 'describeFlowLogsResponse' smart constructor.

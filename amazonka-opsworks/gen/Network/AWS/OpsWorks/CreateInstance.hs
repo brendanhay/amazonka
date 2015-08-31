@@ -46,8 +46,8 @@ module Network.AWS.OpsWorks.CreateInstance
     , ciAutoScalingType
     , ciArchitecture
     , ciAMIId
-    , ciBlockDeviceMappings
     , ciRootDeviceType
+    , ciBlockDeviceMappings
     , ciStackId
     , ciLayerIds
     , ciInstanceType
@@ -80,8 +80,8 @@ data CreateInstance = CreateInstance'
     , _ciAutoScalingType      :: !(Maybe AutoScalingType)
     , _ciArchitecture         :: !(Maybe Architecture)
     , _ciAMIId                :: !(Maybe Text)
-    , _ciBlockDeviceMappings  :: !(Maybe [BlockDeviceMapping])
     , _ciRootDeviceType       :: !(Maybe RootDeviceType)
+    , _ciBlockDeviceMappings  :: !(Maybe [BlockDeviceMapping])
     , _ciStackId              :: !Text
     , _ciLayerIds             :: ![Text]
     , _ciInstanceType         :: !Text
@@ -115,9 +115,9 @@ data CreateInstance = CreateInstance'
 --
 -- * 'ciAMIId'
 --
--- * 'ciBlockDeviceMappings'
---
 -- * 'ciRootDeviceType'
+--
+-- * 'ciBlockDeviceMappings'
 --
 -- * 'ciStackId'
 --
@@ -142,8 +142,8 @@ createInstance pStackId_ pInstanceType_ =
     , _ciAutoScalingType = Nothing
     , _ciArchitecture = Nothing
     , _ciAMIId = Nothing
-    , _ciBlockDeviceMappings = Nothing
     , _ciRootDeviceType = Nothing
+    , _ciBlockDeviceMappings = Nothing
     , _ciStackId = pStackId_
     , _ciLayerIds = mempty
     , _ciInstanceType = pInstanceType_
@@ -246,16 +246,16 @@ ciArchitecture = lens _ciArchitecture (\ s a -> s{_ciArchitecture = a});
 ciAMIId :: Lens' CreateInstance (Maybe Text)
 ciAMIId = lens _ciAMIId (\ s a -> s{_ciAMIId = a});
 
+-- | The instance root device type. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
+ciRootDeviceType :: Lens' CreateInstance (Maybe RootDeviceType)
+ciRootDeviceType = lens _ciRootDeviceType (\ s a -> s{_ciRootDeviceType = a});
+
 -- | An array of 'BlockDeviceMapping' objects that specify the instance\'s
 -- block devices. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>.
 ciBlockDeviceMappings :: Lens' CreateInstance [BlockDeviceMapping]
 ciBlockDeviceMappings = lens _ciBlockDeviceMappings (\ s a -> s{_ciBlockDeviceMappings = a}) . _Default . _Coerce;
-
--- | The instance root device type. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-ciRootDeviceType :: Lens' CreateInstance (Maybe RootDeviceType)
-ciRootDeviceType = lens _ciRootDeviceType (\ s a -> s{_ciRootDeviceType = a});
 
 -- | The stack ID.
 ciStackId :: Lens' CreateInstance Text
@@ -310,9 +310,9 @@ instance ToJSON CreateInstance where
                   ("AutoScalingType" .=) <$> _ciAutoScalingType,
                   ("Architecture" .=) <$> _ciArchitecture,
                   ("AmiId" .=) <$> _ciAMIId,
+                  ("RootDeviceType" .=) <$> _ciRootDeviceType,
                   ("BlockDeviceMappings" .=) <$>
                     _ciBlockDeviceMappings,
-                  ("RootDeviceType" .=) <$> _ciRootDeviceType,
                   Just ("StackId" .= _ciStackId),
                   Just ("LayerIds" .= _ciLayerIds),
                   Just ("InstanceType" .= _ciInstanceType)])

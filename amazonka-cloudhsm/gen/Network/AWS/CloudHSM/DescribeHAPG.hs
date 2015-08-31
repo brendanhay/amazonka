@@ -36,8 +36,8 @@ module Network.AWS.CloudHSM.DescribeHAPG
     , dhapgrsState
     , dhapgrsLastModifiedTimestamp
     , dhapgrsHSMsPendingRegistration
-    , dhapgrsHAPGSerial
     , dhapgrsHSMsPendingDeletion
+    , dhapgrsHAPGSerial
     , dhapgrsHSMsLastActionFailed
     , dhapgrsPartitionSerialList
     , dhapgrsHAPGARN
@@ -84,8 +84,8 @@ instance AWSRequest DescribeHAPG where
                  DescribeHAPGResponse' <$>
                    (x .?> "State") <*> (x .?> "LastModifiedTimestamp")
                      <*> (x .?> "HsmsPendingRegistration" .!@ mempty)
-                     <*> (x .?> "HapgSerial")
                      <*> (x .?> "HsmsPendingDeletion" .!@ mempty)
+                     <*> (x .?> "HapgSerial")
                      <*> (x .?> "HsmsLastActionFailed" .!@ mempty)
                      <*> (x .?> "PartitionSerialList" .!@ mempty)
                      <*> (x .?> "HapgArn")
@@ -120,8 +120,8 @@ data DescribeHAPGResponse = DescribeHAPGResponse'
     { _dhapgrsState                   :: !(Maybe CloudHSMObjectState)
     , _dhapgrsLastModifiedTimestamp   :: !(Maybe Text)
     , _dhapgrsHSMsPendingRegistration :: !(Maybe [Text])
-    , _dhapgrsHAPGSerial              :: !(Maybe Text)
     , _dhapgrsHSMsPendingDeletion     :: !(Maybe [Text])
+    , _dhapgrsHAPGSerial              :: !(Maybe Text)
     , _dhapgrsHSMsLastActionFailed    :: !(Maybe [Text])
     , _dhapgrsPartitionSerialList     :: !(Maybe [Text])
     , _dhapgrsHAPGARN                 :: !(Maybe Text)
@@ -139,9 +139,9 @@ data DescribeHAPGResponse = DescribeHAPGResponse'
 --
 -- * 'dhapgrsHSMsPendingRegistration'
 --
--- * 'dhapgrsHAPGSerial'
---
 -- * 'dhapgrsHSMsPendingDeletion'
+--
+-- * 'dhapgrsHAPGSerial'
 --
 -- * 'dhapgrsHSMsLastActionFailed'
 --
@@ -160,8 +160,8 @@ describeHAPGResponse pStatus_ =
     { _dhapgrsState = Nothing
     , _dhapgrsLastModifiedTimestamp = Nothing
     , _dhapgrsHSMsPendingRegistration = Nothing
-    , _dhapgrsHAPGSerial = Nothing
     , _dhapgrsHSMsPendingDeletion = Nothing
+    , _dhapgrsHAPGSerial = Nothing
     , _dhapgrsHSMsLastActionFailed = Nothing
     , _dhapgrsPartitionSerialList = Nothing
     , _dhapgrsHAPGARN = Nothing
@@ -182,13 +182,13 @@ dhapgrsLastModifiedTimestamp = lens _dhapgrsLastModifiedTimestamp (\ s a -> s{_d
 dhapgrsHSMsPendingRegistration :: Lens' DescribeHAPGResponse [Text]
 dhapgrsHSMsPendingRegistration = lens _dhapgrsHSMsPendingRegistration (\ s a -> s{_dhapgrsHSMsPendingRegistration = a}) . _Default . _Coerce;
 
--- | The serial number of the high-availability partition group.
-dhapgrsHAPGSerial :: Lens' DescribeHAPGResponse (Maybe Text)
-dhapgrsHAPGSerial = lens _dhapgrsHAPGSerial (\ s a -> s{_dhapgrsHAPGSerial = a});
-
 -- | Undocumented member.
 dhapgrsHSMsPendingDeletion :: Lens' DescribeHAPGResponse [Text]
 dhapgrsHSMsPendingDeletion = lens _dhapgrsHSMsPendingDeletion (\ s a -> s{_dhapgrsHSMsPendingDeletion = a}) . _Default . _Coerce;
+
+-- | The serial number of the high-availability partition group.
+dhapgrsHAPGSerial :: Lens' DescribeHAPGResponse (Maybe Text)
+dhapgrsHAPGSerial = lens _dhapgrsHAPGSerial (\ s a -> s{_dhapgrsHAPGSerial = a});
 
 -- | Undocumented member.
 dhapgrsHSMsLastActionFailed :: Lens' DescribeHAPGResponse [Text]

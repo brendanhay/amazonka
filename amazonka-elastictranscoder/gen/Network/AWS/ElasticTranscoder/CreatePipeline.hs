@@ -31,8 +31,8 @@ module Network.AWS.ElasticTranscoder.CreatePipeline
     , cContentConfig
     , cOutputBucket
     , cAWSKMSKeyARN
-    , cThumbnailConfig
     , cNotifications
+    , cThumbnailConfig
     , cName
     , cInputBucket
     , cRole
@@ -59,8 +59,8 @@ data CreatePipeline = CreatePipeline'
     { _cContentConfig   :: !(Maybe PipelineOutputConfig)
     , _cOutputBucket    :: !(Maybe Text)
     , _cAWSKMSKeyARN    :: !(Maybe Text)
-    , _cThumbnailConfig :: !(Maybe PipelineOutputConfig)
     , _cNotifications   :: !(Maybe Notifications)
+    , _cThumbnailConfig :: !(Maybe PipelineOutputConfig)
     , _cName            :: !Text
     , _cInputBucket     :: !Text
     , _cRole            :: !Text
@@ -76,9 +76,9 @@ data CreatePipeline = CreatePipeline'
 --
 -- * 'cAWSKMSKeyARN'
 --
--- * 'cThumbnailConfig'
---
 -- * 'cNotifications'
+--
+-- * 'cThumbnailConfig'
 --
 -- * 'cName'
 --
@@ -95,8 +95,8 @@ createPipeline pName_ pInputBucket_ pRole_ =
     { _cContentConfig = Nothing
     , _cOutputBucket = Nothing
     , _cAWSKMSKeyARN = Nothing
-    , _cThumbnailConfig = Nothing
     , _cNotifications = Nothing
+    , _cThumbnailConfig = Nothing
     , _cName = pName_
     , _cInputBucket = pInputBucket_
     , _cRole = pRole_
@@ -200,6 +200,33 @@ cOutputBucket = lens _cOutputBucket (\ s a -> s{_cOutputBucket = a});
 cAWSKMSKeyARN :: Lens' CreatePipeline (Maybe Text)
 cAWSKMSKeyARN = lens _cAWSKMSKeyARN (\ s a -> s{_cAWSKMSKeyARN = a});
 
+-- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
+-- to notify to report job status.
+--
+-- To receive notifications, you must also subscribe to the new topic in
+-- the Amazon SNS console.
+--
+-- -   __Progressing__: The topic ARN for the Amazon Simple Notification
+--     Service (Amazon SNS) topic that you want to notify when Elastic
+--     Transcoder has started to process a job in this pipeline. This is
+--     the ARN that Amazon SNS returned when you created the topic. For
+--     more information, see Create a Topic in the Amazon Simple
+--     Notification Service Developer Guide.
+-- -   __Completed__: The topic ARN for the Amazon SNS topic that you want
+--     to notify when Elastic Transcoder has finished processing a job in
+--     this pipeline. This is the ARN that Amazon SNS returned when you
+--     created the topic.
+-- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters a warning condition while
+--     processing a job in this pipeline. This is the ARN that Amazon SNS
+--     returned when you created the topic.
+-- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters an error condition while
+--     processing a job in this pipeline. This is the ARN that Amazon SNS
+--     returned when you created the topic.
+cNotifications :: Lens' CreatePipeline (Maybe Notifications)
+cNotifications = lens _cNotifications (\ s a -> s{_cNotifications = a});
+
 -- | The 'ThumbnailConfig' object specifies several values, including the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
 -- files, which users you want to have access to the files, the type of
@@ -254,33 +281,6 @@ cAWSKMSKeyARN = lens _cAWSKMSKeyARN (\ s a -> s{_cAWSKMSKeyARN = a});
 cThumbnailConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
 cThumbnailConfig = lens _cThumbnailConfig (\ s a -> s{_cThumbnailConfig = a});
 
--- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
--- to notify to report job status.
---
--- To receive notifications, you must also subscribe to the new topic in
--- the Amazon SNS console.
---
--- -   __Progressing__: The topic ARN for the Amazon Simple Notification
---     Service (Amazon SNS) topic that you want to notify when Elastic
---     Transcoder has started to process a job in this pipeline. This is
---     the ARN that Amazon SNS returned when you created the topic. For
---     more information, see Create a Topic in the Amazon Simple
---     Notification Service Developer Guide.
--- -   __Completed__: The topic ARN for the Amazon SNS topic that you want
---     to notify when Elastic Transcoder has finished processing a job in
---     this pipeline. This is the ARN that Amazon SNS returned when you
---     created the topic.
--- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters a warning condition while
---     processing a job in this pipeline. This is the ARN that Amazon SNS
---     returned when you created the topic.
--- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters an error condition while
---     processing a job in this pipeline. This is the ARN that Amazon SNS
---     returned when you created the topic.
-cNotifications :: Lens' CreatePipeline (Maybe Notifications)
-cNotifications = lens _cNotifications (\ s a -> s{_cNotifications = a});
-
 -- | The name of the pipeline. We recommend that the name be unique within
 -- the AWS account, but uniqueness is not enforced.
 --
@@ -318,8 +318,8 @@ instance ToJSON CreatePipeline where
                  [("ContentConfig" .=) <$> _cContentConfig,
                   ("OutputBucket" .=) <$> _cOutputBucket,
                   ("AwsKmsKeyArn" .=) <$> _cAWSKMSKeyARN,
-                  ("ThumbnailConfig" .=) <$> _cThumbnailConfig,
                   ("Notifications" .=) <$> _cNotifications,
+                  ("ThumbnailConfig" .=) <$> _cThumbnailConfig,
                   Just ("Name" .= _cName),
                   Just ("InputBucket" .= _cInputBucket),
                   Just ("Role" .= _cRole)])

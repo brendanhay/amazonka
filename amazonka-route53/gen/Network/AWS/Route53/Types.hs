@@ -23,12 +23,12 @@ module Network.AWS.Route53.Types
     , _DelegationSetAlreadyReusable
     , _PriorRequestNotComplete
     , _InvalidChangeBatch
-    , _InvalidDomainName
     , _DelegationSetNotReusable
-    , _HealthCheckAlreadyExists
+    , _InvalidDomainName
     , _HostedZoneNotFound
     , _DelegationSetInUse
     , _NoSuchDelegationSet
+    , _HealthCheckAlreadyExists
     , _NoSuchGeoLocation
     , _DelegationSetNotAvailable
     , _VPCAssociationNotFound
@@ -36,17 +36,17 @@ module Network.AWS.Route53.Types
     , _NoSuchChange
     , _LimitsExceeded
     , _IncompatibleVersion
+    , _PublicZoneVPCAssociation
     , _NoSuchHostedZone
     , _TooManyHostedZones
-    , _PublicZoneVPCAssociation
-    , _ConflictingDomainExists
-    , _LastVPCAssociation
     , _HealthCheckInUse
     , _DelegationSetAlreadyCreated
+    , _ConflictingDomainExists
+    , _LastVPCAssociation
     , _TooManyHealthChecks
     , _NoSuchHealthCheck
-    , _HostedZoneAlreadyExists
     , _InvalidVPCId
+    , _HostedZoneAlreadyExists
 
     -- * Re-exported Types
     , module Network.AWS.Route53.Internal
@@ -134,8 +134,8 @@ module Network.AWS.Route53.Types
     -- * HealthCheckConfig
     , HealthCheckConfig
     , healthCheckConfig
-    , hccIPAddress
     , hccFailureThreshold
+    , hccIPAddress
     , hccSearchString
     , hccResourcePath
     , hccFullyQualifiedDomainName
@@ -172,8 +172,8 @@ module Network.AWS.Route53.Types
     -- * ResourceRecordSet
     , ResourceRecordSet
     , resourceRecordSet
-    , rrsResourceRecords
     , rrsTTL
+    , rrsResourceRecords
     , rrsAliasTarget
     , rrsWeight
     , rrsSetIdentifier
@@ -286,21 +286,14 @@ _PriorRequestNotComplete =
 _InvalidChangeBatch :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidChangeBatch = _ServiceError . hasCode "InvalidChangeBatch"
 
--- | This error indicates that the specified domain name is not valid.
-_InvalidDomainName :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidDomainName =
-    _ServiceError . hasStatus 400 . hasCode "InvalidDomainName"
-
 -- | The specified delegation set has not been marked as reusable.
 _DelegationSetNotReusable :: AsError a => Getting (First ServiceError) a ServiceError
 _DelegationSetNotReusable = _ServiceError . hasCode "DelegationSetNotReusable"
 
--- | The health check you are trying to create already exists. Route 53
--- returns this error when a health check has already been created with the
--- specified 'CallerReference'.
-_HealthCheckAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
-_HealthCheckAlreadyExists =
-    _ServiceError . hasStatus 409 . hasCode "HealthCheckAlreadyExists"
+-- | This error indicates that the specified domain name is not valid.
+_InvalidDomainName :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidDomainName =
+    _ServiceError . hasStatus 400 . hasCode "InvalidDomainName"
 
 -- | The specified HostedZone cannot be found.
 _HostedZoneNotFound :: AsError a => Getting (First ServiceError) a ServiceError
@@ -314,6 +307,13 @@ _DelegationSetInUse = _ServiceError . hasCode "DelegationSetInUse"
 -- | The specified delegation set does not exist.
 _NoSuchDelegationSet :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchDelegationSet = _ServiceError . hasCode "NoSuchDelegationSet"
+
+-- | The health check you are trying to create already exists. Route 53
+-- returns this error when a health check has already been created with the
+-- specified 'CallerReference'.
+_HealthCheckAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
+_HealthCheckAlreadyExists =
+    _ServiceError . hasStatus 409 . hasCode "HealthCheckAlreadyExists"
 
 -- | The geo location you are trying to get does not exist.
 _NoSuchGeoLocation :: AsError a => Getting (First ServiceError) a ServiceError
@@ -354,6 +354,13 @@ _IncompatibleVersion :: AsError a => Getting (First ServiceError) a ServiceError
 _IncompatibleVersion =
     _ServiceError . hasStatus 400 . hasCode "IncompatibleVersion"
 
+-- | The hosted zone you are trying to associate VPC with doesn\'t have any
+-- VPC association. Route 53 currently doesn\'t support associate a VPC
+-- with a public hosted zone.
+_PublicZoneVPCAssociation :: AsError a => Getting (First ServiceError) a ServiceError
+_PublicZoneVPCAssociation =
+    _ServiceError . hasStatus 400 . hasCode "PublicZoneVPCAssociation"
+
 -- | Prism for NoSuchHostedZone' errors.
 _NoSuchHostedZone :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchHostedZone = _ServiceError . hasStatus 404 . hasCode "NoSuchHostedZone"
@@ -365,24 +372,6 @@ _NoSuchHostedZone = _ServiceError . hasStatus 404 . hasCode "NoSuchHostedZone"
 _TooManyHostedZones :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyHostedZones =
     _ServiceError . hasStatus 400 . hasCode "TooManyHostedZones"
-
--- | The hosted zone you are trying to associate VPC with doesn\'t have any
--- VPC association. Route 53 currently doesn\'t support associate a VPC
--- with a public hosted zone.
-_PublicZoneVPCAssociation :: AsError a => Getting (First ServiceError) a ServiceError
-_PublicZoneVPCAssociation =
-    _ServiceError . hasStatus 400 . hasCode "PublicZoneVPCAssociation"
-
--- | Prism for ConflictingDomainExists' errors.
-_ConflictingDomainExists :: AsError a => Getting (First ServiceError) a ServiceError
-_ConflictingDomainExists = _ServiceError . hasCode "ConflictingDomainExists"
-
--- | The VPC you are trying to disassociate from the hosted zone is the last
--- the VPC that is associated with the hosted zone. Route 53 currently
--- doesn\'t support disassociate the last VPC from the hosted zone.
-_LastVPCAssociation :: AsError a => Getting (First ServiceError) a ServiceError
-_LastVPCAssociation =
-    _ServiceError . hasStatus 400 . hasCode "LastVPCAssociation"
 
 -- | There are resource records associated with this health check. Before you
 -- can delete the health check, you must disassociate it from the resource
@@ -396,6 +385,17 @@ _DelegationSetAlreadyCreated :: AsError a => Getting (First ServiceError) a Serv
 _DelegationSetAlreadyCreated =
     _ServiceError . hasCode "DelegationSetAlreadyCreated"
 
+-- | Prism for ConflictingDomainExists' errors.
+_ConflictingDomainExists :: AsError a => Getting (First ServiceError) a ServiceError
+_ConflictingDomainExists = _ServiceError . hasCode "ConflictingDomainExists"
+
+-- | The VPC you are trying to disassociate from the hosted zone is the last
+-- the VPC that is associated with the hosted zone. Route 53 currently
+-- doesn\'t support disassociate the last VPC from the hosted zone.
+_LastVPCAssociation :: AsError a => Getting (First ServiceError) a ServiceError
+_LastVPCAssociation =
+    _ServiceError . hasStatus 400 . hasCode "LastVPCAssociation"
+
 -- | Prism for TooManyHealthChecks' errors.
 _TooManyHealthChecks :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyHealthChecks = _ServiceError . hasCode "TooManyHealthChecks"
@@ -405,15 +405,15 @@ _NoSuchHealthCheck :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchHealthCheck =
     _ServiceError . hasStatus 404 . hasCode "NoSuchHealthCheck"
 
+-- | The hosted zone you are trying to create for your VPC_ID does not belong
+-- to you. Route 53 returns this error when the VPC specified by 'VPCId'
+-- does not belong to you.
+_InvalidVPCId :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidVPCId = _ServiceError . hasStatus 400 . hasCode "InvalidVPCId"
+
 -- | The hosted zone you are trying to create already exists. Route 53
 -- returns this error when a hosted zone has already been created with the
 -- specified 'CallerReference'.
 _HostedZoneAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _HostedZoneAlreadyExists =
     _ServiceError . hasStatus 409 . hasCode "HostedZoneAlreadyExists"
-
--- | The hosted zone you are trying to create for your VPC_ID does not belong
--- to you. Route 53 returns this error when the VPC specified by 'VPCId'
--- does not belong to you.
-_InvalidVPCId :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidVPCId = _ServiceError . hasStatus 400 . hasCode "InvalidVPCId"

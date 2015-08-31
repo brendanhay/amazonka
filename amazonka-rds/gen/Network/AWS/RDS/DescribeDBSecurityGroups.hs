@@ -32,8 +32,8 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     , DescribeDBSecurityGroups
     -- * Request Lenses
     , ddbsgFilters
-    , ddbsgMaxRecords
     , ddbsgMarker
+    , ddbsgMaxRecords
     , ddbsgDBSecurityGroupName
 
     -- * Destructuring the Response
@@ -57,8 +57,8 @@ import           Network.AWS.Response
 -- /See:/ 'describeDBSecurityGroups' smart constructor.
 data DescribeDBSecurityGroups = DescribeDBSecurityGroups'
     { _ddbsgFilters             :: !(Maybe [Filter])
-    , _ddbsgMaxRecords          :: !(Maybe Int)
     , _ddbsgMarker              :: !(Maybe Text)
+    , _ddbsgMaxRecords          :: !(Maybe Int)
     , _ddbsgDBSecurityGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -68,9 +68,9 @@ data DescribeDBSecurityGroups = DescribeDBSecurityGroups'
 --
 -- * 'ddbsgFilters'
 --
--- * 'ddbsgMaxRecords'
---
 -- * 'ddbsgMarker'
+--
+-- * 'ddbsgMaxRecords'
 --
 -- * 'ddbsgDBSecurityGroupName'
 describeDBSecurityGroups
@@ -78,14 +78,21 @@ describeDBSecurityGroups
 describeDBSecurityGroups =
     DescribeDBSecurityGroups'
     { _ddbsgFilters = Nothing
-    , _ddbsgMaxRecords = Nothing
     , _ddbsgMarker = Nothing
+    , _ddbsgMaxRecords = Nothing
     , _ddbsgDBSecurityGroupName = Nothing
     }
 
 -- | This parameter is not currently supported.
 ddbsgFilters :: Lens' DescribeDBSecurityGroups [Filter]
 ddbsgFilters = lens _ddbsgFilters (\ s a -> s{_ddbsgFilters = a}) . _Default . _Coerce;
+
+-- | An optional pagination token provided by a previous
+-- 'DescribeDBSecurityGroups' request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by 'MaxRecords'.
+ddbsgMarker :: Lens' DescribeDBSecurityGroups (Maybe Text)
+ddbsgMarker = lens _ddbsgMarker (\ s a -> s{_ddbsgMarker = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a pagination token
@@ -97,13 +104,6 @@ ddbsgFilters = lens _ddbsgFilters (\ s a -> s{_ddbsgFilters = a}) . _Default . _
 -- Constraints: Minimum 20, maximum 100.
 ddbsgMaxRecords :: Lens' DescribeDBSecurityGroups (Maybe Int)
 ddbsgMaxRecords = lens _ddbsgMaxRecords (\ s a -> s{_ddbsgMaxRecords = a});
-
--- | An optional pagination token provided by a previous
--- 'DescribeDBSecurityGroups' request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
-ddbsgMarker :: Lens' DescribeDBSecurityGroups (Maybe Text)
-ddbsgMarker = lens _ddbsgMarker (\ s a -> s{_ddbsgMarker = a});
 
 -- | The name of the DB security group to return details for.
 ddbsgDBSecurityGroupName :: Lens' DescribeDBSecurityGroups (Maybe Text)
@@ -143,8 +143,8 @@ instance ToQuery DescribeDBSecurityGroups where
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
                  toQuery (toQueryList "Filter" <$> _ddbsgFilters),
-               "MaxRecords" =: _ddbsgMaxRecords,
                "Marker" =: _ddbsgMarker,
+               "MaxRecords" =: _ddbsgMaxRecords,
                "DBSecurityGroupName" =: _ddbsgDBSecurityGroupName]
 
 -- | Contains the result of a successful invocation of the

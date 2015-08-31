@@ -34,8 +34,8 @@ module Network.AWS.IAM.ListServerCertificates
     , ListServerCertificates
     -- * Request Lenses
     , lscPathPrefix
-    , lscMaxItems
     , lscMarker
+    , lscMaxItems
 
     -- * Destructuring the Response
     , listServerCertificatesResponse
@@ -57,8 +57,8 @@ import           Network.AWS.Response
 -- | /See:/ 'listServerCertificates' smart constructor.
 data ListServerCertificates = ListServerCertificates'
     { _lscPathPrefix :: !(Maybe Text)
-    , _lscMaxItems   :: !(Maybe Nat)
     , _lscMarker     :: !(Maybe Text)
+    , _lscMaxItems   :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListServerCertificates' with the minimum fields required to make a request.
@@ -67,16 +67,16 @@ data ListServerCertificates = ListServerCertificates'
 --
 -- * 'lscPathPrefix'
 --
--- * 'lscMaxItems'
---
 -- * 'lscMarker'
+--
+-- * 'lscMaxItems'
 listServerCertificates
     :: ListServerCertificates
 listServerCertificates =
     ListServerCertificates'
     { _lscPathPrefix = Nothing
-    , _lscMaxItems = Nothing
     , _lscMarker = Nothing
+    , _lscMaxItems = Nothing
     }
 
 -- | The path prefix for filtering the results. For example:
@@ -88,6 +88,12 @@ listServerCertificates =
 lscPathPrefix :: Lens' ListServerCertificates (Maybe Text)
 lscPathPrefix = lens _lscPathPrefix (\ s a -> s{_lscPathPrefix = a});
 
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lscMarker :: Lens' ListServerCertificates (Maybe Text)
+lscMarker = lens _lscMarker (\ s a -> s{_lscMarker = a});
+
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
@@ -96,12 +102,6 @@ lscPathPrefix = lens _lscPathPrefix (\ s a -> s{_lscPathPrefix = a});
 -- 100.
 lscMaxItems :: Lens' ListServerCertificates (Maybe Natural)
 lscMaxItems = lens _lscMaxItems (\ s a -> s{_lscMaxItems = a}) . mapping _Nat;
-
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lscMarker :: Lens' ListServerCertificates (Maybe Text)
-lscMarker = lens _lscMarker (\ s a -> s{_lscMarker = a});
 
 instance AWSPager ListServerCertificates where
         page rq rs
@@ -137,7 +137,7 @@ instance ToQuery ListServerCertificates where
                  ("ListServerCertificates" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "PathPrefix" =: _lscPathPrefix,
-               "MaxItems" =: _lscMaxItems, "Marker" =: _lscMarker]
+               "Marker" =: _lscMarker, "MaxItems" =: _lscMaxItems]
 
 -- | Contains the response to a successful ListServerCertificates request.
 --

@@ -57,23 +57,23 @@ module Network.AWS.Glacier.DescribeJob
     , glacierJobDescription
     , GlacierJobDescription
     -- * Response Lenses
-    , gjdArchiveId
     , gjdSHA256TreeHash
+    , gjdArchiveId
     , gjdJobId
     , gjdRetrievalByteRange
     , gjdInventoryRetrievalParameters
     , gjdAction
     , gjdJobDescription
     , gjdSNSTopic
-    , gjdVaultARN
     , gjdStatusMessage
+    , gjdVaultARN
     , gjdArchiveSHA256TreeHash
     , gjdCreationDate
     , gjdCompleted
     , gjdCompletionDate
+    , gjdInventorySizeInBytes
     , gjdArchiveSizeInBytes
     , gjdStatusCode
-    , gjdInventorySizeInBytes
     ) where
 
 import           Network.AWS.Glacier.Types

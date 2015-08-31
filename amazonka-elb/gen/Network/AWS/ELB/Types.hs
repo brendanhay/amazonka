@@ -31,8 +31,8 @@ module Network.AWS.ELB.Types
     , _InvalidSecurityGroupException
     , _ListenerNotFoundException
     , _InvalidEndPointException
-    , _TooManyAccessPointsException
     , _InvalidSchemeException
+    , _TooManyAccessPointsException
     , _TooManyPoliciesException
     , _CertificateNotFoundException
 
@@ -134,9 +134,9 @@ module Network.AWS.ELB.Types
     , LoadBalancerDescription
     , loadBalancerDescription
     , lbdSourceSecurityGroup
-    , lbdHealthCheck
     , lbdCanonicalHostedZoneName
     , lbdSecurityGroups
+    , lbdHealthCheck
     , lbdLoadBalancerName
     , lbdCreatedTime
     , lbdVPCId
@@ -330,16 +330,16 @@ _InvalidEndPointException :: AsError a => Getting (First ServiceError) a Service
 _InvalidEndPointException =
     _ServiceError . hasStatus 400 . hasCode "InvalidInstance"
 
--- | The quota for the number of load balancers has been reached.
-_TooManyAccessPointsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyAccessPointsException =
-    _ServiceError . hasStatus 400 . hasCode "TooManyLoadBalancers"
-
 -- | The specified value for the schema is not valid. You can only specify a
 -- scheme for load balancers in a VPC.
 _InvalidSchemeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSchemeException =
     _ServiceError . hasStatus 400 . hasCode "InvalidScheme"
+
+-- | The quota for the number of load balancers has been reached.
+_TooManyAccessPointsException :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyAccessPointsException =
+    _ServiceError . hasStatus 400 . hasCode "TooManyLoadBalancers"
 
 -- | The quota for the number of policies for this load balancer has been
 -- reached.

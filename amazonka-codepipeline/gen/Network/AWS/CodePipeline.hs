@@ -112,11 +112,11 @@ module Network.AWS.CodePipeline
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    , _ValidationException
-
     -- ** InvalidClientTokenException
     , _InvalidClientTokenException
+
+    -- ** ValidationException
+    , _ValidationException
 
     -- ** InvalidNonceException
     , _InvalidNonceException
@@ -151,17 +151,17 @@ module Network.AWS.CodePipeline
     -- ** StageNotFoundException
     , _StageNotFoundException
 
-    -- ** JobNotFoundException
-    , _JobNotFoundException
-
     -- ** InvalidStructureException
     , _InvalidStructureException
 
-    -- ** PipelineNotFoundException
-    , _PipelineNotFoundException
+    -- ** JobNotFoundException
+    , _JobNotFoundException
 
     -- ** PipelineNameInUseException
     , _PipelineNameInUseException
+
+    -- ** PipelineNotFoundException
+    , _PipelineNotFoundException
 
     -- ** LimitExceededException
     , _LimitExceededException
@@ -208,20 +208,20 @@ module Network.AWS.CodePipeline
     -- ** ListPipelines
     , module Network.AWS.CodePipeline.ListPipelines
 
+    -- ** PutJobSuccessResult
+    , module Network.AWS.CodePipeline.PutJobSuccessResult
+
     -- ** DeleteCustomActionType
     , module Network.AWS.CodePipeline.DeleteCustomActionType
 
     -- ** PutActionRevision
     , module Network.AWS.CodePipeline.PutActionRevision
 
-    -- ** PutJobSuccessResult
-    , module Network.AWS.CodePipeline.PutJobSuccessResult
+    -- ** DisableStageTransition
+    , module Network.AWS.CodePipeline.DisableStageTransition
 
     -- ** ListActionTypes
     , module Network.AWS.CodePipeline.ListActionTypes
-
-    -- ** DisableStageTransition
-    , module Network.AWS.CodePipeline.DisableStageTransition
 
     -- ** AcknowledgeJob
     , module Network.AWS.CodePipeline.AcknowledgeJob
@@ -229,17 +229,17 @@ module Network.AWS.CodePipeline
     -- ** EnableStageTransition
     , module Network.AWS.CodePipeline.EnableStageTransition
 
-    -- ** GetThirdPartyJobDetails
-    , module Network.AWS.CodePipeline.GetThirdPartyJobDetails
-
     -- ** CreatePipeline
     , module Network.AWS.CodePipeline.CreatePipeline
 
-    -- ** CreateCustomActionType
-    , module Network.AWS.CodePipeline.CreateCustomActionType
+    -- ** GetThirdPartyJobDetails
+    , module Network.AWS.CodePipeline.GetThirdPartyJobDetails
 
     -- ** PutThirdPartyJobSuccessResult
     , module Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
+
+    -- ** CreateCustomActionType
+    , module Network.AWS.CodePipeline.CreateCustomActionType
 
     -- * Types
 
@@ -319,9 +319,9 @@ module Network.AWS.CodePipeline
     , aeStatus
     , aeLastStatusChange
     , aeExternalExecutionURL
-    , aePercentComplete
-    , aeErrorDetails
     , aeExternalExecutionId
+    , aeErrorDetails
+    , aePercentComplete
 
     -- ** ActionRevision
     , ActionRevision
@@ -333,8 +333,8 @@ module Network.AWS.CodePipeline
     -- ** ActionState
     , ActionState
     , actionState
-    , asEntityURL
     , asRevisionURL
+    , asEntityURL
     , asActionName
     , asCurrentRevision
     , asLatestExecution
@@ -361,8 +361,8 @@ module Network.AWS.CodePipeline
     , actionTypeSettings
     , atsThirdPartyConfigurationURL
     , atsExecutionURLTemplate
-    , atsEntityURLTemplate
     , atsRevisionURLTemplate
+    , atsEntityURLTemplate
 
     -- ** Artifact
     , Artifact
@@ -411,8 +411,8 @@ module Network.AWS.CodePipeline
     , ExecutionDetails
     , executionDetails
     , edSummary
-    , edPercentComplete
     , edExternalExecutionId
+    , edPercentComplete
 
     -- ** FailureDetails
     , FailureDetails

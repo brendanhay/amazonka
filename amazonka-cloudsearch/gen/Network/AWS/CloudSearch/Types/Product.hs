@@ -66,9 +66,9 @@ instance FromXML AccessPoliciesStatus where
 data AnalysisOptions = AnalysisOptions'
     { _aoAlgorithmicStemming            :: !(Maybe AlgorithmicStemming)
     , _aoStopwords                      :: !(Maybe Text)
-    , _aoStemmingDictionary             :: !(Maybe Text)
-    , _aoSynonyms                       :: !(Maybe Text)
     , _aoJapaneseTokenizationDictionary :: !(Maybe Text)
+    , _aoSynonyms                       :: !(Maybe Text)
+    , _aoStemmingDictionary             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AnalysisOptions' with the minimum fields required to make a request.
@@ -79,20 +79,20 @@ data AnalysisOptions = AnalysisOptions'
 --
 -- * 'aoStopwords'
 --
--- * 'aoStemmingDictionary'
+-- * 'aoJapaneseTokenizationDictionary'
 --
 -- * 'aoSynonyms'
 --
--- * 'aoJapaneseTokenizationDictionary'
+-- * 'aoStemmingDictionary'
 analysisOptions
     :: AnalysisOptions
 analysisOptions =
     AnalysisOptions'
     { _aoAlgorithmicStemming = Nothing
     , _aoStopwords = Nothing
-    , _aoStemmingDictionary = Nothing
-    , _aoSynonyms = Nothing
     , _aoJapaneseTokenizationDictionary = Nothing
+    , _aoSynonyms = Nothing
+    , _aoStemmingDictionary = Nothing
     }
 
 -- | The level of algorithmic stemming to perform: 'none', 'minimal',
@@ -110,15 +110,12 @@ aoAlgorithmicStemming = lens _aoAlgorithmicStemming (\ s a -> s{_aoAlgorithmicSt
 aoStopwords :: Lens' AnalysisOptions (Maybe Text)
 aoStopwords = lens _aoStopwords (\ s a -> s{_aoStopwords = a});
 
--- | A JSON object that contains a collection of string:value pairs that each
--- map a term to its stem. For example,
--- '{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}'.
--- The stemming dictionary is applied in addition to any algorithmic
--- stemming. This enables you to override the results of the algorithmic
--- stemming to correct specific cases of overstemming or understemming. The
--- maximum size of a stemming dictionary is 500 KB.
-aoStemmingDictionary :: Lens' AnalysisOptions (Maybe Text)
-aoStemmingDictionary = lens _aoStemmingDictionary (\ s a -> s{_aoStemmingDictionary = a});
+-- | A JSON array that contains a collection of terms, tokens, readings and
+-- part of speech for Japanese Tokenizaiton. The Japanese tokenization
+-- dictionary enables you to override the default tokenization for selected
+-- terms. This is only valid for Japanese language fields.
+aoJapaneseTokenizationDictionary :: Lens' AnalysisOptions (Maybe Text)
+aoJapaneseTokenizationDictionary = lens _aoJapaneseTokenizationDictionary (\ s a -> s{_aoJapaneseTokenizationDictionary = a});
 
 -- | A JSON object that defines synonym groups and aliases. A synonym group
 -- is an array of arrays, where each sub-array is a group of terms where
@@ -134,30 +131,33 @@ aoStemmingDictionary = lens _aoStemmingDictionary (\ s a -> s{_aoStemmingDiction
 aoSynonyms :: Lens' AnalysisOptions (Maybe Text)
 aoSynonyms = lens _aoSynonyms (\ s a -> s{_aoSynonyms = a});
 
--- | A JSON array that contains a collection of terms, tokens, readings and
--- part of speech for Japanese Tokenizaiton. The Japanese tokenization
--- dictionary enables you to override the default tokenization for selected
--- terms. This is only valid for Japanese language fields.
-aoJapaneseTokenizationDictionary :: Lens' AnalysisOptions (Maybe Text)
-aoJapaneseTokenizationDictionary = lens _aoJapaneseTokenizationDictionary (\ s a -> s{_aoJapaneseTokenizationDictionary = a});
+-- | A JSON object that contains a collection of string:value pairs that each
+-- map a term to its stem. For example,
+-- '{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}'.
+-- The stemming dictionary is applied in addition to any algorithmic
+-- stemming. This enables you to override the results of the algorithmic
+-- stemming to correct specific cases of overstemming or understemming. The
+-- maximum size of a stemming dictionary is 500 KB.
+aoStemmingDictionary :: Lens' AnalysisOptions (Maybe Text)
+aoStemmingDictionary = lens _aoStemmingDictionary (\ s a -> s{_aoStemmingDictionary = a});
 
 instance FromXML AnalysisOptions where
         parseXML x
           = AnalysisOptions' <$>
               (x .@? "AlgorithmicStemming") <*> (x .@? "Stopwords")
-                <*> (x .@? "StemmingDictionary")
-                <*> (x .@? "Synonyms")
                 <*> (x .@? "JapaneseTokenizationDictionary")
+                <*> (x .@? "Synonyms")
+                <*> (x .@? "StemmingDictionary")
 
 instance ToQuery AnalysisOptions where
         toQuery AnalysisOptions'{..}
           = mconcat
               ["AlgorithmicStemming" =: _aoAlgorithmicStemming,
                "Stopwords" =: _aoStopwords,
-               "StemmingDictionary" =: _aoStemmingDictionary,
-               "Synonyms" =: _aoSynonyms,
                "JapaneseTokenizationDictionary" =:
-                 _aoJapaneseTokenizationDictionary]
+                 _aoJapaneseTokenizationDictionary,
+               "Synonyms" =: _aoSynonyms,
+               "StemmingDictionary" =: _aoStemmingDictionary]
 
 -- | Configuration information for an analysis scheme. Each analysis scheme
 -- has a unique name and specifies the language of the text to be
@@ -526,8 +526,8 @@ instance ToQuery DocumentSuggesterOptions where
 data DomainStatus = DomainStatus'
     { _dsSearchInstanceCount    :: !(Maybe Nat)
     , _dsSearchInstanceType     :: !(Maybe Text)
-    , _dsARN                    :: !(Maybe Text)
     , _dsDocService             :: !(Maybe ServiceEndpoint)
+    , _dsARN                    :: !(Maybe Text)
     , _dsCreated                :: !(Maybe Bool)
     , _dsSearchService          :: !(Maybe ServiceEndpoint)
     , _dsLimits                 :: !(Maybe Limits)
@@ -547,9 +547,9 @@ data DomainStatus = DomainStatus'
 --
 -- * 'dsSearchInstanceType'
 --
--- * 'dsARN'
---
 -- * 'dsDocService'
+--
+-- * 'dsARN'
 --
 -- * 'dsCreated'
 --
@@ -577,8 +577,8 @@ domainStatus pDomainId_ pDomainName_ pRequiresIndexDocuments_ =
     DomainStatus'
     { _dsSearchInstanceCount = Nothing
     , _dsSearchInstanceType = Nothing
-    , _dsARN = Nothing
     , _dsDocService = Nothing
+    , _dsARN = Nothing
     , _dsCreated = Nothing
     , _dsSearchService = Nothing
     , _dsLimits = Nothing
@@ -599,13 +599,13 @@ dsSearchInstanceCount = lens _dsSearchInstanceCount (\ s a -> s{_dsSearchInstanc
 dsSearchInstanceType :: Lens' DomainStatus (Maybe Text)
 dsSearchInstanceType = lens _dsSearchInstanceType (\ s a -> s{_dsSearchInstanceType = a});
 
--- | Undocumented member.
-dsARN :: Lens' DomainStatus (Maybe Text)
-dsARN = lens _dsARN (\ s a -> s{_dsARN = a});
-
 -- | The service endpoint for updating documents in a search domain.
 dsDocService :: Lens' DomainStatus (Maybe ServiceEndpoint)
 dsDocService = lens _dsDocService (\ s a -> s{_dsDocService = a});
+
+-- | Undocumented member.
+dsARN :: Lens' DomainStatus (Maybe Text)
+dsARN = lens _dsARN (\ s a -> s{_dsARN = a});
 
 -- | True if the search domain is created. It can take several minutes to
 -- initialize a domain when CreateDomain is called. Newly created search
@@ -657,8 +657,8 @@ instance FromXML DomainStatus where
           = DomainStatus' <$>
               (x .@? "SearchInstanceCount") <*>
                 (x .@? "SearchInstanceType")
-                <*> (x .@? "ARN")
                 <*> (x .@? "DocService")
+                <*> (x .@? "ARN")
                 <*> (x .@? "Created")
                 <*> (x .@? "SearchService")
                 <*> (x .@? "Limits")
@@ -920,17 +920,17 @@ instance FromXML ExpressionStatus where
 --
 -- /See:/ 'indexField' smart constructor.
 data IndexField = IndexField'
-    { _ifDateOptions         :: !(Maybe DateOptions)
+    { _ifDoubleArrayOptions  :: !(Maybe DoubleArrayOptions)
+    , _ifDateOptions         :: !(Maybe DateOptions)
     , _ifTextArrayOptions    :: !(Maybe TextArrayOptions)
-    , _ifDoubleArrayOptions  :: !(Maybe DoubleArrayOptions)
     , _ifDoubleOptions       :: !(Maybe DoubleOptions)
     , _ifTextOptions         :: !(Maybe TextOptions)
     , _ifLatLonOptions       :: !(Maybe LatLonOptions)
-    , _ifIntArrayOptions     :: !(Maybe IntArrayOptions)
     , _ifLiteralArrayOptions :: !(Maybe LiteralArrayOptions)
+    , _ifIntArrayOptions     :: !(Maybe IntArrayOptions)
     , _ifDateArrayOptions    :: !(Maybe DateArrayOptions)
-    , _ifLiteralOptions      :: !(Maybe LiteralOptions)
     , _ifIntOptions          :: !(Maybe IntOptions)
+    , _ifLiteralOptions      :: !(Maybe LiteralOptions)
     , _ifIndexFieldName      :: !Text
     , _ifIndexFieldType      :: !IndexFieldType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -939,11 +939,11 @@ data IndexField = IndexField'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'ifDoubleArrayOptions'
+--
 -- * 'ifDateOptions'
 --
 -- * 'ifTextArrayOptions'
---
--- * 'ifDoubleArrayOptions'
 --
 -- * 'ifDoubleOptions'
 --
@@ -951,15 +951,15 @@ data IndexField = IndexField'
 --
 -- * 'ifLatLonOptions'
 --
--- * 'ifIntArrayOptions'
---
 -- * 'ifLiteralArrayOptions'
+--
+-- * 'ifIntArrayOptions'
 --
 -- * 'ifDateArrayOptions'
 --
--- * 'ifLiteralOptions'
---
 -- * 'ifIntOptions'
+--
+-- * 'ifLiteralOptions'
 --
 -- * 'ifIndexFieldName'
 --
@@ -970,20 +970,24 @@ indexField
     -> IndexField
 indexField pIndexFieldName_ pIndexFieldType_ =
     IndexField'
-    { _ifDateOptions = Nothing
+    { _ifDoubleArrayOptions = Nothing
+    , _ifDateOptions = Nothing
     , _ifTextArrayOptions = Nothing
-    , _ifDoubleArrayOptions = Nothing
     , _ifDoubleOptions = Nothing
     , _ifTextOptions = Nothing
     , _ifLatLonOptions = Nothing
-    , _ifIntArrayOptions = Nothing
     , _ifLiteralArrayOptions = Nothing
+    , _ifIntArrayOptions = Nothing
     , _ifDateArrayOptions = Nothing
-    , _ifLiteralOptions = Nothing
     , _ifIntOptions = Nothing
+    , _ifLiteralOptions = Nothing
     , _ifIndexFieldName = pIndexFieldName_
     , _ifIndexFieldType = pIndexFieldType_
     }
+
+-- | Undocumented member.
+ifDoubleArrayOptions :: Lens' IndexField (Maybe DoubleArrayOptions)
+ifDoubleArrayOptions = lens _ifDoubleArrayOptions (\ s a -> s{_ifDoubleArrayOptions = a});
 
 -- | Undocumented member.
 ifDateOptions :: Lens' IndexField (Maybe DateOptions)
@@ -992,10 +996,6 @@ ifDateOptions = lens _ifDateOptions (\ s a -> s{_ifDateOptions = a});
 -- | Undocumented member.
 ifTextArrayOptions :: Lens' IndexField (Maybe TextArrayOptions)
 ifTextArrayOptions = lens _ifTextArrayOptions (\ s a -> s{_ifTextArrayOptions = a});
-
--- | Undocumented member.
-ifDoubleArrayOptions :: Lens' IndexField (Maybe DoubleArrayOptions)
-ifDoubleArrayOptions = lens _ifDoubleArrayOptions (\ s a -> s{_ifDoubleArrayOptions = a});
 
 -- | Undocumented member.
 ifDoubleOptions :: Lens' IndexField (Maybe DoubleOptions)
@@ -1010,24 +1010,24 @@ ifLatLonOptions :: Lens' IndexField (Maybe LatLonOptions)
 ifLatLonOptions = lens _ifLatLonOptions (\ s a -> s{_ifLatLonOptions = a});
 
 -- | Undocumented member.
-ifIntArrayOptions :: Lens' IndexField (Maybe IntArrayOptions)
-ifIntArrayOptions = lens _ifIntArrayOptions (\ s a -> s{_ifIntArrayOptions = a});
-
--- | Undocumented member.
 ifLiteralArrayOptions :: Lens' IndexField (Maybe LiteralArrayOptions)
 ifLiteralArrayOptions = lens _ifLiteralArrayOptions (\ s a -> s{_ifLiteralArrayOptions = a});
+
+-- | Undocumented member.
+ifIntArrayOptions :: Lens' IndexField (Maybe IntArrayOptions)
+ifIntArrayOptions = lens _ifIntArrayOptions (\ s a -> s{_ifIntArrayOptions = a});
 
 -- | Undocumented member.
 ifDateArrayOptions :: Lens' IndexField (Maybe DateArrayOptions)
 ifDateArrayOptions = lens _ifDateArrayOptions (\ s a -> s{_ifDateArrayOptions = a});
 
 -- | Undocumented member.
-ifLiteralOptions :: Lens' IndexField (Maybe LiteralOptions)
-ifLiteralOptions = lens _ifLiteralOptions (\ s a -> s{_ifLiteralOptions = a});
-
--- | Undocumented member.
 ifIntOptions :: Lens' IndexField (Maybe IntOptions)
 ifIntOptions = lens _ifIntOptions (\ s a -> s{_ifIntOptions = a});
+
+-- | Undocumented member.
+ifLiteralOptions :: Lens' IndexField (Maybe LiteralOptions)
+ifLiteralOptions = lens _ifLiteralOptions (\ s a -> s{_ifLiteralOptions = a});
 
 -- | A string that represents the name of an index field. CloudSearch
 -- supports regular index fields as well as dynamic fields. A dynamic
@@ -1054,33 +1054,34 @@ ifIndexFieldType = lens _ifIndexFieldType (\ s a -> s{_ifIndexFieldType = a});
 instance FromXML IndexField where
         parseXML x
           = IndexField' <$>
-              (x .@? "DateOptions") <*> (x .@? "TextArrayOptions")
-                <*> (x .@? "DoubleArrayOptions")
+              (x .@? "DoubleArrayOptions") <*>
+                (x .@? "DateOptions")
+                <*> (x .@? "TextArrayOptions")
                 <*> (x .@? "DoubleOptions")
                 <*> (x .@? "TextOptions")
                 <*> (x .@? "LatLonOptions")
-                <*> (x .@? "IntArrayOptions")
                 <*> (x .@? "LiteralArrayOptions")
+                <*> (x .@? "IntArrayOptions")
                 <*> (x .@? "DateArrayOptions")
-                <*> (x .@? "LiteralOptions")
                 <*> (x .@? "IntOptions")
+                <*> (x .@? "LiteralOptions")
                 <*> (x .@ "IndexFieldName")
                 <*> (x .@ "IndexFieldType")
 
 instance ToQuery IndexField where
         toQuery IndexField'{..}
           = mconcat
-              ["DateOptions" =: _ifDateOptions,
+              ["DoubleArrayOptions" =: _ifDoubleArrayOptions,
+               "DateOptions" =: _ifDateOptions,
                "TextArrayOptions" =: _ifTextArrayOptions,
-               "DoubleArrayOptions" =: _ifDoubleArrayOptions,
                "DoubleOptions" =: _ifDoubleOptions,
                "TextOptions" =: _ifTextOptions,
                "LatLonOptions" =: _ifLatLonOptions,
-               "IntArrayOptions" =: _ifIntArrayOptions,
                "LiteralArrayOptions" =: _ifLiteralArrayOptions,
+               "IntArrayOptions" =: _ifIntArrayOptions,
                "DateArrayOptions" =: _ifDateArrayOptions,
-               "LiteralOptions" =: _ifLiteralOptions,
                "IntOptions" =: _ifIntOptions,
+               "LiteralOptions" =: _ifLiteralOptions,
                "IndexFieldName" =: _ifIndexFieldName,
                "IndexFieldType" =: _ifIndexFieldType]
 

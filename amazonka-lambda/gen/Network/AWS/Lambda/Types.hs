@@ -43,8 +43,8 @@ module Network.AWS.Lambda.Types
     , EventSourceMappingConfiguration
     , eventSourceMappingConfiguration
     , esmcEventSourceARN
-    , esmcFunctionARN
     , esmcState
+    , esmcFunctionARN
     , esmcUUId
     , esmcLastProcessingResult
     , esmcBatchSize
@@ -68,8 +68,8 @@ module Network.AWS.Lambda.Types
     -- * FunctionConfiguration
     , FunctionConfiguration
     , functionConfiguration
-    , fcRuntime
     , fcMemorySize
+    , fcRuntime
     , fcFunctionARN
     , fcRole
     , fcFunctionName

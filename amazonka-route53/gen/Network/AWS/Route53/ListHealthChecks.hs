@@ -38,8 +38,8 @@ module Network.AWS.Route53.ListHealthChecks
       listHealthChecks
     , ListHealthChecks
     -- * Request Lenses
-    , lhcMaxItems
     , lhcMarker
+    , lhcMaxItems
 
     -- * Destructuring the Response
     , listHealthChecksResponse
@@ -73,35 +73,35 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listHealthChecks' smart constructor.
 data ListHealthChecks = ListHealthChecks'
-    { _lhcMaxItems :: !(Maybe Text)
-    , _lhcMarker   :: !(Maybe Text)
+    { _lhcMarker   :: !(Maybe Text)
+    , _lhcMaxItems :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListHealthChecks' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lhcMaxItems'
---
 -- * 'lhcMarker'
+--
+-- * 'lhcMaxItems'
 listHealthChecks
     :: ListHealthChecks
 listHealthChecks =
     ListHealthChecks'
-    { _lhcMaxItems = Nothing
-    , _lhcMarker = Nothing
+    { _lhcMarker = Nothing
+    , _lhcMaxItems = Nothing
     }
-
--- | Specify the maximum number of health checks to return per page of
--- results.
-lhcMaxItems :: Lens' ListHealthChecks (Maybe Text)
-lhcMaxItems = lens _lhcMaxItems (\ s a -> s{_lhcMaxItems = a});
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of 'NextMarker' from the last response in
 -- the 'marker' parameter to get the next page of results.
 lhcMarker :: Lens' ListHealthChecks (Maybe Text)
 lhcMarker = lens _lhcMarker (\ s a -> s{_lhcMarker = a});
+
+-- | Specify the maximum number of health checks to return per page of
+-- results.
+lhcMaxItems :: Lens' ListHealthChecks (Maybe Text)
+lhcMaxItems = lens _lhcMaxItems (\ s a -> s{_lhcMaxItems = a});
 
 instance AWSPager ListHealthChecks where
         page rq rs
@@ -133,7 +133,7 @@ instance ToPath ListHealthChecks where
 instance ToQuery ListHealthChecks where
         toQuery ListHealthChecks'{..}
           = mconcat
-              ["maxitems" =: _lhcMaxItems, "marker" =: _lhcMarker]
+              ["marker" =: _lhcMarker, "maxitems" =: _lhcMaxItems]
 
 -- | A complex type that contains the response for the request.
 --

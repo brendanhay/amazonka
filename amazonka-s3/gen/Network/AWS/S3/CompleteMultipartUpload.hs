@@ -37,9 +37,9 @@ module Network.AWS.S3.CompleteMultipartUpload
     , completeMultipartUploadResponse
     , CompleteMultipartUploadResponse
     -- * Response Lenses
-    , crsVersionId
-    , crsETag
     , crsRequestCharged
+    , crsETag
+    , crsVersionId
     , crsLocation
     , crsExpiration
     , crsBucket
@@ -119,8 +119,8 @@ instance AWSRequest CompleteMultipartUpload where
           = receiveXML
               (\ s h x ->
                  CompleteMultipartUploadResponse' <$>
-                   (h .#? "x-amz-version-id") <*> (x .@? "ETag") <*>
-                     (h .#? "x-amz-request-charged")
+                   (h .#? "x-amz-request-charged") <*> (x .@? "ETag")
+                     <*> (h .#? "x-amz-version-id")
                      <*> (x .@? "Location")
                      <*> (h .#? "x-amz-expiration")
                      <*> (x .@? "Bucket")
@@ -151,9 +151,9 @@ instance ToQuery CompleteMultipartUpload where
 
 -- | /See:/ 'completeMultipartUploadResponse' smart constructor.
 data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
-    { _crsVersionId            :: !(Maybe ObjectVersionId)
+    { _crsRequestCharged       :: !(Maybe RequestCharged)
     , _crsETag                 :: !(Maybe ETag)
-    , _crsRequestCharged       :: !(Maybe RequestCharged)
+    , _crsVersionId            :: !(Maybe ObjectVersionId)
     , _crsLocation             :: !(Maybe Text)
     , _crsExpiration           :: !(Maybe Text)
     , _crsBucket               :: !(Maybe BucketName)
@@ -167,11 +167,11 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsVersionId'
+-- * 'crsRequestCharged'
 --
 -- * 'crsETag'
 --
--- * 'crsRequestCharged'
+-- * 'crsVersionId'
 --
 -- * 'crsLocation'
 --
@@ -191,9 +191,9 @@ completeMultipartUploadResponse
     -> CompleteMultipartUploadResponse
 completeMultipartUploadResponse pStatus_ =
     CompleteMultipartUploadResponse'
-    { _crsVersionId = Nothing
+    { _crsRequestCharged = Nothing
     , _crsETag = Nothing
-    , _crsRequestCharged = Nothing
+    , _crsVersionId = Nothing
     , _crsLocation = Nothing
     , _crsExpiration = Nothing
     , _crsBucket = Nothing
@@ -203,17 +203,17 @@ completeMultipartUploadResponse pStatus_ =
     , _crsStatus = pStatus_
     }
 
--- | Version of the object.
-crsVersionId :: Lens' CompleteMultipartUploadResponse (Maybe ObjectVersionId)
-crsVersionId = lens _crsVersionId (\ s a -> s{_crsVersionId = a});
+-- | Undocumented member.
+crsRequestCharged :: Lens' CompleteMultipartUploadResponse (Maybe RequestCharged)
+crsRequestCharged = lens _crsRequestCharged (\ s a -> s{_crsRequestCharged = a});
 
 -- | Entity tag of the object.
 crsETag :: Lens' CompleteMultipartUploadResponse (Maybe ETag)
 crsETag = lens _crsETag (\ s a -> s{_crsETag = a});
 
--- | Undocumented member.
-crsRequestCharged :: Lens' CompleteMultipartUploadResponse (Maybe RequestCharged)
-crsRequestCharged = lens _crsRequestCharged (\ s a -> s{_crsRequestCharged = a});
+-- | Version of the object.
+crsVersionId :: Lens' CompleteMultipartUploadResponse (Maybe ObjectVersionId)
+crsVersionId = lens _crsVersionId (\ s a -> s{_crsVersionId = a});
 
 -- | Undocumented member.
 crsLocation :: Lens' CompleteMultipartUploadResponse (Maybe Text)

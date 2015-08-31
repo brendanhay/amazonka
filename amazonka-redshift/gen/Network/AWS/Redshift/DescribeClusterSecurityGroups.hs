@@ -48,8 +48,8 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     , dcsgTagValues
     , dcsgTagKeys
     , dcsgClusterSecurityGroupName
-    , dcsgMaxRecords
     , dcsgMarker
+    , dcsgMaxRecords
 
     -- * Destructuring the Response
     , describeClusterSecurityGroupsResponse
@@ -74,8 +74,8 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
     { _dcsgTagValues                :: !(Maybe [Text])
     , _dcsgTagKeys                  :: !(Maybe [Text])
     , _dcsgClusterSecurityGroupName :: !(Maybe Text)
-    , _dcsgMaxRecords               :: !(Maybe Int)
     , _dcsgMarker                   :: !(Maybe Text)
+    , _dcsgMaxRecords               :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClusterSecurityGroups' with the minimum fields required to make a request.
@@ -88,9 +88,9 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
 --
 -- * 'dcsgClusterSecurityGroupName'
 --
--- * 'dcsgMaxRecords'
---
 -- * 'dcsgMarker'
+--
+-- * 'dcsgMaxRecords'
 describeClusterSecurityGroups
     :: DescribeClusterSecurityGroups
 describeClusterSecurityGroups =
@@ -98,8 +98,8 @@ describeClusterSecurityGroups =
     { _dcsgTagValues = Nothing
     , _dcsgTagKeys = Nothing
     , _dcsgClusterSecurityGroupName = Nothing
-    , _dcsgMaxRecords = Nothing
     , _dcsgMarker = Nothing
+    , _dcsgMaxRecords = Nothing
     }
 
 -- | A tag value or values for which you want to return all matching cluster
@@ -129,18 +129,6 @@ dcsgTagKeys = lens _dcsgTagKeys (\ s a -> s{_dcsgTagKeys = a}) . _Default . _Coe
 dcsgClusterSecurityGroupName :: Lens' DescribeClusterSecurityGroups (Maybe Text)
 dcsgClusterSecurityGroupName = lens _dcsgClusterSecurityGroupName (\ s a -> s{_dcsgClusterSecurityGroupName = a});
 
--- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified 'MaxRecords'
--- value, a value is returned in a 'marker' field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned marker value.
---
--- Default: '100'
---
--- Constraints: minimum 20, maximum 100.
-dcsgMaxRecords :: Lens' DescribeClusterSecurityGroups (Maybe Int)
-dcsgMaxRecords = lens _dcsgMaxRecords (\ s a -> s{_dcsgMaxRecords = a});
-
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusterSecurityGroups
 -- request exceed the value specified in 'MaxRecords', AWS returns a value
@@ -152,6 +140,18 @@ dcsgMaxRecords = lens _dcsgMaxRecords (\ s a -> s{_dcsgMaxRecords = a});
 -- parameter or the __Marker__ parameter, but not both.
 dcsgMarker :: Lens' DescribeClusterSecurityGroups (Maybe Text)
 dcsgMarker = lens _dcsgMarker (\ s a -> s{_dcsgMarker = a});
+
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified 'MaxRecords'
+-- value, a value is returned in a 'marker' field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
+--
+-- Default: '100'
+--
+-- Constraints: minimum 20, maximum 100.
+dcsgMaxRecords :: Lens' DescribeClusterSecurityGroups (Maybe Int)
+dcsgMaxRecords = lens _dcsgMaxRecords (\ s a -> s{_dcsgMaxRecords = a});
 
 instance AWSPager DescribeClusterSecurityGroups where
         page rq rs
@@ -194,8 +194,8 @@ instance ToQuery DescribeClusterSecurityGroups where
                  toQuery (toQueryList "TagKey" <$> _dcsgTagKeys),
                "ClusterSecurityGroupName" =:
                  _dcsgClusterSecurityGroupName,
-               "MaxRecords" =: _dcsgMaxRecords,
-               "Marker" =: _dcsgMarker]
+               "Marker" =: _dcsgMarker,
+               "MaxRecords" =: _dcsgMaxRecords]
 
 -- | Contains the output from the DescribeClusterSecurityGroups action.
 --

@@ -34,9 +34,9 @@ module Network.AWS.DeviceFarm.ListSuites
     , listSuitesResponse
     , ListSuitesResponse
     -- * Response Lenses
-    , lrsNextToken
-    , lrsSuites
-    , lrsStatus
+    , lsrsNextToken
+    , lsrsSuites
+    , lsrsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -115,40 +115,40 @@ instance ToQuery ListSuites where
 --
 -- /See:/ 'listSuitesResponse' smart constructor.
 data ListSuitesResponse = ListSuitesResponse'
-    { _lrsNextToken :: !(Maybe Text)
-    , _lrsSuites    :: !(Maybe [Suite])
-    , _lrsStatus    :: !Int
+    { _lsrsNextToken :: !(Maybe Text)
+    , _lsrsSuites    :: !(Maybe [Suite])
+    , _lsrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListSuitesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrsNextToken'
+-- * 'lsrsNextToken'
 --
--- * 'lrsSuites'
+-- * 'lsrsSuites'
 --
--- * 'lrsStatus'
+-- * 'lsrsStatus'
 listSuitesResponse
-    :: Int -- ^ 'lrsStatus'
+    :: Int -- ^ 'lsrsStatus'
     -> ListSuitesResponse
 listSuitesResponse pStatus_ =
     ListSuitesResponse'
-    { _lrsNextToken = Nothing
-    , _lrsSuites = Nothing
-    , _lrsStatus = pStatus_
+    { _lsrsNextToken = Nothing
+    , _lsrsSuites = Nothing
+    , _lsrsStatus = pStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent
 -- call to this operation to return the next set of items in the list.
-lrsNextToken :: Lens' ListSuitesResponse (Maybe Text)
-lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a});
+lsrsNextToken :: Lens' ListSuitesResponse (Maybe Text)
+lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
 -- | Information about the suites.
-lrsSuites :: Lens' ListSuitesResponse [Suite]
-lrsSuites = lens _lrsSuites (\ s a -> s{_lrsSuites = a}) . _Default . _Coerce;
+lsrsSuites :: Lens' ListSuitesResponse [Suite]
+lsrsSuites = lens _lsrsSuites (\ s a -> s{_lsrsSuites = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lrsStatus :: Lens' ListSuitesResponse Int
-lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});
+lsrsStatus :: Lens' ListSuitesResponse Int
+lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

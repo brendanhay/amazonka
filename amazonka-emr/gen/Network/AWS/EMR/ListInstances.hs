@@ -42,8 +42,8 @@ module Network.AWS.EMR.ListInstances
     , listInstancesResponse
     , ListInstancesResponse
     -- * Response Lenses
-    , lirsInstances
     , lirsMarker
+    , lirsInstances
     , lirsStatus
     ) where
 
@@ -116,7 +116,7 @@ instance AWSRequest ListInstances where
           = receiveJSON
               (\ s h x ->
                  ListInstancesResponse' <$>
-                   (x .?> "Instances" .!@ mempty) <*> (x .?> "Marker")
+                   (x .?> "Marker") <*> (x .?> "Instances" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders ListInstances where
@@ -147,8 +147,8 @@ instance ToQuery ListInstances where
 --
 -- /See:/ 'listInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
-    { _lirsInstances :: !(Maybe [Instance])
-    , _lirsMarker    :: !(Maybe Text)
+    { _lirsMarker    :: !(Maybe Text)
+    , _lirsInstances :: !(Maybe [Instance])
     , _lirsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -156,9 +156,9 @@ data ListInstancesResponse = ListInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lirsInstances'
---
 -- * 'lirsMarker'
+--
+-- * 'lirsInstances'
 --
 -- * 'lirsStatus'
 listInstancesResponse
@@ -166,18 +166,18 @@ listInstancesResponse
     -> ListInstancesResponse
 listInstancesResponse pStatus_ =
     ListInstancesResponse'
-    { _lirsInstances = Nothing
-    , _lirsMarker = Nothing
+    { _lirsMarker = Nothing
+    , _lirsInstances = Nothing
     , _lirsStatus = pStatus_
     }
-
--- | The list of instances for the cluster and given filters.
-lirsInstances :: Lens' ListInstancesResponse [Instance]
-lirsInstances = lens _lirsInstances (\ s a -> s{_lirsInstances = a}) . _Default . _Coerce;
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lirsMarker :: Lens' ListInstancesResponse (Maybe Text)
 lirsMarker = lens _lirsMarker (\ s a -> s{_lirsMarker = a});
+
+-- | The list of instances for the cluster and given filters.
+lirsInstances :: Lens' ListInstancesResponse [Instance]
+lirsInstances = lens _lirsInstances (\ s a -> s{_lirsInstances = a}) . _Default . _Coerce;
 
 -- | The response status code.
 lirsStatus :: Lens' ListInstancesResponse Int

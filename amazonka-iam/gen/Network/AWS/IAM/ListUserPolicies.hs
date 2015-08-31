@@ -39,8 +39,8 @@ module Network.AWS.IAM.ListUserPolicies
       listUserPolicies
     , ListUserPolicies
     -- * Request Lenses
-    , lupMaxItems
     , lupMarker
+    , lupMaxItems
     , lupUserName
 
     -- * Destructuring the Response
@@ -62,8 +62,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'listUserPolicies' smart constructor.
 data ListUserPolicies = ListUserPolicies'
-    { _lupMaxItems :: !(Maybe Nat)
-    , _lupMarker   :: !(Maybe Text)
+    { _lupMarker   :: !(Maybe Text)
+    , _lupMaxItems :: !(Maybe Nat)
     , _lupUserName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -71,9 +71,9 @@ data ListUserPolicies = ListUserPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lupMaxItems'
---
 -- * 'lupMarker'
+--
+-- * 'lupMaxItems'
 --
 -- * 'lupUserName'
 listUserPolicies
@@ -81,10 +81,16 @@ listUserPolicies
     -> ListUserPolicies
 listUserPolicies pUserName_ =
     ListUserPolicies'
-    { _lupMaxItems = Nothing
-    , _lupMarker = Nothing
+    { _lupMarker = Nothing
+    , _lupMaxItems = Nothing
     , _lupUserName = pUserName_
     }
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lupMarker :: Lens' ListUserPolicies (Maybe Text)
+lupMarker = lens _lupMarker (\ s a -> s{_lupMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -94,12 +100,6 @@ listUserPolicies pUserName_ =
 -- 100.
 lupMaxItems :: Lens' ListUserPolicies (Maybe Natural)
 lupMaxItems = lens _lupMaxItems (\ s a -> s{_lupMaxItems = a}) . mapping _Nat;
-
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lupMarker :: Lens' ListUserPolicies (Maybe Text)
-lupMarker = lens _lupMarker (\ s a -> s{_lupMarker = a});
 
 -- | The name of the user to list policies for.
 lupUserName :: Lens' ListUserPolicies Text
@@ -136,7 +136,7 @@ instance ToQuery ListUserPolicies where
           = mconcat
               ["Action" =: ("ListUserPolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _lupMaxItems, "Marker" =: _lupMarker,
+               "Marker" =: _lupMarker, "MaxItems" =: _lupMaxItems,
                "UserName" =: _lupUserName]
 
 -- | Contains the response to a successful ListUserPolicies request.

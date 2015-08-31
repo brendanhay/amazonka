@@ -677,11 +677,11 @@ instance FromXML MFADevice where
 data ManagedPolicyDetail = ManagedPolicyDetail'
     { _mpdPolicyName        :: !(Maybe Text)
     , _mpdARN               :: !(Maybe Text)
-    , _mpdPath              :: !(Maybe Text)
     , _mpdUpdateDate        :: !(Maybe ISO8601)
     , _mpdPolicyId          :: !(Maybe Text)
-    , _mpdCreateDate        :: !(Maybe ISO8601)
+    , _mpdPath              :: !(Maybe Text)
     , _mpdPolicyVersionList :: !(Maybe [PolicyVersion])
+    , _mpdCreateDate        :: !(Maybe ISO8601)
     , _mpdIsAttachable      :: !(Maybe Bool)
     , _mpdDefaultVersionId  :: !(Maybe Text)
     , _mpdAttachmentCount   :: !(Maybe Int)
@@ -696,15 +696,15 @@ data ManagedPolicyDetail = ManagedPolicyDetail'
 --
 -- * 'mpdARN'
 --
--- * 'mpdPath'
---
 -- * 'mpdUpdateDate'
 --
 -- * 'mpdPolicyId'
 --
--- * 'mpdCreateDate'
+-- * 'mpdPath'
 --
 -- * 'mpdPolicyVersionList'
+--
+-- * 'mpdCreateDate'
 --
 -- * 'mpdIsAttachable'
 --
@@ -719,11 +719,11 @@ managedPolicyDetail =
     ManagedPolicyDetail'
     { _mpdPolicyName = Nothing
     , _mpdARN = Nothing
-    , _mpdPath = Nothing
     , _mpdUpdateDate = Nothing
     , _mpdPolicyId = Nothing
-    , _mpdCreateDate = Nothing
+    , _mpdPath = Nothing
     , _mpdPolicyVersionList = Nothing
+    , _mpdCreateDate = Nothing
     , _mpdIsAttachable = Nothing
     , _mpdDefaultVersionId = Nothing
     , _mpdAttachmentCount = Nothing
@@ -737,14 +737,6 @@ mpdPolicyName = lens _mpdPolicyName (\ s a -> s{_mpdPolicyName = a});
 -- | Undocumented member.
 mpdARN :: Lens' ManagedPolicyDetail (Maybe Text)
 mpdARN = lens _mpdARN (\ s a -> s{_mpdARN = a});
-
--- | The path to the policy.
---
--- For more information about paths, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /Using IAM/ guide.
-mpdPath :: Lens' ManagedPolicyDetail (Maybe Text)
-mpdPath = lens _mpdPath (\ s a -> s{_mpdPath = a});
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -765,15 +757,23 @@ mpdUpdateDate = lens _mpdUpdateDate (\ s a -> s{_mpdUpdateDate = a}) . mapping _
 mpdPolicyId :: Lens' ManagedPolicyDetail (Maybe Text)
 mpdPolicyId = lens _mpdPolicyId (\ s a -> s{_mpdPolicyId = a});
 
+-- | The path to the policy.
+--
+-- For more information about paths, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+mpdPath :: Lens' ManagedPolicyDetail (Maybe Text)
+mpdPath = lens _mpdPath (\ s a -> s{_mpdPath = a});
+
+-- | A list containing information about the versions of the policy.
+mpdPolicyVersionList :: Lens' ManagedPolicyDetail [PolicyVersion]
+mpdPolicyVersionList = lens _mpdPolicyVersionList (\ s a -> s{_mpdPolicyVersionList = a}) . _Default . _Coerce;
+
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- policy was created.
 mpdCreateDate :: Lens' ManagedPolicyDetail (Maybe UTCTime)
 mpdCreateDate = lens _mpdCreateDate (\ s a -> s{_mpdCreateDate = a}) . mapping _Time;
-
--- | A list containing information about the versions of the policy.
-mpdPolicyVersionList :: Lens' ManagedPolicyDetail [PolicyVersion]
-mpdPolicyVersionList = lens _mpdPolicyVersionList (\ s a -> s{_mpdPolicyVersionList = a}) . _Default . _Coerce;
 
 -- | Specifies whether the policy can be attached to an IAM user, group, or
 -- role.
@@ -802,13 +802,13 @@ instance FromXML ManagedPolicyDetail where
         parseXML x
           = ManagedPolicyDetail' <$>
               (x .@? "PolicyName") <*> (x .@? "Arn") <*>
-                (x .@? "Path")
-                <*> (x .@? "UpdateDate")
+                (x .@? "UpdateDate")
                 <*> (x .@? "PolicyId")
-                <*> (x .@? "CreateDate")
+                <*> (x .@? "Path")
                 <*>
                 (x .@? "PolicyVersionList" .!@ mempty >>=
                    may (parseXMLList "member"))
+                <*> (x .@? "CreateDate")
                 <*> (x .@? "IsAttachable")
                 <*> (x .@? "DefaultVersionId")
                 <*> (x .@? "AttachmentCount")
@@ -850,8 +850,8 @@ instance FromXML OpenIdConnectProviderListEntry where
 -- /See:/ 'passwordPolicy' smart constructor.
 data PasswordPolicy = PasswordPolicy'
     { _ppExpirePasswords            :: !(Maybe Bool)
-    , _ppRequireNumbers             :: !(Maybe Bool)
     , _ppMinimumPasswordLength      :: !(Maybe Nat)
+    , _ppRequireNumbers             :: !(Maybe Bool)
     , _ppPasswordReusePrevention    :: !(Maybe Nat)
     , _ppRequireLowercaseCharacters :: !(Maybe Bool)
     , _ppMaxPasswordAge             :: !(Maybe Nat)
@@ -867,9 +867,9 @@ data PasswordPolicy = PasswordPolicy'
 --
 -- * 'ppExpirePasswords'
 --
--- * 'ppRequireNumbers'
---
 -- * 'ppMinimumPasswordLength'
+--
+-- * 'ppRequireNumbers'
 --
 -- * 'ppPasswordReusePrevention'
 --
@@ -889,8 +889,8 @@ passwordPolicy
 passwordPolicy =
     PasswordPolicy'
     { _ppExpirePasswords = Nothing
-    , _ppRequireNumbers = Nothing
     , _ppMinimumPasswordLength = Nothing
+    , _ppRequireNumbers = Nothing
     , _ppPasswordReusePrevention = Nothing
     , _ppRequireLowercaseCharacters = Nothing
     , _ppMaxPasswordAge = Nothing
@@ -905,13 +905,13 @@ passwordPolicy =
 ppExpirePasswords :: Lens' PasswordPolicy (Maybe Bool)
 ppExpirePasswords = lens _ppExpirePasswords (\ s a -> s{_ppExpirePasswords = a});
 
--- | Specifies whether to require numbers for IAM user passwords.
-ppRequireNumbers :: Lens' PasswordPolicy (Maybe Bool)
-ppRequireNumbers = lens _ppRequireNumbers (\ s a -> s{_ppRequireNumbers = a});
-
 -- | Minimum length to require for IAM user passwords.
 ppMinimumPasswordLength :: Lens' PasswordPolicy (Maybe Natural)
 ppMinimumPasswordLength = lens _ppMinimumPasswordLength (\ s a -> s{_ppMinimumPasswordLength = a}) . mapping _Nat;
+
+-- | Specifies whether to require numbers for IAM user passwords.
+ppRequireNumbers :: Lens' PasswordPolicy (Maybe Bool)
+ppRequireNumbers = lens _ppRequireNumbers (\ s a -> s{_ppRequireNumbers = a});
 
 -- | Specifies the number of previous passwords that IAM users are prevented
 -- from reusing.
@@ -949,8 +949,8 @@ instance FromXML PasswordPolicy where
         parseXML x
           = PasswordPolicy' <$>
               (x .@? "ExpirePasswords") <*>
-                (x .@? "RequireNumbers")
-                <*> (x .@? "MinimumPasswordLength")
+                (x .@? "MinimumPasswordLength")
+                <*> (x .@? "RequireNumbers")
                 <*> (x .@? "PasswordReusePrevention")
                 <*> (x .@? "RequireLowercaseCharacters")
                 <*> (x .@? "MaxPasswordAge")
@@ -972,9 +972,9 @@ instance FromXML PasswordPolicy where
 data Policy = Policy'
     { _pPolicyName       :: !(Maybe Text)
     , _pARN              :: !(Maybe Text)
-    , _pPath             :: !(Maybe Text)
     , _pUpdateDate       :: !(Maybe ISO8601)
     , _pPolicyId         :: !(Maybe Text)
+    , _pPath             :: !(Maybe Text)
     , _pCreateDate       :: !(Maybe ISO8601)
     , _pIsAttachable     :: !(Maybe Bool)
     , _pDefaultVersionId :: !(Maybe Text)
@@ -990,11 +990,11 @@ data Policy = Policy'
 --
 -- * 'pARN'
 --
--- * 'pPath'
---
 -- * 'pUpdateDate'
 --
 -- * 'pPolicyId'
+--
+-- * 'pPath'
 --
 -- * 'pCreateDate'
 --
@@ -1011,9 +1011,9 @@ policy =
     Policy'
     { _pPolicyName = Nothing
     , _pARN = Nothing
-    , _pPath = Nothing
     , _pUpdateDate = Nothing
     , _pPolicyId = Nothing
+    , _pPath = Nothing
     , _pCreateDate = Nothing
     , _pIsAttachable = Nothing
     , _pDefaultVersionId = Nothing
@@ -1028,14 +1028,6 @@ pPolicyName = lens _pPolicyName (\ s a -> s{_pPolicyName = a});
 -- | Undocumented member.
 pARN :: Lens' Policy (Maybe Text)
 pARN = lens _pARN (\ s a -> s{_pARN = a});
-
--- | The path to the policy.
---
--- For more information about paths, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /Using IAM/ guide.
-pPath :: Lens' Policy (Maybe Text)
-pPath = lens _pPath (\ s a -> s{_pPath = a});
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -1055,6 +1047,14 @@ pUpdateDate = lens _pUpdateDate (\ s a -> s{_pUpdateDate = a}) . mapping _Time;
 -- in the /Using IAM/ guide.
 pPolicyId :: Lens' Policy (Maybe Text)
 pPolicyId = lens _pPolicyId (\ s a -> s{_pPolicyId = a});
+
+-- | The path to the policy.
+--
+-- For more information about paths, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+pPath :: Lens' Policy (Maybe Text)
+pPath = lens _pPath (\ s a -> s{_pPath = a});
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -1088,9 +1088,9 @@ instance FromXML Policy where
         parseXML x
           = Policy' <$>
               (x .@? "PolicyName") <*> (x .@? "Arn") <*>
-                (x .@? "Path")
-                <*> (x .@? "UpdateDate")
+                (x .@? "UpdateDate")
                 <*> (x .@? "PolicyId")
+                <*> (x .@? "Path")
                 <*> (x .@? "CreateDate")
                 <*> (x .@? "IsAttachable")
                 <*> (x .@? "DefaultVersionId")
@@ -2048,9 +2048,9 @@ instance FromXML User where
 --
 -- /See:/ 'userDetail' smart constructor.
 data UserDetail = UserDetail'
-    { _udARN                     :: !(Maybe Text)
+    { _udGroupList               :: !(Maybe [Text])
+    , _udARN                     :: !(Maybe Text)
     , _udPath                    :: !(Maybe Text)
-    , _udGroupList               :: !(Maybe [Text])
     , _udCreateDate              :: !(Maybe ISO8601)
     , _udUserName                :: !(Maybe Text)
     , _udUserId                  :: !(Maybe Text)
@@ -2062,11 +2062,11 @@ data UserDetail = UserDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'udGroupList'
+--
 -- * 'udARN'
 --
 -- * 'udPath'
---
--- * 'udGroupList'
 --
 -- * 'udCreateDate'
 --
@@ -2081,15 +2081,19 @@ userDetail
     :: UserDetail
 userDetail =
     UserDetail'
-    { _udARN = Nothing
+    { _udGroupList = Nothing
+    , _udARN = Nothing
     , _udPath = Nothing
-    , _udGroupList = Nothing
     , _udCreateDate = Nothing
     , _udUserName = Nothing
     , _udUserId = Nothing
     , _udUserPolicyList = Nothing
     , _udAttachedManagedPolicies = Nothing
     }
+
+-- | A list of IAM groups that the user is in.
+udGroupList :: Lens' UserDetail [Text]
+udGroupList = lens _udGroupList (\ s a -> s{_udGroupList = a}) . _Default . _Coerce;
 
 -- | Undocumented member.
 udARN :: Lens' UserDetail (Maybe Text)
@@ -2100,10 +2104,6 @@ udARN = lens _udARN (\ s a -> s{_udARN = a});
 -- in the /Using IAM/ guide.
 udPath :: Lens' UserDetail (Maybe Text)
 udPath = lens _udPath (\ s a -> s{_udPath = a});
-
--- | A list of IAM groups that the user is in.
-udGroupList :: Lens' UserDetail [Text]
-udGroupList = lens _udGroupList (\ s a -> s{_udGroupList = a}) . _Default . _Coerce;
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -2133,9 +2133,10 @@ udAttachedManagedPolicies = lens _udAttachedManagedPolicies (\ s a -> s{_udAttac
 instance FromXML UserDetail where
         parseXML x
           = UserDetail' <$>
-              (x .@? "Arn") <*> (x .@? "Path") <*>
-                (x .@? "GroupList" .!@ mempty >>=
-                   may (parseXMLList "member"))
+              (x .@? "GroupList" .!@ mempty >>=
+                 may (parseXMLList "member"))
+                <*> (x .@? "Arn")
+                <*> (x .@? "Path")
                 <*> (x .@? "CreateDate")
                 <*> (x .@? "UserName")
                 <*> (x .@? "UserId")

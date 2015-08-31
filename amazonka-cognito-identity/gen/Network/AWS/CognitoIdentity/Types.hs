@@ -21,8 +21,8 @@ module Network.AWS.CognitoIdentity.Types
     , _NotAuthorizedException
     , _InternalErrorException
     , _ExternalServiceException
-    , _ConcurrentModificationException
     , _TooManyRequestsException
+    , _ConcurrentModificationException
     , _ResourceConflictException
     , _DeveloperUserAlreadyRegisteredException
     , _ResourceNotFoundException
@@ -134,15 +134,15 @@ _ExternalServiceException :: AsError a => Getting (First ServiceError) a Service
 _ExternalServiceException =
     _ServiceError . hasStatus 400 . hasCode "ExternalServiceException"
 
--- | Thrown if there are parallel requests to modify a resource.
-_ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
-_ConcurrentModificationException =
-    _ServiceError . hasStatus 400 . hasCode "ConcurrentModificationException"
-
 -- | Thrown when a request is throttled.
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException =
     _ServiceError . hasStatus 429 . hasCode "TooManyRequestsException"
+
+-- | Thrown if there are parallel requests to modify a resource.
+_ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
+_ConcurrentModificationException =
+    _ServiceError . hasStatus 400 . hasCode "ConcurrentModificationException"
 
 -- | Thrown when a user tries to use a login which is already linked to
 -- another account.

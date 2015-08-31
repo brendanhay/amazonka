@@ -34,11 +34,11 @@ module Network.AWS.DirectConnect.Types
     , cVlan
     , cLocation
     , cConnectionId
-    , cConnectionName
     , cPartnerName
+    , cConnectionName
     , cBandwidth
-    , cRegion
     , cOwnerAccount
+    , cRegion
     , cConnectionState
 
     -- * Connections
@@ -50,8 +50,8 @@ module Network.AWS.DirectConnect.Types
     , Interconnect
     , interconnect
     , iInterconnectId
-    , iInterconnectName
     , iLocation
+    , iInterconnectName
     , iBandwidth
     , iInterconnectState
     , iRegion
@@ -127,8 +127,8 @@ module Network.AWS.DirectConnect.Types
     , viAmazonAddress
     , viVirtualInterfaceState
     , viConnectionId
-    , viAsn
     , viVirtualInterfaceType
+    , viAsn
     , viAuthKey
     , viCustomerRouterConfig
     , viOwnerAccount

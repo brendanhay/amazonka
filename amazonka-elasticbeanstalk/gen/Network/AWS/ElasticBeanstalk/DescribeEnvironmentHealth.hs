@@ -30,8 +30,8 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
     , DescribeEnvironmentHealth
     -- * Request Lenses
     , dehEnvironmentName
-    , dehEnvironmentId
     , dehAttributeNames
+    , dehEnvironmentId
 
     -- * Destructuring the Response
     , describeEnvironmentHealthResponse
@@ -58,8 +58,8 @@ import           Network.AWS.Response
 -- /See:/ 'describeEnvironmentHealth' smart constructor.
 data DescribeEnvironmentHealth = DescribeEnvironmentHealth'
     { _dehEnvironmentName :: !(Maybe Text)
-    , _dehEnvironmentId   :: !(Maybe Text)
     , _dehAttributeNames  :: !(Maybe [EnvironmentHealthAttribute])
+    , _dehEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEnvironmentHealth' with the minimum fields required to make a request.
@@ -68,31 +68,31 @@ data DescribeEnvironmentHealth = DescribeEnvironmentHealth'
 --
 -- * 'dehEnvironmentName'
 --
--- * 'dehEnvironmentId'
---
 -- * 'dehAttributeNames'
+--
+-- * 'dehEnvironmentId'
 describeEnvironmentHealth
     :: DescribeEnvironmentHealth
 describeEnvironmentHealth =
     DescribeEnvironmentHealth'
     { _dehEnvironmentName = Nothing
-    , _dehEnvironmentId = Nothing
     , _dehAttributeNames = Nothing
+    , _dehEnvironmentId = Nothing
     }
 
 -- | Specifies the AWS Elastic Beanstalk environment name.
 dehEnvironmentName :: Lens' DescribeEnvironmentHealth (Maybe Text)
 dehEnvironmentName = lens _dehEnvironmentName (\ s a -> s{_dehEnvironmentName = a});
 
--- | Specifies the AWS Elastic Beanstalk environment ID.
-dehEnvironmentId :: Lens' DescribeEnvironmentHealth (Maybe Text)
-dehEnvironmentId = lens _dehEnvironmentId (\ s a -> s{_dehEnvironmentId = a});
-
 -- | Specifies the response elements you wish to receive. If no attribute
 -- names are specified, AWS Elastic Beanstalk returns all response
 -- elements.
 dehAttributeNames :: Lens' DescribeEnvironmentHealth [EnvironmentHealthAttribute]
 dehAttributeNames = lens _dehAttributeNames (\ s a -> s{_dehAttributeNames = a}) . _Default . _Coerce;
+
+-- | Specifies the AWS Elastic Beanstalk environment ID.
+dehEnvironmentId :: Lens' DescribeEnvironmentHealth (Maybe Text)
+dehEnvironmentId = lens _dehEnvironmentId (\ s a -> s{_dehEnvironmentId = a});
 
 instance AWSRequest DescribeEnvironmentHealth where
         type Rs DescribeEnvironmentHealth =
@@ -125,10 +125,10 @@ instance ToQuery DescribeEnvironmentHealth where
                  ("DescribeEnvironmentHealth" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
                "EnvironmentName" =: _dehEnvironmentName,
-               "EnvironmentId" =: _dehEnvironmentId,
                "AttributeNames" =:
                  toQuery
-                   (toQueryList "member" <$> _dehAttributeNames)]
+                   (toQueryList "member" <$> _dehAttributeNames),
+               "EnvironmentId" =: _dehEnvironmentId]
 
 -- | See the example below for a sample response.
 --

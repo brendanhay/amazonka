@@ -37,11 +37,11 @@ module Network.AWS.Kinesis
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
 
-    -- ** ResourceInUseException
-    , _ResourceInUseException
-
     -- ** LimitExceededException
     , _LimitExceededException
+
+    -- ** ResourceInUseException
+    , _ResourceInUseException
 
     -- * Waiters
     -- $waiters
@@ -58,11 +58,11 @@ module Network.AWS.Kinesis
     -- ** MergeShards
     , module Network.AWS.Kinesis.MergeShards
 
-    -- ** GetRecords
-    , module Network.AWS.Kinesis.GetRecords
-
     -- ** GetShardIterator
     , module Network.AWS.Kinesis.GetShardIterator
+
+    -- ** GetRecords
+    , module Network.AWS.Kinesis.GetRecords
 
     -- ** ListTagsForStream
     , module Network.AWS.Kinesis.ListTagsForStream

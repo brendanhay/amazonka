@@ -27,11 +27,11 @@ module Network.AWS.AutoScaling
     -- * Errors
     -- $errors
 
-    -- ** LimitExceededFault
-    , _LimitExceededFault
-
     -- ** AlreadyExistsFault
     , _AlreadyExistsFault
+
+    -- ** LimitExceededFault
+    , _LimitExceededFault
 
     -- ** ResourceInUseFault
     , _ResourceInUseFault
@@ -54,32 +54,32 @@ module Network.AWS.AutoScaling
     -- ** DescribeMetricCollectionTypes
     , module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
 
-    -- ** PutScalingPolicy
-    , module Network.AWS.AutoScaling.PutScalingPolicy
-
-    -- ** DeleteNotificationConfiguration
-    , module Network.AWS.AutoScaling.DeleteNotificationConfiguration
-
-    -- ** DescribeTags (Paginated)
-    , module Network.AWS.AutoScaling.DescribeTags
-
-    -- ** DeleteLaunchConfiguration
-    , module Network.AWS.AutoScaling.DeleteLaunchConfiguration
-
     -- ** DescribeLoadBalancers
     , module Network.AWS.AutoScaling.DescribeLoadBalancers
 
     -- ** PutNotificationConfiguration
     , module Network.AWS.AutoScaling.PutNotificationConfiguration
 
-    -- ** SetInstanceHealth
-    , module Network.AWS.AutoScaling.SetInstanceHealth
+    -- ** DescribeTags (Paginated)
+    , module Network.AWS.AutoScaling.DescribeTags
+
+    -- ** DeleteNotificationConfiguration
+    , module Network.AWS.AutoScaling.DeleteNotificationConfiguration
+
+    -- ** PutScalingPolicy
+    , module Network.AWS.AutoScaling.PutScalingPolicy
+
+    -- ** DeleteLaunchConfiguration
+    , module Network.AWS.AutoScaling.DeleteLaunchConfiguration
 
     -- ** EnterStandby
     , module Network.AWS.AutoScaling.EnterStandby
 
     -- ** SuspendProcesses
     , module Network.AWS.AutoScaling.SuspendProcesses
+
+    -- ** SetInstanceHealth
+    , module Network.AWS.AutoScaling.SetInstanceHealth
 
     -- ** ExitStandby
     , module Network.AWS.AutoScaling.ExitStandby
@@ -90,23 +90,23 @@ module Network.AWS.AutoScaling
     -- ** DescribeAutoScalingInstances (Paginated)
     , module Network.AWS.AutoScaling.DescribeAutoScalingInstances
 
-    -- ** DetachInstances
-    , module Network.AWS.AutoScaling.DetachInstances
+    -- ** RecordLifecycleActionHeartbeat
+    , module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
 
     -- ** DisableMetricsCollection
     , module Network.AWS.AutoScaling.DisableMetricsCollection
 
-    -- ** RecordLifecycleActionHeartbeat
-    , module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
+    -- ** DetachInstances
+    , module Network.AWS.AutoScaling.DetachInstances
 
-    -- ** DeleteTags
-    , module Network.AWS.AutoScaling.DeleteTags
+    -- ** EnableMetricsCollection
+    , module Network.AWS.AutoScaling.EnableMetricsCollection
 
     -- ** DescribeScalingProcessTypes
     , module Network.AWS.AutoScaling.DescribeScalingProcessTypes
 
-    -- ** EnableMetricsCollection
-    , module Network.AWS.AutoScaling.EnableMetricsCollection
+    -- ** DeleteTags
+    , module Network.AWS.AutoScaling.DeleteTags
 
     -- ** DescribeLifecycleHooks
     , module Network.AWS.AutoScaling.DescribeLifecycleHooks
@@ -114,41 +114,41 @@ module Network.AWS.AutoScaling
     -- ** DescribeAutoScalingGroups (Paginated)
     , module Network.AWS.AutoScaling.DescribeAutoScalingGroups
 
+    -- ** DeleteScheduledAction
+    , module Network.AWS.AutoScaling.DeleteScheduledAction
+
     -- ** SetDesiredCapacity
     , module Network.AWS.AutoScaling.SetDesiredCapacity
 
     -- ** DetachLoadBalancers
     , module Network.AWS.AutoScaling.DetachLoadBalancers
 
-    -- ** DeleteScheduledAction
-    , module Network.AWS.AutoScaling.DeleteScheduledAction
+    -- ** DescribeAutoScalingNotificationTypes
+    , module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
+
+    -- ** DescribeScheduledActions (Paginated)
+    , module Network.AWS.AutoScaling.DescribeScheduledActions
 
     -- ** CreateOrUpdateTags
     , module Network.AWS.AutoScaling.CreateOrUpdateTags
 
-    -- ** DeletePolicy
-    , module Network.AWS.AutoScaling.DeletePolicy
-
-    -- ** DescribeAutoScalingNotificationTypes
-    , module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
-
     -- ** CompleteLifecycleAction
     , module Network.AWS.AutoScaling.CompleteLifecycleAction
+
+    -- ** DeletePolicy
+    , module Network.AWS.AutoScaling.DeletePolicy
 
     -- ** AttachInstances
     , module Network.AWS.AutoScaling.AttachInstances
 
-    -- ** DescribeScheduledActions (Paginated)
-    , module Network.AWS.AutoScaling.DescribeScheduledActions
+    -- ** UpdateAutoScalingGroup
+    , module Network.AWS.AutoScaling.UpdateAutoScalingGroup
 
     -- ** DeleteAutoScalingGroup
     , module Network.AWS.AutoScaling.DeleteAutoScalingGroup
 
     -- ** PutLifecycleHook
     , module Network.AWS.AutoScaling.PutLifecycleHook
-
-    -- ** UpdateAutoScalingGroup
-    , module Network.AWS.AutoScaling.UpdateAutoScalingGroup
 
     -- ** DeleteLifecycleHook
     , module Network.AWS.AutoScaling.DeleteLifecycleHook
@@ -159,14 +159,14 @@ module Network.AWS.AutoScaling
     -- ** ExecutePolicy
     , module Network.AWS.AutoScaling.ExecutePolicy
 
-    -- ** TerminateInstanceInAutoScalingGroup
-    , module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
-
     -- ** DescribeAccountLimits
     , module Network.AWS.AutoScaling.DescribeAccountLimits
 
     -- ** AttachLoadBalancers
     , module Network.AWS.AutoScaling.AttachLoadBalancers
+
+    -- ** TerminateInstanceInAutoScalingGroup
+    , module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
 
     -- ** PutScheduledUpdateGroupAction
     , module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
@@ -174,26 +174,26 @@ module Network.AWS.AutoScaling
     -- ** DescribePolicies (Paginated)
     , module Network.AWS.AutoScaling.DescribePolicies
 
-    -- ** DescribeNotificationConfigurations (Paginated)
-    , module Network.AWS.AutoScaling.DescribeNotificationConfigurations
-
     -- ** DescribeLaunchConfigurations (Paginated)
     , module Network.AWS.AutoScaling.DescribeLaunchConfigurations
+
+    -- ** DescribeScalingActivities (Paginated)
+    , module Network.AWS.AutoScaling.DescribeScalingActivities
+
+    -- ** DescribeNotificationConfigurations (Paginated)
+    , module Network.AWS.AutoScaling.DescribeNotificationConfigurations
 
     -- ** DescribeLifecycleHookTypes
     , module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
 
-    -- ** DescribeScalingActivities (Paginated)
-    , module Network.AWS.AutoScaling.DescribeScalingActivities
+    -- ** DescribeAdjustmentTypes
+    , module Network.AWS.AutoScaling.DescribeAdjustmentTypes
 
     -- ** CreateAutoScalingGroup
     , module Network.AWS.AutoScaling.CreateAutoScalingGroup
 
     -- ** CreateLaunchConfiguration
     , module Network.AWS.AutoScaling.CreateLaunchConfiguration
-
-    -- ** DescribeAdjustmentTypes
-    , module Network.AWS.AutoScaling.DescribeAdjustmentTypes
 
     -- * Types
 
@@ -208,8 +208,8 @@ module Network.AWS.AutoScaling
     , activity
     , aProgress
     , aStatusMessage
-    , aDetails
     , aEndTime
+    , aDetails
     , aDescription
     , aActivityId
     , aAutoScalingGroupName
@@ -236,11 +236,11 @@ module Network.AWS.AutoScaling
     , asgHealthCheckGracePeriod
     , asgVPCZoneIdentifier
     , asgEnabledMetrics
-    , asgInstances
     , asgLaunchConfigurationName
+    , asgInstances
     , asgAutoScalingGroupARN
-    , asgSuspendedProcesses
     , asgPlacementGroup
+    , asgSuspendedProcesses
     , asgLoadBalancerNames
     , asgTags
     , asgAutoScalingGroupName
@@ -308,10 +308,10 @@ module Network.AWS.AutoScaling
     -- ** LaunchConfiguration
     , LaunchConfiguration
     , launchConfiguration
-    , lcSecurityGroups
     , lcAssociatePublicIPAddress
-    , lcInstanceMonitoring
+    , lcSecurityGroups
     , lcSpotPrice
+    , lcInstanceMonitoring
     , lcKeyName
     , lcClassicLinkVPCSecurityGroups
     , lcRAMDiskId
@@ -337,9 +337,9 @@ module Network.AWS.AutoScaling
     , lhAutoScalingGroupName
     , lhNotificationMetadata
     , lhGlobalTimeout
-    , lhRoleARN
-    , lhLifecycleTransition
     , lhNotificationTargetARN
+    , lhLifecycleTransition
+    , lhRoleARN
 
     -- ** LoadBalancerState
     , LoadBalancerState
@@ -372,14 +372,14 @@ module Network.AWS.AutoScaling
     -- ** ScalingPolicy
     , ScalingPolicy
     , scalingPolicy
-    , sEstimatedInstanceWarmup
     , sMinAdjustmentStep
+    , sEstimatedInstanceWarmup
     , sPolicyName
     , sPolicyType
     , sStepAdjustments
     , sAdjustmentType
-    , sScalingAdjustment
     , sAutoScalingGroupName
+    , sScalingAdjustment
     , sCooldown
     , sPolicyARN
     , sAlarms
@@ -396,15 +396,15 @@ module Network.AWS.AutoScaling
     , ScheduledUpdateGroupAction
     , scheduledUpdateGroupAction
     , sugaScheduledActionARN
-    , sugaTime
     , sugaStartTime
+    , sugaTime
     , sugaScheduledActionName
     , sugaMaxSize
-    , sugaDesiredCapacity
     , sugaRecurrence
+    , sugaDesiredCapacity
     , sugaMinSize
-    , sugaEndTime
     , sugaAutoScalingGroupName
+    , sugaEndTime
 
     -- ** StepAdjustment
     , StepAdjustment

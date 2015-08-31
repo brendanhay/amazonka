@@ -39,11 +39,11 @@ module Network.AWS.MachineLearning.GetEvaluation
     , gersCreatedAt
     , gersInputDataLocationS3
     , gersMLModelId
-    , gersName
     , gersCreatedByIAMUser
+    , gersName
     , gersLogURI
-    , gersMessage
     , gersEvaluationId
+    , gersMessage
     , gersEvaluationDataSourceId
     , gersStatus
     ) where
@@ -90,11 +90,11 @@ instance AWSRequest GetEvaluation where
                      <*> (x .?> "CreatedAt")
                      <*> (x .?> "InputDataLocationS3")
                      <*> (x .?> "MLModelId")
-                     <*> (x .?> "Name")
                      <*> (x .?> "CreatedByIamUser")
+                     <*> (x .?> "Name")
                      <*> (x .?> "LogUri")
-                     <*> (x .?> "Message")
                      <*> (x .?> "EvaluationId")
+                     <*> (x .?> "Message")
                      <*> (x .?> "EvaluationDataSourceId")
                      <*> (pure (fromEnum s)))
 
@@ -129,11 +129,11 @@ data GetEvaluationResponse = GetEvaluationResponse'
     , _gersCreatedAt              :: !(Maybe POSIX)
     , _gersInputDataLocationS3    :: !(Maybe Text)
     , _gersMLModelId              :: !(Maybe Text)
-    , _gersName                   :: !(Maybe Text)
     , _gersCreatedByIAMUser       :: !(Maybe Text)
+    , _gersName                   :: !(Maybe Text)
     , _gersLogURI                 :: !(Maybe Text)
-    , _gersMessage                :: !(Maybe Text)
     , _gersEvaluationId           :: !(Maybe Text)
+    , _gersMessage                :: !(Maybe Text)
     , _gersEvaluationDataSourceId :: !(Maybe Text)
     , _gersStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -152,15 +152,15 @@ data GetEvaluationResponse = GetEvaluationResponse'
 --
 -- * 'gersMLModelId'
 --
--- * 'gersName'
---
 -- * 'gersCreatedByIAMUser'
+--
+-- * 'gersName'
 --
 -- * 'gersLogURI'
 --
--- * 'gersMessage'
---
 -- * 'gersEvaluationId'
+--
+-- * 'gersMessage'
 --
 -- * 'gersEvaluationDataSourceId'
 --
@@ -175,11 +175,11 @@ getEvaluationResponse pStatus_ =
     , _gersCreatedAt = Nothing
     , _gersInputDataLocationS3 = Nothing
     , _gersMLModelId = Nothing
-    , _gersName = Nothing
     , _gersCreatedByIAMUser = Nothing
+    , _gersName = Nothing
     , _gersLogURI = Nothing
-    , _gersMessage = Nothing
     , _gersEvaluationId = Nothing
+    , _gersMessage = Nothing
     , _gersEvaluationDataSourceId = Nothing
     , _gersStatus = pStatus_
     }
@@ -223,27 +223,27 @@ gersInputDataLocationS3 = lens _gersInputDataLocationS3 (\ s a -> s{_gersInputDa
 gersMLModelId :: Lens' GetEvaluationResponse (Maybe Text)
 gersMLModelId = lens _gersMLModelId (\ s a -> s{_gersMLModelId = a});
 
--- | A user-supplied name or description of the 'Evaluation'.
-gersName :: Lens' GetEvaluationResponse (Maybe Text)
-gersName = lens _gersName (\ s a -> s{_gersName = a});
-
 -- | The AWS user account that invoked the evaluation. The account type can
 -- be either an AWS root account or an AWS Identity and Access Management
 -- (IAM) user account.
 gersCreatedByIAMUser :: Lens' GetEvaluationResponse (Maybe Text)
 gersCreatedByIAMUser = lens _gersCreatedByIAMUser (\ s a -> s{_gersCreatedByIAMUser = a});
 
+-- | A user-supplied name or description of the 'Evaluation'.
+gersName :: Lens' GetEvaluationResponse (Maybe Text)
+gersName = lens _gersName (\ s a -> s{_gersName = a});
+
 -- | A link to the file that contains logs of the CreateEvaluation operation.
 gersLogURI :: Lens' GetEvaluationResponse (Maybe Text)
 gersLogURI = lens _gersLogURI (\ s a -> s{_gersLogURI = a});
 
--- | A description of the most recent details about evaluating the 'MLModel'.
-gersMessage :: Lens' GetEvaluationResponse (Maybe Text)
-gersMessage = lens _gersMessage (\ s a -> s{_gersMessage = a});
-
 -- | The evaluation ID which is same as the 'EvaluationId' in the request.
 gersEvaluationId :: Lens' GetEvaluationResponse (Maybe Text)
 gersEvaluationId = lens _gersEvaluationId (\ s a -> s{_gersEvaluationId = a});
+
+-- | A description of the most recent details about evaluating the 'MLModel'.
+gersMessage :: Lens' GetEvaluationResponse (Maybe Text)
+gersMessage = lens _gersMessage (\ s a -> s{_gersMessage = a});
 
 -- | The 'DataSource' used for this evaluation.
 gersEvaluationDataSourceId :: Lens' GetEvaluationResponse (Maybe Text)

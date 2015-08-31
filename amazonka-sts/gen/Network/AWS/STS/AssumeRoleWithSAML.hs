@@ -89,8 +89,8 @@ module Network.AWS.STS.AssumeRoleWithSAML
     , assumeRoleWithSAMLResponse
     , AssumeRoleWithSAMLResponse
     -- * Response Lenses
-    , arwsamlrsAudience
     , arwsamlrsSubject
+    , arwsamlrsAudience
     , arwsamlrsPackedPolicySize
     , arwsamlrsCredentials
     , arwsamlrsSubjectType
@@ -199,7 +199,7 @@ instance AWSRequest AssumeRoleWithSAML where
           = receiveXMLWrapper "AssumeRoleWithSAMLResult"
               (\ s h x ->
                  AssumeRoleWithSAMLResponse' <$>
-                   (x .@? "Audience") <*> (x .@? "Subject") <*>
+                   (x .@? "Subject") <*> (x .@? "Audience") <*>
                      (x .@? "PackedPolicySize")
                      <*> (x .@? "Credentials")
                      <*> (x .@? "SubjectType")
@@ -231,8 +231,8 @@ instance ToQuery AssumeRoleWithSAML where
 --
 -- /See:/ 'assumeRoleWithSAMLResponse' smart constructor.
 data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
-    { _arwsamlrsAudience         :: !(Maybe Text)
-    , _arwsamlrsSubject          :: !(Maybe Text)
+    { _arwsamlrsSubject          :: !(Maybe Text)
+    , _arwsamlrsAudience         :: !(Maybe Text)
     , _arwsamlrsPackedPolicySize :: !(Maybe Nat)
     , _arwsamlrsCredentials      :: !(Maybe Credentials)
     , _arwsamlrsSubjectType      :: !(Maybe Text)
@@ -246,9 +246,9 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arwsamlrsAudience'
---
 -- * 'arwsamlrsSubject'
+--
+-- * 'arwsamlrsAudience'
 --
 -- * 'arwsamlrsPackedPolicySize'
 --
@@ -268,8 +268,8 @@ assumeRoleWithSAMLResponse
     -> AssumeRoleWithSAMLResponse
 assumeRoleWithSAMLResponse pStatus_ =
     AssumeRoleWithSAMLResponse'
-    { _arwsamlrsAudience = Nothing
-    , _arwsamlrsSubject = Nothing
+    { _arwsamlrsSubject = Nothing
+    , _arwsamlrsAudience = Nothing
     , _arwsamlrsPackedPolicySize = Nothing
     , _arwsamlrsCredentials = Nothing
     , _arwsamlrsSubjectType = Nothing
@@ -279,15 +279,15 @@ assumeRoleWithSAMLResponse pStatus_ =
     , _arwsamlrsStatus = pStatus_
     }
 
--- | The value of the 'Recipient' attribute of the 'SubjectConfirmationData'
--- element of the SAML assertion.
-arwsamlrsAudience :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
-arwsamlrsAudience = lens _arwsamlrsAudience (\ s a -> s{_arwsamlrsAudience = a});
-
 -- | The value of the 'NameID' element in the 'Subject' element of the SAML
 -- assertion.
 arwsamlrsSubject :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsSubject = lens _arwsamlrsSubject (\ s a -> s{_arwsamlrsSubject = a});
+
+-- | The value of the 'Recipient' attribute of the 'SubjectConfirmationData'
+-- element of the SAML assertion.
+arwsamlrsAudience :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
+arwsamlrsAudience = lens _arwsamlrsAudience (\ s a -> s{_arwsamlrsAudience = a});
 
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100

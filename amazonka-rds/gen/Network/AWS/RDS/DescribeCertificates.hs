@@ -30,8 +30,8 @@ module Network.AWS.RDS.DescribeCertificates
     -- * Request Lenses
     , dcFilters
     , dcCertificateIdentifier
-    , dcMaxRecords
     , dcMarker
+    , dcMaxRecords
 
     -- * Destructuring the Response
     , describeCertificatesResponse
@@ -54,8 +54,8 @@ import           Network.AWS.Response
 data DescribeCertificates = DescribeCertificates'
     { _dcFilters               :: !(Maybe [Filter])
     , _dcCertificateIdentifier :: !(Maybe Text)
-    , _dcMaxRecords            :: !(Maybe Int)
     , _dcMarker                :: !(Maybe Text)
+    , _dcMaxRecords            :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCertificates' with the minimum fields required to make a request.
@@ -66,17 +66,17 @@ data DescribeCertificates = DescribeCertificates'
 --
 -- * 'dcCertificateIdentifier'
 --
--- * 'dcMaxRecords'
---
 -- * 'dcMarker'
+--
+-- * 'dcMaxRecords'
 describeCertificates
     :: DescribeCertificates
 describeCertificates =
     DescribeCertificates'
     { _dcFilters = Nothing
     , _dcCertificateIdentifier = Nothing
-    , _dcMaxRecords = Nothing
     , _dcMarker = Nothing
+    , _dcMaxRecords = Nothing
     }
 
 -- | This parameter is not currently supported.
@@ -95,6 +95,12 @@ dcFilters = lens _dcFilters (\ s a -> s{_dcFilters = a}) . _Default . _Coerce;
 dcCertificateIdentifier :: Lens' DescribeCertificates (Maybe Text)
 dcCertificateIdentifier = lens _dcCertificateIdentifier (\ s a -> s{_dcCertificateIdentifier = a});
 
+-- | An optional pagination token provided by a previous DescribeCertificates
+-- request. If this parameter is specified, the response includes only
+-- records beyond the marker, up to the value specified by 'MaxRecords'.
+dcMarker :: Lens' DescribeCertificates (Maybe Text)
+dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a});
+
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -105,12 +111,6 @@ dcCertificateIdentifier = lens _dcCertificateIdentifier (\ s a -> s{_dcCertifica
 -- Constraints: Minimum 20, maximum 100.
 dcMaxRecords :: Lens' DescribeCertificates (Maybe Int)
 dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a});
-
--- | An optional pagination token provided by a previous DescribeCertificates
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by 'MaxRecords'.
-dcMarker :: Lens' DescribeCertificates (Maybe Text)
-dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a});
 
 instance AWSRequest DescribeCertificates where
         type Rs DescribeCertificates =
@@ -139,7 +139,7 @@ instance ToQuery DescribeCertificates where
                "Filters" =:
                  toQuery (toQueryList "Filter" <$> _dcFilters),
                "CertificateIdentifier" =: _dcCertificateIdentifier,
-               "MaxRecords" =: _dcMaxRecords, "Marker" =: _dcMarker]
+               "Marker" =: _dcMarker, "MaxRecords" =: _dcMaxRecords]
 
 -- | Data returned by the __DescribeCertificates__ action.
 --

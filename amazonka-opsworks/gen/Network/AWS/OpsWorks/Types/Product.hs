@@ -63,18 +63,18 @@ instance FromJSON AgentVersion where
 -- /See:/ 'app' smart constructor.
 data App = App'
     { _appSSLConfiguration :: !(Maybe SSLConfiguration)
-    , _appShortname        :: !(Maybe Text)
+    , _appEnvironment      :: !(Maybe [EnvironmentVariable])
     , _appEnableSSL        :: !(Maybe Bool)
     , _appCreatedAt        :: !(Maybe Text)
-    , _appEnvironment      :: !(Maybe [EnvironmentVariable])
+    , _appShortname        :: !(Maybe Text)
     , _appDataSources      :: !(Maybe [DataSource])
-    , _appAppId            :: !(Maybe Text)
     , _appAppSource        :: !(Maybe Source)
-    , _appName             :: !(Maybe Text)
+    , _appAppId            :: !(Maybe Text)
     , _appAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+    , _appName             :: !(Maybe Text)
     , _appType             :: !(Maybe AppType)
-    , _appDomains          :: !(Maybe [Text])
     , _appStackId          :: !(Maybe Text)
+    , _appDomains          :: !(Maybe [Text])
     , _appDescription      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -84,29 +84,29 @@ data App = App'
 --
 -- * 'appSSLConfiguration'
 --
--- * 'appShortname'
+-- * 'appEnvironment'
 --
 -- * 'appEnableSSL'
 --
 -- * 'appCreatedAt'
 --
--- * 'appEnvironment'
+-- * 'appShortname'
 --
 -- * 'appDataSources'
 --
--- * 'appAppId'
---
 -- * 'appAppSource'
 --
--- * 'appName'
+-- * 'appAppId'
 --
 -- * 'appAttributes'
 --
+-- * 'appName'
+--
 -- * 'appType'
 --
--- * 'appDomains'
---
 -- * 'appStackId'
+--
+-- * 'appDomains'
 --
 -- * 'appDescription'
 app
@@ -114,36 +114,24 @@ app
 app =
     App'
     { _appSSLConfiguration = Nothing
-    , _appShortname = Nothing
+    , _appEnvironment = Nothing
     , _appEnableSSL = Nothing
     , _appCreatedAt = Nothing
-    , _appEnvironment = Nothing
+    , _appShortname = Nothing
     , _appDataSources = Nothing
-    , _appAppId = Nothing
     , _appAppSource = Nothing
-    , _appName = Nothing
+    , _appAppId = Nothing
     , _appAttributes = Nothing
+    , _appName = Nothing
     , _appType = Nothing
-    , _appDomains = Nothing
     , _appStackId = Nothing
+    , _appDomains = Nothing
     , _appDescription = Nothing
     }
 
 -- | An 'SslConfiguration' object with the SSL configuration.
 appSSLConfiguration :: Lens' App (Maybe SSLConfiguration)
 appSSLConfiguration = lens _appSSLConfiguration (\ s a -> s{_appSSLConfiguration = a});
-
--- | The app\'s short name.
-appShortname :: Lens' App (Maybe Text)
-appShortname = lens _appShortname (\ s a -> s{_appShortname = a});
-
--- | Whether to enable SSL for the app.
-appEnableSSL :: Lens' App (Maybe Bool)
-appEnableSSL = lens _appEnableSSL (\ s a -> s{_appEnableSSL = a});
-
--- | When the app was created.
-appCreatedAt :: Lens' App (Maybe Text)
-appCreatedAt = lens _appCreatedAt (\ s a -> s{_appCreatedAt = a});
 
 -- | An array of 'EnvironmentVariable' objects that specify environment
 -- variables to be associated with the app. After you deploy the app, these
@@ -160,38 +148,50 @@ appCreatedAt = lens _appCreatedAt (\ s a -> s{_appCreatedAt = a});
 appEnvironment :: Lens' App [EnvironmentVariable]
 appEnvironment = lens _appEnvironment (\ s a -> s{_appEnvironment = a}) . _Default . _Coerce;
 
+-- | Whether to enable SSL for the app.
+appEnableSSL :: Lens' App (Maybe Bool)
+appEnableSSL = lens _appEnableSSL (\ s a -> s{_appEnableSSL = a});
+
+-- | When the app was created.
+appCreatedAt :: Lens' App (Maybe Text)
+appCreatedAt = lens _appCreatedAt (\ s a -> s{_appCreatedAt = a});
+
+-- | The app\'s short name.
+appShortname :: Lens' App (Maybe Text)
+appShortname = lens _appShortname (\ s a -> s{_appShortname = a});
+
 -- | The app\'s data sources.
 appDataSources :: Lens' App [DataSource]
 appDataSources = lens _appDataSources (\ s a -> s{_appDataSources = a}) . _Default . _Coerce;
-
--- | The app ID.
-appAppId :: Lens' App (Maybe Text)
-appAppId = lens _appAppId (\ s a -> s{_appAppId = a});
 
 -- | A 'Source' object that describes the app repository.
 appAppSource :: Lens' App (Maybe Source)
 appAppSource = lens _appAppSource (\ s a -> s{_appAppSource = a});
 
--- | The app name.
-appName :: Lens' App (Maybe Text)
-appName = lens _appName (\ s a -> s{_appName = a});
+-- | The app ID.
+appAppId :: Lens' App (Maybe Text)
+appAppId = lens _appAppId (\ s a -> s{_appAppId = a});
 
 -- | The stack attributes.
 appAttributes :: Lens' App (HashMap AppAttributesKeys Text)
 appAttributes = lens _appAttributes (\ s a -> s{_appAttributes = a}) . _Default . _Map;
 
+-- | The app name.
+appName :: Lens' App (Maybe Text)
+appName = lens _appName (\ s a -> s{_appName = a});
+
 -- | The app type.
 appType :: Lens' App (Maybe AppType)
 appType = lens _appType (\ s a -> s{_appType = a});
+
+-- | The app stack ID.
+appStackId :: Lens' App (Maybe Text)
+appStackId = lens _appStackId (\ s a -> s{_appStackId = a});
 
 -- | The app vhost settings with multiple domains separated by commas. For
 -- example: '\'www.example.com, example.com\''
 appDomains :: Lens' App [Text]
 appDomains = lens _appDomains (\ s a -> s{_appDomains = a}) . _Default . _Coerce;
-
--- | The app stack ID.
-appStackId :: Lens' App (Maybe Text)
-appStackId = lens _appStackId (\ s a -> s{_appStackId = a});
 
 -- | A description of the app.
 appDescription :: Lens' App (Maybe Text)
@@ -202,18 +202,19 @@ instance FromJSON App where
           = withObject "App"
               (\ x ->
                  App' <$>
-                   (x .:? "SslConfiguration") <*> (x .:? "Shortname")
+                   (x .:? "SslConfiguration") <*>
+                     (x .:? "Environment" .!= mempty)
                      <*> (x .:? "EnableSsl")
                      <*> (x .:? "CreatedAt")
-                     <*> (x .:? "Environment" .!= mempty)
+                     <*> (x .:? "Shortname")
                      <*> (x .:? "DataSources" .!= mempty)
-                     <*> (x .:? "AppId")
                      <*> (x .:? "AppSource")
-                     <*> (x .:? "Name")
+                     <*> (x .:? "AppId")
                      <*> (x .:? "Attributes" .!= mempty)
+                     <*> (x .:? "Name")
                      <*> (x .:? "Type")
-                     <*> (x .:? "Domains" .!= mempty)
                      <*> (x .:? "StackId")
+                     <*> (x .:? "Domains" .!= mempty)
                      <*> (x .:? "Description"))
 
 -- | Describes a load-based auto scaling upscaling or downscaling threshold
@@ -456,8 +457,8 @@ instance ToJSON ChefConfiguration where
 --
 -- /See:/ 'command' smart constructor.
 data Command = Command'
-    { _cInstanceId     :: !(Maybe Text)
-    , _cDeploymentId   :: !(Maybe Text)
+    { _cDeploymentId   :: !(Maybe Text)
+    , _cInstanceId     :: !(Maybe Text)
     , _cStatus         :: !(Maybe Text)
     , _cLogURL         :: !(Maybe Text)
     , _cCreatedAt      :: !(Maybe Text)
@@ -472,9 +473,9 @@ data Command = Command'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cInstanceId'
---
 -- * 'cDeploymentId'
+--
+-- * 'cInstanceId'
 --
 -- * 'cStatus'
 --
@@ -495,8 +496,8 @@ command
     :: Command
 command =
     Command'
-    { _cInstanceId = Nothing
-    , _cDeploymentId = Nothing
+    { _cDeploymentId = Nothing
+    , _cInstanceId = Nothing
     , _cStatus = Nothing
     , _cLogURL = Nothing
     , _cCreatedAt = Nothing
@@ -507,13 +508,13 @@ command =
     , _cAcknowledgedAt = Nothing
     }
 
--- | The ID of the instance where the command was executed.
-cInstanceId :: Lens' Command (Maybe Text)
-cInstanceId = lens _cInstanceId (\ s a -> s{_cInstanceId = a});
-
 -- | The command deployment ID.
 cDeploymentId :: Lens' Command (Maybe Text)
 cDeploymentId = lens _cDeploymentId (\ s a -> s{_cDeploymentId = a});
+
+-- | The ID of the instance where the command was executed.
+cInstanceId :: Lens' Command (Maybe Text)
+cInstanceId = lens _cInstanceId (\ s a -> s{_cInstanceId = a});
 
 -- | The command status:
 --
@@ -568,7 +569,7 @@ instance FromJSON Command where
           = withObject "Command"
               (\ x ->
                  Command' <$>
-                   (x .:? "InstanceId") <*> (x .:? "DeploymentId") <*>
+                   (x .:? "DeploymentId") <*> (x .:? "InstanceId") <*>
                      (x .:? "Status")
                      <*> (x .:? "LogUrl")
                      <*> (x .:? "CreatedAt")
@@ -1082,8 +1083,8 @@ data ElasticLoadBalancer = ElasticLoadBalancer'
     , _elbAvailabilityZones       :: !(Maybe [Text])
     , _elbRegion                  :: !(Maybe Text)
     , _elbElasticLoadBalancerName :: !(Maybe Text)
-    , _elbEC2InstanceIds          :: !(Maybe [Text])
     , _elbStackId                 :: !(Maybe Text)
+    , _elbEC2InstanceIds          :: !(Maybe [Text])
     , _elbLayerId                 :: !(Maybe Text)
     , _elbDNSName                 :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1102,9 +1103,9 @@ data ElasticLoadBalancer = ElasticLoadBalancer'
 --
 -- * 'elbElasticLoadBalancerName'
 --
--- * 'elbEC2InstanceIds'
---
 -- * 'elbStackId'
+--
+-- * 'elbEC2InstanceIds'
 --
 -- * 'elbLayerId'
 --
@@ -1118,8 +1119,8 @@ elasticLoadBalancer =
     , _elbAvailabilityZones = Nothing
     , _elbRegion = Nothing
     , _elbElasticLoadBalancerName = Nothing
-    , _elbEC2InstanceIds = Nothing
     , _elbStackId = Nothing
+    , _elbEC2InstanceIds = Nothing
     , _elbLayerId = Nothing
     , _elbDNSName = Nothing
     }
@@ -1144,14 +1145,14 @@ elbRegion = lens _elbRegion (\ s a -> s{_elbRegion = a});
 elbElasticLoadBalancerName :: Lens' ElasticLoadBalancer (Maybe Text)
 elbElasticLoadBalancerName = lens _elbElasticLoadBalancerName (\ s a -> s{_elbElasticLoadBalancerName = a});
 
+-- | The ID of the stack that the instance is associated with.
+elbStackId :: Lens' ElasticLoadBalancer (Maybe Text)
+elbStackId = lens _elbStackId (\ s a -> s{_elbStackId = a});
+
 -- | A list of the EC2 instances that the Elastic Load Balancing instance is
 -- managing traffic for.
 elbEC2InstanceIds :: Lens' ElasticLoadBalancer [Text]
 elbEC2InstanceIds = lens _elbEC2InstanceIds (\ s a -> s{_elbEC2InstanceIds = a}) . _Default . _Coerce;
-
--- | The ID of the stack that the instance is associated with.
-elbStackId :: Lens' ElasticLoadBalancer (Maybe Text)
-elbStackId = lens _elbStackId (\ s a -> s{_elbStackId = a});
 
 -- | The ID of the layer that the instance is attached to.
 elbLayerId :: Lens' ElasticLoadBalancer (Maybe Text)
@@ -1170,8 +1171,8 @@ instance FromJSON ElasticLoadBalancer where
                      <*> (x .:? "AvailabilityZones" .!= mempty)
                      <*> (x .:? "Region")
                      <*> (x .:? "ElasticLoadBalancerName")
-                     <*> (x .:? "Ec2InstanceIds" .!= mempty)
                      <*> (x .:? "StackId")
+                     <*> (x .:? "Ec2InstanceIds" .!= mempty)
                      <*> (x .:? "LayerId")
                      <*> (x .:? "DnsName"))
 
@@ -1242,29 +1243,29 @@ instance ToJSON EnvironmentVariable where
 --
 -- /See:/ 'instance'' smart constructor.
 data Instance = Instance'
-    { _iInstanceId               :: !(Maybe Text)
+    { _iPrivateDNS               :: !(Maybe Text)
+    , _iReportedAgentVersion     :: !(Maybe Text)
+    , _iInstanceId               :: !(Maybe Text)
+    , _iStatus                   :: !(Maybe Text)
     , _iPrivateIP                :: !(Maybe Text)
     , _iInstallUpdatesOnBoot     :: !(Maybe Bool)
-    , _iReportedAgentVersion     :: !(Maybe Text)
-    , _iStatus                   :: !(Maybe Text)
-    , _iPrivateDNS               :: !(Maybe Text)
     , _iVirtualizationType       :: !(Maybe VirtualizationType)
-    , _iSecurityGroupIds         :: !(Maybe [Text])
-    , _iSSHHostRsaKeyFingerprint :: !(Maybe Text)
     , _iInstanceProfileARN       :: !(Maybe Text)
     , _iPlatform                 :: !(Maybe Text)
     , _iHostname                 :: !(Maybe Text)
+    , _iSSHHostRsaKeyFingerprint :: !(Maybe Text)
+    , _iSecurityGroupIds         :: !(Maybe [Text])
     , _iEcsClusterARN            :: !(Maybe Text)
     , _iCreatedAt                :: !(Maybe Text)
-    , _iSSHKeyName               :: !(Maybe Text)
     , _iEC2InstanceId            :: !(Maybe Text)
+    , _iSSHKeyName               :: !(Maybe Text)
     , _iAgentVersion             :: !(Maybe Text)
     , _iRootDeviceVolumeId       :: !(Maybe Text)
     , _iSubnetId                 :: !(Maybe Text)
-    , _iInstanceType             :: !(Maybe Text)
     , _iInfrastructureClass      :: !(Maybe Text)
-    , _iEBSOptimized             :: !(Maybe Bool)
     , _iSSHHostDsaKeyFingerprint :: !(Maybe Text)
+    , _iInstanceType             :: !(Maybe Text)
+    , _iEBSOptimized             :: !(Maybe Bool)
     , _iElasticIP                :: !(Maybe Text)
     , _iOS                       :: !(Maybe Text)
     , _iAvailabilityZone         :: !(Maybe Text)
@@ -1273,37 +1274,33 @@ data Instance = Instance'
     , _iLayerIds                 :: !(Maybe [Text])
     , _iArchitecture             :: !(Maybe Architecture)
     , _iPublicDNS                :: !(Maybe Text)
-    , _iPublicIP                 :: !(Maybe Text)
     , _iAMIId                    :: !(Maybe Text)
+    , _iPublicIP                 :: !(Maybe Text)
     , _iReportedOS               :: !(Maybe ReportedOS)
-    , _iStackId                  :: !(Maybe Text)
     , _iRegisteredBy             :: !(Maybe Text)
-    , _iBlockDeviceMappings      :: !(Maybe [BlockDeviceMapping])
-    , _iEcsContainerInstanceARN  :: !(Maybe Text)
+    , _iStackId                  :: !(Maybe Text)
     , _iRootDeviceType           :: !(Maybe RootDeviceType)
+    , _iEcsContainerInstanceARN  :: !(Maybe Text)
+    , _iBlockDeviceMappings      :: !(Maybe [BlockDeviceMapping])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'iPrivateDNS'
+--
+-- * 'iReportedAgentVersion'
+--
 -- * 'iInstanceId'
+--
+-- * 'iStatus'
 --
 -- * 'iPrivateIP'
 --
 -- * 'iInstallUpdatesOnBoot'
 --
--- * 'iReportedAgentVersion'
---
--- * 'iStatus'
---
--- * 'iPrivateDNS'
---
 -- * 'iVirtualizationType'
---
--- * 'iSecurityGroupIds'
---
--- * 'iSSHHostRsaKeyFingerprint'
 --
 -- * 'iInstanceProfileARN'
 --
@@ -1311,13 +1308,17 @@ data Instance = Instance'
 --
 -- * 'iHostname'
 --
+-- * 'iSSHHostRsaKeyFingerprint'
+--
+-- * 'iSecurityGroupIds'
+--
 -- * 'iEcsClusterARN'
 --
 -- * 'iCreatedAt'
 --
--- * 'iSSHKeyName'
---
 -- * 'iEC2InstanceId'
+--
+-- * 'iSSHKeyName'
 --
 -- * 'iAgentVersion'
 --
@@ -1325,13 +1326,13 @@ data Instance = Instance'
 --
 -- * 'iSubnetId'
 --
--- * 'iInstanceType'
---
 -- * 'iInfrastructureClass'
 --
--- * 'iEBSOptimized'
---
 -- * 'iSSHHostDsaKeyFingerprint'
+--
+-- * 'iInstanceType'
+--
+-- * 'iEBSOptimized'
 --
 -- * 'iElasticIP'
 --
@@ -1349,48 +1350,48 @@ data Instance = Instance'
 --
 -- * 'iPublicDNS'
 --
--- * 'iPublicIP'
---
 -- * 'iAMIId'
+--
+-- * 'iPublicIP'
 --
 -- * 'iReportedOS'
 --
--- * 'iStackId'
---
 -- * 'iRegisteredBy'
 --
--- * 'iBlockDeviceMappings'
+-- * 'iStackId'
+--
+-- * 'iRootDeviceType'
 --
 -- * 'iEcsContainerInstanceARN'
 --
--- * 'iRootDeviceType'
+-- * 'iBlockDeviceMappings'
 instance'
     :: Instance
 instance' =
     Instance'
-    { _iInstanceId = Nothing
+    { _iPrivateDNS = Nothing
+    , _iReportedAgentVersion = Nothing
+    , _iInstanceId = Nothing
+    , _iStatus = Nothing
     , _iPrivateIP = Nothing
     , _iInstallUpdatesOnBoot = Nothing
-    , _iReportedAgentVersion = Nothing
-    , _iStatus = Nothing
-    , _iPrivateDNS = Nothing
     , _iVirtualizationType = Nothing
-    , _iSecurityGroupIds = Nothing
-    , _iSSHHostRsaKeyFingerprint = Nothing
     , _iInstanceProfileARN = Nothing
     , _iPlatform = Nothing
     , _iHostname = Nothing
+    , _iSSHHostRsaKeyFingerprint = Nothing
+    , _iSecurityGroupIds = Nothing
     , _iEcsClusterARN = Nothing
     , _iCreatedAt = Nothing
-    , _iSSHKeyName = Nothing
     , _iEC2InstanceId = Nothing
+    , _iSSHKeyName = Nothing
     , _iAgentVersion = Nothing
     , _iRootDeviceVolumeId = Nothing
     , _iSubnetId = Nothing
-    , _iInstanceType = Nothing
     , _iInfrastructureClass = Nothing
-    , _iEBSOptimized = Nothing
     , _iSSHHostDsaKeyFingerprint = Nothing
+    , _iInstanceType = Nothing
+    , _iEBSOptimized = Nothing
     , _iElasticIP = Nothing
     , _iOS = Nothing
     , _iAvailabilityZone = Nothing
@@ -1399,39 +1400,27 @@ instance' =
     , _iLayerIds = Nothing
     , _iArchitecture = Nothing
     , _iPublicDNS = Nothing
-    , _iPublicIP = Nothing
     , _iAMIId = Nothing
+    , _iPublicIP = Nothing
     , _iReportedOS = Nothing
-    , _iStackId = Nothing
     , _iRegisteredBy = Nothing
-    , _iBlockDeviceMappings = Nothing
-    , _iEcsContainerInstanceARN = Nothing
+    , _iStackId = Nothing
     , _iRootDeviceType = Nothing
+    , _iEcsContainerInstanceARN = Nothing
+    , _iBlockDeviceMappings = Nothing
     }
 
--- | The instance ID.
-iInstanceId :: Lens' Instance (Maybe Text)
-iInstanceId = lens _iInstanceId (\ s a -> s{_iInstanceId = a});
-
--- | The instance\'s private IP address.
-iPrivateIP :: Lens' Instance (Maybe Text)
-iPrivateIP = lens _iPrivateIP (\ s a -> s{_iPrivateIP = a});
-
--- | Whether to install operating system and package updates when the
--- instance boots. The default value is 'true'. If this value is set to
--- 'false', you must then update your instances manually by using
--- CreateDeployment to run the 'update_dependencies' stack command or by
--- manually running 'yum' (Amazon Linux) or 'apt-get' (Ubuntu) on the
--- instances.
---
--- We strongly recommend using the default value of 'true', to ensure that
--- your instances have the latest security updates.
-iInstallUpdatesOnBoot :: Lens' Instance (Maybe Bool)
-iInstallUpdatesOnBoot = lens _iInstallUpdatesOnBoot (\ s a -> s{_iInstallUpdatesOnBoot = a});
+-- | The The instance\'s private DNS name.
+iPrivateDNS :: Lens' Instance (Maybe Text)
+iPrivateDNS = lens _iPrivateDNS (\ s a -> s{_iPrivateDNS = a});
 
 -- | The instance\'s reported AWS OpsWorks agent version.
 iReportedAgentVersion :: Lens' Instance (Maybe Text)
 iReportedAgentVersion = lens _iReportedAgentVersion (\ s a -> s{_iReportedAgentVersion = a});
+
+-- | The instance ID.
+iInstanceId :: Lens' Instance (Maybe Text)
+iInstanceId = lens _iInstanceId (\ s a -> s{_iInstanceId = a});
 
 -- | The instance status:
 --
@@ -1452,21 +1441,25 @@ iReportedAgentVersion = lens _iReportedAgentVersion (\ s a -> s{_iReportedAgentV
 iStatus :: Lens' Instance (Maybe Text)
 iStatus = lens _iStatus (\ s a -> s{_iStatus = a});
 
--- | The The instance\'s private DNS name.
-iPrivateDNS :: Lens' Instance (Maybe Text)
-iPrivateDNS = lens _iPrivateDNS (\ s a -> s{_iPrivateDNS = a});
+-- | The instance\'s private IP address.
+iPrivateIP :: Lens' Instance (Maybe Text)
+iPrivateIP = lens _iPrivateIP (\ s a -> s{_iPrivateIP = a});
+
+-- | Whether to install operating system and package updates when the
+-- instance boots. The default value is 'true'. If this value is set to
+-- 'false', you must then update your instances manually by using
+-- CreateDeployment to run the 'update_dependencies' stack command or by
+-- manually running 'yum' (Amazon Linux) or 'apt-get' (Ubuntu) on the
+-- instances.
+--
+-- We strongly recommend using the default value of 'true', to ensure that
+-- your instances have the latest security updates.
+iInstallUpdatesOnBoot :: Lens' Instance (Maybe Bool)
+iInstallUpdatesOnBoot = lens _iInstallUpdatesOnBoot (\ s a -> s{_iInstallUpdatesOnBoot = a});
 
 -- | The instance\'s virtualization type: 'paravirtual' or 'hvm'.
 iVirtualizationType :: Lens' Instance (Maybe VirtualizationType)
 iVirtualizationType = lens _iVirtualizationType (\ s a -> s{_iVirtualizationType = a});
-
--- | An array containing the instance security group IDs.
-iSecurityGroupIds :: Lens' Instance [Text]
-iSecurityGroupIds = lens _iSecurityGroupIds (\ s a -> s{_iSecurityGroupIds = a}) . _Default . _Coerce;
-
--- | The SSH key\'s RSA fingerprint.
-iSSHHostRsaKeyFingerprint :: Lens' Instance (Maybe Text)
-iSSHHostRsaKeyFingerprint = lens _iSSHHostRsaKeyFingerprint (\ s a -> s{_iSSHHostRsaKeyFingerprint = a});
 
 -- | The ARN of the instance\'s IAM profile. For more information about IAM
 -- ARNs, see
@@ -1482,6 +1475,14 @@ iPlatform = lens _iPlatform (\ s a -> s{_iPlatform = a});
 iHostname :: Lens' Instance (Maybe Text)
 iHostname = lens _iHostname (\ s a -> s{_iHostname = a});
 
+-- | The SSH key\'s RSA fingerprint.
+iSSHHostRsaKeyFingerprint :: Lens' Instance (Maybe Text)
+iSSHHostRsaKeyFingerprint = lens _iSSHHostRsaKeyFingerprint (\ s a -> s{_iSSHHostRsaKeyFingerprint = a});
+
+-- | An array containing the instance security group IDs.
+iSecurityGroupIds :: Lens' Instance [Text]
+iSecurityGroupIds = lens _iSecurityGroupIds (\ s a -> s{_iSecurityGroupIds = a}) . _Default . _Coerce;
+
 -- | For container instances, the Amazon ECS cluster\'s ARN.
 iEcsClusterARN :: Lens' Instance (Maybe Text)
 iEcsClusterARN = lens _iEcsClusterARN (\ s a -> s{_iEcsClusterARN = a});
@@ -1490,13 +1491,13 @@ iEcsClusterARN = lens _iEcsClusterARN (\ s a -> s{_iEcsClusterARN = a});
 iCreatedAt :: Lens' Instance (Maybe Text)
 iCreatedAt = lens _iCreatedAt (\ s a -> s{_iCreatedAt = a});
 
--- | The instance\'s Amazon EC2 key-pair name.
-iSSHKeyName :: Lens' Instance (Maybe Text)
-iSSHKeyName = lens _iSSHKeyName (\ s a -> s{_iSSHKeyName = a});
-
 -- | The ID of the associated Amazon EC2 instance.
 iEC2InstanceId :: Lens' Instance (Maybe Text)
 iEC2InstanceId = lens _iEC2InstanceId (\ s a -> s{_iEC2InstanceId = a});
+
+-- | The instance\'s Amazon EC2 key-pair name.
+iSSHKeyName :: Lens' Instance (Maybe Text)
+iSSHKeyName = lens _iSSHKeyName (\ s a -> s{_iSSHKeyName = a});
 
 -- | The agent version. This parameter is set to 'INHERIT' if the instance
 -- inherits the default stack setting or to a a version number for a fixed
@@ -1513,22 +1514,22 @@ iRootDeviceVolumeId = lens _iRootDeviceVolumeId (\ s a -> s{_iRootDeviceVolumeId
 iSubnetId :: Lens' Instance (Maybe Text)
 iSubnetId = lens _iSubnetId (\ s a -> s{_iSubnetId = a});
 
--- | The instance type, such as 't2.micro'.
-iInstanceType :: Lens' Instance (Maybe Text)
-iInstanceType = lens _iInstanceType (\ s a -> s{_iInstanceType = a});
-
 -- | For registered instances, the infrastructure class: 'ec2' or
 -- 'on-premises'.
 iInfrastructureClass :: Lens' Instance (Maybe Text)
 iInfrastructureClass = lens _iInfrastructureClass (\ s a -> s{_iInfrastructureClass = a});
 
--- | Whether this is an Amazon EBS-optimized instance.
-iEBSOptimized :: Lens' Instance (Maybe Bool)
-iEBSOptimized = lens _iEBSOptimized (\ s a -> s{_iEBSOptimized = a});
-
 -- | The SSH key\'s Deep Security Agent (DSA) fingerprint.
 iSSHHostDsaKeyFingerprint :: Lens' Instance (Maybe Text)
 iSSHHostDsaKeyFingerprint = lens _iSSHHostDsaKeyFingerprint (\ s a -> s{_iSSHHostDsaKeyFingerprint = a});
+
+-- | The instance type, such as 't2.micro'.
+iInstanceType :: Lens' Instance (Maybe Text)
+iInstanceType = lens _iInstanceType (\ s a -> s{_iInstanceType = a});
+
+-- | Whether this is an Amazon EBS-optimized instance.
+iEBSOptimized :: Lens' Instance (Maybe Bool)
+iEBSOptimized = lens _iEBSOptimized (\ s a -> s{_iEBSOptimized = a});
 
 -- | The instance
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>.
@@ -1565,69 +1566,70 @@ iArchitecture = lens _iArchitecture (\ s a -> s{_iArchitecture = a});
 iPublicDNS :: Lens' Instance (Maybe Text)
 iPublicDNS = lens _iPublicDNS (\ s a -> s{_iPublicDNS = a});
 
--- | The instance public IP address.
-iPublicIP :: Lens' Instance (Maybe Text)
-iPublicIP = lens _iPublicIP (\ s a -> s{_iPublicIP = a});
-
 -- | A custom AMI ID to be used to create the instance. For more information,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Instances>
 iAMIId :: Lens' Instance (Maybe Text)
 iAMIId = lens _iAMIId (\ s a -> s{_iAMIId = a});
 
+-- | The instance public IP address.
+iPublicIP :: Lens' Instance (Maybe Text)
+iPublicIP = lens _iPublicIP (\ s a -> s{_iPublicIP = a});
+
 -- | For registered instances, the reported operating system.
 iReportedOS :: Lens' Instance (Maybe ReportedOS)
 iReportedOS = lens _iReportedOS (\ s a -> s{_iReportedOS = a});
-
--- | The stack ID.
-iStackId :: Lens' Instance (Maybe Text)
-iStackId = lens _iStackId (\ s a -> s{_iStackId = a});
 
 -- | For registered instances, who performed the registration.
 iRegisteredBy :: Lens' Instance (Maybe Text)
 iRegisteredBy = lens _iRegisteredBy (\ s a -> s{_iRegisteredBy = a});
 
--- | An array of 'BlockDeviceMapping' objects that specify the instance\'s
--- block device mappings.
-iBlockDeviceMappings :: Lens' Instance [BlockDeviceMapping]
-iBlockDeviceMappings = lens _iBlockDeviceMappings (\ s a -> s{_iBlockDeviceMappings = a}) . _Default . _Coerce;
-
--- | For container instances, the instance\'s ARN.
-iEcsContainerInstanceARN :: Lens' Instance (Maybe Text)
-iEcsContainerInstanceARN = lens _iEcsContainerInstanceARN (\ s a -> s{_iEcsContainerInstanceARN = a});
+-- | The stack ID.
+iStackId :: Lens' Instance (Maybe Text)
+iStackId = lens _iStackId (\ s a -> s{_iStackId = a});
 
 -- | The instance\'s root device type. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
 iRootDeviceType :: Lens' Instance (Maybe RootDeviceType)
 iRootDeviceType = lens _iRootDeviceType (\ s a -> s{_iRootDeviceType = a});
 
+-- | For container instances, the instance\'s ARN.
+iEcsContainerInstanceARN :: Lens' Instance (Maybe Text)
+iEcsContainerInstanceARN = lens _iEcsContainerInstanceARN (\ s a -> s{_iEcsContainerInstanceARN = a});
+
+-- | An array of 'BlockDeviceMapping' objects that specify the instance\'s
+-- block device mappings.
+iBlockDeviceMappings :: Lens' Instance [BlockDeviceMapping]
+iBlockDeviceMappings = lens _iBlockDeviceMappings (\ s a -> s{_iBlockDeviceMappings = a}) . _Default . _Coerce;
+
 instance FromJSON Instance where
         parseJSON
           = withObject "Instance"
               (\ x ->
                  Instance' <$>
-                   (x .:? "InstanceId") <*> (x .:? "PrivateIp") <*>
-                     (x .:? "InstallUpdatesOnBoot")
-                     <*> (x .:? "ReportedAgentVersion")
+                   (x .:? "PrivateDns") <*>
+                     (x .:? "ReportedAgentVersion")
+                     <*> (x .:? "InstanceId")
                      <*> (x .:? "Status")
-                     <*> (x .:? "PrivateDns")
+                     <*> (x .:? "PrivateIp")
+                     <*> (x .:? "InstallUpdatesOnBoot")
                      <*> (x .:? "VirtualizationType")
-                     <*> (x .:? "SecurityGroupIds" .!= mempty)
-                     <*> (x .:? "SshHostRsaKeyFingerprint")
                      <*> (x .:? "InstanceProfileArn")
                      <*> (x .:? "Platform")
                      <*> (x .:? "Hostname")
+                     <*> (x .:? "SshHostRsaKeyFingerprint")
+                     <*> (x .:? "SecurityGroupIds" .!= mempty)
                      <*> (x .:? "EcsClusterArn")
                      <*> (x .:? "CreatedAt")
-                     <*> (x .:? "SshKeyName")
                      <*> (x .:? "Ec2InstanceId")
+                     <*> (x .:? "SshKeyName")
                      <*> (x .:? "AgentVersion")
                      <*> (x .:? "RootDeviceVolumeId")
                      <*> (x .:? "SubnetId")
-                     <*> (x .:? "InstanceType")
                      <*> (x .:? "InfrastructureClass")
-                     <*> (x .:? "EbsOptimized")
                      <*> (x .:? "SshHostDsaKeyFingerprint")
+                     <*> (x .:? "InstanceType")
+                     <*> (x .:? "EbsOptimized")
                      <*> (x .:? "ElasticIp")
                      <*> (x .:? "Os")
                      <*> (x .:? "AvailabilityZone")
@@ -1636,14 +1638,14 @@ instance FromJSON Instance where
                      <*> (x .:? "LayerIds" .!= mempty)
                      <*> (x .:? "Architecture")
                      <*> (x .:? "PublicDns")
-                     <*> (x .:? "PublicIp")
                      <*> (x .:? "AmiId")
+                     <*> (x .:? "PublicIp")
                      <*> (x .:? "ReportedOs")
-                     <*> (x .:? "StackId")
                      <*> (x .:? "RegisteredBy")
-                     <*> (x .:? "BlockDeviceMappings" .!= mempty)
+                     <*> (x .:? "StackId")
+                     <*> (x .:? "RootDeviceType")
                      <*> (x .:? "EcsContainerInstanceArn")
-                     <*> (x .:? "RootDeviceType"))
+                     <*> (x .:? "BlockDeviceMappings" .!= mempty))
 
 -- | Contains a description of an Amazon EC2 instance from the Amazon EC2
 -- metadata service. For more information, see
@@ -1694,9 +1696,9 @@ data InstancesCount = InstancesCount'
     , _icPending        :: !(Maybe Int)
     , _icOnline         :: !(Maybe Int)
     , _icUnassigning    :: !(Maybe Int)
-    , _icRequested      :: !(Maybe Int)
-    , _icRunningSetup   :: !(Maybe Int)
     , _icDeregistering  :: !(Maybe Int)
+    , _icRunningSetup   :: !(Maybe Int)
+    , _icRequested      :: !(Maybe Int)
     , _icBooting        :: !(Maybe Int)
     , _icStopped        :: !(Maybe Int)
     , _icRebooting      :: !(Maybe Int)
@@ -1723,11 +1725,11 @@ data InstancesCount = InstancesCount'
 --
 -- * 'icUnassigning'
 --
--- * 'icRequested'
+-- * 'icDeregistering'
 --
 -- * 'icRunningSetup'
 --
--- * 'icDeregistering'
+-- * 'icRequested'
 --
 -- * 'icBooting'
 --
@@ -1760,9 +1762,9 @@ instancesCount =
     , _icPending = Nothing
     , _icOnline = Nothing
     , _icUnassigning = Nothing
-    , _icRequested = Nothing
-    , _icRunningSetup = Nothing
     , _icDeregistering = Nothing
+    , _icRunningSetup = Nothing
+    , _icRequested = Nothing
     , _icBooting = Nothing
     , _icStopped = Nothing
     , _icRebooting = Nothing
@@ -1793,17 +1795,17 @@ icOnline = lens _icOnline (\ s a -> s{_icOnline = a});
 icUnassigning :: Lens' InstancesCount (Maybe Int)
 icUnassigning = lens _icUnassigning (\ s a -> s{_icUnassigning = a});
 
--- | The number of instances with 'requested' status.
-icRequested :: Lens' InstancesCount (Maybe Int)
-icRequested = lens _icRequested (\ s a -> s{_icRequested = a});
+-- | The number of instances in the Deregistering state.
+icDeregistering :: Lens' InstancesCount (Maybe Int)
+icDeregistering = lens _icDeregistering (\ s a -> s{_icDeregistering = a});
 
 -- | The number of instances with 'running_setup' status.
 icRunningSetup :: Lens' InstancesCount (Maybe Int)
 icRunningSetup = lens _icRunningSetup (\ s a -> s{_icRunningSetup = a});
 
--- | The number of instances in the Deregistering state.
-icDeregistering :: Lens' InstancesCount (Maybe Int)
-icDeregistering = lens _icDeregistering (\ s a -> s{_icDeregistering = a});
+-- | The number of instances with 'requested' status.
+icRequested :: Lens' InstancesCount (Maybe Int)
+icRequested = lens _icRequested (\ s a -> s{_icRequested = a});
 
 -- | The number of instances with 'booting' status.
 icBooting :: Lens' InstancesCount (Maybe Int)
@@ -1861,9 +1863,9 @@ instance FromJSON InstancesCount where
                    (x .:? "Terminating") <*> (x .:? "Pending") <*>
                      (x .:? "Online")
                      <*> (x .:? "Unassigning")
-                     <*> (x .:? "Requested")
-                     <*> (x .:? "RunningSetup")
                      <*> (x .:? "Deregistering")
+                     <*> (x .:? "RunningSetup")
+                     <*> (x .:? "Requested")
                      <*> (x .:? "Booting")
                      <*> (x .:? "Stopped")
                      <*> (x .:? "Rebooting")
@@ -1882,22 +1884,22 @@ instance FromJSON InstancesCount where
 -- /See:/ 'layer' smart constructor.
 data Layer = Layer'
     { _lCustomInstanceProfileARN    :: !(Maybe Text)
-    , _lInstallUpdatesOnBoot        :: !(Maybe Bool)
     , _lCustomSecurityGroupIds      :: !(Maybe [Text])
+    , _lInstallUpdatesOnBoot        :: !(Maybe Bool)
     , _lLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
-    , _lShortname                   :: !(Maybe Text)
     , _lCreatedAt                   :: !(Maybe Text)
+    , _lShortname                   :: !(Maybe Text)
     , _lDefaultRecipes              :: !(Maybe Recipes)
     , _lCustomRecipes               :: !(Maybe Recipes)
-    , _lVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
     , _lCustomJSON                  :: !(Maybe Text)
+    , _lVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
     , _lEnableAutoHealing           :: !(Maybe Bool)
     , _lPackages                    :: !(Maybe [Text])
-    , _lName                        :: !(Maybe Text)
     , _lAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
+    , _lName                        :: !(Maybe Text)
     , _lAutoAssignPublicIPs         :: !(Maybe Bool)
-    , _lUseEBSOptimizedInstances    :: !(Maybe Bool)
     , _lType                        :: !(Maybe LayerType)
+    , _lUseEBSOptimizedInstances    :: !(Maybe Bool)
     , _lStackId                     :: !(Maybe Text)
     , _lLayerId                     :: !(Maybe Text)
     , _lDefaultSecurityGroupNames   :: !(Maybe [Text])
@@ -1910,37 +1912,37 @@ data Layer = Layer'
 --
 -- * 'lCustomInstanceProfileARN'
 --
--- * 'lInstallUpdatesOnBoot'
---
 -- * 'lCustomSecurityGroupIds'
+--
+-- * 'lInstallUpdatesOnBoot'
 --
 -- * 'lLifecycleEventConfiguration'
 --
--- * 'lShortname'
---
 -- * 'lCreatedAt'
+--
+-- * 'lShortname'
 --
 -- * 'lDefaultRecipes'
 --
 -- * 'lCustomRecipes'
 --
--- * 'lVolumeConfigurations'
---
 -- * 'lCustomJSON'
+--
+-- * 'lVolumeConfigurations'
 --
 -- * 'lEnableAutoHealing'
 --
 -- * 'lPackages'
 --
--- * 'lName'
---
 -- * 'lAttributes'
+--
+-- * 'lName'
 --
 -- * 'lAutoAssignPublicIPs'
 --
--- * 'lUseEBSOptimizedInstances'
---
 -- * 'lType'
+--
+-- * 'lUseEBSOptimizedInstances'
 --
 -- * 'lStackId'
 --
@@ -1954,22 +1956,22 @@ layer
 layer =
     Layer'
     { _lCustomInstanceProfileARN = Nothing
-    , _lInstallUpdatesOnBoot = Nothing
     , _lCustomSecurityGroupIds = Nothing
+    , _lInstallUpdatesOnBoot = Nothing
     , _lLifecycleEventConfiguration = Nothing
-    , _lShortname = Nothing
     , _lCreatedAt = Nothing
+    , _lShortname = Nothing
     , _lDefaultRecipes = Nothing
     , _lCustomRecipes = Nothing
-    , _lVolumeConfigurations = Nothing
     , _lCustomJSON = Nothing
+    , _lVolumeConfigurations = Nothing
     , _lEnableAutoHealing = Nothing
     , _lPackages = Nothing
-    , _lName = Nothing
     , _lAttributes = Nothing
+    , _lName = Nothing
     , _lAutoAssignPublicIPs = Nothing
-    , _lUseEBSOptimizedInstances = Nothing
     , _lType = Nothing
+    , _lUseEBSOptimizedInstances = Nothing
     , _lStackId = Nothing
     , _lLayerId = Nothing
     , _lDefaultSecurityGroupNames = Nothing
@@ -1981,6 +1983,10 @@ layer =
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
 lCustomInstanceProfileARN :: Lens' Layer (Maybe Text)
 lCustomInstanceProfileARN = lens _lCustomInstanceProfileARN (\ s a -> s{_lCustomInstanceProfileARN = a});
+
+-- | An array containing the layer\'s custom security group IDs.
+lCustomSecurityGroupIds :: Lens' Layer [Text]
+lCustomSecurityGroupIds = lens _lCustomSecurityGroupIds (\ s a -> s{_lCustomSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is 'true'. If this value is set to
@@ -1994,22 +2000,18 @@ lCustomInstanceProfileARN = lens _lCustomInstanceProfileARN (\ s a -> s{_lCustom
 lInstallUpdatesOnBoot :: Lens' Layer (Maybe Bool)
 lInstallUpdatesOnBoot = lens _lInstallUpdatesOnBoot (\ s a -> s{_lInstallUpdatesOnBoot = a});
 
--- | An array containing the layer\'s custom security group IDs.
-lCustomSecurityGroupIds :: Lens' Layer [Text]
-lCustomSecurityGroupIds = lens _lCustomSecurityGroupIds (\ s a -> s{_lCustomSecurityGroupIds = a}) . _Default . _Coerce;
-
 -- | A 'LifeCycleEventConfiguration' object that specifies the Shutdown event
 -- configuration.
 lLifecycleEventConfiguration :: Lens' Layer (Maybe LifecycleEventConfiguration)
 lLifecycleEventConfiguration = lens _lLifecycleEventConfiguration (\ s a -> s{_lLifecycleEventConfiguration = a});
 
--- | The layer short name.
-lShortname :: Lens' Layer (Maybe Text)
-lShortname = lens _lShortname (\ s a -> s{_lShortname = a});
-
 -- | Date when the layer was created.
 lCreatedAt :: Lens' Layer (Maybe Text)
 lCreatedAt = lens _lCreatedAt (\ s a -> s{_lCreatedAt = a});
+
+-- | The layer short name.
+lShortname :: Lens' Layer (Maybe Text)
+lShortname = lens _lShortname (\ s a -> s{_lShortname = a});
 
 -- | Undocumented member.
 lDefaultRecipes :: Lens' Layer (Maybe Recipes)
@@ -2020,15 +2022,15 @@ lDefaultRecipes = lens _lDefaultRecipes (\ s a -> s{_lDefaultRecipes = a});
 lCustomRecipes :: Lens' Layer (Maybe Recipes)
 lCustomRecipes = lens _lCustomRecipes (\ s a -> s{_lCustomRecipes = a});
 
--- | A 'VolumeConfigurations' object that describes the layer\'s Amazon EBS
--- volumes.
-lVolumeConfigurations :: Lens' Layer [VolumeConfiguration]
-lVolumeConfigurations = lens _lVolumeConfigurations (\ s a -> s{_lVolumeConfigurations = a}) . _Default . _Coerce;
-
 -- | A JSON formatted string containing the layer\'s custom stack
 -- configuration and deployment attributes.
 lCustomJSON :: Lens' Layer (Maybe Text)
 lCustomJSON = lens _lCustomJSON (\ s a -> s{_lCustomJSON = a});
+
+-- | A 'VolumeConfigurations' object that describes the layer\'s Amazon EBS
+-- volumes.
+lVolumeConfigurations :: Lens' Layer [VolumeConfiguration]
+lVolumeConfigurations = lens _lVolumeConfigurations (\ s a -> s{_lVolumeConfigurations = a}) . _Default . _Coerce;
 
 -- | Whether auto healing is disabled for the layer.
 lEnableAutoHealing :: Lens' Layer (Maybe Bool)
@@ -2037,10 +2039,6 @@ lEnableAutoHealing = lens _lEnableAutoHealing (\ s a -> s{_lEnableAutoHealing = 
 -- | An array of 'Package' objects that describe the layer\'s packages.
 lPackages :: Lens' Layer [Text]
 lPackages = lens _lPackages (\ s a -> s{_lPackages = a}) . _Default . _Coerce;
-
--- | The layer name.
-lName :: Lens' Layer (Maybe Text)
-lName = lens _lName (\ s a -> s{_lName = a});
 
 -- | The layer attributes.
 --
@@ -2053,19 +2051,23 @@ lName = lens _lName (\ s a -> s{_lName = a});
 lAttributes :: Lens' Layer (HashMap LayerAttributesKeys Text)
 lAttributes = lens _lAttributes (\ s a -> s{_lAttributes = a}) . _Default . _Map;
 
+-- | The layer name.
+lName :: Lens' Layer (Maybe Text)
+lName = lens _lName (\ s a -> s{_lName = a});
+
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer\'s instances. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
 lAutoAssignPublicIPs :: Lens' Layer (Maybe Bool)
 lAutoAssignPublicIPs = lens _lAutoAssignPublicIPs (\ s a -> s{_lAutoAssignPublicIPs = a});
 
--- | Whether the layer uses Amazon EBS-optimized instances.
-lUseEBSOptimizedInstances :: Lens' Layer (Maybe Bool)
-lUseEBSOptimizedInstances = lens _lUseEBSOptimizedInstances (\ s a -> s{_lUseEBSOptimizedInstances = a});
-
 -- | The layer type.
 lType :: Lens' Layer (Maybe LayerType)
 lType = lens _lType (\ s a -> s{_lType = a});
+
+-- | Whether the layer uses Amazon EBS-optimized instances.
+lUseEBSOptimizedInstances :: Lens' Layer (Maybe Bool)
+lUseEBSOptimizedInstances = lens _lUseEBSOptimizedInstances (\ s a -> s{_lUseEBSOptimizedInstances = a});
 
 -- | The layer stack ID.
 lStackId :: Lens' Layer (Maybe Text)
@@ -2092,22 +2094,22 @@ instance FromJSON Layer where
               (\ x ->
                  Layer' <$>
                    (x .:? "CustomInstanceProfileArn") <*>
-                     (x .:? "InstallUpdatesOnBoot")
-                     <*> (x .:? "CustomSecurityGroupIds" .!= mempty)
+                     (x .:? "CustomSecurityGroupIds" .!= mempty)
+                     <*> (x .:? "InstallUpdatesOnBoot")
                      <*> (x .:? "LifecycleEventConfiguration")
-                     <*> (x .:? "Shortname")
                      <*> (x .:? "CreatedAt")
+                     <*> (x .:? "Shortname")
                      <*> (x .:? "DefaultRecipes")
                      <*> (x .:? "CustomRecipes")
-                     <*> (x .:? "VolumeConfigurations" .!= mempty)
                      <*> (x .:? "CustomJson")
+                     <*> (x .:? "VolumeConfigurations" .!= mempty)
                      <*> (x .:? "EnableAutoHealing")
                      <*> (x .:? "Packages" .!= mempty)
-                     <*> (x .:? "Name")
                      <*> (x .:? "Attributes" .!= mempty)
+                     <*> (x .:? "Name")
                      <*> (x .:? "AutoAssignPublicIps")
-                     <*> (x .:? "UseEbsOptimizedInstances")
                      <*> (x .:? "Type")
+                     <*> (x .:? "UseEbsOptimizedInstances")
                      <*> (x .:? "StackId")
                      <*> (x .:? "LayerId")
                      <*> (x .:? "DefaultSecurityGroupNames" .!= mempty)
@@ -2292,13 +2294,13 @@ instance FromJSON Permission where
 data RAIdArray = RAIdArray'
     { _raiaInstanceId       :: !(Maybe Text)
     , _raiaSize             :: !(Maybe Int)
-    , _raiaCreatedAt        :: !(Maybe Text)
     , _raiaIOPS             :: !(Maybe Int)
+    , _raiaCreatedAt        :: !(Maybe Text)
     , _raiaRAIdLevel        :: !(Maybe Int)
     , _raiaDevice           :: !(Maybe Text)
     , _raiaNumberOfDisks    :: !(Maybe Int)
-    , _raiaName             :: !(Maybe Text)
     , _raiaAvailabilityZone :: !(Maybe Text)
+    , _raiaName             :: !(Maybe Text)
     , _raiaRAIdArrayId      :: !(Maybe Text)
     , _raiaVolumeType       :: !(Maybe Text)
     , _raiaStackId          :: !(Maybe Text)
@@ -2313,9 +2315,9 @@ data RAIdArray = RAIdArray'
 --
 -- * 'raiaSize'
 --
--- * 'raiaCreatedAt'
---
 -- * 'raiaIOPS'
+--
+-- * 'raiaCreatedAt'
 --
 -- * 'raiaRAIdLevel'
 --
@@ -2323,9 +2325,9 @@ data RAIdArray = RAIdArray'
 --
 -- * 'raiaNumberOfDisks'
 --
--- * 'raiaName'
---
 -- * 'raiaAvailabilityZone'
+--
+-- * 'raiaName'
 --
 -- * 'raiaRAIdArrayId'
 --
@@ -2340,13 +2342,13 @@ rAIdArray =
     RAIdArray'
     { _raiaInstanceId = Nothing
     , _raiaSize = Nothing
-    , _raiaCreatedAt = Nothing
     , _raiaIOPS = Nothing
+    , _raiaCreatedAt = Nothing
     , _raiaRAIdLevel = Nothing
     , _raiaDevice = Nothing
     , _raiaNumberOfDisks = Nothing
-    , _raiaName = Nothing
     , _raiaAvailabilityZone = Nothing
+    , _raiaName = Nothing
     , _raiaRAIdArrayId = Nothing
     , _raiaVolumeType = Nothing
     , _raiaStackId = Nothing
@@ -2361,13 +2363,13 @@ raiaInstanceId = lens _raiaInstanceId (\ s a -> s{_raiaInstanceId = a});
 raiaSize :: Lens' RAIdArray (Maybe Int)
 raiaSize = lens _raiaSize (\ s a -> s{_raiaSize = a});
 
--- | When the RAID array was created.
-raiaCreatedAt :: Lens' RAIdArray (Maybe Text)
-raiaCreatedAt = lens _raiaCreatedAt (\ s a -> s{_raiaCreatedAt = a});
-
 -- | For PIOPS volumes, the IOPS per disk.
 raiaIOPS :: Lens' RAIdArray (Maybe Int)
 raiaIOPS = lens _raiaIOPS (\ s a -> s{_raiaIOPS = a});
+
+-- | When the RAID array was created.
+raiaCreatedAt :: Lens' RAIdArray (Maybe Text)
+raiaCreatedAt = lens _raiaCreatedAt (\ s a -> s{_raiaCreatedAt = a});
 
 -- | The <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
 raiaRAIdLevel :: Lens' RAIdArray (Maybe Int)
@@ -2381,14 +2383,14 @@ raiaDevice = lens _raiaDevice (\ s a -> s{_raiaDevice = a});
 raiaNumberOfDisks :: Lens' RAIdArray (Maybe Int)
 raiaNumberOfDisks = lens _raiaNumberOfDisks (\ s a -> s{_raiaNumberOfDisks = a});
 
--- | The array name.
-raiaName :: Lens' RAIdArray (Maybe Text)
-raiaName = lens _raiaName (\ s a -> s{_raiaName = a});
-
 -- | The array\'s Availability Zone. For more information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
 raiaAvailabilityZone :: Lens' RAIdArray (Maybe Text)
 raiaAvailabilityZone = lens _raiaAvailabilityZone (\ s a -> s{_raiaAvailabilityZone = a});
+
+-- | The array name.
+raiaName :: Lens' RAIdArray (Maybe Text)
+raiaName = lens _raiaName (\ s a -> s{_raiaName = a});
 
 -- | The array ID.
 raiaRAIdArrayId :: Lens' RAIdArray (Maybe Text)
@@ -2412,13 +2414,13 @@ instance FromJSON RAIdArray where
               (\ x ->
                  RAIdArray' <$>
                    (x .:? "InstanceId") <*> (x .:? "Size") <*>
-                     (x .:? "CreatedAt")
-                     <*> (x .:? "Iops")
+                     (x .:? "Iops")
+                     <*> (x .:? "CreatedAt")
                      <*> (x .:? "RaidLevel")
                      <*> (x .:? "Device")
                      <*> (x .:? "NumberOfDisks")
-                     <*> (x .:? "Name")
                      <*> (x .:? "AvailabilityZone")
+                     <*> (x .:? "Name")
                      <*> (x .:? "RaidArrayId")
                      <*> (x .:? "VolumeType")
                      <*> (x .:? "StackId")
@@ -2428,8 +2430,8 @@ instance FromJSON RAIdArray where
 --
 -- /See:/ 'rdsDBInstance' smart constructor.
 data RDSDBInstance = RDSDBInstance'
-    { _rdiDBUser               :: !(Maybe Text)
-    , _rdiRDSDBInstanceARN     :: !(Maybe Text)
+    { _rdiRDSDBInstanceARN     :: !(Maybe Text)
+    , _rdiDBUser               :: !(Maybe Text)
     , _rdiMissingOnRDS         :: !(Maybe Bool)
     , _rdiEngine               :: !(Maybe Text)
     , _rdiAddress              :: !(Maybe Text)
@@ -2443,9 +2445,9 @@ data RDSDBInstance = RDSDBInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdiDBUser'
---
 -- * 'rdiRDSDBInstanceARN'
+--
+-- * 'rdiDBUser'
 --
 -- * 'rdiMissingOnRDS'
 --
@@ -2464,8 +2466,8 @@ rdsDBInstance
     :: RDSDBInstance
 rdsDBInstance =
     RDSDBInstance'
-    { _rdiDBUser = Nothing
-    , _rdiRDSDBInstanceARN = Nothing
+    { _rdiRDSDBInstanceARN = Nothing
+    , _rdiDBUser = Nothing
     , _rdiMissingOnRDS = Nothing
     , _rdiEngine = Nothing
     , _rdiAddress = Nothing
@@ -2475,13 +2477,13 @@ rdsDBInstance =
     , _rdiDBPassword = Nothing
     }
 
--- | The master user name.
-rdiDBUser :: Lens' RDSDBInstance (Maybe Text)
-rdiDBUser = lens _rdiDBUser (\ s a -> s{_rdiDBUser = a});
-
 -- | The instance\'s ARN.
 rdiRDSDBInstanceARN :: Lens' RDSDBInstance (Maybe Text)
 rdiRDSDBInstanceARN = lens _rdiRDSDBInstanceARN (\ s a -> s{_rdiRDSDBInstanceARN = a});
+
+-- | The master user name.
+rdiDBUser :: Lens' RDSDBInstance (Maybe Text)
+rdiDBUser = lens _rdiDBUser (\ s a -> s{_rdiDBUser = a});
 
 -- | Set to 'true' if AWS OpsWorks was unable to discover the Amazon RDS
 -- instance. AWS OpsWorks attempts to discover the instance only once. If
@@ -2519,7 +2521,7 @@ instance FromJSON RDSDBInstance where
           = withObject "RDSDBInstance"
               (\ x ->
                  RDSDBInstance' <$>
-                   (x .:? "DbUser") <*> (x .:? "RdsDbInstanceArn") <*>
+                   (x .:? "RdsDbInstanceArn") <*> (x .:? "DbUser") <*>
                      (x .:? "MissingOnRds")
                      <*> (x .:? "Engine")
                      <*> (x .:? "Address")
@@ -2545,8 +2547,8 @@ instance FromJSON RDSDBInstance where
 -- /See:/ 'recipes' smart constructor.
 data Recipes = Recipes'
     { _rSetup     :: !(Maybe [Text])
-    , _rUndeploy  :: !(Maybe [Text])
     , _rShutdown  :: !(Maybe [Text])
+    , _rUndeploy  :: !(Maybe [Text])
     , _rConfigure :: !(Maybe [Text])
     , _rDeploy    :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -2557,9 +2559,9 @@ data Recipes = Recipes'
 --
 -- * 'rSetup'
 --
--- * 'rUndeploy'
---
 -- * 'rShutdown'
+--
+-- * 'rUndeploy'
 --
 -- * 'rConfigure'
 --
@@ -2569,8 +2571,8 @@ recipes
 recipes =
     Recipes'
     { _rSetup = Nothing
-    , _rUndeploy = Nothing
     , _rShutdown = Nothing
+    , _rUndeploy = Nothing
     , _rConfigure = Nothing
     , _rDeploy = Nothing
     }
@@ -2579,13 +2581,13 @@ recipes =
 rSetup :: Lens' Recipes [Text]
 rSetup = lens _rSetup (\ s a -> s{_rSetup = a}) . _Default . _Coerce;
 
--- | An array of custom recipe names to be run following a 'undeploy' event.
-rUndeploy :: Lens' Recipes [Text]
-rUndeploy = lens _rUndeploy (\ s a -> s{_rUndeploy = a}) . _Default . _Coerce;
-
 -- | An array of custom recipe names to be run following a 'shutdown' event.
 rShutdown :: Lens' Recipes [Text]
 rShutdown = lens _rShutdown (\ s a -> s{_rShutdown = a}) . _Default . _Coerce;
+
+-- | An array of custom recipe names to be run following a 'undeploy' event.
+rUndeploy :: Lens' Recipes [Text]
+rUndeploy = lens _rUndeploy (\ s a -> s{_rUndeploy = a}) . _Default . _Coerce;
 
 -- | An array of custom recipe names to be run following a 'configure' event.
 rConfigure :: Lens' Recipes [Text]
@@ -2601,8 +2603,8 @@ instance FromJSON Recipes where
               (\ x ->
                  Recipes' <$>
                    (x .:? "Setup" .!= mempty) <*>
-                     (x .:? "Undeploy" .!= mempty)
-                     <*> (x .:? "Shutdown" .!= mempty)
+                     (x .:? "Shutdown" .!= mempty)
+                     <*> (x .:? "Undeploy" .!= mempty)
                      <*> (x .:? "Configure" .!= mempty)
                      <*> (x .:? "Deploy" .!= mempty))
 
@@ -2611,8 +2613,8 @@ instance ToJSON Recipes where
           = object
               (catMaybes
                  [("Setup" .=) <$> _rSetup,
-                  ("Undeploy" .=) <$> _rUndeploy,
                   ("Shutdown" .=) <$> _rShutdown,
+                  ("Undeploy" .=) <$> _rUndeploy,
                   ("Configure" .=) <$> _rConfigure,
                   ("Deploy" .=) <$> _rDeploy])
 
@@ -2725,8 +2727,8 @@ instance ToJSON SSLConfiguration where
 --
 -- /See:/ 'selfUserProfile' smart constructor.
 data SelfUserProfile = SelfUserProfile'
-    { _supSSHUsername  :: !(Maybe Text)
-    , _supSSHPublicKey :: !(Maybe Text)
+    { _supSSHPublicKey :: !(Maybe Text)
+    , _supSSHUsername  :: !(Maybe Text)
     , _supIAMUserARN   :: !(Maybe Text)
     , _supName         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -2735,9 +2737,9 @@ data SelfUserProfile = SelfUserProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'supSSHUsername'
---
 -- * 'supSSHPublicKey'
+--
+-- * 'supSSHUsername'
 --
 -- * 'supIAMUserARN'
 --
@@ -2746,19 +2748,19 @@ selfUserProfile
     :: SelfUserProfile
 selfUserProfile =
     SelfUserProfile'
-    { _supSSHUsername = Nothing
-    , _supSSHPublicKey = Nothing
+    { _supSSHPublicKey = Nothing
+    , _supSSHUsername = Nothing
     , _supIAMUserARN = Nothing
     , _supName = Nothing
     }
 
--- | The user\'s SSH user name.
-supSSHUsername :: Lens' SelfUserProfile (Maybe Text)
-supSSHUsername = lens _supSSHUsername (\ s a -> s{_supSSHUsername = a});
-
 -- | The user\'s SSH public key.
 supSSHPublicKey :: Lens' SelfUserProfile (Maybe Text)
 supSSHPublicKey = lens _supSSHPublicKey (\ s a -> s{_supSSHPublicKey = a});
+
+-- | The user\'s SSH user name.
+supSSHUsername :: Lens' SelfUserProfile (Maybe Text)
+supSSHUsername = lens _supSSHUsername (\ s a -> s{_supSSHUsername = a});
 
 -- | The user\'s IAM ARN.
 supIAMUserARN :: Lens' SelfUserProfile (Maybe Text)
@@ -2773,7 +2775,7 @@ instance FromJSON SelfUserProfile where
           = withObject "SelfUserProfile"
               (\ x ->
                  SelfUserProfile' <$>
-                   (x .:? "SshUsername") <*> (x .:? "SshPublicKey") <*>
+                   (x .:? "SshPublicKey") <*> (x .:? "SshUsername") <*>
                      (x .:? "IamUserArn")
                      <*> (x .:? "Name"))
 
@@ -2785,8 +2787,8 @@ data ServiceError' = ServiceError''
     , _seCreatedAt      :: !(Maybe Text)
     , _seServiceErrorId :: !(Maybe Text)
     , _seType           :: !(Maybe Text)
-    , _seMessage        :: !(Maybe Text)
     , _seStackId        :: !(Maybe Text)
+    , _seMessage        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServiceError'' with the minimum fields required to make a request.
@@ -2801,9 +2803,9 @@ data ServiceError' = ServiceError''
 --
 -- * 'seType'
 --
--- * 'seMessage'
---
 -- * 'seStackId'
+--
+-- * 'seMessage'
 serviceError'
     :: ServiceError'
 serviceError' =
@@ -2812,8 +2814,8 @@ serviceError' =
     , _seCreatedAt = Nothing
     , _seServiceErrorId = Nothing
     , _seType = Nothing
-    , _seMessage = Nothing
     , _seStackId = Nothing
+    , _seMessage = Nothing
     }
 
 -- | The instance ID.
@@ -2832,13 +2834,13 @@ seServiceErrorId = lens _seServiceErrorId (\ s a -> s{_seServiceErrorId = a});
 seType :: Lens' ServiceError' (Maybe Text)
 seType = lens _seType (\ s a -> s{_seType = a});
 
--- | A message that describes the error.
-seMessage :: Lens' ServiceError' (Maybe Text)
-seMessage = lens _seMessage (\ s a -> s{_seMessage = a});
-
 -- | The stack ID.
 seStackId :: Lens' ServiceError' (Maybe Text)
 seStackId = lens _seStackId (\ s a -> s{_seStackId = a});
+
+-- | A message that describes the error.
+seMessage :: Lens' ServiceError' (Maybe Text)
+seMessage = lens _seMessage (\ s a -> s{_seMessage = a});
 
 instance FromJSON ServiceError' where
         parseJSON
@@ -2848,8 +2850,8 @@ instance FromJSON ServiceError' where
                    (x .:? "InstanceId") <*> (x .:? "CreatedAt") <*>
                      (x .:? "ServiceErrorId")
                      <*> (x .:? "Type")
-                     <*> (x .:? "Message")
-                     <*> (x .:? "StackId"))
+                     <*> (x .:? "StackId")
+                     <*> (x .:? "Message"))
 
 -- | The Shutdown event configuration.
 --
@@ -3019,20 +3021,20 @@ instance ToJSON Source where
 data Stack = Stack'
     { _sDefaultInstanceProfileARN :: !(Maybe Text)
     , _sServiceRoleARN            :: !(Maybe Text)
-    , _sARN                       :: !(Maybe Text)
     , _sDefaultRootDeviceType     :: !(Maybe RootDeviceType)
+    , _sARN                       :: !(Maybe Text)
     , _sCreatedAt                 :: !(Maybe Text)
-    , _sChefConfiguration         :: !(Maybe ChefConfiguration)
     , _sVPCId                     :: !(Maybe Text)
+    , _sChefConfiguration         :: !(Maybe ChefConfiguration)
     , _sAgentVersion              :: !(Maybe Text)
     , _sDefaultSSHKeyName         :: !(Maybe Text)
     , _sCustomJSON                :: !(Maybe Text)
     , _sCustomCookbooksSource     :: !(Maybe Source)
     , _sDefaultAvailabilityZone   :: !(Maybe Text)
-    , _sName                      :: !(Maybe Text)
-    , _sUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _sDefaultOS                 :: !(Maybe Text)
     , _sAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+    , _sName                      :: !(Maybe Text)
+    , _sDefaultOS                 :: !(Maybe Text)
+    , _sUseOpsworksSecurityGroups :: !(Maybe Bool)
     , _sUseCustomCookbooks        :: !(Maybe Bool)
     , _sDefaultSubnetId           :: !(Maybe Text)
     , _sRegion                    :: !(Maybe Text)
@@ -3049,15 +3051,15 @@ data Stack = Stack'
 --
 -- * 'sServiceRoleARN'
 --
--- * 'sARN'
---
 -- * 'sDefaultRootDeviceType'
+--
+-- * 'sARN'
 --
 -- * 'sCreatedAt'
 --
--- * 'sChefConfiguration'
---
 -- * 'sVPCId'
+--
+-- * 'sChefConfiguration'
 --
 -- * 'sAgentVersion'
 --
@@ -3069,13 +3071,13 @@ data Stack = Stack'
 --
 -- * 'sDefaultAvailabilityZone'
 --
--- * 'sName'
+-- * 'sAttributes'
 --
--- * 'sUseOpsworksSecurityGroups'
+-- * 'sName'
 --
 -- * 'sDefaultOS'
 --
--- * 'sAttributes'
+-- * 'sUseOpsworksSecurityGroups'
 --
 -- * 'sUseCustomCookbooks'
 --
@@ -3094,20 +3096,20 @@ stack =
     Stack'
     { _sDefaultInstanceProfileARN = Nothing
     , _sServiceRoleARN = Nothing
-    , _sARN = Nothing
     , _sDefaultRootDeviceType = Nothing
+    , _sARN = Nothing
     , _sCreatedAt = Nothing
-    , _sChefConfiguration = Nothing
     , _sVPCId = Nothing
+    , _sChefConfiguration = Nothing
     , _sAgentVersion = Nothing
     , _sDefaultSSHKeyName = Nothing
     , _sCustomJSON = Nothing
     , _sCustomCookbooksSource = Nothing
     , _sDefaultAvailabilityZone = Nothing
-    , _sName = Nothing
-    , _sUseOpsworksSecurityGroups = Nothing
-    , _sDefaultOS = Nothing
     , _sAttributes = Nothing
+    , _sName = Nothing
+    , _sDefaultOS = Nothing
+    , _sUseOpsworksSecurityGroups = Nothing
     , _sUseCustomCookbooks = Nothing
     , _sDefaultSubnetId = Nothing
     , _sRegion = Nothing
@@ -3126,10 +3128,6 @@ sDefaultInstanceProfileARN = lens _sDefaultInstanceProfileARN (\ s a -> s{_sDefa
 sServiceRoleARN :: Lens' Stack (Maybe Text)
 sServiceRoleARN = lens _sServiceRoleARN (\ s a -> s{_sServiceRoleARN = a});
 
--- | The stack\'s ARN.
-sARN :: Lens' Stack (Maybe Text)
-sARN = lens _sARN (\ s a -> s{_sARN = a});
-
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
 -- instance. For more information, see
@@ -3137,19 +3135,23 @@ sARN = lens _sARN (\ s a -> s{_sARN = a});
 sDefaultRootDeviceType :: Lens' Stack (Maybe RootDeviceType)
 sDefaultRootDeviceType = lens _sDefaultRootDeviceType (\ s a -> s{_sDefaultRootDeviceType = a});
 
+-- | The stack\'s ARN.
+sARN :: Lens' Stack (Maybe Text)
+sARN = lens _sARN (\ s a -> s{_sARN = a});
+
 -- | The date when the stack was created.
 sCreatedAt :: Lens' Stack (Maybe Text)
 sCreatedAt = lens _sCreatedAt (\ s a -> s{_sCreatedAt = a});
+
+-- | The VPC ID; applicable only if the stack is running in a VPC.
+sVPCId :: Lens' Stack (Maybe Text)
+sVPCId = lens _sVPCId (\ s a -> s{_sVPCId = a});
 
 -- | A 'ChefConfiguration' object that specifies whether to enable Berkshelf
 -- and the Berkshelf version. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
 sChefConfiguration :: Lens' Stack (Maybe ChefConfiguration)
 sChefConfiguration = lens _sChefConfiguration (\ s a -> s{_sChefConfiguration = a});
-
--- | The VPC ID; applicable only if the stack is running in a VPC.
-sVPCId :: Lens' Stack (Maybe Text)
-sVPCId = lens _sVPCId (\ s a -> s{_sVPCId = a});
 
 -- | The agent version. This parameter is set to 'LATEST' for auto-update. or
 -- a version number for a fixed agent version.
@@ -3183,22 +3185,22 @@ sCustomCookbooksSource = lens _sCustomCookbooksSource (\ s a -> s{_sCustomCookbo
 sDefaultAvailabilityZone :: Lens' Stack (Maybe Text)
 sDefaultAvailabilityZone = lens _sDefaultAvailabilityZone (\ s a -> s{_sDefaultAvailabilityZone = a});
 
+-- | The stack\'s attributes.
+sAttributes :: Lens' Stack (HashMap StackAttributesKeys Text)
+sAttributes = lens _sAttributes (\ s a -> s{_sAttributes = a}) . _Default . _Map;
+
 -- | The stack name.
 sName :: Lens' Stack (Maybe Text)
 sName = lens _sName (\ s a -> s{_sName = a});
-
--- | Whether the stack automatically associates the AWS OpsWorks built-in
--- security groups with the stack\'s layers.
-sUseOpsworksSecurityGroups :: Lens' Stack (Maybe Bool)
-sUseOpsworksSecurityGroups = lens _sUseOpsworksSecurityGroups (\ s a -> s{_sUseOpsworksSecurityGroups = a});
 
 -- | The stack\'s default operating system.
 sDefaultOS :: Lens' Stack (Maybe Text)
 sDefaultOS = lens _sDefaultOS (\ s a -> s{_sDefaultOS = a});
 
--- | The stack\'s attributes.
-sAttributes :: Lens' Stack (HashMap StackAttributesKeys Text)
-sAttributes = lens _sAttributes (\ s a -> s{_sAttributes = a}) . _Default . _Map;
+-- | Whether the stack automatically associates the AWS OpsWorks built-in
+-- security groups with the stack\'s layers.
+sUseOpsworksSecurityGroups :: Lens' Stack (Maybe Bool)
+sUseOpsworksSecurityGroups = lens _sUseOpsworksSecurityGroups (\ s a -> s{_sUseOpsworksSecurityGroups = a});
 
 -- | Whether the stack uses custom cookbooks.
 sUseCustomCookbooks :: Lens' Stack (Maybe Bool)
@@ -3233,20 +3235,20 @@ instance FromJSON Stack where
                  Stack' <$>
                    (x .:? "DefaultInstanceProfileArn") <*>
                      (x .:? "ServiceRoleArn")
-                     <*> (x .:? "Arn")
                      <*> (x .:? "DefaultRootDeviceType")
+                     <*> (x .:? "Arn")
                      <*> (x .:? "CreatedAt")
-                     <*> (x .:? "ChefConfiguration")
                      <*> (x .:? "VpcId")
+                     <*> (x .:? "ChefConfiguration")
                      <*> (x .:? "AgentVersion")
                      <*> (x .:? "DefaultSshKeyName")
                      <*> (x .:? "CustomJson")
                      <*> (x .:? "CustomCookbooksSource")
                      <*> (x .:? "DefaultAvailabilityZone")
-                     <*> (x .:? "Name")
-                     <*> (x .:? "UseOpsworksSecurityGroups")
-                     <*> (x .:? "DefaultOs")
                      <*> (x .:? "Attributes" .!= mempty)
+                     <*> (x .:? "Name")
+                     <*> (x .:? "DefaultOs")
+                     <*> (x .:? "UseOpsworksSecurityGroups")
                      <*> (x .:? "UseCustomCookbooks")
                      <*> (x .:? "DefaultSubnetId")
                      <*> (x .:? "Region")
@@ -3478,9 +3480,9 @@ instance FromJSON TimeBasedAutoScalingConfiguration
 --
 -- /See:/ 'userProfile' smart constructor.
 data UserProfile = UserProfile'
-    { _upSSHUsername         :: !(Maybe Text)
+    { _upAllowSelfManagement :: !(Maybe Bool)
     , _upSSHPublicKey        :: !(Maybe Text)
-    , _upAllowSelfManagement :: !(Maybe Bool)
+    , _upSSHUsername         :: !(Maybe Text)
     , _upIAMUserARN          :: !(Maybe Text)
     , _upName                :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -3489,11 +3491,11 @@ data UserProfile = UserProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upSSHUsername'
+-- * 'upAllowSelfManagement'
 --
 -- * 'upSSHPublicKey'
 --
--- * 'upAllowSelfManagement'
+-- * 'upSSHUsername'
 --
 -- * 'upIAMUserARN'
 --
@@ -3502,26 +3504,26 @@ userProfile
     :: UserProfile
 userProfile =
     UserProfile'
-    { _upSSHUsername = Nothing
+    { _upAllowSelfManagement = Nothing
     , _upSSHPublicKey = Nothing
-    , _upAllowSelfManagement = Nothing
+    , _upSSHUsername = Nothing
     , _upIAMUserARN = Nothing
     , _upName = Nothing
     }
-
--- | The user\'s SSH user name.
-upSSHUsername :: Lens' UserProfile (Maybe Text)
-upSSHUsername = lens _upSSHUsername (\ s a -> s{_upSSHUsername = a});
-
--- | The user\'s SSH public key.
-upSSHPublicKey :: Lens' UserProfile (Maybe Text)
-upSSHPublicKey = lens _upSSHPublicKey (\ s a -> s{_upSSHPublicKey = a});
 
 -- | Whether users can specify their own SSH public key through the My
 -- Settings page. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
 upAllowSelfManagement :: Lens' UserProfile (Maybe Bool)
 upAllowSelfManagement = lens _upAllowSelfManagement (\ s a -> s{_upAllowSelfManagement = a});
+
+-- | The user\'s SSH public key.
+upSSHPublicKey :: Lens' UserProfile (Maybe Text)
+upSSHPublicKey = lens _upSSHPublicKey (\ s a -> s{_upSSHPublicKey = a});
+
+-- | The user\'s SSH user name.
+upSSHUsername :: Lens' UserProfile (Maybe Text)
+upSSHUsername = lens _upSSHUsername (\ s a -> s{_upSSHUsername = a});
 
 -- | The user\'s IAM ARN.
 upIAMUserARN :: Lens' UserProfile (Maybe Text)
@@ -3536,8 +3538,9 @@ instance FromJSON UserProfile where
           = withObject "UserProfile"
               (\ x ->
                  UserProfile' <$>
-                   (x .:? "SshUsername") <*> (x .:? "SshPublicKey") <*>
-                     (x .:? "AllowSelfManagement")
+                   (x .:? "AllowSelfManagement") <*>
+                     (x .:? "SshPublicKey")
+                     <*> (x .:? "SshUsername")
                      <*> (x .:? "IamUserArn")
                      <*> (x .:? "Name"))
 
@@ -3550,8 +3553,8 @@ data Volume = Volume'
     , _vSize             :: !(Maybe Int)
     , _vIOPS             :: !(Maybe Int)
     , _vDevice           :: !(Maybe Text)
-    , _vName             :: !(Maybe Text)
     , _vAvailabilityZone :: !(Maybe Text)
+    , _vName             :: !(Maybe Text)
     , _vRAIdArrayId      :: !(Maybe Text)
     , _vVolumeId         :: !(Maybe Text)
     , _vRegion           :: !(Maybe Text)
@@ -3574,9 +3577,9 @@ data Volume = Volume'
 --
 -- * 'vDevice'
 --
--- * 'vName'
---
 -- * 'vAvailabilityZone'
+--
+-- * 'vName'
 --
 -- * 'vRAIdArrayId'
 --
@@ -3598,8 +3601,8 @@ volume =
     , _vSize = Nothing
     , _vIOPS = Nothing
     , _vDevice = Nothing
-    , _vName = Nothing
     , _vAvailabilityZone = Nothing
+    , _vName = Nothing
     , _vRAIdArrayId = Nothing
     , _vVolumeId = Nothing
     , _vRegion = Nothing
@@ -3629,14 +3632,14 @@ vIOPS = lens _vIOPS (\ s a -> s{_vIOPS = a});
 vDevice :: Lens' Volume (Maybe Text)
 vDevice = lens _vDevice (\ s a -> s{_vDevice = a});
 
--- | The volume name.
-vName :: Lens' Volume (Maybe Text)
-vName = lens _vName (\ s a -> s{_vName = a});
-
 -- | The volume Availability Zone. For more information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
 vAvailabilityZone :: Lens' Volume (Maybe Text)
 vAvailabilityZone = lens _vAvailabilityZone (\ s a -> s{_vAvailabilityZone = a});
+
+-- | The volume name.
+vName :: Lens' Volume (Maybe Text)
+vName = lens _vName (\ s a -> s{_vName = a});
 
 -- | The RAID array ID.
 vRAIdArrayId :: Lens' Volume (Maybe Text)
@@ -3672,8 +3675,8 @@ instance FromJSON Volume where
                      (x .:? "Size")
                      <*> (x .:? "Iops")
                      <*> (x .:? "Device")
-                     <*> (x .:? "Name")
                      <*> (x .:? "AvailabilityZone")
+                     <*> (x .:? "Name")
                      <*> (x .:? "RaidArrayId")
                      <*> (x .:? "VolumeId")
                      <*> (x .:? "Region")

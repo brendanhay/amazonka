@@ -1202,15 +1202,15 @@ instance ToJSON Rule where
 --
 -- /See:/ 'run' smart constructor.
 data Run = Run'
-    { _runStatus        :: !(Maybe ExecutionStatus)
-    , _runBillingMethod :: !(Maybe BillingMethod)
+    { _runBillingMethod :: !(Maybe BillingMethod)
+    , _runStatus        :: !(Maybe ExecutionStatus)
     , _runCounters      :: !(Maybe Counters)
     , _runPlatform      :: !(Maybe DevicePlatform)
     , _runArn           :: !(Maybe Text)
     , _runCreated       :: !(Maybe POSIX)
-    , _runCompletedJobs :: !(Maybe Int)
     , _runStopped       :: !(Maybe POSIX)
     , _runResult        :: !(Maybe ExecutionResult)
+    , _runCompletedJobs :: !(Maybe Int)
     , _runName          :: !(Maybe Text)
     , _runType          :: !(Maybe TestType)
     , _runMessage       :: !(Maybe Text)
@@ -1222,9 +1222,9 @@ data Run = Run'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'runStatus'
---
 -- * 'runBillingMethod'
+--
+-- * 'runStatus'
 --
 -- * 'runCounters'
 --
@@ -1234,11 +1234,11 @@ data Run = Run'
 --
 -- * 'runCreated'
 --
--- * 'runCompletedJobs'
---
 -- * 'runStopped'
 --
 -- * 'runResult'
+--
+-- * 'runCompletedJobs'
 --
 -- * 'runName'
 --
@@ -1253,21 +1253,26 @@ run
     :: Run
 run =
     Run'
-    { _runStatus = Nothing
-    , _runBillingMethod = Nothing
+    { _runBillingMethod = Nothing
+    , _runStatus = Nothing
     , _runCounters = Nothing
     , _runPlatform = Nothing
     , _runArn = Nothing
     , _runCreated = Nothing
-    , _runCompletedJobs = Nothing
     , _runStopped = Nothing
     , _runResult = Nothing
+    , _runCompletedJobs = Nothing
     , _runName = Nothing
     , _runType = Nothing
     , _runMessage = Nothing
     , _runTotalJobs = Nothing
     , _runStarted = Nothing
     }
+
+-- | Specifies the billing method for a test run: 'metered' or 'unmetered'.
+-- If the parameter is not specified, the default value is 'unmetered'.
+runBillingMethod :: Lens' Run (Maybe BillingMethod)
+runBillingMethod = lens _runBillingMethod (\ s a -> s{_runBillingMethod = a});
 
 -- | The run\'s status.
 --
@@ -1285,11 +1290,6 @@ run =
 --
 runStatus :: Lens' Run (Maybe ExecutionStatus)
 runStatus = lens _runStatus (\ s a -> s{_runStatus = a});
-
--- | Specifies the billing method for a test run: 'metered' or 'unmetered'.
--- If the parameter is not specified, the default value is 'unmetered'.
-runBillingMethod :: Lens' Run (Maybe BillingMethod)
-runBillingMethod = lens _runBillingMethod (\ s a -> s{_runBillingMethod = a});
 
 -- | The run\'s result counters.
 runCounters :: Lens' Run (Maybe Counters)
@@ -1313,10 +1313,6 @@ runArn = lens _runArn (\ s a -> s{_runArn = a});
 -- | When the run was created.
 runCreated :: Lens' Run (Maybe UTCTime)
 runCreated = lens _runCreated (\ s a -> s{_runCreated = a}) . mapping _Time;
-
--- | The total number of completed jobs.
-runCompletedJobs :: Lens' Run (Maybe Int)
-runCompletedJobs = lens _runCompletedJobs (\ s a -> s{_runCompletedJobs = a});
 
 -- | The run\'s stop time.
 runStopped :: Lens' Run (Maybe UTCTime)
@@ -1342,6 +1338,10 @@ runStopped = lens _runStopped (\ s a -> s{_runStopped = a}) . mapping _Time;
 --
 runResult :: Lens' Run (Maybe ExecutionResult)
 runResult = lens _runResult (\ s a -> s{_runResult = a});
+
+-- | The total number of completed jobs.
+runCompletedJobs :: Lens' Run (Maybe Int)
+runCompletedJobs = lens _runCompletedJobs (\ s a -> s{_runCompletedJobs = a});
 
 -- | The run\'s name.
 runName :: Lens' Run (Maybe Text)
@@ -1391,14 +1391,14 @@ instance FromJSON Run where
           = withObject "Run"
               (\ x ->
                  Run' <$>
-                   (x .:? "status") <*> (x .:? "billingMethod") <*>
+                   (x .:? "billingMethod") <*> (x .:? "status") <*>
                      (x .:? "counters")
                      <*> (x .:? "platform")
                      <*> (x .:? "arn")
                      <*> (x .:? "created")
-                     <*> (x .:? "completedJobs")
                      <*> (x .:? "stopped")
                      <*> (x .:? "result")
+                     <*> (x .:? "completedJobs")
                      <*> (x .:? "name")
                      <*> (x .:? "type")
                      <*> (x .:? "message")
@@ -1409,37 +1409,37 @@ instance FromJSON Run where
 --
 -- /See:/ 'sample' smart constructor.
 data Sample = Sample'
-    { _sArn  :: !(Maybe Text)
-    , _sUrl  :: !(Maybe Text)
-    , _sType :: !(Maybe SampleType)
+    { _samArn  :: !(Maybe Text)
+    , _samUrl  :: !(Maybe Text)
+    , _samType :: !(Maybe SampleType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Sample' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sArn'
+-- * 'samArn'
 --
--- * 'sUrl'
+-- * 'samUrl'
 --
--- * 'sType'
+-- * 'samType'
 sample
     :: Sample
 sample =
     Sample'
-    { _sArn = Nothing
-    , _sUrl = Nothing
-    , _sType = Nothing
+    { _samArn = Nothing
+    , _samUrl = Nothing
+    , _samType = Nothing
     }
 
 -- | The sample\'s ARN.
-sArn :: Lens' Sample (Maybe Text)
-sArn = lens _sArn (\ s a -> s{_sArn = a});
+samArn :: Lens' Sample (Maybe Text)
+samArn = lens _samArn (\ s a -> s{_samArn = a});
 
 -- | The pre-signed Amazon S3 URL that can be used with a corresponding GET
 -- request to download the sample\'s file.
-sUrl :: Lens' Sample (Maybe Text)
-sUrl = lens _sUrl (\ s a -> s{_sUrl = a});
+samUrl :: Lens' Sample (Maybe Text)
+samUrl = lens _samUrl (\ s a -> s{_samUrl = a});
 
 -- | The sample\'s type.
 --
@@ -1485,8 +1485,8 @@ sUrl = lens _sUrl (\ s a -> s{_sUrl = a});
 -- -   TX_RATE: The total number of bytes per second (TCP and UDP) that are
 --     received, by app process.
 --
-sType :: Lens' Sample (Maybe SampleType)
-sType = lens _sType (\ s a -> s{_sType = a});
+samType :: Lens' Sample (Maybe SampleType)
+samType = lens _samType (\ s a -> s{_samType = a});
 
 instance FromJSON Sample where
         parseJSON
@@ -1668,55 +1668,55 @@ instance ToJSON ScheduleRunTest where
 --
 -- /See:/ 'suite' smart constructor.
 data Suite = Suite'
-    { _suiStatus   :: !(Maybe ExecutionStatus)
-    , _suiCounters :: !(Maybe Counters)
-    , _suiArn      :: !(Maybe Text)
-    , _suiCreated  :: !(Maybe POSIX)
-    , _suiStopped  :: !(Maybe POSIX)
-    , _suiResult   :: !(Maybe ExecutionResult)
-    , _suiName     :: !(Maybe Text)
-    , _suiType     :: !(Maybe TestType)
-    , _suiMessage  :: !(Maybe Text)
-    , _suiStarted  :: !(Maybe POSIX)
+    { _sStatus   :: !(Maybe ExecutionStatus)
+    , _sCounters :: !(Maybe Counters)
+    , _sArn      :: !(Maybe Text)
+    , _sCreated  :: !(Maybe POSIX)
+    , _sStopped  :: !(Maybe POSIX)
+    , _sResult   :: !(Maybe ExecutionResult)
+    , _sName     :: !(Maybe Text)
+    , _sType     :: !(Maybe TestType)
+    , _sMessage  :: !(Maybe Text)
+    , _sStarted  :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Suite' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'suiStatus'
+-- * 'sStatus'
 --
--- * 'suiCounters'
+-- * 'sCounters'
 --
--- * 'suiArn'
+-- * 'sArn'
 --
--- * 'suiCreated'
+-- * 'sCreated'
 --
--- * 'suiStopped'
+-- * 'sStopped'
 --
--- * 'suiResult'
+-- * 'sResult'
 --
--- * 'suiName'
+-- * 'sName'
 --
--- * 'suiType'
+-- * 'sType'
 --
--- * 'suiMessage'
+-- * 'sMessage'
 --
--- * 'suiStarted'
+-- * 'sStarted'
 suite
     :: Suite
 suite =
     Suite'
-    { _suiStatus = Nothing
-    , _suiCounters = Nothing
-    , _suiArn = Nothing
-    , _suiCreated = Nothing
-    , _suiStopped = Nothing
-    , _suiResult = Nothing
-    , _suiName = Nothing
-    , _suiType = Nothing
-    , _suiMessage = Nothing
-    , _suiStarted = Nothing
+    { _sStatus = Nothing
+    , _sCounters = Nothing
+    , _sArn = Nothing
+    , _sCreated = Nothing
+    , _sStopped = Nothing
+    , _sResult = Nothing
+    , _sName = Nothing
+    , _sType = Nothing
+    , _sMessage = Nothing
+    , _sStarted = Nothing
     }
 
 -- | The suite\'s status.
@@ -1733,24 +1733,24 @@ suite =
 --
 -- -   SCHEDULING: A scheduling status.
 --
-suiStatus :: Lens' Suite (Maybe ExecutionStatus)
-suiStatus = lens _suiStatus (\ s a -> s{_suiStatus = a});
+sStatus :: Lens' Suite (Maybe ExecutionStatus)
+sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
 
 -- | The suite\'s result counters.
-suiCounters :: Lens' Suite (Maybe Counters)
-suiCounters = lens _suiCounters (\ s a -> s{_suiCounters = a});
+sCounters :: Lens' Suite (Maybe Counters)
+sCounters = lens _sCounters (\ s a -> s{_sCounters = a});
 
 -- | The suite\'s ARN.
-suiArn :: Lens' Suite (Maybe Text)
-suiArn = lens _suiArn (\ s a -> s{_suiArn = a});
+sArn :: Lens' Suite (Maybe Text)
+sArn = lens _sArn (\ s a -> s{_sArn = a});
 
 -- | When the suite was created.
-suiCreated :: Lens' Suite (Maybe UTCTime)
-suiCreated = lens _suiCreated (\ s a -> s{_suiCreated = a}) . mapping _Time;
+sCreated :: Lens' Suite (Maybe UTCTime)
+sCreated = lens _sCreated (\ s a -> s{_sCreated = a}) . mapping _Time;
 
 -- | The suite\'s stop time.
-suiStopped :: Lens' Suite (Maybe UTCTime)
-suiStopped = lens _suiStopped (\ s a -> s{_suiStopped = a}) . mapping _Time;
+sStopped :: Lens' Suite (Maybe UTCTime)
+sStopped = lens _sStopped (\ s a -> s{_sStopped = a}) . mapping _Time;
 
 -- | The suite\'s result.
 --
@@ -1770,12 +1770,12 @@ suiStopped = lens _suiStopped (\ s a -> s{_suiStopped = a}) . mapping _Time;
 --
 -- -   WARNED: A warning condition.
 --
-suiResult :: Lens' Suite (Maybe ExecutionResult)
-suiResult = lens _suiResult (\ s a -> s{_suiResult = a});
+sResult :: Lens' Suite (Maybe ExecutionResult)
+sResult = lens _sResult (\ s a -> s{_sResult = a});
 
 -- | The suite\'s name.
-suiName :: Lens' Suite (Maybe Text)
-suiName = lens _suiName (\ s a -> s{_suiName = a});
+sName :: Lens' Suite (Maybe Text)
+sName = lens _sName (\ s a -> s{_sName = a});
 
 -- | The suite\'s type.
 --
@@ -1801,16 +1801,16 @@ suiName = lens _suiName (\ s a -> s{_suiName = a});
 --
 -- -   XCTEST: The XCode test type.
 --
-suiType :: Lens' Suite (Maybe TestType)
-suiType = lens _suiType (\ s a -> s{_suiType = a});
+sType :: Lens' Suite (Maybe TestType)
+sType = lens _sType (\ s a -> s{_sType = a});
 
 -- | A message about the suite\'s result.
-suiMessage :: Lens' Suite (Maybe Text)
-suiMessage = lens _suiMessage (\ s a -> s{_suiMessage = a});
+sMessage :: Lens' Suite (Maybe Text)
+sMessage = lens _sMessage (\ s a -> s{_sMessage = a});
 
 -- | The suite\'s start time.
-suiStarted :: Lens' Suite (Maybe UTCTime)
-suiStarted = lens _suiStarted (\ s a -> s{_suiStarted = a}) . mapping _Time;
+sStarted :: Lens' Suite (Maybe UTCTime)
+sStarted = lens _sStarted (\ s a -> s{_sStarted = a}) . mapping _Time;
 
 instance FromJSON Suite where
         parseJSON

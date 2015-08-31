@@ -36,8 +36,8 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     -- * Request Lenses
     , ddsgDBSubnetGroupName
     , ddsgFilters
-    , ddsgMaxRecords
     , ddsgMarker
+    , ddsgMaxRecords
 
     -- * Destructuring the Response
     , describeDBSubnetGroupsResponse
@@ -61,8 +61,8 @@ import           Network.AWS.Response
 data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
     { _ddsgDBSubnetGroupName :: !(Maybe Text)
     , _ddsgFilters           :: !(Maybe [Filter])
-    , _ddsgMaxRecords        :: !(Maybe Int)
     , _ddsgMarker            :: !(Maybe Text)
+    , _ddsgMaxRecords        :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBSubnetGroups' with the minimum fields required to make a request.
@@ -73,17 +73,17 @@ data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
 --
 -- * 'ddsgFilters'
 --
--- * 'ddsgMaxRecords'
---
 -- * 'ddsgMarker'
+--
+-- * 'ddsgMaxRecords'
 describeDBSubnetGroups
     :: DescribeDBSubnetGroups
 describeDBSubnetGroups =
     DescribeDBSubnetGroups'
     { _ddsgDBSubnetGroupName = Nothing
     , _ddsgFilters = Nothing
-    , _ddsgMaxRecords = Nothing
     , _ddsgMarker = Nothing
+    , _ddsgMaxRecords = Nothing
     }
 
 -- | The name of the DB subnet group to return details for.
@@ -93,6 +93,13 @@ ddsgDBSubnetGroupName = lens _ddsgDBSubnetGroupName (\ s a -> s{_ddsgDBSubnetGro
 -- | This parameter is not currently supported.
 ddsgFilters :: Lens' DescribeDBSubnetGroups [Filter]
 ddsgFilters = lens _ddsgFilters (\ s a -> s{_ddsgFilters = a}) . _Default . _Coerce;
+
+-- | An optional pagination token provided by a previous
+-- DescribeDBSubnetGroups request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by 'MaxRecords'.
+ddsgMarker :: Lens' DescribeDBSubnetGroups (Maybe Text)
+ddsgMarker = lens _ddsgMarker (\ s a -> s{_ddsgMarker = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a pagination token
@@ -104,13 +111,6 @@ ddsgFilters = lens _ddsgFilters (\ s a -> s{_ddsgFilters = a}) . _Default . _Coe
 -- Constraints: Minimum 20, maximum 100.
 ddsgMaxRecords :: Lens' DescribeDBSubnetGroups (Maybe Int)
 ddsgMaxRecords = lens _ddsgMaxRecords (\ s a -> s{_ddsgMaxRecords = a});
-
--- | An optional pagination token provided by a previous
--- DescribeDBSubnetGroups request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
-ddsgMarker :: Lens' DescribeDBSubnetGroups (Maybe Text)
-ddsgMarker = lens _ddsgMarker (\ s a -> s{_ddsgMarker = a});
 
 instance AWSPager DescribeDBSubnetGroups where
         page rq rs
@@ -147,8 +147,8 @@ instance ToQuery DescribeDBSubnetGroups where
                "DBSubnetGroupName" =: _ddsgDBSubnetGroupName,
                "Filters" =:
                  toQuery (toQueryList "Filter" <$> _ddsgFilters),
-               "MaxRecords" =: _ddsgMaxRecords,
-               "Marker" =: _ddsgMarker]
+               "Marker" =: _ddsgMarker,
+               "MaxRecords" =: _ddsgMaxRecords]
 
 -- | Contains the result of a successful invocation of the
 -- DescribeDBSubnetGroups action.

@@ -52,8 +52,8 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     , viAmazonAddress
     , viVirtualInterfaceState
     , viConnectionId
-    , viAsn
     , viVirtualInterfaceType
+    , viAsn
     , viAuthKey
     , viCustomerRouterConfig
     , viOwnerAccount

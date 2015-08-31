@@ -39,8 +39,8 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     , deSeverity
     , deNextToken
     , deVersionLabel
-    , deMaxRecords
     , deEnvironmentName
+    , deMaxRecords
     , deEndTime
     , deApplicationName
     , deEnvironmentId
@@ -71,8 +71,8 @@ data DescribeEvents = DescribeEvents'
     , _deSeverity        :: !(Maybe EventSeverity)
     , _deNextToken       :: !(Maybe Text)
     , _deVersionLabel    :: !(Maybe Text)
-    , _deMaxRecords      :: !(Maybe Nat)
     , _deEnvironmentName :: !(Maybe Text)
+    , _deMaxRecords      :: !(Maybe Nat)
     , _deEndTime         :: !(Maybe ISO8601)
     , _deApplicationName :: !(Maybe Text)
     , _deEnvironmentId   :: !(Maybe Text)
@@ -94,9 +94,9 @@ data DescribeEvents = DescribeEvents'
 --
 -- * 'deVersionLabel'
 --
--- * 'deMaxRecords'
---
 -- * 'deEnvironmentName'
+--
+-- * 'deMaxRecords'
 --
 -- * 'deEndTime'
 --
@@ -113,8 +113,8 @@ describeEvents =
     , _deSeverity = Nothing
     , _deNextToken = Nothing
     , _deVersionLabel = Nothing
-    , _deMaxRecords = Nothing
     , _deEnvironmentName = Nothing
+    , _deMaxRecords = Nothing
     , _deEndTime = Nothing
     , _deApplicationName = Nothing
     , _deEnvironmentId = Nothing
@@ -150,15 +150,15 @@ deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a});
 deVersionLabel :: Lens' DescribeEvents (Maybe Text)
 deVersionLabel = lens _deVersionLabel (\ s a -> s{_deVersionLabel = a});
 
--- | Specifies the maximum number of events that can be returned, beginning
--- with the most recent event.
-deMaxRecords :: Lens' DescribeEvents (Maybe Natural)
-deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a}) . mapping _Nat;
-
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those associated with this environment.
 deEnvironmentName :: Lens' DescribeEvents (Maybe Text)
 deEnvironmentName = lens _deEnvironmentName (\ s a -> s{_deEnvironmentName = a});
+
+-- | Specifies the maximum number of events that can be returned, beginning
+-- with the most recent event.
+deMaxRecords :: Lens' DescribeEvents (Maybe Natural)
+deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a}) . mapping _Nat;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that occur up to, but not including, the 'EndTime'.
@@ -211,8 +211,8 @@ instance ToQuery DescribeEvents where
                "Severity" =: _deSeverity,
                "NextToken" =: _deNextToken,
                "VersionLabel" =: _deVersionLabel,
-               "MaxRecords" =: _deMaxRecords,
                "EnvironmentName" =: _deEnvironmentName,
+               "MaxRecords" =: _deMaxRecords,
                "EndTime" =: _deEndTime,
                "ApplicationName" =: _deApplicationName,
                "EnvironmentId" =: _deEnvironmentId]

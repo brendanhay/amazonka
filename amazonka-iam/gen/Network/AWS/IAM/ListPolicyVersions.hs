@@ -32,8 +32,8 @@ module Network.AWS.IAM.ListPolicyVersions
       listPolicyVersions
     , ListPolicyVersions
     -- * Request Lenses
-    , lpvMaxItems
     , lpvMarker
+    , lpvMaxItems
     , lpvPolicyARN
 
     -- * Destructuring the Response
@@ -54,8 +54,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'listPolicyVersions' smart constructor.
 data ListPolicyVersions = ListPolicyVersions'
-    { _lpvMaxItems  :: !(Maybe Nat)
-    , _lpvMarker    :: !(Maybe Text)
+    { _lpvMarker    :: !(Maybe Text)
+    , _lpvMaxItems  :: !(Maybe Nat)
     , _lpvPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -63,9 +63,9 @@ data ListPolicyVersions = ListPolicyVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpvMaxItems'
---
 -- * 'lpvMarker'
+--
+-- * 'lpvMaxItems'
 --
 -- * 'lpvPolicyARN'
 listPolicyVersions
@@ -73,10 +73,16 @@ listPolicyVersions
     -> ListPolicyVersions
 listPolicyVersions pPolicyARN_ =
     ListPolicyVersions'
-    { _lpvMaxItems = Nothing
-    , _lpvMarker = Nothing
+    { _lpvMarker = Nothing
+    , _lpvMaxItems = Nothing
     , _lpvPolicyARN = pPolicyARN_
     }
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lpvMarker :: Lens' ListPolicyVersions (Maybe Text)
+lpvMarker = lens _lpvMarker (\ s a -> s{_lpvMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -86,12 +92,6 @@ listPolicyVersions pPolicyARN_ =
 -- 100.
 lpvMaxItems :: Lens' ListPolicyVersions (Maybe Natural)
 lpvMaxItems = lens _lpvMaxItems (\ s a -> s{_lpvMaxItems = a}) . mapping _Nat;
-
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lpvMarker :: Lens' ListPolicyVersions (Maybe Text)
-lpvMarker = lens _lpvMarker (\ s a -> s{_lpvMarker = a});
 
 -- | Undocumented member.
 lpvPolicyARN :: Lens' ListPolicyVersions Text
@@ -122,7 +122,7 @@ instance ToQuery ListPolicyVersions where
           = mconcat
               ["Action" =: ("ListPolicyVersions" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _lpvMaxItems, "Marker" =: _lpvMarker,
+               "Marker" =: _lpvMarker, "MaxItems" =: _lpvMaxItems,
                "PolicyArn" =: _lpvPolicyARN]
 
 -- | Contains the response to a successful ListPolicyVersions request.

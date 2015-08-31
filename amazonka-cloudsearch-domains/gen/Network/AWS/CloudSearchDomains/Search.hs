@@ -53,11 +53,11 @@ module Network.AWS.CloudSearchDomains.Search
     -- * Request Lenses
     , seaExpr
     , seaCursor
-    , seaFilterQuery
     , seaReturn
     , seaQueryOptions
-    , seaQueryParser
+    , seaFilterQuery
     , seaSize
+    , seaQueryParser
     , seaStart
     , seaHighlight
     , seaSort
@@ -69,6 +69,7 @@ module Network.AWS.CloudSearchDomains.Search
     , searchResponse
     , SearchResponse
     -- * Response Lenses
+    , searsStatus
     , searsFacets
     , searsHits
     , searsStatus
@@ -86,11 +87,11 @@ import           Network.AWS.Response
 data Search = Search'
     { _seaExpr         :: !(Maybe Text)
     , _seaCursor       :: !(Maybe Text)
-    , _seaFilterQuery  :: !(Maybe Text)
     , _seaReturn       :: !(Maybe Text)
     , _seaQueryOptions :: !(Maybe Text)
-    , _seaQueryParser  :: !(Maybe QueryParser)
+    , _seaFilterQuery  :: !(Maybe Text)
     , _seaSize         :: !(Maybe Integer)
+    , _seaQueryParser  :: !(Maybe QueryParser)
     , _seaStart        :: !(Maybe Integer)
     , _seaHighlight    :: !(Maybe Text)
     , _seaSort         :: !(Maybe Text)
@@ -107,15 +108,15 @@ data Search = Search'
 --
 -- * 'seaCursor'
 --
--- * 'seaFilterQuery'
---
 -- * 'seaReturn'
 --
 -- * 'seaQueryOptions'
 --
--- * 'seaQueryParser'
+-- * 'seaFilterQuery'
 --
 -- * 'seaSize'
+--
+-- * 'seaQueryParser'
 --
 -- * 'seaStart'
 --
@@ -135,11 +136,11 @@ search pQuery_ =
     Search'
     { _seaExpr = Nothing
     , _seaCursor = Nothing
-    , _seaFilterQuery = Nothing
     , _seaReturn = Nothing
     , _seaQueryOptions = Nothing
-    , _seaQueryParser = Nothing
+    , _seaFilterQuery = Nothing
     , _seaSize = Nothing
+    , _seaQueryParser = Nothing
     , _seaStart = Nothing
     , _seaHighlight = Nothing
     , _seaSort = Nothing
@@ -177,20 +178,6 @@ seaExpr = lens _seaExpr (\ s a -> s{_seaExpr = a});
 -- in the /Amazon CloudSearch Developer Guide/.
 seaCursor :: Lens' Search (Maybe Text)
 seaCursor = lens _seaCursor (\ s a -> s{_seaCursor = a});
-
--- | Specifies a structured query that filters the results of a search
--- without affecting how the results are scored and sorted. You use
--- 'filterQuery' in conjunction with the 'query' parameter to filter the
--- documents that match the constraints specified in the 'query' parameter.
--- Specifying a filter controls only which matching documents are included
--- in the results, it has no effect on how they are scored and sorted. The
--- 'filterQuery' parameter supports the full structured query syntax.
---
--- For more information about using filters, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/filtering-results.html Filtering Matching Documents>
--- in the /Amazon CloudSearch Developer Guide/.
-seaFilterQuery :: Lens' Search (Maybe Text)
-seaFilterQuery = lens _seaFilterQuery (\ s a -> s{_seaFilterQuery = a});
 
 -- | Specifies the field and expression values to include in the response.
 -- Multiple fields or expressions are specified as a comma-separated list.
@@ -299,6 +286,24 @@ seaReturn = lens _seaReturn (\ s a -> s{_seaReturn = a});
 seaQueryOptions :: Lens' Search (Maybe Text)
 seaQueryOptions = lens _seaQueryOptions (\ s a -> s{_seaQueryOptions = a});
 
+-- | Specifies a structured query that filters the results of a search
+-- without affecting how the results are scored and sorted. You use
+-- 'filterQuery' in conjunction with the 'query' parameter to filter the
+-- documents that match the constraints specified in the 'query' parameter.
+-- Specifying a filter controls only which matching documents are included
+-- in the results, it has no effect on how they are scored and sorted. The
+-- 'filterQuery' parameter supports the full structured query syntax.
+--
+-- For more information about using filters, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/filtering-results.html Filtering Matching Documents>
+-- in the /Amazon CloudSearch Developer Guide/.
+seaFilterQuery :: Lens' Search (Maybe Text)
+seaFilterQuery = lens _seaFilterQuery (\ s a -> s{_seaFilterQuery = a});
+
+-- | Specifies the maximum number of search hits to include in the response.
+seaSize :: Lens' Search (Maybe Integer)
+seaSize = lens _seaSize (\ s a -> s{_seaSize = a});
+
 -- | Specifies which query parser to use to process the request. If
 -- 'queryParser' is not specified, Amazon CloudSearch uses the 'simple'
 -- query parser.
@@ -334,10 +339,6 @@ seaQueryOptions = lens _seaQueryOptions (\ s a -> s{_seaQueryOptions = a});
 --     <http://wiki.apache.org/solr/DisMaxQParserPlugin#Query_Syntax DisMax Query Parser Syntax>.
 seaQueryParser :: Lens' Search (Maybe QueryParser)
 seaQueryParser = lens _seaQueryParser (\ s a -> s{_seaQueryParser = a});
-
--- | Specifies the maximum number of search hits to include in the response.
-seaSize :: Lens' Search (Maybe Integer)
-seaSize = lens _seaSize (\ s a -> s{_seaSize = a});
 
 -- | Specifies the offset of the first search hit you want to return. Note
 -- that the result set is zero-based; the first result is at index 0. You
@@ -491,8 +492,9 @@ instance AWSRequest Search where
           = receiveJSON
               (\ s h x ->
                  SearchResponse' <$>
-                   (x .?> "facets" .!@ mempty) <*> (x .?> "hits") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "status") <*> (x .?> "facets" .!@ mempty) <*>
+                     (x .?> "hits")
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders Search where
         toHeaders
@@ -508,13 +510,13 @@ instance ToQuery Search where
         toQuery Search'{..}
           = mconcat
               ["expr" =: _seaExpr, "cursor" =: _seaCursor,
-               "fq" =: _seaFilterQuery, "return" =: _seaReturn,
+               "return" =: _seaReturn,
                "q.options" =: _seaQueryOptions,
-               "q.parser" =: _seaQueryParser, "size" =: _seaSize,
-               "start" =: _seaStart, "highlight" =: _seaHighlight,
-               "sort" =: _seaSort, "facet" =: _seaFacet,
-               "partial" =: _seaPartial, "q" =: _seaQuery,
-               "format=sdk&pretty=true"]
+               "fq" =: _seaFilterQuery, "size" =: _seaSize,
+               "q.parser" =: _seaQueryParser, "start" =: _seaStart,
+               "highlight" =: _seaHighlight, "sort" =: _seaSort,
+               "facet" =: _seaFacet, "partial" =: _seaPartial,
+               "q" =: _seaQuery, "format=sdk&pretty=true"]
 
 -- | The result of a 'Search' request. Contains the documents that match the
 -- specified search criteria and any requested fields, highlights, and
@@ -522,7 +524,8 @@ instance ToQuery Search where
 --
 -- /See:/ 'searchResponse' smart constructor.
 data SearchResponse = SearchResponse'
-    { _searsFacets :: !(Maybe (Map Text BucketInfo))
+    { _searsStatus :: !(Maybe SearchStatus)
+    , _searsFacets :: !(Maybe (Map Text BucketInfo))
     , _searsHits   :: !(Maybe Hits)
     , _searsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -530,6 +533,8 @@ data SearchResponse = SearchResponse'
 -- | Creates a value of 'SearchResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'searsStatus'
 --
 -- * 'searsFacets'
 --
@@ -541,10 +546,15 @@ searchResponse
     -> SearchResponse
 searchResponse pStatus_ =
     SearchResponse'
-    { _searsFacets = Nothing
+    { _searsStatus = Nothing
+    , _searsFacets = Nothing
     , _searsHits = Nothing
     , _searsStatus = pStatus_
     }
+
+-- | The status information returned for the search request.
+searsStatus :: Lens' SearchResponse (Maybe SearchStatus)
+searsStatus = lens _searsStatus (\ s a -> s{_searsStatus = a});
 
 -- | The requested facet information.
 searsFacets :: Lens' SearchResponse (HashMap Text BucketInfo)

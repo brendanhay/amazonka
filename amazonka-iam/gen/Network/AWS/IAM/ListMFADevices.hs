@@ -36,8 +36,8 @@ module Network.AWS.IAM.ListMFADevices
     , ListMFADevices
     -- * Request Lenses
     , lmdUserName
-    , lmdMaxItems
     , lmdMarker
+    , lmdMaxItems
 
     -- * Destructuring the Response
     , listMFADevicesResponse
@@ -59,8 +59,8 @@ import           Network.AWS.Response
 -- | /See:/ 'listMFADevices' smart constructor.
 data ListMFADevices = ListMFADevices'
     { _lmdUserName :: !(Maybe Text)
-    , _lmdMaxItems :: !(Maybe Nat)
     , _lmdMarker   :: !(Maybe Text)
+    , _lmdMaxItems :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListMFADevices' with the minimum fields required to make a request.
@@ -69,21 +69,27 @@ data ListMFADevices = ListMFADevices'
 --
 -- * 'lmdUserName'
 --
--- * 'lmdMaxItems'
---
 -- * 'lmdMarker'
+--
+-- * 'lmdMaxItems'
 listMFADevices
     :: ListMFADevices
 listMFADevices =
     ListMFADevices'
     { _lmdUserName = Nothing
-    , _lmdMaxItems = Nothing
     , _lmdMarker = Nothing
+    , _lmdMaxItems = Nothing
     }
 
 -- | The name of the user whose MFA devices you want to list.
 lmdUserName :: Lens' ListMFADevices (Maybe Text)
 lmdUserName = lens _lmdUserName (\ s a -> s{_lmdUserName = a});
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lmdMarker :: Lens' ListMFADevices (Maybe Text)
+lmdMarker = lens _lmdMarker (\ s a -> s{_lmdMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -93,12 +99,6 @@ lmdUserName = lens _lmdUserName (\ s a -> s{_lmdUserName = a});
 -- 100.
 lmdMaxItems :: Lens' ListMFADevices (Maybe Natural)
 lmdMaxItems = lens _lmdMaxItems (\ s a -> s{_lmdMaxItems = a}) . mapping _Nat;
-
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lmdMarker :: Lens' ListMFADevices (Maybe Text)
-lmdMarker = lens _lmdMarker (\ s a -> s{_lmdMarker = a});
 
 instance AWSPager ListMFADevices where
         page rq rs
@@ -131,8 +131,8 @@ instance ToQuery ListMFADevices where
           = mconcat
               ["Action" =: ("ListMFADevices" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _lmdUserName,
-               "MaxItems" =: _lmdMaxItems, "Marker" =: _lmdMarker]
+               "UserName" =: _lmdUserName, "Marker" =: _lmdMarker,
+               "MaxItems" =: _lmdMaxItems]
 
 -- | Contains the response to a successful ListMFADevices request.
 --

@@ -40,14 +40,14 @@ import Test.AWS.DirectConnect.Internal
 --         , testDescribeConnections $
 --             describeConnections
 --
+--         , testDescribeConnectionsOnInterconnect $
+--             describeConnectionsOnInterconnect
+--
 --         , testDeleteInterconnect $
 --             deleteInterconnect
 --
 --         , testConfirmPrivateVirtualInterface $
 --             confirmPrivateVirtualInterface
---
---         , testDescribeConnectionsOnInterconnect $
---             describeConnectionsOnInterconnect
 --
 --         , testDescribeLocations $
 --             describeLocations
@@ -61,20 +61,20 @@ import Test.AWS.DirectConnect.Internal
 --         , testConfirmConnection $
 --             confirmConnection
 --
---         , testDescribeVirtualGateways $
---             describeVirtualGateways
---
 --         , testConfirmPublicVirtualInterface $
 --             confirmPublicVirtualInterface
+--
+--         , testDescribeVirtualGateways $
+--             describeVirtualGateways
 --
 --         , testDescribeVirtualInterfaces $
 --             describeVirtualInterfaces
 --
---         , testCreatePrivateVirtualInterface $
---             createPrivateVirtualInterface
---
 --         , testDeleteVirtualInterface $
 --             deleteVirtualInterface
+--
+--         , testCreatePrivateVirtualInterface $
+--             createPrivateVirtualInterface
 --
 --         , testAllocatePublicVirtualInterface $
 --             allocatePublicVirtualInterface
@@ -100,14 +100,14 @@ import Test.AWS.DirectConnect.Internal
 --         , testDescribeConnectionsResponse $
 --             connections
 --
+--         , testDescribeConnectionsOnInterconnectResponse $
+--             connections
+--
 --         , testDeleteInterconnectResponse $
 --             deleteInterconnectResponse
 --
 --         , testConfirmPrivateVirtualInterfaceResponse $
 --             confirmPrivateVirtualInterfaceResponse
---
---         , testDescribeConnectionsOnInterconnectResponse $
---             connections
 --
 --         , testDescribeLocationsResponse $
 --             describeLocationsResponse
@@ -121,20 +121,20 @@ import Test.AWS.DirectConnect.Internal
 --         , testConfirmConnectionResponse $
 --             confirmConnectionResponse
 --
---         , testDescribeVirtualGatewaysResponse $
---             describeVirtualGatewaysResponse
---
 --         , testConfirmPublicVirtualInterfaceResponse $
 --             confirmPublicVirtualInterfaceResponse
+--
+--         , testDescribeVirtualGatewaysResponse $
+--             describeVirtualGatewaysResponse
 --
 --         , testDescribeVirtualInterfacesResponse $
 --             describeVirtualInterfacesResponse
 --
---         , testCreatePrivateVirtualInterfaceResponse $
---             virtualInterface
---
 --         , testDeleteVirtualInterfaceResponse $
 --             deleteVirtualInterfaceResponse
+--
+--         , testCreatePrivateVirtualInterfaceResponse $
+--             virtualInterface
 --
 --         , testAllocatePublicVirtualInterfaceResponse $
 --             virtualInterface
@@ -170,6 +170,11 @@ testDescribeConnections = req
     "DescribeConnections"
     "fixture/DescribeConnections.yaml"
 
+testDescribeConnectionsOnInterconnect :: DescribeConnectionsOnInterconnect -> TestTree
+testDescribeConnectionsOnInterconnect = req
+    "DescribeConnectionsOnInterconnect"
+    "fixture/DescribeConnectionsOnInterconnect.yaml"
+
 testDeleteInterconnect :: DeleteInterconnect -> TestTree
 testDeleteInterconnect = req
     "DeleteInterconnect"
@@ -179,11 +184,6 @@ testConfirmPrivateVirtualInterface :: ConfirmPrivateVirtualInterface -> TestTree
 testConfirmPrivateVirtualInterface = req
     "ConfirmPrivateVirtualInterface"
     "fixture/ConfirmPrivateVirtualInterface.yaml"
-
-testDescribeConnectionsOnInterconnect :: DescribeConnectionsOnInterconnect -> TestTree
-testDescribeConnectionsOnInterconnect = req
-    "DescribeConnectionsOnInterconnect"
-    "fixture/DescribeConnectionsOnInterconnect.yaml"
 
 testDescribeLocations :: DescribeLocations -> TestTree
 testDescribeLocations = req
@@ -205,30 +205,30 @@ testConfirmConnection = req
     "ConfirmConnection"
     "fixture/ConfirmConnection.yaml"
 
-testDescribeVirtualGateways :: DescribeVirtualGateways -> TestTree
-testDescribeVirtualGateways = req
-    "DescribeVirtualGateways"
-    "fixture/DescribeVirtualGateways.yaml"
-
 testConfirmPublicVirtualInterface :: ConfirmPublicVirtualInterface -> TestTree
 testConfirmPublicVirtualInterface = req
     "ConfirmPublicVirtualInterface"
     "fixture/ConfirmPublicVirtualInterface.yaml"
+
+testDescribeVirtualGateways :: DescribeVirtualGateways -> TestTree
+testDescribeVirtualGateways = req
+    "DescribeVirtualGateways"
+    "fixture/DescribeVirtualGateways.yaml"
 
 testDescribeVirtualInterfaces :: DescribeVirtualInterfaces -> TestTree
 testDescribeVirtualInterfaces = req
     "DescribeVirtualInterfaces"
     "fixture/DescribeVirtualInterfaces.yaml"
 
-testCreatePrivateVirtualInterface :: CreatePrivateVirtualInterface -> TestTree
-testCreatePrivateVirtualInterface = req
-    "CreatePrivateVirtualInterface"
-    "fixture/CreatePrivateVirtualInterface.yaml"
-
 testDeleteVirtualInterface :: DeleteVirtualInterface -> TestTree
 testDeleteVirtualInterface = req
     "DeleteVirtualInterface"
     "fixture/DeleteVirtualInterface.yaml"
+
+testCreatePrivateVirtualInterface :: CreatePrivateVirtualInterface -> TestTree
+testCreatePrivateVirtualInterface = req
+    "CreatePrivateVirtualInterface"
+    "fixture/CreatePrivateVirtualInterface.yaml"
 
 testAllocatePublicVirtualInterface :: AllocatePublicVirtualInterface -> TestTree
 testAllocatePublicVirtualInterface = req
@@ -275,6 +275,13 @@ testDescribeConnectionsResponse = res
     directConnect
     (Proxy :: Proxy DescribeConnections)
 
+testDescribeConnectionsOnInterconnectResponse :: Connections -> TestTree
+testDescribeConnectionsOnInterconnectResponse = res
+    "DescribeConnectionsOnInterconnectResponse"
+    "fixture/DescribeConnectionsOnInterconnectResponse.proto"
+    directConnect
+    (Proxy :: Proxy DescribeConnectionsOnInterconnect)
+
 testDeleteInterconnectResponse :: DeleteInterconnectResponse -> TestTree
 testDeleteInterconnectResponse = res
     "DeleteInterconnectResponse"
@@ -288,13 +295,6 @@ testConfirmPrivateVirtualInterfaceResponse = res
     "fixture/ConfirmPrivateVirtualInterfaceResponse.proto"
     directConnect
     (Proxy :: Proxy ConfirmPrivateVirtualInterface)
-
-testDescribeConnectionsOnInterconnectResponse :: Connections -> TestTree
-testDescribeConnectionsOnInterconnectResponse = res
-    "DescribeConnectionsOnInterconnectResponse"
-    "fixture/DescribeConnectionsOnInterconnectResponse.proto"
-    directConnect
-    (Proxy :: Proxy DescribeConnectionsOnInterconnect)
 
 testDescribeLocationsResponse :: DescribeLocationsResponse -> TestTree
 testDescribeLocationsResponse = res
@@ -324,19 +324,19 @@ testConfirmConnectionResponse = res
     directConnect
     (Proxy :: Proxy ConfirmConnection)
 
-testDescribeVirtualGatewaysResponse :: DescribeVirtualGatewaysResponse -> TestTree
-testDescribeVirtualGatewaysResponse = res
-    "DescribeVirtualGatewaysResponse"
-    "fixture/DescribeVirtualGatewaysResponse.proto"
-    directConnect
-    (Proxy :: Proxy DescribeVirtualGateways)
-
 testConfirmPublicVirtualInterfaceResponse :: ConfirmPublicVirtualInterfaceResponse -> TestTree
 testConfirmPublicVirtualInterfaceResponse = res
     "ConfirmPublicVirtualInterfaceResponse"
     "fixture/ConfirmPublicVirtualInterfaceResponse.proto"
     directConnect
     (Proxy :: Proxy ConfirmPublicVirtualInterface)
+
+testDescribeVirtualGatewaysResponse :: DescribeVirtualGatewaysResponse -> TestTree
+testDescribeVirtualGatewaysResponse = res
+    "DescribeVirtualGatewaysResponse"
+    "fixture/DescribeVirtualGatewaysResponse.proto"
+    directConnect
+    (Proxy :: Proxy DescribeVirtualGateways)
 
 testDescribeVirtualInterfacesResponse :: DescribeVirtualInterfacesResponse -> TestTree
 testDescribeVirtualInterfacesResponse = res
@@ -345,19 +345,19 @@ testDescribeVirtualInterfacesResponse = res
     directConnect
     (Proxy :: Proxy DescribeVirtualInterfaces)
 
-testCreatePrivateVirtualInterfaceResponse :: VirtualInterface -> TestTree
-testCreatePrivateVirtualInterfaceResponse = res
-    "CreatePrivateVirtualInterfaceResponse"
-    "fixture/CreatePrivateVirtualInterfaceResponse.proto"
-    directConnect
-    (Proxy :: Proxy CreatePrivateVirtualInterface)
-
 testDeleteVirtualInterfaceResponse :: DeleteVirtualInterfaceResponse -> TestTree
 testDeleteVirtualInterfaceResponse = res
     "DeleteVirtualInterfaceResponse"
     "fixture/DeleteVirtualInterfaceResponse.proto"
     directConnect
     (Proxy :: Proxy DeleteVirtualInterface)
+
+testCreatePrivateVirtualInterfaceResponse :: VirtualInterface -> TestTree
+testCreatePrivateVirtualInterfaceResponse = res
+    "CreatePrivateVirtualInterfaceResponse"
+    "fixture/CreatePrivateVirtualInterfaceResponse.proto"
+    directConnect
+    (Proxy :: Proxy CreatePrivateVirtualInterface)
 
 testAllocatePublicVirtualInterfaceResponse :: VirtualInterface -> TestTree
 testAllocatePublicVirtualInterfaceResponse = res

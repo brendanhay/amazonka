@@ -53,23 +53,23 @@ module Network.AWS.EMR
     -- ** TerminateJobFlows
     , module Network.AWS.EMR.TerminateJobFlows
 
-    -- ** RemoveTags
-    , module Network.AWS.EMR.RemoveTags
-
     -- ** DescribeStep
     , module Network.AWS.EMR.DescribeStep
+
+    -- ** RemoveTags
+    , module Network.AWS.EMR.RemoveTags
 
     -- ** DescribeCluster
     , module Network.AWS.EMR.DescribeCluster
 
-    -- ** ModifyInstanceGroups
-    , module Network.AWS.EMR.ModifyInstanceGroups
+    -- ** SetTerminationProtection
+    , module Network.AWS.EMR.SetTerminationProtection
 
     -- ** AddJobFlowSteps
     , module Network.AWS.EMR.AddJobFlowSteps
 
-    -- ** SetTerminationProtection
-    , module Network.AWS.EMR.SetTerminationProtection
+    -- ** ModifyInstanceGroups
+    , module Network.AWS.EMR.ModifyInstanceGroups
 
     -- ** ListSteps (Paginated)
     , module Network.AWS.EMR.ListSteps
@@ -133,8 +133,8 @@ module Network.AWS.EMR
     -- ** Application
     , Application
     , application
-    , aAdditionalInfo
     , aArgs
+    , aAdditionalInfo
     , aName
     , aVersion
 
@@ -155,9 +155,9 @@ module Network.AWS.EMR
     , cluLogURI
     , cluRunningAMIVersion
     , cluMasterPublicDNSName
-    , cluAutoTerminate
     , cluTerminationProtected
     , cluVisibleToAllUsers
+    , cluAutoTerminate
     , cluApplications
     , cluTags
     , cluServiceRole
@@ -213,8 +213,8 @@ module Network.AWS.EMR
     , eiaEC2KeyName
     , eiaEmrManagedSlaveSecurityGroup
     , eiaAdditionalSlaveSecurityGroups
-    , eiaIAMInstanceProfile
     , eiaAdditionalMasterSecurityGroups
+    , eiaIAMInstanceProfile
     , eiaEmrManagedMasterSecurityGroup
     , eiaEC2SubnetId
     , eiaEC2AvailabilityZone
@@ -321,8 +321,8 @@ module Network.AWS.EMR
     -- ** JobFlowInstancesConfig
     , JobFlowInstancesConfig
     , jobFlowInstancesConfig
-    , jficSlaveInstanceType
     , jficEC2KeyName
+    , jficSlaveInstanceType
     , jficInstanceCount
     , jficEmrManagedSlaveSecurityGroup
     , jficAdditionalSlaveSecurityGroups

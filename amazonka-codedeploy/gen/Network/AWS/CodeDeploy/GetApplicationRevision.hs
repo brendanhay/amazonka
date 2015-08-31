@@ -34,8 +34,8 @@ module Network.AWS.CodeDeploy.GetApplicationRevision
     , getApplicationRevisionResponse
     , GetApplicationRevisionResponse
     -- * Response Lenses
-    , garrsRevisionInfo
     , garrsApplicationName
+    , garrsRevisionInfo
     , garrsRevision
     , garrsStatus
     ) where
@@ -88,7 +88,7 @@ instance AWSRequest GetApplicationRevision where
           = receiveJSON
               (\ s h x ->
                  GetApplicationRevisionResponse' <$>
-                   (x .?> "revisionInfo") <*> (x .?> "applicationName")
+                   (x .?> "applicationName") <*> (x .?> "revisionInfo")
                      <*> (x .?> "revision")
                      <*> (pure (fromEnum s)))
 
@@ -119,8 +119,8 @@ instance ToQuery GetApplicationRevision where
 --
 -- /See:/ 'getApplicationRevisionResponse' smart constructor.
 data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
-    { _garrsRevisionInfo    :: !(Maybe GenericRevisionInfo)
-    , _garrsApplicationName :: !(Maybe Text)
+    { _garrsApplicationName :: !(Maybe Text)
+    , _garrsRevisionInfo    :: !(Maybe GenericRevisionInfo)
     , _garrsRevision        :: !(Maybe RevisionLocation)
     , _garrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -129,9 +129,9 @@ data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garrsRevisionInfo'
---
 -- * 'garrsApplicationName'
+--
+-- * 'garrsRevisionInfo'
 --
 -- * 'garrsRevision'
 --
@@ -141,19 +141,19 @@ getApplicationRevisionResponse
     -> GetApplicationRevisionResponse
 getApplicationRevisionResponse pStatus_ =
     GetApplicationRevisionResponse'
-    { _garrsRevisionInfo = Nothing
-    , _garrsApplicationName = Nothing
+    { _garrsApplicationName = Nothing
+    , _garrsRevisionInfo = Nothing
     , _garrsRevision = Nothing
     , _garrsStatus = pStatus_
     }
 
--- | General information about the revision.
-garrsRevisionInfo :: Lens' GetApplicationRevisionResponse (Maybe GenericRevisionInfo)
-garrsRevisionInfo = lens _garrsRevisionInfo (\ s a -> s{_garrsRevisionInfo = a});
-
 -- | The name of the application that corresponds to the revision.
 garrsApplicationName :: Lens' GetApplicationRevisionResponse (Maybe Text)
 garrsApplicationName = lens _garrsApplicationName (\ s a -> s{_garrsApplicationName = a});
+
+-- | General information about the revision.
+garrsRevisionInfo :: Lens' GetApplicationRevisionResponse (Maybe GenericRevisionInfo)
+garrsRevisionInfo = lens _garrsRevisionInfo (\ s a -> s{_garrsRevisionInfo = a});
 
 -- | Additional information about the revision, including the revision\'s
 -- type and its location.

@@ -53,8 +53,8 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     , asgiGroupId
     , asgiToPort
     , asgiCIdRIP
-    , asgiGroupName
     , asgiSourceSecurityGroupOwnerId
+    , asgiGroupName
     , asgiSourceSecurityGroupName
     , asgiDryRun
 
@@ -77,8 +77,8 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
     , _asgiGroupId                    :: !(Maybe Text)
     , _asgiToPort                     :: !(Maybe Int)
     , _asgiCIdRIP                     :: !(Maybe Text)
-    , _asgiGroupName                  :: !(Maybe Text)
     , _asgiSourceSecurityGroupOwnerId :: !(Maybe Text)
+    , _asgiGroupName                  :: !(Maybe Text)
     , _asgiSourceSecurityGroupName    :: !(Maybe Text)
     , _asgiDryRun                     :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -99,9 +99,9 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
 --
 -- * 'asgiCIdRIP'
 --
--- * 'asgiGroupName'
---
 -- * 'asgiSourceSecurityGroupOwnerId'
+--
+-- * 'asgiGroupName'
 --
 -- * 'asgiSourceSecurityGroupName'
 --
@@ -116,8 +116,8 @@ authorizeSecurityGroupIngress =
     , _asgiGroupId = Nothing
     , _asgiToPort = Nothing
     , _asgiCIdRIP = Nothing
-    , _asgiGroupName = Nothing
     , _asgiSourceSecurityGroupOwnerId = Nothing
+    , _asgiGroupName = Nothing
     , _asgiSourceSecurityGroupName = Nothing
     , _asgiDryRun = Nothing
     }
@@ -153,10 +153,6 @@ asgiToPort = lens _asgiToPort (\ s a -> s{_asgiToPort = a});
 asgiCIdRIP :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiCIdRIP = lens _asgiCIdRIP (\ s a -> s{_asgiCIdRIP = a});
 
--- | [EC2-Classic, default VPC] The name of the security group.
-asgiGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-asgiGroupName = lens _asgiGroupName (\ s a -> s{_asgiGroupName = a});
-
 -- | [EC2-Classic, default VPC] The AWS account number for the source
 -- security group. For EC2-VPC, the source security group must be in the
 -- same VPC. You can\'t specify this parameter in combination with the
@@ -167,6 +163,10 @@ asgiGroupName = lens _asgiGroupName (\ s a -> s{_asgiGroupName = a});
 -- instead.
 asgiSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiSourceSecurityGroupOwnerId = lens _asgiSourceSecurityGroupOwnerId (\ s a -> s{_asgiSourceSecurityGroupOwnerId = a});
+
+-- | [EC2-Classic, default VPC] The name of the security group.
+asgiGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
+asgiGroupName = lens _asgiGroupName (\ s a -> s{_asgiGroupName = a});
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You
 -- can\'t specify this parameter in combination with the following
@@ -210,9 +210,9 @@ instance ToQuery AuthorizeSecurityGroupIngress where
                "IpProtocol" =: _asgiIPProtocol,
                "GroupId" =: _asgiGroupId, "ToPort" =: _asgiToPort,
                "CidrIp" =: _asgiCIdRIP,
-               "GroupName" =: _asgiGroupName,
                "SourceSecurityGroupOwnerId" =:
                  _asgiSourceSecurityGroupOwnerId,
+               "GroupName" =: _asgiGroupName,
                "SourceSecurityGroupName" =:
                  _asgiSourceSecurityGroupName,
                "DryRun" =: _asgiDryRun]

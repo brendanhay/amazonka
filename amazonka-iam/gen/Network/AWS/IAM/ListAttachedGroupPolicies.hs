@@ -40,8 +40,8 @@ module Network.AWS.IAM.ListAttachedGroupPolicies
     , ListAttachedGroupPolicies
     -- * Request Lenses
     , lagpPathPrefix
-    , lagpMaxItems
     , lagpMarker
+    , lagpMaxItems
     , lagpGroupName
 
     -- * Destructuring the Response
@@ -63,8 +63,8 @@ import           Network.AWS.Response
 -- | /See:/ 'listAttachedGroupPolicies' smart constructor.
 data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
     { _lagpPathPrefix :: !(Maybe Text)
-    , _lagpMaxItems   :: !(Maybe Nat)
     , _lagpMarker     :: !(Maybe Text)
+    , _lagpMaxItems   :: !(Maybe Nat)
     , _lagpGroupName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -74,9 +74,9 @@ data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
 --
 -- * 'lagpPathPrefix'
 --
--- * 'lagpMaxItems'
---
 -- * 'lagpMarker'
+--
+-- * 'lagpMaxItems'
 --
 -- * 'lagpGroupName'
 listAttachedGroupPolicies
@@ -85,8 +85,8 @@ listAttachedGroupPolicies
 listAttachedGroupPolicies pGroupName_ =
     ListAttachedGroupPolicies'
     { _lagpPathPrefix = Nothing
-    , _lagpMaxItems = Nothing
     , _lagpMarker = Nothing
+    , _lagpMaxItems = Nothing
     , _lagpGroupName = pGroupName_
     }
 
@@ -96,6 +96,12 @@ listAttachedGroupPolicies pGroupName_ =
 lagpPathPrefix :: Lens' ListAttachedGroupPolicies (Maybe Text)
 lagpPathPrefix = lens _lagpPathPrefix (\ s a -> s{_lagpPathPrefix = a});
 
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lagpMarker :: Lens' ListAttachedGroupPolicies (Maybe Text)
+lagpMarker = lens _lagpMarker (\ s a -> s{_lagpMarker = a});
+
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
@@ -104,12 +110,6 @@ lagpPathPrefix = lens _lagpPathPrefix (\ s a -> s{_lagpPathPrefix = a});
 -- 100.
 lagpMaxItems :: Lens' ListAttachedGroupPolicies (Maybe Natural)
 lagpMaxItems = lens _lagpMaxItems (\ s a -> s{_lagpMaxItems = a}) . mapping _Nat;
-
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lagpMarker :: Lens' ListAttachedGroupPolicies (Maybe Text)
-lagpMarker = lens _lagpMarker (\ s a -> s{_lagpMarker = a});
 
 -- | The name (friendly name, not ARN) of the group to list attached policies
 -- for.
@@ -143,7 +143,7 @@ instance ToQuery ListAttachedGroupPolicies where
                  ("ListAttachedGroupPolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "PathPrefix" =: _lagpPathPrefix,
-               "MaxItems" =: _lagpMaxItems, "Marker" =: _lagpMarker,
+               "Marker" =: _lagpMarker, "MaxItems" =: _lagpMaxItems,
                "GroupName" =: _lagpGroupName]
 
 -- | Contains the response to a successful ListAttachedGroupPolicies request.

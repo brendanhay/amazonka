@@ -30,8 +30,8 @@ module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
       describeEngineDefaultParameters
     , DescribeEngineDefaultParameters
     -- * Request Lenses
-    , dedpMaxRecords
     , dedpMarker
+    , dedpMaxRecords
     , dedpCacheParameterGroupFamily
 
     -- * Destructuring the Response
@@ -53,8 +53,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEngineDefaultParameters' smart constructor.
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
-    { _dedpMaxRecords                :: !(Maybe Int)
-    , _dedpMarker                    :: !(Maybe Text)
+    { _dedpMarker                    :: !(Maybe Text)
+    , _dedpMaxRecords                :: !(Maybe Int)
     , _dedpCacheParameterGroupFamily :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -62,9 +62,9 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dedpMaxRecords'
---
 -- * 'dedpMarker'
+--
+-- * 'dedpMaxRecords'
 --
 -- * 'dedpCacheParameterGroupFamily'
 describeEngineDefaultParameters
@@ -72,10 +72,17 @@ describeEngineDefaultParameters
     -> DescribeEngineDefaultParameters
 describeEngineDefaultParameters pCacheParameterGroupFamily_ =
     DescribeEngineDefaultParameters'
-    { _dedpMaxRecords = Nothing
-    , _dedpMarker = Nothing
+    { _dedpMarker = Nothing
+    , _dedpMaxRecords = Nothing
     , _dedpCacheParameterGroupFamily = pCacheParameterGroupFamily_
     }
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
+dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a marker is
@@ -86,13 +93,6 @@ describeEngineDefaultParameters pCacheParameterGroupFamily_ =
 -- Constraints: minimum 20; maximum 100.
 dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
 dedpMaxRecords = lens _dedpMaxRecords (\ s a -> s{_dedpMaxRecords = a});
-
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
-dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
-dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 
 -- | The name of the cache parameter group family. Valid values are:
 -- 'memcached1.4' | 'redis2.6' | 'redis2.8'
@@ -138,8 +138,8 @@ instance ToQuery DescribeEngineDefaultParameters
               ["Action" =:
                  ("DescribeEngineDefaultParameters" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "MaxRecords" =: _dedpMaxRecords,
                "Marker" =: _dedpMarker,
+               "MaxRecords" =: _dedpMaxRecords,
                "CacheParameterGroupFamily" =:
                  _dedpCacheParameterGroupFamily]
 

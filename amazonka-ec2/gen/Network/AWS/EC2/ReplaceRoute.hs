@@ -33,8 +33,8 @@ module Network.AWS.EC2.ReplaceRoute
       replaceRoute
     , ReplaceRoute
     -- * Request Lenses
-    , rrInstanceId
     , rrVPCPeeringConnectionId
+    , rrInstanceId
     , rrNetworkInterfaceId
     , rrGatewayId
     , rrDryRun
@@ -54,8 +54,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'replaceRoute' smart constructor.
 data ReplaceRoute = ReplaceRoute'
-    { _rrInstanceId             :: !(Maybe Text)
-    , _rrVPCPeeringConnectionId :: !(Maybe Text)
+    { _rrVPCPeeringConnectionId :: !(Maybe Text)
+    , _rrInstanceId             :: !(Maybe Text)
     , _rrNetworkInterfaceId     :: !(Maybe Text)
     , _rrGatewayId              :: !(Maybe Text)
     , _rrDryRun                 :: !(Maybe Bool)
@@ -67,9 +67,9 @@ data ReplaceRoute = ReplaceRoute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrInstanceId'
---
 -- * 'rrVPCPeeringConnectionId'
+--
+-- * 'rrInstanceId'
 --
 -- * 'rrNetworkInterfaceId'
 --
@@ -86,8 +86,8 @@ replaceRoute
     -> ReplaceRoute
 replaceRoute pRouteTableId_ pDestinationCIdRBlock_ =
     ReplaceRoute'
-    { _rrInstanceId = Nothing
-    , _rrVPCPeeringConnectionId = Nothing
+    { _rrVPCPeeringConnectionId = Nothing
+    , _rrInstanceId = Nothing
     , _rrNetworkInterfaceId = Nothing
     , _rrGatewayId = Nothing
     , _rrDryRun = Nothing
@@ -95,13 +95,13 @@ replaceRoute pRouteTableId_ pDestinationCIdRBlock_ =
     , _rrDestinationCIdRBlock = pDestinationCIdRBlock_
     }
 
--- | The ID of a NAT instance in your VPC.
-rrInstanceId :: Lens' ReplaceRoute (Maybe Text)
-rrInstanceId = lens _rrInstanceId (\ s a -> s{_rrInstanceId = a});
-
 -- | The ID of a VPC peering connection.
 rrVPCPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)
 rrVPCPeeringConnectionId = lens _rrVPCPeeringConnectionId (\ s a -> s{_rrVPCPeeringConnectionId = a});
+
+-- | The ID of a NAT instance in your VPC.
+rrInstanceId :: Lens' ReplaceRoute (Maybe Text)
+rrInstanceId = lens _rrInstanceId (\ s a -> s{_rrInstanceId = a});
 
 -- | The ID of a network interface.
 rrNetworkInterfaceId :: Lens' ReplaceRoute (Maybe Text)
@@ -143,9 +143,9 @@ instance ToQuery ReplaceRoute where
           = mconcat
               ["Action" =: ("ReplaceRoute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "InstanceId" =: _rrInstanceId,
                "VpcPeeringConnectionId" =:
                  _rrVPCPeeringConnectionId,
+               "InstanceId" =: _rrInstanceId,
                "NetworkInterfaceId" =: _rrNetworkInterfaceId,
                "GatewayId" =: _rrGatewayId, "DryRun" =: _rrDryRun,
                "RouteTableId" =: _rrRouteTableId,

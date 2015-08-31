@@ -74,8 +74,8 @@ module Network.AWS.SWF.PollForDecisionTask
     -- * Request Lenses
     , pfdtNextPageToken
     , pfdtReverseOrder
-    , pfdtIdentity
     , pfdtMaximumPageSize
+    , pfdtIdentity
     , pfdtDomain
     , pfdtTaskList
 
@@ -104,8 +104,8 @@ import           Network.AWS.SWF.Types.Product
 data PollForDecisionTask = PollForDecisionTask'
     { _pfdtNextPageToken   :: !(Maybe Text)
     , _pfdtReverseOrder    :: !(Maybe Bool)
-    , _pfdtIdentity        :: !(Maybe Text)
     , _pfdtMaximumPageSize :: !(Maybe Nat)
+    , _pfdtIdentity        :: !(Maybe Text)
     , _pfdtDomain          :: !Text
     , _pfdtTaskList        :: !TaskList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -118,9 +118,9 @@ data PollForDecisionTask = PollForDecisionTask'
 --
 -- * 'pfdtReverseOrder'
 --
--- * 'pfdtIdentity'
---
 -- * 'pfdtMaximumPageSize'
+--
+-- * 'pfdtIdentity'
 --
 -- * 'pfdtDomain'
 --
@@ -133,8 +133,8 @@ pollForDecisionTask pDomain_ pTaskList_ =
     PollForDecisionTask'
     { _pfdtNextPageToken = Nothing
     , _pfdtReverseOrder = Nothing
-    , _pfdtIdentity = Nothing
     , _pfdtMaximumPageSize = Nothing
+    , _pfdtIdentity = Nothing
     , _pfdtDomain = pDomain_
     , _pfdtTaskList = pTaskList_
     }
@@ -163,13 +163,6 @@ pfdtNextPageToken = lens _pfdtNextPageToken (\ s a -> s{_pfdtNextPageToken = a})
 pfdtReverseOrder :: Lens' PollForDecisionTask (Maybe Bool)
 pfdtReverseOrder = lens _pfdtReverseOrder (\ s a -> s{_pfdtReverseOrder = a});
 
--- | Identity of the decider making the request, which is recorded in the
--- DecisionTaskStarted event in the workflow history. This enables
--- diagnostic tracing when problems arise. The form of this identity is
--- user defined.
-pfdtIdentity :: Lens' PollForDecisionTask (Maybe Text)
-pfdtIdentity = lens _pfdtIdentity (\ s a -> s{_pfdtIdentity = a});
-
 -- | The maximum number of results that will be returned per call.
 -- 'nextPageToken' can be used to obtain futher pages of results. The
 -- default is 1000, which is the maximum allowed page size. You can,
@@ -179,6 +172,13 @@ pfdtIdentity = lens _pfdtIdentity (\ s a -> s{_pfdtIdentity = a});
 -- call may be fewer than the specified maximum.
 pfdtMaximumPageSize :: Lens' PollForDecisionTask (Maybe Natural)
 pfdtMaximumPageSize = lens _pfdtMaximumPageSize (\ s a -> s{_pfdtMaximumPageSize = a}) . mapping _Nat;
+
+-- | Identity of the decider making the request, which is recorded in the
+-- DecisionTaskStarted event in the workflow history. This enables
+-- diagnostic tracing when problems arise. The form of this identity is
+-- user defined.
+pfdtIdentity :: Lens' PollForDecisionTask (Maybe Text)
+pfdtIdentity = lens _pfdtIdentity (\ s a -> s{_pfdtIdentity = a});
 
 -- | The name of the domain containing the task lists to poll.
 pfdtDomain :: Lens' PollForDecisionTask Text
@@ -234,8 +234,8 @@ instance ToJSON PollForDecisionTask where
               (catMaybes
                  [("nextPageToken" .=) <$> _pfdtNextPageToken,
                   ("reverseOrder" .=) <$> _pfdtReverseOrder,
-                  ("identity" .=) <$> _pfdtIdentity,
                   ("maximumPageSize" .=) <$> _pfdtMaximumPageSize,
+                  ("identity" .=) <$> _pfdtIdentity,
                   Just ("domain" .= _pfdtDomain),
                   Just ("taskList" .= _pfdtTaskList)])
 

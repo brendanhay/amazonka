@@ -33,10 +33,10 @@ module Network.AWS.EC2.RequestSpotInstances
       requestSpotInstances
     , RequestSpotInstances
     -- * Request Lenses
-    , rsiInstanceCount
     , rsiClientToken
-    , rsiAvailabilityZoneGroup
+    , rsiInstanceCount
     , rsiLaunchSpecification
+    , rsiAvailabilityZoneGroup
     , rsiValidUntil
     , rsiLaunchGroup
     , rsiType
@@ -62,10 +62,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'requestSpotInstances' smart constructor.
 data RequestSpotInstances = RequestSpotInstances'
-    { _rsiInstanceCount         :: !(Maybe Int)
-    , _rsiClientToken           :: !(Maybe Text)
-    , _rsiAvailabilityZoneGroup :: !(Maybe Text)
+    { _rsiClientToken           :: !(Maybe Text)
+    , _rsiInstanceCount         :: !(Maybe Int)
     , _rsiLaunchSpecification   :: !(Maybe RequestSpotLaunchSpecification)
+    , _rsiAvailabilityZoneGroup :: !(Maybe Text)
     , _rsiValidUntil            :: !(Maybe ISO8601)
     , _rsiLaunchGroup           :: !(Maybe Text)
     , _rsiType                  :: !(Maybe SpotInstanceType)
@@ -78,13 +78,13 @@ data RequestSpotInstances = RequestSpotInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsiInstanceCount'
---
 -- * 'rsiClientToken'
 --
--- * 'rsiAvailabilityZoneGroup'
+-- * 'rsiInstanceCount'
 --
 -- * 'rsiLaunchSpecification'
+--
+-- * 'rsiAvailabilityZoneGroup'
 --
 -- * 'rsiValidUntil'
 --
@@ -102,10 +102,10 @@ requestSpotInstances
     -> RequestSpotInstances
 requestSpotInstances pSpotPrice_ =
     RequestSpotInstances'
-    { _rsiInstanceCount = Nothing
-    , _rsiClientToken = Nothing
-    , _rsiAvailabilityZoneGroup = Nothing
+    { _rsiClientToken = Nothing
+    , _rsiInstanceCount = Nothing
     , _rsiLaunchSpecification = Nothing
+    , _rsiAvailabilityZoneGroup = Nothing
     , _rsiValidUntil = Nothing
     , _rsiLaunchGroup = Nothing
     , _rsiType = Nothing
@@ -114,18 +114,22 @@ requestSpotInstances pSpotPrice_ =
     , _rsiSpotPrice = pSpotPrice_
     }
 
--- | The maximum number of Spot Instances to launch.
---
--- Default: 1
-rsiInstanceCount :: Lens' RequestSpotInstances (Maybe Int)
-rsiInstanceCount = lens _rsiInstanceCount (\ s a -> s{_rsiInstanceCount = a});
-
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 rsiClientToken :: Lens' RequestSpotInstances (Maybe Text)
 rsiClientToken = lens _rsiClientToken (\ s a -> s{_rsiClientToken = a});
+
+-- | The maximum number of Spot Instances to launch.
+--
+-- Default: 1
+rsiInstanceCount :: Lens' RequestSpotInstances (Maybe Int)
+rsiInstanceCount = lens _rsiInstanceCount (\ s a -> s{_rsiInstanceCount = a});
+
+-- | Undocumented member.
+rsiLaunchSpecification :: Lens' RequestSpotInstances (Maybe RequestSpotLaunchSpecification)
+rsiLaunchSpecification = lens _rsiLaunchSpecification (\ s a -> s{_rsiLaunchSpecification = a});
 
 -- | The user-specified name for a logical grouping of bids.
 --
@@ -149,10 +153,6 @@ rsiClientToken = lens _rsiClientToken (\ s a -> s{_rsiClientToken = a});
 -- Default: Instances are launched in any available Availability Zone.
 rsiAvailabilityZoneGroup :: Lens' RequestSpotInstances (Maybe Text)
 rsiAvailabilityZoneGroup = lens _rsiAvailabilityZoneGroup (\ s a -> s{_rsiAvailabilityZoneGroup = a});
-
--- | Undocumented member.
-rsiLaunchSpecification :: Lens' RequestSpotInstances (Maybe RequestSpotLaunchSpecification)
-rsiLaunchSpecification = lens _rsiLaunchSpecification (\ s a -> s{_rsiLaunchSpecification = a});
 
 -- | The end date of the request. If this is a one-time request, the request
 -- remains active until all instances launch, the request is canceled, or
@@ -221,10 +221,10 @@ instance ToQuery RequestSpotInstances where
           = mconcat
               ["Action" =: ("RequestSpotInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "InstanceCount" =: _rsiInstanceCount,
                "ClientToken" =: _rsiClientToken,
-               "AvailabilityZoneGroup" =: _rsiAvailabilityZoneGroup,
+               "InstanceCount" =: _rsiInstanceCount,
                "LaunchSpecification" =: _rsiLaunchSpecification,
+               "AvailabilityZoneGroup" =: _rsiAvailabilityZoneGroup,
                "ValidUntil" =: _rsiValidUntil,
                "LaunchGroup" =: _rsiLaunchGroup, "Type" =: _rsiType,
                "ValidFrom" =: _rsiValidFrom, "DryRun" =: _rsiDryRun,

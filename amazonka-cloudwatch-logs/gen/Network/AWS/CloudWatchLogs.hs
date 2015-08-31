@@ -74,11 +74,11 @@ module Network.AWS.CloudWatchLogs
     -- ** OperationAbortedException
     , _OperationAbortedException
 
-    -- ** DataAlreadyAcceptedException
-    , _DataAlreadyAcceptedException
-
     -- ** ServiceUnavailableException
     , _ServiceUnavailableException
+
+    -- ** DataAlreadyAcceptedException
+    , _DataAlreadyAcceptedException
 
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
@@ -95,9 +95,6 @@ module Network.AWS.CloudWatchLogs
     -- ** DescribeDestinations
     , module Network.AWS.CloudWatchLogs.DescribeDestinations
 
-    -- ** DeleteDestination
-    , module Network.AWS.CloudWatchLogs.DeleteDestination
-
     -- ** PutDestination
     , module Network.AWS.CloudWatchLogs.PutDestination
 
@@ -109,6 +106,9 @@ module Network.AWS.CloudWatchLogs
 
     -- ** DescribeLogGroups (Paginated)
     , module Network.AWS.CloudWatchLogs.DescribeLogGroups
+
+    -- ** DeleteDestination
+    , module Network.AWS.CloudWatchLogs.DeleteDestination
 
     -- ** FilterLogEvents (Paginated)
     , module Network.AWS.CloudWatchLogs.FilterLogEvents
@@ -122,38 +122,38 @@ module Network.AWS.CloudWatchLogs
     -- ** CreateLogGroup
     , module Network.AWS.CloudWatchLogs.CreateLogGroup
 
-    -- ** PutLogEvents
-    , module Network.AWS.CloudWatchLogs.PutLogEvents
-
-    -- ** DeleteSubscriptionFilter
-    , module Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
-
     -- ** PutSubscriptionFilter
     , module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
 
     -- ** DeleteLogGroup
     , module Network.AWS.CloudWatchLogs.DeleteLogGroup
 
-    -- ** TestMetricFilter
-    , module Network.AWS.CloudWatchLogs.TestMetricFilter
+    -- ** DeleteSubscriptionFilter
+    , module Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
+
+    -- ** PutLogEvents
+    , module Network.AWS.CloudWatchLogs.PutLogEvents
 
     -- ** DescribeMetricFilters (Paginated)
     , module Network.AWS.CloudWatchLogs.DescribeMetricFilters
+
+    -- ** TestMetricFilter
+    , module Network.AWS.CloudWatchLogs.TestMetricFilter
+
+    -- ** PutDestinationPolicy
+    , module Network.AWS.CloudWatchLogs.PutDestinationPolicy
+
+    -- ** PutMetricFilter
+    , module Network.AWS.CloudWatchLogs.PutMetricFilter
+
+    -- ** DeleteRetentionPolicy
+    , module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
 
     -- ** DeleteMetricFilter
     , module Network.AWS.CloudWatchLogs.DeleteMetricFilter
 
     -- ** PutRetentionPolicy
     , module Network.AWS.CloudWatchLogs.PutRetentionPolicy
-
-    -- ** DeleteRetentionPolicy
-    , module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
-
-    -- ** PutMetricFilter
-    , module Network.AWS.CloudWatchLogs.PutMetricFilter
-
-    -- ** PutDestinationPolicy
-    , module Network.AWS.CloudWatchLogs.PutDestinationPolicy
 
     -- ** DescribeLogStreams (Paginated)
     , module Network.AWS.CloudWatchLogs.DescribeLogStreams
@@ -222,8 +222,8 @@ module Network.AWS.CloudWatchLogs
     , MetricFilterMatchRecord
     , metricFilterMatchRecord
     , mfmrExtractedValues
-    , mfmrEventMessage
     , mfmrEventNumber
+    , mfmrEventMessage
 
     -- ** MetricTransformation
     , MetricTransformation

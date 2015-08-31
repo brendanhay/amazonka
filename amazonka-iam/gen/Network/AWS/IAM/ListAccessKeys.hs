@@ -43,8 +43,8 @@ module Network.AWS.IAM.ListAccessKeys
     , ListAccessKeys
     -- * Request Lenses
     , lakUserName
-    , lakMaxItems
     , lakMarker
+    , lakMaxItems
 
     -- * Destructuring the Response
     , listAccessKeysResponse
@@ -66,8 +66,8 @@ import           Network.AWS.Response
 -- | /See:/ 'listAccessKeys' smart constructor.
 data ListAccessKeys = ListAccessKeys'
     { _lakUserName :: !(Maybe Text)
-    , _lakMaxItems :: !(Maybe Nat)
     , _lakMarker   :: !(Maybe Text)
+    , _lakMaxItems :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListAccessKeys' with the minimum fields required to make a request.
@@ -76,21 +76,27 @@ data ListAccessKeys = ListAccessKeys'
 --
 -- * 'lakUserName'
 --
--- * 'lakMaxItems'
---
 -- * 'lakMarker'
+--
+-- * 'lakMaxItems'
 listAccessKeys
     :: ListAccessKeys
 listAccessKeys =
     ListAccessKeys'
     { _lakUserName = Nothing
-    , _lakMaxItems = Nothing
     , _lakMarker = Nothing
+    , _lakMaxItems = Nothing
     }
 
 -- | The name of the user.
 lakUserName :: Lens' ListAccessKeys (Maybe Text)
 lakUserName = lens _lakUserName (\ s a -> s{_lakUserName = a});
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lakMarker :: Lens' ListAccessKeys (Maybe Text)
+lakMarker = lens _lakMarker (\ s a -> s{_lakMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -100,12 +106,6 @@ lakUserName = lens _lakUserName (\ s a -> s{_lakUserName = a});
 -- 100.
 lakMaxItems :: Lens' ListAccessKeys (Maybe Natural)
 lakMaxItems = lens _lakMaxItems (\ s a -> s{_lakMaxItems = a}) . mapping _Nat;
-
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lakMarker :: Lens' ListAccessKeys (Maybe Text)
-lakMarker = lens _lakMarker (\ s a -> s{_lakMarker = a});
 
 instance AWSPager ListAccessKeys where
         page rq rs
@@ -138,8 +138,8 @@ instance ToQuery ListAccessKeys where
           = mconcat
               ["Action" =: ("ListAccessKeys" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _lakUserName,
-               "MaxItems" =: _lakMaxItems, "Marker" =: _lakMarker]
+               "UserName" =: _lakUserName, "Marker" =: _lakMarker,
+               "MaxItems" =: _lakMaxItems]
 
 -- | Contains the response to a successful ListAccessKeys request.
 --

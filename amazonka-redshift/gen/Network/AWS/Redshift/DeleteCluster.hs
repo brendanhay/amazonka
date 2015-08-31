@@ -45,9 +45,9 @@ module Network.AWS.Redshift.DeleteCluster
       deleteCluster
     , DeleteCluster
     -- * Request Lenses
-    , dSkipFinalClusterSnapshot
-    , dFinalClusterSnapshotIdentifier
-    , dClusterIdentifier
+    , delSkipFinalClusterSnapshot
+    , delFinalClusterSnapshotIdentifier
+    , delClusterIdentifier
 
     -- * Destructuring the Response
     , deleteClusterResponse
@@ -67,28 +67,28 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteCluster' smart constructor.
 data DeleteCluster = DeleteCluster'
-    { _dSkipFinalClusterSnapshot       :: !(Maybe Bool)
-    , _dFinalClusterSnapshotIdentifier :: !(Maybe Text)
-    , _dClusterIdentifier              :: !Text
+    { _delSkipFinalClusterSnapshot       :: !(Maybe Bool)
+    , _delFinalClusterSnapshotIdentifier :: !(Maybe Text)
+    , _delClusterIdentifier              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteCluster' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dSkipFinalClusterSnapshot'
+-- * 'delSkipFinalClusterSnapshot'
 --
--- * 'dFinalClusterSnapshotIdentifier'
+-- * 'delFinalClusterSnapshotIdentifier'
 --
--- * 'dClusterIdentifier'
+-- * 'delClusterIdentifier'
 deleteCluster
-    :: Text -- ^ 'dClusterIdentifier'
+    :: Text -- ^ 'delClusterIdentifier'
     -> DeleteCluster
 deleteCluster pClusterIdentifier_ =
     DeleteCluster'
-    { _dSkipFinalClusterSnapshot = Nothing
-    , _dFinalClusterSnapshotIdentifier = Nothing
-    , _dClusterIdentifier = pClusterIdentifier_
+    { _delSkipFinalClusterSnapshot = Nothing
+    , _delFinalClusterSnapshotIdentifier = Nothing
+    , _delClusterIdentifier = pClusterIdentifier_
     }
 
 -- | Determines whether a final snapshot of the cluster is created before
@@ -100,8 +100,8 @@ deleteCluster pClusterIdentifier_ =
 -- /SkipFinalClusterSnapshot/ is 'false'.
 --
 -- Default: 'false'
-dSkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
-dSkipFinalClusterSnapshot = lens _dSkipFinalClusterSnapshot (\ s a -> s{_dSkipFinalClusterSnapshot = a});
+delSkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
+delSkipFinalClusterSnapshot = lens _delSkipFinalClusterSnapshot (\ s a -> s{_delSkipFinalClusterSnapshot = a});
 
 -- | The identifier of the final snapshot that is to be created immediately
 -- before deleting the cluster. If this parameter is provided,
@@ -112,8 +112,8 @@ dSkipFinalClusterSnapshot = lens _dSkipFinalClusterSnapshot (\ s a -> s{_dSkipFi
 -- -   Must be 1 to 255 alphanumeric characters.
 -- -   First character must be a letter.
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-dFinalClusterSnapshotIdentifier :: Lens' DeleteCluster (Maybe Text)
-dFinalClusterSnapshotIdentifier = lens _dFinalClusterSnapshotIdentifier (\ s a -> s{_dFinalClusterSnapshotIdentifier = a});
+delFinalClusterSnapshotIdentifier :: Lens' DeleteCluster (Maybe Text)
+delFinalClusterSnapshotIdentifier = lens _delFinalClusterSnapshotIdentifier (\ s a -> s{_delFinalClusterSnapshotIdentifier = a});
 
 -- | The identifier of the cluster to be deleted.
 --
@@ -123,8 +123,8 @@ dFinalClusterSnapshotIdentifier = lens _dFinalClusterSnapshotIdentifier (\ s a -
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
 -- -   First character must be a letter.
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-dClusterIdentifier :: Lens' DeleteCluster Text
-dClusterIdentifier = lens _dClusterIdentifier (\ s a -> s{_dClusterIdentifier = a});
+delClusterIdentifier :: Lens' DeleteCluster Text
+delClusterIdentifier = lens _delClusterIdentifier (\ s a -> s{_delClusterIdentifier = a});
 
 instance AWSRequest DeleteCluster where
         type Rs DeleteCluster = DeleteClusterResponse
@@ -147,10 +147,10 @@ instance ToQuery DeleteCluster where
               ["Action" =: ("DeleteCluster" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "SkipFinalClusterSnapshot" =:
-                 _dSkipFinalClusterSnapshot,
+                 _delSkipFinalClusterSnapshot,
                "FinalClusterSnapshotIdentifier" =:
-                 _dFinalClusterSnapshotIdentifier,
-               "ClusterIdentifier" =: _dClusterIdentifier]
+                 _delFinalClusterSnapshotIdentifier,
+               "ClusterIdentifier" =: _delClusterIdentifier]
 
 -- | /See:/ 'deleteClusterResponse' smart constructor.
 data DeleteClusterResponse = DeleteClusterResponse'

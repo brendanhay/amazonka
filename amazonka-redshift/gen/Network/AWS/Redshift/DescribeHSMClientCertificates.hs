@@ -45,8 +45,8 @@ module Network.AWS.Redshift.DescribeHSMClientCertificates
     , dhccTagValues
     , dhccTagKeys
     , dhccHSMClientCertificateIdentifier
-    , dhccMaxRecords
     , dhccMarker
+    , dhccMaxRecords
 
     -- * Destructuring the Response
     , describeHSMClientCertificatesResponse
@@ -71,8 +71,8 @@ data DescribeHSMClientCertificates = DescribeHSMClientCertificates'
     { _dhccTagValues                      :: !(Maybe [Text])
     , _dhccTagKeys                        :: !(Maybe [Text])
     , _dhccHSMClientCertificateIdentifier :: !(Maybe Text)
-    , _dhccMaxRecords                     :: !(Maybe Int)
     , _dhccMarker                         :: !(Maybe Text)
+    , _dhccMaxRecords                     :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeHSMClientCertificates' with the minimum fields required to make a request.
@@ -85,9 +85,9 @@ data DescribeHSMClientCertificates = DescribeHSMClientCertificates'
 --
 -- * 'dhccHSMClientCertificateIdentifier'
 --
--- * 'dhccMaxRecords'
---
 -- * 'dhccMarker'
+--
+-- * 'dhccMaxRecords'
 describeHSMClientCertificates
     :: DescribeHSMClientCertificates
 describeHSMClientCertificates =
@@ -95,8 +95,8 @@ describeHSMClientCertificates =
     { _dhccTagValues = Nothing
     , _dhccTagKeys = Nothing
     , _dhccHSMClientCertificateIdentifier = Nothing
-    , _dhccMaxRecords = Nothing
     , _dhccMarker = Nothing
+    , _dhccMaxRecords = Nothing
     }
 
 -- | A tag value or values for which you want to return all matching HSM
@@ -125,6 +125,15 @@ dhccTagKeys = lens _dhccTagKeys (\ s a -> s{_dhccTagKeys = a}) . _Default . _Coe
 dhccHSMClientCertificateIdentifier :: Lens' DescribeHSMClientCertificates (Maybe Text)
 dhccHSMClientCertificateIdentifier = lens _dhccHSMClientCertificateIdentifier (\ s a -> s{_dhccHSMClientCertificateIdentifier = a});
 
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeHsmClientCertificates
+-- request exceed the value specified in 'MaxRecords', AWS returns a value
+-- in the 'Marker' field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the 'Marker'
+-- parameter and retrying the request.
+dhccMarker :: Lens' DescribeHSMClientCertificates (Maybe Text)
+dhccMarker = lens _dhccMarker (\ s a -> s{_dhccMarker = a});
+
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified 'MaxRecords'
 -- value, a value is returned in a 'marker' field of the response. You can
@@ -136,15 +145,6 @@ dhccHSMClientCertificateIdentifier = lens _dhccHSMClientCertificateIdentifier (\
 -- Constraints: minimum 20, maximum 100.
 dhccMaxRecords :: Lens' DescribeHSMClientCertificates (Maybe Int)
 dhccMaxRecords = lens _dhccMaxRecords (\ s a -> s{_dhccMaxRecords = a});
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeHsmClientCertificates
--- request exceed the value specified in 'MaxRecords', AWS returns a value
--- in the 'Marker' field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the 'Marker'
--- parameter and retrying the request.
-dhccMarker :: Lens' DescribeHSMClientCertificates (Maybe Text)
-dhccMarker = lens _dhccMarker (\ s a -> s{_dhccMarker = a});
 
 instance AWSPager DescribeHSMClientCertificates where
         page rq rs
@@ -187,8 +187,8 @@ instance ToQuery DescribeHSMClientCertificates where
                  toQuery (toQueryList "TagKey" <$> _dhccTagKeys),
                "HsmClientCertificateIdentifier" =:
                  _dhccHSMClientCertificateIdentifier,
-               "MaxRecords" =: _dhccMaxRecords,
-               "Marker" =: _dhccMarker]
+               "Marker" =: _dhccMarker,
+               "MaxRecords" =: _dhccMaxRecords]
 
 -- |
 --

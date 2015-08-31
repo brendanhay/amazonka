@@ -34,8 +34,8 @@ module Network.AWS.ElasticTranscoder.CreateJob
       createJob
     , CreateJob
     -- * Request Lenses
-    , cjOutputs
     , cjUserMetadata
+    , cjOutputs
     , cjOutput
     , cjPlaylists
     , cjOutputKeyPrefix
@@ -60,8 +60,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createJob' smart constructor.
 data CreateJob = CreateJob'
-    { _cjOutputs         :: !(Maybe [CreateJobOutput])
-    , _cjUserMetadata    :: !(Maybe (Map Text Text))
+    { _cjUserMetadata    :: !(Maybe (Map Text Text))
+    , _cjOutputs         :: !(Maybe [CreateJobOutput])
     , _cjOutput          :: !(Maybe CreateJobOutput)
     , _cjPlaylists       :: !(Maybe [CreateJobPlaylist])
     , _cjOutputKeyPrefix :: !(Maybe Text)
@@ -73,9 +73,9 @@ data CreateJob = CreateJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cjOutputs'
---
 -- * 'cjUserMetadata'
+--
+-- * 'cjOutputs'
 --
 -- * 'cjOutput'
 --
@@ -92,20 +92,14 @@ createJob
     -> CreateJob
 createJob pPipelineId_ pInput_ =
     CreateJob'
-    { _cjOutputs = Nothing
-    , _cjUserMetadata = Nothing
+    { _cjUserMetadata = Nothing
+    , _cjOutputs = Nothing
     , _cjOutput = Nothing
     , _cjPlaylists = Nothing
     , _cjOutputKeyPrefix = Nothing
     , _cjPipelineId = pPipelineId_
     , _cjInput = pInput_
     }
-
--- | A section of the request body that provides information about the
--- transcoded (target) files. We recommend that you use the 'Outputs'
--- syntax instead of the 'Output' syntax.
-cjOutputs :: Lens' CreateJob [CreateJobOutput]
-cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a}) . _Default . _Coerce;
 
 -- | User-defined metadata that you want to associate with an Elastic
 -- Transcoder job. You specify metadata in 'key\/value' pairs, and you can
@@ -114,6 +108,12 @@ cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a}) . _Default . _Coerce;
 -- which you specify them.
 cjUserMetadata :: Lens' CreateJob (HashMap Text Text)
 cjUserMetadata = lens _cjUserMetadata (\ s a -> s{_cjUserMetadata = a}) . _Default . _Map;
+
+-- | A section of the request body that provides information about the
+-- transcoded (target) files. We recommend that you use the 'Outputs'
+-- syntax instead of the 'Output' syntax.
+cjOutputs :: Lens' CreateJob [CreateJobOutput]
+cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a}) . _Default . _Coerce;
 
 -- | Undocumented member.
 cjOutput :: Lens' CreateJob (Maybe CreateJobOutput)
@@ -162,8 +162,8 @@ instance ToJSON CreateJob where
         toJSON CreateJob'{..}
           = object
               (catMaybes
-                 [("Outputs" .=) <$> _cjOutputs,
-                  ("UserMetadata" .=) <$> _cjUserMetadata,
+                 [("UserMetadata" .=) <$> _cjUserMetadata,
+                  ("Outputs" .=) <$> _cjOutputs,
                   ("Output" .=) <$> _cjOutput,
                   ("Playlists" .=) <$> _cjPlaylists,
                   ("OutputKeyPrefix" .=) <$> _cjOutputKeyPrefix,

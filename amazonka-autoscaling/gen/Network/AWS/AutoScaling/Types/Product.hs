@@ -28,8 +28,8 @@ import           Network.AWS.Prelude
 data Activity = Activity'
     { _aProgress             :: !(Maybe Int)
     , _aStatusMessage        :: !(Maybe Text)
-    , _aDetails              :: !(Maybe Text)
     , _aEndTime              :: !(Maybe ISO8601)
+    , _aDetails              :: !(Maybe Text)
     , _aDescription          :: !(Maybe Text)
     , _aActivityId           :: !Text
     , _aAutoScalingGroupName :: !Text
@@ -46,9 +46,9 @@ data Activity = Activity'
 --
 -- * 'aStatusMessage'
 --
--- * 'aDetails'
---
 -- * 'aEndTime'
+--
+-- * 'aDetails'
 --
 -- * 'aDescription'
 --
@@ -72,8 +72,8 @@ activity pActivityId_ pAutoScalingGroupName_ pCause_ pStartTime_ pStatusCode_ =
     Activity'
     { _aProgress = Nothing
     , _aStatusMessage = Nothing
-    , _aDetails = Nothing
     , _aEndTime = Nothing
+    , _aDetails = Nothing
     , _aDescription = Nothing
     , _aActivityId = pActivityId_
     , _aAutoScalingGroupName = pAutoScalingGroupName_
@@ -90,13 +90,13 @@ aProgress = lens _aProgress (\ s a -> s{_aProgress = a});
 aStatusMessage :: Lens' Activity (Maybe Text)
 aStatusMessage = lens _aStatusMessage (\ s a -> s{_aStatusMessage = a});
 
--- | The details about the activity.
-aDetails :: Lens' Activity (Maybe Text)
-aDetails = lens _aDetails (\ s a -> s{_aDetails = a});
-
 -- | The end time of the activity.
 aEndTime :: Lens' Activity (Maybe UTCTime)
 aEndTime = lens _aEndTime (\ s a -> s{_aEndTime = a}) . mapping _Time;
+
+-- | The details about the activity.
+aDetails :: Lens' Activity (Maybe Text)
+aDetails = lens _aDetails (\ s a -> s{_aDetails = a});
 
 -- | A friendly, more verbose description of the activity.
 aDescription :: Lens' Activity (Maybe Text)
@@ -126,8 +126,8 @@ instance FromXML Activity where
         parseXML x
           = Activity' <$>
               (x .@? "Progress") <*> (x .@? "StatusMessage") <*>
-                (x .@? "Details")
-                <*> (x .@? "EndTime")
+                (x .@? "EndTime")
+                <*> (x .@? "Details")
                 <*> (x .@? "Description")
                 <*> (x .@ "ActivityId")
                 <*> (x .@ "AutoScalingGroupName")
@@ -212,11 +212,11 @@ data AutoScalingGroup = AutoScalingGroup'
     , _asgHealthCheckGracePeriod  :: !(Maybe Int)
     , _asgVPCZoneIdentifier       :: !(Maybe Text)
     , _asgEnabledMetrics          :: !(Maybe [EnabledMetric])
-    , _asgInstances               :: !(Maybe [Instance])
     , _asgLaunchConfigurationName :: !(Maybe Text)
+    , _asgInstances               :: !(Maybe [Instance])
     , _asgAutoScalingGroupARN     :: !(Maybe Text)
-    , _asgSuspendedProcesses      :: !(Maybe [SuspendedProcess])
     , _asgPlacementGroup          :: !(Maybe Text)
+    , _asgSuspendedProcesses      :: !(Maybe [SuspendedProcess])
     , _asgLoadBalancerNames       :: !(Maybe [Text])
     , _asgTags                    :: !(Maybe [TagDescription])
     , _asgAutoScalingGroupName    :: !Text
@@ -243,15 +243,15 @@ data AutoScalingGroup = AutoScalingGroup'
 --
 -- * 'asgEnabledMetrics'
 --
--- * 'asgInstances'
---
 -- * 'asgLaunchConfigurationName'
+--
+-- * 'asgInstances'
 --
 -- * 'asgAutoScalingGroupARN'
 --
--- * 'asgSuspendedProcesses'
---
 -- * 'asgPlacementGroup'
+--
+-- * 'asgSuspendedProcesses'
 --
 -- * 'asgLoadBalancerNames'
 --
@@ -289,11 +289,11 @@ autoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ pDesiredCapacity_ pD
     , _asgHealthCheckGracePeriod = Nothing
     , _asgVPCZoneIdentifier = Nothing
     , _asgEnabledMetrics = Nothing
-    , _asgInstances = Nothing
     , _asgLaunchConfigurationName = Nothing
+    , _asgInstances = Nothing
     , _asgAutoScalingGroupARN = Nothing
-    , _asgSuspendedProcesses = Nothing
     , _asgPlacementGroup = Nothing
+    , _asgSuspendedProcesses = Nothing
     , _asgLoadBalancerNames = Nothing
     , _asgTags = Nothing
     , _asgAutoScalingGroupName = pAutoScalingGroupName_
@@ -333,27 +333,27 @@ asgVPCZoneIdentifier = lens _asgVPCZoneIdentifier (\ s a -> s{_asgVPCZoneIdentif
 asgEnabledMetrics :: Lens' AutoScalingGroup [EnabledMetric]
 asgEnabledMetrics = lens _asgEnabledMetrics (\ s a -> s{_asgEnabledMetrics = a}) . _Default . _Coerce;
 
--- | The EC2 instances associated with the group.
-asgInstances :: Lens' AutoScalingGroup [Instance]
-asgInstances = lens _asgInstances (\ s a -> s{_asgInstances = a}) . _Default . _Coerce;
-
 -- | The name of the associated launch configuration.
 asgLaunchConfigurationName :: Lens' AutoScalingGroup (Maybe Text)
 asgLaunchConfigurationName = lens _asgLaunchConfigurationName (\ s a -> s{_asgLaunchConfigurationName = a});
 
+-- | The EC2 instances associated with the group.
+asgInstances :: Lens' AutoScalingGroup [Instance]
+asgInstances = lens _asgInstances (\ s a -> s{_asgInstances = a}) . _Default . _Coerce;
+
 -- | The Amazon Resource Name (ARN) of the group.
 asgAutoScalingGroupARN :: Lens' AutoScalingGroup (Maybe Text)
 asgAutoScalingGroupARN = lens _asgAutoScalingGroupARN (\ s a -> s{_asgAutoScalingGroupARN = a});
-
--- | The suspended processes associated with the group.
-asgSuspendedProcesses :: Lens' AutoScalingGroup [SuspendedProcess]
-asgSuspendedProcesses = lens _asgSuspendedProcesses (\ s a -> s{_asgSuspendedProcesses = a}) . _Default . _Coerce;
 
 -- | The name of the placement group into which you\'ll launch your
 -- instances, if any. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>.
 asgPlacementGroup :: Lens' AutoScalingGroup (Maybe Text)
 asgPlacementGroup = lens _asgPlacementGroup (\ s a -> s{_asgPlacementGroup = a});
+
+-- | The suspended processes associated with the group.
+asgSuspendedProcesses :: Lens' AutoScalingGroup [SuspendedProcess]
+asgSuspendedProcesses = lens _asgSuspendedProcesses (\ s a -> s{_asgSuspendedProcesses = a}) . _Default . _Coerce;
 
 -- | One or more load balancers associated with the group.
 asgLoadBalancerNames :: Lens' AutoScalingGroup [Text]
@@ -408,15 +408,15 @@ instance FromXML AutoScalingGroup where
                 <*>
                 (x .@? "EnabledMetrics" .!@ mempty >>=
                    may (parseXMLList "member"))
+                <*> (x .@? "LaunchConfigurationName")
                 <*>
                 (x .@? "Instances" .!@ mempty >>=
                    may (parseXMLList "member"))
-                <*> (x .@? "LaunchConfigurationName")
                 <*> (x .@? "AutoScalingGroupARN")
+                <*> (x .@? "PlacementGroup")
                 <*>
                 (x .@? "SuspendedProcesses" .!@ mempty >>=
                    may (parseXMLList "member"))
-                <*> (x .@? "PlacementGroup")
                 <*>
                 (x .@? "LoadBalancerNames" .!@ mempty >>=
                    may (parseXMLList "member"))
@@ -872,10 +872,10 @@ instance ToQuery InstanceMonitoring where
 --
 -- /See:/ 'launchConfiguration' smart constructor.
 data LaunchConfiguration = LaunchConfiguration'
-    { _lcSecurityGroups               :: !(Maybe [Text])
-    , _lcAssociatePublicIPAddress     :: !(Maybe Bool)
-    , _lcInstanceMonitoring           :: !(Maybe InstanceMonitoring)
+    { _lcAssociatePublicIPAddress     :: !(Maybe Bool)
+    , _lcSecurityGroups               :: !(Maybe [Text])
     , _lcSpotPrice                    :: !(Maybe Text)
+    , _lcInstanceMonitoring           :: !(Maybe InstanceMonitoring)
     , _lcKeyName                      :: !(Maybe Text)
     , _lcClassicLinkVPCSecurityGroups :: !(Maybe [Text])
     , _lcRAMDiskId                    :: !(Maybe Text)
@@ -897,13 +897,13 @@ data LaunchConfiguration = LaunchConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcSecurityGroups'
---
 -- * 'lcAssociatePublicIPAddress'
 --
--- * 'lcInstanceMonitoring'
+-- * 'lcSecurityGroups'
 --
 -- * 'lcSpotPrice'
+--
+-- * 'lcInstanceMonitoring'
 --
 -- * 'lcKeyName'
 --
@@ -942,10 +942,10 @@ launchConfiguration
     -> LaunchConfiguration
 launchConfiguration pLaunchConfigurationName_ pImageId_ pInstanceType_ pCreatedTime_ =
     LaunchConfiguration'
-    { _lcSecurityGroups = Nothing
-    , _lcAssociatePublicIPAddress = Nothing
-    , _lcInstanceMonitoring = Nothing
+    { _lcAssociatePublicIPAddress = Nothing
+    , _lcSecurityGroups = Nothing
     , _lcSpotPrice = Nothing
+    , _lcInstanceMonitoring = Nothing
     , _lcKeyName = Nothing
     , _lcClassicLinkVPCSecurityGroups = Nothing
     , _lcRAMDiskId = Nothing
@@ -963,23 +963,23 @@ launchConfiguration pLaunchConfigurationName_ pImageId_ pInstanceType_ pCreatedT
     , _lcCreatedTime = _Time # pCreatedTime_
     }
 
--- | The security groups to associate with the instances.
-lcSecurityGroups :: Lens' LaunchConfiguration [Text]
-lcSecurityGroups = lens _lcSecurityGroups (\ s a -> s{_lcSecurityGroups = a}) . _Default . _Coerce;
-
 -- | Specifies whether the instances are associated with a public IP address
 -- ('true') or not ('false').
 lcAssociatePublicIPAddress :: Lens' LaunchConfiguration (Maybe Bool)
 lcAssociatePublicIPAddress = lens _lcAssociatePublicIPAddress (\ s a -> s{_lcAssociatePublicIPAddress = a});
 
--- | Controls whether instances in this group are launched with detailed
--- monitoring.
-lcInstanceMonitoring :: Lens' LaunchConfiguration (Maybe InstanceMonitoring)
-lcInstanceMonitoring = lens _lcInstanceMonitoring (\ s a -> s{_lcInstanceMonitoring = a});
+-- | The security groups to associate with the instances.
+lcSecurityGroups :: Lens' LaunchConfiguration [Text]
+lcSecurityGroups = lens _lcSecurityGroups (\ s a -> s{_lcSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The price to bid when launching Spot Instances.
 lcSpotPrice :: Lens' LaunchConfiguration (Maybe Text)
 lcSpotPrice = lens _lcSpotPrice (\ s a -> s{_lcSpotPrice = a});
+
+-- | Controls whether instances in this group are launched with detailed
+-- monitoring.
+lcInstanceMonitoring :: Lens' LaunchConfiguration (Maybe InstanceMonitoring)
+lcInstanceMonitoring = lens _lcInstanceMonitoring (\ s a -> s{_lcInstanceMonitoring = a});
 
 -- | The name of the key pair.
 lcKeyName :: Lens' LaunchConfiguration (Maybe Text)
@@ -1057,11 +1057,11 @@ lcCreatedTime = lens _lcCreatedTime (\ s a -> s{_lcCreatedTime = a}) . _Time;
 instance FromXML LaunchConfiguration where
         parseXML x
           = LaunchConfiguration' <$>
-              (x .@? "SecurityGroups" .!@ mempty >>=
-                 may (parseXMLList "member"))
-                <*> (x .@? "AssociatePublicIpAddress")
-                <*> (x .@? "InstanceMonitoring")
+              (x .@? "AssociatePublicIpAddress") <*>
+                (x .@? "SecurityGroups" .!@ mempty >>=
+                   may (parseXMLList "member"))
                 <*> (x .@? "SpotPrice")
+                <*> (x .@? "InstanceMonitoring")
                 <*> (x .@? "KeyName")
                 <*>
                 (x .@? "ClassicLinkVPCSecurityGroups" .!@ mempty >>=
@@ -1105,9 +1105,9 @@ data LifecycleHook = LifecycleHook'
     , _lhAutoScalingGroupName  :: !(Maybe Text)
     , _lhNotificationMetadata  :: !(Maybe Text)
     , _lhGlobalTimeout         :: !(Maybe Int)
-    , _lhRoleARN               :: !(Maybe Text)
-    , _lhLifecycleTransition   :: !(Maybe Text)
     , _lhNotificationTargetARN :: !(Maybe Text)
+    , _lhLifecycleTransition   :: !(Maybe Text)
+    , _lhRoleARN               :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LifecycleHook' with the minimum fields required to make a request.
@@ -1126,11 +1126,11 @@ data LifecycleHook = LifecycleHook'
 --
 -- * 'lhGlobalTimeout'
 --
--- * 'lhRoleARN'
+-- * 'lhNotificationTargetARN'
 --
 -- * 'lhLifecycleTransition'
 --
--- * 'lhNotificationTargetARN'
+-- * 'lhRoleARN'
 lifecycleHook
     :: LifecycleHook
 lifecycleHook =
@@ -1141,9 +1141,9 @@ lifecycleHook =
     , _lhAutoScalingGroupName = Nothing
     , _lhNotificationMetadata = Nothing
     , _lhGlobalTimeout = Nothing
-    , _lhRoleARN = Nothing
-    , _lhLifecycleTransition = Nothing
     , _lhNotificationTargetARN = Nothing
+    , _lhLifecycleTransition = Nothing
+    , _lhRoleARN = Nothing
     }
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
@@ -1177,17 +1177,6 @@ lhNotificationMetadata = lens _lhNotificationMetadata (\ s a -> s{_lhNotificatio
 lhGlobalTimeout :: Lens' LifecycleHook (Maybe Int)
 lhGlobalTimeout = lens _lhGlobalTimeout (\ s a -> s{_lhGlobalTimeout = a});
 
--- | The ARN of the IAM role that allows the Auto Scaling group to publish to
--- the specified notification target.
-lhRoleARN :: Lens' LifecycleHook (Maybe Text)
-lhRoleARN = lens _lhRoleARN (\ s a -> s{_lhRoleARN = a});
-
--- | The state of the EC2 instance to which you want to attach the lifecycle
--- hook. For a list of lifecycle hook types, see
--- DescribeLifecycleHookTypes.
-lhLifecycleTransition :: Lens' LifecycleHook (Maybe Text)
-lhLifecycleTransition = lens _lhLifecycleTransition (\ s a -> s{_lhLifecycleTransition = a});
-
 -- | The ARN of the notification target that Auto Scaling uses to notify you
 -- when an instance is in the transition state for the lifecycle hook. This
 -- ARN target can be either an SQS queue or an SNS topic. The notification
@@ -1203,6 +1192,17 @@ lhLifecycleTransition = lens _lhLifecycleTransition (\ s a -> s{_lhLifecycleTran
 lhNotificationTargetARN :: Lens' LifecycleHook (Maybe Text)
 lhNotificationTargetARN = lens _lhNotificationTargetARN (\ s a -> s{_lhNotificationTargetARN = a});
 
+-- | The state of the EC2 instance to which you want to attach the lifecycle
+-- hook. For a list of lifecycle hook types, see
+-- DescribeLifecycleHookTypes.
+lhLifecycleTransition :: Lens' LifecycleHook (Maybe Text)
+lhLifecycleTransition = lens _lhLifecycleTransition (\ s a -> s{_lhLifecycleTransition = a});
+
+-- | The ARN of the IAM role that allows the Auto Scaling group to publish to
+-- the specified notification target.
+lhRoleARN :: Lens' LifecycleHook (Maybe Text)
+lhRoleARN = lens _lhRoleARN (\ s a -> s{_lhRoleARN = a});
+
 instance FromXML LifecycleHook where
         parseXML x
           = LifecycleHook' <$>
@@ -1212,9 +1212,9 @@ instance FromXML LifecycleHook where
                 <*> (x .@? "AutoScalingGroupName")
                 <*> (x .@? "NotificationMetadata")
                 <*> (x .@? "GlobalTimeout")
-                <*> (x .@? "RoleARN")
-                <*> (x .@? "LifecycleTransition")
                 <*> (x .@? "NotificationTargetARN")
+                <*> (x .@? "LifecycleTransition")
+                <*> (x .@? "RoleARN")
 
 -- | Describes the state of a load balancer.
 --
@@ -1447,14 +1447,14 @@ instance FromXML ProcessType where
 --
 -- /See:/ 'scalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
-    { _sEstimatedInstanceWarmup :: !(Maybe Int)
-    , _sMinAdjustmentStep       :: !(Maybe Int)
+    { _sMinAdjustmentStep       :: !(Maybe Int)
+    , _sEstimatedInstanceWarmup :: !(Maybe Int)
     , _sPolicyName              :: !(Maybe Text)
     , _sPolicyType              :: !(Maybe Text)
     , _sStepAdjustments         :: !(Maybe [StepAdjustment])
     , _sAdjustmentType          :: !(Maybe Text)
-    , _sScalingAdjustment       :: !(Maybe Int)
     , _sAutoScalingGroupName    :: !(Maybe Text)
+    , _sScalingAdjustment       :: !(Maybe Int)
     , _sCooldown                :: !(Maybe Int)
     , _sPolicyARN               :: !(Maybe Text)
     , _sAlarms                  :: !(Maybe [Alarm])
@@ -1466,9 +1466,9 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sEstimatedInstanceWarmup'
---
 -- * 'sMinAdjustmentStep'
+--
+-- * 'sEstimatedInstanceWarmup'
 --
 -- * 'sPolicyName'
 --
@@ -1478,9 +1478,9 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- * 'sAdjustmentType'
 --
--- * 'sScalingAdjustment'
---
 -- * 'sAutoScalingGroupName'
+--
+-- * 'sScalingAdjustment'
 --
 -- * 'sCooldown'
 --
@@ -1495,14 +1495,14 @@ scalingPolicy
     :: ScalingPolicy
 scalingPolicy =
     ScalingPolicy'
-    { _sEstimatedInstanceWarmup = Nothing
-    , _sMinAdjustmentStep = Nothing
+    { _sMinAdjustmentStep = Nothing
+    , _sEstimatedInstanceWarmup = Nothing
     , _sPolicyName = Nothing
     , _sPolicyType = Nothing
     , _sStepAdjustments = Nothing
     , _sAdjustmentType = Nothing
-    , _sScalingAdjustment = Nothing
     , _sAutoScalingGroupName = Nothing
+    , _sScalingAdjustment = Nothing
     , _sCooldown = Nothing
     , _sPolicyARN = Nothing
     , _sAlarms = Nothing
@@ -1510,15 +1510,15 @@ scalingPolicy =
     , _sMinAdjustmentMagnitude = Nothing
     }
 
--- | The estimated time, in seconds, until a newly launched instance can
--- contribute to the CloudWatch metrics.
-sEstimatedInstanceWarmup :: Lens' ScalingPolicy (Maybe Int)
-sEstimatedInstanceWarmup = lens _sEstimatedInstanceWarmup (\ s a -> s{_sEstimatedInstanceWarmup = a});
-
 -- | Available for backward compatibility. Use 'MinAdjustmentMagnitude'
 -- instead.
 sMinAdjustmentStep :: Lens' ScalingPolicy (Maybe Int)
 sMinAdjustmentStep = lens _sMinAdjustmentStep (\ s a -> s{_sMinAdjustmentStep = a});
+
+-- | The estimated time, in seconds, until a newly launched instance can
+-- contribute to the CloudWatch metrics.
+sEstimatedInstanceWarmup :: Lens' ScalingPolicy (Maybe Int)
+sEstimatedInstanceWarmup = lens _sEstimatedInstanceWarmup (\ s a -> s{_sEstimatedInstanceWarmup = a});
 
 -- | The name of the scaling policy.
 sPolicyName :: Lens' ScalingPolicy (Maybe Text)
@@ -1539,15 +1539,15 @@ sStepAdjustments = lens _sStepAdjustments (\ s a -> s{_sStepAdjustments = a}) . 
 sAdjustmentType :: Lens' ScalingPolicy (Maybe Text)
 sAdjustmentType = lens _sAdjustmentType (\ s a -> s{_sAdjustmentType = a});
 
+-- | The name of the Auto Scaling group associated with this scaling policy.
+sAutoScalingGroupName :: Lens' ScalingPolicy (Maybe Text)
+sAutoScalingGroupName = lens _sAutoScalingGroupName (\ s a -> s{_sAutoScalingGroupName = a});
+
 -- | The amount by which to scale, based on the specified adjustment type. A
 -- positive value adds to the current capacity while a negative number
 -- removes from the current capacity.
 sScalingAdjustment :: Lens' ScalingPolicy (Maybe Int)
 sScalingAdjustment = lens _sScalingAdjustment (\ s a -> s{_sScalingAdjustment = a});
-
--- | The name of the Auto Scaling group associated with this scaling policy.
-sAutoScalingGroupName :: Lens' ScalingPolicy (Maybe Text)
-sAutoScalingGroupName = lens _sAutoScalingGroupName (\ s a -> s{_sAutoScalingGroupName = a});
 
 -- | The amount of time, in seconds, after a scaling activity completes
 -- before any further trigger-related scaling activities can start.
@@ -1577,16 +1577,16 @@ sMinAdjustmentMagnitude = lens _sMinAdjustmentMagnitude (\ s a -> s{_sMinAdjustm
 instance FromXML ScalingPolicy where
         parseXML x
           = ScalingPolicy' <$>
-              (x .@? "EstimatedInstanceWarmup") <*>
-                (x .@? "MinAdjustmentStep")
+              (x .@? "MinAdjustmentStep") <*>
+                (x .@? "EstimatedInstanceWarmup")
                 <*> (x .@? "PolicyName")
                 <*> (x .@? "PolicyType")
                 <*>
                 (x .@? "StepAdjustments" .!@ mempty >>=
                    may (parseXMLList "member"))
                 <*> (x .@? "AdjustmentType")
-                <*> (x .@? "ScalingAdjustment")
                 <*> (x .@? "AutoScalingGroupName")
+                <*> (x .@? "ScalingAdjustment")
                 <*> (x .@? "Cooldown")
                 <*> (x .@? "PolicyARN")
                 <*>
@@ -1655,15 +1655,15 @@ instance ToQuery ScalingProcessQuery where
 -- /See:/ 'scheduledUpdateGroupAction' smart constructor.
 data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
     { _sugaScheduledActionARN   :: !(Maybe Text)
-    , _sugaTime                 :: !(Maybe ISO8601)
     , _sugaStartTime            :: !(Maybe ISO8601)
+    , _sugaTime                 :: !(Maybe ISO8601)
     , _sugaScheduledActionName  :: !(Maybe Text)
     , _sugaMaxSize              :: !(Maybe Int)
-    , _sugaDesiredCapacity      :: !(Maybe Int)
     , _sugaRecurrence           :: !(Maybe Text)
+    , _sugaDesiredCapacity      :: !(Maybe Int)
     , _sugaMinSize              :: !(Maybe Int)
-    , _sugaEndTime              :: !(Maybe ISO8601)
     , _sugaAutoScalingGroupName :: !(Maybe Text)
+    , _sugaEndTime              :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ScheduledUpdateGroupAction' with the minimum fields required to make a request.
@@ -1672,46 +1672,42 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
 --
 -- * 'sugaScheduledActionARN'
 --
--- * 'sugaTime'
---
 -- * 'sugaStartTime'
+--
+-- * 'sugaTime'
 --
 -- * 'sugaScheduledActionName'
 --
 -- * 'sugaMaxSize'
 --
--- * 'sugaDesiredCapacity'
---
 -- * 'sugaRecurrence'
+--
+-- * 'sugaDesiredCapacity'
 --
 -- * 'sugaMinSize'
 --
--- * 'sugaEndTime'
---
 -- * 'sugaAutoScalingGroupName'
+--
+-- * 'sugaEndTime'
 scheduledUpdateGroupAction
     :: ScheduledUpdateGroupAction
 scheduledUpdateGroupAction =
     ScheduledUpdateGroupAction'
     { _sugaScheduledActionARN = Nothing
-    , _sugaTime = Nothing
     , _sugaStartTime = Nothing
+    , _sugaTime = Nothing
     , _sugaScheduledActionName = Nothing
     , _sugaMaxSize = Nothing
-    , _sugaDesiredCapacity = Nothing
     , _sugaRecurrence = Nothing
+    , _sugaDesiredCapacity = Nothing
     , _sugaMinSize = Nothing
-    , _sugaEndTime = Nothing
     , _sugaAutoScalingGroupName = Nothing
+    , _sugaEndTime = Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the scheduled action.
 sugaScheduledActionARN :: Lens' ScheduledUpdateGroupAction (Maybe Text)
 sugaScheduledActionARN = lens _sugaScheduledActionARN (\ s a -> s{_sugaScheduledActionARN = a});
-
--- | This parameter is deprecated; use 'StartTime' instead.
-sugaTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
-sugaTime = lens _sugaTime (\ s a -> s{_sugaTime = a}) . mapping _Time;
 
 -- | The date and time that the action is scheduled to begin. This date and
 -- time can be up to one month in the future.
@@ -1721,6 +1717,10 @@ sugaTime = lens _sugaTime (\ s a -> s{_sugaTime = a}) . mapping _Time;
 sugaStartTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
 sugaStartTime = lens _sugaStartTime (\ s a -> s{_sugaStartTime = a}) . mapping _Time;
 
+-- | This parameter is deprecated; use 'StartTime' instead.
+sugaTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
+sugaTime = lens _sugaTime (\ s a -> s{_sugaTime = a}) . mapping _Time;
+
 -- | The name of the scheduled action.
 sugaScheduledActionName :: Lens' ScheduledUpdateGroupAction (Maybe Text)
 sugaScheduledActionName = lens _sugaScheduledActionName (\ s a -> s{_sugaScheduledActionName = a});
@@ -1729,39 +1729,39 @@ sugaScheduledActionName = lens _sugaScheduledActionName (\ s a -> s{_sugaSchedul
 sugaMaxSize :: Lens' ScheduledUpdateGroupAction (Maybe Int)
 sugaMaxSize = lens _sugaMaxSize (\ s a -> s{_sugaMaxSize = a});
 
--- | The number of instances you prefer to maintain in the group.
-sugaDesiredCapacity :: Lens' ScheduledUpdateGroupAction (Maybe Int)
-sugaDesiredCapacity = lens _sugaDesiredCapacity (\ s a -> s{_sugaDesiredCapacity = a});
-
 -- | The recurring schedule for the action.
 sugaRecurrence :: Lens' ScheduledUpdateGroupAction (Maybe Text)
 sugaRecurrence = lens _sugaRecurrence (\ s a -> s{_sugaRecurrence = a});
 
+-- | The number of instances you prefer to maintain in the group.
+sugaDesiredCapacity :: Lens' ScheduledUpdateGroupAction (Maybe Int)
+sugaDesiredCapacity = lens _sugaDesiredCapacity (\ s a -> s{_sugaDesiredCapacity = a});
+
 -- | The minimum size of the group.
 sugaMinSize :: Lens' ScheduledUpdateGroupAction (Maybe Int)
 sugaMinSize = lens _sugaMinSize (\ s a -> s{_sugaMinSize = a});
+
+-- | The name of the group.
+sugaAutoScalingGroupName :: Lens' ScheduledUpdateGroupAction (Maybe Text)
+sugaAutoScalingGroupName = lens _sugaAutoScalingGroupName (\ s a -> s{_sugaAutoScalingGroupName = a});
 
 -- | The date and time that the action is scheduled to end. This date and
 -- time can be up to one month in the future.
 sugaEndTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
 sugaEndTime = lens _sugaEndTime (\ s a -> s{_sugaEndTime = a}) . mapping _Time;
 
--- | The name of the group.
-sugaAutoScalingGroupName :: Lens' ScheduledUpdateGroupAction (Maybe Text)
-sugaAutoScalingGroupName = lens _sugaAutoScalingGroupName (\ s a -> s{_sugaAutoScalingGroupName = a});
-
 instance FromXML ScheduledUpdateGroupAction where
         parseXML x
           = ScheduledUpdateGroupAction' <$>
-              (x .@? "ScheduledActionARN") <*> (x .@? "Time") <*>
-                (x .@? "StartTime")
+              (x .@? "ScheduledActionARN") <*> (x .@? "StartTime")
+                <*> (x .@? "Time")
                 <*> (x .@? "ScheduledActionName")
                 <*> (x .@? "MaxSize")
-                <*> (x .@? "DesiredCapacity")
                 <*> (x .@? "Recurrence")
+                <*> (x .@? "DesiredCapacity")
                 <*> (x .@? "MinSize")
-                <*> (x .@? "EndTime")
                 <*> (x .@? "AutoScalingGroupName")
+                <*> (x .@? "EndTime")
 
 -- | Describes an adjustment based on the difference between the value of the
 -- aggregated CloudWatch metric and the breach threshold that you\'ve

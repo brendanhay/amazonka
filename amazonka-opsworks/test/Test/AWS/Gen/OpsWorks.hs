@@ -43,14 +43,17 @@ import Test.AWS.OpsWorks.Internal
 --         , testSetLoadBasedAutoScaling $
 --             setLoadBasedAutoScaling
 --
---         , testUnassignVolume $
---             unassignVolume
---
 --         , testDeregisterRDSDBInstance $
 --             deregisterRDSDBInstance
 --
+--         , testUnassignVolume $
+--             unassignVolume
+--
 --         , testCreateInstance $
 --             createInstance
+--
+--         , testDescribeLayers $
+--             describeLayers
 --
 --         , testRegisterElasticIP $
 --             registerElasticIP
@@ -58,17 +61,14 @@ import Test.AWS.OpsWorks.Internal
 --         , testDescribeAgentVersions $
 --             describeAgentVersions
 --
---         , testDescribeLayers $
---             describeLayers
---
 --         , testCreateDeployment $
 --             createDeployment
 --
---         , testDeleteApp $
---             deleteApp
+--         , testAssignInstance $
+--             assignInstance
 --
---         , testUpdateApp $
---             updateApp
+--         , testDescribeStacks $
+--             describeStacks
 --
 --         , testDeleteInstance $
 --             deleteInstance
@@ -76,23 +76,23 @@ import Test.AWS.OpsWorks.Internal
 --         , testUpdateInstance $
 --             updateInstance
 --
---         , testDescribeStacks $
---             describeStacks
---
 --         , testDeregisterVolume $
 --             deregisterVolume
---
---         , testAssignInstance $
---             assignInstance
 --
 --         , testRebootInstance $
 --             rebootInstance
 --
---         , testDescribeTimeBasedAutoScaling $
---             describeTimeBasedAutoScaling
+--         , testDeleteApp $
+--             deleteApp
+--
+--         , testUpdateApp $
+--             updateApp
 --
 --         , testUpdateRDSDBInstance $
 --             updateRDSDBInstance
+--
+--         , testDescribeTimeBasedAutoScaling $
+--             describeTimeBasedAutoScaling
 --
 --         , testStopStack $
 --             stopStack
@@ -115,17 +115,14 @@ import Test.AWS.OpsWorks.Internal
 --         , testSetTimeBasedAutoScaling $
 --             setTimeBasedAutoScaling
 --
---         , testDeregisterElasticIP $
---             deregisterElasticIP
+--         , testDescribeUserProfiles $
+--             describeUserProfiles
 --
 --         , testAttachElasticLoadBalancer $
 --             attachElasticLoadBalancer
 --
---         , testDescribeUserProfiles $
---             describeUserProfiles
---
---         , testDescribeStackSummary $
---             describeStackSummary
+--         , testDeregisterElasticIP $
+--             deregisterElasticIP
 --
 --         , testDeregisterEcsCluster $
 --             deregisterEcsCluster
@@ -136,20 +133,20 @@ import Test.AWS.OpsWorks.Internal
 --         , testUpdateMyUserProfile $
 --             updateMyUserProfile
 --
+--         , testDescribeStackSummary $
+--             describeStackSummary
+--
 --         , testDescribeInstances $
 --             describeInstances
 --
 --         , testDescribeDeployments $
 --             describeDeployments
 --
---         , testCreateStack $
---             createStack
+--         , testDescribeElasticIPs $
+--             describeElasticIPs
 --
 --         , testGrantAccess $
 --             grantAccess
---
---         , testDescribeElasticIPs $
---             describeElasticIPs
 --
 --         , testDeleteLayer $
 --             deleteLayer
@@ -157,23 +154,26 @@ import Test.AWS.OpsWorks.Internal
 --         , testUpdateLayer $
 --             updateLayer
 --
---         , testCloneStack $
---             cloneStack
---
---         , testGetHostnameSuggestion $
---             getHostnameSuggestion
---
---         , testCreateApp $
---             createApp
---
---         , testDescribePermissions $
---             describePermissions
+--         , testCreateStack $
+--             createStack
 --
 --         , testUpdateElasticIP $
 --             updateElasticIP
 --
---         , testDescribeLoadBasedAutoScaling $
---             describeLoadBasedAutoScaling
+--         , testCreateApp $
+--             createApp
+--
+--         , testGetHostnameSuggestion $
+--             getHostnameSuggestion
+--
+--         , testCloneStack $
+--             cloneStack
+--
+--         , testDescribePermissions $
+--             describePermissions
+--
+--         , testDetachElasticLoadBalancer $
+--             detachElasticLoadBalancer
 --
 --         , testRegisterInstance $
 --             registerInstance
@@ -181,20 +181,17 @@ import Test.AWS.OpsWorks.Internal
 --         , testAssociateElasticIP $
 --             associateElasticIP
 --
---         , testDetachElasticLoadBalancer $
---             detachElasticLoadBalancer
+--         , testDescribeLoadBasedAutoScaling $
+--             describeLoadBasedAutoScaling
 --
 --         , testDescribeStackProvisioningParameters $
 --             describeStackProvisioningParameters
 --
---         , testDescribeMyUserProfile $
---             describeMyUserProfile
---
 --         , testUnassignInstance $
 --             unassignInstance
 --
---         , testRegisterRDSDBInstance $
---             registerRDSDBInstance
+--         , testDescribeMyUserProfile $
+--             describeMyUserProfile
 --
 --         , testDeleteUserProfile $
 --             deleteUserProfile
@@ -205,6 +202,9 @@ import Test.AWS.OpsWorks.Internal
 --         , testDescribeServiceErrors $
 --             describeServiceErrors
 --
+--         , testRegisterRDSDBInstance $
+--             registerRDSDBInstance
+--
 --         , testStartStack $
 --             startStack
 --
@@ -214,26 +214,26 @@ import Test.AWS.OpsWorks.Internal
 --         , testDescribeCommands $
 --             describeCommands
 --
---         , testDescribeEcsClusters $
---             describeEcsClusters
+--         , testAssignVolume $
+--             assignVolume
 --
 --         , testDescribeElasticLoadBalancers $
 --             describeElasticLoadBalancers
 --
+--         , testSetPermission $
+--             setPermission
+--
 --         , testDeregisterInstance $
 --             deregisterInstance
+--
+--         , testDescribeEcsClusters $
+--             describeEcsClusters
 --
 --         , testDescribeRAIdArrays $
 --             describeRAIdArrays
 --
---         , testSetPermission $
---             setPermission
---
 --         , testUpdateVolume $
 --             updateVolume
---
---         , testAssignVolume $
---             assignVolume
 --
 --         , testStartInstance $
 --             startInstance
@@ -256,14 +256,17 @@ import Test.AWS.OpsWorks.Internal
 --         , testSetLoadBasedAutoScalingResponse $
 --             setLoadBasedAutoScalingResponse
 --
---         , testUnassignVolumeResponse $
---             unassignVolumeResponse
---
 --         , testDeregisterRDSDBInstanceResponse $
 --             deregisterRDSDBInstanceResponse
 --
+--         , testUnassignVolumeResponse $
+--             unassignVolumeResponse
+--
 --         , testCreateInstanceResponse $
 --             createInstanceResponse
+--
+--         , testDescribeLayersResponse $
+--             describeLayersResponse
 --
 --         , testRegisterElasticIPResponse $
 --             registerElasticIPResponse
@@ -271,17 +274,14 @@ import Test.AWS.OpsWorks.Internal
 --         , testDescribeAgentVersionsResponse $
 --             describeAgentVersionsResponse
 --
---         , testDescribeLayersResponse $
---             describeLayersResponse
---
 --         , testCreateDeploymentResponse $
 --             createDeploymentResponse
 --
---         , testDeleteAppResponse $
---             deleteAppResponse
+--         , testAssignInstanceResponse $
+--             assignInstanceResponse
 --
---         , testUpdateAppResponse $
---             updateAppResponse
+--         , testDescribeStacksResponse $
+--             describeStacksResponse
 --
 --         , testDeleteInstanceResponse $
 --             deleteInstanceResponse
@@ -289,23 +289,23 @@ import Test.AWS.OpsWorks.Internal
 --         , testUpdateInstanceResponse $
 --             updateInstanceResponse
 --
---         , testDescribeStacksResponse $
---             describeStacksResponse
---
 --         , testDeregisterVolumeResponse $
 --             deregisterVolumeResponse
---
---         , testAssignInstanceResponse $
---             assignInstanceResponse
 --
 --         , testRebootInstanceResponse $
 --             rebootInstanceResponse
 --
---         , testDescribeTimeBasedAutoScalingResponse $
---             describeTimeBasedAutoScalingResponse
+--         , testDeleteAppResponse $
+--             deleteAppResponse
+--
+--         , testUpdateAppResponse $
+--             updateAppResponse
 --
 --         , testUpdateRDSDBInstanceResponse $
 --             updateRDSDBInstanceResponse
+--
+--         , testDescribeTimeBasedAutoScalingResponse $
+--             describeTimeBasedAutoScalingResponse
 --
 --         , testStopStackResponse $
 --             stopStackResponse
@@ -328,17 +328,14 @@ import Test.AWS.OpsWorks.Internal
 --         , testSetTimeBasedAutoScalingResponse $
 --             setTimeBasedAutoScalingResponse
 --
---         , testDeregisterElasticIPResponse $
---             deregisterElasticIPResponse
+--         , testDescribeUserProfilesResponse $
+--             describeUserProfilesResponse
 --
 --         , testAttachElasticLoadBalancerResponse $
 --             attachElasticLoadBalancerResponse
 --
---         , testDescribeUserProfilesResponse $
---             describeUserProfilesResponse
---
---         , testDescribeStackSummaryResponse $
---             describeStackSummaryResponse
+--         , testDeregisterElasticIPResponse $
+--             deregisterElasticIPResponse
 --
 --         , testDeregisterEcsClusterResponse $
 --             deregisterEcsClusterResponse
@@ -349,20 +346,20 @@ import Test.AWS.OpsWorks.Internal
 --         , testUpdateMyUserProfileResponse $
 --             updateMyUserProfileResponse
 --
+--         , testDescribeStackSummaryResponse $
+--             describeStackSummaryResponse
+--
 --         , testDescribeInstancesResponse $
 --             describeInstancesResponse
 --
 --         , testDescribeDeploymentsResponse $
 --             describeDeploymentsResponse
 --
---         , testCreateStackResponse $
---             createStackResponse
+--         , testDescribeElasticIPsResponse $
+--             describeElasticIPsResponse
 --
 --         , testGrantAccessResponse $
 --             grantAccessResponse
---
---         , testDescribeElasticIPsResponse $
---             describeElasticIPsResponse
 --
 --         , testDeleteLayerResponse $
 --             deleteLayerResponse
@@ -370,23 +367,26 @@ import Test.AWS.OpsWorks.Internal
 --         , testUpdateLayerResponse $
 --             updateLayerResponse
 --
---         , testCloneStackResponse $
---             cloneStackResponse
---
---         , testGetHostnameSuggestionResponse $
---             getHostnameSuggestionResponse
---
---         , testCreateAppResponse $
---             createAppResponse
---
---         , testDescribePermissionsResponse $
---             describePermissionsResponse
+--         , testCreateStackResponse $
+--             createStackResponse
 --
 --         , testUpdateElasticIPResponse $
 --             updateElasticIPResponse
 --
---         , testDescribeLoadBasedAutoScalingResponse $
---             describeLoadBasedAutoScalingResponse
+--         , testCreateAppResponse $
+--             createAppResponse
+--
+--         , testGetHostnameSuggestionResponse $
+--             getHostnameSuggestionResponse
+--
+--         , testCloneStackResponse $
+--             cloneStackResponse
+--
+--         , testDescribePermissionsResponse $
+--             describePermissionsResponse
+--
+--         , testDetachElasticLoadBalancerResponse $
+--             detachElasticLoadBalancerResponse
 --
 --         , testRegisterInstanceResponse $
 --             registerInstanceResponse
@@ -394,20 +394,17 @@ import Test.AWS.OpsWorks.Internal
 --         , testAssociateElasticIPResponse $
 --             associateElasticIPResponse
 --
---         , testDetachElasticLoadBalancerResponse $
---             detachElasticLoadBalancerResponse
+--         , testDescribeLoadBasedAutoScalingResponse $
+--             describeLoadBasedAutoScalingResponse
 --
 --         , testDescribeStackProvisioningParametersResponse $
 --             describeStackProvisioningParametersResponse
 --
---         , testDescribeMyUserProfileResponse $
---             describeMyUserProfileResponse
---
 --         , testUnassignInstanceResponse $
 --             unassignInstanceResponse
 --
---         , testRegisterRDSDBInstanceResponse $
---             registerRDSDBInstanceResponse
+--         , testDescribeMyUserProfileResponse $
+--             describeMyUserProfileResponse
 --
 --         , testDeleteUserProfileResponse $
 --             deleteUserProfileResponse
@@ -418,6 +415,9 @@ import Test.AWS.OpsWorks.Internal
 --         , testDescribeServiceErrorsResponse $
 --             describeServiceErrorsResponse
 --
+--         , testRegisterRDSDBInstanceResponse $
+--             registerRDSDBInstanceResponse
+--
 --         , testStartStackResponse $
 --             startStackResponse
 --
@@ -427,26 +427,26 @@ import Test.AWS.OpsWorks.Internal
 --         , testDescribeCommandsResponse $
 --             describeCommandsResponse
 --
---         , testDescribeEcsClustersResponse $
---             describeEcsClustersResponse
+--         , testAssignVolumeResponse $
+--             assignVolumeResponse
 --
 --         , testDescribeElasticLoadBalancersResponse $
 --             describeElasticLoadBalancersResponse
 --
+--         , testSetPermissionResponse $
+--             setPermissionResponse
+--
 --         , testDeregisterInstanceResponse $
 --             deregisterInstanceResponse
+--
+--         , testDescribeEcsClustersResponse $
+--             describeEcsClustersResponse
 --
 --         , testDescribeRAIdArraysResponse $
 --             describeRAIdArraysResponse
 --
---         , testSetPermissionResponse $
---             setPermissionResponse
---
 --         , testUpdateVolumeResponse $
 --             updateVolumeResponse
---
---         , testAssignVolumeResponse $
---             assignVolumeResponse
 --
 --         , testStartInstanceResponse $
 --             startInstanceResponse
@@ -481,20 +481,25 @@ testSetLoadBasedAutoScaling = req
     "SetLoadBasedAutoScaling"
     "fixture/SetLoadBasedAutoScaling.yaml"
 
-testUnassignVolume :: UnassignVolume -> TestTree
-testUnassignVolume = req
-    "UnassignVolume"
-    "fixture/UnassignVolume.yaml"
-
 testDeregisterRDSDBInstance :: DeregisterRDSDBInstance -> TestTree
 testDeregisterRDSDBInstance = req
     "DeregisterRDSDBInstance"
     "fixture/DeregisterRDSDBInstance.yaml"
 
+testUnassignVolume :: UnassignVolume -> TestTree
+testUnassignVolume = req
+    "UnassignVolume"
+    "fixture/UnassignVolume.yaml"
+
 testCreateInstance :: CreateInstance -> TestTree
 testCreateInstance = req
     "CreateInstance"
     "fixture/CreateInstance.yaml"
+
+testDescribeLayers :: DescribeLayers -> TestTree
+testDescribeLayers = req
+    "DescribeLayers"
+    "fixture/DescribeLayers.yaml"
 
 testRegisterElasticIP :: RegisterElasticIP -> TestTree
 testRegisterElasticIP = req
@@ -506,25 +511,20 @@ testDescribeAgentVersions = req
     "DescribeAgentVersions"
     "fixture/DescribeAgentVersions.yaml"
 
-testDescribeLayers :: DescribeLayers -> TestTree
-testDescribeLayers = req
-    "DescribeLayers"
-    "fixture/DescribeLayers.yaml"
-
 testCreateDeployment :: CreateDeployment -> TestTree
 testCreateDeployment = req
     "CreateDeployment"
     "fixture/CreateDeployment.yaml"
 
-testDeleteApp :: DeleteApp -> TestTree
-testDeleteApp = req
-    "DeleteApp"
-    "fixture/DeleteApp.yaml"
+testAssignInstance :: AssignInstance -> TestTree
+testAssignInstance = req
+    "AssignInstance"
+    "fixture/AssignInstance.yaml"
 
-testUpdateApp :: UpdateApp -> TestTree
-testUpdateApp = req
-    "UpdateApp"
-    "fixture/UpdateApp.yaml"
+testDescribeStacks :: DescribeStacks -> TestTree
+testDescribeStacks = req
+    "DescribeStacks"
+    "fixture/DescribeStacks.yaml"
 
 testDeleteInstance :: DeleteInstance -> TestTree
 testDeleteInstance = req
@@ -536,35 +536,35 @@ testUpdateInstance = req
     "UpdateInstance"
     "fixture/UpdateInstance.yaml"
 
-testDescribeStacks :: DescribeStacks -> TestTree
-testDescribeStacks = req
-    "DescribeStacks"
-    "fixture/DescribeStacks.yaml"
-
 testDeregisterVolume :: DeregisterVolume -> TestTree
 testDeregisterVolume = req
     "DeregisterVolume"
     "fixture/DeregisterVolume.yaml"
-
-testAssignInstance :: AssignInstance -> TestTree
-testAssignInstance = req
-    "AssignInstance"
-    "fixture/AssignInstance.yaml"
 
 testRebootInstance :: RebootInstance -> TestTree
 testRebootInstance = req
     "RebootInstance"
     "fixture/RebootInstance.yaml"
 
-testDescribeTimeBasedAutoScaling :: DescribeTimeBasedAutoScaling -> TestTree
-testDescribeTimeBasedAutoScaling = req
-    "DescribeTimeBasedAutoScaling"
-    "fixture/DescribeTimeBasedAutoScaling.yaml"
+testDeleteApp :: DeleteApp -> TestTree
+testDeleteApp = req
+    "DeleteApp"
+    "fixture/DeleteApp.yaml"
+
+testUpdateApp :: UpdateApp -> TestTree
+testUpdateApp = req
+    "UpdateApp"
+    "fixture/UpdateApp.yaml"
 
 testUpdateRDSDBInstance :: UpdateRDSDBInstance -> TestTree
 testUpdateRDSDBInstance = req
     "UpdateRDSDBInstance"
     "fixture/UpdateRDSDBInstance.yaml"
+
+testDescribeTimeBasedAutoScaling :: DescribeTimeBasedAutoScaling -> TestTree
+testDescribeTimeBasedAutoScaling = req
+    "DescribeTimeBasedAutoScaling"
+    "fixture/DescribeTimeBasedAutoScaling.yaml"
 
 testStopStack :: StopStack -> TestTree
 testStopStack = req
@@ -601,25 +601,20 @@ testSetTimeBasedAutoScaling = req
     "SetTimeBasedAutoScaling"
     "fixture/SetTimeBasedAutoScaling.yaml"
 
-testDeregisterElasticIP :: DeregisterElasticIP -> TestTree
-testDeregisterElasticIP = req
-    "DeregisterElasticIP"
-    "fixture/DeregisterElasticIP.yaml"
+testDescribeUserProfiles :: DescribeUserProfiles -> TestTree
+testDescribeUserProfiles = req
+    "DescribeUserProfiles"
+    "fixture/DescribeUserProfiles.yaml"
 
 testAttachElasticLoadBalancer :: AttachElasticLoadBalancer -> TestTree
 testAttachElasticLoadBalancer = req
     "AttachElasticLoadBalancer"
     "fixture/AttachElasticLoadBalancer.yaml"
 
-testDescribeUserProfiles :: DescribeUserProfiles -> TestTree
-testDescribeUserProfiles = req
-    "DescribeUserProfiles"
-    "fixture/DescribeUserProfiles.yaml"
-
-testDescribeStackSummary :: DescribeStackSummary -> TestTree
-testDescribeStackSummary = req
-    "DescribeStackSummary"
-    "fixture/DescribeStackSummary.yaml"
+testDeregisterElasticIP :: DeregisterElasticIP -> TestTree
+testDeregisterElasticIP = req
+    "DeregisterElasticIP"
+    "fixture/DeregisterElasticIP.yaml"
 
 testDeregisterEcsCluster :: DeregisterEcsCluster -> TestTree
 testDeregisterEcsCluster = req
@@ -636,6 +631,11 @@ testUpdateMyUserProfile = req
     "UpdateMyUserProfile"
     "fixture/UpdateMyUserProfile.yaml"
 
+testDescribeStackSummary :: DescribeStackSummary -> TestTree
+testDescribeStackSummary = req
+    "DescribeStackSummary"
+    "fixture/DescribeStackSummary.yaml"
+
 testDescribeInstances :: DescribeInstances -> TestTree
 testDescribeInstances = req
     "DescribeInstances"
@@ -646,20 +646,15 @@ testDescribeDeployments = req
     "DescribeDeployments"
     "fixture/DescribeDeployments.yaml"
 
-testCreateStack :: CreateStack -> TestTree
-testCreateStack = req
-    "CreateStack"
-    "fixture/CreateStack.yaml"
+testDescribeElasticIPs :: DescribeElasticIPs -> TestTree
+testDescribeElasticIPs = req
+    "DescribeElasticIPs"
+    "fixture/DescribeElasticIPs.yaml"
 
 testGrantAccess :: GrantAccess -> TestTree
 testGrantAccess = req
     "GrantAccess"
     "fixture/GrantAccess.yaml"
-
-testDescribeElasticIPs :: DescribeElasticIPs -> TestTree
-testDescribeElasticIPs = req
-    "DescribeElasticIPs"
-    "fixture/DescribeElasticIPs.yaml"
 
 testDeleteLayer :: DeleteLayer -> TestTree
 testDeleteLayer = req
@@ -671,35 +666,40 @@ testUpdateLayer = req
     "UpdateLayer"
     "fixture/UpdateLayer.yaml"
 
-testCloneStack :: CloneStack -> TestTree
-testCloneStack = req
-    "CloneStack"
-    "fixture/CloneStack.yaml"
-
-testGetHostnameSuggestion :: GetHostnameSuggestion -> TestTree
-testGetHostnameSuggestion = req
-    "GetHostnameSuggestion"
-    "fixture/GetHostnameSuggestion.yaml"
-
-testCreateApp :: CreateApp -> TestTree
-testCreateApp = req
-    "CreateApp"
-    "fixture/CreateApp.yaml"
-
-testDescribePermissions :: DescribePermissions -> TestTree
-testDescribePermissions = req
-    "DescribePermissions"
-    "fixture/DescribePermissions.yaml"
+testCreateStack :: CreateStack -> TestTree
+testCreateStack = req
+    "CreateStack"
+    "fixture/CreateStack.yaml"
 
 testUpdateElasticIP :: UpdateElasticIP -> TestTree
 testUpdateElasticIP = req
     "UpdateElasticIP"
     "fixture/UpdateElasticIP.yaml"
 
-testDescribeLoadBasedAutoScaling :: DescribeLoadBasedAutoScaling -> TestTree
-testDescribeLoadBasedAutoScaling = req
-    "DescribeLoadBasedAutoScaling"
-    "fixture/DescribeLoadBasedAutoScaling.yaml"
+testCreateApp :: CreateApp -> TestTree
+testCreateApp = req
+    "CreateApp"
+    "fixture/CreateApp.yaml"
+
+testGetHostnameSuggestion :: GetHostnameSuggestion -> TestTree
+testGetHostnameSuggestion = req
+    "GetHostnameSuggestion"
+    "fixture/GetHostnameSuggestion.yaml"
+
+testCloneStack :: CloneStack -> TestTree
+testCloneStack = req
+    "CloneStack"
+    "fixture/CloneStack.yaml"
+
+testDescribePermissions :: DescribePermissions -> TestTree
+testDescribePermissions = req
+    "DescribePermissions"
+    "fixture/DescribePermissions.yaml"
+
+testDetachElasticLoadBalancer :: DetachElasticLoadBalancer -> TestTree
+testDetachElasticLoadBalancer = req
+    "DetachElasticLoadBalancer"
+    "fixture/DetachElasticLoadBalancer.yaml"
 
 testRegisterInstance :: RegisterInstance -> TestTree
 testRegisterInstance = req
@@ -711,30 +711,25 @@ testAssociateElasticIP = req
     "AssociateElasticIP"
     "fixture/AssociateElasticIP.yaml"
 
-testDetachElasticLoadBalancer :: DetachElasticLoadBalancer -> TestTree
-testDetachElasticLoadBalancer = req
-    "DetachElasticLoadBalancer"
-    "fixture/DetachElasticLoadBalancer.yaml"
+testDescribeLoadBasedAutoScaling :: DescribeLoadBasedAutoScaling -> TestTree
+testDescribeLoadBasedAutoScaling = req
+    "DescribeLoadBasedAutoScaling"
+    "fixture/DescribeLoadBasedAutoScaling.yaml"
 
 testDescribeStackProvisioningParameters :: DescribeStackProvisioningParameters -> TestTree
 testDescribeStackProvisioningParameters = req
     "DescribeStackProvisioningParameters"
     "fixture/DescribeStackProvisioningParameters.yaml"
 
-testDescribeMyUserProfile :: DescribeMyUserProfile -> TestTree
-testDescribeMyUserProfile = req
-    "DescribeMyUserProfile"
-    "fixture/DescribeMyUserProfile.yaml"
-
 testUnassignInstance :: UnassignInstance -> TestTree
 testUnassignInstance = req
     "UnassignInstance"
     "fixture/UnassignInstance.yaml"
 
-testRegisterRDSDBInstance :: RegisterRDSDBInstance -> TestTree
-testRegisterRDSDBInstance = req
-    "RegisterRDSDBInstance"
-    "fixture/RegisterRDSDBInstance.yaml"
+testDescribeMyUserProfile :: DescribeMyUserProfile -> TestTree
+testDescribeMyUserProfile = req
+    "DescribeMyUserProfile"
+    "fixture/DescribeMyUserProfile.yaml"
 
 testDeleteUserProfile :: DeleteUserProfile -> TestTree
 testDeleteUserProfile = req
@@ -751,6 +746,11 @@ testDescribeServiceErrors = req
     "DescribeServiceErrors"
     "fixture/DescribeServiceErrors.yaml"
 
+testRegisterRDSDBInstance :: RegisterRDSDBInstance -> TestTree
+testRegisterRDSDBInstance = req
+    "RegisterRDSDBInstance"
+    "fixture/RegisterRDSDBInstance.yaml"
+
 testStartStack :: StartStack -> TestTree
 testStartStack = req
     "StartStack"
@@ -766,40 +766,40 @@ testDescribeCommands = req
     "DescribeCommands"
     "fixture/DescribeCommands.yaml"
 
-testDescribeEcsClusters :: DescribeEcsClusters -> TestTree
-testDescribeEcsClusters = req
-    "DescribeEcsClusters"
-    "fixture/DescribeEcsClusters.yaml"
+testAssignVolume :: AssignVolume -> TestTree
+testAssignVolume = req
+    "AssignVolume"
+    "fixture/AssignVolume.yaml"
 
 testDescribeElasticLoadBalancers :: DescribeElasticLoadBalancers -> TestTree
 testDescribeElasticLoadBalancers = req
     "DescribeElasticLoadBalancers"
     "fixture/DescribeElasticLoadBalancers.yaml"
 
+testSetPermission :: SetPermission -> TestTree
+testSetPermission = req
+    "SetPermission"
+    "fixture/SetPermission.yaml"
+
 testDeregisterInstance :: DeregisterInstance -> TestTree
 testDeregisterInstance = req
     "DeregisterInstance"
     "fixture/DeregisterInstance.yaml"
+
+testDescribeEcsClusters :: DescribeEcsClusters -> TestTree
+testDescribeEcsClusters = req
+    "DescribeEcsClusters"
+    "fixture/DescribeEcsClusters.yaml"
 
 testDescribeRAIdArrays :: DescribeRAIdArrays -> TestTree
 testDescribeRAIdArrays = req
     "DescribeRAIdArrays"
     "fixture/DescribeRAIdArrays.yaml"
 
-testSetPermission :: SetPermission -> TestTree
-testSetPermission = req
-    "SetPermission"
-    "fixture/SetPermission.yaml"
-
 testUpdateVolume :: UpdateVolume -> TestTree
 testUpdateVolume = req
     "UpdateVolume"
     "fixture/UpdateVolume.yaml"
-
-testAssignVolume :: AssignVolume -> TestTree
-testAssignVolume = req
-    "AssignVolume"
-    "fixture/AssignVolume.yaml"
 
 testStartInstance :: StartInstance -> TestTree
 testStartInstance = req
@@ -843,13 +843,6 @@ testSetLoadBasedAutoScalingResponse = res
     opsWorks
     (Proxy :: Proxy SetLoadBasedAutoScaling)
 
-testUnassignVolumeResponse :: UnassignVolumeResponse -> TestTree
-testUnassignVolumeResponse = res
-    "UnassignVolumeResponse"
-    "fixture/UnassignVolumeResponse.proto"
-    opsWorks
-    (Proxy :: Proxy UnassignVolume)
-
 testDeregisterRDSDBInstanceResponse :: DeregisterRDSDBInstanceResponse -> TestTree
 testDeregisterRDSDBInstanceResponse = res
     "DeregisterRDSDBInstanceResponse"
@@ -857,12 +850,26 @@ testDeregisterRDSDBInstanceResponse = res
     opsWorks
     (Proxy :: Proxy DeregisterRDSDBInstance)
 
+testUnassignVolumeResponse :: UnassignVolumeResponse -> TestTree
+testUnassignVolumeResponse = res
+    "UnassignVolumeResponse"
+    "fixture/UnassignVolumeResponse.proto"
+    opsWorks
+    (Proxy :: Proxy UnassignVolume)
+
 testCreateInstanceResponse :: CreateInstanceResponse -> TestTree
 testCreateInstanceResponse = res
     "CreateInstanceResponse"
     "fixture/CreateInstanceResponse.proto"
     opsWorks
     (Proxy :: Proxy CreateInstance)
+
+testDescribeLayersResponse :: DescribeLayersResponse -> TestTree
+testDescribeLayersResponse = res
+    "DescribeLayersResponse"
+    "fixture/DescribeLayersResponse.proto"
+    opsWorks
+    (Proxy :: Proxy DescribeLayers)
 
 testRegisterElasticIPResponse :: RegisterElasticIPResponse -> TestTree
 testRegisterElasticIPResponse = res
@@ -878,13 +885,6 @@ testDescribeAgentVersionsResponse = res
     opsWorks
     (Proxy :: Proxy DescribeAgentVersions)
 
-testDescribeLayersResponse :: DescribeLayersResponse -> TestTree
-testDescribeLayersResponse = res
-    "DescribeLayersResponse"
-    "fixture/DescribeLayersResponse.proto"
-    opsWorks
-    (Proxy :: Proxy DescribeLayers)
-
 testCreateDeploymentResponse :: CreateDeploymentResponse -> TestTree
 testCreateDeploymentResponse = res
     "CreateDeploymentResponse"
@@ -892,19 +892,19 @@ testCreateDeploymentResponse = res
     opsWorks
     (Proxy :: Proxy CreateDeployment)
 
-testDeleteAppResponse :: DeleteAppResponse -> TestTree
-testDeleteAppResponse = res
-    "DeleteAppResponse"
-    "fixture/DeleteAppResponse.proto"
+testAssignInstanceResponse :: AssignInstanceResponse -> TestTree
+testAssignInstanceResponse = res
+    "AssignInstanceResponse"
+    "fixture/AssignInstanceResponse.proto"
     opsWorks
-    (Proxy :: Proxy DeleteApp)
+    (Proxy :: Proxy AssignInstance)
 
-testUpdateAppResponse :: UpdateAppResponse -> TestTree
-testUpdateAppResponse = res
-    "UpdateAppResponse"
-    "fixture/UpdateAppResponse.proto"
+testDescribeStacksResponse :: DescribeStacksResponse -> TestTree
+testDescribeStacksResponse = res
+    "DescribeStacksResponse"
+    "fixture/DescribeStacksResponse.proto"
     opsWorks
-    (Proxy :: Proxy UpdateApp)
+    (Proxy :: Proxy DescribeStacks)
 
 testDeleteInstanceResponse :: DeleteInstanceResponse -> TestTree
 testDeleteInstanceResponse = res
@@ -920,26 +920,12 @@ testUpdateInstanceResponse = res
     opsWorks
     (Proxy :: Proxy UpdateInstance)
 
-testDescribeStacksResponse :: DescribeStacksResponse -> TestTree
-testDescribeStacksResponse = res
-    "DescribeStacksResponse"
-    "fixture/DescribeStacksResponse.proto"
-    opsWorks
-    (Proxy :: Proxy DescribeStacks)
-
 testDeregisterVolumeResponse :: DeregisterVolumeResponse -> TestTree
 testDeregisterVolumeResponse = res
     "DeregisterVolumeResponse"
     "fixture/DeregisterVolumeResponse.proto"
     opsWorks
     (Proxy :: Proxy DeregisterVolume)
-
-testAssignInstanceResponse :: AssignInstanceResponse -> TestTree
-testAssignInstanceResponse = res
-    "AssignInstanceResponse"
-    "fixture/AssignInstanceResponse.proto"
-    opsWorks
-    (Proxy :: Proxy AssignInstance)
 
 testRebootInstanceResponse :: RebootInstanceResponse -> TestTree
 testRebootInstanceResponse = res
@@ -948,12 +934,19 @@ testRebootInstanceResponse = res
     opsWorks
     (Proxy :: Proxy RebootInstance)
 
-testDescribeTimeBasedAutoScalingResponse :: DescribeTimeBasedAutoScalingResponse -> TestTree
-testDescribeTimeBasedAutoScalingResponse = res
-    "DescribeTimeBasedAutoScalingResponse"
-    "fixture/DescribeTimeBasedAutoScalingResponse.proto"
+testDeleteAppResponse :: DeleteAppResponse -> TestTree
+testDeleteAppResponse = res
+    "DeleteAppResponse"
+    "fixture/DeleteAppResponse.proto"
     opsWorks
-    (Proxy :: Proxy DescribeTimeBasedAutoScaling)
+    (Proxy :: Proxy DeleteApp)
+
+testUpdateAppResponse :: UpdateAppResponse -> TestTree
+testUpdateAppResponse = res
+    "UpdateAppResponse"
+    "fixture/UpdateAppResponse.proto"
+    opsWorks
+    (Proxy :: Proxy UpdateApp)
 
 testUpdateRDSDBInstanceResponse :: UpdateRDSDBInstanceResponse -> TestTree
 testUpdateRDSDBInstanceResponse = res
@@ -961,6 +954,13 @@ testUpdateRDSDBInstanceResponse = res
     "fixture/UpdateRDSDBInstanceResponse.proto"
     opsWorks
     (Proxy :: Proxy UpdateRDSDBInstance)
+
+testDescribeTimeBasedAutoScalingResponse :: DescribeTimeBasedAutoScalingResponse -> TestTree
+testDescribeTimeBasedAutoScalingResponse = res
+    "DescribeTimeBasedAutoScalingResponse"
+    "fixture/DescribeTimeBasedAutoScalingResponse.proto"
+    opsWorks
+    (Proxy :: Proxy DescribeTimeBasedAutoScaling)
 
 testStopStackResponse :: StopStackResponse -> TestTree
 testStopStackResponse = res
@@ -1011,12 +1011,12 @@ testSetTimeBasedAutoScalingResponse = res
     opsWorks
     (Proxy :: Proxy SetTimeBasedAutoScaling)
 
-testDeregisterElasticIPResponse :: DeregisterElasticIPResponse -> TestTree
-testDeregisterElasticIPResponse = res
-    "DeregisterElasticIPResponse"
-    "fixture/DeregisterElasticIPResponse.proto"
+testDescribeUserProfilesResponse :: DescribeUserProfilesResponse -> TestTree
+testDescribeUserProfilesResponse = res
+    "DescribeUserProfilesResponse"
+    "fixture/DescribeUserProfilesResponse.proto"
     opsWorks
-    (Proxy :: Proxy DeregisterElasticIP)
+    (Proxy :: Proxy DescribeUserProfiles)
 
 testAttachElasticLoadBalancerResponse :: AttachElasticLoadBalancerResponse -> TestTree
 testAttachElasticLoadBalancerResponse = res
@@ -1025,19 +1025,12 @@ testAttachElasticLoadBalancerResponse = res
     opsWorks
     (Proxy :: Proxy AttachElasticLoadBalancer)
 
-testDescribeUserProfilesResponse :: DescribeUserProfilesResponse -> TestTree
-testDescribeUserProfilesResponse = res
-    "DescribeUserProfilesResponse"
-    "fixture/DescribeUserProfilesResponse.proto"
+testDeregisterElasticIPResponse :: DeregisterElasticIPResponse -> TestTree
+testDeregisterElasticIPResponse = res
+    "DeregisterElasticIPResponse"
+    "fixture/DeregisterElasticIPResponse.proto"
     opsWorks
-    (Proxy :: Proxy DescribeUserProfiles)
-
-testDescribeStackSummaryResponse :: DescribeStackSummaryResponse -> TestTree
-testDescribeStackSummaryResponse = res
-    "DescribeStackSummaryResponse"
-    "fixture/DescribeStackSummaryResponse.proto"
-    opsWorks
-    (Proxy :: Proxy DescribeStackSummary)
+    (Proxy :: Proxy DeregisterElasticIP)
 
 testDeregisterEcsClusterResponse :: DeregisterEcsClusterResponse -> TestTree
 testDeregisterEcsClusterResponse = res
@@ -1060,6 +1053,13 @@ testUpdateMyUserProfileResponse = res
     opsWorks
     (Proxy :: Proxy UpdateMyUserProfile)
 
+testDescribeStackSummaryResponse :: DescribeStackSummaryResponse -> TestTree
+testDescribeStackSummaryResponse = res
+    "DescribeStackSummaryResponse"
+    "fixture/DescribeStackSummaryResponse.proto"
+    opsWorks
+    (Proxy :: Proxy DescribeStackSummary)
+
 testDescribeInstancesResponse :: DescribeInstancesResponse -> TestTree
 testDescribeInstancesResponse = res
     "DescribeInstancesResponse"
@@ -1074,12 +1074,12 @@ testDescribeDeploymentsResponse = res
     opsWorks
     (Proxy :: Proxy DescribeDeployments)
 
-testCreateStackResponse :: CreateStackResponse -> TestTree
-testCreateStackResponse = res
-    "CreateStackResponse"
-    "fixture/CreateStackResponse.proto"
+testDescribeElasticIPsResponse :: DescribeElasticIPsResponse -> TestTree
+testDescribeElasticIPsResponse = res
+    "DescribeElasticIPsResponse"
+    "fixture/DescribeElasticIPsResponse.proto"
     opsWorks
-    (Proxy :: Proxy CreateStack)
+    (Proxy :: Proxy DescribeElasticIPs)
 
 testGrantAccessResponse :: GrantAccessResponse -> TestTree
 testGrantAccessResponse = res
@@ -1087,13 +1087,6 @@ testGrantAccessResponse = res
     "fixture/GrantAccessResponse.proto"
     opsWorks
     (Proxy :: Proxy GrantAccess)
-
-testDescribeElasticIPsResponse :: DescribeElasticIPsResponse -> TestTree
-testDescribeElasticIPsResponse = res
-    "DescribeElasticIPsResponse"
-    "fixture/DescribeElasticIPsResponse.proto"
-    opsWorks
-    (Proxy :: Proxy DescribeElasticIPs)
 
 testDeleteLayerResponse :: DeleteLayerResponse -> TestTree
 testDeleteLayerResponse = res
@@ -1109,33 +1102,12 @@ testUpdateLayerResponse = res
     opsWorks
     (Proxy :: Proxy UpdateLayer)
 
-testCloneStackResponse :: CloneStackResponse -> TestTree
-testCloneStackResponse = res
-    "CloneStackResponse"
-    "fixture/CloneStackResponse.proto"
+testCreateStackResponse :: CreateStackResponse -> TestTree
+testCreateStackResponse = res
+    "CreateStackResponse"
+    "fixture/CreateStackResponse.proto"
     opsWorks
-    (Proxy :: Proxy CloneStack)
-
-testGetHostnameSuggestionResponse :: GetHostnameSuggestionResponse -> TestTree
-testGetHostnameSuggestionResponse = res
-    "GetHostnameSuggestionResponse"
-    "fixture/GetHostnameSuggestionResponse.proto"
-    opsWorks
-    (Proxy :: Proxy GetHostnameSuggestion)
-
-testCreateAppResponse :: CreateAppResponse -> TestTree
-testCreateAppResponse = res
-    "CreateAppResponse"
-    "fixture/CreateAppResponse.proto"
-    opsWorks
-    (Proxy :: Proxy CreateApp)
-
-testDescribePermissionsResponse :: DescribePermissionsResponse -> TestTree
-testDescribePermissionsResponse = res
-    "DescribePermissionsResponse"
-    "fixture/DescribePermissionsResponse.proto"
-    opsWorks
-    (Proxy :: Proxy DescribePermissions)
+    (Proxy :: Proxy CreateStack)
 
 testUpdateElasticIPResponse :: UpdateElasticIPResponse -> TestTree
 testUpdateElasticIPResponse = res
@@ -1144,12 +1116,40 @@ testUpdateElasticIPResponse = res
     opsWorks
     (Proxy :: Proxy UpdateElasticIP)
 
-testDescribeLoadBasedAutoScalingResponse :: DescribeLoadBasedAutoScalingResponse -> TestTree
-testDescribeLoadBasedAutoScalingResponse = res
-    "DescribeLoadBasedAutoScalingResponse"
-    "fixture/DescribeLoadBasedAutoScalingResponse.proto"
+testCreateAppResponse :: CreateAppResponse -> TestTree
+testCreateAppResponse = res
+    "CreateAppResponse"
+    "fixture/CreateAppResponse.proto"
     opsWorks
-    (Proxy :: Proxy DescribeLoadBasedAutoScaling)
+    (Proxy :: Proxy CreateApp)
+
+testGetHostnameSuggestionResponse :: GetHostnameSuggestionResponse -> TestTree
+testGetHostnameSuggestionResponse = res
+    "GetHostnameSuggestionResponse"
+    "fixture/GetHostnameSuggestionResponse.proto"
+    opsWorks
+    (Proxy :: Proxy GetHostnameSuggestion)
+
+testCloneStackResponse :: CloneStackResponse -> TestTree
+testCloneStackResponse = res
+    "CloneStackResponse"
+    "fixture/CloneStackResponse.proto"
+    opsWorks
+    (Proxy :: Proxy CloneStack)
+
+testDescribePermissionsResponse :: DescribePermissionsResponse -> TestTree
+testDescribePermissionsResponse = res
+    "DescribePermissionsResponse"
+    "fixture/DescribePermissionsResponse.proto"
+    opsWorks
+    (Proxy :: Proxy DescribePermissions)
+
+testDetachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse -> TestTree
+testDetachElasticLoadBalancerResponse = res
+    "DetachElasticLoadBalancerResponse"
+    "fixture/DetachElasticLoadBalancerResponse.proto"
+    opsWorks
+    (Proxy :: Proxy DetachElasticLoadBalancer)
 
 testRegisterInstanceResponse :: RegisterInstanceResponse -> TestTree
 testRegisterInstanceResponse = res
@@ -1165,12 +1165,12 @@ testAssociateElasticIPResponse = res
     opsWorks
     (Proxy :: Proxy AssociateElasticIP)
 
-testDetachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse -> TestTree
-testDetachElasticLoadBalancerResponse = res
-    "DetachElasticLoadBalancerResponse"
-    "fixture/DetachElasticLoadBalancerResponse.proto"
+testDescribeLoadBasedAutoScalingResponse :: DescribeLoadBasedAutoScalingResponse -> TestTree
+testDescribeLoadBasedAutoScalingResponse = res
+    "DescribeLoadBasedAutoScalingResponse"
+    "fixture/DescribeLoadBasedAutoScalingResponse.proto"
     opsWorks
-    (Proxy :: Proxy DetachElasticLoadBalancer)
+    (Proxy :: Proxy DescribeLoadBasedAutoScaling)
 
 testDescribeStackProvisioningParametersResponse :: DescribeStackProvisioningParametersResponse -> TestTree
 testDescribeStackProvisioningParametersResponse = res
@@ -1179,13 +1179,6 @@ testDescribeStackProvisioningParametersResponse = res
     opsWorks
     (Proxy :: Proxy DescribeStackProvisioningParameters)
 
-testDescribeMyUserProfileResponse :: DescribeMyUserProfileResponse -> TestTree
-testDescribeMyUserProfileResponse = res
-    "DescribeMyUserProfileResponse"
-    "fixture/DescribeMyUserProfileResponse.proto"
-    opsWorks
-    (Proxy :: Proxy DescribeMyUserProfile)
-
 testUnassignInstanceResponse :: UnassignInstanceResponse -> TestTree
 testUnassignInstanceResponse = res
     "UnassignInstanceResponse"
@@ -1193,12 +1186,12 @@ testUnassignInstanceResponse = res
     opsWorks
     (Proxy :: Proxy UnassignInstance)
 
-testRegisterRDSDBInstanceResponse :: RegisterRDSDBInstanceResponse -> TestTree
-testRegisterRDSDBInstanceResponse = res
-    "RegisterRDSDBInstanceResponse"
-    "fixture/RegisterRDSDBInstanceResponse.proto"
+testDescribeMyUserProfileResponse :: DescribeMyUserProfileResponse -> TestTree
+testDescribeMyUserProfileResponse = res
+    "DescribeMyUserProfileResponse"
+    "fixture/DescribeMyUserProfileResponse.proto"
     opsWorks
-    (Proxy :: Proxy RegisterRDSDBInstance)
+    (Proxy :: Proxy DescribeMyUserProfile)
 
 testDeleteUserProfileResponse :: DeleteUserProfileResponse -> TestTree
 testDeleteUserProfileResponse = res
@@ -1221,6 +1214,13 @@ testDescribeServiceErrorsResponse = res
     opsWorks
     (Proxy :: Proxy DescribeServiceErrors)
 
+testRegisterRDSDBInstanceResponse :: RegisterRDSDBInstanceResponse -> TestTree
+testRegisterRDSDBInstanceResponse = res
+    "RegisterRDSDBInstanceResponse"
+    "fixture/RegisterRDSDBInstanceResponse.proto"
+    opsWorks
+    (Proxy :: Proxy RegisterRDSDBInstance)
+
 testStartStackResponse :: StartStackResponse -> TestTree
 testStartStackResponse = res
     "StartStackResponse"
@@ -1242,12 +1242,12 @@ testDescribeCommandsResponse = res
     opsWorks
     (Proxy :: Proxy DescribeCommands)
 
-testDescribeEcsClustersResponse :: DescribeEcsClustersResponse -> TestTree
-testDescribeEcsClustersResponse = res
-    "DescribeEcsClustersResponse"
-    "fixture/DescribeEcsClustersResponse.proto"
+testAssignVolumeResponse :: AssignVolumeResponse -> TestTree
+testAssignVolumeResponse = res
+    "AssignVolumeResponse"
+    "fixture/AssignVolumeResponse.proto"
     opsWorks
-    (Proxy :: Proxy DescribeEcsClusters)
+    (Proxy :: Proxy AssignVolume)
 
 testDescribeElasticLoadBalancersResponse :: DescribeElasticLoadBalancersResponse -> TestTree
 testDescribeElasticLoadBalancersResponse = res
@@ -1256,12 +1256,26 @@ testDescribeElasticLoadBalancersResponse = res
     opsWorks
     (Proxy :: Proxy DescribeElasticLoadBalancers)
 
+testSetPermissionResponse :: SetPermissionResponse -> TestTree
+testSetPermissionResponse = res
+    "SetPermissionResponse"
+    "fixture/SetPermissionResponse.proto"
+    opsWorks
+    (Proxy :: Proxy SetPermission)
+
 testDeregisterInstanceResponse :: DeregisterInstanceResponse -> TestTree
 testDeregisterInstanceResponse = res
     "DeregisterInstanceResponse"
     "fixture/DeregisterInstanceResponse.proto"
     opsWorks
     (Proxy :: Proxy DeregisterInstance)
+
+testDescribeEcsClustersResponse :: DescribeEcsClustersResponse -> TestTree
+testDescribeEcsClustersResponse = res
+    "DescribeEcsClustersResponse"
+    "fixture/DescribeEcsClustersResponse.proto"
+    opsWorks
+    (Proxy :: Proxy DescribeEcsClusters)
 
 testDescribeRAIdArraysResponse :: DescribeRAIdArraysResponse -> TestTree
 testDescribeRAIdArraysResponse = res
@@ -1270,26 +1284,12 @@ testDescribeRAIdArraysResponse = res
     opsWorks
     (Proxy :: Proxy DescribeRAIdArrays)
 
-testSetPermissionResponse :: SetPermissionResponse -> TestTree
-testSetPermissionResponse = res
-    "SetPermissionResponse"
-    "fixture/SetPermissionResponse.proto"
-    opsWorks
-    (Proxy :: Proxy SetPermission)
-
 testUpdateVolumeResponse :: UpdateVolumeResponse -> TestTree
 testUpdateVolumeResponse = res
     "UpdateVolumeResponse"
     "fixture/UpdateVolumeResponse.proto"
     opsWorks
     (Proxy :: Proxy UpdateVolume)
-
-testAssignVolumeResponse :: AssignVolumeResponse -> TestTree
-testAssignVolumeResponse = res
-    "AssignVolumeResponse"
-    "fixture/AssignVolumeResponse.proto"
-    opsWorks
-    (Proxy :: Proxy AssignVolume)
 
 testStartInstanceResponse :: StartInstanceResponse -> TestTree
 testStartInstanceResponse = res

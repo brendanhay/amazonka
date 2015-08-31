@@ -34,23 +34,20 @@ import Test.AWS.S3.Internal
 --         , testPutObject $
 --             putObject
 --
---         , testPutBucketLogging $
---             putBucketLogging
---
 --         , testDeleteObject $
 --             deleteObject
 --
---         , testDeleteBucket $
---             deleteBucket
+--         , testPutBucketLogging $
+--             putBucketLogging
 --
 --         , testListBuckets $
 --             listBuckets
 --
+--         , testDeleteBucket $
+--             deleteBucket
+--
 --         , testCreateBucket $
 --             createBucket
---
---         , testPutBucketTagging $
---             putBucketTagging
 --
 --         , testDeleteBucketTagging $
 --             deleteBucketTagging
@@ -58,11 +55,17 @@ import Test.AWS.S3.Internal
 --         , testPutObjectACL $
 --             putObjectACL
 --
---         , testGetBucketNotificationConfiguration $
---             getBucketNotificationConfiguration
+--         , testPutBucketTagging $
+--             putBucketTagging
 --
 --         , testGetBucketLocation $
 --             getBucketLocation
+--
+--         , testGetBucketNotificationConfiguration $
+--             getBucketNotificationConfiguration
+--
+--         , testGetObject $
+--             getObject
 --
 --         , testPutBucketReplication $
 --             putBucketReplication
@@ -70,20 +73,17 @@ import Test.AWS.S3.Internal
 --         , testGetBucketWebsite $
 --             getBucketWebsite
 --
---         , testGetObject $
---             getObject
+--         , testGetBucketRequestPayment $
+--             getBucketRequestPayment
 --
 --         , testDeleteBucketReplication $
 --             deleteBucketReplication
 --
---         , testGetBucketRequestPayment $
---             getBucketRequestPayment
+--         , testGetBucketLifecycle $
+--             getBucketLifecycle
 --
 --         , testListObjectVersions $
 --             listObjectVersions
---
---         , testGetBucketLifecycle $
---             getBucketLifecycle
 --
 --         , testHeadBucket $
 --             headBucket
@@ -91,11 +91,14 @@ import Test.AWS.S3.Internal
 --         , testPutBucketLifecycle $
 --             putBucketLifecycle
 --
+--         , testDeleteBucketLifecycle $
+--             deleteBucketLifecycle
+--
 --         , testCreateMultipartUpload $
 --             createMultipartUpload
 --
---         , testDeleteBucketLifecycle $
---             deleteBucketLifecycle
+--         , testUploadPart $
+--             uploadPart
 --
 --         , testGetBucketReplication $
 --             getBucketReplication
@@ -103,26 +106,17 @@ import Test.AWS.S3.Internal
 --         , testPutBucketWebsite $
 --             putBucketWebsite
 --
+--         , testDeleteBucketWebsite $
+--             deleteBucketWebsite
+--
 --         , testCompleteMultipartUpload $
 --             completeMultipartUpload
---
---         , testUploadPart $
---             uploadPart
 --
 --         , testListMultipartUploads $
 --             listMultipartUploads
 --
---         , testDeleteBucketWebsite $
---             deleteBucketWebsite
---
 --         , testListObjects $
 --             listObjects
---
---         , testDeleteObjects $
---             deleteObjects
---
---         , testPutBucketPolicy $
---             putBucketPolicy
 --
 --         , testDeleteBucketPolicy $
 --             deleteBucketPolicy
@@ -130,29 +124,29 @@ import Test.AWS.S3.Internal
 --         , testAbortMultipartUpload $
 --             abortMultipartUpload
 --
+--         , testPutBucketPolicy $
+--             putBucketPolicy
+--
 --         , testGetObjectTorrent $
 --             getObjectTorrent
 --
---         , testPutBucketCORS $
---             putBucketCORS
---
---         , testDeleteBucketCORS $
---             deleteBucketCORS
---
---         , testGetBucketVersioning $
---             getBucketVersioning
+--         , testDeleteObjects $
+--             deleteObjects
 --
 --         , testPutBucketNotificationConfiguration $
 --             putBucketNotificationConfiguration
 --
---         , testGetBucketTagging $
---             getBucketTagging
+--         , testGetBucketVersioning $
+--             getBucketVersioning
 --
---         , testHeadObject $
---             headObject
+--         , testDeleteBucketCORS $
+--             deleteBucketCORS
 --
---         , testPutBucketVersioning $
---             putBucketVersioning
+--         , testPutBucketCORS $
+--             putBucketCORS
+--
+--         , testGetBucketCORS $
+--             getBucketCORS
 --
 --         , testGetObjectACL $
 --             getObjectACL
@@ -160,8 +154,14 @@ import Test.AWS.S3.Internal
 --         , testRestoreObject $
 --             restoreObject
 --
---         , testGetBucketCORS $
---             getBucketCORS
+--         , testHeadObject $
+--             headObject
+--
+--         , testPutBucketVersioning $
+--             putBucketVersioning
+--
+--         , testGetBucketTagging $
+--             getBucketTagging
 --
 --         , testCopyObject $
 --             copyObject
@@ -172,17 +172,17 @@ import Test.AWS.S3.Internal
 --         , testGetBucketLogging $
 --             getBucketLogging
 --
---         , testListParts $
---             listParts
---
 --         , testGetBucketACL $
 --             getBucketACL
 --
---         , testPutBucketACL $
---             putBucketACL
+--         , testListParts $
+--             listParts
 --
 --         , testUploadPartCopy $
 --             uploadPartCopy
+--
+--         , testPutBucketACL $
+--             putBucketACL
 --
 --           ]
 
@@ -193,23 +193,20 @@ import Test.AWS.S3.Internal
 --         , testPutObjectResponse $
 --             putObjectResponse
 --
---         , testPutBucketLoggingResponse $
---             putBucketLoggingResponse
---
 --         , testDeleteObjectResponse $
 --             deleteObjectResponse
 --
---         , testDeleteBucketResponse $
---             deleteBucketResponse
+--         , testPutBucketLoggingResponse $
+--             putBucketLoggingResponse
 --
 --         , testListBucketsResponse $
 --             listBucketsResponse
 --
+--         , testDeleteBucketResponse $
+--             deleteBucketResponse
+--
 --         , testCreateBucketResponse $
 --             createBucketResponse
---
---         , testPutBucketTaggingResponse $
---             putBucketTaggingResponse
 --
 --         , testDeleteBucketTaggingResponse $
 --             deleteBucketTaggingResponse
@@ -217,11 +214,17 @@ import Test.AWS.S3.Internal
 --         , testPutObjectACLResponse $
 --             putObjectACLResponse
 --
---         , testGetBucketNotificationConfigurationResponse $
---             notificationConfiguration
+--         , testPutBucketTaggingResponse $
+--             putBucketTaggingResponse
 --
 --         , testGetBucketLocationResponse $
 --             getBucketLocationResponse
+--
+--         , testGetBucketNotificationConfigurationResponse $
+--             notificationConfiguration
+--
+--         , testGetObjectResponse $
+--             getObjectResponse
 --
 --         , testPutBucketReplicationResponse $
 --             putBucketReplicationResponse
@@ -229,20 +232,17 @@ import Test.AWS.S3.Internal
 --         , testGetBucketWebsiteResponse $
 --             getBucketWebsiteResponse
 --
---         , testGetObjectResponse $
---             getObjectResponse
+--         , testGetBucketRequestPaymentResponse $
+--             getBucketRequestPaymentResponse
 --
 --         , testDeleteBucketReplicationResponse $
 --             deleteBucketReplicationResponse
 --
---         , testGetBucketRequestPaymentResponse $
---             getBucketRequestPaymentResponse
+--         , testGetBucketLifecycleResponse $
+--             getBucketLifecycleResponse
 --
 --         , testListObjectVersionsResponse $
 --             listObjectVersionsResponse
---
---         , testGetBucketLifecycleResponse $
---             getBucketLifecycleResponse
 --
 --         , testHeadBucketResponse $
 --             headBucketResponse
@@ -250,11 +250,14 @@ import Test.AWS.S3.Internal
 --         , testPutBucketLifecycleResponse $
 --             putBucketLifecycleResponse
 --
+--         , testDeleteBucketLifecycleResponse $
+--             deleteBucketLifecycleResponse
+--
 --         , testCreateMultipartUploadResponse $
 --             createMultipartUploadResponse
 --
---         , testDeleteBucketLifecycleResponse $
---             deleteBucketLifecycleResponse
+--         , testUploadPartResponse $
+--             uploadPartResponse
 --
 --         , testGetBucketReplicationResponse $
 --             getBucketReplicationResponse
@@ -262,26 +265,17 @@ import Test.AWS.S3.Internal
 --         , testPutBucketWebsiteResponse $
 --             putBucketWebsiteResponse
 --
+--         , testDeleteBucketWebsiteResponse $
+--             deleteBucketWebsiteResponse
+--
 --         , testCompleteMultipartUploadResponse $
 --             completeMultipartUploadResponse
---
---         , testUploadPartResponse $
---             uploadPartResponse
 --
 --         , testListMultipartUploadsResponse $
 --             listMultipartUploadsResponse
 --
---         , testDeleteBucketWebsiteResponse $
---             deleteBucketWebsiteResponse
---
 --         , testListObjectsResponse $
 --             listObjectsResponse
---
---         , testDeleteObjectsResponse $
---             deleteObjectsResponse
---
---         , testPutBucketPolicyResponse $
---             putBucketPolicyResponse
 --
 --         , testDeleteBucketPolicyResponse $
 --             deleteBucketPolicyResponse
@@ -289,29 +283,29 @@ import Test.AWS.S3.Internal
 --         , testAbortMultipartUploadResponse $
 --             abortMultipartUploadResponse
 --
+--         , testPutBucketPolicyResponse $
+--             putBucketPolicyResponse
+--
 --         , testGetObjectTorrentResponse $
 --             getObjectTorrentResponse
 --
---         , testPutBucketCORSResponse $
---             putBucketCORSResponse
---
---         , testDeleteBucketCORSResponse $
---             deleteBucketCORSResponse
---
---         , testGetBucketVersioningResponse $
---             getBucketVersioningResponse
+--         , testDeleteObjectsResponse $
+--             deleteObjectsResponse
 --
 --         , testPutBucketNotificationConfigurationResponse $
 --             putBucketNotificationConfigurationResponse
 --
---         , testGetBucketTaggingResponse $
---             getBucketTaggingResponse
+--         , testGetBucketVersioningResponse $
+--             getBucketVersioningResponse
 --
---         , testHeadObjectResponse $
---             headObjectResponse
+--         , testDeleteBucketCORSResponse $
+--             deleteBucketCORSResponse
 --
---         , testPutBucketVersioningResponse $
---             putBucketVersioningResponse
+--         , testPutBucketCORSResponse $
+--             putBucketCORSResponse
+--
+--         , testGetBucketCORSResponse $
+--             getBucketCORSResponse
 --
 --         , testGetObjectACLResponse $
 --             getObjectACLResponse
@@ -319,8 +313,14 @@ import Test.AWS.S3.Internal
 --         , testRestoreObjectResponse $
 --             restoreObjectResponse
 --
---         , testGetBucketCORSResponse $
---             getBucketCORSResponse
+--         , testHeadObjectResponse $
+--             headObjectResponse
+--
+--         , testPutBucketVersioningResponse $
+--             putBucketVersioningResponse
+--
+--         , testGetBucketTaggingResponse $
+--             getBucketTaggingResponse
 --
 --         , testCopyObjectResponse $
 --             copyObjectResponse
@@ -331,17 +331,17 @@ import Test.AWS.S3.Internal
 --         , testGetBucketLoggingResponse $
 --             getBucketLoggingResponse
 --
---         , testListPartsResponse $
---             listPartsResponse
---
 --         , testGetBucketACLResponse $
 --             getBucketACLResponse
 --
---         , testPutBucketACLResponse $
---             putBucketACLResponse
+--         , testListPartsResponse $
+--             listPartsResponse
 --
 --         , testUploadPartCopyResponse $
 --             uploadPartCopyResponse
+--
+--         , testPutBucketACLResponse $
+--             putBucketACLResponse
 --
 --           ]
 --     ]
@@ -353,35 +353,30 @@ testPutBucketRequestPayment = req
     "PutBucketRequestPayment"
     "fixture/PutBucketRequestPayment.yaml"
 
-testPutBucketLogging :: PutBucketLogging -> TestTree
-testPutBucketLogging = req
-    "PutBucketLogging"
-    "fixture/PutBucketLogging.yaml"
-
 testDeleteObject :: DeleteObject -> TestTree
 testDeleteObject = req
     "DeleteObject"
     "fixture/DeleteObject.yaml"
 
-testDeleteBucket :: DeleteBucket -> TestTree
-testDeleteBucket = req
-    "DeleteBucket"
-    "fixture/DeleteBucket.yaml"
+testPutBucketLogging :: PutBucketLogging -> TestTree
+testPutBucketLogging = req
+    "PutBucketLogging"
+    "fixture/PutBucketLogging.yaml"
 
 testListBuckets :: ListBuckets -> TestTree
 testListBuckets = req
     "ListBuckets"
     "fixture/ListBuckets.yaml"
 
+testDeleteBucket :: DeleteBucket -> TestTree
+testDeleteBucket = req
+    "DeleteBucket"
+    "fixture/DeleteBucket.yaml"
+
 testCreateBucket :: CreateBucket -> TestTree
 testCreateBucket = req
     "CreateBucket"
     "fixture/CreateBucket.yaml"
-
-testPutBucketTagging :: PutBucketTagging -> TestTree
-testPutBucketTagging = req
-    "PutBucketTagging"
-    "fixture/PutBucketTagging.yaml"
 
 testDeleteBucketTagging :: DeleteBucketTagging -> TestTree
 testDeleteBucketTagging = req
@@ -393,15 +388,25 @@ testPutObjectACL = req
     "PutObjectACL"
     "fixture/PutObjectACL.yaml"
 
-testGetBucketNotificationConfiguration :: GetBucketNotificationConfiguration -> TestTree
-testGetBucketNotificationConfiguration = req
-    "GetBucketNotificationConfiguration"
-    "fixture/GetBucketNotificationConfiguration.yaml"
+testPutBucketTagging :: PutBucketTagging -> TestTree
+testPutBucketTagging = req
+    "PutBucketTagging"
+    "fixture/PutBucketTagging.yaml"
 
 testGetBucketLocation :: GetBucketLocation -> TestTree
 testGetBucketLocation = req
     "GetBucketLocation"
     "fixture/GetBucketLocation.yaml"
+
+testGetBucketNotificationConfiguration :: GetBucketNotificationConfiguration -> TestTree
+testGetBucketNotificationConfiguration = req
+    "GetBucketNotificationConfiguration"
+    "fixture/GetBucketNotificationConfiguration.yaml"
+
+testGetObject :: GetObject -> TestTree
+testGetObject = req
+    "GetObject"
+    "fixture/GetObject.yaml"
 
 testPutBucketReplication :: PutBucketReplication -> TestTree
 testPutBucketReplication = req
@@ -413,30 +418,25 @@ testGetBucketWebsite = req
     "GetBucketWebsite"
     "fixture/GetBucketWebsite.yaml"
 
-testGetObject :: GetObject -> TestTree
-testGetObject = req
-    "GetObject"
-    "fixture/GetObject.yaml"
+testGetBucketRequestPayment :: GetBucketRequestPayment -> TestTree
+testGetBucketRequestPayment = req
+    "GetBucketRequestPayment"
+    "fixture/GetBucketRequestPayment.yaml"
 
 testDeleteBucketReplication :: DeleteBucketReplication -> TestTree
 testDeleteBucketReplication = req
     "DeleteBucketReplication"
     "fixture/DeleteBucketReplication.yaml"
 
-testGetBucketRequestPayment :: GetBucketRequestPayment -> TestTree
-testGetBucketRequestPayment = req
-    "GetBucketRequestPayment"
-    "fixture/GetBucketRequestPayment.yaml"
+testGetBucketLifecycle :: GetBucketLifecycle -> TestTree
+testGetBucketLifecycle = req
+    "GetBucketLifecycle"
+    "fixture/GetBucketLifecycle.yaml"
 
 testListObjectVersions :: ListObjectVersions -> TestTree
 testListObjectVersions = req
     "ListObjectVersions"
     "fixture/ListObjectVersions.yaml"
-
-testGetBucketLifecycle :: GetBucketLifecycle -> TestTree
-testGetBucketLifecycle = req
-    "GetBucketLifecycle"
-    "fixture/GetBucketLifecycle.yaml"
 
 testHeadBucket :: HeadBucket -> TestTree
 testHeadBucket = req
@@ -448,15 +448,15 @@ testPutBucketLifecycle = req
     "PutBucketLifecycle"
     "fixture/PutBucketLifecycle.yaml"
 
-testCreateMultipartUpload :: CreateMultipartUpload -> TestTree
-testCreateMultipartUpload = req
-    "CreateMultipartUpload"
-    "fixture/CreateMultipartUpload.yaml"
-
 testDeleteBucketLifecycle :: DeleteBucketLifecycle -> TestTree
 testDeleteBucketLifecycle = req
     "DeleteBucketLifecycle"
     "fixture/DeleteBucketLifecycle.yaml"
+
+testCreateMultipartUpload :: CreateMultipartUpload -> TestTree
+testCreateMultipartUpload = req
+    "CreateMultipartUpload"
+    "fixture/CreateMultipartUpload.yaml"
 
 testGetBucketReplication :: GetBucketReplication -> TestTree
 testGetBucketReplication = req
@@ -468,6 +468,11 @@ testPutBucketWebsite = req
     "PutBucketWebsite"
     "fixture/PutBucketWebsite.yaml"
 
+testDeleteBucketWebsite :: DeleteBucketWebsite -> TestTree
+testDeleteBucketWebsite = req
+    "DeleteBucketWebsite"
+    "fixture/DeleteBucketWebsite.yaml"
+
 testCompleteMultipartUpload :: CompleteMultipartUpload -> TestTree
 testCompleteMultipartUpload = req
     "CompleteMultipartUpload"
@@ -478,25 +483,10 @@ testListMultipartUploads = req
     "ListMultipartUploads"
     "fixture/ListMultipartUploads.yaml"
 
-testDeleteBucketWebsite :: DeleteBucketWebsite -> TestTree
-testDeleteBucketWebsite = req
-    "DeleteBucketWebsite"
-    "fixture/DeleteBucketWebsite.yaml"
-
 testListObjects :: ListObjects -> TestTree
 testListObjects = req
     "ListObjects"
     "fixture/ListObjects.yaml"
-
-testDeleteObjects :: DeleteObjects -> TestTree
-testDeleteObjects = req
-    "DeleteObjects"
-    "fixture/DeleteObjects.yaml"
-
-testPutBucketPolicy :: PutBucketPolicy -> TestTree
-testPutBucketPolicy = req
-    "PutBucketPolicy"
-    "fixture/PutBucketPolicy.yaml"
 
 testDeleteBucketPolicy :: DeleteBucketPolicy -> TestTree
 testDeleteBucketPolicy = req
@@ -508,45 +498,45 @@ testAbortMultipartUpload = req
     "AbortMultipartUpload"
     "fixture/AbortMultipartUpload.yaml"
 
+testPutBucketPolicy :: PutBucketPolicy -> TestTree
+testPutBucketPolicy = req
+    "PutBucketPolicy"
+    "fixture/PutBucketPolicy.yaml"
+
 testGetObjectTorrent :: GetObjectTorrent -> TestTree
 testGetObjectTorrent = req
     "GetObjectTorrent"
     "fixture/GetObjectTorrent.yaml"
 
-testPutBucketCORS :: PutBucketCORS -> TestTree
-testPutBucketCORS = req
-    "PutBucketCORS"
-    "fixture/PutBucketCORS.yaml"
-
-testDeleteBucketCORS :: DeleteBucketCORS -> TestTree
-testDeleteBucketCORS = req
-    "DeleteBucketCORS"
-    "fixture/DeleteBucketCORS.yaml"
-
-testGetBucketVersioning :: GetBucketVersioning -> TestTree
-testGetBucketVersioning = req
-    "GetBucketVersioning"
-    "fixture/GetBucketVersioning.yaml"
+testDeleteObjects :: DeleteObjects -> TestTree
+testDeleteObjects = req
+    "DeleteObjects"
+    "fixture/DeleteObjects.yaml"
 
 testPutBucketNotificationConfiguration :: PutBucketNotificationConfiguration -> TestTree
 testPutBucketNotificationConfiguration = req
     "PutBucketNotificationConfiguration"
     "fixture/PutBucketNotificationConfiguration.yaml"
 
-testGetBucketTagging :: GetBucketTagging -> TestTree
-testGetBucketTagging = req
-    "GetBucketTagging"
-    "fixture/GetBucketTagging.yaml"
+testGetBucketVersioning :: GetBucketVersioning -> TestTree
+testGetBucketVersioning = req
+    "GetBucketVersioning"
+    "fixture/GetBucketVersioning.yaml"
 
-testHeadObject :: HeadObject -> TestTree
-testHeadObject = req
-    "HeadObject"
-    "fixture/HeadObject.yaml"
+testDeleteBucketCORS :: DeleteBucketCORS -> TestTree
+testDeleteBucketCORS = req
+    "DeleteBucketCORS"
+    "fixture/DeleteBucketCORS.yaml"
 
-testPutBucketVersioning :: PutBucketVersioning -> TestTree
-testPutBucketVersioning = req
-    "PutBucketVersioning"
-    "fixture/PutBucketVersioning.yaml"
+testPutBucketCORS :: PutBucketCORS -> TestTree
+testPutBucketCORS = req
+    "PutBucketCORS"
+    "fixture/PutBucketCORS.yaml"
+
+testGetBucketCORS :: GetBucketCORS -> TestTree
+testGetBucketCORS = req
+    "GetBucketCORS"
+    "fixture/GetBucketCORS.yaml"
 
 testGetObjectACL :: GetObjectACL -> TestTree
 testGetObjectACL = req
@@ -558,10 +548,20 @@ testRestoreObject = req
     "RestoreObject"
     "fixture/RestoreObject.yaml"
 
-testGetBucketCORS :: GetBucketCORS -> TestTree
-testGetBucketCORS = req
-    "GetBucketCORS"
-    "fixture/GetBucketCORS.yaml"
+testHeadObject :: HeadObject -> TestTree
+testHeadObject = req
+    "HeadObject"
+    "fixture/HeadObject.yaml"
+
+testPutBucketVersioning :: PutBucketVersioning -> TestTree
+testPutBucketVersioning = req
+    "PutBucketVersioning"
+    "fixture/PutBucketVersioning.yaml"
+
+testGetBucketTagging :: GetBucketTagging -> TestTree
+testGetBucketTagging = req
+    "GetBucketTagging"
+    "fixture/GetBucketTagging.yaml"
 
 testCopyObject :: CopyObject -> TestTree
 testCopyObject = req
@@ -578,25 +578,25 @@ testGetBucketLogging = req
     "GetBucketLogging"
     "fixture/GetBucketLogging.yaml"
 
-testListParts :: ListParts -> TestTree
-testListParts = req
-    "ListParts"
-    "fixture/ListParts.yaml"
-
 testGetBucketACL :: GetBucketACL -> TestTree
 testGetBucketACL = req
     "GetBucketACL"
     "fixture/GetBucketACL.yaml"
 
-testPutBucketACL :: PutBucketACL -> TestTree
-testPutBucketACL = req
-    "PutBucketACL"
-    "fixture/PutBucketACL.yaml"
+testListParts :: ListParts -> TestTree
+testListParts = req
+    "ListParts"
+    "fixture/ListParts.yaml"
 
 testUploadPartCopy :: UploadPartCopy -> TestTree
 testUploadPartCopy = req
     "UploadPartCopy"
     "fixture/UploadPartCopy.yaml"
+
+testPutBucketACL :: PutBucketACL -> TestTree
+testPutBucketACL = req
+    "PutBucketACL"
+    "fixture/PutBucketACL.yaml"
 
 -- Responses
 
@@ -614,13 +614,6 @@ testPutObjectResponse = res
     s3
     (Proxy :: Proxy PutObject)
 
-testPutBucketLoggingResponse :: PutBucketLoggingResponse -> TestTree
-testPutBucketLoggingResponse = res
-    "PutBucketLoggingResponse"
-    "fixture/PutBucketLoggingResponse.proto"
-    s3
-    (Proxy :: Proxy PutBucketLogging)
-
 testDeleteObjectResponse :: DeleteObjectResponse -> TestTree
 testDeleteObjectResponse = res
     "DeleteObjectResponse"
@@ -628,12 +621,12 @@ testDeleteObjectResponse = res
     s3
     (Proxy :: Proxy DeleteObject)
 
-testDeleteBucketResponse :: DeleteBucketResponse -> TestTree
-testDeleteBucketResponse = res
-    "DeleteBucketResponse"
-    "fixture/DeleteBucketResponse.proto"
+testPutBucketLoggingResponse :: PutBucketLoggingResponse -> TestTree
+testPutBucketLoggingResponse = res
+    "PutBucketLoggingResponse"
+    "fixture/PutBucketLoggingResponse.proto"
     s3
-    (Proxy :: Proxy DeleteBucket)
+    (Proxy :: Proxy PutBucketLogging)
 
 testListBucketsResponse :: ListBucketsResponse -> TestTree
 testListBucketsResponse = res
@@ -642,19 +635,19 @@ testListBucketsResponse = res
     s3
     (Proxy :: Proxy ListBuckets)
 
+testDeleteBucketResponse :: DeleteBucketResponse -> TestTree
+testDeleteBucketResponse = res
+    "DeleteBucketResponse"
+    "fixture/DeleteBucketResponse.proto"
+    s3
+    (Proxy :: Proxy DeleteBucket)
+
 testCreateBucketResponse :: CreateBucketResponse -> TestTree
 testCreateBucketResponse = res
     "CreateBucketResponse"
     "fixture/CreateBucketResponse.proto"
     s3
     (Proxy :: Proxy CreateBucket)
-
-testPutBucketTaggingResponse :: PutBucketTaggingResponse -> TestTree
-testPutBucketTaggingResponse = res
-    "PutBucketTaggingResponse"
-    "fixture/PutBucketTaggingResponse.proto"
-    s3
-    (Proxy :: Proxy PutBucketTagging)
 
 testDeleteBucketTaggingResponse :: DeleteBucketTaggingResponse -> TestTree
 testDeleteBucketTaggingResponse = res
@@ -670,12 +663,12 @@ testPutObjectACLResponse = res
     s3
     (Proxy :: Proxy PutObjectACL)
 
-testGetBucketNotificationConfigurationResponse :: NotificationConfiguration -> TestTree
-testGetBucketNotificationConfigurationResponse = res
-    "GetBucketNotificationConfigurationResponse"
-    "fixture/GetBucketNotificationConfigurationResponse.proto"
+testPutBucketTaggingResponse :: PutBucketTaggingResponse -> TestTree
+testPutBucketTaggingResponse = res
+    "PutBucketTaggingResponse"
+    "fixture/PutBucketTaggingResponse.proto"
     s3
-    (Proxy :: Proxy GetBucketNotificationConfiguration)
+    (Proxy :: Proxy PutBucketTagging)
 
 testGetBucketLocationResponse :: GetBucketLocationResponse -> TestTree
 testGetBucketLocationResponse = res
@@ -683,6 +676,13 @@ testGetBucketLocationResponse = res
     "fixture/GetBucketLocationResponse.proto"
     s3
     (Proxy :: Proxy GetBucketLocation)
+
+testGetBucketNotificationConfigurationResponse :: NotificationConfiguration -> TestTree
+testGetBucketNotificationConfigurationResponse = res
+    "GetBucketNotificationConfigurationResponse"
+    "fixture/GetBucketNotificationConfigurationResponse.proto"
+    s3
+    (Proxy :: Proxy GetBucketNotificationConfiguration)
 
 testPutBucketReplicationResponse :: PutBucketReplicationResponse -> TestTree
 testPutBucketReplicationResponse = res
@@ -698,13 +698,6 @@ testGetBucketWebsiteResponse = res
     s3
     (Proxy :: Proxy GetBucketWebsite)
 
-testDeleteBucketReplicationResponse :: DeleteBucketReplicationResponse -> TestTree
-testDeleteBucketReplicationResponse = res
-    "DeleteBucketReplicationResponse"
-    "fixture/DeleteBucketReplicationResponse.proto"
-    s3
-    (Proxy :: Proxy DeleteBucketReplication)
-
 testGetBucketRequestPaymentResponse :: GetBucketRequestPaymentResponse -> TestTree
 testGetBucketRequestPaymentResponse = res
     "GetBucketRequestPaymentResponse"
@@ -712,12 +705,12 @@ testGetBucketRequestPaymentResponse = res
     s3
     (Proxy :: Proxy GetBucketRequestPayment)
 
-testListObjectVersionsResponse :: ListObjectVersionsResponse -> TestTree
-testListObjectVersionsResponse = res
-    "ListObjectVersionsResponse"
-    "fixture/ListObjectVersionsResponse.proto"
+testDeleteBucketReplicationResponse :: DeleteBucketReplicationResponse -> TestTree
+testDeleteBucketReplicationResponse = res
+    "DeleteBucketReplicationResponse"
+    "fixture/DeleteBucketReplicationResponse.proto"
     s3
-    (Proxy :: Proxy ListObjectVersions)
+    (Proxy :: Proxy DeleteBucketReplication)
 
 testGetBucketLifecycleResponse :: GetBucketLifecycleResponse -> TestTree
 testGetBucketLifecycleResponse = res
@@ -725,6 +718,13 @@ testGetBucketLifecycleResponse = res
     "fixture/GetBucketLifecycleResponse.proto"
     s3
     (Proxy :: Proxy GetBucketLifecycle)
+
+testListObjectVersionsResponse :: ListObjectVersionsResponse -> TestTree
+testListObjectVersionsResponse = res
+    "ListObjectVersionsResponse"
+    "fixture/ListObjectVersionsResponse.proto"
+    s3
+    (Proxy :: Proxy ListObjectVersions)
 
 testHeadBucketResponse :: HeadBucketResponse -> TestTree
 testHeadBucketResponse = res
@@ -740,6 +740,13 @@ testPutBucketLifecycleResponse = res
     s3
     (Proxy :: Proxy PutBucketLifecycle)
 
+testDeleteBucketLifecycleResponse :: DeleteBucketLifecycleResponse -> TestTree
+testDeleteBucketLifecycleResponse = res
+    "DeleteBucketLifecycleResponse"
+    "fixture/DeleteBucketLifecycleResponse.proto"
+    s3
+    (Proxy :: Proxy DeleteBucketLifecycle)
+
 testCreateMultipartUploadResponse :: CreateMultipartUploadResponse -> TestTree
 testCreateMultipartUploadResponse = res
     "CreateMultipartUploadResponse"
@@ -747,12 +754,12 @@ testCreateMultipartUploadResponse = res
     s3
     (Proxy :: Proxy CreateMultipartUpload)
 
-testDeleteBucketLifecycleResponse :: DeleteBucketLifecycleResponse -> TestTree
-testDeleteBucketLifecycleResponse = res
-    "DeleteBucketLifecycleResponse"
-    "fixture/DeleteBucketLifecycleResponse.proto"
+testUploadPartResponse :: UploadPartResponse -> TestTree
+testUploadPartResponse = res
+    "UploadPartResponse"
+    "fixture/UploadPartResponse.proto"
     s3
-    (Proxy :: Proxy DeleteBucketLifecycle)
+    (Proxy :: Proxy UploadPart)
 
 testGetBucketReplicationResponse :: GetBucketReplicationResponse -> TestTree
 testGetBucketReplicationResponse = res
@@ -768,19 +775,19 @@ testPutBucketWebsiteResponse = res
     s3
     (Proxy :: Proxy PutBucketWebsite)
 
+testDeleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse -> TestTree
+testDeleteBucketWebsiteResponse = res
+    "DeleteBucketWebsiteResponse"
+    "fixture/DeleteBucketWebsiteResponse.proto"
+    s3
+    (Proxy :: Proxy DeleteBucketWebsite)
+
 testCompleteMultipartUploadResponse :: CompleteMultipartUploadResponse -> TestTree
 testCompleteMultipartUploadResponse = res
     "CompleteMultipartUploadResponse"
     "fixture/CompleteMultipartUploadResponse.proto"
     s3
     (Proxy :: Proxy CompleteMultipartUpload)
-
-testUploadPartResponse :: UploadPartResponse -> TestTree
-testUploadPartResponse = res
-    "UploadPartResponse"
-    "fixture/UploadPartResponse.proto"
-    s3
-    (Proxy :: Proxy UploadPart)
 
 testListMultipartUploadsResponse :: ListMultipartUploadsResponse -> TestTree
 testListMultipartUploadsResponse = res
@@ -789,33 +796,12 @@ testListMultipartUploadsResponse = res
     s3
     (Proxy :: Proxy ListMultipartUploads)
 
-testDeleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse -> TestTree
-testDeleteBucketWebsiteResponse = res
-    "DeleteBucketWebsiteResponse"
-    "fixture/DeleteBucketWebsiteResponse.proto"
-    s3
-    (Proxy :: Proxy DeleteBucketWebsite)
-
 testListObjectsResponse :: ListObjectsResponse -> TestTree
 testListObjectsResponse = res
     "ListObjectsResponse"
     "fixture/ListObjectsResponse.proto"
     s3
     (Proxy :: Proxy ListObjects)
-
-testDeleteObjectsResponse :: DeleteObjectsResponse -> TestTree
-testDeleteObjectsResponse = res
-    "DeleteObjectsResponse"
-    "fixture/DeleteObjectsResponse.proto"
-    s3
-    (Proxy :: Proxy DeleteObjects)
-
-testPutBucketPolicyResponse :: PutBucketPolicyResponse -> TestTree
-testPutBucketPolicyResponse = res
-    "PutBucketPolicyResponse"
-    "fixture/PutBucketPolicyResponse.proto"
-    s3
-    (Proxy :: Proxy PutBucketPolicy)
 
 testDeleteBucketPolicyResponse :: DeleteBucketPolicyResponse -> TestTree
 testDeleteBucketPolicyResponse = res
@@ -831,26 +817,19 @@ testAbortMultipartUploadResponse = res
     s3
     (Proxy :: Proxy AbortMultipartUpload)
 
-testPutBucketCORSResponse :: PutBucketCORSResponse -> TestTree
-testPutBucketCORSResponse = res
-    "PutBucketCORSResponse"
-    "fixture/PutBucketCORSResponse.proto"
+testPutBucketPolicyResponse :: PutBucketPolicyResponse -> TestTree
+testPutBucketPolicyResponse = res
+    "PutBucketPolicyResponse"
+    "fixture/PutBucketPolicyResponse.proto"
     s3
-    (Proxy :: Proxy PutBucketCORS)
+    (Proxy :: Proxy PutBucketPolicy)
 
-testDeleteBucketCORSResponse :: DeleteBucketCORSResponse -> TestTree
-testDeleteBucketCORSResponse = res
-    "DeleteBucketCORSResponse"
-    "fixture/DeleteBucketCORSResponse.proto"
+testDeleteObjectsResponse :: DeleteObjectsResponse -> TestTree
+testDeleteObjectsResponse = res
+    "DeleteObjectsResponse"
+    "fixture/DeleteObjectsResponse.proto"
     s3
-    (Proxy :: Proxy DeleteBucketCORS)
-
-testGetBucketVersioningResponse :: GetBucketVersioningResponse -> TestTree
-testGetBucketVersioningResponse = res
-    "GetBucketVersioningResponse"
-    "fixture/GetBucketVersioningResponse.proto"
-    s3
-    (Proxy :: Proxy GetBucketVersioning)
+    (Proxy :: Proxy DeleteObjects)
 
 testPutBucketNotificationConfigurationResponse :: PutBucketNotificationConfigurationResponse -> TestTree
 testPutBucketNotificationConfigurationResponse = res
@@ -859,26 +838,33 @@ testPutBucketNotificationConfigurationResponse = res
     s3
     (Proxy :: Proxy PutBucketNotificationConfiguration)
 
-testGetBucketTaggingResponse :: GetBucketTaggingResponse -> TestTree
-testGetBucketTaggingResponse = res
-    "GetBucketTaggingResponse"
-    "fixture/GetBucketTaggingResponse.proto"
+testGetBucketVersioningResponse :: GetBucketVersioningResponse -> TestTree
+testGetBucketVersioningResponse = res
+    "GetBucketVersioningResponse"
+    "fixture/GetBucketVersioningResponse.proto"
     s3
-    (Proxy :: Proxy GetBucketTagging)
+    (Proxy :: Proxy GetBucketVersioning)
 
-testHeadObjectResponse :: HeadObjectResponse -> TestTree
-testHeadObjectResponse = res
-    "HeadObjectResponse"
-    "fixture/HeadObjectResponse.proto"
+testDeleteBucketCORSResponse :: DeleteBucketCORSResponse -> TestTree
+testDeleteBucketCORSResponse = res
+    "DeleteBucketCORSResponse"
+    "fixture/DeleteBucketCORSResponse.proto"
     s3
-    (Proxy :: Proxy HeadObject)
+    (Proxy :: Proxy DeleteBucketCORS)
 
-testPutBucketVersioningResponse :: PutBucketVersioningResponse -> TestTree
-testPutBucketVersioningResponse = res
-    "PutBucketVersioningResponse"
-    "fixture/PutBucketVersioningResponse.proto"
+testPutBucketCORSResponse :: PutBucketCORSResponse -> TestTree
+testPutBucketCORSResponse = res
+    "PutBucketCORSResponse"
+    "fixture/PutBucketCORSResponse.proto"
     s3
-    (Proxy :: Proxy PutBucketVersioning)
+    (Proxy :: Proxy PutBucketCORS)
+
+testGetBucketCORSResponse :: GetBucketCORSResponse -> TestTree
+testGetBucketCORSResponse = res
+    "GetBucketCORSResponse"
+    "fixture/GetBucketCORSResponse.proto"
+    s3
+    (Proxy :: Proxy GetBucketCORS)
 
 testGetObjectACLResponse :: GetObjectACLResponse -> TestTree
 testGetObjectACLResponse = res
@@ -894,12 +880,26 @@ testRestoreObjectResponse = res
     s3
     (Proxy :: Proxy RestoreObject)
 
-testGetBucketCORSResponse :: GetBucketCORSResponse -> TestTree
-testGetBucketCORSResponse = res
-    "GetBucketCORSResponse"
-    "fixture/GetBucketCORSResponse.proto"
+testHeadObjectResponse :: HeadObjectResponse -> TestTree
+testHeadObjectResponse = res
+    "HeadObjectResponse"
+    "fixture/HeadObjectResponse.proto"
     s3
-    (Proxy :: Proxy GetBucketCORS)
+    (Proxy :: Proxy HeadObject)
+
+testPutBucketVersioningResponse :: PutBucketVersioningResponse -> TestTree
+testPutBucketVersioningResponse = res
+    "PutBucketVersioningResponse"
+    "fixture/PutBucketVersioningResponse.proto"
+    s3
+    (Proxy :: Proxy PutBucketVersioning)
+
+testGetBucketTaggingResponse :: GetBucketTaggingResponse -> TestTree
+testGetBucketTaggingResponse = res
+    "GetBucketTaggingResponse"
+    "fixture/GetBucketTaggingResponse.proto"
+    s3
+    (Proxy :: Proxy GetBucketTagging)
 
 testCopyObjectResponse :: CopyObjectResponse -> TestTree
 testCopyObjectResponse = res
@@ -922,13 +922,6 @@ testGetBucketLoggingResponse = res
     s3
     (Proxy :: Proxy GetBucketLogging)
 
-testListPartsResponse :: ListPartsResponse -> TestTree
-testListPartsResponse = res
-    "ListPartsResponse"
-    "fixture/ListPartsResponse.proto"
-    s3
-    (Proxy :: Proxy ListParts)
-
 testGetBucketACLResponse :: GetBucketACLResponse -> TestTree
 testGetBucketACLResponse = res
     "GetBucketACLResponse"
@@ -936,12 +929,12 @@ testGetBucketACLResponse = res
     s3
     (Proxy :: Proxy GetBucketACL)
 
-testPutBucketACLResponse :: PutBucketACLResponse -> TestTree
-testPutBucketACLResponse = res
-    "PutBucketACLResponse"
-    "fixture/PutBucketACLResponse.proto"
+testListPartsResponse :: ListPartsResponse -> TestTree
+testListPartsResponse = res
+    "ListPartsResponse"
+    "fixture/ListPartsResponse.proto"
     s3
-    (Proxy :: Proxy PutBucketACL)
+    (Proxy :: Proxy ListParts)
 
 testUploadPartCopyResponse :: UploadPartCopyResponse -> TestTree
 testUploadPartCopyResponse = res
@@ -949,3 +942,10 @@ testUploadPartCopyResponse = res
     "fixture/UploadPartCopyResponse.proto"
     s3
     (Proxy :: Proxy UploadPartCopy)
+
+testPutBucketACLResponse :: PutBucketACLResponse -> TestTree
+testPutBucketACLResponse = res
+    "PutBucketACLResponse"
+    "fixture/PutBucketACLResponse.proto"
+    s3
+    (Proxy :: Proxy PutBucketACL)

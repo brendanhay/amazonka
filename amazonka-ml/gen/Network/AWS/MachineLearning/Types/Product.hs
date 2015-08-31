@@ -34,8 +34,8 @@ data BatchPrediction = BatchPrediction'
     , _bpMLModelId                   :: !(Maybe Text)
     , _bpBatchPredictionDataSourceId :: !(Maybe Text)
     , _bpBatchPredictionId           :: !(Maybe Text)
-    , _bpName                        :: !(Maybe Text)
     , _bpCreatedByIAMUser            :: !(Maybe Text)
+    , _bpName                        :: !(Maybe Text)
     , _bpMessage                     :: !(Maybe Text)
     , _bpOutputURI                   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -58,9 +58,9 @@ data BatchPrediction = BatchPrediction'
 --
 -- * 'bpBatchPredictionId'
 --
--- * 'bpName'
---
 -- * 'bpCreatedByIAMUser'
+--
+-- * 'bpName'
 --
 -- * 'bpMessage'
 --
@@ -76,8 +76,8 @@ batchPrediction =
     , _bpMLModelId = Nothing
     , _bpBatchPredictionDataSourceId = Nothing
     , _bpBatchPredictionId = Nothing
-    , _bpName = Nothing
     , _bpCreatedByIAMUser = Nothing
+    , _bpName = Nothing
     , _bpMessage = Nothing
     , _bpOutputURI = Nothing
     }
@@ -126,15 +126,15 @@ bpBatchPredictionDataSourceId = lens _bpBatchPredictionDataSourceId (\ s a -> s{
 bpBatchPredictionId :: Lens' BatchPrediction (Maybe Text)
 bpBatchPredictionId = lens _bpBatchPredictionId (\ s a -> s{_bpBatchPredictionId = a});
 
--- | A user-supplied name or description of the 'BatchPrediction'.
-bpName :: Lens' BatchPrediction (Maybe Text)
-bpName = lens _bpName (\ s a -> s{_bpName = a});
-
 -- | The AWS user account that invoked the 'BatchPrediction'. The account
 -- type can be either an AWS root account or an AWS Identity and Access
 -- Management (IAM) user account.
 bpCreatedByIAMUser :: Lens' BatchPrediction (Maybe Text)
 bpCreatedByIAMUser = lens _bpCreatedByIAMUser (\ s a -> s{_bpCreatedByIAMUser = a});
+
+-- | A user-supplied name or description of the 'BatchPrediction'.
+bpName :: Lens' BatchPrediction (Maybe Text)
+bpName = lens _bpName (\ s a -> s{_bpName = a});
 
 -- | A description of the most recent details about processing the batch
 -- prediction request.
@@ -159,8 +159,8 @@ instance FromJSON BatchPrediction where
                      <*> (x .:? "MLModelId")
                      <*> (x .:? "BatchPredictionDataSourceId")
                      <*> (x .:? "BatchPredictionId")
-                     <*> (x .:? "Name")
                      <*> (x .:? "CreatedByIamUser")
+                     <*> (x .:? "Name")
                      <*> (x .:? "Message")
                      <*> (x .:? "OutputUri"))
 
@@ -175,17 +175,17 @@ data DataSource = DataSource'
     , _dsNumberOfFiles     :: !(Maybe Integer)
     , _dsLastUpdatedAt     :: !(Maybe POSIX)
     , _dsCreatedAt         :: !(Maybe POSIX)
-    , _dsRDSMetadata       :: !(Maybe RDSMetadata)
     , _dsDataSourceId      :: !(Maybe Text)
+    , _dsRDSMetadata       :: !(Maybe RDSMetadata)
     , _dsDataSizeInBytes   :: !(Maybe Integer)
-    , _dsName              :: !(Maybe Text)
     , _dsCreatedByIAMUser  :: !(Maybe Text)
+    , _dsName              :: !(Maybe Text)
     , _dsDataLocationS3    :: !(Maybe Text)
     , _dsComputeStatistics :: !(Maybe Bool)
     , _dsMessage           :: !(Maybe Text)
     , _dsRedshiftMetadata  :: !(Maybe RedshiftMetadata)
-    , _dsRoleARN           :: !(Maybe Text)
     , _dsDataRearrangement :: !(Maybe Text)
+    , _dsRoleARN           :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DataSource' with the minimum fields required to make a request.
@@ -200,15 +200,15 @@ data DataSource = DataSource'
 --
 -- * 'dsCreatedAt'
 --
--- * 'dsRDSMetadata'
---
 -- * 'dsDataSourceId'
+--
+-- * 'dsRDSMetadata'
 --
 -- * 'dsDataSizeInBytes'
 --
--- * 'dsName'
---
 -- * 'dsCreatedByIAMUser'
+--
+-- * 'dsName'
 --
 -- * 'dsDataLocationS3'
 --
@@ -218,9 +218,9 @@ data DataSource = DataSource'
 --
 -- * 'dsRedshiftMetadata'
 --
--- * 'dsRoleARN'
---
 -- * 'dsDataRearrangement'
+--
+-- * 'dsRoleARN'
 dataSource
     :: DataSource
 dataSource =
@@ -229,17 +229,17 @@ dataSource =
     , _dsNumberOfFiles = Nothing
     , _dsLastUpdatedAt = Nothing
     , _dsCreatedAt = Nothing
-    , _dsRDSMetadata = Nothing
     , _dsDataSourceId = Nothing
+    , _dsRDSMetadata = Nothing
     , _dsDataSizeInBytes = Nothing
-    , _dsName = Nothing
     , _dsCreatedByIAMUser = Nothing
+    , _dsName = Nothing
     , _dsDataLocationS3 = Nothing
     , _dsComputeStatistics = Nothing
     , _dsMessage = Nothing
     , _dsRedshiftMetadata = Nothing
-    , _dsRoleARN = Nothing
     , _dsDataRearrangement = Nothing
+    , _dsRoleARN = Nothing
     }
 
 -- | The current status of the 'DataSource'. This element can have one of the
@@ -269,28 +269,28 @@ dsLastUpdatedAt = lens _dsLastUpdatedAt (\ s a -> s{_dsLastUpdatedAt = a}) . map
 dsCreatedAt :: Lens' DataSource (Maybe UTCTime)
 dsCreatedAt = lens _dsCreatedAt (\ s a -> s{_dsCreatedAt = a}) . mapping _Time;
 
--- | Undocumented member.
-dsRDSMetadata :: Lens' DataSource (Maybe RDSMetadata)
-dsRDSMetadata = lens _dsRDSMetadata (\ s a -> s{_dsRDSMetadata = a});
-
 -- | The ID that is assigned to the 'DataSource' during creation.
 dsDataSourceId :: Lens' DataSource (Maybe Text)
 dsDataSourceId = lens _dsDataSourceId (\ s a -> s{_dsDataSourceId = a});
+
+-- | Undocumented member.
+dsRDSMetadata :: Lens' DataSource (Maybe RDSMetadata)
+dsRDSMetadata = lens _dsRDSMetadata (\ s a -> s{_dsRDSMetadata = a});
 
 -- | The total number of observations contained in the data files that the
 -- 'DataSource' references.
 dsDataSizeInBytes :: Lens' DataSource (Maybe Integer)
 dsDataSizeInBytes = lens _dsDataSizeInBytes (\ s a -> s{_dsDataSizeInBytes = a});
 
--- | A user-supplied name or description of the 'DataSource'.
-dsName :: Lens' DataSource (Maybe Text)
-dsName = lens _dsName (\ s a -> s{_dsName = a});
-
 -- | The AWS user account from which the 'DataSource' was created. The
 -- account type can be either an AWS root account or an AWS Identity and
 -- Access Management (IAM) user account.
 dsCreatedByIAMUser :: Lens' DataSource (Maybe Text)
 dsCreatedByIAMUser = lens _dsCreatedByIAMUser (\ s a -> s{_dsCreatedByIAMUser = a});
+
+-- | A user-supplied name or description of the 'DataSource'.
+dsName :: Lens' DataSource (Maybe Text)
+dsName = lens _dsName (\ s a -> s{_dsName = a});
 
 -- | The location and name of the data in Amazon Simple Storage Service
 -- (Amazon S3) that is used by a 'DataSource'.
@@ -311,14 +311,14 @@ dsMessage = lens _dsMessage (\ s a -> s{_dsMessage = a});
 dsRedshiftMetadata :: Lens' DataSource (Maybe RedshiftMetadata)
 dsRedshiftMetadata = lens _dsRedshiftMetadata (\ s a -> s{_dsRedshiftMetadata = a});
 
--- | Undocumented member.
-dsRoleARN :: Lens' DataSource (Maybe Text)
-dsRoleARN = lens _dsRoleARN (\ s a -> s{_dsRoleARN = a});
-
 -- | A JSON string that represents the splitting requirement of a
 -- 'Datasource'.
 dsDataRearrangement :: Lens' DataSource (Maybe Text)
 dsDataRearrangement = lens _dsDataRearrangement (\ s a -> s{_dsDataRearrangement = a});
+
+-- | Undocumented member.
+dsRoleARN :: Lens' DataSource (Maybe Text)
+dsRoleARN = lens _dsRoleARN (\ s a -> s{_dsRoleARN = a});
 
 instance FromJSON DataSource where
         parseJSON
@@ -328,17 +328,17 @@ instance FromJSON DataSource where
                    (x .:? "Status") <*> (x .:? "NumberOfFiles") <*>
                      (x .:? "LastUpdatedAt")
                      <*> (x .:? "CreatedAt")
-                     <*> (x .:? "RDSMetadata")
                      <*> (x .:? "DataSourceId")
+                     <*> (x .:? "RDSMetadata")
                      <*> (x .:? "DataSizeInBytes")
-                     <*> (x .:? "Name")
                      <*> (x .:? "CreatedByIamUser")
+                     <*> (x .:? "Name")
                      <*> (x .:? "DataLocationS3")
                      <*> (x .:? "ComputeStatistics")
                      <*> (x .:? "Message")
                      <*> (x .:? "RedshiftMetadata")
-                     <*> (x .:? "RoleARN")
-                     <*> (x .:? "DataRearrangement"))
+                     <*> (x .:? "DataRearrangement")
+                     <*> (x .:? "RoleARN"))
 
 -- | Represents the output of GetEvaluation operation.
 --
@@ -353,10 +353,10 @@ data Evaluation = Evaluation'
     , _eCreatedAt              :: !(Maybe POSIX)
     , _eInputDataLocationS3    :: !(Maybe Text)
     , _eMLModelId              :: !(Maybe Text)
-    , _eName                   :: !(Maybe Text)
     , _eCreatedByIAMUser       :: !(Maybe Text)
-    , _eMessage                :: !(Maybe Text)
+    , _eName                   :: !(Maybe Text)
     , _eEvaluationId           :: !(Maybe Text)
+    , _eMessage                :: !(Maybe Text)
     , _eEvaluationDataSourceId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -376,13 +376,13 @@ data Evaluation = Evaluation'
 --
 -- * 'eMLModelId'
 --
--- * 'eName'
---
 -- * 'eCreatedByIAMUser'
 --
--- * 'eMessage'
+-- * 'eName'
 --
 -- * 'eEvaluationId'
+--
+-- * 'eMessage'
 --
 -- * 'eEvaluationDataSourceId'
 evaluation
@@ -395,10 +395,10 @@ evaluation =
     , _eCreatedAt = Nothing
     , _eInputDataLocationS3 = Nothing
     , _eMLModelId = Nothing
-    , _eName = Nothing
     , _eCreatedByIAMUser = Nothing
-    , _eMessage = Nothing
+    , _eName = Nothing
     , _eEvaluationId = Nothing
+    , _eMessage = Nothing
     , _eEvaluationDataSourceId = Nothing
     }
 
@@ -454,23 +454,23 @@ eInputDataLocationS3 = lens _eInputDataLocationS3 (\ s a -> s{_eInputDataLocatio
 eMLModelId :: Lens' Evaluation (Maybe Text)
 eMLModelId = lens _eMLModelId (\ s a -> s{_eMLModelId = a});
 
--- | A user-supplied name or description of the 'Evaluation'.
-eName :: Lens' Evaluation (Maybe Text)
-eName = lens _eName (\ s a -> s{_eName = a});
-
 -- | The AWS user account that invoked the evaluation. The account type can
 -- be either an AWS root account or an AWS Identity and Access Management
 -- (IAM) user account.
 eCreatedByIAMUser :: Lens' Evaluation (Maybe Text)
 eCreatedByIAMUser = lens _eCreatedByIAMUser (\ s a -> s{_eCreatedByIAMUser = a});
 
--- | A description of the most recent details about evaluating the 'MLModel'.
-eMessage :: Lens' Evaluation (Maybe Text)
-eMessage = lens _eMessage (\ s a -> s{_eMessage = a});
+-- | A user-supplied name or description of the 'Evaluation'.
+eName :: Lens' Evaluation (Maybe Text)
+eName = lens _eName (\ s a -> s{_eName = a});
 
 -- | The ID that is assigned to the 'Evaluation' at creation.
 eEvaluationId :: Lens' Evaluation (Maybe Text)
 eEvaluationId = lens _eEvaluationId (\ s a -> s{_eEvaluationId = a});
+
+-- | A description of the most recent details about evaluating the 'MLModel'.
+eMessage :: Lens' Evaluation (Maybe Text)
+eMessage = lens _eMessage (\ s a -> s{_eMessage = a});
 
 -- | The ID of the 'DataSource' that is used to evaluate the 'MLModel'.
 eEvaluationDataSourceId :: Lens' Evaluation (Maybe Text)
@@ -486,10 +486,10 @@ instance FromJSON Evaluation where
                      <*> (x .:? "CreatedAt")
                      <*> (x .:? "InputDataLocationS3")
                      <*> (x .:? "MLModelId")
-                     <*> (x .:? "Name")
                      <*> (x .:? "CreatedByIamUser")
-                     <*> (x .:? "Message")
+                     <*> (x .:? "Name")
                      <*> (x .:? "EvaluationId")
+                     <*> (x .:? "Message")
                      <*> (x .:? "EvaluationDataSourceId"))
 
 -- | Represents the output of a GetMLModel operation.
@@ -500,17 +500,17 @@ instance FromJSON Evaluation where
 -- /See:/ 'mLModel' smart constructor.
 data MLModel = MLModel'
     { _mlmStatus                      :: !(Maybe EntityStatus)
-    , _mlmTrainingParameters          :: !(Maybe (Map Text Text))
     , _mlmLastUpdatedAt               :: !(Maybe POSIX)
-    , _mlmCreatedAt                   :: !(Maybe POSIX)
+    , _mlmTrainingParameters          :: !(Maybe (Map Text Text))
     , _mlmScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
+    , _mlmCreatedAt                   :: !(Maybe POSIX)
     , _mlmInputDataLocationS3         :: !(Maybe Text)
-    , _mlmSizeInBytes                 :: !(Maybe Integer)
     , _mlmMLModelId                   :: !(Maybe Text)
+    , _mlmSizeInBytes                 :: !(Maybe Integer)
     , _mlmScoreThreshold              :: !(Maybe Double)
-    , _mlmName                        :: !(Maybe Text)
     , _mlmAlgorithm                   :: !(Maybe Algorithm)
     , _mlmCreatedByIAMUser            :: !(Maybe Text)
+    , _mlmName                        :: !(Maybe Text)
     , _mlmEndpointInfo                :: !(Maybe RealtimeEndpointInfo)
     , _mlmTrainingDataSourceId        :: !(Maybe Text)
     , _mlmMessage                     :: !(Maybe Text)
@@ -523,27 +523,27 @@ data MLModel = MLModel'
 --
 -- * 'mlmStatus'
 --
--- * 'mlmTrainingParameters'
---
 -- * 'mlmLastUpdatedAt'
 --
--- * 'mlmCreatedAt'
+-- * 'mlmTrainingParameters'
 --
 -- * 'mlmScoreThresholdLastUpdatedAt'
 --
--- * 'mlmInputDataLocationS3'
+-- * 'mlmCreatedAt'
 --
--- * 'mlmSizeInBytes'
+-- * 'mlmInputDataLocationS3'
 --
 -- * 'mlmMLModelId'
 --
--- * 'mlmScoreThreshold'
+-- * 'mlmSizeInBytes'
 --
--- * 'mlmName'
+-- * 'mlmScoreThreshold'
 --
 -- * 'mlmAlgorithm'
 --
 -- * 'mlmCreatedByIAMUser'
+--
+-- * 'mlmName'
 --
 -- * 'mlmEndpointInfo'
 --
@@ -557,17 +557,17 @@ mLModel
 mLModel =
     MLModel'
     { _mlmStatus = Nothing
-    , _mlmTrainingParameters = Nothing
     , _mlmLastUpdatedAt = Nothing
-    , _mlmCreatedAt = Nothing
+    , _mlmTrainingParameters = Nothing
     , _mlmScoreThresholdLastUpdatedAt = Nothing
+    , _mlmCreatedAt = Nothing
     , _mlmInputDataLocationS3 = Nothing
-    , _mlmSizeInBytes = Nothing
     , _mlmMLModelId = Nothing
+    , _mlmSizeInBytes = Nothing
     , _mlmScoreThreshold = Nothing
-    , _mlmName = Nothing
     , _mlmAlgorithm = Nothing
     , _mlmCreatedByIAMUser = Nothing
+    , _mlmName = Nothing
     , _mlmEndpointInfo = Nothing
     , _mlmTrainingDataSourceId = Nothing
     , _mlmMessage = Nothing
@@ -586,6 +586,11 @@ mLModel =
 -- -   DELETED - The 'MLModel' is marked as deleted. It is not usable.
 mlmStatus :: Lens' MLModel (Maybe EntityStatus)
 mlmStatus = lens _mlmStatus (\ s a -> s{_mlmStatus = a});
+
+-- | The time of the most recent edit to the 'MLModel'. The time is expressed
+-- in epoch time.
+mlmLastUpdatedAt :: Lens' MLModel (Maybe UTCTime)
+mlmLastUpdatedAt = lens _mlmLastUpdatedAt (\ s a -> s{_mlmLastUpdatedAt = a}) . mapping _Time;
 
 -- | A list of the training parameters in the 'MLModel'. The list is
 -- implemented as a map of key\/value pairs.
@@ -626,41 +631,32 @@ mlmStatus = lens _mlmStatus (\ s a -> s{_mlmStatus = a});
 mlmTrainingParameters :: Lens' MLModel (HashMap Text Text)
 mlmTrainingParameters = lens _mlmTrainingParameters (\ s a -> s{_mlmTrainingParameters = a}) . _Default . _Map;
 
--- | The time of the most recent edit to the 'MLModel'. The time is expressed
--- in epoch time.
-mlmLastUpdatedAt :: Lens' MLModel (Maybe UTCTime)
-mlmLastUpdatedAt = lens _mlmLastUpdatedAt (\ s a -> s{_mlmLastUpdatedAt = a}) . mapping _Time;
+-- | The time of the most recent edit to the 'ScoreThreshold'. The time is
+-- expressed in epoch time.
+mlmScoreThresholdLastUpdatedAt :: Lens' MLModel (Maybe UTCTime)
+mlmScoreThresholdLastUpdatedAt = lens _mlmScoreThresholdLastUpdatedAt (\ s a -> s{_mlmScoreThresholdLastUpdatedAt = a}) . mapping _Time;
 
 -- | The time that the 'MLModel' was created. The time is expressed in epoch
 -- time.
 mlmCreatedAt :: Lens' MLModel (Maybe UTCTime)
 mlmCreatedAt = lens _mlmCreatedAt (\ s a -> s{_mlmCreatedAt = a}) . mapping _Time;
 
--- | The time of the most recent edit to the 'ScoreThreshold'. The time is
--- expressed in epoch time.
-mlmScoreThresholdLastUpdatedAt :: Lens' MLModel (Maybe UTCTime)
-mlmScoreThresholdLastUpdatedAt = lens _mlmScoreThresholdLastUpdatedAt (\ s a -> s{_mlmScoreThresholdLastUpdatedAt = a}) . mapping _Time;
-
 -- | The location of the data file or directory in Amazon Simple Storage
 -- Service (Amazon S3).
 mlmInputDataLocationS3 :: Lens' MLModel (Maybe Text)
 mlmInputDataLocationS3 = lens _mlmInputDataLocationS3 (\ s a -> s{_mlmInputDataLocationS3 = a});
-
--- | Undocumented member.
-mlmSizeInBytes :: Lens' MLModel (Maybe Integer)
-mlmSizeInBytes = lens _mlmSizeInBytes (\ s a -> s{_mlmSizeInBytes = a});
 
 -- | The ID assigned to the 'MLModel' at creation.
 mlmMLModelId :: Lens' MLModel (Maybe Text)
 mlmMLModelId = lens _mlmMLModelId (\ s a -> s{_mlmMLModelId = a});
 
 -- | Undocumented member.
+mlmSizeInBytes :: Lens' MLModel (Maybe Integer)
+mlmSizeInBytes = lens _mlmSizeInBytes (\ s a -> s{_mlmSizeInBytes = a});
+
+-- | Undocumented member.
 mlmScoreThreshold :: Lens' MLModel (Maybe Double)
 mlmScoreThreshold = lens _mlmScoreThreshold (\ s a -> s{_mlmScoreThreshold = a});
-
--- | A user-supplied name or description of the 'MLModel'.
-mlmName :: Lens' MLModel (Maybe Text)
-mlmName = lens _mlmName (\ s a -> s{_mlmName = a});
 
 -- | The algorithm used to train the 'MLModel'. The following algorithm is
 -- supported:
@@ -675,6 +671,10 @@ mlmAlgorithm = lens _mlmAlgorithm (\ s a -> s{_mlmAlgorithm = a});
 -- Management (IAM) user account.
 mlmCreatedByIAMUser :: Lens' MLModel (Maybe Text)
 mlmCreatedByIAMUser = lens _mlmCreatedByIAMUser (\ s a -> s{_mlmCreatedByIAMUser = a});
+
+-- | A user-supplied name or description of the 'MLModel'.
+mlmName :: Lens' MLModel (Maybe Text)
+mlmName = lens _mlmName (\ s a -> s{_mlmName = a});
 
 -- | The current endpoint of the 'MLModel'.
 mlmEndpointInfo :: Lens' MLModel (Maybe RealtimeEndpointInfo)
@@ -706,18 +706,17 @@ instance FromJSON MLModel where
           = withObject "MLModel"
               (\ x ->
                  MLModel' <$>
-                   (x .:? "Status") <*>
+                   (x .:? "Status") <*> (x .:? "LastUpdatedAt") <*>
                      (x .:? "TrainingParameters" .!= mempty)
-                     <*> (x .:? "LastUpdatedAt")
-                     <*> (x .:? "CreatedAt")
                      <*> (x .:? "ScoreThresholdLastUpdatedAt")
+                     <*> (x .:? "CreatedAt")
                      <*> (x .:? "InputDataLocationS3")
-                     <*> (x .:? "SizeInBytes")
                      <*> (x .:? "MLModelId")
+                     <*> (x .:? "SizeInBytes")
                      <*> (x .:? "ScoreThreshold")
-                     <*> (x .:? "Name")
                      <*> (x .:? "Algorithm")
                      <*> (x .:? "CreatedByIamUser")
+                     <*> (x .:? "Name")
                      <*> (x .:? "EndpointInfo")
                      <*> (x .:? "TrainingDataSourceId")
                      <*> (x .:? "Message")

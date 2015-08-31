@@ -32,27 +32,27 @@ module Network.AWS.S3.CopyObject
     , coCopySourceSSECustomerKeyMD5
     , coMetadataDirective
     , coExpires
-    , coSSECustomerAlgorithm
-    , coCopySourceIfNoneMatch
     , coGrantReadACP
+    , coCopySourceIfNoneMatch
+    , coSSECustomerAlgorithm
     , coSSECustomerKey
     , coRequestPayer
     , coGrantWriteACP
-    , coWebsiteRedirectLocation
     , coCopySourceIfMatch
+    , coWebsiteRedirectLocation
     , coGrantRead
     , coStorageClass
-    , coContentEncoding
+    , coSSECustomerKeyMD5
     , coSSEKMSKeyId
     , coGrantFullControl
-    , coSSECustomerKeyMD5
+    , coContentEncoding
     , coMetadata
     , coCacheControl
     , coContentLanguage
-    , coACL
     , coCopySourceSSECustomerKey
-    , coContentDisposition
     , coCopySourceSSECustomerAlgorithm
+    , coACL
+    , coContentDisposition
     , coServerSideEncryption
     , coContentType
     , coBucket
@@ -67,8 +67,8 @@ module Network.AWS.S3.CopyObject
     , corsExpiration
     , corsSSECustomerAlgorithm
     , corsCopySourceVersionId
-    , corsSSEKMSKeyId
     , corsSSECustomerKeyMD5
+    , corsSSEKMSKeyId
     , corsServerSideEncryption
     , corsCopyObjectResult
     , corsStatus
@@ -87,27 +87,27 @@ data CopyObject = CopyObject'
     , _coCopySourceSSECustomerKeyMD5    :: !(Maybe Text)
     , _coMetadataDirective              :: !(Maybe MetadataDirective)
     , _coExpires                        :: !(Maybe RFC822)
-    , _coSSECustomerAlgorithm           :: !(Maybe Text)
-    , _coCopySourceIfNoneMatch          :: !(Maybe Text)
     , _coGrantReadACP                   :: !(Maybe Text)
+    , _coCopySourceIfNoneMatch          :: !(Maybe Text)
+    , _coSSECustomerAlgorithm           :: !(Maybe Text)
     , _coSSECustomerKey                 :: !(Maybe (Sensitive Text))
     , _coRequestPayer                   :: !(Maybe RequestPayer)
     , _coGrantWriteACP                  :: !(Maybe Text)
-    , _coWebsiteRedirectLocation        :: !(Maybe Text)
     , _coCopySourceIfMatch              :: !(Maybe Text)
+    , _coWebsiteRedirectLocation        :: !(Maybe Text)
     , _coGrantRead                      :: !(Maybe Text)
     , _coStorageClass                   :: !(Maybe StorageClass)
-    , _coContentEncoding                :: !(Maybe Text)
+    , _coSSECustomerKeyMD5              :: !(Maybe Text)
     , _coSSEKMSKeyId                    :: !(Maybe (Sensitive Text))
     , _coGrantFullControl               :: !(Maybe Text)
-    , _coSSECustomerKeyMD5              :: !(Maybe Text)
+    , _coContentEncoding                :: !(Maybe Text)
     , _coMetadata                       :: !(Map Text Text)
     , _coCacheControl                   :: !(Maybe Text)
     , _coContentLanguage                :: !(Maybe Text)
-    , _coACL                            :: !(Maybe ObjectCannedACL)
     , _coCopySourceSSECustomerKey       :: !(Maybe (Sensitive Text))
-    , _coContentDisposition             :: !(Maybe Text)
     , _coCopySourceSSECustomerAlgorithm :: !(Maybe Text)
+    , _coACL                            :: !(Maybe ObjectCannedACL)
+    , _coContentDisposition             :: !(Maybe Text)
     , _coServerSideEncryption           :: !(Maybe ServerSideEncryption)
     , _coContentType                    :: !(Maybe Text)
     , _coBucket                         :: !BucketName
@@ -129,11 +129,11 @@ data CopyObject = CopyObject'
 --
 -- * 'coExpires'
 --
--- * 'coSSECustomerAlgorithm'
+-- * 'coGrantReadACP'
 --
 -- * 'coCopySourceIfNoneMatch'
 --
--- * 'coGrantReadACP'
+-- * 'coSSECustomerAlgorithm'
 --
 -- * 'coSSECustomerKey'
 --
@@ -141,21 +141,21 @@ data CopyObject = CopyObject'
 --
 -- * 'coGrantWriteACP'
 --
--- * 'coWebsiteRedirectLocation'
---
 -- * 'coCopySourceIfMatch'
+--
+-- * 'coWebsiteRedirectLocation'
 --
 -- * 'coGrantRead'
 --
 -- * 'coStorageClass'
 --
--- * 'coContentEncoding'
+-- * 'coSSECustomerKeyMD5'
 --
 -- * 'coSSEKMSKeyId'
 --
 -- * 'coGrantFullControl'
 --
--- * 'coSSECustomerKeyMD5'
+-- * 'coContentEncoding'
 --
 -- * 'coMetadata'
 --
@@ -163,13 +163,13 @@ data CopyObject = CopyObject'
 --
 -- * 'coContentLanguage'
 --
--- * 'coACL'
---
 -- * 'coCopySourceSSECustomerKey'
 --
--- * 'coContentDisposition'
---
 -- * 'coCopySourceSSECustomerAlgorithm'
+--
+-- * 'coACL'
+--
+-- * 'coContentDisposition'
 --
 -- * 'coServerSideEncryption'
 --
@@ -192,27 +192,27 @@ copyObject pBucket_ pCopySource_ pKey_ =
     , _coCopySourceSSECustomerKeyMD5 = Nothing
     , _coMetadataDirective = Nothing
     , _coExpires = Nothing
-    , _coSSECustomerAlgorithm = Nothing
-    , _coCopySourceIfNoneMatch = Nothing
     , _coGrantReadACP = Nothing
+    , _coCopySourceIfNoneMatch = Nothing
+    , _coSSECustomerAlgorithm = Nothing
     , _coSSECustomerKey = Nothing
     , _coRequestPayer = Nothing
     , _coGrantWriteACP = Nothing
-    , _coWebsiteRedirectLocation = Nothing
     , _coCopySourceIfMatch = Nothing
+    , _coWebsiteRedirectLocation = Nothing
     , _coGrantRead = Nothing
     , _coStorageClass = Nothing
-    , _coContentEncoding = Nothing
+    , _coSSECustomerKeyMD5 = Nothing
     , _coSSEKMSKeyId = Nothing
     , _coGrantFullControl = Nothing
-    , _coSSECustomerKeyMD5 = Nothing
+    , _coContentEncoding = Nothing
     , _coMetadata = mempty
     , _coCacheControl = Nothing
     , _coContentLanguage = Nothing
-    , _coACL = Nothing
     , _coCopySourceSSECustomerKey = Nothing
-    , _coContentDisposition = Nothing
     , _coCopySourceSSECustomerAlgorithm = Nothing
+    , _coACL = Nothing
+    , _coContentDisposition = Nothing
     , _coServerSideEncryption = Nothing
     , _coContentType = Nothing
     , _coBucket = pBucket_
@@ -243,19 +243,19 @@ coMetadataDirective = lens _coMetadataDirective (\ s a -> s{_coMetadataDirective
 coExpires :: Lens' CopyObject (Maybe UTCTime)
 coExpires = lens _coExpires (\ s a -> s{_coExpires = a}) . mapping _Time;
 
--- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256).
-coSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
-coSSECustomerAlgorithm = lens _coSSECustomerAlgorithm (\ s a -> s{_coSSECustomerAlgorithm = a});
+-- | Allows grantee to read the object ACL.
+coGrantReadACP :: Lens' CopyObject (Maybe Text)
+coGrantReadACP = lens _coGrantReadACP (\ s a -> s{_coGrantReadACP = a});
 
 -- | Copies the object if its entity tag (ETag) is different than the
 -- specified ETag.
 coCopySourceIfNoneMatch :: Lens' CopyObject (Maybe Text)
 coCopySourceIfNoneMatch = lens _coCopySourceIfNoneMatch (\ s a -> s{_coCopySourceIfNoneMatch = a});
 
--- | Allows grantee to read the object ACL.
-coGrantReadACP :: Lens' CopyObject (Maybe Text)
-coGrantReadACP = lens _coGrantReadACP (\ s a -> s{_coGrantReadACP = a});
+-- | Specifies the algorithm to use to when encrypting the object (e.g.,
+-- AES256).
+coSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
+coSSECustomerAlgorithm = lens _coSSECustomerAlgorithm (\ s a -> s{_coSSECustomerAlgorithm = a});
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
@@ -273,15 +273,15 @@ coRequestPayer = lens _coRequestPayer (\ s a -> s{_coRequestPayer = a});
 coGrantWriteACP :: Lens' CopyObject (Maybe Text)
 coGrantWriteACP = lens _coGrantWriteACP (\ s a -> s{_coGrantWriteACP = a});
 
+-- | Copies the object if its entity tag (ETag) matches the specified tag.
+coCopySourceIfMatch :: Lens' CopyObject (Maybe Text)
+coCopySourceIfMatch = lens _coCopySourceIfMatch (\ s a -> s{_coCopySourceIfMatch = a});
+
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL.
 -- Amazon S3 stores the value of this header in the object metadata.
 coWebsiteRedirectLocation :: Lens' CopyObject (Maybe Text)
 coWebsiteRedirectLocation = lens _coWebsiteRedirectLocation (\ s a -> s{_coWebsiteRedirectLocation = a});
-
--- | Copies the object if its entity tag (ETag) matches the specified tag.
-coCopySourceIfMatch :: Lens' CopyObject (Maybe Text)
-coCopySourceIfMatch = lens _coCopySourceIfMatch (\ s a -> s{_coCopySourceIfMatch = a});
 
 -- | Allows grantee to read the object data and its metadata.
 coGrantRead :: Lens' CopyObject (Maybe Text)
@@ -291,11 +291,11 @@ coGrantRead = lens _coGrantRead (\ s a -> s{_coGrantRead = a});
 coStorageClass :: Lens' CopyObject (Maybe StorageClass)
 coStorageClass = lens _coStorageClass (\ s a -> s{_coStorageClass = a});
 
--- | Specifies what content encodings have been applied to the object and
--- thus what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
-coContentEncoding :: Lens' CopyObject (Maybe Text)
-coContentEncoding = lens _coContentEncoding (\ s a -> s{_coContentEncoding = a});
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
+-- 1321. Amazon S3 uses this header for a message integrity check to ensure
+-- the encryption key was transmitted without error.
+coSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
+coSSECustomerKeyMD5 = lens _coSSECustomerKeyMD5 (\ s a -> s{_coSSECustomerKeyMD5 = a});
 
 -- | Specifies the AWS KMS key ID to use for object encryption. All GET and
 -- PUT requests for an object protected by AWS KMS will fail if not made
@@ -310,11 +310,11 @@ coSSEKMSKeyId = lens _coSSEKMSKeyId (\ s a -> s{_coSSEKMSKeyId = a}) . mapping _
 coGrantFullControl :: Lens' CopyObject (Maybe Text)
 coGrantFullControl = lens _coGrantFullControl (\ s a -> s{_coGrantFullControl = a});
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
-coSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
-coSSECustomerKeyMD5 = lens _coSSECustomerKeyMD5 (\ s a -> s{_coSSECustomerKeyMD5 = a});
+-- | Specifies what content encodings have been applied to the object and
+-- thus what decoding mechanisms must be applied to obtain the media-type
+-- referenced by the Content-Type header field.
+coContentEncoding :: Lens' CopyObject (Maybe Text)
+coContentEncoding = lens _coContentEncoding (\ s a -> s{_coContentEncoding = a});
 
 -- | A map of metadata to store with the object in S3.
 coMetadata :: Lens' CopyObject (HashMap Text Text)
@@ -328,24 +328,24 @@ coCacheControl = lens _coCacheControl (\ s a -> s{_coCacheControl = a});
 coContentLanguage :: Lens' CopyObject (Maybe Text)
 coContentLanguage = lens _coContentLanguage (\ s a -> s{_coContentLanguage = a});
 
--- | The canned ACL to apply to the object.
-coACL :: Lens' CopyObject (Maybe ObjectCannedACL)
-coACL = lens _coACL (\ s a -> s{_coACL = a});
-
 -- | Specifies the customer-provided encryption key for Amazon S3 to use to
 -- decrypt the source object. The encryption key provided in this header
 -- must be one that was used when the source object was created.
 coCopySourceSSECustomerKey :: Lens' CopyObject (Maybe Text)
 coCopySourceSSECustomerKey = lens _coCopySourceSSECustomerKey (\ s a -> s{_coCopySourceSSECustomerKey = a}) . mapping _Sensitive;
 
--- | Specifies presentational information for the object.
-coContentDisposition :: Lens' CopyObject (Maybe Text)
-coContentDisposition = lens _coContentDisposition (\ s a -> s{_coContentDisposition = a});
-
 -- | Specifies the algorithm to use when decrypting the source object (e.g.,
 -- AES256).
 coCopySourceSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
 coCopySourceSSECustomerAlgorithm = lens _coCopySourceSSECustomerAlgorithm (\ s a -> s{_coCopySourceSSECustomerAlgorithm = a});
+
+-- | The canned ACL to apply to the object.
+coACL :: Lens' CopyObject (Maybe ObjectCannedACL)
+coACL = lens _coACL (\ s a -> s{_coACL = a});
+
+-- | Specifies presentational information for the object.
+coContentDisposition :: Lens' CopyObject (Maybe Text)
+coContentDisposition = lens _coContentDisposition (\ s a -> s{_coContentDisposition = a});
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
@@ -383,10 +383,10 @@ instance AWSRequest CopyObject where
                         "x-amz-server-side-encryption-customer-algorithm")
                      <*> (h .#? "x-amz-copy-source-version-id")
                      <*>
-                     (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
-                     <*>
                      (h .#?
                         "x-amz-server-side-encryption-customer-key-MD5")
+                     <*>
+                     (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (parseXML x)
                      <*> (pure (fromEnum s)))
@@ -402,35 +402,35 @@ instance ToHeaders CopyObject where
                  =# _coCopySourceSSECustomerKeyMD5,
                "x-amz-metadata-directive" =# _coMetadataDirective,
                "Expires" =# _coExpires,
-               "x-amz-server-side-encryption-customer-algorithm" =#
-                 _coSSECustomerAlgorithm,
+               "x-amz-grant-read-acp" =# _coGrantReadACP,
                "x-amz-copy-source-if-none-match" =#
                  _coCopySourceIfNoneMatch,
-               "x-amz-grant-read-acp" =# _coGrantReadACP,
+               "x-amz-server-side-encryption-customer-algorithm" =#
+                 _coSSECustomerAlgorithm,
                "x-amz-server-side-encryption-customer-key" =#
                  _coSSECustomerKey,
                "x-amz-request-payer" =# _coRequestPayer,
                "x-amz-grant-write-acp" =# _coGrantWriteACP,
+               "x-amz-copy-source-if-match" =# _coCopySourceIfMatch,
                "x-amz-website-redirect-location" =#
                  _coWebsiteRedirectLocation,
-               "x-amz-copy-source-if-match" =# _coCopySourceIfMatch,
                "x-amz-grant-read" =# _coGrantRead,
                "x-amz-storage-class" =# _coStorageClass,
-               "Content-Encoding" =# _coContentEncoding,
+               "x-amz-server-side-encryption-customer-key-MD5" =#
+                 _coSSECustomerKeyMD5,
                "x-amz-server-side-encryption-aws-kms-key-id" =#
                  _coSSEKMSKeyId,
                "x-amz-grant-full-control" =# _coGrantFullControl,
-               "x-amz-server-side-encryption-customer-key-MD5" =#
-                 _coSSECustomerKeyMD5,
+               "Content-Encoding" =# _coContentEncoding,
                "x-amz-meta-" =# _coMetadata,
                "Cache-Control" =# _coCacheControl,
                "Content-Language" =# _coContentLanguage,
-               "x-amz-acl" =# _coACL,
                "x-amz-copy-source-server-side-encryption-customer-key"
                  =# _coCopySourceSSECustomerKey,
-               "Content-Disposition" =# _coContentDisposition,
                "x-amz-copy-source-server-side-encryption-customer-algorithm"
                  =# _coCopySourceSSECustomerAlgorithm,
+               "x-amz-acl" =# _coACL,
+               "Content-Disposition" =# _coContentDisposition,
                "x-amz-server-side-encryption" =#
                  _coServerSideEncryption,
                "Content-Type" =# _coContentType,
@@ -449,8 +449,8 @@ data CopyObjectResponse = CopyObjectResponse'
     , _corsExpiration           :: !(Maybe Text)
     , _corsSSECustomerAlgorithm :: !(Maybe Text)
     , _corsCopySourceVersionId  :: !(Maybe Text)
-    , _corsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _corsSSECustomerKeyMD5    :: !(Maybe Text)
+    , _corsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _corsServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _corsCopyObjectResult     :: !(Maybe CopyObjectResult)
     , _corsStatus               :: !Int
@@ -468,9 +468,9 @@ data CopyObjectResponse = CopyObjectResponse'
 --
 -- * 'corsCopySourceVersionId'
 --
--- * 'corsSSEKMSKeyId'
---
 -- * 'corsSSECustomerKeyMD5'
+--
+-- * 'corsSSEKMSKeyId'
 --
 -- * 'corsServerSideEncryption'
 --
@@ -486,8 +486,8 @@ copyObjectResponse pStatus_ =
     , _corsExpiration = Nothing
     , _corsSSECustomerAlgorithm = Nothing
     , _corsCopySourceVersionId = Nothing
-    , _corsSSEKMSKeyId = Nothing
     , _corsSSECustomerKeyMD5 = Nothing
+    , _corsSSEKMSKeyId = Nothing
     , _corsServerSideEncryption = Nothing
     , _corsCopyObjectResult = Nothing
     , _corsStatus = pStatus_
@@ -512,16 +512,16 @@ corsSSECustomerAlgorithm = lens _corsSSECustomerAlgorithm (\ s a -> s{_corsSSECu
 corsCopySourceVersionId :: Lens' CopyObjectResponse (Maybe Text)
 corsCopySourceVersionId = lens _corsCopySourceVersionId (\ s a -> s{_corsCopySourceVersionId = a});
 
--- | If present, specifies the ID of the AWS Key Management Service (KMS)
--- master encryption key that was used for the object.
-corsSSEKMSKeyId :: Lens' CopyObjectResponse (Maybe Text)
-corsSSEKMSKeyId = lens _corsSSEKMSKeyId (\ s a -> s{_corsSSEKMSKeyId = a}) . mapping _Sensitive;
-
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
 corsSSECustomerKeyMD5 :: Lens' CopyObjectResponse (Maybe Text)
 corsSSECustomerKeyMD5 = lens _corsSSECustomerKeyMD5 (\ s a -> s{_corsSSECustomerKeyMD5 = a});
+
+-- | If present, specifies the ID of the AWS Key Management Service (KMS)
+-- master encryption key that was used for the object.
+corsSSEKMSKeyId :: Lens' CopyObjectResponse (Maybe Text)
+corsSSEKMSKeyId = lens _corsSSEKMSKeyId (\ s a -> s{_corsSSEKMSKeyId = a}) . mapping _Sensitive;
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).

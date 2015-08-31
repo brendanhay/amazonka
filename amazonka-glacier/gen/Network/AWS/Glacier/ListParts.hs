@@ -65,8 +65,8 @@ module Network.AWS.Glacier.ListParts
     -- * Response Lenses
     , lprsParts
     , lprsMultipartUploadId
-    , lprsArchiveDescription
     , lprsPartSizeInBytes
+    , lprsArchiveDescription
     , lprsVaultARN
     , lprsMarker
     , lprsCreationDate
@@ -157,8 +157,8 @@ instance AWSRequest ListParts where
                  ListPartsResponse' <$>
                    (x .?> "Parts" .!@ mempty) <*>
                      (x .?> "MultipartUploadId")
-                     <*> (x .?> "ArchiveDescription")
                      <*> (x .?> "PartSizeInBytes")
+                     <*> (x .?> "ArchiveDescription")
                      <*> (x .?> "VaultARN")
                      <*> (x .?> "Marker")
                      <*> (x .?> "CreationDate")
@@ -185,8 +185,8 @@ instance ToQuery ListParts where
 data ListPartsResponse = ListPartsResponse'
     { _lprsParts              :: !(Maybe [PartListElement])
     , _lprsMultipartUploadId  :: !(Maybe Text)
-    , _lprsArchiveDescription :: !(Maybe Text)
     , _lprsPartSizeInBytes    :: !(Maybe Integer)
+    , _lprsArchiveDescription :: !(Maybe Text)
     , _lprsVaultARN           :: !(Maybe Text)
     , _lprsMarker             :: !(Maybe Text)
     , _lprsCreationDate       :: !(Maybe Text)
@@ -201,9 +201,9 @@ data ListPartsResponse = ListPartsResponse'
 --
 -- * 'lprsMultipartUploadId'
 --
--- * 'lprsArchiveDescription'
---
 -- * 'lprsPartSizeInBytes'
+--
+-- * 'lprsArchiveDescription'
 --
 -- * 'lprsVaultARN'
 --
@@ -219,8 +219,8 @@ listPartsResponse pStatus_ =
     ListPartsResponse'
     { _lprsParts = Nothing
     , _lprsMultipartUploadId = Nothing
-    , _lprsArchiveDescription = Nothing
     , _lprsPartSizeInBytes = Nothing
+    , _lprsArchiveDescription = Nothing
     , _lprsVaultARN = Nothing
     , _lprsMarker = Nothing
     , _lprsCreationDate = Nothing
@@ -235,14 +235,14 @@ lprsParts = lens _lprsParts (\ s a -> s{_lprsParts = a}) . _Default . _Coerce;
 lprsMultipartUploadId :: Lens' ListPartsResponse (Maybe Text)
 lprsMultipartUploadId = lens _lprsMultipartUploadId (\ s a -> s{_lprsMultipartUploadId = a});
 
+-- | The part size in bytes.
+lprsPartSizeInBytes :: Lens' ListPartsResponse (Maybe Integer)
+lprsPartSizeInBytes = lens _lprsPartSizeInBytes (\ s a -> s{_lprsPartSizeInBytes = a});
+
 -- | The description of the archive that was specified in the Initiate
 -- Multipart Upload request.
 lprsArchiveDescription :: Lens' ListPartsResponse (Maybe Text)
 lprsArchiveDescription = lens _lprsArchiveDescription (\ s a -> s{_lprsArchiveDescription = a});
-
--- | The part size in bytes.
-lprsPartSizeInBytes :: Lens' ListPartsResponse (Maybe Integer)
-lprsPartSizeInBytes = lens _lprsPartSizeInBytes (\ s a -> s{_lprsPartSizeInBytes = a});
 
 -- | The Amazon Resource Name (ARN) of the vault to which the multipart
 -- upload was initiated.

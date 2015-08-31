@@ -32,10 +32,10 @@ module Network.AWS.EC2.DescribeAddresses
       describeAddresses
     , DescribeAddresses
     -- * Request Lenses
-    , daPublicIPs
     , daFilters
-    , daDryRun
+    , daPublicIPs
     , daAllocationIds
+    , daDryRun
 
     -- * Destructuring the Response
     , describeAddressesResponse
@@ -53,38 +53,32 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeAddresses' smart constructor.
 data DescribeAddresses = DescribeAddresses'
-    { _daPublicIPs     :: !(Maybe [Text])
-    , _daFilters       :: !(Maybe [Filter])
-    , _daDryRun        :: !(Maybe Bool)
+    { _daFilters       :: !(Maybe [Filter])
+    , _daPublicIPs     :: !(Maybe [Text])
     , _daAllocationIds :: !(Maybe [Text])
+    , _daDryRun        :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAddresses' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daPublicIPs'
---
 -- * 'daFilters'
 --
--- * 'daDryRun'
+-- * 'daPublicIPs'
 --
 -- * 'daAllocationIds'
+--
+-- * 'daDryRun'
 describeAddresses
     :: DescribeAddresses
 describeAddresses =
     DescribeAddresses'
-    { _daPublicIPs = Nothing
-    , _daFilters = Nothing
-    , _daDryRun = Nothing
+    { _daFilters = Nothing
+    , _daPublicIPs = Nothing
     , _daAllocationIds = Nothing
+    , _daDryRun = Nothing
     }
-
--- | [EC2-Classic] One or more Elastic IP addresses.
---
--- Default: Describes all your Elastic IP addresses.
-daPublicIPs :: Lens' DescribeAddresses [Text]
-daPublicIPs = lens _daPublicIPs (\ s a -> s{_daPublicIPs = a}) . _Default . _Coerce;
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -111,18 +105,24 @@ daPublicIPs = lens _daPublicIPs (\ s a -> s{_daPublicIPs = a}) . _Default . _Coe
 daFilters :: Lens' DescribeAddresses [Filter]
 daFilters = lens _daFilters (\ s a -> s{_daFilters = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
-daDryRun :: Lens' DescribeAddresses (Maybe Bool)
-daDryRun = lens _daDryRun (\ s a -> s{_daDryRun = a});
+-- | [EC2-Classic] One or more Elastic IP addresses.
+--
+-- Default: Describes all your Elastic IP addresses.
+daPublicIPs :: Lens' DescribeAddresses [Text]
+daPublicIPs = lens _daPublicIPs (\ s a -> s{_daPublicIPs = a}) . _Default . _Coerce;
 
 -- | [EC2-VPC] One or more allocation IDs.
 --
 -- Default: Describes all your Elastic IP addresses.
 daAllocationIds :: Lens' DescribeAddresses [Text]
 daAllocationIds = lens _daAllocationIds (\ s a -> s{_daAllocationIds = a}) . _Default . _Coerce;
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+daDryRun :: Lens' DescribeAddresses (Maybe Bool)
+daDryRun = lens _daDryRun (\ s a -> s{_daDryRun = a});
 
 instance AWSRequest DescribeAddresses where
         type Rs DescribeAddresses = DescribeAddressesResponse
@@ -146,11 +146,11 @@ instance ToQuery DescribeAddresses where
           = mconcat
               ["Action" =: ("DescribeAddresses" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "PublicIp" <$> _daPublicIPs),
                toQuery (toQueryList "Filter" <$> _daFilters),
-               "DryRun" =: _daDryRun,
+               toQuery (toQueryList "PublicIp" <$> _daPublicIPs),
                toQuery
-                 (toQueryList "AllocationId" <$> _daAllocationIds)]
+                 (toQueryList "AllocationId" <$> _daAllocationIds),
+               "DryRun" =: _daDryRun]
 
 -- | /See:/ 'describeAddressesResponse' smart constructor.
 data DescribeAddressesResponse = DescribeAddressesResponse'

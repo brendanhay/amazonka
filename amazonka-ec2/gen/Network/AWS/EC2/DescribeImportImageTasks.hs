@@ -38,8 +38,8 @@ module Network.AWS.EC2.DescribeImportImageTasks
     , describeImportImageTasksResponse
     , DescribeImportImageTasksResponse
     -- * Response Lenses
-    , diitrsImportImageTasks
     , diitrsNextToken
+    , diitrsImportImageTasks
     , diitrsStatus
     ) where
 
@@ -113,9 +113,9 @@ instance AWSRequest DescribeImportImageTasks where
           = receiveXML
               (\ s h x ->
                  DescribeImportImageTasksResponse' <$>
-                   (x .@? "importImageTaskSet" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (x .@? "nextToken")
+                   (x .@? "nextToken") <*>
+                     (x .@? "importImageTaskSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeImportImageTasks where
@@ -139,8 +139,8 @@ instance ToQuery DescribeImportImageTasks where
 
 -- | /See:/ 'describeImportImageTasksResponse' smart constructor.
 data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
-    { _diitrsImportImageTasks :: !(Maybe [ImportImageTask])
-    , _diitrsNextToken        :: !(Maybe Text)
+    { _diitrsNextToken        :: !(Maybe Text)
+    , _diitrsImportImageTasks :: !(Maybe [ImportImageTask])
     , _diitrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -148,9 +148,9 @@ data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diitrsImportImageTasks'
---
 -- * 'diitrsNextToken'
+--
+-- * 'diitrsImportImageTasks'
 --
 -- * 'diitrsStatus'
 describeImportImageTasksResponse
@@ -158,20 +158,20 @@ describeImportImageTasksResponse
     -> DescribeImportImageTasksResponse
 describeImportImageTasksResponse pStatus_ =
     DescribeImportImageTasksResponse'
-    { _diitrsImportImageTasks = Nothing
-    , _diitrsNextToken = Nothing
+    { _diitrsNextToken = Nothing
+    , _diitrsImportImageTasks = Nothing
     , _diitrsStatus = pStatus_
     }
-
--- | A list of zero or more import image tasks that are currently active or
--- were completed or canceled in the previous 7 days.
-diitrsImportImageTasks :: Lens' DescribeImportImageTasksResponse [ImportImageTask]
-diitrsImportImageTasks = lens _diitrsImportImageTasks (\ s a -> s{_diitrsImportImageTasks = a}) . _Default . _Coerce;
 
 -- | The token to use to get the next page of results. This value is 'null'
 -- when there are no more results to return.
 diitrsNextToken :: Lens' DescribeImportImageTasksResponse (Maybe Text)
 diitrsNextToken = lens _diitrsNextToken (\ s a -> s{_diitrsNextToken = a});
+
+-- | A list of zero or more import image tasks that are currently active or
+-- were completed or canceled in the previous 7 days.
+diitrsImportImageTasks :: Lens' DescribeImportImageTasksResponse [ImportImageTask]
+diitrsImportImageTasks = lens _diitrsImportImageTasks (\ s a -> s{_diitrsImportImageTasks = a}) . _Default . _Coerce;
 
 -- | The response status code.
 diitrsStatus :: Lens' DescribeImportImageTasksResponse Int

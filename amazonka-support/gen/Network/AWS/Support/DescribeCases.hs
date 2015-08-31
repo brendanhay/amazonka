@@ -46,8 +46,8 @@ module Network.AWS.Support.DescribeCases
     , dcIncludeResolvedCases
     , dcCaseIdList
     , dcAfterTime
-    , dcNextToken
     , dcBeforeTime
+    , dcNextToken
     , dcIncludeCommunications
     , dcDisplayId
     , dcLanguage
@@ -74,8 +74,8 @@ data DescribeCases = DescribeCases'
     { _dcIncludeResolvedCases  :: !(Maybe Bool)
     , _dcCaseIdList            :: !(Maybe [Text])
     , _dcAfterTime             :: !(Maybe Text)
-    , _dcNextToken             :: !(Maybe Text)
     , _dcBeforeTime            :: !(Maybe Text)
+    , _dcNextToken             :: !(Maybe Text)
     , _dcIncludeCommunications :: !(Maybe Bool)
     , _dcDisplayId             :: !(Maybe Text)
     , _dcLanguage              :: !(Maybe Text)
@@ -92,9 +92,9 @@ data DescribeCases = DescribeCases'
 --
 -- * 'dcAfterTime'
 --
--- * 'dcNextToken'
---
 -- * 'dcBeforeTime'
+--
+-- * 'dcNextToken'
 --
 -- * 'dcIncludeCommunications'
 --
@@ -110,8 +110,8 @@ describeCases =
     { _dcIncludeResolvedCases = Nothing
     , _dcCaseIdList = Nothing
     , _dcAfterTime = Nothing
-    , _dcNextToken = Nothing
     , _dcBeforeTime = Nothing
+    , _dcNextToken = Nothing
     , _dcIncludeCommunications = Nothing
     , _dcDisplayId = Nothing
     , _dcLanguage = Nothing
@@ -134,14 +134,14 @@ dcCaseIdList = lens _dcCaseIdList (\ s a -> s{_dcCaseIdList = a}) . _Default . _
 dcAfterTime :: Lens' DescribeCases (Maybe Text)
 dcAfterTime = lens _dcAfterTime (\ s a -> s{_dcAfterTime = a});
 
--- | A resumption point for pagination.
-dcNextToken :: Lens' DescribeCases (Maybe Text)
-dcNextToken = lens _dcNextToken (\ s a -> s{_dcNextToken = a});
-
 -- | The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
 dcBeforeTime :: Lens' DescribeCases (Maybe Text)
 dcBeforeTime = lens _dcBeforeTime (\ s a -> s{_dcBeforeTime = a});
+
+-- | A resumption point for pagination.
+dcNextToken :: Lens' DescribeCases (Maybe Text)
+dcNextToken = lens _dcNextToken (\ s a -> s{_dcNextToken = a});
 
 -- | Specifies whether communications should be included in the DescribeCases
 -- results. The default is /true/.
@@ -197,8 +197,8 @@ instance ToJSON DescribeCases where
                     _dcIncludeResolvedCases,
                   ("caseIdList" .=) <$> _dcCaseIdList,
                   ("afterTime" .=) <$> _dcAfterTime,
-                  ("nextToken" .=) <$> _dcNextToken,
                   ("beforeTime" .=) <$> _dcBeforeTime,
+                  ("nextToken" .=) <$> _dcNextToken,
                   ("includeCommunications" .=) <$>
                     _dcIncludeCommunications,
                   ("displayId" .=) <$> _dcDisplayId,

@@ -44,8 +44,8 @@ module Network.AWS.S3.ListObjects
     -- * Response Lenses
     , lorsContents
     , lorsPrefix
-    , lorsEncodingType
     , lorsCommonPrefixes
+    , lorsEncodingType
     , lorsName
     , lorsMarker
     , lorsNextMarker
@@ -149,8 +149,8 @@ instance AWSRequest ListObjects where
                  ListObjectsResponse' <$>
                    (may (parseXMLList "Contents") x) <*>
                      (x .@? "Prefix")
-                     <*> (x .@? "EncodingType")
                      <*> (may (parseXMLList "CommonPrefixes") x)
+                     <*> (x .@? "EncodingType")
                      <*> (x .@? "Name")
                      <*> (x .@? "Marker")
                      <*> (x .@? "NextMarker")
@@ -178,8 +178,8 @@ instance ToQuery ListObjects where
 data ListObjectsResponse = ListObjectsResponse'
     { _lorsContents       :: !(Maybe [Object])
     , _lorsPrefix         :: !(Maybe Text)
-    , _lorsEncodingType   :: !(Maybe EncodingType)
     , _lorsCommonPrefixes :: !(Maybe [CommonPrefix])
+    , _lorsEncodingType   :: !(Maybe EncodingType)
     , _lorsName           :: !(Maybe BucketName)
     , _lorsMarker         :: !(Maybe Text)
     , _lorsNextMarker     :: !(Maybe Text)
@@ -197,9 +197,9 @@ data ListObjectsResponse = ListObjectsResponse'
 --
 -- * 'lorsPrefix'
 --
--- * 'lorsEncodingType'
---
 -- * 'lorsCommonPrefixes'
+--
+-- * 'lorsEncodingType'
 --
 -- * 'lorsName'
 --
@@ -221,8 +221,8 @@ listObjectsResponse pStatus_ =
     ListObjectsResponse'
     { _lorsContents = Nothing
     , _lorsPrefix = Nothing
-    , _lorsEncodingType = Nothing
     , _lorsCommonPrefixes = Nothing
+    , _lorsEncodingType = Nothing
     , _lorsName = Nothing
     , _lorsMarker = Nothing
     , _lorsNextMarker = Nothing
@@ -240,13 +240,13 @@ lorsContents = lens _lorsContents (\ s a -> s{_lorsContents = a}) . _Default . _
 lorsPrefix :: Lens' ListObjectsResponse (Maybe Text)
 lorsPrefix = lens _lorsPrefix (\ s a -> s{_lorsPrefix = a});
 
--- | Encoding type used by Amazon S3 to encode object keys in the response.
-lorsEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
-lorsEncodingType = lens _lorsEncodingType (\ s a -> s{_lorsEncodingType = a});
-
 -- | Undocumented member.
 lorsCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
 lorsCommonPrefixes = lens _lorsCommonPrefixes (\ s a -> s{_lorsCommonPrefixes = a}) . _Default . _Coerce;
+
+-- | Encoding type used by Amazon S3 to encode object keys in the response.
+lorsEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
+lorsEncodingType = lens _lorsEncodingType (\ s a -> s{_lorsEncodingType = a});
 
 -- | Undocumented member.
 lorsName :: Lens' ListObjectsResponse (Maybe BucketName)

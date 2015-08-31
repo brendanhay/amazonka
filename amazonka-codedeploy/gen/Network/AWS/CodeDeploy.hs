@@ -91,9 +91,6 @@ module Network.AWS.CodeDeploy
     -- ** InstanceNameAlreadyRegisteredException
     , _InstanceNameAlreadyRegisteredException
 
-    -- ** InvalidIAMUserARNException
-    , _InvalidIAMUserARNException
-
     -- ** IAMUserARNRequiredException
     , _IAMUserARNRequiredException
 
@@ -103,29 +100,35 @@ module Network.AWS.CodeDeploy
     -- ** DescriptionTooLongException
     , _DescriptionTooLongException
 
-    -- ** DeploymentConfigAlreadyExistsException
-    , _DeploymentConfigAlreadyExistsException
-
-    -- ** DeploymentConfigLimitExceededException
-    , _DeploymentConfigLimitExceededException
-
-    -- ** InvalidRoleException
-    , _InvalidRoleException
+    -- ** InvalidIAMUserARNException
+    , _InvalidIAMUserARNException
 
     -- ** DeploymentNotStartedException
     , _DeploymentNotStartedException
 
+    -- ** DeploymentConfigLimitExceededException
+    , _DeploymentConfigLimitExceededException
+
     -- ** RoleRequiredException
     , _RoleRequiredException
 
-    -- ** IAMUserARNAlreadyRegisteredException
-    , _IAMUserARNAlreadyRegisteredException
+    -- ** InvalidRoleException
+    , _InvalidRoleException
+
+    -- ** DeploymentConfigAlreadyExistsException
+    , _DeploymentConfigAlreadyExistsException
 
     -- ** DeploymentLimitExceededException
     , _DeploymentLimitExceededException
 
+    -- ** IAMUserARNAlreadyRegisteredException
+    , _IAMUserARNAlreadyRegisteredException
+
     -- ** InstanceLimitExceededException
     , _InstanceLimitExceededException
+
+    -- ** InvalidDeployedStateFilterException
+    , _InvalidDeployedStateFilterException
 
     -- ** InvalidAutoScalingGroupException
     , _InvalidAutoScalingGroupException
@@ -133,14 +136,11 @@ module Network.AWS.CodeDeploy
     -- ** InvalidApplicationNameException
     , _InvalidApplicationNameException
 
-    -- ** InvalidDeployedStateFilterException
-    , _InvalidDeployedStateFilterException
+    -- ** ApplicationDoesNotExistException
+    , _ApplicationDoesNotExistException
 
     -- ** InvalidMinimumHealthyHostValueException
     , _InvalidMinimumHealthyHostValueException
-
-    -- ** ApplicationDoesNotExistException
-    , _ApplicationDoesNotExistException
 
     -- ** InvalidTagFilterException
     , _InvalidTagFilterException
@@ -148,71 +148,68 @@ module Network.AWS.CodeDeploy
     -- ** TagRequiredException
     , _TagRequiredException
 
-    -- ** RevisionDoesNotExistException
-    , _RevisionDoesNotExistException
-
     -- ** DeploymentGroupNameRequiredException
     , _DeploymentGroupNameRequiredException
-
-    -- ** InvalidBucketNameFilterException
-    , _InvalidBucketNameFilterException
-
-    -- ** DeploymentConfigDoesNotExistException
-    , _DeploymentConfigDoesNotExistException
-
-    -- ** InvalidSortByException
-    , _InvalidSortByException
 
     -- ** BucketNameFilterRequiredException
     , _BucketNameFilterRequiredException
 
-    -- ** DeploymentGroupLimitExceededException
-    , _DeploymentGroupLimitExceededException
+    -- ** DeploymentConfigDoesNotExistException
+    , _DeploymentConfigDoesNotExistException
+
+    -- ** InvalidBucketNameFilterException
+    , _InvalidBucketNameFilterException
 
     -- ** DeploymentGroupAlreadyExistsException
     , _DeploymentGroupAlreadyExistsException
 
-    -- ** InvalidDeploymentIdException
-    , _InvalidDeploymentIdException
+    -- ** InvalidSortByException
+    , _InvalidSortByException
+
+    -- ** RevisionDoesNotExistException
+    , _RevisionDoesNotExistException
+
+    -- ** DeploymentGroupLimitExceededException
+    , _DeploymentGroupLimitExceededException
 
     -- ** DeploymentGroupDoesNotExistException
     , _DeploymentGroupDoesNotExistException
 
-    -- ** DeploymentIdRequiredException
-    , _DeploymentIdRequiredException
-
-    -- ** InstanceIdRequiredException
-    , _InstanceIdRequiredException
+    -- ** InvalidDeploymentConfigNameException
+    , _InvalidDeploymentConfigNameException
 
     -- ** DeploymentConfigNameRequiredException
     , _DeploymentConfigNameRequiredException
 
-    -- ** InvalidDeploymentConfigNameException
-    , _InvalidDeploymentConfigNameException
-
-    -- ** InvalidSortOrderException
-    , _InvalidSortOrderException
+    -- ** DeploymentIdRequiredException
+    , _DeploymentIdRequiredException
 
     -- ** InvalidNextTokenException
     , _InvalidNextTokenException
 
-    -- ** InvalidRevisionException
-    , _InvalidRevisionException
+    -- ** InstanceIdRequiredException
+    , _InstanceIdRequiredException
+
+    -- ** InvalidDeploymentIdException
+    , _InvalidDeploymentIdException
+
+    -- ** InvalidSortOrderException
+    , _InvalidSortOrderException
 
     -- ** DeploymentAlreadyCompletedException
     , _DeploymentAlreadyCompletedException
+
+    -- ** DeploymentDoesNotExistException
+    , _DeploymentDoesNotExistException
+
+    -- ** InvalidRevisionException
+    , _InvalidRevisionException
 
     -- ** RevisionRequiredException
     , _RevisionRequiredException
 
     -- ** InstanceDoesNotExistException
     , _InstanceDoesNotExistException
-
-    -- ** DeploymentDoesNotExistException
-    , _DeploymentDoesNotExistException
-
-    -- ** InstanceNameRequiredException
-    , _InstanceNameRequiredException
 
     -- ** DeploymentConfigInUseException
     , _DeploymentConfigInUseException
@@ -223,23 +220,20 @@ module Network.AWS.CodeDeploy
     -- ** InvalidInstanceNameException
     , _InvalidInstanceNameException
 
+    -- ** InstanceNameRequiredException
+    , _InstanceNameRequiredException
+
     -- ** InvalidDeploymentStatusException
     , _InvalidDeploymentStatusException
 
     -- ** InvalidRegistrationStatusException
     , _InvalidRegistrationStatusException
 
-    -- ** TagLimitExceededException
-    , _TagLimitExceededException
+    -- ** ApplicationNameRequiredException
+    , _ApplicationNameRequiredException
 
     -- ** InstanceNotRegisteredException
     , _InstanceNotRegisteredException
-
-    -- ** ApplicationLimitExceededException
-    , _ApplicationLimitExceededException
-
-    -- ** InvalidOperationException
-    , _InvalidOperationException
 
     -- ** ApplicationAlreadyExistsException
     , _ApplicationAlreadyExistsException
@@ -247,8 +241,14 @@ module Network.AWS.CodeDeploy
     -- ** InvalidInstanceStatusException
     , _InvalidInstanceStatusException
 
-    -- ** ApplicationNameRequiredException
-    , _ApplicationNameRequiredException
+    -- ** TagLimitExceededException
+    , _TagLimitExceededException
+
+    -- ** ApplicationLimitExceededException
+    , _ApplicationLimitExceededException
+
+    -- ** InvalidOperationException
+    , _InvalidOperationException
 
     -- ** InvalidKeyPrefixFilterException
     , _InvalidKeyPrefixFilterException
@@ -262,23 +262,23 @@ module Network.AWS.CodeDeploy
     -- ** RemoveTagsFromOnPremisesInstances
     , module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
 
-    -- ** GetDeployment
-    , module Network.AWS.CodeDeploy.GetDeployment
-
-    -- ** CreateDeploymentConfig
-    , module Network.AWS.CodeDeploy.CreateDeploymentConfig
+    -- ** DeleteDeploymentGroup
+    , module Network.AWS.CodeDeploy.DeleteDeploymentGroup
 
     -- ** UpdateDeploymentGroup
     , module Network.AWS.CodeDeploy.UpdateDeploymentGroup
 
-    -- ** DeleteDeploymentGroup
-    , module Network.AWS.CodeDeploy.DeleteDeploymentGroup
-
     -- ** ListOnPremisesInstances
     , module Network.AWS.CodeDeploy.ListOnPremisesInstances
 
+    -- ** CreateDeploymentConfig
+    , module Network.AWS.CodeDeploy.CreateDeploymentConfig
+
     -- ** GetApplicationRevision
     , module Network.AWS.CodeDeploy.GetApplicationRevision
+
+    -- ** GetDeployment
+    , module Network.AWS.CodeDeploy.GetDeployment
 
     -- ** DeleteDeploymentConfig
     , module Network.AWS.CodeDeploy.DeleteDeploymentConfig
@@ -289,14 +289,17 @@ module Network.AWS.CodeDeploy
     -- ** CreateDeployment
     , module Network.AWS.CodeDeploy.CreateDeployment
 
-    -- ** GetOnPremisesInstance
-    , module Network.AWS.CodeDeploy.GetOnPremisesInstance
-
     -- ** BatchGetDeployments
     , module Network.AWS.CodeDeploy.BatchGetDeployments
 
+    -- ** GetOnPremisesInstance
+    , module Network.AWS.CodeDeploy.GetOnPremisesInstance
+
     -- ** RegisterApplicationRevision
     , module Network.AWS.CodeDeploy.RegisterApplicationRevision
+
+    -- ** BatchGetApplications
+    , module Network.AWS.CodeDeploy.BatchGetApplications
 
     -- ** DeleteApplication
     , module Network.AWS.CodeDeploy.DeleteApplication
@@ -304,17 +307,14 @@ module Network.AWS.CodeDeploy
     -- ** UpdateApplication
     , module Network.AWS.CodeDeploy.UpdateApplication
 
-    -- ** BatchGetApplications
-    , module Network.AWS.CodeDeploy.BatchGetApplications
-
-    -- ** CreateApplication
-    , module Network.AWS.CodeDeploy.CreateApplication
+    -- ** GetDeploymentInstance
+    , module Network.AWS.CodeDeploy.GetDeploymentInstance
 
     -- ** DeregisterOnPremisesInstance
     , module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
 
-    -- ** GetDeploymentInstance
-    , module Network.AWS.CodeDeploy.GetDeploymentInstance
+    -- ** CreateApplication
+    , module Network.AWS.CodeDeploy.CreateApplication
 
     -- ** StopDeployment
     , module Network.AWS.CodeDeploy.StopDeployment
@@ -325,17 +325,17 @@ module Network.AWS.CodeDeploy
     -- ** ListDeploymentGroups
     , module Network.AWS.CodeDeploy.ListDeploymentGroups
 
-    -- ** RegisterOnPremisesInstance
-    , module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
-
     -- ** BatchGetOnPremisesInstances
     , module Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
 
-    -- ** ListDeploymentConfigs
-    , module Network.AWS.CodeDeploy.ListDeploymentConfigs
+    -- ** RegisterOnPremisesInstance
+    , module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
 
     -- ** CreateDeploymentGroup
     , module Network.AWS.CodeDeploy.CreateDeploymentGroup
+
+    -- ** ListDeploymentConfigs
+    , module Network.AWS.CodeDeploy.ListDeploymentConfigs
 
     -- ** GetDeploymentGroup
     , module Network.AWS.CodeDeploy.GetDeploymentGroup
@@ -443,9 +443,9 @@ module Network.AWS.CodeDeploy
     -- ** DeploymentInfo
     , DeploymentInfo
     , deploymentInfo
-    , diDeploymentId
     , diCreator
     , diStatus
+    , diDeploymentId
     , diDeploymentConfigName
     , diStartTime
     , diCompleteTime
@@ -454,9 +454,9 @@ module Network.AWS.CodeDeploy
     , diApplicationName
     , diRevision
     , diDescription
-    , diIgnoreApplicationStopFailures
-    , diDeploymentGroupName
     , diCreateTime
+    , diDeploymentGroupName
+    , diIgnoreApplicationStopFailures
 
     -- ** DeploymentOverview
     , DeploymentOverview
@@ -506,8 +506,8 @@ module Network.AWS.CodeDeploy
     -- ** InstanceInfo
     , InstanceInfo
     , instanceInfo
-    , iiInstanceARN
     , iiRegisterTime
+    , iiInstanceARN
     , iiDeregisterTime
     , iiIamUserARN
     , iiInstanceName
@@ -517,8 +517,8 @@ module Network.AWS.CodeDeploy
     , InstanceSummary
     , instanceSummary
     , isInstanceId
-    , isDeploymentId
     , isStatus
+    , isDeploymentId
     , isLastUpdatedAt
     , isLifecycleEvents
 
@@ -526,8 +526,8 @@ module Network.AWS.CodeDeploy
     , LifecycleEvent
     , lifecycleEvent
     , leStatus
-    , leStartTime
     , leLifecycleEventName
+    , leStartTime
     , leDiagnostics
     , leEndTime
 

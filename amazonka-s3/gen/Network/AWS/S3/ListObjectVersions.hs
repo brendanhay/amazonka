@@ -43,10 +43,10 @@ module Network.AWS.S3.ListObjectVersions
     -- * Response Lenses
     , lovrsNextVersionIdMarker
     , lovrsKeyMarker
-    , lovrsPrefix
     , lovrsDeleteMarkers
-    , lovrsEncodingType
+    , lovrsPrefix
     , lovrsCommonPrefixes
+    , lovrsEncodingType
     , lovrsVersions
     , lovrsName
     , lovrsNextKeyMarker
@@ -155,10 +155,10 @@ instance AWSRequest ListObjectVersions where
               (\ s h x ->
                  ListObjectVersionsResponse' <$>
                    (x .@? "NextVersionIdMarker") <*> (x .@? "KeyMarker")
-                     <*> (x .@? "Prefix")
                      <*> (may (parseXMLList "DeleteMarker") x)
-                     <*> (x .@? "EncodingType")
+                     <*> (x .@? "Prefix")
                      <*> (may (parseXMLList "CommonPrefixes") x)
+                     <*> (x .@? "EncodingType")
                      <*> (may (parseXMLList "Version") x)
                      <*> (x .@? "Name")
                      <*> (x .@? "NextKeyMarker")
@@ -189,10 +189,10 @@ instance ToQuery ListObjectVersions where
 data ListObjectVersionsResponse = ListObjectVersionsResponse'
     { _lovrsNextVersionIdMarker :: !(Maybe Text)
     , _lovrsKeyMarker           :: !(Maybe Text)
-    , _lovrsPrefix              :: !(Maybe Text)
     , _lovrsDeleteMarkers       :: !(Maybe [DeleteMarkerEntry])
-    , _lovrsEncodingType        :: !(Maybe EncodingType)
+    , _lovrsPrefix              :: !(Maybe Text)
     , _lovrsCommonPrefixes      :: !(Maybe [CommonPrefix])
+    , _lovrsEncodingType        :: !(Maybe EncodingType)
     , _lovrsVersions            :: !(Maybe [ObjectVersion])
     , _lovrsName                :: !(Maybe BucketName)
     , _lovrsNextKeyMarker       :: !(Maybe Text)
@@ -211,13 +211,13 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
 --
 -- * 'lovrsKeyMarker'
 --
--- * 'lovrsPrefix'
---
 -- * 'lovrsDeleteMarkers'
 --
--- * 'lovrsEncodingType'
+-- * 'lovrsPrefix'
 --
 -- * 'lovrsCommonPrefixes'
+--
+-- * 'lovrsEncodingType'
 --
 -- * 'lovrsVersions'
 --
@@ -241,10 +241,10 @@ listObjectVersionsResponse pStatus_ =
     ListObjectVersionsResponse'
     { _lovrsNextVersionIdMarker = Nothing
     , _lovrsKeyMarker = Nothing
-    , _lovrsPrefix = Nothing
     , _lovrsDeleteMarkers = Nothing
-    , _lovrsEncodingType = Nothing
+    , _lovrsPrefix = Nothing
     , _lovrsCommonPrefixes = Nothing
+    , _lovrsEncodingType = Nothing
     , _lovrsVersions = Nothing
     , _lovrsName = Nothing
     , _lovrsNextKeyMarker = Nothing
@@ -265,20 +265,20 @@ lovrsKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrsKeyMarker = lens _lovrsKeyMarker (\ s a -> s{_lovrsKeyMarker = a});
 
 -- | Undocumented member.
+lovrsDeleteMarkers :: Lens' ListObjectVersionsResponse [DeleteMarkerEntry]
+lovrsDeleteMarkers = lens _lovrsDeleteMarkers (\ s a -> s{_lovrsDeleteMarkers = a}) . _Default . _Coerce;
+
+-- | Undocumented member.
 lovrsPrefix :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrsPrefix = lens _lovrsPrefix (\ s a -> s{_lovrsPrefix = a});
 
 -- | Undocumented member.
-lovrsDeleteMarkers :: Lens' ListObjectVersionsResponse [DeleteMarkerEntry]
-lovrsDeleteMarkers = lens _lovrsDeleteMarkers (\ s a -> s{_lovrsDeleteMarkers = a}) . _Default . _Coerce;
+lovrsCommonPrefixes :: Lens' ListObjectVersionsResponse [CommonPrefix]
+lovrsCommonPrefixes = lens _lovrsCommonPrefixes (\ s a -> s{_lovrsCommonPrefixes = a}) . _Default . _Coerce;
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
 lovrsEncodingType :: Lens' ListObjectVersionsResponse (Maybe EncodingType)
 lovrsEncodingType = lens _lovrsEncodingType (\ s a -> s{_lovrsEncodingType = a});
-
--- | Undocumented member.
-lovrsCommonPrefixes :: Lens' ListObjectVersionsResponse [CommonPrefix]
-lovrsCommonPrefixes = lens _lovrsCommonPrefixes (\ s a -> s{_lovrsCommonPrefixes = a}) . _Default . _Coerce;
 
 -- | Undocumented member.
 lovrsVersions :: Lens' ListObjectVersionsResponse [ObjectVersion]

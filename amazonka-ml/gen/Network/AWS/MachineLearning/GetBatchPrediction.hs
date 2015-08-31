@@ -40,8 +40,8 @@ module Network.AWS.MachineLearning.GetBatchPrediction
     , gbprsMLModelId
     , gbprsBatchPredictionDataSourceId
     , gbprsBatchPredictionId
-    , gbprsName
     , gbprsCreatedByIAMUser
+    , gbprsName
     , gbprsLogURI
     , gbprsMessage
     , gbprsOutputURI
@@ -89,8 +89,8 @@ instance AWSRequest GetBatchPrediction where
                      <*> (x .?> "MLModelId")
                      <*> (x .?> "BatchPredictionDataSourceId")
                      <*> (x .?> "BatchPredictionId")
-                     <*> (x .?> "Name")
                      <*> (x .?> "CreatedByIamUser")
+                     <*> (x .?> "Name")
                      <*> (x .?> "LogUri")
                      <*> (x .?> "Message")
                      <*> (x .?> "OutputUri")
@@ -130,8 +130,8 @@ data GetBatchPredictionResponse = GetBatchPredictionResponse'
     , _gbprsMLModelId                   :: !(Maybe Text)
     , _gbprsBatchPredictionDataSourceId :: !(Maybe Text)
     , _gbprsBatchPredictionId           :: !(Maybe Text)
-    , _gbprsName                        :: !(Maybe Text)
     , _gbprsCreatedByIAMUser            :: !(Maybe Text)
+    , _gbprsName                        :: !(Maybe Text)
     , _gbprsLogURI                      :: !(Maybe Text)
     , _gbprsMessage                     :: !(Maybe Text)
     , _gbprsOutputURI                   :: !(Maybe Text)
@@ -154,9 +154,9 @@ data GetBatchPredictionResponse = GetBatchPredictionResponse'
 --
 -- * 'gbprsBatchPredictionId'
 --
--- * 'gbprsName'
---
 -- * 'gbprsCreatedByIAMUser'
+--
+-- * 'gbprsName'
 --
 -- * 'gbprsLogURI'
 --
@@ -176,8 +176,8 @@ getBatchPredictionResponse pStatus_ =
     , _gbprsMLModelId = Nothing
     , _gbprsBatchPredictionDataSourceId = Nothing
     , _gbprsBatchPredictionId = Nothing
-    , _gbprsName = Nothing
     , _gbprsCreatedByIAMUser = Nothing
+    , _gbprsName = Nothing
     , _gbprsLogURI = Nothing
     , _gbprsMessage = Nothing
     , _gbprsOutputURI = Nothing
@@ -214,15 +214,15 @@ gbprsBatchPredictionDataSourceId = lens _gbprsBatchPredictionDataSourceId (\ s a
 gbprsBatchPredictionId :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprsBatchPredictionId = lens _gbprsBatchPredictionId (\ s a -> s{_gbprsBatchPredictionId = a});
 
--- | A user-supplied name or description of the 'BatchPrediction'.
-gbprsName :: Lens' GetBatchPredictionResponse (Maybe Text)
-gbprsName = lens _gbprsName (\ s a -> s{_gbprsName = a});
-
 -- | The AWS user account that invoked the 'BatchPrediction'. The account
 -- type can be either an AWS root account or an AWS Identity and Access
 -- Management (IAM) user account.
 gbprsCreatedByIAMUser :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprsCreatedByIAMUser = lens _gbprsCreatedByIAMUser (\ s a -> s{_gbprsCreatedByIAMUser = a});
+
+-- | A user-supplied name or description of the 'BatchPrediction'.
+gbprsName :: Lens' GetBatchPredictionResponse (Maybe Text)
+gbprsName = lens _gbprsName (\ s a -> s{_gbprsName = a});
 
 -- | A link to the file that contains logs of the CreateBatchPrediction
 -- operation.

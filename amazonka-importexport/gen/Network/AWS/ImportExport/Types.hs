@@ -23,16 +23,16 @@ module Network.AWS.ImportExport.Types
     , _InvalidAccessKeyIdException
     , _UnableToUpdateJobIdException
     , _UnableToCancelJobIdException
-    , _InvalidVersionException
     , _MultipleRegionsException
+    , _InvalidVersionException
     , _MalformedManifestException
+    , _MissingParameterException
     , _CanceledJobIdException
     , _BucketPermissionException
-    , _MissingParameterException
     , _NoSuchBucketException
     , _InvalidAddressException
-    , _InvalidManifestFieldException
     , _MissingCustomsException
+    , _InvalidManifestFieldException
     , _InvalidCustomsException
     , _MissingManifestFieldException
     , _CreateJobQuotaExceededException
@@ -127,19 +127,24 @@ _UnableToCancelJobIdException :: AsError a => Getting (First ServiceError) a Ser
 _UnableToCancelJobIdException =
     _ServiceError . hasCode "UnableToCancelJobIdException"
 
--- | The client tool version is invalid.
-_InvalidVersionException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidVersionException = _ServiceError . hasCode "InvalidVersionException"
-
 -- | Your manifest file contained buckets from multiple regions. A job is
 -- restricted to buckets from one region. Please correct and resubmit.
 _MultipleRegionsException :: AsError a => Getting (First ServiceError) a ServiceError
 _MultipleRegionsException = _ServiceError . hasCode "MultipleRegionsException"
 
+-- | The client tool version is invalid.
+_InvalidVersionException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidVersionException = _ServiceError . hasCode "InvalidVersionException"
+
 -- | Your manifest is not well-formed.
 _MalformedManifestException :: AsError a => Getting (First ServiceError) a ServiceError
 _MalformedManifestException =
     _ServiceError . hasCode "MalformedManifestException"
+
+-- | One or more required parameters was missing from the request.
+_MissingParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+_MissingParameterException =
+    _ServiceError . hasCode "MissingParameterException"
 
 -- | The specified job ID has been canceled and is no longer valid.
 _CanceledJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -149,11 +154,6 @@ _CanceledJobIdException = _ServiceError . hasCode "CanceledJobIdException"
 _BucketPermissionException :: AsError a => Getting (First ServiceError) a ServiceError
 _BucketPermissionException =
     _ServiceError . hasCode "BucketPermissionException"
-
--- | One or more required parameters was missing from the request.
-_MissingParameterException :: AsError a => Getting (First ServiceError) a ServiceError
-_MissingParameterException =
-    _ServiceError . hasCode "MissingParameterException"
 
 -- | The specified bucket does not exist. Create the specified bucket or
 -- change the manifest\'s bucket, exportBucket, or logBucket field to a
@@ -166,14 +166,14 @@ _NoSuchBucketException = _ServiceError . hasCode "NoSuchBucketException"
 _InvalidAddressException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAddressException = _ServiceError . hasCode "InvalidAddressException"
 
+-- | One or more required customs parameters was missing from the manifest.
+_MissingCustomsException :: AsError a => Getting (First ServiceError) a ServiceError
+_MissingCustomsException = _ServiceError . hasCode "MissingCustomsException"
+
 -- | One or more manifest fields was invalid. Please correct and resubmit.
 _InvalidManifestFieldException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidManifestFieldException =
     _ServiceError . hasCode "InvalidManifestFieldException"
-
--- | One or more required customs parameters was missing from the manifest.
-_MissingCustomsException :: AsError a => Getting (First ServiceError) a ServiceError
-_MissingCustomsException = _ServiceError . hasCode "MissingCustomsException"
 
 -- | One or more customs parameters was invalid. Please correct and resubmit.
 _InvalidCustomsException :: AsError a => Getting (First ServiceError) a ServiceError

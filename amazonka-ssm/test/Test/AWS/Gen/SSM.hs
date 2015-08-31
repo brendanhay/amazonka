@@ -49,11 +49,11 @@ import Test.AWS.SSM.Internal
 --         , testUpdateAssociationStatus $
 --             updateAssociationStatus
 --
---         , testDeleteAssociation $
---             deleteAssociation
---
 --         , testListAssociations $
 --             listAssociations
+--
+--         , testDeleteAssociation $
+--             deleteAssociation
 --
 --         , testDeleteDocument $
 --             deleteDocument
@@ -85,11 +85,11 @@ import Test.AWS.SSM.Internal
 --         , testUpdateAssociationStatusResponse $
 --             updateAssociationStatusResponse
 --
---         , testDeleteAssociationResponse $
---             deleteAssociationResponse
---
 --         , testListAssociationsResponse $
 --             listAssociationsResponse
+--
+--         , testDeleteAssociationResponse $
+--             deleteAssociationResponse
 --
 --         , testDeleteDocumentResponse $
 --             deleteDocumentResponse
@@ -137,15 +137,15 @@ testUpdateAssociationStatus = req
     "UpdateAssociationStatus"
     "fixture/UpdateAssociationStatus.yaml"
 
-testDeleteAssociation :: DeleteAssociation -> TestTree
-testDeleteAssociation = req
-    "DeleteAssociation"
-    "fixture/DeleteAssociation.yaml"
-
 testListAssociations :: ListAssociations -> TestTree
 testListAssociations = req
     "ListAssociations"
     "fixture/ListAssociations.yaml"
+
+testDeleteAssociation :: DeleteAssociation -> TestTree
+testDeleteAssociation = req
+    "DeleteAssociation"
+    "fixture/DeleteAssociation.yaml"
 
 testDeleteDocument :: DeleteDocument -> TestTree
 testDeleteDocument = req
@@ -208,19 +208,19 @@ testUpdateAssociationStatusResponse = res
     sSM
     (Proxy :: Proxy UpdateAssociationStatus)
 
-testDeleteAssociationResponse :: DeleteAssociationResponse -> TestTree
-testDeleteAssociationResponse = res
-    "DeleteAssociationResponse"
-    "fixture/DeleteAssociationResponse.proto"
-    sSM
-    (Proxy :: Proxy DeleteAssociation)
-
 testListAssociationsResponse :: ListAssociationsResponse -> TestTree
 testListAssociationsResponse = res
     "ListAssociationsResponse"
     "fixture/ListAssociationsResponse.proto"
     sSM
     (Proxy :: Proxy ListAssociations)
+
+testDeleteAssociationResponse :: DeleteAssociationResponse -> TestTree
+testDeleteAssociationResponse = res
+    "DeleteAssociationResponse"
+    "fixture/DeleteAssociationResponse.proto"
+    sSM
+    (Proxy :: Proxy DeleteAssociation)
 
 testDeleteDocumentResponse :: DeleteDocumentResponse -> TestTree
 testDeleteDocumentResponse = res

@@ -80,20 +80,20 @@ module Network.AWS.STS
     -- ** MalformedPolicyDocumentException
     , _MalformedPolicyDocumentException
 
-    -- ** PackedPolicyTooLargeException
-    , _PackedPolicyTooLargeException
-
     -- ** InvalidAuthorizationMessageException
     , _InvalidAuthorizationMessageException
+
+    -- ** PackedPolicyTooLargeException
+    , _PackedPolicyTooLargeException
 
     -- ** IdPCommunicationErrorException
     , _IdPCommunicationErrorException
 
-    -- ** ExpiredTokenException
-    , _ExpiredTokenException
-
     -- ** InvalidIdentityTokenException
     , _InvalidIdentityTokenException
+
+    -- ** ExpiredTokenException
+    , _ExpiredTokenException
 
     -- ** IdPRejectedClaimException
     , _IdPRejectedClaimException

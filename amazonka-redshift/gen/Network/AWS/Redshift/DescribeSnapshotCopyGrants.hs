@@ -34,8 +34,8 @@ module Network.AWS.Redshift.DescribeSnapshotCopyGrants
     -- * Request Lenses
     , dscgsTagValues
     , dscgsTagKeys
-    , dscgsMaxRecords
     , dscgsMarker
+    , dscgsMaxRecords
     , dscgsSnapshotCopyGrantName
 
     -- * Destructuring the Response
@@ -59,8 +59,8 @@ import           Network.AWS.Response
 data DescribeSnapshotCopyGrants = DescribeSnapshotCopyGrants'
     { _dscgsTagValues             :: !(Maybe [Text])
     , _dscgsTagKeys               :: !(Maybe [Text])
-    , _dscgsMaxRecords            :: !(Maybe Int)
     , _dscgsMarker                :: !(Maybe Text)
+    , _dscgsMaxRecords            :: !(Maybe Int)
     , _dscgsSnapshotCopyGrantName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -72,9 +72,9 @@ data DescribeSnapshotCopyGrants = DescribeSnapshotCopyGrants'
 --
 -- * 'dscgsTagKeys'
 --
--- * 'dscgsMaxRecords'
---
 -- * 'dscgsMarker'
+--
+-- * 'dscgsMaxRecords'
 --
 -- * 'dscgsSnapshotCopyGrantName'
 describeSnapshotCopyGrants
@@ -83,8 +83,8 @@ describeSnapshotCopyGrants =
     DescribeSnapshotCopyGrants'
     { _dscgsTagValues = Nothing
     , _dscgsTagKeys = Nothing
-    , _dscgsMaxRecords = Nothing
     , _dscgsMarker = Nothing
+    , _dscgsMaxRecords = Nothing
     , _dscgsSnapshotCopyGrantName = Nothing
     }
 
@@ -106,18 +106,6 @@ dscgsTagValues = lens _dscgsTagValues (\ s a -> s{_dscgsTagValues = a}) . _Defau
 dscgsTagKeys :: Lens' DescribeSnapshotCopyGrants [Text]
 dscgsTagKeys = lens _dscgsTagKeys (\ s a -> s{_dscgsTagKeys = a}) . _Default . _Coerce;
 
--- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified 'MaxRecords'
--- value, a value is returned in a 'marker' field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned marker value.
---
--- Default: '100'
---
--- Constraints: minimum 20, maximum 100.
-dscgsMaxRecords :: Lens' DescribeSnapshotCopyGrants (Maybe Int)
-dscgsMaxRecords = lens _dscgsMaxRecords (\ s a -> s{_dscgsMaxRecords = a});
-
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a 'DescribeSnapshotCopyGrant'
 -- request exceed the value specified in 'MaxRecords', AWS returns a value
@@ -129,6 +117,18 @@ dscgsMaxRecords = lens _dscgsMaxRecords (\ s a -> s{_dscgsMaxRecords = a});
 -- parameter or the __Marker__ parameter, but not both.
 dscgsMarker :: Lens' DescribeSnapshotCopyGrants (Maybe Text)
 dscgsMarker = lens _dscgsMarker (\ s a -> s{_dscgsMarker = a});
+
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified 'MaxRecords'
+-- value, a value is returned in a 'marker' field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
+--
+-- Default: '100'
+--
+-- Constraints: minimum 20, maximum 100.
+dscgsMaxRecords :: Lens' DescribeSnapshotCopyGrants (Maybe Int)
+dscgsMaxRecords = lens _dscgsMaxRecords (\ s a -> s{_dscgsMaxRecords = a});
 
 -- | The name of the snapshot copy grant.
 dscgsSnapshotCopyGrantName :: Lens' DescribeSnapshotCopyGrants (Maybe Text)
@@ -164,8 +164,8 @@ instance ToQuery DescribeSnapshotCopyGrants where
                  toQuery (toQueryList "TagValue" <$> _dscgsTagValues),
                "TagKeys" =:
                  toQuery (toQueryList "TagKey" <$> _dscgsTagKeys),
-               "MaxRecords" =: _dscgsMaxRecords,
                "Marker" =: _dscgsMarker,
+               "MaxRecords" =: _dscgsMaxRecords,
                "SnapshotCopyGrantName" =:
                  _dscgsSnapshotCopyGrantName]
 

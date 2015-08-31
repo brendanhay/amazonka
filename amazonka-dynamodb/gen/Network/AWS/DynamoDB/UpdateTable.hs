@@ -46,8 +46,8 @@ module Network.AWS.DynamoDB.UpdateTable
       updateTable
     , UpdateTable
     -- * Request Lenses
-    , utProvisionedThroughput
     , utAttributeDefinitions
+    , utProvisionedThroughput
     , utGlobalSecondaryIndexUpdates
     , utStreamSpecification
     , utTableName
@@ -70,8 +70,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateTable' smart constructor.
 data UpdateTable = UpdateTable'
-    { _utProvisionedThroughput       :: !(Maybe ProvisionedThroughput)
-    , _utAttributeDefinitions        :: !(Maybe [AttributeDefinition])
+    { _utAttributeDefinitions        :: !(Maybe [AttributeDefinition])
+    , _utProvisionedThroughput       :: !(Maybe ProvisionedThroughput)
     , _utGlobalSecondaryIndexUpdates :: !(Maybe [GlobalSecondaryIndexUpdate])
     , _utStreamSpecification         :: !(Maybe StreamSpecification)
     , _utTableName                   :: !Text
@@ -81,9 +81,9 @@ data UpdateTable = UpdateTable'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utProvisionedThroughput'
---
 -- * 'utAttributeDefinitions'
+--
+-- * 'utProvisionedThroughput'
 --
 -- * 'utGlobalSecondaryIndexUpdates'
 --
@@ -95,22 +95,22 @@ updateTable
     -> UpdateTable
 updateTable pTableName_ =
     UpdateTable'
-    { _utProvisionedThroughput = Nothing
-    , _utAttributeDefinitions = Nothing
+    { _utAttributeDefinitions = Nothing
+    , _utProvisionedThroughput = Nothing
     , _utGlobalSecondaryIndexUpdates = Nothing
     , _utStreamSpecification = Nothing
     , _utTableName = pTableName_
     }
-
--- | Undocumented member.
-utProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
-utProvisionedThroughput = lens _utProvisionedThroughput (\ s a -> s{_utProvisionedThroughput = a});
 
 -- | An array of attributes that describe the key schema for the table and
 -- indexes. If you are adding a new global secondary index to the table,
 -- /AttributeDefinitions/ must include the key element(s) of the new index.
 utAttributeDefinitions :: Lens' UpdateTable [AttributeDefinition]
 utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDefinitions = a}) . _Default . _Coerce;
+
+-- | Undocumented member.
+utProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
+utProvisionedThroughput = lens _utProvisionedThroughput (\ s a -> s{_utProvisionedThroughput = a});
 
 -- | An array of one or more global secondary indexes for the table. For each
 -- index in the array, you can request one action:
@@ -162,10 +162,10 @@ instance ToJSON UpdateTable where
         toJSON UpdateTable'{..}
           = object
               (catMaybes
-                 [("ProvisionedThroughput" .=) <$>
-                    _utProvisionedThroughput,
-                  ("AttributeDefinitions" .=) <$>
+                 [("AttributeDefinitions" .=) <$>
                     _utAttributeDefinitions,
+                  ("ProvisionedThroughput" .=) <$>
+                    _utProvisionedThroughput,
                   ("GlobalSecondaryIndexUpdates" .=) <$>
                     _utGlobalSecondaryIndexUpdates,
                   ("StreamSpecification" .=) <$>

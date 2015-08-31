@@ -34,13 +34,13 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     , mccSecurityGroupIds
     , mccAutoMinorVersionUpgrade
     , mccCacheParameterGroupName
-    , mccNewAvailabilityZones
     , mccSnapshotWindow
+    , mccNewAvailabilityZones
     , mccPreferredMaintenanceWindow
     , mccCacheNodeIdsToRemove
     , mccSnapshotRetentionLimit
-    , mccAZMode
     , mccNotificationTopicStatus
+    , mccAZMode
     , mccApplyImmediately
     , mccNotificationTopicARN
     , mccNumCacheNodes
@@ -69,13 +69,13 @@ data ModifyCacheCluster = ModifyCacheCluster'
     , _mccSecurityGroupIds           :: !(Maybe [Text])
     , _mccAutoMinorVersionUpgrade    :: !(Maybe Bool)
     , _mccCacheParameterGroupName    :: !(Maybe Text)
-    , _mccNewAvailabilityZones       :: !(Maybe [Text])
     , _mccSnapshotWindow             :: !(Maybe Text)
+    , _mccNewAvailabilityZones       :: !(Maybe [Text])
     , _mccPreferredMaintenanceWindow :: !(Maybe Text)
     , _mccCacheNodeIdsToRemove       :: !(Maybe [Text])
     , _mccSnapshotRetentionLimit     :: !(Maybe Int)
-    , _mccAZMode                     :: !(Maybe AZMode)
     , _mccNotificationTopicStatus    :: !(Maybe Text)
+    , _mccAZMode                     :: !(Maybe AZMode)
     , _mccApplyImmediately           :: !(Maybe Bool)
     , _mccNotificationTopicARN       :: !(Maybe Text)
     , _mccNumCacheNodes              :: !(Maybe Int)
@@ -95,9 +95,9 @@ data ModifyCacheCluster = ModifyCacheCluster'
 --
 -- * 'mccCacheParameterGroupName'
 --
--- * 'mccNewAvailabilityZones'
---
 -- * 'mccSnapshotWindow'
+--
+-- * 'mccNewAvailabilityZones'
 --
 -- * 'mccPreferredMaintenanceWindow'
 --
@@ -105,9 +105,9 @@ data ModifyCacheCluster = ModifyCacheCluster'
 --
 -- * 'mccSnapshotRetentionLimit'
 --
--- * 'mccAZMode'
---
 -- * 'mccNotificationTopicStatus'
+--
+-- * 'mccAZMode'
 --
 -- * 'mccApplyImmediately'
 --
@@ -127,13 +127,13 @@ modifyCacheCluster pCacheClusterId_ =
     , _mccSecurityGroupIds = Nothing
     , _mccAutoMinorVersionUpgrade = Nothing
     , _mccCacheParameterGroupName = Nothing
-    , _mccNewAvailabilityZones = Nothing
     , _mccSnapshotWindow = Nothing
+    , _mccNewAvailabilityZones = Nothing
     , _mccPreferredMaintenanceWindow = Nothing
     , _mccCacheNodeIdsToRemove = Nothing
     , _mccSnapshotRetentionLimit = Nothing
-    , _mccAZMode = Nothing
     , _mccNotificationTopicStatus = Nothing
+    , _mccAZMode = Nothing
     , _mccApplyImmediately = Nothing
     , _mccNotificationTopicARN = Nothing
     , _mccNumCacheNodes = Nothing
@@ -162,6 +162,11 @@ mccAutoMinorVersionUpgrade = lens _mccAutoMinorVersionUpgrade (\ s a -> s{_mccAu
 -- request.
 mccCacheParameterGroupName :: Lens' ModifyCacheCluster (Maybe Text)
 mccCacheParameterGroupName = lens _mccCacheParameterGroupName (\ s a -> s{_mccCacheParameterGroupName = a});
+
+-- | The daily time range (in UTC) during which ElastiCache will begin taking
+-- a daily snapshot of your cache cluster.
+mccSnapshotWindow :: Lens' ModifyCacheCluster (Maybe Text)
+mccSnapshotWindow = lens _mccSnapshotWindow (\ s a -> s{_mccSnapshotWindow = a});
 
 -- | The list of Availability Zones where the new Memcached cache nodes will
 -- be created.
@@ -217,11 +222,6 @@ mccCacheParameterGroupName = lens _mccCacheParameterGroupName (\ s a -> s{_mccCa
 mccNewAvailabilityZones :: Lens' ModifyCacheCluster [Text]
 mccNewAvailabilityZones = lens _mccNewAvailabilityZones (\ s a -> s{_mccNewAvailabilityZones = a}) . _Default . _Coerce;
 
--- | The daily time range (in UTC) during which ElastiCache will begin taking
--- a daily snapshot of your cache cluster.
-mccSnapshotWindow :: Lens' ModifyCacheCluster (Maybe Text)
-mccSnapshotWindow = lens _mccSnapshotWindow (\ s a -> s{_mccSnapshotWindow = a});
-
 -- | Specifies the weekly time range during which maintenance on the cache
 -- cluster is performed. It is specified as a range in the format
 -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
@@ -264,6 +264,13 @@ mccCacheNodeIdsToRemove = lens _mccCacheNodeIdsToRemove (\ s a -> s{_mccCacheNod
 mccSnapshotRetentionLimit :: Lens' ModifyCacheCluster (Maybe Int)
 mccSnapshotRetentionLimit = lens _mccSnapshotRetentionLimit (\ s a -> s{_mccSnapshotRetentionLimit = a});
 
+-- | The status of the Amazon SNS notification topic. Notifications are sent
+-- only if the status is /active/.
+--
+-- Valid values: 'active' | 'inactive'
+mccNotificationTopicStatus :: Lens' ModifyCacheCluster (Maybe Text)
+mccNotificationTopicStatus = lens _mccNotificationTopicStatus (\ s a -> s{_mccNotificationTopicStatus = a});
+
 -- | Specifies whether the new nodes in this Memcached cache cluster are all
 -- created in a single Availability Zone or created across multiple
 -- Availability Zones.
@@ -284,13 +291,6 @@ mccSnapshotRetentionLimit = lens _mccSnapshotRetentionLimit (\ s a -> s{_mccSnap
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html Cache Node Considerations for Memcached>.
 mccAZMode :: Lens' ModifyCacheCluster (Maybe AZMode)
 mccAZMode = lens _mccAZMode (\ s a -> s{_mccAZMode = a});
-
--- | The status of the Amazon SNS notification topic. Notifications are sent
--- only if the status is /active/.
---
--- Valid values: 'active' | 'inactive'
-mccNotificationTopicStatus :: Lens' ModifyCacheCluster (Maybe Text)
-mccNotificationTopicStatus = lens _mccNotificationTopicStatus (\ s a -> s{_mccNotificationTopicStatus = a});
 
 -- | If 'true', this parameter causes the modifications in this request and
 -- any pending modifications to be applied, asynchronously and as soon as
@@ -399,11 +399,11 @@ instance ToQuery ModifyCacheCluster where
                  _mccAutoMinorVersionUpgrade,
                "CacheParameterGroupName" =:
                  _mccCacheParameterGroupName,
+               "SnapshotWindow" =: _mccSnapshotWindow,
                "NewAvailabilityZones" =:
                  toQuery
                    (toQueryList "PreferredAvailabilityZone" <$>
                       _mccNewAvailabilityZones),
-               "SnapshotWindow" =: _mccSnapshotWindow,
                "PreferredMaintenanceWindow" =:
                  _mccPreferredMaintenanceWindow,
                "CacheNodeIdsToRemove" =:
@@ -412,9 +412,9 @@ instance ToQuery ModifyCacheCluster where
                       _mccCacheNodeIdsToRemove),
                "SnapshotRetentionLimit" =:
                  _mccSnapshotRetentionLimit,
-               "AZMode" =: _mccAZMode,
                "NotificationTopicStatus" =:
                  _mccNotificationTopicStatus,
+               "AZMode" =: _mccAZMode,
                "ApplyImmediately" =: _mccApplyImmediately,
                "NotificationTopicArn" =: _mccNotificationTopicARN,
                "NumCacheNodes" =: _mccNumCacheNodes,

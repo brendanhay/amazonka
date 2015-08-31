@@ -95,11 +95,11 @@ module Network.AWS.Glacier
     -- ** DeleteVaultAccessPolicy
     , module Network.AWS.Glacier.DeleteVaultAccessPolicy
 
-    -- ** ListTagsForVault
-    , module Network.AWS.Glacier.ListTagsForVault
-
     -- ** GetVaultNotifications
     , module Network.AWS.Glacier.GetVaultNotifications
+
+    -- ** ListTagsForVault
+    , module Network.AWS.Glacier.ListTagsForVault
 
     -- ** UploadMultipartPart
     , module Network.AWS.Glacier.UploadMultipartPart
@@ -116,14 +116,14 @@ module Network.AWS.Glacier
     -- ** ListVaults
     , module Network.AWS.Glacier.ListVaults
 
-    -- ** GetJobOutput
-    , module Network.AWS.Glacier.GetJobOutput
-
     -- ** ListJobs
     , module Network.AWS.Glacier.ListJobs
 
     -- ** SetVaultNotifications
     , module Network.AWS.Glacier.SetVaultNotifications
+
+    -- ** GetJobOutput
+    , module Network.AWS.Glacier.GetJobOutput
 
     -- ** CompleteMultipartUpload
     , module Network.AWS.Glacier.CompleteMultipartUpload
@@ -131,11 +131,11 @@ module Network.AWS.Glacier
     -- ** ListMultipartUploads
     , module Network.AWS.Glacier.ListMultipartUploads
 
-    -- ** DescribeVault
-    , module Network.AWS.Glacier.DescribeVault
-
     -- ** AbortMultipartUpload
     , module Network.AWS.Glacier.AbortMultipartUpload
+
+    -- ** DescribeVault
+    , module Network.AWS.Glacier.DescribeVault
 
     -- ** GetVaultLock
     , module Network.AWS.Glacier.GetVaultLock
@@ -155,20 +155,20 @@ module Network.AWS.Glacier
     -- ** RemoveTagsFromVault
     , module Network.AWS.Glacier.RemoveTagsFromVault
 
+    -- ** DeleteVault
+    , module Network.AWS.Glacier.DeleteVault
+
     -- ** DeleteArchive
     , module Network.AWS.Glacier.DeleteArchive
 
-    -- ** DeleteVault
-    , module Network.AWS.Glacier.DeleteVault
+    -- ** CreateVault
+    , module Network.AWS.Glacier.CreateVault
 
     -- ** InitiateMultipartUpload
     , module Network.AWS.Glacier.InitiateMultipartUpload
 
     -- ** ListParts
     , module Network.AWS.Glacier.ListParts
-
-    -- ** CreateVault
-    , module Network.AWS.Glacier.CreateVault
 
     -- ** AddTagsToVault
     , module Network.AWS.Glacier.AddTagsToVault
@@ -215,23 +215,23 @@ module Network.AWS.Glacier
     -- ** GlacierJobDescription
     , GlacierJobDescription
     , glacierJobDescription
-    , gjdArchiveId
     , gjdSHA256TreeHash
+    , gjdArchiveId
     , gjdJobId
     , gjdRetrievalByteRange
     , gjdInventoryRetrievalParameters
     , gjdAction
     , gjdJobDescription
     , gjdSNSTopic
-    , gjdVaultARN
     , gjdStatusMessage
+    , gjdVaultARN
     , gjdArchiveSHA256TreeHash
     , gjdCreationDate
     , gjdCompleted
     , gjdCompletionDate
+    , gjdInventorySizeInBytes
     , gjdArchiveSizeInBytes
     , gjdStatusCode
-    , gjdInventorySizeInBytes
 
     -- ** InventoryRetrievalJobDescription
     , InventoryRetrievalJobDescription
@@ -254,8 +254,8 @@ module Network.AWS.Glacier
     , JobParameters
     , jobParameters
     , jpArchiveId
-    , jpRetrievalByteRange
     , jpFormat
+    , jpRetrievalByteRange
     , jpInventoryRetrievalParameters
     , jpSNSTopic
     , jpType
@@ -271,8 +271,8 @@ module Network.AWS.Glacier
     , UploadListElement
     , uploadListElement
     , uleMultipartUploadId
-    , uleArchiveDescription
     , ulePartSizeInBytes
+    , uleArchiveDescription
     , uleVaultARN
     , uleCreationDate
 

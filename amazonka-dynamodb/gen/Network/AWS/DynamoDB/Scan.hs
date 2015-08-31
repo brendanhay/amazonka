@@ -51,13 +51,13 @@ module Network.AWS.DynamoDB.Scan
     -- * Request Lenses
     , sProjectionExpression
     , sScanFilter
+    , sAttributesToGet
     , sTotalSegments
+    , sExpressionAttributeNames
     , sFilterExpression
     , sConsistentRead
-    , sExpressionAttributeNames
-    , sAttributesToGet
-    , sReturnConsumedCapacity
     , sExpressionAttributeValues
+    , sReturnConsumedCapacity
     , sLimit
     , sSelect
     , sSegment
@@ -91,13 +91,13 @@ import           Network.AWS.Response
 data Scan = Scan'
     { _sProjectionExpression      :: !(Maybe Text)
     , _sScanFilter                :: !(Maybe (Map Text Condition))
+    , _sAttributesToGet           :: !(Maybe (List1 Text))
     , _sTotalSegments             :: !(Maybe Nat)
+    , _sExpressionAttributeNames  :: !(Maybe (Map Text Text))
     , _sFilterExpression          :: !(Maybe Text)
     , _sConsistentRead            :: !(Maybe Bool)
-    , _sExpressionAttributeNames  :: !(Maybe (Map Text Text))
-    , _sAttributesToGet           :: !(Maybe (List1 Text))
-    , _sReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
     , _sExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+    , _sReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
     , _sLimit                     :: !(Maybe Nat)
     , _sSelect                    :: !(Maybe Select)
     , _sSegment                   :: !(Maybe Nat)
@@ -115,19 +115,19 @@ data Scan = Scan'
 --
 -- * 'sScanFilter'
 --
+-- * 'sAttributesToGet'
+--
 -- * 'sTotalSegments'
+--
+-- * 'sExpressionAttributeNames'
 --
 -- * 'sFilterExpression'
 --
 -- * 'sConsistentRead'
 --
--- * 'sExpressionAttributeNames'
---
--- * 'sAttributesToGet'
+-- * 'sExpressionAttributeValues'
 --
 -- * 'sReturnConsumedCapacity'
---
--- * 'sExpressionAttributeValues'
 --
 -- * 'sLimit'
 --
@@ -149,13 +149,13 @@ scan pTableName_ =
     Scan'
     { _sProjectionExpression = Nothing
     , _sScanFilter = Nothing
+    , _sAttributesToGet = Nothing
     , _sTotalSegments = Nothing
+    , _sExpressionAttributeNames = Nothing
     , _sFilterExpression = Nothing
     , _sConsistentRead = Nothing
-    , _sExpressionAttributeNames = Nothing
-    , _sAttributesToGet = Nothing
-    , _sReturnConsumedCapacity = Nothing
     , _sExpressionAttributeValues = Nothing
+    , _sReturnConsumedCapacity = Nothing
     , _sLimit = Nothing
     , _sSelect = Nothing
     , _sSegment = Nothing
@@ -232,6 +232,24 @@ sProjectionExpression = lens _sProjectionExpression (\ s a -> s{_sProjectionExpr
 sScanFilter :: Lens' Scan (HashMap Text Condition)
 sScanFilter = lens _sScanFilter (\ s a -> s{_sScanFilter = a}) . _Default . _Map;
 
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /ProjectionExpression/ instead. Do not combine legacy
+-- parameters and expression parameters in a single API call; otherwise,
+-- DynamoDB will return a /ValidationException/ exception.
+--
+-- This parameter allows you to retrieve attributes of type List or Map;
+-- however, it cannot retrieve individual elements within a List or a Map.
+--
+-- The names of one or more attributes to retrieve. If no attribute names
+-- are provided, then all attributes will be returned. If any of the
+-- requested attributes are not found, they will not appear in the result.
+--
+-- Note that /AttributesToGet/ has no effect on provisioned throughput
+-- consumption. DynamoDB determines capacity units consumed based on item
+-- size, not on the amount of data that is returned to an application.
+sAttributesToGet :: Lens' Scan (Maybe (NonEmpty Text))
+sAttributesToGet = lens _sAttributesToGet (\ s a -> s{_sAttributesToGet = a}) . mapping _List1;
+
 -- | For a parallel /Scan/ request, /TotalSegments/ represents the total
 -- number of segments into which the /Scan/ operation will be divided. The
 -- value of /TotalSegments/ corresponds to the number of application
@@ -246,46 +264,6 @@ sScanFilter = lens _sScanFilter (\ s a -> s{_sScanFilter = a}) . _Default . _Map
 -- If you specify /TotalSegments/, you must also specify /Segment/.
 sTotalSegments :: Lens' Scan (Maybe Natural)
 sTotalSegments = lens _sTotalSegments (\ s a -> s{_sTotalSegments = a}) . mapping _Nat;
-
--- | A string that contains conditions that DynamoDB applies after the /Scan/
--- operation, but before the data is returned to you. Items that do not
--- satisfy the /FilterExpression/ criteria are not returned.
---
--- A /FilterExpression/ is applied after the items have already been read;
--- the process of filtering does not consume any additional read capacity
--- units.
---
--- For more information, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
--- in the /Amazon DynamoDB Developer Guide/.
---
--- /FilterExpression/ replaces the legacy /ScanFilter/ and
--- /ConditionalOperator/ parameters.
-sFilterExpression :: Lens' Scan (Maybe Text)
-sFilterExpression = lens _sFilterExpression (\ s a -> s{_sFilterExpression = a});
-
--- | A Boolean value that determines the read consistency model during the
--- scan:
---
--- -   If /ConsistentRead/ is 'false', then /Scan/ will use eventually
---     consistent reads. The data returned from /Scan/ might not contain
---     the results of other recently completed write operations (PutItem,
---     UpdateItem or DeleteItem). The /Scan/ response might include some
---     stale data.
---
--- -   If /ConsistentRead/ is 'true', then /Scan/ will use strongly
---     consistent reads. All of the write operations that completed before
---     the /Scan/ began are guaranteed to be contained in the /Scan/
---     response.
---
--- The default setting for /ConsistentRead/ is 'false', meaning that
--- eventually consistent reads will be used.
---
--- Strongly consistent reads are not supported on global secondary indexes.
--- If you scan a global secondary index with /ConsistentRead/ set to true,
--- you will receive a /ValidationException/.
-sConsistentRead :: Lens' Scan (Maybe Bool)
-sConsistentRead = lens _sConsistentRead (\ s a -> s{_sConsistentRead = a});
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using /ExpressionAttributeNames/:
@@ -327,27 +305,45 @@ sConsistentRead = lens _sConsistentRead (\ s a -> s{_sConsistentRead = a});
 sExpressionAttributeNames :: Lens' Scan (HashMap Text Text)
 sExpressionAttributeNames = lens _sExpressionAttributeNames (\ s a -> s{_sExpressionAttributeNames = a}) . _Default . _Map;
 
--- | This is a legacy parameter, for backward compatibility. New applications
--- should use /ProjectionExpression/ instead. Do not combine legacy
--- parameters and expression parameters in a single API call; otherwise,
--- DynamoDB will return a /ValidationException/ exception.
+-- | A string that contains conditions that DynamoDB applies after the /Scan/
+-- operation, but before the data is returned to you. Items that do not
+-- satisfy the /FilterExpression/ criteria are not returned.
 --
--- This parameter allows you to retrieve attributes of type List or Map;
--- however, it cannot retrieve individual elements within a List or a Map.
+-- A /FilterExpression/ is applied after the items have already been read;
+-- the process of filtering does not consume any additional read capacity
+-- units.
 --
--- The names of one or more attributes to retrieve. If no attribute names
--- are provided, then all attributes will be returned. If any of the
--- requested attributes are not found, they will not appear in the result.
+-- For more information, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
+-- in the /Amazon DynamoDB Developer Guide/.
 --
--- Note that /AttributesToGet/ has no effect on provisioned throughput
--- consumption. DynamoDB determines capacity units consumed based on item
--- size, not on the amount of data that is returned to an application.
-sAttributesToGet :: Lens' Scan (Maybe (NonEmpty Text))
-sAttributesToGet = lens _sAttributesToGet (\ s a -> s{_sAttributesToGet = a}) . mapping _List1;
+-- /FilterExpression/ replaces the legacy /ScanFilter/ and
+-- /ConditionalOperator/ parameters.
+sFilterExpression :: Lens' Scan (Maybe Text)
+sFilterExpression = lens _sFilterExpression (\ s a -> s{_sFilterExpression = a});
 
--- | Undocumented member.
-sReturnConsumedCapacity :: Lens' Scan (Maybe ReturnConsumedCapacity)
-sReturnConsumedCapacity = lens _sReturnConsumedCapacity (\ s a -> s{_sReturnConsumedCapacity = a});
+-- | A Boolean value that determines the read consistency model during the
+-- scan:
+--
+-- -   If /ConsistentRead/ is 'false', then /Scan/ will use eventually
+--     consistent reads. The data returned from /Scan/ might not contain
+--     the results of other recently completed write operations (PutItem,
+--     UpdateItem or DeleteItem). The /Scan/ response might include some
+--     stale data.
+--
+-- -   If /ConsistentRead/ is 'true', then /Scan/ will use strongly
+--     consistent reads. All of the write operations that completed before
+--     the /Scan/ began are guaranteed to be contained in the /Scan/
+--     response.
+--
+-- The default setting for /ConsistentRead/ is 'false', meaning that
+-- eventually consistent reads will be used.
+--
+-- Strongly consistent reads are not supported on global secondary indexes.
+-- If you scan a global secondary index with /ConsistentRead/ set to true,
+-- you will receive a /ValidationException/.
+sConsistentRead :: Lens' Scan (Maybe Bool)
+sConsistentRead = lens _sConsistentRead (\ s a -> s{_sConsistentRead = a});
 
 -- | One or more values that can be substituted in an expression.
 --
@@ -370,6 +366,10 @@ sReturnConsumedCapacity = lens _sReturnConsumedCapacity (\ s a -> s{_sReturnCons
 -- in the /Amazon DynamoDB Developer Guide/.
 sExpressionAttributeValues :: Lens' Scan (HashMap Text AttributeValue)
 sExpressionAttributeValues = lens _sExpressionAttributeValues (\ s a -> s{_sExpressionAttributeValues = a}) . _Default . _Map;
+
+-- | Undocumented member.
+sReturnConsumedCapacity :: Lens' Scan (Maybe ReturnConsumedCapacity)
+sReturnConsumedCapacity = lens _sReturnConsumedCapacity (\ s a -> s{_sReturnConsumedCapacity = a});
 
 -- | The maximum number of items to evaluate (not necessarily the number of
 -- matching items). If DynamoDB processes the number of items up to the
@@ -508,16 +508,16 @@ instance ToJSON Scan where
                  [("ProjectionExpression" .=) <$>
                     _sProjectionExpression,
                   ("ScanFilter" .=) <$> _sScanFilter,
+                  ("AttributesToGet" .=) <$> _sAttributesToGet,
                   ("TotalSegments" .=) <$> _sTotalSegments,
-                  ("FilterExpression" .=) <$> _sFilterExpression,
-                  ("ConsistentRead" .=) <$> _sConsistentRead,
                   ("ExpressionAttributeNames" .=) <$>
                     _sExpressionAttributeNames,
-                  ("AttributesToGet" .=) <$> _sAttributesToGet,
-                  ("ReturnConsumedCapacity" .=) <$>
-                    _sReturnConsumedCapacity,
+                  ("FilterExpression" .=) <$> _sFilterExpression,
+                  ("ConsistentRead" .=) <$> _sConsistentRead,
                   ("ExpressionAttributeValues" .=) <$>
                     _sExpressionAttributeValues,
+                  ("ReturnConsumedCapacity" .=) <$>
+                    _sReturnConsumedCapacity,
                   ("Limit" .=) <$> _sLimit, ("Select" .=) <$> _sSelect,
                   ("Segment" .=) <$> _sSegment,
                   ("ConditionalOperator" .=) <$> _sConditionalOperator,

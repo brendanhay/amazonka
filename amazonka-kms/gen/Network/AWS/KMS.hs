@@ -100,11 +100,11 @@ module Network.AWS.KMS
     -- ** InvalidKeyUsageException
     , _InvalidKeyUsageException
 
-    -- ** UnsupportedOperationException
-    , _UnsupportedOperationException
-
     -- ** MalformedPolicyDocumentException
     , _MalformedPolicyDocumentException
+
+    -- ** UnsupportedOperationException
+    , _UnsupportedOperationException
 
     -- ** DisabledException
     , _DisabledException
@@ -121,23 +121,23 @@ module Network.AWS.KMS
     -- ** InvalidAliasNameException
     , _InvalidAliasNameException
 
+    -- ** InvalidGrantTokenException
+    , _InvalidGrantTokenException
+
     -- ** InvalidARNException
     , _InvalidARNException
 
     -- ** DependencyTimeoutException
     , _DependencyTimeoutException
 
-    -- ** InvalidGrantTokenException
-    , _InvalidGrantTokenException
-
     -- ** InvalidCiphertextException
     , _InvalidCiphertextException
 
-    -- ** LimitExceededException
-    , _LimitExceededException
-
     -- ** AlreadyExistsException
     , _AlreadyExistsException
+
+    -- ** LimitExceededException
+    , _LimitExceededException
 
     -- * Waiters
     -- $waiters
@@ -145,26 +145,26 @@ module Network.AWS.KMS
     -- * Operations
     -- $operations
 
+    -- ** Encrypt
+    , module Network.AWS.KMS.Encrypt
+
+    -- ** ListGrants
+    , module Network.AWS.KMS.ListGrants
+
     -- ** DisableKeyRotation
     , module Network.AWS.KMS.DisableKeyRotation
 
     -- ** GenerateDataKeyWithoutPlaintext
     , module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
 
-    -- ** ListGrants
-    , module Network.AWS.KMS.ListGrants
-
-    -- ** Encrypt
-    , module Network.AWS.KMS.Encrypt
-
     -- ** EnableKeyRotation
     , module Network.AWS.KMS.EnableKeyRotation
 
-    -- ** CreateGrant
-    , module Network.AWS.KMS.CreateGrant
-
     -- ** CreateAlias
     , module Network.AWS.KMS.CreateAlias
+
+    -- ** CreateGrant
+    , module Network.AWS.KMS.CreateGrant
 
     -- ** ListAliases
     , module Network.AWS.KMS.ListAliases
@@ -172,11 +172,11 @@ module Network.AWS.KMS
     -- ** GenerateRandom
     , module Network.AWS.KMS.GenerateRandom
 
-    -- ** DisableKey
-    , module Network.AWS.KMS.DisableKey
-
     -- ** CreateKey
     , module Network.AWS.KMS.CreateKey
+
+    -- ** DisableKey
+    , module Network.AWS.KMS.DisableKey
 
     -- ** RetireGrant
     , module Network.AWS.KMS.RetireGrant
@@ -211,11 +211,11 @@ module Network.AWS.KMS
     -- ** ListKeyPolicies
     , module Network.AWS.KMS.ListKeyPolicies
 
-    -- ** EnableKey
-    , module Network.AWS.KMS.EnableKey
-
     -- ** PutKeyPolicy
     , module Network.AWS.KMS.PutKeyPolicy
+
+    -- ** EnableKey
+    , module Network.AWS.KMS.EnableKey
 
     -- ** RevokeGrant
     , module Network.AWS.KMS.RevokeGrant
@@ -260,14 +260,14 @@ module Network.AWS.KMS
     -- ** KeyListEntry
     , KeyListEntry
     , keyListEntry
-    , kleKeyARN
     , kleKeyId
+    , kleKeyARN
 
     -- ** KeyMetadata
     , KeyMetadata
     , keyMetadata
-    , kmARN
     , kmEnabled
+    , kmARN
     , kmAWSAccountId
     , kmKeyUsage
     , kmCreationDate

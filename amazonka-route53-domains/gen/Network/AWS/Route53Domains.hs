@@ -85,17 +85,17 @@ module Network.AWS.Route53Domains
     -- ** UpdateDomainNameservers
     , module Network.AWS.Route53Domains.UpdateDomainNameservers
 
-    -- ** RetrieveDomainAuthCode
-    , module Network.AWS.Route53Domains.RetrieveDomainAuthCode
-
-    -- ** TransferDomain
-    , module Network.AWS.Route53Domains.TransferDomain
-
     -- ** DeleteTagsForDomain
     , module Network.AWS.Route53Domains.DeleteTagsForDomain
 
     -- ** UpdateTagsForDomain
     , module Network.AWS.Route53Domains.UpdateTagsForDomain
+
+    -- ** RetrieveDomainAuthCode
+    , module Network.AWS.Route53Domains.RetrieveDomainAuthCode
+
+    -- ** TransferDomain
+    , module Network.AWS.Route53Domains.TransferDomain
 
     -- ** ListDomains (Paginated)
     , module Network.AWS.Route53Domains.ListDomains
@@ -125,8 +125,8 @@ module Network.AWS.Route53Domains
     , contactDetail
     , cdOrganizationName
     , cdEmail
-    , cdFax
     , cdState
+    , cdFax
     , cdLastName
     , cdExtraParams
     , cdZipCode

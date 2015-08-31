@@ -32,8 +32,8 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     -- * Request Lenses
     , drcnoCacheNodeType
     , drcnoProductDescription
-    , drcnoMaxRecords
     , drcnoMarker
+    , drcnoMaxRecords
     , drcnoOfferingType
     , drcnoDuration
     , drcnoReservedCacheNodesOfferingId
@@ -60,8 +60,8 @@ import           Network.AWS.Response
 data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
     { _drcnoCacheNodeType                :: !(Maybe Text)
     , _drcnoProductDescription           :: !(Maybe Text)
-    , _drcnoMaxRecords                   :: !(Maybe Int)
     , _drcnoMarker                       :: !(Maybe Text)
+    , _drcnoMaxRecords                   :: !(Maybe Int)
     , _drcnoOfferingType                 :: !(Maybe Text)
     , _drcnoDuration                     :: !(Maybe Text)
     , _drcnoReservedCacheNodesOfferingId :: !(Maybe Text)
@@ -75,9 +75,9 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
 --
 -- * 'drcnoProductDescription'
 --
--- * 'drcnoMaxRecords'
---
 -- * 'drcnoMarker'
+--
+-- * 'drcnoMaxRecords'
 --
 -- * 'drcnoOfferingType'
 --
@@ -90,8 +90,8 @@ describeReservedCacheNodesOfferings =
     DescribeReservedCacheNodesOfferings'
     { _drcnoCacheNodeType = Nothing
     , _drcnoProductDescription = Nothing
-    , _drcnoMaxRecords = Nothing
     , _drcnoMarker = Nothing
+    , _drcnoMaxRecords = Nothing
     , _drcnoOfferingType = Nothing
     , _drcnoDuration = Nothing
     , _drcnoReservedCacheNodesOfferingId = Nothing
@@ -137,6 +137,13 @@ drcnoCacheNodeType = lens _drcnoCacheNodeType (\ s a -> s{_drcnoCacheNodeType = 
 drcnoProductDescription :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoProductDescription = lens _drcnoProductDescription (\ s a -> s{_drcnoProductDescription = a});
 
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+drcnoMarker :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
+drcnoMarker = lens _drcnoMarker (\ s a -> s{_drcnoMarker = a});
+
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -146,13 +153,6 @@ drcnoProductDescription = lens _drcnoProductDescription (\ s a -> s{_drcnoProduc
 -- Constraints: minimum 20; maximum 100.
 drcnoMaxRecords :: Lens' DescribeReservedCacheNodesOfferings (Maybe Int)
 drcnoMaxRecords = lens _drcnoMaxRecords (\ s a -> s{_drcnoMaxRecords = a});
-
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
-drcnoMarker :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
-drcnoMarker = lens _drcnoMarker (\ s a -> s{_drcnoMarker = a});
 
 -- | The offering type filter value. Use this parameter to show only the
 -- available offerings matching the specified offering type.
@@ -219,8 +219,8 @@ instance ToQuery DescribeReservedCacheNodesOfferings
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheNodeType" =: _drcnoCacheNodeType,
                "ProductDescription" =: _drcnoProductDescription,
-               "MaxRecords" =: _drcnoMaxRecords,
                "Marker" =: _drcnoMarker,
+               "MaxRecords" =: _drcnoMaxRecords,
                "OfferingType" =: _drcnoOfferingType,
                "Duration" =: _drcnoDuration,
                "ReservedCacheNodesOfferingId" =:

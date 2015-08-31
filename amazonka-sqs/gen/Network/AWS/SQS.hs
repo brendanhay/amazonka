@@ -56,14 +56,14 @@ module Network.AWS.SQS
     -- ** TooManyEntriesInBatchRequest
     , _TooManyEntriesInBatchRequest
 
-    -- ** InvalidAttributeName
-    , _InvalidAttributeName
-
     -- ** QueueDeletedRecently
     , _QueueDeletedRecently
 
     -- ** QueueDoesNotExist
     , _QueueDoesNotExist
+
+    -- ** InvalidAttributeName
+    , _InvalidAttributeName
 
     -- ** UnsupportedOperation
     , _UnsupportedOperation
@@ -77,11 +77,11 @@ module Network.AWS.SQS
     -- ** OverLimit
     , _OverLimit
 
-    -- ** PurgeQueueInProgress
-    , _PurgeQueueInProgress
-
     -- ** QueueNameExists
     , _QueueNameExists
+
+    -- ** PurgeQueueInProgress
+    , _PurgeQueueInProgress
 
     -- ** InvalidIdFormat
     , _InvalidIdFormat
@@ -92,11 +92,11 @@ module Network.AWS.SQS
     -- ** EmptyBatchRequest
     , _EmptyBatchRequest
 
-    -- ** MessageNotInflight
-    , _MessageNotInflight
-
     -- ** BatchEntryIdsNotDistinct
     , _BatchEntryIdsNotDistinct
+
+    -- ** MessageNotInflight
+    , _MessageNotInflight
 
     -- * Waiters
     -- $waiters
@@ -110,11 +110,11 @@ module Network.AWS.SQS
     -- ** PurgeQueue
     , module Network.AWS.SQS.PurgeQueue
 
-    -- ** SendMessage
-    , module Network.AWS.SQS.SendMessage
-
     -- ** ChangeMessageVisibilityBatch
     , module Network.AWS.SQS.ChangeMessageVisibilityBatch
+
+    -- ** SendMessage
+    , module Network.AWS.SQS.SendMessage
 
     -- ** RemovePermission
     , module Network.AWS.SQS.RemovePermission
@@ -149,11 +149,11 @@ module Network.AWS.SQS
     -- ** CreateQueue
     , module Network.AWS.SQS.CreateQueue
 
-    -- ** ChangeMessageVisibility
-    , module Network.AWS.SQS.ChangeMessageVisibility
-
     -- ** SendMessageBatch
     , module Network.AWS.SQS.SendMessageBatch
+
+    -- ** ChangeMessageVisibility
+    , module Network.AWS.SQS.ChangeMessageVisibility
 
     -- * Types
 
@@ -201,8 +201,8 @@ module Network.AWS.SQS
     , mMD5OfBody
     , mBody
     , mAttributes
-    , mMessageId
     , mReceiptHandle
+    , mMessageId
     , mMD5OfMessageAttributes
 
     -- ** MessageAttributeValue

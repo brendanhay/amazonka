@@ -17,8 +17,8 @@ module Network.AWS.DeviceFarm.Types
 
     -- * Errors
     , _IdempotencyException
-    , _NotFoundException
     , _ArgumentException
+    , _NotFoundException
     , _ServiceAccountException
     , _LimitExceededException
 
@@ -206,15 +206,15 @@ module Network.AWS.DeviceFarm.Types
     -- * Run
     , Run
     , run
-    , runStatus
     , runBillingMethod
+    , runStatus
     , runCounters
     , runPlatform
     , runArn
     , runCreated
-    , runCompletedJobs
     , runStopped
     , runResult
+    , runCompletedJobs
     , runName
     , runType
     , runMessage
@@ -224,9 +224,9 @@ module Network.AWS.DeviceFarm.Types
     -- * Sample
     , Sample
     , sample
-    , sArn
-    , sUrl
-    , sType
+    , samArn
+    , samUrl
+    , samType
 
     -- * ScheduleRunConfiguration
     , ScheduleRunConfiguration
@@ -250,16 +250,16 @@ module Network.AWS.DeviceFarm.Types
     -- * Suite
     , Suite
     , suite
-    , suiStatus
-    , suiCounters
-    , suiArn
-    , suiCreated
-    , suiStopped
-    , suiResult
-    , suiName
-    , suiType
-    , suiMessage
-    , suiStarted
+    , sStatus
+    , sCounters
+    , sArn
+    , sCreated
+    , sStopped
+    , sResult
+    , sName
+    , sType
+    , sMessage
+    , sStarted
 
     -- * Test
     , Test
@@ -335,13 +335,13 @@ deviceFarm =
 _IdempotencyException :: AsError a => Getting (First ServiceError) a ServiceError
 _IdempotencyException = _ServiceError . hasCode "IdempotencyException"
 
--- | The specified entity was not found.
-_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotFoundException = _ServiceError . hasCode "NotFoundException"
-
 -- | An invalid argument was specified.
 _ArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
 _ArgumentException = _ServiceError . hasCode "ArgumentException"
+
+-- | The specified entity was not found.
+_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_NotFoundException = _ServiceError . hasCode "NotFoundException"
 
 -- | There was a problem with the service account.
 _ServiceAccountException :: AsError a => Getting (First ServiceError) a ServiceError

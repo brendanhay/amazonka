@@ -34,14 +34,14 @@ import Test.AWS.EFS.Internal
 --         , testDescribeMountTargets $
 --             describeMountTargets
 --
+--         , testDescribeFileSystems $
+--             describeFileSystems
+--
 --         , testDeleteMountTarget $
 --             deleteMountTarget
 --
 --         , testCreateTags $
 --             createTags
---
---         , testDescribeFileSystems $
---             describeFileSystems
 --
 --         , testDeleteTags $
 --             deleteTags
@@ -70,14 +70,14 @@ import Test.AWS.EFS.Internal
 --         , testDescribeMountTargetsResponse $
 --             describeMountTargetsResponse
 --
+--         , testDescribeFileSystemsResponse $
+--             describeFileSystemsResponse
+--
 --         , testDeleteMountTargetResponse $
 --             deleteMountTargetResponse
 --
 --         , testCreateTagsResponse $
 --             createTagsResponse
---
---         , testDescribeFileSystemsResponse $
---             describeFileSystemsResponse
 --
 --         , testDeleteTagsResponse $
 --             deleteTagsResponse
@@ -112,6 +112,11 @@ testDescribeMountTargets = req
     "DescribeMountTargets"
     "fixture/DescribeMountTargets.yaml"
 
+testDescribeFileSystems :: DescribeFileSystems -> TestTree
+testDescribeFileSystems = req
+    "DescribeFileSystems"
+    "fixture/DescribeFileSystems.yaml"
+
 testDeleteMountTarget :: DeleteMountTarget -> TestTree
 testDeleteMountTarget = req
     "DeleteMountTarget"
@@ -121,11 +126,6 @@ testCreateTags :: CreateTags -> TestTree
 testCreateTags = req
     "CreateTags"
     "fixture/CreateTags.yaml"
-
-testDescribeFileSystems :: DescribeFileSystems -> TestTree
-testDescribeFileSystems = req
-    "DescribeFileSystems"
-    "fixture/DescribeFileSystems.yaml"
 
 testDeleteTags :: DeleteTags -> TestTree
 testDeleteTags = req
@@ -173,6 +173,13 @@ testDescribeMountTargetsResponse = res
     eFS
     (Proxy :: Proxy DescribeMountTargets)
 
+testDescribeFileSystemsResponse :: DescribeFileSystemsResponse -> TestTree
+testDescribeFileSystemsResponse = res
+    "DescribeFileSystemsResponse"
+    "fixture/DescribeFileSystemsResponse.proto"
+    eFS
+    (Proxy :: Proxy DescribeFileSystems)
+
 testDeleteMountTargetResponse :: DeleteMountTargetResponse -> TestTree
 testDeleteMountTargetResponse = res
     "DeleteMountTargetResponse"
@@ -186,13 +193,6 @@ testCreateTagsResponse = res
     "fixture/CreateTagsResponse.proto"
     eFS
     (Proxy :: Proxy CreateTags)
-
-testDescribeFileSystemsResponse :: DescribeFileSystemsResponse -> TestTree
-testDescribeFileSystemsResponse = res
-    "DescribeFileSystemsResponse"
-    "fixture/DescribeFileSystemsResponse.proto"
-    eFS
-    (Proxy :: Proxy DescribeFileSystems)
 
 testDeleteTagsResponse :: DeleteTagsResponse -> TestTree
 testDeleteTagsResponse = res

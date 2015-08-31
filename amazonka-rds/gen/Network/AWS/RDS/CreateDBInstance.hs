@@ -27,14 +27,14 @@ module Network.AWS.RDS.CreateDBInstance
       createDBInstance
     , CreateDBInstance
     -- * Request Lenses
-    , cdiDBSecurityGroups
     , cdiEngineVersion
+    , cdiDBSecurityGroups
     , cdiStorageEncrypted
     , cdiDBClusterIdentifier
-    , cdiAutoMinorVersionUpgrade
     , cdiMasterUserPassword
-    , cdiMasterUsername
     , cdiPubliclyAccessible
+    , cdiAutoMinorVersionUpgrade
+    , cdiMasterUsername
     , cdiDBSubnetGroupName
     , cdiIOPS
     , cdiDomain
@@ -42,21 +42,21 @@ module Network.AWS.RDS.CreateDBInstance
     , cdiLicenseModel
     , cdiPreferredMaintenanceWindow
     , cdiCharacterSetName
+    , cdiKMSKeyId
+    , cdiDBParameterGroupName
     , cdiPreferredBackupWindow
     , cdiAvailabilityZone
     , cdiBackupRetentionPeriod
-    , cdiKMSKeyId
-    , cdiDBParameterGroupName
     , cdiVPCSecurityGroupIds
     , cdiMultiAZ
     , cdiAllocatedStorage
-    , cdiTDECredentialARN
     , cdiOptionGroupName
     , cdiCopyTagsToSnapshot
-    , cdiDBName
+    , cdiTDECredentialARN
     , cdiTags
     , cdiPort
     , cdiStorageType
+    , cdiDBName
     , cdiDBInstanceIdentifier
     , cdiDBInstanceClass
     , cdiEngine
@@ -79,14 +79,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDBInstance' smart constructor.
 data CreateDBInstance = CreateDBInstance'
-    { _cdiDBSecurityGroups           :: !(Maybe [Text])
-    , _cdiEngineVersion              :: !(Maybe Text)
+    { _cdiEngineVersion              :: !(Maybe Text)
+    , _cdiDBSecurityGroups           :: !(Maybe [Text])
     , _cdiStorageEncrypted           :: !(Maybe Bool)
     , _cdiDBClusterIdentifier        :: !(Maybe Text)
-    , _cdiAutoMinorVersionUpgrade    :: !(Maybe Bool)
     , _cdiMasterUserPassword         :: !(Maybe Text)
-    , _cdiMasterUsername             :: !(Maybe Text)
     , _cdiPubliclyAccessible         :: !(Maybe Bool)
+    , _cdiAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _cdiMasterUsername             :: !(Maybe Text)
     , _cdiDBSubnetGroupName          :: !(Maybe Text)
     , _cdiIOPS                       :: !(Maybe Int)
     , _cdiDomain                     :: !(Maybe Text)
@@ -94,21 +94,21 @@ data CreateDBInstance = CreateDBInstance'
     , _cdiLicenseModel               :: !(Maybe Text)
     , _cdiPreferredMaintenanceWindow :: !(Maybe Text)
     , _cdiCharacterSetName           :: !(Maybe Text)
+    , _cdiKMSKeyId                   :: !(Maybe Text)
+    , _cdiDBParameterGroupName       :: !(Maybe Text)
     , _cdiPreferredBackupWindow      :: !(Maybe Text)
     , _cdiAvailabilityZone           :: !(Maybe Text)
     , _cdiBackupRetentionPeriod      :: !(Maybe Int)
-    , _cdiKMSKeyId                   :: !(Maybe Text)
-    , _cdiDBParameterGroupName       :: !(Maybe Text)
     , _cdiVPCSecurityGroupIds        :: !(Maybe [Text])
     , _cdiMultiAZ                    :: !(Maybe Bool)
     , _cdiAllocatedStorage           :: !(Maybe Int)
-    , _cdiTDECredentialARN           :: !(Maybe Text)
     , _cdiOptionGroupName            :: !(Maybe Text)
     , _cdiCopyTagsToSnapshot         :: !(Maybe Bool)
-    , _cdiDBName                     :: !(Maybe Text)
+    , _cdiTDECredentialARN           :: !(Maybe Text)
     , _cdiTags                       :: !(Maybe [Tag])
     , _cdiPort                       :: !(Maybe Int)
     , _cdiStorageType                :: !(Maybe Text)
+    , _cdiDBName                     :: !(Maybe Text)
     , _cdiDBInstanceIdentifier       :: !Text
     , _cdiDBInstanceClass            :: !Text
     , _cdiEngine                     :: !Text
@@ -118,21 +118,21 @@ data CreateDBInstance = CreateDBInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdiDBSecurityGroups'
---
 -- * 'cdiEngineVersion'
+--
+-- * 'cdiDBSecurityGroups'
 --
 -- * 'cdiStorageEncrypted'
 --
 -- * 'cdiDBClusterIdentifier'
 --
--- * 'cdiAutoMinorVersionUpgrade'
---
 -- * 'cdiMasterUserPassword'
 --
--- * 'cdiMasterUsername'
---
 -- * 'cdiPubliclyAccessible'
+--
+-- * 'cdiAutoMinorVersionUpgrade'
+--
+-- * 'cdiMasterUsername'
 --
 -- * 'cdiDBSubnetGroupName'
 --
@@ -148,15 +148,15 @@ data CreateDBInstance = CreateDBInstance'
 --
 -- * 'cdiCharacterSetName'
 --
+-- * 'cdiKMSKeyId'
+--
+-- * 'cdiDBParameterGroupName'
+--
 -- * 'cdiPreferredBackupWindow'
 --
 -- * 'cdiAvailabilityZone'
 --
 -- * 'cdiBackupRetentionPeriod'
---
--- * 'cdiKMSKeyId'
---
--- * 'cdiDBParameterGroupName'
 --
 -- * 'cdiVPCSecurityGroupIds'
 --
@@ -164,19 +164,19 @@ data CreateDBInstance = CreateDBInstance'
 --
 -- * 'cdiAllocatedStorage'
 --
--- * 'cdiTDECredentialARN'
---
 -- * 'cdiOptionGroupName'
 --
 -- * 'cdiCopyTagsToSnapshot'
 --
--- * 'cdiDBName'
+-- * 'cdiTDECredentialARN'
 --
 -- * 'cdiTags'
 --
 -- * 'cdiPort'
 --
 -- * 'cdiStorageType'
+--
+-- * 'cdiDBName'
 --
 -- * 'cdiDBInstanceIdentifier'
 --
@@ -190,14 +190,14 @@ createDBInstance
     -> CreateDBInstance
 createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
     CreateDBInstance'
-    { _cdiDBSecurityGroups = Nothing
-    , _cdiEngineVersion = Nothing
+    { _cdiEngineVersion = Nothing
+    , _cdiDBSecurityGroups = Nothing
     , _cdiStorageEncrypted = Nothing
     , _cdiDBClusterIdentifier = Nothing
-    , _cdiAutoMinorVersionUpgrade = Nothing
     , _cdiMasterUserPassword = Nothing
-    , _cdiMasterUsername = Nothing
     , _cdiPubliclyAccessible = Nothing
+    , _cdiAutoMinorVersionUpgrade = Nothing
+    , _cdiMasterUsername = Nothing
     , _cdiDBSubnetGroupName = Nothing
     , _cdiIOPS = Nothing
     , _cdiDomain = Nothing
@@ -205,31 +205,25 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
     , _cdiLicenseModel = Nothing
     , _cdiPreferredMaintenanceWindow = Nothing
     , _cdiCharacterSetName = Nothing
+    , _cdiKMSKeyId = Nothing
+    , _cdiDBParameterGroupName = Nothing
     , _cdiPreferredBackupWindow = Nothing
     , _cdiAvailabilityZone = Nothing
     , _cdiBackupRetentionPeriod = Nothing
-    , _cdiKMSKeyId = Nothing
-    , _cdiDBParameterGroupName = Nothing
     , _cdiVPCSecurityGroupIds = Nothing
     , _cdiMultiAZ = Nothing
     , _cdiAllocatedStorage = Nothing
-    , _cdiTDECredentialARN = Nothing
     , _cdiOptionGroupName = Nothing
     , _cdiCopyTagsToSnapshot = Nothing
-    , _cdiDBName = Nothing
+    , _cdiTDECredentialARN = Nothing
     , _cdiTags = Nothing
     , _cdiPort = Nothing
     , _cdiStorageType = Nothing
+    , _cdiDBName = Nothing
     , _cdiDBInstanceIdentifier = pDBInstanceIdentifier_
     , _cdiDBInstanceClass = pDBInstanceClass_
     , _cdiEngine = pEngine_
     }
-
--- | A list of DB security groups to associate with this DB instance.
---
--- Default: The default DB security group for the database engine.
-cdiDBSecurityGroups :: Lens' CreateDBInstance [Text]
-cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The version number of the database engine to use.
 --
@@ -455,6 +449,12 @@ cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups
 cdiEngineVersion :: Lens' CreateDBInstance (Maybe Text)
 cdiEngineVersion = lens _cdiEngineVersion (\ s a -> s{_cdiEngineVersion = a});
 
+-- | A list of DB security groups to associate with this DB instance.
+--
+-- Default: The default DB security group for the database engine.
+cdiDBSecurityGroups :: Lens' CreateDBInstance [Text]
+cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups = a}) . _Default . _Coerce;
+
 -- | Specifies whether the DB instance is encrypted.
 --
 -- Default: false
@@ -468,13 +468,6 @@ cdiStorageEncrypted = lens _cdiStorageEncrypted (\ s a -> s{_cdiStorageEncrypted
 -- Type: String
 cdiDBClusterIdentifier :: Lens' CreateDBInstance (Maybe Text)
 cdiDBClusterIdentifier = lens _cdiDBClusterIdentifier (\ s a -> s{_cdiDBClusterIdentifier = a});
-
--- | Indicates that minor engine upgrades will be applied automatically to
--- the DB instance during the maintenance window.
---
--- Default: 'true'
-cdiAutoMinorVersionUpgrade :: Lens' CreateDBInstance (Maybe Bool)
-cdiAutoMinorVersionUpgrade = lens _cdiAutoMinorVersionUpgrade (\ s a -> s{_cdiAutoMinorVersionUpgrade = a});
 
 -- | The password for the master database user. Can be any printable ASCII
 -- character except \"\/\", \"\"\", or \"\'\".
@@ -498,6 +491,34 @@ cdiAutoMinorVersionUpgrade = lens _cdiAutoMinorVersionUpgrade (\ s a -> s{_cdiAu
 -- Constraints: Must contain from 8 to 128 characters.
 cdiMasterUserPassword :: Lens' CreateDBInstance (Maybe Text)
 cdiMasterUserPassword = lens _cdiMasterUserPassword (\ s a -> s{_cdiMasterUserPassword = a});
+
+-- | Specifies the accessibility options for the DB instance. A value of true
+-- specifies an Internet-facing instance with a publicly resolvable DNS
+-- name, which resolves to a public IP address. A value of false specifies
+-- an internal instance with a DNS name that resolves to a private IP
+-- address.
+--
+-- Default: The default behavior varies depending on whether a VPC has been
+-- requested or not. The following list shows the default behavior in each
+-- case.
+--
+-- -   __Default VPC:__ true
+-- -   __VPC:__ false
+--
+-- If no DB subnet group has been specified as part of the request and the
+-- PubliclyAccessible value has not been set, the DB instance will be
+-- publicly accessible. If a specific DB subnet group has been specified as
+-- part of the request and the PubliclyAccessible value has not been set,
+-- the DB instance will be private.
+cdiPubliclyAccessible :: Lens' CreateDBInstance (Maybe Bool)
+cdiPubliclyAccessible = lens _cdiPubliclyAccessible (\ s a -> s{_cdiPubliclyAccessible = a});
+
+-- | Indicates that minor engine upgrades will be applied automatically to
+-- the DB instance during the maintenance window.
+--
+-- Default: 'true'
+cdiAutoMinorVersionUpgrade :: Lens' CreateDBInstance (Maybe Bool)
+cdiAutoMinorVersionUpgrade = lens _cdiAutoMinorVersionUpgrade (\ s a -> s{_cdiAutoMinorVersionUpgrade = a});
 
 -- | The name of master user for the client DB instance.
 --
@@ -536,27 +557,6 @@ cdiMasterUserPassword = lens _cdiMasterUserPassword (\ s a -> s{_cdiMasterUserPa
 -- -   Cannot be a reserved word for the chosen database engine.
 cdiMasterUsername :: Lens' CreateDBInstance (Maybe Text)
 cdiMasterUsername = lens _cdiMasterUsername (\ s a -> s{_cdiMasterUsername = a});
-
--- | Specifies the accessibility options for the DB instance. A value of true
--- specifies an Internet-facing instance with a publicly resolvable DNS
--- name, which resolves to a public IP address. A value of false specifies
--- an internal instance with a DNS name that resolves to a private IP
--- address.
---
--- Default: The default behavior varies depending on whether a VPC has been
--- requested or not. The following list shows the default behavior in each
--- case.
---
--- -   __Default VPC:__ true
--- -   __VPC:__ false
---
--- If no DB subnet group has been specified as part of the request and the
--- PubliclyAccessible value has not been set, the DB instance will be
--- publicly accessible. If a specific DB subnet group has been specified as
--- part of the request and the PubliclyAccessible value has not been set,
--- the DB instance will be private.
-cdiPubliclyAccessible :: Lens' CreateDBInstance (Maybe Bool)
-cdiPubliclyAccessible = lens _cdiPubliclyAccessible (\ s a -> s{_cdiPubliclyAccessible = a});
 
 -- | A DB subnet group to associate with this DB instance.
 --
@@ -611,6 +611,34 @@ cdiPreferredMaintenanceWindow = lens _cdiPreferredMaintenanceWindow (\ s a -> s{
 cdiCharacterSetName :: Lens' CreateDBInstance (Maybe Text)
 cdiCharacterSetName = lens _cdiCharacterSetName (\ s a -> s{_cdiCharacterSetName = a});
 
+-- | The KMS key identifier for an encrypted DB instance.
+--
+-- The KMS key identifier is the Amazon Resoure Name (ARN) for the KMS
+-- encryption key. If you are creating a DB instance with the same AWS
+-- account that owns the KMS encryption key used to encrypt the new DB
+-- instance, then you can use the KMS key alias instead of the ARN for the
+-- KM encryption key.
+--
+-- If the 'StorageEncrypted' parameter is true, and you do not specify a
+-- value for the 'KmsKeyId' parameter, then Amazon RDS will use your
+-- default encryption key. AWS KMS creates the default encryption key for
+-- your AWS account. Your AWS account has a different default encryption
+-- key for each AWS region.
+cdiKMSKeyId :: Lens' CreateDBInstance (Maybe Text)
+cdiKMSKeyId = lens _cdiKMSKeyId (\ s a -> s{_cdiKMSKeyId = a});
+
+-- | The name of the DB parameter group to associate with this DB instance.
+-- If this argument is omitted, the default DBParameterGroup for the
+-- specified engine will be used.
+--
+-- Constraints:
+--
+-- -   Must be 1 to 255 alphanumeric characters
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+cdiDBParameterGroupName :: Lens' CreateDBInstance (Maybe Text)
+cdiDBParameterGroupName = lens _cdiDBParameterGroupName (\ s a -> s{_cdiDBParameterGroupName = a});
+
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled, using the 'BackupRetentionPeriod'
 -- parameter. For more information, see
@@ -658,34 +686,6 @@ cdiAvailabilityZone = lens _cdiAvailabilityZone (\ s a -> s{_cdiAvailabilityZone
 cdiBackupRetentionPeriod :: Lens' CreateDBInstance (Maybe Int)
 cdiBackupRetentionPeriod = lens _cdiBackupRetentionPeriod (\ s a -> s{_cdiBackupRetentionPeriod = a});
 
--- | The KMS key identifier for an encrypted DB instance.
---
--- The KMS key identifier is the Amazon Resoure Name (ARN) for the KMS
--- encryption key. If you are creating a DB instance with the same AWS
--- account that owns the KMS encryption key used to encrypt the new DB
--- instance, then you can use the KMS key alias instead of the ARN for the
--- KM encryption key.
---
--- If the 'StorageEncrypted' parameter is true, and you do not specify a
--- value for the 'KmsKeyId' parameter, then Amazon RDS will use your
--- default encryption key. AWS KMS creates the default encryption key for
--- your AWS account. Your AWS account has a different default encryption
--- key for each AWS region.
-cdiKMSKeyId :: Lens' CreateDBInstance (Maybe Text)
-cdiKMSKeyId = lens _cdiKMSKeyId (\ s a -> s{_cdiKMSKeyId = a});
-
--- | The name of the DB parameter group to associate with this DB instance.
--- If this argument is omitted, the default DBParameterGroup for the
--- specified engine will be used.
---
--- Constraints:
---
--- -   Must be 1 to 255 alphanumeric characters
--- -   First character must be a letter
--- -   Cannot end with a hyphen or contain two consecutive hyphens
-cdiDBParameterGroupName :: Lens' CreateDBInstance (Maybe Text)
-cdiDBParameterGroupName = lens _cdiDBParameterGroupName (\ s a -> s{_cdiDBParameterGroupName = a});
-
 -- | A list of EC2 VPC security groups to associate with this DB instance.
 --
 -- Default: The default EC2 VPC security group for the DB subnet group\'s
@@ -725,11 +725,6 @@ cdiMultiAZ = lens _cdiMultiAZ (\ s a -> s{_cdiMultiAZ = a});
 cdiAllocatedStorage :: Lens' CreateDBInstance (Maybe Int)
 cdiAllocatedStorage = lens _cdiAllocatedStorage (\ s a -> s{_cdiAllocatedStorage = a});
 
--- | The ARN from the Key Store with which to associate the instance for TDE
--- encryption.
-cdiTDECredentialARN :: Lens' CreateDBInstance (Maybe Text)
-cdiTDECredentialARN = lens _cdiTDECredentialARN (\ s a -> s{_cdiTDECredentialARN = a});
-
 -- | Indicates that the DB instance should be associated with the specified
 -- option group.
 --
@@ -744,50 +739,10 @@ cdiOptionGroupName = lens _cdiOptionGroupName (\ s a -> s{_cdiOptionGroupName = 
 cdiCopyTagsToSnapshot :: Lens' CreateDBInstance (Maybe Bool)
 cdiCopyTagsToSnapshot = lens _cdiCopyTagsToSnapshot (\ s a -> s{_cdiCopyTagsToSnapshot = a});
 
--- | The meaning of this parameter differs according to the database engine
--- you use.
---
--- Type: String
---
--- __MySQL__
---
--- The name of the database to create when the DB instance is created. If
--- this parameter is not specified, no database is created in the DB
--- instance.
---
--- Constraints:
---
--- -   Must contain 1 to 64 alphanumeric characters
--- -   Cannot be a word reserved by the specified database engine
---
--- __PostgreSQL__
---
--- The name of the database to create when the DB instance is created. If
--- this parameter is not specified, the default \"postgres\" database is
--- created in the DB instance.
---
--- Constraints:
---
--- -   Must contain 1 to 63 alphanumeric characters
--- -   Must begin with a letter or an underscore. Subsequent characters can
---     be letters, underscores, or digits (0-9).
--- -   Cannot be a word reserved by the specified database engine
---
--- __Oracle__
---
--- The Oracle System ID (SID) of the created DB instance.
---
--- Default: 'ORCL'
---
--- Constraints:
---
--- -   Cannot be longer than 8 characters
---
--- __SQL Server__
---
--- Not applicable. Must be null.
-cdiDBName :: Lens' CreateDBInstance (Maybe Text)
-cdiDBName = lens _cdiDBName (\ s a -> s{_cdiDBName = a});
+-- | The ARN from the Key Store with which to associate the instance for TDE
+-- encryption.
+cdiTDECredentialARN :: Lens' CreateDBInstance (Maybe Text)
+cdiTDECredentialARN = lens _cdiTDECredentialARN (\ s a -> s{_cdiTDECredentialARN = a});
 
 -- | Undocumented member.
 cdiTags :: Lens' CreateDBInstance [Tag]
@@ -837,6 +792,51 @@ cdiPort = lens _cdiPort (\ s a -> s{_cdiPort = a});
 -- 'standard'
 cdiStorageType :: Lens' CreateDBInstance (Maybe Text)
 cdiStorageType = lens _cdiStorageType (\ s a -> s{_cdiStorageType = a});
+
+-- | The meaning of this parameter differs according to the database engine
+-- you use.
+--
+-- Type: String
+--
+-- __MySQL__
+--
+-- The name of the database to create when the DB instance is created. If
+-- this parameter is not specified, no database is created in the DB
+-- instance.
+--
+-- Constraints:
+--
+-- -   Must contain 1 to 64 alphanumeric characters
+-- -   Cannot be a word reserved by the specified database engine
+--
+-- __PostgreSQL__
+--
+-- The name of the database to create when the DB instance is created. If
+-- this parameter is not specified, the default \"postgres\" database is
+-- created in the DB instance.
+--
+-- Constraints:
+--
+-- -   Must contain 1 to 63 alphanumeric characters
+-- -   Must begin with a letter or an underscore. Subsequent characters can
+--     be letters, underscores, or digits (0-9).
+-- -   Cannot be a word reserved by the specified database engine
+--
+-- __Oracle__
+--
+-- The Oracle System ID (SID) of the created DB instance.
+--
+-- Default: 'ORCL'
+--
+-- Constraints:
+--
+-- -   Cannot be longer than 8 characters
+--
+-- __SQL Server__
+--
+-- Not applicable. Must be null.
+cdiDBName :: Lens' CreateDBInstance (Maybe Text)
+cdiDBName = lens _cdiDBName (\ s a -> s{_cdiDBName = a});
 
 -- | The DB instance identifier. This parameter is stored as a lowercase
 -- string.
@@ -889,18 +889,18 @@ instance ToQuery CreateDBInstance where
           = mconcat
               ["Action" =: ("CreateDBInstance" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
+               "EngineVersion" =: _cdiEngineVersion,
                "DBSecurityGroups" =:
                  toQuery
                    (toQueryList "DBSecurityGroupName" <$>
                       _cdiDBSecurityGroups),
-               "EngineVersion" =: _cdiEngineVersion,
                "StorageEncrypted" =: _cdiStorageEncrypted,
                "DBClusterIdentifier" =: _cdiDBClusterIdentifier,
+               "MasterUserPassword" =: _cdiMasterUserPassword,
+               "PubliclyAccessible" =: _cdiPubliclyAccessible,
                "AutoMinorVersionUpgrade" =:
                  _cdiAutoMinorVersionUpgrade,
-               "MasterUserPassword" =: _cdiMasterUserPassword,
                "MasterUsername" =: _cdiMasterUsername,
-               "PubliclyAccessible" =: _cdiPubliclyAccessible,
                "DBSubnetGroupName" =: _cdiDBSubnetGroupName,
                "Iops" =: _cdiIOPS, "Domain" =: _cdiDomain,
                "TdeCredentialPassword" =: _cdiTDECredentialPassword,
@@ -908,23 +908,23 @@ instance ToQuery CreateDBInstance where
                "PreferredMaintenanceWindow" =:
                  _cdiPreferredMaintenanceWindow,
                "CharacterSetName" =: _cdiCharacterSetName,
+               "KmsKeyId" =: _cdiKMSKeyId,
+               "DBParameterGroupName" =: _cdiDBParameterGroupName,
                "PreferredBackupWindow" =: _cdiPreferredBackupWindow,
                "AvailabilityZone" =: _cdiAvailabilityZone,
                "BackupRetentionPeriod" =: _cdiBackupRetentionPeriod,
-               "KmsKeyId" =: _cdiKMSKeyId,
-               "DBParameterGroupName" =: _cdiDBParameterGroupName,
                "VpcSecurityGroupIds" =:
                  toQuery
                    (toQueryList "VpcSecurityGroupId" <$>
                       _cdiVPCSecurityGroupIds),
                "MultiAZ" =: _cdiMultiAZ,
                "AllocatedStorage" =: _cdiAllocatedStorage,
-               "TdeCredentialArn" =: _cdiTDECredentialARN,
                "OptionGroupName" =: _cdiOptionGroupName,
                "CopyTagsToSnapshot" =: _cdiCopyTagsToSnapshot,
-               "DBName" =: _cdiDBName,
+               "TdeCredentialArn" =: _cdiTDECredentialARN,
                "Tags" =: toQuery (toQueryList "Tag" <$> _cdiTags),
                "Port" =: _cdiPort, "StorageType" =: _cdiStorageType,
+               "DBName" =: _cdiDBName,
                "DBInstanceIdentifier" =: _cdiDBInstanceIdentifier,
                "DBInstanceClass" =: _cdiDBInstanceClass,
                "Engine" =: _cdiEngine]

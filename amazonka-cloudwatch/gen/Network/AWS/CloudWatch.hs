@@ -122,17 +122,17 @@ module Network.AWS.CloudWatch
     -- ** GetMetricStatistics
     , module Network.AWS.CloudWatch.GetMetricStatistics
 
-    -- ** DisableAlarmActions
-    , module Network.AWS.CloudWatch.DisableAlarmActions
-
     -- ** DescribeAlarmsForMetric
     , module Network.AWS.CloudWatch.DescribeAlarmsForMetric
 
-    -- ** SetAlarmState
-    , module Network.AWS.CloudWatch.SetAlarmState
+    -- ** DisableAlarmActions
+    , module Network.AWS.CloudWatch.DisableAlarmActions
 
     -- ** PutMetricAlarm
     , module Network.AWS.CloudWatch.PutMetricAlarm
+
+    -- ** SetAlarmState
+    , module Network.AWS.CloudWatch.SetAlarmState
 
     -- * Types
 
@@ -157,8 +157,8 @@ module Network.AWS.CloudWatch
     , ahiAlarmName
     , ahiHistoryItemType
     , ahiHistoryData
-    , ahiTimestamp
     , ahiHistorySummary
+    , ahiTimestamp
 
     -- ** Datapoint
     , Datapoint
@@ -168,8 +168,8 @@ module Network.AWS.CloudWatch
     , dAverage
     , dMinimum
     , dSum
-    , dTimestamp
     , dUnit
+    , dTimestamp
 
     -- ** Dimension
     , Dimension
@@ -195,34 +195,34 @@ module Network.AWS.CloudWatch
     , metricAlarm
     , maAlarmName
     , maStateUpdatedTimestamp
-    , maAlarmDescription
     , maPeriod
+    , maAlarmDescription
     , maEvaluationPeriods
     , maMetricName
     , maNamespace
-    , maOKActions
     , maComparisonOperator
+    , maOKActions
     , maStateValue
     , maThreshold
-    , maActionsEnabled
     , maAlarmConfigurationUpdatedTimestamp
+    , maActionsEnabled
     , maInsufficientDataActions
-    , maDimensions
-    , maStateReasonData
     , maStateReason
+    , maStateReasonData
+    , maDimensions
     , maAlarmARN
     , maAlarmActions
-    , maStatistic
     , maUnit
+    , maStatistic
 
     -- ** MetricDatum
     , MetricDatum
     , metricDatum
     , mdValue
     , mdDimensions
+    , mdUnit
     , mdTimestamp
     , mdStatisticValues
-    , mdUnit
     , mdMetricName
 
     -- ** StatisticSet

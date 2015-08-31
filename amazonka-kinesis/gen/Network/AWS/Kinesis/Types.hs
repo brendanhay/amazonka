@@ -20,8 +20,8 @@ module Network.AWS.Kinesis.Types
     , _InvalidArgumentException
     , _ProvisionedThroughputExceededException
     , _ResourceNotFoundException
-    , _ResourceInUseException
     , _LimitExceededException
+    , _ResourceInUseException
 
     -- * ShardIteratorType
     , ShardIteratorType (..)
@@ -148,12 +148,12 @@ _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a Servic
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
--- | The resource is not available for this operation. For example, you
--- attempted to split a shard but the stream is not in the 'ACTIVE' state.
-_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"
-
 -- | The requested resource exceeds the maximum number allowed, or the number
 -- of concurrent stream requests exceeds the maximum number allowed (5).
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+
+-- | The resource is not available for this operation. For example, you
+-- attempted to split a shard but the stream is not in the 'ACTIVE' state.
+_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"

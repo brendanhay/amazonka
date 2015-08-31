@@ -26,8 +26,8 @@ import           Network.AWS.Prelude
 -- /See:/ 'event' smart constructor.
 data Event = Event'
     { _eUsername        :: !(Maybe Text)
-    , _eEventTime       :: !(Maybe POSIX)
     , _eResources       :: !(Maybe [Resource])
+    , _eEventTime       :: !(Maybe POSIX)
     , _eCloudTrailEvent :: !(Maybe Text)
     , _eEventName       :: !(Maybe Text)
     , _eEventId         :: !(Maybe Text)
@@ -39,9 +39,9 @@ data Event = Event'
 --
 -- * 'eUsername'
 --
--- * 'eEventTime'
---
 -- * 'eResources'
+--
+-- * 'eEventTime'
 --
 -- * 'eCloudTrailEvent'
 --
@@ -53,8 +53,8 @@ event
 event =
     Event'
     { _eUsername = Nothing
-    , _eEventTime = Nothing
     , _eResources = Nothing
+    , _eEventTime = Nothing
     , _eCloudTrailEvent = Nothing
     , _eEventName = Nothing
     , _eEventId = Nothing
@@ -65,13 +65,13 @@ event =
 eUsername :: Lens' Event (Maybe Text)
 eUsername = lens _eUsername (\ s a -> s{_eUsername = a});
 
--- | The date and time of the event returned.
-eEventTime :: Lens' Event (Maybe UTCTime)
-eEventTime = lens _eEventTime (\ s a -> s{_eEventTime = a}) . mapping _Time;
-
 -- | A list of resources referenced by the event returned.
 eResources :: Lens' Event [Resource]
 eResources = lens _eResources (\ s a -> s{_eResources = a}) . _Default . _Coerce;
+
+-- | The date and time of the event returned.
+eEventTime :: Lens' Event (Maybe UTCTime)
+eEventTime = lens _eEventTime (\ s a -> s{_eEventTime = a}) . mapping _Time;
 
 -- | A JSON string that contains a representation of the event returned.
 eCloudTrailEvent :: Lens' Event (Maybe Text)
@@ -90,8 +90,8 @@ instance FromJSON Event where
           = withObject "Event"
               (\ x ->
                  Event' <$>
-                   (x .:? "Username") <*> (x .:? "EventTime") <*>
-                     (x .:? "Resources" .!= mempty)
+                   (x .:? "Username") <*> (x .:? "Resources" .!= mempty)
+                     <*> (x .:? "EventTime")
                      <*> (x .:? "CloudTrailEvent")
                      <*> (x .:? "EventName")
                      <*> (x .:? "EventId"))

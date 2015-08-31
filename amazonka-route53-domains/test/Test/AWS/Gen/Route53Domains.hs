@@ -67,17 +67,17 @@ import Test.AWS.Route53Domains.Internal
 --         , testUpdateDomainNameservers $
 --             updateDomainNameservers
 --
---         , testRetrieveDomainAuthCode $
---             retrieveDomainAuthCode
---
---         , testTransferDomain $
---             transferDomain
---
 --         , testDeleteTagsForDomain $
 --             deleteTagsForDomain
 --
 --         , testUpdateTagsForDomain $
 --             updateTagsForDomain
+--
+--         , testRetrieveDomainAuthCode $
+--             retrieveDomainAuthCode
+--
+--         , testTransferDomain $
+--             transferDomain
 --
 --         , testListDomains $
 --             listDomains
@@ -124,17 +124,17 @@ import Test.AWS.Route53Domains.Internal
 --         , testUpdateDomainNameserversResponse $
 --             updateDomainNameserversResponse
 --
---         , testRetrieveDomainAuthCodeResponse $
---             retrieveDomainAuthCodeResponse
---
---         , testTransferDomainResponse $
---             transferDomainResponse
---
 --         , testDeleteTagsForDomainResponse $
 --             deleteTagsForDomainResponse
 --
 --         , testUpdateTagsForDomainResponse $
 --             updateTagsForDomainResponse
+--
+--         , testRetrieveDomainAuthCodeResponse $
+--             retrieveDomainAuthCodeResponse
+--
+--         , testTransferDomainResponse $
+--             transferDomainResponse
 --
 --         , testListDomainsResponse $
 --             listDomainsResponse
@@ -209,16 +209,6 @@ testUpdateDomainNameservers = req
     "UpdateDomainNameservers"
     "fixture/UpdateDomainNameservers.yaml"
 
-testRetrieveDomainAuthCode :: RetrieveDomainAuthCode -> TestTree
-testRetrieveDomainAuthCode = req
-    "RetrieveDomainAuthCode"
-    "fixture/RetrieveDomainAuthCode.yaml"
-
-testTransferDomain :: TransferDomain -> TestTree
-testTransferDomain = req
-    "TransferDomain"
-    "fixture/TransferDomain.yaml"
-
 testDeleteTagsForDomain :: DeleteTagsForDomain -> TestTree
 testDeleteTagsForDomain = req
     "DeleteTagsForDomain"
@@ -228,6 +218,16 @@ testUpdateTagsForDomain :: UpdateTagsForDomain -> TestTree
 testUpdateTagsForDomain = req
     "UpdateTagsForDomain"
     "fixture/UpdateTagsForDomain.yaml"
+
+testRetrieveDomainAuthCode :: RetrieveDomainAuthCode -> TestTree
+testRetrieveDomainAuthCode = req
+    "RetrieveDomainAuthCode"
+    "fixture/RetrieveDomainAuthCode.yaml"
+
+testTransferDomain :: TransferDomain -> TestTree
+testTransferDomain = req
+    "TransferDomain"
+    "fixture/TransferDomain.yaml"
 
 testListDomains :: ListDomains -> TestTree
 testListDomains = req
@@ -327,20 +327,6 @@ testUpdateDomainNameserversResponse = res
     route53Domains
     (Proxy :: Proxy UpdateDomainNameservers)
 
-testRetrieveDomainAuthCodeResponse :: RetrieveDomainAuthCodeResponse -> TestTree
-testRetrieveDomainAuthCodeResponse = res
-    "RetrieveDomainAuthCodeResponse"
-    "fixture/RetrieveDomainAuthCodeResponse.proto"
-    route53Domains
-    (Proxy :: Proxy RetrieveDomainAuthCode)
-
-testTransferDomainResponse :: TransferDomainResponse -> TestTree
-testTransferDomainResponse = res
-    "TransferDomainResponse"
-    "fixture/TransferDomainResponse.proto"
-    route53Domains
-    (Proxy :: Proxy TransferDomain)
-
 testDeleteTagsForDomainResponse :: DeleteTagsForDomainResponse -> TestTree
 testDeleteTagsForDomainResponse = res
     "DeleteTagsForDomainResponse"
@@ -354,6 +340,20 @@ testUpdateTagsForDomainResponse = res
     "fixture/UpdateTagsForDomainResponse.proto"
     route53Domains
     (Proxy :: Proxy UpdateTagsForDomain)
+
+testRetrieveDomainAuthCodeResponse :: RetrieveDomainAuthCodeResponse -> TestTree
+testRetrieveDomainAuthCodeResponse = res
+    "RetrieveDomainAuthCodeResponse"
+    "fixture/RetrieveDomainAuthCodeResponse.proto"
+    route53Domains
+    (Proxy :: Proxy RetrieveDomainAuthCode)
+
+testTransferDomainResponse :: TransferDomainResponse -> TestTree
+testTransferDomainResponse = res
+    "TransferDomainResponse"
+    "fixture/TransferDomainResponse.proto"
+    route53Domains
+    (Proxy :: Proxy TransferDomain)
 
 testListDomainsResponse :: ListDomainsResponse -> TestTree
 testListDomainsResponse = res

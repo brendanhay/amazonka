@@ -30,8 +30,8 @@ module Network.AWS.IAM.GetGroup
       getGroup
     , GetGroup
     -- * Request Lenses
-    , ggMaxItems
     , ggMarker
+    , ggMaxItems
     , ggGroupName
 
     -- * Destructuring the Response
@@ -54,8 +54,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'getGroup' smart constructor.
 data GetGroup = GetGroup'
-    { _ggMaxItems  :: !(Maybe Nat)
-    , _ggMarker    :: !(Maybe Text)
+    { _ggMarker    :: !(Maybe Text)
+    , _ggMaxItems  :: !(Maybe Nat)
     , _ggGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -63,9 +63,9 @@ data GetGroup = GetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggMaxItems'
---
 -- * 'ggMarker'
+--
+-- * 'ggMaxItems'
 --
 -- * 'ggGroupName'
 getGroup
@@ -73,10 +73,16 @@ getGroup
     -> GetGroup
 getGroup pGroupName_ =
     GetGroup'
-    { _ggMaxItems = Nothing
-    , _ggMarker = Nothing
+    { _ggMarker = Nothing
+    , _ggMaxItems = Nothing
     , _ggGroupName = pGroupName_
     }
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+ggMarker :: Lens' GetGroup (Maybe Text)
+ggMarker = lens _ggMarker (\ s a -> s{_ggMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -86,12 +92,6 @@ getGroup pGroupName_ =
 -- 100.
 ggMaxItems :: Lens' GetGroup (Maybe Natural)
 ggMaxItems = lens _ggMaxItems (\ s a -> s{_ggMaxItems = a}) . mapping _Nat;
-
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-ggMarker :: Lens' GetGroup (Maybe Text)
-ggMarker = lens _ggMarker (\ s a -> s{_ggMarker = a});
 
 -- | The name of the group.
 ggGroupName :: Lens' GetGroup Text
@@ -128,7 +128,7 @@ instance ToQuery GetGroup where
           = mconcat
               ["Action" =: ("GetGroup" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _ggMaxItems, "Marker" =: _ggMarker,
+               "Marker" =: _ggMarker, "MaxItems" =: _ggMaxItems,
                "GroupName" =: _ggGroupName]
 
 -- | Contains the response to a successful GetGroup request.

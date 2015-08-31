@@ -34,8 +34,8 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
       describeDefaultClusterParameters
     , DescribeDefaultClusterParameters
     -- * Request Lenses
-    , ddcpMaxRecords
     , ddcpMarker
+    , ddcpMaxRecords
     , ddcpParameterGroupFamily
 
     -- * Destructuring the Response
@@ -57,8 +57,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeDefaultClusterParameters' smart constructor.
 data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
-    { _ddcpMaxRecords           :: !(Maybe Int)
-    , _ddcpMarker               :: !(Maybe Text)
+    { _ddcpMarker               :: !(Maybe Text)
+    , _ddcpMaxRecords           :: !(Maybe Int)
     , _ddcpParameterGroupFamily :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -66,9 +66,9 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcpMaxRecords'
---
 -- * 'ddcpMarker'
+--
+-- * 'ddcpMaxRecords'
 --
 -- * 'ddcpParameterGroupFamily'
 describeDefaultClusterParameters
@@ -76,10 +76,20 @@ describeDefaultClusterParameters
     -> DescribeDefaultClusterParameters
 describeDefaultClusterParameters pParameterGroupFamily_ =
     DescribeDefaultClusterParameters'
-    { _ddcpMaxRecords = Nothing
-    , _ddcpMarker = Nothing
+    { _ddcpMarker = Nothing
+    , _ddcpMaxRecords = Nothing
     , _ddcpParameterGroupFamily = pParameterGroupFamily_
     }
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a
+-- DescribeDefaultClusterParameters request exceed the value specified in
+-- 'MaxRecords', AWS returns a value in the 'Marker' field of the response.
+-- You can retrieve the next set of response records by providing the
+-- returned marker value in the 'Marker' parameter and retrying the
+-- request.
+ddcpMarker :: Lens' DescribeDefaultClusterParameters (Maybe Text)
+ddcpMarker = lens _ddcpMarker (\ s a -> s{_ddcpMarker = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified 'MaxRecords'
@@ -92,16 +102,6 @@ describeDefaultClusterParameters pParameterGroupFamily_ =
 -- Constraints: minimum 20, maximum 100.
 ddcpMaxRecords :: Lens' DescribeDefaultClusterParameters (Maybe Int)
 ddcpMaxRecords = lens _ddcpMaxRecords (\ s a -> s{_ddcpMaxRecords = a});
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a
--- DescribeDefaultClusterParameters request exceed the value specified in
--- 'MaxRecords', AWS returns a value in the 'Marker' field of the response.
--- You can retrieve the next set of response records by providing the
--- returned marker value in the 'Marker' parameter and retrying the
--- request.
-ddcpMarker :: Lens' DescribeDefaultClusterParameters (Maybe Text)
-ddcpMarker = lens _ddcpMarker (\ s a -> s{_ddcpMarker = a});
 
 -- | The name of the cluster parameter group family.
 ddcpParameterGroupFamily :: Lens' DescribeDefaultClusterParameters Text
@@ -152,8 +152,8 @@ instance ToQuery DescribeDefaultClusterParameters
               ["Action" =:
                  ("DescribeDefaultClusterParameters" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "MaxRecords" =: _ddcpMaxRecords,
                "Marker" =: _ddcpMarker,
+               "MaxRecords" =: _ddcpMaxRecords,
                "ParameterGroupFamily" =: _ddcpParameterGroupFamily]
 
 -- | /See:/ 'describeDefaultClusterParametersResponse' smart constructor.

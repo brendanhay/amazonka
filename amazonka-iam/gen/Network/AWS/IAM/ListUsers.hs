@@ -35,8 +35,8 @@ module Network.AWS.IAM.ListUsers
     , ListUsers
     -- * Request Lenses
     , luPathPrefix
-    , luMaxItems
     , luMarker
+    , luMaxItems
 
     -- * Destructuring the Response
     , listUsersResponse
@@ -58,8 +58,8 @@ import           Network.AWS.Response
 -- | /See:/ 'listUsers' smart constructor.
 data ListUsers = ListUsers'
     { _luPathPrefix :: !(Maybe Text)
-    , _luMaxItems   :: !(Maybe Nat)
     , _luMarker     :: !(Maybe Text)
+    , _luMaxItems   :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListUsers' with the minimum fields required to make a request.
@@ -68,16 +68,16 @@ data ListUsers = ListUsers'
 --
 -- * 'luPathPrefix'
 --
--- * 'luMaxItems'
---
 -- * 'luMarker'
+--
+-- * 'luMaxItems'
 listUsers
     :: ListUsers
 listUsers =
     ListUsers'
     { _luPathPrefix = Nothing
-    , _luMaxItems = Nothing
     , _luMarker = Nothing
+    , _luMaxItems = Nothing
     }
 
 -- | The path prefix for filtering the results. For example:
@@ -89,6 +89,12 @@ listUsers =
 luPathPrefix :: Lens' ListUsers (Maybe Text)
 luPathPrefix = lens _luPathPrefix (\ s a -> s{_luPathPrefix = a});
 
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+luMarker :: Lens' ListUsers (Maybe Text)
+luMarker = lens _luMarker (\ s a -> s{_luMarker = a});
+
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
@@ -97,12 +103,6 @@ luPathPrefix = lens _luPathPrefix (\ s a -> s{_luPathPrefix = a});
 -- 100.
 luMaxItems :: Lens' ListUsers (Maybe Natural)
 luMaxItems = lens _luMaxItems (\ s a -> s{_luMaxItems = a}) . mapping _Nat;
-
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-luMarker :: Lens' ListUsers (Maybe Text)
-luMarker = lens _luMarker (\ s a -> s{_luMarker = a});
 
 instance AWSPager ListUsers where
         page rq rs
@@ -134,8 +134,8 @@ instance ToQuery ListUsers where
           = mconcat
               ["Action" =: ("ListUsers" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _luPathPrefix,
-               "MaxItems" =: _luMaxItems, "Marker" =: _luMarker]
+               "PathPrefix" =: _luPathPrefix, "Marker" =: _luMarker,
+               "MaxItems" =: _luMaxItems]
 
 -- | Contains the response to a successful ListUsers request.
 --

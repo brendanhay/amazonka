@@ -57,8 +57,8 @@ module Network.AWS.EC2.CreateSnapshot
       createSnapshot
     , CreateSnapshot
     -- * Request Lenses
-    , ccDryRun
     , ccDescription
+    , ccDryRun
     , ccVolumeId
 
     -- * Destructuring the Response
@@ -87,8 +87,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'createSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-    { _ccDryRun      :: !(Maybe Bool)
-    , _ccDescription :: !(Maybe Text)
+    { _ccDescription :: !(Maybe Text)
+    , _ccDryRun      :: !(Maybe Bool)
     , _ccVolumeId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -96,9 +96,9 @@ data CreateSnapshot = CreateSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccDryRun'
---
 -- * 'ccDescription'
+--
+-- * 'ccDryRun'
 --
 -- * 'ccVolumeId'
 createSnapshot
@@ -106,10 +106,14 @@ createSnapshot
     -> CreateSnapshot
 createSnapshot pVolumeId_ =
     CreateSnapshot'
-    { _ccDryRun = Nothing
-    , _ccDescription = Nothing
+    { _ccDescription = Nothing
+    , _ccDryRun = Nothing
     , _ccVolumeId = pVolumeId_
     }
+
+-- | A description for the snapshot.
+ccDescription :: Lens' CreateSnapshot (Maybe Text)
+ccDescription = lens _ccDescription (\ s a -> s{_ccDescription = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -117,10 +121,6 @@ createSnapshot pVolumeId_ =
 -- Otherwise, it is 'UnauthorizedOperation'.
 ccDryRun :: Lens' CreateSnapshot (Maybe Bool)
 ccDryRun = lens _ccDryRun (\ s a -> s{_ccDryRun = a});
-
--- | A description for the snapshot.
-ccDescription :: Lens' CreateSnapshot (Maybe Text)
-ccDescription = lens _ccDescription (\ s a -> s{_ccDescription = a});
 
 -- | The ID of the EBS volume.
 ccVolumeId :: Lens' CreateSnapshot Text
@@ -142,6 +142,5 @@ instance ToQuery CreateSnapshot where
           = mconcat
               ["Action" =: ("CreateSnapshot" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _ccDryRun,
                "Description" =: _ccDescription,
-               "VolumeId" =: _ccVolumeId]
+               "DryRun" =: _ccDryRun, "VolumeId" =: _ccVolumeId]

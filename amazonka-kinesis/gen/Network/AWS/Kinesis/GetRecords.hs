@@ -81,8 +81,8 @@ module Network.AWS.Kinesis.GetRecords
     , getRecordsResponse
     , GetRecordsResponse
     -- * Response Lenses
-    , grrsMillisBehindLatest
     , grrsNextShardIterator
+    , grrsMillisBehindLatest
     , grrsStatus
     , grrsRecords
     ) where
@@ -136,8 +136,8 @@ instance AWSRequest GetRecords where
           = receiveJSON
               (\ s h x ->
                  GetRecordsResponse' <$>
-                   (x .?> "MillisBehindLatest") <*>
-                     (x .?> "NextShardIterator")
+                   (x .?> "NextShardIterator") <*>
+                     (x .?> "MillisBehindLatest")
                      <*> (pure (fromEnum s))
                      <*> (x .?> "Records" .!@ mempty))
 
@@ -167,8 +167,8 @@ instance ToQuery GetRecords where
 --
 -- /See:/ 'getRecordsResponse' smart constructor.
 data GetRecordsResponse = GetRecordsResponse'
-    { _grrsMillisBehindLatest :: !(Maybe Nat)
-    , _grrsNextShardIterator  :: !(Maybe Text)
+    { _grrsNextShardIterator  :: !(Maybe Text)
+    , _grrsMillisBehindLatest :: !(Maybe Nat)
     , _grrsStatus             :: !Int
     , _grrsRecords            :: ![Record]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -177,9 +177,9 @@ data GetRecordsResponse = GetRecordsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grrsMillisBehindLatest'
---
 -- * 'grrsNextShardIterator'
+--
+-- * 'grrsMillisBehindLatest'
 --
 -- * 'grrsStatus'
 --
@@ -189,11 +189,17 @@ getRecordsResponse
     -> GetRecordsResponse
 getRecordsResponse pStatus_ =
     GetRecordsResponse'
-    { _grrsMillisBehindLatest = Nothing
-    , _grrsNextShardIterator = Nothing
+    { _grrsNextShardIterator = Nothing
+    , _grrsMillisBehindLatest = Nothing
     , _grrsStatus = pStatus_
     , _grrsRecords = mempty
     }
+
+-- | The next position in the shard from which to start sequentially reading
+-- data records. If set to 'null', the shard has been closed and the
+-- requested iterator will not return any more data.
+grrsNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
+grrsNextShardIterator = lens _grrsNextShardIterator (\ s a -> s{_grrsNextShardIterator = a});
 
 -- | The number of milliseconds the GetRecords response is from the tip of
 -- the stream, indicating how far behind current time the consumer is. A
@@ -201,12 +207,6 @@ getRecordsResponse pStatus_ =
 -- new records to process at this moment.
 grrsMillisBehindLatest :: Lens' GetRecordsResponse (Maybe Natural)
 grrsMillisBehindLatest = lens _grrsMillisBehindLatest (\ s a -> s{_grrsMillisBehindLatest = a}) . mapping _Nat;
-
--- | The next position in the shard from which to start sequentially reading
--- data records. If set to 'null', the shard has been closed and the
--- requested iterator will not return any more data.
-grrsNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
-grrsNextShardIterator = lens _grrsNextShardIterator (\ s a -> s{_grrsNextShardIterator = a});
 
 -- | The response status code.
 grrsStatus :: Lens' GetRecordsResponse Int

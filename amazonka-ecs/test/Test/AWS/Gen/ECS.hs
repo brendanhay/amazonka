@@ -67,20 +67,20 @@ import Test.AWS.ECS.Internal
 --         , testListTaskDefinitions $
 --             listTaskDefinitions
 --
---         , testListTasks $
---             listTasks
---
 --         , testRunTask $
 --             runTask
 --
---         , testListContainerInstances $
---             listContainerInstances
+--         , testListTasks $
+--             listTasks
 --
 --         , testRegisterContainerInstance $
 --             registerContainerInstance
 --
 --         , testUpdateContainerAgent $
 --             updateContainerAgent
+--
+--         , testListContainerInstances $
+--             listContainerInstances
 --
 --         , testListTaskDefinitionFamilies $
 --             listTaskDefinitionFamilies
@@ -151,20 +151,20 @@ import Test.AWS.ECS.Internal
 --         , testListTaskDefinitionsResponse $
 --             listTaskDefinitionsResponse
 --
---         , testListTasksResponse $
---             listTasksResponse
---
 --         , testRunTaskResponse $
 --             runTaskResponse
 --
---         , testListContainerInstancesResponse $
---             listContainerInstancesResponse
+--         , testListTasksResponse $
+--             listTasksResponse
 --
 --         , testRegisterContainerInstanceResponse $
 --             registerContainerInstanceResponse
 --
 --         , testUpdateContainerAgentResponse $
 --             updateContainerAgentResponse
+--
+--         , testListContainerInstancesResponse $
+--             listContainerInstancesResponse
 --
 --         , testListTaskDefinitionFamiliesResponse $
 --             listTaskDefinitionFamiliesResponse
@@ -263,20 +263,15 @@ testListTaskDefinitions = req
     "ListTaskDefinitions"
     "fixture/ListTaskDefinitions.yaml"
 
-testListTasks :: ListTasks -> TestTree
-testListTasks = req
-    "ListTasks"
-    "fixture/ListTasks.yaml"
-
 testRunTask :: RunTask -> TestTree
 testRunTask = req
     "RunTask"
     "fixture/RunTask.yaml"
 
-testListContainerInstances :: ListContainerInstances -> TestTree
-testListContainerInstances = req
-    "ListContainerInstances"
-    "fixture/ListContainerInstances.yaml"
+testListTasks :: ListTasks -> TestTree
+testListTasks = req
+    "ListTasks"
+    "fixture/ListTasks.yaml"
 
 testRegisterContainerInstance :: RegisterContainerInstance -> TestTree
 testRegisterContainerInstance = req
@@ -287,6 +282,11 @@ testUpdateContainerAgent :: UpdateContainerAgent -> TestTree
 testUpdateContainerAgent = req
     "UpdateContainerAgent"
     "fixture/UpdateContainerAgent.yaml"
+
+testListContainerInstances :: ListContainerInstances -> TestTree
+testListContainerInstances = req
+    "ListContainerInstances"
+    "fixture/ListContainerInstances.yaml"
 
 testListTaskDefinitionFamilies :: ListTaskDefinitionFamilies -> TestTree
 testListTaskDefinitionFamilies = req
@@ -426,13 +426,6 @@ testListTaskDefinitionsResponse = res
     eCS
     (Proxy :: Proxy ListTaskDefinitions)
 
-testListTasksResponse :: ListTasksResponse -> TestTree
-testListTasksResponse = res
-    "ListTasksResponse"
-    "fixture/ListTasksResponse.proto"
-    eCS
-    (Proxy :: Proxy ListTasks)
-
 testRunTaskResponse :: RunTaskResponse -> TestTree
 testRunTaskResponse = res
     "RunTaskResponse"
@@ -440,12 +433,12 @@ testRunTaskResponse = res
     eCS
     (Proxy :: Proxy RunTask)
 
-testListContainerInstancesResponse :: ListContainerInstancesResponse -> TestTree
-testListContainerInstancesResponse = res
-    "ListContainerInstancesResponse"
-    "fixture/ListContainerInstancesResponse.proto"
+testListTasksResponse :: ListTasksResponse -> TestTree
+testListTasksResponse = res
+    "ListTasksResponse"
+    "fixture/ListTasksResponse.proto"
     eCS
-    (Proxy :: Proxy ListContainerInstances)
+    (Proxy :: Proxy ListTasks)
 
 testRegisterContainerInstanceResponse :: RegisterContainerInstanceResponse -> TestTree
 testRegisterContainerInstanceResponse = res
@@ -460,6 +453,13 @@ testUpdateContainerAgentResponse = res
     "fixture/UpdateContainerAgentResponse.proto"
     eCS
     (Proxy :: Proxy UpdateContainerAgent)
+
+testListContainerInstancesResponse :: ListContainerInstancesResponse -> TestTree
+testListContainerInstancesResponse = res
+    "ListContainerInstancesResponse"
+    "fixture/ListContainerInstancesResponse.proto"
+    eCS
+    (Proxy :: Proxy ListContainerInstances)
 
 testListTaskDefinitionFamiliesResponse :: ListTaskDefinitionFamiliesResponse -> TestTree
 testListTaskDefinitionFamiliesResponse = res

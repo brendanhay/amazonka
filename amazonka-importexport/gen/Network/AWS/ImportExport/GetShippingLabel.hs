@@ -30,14 +30,14 @@ module Network.AWS.ImportExport.GetShippingLabel
     -- * Request Lenses
     , gslStreet3
     , gslAPIVersion
-    , gslPostalCode
     , gslCountry
     , gslStateOrProvince
+    , gslPostalCode
     , gslStreet2
     , gslName
     , gslCompany
-    , gslCity
     , gslPhoneNumber
+    , gslCity
     , gslStreet1
     , gslJobIds
 
@@ -60,14 +60,14 @@ import           Network.AWS.Response
 data GetShippingLabel = GetShippingLabel'
     { _gslStreet3         :: !(Maybe Text)
     , _gslAPIVersion      :: !(Maybe Text)
-    , _gslPostalCode      :: !(Maybe Text)
     , _gslCountry         :: !(Maybe Text)
     , _gslStateOrProvince :: !(Maybe Text)
+    , _gslPostalCode      :: !(Maybe Text)
     , _gslStreet2         :: !(Maybe Text)
     , _gslName            :: !(Maybe Text)
     , _gslCompany         :: !(Maybe Text)
-    , _gslCity            :: !(Maybe Text)
     , _gslPhoneNumber     :: !(Maybe Text)
+    , _gslCity            :: !(Maybe Text)
     , _gslStreet1         :: !(Maybe Text)
     , _gslJobIds          :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -80,11 +80,11 @@ data GetShippingLabel = GetShippingLabel'
 --
 -- * 'gslAPIVersion'
 --
--- * 'gslPostalCode'
---
 -- * 'gslCountry'
 --
 -- * 'gslStateOrProvince'
+--
+-- * 'gslPostalCode'
 --
 -- * 'gslStreet2'
 --
@@ -92,9 +92,9 @@ data GetShippingLabel = GetShippingLabel'
 --
 -- * 'gslCompany'
 --
--- * 'gslCity'
---
 -- * 'gslPhoneNumber'
+--
+-- * 'gslCity'
 --
 -- * 'gslStreet1'
 --
@@ -105,14 +105,14 @@ getShippingLabel =
     GetShippingLabel'
     { _gslStreet3 = Nothing
     , _gslAPIVersion = Nothing
-    , _gslPostalCode = Nothing
     , _gslCountry = Nothing
     , _gslStateOrProvince = Nothing
+    , _gslPostalCode = Nothing
     , _gslStreet2 = Nothing
     , _gslName = Nothing
     , _gslCompany = Nothing
-    , _gslCity = Nothing
     , _gslPhoneNumber = Nothing
+    , _gslCity = Nothing
     , _gslStreet1 = Nothing
     , _gslJobIds = mempty
     }
@@ -126,16 +126,16 @@ gslAPIVersion :: Lens' GetShippingLabel (Maybe Text)
 gslAPIVersion = lens _gslAPIVersion (\ s a -> s{_gslAPIVersion = a});
 
 -- | Undocumented member.
-gslPostalCode :: Lens' GetShippingLabel (Maybe Text)
-gslPostalCode = lens _gslPostalCode (\ s a -> s{_gslPostalCode = a});
-
--- | Undocumented member.
 gslCountry :: Lens' GetShippingLabel (Maybe Text)
 gslCountry = lens _gslCountry (\ s a -> s{_gslCountry = a});
 
 -- | Undocumented member.
 gslStateOrProvince :: Lens' GetShippingLabel (Maybe Text)
 gslStateOrProvince = lens _gslStateOrProvince (\ s a -> s{_gslStateOrProvince = a});
+
+-- | Undocumented member.
+gslPostalCode :: Lens' GetShippingLabel (Maybe Text)
+gslPostalCode = lens _gslPostalCode (\ s a -> s{_gslPostalCode = a});
 
 -- | Undocumented member.
 gslStreet2 :: Lens' GetShippingLabel (Maybe Text)
@@ -150,12 +150,12 @@ gslCompany :: Lens' GetShippingLabel (Maybe Text)
 gslCompany = lens _gslCompany (\ s a -> s{_gslCompany = a});
 
 -- | Undocumented member.
-gslCity :: Lens' GetShippingLabel (Maybe Text)
-gslCity = lens _gslCity (\ s a -> s{_gslCity = a});
-
--- | Undocumented member.
 gslPhoneNumber :: Lens' GetShippingLabel (Maybe Text)
 gslPhoneNumber = lens _gslPhoneNumber (\ s a -> s{_gslPhoneNumber = a});
+
+-- | Undocumented member.
+gslCity :: Lens' GetShippingLabel (Maybe Text)
+gslCity = lens _gslCity (\ s a -> s{_gslCity = a});
 
 -- | Undocumented member.
 gslStreet1 :: Lens' GetShippingLabel (Maybe Text)
@@ -189,12 +189,12 @@ instance ToQuery GetShippingLabel where
                "Version" =: ("2010-06-01" :: ByteString),
                "street3" =: _gslStreet3,
                "APIVersion" =: _gslAPIVersion,
-               "postalCode" =: _gslPostalCode,
                "country" =: _gslCountry,
                "stateOrProvince" =: _gslStateOrProvince,
+               "postalCode" =: _gslPostalCode,
                "street2" =: _gslStreet2, "name" =: _gslName,
-               "company" =: _gslCompany, "city" =: _gslCity,
-               "phoneNumber" =: _gslPhoneNumber,
+               "company" =: _gslCompany,
+               "phoneNumber" =: _gslPhoneNumber, "city" =: _gslCity,
                "street1" =: _gslStreet1,
                "jobIds" =: toQueryList "member" _gslJobIds]
 

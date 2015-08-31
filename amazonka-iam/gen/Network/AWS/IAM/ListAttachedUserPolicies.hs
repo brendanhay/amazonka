@@ -40,8 +40,8 @@ module Network.AWS.IAM.ListAttachedUserPolicies
     , ListAttachedUserPolicies
     -- * Request Lenses
     , laupPathPrefix
-    , laupMaxItems
     , laupMarker
+    , laupMaxItems
     , laupUserName
 
     -- * Destructuring the Response
@@ -63,8 +63,8 @@ import           Network.AWS.Response
 -- | /See:/ 'listAttachedUserPolicies' smart constructor.
 data ListAttachedUserPolicies = ListAttachedUserPolicies'
     { _laupPathPrefix :: !(Maybe Text)
-    , _laupMaxItems   :: !(Maybe Nat)
     , _laupMarker     :: !(Maybe Text)
+    , _laupMaxItems   :: !(Maybe Nat)
     , _laupUserName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -74,9 +74,9 @@ data ListAttachedUserPolicies = ListAttachedUserPolicies'
 --
 -- * 'laupPathPrefix'
 --
--- * 'laupMaxItems'
---
 -- * 'laupMarker'
+--
+-- * 'laupMaxItems'
 --
 -- * 'laupUserName'
 listAttachedUserPolicies
@@ -85,8 +85,8 @@ listAttachedUserPolicies
 listAttachedUserPolicies pUserName_ =
     ListAttachedUserPolicies'
     { _laupPathPrefix = Nothing
-    , _laupMaxItems = Nothing
     , _laupMarker = Nothing
+    , _laupMaxItems = Nothing
     , _laupUserName = pUserName_
     }
 
@@ -96,6 +96,12 @@ listAttachedUserPolicies pUserName_ =
 laupPathPrefix :: Lens' ListAttachedUserPolicies (Maybe Text)
 laupPathPrefix = lens _laupPathPrefix (\ s a -> s{_laupPathPrefix = a});
 
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+laupMarker :: Lens' ListAttachedUserPolicies (Maybe Text)
+laupMarker = lens _laupMarker (\ s a -> s{_laupMarker = a});
+
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
@@ -104,12 +110,6 @@ laupPathPrefix = lens _laupPathPrefix (\ s a -> s{_laupPathPrefix = a});
 -- 100.
 laupMaxItems :: Lens' ListAttachedUserPolicies (Maybe Natural)
 laupMaxItems = lens _laupMaxItems (\ s a -> s{_laupMaxItems = a}) . mapping _Nat;
-
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-laupMarker :: Lens' ListAttachedUserPolicies (Maybe Text)
-laupMarker = lens _laupMarker (\ s a -> s{_laupMarker = a});
 
 -- | The name (friendly name, not ARN) of the user to list attached policies
 -- for.
@@ -143,7 +143,7 @@ instance ToQuery ListAttachedUserPolicies where
                  ("ListAttachedUserPolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "PathPrefix" =: _laupPathPrefix,
-               "MaxItems" =: _laupMaxItems, "Marker" =: _laupMarker,
+               "Marker" =: _laupMarker, "MaxItems" =: _laupMaxItems,
                "UserName" =: _laupUserName]
 
 -- | Contains the response to a successful ListAttachedUserPolicies request.

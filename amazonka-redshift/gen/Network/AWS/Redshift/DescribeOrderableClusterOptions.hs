@@ -38,8 +38,8 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
       describeOrderableClusterOptions
     , DescribeOrderableClusterOptions
     -- * Request Lenses
-    , docoMaxRecords
     , docoMarker
+    , docoMaxRecords
     , docoClusterVersion
     , docoNodeType
 
@@ -63,8 +63,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeOrderableClusterOptions' smart constructor.
 data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
-    { _docoMaxRecords     :: !(Maybe Int)
-    , _docoMarker         :: !(Maybe Text)
+    { _docoMarker         :: !(Maybe Text)
+    , _docoMaxRecords     :: !(Maybe Int)
     , _docoClusterVersion :: !(Maybe Text)
     , _docoNodeType       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -73,9 +73,9 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'docoMaxRecords'
---
 -- * 'docoMarker'
+--
+-- * 'docoMaxRecords'
 --
 -- * 'docoClusterVersion'
 --
@@ -84,11 +84,21 @@ describeOrderableClusterOptions
     :: DescribeOrderableClusterOptions
 describeOrderableClusterOptions =
     DescribeOrderableClusterOptions'
-    { _docoMaxRecords = Nothing
-    , _docoMarker = Nothing
+    { _docoMarker = Nothing
+    , _docoMaxRecords = Nothing
     , _docoClusterVersion = Nothing
     , _docoNodeType = Nothing
     }
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a
+-- DescribeOrderableClusterOptions request exceed the value specified in
+-- 'MaxRecords', AWS returns a value in the 'Marker' field of the response.
+-- You can retrieve the next set of response records by providing the
+-- returned marker value in the 'Marker' parameter and retrying the
+-- request.
+docoMarker :: Lens' DescribeOrderableClusterOptions (Maybe Text)
+docoMarker = lens _docoMarker (\ s a -> s{_docoMarker = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified 'MaxRecords'
@@ -101,16 +111,6 @@ describeOrderableClusterOptions =
 -- Constraints: minimum 20, maximum 100.
 docoMaxRecords :: Lens' DescribeOrderableClusterOptions (Maybe Int)
 docoMaxRecords = lens _docoMaxRecords (\ s a -> s{_docoMaxRecords = a});
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a
--- DescribeOrderableClusterOptions request exceed the value specified in
--- 'MaxRecords', AWS returns a value in the 'Marker' field of the response.
--- You can retrieve the next set of response records by providing the
--- returned marker value in the 'Marker' parameter and retrying the
--- request.
-docoMarker :: Lens' DescribeOrderableClusterOptions (Maybe Text)
-docoMarker = lens _docoMarker (\ s a -> s{_docoMarker = a});
 
 -- | The version filter value. Specify this parameter to show only the
 -- available offerings matching the specified version.
@@ -165,8 +165,8 @@ instance ToQuery DescribeOrderableClusterOptions
               ["Action" =:
                  ("DescribeOrderableClusterOptions" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "MaxRecords" =: _docoMaxRecords,
                "Marker" =: _docoMarker,
+               "MaxRecords" =: _docoMaxRecords,
                "ClusterVersion" =: _docoClusterVersion,
                "NodeType" =: _docoNodeType]
 

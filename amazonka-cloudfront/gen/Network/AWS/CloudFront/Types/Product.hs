@@ -1274,14 +1274,14 @@ instance FromXML Distribution where
 --
 -- /See:/ 'distributionConfig' smart constructor.
 data DistributionConfig = DistributionConfig'
-    { _dcDefaultRootObject    :: !(Maybe Text)
-    , _dcAliases              :: !(Maybe Aliases)
-    , _dcCustomErrorResponses :: !(Maybe CustomErrorResponses)
+    { _dcAliases              :: !(Maybe Aliases)
+    , _dcDefaultRootObject    :: !(Maybe Text)
     , _dcPriceClass           :: !(Maybe PriceClass)
+    , _dcCustomErrorResponses :: !(Maybe CustomErrorResponses)
     , _dcViewerCertificate    :: !(Maybe ViewerCertificate)
     , _dcRestrictions         :: !(Maybe Restrictions)
-    , _dcCacheBehaviors       :: !(Maybe CacheBehaviors)
     , _dcLogging              :: !(Maybe LoggingConfig)
+    , _dcCacheBehaviors       :: !(Maybe CacheBehaviors)
     , _dcCallerReference      :: !Text
     , _dcOrigins              :: !Origins
     , _dcDefaultCacheBehavior :: !DefaultCacheBehavior
@@ -1293,21 +1293,21 @@ data DistributionConfig = DistributionConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcDefaultRootObject'
---
 -- * 'dcAliases'
 --
--- * 'dcCustomErrorResponses'
+-- * 'dcDefaultRootObject'
 --
 -- * 'dcPriceClass'
+--
+-- * 'dcCustomErrorResponses'
 --
 -- * 'dcViewerCertificate'
 --
 -- * 'dcRestrictions'
 --
--- * 'dcCacheBehaviors'
---
 -- * 'dcLogging'
+--
+-- * 'dcCacheBehaviors'
 --
 -- * 'dcCallerReference'
 --
@@ -1327,20 +1327,25 @@ distributionConfig
     -> DistributionConfig
 distributionConfig pCallerReference_ pOrigins_ pDefaultCacheBehavior_ pComment_ pEnabled_ =
     DistributionConfig'
-    { _dcDefaultRootObject = Nothing
-    , _dcAliases = Nothing
-    , _dcCustomErrorResponses = Nothing
+    { _dcAliases = Nothing
+    , _dcDefaultRootObject = Nothing
     , _dcPriceClass = Nothing
+    , _dcCustomErrorResponses = Nothing
     , _dcViewerCertificate = Nothing
     , _dcRestrictions = Nothing
-    , _dcCacheBehaviors = Nothing
     , _dcLogging = Nothing
+    , _dcCacheBehaviors = Nothing
     , _dcCallerReference = pCallerReference_
     , _dcOrigins = pOrigins_
     , _dcDefaultCacheBehavior = pDefaultCacheBehavior_
     , _dcComment = pComment_
     , _dcEnabled = pEnabled_
     }
+
+-- | A complex type that contains information about CNAMEs (alternate domain
+-- names), if any, for this distribution.
+dcAliases :: Lens' DistributionConfig (Maybe Aliases)
+dcAliases = lens _dcAliases (\ s a -> s{_dcAliases = a});
 
 -- | The object that you want CloudFront to return (for example, index.html)
 -- when an end user requests the root URL for your distribution
@@ -1356,19 +1361,14 @@ distributionConfig pCallerReference_ pOrigins_ pDefaultCacheBehavior_ pComment_ 
 dcDefaultRootObject :: Lens' DistributionConfig (Maybe Text)
 dcDefaultRootObject = lens _dcDefaultRootObject (\ s a -> s{_dcDefaultRootObject = a});
 
--- | A complex type that contains information about CNAMEs (alternate domain
--- names), if any, for this distribution.
-dcAliases :: Lens' DistributionConfig (Maybe Aliases)
-dcAliases = lens _dcAliases (\ s a -> s{_dcAliases = a});
-
--- | A complex type that contains zero or more CustomErrorResponse elements.
-dcCustomErrorResponses :: Lens' DistributionConfig (Maybe CustomErrorResponses)
-dcCustomErrorResponses = lens _dcCustomErrorResponses (\ s a -> s{_dcCustomErrorResponses = a});
-
 -- | A complex type that contains information about price class for this
 -- distribution.
 dcPriceClass :: Lens' DistributionConfig (Maybe PriceClass)
 dcPriceClass = lens _dcPriceClass (\ s a -> s{_dcPriceClass = a});
+
+-- | A complex type that contains zero or more CustomErrorResponse elements.
+dcCustomErrorResponses :: Lens' DistributionConfig (Maybe CustomErrorResponses)
+dcCustomErrorResponses = lens _dcCustomErrorResponses (\ s a -> s{_dcCustomErrorResponses = a});
 
 -- | Undocumented member.
 dcViewerCertificate :: Lens' DistributionConfig (Maybe ViewerCertificate)
@@ -1378,14 +1378,14 @@ dcViewerCertificate = lens _dcViewerCertificate (\ s a -> s{_dcViewerCertificate
 dcRestrictions :: Lens' DistributionConfig (Maybe Restrictions)
 dcRestrictions = lens _dcRestrictions (\ s a -> s{_dcRestrictions = a});
 
--- | A complex type that contains zero or more CacheBehavior elements.
-dcCacheBehaviors :: Lens' DistributionConfig (Maybe CacheBehaviors)
-dcCacheBehaviors = lens _dcCacheBehaviors (\ s a -> s{_dcCacheBehaviors = a});
-
 -- | A complex type that controls whether access logs are written for the
 -- distribution.
 dcLogging :: Lens' DistributionConfig (Maybe LoggingConfig)
 dcLogging = lens _dcLogging (\ s a -> s{_dcLogging = a});
+
+-- | A complex type that contains zero or more CacheBehavior elements.
+dcCacheBehaviors :: Lens' DistributionConfig (Maybe CacheBehaviors)
+dcCacheBehaviors = lens _dcCacheBehaviors (\ s a -> s{_dcCacheBehaviors = a});
 
 -- | A unique number that ensures the request can\'t be replayed. If the
 -- CallerReference is new (no matter the content of the DistributionConfig
@@ -1424,13 +1424,13 @@ dcEnabled = lens _dcEnabled (\ s a -> s{_dcEnabled = a});
 instance FromXML DistributionConfig where
         parseXML x
           = DistributionConfig' <$>
-              (x .@? "DefaultRootObject") <*> (x .@? "Aliases") <*>
-                (x .@? "CustomErrorResponses")
-                <*> (x .@? "PriceClass")
+              (x .@? "Aliases") <*> (x .@? "DefaultRootObject") <*>
+                (x .@? "PriceClass")
+                <*> (x .@? "CustomErrorResponses")
                 <*> (x .@? "ViewerCertificate")
                 <*> (x .@? "Restrictions")
-                <*> (x .@? "CacheBehaviors")
                 <*> (x .@? "Logging")
+                <*> (x .@? "CacheBehaviors")
                 <*> (x .@ "CallerReference")
                 <*> (x .@ "Origins")
                 <*> (x .@ "DefaultCacheBehavior")
@@ -1440,14 +1440,14 @@ instance FromXML DistributionConfig where
 instance ToXML DistributionConfig where
         toXML DistributionConfig'{..}
           = mconcat
-              ["DefaultRootObject" @= _dcDefaultRootObject,
-               "Aliases" @= _dcAliases,
-               "CustomErrorResponses" @= _dcCustomErrorResponses,
+              ["Aliases" @= _dcAliases,
+               "DefaultRootObject" @= _dcDefaultRootObject,
                "PriceClass" @= _dcPriceClass,
+               "CustomErrorResponses" @= _dcCustomErrorResponses,
                "ViewerCertificate" @= _dcViewerCertificate,
                "Restrictions" @= _dcRestrictions,
-               "CacheBehaviors" @= _dcCacheBehaviors,
                "Logging" @= _dcLogging,
+               "CacheBehaviors" @= _dcCacheBehaviors,
                "CallerReference" @= _dcCallerReference,
                "Origins" @= _dcOrigins,
                "DefaultCacheBehavior" @= _dcDefaultCacheBehavior,

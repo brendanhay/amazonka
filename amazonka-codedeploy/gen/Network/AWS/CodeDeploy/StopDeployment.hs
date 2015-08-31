@@ -33,6 +33,7 @@ module Network.AWS.CodeDeploy.StopDeployment
     , stopDeploymentResponse
     , StopDeploymentResponse
     -- * Response Lenses
+    , sdrsStatus
     , sdrsStatusMessage
     , sdrsStatus
     ) where
@@ -74,7 +75,8 @@ instance AWSRequest StopDeployment where
           = receiveJSON
               (\ s h x ->
                  StopDeploymentResponse' <$>
-                   (x .?> "statusMessage") <*> (pure (fromEnum s)))
+                   (x .?> "status") <*> (x .?> "statusMessage") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders StopDeployment where
         toHeaders
@@ -101,13 +103,16 @@ instance ToQuery StopDeployment where
 --
 -- /See:/ 'stopDeploymentResponse' smart constructor.
 data StopDeploymentResponse = StopDeploymentResponse'
-    { _sdrsStatusMessage :: !(Maybe Text)
+    { _sdrsStatus        :: !(Maybe StopStatus)
+    , _sdrsStatusMessage :: !(Maybe Text)
     , _sdrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StopDeploymentResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdrsStatus'
 --
 -- * 'sdrsStatusMessage'
 --
@@ -117,9 +122,17 @@ stopDeploymentResponse
     -> StopDeploymentResponse
 stopDeploymentResponse pStatus_ =
     StopDeploymentResponse'
-    { _sdrsStatusMessage = Nothing
+    { _sdrsStatus = Nothing
+    , _sdrsStatusMessage = Nothing
     , _sdrsStatus = pStatus_
     }
+
+-- | The status of the stop deployment operation:
+--
+-- -   Pending: The stop operation is pending.
+-- -   Succeeded: The stop operation succeeded.
+sdrsStatus :: Lens' StopDeploymentResponse (Maybe StopStatus)
+sdrsStatus = lens _sdrsStatus (\ s a -> s{_sdrsStatus = a});
 
 -- | An accompanying status message.
 sdrsStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)

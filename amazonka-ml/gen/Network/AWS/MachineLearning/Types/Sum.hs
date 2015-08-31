@@ -195,30 +195,30 @@ instance FromJSON DetailsAttributes where
 -- -   COMPLETED
 -- -   DELETED
 data EntityStatus
-    = Completed
-    | Deleted
-    | Failed
-    | Inprogress
-    | Pending
+    = ESCompleted
+    | ESDeleted
+    | ESFailed
+    | ESInprogress
+    | ESPending
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EntityStatus where
     parser = takeLowerText >>= \case
-        "completed" -> pure Completed
-        "deleted" -> pure Deleted
-        "failed" -> pure Failed
-        "inprogress" -> pure Inprogress
-        "pending" -> pure Pending
+        "completed" -> pure ESCompleted
+        "deleted" -> pure ESDeleted
+        "failed" -> pure ESFailed
+        "inprogress" -> pure ESInprogress
+        "pending" -> pure ESPending
         e -> fromTextError $ "Failure parsing EntityStatus from value: '" <> e
            <> "'. Accepted values: COMPLETED, DELETED, FAILED, INPROGRESS, PENDING"
 
 instance ToText EntityStatus where
     toText = \case
-        Completed -> "COMPLETED"
-        Deleted -> "DELETED"
-        Failed -> "FAILED"
-        Inprogress -> "INPROGRESS"
-        Pending -> "PENDING"
+        ESCompleted -> "COMPLETED"
+        ESDeleted -> "DELETED"
+        ESFailed -> "FAILED"
+        ESInprogress -> "INPROGRESS"
+        ESPending -> "PENDING"
 
 instance Hashable     EntityStatus
 instance ToByteString EntityStatus
@@ -368,27 +368,27 @@ instance FromJSON MLModelType where
     parseJSON = parseJSONText "MLModelType"
 
 data RealtimeEndpointStatus
-    = RESFailed
-    | RESNone
-    | RESReady
-    | RESUpdating
+    = Failed
+    | None
+    | Ready
+    | Updating
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RealtimeEndpointStatus where
     parser = takeLowerText >>= \case
-        "failed" -> pure RESFailed
-        "none" -> pure RESNone
-        "ready" -> pure RESReady
-        "updating" -> pure RESUpdating
+        "failed" -> pure Failed
+        "none" -> pure None
+        "ready" -> pure Ready
+        "updating" -> pure Updating
         e -> fromTextError $ "Failure parsing RealtimeEndpointStatus from value: '" <> e
            <> "'. Accepted values: FAILED, NONE, READY, UPDATING"
 
 instance ToText RealtimeEndpointStatus where
     toText = \case
-        RESFailed -> "FAILED"
-        RESNone -> "NONE"
-        RESReady -> "READY"
-        RESUpdating -> "UPDATING"
+        Failed -> "FAILED"
+        None -> "NONE"
+        Ready -> "READY"
+        Updating -> "UPDATING"
 
 instance Hashable     RealtimeEndpointStatus
 instance ToByteString RealtimeEndpointStatus

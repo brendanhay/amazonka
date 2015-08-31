@@ -32,8 +32,8 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     , DescribeCacheSecurityGroups
     -- * Request Lenses
     , dcsgsCacheSecurityGroupName
-    , dcsgsMaxRecords
     , dcsgsMarker
+    , dcsgsMaxRecords
 
     -- * Destructuring the Response
     , describeCacheSecurityGroupsResponse
@@ -56,8 +56,8 @@ import           Network.AWS.Response
 -- /See:/ 'describeCacheSecurityGroups' smart constructor.
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
     { _dcsgsCacheSecurityGroupName :: !(Maybe Text)
-    , _dcsgsMaxRecords             :: !(Maybe Int)
     , _dcsgsMarker                 :: !(Maybe Text)
+    , _dcsgsMaxRecords             :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCacheSecurityGroups' with the minimum fields required to make a request.
@@ -66,21 +66,28 @@ data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
 --
 -- * 'dcsgsCacheSecurityGroupName'
 --
--- * 'dcsgsMaxRecords'
---
 -- * 'dcsgsMarker'
+--
+-- * 'dcsgsMaxRecords'
 describeCacheSecurityGroups
     :: DescribeCacheSecurityGroups
 describeCacheSecurityGroups =
     DescribeCacheSecurityGroups'
     { _dcsgsCacheSecurityGroupName = Nothing
-    , _dcsgsMaxRecords = Nothing
     , _dcsgsMarker = Nothing
+    , _dcsgsMaxRecords = Nothing
     }
 
 -- | The name of the cache security group to return details for.
 dcsgsCacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsgsCacheSecurityGroupName = lens _dcsgsCacheSecurityGroupName (\ s a -> s{_dcsgsCacheSecurityGroupName = a});
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+dcsgsMarker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
+dcsgsMarker = lens _dcsgsMarker (\ s a -> s{_dcsgsMarker = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a marker is
@@ -91,13 +98,6 @@ dcsgsCacheSecurityGroupName = lens _dcsgsCacheSecurityGroupName (\ s a -> s{_dcs
 -- Constraints: minimum 20; maximum 100.
 dcsgsMaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Int)
 dcsgsMaxRecords = lens _dcsgsMaxRecords (\ s a -> s{_dcsgsMaxRecords = a});
-
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
-dcsgsMarker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
-dcsgsMarker = lens _dcsgsMarker (\ s a -> s{_dcsgsMarker = a});
 
 instance AWSPager DescribeCacheSecurityGroups where
         page rq rs
@@ -134,8 +134,8 @@ instance ToQuery DescribeCacheSecurityGroups where
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheSecurityGroupName" =:
                  _dcsgsCacheSecurityGroupName,
-               "MaxRecords" =: _dcsgsMaxRecords,
-               "Marker" =: _dcsgsMarker]
+               "Marker" =: _dcsgsMarker,
+               "MaxRecords" =: _dcsgsMaxRecords]
 
 -- | Represents the output of a /DescribeCacheSecurityGroups/ action.
 --

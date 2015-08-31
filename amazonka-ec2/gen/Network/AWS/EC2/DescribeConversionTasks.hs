@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeConversionTasks
       describeConversionTasks
     , DescribeConversionTasks
     -- * Request Lenses
-    , dctConversionTaskIds
     , dctFilters
+    , dctConversionTaskIds
     , dctDryRun
 
     -- * Destructuring the Response
@@ -50,8 +50,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeConversionTasks' smart constructor.
 data DescribeConversionTasks = DescribeConversionTasks'
-    { _dctConversionTaskIds :: !(Maybe [Text])
-    , _dctFilters           :: !(Maybe [Filter])
+    { _dctFilters           :: !(Maybe [Filter])
+    , _dctConversionTaskIds :: !(Maybe [Text])
     , _dctDryRun            :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -59,27 +59,27 @@ data DescribeConversionTasks = DescribeConversionTasks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dctConversionTaskIds'
---
 -- * 'dctFilters'
+--
+-- * 'dctConversionTaskIds'
 --
 -- * 'dctDryRun'
 describeConversionTasks
     :: DescribeConversionTasks
 describeConversionTasks =
     DescribeConversionTasks'
-    { _dctConversionTaskIds = Nothing
-    , _dctFilters = Nothing
+    { _dctFilters = Nothing
+    , _dctConversionTaskIds = Nothing
     , _dctDryRun = Nothing
     }
-
--- | One or more conversion task IDs.
-dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
-dctConversionTaskIds = lens _dctConversionTaskIds (\ s a -> s{_dctConversionTaskIds = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 dctFilters :: Lens' DescribeConversionTasks [Filter]
 dctFilters = lens _dctFilters (\ s a -> s{_dctFilters = a}) . _Default . _Coerce;
+
+-- | One or more conversion task IDs.
+dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
+dctConversionTaskIds = lens _dctConversionTaskIds (\ s a -> s{_dctConversionTaskIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -112,10 +112,10 @@ instance ToQuery DescribeConversionTasks where
               ["Action" =:
                  ("DescribeConversionTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
+               toQuery (toQueryList "Filter" <$> _dctFilters),
                toQuery
                  (toQueryList "ConversionTaskId" <$>
                     _dctConversionTaskIds),
-               toQuery (toQueryList "Filter" <$> _dctFilters),
                "DryRun" =: _dctDryRun]
 
 -- | /See:/ 'describeConversionTasksResponse' smart constructor.

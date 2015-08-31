@@ -50,17 +50,17 @@ module Network.AWS.Config
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    , _ValidationException
-
     -- ** InvalidTimeRangeException
     , _InvalidTimeRangeException
+
+    -- ** InvalidSNSTopicARNException
+    , _InvalidSNSTopicARNException
 
     -- ** InvalidRecordingGroupException
     , _InvalidRecordingGroupException
 
-    -- ** InvalidSNSTopicARNException
-    , _InvalidSNSTopicARNException
+    -- ** ValidationException
+    , _ValidationException
 
     -- ** InvalidRoleException
     , _InvalidRoleException
@@ -83,23 +83,23 @@ module Network.AWS.Config
     -- ** InvalidNextTokenException
     , _InvalidNextTokenException
 
-    -- ** NoSuchBucketException
-    , _NoSuchBucketException
-
     -- ** NoAvailableConfigurationRecorderException
     , _NoAvailableConfigurationRecorderException
 
+    -- ** NoSuchBucketException
+    , _NoSuchBucketException
+
     -- ** NoAvailableDeliveryChannelException
     , _NoAvailableDeliveryChannelException
+
+    -- ** InvalidConfigurationRecorderNameException
+    , _InvalidConfigurationRecorderNameException
 
     -- ** NoRunningConfigurationRecorderException
     , _NoRunningConfigurationRecorderException
 
     -- ** MaxNumberOfConfigurationRecordersExceededException
     , _MaxNumberOfConfigurationRecordersExceededException
-
-    -- ** InvalidConfigurationRecorderNameException
-    , _InvalidConfigurationRecorderNameException
 
     -- ** InsufficientDeliveryPolicyException
     , _InsufficientDeliveryPolicyException
@@ -140,14 +140,14 @@ module Network.AWS.Config
     -- ** PutConfigurationRecorder
     , module Network.AWS.Config.PutConfigurationRecorder
 
-    -- ** DeleteDeliveryChannel
-    , module Network.AWS.Config.DeleteDeliveryChannel
+    -- ** DescribeDeliveryChannelStatus
+    , module Network.AWS.Config.DescribeDeliveryChannelStatus
 
     -- ** PutDeliveryChannel
     , module Network.AWS.Config.PutDeliveryChannel
 
-    -- ** DescribeDeliveryChannelStatus
-    , module Network.AWS.Config.DescribeDeliveryChannelStatus
+    -- ** DeleteDeliveryChannel
+    , module Network.AWS.Config.DeleteDeliveryChannel
 
     -- ** DescribeDeliveryChannels
     , module Network.AWS.Config.DescribeDeliveryChannels
@@ -190,13 +190,13 @@ module Network.AWS.Config
     , ConfigurationItem
     , configurationItem
     , ciResourceId
-    , ciConfigurationStateId
     , ciResourceType
+    , ciConfigurationStateId
     , ciArn
     , ciResourceCreationTime
     , ciConfigurationItemStatus
-    , ciAccountId
     , ciConfigurationItemCaptureTime
+    , ciAccountId
     , ciAvailabilityZone
     , ciRelationships
     , ciVersion
@@ -235,8 +235,8 @@ module Network.AWS.Config
     -- ** DeliveryChannelStatus
     , DeliveryChannelStatus
     , deliveryChannelStatus
-    , dcsConfigStreamDeliveryInfo
     , dcsConfigSnapshotDeliveryInfo
+    , dcsConfigStreamDeliveryInfo
     , dcsConfigHistoryDeliveryInfo
     , dcsName
 

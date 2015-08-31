@@ -427,8 +427,8 @@ instance FromJSON MetricFilter where
 -- | /See:/ 'metricFilterMatchRecord' smart constructor.
 data MetricFilterMatchRecord = MetricFilterMatchRecord'
     { _mfmrExtractedValues :: !(Maybe (Map Text Text))
-    , _mfmrEventMessage    :: !(Maybe Text)
     , _mfmrEventNumber     :: !(Maybe Integer)
+    , _mfmrEventMessage    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MetricFilterMatchRecord' with the minimum fields required to make a request.
@@ -437,16 +437,16 @@ data MetricFilterMatchRecord = MetricFilterMatchRecord'
 --
 -- * 'mfmrExtractedValues'
 --
--- * 'mfmrEventMessage'
---
 -- * 'mfmrEventNumber'
+--
+-- * 'mfmrEventMessage'
 metricFilterMatchRecord
     :: MetricFilterMatchRecord
 metricFilterMatchRecord =
     MetricFilterMatchRecord'
     { _mfmrExtractedValues = Nothing
-    , _mfmrEventMessage = Nothing
     , _mfmrEventNumber = Nothing
+    , _mfmrEventMessage = Nothing
     }
 
 -- | Undocumented member.
@@ -454,12 +454,12 @@ mfmrExtractedValues :: Lens' MetricFilterMatchRecord (HashMap Text Text)
 mfmrExtractedValues = lens _mfmrExtractedValues (\ s a -> s{_mfmrExtractedValues = a}) . _Default . _Map;
 
 -- | Undocumented member.
-mfmrEventMessage :: Lens' MetricFilterMatchRecord (Maybe Text)
-mfmrEventMessage = lens _mfmrEventMessage (\ s a -> s{_mfmrEventMessage = a});
-
--- | Undocumented member.
 mfmrEventNumber :: Lens' MetricFilterMatchRecord (Maybe Integer)
 mfmrEventNumber = lens _mfmrEventNumber (\ s a -> s{_mfmrEventNumber = a});
+
+-- | Undocumented member.
+mfmrEventMessage :: Lens' MetricFilterMatchRecord (Maybe Text)
+mfmrEventMessage = lens _mfmrEventMessage (\ s a -> s{_mfmrEventMessage = a});
 
 instance FromJSON MetricFilterMatchRecord where
         parseJSON
@@ -467,8 +467,8 @@ instance FromJSON MetricFilterMatchRecord where
               (\ x ->
                  MetricFilterMatchRecord' <$>
                    (x .:? "extractedValues" .!= mempty) <*>
-                     (x .:? "eventMessage")
-                     <*> (x .:? "eventNumber"))
+                     (x .:? "eventNumber")
+                     <*> (x .:? "eventMessage"))
 
 -- | /See:/ 'metricTransformation' smart constructor.
 data MetricTransformation = MetricTransformation'

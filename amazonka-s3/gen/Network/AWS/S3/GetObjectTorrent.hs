@@ -111,7 +111,7 @@ instance ToQuery GetObjectTorrent where
 data GetObjectTorrentResponse = GetObjectTorrentResponse'
     { _gotrsRequestCharged :: !(Maybe RequestCharged)
     , _gotrsResponseStatus :: !Int
-    , _gotrsBody           :: !Stream
+    , _gotrsBody           :: !RsBody
     } deriving (Show,Generic)
 
 -- | Creates a value of 'GetObjectTorrentResponse' with the minimum fields required to make a request.
@@ -125,7 +125,7 @@ data GetObjectTorrentResponse = GetObjectTorrentResponse'
 -- * 'gotrsBody'
 getObjectTorrentResponse
     :: Int -- ^ 'gotrsResponseStatus'
-    -> Stream -- ^ 'gotrsBody'
+    -> RsBody -- ^ 'gotrsBody'
     -> GetObjectTorrentResponse
 getObjectTorrentResponse pResponseStatus_ pBody_ =
     GetObjectTorrentResponse'
@@ -143,5 +143,5 @@ gotrsResponseStatus :: Lens' GetObjectTorrentResponse Int
 gotrsResponseStatus = lens _gotrsResponseStatus (\ s a -> s{_gotrsResponseStatus = a});
 
 -- | Undocumented member.
-gotrsBody :: Lens' GetObjectTorrentResponse Stream
+gotrsBody :: Lens' GetObjectTorrentResponse RsBody
 gotrsBody = lens _gotrsBody (\ s a -> s{_gotrsBody = a});

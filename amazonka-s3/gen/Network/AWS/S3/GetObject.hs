@@ -358,7 +358,7 @@ data GetObjectResponse = GetObjectResponse'
     , _gorsServerSideEncryption    :: !(Maybe ServerSideEncryption)
     , _gorsContentType             :: !(Maybe Text)
     , _gorsResponseStatus          :: !Int
-    , _gorsBody                    :: !Stream
+    , _gorsBody                    :: !RsBody
     } deriving (Show,Generic)
 
 -- | Creates a value of 'GetObjectResponse' with the minimum fields required to make a request.
@@ -420,7 +420,7 @@ data GetObjectResponse = GetObjectResponse'
 -- * 'gorsBody'
 getObjectResponse
     :: Int -- ^ 'gorsResponseStatus'
-    -> Stream -- ^ 'gorsBody'
+    -> RsBody -- ^ 'gorsBody'
     -> GetObjectResponse
 getObjectResponse pResponseStatus_ pBody_ =
     GetObjectResponse'
@@ -579,5 +579,5 @@ gorsResponseStatus :: Lens' GetObjectResponse Int
 gorsResponseStatus = lens _gorsResponseStatus (\ s a -> s{_gorsResponseStatus = a});
 
 -- | Object data.
-gorsBody :: Lens' GetObjectResponse Stream
+gorsBody :: Lens' GetObjectResponse RsBody
 gorsBody = lens _gorsBody (\ s a -> s{_gorsBody = a});

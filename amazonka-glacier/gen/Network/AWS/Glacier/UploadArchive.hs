@@ -96,7 +96,7 @@ data UploadArchive = UploadArchive'
     , _uaArchiveDescription :: !(Maybe Text)
     , _uaVaultName          :: !Text
     , _uaAccountId          :: !Text
-    , _uaBody               :: !Body
+    , _uaBody               :: !HashedBody
     } deriving (Show,Generic)
 
 -- | Creates a value of 'UploadArchive' with the minimum fields required to make a request.
@@ -123,7 +123,7 @@ uploadArchive pVaultName_ pAccountId_ pBody_ =
     , _uaArchiveDescription = Nothing
     , _uaVaultName = pVaultName_
     , _uaAccountId = pAccountId_
-    , _uaBody = _Body # pBody_
+    , _uaBody = pBody_
     }
 
 -- | The SHA256 tree hash of the data being uploaded.
@@ -162,7 +162,7 @@ instance AWSRequest UploadArchive where
                      <*> (h .#? "Location"))
 
 instance ToBody UploadArchive where
-        toBody = _uaBody
+        toBody = toBody . _uaBody
 
 instance ToHeaders UploadArchive where
         toHeaders UploadArchive'{..}

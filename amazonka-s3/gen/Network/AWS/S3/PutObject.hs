@@ -100,7 +100,7 @@ data PutObject = PutObject'
     , _poContentType             :: !(Maybe Text)
     , _poBucket                  :: !BucketName
     , _poKey                     :: !ObjectKey
-    , _poBody                    :: !Body
+    , _poBody                    :: !RqBody
     } deriving (Show,Generic)
 
 -- | Creates a value of 'PutObject' with the minimum fields required to make a request.
@@ -159,7 +159,7 @@ data PutObject = PutObject'
 putObject
     :: BucketName -- ^ 'poBucket'
     -> ObjectKey -- ^ 'poKey'
-    -> Body -- ^ 'poBody'
+    -> RqBody -- ^ 'poBody'
     -> PutObject
 putObject pBucket_ pKey_ pBody_ =
     PutObject'
@@ -187,7 +187,7 @@ putObject pBucket_ pKey_ pBody_ =
     , _poContentType = Nothing
     , _poBucket = pBucket_
     , _poKey = pKey_
-    , _poBody = _Body # pBody_
+    , _poBody = pBody_
     }
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
@@ -305,7 +305,7 @@ poKey :: Lens' PutObject ObjectKey
 poKey = lens _poKey (\ s a -> s{_poKey = a});
 
 -- | Object data.
-poBody :: Lens' PutObject Body
+poBody :: Lens' PutObject RqBody
 poBody = lens _poBody (\ s a -> s{_poBody = a});
 
 instance AWSRequest PutObject where
@@ -330,7 +330,7 @@ instance AWSRequest PutObject where
                      <*> (pure (fromEnum s)))
 
 instance ToBody PutObject where
-        toBody = _poBody
+        toBody = toBody . _poBody
 
 instance ToHeaders PutObject where
         toHeaders PutObject'{..}

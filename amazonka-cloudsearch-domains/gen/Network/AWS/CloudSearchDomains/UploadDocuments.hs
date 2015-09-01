@@ -77,7 +77,7 @@ import           Network.AWS.Response
 -- /See:/ 'uploadDocuments' smart constructor.
 data UploadDocuments = UploadDocuments'
     { _udContentType :: !ContentType
-    , _udDocuments   :: !Body
+    , _udDocuments   :: !HashedBody
     } deriving (Show,Generic)
 
 -- | Creates a value of 'UploadDocuments' with the minimum fields required to make a request.
@@ -94,7 +94,7 @@ uploadDocuments
 uploadDocuments pContentType_ pDocuments_ =
     UploadDocuments'
     { _udContentType = pContentType_
-    , _udDocuments = _Body # pDocuments_
+    , _udDocuments = pDocuments_
     }
 
 -- | The format of the batch you are uploading. Amazon CloudSearch supports
@@ -122,7 +122,7 @@ instance AWSRequest UploadDocuments where
                      <*> (pure (fromEnum s)))
 
 instance ToBody UploadDocuments where
-        toBody = _udDocuments
+        toBody = toBody . _udDocuments
 
 instance ToHeaders UploadDocuments where
         toHeaders UploadDocuments'{..}

@@ -3,21 +3,6 @@
         "serviceAbbreviation": "SQS"
     },
     "shapes": {
-        "MessageAttributeList": {
-            "type": "list",
-            "member": {
-                "shape": "MessageAttribute",
-                "locationName": "AttributeName"
-            },
-            "flattened": true
-        },
-        "ReceiveMessageRequest": {
-            "members": {
-                "AttributeNames": {
-                    "shape": "MessageAttributeList"
-                }
-            }
-        },
         "MessageAttribute": {
             "type": "string",
             "enum": [
@@ -27,6 +12,41 @@
                 "SenderId",
                 "SentTimestamp"
             ]
+        },
+        "MessageAttributeList": {
+            "type": "list",
+            "member": {
+                "shape": "MessageAttribute",
+                "locationName": "AttributeName"
+            },
+            "flattened": true
+        },
+        "MessageAttributeMap":{
+            "type": "map",
+            "key":{
+                "shape": "MessageAttribute",
+                "locationName": "Name"
+            },
+            "value":{
+                "shape": "String",
+                "locationName": "Value"
+            },
+            "flattened": true,
+            "locationName": "Attribute"
+        },
+        "ReceiveMessageRequest": {
+            "members": {
+                "AttributeNames": {
+                    "shape": "MessageAttributeList"
+                }
+            }
+        },
+        "Message": {
+            "members": {
+                "Attributes": {
+                    "shape": "MessageAttributeMap"
+                }
+            }
         }
     }
 }

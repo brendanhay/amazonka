@@ -98,7 +98,7 @@ instance Arbitrary Region where
         , SaoPaulo
         ]
 
-instance Arbitrary RqBody where
+instance Arbitrary Body where
     arbitrary = toBody <$> (arbitrary :: Gen ByteString)
 
 instance Arbitrary RawPath where

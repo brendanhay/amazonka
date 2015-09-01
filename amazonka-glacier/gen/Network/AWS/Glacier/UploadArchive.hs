@@ -148,7 +148,7 @@ uaAccountId = lens _uaAccountId (\ s a -> s{_uaAccountId = a});
 
 -- | The data to upload.
 uaBody :: Lens' UploadArchive HashedBody
-uaBody = lens _uaBody (\ s a -> s{_uaBody = a}) . _Body;
+uaBody = lens _uaBody (\ s a -> s{_uaBody = a});
 
 instance AWSRequest UploadArchive where
         type Rs UploadArchive = ArchiveCreationOutput

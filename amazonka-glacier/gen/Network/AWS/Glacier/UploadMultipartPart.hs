@@ -168,7 +168,7 @@ umpUploadId = lens _umpUploadId (\ s a -> s{_umpUploadId = a});
 
 -- | The data to upload.
 umpBody :: Lens' UploadMultipartPart HashedBody
-umpBody = lens _umpBody (\ s a -> s{_umpBody = a}) . _Body;
+umpBody = lens _umpBody (\ s a -> s{_umpBody = a});
 
 instance AWSRequest UploadMultipartPart where
         type Rs UploadMultipartPart =

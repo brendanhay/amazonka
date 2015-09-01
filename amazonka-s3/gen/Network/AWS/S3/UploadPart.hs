@@ -179,7 +179,7 @@ upUploadId = lens _upUploadId (\ s a -> s{_upUploadId = a});
 
 -- | Undocumented member.
 upBody :: Lens' UploadPart Body
-upBody = lens _upBody (\ s a -> s{_upBody = a}) . _Body;
+upBody = lens _upBody (\ s a -> s{_upBody = a});
 
 instance AWSRequest UploadPart where
         type Rs UploadPart = UploadPartResponse

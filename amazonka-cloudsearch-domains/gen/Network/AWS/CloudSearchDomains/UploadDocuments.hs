@@ -107,7 +107,7 @@ udContentType = lens _udContentType (\ s a -> s{_udContentType = a});
 
 -- | A batch of documents formatted in JSON or HTML.
 udDocuments :: Lens' UploadDocuments HashedBody
-udDocuments = lens _udDocuments (\ s a -> s{_udDocuments = a}) . _Body;
+udDocuments = lens _udDocuments (\ s a -> s{_udDocuments = a});
 
 instance AWSRequest UploadDocuments where
         type Rs UploadDocuments = UploadDocumentsResponse

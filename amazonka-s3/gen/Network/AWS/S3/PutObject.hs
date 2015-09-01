@@ -306,7 +306,7 @@ poKey = lens _poKey (\ s a -> s{_poKey = a});
 
 -- | Object data.
 poBody :: Lens' PutObject Body
-poBody = lens _poBody (\ s a -> s{_poBody = a}) . _Body;
+poBody = lens _poBody (\ s a -> s{_poBody = a});
 
 instance AWSRequest PutObject where
         type Rs PutObject = PutObjectResponse

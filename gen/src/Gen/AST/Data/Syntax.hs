@@ -19,7 +19,8 @@ module Gen.AST.Data.Syntax where
 
 import           Control.Comonad
 import           Control.Error
-import           Control.Lens                 hiding (iso, mapping, op, strict)
+import           Control.Lens                 hiding (iso, mapping, op, review,
+                                               strict)
 import qualified Data.Foldable                as Fold
 import qualified Data.HashMap.Strict          as Map
 import           Data.List.NonEmpty           (NonEmpty (..))
@@ -100,7 +101,7 @@ fieldUpdate f = FieldUpdate (unqual (fieldAccessor f)) rhs
     rhs :: Exp
     rhs | fieldMaybe f  = nothingE
         | fieldMonoid f = memptyE
-        | Just v <- iso (_fieldDirection f) (typeOf f)
+        | Just v <- review (_fieldDirection f) (typeOf f)
                         = infixApp v "#" p
         | otherwise     = p
 
@@ -119,7 +120,7 @@ lensD f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) noBinds
     l = fieldLens f
     a = fieldAccessor f
 
-    rhs = mapping (_fieldDirection f) (typeOf f) $
+    rhs = mapping (typeOf f) $
         app (app (var "lens") (var a))
             (paren (lamE noLoc [pvar "s", pvar "a"]
                    (RecUpdate (var "s") [FieldUpdate (unqual a) (var "a")])))
@@ -763,27 +764,31 @@ directed i m d (typeOf -> t) = case t of
                         -> "Body"       -- ^ If the signer supports chunked encoding, both body types are accepted.
             | otherwise -> "HashedBody" -- ^ Otherwise only a pre-hashed body is accepted.
 
-mapping :: Maybe Direction -> TType -> Exp -> Exp
-mapping d t e = infixE e "." (go t)
+mapping :: TType -> Exp -> Exp
+mapping t e = infixE e "." (go t)
   where
     go = \case
         TSensitive x            -> var "_Sensitive" : go x
         TMaybe     x@(TMap  {}) -> var "_Default"   : go x
         TMaybe     x@(TList {}) -> var "_Default"   : go x
         TMaybe     x            -> nest (go x)
-        x                       -> maybeToList (iso d x)
+        x                       -> maybeToList (iso x)
 
     nest []     = []
     nest (x:xs) = [app (var "mapping") (infixE x "." xs)]
 
-iso :: Maybe Direction -> TType -> Maybe Exp
-iso d = \case
+review :: Maybe Direction -> TType -> Maybe Exp
+review d = \case
+    TStream | d == Just Input
+       -> Just (var "_Body")
+    t  -> iso t
+
+iso :: TType -> Maybe Exp
+iso = \case
     TLit Time     -> Just (var "_Time")
     TLit Blob     -> Just (var "_Base64")
     TNatural      -> Just (var "_Nat")
-    TStream | d == Just Input
-                  -> Just (var "_Body")
-    TSensitive x  -> Just (infixE (var "_Sensitive") "." (maybeToList (iso d x)))
+    TSensitive x  -> Just (infixE (var "_Sensitive") "." (maybeToList (iso x)))
     TList1     {} -> Just (var "_List1")
     TList      {} -> Just (var "_Coerce")
     TMap       {} -> Just (var "_Map")

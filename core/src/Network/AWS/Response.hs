@@ -83,13 +83,13 @@ receiveJSON :: MonadResource m
 receiveJSON = deserialise eitherDecode'
 
 receiveBody :: MonadResource m
-            => (Int -> ResponseHeaders -> Stream -> Either String (Rs a))
+            => (Int -> ResponseHeaders -> RsBody -> Either String (Rs a))
             -> Logger
             -> Service
             -> Proxy a
             -> ClientResponse
             -> m (Response a)
-receiveBody f _ = receive $ \s h x -> return (f s h (Stream x))
+receiveBody f _ = receive $ \s h x -> return (f s h (RsBody x))
 
 deserialise :: MonadResource m
             => (LazyByteString -> Either String b)

@@ -15,6 +15,7 @@ module Test.AWS.SQS
 
 import           Control.Lens
 import qualified Data.HashMap.Strict as Map
+import           Data.Monoid
 import           Data.Text           (Text)
 import           Network.AWS.SQS
 import           Test.AWS.Gen.SQS

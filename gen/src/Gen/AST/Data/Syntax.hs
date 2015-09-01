@@ -19,8 +19,7 @@ module Gen.AST.Data.Syntax where
 
 import           Control.Comonad
 import           Control.Error
-import           Control.Lens                 hiding (iso, mapping, op, review,
-                                               strict)
+import           Control.Lens                 hiding (iso, mapping, op, strict)
 import qualified Data.Foldable                as Fold
 import qualified Data.HashMap.Strict          as Map
 import           Data.List.NonEmpty           (NonEmpty (..))
@@ -101,7 +100,7 @@ fieldUpdate f = FieldUpdate (unqual (fieldAccessor f)) rhs
     rhs :: Exp
     rhs | fieldMaybe f  = nothingE
         | fieldMonoid f = memptyE
-        | Just v <- review (_fieldDirection f) (typeOf f)
+        | Just v <- iso (typeOf f)
                         = infixApp v "#" p
         | otherwise     = p
 
@@ -544,7 +543,7 @@ toPathE :: Either Text Field -> Exp
 toPathE = either str (app (var "toBS") . var . fieldAccessor)
 
 toBodyE :: Field -> Exp
-toBodyE = var . fieldAccessor
+toBodyE = infixApp (var "toBody") "." . var . fieldAccessor
 
 toGenericE :: Protocol -> QOp -> Text -> Exp -> Exp -> Field -> Exp
 toGenericE p toO toF toM toL f = case inputNames p f of
@@ -756,12 +755,11 @@ directed i m d (typeOf -> t) = case t of
         | otherwise = TyApp (TyApp (tycon "HashMap") (go k)) (go v)
 
     stream = case d of
-        Nothing         -> "Stream"
-        Just Output     -> "Stream"     -- ^ Response stream.
+        Nothing         -> "RsBody"
+        Just Output     -> "RsBody"     -- ^ Response stream.
         Just Input
-            | i         -> "Body"       -- ^ Internal generalisation.
             | m ^. signatureVersion == S3
-                        -> "Body"       -- ^ If the signer supports chunked encoding, both body types are accepted.
+                        -> "RqBody"     -- ^ If the signer supports chunked encoding, both body types are accepted.
             | otherwise -> "HashedBody" -- ^ Otherwise only a pre-hashed body is accepted.
 
 mapping :: TType -> Exp -> Exp
@@ -776,12 +774,6 @@ mapping t e = infixE e "." (go t)
 
     nest []     = []
     nest (x:xs) = [app (var "mapping") (infixE x "." xs)]
-
-review :: Maybe Direction -> TType -> Maybe Exp
-review d = \case
-    TStream | d == Just Input
-       -> Just (var "_Body")
-    t  -> iso t
 
 iso :: TType -> Maybe Exp
 iso = \case

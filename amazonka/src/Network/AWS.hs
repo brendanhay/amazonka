@@ -76,13 +76,15 @@ module Network.AWS
 
     -- *** Request Bodies
     , ToHashedBody (..)
-    , hashedFile
-    , hashedBody
+    , sourceHashedFile
+    , sourceHashed
 
     -- *** Chunked Request Bodies
     , ToBody       (..)
-    , chunkedFile
-    , unsafeChunkedBody
+    , ChunkSize    (..)
+    , defaultChunkSize
+    , sourceChunkedFile
+    , unsafeSourceChunked
 
     -- *** Response Bodies
     , sinkBody
@@ -134,8 +136,9 @@ module Network.AWS
     , AWST.setEndpoint
 
     -- * Re-exported Types
-    , Body
+    , RqBody
     , HashedBody
+    , RsBody
     , module Network.AWS.Types
     , module Network.AWS.Waiter
     , module Network.AWS.Pager
@@ -429,7 +432,7 @@ configuration for all service requests within their respective scope.
 
 {- $streaming
 Streaming comes in two flavours. The more common 'HashedBody' representing requests
-that require precomputed 'SHA256' hashes, or a 'Body' type for those services
+that require precomputed 'SHA256' hashes, or a 'RqBody' type for those services
 that can perform incremental signing and do not require the entire payload to
 be hashed (such as 'S3'). The type signatures for request smart constructors
 advertise which respective body type is required, denoting the underlying signing

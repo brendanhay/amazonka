@@ -151,7 +151,7 @@ chunked c rq a r ts = finalise meta (bodyRequest body) auth
     digest :: ByteString
     digest = "STREAMING-AWS4-HMAC-SHA256-PAYLOAD"
 
-    body :: Body
+    body :: RqBody
     body = Chunked $ c
         { _chunkedBody = _chunkedBody c =$= chunk (metaSignature meta)
         }

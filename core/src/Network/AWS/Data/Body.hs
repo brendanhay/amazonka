@@ -39,13 +39,13 @@ import           Text.XML                     (Element)
 import           Prelude
 
 -- | A streaming, exception safe response body.
-newtype Stream = Stream
+newtype RsBody = RsBody
     { _streamBody :: ResumableSource (ResourceT IO) ByteString
     }
 -- newtype for show/orhpan instance purposes
 
-instance Show Stream where
-    show = const "Stream { ResumableSource (ResourceT IO) ByteString }"
+instance Show RsBody where
+    show = const "RsBody { ResumableSource (ResourceT IO) ByteString }"
 
 -- | An opaque request body which will be transmitted via
 -- @Transfer-Encoding: chunked@.
@@ -78,15 +78,15 @@ instance IsString HashedBody where
 sha256Base16 :: HashedBody -> ByteString
 sha256Base16 = digestToBase Base16 . _hashedDigest
 
-data Body
+data RqBody
     = Chunked ChunkedBody
     | Hashed  HashedBody
       deriving (Show)
 
-instance IsString Body where
+instance IsString RqBody where
     fromString = Hashed . fromString
 
-isStreaming :: Body -> Bool
+isStreaming :: RqBody -> Bool
 isStreaming = f . bodyRequest
   where
     f RequestBodyLBS           {} = False
@@ -95,12 +95,12 @@ isStreaming = f . bodyRequest
     f RequestBodyStream        {} = True
     f RequestBodyStreamChunked {} = True
 
-bodyRequest :: Body -> RequestBody
+bodyRequest :: RqBody -> RequestBody
 bodyRequest = \case
     Chunked x -> _chunkedRequest x (_chunkedBody x)
     Hashed  x -> _hashedBody  x
 
-md5Base64 :: Body -> Maybe ByteString
+md5Base64 :: RqBody -> Maybe ByteString
 md5Base64 Chunked {} = Nothing
 md5Base64 (Hashed x) =
     let md5 = Just . digestToBase Base64 . hashMD5
@@ -148,11 +148,12 @@ instance ToHashedBody QueryString where
 -- 'ToBody', otherwise use 'ToHashedBody'.
 class ToBody a where
     -- | Convert a value to a request body.
-    toBody :: a -> Body
+    toBody :: a -> RqBody
 
-    default toBody :: ToHashedBody a => a -> Body
+    default toBody :: ToHashedBody a => a -> RqBody
     toBody = Hashed . toHashedBody
 
+instance ToBody RqBody        where toBody = id
 instance ToBody HashedBody  where toBody = Hashed
 instance ToBody ChunkedBody where toBody = Chunked
 
@@ -165,5 +166,5 @@ instance ToBody Value
 instance ToBody Element
 instance ToBody QueryString
 
-_Body :: ToBody a => AReview Body a
+_Body :: ToBody a => AReview RqBody a
 _Body = un (to toBody)

@@ -13,7 +13,7 @@
                 "SentTimestamp"
             ]
         },
-        "MessageAttributeList": {
+        "DummyMessageAttributeList": {
             "type": "list",
             "member": {
                 "shape": "MessageAttribute",
@@ -21,7 +21,7 @@
             },
             "flattened": true
         },
-        "MessageAttributeMap":{
+        "DummyMessageAttributeMap":{
             "type": "map",
             "key":{
                 "shape": "MessageAttribute",
@@ -37,14 +37,14 @@
         "ReceiveMessageRequest": {
             "members": {
                 "AttributeNames": {
-                    "shape": "MessageAttributeList"
+                    "shape": "DummyMessageAttributeList"
                 }
             }
         },
         "Message": {
             "members": {
                 "Attributes": {
-                    "shape": "MessageAttributeMap"
+                    "shape": "DummyMessageAttributeMap"
                 }
             }
         }

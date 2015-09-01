@@ -247,7 +247,7 @@ data Message = Message'
     { _mMessageAttributes      :: !(Maybe (Map Text MessageAttributeValue))
     , _mMD5OfBody              :: !(Maybe Text)
     , _mBody                   :: !(Maybe Text)
-    , _mAttributes             :: !(Maybe (Map QueueAttributeName Text))
+    , _mAttributes             :: !(Maybe (Map MessageAttribute Text))
     , _mReceiptHandle          :: !(Maybe Text)
     , _mMessageId              :: !(Maybe Text)
     , _mMD5OfMessageAttributes :: !(Maybe Text)
@@ -302,7 +302,7 @@ mBody = lens _mBody (\ s a -> s{_mBody = a});
 -- 'ApproximateFirstReceiveTimestamp' are each returned as an integer
 -- representing the <http://en.wikipedia.org/wiki/Unix_time epoch time> in
 -- milliseconds.
-mAttributes :: Lens' Message (HashMap QueueAttributeName Text)
+mAttributes :: Lens' Message (HashMap MessageAttribute Text)
 mAttributes = lens _mAttributes (\ s a -> s{_mAttributes = a}) . _Default . _Map;
 
 -- | An identifier associated with the act of receiving the message. A new

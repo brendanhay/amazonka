@@ -47,6 +47,12 @@ newtype Stream = Stream
 instance Show Stream where
     show = const "Stream { ResumableSource (ResourceT IO) ByteString }"
 
+-- | An opaque request body which will be transmitted via
+-- @Transfer-Encoding: chunked@.
+--
+-- /Invariant:/ Only services that support chunked encoding can
+-- accept a 'ChunkedBody'. This is enforced by the type signatures
+-- emitted by the generator.
 data ChunkedBody = ChunkedBody
     { _chunkedRequest :: Source (ResourceT IO) ByteString -> RequestBody
     , _chunkedBody    :: Source (ResourceT IO) ByteString
@@ -71,10 +77,6 @@ instance IsString HashedBody where
 
 sha256Base16 :: HashedBody -> ByteString
 sha256Base16 = digestToBase Base16 . _hashedDigest
-
--- Invariant: only services that support chunked encoding should
--- create/specify a Chunked body. This is enforced by the type signatures
--- emitted by the generator.
 
 data Body
     = Chunked ChunkedBody

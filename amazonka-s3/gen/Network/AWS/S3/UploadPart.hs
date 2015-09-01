@@ -76,7 +76,7 @@ data UploadPart = UploadPart'
     , _upKey                  :: !ObjectKey
     , _upPartNumber           :: !Int
     , _upUploadId             :: !Text
-    , _upBody                 :: !RqBody
+    , _upBody                 :: !Body
     } deriving (Show,Generic)
 
 -- | Creates a value of 'UploadPart' with the minimum fields required to make a request.
@@ -109,7 +109,7 @@ uploadPart
     -> ObjectKey -- ^ 'upKey'
     -> Int -- ^ 'upPartNumber'
     -> Text -- ^ 'upUploadId'
-    -> RqBody -- ^ 'upBody'
+    -> Body -- ^ 'upBody'
     -> UploadPart
 uploadPart pBucket_ pKey_ pPartNumber_ pUploadId_ pBody_ =
     UploadPart'
@@ -123,7 +123,7 @@ uploadPart pBucket_ pKey_ pPartNumber_ pUploadId_ pBody_ =
     , _upKey = pKey_
     , _upPartNumber = pPartNumber_
     , _upUploadId = pUploadId_
-    , _upBody = pBody_
+    , _upBody = _Body # pBody_
     }
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
@@ -178,8 +178,8 @@ upUploadId :: Lens' UploadPart Text
 upUploadId = lens _upUploadId (\ s a -> s{_upUploadId = a});
 
 -- | Undocumented member.
-upBody :: Lens' UploadPart RqBody
-upBody = lens _upBody (\ s a -> s{_upBody = a});
+upBody :: Lens' UploadPart Body
+upBody = lens _upBody (\ s a -> s{_upBody = a}) . _Body;
 
 instance AWSRequest UploadPart where
         type Rs UploadPart = UploadPartResponse

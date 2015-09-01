@@ -193,7 +193,7 @@ data GetJobOutputResponse = GetJobOutputResponse'
     , _gjorsContentRange       :: !(Maybe Text)
     , _gjorsContentType        :: !(Maybe Text)
     , _gjorsStatus             :: !Int
-    , _gjorsBody               :: !RsBody
+    , _gjorsBody               :: !Stream
     } deriving (Show,Generic)
 
 -- | Creates a value of 'GetJobOutputResponse' with the minimum fields required to make a request.
@@ -215,7 +215,7 @@ data GetJobOutputResponse = GetJobOutputResponse'
 -- * 'gjorsBody'
 getJobOutputResponse
     :: Int -- ^ 'gjorsStatus'
-    -> RsBody -- ^ 'gjorsBody'
+    -> Stream -- ^ 'gjorsBody'
     -> GetJobOutputResponse
 getJobOutputResponse pStatus_ pBody_ =
     GetJobOutputResponse'
@@ -276,5 +276,5 @@ gjorsStatus :: Lens' GetJobOutputResponse Int
 gjorsStatus = lens _gjorsStatus (\ s a -> s{_gjorsStatus = a});
 
 -- | The job data, either archive data or inventory data.
-gjorsBody :: Lens' GetJobOutputResponse RsBody
+gjorsBody :: Lens' GetJobOutputResponse Stream
 gjorsBody = lens _gjorsBody (\ s a -> s{_gjorsBody = a});

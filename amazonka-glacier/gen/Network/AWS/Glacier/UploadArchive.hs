@@ -96,7 +96,7 @@ data UploadArchive = UploadArchive'
     , _uaArchiveDescription :: !(Maybe Text)
     , _uaVaultName          :: !Text
     , _uaAccountId          :: !Text
-    , _uaBody               :: !RqBody
+    , _uaBody               :: !Body
     } deriving (Show,Generic)
 
 -- | Creates a value of 'UploadArchive' with the minimum fields required to make a request.
@@ -115,7 +115,7 @@ data UploadArchive = UploadArchive'
 uploadArchive
     :: Text -- ^ 'uaVaultName'
     -> Text -- ^ 'uaAccountId'
-    -> RqBody -- ^ 'uaBody'
+    -> HashedBody -- ^ 'uaBody'
     -> UploadArchive
 uploadArchive pVaultName_ pAccountId_ pBody_ =
     UploadArchive'
@@ -123,7 +123,7 @@ uploadArchive pVaultName_ pAccountId_ pBody_ =
     , _uaArchiveDescription = Nothing
     , _uaVaultName = pVaultName_
     , _uaAccountId = pAccountId_
-    , _uaBody = pBody_
+    , _uaBody = _Body # pBody_
     }
 
 -- | The SHA256 tree hash of the data being uploaded.
@@ -147,8 +147,8 @@ uaAccountId :: Lens' UploadArchive Text
 uaAccountId = lens _uaAccountId (\ s a -> s{_uaAccountId = a});
 
 -- | The data to upload.
-uaBody :: Lens' UploadArchive RqBody
-uaBody = lens _uaBody (\ s a -> s{_uaBody = a});
+uaBody :: Lens' UploadArchive HashedBody
+uaBody = lens _uaBody (\ s a -> s{_uaBody = a}) . _Body;
 
 instance AWSRequest UploadArchive where
         type Rs UploadArchive = ArchiveCreationOutput

@@ -456,13 +456,13 @@ data Request a = Request
     , _rqPath    :: !RawPath
     , _rqQuery   :: !QueryString
     , _rqHeaders :: ![Header]
-    , _rqBody    :: !RqBody
+    , _rqBody    :: !Body
     }
 
 rqService :: Lens' (Request a) Service
 rqService = lens _rqService (\s a -> s { _rqService = a })
 
-rqBody :: Lens' (Request a) RqBody
+rqBody :: Lens' (Request a) Body
 rqBody = lens _rqBody (\s a -> s { _rqBody = a })
 
 rqHeaders :: Lens' (Request a) [Header]

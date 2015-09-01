@@ -77,11 +77,11 @@ toXMap, toQMap :: Exp
 toXMap  = var "toXMLMap"
 toQMap  = var "toQueryMap"
 
-ctorS :: Timestamp -> Id -> [Field] -> Decl
-ctorS ts n fs = TypeSig noLoc [ident (smartCtorId n)] ty
+ctorS :: HasMetadata a Identity => a -> Id -> [Field] -> Decl
+ctorS m n fs = TypeSig noLoc [ident (smartCtorId n)] ty
   where
     ty = Fold.foldr' TyFun (tycon (typeId n)) ps
-    ps = map (external ts) (filter fieldIsParam fs)
+    ps = map (external m) (filter fieldIsParam fs)
 
 ctorD :: Id -> [Field] -> Decl
 ctorD n fs =
@@ -98,19 +98,20 @@ fieldUpdate :: Field -> FieldUpdate
 fieldUpdate f = FieldUpdate (unqual (fieldAccessor f)) rhs
   where
     rhs :: Exp
-    rhs | fieldMaybe f             = nothingE
-        | fieldMonoid f            = memptyE
-        | Just v <- iso (typeOf f) = infixApp v "#" p
-        | otherwise                = p
+    rhs | fieldMaybe f  = nothingE
+        | fieldMonoid f = memptyE
+        | Just v <- iso (_fieldDirection f) (typeOf f)
+                        = infixApp v "#" p
+        | otherwise     = p
 
     p :: Exp
     p = Exts.Var (UnQual (fieldParamName f))
 
-lensS :: Timestamp -> TType -> Field -> Decl
-lensS ts t f = TypeSig noLoc [ident (fieldLens f)] $
+lensS :: HasMetadata a Identity => a -> TType -> Field -> Decl
+lensS m t f = TypeSig noLoc [ident (fieldLens f)] $
     TyApp (TyApp (tycon "Lens'")
-                 (signature ts t))
-          (external ts f)
+                 (signature m t))
+          (external m f)
 
 lensD :: Field -> Decl
 lensD f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) noBinds
@@ -118,7 +119,7 @@ lensD f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) noBinds
     l = fieldLens f
     a = fieldAccessor f
 
-    rhs = mapping (typeOf f) $
+    rhs = mapping (_fieldDirection f) (typeOf f) $
         app (app (var "lens") (var a))
             (paren (lamE noLoc [pvar "s", pvar "a"]
                    (RecUpdate (var "s") [FieldUpdate (unqual a) (var "a")])))
@@ -149,11 +150,11 @@ dataD n fs cs = DataDecl noLoc arity [] (ident (typeId n)) [] fs ds
 
     ds = map ((,[]) . UnQual . Ident . drop 1 . show) cs
 
-recordD :: Timestamp -> Id -> [Field] -> QualConDecl
-recordD ts n = conD . \case
+recordD :: HasMetadata a Identity => a -> Id -> [Field] -> QualConDecl
+recordD m n = conD . \case
     []  -> ConDecl c []
-    [x] -> RecDecl c [g (internal ts) x]
-    xs  -> RecDecl c (map (g (strict . internal ts)) xs)
+    [x] -> RecDecl c [g (internal m) x]
+    xs  -> RecDecl c (map (g (strict . internal m)) xs)
   where
     g h f = ([ident (fieldAccessor f)], h f)
 
@@ -162,10 +163,10 @@ recordD ts n = conD . \case
 conD :: ConDecl -> QualConDecl
 conD = QualConDecl noLoc [] []
 
-serviceS :: HasMetadata a f => a -> Decl
+serviceS :: HasMetadata a Identity => a -> Decl
 serviceS m = TypeSig noLoc [ident (serviceFunction m)] (tycon "Service")
 
-serviceD :: HasMetadata a f => a -> Retry -> Decl
+serviceD :: HasMetadata a Identity => a -> Retry -> Decl
 serviceD m r = patBindWhere noLoc (pvar n) rhs bs
   where
     bs  = [try noBinds, chk noBinds]
@@ -288,7 +289,7 @@ notationE = \case
         | fieldMaybe f  = infixApp (key False f) "." (var "_Just")
         | otherwise     = key False f
 
-requestD :: HasMetadata a f
+requestD :: HasMetadata a Identity
          => Config
          -> a
          -> HTTP Identity
@@ -614,7 +615,7 @@ inputNames, outputNames :: Protocol -> Field -> Names
 inputNames  p f = Proto.nestedNames p Input  (f ^. fieldId) (f ^. fieldRef)
 outputNames p f = Proto.nestedNames p Output (f ^. fieldId) (f ^. fieldRef)
 
-requestF :: HasMetadata a f
+requestF :: HasMetadata a Identity
          => Config
          -> a
          -> HTTP Identity
@@ -707,18 +708,23 @@ waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
             Textual {} -> \y -> infixApp y "." (app (var "to") (var "toTextCI"))
             _          -> id
 
-signature :: Timestamp -> TType -> Type
-signature ts = directed False ts Nothing
+signature :: HasMetadata a Identity => a -> TType -> Type
+signature m = directed False m Nothing
 
-internal, external :: Timestamp -> Field -> Type
-internal ts f = directed True  ts (f ^. fieldDirection) f
-external ts f = directed False ts (f ^. fieldDirection) f
+internal, external :: HasMetadata a Identity => a -> Field -> Type
+internal m f = directed True  m (_fieldDirection f) f
+external m f = directed False m (_fieldDirection f) f
 
 -- FIXME: split again into internal/external
-directed :: TypeOf a => Bool -> Timestamp -> Maybe Direction -> a -> Type
-directed i ts d (typeOf -> t) = case t of
+directed :: (HasMetadata a Identity, TypeOf b)
+         => Bool
+         -> a
+         -> Maybe Direction
+         -> b
+         -> Type
+directed i m d (typeOf -> t) = case t of
     TType      x _ -> tycon x
-    TLit       x   -> literal i ts x
+    TLit       x   -> literal i (m ^. timestampFormat . _Identity) x
     TNatural       -> tycon nat
     TStream        -> tycon stream
     TSensitive x   -> sensitive (go x)
@@ -727,7 +733,7 @@ directed i ts d (typeOf -> t) = case t of
     TList1     x   -> list1  (go x)
     TMap       k v -> hmap k v
   where
-    go = directed i ts d
+    go = directed i m d
 
     nat | i         = "Nat"
         | otherwise = "Natural"
@@ -749,29 +755,35 @@ directed i ts d (typeOf -> t) = case t of
         | otherwise = TyApp (TyApp (tycon "HashMap") (go k)) (go v)
 
     stream = case d of
-        Nothing     -> "Stream"
-        Just Input  -> "RqBody"
-        Just Output -> "RsBody"
+        Nothing         -> "Stream"
+        Just Output     -> "Stream"     -- ^ Response stream.
+        Just Input
+            | i         -> "Body"       -- ^ Internal generalisation.
+            | m ^. signatureVersion == S3
+                        -> "Body"       -- ^ If the signer supports chunked encoding, both body types are accepted.
+            | otherwise -> "HashedBody" -- ^ Otherwise only a pre-hashed body is accepted.
 
-mapping :: TType -> Exp -> Exp
-mapping t e = infixE e "." (go t)
+mapping :: Maybe Direction -> TType -> Exp -> Exp
+mapping d t e = infixE e "." (go t)
   where
     go = \case
         TSensitive x            -> var "_Sensitive" : go x
         TMaybe     x@(TMap  {}) -> var "_Default"   : go x
         TMaybe     x@(TList {}) -> var "_Default"   : go x
         TMaybe     x            -> nest (go x)
-        x                       -> maybeToList (iso x)
+        x                       -> maybeToList (iso d x)
 
     nest []     = []
     nest (x:xs) = [app (var "mapping") (infixE x "." xs)]
 
-iso :: TType -> Maybe Exp
-iso = \case
+iso :: Maybe Direction -> TType -> Maybe Exp
+iso d = \case
     TLit Time     -> Just (var "_Time")
     TLit Blob     -> Just (var "_Base64")
     TNatural      -> Just (var "_Nat")
-    TSensitive x  -> Just (infixE (var "_Sensitive") "." (maybeToList (iso x)))
+    TStream | d == Just Input
+                  -> Just (var "_Body")
+    TSensitive x  -> Just (infixE (var "_Sensitive") "." (maybeToList (iso d x)))
     TList1     {} -> Just (var "_List1")
     TList      {} -> Just (var "_Coerce")
     TMap       {} -> Just (var "_Map")

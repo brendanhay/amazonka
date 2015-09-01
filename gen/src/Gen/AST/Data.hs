@@ -152,19 +152,19 @@ prodData m s st = (,fields) <$> mk
         <*> mkCtor
         <*> traverse mkLens fields
 
-    decl = dataD n [recordD ts n fields] (derivingOf s)
+    decl = dataD n [recordD m n fields] (derivingOf s)
 
     fields :: [Field]
     fields = mkFields m s st
 
     mkLens :: Field -> Either Error Fun
     mkLens f = Fun' (fieldLens f) (fieldHelp f)
-        <$> pp None (lensS ts (s ^. annType) f)
+        <$> pp None (lensS m (s ^. annType) f)
         <*> pp None (lensD f)
 
     mkCtor :: Either Error Fun
     mkCtor = Fun' (smartCtorId n) mkHelp
-        <$> (pp None   (ctorS ts n fields) <&> addParamComments fields)
+        <$> (pp None   (ctorS m n fields) <&> addParamComments fields)
         <*>  pp Indent (ctorD n fields)
 
     mkHelp :: Help
@@ -186,15 +186,14 @@ prodData m s st = (,fields) <$> mk
 
         ps = map Just (filter fieldIsParam fs) ++ repeat Nothing
 
-    ts = m ^. timestampFormat . _Identity
-    n  = s ^. annId
+    n = s ^. annId
 
 renderInsts :: Protocol -> Id -> [Inst] -> Either Error (Map Text LText.Text)
 renderInsts p n = fmap Map.fromList . traverse go
   where
     go i = (instToText i,) <$> pp Print (instanceD p n i)
 
-serviceData :: HasMetadata a f
+serviceData :: HasMetadata a Identity
             => a
             -> Retry
             -> Either Error Fun

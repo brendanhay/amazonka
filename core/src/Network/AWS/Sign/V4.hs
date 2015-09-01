@@ -1,5 +1,6 @@
 {-# LANGUAGE DataKinds         #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE PackageImports    #-}
 {-# LANGUAGE RankNTypes        #-}
@@ -25,11 +26,14 @@ import           Control.Applicative
 import           Control.Lens
 import           Data.Bifunctor
 import qualified Data.ByteString              as BS
+import           Data.ByteString.Builder
 import qualified Data.ByteString.Char8        as BS8
 import qualified Data.CaseInsensitive         as CI
+import           Data.Conduit
 import qualified Data.Foldable                as Fold
 import           Data.Function                (on)
 import           Data.List                    (nubBy, sortBy)
+import           Data.Maybe
 import           Data.Monoid
 import           GHC.TypeLits
 import           Network.AWS.Data.Body
@@ -60,7 +64,6 @@ data V4 = V4
     , metaStringToSign     :: !StringToSign
     , metaSignature        :: !Signature
     , metaHeaders          :: ![Header]
-    , metaBody             :: Client.RequestBody
     , metaTimeout          :: !(Maybe Seconds)
     }
 
@@ -85,12 +88,11 @@ v4 :: Signer
 v4 = Signer sign' presign'
 
 presign' :: Seconds -> Algorithm a
-presign' ex rq auth reg ts = finalise meta authorise
+presign' ex rq a r ts = finalise meta mempty auth
   where
-    authorise = queryString
-        <>~ ("&X-Amz-Signature=" <> toBS (metaSignature meta))
+    auth = queryString <>~ ("&X-Amz-Signature=" <> toBS (metaSignature meta))
 
-    meta = metadata auth reg ts presign digest (prepare rq)
+    meta = metadata a r ts presign digest (prepare rq)
 
     presign c shs =
           pair (CI.original hAMZAlgorithm)     algorithm
@@ -98,31 +100,118 @@ presign' ex rq auth reg ts = finalise meta authorise
         . pair (CI.original hAMZDate)          (Time ts :: AWSTime)
         . pair (CI.original hAMZExpires)       ex
         . pair (CI.original hAMZSignedHeaders) (toBS shs)
-        . pair (CI.original hAMZToken)         (toBS <$> _authToken auth)
+        . pair (CI.original hAMZToken)         (toBS <$> _authToken a)
 
     digest = Tag "UNSIGNED-PAYLOAD"
 
     prepare = rqHeaders .~ []
 
 sign' :: Algorithm a
-sign' rq auth reg ts = finalise meta authorise
-  where
-    authorise = requestHeaders
-        <>~ [(hAuthorization, authorisation meta)]
+sign' rq a r ts =
+    case _rqBody rq of
+        Chunked x -> chunked x rq a r ts
+        Hashed  x ->
+            let (meta, auth) = regular (Tag (sha256Base16 x)) rq a r ts
+             in finalise meta (_hashedBody x) auth
 
-    meta = metadata auth reg ts presign digest (prepare rq)
+regular :: Hash
+        -> Request a
+        -> AuthEnv
+        -> Region
+        -> UTCTime
+        -> (V4, ClientRequest -> ClientRequest)
+regular h rq a r ts = (meta, auth)
+  where
+    auth = requestHeaders <>~ [(hAuthorization, authorisation meta)]
+
+    meta = metadata a r ts presign h (prepare rq)
 
     presign _ _ = id
 
-    digest = Tag . digestToBase Base16 . bodySHA256 $ _rqBody rq
-
     prepare = rqHeaders %~
-        ( hdr hHost    (_endpointHost end)
-        . hdr hAMZDate (toBS (Time ts :: AWSTime))
-        . maybe id (hdr hAMZToken . toBS) (_authToken auth)
+        ( hdr hHost             (_endpointHost end)
+        . hdr hAMZDate          (toBS (Time ts :: AWSTime))
+        . hdr hAMZContentSHA256 (toBS h)
+        . maybe id (hdr hAMZToken . toBS) (_authToken a)
         )
 
-    end = _svcEndpoint (_rqService rq) reg
+    end = _svcEndpoint (_rqService rq) r
+
+chunked :: ChunkedBody -> Algorithm a
+chunked c rq a r ts = finalise meta (bodyRequest body) auth
+  where
+    (meta, auth) = regular (Tag digest) (f rq) a r ts
+      where
+        f = rqHeaders <>~
+            [ (hContentEncoding,         "aws-chunked")
+            , (hAMZDecodedContentLength, toBS (_chunkedTotal c))
+            , (hTransferEncoding,        "chunked")
+            ]
+
+    digest :: ByteString
+    digest = "STREAMING-AWS4-HMAC-SHA256-PAYLOAD"
+
+    body :: Body
+    body = Chunked $ c
+        { _chunkedBody = _chunkedBody c =$= chunk (metaSignature meta)
+        }
+
+    chunk :: Signature -> Conduit ByteString IO ByteString
+    chunk = go
+      where
+        go prev = do
+            mx <- await
+            let next = chunkSignature prev (fromMaybe mempty mx)
+            case mx of
+                Nothing -> yield (chunkFinal next)
+                Just x  -> yield (chunkData  next x) >> go next
+
+        chunkData s x = toBS
+             $ word64Hex (fromIntegral (BS.length x))
+            <> ";chunk-signature="
+            <> byteString (toBS s)
+            <> "\r\n"
+            <> byteString x
+            <> "\r\n"
+
+        chunkFinal s = toBS
+             $ "0;chunk-signature="
+            <> byteString (toBS s)
+            <> "\r\n"
+
+    chunkSignature :: Signature -> ByteString -> Signature
+    chunkSignature prev x =
+        signature (_authSecret a) scope (chunkStringToSign prev x)
+
+    chunkStringToSign :: Signature -> ByteString -> StringToSign
+    chunkStringToSign prev x = Tag $ BS8.intercalate "\n"
+        [ partialStringToSign
+        , toBS prev
+        , emptySHA256
+        , hex x
+        ]
+
+    partialStringToSign :: ByteString
+    partialStringToSign = BS8.intercalate "\n"
+        [ digest
+        , time
+        , toBS scope
+        ]
+
+    time :: ByteString
+    time = toBS (Time ts :: AWSTime)
+
+    scope :: CredentialScope
+    scope = credentialScope (_rqService rq) end ts
+
+    end :: Endpoint
+    end = _svcEndpoint (_rqService rq) r
+
+    emptySHA256 :: ByteString
+    emptySHA256 = hex mempty
+
+    hex :: ByteString -> ByteString
+    hex = digestToBase Base16 . hashSHA256
 
 -- | Used to tag provenance. This allows keeping the same layout as
 -- the signing documentation, passing 'ByteString's everywhere, with
@@ -157,15 +246,18 @@ authorisation V4{..} = algorithm
     <> ", SignedHeaders=" <> toBS metaSignedHeaders
     <> ", Signature="     <> toBS metaSignature
 
-finalise :: V4 -> (ClientRequest -> ClientRequest) -> Signed a
-finalise m@V4{..} authorise = Signed (Meta m) (authorise rq)
+finalise :: V4                               -- ^ Pre-finalised signing metadata.
+         -> Client.RequestBody               -- ^ The request body.
+         -> (ClientRequest -> ClientRequest) -- ^ Insert authentication information.
+         -> Signed a
+finalise m@V4{..} b auth = Signed (Meta m) (auth rq)
   where
     rq = (clientRequest metaEndpoint metaTimeout)
         { Client.method         = toBS metaMethod
         , Client.path           = toBS metaPath
         , Client.queryString    = qry
         , Client.requestHeaders = metaHeaders
-        , Client.requestBody    = metaBody
+        , Client.requestBody    = b
         }
 
     qry | BS.null x = x
@@ -180,7 +272,7 @@ metadata :: AuthEnv
          -> Hash
          -> Request a
          -> V4
-metadata auth reg ts presign digest rq = V4
+metadata a r ts presign digest rq = V4
     { metaTime             = ts
     , metaMethod           = method
     , metaPath             = path
@@ -191,16 +283,15 @@ metadata auth reg ts presign digest rq = V4
     , metaCanonicalHeaders = chs
     , metaSignedHeaders    = shs
     , metaStringToSign     = sts
-    , metaSignature        = signature (_authSecret auth) scope sts
+    , metaSignature        = signature (_authSecret a) scope sts
     , metaHeaders          = _rqHeaders rq
-    , metaBody             = bodyRequest (_rqBody rq)
     , metaTimeout          = _svcTimeout svc
     }
   where
     query = canonicalQuery . presign cred shs $ _rqQuery rq
 
     sts   = stringToSign ts scope crq
-    cred  = credential (_authAccess auth) scope
+    cred  = credential (_authAccess a) scope
     scope = credentialScope svc end ts
     crq   = canonicalRequest method path digest query chs shs
 
@@ -208,7 +299,7 @@ metadata auth reg ts presign digest rq = V4
     shs     = signedHeaders    headers
     headers = normaliseHeaders (_rqHeaders rq)
 
-    end    = _svcEndpoint svc reg
+    end    = _svcEndpoint svc r
     method = Tag . toBS $ _rqMethod rq
     path   = escapedPath rq
 

@@ -156,7 +156,7 @@ chunked c rq a r ts = finalise meta (bodyRequest body) auth
         { _chunkedBody = _chunkedBody c =$= chunk (metaSignature meta)
         }
 
-    chunk :: Signature -> Conduit ByteString IO ByteString
+    chunk :: Monad m => Signature -> Conduit ByteString m ByteString
     chunk = go
       where
         go prev = do

@@ -77,11 +77,14 @@ module Control.Monad.Trans.AWS
     -- $streaming
 
     -- *** Request Bodies
+    , ToHashedBody (..)
+    , hashedFile
+    , hashedBody
+
+    -- *** Chunked Request Bodies
     , ToBody       (..)
-    , sourceBody
-    , sourceHandle
-    , sourceFile
-    , sourceFileIO
+    , chunkedFile
+    , unsafeChunkedBody
 
     -- *** Response Bodies
     , sinkBody
@@ -134,8 +137,8 @@ module Control.Monad.Trans.AWS
     , setEndpoint
 
     -- * Re-exported Types
-    , RqBody
-    , RsBody
+    , Body
+    , HashedBody
     , module Network.AWS.Types
     , module Network.AWS.Waiter
     , module Network.AWS.Pager
@@ -449,13 +452,20 @@ configuration for all service requests within their respective scope.
 -}
 
 {- $streaming
-Streaming request bodies (such as 'PutObject') require a precomputed
-'SHA256' for signing purposes.
-The 'ToBody' typeclass has instances available to construct a 'RqBody',
-automatically calculating the hash as needed for types such as 'Text' and 'ByteString'.
+Streaming comes in two flavours. The more common 'HashedBody' representing requests
+that require precomputed 'SHA256' hashes, or a 'Body' type for those services
+that can perform incremental signing and do not require the entire payload to
+be hashed (such as 'S3'). The type signatures for request smart constructors
+advertise which respective body type is required, denoting the underlying signing
+capabilities.
 
-For reading files and handles, functions such 'sourceFileIO' or 'sourceHandle'
-can be used.
+'ToHashedBody' and 'ToBody' typeclass instances are available to construct the
+streaming bodies, automatically calculating any hash or size as needed for types
+such as 'Text', 'ByteString', or Aeson's 'Value' type.
+
+To read files and other 'IO' primitives, functions such as
+'hashedFile' / 'chunkedFile', or 'hashedBody' / 'chunkedBody' should be used.
+
 For responses that contain streaming bodies (such as 'GetObject'), you can use
 'sinkBody' to connect the response body to a <http://hackage.haskell.org/package/conduit conduit>
 compatible sink.

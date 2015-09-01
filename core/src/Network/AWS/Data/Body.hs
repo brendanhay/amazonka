@@ -40,7 +40,7 @@ import           Prelude
 
 -- | A streaming, exception safe response body.
 newtype Stream = Stream
-    { streamBody :: ResumableSource (ResourceT IO) ByteString
+    { _streamBody :: ResumableSource (ResourceT IO) ByteString
     }
 -- newtype for show/orhpan instance purposes
 
@@ -48,12 +48,10 @@ instance Show Stream where
     show = const "Stream { ResumableSource (ResourceT IO) ByteString }"
 
 data ChunkedBody = ChunkedBody
-    { _chunkedBody    :: Source IO ByteString
-    , _chunkedRequest :: Source IO ByteString -> RequestBody
+    { _chunkedRequest :: Source (ResourceT IO) ByteString -> RequestBody
+    , _chunkedBody    :: Source (ResourceT IO) ByteString
     , _chunkedTotal   :: !Integer
     }
-
--- FIXME: What about chunk size?
 
 instance Show ChunkedBody where
     show = const "ChunkedBody"
@@ -74,8 +72,10 @@ instance IsString HashedBody where
 sha256Base16 :: HashedBody -> ByteString
 sha256Base16 = digestToBase Base16 . _hashedDigest
 
--- Invariant: only services that support chunked encoding can create/specify
--- a Chunked body.
+-- Invariant: only services that support chunked encoding should
+-- create/specify a Chunked body. This is enforced by the type signatures
+-- emitted by the generator.
+
 data Body
     = Chunked ChunkedBody
     | Hashed  HashedBody

@@ -34,7 +34,6 @@ import qualified Data.CaseInsensitive         as CI
 import           Data.Char
 import qualified Data.Text.Encoding           as Text
 import           Data.Time                    (UTCTime)
-import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Text
 import           Network.HTTP.Types
 import           Numeric

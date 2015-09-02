@@ -76,15 +76,15 @@ module Network.AWS
 
     -- *** Request Bodies
     , ToHashedBody (..)
-    , sourceHashedFile
-    , sourceHashed
+    , hashedFile
+    , hashedBody
 
     -- *** Chunked Request Bodies
     , ToBody       (..)
     , ChunkSize    (..)
     , defaultChunkSize
-    , sourceChunkedFile
-    , unsafeSourceChunked
+    , chunkedFile
+    , unsafeChunkedBody
 
     -- *** Response Bodies
     , sinkBody
@@ -136,12 +136,13 @@ module Network.AWS
     , AWST.setEndpoint
 
     -- * Re-exported Types
-    , RqBody
-    , HashedBody
-    , RsBody
     , module Network.AWS.Types
     , module Network.AWS.Waiter
     , module Network.AWS.Pager
+    , RqBody
+    , HashedBody
+    , ChunkedBody
+    , RsBody
 
     -- * runResourceT
     , runResourceT
@@ -431,8 +432,8 @@ configuration for all service requests within their respective scope.
 -}
 
 {- $streaming
-Streaming comes in two flavours. The more common 'HashedBody' representing requests
-that require precomputed 'SHA256' hashes, or a 'RqBody' type for those services
+Streaming comes in two flavours. 'HashedBody' represents a request
+that requires a precomputed 'SHA256' hash, or a 'ChunkedBody' type for those services
 that can perform incremental signing and do not require the entire payload to
 be hashed (such as 'S3'). The type signatures for request smart constructors
 advertise which respective body type is required, denoting the underlying signing
@@ -440,10 +441,9 @@ capabilities.
 
 'ToHashedBody' and 'ToBody' typeclass instances are available to construct the
 streaming bodies, automatically calculating any hash or size as needed for types
-such as 'Text', 'ByteString', or Aeson's 'Value' type.
-
-To read files and other 'IO' primitives, functions such as
-'hashedFile' / 'chunkedFile', or 'hashedBody' / 'chunkedBody' should be used.
+such as 'Text', 'ByteString', or Aeson's 'Value' type. To read files and other
+'IO' primitives, functions such as 'hashedFile', 'chunkedFile', or 'hashedBody'
+should be used.
 
 For responses that contain streaming bodies (such as 'GetObject'), you can use
 'sinkBody' to connect the response body to a <http://hackage.haskell.org/package/conduit conduit>

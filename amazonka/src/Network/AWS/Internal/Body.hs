@@ -41,8 +41,8 @@ sinkBody (RsBody s) sink = hoist liftResourceT s $$+- sink
 -- lastly to stream the contents to the socket during sending.
 --
 -- /See:/ 'ToHashedBody'.
-sourceHashedFile :: MonadIO m => FilePath -> m HashedBody
-sourceHashedFile f = liftIO $ HashedBody
+hashedFile :: MonadIO m => FilePath -> m HashedBody
+hashedFile f = liftIO $ HashedBody
     <$> runResourceT (Conduit.sourceFile f $$ sinkSHA256)
     <*> Client.streamFile f
 
@@ -50,17 +50,17 @@ sourceHashedFile f = liftIO $ HashedBody
 -- 'SHA256' hash and file size.
 --
 -- /See:/ 'ToHashedBody'.
-sourceHashed :: Digest SHA256
-             -> Integer
-             -> Source (ResourceT IO) ByteString
-             -> HashedBody
-sourceHashed h n = HashedBody h . requestBodySource (fromIntegral n)
+hashedBody :: Digest SHA256
+           -> Integer
+           -> Source (ResourceT IO) ByteString
+           -> HashedBody
+hashedBody h n = HashedBody h . requestBodySource (fromIntegral n)
 
 -- | Specifies the transmitted size of the 'Transfer-Encoding' chunks.
 --
 -- /See:/ 'defaultChunk'.
 newtype ChunkSize = ChunkSize Int
-    deriving (Eq, Ord, Show, Num)
+    deriving (Eq, Ord, Show, Enum, Num, Real, Integral)
 
 -- | The default chunk size of 128 KB. The minimum chunk size accepted by
 -- AWS is 8 KB, unless the entirety of the request is below this threshold.
@@ -74,12 +74,14 @@ defaultChunkSize = 131072
 -- Will intelligently revert to 'HashedBody' if the file is smaller than the
 -- specified 'ChunkSize'.
 --
+-- Add note about how it selects chunk size.
+--
 -- /See:/ 'ToBody'.
-sourceChunkedFile :: MonadIO m => ChunkSize -> FilePath -> m RqBody
-sourceChunkedFile (ChunkSize sz) f = do
+chunkedFile :: MonadIO m => ChunkSize -> FilePath -> m RqBody
+chunkedFile c f = do
     n <- getFileSize f
-    if n > toInteger sz
-        then return $ unsafeSourceChunked n (sourceBufferedFile sz f)
+    if n > toInteger c
+        then return $ unsafeChunkedBody n (sourceFileChunks c f)
         else Hashed `liftM` hashedFile f
 
 -- | Something something.
@@ -90,16 +92,19 @@ sourceChunkedFile (ChunkSize sz) f = do
 -- the request will error. 64 KB or higher chunk size is recommended for
 -- performance reasons.
 --
+-- Note that it will always create a chunked body even if the request
+-- is too small.
+--
 -- /See:/ 'ToBody'.
-unsafeSourceChunked :: Integer -> Source (ResourceT IO) ByteString -> RqBody
-unsafeSourceChunked n s = Chunked (ChunkedBody requestBodySourceChunked s n)
+unsafeChunkedBody :: Integer -> Source (ResourceT IO) ByteString -> RqBody
+unsafeChunkedBody n s = Chunked (ChunkedBody requestBodySourceChunked s n)
 
 -- Uses hGet with a specific buffer size, instead of hGetSome.
-sourceBufferedFile :: MonadResource m
-                   => Int
-                   -> FilePath
-                   -> Source m ByteString
-sourceBufferedFile sz f =
+sourceFileChunks :: MonadResource m
+                 => ChunkSize
+                 -> FilePath
+                 -> Source m ByteString
+sourceFileChunks (ChunkSize sz) f =
     bracketP (openBinaryFile f ReadMode) hClose go
   where
     go h = do

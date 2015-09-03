@@ -73,7 +73,7 @@ fixtures =
                             (monitoring & mState ?~ MSDisabled)
                             X86_64 EBS HVM Xen
                             (instanceState ISNRunning 16)
-                                & insPlatform            ?~ PVWindows
+                                & insPlatform            ?~ Windows
                                 & insClientToken         ?~ "ABCDE1234567890123"
                                 & insSourceDestCheck     ?~ True
                                 & insVPCId               ?~ "vpc-1a2b3c4d"

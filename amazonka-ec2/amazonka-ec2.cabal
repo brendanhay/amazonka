@@ -1,5 +1,5 @@
 name:                  amazonka-ec2
-version:               1.2.0.2
+version:               1.3.0
 synopsis:              Amazon Elastic Compute Cloud SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -236,7 +236,7 @@ library
         , Network.AWS.EC2.Types.Sum
 
     build-depends:
-          amazonka-core == 1.2.0.*
+          amazonka-core == 1.3.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ec2-test
@@ -256,9 +256,9 @@ test-suite amazonka-ec2-test
         , Test.AWS.EC2.Internal
 
     build-depends:
-          amazonka-core == 1.2.0.*
-        , amazonka-test == 1.2.0.*
-        , amazonka-ec2 == 1.2.0.*
+          amazonka-core == 1.3.0.*
+        , amazonka-test == 1.3.0.*
+        , amazonka-ec2 == 1.3.0.*
         , base
         , bytestring
         , lens

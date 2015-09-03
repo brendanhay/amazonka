@@ -1,5 +1,5 @@
 name:                  amazonka-ecs
-version:               1.2.0.2
+version:               1.3.0
 synopsis:              Amazon EC2 Container Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -89,7 +89,7 @@ library
         , Network.AWS.ECS.Types.Sum
 
     build-depends:
-          amazonka-core == 1.2.0.*
+          amazonka-core == 1.3.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ecs-test
@@ -109,9 +109,9 @@ test-suite amazonka-ecs-test
         , Test.AWS.ECS.Internal
 
     build-depends:
-          amazonka-core == 1.2.0.*
-        , amazonka-test == 1.2.0.*
-        , amazonka-ecs == 1.2.0.*
+          amazonka-core == 1.3.0.*
+        , amazonka-test == 1.3.0.*
+        , amazonka-ecs == 1.3.0.*
         , base
         , bytestring
         , lens

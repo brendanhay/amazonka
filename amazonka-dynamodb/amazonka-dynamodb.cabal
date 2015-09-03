@@ -1,5 +1,5 @@
 name:                  amazonka-dynamodb
-version:               1.2.0.2
+version:               1.3.0
 synopsis:              Amazon DynamoDB SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -176,7 +176,7 @@ library
         , Network.AWS.DynamoDB.Types.Sum
 
     build-depends:
-          amazonka-core == 1.2.0.*
+          amazonka-core == 1.3.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-dynamodb-test
@@ -196,9 +196,9 @@ test-suite amazonka-dynamodb-test
         , Test.AWS.DynamoDB.Internal
 
     build-depends:
-          amazonka-core == 1.2.0.*
-        , amazonka-test == 1.2.0.*
-        , amazonka-dynamodb == 1.2.0.*
+          amazonka-core == 1.3.0.*
+        , amazonka-test == 1.3.0.*
+        , amazonka-dynamodb == 1.3.0.*
         , base
         , bytestring
         , lens

@@ -1,5 +1,5 @@
 name:                  amazonka-elb
-version:               1.2.0.2
+version:               1.3.0
 synopsis:              Amazon Elastic Load Balancing SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -93,7 +93,7 @@ library
         , Network.AWS.ELB.Types.Sum
 
     build-depends:
-          amazonka-core == 1.2.0.*
+          amazonka-core == 1.3.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-elb-test
@@ -113,9 +113,9 @@ test-suite amazonka-elb-test
         , Test.AWS.ELB.Internal
 
     build-depends:
-          amazonka-core == 1.2.0.*
-        , amazonka-test == 1.2.0.*
-        , amazonka-elb == 1.2.0.*
+          amazonka-core == 1.3.0.*
+        , amazonka-test == 1.3.0.*
+        , amazonka-elb == 1.3.0.*
         , base
         , bytestring
         , lens

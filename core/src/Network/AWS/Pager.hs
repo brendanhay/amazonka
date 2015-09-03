@@ -39,6 +39,10 @@ class AWSTruncated a where
 instance AWSTruncated Bool where
     truncated = id
 
+instance AWSTruncated (Maybe Int) where
+    truncated (Just _) = True
+    truncated Nothing  = False
+
 instance AWSTruncated (Maybe Bool) where
     truncated (Just x) = x
     truncated Nothing  = False

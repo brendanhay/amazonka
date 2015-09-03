@@ -34,7 +34,7 @@ module Network.AWS.S3.GetBucketCORS
     , GetBucketCORSResponse
     -- * Response Lenses
     , gbcrsCORSRules
-    , gbcrsStatus
+    , gbcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -87,8 +87,8 @@ instance ToQuery GetBucketCORS where
 
 -- | /See:/ 'getBucketCORSResponse' smart constructor.
 data GetBucketCORSResponse = GetBucketCORSResponse'
-    { _gbcrsCORSRules :: !(Maybe [CORSRule])
-    , _gbcrsStatus    :: !Int
+    { _gbcrsCORSRules      :: !(Maybe [CORSRule])
+    , _gbcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketCORSResponse' with the minimum fields required to make a request.
@@ -97,14 +97,14 @@ data GetBucketCORSResponse = GetBucketCORSResponse'
 --
 -- * 'gbcrsCORSRules'
 --
--- * 'gbcrsStatus'
+-- * 'gbcrsResponseStatus'
 getBucketCORSResponse
-    :: Int -- ^ 'gbcrsStatus'
+    :: Int -- ^ 'gbcrsResponseStatus'
     -> GetBucketCORSResponse
-getBucketCORSResponse pStatus_ =
+getBucketCORSResponse pResponseStatus_ =
     GetBucketCORSResponse'
     { _gbcrsCORSRules = Nothing
-    , _gbcrsStatus = pStatus_
+    , _gbcrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -112,5 +112,5 @@ gbcrsCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
 gbcrsCORSRules = lens _gbcrsCORSRules (\ s a -> s{_gbcrsCORSRules = a}) . _Default . _Coerce;
 
 -- | The response status code.
-gbcrsStatus :: Lens' GetBucketCORSResponse Int
-gbcrsStatus = lens _gbcrsStatus (\ s a -> s{_gbcrsStatus = a});
+gbcrsResponseStatus :: Lens' GetBucketCORSResponse Int
+gbcrsResponseStatus = lens _gbcrsResponseStatus (\ s a -> s{_gbcrsResponseStatus = a});

@@ -63,8 +63,8 @@ module Network.AWS.MachineLearning.Types
     , bpMLModelId
     , bpBatchPredictionDataSourceId
     , bpBatchPredictionId
-    , bpName
     , bpCreatedByIAMUser
+    , bpName
     , bpMessage
     , bpOutputURI
 
@@ -75,17 +75,17 @@ module Network.AWS.MachineLearning.Types
     , dsNumberOfFiles
     , dsLastUpdatedAt
     , dsCreatedAt
-    , dsRDSMetadata
     , dsDataSourceId
+    , dsRDSMetadata
     , dsDataSizeInBytes
-    , dsName
     , dsCreatedByIAMUser
+    , dsName
     , dsDataLocationS3
     , dsComputeStatistics
     , dsMessage
     , dsRedshiftMetadata
-    , dsRoleARN
     , dsDataRearrangement
+    , dsRoleARN
 
     -- * Evaluation
     , Evaluation
@@ -96,27 +96,27 @@ module Network.AWS.MachineLearning.Types
     , eCreatedAt
     , eInputDataLocationS3
     , eMLModelId
-    , eName
     , eCreatedByIAMUser
-    , eMessage
+    , eName
     , eEvaluationId
+    , eMessage
     , eEvaluationDataSourceId
 
     -- * MLModel
     , MLModel
     , mLModel
     , mlmStatus
-    , mlmTrainingParameters
     , mlmLastUpdatedAt
-    , mlmCreatedAt
+    , mlmTrainingParameters
     , mlmScoreThresholdLastUpdatedAt
+    , mlmCreatedAt
     , mlmInputDataLocationS3
-    , mlmSizeInBytes
     , mlmMLModelId
+    , mlmSizeInBytes
     , mlmScoreThreshold
-    , mlmName
     , mlmAlgorithm
     , mlmCreatedByIAMUser
+    , mlmName
     , mlmEndpointInfo
     , mlmTrainingDataSourceId
     , mlmMessage

@@ -45,7 +45,7 @@ module Network.AWS.EC2.DescribeRouteTables
     , DescribeRouteTablesResponse
     -- * Response Lenses
     , drtrsRouteTables
-    , drtrsStatus
+    , drtrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -185,8 +185,8 @@ instance ToQuery DescribeRouteTables where
 
 -- | /See:/ 'describeRouteTablesResponse' smart constructor.
 data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
-    { _drtrsRouteTables :: !(Maybe [RouteTable])
-    , _drtrsStatus      :: !Int
+    { _drtrsRouteTables    :: !(Maybe [RouteTable])
+    , _drtrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeRouteTablesResponse' with the minimum fields required to make a request.
@@ -195,14 +195,14 @@ data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
 --
 -- * 'drtrsRouteTables'
 --
--- * 'drtrsStatus'
+-- * 'drtrsResponseStatus'
 describeRouteTablesResponse
-    :: Int -- ^ 'drtrsStatus'
+    :: Int -- ^ 'drtrsResponseStatus'
     -> DescribeRouteTablesResponse
-describeRouteTablesResponse pStatus_ =
+describeRouteTablesResponse pResponseStatus_ =
     DescribeRouteTablesResponse'
     { _drtrsRouteTables = Nothing
-    , _drtrsStatus = pStatus_
+    , _drtrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more route tables.
@@ -210,5 +210,5 @@ drtrsRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
 drtrsRouteTables = lens _drtrsRouteTables (\ s a -> s{_drtrsRouteTables = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drtrsStatus :: Lens' DescribeRouteTablesResponse Int
-drtrsStatus = lens _drtrsStatus (\ s a -> s{_drtrsStatus = a});
+drtrsResponseStatus :: Lens' DescribeRouteTablesResponse Int
+drtrsResponseStatus = lens _drtrsResponseStatus (\ s a -> s{_drtrsResponseStatus = a});

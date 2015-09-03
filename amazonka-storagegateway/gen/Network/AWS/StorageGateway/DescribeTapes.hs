@@ -42,7 +42,7 @@ module Network.AWS.StorageGateway.DescribeTapes
     -- * Response Lenses
     , dtsrsMarker
     , dtsrsTapes
-    , dtsrsStatus
+    , dtsrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -155,9 +155,9 @@ instance ToQuery DescribeTapes where
 --
 -- /See:/ 'describeTapesResponse' smart constructor.
 data DescribeTapesResponse = DescribeTapesResponse'
-    { _dtsrsMarker :: !(Maybe Text)
-    , _dtsrsTapes  :: !(Maybe [Tape])
-    , _dtsrsStatus :: !Int
+    { _dtsrsMarker         :: !(Maybe Text)
+    , _dtsrsTapes          :: !(Maybe [Tape])
+    , _dtsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTapesResponse' with the minimum fields required to make a request.
@@ -168,15 +168,15 @@ data DescribeTapesResponse = DescribeTapesResponse'
 --
 -- * 'dtsrsTapes'
 --
--- * 'dtsrsStatus'
+-- * 'dtsrsResponseStatus'
 describeTapesResponse
-    :: Int -- ^ 'dtsrsStatus'
+    :: Int -- ^ 'dtsrsResponseStatus'
     -> DescribeTapesResponse
-describeTapesResponse pStatus_ =
+describeTapesResponse pResponseStatus_ =
     DescribeTapesResponse'
     { _dtsrsMarker = Nothing
     , _dtsrsTapes = Nothing
-    , _dtsrsStatus = pStatus_
+    , _dtsrsResponseStatus = pResponseStatus_
     }
 
 -- | An opaque string which can be used as part of a subsequent DescribeTapes
@@ -192,5 +192,5 @@ dtsrsTapes :: Lens' DescribeTapesResponse [Tape]
 dtsrsTapes = lens _dtsrsTapes (\ s a -> s{_dtsrsTapes = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dtsrsStatus :: Lens' DescribeTapesResponse Int
-dtsrsStatus = lens _dtsrsStatus (\ s a -> s{_dtsrsStatus = a});
+dtsrsResponseStatus :: Lens' DescribeTapesResponse Int
+dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a});

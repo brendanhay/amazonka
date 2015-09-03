@@ -33,8 +33,8 @@ module Network.AWS.IAM.GetAccountAuthorizationDetails
       getAccountAuthorizationDetails
     , GetAccountAuthorizationDetails
     -- * Request Lenses
-    , gaadMaxItems
     , gaadMarker
+    , gaadMaxItems
     , gaadFilter
 
     -- * Destructuring the Response
@@ -47,7 +47,7 @@ module Network.AWS.IAM.GetAccountAuthorizationDetails
     , gaadrsMarker
     , gaadrsIsTruncated
     , gaadrsPolicies
-    , gaadrsStatus
+    , gaadrsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -58,8 +58,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'getAccountAuthorizationDetails' smart constructor.
 data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
-    { _gaadMaxItems :: !(Maybe Nat)
-    , _gaadMarker   :: !(Maybe Text)
+    { _gaadMarker   :: !(Maybe Text)
+    , _gaadMaxItems :: !(Maybe Nat)
     , _gaadFilter   :: !(Maybe [EntityType])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -67,19 +67,25 @@ data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaadMaxItems'
---
 -- * 'gaadMarker'
+--
+-- * 'gaadMaxItems'
 --
 -- * 'gaadFilter'
 getAccountAuthorizationDetails
     :: GetAccountAuthorizationDetails
 getAccountAuthorizationDetails =
     GetAccountAuthorizationDetails'
-    { _gaadMaxItems = Nothing
-    , _gaadMarker = Nothing
+    { _gaadMarker = Nothing
+    , _gaadMaxItems = Nothing
     , _gaadFilter = Nothing
     }
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+gaadMarker :: Lens' GetAccountAuthorizationDetails (Maybe Text)
+gaadMarker = lens _gaadMarker (\ s a -> s{_gaadMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -89,12 +95,6 @@ getAccountAuthorizationDetails =
 -- 100.
 gaadMaxItems :: Lens' GetAccountAuthorizationDetails (Maybe Natural)
 gaadMaxItems = lens _gaadMaxItems (\ s a -> s{_gaadMaxItems = a}) . mapping _Nat;
-
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-gaadMarker :: Lens' GetAccountAuthorizationDetails (Maybe Text)
-gaadMarker = lens _gaadMarker (\ s a -> s{_gaadMarker = a});
 
 -- | A list of entity types (user, group, role, local managed policy, or AWS
 -- managed policy) for filtering the results.
@@ -139,7 +139,7 @@ instance ToQuery GetAccountAuthorizationDetails where
               ["Action" =:
                  ("GetAccountAuthorizationDetails" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _gaadMaxItems, "Marker" =: _gaadMarker,
+               "Marker" =: _gaadMarker, "MaxItems" =: _gaadMaxItems,
                "Filter" =:
                  toQuery (toQueryList "member" <$> _gaadFilter)]
 
@@ -154,7 +154,7 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
     , _gaadrsMarker          :: !(Maybe Text)
     , _gaadrsIsTruncated     :: !(Maybe Bool)
     , _gaadrsPolicies        :: !(Maybe [ManagedPolicyDetail])
-    , _gaadrsStatus          :: !Int
+    , _gaadrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetAccountAuthorizationDetailsResponse' with the minimum fields required to make a request.
@@ -173,11 +173,11 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
 --
 -- * 'gaadrsPolicies'
 --
--- * 'gaadrsStatus'
+-- * 'gaadrsResponseStatus'
 getAccountAuthorizationDetailsResponse
-    :: Int -- ^ 'gaadrsStatus'
+    :: Int -- ^ 'gaadrsResponseStatus'
     -> GetAccountAuthorizationDetailsResponse
-getAccountAuthorizationDetailsResponse pStatus_ =
+getAccountAuthorizationDetailsResponse pResponseStatus_ =
     GetAccountAuthorizationDetailsResponse'
     { _gaadrsRoleDetailList = Nothing
     , _gaadrsGroupDetailList = Nothing
@@ -185,7 +185,7 @@ getAccountAuthorizationDetailsResponse pStatus_ =
     , _gaadrsMarker = Nothing
     , _gaadrsIsTruncated = Nothing
     , _gaadrsPolicies = Nothing
-    , _gaadrsStatus = pStatus_
+    , _gaadrsResponseStatus = pResponseStatus_
     }
 
 -- | A list containing information about IAM roles.
@@ -217,5 +217,5 @@ gaadrsPolicies :: Lens' GetAccountAuthorizationDetailsResponse [ManagedPolicyDet
 gaadrsPolicies = lens _gaadrsPolicies (\ s a -> s{_gaadrsPolicies = a}) . _Default . _Coerce;
 
 -- | The response status code.
-gaadrsStatus :: Lens' GetAccountAuthorizationDetailsResponse Int
-gaadrsStatus = lens _gaadrsStatus (\ s a -> s{_gaadrsStatus = a});
+gaadrsResponseStatus :: Lens' GetAccountAuthorizationDetailsResponse Int
+gaadrsResponseStatus = lens _gaadrsResponseStatus (\ s a -> s{_gaadrsResponseStatus = a});

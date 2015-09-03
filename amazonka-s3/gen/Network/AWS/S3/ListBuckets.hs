@@ -34,7 +34,7 @@ module Network.AWS.S3.ListBuckets
     -- * Response Lenses
     , lbrsBuckets
     , lbrsOwner
-    , lbrsStatus
+    , lbrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -77,9 +77,9 @@ instance ToQuery ListBuckets where
 
 -- | /See:/ 'listBucketsResponse' smart constructor.
 data ListBucketsResponse = ListBucketsResponse'
-    { _lbrsBuckets :: !(Maybe [Bucket])
-    , _lbrsOwner   :: !(Maybe Owner)
-    , _lbrsStatus  :: !Int
+    { _lbrsBuckets        :: !(Maybe [Bucket])
+    , _lbrsOwner          :: !(Maybe Owner)
+    , _lbrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListBucketsResponse' with the minimum fields required to make a request.
@@ -90,15 +90,15 @@ data ListBucketsResponse = ListBucketsResponse'
 --
 -- * 'lbrsOwner'
 --
--- * 'lbrsStatus'
+-- * 'lbrsResponseStatus'
 listBucketsResponse
-    :: Int -- ^ 'lbrsStatus'
+    :: Int -- ^ 'lbrsResponseStatus'
     -> ListBucketsResponse
-listBucketsResponse pStatus_ =
+listBucketsResponse pResponseStatus_ =
     ListBucketsResponse'
     { _lbrsBuckets = Nothing
     , _lbrsOwner = Nothing
-    , _lbrsStatus = pStatus_
+    , _lbrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -110,5 +110,5 @@ lbrsOwner :: Lens' ListBucketsResponse (Maybe Owner)
 lbrsOwner = lens _lbrsOwner (\ s a -> s{_lbrsOwner = a});
 
 -- | The response status code.
-lbrsStatus :: Lens' ListBucketsResponse Int
-lbrsStatus = lens _lbrsStatus (\ s a -> s{_lbrsStatus = a});
+lbrsResponseStatus :: Lens' ListBucketsResponse Int
+lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});

@@ -18,12 +18,12 @@ module Network.AWS.SDB.Types
     -- * Errors
     , _InvalidNumberValueTests
     , _NoSuchDomain
-    , _NumberDomainAttributesExceeded
     , _NumberSubmittedItemsExceeded
     , _AttributeDoesNotExist
-    , _InvalidNextToken
-    , _MissingParameter
+    , _NumberDomainAttributesExceeded
     , _DuplicateItemName
+    , _MissingParameter
+    , _InvalidNextToken
     , _InvalidParameterValue
     , _NumberItemAttributesExceeded
     , _RequestTimeout
@@ -31,8 +31,8 @@ module Network.AWS.SDB.Types
     , _InvalidNumberPredicates
     , _NumberDomainsExceeded
     , _NumberSubmittedAttributesExceeded
-    , _InvalidQueryExpression
     , _NumberDomainBytesExceeded
+    , _InvalidQueryExpression
 
     -- * Attribute
     , Attribute
@@ -121,11 +121,6 @@ _InvalidNumberValueTests =
 _NoSuchDomain :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchDomain = _ServiceError . hasStatus 400 . hasCode "NoSuchDomain"
 
--- | Too many attributes in this domain.
-_NumberDomainAttributesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_NumberDomainAttributesExceeded =
-    _ServiceError . hasStatus 409 . hasCode "NumberDomainAttributesExceeded"
-
 -- | Too many items exist in a single call.
 _NumberSubmittedItemsExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _NumberSubmittedItemsExceeded =
@@ -136,18 +131,23 @@ _AttributeDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceErr
 _AttributeDoesNotExist =
     _ServiceError . hasStatus 404 . hasCode "AttributeDoesNotExist"
 
--- | The specified NextToken is not valid.
-_InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
-
--- | The request must contain the specified missing parameter.
-_MissingParameter :: AsError a => Getting (First ServiceError) a ServiceError
-_MissingParameter = _ServiceError . hasStatus 400 . hasCode "MissingParameter"
+-- | Too many attributes in this domain.
+_NumberDomainAttributesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
+_NumberDomainAttributesExceeded =
+    _ServiceError . hasStatus 409 . hasCode "NumberDomainAttributesExceeded"
 
 -- | The item name was specified more than once.
 _DuplicateItemName :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateItemName =
     _ServiceError . hasStatus 400 . hasCode "DuplicateItemName"
+
+-- | The request must contain the specified missing parameter.
+_MissingParameter :: AsError a => Getting (First ServiceError) a ServiceError
+_MissingParameter = _ServiceError . hasStatus 400 . hasCode "MissingParameter"
+
+-- | The specified NextToken is not valid.
+_InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
 -- | The value for a parameter is invalid.
 _InvalidParameterValue :: AsError a => Getting (First ServiceError) a ServiceError
@@ -184,12 +184,12 @@ _NumberSubmittedAttributesExceeded :: AsError a => Getting (First ServiceError) 
 _NumberSubmittedAttributesExceeded =
     _ServiceError . hasStatus 409 . hasCode "NumberSubmittedAttributesExceeded"
 
--- | The specified query expression syntax is not valid.
-_InvalidQueryExpression :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidQueryExpression =
-    _ServiceError . hasStatus 400 . hasCode "InvalidQueryExpression"
-
 -- | Too many bytes in this domain.
 _NumberDomainBytesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _NumberDomainBytesExceeded =
     _ServiceError . hasStatus 409 . hasCode "NumberDomainBytesExceeded"
+
+-- | The specified query expression syntax is not valid.
+_InvalidQueryExpression :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidQueryExpression =
+    _ServiceError . hasStatus 400 . hasCode "InvalidQueryExpression"

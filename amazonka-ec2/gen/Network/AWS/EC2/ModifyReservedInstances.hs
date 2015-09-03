@@ -43,7 +43,7 @@ module Network.AWS.EC2.ModifyReservedInstances
     , ModifyReservedInstancesResponse
     -- * Response Lenses
     , mrirsReservedInstancesModificationId
-    , mrirsStatus
+    , mrirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -124,7 +124,7 @@ instance ToQuery ModifyReservedInstances where
 -- | /See:/ 'modifyReservedInstancesResponse' smart constructor.
 data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
     { _mrirsReservedInstancesModificationId :: !(Maybe Text)
-    , _mrirsStatus                          :: !Int
+    , _mrirsResponseStatus                  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyReservedInstancesResponse' with the minimum fields required to make a request.
@@ -133,14 +133,14 @@ data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
 --
 -- * 'mrirsReservedInstancesModificationId'
 --
--- * 'mrirsStatus'
+-- * 'mrirsResponseStatus'
 modifyReservedInstancesResponse
-    :: Int -- ^ 'mrirsStatus'
+    :: Int -- ^ 'mrirsResponseStatus'
     -> ModifyReservedInstancesResponse
-modifyReservedInstancesResponse pStatus_ =
+modifyReservedInstancesResponse pResponseStatus_ =
     ModifyReservedInstancesResponse'
     { _mrirsReservedInstancesModificationId = Nothing
-    , _mrirsStatus = pStatus_
+    , _mrirsResponseStatus = pResponseStatus_
     }
 
 -- | The ID for the modification.
@@ -148,5 +148,5 @@ mrirsReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (M
 mrirsReservedInstancesModificationId = lens _mrirsReservedInstancesModificationId (\ s a -> s{_mrirsReservedInstancesModificationId = a});
 
 -- | The response status code.
-mrirsStatus :: Lens' ModifyReservedInstancesResponse Int
-mrirsStatus = lens _mrirsStatus (\ s a -> s{_mrirsStatus = a});
+mrirsResponseStatus :: Lens' ModifyReservedInstancesResponse Int
+mrirsResponseStatus = lens _mrirsResponseStatus (\ s a -> s{_mrirsResponseStatus = a});

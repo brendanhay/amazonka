@@ -36,7 +36,7 @@ module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
     , updateServiceAccessPoliciesResponse
     , UpdateServiceAccessPoliciesResponse
     -- * Response Lenses
-    , usaprsStatus
+    , usaprsResponseStatus
     , usaprsAccessPolicies
     ) where
 
@@ -113,7 +113,7 @@ instance ToQuery UpdateServiceAccessPolicies where
 --
 -- /See:/ 'updateServiceAccessPoliciesResponse' smart constructor.
 data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
-    { _usaprsStatus         :: !Int
+    { _usaprsResponseStatus :: !Int
     , _usaprsAccessPolicies :: !AccessPoliciesStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -121,22 +121,22 @@ data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usaprsStatus'
+-- * 'usaprsResponseStatus'
 --
 -- * 'usaprsAccessPolicies'
 updateServiceAccessPoliciesResponse
-    :: Int -- ^ 'usaprsStatus'
+    :: Int -- ^ 'usaprsResponseStatus'
     -> AccessPoliciesStatus -- ^ 'usaprsAccessPolicies'
     -> UpdateServiceAccessPoliciesResponse
-updateServiceAccessPoliciesResponse pStatus_ pAccessPolicies_ =
+updateServiceAccessPoliciesResponse pResponseStatus_ pAccessPolicies_ =
     UpdateServiceAccessPoliciesResponse'
-    { _usaprsStatus = pStatus_
+    { _usaprsResponseStatus = pResponseStatus_
     , _usaprsAccessPolicies = pAccessPolicies_
     }
 
 -- | The response status code.
-usaprsStatus :: Lens' UpdateServiceAccessPoliciesResponse Int
-usaprsStatus = lens _usaprsStatus (\ s a -> s{_usaprsStatus = a});
+usaprsResponseStatus :: Lens' UpdateServiceAccessPoliciesResponse Int
+usaprsResponseStatus = lens _usaprsResponseStatus (\ s a -> s{_usaprsResponseStatus = a});
 
 -- | The access rules configured for the domain.
 usaprsAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus

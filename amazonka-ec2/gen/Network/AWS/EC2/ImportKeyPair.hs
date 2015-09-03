@@ -45,7 +45,7 @@ module Network.AWS.EC2.ImportKeyPair
     -- * Response Lenses
     , ikprsKeyFingerprint
     , ikprsKeyName
-    , ikprsStatus
+    , ikprsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -131,7 +131,7 @@ instance ToQuery ImportKeyPair where
 data ImportKeyPairResponse = ImportKeyPairResponse'
     { _ikprsKeyFingerprint :: !(Maybe Text)
     , _ikprsKeyName        :: !(Maybe Text)
-    , _ikprsStatus         :: !Int
+    , _ikprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImportKeyPairResponse' with the minimum fields required to make a request.
@@ -142,15 +142,15 @@ data ImportKeyPairResponse = ImportKeyPairResponse'
 --
 -- * 'ikprsKeyName'
 --
--- * 'ikprsStatus'
+-- * 'ikprsResponseStatus'
 importKeyPairResponse
-    :: Int -- ^ 'ikprsStatus'
+    :: Int -- ^ 'ikprsResponseStatus'
     -> ImportKeyPairResponse
-importKeyPairResponse pStatus_ =
+importKeyPairResponse pResponseStatus_ =
     ImportKeyPairResponse'
     { _ikprsKeyFingerprint = Nothing
     , _ikprsKeyName = Nothing
-    , _ikprsStatus = pStatus_
+    , _ikprsResponseStatus = pResponseStatus_
     }
 
 -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
@@ -162,5 +162,5 @@ ikprsKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
 ikprsKeyName = lens _ikprsKeyName (\ s a -> s{_ikprsKeyName = a});
 
 -- | The response status code.
-ikprsStatus :: Lens' ImportKeyPairResponse Int
-ikprsStatus = lens _ikprsStatus (\ s a -> s{_ikprsStatus = a});
+ikprsResponseStatus :: Lens' ImportKeyPairResponse Int
+ikprsResponseStatus = lens _ikprsResponseStatus (\ s a -> s{_ikprsResponseStatus = a});

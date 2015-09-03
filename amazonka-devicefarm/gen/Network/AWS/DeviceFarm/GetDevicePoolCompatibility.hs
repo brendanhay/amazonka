@@ -37,7 +37,7 @@ module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
     -- * Response Lenses
     , gdpcrsIncompatibleDevices
     , gdpcrsCompatibleDevices
-    , gdpcrsStatus
+    , gdpcrsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -152,7 +152,7 @@ instance ToQuery GetDevicePoolCompatibility where
 data GetDevicePoolCompatibilityResponse = GetDevicePoolCompatibilityResponse'
     { _gdpcrsIncompatibleDevices :: !(Maybe [DevicePoolCompatibilityResult])
     , _gdpcrsCompatibleDevices   :: !(Maybe [DevicePoolCompatibilityResult])
-    , _gdpcrsStatus              :: !Int
+    , _gdpcrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDevicePoolCompatibilityResponse' with the minimum fields required to make a request.
@@ -163,15 +163,15 @@ data GetDevicePoolCompatibilityResponse = GetDevicePoolCompatibilityResponse'
 --
 -- * 'gdpcrsCompatibleDevices'
 --
--- * 'gdpcrsStatus'
+-- * 'gdpcrsResponseStatus'
 getDevicePoolCompatibilityResponse
-    :: Int -- ^ 'gdpcrsStatus'
+    :: Int -- ^ 'gdpcrsResponseStatus'
     -> GetDevicePoolCompatibilityResponse
-getDevicePoolCompatibilityResponse pStatus_ =
+getDevicePoolCompatibilityResponse pResponseStatus_ =
     GetDevicePoolCompatibilityResponse'
     { _gdpcrsIncompatibleDevices = Nothing
     , _gdpcrsCompatibleDevices = Nothing
-    , _gdpcrsStatus = pStatus_
+    , _gdpcrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about incompatible devices.
@@ -183,5 +183,5 @@ gdpcrsCompatibleDevices :: Lens' GetDevicePoolCompatibilityResponse [DevicePoolC
 gdpcrsCompatibleDevices = lens _gdpcrsCompatibleDevices (\ s a -> s{_gdpcrsCompatibleDevices = a}) . _Default . _Coerce;
 
 -- | The response status code.
-gdpcrsStatus :: Lens' GetDevicePoolCompatibilityResponse Int
-gdpcrsStatus = lens _gdpcrsStatus (\ s a -> s{_gdpcrsStatus = a});
+gdpcrsResponseStatus :: Lens' GetDevicePoolCompatibilityResponse Int
+gdpcrsResponseStatus = lens _gdpcrsResponseStatus (\ s a -> s{_gdpcrsResponseStatus = a});

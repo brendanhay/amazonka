@@ -53,7 +53,7 @@ module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     -- * Response Lenses
     , ccscsivrsTargetARN
     , ccscsivrsVolumeARN
-    , ccscsivrsStatus
+    , ccscsivrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -170,9 +170,9 @@ instance ToQuery CreateCachediSCSIVolume where
 
 -- | /See:/ 'createCachediSCSIVolumeResponse' smart constructor.
 data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'
-    { _ccscsivrsTargetARN :: !(Maybe Text)
-    , _ccscsivrsVolumeARN :: !(Maybe Text)
-    , _ccscsivrsStatus    :: !Int
+    { _ccscsivrsTargetARN      :: !(Maybe Text)
+    , _ccscsivrsVolumeARN      :: !(Maybe Text)
+    , _ccscsivrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateCachediSCSIVolumeResponse' with the minimum fields required to make a request.
@@ -183,15 +183,15 @@ data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'
 --
 -- * 'ccscsivrsVolumeARN'
 --
--- * 'ccscsivrsStatus'
+-- * 'ccscsivrsResponseStatus'
 createCachediSCSIVolumeResponse
-    :: Int -- ^ 'ccscsivrsStatus'
+    :: Int -- ^ 'ccscsivrsResponseStatus'
     -> CreateCachediSCSIVolumeResponse
-createCachediSCSIVolumeResponse pStatus_ =
+createCachediSCSIVolumeResponse pResponseStatus_ =
     CreateCachediSCSIVolumeResponse'
     { _ccscsivrsTargetARN = Nothing
     , _ccscsivrsVolumeARN = Nothing
-    , _ccscsivrsStatus = pStatus_
+    , _ccscsivrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -203,5 +203,5 @@ ccscsivrsVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrsVolumeARN = lens _ccscsivrsVolumeARN (\ s a -> s{_ccscsivrsVolumeARN = a});
 
 -- | The response status code.
-ccscsivrsStatus :: Lens' CreateCachediSCSIVolumeResponse Int
-ccscsivrsStatus = lens _ccscsivrsStatus (\ s a -> s{_ccscsivrsStatus = a});
+ccscsivrsResponseStatus :: Lens' CreateCachediSCSIVolumeResponse Int
+ccscsivrsResponseStatus = lens _ccscsivrsResponseStatus (\ s a -> s{_ccscsivrsResponseStatus = a});

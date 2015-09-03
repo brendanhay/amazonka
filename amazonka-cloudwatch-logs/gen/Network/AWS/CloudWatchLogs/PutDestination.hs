@@ -48,7 +48,7 @@ module Network.AWS.CloudWatchLogs.PutDestination
     , PutDestinationResponse
     -- * Response Lenses
     , pdrsDestination
-    , pdrsStatus
+    , pdrsResponseStatus
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -132,8 +132,8 @@ instance ToQuery PutDestination where
 
 -- | /See:/ 'putDestinationResponse' smart constructor.
 data PutDestinationResponse = PutDestinationResponse'
-    { _pdrsDestination :: !(Maybe Destination)
-    , _pdrsStatus      :: !Int
+    { _pdrsDestination    :: !(Maybe Destination)
+    , _pdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutDestinationResponse' with the minimum fields required to make a request.
@@ -142,14 +142,14 @@ data PutDestinationResponse = PutDestinationResponse'
 --
 -- * 'pdrsDestination'
 --
--- * 'pdrsStatus'
+-- * 'pdrsResponseStatus'
 putDestinationResponse
-    :: Int -- ^ 'pdrsStatus'
+    :: Int -- ^ 'pdrsResponseStatus'
     -> PutDestinationResponse
-putDestinationResponse pStatus_ =
+putDestinationResponse pResponseStatus_ =
     PutDestinationResponse'
     { _pdrsDestination = Nothing
-    , _pdrsStatus = pStatus_
+    , _pdrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -157,5 +157,5 @@ pdrsDestination :: Lens' PutDestinationResponse (Maybe Destination)
 pdrsDestination = lens _pdrsDestination (\ s a -> s{_pdrsDestination = a});
 
 -- | The response status code.
-pdrsStatus :: Lens' PutDestinationResponse Int
-pdrsStatus = lens _pdrsStatus (\ s a -> s{_pdrsStatus = a});
+pdrsResponseStatus :: Lens' PutDestinationResponse Int
+pdrsResponseStatus = lens _pdrsResponseStatus (\ s a -> s{_pdrsResponseStatus = a});

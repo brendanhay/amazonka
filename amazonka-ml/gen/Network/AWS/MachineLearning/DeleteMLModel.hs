@@ -41,7 +41,7 @@ module Network.AWS.MachineLearning.DeleteMLModel
     , DeleteMLModelResponse
     -- * Response Lenses
     , dmlmrsMLModelId
-    , dmlmrsStatus
+    , dmlmrsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -108,8 +108,8 @@ instance ToQuery DeleteMLModel where
 --
 -- /See:/ 'deleteMLModelResponse' smart constructor.
 data DeleteMLModelResponse = DeleteMLModelResponse'
-    { _dmlmrsMLModelId :: !(Maybe Text)
-    , _dmlmrsStatus    :: !Int
+    { _dmlmrsMLModelId      :: !(Maybe Text)
+    , _dmlmrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteMLModelResponse' with the minimum fields required to make a request.
@@ -118,14 +118,14 @@ data DeleteMLModelResponse = DeleteMLModelResponse'
 --
 -- * 'dmlmrsMLModelId'
 --
--- * 'dmlmrsStatus'
+-- * 'dmlmrsResponseStatus'
 deleteMLModelResponse
-    :: Int -- ^ 'dmlmrsStatus'
+    :: Int -- ^ 'dmlmrsResponseStatus'
     -> DeleteMLModelResponse
-deleteMLModelResponse pStatus_ =
+deleteMLModelResponse pResponseStatus_ =
     DeleteMLModelResponse'
     { _dmlmrsMLModelId = Nothing
-    , _dmlmrsStatus = pStatus_
+    , _dmlmrsResponseStatus = pResponseStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the 'MLModel'. This value
@@ -134,5 +134,5 @@ dmlmrsMLModelId :: Lens' DeleteMLModelResponse (Maybe Text)
 dmlmrsMLModelId = lens _dmlmrsMLModelId (\ s a -> s{_dmlmrsMLModelId = a});
 
 -- | The response status code.
-dmlmrsStatus :: Lens' DeleteMLModelResponse Int
-dmlmrsStatus = lens _dmlmrsStatus (\ s a -> s{_dmlmrsStatus = a});
+dmlmrsResponseStatus :: Lens' DeleteMLModelResponse Int
+dmlmrsResponseStatus = lens _dmlmrsResponseStatus (\ s a -> s{_dmlmrsResponseStatus = a});

@@ -42,7 +42,7 @@ module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     , RevokeClusterSecurityGroupIngressResponse
     -- * Response Lenses
     , rcsgirsClusterSecurityGroup
-    , rcsgirsStatus
+    , rcsgirsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -148,7 +148,7 @@ instance ToQuery RevokeClusterSecurityGroupIngress
 -- | /See:/ 'revokeClusterSecurityGroupIngressResponse' smart constructor.
 data RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse'
     { _rcsgirsClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
-    , _rcsgirsStatus               :: !Int
+    , _rcsgirsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RevokeClusterSecurityGroupIngressResponse' with the minimum fields required to make a request.
@@ -157,14 +157,14 @@ data RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngre
 --
 -- * 'rcsgirsClusterSecurityGroup'
 --
--- * 'rcsgirsStatus'
+-- * 'rcsgirsResponseStatus'
 revokeClusterSecurityGroupIngressResponse
-    :: Int -- ^ 'rcsgirsStatus'
+    :: Int -- ^ 'rcsgirsResponseStatus'
     -> RevokeClusterSecurityGroupIngressResponse
-revokeClusterSecurityGroupIngressResponse pStatus_ =
+revokeClusterSecurityGroupIngressResponse pResponseStatus_ =
     RevokeClusterSecurityGroupIngressResponse'
     { _rcsgirsClusterSecurityGroup = Nothing
-    , _rcsgirsStatus = pStatus_
+    , _rcsgirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -172,5 +172,5 @@ rcsgirsClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResponse (
 rcsgirsClusterSecurityGroup = lens _rcsgirsClusterSecurityGroup (\ s a -> s{_rcsgirsClusterSecurityGroup = a});
 
 -- | The response status code.
-rcsgirsStatus :: Lens' RevokeClusterSecurityGroupIngressResponse Int
-rcsgirsStatus = lens _rcsgirsStatus (\ s a -> s{_rcsgirsStatus = a});
+rcsgirsResponseStatus :: Lens' RevokeClusterSecurityGroupIngressResponse Int
+rcsgirsResponseStatus = lens _rcsgirsResponseStatus (\ s a -> s{_rcsgirsResponseStatus = a});

@@ -49,14 +49,17 @@ module Network.AWS.ImportExport
     -- ** UnableToCancelJobIdException
     , _UnableToCancelJobIdException
 
-    -- ** InvalidVersionException
-    , _InvalidVersionException
-
     -- ** MultipleRegionsException
     , _MultipleRegionsException
 
+    -- ** InvalidVersionException
+    , _InvalidVersionException
+
     -- ** MalformedManifestException
     , _MalformedManifestException
+
+    -- ** MissingParameterException
+    , _MissingParameterException
 
     -- ** CanceledJobIdException
     , _CanceledJobIdException
@@ -64,20 +67,17 @@ module Network.AWS.ImportExport
     -- ** BucketPermissionException
     , _BucketPermissionException
 
-    -- ** MissingParameterException
-    , _MissingParameterException
-
     -- ** NoSuchBucketException
     , _NoSuchBucketException
 
     -- ** InvalidAddressException
     , _InvalidAddressException
 
-    -- ** InvalidManifestFieldException
-    , _InvalidManifestFieldException
-
     -- ** MissingCustomsException
     , _MissingCustomsException
+
+    -- ** InvalidManifestFieldException
+    , _InvalidManifestFieldException
 
     -- ** InvalidCustomsException
     , _InvalidCustomsException

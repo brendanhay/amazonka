@@ -354,8 +354,8 @@ instance ToJSON PushSync where
 -- /See:/ 'record' smart constructor.
 data Record = Record'
     { _rSyncCount              :: !(Maybe Integer)
-    , _rLastModifiedDate       :: !(Maybe POSIX)
     , _rDeviceLastModifiedDate :: !(Maybe POSIX)
+    , _rLastModifiedDate       :: !(Maybe POSIX)
     , _rValue                  :: !(Maybe Text)
     , _rKey                    :: !(Maybe Text)
     , _rLastModifiedBy         :: !(Maybe Text)
@@ -367,9 +367,9 @@ data Record = Record'
 --
 -- * 'rSyncCount'
 --
--- * 'rLastModifiedDate'
---
 -- * 'rDeviceLastModifiedDate'
+--
+-- * 'rLastModifiedDate'
 --
 -- * 'rValue'
 --
@@ -381,8 +381,8 @@ record
 record =
     Record'
     { _rSyncCount = Nothing
-    , _rLastModifiedDate = Nothing
     , _rDeviceLastModifiedDate = Nothing
+    , _rLastModifiedDate = Nothing
     , _rValue = Nothing
     , _rKey = Nothing
     , _rLastModifiedBy = Nothing
@@ -392,13 +392,13 @@ record =
 rSyncCount :: Lens' Record (Maybe Integer)
 rSyncCount = lens _rSyncCount (\ s a -> s{_rSyncCount = a});
 
--- | The date on which the record was last modified.
-rLastModifiedDate :: Lens' Record (Maybe UTCTime)
-rLastModifiedDate = lens _rLastModifiedDate (\ s a -> s{_rLastModifiedDate = a}) . mapping _Time;
-
 -- | The last modified date of the client device.
 rDeviceLastModifiedDate :: Lens' Record (Maybe UTCTime)
 rDeviceLastModifiedDate = lens _rDeviceLastModifiedDate (\ s a -> s{_rDeviceLastModifiedDate = a}) . mapping _Time;
+
+-- | The date on which the record was last modified.
+rLastModifiedDate :: Lens' Record (Maybe UTCTime)
+rLastModifiedDate = lens _rLastModifiedDate (\ s a -> s{_rLastModifiedDate = a}) . mapping _Time;
 
 -- | The value for the record.
 rValue :: Lens' Record (Maybe Text)
@@ -417,8 +417,9 @@ instance FromJSON Record where
           = withObject "Record"
               (\ x ->
                  Record' <$>
-                   (x .:? "SyncCount") <*> (x .:? "LastModifiedDate")
-                     <*> (x .:? "DeviceLastModifiedDate")
+                   (x .:? "SyncCount") <*>
+                     (x .:? "DeviceLastModifiedDate")
+                     <*> (x .:? "LastModifiedDate")
                      <*> (x .:? "Value")
                      <*> (x .:? "Key")
                      <*> (x .:? "LastModifiedBy"))

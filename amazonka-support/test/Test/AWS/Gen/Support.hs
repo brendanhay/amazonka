@@ -37,11 +37,11 @@ import Test.AWS.Support.Internal
 --         , testDescribeTrustedAdvisorCheckRefreshStatuses $
 --             describeTrustedAdvisorCheckRefreshStatuses
 --
---         , testCreateCase $
---             createCase
---
 --         , testDescribeTrustedAdvisorCheckSummaries $
 --             describeTrustedAdvisorCheckSummaries
+--
+--         , testCreateCase $
+--             createCase
 --
 --         , testResolveCase $
 --             resolveCase
@@ -82,11 +82,11 @@ import Test.AWS.Support.Internal
 --         , testDescribeTrustedAdvisorCheckRefreshStatusesResponse $
 --             describeTrustedAdvisorCheckRefreshStatusesResponse
 --
---         , testCreateCaseResponse $
---             createCaseResponse
---
 --         , testDescribeTrustedAdvisorCheckSummariesResponse $
 --             describeTrustedAdvisorCheckSummariesResponse
+--
+--         , testCreateCaseResponse $
+--             createCaseResponse
 --
 --         , testResolveCaseResponse $
 --             resolveCaseResponse
@@ -135,15 +135,15 @@ testDescribeTrustedAdvisorCheckRefreshStatuses = req
     "DescribeTrustedAdvisorCheckRefreshStatuses"
     "fixture/DescribeTrustedAdvisorCheckRefreshStatuses.yaml"
 
-testCreateCase :: CreateCase -> TestTree
-testCreateCase = req
-    "CreateCase"
-    "fixture/CreateCase.yaml"
-
 testDescribeTrustedAdvisorCheckSummaries :: DescribeTrustedAdvisorCheckSummaries -> TestTree
 testDescribeTrustedAdvisorCheckSummaries = req
     "DescribeTrustedAdvisorCheckSummaries"
     "fixture/DescribeTrustedAdvisorCheckSummaries.yaml"
+
+testCreateCase :: CreateCase -> TestTree
+testCreateCase = req
+    "CreateCase"
+    "fixture/CreateCase.yaml"
 
 testResolveCase :: ResolveCase -> TestTree
 testResolveCase = req
@@ -213,19 +213,19 @@ testDescribeTrustedAdvisorCheckRefreshStatusesResponse = res
     support
     (Proxy :: Proxy DescribeTrustedAdvisorCheckRefreshStatuses)
 
-testCreateCaseResponse :: CreateCaseResponse -> TestTree
-testCreateCaseResponse = res
-    "CreateCaseResponse"
-    "fixture/CreateCaseResponse.proto"
-    support
-    (Proxy :: Proxy CreateCase)
-
 testDescribeTrustedAdvisorCheckSummariesResponse :: DescribeTrustedAdvisorCheckSummariesResponse -> TestTree
 testDescribeTrustedAdvisorCheckSummariesResponse = res
     "DescribeTrustedAdvisorCheckSummariesResponse"
     "fixture/DescribeTrustedAdvisorCheckSummariesResponse.proto"
     support
     (Proxy :: Proxy DescribeTrustedAdvisorCheckSummaries)
+
+testCreateCaseResponse :: CreateCaseResponse -> TestTree
+testCreateCaseResponse = res
+    "CreateCaseResponse"
+    "fixture/CreateCaseResponse.proto"
+    support
+    (Proxy :: Proxy CreateCase)
 
 testResolveCaseResponse :: ResolveCaseResponse -> TestTree
 testResolveCaseResponse = res

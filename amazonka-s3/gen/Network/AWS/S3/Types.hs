@@ -218,8 +218,8 @@ module Network.AWS.S3.Types
     , grantee
     , gURI
     , gEmailAddress
-    , gId
     , gDisplayName
+    , gId
     , gType
 
     -- * IndexDocument
@@ -230,8 +230,8 @@ module Network.AWS.S3.Types
     -- * Initiator
     , Initiator
     , initiator
-    , iId
     , iDisplayName
+    , iId
 
     -- * LambdaFunctionConfiguration
     , LambdaFunctionConfiguration
@@ -311,8 +311,8 @@ module Network.AWS.S3.Types
     -- * ObjectVersion
     , ObjectVersion
     , objectVersion
-    , ovVersionId
     , ovETag
+    , ovVersionId
     , ovSize
     , ovIsLatest
     , ovOwner
@@ -323,8 +323,8 @@ module Network.AWS.S3.Types
     -- * Owner
     , Owner
     , owner
-    , oId
     , oDisplayName
+    , oId
 
     -- * Part
     , Part
@@ -454,8 +454,8 @@ module Network.AWS.S3.Types
     , websiteConfiguration
     , wcRedirectAllRequestsTo
     , wcErrorDocument
-    , wcRoutingRules
     , wcIndexDocument
+    , wcRoutingRules
     ) where
 
 import           Network.AWS.Prelude

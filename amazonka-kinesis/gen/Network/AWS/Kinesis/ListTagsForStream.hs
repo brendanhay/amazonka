@@ -35,7 +35,7 @@ module Network.AWS.Kinesis.ListTagsForStream
     , listTagsForStreamResponse
     , ListTagsForStreamResponse
     -- * Response Lenses
-    , ltfsrsStatus
+    , ltfsrsResponseStatus
     , ltfsrsTags
     , ltfsrsHasMoreTags
     ) where
@@ -129,34 +129,34 @@ instance ToQuery ListTagsForStream where
 --
 -- /See:/ 'listTagsForStreamResponse' smart constructor.
 data ListTagsForStreamResponse = ListTagsForStreamResponse'
-    { _ltfsrsStatus      :: !Int
-    , _ltfsrsTags        :: ![Tag]
-    , _ltfsrsHasMoreTags :: !Bool
+    { _ltfsrsResponseStatus :: !Int
+    , _ltfsrsTags           :: ![Tag]
+    , _ltfsrsHasMoreTags    :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListTagsForStreamResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfsrsStatus'
+-- * 'ltfsrsResponseStatus'
 --
 -- * 'ltfsrsTags'
 --
 -- * 'ltfsrsHasMoreTags'
 listTagsForStreamResponse
-    :: Int -- ^ 'ltfsrsStatus'
+    :: Int -- ^ 'ltfsrsResponseStatus'
     -> Bool -- ^ 'ltfsrsHasMoreTags'
     -> ListTagsForStreamResponse
-listTagsForStreamResponse pStatus_ pHasMoreTags_ =
+listTagsForStreamResponse pResponseStatus_ pHasMoreTags_ =
     ListTagsForStreamResponse'
-    { _ltfsrsStatus = pStatus_
+    { _ltfsrsResponseStatus = pResponseStatus_
     , _ltfsrsTags = mempty
     , _ltfsrsHasMoreTags = pHasMoreTags_
     }
 
 -- | The response status code.
-ltfsrsStatus :: Lens' ListTagsForStreamResponse Int
-ltfsrsStatus = lens _ltfsrsStatus (\ s a -> s{_ltfsrsStatus = a});
+ltfsrsResponseStatus :: Lens' ListTagsForStreamResponse Int
+ltfsrsResponseStatus = lens _ltfsrsResponseStatus (\ s a -> s{_ltfsrsResponseStatus = a});
 
 -- | A list of tags associated with 'StreamName', starting with the first tag
 -- after 'ExclusiveStartTagKey' and up to the specified 'Limit'.

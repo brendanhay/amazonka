@@ -49,7 +49,7 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
     , DescribeSpotInstanceRequestsResponse
     -- * Response Lenses
     , dsirrsSpotInstanceRequests
-    , dsirrsStatus
+    , dsirrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -254,7 +254,7 @@ instance ToQuery DescribeSpotInstanceRequests where
 -- /See:/ 'describeSpotInstanceRequestsResponse' smart constructor.
 data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'
     { _dsirrsSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
-    , _dsirrsStatus               :: !Int
+    , _dsirrsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSpotInstanceRequestsResponse' with the minimum fields required to make a request.
@@ -263,14 +263,14 @@ data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
 --
 -- * 'dsirrsSpotInstanceRequests'
 --
--- * 'dsirrsStatus'
+-- * 'dsirrsResponseStatus'
 describeSpotInstanceRequestsResponse
-    :: Int -- ^ 'dsirrsStatus'
+    :: Int -- ^ 'dsirrsResponseStatus'
     -> DescribeSpotInstanceRequestsResponse
-describeSpotInstanceRequestsResponse pStatus_ =
+describeSpotInstanceRequestsResponse pResponseStatus_ =
     DescribeSpotInstanceRequestsResponse'
     { _dsirrsSpotInstanceRequests = Nothing
-    , _dsirrsStatus = pStatus_
+    , _dsirrsResponseStatus = pResponseStatus_
     }
 
 -- | One or more Spot Instance requests.
@@ -278,5 +278,5 @@ dsirrsSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotIn
 dsirrsSpotInstanceRequests = lens _dsirrsSpotInstanceRequests (\ s a -> s{_dsirrsSpotInstanceRequests = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dsirrsStatus :: Lens' DescribeSpotInstanceRequestsResponse Int
-dsirrsStatus = lens _dsirrsStatus (\ s a -> s{_dsirrsStatus = a});
+dsirrsResponseStatus :: Lens' DescribeSpotInstanceRequestsResponse Int
+dsirrsResponseStatus = lens _dsirrsResponseStatus (\ s a -> s{_dsirrsResponseStatus = a});

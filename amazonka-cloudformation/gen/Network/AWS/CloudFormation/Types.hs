@@ -17,8 +17,8 @@ module Network.AWS.CloudFormation.Types
 
     -- * Errors
     , _InsufficientCapabilitiesException
-    , _LimitExceededException
     , _AlreadyExistsException
+    , _LimitExceededException
 
     -- * Capability
     , Capability (..)
@@ -74,8 +74,8 @@ module Network.AWS.CloudFormation.Types
     , sOutputs
     , sParameters
     , sStackId
-    , sCapabilities
     , sDescription
+    , sCapabilities
     , sTags
     , sTimeoutInMinutes
     , sStackName
@@ -86,9 +86,9 @@ module Network.AWS.CloudFormation.Types
     , StackEvent
     , stackEvent
     , seLogicalResourceId
-    , seResourceStatusReason
-    , seResourceType
     , sePhysicalResourceId
+    , seResourceType
+    , seResourceStatusReason
     , seResourceProperties
     , seResourceStatus
     , seStackId
@@ -99,8 +99,8 @@ module Network.AWS.CloudFormation.Types
     -- * StackResource
     , StackResource
     , stackResource
-    , srResourceStatusReason
     , srPhysicalResourceId
+    , srResourceStatusReason
     , srStackId
     , srDescription
     , srStackName
@@ -112,8 +112,8 @@ module Network.AWS.CloudFormation.Types
     -- * StackResourceDetail
     , StackResourceDetail
     , stackResourceDetail
-    , srdResourceStatusReason
     , srdPhysicalResourceId
+    , srdResourceStatusReason
     , srdMetadata
     , srdStackId
     , srdDescription
@@ -126,8 +126,8 @@ module Network.AWS.CloudFormation.Types
     -- * StackResourceSummary
     , StackResourceSummary
     , stackResourceSummary
-    , srsResourceStatusReason
     , srsPhysicalResourceId
+    , srsResourceStatusReason
     , srsLogicalResourceId
     , srsResourceType
     , srsLastUpdatedTimestamp
@@ -137,8 +137,8 @@ module Network.AWS.CloudFormation.Types
     , StackSummary
     , stackSummary
     , ssLastUpdatedTime
-    , ssTemplateDescription
     , ssStackStatusReason
+    , ssTemplateDescription
     , ssDeletionTime
     , ssStackId
     , ssStackName
@@ -202,12 +202,12 @@ _InsufficientCapabilitiesException :: AsError a => Getting (First ServiceError) 
 _InsufficientCapabilitiesException =
     _ServiceError . hasStatus 400 . hasCode "InsufficientCapabilitiesException"
 
--- | Quota for the resource has already been reached.
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException =
-    _ServiceError . hasStatus 400 . hasCode "LimitExceededException"
-
 -- | Resource with the name requested already exists.
 _AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _AlreadyExistsException =
     _ServiceError . hasStatus 400 . hasCode "AlreadyExistsException"
+
+-- | Quota for the resource has already been reached.
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException =
+    _ServiceError . hasStatus 400 . hasCode "LimitExceededException"

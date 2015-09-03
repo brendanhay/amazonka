@@ -39,7 +39,7 @@ module Network.AWS.IAM.CreateLoginProfile
     , createLoginProfileResponse
     , CreateLoginProfileResponse
     -- * Response Lenses
-    , clprsStatus
+    , clprsResponseStatus
     , clprsLoginProfile
     ) where
 
@@ -118,30 +118,30 @@ instance ToQuery CreateLoginProfile where
 --
 -- /See:/ 'createLoginProfileResponse' smart constructor.
 data CreateLoginProfileResponse = CreateLoginProfileResponse'
-    { _clprsStatus       :: !Int
-    , _clprsLoginProfile :: !LoginProfile
+    { _clprsResponseStatus :: !Int
+    , _clprsLoginProfile   :: !LoginProfile
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateLoginProfileResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clprsStatus'
+-- * 'clprsResponseStatus'
 --
 -- * 'clprsLoginProfile'
 createLoginProfileResponse
-    :: Int -- ^ 'clprsStatus'
+    :: Int -- ^ 'clprsResponseStatus'
     -> LoginProfile -- ^ 'clprsLoginProfile'
     -> CreateLoginProfileResponse
-createLoginProfileResponse pStatus_ pLoginProfile_ =
+createLoginProfileResponse pResponseStatus_ pLoginProfile_ =
     CreateLoginProfileResponse'
-    { _clprsStatus = pStatus_
+    { _clprsResponseStatus = pResponseStatus_
     , _clprsLoginProfile = pLoginProfile_
     }
 
 -- | The response status code.
-clprsStatus :: Lens' CreateLoginProfileResponse Int
-clprsStatus = lens _clprsStatus (\ s a -> s{_clprsStatus = a});
+clprsResponseStatus :: Lens' CreateLoginProfileResponse Int
+clprsResponseStatus = lens _clprsResponseStatus (\ s a -> s{_clprsResponseStatus = a});
 
 -- | The user name and password create date.
 clprsLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile

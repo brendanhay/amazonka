@@ -34,16 +34,16 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     , dcoTemplateName
     , dcoEnvironmentName
     , dcoApplicationName
-    , dcoOptions
     , dcoSolutionStackName
+    , dcoOptions
 
     -- * Destructuring the Response
     , describeConfigurationOptionsResponse
     , DescribeConfigurationOptionsResponse
     -- * Response Lenses
-    , dcorsOptions
     , dcorsSolutionStackName
-    , dcorsStatus
+    , dcorsOptions
+    , dcorsResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -59,8 +59,8 @@ data DescribeConfigurationOptions = DescribeConfigurationOptions'
     { _dcoTemplateName      :: !(Maybe Text)
     , _dcoEnvironmentName   :: !(Maybe Text)
     , _dcoApplicationName   :: !(Maybe Text)
-    , _dcoOptions           :: !(Maybe [OptionSpecification])
     , _dcoSolutionStackName :: !(Maybe Text)
+    , _dcoOptions           :: !(Maybe [OptionSpecification])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeConfigurationOptions' with the minimum fields required to make a request.
@@ -73,9 +73,9 @@ data DescribeConfigurationOptions = DescribeConfigurationOptions'
 --
 -- * 'dcoApplicationName'
 --
--- * 'dcoOptions'
---
 -- * 'dcoSolutionStackName'
+--
+-- * 'dcoOptions'
 describeConfigurationOptions
     :: DescribeConfigurationOptions
 describeConfigurationOptions =
@@ -83,8 +83,8 @@ describeConfigurationOptions =
     { _dcoTemplateName = Nothing
     , _dcoEnvironmentName = Nothing
     , _dcoApplicationName = Nothing
-    , _dcoOptions = Nothing
     , _dcoSolutionStackName = Nothing
+    , _dcoOptions = Nothing
     }
 
 -- | The name of the configuration template whose configuration options you
@@ -104,14 +104,14 @@ dcoEnvironmentName = lens _dcoEnvironmentName (\ s a -> s{_dcoEnvironmentName = 
 dcoApplicationName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcoApplicationName = lens _dcoApplicationName (\ s a -> s{_dcoApplicationName = a});
 
--- | If specified, restricts the descriptions to only the specified options.
-dcoOptions :: Lens' DescribeConfigurationOptions [OptionSpecification]
-dcoOptions = lens _dcoOptions (\ s a -> s{_dcoOptions = a}) . _Default . _Coerce;
-
 -- | The name of the solution stack whose configuration options you want to
 -- describe.
 dcoSolutionStackName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcoSolutionStackName = lens _dcoSolutionStackName (\ s a -> s{_dcoSolutionStackName = a});
+
+-- | If specified, restricts the descriptions to only the specified options.
+dcoOptions :: Lens' DescribeConfigurationOptions [OptionSpecification]
+dcoOptions = lens _dcoOptions (\ s a -> s{_dcoOptions = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeConfigurationOptions
          where
@@ -123,9 +123,9 @@ instance AWSRequest DescribeConfigurationOptions
               "DescribeConfigurationOptionsResult"
               (\ s h x ->
                  DescribeConfigurationOptionsResponse' <$>
-                   (x .@? "Options" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (x .@? "SolutionStackName")
+                   (x .@? "SolutionStackName") <*>
+                     (x .@? "Options" .!@ mempty >>=
+                        may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeConfigurationOptions where
@@ -143,46 +143,46 @@ instance ToQuery DescribeConfigurationOptions where
                "TemplateName" =: _dcoTemplateName,
                "EnvironmentName" =: _dcoEnvironmentName,
                "ApplicationName" =: _dcoApplicationName,
+               "SolutionStackName" =: _dcoSolutionStackName,
                "Options" =:
-                 toQuery (toQueryList "member" <$> _dcoOptions),
-               "SolutionStackName" =: _dcoSolutionStackName]
+                 toQuery (toQueryList "member" <$> _dcoOptions)]
 
 -- | Describes the settings for a specified configuration set.
 --
 -- /See:/ 'describeConfigurationOptionsResponse' smart constructor.
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'
-    { _dcorsOptions           :: !(Maybe [ConfigurationOptionDescription])
-    , _dcorsSolutionStackName :: !(Maybe Text)
-    , _dcorsStatus            :: !Int
+    { _dcorsSolutionStackName :: !(Maybe Text)
+    , _dcorsOptions           :: !(Maybe [ConfigurationOptionDescription])
+    , _dcorsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeConfigurationOptionsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcorsOptions'
---
 -- * 'dcorsSolutionStackName'
 --
--- * 'dcorsStatus'
+-- * 'dcorsOptions'
+--
+-- * 'dcorsResponseStatus'
 describeConfigurationOptionsResponse
-    :: Int -- ^ 'dcorsStatus'
+    :: Int -- ^ 'dcorsResponseStatus'
     -> DescribeConfigurationOptionsResponse
-describeConfigurationOptionsResponse pStatus_ =
+describeConfigurationOptionsResponse pResponseStatus_ =
     DescribeConfigurationOptionsResponse'
-    { _dcorsOptions = Nothing
-    , _dcorsSolutionStackName = Nothing
-    , _dcorsStatus = pStatus_
+    { _dcorsSolutionStackName = Nothing
+    , _dcorsOptions = Nothing
+    , _dcorsResponseStatus = pResponseStatus_
     }
-
--- | A list of ConfigurationOptionDescription.
-dcorsOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
-dcorsOptions = lens _dcorsOptions (\ s a -> s{_dcorsOptions = a}) . _Default . _Coerce;
 
 -- | The name of the solution stack these configuration options belong to.
 dcorsSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
 dcorsSolutionStackName = lens _dcorsSolutionStackName (\ s a -> s{_dcorsSolutionStackName = a});
 
+-- | A list of ConfigurationOptionDescription.
+dcorsOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
+dcorsOptions = lens _dcorsOptions (\ s a -> s{_dcorsOptions = a}) . _Default . _Coerce;
+
 -- | The response status code.
-dcorsStatus :: Lens' DescribeConfigurationOptionsResponse Int
-dcorsStatus = lens _dcorsStatus (\ s a -> s{_dcorsStatus = a});
+dcorsResponseStatus :: Lens' DescribeConfigurationOptionsResponse Int
+dcorsResponseStatus = lens _dcorsResponseStatus (\ s a -> s{_dcorsResponseStatus = a});

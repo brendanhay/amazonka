@@ -37,7 +37,7 @@ module Network.AWS.RDS.DescribeAccountAttributes
     , DescribeAccountAttributesResponse
     -- * Response Lenses
     , daarsAccountQuotas
-    , daarsStatus
+    , daarsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -89,8 +89,8 @@ instance ToQuery DescribeAccountAttributes where
 --
 -- /See:/ 'describeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-    { _daarsAccountQuotas :: !(Maybe [AccountQuota])
-    , _daarsStatus        :: !Int
+    { _daarsAccountQuotas  :: !(Maybe [AccountQuota])
+    , _daarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.
@@ -99,14 +99,14 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
 --
 -- * 'daarsAccountQuotas'
 --
--- * 'daarsStatus'
+-- * 'daarsResponseStatus'
 describeAccountAttributesResponse
-    :: Int -- ^ 'daarsStatus'
+    :: Int -- ^ 'daarsResponseStatus'
     -> DescribeAccountAttributesResponse
-describeAccountAttributesResponse pStatus_ =
+describeAccountAttributesResponse pResponseStatus_ =
     DescribeAccountAttributesResponse'
     { _daarsAccountQuotas = Nothing
-    , _daarsStatus = pStatus_
+    , _daarsResponseStatus = pResponseStatus_
     }
 
 -- | A list of AccountQuota objects. Within this list, each quota has a name,
@@ -116,5 +116,5 @@ daarsAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
 daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = a}) . _Default . _Coerce;
 
 -- | The response status code.
-daarsStatus :: Lens' DescribeAccountAttributesResponse Int
-daarsStatus = lens _daarsStatus (\ s a -> s{_daarsStatus = a});
+daarsResponseStatus :: Lens' DescribeAccountAttributesResponse Int
+daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});

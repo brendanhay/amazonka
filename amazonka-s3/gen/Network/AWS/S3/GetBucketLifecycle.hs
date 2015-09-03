@@ -34,7 +34,7 @@ module Network.AWS.S3.GetBucketLifecycle
     , GetBucketLifecycleResponse
     -- * Response Lenses
     , gblrsRules
-    , gblrsStatus
+    , gblrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -88,8 +88,8 @@ instance ToQuery GetBucketLifecycle where
 
 -- | /See:/ 'getBucketLifecycleResponse' smart constructor.
 data GetBucketLifecycleResponse = GetBucketLifecycleResponse'
-    { _gblrsRules  :: !(Maybe [Rule])
-    , _gblrsStatus :: !Int
+    { _gblrsRules          :: !(Maybe [Rule])
+    , _gblrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketLifecycleResponse' with the minimum fields required to make a request.
@@ -98,14 +98,14 @@ data GetBucketLifecycleResponse = GetBucketLifecycleResponse'
 --
 -- * 'gblrsRules'
 --
--- * 'gblrsStatus'
+-- * 'gblrsResponseStatus'
 getBucketLifecycleResponse
-    :: Int -- ^ 'gblrsStatus'
+    :: Int -- ^ 'gblrsResponseStatus'
     -> GetBucketLifecycleResponse
-getBucketLifecycleResponse pStatus_ =
+getBucketLifecycleResponse pResponseStatus_ =
     GetBucketLifecycleResponse'
     { _gblrsRules = Nothing
-    , _gblrsStatus = pStatus_
+    , _gblrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -113,5 +113,5 @@ gblrsRules :: Lens' GetBucketLifecycleResponse [Rule]
 gblrsRules = lens _gblrsRules (\ s a -> s{_gblrsRules = a}) . _Default . _Coerce;
 
 -- | The response status code.
-gblrsStatus :: Lens' GetBucketLifecycleResponse Int
-gblrsStatus = lens _gblrsStatus (\ s a -> s{_gblrsStatus = a});
+gblrsResponseStatus :: Lens' GetBucketLifecycleResponse Int
+gblrsResponseStatus = lens _gblrsResponseStatus (\ s a -> s{_gblrsResponseStatus = a});

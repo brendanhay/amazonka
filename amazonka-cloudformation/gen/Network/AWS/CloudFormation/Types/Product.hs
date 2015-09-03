@@ -236,8 +236,8 @@ data Stack = Stack'
     , _sOutputs           :: !(Maybe [Output])
     , _sParameters        :: !(Maybe [Parameter])
     , _sStackId           :: !(Maybe Text)
-    , _sCapabilities      :: !(Maybe [Capability])
     , _sDescription       :: !(Maybe Text)
+    , _sCapabilities      :: !(Maybe [Capability])
     , _sTags              :: !(Maybe [Tag])
     , _sTimeoutInMinutes  :: !(Maybe Nat)
     , _sStackName         :: !Text
@@ -263,9 +263,9 @@ data Stack = Stack'
 --
 -- * 'sStackId'
 --
--- * 'sCapabilities'
---
 -- * 'sDescription'
+--
+-- * 'sCapabilities'
 --
 -- * 'sTags'
 --
@@ -290,8 +290,8 @@ stack pStackName_ pCreationTime_ pStackStatus_ =
     , _sOutputs = Nothing
     , _sParameters = Nothing
     , _sStackId = Nothing
-    , _sCapabilities = Nothing
     , _sDescription = Nothing
+    , _sCapabilities = Nothing
     , _sTags = Nothing
     , _sTimeoutInMinutes = Nothing
     , _sStackName = pStackName_
@@ -331,13 +331,13 @@ sParameters = lens _sParameters (\ s a -> s{_sParameters = a}) . _Default . _Coe
 sStackId :: Lens' Stack (Maybe Text)
 sStackId = lens _sStackId (\ s a -> s{_sStackId = a});
 
--- | The capabilities allowed in the stack.
-sCapabilities :: Lens' Stack [Capability]
-sCapabilities = lens _sCapabilities (\ s a -> s{_sCapabilities = a}) . _Default . _Coerce;
-
 -- | User defined description associated with the stack.
 sDescription :: Lens' Stack (Maybe Text)
 sDescription = lens _sDescription (\ s a -> s{_sDescription = a});
+
+-- | The capabilities allowed in the stack.
+sCapabilities :: Lens' Stack [Capability]
+sCapabilities = lens _sCapabilities (\ s a -> s{_sCapabilities = a}) . _Default . _Coerce;
 
 -- | A list of 'Tag's that specify cost allocation information for the stack.
 sTags :: Lens' Stack [Tag]
@@ -375,10 +375,10 @@ instance FromXML Stack where
                 (x .@? "Parameters" .!@ mempty >>=
                    may (parseXMLList "member"))
                 <*> (x .@? "StackId")
+                <*> (x .@? "Description")
                 <*>
                 (x .@? "Capabilities" .!@ mempty >>=
                    may (parseXMLList "member"))
-                <*> (x .@? "Description")
                 <*>
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "member"))
@@ -392,9 +392,9 @@ instance FromXML Stack where
 -- /See:/ 'stackEvent' smart constructor.
 data StackEvent = StackEvent'
     { _seLogicalResourceId    :: !(Maybe Text)
-    , _seResourceStatusReason :: !(Maybe Text)
-    , _seResourceType         :: !(Maybe Text)
     , _sePhysicalResourceId   :: !(Maybe Text)
+    , _seResourceType         :: !(Maybe Text)
+    , _seResourceStatusReason :: !(Maybe Text)
     , _seResourceProperties   :: !(Maybe Text)
     , _seResourceStatus       :: !(Maybe ResourceStatus)
     , _seStackId              :: !Text
@@ -409,11 +409,11 @@ data StackEvent = StackEvent'
 --
 -- * 'seLogicalResourceId'
 --
--- * 'seResourceStatusReason'
+-- * 'sePhysicalResourceId'
 --
 -- * 'seResourceType'
 --
--- * 'sePhysicalResourceId'
+-- * 'seResourceStatusReason'
 --
 -- * 'seResourceProperties'
 --
@@ -435,9 +435,9 @@ stackEvent
 stackEvent pStackId_ pEventId_ pStackName_ pTimestamp_ =
     StackEvent'
     { _seLogicalResourceId = Nothing
-    , _seResourceStatusReason = Nothing
-    , _seResourceType = Nothing
     , _sePhysicalResourceId = Nothing
+    , _seResourceType = Nothing
+    , _seResourceStatusReason = Nothing
     , _seResourceProperties = Nothing
     , _seResourceStatus = Nothing
     , _seStackId = pStackId_
@@ -450,9 +450,10 @@ stackEvent pStackId_ pEventId_ pStackName_ pTimestamp_ =
 seLogicalResourceId :: Lens' StackEvent (Maybe Text)
 seLogicalResourceId = lens _seLogicalResourceId (\ s a -> s{_seLogicalResourceId = a});
 
--- | Success\/failure message associated with the resource.
-seResourceStatusReason :: Lens' StackEvent (Maybe Text)
-seResourceStatusReason = lens _seResourceStatusReason (\ s a -> s{_seResourceStatusReason = a});
+-- | The name or unique identifier associated with the physical instance of
+-- the resource.
+sePhysicalResourceId :: Lens' StackEvent (Maybe Text)
+sePhysicalResourceId = lens _sePhysicalResourceId (\ s a -> s{_sePhysicalResourceId = a});
 
 -- | Type of resource. (For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
@@ -460,10 +461,9 @@ seResourceStatusReason = lens _seResourceStatusReason (\ s a -> s{_seResourceSta
 seResourceType :: Lens' StackEvent (Maybe Text)
 seResourceType = lens _seResourceType (\ s a -> s{_seResourceType = a});
 
--- | The name or unique identifier associated with the physical instance of
--- the resource.
-sePhysicalResourceId :: Lens' StackEvent (Maybe Text)
-sePhysicalResourceId = lens _sePhysicalResourceId (\ s a -> s{_sePhysicalResourceId = a});
+-- | Success\/failure message associated with the resource.
+seResourceStatusReason :: Lens' StackEvent (Maybe Text)
+seResourceStatusReason = lens _seResourceStatusReason (\ s a -> s{_seResourceStatusReason = a});
 
 -- | BLOB of the properties used to create the resource.
 seResourceProperties :: Lens' StackEvent (Maybe Text)
@@ -493,9 +493,9 @@ instance FromXML StackEvent where
         parseXML x
           = StackEvent' <$>
               (x .@? "LogicalResourceId") <*>
-                (x .@? "ResourceStatusReason")
+                (x .@? "PhysicalResourceId")
                 <*> (x .@? "ResourceType")
-                <*> (x .@? "PhysicalResourceId")
+                <*> (x .@? "ResourceStatusReason")
                 <*> (x .@? "ResourceProperties")
                 <*> (x .@? "ResourceStatus")
                 <*> (x .@ "StackId")
@@ -507,8 +507,8 @@ instance FromXML StackEvent where
 --
 -- /See:/ 'stackResource' smart constructor.
 data StackResource = StackResource'
-    { _srResourceStatusReason :: !(Maybe Text)
-    , _srPhysicalResourceId   :: !(Maybe Text)
+    { _srPhysicalResourceId   :: !(Maybe Text)
+    , _srResourceStatusReason :: !(Maybe Text)
     , _srStackId              :: !(Maybe Text)
     , _srDescription          :: !(Maybe Text)
     , _srStackName            :: !(Maybe Text)
@@ -522,9 +522,9 @@ data StackResource = StackResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srResourceStatusReason'
---
 -- * 'srPhysicalResourceId'
+--
+-- * 'srResourceStatusReason'
 --
 -- * 'srStackId'
 --
@@ -547,8 +547,8 @@ stackResource
     -> StackResource
 stackResource pLogicalResourceId_ pResourceType_ pTimestamp_ pResourceStatus_ =
     StackResource'
-    { _srResourceStatusReason = Nothing
-    , _srPhysicalResourceId = Nothing
+    { _srPhysicalResourceId = Nothing
+    , _srResourceStatusReason = Nothing
     , _srStackId = Nothing
     , _srDescription = Nothing
     , _srStackName = Nothing
@@ -558,14 +558,14 @@ stackResource pLogicalResourceId_ pResourceType_ pTimestamp_ pResourceStatus_ =
     , _srResourceStatus = pResourceStatus_
     }
 
--- | Success\/failure message associated with the resource.
-srResourceStatusReason :: Lens' StackResource (Maybe Text)
-srResourceStatusReason = lens _srResourceStatusReason (\ s a -> s{_srResourceStatusReason = a});
-
 -- | The name or unique identifier that corresponds to a physical instance ID
 -- of a resource supported by AWS CloudFormation.
 srPhysicalResourceId :: Lens' StackResource (Maybe Text)
 srPhysicalResourceId = lens _srPhysicalResourceId (\ s a -> s{_srPhysicalResourceId = a});
+
+-- | Success\/failure message associated with the resource.
+srResourceStatusReason :: Lens' StackResource (Maybe Text)
+srResourceStatusReason = lens _srResourceStatusReason (\ s a -> s{_srResourceStatusReason = a});
 
 -- | Unique identifier of the stack.
 srStackId :: Lens' StackResource (Maybe Text)
@@ -600,8 +600,8 @@ srResourceStatus = lens _srResourceStatus (\ s a -> s{_srResourceStatus = a});
 instance FromXML StackResource where
         parseXML x
           = StackResource' <$>
-              (x .@? "ResourceStatusReason") <*>
-                (x .@? "PhysicalResourceId")
+              (x .@? "PhysicalResourceId") <*>
+                (x .@? "ResourceStatusReason")
                 <*> (x .@? "StackId")
                 <*> (x .@? "Description")
                 <*> (x .@? "StackName")
@@ -614,8 +614,8 @@ instance FromXML StackResource where
 --
 -- /See:/ 'stackResourceDetail' smart constructor.
 data StackResourceDetail = StackResourceDetail'
-    { _srdResourceStatusReason :: !(Maybe Text)
-    , _srdPhysicalResourceId   :: !(Maybe Text)
+    { _srdPhysicalResourceId   :: !(Maybe Text)
+    , _srdResourceStatusReason :: !(Maybe Text)
     , _srdMetadata             :: !(Maybe Text)
     , _srdStackId              :: !(Maybe Text)
     , _srdDescription          :: !(Maybe Text)
@@ -630,9 +630,9 @@ data StackResourceDetail = StackResourceDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srdResourceStatusReason'
---
 -- * 'srdPhysicalResourceId'
+--
+-- * 'srdResourceStatusReason'
 --
 -- * 'srdMetadata'
 --
@@ -657,8 +657,8 @@ stackResourceDetail
     -> StackResourceDetail
 stackResourceDetail pLogicalResourceId_ pResourceType_ pLastUpdatedTimestamp_ pResourceStatus_ =
     StackResourceDetail'
-    { _srdResourceStatusReason = Nothing
-    , _srdPhysicalResourceId = Nothing
+    { _srdPhysicalResourceId = Nothing
+    , _srdResourceStatusReason = Nothing
     , _srdMetadata = Nothing
     , _srdStackId = Nothing
     , _srdDescription = Nothing
@@ -669,14 +669,14 @@ stackResourceDetail pLogicalResourceId_ pResourceType_ pLastUpdatedTimestamp_ pR
     , _srdResourceStatus = pResourceStatus_
     }
 
--- | Success\/failure message associated with the resource.
-srdResourceStatusReason :: Lens' StackResourceDetail (Maybe Text)
-srdResourceStatusReason = lens _srdResourceStatusReason (\ s a -> s{_srdResourceStatusReason = a});
-
 -- | The name or unique identifier that corresponds to a physical instance ID
 -- of a resource supported by AWS CloudFormation.
 srdPhysicalResourceId :: Lens' StackResourceDetail (Maybe Text)
 srdPhysicalResourceId = lens _srdPhysicalResourceId (\ s a -> s{_srdPhysicalResourceId = a});
+
+-- | Success\/failure message associated with the resource.
+srdResourceStatusReason :: Lens' StackResourceDetail (Maybe Text)
+srdResourceStatusReason = lens _srdResourceStatusReason (\ s a -> s{_srdResourceStatusReason = a});
 
 -- | The JSON format content of the 'Metadata' attribute declared for the
 -- resource. For more information, see
@@ -718,8 +718,8 @@ srdResourceStatus = lens _srdResourceStatus (\ s a -> s{_srdResourceStatus = a})
 instance FromXML StackResourceDetail where
         parseXML x
           = StackResourceDetail' <$>
-              (x .@? "ResourceStatusReason") <*>
-                (x .@? "PhysicalResourceId")
+              (x .@? "PhysicalResourceId") <*>
+                (x .@? "ResourceStatusReason")
                 <*> (x .@? "Metadata")
                 <*> (x .@? "StackId")
                 <*> (x .@? "Description")
@@ -733,8 +733,8 @@ instance FromXML StackResourceDetail where
 --
 -- /See:/ 'stackResourceSummary' smart constructor.
 data StackResourceSummary = StackResourceSummary'
-    { _srsResourceStatusReason :: !(Maybe Text)
-    , _srsPhysicalResourceId   :: !(Maybe Text)
+    { _srsPhysicalResourceId   :: !(Maybe Text)
+    , _srsResourceStatusReason :: !(Maybe Text)
     , _srsLogicalResourceId    :: !Text
     , _srsResourceType         :: !Text
     , _srsLastUpdatedTimestamp :: !ISO8601
@@ -745,9 +745,9 @@ data StackResourceSummary = StackResourceSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsResourceStatusReason'
---
 -- * 'srsPhysicalResourceId'
+--
+-- * 'srsResourceStatusReason'
 --
 -- * 'srsLogicalResourceId'
 --
@@ -764,22 +764,22 @@ stackResourceSummary
     -> StackResourceSummary
 stackResourceSummary pLogicalResourceId_ pResourceType_ pLastUpdatedTimestamp_ pResourceStatus_ =
     StackResourceSummary'
-    { _srsResourceStatusReason = Nothing
-    , _srsPhysicalResourceId = Nothing
+    { _srsPhysicalResourceId = Nothing
+    , _srsResourceStatusReason = Nothing
     , _srsLogicalResourceId = pLogicalResourceId_
     , _srsResourceType = pResourceType_
     , _srsLastUpdatedTimestamp = _Time # pLastUpdatedTimestamp_
     , _srsResourceStatus = pResourceStatus_
     }
 
--- | Success\/failure message associated with the resource.
-srsResourceStatusReason :: Lens' StackResourceSummary (Maybe Text)
-srsResourceStatusReason = lens _srsResourceStatusReason (\ s a -> s{_srsResourceStatusReason = a});
-
 -- | The name or unique identifier that corresponds to a physical instance ID
 -- of the resource.
 srsPhysicalResourceId :: Lens' StackResourceSummary (Maybe Text)
 srsPhysicalResourceId = lens _srsPhysicalResourceId (\ s a -> s{_srsPhysicalResourceId = a});
+
+-- | Success\/failure message associated with the resource.
+srsResourceStatusReason :: Lens' StackResourceSummary (Maybe Text)
+srsResourceStatusReason = lens _srsResourceStatusReason (\ s a -> s{_srsResourceStatusReason = a});
 
 -- | The logical name of the resource specified in the template.
 srsLogicalResourceId :: Lens' StackResourceSummary Text
@@ -802,8 +802,8 @@ srsResourceStatus = lens _srsResourceStatus (\ s a -> s{_srsResourceStatus = a})
 instance FromXML StackResourceSummary where
         parseXML x
           = StackResourceSummary' <$>
-              (x .@? "ResourceStatusReason") <*>
-                (x .@? "PhysicalResourceId")
+              (x .@? "PhysicalResourceId") <*>
+                (x .@? "ResourceStatusReason")
                 <*> (x .@ "LogicalResourceId")
                 <*> (x .@ "ResourceType")
                 <*> (x .@ "LastUpdatedTimestamp")
@@ -814,8 +814,8 @@ instance FromXML StackResourceSummary where
 -- /See:/ 'stackSummary' smart constructor.
 data StackSummary = StackSummary'
     { _ssLastUpdatedTime     :: !(Maybe ISO8601)
-    , _ssTemplateDescription :: !(Maybe Text)
     , _ssStackStatusReason   :: !(Maybe Text)
+    , _ssTemplateDescription :: !(Maybe Text)
     , _ssDeletionTime        :: !(Maybe ISO8601)
     , _ssStackId             :: !(Maybe Text)
     , _ssStackName           :: !Text
@@ -829,9 +829,9 @@ data StackSummary = StackSummary'
 --
 -- * 'ssLastUpdatedTime'
 --
--- * 'ssTemplateDescription'
---
 -- * 'ssStackStatusReason'
+--
+-- * 'ssTemplateDescription'
 --
 -- * 'ssDeletionTime'
 --
@@ -850,8 +850,8 @@ stackSummary
 stackSummary pStackName_ pCreationTime_ pStackStatus_ =
     StackSummary'
     { _ssLastUpdatedTime = Nothing
-    , _ssTemplateDescription = Nothing
     , _ssStackStatusReason = Nothing
+    , _ssTemplateDescription = Nothing
     , _ssDeletionTime = Nothing
     , _ssStackId = Nothing
     , _ssStackName = pStackName_
@@ -864,13 +864,13 @@ stackSummary pStackName_ pCreationTime_ pStackStatus_ =
 ssLastUpdatedTime :: Lens' StackSummary (Maybe UTCTime)
 ssLastUpdatedTime = lens _ssLastUpdatedTime (\ s a -> s{_ssLastUpdatedTime = a}) . mapping _Time;
 
--- | The template description of the template used to create the stack.
-ssTemplateDescription :: Lens' StackSummary (Maybe Text)
-ssTemplateDescription = lens _ssTemplateDescription (\ s a -> s{_ssTemplateDescription = a});
-
 -- | Success\/Failure message associated with the stack status.
 ssStackStatusReason :: Lens' StackSummary (Maybe Text)
 ssStackStatusReason = lens _ssStackStatusReason (\ s a -> s{_ssStackStatusReason = a});
+
+-- | The template description of the template used to create the stack.
+ssTemplateDescription :: Lens' StackSummary (Maybe Text)
+ssTemplateDescription = lens _ssTemplateDescription (\ s a -> s{_ssTemplateDescription = a});
 
 -- | The time the stack was deleted.
 ssDeletionTime :: Lens' StackSummary (Maybe UTCTime)
@@ -896,8 +896,8 @@ instance FromXML StackSummary where
         parseXML x
           = StackSummary' <$>
               (x .@? "LastUpdatedTime") <*>
-                (x .@? "TemplateDescription")
-                <*> (x .@? "StackStatusReason")
+                (x .@? "StackStatusReason")
+                <*> (x .@? "TemplateDescription")
                 <*> (x .@? "DeletionTime")
                 <*> (x .@? "StackId")
                 <*> (x .@ "StackName")

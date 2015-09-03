@@ -50,7 +50,7 @@ module Network.AWS.DataPipeline.PollForTask
     , PollForTaskResponse
     -- * Response Lenses
     , pftrsTaskObject
-    , pftrsStatus
+    , pftrsResponseStatus
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -147,8 +147,8 @@ instance ToQuery PollForTask where
 --
 -- /See:/ 'pollForTaskResponse' smart constructor.
 data PollForTaskResponse = PollForTaskResponse'
-    { _pftrsTaskObject :: !(Maybe TaskObject)
-    , _pftrsStatus     :: !Int
+    { _pftrsTaskObject     :: !(Maybe TaskObject)
+    , _pftrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PollForTaskResponse' with the minimum fields required to make a request.
@@ -157,14 +157,14 @@ data PollForTaskResponse = PollForTaskResponse'
 --
 -- * 'pftrsTaskObject'
 --
--- * 'pftrsStatus'
+-- * 'pftrsResponseStatus'
 pollForTaskResponse
-    :: Int -- ^ 'pftrsStatus'
+    :: Int -- ^ 'pftrsResponseStatus'
     -> PollForTaskResponse
-pollForTaskResponse pStatus_ =
+pollForTaskResponse pResponseStatus_ =
     PollForTaskResponse'
     { _pftrsTaskObject = Nothing
-    , _pftrsStatus = pStatus_
+    , _pftrsResponseStatus = pResponseStatus_
     }
 
 -- | The information needed to complete the task that is being assigned to
@@ -176,5 +176,5 @@ pftrsTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 pftrsTaskObject = lens _pftrsTaskObject (\ s a -> s{_pftrsTaskObject = a});
 
 -- | The response status code.
-pftrsStatus :: Lens' PollForTaskResponse Int
-pftrsStatus = lens _pftrsStatus (\ s a -> s{_pftrsStatus = a});
+pftrsResponseStatus :: Lens' PollForTaskResponse Int
+pftrsResponseStatus = lens _pftrsResponseStatus (\ s a -> s{_pftrsResponseStatus = a});

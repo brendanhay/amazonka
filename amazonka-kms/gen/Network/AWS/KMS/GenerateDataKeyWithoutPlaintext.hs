@@ -43,7 +43,7 @@ module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     -- * Response Lenses
     , gdkwprsKeyId
     , gdkwprsCiphertextBlob
-    , gdkwprsStatus
+    , gdkwprsResponseStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -165,7 +165,7 @@ instance ToQuery GenerateDataKeyWithoutPlaintext
 data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse'
     { _gdkwprsKeyId          :: !(Maybe Text)
     , _gdkwprsCiphertextBlob :: !(Maybe Base64)
-    , _gdkwprsStatus         :: !Int
+    , _gdkwprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GenerateDataKeyWithoutPlaintextResponse' with the minimum fields required to make a request.
@@ -176,15 +176,15 @@ data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextRe
 --
 -- * 'gdkwprsCiphertextBlob'
 --
--- * 'gdkwprsStatus'
+-- * 'gdkwprsResponseStatus'
 generateDataKeyWithoutPlaintextResponse
-    :: Int -- ^ 'gdkwprsStatus'
+    :: Int -- ^ 'gdkwprsResponseStatus'
     -> GenerateDataKeyWithoutPlaintextResponse
-generateDataKeyWithoutPlaintextResponse pStatus_ =
+generateDataKeyWithoutPlaintextResponse pResponseStatus_ =
     GenerateDataKeyWithoutPlaintextResponse'
     { _gdkwprsKeyId = Nothing
     , _gdkwprsCiphertextBlob = Nothing
-    , _gdkwprsStatus = pStatus_
+    , _gdkwprsResponseStatus = pResponseStatus_
     }
 
 -- | System generated unique identifier of the key to be used to decrypt the
@@ -208,5 +208,5 @@ gdkwprsCiphertextBlob :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe By
 gdkwprsCiphertextBlob = lens _gdkwprsCiphertextBlob (\ s a -> s{_gdkwprsCiphertextBlob = a}) . mapping _Base64;
 
 -- | The response status code.
-gdkwprsStatus :: Lens' GenerateDataKeyWithoutPlaintextResponse Int
-gdkwprsStatus = lens _gdkwprsStatus (\ s a -> s{_gdkwprsStatus = a});
+gdkwprsResponseStatus :: Lens' GenerateDataKeyWithoutPlaintextResponse Int
+gdkwprsResponseStatus = lens _gdkwprsResponseStatus (\ s a -> s{_gdkwprsResponseStatus = a});

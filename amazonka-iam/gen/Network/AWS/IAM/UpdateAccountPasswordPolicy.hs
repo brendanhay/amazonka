@@ -36,8 +36,8 @@ module Network.AWS.IAM.UpdateAccountPasswordPolicy
       updateAccountPasswordPolicy
     , UpdateAccountPasswordPolicy
     -- * Request Lenses
-    , uappRequireNumbers
     , uappMinimumPasswordLength
+    , uappRequireNumbers
     , uappPasswordReusePrevention
     , uappRequireLowercaseCharacters
     , uappMaxPasswordAge
@@ -59,8 +59,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'updateAccountPasswordPolicy' smart constructor.
 data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
-    { _uappRequireNumbers             :: !(Maybe Bool)
-    , _uappMinimumPasswordLength      :: !(Maybe Nat)
+    { _uappMinimumPasswordLength      :: !(Maybe Nat)
+    , _uappRequireNumbers             :: !(Maybe Bool)
     , _uappPasswordReusePrevention    :: !(Maybe Nat)
     , _uappRequireLowercaseCharacters :: !(Maybe Bool)
     , _uappMaxPasswordAge             :: !(Maybe Nat)
@@ -74,9 +74,9 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uappRequireNumbers'
---
 -- * 'uappMinimumPasswordLength'
+--
+-- * 'uappRequireNumbers'
 --
 -- * 'uappPasswordReusePrevention'
 --
@@ -95,8 +95,8 @@ updateAccountPasswordPolicy
     :: UpdateAccountPasswordPolicy
 updateAccountPasswordPolicy =
     UpdateAccountPasswordPolicy'
-    { _uappRequireNumbers = Nothing
-    , _uappMinimumPasswordLength = Nothing
+    { _uappMinimumPasswordLength = Nothing
+    , _uappRequireNumbers = Nothing
     , _uappPasswordReusePrevention = Nothing
     , _uappRequireLowercaseCharacters = Nothing
     , _uappMaxPasswordAge = Nothing
@@ -106,18 +106,18 @@ updateAccountPasswordPolicy =
     , _uappAllowUsersToChangePassword = Nothing
     }
 
+-- | The minimum number of characters allowed in an IAM user password.
+--
+-- Default value: 6
+uappMinimumPasswordLength :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
+uappMinimumPasswordLength = lens _uappMinimumPasswordLength (\ s a -> s{_uappMinimumPasswordLength = a}) . mapping _Nat;
+
 -- | Specifies whether IAM user passwords must contain at least one numeric
 -- character (0 to 9).
 --
 -- Default value: false
 uappRequireNumbers :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireNumbers = lens _uappRequireNumbers (\ s a -> s{_uappRequireNumbers = a});
-
--- | The minimum number of characters allowed in an IAM user password.
---
--- Default value: 6
-uappMinimumPasswordLength :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
-uappMinimumPasswordLength = lens _uappMinimumPasswordLength (\ s a -> s{_uappMinimumPasswordLength = a}) . mapping _Nat;
 
 -- | Specifies the number of previous passwords that IAM users are prevented
 -- from reusing. The default value of 0 means IAM users are not prevented
@@ -192,9 +192,9 @@ instance ToQuery UpdateAccountPasswordPolicy where
               ["Action" =:
                  ("UpdateAccountPasswordPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "RequireNumbers" =: _uappRequireNumbers,
                "MinimumPasswordLength" =:
                  _uappMinimumPasswordLength,
+               "RequireNumbers" =: _uappRequireNumbers,
                "PasswordReusePrevention" =:
                  _uappPasswordReusePrevention,
                "RequireLowercaseCharacters" =:

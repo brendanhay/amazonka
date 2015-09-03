@@ -42,8 +42,8 @@ module Network.AWS.Support.DescribeCommunications
     , DescribeCommunications
     -- * Request Lenses
     , dAfterTime
-    , dNextToken
     , dBeforeTime
+    , dNextToken
     , dMaxResults
     , dCaseId
 
@@ -53,7 +53,7 @@ module Network.AWS.Support.DescribeCommunications
     -- * Response Lenses
     , dcrsNextToken
     , dcrsCommunications
-    , dcrsStatus
+    , dcrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -66,8 +66,8 @@ import           Network.AWS.Support.Types.Product
 -- | /See:/ 'describeCommunications' smart constructor.
 data DescribeCommunications = DescribeCommunications'
     { _dAfterTime  :: !(Maybe Text)
-    , _dNextToken  :: !(Maybe Text)
     , _dBeforeTime :: !(Maybe Text)
+    , _dNextToken  :: !(Maybe Text)
     , _dMaxResults :: !(Maybe Nat)
     , _dCaseId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -78,9 +78,9 @@ data DescribeCommunications = DescribeCommunications'
 --
 -- * 'dAfterTime'
 --
--- * 'dNextToken'
---
 -- * 'dBeforeTime'
+--
+-- * 'dNextToken'
 --
 -- * 'dMaxResults'
 --
@@ -91,8 +91,8 @@ describeCommunications
 describeCommunications pCaseId_ =
     DescribeCommunications'
     { _dAfterTime = Nothing
-    , _dNextToken = Nothing
     , _dBeforeTime = Nothing
+    , _dNextToken = Nothing
     , _dMaxResults = Nothing
     , _dCaseId = pCaseId_
     }
@@ -103,14 +103,14 @@ describeCommunications pCaseId_ =
 dAfterTime :: Lens' DescribeCommunications (Maybe Text)
 dAfterTime = lens _dAfterTime (\ s a -> s{_dAfterTime = a});
 
--- | A resumption point for pagination.
-dNextToken :: Lens' DescribeCommunications (Maybe Text)
-dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
-
 -- | The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
 dBeforeTime :: Lens' DescribeCommunications (Maybe Text)
 dBeforeTime = lens _dBeforeTime (\ s a -> s{_dBeforeTime = a});
+
+-- | A resumption point for pagination.
+dNextToken :: Lens' DescribeCommunications (Maybe Text)
+dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
 -- | The maximum number of results to return before paginating.
 dMaxResults :: Lens' DescribeCommunications (Maybe Natural)
@@ -156,8 +156,8 @@ instance ToJSON DescribeCommunications where
           = object
               (catMaybes
                  [("afterTime" .=) <$> _dAfterTime,
-                  ("nextToken" .=) <$> _dNextToken,
                   ("beforeTime" .=) <$> _dBeforeTime,
+                  ("nextToken" .=) <$> _dNextToken,
                   ("maxResults" .=) <$> _dMaxResults,
                   Just ("caseId" .= _dCaseId)])
 
@@ -173,7 +173,7 @@ instance ToQuery DescribeCommunications where
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
     { _dcrsNextToken      :: !(Maybe Text)
     , _dcrsCommunications :: !(Maybe [Communication])
-    , _dcrsStatus         :: !Int
+    , _dcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCommunicationsResponse' with the minimum fields required to make a request.
@@ -184,15 +184,15 @@ data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
 --
 -- * 'dcrsCommunications'
 --
--- * 'dcrsStatus'
+-- * 'dcrsResponseStatus'
 describeCommunicationsResponse
-    :: Int -- ^ 'dcrsStatus'
+    :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCommunicationsResponse
-describeCommunicationsResponse pStatus_ =
+describeCommunicationsResponse pResponseStatus_ =
     DescribeCommunicationsResponse'
     { _dcrsNextToken = Nothing
     , _dcrsCommunications = Nothing
-    , _dcrsStatus = pStatus_
+    , _dcrsResponseStatus = pResponseStatus_
     }
 
 -- | A resumption point for pagination.
@@ -204,5 +204,5 @@ dcrsCommunications :: Lens' DescribeCommunicationsResponse [Communication]
 dcrsCommunications = lens _dcrsCommunications (\ s a -> s{_dcrsCommunications = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcrsStatus :: Lens' DescribeCommunicationsResponse Int
-dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});
+dcrsResponseStatus :: Lens' DescribeCommunicationsResponse Int
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});

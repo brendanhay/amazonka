@@ -218,6 +218,31 @@ instance ToJSON BlockerType where
 instance FromJSON BlockerType where
     parseJSON = parseJSONText "BlockerType"
 
+data EncryptionKeyType =
+    KMS
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText EncryptionKeyType where
+    parser = takeLowerText >>= \case
+        "kms" -> pure KMS
+        e -> fromTextError $ "Failure parsing EncryptionKeyType from value: '" <> e
+           <> "'. Accepted values: KMS"
+
+instance ToText EncryptionKeyType where
+    toText = \case
+        KMS -> "KMS"
+
+instance Hashable     EncryptionKeyType
+instance ToByteString EncryptionKeyType
+instance ToQuery      EncryptionKeyType
+instance ToHeader     EncryptionKeyType
+
+instance ToJSON EncryptionKeyType where
+    toJSON = toJSONText
+
+instance FromJSON EncryptionKeyType where
+    parseJSON = parseJSONText "EncryptionKeyType"
+
 data FailureType
     = ConfigurationError
     | JobFailed

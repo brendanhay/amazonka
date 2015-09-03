@@ -48,7 +48,7 @@ module Network.AWS.EC2.CreateKeyPair
     , createKeyPairResponse
     , CreateKeyPairResponse
     -- * Response Lenses
-    , ckprsStatus
+    , ckprsResponseStatus
     , ckprsKeyName
     , ckprsKeyFingerprint
     , ckprsKeyMaterial
@@ -123,7 +123,7 @@ instance ToQuery CreateKeyPair where
 --
 -- /See:/ 'createKeyPairResponse' smart constructor.
 data CreateKeyPairResponse = CreateKeyPairResponse'
-    { _ckprsStatus         :: !Int
+    { _ckprsResponseStatus :: !Int
     , _ckprsKeyName        :: !Text
     , _ckprsKeyFingerprint :: !Text
     , _ckprsKeyMaterial    :: !Text
@@ -133,7 +133,7 @@ data CreateKeyPairResponse = CreateKeyPairResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ckprsStatus'
+-- * 'ckprsResponseStatus'
 --
 -- * 'ckprsKeyName'
 --
@@ -141,22 +141,22 @@ data CreateKeyPairResponse = CreateKeyPairResponse'
 --
 -- * 'ckprsKeyMaterial'
 createKeyPairResponse
-    :: Int -- ^ 'ckprsStatus'
+    :: Int -- ^ 'ckprsResponseStatus'
     -> Text -- ^ 'ckprsKeyName'
     -> Text -- ^ 'ckprsKeyFingerprint'
     -> Text -- ^ 'ckprsKeyMaterial'
     -> CreateKeyPairResponse
-createKeyPairResponse pStatus_ pKeyName_ pKeyFingerprint_ pKeyMaterial_ =
+createKeyPairResponse pResponseStatus_ pKeyName_ pKeyFingerprint_ pKeyMaterial_ =
     CreateKeyPairResponse'
-    { _ckprsStatus = pStatus_
+    { _ckprsResponseStatus = pResponseStatus_
     , _ckprsKeyName = pKeyName_
     , _ckprsKeyFingerprint = pKeyFingerprint_
     , _ckprsKeyMaterial = pKeyMaterial_
     }
 
 -- | The response status code.
-ckprsStatus :: Lens' CreateKeyPairResponse Int
-ckprsStatus = lens _ckprsStatus (\ s a -> s{_ckprsStatus = a});
+ckprsResponseStatus :: Lens' CreateKeyPairResponse Int
+ckprsResponseStatus = lens _ckprsResponseStatus (\ s a -> s{_ckprsResponseStatus = a});
 
 -- | The name of the key pair.
 ckprsKeyName :: Lens' CreateKeyPairResponse Text

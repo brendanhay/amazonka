@@ -27,15 +27,15 @@ module Network.AWS.StorageGateway.DeleteTape
       deleteTape
     , DeleteTape
     -- * Request Lenses
-    , dttGatewayARN
-    , dttTapeARN
+    , delGatewayARN
+    , delTapeARN
 
     -- * Destructuring the Response
     , deleteTapeResponse
     , DeleteTapeResponse
     -- * Response Lenses
     , dtrsTapeARN
-    , dtrsStatus
+    , dtrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -48,36 +48,36 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'deleteTape' smart constructor.
 data DeleteTape = DeleteTape'
-    { _dttGatewayARN :: !Text
-    , _dttTapeARN    :: !Text
+    { _delGatewayARN :: !Text
+    , _delTapeARN    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteTape' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dttGatewayARN'
+-- * 'delGatewayARN'
 --
--- * 'dttTapeARN'
+-- * 'delTapeARN'
 deleteTape
-    :: Text -- ^ 'dttGatewayARN'
-    -> Text -- ^ 'dttTapeARN'
+    :: Text -- ^ 'delGatewayARN'
+    -> Text -- ^ 'delTapeARN'
     -> DeleteTape
 deleteTape pGatewayARN_ pTapeARN_ =
     DeleteTape'
-    { _dttGatewayARN = pGatewayARN_
-    , _dttTapeARN = pTapeARN_
+    { _delGatewayARN = pGatewayARN_
+    , _delTapeARN = pTapeARN_
     }
 
 -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
 -- tape to delete is associated with. Use the ListGateways operation to
 -- return a list of gateways for your account and region.
-dttGatewayARN :: Lens' DeleteTape Text
-dttGatewayARN = lens _dttGatewayARN (\ s a -> s{_dttGatewayARN = a});
+delGatewayARN :: Lens' DeleteTape Text
+delGatewayARN = lens _delGatewayARN (\ s a -> s{_delGatewayARN = a});
 
 -- | The Amazon Resource Name (ARN) of the virtual tape to delete.
-dttTapeARN :: Lens' DeleteTape Text
-dttTapeARN = lens _dttTapeARN (\ s a -> s{_dttTapeARN = a});
+delTapeARN :: Lens' DeleteTape Text
+delTapeARN = lens _delTapeARN (\ s a -> s{_delTapeARN = a});
 
 instance AWSRequest DeleteTape where
         type Rs DeleteTape = DeleteTapeResponse
@@ -101,8 +101,8 @@ instance ToJSON DeleteTape where
         toJSON DeleteTape'{..}
           = object
               (catMaybes
-                 [Just ("GatewayARN" .= _dttGatewayARN),
-                  Just ("TapeARN" .= _dttTapeARN)])
+                 [Just ("GatewayARN" .= _delGatewayARN),
+                  Just ("TapeARN" .= _delTapeARN)])
 
 instance ToPath DeleteTape where
         toPath = const "/"
@@ -114,8 +114,8 @@ instance ToQuery DeleteTape where
 --
 -- /See:/ 'deleteTapeResponse' smart constructor.
 data DeleteTapeResponse = DeleteTapeResponse'
-    { _dtrsTapeARN :: !(Maybe Text)
-    , _dtrsStatus  :: !Int
+    { _dtrsTapeARN        :: !(Maybe Text)
+    , _dtrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteTapeResponse' with the minimum fields required to make a request.
@@ -124,14 +124,14 @@ data DeleteTapeResponse = DeleteTapeResponse'
 --
 -- * 'dtrsTapeARN'
 --
--- * 'dtrsStatus'
+-- * 'dtrsResponseStatus'
 deleteTapeResponse
-    :: Int -- ^ 'dtrsStatus'
+    :: Int -- ^ 'dtrsResponseStatus'
     -> DeleteTapeResponse
-deleteTapeResponse pStatus_ =
+deleteTapeResponse pResponseStatus_ =
     DeleteTapeResponse'
     { _dtrsTapeARN = Nothing
-    , _dtrsStatus = pStatus_
+    , _dtrsResponseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the deleted virtual tape.
@@ -139,5 +139,5 @@ dtrsTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
 dtrsTapeARN = lens _dtrsTapeARN (\ s a -> s{_dtrsTapeARN = a});
 
 -- | The response status code.
-dtrsStatus :: Lens' DeleteTapeResponse Int
-dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
+dtrsResponseStatus :: Lens' DeleteTapeResponse Int
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});

@@ -38,7 +38,7 @@ module Network.AWS.WorkSpaces.CreateWorkspaces
     -- * Response Lenses
     , cwrsFailedRequests
     , cwrsPendingRequests
-    , cwrsStatus
+    , cwrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -108,7 +108,7 @@ instance ToQuery CreateWorkspaces where
 data CreateWorkspacesResponse = CreateWorkspacesResponse'
     { _cwrsFailedRequests  :: !(Maybe [FailedCreateWorkspaceRequest])
     , _cwrsPendingRequests :: !(Maybe [Workspace])
-    , _cwrsStatus          :: !Int
+    , _cwrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateWorkspacesResponse' with the minimum fields required to make a request.
@@ -119,15 +119,15 @@ data CreateWorkspacesResponse = CreateWorkspacesResponse'
 --
 -- * 'cwrsPendingRequests'
 --
--- * 'cwrsStatus'
+-- * 'cwrsResponseStatus'
 createWorkspacesResponse
-    :: Int -- ^ 'cwrsStatus'
+    :: Int -- ^ 'cwrsResponseStatus'
     -> CreateWorkspacesResponse
-createWorkspacesResponse pStatus_ =
+createWorkspacesResponse pResponseStatus_ =
     CreateWorkspacesResponse'
     { _cwrsFailedRequests = Nothing
     , _cwrsPendingRequests = Nothing
-    , _cwrsStatus = pStatus_
+    , _cwrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of structures that represent the WorkSpaces that could not be
@@ -144,5 +144,5 @@ cwrsPendingRequests :: Lens' CreateWorkspacesResponse [Workspace]
 cwrsPendingRequests = lens _cwrsPendingRequests (\ s a -> s{_cwrsPendingRequests = a}) . _Default . _Coerce;
 
 -- | The response status code.
-cwrsStatus :: Lens' CreateWorkspacesResponse Int
-cwrsStatus = lens _cwrsStatus (\ s a -> s{_cwrsStatus = a});
+cwrsResponseStatus :: Lens' CreateWorkspacesResponse Int
+cwrsResponseStatus = lens _cwrsResponseStatus (\ s a -> s{_cwrsResponseStatus = a});

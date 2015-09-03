@@ -49,26 +49,26 @@ module Network.AWS.ElasticBeanstalk
     -- ** InvalidRequestException
     , _InvalidRequestException
 
-    -- ** S3SubscriptionRequiredException
-    , _S3SubscriptionRequiredException
-
     -- ** TooManyBucketsException
     , _TooManyBucketsException
+
+    -- ** S3SubscriptionRequiredException
+    , _S3SubscriptionRequiredException
 
     -- ** OperationInProgressException
     , _OperationInProgressException
 
-    -- ** TooManyConfigurationTemplatesException
-    , _TooManyConfigurationTemplatesException
-
     -- ** TooManyApplicationVersionsException
     , _TooManyApplicationVersionsException
 
-    -- ** ElasticBeanstalkServiceException
-    , _ElasticBeanstalkServiceException
+    -- ** TooManyConfigurationTemplatesException
+    , _TooManyConfigurationTemplatesException
 
     -- ** InsufficientPrivilegesException
     , _InsufficientPrivilegesException
+
+    -- ** ElasticBeanstalkServiceException
+    , _ElasticBeanstalkServiceException
 
     -- ** TooManyApplicationsException
     , _TooManyApplicationsException
@@ -91,14 +91,14 @@ module Network.AWS.ElasticBeanstalk
     -- ** DescribeApplications
     , module Network.AWS.ElasticBeanstalk.DescribeApplications
 
-    -- ** CreateApplicationVersion
-    , module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
-
     -- ** UpdateEnvironment
     , module Network.AWS.ElasticBeanstalk.UpdateEnvironment
 
     -- ** TerminateEnvironment
     , module Network.AWS.ElasticBeanstalk.TerminateEnvironment
+
+    -- ** CreateApplicationVersion
+    , module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
 
     -- ** DescribeEvents (Paginated)
     , module Network.AWS.ElasticBeanstalk.DescribeEvents
@@ -124,20 +124,23 @@ module Network.AWS.ElasticBeanstalk
     -- ** AbortEnvironmentUpdate
     , module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
 
+    -- ** DeleteConfigurationTemplate
+    , module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
+
+    -- ** UpdateConfigurationTemplate
+    , module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
+
+    -- ** DescribeEnvironmentResources
+    , module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
+
     -- ** DeleteApplicationVersion
     , module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
 
     -- ** UpdateApplicationVersion
     , module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
 
-    -- ** DescribeEnvironmentResources
-    , module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
-
-    -- ** DeleteConfigurationTemplate
-    , module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
-
-    -- ** UpdateConfigurationTemplate
-    , module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
+    -- ** CreateConfigurationTemplate
+    , module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
 
     -- ** DescribeEnvironmentHealth
     , module Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
@@ -148,38 +151,35 @@ module Network.AWS.ElasticBeanstalk
     -- ** DeleteEnvironmentConfiguration
     , module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
 
-    -- ** CreateConfigurationTemplate
-    , module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
+    -- ** SwapEnvironmentCNAMEs
+    , module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
 
     -- ** ListAvailableSolutionStacks
     , module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
 
-    -- ** SwapEnvironmentCNAMEs
-    , module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
-
     -- ** DescribeConfigurationOptions
     , module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
-
-    -- ** DescribeConfigurationSettings
-    , module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
 
     -- ** CreateStorageLocation
     , module Network.AWS.ElasticBeanstalk.CreateStorageLocation
 
-    -- ** DescribeEnvironments
-    , module Network.AWS.ElasticBeanstalk.DescribeEnvironments
-
-    -- ** RestartAppServer
-    , module Network.AWS.ElasticBeanstalk.RestartAppServer
+    -- ** DescribeConfigurationSettings
+    , module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
 
     -- ** ValidateConfigurationSettings
     , module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
 
-    -- ** DescribeApplicationVersions
-    , module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
+    -- ** RestartAppServer
+    , module Network.AWS.ElasticBeanstalk.RestartAppServer
+
+    -- ** DescribeEnvironments
+    , module Network.AWS.ElasticBeanstalk.DescribeEnvironments
 
     -- ** CheckDNSAvailability
     , module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
+
+    -- ** DescribeApplicationVersions
+    , module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
 
     -- ** CreateEnvironment
     , module Network.AWS.ElasticBeanstalk.CreateEnvironment
@@ -219,8 +219,8 @@ module Network.AWS.ElasticBeanstalk
     -- ** ApplicationDescription
     , ApplicationDescription
     , applicationDescription
-    , adDateUpdated
     , adVersions
+    , adDateUpdated
     , adDateCreated
     , adApplicationName
     , adConfigurationTemplates
@@ -242,10 +242,10 @@ module Network.AWS.ElasticBeanstalk
     -- ** ApplicationVersionDescription
     , ApplicationVersionDescription
     , applicationVersionDescription
-    , avdDateUpdated
     , avdSourceBundle
-    , avdVersionLabel
+    , avdDateUpdated
     , avdDateCreated
+    , avdVersionLabel
     , avdApplicationName
     , avdDescription
 
@@ -262,8 +262,8 @@ module Network.AWS.ElasticBeanstalk
     -- ** CPUUtilization
     , CPUUtilization
     , cpuUtilization
-    , cuIdle
     , cuSoftIRQ
+    , cuIdle
     , cuIRQ
     , cuSystem
     , cuUser
@@ -275,10 +275,10 @@ module Network.AWS.ElasticBeanstalk
     , configurationOptionDescription
     , codMaxValue
     , codRegex
-    , codUserDefined
     , codMaxLength
-    , codValueOptions
+    , codUserDefined
     , codNamespace
+    , codValueOptions
     , codName
     , codChangeSeverity
     , codDefaultValue
@@ -290,8 +290,8 @@ module Network.AWS.ElasticBeanstalk
     , configurationOptionSetting
     , cosOptionName
     , cosResourceName
-    , cosValue
     , cosNamespace
+    , cosValue
 
     -- ** ConfigurationSettingsDescription
     , ConfigurationSettingsDescription
@@ -309,22 +309,22 @@ module Network.AWS.ElasticBeanstalk
     -- ** EnvironmentDescription
     , EnvironmentDescription
     , environmentDescription
-    , eCNAME
     , eStatus
+    , eCNAME
     , eTemplateName
     , eAbortableOperationInProgress
     , eEndpointURL
-    , eDateUpdated
     , eResources
+    , eDateUpdated
+    , eDateCreated
     , eHealth
     , eVersionLabel
-    , eDateCreated
     , eTier
     , eEnvironmentName
     , eApplicationName
-    , eHealthStatus
-    , eEnvironmentId
     , eSolutionStackName
+    , eEnvironmentId
+    , eHealthStatus
     , eDescription
 
     -- ** EnvironmentInfoDescription
@@ -341,8 +341,8 @@ module Network.AWS.ElasticBeanstalk
     , erdQueues
     , erdTriggers
     , erdLoadBalancers
-    , erdInstances
     , erdEnvironmentName
+    , erdInstances
     , erdLaunchConfigurations
     , erdAutoScalingGroups
 
@@ -452,9 +452,9 @@ module Network.AWS.ElasticBeanstalk
     , singleInstanceHealth
     , sihInstanceId
     , sihCauses
+    , sihSystem
     , sihApplicationMetrics
     , sihColor
-    , sihSystem
     , sihHealthStatus
     , sihLaunchedAt
 

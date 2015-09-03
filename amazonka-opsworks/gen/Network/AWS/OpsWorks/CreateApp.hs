@@ -35,9 +35,9 @@ module Network.AWS.OpsWorks.CreateApp
     , CreateApp
     -- * Request Lenses
     , caSSLConfiguration
-    , caShortname
-    , caEnableSSL
     , caEnvironment
+    , caEnableSSL
+    , caShortname
     , caDataSources
     , caAppSource
     , caAttributes
@@ -52,7 +52,7 @@ module Network.AWS.OpsWorks.CreateApp
     , CreateAppResponse
     -- * Response Lenses
     , carsAppId
-    , carsStatus
+    , carsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -64,9 +64,9 @@ import           Network.AWS.Response
 -- | /See:/ 'createApp' smart constructor.
 data CreateApp = CreateApp'
     { _caSSLConfiguration :: !(Maybe SSLConfiguration)
-    , _caShortname        :: !(Maybe Text)
-    , _caEnableSSL        :: !(Maybe Bool)
     , _caEnvironment      :: !(Maybe [EnvironmentVariable])
+    , _caEnableSSL        :: !(Maybe Bool)
+    , _caShortname        :: !(Maybe Text)
     , _caDataSources      :: !(Maybe [DataSource])
     , _caAppSource        :: !(Maybe Source)
     , _caAttributes       :: !(Maybe (Map AppAttributesKeys Text))
@@ -83,11 +83,11 @@ data CreateApp = CreateApp'
 --
 -- * 'caSSLConfiguration'
 --
--- * 'caShortname'
+-- * 'caEnvironment'
 --
 -- * 'caEnableSSL'
 --
--- * 'caEnvironment'
+-- * 'caShortname'
 --
 -- * 'caDataSources'
 --
@@ -112,9 +112,9 @@ createApp
 createApp pStackId_ pName_ pType_ =
     CreateApp'
     { _caSSLConfiguration = Nothing
-    , _caShortname = Nothing
-    , _caEnableSSL = Nothing
     , _caEnvironment = Nothing
+    , _caEnableSSL = Nothing
+    , _caShortname = Nothing
     , _caDataSources = Nothing
     , _caAppSource = Nothing
     , _caAttributes = Nothing
@@ -128,14 +128,6 @@ createApp pStackId_ pName_ pType_ =
 -- | An 'SslConfiguration' object with the SSL configuration.
 caSSLConfiguration :: Lens' CreateApp (Maybe SSLConfiguration)
 caSSLConfiguration = lens _caSSLConfiguration (\ s a -> s{_caSSLConfiguration = a});
-
--- | The app\'s short name.
-caShortname :: Lens' CreateApp (Maybe Text)
-caShortname = lens _caShortname (\ s a -> s{_caShortname = a});
-
--- | Whether to enable SSL for the app.
-caEnableSSL :: Lens' CreateApp (Maybe Bool)
-caEnableSSL = lens _caEnableSSL (\ s a -> s{_caEnableSSL = a});
 
 -- | An array of 'EnvironmentVariable' objects that specify environment
 -- variables to be associated with the app. After you deploy the app, these
@@ -155,6 +147,14 @@ caEnableSSL = lens _caEnableSSL (\ s a -> s{_caEnableSSL = a});
 -- stack\'s Chef version.
 caEnvironment :: Lens' CreateApp [EnvironmentVariable]
 caEnvironment = lens _caEnvironment (\ s a -> s{_caEnvironment = a}) . _Default . _Coerce;
+
+-- | Whether to enable SSL for the app.
+caEnableSSL :: Lens' CreateApp (Maybe Bool)
+caEnableSSL = lens _caEnableSSL (\ s a -> s{_caEnableSSL = a});
+
+-- | The app\'s short name.
+caShortname :: Lens' CreateApp (Maybe Text)
+caShortname = lens _caShortname (\ s a -> s{_caShortname = a});
 
 -- | The app\'s data source.
 caDataSources :: Lens' CreateApp [DataSource]
@@ -217,9 +217,9 @@ instance ToJSON CreateApp where
           = object
               (catMaybes
                  [("SslConfiguration" .=) <$> _caSSLConfiguration,
-                  ("Shortname" .=) <$> _caShortname,
-                  ("EnableSsl" .=) <$> _caEnableSSL,
                   ("Environment" .=) <$> _caEnvironment,
+                  ("EnableSsl" .=) <$> _caEnableSSL,
+                  ("Shortname" .=) <$> _caShortname,
                   ("DataSources" .=) <$> _caDataSources,
                   ("AppSource" .=) <$> _caAppSource,
                   ("Attributes" .=) <$> _caAttributes,
@@ -238,8 +238,8 @@ instance ToQuery CreateApp where
 --
 -- /See:/ 'createAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
-    { _carsAppId  :: !(Maybe Text)
-    , _carsStatus :: !Int
+    { _carsAppId          :: !(Maybe Text)
+    , _carsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAppResponse' with the minimum fields required to make a request.
@@ -248,14 +248,14 @@ data CreateAppResponse = CreateAppResponse'
 --
 -- * 'carsAppId'
 --
--- * 'carsStatus'
+-- * 'carsResponseStatus'
 createAppResponse
-    :: Int -- ^ 'carsStatus'
+    :: Int -- ^ 'carsResponseStatus'
     -> CreateAppResponse
-createAppResponse pStatus_ =
+createAppResponse pResponseStatus_ =
     CreateAppResponse'
     { _carsAppId = Nothing
-    , _carsStatus = pStatus_
+    , _carsResponseStatus = pResponseStatus_
     }
 
 -- | The app ID.
@@ -263,5 +263,5 @@ carsAppId :: Lens' CreateAppResponse (Maybe Text)
 carsAppId = lens _carsAppId (\ s a -> s{_carsAppId = a});
 
 -- | The response status code.
-carsStatus :: Lens' CreateAppResponse Int
-carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});
+carsResponseStatus :: Lens' CreateAppResponse Int
+carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});

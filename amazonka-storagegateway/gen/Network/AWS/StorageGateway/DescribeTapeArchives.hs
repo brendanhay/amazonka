@@ -44,7 +44,7 @@ module Network.AWS.StorageGateway.DescribeTapeArchives
     -- * Response Lenses
     , dtarsTapeArchives
     , dtarsMarker
-    , dtarsStatus
+    , dtarsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -143,9 +143,9 @@ instance ToQuery DescribeTapeArchives where
 --
 -- /See:/ 'describeTapeArchivesResponse' smart constructor.
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'
-    { _dtarsTapeArchives :: !(Maybe [TapeArchive])
-    , _dtarsMarker       :: !(Maybe Text)
-    , _dtarsStatus       :: !Int
+    { _dtarsTapeArchives   :: !(Maybe [TapeArchive])
+    , _dtarsMarker         :: !(Maybe Text)
+    , _dtarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTapeArchivesResponse' with the minimum fields required to make a request.
@@ -156,15 +156,15 @@ data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'
 --
 -- * 'dtarsMarker'
 --
--- * 'dtarsStatus'
+-- * 'dtarsResponseStatus'
 describeTapeArchivesResponse
-    :: Int -- ^ 'dtarsStatus'
+    :: Int -- ^ 'dtarsResponseStatus'
     -> DescribeTapeArchivesResponse
-describeTapeArchivesResponse pStatus_ =
+describeTapeArchivesResponse pResponseStatus_ =
     DescribeTapeArchivesResponse'
     { _dtarsTapeArchives = Nothing
     , _dtarsMarker = Nothing
-    , _dtarsStatus = pStatus_
+    , _dtarsResponseStatus = pResponseStatus_
     }
 
 -- | An array of virtual tape objects in the virtual tape shelf (VTS). The
@@ -184,5 +184,5 @@ dtarsMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
 dtarsMarker = lens _dtarsMarker (\ s a -> s{_dtarsMarker = a});
 
 -- | The response status code.
-dtarsStatus :: Lens' DescribeTapeArchivesResponse Int
-dtarsStatus = lens _dtarsStatus (\ s a -> s{_dtarsStatus = a});
+dtarsResponseStatus :: Lens' DescribeTapeArchivesResponse Int
+dtarsResponseStatus = lens _dtarsResponseStatus (\ s a -> s{_dtarsResponseStatus = a});

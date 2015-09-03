@@ -40,7 +40,7 @@ module Network.AWS.AutoScaling.DetachLoadBalancers
     , detachLoadBalancersResponse
     , DetachLoadBalancersResponse
     -- * Response Lenses
-    , dlbsrsStatus
+    , dlbsrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -105,22 +105,22 @@ instance ToQuery DetachLoadBalancers where
 
 -- | /See:/ 'detachLoadBalancersResponse' smart constructor.
 newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
-    { _dlbsrsStatus :: Int
+    { _dlbsrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DetachLoadBalancersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbsrsStatus'
+-- * 'dlbsrsResponseStatus'
 detachLoadBalancersResponse
-    :: Int -- ^ 'dlbsrsStatus'
+    :: Int -- ^ 'dlbsrsResponseStatus'
     -> DetachLoadBalancersResponse
-detachLoadBalancersResponse pStatus_ =
+detachLoadBalancersResponse pResponseStatus_ =
     DetachLoadBalancersResponse'
-    { _dlbsrsStatus = pStatus_
+    { _dlbsrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-dlbsrsStatus :: Lens' DetachLoadBalancersResponse Int
-dlbsrsStatus = lens _dlbsrsStatus (\ s a -> s{_dlbsrsStatus = a});
+dlbsrsResponseStatus :: Lens' DetachLoadBalancersResponse Int
+dlbsrsResponseStatus = lens _dlbsrsResponseStatus (\ s a -> s{_dlbsrsResponseStatus = a});

@@ -21,15 +21,15 @@ module Network.AWS.CloudTrail.Types
     , _MaximumNumberOfTrailsExceededException
     , _InsufficientSNSTopicPolicyException
     , _InvalidCloudWatchLogsRoleARNException
-    , _InvalidTrailNameException
     , _InvalidLookupAttributesException
-    , _TrailNotFoundException
-    , _CloudWatchLogsDeliveryUnavailableException
+    , _InvalidTrailNameException
     , _InvalidSNSTopicNameException
-    , _InvalidCloudWatchLogsLogGroupARNException
+    , _CloudWatchLogsDeliveryUnavailableException
+    , _TrailNotFoundException
     , _InvalidS3BucketNameException
-    , _InvalidNextTokenException
+    , _InvalidCloudWatchLogsLogGroupARNException
     , _S3BucketDoesNotExistException
+    , _InvalidNextTokenException
     , _InvalidMaxResultsException
     , _TrailAlreadyExistsException
     , _InvalidS3PrefixException
@@ -41,8 +41,8 @@ module Network.AWS.CloudTrail.Types
     , Event
     , event
     , eUsername
-    , eEventTime
     , eResources
+    , eEventTime
     , eCloudTrailEvent
     , eEventName
     , eEventId
@@ -136,15 +136,25 @@ _InvalidCloudWatchLogsRoleARNException :: AsError a => Getting (First ServiceErr
 _InvalidCloudWatchLogsRoleARNException =
     _ServiceError . hasStatus 400 . hasCode "InvalidCloudWatchLogsRoleArn"
 
+-- | Occurs when an invalid lookup attribute is specified.
+_InvalidLookupAttributesException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidLookupAttributesException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidLookupAttributes"
+
 -- | This exception is thrown when the provided trail name is not valid.
 _InvalidTrailNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTrailNameException =
     _ServiceError . hasStatus 400 . hasCode "InvalidTrailName"
 
--- | Occurs when an invalid lookup attribute is specified.
-_InvalidLookupAttributesException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidLookupAttributesException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidLookupAttributes"
+-- | This exception is thrown when the provided SNS topic name is not valid.
+_InvalidSNSTopicNameException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidSNSTopicNameException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidSnsTopicName"
+
+-- | Cannot set a CloudWatch Logs delivery for this region.
+_CloudWatchLogsDeliveryUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
+_CloudWatchLogsDeliveryUnavailableException =
+    _ServiceError . hasStatus 400 . hasCode "CloudWatchLogsDeliveryUnavailable"
 
 -- | This exception is thrown when the trail with the given name is not
 -- found.
@@ -152,15 +162,10 @@ _TrailNotFoundException :: AsError a => Getting (First ServiceError) a ServiceEr
 _TrailNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "TrailNotFound"
 
--- | Cannot set a CloudWatch Logs delivery for this region.
-_CloudWatchLogsDeliveryUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
-_CloudWatchLogsDeliveryUnavailableException =
-    _ServiceError . hasStatus 400 . hasCode "CloudWatchLogsDeliveryUnavailable"
-
--- | This exception is thrown when the provided SNS topic name is not valid.
-_InvalidSNSTopicNameException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSNSTopicNameException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidSnsTopicName"
+-- | This exception is thrown when the provided S3 bucket name is not valid.
+_InvalidS3BucketNameException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidS3BucketNameException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidS3BucketName"
 
 -- | This exception is thrown when the provided CloudWatch log group is not
 -- valid.
@@ -168,21 +173,16 @@ _InvalidCloudWatchLogsLogGroupARNException :: AsError a => Getting (First Servic
 _InvalidCloudWatchLogsLogGroupARNException =
     _ServiceError . hasStatus 400 . hasCode "InvalidCloudWatchLogsLogGroupArn"
 
--- | This exception is thrown when the provided S3 bucket name is not valid.
-_InvalidS3BucketNameException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidS3BucketNameException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidS3BucketName"
+-- | This exception is thrown when the specified S3 bucket does not exist.
+_S3BucketDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_S3BucketDoesNotExistException =
+    _ServiceError . hasStatus 404 . hasCode "S3BucketDoesNotExist"
 
 -- | Invalid token or token that was previously used in a request with
 -- different parameters. This exception is thrown if the token is invalid.
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
     _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
-
--- | This exception is thrown when the specified S3 bucket does not exist.
-_S3BucketDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
-_S3BucketDoesNotExistException =
-    _ServiceError . hasStatus 404 . hasCode "S3BucketDoesNotExist"
 
 -- | This exception is thrown if the limit specified is invalid.
 _InvalidMaxResultsException :: AsError a => Getting (First ServiceError) a ServiceError

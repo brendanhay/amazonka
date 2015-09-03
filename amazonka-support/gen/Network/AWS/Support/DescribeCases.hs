@@ -46,8 +46,8 @@ module Network.AWS.Support.DescribeCases
     , dcIncludeResolvedCases
     , dcCaseIdList
     , dcAfterTime
-    , dcNextToken
     , dcBeforeTime
+    , dcNextToken
     , dcIncludeCommunications
     , dcDisplayId
     , dcLanguage
@@ -59,7 +59,7 @@ module Network.AWS.Support.DescribeCases
     -- * Response Lenses
     , drsCases
     , drsNextToken
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -74,8 +74,8 @@ data DescribeCases = DescribeCases'
     { _dcIncludeResolvedCases  :: !(Maybe Bool)
     , _dcCaseIdList            :: !(Maybe [Text])
     , _dcAfterTime             :: !(Maybe Text)
-    , _dcNextToken             :: !(Maybe Text)
     , _dcBeforeTime            :: !(Maybe Text)
+    , _dcNextToken             :: !(Maybe Text)
     , _dcIncludeCommunications :: !(Maybe Bool)
     , _dcDisplayId             :: !(Maybe Text)
     , _dcLanguage              :: !(Maybe Text)
@@ -92,9 +92,9 @@ data DescribeCases = DescribeCases'
 --
 -- * 'dcAfterTime'
 --
--- * 'dcNextToken'
---
 -- * 'dcBeforeTime'
+--
+-- * 'dcNextToken'
 --
 -- * 'dcIncludeCommunications'
 --
@@ -110,8 +110,8 @@ describeCases =
     { _dcIncludeResolvedCases = Nothing
     , _dcCaseIdList = Nothing
     , _dcAfterTime = Nothing
-    , _dcNextToken = Nothing
     , _dcBeforeTime = Nothing
+    , _dcNextToken = Nothing
     , _dcIncludeCommunications = Nothing
     , _dcDisplayId = Nothing
     , _dcLanguage = Nothing
@@ -134,14 +134,14 @@ dcCaseIdList = lens _dcCaseIdList (\ s a -> s{_dcCaseIdList = a}) . _Default . _
 dcAfterTime :: Lens' DescribeCases (Maybe Text)
 dcAfterTime = lens _dcAfterTime (\ s a -> s{_dcAfterTime = a});
 
--- | A resumption point for pagination.
-dcNextToken :: Lens' DescribeCases (Maybe Text)
-dcNextToken = lens _dcNextToken (\ s a -> s{_dcNextToken = a});
-
 -- | The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
 dcBeforeTime :: Lens' DescribeCases (Maybe Text)
 dcBeforeTime = lens _dcBeforeTime (\ s a -> s{_dcBeforeTime = a});
+
+-- | A resumption point for pagination.
+dcNextToken :: Lens' DescribeCases (Maybe Text)
+dcNextToken = lens _dcNextToken (\ s a -> s{_dcNextToken = a});
 
 -- | Specifies whether communications should be included in the DescribeCases
 -- results. The default is /true/.
@@ -197,8 +197,8 @@ instance ToJSON DescribeCases where
                     _dcIncludeResolvedCases,
                   ("caseIdList" .=) <$> _dcCaseIdList,
                   ("afterTime" .=) <$> _dcAfterTime,
-                  ("nextToken" .=) <$> _dcNextToken,
                   ("beforeTime" .=) <$> _dcBeforeTime,
+                  ("nextToken" .=) <$> _dcNextToken,
                   ("includeCommunications" .=) <$>
                     _dcIncludeCommunications,
                   ("displayId" .=) <$> _dcDisplayId,
@@ -216,9 +216,9 @@ instance ToQuery DescribeCases where
 --
 -- /See:/ 'describeCasesResponse' smart constructor.
 data DescribeCasesResponse = DescribeCasesResponse'
-    { _drsCases     :: !(Maybe [CaseDetails])
-    , _drsNextToken :: !(Maybe Text)
-    , _drsStatus    :: !Int
+    { _drsCases          :: !(Maybe [CaseDetails])
+    , _drsNextToken      :: !(Maybe Text)
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCasesResponse' with the minimum fields required to make a request.
@@ -229,15 +229,15 @@ data DescribeCasesResponse = DescribeCasesResponse'
 --
 -- * 'drsNextToken'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 describeCasesResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DescribeCasesResponse
-describeCasesResponse pStatus_ =
+describeCasesResponse pResponseStatus_ =
     DescribeCasesResponse'
     { _drsCases = Nothing
     , _drsNextToken = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | The details for the cases that match the request.
@@ -249,5 +249,5 @@ drsNextToken :: Lens' DescribeCasesResponse (Maybe Text)
 drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
 -- | The response status code.
-drsStatus :: Lens' DescribeCasesResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DescribeCasesResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

@@ -44,15 +44,15 @@ module Network.AWS.S3.ListObjects
     -- * Response Lenses
     , lorsContents
     , lorsPrefix
-    , lorsEncodingType
     , lorsCommonPrefixes
+    , lorsEncodingType
     , lorsName
     , lorsMarker
     , lorsNextMarker
     , lorsMaxKeys
     , lorsIsTruncated
     , lorsDelimiter
-    , lorsStatus
+    , lorsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -127,12 +127,12 @@ loBucket = lens _loBucket (\ s a -> s{_loBucket = a});
 
 instance AWSPager ListObjects where
         page rq rs
-          | stop (rs ^. lorsIsTruncated) = Nothing
-          | isNothing
+          | stop
               (rs ^.
                  choice (^. lorsNextMarker)
                    (^? (lorsContents . _last . oKey)))
             = Nothing
+          | stop (rs ^. lorsContents) = Nothing
           | otherwise =
             Just $ rq &
               loMarker .~
@@ -149,8 +149,8 @@ instance AWSRequest ListObjects where
                  ListObjectsResponse' <$>
                    (may (parseXMLList "Contents") x) <*>
                      (x .@? "Prefix")
-                     <*> (x .@? "EncodingType")
                      <*> (may (parseXMLList "CommonPrefixes") x)
+                     <*> (x .@? "EncodingType")
                      <*> (x .@? "Name")
                      <*> (x .@? "Marker")
                      <*> (x .@? "NextMarker")
@@ -178,15 +178,15 @@ instance ToQuery ListObjects where
 data ListObjectsResponse = ListObjectsResponse'
     { _lorsContents       :: !(Maybe [Object])
     , _lorsPrefix         :: !(Maybe Text)
-    , _lorsEncodingType   :: !(Maybe EncodingType)
     , _lorsCommonPrefixes :: !(Maybe [CommonPrefix])
+    , _lorsEncodingType   :: !(Maybe EncodingType)
     , _lorsName           :: !(Maybe BucketName)
     , _lorsMarker         :: !(Maybe Text)
     , _lorsNextMarker     :: !(Maybe Text)
     , _lorsMaxKeys        :: !(Maybe Int)
     , _lorsIsTruncated    :: !(Maybe Bool)
     , _lorsDelimiter      :: !(Maybe Delimiter)
-    , _lorsStatus         :: !Int
+    , _lorsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListObjectsResponse' with the minimum fields required to make a request.
@@ -197,9 +197,9 @@ data ListObjectsResponse = ListObjectsResponse'
 --
 -- * 'lorsPrefix'
 --
--- * 'lorsEncodingType'
---
 -- * 'lorsCommonPrefixes'
+--
+-- * 'lorsEncodingType'
 --
 -- * 'lorsName'
 --
@@ -213,23 +213,23 @@ data ListObjectsResponse = ListObjectsResponse'
 --
 -- * 'lorsDelimiter'
 --
--- * 'lorsStatus'
+-- * 'lorsResponseStatus'
 listObjectsResponse
-    :: Int -- ^ 'lorsStatus'
+    :: Int -- ^ 'lorsResponseStatus'
     -> ListObjectsResponse
-listObjectsResponse pStatus_ =
+listObjectsResponse pResponseStatus_ =
     ListObjectsResponse'
     { _lorsContents = Nothing
     , _lorsPrefix = Nothing
-    , _lorsEncodingType = Nothing
     , _lorsCommonPrefixes = Nothing
+    , _lorsEncodingType = Nothing
     , _lorsName = Nothing
     , _lorsMarker = Nothing
     , _lorsNextMarker = Nothing
     , _lorsMaxKeys = Nothing
     , _lorsIsTruncated = Nothing
     , _lorsDelimiter = Nothing
-    , _lorsStatus = pStatus_
+    , _lorsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -240,13 +240,13 @@ lorsContents = lens _lorsContents (\ s a -> s{_lorsContents = a}) . _Default . _
 lorsPrefix :: Lens' ListObjectsResponse (Maybe Text)
 lorsPrefix = lens _lorsPrefix (\ s a -> s{_lorsPrefix = a});
 
--- | Encoding type used by Amazon S3 to encode object keys in the response.
-lorsEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
-lorsEncodingType = lens _lorsEncodingType (\ s a -> s{_lorsEncodingType = a});
-
 -- | Undocumented member.
 lorsCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
 lorsCommonPrefixes = lens _lorsCommonPrefixes (\ s a -> s{_lorsCommonPrefixes = a}) . _Default . _Coerce;
+
+-- | Encoding type used by Amazon S3 to encode object keys in the response.
+lorsEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
+lorsEncodingType = lens _lorsEncodingType (\ s a -> s{_lorsEncodingType = a});
 
 -- | Undocumented member.
 lorsName :: Lens' ListObjectsResponse (Maybe BucketName)
@@ -281,5 +281,5 @@ lorsDelimiter :: Lens' ListObjectsResponse (Maybe Delimiter)
 lorsDelimiter = lens _lorsDelimiter (\ s a -> s{_lorsDelimiter = a});
 
 -- | The response status code.
-lorsStatus :: Lens' ListObjectsResponse Int
-lorsStatus = lens _lorsStatus (\ s a -> s{_lorsStatus = a});
+lorsResponseStatus :: Lens' ListObjectsResponse Int
+lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a});

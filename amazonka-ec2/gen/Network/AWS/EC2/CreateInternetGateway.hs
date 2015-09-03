@@ -38,7 +38,7 @@ module Network.AWS.EC2.CreateInternetGateway
     , CreateInternetGatewayResponse
     -- * Response Lenses
     , cigrsInternetGateway
-    , cigrsStatus
+    , cigrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -97,7 +97,7 @@ instance ToQuery CreateInternetGateway where
 -- | /See:/ 'createInternetGatewayResponse' smart constructor.
 data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
     { _cigrsInternetGateway :: !(Maybe InternetGateway)
-    , _cigrsStatus          :: !Int
+    , _cigrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateInternetGatewayResponse' with the minimum fields required to make a request.
@@ -106,14 +106,14 @@ data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
 --
 -- * 'cigrsInternetGateway'
 --
--- * 'cigrsStatus'
+-- * 'cigrsResponseStatus'
 createInternetGatewayResponse
-    :: Int -- ^ 'cigrsStatus'
+    :: Int -- ^ 'cigrsResponseStatus'
     -> CreateInternetGatewayResponse
-createInternetGatewayResponse pStatus_ =
+createInternetGatewayResponse pResponseStatus_ =
     CreateInternetGatewayResponse'
     { _cigrsInternetGateway = Nothing
-    , _cigrsStatus = pStatus_
+    , _cigrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the Internet gateway.
@@ -121,5 +121,5 @@ cigrsInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGatew
 cigrsInternetGateway = lens _cigrsInternetGateway (\ s a -> s{_cigrsInternetGateway = a});
 
 -- | The response status code.
-cigrsStatus :: Lens' CreateInternetGatewayResponse Int
-cigrsStatus = lens _cigrsStatus (\ s a -> s{_cigrsStatus = a});
+cigrsResponseStatus :: Lens' CreateInternetGatewayResponse Int
+cigrsResponseStatus = lens _cigrsResponseStatus (\ s a -> s{_cigrsResponseStatus = a});

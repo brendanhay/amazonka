@@ -41,7 +41,7 @@ module Network.AWS.EC2.ModifyVPCEndpoint
     , ModifyVPCEndpointResponse
     -- * Response Lenses
     , mversReturn
-    , mversStatus
+    , mversResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -150,8 +150,8 @@ instance ToQuery ModifyVPCEndpoint where
 
 -- | /See:/ 'modifyVPCEndpointResponse' smart constructor.
 data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
-    { _mversReturn :: !(Maybe Bool)
-    , _mversStatus :: !Int
+    { _mversReturn         :: !(Maybe Bool)
+    , _mversResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyVPCEndpointResponse' with the minimum fields required to make a request.
@@ -160,14 +160,14 @@ data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
 --
 -- * 'mversReturn'
 --
--- * 'mversStatus'
+-- * 'mversResponseStatus'
 modifyVPCEndpointResponse
-    :: Int -- ^ 'mversStatus'
+    :: Int -- ^ 'mversResponseStatus'
     -> ModifyVPCEndpointResponse
-modifyVPCEndpointResponse pStatus_ =
+modifyVPCEndpointResponse pResponseStatus_ =
     ModifyVPCEndpointResponse'
     { _mversReturn = Nothing
-    , _mversStatus = pStatus_
+    , _mversResponseStatus = pResponseStatus_
     }
 
 -- | Returns 'true' if the request succeeds; otherwise, it returns an error.
@@ -175,5 +175,5 @@ mversReturn :: Lens' ModifyVPCEndpointResponse (Maybe Bool)
 mversReturn = lens _mversReturn (\ s a -> s{_mversReturn = a});
 
 -- | The response status code.
-mversStatus :: Lens' ModifyVPCEndpointResponse Int
-mversStatus = lens _mversStatus (\ s a -> s{_mversStatus = a});
+mversResponseStatus :: Lens' ModifyVPCEndpointResponse Int
+mversResponseStatus = lens _mversResponseStatus (\ s a -> s{_mversResponseStatus = a});

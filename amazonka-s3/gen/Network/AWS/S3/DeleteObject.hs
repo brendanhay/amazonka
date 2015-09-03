@@ -39,10 +39,10 @@ module Network.AWS.S3.DeleteObject
     , deleteObjectResponse
     , DeleteObjectResponse
     -- * Response Lenses
-    , dorsVersionId
     , dorsRequestCharged
+    , dorsVersionId
     , dorsDeleteMarker
-    , dorsStatus
+    , dorsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -114,8 +114,8 @@ instance AWSRequest DeleteObject where
           = receiveEmpty
               (\ s h x ->
                  DeleteObjectResponse' <$>
-                   (h .#? "x-amz-version-id") <*>
-                     (h .#? "x-amz-request-charged")
+                   (h .#? "x-amz-request-charged") <*>
+                     (h .#? "x-amz-version-id")
                      <*> (h .#? "x-amz-delete-marker")
                      <*> (pure (fromEnum s)))
 
@@ -135,42 +135,42 @@ instance ToQuery DeleteObject where
 
 -- | /See:/ 'deleteObjectResponse' smart constructor.
 data DeleteObjectResponse = DeleteObjectResponse'
-    { _dorsVersionId      :: !(Maybe ObjectVersionId)
-    , _dorsRequestCharged :: !(Maybe RequestCharged)
+    { _dorsRequestCharged :: !(Maybe RequestCharged)
+    , _dorsVersionId      :: !(Maybe ObjectVersionId)
     , _dorsDeleteMarker   :: !(Maybe Bool)
-    , _dorsStatus         :: !Int
+    , _dorsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteObjectResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dorsVersionId'
---
 -- * 'dorsRequestCharged'
+--
+-- * 'dorsVersionId'
 --
 -- * 'dorsDeleteMarker'
 --
--- * 'dorsStatus'
+-- * 'dorsResponseStatus'
 deleteObjectResponse
-    :: Int -- ^ 'dorsStatus'
+    :: Int -- ^ 'dorsResponseStatus'
     -> DeleteObjectResponse
-deleteObjectResponse pStatus_ =
+deleteObjectResponse pResponseStatus_ =
     DeleteObjectResponse'
-    { _dorsVersionId = Nothing
-    , _dorsRequestCharged = Nothing
+    { _dorsRequestCharged = Nothing
+    , _dorsVersionId = Nothing
     , _dorsDeleteMarker = Nothing
-    , _dorsStatus = pStatus_
+    , _dorsResponseStatus = pResponseStatus_
     }
+
+-- | Undocumented member.
+dorsRequestCharged :: Lens' DeleteObjectResponse (Maybe RequestCharged)
+dorsRequestCharged = lens _dorsRequestCharged (\ s a -> s{_dorsRequestCharged = a});
 
 -- | Returns the version ID of the delete marker created as a result of the
 -- DELETE operation.
 dorsVersionId :: Lens' DeleteObjectResponse (Maybe ObjectVersionId)
 dorsVersionId = lens _dorsVersionId (\ s a -> s{_dorsVersionId = a});
-
--- | Undocumented member.
-dorsRequestCharged :: Lens' DeleteObjectResponse (Maybe RequestCharged)
-dorsRequestCharged = lens _dorsRequestCharged (\ s a -> s{_dorsRequestCharged = a});
 
 -- | Specifies whether the versioned object that was permanently deleted was
 -- (true) or was not (false) a delete marker.
@@ -178,5 +178,5 @@ dorsDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
 dorsDeleteMarker = lens _dorsDeleteMarker (\ s a -> s{_dorsDeleteMarker = a});
 
 -- | The response status code.
-dorsStatus :: Lens' DeleteObjectResponse Int
-dorsStatus = lens _dorsStatus (\ s a -> s{_dorsStatus = a});
+dorsResponseStatus :: Lens' DeleteObjectResponse Int
+dorsResponseStatus = lens _dorsResponseStatus (\ s a -> s{_dorsResponseStatus = a});

@@ -50,7 +50,7 @@ module Network.AWS.RDS.DeleteDBInstance
     , DeleteDBInstanceResponse
     -- * Response Lenses
     , ddirsDBInstance
-    , ddirsStatus
+    , ddirsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -159,8 +159,8 @@ instance ToQuery DeleteDBInstance where
 
 -- | /See:/ 'deleteDBInstanceResponse' smart constructor.
 data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
-    { _ddirsDBInstance :: !(Maybe DBInstance)
-    , _ddirsStatus     :: !Int
+    { _ddirsDBInstance     :: !(Maybe DBInstance)
+    , _ddirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDBInstanceResponse' with the minimum fields required to make a request.
@@ -169,14 +169,14 @@ data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
 --
 -- * 'ddirsDBInstance'
 --
--- * 'ddirsStatus'
+-- * 'ddirsResponseStatus'
 deleteDBInstanceResponse
-    :: Int -- ^ 'ddirsStatus'
+    :: Int -- ^ 'ddirsResponseStatus'
     -> DeleteDBInstanceResponse
-deleteDBInstanceResponse pStatus_ =
+deleteDBInstanceResponse pResponseStatus_ =
     DeleteDBInstanceResponse'
     { _ddirsDBInstance = Nothing
-    , _ddirsStatus = pStatus_
+    , _ddirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -184,5 +184,5 @@ ddirsDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
 ddirsDBInstance = lens _ddirsDBInstance (\ s a -> s{_ddirsDBInstance = a});
 
 -- | The response status code.
-ddirsStatus :: Lens' DeleteDBInstanceResponse Int
-ddirsStatus = lens _ddirsStatus (\ s a -> s{_ddirsStatus = a});
+ddirsResponseStatus :: Lens' DeleteDBInstanceResponse Int
+ddirsResponseStatus = lens _ddirsResponseStatus (\ s a -> s{_ddirsResponseStatus = a});

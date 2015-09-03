@@ -50,6 +50,9 @@ instance ToByteString MessageAttribute
 instance ToQuery      MessageAttribute
 instance ToHeader     MessageAttribute
 
+instance FromXML MessageAttribute where
+    parseXML = parseXMLText "MessageAttribute"
+
 data QueueAttributeName
     = ApproximateNumberOfMessages
     | ApproximateNumberOfMessagesDelayed

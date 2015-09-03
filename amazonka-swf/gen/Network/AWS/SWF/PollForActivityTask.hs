@@ -68,7 +68,7 @@ module Network.AWS.SWF.PollForActivityTask
     , PollForActivityTaskResponse
     -- * Response Lenses
     , pfatrsInput
-    , pfatrsStatus
+    , pfatrsResponseStatus
     , pfatrsTaskToken
     , pfatrsActivityId
     , pfatrsStartedEventId
@@ -173,7 +173,7 @@ instance ToQuery PollForActivityTask where
 -- /See:/ 'pollForActivityTaskResponse' smart constructor.
 data PollForActivityTaskResponse = PollForActivityTaskResponse'
     { _pfatrsInput             :: !(Maybe Text)
-    , _pfatrsStatus            :: !Int
+    , _pfatrsResponseStatus    :: !Int
     , _pfatrsTaskToken         :: !Text
     , _pfatrsActivityId        :: !Text
     , _pfatrsStartedEventId    :: !Integer
@@ -187,7 +187,7 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse'
 --
 -- * 'pfatrsInput'
 --
--- * 'pfatrsStatus'
+-- * 'pfatrsResponseStatus'
 --
 -- * 'pfatrsTaskToken'
 --
@@ -199,17 +199,17 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse'
 --
 -- * 'pfatrsActivityType'
 pollForActivityTaskResponse
-    :: Int -- ^ 'pfatrsStatus'
+    :: Int -- ^ 'pfatrsResponseStatus'
     -> Text -- ^ 'pfatrsTaskToken'
     -> Text -- ^ 'pfatrsActivityId'
     -> Integer -- ^ 'pfatrsStartedEventId'
     -> WorkflowExecution -- ^ 'pfatrsWorkflowExecution'
     -> ActivityType -- ^ 'pfatrsActivityType'
     -> PollForActivityTaskResponse
-pollForActivityTaskResponse pStatus_ pTaskToken_ pActivityId_ pStartedEventId_ pWorkflowExecution_ pActivityType_ =
+pollForActivityTaskResponse pResponseStatus_ pTaskToken_ pActivityId_ pStartedEventId_ pWorkflowExecution_ pActivityType_ =
     PollForActivityTaskResponse'
     { _pfatrsInput = Nothing
-    , _pfatrsStatus = pStatus_
+    , _pfatrsResponseStatus = pResponseStatus_
     , _pfatrsTaskToken = pTaskToken_
     , _pfatrsActivityId = pActivityId_
     , _pfatrsStartedEventId = pStartedEventId_
@@ -224,8 +224,8 @@ pfatrsInput :: Lens' PollForActivityTaskResponse (Maybe Text)
 pfatrsInput = lens _pfatrsInput (\ s a -> s{_pfatrsInput = a});
 
 -- | The response status code.
-pfatrsStatus :: Lens' PollForActivityTaskResponse Int
-pfatrsStatus = lens _pfatrsStatus (\ s a -> s{_pfatrsStatus = a});
+pfatrsResponseStatus :: Lens' PollForActivityTaskResponse Int
+pfatrsResponseStatus = lens _pfatrsResponseStatus (\ s a -> s{_pfatrsResponseStatus = a});
 
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the

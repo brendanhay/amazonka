@@ -44,23 +44,23 @@ module Network.AWS.SDB
     -- ** NoSuchDomain
     , _NoSuchDomain
 
-    -- ** NumberDomainAttributesExceeded
-    , _NumberDomainAttributesExceeded
-
     -- ** NumberSubmittedItemsExceeded
     , _NumberSubmittedItemsExceeded
 
     -- ** AttributeDoesNotExist
     , _AttributeDoesNotExist
 
-    -- ** InvalidNextToken
-    , _InvalidNextToken
+    -- ** NumberDomainAttributesExceeded
+    , _NumberDomainAttributesExceeded
+
+    -- ** DuplicateItemName
+    , _DuplicateItemName
 
     -- ** MissingParameter
     , _MissingParameter
 
-    -- ** DuplicateItemName
-    , _DuplicateItemName
+    -- ** InvalidNextToken
+    , _InvalidNextToken
 
     -- ** InvalidParameterValue
     , _InvalidParameterValue
@@ -83,11 +83,11 @@ module Network.AWS.SDB
     -- ** NumberSubmittedAttributesExceeded
     , _NumberSubmittedAttributesExceeded
 
-    -- ** InvalidQueryExpression
-    , _InvalidQueryExpression
-
     -- ** NumberDomainBytesExceeded
     , _NumberDomainBytesExceeded
+
+    -- ** InvalidQueryExpression
+    , _InvalidQueryExpression
 
     -- * Waiters
     -- $waiters
@@ -113,17 +113,17 @@ module Network.AWS.SDB
     -- ** Select (Paginated)
     , module Network.AWS.SDB.Select
 
-    -- ** PutAttributes
-    , module Network.AWS.SDB.PutAttributes
-
     -- ** DeleteAttributes
     , module Network.AWS.SDB.DeleteAttributes
 
-    -- ** ListDomains (Paginated)
-    , module Network.AWS.SDB.ListDomains
+    -- ** PutAttributes
+    , module Network.AWS.SDB.PutAttributes
 
     -- ** DeleteDomain
     , module Network.AWS.SDB.DeleteDomain
+
+    -- ** ListDomains (Paginated)
+    , module Network.AWS.SDB.ListDomains
 
     -- * Types
 

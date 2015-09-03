@@ -51,7 +51,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     , DescribeTrustedAdvisorCheckResultResponse
     -- * Response Lenses
     , dtacrrsResult
-    , dtacrrsStatus
+    , dtacrrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -136,8 +136,8 @@ instance ToQuery DescribeTrustedAdvisorCheckResult
 --
 -- /See:/ 'describeTrustedAdvisorCheckResultResponse' smart constructor.
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'
-    { _dtacrrsResult :: !(Maybe TrustedAdvisorCheckResult)
-    , _dtacrrsStatus :: !Int
+    { _dtacrrsResult         :: !(Maybe TrustedAdvisorCheckResult)
+    , _dtacrrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTrustedAdvisorCheckResultResponse' with the minimum fields required to make a request.
@@ -146,14 +146,14 @@ data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResu
 --
 -- * 'dtacrrsResult'
 --
--- * 'dtacrrsStatus'
+-- * 'dtacrrsResponseStatus'
 describeTrustedAdvisorCheckResultResponse
-    :: Int -- ^ 'dtacrrsStatus'
+    :: Int -- ^ 'dtacrrsResponseStatus'
     -> DescribeTrustedAdvisorCheckResultResponse
-describeTrustedAdvisorCheckResultResponse pStatus_ =
+describeTrustedAdvisorCheckResultResponse pResponseStatus_ =
     DescribeTrustedAdvisorCheckResultResponse'
     { _dtacrrsResult = Nothing
-    , _dtacrrsStatus = pStatus_
+    , _dtacrrsResponseStatus = pResponseStatus_
     }
 
 -- | The detailed results of the Trusted Advisor check.
@@ -161,5 +161,5 @@ dtacrrsResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedA
 dtacrrsResult = lens _dtacrrsResult (\ s a -> s{_dtacrrsResult = a});
 
 -- | The response status code.
-dtacrrsStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
-dtacrrsStatus = lens _dtacrrsStatus (\ s a -> s{_dtacrrsStatus = a});
+dtacrrsResponseStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
+dtacrrsResponseStatus = lens _dtacrrsResponseStatus (\ s a -> s{_dtacrrsResponseStatus = a});

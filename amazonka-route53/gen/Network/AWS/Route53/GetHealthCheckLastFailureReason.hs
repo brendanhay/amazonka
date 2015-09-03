@@ -36,7 +36,7 @@ module Network.AWS.Route53.GetHealthCheckLastFailureReason
     , getHealthCheckLastFailureReasonResponse
     , GetHealthCheckLastFailureReasonResponse
     -- * Response Lenses
-    , ghclfrrsStatus
+    , ghclfrrsResponseStatus
     , ghclfrrsHealthCheckObservations
     ) where
 
@@ -104,7 +104,7 @@ instance ToQuery GetHealthCheckLastFailureReason
 --
 -- /See:/ 'getHealthCheckLastFailureReasonResponse' smart constructor.
 data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'
-    { _ghclfrrsStatus                  :: !Int
+    { _ghclfrrsResponseStatus          :: !Int
     , _ghclfrrsHealthCheckObservations :: ![HealthCheckObservation]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -112,21 +112,21 @@ data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghclfrrsStatus'
+-- * 'ghclfrrsResponseStatus'
 --
 -- * 'ghclfrrsHealthCheckObservations'
 getHealthCheckLastFailureReasonResponse
-    :: Int -- ^ 'ghclfrrsStatus'
+    :: Int -- ^ 'ghclfrrsResponseStatus'
     -> GetHealthCheckLastFailureReasonResponse
-getHealthCheckLastFailureReasonResponse pStatus_ =
+getHealthCheckLastFailureReasonResponse pResponseStatus_ =
     GetHealthCheckLastFailureReasonResponse'
-    { _ghclfrrsStatus = pStatus_
+    { _ghclfrrsResponseStatus = pResponseStatus_
     , _ghclfrrsHealthCheckObservations = mempty
     }
 
 -- | The response status code.
-ghclfrrsStatus :: Lens' GetHealthCheckLastFailureReasonResponse Int
-ghclfrrsStatus = lens _ghclfrrsStatus (\ s a -> s{_ghclfrrsStatus = a});
+ghclfrrsResponseStatus :: Lens' GetHealthCheckLastFailureReasonResponse Int
+ghclfrrsResponseStatus = lens _ghclfrrsResponseStatus (\ s a -> s{_ghclfrrsResponseStatus = a});
 
 -- | A list that contains one 'HealthCheckObservation' element for each Route
 -- 53 health checker.

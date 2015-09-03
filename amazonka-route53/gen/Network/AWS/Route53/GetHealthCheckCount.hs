@@ -32,7 +32,7 @@ module Network.AWS.Route53.GetHealthCheckCount
     , getHealthCheckCountResponse
     , GetHealthCheckCountResponse
     -- * Response Lenses
-    , ghccrsStatus
+    , ghccrsResponseStatus
     , ghccrsHealthCheckCount
     ) where
 
@@ -80,7 +80,7 @@ instance ToQuery GetHealthCheckCount where
 --
 -- /See:/ 'getHealthCheckCountResponse' smart constructor.
 data GetHealthCheckCountResponse = GetHealthCheckCountResponse'
-    { _ghccrsStatus           :: !Int
+    { _ghccrsResponseStatus   :: !Int
     , _ghccrsHealthCheckCount :: !Integer
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -88,22 +88,22 @@ data GetHealthCheckCountResponse = GetHealthCheckCountResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghccrsStatus'
+-- * 'ghccrsResponseStatus'
 --
 -- * 'ghccrsHealthCheckCount'
 getHealthCheckCountResponse
-    :: Int -- ^ 'ghccrsStatus'
+    :: Int -- ^ 'ghccrsResponseStatus'
     -> Integer -- ^ 'ghccrsHealthCheckCount'
     -> GetHealthCheckCountResponse
-getHealthCheckCountResponse pStatus_ pHealthCheckCount_ =
+getHealthCheckCountResponse pResponseStatus_ pHealthCheckCount_ =
     GetHealthCheckCountResponse'
-    { _ghccrsStatus = pStatus_
+    { _ghccrsResponseStatus = pResponseStatus_
     , _ghccrsHealthCheckCount = pHealthCheckCount_
     }
 
 -- | The response status code.
-ghccrsStatus :: Lens' GetHealthCheckCountResponse Int
-ghccrsStatus = lens _ghccrsStatus (\ s a -> s{_ghccrsStatus = a});
+ghccrsResponseStatus :: Lens' GetHealthCheckCountResponse Int
+ghccrsResponseStatus = lens _ghccrsResponseStatus (\ s a -> s{_ghccrsResponseStatus = a});
 
 -- | The number of health checks associated with the current AWS account.
 ghccrsHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer

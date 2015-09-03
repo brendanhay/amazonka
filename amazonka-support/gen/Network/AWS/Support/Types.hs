@@ -50,8 +50,8 @@ module Network.AWS.Support.Types
     , cdDisplayId
     , cdSubmittedBy
     , cdLanguage
-    , cdCategoryCode
     , cdTimeCreated
+    , cdCategoryCode
     , cdServiceCode
 
     -- * Category

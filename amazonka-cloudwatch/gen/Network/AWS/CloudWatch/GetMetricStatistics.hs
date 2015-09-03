@@ -70,7 +70,7 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     -- * Response Lenses
     , gmsrsDatapoints
     , gmsrsLabel
-    , gmsrsStatus
+    , gmsrsResponseStatus
     ) where
 
 import           Network.AWS.CloudWatch.Types
@@ -209,9 +209,9 @@ instance ToQuery GetMetricStatistics where
 --
 -- /See:/ 'getMetricStatisticsResponse' smart constructor.
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse'
-    { _gmsrsDatapoints :: !(Maybe [Datapoint])
-    , _gmsrsLabel      :: !(Maybe Text)
-    , _gmsrsStatus     :: !Int
+    { _gmsrsDatapoints     :: !(Maybe [Datapoint])
+    , _gmsrsLabel          :: !(Maybe Text)
+    , _gmsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetMetricStatisticsResponse' with the minimum fields required to make a request.
@@ -222,15 +222,15 @@ data GetMetricStatisticsResponse = GetMetricStatisticsResponse'
 --
 -- * 'gmsrsLabel'
 --
--- * 'gmsrsStatus'
+-- * 'gmsrsResponseStatus'
 getMetricStatisticsResponse
-    :: Int -- ^ 'gmsrsStatus'
+    :: Int -- ^ 'gmsrsResponseStatus'
     -> GetMetricStatisticsResponse
-getMetricStatisticsResponse pStatus_ =
+getMetricStatisticsResponse pResponseStatus_ =
     GetMetricStatisticsResponse'
     { _gmsrsDatapoints = Nothing
     , _gmsrsLabel = Nothing
-    , _gmsrsStatus = pStatus_
+    , _gmsrsResponseStatus = pResponseStatus_
     }
 
 -- | The datapoints for the specified metric.
@@ -242,5 +242,5 @@ gmsrsLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
 gmsrsLabel = lens _gmsrsLabel (\ s a -> s{_gmsrsLabel = a});
 
 -- | The response status code.
-gmsrsStatus :: Lens' GetMetricStatisticsResponse Int
-gmsrsStatus = lens _gmsrsStatus (\ s a -> s{_gmsrsStatus = a});
+gmsrsResponseStatus :: Lens' GetMetricStatisticsResponse Int
+gmsrsResponseStatus = lens _gmsrsResponseStatus (\ s a -> s{_gmsrsResponseStatus = a});

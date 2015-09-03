@@ -32,8 +32,8 @@ module Network.AWS.EC2.ImportVolume
       importVolume
     , ImportVolume
     -- * Request Lenses
-    , ivDryRun
     , ivDescription
+    , ivDryRun
     , ivAvailabilityZone
     , ivImage
     , ivVolume
@@ -43,7 +43,7 @@ module Network.AWS.EC2.ImportVolume
     , ImportVolumeResponse
     -- * Response Lenses
     , ivrsConversionTask
-    , ivrsStatus
+    , ivrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -54,8 +54,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'importVolume' smart constructor.
 data ImportVolume = ImportVolume'
-    { _ivDryRun           :: !(Maybe Bool)
-    , _ivDescription      :: !(Maybe Text)
+    { _ivDescription      :: !(Maybe Text)
+    , _ivDryRun           :: !(Maybe Bool)
     , _ivAvailabilityZone :: !Text
     , _ivImage            :: !DiskImageDetail
     , _ivVolume           :: !VolumeDetail
@@ -65,9 +65,9 @@ data ImportVolume = ImportVolume'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ivDryRun'
---
 -- * 'ivDescription'
+--
+-- * 'ivDryRun'
 --
 -- * 'ivAvailabilityZone'
 --
@@ -81,12 +81,16 @@ importVolume
     -> ImportVolume
 importVolume pAvailabilityZone_ pImage_ pVolume_ =
     ImportVolume'
-    { _ivDryRun = Nothing
-    , _ivDescription = Nothing
+    { _ivDescription = Nothing
+    , _ivDryRun = Nothing
     , _ivAvailabilityZone = pAvailabilityZone_
     , _ivImage = pImage_
     , _ivVolume = pVolume_
     }
+
+-- | A description of the volume.
+ivDescription :: Lens' ImportVolume (Maybe Text)
+ivDescription = lens _ivDescription (\ s a -> s{_ivDescription = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -94,10 +98,6 @@ importVolume pAvailabilityZone_ pImage_ pVolume_ =
 -- Otherwise, it is 'UnauthorizedOperation'.
 ivDryRun :: Lens' ImportVolume (Maybe Bool)
 ivDryRun = lens _ivDryRun (\ s a -> s{_ivDryRun = a});
-
--- | A description of the volume.
-ivDescription :: Lens' ImportVolume (Maybe Text)
-ivDescription = lens _ivDescription (\ s a -> s{_ivDescription = a});
 
 -- | The Availability Zone for the resulting EBS volume.
 ivAvailabilityZone :: Lens' ImportVolume Text
@@ -131,15 +131,15 @@ instance ToQuery ImportVolume where
           = mconcat
               ["Action" =: ("ImportVolume" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _ivDryRun,
                "Description" =: _ivDescription,
+               "DryRun" =: _ivDryRun,
                "AvailabilityZone" =: _ivAvailabilityZone,
                "Image" =: _ivImage, "Volume" =: _ivVolume]
 
 -- | /See:/ 'importVolumeResponse' smart constructor.
 data ImportVolumeResponse = ImportVolumeResponse'
     { _ivrsConversionTask :: !(Maybe ConversionTask)
-    , _ivrsStatus         :: !Int
+    , _ivrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImportVolumeResponse' with the minimum fields required to make a request.
@@ -148,14 +148,14 @@ data ImportVolumeResponse = ImportVolumeResponse'
 --
 -- * 'ivrsConversionTask'
 --
--- * 'ivrsStatus'
+-- * 'ivrsResponseStatus'
 importVolumeResponse
-    :: Int -- ^ 'ivrsStatus'
+    :: Int -- ^ 'ivrsResponseStatus'
     -> ImportVolumeResponse
-importVolumeResponse pStatus_ =
+importVolumeResponse pResponseStatus_ =
     ImportVolumeResponse'
     { _ivrsConversionTask = Nothing
-    , _ivrsStatus = pStatus_
+    , _ivrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the conversion task.
@@ -163,5 +163,5 @@ ivrsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
 ivrsConversionTask = lens _ivrsConversionTask (\ s a -> s{_ivrsConversionTask = a});
 
 -- | The response status code.
-ivrsStatus :: Lens' ImportVolumeResponse Int
-ivrsStatus = lens _ivrsStatus (\ s a -> s{_ivrsStatus = a});
+ivrsResponseStatus :: Lens' ImportVolumeResponse Int
+ivrsResponseStatus = lens _ivrsResponseStatus (\ s a -> s{_ivrsResponseStatus = a});

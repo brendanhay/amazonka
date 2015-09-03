@@ -34,9 +34,9 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     , drdiFilters
     , drdiReservedDBInstanceId
     , drdiDBInstanceClass
+    , drdiMarker
     , drdiMaxRecords
     , drdiMultiAZ
-    , drdiMarker
     , drdiReservedDBInstancesOfferingId
     , drdiOfferingType
     , drdiDuration
@@ -47,7 +47,7 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     -- * Response Lenses
     , drdirsReservedDBInstances
     , drdirsMarker
-    , drdirsStatus
+    , drdirsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -65,9 +65,9 @@ data DescribeReservedDBInstances = DescribeReservedDBInstances'
     , _drdiFilters                       :: !(Maybe [Filter])
     , _drdiReservedDBInstanceId          :: !(Maybe Text)
     , _drdiDBInstanceClass               :: !(Maybe Text)
+    , _drdiMarker                        :: !(Maybe Text)
     , _drdiMaxRecords                    :: !(Maybe Int)
     , _drdiMultiAZ                       :: !(Maybe Bool)
-    , _drdiMarker                        :: !(Maybe Text)
     , _drdiReservedDBInstancesOfferingId :: !(Maybe Text)
     , _drdiOfferingType                  :: !(Maybe Text)
     , _drdiDuration                      :: !(Maybe Text)
@@ -85,11 +85,11 @@ data DescribeReservedDBInstances = DescribeReservedDBInstances'
 --
 -- * 'drdiDBInstanceClass'
 --
+-- * 'drdiMarker'
+--
 -- * 'drdiMaxRecords'
 --
 -- * 'drdiMultiAZ'
---
--- * 'drdiMarker'
 --
 -- * 'drdiReservedDBInstancesOfferingId'
 --
@@ -104,9 +104,9 @@ describeReservedDBInstances =
     , _drdiFilters = Nothing
     , _drdiReservedDBInstanceId = Nothing
     , _drdiDBInstanceClass = Nothing
+    , _drdiMarker = Nothing
     , _drdiMaxRecords = Nothing
     , _drdiMultiAZ = Nothing
-    , _drdiMarker = Nothing
     , _drdiReservedDBInstancesOfferingId = Nothing
     , _drdiOfferingType = Nothing
     , _drdiDuration = Nothing
@@ -131,6 +131,12 @@ drdiReservedDBInstanceId = lens _drdiReservedDBInstanceId (\ s a -> s{_drdiReser
 drdiDBInstanceClass :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdiDBInstanceClass = lens _drdiDBInstanceClass (\ s a -> s{_drdiDBInstanceClass = a});
 
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by 'MaxRecords'.
+drdiMarker :: Lens' DescribeReservedDBInstances (Maybe Text)
+drdiMarker = lens _drdiMarker (\ s a -> s{_drdiMarker = a});
+
 -- | The maximum number of records to include in the response. If more than
 -- the 'MaxRecords' value is available, a pagination token called a marker
 -- is included in the response so that the following results can be
@@ -146,12 +152,6 @@ drdiMaxRecords = lens _drdiMaxRecords (\ s a -> s{_drdiMaxRecords = a});
 -- reservations matching the specified Multi-AZ parameter.
 drdiMultiAZ :: Lens' DescribeReservedDBInstances (Maybe Bool)
 drdiMultiAZ = lens _drdiMultiAZ (\ s a -> s{_drdiMultiAZ = a});
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
-drdiMarker :: Lens' DescribeReservedDBInstances (Maybe Text)
-drdiMarker = lens _drdiMarker (\ s a -> s{_drdiMarker = a});
 
 -- | The offering identifier filter value. Specify this parameter to show
 -- only purchased reservations matching the specified offering identifier.
@@ -210,8 +210,9 @@ instance ToQuery DescribeReservedDBInstances where
                  toQuery (toQueryList "Filter" <$> _drdiFilters),
                "ReservedDBInstanceId" =: _drdiReservedDBInstanceId,
                "DBInstanceClass" =: _drdiDBInstanceClass,
+               "Marker" =: _drdiMarker,
                "MaxRecords" =: _drdiMaxRecords,
-               "MultiAZ" =: _drdiMultiAZ, "Marker" =: _drdiMarker,
+               "MultiAZ" =: _drdiMultiAZ,
                "ReservedDBInstancesOfferingId" =:
                  _drdiReservedDBInstancesOfferingId,
                "OfferingType" =: _drdiOfferingType,
@@ -224,7 +225,7 @@ instance ToQuery DescribeReservedDBInstances where
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'
     { _drdirsReservedDBInstances :: !(Maybe [ReservedDBInstance])
     , _drdirsMarker              :: !(Maybe Text)
-    , _drdirsStatus              :: !Int
+    , _drdirsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedDBInstancesResponse' with the minimum fields required to make a request.
@@ -235,15 +236,15 @@ data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'
 --
 -- * 'drdirsMarker'
 --
--- * 'drdirsStatus'
+-- * 'drdirsResponseStatus'
 describeReservedDBInstancesResponse
-    :: Int -- ^ 'drdirsStatus'
+    :: Int -- ^ 'drdirsResponseStatus'
     -> DescribeReservedDBInstancesResponse
-describeReservedDBInstancesResponse pStatus_ =
+describeReservedDBInstancesResponse pResponseStatus_ =
     DescribeReservedDBInstancesResponse'
     { _drdirsReservedDBInstances = Nothing
     , _drdirsMarker = Nothing
-    , _drdirsStatus = pStatus_
+    , _drdirsResponseStatus = pResponseStatus_
     }
 
 -- | A list of reserved DB instances.
@@ -257,5 +258,5 @@ drdirsMarker :: Lens' DescribeReservedDBInstancesResponse (Maybe Text)
 drdirsMarker = lens _drdirsMarker (\ s a -> s{_drdirsMarker = a});
 
 -- | The response status code.
-drdirsStatus :: Lens' DescribeReservedDBInstancesResponse Int
-drdirsStatus = lens _drdirsStatus (\ s a -> s{_drdirsStatus = a});
+drdirsResponseStatus :: Lens' DescribeReservedDBInstancesResponse Int
+drdirsResponseStatus = lens _drdirsResponseStatus (\ s a -> s{_drdirsResponseStatus = a});

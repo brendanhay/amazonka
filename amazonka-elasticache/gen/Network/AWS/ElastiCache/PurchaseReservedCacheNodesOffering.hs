@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     , PurchaseReservedCacheNodesOfferingResponse
     -- * Response Lenses
     , prcnorsReservedCacheNode
-    , prcnorsStatus
+    , prcnorsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -127,7 +127,7 @@ instance ToQuery PurchaseReservedCacheNodesOffering
 -- | /See:/ 'purchaseReservedCacheNodesOfferingResponse' smart constructor.
 data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'
     { _prcnorsReservedCacheNode :: !(Maybe ReservedCacheNode)
-    , _prcnorsStatus            :: !Int
+    , _prcnorsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PurchaseReservedCacheNodesOfferingResponse' with the minimum fields required to make a request.
@@ -136,14 +136,14 @@ data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOffe
 --
 -- * 'prcnorsReservedCacheNode'
 --
--- * 'prcnorsStatus'
+-- * 'prcnorsResponseStatus'
 purchaseReservedCacheNodesOfferingResponse
-    :: Int -- ^ 'prcnorsStatus'
+    :: Int -- ^ 'prcnorsResponseStatus'
     -> PurchaseReservedCacheNodesOfferingResponse
-purchaseReservedCacheNodesOfferingResponse pStatus_ =
+purchaseReservedCacheNodesOfferingResponse pResponseStatus_ =
     PurchaseReservedCacheNodesOfferingResponse'
     { _prcnorsReservedCacheNode = Nothing
-    , _prcnorsStatus = pStatus_
+    , _prcnorsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -151,5 +151,5 @@ prcnorsReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Ma
 prcnorsReservedCacheNode = lens _prcnorsReservedCacheNode (\ s a -> s{_prcnorsReservedCacheNode = a});
 
 -- | The response status code.
-prcnorsStatus :: Lens' PurchaseReservedCacheNodesOfferingResponse Int
-prcnorsStatus = lens _prcnorsStatus (\ s a -> s{_prcnorsStatus = a});
+prcnorsResponseStatus :: Lens' PurchaseReservedCacheNodesOfferingResponse Int
+prcnorsResponseStatus = lens _prcnorsResponseStatus (\ s a -> s{_prcnorsResponseStatus = a});

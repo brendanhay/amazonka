@@ -40,32 +40,32 @@ module Network.AWS.CodeCommit
     -- ** EncryptionKeyNotFoundException
     , _EncryptionKeyNotFoundException
 
-    -- ** RepositoryNameExistsException
-    , _RepositoryNameExistsException
-
     -- ** MaximumRepositoryNamesExceededException
     , _MaximumRepositoryNamesExceededException
 
     -- ** InvalidRepositoryDescriptionException
     , _InvalidRepositoryDescriptionException
 
-    -- ** BranchNameRequiredException
-    , _BranchNameRequiredException
+    -- ** RepositoryNameExistsException
+    , _RepositoryNameExistsException
 
     -- ** InvalidBranchNameException
     , _InvalidBranchNameException
 
+    -- ** BranchNameRequiredException
+    , _BranchNameRequiredException
+
     -- ** EncryptionKeyUnavailableException
     , _EncryptionKeyUnavailableException
+
+    -- ** RepositoryNamesRequiredException
+    , _RepositoryNamesRequiredException
 
     -- ** InvalidOrderException
     , _InvalidOrderException
 
     -- ** BranchDoesNotExistException
     , _BranchDoesNotExistException
-
-    -- ** RepositoryNamesRequiredException
-    , _RepositoryNamesRequiredException
 
     -- ** RepositoryDoesNotExistException
     , _RepositoryDoesNotExistException
@@ -79,11 +79,11 @@ module Network.AWS.CodeCommit
     -- ** BranchNameExistsException
     , _BranchNameExistsException
 
-    -- ** EncryptionKeyDisabledException
-    , _EncryptionKeyDisabledException
-
     -- ** InvalidSortByException
     , _InvalidSortByException
+
+    -- ** EncryptionKeyDisabledException
+    , _EncryptionKeyDisabledException
 
     -- ** CommitIdRequiredException
     , _CommitIdRequiredException
@@ -94,14 +94,14 @@ module Network.AWS.CodeCommit
     -- ** CommitDoesNotExistException
     , _CommitDoesNotExistException
 
+    -- ** RepositoryNameRequiredException
+    , _RepositoryNameRequiredException
+
     -- ** RepositoryLimitExceededException
     , _RepositoryLimitExceededException
 
     -- ** InvalidRepositoryNameException
     , _InvalidRepositoryNameException
-
-    -- ** RepositoryNameRequiredException
-    , _RepositoryNameRequiredException
 
     -- * Waiters
     -- $waiters
@@ -118,20 +118,20 @@ module Network.AWS.CodeCommit
     -- ** UpdateRepositoryDescription
     , module Network.AWS.CodeCommit.UpdateRepositoryDescription
 
-    -- ** ListBranches
-    , module Network.AWS.CodeCommit.ListBranches
-
     -- ** CreateBranch
     , module Network.AWS.CodeCommit.CreateBranch
 
-    -- ** UpdateDefaultBranch
-    , module Network.AWS.CodeCommit.UpdateDefaultBranch
+    -- ** ListBranches
+    , module Network.AWS.CodeCommit.ListBranches
+
+    -- ** ListRepositories
+    , module Network.AWS.CodeCommit.ListRepositories
 
     -- ** CreateRepository
     , module Network.AWS.CodeCommit.CreateRepository
 
-    -- ** ListRepositories
-    , module Network.AWS.CodeCommit.ListRepositories
+    -- ** UpdateDefaultBranch
+    , module Network.AWS.CodeCommit.UpdateDefaultBranch
 
     -- ** GetRepository
     , module Network.AWS.CodeCommit.GetRepository
@@ -166,8 +166,8 @@ module Network.AWS.CodeCommit
     , rmAccountId
     , rmDefaultBranch
     , rmRepositoryId
-    , rmCreationDate
     , rmRepositoryName
+    , rmCreationDate
     , rmCloneURLSSH
 
     -- ** RepositoryNameIdPair

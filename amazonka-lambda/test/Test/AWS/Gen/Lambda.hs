@@ -31,11 +31,11 @@ import Test.AWS.Lambda.Internal
 --         [ testGetFunctionConfiguration $
 --             getFunctionConfiguration
 --
---         , testUpdateEventSourceMapping $
---             updateEventSourceMapping
---
 --         , testDeleteEventSourceMapping $
 --             deleteEventSourceMapping
+--
+--         , testUpdateEventSourceMapping $
+--             updateEventSourceMapping
 --
 --         , testRemovePermission $
 --             removePermission
@@ -82,10 +82,10 @@ import Test.AWS.Lambda.Internal
 --         [ testGetFunctionConfigurationResponse $
 --             functionConfiguration
 --
---         , testUpdateEventSourceMappingResponse $
+--         , testDeleteEventSourceMappingResponse $
 --             eventSourceMappingConfiguration
 --
---         , testDeleteEventSourceMappingResponse $
+--         , testUpdateEventSourceMappingResponse $
 --             eventSourceMappingConfiguration
 --
 --         , testRemovePermissionResponse $
@@ -137,15 +137,15 @@ testGetFunctionConfiguration = req
     "GetFunctionConfiguration"
     "fixture/GetFunctionConfiguration.yaml"
 
-testUpdateEventSourceMapping :: UpdateEventSourceMapping -> TestTree
-testUpdateEventSourceMapping = req
-    "UpdateEventSourceMapping"
-    "fixture/UpdateEventSourceMapping.yaml"
-
 testDeleteEventSourceMapping :: DeleteEventSourceMapping -> TestTree
 testDeleteEventSourceMapping = req
     "DeleteEventSourceMapping"
     "fixture/DeleteEventSourceMapping.yaml"
+
+testUpdateEventSourceMapping :: UpdateEventSourceMapping -> TestTree
+testUpdateEventSourceMapping = req
+    "UpdateEventSourceMapping"
+    "fixture/UpdateEventSourceMapping.yaml"
 
 testRemovePermission :: RemovePermission -> TestTree
 testRemovePermission = req
@@ -221,19 +221,19 @@ testGetFunctionConfigurationResponse = res
     lambda
     (Proxy :: Proxy GetFunctionConfiguration)
 
-testUpdateEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
-testUpdateEventSourceMappingResponse = res
-    "UpdateEventSourceMappingResponse"
-    "fixture/UpdateEventSourceMappingResponse.proto"
-    lambda
-    (Proxy :: Proxy UpdateEventSourceMapping)
-
 testDeleteEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
 testDeleteEventSourceMappingResponse = res
     "DeleteEventSourceMappingResponse"
     "fixture/DeleteEventSourceMappingResponse.proto"
     lambda
     (Proxy :: Proxy DeleteEventSourceMapping)
+
+testUpdateEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
+testUpdateEventSourceMappingResponse = res
+    "UpdateEventSourceMappingResponse"
+    "fixture/UpdateEventSourceMappingResponse.proto"
+    lambda
+    (Proxy :: Proxy UpdateEventSourceMapping)
 
 testRemovePermissionResponse :: RemovePermissionResponse -> TestTree
 testRemovePermissionResponse = res

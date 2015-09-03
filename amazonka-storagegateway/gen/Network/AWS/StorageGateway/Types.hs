@@ -22,8 +22,8 @@ module Network.AWS.StorageGateway.Types
     -- * CachediSCSIVolume
     , CachediSCSIVolume
     , cachediSCSIVolume
-    , cscsivVolumeStatus
     , cscsivVolumeiSCSIAttributes
+    , cscsivVolumeStatus
     , cscsivSourceSnapshotId
     , cscsivVolumeARN
     , cscsivVolumeProgress
@@ -75,24 +75,24 @@ module Network.AWS.StorageGateway.Types
     -- * StorediSCSIVolume
     , StorediSCSIVolume
     , storediSCSIVolume
-    , sscsivVolumeStatus
     , sscsivVolumeiSCSIAttributes
+    , sscsivVolumeStatus
     , sscsivSourceSnapshotId
     , sscsivPreservedExistingData
     , sscsivVolumeARN
     , sscsivVolumeProgress
     , sscsivVolumeSizeInBytes
     , sscsivVolumeId
-    , sscsivVolumeType
     , sscsivVolumeDiskId
+    , sscsivVolumeType
 
     -- * Tape
     , Tape
     , tape
     , tTapeBarcode
     , tTapeStatus
-    , tProgress
     , tTapeARN
+    , tProgress
     , tTapeSizeInBytes
     , tVTLDevice
 

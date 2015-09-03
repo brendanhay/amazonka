@@ -47,7 +47,7 @@ module Network.AWS.StorageGateway.DescribeWorkingStorage
     , dwsrsDiskIds
     , dwsrsWorkingStorageAllocatedInBytes
     , dwsrsWorkingStorageUsedInBytes
-    , dwsrsStatus
+    , dwsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -122,7 +122,7 @@ data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
     , _dwsrsDiskIds                        :: !(Maybe [Text])
     , _dwsrsWorkingStorageAllocatedInBytes :: !(Maybe Integer)
     , _dwsrsWorkingStorageUsedInBytes      :: !(Maybe Integer)
-    , _dwsrsStatus                         :: !Int
+    , _dwsrsResponseStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeWorkingStorageResponse' with the minimum fields required to make a request.
@@ -137,17 +137,17 @@ data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
 --
 -- * 'dwsrsWorkingStorageUsedInBytes'
 --
--- * 'dwsrsStatus'
+-- * 'dwsrsResponseStatus'
 describeWorkingStorageResponse
-    :: Int -- ^ 'dwsrsStatus'
+    :: Int -- ^ 'dwsrsResponseStatus'
     -> DescribeWorkingStorageResponse
-describeWorkingStorageResponse pStatus_ =
+describeWorkingStorageResponse pResponseStatus_ =
     DescribeWorkingStorageResponse'
     { _dwsrsGatewayARN = Nothing
     , _dwsrsDiskIds = Nothing
     , _dwsrsWorkingStorageAllocatedInBytes = Nothing
     , _dwsrsWorkingStorageUsedInBytes = Nothing
-    , _dwsrsStatus = pStatus_
+    , _dwsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -172,5 +172,5 @@ dwsrsWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe In
 dwsrsWorkingStorageUsedInBytes = lens _dwsrsWorkingStorageUsedInBytes (\ s a -> s{_dwsrsWorkingStorageUsedInBytes = a});
 
 -- | The response status code.
-dwsrsStatus :: Lens' DescribeWorkingStorageResponse Int
-dwsrsStatus = lens _dwsrsStatus (\ s a -> s{_dwsrsStatus = a});
+dwsrsResponseStatus :: Lens' DescribeWorkingStorageResponse Int
+dwsrsResponseStatus = lens _dwsrsResponseStatus (\ s a -> s{_dwsrsResponseStatus = a});

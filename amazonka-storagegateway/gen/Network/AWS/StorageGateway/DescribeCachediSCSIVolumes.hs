@@ -40,7 +40,7 @@ module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
     , DescribeCachediSCSIVolumesResponse
     -- * Response Lenses
     , dcscsivrsCachediSCSIVolumes
-    , dcscsivrsStatus
+    , dcscsivrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -108,7 +108,7 @@ instance ToQuery DescribeCachediSCSIVolumes where
 -- /See:/ 'describeCachediSCSIVolumesResponse' smart constructor.
 data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'
     { _dcscsivrsCachediSCSIVolumes :: !(Maybe [CachediSCSIVolume])
-    , _dcscsivrsStatus             :: !Int
+    , _dcscsivrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCachediSCSIVolumesResponse' with the minimum fields required to make a request.
@@ -117,14 +117,14 @@ data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'
 --
 -- * 'dcscsivrsCachediSCSIVolumes'
 --
--- * 'dcscsivrsStatus'
+-- * 'dcscsivrsResponseStatus'
 describeCachediSCSIVolumesResponse
-    :: Int -- ^ 'dcscsivrsStatus'
+    :: Int -- ^ 'dcscsivrsResponseStatus'
     -> DescribeCachediSCSIVolumesResponse
-describeCachediSCSIVolumesResponse pStatus_ =
+describeCachediSCSIVolumesResponse pResponseStatus_ =
     DescribeCachediSCSIVolumesResponse'
     { _dcscsivrsCachediSCSIVolumes = Nothing
-    , _dcscsivrsStatus = pStatus_
+    , _dcscsivrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of objects where each object contains metadata about one cached
@@ -133,5 +133,5 @@ dcscsivrsCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [Cachedi
 dcscsivrsCachediSCSIVolumes = lens _dcscsivrsCachediSCSIVolumes (\ s a -> s{_dcscsivrsCachediSCSIVolumes = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcscsivrsStatus :: Lens' DescribeCachediSCSIVolumesResponse Int
-dcscsivrsStatus = lens _dcscsivrsStatus (\ s a -> s{_dcscsivrsStatus = a});
+dcscsivrsResponseStatus :: Lens' DescribeCachediSCSIVolumesResponse Int
+dcscsivrsResponseStatus = lens _dcscsivrsResponseStatus (\ s a -> s{_dcscsivrsResponseStatus = a});

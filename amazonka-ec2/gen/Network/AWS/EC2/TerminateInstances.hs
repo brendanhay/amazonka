@@ -32,10 +32,10 @@
 -- terminate instance store-backed instances. What happens to an instance
 -- differs if you stop it or terminate it. For example, when you stop an
 -- instance, the root device and any other devices attached to the instance
--- persist. When you terminate an instance, the root device and any other
--- devices attached during the instance launch are automatically deleted.
--- For more information about the differences between stopping and
--- terminating instances, see
+-- persist. When you terminate an instance, any attached EBS volumes with
+-- the 'DeleteOnTermination' block device mapping parameter set to 'true'
+-- are automatically deleted. For more information about the differences
+-- between stopping and terminating instances, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html Instance Lifecycle>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
@@ -58,7 +58,7 @@ module Network.AWS.EC2.TerminateInstances
     , TerminateInstancesResponse
     -- * Response Lenses
     , tirsTerminatingInstances
-    , tirsStatus
+    , tirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -128,7 +128,7 @@ instance ToQuery TerminateInstances where
 -- | /See:/ 'terminateInstancesResponse' smart constructor.
 data TerminateInstancesResponse = TerminateInstancesResponse'
     { _tirsTerminatingInstances :: !(Maybe [InstanceStateChange])
-    , _tirsStatus               :: !Int
+    , _tirsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TerminateInstancesResponse' with the minimum fields required to make a request.
@@ -137,14 +137,14 @@ data TerminateInstancesResponse = TerminateInstancesResponse'
 --
 -- * 'tirsTerminatingInstances'
 --
--- * 'tirsStatus'
+-- * 'tirsResponseStatus'
 terminateInstancesResponse
-    :: Int -- ^ 'tirsStatus'
+    :: Int -- ^ 'tirsResponseStatus'
     -> TerminateInstancesResponse
-terminateInstancesResponse pStatus_ =
+terminateInstancesResponse pResponseStatus_ =
     TerminateInstancesResponse'
     { _tirsTerminatingInstances = Nothing
-    , _tirsStatus = pStatus_
+    , _tirsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more terminated instances.
@@ -152,5 +152,5 @@ tirsTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChang
 tirsTerminatingInstances = lens _tirsTerminatingInstances (\ s a -> s{_tirsTerminatingInstances = a}) . _Default . _Coerce;
 
 -- | The response status code.
-tirsStatus :: Lens' TerminateInstancesResponse Int
-tirsStatus = lens _tirsStatus (\ s a -> s{_tirsStatus = a});
+tirsResponseStatus :: Lens' TerminateInstancesResponse Int
+tirsResponseStatus = lens _tirsResponseStatus (\ s a -> s{_tirsResponseStatus = a});

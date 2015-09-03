@@ -41,8 +41,8 @@ module Network.AWS.Redshift.DescribeClusterParameters
       describeClusterParameters
     , DescribeClusterParameters
     -- * Request Lenses
-    , dcpsMaxRecords
     , dcpsMarker
+    , dcpsMaxRecords
     , dcpsSource
     , dcpsParameterGroupName
 
@@ -50,9 +50,9 @@ module Network.AWS.Redshift.DescribeClusterParameters
     , describeClusterParametersResponse
     , DescribeClusterParametersResponse
     -- * Response Lenses
-    , dcprsParameters
     , dcprsMarker
-    , dcprsStatus
+    , dcprsParameters
+    , dcprsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -64,8 +64,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeClusterParameters' smart constructor.
 data DescribeClusterParameters = DescribeClusterParameters'
-    { _dcpsMaxRecords         :: !(Maybe Int)
-    , _dcpsMarker             :: !(Maybe Text)
+    { _dcpsMarker             :: !(Maybe Text)
+    , _dcpsMaxRecords         :: !(Maybe Int)
     , _dcpsSource             :: !(Maybe Text)
     , _dcpsParameterGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -74,9 +74,9 @@ data DescribeClusterParameters = DescribeClusterParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcpsMaxRecords'
---
 -- * 'dcpsMarker'
+--
+-- * 'dcpsMaxRecords'
 --
 -- * 'dcpsSource'
 --
@@ -86,11 +86,20 @@ describeClusterParameters
     -> DescribeClusterParameters
 describeClusterParameters pParameterGroupName_ =
     DescribeClusterParameters'
-    { _dcpsMaxRecords = Nothing
-    , _dcpsMarker = Nothing
+    { _dcpsMarker = Nothing
+    , _dcpsMaxRecords = Nothing
     , _dcpsSource = Nothing
     , _dcpsParameterGroupName = pParameterGroupName_
     }
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterParameters
+-- request exceed the value specified in 'MaxRecords', AWS returns a value
+-- in the 'Marker' field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the 'Marker'
+-- parameter and retrying the request.
+dcpsMarker :: Lens' DescribeClusterParameters (Maybe Text)
+dcpsMarker = lens _dcpsMarker (\ s a -> s{_dcpsMarker = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified 'MaxRecords'
@@ -103,15 +112,6 @@ describeClusterParameters pParameterGroupName_ =
 -- Constraints: minimum 20, maximum 100.
 dcpsMaxRecords :: Lens' DescribeClusterParameters (Maybe Int)
 dcpsMaxRecords = lens _dcpsMaxRecords (\ s a -> s{_dcpsMaxRecords = a});
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterParameters
--- request exceed the value specified in 'MaxRecords', AWS returns a value
--- in the 'Marker' field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the 'Marker'
--- parameter and retrying the request.
-dcpsMarker :: Lens' DescribeClusterParameters (Maybe Text)
-dcpsMarker = lens _dcpsMarker (\ s a -> s{_dcpsMarker = a});
 
 -- | The parameter types to return. Specify 'user' to show parameters that
 -- are different form the default. Similarly, specify 'engine-default' to
@@ -142,9 +142,9 @@ instance AWSRequest DescribeClusterParameters where
           = receiveXMLWrapper "DescribeClusterParametersResult"
               (\ s h x ->
                  DescribeClusterParametersResponse' <$>
-                   (x .@? "Parameters" .!@ mempty >>=
-                      may (parseXMLList "Parameter"))
-                     <*> (x .@? "Marker")
+                   (x .@? "Marker") <*>
+                     (x .@? "Parameters" .!@ mempty >>=
+                        may (parseXMLList "Parameter"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeClusterParameters where
@@ -159,42 +159,38 @@ instance ToQuery DescribeClusterParameters where
               ["Action" =:
                  ("DescribeClusterParameters" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
+               "Marker" =: _dcpsMarker,
                "MaxRecords" =: _dcpsMaxRecords,
-               "Marker" =: _dcpsMarker, "Source" =: _dcpsSource,
+               "Source" =: _dcpsSource,
                "ParameterGroupName" =: _dcpsParameterGroupName]
 
 -- | Contains the output from the DescribeClusterParameters action.
 --
 -- /See:/ 'describeClusterParametersResponse' smart constructor.
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse'
-    { _dcprsParameters :: !(Maybe [Parameter])
-    , _dcprsMarker     :: !(Maybe Text)
-    , _dcprsStatus     :: !Int
+    { _dcprsMarker         :: !(Maybe Text)
+    , _dcprsParameters     :: !(Maybe [Parameter])
+    , _dcprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClusterParametersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcprsParameters'
---
 -- * 'dcprsMarker'
 --
--- * 'dcprsStatus'
+-- * 'dcprsParameters'
+--
+-- * 'dcprsResponseStatus'
 describeClusterParametersResponse
-    :: Int -- ^ 'dcprsStatus'
+    :: Int -- ^ 'dcprsResponseStatus'
     -> DescribeClusterParametersResponse
-describeClusterParametersResponse pStatus_ =
+describeClusterParametersResponse pResponseStatus_ =
     DescribeClusterParametersResponse'
-    { _dcprsParameters = Nothing
-    , _dcprsMarker = Nothing
-    , _dcprsStatus = pStatus_
+    { _dcprsMarker = Nothing
+    , _dcprsParameters = Nothing
+    , _dcprsResponseStatus = pResponseStatus_
     }
-
--- | A list of Parameter instances. Each instance lists the parameters of one
--- cluster parameter group.
-dcprsParameters :: Lens' DescribeClusterParametersResponse [Parameter]
-dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _Default . _Coerce;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -205,6 +201,11 @@ dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _De
 dcprsMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
 dcprsMarker = lens _dcprsMarker (\ s a -> s{_dcprsMarker = a});
 
+-- | A list of Parameter instances. Each instance lists the parameters of one
+-- cluster parameter group.
+dcprsParameters :: Lens' DescribeClusterParametersResponse [Parameter]
+dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _Default . _Coerce;
+
 -- | The response status code.
-dcprsStatus :: Lens' DescribeClusterParametersResponse Int
-dcprsStatus = lens _dcprsStatus (\ s a -> s{_dcprsStatus = a});
+dcprsResponseStatus :: Lens' DescribeClusterParametersResponse Int
+dcprsResponseStatus = lens _dcprsResponseStatus (\ s a -> s{_dcprsResponseStatus = a});

@@ -58,7 +58,7 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     , CreateReservedInstancesListingResponse
     -- * Response Lenses
     , crersReservedInstancesListings
-    , crersStatus
+    , crersResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -156,7 +156,7 @@ instance ToQuery CreateReservedInstancesListing where
 -- | /See:/ 'createReservedInstancesListingResponse' smart constructor.
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
     { _crersReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
-    , _crersStatus                    :: !Int
+    , _crersResponseStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateReservedInstancesListingResponse' with the minimum fields required to make a request.
@@ -165,14 +165,14 @@ data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResp
 --
 -- * 'crersReservedInstancesListings'
 --
--- * 'crersStatus'
+-- * 'crersResponseStatus'
 createReservedInstancesListingResponse
-    :: Int -- ^ 'crersStatus'
+    :: Int -- ^ 'crersResponseStatus'
     -> CreateReservedInstancesListingResponse
-createReservedInstancesListingResponse pStatus_ =
+createReservedInstancesListingResponse pResponseStatus_ =
     CreateReservedInstancesListingResponse'
     { _crersReservedInstancesListings = Nothing
-    , _crersStatus = pStatus_
+    , _crersResponseStatus = pResponseStatus_
     }
 
 -- | Information about the Reserved Instances listing.
@@ -180,5 +180,5 @@ crersReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [
 crersReservedInstancesListings = lens _crersReservedInstancesListings (\ s a -> s{_crersReservedInstancesListings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-crersStatus :: Lens' CreateReservedInstancesListingResponse Int
-crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});
+crersResponseStatus :: Lens' CreateReservedInstancesListingResponse Int
+crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});

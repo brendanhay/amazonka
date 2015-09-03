@@ -39,7 +39,7 @@ module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     , TerminateInstanceInAutoScalingGroupResponse
     -- * Response Lenses
     , tiiasgrsActivity
-    , tiiasgrsStatus
+    , tiiasgrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -114,8 +114,8 @@ instance ToQuery TerminateInstanceInAutoScalingGroup
 
 -- | /See:/ 'terminateInstanceInAutoScalingGroupResponse' smart constructor.
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
-    { _tiiasgrsActivity :: !(Maybe Activity)
-    , _tiiasgrsStatus   :: !Int
+    { _tiiasgrsActivity       :: !(Maybe Activity)
+    , _tiiasgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TerminateInstanceInAutoScalingGroupResponse' with the minimum fields required to make a request.
@@ -124,14 +124,14 @@ data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalin
 --
 -- * 'tiiasgrsActivity'
 --
--- * 'tiiasgrsStatus'
+-- * 'tiiasgrsResponseStatus'
 terminateInstanceInAutoScalingGroupResponse
-    :: Int -- ^ 'tiiasgrsStatus'
+    :: Int -- ^ 'tiiasgrsResponseStatus'
     -> TerminateInstanceInAutoScalingGroupResponse
-terminateInstanceInAutoScalingGroupResponse pStatus_ =
+terminateInstanceInAutoScalingGroupResponse pResponseStatus_ =
     TerminateInstanceInAutoScalingGroupResponse'
     { _tiiasgrsActivity = Nothing
-    , _tiiasgrsStatus = pStatus_
+    , _tiiasgrsResponseStatus = pResponseStatus_
     }
 
 -- | A scaling activity.
@@ -139,5 +139,5 @@ tiiasgrsActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Act
 tiiasgrsActivity = lens _tiiasgrsActivity (\ s a -> s{_tiiasgrsActivity = a});
 
 -- | The response status code.
-tiiasgrsStatus :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
-tiiasgrsStatus = lens _tiiasgrsStatus (\ s a -> s{_tiiasgrsStatus = a});
+tiiasgrsResponseStatus :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
+tiiasgrsResponseStatus = lens _tiiasgrsResponseStatus (\ s a -> s{_tiiasgrsResponseStatus = a});

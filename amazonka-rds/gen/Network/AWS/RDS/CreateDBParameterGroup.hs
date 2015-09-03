@@ -59,7 +59,7 @@ module Network.AWS.RDS.CreateDBParameterGroup
     , CreateDBParameterGroupResponse
     -- * Response Lenses
     , cdpgrsDBParameterGroup
-    , cdpgrsStatus
+    , cdpgrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -160,7 +160,7 @@ instance ToQuery CreateDBParameterGroup where
 -- | /See:/ 'createDBParameterGroupResponse' smart constructor.
 data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'
     { _cdpgrsDBParameterGroup :: !(Maybe DBParameterGroup)
-    , _cdpgrsStatus           :: !Int
+    , _cdpgrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDBParameterGroupResponse' with the minimum fields required to make a request.
@@ -169,14 +169,14 @@ data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'
 --
 -- * 'cdpgrsDBParameterGroup'
 --
--- * 'cdpgrsStatus'
+-- * 'cdpgrsResponseStatus'
 createDBParameterGroupResponse
-    :: Int -- ^ 'cdpgrsStatus'
+    :: Int -- ^ 'cdpgrsResponseStatus'
     -> CreateDBParameterGroupResponse
-createDBParameterGroupResponse pStatus_ =
+createDBParameterGroupResponse pResponseStatus_ =
     CreateDBParameterGroupResponse'
     { _cdpgrsDBParameterGroup = Nothing
-    , _cdpgrsStatus = pStatus_
+    , _cdpgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -184,5 +184,5 @@ cdpgrsDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParamete
 cdpgrsDBParameterGroup = lens _cdpgrsDBParameterGroup (\ s a -> s{_cdpgrsDBParameterGroup = a});
 
 -- | The response status code.
-cdpgrsStatus :: Lens' CreateDBParameterGroupResponse Int
-cdpgrsStatus = lens _cdpgrsStatus (\ s a -> s{_cdpgrsStatus = a});
+cdpgrsResponseStatus :: Lens' CreateDBParameterGroupResponse Int
+cdpgrsResponseStatus = lens _cdpgrsResponseStatus (\ s a -> s{_cdpgrsResponseStatus = a});

@@ -58,7 +58,7 @@ module Network.AWS.SWF.DescribeWorkflowExecution
     -- * Response Lenses
     , dwersLatestActivityTaskTimestamp
     , dwersLatestExecutionContext
-    , dwersStatus
+    , dwersResponseStatus
     , dwersExecutionInfo
     , dwersExecutionConfiguration
     , dwersOpenCounts
@@ -145,7 +145,7 @@ instance ToQuery DescribeWorkflowExecution where
 data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
     { _dwersLatestActivityTaskTimestamp :: !(Maybe POSIX)
     , _dwersLatestExecutionContext      :: !(Maybe Text)
-    , _dwersStatus                      :: !Int
+    , _dwersResponseStatus              :: !Int
     , _dwersExecutionInfo               :: !WorkflowExecutionInfo
     , _dwersExecutionConfiguration      :: !WorkflowExecutionConfiguration
     , _dwersOpenCounts                  :: !WorkflowExecutionOpenCounts
@@ -159,7 +159,7 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
 --
 -- * 'dwersLatestExecutionContext'
 --
--- * 'dwersStatus'
+-- * 'dwersResponseStatus'
 --
 -- * 'dwersExecutionInfo'
 --
@@ -167,16 +167,16 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
 --
 -- * 'dwersOpenCounts'
 describeWorkflowExecutionResponse
-    :: Int -- ^ 'dwersStatus'
+    :: Int -- ^ 'dwersResponseStatus'
     -> WorkflowExecutionInfo -- ^ 'dwersExecutionInfo'
     -> WorkflowExecutionConfiguration -- ^ 'dwersExecutionConfiguration'
     -> WorkflowExecutionOpenCounts -- ^ 'dwersOpenCounts'
     -> DescribeWorkflowExecutionResponse
-describeWorkflowExecutionResponse pStatus_ pExecutionInfo_ pExecutionConfiguration_ pOpenCounts_ =
+describeWorkflowExecutionResponse pResponseStatus_ pExecutionInfo_ pExecutionConfiguration_ pOpenCounts_ =
     DescribeWorkflowExecutionResponse'
     { _dwersLatestActivityTaskTimestamp = Nothing
     , _dwersLatestExecutionContext = Nothing
-    , _dwersStatus = pStatus_
+    , _dwersResponseStatus = pResponseStatus_
     , _dwersExecutionInfo = pExecutionInfo_
     , _dwersExecutionConfiguration = pExecutionConfiguration_
     , _dwersOpenCounts = pOpenCounts_
@@ -196,8 +196,8 @@ dwersLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Te
 dwersLatestExecutionContext = lens _dwersLatestExecutionContext (\ s a -> s{_dwersLatestExecutionContext = a});
 
 -- | The response status code.
-dwersStatus :: Lens' DescribeWorkflowExecutionResponse Int
-dwersStatus = lens _dwersStatus (\ s a -> s{_dwersStatus = a});
+dwersResponseStatus :: Lens' DescribeWorkflowExecutionResponse Int
+dwersResponseStatus = lens _dwersResponseStatus (\ s a -> s{_dwersResponseStatus = a});
 
 -- | Information about the workflow execution.
 dwersExecutionInfo :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionInfo

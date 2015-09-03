@@ -37,7 +37,7 @@ module Network.AWS.EC2.CancelSpotFleetRequests
     -- * Response Lenses
     , csfrrsSuccessfulFleetRequests
     , csfrrsUnsuccessfulFleetRequests
-    , csfrrsStatus
+    , csfrrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -128,7 +128,7 @@ instance ToQuery CancelSpotFleetRequests where
 data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'
     { _csfrrsSuccessfulFleetRequests   :: !(Maybe [CancelSpotFleetRequestsSuccessItem])
     , _csfrrsUnsuccessfulFleetRequests :: !(Maybe [CancelSpotFleetRequestsErrorItem])
-    , _csfrrsStatus                    :: !Int
+    , _csfrrsResponseStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CancelSpotFleetRequestsResponse' with the minimum fields required to make a request.
@@ -139,15 +139,15 @@ data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'
 --
 -- * 'csfrrsUnsuccessfulFleetRequests'
 --
--- * 'csfrrsStatus'
+-- * 'csfrrsResponseStatus'
 cancelSpotFleetRequestsResponse
-    :: Int -- ^ 'csfrrsStatus'
+    :: Int -- ^ 'csfrrsResponseStatus'
     -> CancelSpotFleetRequestsResponse
-cancelSpotFleetRequestsResponse pStatus_ =
+cancelSpotFleetRequestsResponse pResponseStatus_ =
     CancelSpotFleetRequestsResponse'
     { _csfrrsSuccessfulFleetRequests = Nothing
     , _csfrrsUnsuccessfulFleetRequests = Nothing
-    , _csfrrsStatus = pStatus_
+    , _csfrrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the Spot fleet requests that are successfully
@@ -161,5 +161,5 @@ csfrrsUnsuccessfulFleetRequests :: Lens' CancelSpotFleetRequestsResponse [Cancel
 csfrrsUnsuccessfulFleetRequests = lens _csfrrsUnsuccessfulFleetRequests (\ s a -> s{_csfrrsUnsuccessfulFleetRequests = a}) . _Default . _Coerce;
 
 -- | The response status code.
-csfrrsStatus :: Lens' CancelSpotFleetRequestsResponse Int
-csfrrsStatus = lens _csfrrsStatus (\ s a -> s{_csfrrsStatus = a});
+csfrrsResponseStatus :: Lens' CancelSpotFleetRequestsResponse Int
+csfrrsResponseStatus = lens _csfrrsResponseStatus (\ s a -> s{_csfrrsResponseStatus = a});

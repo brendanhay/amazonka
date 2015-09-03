@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeSpotFleetRequests
     , DescribeSpotFleetRequestsResponse
     -- * Response Lenses
     , dsfrrsNextToken
-    , dsfrrsStatus
+    , dsfrrsResponseStatus
     , dsfrrsSpotFleetRequestConfigs
     ) where
 
@@ -136,7 +136,7 @@ instance ToQuery DescribeSpotFleetRequests where
 -- /See:/ 'describeSpotFleetRequestsResponse' smart constructor.
 data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
     { _dsfrrsNextToken               :: !(Maybe Text)
-    , _dsfrrsStatus                  :: !Int
+    , _dsfrrsResponseStatus          :: !Int
     , _dsfrrsSpotFleetRequestConfigs :: ![SpotFleetRequestConfig]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -146,16 +146,16 @@ data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
 --
 -- * 'dsfrrsNextToken'
 --
--- * 'dsfrrsStatus'
+-- * 'dsfrrsResponseStatus'
 --
 -- * 'dsfrrsSpotFleetRequestConfigs'
 describeSpotFleetRequestsResponse
-    :: Int -- ^ 'dsfrrsStatus'
+    :: Int -- ^ 'dsfrrsResponseStatus'
     -> DescribeSpotFleetRequestsResponse
-describeSpotFleetRequestsResponse pStatus_ =
+describeSpotFleetRequestsResponse pResponseStatus_ =
     DescribeSpotFleetRequestsResponse'
     { _dsfrrsNextToken = Nothing
-    , _dsfrrsStatus = pStatus_
+    , _dsfrrsResponseStatus = pResponseStatus_
     , _dsfrrsSpotFleetRequestConfigs = mempty
     }
 
@@ -165,8 +165,8 @@ dsfrrsNextToken :: Lens' DescribeSpotFleetRequestsResponse (Maybe Text)
 dsfrrsNextToken = lens _dsfrrsNextToken (\ s a -> s{_dsfrrsNextToken = a});
 
 -- | The response status code.
-dsfrrsStatus :: Lens' DescribeSpotFleetRequestsResponse Int
-dsfrrsStatus = lens _dsfrrsStatus (\ s a -> s{_dsfrrsStatus = a});
+dsfrrsResponseStatus :: Lens' DescribeSpotFleetRequestsResponse Int
+dsfrrsResponseStatus = lens _dsfrrsResponseStatus (\ s a -> s{_dsfrrsResponseStatus = a});
 
 -- | Information about the configuration of your Spot fleet.
 dsfrrsSpotFleetRequestConfigs :: Lens' DescribeSpotFleetRequestsResponse [SpotFleetRequestConfig]

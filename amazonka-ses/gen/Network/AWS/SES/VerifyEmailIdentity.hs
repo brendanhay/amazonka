@@ -36,7 +36,7 @@ module Network.AWS.SES.VerifyEmailIdentity
     , verifyEmailIdentityResponse
     , VerifyEmailIdentityResponse
     -- * Response Lenses
-    , veirsStatus
+    , veirsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -97,22 +97,22 @@ instance ToQuery VerifyEmailIdentity where
 --
 -- /See:/ 'verifyEmailIdentityResponse' smart constructor.
 newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
-    { _veirsStatus :: Int
+    { _veirsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VerifyEmailIdentityResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'veirsStatus'
+-- * 'veirsResponseStatus'
 verifyEmailIdentityResponse
-    :: Int -- ^ 'veirsStatus'
+    :: Int -- ^ 'veirsResponseStatus'
     -> VerifyEmailIdentityResponse
-verifyEmailIdentityResponse pStatus_ =
+verifyEmailIdentityResponse pResponseStatus_ =
     VerifyEmailIdentityResponse'
-    { _veirsStatus = pStatus_
+    { _veirsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-veirsStatus :: Lens' VerifyEmailIdentityResponse Int
-veirsStatus = lens _veirsStatus (\ s a -> s{_veirsStatus = a});
+veirsResponseStatus :: Lens' VerifyEmailIdentityResponse Int
+veirsResponseStatus = lens _veirsResponseStatus (\ s a -> s{_veirsResponseStatus = a});

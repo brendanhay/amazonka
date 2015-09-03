@@ -39,7 +39,7 @@ module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     , ConfirmPublicVirtualInterfaceResponse
     -- * Response Lenses
     , crsVirtualInterfaceState
-    , crsStatus
+    , crsResponseStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -114,7 +114,7 @@ instance ToQuery ConfirmPublicVirtualInterface where
 -- /See:/ 'confirmPublicVirtualInterfaceResponse' smart constructor.
 data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'
     { _crsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _crsStatus                :: !Int
+    , _crsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ConfirmPublicVirtualInterfaceResponse' with the minimum fields required to make a request.
@@ -123,14 +123,14 @@ data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceRespon
 --
 -- * 'crsVirtualInterfaceState'
 --
--- * 'crsStatus'
+-- * 'crsResponseStatus'
 confirmPublicVirtualInterfaceResponse
-    :: Int -- ^ 'crsStatus'
+    :: Int -- ^ 'crsResponseStatus'
     -> ConfirmPublicVirtualInterfaceResponse
-confirmPublicVirtualInterfaceResponse pStatus_ =
+confirmPublicVirtualInterfaceResponse pResponseStatus_ =
     ConfirmPublicVirtualInterfaceResponse'
     { _crsVirtualInterfaceState = Nothing
-    , _crsStatus = pStatus_
+    , _crsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -138,5 +138,5 @@ crsVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe V
 crsVirtualInterfaceState = lens _crsVirtualInterfaceState (\ s a -> s{_crsVirtualInterfaceState = a});
 
 -- | The response status code.
-crsStatus :: Lens' ConfirmPublicVirtualInterfaceResponse Int
-crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});
+crsResponseStatus :: Lens' ConfirmPublicVirtualInterfaceResponse Int
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});

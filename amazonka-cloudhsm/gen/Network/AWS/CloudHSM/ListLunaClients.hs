@@ -39,7 +39,7 @@ module Network.AWS.CloudHSM.ListLunaClients
     , ListLunaClientsResponse
     -- * Response Lenses
     , llcrsNextToken
-    , llcrsStatus
+    , llcrsResponseStatus
     , llcrsClientList
     ) where
 
@@ -104,9 +104,9 @@ instance ToQuery ListLunaClients where
 
 -- | /See:/ 'listLunaClientsResponse' smart constructor.
 data ListLunaClientsResponse = ListLunaClientsResponse'
-    { _llcrsNextToken  :: !(Maybe Text)
-    , _llcrsStatus     :: !Int
-    , _llcrsClientList :: ![Text]
+    { _llcrsNextToken      :: !(Maybe Text)
+    , _llcrsResponseStatus :: !Int
+    , _llcrsClientList     :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListLunaClientsResponse' with the minimum fields required to make a request.
@@ -115,16 +115,16 @@ data ListLunaClientsResponse = ListLunaClientsResponse'
 --
 -- * 'llcrsNextToken'
 --
--- * 'llcrsStatus'
+-- * 'llcrsResponseStatus'
 --
 -- * 'llcrsClientList'
 listLunaClientsResponse
-    :: Int -- ^ 'llcrsStatus'
+    :: Int -- ^ 'llcrsResponseStatus'
     -> ListLunaClientsResponse
-listLunaClientsResponse pStatus_ =
+listLunaClientsResponse pResponseStatus_ =
     ListLunaClientsResponse'
     { _llcrsNextToken = Nothing
-    , _llcrsStatus = pStatus_
+    , _llcrsResponseStatus = pResponseStatus_
     , _llcrsClientList = mempty
     }
 
@@ -134,8 +134,8 @@ llcrsNextToken :: Lens' ListLunaClientsResponse (Maybe Text)
 llcrsNextToken = lens _llcrsNextToken (\ s a -> s{_llcrsNextToken = a});
 
 -- | The response status code.
-llcrsStatus :: Lens' ListLunaClientsResponse Int
-llcrsStatus = lens _llcrsStatus (\ s a -> s{_llcrsStatus = a});
+llcrsResponseStatus :: Lens' ListLunaClientsResponse Int
+llcrsResponseStatus = lens _llcrsResponseStatus (\ s a -> s{_llcrsResponseStatus = a});
 
 -- | The list of clients.
 llcrsClientList :: Lens' ListLunaClientsResponse [Text]

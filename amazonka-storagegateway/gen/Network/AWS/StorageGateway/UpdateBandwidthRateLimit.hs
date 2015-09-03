@@ -47,7 +47,7 @@ module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     , UpdateBandwidthRateLimitResponse
     -- * Response Lenses
     , ubrlrsGatewayARN
-    , ubrlrsStatus
+    , ubrlrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -140,8 +140,8 @@ instance ToQuery UpdateBandwidthRateLimit where
 --
 -- /See:/ 'updateBandwidthRateLimitResponse' smart constructor.
 data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'
-    { _ubrlrsGatewayARN :: !(Maybe Text)
-    , _ubrlrsStatus     :: !Int
+    { _ubrlrsGatewayARN     :: !(Maybe Text)
+    , _ubrlrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateBandwidthRateLimitResponse' with the minimum fields required to make a request.
@@ -150,14 +150,14 @@ data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'
 --
 -- * 'ubrlrsGatewayARN'
 --
--- * 'ubrlrsStatus'
+-- * 'ubrlrsResponseStatus'
 updateBandwidthRateLimitResponse
-    :: Int -- ^ 'ubrlrsStatus'
+    :: Int -- ^ 'ubrlrsResponseStatus'
     -> UpdateBandwidthRateLimitResponse
-updateBandwidthRateLimitResponse pStatus_ =
+updateBandwidthRateLimitResponse pResponseStatus_ =
     UpdateBandwidthRateLimitResponse'
     { _ubrlrsGatewayARN = Nothing
-    , _ubrlrsStatus = pStatus_
+    , _ubrlrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -165,5 +165,5 @@ ubrlrsGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
 ubrlrsGatewayARN = lens _ubrlrsGatewayARN (\ s a -> s{_ubrlrsGatewayARN = a});
 
 -- | The response status code.
-ubrlrsStatus :: Lens' UpdateBandwidthRateLimitResponse Int
-ubrlrsStatus = lens _ubrlrsStatus (\ s a -> s{_ubrlrsStatus = a});
+ubrlrsResponseStatus :: Lens' UpdateBandwidthRateLimitResponse Int
+ubrlrsResponseStatus = lens _ubrlrsResponseStatus (\ s a -> s{_ubrlrsResponseStatus = a});

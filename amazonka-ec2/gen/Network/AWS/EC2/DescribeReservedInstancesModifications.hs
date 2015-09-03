@@ -46,7 +46,7 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     -- * Response Lenses
     , drimrsNextToken
     , drimrsReservedInstancesModifications
-    , drimrsStatus
+    , drimrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -179,7 +179,7 @@ instance ToQuery
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'
     { _drimrsNextToken                      :: !(Maybe Text)
     , _drimrsReservedInstancesModifications :: !(Maybe [ReservedInstancesModification])
-    , _drimrsStatus                         :: !Int
+    , _drimrsResponseStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedInstancesModificationsResponse' with the minimum fields required to make a request.
@@ -190,15 +190,15 @@ data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesM
 --
 -- * 'drimrsReservedInstancesModifications'
 --
--- * 'drimrsStatus'
+-- * 'drimrsResponseStatus'
 describeReservedInstancesModificationsResponse
-    :: Int -- ^ 'drimrsStatus'
+    :: Int -- ^ 'drimrsResponseStatus'
     -> DescribeReservedInstancesModificationsResponse
-describeReservedInstancesModificationsResponse pStatus_ =
+describeReservedInstancesModificationsResponse pResponseStatus_ =
     DescribeReservedInstancesModificationsResponse'
     { _drimrsNextToken = Nothing
     , _drimrsReservedInstancesModifications = Nothing
-    , _drimrsStatus = pStatus_
+    , _drimrsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
@@ -211,5 +211,5 @@ drimrsReservedInstancesModifications :: Lens' DescribeReservedInstancesModificat
 drimrsReservedInstancesModifications = lens _drimrsReservedInstancesModifications (\ s a -> s{_drimrsReservedInstancesModifications = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drimrsStatus :: Lens' DescribeReservedInstancesModificationsResponse Int
-drimrsStatus = lens _drimrsStatus (\ s a -> s{_drimrsStatus = a});
+drimrsResponseStatus :: Lens' DescribeReservedInstancesModificationsResponse Int
+drimrsResponseStatus = lens _drimrsResponseStatus (\ s a -> s{_drimrsResponseStatus = a});

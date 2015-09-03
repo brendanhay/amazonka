@@ -35,7 +35,7 @@ module Network.AWS.DirectoryService.EnableRadius
     , enableRadiusResponse
     , EnableRadiusResponse
     -- * Response Lenses
-    , errsStatus
+    , errsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -113,22 +113,22 @@ instance ToQuery EnableRadius where
 --
 -- /See:/ 'enableRadiusResponse' smart constructor.
 newtype EnableRadiusResponse = EnableRadiusResponse'
-    { _errsStatus :: Int
+    { _errsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnableRadiusResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'errsStatus'
+-- * 'errsResponseStatus'
 enableRadiusResponse
-    :: Int -- ^ 'errsStatus'
+    :: Int -- ^ 'errsResponseStatus'
     -> EnableRadiusResponse
-enableRadiusResponse pStatus_ =
+enableRadiusResponse pResponseStatus_ =
     EnableRadiusResponse'
-    { _errsStatus = pStatus_
+    { _errsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-errsStatus :: Lens' EnableRadiusResponse Int
-errsStatus = lens _errsStatus (\ s a -> s{_errsStatus = a});
+errsResponseStatus :: Lens' EnableRadiusResponse Int
+errsResponseStatus = lens _errsResponseStatus (\ s a -> s{_errsResponseStatus = a});

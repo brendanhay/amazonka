@@ -57,7 +57,7 @@ module Network.AWS.CognitoSync.UpdateRecords
     , UpdateRecordsResponse
     -- * Response Lenses
     , urrsRecords
-    , urrsStatus
+    , urrsResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -188,8 +188,8 @@ instance ToQuery UpdateRecords where
 --
 -- /See:/ 'updateRecordsResponse' smart constructor.
 data UpdateRecordsResponse = UpdateRecordsResponse'
-    { _urrsRecords :: !(Maybe [Record])
-    , _urrsStatus  :: !Int
+    { _urrsRecords        :: !(Maybe [Record])
+    , _urrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateRecordsResponse' with the minimum fields required to make a request.
@@ -198,14 +198,14 @@ data UpdateRecordsResponse = UpdateRecordsResponse'
 --
 -- * 'urrsRecords'
 --
--- * 'urrsStatus'
+-- * 'urrsResponseStatus'
 updateRecordsResponse
-    :: Int -- ^ 'urrsStatus'
+    :: Int -- ^ 'urrsResponseStatus'
     -> UpdateRecordsResponse
-updateRecordsResponse pStatus_ =
+updateRecordsResponse pResponseStatus_ =
     UpdateRecordsResponse'
     { _urrsRecords = Nothing
-    , _urrsStatus = pStatus_
+    , _urrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of records that have been updated.
@@ -213,5 +213,5 @@ urrsRecords :: Lens' UpdateRecordsResponse [Record]
 urrsRecords = lens _urrsRecords (\ s a -> s{_urrsRecords = a}) . _Default . _Coerce;
 
 -- | The response status code.
-urrsStatus :: Lens' UpdateRecordsResponse Int
-urrsStatus = lens _urrsStatus (\ s a -> s{_urrsStatus = a});
+urrsResponseStatus :: Lens' UpdateRecordsResponse Int
+urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});

@@ -36,7 +36,7 @@ module Network.AWS.DeviceFarm.ListProjects
     -- * Response Lenses
     , lprsNextToken
     , lprsProjects
-    , lprsStatus
+    , lprsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -114,9 +114,9 @@ instance ToQuery ListProjects where
 --
 -- /See:/ 'listProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-    { _lprsNextToken :: !(Maybe Text)
-    , _lprsProjects  :: !(Maybe [Project])
-    , _lprsStatus    :: !Int
+    { _lprsNextToken      :: !(Maybe Text)
+    , _lprsProjects       :: !(Maybe [Project])
+    , _lprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListProjectsResponse' with the minimum fields required to make a request.
@@ -127,15 +127,15 @@ data ListProjectsResponse = ListProjectsResponse'
 --
 -- * 'lprsProjects'
 --
--- * 'lprsStatus'
+-- * 'lprsResponseStatus'
 listProjectsResponse
-    :: Int -- ^ 'lprsStatus'
+    :: Int -- ^ 'lprsResponseStatus'
     -> ListProjectsResponse
-listProjectsResponse pStatus_ =
+listProjectsResponse pResponseStatus_ =
     ListProjectsResponse'
     { _lprsNextToken = Nothing
     , _lprsProjects = Nothing
-    , _lprsStatus = pStatus_
+    , _lprsResponseStatus = pResponseStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is
@@ -149,5 +149,5 @@ lprsProjects :: Lens' ListProjectsResponse [Project]
 lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lprsStatus :: Lens' ListProjectsResponse Int
-lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});
+lprsResponseStatus :: Lens' ListProjectsResponse Int
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});

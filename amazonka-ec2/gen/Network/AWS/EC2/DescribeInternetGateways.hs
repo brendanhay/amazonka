@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeInternetGateways
     , DescribeInternetGatewaysResponse
     -- * Response Lenses
     , digrsInternetGateways
-    , digrsStatus
+    , digrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -143,7 +143,7 @@ instance ToQuery DescribeInternetGateways where
 -- | /See:/ 'describeInternetGatewaysResponse' smart constructor.
 data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'
     { _digrsInternetGateways :: !(Maybe [InternetGateway])
-    , _digrsStatus           :: !Int
+    , _digrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeInternetGatewaysResponse' with the minimum fields required to make a request.
@@ -152,14 +152,14 @@ data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'
 --
 -- * 'digrsInternetGateways'
 --
--- * 'digrsStatus'
+-- * 'digrsResponseStatus'
 describeInternetGatewaysResponse
-    :: Int -- ^ 'digrsStatus'
+    :: Int -- ^ 'digrsResponseStatus'
     -> DescribeInternetGatewaysResponse
-describeInternetGatewaysResponse pStatus_ =
+describeInternetGatewaysResponse pResponseStatus_ =
     DescribeInternetGatewaysResponse'
     { _digrsInternetGateways = Nothing
-    , _digrsStatus = pStatus_
+    , _digrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more Internet gateways.
@@ -167,5 +167,5 @@ digrsInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway
 digrsInternetGateways = lens _digrsInternetGateways (\ s a -> s{_digrsInternetGateways = a}) . _Default . _Coerce;
 
 -- | The response status code.
-digrsStatus :: Lens' DescribeInternetGatewaysResponse Int
-digrsStatus = lens _digrsStatus (\ s a -> s{_digrsStatus = a});
+digrsResponseStatus :: Lens' DescribeInternetGatewaysResponse Int
+digrsResponseStatus = lens _digrsResponseStatus (\ s a -> s{_digrsResponseStatus = a});

@@ -40,7 +40,7 @@ module Network.AWS.EMR.ListSteps
     -- * Response Lenses
     , lsrsSteps
     , lsrsMarker
-    , lsrsStatus
+    , lsrsResponseStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -143,9 +143,9 @@ instance ToQuery ListSteps where
 --
 -- /See:/ 'listStepsResponse' smart constructor.
 data ListStepsResponse = ListStepsResponse'
-    { _lsrsSteps  :: !(Maybe [StepSummary])
-    , _lsrsMarker :: !(Maybe Text)
-    , _lsrsStatus :: !Int
+    { _lsrsSteps          :: !(Maybe [StepSummary])
+    , _lsrsMarker         :: !(Maybe Text)
+    , _lsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListStepsResponse' with the minimum fields required to make a request.
@@ -156,15 +156,15 @@ data ListStepsResponse = ListStepsResponse'
 --
 -- * 'lsrsMarker'
 --
--- * 'lsrsStatus'
+-- * 'lsrsResponseStatus'
 listStepsResponse
-    :: Int -- ^ 'lsrsStatus'
+    :: Int -- ^ 'lsrsResponseStatus'
     -> ListStepsResponse
-listStepsResponse pStatus_ =
+listStepsResponse pResponseStatus_ =
     ListStepsResponse'
     { _lsrsSteps = Nothing
     , _lsrsMarker = Nothing
-    , _lsrsStatus = pStatus_
+    , _lsrsResponseStatus = pResponseStatus_
     }
 
 -- | The filtered list of steps for the cluster.
@@ -176,5 +176,5 @@ lsrsMarker :: Lens' ListStepsResponse (Maybe Text)
 lsrsMarker = lens _lsrsMarker (\ s a -> s{_lsrsMarker = a});
 
 -- | The response status code.
-lsrsStatus :: Lens' ListStepsResponse Int
-lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});
+lsrsResponseStatus :: Lens' ListStepsResponse Int
+lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});

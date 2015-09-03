@@ -37,7 +37,7 @@ module Network.AWS.Route53Domains.ListTagsForDomain
     , listTagsForDomainResponse
     , ListTagsForDomainResponse
     -- * Response Lenses
-    , ltfdrsStatus
+    , ltfdrsResponseStatus
     , ltfdrsTagList
     ) where
 
@@ -105,29 +105,29 @@ instance ToQuery ListTagsForDomain where
 --
 -- /See:/ 'listTagsForDomainResponse' smart constructor.
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
-    { _ltfdrsStatus  :: !Int
-    , _ltfdrsTagList :: ![Tag]
+    { _ltfdrsResponseStatus :: !Int
+    , _ltfdrsTagList        :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListTagsForDomainResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfdrsStatus'
+-- * 'ltfdrsResponseStatus'
 --
 -- * 'ltfdrsTagList'
 listTagsForDomainResponse
-    :: Int -- ^ 'ltfdrsStatus'
+    :: Int -- ^ 'ltfdrsResponseStatus'
     -> ListTagsForDomainResponse
-listTagsForDomainResponse pStatus_ =
+listTagsForDomainResponse pResponseStatus_ =
     ListTagsForDomainResponse'
-    { _ltfdrsStatus = pStatus_
+    { _ltfdrsResponseStatus = pResponseStatus_
     , _ltfdrsTagList = mempty
     }
 
 -- | The response status code.
-ltfdrsStatus :: Lens' ListTagsForDomainResponse Int
-ltfdrsStatus = lens _ltfdrsStatus (\ s a -> s{_ltfdrsStatus = a});
+ltfdrsResponseStatus :: Lens' ListTagsForDomainResponse Int
+ltfdrsResponseStatus = lens _ltfdrsResponseStatus (\ s a -> s{_ltfdrsResponseStatus = a});
 
 -- | A list of the tags that are associated with the specified domain.
 --

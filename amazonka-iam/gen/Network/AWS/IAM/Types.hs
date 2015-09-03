@@ -21,10 +21,10 @@ module Network.AWS.IAM.Types
     , _MalformedPolicyDocumentException
     , _EntityAlreadyExistsException
     , _MalformedCertificateException
-    , _DuplicateCertificateException
     , _CredentialReportExpiredException
-    , _NoSuchEntityException
+    , _DuplicateCertificateException
     , _DeleteConflictException
+    , _NoSuchEntityException
     , _InvalidCertificateException
     , _UnrecognizedPublicKeyEncodingException
     , _InvalidUserTypeException
@@ -35,8 +35,8 @@ module Network.AWS.IAM.Types
     , _EntityTemporarilyUnmodifiableException
     , _DuplicateSSHPublicKeyException
     , _KeyPairMismatchException
-    , _LimitExceededException
     , _PasswordPolicyViolationException
+    , _LimitExceededException
 
     -- * AssignmentStatusType
     , AssignmentStatusType (..)
@@ -141,11 +141,11 @@ module Network.AWS.IAM.Types
     , managedPolicyDetail
     , mpdPolicyName
     , mpdARN
-    , mpdPath
     , mpdUpdateDate
     , mpdPolicyId
-    , mpdCreateDate
+    , mpdPath
     , mpdPolicyVersionList
+    , mpdCreateDate
     , mpdIsAttachable
     , mpdDefaultVersionId
     , mpdAttachmentCount
@@ -160,8 +160,8 @@ module Network.AWS.IAM.Types
     , PasswordPolicy
     , passwordPolicy
     , ppExpirePasswords
-    , ppRequireNumbers
     , ppMinimumPasswordLength
+    , ppRequireNumbers
     , ppPasswordReusePrevention
     , ppRequireLowercaseCharacters
     , ppMaxPasswordAge
@@ -175,9 +175,9 @@ module Network.AWS.IAM.Types
     , policy
     , pPolicyName
     , pARN
-    , pPath
     , pUpdateDate
     , pPolicyId
+    , pPath
     , pCreateDate
     , pIsAttachable
     , pDefaultVersionId
@@ -300,9 +300,9 @@ module Network.AWS.IAM.Types
     -- * UserDetail
     , UserDetail
     , userDetail
+    , udGroupList
     , udARN
     , udPath
-    , udGroupList
     , udCreateDate
     , udUserName
     , udUserId
@@ -385,12 +385,6 @@ _MalformedCertificateException :: AsError a => Getting (First ServiceError) a Se
 _MalformedCertificateException =
     _ServiceError . hasStatus 400 . hasCode "MalformedCertificate"
 
--- | The request was rejected because the same certificate is associated with
--- an IAM user in the account.
-_DuplicateCertificateException :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateCertificateException =
-    _ServiceError . hasStatus 409 . hasCode "DuplicateCertificate"
-
 -- | The request was rejected because the most recent credential report has
 -- expired. To generate a new credential report, use
 -- GenerateCredentialReport. For more information about credential report
@@ -401,10 +395,11 @@ _CredentialReportExpiredException :: AsError a => Getting (First ServiceError) a
 _CredentialReportExpiredException =
     _ServiceError . hasStatus 410 . hasCode "ReportExpired"
 
--- | The request was rejected because it referenced an entity that does not
--- exist. The error message describes the entity.
-_NoSuchEntityException :: AsError a => Getting (First ServiceError) a ServiceError
-_NoSuchEntityException = _ServiceError . hasStatus 404 . hasCode "NoSuchEntity"
+-- | The request was rejected because the same certificate is associated with
+-- an IAM user in the account.
+_DuplicateCertificateException :: AsError a => Getting (First ServiceError) a ServiceError
+_DuplicateCertificateException =
+    _ServiceError . hasStatus 409 . hasCode "DuplicateCertificate"
 
 -- | The request was rejected because it attempted to delete a resource that
 -- has attached subordinate entities. The error message describes these
@@ -412,6 +407,11 @@ _NoSuchEntityException = _ServiceError . hasStatus 404 . hasCode "NoSuchEntity"
 _DeleteConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeleteConflictException =
     _ServiceError . hasStatus 409 . hasCode "DeleteConflict"
+
+-- | The request was rejected because it referenced an entity that does not
+-- exist. The error message describes the entity.
+_NoSuchEntityException :: AsError a => Getting (First ServiceError) a ServiceError
+_NoSuchEntityException = _ServiceError . hasStatus 404 . hasCode "NoSuchEntity"
 
 -- | The request was rejected because the certificate is invalid.
 _InvalidCertificateException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -474,15 +474,15 @@ _KeyPairMismatchException :: AsError a => Getting (First ServiceError) a Service
 _KeyPairMismatchException =
     _ServiceError . hasStatus 400 . hasCode "KeyPairMismatch"
 
+-- | The request was rejected because the provided password did not meet the
+-- requirements imposed by the account password policy.
+_PasswordPolicyViolationException :: AsError a => Getting (First ServiceError) a ServiceError
+_PasswordPolicyViolationException =
+    _ServiceError . hasStatus 400 . hasCode "PasswordPolicyViolation"
+
 -- | The request was rejected because it attempted to create resources beyond
 -- the current AWS account limits. The error message describes the limit
 -- exceeded.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 409 . hasCode "LimitExceeded"
-
--- | The request was rejected because the provided password did not meet the
--- requirements imposed by the account password policy.
-_PasswordPolicyViolationException :: AsError a => Getting (First ServiceError) a ServiceError
-_PasswordPolicyViolationException =
-    _ServiceError . hasStatus 400 . hasCode "PasswordPolicyViolation"

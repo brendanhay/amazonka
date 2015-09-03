@@ -41,7 +41,7 @@ module Network.AWS.SES.ListIdentities
     , ListIdentitiesResponse
     -- * Response Lenses
     , lirsNextToken
-    , lirsStatus
+    , lirsResponseStatus
     , lirsIdentities
     ) where
 
@@ -132,9 +132,9 @@ instance ToQuery ListIdentities where
 --
 -- /See:/ 'listIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'
-    { _lirsNextToken  :: !(Maybe Text)
-    , _lirsStatus     :: !Int
-    , _lirsIdentities :: ![Text]
+    { _lirsNextToken      :: !(Maybe Text)
+    , _lirsResponseStatus :: !Int
+    , _lirsIdentities     :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListIdentitiesResponse' with the minimum fields required to make a request.
@@ -143,16 +143,16 @@ data ListIdentitiesResponse = ListIdentitiesResponse'
 --
 -- * 'lirsNextToken'
 --
--- * 'lirsStatus'
+-- * 'lirsResponseStatus'
 --
 -- * 'lirsIdentities'
 listIdentitiesResponse
-    :: Int -- ^ 'lirsStatus'
+    :: Int -- ^ 'lirsResponseStatus'
     -> ListIdentitiesResponse
-listIdentitiesResponse pStatus_ =
+listIdentitiesResponse pResponseStatus_ =
     ListIdentitiesResponse'
     { _lirsNextToken = Nothing
-    , _lirsStatus = pStatus_
+    , _lirsResponseStatus = pResponseStatus_
     , _lirsIdentities = mempty
     }
 
@@ -161,8 +161,8 @@ lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 
 -- | The response status code.
-lirsStatus :: Lens' ListIdentitiesResponse Int
-lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});
+lirsResponseStatus :: Lens' ListIdentitiesResponse Int
+lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
 
 -- | A list of identities.
 lirsIdentities :: Lens' ListIdentitiesResponse [Text]

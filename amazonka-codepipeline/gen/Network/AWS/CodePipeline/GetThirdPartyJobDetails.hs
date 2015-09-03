@@ -42,7 +42,7 @@ module Network.AWS.CodePipeline.GetThirdPartyJobDetails
     , GetThirdPartyJobDetailsResponse
     -- * Response Lenses
     , gtpjdrsJobDetails
-    , gtpjdrsStatus
+    , gtpjdrsResponseStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -123,8 +123,8 @@ instance ToQuery GetThirdPartyJobDetails where
 --
 -- /See:/ 'getThirdPartyJobDetailsResponse' smart constructor.
 data GetThirdPartyJobDetailsResponse = GetThirdPartyJobDetailsResponse'
-    { _gtpjdrsJobDetails :: !(Maybe ThirdPartyJobDetails)
-    , _gtpjdrsStatus     :: !Int
+    { _gtpjdrsJobDetails     :: !(Maybe ThirdPartyJobDetails)
+    , _gtpjdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetThirdPartyJobDetailsResponse' with the minimum fields required to make a request.
@@ -133,14 +133,14 @@ data GetThirdPartyJobDetailsResponse = GetThirdPartyJobDetailsResponse'
 --
 -- * 'gtpjdrsJobDetails'
 --
--- * 'gtpjdrsStatus'
+-- * 'gtpjdrsResponseStatus'
 getThirdPartyJobDetailsResponse
-    :: Int -- ^ 'gtpjdrsStatus'
+    :: Int -- ^ 'gtpjdrsResponseStatus'
     -> GetThirdPartyJobDetailsResponse
-getThirdPartyJobDetailsResponse pStatus_ =
+getThirdPartyJobDetailsResponse pResponseStatus_ =
     GetThirdPartyJobDetailsResponse'
     { _gtpjdrsJobDetails = Nothing
-    , _gtpjdrsStatus = pStatus_
+    , _gtpjdrsResponseStatus = pResponseStatus_
     }
 
 -- | The details of the job, including any protected values defined for the
@@ -149,5 +149,5 @@ gtpjdrsJobDetails :: Lens' GetThirdPartyJobDetailsResponse (Maybe ThirdPartyJobD
 gtpjdrsJobDetails = lens _gtpjdrsJobDetails (\ s a -> s{_gtpjdrsJobDetails = a});
 
 -- | The response status code.
-gtpjdrsStatus :: Lens' GetThirdPartyJobDetailsResponse Int
-gtpjdrsStatus = lens _gtpjdrsStatus (\ s a -> s{_gtpjdrsStatus = a});
+gtpjdrsResponseStatus :: Lens' GetThirdPartyJobDetailsResponse Int
+gtpjdrsResponseStatus = lens _gtpjdrsResponseStatus (\ s a -> s{_gtpjdrsResponseStatus = a});

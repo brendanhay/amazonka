@@ -33,8 +33,8 @@ module Network.AWS.RDS.DescribeDBSnapshots
     , ddsDBSnapshotIdentifier
     , ddsSnapshotType
     , ddsDBInstanceIdentifier
-    , ddsMaxRecords
     , ddsMarker
+    , ddsMaxRecords
 
     -- * Destructuring the Response
     , describeDBSnapshotsResponse
@@ -42,7 +42,7 @@ module Network.AWS.RDS.DescribeDBSnapshots
     -- * Response Lenses
     , ddsrsMarker
     , ddsrsDBSnapshots
-    , ddsrsStatus
+    , ddsrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -60,8 +60,8 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
     , _ddsDBSnapshotIdentifier :: !(Maybe Text)
     , _ddsSnapshotType         :: !(Maybe Text)
     , _ddsDBInstanceIdentifier :: !(Maybe Text)
-    , _ddsMaxRecords           :: !(Maybe Int)
     , _ddsMarker               :: !(Maybe Text)
+    , _ddsMaxRecords           :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBSnapshots' with the minimum fields required to make a request.
@@ -76,9 +76,9 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
 --
 -- * 'ddsDBInstanceIdentifier'
 --
--- * 'ddsMaxRecords'
---
 -- * 'ddsMarker'
+--
+-- * 'ddsMaxRecords'
 describeDBSnapshots
     :: DescribeDBSnapshots
 describeDBSnapshots =
@@ -87,8 +87,8 @@ describeDBSnapshots =
     , _ddsDBSnapshotIdentifier = Nothing
     , _ddsSnapshotType = Nothing
     , _ddsDBInstanceIdentifier = Nothing
-    , _ddsMaxRecords = Nothing
     , _ddsMarker = Nothing
+    , _ddsMaxRecords = Nothing
     }
 
 -- | This parameter is not currently supported.
@@ -127,6 +127,13 @@ ddsSnapshotType = lens _ddsSnapshotType (\ s a -> s{_ddsSnapshotType = a});
 ddsDBInstanceIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsDBInstanceIdentifier = lens _ddsDBInstanceIdentifier (\ s a -> s{_ddsDBInstanceIdentifier = a});
 
+-- | An optional pagination token provided by a previous
+-- 'DescribeDBSnapshots' request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by 'MaxRecords'.
+ddsMarker :: Lens' DescribeDBSnapshots (Maybe Text)
+ddsMarker = lens _ddsMarker (\ s a -> s{_ddsMarker = a});
+
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -137,13 +144,6 @@ ddsDBInstanceIdentifier = lens _ddsDBInstanceIdentifier (\ s a -> s{_ddsDBInstan
 -- Constraints: Minimum 20, maximum 100.
 ddsMaxRecords :: Lens' DescribeDBSnapshots (Maybe Int)
 ddsMaxRecords = lens _ddsMaxRecords (\ s a -> s{_ddsMaxRecords = a});
-
--- | An optional pagination token provided by a previous
--- 'DescribeDBSnapshots' request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
-ddsMarker :: Lens' DescribeDBSnapshots (Maybe Text)
-ddsMarker = lens _ddsMarker (\ s a -> s{_ddsMarker = a});
 
 instance AWSPager DescribeDBSnapshots where
         page rq rs
@@ -181,17 +181,17 @@ instance ToQuery DescribeDBSnapshots where
                "DBSnapshotIdentifier" =: _ddsDBSnapshotIdentifier,
                "SnapshotType" =: _ddsSnapshotType,
                "DBInstanceIdentifier" =: _ddsDBInstanceIdentifier,
-               "MaxRecords" =: _ddsMaxRecords,
-               "Marker" =: _ddsMarker]
+               "Marker" =: _ddsMarker,
+               "MaxRecords" =: _ddsMaxRecords]
 
 -- | Contains the result of a successful invocation of the
 -- DescribeDBSnapshots action.
 --
 -- /See:/ 'describeDBSnapshotsResponse' smart constructor.
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
-    { _ddsrsMarker      :: !(Maybe Text)
-    , _ddsrsDBSnapshots :: !(Maybe [DBSnapshot])
-    , _ddsrsStatus      :: !Int
+    { _ddsrsMarker         :: !(Maybe Text)
+    , _ddsrsDBSnapshots    :: !(Maybe [DBSnapshot])
+    , _ddsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBSnapshotsResponse' with the minimum fields required to make a request.
@@ -202,15 +202,15 @@ data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
 --
 -- * 'ddsrsDBSnapshots'
 --
--- * 'ddsrsStatus'
+-- * 'ddsrsResponseStatus'
 describeDBSnapshotsResponse
-    :: Int -- ^ 'ddsrsStatus'
+    :: Int -- ^ 'ddsrsResponseStatus'
     -> DescribeDBSnapshotsResponse
-describeDBSnapshotsResponse pStatus_ =
+describeDBSnapshotsResponse pResponseStatus_ =
     DescribeDBSnapshotsResponse'
     { _ddsrsMarker = Nothing
     , _ddsrsDBSnapshots = Nothing
-    , _ddsrsStatus = pStatus_
+    , _ddsrsResponseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -224,5 +224,5 @@ ddsrsDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
 ddsrsDBSnapshots = lens _ddsrsDBSnapshots (\ s a -> s{_ddsrsDBSnapshots = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddsrsStatus :: Lens' DescribeDBSnapshotsResponse Int
-ddsrsStatus = lens _ddsrsStatus (\ s a -> s{_ddsrsStatus = a});
+ddsrsResponseStatus :: Lens' DescribeDBSnapshotsResponse Int
+ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus = a});

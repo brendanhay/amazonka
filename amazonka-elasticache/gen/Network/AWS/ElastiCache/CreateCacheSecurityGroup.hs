@@ -43,7 +43,7 @@ module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     , CreateCacheSecurityGroupResponse
     -- * Response Lenses
     , ccsgrsCacheSecurityGroup
-    , ccsgrsStatus
+    , ccsgrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -120,7 +120,7 @@ instance ToQuery CreateCacheSecurityGroup where
 -- | /See:/ 'createCacheSecurityGroupResponse' smart constructor.
 data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'
     { _ccsgrsCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
-    , _ccsgrsStatus             :: !Int
+    , _ccsgrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateCacheSecurityGroupResponse' with the minimum fields required to make a request.
@@ -129,14 +129,14 @@ data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'
 --
 -- * 'ccsgrsCacheSecurityGroup'
 --
--- * 'ccsgrsStatus'
+-- * 'ccsgrsResponseStatus'
 createCacheSecurityGroupResponse
-    :: Int -- ^ 'ccsgrsStatus'
+    :: Int -- ^ 'ccsgrsResponseStatus'
     -> CreateCacheSecurityGroupResponse
-createCacheSecurityGroupResponse pStatus_ =
+createCacheSecurityGroupResponse pResponseStatus_ =
     CreateCacheSecurityGroupResponse'
     { _ccsgrsCacheSecurityGroup = Nothing
-    , _ccsgrsStatus = pStatus_
+    , _ccsgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -144,5 +144,5 @@ ccsgrsCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheS
 ccsgrsCacheSecurityGroup = lens _ccsgrsCacheSecurityGroup (\ s a -> s{_ccsgrsCacheSecurityGroup = a});
 
 -- | The response status code.
-ccsgrsStatus :: Lens' CreateCacheSecurityGroupResponse Int
-ccsgrsStatus = lens _ccsgrsStatus (\ s a -> s{_ccsgrsStatus = a});
+ccsgrsResponseStatus :: Lens' CreateCacheSecurityGroupResponse Int
+ccsgrsResponseStatus = lens _ccsgrsResponseStatus (\ s a -> s{_ccsgrsResponseStatus = a});

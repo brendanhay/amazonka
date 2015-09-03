@@ -38,8 +38,8 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     -- * Request Lenses
     , rditpitDBSecurityGroups
     , rditpitUseLatestRestorableTime
-    , rditpitAutoMinorVersionUpgrade
     , rditpitPubliclyAccessible
+    , rditpitAutoMinorVersionUpgrade
     , rditpitDBSubnetGroupName
     , rditpitRestoreTime
     , rditpitIOPS
@@ -51,13 +51,13 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     , rditpitAvailabilityZone
     , rditpitVPCSecurityGroupIds
     , rditpitMultiAZ
-    , rditpitTDECredentialARN
     , rditpitOptionGroupName
     , rditpitCopyTagsToSnapshot
-    , rditpitDBName
+    , rditpitTDECredentialARN
     , rditpitTags
     , rditpitPort
     , rditpitStorageType
+    , rditpitDBName
     , rditpitSourceDBInstanceIdentifier
     , rditpitTargetDBInstanceIdentifier
 
@@ -66,7 +66,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     , RestoreDBInstanceToPointInTimeResponse
     -- * Response Lenses
     , rditpitrsDBInstance
-    , rditpitrsStatus
+    , rditpitrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -81,8 +81,8 @@ import           Network.AWS.Response
 data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     { _rditpitDBSecurityGroups           :: !(Maybe [Text])
     , _rditpitUseLatestRestorableTime    :: !(Maybe Bool)
-    , _rditpitAutoMinorVersionUpgrade    :: !(Maybe Bool)
     , _rditpitPubliclyAccessible         :: !(Maybe Bool)
+    , _rditpitAutoMinorVersionUpgrade    :: !(Maybe Bool)
     , _rditpitDBSubnetGroupName          :: !(Maybe Text)
     , _rditpitRestoreTime                :: !(Maybe ISO8601)
     , _rditpitIOPS                       :: !(Maybe Int)
@@ -94,13 +94,13 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     , _rditpitAvailabilityZone           :: !(Maybe Text)
     , _rditpitVPCSecurityGroupIds        :: !(Maybe [Text])
     , _rditpitMultiAZ                    :: !(Maybe Bool)
-    , _rditpitTDECredentialARN           :: !(Maybe Text)
     , _rditpitOptionGroupName            :: !(Maybe Text)
     , _rditpitCopyTagsToSnapshot         :: !(Maybe Bool)
-    , _rditpitDBName                     :: !(Maybe Text)
+    , _rditpitTDECredentialARN           :: !(Maybe Text)
     , _rditpitTags                       :: !(Maybe [Tag])
     , _rditpitPort                       :: !(Maybe Int)
     , _rditpitStorageType                :: !(Maybe Text)
+    , _rditpitDBName                     :: !(Maybe Text)
     , _rditpitSourceDBInstanceIdentifier :: !Text
     , _rditpitTargetDBInstanceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -113,9 +113,9 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 --
 -- * 'rditpitUseLatestRestorableTime'
 --
--- * 'rditpitAutoMinorVersionUpgrade'
---
 -- * 'rditpitPubliclyAccessible'
+--
+-- * 'rditpitAutoMinorVersionUpgrade'
 --
 -- * 'rditpitDBSubnetGroupName'
 --
@@ -139,19 +139,19 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 --
 -- * 'rditpitMultiAZ'
 --
--- * 'rditpitTDECredentialARN'
---
 -- * 'rditpitOptionGroupName'
 --
 -- * 'rditpitCopyTagsToSnapshot'
 --
--- * 'rditpitDBName'
+-- * 'rditpitTDECredentialARN'
 --
 -- * 'rditpitTags'
 --
 -- * 'rditpitPort'
 --
 -- * 'rditpitStorageType'
+--
+-- * 'rditpitDBName'
 --
 -- * 'rditpitSourceDBInstanceIdentifier'
 --
@@ -164,8 +164,8 @@ restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier_ pTargetDBInstanceIde
     RestoreDBInstanceToPointInTime'
     { _rditpitDBSecurityGroups = Nothing
     , _rditpitUseLatestRestorableTime = Nothing
-    , _rditpitAutoMinorVersionUpgrade = Nothing
     , _rditpitPubliclyAccessible = Nothing
+    , _rditpitAutoMinorVersionUpgrade = Nothing
     , _rditpitDBSubnetGroupName = Nothing
     , _rditpitRestoreTime = Nothing
     , _rditpitIOPS = Nothing
@@ -177,13 +177,13 @@ restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier_ pTargetDBInstanceIde
     , _rditpitAvailabilityZone = Nothing
     , _rditpitVPCSecurityGroupIds = Nothing
     , _rditpitMultiAZ = Nothing
-    , _rditpitTDECredentialARN = Nothing
     , _rditpitOptionGroupName = Nothing
     , _rditpitCopyTagsToSnapshot = Nothing
-    , _rditpitDBName = Nothing
+    , _rditpitTDECredentialARN = Nothing
     , _rditpitTags = Nothing
     , _rditpitPort = Nothing
     , _rditpitStorageType = Nothing
+    , _rditpitDBName = Nothing
     , _rditpitSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier_
     , _rditpitTargetDBInstanceIdentifier = pTargetDBInstanceIdentifier_
     }
@@ -202,11 +202,6 @@ rditpitDBSecurityGroups = lens _rditpitDBSecurityGroups (\ s a -> s{_rditpitDBSe
 -- Constraints: Cannot be specified if RestoreTime parameter is provided.
 rditpitUseLatestRestorableTime :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
 rditpitUseLatestRestorableTime = lens _rditpitUseLatestRestorableTime (\ s a -> s{_rditpitUseLatestRestorableTime = a});
-
--- | Indicates that minor version upgrades will be applied automatically to
--- the DB instance during the maintenance window.
-rditpitAutoMinorVersionUpgrade :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
-rditpitAutoMinorVersionUpgrade = lens _rditpitAutoMinorVersionUpgrade (\ s a -> s{_rditpitAutoMinorVersionUpgrade = a});
 
 -- | Specifies the accessibility options for the DB instance. A value of true
 -- specifies an Internet-facing instance with a publicly resolvable DNS
@@ -228,6 +223,11 @@ rditpitAutoMinorVersionUpgrade = lens _rditpitAutoMinorVersionUpgrade (\ s a -> 
 -- the DB instance will be private.
 rditpitPubliclyAccessible :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
 rditpitPubliclyAccessible = lens _rditpitPubliclyAccessible (\ s a -> s{_rditpitPubliclyAccessible = a});
+
+-- | Indicates that minor version upgrades will be applied automatically to
+-- the DB instance during the maintenance window.
+rditpitAutoMinorVersionUpgrade :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
+rditpitAutoMinorVersionUpgrade = lens _rditpitAutoMinorVersionUpgrade (\ s a -> s{_rditpitAutoMinorVersionUpgrade = a});
 
 -- | The DB subnet group name to use for the new instance.
 rditpitDBSubnetGroupName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
@@ -323,11 +323,6 @@ rditpitVPCSecurityGroupIds = lens _rditpitVPCSecurityGroupIds (\ s a -> s{_rditp
 rditpitMultiAZ :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
 rditpitMultiAZ = lens _rditpitMultiAZ (\ s a -> s{_rditpitMultiAZ = a});
 
--- | The ARN from the Key Store with which to associate the instance for TDE
--- encryption.
-rditpitTDECredentialARN :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitTDECredentialARN = lens _rditpitTDECredentialARN (\ s a -> s{_rditpitTDECredentialARN = a});
-
 -- | The name of the option group to be used for the restored DB instance.
 --
 -- Permanent options, such as the TDE option for Oracle Advanced Security
@@ -341,11 +336,10 @@ rditpitOptionGroupName = lens _rditpitOptionGroupName (\ s a -> s{_rditpitOption
 rditpitCopyTagsToSnapshot :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
 rditpitCopyTagsToSnapshot = lens _rditpitCopyTagsToSnapshot (\ s a -> s{_rditpitCopyTagsToSnapshot = a});
 
--- | The database name for the restored DB instance.
---
--- This parameter is not used for the MySQL engine.
-rditpitDBName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitDBName = lens _rditpitDBName (\ s a -> s{_rditpitDBName = a});
+-- | The ARN from the Key Store with which to associate the instance for TDE
+-- encryption.
+rditpitTDECredentialARN :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
+rditpitTDECredentialARN = lens _rditpitTDECredentialARN (\ s a -> s{_rditpitTDECredentialARN = a});
 
 -- | Undocumented member.
 rditpitTags :: Lens' RestoreDBInstanceToPointInTime [Tag]
@@ -370,6 +364,12 @@ rditpitPort = lens _rditpitPort (\ s a -> s{_rditpitPort = a});
 -- 'standard'
 rditpitStorageType :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitStorageType = lens _rditpitStorageType (\ s a -> s{_rditpitStorageType = a});
+
+-- | The database name for the restored DB instance.
+--
+-- This parameter is not used for the MySQL engine.
+rditpitDBName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
+rditpitDBName = lens _rditpitDBName (\ s a -> s{_rditpitDBName = a});
 
 -- | The identifier of the source DB instance from which to restore.
 --
@@ -423,9 +423,9 @@ instance ToQuery RestoreDBInstanceToPointInTime where
                       _rditpitDBSecurityGroups),
                "UseLatestRestorableTime" =:
                  _rditpitUseLatestRestorableTime,
+               "PubliclyAccessible" =: _rditpitPubliclyAccessible,
                "AutoMinorVersionUpgrade" =:
                  _rditpitAutoMinorVersionUpgrade,
-               "PubliclyAccessible" =: _rditpitPubliclyAccessible,
                "DBSubnetGroupName" =: _rditpitDBSubnetGroupName,
                "RestoreTime" =: _rditpitRestoreTime,
                "Iops" =: _rditpitIOPS, "Domain" =: _rditpitDomain,
@@ -440,14 +440,14 @@ instance ToQuery RestoreDBInstanceToPointInTime where
                    (toQueryList "VpcSecurityGroupId" <$>
                       _rditpitVPCSecurityGroupIds),
                "MultiAZ" =: _rditpitMultiAZ,
-               "TdeCredentialArn" =: _rditpitTDECredentialARN,
                "OptionGroupName" =: _rditpitOptionGroupName,
                "CopyTagsToSnapshot" =: _rditpitCopyTagsToSnapshot,
-               "DBName" =: _rditpitDBName,
+               "TdeCredentialArn" =: _rditpitTDECredentialARN,
                "Tags" =:
                  toQuery (toQueryList "Tag" <$> _rditpitTags),
                "Port" =: _rditpitPort,
                "StorageType" =: _rditpitStorageType,
+               "DBName" =: _rditpitDBName,
                "SourceDBInstanceIdentifier" =:
                  _rditpitSourceDBInstanceIdentifier,
                "TargetDBInstanceIdentifier" =:
@@ -455,8 +455,8 @@ instance ToQuery RestoreDBInstanceToPointInTime where
 
 -- | /See:/ 'restoreDBInstanceToPointInTimeResponse' smart constructor.
 data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'
-    { _rditpitrsDBInstance :: !(Maybe DBInstance)
-    , _rditpitrsStatus     :: !Int
+    { _rditpitrsDBInstance     :: !(Maybe DBInstance)
+    , _rditpitrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestoreDBInstanceToPointInTimeResponse' with the minimum fields required to make a request.
@@ -465,14 +465,14 @@ data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResp
 --
 -- * 'rditpitrsDBInstance'
 --
--- * 'rditpitrsStatus'
+-- * 'rditpitrsResponseStatus'
 restoreDBInstanceToPointInTimeResponse
-    :: Int -- ^ 'rditpitrsStatus'
+    :: Int -- ^ 'rditpitrsResponseStatus'
     -> RestoreDBInstanceToPointInTimeResponse
-restoreDBInstanceToPointInTimeResponse pStatus_ =
+restoreDBInstanceToPointInTimeResponse pResponseStatus_ =
     RestoreDBInstanceToPointInTimeResponse'
     { _rditpitrsDBInstance = Nothing
-    , _rditpitrsStatus = pStatus_
+    , _rditpitrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -480,5 +480,5 @@ rditpitrsDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBIns
 rditpitrsDBInstance = lens _rditpitrsDBInstance (\ s a -> s{_rditpitrsDBInstance = a});
 
 -- | The response status code.
-rditpitrsStatus :: Lens' RestoreDBInstanceToPointInTimeResponse Int
-rditpitrsStatus = lens _rditpitrsStatus (\ s a -> s{_rditpitrsStatus = a});
+rditpitrsResponseStatus :: Lens' RestoreDBInstanceToPointInTimeResponse Int
+rditpitrsResponseStatus = lens _rditpitrsResponseStatus (\ s a -> s{_rditpitrsResponseStatus = a});

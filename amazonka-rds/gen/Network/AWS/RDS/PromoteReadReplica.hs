@@ -41,7 +41,7 @@ module Network.AWS.RDS.PromoteReadReplica
     , PromoteReadReplicaResponse
     -- * Response Lenses
     , prrrsDBInstance
-    , prrrsStatus
+    , prrrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -148,8 +148,8 @@ instance ToQuery PromoteReadReplica where
 
 -- | /See:/ 'promoteReadReplicaResponse' smart constructor.
 data PromoteReadReplicaResponse = PromoteReadReplicaResponse'
-    { _prrrsDBInstance :: !(Maybe DBInstance)
-    , _prrrsStatus     :: !Int
+    { _prrrsDBInstance     :: !(Maybe DBInstance)
+    , _prrrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PromoteReadReplicaResponse' with the minimum fields required to make a request.
@@ -158,14 +158,14 @@ data PromoteReadReplicaResponse = PromoteReadReplicaResponse'
 --
 -- * 'prrrsDBInstance'
 --
--- * 'prrrsStatus'
+-- * 'prrrsResponseStatus'
 promoteReadReplicaResponse
-    :: Int -- ^ 'prrrsStatus'
+    :: Int -- ^ 'prrrsResponseStatus'
     -> PromoteReadReplicaResponse
-promoteReadReplicaResponse pStatus_ =
+promoteReadReplicaResponse pResponseStatus_ =
     PromoteReadReplicaResponse'
     { _prrrsDBInstance = Nothing
-    , _prrrsStatus = pStatus_
+    , _prrrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -173,5 +173,5 @@ prrrsDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
 prrrsDBInstance = lens _prrrsDBInstance (\ s a -> s{_prrrsDBInstance = a});
 
 -- | The response status code.
-prrrsStatus :: Lens' PromoteReadReplicaResponse Int
-prrrsStatus = lens _prrrsStatus (\ s a -> s{_prrrsStatus = a});
+prrrsResponseStatus :: Lens' PromoteReadReplicaResponse Int
+prrrsResponseStatus = lens _prrrsResponseStatus (\ s a -> s{_prrrsResponseStatus = a});

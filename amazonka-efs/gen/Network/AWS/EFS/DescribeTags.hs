@@ -33,8 +33,8 @@ module Network.AWS.EFS.DescribeTags
       describeTags
     , DescribeTags
     -- * Request Lenses
-    , dtMaxItems
     , dtMarker
+    , dtMaxItems
     , dtFileSystemId
 
     -- * Destructuring the Response
@@ -43,7 +43,7 @@ module Network.AWS.EFS.DescribeTags
     -- * Response Lenses
     , dtrsMarker
     , dtrsNextMarker
-    , dtrsStatus
+    , dtrsResponseStatus
     , dtrsTags
     ) where
 
@@ -55,8 +55,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
-    { _dtMaxItems     :: !(Maybe Nat)
-    , _dtMarker       :: !(Maybe Text)
+    { _dtMarker       :: !(Maybe Text)
+    , _dtMaxItems     :: !(Maybe Nat)
     , _dtFileSystemId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -64,9 +64,9 @@ data DescribeTags = DescribeTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtMaxItems'
---
 -- * 'dtMarker'
+--
+-- * 'dtMaxItems'
 --
 -- * 'dtFileSystemId'
 describeTags
@@ -74,21 +74,21 @@ describeTags
     -> DescribeTags
 describeTags pFileSystemId_ =
     DescribeTags'
-    { _dtMaxItems = Nothing
-    , _dtMarker = Nothing
+    { _dtMarker = Nothing
+    , _dtMaxItems = Nothing
     , _dtFileSystemId = pFileSystemId_
     }
-
--- | Optional. Maximum number of file system tags to return in the response.
--- It must be an integer with a value greater than zero.
-dtMaxItems :: Lens' DescribeTags (Maybe Natural)
-dtMaxItems = lens _dtMaxItems (\ s a -> s{_dtMaxItems = a}) . mapping _Nat;
 
 -- | Optional. String. Opaque pagination token returned from a previous
 -- 'DescribeTags' operation. If present, it specifies to continue the list
 -- from where the previous call left off.
 dtMarker :: Lens' DescribeTags (Maybe Text)
 dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
+
+-- | Optional. Maximum number of file system tags to return in the response.
+-- It must be an integer with a value greater than zero.
+dtMaxItems :: Lens' DescribeTags (Maybe Natural)
+dtMaxItems = lens _dtMaxItems (\ s a -> s{_dtMaxItems = a}) . mapping _Nat;
 
 -- | The ID of the file system whose tag set you want to retrieve.
 dtFileSystemId :: Lens' DescribeTags Text
@@ -116,14 +116,14 @@ instance ToPath DescribeTags where
 instance ToQuery DescribeTags where
         toQuery DescribeTags'{..}
           = mconcat
-              ["MaxItems" =: _dtMaxItems, "Marker" =: _dtMarker]
+              ["Marker" =: _dtMarker, "MaxItems" =: _dtMaxItems]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrsMarker     :: !(Maybe Text)
-    , _dtrsNextMarker :: !(Maybe Text)
-    , _dtrsStatus     :: !Int
-    , _dtrsTags       :: ![Tag]
+    { _dtrsMarker         :: !(Maybe Text)
+    , _dtrsNextMarker     :: !(Maybe Text)
+    , _dtrsResponseStatus :: !Int
+    , _dtrsTags           :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
@@ -134,17 +134,17 @@ data DescribeTagsResponse = DescribeTagsResponse'
 --
 -- * 'dtrsNextMarker'
 --
--- * 'dtrsStatus'
+-- * 'dtrsResponseStatus'
 --
 -- * 'dtrsTags'
 describeTagsResponse
-    :: Int -- ^ 'dtrsStatus'
+    :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
-describeTagsResponse pStatus_ =
+describeTagsResponse pResponseStatus_ =
     DescribeTagsResponse'
     { _dtrsMarker = Nothing
     , _dtrsNextMarker = Nothing
-    , _dtrsStatus = pStatus_
+    , _dtrsResponseStatus = pResponseStatus_
     , _dtrsTags = mempty
     }
 
@@ -161,8 +161,8 @@ dtrsNextMarker :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsNextMarker = lens _dtrsNextMarker (\ s a -> s{_dtrsNextMarker = a});
 
 -- | The response status code.
-dtrsStatus :: Lens' DescribeTagsResponse Int
-dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
+dtrsResponseStatus :: Lens' DescribeTagsResponse Int
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
 -- | Returns tags associated with the file system as an array of 'Tag'
 -- objects.

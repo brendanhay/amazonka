@@ -82,17 +82,17 @@ module Network.AWS.CloudSearch
     -- ** DeleteExpression
     , module Network.AWS.CloudSearch.DeleteExpression
 
-    -- ** DescribeDomains
-    , module Network.AWS.CloudSearch.DescribeDomains
+    -- ** ListDomainNames
+    , module Network.AWS.CloudSearch.ListDomainNames
 
     -- ** DefineSuggester
     , module Network.AWS.CloudSearch.DefineSuggester
 
+    -- ** DescribeDomains
+    , module Network.AWS.CloudSearch.DescribeDomains
+
     -- ** DeleteAnalysisScheme
     , module Network.AWS.CloudSearch.DeleteAnalysisScheme
-
-    -- ** ListDomainNames
-    , module Network.AWS.CloudSearch.ListDomainNames
 
     -- ** DescribeAnalysisSchemes
     , module Network.AWS.CloudSearch.DescribeAnalysisSchemes
@@ -100,14 +100,14 @@ module Network.AWS.CloudSearch
     -- ** CreateDomain
     , module Network.AWS.CloudSearch.CreateDomain
 
-    -- ** DefineAnalysisScheme
-    , module Network.AWS.CloudSearch.DefineAnalysisScheme
+    -- ** DescribeIndexFields
+    , module Network.AWS.CloudSearch.DescribeIndexFields
 
     -- ** DeleteSuggester
     , module Network.AWS.CloudSearch.DeleteSuggester
 
-    -- ** DescribeIndexFields
-    , module Network.AWS.CloudSearch.DescribeIndexFields
+    -- ** DefineAnalysisScheme
+    , module Network.AWS.CloudSearch.DefineAnalysisScheme
 
     -- ** IndexDocuments
     , module Network.AWS.CloudSearch.IndexDocuments
@@ -115,20 +115,20 @@ module Network.AWS.CloudSearch
     -- ** DeleteIndexField
     , module Network.AWS.CloudSearch.DeleteIndexField
 
-    -- ** BuildSuggesters
-    , module Network.AWS.CloudSearch.BuildSuggesters
+    -- ** UpdateServiceAccessPolicies
+    , module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
 
     -- ** UpdateScalingParameters
     , module Network.AWS.CloudSearch.UpdateScalingParameters
 
-    -- ** UpdateServiceAccessPolicies
-    , module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
-
-    -- ** DefineIndexField
-    , module Network.AWS.CloudSearch.DefineIndexField
+    -- ** BuildSuggesters
+    , module Network.AWS.CloudSearch.BuildSuggesters
 
     -- ** DeleteDomain
     , module Network.AWS.CloudSearch.DeleteDomain
+
+    -- ** DefineIndexField
+    , module Network.AWS.CloudSearch.DefineIndexField
 
     -- * Types
 
@@ -161,9 +161,9 @@ module Network.AWS.CloudSearch
     , analysisOptions
     , aoAlgorithmicStemming
     , aoStopwords
-    , aoStemmingDictionary
-    , aoSynonyms
     , aoJapaneseTokenizationDictionary
+    , aoSynonyms
+    , aoStemmingDictionary
 
     -- ** AnalysisScheme
     , AnalysisScheme
@@ -215,8 +215,8 @@ module Network.AWS.CloudSearch
     , domainStatus
     , dsSearchInstanceCount
     , dsSearchInstanceType
-    , dsARN
     , dsDocService
+    , dsARN
     , dsCreated
     , dsSearchService
     , dsLimits
@@ -261,17 +261,17 @@ module Network.AWS.CloudSearch
     -- ** IndexField
     , IndexField
     , indexField
+    , ifDoubleArrayOptions
     , ifDateOptions
     , ifTextArrayOptions
-    , ifDoubleArrayOptions
     , ifDoubleOptions
     , ifTextOptions
     , ifLatLonOptions
-    , ifIntArrayOptions
     , ifLiteralArrayOptions
+    , ifIntArrayOptions
     , ifDateArrayOptions
-    , ifLiteralOptions
     , ifIntOptions
+    , ifLiteralOptions
     , ifIndexFieldName
     , ifIndexFieldType
 

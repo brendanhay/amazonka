@@ -36,7 +36,7 @@ module Network.AWS.DeviceFarm.ListTests
     -- * Response Lenses
     , ltrsTests
     , ltrsNextToken
-    , ltrsStatus
+    , ltrsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -115,9 +115,9 @@ instance ToQuery ListTests where
 --
 -- /See:/ 'listTestsResponse' smart constructor.
 data ListTestsResponse = ListTestsResponse'
-    { _ltrsTests     :: !(Maybe [Test])
-    , _ltrsNextToken :: !(Maybe Text)
-    , _ltrsStatus    :: !Int
+    { _ltrsTests          :: !(Maybe [Test])
+    , _ltrsNextToken      :: !(Maybe Text)
+    , _ltrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListTestsResponse' with the minimum fields required to make a request.
@@ -128,15 +128,15 @@ data ListTestsResponse = ListTestsResponse'
 --
 -- * 'ltrsNextToken'
 --
--- * 'ltrsStatus'
+-- * 'ltrsResponseStatus'
 listTestsResponse
-    :: Int -- ^ 'ltrsStatus'
+    :: Int -- ^ 'ltrsResponseStatus'
     -> ListTestsResponse
-listTestsResponse pStatus_ =
+listTestsResponse pResponseStatus_ =
     ListTestsResponse'
     { _ltrsTests = Nothing
     , _ltrsNextToken = Nothing
-    , _ltrsStatus = pStatus_
+    , _ltrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the tests.
@@ -150,5 +150,5 @@ ltrsNextToken :: Lens' ListTestsResponse (Maybe Text)
 ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 
 -- | The response status code.
-ltrsStatus :: Lens' ListTestsResponse Int
-ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});
+ltrsResponseStatus :: Lens' ListTestsResponse Int
+ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});

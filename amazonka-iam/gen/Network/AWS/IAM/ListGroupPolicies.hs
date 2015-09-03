@@ -40,8 +40,8 @@ module Network.AWS.IAM.ListGroupPolicies
       listGroupPolicies
     , ListGroupPolicies
     -- * Request Lenses
-    , lgpMaxItems
     , lgpMarker
+    , lgpMaxItems
     , lgpGroupName
 
     -- * Destructuring the Response
@@ -50,7 +50,7 @@ module Network.AWS.IAM.ListGroupPolicies
     -- * Response Lenses
     , lgprsMarker
     , lgprsIsTruncated
-    , lgprsStatus
+    , lgprsResponseStatus
     , lgprsPolicyNames
     ) where
 
@@ -63,8 +63,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'listGroupPolicies' smart constructor.
 data ListGroupPolicies = ListGroupPolicies'
-    { _lgpMaxItems  :: !(Maybe Nat)
-    , _lgpMarker    :: !(Maybe Text)
+    { _lgpMarker    :: !(Maybe Text)
+    , _lgpMaxItems  :: !(Maybe Nat)
     , _lgpGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -72,9 +72,9 @@ data ListGroupPolicies = ListGroupPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgpMaxItems'
---
 -- * 'lgpMarker'
+--
+-- * 'lgpMaxItems'
 --
 -- * 'lgpGroupName'
 listGroupPolicies
@@ -82,10 +82,16 @@ listGroupPolicies
     -> ListGroupPolicies
 listGroupPolicies pGroupName_ =
     ListGroupPolicies'
-    { _lgpMaxItems = Nothing
-    , _lgpMarker = Nothing
+    { _lgpMarker = Nothing
+    , _lgpMaxItems = Nothing
     , _lgpGroupName = pGroupName_
     }
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lgpMarker :: Lens' ListGroupPolicies (Maybe Text)
+lgpMarker = lens _lgpMarker (\ s a -> s{_lgpMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -96,20 +102,14 @@ listGroupPolicies pGroupName_ =
 lgpMaxItems :: Lens' ListGroupPolicies (Maybe Natural)
 lgpMaxItems = lens _lgpMaxItems (\ s a -> s{_lgpMaxItems = a}) . mapping _Nat;
 
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lgpMarker :: Lens' ListGroupPolicies (Maybe Text)
-lgpMarker = lens _lgpMarker (\ s a -> s{_lgpMarker = a});
-
 -- | The name of the group to list policies for.
 lgpGroupName :: Lens' ListGroupPolicies Text
 lgpGroupName = lens _lgpGroupName (\ s a -> s{_lgpGroupName = a});
 
 instance AWSPager ListGroupPolicies where
         page rq rs
-          | stop (rs ^. lgprsIsTruncated) = Nothing
-          | isNothing (rs ^. lgprsMarker) = Nothing
+          | stop (rs ^. lgprsMarker) = Nothing
+          | stop (rs ^. lgprsPolicyNames) = Nothing
           | otherwise =
             Just $ rq & lgpMarker .~ rs ^. lgprsMarker
 
@@ -137,17 +137,17 @@ instance ToQuery ListGroupPolicies where
           = mconcat
               ["Action" =: ("ListGroupPolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _lgpMaxItems, "Marker" =: _lgpMarker,
+               "Marker" =: _lgpMarker, "MaxItems" =: _lgpMaxItems,
                "GroupName" =: _lgpGroupName]
 
 -- | Contains the response to a successful ListGroupPolicies request.
 --
 -- /See:/ 'listGroupPoliciesResponse' smart constructor.
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
-    { _lgprsMarker      :: !(Maybe Text)
-    , _lgprsIsTruncated :: !(Maybe Bool)
-    , _lgprsStatus      :: !Int
-    , _lgprsPolicyNames :: ![Text]
+    { _lgprsMarker         :: !(Maybe Text)
+    , _lgprsIsTruncated    :: !(Maybe Bool)
+    , _lgprsResponseStatus :: !Int
+    , _lgprsPolicyNames    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListGroupPoliciesResponse' with the minimum fields required to make a request.
@@ -158,17 +158,17 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
 --
 -- * 'lgprsIsTruncated'
 --
--- * 'lgprsStatus'
+-- * 'lgprsResponseStatus'
 --
 -- * 'lgprsPolicyNames'
 listGroupPoliciesResponse
-    :: Int -- ^ 'lgprsStatus'
+    :: Int -- ^ 'lgprsResponseStatus'
     -> ListGroupPoliciesResponse
-listGroupPoliciesResponse pStatus_ =
+listGroupPoliciesResponse pResponseStatus_ =
     ListGroupPoliciesResponse'
     { _lgprsMarker = Nothing
     , _lgprsIsTruncated = Nothing
-    , _lgprsStatus = pStatus_
+    , _lgprsResponseStatus = pResponseStatus_
     , _lgprsPolicyNames = mempty
     }
 
@@ -185,8 +185,8 @@ lgprsIsTruncated :: Lens' ListGroupPoliciesResponse (Maybe Bool)
 lgprsIsTruncated = lens _lgprsIsTruncated (\ s a -> s{_lgprsIsTruncated = a});
 
 -- | The response status code.
-lgprsStatus :: Lens' ListGroupPoliciesResponse Int
-lgprsStatus = lens _lgprsStatus (\ s a -> s{_lgprsStatus = a});
+lgprsResponseStatus :: Lens' ListGroupPoliciesResponse Int
+lgprsResponseStatus = lens _lgprsResponseStatus (\ s a -> s{_lgprsResponseStatus = a});
 
 -- | A list of policy names.
 lgprsPolicyNames :: Lens' ListGroupPoliciesResponse [Text]

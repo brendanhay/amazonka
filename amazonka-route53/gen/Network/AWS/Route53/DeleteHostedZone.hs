@@ -47,7 +47,7 @@ module Network.AWS.Route53.DeleteHostedZone
     , deleteHostedZoneResponse
     , DeleteHostedZoneResponse
     -- * Response Lenses
-    , dhzrsStatus
+    , dhzrsResponseStatus
     , dhzrsChangeInfo
     ) where
 
@@ -105,30 +105,30 @@ instance ToQuery DeleteHostedZone where
 --
 -- /See:/ 'deleteHostedZoneResponse' smart constructor.
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
-    { _dhzrsStatus     :: !Int
-    , _dhzrsChangeInfo :: !ChangeInfo
+    { _dhzrsResponseStatus :: !Int
+    , _dhzrsChangeInfo     :: !ChangeInfo
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteHostedZoneResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhzrsStatus'
+-- * 'dhzrsResponseStatus'
 --
 -- * 'dhzrsChangeInfo'
 deleteHostedZoneResponse
-    :: Int -- ^ 'dhzrsStatus'
+    :: Int -- ^ 'dhzrsResponseStatus'
     -> ChangeInfo -- ^ 'dhzrsChangeInfo'
     -> DeleteHostedZoneResponse
-deleteHostedZoneResponse pStatus_ pChangeInfo_ =
+deleteHostedZoneResponse pResponseStatus_ pChangeInfo_ =
     DeleteHostedZoneResponse'
-    { _dhzrsStatus = pStatus_
+    { _dhzrsResponseStatus = pResponseStatus_
     , _dhzrsChangeInfo = pChangeInfo_
     }
 
 -- | The response status code.
-dhzrsStatus :: Lens' DeleteHostedZoneResponse Int
-dhzrsStatus = lens _dhzrsStatus (\ s a -> s{_dhzrsStatus = a});
+dhzrsResponseStatus :: Lens' DeleteHostedZoneResponse Int
+dhzrsResponseStatus = lens _dhzrsResponseStatus (\ s a -> s{_dhzrsResponseStatus = a});
 
 -- | A complex type that contains the ID, the status, and the date and time
 -- of your delete request.

@@ -56,20 +56,20 @@ module Network.AWS.DynamoDB.Query
       query
     , Query
     -- * Request Lenses
-    , qProjectionExpression
     , qKeyConditions
+    , qProjectionExpression
+    , qAttributesToGet
+    , qExpressionAttributeNames
     , qFilterExpression
     , qQueryFilter
     , qConsistentRead
-    , qExpressionAttributeNames
-    , qAttributesToGet
-    , qReturnConsumedCapacity
     , qExpressionAttributeValues
+    , qReturnConsumedCapacity
     , qScanIndexForward
     , qLimit
     , qSelect
-    , qConditionalOperator
     , qKeyConditionExpression
+    , qConditionalOperator
     , qExclusiveStartKey
     , qIndexName
     , qTableName
@@ -83,7 +83,7 @@ module Network.AWS.DynamoDB.Query
     , qrsScannedCount
     , qrsItems
     , qrsConsumedCapacity
-    , qrsStatus
+    , qrsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -97,20 +97,20 @@ import           Network.AWS.Response
 --
 -- /See:/ 'query' smart constructor.
 data Query = Query'
-    { _qProjectionExpression      :: !(Maybe Text)
-    , _qKeyConditions             :: !(Maybe (Map Text Condition))
+    { _qKeyConditions             :: !(Maybe (Map Text Condition))
+    , _qProjectionExpression      :: !(Maybe Text)
+    , _qAttributesToGet           :: !(Maybe (List1 Text))
+    , _qExpressionAttributeNames  :: !(Maybe (Map Text Text))
     , _qFilterExpression          :: !(Maybe Text)
     , _qQueryFilter               :: !(Maybe (Map Text Condition))
     , _qConsistentRead            :: !(Maybe Bool)
-    , _qExpressionAttributeNames  :: !(Maybe (Map Text Text))
-    , _qAttributesToGet           :: !(Maybe (List1 Text))
-    , _qReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
     , _qExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+    , _qReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
     , _qScanIndexForward          :: !(Maybe Bool)
     , _qLimit                     :: !(Maybe Nat)
     , _qSelect                    :: !(Maybe Select)
-    , _qConditionalOperator       :: !(Maybe ConditionalOperator)
     , _qKeyConditionExpression    :: !(Maybe Text)
+    , _qConditionalOperator       :: !(Maybe ConditionalOperator)
     , _qExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
     , _qIndexName                 :: !(Maybe Text)
     , _qTableName                 :: !Text
@@ -120,9 +120,13 @@ data Query = Query'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'qKeyConditions'
+--
 -- * 'qProjectionExpression'
 --
--- * 'qKeyConditions'
+-- * 'qAttributesToGet'
+--
+-- * 'qExpressionAttributeNames'
 --
 -- * 'qFilterExpression'
 --
@@ -130,13 +134,9 @@ data Query = Query'
 --
 -- * 'qConsistentRead'
 --
--- * 'qExpressionAttributeNames'
---
--- * 'qAttributesToGet'
+-- * 'qExpressionAttributeValues'
 --
 -- * 'qReturnConsumedCapacity'
---
--- * 'qExpressionAttributeValues'
 --
 -- * 'qScanIndexForward'
 --
@@ -144,9 +144,9 @@ data Query = Query'
 --
 -- * 'qSelect'
 --
--- * 'qConditionalOperator'
---
 -- * 'qKeyConditionExpression'
+--
+-- * 'qConditionalOperator'
 --
 -- * 'qExclusiveStartKey'
 --
@@ -158,40 +158,24 @@ query
     -> Query
 query pTableName_ =
     Query'
-    { _qProjectionExpression = Nothing
-    , _qKeyConditions = Nothing
+    { _qKeyConditions = Nothing
+    , _qProjectionExpression = Nothing
+    , _qAttributesToGet = Nothing
+    , _qExpressionAttributeNames = Nothing
     , _qFilterExpression = Nothing
     , _qQueryFilter = Nothing
     , _qConsistentRead = Nothing
-    , _qExpressionAttributeNames = Nothing
-    , _qAttributesToGet = Nothing
-    , _qReturnConsumedCapacity = Nothing
     , _qExpressionAttributeValues = Nothing
+    , _qReturnConsumedCapacity = Nothing
     , _qScanIndexForward = Nothing
     , _qLimit = Nothing
     , _qSelect = Nothing
-    , _qConditionalOperator = Nothing
     , _qKeyConditionExpression = Nothing
+    , _qConditionalOperator = Nothing
     , _qExclusiveStartKey = Nothing
     , _qIndexName = Nothing
     , _qTableName = pTableName_
     }
-
--- | A string that identifies one or more attributes to retrieve from the
--- table. These attributes can include scalars, sets, or elements of a JSON
--- document. The attributes in the expression must be separated by commas.
---
--- If no attribute names are specified, then all attributes will be
--- returned. If any of the requested attributes are not found, they will
--- not appear in the result.
---
--- For more information, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
--- in the /Amazon DynamoDB Developer Guide/.
---
--- /ProjectionExpression/ replaces the legacy /AttributesToGet/ parameter.
-qProjectionExpression :: Lens' Query (Maybe Text)
-qProjectionExpression = lens _qProjectionExpression (\ s a -> s{_qProjectionExpression = a});
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /KeyConditionExpression/ instead. Do not combine legacy
@@ -315,6 +299,96 @@ qProjectionExpression = lens _qProjectionExpression (\ s a -> s{_qProjectionExpr
 qKeyConditions :: Lens' Query (HashMap Text Condition)
 qKeyConditions = lens _qKeyConditions (\ s a -> s{_qKeyConditions = a}) . _Default . _Map;
 
+-- | A string that identifies one or more attributes to retrieve from the
+-- table. These attributes can include scalars, sets, or elements of a JSON
+-- document. The attributes in the expression must be separated by commas.
+--
+-- If no attribute names are specified, then all attributes will be
+-- returned. If any of the requested attributes are not found, they will
+-- not appear in the result.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
+-- in the /Amazon DynamoDB Developer Guide/.
+--
+-- /ProjectionExpression/ replaces the legacy /AttributesToGet/ parameter.
+qProjectionExpression :: Lens' Query (Maybe Text)
+qProjectionExpression = lens _qProjectionExpression (\ s a -> s{_qProjectionExpression = a});
+
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /ProjectionExpression/ instead. Do not combine legacy
+-- parameters and expression parameters in a single API call; otherwise,
+-- DynamoDB will return a /ValidationException/ exception.
+--
+-- This parameter allows you to retrieve attributes of type List or Map;
+-- however, it cannot retrieve individual elements within a List or a Map.
+--
+-- The names of one or more attributes to retrieve. If no attribute names
+-- are provided, then all attributes will be returned. If any of the
+-- requested attributes are not found, they will not appear in the result.
+--
+-- Note that /AttributesToGet/ has no effect on provisioned throughput
+-- consumption. DynamoDB determines capacity units consumed based on item
+-- size, not on the amount of data that is returned to an application.
+--
+-- You cannot use both /AttributesToGet/ and /Select/ together in a /Query/
+-- request, /unless/ the value for /Select/ is 'SPECIFIC_ATTRIBUTES'. (This
+-- usage is equivalent to specifying /AttributesToGet/ without any value
+-- for /Select/.)
+--
+-- If you query a local secondary index and request only attributes that
+-- are projected into that index, the operation will read only the index
+-- and not the table. If any of the requested attributes are not projected
+-- into the local secondary index, DynamoDB will fetch each of these
+-- attributes from the parent table. This extra fetching incurs additional
+-- throughput cost and latency.
+--
+-- If you query a global secondary index, you can only request attributes
+-- that are projected into the index. Global secondary index queries cannot
+-- fetch attributes from the parent table.
+qAttributesToGet :: Lens' Query (Maybe (NonEmpty Text))
+qAttributesToGet = lens _qAttributesToGet (\ s a -> s{_qAttributesToGet = a}) . mapping _List1;
+
+-- | One or more substitution tokens for attribute names in an expression.
+-- The following are some use cases for using /ExpressionAttributeNames/:
+--
+-- -   To access an attribute whose name conflicts with a DynamoDB reserved
+--     word.
+--
+-- -   To create a placeholder for repeating occurrences of an attribute
+--     name in an expression.
+--
+-- -   To prevent special characters in an attribute name from being
+--     misinterpreted in an expression.
+--
+-- Use the __#__ character in an expression to dereference an attribute
+-- name. For example, consider the following attribute name:
+--
+-- -   'Percentile'
+--
+-- The name of this attribute conflicts with a reserved word, so it cannot
+-- be used directly in an expression. (For the complete list of reserved
+-- words, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words>
+-- in the /Amazon DynamoDB Developer Guide/). To work around this, you
+-- could specify the following for /ExpressionAttributeNames/:
+--
+-- -   '{\"#P\":\"Percentile\"}'
+--
+-- You could then use this substitution in an expression, as in this
+-- example:
+--
+-- -   '#P = :val'
+--
+-- Tokens that begin with the __:__ character are /expression attribute
+-- values/, which are placeholders for the actual value at runtime.
+--
+-- For more information on expression attribute names, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
+-- in the /Amazon DynamoDB Developer Guide/.
+qExpressionAttributeNames :: Lens' Query (HashMap Text Text)
+qExpressionAttributeNames = lens _qExpressionAttributeNames (\ s a -> s{_qExpressionAttributeNames = a}) . _Default . _Map;
+
 -- | A string that contains conditions that DynamoDB applies after the
 -- /Query/ operation, but before the data is returned to you. Items that do
 -- not satisfy the /FilterExpression/ criteria are not returned.
@@ -400,84 +474,6 @@ qQueryFilter = lens _qQueryFilter (\ s a -> s{_qQueryFilter = a}) . _Default . _
 qConsistentRead :: Lens' Query (Maybe Bool)
 qConsistentRead = lens _qConsistentRead (\ s a -> s{_qConsistentRead = a});
 
--- | One or more substitution tokens for attribute names in an expression.
--- The following are some use cases for using /ExpressionAttributeNames/:
---
--- -   To access an attribute whose name conflicts with a DynamoDB reserved
---     word.
---
--- -   To create a placeholder for repeating occurrences of an attribute
---     name in an expression.
---
--- -   To prevent special characters in an attribute name from being
---     misinterpreted in an expression.
---
--- Use the __#__ character in an expression to dereference an attribute
--- name. For example, consider the following attribute name:
---
--- -   'Percentile'
---
--- The name of this attribute conflicts with a reserved word, so it cannot
--- be used directly in an expression. (For the complete list of reserved
--- words, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words>
--- in the /Amazon DynamoDB Developer Guide/). To work around this, you
--- could specify the following for /ExpressionAttributeNames/:
---
--- -   '{\"#P\":\"Percentile\"}'
---
--- You could then use this substitution in an expression, as in this
--- example:
---
--- -   '#P = :val'
---
--- Tokens that begin with the __:__ character are /expression attribute
--- values/, which are placeholders for the actual value at runtime.
---
--- For more information on expression attribute names, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
--- in the /Amazon DynamoDB Developer Guide/.
-qExpressionAttributeNames :: Lens' Query (HashMap Text Text)
-qExpressionAttributeNames = lens _qExpressionAttributeNames (\ s a -> s{_qExpressionAttributeNames = a}) . _Default . _Map;
-
--- | This is a legacy parameter, for backward compatibility. New applications
--- should use /ProjectionExpression/ instead. Do not combine legacy
--- parameters and expression parameters in a single API call; otherwise,
--- DynamoDB will return a /ValidationException/ exception.
---
--- This parameter allows you to retrieve attributes of type List or Map;
--- however, it cannot retrieve individual elements within a List or a Map.
---
--- The names of one or more attributes to retrieve. If no attribute names
--- are provided, then all attributes will be returned. If any of the
--- requested attributes are not found, they will not appear in the result.
---
--- Note that /AttributesToGet/ has no effect on provisioned throughput
--- consumption. DynamoDB determines capacity units consumed based on item
--- size, not on the amount of data that is returned to an application.
---
--- You cannot use both /AttributesToGet/ and /Select/ together in a /Query/
--- request, /unless/ the value for /Select/ is 'SPECIFIC_ATTRIBUTES'. (This
--- usage is equivalent to specifying /AttributesToGet/ without any value
--- for /Select/.)
---
--- If you query a local secondary index and request only attributes that
--- are projected into that index, the operation will read only the index
--- and not the table. If any of the requested attributes are not projected
--- into the local secondary index, DynamoDB will fetch each of these
--- attributes from the parent table. This extra fetching incurs additional
--- throughput cost and latency.
---
--- If you query a global secondary index, you can only request attributes
--- that are projected into the index. Global secondary index queries cannot
--- fetch attributes from the parent table.
-qAttributesToGet :: Lens' Query (Maybe (NonEmpty Text))
-qAttributesToGet = lens _qAttributesToGet (\ s a -> s{_qAttributesToGet = a}) . mapping _List1;
-
--- | Undocumented member.
-qReturnConsumedCapacity :: Lens' Query (Maybe ReturnConsumedCapacity)
-qReturnConsumedCapacity = lens _qReturnConsumedCapacity (\ s a -> s{_qReturnConsumedCapacity = a});
-
 -- | One or more values that can be substituted in an expression.
 --
 -- Use the __:__ (colon) character in an expression to dereference an
@@ -499,6 +495,10 @@ qReturnConsumedCapacity = lens _qReturnConsumedCapacity (\ s a -> s{_qReturnCons
 -- in the /Amazon DynamoDB Developer Guide/.
 qExpressionAttributeValues :: Lens' Query (HashMap Text AttributeValue)
 qExpressionAttributeValues = lens _qExpressionAttributeValues (\ s a -> s{_qExpressionAttributeValues = a}) . _Default . _Map;
+
+-- | Undocumented member.
+qReturnConsumedCapacity :: Lens' Query (Maybe ReturnConsumedCapacity)
+qReturnConsumedCapacity = lens _qReturnConsumedCapacity (\ s a -> s{_qReturnConsumedCapacity = a});
 
 -- | Specifies the order in which to return the query results - either
 -- ascending ('true') or descending ('false').
@@ -581,27 +581,6 @@ qLimit = lens _qLimit (\ s a -> s{_qLimit = a}) . mapping _Nat;
 qSelect :: Lens' Query (Maybe Select)
 qSelect = lens _qSelect (\ s a -> s{_qSelect = a});
 
--- | This is a legacy parameter, for backward compatibility. New applications
--- should use /FilterExpression/ instead. Do not combine legacy parameters
--- and expression parameters in a single API call; otherwise, DynamoDB will
--- return a /ValidationException/ exception.
---
--- A logical operator to apply to the conditions in a /QueryFilter/ map:
---
--- -   'AND' - If all of the conditions evaluate to true, then the entire
---     map evaluates to true.
---
--- -   'OR' - If at least one of the conditions evaluate to true, then the
---     entire map evaluates to true.
---
--- If you omit /ConditionalOperator/, then 'AND' is the default.
---
--- The operation will succeed only if the entire map evaluates to true.
---
--- This parameter does not support attributes of type List or Map.
-qConditionalOperator :: Lens' Query (Maybe ConditionalOperator)
-qConditionalOperator = lens _qConditionalOperator (\ s a -> s{_qConditionalOperator = a});
-
 -- | The condition that specifies the key value(s) for items to be retrieved
 -- by the /Query/ action.
 --
@@ -679,6 +658,27 @@ qConditionalOperator = lens _qConditionalOperator (\ s a -> s{_qConditionalOpera
 qKeyConditionExpression :: Lens' Query (Maybe Text)
 qKeyConditionExpression = lens _qKeyConditionExpression (\ s a -> s{_qKeyConditionExpression = a});
 
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /FilterExpression/ instead. Do not combine legacy parameters
+-- and expression parameters in a single API call; otherwise, DynamoDB will
+-- return a /ValidationException/ exception.
+--
+-- A logical operator to apply to the conditions in a /QueryFilter/ map:
+--
+-- -   'AND' - If all of the conditions evaluate to true, then the entire
+--     map evaluates to true.
+--
+-- -   'OR' - If at least one of the conditions evaluate to true, then the
+--     entire map evaluates to true.
+--
+-- If you omit /ConditionalOperator/, then 'AND' is the default.
+--
+-- The operation will succeed only if the entire map evaluates to true.
+--
+-- This parameter does not support attributes of type List or Map.
+qConditionalOperator :: Lens' Query (Maybe ConditionalOperator)
+qConditionalOperator = lens _qConditionalOperator (\ s a -> s{_qConditionalOperator = a});
+
 -- | The primary key of the first item that this operation will evaluate. Use
 -- the value that was returned for /LastEvaluatedKey/ in the previous
 -- operation.
@@ -733,24 +733,24 @@ instance ToJSON Query where
         toJSON Query'{..}
           = object
               (catMaybes
-                 [("ProjectionExpression" .=) <$>
+                 [("KeyConditions" .=) <$> _qKeyConditions,
+                  ("ProjectionExpression" .=) <$>
                     _qProjectionExpression,
-                  ("KeyConditions" .=) <$> _qKeyConditions,
+                  ("AttributesToGet" .=) <$> _qAttributesToGet,
+                  ("ExpressionAttributeNames" .=) <$>
+                    _qExpressionAttributeNames,
                   ("FilterExpression" .=) <$> _qFilterExpression,
                   ("QueryFilter" .=) <$> _qQueryFilter,
                   ("ConsistentRead" .=) <$> _qConsistentRead,
-                  ("ExpressionAttributeNames" .=) <$>
-                    _qExpressionAttributeNames,
-                  ("AttributesToGet" .=) <$> _qAttributesToGet,
-                  ("ReturnConsumedCapacity" .=) <$>
-                    _qReturnConsumedCapacity,
                   ("ExpressionAttributeValues" .=) <$>
                     _qExpressionAttributeValues,
+                  ("ReturnConsumedCapacity" .=) <$>
+                    _qReturnConsumedCapacity,
                   ("ScanIndexForward" .=) <$> _qScanIndexForward,
                   ("Limit" .=) <$> _qLimit, ("Select" .=) <$> _qSelect,
-                  ("ConditionalOperator" .=) <$> _qConditionalOperator,
                   ("KeyConditionExpression" .=) <$>
                     _qKeyConditionExpression,
+                  ("ConditionalOperator" .=) <$> _qConditionalOperator,
                   ("ExclusiveStartKey" .=) <$> _qExclusiveStartKey,
                   ("IndexName" .=) <$> _qIndexName,
                   Just ("TableName" .= _qTableName)])
@@ -770,7 +770,7 @@ data QueryResponse = QueryResponse'
     , _qrsScannedCount     :: !(Maybe Int)
     , _qrsItems            :: !(Maybe [Map Text AttributeValue])
     , _qrsConsumedCapacity :: !(Maybe ConsumedCapacity)
-    , _qrsStatus           :: !Int
+    , _qrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'QueryResponse' with the minimum fields required to make a request.
@@ -787,18 +787,18 @@ data QueryResponse = QueryResponse'
 --
 -- * 'qrsConsumedCapacity'
 --
--- * 'qrsStatus'
+-- * 'qrsResponseStatus'
 queryResponse
-    :: Int -- ^ 'qrsStatus'
+    :: Int -- ^ 'qrsResponseStatus'
     -> QueryResponse
-queryResponse pStatus_ =
+queryResponse pResponseStatus_ =
     QueryResponse'
     { _qrsLastEvaluatedKey = Nothing
     , _qrsCount = Nothing
     , _qrsScannedCount = Nothing
     , _qrsItems = Nothing
     , _qrsConsumedCapacity = Nothing
-    , _qrsStatus = pStatus_
+    , _qrsResponseStatus = pResponseStatus_
     }
 
 -- | The primary key of the item where the operation stopped, inclusive of
@@ -847,5 +847,5 @@ qrsConsumedCapacity :: Lens' QueryResponse (Maybe ConsumedCapacity)
 qrsConsumedCapacity = lens _qrsConsumedCapacity (\ s a -> s{_qrsConsumedCapacity = a});
 
 -- | The response status code.
-qrsStatus :: Lens' QueryResponse Int
-qrsStatus = lens _qrsStatus (\ s a -> s{_qrsStatus = a});
+qrsResponseStatus :: Lens' QueryResponse Int
+qrsResponseStatus = lens _qrsResponseStatus (\ s a -> s{_qrsResponseStatus = a});

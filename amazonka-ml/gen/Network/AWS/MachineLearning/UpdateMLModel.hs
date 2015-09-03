@@ -39,7 +39,7 @@ module Network.AWS.MachineLearning.UpdateMLModel
     , UpdateMLModelResponse
     -- * Response Lenses
     , umlmrsMLModelId
-    , umlmrsStatus
+    , umlmrsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -130,8 +130,8 @@ instance ToQuery UpdateMLModel where
 --
 -- /See:/ 'updateMLModelResponse' smart constructor.
 data UpdateMLModelResponse = UpdateMLModelResponse'
-    { _umlmrsMLModelId :: !(Maybe Text)
-    , _umlmrsStatus    :: !Int
+    { _umlmrsMLModelId      :: !(Maybe Text)
+    , _umlmrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateMLModelResponse' with the minimum fields required to make a request.
@@ -140,14 +140,14 @@ data UpdateMLModelResponse = UpdateMLModelResponse'
 --
 -- * 'umlmrsMLModelId'
 --
--- * 'umlmrsStatus'
+-- * 'umlmrsResponseStatus'
 updateMLModelResponse
-    :: Int -- ^ 'umlmrsStatus'
+    :: Int -- ^ 'umlmrsResponseStatus'
     -> UpdateMLModelResponse
-updateMLModelResponse pStatus_ =
+updateMLModelResponse pResponseStatus_ =
     UpdateMLModelResponse'
     { _umlmrsMLModelId = Nothing
-    , _umlmrsStatus = pStatus_
+    , _umlmrsResponseStatus = pResponseStatus_
     }
 
 -- | The ID assigned to the 'MLModel' during creation. This value should be
@@ -156,5 +156,5 @@ umlmrsMLModelId :: Lens' UpdateMLModelResponse (Maybe Text)
 umlmrsMLModelId = lens _umlmrsMLModelId (\ s a -> s{_umlmrsMLModelId = a});
 
 -- | The response status code.
-umlmrsStatus :: Lens' UpdateMLModelResponse Int
-umlmrsStatus = lens _umlmrsStatus (\ s a -> s{_umlmrsStatus = a});
+umlmrsResponseStatus :: Lens' UpdateMLModelResponse Int
+umlmrsResponseStatus = lens _umlmrsResponseStatus (\ s a -> s{_umlmrsResponseStatus = a});

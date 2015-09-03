@@ -36,7 +36,7 @@ module Network.AWS.CloudTrail.StopLogging
     , stopLoggingResponse
     , StopLoggingResponse
     -- * Response Lenses
-    , slrsStatus
+    , slrsResponseStatus
     ) where
 
 import           Network.AWS.CloudTrail.Types
@@ -104,22 +104,22 @@ instance ToQuery StopLogging where
 --
 -- /See:/ 'stopLoggingResponse' smart constructor.
 newtype StopLoggingResponse = StopLoggingResponse'
-    { _slrsStatus :: Int
+    { _slrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StopLoggingResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slrsStatus'
+-- * 'slrsResponseStatus'
 stopLoggingResponse
-    :: Int -- ^ 'slrsStatus'
+    :: Int -- ^ 'slrsResponseStatus'
     -> StopLoggingResponse
-stopLoggingResponse pStatus_ =
+stopLoggingResponse pResponseStatus_ =
     StopLoggingResponse'
-    { _slrsStatus = pStatus_
+    { _slrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-slrsStatus :: Lens' StopLoggingResponse Int
-slrsStatus = lens _slrsStatus (\ s a -> s{_slrsStatus = a});
+slrsResponseStatus :: Lens' StopLoggingResponse Int
+slrsResponseStatus = lens _slrsResponseStatus (\ s a -> s{_slrsResponseStatus = a});

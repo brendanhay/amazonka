@@ -18,7 +18,7 @@ MODELS ?= $(sort $(dir $(wildcard $(MODEL_DIR)/*/*)))
 
 release: gen format
 
-gen: $(BIN)/amazonka-gen
+gen: $(BIN)/amazonka-gen $(MODEL_DIR)
 	$(BIN)/amazonka-gen \
  --out=$(OUT_DIR) \
  --library-version=$(VERSION) \

@@ -43,7 +43,7 @@ module Network.AWS.Config.DeliverConfigSnapshot
     , DeliverConfigSnapshotResponse
     -- * Response Lenses
     , dcsrsConfigSnapshotId
-    , dcsrsStatus
+    , dcsrsResponseStatus
     ) where
 
 import           Network.AWS.Config.Types
@@ -115,7 +115,7 @@ instance ToQuery DeliverConfigSnapshot where
 -- /See:/ 'deliverConfigSnapshotResponse' smart constructor.
 data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
     { _dcsrsConfigSnapshotId :: !(Maybe Text)
-    , _dcsrsStatus           :: !Int
+    , _dcsrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeliverConfigSnapshotResponse' with the minimum fields required to make a request.
@@ -124,14 +124,14 @@ data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
 --
 -- * 'dcsrsConfigSnapshotId'
 --
--- * 'dcsrsStatus'
+-- * 'dcsrsResponseStatus'
 deliverConfigSnapshotResponse
-    :: Int -- ^ 'dcsrsStatus'
+    :: Int -- ^ 'dcsrsResponseStatus'
     -> DeliverConfigSnapshotResponse
-deliverConfigSnapshotResponse pStatus_ =
+deliverConfigSnapshotResponse pResponseStatus_ =
     DeliverConfigSnapshotResponse'
     { _dcsrsConfigSnapshotId = Nothing
-    , _dcsrsStatus = pStatus_
+    , _dcsrsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the snapshot that is being created.
@@ -139,5 +139,5 @@ dcsrsConfigSnapshotId :: Lens' DeliverConfigSnapshotResponse (Maybe Text)
 dcsrsConfigSnapshotId = lens _dcsrsConfigSnapshotId (\ s a -> s{_dcsrsConfigSnapshotId = a});
 
 -- | The response status code.
-dcsrsStatus :: Lens' DeliverConfigSnapshotResponse Int
-dcsrsStatus = lens _dcsrsStatus (\ s a -> s{_dcsrsStatus = a});
+dcsrsResponseStatus :: Lens' DeliverConfigSnapshotResponse Int
+dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});

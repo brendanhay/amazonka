@@ -42,7 +42,7 @@ module Network.AWS.CognitoSync.BulkPublish
     , BulkPublishResponse
     -- * Response Lenses
     , bprsIdentityPoolId
-    , bprsStatus
+    , bprsResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -110,7 +110,7 @@ instance ToQuery BulkPublish where
 -- /See:/ 'bulkPublishResponse' smart constructor.
 data BulkPublishResponse = BulkPublishResponse'
     { _bprsIdentityPoolId :: !(Maybe Text)
-    , _bprsStatus         :: !Int
+    , _bprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BulkPublishResponse' with the minimum fields required to make a request.
@@ -119,14 +119,14 @@ data BulkPublishResponse = BulkPublishResponse'
 --
 -- * 'bprsIdentityPoolId'
 --
--- * 'bprsStatus'
+-- * 'bprsResponseStatus'
 bulkPublishResponse
-    :: Int -- ^ 'bprsStatus'
+    :: Int -- ^ 'bprsResponseStatus'
     -> BulkPublishResponse
-bulkPublishResponse pStatus_ =
+bulkPublishResponse pResponseStatus_ =
     BulkPublishResponse'
     { _bprsIdentityPoolId = Nothing
-    , _bprsStatus = pStatus_
+    , _bprsResponseStatus = pResponseStatus_
     }
 
 -- | A name-spaced GUID (for example,
@@ -136,5 +136,5 @@ bprsIdentityPoolId :: Lens' BulkPublishResponse (Maybe Text)
 bprsIdentityPoolId = lens _bprsIdentityPoolId (\ s a -> s{_bprsIdentityPoolId = a});
 
 -- | The response status code.
-bprsStatus :: Lens' BulkPublishResponse Int
-bprsStatus = lens _bprsStatus (\ s a -> s{_bprsStatus = a});
+bprsResponseStatus :: Lens' BulkPublishResponse Int
+bprsResponseStatus = lens _bprsResponseStatus (\ s a -> s{_bprsResponseStatus = a});

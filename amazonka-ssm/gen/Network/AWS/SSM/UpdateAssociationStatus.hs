@@ -37,7 +37,7 @@ module Network.AWS.SSM.UpdateAssociationStatus
     , UpdateAssociationStatusResponse
     -- * Response Lenses
     , uasrsAssociationDescription
-    , uasrsStatus
+    , uasrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -123,7 +123,7 @@ instance ToQuery UpdateAssociationStatus where
 -- | /See:/ 'updateAssociationStatusResponse' smart constructor.
 data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
     { _uasrsAssociationDescription :: !(Maybe AssociationDescription)
-    , _uasrsStatus                 :: !Int
+    , _uasrsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateAssociationStatusResponse' with the minimum fields required to make a request.
@@ -132,14 +132,14 @@ data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
 --
 -- * 'uasrsAssociationDescription'
 --
--- * 'uasrsStatus'
+-- * 'uasrsResponseStatus'
 updateAssociationStatusResponse
-    :: Int -- ^ 'uasrsStatus'
+    :: Int -- ^ 'uasrsResponseStatus'
     -> UpdateAssociationStatusResponse
-updateAssociationStatusResponse pStatus_ =
+updateAssociationStatusResponse pResponseStatus_ =
     UpdateAssociationStatusResponse'
     { _uasrsAssociationDescription = Nothing
-    , _uasrsStatus = pStatus_
+    , _uasrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the association.
@@ -147,5 +147,5 @@ uasrsAssociationDescription :: Lens' UpdateAssociationStatusResponse (Maybe Asso
 uasrsAssociationDescription = lens _uasrsAssociationDescription (\ s a -> s{_uasrsAssociationDescription = a});
 
 -- | The response status code.
-uasrsStatus :: Lens' UpdateAssociationStatusResponse Int
-uasrsStatus = lens _uasrsStatus (\ s a -> s{_uasrsStatus = a});
+uasrsResponseStatus :: Lens' UpdateAssociationStatusResponse Int
+uasrsResponseStatus = lens _uasrsResponseStatus (\ s a -> s{_uasrsResponseStatus = a});

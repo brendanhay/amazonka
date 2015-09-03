@@ -49,8 +49,8 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     -- * Request Lenses
     , dcpgTagValues
     , dcpgTagKeys
-    , dcpgMaxRecords
     , dcpgMarker
+    , dcpgMaxRecords
     , dcpgParameterGroupName
 
     -- * Destructuring the Response
@@ -59,7 +59,7 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     -- * Response Lenses
     , dcpgrsMarker
     , dcpgrsParameterGroups
-    , dcpgrsStatus
+    , dcpgrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -75,8 +75,8 @@ import           Network.AWS.Response
 data DescribeClusterParameterGroups = DescribeClusterParameterGroups'
     { _dcpgTagValues          :: !(Maybe [Text])
     , _dcpgTagKeys            :: !(Maybe [Text])
-    , _dcpgMaxRecords         :: !(Maybe Int)
     , _dcpgMarker             :: !(Maybe Text)
+    , _dcpgMaxRecords         :: !(Maybe Int)
     , _dcpgParameterGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -88,9 +88,9 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups'
 --
 -- * 'dcpgTagKeys'
 --
--- * 'dcpgMaxRecords'
---
 -- * 'dcpgMarker'
+--
+-- * 'dcpgMaxRecords'
 --
 -- * 'dcpgParameterGroupName'
 describeClusterParameterGroups
@@ -99,8 +99,8 @@ describeClusterParameterGroups =
     DescribeClusterParameterGroups'
     { _dcpgTagValues = Nothing
     , _dcpgTagKeys = Nothing
-    , _dcpgMaxRecords = Nothing
     , _dcpgMarker = Nothing
+    , _dcpgMaxRecords = Nothing
     , _dcpgParameterGroupName = Nothing
     }
 
@@ -124,6 +124,16 @@ dcpgTagValues = lens _dcpgTagValues (\ s a -> s{_dcpgTagValues = a}) . _Default 
 dcpgTagKeys :: Lens' DescribeClusterParameterGroups [Text]
 dcpgTagKeys = lens _dcpgTagKeys (\ s a -> s{_dcpgTagKeys = a}) . _Default . _Coerce;
 
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a
+-- DescribeClusterParameterGroups request exceed the value specified in
+-- 'MaxRecords', AWS returns a value in the 'Marker' field of the response.
+-- You can retrieve the next set of response records by providing the
+-- returned marker value in the 'Marker' parameter and retrying the
+-- request.
+dcpgMarker :: Lens' DescribeClusterParameterGroups (Maybe Text)
+dcpgMarker = lens _dcpgMarker (\ s a -> s{_dcpgMarker = a});
+
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified 'MaxRecords'
 -- value, a value is returned in a 'marker' field of the response. You can
@@ -135,16 +145,6 @@ dcpgTagKeys = lens _dcpgTagKeys (\ s a -> s{_dcpgTagKeys = a}) . _Default . _Coe
 -- Constraints: minimum 20, maximum 100.
 dcpgMaxRecords :: Lens' DescribeClusterParameterGroups (Maybe Int)
 dcpgMaxRecords = lens _dcpgMaxRecords (\ s a -> s{_dcpgMaxRecords = a});
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a
--- DescribeClusterParameterGroups request exceed the value specified in
--- 'MaxRecords', AWS returns a value in the 'Marker' field of the response.
--- You can retrieve the next set of response records by providing the
--- returned marker value in the 'Marker' parameter and retrying the
--- request.
-dcpgMarker :: Lens' DescribeClusterParameterGroups (Maybe Text)
-dcpgMarker = lens _dcpgMarker (\ s a -> s{_dcpgMarker = a});
 
 -- | The name of a specific parameter group for which to return details. By
 -- default, details about all parameter groups and the default parameter
@@ -192,8 +192,8 @@ instance ToQuery DescribeClusterParameterGroups where
                  toQuery (toQueryList "TagValue" <$> _dcpgTagValues),
                "TagKeys" =:
                  toQuery (toQueryList "TagKey" <$> _dcpgTagKeys),
-               "MaxRecords" =: _dcpgMaxRecords,
                "Marker" =: _dcpgMarker,
+               "MaxRecords" =: _dcpgMaxRecords,
                "ParameterGroupName" =: _dcpgParameterGroupName]
 
 -- | Contains the output from the DescribeClusterParameterGroups action.
@@ -202,7 +202,7 @@ instance ToQuery DescribeClusterParameterGroups where
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'
     { _dcpgrsMarker          :: !(Maybe Text)
     , _dcpgrsParameterGroups :: !(Maybe [ClusterParameterGroup])
-    , _dcpgrsStatus          :: !Int
+    , _dcpgrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClusterParameterGroupsResponse' with the minimum fields required to make a request.
@@ -213,15 +213,15 @@ data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResp
 --
 -- * 'dcpgrsParameterGroups'
 --
--- * 'dcpgrsStatus'
+-- * 'dcpgrsResponseStatus'
 describeClusterParameterGroupsResponse
-    :: Int -- ^ 'dcpgrsStatus'
+    :: Int -- ^ 'dcpgrsResponseStatus'
     -> DescribeClusterParameterGroupsResponse
-describeClusterParameterGroupsResponse pStatus_ =
+describeClusterParameterGroupsResponse pResponseStatus_ =
     DescribeClusterParameterGroupsResponse'
     { _dcpgrsMarker = Nothing
     , _dcpgrsParameterGroups = Nothing
-    , _dcpgrsStatus = pStatus_
+    , _dcpgrsResponseStatus = pResponseStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -239,5 +239,5 @@ dcpgrsParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterPa
 dcpgrsParameterGroups = lens _dcpgrsParameterGroups (\ s a -> s{_dcpgrsParameterGroups = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcpgrsStatus :: Lens' DescribeClusterParameterGroupsResponse Int
-dcpgrsStatus = lens _dcpgrsStatus (\ s a -> s{_dcpgrsStatus = a});
+dcpgrsResponseStatus :: Lens' DescribeClusterParameterGroupsResponse Int
+dcpgrsResponseStatus = lens _dcpgrsResponseStatus (\ s a -> s{_dcpgrsResponseStatus = a});

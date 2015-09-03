@@ -34,7 +34,7 @@ module Network.AWS.SNS.GetSubscriptionAttributes
     , GetSubscriptionAttributesResponse
     -- * Response Lenses
     , gsarsAttributes
-    , gsarsStatus
+    , gsarsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -97,8 +97,8 @@ instance ToQuery GetSubscriptionAttributes where
 --
 -- /See:/ 'getSubscriptionAttributesResponse' smart constructor.
 data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
-    { _gsarsAttributes :: !(Maybe (Map Text Text))
-    , _gsarsStatus     :: !Int
+    { _gsarsAttributes     :: !(Maybe (Map Text Text))
+    , _gsarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetSubscriptionAttributesResponse' with the minimum fields required to make a request.
@@ -107,14 +107,14 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
 --
 -- * 'gsarsAttributes'
 --
--- * 'gsarsStatus'
+-- * 'gsarsResponseStatus'
 getSubscriptionAttributesResponse
-    :: Int -- ^ 'gsarsStatus'
+    :: Int -- ^ 'gsarsResponseStatus'
     -> GetSubscriptionAttributesResponse
-getSubscriptionAttributesResponse pStatus_ =
+getSubscriptionAttributesResponse pResponseStatus_ =
     GetSubscriptionAttributesResponse'
     { _gsarsAttributes = Nothing
-    , _gsarsStatus = pStatus_
+    , _gsarsResponseStatus = pResponseStatus_
     }
 
 -- | A map of the subscription\'s attributes. Attributes in this map include
@@ -134,5 +134,5 @@ gsarsAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
 gsarsAttributes = lens _gsarsAttributes (\ s a -> s{_gsarsAttributes = a}) . _Default . _Map;
 
 -- | The response status code.
-gsarsStatus :: Lens' GetSubscriptionAttributesResponse Int
-gsarsStatus = lens _gsarsStatus (\ s a -> s{_gsarsStatus = a});
+gsarsResponseStatus :: Lens' GetSubscriptionAttributesResponse Int
+gsarsResponseStatus = lens _gsarsResponseStatus (\ s a -> s{_gsarsResponseStatus = a});

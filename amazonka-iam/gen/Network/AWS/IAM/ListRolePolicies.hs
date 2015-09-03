@@ -40,8 +40,8 @@ module Network.AWS.IAM.ListRolePolicies
       listRolePolicies
     , ListRolePolicies
     -- * Request Lenses
-    , lrpMaxItems
     , lrpMarker
+    , lrpMaxItems
     , lrpRoleName
 
     -- * Destructuring the Response
@@ -50,7 +50,7 @@ module Network.AWS.IAM.ListRolePolicies
     -- * Response Lenses
     , lrprsMarker
     , lrprsIsTruncated
-    , lrprsStatus
+    , lrprsResponseStatus
     , lrprsPolicyNames
     ) where
 
@@ -63,8 +63,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'listRolePolicies' smart constructor.
 data ListRolePolicies = ListRolePolicies'
-    { _lrpMaxItems :: !(Maybe Nat)
-    , _lrpMarker   :: !(Maybe Text)
+    { _lrpMarker   :: !(Maybe Text)
+    , _lrpMaxItems :: !(Maybe Nat)
     , _lrpRoleName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -72,9 +72,9 @@ data ListRolePolicies = ListRolePolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrpMaxItems'
---
 -- * 'lrpMarker'
+--
+-- * 'lrpMaxItems'
 --
 -- * 'lrpRoleName'
 listRolePolicies
@@ -82,10 +82,16 @@ listRolePolicies
     -> ListRolePolicies
 listRolePolicies pRoleName_ =
     ListRolePolicies'
-    { _lrpMaxItems = Nothing
-    , _lrpMarker = Nothing
+    { _lrpMarker = Nothing
+    , _lrpMaxItems = Nothing
     , _lrpRoleName = pRoleName_
     }
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lrpMarker :: Lens' ListRolePolicies (Maybe Text)
+lrpMarker = lens _lrpMarker (\ s a -> s{_lrpMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -96,20 +102,14 @@ listRolePolicies pRoleName_ =
 lrpMaxItems :: Lens' ListRolePolicies (Maybe Natural)
 lrpMaxItems = lens _lrpMaxItems (\ s a -> s{_lrpMaxItems = a}) . mapping _Nat;
 
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lrpMarker :: Lens' ListRolePolicies (Maybe Text)
-lrpMarker = lens _lrpMarker (\ s a -> s{_lrpMarker = a});
-
 -- | The name of the role to list policies for.
 lrpRoleName :: Lens' ListRolePolicies Text
 lrpRoleName = lens _lrpRoleName (\ s a -> s{_lrpRoleName = a});
 
 instance AWSPager ListRolePolicies where
         page rq rs
-          | stop (rs ^. lrprsIsTruncated) = Nothing
-          | isNothing (rs ^. lrprsMarker) = Nothing
+          | stop (rs ^. lrprsMarker) = Nothing
+          | stop (rs ^. lrprsPolicyNames) = Nothing
           | otherwise =
             Just $ rq & lrpMarker .~ rs ^. lrprsMarker
 
@@ -137,17 +137,17 @@ instance ToQuery ListRolePolicies where
           = mconcat
               ["Action" =: ("ListRolePolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _lrpMaxItems, "Marker" =: _lrpMarker,
+               "Marker" =: _lrpMarker, "MaxItems" =: _lrpMaxItems,
                "RoleName" =: _lrpRoleName]
 
 -- | Contains the response to a successful ListRolePolicies request.
 --
 -- /See:/ 'listRolePoliciesResponse' smart constructor.
 data ListRolePoliciesResponse = ListRolePoliciesResponse'
-    { _lrprsMarker      :: !(Maybe Text)
-    , _lrprsIsTruncated :: !(Maybe Bool)
-    , _lrprsStatus      :: !Int
-    , _lrprsPolicyNames :: ![Text]
+    { _lrprsMarker         :: !(Maybe Text)
+    , _lrprsIsTruncated    :: !(Maybe Bool)
+    , _lrprsResponseStatus :: !Int
+    , _lrprsPolicyNames    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListRolePoliciesResponse' with the minimum fields required to make a request.
@@ -158,17 +158,17 @@ data ListRolePoliciesResponse = ListRolePoliciesResponse'
 --
 -- * 'lrprsIsTruncated'
 --
--- * 'lrprsStatus'
+-- * 'lrprsResponseStatus'
 --
 -- * 'lrprsPolicyNames'
 listRolePoliciesResponse
-    :: Int -- ^ 'lrprsStatus'
+    :: Int -- ^ 'lrprsResponseStatus'
     -> ListRolePoliciesResponse
-listRolePoliciesResponse pStatus_ =
+listRolePoliciesResponse pResponseStatus_ =
     ListRolePoliciesResponse'
     { _lrprsMarker = Nothing
     , _lrprsIsTruncated = Nothing
-    , _lrprsStatus = pStatus_
+    , _lrprsResponseStatus = pResponseStatus_
     , _lrprsPolicyNames = mempty
     }
 
@@ -185,8 +185,8 @@ lrprsIsTruncated :: Lens' ListRolePoliciesResponse (Maybe Bool)
 lrprsIsTruncated = lens _lrprsIsTruncated (\ s a -> s{_lrprsIsTruncated = a});
 
 -- | The response status code.
-lrprsStatus :: Lens' ListRolePoliciesResponse Int
-lrprsStatus = lens _lrprsStatus (\ s a -> s{_lrprsStatus = a});
+lrprsResponseStatus :: Lens' ListRolePoliciesResponse Int
+lrprsResponseStatus = lens _lrprsResponseStatus (\ s a -> s{_lrprsResponseStatus = a});
 
 -- | A list of policy names.
 lrprsPolicyNames :: Lens' ListRolePoliciesResponse [Text]

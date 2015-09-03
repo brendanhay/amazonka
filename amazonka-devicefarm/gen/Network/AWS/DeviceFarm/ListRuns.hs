@@ -36,7 +36,7 @@ module Network.AWS.DeviceFarm.ListRuns
     -- * Response Lenses
     , lrrsRuns
     , lrrsNextToken
-    , lrrsStatus
+    , lrrsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -115,9 +115,9 @@ instance ToQuery ListRuns where
 --
 -- /See:/ 'listRunsResponse' smart constructor.
 data ListRunsResponse = ListRunsResponse'
-    { _lrrsRuns      :: !(Maybe [Run])
-    , _lrrsNextToken :: !(Maybe Text)
-    , _lrrsStatus    :: !Int
+    { _lrrsRuns           :: !(Maybe [Run])
+    , _lrrsNextToken      :: !(Maybe Text)
+    , _lrrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListRunsResponse' with the minimum fields required to make a request.
@@ -128,15 +128,15 @@ data ListRunsResponse = ListRunsResponse'
 --
 -- * 'lrrsNextToken'
 --
--- * 'lrrsStatus'
+-- * 'lrrsResponseStatus'
 listRunsResponse
-    :: Int -- ^ 'lrrsStatus'
+    :: Int -- ^ 'lrrsResponseStatus'
     -> ListRunsResponse
-listRunsResponse pStatus_ =
+listRunsResponse pResponseStatus_ =
     ListRunsResponse'
     { _lrrsRuns = Nothing
     , _lrrsNextToken = Nothing
-    , _lrrsStatus = pStatus_
+    , _lrrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the runs.
@@ -150,5 +150,5 @@ lrrsNextToken :: Lens' ListRunsResponse (Maybe Text)
 lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 
 -- | The response status code.
-lrrsStatus :: Lens' ListRunsResponse Int
-lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});
+lrrsResponseStatus :: Lens' ListRunsResponse Int
+lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});

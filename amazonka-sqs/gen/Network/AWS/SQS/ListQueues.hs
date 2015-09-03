@@ -37,7 +37,7 @@ module Network.AWS.SQS.ListQueues
     , ListQueuesResponse
     -- * Response Lenses
     , lqrsQueueURLs
-    , lqrsStatus
+    , lqrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -95,8 +95,8 @@ instance ToQuery ListQueues where
 --
 -- /See:/ 'listQueuesResponse' smart constructor.
 data ListQueuesResponse = ListQueuesResponse'
-    { _lqrsQueueURLs :: !(Maybe [Text])
-    , _lqrsStatus    :: !Int
+    { _lqrsQueueURLs      :: !(Maybe [Text])
+    , _lqrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListQueuesResponse' with the minimum fields required to make a request.
@@ -105,14 +105,14 @@ data ListQueuesResponse = ListQueuesResponse'
 --
 -- * 'lqrsQueueURLs'
 --
--- * 'lqrsStatus'
+-- * 'lqrsResponseStatus'
 listQueuesResponse
-    :: Int -- ^ 'lqrsStatus'
+    :: Int -- ^ 'lqrsResponseStatus'
     -> ListQueuesResponse
-listQueuesResponse pStatus_ =
+listQueuesResponse pResponseStatus_ =
     ListQueuesResponse'
     { _lqrsQueueURLs = Nothing
-    , _lqrsStatus = pStatus_
+    , _lqrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of queue URLs, up to 1000 entries.
@@ -120,5 +120,5 @@ lqrsQueueURLs :: Lens' ListQueuesResponse [Text]
 lqrsQueueURLs = lens _lqrsQueueURLs (\ s a -> s{_lqrsQueueURLs = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lqrsStatus :: Lens' ListQueuesResponse Int
-lqrsStatus = lens _lqrsStatus (\ s a -> s{_lqrsStatus = a});
+lqrsResponseStatus :: Lens' ListQueuesResponse Int
+lqrsResponseStatus = lens _lqrsResponseStatus (\ s a -> s{_lqrsResponseStatus = a});

@@ -47,8 +47,8 @@ module Network.AWS.Redshift.DescribeClusters
     , dcTagValues
     , dcTagKeys
     , dcClusterIdentifier
-    , dcMaxRecords
     , dcMarker
+    , dcMaxRecords
 
     -- * Destructuring the Response
     , describeClustersResponse
@@ -56,7 +56,7 @@ module Network.AWS.Redshift.DescribeClusters
     -- * Response Lenses
     , dcrsMarker
     , dcrsClusters
-    , dcrsStatus
+    , dcrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -73,8 +73,8 @@ data DescribeClusters = DescribeClusters'
     { _dcTagValues         :: !(Maybe [Text])
     , _dcTagKeys           :: !(Maybe [Text])
     , _dcClusterIdentifier :: !(Maybe Text)
-    , _dcMaxRecords        :: !(Maybe Int)
     , _dcMarker            :: !(Maybe Text)
+    , _dcMaxRecords        :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClusters' with the minimum fields required to make a request.
@@ -87,9 +87,9 @@ data DescribeClusters = DescribeClusters'
 --
 -- * 'dcClusterIdentifier'
 --
--- * 'dcMaxRecords'
---
 -- * 'dcMarker'
+--
+-- * 'dcMaxRecords'
 describeClusters
     :: DescribeClusters
 describeClusters =
@@ -97,8 +97,8 @@ describeClusters =
     { _dcTagValues = Nothing
     , _dcTagKeys = Nothing
     , _dcClusterIdentifier = Nothing
-    , _dcMaxRecords = Nothing
     , _dcMarker = Nothing
+    , _dcMaxRecords = Nothing
     }
 
 -- | A tag value or values for which you want to return all matching clusters
@@ -126,18 +126,6 @@ dcTagKeys = lens _dcTagKeys (\ s a -> s{_dcTagKeys = a}) . _Default . _Coerce;
 dcClusterIdentifier :: Lens' DescribeClusters (Maybe Text)
 dcClusterIdentifier = lens _dcClusterIdentifier (\ s a -> s{_dcClusterIdentifier = a});
 
--- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified 'MaxRecords'
--- value, a value is returned in a 'marker' field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned marker value.
---
--- Default: '100'
---
--- Constraints: minimum 20, maximum 100.
-dcMaxRecords :: Lens' DescribeClusters (Maybe Int)
-dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a});
-
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusters request
 -- exceed the value specified in 'MaxRecords', AWS returns a value in the
@@ -149,6 +137,18 @@ dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a});
 -- or the __Marker__ parameter, but not both.
 dcMarker :: Lens' DescribeClusters (Maybe Text)
 dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a});
+
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified 'MaxRecords'
+-- value, a value is returned in a 'marker' field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
+--
+-- Default: '100'
+--
+-- Constraints: minimum 20, maximum 100.
+dcMaxRecords :: Lens' DescribeClusters (Maybe Int)
+dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a});
 
 instance AWSPager DescribeClusters where
         page rq rs
@@ -185,15 +185,15 @@ instance ToQuery DescribeClusters where
                "TagKeys" =:
                  toQuery (toQueryList "TagKey" <$> _dcTagKeys),
                "ClusterIdentifier" =: _dcClusterIdentifier,
-               "MaxRecords" =: _dcMaxRecords, "Marker" =: _dcMarker]
+               "Marker" =: _dcMarker, "MaxRecords" =: _dcMaxRecords]
 
 -- | Contains the output from the DescribeClusters action.
 --
 -- /See:/ 'describeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
-    { _dcrsMarker   :: !(Maybe Text)
-    , _dcrsClusters :: !(Maybe [Cluster])
-    , _dcrsStatus   :: !Int
+    { _dcrsMarker         :: !(Maybe Text)
+    , _dcrsClusters       :: !(Maybe [Cluster])
+    , _dcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClustersResponse' with the minimum fields required to make a request.
@@ -204,15 +204,15 @@ data DescribeClustersResponse = DescribeClustersResponse'
 --
 -- * 'dcrsClusters'
 --
--- * 'dcrsStatus'
+-- * 'dcrsResponseStatus'
 describeClustersResponse
-    :: Int -- ^ 'dcrsStatus'
+    :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeClustersResponse
-describeClustersResponse pStatus_ =
+describeClustersResponse pResponseStatus_ =
     DescribeClustersResponse'
     { _dcrsMarker = Nothing
     , _dcrsClusters = Nothing
-    , _dcrsStatus = pStatus_
+    , _dcrsResponseStatus = pResponseStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -229,5 +229,5 @@ dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcrsStatus :: Lens' DescribeClustersResponse Int
-dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});
+dcrsResponseStatus :: Lens' DescribeClustersResponse Int
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});

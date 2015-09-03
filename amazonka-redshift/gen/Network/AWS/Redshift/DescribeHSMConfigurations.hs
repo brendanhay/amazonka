@@ -44,8 +44,8 @@ module Network.AWS.Redshift.DescribeHSMConfigurations
     , dhsmcTagValues
     , dhsmcHSMConfigurationIdentifier
     , dhsmcTagKeys
-    , dhsmcMaxRecords
     , dhsmcMarker
+    , dhsmcMaxRecords
 
     -- * Destructuring the Response
     , describeHSMConfigurationsResponse
@@ -53,7 +53,7 @@ module Network.AWS.Redshift.DescribeHSMConfigurations
     -- * Response Lenses
     , dhcrsMarker
     , dhcrsHSMConfigurations
-    , dhcrsStatus
+    , dhcrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -70,8 +70,8 @@ data DescribeHSMConfigurations = DescribeHSMConfigurations'
     { _dhsmcTagValues                  :: !(Maybe [Text])
     , _dhsmcHSMConfigurationIdentifier :: !(Maybe Text)
     , _dhsmcTagKeys                    :: !(Maybe [Text])
-    , _dhsmcMaxRecords                 :: !(Maybe Int)
     , _dhsmcMarker                     :: !(Maybe Text)
+    , _dhsmcMaxRecords                 :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeHSMConfigurations' with the minimum fields required to make a request.
@@ -84,9 +84,9 @@ data DescribeHSMConfigurations = DescribeHSMConfigurations'
 --
 -- * 'dhsmcTagKeys'
 --
--- * 'dhsmcMaxRecords'
---
 -- * 'dhsmcMarker'
+--
+-- * 'dhsmcMaxRecords'
 describeHSMConfigurations
     :: DescribeHSMConfigurations
 describeHSMConfigurations =
@@ -94,8 +94,8 @@ describeHSMConfigurations =
     { _dhsmcTagValues = Nothing
     , _dhsmcHSMConfigurationIdentifier = Nothing
     , _dhsmcTagKeys = Nothing
-    , _dhsmcMaxRecords = Nothing
     , _dhsmcMarker = Nothing
+    , _dhsmcMaxRecords = Nothing
     }
 
 -- | A tag value or values for which you want to return all matching HSM
@@ -124,6 +124,15 @@ dhsmcHSMConfigurationIdentifier = lens _dhsmcHSMConfigurationIdentifier (\ s a -
 dhsmcTagKeys :: Lens' DescribeHSMConfigurations [Text]
 dhsmcTagKeys = lens _dhsmcTagKeys (\ s a -> s{_dhsmcTagKeys = a}) . _Default . _Coerce;
 
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeHsmConfigurations
+-- request exceed the value specified in 'MaxRecords', AWS returns a value
+-- in the 'Marker' field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the 'Marker'
+-- parameter and retrying the request.
+dhsmcMarker :: Lens' DescribeHSMConfigurations (Maybe Text)
+dhsmcMarker = lens _dhsmcMarker (\ s a -> s{_dhsmcMarker = a});
+
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified 'MaxRecords'
 -- value, a value is returned in a 'marker' field of the response. You can
@@ -135,15 +144,6 @@ dhsmcTagKeys = lens _dhsmcTagKeys (\ s a -> s{_dhsmcTagKeys = a}) . _Default . _
 -- Constraints: minimum 20, maximum 100.
 dhsmcMaxRecords :: Lens' DescribeHSMConfigurations (Maybe Int)
 dhsmcMaxRecords = lens _dhsmcMaxRecords (\ s a -> s{_dhsmcMaxRecords = a});
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeHsmConfigurations
--- request exceed the value specified in 'MaxRecords', AWS returns a value
--- in the 'Marker' field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the 'Marker'
--- parameter and retrying the request.
-dhsmcMarker :: Lens' DescribeHSMConfigurations (Maybe Text)
-dhsmcMarker = lens _dhsmcMarker (\ s a -> s{_dhsmcMarker = a});
 
 instance AWSPager DescribeHSMConfigurations where
         page rq rs
@@ -183,8 +183,8 @@ instance ToQuery DescribeHSMConfigurations where
                  _dhsmcHSMConfigurationIdentifier,
                "TagKeys" =:
                  toQuery (toQueryList "TagKey" <$> _dhsmcTagKeys),
-               "MaxRecords" =: _dhsmcMaxRecords,
-               "Marker" =: _dhsmcMarker]
+               "Marker" =: _dhsmcMarker,
+               "MaxRecords" =: _dhsmcMaxRecords]
 
 -- |
 --
@@ -192,7 +192,7 @@ instance ToQuery DescribeHSMConfigurations where
 data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'
     { _dhcrsMarker            :: !(Maybe Text)
     , _dhcrsHSMConfigurations :: !(Maybe [HSMConfiguration])
-    , _dhcrsStatus            :: !Int
+    , _dhcrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeHSMConfigurationsResponse' with the minimum fields required to make a request.
@@ -203,15 +203,15 @@ data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'
 --
 -- * 'dhcrsHSMConfigurations'
 --
--- * 'dhcrsStatus'
+-- * 'dhcrsResponseStatus'
 describeHSMConfigurationsResponse
-    :: Int -- ^ 'dhcrsStatus'
+    :: Int -- ^ 'dhcrsResponseStatus'
     -> DescribeHSMConfigurationsResponse
-describeHSMConfigurationsResponse pStatus_ =
+describeHSMConfigurationsResponse pResponseStatus_ =
     DescribeHSMConfigurationsResponse'
     { _dhcrsMarker = Nothing
     , _dhcrsHSMConfigurations = Nothing
-    , _dhcrsStatus = pStatus_
+    , _dhcrsResponseStatus = pResponseStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -228,5 +228,5 @@ dhcrsHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfigurat
 dhcrsHSMConfigurations = lens _dhcrsHSMConfigurations (\ s a -> s{_dhcrsHSMConfigurations = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dhcrsStatus :: Lens' DescribeHSMConfigurationsResponse Int
-dhcrsStatus = lens _dhcrsStatus (\ s a -> s{_dhcrsStatus = a});
+dhcrsResponseStatus :: Lens' DescribeHSMConfigurationsResponse Int
+dhcrsResponseStatus = lens _dhcrsResponseStatus (\ s a -> s{_dhcrsResponseStatus = a});

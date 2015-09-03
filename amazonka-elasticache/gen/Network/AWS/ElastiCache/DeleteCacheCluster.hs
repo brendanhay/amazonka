@@ -42,7 +42,7 @@ module Network.AWS.ElastiCache.DeleteCacheCluster
     , DeleteCacheClusterResponse
     -- * Response Lenses
     , dccrsCacheCluster
-    , dccrsStatus
+    , dccrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -113,8 +113,8 @@ instance ToQuery DeleteCacheCluster where
 
 -- | /See:/ 'deleteCacheClusterResponse' smart constructor.
 data DeleteCacheClusterResponse = DeleteCacheClusterResponse'
-    { _dccrsCacheCluster :: !(Maybe CacheCluster)
-    , _dccrsStatus       :: !Int
+    { _dccrsCacheCluster   :: !(Maybe CacheCluster)
+    , _dccrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteCacheClusterResponse' with the minimum fields required to make a request.
@@ -123,14 +123,14 @@ data DeleteCacheClusterResponse = DeleteCacheClusterResponse'
 --
 -- * 'dccrsCacheCluster'
 --
--- * 'dccrsStatus'
+-- * 'dccrsResponseStatus'
 deleteCacheClusterResponse
-    :: Int -- ^ 'dccrsStatus'
+    :: Int -- ^ 'dccrsResponseStatus'
     -> DeleteCacheClusterResponse
-deleteCacheClusterResponse pStatus_ =
+deleteCacheClusterResponse pResponseStatus_ =
     DeleteCacheClusterResponse'
     { _dccrsCacheCluster = Nothing
-    , _dccrsStatus = pStatus_
+    , _dccrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -138,5 +138,5 @@ dccrsCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
 dccrsCacheCluster = lens _dccrsCacheCluster (\ s a -> s{_dccrsCacheCluster = a});
 
 -- | The response status code.
-dccrsStatus :: Lens' DeleteCacheClusterResponse Int
-dccrsStatus = lens _dccrsStatus (\ s a -> s{_dccrsStatus = a});
+dccrsResponseStatus :: Lens' DeleteCacheClusterResponse Int
+dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});

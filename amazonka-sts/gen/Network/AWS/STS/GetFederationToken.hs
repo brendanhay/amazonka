@@ -108,7 +108,7 @@ module Network.AWS.STS.GetFederationToken
     , gftrsPackedPolicySize
     , gftrsCredentials
     , gftrsFederatedUser
-    , gftrsStatus
+    , gftrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -223,7 +223,7 @@ data GetFederationTokenResponse = GetFederationTokenResponse'
     { _gftrsPackedPolicySize :: !(Maybe Nat)
     , _gftrsCredentials      :: !(Maybe Credentials)
     , _gftrsFederatedUser    :: !(Maybe FederatedUser)
-    , _gftrsStatus           :: !Int
+    , _gftrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetFederationTokenResponse' with the minimum fields required to make a request.
@@ -236,16 +236,16 @@ data GetFederationTokenResponse = GetFederationTokenResponse'
 --
 -- * 'gftrsFederatedUser'
 --
--- * 'gftrsStatus'
+-- * 'gftrsResponseStatus'
 getFederationTokenResponse
-    :: Int -- ^ 'gftrsStatus'
+    :: Int -- ^ 'gftrsResponseStatus'
     -> GetFederationTokenResponse
-getFederationTokenResponse pStatus_ =
+getFederationTokenResponse pResponseStatus_ =
     GetFederationTokenResponse'
     { _gftrsPackedPolicySize = Nothing
     , _gftrsCredentials = Nothing
     , _gftrsFederatedUser = Nothing
-    , _gftrsStatus = pStatus_
+    , _gftrsResponseStatus = pResponseStatus_
     }
 
 -- | A percentage value indicating the size of the policy in packed form. The
@@ -266,5 +266,5 @@ gftrsFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
 gftrsFederatedUser = lens _gftrsFederatedUser (\ s a -> s{_gftrsFederatedUser = a});
 
 -- | The response status code.
-gftrsStatus :: Lens' GetFederationTokenResponse Int
-gftrsStatus = lens _gftrsStatus (\ s a -> s{_gftrsStatus = a});
+gftrsResponseStatus :: Lens' GetFederationTokenResponse Int
+gftrsResponseStatus = lens _gftrsResponseStatus (\ s a -> s{_gftrsResponseStatus = a});

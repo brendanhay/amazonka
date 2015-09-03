@@ -43,7 +43,7 @@ module Network.AWS.ECS.ListTaskDefinitions
     -- * Response Lenses
     , ltdrsTaskDefinitionARNs
     , ltdrsNextToken
-    , ltdrsStatus
+    , ltdrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -179,7 +179,7 @@ instance ToQuery ListTaskDefinitions where
 data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'
     { _ltdrsTaskDefinitionARNs :: !(Maybe [Text])
     , _ltdrsNextToken          :: !(Maybe Text)
-    , _ltdrsStatus             :: !Int
+    , _ltdrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListTaskDefinitionsResponse' with the minimum fields required to make a request.
@@ -190,15 +190,15 @@ data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'
 --
 -- * 'ltdrsNextToken'
 --
--- * 'ltdrsStatus'
+-- * 'ltdrsResponseStatus'
 listTaskDefinitionsResponse
-    :: Int -- ^ 'ltdrsStatus'
+    :: Int -- ^ 'ltdrsResponseStatus'
     -> ListTaskDefinitionsResponse
-listTaskDefinitionsResponse pStatus_ =
+listTaskDefinitionsResponse pResponseStatus_ =
     ListTaskDefinitionsResponse'
     { _ltdrsTaskDefinitionARNs = Nothing
     , _ltdrsNextToken = Nothing
-    , _ltdrsStatus = pStatus_
+    , _ltdrsResponseStatus = pResponseStatus_
     }
 
 -- | The list of task definition Amazon Resource Name (ARN) entries for the
@@ -214,5 +214,5 @@ ltdrsNextToken :: Lens' ListTaskDefinitionsResponse (Maybe Text)
 ltdrsNextToken = lens _ltdrsNextToken (\ s a -> s{_ltdrsNextToken = a});
 
 -- | The response status code.
-ltdrsStatus :: Lens' ListTaskDefinitionsResponse Int
-ltdrsStatus = lens _ltdrsStatus (\ s a -> s{_ltdrsStatus = a});
+ltdrsResponseStatus :: Lens' ListTaskDefinitionsResponse Int
+ltdrsResponseStatus = lens _ltdrsResponseStatus (\ s a -> s{_ltdrsResponseStatus = a});

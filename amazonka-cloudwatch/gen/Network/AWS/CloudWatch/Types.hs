@@ -46,8 +46,8 @@ module Network.AWS.CloudWatch.Types
     , ahiAlarmName
     , ahiHistoryItemType
     , ahiHistoryData
-    , ahiTimestamp
     , ahiHistorySummary
+    , ahiTimestamp
 
     -- * Datapoint
     , Datapoint
@@ -57,8 +57,8 @@ module Network.AWS.CloudWatch.Types
     , dAverage
     , dMinimum
     , dSum
-    , dTimestamp
     , dUnit
+    , dTimestamp
 
     -- * Dimension
     , Dimension
@@ -84,34 +84,34 @@ module Network.AWS.CloudWatch.Types
     , metricAlarm
     , maAlarmName
     , maStateUpdatedTimestamp
-    , maAlarmDescription
     , maPeriod
+    , maAlarmDescription
     , maEvaluationPeriods
     , maMetricName
     , maNamespace
-    , maOKActions
     , maComparisonOperator
+    , maOKActions
     , maStateValue
     , maThreshold
-    , maActionsEnabled
     , maAlarmConfigurationUpdatedTimestamp
+    , maActionsEnabled
     , maInsufficientDataActions
-    , maDimensions
-    , maStateReasonData
     , maStateReason
+    , maStateReasonData
+    , maDimensions
     , maAlarmARN
     , maAlarmActions
-    , maStatistic
     , maUnit
+    , maStatistic
 
     -- * MetricDatum
     , MetricDatum
     , metricDatum
     , mdValue
     , mdDimensions
+    , mdUnit
     , mdTimestamp
     , mdStatisticValues
-    , mdUnit
     , mdMetricName
 
     -- * StatisticSet

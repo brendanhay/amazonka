@@ -33,8 +33,8 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     , DescribeScalingActivities
     -- * Request Lenses
     , desNextToken
-    , desMaxRecords
     , desAutoScalingGroupName
+    , desMaxRecords
     , desActivityIds
 
     -- * Destructuring the Response
@@ -42,7 +42,7 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     , DescribeScalingActivitiesResponse
     -- * Response Lenses
     , dsasrsNextToken
-    , dsasrsStatus
+    , dsasrsResponseStatus
     , dsasrsActivities
     ) where
 
@@ -56,8 +56,8 @@ import           Network.AWS.Response
 -- | /See:/ 'describeScalingActivities' smart constructor.
 data DescribeScalingActivities = DescribeScalingActivities'
     { _desNextToken            :: !(Maybe Text)
-    , _desMaxRecords           :: !(Maybe Int)
     , _desAutoScalingGroupName :: !(Maybe Text)
+    , _desMaxRecords           :: !(Maybe Int)
     , _desActivityIds          :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -67,9 +67,9 @@ data DescribeScalingActivities = DescribeScalingActivities'
 --
 -- * 'desNextToken'
 --
--- * 'desMaxRecords'
---
 -- * 'desAutoScalingGroupName'
+--
+-- * 'desMaxRecords'
 --
 -- * 'desActivityIds'
 describeScalingActivities
@@ -77,8 +77,8 @@ describeScalingActivities
 describeScalingActivities =
     DescribeScalingActivities'
     { _desNextToken = Nothing
-    , _desMaxRecords = Nothing
     , _desAutoScalingGroupName = Nothing
+    , _desMaxRecords = Nothing
     , _desActivityIds = Nothing
     }
 
@@ -87,13 +87,13 @@ describeScalingActivities =
 desNextToken :: Lens' DescribeScalingActivities (Maybe Text)
 desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 
--- | The maximum number of items to return with this call.
-desMaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
-desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a});
-
 -- | The name of the group.
 desAutoScalingGroupName :: Lens' DescribeScalingActivities (Maybe Text)
 desAutoScalingGroupName = lens _desAutoScalingGroupName (\ s a -> s{_desAutoScalingGroupName = a});
+
+-- | The maximum number of items to return with this call.
+desMaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
+desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a});
 
 -- | The activity IDs of the desired scaling activities. If this list is
 -- omitted, all activities are described. If the 'AutoScalingGroupName'
@@ -135,16 +135,16 @@ instance ToQuery DescribeScalingActivities where
                  ("DescribeScalingActivities" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "NextToken" =: _desNextToken,
-               "MaxRecords" =: _desMaxRecords,
                "AutoScalingGroupName" =: _desAutoScalingGroupName,
+               "MaxRecords" =: _desMaxRecords,
                "ActivityIds" =:
                  toQuery (toQueryList "member" <$> _desActivityIds)]
 
 -- | /See:/ 'describeScalingActivitiesResponse' smart constructor.
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
-    { _dsasrsNextToken  :: !(Maybe Text)
-    , _dsasrsStatus     :: !Int
-    , _dsasrsActivities :: ![Activity]
+    { _dsasrsNextToken      :: !(Maybe Text)
+    , _dsasrsResponseStatus :: !Int
+    , _dsasrsActivities     :: ![Activity]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeScalingActivitiesResponse' with the minimum fields required to make a request.
@@ -153,16 +153,16 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
 --
 -- * 'dsasrsNextToken'
 --
--- * 'dsasrsStatus'
+-- * 'dsasrsResponseStatus'
 --
 -- * 'dsasrsActivities'
 describeScalingActivitiesResponse
-    :: Int -- ^ 'dsasrsStatus'
+    :: Int -- ^ 'dsasrsResponseStatus'
     -> DescribeScalingActivitiesResponse
-describeScalingActivitiesResponse pStatus_ =
+describeScalingActivitiesResponse pResponseStatus_ =
     DescribeScalingActivitiesResponse'
     { _dsasrsNextToken = Nothing
-    , _dsasrsStatus = pStatus_
+    , _dsasrsResponseStatus = pResponseStatus_
     , _dsasrsActivities = mempty
     }
 
@@ -172,8 +172,8 @@ dsasrsNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
 dsasrsNextToken = lens _dsasrsNextToken (\ s a -> s{_dsasrsNextToken = a});
 
 -- | The response status code.
-dsasrsStatus :: Lens' DescribeScalingActivitiesResponse Int
-dsasrsStatus = lens _dsasrsStatus (\ s a -> s{_dsasrsStatus = a});
+dsasrsResponseStatus :: Lens' DescribeScalingActivitiesResponse Int
+dsasrsResponseStatus = lens _dsasrsResponseStatus (\ s a -> s{_dsasrsResponseStatus = a});
 
 -- | The scaling activities.
 dsasrsActivities :: Lens' DescribeScalingActivitiesResponse [Activity]

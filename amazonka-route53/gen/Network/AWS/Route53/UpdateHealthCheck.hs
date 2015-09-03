@@ -33,8 +33,8 @@ module Network.AWS.Route53.UpdateHealthCheck
       updateHealthCheck
     , UpdateHealthCheck
     -- * Request Lenses
-    , uhcIPAddress
     , uhcFailureThreshold
+    , uhcIPAddress
     , uhcSearchString
     , uhcResourcePath
     , uhcHealthCheckVersion
@@ -46,7 +46,7 @@ module Network.AWS.Route53.UpdateHealthCheck
     , updateHealthCheckResponse
     , UpdateHealthCheckResponse
     -- * Response Lenses
-    , uhcrsStatus
+    , uhcrsResponseStatus
     , uhcrsHealthCheck
     ) where
 
@@ -61,8 +61,8 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'updateHealthCheck' smart constructor.
 data UpdateHealthCheck = UpdateHealthCheck'
-    { _uhcIPAddress                :: !(Maybe Text)
-    , _uhcFailureThreshold         :: !(Maybe Nat)
+    { _uhcFailureThreshold         :: !(Maybe Nat)
+    , _uhcIPAddress                :: !(Maybe Text)
     , _uhcSearchString             :: !(Maybe Text)
     , _uhcResourcePath             :: !(Maybe Text)
     , _uhcHealthCheckVersion       :: !(Maybe Nat)
@@ -75,9 +75,9 @@ data UpdateHealthCheck = UpdateHealthCheck'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uhcIPAddress'
---
 -- * 'uhcFailureThreshold'
+--
+-- * 'uhcIPAddress'
 --
 -- * 'uhcSearchString'
 --
@@ -95,8 +95,8 @@ updateHealthCheck
     -> UpdateHealthCheck
 updateHealthCheck pHealthCheckId_ =
     UpdateHealthCheck'
-    { _uhcIPAddress = Nothing
-    , _uhcFailureThreshold = Nothing
+    { _uhcFailureThreshold = Nothing
+    , _uhcIPAddress = Nothing
     , _uhcSearchString = Nothing
     , _uhcResourcePath = Nothing
     , _uhcHealthCheckVersion = Nothing
@@ -104,12 +104,6 @@ updateHealthCheck pHealthCheckId_ =
     , _uhcPort = Nothing
     , _uhcHealthCheckId = pHealthCheckId_
     }
-
--- | The IP address of the resource that you want to check.
---
--- Specify this value only if you want to change it.
-uhcIPAddress :: Lens' UpdateHealthCheck (Maybe Text)
-uhcIPAddress = lens _uhcIPAddress (\ s a -> s{_uhcIPAddress = a});
 
 -- | The number of consecutive health checks that an endpoint must pass or
 -- fail for Route 53 to change the current status of the endpoint from
@@ -122,6 +116,12 @@ uhcIPAddress = lens _uhcIPAddress (\ s a -> s{_uhcIPAddress = a});
 -- Specify this value only if you want to change it.
 uhcFailureThreshold :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcFailureThreshold = lens _uhcFailureThreshold (\ s a -> s{_uhcFailureThreshold = a}) . mapping _Nat;
+
+-- | The IP address of the resource that you want to check.
+--
+-- Specify this value only if you want to change it.
+uhcIPAddress :: Lens' UpdateHealthCheck (Maybe Text)
+uhcIPAddress = lens _uhcIPAddress (\ s a -> s{_uhcIPAddress = a});
 
 -- | If the value of 'Type' is 'HTTP_STR_MATCH' or 'HTTP_STR_MATCH', the
 -- string that you want Route 53 to search for in the response body from
@@ -194,8 +194,8 @@ instance ToQuery UpdateHealthCheck where
 instance ToXML UpdateHealthCheck where
         toXML UpdateHealthCheck'{..}
           = mconcat
-              ["IPAddress" @= _uhcIPAddress,
-               "FailureThreshold" @= _uhcFailureThreshold,
+              ["FailureThreshold" @= _uhcFailureThreshold,
+               "IPAddress" @= _uhcIPAddress,
                "SearchString" @= _uhcSearchString,
                "ResourcePath" @= _uhcResourcePath,
                "HealthCheckVersion" @= _uhcHealthCheckVersion,
@@ -205,30 +205,30 @@ instance ToXML UpdateHealthCheck where
 
 -- | /See:/ 'updateHealthCheckResponse' smart constructor.
 data UpdateHealthCheckResponse = UpdateHealthCheckResponse'
-    { _uhcrsStatus      :: !Int
-    , _uhcrsHealthCheck :: !HealthCheck
+    { _uhcrsResponseStatus :: !Int
+    , _uhcrsHealthCheck    :: !HealthCheck
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateHealthCheckResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uhcrsStatus'
+-- * 'uhcrsResponseStatus'
 --
 -- * 'uhcrsHealthCheck'
 updateHealthCheckResponse
-    :: Int -- ^ 'uhcrsStatus'
+    :: Int -- ^ 'uhcrsResponseStatus'
     -> HealthCheck -- ^ 'uhcrsHealthCheck'
     -> UpdateHealthCheckResponse
-updateHealthCheckResponse pStatus_ pHealthCheck_ =
+updateHealthCheckResponse pResponseStatus_ pHealthCheck_ =
     UpdateHealthCheckResponse'
-    { _uhcrsStatus = pStatus_
+    { _uhcrsResponseStatus = pResponseStatus_
     , _uhcrsHealthCheck = pHealthCheck_
     }
 
 -- | The response status code.
-uhcrsStatus :: Lens' UpdateHealthCheckResponse Int
-uhcrsStatus = lens _uhcrsStatus (\ s a -> s{_uhcrsStatus = a});
+uhcrsResponseStatus :: Lens' UpdateHealthCheckResponse Int
+uhcrsResponseStatus = lens _uhcrsResponseStatus (\ s a -> s{_uhcrsResponseStatus = a});
 
 -- | Undocumented member.
 uhcrsHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck

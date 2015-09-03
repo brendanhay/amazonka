@@ -36,7 +36,7 @@ module Network.AWS.ImportExport.CancelJob
     , CancelJobResponse
     -- * Response Lenses
     , crsSuccess
-    , crsStatus
+    , crsResponseStatus
     ) where
 
 import           Network.AWS.ImportExport.Types
@@ -104,8 +104,8 @@ instance ToQuery CancelJob where
 --
 -- /See:/ 'cancelJobResponse' smart constructor.
 data CancelJobResponse = CancelJobResponse'
-    { _crsSuccess :: !(Maybe Bool)
-    , _crsStatus  :: !Int
+    { _crsSuccess        :: !(Maybe Bool)
+    , _crsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CancelJobResponse' with the minimum fields required to make a request.
@@ -114,14 +114,14 @@ data CancelJobResponse = CancelJobResponse'
 --
 -- * 'crsSuccess'
 --
--- * 'crsStatus'
+-- * 'crsResponseStatus'
 cancelJobResponse
-    :: Int -- ^ 'crsStatus'
+    :: Int -- ^ 'crsResponseStatus'
     -> CancelJobResponse
-cancelJobResponse pStatus_ =
+cancelJobResponse pResponseStatus_ =
     CancelJobResponse'
     { _crsSuccess = Nothing
-    , _crsStatus = pStatus_
+    , _crsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -129,5 +129,5 @@ crsSuccess :: Lens' CancelJobResponse (Maybe Bool)
 crsSuccess = lens _crsSuccess (\ s a -> s{_crsSuccess = a});
 
 -- | The response status code.
-crsStatus :: Lens' CancelJobResponse Int
-crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});
+crsResponseStatus :: Lens' CancelJobResponse Int
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});

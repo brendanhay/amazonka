@@ -28,26 +28,26 @@ import Test.AWS.KMS.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testDisableKeyRotation $
+--         [ testEncrypt $
+--             encrypt
+--
+--         , testListGrants $
+--             listGrants
+--
+--         , testDisableKeyRotation $
 --             disableKeyRotation
 --
 --         , testGenerateDataKeyWithoutPlaintext $
 --             generateDataKeyWithoutPlaintext
 --
---         , testListGrants $
---             listGrants
---
---         , testEncrypt $
---             encrypt
---
 --         , testEnableKeyRotation $
 --             enableKeyRotation
 --
---         , testCreateGrant $
---             createGrant
---
 --         , testCreateAlias $
 --             createAlias
+--
+--         , testCreateGrant $
+--             createGrant
 --
 --         , testListAliases $
 --             listAliases
@@ -55,11 +55,11 @@ import Test.AWS.KMS.Internal
 --         , testGenerateRandom $
 --             generateRandom
 --
---         , testDisableKey $
---             disableKey
---
 --         , testCreateKey $
 --             createKey
+--
+--         , testDisableKey $
+--             disableKey
 --
 --         , testRetireGrant $
 --             retireGrant
@@ -94,11 +94,11 @@ import Test.AWS.KMS.Internal
 --         , testListKeyPolicies $
 --             listKeyPolicies
 --
---         , testEnableKey $
---             enableKey
---
 --         , testPutKeyPolicy $
 --             putKeyPolicy
+--
+--         , testEnableKey $
+--             enableKey
 --
 --         , testRevokeGrant $
 --             revokeGrant
@@ -109,26 +109,26 @@ import Test.AWS.KMS.Internal
 --           ]
 
 --     , testGroup "response"
---         [ testDisableKeyRotationResponse $
+--         [ testEncryptResponse $
+--             encryptResponse
+--
+--         , testListGrantsResponse $
+--             listGrantsResponse
+--
+--         , testDisableKeyRotationResponse $
 --             disableKeyRotationResponse
 --
 --         , testGenerateDataKeyWithoutPlaintextResponse $
 --             generateDataKeyWithoutPlaintextResponse
 --
---         , testListGrantsResponse $
---             listGrantsResponse
---
---         , testEncryptResponse $
---             encryptResponse
---
 --         , testEnableKeyRotationResponse $
 --             enableKeyRotationResponse
 --
---         , testCreateGrantResponse $
---             createGrantResponse
---
 --         , testCreateAliasResponse $
 --             createAliasResponse
+--
+--         , testCreateGrantResponse $
+--             createGrantResponse
 --
 --         , testListAliasesResponse $
 --             listAliasesResponse
@@ -136,11 +136,11 @@ import Test.AWS.KMS.Internal
 --         , testGenerateRandomResponse $
 --             generateRandomResponse
 --
---         , testDisableKeyResponse $
---             disableKeyResponse
---
 --         , testCreateKeyResponse $
 --             createKeyResponse
+--
+--         , testDisableKeyResponse $
+--             disableKeyResponse
 --
 --         , testRetireGrantResponse $
 --             retireGrantResponse
@@ -175,11 +175,11 @@ import Test.AWS.KMS.Internal
 --         , testListKeyPoliciesResponse $
 --             listKeyPoliciesResponse
 --
---         , testEnableKeyResponse $
---             enableKeyResponse
---
 --         , testPutKeyPolicyResponse $
 --             putKeyPolicyResponse
+--
+--         , testEnableKeyResponse $
+--             enableKeyResponse
 --
 --         , testRevokeGrantResponse $
 --             revokeGrantResponse
@@ -192,6 +192,16 @@ import Test.AWS.KMS.Internal
 
 -- Requests
 
+testEncrypt :: Encrypt -> TestTree
+testEncrypt = req
+    "Encrypt"
+    "fixture/Encrypt.yaml"
+
+testListGrants :: ListGrants -> TestTree
+testListGrants = req
+    "ListGrants"
+    "fixture/ListGrants.yaml"
+
 testDisableKeyRotation :: DisableKeyRotation -> TestTree
 testDisableKeyRotation = req
     "DisableKeyRotation"
@@ -202,30 +212,20 @@ testGenerateDataKeyWithoutPlaintext = req
     "GenerateDataKeyWithoutPlaintext"
     "fixture/GenerateDataKeyWithoutPlaintext.yaml"
 
-testListGrants :: ListGrants -> TestTree
-testListGrants = req
-    "ListGrants"
-    "fixture/ListGrants.yaml"
-
-testEncrypt :: Encrypt -> TestTree
-testEncrypt = req
-    "Encrypt"
-    "fixture/Encrypt.yaml"
-
 testEnableKeyRotation :: EnableKeyRotation -> TestTree
 testEnableKeyRotation = req
     "EnableKeyRotation"
     "fixture/EnableKeyRotation.yaml"
 
-testCreateGrant :: CreateGrant -> TestTree
-testCreateGrant = req
-    "CreateGrant"
-    "fixture/CreateGrant.yaml"
-
 testCreateAlias :: CreateAlias -> TestTree
 testCreateAlias = req
     "CreateAlias"
     "fixture/CreateAlias.yaml"
+
+testCreateGrant :: CreateGrant -> TestTree
+testCreateGrant = req
+    "CreateGrant"
+    "fixture/CreateGrant.yaml"
 
 testListAliases :: ListAliases -> TestTree
 testListAliases = req
@@ -237,15 +237,15 @@ testGenerateRandom = req
     "GenerateRandom"
     "fixture/GenerateRandom.yaml"
 
-testDisableKey :: DisableKey -> TestTree
-testDisableKey = req
-    "DisableKey"
-    "fixture/DisableKey.yaml"
-
 testCreateKey :: CreateKey -> TestTree
 testCreateKey = req
     "CreateKey"
     "fixture/CreateKey.yaml"
+
+testDisableKey :: DisableKey -> TestTree
+testDisableKey = req
+    "DisableKey"
+    "fixture/DisableKey.yaml"
 
 testRetireGrant :: RetireGrant -> TestTree
 testRetireGrant = req
@@ -302,15 +302,15 @@ testListKeyPolicies = req
     "ListKeyPolicies"
     "fixture/ListKeyPolicies.yaml"
 
-testEnableKey :: EnableKey -> TestTree
-testEnableKey = req
-    "EnableKey"
-    "fixture/EnableKey.yaml"
-
 testPutKeyPolicy :: PutKeyPolicy -> TestTree
 testPutKeyPolicy = req
     "PutKeyPolicy"
     "fixture/PutKeyPolicy.yaml"
+
+testEnableKey :: EnableKey -> TestTree
+testEnableKey = req
+    "EnableKey"
+    "fixture/EnableKey.yaml"
 
 testRevokeGrant :: RevokeGrant -> TestTree
 testRevokeGrant = req
@@ -323,6 +323,20 @@ testGetKeyPolicy = req
     "fixture/GetKeyPolicy.yaml"
 
 -- Responses
+
+testEncryptResponse :: EncryptResponse -> TestTree
+testEncryptResponse = res
+    "EncryptResponse"
+    "fixture/EncryptResponse.proto"
+    kMS
+    (Proxy :: Proxy Encrypt)
+
+testListGrantsResponse :: ListGrantsResponse -> TestTree
+testListGrantsResponse = res
+    "ListGrantsResponse"
+    "fixture/ListGrantsResponse.proto"
+    kMS
+    (Proxy :: Proxy ListGrants)
 
 testDisableKeyRotationResponse :: DisableKeyRotationResponse -> TestTree
 testDisableKeyRotationResponse = res
@@ -338,20 +352,6 @@ testGenerateDataKeyWithoutPlaintextResponse = res
     kMS
     (Proxy :: Proxy GenerateDataKeyWithoutPlaintext)
 
-testListGrantsResponse :: ListGrantsResponse -> TestTree
-testListGrantsResponse = res
-    "ListGrantsResponse"
-    "fixture/ListGrantsResponse.proto"
-    kMS
-    (Proxy :: Proxy ListGrants)
-
-testEncryptResponse :: EncryptResponse -> TestTree
-testEncryptResponse = res
-    "EncryptResponse"
-    "fixture/EncryptResponse.proto"
-    kMS
-    (Proxy :: Proxy Encrypt)
-
 testEnableKeyRotationResponse :: EnableKeyRotationResponse -> TestTree
 testEnableKeyRotationResponse = res
     "EnableKeyRotationResponse"
@@ -359,19 +359,19 @@ testEnableKeyRotationResponse = res
     kMS
     (Proxy :: Proxy EnableKeyRotation)
 
-testCreateGrantResponse :: CreateGrantResponse -> TestTree
-testCreateGrantResponse = res
-    "CreateGrantResponse"
-    "fixture/CreateGrantResponse.proto"
-    kMS
-    (Proxy :: Proxy CreateGrant)
-
 testCreateAliasResponse :: CreateAliasResponse -> TestTree
 testCreateAliasResponse = res
     "CreateAliasResponse"
     "fixture/CreateAliasResponse.proto"
     kMS
     (Proxy :: Proxy CreateAlias)
+
+testCreateGrantResponse :: CreateGrantResponse -> TestTree
+testCreateGrantResponse = res
+    "CreateGrantResponse"
+    "fixture/CreateGrantResponse.proto"
+    kMS
+    (Proxy :: Proxy CreateGrant)
 
 testListAliasesResponse :: ListAliasesResponse -> TestTree
 testListAliasesResponse = res
@@ -387,19 +387,19 @@ testGenerateRandomResponse = res
     kMS
     (Proxy :: Proxy GenerateRandom)
 
-testDisableKeyResponse :: DisableKeyResponse -> TestTree
-testDisableKeyResponse = res
-    "DisableKeyResponse"
-    "fixture/DisableKeyResponse.proto"
-    kMS
-    (Proxy :: Proxy DisableKey)
-
 testCreateKeyResponse :: CreateKeyResponse -> TestTree
 testCreateKeyResponse = res
     "CreateKeyResponse"
     "fixture/CreateKeyResponse.proto"
     kMS
     (Proxy :: Proxy CreateKey)
+
+testDisableKeyResponse :: DisableKeyResponse -> TestTree
+testDisableKeyResponse = res
+    "DisableKeyResponse"
+    "fixture/DisableKeyResponse.proto"
+    kMS
+    (Proxy :: Proxy DisableKey)
 
 testRetireGrantResponse :: RetireGrantResponse -> TestTree
 testRetireGrantResponse = res
@@ -478,19 +478,19 @@ testListKeyPoliciesResponse = res
     kMS
     (Proxy :: Proxy ListKeyPolicies)
 
-testEnableKeyResponse :: EnableKeyResponse -> TestTree
-testEnableKeyResponse = res
-    "EnableKeyResponse"
-    "fixture/EnableKeyResponse.proto"
-    kMS
-    (Proxy :: Proxy EnableKey)
-
 testPutKeyPolicyResponse :: PutKeyPolicyResponse -> TestTree
 testPutKeyPolicyResponse = res
     "PutKeyPolicyResponse"
     "fixture/PutKeyPolicyResponse.proto"
     kMS
     (Proxy :: Proxy PutKeyPolicy)
+
+testEnableKeyResponse :: EnableKeyResponse -> TestTree
+testEnableKeyResponse = res
+    "EnableKeyResponse"
+    "fixture/EnableKeyResponse.proto"
+    kMS
+    (Proxy :: Proxy EnableKey)
 
 testRevokeGrantResponse :: RevokeGrantResponse -> TestTree
 testRevokeGrantResponse = res

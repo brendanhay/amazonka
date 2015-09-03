@@ -49,38 +49,32 @@ module Network.AWS.RDS
     -- * Errors
     -- $errors
 
-    -- ** CertificateNotFoundFault
-    , _CertificateNotFoundFault
-
-    -- ** ReservedDBInstanceQuotaExceededFault
-    , _ReservedDBInstanceQuotaExceededFault
-
-    -- ** DBClusterSnapshotAlreadyExistsFault
-    , _DBClusterSnapshotAlreadyExistsFault
-
-    -- ** AuthorizationQuotaExceededFault
-    , _AuthorizationQuotaExceededFault
-
-    -- ** SourceNotFoundFault
-    , _SourceNotFoundFault
+    -- ** PointInTimeRestoreNotEnabledFault
+    , _PointInTimeRestoreNotEnabledFault
 
     -- ** InvalidDBParameterGroupStateFault
     , _InvalidDBParameterGroupStateFault
 
+    -- ** ReservedDBInstanceQuotaExceededFault
+    , _ReservedDBInstanceQuotaExceededFault
+
+    -- ** SourceNotFoundFault
+    , _SourceNotFoundFault
+
+    -- ** CertificateNotFoundFault
+    , _CertificateNotFoundFault
+
+    -- ** AuthorizationQuotaExceededFault
+    , _AuthorizationQuotaExceededFault
+
+    -- ** DBClusterSnapshotAlreadyExistsFault
+    , _DBClusterSnapshotAlreadyExistsFault
+
     -- ** DBParameterGroupAlreadyExistsFault
     , _DBParameterGroupAlreadyExistsFault
 
-    -- ** PointInTimeRestoreNotEnabledFault
-    , _PointInTimeRestoreNotEnabledFault
-
     -- ** DBParameterGroupQuotaExceededFault
     , _DBParameterGroupQuotaExceededFault
-
-    -- ** ProvisionedIOPSNotAvailableInAZFault
-    , _ProvisionedIOPSNotAvailableInAZFault
-
-    -- ** AuthorizationAlreadyExistsFault
-    , _AuthorizationAlreadyExistsFault
 
     -- ** InsufficientDBClusterCapacityFault
     , _InsufficientDBClusterCapacityFault
@@ -88,11 +82,14 @@ module Network.AWS.RDS
     -- ** ReservedDBInstanceAlreadyExistsFault
     , _ReservedDBInstanceAlreadyExistsFault
 
+    -- ** ProvisionedIOPSNotAvailableInAZFault
+    , _ProvisionedIOPSNotAvailableInAZFault
+
+    -- ** AuthorizationAlreadyExistsFault
+    , _AuthorizationAlreadyExistsFault
+
     -- ** SubscriptionCategoryNotFoundFault
     , _SubscriptionCategoryNotFoundFault
-
-    -- ** DBSubnetQuotaExceededFault
-    , _DBSubnetQuotaExceededFault
 
     -- ** SubscriptionNotFoundFault
     , _SubscriptionNotFoundFault
@@ -100,17 +97,17 @@ module Network.AWS.RDS
     -- ** InvalidSubnet
     , _InvalidSubnet
 
-    -- ** DBClusterNotFoundFault
-    , _DBClusterNotFoundFault
+    -- ** DBSubnetQuotaExceededFault
+    , _DBSubnetQuotaExceededFault
 
     -- ** OptionGroupNotFoundFault
     , _OptionGroupNotFoundFault
 
+    -- ** DBClusterNotFoundFault
+    , _DBClusterNotFoundFault
+
     -- ** DBLogFileNotFoundFault
     , _DBLogFileNotFoundFault
-
-    -- ** OptionGroupAlreadyExistsFault
-    , _OptionGroupAlreadyExistsFault
 
     -- ** DBClusterAlreadyExistsFault
     , _DBClusterAlreadyExistsFault
@@ -121,14 +118,8 @@ module Network.AWS.RDS
     -- ** DBSecurityGroupQuotaExceededFault
     , _DBSecurityGroupQuotaExceededFault
 
-    -- ** DBSnapshotNotFoundFault
-    , _DBSnapshotNotFoundFault
-
-    -- ** InvalidEventSubscriptionStateFault
-    , _InvalidEventSubscriptionStateFault
-
-    -- ** KMSKeyNotAccessibleFault
-    , _KMSKeyNotAccessibleFault
+    -- ** OptionGroupAlreadyExistsFault
+    , _OptionGroupAlreadyExistsFault
 
     -- ** OptionGroupQuotaExceededFault
     , _OptionGroupQuotaExceededFault
@@ -136,23 +127,29 @@ module Network.AWS.RDS
     -- ** DBSecurityGroupAlreadyExistsFault
     , _DBSecurityGroupAlreadyExistsFault
 
-    -- ** SnapshotQuotaExceededFault
-    , _SnapshotQuotaExceededFault
-
     -- ** SNSTopicARNNotFoundFault
     , _SNSTopicARNNotFoundFault
 
-    -- ** DBClusterQuotaExceededFault
-    , _DBClusterQuotaExceededFault
+    -- ** InvalidEventSubscriptionStateFault
+    , _InvalidEventSubscriptionStateFault
+
+    -- ** KMSKeyNotAccessibleFault
+    , _KMSKeyNotAccessibleFault
+
+    -- ** DBSnapshotNotFoundFault
+    , _DBSnapshotNotFoundFault
 
     -- ** DBClusterParameterGroupNotFoundFault
     , _DBClusterParameterGroupNotFoundFault
 
+    -- ** DBClusterQuotaExceededFault
+    , _DBClusterQuotaExceededFault
+
+    -- ** SnapshotQuotaExceededFault
+    , _SnapshotQuotaExceededFault
+
     -- ** DBSubnetGroupAlreadyExistsFault
     , _DBSubnetGroupAlreadyExistsFault
-
-    -- ** InstanceQuotaExceededFault
-    , _InstanceQuotaExceededFault
 
     -- ** SNSNoAuthorizationFault
     , _SNSNoAuthorizationFault
@@ -163,35 +160,38 @@ module Network.AWS.RDS
     -- ** DBSecurityGroupNotSupportedFault
     , _DBSecurityGroupNotSupportedFault
 
+    -- ** InstanceQuotaExceededFault
+    , _InstanceQuotaExceededFault
+
     -- ** DomainNotFoundFault
     , _DomainNotFoundFault
-
-    -- ** DBClusterSnapshotNotFoundFault
-    , _DBClusterSnapshotNotFoundFault
-
-    -- ** ReservedDBInstancesOfferingNotFoundFault
-    , _ReservedDBInstancesOfferingNotFoundFault
-
-    -- ** InvalidDBSubnetGroupFault
-    , _InvalidDBSubnetGroupFault
-
-    -- ** InvalidDBSubnetStateFault
-    , _InvalidDBSubnetStateFault
 
     -- ** DBParameterGroupNotFoundFault
     , _DBParameterGroupNotFoundFault
 
+    -- ** InvalidDBSubnetGroupFault
+    , _InvalidDBSubnetGroupFault
+
+    -- ** ReservedDBInstancesOfferingNotFoundFault
+    , _ReservedDBInstancesOfferingNotFoundFault
+
+    -- ** InvalidDBSubnetStateFault
+    , _InvalidDBSubnetStateFault
+
+    -- ** DBClusterSnapshotNotFoundFault
+    , _DBClusterSnapshotNotFoundFault
+
     -- ** SNSInvalidTopicFault
     , _SNSInvalidTopicFault
 
-    -- ** SubscriptionAlreadyExistFault
-    , _SubscriptionAlreadyExistFault
+    -- ** InsufficientDBInstanceCapacityFault
+    , _InsufficientDBInstanceCapacityFault
 
     -- ** InvalidDBClusterSnapshotStateFault
     , _InvalidDBClusterSnapshotStateFault
 
-    -- ** InsufficientDBInstanceCapacityFault
-    , _InsufficientDBInstanceCapacityFault
+    -- ** SubscriptionAlreadyExistFault
+    , _SubscriptionAlreadyExistFault
 
     -- ** InvalidVPCNetworkStateFault
     , _InvalidVPCNetworkStateFault
@@ -211,26 +211,26 @@ module Network.AWS.RDS
     -- ** EventSubscriptionQuotaExceededFault
     , _EventSubscriptionQuotaExceededFault
 
+    -- ** InsufficientStorageClusterCapacityFault
+    , _InsufficientStorageClusterCapacityFault
+
     -- ** InvalidOptionGroupStateFault
     , _InvalidOptionGroupStateFault
 
     -- ** InvalidDBClusterStateFault
     , _InvalidDBClusterStateFault
 
-    -- ** InsufficientStorageClusterCapacityFault
-    , _InsufficientStorageClusterCapacityFault
-
     -- ** DBInstanceAlreadyExistsFault
     , _DBInstanceAlreadyExistsFault
 
-    -- ** ResourceNotFoundFault
-    , _ResourceNotFoundFault
-
-    -- ** DBUpgradeDependencyFailureFault
-    , _DBUpgradeDependencyFailureFault
+    -- ** InvalidRestoreFault
+    , _InvalidRestoreFault
 
     -- ** InvalidDBSecurityGroupStateFault
     , _InvalidDBSecurityGroupStateFault
+
+    -- ** ResourceNotFoundFault
+    , _ResourceNotFoundFault
 
     -- ** InsufficientDomainCapacityFault
     , _InsufficientDomainCapacityFault
@@ -238,20 +238,11 @@ module Network.AWS.RDS
     -- ** DBSubnetGroupNotFoundFault
     , _DBSubnetGroupNotFoundFault
 
-    -- ** InvalidRestoreFault
-    , _InvalidRestoreFault
+    -- ** DBUpgradeDependencyFailureFault
+    , _DBUpgradeDependencyFailureFault
 
     -- ** InvalidDBInstanceStateFault
     , _InvalidDBInstanceStateFault
-
-    -- ** InvalidDBSnapshotStateFault
-    , _InvalidDBSnapshotStateFault
-
-    -- ** InvalidDBSubnetGroupStateFault
-    , _InvalidDBSubnetGroupStateFault
-
-    -- ** StorageQuotaExceededFault
-    , _StorageQuotaExceededFault
 
     -- ** DBSnapshotAlreadyExistsFault
     , _DBSnapshotAlreadyExistsFault
@@ -259,11 +250,20 @@ module Network.AWS.RDS
     -- ** DBInstanceNotFoundFault
     , _DBInstanceNotFoundFault
 
-    -- ** SubnetAlreadyInUse
-    , _SubnetAlreadyInUse
+    -- ** StorageQuotaExceededFault
+    , _StorageQuotaExceededFault
+
+    -- ** InvalidDBSnapshotStateFault
+    , _InvalidDBSnapshotStateFault
+
+    -- ** InvalidDBSubnetGroupStateFault
+    , _InvalidDBSubnetGroupStateFault
 
     -- ** DBSubnetGroupDoesNotCoverEnoughAZs
     , _DBSubnetGroupDoesNotCoverEnoughAZs
+
+    -- ** SubnetAlreadyInUse
+    , _SubnetAlreadyInUse
 
     -- * Waiters
     -- $waiters
@@ -280,17 +280,14 @@ module Network.AWS.RDS
     -- * Operations
     -- $operations
 
-    -- ** DescribeDBEngineVersions (Paginated)
-    , module Network.AWS.RDS.DescribeDBEngineVersions
-
     -- ** DescribeDBClusterParameterGroups
     , module Network.AWS.RDS.DescribeDBClusterParameterGroups
 
     -- ** PromoteReadReplica
     , module Network.AWS.RDS.PromoteReadReplica
 
-    -- ** ModifyEventSubscription
-    , module Network.AWS.RDS.ModifyEventSubscription
+    -- ** DescribeDBEngineVersions (Paginated)
+    , module Network.AWS.RDS.DescribeDBEngineVersions
 
     -- ** CopyDBSnapshot
     , module Network.AWS.RDS.CopyDBSnapshot
@@ -301,6 +298,9 @@ module Network.AWS.RDS
     -- ** ModifyDBInstance
     , module Network.AWS.RDS.ModifyDBInstance
 
+    -- ** ModifyEventSubscription
+    , module Network.AWS.RDS.ModifyEventSubscription
+
     -- ** ResetDBClusterParameterGroup
     , module Network.AWS.RDS.ResetDBClusterParameterGroup
 
@@ -310,65 +310,71 @@ module Network.AWS.RDS
     -- ** DescribeEngineDefaultParameters (Paginated)
     , module Network.AWS.RDS.DescribeEngineDefaultParameters
 
+    -- ** DescribeOptionGroups (Paginated)
+    , module Network.AWS.RDS.DescribeOptionGroups
+
+    -- ** DescribeDBLogFiles (Paginated)
+    , module Network.AWS.RDS.DescribeDBLogFiles
+
     -- ** DescribeDBClusters
     , module Network.AWS.RDS.DescribeDBClusters
 
     -- ** ModifyDBSubnetGroup
     , module Network.AWS.RDS.ModifyDBSubnetGroup
 
-    -- ** DescribeDBLogFiles (Paginated)
-    , module Network.AWS.RDS.DescribeDBLogFiles
-
     -- ** ListTagsForResource
     , module Network.AWS.RDS.ListTagsForResource
-
-    -- ** DescribeOptionGroups (Paginated)
-    , module Network.AWS.RDS.DescribeOptionGroups
-
-    -- ** DeleteDBCluster
-    , module Network.AWS.RDS.DeleteDBCluster
-
-    -- ** RemoveSourceIdentifierFromSubscription
-    , module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
-
-    -- ** CopyDBParameterGroup
-    , module Network.AWS.RDS.CopyDBParameterGroup
-
-    -- ** DescribeReservedDBInstances (Paginated)
-    , module Network.AWS.RDS.DescribeReservedDBInstances
 
     -- ** DeleteOptionGroup
     , module Network.AWS.RDS.DeleteOptionGroup
 
+    -- ** DeleteDBCluster
+    , module Network.AWS.RDS.DeleteDBCluster
+
+    -- ** DescribeReservedDBInstances (Paginated)
+    , module Network.AWS.RDS.DescribeReservedDBInstances
+
+    -- ** CopyDBParameterGroup
+    , module Network.AWS.RDS.CopyDBParameterGroup
+
+    -- ** RemoveSourceIdentifierFromSubscription
+    , module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
+
     -- ** DescribeEngineDefaultClusterParameters
     , module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
-
-    -- ** CreateEventSubscription
-    , module Network.AWS.RDS.CreateEventSubscription
 
     -- ** RemoveTagsFromResource
     , module Network.AWS.RDS.RemoveTagsFromResource
 
-    -- ** CreateDBInstance
-    , module Network.AWS.RDS.CreateDBInstance
-
     -- ** RestoreDBInstanceFromDBSnapshot
     , module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
 
-    -- ** AuthorizeDBSecurityGroupIngress
-    , module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
-
-    -- ** DeleteDBClusterParameterGroup
-    , module Network.AWS.RDS.DeleteDBClusterParameterGroup
+    -- ** CreateEventSubscription
+    , module Network.AWS.RDS.CreateEventSubscription
 
     -- ** PurchaseReservedDBInstancesOffering
     , module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
 
+    -- ** CreateDBInstance
+    , module Network.AWS.RDS.CreateDBInstance
+
+    -- ** DeleteDBClusterParameterGroup
+    , module Network.AWS.RDS.DeleteDBClusterParameterGroup
+
     -- ** DescribeCertificates
     , module Network.AWS.RDS.DescribeCertificates
 
+    -- ** AuthorizeDBSecurityGroupIngress
+    , module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
+
     -- ** RestoreDBClusterFromSnapshot
     , module Network.AWS.RDS.RestoreDBClusterFromSnapshot
+
+    -- ** DescribeOrderableDBInstanceOptions (Paginated)
+    , module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
+
+    -- ** CreateDBClusterParameterGroup
+    , module Network.AWS.RDS.CreateDBClusterParameterGroup
 
     -- ** CreateDBSnapshot
     , module Network.AWS.RDS.CreateDBSnapshot
@@ -379,11 +385,11 @@ module Network.AWS.RDS
     -- ** DescribeDBParameterGroups (Paginated)
     , module Network.AWS.RDS.DescribeDBParameterGroups
 
-    -- ** DescribeOrderableDBInstanceOptions (Paginated)
-    , module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
+    -- ** DeleteDBClusterSnapshot
+    , module Network.AWS.RDS.DeleteDBClusterSnapshot
 
-    -- ** CreateDBClusterParameterGroup
-    , module Network.AWS.RDS.CreateDBClusterParameterGroup
+    -- ** DescribeOptionGroupOptions (Paginated)
+    , module Network.AWS.RDS.DescribeOptionGroupOptions
 
     -- ** DescribeEventSubscriptions (Paginated)
     , module Network.AWS.RDS.DescribeEventSubscriptions
@@ -391,14 +397,11 @@ module Network.AWS.RDS
     -- ** AddTagsToResource
     , module Network.AWS.RDS.AddTagsToResource
 
-    -- ** DescribeOptionGroupOptions (Paginated)
-    , module Network.AWS.RDS.DescribeOptionGroupOptions
-
     -- ** DescribeDBParameters (Paginated)
     , module Network.AWS.RDS.DescribeDBParameters
 
-    -- ** DeleteDBClusterSnapshot
-    , module Network.AWS.RDS.DeleteDBClusterSnapshot
+    -- ** CreateDBClusterSnapshot
+    , module Network.AWS.RDS.CreateDBClusterSnapshot
 
     -- ** DescribeDBSnapshots (Paginated)
     , module Network.AWS.RDS.DescribeDBSnapshots
@@ -406,14 +409,11 @@ module Network.AWS.RDS
     -- ** DescribeDBSubnetGroups (Paginated)
     , module Network.AWS.RDS.DescribeDBSubnetGroups
 
-    -- ** CreateDBParameterGroup
-    , module Network.AWS.RDS.CreateDBParameterGroup
-
-    -- ** CreateDBClusterSnapshot
-    , module Network.AWS.RDS.CreateDBClusterSnapshot
-
     -- ** ModifyOptionGroup
     , module Network.AWS.RDS.ModifyOptionGroup
+
+    -- ** CreateDBParameterGroup
+    , module Network.AWS.RDS.CreateDBParameterGroup
 
     -- ** ModifyDBCluster
     , module Network.AWS.RDS.ModifyDBCluster
@@ -424,35 +424,38 @@ module Network.AWS.RDS
     -- ** ModifyDBClusterParameterGroup
     , module Network.AWS.RDS.ModifyDBClusterParameterGroup
 
-    -- ** DescribePendingMaintenanceActions
-    , module Network.AWS.RDS.DescribePendingMaintenanceActions
-
     -- ** RestoreDBInstanceToPointInTime
     , module Network.AWS.RDS.RestoreDBInstanceToPointInTime
 
-    -- ** ResetDBParameterGroup
-    , module Network.AWS.RDS.ResetDBParameterGroup
+    -- ** DescribePendingMaintenanceActions
+    , module Network.AWS.RDS.DescribePendingMaintenanceActions
 
     -- ** CopyDBClusterSnapshot
     , module Network.AWS.RDS.CopyDBClusterSnapshot
 
-    -- ** ModifyDBParameterGroup
-    , module Network.AWS.RDS.ModifyDBParameterGroup
-
-    -- ** FailoverDBCluster
-    , module Network.AWS.RDS.FailoverDBCluster
+    -- ** ResetDBParameterGroup
+    , module Network.AWS.RDS.ResetDBParameterGroup
 
     -- ** CreateDBCluster
     , module Network.AWS.RDS.CreateDBCluster
 
-    -- ** CreateOptionGroup
-    , module Network.AWS.RDS.CreateOptionGroup
+    -- ** FailoverDBCluster
+    , module Network.AWS.RDS.FailoverDBCluster
+
+    -- ** RevokeDBSecurityGroupIngress
+    , module Network.AWS.RDS.RevokeDBSecurityGroupIngress
+
+    -- ** ModifyDBParameterGroup
+    , module Network.AWS.RDS.ModifyDBParameterGroup
 
     -- ** ApplyPendingMaintenanceAction
     , module Network.AWS.RDS.ApplyPendingMaintenanceAction
 
-    -- ** RevokeDBSecurityGroupIngress
-    , module Network.AWS.RDS.RevokeDBSecurityGroupIngress
+    -- ** CreateOptionGroup
+    , module Network.AWS.RDS.CreateOptionGroup
+
+    -- ** DescribeAccountAttributes
+    , module Network.AWS.RDS.DescribeAccountAttributes
 
     -- ** DeleteDBSnapshot
     , module Network.AWS.RDS.DeleteDBSnapshot
@@ -460,23 +463,17 @@ module Network.AWS.RDS
     -- ** DescribeDBClusterParameters
     , module Network.AWS.RDS.DescribeDBClusterParameters
 
-    -- ** CreateDBSecurityGroup
-    , module Network.AWS.RDS.CreateDBSecurityGroup
-
     -- ** DeleteDBSubnetGroup
     , module Network.AWS.RDS.DeleteDBSubnetGroup
 
-    -- ** DescribeAccountAttributes
-    , module Network.AWS.RDS.DescribeAccountAttributes
-
-    -- ** DeleteDBSecurityGroup
-    , module Network.AWS.RDS.DeleteDBSecurityGroup
-
-    -- ** RebootDBInstance
-    , module Network.AWS.RDS.RebootDBInstance
+    -- ** CreateDBSecurityGroup
+    , module Network.AWS.RDS.CreateDBSecurityGroup
 
     -- ** DescribeDBClusterSnapshots
     , module Network.AWS.RDS.DescribeDBClusterSnapshots
+
+    -- ** RebootDBInstance
+    , module Network.AWS.RDS.RebootDBInstance
 
     -- ** CreateDBSubnetGroup
     , module Network.AWS.RDS.CreateDBSubnetGroup
@@ -484,29 +481,32 @@ module Network.AWS.RDS
     -- ** DescribeReservedDBInstancesOfferings (Paginated)
     , module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
 
+    -- ** DeleteDBSecurityGroup
+    , module Network.AWS.RDS.DeleteDBSecurityGroup
+
     -- ** DeleteDBInstance
     , module Network.AWS.RDS.DeleteDBInstance
 
-    -- ** DescribeDBInstances (Paginated)
-    , module Network.AWS.RDS.DescribeDBInstances
-
-    -- ** CopyOptionGroup
-    , module Network.AWS.RDS.CopyOptionGroup
-
-    -- ** DownloadDBLogFilePortion (Paginated)
-    , module Network.AWS.RDS.DownloadDBLogFilePortion
-
     -- ** CreateDBInstanceReadReplica
     , module Network.AWS.RDS.CreateDBInstanceReadReplica
-
-    -- ** RestoreDBClusterToPointInTime
-    , module Network.AWS.RDS.RestoreDBClusterToPointInTime
 
     -- ** DeleteDBParameterGroup
     , module Network.AWS.RDS.DeleteDBParameterGroup
 
     -- ** DescribeDBSecurityGroups (Paginated)
     , module Network.AWS.RDS.DescribeDBSecurityGroups
+
+    -- ** CopyOptionGroup
+    , module Network.AWS.RDS.CopyOptionGroup
+
+    -- ** RestoreDBClusterToPointInTime
+    , module Network.AWS.RDS.RestoreDBClusterToPointInTime
+
+    -- ** DescribeDBInstances (Paginated)
+    , module Network.AWS.RDS.DescribeDBInstances
+
+    -- ** DownloadDBLogFilePortion (Paginated)
+    , module Network.AWS.RDS.DownloadDBLogFilePortion
 
     -- * Types
 
@@ -556,13 +556,13 @@ module Network.AWS.RDS
     , dcEngine
     , dcLatestRestorableTime
     , dcPreferredMaintenanceWindow
-    , dcCharacterSetName
     , dcAvailabilityZones
+    , dcCharacterSetName
     , dcPreferredBackupWindow
     , dcVPCSecurityGroups
     , dcBackupRetentionPeriod
-    , dcDatabaseName
     , dcDBSubnetGroup
+    , dcDatabaseName
     , dcAllocatedStorage
     , dcEndpoint
     , dcPercentProgress
@@ -605,8 +605,8 @@ module Network.AWS.RDS
     , dcsDBClusterSnapshotIdentifier
     , dcsEngine
     , dcsLicenseModel
-    , dcsSnapshotType
     , dcsAvailabilityZones
+    , dcsSnapshotType
     , dcsSnapshotCreateTime
     , dcsAllocatedStorage
     , dcsClusterCreateTime
@@ -616,24 +616,24 @@ module Network.AWS.RDS
     -- ** DBEngineVersion
     , DBEngineVersion
     , dbEngineVersion
-    , devDBEngineVersionDescription
     , devEngineVersion
+    , devDBEngineVersionDescription
     , devDefaultCharacterSet
-    , devSupportedCharacterSets
     , devEngine
     , devDBParameterGroupFamily
+    , devSupportedCharacterSets
     , devDBEngineDescription
 
     -- ** DBInstance
     , DBInstance
     , dbInstance
-    , diDBSecurityGroups
     , diEngineVersion
+    , diDBSecurityGroups
     , diStorageEncrypted
     , diDBClusterIdentifier
+    , diPubliclyAccessible
     , diAutoMinorVersionUpgrade
     , diMasterUsername
-    , diPubliclyAccessible
     , diReadReplicaDBInstanceIdentifiers
     , diIOPS
     , diInstanceCreateTime
@@ -643,31 +643,31 @@ module Network.AWS.RDS
     , diDBInstanceClass
     , diLicenseModel
     , diPreferredMaintenanceWindow
-    , diCharacterSetName
-    , diDBInstanceIdentifier
     , diCACertificateIdentifier
+    , diDBInstanceIdentifier
+    , diCharacterSetName
+    , diKMSKeyId
     , diPreferredBackupWindow
     , diAvailabilityZone
     , diVPCSecurityGroups
     , diBackupRetentionPeriod
-    , diKMSKeyId
     , diDBSubnetGroup
     , diMultiAZ
-    , diSecondaryAvailabilityZone
     , diOptionGroupMemberships
-    , diDBiResourceId
+    , diSecondaryAvailabilityZone
     , diAllocatedStorage
-    , diEndpoint
+    , diDBiResourceId
     , diDBParameterGroups
-    , diTDECredentialARN
     , diCopyTagsToSnapshot
+    , diTDECredentialARN
+    , diEndpoint
     , diDBInstanceStatus
     , diDBInstancePort
     , diPendingModifiedValues
-    , diStatusInfos
-    , diDBName
-    , diDomainMemberships
     , diStorageType
+    , diStatusInfos
+    , diDomainMemberships
+    , diDBName
 
     -- ** DBInstanceStatusInfo
     , DBInstanceStatusInfo
@@ -698,12 +698,12 @@ module Network.AWS.RDS
     -- ** DBSecurityGroup
     , DBSecurityGroup
     , dbSecurityGroup
-    , dsgVPCId
-    , dsgOwnerId
-    , dsgIPRanges
-    , dsgDBSecurityGroupName
-    , dsgEC2SecurityGroups
-    , dsgDBSecurityGroupDescription
+    , dbsgVPCId
+    , dbsgOwnerId
+    , dbsgIPRanges
+    , dbsgDBSecurityGroupName
+    , dbsgEC2SecurityGroups
+    , dbsgDBSecurityGroupDescription
 
     -- ** DBSecurityGroupMembership
     , DBSecurityGroupMembership
@@ -719,21 +719,21 @@ module Network.AWS.RDS
     , dsMasterUsername
     , dsSourceRegion
     , dsIOPS
-    , dsInstanceCreateTime
     , dsVPCId
+    , dsInstanceCreateTime
     , dsEngine
     , dsEncrypted
     , dsDBSnapshotIdentifier
     , dsLicenseModel
+    , dsSourceDBSnapshotIdentifier
     , dsSnapshotType
     , dsDBInstanceIdentifier
-    , dsSourceDBSnapshotIdentifier
-    , dsAvailabilityZone
     , dsKMSKeyId
+    , dsAvailabilityZone
     , dsSnapshotCreateTime
     , dsAllocatedStorage
-    , dsTDECredentialARN
     , dsOptionGroupName
+    , dsTDECredentialARN
     , dsPercentProgress
     , dsPort
     , dsStorageType
@@ -741,11 +741,11 @@ module Network.AWS.RDS
     -- ** DBSubnetGroup
     , DBSubnetGroup
     , dbSubnetGroup
-    , dbsgDBSubnetGroupName
-    , dbsgVPCId
-    , dbsgSubnets
-    , dbsgDBSubnetGroupDescription
-    , dbsgSubnetGroupStatus
+    , dsgDBSubnetGroupName
+    , dsgVPCId
+    , dsgSubnets
+    , dsgDBSubnetGroupDescription
+    , dsgSubnetGroupStatus
 
     -- ** DescribeDBLogFilesDetails
     , DescribeDBLogFilesDetails
@@ -779,8 +779,8 @@ module Network.AWS.RDS
     , EngineDefaults
     , engineDefaults
     , edDBParameterGroupFamily
-    , edParameters
     , edMarker
+    , edParameters
 
     -- ** Event
     , Event
@@ -800,8 +800,8 @@ module Network.AWS.RDS
     -- ** EventSubscription
     , EventSubscription
     , eventSubscription
-    , esCustomerAWSId
     , esStatus
+    , esCustomerAWSId
     , esCustSubscriptionId
     , esSNSTopicARN
     , esEnabled
@@ -867,13 +867,13 @@ module Network.AWS.RDS
     , ogoPermanent
     , ogoPersistent
     , ogoEngineName
-    , ogoName
     , ogoMajorEngineVersion
+    , ogoName
     , ogoDefaultPort
     , ogoOptionGroupOptionSettings
     , ogoPortRequired
-    , ogoOptionsDependedOn
     , ogoDescription
+    , ogoOptionsDependedOn
 
     -- ** OptionGroupOptionSetting
     , OptionGroupOptionSetting
@@ -882,8 +882,8 @@ module Network.AWS.RDS
     , ogosSettingName
     , ogosDefaultValue
     , ogosIsModifiable
-    , ogosAllowedValues
     , ogosSettingDescription
+    , ogosAllowedValues
 
     -- ** OptionSetting
     , OptionSetting
@@ -894,8 +894,8 @@ module Network.AWS.RDS
     , osName
     , osDefaultValue
     , osIsModifiable
-    , osAllowedValues
     , osDataType
+    , osAllowedValues
     , osDescription
 
     -- ** OrderableDBInstanceOption
@@ -908,8 +908,8 @@ module Network.AWS.RDS
     , odioDBInstanceClass
     , odioLicenseModel
     , odioAvailabilityZones
-    , odioReadReplicaCapable
     , odioSupportsStorageEncryption
+    , odioReadReplicaCapable
     , odioVPC
     , odioStorageType
 
@@ -922,8 +922,8 @@ module Network.AWS.RDS
     , pMinimumEngineVersion
     , pSource
     , pIsModifiable
-    , pAllowedValues
     , pDataType
+    , pAllowedValues
     , pParameterName
     , pDescription
 
@@ -934,8 +934,8 @@ module Network.AWS.RDS
     , pmaAction
     , pmaOptInStatus
     , pmaDescription
-    , pmaCurrentApplyDate
     , pmaForcedApplyDate
+    , pmaCurrentApplyDate
 
     -- ** PendingModifiedValues
     , PendingModifiedValues
@@ -944,8 +944,8 @@ module Network.AWS.RDS
     , pmvMasterUserPassword
     , pmvIOPS
     , pmvDBInstanceClass
-    , pmvDBInstanceIdentifier
     , pmvCACertificateIdentifier
+    , pmvDBInstanceIdentifier
     , pmvBackupRetentionPeriod
     , pmvMultiAZ
     , pmvAllocatedStorage
@@ -964,15 +964,15 @@ module Network.AWS.RDS
     , rdiDBInstanceCount
     , rdiState
     , rdiCurrencyCode
-    , rdiProductDescription
     , rdiStartTime
+    , rdiProductDescription
     , rdiReservedDBInstanceId
     , rdiDBInstanceClass
     , rdiMultiAZ
     , rdiReservedDBInstancesOfferingId
+    , rdiRecurringCharges
     , rdiOfferingType
     , rdiUsagePrice
-    , rdiRecurringCharges
     , rdiFixedPrice
     , rdiDuration
 
@@ -984,9 +984,9 @@ module Network.AWS.RDS
     , rdioDBInstanceClass
     , rdioMultiAZ
     , rdioReservedDBInstancesOfferingId
+    , rdioRecurringCharges
     , rdioOfferingType
     , rdioUsagePrice
-    , rdioRecurringCharges
     , rdioFixedPrice
     , rdioDuration
 

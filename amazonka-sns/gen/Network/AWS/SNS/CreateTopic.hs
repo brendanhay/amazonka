@@ -39,7 +39,7 @@ module Network.AWS.SNS.CreateTopic
     , CreateTopicResponse
     -- * Response Lenses
     , ctrsTopicARN
-    , ctrsStatus
+    , ctrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -102,8 +102,8 @@ instance ToQuery CreateTopic where
 --
 -- /See:/ 'createTopicResponse' smart constructor.
 data CreateTopicResponse = CreateTopicResponse'
-    { _ctrsTopicARN :: !(Maybe Text)
-    , _ctrsStatus   :: !Int
+    { _ctrsTopicARN       :: !(Maybe Text)
+    , _ctrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateTopicResponse' with the minimum fields required to make a request.
@@ -112,14 +112,14 @@ data CreateTopicResponse = CreateTopicResponse'
 --
 -- * 'ctrsTopicARN'
 --
--- * 'ctrsStatus'
+-- * 'ctrsResponseStatus'
 createTopicResponse
-    :: Int -- ^ 'ctrsStatus'
+    :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTopicResponse
-createTopicResponse pStatus_ =
+createTopicResponse pResponseStatus_ =
     CreateTopicResponse'
     { _ctrsTopicARN = Nothing
-    , _ctrsStatus = pStatus_
+    , _ctrsResponseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
@@ -127,5 +127,5 @@ ctrsTopicARN :: Lens' CreateTopicResponse (Maybe Text)
 ctrsTopicARN = lens _ctrsTopicARN (\ s a -> s{_ctrsTopicARN = a});
 
 -- | The response status code.
-ctrsStatus :: Lens' CreateTopicResponse Int
-ctrsStatus = lens _ctrsStatus (\ s a -> s{_ctrsStatus = a});
+ctrsResponseStatus :: Lens' CreateTopicResponse Int
+ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});

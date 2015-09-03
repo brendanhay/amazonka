@@ -37,32 +37,32 @@ module Network.AWS.CloudHSM
     -- * Operations
     -- $operations
 
-    -- ** ListHAPGs
-    , module Network.AWS.CloudHSM.ListHAPGs
-
-    -- ** ListHSMs
-    , module Network.AWS.CloudHSM.ListHSMs
-
     -- ** DeleteHAPG
     , module Network.AWS.CloudHSM.DeleteHAPG
+
+    -- ** ListHAPGs
+    , module Network.AWS.CloudHSM.ListHAPGs
 
     -- ** ModifyLunaClient
     , module Network.AWS.CloudHSM.ModifyLunaClient
 
+    -- ** ListHSMs
+    , module Network.AWS.CloudHSM.ListHSMs
+
     -- ** DescribeLunaClient
     , module Network.AWS.CloudHSM.DescribeLunaClient
-
-    -- ** CreateHSM
-    , module Network.AWS.CloudHSM.CreateHSM
 
     -- ** CreateHAPG
     , module Network.AWS.CloudHSM.CreateHAPG
 
-    -- ** CreateLunaClient
-    , module Network.AWS.CloudHSM.CreateLunaClient
+    -- ** CreateHSM
+    , module Network.AWS.CloudHSM.CreateHSM
 
     -- ** DescribeHAPG
     , module Network.AWS.CloudHSM.DescribeHAPG
+
+    -- ** CreateLunaClient
+    , module Network.AWS.CloudHSM.CreateLunaClient
 
     -- ** ListLunaClients
     , module Network.AWS.CloudHSM.ListLunaClients
@@ -79,14 +79,14 @@ module Network.AWS.CloudHSM
     -- ** ModifyHAPG
     , module Network.AWS.CloudHSM.ModifyHAPG
 
-    -- ** ListAvailableZones
-    , module Network.AWS.CloudHSM.ListAvailableZones
+    -- ** DeleteLunaClient
+    , module Network.AWS.CloudHSM.DeleteLunaClient
 
     -- ** ModifyHSM
     , module Network.AWS.CloudHSM.ModifyHSM
 
-    -- ** DeleteLunaClient
-    , module Network.AWS.CloudHSM.DeleteLunaClient
+    -- ** ListAvailableZones
+    , module Network.AWS.CloudHSM.ListAvailableZones
 
     -- * Types
 

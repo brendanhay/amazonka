@@ -53,7 +53,7 @@ module Network.AWS.IAM.CreateOpenIdConnectProvider
     , CreateOpenIdConnectProviderResponse
     -- * Response Lenses
     , coicprsOpenIdConnectProviderARN
-    , coicprsStatus
+    , coicprsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -178,7 +178,7 @@ instance ToQuery CreateOpenIdConnectProvider where
 -- /See:/ 'createOpenIdConnectProviderResponse' smart constructor.
 data CreateOpenIdConnectProviderResponse = CreateOpenIdConnectProviderResponse'
     { _coicprsOpenIdConnectProviderARN :: !(Maybe Text)
-    , _coicprsStatus                   :: !Int
+    , _coicprsResponseStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateOpenIdConnectProviderResponse' with the minimum fields required to make a request.
@@ -187,14 +187,14 @@ data CreateOpenIdConnectProviderResponse = CreateOpenIdConnectProviderResponse'
 --
 -- * 'coicprsOpenIdConnectProviderARN'
 --
--- * 'coicprsStatus'
+-- * 'coicprsResponseStatus'
 createOpenIdConnectProviderResponse
-    :: Int -- ^ 'coicprsStatus'
+    :: Int -- ^ 'coicprsResponseStatus'
     -> CreateOpenIdConnectProviderResponse
-createOpenIdConnectProviderResponse pStatus_ =
+createOpenIdConnectProviderResponse pResponseStatus_ =
     CreateOpenIdConnectProviderResponse'
     { _coicprsOpenIdConnectProviderARN = Nothing
-    , _coicprsStatus = pStatus_
+    , _coicprsResponseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider that
@@ -203,5 +203,5 @@ coicprsOpenIdConnectProviderARN :: Lens' CreateOpenIdConnectProviderResponse (Ma
 coicprsOpenIdConnectProviderARN = lens _coicprsOpenIdConnectProviderARN (\ s a -> s{_coicprsOpenIdConnectProviderARN = a});
 
 -- | The response status code.
-coicprsStatus :: Lens' CreateOpenIdConnectProviderResponse Int
-coicprsStatus = lens _coicprsStatus (\ s a -> s{_coicprsStatus = a});
+coicprsResponseStatus :: Lens' CreateOpenIdConnectProviderResponse Int
+coicprsResponseStatus = lens _coicprsResponseStatus (\ s a -> s{_coicprsResponseStatus = a});

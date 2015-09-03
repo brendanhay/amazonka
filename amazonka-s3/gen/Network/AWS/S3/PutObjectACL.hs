@@ -45,7 +45,7 @@ module Network.AWS.S3.PutObjectACL
     , PutObjectACLResponse
     -- * Response Lenses
     , poarsRequestCharged
-    , poarsStatus
+    , poarsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -198,7 +198,7 @@ instance ToQuery PutObjectACL where
 -- | /See:/ 'putObjectACLResponse' smart constructor.
 data PutObjectACLResponse = PutObjectACLResponse'
     { _poarsRequestCharged :: !(Maybe RequestCharged)
-    , _poarsStatus         :: !Int
+    , _poarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutObjectACLResponse' with the minimum fields required to make a request.
@@ -207,14 +207,14 @@ data PutObjectACLResponse = PutObjectACLResponse'
 --
 -- * 'poarsRequestCharged'
 --
--- * 'poarsStatus'
+-- * 'poarsResponseStatus'
 putObjectACLResponse
-    :: Int -- ^ 'poarsStatus'
+    :: Int -- ^ 'poarsResponseStatus'
     -> PutObjectACLResponse
-putObjectACLResponse pStatus_ =
+putObjectACLResponse pResponseStatus_ =
     PutObjectACLResponse'
     { _poarsRequestCharged = Nothing
-    , _poarsStatus = pStatus_
+    , _poarsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -222,5 +222,5 @@ poarsRequestCharged :: Lens' PutObjectACLResponse (Maybe RequestCharged)
 poarsRequestCharged = lens _poarsRequestCharged (\ s a -> s{_poarsRequestCharged = a});
 
 -- | The response status code.
-poarsStatus :: Lens' PutObjectACLResponse Int
-poarsStatus = lens _poarsStatus (\ s a -> s{_poarsStatus = a});
+poarsResponseStatus :: Lens' PutObjectACLResponse Int
+poarsResponseStatus = lens _poarsResponseStatus (\ s a -> s{_poarsResponseStatus = a});

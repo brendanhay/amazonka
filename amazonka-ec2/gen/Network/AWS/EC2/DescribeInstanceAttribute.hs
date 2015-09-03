@@ -46,15 +46,15 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     , drsDisableAPITermination
     , drsRAMDiskId
     , drsKernelId
-    , drsInstanceType
     , drsRootDeviceName
+    , drsInstanceType
+    , drsSRIOVNetSupport
     , drsEBSOptimized
     , drsUserData
-    , drsSRIOVNetSupport
     , drsInstanceInitiatedShutdownBehavior
     , drsProductCodes
     , drsBlockDeviceMappings
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -120,11 +120,11 @@ instance AWSRequest DescribeInstanceAttribute where
                      <*> (x .@? "disableApiTermination")
                      <*> (x .@? "ramdisk")
                      <*> (x .@? "kernel")
-                     <*> (x .@? "instanceType")
                      <*> (x .@? "rootDeviceName")
+                     <*> (x .@? "instanceType")
+                     <*> (x .@? "sriovNetSupport")
                      <*> (x .@? "ebsOptimized")
                      <*> (x .@? "userData")
-                     <*> (x .@? "sriovNetSupport")
                      <*> (x .@? "instanceInitiatedShutdownBehavior")
                      <*>
                      (x .@? "productCodes" .!@ mempty >>=
@@ -160,15 +160,15 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
     , _drsDisableAPITermination             :: !(Maybe AttributeBooleanValue)
     , _drsRAMDiskId                         :: !(Maybe AttributeValue)
     , _drsKernelId                          :: !(Maybe AttributeValue)
-    , _drsInstanceType                      :: !(Maybe AttributeValue)
     , _drsRootDeviceName                    :: !(Maybe AttributeValue)
+    , _drsInstanceType                      :: !(Maybe AttributeValue)
+    , _drsSRIOVNetSupport                   :: !(Maybe AttributeValue)
     , _drsEBSOptimized                      :: !(Maybe AttributeBooleanValue)
     , _drsUserData                          :: !(Maybe AttributeValue)
-    , _drsSRIOVNetSupport                   :: !(Maybe AttributeValue)
     , _drsInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
     , _drsProductCodes                      :: !(Maybe [ProductCode])
     , _drsBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMapping])
-    , _drsStatus                            :: !Int
+    , _drsResponseStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeInstanceAttributeResponse' with the minimum fields required to make a request.
@@ -187,15 +187,15 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
 --
 -- * 'drsKernelId'
 --
+-- * 'drsRootDeviceName'
+--
 -- * 'drsInstanceType'
 --
--- * 'drsRootDeviceName'
+-- * 'drsSRIOVNetSupport'
 --
 -- * 'drsEBSOptimized'
 --
 -- * 'drsUserData'
---
--- * 'drsSRIOVNetSupport'
 --
 -- * 'drsInstanceInitiatedShutdownBehavior'
 --
@@ -203,11 +203,11 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
 --
 -- * 'drsBlockDeviceMappings'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 describeInstanceAttributeResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DescribeInstanceAttributeResponse
-describeInstanceAttributeResponse pStatus_ =
+describeInstanceAttributeResponse pResponseStatus_ =
     DescribeInstanceAttributeResponse'
     { _drsInstanceId = Nothing
     , _drsGroups = Nothing
@@ -215,15 +215,15 @@ describeInstanceAttributeResponse pStatus_ =
     , _drsDisableAPITermination = Nothing
     , _drsRAMDiskId = Nothing
     , _drsKernelId = Nothing
-    , _drsInstanceType = Nothing
     , _drsRootDeviceName = Nothing
+    , _drsInstanceType = Nothing
+    , _drsSRIOVNetSupport = Nothing
     , _drsEBSOptimized = Nothing
     , _drsUserData = Nothing
-    , _drsSRIOVNetSupport = Nothing
     , _drsInstanceInitiatedShutdownBehavior = Nothing
     , _drsProductCodes = Nothing
     , _drsBlockDeviceMappings = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the instance.
@@ -253,14 +253,18 @@ drsRAMDiskId = lens _drsRAMDiskId (\ s a -> s{_drsRAMDiskId = a});
 drsKernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsKernelId = lens _drsKernelId (\ s a -> s{_drsKernelId = a});
 
--- | The instance type.
-drsInstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-drsInstanceType = lens _drsInstanceType (\ s a -> s{_drsInstanceType = a});
-
 -- | The name of the root device (for example, '\/dev\/sda1' or
 -- '\/dev\/xvda').
 drsRootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsRootDeviceName = lens _drsRootDeviceName (\ s a -> s{_drsRootDeviceName = a});
+
+-- | The instance type.
+drsInstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+drsInstanceType = lens _drsInstanceType (\ s a -> s{_drsInstanceType = a});
+
+-- | Undocumented member.
+drsSRIOVNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+drsSRIOVNetSupport = lens _drsSRIOVNetSupport (\ s a -> s{_drsSRIOVNetSupport = a});
 
 -- | Indicates whether the instance is optimized for EBS I\/O.
 drsEBSOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
@@ -269,10 +273,6 @@ drsEBSOptimized = lens _drsEBSOptimized (\ s a -> s{_drsEBSOptimized = a});
 -- | The Base64-encoded MIME user data.
 drsUserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsUserData = lens _drsUserData (\ s a -> s{_drsUserData = a});
-
--- | Undocumented member.
-drsSRIOVNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-drsSRIOVNetSupport = lens _drsSRIOVNetSupport (\ s a -> s{_drsSRIOVNetSupport = a});
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for
@@ -289,5 +289,5 @@ drsBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlock
 drsBlockDeviceMappings = lens _drsBlockDeviceMappings (\ s a -> s{_drsBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drsStatus :: Lens' DescribeInstanceAttributeResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DescribeInstanceAttributeResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

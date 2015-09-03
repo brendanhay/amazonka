@@ -39,8 +39,8 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     , deSeverity
     , deNextToken
     , deVersionLabel
-    , deMaxRecords
     , deEnvironmentName
+    , deMaxRecords
     , deEndTime
     , deApplicationName
     , deEnvironmentId
@@ -51,7 +51,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     -- * Response Lenses
     , dersNextToken
     , dersEvents
-    , dersStatus
+    , dersResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -71,8 +71,8 @@ data DescribeEvents = DescribeEvents'
     , _deSeverity        :: !(Maybe EventSeverity)
     , _deNextToken       :: !(Maybe Text)
     , _deVersionLabel    :: !(Maybe Text)
-    , _deMaxRecords      :: !(Maybe Nat)
     , _deEnvironmentName :: !(Maybe Text)
+    , _deMaxRecords      :: !(Maybe Nat)
     , _deEndTime         :: !(Maybe ISO8601)
     , _deApplicationName :: !(Maybe Text)
     , _deEnvironmentId   :: !(Maybe Text)
@@ -94,9 +94,9 @@ data DescribeEvents = DescribeEvents'
 --
 -- * 'deVersionLabel'
 --
--- * 'deMaxRecords'
---
 -- * 'deEnvironmentName'
+--
+-- * 'deMaxRecords'
 --
 -- * 'deEndTime'
 --
@@ -113,8 +113,8 @@ describeEvents =
     , _deSeverity = Nothing
     , _deNextToken = Nothing
     , _deVersionLabel = Nothing
-    , _deMaxRecords = Nothing
     , _deEnvironmentName = Nothing
+    , _deMaxRecords = Nothing
     , _deEndTime = Nothing
     , _deApplicationName = Nothing
     , _deEnvironmentId = Nothing
@@ -150,15 +150,15 @@ deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a});
 deVersionLabel :: Lens' DescribeEvents (Maybe Text)
 deVersionLabel = lens _deVersionLabel (\ s a -> s{_deVersionLabel = a});
 
--- | Specifies the maximum number of events that can be returned, beginning
--- with the most recent event.
-deMaxRecords :: Lens' DescribeEvents (Maybe Natural)
-deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a}) . mapping _Nat;
-
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those associated with this environment.
 deEnvironmentName :: Lens' DescribeEvents (Maybe Text)
 deEnvironmentName = lens _deEnvironmentName (\ s a -> s{_deEnvironmentName = a});
+
+-- | Specifies the maximum number of events that can be returned, beginning
+-- with the most recent event.
+deMaxRecords :: Lens' DescribeEvents (Maybe Natural)
+deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a}) . mapping _Nat;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that occur up to, but not including, the 'EndTime'.
@@ -211,8 +211,8 @@ instance ToQuery DescribeEvents where
                "Severity" =: _deSeverity,
                "NextToken" =: _deNextToken,
                "VersionLabel" =: _deVersionLabel,
-               "MaxRecords" =: _deMaxRecords,
                "EnvironmentName" =: _deEnvironmentName,
+               "MaxRecords" =: _deMaxRecords,
                "EndTime" =: _deEndTime,
                "ApplicationName" =: _deApplicationName,
                "EnvironmentId" =: _deEnvironmentId]
@@ -221,9 +221,9 @@ instance ToQuery DescribeEvents where
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-    { _dersNextToken :: !(Maybe Text)
-    , _dersEvents    :: !(Maybe [EventDescription])
-    , _dersStatus    :: !Int
+    { _dersNextToken      :: !(Maybe Text)
+    , _dersEvents         :: !(Maybe [EventDescription])
+    , _dersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
@@ -234,15 +234,15 @@ data DescribeEventsResponse = DescribeEventsResponse'
 --
 -- * 'dersEvents'
 --
--- * 'dersStatus'
+-- * 'dersResponseStatus'
 describeEventsResponse
-    :: Int -- ^ 'dersStatus'
+    :: Int -- ^ 'dersResponseStatus'
     -> DescribeEventsResponse
-describeEventsResponse pStatus_ =
+describeEventsResponse pResponseStatus_ =
     DescribeEventsResponse'
     { _dersNextToken = Nothing
     , _dersEvents = Nothing
-    , _dersStatus = pStatus_
+    , _dersResponseStatus = pResponseStatus_
     }
 
 -- | If returned, this indicates that there are more results to obtain. Use
@@ -256,5 +256,5 @@ dersEvents :: Lens' DescribeEventsResponse [EventDescription]
 dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dersStatus :: Lens' DescribeEventsResponse Int
-dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});
+dersResponseStatus :: Lens' DescribeEventsResponse Int
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});

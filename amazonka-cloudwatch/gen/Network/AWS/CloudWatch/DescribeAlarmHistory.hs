@@ -44,7 +44,7 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     -- * Response Lenses
     , dahrsAlarmHistoryItems
     , dahrsNextToken
-    , dahrsStatus
+    , dahrsResponseStatus
     ) where
 
 import           Network.AWS.CloudWatch.Types
@@ -160,7 +160,7 @@ instance ToQuery DescribeAlarmHistory where
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
     { _dahrsAlarmHistoryItems :: !(Maybe [AlarmHistoryItem])
     , _dahrsNextToken         :: !(Maybe Text)
-    , _dahrsStatus            :: !Int
+    , _dahrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAlarmHistoryResponse' with the minimum fields required to make a request.
@@ -171,15 +171,15 @@ data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
 --
 -- * 'dahrsNextToken'
 --
--- * 'dahrsStatus'
+-- * 'dahrsResponseStatus'
 describeAlarmHistoryResponse
-    :: Int -- ^ 'dahrsStatus'
+    :: Int -- ^ 'dahrsResponseStatus'
     -> DescribeAlarmHistoryResponse
-describeAlarmHistoryResponse pStatus_ =
+describeAlarmHistoryResponse pResponseStatus_ =
     DescribeAlarmHistoryResponse'
     { _dahrsAlarmHistoryItems = Nothing
     , _dahrsNextToken = Nothing
-    , _dahrsStatus = pStatus_
+    , _dahrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of alarm histories in JSON format.
@@ -191,5 +191,5 @@ dahrsNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
 dahrsNextToken = lens _dahrsNextToken (\ s a -> s{_dahrsNextToken = a});
 
 -- | The response status code.
-dahrsStatus :: Lens' DescribeAlarmHistoryResponse Int
-dahrsStatus = lens _dahrsStatus (\ s a -> s{_dahrsStatus = a});
+dahrsResponseStatus :: Lens' DescribeAlarmHistoryResponse Int
+dahrsResponseStatus = lens _dahrsResponseStatus (\ s a -> s{_dahrsResponseStatus = a});

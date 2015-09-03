@@ -45,8 +45,8 @@ module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     , viAmazonAddress
     , viVirtualInterfaceState
     , viConnectionId
-    , viAsn
     , viVirtualInterfaceType
+    , viAsn
     , viAuthKey
     , viCustomerRouterConfig
     , viOwnerAccount

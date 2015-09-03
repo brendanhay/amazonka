@@ -33,6 +33,7 @@ module Network.AWS.CloudHSM.DeleteHAPG
     , deleteHAPGResponse
     , DeleteHAPGResponse
     -- * Response Lenses
+    , dhrsResponseStatus
     , dhrsStatus
     ) where
 
@@ -70,9 +71,10 @@ instance AWSRequest DeleteHAPG where
         type Rs DeleteHAPG = DeleteHAPGResponse
         request = postJSON cloudHSM
         response
-          = receiveEmpty
+          = receiveJSON
               (\ s h x ->
-                 DeleteHAPGResponse' <$> (pure (fromEnum s)))
+                 DeleteHAPGResponse' <$>
+                   (pure (fromEnum s)) <*> (x .:> "Status"))
 
 instance ToHeaders DeleteHAPG where
         toHeaders
@@ -96,23 +98,32 @@ instance ToQuery DeleteHAPG where
 -- | Contains the output of the DeleteHapg action.
 --
 -- /See:/ 'deleteHAPGResponse' smart constructor.
-newtype DeleteHAPGResponse = DeleteHAPGResponse'
-    { _dhrsStatus :: Int
+data DeleteHAPGResponse = DeleteHAPGResponse'
+    { _dhrsResponseStatus :: !Int
+    , _dhrsStatus         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteHAPGResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dhrsResponseStatus'
+--
 -- * 'dhrsStatus'
 deleteHAPGResponse
-    :: Int -- ^ 'dhrsStatus'
+    :: Int -- ^ 'dhrsResponseStatus'
+    -> Text -- ^ 'dhrsStatus'
     -> DeleteHAPGResponse
-deleteHAPGResponse pStatus_ =
+deleteHAPGResponse pResponseStatus_ pStatus_ =
     DeleteHAPGResponse'
-    { _dhrsStatus = pStatus_
+    { _dhrsResponseStatus = pResponseStatus_
+    , _dhrsStatus = pStatus_
     }
 
 -- | The response status code.
-dhrsStatus :: Lens' DeleteHAPGResponse Int
+dhrsResponseStatus :: Lens' DeleteHAPGResponse Int
+dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a});
+
+-- | The status of the action.
+dhrsStatus :: Lens' DeleteHAPGResponse Text
 dhrsStatus = lens _dhrsStatus (\ s a -> s{_dhrsStatus = a});

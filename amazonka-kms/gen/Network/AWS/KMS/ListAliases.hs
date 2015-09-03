@@ -37,7 +37,7 @@ module Network.AWS.KMS.ListAliases
     , larsTruncated
     , larsAliases
     , larsNextMarker
-    , larsStatus
+    , larsResponseStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -116,10 +116,10 @@ instance ToQuery ListAliases where
 
 -- | /See:/ 'listAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-    { _larsTruncated  :: !(Maybe Bool)
-    , _larsAliases    :: !(Maybe [AliasListEntry])
-    , _larsNextMarker :: !(Maybe Text)
-    , _larsStatus     :: !Int
+    { _larsTruncated      :: !(Maybe Bool)
+    , _larsAliases        :: !(Maybe [AliasListEntry])
+    , _larsNextMarker     :: !(Maybe Text)
+    , _larsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListAliasesResponse' with the minimum fields required to make a request.
@@ -132,16 +132,16 @@ data ListAliasesResponse = ListAliasesResponse'
 --
 -- * 'larsNextMarker'
 --
--- * 'larsStatus'
+-- * 'larsResponseStatus'
 listAliasesResponse
-    :: Int -- ^ 'larsStatus'
+    :: Int -- ^ 'larsResponseStatus'
     -> ListAliasesResponse
-listAliasesResponse pStatus_ =
+listAliasesResponse pResponseStatus_ =
     ListAliasesResponse'
     { _larsTruncated = Nothing
     , _larsAliases = Nothing
     , _larsNextMarker = Nothing
-    , _larsStatus = pStatus_
+    , _larsResponseStatus = pResponseStatus_
     }
 
 -- | A flag that indicates whether there are more items in the list. If your
@@ -162,5 +162,5 @@ larsNextMarker :: Lens' ListAliasesResponse (Maybe Text)
 larsNextMarker = lens _larsNextMarker (\ s a -> s{_larsNextMarker = a});
 
 -- | The response status code.
-larsStatus :: Lens' ListAliasesResponse Int
-larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});
+larsResponseStatus :: Lens' ListAliasesResponse Int
+larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});

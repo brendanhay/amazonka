@@ -44,7 +44,7 @@ module Network.AWS.ElastiCache.DeleteReplicationGroup
     , DeleteReplicationGroupResponse
     -- * Response Lenses
     , delrsReplicationGroup
-    , delrsStatus
+    , delrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -128,7 +128,7 @@ instance ToQuery DeleteReplicationGroup where
 -- | /See:/ 'deleteReplicationGroupResponse' smart constructor.
 data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
     { _delrsReplicationGroup :: !(Maybe ReplicationGroup)
-    , _delrsStatus           :: !Int
+    , _delrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteReplicationGroupResponse' with the minimum fields required to make a request.
@@ -137,14 +137,14 @@ data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
 --
 -- * 'delrsReplicationGroup'
 --
--- * 'delrsStatus'
+-- * 'delrsResponseStatus'
 deleteReplicationGroupResponse
-    :: Int -- ^ 'delrsStatus'
+    :: Int -- ^ 'delrsResponseStatus'
     -> DeleteReplicationGroupResponse
-deleteReplicationGroupResponse pStatus_ =
+deleteReplicationGroupResponse pResponseStatus_ =
     DeleteReplicationGroupResponse'
     { _delrsReplicationGroup = Nothing
-    , _delrsStatus = pStatus_
+    , _delrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -152,5 +152,5 @@ delrsReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe Replication
 delrsReplicationGroup = lens _delrsReplicationGroup (\ s a -> s{_delrsReplicationGroup = a});
 
 -- | The response status code.
-delrsStatus :: Lens' DeleteReplicationGroupResponse Int
-delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});
+delrsResponseStatus :: Lens' DeleteReplicationGroupResponse Int
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});

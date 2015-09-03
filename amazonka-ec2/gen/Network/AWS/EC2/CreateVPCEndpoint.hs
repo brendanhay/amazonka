@@ -46,7 +46,7 @@ module Network.AWS.EC2.CreateVPCEndpoint
     -- * Response Lenses
     , cversClientToken
     , cversVPCEndpoint
-    , cversStatus
+    , cversResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -159,9 +159,9 @@ instance ToQuery CreateVPCEndpoint where
 
 -- | /See:/ 'createVPCEndpointResponse' smart constructor.
 data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
-    { _cversClientToken :: !(Maybe Text)
-    , _cversVPCEndpoint :: !(Maybe VPCEndpoint)
-    , _cversStatus      :: !Int
+    { _cversClientToken    :: !(Maybe Text)
+    , _cversVPCEndpoint    :: !(Maybe VPCEndpoint)
+    , _cversResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateVPCEndpointResponse' with the minimum fields required to make a request.
@@ -172,15 +172,15 @@ data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
 --
 -- * 'cversVPCEndpoint'
 --
--- * 'cversStatus'
+-- * 'cversResponseStatus'
 createVPCEndpointResponse
-    :: Int -- ^ 'cversStatus'
+    :: Int -- ^ 'cversResponseStatus'
     -> CreateVPCEndpointResponse
-createVPCEndpointResponse pStatus_ =
+createVPCEndpointResponse pResponseStatus_ =
     CreateVPCEndpointResponse'
     { _cversClientToken = Nothing
     , _cversVPCEndpoint = Nothing
-    , _cversStatus = pStatus_
+    , _cversResponseStatus = pResponseStatus_
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
@@ -193,5 +193,5 @@ cversVPCEndpoint :: Lens' CreateVPCEndpointResponse (Maybe VPCEndpoint)
 cversVPCEndpoint = lens _cversVPCEndpoint (\ s a -> s{_cversVPCEndpoint = a});
 
 -- | The response status code.
-cversStatus :: Lens' CreateVPCEndpointResponse Int
-cversStatus = lens _cversStatus (\ s a -> s{_cversStatus = a});
+cversResponseStatus :: Lens' CreateVPCEndpointResponse Int
+cversResponseStatus = lens _cversResponseStatus (\ s a -> s{_cversResponseStatus = a});

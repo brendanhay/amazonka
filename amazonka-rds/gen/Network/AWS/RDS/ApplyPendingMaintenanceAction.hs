@@ -37,7 +37,7 @@ module Network.AWS.RDS.ApplyPendingMaintenanceAction
     , ApplyPendingMaintenanceActionResponse
     -- * Response Lenses
     , apmarsResourcePendingMaintenanceActions
-    , apmarsStatus
+    , apmarsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -133,7 +133,7 @@ instance ToQuery ApplyPendingMaintenanceAction where
 -- | /See:/ 'applyPendingMaintenanceActionResponse' smart constructor.
 data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'
     { _apmarsResourcePendingMaintenanceActions :: !(Maybe ResourcePendingMaintenanceActions)
-    , _apmarsStatus                            :: !Int
+    , _apmarsResponseStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ApplyPendingMaintenanceActionResponse' with the minimum fields required to make a request.
@@ -142,14 +142,14 @@ data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionRespon
 --
 -- * 'apmarsResourcePendingMaintenanceActions'
 --
--- * 'apmarsStatus'
+-- * 'apmarsResponseStatus'
 applyPendingMaintenanceActionResponse
-    :: Int -- ^ 'apmarsStatus'
+    :: Int -- ^ 'apmarsResponseStatus'
     -> ApplyPendingMaintenanceActionResponse
-applyPendingMaintenanceActionResponse pStatus_ =
+applyPendingMaintenanceActionResponse pResponseStatus_ =
     ApplyPendingMaintenanceActionResponse'
     { _apmarsResourcePendingMaintenanceActions = Nothing
-    , _apmarsStatus = pStatus_
+    , _apmarsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -157,5 +157,5 @@ apmarsResourcePendingMaintenanceActions :: Lens' ApplyPendingMaintenanceActionRe
 apmarsResourcePendingMaintenanceActions = lens _apmarsResourcePendingMaintenanceActions (\ s a -> s{_apmarsResourcePendingMaintenanceActions = a});
 
 -- | The response status code.
-apmarsStatus :: Lens' ApplyPendingMaintenanceActionResponse Int
-apmarsStatus = lens _apmarsStatus (\ s a -> s{_apmarsStatus = a});
+apmarsResponseStatus :: Lens' ApplyPendingMaintenanceActionResponse Int
+apmarsResponseStatus = lens _apmarsResponseStatus (\ s a -> s{_apmarsResponseStatus = a});

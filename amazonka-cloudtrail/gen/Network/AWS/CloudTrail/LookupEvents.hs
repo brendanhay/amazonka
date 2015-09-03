@@ -53,7 +53,7 @@ module Network.AWS.CloudTrail.LookupEvents
     -- * Response Lenses
     , lersNextToken
     , lersEvents
-    , lersStatus
+    , lersResponseStatus
     ) where
 
 import           Network.AWS.CloudTrail.Types
@@ -167,9 +167,9 @@ instance ToQuery LookupEvents where
 --
 -- /See:/ 'lookupEventsResponse' smart constructor.
 data LookupEventsResponse = LookupEventsResponse'
-    { _lersNextToken :: !(Maybe Text)
-    , _lersEvents    :: !(Maybe [Event])
-    , _lersStatus    :: !Int
+    { _lersNextToken      :: !(Maybe Text)
+    , _lersEvents         :: !(Maybe [Event])
+    , _lersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LookupEventsResponse' with the minimum fields required to make a request.
@@ -180,15 +180,15 @@ data LookupEventsResponse = LookupEventsResponse'
 --
 -- * 'lersEvents'
 --
--- * 'lersStatus'
+-- * 'lersResponseStatus'
 lookupEventsResponse
-    :: Int -- ^ 'lersStatus'
+    :: Int -- ^ 'lersResponseStatus'
     -> LookupEventsResponse
-lookupEventsResponse pStatus_ =
+lookupEventsResponse pResponseStatus_ =
     LookupEventsResponse'
     { _lersNextToken = Nothing
     , _lersEvents = Nothing
-    , _lersStatus = pStatus_
+    , _lersResponseStatus = pResponseStatus_
     }
 
 -- | The token to use to get the next page of results after a previous API
@@ -207,5 +207,5 @@ lersEvents :: Lens' LookupEventsResponse [Event]
 lersEvents = lens _lersEvents (\ s a -> s{_lersEvents = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lersStatus :: Lens' LookupEventsResponse Int
-lersStatus = lens _lersStatus (\ s a -> s{_lersStatus = a});
+lersResponseStatus :: Lens' LookupEventsResponse Int
+lersResponseStatus = lens _lersResponseStatus (\ s a -> s{_lersResponseStatus = a});

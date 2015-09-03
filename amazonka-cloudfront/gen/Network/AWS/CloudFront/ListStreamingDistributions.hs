@@ -27,14 +27,14 @@ module Network.AWS.CloudFront.ListStreamingDistributions
       listStreamingDistributions
     , ListStreamingDistributions
     -- * Request Lenses
-    , lsdMaxItems
     , lsdMarker
+    , lsdMaxItems
 
     -- * Destructuring the Response
     , listStreamingDistributionsResponse
     , ListStreamingDistributionsResponse
     -- * Response Lenses
-    , lsdrsStatus
+    , lsdrsResponseStatus
     , lsdrsStreamingDistributionList
     ) where
 
@@ -48,29 +48,24 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listStreamingDistributions' smart constructor.
 data ListStreamingDistributions = ListStreamingDistributions'
-    { _lsdMaxItems :: !(Maybe Text)
-    , _lsdMarker   :: !(Maybe Text)
+    { _lsdMarker   :: !(Maybe Text)
+    , _lsdMaxItems :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListStreamingDistributions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsdMaxItems'
---
 -- * 'lsdMarker'
+--
+-- * 'lsdMaxItems'
 listStreamingDistributions
     :: ListStreamingDistributions
 listStreamingDistributions =
     ListStreamingDistributions'
-    { _lsdMaxItems = Nothing
-    , _lsdMarker = Nothing
+    { _lsdMarker = Nothing
+    , _lsdMaxItems = Nothing
     }
-
--- | The maximum number of streaming distributions you want in the response
--- body.
-lsdMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
-lsdMaxItems = lens _lsdMaxItems (\ s a -> s{_lsdMaxItems = a});
 
 -- | Use this when paginating results to indicate where to begin in your list
 -- of streaming distributions. The results include distributions in the
@@ -79,6 +74,11 @@ lsdMaxItems = lens _lsdMaxItems (\ s a -> s{_lsdMaxItems = a});
 -- response (which is also the ID of the last distribution on that page).
 lsdMarker :: Lens' ListStreamingDistributions (Maybe Text)
 lsdMarker = lens _lsdMarker (\ s a -> s{_lsdMarker = a});
+
+-- | The maximum number of streaming distributions you want in the response
+-- body.
+lsdMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
+lsdMaxItems = lens _lsdMaxItems (\ s a -> s{_lsdMaxItems = a});
 
 instance AWSRequest ListStreamingDistributions where
         type Rs ListStreamingDistributions =
@@ -99,13 +99,13 @@ instance ToPath ListStreamingDistributions where
 instance ToQuery ListStreamingDistributions where
         toQuery ListStreamingDistributions'{..}
           = mconcat
-              ["MaxItems" =: _lsdMaxItems, "Marker" =: _lsdMarker]
+              ["Marker" =: _lsdMarker, "MaxItems" =: _lsdMaxItems]
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'listStreamingDistributionsResponse' smart constructor.
 data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
-    { _lsdrsStatus                    :: !Int
+    { _lsdrsResponseStatus            :: !Int
     , _lsdrsStreamingDistributionList :: !StreamingDistributionList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -113,22 +113,22 @@ data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsdrsStatus'
+-- * 'lsdrsResponseStatus'
 --
 -- * 'lsdrsStreamingDistributionList'
 listStreamingDistributionsResponse
-    :: Int -- ^ 'lsdrsStatus'
+    :: Int -- ^ 'lsdrsResponseStatus'
     -> StreamingDistributionList -- ^ 'lsdrsStreamingDistributionList'
     -> ListStreamingDistributionsResponse
-listStreamingDistributionsResponse pStatus_ pStreamingDistributionList_ =
+listStreamingDistributionsResponse pResponseStatus_ pStreamingDistributionList_ =
     ListStreamingDistributionsResponse'
-    { _lsdrsStatus = pStatus_
+    { _lsdrsResponseStatus = pResponseStatus_
     , _lsdrsStreamingDistributionList = pStreamingDistributionList_
     }
 
 -- | The response status code.
-lsdrsStatus :: Lens' ListStreamingDistributionsResponse Int
-lsdrsStatus = lens _lsdrsStatus (\ s a -> s{_lsdrsStatus = a});
+lsdrsResponseStatus :: Lens' ListStreamingDistributionsResponse Int
+lsdrsResponseStatus = lens _lsdrsResponseStatus (\ s a -> s{_lsdrsResponseStatus = a});
 
 -- | The StreamingDistributionList type.
 lsdrsStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList

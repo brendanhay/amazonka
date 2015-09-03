@@ -38,7 +38,7 @@ module Network.AWS.EC2.CancelImportTask
     , citrsState
     , citrsImportTaskId
     , citrsPreviousState
-    , citrsStatus
+    , citrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -115,10 +115,10 @@ instance ToQuery CancelImportTask where
 
 -- | /See:/ 'cancelImportTaskResponse' smart constructor.
 data CancelImportTaskResponse = CancelImportTaskResponse'
-    { _citrsState         :: !(Maybe Text)
-    , _citrsImportTaskId  :: !(Maybe Text)
-    , _citrsPreviousState :: !(Maybe Text)
-    , _citrsStatus        :: !Int
+    { _citrsState          :: !(Maybe Text)
+    , _citrsImportTaskId   :: !(Maybe Text)
+    , _citrsPreviousState  :: !(Maybe Text)
+    , _citrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CancelImportTaskResponse' with the minimum fields required to make a request.
@@ -131,16 +131,16 @@ data CancelImportTaskResponse = CancelImportTaskResponse'
 --
 -- * 'citrsPreviousState'
 --
--- * 'citrsStatus'
+-- * 'citrsResponseStatus'
 cancelImportTaskResponse
-    :: Int -- ^ 'citrsStatus'
+    :: Int -- ^ 'citrsResponseStatus'
     -> CancelImportTaskResponse
-cancelImportTaskResponse pStatus_ =
+cancelImportTaskResponse pResponseStatus_ =
     CancelImportTaskResponse'
     { _citrsState = Nothing
     , _citrsImportTaskId = Nothing
     , _citrsPreviousState = Nothing
-    , _citrsStatus = pStatus_
+    , _citrsResponseStatus = pResponseStatus_
     }
 
 -- | The current state of the task being canceled.
@@ -156,5 +156,5 @@ citrsPreviousState :: Lens' CancelImportTaskResponse (Maybe Text)
 citrsPreviousState = lens _citrsPreviousState (\ s a -> s{_citrsPreviousState = a});
 
 -- | The response status code.
-citrsStatus :: Lens' CancelImportTaskResponse Int
-citrsStatus = lens _citrsStatus (\ s a -> s{_citrsStatus = a});
+citrsResponseStatus :: Lens' CancelImportTaskResponse Int
+citrsResponseStatus = lens _citrsResponseStatus (\ s a -> s{_citrsResponseStatus = a});

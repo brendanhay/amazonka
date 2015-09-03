@@ -40,7 +40,7 @@ module Network.AWS.CognitoSync.RegisterDevice
     , RegisterDeviceResponse
     -- * Response Lenses
     , rdrsDeviceId
-    , rdrsStatus
+    , rdrsResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -138,8 +138,8 @@ instance ToQuery RegisterDevice where
 --
 -- /See:/ 'registerDeviceResponse' smart constructor.
 data RegisterDeviceResponse = RegisterDeviceResponse'
-    { _rdrsDeviceId :: !(Maybe Text)
-    , _rdrsStatus   :: !Int
+    { _rdrsDeviceId       :: !(Maybe Text)
+    , _rdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterDeviceResponse' with the minimum fields required to make a request.
@@ -148,14 +148,14 @@ data RegisterDeviceResponse = RegisterDeviceResponse'
 --
 -- * 'rdrsDeviceId'
 --
--- * 'rdrsStatus'
+-- * 'rdrsResponseStatus'
 registerDeviceResponse
-    :: Int -- ^ 'rdrsStatus'
+    :: Int -- ^ 'rdrsResponseStatus'
     -> RegisterDeviceResponse
-registerDeviceResponse pStatus_ =
+registerDeviceResponse pResponseStatus_ =
     RegisterDeviceResponse'
     { _rdrsDeviceId = Nothing
-    , _rdrsStatus = pStatus_
+    , _rdrsResponseStatus = pResponseStatus_
     }
 
 -- | The unique ID generated for this device by Cognito.
@@ -163,5 +163,5 @@ rdrsDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
 rdrsDeviceId = lens _rdrsDeviceId (\ s a -> s{_rdrsDeviceId = a});
 
 -- | The response status code.
-rdrsStatus :: Lens' RegisterDeviceResponse Int
-rdrsStatus = lens _rdrsStatus (\ s a -> s{_rdrsStatus = a});
+rdrsResponseStatus :: Lens' RegisterDeviceResponse Int
+rdrsResponseStatus = lens _rdrsResponseStatus (\ s a -> s{_rdrsResponseStatus = a});

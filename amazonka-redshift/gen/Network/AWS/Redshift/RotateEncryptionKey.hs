@@ -34,7 +34,7 @@ module Network.AWS.Redshift.RotateEncryptionKey
     , RotateEncryptionKeyResponse
     -- * Response Lenses
     , rekrsCluster
-    , rekrsStatus
+    , rekrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -96,8 +96,8 @@ instance ToQuery RotateEncryptionKey where
 
 -- | /See:/ 'rotateEncryptionKeyResponse' smart constructor.
 data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
-    { _rekrsCluster :: !(Maybe Cluster)
-    , _rekrsStatus  :: !Int
+    { _rekrsCluster        :: !(Maybe Cluster)
+    , _rekrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RotateEncryptionKeyResponse' with the minimum fields required to make a request.
@@ -106,14 +106,14 @@ data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
 --
 -- * 'rekrsCluster'
 --
--- * 'rekrsStatus'
+-- * 'rekrsResponseStatus'
 rotateEncryptionKeyResponse
-    :: Int -- ^ 'rekrsStatus'
+    :: Int -- ^ 'rekrsResponseStatus'
     -> RotateEncryptionKeyResponse
-rotateEncryptionKeyResponse pStatus_ =
+rotateEncryptionKeyResponse pResponseStatus_ =
     RotateEncryptionKeyResponse'
     { _rekrsCluster = Nothing
-    , _rekrsStatus = pStatus_
+    , _rekrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -121,5 +121,5 @@ rekrsCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
 rekrsCluster = lens _rekrsCluster (\ s a -> s{_rekrsCluster = a});
 
 -- | The response status code.
-rekrsStatus :: Lens' RotateEncryptionKeyResponse Int
-rekrsStatus = lens _rekrsStatus (\ s a -> s{_rekrsStatus = a});
+rekrsResponseStatus :: Lens' RotateEncryptionKeyResponse Int
+rekrsResponseStatus = lens _rekrsResponseStatus (\ s a -> s{_rekrsResponseStatus = a});

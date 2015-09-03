@@ -41,7 +41,7 @@ module Network.AWS.Redshift.RebootCluster
     , RebootClusterResponse
     -- * Response Lenses
     , rcrsCluster
-    , rcrsStatus
+    , rcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -98,8 +98,8 @@ instance ToQuery RebootCluster where
 
 -- | /See:/ 'rebootClusterResponse' smart constructor.
 data RebootClusterResponse = RebootClusterResponse'
-    { _rcrsCluster :: !(Maybe Cluster)
-    , _rcrsStatus  :: !Int
+    { _rcrsCluster        :: !(Maybe Cluster)
+    , _rcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RebootClusterResponse' with the minimum fields required to make a request.
@@ -108,14 +108,14 @@ data RebootClusterResponse = RebootClusterResponse'
 --
 -- * 'rcrsCluster'
 --
--- * 'rcrsStatus'
+-- * 'rcrsResponseStatus'
 rebootClusterResponse
-    :: Int -- ^ 'rcrsStatus'
+    :: Int -- ^ 'rcrsResponseStatus'
     -> RebootClusterResponse
-rebootClusterResponse pStatus_ =
+rebootClusterResponse pResponseStatus_ =
     RebootClusterResponse'
     { _rcrsCluster = Nothing
-    , _rcrsStatus = pStatus_
+    , _rcrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -123,5 +123,5 @@ rcrsCluster :: Lens' RebootClusterResponse (Maybe Cluster)
 rcrsCluster = lens _rcrsCluster (\ s a -> s{_rcrsCluster = a});
 
 -- | The response status code.
-rcrsStatus :: Lens' RebootClusterResponse Int
-rcrsStatus = lens _rcrsStatus (\ s a -> s{_rcrsStatus = a});
+rcrsResponseStatus :: Lens' RebootClusterResponse Int
+rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});

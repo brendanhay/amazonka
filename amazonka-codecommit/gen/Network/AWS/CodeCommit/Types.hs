@@ -18,27 +18,27 @@ module Network.AWS.CodeCommit.Types
     -- * Errors
     , _InvalidContinuationTokenException
     , _EncryptionKeyNotFoundException
-    , _RepositoryNameExistsException
     , _MaximumRepositoryNamesExceededException
     , _InvalidRepositoryDescriptionException
-    , _BranchNameRequiredException
+    , _RepositoryNameExistsException
     , _InvalidBranchNameException
+    , _BranchNameRequiredException
     , _EncryptionKeyUnavailableException
+    , _RepositoryNamesRequiredException
     , _InvalidOrderException
     , _BranchDoesNotExistException
-    , _RepositoryNamesRequiredException
     , _RepositoryDoesNotExistException
     , _EncryptionIntegrityChecksFailedException
     , _EncryptionKeyAccessDeniedException
     , _BranchNameExistsException
-    , _EncryptionKeyDisabledException
     , _InvalidSortByException
+    , _EncryptionKeyDisabledException
     , _CommitIdRequiredException
     , _InvalidCommitIdException
     , _CommitDoesNotExistException
+    , _RepositoryNameRequiredException
     , _RepositoryLimitExceededException
     , _InvalidRepositoryNameException
-    , _RepositoryNameRequiredException
 
     -- * OrderEnum
     , OrderEnum (..)
@@ -62,8 +62,8 @@ module Network.AWS.CodeCommit.Types
     , rmAccountId
     , rmDefaultBranch
     , rmRepositoryId
-    , rmCreationDate
     , rmRepositoryName
+    , rmCreationDate
     , rmCloneURLSSH
 
     -- * RepositoryNameIdPair
@@ -119,11 +119,6 @@ _EncryptionKeyNotFoundException :: AsError a => Getting (First ServiceError) a S
 _EncryptionKeyNotFoundException =
     _ServiceError . hasCode "EncryptionKeyNotFoundException"
 
--- | The specified repository name already exists.
-_RepositoryNameExistsException :: AsError a => Getting (First ServiceError) a ServiceError
-_RepositoryNameExistsException =
-    _ServiceError . hasCode "RepositoryNameExistsException"
-
 -- | The maximum number of allowed repository names was exceeded. Currently,
 -- this number is 25.
 _MaximumRepositoryNamesExceededException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -135,20 +130,30 @@ _InvalidRepositoryDescriptionException :: AsError a => Getting (First ServiceErr
 _InvalidRepositoryDescriptionException =
     _ServiceError . hasCode "InvalidRepositoryDescriptionException"
 
--- | A branch name is required but was not specified.
-_BranchNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_BranchNameRequiredException =
-    _ServiceError . hasCode "BranchNameRequiredException"
+-- | The specified repository name already exists.
+_RepositoryNameExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+_RepositoryNameExistsException =
+    _ServiceError . hasCode "RepositoryNameExistsException"
 
 -- | The specified branch name is not valid.
 _InvalidBranchNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidBranchNameException =
     _ServiceError . hasCode "InvalidBranchNameException"
 
+-- | A branch name is required but was not specified.
+_BranchNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+_BranchNameRequiredException =
+    _ServiceError . hasCode "BranchNameRequiredException"
+
 -- | The encryption key is not available.
 _EncryptionKeyUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _EncryptionKeyUnavailableException =
     _ServiceError . hasCode "EncryptionKeyUnavailableException"
+
+-- | A repository names object is required but was not specified.
+_RepositoryNamesRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+_RepositoryNamesRequiredException =
+    _ServiceError . hasCode "RepositoryNamesRequiredException"
 
 -- | The specified sort order is not valid.
 _InvalidOrderException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -158,11 +163,6 @@ _InvalidOrderException = _ServiceError . hasCode "InvalidOrderException"
 _BranchDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _BranchDoesNotExistException =
     _ServiceError . hasCode "BranchDoesNotExistException"
-
--- | A repository names object is required but was not specified.
-_RepositoryNamesRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_RepositoryNamesRequiredException =
-    _ServiceError . hasCode "RepositoryNamesRequiredException"
 
 -- | The specified repository does not exist.
 _RepositoryDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -184,14 +184,14 @@ _BranchNameExistsException :: AsError a => Getting (First ServiceError) a Servic
 _BranchNameExistsException =
     _ServiceError . hasCode "BranchNameExistsException"
 
+-- | The specified sort by value is not valid.
+_InvalidSortByException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidSortByException = _ServiceError . hasCode "InvalidSortByException"
+
 -- | The encryption key is disabled.
 _EncryptionKeyDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
 _EncryptionKeyDisabledException =
     _ServiceError . hasCode "EncryptionKeyDisabledException"
-
--- | The specified sort by value is not valid.
-_InvalidSortByException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSortByException = _ServiceError . hasCode "InvalidSortByException"
 
 -- | A commit ID was not specified.
 _CommitIdRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -208,6 +208,11 @@ _CommitDoesNotExistException :: AsError a => Getting (First ServiceError) a Serv
 _CommitDoesNotExistException =
     _ServiceError . hasCode "CommitDoesNotExistException"
 
+-- | A repository name is required but was not specified.
+_RepositoryNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+_RepositoryNameRequiredException =
+    _ServiceError . hasCode "RepositoryNameRequiredException"
+
 -- | A repository resource limit was exceeded.
 _RepositoryLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryLimitExceededException =
@@ -221,8 +226,3 @@ _RepositoryLimitExceededException =
 _InvalidRepositoryNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRepositoryNameException =
     _ServiceError . hasCode "InvalidRepositoryNameException"
-
--- | A repository name is required but was not specified.
-_RepositoryNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_RepositoryNameRequiredException =
-    _ServiceError . hasCode "RepositoryNameRequiredException"

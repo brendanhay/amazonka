@@ -38,8 +38,8 @@ module Network.AWS.EC2.ModifySnapshotAttribute
     , ModifySnapshotAttribute
     -- * Request Lenses
     , msaAttribute
-    , msaUserIds
     , msaCreateVolumePermission
+    , msaUserIds
     , msaGroupNames
     , msaOperationType
     , msaDryRun
@@ -59,10 +59,10 @@ import           Network.AWS.Response
 -- | /See:/ 'modifySnapshotAttribute' smart constructor.
 data ModifySnapshotAttribute = ModifySnapshotAttribute'
     { _msaAttribute              :: !(Maybe SnapshotAttributeName)
-    , _msaUserIds                :: !(Maybe [Text])
     , _msaCreateVolumePermission :: !(Maybe CreateVolumePermissionModifications)
+    , _msaUserIds                :: !(Maybe [Text])
     , _msaGroupNames             :: !(Maybe [Text])
-    , _msaOperationType          :: !(Maybe Text)
+    , _msaOperationType          :: !(Maybe OperationType)
     , _msaDryRun                 :: !(Maybe Bool)
     , _msaSnapshotId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -73,9 +73,9 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute'
 --
 -- * 'msaAttribute'
 --
--- * 'msaUserIds'
---
 -- * 'msaCreateVolumePermission'
+--
+-- * 'msaUserIds'
 --
 -- * 'msaGroupNames'
 --
@@ -90,8 +90,8 @@ modifySnapshotAttribute
 modifySnapshotAttribute pSnapshotId_ =
     ModifySnapshotAttribute'
     { _msaAttribute = Nothing
-    , _msaUserIds = Nothing
     , _msaCreateVolumePermission = Nothing
+    , _msaUserIds = Nothing
     , _msaGroupNames = Nothing
     , _msaOperationType = Nothing
     , _msaDryRun = Nothing
@@ -104,20 +104,20 @@ modifySnapshotAttribute pSnapshotId_ =
 msaAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
 msaAttribute = lens _msaAttribute (\ s a -> s{_msaAttribute = a});
 
--- | The account ID to modify for the snapshot.
-msaUserIds :: Lens' ModifySnapshotAttribute [Text]
-msaUserIds = lens _msaUserIds (\ s a -> s{_msaUserIds = a}) . _Default . _Coerce;
-
 -- | A JSON representation of the snapshot attribute modification.
 msaCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePermissionModifications)
 msaCreateVolumePermission = lens _msaCreateVolumePermission (\ s a -> s{_msaCreateVolumePermission = a});
+
+-- | The account ID to modify for the snapshot.
+msaUserIds :: Lens' ModifySnapshotAttribute [Text]
+msaUserIds = lens _msaUserIds (\ s a -> s{_msaUserIds = a}) . _Default . _Coerce;
 
 -- | The group to modify for the snapshot.
 msaGroupNames :: Lens' ModifySnapshotAttribute [Text]
 msaGroupNames = lens _msaGroupNames (\ s a -> s{_msaGroupNames = a}) . _Default . _Coerce;
 
 -- | The type of operation to perform to the attribute.
-msaOperationType :: Lens' ModifySnapshotAttribute (Maybe Text)
+msaOperationType :: Lens' ModifySnapshotAttribute (Maybe OperationType)
 msaOperationType = lens _msaOperationType (\ s a -> s{_msaOperationType = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -151,9 +151,9 @@ instance ToQuery ModifySnapshotAttribute where
                  ("ModifySnapshotAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "Attribute" =: _msaAttribute,
-               toQuery (toQueryList "UserId" <$> _msaUserIds),
                "CreateVolumePermission" =:
                  _msaCreateVolumePermission,
+               toQuery (toQueryList "UserId" <$> _msaUserIds),
                toQuery (toQueryList "UserGroup" <$> _msaGroupNames),
                "OperationType" =: _msaOperationType,
                "DryRun" =: _msaDryRun,

@@ -39,7 +39,7 @@ module Network.AWS.CloudHSM.GetConfig
     , gcrsConfigFile
     , gcrsConfigCred
     , gcrsConfigType
-    , gcrsStatus
+    , gcrsResponseStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -124,10 +124,10 @@ instance ToQuery GetConfig where
 
 -- | /See:/ 'getConfigResponse' smart constructor.
 data GetConfigResponse = GetConfigResponse'
-    { _gcrsConfigFile :: !(Maybe Text)
-    , _gcrsConfigCred :: !(Maybe Text)
-    , _gcrsConfigType :: !(Maybe Text)
-    , _gcrsStatus     :: !Int
+    { _gcrsConfigFile     :: !(Maybe Text)
+    , _gcrsConfigCred     :: !(Maybe Text)
+    , _gcrsConfigType     :: !(Maybe Text)
+    , _gcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetConfigResponse' with the minimum fields required to make a request.
@@ -140,16 +140,16 @@ data GetConfigResponse = GetConfigResponse'
 --
 -- * 'gcrsConfigType'
 --
--- * 'gcrsStatus'
+-- * 'gcrsResponseStatus'
 getConfigResponse
-    :: Int -- ^ 'gcrsStatus'
+    :: Int -- ^ 'gcrsResponseStatus'
     -> GetConfigResponse
-getConfigResponse pStatus_ =
+getConfigResponse pResponseStatus_ =
     GetConfigResponse'
     { _gcrsConfigFile = Nothing
     , _gcrsConfigCred = Nothing
     , _gcrsConfigType = Nothing
-    , _gcrsStatus = pStatus_
+    , _gcrsResponseStatus = pResponseStatus_
     }
 
 -- | The chrystoki.conf configuration file.
@@ -165,5 +165,5 @@ gcrsConfigType :: Lens' GetConfigResponse (Maybe Text)
 gcrsConfigType = lens _gcrsConfigType (\ s a -> s{_gcrsConfigType = a});
 
 -- | The response status code.
-gcrsStatus :: Lens' GetConfigResponse Int
-gcrsStatus = lens _gcrsStatus (\ s a -> s{_gcrsStatus = a});
+gcrsResponseStatus :: Lens' GetConfigResponse Int
+gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});

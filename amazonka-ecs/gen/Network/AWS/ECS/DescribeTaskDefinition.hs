@@ -39,7 +39,7 @@ module Network.AWS.ECS.DescribeTaskDefinition
     , DescribeTaskDefinitionResponse
     -- * Response Lenses
     , desrsTaskDefinition
-    , desrsStatus
+    , desrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -108,7 +108,7 @@ instance ToQuery DescribeTaskDefinition where
 -- | /See:/ 'describeTaskDefinitionResponse' smart constructor.
 data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
     { _desrsTaskDefinition :: !(Maybe TaskDefinition)
-    , _desrsStatus         :: !Int
+    , _desrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTaskDefinitionResponse' with the minimum fields required to make a request.
@@ -117,14 +117,14 @@ data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
 --
 -- * 'desrsTaskDefinition'
 --
--- * 'desrsStatus'
+-- * 'desrsResponseStatus'
 describeTaskDefinitionResponse
-    :: Int -- ^ 'desrsStatus'
+    :: Int -- ^ 'desrsResponseStatus'
     -> DescribeTaskDefinitionResponse
-describeTaskDefinitionResponse pStatus_ =
+describeTaskDefinitionResponse pResponseStatus_ =
     DescribeTaskDefinitionResponse'
     { _desrsTaskDefinition = Nothing
-    , _desrsStatus = pStatus_
+    , _desrsResponseStatus = pResponseStatus_
     }
 
 -- | The full task definition description.
@@ -132,5 +132,5 @@ desrsTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinitio
 desrsTaskDefinition = lens _desrsTaskDefinition (\ s a -> s{_desrsTaskDefinition = a});
 
 -- | The response status code.
-desrsStatus :: Lens' DescribeTaskDefinitionResponse Int
-desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
+desrsResponseStatus :: Lens' DescribeTaskDefinitionResponse Int
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});

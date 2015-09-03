@@ -23,6 +23,7 @@ import           Control.Monad
 import           Data.Aeson
 import           Data.List.NonEmpty  (NonEmpty (..))
 import qualified Data.List.NonEmpty  as NE
+import           Data.Maybe
 import           Gen.Types.Id
 import           Gen.Types.Notation
 
@@ -44,12 +45,17 @@ data Pager a
       deriving (Eq, Show, Functor, Foldable)
 
 instance FromJSON (Pager Id) where
-    parseJSON = withObject "pager" $ \o -> more o <|> next o
+    parseJSON = withObject "pager" $ \o -> next o <|> more o
       where
         next o = Next
-            <$> o .: "result_key"
+            <$> resultKey o
             <*> parseJSON (Object o)
 
+        resultKey o = do
+               o .: "result_key"
+           <|> (o .: "result_key" >>=
+                   maybe (fail "Empty result_key")
+                         pure . listToMaybe)
         more o = do
             let f k = o .: k <|> ((:|[]) <$> o .: k)
 

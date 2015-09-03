@@ -111,10 +111,10 @@ module Network.AWS.DynamoDB.BatchWriteItem
     , batchWriteItemResponse
     , BatchWriteItemResponse
     -- * Response Lenses
-    , bwirsConsumedCapacity
     , bwirsItemCollectionMetrics
+    , bwirsConsumedCapacity
     , bwirsUnprocessedItems
-    , bwirsStatus
+    , bwirsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -200,8 +200,8 @@ instance AWSRequest BatchWriteItem where
           = receiveJSON
               (\ s h x ->
                  BatchWriteItemResponse' <$>
-                   (x .?> "ConsumedCapacity" .!@ mempty) <*>
-                     (x .?> "ItemCollectionMetrics" .!@ mempty)
+                   (x .?> "ItemCollectionMetrics" .!@ mempty) <*>
+                     (x .?> "ConsumedCapacity" .!@ mempty)
                      <*> (x .?> "UnprocessedItems" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
@@ -234,44 +234,33 @@ instance ToQuery BatchWriteItem where
 --
 -- /See:/ 'batchWriteItemResponse' smart constructor.
 data BatchWriteItemResponse = BatchWriteItemResponse'
-    { _bwirsConsumedCapacity      :: !(Maybe [ConsumedCapacity])
-    , _bwirsItemCollectionMetrics :: !(Maybe (Map Text [ItemCollectionMetrics]))
+    { _bwirsItemCollectionMetrics :: !(Maybe (Map Text [ItemCollectionMetrics]))
+    , _bwirsConsumedCapacity      :: !(Maybe [ConsumedCapacity])
     , _bwirsUnprocessedItems      :: !(Maybe (Map Text (List1 WriteRequest)))
-    , _bwirsStatus                :: !Int
+    , _bwirsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BatchWriteItemResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bwirsConsumedCapacity'
---
 -- * 'bwirsItemCollectionMetrics'
+--
+-- * 'bwirsConsumedCapacity'
 --
 -- * 'bwirsUnprocessedItems'
 --
--- * 'bwirsStatus'
+-- * 'bwirsResponseStatus'
 batchWriteItemResponse
-    :: Int -- ^ 'bwirsStatus'
+    :: Int -- ^ 'bwirsResponseStatus'
     -> BatchWriteItemResponse
-batchWriteItemResponse pStatus_ =
+batchWriteItemResponse pResponseStatus_ =
     BatchWriteItemResponse'
-    { _bwirsConsumedCapacity = Nothing
-    , _bwirsItemCollectionMetrics = Nothing
+    { _bwirsItemCollectionMetrics = Nothing
+    , _bwirsConsumedCapacity = Nothing
     , _bwirsUnprocessedItems = Nothing
-    , _bwirsStatus = pStatus_
+    , _bwirsResponseStatus = pResponseStatus_
     }
-
--- | The capacity units consumed by the operation.
---
--- Each element consists of:
---
--- -   /TableName/ - The table that consumed the provisioned throughput.
---
--- -   /CapacityUnits/ - The total number of capacity units consumed.
---
-bwirsConsumedCapacity :: Lens' BatchWriteItemResponse [ConsumedCapacity]
-bwirsConsumedCapacity = lens _bwirsConsumedCapacity (\ s a -> s{_bwirsConsumedCapacity = a}) . _Default . _Coerce;
 
 -- | A list of tables that were processed by /BatchWriteItem/ and, for each
 -- table, information about any item collections that were affected by
@@ -295,6 +284,17 @@ bwirsConsumedCapacity = lens _bwirsConsumedCapacity (\ s a -> s{_bwirsConsumedCa
 --
 bwirsItemCollectionMetrics :: Lens' BatchWriteItemResponse (HashMap Text [ItemCollectionMetrics])
 bwirsItemCollectionMetrics = lens _bwirsItemCollectionMetrics (\ s a -> s{_bwirsItemCollectionMetrics = a}) . _Default . _Map;
+
+-- | The capacity units consumed by the operation.
+--
+-- Each element consists of:
+--
+-- -   /TableName/ - The table that consumed the provisioned throughput.
+--
+-- -   /CapacityUnits/ - The total number of capacity units consumed.
+--
+bwirsConsumedCapacity :: Lens' BatchWriteItemResponse [ConsumedCapacity]
+bwirsConsumedCapacity = lens _bwirsConsumedCapacity (\ s a -> s{_bwirsConsumedCapacity = a}) . _Default . _Coerce;
 
 -- | A map of tables and requests against those tables that were not
 -- processed. The /UnprocessedItems/ value is in the same form as
@@ -333,5 +333,5 @@ bwirsUnprocessedItems :: Lens' BatchWriteItemResponse (HashMap Text (NonEmpty Wr
 bwirsUnprocessedItems = lens _bwirsUnprocessedItems (\ s a -> s{_bwirsUnprocessedItems = a}) . _Default . _Map;
 
 -- | The response status code.
-bwirsStatus :: Lens' BatchWriteItemResponse Int
-bwirsStatus = lens _bwirsStatus (\ s a -> s{_bwirsStatus = a});
+bwirsResponseStatus :: Lens' BatchWriteItemResponse Int
+bwirsResponseStatus = lens _bwirsResponseStatus (\ s a -> s{_bwirsResponseStatus = a});

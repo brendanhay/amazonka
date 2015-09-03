@@ -42,7 +42,7 @@ module Network.AWS.DynamoDB.DescribeTable
     , DescribeTableResponse
     -- * Response Lenses
     , drsTable
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -108,8 +108,8 @@ instance ToQuery DescribeTable where
 --
 -- /See:/ 'describeTableResponse' smart constructor.
 data DescribeTableResponse = DescribeTableResponse'
-    { _drsTable  :: !(Maybe TableDescription)
-    , _drsStatus :: !Int
+    { _drsTable          :: !(Maybe TableDescription)
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTableResponse' with the minimum fields required to make a request.
@@ -118,14 +118,14 @@ data DescribeTableResponse = DescribeTableResponse'
 --
 -- * 'drsTable'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 describeTableResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DescribeTableResponse
-describeTableResponse pStatus_ =
+describeTableResponse pResponseStatus_ =
     DescribeTableResponse'
     { _drsTable = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -133,5 +133,5 @@ drsTable :: Lens' DescribeTableResponse (Maybe TableDescription)
 drsTable = lens _drsTable (\ s a -> s{_drsTable = a});
 
 -- | The response status code.
-drsStatus :: Lens' DescribeTableResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DescribeTableResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

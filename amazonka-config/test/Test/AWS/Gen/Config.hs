@@ -49,14 +49,17 @@ import Test.AWS.Config.Internal
 --         , testPutConfigurationRecorder $
 --             putConfigurationRecorder
 --
---         , testDeleteDeliveryChannel $
---             deleteDeliveryChannel
+--         , testDescribeDeliveryChannelStatus $
+--             describeDeliveryChannelStatus
 --
 --         , testPutDeliveryChannel $
 --             putDeliveryChannel
 --
---         , testDescribeDeliveryChannelStatus $
---             describeDeliveryChannelStatus
+--         , testDeleteDeliveryChannel $
+--             deleteDeliveryChannel
+--
+--         , testListDiscoveredResources $
+--             listDiscoveredResources
 --
 --         , testDescribeDeliveryChannels $
 --             describeDeliveryChannels
@@ -85,14 +88,17 @@ import Test.AWS.Config.Internal
 --         , testPutConfigurationRecorderResponse $
 --             putConfigurationRecorderResponse
 --
---         , testDeleteDeliveryChannelResponse $
---             deleteDeliveryChannelResponse
+--         , testDescribeDeliveryChannelStatusResponse $
+--             describeDeliveryChannelStatusResponse
 --
 --         , testPutDeliveryChannelResponse $
 --             putDeliveryChannelResponse
 --
---         , testDescribeDeliveryChannelStatusResponse $
---             describeDeliveryChannelStatusResponse
+--         , testDeleteDeliveryChannelResponse $
+--             deleteDeliveryChannelResponse
+--
+--         , testListDiscoveredResourcesResponse $
+--             listDiscoveredResourcesResponse
 --
 --         , testDescribeDeliveryChannelsResponse $
 --             describeDeliveryChannelsResponse
@@ -137,20 +143,25 @@ testPutConfigurationRecorder = req
     "PutConfigurationRecorder"
     "fixture/PutConfigurationRecorder.yaml"
 
-testDeleteDeliveryChannel :: DeleteDeliveryChannel -> TestTree
-testDeleteDeliveryChannel = req
-    "DeleteDeliveryChannel"
-    "fixture/DeleteDeliveryChannel.yaml"
+testDescribeDeliveryChannelStatus :: DescribeDeliveryChannelStatus -> TestTree
+testDescribeDeliveryChannelStatus = req
+    "DescribeDeliveryChannelStatus"
+    "fixture/DescribeDeliveryChannelStatus.yaml"
 
 testPutDeliveryChannel :: PutDeliveryChannel -> TestTree
 testPutDeliveryChannel = req
     "PutDeliveryChannel"
     "fixture/PutDeliveryChannel.yaml"
 
-testDescribeDeliveryChannelStatus :: DescribeDeliveryChannelStatus -> TestTree
-testDescribeDeliveryChannelStatus = req
-    "DescribeDeliveryChannelStatus"
-    "fixture/DescribeDeliveryChannelStatus.yaml"
+testDeleteDeliveryChannel :: DeleteDeliveryChannel -> TestTree
+testDeleteDeliveryChannel = req
+    "DeleteDeliveryChannel"
+    "fixture/DeleteDeliveryChannel.yaml"
+
+testListDiscoveredResources :: ListDiscoveredResources -> TestTree
+testListDiscoveredResources = req
+    "ListDiscoveredResources"
+    "fixture/ListDiscoveredResources.yaml"
 
 testDescribeDeliveryChannels :: DescribeDeliveryChannels -> TestTree
 testDescribeDeliveryChannels = req
@@ -208,12 +219,12 @@ testPutConfigurationRecorderResponse = res
     config
     (Proxy :: Proxy PutConfigurationRecorder)
 
-testDeleteDeliveryChannelResponse :: DeleteDeliveryChannelResponse -> TestTree
-testDeleteDeliveryChannelResponse = res
-    "DeleteDeliveryChannelResponse"
-    "fixture/DeleteDeliveryChannelResponse.proto"
+testDescribeDeliveryChannelStatusResponse :: DescribeDeliveryChannelStatusResponse -> TestTree
+testDescribeDeliveryChannelStatusResponse = res
+    "DescribeDeliveryChannelStatusResponse"
+    "fixture/DescribeDeliveryChannelStatusResponse.proto"
     config
-    (Proxy :: Proxy DeleteDeliveryChannel)
+    (Proxy :: Proxy DescribeDeliveryChannelStatus)
 
 testPutDeliveryChannelResponse :: PutDeliveryChannelResponse -> TestTree
 testPutDeliveryChannelResponse = res
@@ -222,12 +233,19 @@ testPutDeliveryChannelResponse = res
     config
     (Proxy :: Proxy PutDeliveryChannel)
 
-testDescribeDeliveryChannelStatusResponse :: DescribeDeliveryChannelStatusResponse -> TestTree
-testDescribeDeliveryChannelStatusResponse = res
-    "DescribeDeliveryChannelStatusResponse"
-    "fixture/DescribeDeliveryChannelStatusResponse.proto"
+testDeleteDeliveryChannelResponse :: DeleteDeliveryChannelResponse -> TestTree
+testDeleteDeliveryChannelResponse = res
+    "DeleteDeliveryChannelResponse"
+    "fixture/DeleteDeliveryChannelResponse.proto"
     config
-    (Proxy :: Proxy DescribeDeliveryChannelStatus)
+    (Proxy :: Proxy DeleteDeliveryChannel)
+
+testListDiscoveredResourcesResponse :: ListDiscoveredResourcesResponse -> TestTree
+testListDiscoveredResourcesResponse = res
+    "ListDiscoveredResourcesResponse"
+    "fixture/ListDiscoveredResourcesResponse.proto"
+    config
+    (Proxy :: Proxy ListDiscoveredResources)
 
 testDescribeDeliveryChannelsResponse :: DescribeDeliveryChannelsResponse -> TestTree
 testDescribeDeliveryChannelsResponse = res

@@ -34,7 +34,7 @@ module Network.AWS.CodeDeploy.BatchGetApplications
     , BatchGetApplicationsResponse
     -- * Response Lenses
     , bgarsApplicationsInfo
-    , bgarsStatus
+    , bgarsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -105,7 +105,7 @@ instance ToQuery BatchGetApplications where
 -- /See:/ 'batchGetApplicationsResponse' smart constructor.
 data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
     { _bgarsApplicationsInfo :: !(Maybe [ApplicationInfo])
-    , _bgarsStatus           :: !Int
+    , _bgarsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BatchGetApplicationsResponse' with the minimum fields required to make a request.
@@ -114,14 +114,14 @@ data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
 --
 -- * 'bgarsApplicationsInfo'
 --
--- * 'bgarsStatus'
+-- * 'bgarsResponseStatus'
 batchGetApplicationsResponse
-    :: Int -- ^ 'bgarsStatus'
+    :: Int -- ^ 'bgarsResponseStatus'
     -> BatchGetApplicationsResponse
-batchGetApplicationsResponse pStatus_ =
+batchGetApplicationsResponse pResponseStatus_ =
     BatchGetApplicationsResponse'
     { _bgarsApplicationsInfo = Nothing
-    , _bgarsStatus = pStatus_
+    , _bgarsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the applications.
@@ -129,5 +129,5 @@ bgarsApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
 bgarsApplicationsInfo = lens _bgarsApplicationsInfo (\ s a -> s{_bgarsApplicationsInfo = a}) . _Default . _Coerce;
 
 -- | The response status code.
-bgarsStatus :: Lens' BatchGetApplicationsResponse Int
-bgarsStatus = lens _bgarsStatus (\ s a -> s{_bgarsStatus = a});
+bgarsResponseStatus :: Lens' BatchGetApplicationsResponse Int
+bgarsResponseStatus = lens _bgarsResponseStatus (\ s a -> s{_bgarsResponseStatus = a});

@@ -34,7 +34,7 @@ module Network.AWS.CodeDeploy.GetOnPremisesInstance
     , GetOnPremisesInstanceResponse
     -- * Response Lenses
     , gopirsInstanceInfo
-    , gopirsStatus
+    , gopirsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -103,8 +103,8 @@ instance ToQuery GetOnPremisesInstance where
 --
 -- /See:/ 'getOnPremisesInstanceResponse' smart constructor.
 data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
-    { _gopirsInstanceInfo :: !(Maybe InstanceInfo)
-    , _gopirsStatus       :: !Int
+    { _gopirsInstanceInfo   :: !(Maybe InstanceInfo)
+    , _gopirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetOnPremisesInstanceResponse' with the minimum fields required to make a request.
@@ -113,14 +113,14 @@ data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
 --
 -- * 'gopirsInstanceInfo'
 --
--- * 'gopirsStatus'
+-- * 'gopirsResponseStatus'
 getOnPremisesInstanceResponse
-    :: Int -- ^ 'gopirsStatus'
+    :: Int -- ^ 'gopirsResponseStatus'
     -> GetOnPremisesInstanceResponse
-getOnPremisesInstanceResponse pStatus_ =
+getOnPremisesInstanceResponse pResponseStatus_ =
     GetOnPremisesInstanceResponse'
     { _gopirsInstanceInfo = Nothing
-    , _gopirsStatus = pStatus_
+    , _gopirsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the on-premises instance.
@@ -128,5 +128,5 @@ gopirsInstanceInfo :: Lens' GetOnPremisesInstanceResponse (Maybe InstanceInfo)
 gopirsInstanceInfo = lens _gopirsInstanceInfo (\ s a -> s{_gopirsInstanceInfo = a});
 
 -- | The response status code.
-gopirsStatus :: Lens' GetOnPremisesInstanceResponse Int
-gopirsStatus = lens _gopirsStatus (\ s a -> s{_gopirsStatus = a});
+gopirsResponseStatus :: Lens' GetOnPremisesInstanceResponse Int
+gopirsResponseStatus = lens _gopirsResponseStatus (\ s a -> s{_gopirsResponseStatus = a});

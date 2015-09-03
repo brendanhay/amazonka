@@ -45,9 +45,9 @@ module Network.AWS.IAM.ListPolicies
     -- * Request Lenses
     , lpPathPrefix
     , lpOnlyAttached
+    , lpMarker
     , lpScope
     , lpMaxItems
-    , lpMarker
 
     -- * Destructuring the Response
     , listPoliciesResponse
@@ -56,7 +56,7 @@ module Network.AWS.IAM.ListPolicies
     , lprsMarker
     , lprsIsTruncated
     , lprsPolicies
-    , lprsStatus
+    , lprsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -70,9 +70,9 @@ import           Network.AWS.Response
 data ListPolicies = ListPolicies'
     { _lpPathPrefix   :: !(Maybe Text)
     , _lpOnlyAttached :: !(Maybe Bool)
+    , _lpMarker       :: !(Maybe Text)
     , _lpScope        :: !(Maybe PolicyScopeType)
     , _lpMaxItems     :: !(Maybe Nat)
-    , _lpMarker       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListPolicies' with the minimum fields required to make a request.
@@ -83,20 +83,20 @@ data ListPolicies = ListPolicies'
 --
 -- * 'lpOnlyAttached'
 --
+-- * 'lpMarker'
+--
 -- * 'lpScope'
 --
 -- * 'lpMaxItems'
---
--- * 'lpMarker'
 listPolicies
     :: ListPolicies
 listPolicies =
     ListPolicies'
     { _lpPathPrefix = Nothing
     , _lpOnlyAttached = Nothing
+    , _lpMarker = Nothing
     , _lpScope = Nothing
     , _lpMaxItems = Nothing
-    , _lpMarker = Nothing
     }
 
 -- | The path prefix for filtering the results. This parameter is optional.
@@ -113,6 +113,12 @@ lpPathPrefix = lens _lpPathPrefix (\ s a -> s{_lpPathPrefix = a});
 -- policies are returned.
 lpOnlyAttached :: Lens' ListPolicies (Maybe Bool)
 lpOnlyAttached = lens _lpOnlyAttached (\ s a -> s{_lpOnlyAttached = a});
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lpMarker :: Lens' ListPolicies (Maybe Text)
+lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 
 -- | The scope to use for filtering the results.
 --
@@ -134,16 +140,10 @@ lpScope = lens _lpScope (\ s a -> s{_lpScope = a});
 lpMaxItems :: Lens' ListPolicies (Maybe Natural)
 lpMaxItems = lens _lpMaxItems (\ s a -> s{_lpMaxItems = a}) . mapping _Nat;
 
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lpMarker :: Lens' ListPolicies (Maybe Text)
-lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
-
 instance AWSPager ListPolicies where
         page rq rs
-          | stop (rs ^. lprsIsTruncated) = Nothing
-          | isNothing (rs ^. lprsMarker) = Nothing
+          | stop (rs ^. lprsMarker) = Nothing
+          | stop (rs ^. lprsPolicies) = Nothing
           | otherwise =
             Just $ rq & lpMarker .~ rs ^. lprsMarker
 
@@ -172,17 +172,17 @@ instance ToQuery ListPolicies where
                "Version" =: ("2010-05-08" :: ByteString),
                "PathPrefix" =: _lpPathPrefix,
                "OnlyAttached" =: _lpOnlyAttached,
-               "Scope" =: _lpScope, "MaxItems" =: _lpMaxItems,
-               "Marker" =: _lpMarker]
+               "Marker" =: _lpMarker, "Scope" =: _lpScope,
+               "MaxItems" =: _lpMaxItems]
 
 -- | Contains the response to a successful ListPolicies request.
 --
 -- /See:/ 'listPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
-    { _lprsMarker      :: !(Maybe Text)
-    , _lprsIsTruncated :: !(Maybe Bool)
-    , _lprsPolicies    :: !(Maybe [Policy])
-    , _lprsStatus      :: !Int
+    { _lprsMarker         :: !(Maybe Text)
+    , _lprsIsTruncated    :: !(Maybe Bool)
+    , _lprsPolicies       :: !(Maybe [Policy])
+    , _lprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListPoliciesResponse' with the minimum fields required to make a request.
@@ -195,16 +195,16 @@ data ListPoliciesResponse = ListPoliciesResponse'
 --
 -- * 'lprsPolicies'
 --
--- * 'lprsStatus'
+-- * 'lprsResponseStatus'
 listPoliciesResponse
-    :: Int -- ^ 'lprsStatus'
+    :: Int -- ^ 'lprsResponseStatus'
     -> ListPoliciesResponse
-listPoliciesResponse pStatus_ =
+listPoliciesResponse pResponseStatus_ =
     ListPoliciesResponse'
     { _lprsMarker = Nothing
     , _lprsIsTruncated = Nothing
     , _lprsPolicies = Nothing
-    , _lprsStatus = pStatus_
+    , _lprsResponseStatus = pResponseStatus_
     }
 
 -- | When 'IsTruncated' is 'true', this element is present and contains the
@@ -224,5 +224,5 @@ lprsPolicies :: Lens' ListPoliciesResponse [Policy]
 lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lprsStatus :: Lens' ListPoliciesResponse Int
-lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});
+lprsResponseStatus :: Lens' ListPoliciesResponse Int
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});

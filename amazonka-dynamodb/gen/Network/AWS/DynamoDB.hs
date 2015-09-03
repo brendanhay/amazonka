@@ -151,11 +151,11 @@ module Network.AWS.DynamoDB
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
 
-    -- ** ResourceInUseException
-    , _ResourceInUseException
-
     -- ** LimitExceededException
     , _LimitExceededException
+
+    -- ** ResourceInUseException
+    , _ResourceInUseException
 
     -- * Waiters
     -- $waiters
@@ -169,14 +169,14 @@ module Network.AWS.DynamoDB
     -- * Operations
     -- $operations
 
-    -- ** UpdateItem
-    , module Network.AWS.DynamoDB.UpdateItem
+    -- ** PutItem
+    , module Network.AWS.DynamoDB.PutItem
 
     -- ** DeleteItem
     , module Network.AWS.DynamoDB.DeleteItem
 
-    -- ** PutItem
-    , module Network.AWS.DynamoDB.PutItem
+    -- ** UpdateItem
+    , module Network.AWS.DynamoDB.UpdateItem
 
     -- ** DeleteTable
     , module Network.AWS.DynamoDB.DeleteTable
@@ -196,11 +196,11 @@ module Network.AWS.DynamoDB
     -- ** BatchWriteItem
     , module Network.AWS.DynamoDB.BatchWriteItem
 
-    -- ** Scan (Paginated)
-    , module Network.AWS.DynamoDB.Scan
-
     -- ** ListTables (Paginated)
     , module Network.AWS.DynamoDB.ListTables
+
+    -- ** Scan (Paginated)
+    , module Network.AWS.DynamoDB.Scan
 
     -- ** Query (Paginated)
     , module Network.AWS.DynamoDB.Query
@@ -259,8 +259,8 @@ module Network.AWS.DynamoDB
     , AttributeValue
     , attributeValue
     , avL
-    , avM
     , avNS
+    , avM
     , avNULL
     , avN
     , avBS
@@ -289,8 +289,8 @@ module Network.AWS.DynamoDB
     -- ** ConsumedCapacity
     , ConsumedCapacity
     , consumedCapacity
-    , ccCapacityUnits
     , ccGlobalSecondaryIndexes
+    , ccCapacityUnits
     , ccLocalSecondaryIndexes
     , ccTable
     , ccTableName
@@ -333,9 +333,9 @@ module Network.AWS.DynamoDB
     , GlobalSecondaryIndexDescription
     , globalSecondaryIndexDescription
     , gsidBackfilling
-    , gsidProvisionedThroughput
-    , gsidIndexStatus
     , gsidIndexSizeBytes
+    , gsidIndexStatus
+    , gsidProvisionedThroughput
     , gsidIndexARN
     , gsidKeySchema
     , gsidProjection
@@ -365,9 +365,9 @@ module Network.AWS.DynamoDB
     , KeysAndAttributes
     , keysAndAttributes
     , kaaProjectionExpression
-    , kaaConsistentRead
-    , kaaExpressionAttributeNames
     , kaaAttributesToGet
+    , kaaExpressionAttributeNames
+    , kaaConsistentRead
     , kaaKeys
 
     -- ** LocalSecondaryIndex
@@ -416,21 +416,21 @@ module Network.AWS.DynamoDB
     -- ** StreamSpecification
     , StreamSpecification
     , streamSpecification
-    , ssStreamEnabled
     , ssStreamViewType
+    , ssStreamEnabled
 
     -- ** TableDescription
     , TableDescription
     , tableDescription
-    , tdProvisionedThroughput
+    , tdTableSizeBytes
     , tdAttributeDefinitions
     , tdLatestStreamARN
-    , tdTableSizeBytes
+    , tdProvisionedThroughput
     , tdTableStatus
     , tdTableARN
     , tdKeySchema
-    , tdLatestStreamLabel
     , tdGlobalSecondaryIndexes
+    , tdLatestStreamLabel
     , tdLocalSecondaryIndexes
     , tdCreationDateTime
     , tdItemCount
@@ -446,8 +446,8 @@ module Network.AWS.DynamoDB
     -- ** WriteRequest
     , WriteRequest
     , writeRequest
-    , wrPutRequest
     , wrDeleteRequest
+    , wrPutRequest
     ) where
 
 import           Network.AWS.DynamoDB.BatchGetItem

@@ -55,7 +55,7 @@ module Network.AWS.OpsWorks.RegisterInstance
     , RegisterInstanceResponse
     -- * Response Lenses
     , rirsInstanceId
-    , rirsStatus
+    , rirsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -176,8 +176,8 @@ instance ToQuery RegisterInstance where
 --
 -- /See:/ 'registerInstanceResponse' smart constructor.
 data RegisterInstanceResponse = RegisterInstanceResponse'
-    { _rirsInstanceId :: !(Maybe Text)
-    , _rirsStatus     :: !Int
+    { _rirsInstanceId     :: !(Maybe Text)
+    , _rirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterInstanceResponse' with the minimum fields required to make a request.
@@ -186,14 +186,14 @@ data RegisterInstanceResponse = RegisterInstanceResponse'
 --
 -- * 'rirsInstanceId'
 --
--- * 'rirsStatus'
+-- * 'rirsResponseStatus'
 registerInstanceResponse
-    :: Int -- ^ 'rirsStatus'
+    :: Int -- ^ 'rirsResponseStatus'
     -> RegisterInstanceResponse
-registerInstanceResponse pStatus_ =
+registerInstanceResponse pResponseStatus_ =
     RegisterInstanceResponse'
     { _rirsInstanceId = Nothing
-    , _rirsStatus = pStatus_
+    , _rirsResponseStatus = pResponseStatus_
     }
 
 -- | The registered instance\'s AWS OpsWorks ID.
@@ -201,5 +201,5 @@ rirsInstanceId :: Lens' RegisterInstanceResponse (Maybe Text)
 rirsInstanceId = lens _rirsInstanceId (\ s a -> s{_rirsInstanceId = a});
 
 -- | The response status code.
-rirsStatus :: Lens' RegisterInstanceResponse Int
-rirsStatus = lens _rirsStatus (\ s a -> s{_rirsStatus = a});
+rirsResponseStatus :: Lens' RegisterInstanceResponse Int
+rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a});

@@ -41,7 +41,7 @@ module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     , UpdateAvailabilityOptionsResponse
     -- * Response Lenses
     , uaorsAvailabilityOptions
-    , uaorsStatus
+    , uaorsResponseStatus
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -120,7 +120,7 @@ instance ToQuery UpdateAvailabilityOptions where
 -- /See:/ 'updateAvailabilityOptionsResponse' smart constructor.
 data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'
     { _uaorsAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
-    , _uaorsStatus              :: !Int
+    , _uaorsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateAvailabilityOptionsResponse' with the minimum fields required to make a request.
@@ -129,14 +129,14 @@ data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'
 --
 -- * 'uaorsAvailabilityOptions'
 --
--- * 'uaorsStatus'
+-- * 'uaorsResponseStatus'
 updateAvailabilityOptionsResponse
-    :: Int -- ^ 'uaorsStatus'
+    :: Int -- ^ 'uaorsResponseStatus'
     -> UpdateAvailabilityOptionsResponse
-updateAvailabilityOptionsResponse pStatus_ =
+updateAvailabilityOptionsResponse pResponseStatus_ =
     UpdateAvailabilityOptionsResponse'
     { _uaorsAvailabilityOptions = Nothing
-    , _uaorsStatus = pStatus_
+    , _uaorsResponseStatus = pResponseStatus_
     }
 
 -- | The newly-configured availability options. Indicates whether Multi-AZ is
@@ -145,5 +145,5 @@ uaorsAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe Avail
 uaorsAvailabilityOptions = lens _uaorsAvailabilityOptions (\ s a -> s{_uaorsAvailabilityOptions = a});
 
 -- | The response status code.
-uaorsStatus :: Lens' UpdateAvailabilityOptionsResponse Int
-uaorsStatus = lens _uaorsStatus (\ s a -> s{_uaorsStatus = a});
+uaorsResponseStatus :: Lens' UpdateAvailabilityOptionsResponse Int
+uaorsResponseStatus = lens _uaorsResponseStatus (\ s a -> s{_uaorsResponseStatus = a});

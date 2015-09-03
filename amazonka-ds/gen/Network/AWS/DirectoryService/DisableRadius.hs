@@ -34,7 +34,7 @@ module Network.AWS.DirectoryService.DisableRadius
     , disableRadiusResponse
     , DisableRadiusResponse
     -- * Response Lenses
-    , drrsStatus
+    , drrsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -100,22 +100,22 @@ instance ToQuery DisableRadius where
 --
 -- /See:/ 'disableRadiusResponse' smart constructor.
 newtype DisableRadiusResponse = DisableRadiusResponse'
-    { _drrsStatus :: Int
+    { _drrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DisableRadiusResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrsStatus'
+-- * 'drrsResponseStatus'
 disableRadiusResponse
-    :: Int -- ^ 'drrsStatus'
+    :: Int -- ^ 'drrsResponseStatus'
     -> DisableRadiusResponse
-disableRadiusResponse pStatus_ =
+disableRadiusResponse pResponseStatus_ =
     DisableRadiusResponse'
-    { _drrsStatus = pStatus_
+    { _drrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-drrsStatus :: Lens' DisableRadiusResponse Int
-drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});
+drrsResponseStatus :: Lens' DisableRadiusResponse Int
+drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});

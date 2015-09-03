@@ -44,7 +44,7 @@ module Network.AWS.EC2.DescribeImages
     , DescribeImagesResponse
     -- * Response Lenses
     , desrsImages
-    , desrsStatus
+    , desrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -228,8 +228,8 @@ instance ToQuery DescribeImages where
 
 -- | /See:/ 'describeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
-    { _desrsImages :: !(Maybe [Image])
-    , _desrsStatus :: !Int
+    { _desrsImages         :: !(Maybe [Image])
+    , _desrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeImagesResponse' with the minimum fields required to make a request.
@@ -238,14 +238,14 @@ data DescribeImagesResponse = DescribeImagesResponse'
 --
 -- * 'desrsImages'
 --
--- * 'desrsStatus'
+-- * 'desrsResponseStatus'
 describeImagesResponse
-    :: Int -- ^ 'desrsStatus'
+    :: Int -- ^ 'desrsResponseStatus'
     -> DescribeImagesResponse
-describeImagesResponse pStatus_ =
+describeImagesResponse pResponseStatus_ =
     DescribeImagesResponse'
     { _desrsImages = Nothing
-    , _desrsStatus = pStatus_
+    , _desrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more images.
@@ -253,5 +253,5 @@ desrsImages :: Lens' DescribeImagesResponse [Image]
 desrsImages = lens _desrsImages (\ s a -> s{_desrsImages = a}) . _Default . _Coerce;
 
 -- | The response status code.
-desrsStatus :: Lens' DescribeImagesResponse Int
-desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
+desrsResponseStatus :: Lens' DescribeImagesResponse Int
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});

@@ -46,8 +46,8 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     -- * Request Lenses
     , cpVideo
     , cpThumbnails
-    , cpAudio
     , cpDescription
+    , cpAudio
     , cpName
     , cpContainer
 
@@ -57,7 +57,7 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     -- * Response Lenses
     , cprsWarning
     , cprsPreset
-    , cprsStatus
+    , cprsResponseStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -72,8 +72,8 @@ import           Network.AWS.Response
 data CreatePreset = CreatePreset'
     { _cpVideo       :: !(Maybe VideoParameters)
     , _cpThumbnails  :: !(Maybe Thumbnails)
-    , _cpAudio       :: !(Maybe AudioParameters)
     , _cpDescription :: !(Maybe Text)
+    , _cpAudio       :: !(Maybe AudioParameters)
     , _cpName        :: !Text
     , _cpContainer   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -86,9 +86,9 @@ data CreatePreset = CreatePreset'
 --
 -- * 'cpThumbnails'
 --
--- * 'cpAudio'
---
 -- * 'cpDescription'
+--
+-- * 'cpAudio'
 --
 -- * 'cpName'
 --
@@ -101,8 +101,8 @@ createPreset pName_ pContainer_ =
     CreatePreset'
     { _cpVideo = Nothing
     , _cpThumbnails = Nothing
-    , _cpAudio = Nothing
     , _cpDescription = Nothing
+    , _cpAudio = Nothing
     , _cpName = pName_
     , _cpContainer = pContainer_
     }
@@ -116,13 +116,13 @@ cpVideo = lens _cpVideo (\ s a -> s{_cpVideo = a});
 cpThumbnails :: Lens' CreatePreset (Maybe Thumbnails)
 cpThumbnails = lens _cpThumbnails (\ s a -> s{_cpThumbnails = a});
 
--- | A section of the request body that specifies the audio parameters.
-cpAudio :: Lens' CreatePreset (Maybe AudioParameters)
-cpAudio = lens _cpAudio (\ s a -> s{_cpAudio = a});
-
 -- | A description of the preset.
 cpDescription :: Lens' CreatePreset (Maybe Text)
 cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
+
+-- | A section of the request body that specifies the audio parameters.
+cpAudio :: Lens' CreatePreset (Maybe AudioParameters)
+cpAudio = lens _cpAudio (\ s a -> s{_cpAudio = a});
 
 -- | The name of the preset. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced.
@@ -154,9 +154,8 @@ instance ToJSON CreatePreset where
               (catMaybes
                  [("Video" .=) <$> _cpVideo,
                   ("Thumbnails" .=) <$> _cpThumbnails,
-                  ("Audio" .=) <$> _cpAudio,
                   ("Description" .=) <$> _cpDescription,
-                  Just ("Name" .= _cpName),
+                  ("Audio" .=) <$> _cpAudio, Just ("Name" .= _cpName),
                   Just ("Container" .= _cpContainer)])
 
 instance ToPath CreatePreset where
@@ -169,9 +168,9 @@ instance ToQuery CreatePreset where
 --
 -- /See:/ 'createPresetResponse' smart constructor.
 data CreatePresetResponse = CreatePresetResponse'
-    { _cprsWarning :: !(Maybe Text)
-    , _cprsPreset  :: !(Maybe Preset)
-    , _cprsStatus  :: !Int
+    { _cprsWarning        :: !(Maybe Text)
+    , _cprsPreset         :: !(Maybe Preset)
+    , _cprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreatePresetResponse' with the minimum fields required to make a request.
@@ -182,15 +181,15 @@ data CreatePresetResponse = CreatePresetResponse'
 --
 -- * 'cprsPreset'
 --
--- * 'cprsStatus'
+-- * 'cprsResponseStatus'
 createPresetResponse
-    :: Int -- ^ 'cprsStatus'
+    :: Int -- ^ 'cprsResponseStatus'
     -> CreatePresetResponse
-createPresetResponse pStatus_ =
+createPresetResponse pResponseStatus_ =
     CreatePresetResponse'
     { _cprsWarning = Nothing
     , _cprsPreset = Nothing
-    , _cprsStatus = pStatus_
+    , _cprsResponseStatus = pResponseStatus_
     }
 
 -- | If the preset settings don\'t comply with the standards for the video
@@ -207,5 +206,5 @@ cprsPreset :: Lens' CreatePresetResponse (Maybe Preset)
 cprsPreset = lens _cprsPreset (\ s a -> s{_cprsPreset = a});
 
 -- | The response status code.
-cprsStatus :: Lens' CreatePresetResponse Int
-cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});
+cprsResponseStatus :: Lens' CreatePresetResponse Int
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});

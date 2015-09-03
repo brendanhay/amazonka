@@ -37,7 +37,7 @@ module Network.AWS.CloudFront.UpdateDistribution
     -- * Response Lenses
     , udrsETag
     , udrsDistribution
-    , udrsStatus
+    , udrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -122,9 +122,9 @@ instance ToQuery UpdateDistribution where
 --
 -- /See:/ 'updateDistributionResponse' smart constructor.
 data UpdateDistributionResponse = UpdateDistributionResponse'
-    { _udrsETag         :: !(Maybe Text)
-    , _udrsDistribution :: !(Maybe Distribution)
-    , _udrsStatus       :: !Int
+    { _udrsETag           :: !(Maybe Text)
+    , _udrsDistribution   :: !(Maybe Distribution)
+    , _udrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateDistributionResponse' with the minimum fields required to make a request.
@@ -135,15 +135,15 @@ data UpdateDistributionResponse = UpdateDistributionResponse'
 --
 -- * 'udrsDistribution'
 --
--- * 'udrsStatus'
+-- * 'udrsResponseStatus'
 updateDistributionResponse
-    :: Int -- ^ 'udrsStatus'
+    :: Int -- ^ 'udrsResponseStatus'
     -> UpdateDistributionResponse
-updateDistributionResponse pStatus_ =
+updateDistributionResponse pResponseStatus_ =
     UpdateDistributionResponse'
     { _udrsETag = Nothing
     , _udrsDistribution = Nothing
-    , _udrsStatus = pStatus_
+    , _udrsResponseStatus = pResponseStatus_
     }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
@@ -155,5 +155,5 @@ udrsDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
 udrsDistribution = lens _udrsDistribution (\ s a -> s{_udrsDistribution = a});
 
 -- | The response status code.
-udrsStatus :: Lens' UpdateDistributionResponse Int
-udrsStatus = lens _udrsStatus (\ s a -> s{_udrsStatus = a});
+udrsResponseStatus :: Lens' UpdateDistributionResponse Int
+udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});

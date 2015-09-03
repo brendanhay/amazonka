@@ -41,7 +41,7 @@ module Network.AWS.CodePipeline.PollForThirdPartyJobs
     , PollForThirdPartyJobsResponse
     -- * Response Lenses
     , pftpjrsJobs
-    , pftpjrsStatus
+    , pftpjrsResponseStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -119,8 +119,8 @@ instance ToQuery PollForThirdPartyJobs where
 --
 -- /See:/ 'pollForThirdPartyJobsResponse' smart constructor.
 data PollForThirdPartyJobsResponse = PollForThirdPartyJobsResponse'
-    { _pftpjrsJobs   :: !(Maybe [ThirdPartyJob])
-    , _pftpjrsStatus :: !Int
+    { _pftpjrsJobs           :: !(Maybe [ThirdPartyJob])
+    , _pftpjrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PollForThirdPartyJobsResponse' with the minimum fields required to make a request.
@@ -129,14 +129,14 @@ data PollForThirdPartyJobsResponse = PollForThirdPartyJobsResponse'
 --
 -- * 'pftpjrsJobs'
 --
--- * 'pftpjrsStatus'
+-- * 'pftpjrsResponseStatus'
 pollForThirdPartyJobsResponse
-    :: Int -- ^ 'pftpjrsStatus'
+    :: Int -- ^ 'pftpjrsResponseStatus'
     -> PollForThirdPartyJobsResponse
-pollForThirdPartyJobsResponse pStatus_ =
+pollForThirdPartyJobsResponse pResponseStatus_ =
     PollForThirdPartyJobsResponse'
     { _pftpjrsJobs = Nothing
-    , _pftpjrsStatus = pStatus_
+    , _pftpjrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the jobs to take action on.
@@ -144,5 +144,5 @@ pftpjrsJobs :: Lens' PollForThirdPartyJobsResponse [ThirdPartyJob]
 pftpjrsJobs = lens _pftpjrsJobs (\ s a -> s{_pftpjrsJobs = a}) . _Default . _Coerce;
 
 -- | The response status code.
-pftpjrsStatus :: Lens' PollForThirdPartyJobsResponse Int
-pftpjrsStatus = lens _pftpjrsStatus (\ s a -> s{_pftpjrsStatus = a});
+pftpjrsResponseStatus :: Lens' PollForThirdPartyJobsResponse Int
+pftpjrsResponseStatus = lens _pftpjrsResponseStatus (\ s a -> s{_pftpjrsResponseStatus = a});

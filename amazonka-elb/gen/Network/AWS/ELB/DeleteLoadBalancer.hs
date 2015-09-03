@@ -42,7 +42,7 @@ module Network.AWS.ELB.DeleteLoadBalancer
     , deleteLoadBalancerResponse
     , DeleteLoadBalancerResponse
     -- * Response Lenses
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -97,22 +97,22 @@ instance ToQuery DeleteLoadBalancer where
 
 -- | /See:/ 'deleteLoadBalancerResponse' smart constructor.
 newtype DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
-    { _drsStatus :: Int
+    { _drsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteLoadBalancerResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 deleteLoadBalancerResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DeleteLoadBalancerResponse
-deleteLoadBalancerResponse pStatus_ =
+deleteLoadBalancerResponse pResponseStatus_ =
     DeleteLoadBalancerResponse'
-    { _drsStatus = pStatus_
+    { _drsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-drsStatus :: Lens' DeleteLoadBalancerResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DeleteLoadBalancerResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

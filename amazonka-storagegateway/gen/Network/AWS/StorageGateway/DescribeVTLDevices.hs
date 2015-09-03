@@ -42,10 +42,10 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     , describeVTLDevicesResponse
     , DescribeVTLDevicesResponse
     -- * Response Lenses
-    , dvtldrsGatewayARN
     , dvtldrsVTLDevices
+    , dvtldrsGatewayARN
     , dvtldrsMarker
-    , dvtldrsStatus
+    , dvtldrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -125,8 +125,8 @@ instance AWSRequest DescribeVTLDevices where
           = receiveJSON
               (\ s h x ->
                  DescribeVTLDevicesResponse' <$>
-                   (x .?> "GatewayARN") <*>
-                     (x .?> "VTLDevices" .!@ mempty)
+                   (x .?> "VTLDevices" .!@ mempty) <*>
+                     (x .?> "GatewayARN")
                      <*> (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
@@ -159,42 +159,42 @@ instance ToQuery DescribeVTLDevices where
 --
 -- /See:/ 'describeVTLDevicesResponse' smart constructor.
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
-    { _dvtldrsGatewayARN :: !(Maybe Text)
-    , _dvtldrsVTLDevices :: !(Maybe [VTLDevice])
-    , _dvtldrsMarker     :: !(Maybe Text)
-    , _dvtldrsStatus     :: !Int
+    { _dvtldrsVTLDevices     :: !(Maybe [VTLDevice])
+    , _dvtldrsGatewayARN     :: !(Maybe Text)
+    , _dvtldrsMarker         :: !(Maybe Text)
+    , _dvtldrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVTLDevicesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvtldrsGatewayARN'
---
 -- * 'dvtldrsVTLDevices'
+--
+-- * 'dvtldrsGatewayARN'
 --
 -- * 'dvtldrsMarker'
 --
--- * 'dvtldrsStatus'
+-- * 'dvtldrsResponseStatus'
 describeVTLDevicesResponse
-    :: Int -- ^ 'dvtldrsStatus'
+    :: Int -- ^ 'dvtldrsResponseStatus'
     -> DescribeVTLDevicesResponse
-describeVTLDevicesResponse pStatus_ =
+describeVTLDevicesResponse pResponseStatus_ =
     DescribeVTLDevicesResponse'
-    { _dvtldrsGatewayARN = Nothing
-    , _dvtldrsVTLDevices = Nothing
+    { _dvtldrsVTLDevices = Nothing
+    , _dvtldrsGatewayARN = Nothing
     , _dvtldrsMarker = Nothing
-    , _dvtldrsStatus = pStatus_
+    , _dvtldrsResponseStatus = pResponseStatus_
     }
-
--- | Undocumented member.
-dvtldrsGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
-dvtldrsGatewayARN = lens _dvtldrsGatewayARN (\ s a -> s{_dvtldrsGatewayARN = a});
 
 -- | An array of VTL device objects composed of the Amazon Resource Name(ARN)
 -- of the VTL devices.
 dvtldrsVTLDevices :: Lens' DescribeVTLDevicesResponse [VTLDevice]
 dvtldrsVTLDevices = lens _dvtldrsVTLDevices (\ s a -> s{_dvtldrsVTLDevices = a}) . _Default . _Coerce;
+
+-- | Undocumented member.
+dvtldrsGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
+dvtldrsGatewayARN = lens _dvtldrsGatewayARN (\ s a -> s{_dvtldrsGatewayARN = a});
 
 -- | An opaque string that indicates the position at which the VTL devices
 -- that were fetched for description ended. Use the marker in your next
@@ -205,5 +205,5 @@ dvtldrsMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
 dvtldrsMarker = lens _dvtldrsMarker (\ s a -> s{_dvtldrsMarker = a});
 
 -- | The response status code.
-dvtldrsStatus :: Lens' DescribeVTLDevicesResponse Int
-dvtldrsStatus = lens _dvtldrsStatus (\ s a -> s{_dvtldrsStatus = a});
+dvtldrsResponseStatus :: Lens' DescribeVTLDevicesResponse Int
+dvtldrsResponseStatus = lens _dvtldrsResponseStatus (\ s a -> s{_dvtldrsResponseStatus = a});

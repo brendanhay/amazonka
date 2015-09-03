@@ -35,7 +35,7 @@ module Network.AWS.S3.GetBucketLogging
     , GetBucketLoggingResponse
     -- * Response Lenses
     , grsLoggingEnabled
-    , grsStatus
+    , grsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -88,7 +88,7 @@ instance ToQuery GetBucketLogging where
 -- | /See:/ 'getBucketLoggingResponse' smart constructor.
 data GetBucketLoggingResponse = GetBucketLoggingResponse'
     { _grsLoggingEnabled :: !(Maybe LoggingEnabled)
-    , _grsStatus         :: !Int
+    , _grsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketLoggingResponse' with the minimum fields required to make a request.
@@ -97,14 +97,14 @@ data GetBucketLoggingResponse = GetBucketLoggingResponse'
 --
 -- * 'grsLoggingEnabled'
 --
--- * 'grsStatus'
+-- * 'grsResponseStatus'
 getBucketLoggingResponse
-    :: Int -- ^ 'grsStatus'
+    :: Int -- ^ 'grsResponseStatus'
     -> GetBucketLoggingResponse
-getBucketLoggingResponse pStatus_ =
+getBucketLoggingResponse pResponseStatus_ =
     GetBucketLoggingResponse'
     { _grsLoggingEnabled = Nothing
-    , _grsStatus = pStatus_
+    , _grsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -112,5 +112,5 @@ grsLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
 grsLoggingEnabled = lens _grsLoggingEnabled (\ s a -> s{_grsLoggingEnabled = a});
 
 -- | The response status code.
-grsStatus :: Lens' GetBucketLoggingResponse Int
-grsStatus = lens _grsStatus (\ s a -> s{_grsStatus = a});
+grsResponseStatus :: Lens' GetBucketLoggingResponse Int
+grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});

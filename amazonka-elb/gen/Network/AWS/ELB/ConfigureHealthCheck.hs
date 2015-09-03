@@ -40,7 +40,7 @@ module Network.AWS.ELB.ConfigureHealthCheck
     , ConfigureHealthCheckResponse
     -- * Response Lenses
     , chcrsHealthCheck
-    , chcrsStatus
+    , chcrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -106,8 +106,8 @@ instance ToQuery ConfigureHealthCheck where
 
 -- | /See:/ 'configureHealthCheckResponse' smart constructor.
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
-    { _chcrsHealthCheck :: !(Maybe HealthCheck)
-    , _chcrsStatus      :: !Int
+    { _chcrsHealthCheck    :: !(Maybe HealthCheck)
+    , _chcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ConfigureHealthCheckResponse' with the minimum fields required to make a request.
@@ -116,14 +116,14 @@ data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
 --
 -- * 'chcrsHealthCheck'
 --
--- * 'chcrsStatus'
+-- * 'chcrsResponseStatus'
 configureHealthCheckResponse
-    :: Int -- ^ 'chcrsStatus'
+    :: Int -- ^ 'chcrsResponseStatus'
     -> ConfigureHealthCheckResponse
-configureHealthCheckResponse pStatus_ =
+configureHealthCheckResponse pResponseStatus_ =
     ConfigureHealthCheckResponse'
     { _chcrsHealthCheck = Nothing
-    , _chcrsStatus = pStatus_
+    , _chcrsResponseStatus = pResponseStatus_
     }
 
 -- | The updated health check.
@@ -131,5 +131,5 @@ chcrsHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
 chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
 
 -- | The response status code.
-chcrsStatus :: Lens' ConfigureHealthCheckResponse Int
-chcrsStatus = lens _chcrsStatus (\ s a -> s{_chcrsStatus = a});
+chcrsResponseStatus :: Lens' ConfigureHealthCheckResponse Int
+chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a});

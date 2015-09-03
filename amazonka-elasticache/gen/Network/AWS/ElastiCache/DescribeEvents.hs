@@ -38,9 +38,9 @@ module Network.AWS.ElastiCache.DescribeEvents
     , deStartTime
     , deSourceType
     , deSourceIdentifier
+    , deMarker
     , deMaxRecords
     , deEndTime
-    , deMarker
     , deDuration
 
     -- * Destructuring the Response
@@ -49,7 +49,7 @@ module Network.AWS.ElastiCache.DescribeEvents
     -- * Response Lenses
     , dersEvents
     , dersMarker
-    , dersStatus
+    , dersResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -66,9 +66,9 @@ data DescribeEvents = DescribeEvents'
     { _deStartTime        :: !(Maybe ISO8601)
     , _deSourceType       :: !(Maybe SourceType)
     , _deSourceIdentifier :: !(Maybe Text)
+    , _deMarker           :: !(Maybe Text)
     , _deMaxRecords       :: !(Maybe Int)
     , _deEndTime          :: !(Maybe ISO8601)
-    , _deMarker           :: !(Maybe Text)
     , _deDuration         :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -82,11 +82,11 @@ data DescribeEvents = DescribeEvents'
 --
 -- * 'deSourceIdentifier'
 --
+-- * 'deMarker'
+--
 -- * 'deMaxRecords'
 --
 -- * 'deEndTime'
---
--- * 'deMarker'
 --
 -- * 'deDuration'
 describeEvents
@@ -96,9 +96,9 @@ describeEvents =
     { _deStartTime = Nothing
     , _deSourceType = Nothing
     , _deSourceIdentifier = Nothing
+    , _deMarker = Nothing
     , _deMaxRecords = Nothing
     , _deEndTime = Nothing
-    , _deMarker = Nothing
     , _deDuration = Nothing
     }
 
@@ -120,6 +120,13 @@ deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
 deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a});
 
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+deMarker :: Lens' DescribeEvents (Maybe Text)
+deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
+
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -134,13 +141,6 @@ deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
 -- ISO 8601 format.
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
-
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
-deMarker :: Lens' DescribeEvents (Maybe Text)
-deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 
 -- | The number of minutes\' worth of events to retrieve.
 deDuration :: Lens' DescribeEvents (Maybe Int)
@@ -179,17 +179,16 @@ instance ToQuery DescribeEvents where
                "StartTime" =: _deStartTime,
                "SourceType" =: _deSourceType,
                "SourceIdentifier" =: _deSourceIdentifier,
-               "MaxRecords" =: _deMaxRecords,
-               "EndTime" =: _deEndTime, "Marker" =: _deMarker,
-               "Duration" =: _deDuration]
+               "Marker" =: _deMarker, "MaxRecords" =: _deMaxRecords,
+               "EndTime" =: _deEndTime, "Duration" =: _deDuration]
 
 -- | Represents the output of a /DescribeEvents/ action.
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-    { _dersEvents :: !(Maybe [Event])
-    , _dersMarker :: !(Maybe Text)
-    , _dersStatus :: !Int
+    { _dersEvents         :: !(Maybe [Event])
+    , _dersMarker         :: !(Maybe Text)
+    , _dersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
@@ -200,15 +199,15 @@ data DescribeEventsResponse = DescribeEventsResponse'
 --
 -- * 'dersMarker'
 --
--- * 'dersStatus'
+-- * 'dersResponseStatus'
 describeEventsResponse
-    :: Int -- ^ 'dersStatus'
+    :: Int -- ^ 'dersResponseStatus'
     -> DescribeEventsResponse
-describeEventsResponse pStatus_ =
+describeEventsResponse pResponseStatus_ =
     DescribeEventsResponse'
     { _dersEvents = Nothing
     , _dersMarker = Nothing
-    , _dersStatus = pStatus_
+    , _dersResponseStatus = pResponseStatus_
     }
 
 -- | A list of events. Each element in the list contains detailed information
@@ -221,5 +220,5 @@ dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
 dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 
 -- | The response status code.
-dersStatus :: Lens' DescribeEventsResponse Int
-dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});
+dersResponseStatus :: Lens' DescribeEventsResponse Int
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});

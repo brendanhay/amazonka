@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     , DescribeTerminationPolicyTypesResponse
     -- * Response Lenses
     , dtptrsTerminationPolicyTypes
-    , dtptrsStatus
+    , dtptrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -84,7 +84,7 @@ instance ToQuery DescribeTerminationPolicyTypes where
 -- | /See:/ 'describeTerminationPolicyTypesResponse' smart constructor.
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
     { _dtptrsTerminationPolicyTypes :: !(Maybe [Text])
-    , _dtptrsStatus                 :: !Int
+    , _dtptrsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTerminationPolicyTypesResponse' with the minimum fields required to make a request.
@@ -93,14 +93,14 @@ data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResp
 --
 -- * 'dtptrsTerminationPolicyTypes'
 --
--- * 'dtptrsStatus'
+-- * 'dtptrsResponseStatus'
 describeTerminationPolicyTypesResponse
-    :: Int -- ^ 'dtptrsStatus'
+    :: Int -- ^ 'dtptrsResponseStatus'
     -> DescribeTerminationPolicyTypesResponse
-describeTerminationPolicyTypesResponse pStatus_ =
+describeTerminationPolicyTypesResponse pResponseStatus_ =
     DescribeTerminationPolicyTypesResponse'
     { _dtptrsTerminationPolicyTypes = Nothing
-    , _dtptrsStatus = pStatus_
+    , _dtptrsResponseStatus = pResponseStatus_
     }
 
 -- | The termination policies supported by Auto Scaling ('OldestInstance',
@@ -110,5 +110,5 @@ dtptrsTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Te
 dtptrsTerminationPolicyTypes = lens _dtptrsTerminationPolicyTypes (\ s a -> s{_dtptrsTerminationPolicyTypes = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dtptrsStatus :: Lens' DescribeTerminationPolicyTypesResponse Int
-dtptrsStatus = lens _dtptrsStatus (\ s a -> s{_dtptrsStatus = a});
+dtptrsResponseStatus :: Lens' DescribeTerminationPolicyTypesResponse Int
+dtptrsResponseStatus = lens _dtptrsResponseStatus (\ s a -> s{_dtptrsResponseStatus = a});

@@ -33,7 +33,7 @@ module Network.AWS.ElasticTranscoder.ReadJob
     , readJobResponse
     , ReadJobResponse
     -- * Response Lenses
-    , rjrsStatus
+    , rjrsResponseStatus
     , rjrsJob
     ) where
 
@@ -91,30 +91,30 @@ instance ToQuery ReadJob where
 --
 -- /See:/ 'readJobResponse' smart constructor.
 data ReadJobResponse = ReadJobResponse'
-    { _rjrsStatus :: !Int
-    , _rjrsJob    :: !Job'
+    { _rjrsResponseStatus :: !Int
+    , _rjrsJob            :: !Job'
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReadJobResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rjrsStatus'
+-- * 'rjrsResponseStatus'
 --
 -- * 'rjrsJob'
 readJobResponse
-    :: Int -- ^ 'rjrsStatus'
+    :: Int -- ^ 'rjrsResponseStatus'
     -> Job' -- ^ 'rjrsJob'
     -> ReadJobResponse
-readJobResponse pStatus_ pJob_ =
+readJobResponse pResponseStatus_ pJob_ =
     ReadJobResponse'
-    { _rjrsStatus = pStatus_
+    { _rjrsResponseStatus = pResponseStatus_
     , _rjrsJob = pJob_
     }
 
 -- | The response status code.
-rjrsStatus :: Lens' ReadJobResponse Int
-rjrsStatus = lens _rjrsStatus (\ s a -> s{_rjrsStatus = a});
+rjrsResponseStatus :: Lens' ReadJobResponse Int
+rjrsResponseStatus = lens _rjrsResponseStatus (\ s a -> s{_rjrsResponseStatus = a});
 
 -- | A section of the response body that provides information about the job.
 rjrsJob :: Lens' ReadJobResponse Job'

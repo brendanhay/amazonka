@@ -40,7 +40,7 @@ module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     , describeServiceAccessPoliciesResponse
     , DescribeServiceAccessPoliciesResponse
     -- * Response Lenses
-    , dsaprsStatus
+    , dsaprsResponseStatus
     , dsaprsAccessPolicies
     ) where
 
@@ -118,7 +118,7 @@ instance ToQuery DescribeServiceAccessPolicies where
 --
 -- /See:/ 'describeServiceAccessPoliciesResponse' smart constructor.
 data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'
-    { _dsaprsStatus         :: !Int
+    { _dsaprsResponseStatus :: !Int
     , _dsaprsAccessPolicies :: !AccessPoliciesStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -126,22 +126,22 @@ data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsaprsStatus'
+-- * 'dsaprsResponseStatus'
 --
 -- * 'dsaprsAccessPolicies'
 describeServiceAccessPoliciesResponse
-    :: Int -- ^ 'dsaprsStatus'
+    :: Int -- ^ 'dsaprsResponseStatus'
     -> AccessPoliciesStatus -- ^ 'dsaprsAccessPolicies'
     -> DescribeServiceAccessPoliciesResponse
-describeServiceAccessPoliciesResponse pStatus_ pAccessPolicies_ =
+describeServiceAccessPoliciesResponse pResponseStatus_ pAccessPolicies_ =
     DescribeServiceAccessPoliciesResponse'
-    { _dsaprsStatus = pStatus_
+    { _dsaprsResponseStatus = pResponseStatus_
     , _dsaprsAccessPolicies = pAccessPolicies_
     }
 
 -- | The response status code.
-dsaprsStatus :: Lens' DescribeServiceAccessPoliciesResponse Int
-dsaprsStatus = lens _dsaprsStatus (\ s a -> s{_dsaprsStatus = a});
+dsaprsResponseStatus :: Lens' DescribeServiceAccessPoliciesResponse Int
+dsaprsResponseStatus = lens _dsaprsResponseStatus (\ s a -> s{_dsaprsResponseStatus = a});
 
 -- | The access rules configured for the domain specified in the request.
 dsaprsAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus

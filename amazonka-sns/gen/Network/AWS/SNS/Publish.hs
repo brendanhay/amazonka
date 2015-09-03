@@ -37,9 +37,9 @@ module Network.AWS.SNS.Publish
       publish
     , Publish
     -- * Request Lenses
-    , pMessageAttributes
-    , pTargetARN
     , pSubject
+    , pTargetARN
+    , pMessageAttributes
     , pTopicARN
     , pMessageStructure
     , pMessage
@@ -49,7 +49,7 @@ module Network.AWS.SNS.Publish
     , PublishResponse
     -- * Response Lenses
     , prsMessageId
-    , prsStatus
+    , prsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -62,9 +62,9 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'publish' smart constructor.
 data Publish = Publish'
-    { _pMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
+    { _pSubject           :: !(Maybe Text)
     , _pTargetARN         :: !(Maybe Text)
-    , _pSubject           :: !(Maybe Text)
+    , _pMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
     , _pTopicARN          :: !(Maybe Text)
     , _pMessageStructure  :: !(Maybe Text)
     , _pMessage           :: !Text
@@ -74,11 +74,11 @@ data Publish = Publish'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pMessageAttributes'
+-- * 'pSubject'
 --
 -- * 'pTargetARN'
 --
--- * 'pSubject'
+-- * 'pMessageAttributes'
 --
 -- * 'pTopicARN'
 --
@@ -90,21 +90,13 @@ publish
     -> Publish
 publish pMessage_ =
     Publish'
-    { _pMessageAttributes = Nothing
+    { _pSubject = Nothing
     , _pTargetARN = Nothing
-    , _pSubject = Nothing
+    , _pMessageAttributes = Nothing
     , _pTopicARN = Nothing
     , _pMessageStructure = Nothing
     , _pMessage = pMessage_
     }
-
--- | Message attributes for Publish action.
-pMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
-pMessageAttributes = lens _pMessageAttributes (\ s a -> s{_pMessageAttributes = a}) . _Default . _Map;
-
--- | Either TopicArn or EndpointArn, but not both.
-pTargetARN :: Lens' Publish (Maybe Text)
-pTargetARN = lens _pTargetARN (\ s a -> s{_pTargetARN = a});
 
 -- | Optional parameter to be used as the \"Subject\" line when the message
 -- is delivered to email endpoints. This field will also be included, if
@@ -115,6 +107,14 @@ pTargetARN = lens _pTargetARN (\ s a -> s{_pTargetARN = a});
 -- characters; and must be less than 100 characters long.
 pSubject :: Lens' Publish (Maybe Text)
 pSubject = lens _pSubject (\ s a -> s{_pSubject = a});
+
+-- | Either TopicArn or EndpointArn, but not both.
+pTargetARN :: Lens' Publish (Maybe Text)
+pTargetARN = lens _pTargetARN (\ s a -> s{_pTargetARN = a});
+
+-- | Message attributes for Publish action.
+pMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
+pMessageAttributes = lens _pMessageAttributes (\ s a -> s{_pMessageAttributes = a}) . _Default . _Map;
 
 -- | The topic you want to publish to.
 pTopicARN :: Lens' Publish (Maybe Text)
@@ -196,11 +196,11 @@ instance ToQuery Publish where
           = mconcat
               ["Action" =: ("Publish" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
+               "Subject" =: _pSubject, "TargetArn" =: _pTargetARN,
                "MessageAttributes" =:
                  toQuery
                    (toQueryMap "entry" "Name" "Value" <$>
                       _pMessageAttributes),
-               "TargetArn" =: _pTargetARN, "Subject" =: _pSubject,
                "TopicArn" =: _pTopicARN,
                "MessageStructure" =: _pMessageStructure,
                "Message" =: _pMessage]
@@ -209,8 +209,8 @@ instance ToQuery Publish where
 --
 -- /See:/ 'publishResponse' smart constructor.
 data PublishResponse = PublishResponse'
-    { _prsMessageId :: !(Maybe Text)
-    , _prsStatus    :: !Int
+    { _prsMessageId      :: !(Maybe Text)
+    , _prsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PublishResponse' with the minimum fields required to make a request.
@@ -219,14 +219,14 @@ data PublishResponse = PublishResponse'
 --
 -- * 'prsMessageId'
 --
--- * 'prsStatus'
+-- * 'prsResponseStatus'
 publishResponse
-    :: Int -- ^ 'prsStatus'
+    :: Int -- ^ 'prsResponseStatus'
     -> PublishResponse
-publishResponse pStatus_ =
+publishResponse pResponseStatus_ =
     PublishResponse'
     { _prsMessageId = Nothing
-    , _prsStatus = pStatus_
+    , _prsResponseStatus = pResponseStatus_
     }
 
 -- | Unique identifier assigned to the published message.
@@ -236,5 +236,5 @@ prsMessageId :: Lens' PublishResponse (Maybe Text)
 prsMessageId = lens _prsMessageId (\ s a -> s{_prsMessageId = a});
 
 -- | The response status code.
-prsStatus :: Lens' PublishResponse Int
-prsStatus = lens _prsStatus (\ s a -> s{_prsStatus = a});
+prsResponseStatus :: Lens' PublishResponse Int
+prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a});

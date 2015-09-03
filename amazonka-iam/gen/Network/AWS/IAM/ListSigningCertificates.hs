@@ -41,8 +41,8 @@ module Network.AWS.IAM.ListSigningCertificates
     , ListSigningCertificates
     -- * Request Lenses
     , lUserName
-    , lMaxItems
     , lMarker
+    , lMaxItems
 
     -- * Destructuring the Response
     , listSigningCertificatesResponse
@@ -50,7 +50,7 @@ module Network.AWS.IAM.ListSigningCertificates
     -- * Response Lenses
     , lrsMarker
     , lrsIsTruncated
-    , lrsStatus
+    , lrsResponseStatus
     , lrsCertificates
     ) where
 
@@ -64,8 +64,8 @@ import           Network.AWS.Response
 -- | /See:/ 'listSigningCertificates' smart constructor.
 data ListSigningCertificates = ListSigningCertificates'
     { _lUserName :: !(Maybe Text)
-    , _lMaxItems :: !(Maybe Nat)
     , _lMarker   :: !(Maybe Text)
+    , _lMaxItems :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListSigningCertificates' with the minimum fields required to make a request.
@@ -74,21 +74,27 @@ data ListSigningCertificates = ListSigningCertificates'
 --
 -- * 'lUserName'
 --
--- * 'lMaxItems'
---
 -- * 'lMarker'
+--
+-- * 'lMaxItems'
 listSigningCertificates
     :: ListSigningCertificates
 listSigningCertificates =
     ListSigningCertificates'
     { _lUserName = Nothing
-    , _lMaxItems = Nothing
     , _lMarker = Nothing
+    , _lMaxItems = Nothing
     }
 
 -- | The name of the user.
 lUserName :: Lens' ListSigningCertificates (Maybe Text)
 lUserName = lens _lUserName (\ s a -> s{_lUserName = a});
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lMarker :: Lens' ListSigningCertificates (Maybe Text)
+lMarker = lens _lMarker (\ s a -> s{_lMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -99,16 +105,10 @@ lUserName = lens _lUserName (\ s a -> s{_lUserName = a});
 lMaxItems :: Lens' ListSigningCertificates (Maybe Natural)
 lMaxItems = lens _lMaxItems (\ s a -> s{_lMaxItems = a}) . mapping _Nat;
 
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lMarker :: Lens' ListSigningCertificates (Maybe Text)
-lMarker = lens _lMarker (\ s a -> s{_lMarker = a});
-
 instance AWSPager ListSigningCertificates where
         page rq rs
-          | stop (rs ^. lrsIsTruncated) = Nothing
-          | isNothing (rs ^. lrsMarker) = Nothing
+          | stop (rs ^. lrsMarker) = Nothing
+          | stop (rs ^. lrsCertificates) = Nothing
           | otherwise = Just $ rq & lMarker .~ rs ^. lrsMarker
 
 instance AWSRequest ListSigningCertificates where
@@ -137,17 +137,17 @@ instance ToQuery ListSigningCertificates where
               ["Action" =:
                  ("ListSigningCertificates" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _lUserName, "MaxItems" =: _lMaxItems,
-               "Marker" =: _lMarker]
+               "UserName" =: _lUserName, "Marker" =: _lMarker,
+               "MaxItems" =: _lMaxItems]
 
 -- | Contains the response to a successful ListSigningCertificates request.
 --
 -- /See:/ 'listSigningCertificatesResponse' smart constructor.
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
-    { _lrsMarker       :: !(Maybe Text)
-    , _lrsIsTruncated  :: !(Maybe Bool)
-    , _lrsStatus       :: !Int
-    , _lrsCertificates :: ![SigningCertificate]
+    { _lrsMarker         :: !(Maybe Text)
+    , _lrsIsTruncated    :: !(Maybe Bool)
+    , _lrsResponseStatus :: !Int
+    , _lrsCertificates   :: ![SigningCertificate]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListSigningCertificatesResponse' with the minimum fields required to make a request.
@@ -158,17 +158,17 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
 --
 -- * 'lrsIsTruncated'
 --
--- * 'lrsStatus'
+-- * 'lrsResponseStatus'
 --
 -- * 'lrsCertificates'
 listSigningCertificatesResponse
-    :: Int -- ^ 'lrsStatus'
+    :: Int -- ^ 'lrsResponseStatus'
     -> ListSigningCertificatesResponse
-listSigningCertificatesResponse pStatus_ =
+listSigningCertificatesResponse pResponseStatus_ =
     ListSigningCertificatesResponse'
     { _lrsMarker = Nothing
     , _lrsIsTruncated = Nothing
-    , _lrsStatus = pStatus_
+    , _lrsResponseStatus = pResponseStatus_
     , _lrsCertificates = mempty
     }
 
@@ -185,8 +185,8 @@ lrsIsTruncated :: Lens' ListSigningCertificatesResponse (Maybe Bool)
 lrsIsTruncated = lens _lrsIsTruncated (\ s a -> s{_lrsIsTruncated = a});
 
 -- | The response status code.
-lrsStatus :: Lens' ListSigningCertificatesResponse Int
-lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});
+lrsResponseStatus :: Lens' ListSigningCertificatesResponse Int
+lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 
 -- | A list of the user\'s signing certificate information.
 lrsCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]

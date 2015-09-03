@@ -37,8 +37,8 @@ module Network.AWS.KMS.CreateGrant
     , CreateGrant
     -- * Request Lenses
     , cgRetiringPrincipal
-    , cgConstraints
     , cgGrantTokens
+    , cgConstraints
     , cgOperations
     , cgKeyId
     , cgGranteePrincipal
@@ -49,7 +49,7 @@ module Network.AWS.KMS.CreateGrant
     -- * Response Lenses
     , cgrsGrantId
     , cgrsGrantToken
-    , cgrsStatus
+    , cgrsResponseStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -61,8 +61,8 @@ import           Network.AWS.Response
 -- | /See:/ 'createGrant' smart constructor.
 data CreateGrant = CreateGrant'
     { _cgRetiringPrincipal :: !(Maybe Text)
-    , _cgConstraints       :: !(Maybe GrantConstraints)
     , _cgGrantTokens       :: !(Maybe [Text])
+    , _cgConstraints       :: !(Maybe GrantConstraints)
     , _cgOperations        :: !(Maybe [GrantOperation])
     , _cgKeyId             :: !Text
     , _cgGranteePrincipal  :: !Text
@@ -74,9 +74,9 @@ data CreateGrant = CreateGrant'
 --
 -- * 'cgRetiringPrincipal'
 --
--- * 'cgConstraints'
---
 -- * 'cgGrantTokens'
+--
+-- * 'cgConstraints'
 --
 -- * 'cgOperations'
 --
@@ -90,8 +90,8 @@ createGrant
 createGrant pKeyId_ pGranteePrincipal_ =
     CreateGrant'
     { _cgRetiringPrincipal = Nothing
-    , _cgConstraints = Nothing
     , _cgGrantTokens = Nothing
+    , _cgConstraints = Nothing
     , _cgOperations = Nothing
     , _cgKeyId = pKeyId_
     , _cgGranteePrincipal = pGranteePrincipal_
@@ -102,15 +102,15 @@ createGrant pKeyId_ pGranteePrincipal_ =
 cgRetiringPrincipal :: Lens' CreateGrant (Maybe Text)
 cgRetiringPrincipal = lens _cgRetiringPrincipal (\ s a -> s{_cgRetiringPrincipal = a});
 
--- | Specifies the conditions under which the actions specified by the
--- 'Operations' parameter are allowed.
-cgConstraints :: Lens' CreateGrant (Maybe GrantConstraints)
-cgConstraints = lens _cgConstraints (\ s a -> s{_cgConstraints = a});
-
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
 cgGrantTokens :: Lens' CreateGrant [Text]
 cgGrantTokens = lens _cgGrantTokens (\ s a -> s{_cgGrantTokens = a}) . _Default . _Coerce;
+
+-- | Specifies the conditions under which the actions specified by the
+-- 'Operations' parameter are allowed.
+cgConstraints :: Lens' CreateGrant (Maybe GrantConstraints)
+cgConstraints = lens _cgConstraints (\ s a -> s{_cgConstraints = a});
 
 -- | List of operations permitted by the grant. This can be any combination
 -- of one or more of the following values:
@@ -165,8 +165,8 @@ instance ToJSON CreateGrant where
           = object
               (catMaybes
                  [("RetiringPrincipal" .=) <$> _cgRetiringPrincipal,
-                  ("Constraints" .=) <$> _cgConstraints,
                   ("GrantTokens" .=) <$> _cgGrantTokens,
+                  ("Constraints" .=) <$> _cgConstraints,
                   ("Operations" .=) <$> _cgOperations,
                   Just ("KeyId" .= _cgKeyId),
                   Just ("GranteePrincipal" .= _cgGranteePrincipal)])
@@ -179,9 +179,9 @@ instance ToQuery CreateGrant where
 
 -- | /See:/ 'createGrantResponse' smart constructor.
 data CreateGrantResponse = CreateGrantResponse'
-    { _cgrsGrantId    :: !(Maybe Text)
-    , _cgrsGrantToken :: !(Maybe Text)
-    , _cgrsStatus     :: !Int
+    { _cgrsGrantId        :: !(Maybe Text)
+    , _cgrsGrantToken     :: !(Maybe Text)
+    , _cgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateGrantResponse' with the minimum fields required to make a request.
@@ -192,15 +192,15 @@ data CreateGrantResponse = CreateGrantResponse'
 --
 -- * 'cgrsGrantToken'
 --
--- * 'cgrsStatus'
+-- * 'cgrsResponseStatus'
 createGrantResponse
-    :: Int -- ^ 'cgrsStatus'
+    :: Int -- ^ 'cgrsResponseStatus'
     -> CreateGrantResponse
-createGrantResponse pStatus_ =
+createGrantResponse pResponseStatus_ =
     CreateGrantResponse'
     { _cgrsGrantId = Nothing
     , _cgrsGrantToken = Nothing
-    , _cgrsStatus = pStatus_
+    , _cgrsResponseStatus = pResponseStatus_
     }
 
 -- | Unique grant identifier. You can use the /GrantId/ value to revoke a
@@ -214,5 +214,5 @@ cgrsGrantToken :: Lens' CreateGrantResponse (Maybe Text)
 cgrsGrantToken = lens _cgrsGrantToken (\ s a -> s{_cgrsGrantToken = a});
 
 -- | The response status code.
-cgrsStatus :: Lens' CreateGrantResponse Int
-cgrsStatus = lens _cgrsStatus (\ s a -> s{_cgrsStatus = a});
+cgrsResponseStatus :: Lens' CreateGrantResponse Int
+cgrsResponseStatus = lens _cgrsResponseStatus (\ s a -> s{_cgrsResponseStatus = a});

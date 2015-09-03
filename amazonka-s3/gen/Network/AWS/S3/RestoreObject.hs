@@ -38,7 +38,7 @@ module Network.AWS.S3.RestoreObject
     , RestoreObjectResponse
     -- * Response Lenses
     , rorsRequestCharged
-    , rorsStatus
+    , rorsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -134,7 +134,7 @@ instance ToQuery RestoreObject where
 -- | /See:/ 'restoreObjectResponse' smart constructor.
 data RestoreObjectResponse = RestoreObjectResponse'
     { _rorsRequestCharged :: !(Maybe RequestCharged)
-    , _rorsStatus         :: !Int
+    , _rorsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestoreObjectResponse' with the minimum fields required to make a request.
@@ -143,14 +143,14 @@ data RestoreObjectResponse = RestoreObjectResponse'
 --
 -- * 'rorsRequestCharged'
 --
--- * 'rorsStatus'
+-- * 'rorsResponseStatus'
 restoreObjectResponse
-    :: Int -- ^ 'rorsStatus'
+    :: Int -- ^ 'rorsResponseStatus'
     -> RestoreObjectResponse
-restoreObjectResponse pStatus_ =
+restoreObjectResponse pResponseStatus_ =
     RestoreObjectResponse'
     { _rorsRequestCharged = Nothing
-    , _rorsStatus = pStatus_
+    , _rorsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -158,5 +158,5 @@ rorsRequestCharged :: Lens' RestoreObjectResponse (Maybe RequestCharged)
 rorsRequestCharged = lens _rorsRequestCharged (\ s a -> s{_rorsRequestCharged = a});
 
 -- | The response status code.
-rorsStatus :: Lens' RestoreObjectResponse Int
-rorsStatus = lens _rorsStatus (\ s a -> s{_rorsStatus = a});
+rorsResponseStatus :: Lens' RestoreObjectResponse Int
+rorsResponseStatus = lens _rorsResponseStatus (\ s a -> s{_rorsResponseStatus = a});

@@ -38,7 +38,7 @@ module Network.AWS.Support.DescribeAttachment
     , DescribeAttachmentResponse
     -- * Response Lenses
     , darsAttachment
-    , darsStatus
+    , darsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -107,8 +107,8 @@ instance ToQuery DescribeAttachment where
 --
 -- /See:/ 'describeAttachmentResponse' smart constructor.
 data DescribeAttachmentResponse = DescribeAttachmentResponse'
-    { _darsAttachment :: !(Maybe Attachment)
-    , _darsStatus     :: !Int
+    { _darsAttachment     :: !(Maybe Attachment)
+    , _darsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAttachmentResponse' with the minimum fields required to make a request.
@@ -117,14 +117,14 @@ data DescribeAttachmentResponse = DescribeAttachmentResponse'
 --
 -- * 'darsAttachment'
 --
--- * 'darsStatus'
+-- * 'darsResponseStatus'
 describeAttachmentResponse
-    :: Int -- ^ 'darsStatus'
+    :: Int -- ^ 'darsResponseStatus'
     -> DescribeAttachmentResponse
-describeAttachmentResponse pStatus_ =
+describeAttachmentResponse pResponseStatus_ =
     DescribeAttachmentResponse'
     { _darsAttachment = Nothing
-    , _darsStatus = pStatus_
+    , _darsResponseStatus = pResponseStatus_
     }
 
 -- | The attachment content and file name.
@@ -132,5 +132,5 @@ darsAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
 darsAttachment = lens _darsAttachment (\ s a -> s{_darsAttachment = a});
 
 -- | The response status code.
-darsStatus :: Lens' DescribeAttachmentResponse Int
-darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});
+darsResponseStatus :: Lens' DescribeAttachmentResponse Int
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});

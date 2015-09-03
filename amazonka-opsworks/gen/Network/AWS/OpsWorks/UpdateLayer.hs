@@ -34,17 +34,17 @@ module Network.AWS.OpsWorks.UpdateLayer
     , UpdateLayer
     -- * Request Lenses
     , ulCustomInstanceProfileARN
-    , ulInstallUpdatesOnBoot
     , ulCustomSecurityGroupIds
+    , ulInstallUpdatesOnBoot
     , ulLifecycleEventConfiguration
     , ulShortname
     , ulCustomRecipes
-    , ulVolumeConfigurations
     , ulCustomJSON
+    , ulVolumeConfigurations
     , ulEnableAutoHealing
     , ulPackages
-    , ulName
     , ulAttributes
+    , ulName
     , ulAutoAssignPublicIPs
     , ulUseEBSOptimizedInstances
     , ulAutoAssignElasticIPs
@@ -64,17 +64,17 @@ import           Network.AWS.Response
 -- | /See:/ 'updateLayer' smart constructor.
 data UpdateLayer = UpdateLayer'
     { _ulCustomInstanceProfileARN    :: !(Maybe Text)
-    , _ulInstallUpdatesOnBoot        :: !(Maybe Bool)
     , _ulCustomSecurityGroupIds      :: !(Maybe [Text])
+    , _ulInstallUpdatesOnBoot        :: !(Maybe Bool)
     , _ulLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
     , _ulShortname                   :: !(Maybe Text)
     , _ulCustomRecipes               :: !(Maybe Recipes)
-    , _ulVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
     , _ulCustomJSON                  :: !(Maybe Text)
+    , _ulVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
     , _ulEnableAutoHealing           :: !(Maybe Bool)
     , _ulPackages                    :: !(Maybe [Text])
-    , _ulName                        :: !(Maybe Text)
     , _ulAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
+    , _ulName                        :: !(Maybe Text)
     , _ulAutoAssignPublicIPs         :: !(Maybe Bool)
     , _ulUseEBSOptimizedInstances    :: !(Maybe Bool)
     , _ulAutoAssignElasticIPs        :: !(Maybe Bool)
@@ -87,9 +87,9 @@ data UpdateLayer = UpdateLayer'
 --
 -- * 'ulCustomInstanceProfileARN'
 --
--- * 'ulInstallUpdatesOnBoot'
---
 -- * 'ulCustomSecurityGroupIds'
+--
+-- * 'ulInstallUpdatesOnBoot'
 --
 -- * 'ulLifecycleEventConfiguration'
 --
@@ -97,17 +97,17 @@ data UpdateLayer = UpdateLayer'
 --
 -- * 'ulCustomRecipes'
 --
--- * 'ulVolumeConfigurations'
---
 -- * 'ulCustomJSON'
+--
+-- * 'ulVolumeConfigurations'
 --
 -- * 'ulEnableAutoHealing'
 --
 -- * 'ulPackages'
 --
--- * 'ulName'
---
 -- * 'ulAttributes'
+--
+-- * 'ulName'
 --
 -- * 'ulAutoAssignPublicIPs'
 --
@@ -122,17 +122,17 @@ updateLayer
 updateLayer pLayerId_ =
     UpdateLayer'
     { _ulCustomInstanceProfileARN = Nothing
-    , _ulInstallUpdatesOnBoot = Nothing
     , _ulCustomSecurityGroupIds = Nothing
+    , _ulInstallUpdatesOnBoot = Nothing
     , _ulLifecycleEventConfiguration = Nothing
     , _ulShortname = Nothing
     , _ulCustomRecipes = Nothing
-    , _ulVolumeConfigurations = Nothing
     , _ulCustomJSON = Nothing
+    , _ulVolumeConfigurations = Nothing
     , _ulEnableAutoHealing = Nothing
     , _ulPackages = Nothing
-    , _ulName = Nothing
     , _ulAttributes = Nothing
+    , _ulName = Nothing
     , _ulAutoAssignPublicIPs = Nothing
     , _ulUseEBSOptimizedInstances = Nothing
     , _ulAutoAssignElasticIPs = Nothing
@@ -145,6 +145,10 @@ updateLayer pLayerId_ =
 ulCustomInstanceProfileARN :: Lens' UpdateLayer (Maybe Text)
 ulCustomInstanceProfileARN = lens _ulCustomInstanceProfileARN (\ s a -> s{_ulCustomInstanceProfileARN = a});
 
+-- | An array containing the layer\'s custom security group IDs.
+ulCustomSecurityGroupIds :: Lens' UpdateLayer [Text]
+ulCustomSecurityGroupIds = lens _ulCustomSecurityGroupIds (\ s a -> s{_ulCustomSecurityGroupIds = a}) . _Default . _Coerce;
+
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is 'true'. To control when updates are
 -- installed, set this value to 'false'. You must then update your
@@ -156,10 +160,6 @@ ulCustomInstanceProfileARN = lens _ulCustomInstanceProfileARN (\ s a -> s{_ulCus
 -- your instances have the latest security updates.
 ulInstallUpdatesOnBoot :: Lens' UpdateLayer (Maybe Bool)
 ulInstallUpdatesOnBoot = lens _ulInstallUpdatesOnBoot (\ s a -> s{_ulInstallUpdatesOnBoot = a});
-
--- | An array containing the layer\'s custom security group IDs.
-ulCustomSecurityGroupIds :: Lens' UpdateLayer [Text]
-ulCustomSecurityGroupIds = lens _ulCustomSecurityGroupIds (\ s a -> s{_ulCustomSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- |
 ulLifecycleEventConfiguration :: Lens' UpdateLayer (Maybe LifecycleEventConfiguration)
@@ -182,17 +182,17 @@ ulShortname = lens _ulShortname (\ s a -> s{_ulShortname = a});
 ulCustomRecipes :: Lens' UpdateLayer (Maybe Recipes)
 ulCustomRecipes = lens _ulCustomRecipes (\ s a -> s{_ulCustomRecipes = a});
 
--- | A 'VolumeConfigurations' object that describes the layer\'s Amazon EBS
--- volumes.
-ulVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
-ulVolumeConfigurations = lens _ulVolumeConfigurations (\ s a -> s{_ulVolumeConfigurations = a}) . _Default . _Coerce;
-
 -- | A JSON-formatted string containing custom stack configuration and
 -- deployment attributes to be installed on the layer\'s instances. For
 -- more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON>.
 ulCustomJSON :: Lens' UpdateLayer (Maybe Text)
 ulCustomJSON = lens _ulCustomJSON (\ s a -> s{_ulCustomJSON = a});
+
+-- | A 'VolumeConfigurations' object that describes the layer\'s Amazon EBS
+-- volumes.
+ulVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
+ulVolumeConfigurations = lens _ulVolumeConfigurations (\ s a -> s{_ulVolumeConfigurations = a}) . _Default . _Coerce;
 
 -- | Whether to disable auto healing for the layer.
 ulEnableAutoHealing :: Lens' UpdateLayer (Maybe Bool)
@@ -202,14 +202,14 @@ ulEnableAutoHealing = lens _ulEnableAutoHealing (\ s a -> s{_ulEnableAutoHealing
 ulPackages :: Lens' UpdateLayer [Text]
 ulPackages = lens _ulPackages (\ s a -> s{_ulPackages = a}) . _Default . _Coerce;
 
--- | The layer name, which is used by the console.
-ulName :: Lens' UpdateLayer (Maybe Text)
-ulName = lens _ulName (\ s a -> s{_ulName = a});
-
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
 ulAttributes :: Lens' UpdateLayer (HashMap LayerAttributesKeys Text)
 ulAttributes = lens _ulAttributes (\ s a -> s{_ulAttributes = a}) . _Default . _Map;
+
+-- | The layer name, which is used by the console.
+ulName :: Lens' UpdateLayer (Maybe Text)
+ulName = lens _ulName (\ s a -> s{_ulName = a});
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer\'s instances. For more information, see
@@ -252,21 +252,21 @@ instance ToJSON UpdateLayer where
               (catMaybes
                  [("CustomInstanceProfileArn" .=) <$>
                     _ulCustomInstanceProfileARN,
-                  ("InstallUpdatesOnBoot" .=) <$>
-                    _ulInstallUpdatesOnBoot,
                   ("CustomSecurityGroupIds" .=) <$>
                     _ulCustomSecurityGroupIds,
+                  ("InstallUpdatesOnBoot" .=) <$>
+                    _ulInstallUpdatesOnBoot,
                   ("LifecycleEventConfiguration" .=) <$>
                     _ulLifecycleEventConfiguration,
                   ("Shortname" .=) <$> _ulShortname,
                   ("CustomRecipes" .=) <$> _ulCustomRecipes,
+                  ("CustomJson" .=) <$> _ulCustomJSON,
                   ("VolumeConfigurations" .=) <$>
                     _ulVolumeConfigurations,
-                  ("CustomJson" .=) <$> _ulCustomJSON,
                   ("EnableAutoHealing" .=) <$> _ulEnableAutoHealing,
                   ("Packages" .=) <$> _ulPackages,
-                  ("Name" .=) <$> _ulName,
                   ("Attributes" .=) <$> _ulAttributes,
+                  ("Name" .=) <$> _ulName,
                   ("AutoAssignPublicIps" .=) <$>
                     _ulAutoAssignPublicIPs,
                   ("UseEbsOptimizedInstances" .=) <$>

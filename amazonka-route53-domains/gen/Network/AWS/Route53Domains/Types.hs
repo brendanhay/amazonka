@@ -46,8 +46,8 @@ module Network.AWS.Route53Domains.Types
     , contactDetail
     , cdOrganizationName
     , cdEmail
-    , cdFax
     , cdState
+    , cdFax
     , cdLastName
     , cdExtraParams
     , cdZipCode

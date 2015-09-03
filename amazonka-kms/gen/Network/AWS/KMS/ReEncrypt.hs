@@ -52,7 +52,7 @@ module Network.AWS.KMS.ReEncrypt
     , rersSourceKeyId
     , rersKeyId
     , rersCiphertextBlob
-    , rersStatus
+    , rersResponseStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -178,7 +178,7 @@ data ReEncryptResponse = ReEncryptResponse'
     { _rersSourceKeyId    :: !(Maybe Text)
     , _rersKeyId          :: !(Maybe Text)
     , _rersCiphertextBlob :: !(Maybe Base64)
-    , _rersStatus         :: !Int
+    , _rersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReEncryptResponse' with the minimum fields required to make a request.
@@ -191,16 +191,16 @@ data ReEncryptResponse = ReEncryptResponse'
 --
 -- * 'rersCiphertextBlob'
 --
--- * 'rersStatus'
+-- * 'rersResponseStatus'
 reEncryptResponse
-    :: Int -- ^ 'rersStatus'
+    :: Int -- ^ 'rersResponseStatus'
     -> ReEncryptResponse
-reEncryptResponse pStatus_ =
+reEncryptResponse pResponseStatus_ =
     ReEncryptResponse'
     { _rersSourceKeyId = Nothing
     , _rersKeyId = Nothing
     , _rersCiphertextBlob = Nothing
-    , _rersStatus = pStatus_
+    , _rersResponseStatus = pResponseStatus_
     }
 
 -- | Unique identifier of the key used to originally encrypt the data.
@@ -223,5 +223,5 @@ rersCiphertextBlob :: Lens' ReEncryptResponse (Maybe ByteString)
 rersCiphertextBlob = lens _rersCiphertextBlob (\ s a -> s{_rersCiphertextBlob = a}) . mapping _Base64;
 
 -- | The response status code.
-rersStatus :: Lens' ReEncryptResponse Int
-rersStatus = lens _rersStatus (\ s a -> s{_rersStatus = a});
+rersResponseStatus :: Lens' ReEncryptResponse Int
+rersResponseStatus = lens _rersResponseStatus (\ s a -> s{_rersResponseStatus = a});

@@ -34,11 +34,11 @@ module Network.AWS.CloudFormation.ValidateTemplate
     , validateTemplateResponse
     , ValidateTemplateResponse
     -- * Response Lenses
-    , vtrsParameters
     , vtrsCapabilitiesReason
-    , vtrsCapabilities
+    , vtrsParameters
     , vtrsDescription
-    , vtrsStatus
+    , vtrsCapabilities
+    , vtrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -98,13 +98,13 @@ instance AWSRequest ValidateTemplate where
           = receiveXMLWrapper "ValidateTemplateResult"
               (\ s h x ->
                  ValidateTemplateResponse' <$>
-                   (x .@? "Parameters" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (x .@? "CapabilitiesReason")
+                   (x .@? "CapabilitiesReason") <*>
+                     (x .@? "Parameters" .!@ mempty >>=
+                        may (parseXMLList "member"))
+                     <*> (x .@? "Description")
                      <*>
                      (x .@? "Capabilities" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (x .@? "Description")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders ValidateTemplate where
@@ -125,46 +125,50 @@ instance ToQuery ValidateTemplate where
 --
 -- /See:/ 'validateTemplateResponse' smart constructor.
 data ValidateTemplateResponse = ValidateTemplateResponse'
-    { _vtrsParameters         :: !(Maybe [TemplateParameter])
-    , _vtrsCapabilitiesReason :: !(Maybe Text)
-    , _vtrsCapabilities       :: !(Maybe [Capability])
+    { _vtrsCapabilitiesReason :: !(Maybe Text)
+    , _vtrsParameters         :: !(Maybe [TemplateParameter])
     , _vtrsDescription        :: !(Maybe Text)
-    , _vtrsStatus             :: !Int
+    , _vtrsCapabilities       :: !(Maybe [Capability])
+    , _vtrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ValidateTemplateResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vtrsParameters'
---
 -- * 'vtrsCapabilitiesReason'
 --
--- * 'vtrsCapabilities'
+-- * 'vtrsParameters'
 --
 -- * 'vtrsDescription'
 --
--- * 'vtrsStatus'
+-- * 'vtrsCapabilities'
+--
+-- * 'vtrsResponseStatus'
 validateTemplateResponse
-    :: Int -- ^ 'vtrsStatus'
+    :: Int -- ^ 'vtrsResponseStatus'
     -> ValidateTemplateResponse
-validateTemplateResponse pStatus_ =
+validateTemplateResponse pResponseStatus_ =
     ValidateTemplateResponse'
-    { _vtrsParameters = Nothing
-    , _vtrsCapabilitiesReason = Nothing
-    , _vtrsCapabilities = Nothing
+    { _vtrsCapabilitiesReason = Nothing
+    , _vtrsParameters = Nothing
     , _vtrsDescription = Nothing
-    , _vtrsStatus = pStatus_
+    , _vtrsCapabilities = Nothing
+    , _vtrsResponseStatus = pResponseStatus_
     }
-
--- | A list of 'TemplateParameter' structures.
-vtrsParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
-vtrsParameters = lens _vtrsParameters (\ s a -> s{_vtrsParameters = a}) . _Default . _Coerce;
 
 -- | The list of resources that generated the values in the 'Capabilities'
 -- response element.
 vtrsCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
 vtrsCapabilitiesReason = lens _vtrsCapabilitiesReason (\ s a -> s{_vtrsCapabilitiesReason = a});
+
+-- | A list of 'TemplateParameter' structures.
+vtrsParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
+vtrsParameters = lens _vtrsParameters (\ s a -> s{_vtrsParameters = a}) . _Default . _Coerce;
+
+-- | The description found within the template.
+vtrsDescription :: Lens' ValidateTemplateResponse (Maybe Text)
+vtrsDescription = lens _vtrsDescription (\ s a -> s{_vtrsDescription = a});
 
 -- | The capabilities found within the template. Currently, AWS
 -- CloudFormation supports only the CAPABILITY_IAM capability. If your
@@ -175,10 +179,6 @@ vtrsCapabilitiesReason = lens _vtrsCapabilitiesReason (\ s a -> s{_vtrsCapabilit
 vtrsCapabilities :: Lens' ValidateTemplateResponse [Capability]
 vtrsCapabilities = lens _vtrsCapabilities (\ s a -> s{_vtrsCapabilities = a}) . _Default . _Coerce;
 
--- | The description found within the template.
-vtrsDescription :: Lens' ValidateTemplateResponse (Maybe Text)
-vtrsDescription = lens _vtrsDescription (\ s a -> s{_vtrsDescription = a});
-
 -- | The response status code.
-vtrsStatus :: Lens' ValidateTemplateResponse Int
-vtrsStatus = lens _vtrsStatus (\ s a -> s{_vtrsStatus = a});
+vtrsResponseStatus :: Lens' ValidateTemplateResponse Int
+vtrsResponseStatus = lens _vtrsResponseStatus (\ s a -> s{_vtrsResponseStatus = a});

@@ -33,17 +33,17 @@ module Network.AWS.EC2.ModifyInstanceAttribute
       modifyInstanceAttribute
     , ModifyInstanceAttribute
     -- * Request Lenses
-    , mAttribute
     , mGroups
+    , mAttribute
     , mSourceDestCheck
     , mDisableAPITermination
+    , mKernel
     , mRAMDisk
     , mValue
-    , mKernel
     , mInstanceType
+    , mSRIOVNetSupport
     , mEBSOptimized
     , mUserData
-    , mSRIOVNetSupport
     , mInstanceInitiatedShutdownBehavior
     , mBlockDeviceMappings
     , mDryRun
@@ -62,17 +62,17 @@ import           Network.AWS.Response
 
 -- | /See:/ 'modifyInstanceAttribute' smart constructor.
 data ModifyInstanceAttribute = ModifyInstanceAttribute'
-    { _mAttribute                         :: !(Maybe InstanceAttributeName)
-    , _mGroups                            :: !(Maybe [Text])
+    { _mGroups                            :: !(Maybe [Text])
+    , _mAttribute                         :: !(Maybe InstanceAttributeName)
     , _mSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
     , _mDisableAPITermination             :: !(Maybe AttributeBooleanValue)
+    , _mKernel                            :: !(Maybe AttributeValue)
     , _mRAMDisk                           :: !(Maybe AttributeValue)
     , _mValue                             :: !(Maybe Text)
-    , _mKernel                            :: !(Maybe AttributeValue)
     , _mInstanceType                      :: !(Maybe AttributeValue)
+    , _mSRIOVNetSupport                   :: !(Maybe AttributeValue)
     , _mEBSOptimized                      :: !(Maybe AttributeBooleanValue)
     , _mUserData                          :: !(Maybe BlobAttributeValue)
-    , _mSRIOVNetSupport                   :: !(Maybe AttributeValue)
     , _mInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
     , _mBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMappingSpecification])
     , _mDryRun                            :: !(Maybe Bool)
@@ -83,27 +83,27 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mAttribute'
---
 -- * 'mGroups'
+--
+-- * 'mAttribute'
 --
 -- * 'mSourceDestCheck'
 --
 -- * 'mDisableAPITermination'
 --
+-- * 'mKernel'
+--
 -- * 'mRAMDisk'
 --
 -- * 'mValue'
 --
--- * 'mKernel'
---
 -- * 'mInstanceType'
+--
+-- * 'mSRIOVNetSupport'
 --
 -- * 'mEBSOptimized'
 --
 -- * 'mUserData'
---
--- * 'mSRIOVNetSupport'
 --
 -- * 'mInstanceInitiatedShutdownBehavior'
 --
@@ -117,26 +117,22 @@ modifyInstanceAttribute
     -> ModifyInstanceAttribute
 modifyInstanceAttribute pInstanceId_ =
     ModifyInstanceAttribute'
-    { _mAttribute = Nothing
-    , _mGroups = Nothing
+    { _mGroups = Nothing
+    , _mAttribute = Nothing
     , _mSourceDestCheck = Nothing
     , _mDisableAPITermination = Nothing
+    , _mKernel = Nothing
     , _mRAMDisk = Nothing
     , _mValue = Nothing
-    , _mKernel = Nothing
     , _mInstanceType = Nothing
+    , _mSRIOVNetSupport = Nothing
     , _mEBSOptimized = Nothing
     , _mUserData = Nothing
-    , _mSRIOVNetSupport = Nothing
     , _mInstanceInitiatedShutdownBehavior = Nothing
     , _mBlockDeviceMappings = Nothing
     , _mDryRun = Nothing
     , _mInstanceId = pInstanceId_
     }
-
--- | The name of the attribute.
-mAttribute :: Lens' ModifyInstanceAttribute (Maybe InstanceAttributeName)
-mAttribute = lens _mAttribute (\ s a -> s{_mAttribute = a});
 
 -- | [EC2-VPC] Changes the security groups of the instance. You must specify
 -- at least one security group, even if it\'s just the default security
@@ -145,6 +141,10 @@ mAttribute = lens _mAttribute (\ s a -> s{_mAttribute = a});
 mGroups :: Lens' ModifyInstanceAttribute [Text]
 mGroups = lens _mGroups (\ s a -> s{_mGroups = a}) . _Default . _Coerce;
 
+-- | The name of the attribute.
+mAttribute :: Lens' ModifyInstanceAttribute (Maybe InstanceAttributeName)
+mAttribute = lens _mAttribute (\ s a -> s{_mAttribute = a});
+
 -- | Specifies whether source\/destination checking is enabled. A value of
 -- 'true' means that checking is enabled, and 'false' means checking is
 -- disabled. This value must be 'false' for a NAT instance to perform NAT.
@@ -152,9 +152,17 @@ mSourceDestCheck :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mSourceDestCheck = lens _mSourceDestCheck (\ s a -> s{_mSourceDestCheck = a});
 
 -- | If the value is 'true', you can\'t terminate the instance using the
--- Amazon EC2 console, CLI, or API; otherwise, you can.
+-- Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this
+-- paramater for Spot Instances.
 mDisableAPITermination :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mDisableAPITermination = lens _mDisableAPITermination (\ s a -> s{_mDisableAPITermination = a});
+
+-- | Changes the instance\'s kernel to the specified value. We recommend that
+-- you use PV-GRUB instead of kernels and RAM disks. For more information,
+-- see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB>.
+mKernel :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
+mKernel = lens _mKernel (\ s a -> s{_mKernel = a});
 
 -- | Changes the instance\'s RAM disk to the specified value. We recommend
 -- that you use PV-GRUB instead of kernels and RAM disks. For more
@@ -165,16 +173,9 @@ mRAMDisk = lens _mRAMDisk (\ s a -> s{_mRAMDisk = a});
 
 -- | A new value for the attribute. Use only with the 'kernel', 'ramdisk',
 -- 'userData', 'disableApiTermination', or
--- 'intanceInitiateShutdownBehavior' attribute.
+-- 'instanceInitiatedShutdownBehavior' attribute.
 mValue :: Lens' ModifyInstanceAttribute (Maybe Text)
 mValue = lens _mValue (\ s a -> s{_mValue = a});
-
--- | Changes the instance\'s kernel to the specified value. We recommend that
--- you use PV-GRUB instead of kernels and RAM disks. For more information,
--- see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB>.
-mKernel :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-mKernel = lens _mKernel (\ s a -> s{_mKernel = a});
 
 -- | Changes the instance type to the specified value. For more information,
 -- see
@@ -183,6 +184,15 @@ mKernel = lens _mKernel (\ s a -> s{_mKernel = a});
 -- 'InvalidInstanceAttributeValue'.
 mInstanceType :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mInstanceType = lens _mInstanceType (\ s a -> s{_mInstanceType = a});
+
+-- | Set to 'simple' to enable enhanced networking for the instance.
+--
+-- There is no way to disable enhanced networking at this time.
+--
+-- This option is supported only for HVM instances. Specifying this option
+-- with a PV instance can make it unreachable.
+mSRIOVNetSupport :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
+mSRIOVNetSupport = lens _mSRIOVNetSupport (\ s a -> s{_mSRIOVNetSupport = a});
 
 -- | Specifies whether the instance is optimized for EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
@@ -195,15 +205,6 @@ mEBSOptimized = lens _mEBSOptimized (\ s a -> s{_mEBSOptimized = a});
 -- | Changes the instance\'s user data to the specified value.
 mUserData :: Lens' ModifyInstanceAttribute (Maybe BlobAttributeValue)
 mUserData = lens _mUserData (\ s a -> s{_mUserData = a});
-
--- | Set to 'simple' to enable enhanced networking for the instance.
---
--- There is no way to disable enhanced networking at this time.
---
--- This option is supported only for HVM instances. Specifying this option
--- with a PV instance can make it unreachable.
-mSRIOVNetSupport :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-mSRIOVNetSupport = lens _mSRIOVNetSupport (\ s a -> s{_mSRIOVNetSupport = a});
 
 -- | Specifies whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for
@@ -253,16 +254,15 @@ instance ToQuery ModifyInstanceAttribute where
               ["Action" =:
                  ("ModifyInstanceAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Attribute" =: _mAttribute,
                toQuery (toQueryList "GroupId" <$> _mGroups),
+               "Attribute" =: _mAttribute,
                "SourceDestCheck" =: _mSourceDestCheck,
                "DisableApiTermination" =: _mDisableAPITermination,
-               "Ramdisk" =: _mRAMDisk, "Value" =: _mValue,
-               "Kernel" =: _mKernel,
-               "InstanceType" =: _mInstanceType,
+               "Kernel" =: _mKernel, "Ramdisk" =: _mRAMDisk,
+               "Value" =: _mValue, "InstanceType" =: _mInstanceType,
+               "SriovNetSupport" =: _mSRIOVNetSupport,
                "EbsOptimized" =: _mEBSOptimized,
                "UserData" =: _mUserData,
-               "SriovNetSupport" =: _mSRIOVNetSupport,
                "InstanceInitiatedShutdownBehavior" =:
                  _mInstanceInitiatedShutdownBehavior,
                toQuery

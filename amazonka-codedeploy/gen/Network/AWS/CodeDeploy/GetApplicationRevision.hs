@@ -34,10 +34,10 @@ module Network.AWS.CodeDeploy.GetApplicationRevision
     , getApplicationRevisionResponse
     , GetApplicationRevisionResponse
     -- * Response Lenses
-    , garrsRevisionInfo
     , garrsApplicationName
+    , garrsRevisionInfo
     , garrsRevision
-    , garrsStatus
+    , garrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -88,7 +88,7 @@ instance AWSRequest GetApplicationRevision where
           = receiveJSON
               (\ s h x ->
                  GetApplicationRevisionResponse' <$>
-                   (x .?> "revisionInfo") <*> (x .?> "applicationName")
+                   (x .?> "applicationName") <*> (x .?> "revisionInfo")
                      <*> (x .?> "revision")
                      <*> (pure (fromEnum s)))
 
@@ -119,41 +119,41 @@ instance ToQuery GetApplicationRevision where
 --
 -- /See:/ 'getApplicationRevisionResponse' smart constructor.
 data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
-    { _garrsRevisionInfo    :: !(Maybe GenericRevisionInfo)
-    , _garrsApplicationName :: !(Maybe Text)
+    { _garrsApplicationName :: !(Maybe Text)
+    , _garrsRevisionInfo    :: !(Maybe GenericRevisionInfo)
     , _garrsRevision        :: !(Maybe RevisionLocation)
-    , _garrsStatus          :: !Int
+    , _garrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetApplicationRevisionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garrsRevisionInfo'
---
 -- * 'garrsApplicationName'
+--
+-- * 'garrsRevisionInfo'
 --
 -- * 'garrsRevision'
 --
--- * 'garrsStatus'
+-- * 'garrsResponseStatus'
 getApplicationRevisionResponse
-    :: Int -- ^ 'garrsStatus'
+    :: Int -- ^ 'garrsResponseStatus'
     -> GetApplicationRevisionResponse
-getApplicationRevisionResponse pStatus_ =
+getApplicationRevisionResponse pResponseStatus_ =
     GetApplicationRevisionResponse'
-    { _garrsRevisionInfo = Nothing
-    , _garrsApplicationName = Nothing
+    { _garrsApplicationName = Nothing
+    , _garrsRevisionInfo = Nothing
     , _garrsRevision = Nothing
-    , _garrsStatus = pStatus_
+    , _garrsResponseStatus = pResponseStatus_
     }
-
--- | General information about the revision.
-garrsRevisionInfo :: Lens' GetApplicationRevisionResponse (Maybe GenericRevisionInfo)
-garrsRevisionInfo = lens _garrsRevisionInfo (\ s a -> s{_garrsRevisionInfo = a});
 
 -- | The name of the application that corresponds to the revision.
 garrsApplicationName :: Lens' GetApplicationRevisionResponse (Maybe Text)
 garrsApplicationName = lens _garrsApplicationName (\ s a -> s{_garrsApplicationName = a});
+
+-- | General information about the revision.
+garrsRevisionInfo :: Lens' GetApplicationRevisionResponse (Maybe GenericRevisionInfo)
+garrsRevisionInfo = lens _garrsRevisionInfo (\ s a -> s{_garrsRevisionInfo = a});
 
 -- | Additional information about the revision, including the revision\'s
 -- type and its location.
@@ -161,5 +161,5 @@ garrsRevision :: Lens' GetApplicationRevisionResponse (Maybe RevisionLocation)
 garrsRevision = lens _garrsRevision (\ s a -> s{_garrsRevision = a});
 
 -- | The response status code.
-garrsStatus :: Lens' GetApplicationRevisionResponse Int
-garrsStatus = lens _garrsStatus (\ s a -> s{_garrsStatus = a});
+garrsResponseStatus :: Lens' GetApplicationRevisionResponse Int
+garrsResponseStatus = lens _garrsResponseStatus (\ s a -> s{_garrsResponseStatus = a});

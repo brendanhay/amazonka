@@ -34,7 +34,7 @@ module Network.AWS.ElasticTranscoder.ReadPreset
     , ReadPresetResponse
     -- * Response Lenses
     , rprsPreset
-    , rprsStatus
+    , rprsResponseStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -91,8 +91,8 @@ instance ToQuery ReadPreset where
 --
 -- /See:/ 'readPresetResponse' smart constructor.
 data ReadPresetResponse = ReadPresetResponse'
-    { _rprsPreset :: !(Maybe Preset)
-    , _rprsStatus :: !Int
+    { _rprsPreset         :: !(Maybe Preset)
+    , _rprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReadPresetResponse' with the minimum fields required to make a request.
@@ -101,14 +101,14 @@ data ReadPresetResponse = ReadPresetResponse'
 --
 -- * 'rprsPreset'
 --
--- * 'rprsStatus'
+-- * 'rprsResponseStatus'
 readPresetResponse
-    :: Int -- ^ 'rprsStatus'
+    :: Int -- ^ 'rprsResponseStatus'
     -> ReadPresetResponse
-readPresetResponse pStatus_ =
+readPresetResponse pResponseStatus_ =
     ReadPresetResponse'
     { _rprsPreset = Nothing
-    , _rprsStatus = pStatus_
+    , _rprsResponseStatus = pResponseStatus_
     }
 
 -- | A section of the response body that provides information about the
@@ -117,5 +117,5 @@ rprsPreset :: Lens' ReadPresetResponse (Maybe Preset)
 rprsPreset = lens _rprsPreset (\ s a -> s{_rprsPreset = a});
 
 -- | The response status code.
-rprsStatus :: Lens' ReadPresetResponse Int
-rprsStatus = lens _rprsStatus (\ s a -> s{_rprsStatus = a});
+rprsResponseStatus :: Lens' ReadPresetResponse Int
+rprsResponseStatus = lens _rprsResponseStatus (\ s a -> s{_rprsResponseStatus = a});

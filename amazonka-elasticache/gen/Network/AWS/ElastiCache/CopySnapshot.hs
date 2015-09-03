@@ -35,7 +35,7 @@ module Network.AWS.ElastiCache.CopySnapshot
     , CopySnapshotResponse
     -- * Response Lenses
     , csrsSnapshot
-    , csrsStatus
+    , csrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -102,8 +102,8 @@ instance ToQuery CopySnapshot where
 
 -- | /See:/ 'copySnapshotResponse' smart constructor.
 data CopySnapshotResponse = CopySnapshotResponse'
-    { _csrsSnapshot :: !(Maybe Snapshot)
-    , _csrsStatus   :: !Int
+    { _csrsSnapshot       :: !(Maybe Snapshot)
+    , _csrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CopySnapshotResponse' with the minimum fields required to make a request.
@@ -112,14 +112,14 @@ data CopySnapshotResponse = CopySnapshotResponse'
 --
 -- * 'csrsSnapshot'
 --
--- * 'csrsStatus'
+-- * 'csrsResponseStatus'
 copySnapshotResponse
-    :: Int -- ^ 'csrsStatus'
+    :: Int -- ^ 'csrsResponseStatus'
     -> CopySnapshotResponse
-copySnapshotResponse pStatus_ =
+copySnapshotResponse pResponseStatus_ =
     CopySnapshotResponse'
     { _csrsSnapshot = Nothing
-    , _csrsStatus = pStatus_
+    , _csrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -127,5 +127,5 @@ csrsSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
 csrsSnapshot = lens _csrsSnapshot (\ s a -> s{_csrsSnapshot = a});
 
 -- | The response status code.
-csrsStatus :: Lens' CopySnapshotResponse Int
-csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});
+csrsResponseStatus :: Lens' CopySnapshotResponse Int
+csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});

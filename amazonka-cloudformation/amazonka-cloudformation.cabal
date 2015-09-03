@@ -1,5 +1,5 @@
 name:                  amazonka-cloudformation
-version:               1.2.0.2
+version:               1.3.0
 synopsis:              Amazon CloudFormation SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -87,7 +87,7 @@ library
         , Network.AWS.CloudFormation.Types.Sum
 
     build-depends:
-          amazonka-core == 1.2.0.*
+          amazonka-core == 1.3.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloudformation-test
@@ -107,9 +107,9 @@ test-suite amazonka-cloudformation-test
         , Test.AWS.CloudFormation.Internal
 
     build-depends:
-          amazonka-core == 1.2.0.*
-        , amazonka-test == 1.2.0.*
-        , amazonka-cloudformation == 1.2.0.*
+          amazonka-core == 1.3.0.*
+        , amazonka-test == 1.3.0.*
+        , amazonka-cloudformation == 1.3.0.*
         , base
         , bytestring
         , lens

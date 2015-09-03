@@ -33,8 +33,9 @@ module Network.AWS.S3.GetBucketVersioning
     , getBucketVersioningResponse
     , GetBucketVersioningResponse
     -- * Response Lenses
-    , gbvrsMFADelete
     , gbvrsStatus
+    , gbvrsMFADelete
+    , gbvrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -73,7 +74,8 @@ instance AWSRequest GetBucketVersioning where
           = receiveXML
               (\ s h x ->
                  GetBucketVersioningResponse' <$>
-                   (x .@? "MfaDelete") <*> (pure (fromEnum s)))
+                   (x .@? "Status") <*> (x .@? "MfaDelete") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetBucketVersioning where
         toHeaders = const mempty
@@ -87,25 +89,33 @@ instance ToQuery GetBucketVersioning where
 
 -- | /See:/ 'getBucketVersioningResponse' smart constructor.
 data GetBucketVersioningResponse = GetBucketVersioningResponse'
-    { _gbvrsMFADelete :: !(Maybe MFADeleteStatus)
-    , _gbvrsStatus    :: !Int
+    { _gbvrsStatus         :: !(Maybe BucketVersioningStatus)
+    , _gbvrsMFADelete      :: !(Maybe MFADeleteStatus)
+    , _gbvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketVersioningResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'gbvrsStatus'
+--
 -- * 'gbvrsMFADelete'
 --
--- * 'gbvrsStatus'
+-- * 'gbvrsResponseStatus'
 getBucketVersioningResponse
-    :: Int -- ^ 'gbvrsStatus'
+    :: Int -- ^ 'gbvrsResponseStatus'
     -> GetBucketVersioningResponse
-getBucketVersioningResponse pStatus_ =
+getBucketVersioningResponse pResponseStatus_ =
     GetBucketVersioningResponse'
-    { _gbvrsMFADelete = Nothing
-    , _gbvrsStatus = pStatus_
+    { _gbvrsStatus = Nothing
+    , _gbvrsMFADelete = Nothing
+    , _gbvrsResponseStatus = pResponseStatus_
     }
+
+-- | The versioning state of the bucket.
+gbvrsStatus :: Lens' GetBucketVersioningResponse (Maybe BucketVersioningStatus)
+gbvrsStatus = lens _gbvrsStatus (\ s a -> s{_gbvrsStatus = a});
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
@@ -115,5 +125,5 @@ gbvrsMFADelete :: Lens' GetBucketVersioningResponse (Maybe MFADeleteStatus)
 gbvrsMFADelete = lens _gbvrsMFADelete (\ s a -> s{_gbvrsMFADelete = a});
 
 -- | The response status code.
-gbvrsStatus :: Lens' GetBucketVersioningResponse Int
-gbvrsStatus = lens _gbvrsStatus (\ s a -> s{_gbvrsStatus = a});
+gbvrsResponseStatus :: Lens' GetBucketVersioningResponse Int
+gbvrsResponseStatus = lens _gbvrsResponseStatus (\ s a -> s{_gbvrsResponseStatus = a});

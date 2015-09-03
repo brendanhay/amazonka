@@ -37,7 +37,7 @@ module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
     -- * Response Lenses
     , giprrsRoles
     , giprrsIdentityPoolId
-    , giprrsStatus
+    , giprrsResponseStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -110,7 +110,7 @@ instance ToQuery GetIdentityPoolRoles where
 data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
     { _giprrsRoles          :: !(Maybe (Map Text Text))
     , _giprrsIdentityPoolId :: !(Maybe Text)
-    , _giprrsStatus         :: !Int
+    , _giprrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetIdentityPoolRolesResponse' with the minimum fields required to make a request.
@@ -121,15 +121,15 @@ data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
 --
 -- * 'giprrsIdentityPoolId'
 --
--- * 'giprrsStatus'
+-- * 'giprrsResponseStatus'
 getIdentityPoolRolesResponse
-    :: Int -- ^ 'giprrsStatus'
+    :: Int -- ^ 'giprrsResponseStatus'
     -> GetIdentityPoolRolesResponse
-getIdentityPoolRolesResponse pStatus_ =
+getIdentityPoolRolesResponse pResponseStatus_ =
     GetIdentityPoolRolesResponse'
     { _giprrsRoles = Nothing
     , _giprrsIdentityPoolId = Nothing
-    , _giprrsStatus = pStatus_
+    , _giprrsResponseStatus = pResponseStatus_
     }
 
 -- | The map of roles associated with this pool. Currently only authenticated
@@ -142,5 +142,5 @@ giprrsIdentityPoolId :: Lens' GetIdentityPoolRolesResponse (Maybe Text)
 giprrsIdentityPoolId = lens _giprrsIdentityPoolId (\ s a -> s{_giprrsIdentityPoolId = a});
 
 -- | The response status code.
-giprrsStatus :: Lens' GetIdentityPoolRolesResponse Int
-giprrsStatus = lens _giprrsStatus (\ s a -> s{_giprrsStatus = a});
+giprrsResponseStatus :: Lens' GetIdentityPoolRolesResponse Int
+giprrsResponseStatus = lens _giprrsResponseStatus (\ s a -> s{_giprrsResponseStatus = a});

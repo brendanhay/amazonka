@@ -42,7 +42,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     , UpdatePipelineStatusResponse
     -- * Response Lenses
     , upsrsPipeline
-    , upsrsStatus
+    , upsrsResponseStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -117,8 +117,8 @@ instance ToQuery UpdatePipelineStatus where
 --
 -- /See:/ 'updatePipelineStatusResponse' smart constructor.
 data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
-    { _upsrsPipeline :: !(Maybe Pipeline)
-    , _upsrsStatus   :: !Int
+    { _upsrsPipeline       :: !(Maybe Pipeline)
+    , _upsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdatePipelineStatusResponse' with the minimum fields required to make a request.
@@ -127,14 +127,14 @@ data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
 --
 -- * 'upsrsPipeline'
 --
--- * 'upsrsStatus'
+-- * 'upsrsResponseStatus'
 updatePipelineStatusResponse
-    :: Int -- ^ 'upsrsStatus'
+    :: Int -- ^ 'upsrsResponseStatus'
     -> UpdatePipelineStatusResponse
-updatePipelineStatusResponse pStatus_ =
+updatePipelineStatusResponse pResponseStatus_ =
     UpdatePipelineStatusResponse'
     { _upsrsPipeline = Nothing
-    , _upsrsStatus = pStatus_
+    , _upsrsResponseStatus = pResponseStatus_
     }
 
 -- | A section of the response body that provides information about the
@@ -143,5 +143,5 @@ upsrsPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
 upsrsPipeline = lens _upsrsPipeline (\ s a -> s{_upsrsPipeline = a});
 
 -- | The response status code.
-upsrsStatus :: Lens' UpdatePipelineStatusResponse Int
-upsrsStatus = lens _upsrsStatus (\ s a -> s{_upsrsStatus = a});
+upsrsResponseStatus :: Lens' UpdatePipelineStatusResponse Int
+upsrsResponseStatus = lens _upsrsResponseStatus (\ s a -> s{_upsrsResponseStatus = a});

@@ -32,15 +32,15 @@ module Network.AWS.EC2.DescribeNetworkACLs
     , DescribeNetworkACLs
     -- * Request Lenses
     , dnaclFilters
-    , dnaclDryRun
     , dnaclNetworkACLIds
+    , dnaclDryRun
 
     -- * Destructuring the Response
     , describeNetworkACLsResponse
     , DescribeNetworkACLsResponse
     -- * Response Lenses
     , dnarsNetworkACLs
-    , dnarsStatus
+    , dnarsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -52,8 +52,8 @@ import           Network.AWS.Response
 -- | /See:/ 'describeNetworkACLs' smart constructor.
 data DescribeNetworkACLs = DescribeNetworkACLs'
     { _dnaclFilters       :: !(Maybe [Filter])
-    , _dnaclDryRun        :: !(Maybe Bool)
     , _dnaclNetworkACLIds :: !(Maybe [Text])
+    , _dnaclDryRun        :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeNetworkACLs' with the minimum fields required to make a request.
@@ -62,16 +62,16 @@ data DescribeNetworkACLs = DescribeNetworkACLs'
 --
 -- * 'dnaclFilters'
 --
--- * 'dnaclDryRun'
---
 -- * 'dnaclNetworkACLIds'
+--
+-- * 'dnaclDryRun'
 describeNetworkACLs
     :: DescribeNetworkACLs
 describeNetworkACLs =
     DescribeNetworkACLs'
     { _dnaclFilters = Nothing
-    , _dnaclDryRun = Nothing
     , _dnaclNetworkACLIds = Nothing
+    , _dnaclDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -133,18 +133,18 @@ describeNetworkACLs =
 dnaclFilters :: Lens' DescribeNetworkACLs [Filter]
 dnaclFilters = lens _dnaclFilters (\ s a -> s{_dnaclFilters = a}) . _Default . _Coerce;
 
+-- | One or more network ACL IDs.
+--
+-- Default: Describes all your network ACLs.
+dnaclNetworkACLIds :: Lens' DescribeNetworkACLs [Text]
+dnaclNetworkACLIds = lens _dnaclNetworkACLIds (\ s a -> s{_dnaclNetworkACLIds = a}) . _Default . _Coerce;
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is 'DryRunOperation'.
 -- Otherwise, it is 'UnauthorizedOperation'.
 dnaclDryRun :: Lens' DescribeNetworkACLs (Maybe Bool)
 dnaclDryRun = lens _dnaclDryRun (\ s a -> s{_dnaclDryRun = a});
-
--- | One or more network ACL IDs.
---
--- Default: Describes all your network ACLs.
-dnaclNetworkACLIds :: Lens' DescribeNetworkACLs [Text]
-dnaclNetworkACLIds = lens _dnaclNetworkACLIds (\ s a -> s{_dnaclNetworkACLIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeNetworkACLs where
         type Rs DescribeNetworkACLs =
@@ -170,14 +170,14 @@ instance ToQuery DescribeNetworkACLs where
               ["Action" =: ("DescribeNetworkAcls" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dnaclFilters),
-               "DryRun" =: _dnaclDryRun,
                toQuery
-                 (toQueryList "NetworkAclId" <$> _dnaclNetworkACLIds)]
+                 (toQueryList "NetworkAclId" <$> _dnaclNetworkACLIds),
+               "DryRun" =: _dnaclDryRun]
 
 -- | /See:/ 'describeNetworkACLsResponse' smart constructor.
 data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'
-    { _dnarsNetworkACLs :: !(Maybe [NetworkACL])
-    , _dnarsStatus      :: !Int
+    { _dnarsNetworkACLs    :: !(Maybe [NetworkACL])
+    , _dnarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeNetworkACLsResponse' with the minimum fields required to make a request.
@@ -186,14 +186,14 @@ data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'
 --
 -- * 'dnarsNetworkACLs'
 --
--- * 'dnarsStatus'
+-- * 'dnarsResponseStatus'
 describeNetworkACLsResponse
-    :: Int -- ^ 'dnarsStatus'
+    :: Int -- ^ 'dnarsResponseStatus'
     -> DescribeNetworkACLsResponse
-describeNetworkACLsResponse pStatus_ =
+describeNetworkACLsResponse pResponseStatus_ =
     DescribeNetworkACLsResponse'
     { _dnarsNetworkACLs = Nothing
-    , _dnarsStatus = pStatus_
+    , _dnarsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more network ACLs.
@@ -201,5 +201,5 @@ dnarsNetworkACLs :: Lens' DescribeNetworkACLsResponse [NetworkACL]
 dnarsNetworkACLs = lens _dnarsNetworkACLs (\ s a -> s{_dnarsNetworkACLs = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dnarsStatus :: Lens' DescribeNetworkACLsResponse Int
-dnarsStatus = lens _dnarsStatus (\ s a -> s{_dnarsStatus = a});
+dnarsResponseStatus :: Lens' DescribeNetworkACLsResponse Int
+dnarsResponseStatus = lens _dnarsResponseStatus (\ s a -> s{_dnarsResponseStatus = a});

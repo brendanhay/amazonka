@@ -44,7 +44,7 @@ module Network.AWS.Redshift.PurchaseReservedNodeOffering
     , PurchaseReservedNodeOfferingResponse
     -- * Response Lenses
     , prnorsReservedNode
-    , prnorsStatus
+    , prnorsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -118,8 +118,8 @@ instance ToQuery PurchaseReservedNodeOffering where
 
 -- | /See:/ 'purchaseReservedNodeOfferingResponse' smart constructor.
 data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'
-    { _prnorsReservedNode :: !(Maybe ReservedNode)
-    , _prnorsStatus       :: !Int
+    { _prnorsReservedNode   :: !(Maybe ReservedNode)
+    , _prnorsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PurchaseReservedNodeOfferingResponse' with the minimum fields required to make a request.
@@ -128,14 +128,14 @@ data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
 --
 -- * 'prnorsReservedNode'
 --
--- * 'prnorsStatus'
+-- * 'prnorsResponseStatus'
 purchaseReservedNodeOfferingResponse
-    :: Int -- ^ 'prnorsStatus'
+    :: Int -- ^ 'prnorsResponseStatus'
     -> PurchaseReservedNodeOfferingResponse
-purchaseReservedNodeOfferingResponse pStatus_ =
+purchaseReservedNodeOfferingResponse pResponseStatus_ =
     PurchaseReservedNodeOfferingResponse'
     { _prnorsReservedNode = Nothing
-    , _prnorsStatus = pStatus_
+    , _prnorsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -143,5 +143,5 @@ prnorsReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe Reserved
 prnorsReservedNode = lens _prnorsReservedNode (\ s a -> s{_prnorsReservedNode = a});
 
 -- | The response status code.
-prnorsStatus :: Lens' PurchaseReservedNodeOfferingResponse Int
-prnorsStatus = lens _prnorsStatus (\ s a -> s{_prnorsStatus = a});
+prnorsResponseStatus :: Lens' PurchaseReservedNodeOfferingResponse Int
+prnorsResponseStatus = lens _prnorsResponseStatus (\ s a -> s{_prnorsResponseStatus = a});

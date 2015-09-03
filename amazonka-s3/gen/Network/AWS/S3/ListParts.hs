@@ -52,7 +52,7 @@ module Network.AWS.S3.ListParts
     , lprsIsTruncated
     , lprsPartNumberMarker
     , lprsUploadId
-    , lprsStatus
+    , lprsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -129,9 +129,8 @@ lpUploadId = lens _lpUploadId (\ s a -> s{_lpUploadId = a});
 
 instance AWSPager ListParts where
         page rq rs
-          | stop (rs ^. lprsIsTruncated) = Nothing
-          | isNothing (rs ^. lprsNextPartNumberMarker) =
-            Nothing
+          | stop (rs ^. lprsNextPartNumberMarker) = Nothing
+          | stop (rs ^. lprsParts) = Nothing
           | otherwise =
             Just $ rq &
               lpPartNumberMarker .~ rs ^. lprsNextPartNumberMarker
@@ -186,7 +185,7 @@ data ListPartsResponse = ListPartsResponse'
     , _lprsIsTruncated          :: !(Maybe Bool)
     , _lprsPartNumberMarker     :: !(Maybe Int)
     , _lprsUploadId             :: !(Maybe Text)
-    , _lprsStatus               :: !Int
+    , _lprsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListPartsResponse' with the minimum fields required to make a request.
@@ -217,11 +216,11 @@ data ListPartsResponse = ListPartsResponse'
 --
 -- * 'lprsUploadId'
 --
--- * 'lprsStatus'
+-- * 'lprsResponseStatus'
 listPartsResponse
-    :: Int -- ^ 'lprsStatus'
+    :: Int -- ^ 'lprsResponseStatus'
     -> ListPartsResponse
-listPartsResponse pStatus_ =
+listPartsResponse pResponseStatus_ =
     ListPartsResponse'
     { _lprsParts = Nothing
     , _lprsRequestCharged = Nothing
@@ -235,7 +234,7 @@ listPartsResponse pStatus_ =
     , _lprsIsTruncated = Nothing
     , _lprsPartNumberMarker = Nothing
     , _lprsUploadId = Nothing
-    , _lprsStatus = pStatus_
+    , _lprsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -289,5 +288,5 @@ lprsUploadId :: Lens' ListPartsResponse (Maybe Text)
 lprsUploadId = lens _lprsUploadId (\ s a -> s{_lprsUploadId = a});
 
 -- | The response status code.
-lprsStatus :: Lens' ListPartsResponse Int
-lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});
+lprsResponseStatus :: Lens' ListPartsResponse Int
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});

@@ -64,7 +64,7 @@ module Network.AWS.Route53.ChangeResourceRecordSets
     , changeResourceRecordSetsResponse
     , ChangeResourceRecordSetsResponse
     -- * Response Lenses
-    , crrsrsStatus
+    , crrsrsResponseStatus
     , crrsrsChangeInfo
     ) where
 
@@ -144,30 +144,30 @@ instance ToXML ChangeResourceRecordSets where
 --
 -- /See:/ 'changeResourceRecordSetsResponse' smart constructor.
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
-    { _crrsrsStatus     :: !Int
-    , _crrsrsChangeInfo :: !ChangeInfo
+    { _crrsrsResponseStatus :: !Int
+    , _crrsrsChangeInfo     :: !ChangeInfo
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ChangeResourceRecordSetsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crrsrsStatus'
+-- * 'crrsrsResponseStatus'
 --
 -- * 'crrsrsChangeInfo'
 changeResourceRecordSetsResponse
-    :: Int -- ^ 'crrsrsStatus'
+    :: Int -- ^ 'crrsrsResponseStatus'
     -> ChangeInfo -- ^ 'crrsrsChangeInfo'
     -> ChangeResourceRecordSetsResponse
-changeResourceRecordSetsResponse pStatus_ pChangeInfo_ =
+changeResourceRecordSetsResponse pResponseStatus_ pChangeInfo_ =
     ChangeResourceRecordSetsResponse'
-    { _crrsrsStatus = pStatus_
+    { _crrsrsResponseStatus = pResponseStatus_
     , _crrsrsChangeInfo = pChangeInfo_
     }
 
 -- | The response status code.
-crrsrsStatus :: Lens' ChangeResourceRecordSetsResponse Int
-crrsrsStatus = lens _crrsrsStatus (\ s a -> s{_crrsrsStatus = a});
+crrsrsResponseStatus :: Lens' ChangeResourceRecordSetsResponse Int
+crrsrsResponseStatus = lens _crrsrsResponseStatus (\ s a -> s{_crrsrsResponseStatus = a});
 
 -- | A complex type that contains information about changes made to your
 -- hosted zone.

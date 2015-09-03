@@ -37,10 +37,10 @@ module Network.AWS.RDS.DescribeEvents
     , deSourceType
     , deFilters
     , deSourceIdentifier
-    , deMaxRecords
     , deEventCategories
-    , deEndTime
     , deMarker
+    , deMaxRecords
+    , deEndTime
     , deDuration
 
     -- * Destructuring the Response
@@ -49,7 +49,7 @@ module Network.AWS.RDS.DescribeEvents
     -- * Response Lenses
     , dersEvents
     , dersMarker
-    , dersStatus
+    , dersResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -67,10 +67,10 @@ data DescribeEvents = DescribeEvents'
     , _deSourceType       :: !(Maybe SourceType)
     , _deFilters          :: !(Maybe [Filter])
     , _deSourceIdentifier :: !(Maybe Text)
-    , _deMaxRecords       :: !(Maybe Int)
     , _deEventCategories  :: !(Maybe [Text])
-    , _deEndTime          :: !(Maybe ISO8601)
     , _deMarker           :: !(Maybe Text)
+    , _deMaxRecords       :: !(Maybe Int)
+    , _deEndTime          :: !(Maybe ISO8601)
     , _deDuration         :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -86,13 +86,13 @@ data DescribeEvents = DescribeEvents'
 --
 -- * 'deSourceIdentifier'
 --
--- * 'deMaxRecords'
---
 -- * 'deEventCategories'
 --
--- * 'deEndTime'
---
 -- * 'deMarker'
+--
+-- * 'deMaxRecords'
+--
+-- * 'deEndTime'
 --
 -- * 'deDuration'
 describeEvents
@@ -103,10 +103,10 @@ describeEvents =
     , _deSourceType = Nothing
     , _deFilters = Nothing
     , _deSourceIdentifier = Nothing
-    , _deMaxRecords = Nothing
     , _deEventCategories = Nothing
-    , _deEndTime = Nothing
     , _deMarker = Nothing
+    , _deMaxRecords = Nothing
+    , _deEndTime = Nothing
     , _deDuration = Nothing
     }
 
@@ -145,6 +145,17 @@ deFilters = lens _deFilters (\ s a -> s{_deFilters = a}) . _Default . _Coerce;
 deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a});
 
+-- | A list of event categories that trigger notifications for a event
+-- notification subscription.
+deEventCategories :: Lens' DescribeEvents [Text]
+deEventCategories = lens _deEventCategories (\ s a -> s{_deEventCategories = a}) . _Default . _Coerce;
+
+-- | An optional pagination token provided by a previous DescribeEvents
+-- request. If this parameter is specified, the response includes only
+-- records beyond the marker, up to the value specified by 'MaxRecords'.
+deMarker :: Lens' DescribeEvents (Maybe Text)
+deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
+
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -156,11 +167,6 @@ deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = 
 deMaxRecords :: Lens' DescribeEvents (Maybe Int)
 deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
 
--- | A list of event categories that trigger notifications for a event
--- notification subscription.
-deEventCategories :: Lens' DescribeEvents [Text]
-deEventCategories = lens _deEventCategories (\ s a -> s{_deEventCategories = a}) . _Default . _Coerce;
-
 -- | The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format. For more information about ISO 8601, go to the
 -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
@@ -168,12 +174,6 @@ deEventCategories = lens _deEventCategories (\ s a -> s{_deEventCategories = a})
 -- Example: 2009-07-08T18:00Z
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
-
--- | An optional pagination token provided by a previous DescribeEvents
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by 'MaxRecords'.
-deMarker :: Lens' DescribeEvents (Maybe Text)
-deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 
 -- | The number of minutes to retrieve events for.
 --
@@ -216,21 +216,20 @@ instance ToQuery DescribeEvents where
                "Filters" =:
                  toQuery (toQueryList "Filter" <$> _deFilters),
                "SourceIdentifier" =: _deSourceIdentifier,
-               "MaxRecords" =: _deMaxRecords,
                "EventCategories" =:
                  toQuery
                    (toQueryList "EventCategory" <$> _deEventCategories),
-               "EndTime" =: _deEndTime, "Marker" =: _deMarker,
-               "Duration" =: _deDuration]
+               "Marker" =: _deMarker, "MaxRecords" =: _deMaxRecords,
+               "EndTime" =: _deEndTime, "Duration" =: _deDuration]
 
 -- | Contains the result of a successful invocation of the DescribeEvents
 -- action.
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-    { _dersEvents :: !(Maybe [Event])
-    , _dersMarker :: !(Maybe Text)
-    , _dersStatus :: !Int
+    { _dersEvents         :: !(Maybe [Event])
+    , _dersMarker         :: !(Maybe Text)
+    , _dersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
@@ -241,15 +240,15 @@ data DescribeEventsResponse = DescribeEventsResponse'
 --
 -- * 'dersMarker'
 --
--- * 'dersStatus'
+-- * 'dersResponseStatus'
 describeEventsResponse
-    :: Int -- ^ 'dersStatus'
+    :: Int -- ^ 'dersResponseStatus'
     -> DescribeEventsResponse
-describeEventsResponse pStatus_ =
+describeEventsResponse pResponseStatus_ =
     DescribeEventsResponse'
     { _dersEvents = Nothing
     , _dersMarker = Nothing
-    , _dersStatus = pStatus_
+    , _dersResponseStatus = pResponseStatus_
     }
 
 -- | A list of Event instances.
@@ -263,5 +262,5 @@ dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
 dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 
 -- | The response status code.
-dersStatus :: Lens' DescribeEventsResponse Int
-dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});
+dersResponseStatus :: Lens' DescribeEventsResponse Int
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});

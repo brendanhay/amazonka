@@ -34,7 +34,7 @@ module Network.AWS.DataPipeline.RemoveTags
     , removeTagsResponse
     , RemoveTagsResponse
     -- * Response Lenses
-    , rtrsStatus
+    , rtrsResponseStatus
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -109,22 +109,22 @@ instance ToQuery RemoveTags where
 --
 -- /See:/ 'removeTagsResponse' smart constructor.
 newtype RemoveTagsResponse = RemoveTagsResponse'
-    { _rtrsStatus :: Int
+    { _rtrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RemoveTagsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrsStatus'
+-- * 'rtrsResponseStatus'
 removeTagsResponse
-    :: Int -- ^ 'rtrsStatus'
+    :: Int -- ^ 'rtrsResponseStatus'
     -> RemoveTagsResponse
-removeTagsResponse pStatus_ =
+removeTagsResponse pResponseStatus_ =
     RemoveTagsResponse'
-    { _rtrsStatus = pStatus_
+    { _rtrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-rtrsStatus :: Lens' RemoveTagsResponse Int
-rtrsStatus = lens _rtrsStatus (\ s a -> s{_rtrsStatus = a});
+rtrsResponseStatus :: Lens' RemoveTagsResponse Int
+rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});

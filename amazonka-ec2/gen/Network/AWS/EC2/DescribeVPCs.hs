@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeVPCs
     , DescribeVPCsResponse
     -- * Response Lenses
     , dvrsVPCs
-    , dvrsStatus
+    , dvrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -143,8 +143,8 @@ instance ToQuery DescribeVPCs where
 
 -- | /See:/ 'describeVPCsResponse' smart constructor.
 data DescribeVPCsResponse = DescribeVPCsResponse'
-    { _dvrsVPCs   :: !(Maybe [VPC])
-    , _dvrsStatus :: !Int
+    { _dvrsVPCs           :: !(Maybe [VPC])
+    , _dvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVPCsResponse' with the minimum fields required to make a request.
@@ -153,14 +153,14 @@ data DescribeVPCsResponse = DescribeVPCsResponse'
 --
 -- * 'dvrsVPCs'
 --
--- * 'dvrsStatus'
+-- * 'dvrsResponseStatus'
 describeVPCsResponse
-    :: Int -- ^ 'dvrsStatus'
+    :: Int -- ^ 'dvrsResponseStatus'
     -> DescribeVPCsResponse
-describeVPCsResponse pStatus_ =
+describeVPCsResponse pResponseStatus_ =
     DescribeVPCsResponse'
     { _dvrsVPCs = Nothing
-    , _dvrsStatus = pStatus_
+    , _dvrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more VPCs.
@@ -168,5 +168,5 @@ dvrsVPCs :: Lens' DescribeVPCsResponse [VPC]
 dvrsVPCs = lens _dvrsVPCs (\ s a -> s{_dvrsVPCs = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dvrsStatus :: Lens' DescribeVPCsResponse Int
-dvrsStatus = lens _dvrsStatus (\ s a -> s{_dvrsStatus = a});
+dvrsResponseStatus :: Lens' DescribeVPCsResponse Int
+dvrsResponseStatus = lens _dvrsResponseStatus (\ s a -> s{_dvrsResponseStatus = a});

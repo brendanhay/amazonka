@@ -38,7 +38,7 @@ module Network.AWS.EC2.UnmonitorInstances
     , UnmonitorInstancesResponse
     -- * Response Lenses
     , uirsInstanceMonitorings
-    , uirsStatus
+    , uirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -108,7 +108,7 @@ instance ToQuery UnmonitorInstances where
 -- | /See:/ 'unmonitorInstancesResponse' smart constructor.
 data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
     { _uirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
-    , _uirsStatus              :: !Int
+    , _uirsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UnmonitorInstancesResponse' with the minimum fields required to make a request.
@@ -117,14 +117,14 @@ data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
 --
 -- * 'uirsInstanceMonitorings'
 --
--- * 'uirsStatus'
+-- * 'uirsResponseStatus'
 unmonitorInstancesResponse
-    :: Int -- ^ 'uirsStatus'
+    :: Int -- ^ 'uirsResponseStatus'
     -> UnmonitorInstancesResponse
-unmonitorInstancesResponse pStatus_ =
+unmonitorInstancesResponse pResponseStatus_ =
     UnmonitorInstancesResponse'
     { _uirsInstanceMonitorings = Nothing
-    , _uirsStatus = pStatus_
+    , _uirsResponseStatus = pResponseStatus_
     }
 
 -- | Monitoring information for one or more instances.
@@ -132,5 +132,5 @@ uirsInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uirsInstanceMonitorings = lens _uirsInstanceMonitorings (\ s a -> s{_uirsInstanceMonitorings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-uirsStatus :: Lens' UnmonitorInstancesResponse Int
-uirsStatus = lens _uirsStatus (\ s a -> s{_uirsStatus = a});
+uirsResponseStatus :: Lens' UnmonitorInstancesResponse Int
+uirsResponseStatus = lens _uirsResponseStatus (\ s a -> s{_uirsResponseStatus = a});

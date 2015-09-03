@@ -59,7 +59,7 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     , DescribeReservedInstancesListingsResponse
     -- * Response Lenses
     , drilrsReservedInstancesListings
-    , drilrsStatus
+    , drilrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -152,7 +152,7 @@ instance ToQuery DescribeReservedInstancesListings
 -- | /See:/ 'describeReservedInstancesListingsResponse' smart constructor.
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'
     { _drilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
-    , _drilrsStatus                    :: !Int
+    , _drilrsResponseStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedInstancesListingsResponse' with the minimum fields required to make a request.
@@ -161,14 +161,14 @@ data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListin
 --
 -- * 'drilrsReservedInstancesListings'
 --
--- * 'drilrsStatus'
+-- * 'drilrsResponseStatus'
 describeReservedInstancesListingsResponse
-    :: Int -- ^ 'drilrsStatus'
+    :: Int -- ^ 'drilrsResponseStatus'
     -> DescribeReservedInstancesListingsResponse
-describeReservedInstancesListingsResponse pStatus_ =
+describeReservedInstancesListingsResponse pResponseStatus_ =
     DescribeReservedInstancesListingsResponse'
     { _drilrsReservedInstancesListings = Nothing
-    , _drilrsStatus = pStatus_
+    , _drilrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the Reserved Instance listing.
@@ -176,5 +176,5 @@ drilrsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsRespon
 drilrsReservedInstancesListings = lens _drilrsReservedInstancesListings (\ s a -> s{_drilrsReservedInstancesListings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drilrsStatus :: Lens' DescribeReservedInstancesListingsResponse Int
-drilrsStatus = lens _drilrsStatus (\ s a -> s{_drilrsStatus = a});
+drilrsResponseStatus :: Lens' DescribeReservedInstancesListingsResponse Int
+drilrsResponseStatus = lens _drilrsResponseStatus (\ s a -> s{_drilrsResponseStatus = a});

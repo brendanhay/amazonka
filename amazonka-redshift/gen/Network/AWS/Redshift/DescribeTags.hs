@@ -48,12 +48,12 @@ module Network.AWS.Redshift.DescribeTags
       describeTags
     , DescribeTags
     -- * Request Lenses
-    , dtResourceType
     , dtTagValues
+    , dtResourceType
     , dtResourceName
     , dtTagKeys
-    , dtMaxRecords
     , dtMarker
+    , dtMaxRecords
 
     -- * Destructuring the Response
     , describeTagsResponse
@@ -61,7 +61,7 @@ module Network.AWS.Redshift.DescribeTags
     -- * Response Lenses
     , dtrsMarker
     , dtrsTaggedResources
-    , dtrsStatus
+    , dtrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -74,40 +74,49 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
-    { _dtResourceType :: !(Maybe Text)
-    , _dtTagValues    :: !(Maybe [Text])
+    { _dtTagValues    :: !(Maybe [Text])
+    , _dtResourceType :: !(Maybe Text)
     , _dtResourceName :: !(Maybe Text)
     , _dtTagKeys      :: !(Maybe [Text])
-    , _dtMaxRecords   :: !(Maybe Int)
     , _dtMarker       :: !(Maybe Text)
+    , _dtMaxRecords   :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtResourceType'
---
 -- * 'dtTagValues'
+--
+-- * 'dtResourceType'
 --
 -- * 'dtResourceName'
 --
 -- * 'dtTagKeys'
 --
--- * 'dtMaxRecords'
---
 -- * 'dtMarker'
+--
+-- * 'dtMaxRecords'
 describeTags
     :: DescribeTags
 describeTags =
     DescribeTags'
-    { _dtResourceType = Nothing
-    , _dtTagValues = Nothing
+    { _dtTagValues = Nothing
+    , _dtResourceType = Nothing
     , _dtResourceName = Nothing
     , _dtTagKeys = Nothing
-    , _dtMaxRecords = Nothing
     , _dtMarker = Nothing
+    , _dtMaxRecords = Nothing
     }
+
+-- | A tag value or values for which you want to return all matching
+-- resources that are associated with the specified value or values. For
+-- example, suppose that you have resources tagged with values called
+-- 'admin' and 'test'. If you specify both of these tag values in the
+-- request, Amazon Redshift returns a response with all resources that have
+-- either or both of these tag values associated with them.
+dtTagValues :: Lens' DescribeTags [Text]
+dtTagValues = lens _dtTagValues (\ s a -> s{_dtTagValues = a}) . _Default . _Coerce;
 
 -- | The type of resource with which you want to view tags. Valid resource
 -- types are:
@@ -130,15 +139,6 @@ describeTags =
 dtResourceType :: Lens' DescribeTags (Maybe Text)
 dtResourceType = lens _dtResourceType (\ s a -> s{_dtResourceType = a});
 
--- | A tag value or values for which you want to return all matching
--- resources that are associated with the specified value or values. For
--- example, suppose that you have resources tagged with values called
--- 'admin' and 'test'. If you specify both of these tag values in the
--- request, Amazon Redshift returns a response with all resources that have
--- either or both of these tag values associated with them.
-dtTagValues :: Lens' DescribeTags [Text]
-dtTagValues = lens _dtTagValues (\ s a -> s{_dtTagValues = a}) . _Default . _Coerce;
-
 -- | The Amazon Resource Name (ARN) for which you want to describe the tag or
 -- tags. For example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
 dtResourceName :: Lens' DescribeTags (Maybe Text)
@@ -153,14 +153,6 @@ dtResourceName = lens _dtResourceName (\ s a -> s{_dtResourceName = a});
 dtTagKeys :: Lens' DescribeTags [Text]
 dtTagKeys = lens _dtTagKeys (\ s a -> s{_dtTagKeys = a}) . _Default . _Coerce;
 
--- | The maximum number or response records to return in each call. If the
--- number of remaining response records exceeds the specified 'MaxRecords'
--- value, a value is returned in a 'marker' field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned 'marker' value.
-dtMaxRecords :: Lens' DescribeTags (Maybe Int)
-dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a});
-
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
@@ -169,6 +161,14 @@ dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a});
 -- the request.
 dtMarker :: Lens' DescribeTags (Maybe Text)
 dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
+
+-- | The maximum number or response records to return in each call. If the
+-- number of remaining response records exceeds the specified 'MaxRecords'
+-- value, a value is returned in a 'marker' field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned 'marker' value.
+dtMaxRecords :: Lens' DescribeTags (Maybe Int)
+dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a});
 
 instance AWSRequest DescribeTags where
         type Rs DescribeTags = DescribeTagsResponse
@@ -193,13 +193,13 @@ instance ToQuery DescribeTags where
           = mconcat
               ["Action" =: ("DescribeTags" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ResourceType" =: _dtResourceType,
                "TagValues" =:
                  toQuery (toQueryList "TagValue" <$> _dtTagValues),
+               "ResourceType" =: _dtResourceType,
                "ResourceName" =: _dtResourceName,
                "TagKeys" =:
                  toQuery (toQueryList "TagKey" <$> _dtTagKeys),
-               "MaxRecords" =: _dtMaxRecords, "Marker" =: _dtMarker]
+               "Marker" =: _dtMarker, "MaxRecords" =: _dtMaxRecords]
 
 -- | Contains the output from the 'DescribeTags' action.
 --
@@ -207,7 +207,7 @@ instance ToQuery DescribeTags where
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsMarker          :: !(Maybe Text)
     , _dtrsTaggedResources :: !(Maybe [TaggedResource])
-    , _dtrsStatus          :: !Int
+    , _dtrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
@@ -218,15 +218,15 @@ data DescribeTagsResponse = DescribeTagsResponse'
 --
 -- * 'dtrsTaggedResources'
 --
--- * 'dtrsStatus'
+-- * 'dtrsResponseStatus'
 describeTagsResponse
-    :: Int -- ^ 'dtrsStatus'
+    :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
-describeTagsResponse pStatus_ =
+describeTagsResponse pResponseStatus_ =
     DescribeTagsResponse'
     { _dtrsMarker = Nothing
     , _dtrsTaggedResources = Nothing
-    , _dtrsStatus = pStatus_
+    , _dtrsResponseStatus = pResponseStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -243,5 +243,5 @@ dtrsTaggedResources :: Lens' DescribeTagsResponse [TaggedResource]
 dtrsTaggedResources = lens _dtrsTaggedResources (\ s a -> s{_dtrsTaggedResources = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dtrsStatus :: Lens' DescribeTagsResponse Int
-dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
+dtrsResponseStatus :: Lens' DescribeTagsResponse Int
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});

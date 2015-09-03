@@ -51,7 +51,7 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     , PurchaseReservedInstancesOfferingResponse
     -- * Response Lenses
     , priorsReservedInstancesId
-    , priorsStatus
+    , priorsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -148,7 +148,7 @@ instance ToQuery PurchaseReservedInstancesOffering
 -- | /See:/ 'purchaseReservedInstancesOfferingResponse' smart constructor.
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'
     { _priorsReservedInstancesId :: !(Maybe Text)
-    , _priorsStatus              :: !Int
+    , _priorsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PurchaseReservedInstancesOfferingResponse' with the minimum fields required to make a request.
@@ -157,14 +157,14 @@ data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferi
 --
 -- * 'priorsReservedInstancesId'
 --
--- * 'priorsStatus'
+-- * 'priorsResponseStatus'
 purchaseReservedInstancesOfferingResponse
-    :: Int -- ^ 'priorsStatus'
+    :: Int -- ^ 'priorsResponseStatus'
     -> PurchaseReservedInstancesOfferingResponse
-purchaseReservedInstancesOfferingResponse pStatus_ =
+purchaseReservedInstancesOfferingResponse pResponseStatus_ =
     PurchaseReservedInstancesOfferingResponse'
     { _priorsReservedInstancesId = Nothing
-    , _priorsStatus = pStatus_
+    , _priorsResponseStatus = pResponseStatus_
     }
 
 -- | The IDs of the purchased Reserved Instances.
@@ -172,5 +172,5 @@ priorsReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Ma
 priorsReservedInstancesId = lens _priorsReservedInstancesId (\ s a -> s{_priorsReservedInstancesId = a});
 
 -- | The response status code.
-priorsStatus :: Lens' PurchaseReservedInstancesOfferingResponse Int
-priorsStatus = lens _priorsStatus (\ s a -> s{_priorsStatus = a});
+priorsResponseStatus :: Lens' PurchaseReservedInstancesOfferingResponse Int
+priorsResponseStatus = lens _priorsResponseStatus (\ s a -> s{_priorsResponseStatus = a});

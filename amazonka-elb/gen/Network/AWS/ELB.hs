@@ -83,11 +83,11 @@ module Network.AWS.ELB
     -- ** InvalidEndPointException
     , _InvalidEndPointException
 
-    -- ** TooManyAccessPointsException
-    , _TooManyAccessPointsException
-
     -- ** InvalidSchemeException
     , _InvalidSchemeException
+
+    -- ** TooManyAccessPointsException
+    , _TooManyAccessPointsException
 
     -- ** TooManyPoliciesException
     , _TooManyPoliciesException
@@ -101,14 +101,14 @@ module Network.AWS.ELB
     -- * Operations
     -- $operations
 
-    -- ** DescribeLoadBalancerPolicyTypes
-    , module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
+    -- ** DescribeLoadBalancers (Paginated)
+    , module Network.AWS.ELB.DescribeLoadBalancers
 
     -- ** DescribeTags
     , module Network.AWS.ELB.DescribeTags
 
-    -- ** DescribeLoadBalancers (Paginated)
-    , module Network.AWS.ELB.DescribeLoadBalancers
+    -- ** DescribeLoadBalancerPolicyTypes
+    , module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
 
     -- ** ApplySecurityGroupsToLoadBalancer
     , module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
@@ -122,11 +122,11 @@ module Network.AWS.ELB
     -- ** DeleteLoadBalancer
     , module Network.AWS.ELB.DeleteLoadBalancer
 
-    -- ** CreateLoadBalancerPolicy
-    , module Network.AWS.ELB.CreateLoadBalancerPolicy
-
     -- ** DeregisterInstancesFromLoadBalancer
     , module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
+
+    -- ** CreateLoadBalancerPolicy
+    , module Network.AWS.ELB.CreateLoadBalancerPolicy
 
     -- ** DescribeLoadBalancerPolicies
     , module Network.AWS.ELB.DescribeLoadBalancerPolicies
@@ -134,20 +134,20 @@ module Network.AWS.ELB
     -- ** DisableAvailabilityZonesForLoadBalancer
     , module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
 
-    -- ** SetLoadBalancerPoliciesForBackendServer
-    , module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
-
     -- ** EnableAvailabilityZonesForLoadBalancer
     , module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
+
+    -- ** SetLoadBalancerPoliciesForBackendServer
+    , module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
 
     -- ** SetLoadBalancerListenerSSLCertificate
     , module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
 
-    -- ** ConfigureHealthCheck
-    , module Network.AWS.ELB.ConfigureHealthCheck
-
     -- ** AttachLoadBalancerToSubnets
     , module Network.AWS.ELB.AttachLoadBalancerToSubnets
+
+    -- ** ConfigureHealthCheck
+    , module Network.AWS.ELB.ConfigureHealthCheck
 
     -- ** ModifyLoadBalancerAttributes
     , module Network.AWS.ELB.ModifyLoadBalancerAttributes
@@ -155,14 +155,20 @@ module Network.AWS.ELB
     -- ** CreateAppCookieStickinessPolicy
     , module Network.AWS.ELB.CreateAppCookieStickinessPolicy
 
+    -- ** DescribeInstanceHealth
+    , module Network.AWS.ELB.DescribeInstanceHealth
+
     -- ** AddTags
     , module Network.AWS.ELB.AddTags
 
     -- ** DescribeLoadBalancerAttributes
     , module Network.AWS.ELB.DescribeLoadBalancerAttributes
 
-    -- ** DescribeInstanceHealth
-    , module Network.AWS.ELB.DescribeInstanceHealth
+    -- ** CreateLoadBalancerListeners
+    , module Network.AWS.ELB.CreateLoadBalancerListeners
+
+    -- ** DeleteLoadBalancerPolicy
+    , module Network.AWS.ELB.DeleteLoadBalancerPolicy
 
     -- ** DetachLoadBalancerFromSubnets
     , module Network.AWS.ELB.DetachLoadBalancerFromSubnets
@@ -170,17 +176,11 @@ module Network.AWS.ELB
     -- ** RegisterInstancesWithLoadBalancer
     , module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
 
-    -- ** DeleteLoadBalancerPolicy
-    , module Network.AWS.ELB.DeleteLoadBalancerPolicy
-
-    -- ** CreateLoadBalancerListeners
-    , module Network.AWS.ELB.CreateLoadBalancerListeners
+    -- ** CreateLoadBalancer
+    , module Network.AWS.ELB.CreateLoadBalancer
 
     -- ** DeleteLoadBalancerListeners
     , module Network.AWS.ELB.DeleteLoadBalancerListeners
-
-    -- ** CreateLoadBalancer
-    , module Network.AWS.ELB.CreateLoadBalancer
 
     -- ** SetLoadBalancerPoliciesOfListener
     , module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
@@ -285,9 +285,9 @@ module Network.AWS.ELB
     , LoadBalancerDescription
     , loadBalancerDescription
     , lbdSourceSecurityGroup
-    , lbdHealthCheck
     , lbdCanonicalHostedZoneName
     , lbdSecurityGroups
+    , lbdHealthCheck
     , lbdLoadBalancerName
     , lbdCreatedTime
     , lbdVPCId

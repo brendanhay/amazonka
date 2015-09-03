@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.GetHostnameSuggestion
     -- * Response Lenses
     , ghsrsHostname
     , ghsrsLayerId
-    , ghsrsStatus
+    , ghsrsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -109,9 +109,9 @@ instance ToQuery GetHostnameSuggestion where
 --
 -- /See:/ 'getHostnameSuggestionResponse' smart constructor.
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
-    { _ghsrsHostname :: !(Maybe Text)
-    , _ghsrsLayerId  :: !(Maybe Text)
-    , _ghsrsStatus   :: !Int
+    { _ghsrsHostname       :: !(Maybe Text)
+    , _ghsrsLayerId        :: !(Maybe Text)
+    , _ghsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetHostnameSuggestionResponse' with the minimum fields required to make a request.
@@ -122,15 +122,15 @@ data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
 --
 -- * 'ghsrsLayerId'
 --
--- * 'ghsrsStatus'
+-- * 'ghsrsResponseStatus'
 getHostnameSuggestionResponse
-    :: Int -- ^ 'ghsrsStatus'
+    :: Int -- ^ 'ghsrsResponseStatus'
     -> GetHostnameSuggestionResponse
-getHostnameSuggestionResponse pStatus_ =
+getHostnameSuggestionResponse pResponseStatus_ =
     GetHostnameSuggestionResponse'
     { _ghsrsHostname = Nothing
     , _ghsrsLayerId = Nothing
-    , _ghsrsStatus = pStatus_
+    , _ghsrsResponseStatus = pResponseStatus_
     }
 
 -- | The generated host name.
@@ -142,5 +142,5 @@ ghsrsLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
 ghsrsLayerId = lens _ghsrsLayerId (\ s a -> s{_ghsrsLayerId = a});
 
 -- | The response status code.
-ghsrsStatus :: Lens' GetHostnameSuggestionResponse Int
-ghsrsStatus = lens _ghsrsStatus (\ s a -> s{_ghsrsStatus = a});
+ghsrsResponseStatus :: Lens' GetHostnameSuggestionResponse Int
+ghsrsResponseStatus = lens _ghsrsResponseStatus (\ s a -> s{_ghsrsResponseStatus = a});

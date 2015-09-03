@@ -45,7 +45,7 @@ module Network.AWS.ElasticTranscoder.TestRole
     -- * Response Lenses
     , trrsSuccess
     , trrsMessages
-    , trrsStatus
+    , trrsResponseStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -140,9 +140,9 @@ instance ToQuery TestRole where
 --
 -- /See:/ 'testRoleResponse' smart constructor.
 data TestRoleResponse = TestRoleResponse'
-    { _trrsSuccess  :: !(Maybe Text)
-    , _trrsMessages :: !(Maybe [Text])
-    , _trrsStatus   :: !Int
+    { _trrsSuccess        :: !(Maybe Text)
+    , _trrsMessages       :: !(Maybe [Text])
+    , _trrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TestRoleResponse' with the minimum fields required to make a request.
@@ -153,15 +153,15 @@ data TestRoleResponse = TestRoleResponse'
 --
 -- * 'trrsMessages'
 --
--- * 'trrsStatus'
+-- * 'trrsResponseStatus'
 testRoleResponse
-    :: Int -- ^ 'trrsStatus'
+    :: Int -- ^ 'trrsResponseStatus'
     -> TestRoleResponse
-testRoleResponse pStatus_ =
+testRoleResponse pResponseStatus_ =
     TestRoleResponse'
     { _trrsSuccess = Nothing
     , _trrsMessages = Nothing
-    , _trrsStatus = pStatus_
+    , _trrsResponseStatus = pResponseStatus_
     }
 
 -- | If the operation is successful, this value is 'true'; otherwise, the
@@ -175,5 +175,5 @@ trrsMessages :: Lens' TestRoleResponse [Text]
 trrsMessages = lens _trrsMessages (\ s a -> s{_trrsMessages = a}) . _Default . _Coerce;
 
 -- | The response status code.
-trrsStatus :: Lens' TestRoleResponse Int
-trrsStatus = lens _trrsStatus (\ s a -> s{_trrsStatus = a});
+trrsResponseStatus :: Lens' TestRoleResponse Int
+trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a});

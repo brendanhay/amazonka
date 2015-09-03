@@ -279,9 +279,9 @@ instance FromJSON DeploymentGroupInfo where
 --
 -- /See:/ 'deploymentInfo' smart constructor.
 data DeploymentInfo = DeploymentInfo'
-    { _diDeploymentId                  :: !(Maybe Text)
-    , _diCreator                       :: !(Maybe DeploymentCreator)
+    { _diCreator                       :: !(Maybe DeploymentCreator)
     , _diStatus                        :: !(Maybe DeploymentStatus)
+    , _diDeploymentId                  :: !(Maybe Text)
     , _diDeploymentConfigName          :: !(Maybe Text)
     , _diStartTime                     :: !(Maybe POSIX)
     , _diCompleteTime                  :: !(Maybe POSIX)
@@ -290,20 +290,20 @@ data DeploymentInfo = DeploymentInfo'
     , _diApplicationName               :: !(Maybe Text)
     , _diRevision                      :: !(Maybe RevisionLocation)
     , _diDescription                   :: !(Maybe Text)
-    , _diIgnoreApplicationStopFailures :: !(Maybe Bool)
-    , _diDeploymentGroupName           :: !(Maybe Text)
     , _diCreateTime                    :: !(Maybe POSIX)
+    , _diDeploymentGroupName           :: !(Maybe Text)
+    , _diIgnoreApplicationStopFailures :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeploymentInfo' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diDeploymentId'
---
 -- * 'diCreator'
 --
 -- * 'diStatus'
+--
+-- * 'diDeploymentId'
 --
 -- * 'diDeploymentConfigName'
 --
@@ -321,18 +321,18 @@ data DeploymentInfo = DeploymentInfo'
 --
 -- * 'diDescription'
 --
--- * 'diIgnoreApplicationStopFailures'
+-- * 'diCreateTime'
 --
 -- * 'diDeploymentGroupName'
 --
--- * 'diCreateTime'
+-- * 'diIgnoreApplicationStopFailures'
 deploymentInfo
     :: DeploymentInfo
 deploymentInfo =
     DeploymentInfo'
-    { _diDeploymentId = Nothing
-    , _diCreator = Nothing
+    { _diCreator = Nothing
     , _diStatus = Nothing
+    , _diDeploymentId = Nothing
     , _diDeploymentConfigName = Nothing
     , _diStartTime = Nothing
     , _diCompleteTime = Nothing
@@ -341,14 +341,10 @@ deploymentInfo =
     , _diApplicationName = Nothing
     , _diRevision = Nothing
     , _diDescription = Nothing
-    , _diIgnoreApplicationStopFailures = Nothing
-    , _diDeploymentGroupName = Nothing
     , _diCreateTime = Nothing
+    , _diDeploymentGroupName = Nothing
+    , _diIgnoreApplicationStopFailures = Nothing
     }
-
--- | The deployment ID.
-diDeploymentId :: Lens' DeploymentInfo (Maybe Text)
-diDeploymentId = lens _diDeploymentId (\ s a -> s{_diDeploymentId = a});
 
 -- | How the deployment was created:
 --
@@ -360,6 +356,10 @@ diCreator = lens _diCreator (\ s a -> s{_diCreator = a});
 -- | The current state of the deployment as a whole.
 diStatus :: Lens' DeploymentInfo (Maybe DeploymentStatus)
 diStatus = lens _diStatus (\ s a -> s{_diStatus = a});
+
+-- | The deployment ID.
+diDeploymentId :: Lens' DeploymentInfo (Maybe Text)
+diDeploymentId = lens _diDeploymentId (\ s a -> s{_diDeploymentId = a});
 
 -- | The deployment configuration name.
 diDeploymentConfigName :: Lens' DeploymentInfo (Maybe Text)
@@ -400,6 +400,14 @@ diRevision = lens _diRevision (\ s a -> s{_diRevision = a});
 diDescription :: Lens' DeploymentInfo (Maybe Text)
 diDescription = lens _diDescription (\ s a -> s{_diDescription = a});
 
+-- | A timestamp indicating when the deployment was created.
+diCreateTime :: Lens' DeploymentInfo (Maybe UTCTime)
+diCreateTime = lens _diCreateTime (\ s a -> s{_diCreateTime = a}) . mapping _Time;
+
+-- | The deployment group name.
+diDeploymentGroupName :: Lens' DeploymentInfo (Maybe Text)
+diDeploymentGroupName = lens _diDeploymentGroupName (\ s a -> s{_diDeploymentGroupName = a});
+
 -- | If true, then if the deployment causes the ApplicationStop deployment
 -- lifecycle event to fail to a specific instance, the deployment will not
 -- be considered to have failed to that instance at that point and will
@@ -412,21 +420,13 @@ diDescription = lens _diDescription (\ s a -> s{_diDescription = a});
 diIgnoreApplicationStopFailures :: Lens' DeploymentInfo (Maybe Bool)
 diIgnoreApplicationStopFailures = lens _diIgnoreApplicationStopFailures (\ s a -> s{_diIgnoreApplicationStopFailures = a});
 
--- | The deployment group name.
-diDeploymentGroupName :: Lens' DeploymentInfo (Maybe Text)
-diDeploymentGroupName = lens _diDeploymentGroupName (\ s a -> s{_diDeploymentGroupName = a});
-
--- | A timestamp indicating when the deployment was created.
-diCreateTime :: Lens' DeploymentInfo (Maybe UTCTime)
-diCreateTime = lens _diCreateTime (\ s a -> s{_diCreateTime = a}) . mapping _Time;
-
 instance FromJSON DeploymentInfo where
         parseJSON
           = withObject "DeploymentInfo"
               (\ x ->
                  DeploymentInfo' <$>
-                   (x .:? "deploymentId") <*> (x .:? "creator") <*>
-                     (x .:? "status")
+                   (x .:? "creator") <*> (x .:? "status") <*>
+                     (x .:? "deploymentId")
                      <*> (x .:? "deploymentConfigName")
                      <*> (x .:? "startTime")
                      <*> (x .:? "completeTime")
@@ -435,9 +435,9 @@ instance FromJSON DeploymentInfo where
                      <*> (x .:? "applicationName")
                      <*> (x .:? "revision")
                      <*> (x .:? "description")
-                     <*> (x .:? "ignoreApplicationStopFailures")
+                     <*> (x .:? "createTime")
                      <*> (x .:? "deploymentGroupName")
-                     <*> (x .:? "createTime"))
+                     <*> (x .:? "ignoreApplicationStopFailures"))
 
 -- | Information about the deployment status of the instances in the
 -- deployment.
@@ -816,8 +816,8 @@ instance ToJSON GitHubLocation where
 --
 -- /See:/ 'instanceInfo' smart constructor.
 data InstanceInfo = InstanceInfo'
-    { _iiInstanceARN    :: !(Maybe Text)
-    , _iiRegisterTime   :: !(Maybe POSIX)
+    { _iiRegisterTime   :: !(Maybe POSIX)
+    , _iiInstanceARN    :: !(Maybe Text)
     , _iiDeregisterTime :: !(Maybe POSIX)
     , _iiIamUserARN     :: !(Maybe Text)
     , _iiInstanceName   :: !(Maybe Text)
@@ -828,9 +828,9 @@ data InstanceInfo = InstanceInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iiInstanceARN'
---
 -- * 'iiRegisterTime'
+--
+-- * 'iiInstanceARN'
 --
 -- * 'iiDeregisterTime'
 --
@@ -843,21 +843,21 @@ instanceInfo
     :: InstanceInfo
 instanceInfo =
     InstanceInfo'
-    { _iiInstanceARN = Nothing
-    , _iiRegisterTime = Nothing
+    { _iiRegisterTime = Nothing
+    , _iiInstanceARN = Nothing
     , _iiDeregisterTime = Nothing
     , _iiIamUserARN = Nothing
     , _iiInstanceName = Nothing
     , _iiTags = Nothing
     }
 
--- | The ARN of the on-premises instance.
-iiInstanceARN :: Lens' InstanceInfo (Maybe Text)
-iiInstanceARN = lens _iiInstanceARN (\ s a -> s{_iiInstanceARN = a});
-
 -- | The time that the on-premises instance was registered.
 iiRegisterTime :: Lens' InstanceInfo (Maybe UTCTime)
 iiRegisterTime = lens _iiRegisterTime (\ s a -> s{_iiRegisterTime = a}) . mapping _Time;
+
+-- | The ARN of the on-premises instance.
+iiInstanceARN :: Lens' InstanceInfo (Maybe Text)
+iiInstanceARN = lens _iiInstanceARN (\ s a -> s{_iiInstanceARN = a});
 
 -- | If the on-premises instance was deregistered, the time that the
 -- on-premises instance was deregistered.
@@ -881,7 +881,7 @@ instance FromJSON InstanceInfo where
           = withObject "InstanceInfo"
               (\ x ->
                  InstanceInfo' <$>
-                   (x .:? "instanceArn") <*> (x .:? "registerTime") <*>
+                   (x .:? "registerTime") <*> (x .:? "instanceArn") <*>
                      (x .:? "deregisterTime")
                      <*> (x .:? "iamUserArn")
                      <*> (x .:? "instanceName")
@@ -892,8 +892,8 @@ instance FromJSON InstanceInfo where
 -- /See:/ 'instanceSummary' smart constructor.
 data InstanceSummary = InstanceSummary'
     { _isInstanceId      :: !(Maybe Text)
-    , _isDeploymentId    :: !(Maybe Text)
     , _isStatus          :: !(Maybe InstanceStatus)
+    , _isDeploymentId    :: !(Maybe Text)
     , _isLastUpdatedAt   :: !(Maybe POSIX)
     , _isLifecycleEvents :: !(Maybe [LifecycleEvent])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -904,9 +904,9 @@ data InstanceSummary = InstanceSummary'
 --
 -- * 'isInstanceId'
 --
--- * 'isDeploymentId'
---
 -- * 'isStatus'
+--
+-- * 'isDeploymentId'
 --
 -- * 'isLastUpdatedAt'
 --
@@ -916,8 +916,8 @@ instanceSummary
 instanceSummary =
     InstanceSummary'
     { _isInstanceId = Nothing
-    , _isDeploymentId = Nothing
     , _isStatus = Nothing
+    , _isDeploymentId = Nothing
     , _isLastUpdatedAt = Nothing
     , _isLifecycleEvents = Nothing
     }
@@ -925,10 +925,6 @@ instanceSummary =
 -- | The instance ID.
 isInstanceId :: Lens' InstanceSummary (Maybe Text)
 isInstanceId = lens _isInstanceId (\ s a -> s{_isInstanceId = a});
-
--- | The deployment ID.
-isDeploymentId :: Lens' InstanceSummary (Maybe Text)
-isDeploymentId = lens _isDeploymentId (\ s a -> s{_isDeploymentId = a});
 
 -- | The deployment status for this instance:
 --
@@ -940,6 +936,10 @@ isDeploymentId = lens _isDeploymentId (\ s a -> s{_isDeploymentId = a});
 -- -   Unknown: The deployment status is unknown for this instance.
 isStatus :: Lens' InstanceSummary (Maybe InstanceStatus)
 isStatus = lens _isStatus (\ s a -> s{_isStatus = a});
+
+-- | The deployment ID.
+isDeploymentId :: Lens' InstanceSummary (Maybe Text)
+isDeploymentId = lens _isDeploymentId (\ s a -> s{_isDeploymentId = a});
 
 -- | A timestamp indicating when the instance information was last updated.
 isLastUpdatedAt :: Lens' InstanceSummary (Maybe UTCTime)
@@ -954,8 +954,8 @@ instance FromJSON InstanceSummary where
           = withObject "InstanceSummary"
               (\ x ->
                  InstanceSummary' <$>
-                   (x .:? "instanceId") <*> (x .:? "deploymentId") <*>
-                     (x .:? "status")
+                   (x .:? "instanceId") <*> (x .:? "status") <*>
+                     (x .:? "deploymentId")
                      <*> (x .:? "lastUpdatedAt")
                      <*> (x .:? "lifecycleEvents" .!= mempty))
 
@@ -964,8 +964,8 @@ instance FromJSON InstanceSummary where
 -- /See:/ 'lifecycleEvent' smart constructor.
 data LifecycleEvent = LifecycleEvent'
     { _leStatus             :: !(Maybe LifecycleEventStatus)
-    , _leStartTime          :: !(Maybe POSIX)
     , _leLifecycleEventName :: !(Maybe Text)
+    , _leStartTime          :: !(Maybe POSIX)
     , _leDiagnostics        :: !(Maybe Diagnostics)
     , _leEndTime            :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -976,9 +976,9 @@ data LifecycleEvent = LifecycleEvent'
 --
 -- * 'leStatus'
 --
--- * 'leStartTime'
---
 -- * 'leLifecycleEventName'
+--
+-- * 'leStartTime'
 --
 -- * 'leDiagnostics'
 --
@@ -988,8 +988,8 @@ lifecycleEvent
 lifecycleEvent =
     LifecycleEvent'
     { _leStatus = Nothing
-    , _leStartTime = Nothing
     , _leLifecycleEventName = Nothing
+    , _leStartTime = Nothing
     , _leDiagnostics = Nothing
     , _leEndTime = Nothing
     }
@@ -1005,14 +1005,14 @@ lifecycleEvent =
 leStatus :: Lens' LifecycleEvent (Maybe LifecycleEventStatus)
 leStatus = lens _leStatus (\ s a -> s{_leStatus = a});
 
--- | A timestamp indicating when the deployment lifecycle event started.
-leStartTime :: Lens' LifecycleEvent (Maybe UTCTime)
-leStartTime = lens _leStartTime (\ s a -> s{_leStartTime = a}) . mapping _Time;
-
 -- | The deployment lifecycle event name, such as ApplicationStop,
 -- BeforeInstall, AfterInstall, ApplicationStart, or ValidateService.
 leLifecycleEventName :: Lens' LifecycleEvent (Maybe Text)
 leLifecycleEventName = lens _leLifecycleEventName (\ s a -> s{_leLifecycleEventName = a});
+
+-- | A timestamp indicating when the deployment lifecycle event started.
+leStartTime :: Lens' LifecycleEvent (Maybe UTCTime)
+leStartTime = lens _leStartTime (\ s a -> s{_leStartTime = a}) . mapping _Time;
 
 -- | Diagnostic information about the deployment lifecycle event.
 leDiagnostics :: Lens' LifecycleEvent (Maybe Diagnostics)
@@ -1027,8 +1027,8 @@ instance FromJSON LifecycleEvent where
           = withObject "LifecycleEvent"
               (\ x ->
                  LifecycleEvent' <$>
-                   (x .:? "status") <*> (x .:? "startTime") <*>
-                     (x .:? "lifecycleEventName")
+                   (x .:? "status") <*> (x .:? "lifecycleEventName") <*>
+                     (x .:? "startTime")
                      <*> (x .:? "diagnostics")
                      <*> (x .:? "endTime"))
 

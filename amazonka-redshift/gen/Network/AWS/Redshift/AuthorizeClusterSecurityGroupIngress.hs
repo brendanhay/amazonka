@@ -55,7 +55,7 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     , AuthorizeClusterSecurityGroupIngressResponse
     -- * Response Lenses
     , acsgirsClusterSecurityGroup
-    , acsgirsStatus
+    , acsgirsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -155,7 +155,7 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress
 -- | /See:/ 'authorizeClusterSecurityGroupIngressResponse' smart constructor.
 data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse'
     { _acsgirsClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
-    , _acsgirsStatus               :: !Int
+    , _acsgirsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AuthorizeClusterSecurityGroupIngressResponse' with the minimum fields required to make a request.
@@ -164,14 +164,14 @@ data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGrou
 --
 -- * 'acsgirsClusterSecurityGroup'
 --
--- * 'acsgirsStatus'
+-- * 'acsgirsResponseStatus'
 authorizeClusterSecurityGroupIngressResponse
-    :: Int -- ^ 'acsgirsStatus'
+    :: Int -- ^ 'acsgirsResponseStatus'
     -> AuthorizeClusterSecurityGroupIngressResponse
-authorizeClusterSecurityGroupIngressResponse pStatus_ =
+authorizeClusterSecurityGroupIngressResponse pResponseStatus_ =
     AuthorizeClusterSecurityGroupIngressResponse'
     { _acsgirsClusterSecurityGroup = Nothing
-    , _acsgirsStatus = pStatus_
+    , _acsgirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -179,5 +179,5 @@ acsgirsClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressRespons
 acsgirsClusterSecurityGroup = lens _acsgirsClusterSecurityGroup (\ s a -> s{_acsgirsClusterSecurityGroup = a});
 
 -- | The response status code.
-acsgirsStatus :: Lens' AuthorizeClusterSecurityGroupIngressResponse Int
-acsgirsStatus = lens _acsgirsStatus (\ s a -> s{_acsgirsStatus = a});
+acsgirsResponseStatus :: Lens' AuthorizeClusterSecurityGroupIngressResponse Int
+acsgirsResponseStatus = lens _acsgirsResponseStatus (\ s a -> s{_acsgirsResponseStatus = a});

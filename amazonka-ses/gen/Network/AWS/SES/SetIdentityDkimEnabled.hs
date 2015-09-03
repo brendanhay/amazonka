@@ -50,7 +50,7 @@ module Network.AWS.SES.SetIdentityDkimEnabled
     , setIdentityDkimEnabledResponse
     , SetIdentityDkimEnabledResponse
     -- * Response Lenses
-    , sidersStatus
+    , sidersResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -124,22 +124,22 @@ instance ToQuery SetIdentityDkimEnabled where
 --
 -- /See:/ 'setIdentityDkimEnabledResponse' smart constructor.
 newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
-    { _sidersStatus :: Int
+    { _sidersResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SetIdentityDkimEnabledResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sidersStatus'
+-- * 'sidersResponseStatus'
 setIdentityDkimEnabledResponse
-    :: Int -- ^ 'sidersStatus'
+    :: Int -- ^ 'sidersResponseStatus'
     -> SetIdentityDkimEnabledResponse
-setIdentityDkimEnabledResponse pStatus_ =
+setIdentityDkimEnabledResponse pResponseStatus_ =
     SetIdentityDkimEnabledResponse'
-    { _sidersStatus = pStatus_
+    { _sidersResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-sidersStatus :: Lens' SetIdentityDkimEnabledResponse Int
-sidersStatus = lens _sidersStatus (\ s a -> s{_sidersStatus = a});
+sidersResponseStatus :: Lens' SetIdentityDkimEnabledResponse Int
+sidersResponseStatus = lens _sidersResponseStatus (\ s a -> s{_sidersResponseStatus = a});

@@ -44,7 +44,7 @@ module Network.AWS.SSM.CreateAssociation
     , CreateAssociationResponse
     -- * Response Lenses
     , carsAssociationDescription
-    , carsStatus
+    , carsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -119,7 +119,7 @@ instance ToQuery CreateAssociation where
 -- | /See:/ 'createAssociationResponse' smart constructor.
 data CreateAssociationResponse = CreateAssociationResponse'
     { _carsAssociationDescription :: !(Maybe AssociationDescription)
-    , _carsStatus                 :: !Int
+    , _carsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAssociationResponse' with the minimum fields required to make a request.
@@ -128,14 +128,14 @@ data CreateAssociationResponse = CreateAssociationResponse'
 --
 -- * 'carsAssociationDescription'
 --
--- * 'carsStatus'
+-- * 'carsResponseStatus'
 createAssociationResponse
-    :: Int -- ^ 'carsStatus'
+    :: Int -- ^ 'carsResponseStatus'
     -> CreateAssociationResponse
-createAssociationResponse pStatus_ =
+createAssociationResponse pResponseStatus_ =
     CreateAssociationResponse'
     { _carsAssociationDescription = Nothing
-    , _carsStatus = pStatus_
+    , _carsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the association.
@@ -143,5 +143,5 @@ carsAssociationDescription :: Lens' CreateAssociationResponse (Maybe Association
 carsAssociationDescription = lens _carsAssociationDescription (\ s a -> s{_carsAssociationDescription = a});
 
 -- | The response status code.
-carsStatus :: Lens' CreateAssociationResponse Int
-carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});
+carsResponseStatus :: Lens' CreateAssociationResponse Int
+carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});

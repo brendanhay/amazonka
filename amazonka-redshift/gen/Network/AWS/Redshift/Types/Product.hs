@@ -81,34 +81,34 @@ data Cluster = Cluster'
     { _cRestoreStatus                    :: !(Maybe RestoreStatus)
     , _cClusterSnapshotCopyStatus        :: !(Maybe ClusterSnapshotCopyStatus)
     , _cClusterRevisionNumber            :: !(Maybe Text)
-    , _cMasterUsername                   :: !(Maybe Text)
     , _cPubliclyAccessible               :: !(Maybe Bool)
+    , _cMasterUsername                   :: !(Maybe Text)
     , _cVPCId                            :: !(Maybe Text)
     , _cClusterSecurityGroups            :: !(Maybe [ClusterSecurityGroupMembership])
     , _cAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
     , _cEncrypted                        :: !(Maybe Bool)
+    , _cClusterSubnetGroupName           :: !(Maybe Text)
     , _cClusterIdentifier                :: !(Maybe Text)
     , _cNumberOfNodes                    :: !(Maybe Int)
-    , _cClusterSubnetGroupName           :: !(Maybe Text)
+    , _cClusterPublicKey                 :: !(Maybe Text)
     , _cPreferredMaintenanceWindow       :: !(Maybe Text)
     , _cModifyStatus                     :: !(Maybe Text)
-    , _cClusterPublicKey                 :: !(Maybe Text)
+    , _cKMSKeyId                         :: !(Maybe Text)
     , _cClusterParameterGroups           :: !(Maybe [ClusterParameterGroupStatus])
     , _cAvailabilityZone                 :: !(Maybe Text)
     , _cVPCSecurityGroups                :: !(Maybe [VPCSecurityGroupMembership])
-    , _cKMSKeyId                         :: !(Maybe Text)
     , _cHSMStatus                        :: !(Maybe HSMStatus)
     , _cElasticIPStatus                  :: !(Maybe ElasticIPStatus)
     , _cClusterVersion                   :: !(Maybe Text)
     , _cNodeType                         :: !(Maybe Text)
-    , _cEndpoint                         :: !(Maybe Endpoint)
     , _cClusterCreateTime                :: !(Maybe ISO8601)
+    , _cEndpoint                         :: !(Maybe Endpoint)
     , _cAllowVersionUpgrade              :: !(Maybe Bool)
-    , _cPendingModifiedValues            :: !(Maybe PendingModifiedValues)
     , _cClusterStatus                    :: !(Maybe Text)
-    , _cDBName                           :: !(Maybe Text)
+    , _cPendingModifiedValues            :: !(Maybe PendingModifiedValues)
     , _cTags                             :: !(Maybe [Tag])
     , _cClusterNodes                     :: !(Maybe [ClusterNode])
+    , _cDBName                           :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Cluster' with the minimum fields required to make a request.
@@ -121,9 +121,9 @@ data Cluster = Cluster'
 --
 -- * 'cClusterRevisionNumber'
 --
--- * 'cMasterUsername'
---
 -- * 'cPubliclyAccessible'
+--
+-- * 'cMasterUsername'
 --
 -- * 'cVPCId'
 --
@@ -133,25 +133,25 @@ data Cluster = Cluster'
 --
 -- * 'cEncrypted'
 --
+-- * 'cClusterSubnetGroupName'
+--
 -- * 'cClusterIdentifier'
 --
 -- * 'cNumberOfNodes'
 --
--- * 'cClusterSubnetGroupName'
+-- * 'cClusterPublicKey'
 --
 -- * 'cPreferredMaintenanceWindow'
 --
 -- * 'cModifyStatus'
 --
--- * 'cClusterPublicKey'
+-- * 'cKMSKeyId'
 --
 -- * 'cClusterParameterGroups'
 --
 -- * 'cAvailabilityZone'
 --
 -- * 'cVPCSecurityGroups'
---
--- * 'cKMSKeyId'
 --
 -- * 'cHSMStatus'
 --
@@ -161,21 +161,21 @@ data Cluster = Cluster'
 --
 -- * 'cNodeType'
 --
--- * 'cEndpoint'
---
 -- * 'cClusterCreateTime'
+--
+-- * 'cEndpoint'
 --
 -- * 'cAllowVersionUpgrade'
 --
--- * 'cPendingModifiedValues'
---
 -- * 'cClusterStatus'
 --
--- * 'cDBName'
+-- * 'cPendingModifiedValues'
 --
 -- * 'cTags'
 --
 -- * 'cClusterNodes'
+--
+-- * 'cDBName'
 cluster
     :: Cluster
 cluster =
@@ -183,34 +183,34 @@ cluster =
     { _cRestoreStatus = Nothing
     , _cClusterSnapshotCopyStatus = Nothing
     , _cClusterRevisionNumber = Nothing
-    , _cMasterUsername = Nothing
     , _cPubliclyAccessible = Nothing
+    , _cMasterUsername = Nothing
     , _cVPCId = Nothing
     , _cClusterSecurityGroups = Nothing
     , _cAutomatedSnapshotRetentionPeriod = Nothing
     , _cEncrypted = Nothing
+    , _cClusterSubnetGroupName = Nothing
     , _cClusterIdentifier = Nothing
     , _cNumberOfNodes = Nothing
-    , _cClusterSubnetGroupName = Nothing
+    , _cClusterPublicKey = Nothing
     , _cPreferredMaintenanceWindow = Nothing
     , _cModifyStatus = Nothing
-    , _cClusterPublicKey = Nothing
+    , _cKMSKeyId = Nothing
     , _cClusterParameterGroups = Nothing
     , _cAvailabilityZone = Nothing
     , _cVPCSecurityGroups = Nothing
-    , _cKMSKeyId = Nothing
     , _cHSMStatus = Nothing
     , _cElasticIPStatus = Nothing
     , _cClusterVersion = Nothing
     , _cNodeType = Nothing
-    , _cEndpoint = Nothing
     , _cClusterCreateTime = Nothing
+    , _cEndpoint = Nothing
     , _cAllowVersionUpgrade = Nothing
-    , _cPendingModifiedValues = Nothing
     , _cClusterStatus = Nothing
-    , _cDBName = Nothing
+    , _cPendingModifiedValues = Nothing
     , _cTags = Nothing
     , _cClusterNodes = Nothing
+    , _cDBName = Nothing
     }
 
 -- | Describes the status of a cluster restore action. Returns null if the
@@ -227,14 +227,14 @@ cClusterSnapshotCopyStatus = lens _cClusterSnapshotCopyStatus (\ s a -> s{_cClus
 cClusterRevisionNumber :: Lens' Cluster (Maybe Text)
 cClusterRevisionNumber = lens _cClusterRevisionNumber (\ s a -> s{_cClusterRevisionNumber = a});
 
+-- | If 'true', the cluster can be accessed from a public network.
+cPubliclyAccessible :: Lens' Cluster (Maybe Bool)
+cPubliclyAccessible = lens _cPubliclyAccessible (\ s a -> s{_cPubliclyAccessible = a});
+
 -- | The master user name for the cluster. This name is used to connect to
 -- the database that is specified in __DBName__.
 cMasterUsername :: Lens' Cluster (Maybe Text)
 cMasterUsername = lens _cMasterUsername (\ s a -> s{_cMasterUsername = a});
-
--- | If 'true', the cluster can be accessed from a public network.
-cPubliclyAccessible :: Lens' Cluster (Maybe Bool)
-cPubliclyAccessible = lens _cPubliclyAccessible (\ s a -> s{_cPubliclyAccessible = a});
 
 -- | The identifier of the VPC the cluster is in, if the cluster is in a VPC.
 cVPCId :: Lens' Cluster (Maybe Text)
@@ -259,6 +259,11 @@ cAutomatedSnapshotRetentionPeriod = lens _cAutomatedSnapshotRetentionPeriod (\ s
 cEncrypted :: Lens' Cluster (Maybe Bool)
 cEncrypted = lens _cEncrypted (\ s a -> s{_cEncrypted = a});
 
+-- | The name of the subnet group that is associated with the cluster. This
+-- parameter is valid only when the cluster is in a VPC.
+cClusterSubnetGroupName :: Lens' Cluster (Maybe Text)
+cClusterSubnetGroupName = lens _cClusterSubnetGroupName (\ s a -> s{_cClusterSubnetGroupName = a});
+
 -- | The unique identifier of the cluster.
 cClusterIdentifier :: Lens' Cluster (Maybe Text)
 cClusterIdentifier = lens _cClusterIdentifier (\ s a -> s{_cClusterIdentifier = a});
@@ -267,10 +272,9 @@ cClusterIdentifier = lens _cClusterIdentifier (\ s a -> s{_cClusterIdentifier = 
 cNumberOfNodes :: Lens' Cluster (Maybe Int)
 cNumberOfNodes = lens _cNumberOfNodes (\ s a -> s{_cNumberOfNodes = a});
 
--- | The name of the subnet group that is associated with the cluster. This
--- parameter is valid only when the cluster is in a VPC.
-cClusterSubnetGroupName :: Lens' Cluster (Maybe Text)
-cClusterSubnetGroupName = lens _cClusterSubnetGroupName (\ s a -> s{_cClusterSubnetGroupName = a});
+-- | The public key for the cluster.
+cClusterPublicKey :: Lens' Cluster (Maybe Text)
+cClusterPublicKey = lens _cClusterPublicKey (\ s a -> s{_cClusterPublicKey = a});
 
 -- | The weekly time range (in UTC) during which system maintenance can
 -- occur.
@@ -281,9 +285,10 @@ cPreferredMaintenanceWindow = lens _cPreferredMaintenanceWindow (\ s a -> s{_cPr
 cModifyStatus :: Lens' Cluster (Maybe Text)
 cModifyStatus = lens _cModifyStatus (\ s a -> s{_cModifyStatus = a});
 
--- | The public key for the cluster.
-cClusterPublicKey :: Lens' Cluster (Maybe Text)
-cClusterPublicKey = lens _cClusterPublicKey (\ s a -> s{_cClusterPublicKey = a});
+-- | The AWS Key Management Service (KMS) key ID of the encryption key used
+-- to encrypt data in the cluster.
+cKMSKeyId :: Lens' Cluster (Maybe Text)
+cKMSKeyId = lens _cKMSKeyId (\ s a -> s{_cKMSKeyId = a});
 
 -- | The list of cluster parameter groups that are associated with this
 -- cluster. Each parameter group in the list is returned with its status.
@@ -299,11 +304,6 @@ cAvailabilityZone = lens _cAvailabilityZone (\ s a -> s{_cAvailabilityZone = a})
 -- cluster is in a VPC.
 cVPCSecurityGroups :: Lens' Cluster [VPCSecurityGroupMembership]
 cVPCSecurityGroups = lens _cVPCSecurityGroups (\ s a -> s{_cVPCSecurityGroups = a}) . _Default . _Coerce;
-
--- | The AWS Key Management Service (KMS) key ID of the encryption key used
--- to encrypt data in the cluster.
-cKMSKeyId :: Lens' Cluster (Maybe Text)
-cKMSKeyId = lens _cKMSKeyId (\ s a -> s{_cKMSKeyId = a});
 
 -- | Reports whether the Amazon Redshift cluster has finished applying any
 -- HSM settings changes specified in a modify cluster command.
@@ -325,35 +325,28 @@ cClusterVersion = lens _cClusterVersion (\ s a -> s{_cClusterVersion = a});
 cNodeType :: Lens' Cluster (Maybe Text)
 cNodeType = lens _cNodeType (\ s a -> s{_cNodeType = a});
 
--- | The connection endpoint.
-cEndpoint :: Lens' Cluster (Maybe Endpoint)
-cEndpoint = lens _cEndpoint (\ s a -> s{_cEndpoint = a});
-
 -- | The date and time that the cluster was created.
 cClusterCreateTime :: Lens' Cluster (Maybe UTCTime)
 cClusterCreateTime = lens _cClusterCreateTime (\ s a -> s{_cClusterCreateTime = a}) . mapping _Time;
+
+-- | The connection endpoint.
+cEndpoint :: Lens' Cluster (Maybe Endpoint)
+cEndpoint = lens _cEndpoint (\ s a -> s{_cEndpoint = a});
 
 -- | If 'true', major version upgrades will be applied automatically to the
 -- cluster during the maintenance window.
 cAllowVersionUpgrade :: Lens' Cluster (Maybe Bool)
 cAllowVersionUpgrade = lens _cAllowVersionUpgrade (\ s a -> s{_cAllowVersionUpgrade = a});
 
--- | If present, changes to the cluster are pending. Specific pending changes
--- are identified by subelements.
-cPendingModifiedValues :: Lens' Cluster (Maybe PendingModifiedValues)
-cPendingModifiedValues = lens _cPendingModifiedValues (\ s a -> s{_cPendingModifiedValues = a});
-
 -- | The current state of this cluster. Possible values include 'available',
 -- 'creating', 'deleting', 'rebooting', 'renaming', and 'resizing'.
 cClusterStatus :: Lens' Cluster (Maybe Text)
 cClusterStatus = lens _cClusterStatus (\ s a -> s{_cClusterStatus = a});
 
--- | The name of the initial database that was created when the cluster was
--- created. This same name is returned for the life of the cluster. If an
--- initial database was not specified, a database named \"dev\" was created
--- by default.
-cDBName :: Lens' Cluster (Maybe Text)
-cDBName = lens _cDBName (\ s a -> s{_cDBName = a});
+-- | If present, changes to the cluster are pending. Specific pending changes
+-- are identified by subelements.
+cPendingModifiedValues :: Lens' Cluster (Maybe PendingModifiedValues)
+cPendingModifiedValues = lens _cPendingModifiedValues (\ s a -> s{_cPendingModifiedValues = a});
 
 -- | The list of tags for the cluster.
 cTags :: Lens' Cluster [Tag]
@@ -363,26 +356,34 @@ cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
 cClusterNodes :: Lens' Cluster [ClusterNode]
 cClusterNodes = lens _cClusterNodes (\ s a -> s{_cClusterNodes = a}) . _Default . _Coerce;
 
+-- | The name of the initial database that was created when the cluster was
+-- created. This same name is returned for the life of the cluster. If an
+-- initial database was not specified, a database named \"dev\" was created
+-- by default.
+cDBName :: Lens' Cluster (Maybe Text)
+cDBName = lens _cDBName (\ s a -> s{_cDBName = a});
+
 instance FromXML Cluster where
         parseXML x
           = Cluster' <$>
               (x .@? "RestoreStatus") <*>
                 (x .@? "ClusterSnapshotCopyStatus")
                 <*> (x .@? "ClusterRevisionNumber")
-                <*> (x .@? "MasterUsername")
                 <*> (x .@? "PubliclyAccessible")
+                <*> (x .@? "MasterUsername")
                 <*> (x .@? "VpcId")
                 <*>
                 (x .@? "ClusterSecurityGroups" .!@ mempty >>=
                    may (parseXMLList "ClusterSecurityGroup"))
                 <*> (x .@? "AutomatedSnapshotRetentionPeriod")
                 <*> (x .@? "Encrypted")
+                <*> (x .@? "ClusterSubnetGroupName")
                 <*> (x .@? "ClusterIdentifier")
                 <*> (x .@? "NumberOfNodes")
-                <*> (x .@? "ClusterSubnetGroupName")
+                <*> (x .@? "ClusterPublicKey")
                 <*> (x .@? "PreferredMaintenanceWindow")
                 <*> (x .@? "ModifyStatus")
-                <*> (x .@? "ClusterPublicKey")
+                <*> (x .@? "KmsKeyId")
                 <*>
                 (x .@? "ClusterParameterGroups" .!@ mempty >>=
                    may (parseXMLList "ClusterParameterGroup"))
@@ -390,23 +391,22 @@ instance FromXML Cluster where
                 <*>
                 (x .@? "VpcSecurityGroups" .!@ mempty >>=
                    may (parseXMLList "VpcSecurityGroup"))
-                <*> (x .@? "KmsKeyId")
                 <*> (x .@? "HsmStatus")
                 <*> (x .@? "ElasticIpStatus")
                 <*> (x .@? "ClusterVersion")
                 <*> (x .@? "NodeType")
-                <*> (x .@? "Endpoint")
                 <*> (x .@? "ClusterCreateTime")
+                <*> (x .@? "Endpoint")
                 <*> (x .@? "AllowVersionUpgrade")
-                <*> (x .@? "PendingModifiedValues")
                 <*> (x .@? "ClusterStatus")
-                <*> (x .@? "DBName")
+                <*> (x .@? "PendingModifiedValues")
                 <*>
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
                 <*>
                 (x .@? "ClusterNodes" .!@ mempty >>=
                    may (parseXMLList "member"))
+                <*> (x .@? "DBName")
 
 -- | The identifier of a node in a cluster.
 --
@@ -459,8 +459,8 @@ instance FromXML ClusterNode where
 data ClusterParameterGroup = ClusterParameterGroup'
     { _cpgParameterGroupFamily :: !(Maybe Text)
     , _cpgDescription          :: !(Maybe Text)
-    , _cpgParameterGroupName   :: !(Maybe Text)
     , _cpgTags                 :: !(Maybe [Tag])
+    , _cpgParameterGroupName   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ClusterParameterGroup' with the minimum fields required to make a request.
@@ -471,17 +471,17 @@ data ClusterParameterGroup = ClusterParameterGroup'
 --
 -- * 'cpgDescription'
 --
--- * 'cpgParameterGroupName'
---
 -- * 'cpgTags'
+--
+-- * 'cpgParameterGroupName'
 clusterParameterGroup
     :: ClusterParameterGroup
 clusterParameterGroup =
     ClusterParameterGroup'
     { _cpgParameterGroupFamily = Nothing
     , _cpgDescription = Nothing
-    , _cpgParameterGroupName = Nothing
     , _cpgTags = Nothing
+    , _cpgParameterGroupName = Nothing
     }
 
 -- | The name of the cluster parameter group family that this cluster
@@ -493,23 +493,23 @@ cpgParameterGroupFamily = lens _cpgParameterGroupFamily (\ s a -> s{_cpgParamete
 cpgDescription :: Lens' ClusterParameterGroup (Maybe Text)
 cpgDescription = lens _cpgDescription (\ s a -> s{_cpgDescription = a});
 
--- | The name of the cluster parameter group.
-cpgParameterGroupName :: Lens' ClusterParameterGroup (Maybe Text)
-cpgParameterGroupName = lens _cpgParameterGroupName (\ s a -> s{_cpgParameterGroupName = a});
-
 -- | The list of tags for the cluster parameter group.
 cpgTags :: Lens' ClusterParameterGroup [Tag]
 cpgTags = lens _cpgTags (\ s a -> s{_cpgTags = a}) . _Default . _Coerce;
+
+-- | The name of the cluster parameter group.
+cpgParameterGroupName :: Lens' ClusterParameterGroup (Maybe Text)
+cpgParameterGroupName = lens _cpgParameterGroupName (\ s a -> s{_cpgParameterGroupName = a});
 
 instance FromXML ClusterParameterGroup where
         parseXML x
           = ClusterParameterGroup' <$>
               (x .@? "ParameterGroupFamily") <*>
                 (x .@? "Description")
-                <*> (x .@? "ParameterGroupName")
                 <*>
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
+                <*> (x .@? "ParameterGroupName")
 
 -- | Contains the output from the ModifyClusterParameterGroup and
 -- ResetClusterParameterGroup actions and indicate the parameter group
@@ -954,8 +954,8 @@ instance FromXML ClusterVersion where
 --
 -- /See:/ 'defaultClusterParameters' smart constructor.
 data DefaultClusterParameters = DefaultClusterParameters'
-    { _dcpParameters           :: !(Maybe [Parameter])
-    , _dcpMarker               :: !(Maybe Text)
+    { _dcpMarker               :: !(Maybe Text)
+    , _dcpParameters           :: !(Maybe [Parameter])
     , _dcpParameterGroupFamily :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -963,23 +963,19 @@ data DefaultClusterParameters = DefaultClusterParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcpParameters'
---
 -- * 'dcpMarker'
+--
+-- * 'dcpParameters'
 --
 -- * 'dcpParameterGroupFamily'
 defaultClusterParameters
     :: DefaultClusterParameters
 defaultClusterParameters =
     DefaultClusterParameters'
-    { _dcpParameters = Nothing
-    , _dcpMarker = Nothing
+    { _dcpMarker = Nothing
+    , _dcpParameters = Nothing
     , _dcpParameterGroupFamily = Nothing
     }
-
--- | The list of cluster default parameters.
-dcpParameters :: Lens' DefaultClusterParameters [Parameter]
-dcpParameters = lens _dcpParameters (\ s a -> s{_dcpParameters = a}) . _Default . _Coerce;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -990,6 +986,10 @@ dcpParameters = lens _dcpParameters (\ s a -> s{_dcpParameters = a}) . _Default 
 dcpMarker :: Lens' DefaultClusterParameters (Maybe Text)
 dcpMarker = lens _dcpMarker (\ s a -> s{_dcpMarker = a});
 
+-- | The list of cluster default parameters.
+dcpParameters :: Lens' DefaultClusterParameters [Parameter]
+dcpParameters = lens _dcpParameters (\ s a -> s{_dcpParameters = a}) . _Default . _Coerce;
+
 -- | The name of the cluster parameter group family to which the engine
 -- default parameters apply.
 dcpParameterGroupFamily :: Lens' DefaultClusterParameters (Maybe Text)
@@ -998,9 +998,9 @@ dcpParameterGroupFamily = lens _dcpParameterGroupFamily (\ s a -> s{_dcpParamete
 instance FromXML DefaultClusterParameters where
         parseXML x
           = DefaultClusterParameters' <$>
-              (x .@? "Parameters" .!@ mempty >>=
-                 may (parseXMLList "Parameter"))
-                <*> (x .@? "Marker")
+              (x .@? "Marker") <*>
+                (x .@? "Parameters" .!@ mempty >>=
+                   may (parseXMLList "Parameter"))
                 <*> (x .@? "ParameterGroupFamily")
 
 -- | Describes an Amazon EC2 security group.
@@ -1313,8 +1313,8 @@ instance FromXML EventInfoMap where
 
 -- | /See:/ 'eventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-    { _esCustomerAWSId            :: !(Maybe Text)
-    , _esStatus                   :: !(Maybe Text)
+    { _esStatus                   :: !(Maybe Text)
+    , _esCustomerAWSId            :: !(Maybe Text)
     , _esCustSubscriptionId       :: !(Maybe Text)
     , _esSNSTopicARN              :: !(Maybe Text)
     , _esEnabled                  :: !(Maybe Bool)
@@ -1322,17 +1322,17 @@ data EventSubscription = EventSubscription'
     , _esSeverity                 :: !(Maybe Text)
     , _esSubscriptionCreationTime :: !(Maybe ISO8601)
     , _esEventCategoriesList      :: !(Maybe [Text])
-    , _esSourceIdsList            :: !(Maybe [Text])
     , _esTags                     :: !(Maybe [Tag])
+    , _esSourceIdsList            :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esCustomerAWSId'
---
 -- * 'esStatus'
+--
+-- * 'esCustomerAWSId'
 --
 -- * 'esCustSubscriptionId'
 --
@@ -1348,15 +1348,15 @@ data EventSubscription = EventSubscription'
 --
 -- * 'esEventCategoriesList'
 --
--- * 'esSourceIdsList'
---
 -- * 'esTags'
+--
+-- * 'esSourceIdsList'
 eventSubscription
     :: EventSubscription
 eventSubscription =
     EventSubscription'
-    { _esCustomerAWSId = Nothing
-    , _esStatus = Nothing
+    { _esStatus = Nothing
+    , _esCustomerAWSId = Nothing
     , _esCustSubscriptionId = Nothing
     , _esSNSTopicARN = Nothing
     , _esEnabled = Nothing
@@ -1364,14 +1364,9 @@ eventSubscription =
     , _esSeverity = Nothing
     , _esSubscriptionCreationTime = Nothing
     , _esEventCategoriesList = Nothing
-    , _esSourceIdsList = Nothing
     , _esTags = Nothing
+    , _esSourceIdsList = Nothing
     }
-
--- | The AWS customer account associated with the Amazon Redshift event
--- notification subscription.
-esCustomerAWSId :: Lens' EventSubscription (Maybe Text)
-esCustomerAWSId = lens _esCustomerAWSId (\ s a -> s{_esCustomerAWSId = a});
 
 -- | The status of the Amazon Redshift event notification subscription.
 --
@@ -1385,6 +1380,11 @@ esCustomerAWSId = lens _esCustomerAWSId (\ s a -> s{_esCustomerAWSId = a});
 --     subscription was created.
 esStatus :: Lens' EventSubscription (Maybe Text)
 esStatus = lens _esStatus (\ s a -> s{_esStatus = a});
+
+-- | The AWS customer account associated with the Amazon Redshift event
+-- notification subscription.
+esCustomerAWSId :: Lens' EventSubscription (Maybe Text)
+esCustomerAWSId = lens _esCustomerAWSId (\ s a -> s{_esCustomerAWSId = a});
 
 -- | The name of the Amazon Redshift event notification subscription.
 esCustSubscriptionId :: Lens' EventSubscription (Maybe Text)
@@ -1424,19 +1424,19 @@ esSubscriptionCreationTime = lens _esSubscriptionCreationTime (\ s a -> s{_esSub
 esEventCategoriesList :: Lens' EventSubscription [Text]
 esEventCategoriesList = lens _esEventCategoriesList (\ s a -> s{_esEventCategoriesList = a}) . _Default . _Coerce;
 
+-- | The list of tags for the event subscription.
+esTags :: Lens' EventSubscription [Tag]
+esTags = lens _esTags (\ s a -> s{_esTags = a}) . _Default . _Coerce;
+
 -- | A list of the sources that publish events to the Amazon Redshift event
 -- notification subscription.
 esSourceIdsList :: Lens' EventSubscription [Text]
 esSourceIdsList = lens _esSourceIdsList (\ s a -> s{_esSourceIdsList = a}) . _Default . _Coerce;
 
--- | The list of tags for the event subscription.
-esTags :: Lens' EventSubscription [Tag]
-esTags = lens _esTags (\ s a -> s{_esTags = a}) . _Default . _Coerce;
-
 instance FromXML EventSubscription where
         parseXML x
           = EventSubscription' <$>
-              (x .@? "CustomerAwsId") <*> (x .@? "Status") <*>
+              (x .@? "Status") <*> (x .@? "CustomerAwsId") <*>
                 (x .@? "CustSubscriptionId")
                 <*> (x .@? "SnsTopicArn")
                 <*> (x .@? "Enabled")
@@ -1447,11 +1447,11 @@ instance FromXML EventSubscription where
                 (x .@? "EventCategoriesList" .!@ mempty >>=
                    may (parseXMLList "EventCategory"))
                 <*>
-                (x .@? "SourceIdsList" .!@ mempty >>=
-                   may (parseXMLList "SourceId"))
-                <*>
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
+                <*>
+                (x .@? "SourceIdsList" .!@ mempty >>=
+                   may (parseXMLList "SourceId"))
 
 -- | Returns information about an HSM client certificate. The certificate is
 -- stored in a secure Hardware Storage Module (HSM), and used by the Amazon
@@ -1513,8 +1513,8 @@ data HSMConfiguration = HSMConfiguration'
     { _hcHSMConfigurationIdentifier :: !(Maybe Text)
     , _hcHSMPartitionName           :: !(Maybe Text)
     , _hcDescription                :: !(Maybe Text)
-    , _hcHSMIPAddress               :: !(Maybe Text)
     , _hcTags                       :: !(Maybe [Tag])
+    , _hcHSMIPAddress               :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'HSMConfiguration' with the minimum fields required to make a request.
@@ -1527,9 +1527,9 @@ data HSMConfiguration = HSMConfiguration'
 --
 -- * 'hcDescription'
 --
--- * 'hcHSMIPAddress'
---
 -- * 'hcTags'
+--
+-- * 'hcHSMIPAddress'
 hsmConfiguration
     :: HSMConfiguration
 hsmConfiguration =
@@ -1537,8 +1537,8 @@ hsmConfiguration =
     { _hcHSMConfigurationIdentifier = Nothing
     , _hcHSMPartitionName = Nothing
     , _hcDescription = Nothing
-    , _hcHSMIPAddress = Nothing
     , _hcTags = Nothing
+    , _hcHSMIPAddress = Nothing
     }
 
 -- | The name of the Amazon Redshift HSM configuration.
@@ -1554,14 +1554,14 @@ hcHSMPartitionName = lens _hcHSMPartitionName (\ s a -> s{_hcHSMPartitionName = 
 hcDescription :: Lens' HSMConfiguration (Maybe Text)
 hcDescription = lens _hcDescription (\ s a -> s{_hcDescription = a});
 
+-- | The list of tags for the HSM configuration.
+hcTags :: Lens' HSMConfiguration [Tag]
+hcTags = lens _hcTags (\ s a -> s{_hcTags = a}) . _Default . _Coerce;
+
 -- | The IP address that the Amazon Redshift cluster must use to access the
 -- HSM.
 hcHSMIPAddress :: Lens' HSMConfiguration (Maybe Text)
 hcHSMIPAddress = lens _hcHSMIPAddress (\ s a -> s{_hcHSMIPAddress = a});
-
--- | The list of tags for the HSM configuration.
-hcTags :: Lens' HSMConfiguration [Tag]
-hcTags = lens _hcTags (\ s a -> s{_hcTags = a}) . _Default . _Coerce;
 
 instance FromXML HSMConfiguration where
         parseXML x
@@ -1569,10 +1569,10 @@ instance FromXML HSMConfiguration where
               (x .@? "HsmConfigurationIdentifier") <*>
                 (x .@? "HsmPartitionName")
                 <*> (x .@? "Description")
-                <*> (x .@? "HsmIpAddress")
                 <*>
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
+                <*> (x .@? "HsmIpAddress")
 
 -- |
 --
@@ -1676,8 +1676,8 @@ instance FromXML IPRange where
 --
 -- /See:/ 'loggingStatus' smart constructor.
 data LoggingStatus = LoggingStatus'
-    { _lsLastSuccessfulDeliveryTime :: !(Maybe ISO8601)
-    , _lsLastFailureTime            :: !(Maybe ISO8601)
+    { _lsLastFailureTime            :: !(Maybe ISO8601)
+    , _lsLastSuccessfulDeliveryTime :: !(Maybe ISO8601)
     , _lsS3KeyPrefix                :: !(Maybe Text)
     , _lsBucketName                 :: !(Maybe Text)
     , _lsLoggingEnabled             :: !(Maybe Bool)
@@ -1688,9 +1688,9 @@ data LoggingStatus = LoggingStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsLastSuccessfulDeliveryTime'
---
 -- * 'lsLastFailureTime'
+--
+-- * 'lsLastSuccessfulDeliveryTime'
 --
 -- * 'lsS3KeyPrefix'
 --
@@ -1703,21 +1703,21 @@ loggingStatus
     :: LoggingStatus
 loggingStatus =
     LoggingStatus'
-    { _lsLastSuccessfulDeliveryTime = Nothing
-    , _lsLastFailureTime = Nothing
+    { _lsLastFailureTime = Nothing
+    , _lsLastSuccessfulDeliveryTime = Nothing
     , _lsS3KeyPrefix = Nothing
     , _lsBucketName = Nothing
     , _lsLoggingEnabled = Nothing
     , _lsLastFailureMessage = Nothing
     }
 
--- | The last time when logs were delivered.
-lsLastSuccessfulDeliveryTime :: Lens' LoggingStatus (Maybe UTCTime)
-lsLastSuccessfulDeliveryTime = lens _lsLastSuccessfulDeliveryTime (\ s a -> s{_lsLastSuccessfulDeliveryTime = a}) . mapping _Time;
-
 -- | The last time when logs failed to be delivered.
 lsLastFailureTime :: Lens' LoggingStatus (Maybe UTCTime)
 lsLastFailureTime = lens _lsLastFailureTime (\ s a -> s{_lsLastFailureTime = a}) . mapping _Time;
+
+-- | The last time when logs were delivered.
+lsLastSuccessfulDeliveryTime :: Lens' LoggingStatus (Maybe UTCTime)
+lsLastSuccessfulDeliveryTime = lens _lsLastSuccessfulDeliveryTime (\ s a -> s{_lsLastSuccessfulDeliveryTime = a}) . mapping _Time;
 
 -- | The prefix applied to the log file names.
 lsS3KeyPrefix :: Lens' LoggingStatus (Maybe Text)
@@ -1738,8 +1738,8 @@ lsLastFailureMessage = lens _lsLastFailureMessage (\ s a -> s{_lsLastFailureMess
 instance FromXML LoggingStatus where
         parseXML x
           = LoggingStatus' <$>
-              (x .@? "LastSuccessfulDeliveryTime") <*>
-                (x .@? "LastFailureTime")
+              (x .@? "LastFailureTime") <*>
+                (x .@? "LastSuccessfulDeliveryTime")
                 <*> (x .@? "S3KeyPrefix")
                 <*> (x .@? "BucketName")
                 <*> (x .@? "LoggingEnabled")
@@ -1810,8 +1810,8 @@ data Parameter = Parameter'
     , _pMinimumEngineVersion :: !(Maybe Text)
     , _pSource               :: !(Maybe Text)
     , _pIsModifiable         :: !(Maybe Bool)
-    , _pAllowedValues        :: !(Maybe Text)
     , _pDataType             :: !(Maybe Text)
+    , _pAllowedValues        :: !(Maybe Text)
     , _pParameterName        :: !(Maybe Text)
     , _pDescription          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1830,9 +1830,9 @@ data Parameter = Parameter'
 --
 -- * 'pIsModifiable'
 --
--- * 'pAllowedValues'
---
 -- * 'pDataType'
+--
+-- * 'pAllowedValues'
 --
 -- * 'pParameterName'
 --
@@ -1846,8 +1846,8 @@ parameter =
     , _pMinimumEngineVersion = Nothing
     , _pSource = Nothing
     , _pIsModifiable = Nothing
-    , _pAllowedValues = Nothing
     , _pDataType = Nothing
+    , _pAllowedValues = Nothing
     , _pParameterName = Nothing
     , _pDescription = Nothing
     }
@@ -1874,13 +1874,13 @@ pSource = lens _pSource (\ s a -> s{_pSource = a});
 pIsModifiable :: Lens' Parameter (Maybe Bool)
 pIsModifiable = lens _pIsModifiable (\ s a -> s{_pIsModifiable = a});
 
--- | The valid range of values for the parameter.
-pAllowedValues :: Lens' Parameter (Maybe Text)
-pAllowedValues = lens _pAllowedValues (\ s a -> s{_pAllowedValues = a});
-
 -- | The data type of the parameter.
 pDataType :: Lens' Parameter (Maybe Text)
 pDataType = lens _pDataType (\ s a -> s{_pDataType = a});
+
+-- | The valid range of values for the parameter.
+pAllowedValues :: Lens' Parameter (Maybe Text)
+pAllowedValues = lens _pAllowedValues (\ s a -> s{_pAllowedValues = a});
 
 -- | The name of the parameter.
 pParameterName :: Lens' Parameter (Maybe Text)
@@ -1897,8 +1897,8 @@ instance FromXML Parameter where
                 (x .@? "MinimumEngineVersion")
                 <*> (x .@? "Source")
                 <*> (x .@? "IsModifiable")
-                <*> (x .@? "AllowedValues")
                 <*> (x .@? "DataType")
+                <*> (x .@? "AllowedValues")
                 <*> (x .@? "ParameterName")
                 <*> (x .@? "Description")
 
@@ -1910,8 +1910,8 @@ instance ToQuery Parameter where
                "MinimumEngineVersion" =: _pMinimumEngineVersion,
                "Source" =: _pSource,
                "IsModifiable" =: _pIsModifiable,
-               "AllowedValues" =: _pAllowedValues,
                "DataType" =: _pDataType,
+               "AllowedValues" =: _pAllowedValues,
                "ParameterName" =: _pParameterName,
                "Description" =: _pDescription]
 
@@ -2049,12 +2049,12 @@ data ReservedNode = ReservedNode'
     , _rnCurrencyCode           :: !(Maybe Text)
     , _rnStartTime              :: !(Maybe ISO8601)
     , _rnNodeCount              :: !(Maybe Int)
-    , _rnReservedNodeOfferingId :: !(Maybe Text)
     , _rnReservedNodeId         :: !(Maybe Text)
+    , _rnReservedNodeOfferingId :: !(Maybe Text)
+    , _rnRecurringCharges       :: !(Maybe [RecurringCharge])
     , _rnOfferingType           :: !(Maybe Text)
     , _rnUsagePrice             :: !(Maybe Double)
     , _rnNodeType               :: !(Maybe Text)
-    , _rnRecurringCharges       :: !(Maybe [RecurringCharge])
     , _rnFixedPrice             :: !(Maybe Double)
     , _rnDuration               :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -2071,17 +2071,17 @@ data ReservedNode = ReservedNode'
 --
 -- * 'rnNodeCount'
 --
+-- * 'rnReservedNodeId'
+--
 -- * 'rnReservedNodeOfferingId'
 --
--- * 'rnReservedNodeId'
+-- * 'rnRecurringCharges'
 --
 -- * 'rnOfferingType'
 --
 -- * 'rnUsagePrice'
 --
 -- * 'rnNodeType'
---
--- * 'rnRecurringCharges'
 --
 -- * 'rnFixedPrice'
 --
@@ -2094,12 +2094,12 @@ reservedNode =
     , _rnCurrencyCode = Nothing
     , _rnStartTime = Nothing
     , _rnNodeCount = Nothing
-    , _rnReservedNodeOfferingId = Nothing
     , _rnReservedNodeId = Nothing
+    , _rnReservedNodeOfferingId = Nothing
+    , _rnRecurringCharges = Nothing
     , _rnOfferingType = Nothing
     , _rnUsagePrice = Nothing
     , _rnNodeType = Nothing
-    , _rnRecurringCharges = Nothing
     , _rnFixedPrice = Nothing
     , _rnDuration = Nothing
     }
@@ -2129,13 +2129,17 @@ rnStartTime = lens _rnStartTime (\ s a -> s{_rnStartTime = a}) . mapping _Time;
 rnNodeCount :: Lens' ReservedNode (Maybe Int)
 rnNodeCount = lens _rnNodeCount (\ s a -> s{_rnNodeCount = a});
 
+-- | The unique identifier for the reservation.
+rnReservedNodeId :: Lens' ReservedNode (Maybe Text)
+rnReservedNodeId = lens _rnReservedNodeId (\ s a -> s{_rnReservedNodeId = a});
+
 -- | The identifier for the reserved node offering.
 rnReservedNodeOfferingId :: Lens' ReservedNode (Maybe Text)
 rnReservedNodeOfferingId = lens _rnReservedNodeOfferingId (\ s a -> s{_rnReservedNodeOfferingId = a});
 
--- | The unique identifier for the reservation.
-rnReservedNodeId :: Lens' ReservedNode (Maybe Text)
-rnReservedNodeId = lens _rnReservedNodeId (\ s a -> s{_rnReservedNodeId = a});
+-- | The recurring charges for the reserved node.
+rnRecurringCharges :: Lens' ReservedNode [RecurringCharge]
+rnRecurringCharges = lens _rnRecurringCharges (\ s a -> s{_rnRecurringCharges = a}) . _Default . _Coerce;
 
 -- | The anticipated utilization of the reserved node, as defined in the
 -- reserved node offering.
@@ -2149,10 +2153,6 @@ rnUsagePrice = lens _rnUsagePrice (\ s a -> s{_rnUsagePrice = a});
 -- | The node type of the reserved node.
 rnNodeType :: Lens' ReservedNode (Maybe Text)
 rnNodeType = lens _rnNodeType (\ s a -> s{_rnNodeType = a});
-
--- | The recurring charges for the reserved node.
-rnRecurringCharges :: Lens' ReservedNode [RecurringCharge]
-rnRecurringCharges = lens _rnRecurringCharges (\ s a -> s{_rnRecurringCharges = a}) . _Default . _Coerce;
 
 -- | The fixed cost Amazon Redshift charges you for this reserved node.
 rnFixedPrice :: Lens' ReservedNode (Maybe Double)
@@ -2168,14 +2168,14 @@ instance FromXML ReservedNode where
               (x .@? "State") <*> (x .@? "CurrencyCode") <*>
                 (x .@? "StartTime")
                 <*> (x .@? "NodeCount")
-                <*> (x .@? "ReservedNodeOfferingId")
                 <*> (x .@? "ReservedNodeId")
-                <*> (x .@? "OfferingType")
-                <*> (x .@? "UsagePrice")
-                <*> (x .@? "NodeType")
+                <*> (x .@? "ReservedNodeOfferingId")
                 <*>
                 (x .@? "RecurringCharges" .!@ mempty >>=
                    may (parseXMLList "RecurringCharge"))
+                <*> (x .@? "OfferingType")
+                <*> (x .@? "UsagePrice")
+                <*> (x .@? "NodeType")
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
@@ -2185,10 +2185,10 @@ instance FromXML ReservedNode where
 data ReservedNodeOffering = ReservedNodeOffering'
     { _rnoCurrencyCode           :: !(Maybe Text)
     , _rnoReservedNodeOfferingId :: !(Maybe Text)
+    , _rnoRecurringCharges       :: !(Maybe [RecurringCharge])
     , _rnoOfferingType           :: !(Maybe Text)
     , _rnoUsagePrice             :: !(Maybe Double)
     , _rnoNodeType               :: !(Maybe Text)
-    , _rnoRecurringCharges       :: !(Maybe [RecurringCharge])
     , _rnoFixedPrice             :: !(Maybe Double)
     , _rnoDuration               :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -2201,13 +2201,13 @@ data ReservedNodeOffering = ReservedNodeOffering'
 --
 -- * 'rnoReservedNodeOfferingId'
 --
+-- * 'rnoRecurringCharges'
+--
 -- * 'rnoOfferingType'
 --
 -- * 'rnoUsagePrice'
 --
 -- * 'rnoNodeType'
---
--- * 'rnoRecurringCharges'
 --
 -- * 'rnoFixedPrice'
 --
@@ -2218,10 +2218,10 @@ reservedNodeOffering =
     ReservedNodeOffering'
     { _rnoCurrencyCode = Nothing
     , _rnoReservedNodeOfferingId = Nothing
+    , _rnoRecurringCharges = Nothing
     , _rnoOfferingType = Nothing
     , _rnoUsagePrice = Nothing
     , _rnoNodeType = Nothing
-    , _rnoRecurringCharges = Nothing
     , _rnoFixedPrice = Nothing
     , _rnoDuration = Nothing
     }
@@ -2233,6 +2233,12 @@ rnoCurrencyCode = lens _rnoCurrencyCode (\ s a -> s{_rnoCurrencyCode = a});
 -- | The offering identifier.
 rnoReservedNodeOfferingId :: Lens' ReservedNodeOffering (Maybe Text)
 rnoReservedNodeOfferingId = lens _rnoReservedNodeOfferingId (\ s a -> s{_rnoReservedNodeOfferingId = a});
+
+-- | The charge to your account regardless of whether you are creating any
+-- clusters using the node offering. Recurring charges are only in effect
+-- for heavy-utilization reserved nodes.
+rnoRecurringCharges :: Lens' ReservedNodeOffering [RecurringCharge]
+rnoRecurringCharges = lens _rnoRecurringCharges (\ s a -> s{_rnoRecurringCharges = a}) . _Default . _Coerce;
 
 -- | The anticipated utilization of the reserved node, as defined in the
 -- reserved node offering.
@@ -2248,12 +2254,6 @@ rnoUsagePrice = lens _rnoUsagePrice (\ s a -> s{_rnoUsagePrice = a});
 rnoNodeType :: Lens' ReservedNodeOffering (Maybe Text)
 rnoNodeType = lens _rnoNodeType (\ s a -> s{_rnoNodeType = a});
 
--- | The charge to your account regardless of whether you are creating any
--- clusters using the node offering. Recurring charges are only in effect
--- for heavy-utilization reserved nodes.
-rnoRecurringCharges :: Lens' ReservedNodeOffering [RecurringCharge]
-rnoRecurringCharges = lens _rnoRecurringCharges (\ s a -> s{_rnoRecurringCharges = a}) . _Default . _Coerce;
-
 -- | The upfront fixed charge you will pay to purchase the specific reserved
 -- node offering.
 rnoFixedPrice :: Lens' ReservedNodeOffering (Maybe Double)
@@ -2268,12 +2268,12 @@ instance FromXML ReservedNodeOffering where
           = ReservedNodeOffering' <$>
               (x .@? "CurrencyCode") <*>
                 (x .@? "ReservedNodeOfferingId")
-                <*> (x .@? "OfferingType")
-                <*> (x .@? "UsagePrice")
-                <*> (x .@? "NodeType")
                 <*>
                 (x .@? "RecurringCharges" .!@ mempty >>=
                    may (parseXMLList "RecurringCharge"))
+                <*> (x .@? "OfferingType")
+                <*> (x .@? "UsagePrice")
+                <*> (x .@? "NodeType")
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
@@ -2282,8 +2282,8 @@ instance FromXML ReservedNodeOffering where
 --
 -- /See:/ 'restoreStatus' smart constructor.
 data RestoreStatus = RestoreStatus'
-    { _rsEstimatedTimeToCompletionInSeconds     :: !(Maybe Integer)
-    , _rsStatus                                 :: !(Maybe Text)
+    { _rsStatus                                 :: !(Maybe Text)
+    , _rsEstimatedTimeToCompletionInSeconds     :: !(Maybe Integer)
     , _rsCurrentRestoreRateInMegaBytesPerSecond :: !(Maybe Double)
     , _rsProgressInMegaBytes                    :: !(Maybe Integer)
     , _rsElapsedTimeInSeconds                   :: !(Maybe Integer)
@@ -2294,9 +2294,9 @@ data RestoreStatus = RestoreStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsEstimatedTimeToCompletionInSeconds'
---
 -- * 'rsStatus'
+--
+-- * 'rsEstimatedTimeToCompletionInSeconds'
 --
 -- * 'rsCurrentRestoreRateInMegaBytesPerSecond'
 --
@@ -2309,23 +2309,23 @@ restoreStatus
     :: RestoreStatus
 restoreStatus =
     RestoreStatus'
-    { _rsEstimatedTimeToCompletionInSeconds = Nothing
-    , _rsStatus = Nothing
+    { _rsStatus = Nothing
+    , _rsEstimatedTimeToCompletionInSeconds = Nothing
     , _rsCurrentRestoreRateInMegaBytesPerSecond = Nothing
     , _rsProgressInMegaBytes = Nothing
     , _rsElapsedTimeInSeconds = Nothing
     , _rsSnapshotSizeInMegaBytes = Nothing
     }
 
--- | The estimate of the time remaining before the restore will complete.
--- Returns 0 for a completed restore.
-rsEstimatedTimeToCompletionInSeconds :: Lens' RestoreStatus (Maybe Integer)
-rsEstimatedTimeToCompletionInSeconds = lens _rsEstimatedTimeToCompletionInSeconds (\ s a -> s{_rsEstimatedTimeToCompletionInSeconds = a});
-
 -- | The status of the restore action. Returns starting, restoring,
 -- completed, or failed.
 rsStatus :: Lens' RestoreStatus (Maybe Text)
 rsStatus = lens _rsStatus (\ s a -> s{_rsStatus = a});
+
+-- | The estimate of the time remaining before the restore will complete.
+-- Returns 0 for a completed restore.
+rsEstimatedTimeToCompletionInSeconds :: Lens' RestoreStatus (Maybe Integer)
+rsEstimatedTimeToCompletionInSeconds = lens _rsEstimatedTimeToCompletionInSeconds (\ s a -> s{_rsEstimatedTimeToCompletionInSeconds = a});
 
 -- | The number of megabytes per second being transferred from the backup
 -- storage. Returns the average rate for a completed backup.
@@ -2349,8 +2349,8 @@ rsSnapshotSizeInMegaBytes = lens _rsSnapshotSizeInMegaBytes (\ s a -> s{_rsSnaps
 instance FromXML RestoreStatus where
         parseXML x
           = RestoreStatus' <$>
-              (x .@? "EstimatedTimeToCompletionInSeconds") <*>
-                (x .@? "Status")
+              (x .@? "Status") <*>
+                (x .@? "EstimatedTimeToCompletionInSeconds")
                 <*> (x .@? "CurrentRestoreRateInMegaBytesPerSecond")
                 <*> (x .@? "ProgressInMegaBytes")
                 <*> (x .@? "ElapsedTimeInSeconds")
@@ -2360,8 +2360,8 @@ instance FromXML RestoreStatus where
 --
 -- /See:/ 'snapshot' smart constructor.
 data Snapshot = Snapshot'
-    { _sRestorableNodeTypes                    :: !(Maybe [Text])
-    , _sStatus                                 :: !(Maybe Text)
+    { _sStatus                                 :: !(Maybe Text)
+    , _sRestorableNodeTypes                    :: !(Maybe [Text])
     , _sAccountsWithRestoreAccess              :: !(Maybe [AccountWithRestoreAccess])
     , _sSnapshotIdentifier                     :: !(Maybe Text)
     , _sEncryptedWithHSM                       :: !(Maybe Bool)
@@ -2373,30 +2373,30 @@ data Snapshot = Snapshot'
     , _sClusterIdentifier                      :: !(Maybe Text)
     , _sNumberOfNodes                          :: !(Maybe Int)
     , _sSnapshotType                           :: !(Maybe Text)
-    , _sAvailabilityZone                       :: !(Maybe Text)
     , _sKMSKeyId                               :: !(Maybe Text)
+    , _sAvailabilityZone                       :: !(Maybe Text)
     , _sCurrentBackupRateInMegaBytesPerSecond  :: !(Maybe Double)
     , _sSnapshotCreateTime                     :: !(Maybe ISO8601)
     , _sClusterVersion                         :: !(Maybe Text)
     , _sOwnerAccount                           :: !(Maybe Text)
     , _sNodeType                               :: !(Maybe Text)
-    , _sClusterCreateTime                      :: !(Maybe ISO8601)
     , _sElapsedTimeInSeconds                   :: !(Maybe Integer)
+    , _sClusterCreateTime                      :: !(Maybe ISO8601)
     , _sEstimatedSecondsToCompletion           :: !(Maybe Integer)
+    , _sActualIncrementalBackupSizeInMegaBytes :: !(Maybe Double)
+    , _sTags                                   :: !(Maybe [Tag])
+    , _sPort                                   :: !(Maybe Int)
     , _sTotalBackupSizeInMegaBytes             :: !(Maybe Double)
     , _sDBName                                 :: !(Maybe Text)
-    , _sTags                                   :: !(Maybe [Tag])
-    , _sActualIncrementalBackupSizeInMegaBytes :: !(Maybe Double)
-    , _sPort                                   :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sRestorableNodeTypes'
---
 -- * 'sStatus'
+--
+-- * 'sRestorableNodeTypes'
 --
 -- * 'sAccountsWithRestoreAccess'
 --
@@ -2420,9 +2420,9 @@ data Snapshot = Snapshot'
 --
 -- * 'sSnapshotType'
 --
--- * 'sAvailabilityZone'
---
 -- * 'sKMSKeyId'
+--
+-- * 'sAvailabilityZone'
 --
 -- * 'sCurrentBackupRateInMegaBytesPerSecond'
 --
@@ -2434,27 +2434,27 @@ data Snapshot = Snapshot'
 --
 -- * 'sNodeType'
 --
--- * 'sClusterCreateTime'
---
 -- * 'sElapsedTimeInSeconds'
 --
+-- * 'sClusterCreateTime'
+--
 -- * 'sEstimatedSecondsToCompletion'
+--
+-- * 'sActualIncrementalBackupSizeInMegaBytes'
+--
+-- * 'sTags'
+--
+-- * 'sPort'
 --
 -- * 'sTotalBackupSizeInMegaBytes'
 --
 -- * 'sDBName'
---
--- * 'sTags'
---
--- * 'sActualIncrementalBackupSizeInMegaBytes'
---
--- * 'sPort'
 snapshot
     :: Snapshot
 snapshot =
     Snapshot'
-    { _sRestorableNodeTypes = Nothing
-    , _sStatus = Nothing
+    { _sStatus = Nothing
+    , _sRestorableNodeTypes = Nothing
     , _sAccountsWithRestoreAccess = Nothing
     , _sSnapshotIdentifier = Nothing
     , _sEncryptedWithHSM = Nothing
@@ -2466,27 +2466,22 @@ snapshot =
     , _sClusterIdentifier = Nothing
     , _sNumberOfNodes = Nothing
     , _sSnapshotType = Nothing
-    , _sAvailabilityZone = Nothing
     , _sKMSKeyId = Nothing
+    , _sAvailabilityZone = Nothing
     , _sCurrentBackupRateInMegaBytesPerSecond = Nothing
     , _sSnapshotCreateTime = Nothing
     , _sClusterVersion = Nothing
     , _sOwnerAccount = Nothing
     , _sNodeType = Nothing
-    , _sClusterCreateTime = Nothing
     , _sElapsedTimeInSeconds = Nothing
+    , _sClusterCreateTime = Nothing
     , _sEstimatedSecondsToCompletion = Nothing
+    , _sActualIncrementalBackupSizeInMegaBytes = Nothing
+    , _sTags = Nothing
+    , _sPort = Nothing
     , _sTotalBackupSizeInMegaBytes = Nothing
     , _sDBName = Nothing
-    , _sTags = Nothing
-    , _sActualIncrementalBackupSizeInMegaBytes = Nothing
-    , _sPort = Nothing
     }
-
--- | The list of node types that this cluster snapshot is able to restore
--- into.
-sRestorableNodeTypes :: Lens' Snapshot [Text]
-sRestorableNodeTypes = lens _sRestorableNodeTypes (\ s a -> s{_sRestorableNodeTypes = a}) . _Default . _Coerce;
 
 -- | The snapshot status. The value of the status depends on the API
 -- operation used.
@@ -2498,6 +2493,11 @@ sRestorableNodeTypes = lens _sRestorableNodeTypes (\ s a -> s{_sRestorableNodeTy
 -- -   DeleteClusterSnapshot returns status as \"deleted\".
 sStatus :: Lens' Snapshot (Maybe Text)
 sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
+
+-- | The list of node types that this cluster snapshot is able to restore
+-- into.
+sRestorableNodeTypes :: Lens' Snapshot [Text]
+sRestorableNodeTypes = lens _sRestorableNodeTypes (\ s a -> s{_sRestorableNodeTypes = a}) . _Default . _Coerce;
 
 -- | A list of the AWS customer accounts authorized to restore the snapshot.
 -- Returns 'null' if no accounts are authorized. Visible only to the
@@ -2550,15 +2550,15 @@ sNumberOfNodes = lens _sNumberOfNodes (\ s a -> s{_sNumberOfNodes = a});
 sSnapshotType :: Lens' Snapshot (Maybe Text)
 sSnapshotType = lens _sSnapshotType (\ s a -> s{_sSnapshotType = a});
 
--- | The Availability Zone in which the cluster was created.
-sAvailabilityZone :: Lens' Snapshot (Maybe Text)
-sAvailabilityZone = lens _sAvailabilityZone (\ s a -> s{_sAvailabilityZone = a});
-
 -- | The AWS Key Management Service (KMS) key ID of the encryption key that
 -- was used to encrypt data in the cluster from which the snapshot was
 -- taken.
 sKMSKeyId :: Lens' Snapshot (Maybe Text)
 sKMSKeyId = lens _sKMSKeyId (\ s a -> s{_sKMSKeyId = a});
+
+-- | The Availability Zone in which the cluster was created.
+sAvailabilityZone :: Lens' Snapshot (Maybe Text)
+sAvailabilityZone = lens _sAvailabilityZone (\ s a -> s{_sAvailabilityZone = a});
 
 -- | The number of megabytes per second being transferred to the snapshot
 -- backup. Returns '0' for a completed backup.
@@ -2586,19 +2586,31 @@ sOwnerAccount = lens _sOwnerAccount (\ s a -> s{_sOwnerAccount = a});
 sNodeType :: Lens' Snapshot (Maybe Text)
 sNodeType = lens _sNodeType (\ s a -> s{_sNodeType = a});
 
--- | The time (UTC) when the cluster was originally created.
-sClusterCreateTime :: Lens' Snapshot (Maybe UTCTime)
-sClusterCreateTime = lens _sClusterCreateTime (\ s a -> s{_sClusterCreateTime = a}) . mapping _Time;
-
 -- | The amount of time an in-progress snapshot backup has been running, or
 -- the amount of time it took a completed backup to finish.
 sElapsedTimeInSeconds :: Lens' Snapshot (Maybe Integer)
 sElapsedTimeInSeconds = lens _sElapsedTimeInSeconds (\ s a -> s{_sElapsedTimeInSeconds = a});
 
+-- | The time (UTC) when the cluster was originally created.
+sClusterCreateTime :: Lens' Snapshot (Maybe UTCTime)
+sClusterCreateTime = lens _sClusterCreateTime (\ s a -> s{_sClusterCreateTime = a}) . mapping _Time;
+
 -- | The estimate of the time remaining before the snapshot backup will
 -- complete. Returns '0' for a completed backup.
 sEstimatedSecondsToCompletion :: Lens' Snapshot (Maybe Integer)
 sEstimatedSecondsToCompletion = lens _sEstimatedSecondsToCompletion (\ s a -> s{_sEstimatedSecondsToCompletion = a});
+
+-- | The size of the incremental backup.
+sActualIncrementalBackupSizeInMegaBytes :: Lens' Snapshot (Maybe Double)
+sActualIncrementalBackupSizeInMegaBytes = lens _sActualIncrementalBackupSizeInMegaBytes (\ s a -> s{_sActualIncrementalBackupSizeInMegaBytes = a});
+
+-- | The list of tags for the cluster snapshot.
+sTags :: Lens' Snapshot [Tag]
+sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default . _Coerce;
+
+-- | The port that the cluster is listening on.
+sPort :: Lens' Snapshot (Maybe Int)
+sPort = lens _sPort (\ s a -> s{_sPort = a});
 
 -- | The size of the complete set of backup data that would be used to
 -- restore the cluster.
@@ -2609,24 +2621,12 @@ sTotalBackupSizeInMegaBytes = lens _sTotalBackupSizeInMegaBytes (\ s a -> s{_sTo
 sDBName :: Lens' Snapshot (Maybe Text)
 sDBName = lens _sDBName (\ s a -> s{_sDBName = a});
 
--- | The list of tags for the cluster snapshot.
-sTags :: Lens' Snapshot [Tag]
-sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default . _Coerce;
-
--- | The size of the incremental backup.
-sActualIncrementalBackupSizeInMegaBytes :: Lens' Snapshot (Maybe Double)
-sActualIncrementalBackupSizeInMegaBytes = lens _sActualIncrementalBackupSizeInMegaBytes (\ s a -> s{_sActualIncrementalBackupSizeInMegaBytes = a});
-
--- | The port that the cluster is listening on.
-sPort :: Lens' Snapshot (Maybe Int)
-sPort = lens _sPort (\ s a -> s{_sPort = a});
-
 instance FromXML Snapshot where
         parseXML x
           = Snapshot' <$>
-              (x .@? "RestorableNodeTypes" .!@ mempty >>=
-                 may (parseXMLList "NodeType"))
-                <*> (x .@? "Status")
+              (x .@? "Status") <*>
+                (x .@? "RestorableNodeTypes" .!@ mempty >>=
+                   may (parseXMLList "NodeType"))
                 <*>
                 (x .@? "AccountsWithRestoreAccess" .!@ mempty >>=
                    may (parseXMLList "AccountWithRestoreAccess"))
@@ -2640,23 +2640,23 @@ instance FromXML Snapshot where
                 <*> (x .@? "ClusterIdentifier")
                 <*> (x .@? "NumberOfNodes")
                 <*> (x .@? "SnapshotType")
-                <*> (x .@? "AvailabilityZone")
                 <*> (x .@? "KmsKeyId")
+                <*> (x .@? "AvailabilityZone")
                 <*> (x .@? "CurrentBackupRateInMegaBytesPerSecond")
                 <*> (x .@? "SnapshotCreateTime")
                 <*> (x .@? "ClusterVersion")
                 <*> (x .@? "OwnerAccount")
                 <*> (x .@? "NodeType")
-                <*> (x .@? "ClusterCreateTime")
                 <*> (x .@? "ElapsedTimeInSeconds")
+                <*> (x .@? "ClusterCreateTime")
                 <*> (x .@? "EstimatedSecondsToCompletion")
-                <*> (x .@? "TotalBackupSizeInMegaBytes")
-                <*> (x .@? "DBName")
+                <*> (x .@? "ActualIncrementalBackupSizeInMegaBytes")
                 <*>
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
-                <*> (x .@? "ActualIncrementalBackupSizeInMegaBytes")
                 <*> (x .@? "Port")
+                <*> (x .@? "TotalBackupSizeInMegaBytes")
+                <*> (x .@? "DBName")
 
 -- | The snapshot copy grant that grants Amazon Redshift permission to
 -- encrypt copied snapshots with the specified customer master key (CMK)
@@ -2801,8 +2801,8 @@ instance ToQuery Tag where
 --
 -- /See:/ 'taggedResource' smart constructor.
 data TaggedResource = TaggedResource'
-    { _trResourceType :: !(Maybe Text)
-    , _trTag          :: !(Maybe Tag)
+    { _trTag          :: !(Maybe Tag)
+    , _trResourceType :: !(Maybe Text)
     , _trResourceName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -2810,19 +2810,23 @@ data TaggedResource = TaggedResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trResourceType'
---
 -- * 'trTag'
+--
+-- * 'trResourceType'
 --
 -- * 'trResourceName'
 taggedResource
     :: TaggedResource
 taggedResource =
     TaggedResource'
-    { _trResourceType = Nothing
-    , _trTag = Nothing
+    { _trTag = Nothing
+    , _trResourceType = Nothing
     , _trResourceName = Nothing
     }
+
+-- | The tag for the resource.
+trTag :: Lens' TaggedResource (Maybe Tag)
+trTag = lens _trTag (\ s a -> s{_trTag = a});
 
 -- | The type of resource with which the tag is associated. Valid resource
 -- types are:
@@ -2844,10 +2848,6 @@ taggedResource =
 trResourceType :: Lens' TaggedResource (Maybe Text)
 trResourceType = lens _trResourceType (\ s a -> s{_trResourceType = a});
 
--- | The tag for the resource.
-trTag :: Lens' TaggedResource (Maybe Tag)
-trTag = lens _trTag (\ s a -> s{_trTag = a});
-
 -- | The Amazon Resource Name (ARN) with which the tag is associated. For
 -- example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
 trResourceName :: Lens' TaggedResource (Maybe Text)
@@ -2856,7 +2856,7 @@ trResourceName = lens _trResourceName (\ s a -> s{_trResourceName = a});
 instance FromXML TaggedResource where
         parseXML x
           = TaggedResource' <$>
-              (x .@? "ResourceType") <*> (x .@? "Tag") <*>
+              (x .@? "Tag") <*> (x .@? "ResourceType") <*>
                 (x .@? "ResourceName")
 
 -- | Describes the members of a VPC security group.

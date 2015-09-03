@@ -37,7 +37,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
     , describeTrustedAdvisorCheckSummariesResponse
     , DescribeTrustedAdvisorCheckSummariesResponse
     -- * Response Lenses
-    , dtacsrsStatus
+    , dtacsrsResponseStatus
     , dtacsrsSummaries
     ) where
 
@@ -110,29 +110,29 @@ instance ToQuery DescribeTrustedAdvisorCheckSummaries
 --
 -- /See:/ 'describeTrustedAdvisorCheckSummariesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'
-    { _dtacsrsStatus    :: !Int
-    , _dtacsrsSummaries :: ![TrustedAdvisorCheckSummary]
+    { _dtacsrsResponseStatus :: !Int
+    , _dtacsrsSummaries      :: ![TrustedAdvisorCheckSummary]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTrustedAdvisorCheckSummariesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtacsrsStatus'
+-- * 'dtacsrsResponseStatus'
 --
 -- * 'dtacsrsSummaries'
 describeTrustedAdvisorCheckSummariesResponse
-    :: Int -- ^ 'dtacsrsStatus'
+    :: Int -- ^ 'dtacsrsResponseStatus'
     -> DescribeTrustedAdvisorCheckSummariesResponse
-describeTrustedAdvisorCheckSummariesResponse pStatus_ =
+describeTrustedAdvisorCheckSummariesResponse pResponseStatus_ =
     DescribeTrustedAdvisorCheckSummariesResponse'
-    { _dtacsrsStatus = pStatus_
+    { _dtacsrsResponseStatus = pResponseStatus_
     , _dtacsrsSummaries = mempty
     }
 
 -- | The response status code.
-dtacsrsStatus :: Lens' DescribeTrustedAdvisorCheckSummariesResponse Int
-dtacsrsStatus = lens _dtacsrsStatus (\ s a -> s{_dtacsrsStatus = a});
+dtacsrsResponseStatus :: Lens' DescribeTrustedAdvisorCheckSummariesResponse Int
+dtacsrsResponseStatus = lens _dtacsrsResponseStatus (\ s a -> s{_dtacsrsResponseStatus = a});
 
 -- | The summary information for the requested Trusted Advisor checks.
 dtacsrsSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]

@@ -45,7 +45,7 @@ module Network.AWS.OpsWorks.RegisterVolume
     , RegisterVolumeResponse
     -- * Response Lenses
     , rvrsVolumeId
-    , rvrsStatus
+    , rvrsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -119,8 +119,8 @@ instance ToQuery RegisterVolume where
 --
 -- /See:/ 'registerVolumeResponse' smart constructor.
 data RegisterVolumeResponse = RegisterVolumeResponse'
-    { _rvrsVolumeId :: !(Maybe Text)
-    , _rvrsStatus   :: !Int
+    { _rvrsVolumeId       :: !(Maybe Text)
+    , _rvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterVolumeResponse' with the minimum fields required to make a request.
@@ -129,14 +129,14 @@ data RegisterVolumeResponse = RegisterVolumeResponse'
 --
 -- * 'rvrsVolumeId'
 --
--- * 'rvrsStatus'
+-- * 'rvrsResponseStatus'
 registerVolumeResponse
-    :: Int -- ^ 'rvrsStatus'
+    :: Int -- ^ 'rvrsResponseStatus'
     -> RegisterVolumeResponse
-registerVolumeResponse pStatus_ =
+registerVolumeResponse pResponseStatus_ =
     RegisterVolumeResponse'
     { _rvrsVolumeId = Nothing
-    , _rvrsStatus = pStatus_
+    , _rvrsResponseStatus = pResponseStatus_
     }
 
 -- | The volume ID.
@@ -144,5 +144,5 @@ rvrsVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
 rvrsVolumeId = lens _rvrsVolumeId (\ s a -> s{_rvrsVolumeId = a});
 
 -- | The response status code.
-rvrsStatus :: Lens' RegisterVolumeResponse Int
-rvrsStatus = lens _rvrsStatus (\ s a -> s{_rvrsStatus = a});
+rvrsResponseStatus :: Lens' RegisterVolumeResponse Int
+rvrsResponseStatus = lens _rvrsResponseStatus (\ s a -> s{_rvrsResponseStatus = a});

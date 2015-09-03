@@ -38,7 +38,7 @@ module Network.AWS.Config.DescribeDeliveryChannelStatus
     , DescribeDeliveryChannelStatusResponse
     -- * Response Lenses
     , ddcsrsDeliveryChannelsStatus
-    , ddcsrsStatus
+    , ddcsrsResponseStatus
     ) where
 
 import           Network.AWS.Config.Types
@@ -111,7 +111,7 @@ instance ToQuery DescribeDeliveryChannelStatus where
 -- /See:/ 'describeDeliveryChannelStatusResponse' smart constructor.
 data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'
     { _ddcsrsDeliveryChannelsStatus :: !(Maybe [DeliveryChannelStatus])
-    , _ddcsrsStatus                 :: !Int
+    , _ddcsrsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDeliveryChannelStatusResponse' with the minimum fields required to make a request.
@@ -120,14 +120,14 @@ data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusRespon
 --
 -- * 'ddcsrsDeliveryChannelsStatus'
 --
--- * 'ddcsrsStatus'
+-- * 'ddcsrsResponseStatus'
 describeDeliveryChannelStatusResponse
-    :: Int -- ^ 'ddcsrsStatus'
+    :: Int -- ^ 'ddcsrsResponseStatus'
     -> DescribeDeliveryChannelStatusResponse
-describeDeliveryChannelStatusResponse pStatus_ =
+describeDeliveryChannelStatusResponse pResponseStatus_ =
     DescribeDeliveryChannelStatusResponse'
     { _ddcsrsDeliveryChannelsStatus = Nothing
-    , _ddcsrsStatus = pStatus_
+    , _ddcsrsResponseStatus = pResponseStatus_
     }
 
 -- | A list that contains the status of a specified delivery channel.
@@ -135,5 +135,5 @@ ddcsrsDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse [Del
 ddcsrsDeliveryChannelsStatus = lens _ddcsrsDeliveryChannelsStatus (\ s a -> s{_ddcsrsDeliveryChannelsStatus = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddcsrsStatus :: Lens' DescribeDeliveryChannelStatusResponse Int
-ddcsrsStatus = lens _ddcsrsStatus (\ s a -> s{_ddcsrsStatus = a});
+ddcsrsResponseStatus :: Lens' DescribeDeliveryChannelStatusResponse Int
+ddcsrsResponseStatus = lens _ddcsrsResponseStatus (\ s a -> s{_ddcsrsResponseStatus = a});

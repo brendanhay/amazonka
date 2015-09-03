@@ -44,7 +44,7 @@ module Network.AWS.OpsWorks.RegisterEcsCluster
     , RegisterEcsClusterResponse
     -- * Response Lenses
     , recrsEcsClusterARN
-    , recrsStatus
+    , recrsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -121,8 +121,8 @@ instance ToQuery RegisterEcsCluster where
 --
 -- /See:/ 'registerEcsClusterResponse' smart constructor.
 data RegisterEcsClusterResponse = RegisterEcsClusterResponse'
-    { _recrsEcsClusterARN :: !(Maybe Text)
-    , _recrsStatus        :: !Int
+    { _recrsEcsClusterARN  :: !(Maybe Text)
+    , _recrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterEcsClusterResponse' with the minimum fields required to make a request.
@@ -131,14 +131,14 @@ data RegisterEcsClusterResponse = RegisterEcsClusterResponse'
 --
 -- * 'recrsEcsClusterARN'
 --
--- * 'recrsStatus'
+-- * 'recrsResponseStatus'
 registerEcsClusterResponse
-    :: Int -- ^ 'recrsStatus'
+    :: Int -- ^ 'recrsResponseStatus'
     -> RegisterEcsClusterResponse
-registerEcsClusterResponse pStatus_ =
+registerEcsClusterResponse pResponseStatus_ =
     RegisterEcsClusterResponse'
     { _recrsEcsClusterARN = Nothing
-    , _recrsStatus = pStatus_
+    , _recrsResponseStatus = pResponseStatus_
     }
 
 -- | The cluster\'s ARN.
@@ -146,5 +146,5 @@ recrsEcsClusterARN :: Lens' RegisterEcsClusterResponse (Maybe Text)
 recrsEcsClusterARN = lens _recrsEcsClusterARN (\ s a -> s{_recrsEcsClusterARN = a});
 
 -- | The response status code.
-recrsStatus :: Lens' RegisterEcsClusterResponse Int
-recrsStatus = lens _recrsStatus (\ s a -> s{_recrsStatus = a});
+recrsResponseStatus :: Lens' RegisterEcsClusterResponse Int
+recrsResponseStatus = lens _recrsResponseStatus (\ s a -> s{_recrsResponseStatus = a});

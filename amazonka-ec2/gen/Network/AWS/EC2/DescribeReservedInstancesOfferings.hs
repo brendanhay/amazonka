@@ -39,8 +39,8 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     -- * Request Lenses
     , drioMaxDuration
     , drioProductDescription
-    , drioIncludeMarketplace
     , drioFilters
+    , drioIncludeMarketplace
     , drioInstanceType
     , drioNextToken
     , drioMinDuration
@@ -48,9 +48,9 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     , drioOfferingType
     , drioReservedInstancesOfferingIds
     , drioInstanceTenancy
+    , drioMaxInstanceCount
     , drioDryRun
     , drioMaxResults
-    , drioMaxInstanceCount
 
     -- * Destructuring the Response
     , describeReservedInstancesOfferingsResponse
@@ -58,7 +58,7 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     -- * Response Lenses
     , driorsNextToken
     , driorsReservedInstancesOfferings
-    , driorsStatus
+    , driorsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -72,8 +72,8 @@ import           Network.AWS.Response
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
     { _drioMaxDuration                  :: !(Maybe Integer)
     , _drioProductDescription           :: !(Maybe RIProductDescription)
-    , _drioIncludeMarketplace           :: !(Maybe Bool)
     , _drioFilters                      :: !(Maybe [Filter])
+    , _drioIncludeMarketplace           :: !(Maybe Bool)
     , _drioInstanceType                 :: !(Maybe InstanceType)
     , _drioNextToken                    :: !(Maybe Text)
     , _drioMinDuration                  :: !(Maybe Integer)
@@ -81,9 +81,9 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
     , _drioOfferingType                 :: !(Maybe OfferingTypeValues)
     , _drioReservedInstancesOfferingIds :: !(Maybe [Text])
     , _drioInstanceTenancy              :: !(Maybe Tenancy)
+    , _drioMaxInstanceCount             :: !(Maybe Int)
     , _drioDryRun                       :: !(Maybe Bool)
     , _drioMaxResults                   :: !(Maybe Int)
-    , _drioMaxInstanceCount             :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedInstancesOfferings' with the minimum fields required to make a request.
@@ -94,9 +94,9 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
 --
 -- * 'drioProductDescription'
 --
--- * 'drioIncludeMarketplace'
---
 -- * 'drioFilters'
+--
+-- * 'drioIncludeMarketplace'
 --
 -- * 'drioInstanceType'
 --
@@ -112,19 +112,19 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
 --
 -- * 'drioInstanceTenancy'
 --
+-- * 'drioMaxInstanceCount'
+--
 -- * 'drioDryRun'
 --
 -- * 'drioMaxResults'
---
--- * 'drioMaxInstanceCount'
 describeReservedInstancesOfferings
     :: DescribeReservedInstancesOfferings
 describeReservedInstancesOfferings =
     DescribeReservedInstancesOfferings'
     { _drioMaxDuration = Nothing
     , _drioProductDescription = Nothing
-    , _drioIncludeMarketplace = Nothing
     , _drioFilters = Nothing
+    , _drioIncludeMarketplace = Nothing
     , _drioInstanceType = Nothing
     , _drioNextToken = Nothing
     , _drioMinDuration = Nothing
@@ -132,9 +132,9 @@ describeReservedInstancesOfferings =
     , _drioOfferingType = Nothing
     , _drioReservedInstancesOfferingIds = Nothing
     , _drioInstanceTenancy = Nothing
+    , _drioMaxInstanceCount = Nothing
     , _drioDryRun = Nothing
     , _drioMaxResults = Nothing
-    , _drioMaxInstanceCount = Nothing
     }
 
 -- | The maximum duration (in seconds) to filter when searching for
@@ -148,10 +148,6 @@ drioMaxDuration = lens _drioMaxDuration (\ s a -> s{_drioMaxDuration = a});
 -- include '(Amazon VPC)' in the description are for use with Amazon VPC.
 drioProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
 drioProductDescription = lens _drioProductDescription (\ s a -> s{_drioProductDescription = a});
-
--- | Include Marketplace offerings in the response.
-drioIncludeMarketplace :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
-drioIncludeMarketplace = lens _drioIncludeMarketplace (\ s a -> s{_drioIncludeMarketplace = a});
 
 -- | One or more filters.
 --
@@ -195,6 +191,10 @@ drioIncludeMarketplace = lens _drioIncludeMarketplace (\ s a -> s{_drioIncludeMa
 drioFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
 drioFilters = lens _drioFilters (\ s a -> s{_drioFilters = a}) . _Default . _Coerce;
 
+-- | Include Marketplace offerings in the response.
+drioIncludeMarketplace :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
+drioIncludeMarketplace = lens _drioIncludeMarketplace (\ s a -> s{_drioIncludeMarketplace = a});
+
 -- | The instance type on which the Reserved Instance can be used. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types>
@@ -235,6 +235,12 @@ drioReservedInstancesOfferingIds = lens _drioReservedInstancesOfferingIds (\ s a
 drioInstanceTenancy :: Lens' DescribeReservedInstancesOfferings (Maybe Tenancy)
 drioInstanceTenancy = lens _drioInstanceTenancy (\ s a -> s{_drioInstanceTenancy = a});
 
+-- | The maximum number of instances to filter when searching for offerings.
+--
+-- Default: 20
+drioMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
+drioMaxInstanceCount = lens _drioMaxInstanceCount (\ s a -> s{_drioMaxInstanceCount = a});
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is 'DryRunOperation'.
@@ -250,12 +256,6 @@ drioDryRun = lens _drioDryRun (\ s a -> s{_drioDryRun = a});
 -- Default: 100
 drioMaxResults :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
 drioMaxResults = lens _drioMaxResults (\ s a -> s{_drioMaxResults = a});
-
--- | The maximum number of instances to filter when searching for offerings.
---
--- Default: 20
-drioMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
-drioMaxInstanceCount = lens _drioMaxInstanceCount (\ s a -> s{_drioMaxInstanceCount = a});
 
 instance AWSPager DescribeReservedInstancesOfferings
          where
@@ -297,8 +297,8 @@ instance ToQuery DescribeReservedInstancesOfferings
                "Version" =: ("2015-04-15" :: ByteString),
                "MaxDuration" =: _drioMaxDuration,
                "ProductDescription" =: _drioProductDescription,
-               "IncludeMarketplace" =: _drioIncludeMarketplace,
                toQuery (toQueryList "Filter" <$> _drioFilters),
+               "IncludeMarketplace" =: _drioIncludeMarketplace,
                "InstanceType" =: _drioInstanceType,
                "NextToken" =: _drioNextToken,
                "MinDuration" =: _drioMinDuration,
@@ -308,15 +308,15 @@ instance ToQuery DescribeReservedInstancesOfferings
                  (toQueryList "ReservedInstancesOfferingId" <$>
                     _drioReservedInstancesOfferingIds),
                "InstanceTenancy" =: _drioInstanceTenancy,
+               "MaxInstanceCount" =: _drioMaxInstanceCount,
                "DryRun" =: _drioDryRun,
-               "MaxResults" =: _drioMaxResults,
-               "MaxInstanceCount" =: _drioMaxInstanceCount]
+               "MaxResults" =: _drioMaxResults]
 
 -- | /See:/ 'describeReservedInstancesOfferingsResponse' smart constructor.
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'
     { _driorsNextToken                  :: !(Maybe Text)
     , _driorsReservedInstancesOfferings :: !(Maybe [ReservedInstancesOffering])
-    , _driorsStatus                     :: !Int
+    , _driorsResponseStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedInstancesOfferingsResponse' with the minimum fields required to make a request.
@@ -327,15 +327,15 @@ data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOffer
 --
 -- * 'driorsReservedInstancesOfferings'
 --
--- * 'driorsStatus'
+-- * 'driorsResponseStatus'
 describeReservedInstancesOfferingsResponse
-    :: Int -- ^ 'driorsStatus'
+    :: Int -- ^ 'driorsResponseStatus'
     -> DescribeReservedInstancesOfferingsResponse
-describeReservedInstancesOfferingsResponse pStatus_ =
+describeReservedInstancesOfferingsResponse pResponseStatus_ =
     DescribeReservedInstancesOfferingsResponse'
     { _driorsNextToken = Nothing
     , _driorsReservedInstancesOfferings = Nothing
-    , _driorsStatus = pStatus_
+    , _driorsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
@@ -348,5 +348,5 @@ driorsReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResp
 driorsReservedInstancesOfferings = lens _driorsReservedInstancesOfferings (\ s a -> s{_driorsReservedInstancesOfferings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-driorsStatus :: Lens' DescribeReservedInstancesOfferingsResponse Int
-driorsStatus = lens _driorsStatus (\ s a -> s{_driorsStatus = a});
+driorsResponseStatus :: Lens' DescribeReservedInstancesOfferingsResponse Int
+driorsResponseStatus = lens _driorsResponseStatus (\ s a -> s{_driorsResponseStatus = a});

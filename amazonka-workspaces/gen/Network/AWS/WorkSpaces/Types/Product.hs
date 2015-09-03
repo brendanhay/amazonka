@@ -338,8 +338,8 @@ instance FromJSON UserStorage where
 -- /See:/ 'workspace' smart constructor.
 data Workspace = Workspace'
     { _wDirectoryId  :: !(Maybe Text)
-    , _wIPAddress    :: !(Maybe Text)
     , _wState        :: !(Maybe WorkspaceState)
+    , _wIPAddress    :: !(Maybe Text)
     , _wUserName     :: !(Maybe Text)
     , _wSubnetId     :: !(Maybe Text)
     , _wBundleId     :: !(Maybe Text)
@@ -354,9 +354,9 @@ data Workspace = Workspace'
 --
 -- * 'wDirectoryId'
 --
--- * 'wIPAddress'
---
 -- * 'wState'
+--
+-- * 'wIPAddress'
 --
 -- * 'wUserName'
 --
@@ -374,8 +374,8 @@ workspace
 workspace =
     Workspace'
     { _wDirectoryId = Nothing
-    , _wIPAddress = Nothing
     , _wState = Nothing
+    , _wIPAddress = Nothing
     , _wUserName = Nothing
     , _wSubnetId = Nothing
     , _wBundleId = Nothing
@@ -389,13 +389,13 @@ workspace =
 wDirectoryId :: Lens' Workspace (Maybe Text)
 wDirectoryId = lens _wDirectoryId (\ s a -> s{_wDirectoryId = a});
 
--- | The IP address of the WorkSpace.
-wIPAddress :: Lens' Workspace (Maybe Text)
-wIPAddress = lens _wIPAddress (\ s a -> s{_wIPAddress = a});
-
 -- | The operational state of the WorkSpace.
 wState :: Lens' Workspace (Maybe WorkspaceState)
 wState = lens _wState (\ s a -> s{_wState = a});
+
+-- | The IP address of the WorkSpace.
+wIPAddress :: Lens' Workspace (Maybe Text)
+wIPAddress = lens _wIPAddress (\ s a -> s{_wIPAddress = a});
 
 -- | The user that the WorkSpace is assigned to.
 wUserName :: Lens' Workspace (Maybe Text)
@@ -427,8 +427,8 @@ instance FromJSON Workspace where
           = withObject "Workspace"
               (\ x ->
                  Workspace' <$>
-                   (x .:? "DirectoryId") <*> (x .:? "IpAddress") <*>
-                     (x .:? "State")
+                   (x .:? "DirectoryId") <*> (x .:? "State") <*>
+                     (x .:? "IpAddress")
                      <*> (x .:? "UserName")
                      <*> (x .:? "SubnetId")
                      <*> (x .:? "BundleId")
@@ -440,8 +440,8 @@ instance FromJSON Workspace where
 --
 -- /See:/ 'workspaceBundle' smart constructor.
 data WorkspaceBundle = WorkspaceBundle'
-    { _wbOwner       :: !(Maybe Text)
-    , _wbBundleId    :: !(Maybe Text)
+    { _wbBundleId    :: !(Maybe Text)
+    , _wbOwner       :: !(Maybe Text)
     , _wbName        :: !(Maybe Text)
     , _wbComputeType :: !(Maybe ComputeType)
     , _wbUserStorage :: !(Maybe UserStorage)
@@ -452,9 +452,9 @@ data WorkspaceBundle = WorkspaceBundle'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wbOwner'
---
 -- * 'wbBundleId'
+--
+-- * 'wbOwner'
 --
 -- * 'wbName'
 --
@@ -467,22 +467,22 @@ workspaceBundle
     :: WorkspaceBundle
 workspaceBundle =
     WorkspaceBundle'
-    { _wbOwner = Nothing
-    , _wbBundleId = Nothing
+    { _wbBundleId = Nothing
+    , _wbOwner = Nothing
     , _wbName = Nothing
     , _wbComputeType = Nothing
     , _wbUserStorage = Nothing
     , _wbDescription = Nothing
     }
 
+-- | The bundle identifier.
+wbBundleId :: Lens' WorkspaceBundle (Maybe Text)
+wbBundleId = lens _wbBundleId (\ s a -> s{_wbBundleId = a});
+
 -- | The owner of the bundle. This contains the owner\'s account identifier,
 -- or 'AMAZON' if the bundle is provided by AWS.
 wbOwner :: Lens' WorkspaceBundle (Maybe Text)
 wbOwner = lens _wbOwner (\ s a -> s{_wbOwner = a});
-
--- | The bundle identifier.
-wbBundleId :: Lens' WorkspaceBundle (Maybe Text)
-wbBundleId = lens _wbBundleId (\ s a -> s{_wbBundleId = a});
 
 -- | The name of the bundle.
 wbName :: Lens' WorkspaceBundle (Maybe Text)
@@ -506,7 +506,7 @@ instance FromJSON WorkspaceBundle where
           = withObject "WorkspaceBundle"
               (\ x ->
                  WorkspaceBundle' <$>
-                   (x .:? "Owner") <*> (x .:? "BundleId") <*>
+                   (x .:? "BundleId") <*> (x .:? "Owner") <*>
                      (x .:? "Name")
                      <*> (x .:? "ComputeType")
                      <*> (x .:? "UserStorage")
@@ -524,8 +524,8 @@ data WorkspaceDirectory = WorkspaceDirectory'
     , _wdCustomerUserName            :: !(Maybe Text)
     , _wdSubnetIds                   :: !(Maybe [Text])
     , _wdAlias                       :: !(Maybe Text)
-    , _wdDirectoryType               :: !(Maybe WorkspaceDirectoryType)
     , _wdWorkspaceSecurityGroupId    :: !(Maybe Text)
+    , _wdDirectoryType               :: !(Maybe WorkspaceDirectoryType)
     , _wdWorkspaceCreationProperties :: !(Maybe DefaultWorkspaceCreationProperties)
     , _wdDNSIPAddresses              :: !(Maybe [Text])
     , _wdDirectoryName               :: !(Maybe Text)
@@ -549,9 +549,9 @@ data WorkspaceDirectory = WorkspaceDirectory'
 --
 -- * 'wdAlias'
 --
--- * 'wdDirectoryType'
---
 -- * 'wdWorkspaceSecurityGroupId'
+--
+-- * 'wdDirectoryType'
 --
 -- * 'wdWorkspaceCreationProperties'
 --
@@ -569,8 +569,8 @@ workspaceDirectory =
     , _wdCustomerUserName = Nothing
     , _wdSubnetIds = Nothing
     , _wdAlias = Nothing
-    , _wdDirectoryType = Nothing
     , _wdWorkspaceSecurityGroupId = Nothing
+    , _wdDirectoryType = Nothing
     , _wdWorkspaceCreationProperties = Nothing
     , _wdDNSIPAddresses = Nothing
     , _wdDirectoryName = Nothing
@@ -609,13 +609,13 @@ wdSubnetIds = lens _wdSubnetIds (\ s a -> s{_wdSubnetIds = a}) . _Default . _Coe
 wdAlias :: Lens' WorkspaceDirectory (Maybe Text)
 wdAlias = lens _wdAlias (\ s a -> s{_wdAlias = a});
 
--- | The directory type.
-wdDirectoryType :: Lens' WorkspaceDirectory (Maybe WorkspaceDirectoryType)
-wdDirectoryType = lens _wdDirectoryType (\ s a -> s{_wdDirectoryType = a});
-
 -- | The identifier of the security group that is assigned to new WorkSpaces.
 wdWorkspaceSecurityGroupId :: Lens' WorkspaceDirectory (Maybe Text)
 wdWorkspaceSecurityGroupId = lens _wdWorkspaceSecurityGroupId (\ s a -> s{_wdWorkspaceSecurityGroupId = a});
+
+-- | The directory type.
+wdDirectoryType :: Lens' WorkspaceDirectory (Maybe WorkspaceDirectoryType)
+wdDirectoryType = lens _wdDirectoryType (\ s a -> s{_wdDirectoryType = a});
 
 -- | A structure that specifies the default creation properties for all
 -- WorkSpaces in the directory.
@@ -642,8 +642,8 @@ instance FromJSON WorkspaceDirectory where
                      <*> (x .:? "CustomerUserName")
                      <*> (x .:? "SubnetIds" .!= mempty)
                      <*> (x .:? "Alias")
-                     <*> (x .:? "DirectoryType")
                      <*> (x .:? "WorkspaceSecurityGroupId")
+                     <*> (x .:? "DirectoryType")
                      <*> (x .:? "WorkspaceCreationProperties")
                      <*> (x .:? "DnsIpAddresses" .!= mempty)
                      <*> (x .:? "DirectoryName"))

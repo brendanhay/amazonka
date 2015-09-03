@@ -36,8 +36,8 @@ module Network.AWS.RDS.DescribeDBClusterSnapshots
     , ddbcsDBClusterSnapshotIdentifier
     , ddbcsFilters
     , ddbcsSnapshotType
-    , ddbcsMaxRecords
     , ddbcsMarker
+    , ddbcsMaxRecords
 
     -- * Destructuring the Response
     , describeDBClusterSnapshotsResponse
@@ -45,7 +45,7 @@ module Network.AWS.RDS.DescribeDBClusterSnapshots
     -- * Response Lenses
     , ddbcsrsMarker
     , ddbcsrsDBClusterSnapshots
-    , ddbcsrsStatus
+    , ddbcsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -62,8 +62,8 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
     , _ddbcsDBClusterSnapshotIdentifier :: !(Maybe Text)
     , _ddbcsFilters                     :: !(Maybe [Filter])
     , _ddbcsSnapshotType                :: !(Maybe Text)
-    , _ddbcsMaxRecords                  :: !(Maybe Int)
     , _ddbcsMarker                      :: !(Maybe Text)
+    , _ddbcsMaxRecords                  :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBClusterSnapshots' with the minimum fields required to make a request.
@@ -78,9 +78,9 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
 --
 -- * 'ddbcsSnapshotType'
 --
--- * 'ddbcsMaxRecords'
---
 -- * 'ddbcsMarker'
+--
+-- * 'ddbcsMaxRecords'
 describeDBClusterSnapshots
     :: DescribeDBClusterSnapshots
 describeDBClusterSnapshots =
@@ -89,8 +89,8 @@ describeDBClusterSnapshots =
     , _ddbcsDBClusterSnapshotIdentifier = Nothing
     , _ddbcsFilters = Nothing
     , _ddbcsSnapshotType = Nothing
-    , _ddbcsMaxRecords = Nothing
     , _ddbcsMarker = Nothing
+    , _ddbcsMaxRecords = Nothing
     }
 
 -- | A DB cluster identifier to retrieve the list of DB cluster snapshots
@@ -130,6 +130,13 @@ ddbcsFilters = lens _ddbcsFilters (\ s a -> s{_ddbcsFilters = a}) . _Default . _
 ddbcsSnapshotType :: Lens' DescribeDBClusterSnapshots (Maybe Text)
 ddbcsSnapshotType = lens _ddbcsSnapshotType (\ s a -> s{_ddbcsSnapshotType = a});
 
+-- | An optional pagination token provided by a previous
+-- 'DescribeDBClusterSnapshots' request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by 'MaxRecords'.
+ddbcsMarker :: Lens' DescribeDBClusterSnapshots (Maybe Text)
+ddbcsMarker = lens _ddbcsMarker (\ s a -> s{_ddbcsMarker = a});
+
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -140,13 +147,6 @@ ddbcsSnapshotType = lens _ddbcsSnapshotType (\ s a -> s{_ddbcsSnapshotType = a})
 -- Constraints: Minimum 20, maximum 100.
 ddbcsMaxRecords :: Lens' DescribeDBClusterSnapshots (Maybe Int)
 ddbcsMaxRecords = lens _ddbcsMaxRecords (\ s a -> s{_ddbcsMaxRecords = a});
-
--- | An optional pagination token provided by a previous
--- 'DescribeDBClusterSnapshots' request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
-ddbcsMarker :: Lens' DescribeDBClusterSnapshots (Maybe Text)
-ddbcsMarker = lens _ddbcsMarker (\ s a -> s{_ddbcsMarker = a});
 
 instance AWSRequest DescribeDBClusterSnapshots where
         type Rs DescribeDBClusterSnapshots =
@@ -180,8 +180,8 @@ instance ToQuery DescribeDBClusterSnapshots where
                "Filters" =:
                  toQuery (toQueryList "Filter" <$> _ddbcsFilters),
                "SnapshotType" =: _ddbcsSnapshotType,
-               "MaxRecords" =: _ddbcsMaxRecords,
-               "Marker" =: _ddbcsMarker]
+               "Marker" =: _ddbcsMarker,
+               "MaxRecords" =: _ddbcsMaxRecords]
 
 -- | Provides a list of DB cluster snapshots for the user as the result of a
 -- call to the DescribeDBClusterSnapshots action.
@@ -190,7 +190,7 @@ instance ToQuery DescribeDBClusterSnapshots where
 data DescribeDBClusterSnapshotsResponse = DescribeDBClusterSnapshotsResponse'
     { _ddbcsrsMarker             :: !(Maybe Text)
     , _ddbcsrsDBClusterSnapshots :: !(Maybe [DBClusterSnapshot])
-    , _ddbcsrsStatus             :: !Int
+    , _ddbcsrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBClusterSnapshotsResponse' with the minimum fields required to make a request.
@@ -201,15 +201,15 @@ data DescribeDBClusterSnapshotsResponse = DescribeDBClusterSnapshotsResponse'
 --
 -- * 'ddbcsrsDBClusterSnapshots'
 --
--- * 'ddbcsrsStatus'
+-- * 'ddbcsrsResponseStatus'
 describeDBClusterSnapshotsResponse
-    :: Int -- ^ 'ddbcsrsStatus'
+    :: Int -- ^ 'ddbcsrsResponseStatus'
     -> DescribeDBClusterSnapshotsResponse
-describeDBClusterSnapshotsResponse pStatus_ =
+describeDBClusterSnapshotsResponse pResponseStatus_ =
     DescribeDBClusterSnapshotsResponse'
     { _ddbcsrsMarker = Nothing
     , _ddbcsrsDBClusterSnapshots = Nothing
-    , _ddbcsrsStatus = pStatus_
+    , _ddbcsrsResponseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous
@@ -224,5 +224,5 @@ ddbcsrsDBClusterSnapshots :: Lens' DescribeDBClusterSnapshotsResponse [DBCluster
 ddbcsrsDBClusterSnapshots = lens _ddbcsrsDBClusterSnapshots (\ s a -> s{_ddbcsrsDBClusterSnapshots = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddbcsrsStatus :: Lens' DescribeDBClusterSnapshotsResponse Int
-ddbcsrsStatus = lens _ddbcsrsStatus (\ s a -> s{_ddbcsrsStatus = a});
+ddbcsrsResponseStatus :: Lens' DescribeDBClusterSnapshotsResponse Int
+ddbcsrsResponseStatus = lens _ddbcsrsResponseStatus (\ s a -> s{_ddbcsrsResponseStatus = a});

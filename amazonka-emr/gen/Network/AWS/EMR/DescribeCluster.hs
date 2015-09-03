@@ -35,7 +35,7 @@ module Network.AWS.EMR.DescribeCluster
     , describeClusterResponse
     , DescribeClusterResponse
     -- * Response Lenses
-    , dcrsStatus
+    , dcrsResponseStatus
     , dcrsCluster
     ) where
 
@@ -102,30 +102,30 @@ instance ToQuery DescribeCluster where
 --
 -- /See:/ 'describeClusterResponse' smart constructor.
 data DescribeClusterResponse = DescribeClusterResponse'
-    { _dcrsStatus  :: !Int
-    , _dcrsCluster :: !Cluster
+    { _dcrsResponseStatus :: !Int
+    , _dcrsCluster        :: !Cluster
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClusterResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsStatus'
+-- * 'dcrsResponseStatus'
 --
 -- * 'dcrsCluster'
 describeClusterResponse
-    :: Int -- ^ 'dcrsStatus'
+    :: Int -- ^ 'dcrsResponseStatus'
     -> Cluster -- ^ 'dcrsCluster'
     -> DescribeClusterResponse
-describeClusterResponse pStatus_ pCluster_ =
+describeClusterResponse pResponseStatus_ pCluster_ =
     DescribeClusterResponse'
-    { _dcrsStatus = pStatus_
+    { _dcrsResponseStatus = pResponseStatus_
     , _dcrsCluster = pCluster_
     }
 
 -- | The response status code.
-dcrsStatus :: Lens' DescribeClusterResponse Int
-dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});
+dcrsResponseStatus :: Lens' DescribeClusterResponse Int
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 
 -- | This output contains the details for the requested cluster.
 dcrsCluster :: Lens' DescribeClusterResponse Cluster

@@ -74,8 +74,8 @@ module Network.AWS.SWF.PollForDecisionTask
     -- * Request Lenses
     , pfdtNextPageToken
     , pfdtReverseOrder
-    , pfdtIdentity
     , pfdtMaximumPageSize
+    , pfdtIdentity
     , pfdtDomain
     , pfdtTaskList
 
@@ -85,7 +85,7 @@ module Network.AWS.SWF.PollForDecisionTask
     -- * Response Lenses
     , pfdtrsNextPageToken
     , pfdtrsPreviousStartedEventId
-    , pfdtrsStatus
+    , pfdtrsResponseStatus
     , pfdtrsTaskToken
     , pfdtrsStartedEventId
     , pfdtrsWorkflowExecution
@@ -104,8 +104,8 @@ import           Network.AWS.SWF.Types.Product
 data PollForDecisionTask = PollForDecisionTask'
     { _pfdtNextPageToken   :: !(Maybe Text)
     , _pfdtReverseOrder    :: !(Maybe Bool)
-    , _pfdtIdentity        :: !(Maybe Text)
     , _pfdtMaximumPageSize :: !(Maybe Nat)
+    , _pfdtIdentity        :: !(Maybe Text)
     , _pfdtDomain          :: !Text
     , _pfdtTaskList        :: !TaskList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -118,9 +118,9 @@ data PollForDecisionTask = PollForDecisionTask'
 --
 -- * 'pfdtReverseOrder'
 --
--- * 'pfdtIdentity'
---
 -- * 'pfdtMaximumPageSize'
+--
+-- * 'pfdtIdentity'
 --
 -- * 'pfdtDomain'
 --
@@ -133,8 +133,8 @@ pollForDecisionTask pDomain_ pTaskList_ =
     PollForDecisionTask'
     { _pfdtNextPageToken = Nothing
     , _pfdtReverseOrder = Nothing
-    , _pfdtIdentity = Nothing
     , _pfdtMaximumPageSize = Nothing
+    , _pfdtIdentity = Nothing
     , _pfdtDomain = pDomain_
     , _pfdtTaskList = pTaskList_
     }
@@ -163,13 +163,6 @@ pfdtNextPageToken = lens _pfdtNextPageToken (\ s a -> s{_pfdtNextPageToken = a})
 pfdtReverseOrder :: Lens' PollForDecisionTask (Maybe Bool)
 pfdtReverseOrder = lens _pfdtReverseOrder (\ s a -> s{_pfdtReverseOrder = a});
 
--- | Identity of the decider making the request, which is recorded in the
--- DecisionTaskStarted event in the workflow history. This enables
--- diagnostic tracing when problems arise. The form of this identity is
--- user defined.
-pfdtIdentity :: Lens' PollForDecisionTask (Maybe Text)
-pfdtIdentity = lens _pfdtIdentity (\ s a -> s{_pfdtIdentity = a});
-
 -- | The maximum number of results that will be returned per call.
 -- 'nextPageToken' can be used to obtain futher pages of results. The
 -- default is 1000, which is the maximum allowed page size. You can,
@@ -179,6 +172,13 @@ pfdtIdentity = lens _pfdtIdentity (\ s a -> s{_pfdtIdentity = a});
 -- call may be fewer than the specified maximum.
 pfdtMaximumPageSize :: Lens' PollForDecisionTask (Maybe Natural)
 pfdtMaximumPageSize = lens _pfdtMaximumPageSize (\ s a -> s{_pfdtMaximumPageSize = a}) . mapping _Nat;
+
+-- | Identity of the decider making the request, which is recorded in the
+-- DecisionTaskStarted event in the workflow history. This enables
+-- diagnostic tracing when problems arise. The form of this identity is
+-- user defined.
+pfdtIdentity :: Lens' PollForDecisionTask (Maybe Text)
+pfdtIdentity = lens _pfdtIdentity (\ s a -> s{_pfdtIdentity = a});
 
 -- | The name of the domain containing the task lists to poll.
 pfdtDomain :: Lens' PollForDecisionTask Text
@@ -234,8 +234,8 @@ instance ToJSON PollForDecisionTask where
               (catMaybes
                  [("nextPageToken" .=) <$> _pfdtNextPageToken,
                   ("reverseOrder" .=) <$> _pfdtReverseOrder,
-                  ("identity" .=) <$> _pfdtIdentity,
                   ("maximumPageSize" .=) <$> _pfdtMaximumPageSize,
+                  ("identity" .=) <$> _pfdtIdentity,
                   Just ("domain" .= _pfdtDomain),
                   Just ("taskList" .= _pfdtTaskList)])
 
@@ -252,7 +252,7 @@ instance ToQuery PollForDecisionTask where
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
     { _pfdtrsNextPageToken          :: !(Maybe Text)
     , _pfdtrsPreviousStartedEventId :: !(Maybe Integer)
-    , _pfdtrsStatus                 :: !Int
+    , _pfdtrsResponseStatus         :: !Int
     , _pfdtrsTaskToken              :: !Text
     , _pfdtrsStartedEventId         :: !Integer
     , _pfdtrsWorkflowExecution      :: !WorkflowExecution
@@ -268,7 +268,7 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
 --
 -- * 'pfdtrsPreviousStartedEventId'
 --
--- * 'pfdtrsStatus'
+-- * 'pfdtrsResponseStatus'
 --
 -- * 'pfdtrsTaskToken'
 --
@@ -280,17 +280,17 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
 --
 -- * 'pfdtrsEvents'
 pollForDecisionTaskResponse
-    :: Int -- ^ 'pfdtrsStatus'
+    :: Int -- ^ 'pfdtrsResponseStatus'
     -> Text -- ^ 'pfdtrsTaskToken'
     -> Integer -- ^ 'pfdtrsStartedEventId'
     -> WorkflowExecution -- ^ 'pfdtrsWorkflowExecution'
     -> WorkflowType -- ^ 'pfdtrsWorkflowType'
     -> PollForDecisionTaskResponse
-pollForDecisionTaskResponse pStatus_ pTaskToken_ pStartedEventId_ pWorkflowExecution_ pWorkflowType_ =
+pollForDecisionTaskResponse pResponseStatus_ pTaskToken_ pStartedEventId_ pWorkflowExecution_ pWorkflowType_ =
     PollForDecisionTaskResponse'
     { _pfdtrsNextPageToken = Nothing
     , _pfdtrsPreviousStartedEventId = Nothing
-    , _pfdtrsStatus = pStatus_
+    , _pfdtrsResponseStatus = pResponseStatus_
     , _pfdtrsTaskToken = pTaskToken_
     , _pfdtrsStartedEventId = pStartedEventId_
     , _pfdtrsWorkflowExecution = pWorkflowExecution_
@@ -316,8 +316,8 @@ pfdtrsPreviousStartedEventId :: Lens' PollForDecisionTaskResponse (Maybe Integer
 pfdtrsPreviousStartedEventId = lens _pfdtrsPreviousStartedEventId (\ s a -> s{_pfdtrsPreviousStartedEventId = a});
 
 -- | The response status code.
-pfdtrsStatus :: Lens' PollForDecisionTaskResponse Int
-pfdtrsStatus = lens _pfdtrsStatus (\ s a -> s{_pfdtrsStatus = a});
+pfdtrsResponseStatus :: Lens' PollForDecisionTaskResponse Int
+pfdtrsResponseStatus = lens _pfdtrsResponseStatus (\ s a -> s{_pfdtrsResponseStatus = a});
 
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the

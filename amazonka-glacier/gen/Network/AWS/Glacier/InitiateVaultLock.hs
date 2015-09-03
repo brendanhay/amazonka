@@ -68,7 +68,7 @@ module Network.AWS.Glacier.InitiateVaultLock
     , InitiateVaultLockResponse
     -- * Response Lenses
     , ivlrsLockId
-    , ivlrsStatus
+    , ivlrsResponseStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -154,8 +154,8 @@ instance ToQuery InitiateVaultLock where
 --
 -- /See:/ 'initiateVaultLockResponse' smart constructor.
 data InitiateVaultLockResponse = InitiateVaultLockResponse'
-    { _ivlrsLockId :: !(Maybe Text)
-    , _ivlrsStatus :: !Int
+    { _ivlrsLockId         :: !(Maybe Text)
+    , _ivlrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InitiateVaultLockResponse' with the minimum fields required to make a request.
@@ -164,14 +164,14 @@ data InitiateVaultLockResponse = InitiateVaultLockResponse'
 --
 -- * 'ivlrsLockId'
 --
--- * 'ivlrsStatus'
+-- * 'ivlrsResponseStatus'
 initiateVaultLockResponse
-    :: Int -- ^ 'ivlrsStatus'
+    :: Int -- ^ 'ivlrsResponseStatus'
     -> InitiateVaultLockResponse
-initiateVaultLockResponse pStatus_ =
+initiateVaultLockResponse pResponseStatus_ =
     InitiateVaultLockResponse'
     { _ivlrsLockId = Nothing
-    , _ivlrsStatus = pStatus_
+    , _ivlrsResponseStatus = pResponseStatus_
     }
 
 -- | The lock ID, which is used to complete the vault locking process.
@@ -179,5 +179,5 @@ ivlrsLockId :: Lens' InitiateVaultLockResponse (Maybe Text)
 ivlrsLockId = lens _ivlrsLockId (\ s a -> s{_ivlrsLockId = a});
 
 -- | The response status code.
-ivlrsStatus :: Lens' InitiateVaultLockResponse Int
-ivlrsStatus = lens _ivlrsStatus (\ s a -> s{_ivlrsStatus = a});
+ivlrsResponseStatus :: Lens' InitiateVaultLockResponse Int
+ivlrsResponseStatus = lens _ivlrsResponseStatus (\ s a -> s{_ivlrsResponseStatus = a});

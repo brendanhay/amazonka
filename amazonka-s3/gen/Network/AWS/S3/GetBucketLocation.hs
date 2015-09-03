@@ -34,7 +34,7 @@ module Network.AWS.S3.GetBucketLocation
     , GetBucketLocationResponse
     -- * Response Lenses
     , getrsLocationConstraint
-    , getrsStatus
+    , getrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -87,7 +87,7 @@ instance ToQuery GetBucketLocation where
 -- | /See:/ 'getBucketLocationResponse' smart constructor.
 data GetBucketLocationResponse = GetBucketLocationResponse'
     { _getrsLocationConstraint :: !(Maybe Region)
-    , _getrsStatus             :: !Int
+    , _getrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketLocationResponse' with the minimum fields required to make a request.
@@ -96,14 +96,14 @@ data GetBucketLocationResponse = GetBucketLocationResponse'
 --
 -- * 'getrsLocationConstraint'
 --
--- * 'getrsStatus'
+-- * 'getrsResponseStatus'
 getBucketLocationResponse
-    :: Int -- ^ 'getrsStatus'
+    :: Int -- ^ 'getrsResponseStatus'
     -> GetBucketLocationResponse
-getBucketLocationResponse pStatus_ =
+getBucketLocationResponse pResponseStatus_ =
     GetBucketLocationResponse'
     { _getrsLocationConstraint = Nothing
-    , _getrsStatus = pStatus_
+    , _getrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -111,5 +111,5 @@ getrsLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
 getrsLocationConstraint = lens _getrsLocationConstraint (\ s a -> s{_getrsLocationConstraint = a});
 
 -- | The response status code.
-getrsStatus :: Lens' GetBucketLocationResponse Int
-getrsStatus = lens _getrsStatus (\ s a -> s{_getrsStatus = a});
+getrsResponseStatus :: Lens' GetBucketLocationResponse Int
+getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a});

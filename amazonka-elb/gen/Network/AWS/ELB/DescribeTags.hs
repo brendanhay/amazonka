@@ -34,7 +34,7 @@ module Network.AWS.ELB.DescribeTags
     , DescribeTagsResponse
     -- * Response Lenses
     , dtrsTagDescriptions
-    , dtrsStatus
+    , dtrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -93,7 +93,7 @@ instance ToQuery DescribeTags where
 -- | /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsTagDescriptions :: !(Maybe [TagDescription])
-    , _dtrsStatus          :: !Int
+    , _dtrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
@@ -102,14 +102,14 @@ data DescribeTagsResponse = DescribeTagsResponse'
 --
 -- * 'dtrsTagDescriptions'
 --
--- * 'dtrsStatus'
+-- * 'dtrsResponseStatus'
 describeTagsResponse
-    :: Int -- ^ 'dtrsStatus'
+    :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
-describeTagsResponse pStatus_ =
+describeTagsResponse pResponseStatus_ =
     DescribeTagsResponse'
     { _dtrsTagDescriptions = Nothing
-    , _dtrsStatus = pStatus_
+    , _dtrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the tags.
@@ -117,5 +117,5 @@ dtrsTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
 dtrsTagDescriptions = lens _dtrsTagDescriptions (\ s a -> s{_dtrsTagDescriptions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dtrsStatus :: Lens' DescribeTagsResponse Int
-dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
+dtrsResponseStatus :: Lens' DescribeTagsResponse Int
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});

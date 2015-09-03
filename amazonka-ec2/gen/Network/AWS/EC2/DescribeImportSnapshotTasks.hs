@@ -39,7 +39,7 @@ module Network.AWS.EC2.DescribeImportSnapshotTasks
     -- * Response Lenses
     , distrsNextToken
     , distrsImportSnapshotTasks
-    , distrsStatus
+    , distrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -140,7 +140,7 @@ instance ToQuery DescribeImportSnapshotTasks where
 data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
     { _distrsNextToken           :: !(Maybe Text)
     , _distrsImportSnapshotTasks :: !(Maybe [ImportSnapshotTask])
-    , _distrsStatus              :: !Int
+    , _distrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeImportSnapshotTasksResponse' with the minimum fields required to make a request.
@@ -151,15 +151,15 @@ data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
 --
 -- * 'distrsImportSnapshotTasks'
 --
--- * 'distrsStatus'
+-- * 'distrsResponseStatus'
 describeImportSnapshotTasksResponse
-    :: Int -- ^ 'distrsStatus'
+    :: Int -- ^ 'distrsResponseStatus'
     -> DescribeImportSnapshotTasksResponse
-describeImportSnapshotTasksResponse pStatus_ =
+describeImportSnapshotTasksResponse pResponseStatus_ =
     DescribeImportSnapshotTasksResponse'
     { _distrsNextToken = Nothing
     , _distrsImportSnapshotTasks = Nothing
-    , _distrsStatus = pStatus_
+    , _distrsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use to get the next page of results. This value is 'null'
@@ -173,5 +173,5 @@ distrsImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse [ImportSn
 distrsImportSnapshotTasks = lens _distrsImportSnapshotTasks (\ s a -> s{_distrsImportSnapshotTasks = a}) . _Default . _Coerce;
 
 -- | The response status code.
-distrsStatus :: Lens' DescribeImportSnapshotTasksResponse Int
-distrsStatus = lens _distrsStatus (\ s a -> s{_distrsStatus = a});
+distrsResponseStatus :: Lens' DescribeImportSnapshotTasksResponse Int
+distrsResponseStatus = lens _distrsResponseStatus (\ s a -> s{_distrsResponseStatus = a});

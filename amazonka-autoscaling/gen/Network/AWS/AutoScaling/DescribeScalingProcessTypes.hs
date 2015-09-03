@@ -33,7 +33,7 @@ module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     , DescribeScalingProcessTypesResponse
     -- * Response Lenses
     , dsptrsProcesses
-    , dsptrsStatus
+    , dsptrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -82,8 +82,8 @@ instance ToQuery DescribeScalingProcessTypes where
 
 -- | /See:/ 'describeScalingProcessTypesResponse' smart constructor.
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
-    { _dsptrsProcesses :: !(Maybe [ProcessType])
-    , _dsptrsStatus    :: !Int
+    { _dsptrsProcesses      :: !(Maybe [ProcessType])
+    , _dsptrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeScalingProcessTypesResponse' with the minimum fields required to make a request.
@@ -92,14 +92,14 @@ data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
 --
 -- * 'dsptrsProcesses'
 --
--- * 'dsptrsStatus'
+-- * 'dsptrsResponseStatus'
 describeScalingProcessTypesResponse
-    :: Int -- ^ 'dsptrsStatus'
+    :: Int -- ^ 'dsptrsResponseStatus'
     -> DescribeScalingProcessTypesResponse
-describeScalingProcessTypesResponse pStatus_ =
+describeScalingProcessTypesResponse pResponseStatus_ =
     DescribeScalingProcessTypesResponse'
     { _dsptrsProcesses = Nothing
-    , _dsptrsStatus = pStatus_
+    , _dsptrsResponseStatus = pResponseStatus_
     }
 
 -- | The names of the process types.
@@ -107,5 +107,5 @@ dsptrsProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
 dsptrsProcesses = lens _dsptrsProcesses (\ s a -> s{_dsptrsProcesses = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dsptrsStatus :: Lens' DescribeScalingProcessTypesResponse Int
-dsptrsStatus = lens _dsptrsStatus (\ s a -> s{_dsptrsStatus = a});
+dsptrsResponseStatus :: Lens' DescribeScalingProcessTypesResponse Int
+dsptrsResponseStatus = lens _dsptrsResponseStatus (\ s a -> s{_dsptrsResponseStatus = a});

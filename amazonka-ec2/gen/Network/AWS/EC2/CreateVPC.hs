@@ -48,7 +48,7 @@ module Network.AWS.EC2.CreateVPC
     , CreateVPCResponse
     -- * Response Lenses
     , cvrsVPC
-    , cvrsStatus
+    , cvrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -131,8 +131,8 @@ instance ToQuery CreateVPC where
 
 -- | /See:/ 'createVPCResponse' smart constructor.
 data CreateVPCResponse = CreateVPCResponse'
-    { _cvrsVPC    :: !(Maybe VPC)
-    , _cvrsStatus :: !Int
+    { _cvrsVPC            :: !(Maybe VPC)
+    , _cvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateVPCResponse' with the minimum fields required to make a request.
@@ -141,14 +141,14 @@ data CreateVPCResponse = CreateVPCResponse'
 --
 -- * 'cvrsVPC'
 --
--- * 'cvrsStatus'
+-- * 'cvrsResponseStatus'
 createVPCResponse
-    :: Int -- ^ 'cvrsStatus'
+    :: Int -- ^ 'cvrsResponseStatus'
     -> CreateVPCResponse
-createVPCResponse pStatus_ =
+createVPCResponse pResponseStatus_ =
     CreateVPCResponse'
     { _cvrsVPC = Nothing
-    , _cvrsStatus = pStatus_
+    , _cvrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the VPC.
@@ -156,5 +156,5 @@ cvrsVPC :: Lens' CreateVPCResponse (Maybe VPC)
 cvrsVPC = lens _cvrsVPC (\ s a -> s{_cvrsVPC = a});
 
 -- | The response status code.
-cvrsStatus :: Lens' CreateVPCResponse Int
-cvrsStatus = lens _cvrsStatus (\ s a -> s{_cvrsStatus = a});
+cvrsResponseStatus :: Lens' CreateVPCResponse Int
+cvrsResponseStatus = lens _cvrsResponseStatus (\ s a -> s{_cvrsResponseStatus = a});

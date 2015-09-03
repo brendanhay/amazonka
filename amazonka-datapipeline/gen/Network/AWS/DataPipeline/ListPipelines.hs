@@ -38,7 +38,7 @@ module Network.AWS.DataPipeline.ListPipelines
     -- * Response Lenses
     , lprsHasMoreResults
     , lprsMarker
-    , lprsStatus
+    , lprsResponseStatus
     , lprsPipelineIdList
     ) where
 
@@ -77,8 +77,8 @@ lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 
 instance AWSPager ListPipelines where
         page rq rs
-          | stop (rs ^. lprsHasMoreResults) = Nothing
-          | isNothing (rs ^. lprsMarker) = Nothing
+          | stop (rs ^. lprsMarker) = Nothing
+          | stop (rs ^. lprsPipelineIdList) = Nothing
           | otherwise =
             Just $ rq & lpMarker .~ rs ^. lprsMarker
 
@@ -118,7 +118,7 @@ instance ToQuery ListPipelines where
 data ListPipelinesResponse = ListPipelinesResponse'
     { _lprsHasMoreResults :: !(Maybe Bool)
     , _lprsMarker         :: !(Maybe Text)
-    , _lprsStatus         :: !Int
+    , _lprsResponseStatus :: !Int
     , _lprsPipelineIdList :: ![PipelineIdName]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -130,17 +130,17 @@ data ListPipelinesResponse = ListPipelinesResponse'
 --
 -- * 'lprsMarker'
 --
--- * 'lprsStatus'
+-- * 'lprsResponseStatus'
 --
 -- * 'lprsPipelineIdList'
 listPipelinesResponse
-    :: Int -- ^ 'lprsStatus'
+    :: Int -- ^ 'lprsResponseStatus'
     -> ListPipelinesResponse
-listPipelinesResponse pStatus_ =
+listPipelinesResponse pResponseStatus_ =
     ListPipelinesResponse'
     { _lprsHasMoreResults = Nothing
     , _lprsMarker = Nothing
-    , _lprsStatus = pStatus_
+    , _lprsResponseStatus = pResponseStatus_
     , _lprsPipelineIdList = mempty
     }
 
@@ -156,8 +156,8 @@ lprsMarker :: Lens' ListPipelinesResponse (Maybe Text)
 lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a});
 
 -- | The response status code.
-lprsStatus :: Lens' ListPipelinesResponse Int
-lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});
+lprsResponseStatus :: Lens' ListPipelinesResponse Int
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
 -- | The pipeline identifiers. If you require additional information about
 -- the pipelines, you can use these identifiers to call DescribePipelines

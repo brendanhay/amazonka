@@ -39,7 +39,7 @@ module Network.AWS.CodeCommit.DeleteRepository
     , DeleteRepositoryResponse
     -- * Response Lenses
     , drrsRepositoryId
-    , drrsStatus
+    , drrsResponseStatus
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -107,8 +107,8 @@ instance ToQuery DeleteRepository where
 --
 -- /See:/ 'deleteRepositoryResponse' smart constructor.
 data DeleteRepositoryResponse = DeleteRepositoryResponse'
-    { _drrsRepositoryId :: !(Maybe Text)
-    , _drrsStatus       :: !Int
+    { _drrsRepositoryId   :: !(Maybe Text)
+    , _drrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteRepositoryResponse' with the minimum fields required to make a request.
@@ -117,14 +117,14 @@ data DeleteRepositoryResponse = DeleteRepositoryResponse'
 --
 -- * 'drrsRepositoryId'
 --
--- * 'drrsStatus'
+-- * 'drrsResponseStatus'
 deleteRepositoryResponse
-    :: Int -- ^ 'drrsStatus'
+    :: Int -- ^ 'drrsResponseStatus'
     -> DeleteRepositoryResponse
-deleteRepositoryResponse pStatus_ =
+deleteRepositoryResponse pResponseStatus_ =
     DeleteRepositoryResponse'
     { _drrsRepositoryId = Nothing
-    , _drrsStatus = pStatus_
+    , _drrsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the repository that was deleted.
@@ -132,5 +132,5 @@ drrsRepositoryId :: Lens' DeleteRepositoryResponse (Maybe Text)
 drrsRepositoryId = lens _drrsRepositoryId (\ s a -> s{_drrsRepositoryId = a});
 
 -- | The response status code.
-drrsStatus :: Lens' DeleteRepositoryResponse Int
-drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});
+drrsResponseStatus :: Lens' DeleteRepositoryResponse Int
+drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});

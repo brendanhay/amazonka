@@ -30,8 +30,8 @@ module Network.AWS.Redshift.DescribeReservedNodes
     , DescribeReservedNodes
     -- * Request Lenses
     , drnReservedNodeId
-    , drnMaxRecords
     , drnMarker
+    , drnMaxRecords
 
     -- * Destructuring the Response
     , describeReservedNodesResponse
@@ -39,7 +39,7 @@ module Network.AWS.Redshift.DescribeReservedNodes
     -- * Response Lenses
     , drnrsReservedNodes
     , drnrsMarker
-    , drnrsStatus
+    , drnrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -54,8 +54,8 @@ import           Network.AWS.Response
 -- /See:/ 'describeReservedNodes' smart constructor.
 data DescribeReservedNodes = DescribeReservedNodes'
     { _drnReservedNodeId :: !(Maybe Text)
-    , _drnMaxRecords     :: !(Maybe Int)
     , _drnMarker         :: !(Maybe Text)
+    , _drnMaxRecords     :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedNodes' with the minimum fields required to make a request.
@@ -64,21 +64,30 @@ data DescribeReservedNodes = DescribeReservedNodes'
 --
 -- * 'drnReservedNodeId'
 --
--- * 'drnMaxRecords'
---
 -- * 'drnMarker'
+--
+-- * 'drnMaxRecords'
 describeReservedNodes
     :: DescribeReservedNodes
 describeReservedNodes =
     DescribeReservedNodes'
     { _drnReservedNodeId = Nothing
-    , _drnMaxRecords = Nothing
     , _drnMarker = Nothing
+    , _drnMaxRecords = Nothing
     }
 
 -- | Identifier for the node reservation.
 drnReservedNodeId :: Lens' DescribeReservedNodes (Maybe Text)
 drnReservedNodeId = lens _drnReservedNodeId (\ s a -> s{_drnReservedNodeId = a});
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeReservedNodes request
+-- exceed the value specified in 'MaxRecords', AWS returns a value in the
+-- 'Marker' field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the 'Marker'
+-- parameter and retrying the request.
+drnMarker :: Lens' DescribeReservedNodes (Maybe Text)
+drnMarker = lens _drnMarker (\ s a -> s{_drnMarker = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified 'MaxRecords'
@@ -91,15 +100,6 @@ drnReservedNodeId = lens _drnReservedNodeId (\ s a -> s{_drnReservedNodeId = a})
 -- Constraints: minimum 20, maximum 100.
 drnMaxRecords :: Lens' DescribeReservedNodes (Maybe Int)
 drnMaxRecords = lens _drnMaxRecords (\ s a -> s{_drnMaxRecords = a});
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeReservedNodes request
--- exceed the value specified in 'MaxRecords', AWS returns a value in the
--- 'Marker' field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the 'Marker'
--- parameter and retrying the request.
-drnMarker :: Lens' DescribeReservedNodes (Maybe Text)
-drnMarker = lens _drnMarker (\ s a -> s{_drnMarker = a});
 
 instance AWSPager DescribeReservedNodes where
         page rq rs
@@ -133,16 +133,16 @@ instance ToQuery DescribeReservedNodes where
               ["Action" =: ("DescribeReservedNodes" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "ReservedNodeId" =: _drnReservedNodeId,
-               "MaxRecords" =: _drnMaxRecords,
-               "Marker" =: _drnMarker]
+               "Marker" =: _drnMarker,
+               "MaxRecords" =: _drnMaxRecords]
 
 -- | Contains the output from the DescribeReservedNodes action.
 --
 -- /See:/ 'describeReservedNodesResponse' smart constructor.
 data DescribeReservedNodesResponse = DescribeReservedNodesResponse'
-    { _drnrsReservedNodes :: !(Maybe [ReservedNode])
-    , _drnrsMarker        :: !(Maybe Text)
-    , _drnrsStatus        :: !Int
+    { _drnrsReservedNodes  :: !(Maybe [ReservedNode])
+    , _drnrsMarker         :: !(Maybe Text)
+    , _drnrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedNodesResponse' with the minimum fields required to make a request.
@@ -153,15 +153,15 @@ data DescribeReservedNodesResponse = DescribeReservedNodesResponse'
 --
 -- * 'drnrsMarker'
 --
--- * 'drnrsStatus'
+-- * 'drnrsResponseStatus'
 describeReservedNodesResponse
-    :: Int -- ^ 'drnrsStatus'
+    :: Int -- ^ 'drnrsResponseStatus'
     -> DescribeReservedNodesResponse
-describeReservedNodesResponse pStatus_ =
+describeReservedNodesResponse pResponseStatus_ =
     DescribeReservedNodesResponse'
     { _drnrsReservedNodes = Nothing
     , _drnrsMarker = Nothing
-    , _drnrsStatus = pStatus_
+    , _drnrsResponseStatus = pResponseStatus_
     }
 
 -- | The list of reserved nodes.
@@ -178,5 +178,5 @@ drnrsMarker :: Lens' DescribeReservedNodesResponse (Maybe Text)
 drnrsMarker = lens _drnrsMarker (\ s a -> s{_drnrsMarker = a});
 
 -- | The response status code.
-drnrsStatus :: Lens' DescribeReservedNodesResponse Int
-drnrsStatus = lens _drnrsStatus (\ s a -> s{_drnrsStatus = a});
+drnrsResponseStatus :: Lens' DescribeReservedNodesResponse Int
+drnrsResponseStatus = lens _drnrsResponseStatus (\ s a -> s{_drnrsResponseStatus = a});

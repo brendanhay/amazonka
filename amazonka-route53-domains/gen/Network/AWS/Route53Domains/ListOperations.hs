@@ -30,15 +30,15 @@ module Network.AWS.Route53Domains.ListOperations
       listOperations
     , ListOperations
     -- * Request Lenses
-    , loMaxItems
     , loMarker
+    , loMaxItems
 
     -- * Destructuring the Response
     , listOperationsResponse
     , ListOperationsResponse
     -- * Response Lenses
     , lorsNextPageMarker
-    , lorsStatus
+    , lorsResponseStatus
     , lorsOperations
     ) where
 
@@ -53,36 +53,24 @@ import           Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'listOperations' smart constructor.
 data ListOperations = ListOperations'
-    { _loMaxItems :: !(Maybe Int)
-    , _loMarker   :: !(Maybe Text)
+    { _loMarker   :: !(Maybe Text)
+    , _loMaxItems :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListOperations' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'loMaxItems'
---
 -- * 'loMarker'
+--
+-- * 'loMaxItems'
 listOperations
     :: ListOperations
 listOperations =
     ListOperations'
-    { _loMaxItems = Nothing
-    , _loMarker = Nothing
+    { _loMarker = Nothing
+    , _loMaxItems = Nothing
     }
-
--- | Number of domains to be returned.
---
--- Type: Integer
---
--- Default: 20
---
--- Constraints: A value between 1 and 100.
---
--- Required: No
-loMaxItems :: Lens' ListOperations (Maybe Int)
-loMaxItems = lens _loMaxItems (\ s a -> s{_loMaxItems = a});
 
 -- | For an initial request for a list of operations, omit this element. If
 -- the number of operations that are not yet complete is greater than the
@@ -98,6 +86,18 @@ loMaxItems = lens _loMaxItems (\ s a -> s{_loMaxItems = a});
 -- Required: No
 loMarker :: Lens' ListOperations (Maybe Text)
 loMarker = lens _loMarker (\ s a -> s{_loMarker = a});
+
+-- | Number of domains to be returned.
+--
+-- Type: Integer
+--
+-- Default: 20
+--
+-- Constraints: A value between 1 and 100.
+--
+-- Required: No
+loMaxItems :: Lens' ListOperations (Maybe Int)
+loMaxItems = lens _loMaxItems (\ s a -> s{_loMaxItems = a});
 
 instance AWSPager ListOperations where
         page rq rs
@@ -130,8 +130,8 @@ instance ToJSON ListOperations where
         toJSON ListOperations'{..}
           = object
               (catMaybes
-                 [("MaxItems" .=) <$> _loMaxItems,
-                  ("Marker" .=) <$> _loMarker])
+                 [("Marker" .=) <$> _loMarker,
+                  ("MaxItems" .=) <$> _loMaxItems])
 
 instance ToPath ListOperations where
         toPath = const "/"
@@ -144,7 +144,7 @@ instance ToQuery ListOperations where
 -- /See:/ 'listOperationsResponse' smart constructor.
 data ListOperationsResponse = ListOperationsResponse'
     { _lorsNextPageMarker :: !(Maybe Text)
-    , _lorsStatus         :: !Int
+    , _lorsResponseStatus :: !Int
     , _lorsOperations     :: ![OperationSummary]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -154,16 +154,16 @@ data ListOperationsResponse = ListOperationsResponse'
 --
 -- * 'lorsNextPageMarker'
 --
--- * 'lorsStatus'
+-- * 'lorsResponseStatus'
 --
 -- * 'lorsOperations'
 listOperationsResponse
-    :: Int -- ^ 'lorsStatus'
+    :: Int -- ^ 'lorsResponseStatus'
     -> ListOperationsResponse
-listOperationsResponse pStatus_ =
+listOperationsResponse pResponseStatus_ =
     ListOperationsResponse'
     { _lorsNextPageMarker = Nothing
-    , _lorsStatus = pStatus_
+    , _lorsResponseStatus = pResponseStatus_
     , _lorsOperations = mempty
     }
 
@@ -178,8 +178,8 @@ lorsNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
 lorsNextPageMarker = lens _lorsNextPageMarker (\ s a -> s{_lorsNextPageMarker = a});
 
 -- | The response status code.
-lorsStatus :: Lens' ListOperationsResponse Int
-lorsStatus = lens _lorsStatus (\ s a -> s{_lorsStatus = a});
+lorsResponseStatus :: Lens' ListOperationsResponse Int
+lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a});
 
 -- | Lists summaries of the operations.
 --

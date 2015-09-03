@@ -36,7 +36,7 @@ module Network.AWS.DeviceFarm.ListUniqueProblems
     -- * Response Lenses
     , luprsNextToken
     , luprsUniqueProblems
-    , luprsStatus
+    , luprsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -120,7 +120,7 @@ instance ToQuery ListUniqueProblems where
 data ListUniqueProblemsResponse = ListUniqueProblemsResponse'
     { _luprsNextToken      :: !(Maybe Text)
     , _luprsUniqueProblems :: !(Maybe (Map ExecutionResult [UniqueProblem]))
-    , _luprsStatus         :: !Int
+    , _luprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListUniqueProblemsResponse' with the minimum fields required to make a request.
@@ -131,15 +131,15 @@ data ListUniqueProblemsResponse = ListUniqueProblemsResponse'
 --
 -- * 'luprsUniqueProblems'
 --
--- * 'luprsStatus'
+-- * 'luprsResponseStatus'
 listUniqueProblemsResponse
-    :: Int -- ^ 'luprsStatus'
+    :: Int -- ^ 'luprsResponseStatus'
     -> ListUniqueProblemsResponse
-listUniqueProblemsResponse pStatus_ =
+listUniqueProblemsResponse pResponseStatus_ =
     ListUniqueProblemsResponse'
     { _luprsNextToken = Nothing
     , _luprsUniqueProblems = Nothing
-    , _luprsStatus = pStatus_
+    , _luprsResponseStatus = pResponseStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is
@@ -170,5 +170,5 @@ luprsUniqueProblems :: Lens' ListUniqueProblemsResponse (HashMap ExecutionResult
 luprsUniqueProblems = lens _luprsUniqueProblems (\ s a -> s{_luprsUniqueProblems = a}) . _Default . _Map;
 
 -- | The response status code.
-luprsStatus :: Lens' ListUniqueProblemsResponse Int
-luprsStatus = lens _luprsStatus (\ s a -> s{_luprsStatus = a});
+luprsResponseStatus :: Lens' ListUniqueProblemsResponse Int
+luprsResponseStatus = lens _luprsResponseStatus (\ s a -> s{_luprsResponseStatus = a});

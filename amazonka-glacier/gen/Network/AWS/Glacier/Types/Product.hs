@@ -245,32 +245,32 @@ instance FromJSON DescribeVaultOutput where
 --
 -- /See:/ 'glacierJobDescription' smart constructor.
 data GlacierJobDescription = GlacierJobDescription'
-    { _gjdArchiveId                    :: !(Maybe Text)
-    , _gjdSHA256TreeHash               :: !(Maybe Text)
+    { _gjdSHA256TreeHash               :: !(Maybe Text)
+    , _gjdArchiveId                    :: !(Maybe Text)
     , _gjdJobId                        :: !(Maybe Text)
     , _gjdRetrievalByteRange           :: !(Maybe Text)
     , _gjdInventoryRetrievalParameters :: !(Maybe InventoryRetrievalJobDescription)
     , _gjdAction                       :: !(Maybe ActionCode)
     , _gjdJobDescription               :: !(Maybe Text)
     , _gjdSNSTopic                     :: !(Maybe Text)
-    , _gjdVaultARN                     :: !(Maybe Text)
     , _gjdStatusMessage                :: !(Maybe Text)
+    , _gjdVaultARN                     :: !(Maybe Text)
     , _gjdArchiveSHA256TreeHash        :: !(Maybe Text)
     , _gjdCreationDate                 :: !(Maybe Text)
     , _gjdCompleted                    :: !(Maybe Bool)
     , _gjdCompletionDate               :: !(Maybe Text)
+    , _gjdInventorySizeInBytes         :: !(Maybe Integer)
     , _gjdArchiveSizeInBytes           :: !(Maybe Integer)
     , _gjdStatusCode                   :: !(Maybe StatusCode)
-    , _gjdInventorySizeInBytes         :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GlacierJobDescription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjdArchiveId'
---
 -- * 'gjdSHA256TreeHash'
+--
+-- * 'gjdArchiveId'
 --
 -- * 'gjdJobId'
 --
@@ -284,9 +284,9 @@ data GlacierJobDescription = GlacierJobDescription'
 --
 -- * 'gjdSNSTopic'
 --
--- * 'gjdVaultARN'
---
 -- * 'gjdStatusMessage'
+--
+-- * 'gjdVaultARN'
 --
 -- * 'gjdArchiveSHA256TreeHash'
 --
@@ -296,38 +296,33 @@ data GlacierJobDescription = GlacierJobDescription'
 --
 -- * 'gjdCompletionDate'
 --
+-- * 'gjdInventorySizeInBytes'
+--
 -- * 'gjdArchiveSizeInBytes'
 --
 -- * 'gjdStatusCode'
---
--- * 'gjdInventorySizeInBytes'
 glacierJobDescription
     :: GlacierJobDescription
 glacierJobDescription =
     GlacierJobDescription'
-    { _gjdArchiveId = Nothing
-    , _gjdSHA256TreeHash = Nothing
+    { _gjdSHA256TreeHash = Nothing
+    , _gjdArchiveId = Nothing
     , _gjdJobId = Nothing
     , _gjdRetrievalByteRange = Nothing
     , _gjdInventoryRetrievalParameters = Nothing
     , _gjdAction = Nothing
     , _gjdJobDescription = Nothing
     , _gjdSNSTopic = Nothing
-    , _gjdVaultARN = Nothing
     , _gjdStatusMessage = Nothing
+    , _gjdVaultARN = Nothing
     , _gjdArchiveSHA256TreeHash = Nothing
     , _gjdCreationDate = Nothing
     , _gjdCompleted = Nothing
     , _gjdCompletionDate = Nothing
+    , _gjdInventorySizeInBytes = Nothing
     , _gjdArchiveSizeInBytes = Nothing
     , _gjdStatusCode = Nothing
-    , _gjdInventorySizeInBytes = Nothing
     }
-
--- | For an ArchiveRetrieval job, this is the archive ID requested for
--- download. Otherwise, this field is null.
-gjdArchiveId :: Lens' GlacierJobDescription (Maybe Text)
-gjdArchiveId = lens _gjdArchiveId (\ s a -> s{_gjdArchiveId = a});
 
 -- | For an ArchiveRetrieval job, it is the checksum of the archive.
 -- Otherwise, the value is null.
@@ -351,6 +346,11 @@ gjdArchiveId = lens _gjdArchiveId (\ s a -> s{_gjdArchiveId = a});
 --
 gjdSHA256TreeHash :: Lens' GlacierJobDescription (Maybe Text)
 gjdSHA256TreeHash = lens _gjdSHA256TreeHash (\ s a -> s{_gjdSHA256TreeHash = a});
+
+-- | For an ArchiveRetrieval job, this is the archive ID requested for
+-- download. Otherwise, this field is null.
+gjdArchiveId :: Lens' GlacierJobDescription (Maybe Text)
+gjdArchiveId = lens _gjdArchiveId (\ s a -> s{_gjdArchiveId = a});
 
 -- | An opaque string that identifies an Amazon Glacier job.
 gjdJobId :: Lens' GlacierJobDescription (Maybe Text)
@@ -381,14 +381,14 @@ gjdJobDescription = lens _gjdJobDescription (\ s a -> s{_gjdJobDescription = a})
 gjdSNSTopic :: Lens' GlacierJobDescription (Maybe Text)
 gjdSNSTopic = lens _gjdSNSTopic (\ s a -> s{_gjdSNSTopic = a});
 
+-- | A friendly message that describes the job status.
+gjdStatusMessage :: Lens' GlacierJobDescription (Maybe Text)
+gjdStatusMessage = lens _gjdStatusMessage (\ s a -> s{_gjdStatusMessage = a});
+
 -- | The Amazon Resource Name (ARN) of the vault from which the archive
 -- retrieval was requested.
 gjdVaultARN :: Lens' GlacierJobDescription (Maybe Text)
 gjdVaultARN = lens _gjdVaultARN (\ s a -> s{_gjdVaultARN = a});
-
--- | A friendly message that describes the job status.
-gjdStatusMessage :: Lens' GlacierJobDescription (Maybe Text)
-gjdStatusMessage = lens _gjdStatusMessage (\ s a -> s{_gjdStatusMessage = a});
 
 -- | The SHA256 tree hash of the entire archive for an archive retrieval. For
 -- inventory retrieval jobs, this field is null.
@@ -409,6 +409,12 @@ gjdCompleted = lens _gjdCompleted (\ s a -> s{_gjdCompleted = a});
 gjdCompletionDate :: Lens' GlacierJobDescription (Maybe Text)
 gjdCompletionDate = lens _gjdCompletionDate (\ s a -> s{_gjdCompletionDate = a});
 
+-- | For an InventoryRetrieval job, this is the size in bytes of the
+-- inventory requested for download. For the ArchiveRetrieval job, the
+-- value is null.
+gjdInventorySizeInBytes :: Lens' GlacierJobDescription (Maybe Integer)
+gjdInventorySizeInBytes = lens _gjdInventorySizeInBytes (\ s a -> s{_gjdInventorySizeInBytes = a});
+
 -- | For an ArchiveRetrieval job, this is the size in bytes of the archive
 -- being requested for download. For the InventoryRetrieval job, the value
 -- is null.
@@ -420,33 +426,27 @@ gjdArchiveSizeInBytes = lens _gjdArchiveSizeInBytes (\ s a -> s{_gjdArchiveSizeI
 gjdStatusCode :: Lens' GlacierJobDescription (Maybe StatusCode)
 gjdStatusCode = lens _gjdStatusCode (\ s a -> s{_gjdStatusCode = a});
 
--- | For an InventoryRetrieval job, this is the size in bytes of the
--- inventory requested for download. For the ArchiveRetrieval job, the
--- value is null.
-gjdInventorySizeInBytes :: Lens' GlacierJobDescription (Maybe Integer)
-gjdInventorySizeInBytes = lens _gjdInventorySizeInBytes (\ s a -> s{_gjdInventorySizeInBytes = a});
-
 instance FromJSON GlacierJobDescription where
         parseJSON
           = withObject "GlacierJobDescription"
               (\ x ->
                  GlacierJobDescription' <$>
-                   (x .:? "ArchiveId") <*> (x .:? "SHA256TreeHash") <*>
+                   (x .:? "SHA256TreeHash") <*> (x .:? "ArchiveId") <*>
                      (x .:? "JobId")
                      <*> (x .:? "RetrievalByteRange")
                      <*> (x .:? "InventoryRetrievalParameters")
                      <*> (x .:? "Action")
                      <*> (x .:? "JobDescription")
                      <*> (x .:? "SNSTopic")
-                     <*> (x .:? "VaultARN")
                      <*> (x .:? "StatusMessage")
+                     <*> (x .:? "VaultARN")
                      <*> (x .:? "ArchiveSHA256TreeHash")
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "Completed")
                      <*> (x .:? "CompletionDate")
+                     <*> (x .:? "InventorySizeInBytes")
                      <*> (x .:? "ArchiveSizeInBytes")
-                     <*> (x .:? "StatusCode")
-                     <*> (x .:? "InventorySizeInBytes"))
+                     <*> (x .:? "StatusCode"))
 
 -- | Describes the options for a range inventory retrieval job.
 --
@@ -597,8 +597,8 @@ instance ToJSON InventoryRetrievalJobInput where
 -- /See:/ 'jobParameters' smart constructor.
 data JobParameters = JobParameters'
     { _jpArchiveId                    :: !(Maybe Text)
-    , _jpRetrievalByteRange           :: !(Maybe Text)
     , _jpFormat                       :: !(Maybe Text)
+    , _jpRetrievalByteRange           :: !(Maybe Text)
     , _jpInventoryRetrievalParameters :: !(Maybe InventoryRetrievalJobInput)
     , _jpSNSTopic                     :: !(Maybe Text)
     , _jpType                         :: !(Maybe Text)
@@ -611,9 +611,9 @@ data JobParameters = JobParameters'
 --
 -- * 'jpArchiveId'
 --
--- * 'jpRetrievalByteRange'
---
 -- * 'jpFormat'
+--
+-- * 'jpRetrievalByteRange'
 --
 -- * 'jpInventoryRetrievalParameters'
 --
@@ -627,8 +627,8 @@ jobParameters
 jobParameters =
     JobParameters'
     { _jpArchiveId = Nothing
-    , _jpRetrievalByteRange = Nothing
     , _jpFormat = Nothing
+    , _jpRetrievalByteRange = Nothing
     , _jpInventoryRetrievalParameters = Nothing
     , _jpSNSTopic = Nothing
     , _jpType = Nothing
@@ -640,6 +640,13 @@ jobParameters =
 -- specify this request parameter for an inventory retrieval job request.
 jpArchiveId :: Lens' JobParameters (Maybe Text)
 jpArchiveId = lens _jpArchiveId (\ s a -> s{_jpArchiveId = a});
+
+-- | When initiating a job to retrieve a vault inventory, you can optionally
+-- add this parameter to your request to specify the output format. If you
+-- are initiating an inventory job and do not specify a Format field, JSON
+-- is the default format. Valid values are \"CSV\" and \"JSON\".
+jpFormat :: Lens' JobParameters (Maybe Text)
+jpFormat = lens _jpFormat (\ s a -> s{_jpFormat = a});
 
 -- | The byte range to retrieve for an archive retrieval. in the form
 -- \"/StartByteValue/-/EndByteValue/\" If not specified, the whole archive
@@ -654,13 +661,6 @@ jpArchiveId = lens _jpArchiveId (\ s a -> s{_jpArchiveId = a});
 -- request.
 jpRetrievalByteRange :: Lens' JobParameters (Maybe Text)
 jpRetrievalByteRange = lens _jpRetrievalByteRange (\ s a -> s{_jpRetrievalByteRange = a});
-
--- | When initiating a job to retrieve a vault inventory, you can optionally
--- add this parameter to your request to specify the output format. If you
--- are initiating an inventory job and do not specify a Format field, JSON
--- is the default format. Valid values are \"CSV\" and \"JSON\".
-jpFormat :: Lens' JobParameters (Maybe Text)
-jpFormat = lens _jpFormat (\ s a -> s{_jpFormat = a});
 
 -- | Input parameters used for range inventory retrieval.
 jpInventoryRetrievalParameters :: Lens' JobParameters (Maybe InventoryRetrievalJobInput)
@@ -691,8 +691,8 @@ instance ToJSON JobParameters where
           = object
               (catMaybes
                  [("ArchiveId" .=) <$> _jpArchiveId,
-                  ("RetrievalByteRange" .=) <$> _jpRetrievalByteRange,
                   ("Format" .=) <$> _jpFormat,
+                  ("RetrievalByteRange" .=) <$> _jpRetrievalByteRange,
                   ("InventoryRetrievalParameters" .=) <$>
                     _jpInventoryRetrievalParameters,
                   ("SNSTopic" .=) <$> _jpSNSTopic,
@@ -743,8 +743,8 @@ instance FromJSON PartListElement where
 -- /See:/ 'uploadListElement' smart constructor.
 data UploadListElement = UploadListElement'
     { _uleMultipartUploadId  :: !(Maybe Text)
-    , _uleArchiveDescription :: !(Maybe Text)
     , _ulePartSizeInBytes    :: !(Maybe Integer)
+    , _uleArchiveDescription :: !(Maybe Text)
     , _uleVaultARN           :: !(Maybe Text)
     , _uleCreationDate       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -755,9 +755,9 @@ data UploadListElement = UploadListElement'
 --
 -- * 'uleMultipartUploadId'
 --
--- * 'uleArchiveDescription'
---
 -- * 'ulePartSizeInBytes'
+--
+-- * 'uleArchiveDescription'
 --
 -- * 'uleVaultARN'
 --
@@ -767,8 +767,8 @@ uploadListElement
 uploadListElement =
     UploadListElement'
     { _uleMultipartUploadId = Nothing
-    , _uleArchiveDescription = Nothing
     , _ulePartSizeInBytes = Nothing
+    , _uleArchiveDescription = Nothing
     , _uleVaultARN = Nothing
     , _uleCreationDate = Nothing
     }
@@ -777,16 +777,16 @@ uploadListElement =
 uleMultipartUploadId :: Lens' UploadListElement (Maybe Text)
 uleMultipartUploadId = lens _uleMultipartUploadId (\ s a -> s{_uleMultipartUploadId = a});
 
--- | The description of the archive that was specified in the Initiate
--- Multipart Upload request.
-uleArchiveDescription :: Lens' UploadListElement (Maybe Text)
-uleArchiveDescription = lens _uleArchiveDescription (\ s a -> s{_uleArchiveDescription = a});
-
 -- | The part size, in bytes, specified in the Initiate Multipart Upload
 -- request. This is the size of all the parts in the upload except the last
 -- part, which may be smaller than this size.
 ulePartSizeInBytes :: Lens' UploadListElement (Maybe Integer)
 ulePartSizeInBytes = lens _ulePartSizeInBytes (\ s a -> s{_ulePartSizeInBytes = a});
+
+-- | The description of the archive that was specified in the Initiate
+-- Multipart Upload request.
+uleArchiveDescription :: Lens' UploadListElement (Maybe Text)
+uleArchiveDescription = lens _uleArchiveDescription (\ s a -> s{_uleArchiveDescription = a});
 
 -- | The Amazon Resource Name (ARN) of the vault that contains the archive.
 uleVaultARN :: Lens' UploadListElement (Maybe Text)
@@ -802,8 +802,8 @@ instance FromJSON UploadListElement where
               (\ x ->
                  UploadListElement' <$>
                    (x .:? "MultipartUploadId") <*>
-                     (x .:? "ArchiveDescription")
-                     <*> (x .:? "PartSizeInBytes")
+                     (x .:? "PartSizeInBytes")
+                     <*> (x .:? "ArchiveDescription")
                      <*> (x .:? "VaultARN")
                      <*> (x .:? "CreationDate"))
 

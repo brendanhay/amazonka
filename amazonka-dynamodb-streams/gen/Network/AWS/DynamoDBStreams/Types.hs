@@ -41,8 +41,8 @@ module Network.AWS.DynamoDBStreams.Types
     , AttributeValue
     , attributeValue
     , avL
-    , avM
     , avNS
+    , avM
     , avNULL
     , avN
     , avBS
@@ -94,8 +94,8 @@ module Network.AWS.DynamoDBStreams.Types
     , sdStreamLabel
     , sdStreamStatus
     , sdKeySchema
-    , sdStreamARN
     , sdStreamViewType
+    , sdStreamARN
     , sdShards
     , sdTableName
     , sdCreationRequestDateTime
@@ -103,8 +103,8 @@ module Network.AWS.DynamoDBStreams.Types
     -- * StreamRecord
     , StreamRecord
     , streamRecord
-    , srSequenceNumber
     , srSizeBytes
+    , srSequenceNumber
     , srStreamViewType
     , srKeys
     , srOldImage

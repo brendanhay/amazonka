@@ -44,7 +44,7 @@ module Network.AWS.WorkSpaces.TerminateWorkspaces
     , TerminateWorkspacesResponse
     -- * Response Lenses
     , twrsFailedRequests
-    , twrsStatus
+    , twrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -117,7 +117,7 @@ instance ToQuery TerminateWorkspaces where
 -- /See:/ 'terminateWorkspacesResponse' smart constructor.
 data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
     { _twrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
-    , _twrsStatus         :: !Int
+    , _twrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TerminateWorkspacesResponse' with the minimum fields required to make a request.
@@ -126,14 +126,14 @@ data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
 --
 -- * 'twrsFailedRequests'
 --
--- * 'twrsStatus'
+-- * 'twrsResponseStatus'
 terminateWorkspacesResponse
-    :: Int -- ^ 'twrsStatus'
+    :: Int -- ^ 'twrsResponseStatus'
     -> TerminateWorkspacesResponse
-terminateWorkspacesResponse pStatus_ =
+terminateWorkspacesResponse pResponseStatus_ =
     TerminateWorkspacesResponse'
     { _twrsFailedRequests = Nothing
-    , _twrsStatus = pStatus_
+    , _twrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of structures that represent any WorkSpaces that could not be
@@ -142,5 +142,5 @@ twrsFailedRequests :: Lens' TerminateWorkspacesResponse [FailedWorkspaceChangeRe
 twrsFailedRequests = lens _twrsFailedRequests (\ s a -> s{_twrsFailedRequests = a}) . _Default . _Coerce;
 
 -- | The response status code.
-twrsStatus :: Lens' TerminateWorkspacesResponse Int
-twrsStatus = lens _twrsStatus (\ s a -> s{_twrsStatus = a});
+twrsResponseStatus :: Lens' TerminateWorkspacesResponse Int
+twrsResponseStatus = lens _twrsResponseStatus (\ s a -> s{_twrsResponseStatus = a});

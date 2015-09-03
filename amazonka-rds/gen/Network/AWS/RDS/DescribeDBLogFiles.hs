@@ -30,11 +30,11 @@ module Network.AWS.RDS.DescribeDBLogFiles
     , DescribeDBLogFiles
     -- * Request Lenses
     , ddlfFilenameContains
+    , ddlfFilters
     , ddlfFileSize
     , ddlfFileLastWritten
-    , ddlfFilters
-    , ddlfMaxRecords
     , ddlfMarker
+    , ddlfMaxRecords
     , ddlfDBInstanceIdentifier
 
     -- * Destructuring the Response
@@ -43,7 +43,7 @@ module Network.AWS.RDS.DescribeDBLogFiles
     -- * Response Lenses
     , ddlfrsDescribeDBLogFiles
     , ddlfrsMarker
-    , ddlfrsStatus
+    , ddlfrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -58,11 +58,11 @@ import           Network.AWS.Response
 -- /See:/ 'describeDBLogFiles' smart constructor.
 data DescribeDBLogFiles = DescribeDBLogFiles'
     { _ddlfFilenameContains     :: !(Maybe Text)
+    , _ddlfFilters              :: !(Maybe [Filter])
     , _ddlfFileSize             :: !(Maybe Integer)
     , _ddlfFileLastWritten      :: !(Maybe Integer)
-    , _ddlfFilters              :: !(Maybe [Filter])
-    , _ddlfMaxRecords           :: !(Maybe Int)
     , _ddlfMarker               :: !(Maybe Text)
+    , _ddlfMaxRecords           :: !(Maybe Int)
     , _ddlfDBInstanceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -72,15 +72,15 @@ data DescribeDBLogFiles = DescribeDBLogFiles'
 --
 -- * 'ddlfFilenameContains'
 --
+-- * 'ddlfFilters'
+--
 -- * 'ddlfFileSize'
 --
 -- * 'ddlfFileLastWritten'
 --
--- * 'ddlfFilters'
+-- * 'ddlfMarker'
 --
 -- * 'ddlfMaxRecords'
---
--- * 'ddlfMarker'
 --
 -- * 'ddlfDBInstanceIdentifier'
 describeDBLogFiles
@@ -89,11 +89,11 @@ describeDBLogFiles
 describeDBLogFiles pDBInstanceIdentifier_ =
     DescribeDBLogFiles'
     { _ddlfFilenameContains = Nothing
+    , _ddlfFilters = Nothing
     , _ddlfFileSize = Nothing
     , _ddlfFileLastWritten = Nothing
-    , _ddlfFilters = Nothing
-    , _ddlfMaxRecords = Nothing
     , _ddlfMarker = Nothing
+    , _ddlfMaxRecords = Nothing
     , _ddlfDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
@@ -101,6 +101,10 @@ describeDBLogFiles pDBInstanceIdentifier_ =
 -- specified string.
 ddlfFilenameContains :: Lens' DescribeDBLogFiles (Maybe Text)
 ddlfFilenameContains = lens _ddlfFilenameContains (\ s a -> s{_ddlfFilenameContains = a});
+
+-- | This parameter is not currently supported.
+ddlfFilters :: Lens' DescribeDBLogFiles [Filter]
+ddlfFilters = lens _ddlfFilters (\ s a -> s{_ddlfFilters = a}) . _Default . _Coerce;
 
 -- | Filters the available log files for files larger than the specified
 -- size.
@@ -112,9 +116,11 @@ ddlfFileSize = lens _ddlfFileSize (\ s a -> s{_ddlfFileSize = a});
 ddlfFileLastWritten :: Lens' DescribeDBLogFiles (Maybe Integer)
 ddlfFileLastWritten = lens _ddlfFileLastWritten (\ s a -> s{_ddlfFileLastWritten = a});
 
--- | This parameter is not currently supported.
-ddlfFilters :: Lens' DescribeDBLogFiles [Filter]
-ddlfFilters = lens _ddlfFilters (\ s a -> s{_ddlfFilters = a}) . _Default . _Coerce;
+-- | The pagination token provided in the previous request. If this parameter
+-- is specified the response includes only records beyond the marker, up to
+-- MaxRecords.
+ddlfMarker :: Lens' DescribeDBLogFiles (Maybe Text)
+ddlfMarker = lens _ddlfMarker (\ s a -> s{_ddlfMarker = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified MaxRecords value, a pagination token
@@ -122,12 +128,6 @@ ddlfFilters = lens _ddlfFilters (\ s a -> s{_ddlfFilters = a}) . _Default . _Coe
 -- results can be retrieved.
 ddlfMaxRecords :: Lens' DescribeDBLogFiles (Maybe Int)
 ddlfMaxRecords = lens _ddlfMaxRecords (\ s a -> s{_ddlfMaxRecords = a});
-
--- | The pagination token provided in the previous request. If this parameter
--- is specified the response includes only records beyond the marker, up to
--- MaxRecords.
-ddlfMarker :: Lens' DescribeDBLogFiles (Maybe Text)
-ddlfMarker = lens _ddlfMarker (\ s a -> s{_ddlfMarker = a});
 
 -- | The customer-assigned name of the DB instance that contains the log
 -- files you want to list.
@@ -172,12 +172,12 @@ instance ToQuery DescribeDBLogFiles where
               ["Action" =: ("DescribeDBLogFiles" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "FilenameContains" =: _ddlfFilenameContains,
-               "FileSize" =: _ddlfFileSize,
-               "FileLastWritten" =: _ddlfFileLastWritten,
                "Filters" =:
                  toQuery (toQueryList "Filter" <$> _ddlfFilters),
-               "MaxRecords" =: _ddlfMaxRecords,
+               "FileSize" =: _ddlfFileSize,
+               "FileLastWritten" =: _ddlfFileLastWritten,
                "Marker" =: _ddlfMarker,
+               "MaxRecords" =: _ddlfMaxRecords,
                "DBInstanceIdentifier" =: _ddlfDBInstanceIdentifier]
 
 -- | The response from a call to DescribeDBLogFiles.
@@ -186,7 +186,7 @@ instance ToQuery DescribeDBLogFiles where
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
     { _ddlfrsDescribeDBLogFiles :: !(Maybe [DescribeDBLogFilesDetails])
     , _ddlfrsMarker             :: !(Maybe Text)
-    , _ddlfrsStatus             :: !Int
+    , _ddlfrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBLogFilesResponse' with the minimum fields required to make a request.
@@ -197,15 +197,15 @@ data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
 --
 -- * 'ddlfrsMarker'
 --
--- * 'ddlfrsStatus'
+-- * 'ddlfrsResponseStatus'
 describeDBLogFilesResponse
-    :: Int -- ^ 'ddlfrsStatus'
+    :: Int -- ^ 'ddlfrsResponseStatus'
     -> DescribeDBLogFilesResponse
-describeDBLogFilesResponse pStatus_ =
+describeDBLogFilesResponse pResponseStatus_ =
     DescribeDBLogFilesResponse'
     { _ddlfrsDescribeDBLogFiles = Nothing
     , _ddlfrsMarker = Nothing
-    , _ddlfrsStatus = pStatus_
+    , _ddlfrsResponseStatus = pResponseStatus_
     }
 
 -- | The DB log files returned.
@@ -218,5 +218,5 @@ ddlfrsMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
 ddlfrsMarker = lens _ddlfrsMarker (\ s a -> s{_ddlfrsMarker = a});
 
 -- | The response status code.
-ddlfrsStatus :: Lens' DescribeDBLogFilesResponse Int
-ddlfrsStatus = lens _ddlfrsStatus (\ s a -> s{_ddlfrsStatus = a});
+ddlfrsResponseStatus :: Lens' DescribeDBLogFilesResponse Int
+ddlfrsResponseStatus = lens _ddlfrsResponseStatus (\ s a -> s{_ddlfrsResponseStatus = a});

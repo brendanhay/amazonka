@@ -45,7 +45,7 @@ module Network.AWS.EC2.AssociateRouteTable
     , AssociateRouteTableResponse
     -- * Response Lenses
     , artrsAssociationId
-    , artrsStatus
+    , artrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -122,8 +122,8 @@ instance ToQuery AssociateRouteTable where
 
 -- | /See:/ 'associateRouteTableResponse' smart constructor.
 data AssociateRouteTableResponse = AssociateRouteTableResponse'
-    { _artrsAssociationId :: !(Maybe Text)
-    , _artrsStatus        :: !Int
+    { _artrsAssociationId  :: !(Maybe Text)
+    , _artrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AssociateRouteTableResponse' with the minimum fields required to make a request.
@@ -132,14 +132,14 @@ data AssociateRouteTableResponse = AssociateRouteTableResponse'
 --
 -- * 'artrsAssociationId'
 --
--- * 'artrsStatus'
+-- * 'artrsResponseStatus'
 associateRouteTableResponse
-    :: Int -- ^ 'artrsStatus'
+    :: Int -- ^ 'artrsResponseStatus'
     -> AssociateRouteTableResponse
-associateRouteTableResponse pStatus_ =
+associateRouteTableResponse pResponseStatus_ =
     AssociateRouteTableResponse'
     { _artrsAssociationId = Nothing
-    , _artrsStatus = pStatus_
+    , _artrsResponseStatus = pResponseStatus_
     }
 
 -- | The route table association ID (needed to disassociate the route table).
@@ -147,5 +147,5 @@ artrsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
 artrsAssociationId = lens _artrsAssociationId (\ s a -> s{_artrsAssociationId = a});
 
 -- | The response status code.
-artrsStatus :: Lens' AssociateRouteTableResponse Int
-artrsStatus = lens _artrsStatus (\ s a -> s{_artrsStatus = a});
+artrsResponseStatus :: Lens' AssociateRouteTableResponse Int
+artrsResponseStatus = lens _artrsResponseStatus (\ s a -> s{_artrsResponseStatus = a});

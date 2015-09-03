@@ -41,7 +41,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     , dniarsNetworkInterfaceId
     , dniarsAttachment
     , dniarsDescription
-    , dniarsStatus
+    , dniarsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -134,7 +134,7 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
     , _dniarsNetworkInterfaceId :: !(Maybe Text)
     , _dniarsAttachment         :: !(Maybe NetworkInterfaceAttachment)
     , _dniarsDescription        :: !(Maybe AttributeValue)
-    , _dniarsStatus             :: !Int
+    , _dniarsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeNetworkInterfaceAttributeResponse' with the minimum fields required to make a request.
@@ -151,18 +151,18 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
 --
 -- * 'dniarsDescription'
 --
--- * 'dniarsStatus'
+-- * 'dniarsResponseStatus'
 describeNetworkInterfaceAttributeResponse
-    :: Int -- ^ 'dniarsStatus'
+    :: Int -- ^ 'dniarsResponseStatus'
     -> DescribeNetworkInterfaceAttributeResponse
-describeNetworkInterfaceAttributeResponse pStatus_ =
+describeNetworkInterfaceAttributeResponse pResponseStatus_ =
     DescribeNetworkInterfaceAttributeResponse'
     { _dniarsGroups = Nothing
     , _dniarsSourceDestCheck = Nothing
     , _dniarsNetworkInterfaceId = Nothing
     , _dniarsAttachment = Nothing
     , _dniarsDescription = Nothing
-    , _dniarsStatus = pStatus_
+    , _dniarsResponseStatus = pResponseStatus_
     }
 
 -- | The security groups associated with the network interface.
@@ -186,5 +186,5 @@ dniarsDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Attr
 dniarsDescription = lens _dniarsDescription (\ s a -> s{_dniarsDescription = a});
 
 -- | The response status code.
-dniarsStatus :: Lens' DescribeNetworkInterfaceAttributeResponse Int
-dniarsStatus = lens _dniarsStatus (\ s a -> s{_dniarsStatus = a});
+dniarsResponseStatus :: Lens' DescribeNetworkInterfaceAttributeResponse Int
+dniarsResponseStatus = lens _dniarsResponseStatus (\ s a -> s{_dniarsResponseStatus = a});

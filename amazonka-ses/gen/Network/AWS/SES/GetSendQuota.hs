@@ -36,7 +36,7 @@ module Network.AWS.SES.GetSendQuota
     , gsqrsMaxSendRate
     , gsqrsSentLast24Hours
     , gsqrsMax24HourSend
-    , gsqrsStatus
+    , gsqrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -88,7 +88,7 @@ data GetSendQuotaResponse = GetSendQuotaResponse'
     { _gsqrsMaxSendRate     :: !(Maybe Double)
     , _gsqrsSentLast24Hours :: !(Maybe Double)
     , _gsqrsMax24HourSend   :: !(Maybe Double)
-    , _gsqrsStatus          :: !Int
+    , _gsqrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetSendQuotaResponse' with the minimum fields required to make a request.
@@ -101,16 +101,16 @@ data GetSendQuotaResponse = GetSendQuotaResponse'
 --
 -- * 'gsqrsMax24HourSend'
 --
--- * 'gsqrsStatus'
+-- * 'gsqrsResponseStatus'
 getSendQuotaResponse
-    :: Int -- ^ 'gsqrsStatus'
+    :: Int -- ^ 'gsqrsResponseStatus'
     -> GetSendQuotaResponse
-getSendQuotaResponse pStatus_ =
+getSendQuotaResponse pResponseStatus_ =
     GetSendQuotaResponse'
     { _gsqrsMaxSendRate = Nothing
     , _gsqrsSentLast24Hours = Nothing
     , _gsqrsMax24HourSend = Nothing
-    , _gsqrsStatus = pStatus_
+    , _gsqrsResponseStatus = pResponseStatus_
     }
 
 -- | The maximum number of emails that Amazon SES can accept from the user\'s
@@ -131,5 +131,5 @@ gsqrsMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrsMax24HourSend = lens _gsqrsMax24HourSend (\ s a -> s{_gsqrsMax24HourSend = a});
 
 -- | The response status code.
-gsqrsStatus :: Lens' GetSendQuotaResponse Int
-gsqrsStatus = lens _gsqrsStatus (\ s a -> s{_gsqrsStatus = a});
+gsqrsResponseStatus :: Lens' GetSendQuotaResponse Int
+gsqrsResponseStatus = lens _gsqrsResponseStatus (\ s a -> s{_gsqrsResponseStatus = a});

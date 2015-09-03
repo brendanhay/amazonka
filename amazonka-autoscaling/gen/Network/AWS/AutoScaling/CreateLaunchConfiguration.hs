@@ -36,10 +36,10 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
     , CreateLaunchConfiguration
     -- * Request Lenses
     , clcInstanceId
-    , clcSecurityGroups
     , clcAssociatePublicIPAddress
-    , clcInstanceMonitoring
+    , clcSecurityGroups
     , clcSpotPrice
+    , clcInstanceMonitoring
     , clcKeyName
     , clcClassicLinkVPCSecurityGroups
     , clcRAMDiskId
@@ -68,10 +68,10 @@ import           Network.AWS.Response
 -- | /See:/ 'createLaunchConfiguration' smart constructor.
 data CreateLaunchConfiguration = CreateLaunchConfiguration'
     { _clcInstanceId                   :: !(Maybe Text)
-    , _clcSecurityGroups               :: !(Maybe [Text])
     , _clcAssociatePublicIPAddress     :: !(Maybe Bool)
-    , _clcInstanceMonitoring           :: !(Maybe InstanceMonitoring)
+    , _clcSecurityGroups               :: !(Maybe [Text])
     , _clcSpotPrice                    :: !(Maybe Text)
+    , _clcInstanceMonitoring           :: !(Maybe InstanceMonitoring)
     , _clcKeyName                      :: !(Maybe Text)
     , _clcClassicLinkVPCSecurityGroups :: !(Maybe [Text])
     , _clcRAMDiskId                    :: !(Maybe Text)
@@ -93,13 +93,13 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
 --
 -- * 'clcInstanceId'
 --
--- * 'clcSecurityGroups'
---
 -- * 'clcAssociatePublicIPAddress'
 --
--- * 'clcInstanceMonitoring'
+-- * 'clcSecurityGroups'
 --
 -- * 'clcSpotPrice'
+--
+-- * 'clcInstanceMonitoring'
 --
 -- * 'clcKeyName'
 --
@@ -132,10 +132,10 @@ createLaunchConfiguration
 createLaunchConfiguration pLaunchConfigurationName_ =
     CreateLaunchConfiguration'
     { _clcInstanceId = Nothing
-    , _clcSecurityGroups = Nothing
     , _clcAssociatePublicIPAddress = Nothing
-    , _clcInstanceMonitoring = Nothing
+    , _clcSecurityGroups = Nothing
     , _clcSpotPrice = Nothing
+    , _clcInstanceMonitoring = Nothing
     , _clcKeyName = Nothing
     , _clcClassicLinkVPCSecurityGroups = Nothing
     , _clcRAMDiskId = Nothing
@@ -165,21 +165,6 @@ createLaunchConfiguration pLaunchConfigurationName_ =
 clcInstanceId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcInstanceId = lens _clcInstanceId (\ s a -> s{_clcInstanceId = a});
 
--- | One or more security groups with which to associate the instances.
---
--- If your instances are launched in EC2-Classic, you can either specify
--- security group names or the security group IDs. For more information
--- about security groups for EC2-Classic, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups>
--- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- If your instances are launched into a VPC, specify security group IDs.
--- For more information, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC>
--- in the /Amazon Virtual Private Cloud User Guide/.
-clcSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
-clcSecurityGroups = lens _clcSecurityGroups (\ s a -> s{_clcSecurityGroups = a}) . _Default . _Coerce;
-
 -- | Used for groups that launch instances into a virtual private cloud
 -- (VPC). Specifies whether to assign a public IP address to each instance.
 -- For more information, see
@@ -198,6 +183,29 @@ clcSecurityGroups = lens _clcSecurityGroups (\ s a -> s{_clcSecurityGroups = a})
 clcAssociatePublicIPAddress :: Lens' CreateLaunchConfiguration (Maybe Bool)
 clcAssociatePublicIPAddress = lens _clcAssociatePublicIPAddress (\ s a -> s{_clcAssociatePublicIPAddress = a});
 
+-- | One or more security groups with which to associate the instances.
+--
+-- If your instances are launched in EC2-Classic, you can either specify
+-- security group names or the security group IDs. For more information
+-- about security groups for EC2-Classic, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- If your instances are launched into a VPC, specify security group IDs.
+-- For more information, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC>
+-- in the /Amazon Virtual Private Cloud User Guide/.
+clcSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
+clcSecurityGroups = lens _clcSecurityGroups (\ s a -> s{_clcSecurityGroups = a}) . _Default . _Coerce;
+
+-- | The maximum hourly price to be paid for any Spot Instance launched to
+-- fulfill the request. Spot Instances are launched when the price you
+-- specify exceeds the current Spot market price. For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html Launch Spot Instances in Your Auto Scaling Group>
+-- in the /Auto Scaling Developer Guide/.
+clcSpotPrice :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcSpotPrice = lens _clcSpotPrice (\ s a -> s{_clcSpotPrice = a});
+
 -- | Enables detailed monitoring if it is disabled. Detailed monitoring is
 -- enabled by default.
 --
@@ -209,14 +217,6 @@ clcAssociatePublicIPAddress = lens _clcAssociatePublicIPAddress (\ s a -> s{_clc
 -- in the /Auto Scaling Developer Guide/.
 clcInstanceMonitoring :: Lens' CreateLaunchConfiguration (Maybe InstanceMonitoring)
 clcInstanceMonitoring = lens _clcInstanceMonitoring (\ s a -> s{_clcInstanceMonitoring = a});
-
--- | The maximum hourly price to be paid for any Spot Instance launched to
--- fulfill the request. Spot Instances are launched when the price you
--- specify exceeds the current Spot market price. For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html Launch Spot Instances in Your Auto Scaling Group>
--- in the /Auto Scaling Developer Guide/.
-clcSpotPrice :: Lens' CreateLaunchConfiguration (Maybe Text)
-clcSpotPrice = lens _clcSpotPrice (\ s a -> s{_clcSpotPrice = a});
 
 -- | The name of the key pair. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs>
@@ -346,13 +346,13 @@ instance ToQuery CreateLaunchConfiguration where
                  ("CreateLaunchConfiguration" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "InstanceId" =: _clcInstanceId,
+               "AssociatePublicIpAddress" =:
+                 _clcAssociatePublicIPAddress,
                "SecurityGroups" =:
                  toQuery
                    (toQueryList "member" <$> _clcSecurityGroups),
-               "AssociatePublicIpAddress" =:
-                 _clcAssociatePublicIPAddress,
-               "InstanceMonitoring" =: _clcInstanceMonitoring,
                "SpotPrice" =: _clcSpotPrice,
+               "InstanceMonitoring" =: _clcInstanceMonitoring,
                "KeyName" =: _clcKeyName,
                "ClassicLinkVPCSecurityGroups" =:
                  toQuery

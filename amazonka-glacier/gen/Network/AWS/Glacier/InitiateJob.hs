@@ -164,7 +164,7 @@ module Network.AWS.Glacier.InitiateJob
     -- * Response Lenses
     , ijrsJobId
     , ijrsLocation
-    , ijrsStatus
+    , ijrsResponseStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -250,9 +250,9 @@ instance ToQuery InitiateJob where
 --
 -- /See:/ 'initiateJobResponse' smart constructor.
 data InitiateJobResponse = InitiateJobResponse'
-    { _ijrsJobId    :: !(Maybe Text)
-    , _ijrsLocation :: !(Maybe Text)
-    , _ijrsStatus   :: !Int
+    { _ijrsJobId          :: !(Maybe Text)
+    , _ijrsLocation       :: !(Maybe Text)
+    , _ijrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InitiateJobResponse' with the minimum fields required to make a request.
@@ -263,15 +263,15 @@ data InitiateJobResponse = InitiateJobResponse'
 --
 -- * 'ijrsLocation'
 --
--- * 'ijrsStatus'
+-- * 'ijrsResponseStatus'
 initiateJobResponse
-    :: Int -- ^ 'ijrsStatus'
+    :: Int -- ^ 'ijrsResponseStatus'
     -> InitiateJobResponse
-initiateJobResponse pStatus_ =
+initiateJobResponse pResponseStatus_ =
     InitiateJobResponse'
     { _ijrsJobId = Nothing
     , _ijrsLocation = Nothing
-    , _ijrsStatus = pStatus_
+    , _ijrsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the job.
@@ -283,5 +283,5 @@ ijrsLocation :: Lens' InitiateJobResponse (Maybe Text)
 ijrsLocation = lens _ijrsLocation (\ s a -> s{_ijrsLocation = a});
 
 -- | The response status code.
-ijrsStatus :: Lens' InitiateJobResponse Int
-ijrsStatus = lens _ijrsStatus (\ s a -> s{_ijrsStatus = a});
+ijrsResponseStatus :: Lens' InitiateJobResponse Int
+ijrsResponseStatus = lens _ijrsResponseStatus (\ s a -> s{_ijrsResponseStatus = a});

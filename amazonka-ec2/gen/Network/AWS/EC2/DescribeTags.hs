@@ -44,7 +44,7 @@ module Network.AWS.EC2.DescribeTags
     -- * Response Lenses
     , dtrsNextToken
     , dtrsTags
-    , dtrsStatus
+    , dtrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -156,9 +156,9 @@ instance ToQuery DescribeTags where
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrsNextToken :: !(Maybe Text)
-    , _dtrsTags      :: !(Maybe [TagDescription])
-    , _dtrsStatus    :: !Int
+    { _dtrsNextToken      :: !(Maybe Text)
+    , _dtrsTags           :: !(Maybe [TagDescription])
+    , _dtrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
@@ -169,15 +169,15 @@ data DescribeTagsResponse = DescribeTagsResponse'
 --
 -- * 'dtrsTags'
 --
--- * 'dtrsStatus'
+-- * 'dtrsResponseStatus'
 describeTagsResponse
-    :: Int -- ^ 'dtrsStatus'
+    :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
-describeTagsResponse pStatus_ =
+describeTagsResponse pResponseStatus_ =
     DescribeTagsResponse'
     { _dtrsNextToken = Nothing
     , _dtrsTags = Nothing
-    , _dtrsStatus = pStatus_
+    , _dtrsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
@@ -190,5 +190,5 @@ dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dtrsStatus :: Lens' DescribeTagsResponse Int
-dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
+dtrsResponseStatus :: Lens' DescribeTagsResponse Int
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});

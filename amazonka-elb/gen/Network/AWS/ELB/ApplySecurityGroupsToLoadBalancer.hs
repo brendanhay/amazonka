@@ -41,7 +41,7 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     , ApplySecurityGroupsToLoadBalancerResponse
     -- * Response Lenses
     , asgtlbrsSecurityGroups
-    , asgtlbrsStatus
+    , asgtlbrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -117,7 +117,7 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer
 -- | /See:/ 'applySecurityGroupsToLoadBalancerResponse' smart constructor.
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'
     { _asgtlbrsSecurityGroups :: !(Maybe [Text])
-    , _asgtlbrsStatus         :: !Int
+    , _asgtlbrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ApplySecurityGroupsToLoadBalancerResponse' with the minimum fields required to make a request.
@@ -126,14 +126,14 @@ data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalanc
 --
 -- * 'asgtlbrsSecurityGroups'
 --
--- * 'asgtlbrsStatus'
+-- * 'asgtlbrsResponseStatus'
 applySecurityGroupsToLoadBalancerResponse
-    :: Int -- ^ 'asgtlbrsStatus'
+    :: Int -- ^ 'asgtlbrsResponseStatus'
     -> ApplySecurityGroupsToLoadBalancerResponse
-applySecurityGroupsToLoadBalancerResponse pStatus_ =
+applySecurityGroupsToLoadBalancerResponse pResponseStatus_ =
     ApplySecurityGroupsToLoadBalancerResponse'
     { _asgtlbrsSecurityGroups = Nothing
-    , _asgtlbrsStatus = pStatus_
+    , _asgtlbrsResponseStatus = pResponseStatus_
     }
 
 -- | The IDs of the security groups associated with the load balancer.
@@ -141,5 +141,5 @@ asgtlbrsSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
 asgtlbrsSecurityGroups = lens _asgtlbrsSecurityGroups (\ s a -> s{_asgtlbrsSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The response status code.
-asgtlbrsStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
-asgtlbrsStatus = lens _asgtlbrsStatus (\ s a -> s{_asgtlbrsStatus = a});
+asgtlbrsResponseStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
+asgtlbrsResponseStatus = lens _asgtlbrsResponseStatus (\ s a -> s{_asgtlbrsResponseStatus = a});

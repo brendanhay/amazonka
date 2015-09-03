@@ -28,11 +28,11 @@ import Test.AWS.MachineLearning.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testDeleteDataSource $
---             deleteDataSource
---
---         , testUpdateDataSource $
+--         [ testUpdateDataSource $
 --             updateDataSource
+--
+--         , testDeleteDataSource $
+--             deleteDataSource
 --
 --         , testCreateDataSourceFromRedshift $
 --             createDataSourceFromRedshift
@@ -55,32 +55,29 @@ import Test.AWS.MachineLearning.Internal
 --         , testGetDataSource $
 --             getDataSource
 --
---         , testDeleteMLModel $
---             deleteMLModel
---
---         , testUpdateMLModel $
---             updateMLModel
---
---         , testDescribeBatchPredictions $
---             describeBatchPredictions
---
 --         , testUpdateEvaluation $
 --             updateEvaluation
 --
 --         , testDeleteEvaluation $
 --             deleteEvaluation
 --
+--         , testDeleteMLModel $
+--             deleteMLModel
+--
+--         , testUpdateMLModel $
+--             updateMLModel
+--
 --         , testGetBatchPrediction $
 --             getBatchPrediction
 --
---         , testCreateEvaluation $
---             createEvaluation
+--         , testDescribeBatchPredictions $
+--             describeBatchPredictions
 --
 --         , testCreateDataSourceFromRDS $
 --             createDataSourceFromRDS
 --
---         , testCreateBatchPrediction $
---             createBatchPrediction
+--         , testCreateEvaluation $
+--             createEvaluation
 --
 --         , testPredict $
 --             predict
@@ -88,11 +85,14 @@ import Test.AWS.MachineLearning.Internal
 --         , testDeleteRealtimeEndpoint $
 --             deleteRealtimeEndpoint
 --
---         , testDescribeEvaluations $
---             describeEvaluations
+--         , testCreateBatchPrediction $
+--             createBatchPrediction
 --
 --         , testGetEvaluation $
 --             getEvaluation
+--
+--         , testDescribeEvaluations $
+--             describeEvaluations
 --
 --         , testCreateRealtimeEndpoint $
 --             createRealtimeEndpoint
@@ -106,11 +106,11 @@ import Test.AWS.MachineLearning.Internal
 --           ]
 
 --     , testGroup "response"
---         [ testDeleteDataSourceResponse $
---             deleteDataSourceResponse
---
---         , testUpdateDataSourceResponse $
+--         [ testUpdateDataSourceResponse $
 --             updateDataSourceResponse
+--
+--         , testDeleteDataSourceResponse $
+--             deleteDataSourceResponse
 --
 --         , testCreateDataSourceFromRedshiftResponse $
 --             createDataSourceFromRedshiftResponse
@@ -133,32 +133,29 @@ import Test.AWS.MachineLearning.Internal
 --         , testGetDataSourceResponse $
 --             getDataSourceResponse
 --
---         , testDeleteMLModelResponse $
---             deleteMLModelResponse
---
---         , testUpdateMLModelResponse $
---             updateMLModelResponse
---
---         , testDescribeBatchPredictionsResponse $
---             describeBatchPredictionsResponse
---
 --         , testUpdateEvaluationResponse $
 --             updateEvaluationResponse
 --
 --         , testDeleteEvaluationResponse $
 --             deleteEvaluationResponse
 --
+--         , testDeleteMLModelResponse $
+--             deleteMLModelResponse
+--
+--         , testUpdateMLModelResponse $
+--             updateMLModelResponse
+--
 --         , testGetBatchPredictionResponse $
 --             getBatchPredictionResponse
 --
---         , testCreateEvaluationResponse $
---             createEvaluationResponse
+--         , testDescribeBatchPredictionsResponse $
+--             describeBatchPredictionsResponse
 --
 --         , testCreateDataSourceFromRDSResponse $
 --             createDataSourceFromRDSResponse
 --
---         , testCreateBatchPredictionResponse $
---             createBatchPredictionResponse
+--         , testCreateEvaluationResponse $
+--             createEvaluationResponse
 --
 --         , testPredictResponse $
 --             predictResponse
@@ -166,11 +163,14 @@ import Test.AWS.MachineLearning.Internal
 --         , testDeleteRealtimeEndpointResponse $
 --             deleteRealtimeEndpointResponse
 --
---         , testDescribeEvaluationsResponse $
---             describeEvaluationsResponse
+--         , testCreateBatchPredictionResponse $
+--             createBatchPredictionResponse
 --
 --         , testGetEvaluationResponse $
 --             getEvaluationResponse
+--
+--         , testDescribeEvaluationsResponse $
+--             describeEvaluationsResponse
 --
 --         , testCreateRealtimeEndpointResponse $
 --             createRealtimeEndpointResponse
@@ -186,15 +186,15 @@ import Test.AWS.MachineLearning.Internal
 
 -- Requests
 
-testDeleteDataSource :: DeleteDataSource -> TestTree
-testDeleteDataSource = req
-    "DeleteDataSource"
-    "fixture/DeleteDataSource.yaml"
-
 testUpdateDataSource :: UpdateDataSource -> TestTree
 testUpdateDataSource = req
     "UpdateDataSource"
     "fixture/UpdateDataSource.yaml"
+
+testDeleteDataSource :: DeleteDataSource -> TestTree
+testDeleteDataSource = req
+    "DeleteDataSource"
+    "fixture/DeleteDataSource.yaml"
 
 testCreateDataSourceFromRedshift :: CreateDataSourceFromRedshift -> TestTree
 testCreateDataSourceFromRedshift = req
@@ -231,21 +231,6 @@ testGetDataSource = req
     "GetDataSource"
     "fixture/GetDataSource.yaml"
 
-testDeleteMLModel :: DeleteMLModel -> TestTree
-testDeleteMLModel = req
-    "DeleteMLModel"
-    "fixture/DeleteMLModel.yaml"
-
-testUpdateMLModel :: UpdateMLModel -> TestTree
-testUpdateMLModel = req
-    "UpdateMLModel"
-    "fixture/UpdateMLModel.yaml"
-
-testDescribeBatchPredictions :: DescribeBatchPredictions -> TestTree
-testDescribeBatchPredictions = req
-    "DescribeBatchPredictions"
-    "fixture/DescribeBatchPredictions.yaml"
-
 testUpdateEvaluation :: UpdateEvaluation -> TestTree
 testUpdateEvaluation = req
     "UpdateEvaluation"
@@ -256,25 +241,35 @@ testDeleteEvaluation = req
     "DeleteEvaluation"
     "fixture/DeleteEvaluation.yaml"
 
+testDeleteMLModel :: DeleteMLModel -> TestTree
+testDeleteMLModel = req
+    "DeleteMLModel"
+    "fixture/DeleteMLModel.yaml"
+
+testUpdateMLModel :: UpdateMLModel -> TestTree
+testUpdateMLModel = req
+    "UpdateMLModel"
+    "fixture/UpdateMLModel.yaml"
+
 testGetBatchPrediction :: GetBatchPrediction -> TestTree
 testGetBatchPrediction = req
     "GetBatchPrediction"
     "fixture/GetBatchPrediction.yaml"
 
-testCreateEvaluation :: CreateEvaluation -> TestTree
-testCreateEvaluation = req
-    "CreateEvaluation"
-    "fixture/CreateEvaluation.yaml"
+testDescribeBatchPredictions :: DescribeBatchPredictions -> TestTree
+testDescribeBatchPredictions = req
+    "DescribeBatchPredictions"
+    "fixture/DescribeBatchPredictions.yaml"
 
 testCreateDataSourceFromRDS :: CreateDataSourceFromRDS -> TestTree
 testCreateDataSourceFromRDS = req
     "CreateDataSourceFromRDS"
     "fixture/CreateDataSourceFromRDS.yaml"
 
-testCreateBatchPrediction :: CreateBatchPrediction -> TestTree
-testCreateBatchPrediction = req
-    "CreateBatchPrediction"
-    "fixture/CreateBatchPrediction.yaml"
+testCreateEvaluation :: CreateEvaluation -> TestTree
+testCreateEvaluation = req
+    "CreateEvaluation"
+    "fixture/CreateEvaluation.yaml"
 
 testPredict :: Predict -> TestTree
 testPredict = req
@@ -286,15 +281,20 @@ testDeleteRealtimeEndpoint = req
     "DeleteRealtimeEndpoint"
     "fixture/DeleteRealtimeEndpoint.yaml"
 
-testDescribeEvaluations :: DescribeEvaluations -> TestTree
-testDescribeEvaluations = req
-    "DescribeEvaluations"
-    "fixture/DescribeEvaluations.yaml"
+testCreateBatchPrediction :: CreateBatchPrediction -> TestTree
+testCreateBatchPrediction = req
+    "CreateBatchPrediction"
+    "fixture/CreateBatchPrediction.yaml"
 
 testGetEvaluation :: GetEvaluation -> TestTree
 testGetEvaluation = req
     "GetEvaluation"
     "fixture/GetEvaluation.yaml"
+
+testDescribeEvaluations :: DescribeEvaluations -> TestTree
+testDescribeEvaluations = req
+    "DescribeEvaluations"
+    "fixture/DescribeEvaluations.yaml"
 
 testCreateRealtimeEndpoint :: CreateRealtimeEndpoint -> TestTree
 testCreateRealtimeEndpoint = req
@@ -313,19 +313,19 @@ testDescribeDataSources = req
 
 -- Responses
 
-testDeleteDataSourceResponse :: DeleteDataSourceResponse -> TestTree
-testDeleteDataSourceResponse = res
-    "DeleteDataSourceResponse"
-    "fixture/DeleteDataSourceResponse.proto"
-    machineLearning
-    (Proxy :: Proxy DeleteDataSource)
-
 testUpdateDataSourceResponse :: UpdateDataSourceResponse -> TestTree
 testUpdateDataSourceResponse = res
     "UpdateDataSourceResponse"
     "fixture/UpdateDataSourceResponse.proto"
     machineLearning
     (Proxy :: Proxy UpdateDataSource)
+
+testDeleteDataSourceResponse :: DeleteDataSourceResponse -> TestTree
+testDeleteDataSourceResponse = res
+    "DeleteDataSourceResponse"
+    "fixture/DeleteDataSourceResponse.proto"
+    machineLearning
+    (Proxy :: Proxy DeleteDataSource)
 
 testCreateDataSourceFromRedshiftResponse :: CreateDataSourceFromRedshiftResponse -> TestTree
 testCreateDataSourceFromRedshiftResponse = res
@@ -376,27 +376,6 @@ testGetDataSourceResponse = res
     machineLearning
     (Proxy :: Proxy GetDataSource)
 
-testDeleteMLModelResponse :: DeleteMLModelResponse -> TestTree
-testDeleteMLModelResponse = res
-    "DeleteMLModelResponse"
-    "fixture/DeleteMLModelResponse.proto"
-    machineLearning
-    (Proxy :: Proxy DeleteMLModel)
-
-testUpdateMLModelResponse :: UpdateMLModelResponse -> TestTree
-testUpdateMLModelResponse = res
-    "UpdateMLModelResponse"
-    "fixture/UpdateMLModelResponse.proto"
-    machineLearning
-    (Proxy :: Proxy UpdateMLModel)
-
-testDescribeBatchPredictionsResponse :: DescribeBatchPredictionsResponse -> TestTree
-testDescribeBatchPredictionsResponse = res
-    "DescribeBatchPredictionsResponse"
-    "fixture/DescribeBatchPredictionsResponse.proto"
-    machineLearning
-    (Proxy :: Proxy DescribeBatchPredictions)
-
 testUpdateEvaluationResponse :: UpdateEvaluationResponse -> TestTree
 testUpdateEvaluationResponse = res
     "UpdateEvaluationResponse"
@@ -411,6 +390,20 @@ testDeleteEvaluationResponse = res
     machineLearning
     (Proxy :: Proxy DeleteEvaluation)
 
+testDeleteMLModelResponse :: DeleteMLModelResponse -> TestTree
+testDeleteMLModelResponse = res
+    "DeleteMLModelResponse"
+    "fixture/DeleteMLModelResponse.proto"
+    machineLearning
+    (Proxy :: Proxy DeleteMLModel)
+
+testUpdateMLModelResponse :: UpdateMLModelResponse -> TestTree
+testUpdateMLModelResponse = res
+    "UpdateMLModelResponse"
+    "fixture/UpdateMLModelResponse.proto"
+    machineLearning
+    (Proxy :: Proxy UpdateMLModel)
+
 testGetBatchPredictionResponse :: GetBatchPredictionResponse -> TestTree
 testGetBatchPredictionResponse = res
     "GetBatchPredictionResponse"
@@ -418,12 +411,12 @@ testGetBatchPredictionResponse = res
     machineLearning
     (Proxy :: Proxy GetBatchPrediction)
 
-testCreateEvaluationResponse :: CreateEvaluationResponse -> TestTree
-testCreateEvaluationResponse = res
-    "CreateEvaluationResponse"
-    "fixture/CreateEvaluationResponse.proto"
+testDescribeBatchPredictionsResponse :: DescribeBatchPredictionsResponse -> TestTree
+testDescribeBatchPredictionsResponse = res
+    "DescribeBatchPredictionsResponse"
+    "fixture/DescribeBatchPredictionsResponse.proto"
     machineLearning
-    (Proxy :: Proxy CreateEvaluation)
+    (Proxy :: Proxy DescribeBatchPredictions)
 
 testCreateDataSourceFromRDSResponse :: CreateDataSourceFromRDSResponse -> TestTree
 testCreateDataSourceFromRDSResponse = res
@@ -432,12 +425,12 @@ testCreateDataSourceFromRDSResponse = res
     machineLearning
     (Proxy :: Proxy CreateDataSourceFromRDS)
 
-testCreateBatchPredictionResponse :: CreateBatchPredictionResponse -> TestTree
-testCreateBatchPredictionResponse = res
-    "CreateBatchPredictionResponse"
-    "fixture/CreateBatchPredictionResponse.proto"
+testCreateEvaluationResponse :: CreateEvaluationResponse -> TestTree
+testCreateEvaluationResponse = res
+    "CreateEvaluationResponse"
+    "fixture/CreateEvaluationResponse.proto"
     machineLearning
-    (Proxy :: Proxy CreateBatchPrediction)
+    (Proxy :: Proxy CreateEvaluation)
 
 testPredictResponse :: PredictResponse -> TestTree
 testPredictResponse = res
@@ -453,12 +446,12 @@ testDeleteRealtimeEndpointResponse = res
     machineLearning
     (Proxy :: Proxy DeleteRealtimeEndpoint)
 
-testDescribeEvaluationsResponse :: DescribeEvaluationsResponse -> TestTree
-testDescribeEvaluationsResponse = res
-    "DescribeEvaluationsResponse"
-    "fixture/DescribeEvaluationsResponse.proto"
+testCreateBatchPredictionResponse :: CreateBatchPredictionResponse -> TestTree
+testCreateBatchPredictionResponse = res
+    "CreateBatchPredictionResponse"
+    "fixture/CreateBatchPredictionResponse.proto"
     machineLearning
-    (Proxy :: Proxy DescribeEvaluations)
+    (Proxy :: Proxy CreateBatchPrediction)
 
 testGetEvaluationResponse :: GetEvaluationResponse -> TestTree
 testGetEvaluationResponse = res
@@ -466,6 +459,13 @@ testGetEvaluationResponse = res
     "fixture/GetEvaluationResponse.proto"
     machineLearning
     (Proxy :: Proxy GetEvaluation)
+
+testDescribeEvaluationsResponse :: DescribeEvaluationsResponse -> TestTree
+testDescribeEvaluationsResponse = res
+    "DescribeEvaluationsResponse"
+    "fixture/DescribeEvaluationsResponse.proto"
+    machineLearning
+    (Proxy :: Proxy DescribeEvaluations)
 
 testCreateRealtimeEndpointResponse :: CreateRealtimeEndpointResponse -> TestTree
 testCreateRealtimeEndpointResponse = res

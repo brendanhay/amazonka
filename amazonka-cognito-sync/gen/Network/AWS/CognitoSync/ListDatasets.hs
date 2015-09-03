@@ -45,7 +45,7 @@ module Network.AWS.CognitoSync.ListDatasets
     , ldrsCount
     , ldrsNextToken
     , ldrsDatasets
-    , ldrsStatus
+    , ldrsResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -141,10 +141,10 @@ instance ToQuery ListDatasets where
 --
 -- /See:/ 'listDatasetsResponse' smart constructor.
 data ListDatasetsResponse = ListDatasetsResponse'
-    { _ldrsCount     :: !(Maybe Int)
-    , _ldrsNextToken :: !(Maybe Text)
-    , _ldrsDatasets  :: !(Maybe [Dataset])
-    , _ldrsStatus    :: !Int
+    { _ldrsCount          :: !(Maybe Int)
+    , _ldrsNextToken      :: !(Maybe Text)
+    , _ldrsDatasets       :: !(Maybe [Dataset])
+    , _ldrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListDatasetsResponse' with the minimum fields required to make a request.
@@ -157,16 +157,16 @@ data ListDatasetsResponse = ListDatasetsResponse'
 --
 -- * 'ldrsDatasets'
 --
--- * 'ldrsStatus'
+-- * 'ldrsResponseStatus'
 listDatasetsResponse
-    :: Int -- ^ 'ldrsStatus'
+    :: Int -- ^ 'ldrsResponseStatus'
     -> ListDatasetsResponse
-listDatasetsResponse pStatus_ =
+listDatasetsResponse pResponseStatus_ =
     ListDatasetsResponse'
     { _ldrsCount = Nothing
     , _ldrsNextToken = Nothing
     , _ldrsDatasets = Nothing
-    , _ldrsStatus = pStatus_
+    , _ldrsResponseStatus = pResponseStatus_
     }
 
 -- | Number of datasets returned.
@@ -182,5 +182,5 @@ ldrsDatasets :: Lens' ListDatasetsResponse [Dataset]
 ldrsDatasets = lens _ldrsDatasets (\ s a -> s{_ldrsDatasets = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ldrsStatus :: Lens' ListDatasetsResponse Int
-ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
+ldrsResponseStatus :: Lens' ListDatasetsResponse Int
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});

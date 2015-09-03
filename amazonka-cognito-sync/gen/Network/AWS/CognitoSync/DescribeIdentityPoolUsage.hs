@@ -39,7 +39,7 @@ module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
     , DescribeIdentityPoolUsageResponse
     -- * Response Lenses
     , dipursIdentityPoolUsage
-    , dipursStatus
+    , dipursResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -104,7 +104,7 @@ instance ToQuery DescribeIdentityPoolUsage where
 -- /See:/ 'describeIdentityPoolUsageResponse' smart constructor.
 data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'
     { _dipursIdentityPoolUsage :: !(Maybe IdentityPoolUsage)
-    , _dipursStatus            :: !Int
+    , _dipursResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeIdentityPoolUsageResponse' with the minimum fields required to make a request.
@@ -113,14 +113,14 @@ data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'
 --
 -- * 'dipursIdentityPoolUsage'
 --
--- * 'dipursStatus'
+-- * 'dipursResponseStatus'
 describeIdentityPoolUsageResponse
-    :: Int -- ^ 'dipursStatus'
+    :: Int -- ^ 'dipursResponseStatus'
     -> DescribeIdentityPoolUsageResponse
-describeIdentityPoolUsageResponse pStatus_ =
+describeIdentityPoolUsageResponse pResponseStatus_ =
     DescribeIdentityPoolUsageResponse'
     { _dipursIdentityPoolUsage = Nothing
-    , _dipursStatus = pStatus_
+    , _dipursResponseStatus = pResponseStatus_
     }
 
 -- | Information about the usage of the identity pool.
@@ -128,5 +128,5 @@ dipursIdentityPoolUsage :: Lens' DescribeIdentityPoolUsageResponse (Maybe Identi
 dipursIdentityPoolUsage = lens _dipursIdentityPoolUsage (\ s a -> s{_dipursIdentityPoolUsage = a});
 
 -- | The response status code.
-dipursStatus :: Lens' DescribeIdentityPoolUsageResponse Int
-dipursStatus = lens _dipursStatus (\ s a -> s{_dipursStatus = a});
+dipursResponseStatus :: Lens' DescribeIdentityPoolUsageResponse Int
+dipursResponseStatus = lens _dipursResponseStatus (\ s a -> s{_dipursResponseStatus = a});

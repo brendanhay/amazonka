@@ -41,7 +41,7 @@ module Network.AWS.CloudSearch.DescribeExpressions
     , describeExpressionsResponse
     , DescribeExpressionsResponse
     -- * Response Lenses
-    , drsStatus
+    , drsResponseStatus
     , drsExpressions
     ) where
 
@@ -131,29 +131,29 @@ instance ToQuery DescribeExpressions where
 --
 -- /See:/ 'describeExpressionsResponse' smart constructor.
 data DescribeExpressionsResponse = DescribeExpressionsResponse'
-    { _drsStatus      :: !Int
-    , _drsExpressions :: ![ExpressionStatus]
+    { _drsResponseStatus :: !Int
+    , _drsExpressions    :: ![ExpressionStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeExpressionsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 --
 -- * 'drsExpressions'
 describeExpressionsResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DescribeExpressionsResponse
-describeExpressionsResponse pStatus_ =
+describeExpressionsResponse pResponseStatus_ =
     DescribeExpressionsResponse'
-    { _drsStatus = pStatus_
+    { _drsResponseStatus = pResponseStatus_
     , _drsExpressions = mempty
     }
 
 -- | The response status code.
-drsStatus :: Lens' DescribeExpressionsResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DescribeExpressionsResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
 -- | The expressions configured for the domain.
 drsExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]

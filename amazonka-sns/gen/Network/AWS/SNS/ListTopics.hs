@@ -40,7 +40,7 @@ module Network.AWS.SNS.ListTopics
     -- * Response Lenses
     , ltrsTopics
     , ltrsNextToken
-    , ltrsStatus
+    , ltrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -107,9 +107,9 @@ instance ToQuery ListTopics where
 --
 -- /See:/ 'listTopicsResponse' smart constructor.
 data ListTopicsResponse = ListTopicsResponse'
-    { _ltrsTopics    :: !(Maybe [Topic])
-    , _ltrsNextToken :: !(Maybe Text)
-    , _ltrsStatus    :: !Int
+    { _ltrsTopics         :: !(Maybe [Topic])
+    , _ltrsNextToken      :: !(Maybe Text)
+    , _ltrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListTopicsResponse' with the minimum fields required to make a request.
@@ -120,15 +120,15 @@ data ListTopicsResponse = ListTopicsResponse'
 --
 -- * 'ltrsNextToken'
 --
--- * 'ltrsStatus'
+-- * 'ltrsResponseStatus'
 listTopicsResponse
-    :: Int -- ^ 'ltrsStatus'
+    :: Int -- ^ 'ltrsResponseStatus'
     -> ListTopicsResponse
-listTopicsResponse pStatus_ =
+listTopicsResponse pResponseStatus_ =
     ListTopicsResponse'
     { _ltrsTopics = Nothing
     , _ltrsNextToken = Nothing
-    , _ltrsStatus = pStatus_
+    , _ltrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of topic ARNs.
@@ -141,5 +141,5 @@ ltrsNextToken :: Lens' ListTopicsResponse (Maybe Text)
 ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 
 -- | The response status code.
-ltrsStatus :: Lens' ListTopicsResponse Int
-ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});
+ltrsResponseStatus :: Lens' ListTopicsResponse Int
+ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});

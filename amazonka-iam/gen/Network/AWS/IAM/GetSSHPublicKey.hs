@@ -44,7 +44,7 @@ module Network.AWS.IAM.GetSSHPublicKey
     , GetSSHPublicKeyResponse
     -- * Response Lenses
     , gspkrsSSHPublicKey
-    , gspkrsStatus
+    , gspkrsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -123,8 +123,8 @@ instance ToQuery GetSSHPublicKey where
 --
 -- /See:/ 'getSSHPublicKeyResponse' smart constructor.
 data GetSSHPublicKeyResponse = GetSSHPublicKeyResponse'
-    { _gspkrsSSHPublicKey :: !(Maybe SSHPublicKey)
-    , _gspkrsStatus       :: !Int
+    { _gspkrsSSHPublicKey   :: !(Maybe SSHPublicKey)
+    , _gspkrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetSSHPublicKeyResponse' with the minimum fields required to make a request.
@@ -133,14 +133,14 @@ data GetSSHPublicKeyResponse = GetSSHPublicKeyResponse'
 --
 -- * 'gspkrsSSHPublicKey'
 --
--- * 'gspkrsStatus'
+-- * 'gspkrsResponseStatus'
 getSSHPublicKeyResponse
-    :: Int -- ^ 'gspkrsStatus'
+    :: Int -- ^ 'gspkrsResponseStatus'
     -> GetSSHPublicKeyResponse
-getSSHPublicKeyResponse pStatus_ =
+getSSHPublicKeyResponse pResponseStatus_ =
     GetSSHPublicKeyResponse'
     { _gspkrsSSHPublicKey = Nothing
-    , _gspkrsStatus = pStatus_
+    , _gspkrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the SSH public key.
@@ -148,5 +148,5 @@ gspkrsSSHPublicKey :: Lens' GetSSHPublicKeyResponse (Maybe SSHPublicKey)
 gspkrsSSHPublicKey = lens _gspkrsSSHPublicKey (\ s a -> s{_gspkrsSSHPublicKey = a});
 
 -- | The response status code.
-gspkrsStatus :: Lens' GetSSHPublicKeyResponse Int
-gspkrsStatus = lens _gspkrsStatus (\ s a -> s{_gspkrsStatus = a});
+gspkrsResponseStatus :: Lens' GetSSHPublicKeyResponse Int
+gspkrsResponseStatus = lens _gspkrsResponseStatus (\ s a -> s{_gspkrsResponseStatus = a});

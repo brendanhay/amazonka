@@ -33,8 +33,8 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     -- * Request Lenses
     , drcnCacheNodeType
     , drcnProductDescription
-    , drcnMaxRecords
     , drcnMarker
+    , drcnMaxRecords
     , drcnReservedCacheNodeId
     , drcnOfferingType
     , drcnDuration
@@ -46,7 +46,7 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     -- * Response Lenses
     , drcnrsMarker
     , drcnrsReservedCacheNodes
-    , drcnrsStatus
+    , drcnrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -62,8 +62,8 @@ import           Network.AWS.Response
 data DescribeReservedCacheNodes = DescribeReservedCacheNodes'
     { _drcnCacheNodeType                :: !(Maybe Text)
     , _drcnProductDescription           :: !(Maybe Text)
-    , _drcnMaxRecords                   :: !(Maybe Int)
     , _drcnMarker                       :: !(Maybe Text)
+    , _drcnMaxRecords                   :: !(Maybe Int)
     , _drcnReservedCacheNodeId          :: !(Maybe Text)
     , _drcnOfferingType                 :: !(Maybe Text)
     , _drcnDuration                     :: !(Maybe Text)
@@ -78,9 +78,9 @@ data DescribeReservedCacheNodes = DescribeReservedCacheNodes'
 --
 -- * 'drcnProductDescription'
 --
--- * 'drcnMaxRecords'
---
 -- * 'drcnMarker'
+--
+-- * 'drcnMaxRecords'
 --
 -- * 'drcnReservedCacheNodeId'
 --
@@ -95,8 +95,8 @@ describeReservedCacheNodes =
     DescribeReservedCacheNodes'
     { _drcnCacheNodeType = Nothing
     , _drcnProductDescription = Nothing
-    , _drcnMaxRecords = Nothing
     , _drcnMarker = Nothing
+    , _drcnMaxRecords = Nothing
     , _drcnReservedCacheNodeId = Nothing
     , _drcnOfferingType = Nothing
     , _drcnDuration = Nothing
@@ -143,6 +143,13 @@ drcnCacheNodeType = lens _drcnCacheNodeType (\ s a -> s{_drcnCacheNodeType = a})
 drcnProductDescription :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnProductDescription = lens _drcnProductDescription (\ s a -> s{_drcnProductDescription = a});
 
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+drcnMarker :: Lens' DescribeReservedCacheNodes (Maybe Text)
+drcnMarker = lens _drcnMarker (\ s a -> s{_drcnMarker = a});
+
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -152,13 +159,6 @@ drcnProductDescription = lens _drcnProductDescription (\ s a -> s{_drcnProductDe
 -- Constraints: minimum 20; maximum 100.
 drcnMaxRecords :: Lens' DescribeReservedCacheNodes (Maybe Int)
 drcnMaxRecords = lens _drcnMaxRecords (\ s a -> s{_drcnMaxRecords = a});
-
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
-drcnMarker :: Lens' DescribeReservedCacheNodes (Maybe Text)
-drcnMarker = lens _drcnMarker (\ s a -> s{_drcnMarker = a});
 
 -- | The reserved cache node identifier filter value. Use this parameter to
 -- show only the reservation that matches the specified reservation ID.
@@ -220,8 +220,8 @@ instance ToQuery DescribeReservedCacheNodes where
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheNodeType" =: _drcnCacheNodeType,
                "ProductDescription" =: _drcnProductDescription,
-               "MaxRecords" =: _drcnMaxRecords,
                "Marker" =: _drcnMarker,
+               "MaxRecords" =: _drcnMaxRecords,
                "ReservedCacheNodeId" =: _drcnReservedCacheNodeId,
                "OfferingType" =: _drcnOfferingType,
                "Duration" =: _drcnDuration,
@@ -234,7 +234,7 @@ instance ToQuery DescribeReservedCacheNodes where
 data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse'
     { _drcnrsMarker             :: !(Maybe Text)
     , _drcnrsReservedCacheNodes :: !(Maybe [ReservedCacheNode])
-    , _drcnrsStatus             :: !Int
+    , _drcnrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedCacheNodesResponse' with the minimum fields required to make a request.
@@ -245,15 +245,15 @@ data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse'
 --
 -- * 'drcnrsReservedCacheNodes'
 --
--- * 'drcnrsStatus'
+-- * 'drcnrsResponseStatus'
 describeReservedCacheNodesResponse
-    :: Int -- ^ 'drcnrsStatus'
+    :: Int -- ^ 'drcnrsResponseStatus'
     -> DescribeReservedCacheNodesResponse
-describeReservedCacheNodesResponse pStatus_ =
+describeReservedCacheNodesResponse pResponseStatus_ =
     DescribeReservedCacheNodesResponse'
     { _drcnrsMarker = Nothing
     , _drcnrsReservedCacheNodes = Nothing
-    , _drcnrsStatus = pStatus_
+    , _drcnrsResponseStatus = pResponseStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -266,5 +266,5 @@ drcnrsReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse [ReservedCa
 drcnrsReservedCacheNodes = lens _drcnrsReservedCacheNodes (\ s a -> s{_drcnrsReservedCacheNodes = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drcnrsStatus :: Lens' DescribeReservedCacheNodesResponse Int
-drcnrsStatus = lens _drcnrsStatus (\ s a -> s{_drcnrsStatus = a});
+drcnrsResponseStatus :: Lens' DescribeReservedCacheNodesResponse Int
+drcnrsResponseStatus = lens _drcnrsResponseStatus (\ s a -> s{_drcnrsResponseStatus = a});

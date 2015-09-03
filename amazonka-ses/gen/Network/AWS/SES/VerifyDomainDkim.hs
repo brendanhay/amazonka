@@ -48,7 +48,7 @@ module Network.AWS.SES.VerifyDomainDkim
     , verifyDomainDkimResponse
     , VerifyDomainDkimResponse
     -- * Response Lenses
-    , vddrsStatus
+    , vddrsResponseStatus
     , vddrsDkimTokens
     ) where
 
@@ -112,29 +112,29 @@ instance ToQuery VerifyDomainDkim where
 --
 -- /See:/ 'verifyDomainDkimResponse' smart constructor.
 data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
-    { _vddrsStatus     :: !Int
-    , _vddrsDkimTokens :: ![Text]
+    { _vddrsResponseStatus :: !Int
+    , _vddrsDkimTokens     :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VerifyDomainDkimResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vddrsStatus'
+-- * 'vddrsResponseStatus'
 --
 -- * 'vddrsDkimTokens'
 verifyDomainDkimResponse
-    :: Int -- ^ 'vddrsStatus'
+    :: Int -- ^ 'vddrsResponseStatus'
     -> VerifyDomainDkimResponse
-verifyDomainDkimResponse pStatus_ =
+verifyDomainDkimResponse pResponseStatus_ =
     VerifyDomainDkimResponse'
-    { _vddrsStatus = pStatus_
+    { _vddrsResponseStatus = pResponseStatus_
     , _vddrsDkimTokens = mempty
     }
 
 -- | The response status code.
-vddrsStatus :: Lens' VerifyDomainDkimResponse Int
-vddrsStatus = lens _vddrsStatus (\ s a -> s{_vddrsStatus = a});
+vddrsResponseStatus :: Lens' VerifyDomainDkimResponse Int
+vddrsResponseStatus = lens _vddrsResponseStatus (\ s a -> s{_vddrsResponseStatus = a});
 
 -- | A set of character strings that represent the domain\'s identity. If the
 -- identity is an email address, the tokens represent the domain of that

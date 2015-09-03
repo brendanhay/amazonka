@@ -52,17 +52,17 @@ import Test.AWS.CloudSearch.Internal
 --         , testDeleteExpression $
 --             deleteExpression
 --
---         , testDescribeDomains $
---             describeDomains
+--         , testListDomainNames $
+--             listDomainNames
 --
 --         , testDefineSuggester $
 --             defineSuggester
 --
+--         , testDescribeDomains $
+--             describeDomains
+--
 --         , testDeleteAnalysisScheme $
 --             deleteAnalysisScheme
---
---         , testListDomainNames $
---             listDomainNames
 --
 --         , testDescribeAnalysisSchemes $
 --             describeAnalysisSchemes
@@ -70,14 +70,14 @@ import Test.AWS.CloudSearch.Internal
 --         , testCreateDomain $
 --             createDomain
 --
---         , testDefineAnalysisScheme $
---             defineAnalysisScheme
+--         , testDescribeIndexFields $
+--             describeIndexFields
 --
 --         , testDeleteSuggester $
 --             deleteSuggester
 --
---         , testDescribeIndexFields $
---             describeIndexFields
+--         , testDefineAnalysisScheme $
+--             defineAnalysisScheme
 --
 --         , testIndexDocuments $
 --             indexDocuments
@@ -85,20 +85,20 @@ import Test.AWS.CloudSearch.Internal
 --         , testDeleteIndexField $
 --             deleteIndexField
 --
---         , testBuildSuggesters $
---             buildSuggesters
+--         , testUpdateServiceAccessPolicies $
+--             updateServiceAccessPolicies
 --
 --         , testUpdateScalingParameters $
 --             updateScalingParameters
 --
---         , testUpdateServiceAccessPolicies $
---             updateServiceAccessPolicies
---
---         , testDefineIndexField $
---             defineIndexField
+--         , testBuildSuggesters $
+--             buildSuggesters
 --
 --         , testDeleteDomain $
 --             deleteDomain
+--
+--         , testDefineIndexField $
+--             defineIndexField
 --
 --           ]
 
@@ -127,17 +127,17 @@ import Test.AWS.CloudSearch.Internal
 --         , testDeleteExpressionResponse $
 --             deleteExpressionResponse
 --
---         , testDescribeDomainsResponse $
---             describeDomainsResponse
+--         , testListDomainNamesResponse $
+--             listDomainNamesResponse
 --
 --         , testDefineSuggesterResponse $
 --             defineSuggesterResponse
 --
+--         , testDescribeDomainsResponse $
+--             describeDomainsResponse
+--
 --         , testDeleteAnalysisSchemeResponse $
 --             deleteAnalysisSchemeResponse
---
---         , testListDomainNamesResponse $
---             listDomainNamesResponse
 --
 --         , testDescribeAnalysisSchemesResponse $
 --             describeAnalysisSchemesResponse
@@ -145,14 +145,14 @@ import Test.AWS.CloudSearch.Internal
 --         , testCreateDomainResponse $
 --             createDomainResponse
 --
---         , testDefineAnalysisSchemeResponse $
---             defineAnalysisSchemeResponse
+--         , testDescribeIndexFieldsResponse $
+--             describeIndexFieldsResponse
 --
 --         , testDeleteSuggesterResponse $
 --             deleteSuggesterResponse
 --
---         , testDescribeIndexFieldsResponse $
---             describeIndexFieldsResponse
+--         , testDefineAnalysisSchemeResponse $
+--             defineAnalysisSchemeResponse
 --
 --         , testIndexDocumentsResponse $
 --             indexDocumentsResponse
@@ -160,20 +160,20 @@ import Test.AWS.CloudSearch.Internal
 --         , testDeleteIndexFieldResponse $
 --             deleteIndexFieldResponse
 --
---         , testBuildSuggestersResponse $
---             buildSuggestersResponse
+--         , testUpdateServiceAccessPoliciesResponse $
+--             updateServiceAccessPoliciesResponse
 --
 --         , testUpdateScalingParametersResponse $
 --             updateScalingParametersResponse
 --
---         , testUpdateServiceAccessPoliciesResponse $
---             updateServiceAccessPoliciesResponse
---
---         , testDefineIndexFieldResponse $
---             defineIndexFieldResponse
+--         , testBuildSuggestersResponse $
+--             buildSuggestersResponse
 --
 --         , testDeleteDomainResponse $
 --             deleteDomainResponse
+--
+--         , testDefineIndexFieldResponse $
+--             defineIndexFieldResponse
 --
 --           ]
 --     ]
@@ -220,25 +220,25 @@ testDeleteExpression = req
     "DeleteExpression"
     "fixture/DeleteExpression.yaml"
 
-testDescribeDomains :: DescribeDomains -> TestTree
-testDescribeDomains = req
-    "DescribeDomains"
-    "fixture/DescribeDomains.yaml"
+testListDomainNames :: ListDomainNames -> TestTree
+testListDomainNames = req
+    "ListDomainNames"
+    "fixture/ListDomainNames.yaml"
 
 testDefineSuggester :: DefineSuggester -> TestTree
 testDefineSuggester = req
     "DefineSuggester"
     "fixture/DefineSuggester.yaml"
 
+testDescribeDomains :: DescribeDomains -> TestTree
+testDescribeDomains = req
+    "DescribeDomains"
+    "fixture/DescribeDomains.yaml"
+
 testDeleteAnalysisScheme :: DeleteAnalysisScheme -> TestTree
 testDeleteAnalysisScheme = req
     "DeleteAnalysisScheme"
     "fixture/DeleteAnalysisScheme.yaml"
-
-testListDomainNames :: ListDomainNames -> TestTree
-testListDomainNames = req
-    "ListDomainNames"
-    "fixture/ListDomainNames.yaml"
 
 testDescribeAnalysisSchemes :: DescribeAnalysisSchemes -> TestTree
 testDescribeAnalysisSchemes = req
@@ -250,20 +250,20 @@ testCreateDomain = req
     "CreateDomain"
     "fixture/CreateDomain.yaml"
 
-testDefineAnalysisScheme :: DefineAnalysisScheme -> TestTree
-testDefineAnalysisScheme = req
-    "DefineAnalysisScheme"
-    "fixture/DefineAnalysisScheme.yaml"
+testDescribeIndexFields :: DescribeIndexFields -> TestTree
+testDescribeIndexFields = req
+    "DescribeIndexFields"
+    "fixture/DescribeIndexFields.yaml"
 
 testDeleteSuggester :: DeleteSuggester -> TestTree
 testDeleteSuggester = req
     "DeleteSuggester"
     "fixture/DeleteSuggester.yaml"
 
-testDescribeIndexFields :: DescribeIndexFields -> TestTree
-testDescribeIndexFields = req
-    "DescribeIndexFields"
-    "fixture/DescribeIndexFields.yaml"
+testDefineAnalysisScheme :: DefineAnalysisScheme -> TestTree
+testDefineAnalysisScheme = req
+    "DefineAnalysisScheme"
+    "fixture/DefineAnalysisScheme.yaml"
 
 testIndexDocuments :: IndexDocuments -> TestTree
 testIndexDocuments = req
@@ -275,30 +275,30 @@ testDeleteIndexField = req
     "DeleteIndexField"
     "fixture/DeleteIndexField.yaml"
 
-testBuildSuggesters :: BuildSuggesters -> TestTree
-testBuildSuggesters = req
-    "BuildSuggesters"
-    "fixture/BuildSuggesters.yaml"
+testUpdateServiceAccessPolicies :: UpdateServiceAccessPolicies -> TestTree
+testUpdateServiceAccessPolicies = req
+    "UpdateServiceAccessPolicies"
+    "fixture/UpdateServiceAccessPolicies.yaml"
 
 testUpdateScalingParameters :: UpdateScalingParameters -> TestTree
 testUpdateScalingParameters = req
     "UpdateScalingParameters"
     "fixture/UpdateScalingParameters.yaml"
 
-testUpdateServiceAccessPolicies :: UpdateServiceAccessPolicies -> TestTree
-testUpdateServiceAccessPolicies = req
-    "UpdateServiceAccessPolicies"
-    "fixture/UpdateServiceAccessPolicies.yaml"
-
-testDefineIndexField :: DefineIndexField -> TestTree
-testDefineIndexField = req
-    "DefineIndexField"
-    "fixture/DefineIndexField.yaml"
+testBuildSuggesters :: BuildSuggesters -> TestTree
+testBuildSuggesters = req
+    "BuildSuggesters"
+    "fixture/BuildSuggesters.yaml"
 
 testDeleteDomain :: DeleteDomain -> TestTree
 testDeleteDomain = req
     "DeleteDomain"
     "fixture/DeleteDomain.yaml"
+
+testDefineIndexField :: DefineIndexField -> TestTree
+testDefineIndexField = req
+    "DefineIndexField"
+    "fixture/DefineIndexField.yaml"
 
 -- Responses
 
@@ -358,12 +358,12 @@ testDeleteExpressionResponse = res
     cloudSearch
     (Proxy :: Proxy DeleteExpression)
 
-testDescribeDomainsResponse :: DescribeDomainsResponse -> TestTree
-testDescribeDomainsResponse = res
-    "DescribeDomainsResponse"
-    "fixture/DescribeDomainsResponse.proto"
+testListDomainNamesResponse :: ListDomainNamesResponse -> TestTree
+testListDomainNamesResponse = res
+    "ListDomainNamesResponse"
+    "fixture/ListDomainNamesResponse.proto"
     cloudSearch
-    (Proxy :: Proxy DescribeDomains)
+    (Proxy :: Proxy ListDomainNames)
 
 testDefineSuggesterResponse :: DefineSuggesterResponse -> TestTree
 testDefineSuggesterResponse = res
@@ -372,19 +372,19 @@ testDefineSuggesterResponse = res
     cloudSearch
     (Proxy :: Proxy DefineSuggester)
 
+testDescribeDomainsResponse :: DescribeDomainsResponse -> TestTree
+testDescribeDomainsResponse = res
+    "DescribeDomainsResponse"
+    "fixture/DescribeDomainsResponse.proto"
+    cloudSearch
+    (Proxy :: Proxy DescribeDomains)
+
 testDeleteAnalysisSchemeResponse :: DeleteAnalysisSchemeResponse -> TestTree
 testDeleteAnalysisSchemeResponse = res
     "DeleteAnalysisSchemeResponse"
     "fixture/DeleteAnalysisSchemeResponse.proto"
     cloudSearch
     (Proxy :: Proxy DeleteAnalysisScheme)
-
-testListDomainNamesResponse :: ListDomainNamesResponse -> TestTree
-testListDomainNamesResponse = res
-    "ListDomainNamesResponse"
-    "fixture/ListDomainNamesResponse.proto"
-    cloudSearch
-    (Proxy :: Proxy ListDomainNames)
 
 testDescribeAnalysisSchemesResponse :: DescribeAnalysisSchemesResponse -> TestTree
 testDescribeAnalysisSchemesResponse = res
@@ -400,12 +400,12 @@ testCreateDomainResponse = res
     cloudSearch
     (Proxy :: Proxy CreateDomain)
 
-testDefineAnalysisSchemeResponse :: DefineAnalysisSchemeResponse -> TestTree
-testDefineAnalysisSchemeResponse = res
-    "DefineAnalysisSchemeResponse"
-    "fixture/DefineAnalysisSchemeResponse.proto"
+testDescribeIndexFieldsResponse :: DescribeIndexFieldsResponse -> TestTree
+testDescribeIndexFieldsResponse = res
+    "DescribeIndexFieldsResponse"
+    "fixture/DescribeIndexFieldsResponse.proto"
     cloudSearch
-    (Proxy :: Proxy DefineAnalysisScheme)
+    (Proxy :: Proxy DescribeIndexFields)
 
 testDeleteSuggesterResponse :: DeleteSuggesterResponse -> TestTree
 testDeleteSuggesterResponse = res
@@ -414,12 +414,12 @@ testDeleteSuggesterResponse = res
     cloudSearch
     (Proxy :: Proxy DeleteSuggester)
 
-testDescribeIndexFieldsResponse :: DescribeIndexFieldsResponse -> TestTree
-testDescribeIndexFieldsResponse = res
-    "DescribeIndexFieldsResponse"
-    "fixture/DescribeIndexFieldsResponse.proto"
+testDefineAnalysisSchemeResponse :: DefineAnalysisSchemeResponse -> TestTree
+testDefineAnalysisSchemeResponse = res
+    "DefineAnalysisSchemeResponse"
+    "fixture/DefineAnalysisSchemeResponse.proto"
     cloudSearch
-    (Proxy :: Proxy DescribeIndexFields)
+    (Proxy :: Proxy DefineAnalysisScheme)
 
 testIndexDocumentsResponse :: IndexDocumentsResponse -> TestTree
 testIndexDocumentsResponse = res
@@ -435,12 +435,12 @@ testDeleteIndexFieldResponse = res
     cloudSearch
     (Proxy :: Proxy DeleteIndexField)
 
-testBuildSuggestersResponse :: BuildSuggestersResponse -> TestTree
-testBuildSuggestersResponse = res
-    "BuildSuggestersResponse"
-    "fixture/BuildSuggestersResponse.proto"
+testUpdateServiceAccessPoliciesResponse :: UpdateServiceAccessPoliciesResponse -> TestTree
+testUpdateServiceAccessPoliciesResponse = res
+    "UpdateServiceAccessPoliciesResponse"
+    "fixture/UpdateServiceAccessPoliciesResponse.proto"
     cloudSearch
-    (Proxy :: Proxy BuildSuggesters)
+    (Proxy :: Proxy UpdateServiceAccessPolicies)
 
 testUpdateScalingParametersResponse :: UpdateScalingParametersResponse -> TestTree
 testUpdateScalingParametersResponse = res
@@ -449,19 +449,12 @@ testUpdateScalingParametersResponse = res
     cloudSearch
     (Proxy :: Proxy UpdateScalingParameters)
 
-testUpdateServiceAccessPoliciesResponse :: UpdateServiceAccessPoliciesResponse -> TestTree
-testUpdateServiceAccessPoliciesResponse = res
-    "UpdateServiceAccessPoliciesResponse"
-    "fixture/UpdateServiceAccessPoliciesResponse.proto"
+testBuildSuggestersResponse :: BuildSuggestersResponse -> TestTree
+testBuildSuggestersResponse = res
+    "BuildSuggestersResponse"
+    "fixture/BuildSuggestersResponse.proto"
     cloudSearch
-    (Proxy :: Proxy UpdateServiceAccessPolicies)
-
-testDefineIndexFieldResponse :: DefineIndexFieldResponse -> TestTree
-testDefineIndexFieldResponse = res
-    "DefineIndexFieldResponse"
-    "fixture/DefineIndexFieldResponse.proto"
-    cloudSearch
-    (Proxy :: Proxy DefineIndexField)
+    (Proxy :: Proxy BuildSuggesters)
 
 testDeleteDomainResponse :: DeleteDomainResponse -> TestTree
 testDeleteDomainResponse = res
@@ -469,3 +462,10 @@ testDeleteDomainResponse = res
     "fixture/DeleteDomainResponse.proto"
     cloudSearch
     (Proxy :: Proxy DeleteDomain)
+
+testDefineIndexFieldResponse :: DefineIndexFieldResponse -> TestTree
+testDefineIndexFieldResponse = res
+    "DefineIndexFieldResponse"
+    "fixture/DefineIndexFieldResponse.proto"
+    cloudSearch
+    (Proxy :: Proxy DefineIndexField)

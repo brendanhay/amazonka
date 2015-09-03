@@ -32,8 +32,8 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     , DescribeCacheParameterGroups
     -- * Request Lenses
     , dcpgCacheParameterGroupName
-    , dcpgMaxRecords
     , dcpgMarker
+    , dcpgMaxRecords
 
     -- * Destructuring the Response
     , describeCacheParameterGroupsResponse
@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     -- * Response Lenses
     , dcpgrsCacheParameterGroups
     , dcpgrsMarker
-    , dcpgrsStatus
+    , dcpgrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -56,8 +56,8 @@ import           Network.AWS.Response
 -- /See:/ 'describeCacheParameterGroups' smart constructor.
 data DescribeCacheParameterGroups = DescribeCacheParameterGroups'
     { _dcpgCacheParameterGroupName :: !(Maybe Text)
-    , _dcpgMaxRecords              :: !(Maybe Int)
     , _dcpgMarker                  :: !(Maybe Text)
+    , _dcpgMaxRecords              :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCacheParameterGroups' with the minimum fields required to make a request.
@@ -66,21 +66,28 @@ data DescribeCacheParameterGroups = DescribeCacheParameterGroups'
 --
 -- * 'dcpgCacheParameterGroupName'
 --
--- * 'dcpgMaxRecords'
---
 -- * 'dcpgMarker'
+--
+-- * 'dcpgMaxRecords'
 describeCacheParameterGroups
     :: DescribeCacheParameterGroups
 describeCacheParameterGroups =
     DescribeCacheParameterGroups'
     { _dcpgCacheParameterGroupName = Nothing
-    , _dcpgMaxRecords = Nothing
     , _dcpgMarker = Nothing
+    , _dcpgMaxRecords = Nothing
     }
 
 -- | The name of a specific cache parameter group to return details for.
 dcpgCacheParameterGroupName :: Lens' DescribeCacheParameterGroups (Maybe Text)
 dcpgCacheParameterGroupName = lens _dcpgCacheParameterGroupName (\ s a -> s{_dcpgCacheParameterGroupName = a});
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+dcpgMarker :: Lens' DescribeCacheParameterGroups (Maybe Text)
+dcpgMarker = lens _dcpgMarker (\ s a -> s{_dcpgMarker = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a marker is
@@ -91,13 +98,6 @@ dcpgCacheParameterGroupName = lens _dcpgCacheParameterGroupName (\ s a -> s{_dcp
 -- Constraints: minimum 20; maximum 100.
 dcpgMaxRecords :: Lens' DescribeCacheParameterGroups (Maybe Int)
 dcpgMaxRecords = lens _dcpgMaxRecords (\ s a -> s{_dcpgMaxRecords = a});
-
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
-dcpgMarker :: Lens' DescribeCacheParameterGroups (Maybe Text)
-dcpgMarker = lens _dcpgMarker (\ s a -> s{_dcpgMarker = a});
 
 instance AWSPager DescribeCacheParameterGroups where
         page rq rs
@@ -135,8 +135,8 @@ instance ToQuery DescribeCacheParameterGroups where
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheParameterGroupName" =:
                  _dcpgCacheParameterGroupName,
-               "MaxRecords" =: _dcpgMaxRecords,
-               "Marker" =: _dcpgMarker]
+               "Marker" =: _dcpgMarker,
+               "MaxRecords" =: _dcpgMaxRecords]
 
 -- | Represents the output of a /DescribeCacheParameterGroups/ action.
 --
@@ -144,7 +144,7 @@ instance ToQuery DescribeCacheParameterGroups where
 data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse'
     { _dcpgrsCacheParameterGroups :: !(Maybe [CacheParameterGroup])
     , _dcpgrsMarker               :: !(Maybe Text)
-    , _dcpgrsStatus               :: !Int
+    , _dcpgrsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCacheParameterGroupsResponse' with the minimum fields required to make a request.
@@ -155,15 +155,15 @@ data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
 --
 -- * 'dcpgrsMarker'
 --
--- * 'dcpgrsStatus'
+-- * 'dcpgrsResponseStatus'
 describeCacheParameterGroupsResponse
-    :: Int -- ^ 'dcpgrsStatus'
+    :: Int -- ^ 'dcpgrsResponseStatus'
     -> DescribeCacheParameterGroupsResponse
-describeCacheParameterGroupsResponse pStatus_ =
+describeCacheParameterGroupsResponse pResponseStatus_ =
     DescribeCacheParameterGroupsResponse'
     { _dcpgrsCacheParameterGroups = Nothing
     , _dcpgrsMarker = Nothing
-    , _dcpgrsStatus = pStatus_
+    , _dcpgrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of cache parameter groups. Each element in the list contains
@@ -176,5 +176,5 @@ dcpgrsMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
 dcpgrsMarker = lens _dcpgrsMarker (\ s a -> s{_dcpgrsMarker = a});
 
 -- | The response status code.
-dcpgrsStatus :: Lens' DescribeCacheParameterGroupsResponse Int
-dcpgrsStatus = lens _dcpgrsStatus (\ s a -> s{_dcpgrsStatus = a});
+dcpgrsResponseStatus :: Lens' DescribeCacheParameterGroupsResponse Int
+dcpgrsResponseStatus = lens _dcpgrsResponseStatus (\ s a -> s{_dcpgrsResponseStatus = a});

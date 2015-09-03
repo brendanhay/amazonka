@@ -52,7 +52,7 @@ module Network.AWS.ECS.UpdateService
     , UpdateServiceResponse
     -- * Response Lenses
     , usrsService
-    , usrsStatus
+    , usrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -151,8 +151,8 @@ instance ToQuery UpdateService where
 
 -- | /See:/ 'updateServiceResponse' smart constructor.
 data UpdateServiceResponse = UpdateServiceResponse'
-    { _usrsService :: !(Maybe ContainerService)
-    , _usrsStatus  :: !Int
+    { _usrsService        :: !(Maybe ContainerService)
+    , _usrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateServiceResponse' with the minimum fields required to make a request.
@@ -161,14 +161,14 @@ data UpdateServiceResponse = UpdateServiceResponse'
 --
 -- * 'usrsService'
 --
--- * 'usrsStatus'
+-- * 'usrsResponseStatus'
 updateServiceResponse
-    :: Int -- ^ 'usrsStatus'
+    :: Int -- ^ 'usrsResponseStatus'
     -> UpdateServiceResponse
-updateServiceResponse pStatus_ =
+updateServiceResponse pResponseStatus_ =
     UpdateServiceResponse'
     { _usrsService = Nothing
-    , _usrsStatus = pStatus_
+    , _usrsResponseStatus = pResponseStatus_
     }
 
 -- | The full description of your service following the update call.
@@ -176,5 +176,5 @@ usrsService :: Lens' UpdateServiceResponse (Maybe ContainerService)
 usrsService = lens _usrsService (\ s a -> s{_usrsService = a});
 
 -- | The response status code.
-usrsStatus :: Lens' UpdateServiceResponse Int
-usrsStatus = lens _usrsStatus (\ s a -> s{_usrsStatus = a});
+usrsResponseStatus :: Lens' UpdateServiceResponse Int
+usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});

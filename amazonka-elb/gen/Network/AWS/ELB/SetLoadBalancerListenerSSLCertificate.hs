@@ -41,7 +41,7 @@ module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     , setLoadBalancerListenerSSLCertificateResponse
     , SetLoadBalancerListenerSSLCertificateResponse
     -- * Response Lenses
-    , slblscrsStatus
+    , slblscrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -124,22 +124,22 @@ instance ToQuery
 
 -- | /See:/ 'setLoadBalancerListenerSSLCertificateResponse' smart constructor.
 newtype SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse'
-    { _slblscrsStatus :: Int
+    { _slblscrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SetLoadBalancerListenerSSLCertificateResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slblscrsStatus'
+-- * 'slblscrsResponseStatus'
 setLoadBalancerListenerSSLCertificateResponse
-    :: Int -- ^ 'slblscrsStatus'
+    :: Int -- ^ 'slblscrsResponseStatus'
     -> SetLoadBalancerListenerSSLCertificateResponse
-setLoadBalancerListenerSSLCertificateResponse pStatus_ =
+setLoadBalancerListenerSSLCertificateResponse pResponseStatus_ =
     SetLoadBalancerListenerSSLCertificateResponse'
-    { _slblscrsStatus = pStatus_
+    { _slblscrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-slblscrsStatus :: Lens' SetLoadBalancerListenerSSLCertificateResponse Int
-slblscrsStatus = lens _slblscrsStatus (\ s a -> s{_slblscrsStatus = a});
+slblscrsResponseStatus :: Lens' SetLoadBalancerListenerSSLCertificateResponse Int
+slblscrsResponseStatus = lens _slblscrsResponseStatus (\ s a -> s{_slblscrsResponseStatus = a});

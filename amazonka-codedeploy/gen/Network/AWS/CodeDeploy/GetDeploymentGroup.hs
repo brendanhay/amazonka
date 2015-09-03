@@ -35,7 +35,7 @@ module Network.AWS.CodeDeploy.GetDeploymentGroup
     , GetDeploymentGroupResponse
     -- * Response Lenses
     , gdgrsDeploymentGroupInfo
-    , gdgrsStatus
+    , gdgrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -118,7 +118,7 @@ instance ToQuery GetDeploymentGroup where
 -- /See:/ 'getDeploymentGroupResponse' smart constructor.
 data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
     { _gdgrsDeploymentGroupInfo :: !(Maybe DeploymentGroupInfo)
-    , _gdgrsStatus              :: !Int
+    , _gdgrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDeploymentGroupResponse' with the minimum fields required to make a request.
@@ -127,14 +127,14 @@ data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
 --
 -- * 'gdgrsDeploymentGroupInfo'
 --
--- * 'gdgrsStatus'
+-- * 'gdgrsResponseStatus'
 getDeploymentGroupResponse
-    :: Int -- ^ 'gdgrsStatus'
+    :: Int -- ^ 'gdgrsResponseStatus'
     -> GetDeploymentGroupResponse
-getDeploymentGroupResponse pStatus_ =
+getDeploymentGroupResponse pResponseStatus_ =
     GetDeploymentGroupResponse'
     { _gdgrsDeploymentGroupInfo = Nothing
-    , _gdgrsStatus = pStatus_
+    , _gdgrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the deployment group.
@@ -142,5 +142,5 @@ gdgrsDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGr
 gdgrsDeploymentGroupInfo = lens _gdgrsDeploymentGroupInfo (\ s a -> s{_gdgrsDeploymentGroupInfo = a});
 
 -- | The response status code.
-gdgrsStatus :: Lens' GetDeploymentGroupResponse Int
-gdgrsStatus = lens _gdgrsStatus (\ s a -> s{_gdgrsStatus = a});
+gdgrsResponseStatus :: Lens' GetDeploymentGroupResponse Int
+gdgrsResponseStatus = lens _gdgrsResponseStatus (\ s a -> s{_gdgrsResponseStatus = a});

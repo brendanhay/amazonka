@@ -51,7 +51,7 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     -- * Response Lenses
     , dlsrsNextToken
     , dlsrsLogStreams
-    , dlsrsStatus
+    , dlsrsResponseStatus
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -181,9 +181,9 @@ instance ToQuery DescribeLogStreams where
 
 -- | /See:/ 'describeLogStreamsResponse' smart constructor.
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
-    { _dlsrsNextToken  :: !(Maybe Text)
-    , _dlsrsLogStreams :: !(Maybe [LogStream])
-    , _dlsrsStatus     :: !Int
+    { _dlsrsNextToken      :: !(Maybe Text)
+    , _dlsrsLogStreams     :: !(Maybe [LogStream])
+    , _dlsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLogStreamsResponse' with the minimum fields required to make a request.
@@ -194,15 +194,15 @@ data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
 --
 -- * 'dlsrsLogStreams'
 --
--- * 'dlsrsStatus'
+-- * 'dlsrsResponseStatus'
 describeLogStreamsResponse
-    :: Int -- ^ 'dlsrsStatus'
+    :: Int -- ^ 'dlsrsResponseStatus'
     -> DescribeLogStreamsResponse
-describeLogStreamsResponse pStatus_ =
+describeLogStreamsResponse pResponseStatus_ =
     DescribeLogStreamsResponse'
     { _dlsrsNextToken = Nothing
     , _dlsrsLogStreams = Nothing
-    , _dlsrsStatus = pStatus_
+    , _dlsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -214,5 +214,5 @@ dlsrsLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
 dlsrsLogStreams = lens _dlsrsLogStreams (\ s a -> s{_dlsrsLogStreams = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dlsrsStatus :: Lens' DescribeLogStreamsResponse Int
-dlsrsStatus = lens _dlsrsStatus (\ s a -> s{_dlsrsStatus = a});
+dlsrsResponseStatus :: Lens' DescribeLogStreamsResponse Int
+dlsrsResponseStatus = lens _dlsrsResponseStatus (\ s a -> s{_dlsrsResponseStatus = a});

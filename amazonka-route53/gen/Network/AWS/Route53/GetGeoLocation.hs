@@ -37,7 +37,7 @@ module Network.AWS.Route53.GetGeoLocation
     , getGeoLocationResponse
     , GetGeoLocationResponse
     -- * Response Lenses
-    , gglrsStatus
+    , gglrsResponseStatus
     , gglrsGeoLocationDetails
     ) where
 
@@ -128,7 +128,7 @@ instance ToQuery GetGeoLocation where
 --
 -- /See:/ 'getGeoLocationResponse' smart constructor.
 data GetGeoLocationResponse = GetGeoLocationResponse'
-    { _gglrsStatus             :: !Int
+    { _gglrsResponseStatus     :: !Int
     , _gglrsGeoLocationDetails :: !GeoLocationDetails
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -136,22 +136,22 @@ data GetGeoLocationResponse = GetGeoLocationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gglrsStatus'
+-- * 'gglrsResponseStatus'
 --
 -- * 'gglrsGeoLocationDetails'
 getGeoLocationResponse
-    :: Int -- ^ 'gglrsStatus'
+    :: Int -- ^ 'gglrsResponseStatus'
     -> GeoLocationDetails -- ^ 'gglrsGeoLocationDetails'
     -> GetGeoLocationResponse
-getGeoLocationResponse pStatus_ pGeoLocationDetails_ =
+getGeoLocationResponse pResponseStatus_ pGeoLocationDetails_ =
     GetGeoLocationResponse'
-    { _gglrsStatus = pStatus_
+    { _gglrsResponseStatus = pResponseStatus_
     , _gglrsGeoLocationDetails = pGeoLocationDetails_
     }
 
 -- | The response status code.
-gglrsStatus :: Lens' GetGeoLocationResponse Int
-gglrsStatus = lens _gglrsStatus (\ s a -> s{_gglrsStatus = a});
+gglrsResponseStatus :: Lens' GetGeoLocationResponse Int
+gglrsResponseStatus = lens _gglrsResponseStatus (\ s a -> s{_gglrsResponseStatus = a});
 
 -- | A complex type that contains the information about the specified geo
 -- location.

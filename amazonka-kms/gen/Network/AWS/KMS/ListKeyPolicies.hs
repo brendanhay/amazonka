@@ -38,7 +38,7 @@ module Network.AWS.KMS.ListKeyPolicies
     , lkprsPolicyNames
     , lkprsTruncated
     , lkprsNextMarker
-    , lkprsStatus
+    , lkprsResponseStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -138,10 +138,10 @@ instance ToQuery ListKeyPolicies where
 
 -- | /See:/ 'listKeyPoliciesResponse' smart constructor.
 data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
-    { _lkprsPolicyNames :: !(Maybe [Text])
-    , _lkprsTruncated   :: !(Maybe Bool)
-    , _lkprsNextMarker  :: !(Maybe Text)
-    , _lkprsStatus      :: !Int
+    { _lkprsPolicyNames    :: !(Maybe [Text])
+    , _lkprsTruncated      :: !(Maybe Bool)
+    , _lkprsNextMarker     :: !(Maybe Text)
+    , _lkprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListKeyPoliciesResponse' with the minimum fields required to make a request.
@@ -154,16 +154,16 @@ data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
 --
 -- * 'lkprsNextMarker'
 --
--- * 'lkprsStatus'
+-- * 'lkprsResponseStatus'
 listKeyPoliciesResponse
-    :: Int -- ^ 'lkprsStatus'
+    :: Int -- ^ 'lkprsResponseStatus'
     -> ListKeyPoliciesResponse
-listKeyPoliciesResponse pStatus_ =
+listKeyPoliciesResponse pResponseStatus_ =
     ListKeyPoliciesResponse'
     { _lkprsPolicyNames = Nothing
     , _lkprsTruncated = Nothing
     , _lkprsNextMarker = Nothing
-    , _lkprsStatus = pStatus_
+    , _lkprsResponseStatus = pResponseStatus_
     }
 
 -- | A list of policy names. Currently, there is only one policy and it is
@@ -185,5 +185,5 @@ lkprsNextMarker :: Lens' ListKeyPoliciesResponse (Maybe Text)
 lkprsNextMarker = lens _lkprsNextMarker (\ s a -> s{_lkprsNextMarker = a});
 
 -- | The response status code.
-lkprsStatus :: Lens' ListKeyPoliciesResponse Int
-lkprsStatus = lens _lkprsStatus (\ s a -> s{_lkprsStatus = a});
+lkprsResponseStatus :: Lens' ListKeyPoliciesResponse Int
+lkprsResponseStatus = lens _lkprsResponseStatus (\ s a -> s{_lkprsResponseStatus = a});

@@ -41,7 +41,7 @@ module Network.AWS.CognitoIdentity.GetId
     , GetIdResponse
     -- * Response Lenses
     , girsIdentityId
-    , girsStatus
+    , girsResponseStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -135,8 +135,8 @@ instance ToQuery GetId where
 --
 -- /See:/ 'getIdResponse' smart constructor.
 data GetIdResponse = GetIdResponse'
-    { _girsIdentityId :: !(Maybe Text)
-    , _girsStatus     :: !Int
+    { _girsIdentityId     :: !(Maybe Text)
+    , _girsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetIdResponse' with the minimum fields required to make a request.
@@ -145,14 +145,14 @@ data GetIdResponse = GetIdResponse'
 --
 -- * 'girsIdentityId'
 --
--- * 'girsStatus'
+-- * 'girsResponseStatus'
 getIdResponse
-    :: Int -- ^ 'girsStatus'
+    :: Int -- ^ 'girsResponseStatus'
     -> GetIdResponse
-getIdResponse pStatus_ =
+getIdResponse pResponseStatus_ =
     GetIdResponse'
     { _girsIdentityId = Nothing
-    , _girsStatus = pStatus_
+    , _girsResponseStatus = pResponseStatus_
     }
 
 -- | A unique identifier in the format REGION:GUID.
@@ -160,5 +160,5 @@ girsIdentityId :: Lens' GetIdResponse (Maybe Text)
 girsIdentityId = lens _girsIdentityId (\ s a -> s{_girsIdentityId = a});
 
 -- | The response status code.
-girsStatus :: Lens' GetIdResponse Int
-girsStatus = lens _girsStatus (\ s a -> s{_girsStatus = a});
+girsResponseStatus :: Lens' GetIdResponse Int
+girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});

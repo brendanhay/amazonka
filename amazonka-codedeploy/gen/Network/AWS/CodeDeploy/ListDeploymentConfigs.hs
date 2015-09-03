@@ -36,7 +36,7 @@ module Network.AWS.CodeDeploy.ListDeploymentConfigs
     -- * Response Lenses
     , ldcrsNextToken
     , ldcrsDeploymentConfigsList
-    , ldcrsStatus
+    , ldcrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -109,7 +109,7 @@ instance ToQuery ListDeploymentConfigs where
 data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
     { _ldcrsNextToken             :: !(Maybe Text)
     , _ldcrsDeploymentConfigsList :: !(Maybe [Text])
-    , _ldcrsStatus                :: !Int
+    , _ldcrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListDeploymentConfigsResponse' with the minimum fields required to make a request.
@@ -120,15 +120,15 @@ data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
 --
 -- * 'ldcrsDeploymentConfigsList'
 --
--- * 'ldcrsStatus'
+-- * 'ldcrsResponseStatus'
 listDeploymentConfigsResponse
-    :: Int -- ^ 'ldcrsStatus'
+    :: Int -- ^ 'ldcrsResponseStatus'
     -> ListDeploymentConfigsResponse
-listDeploymentConfigsResponse pStatus_ =
+listDeploymentConfigsResponse pResponseStatus_ =
     ListDeploymentConfigsResponse'
     { _ldcrsNextToken = Nothing
     , _ldcrsDeploymentConfigsList = Nothing
-    , _ldcrsStatus = pStatus_
+    , _ldcrsResponseStatus = pResponseStatus_
     }
 
 -- | If the amount of information that is returned is significantly large, an
@@ -144,5 +144,5 @@ ldcrsDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
 ldcrsDeploymentConfigsList = lens _ldcrsDeploymentConfigsList (\ s a -> s{_ldcrsDeploymentConfigsList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ldcrsStatus :: Lens' ListDeploymentConfigsResponse Int
-ldcrsStatus = lens _ldcrsStatus (\ s a -> s{_ldcrsStatus = a});
+ldcrsResponseStatus :: Lens' ListDeploymentConfigsResponse Int
+ldcrsResponseStatus = lens _ldcrsResponseStatus (\ s a -> s{_ldcrsResponseStatus = a});

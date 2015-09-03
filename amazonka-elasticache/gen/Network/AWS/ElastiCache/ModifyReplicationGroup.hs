@@ -33,8 +33,8 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     , mrgSnapshottingClusterId
     , mrgSecurityGroupIds
     , mrgAutoMinorVersionUpgrade
-    , mrgReplicationGroupDescription
     , mrgCacheParameterGroupName
+    , mrgReplicationGroupDescription
     , mrgSnapshotWindow
     , mrgPrimaryClusterId
     , mrgPreferredMaintenanceWindow
@@ -50,7 +50,7 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     , ModifyReplicationGroupResponse
     -- * Response Lenses
     , mrgrsReplicationGroup
-    , mrgrsStatus
+    , mrgrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -68,8 +68,8 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     , _mrgSnapshottingClusterId       :: !(Maybe Text)
     , _mrgSecurityGroupIds            :: !(Maybe [Text])
     , _mrgAutoMinorVersionUpgrade     :: !(Maybe Bool)
-    , _mrgReplicationGroupDescription :: !(Maybe Text)
     , _mrgCacheParameterGroupName     :: !(Maybe Text)
+    , _mrgReplicationGroupDescription :: !(Maybe Text)
     , _mrgSnapshotWindow              :: !(Maybe Text)
     , _mrgPrimaryClusterId            :: !(Maybe Text)
     , _mrgPreferredMaintenanceWindow  :: !(Maybe Text)
@@ -95,9 +95,9 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
 --
 -- * 'mrgAutoMinorVersionUpgrade'
 --
--- * 'mrgReplicationGroupDescription'
---
 -- * 'mrgCacheParameterGroupName'
+--
+-- * 'mrgReplicationGroupDescription'
 --
 -- * 'mrgSnapshotWindow'
 --
@@ -126,8 +126,8 @@ modifyReplicationGroup pReplicationGroupId_ =
     , _mrgSnapshottingClusterId = Nothing
     , _mrgSecurityGroupIds = Nothing
     , _mrgAutoMinorVersionUpgrade = Nothing
-    , _mrgReplicationGroupDescription = Nothing
     , _mrgCacheParameterGroupName = Nothing
+    , _mrgReplicationGroupDescription = Nothing
     , _mrgSnapshotWindow = Nothing
     , _mrgPrimaryClusterId = Nothing
     , _mrgPreferredMaintenanceWindow = Nothing
@@ -173,17 +173,17 @@ mrgSecurityGroupIds = lens _mrgSecurityGroupIds (\ s a -> s{_mrgSecurityGroupIds
 mrgAutoMinorVersionUpgrade :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgAutoMinorVersionUpgrade = lens _mrgAutoMinorVersionUpgrade (\ s a -> s{_mrgAutoMinorVersionUpgrade = a});
 
--- | A description for the replication group. Maximum length is 255
--- characters.
-mrgReplicationGroupDescription :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgReplicationGroupDescription = lens _mrgReplicationGroupDescription (\ s a -> s{_mrgReplicationGroupDescription = a});
-
 -- | The name of the cache parameter group to apply to all of the clusters in
 -- this replication group. This change is asynchronously applied as soon as
 -- possible for parameters when the /ApplyImmediately/ parameter is
 -- specified as /true/ for this request.
 mrgCacheParameterGroupName :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgCacheParameterGroupName = lens _mrgCacheParameterGroupName (\ s a -> s{_mrgCacheParameterGroupName = a});
+
+-- | A description for the replication group. Maximum length is 255
+-- characters.
+mrgReplicationGroupDescription :: Lens' ModifyReplicationGroup (Maybe Text)
+mrgReplicationGroupDescription = lens _mrgReplicationGroupDescription (\ s a -> s{_mrgReplicationGroupDescription = a});
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
 -- a daily snapshot of the node group specified by /SnapshottingClusterId/.
@@ -307,10 +307,10 @@ instance ToQuery ModifyReplicationGroup where
                       _mrgSecurityGroupIds),
                "AutoMinorVersionUpgrade" =:
                  _mrgAutoMinorVersionUpgrade,
-               "ReplicationGroupDescription" =:
-                 _mrgReplicationGroupDescription,
                "CacheParameterGroupName" =:
                  _mrgCacheParameterGroupName,
+               "ReplicationGroupDescription" =:
+                 _mrgReplicationGroupDescription,
                "SnapshotWindow" =: _mrgSnapshotWindow,
                "PrimaryClusterId" =: _mrgPrimaryClusterId,
                "PreferredMaintenanceWindow" =:
@@ -330,7 +330,7 @@ instance ToQuery ModifyReplicationGroup where
 -- | /See:/ 'modifyReplicationGroupResponse' smart constructor.
 data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
     { _mrgrsReplicationGroup :: !(Maybe ReplicationGroup)
-    , _mrgrsStatus           :: !Int
+    , _mrgrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyReplicationGroupResponse' with the minimum fields required to make a request.
@@ -339,14 +339,14 @@ data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
 --
 -- * 'mrgrsReplicationGroup'
 --
--- * 'mrgrsStatus'
+-- * 'mrgrsResponseStatus'
 modifyReplicationGroupResponse
-    :: Int -- ^ 'mrgrsStatus'
+    :: Int -- ^ 'mrgrsResponseStatus'
     -> ModifyReplicationGroupResponse
-modifyReplicationGroupResponse pStatus_ =
+modifyReplicationGroupResponse pResponseStatus_ =
     ModifyReplicationGroupResponse'
     { _mrgrsReplicationGroup = Nothing
-    , _mrgrsStatus = pStatus_
+    , _mrgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -354,5 +354,5 @@ mrgrsReplicationGroup :: Lens' ModifyReplicationGroupResponse (Maybe Replication
 mrgrsReplicationGroup = lens _mrgrsReplicationGroup (\ s a -> s{_mrgrsReplicationGroup = a});
 
 -- | The response status code.
-mrgrsStatus :: Lens' ModifyReplicationGroupResponse Int
-mrgrsStatus = lens _mrgrsStatus (\ s a -> s{_mrgrsStatus = a});
+mrgrsResponseStatus :: Lens' ModifyReplicationGroupResponse Int
+mrgrsResponseStatus = lens _mrgrsResponseStatus (\ s a -> s{_mrgrsResponseStatus = a});

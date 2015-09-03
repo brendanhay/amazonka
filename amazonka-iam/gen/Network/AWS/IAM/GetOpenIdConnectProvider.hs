@@ -37,7 +37,7 @@ module Network.AWS.IAM.GetOpenIdConnectProvider
     , goicprsURL
     , goicprsThumbprintList
     , goicprsClientIdList
-    , goicprsStatus
+    , goicprsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -109,7 +109,7 @@ data GetOpenIdConnectProviderResponse = GetOpenIdConnectProviderResponse'
     , _goicprsURL            :: !(Maybe Text)
     , _goicprsThumbprintList :: !(Maybe [Text])
     , _goicprsClientIdList   :: !(Maybe [Text])
-    , _goicprsStatus         :: !Int
+    , _goicprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetOpenIdConnectProviderResponse' with the minimum fields required to make a request.
@@ -124,17 +124,17 @@ data GetOpenIdConnectProviderResponse = GetOpenIdConnectProviderResponse'
 --
 -- * 'goicprsClientIdList'
 --
--- * 'goicprsStatus'
+-- * 'goicprsResponseStatus'
 getOpenIdConnectProviderResponse
-    :: Int -- ^ 'goicprsStatus'
+    :: Int -- ^ 'goicprsResponseStatus'
     -> GetOpenIdConnectProviderResponse
-getOpenIdConnectProviderResponse pStatus_ =
+getOpenIdConnectProviderResponse pResponseStatus_ =
     GetOpenIdConnectProviderResponse'
     { _goicprsCreateDate = Nothing
     , _goicprsURL = Nothing
     , _goicprsThumbprintList = Nothing
     , _goicprsClientIdList = Nothing
-    , _goicprsStatus = pStatus_
+    , _goicprsResponseStatus = pResponseStatus_
     }
 
 -- | The date and time when the IAM OpenID Connect provider entity was
@@ -160,5 +160,5 @@ goicprsClientIdList :: Lens' GetOpenIdConnectProviderResponse [Text]
 goicprsClientIdList = lens _goicprsClientIdList (\ s a -> s{_goicprsClientIdList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-goicprsStatus :: Lens' GetOpenIdConnectProviderResponse Int
-goicprsStatus = lens _goicprsStatus (\ s a -> s{_goicprsStatus = a});
+goicprsResponseStatus :: Lens' GetOpenIdConnectProviderResponse Int
+goicprsResponseStatus = lens _goicprsResponseStatus (\ s a -> s{_goicprsResponseStatus = a});

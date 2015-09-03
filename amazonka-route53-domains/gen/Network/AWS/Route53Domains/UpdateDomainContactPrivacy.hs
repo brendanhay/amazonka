@@ -47,7 +47,7 @@ module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     , updateDomainContactPrivacyResponse
     , UpdateDomainContactPrivacyResponse
     -- * Response Lenses
-    , udcprsStatus
+    , udcprsResponseStatus
     , udcprsOperationId
     ) where
 
@@ -187,30 +187,30 @@ instance ToQuery UpdateDomainContactPrivacy where
 --
 -- /See:/ 'updateDomainContactPrivacyResponse' smart constructor.
 data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
-    { _udcprsStatus      :: !Int
-    , _udcprsOperationId :: !Text
+    { _udcprsResponseStatus :: !Int
+    , _udcprsOperationId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateDomainContactPrivacyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udcprsStatus'
+-- * 'udcprsResponseStatus'
 --
 -- * 'udcprsOperationId'
 updateDomainContactPrivacyResponse
-    :: Int -- ^ 'udcprsStatus'
+    :: Int -- ^ 'udcprsResponseStatus'
     -> Text -- ^ 'udcprsOperationId'
     -> UpdateDomainContactPrivacyResponse
-updateDomainContactPrivacyResponse pStatus_ pOperationId_ =
+updateDomainContactPrivacyResponse pResponseStatus_ pOperationId_ =
     UpdateDomainContactPrivacyResponse'
-    { _udcprsStatus = pStatus_
+    { _udcprsResponseStatus = pResponseStatus_
     , _udcprsOperationId = pOperationId_
     }
 
 -- | The response status code.
-udcprsStatus :: Lens' UpdateDomainContactPrivacyResponse Int
-udcprsStatus = lens _udcprsStatus (\ s a -> s{_udcprsStatus = a});
+udcprsResponseStatus :: Lens' UpdateDomainContactPrivacyResponse Int
+udcprsResponseStatus = lens _udcprsResponseStatus (\ s a -> s{_udcprsResponseStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.

@@ -18,14 +18,14 @@ module Network.AWS.EFS.Types
     -- * Errors
     , _MountTargetNotFound
     , _SecurityGroupLimitExceeded
+    , _SecurityGroupNotFound
     , _MountTargetConflict
     , _UnsupportedAvailabilityZone
-    , _SecurityGroupNotFound
-    , _FileSystemAlreadyExists
     , _FileSystemLimitExceeded
     , _NetworkInterfaceLimitExceeded
-    , _FileSystemNotFound
+    , _FileSystemAlreadyExists
     , _SubnetNotFound
+    , _FileSystemNotFound
     , _IncorrectFileSystemLifeCycleState
     , _BadRequest
     , _NoFreeAddressesInSubnet
@@ -122,6 +122,12 @@ _SecurityGroupLimitExceeded :: AsError a => Getting (First ServiceError) a Servi
 _SecurityGroupLimitExceeded =
     _ServiceError . hasStatus 400 . hasCode "SecurityGroupLimitExceeded"
 
+-- | Returned if one of the specified security groups does not exist in the
+-- subnet\'s VPC.
+_SecurityGroupNotFound :: AsError a => Getting (First ServiceError) a ServiceError
+_SecurityGroupNotFound =
+    _ServiceError . hasStatus 400 . hasCode "SecurityGroupNotFound"
+
 -- | Returned if the mount target would violate one of the specified
 -- restrictions based on the file system\'s existing mount targets.
 _MountTargetConflict :: AsError a => Getting (First ServiceError) a ServiceError
@@ -132,18 +138,6 @@ _MountTargetConflict =
 _UnsupportedAvailabilityZone :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedAvailabilityZone =
     _ServiceError . hasStatus 400 . hasCode "UnsupportedAvailabilityZone"
-
--- | Returned if one of the specified security groups does not exist in the
--- subnet\'s VPC.
-_SecurityGroupNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_SecurityGroupNotFound =
-    _ServiceError . hasStatus 400 . hasCode "SecurityGroupNotFound"
-
--- | Returned if the file system you are trying to create already exists,
--- with the creation token you provided.
-_FileSystemAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
-_FileSystemAlreadyExists =
-    _ServiceError . hasStatus 409 . hasCode "FileSystemAlreadyExists"
 
 -- | Returned if the AWS account has already created maximum number of file
 -- systems allowed per account.
@@ -161,16 +155,22 @@ _NetworkInterfaceLimitExceeded :: AsError a => Getting (First ServiceError) a Se
 _NetworkInterfaceLimitExceeded =
     _ServiceError . hasStatus 409 . hasCode "NetworkInterfaceLimitExceeded"
 
--- | Returned if the specified 'FileSystemId' does not exist in the
--- requester\'s AWS account.
-_FileSystemNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_FileSystemNotFound =
-    _ServiceError . hasStatus 404 . hasCode "FileSystemNotFound"
+-- | Returned if the file system you are trying to create already exists,
+-- with the creation token you provided.
+_FileSystemAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
+_FileSystemAlreadyExists =
+    _ServiceError . hasStatus 409 . hasCode "FileSystemAlreadyExists"
 
 -- | Returned if there is no subnet with ID 'SubnetId' provided in the
 -- request.
 _SubnetNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _SubnetNotFound = _ServiceError . hasStatus 400 . hasCode "SubnetNotFound"
+
+-- | Returned if the specified 'FileSystemId' does not exist in the
+-- requester\'s AWS account.
+_FileSystemNotFound :: AsError a => Getting (First ServiceError) a ServiceError
+_FileSystemNotFound =
+    _ServiceError . hasStatus 404 . hasCode "FileSystemNotFound"
 
 -- | Returned if the file system\'s life cycle state is not \"created\".
 _IncorrectFileSystemLifeCycleState :: AsError a => Getting (First ServiceError) a ServiceError

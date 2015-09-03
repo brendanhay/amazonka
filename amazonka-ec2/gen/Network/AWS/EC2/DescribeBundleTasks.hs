@@ -41,7 +41,7 @@ module Network.AWS.EC2.DescribeBundleTasks
     , DescribeBundleTasksResponse
     -- * Response Lenses
     , dbtrsBundleTasks
-    , dbtrsStatus
+    , dbtrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -145,8 +145,8 @@ instance ToQuery DescribeBundleTasks where
 
 -- | /See:/ 'describeBundleTasksResponse' smart constructor.
 data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
-    { _dbtrsBundleTasks :: !(Maybe [BundleTask])
-    , _dbtrsStatus      :: !Int
+    { _dbtrsBundleTasks    :: !(Maybe [BundleTask])
+    , _dbtrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeBundleTasksResponse' with the minimum fields required to make a request.
@@ -155,14 +155,14 @@ data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
 --
 -- * 'dbtrsBundleTasks'
 --
--- * 'dbtrsStatus'
+-- * 'dbtrsResponseStatus'
 describeBundleTasksResponse
-    :: Int -- ^ 'dbtrsStatus'
+    :: Int -- ^ 'dbtrsResponseStatus'
     -> DescribeBundleTasksResponse
-describeBundleTasksResponse pStatus_ =
+describeBundleTasksResponse pResponseStatus_ =
     DescribeBundleTasksResponse'
     { _dbtrsBundleTasks = Nothing
-    , _dbtrsStatus = pStatus_
+    , _dbtrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more bundle tasks.
@@ -170,5 +170,5 @@ dbtrsBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
 dbtrsBundleTasks = lens _dbtrsBundleTasks (\ s a -> s{_dbtrsBundleTasks = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dbtrsStatus :: Lens' DescribeBundleTasksResponse Int
-dbtrsStatus = lens _dbtrsStatus (\ s a -> s{_dbtrsStatus = a});
+dbtrsResponseStatus :: Lens' DescribeBundleTasksResponse Int
+dbtrsResponseStatus = lens _dbtrsResponseStatus (\ s a -> s{_dbtrsResponseStatus = a});

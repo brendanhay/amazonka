@@ -51,11 +51,11 @@ module Network.AWS.CognitoSync.ListRecords
     , lrrsCount
     , lrrsRecords
     , lrrsNextToken
-    , lrrsSyncSessionToken
     , lrrsMergedDatasetNames
+    , lrrsSyncSessionToken
     , lrrsLastModifiedBy
     , lrrsDatasetSyncCount
-    , lrrsStatus
+    , lrrsResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -155,8 +155,8 @@ instance AWSRequest ListRecords where
                      <*> (x .?> "Count")
                      <*> (x .?> "Records" .!@ mempty)
                      <*> (x .?> "NextToken")
-                     <*> (x .?> "SyncSessionToken")
                      <*> (x .?> "MergedDatasetNames" .!@ mempty)
+                     <*> (x .?> "SyncSessionToken")
                      <*> (x .?> "LastModifiedBy")
                      <*> (x .?> "DatasetSyncCount")
                      <*> (pure (fromEnum s)))
@@ -192,11 +192,11 @@ data ListRecordsResponse = ListRecordsResponse'
     , _lrrsCount                                 :: !(Maybe Int)
     , _lrrsRecords                               :: !(Maybe [Record])
     , _lrrsNextToken                             :: !(Maybe Text)
-    , _lrrsSyncSessionToken                      :: !(Maybe Text)
     , _lrrsMergedDatasetNames                    :: !(Maybe [Text])
+    , _lrrsSyncSessionToken                      :: !(Maybe Text)
     , _lrrsLastModifiedBy                        :: !(Maybe Text)
     , _lrrsDatasetSyncCount                      :: !(Maybe Integer)
-    , _lrrsStatus                                :: !Int
+    , _lrrsResponseStatus                        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListRecordsResponse' with the minimum fields required to make a request.
@@ -213,30 +213,30 @@ data ListRecordsResponse = ListRecordsResponse'
 --
 -- * 'lrrsNextToken'
 --
--- * 'lrrsSyncSessionToken'
---
 -- * 'lrrsMergedDatasetNames'
+--
+-- * 'lrrsSyncSessionToken'
 --
 -- * 'lrrsLastModifiedBy'
 --
 -- * 'lrrsDatasetSyncCount'
 --
--- * 'lrrsStatus'
+-- * 'lrrsResponseStatus'
 listRecordsResponse
-    :: Int -- ^ 'lrrsStatus'
+    :: Int -- ^ 'lrrsResponseStatus'
     -> ListRecordsResponse
-listRecordsResponse pStatus_ =
+listRecordsResponse pResponseStatus_ =
     ListRecordsResponse'
     { _lrrsDatasetDeletedAfterRequestedSyncCount = Nothing
     , _lrrsDatasetExists = Nothing
     , _lrrsCount = Nothing
     , _lrrsRecords = Nothing
     , _lrrsNextToken = Nothing
-    , _lrrsSyncSessionToken = Nothing
     , _lrrsMergedDatasetNames = Nothing
+    , _lrrsSyncSessionToken = Nothing
     , _lrrsLastModifiedBy = Nothing
     , _lrrsDatasetSyncCount = Nothing
-    , _lrrsStatus = pStatus_
+    , _lrrsResponseStatus = pResponseStatus_
     }
 
 -- | A boolean value specifying whether to delete the dataset locally.
@@ -259,13 +259,13 @@ lrrsRecords = lens _lrrsRecords (\ s a -> s{_lrrsRecords = a}) . _Default . _Coe
 lrrsNextToken :: Lens' ListRecordsResponse (Maybe Text)
 lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 
--- | A token containing a session ID, identity ID, and expiration.
-lrrsSyncSessionToken :: Lens' ListRecordsResponse (Maybe Text)
-lrrsSyncSessionToken = lens _lrrsSyncSessionToken (\ s a -> s{_lrrsSyncSessionToken = a});
-
 -- | Names of merged datasets.
 lrrsMergedDatasetNames :: Lens' ListRecordsResponse [Text]
 lrrsMergedDatasetNames = lens _lrrsMergedDatasetNames (\ s a -> s{_lrrsMergedDatasetNames = a}) . _Default . _Coerce;
+
+-- | A token containing a session ID, identity ID, and expiration.
+lrrsSyncSessionToken :: Lens' ListRecordsResponse (Maybe Text)
+lrrsSyncSessionToken = lens _lrrsSyncSessionToken (\ s a -> s{_lrrsSyncSessionToken = a});
 
 -- | The user\/device that made the last change to this record.
 lrrsLastModifiedBy :: Lens' ListRecordsResponse (Maybe Text)
@@ -276,5 +276,5 @@ lrrsDatasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer)
 lrrsDatasetSyncCount = lens _lrrsDatasetSyncCount (\ s a -> s{_lrrsDatasetSyncCount = a});
 
 -- | The response status code.
-lrrsStatus :: Lens' ListRecordsResponse Int
-lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});
+lrrsResponseStatus :: Lens' ListRecordsResponse Int
+lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});

@@ -32,8 +32,8 @@ module Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
     -- * Request Lenses
     , dihNextToken
     , dihEnvironmentName
-    , dihEnvironmentId
     , dihAttributeNames
+    , dihEnvironmentId
 
     -- * Destructuring the Response
     , describeInstancesHealthResponse
@@ -42,7 +42,7 @@ module Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
     , dihrsInstanceHealthList
     , dihrsNextToken
     , dihrsRefreshedAt
-    , dihrsStatus
+    , dihrsResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -57,8 +57,8 @@ import           Network.AWS.Response
 data DescribeInstancesHealth = DescribeInstancesHealth'
     { _dihNextToken       :: !(Maybe Text)
     , _dihEnvironmentName :: !(Maybe Text)
-    , _dihEnvironmentId   :: !(Maybe Text)
     , _dihAttributeNames  :: !(Maybe [InstancesHealthAttribute])
+    , _dihEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeInstancesHealth' with the minimum fields required to make a request.
@@ -69,17 +69,17 @@ data DescribeInstancesHealth = DescribeInstancesHealth'
 --
 -- * 'dihEnvironmentName'
 --
--- * 'dihEnvironmentId'
---
 -- * 'dihAttributeNames'
+--
+-- * 'dihEnvironmentId'
 describeInstancesHealth
     :: DescribeInstancesHealth
 describeInstancesHealth =
     DescribeInstancesHealth'
     { _dihNextToken = Nothing
     , _dihEnvironmentName = Nothing
-    , _dihEnvironmentId = Nothing
     , _dihAttributeNames = Nothing
+    , _dihEnvironmentId = Nothing
     }
 
 -- | Specifies the next token of the request.
@@ -90,15 +90,15 @@ dihNextToken = lens _dihNextToken (\ s a -> s{_dihNextToken = a});
 dihEnvironmentName :: Lens' DescribeInstancesHealth (Maybe Text)
 dihEnvironmentName = lens _dihEnvironmentName (\ s a -> s{_dihEnvironmentName = a});
 
--- | Specifies the AWS Elastic Beanstalk environment ID.
-dihEnvironmentId :: Lens' DescribeInstancesHealth (Maybe Text)
-dihEnvironmentId = lens _dihEnvironmentId (\ s a -> s{_dihEnvironmentId = a});
-
 -- | Specifies the response elements you wish to receive. If no attribute
 -- names are specified, AWS Elastic Beanstalk returns all response
 -- elements.
 dihAttributeNames :: Lens' DescribeInstancesHealth [InstancesHealthAttribute]
 dihAttributeNames = lens _dihAttributeNames (\ s a -> s{_dihAttributeNames = a}) . _Default . _Coerce;
+
+-- | Specifies the AWS Elastic Beanstalk environment ID.
+dihEnvironmentId :: Lens' DescribeInstancesHealth (Maybe Text)
+dihEnvironmentId = lens _dihEnvironmentId (\ s a -> s{_dihEnvironmentId = a});
 
 instance AWSRequest DescribeInstancesHealth where
         type Rs DescribeInstancesHealth =
@@ -128,10 +128,10 @@ instance ToQuery DescribeInstancesHealth where
                "Version" =: ("2010-12-01" :: ByteString),
                "NextToken" =: _dihNextToken,
                "EnvironmentName" =: _dihEnvironmentName,
-               "EnvironmentId" =: _dihEnvironmentId,
                "AttributeNames" =:
                  toQuery
-                   (toQueryList "member" <$> _dihAttributeNames)]
+                   (toQueryList "member" <$> _dihAttributeNames),
+               "EnvironmentId" =: _dihEnvironmentId]
 
 -- | See the example below for a sample response.
 --
@@ -140,7 +140,7 @@ data DescribeInstancesHealthResponse = DescribeInstancesHealthResponse'
     { _dihrsInstanceHealthList :: !(Maybe [SingleInstanceHealth])
     , _dihrsNextToken          :: !(Maybe Text)
     , _dihrsRefreshedAt        :: !(Maybe ISO8601)
-    , _dihrsStatus             :: !Int
+    , _dihrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeInstancesHealthResponse' with the minimum fields required to make a request.
@@ -153,16 +153,16 @@ data DescribeInstancesHealthResponse = DescribeInstancesHealthResponse'
 --
 -- * 'dihrsRefreshedAt'
 --
--- * 'dihrsStatus'
+-- * 'dihrsResponseStatus'
 describeInstancesHealthResponse
-    :: Int -- ^ 'dihrsStatus'
+    :: Int -- ^ 'dihrsResponseStatus'
     -> DescribeInstancesHealthResponse
-describeInstancesHealthResponse pStatus_ =
+describeInstancesHealthResponse pResponseStatus_ =
     DescribeInstancesHealthResponse'
     { _dihrsInstanceHealthList = Nothing
     , _dihrsNextToken = Nothing
     , _dihrsRefreshedAt = Nothing
-    , _dihrsStatus = pStatus_
+    , _dihrsResponseStatus = pResponseStatus_
     }
 
 -- | Contains the response body with information about the health of the
@@ -179,5 +179,5 @@ dihrsRefreshedAt :: Lens' DescribeInstancesHealthResponse (Maybe UTCTime)
 dihrsRefreshedAt = lens _dihrsRefreshedAt (\ s a -> s{_dihrsRefreshedAt = a}) . mapping _Time;
 
 -- | The response status code.
-dihrsStatus :: Lens' DescribeInstancesHealthResponse Int
-dihrsStatus = lens _dihrsStatus (\ s a -> s{_dihrsStatus = a});
+dihrsResponseStatus :: Lens' DescribeInstancesHealthResponse Int
+dihrsResponseStatus = lens _dihrsResponseStatus (\ s a -> s{_dihrsResponseStatus = a});

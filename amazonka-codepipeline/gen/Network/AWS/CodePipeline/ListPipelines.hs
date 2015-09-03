@@ -35,7 +35,7 @@ module Network.AWS.CodePipeline.ListPipelines
     -- * Response Lenses
     , lprsPipelines
     , lprsNextToken
-    , lprsStatus
+    , lprsResponseStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -104,9 +104,9 @@ instance ToQuery ListPipelines where
 --
 -- /See:/ 'listPipelinesResponse' smart constructor.
 data ListPipelinesResponse = ListPipelinesResponse'
-    { _lprsPipelines :: !(Maybe [PipelineSummary])
-    , _lprsNextToken :: !(Maybe Text)
-    , _lprsStatus    :: !Int
+    { _lprsPipelines      :: !(Maybe [PipelineSummary])
+    , _lprsNextToken      :: !(Maybe Text)
+    , _lprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListPipelinesResponse' with the minimum fields required to make a request.
@@ -117,15 +117,15 @@ data ListPipelinesResponse = ListPipelinesResponse'
 --
 -- * 'lprsNextToken'
 --
--- * 'lprsStatus'
+-- * 'lprsResponseStatus'
 listPipelinesResponse
-    :: Int -- ^ 'lprsStatus'
+    :: Int -- ^ 'lprsResponseStatus'
     -> ListPipelinesResponse
-listPipelinesResponse pStatus_ =
+listPipelinesResponse pResponseStatus_ =
     ListPipelinesResponse'
     { _lprsPipelines = Nothing
     , _lprsNextToken = Nothing
-    , _lprsStatus = pStatus_
+    , _lprsResponseStatus = pResponseStatus_
     }
 
 -- | The list of pipelines.
@@ -139,5 +139,5 @@ lprsNextToken :: Lens' ListPipelinesResponse (Maybe Text)
 lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 
 -- | The response status code.
-lprsStatus :: Lens' ListPipelinesResponse Int
-lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});
+lprsResponseStatus :: Lens' ListPipelinesResponse Int
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});

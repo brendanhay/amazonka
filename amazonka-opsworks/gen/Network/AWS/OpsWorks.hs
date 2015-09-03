@@ -94,14 +94,17 @@ module Network.AWS.OpsWorks
     -- ** SetLoadBasedAutoScaling
     , module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
 
-    -- ** UnassignVolume
-    , module Network.AWS.OpsWorks.UnassignVolume
-
     -- ** DeregisterRDSDBInstance
     , module Network.AWS.OpsWorks.DeregisterRDSDBInstance
 
+    -- ** UnassignVolume
+    , module Network.AWS.OpsWorks.UnassignVolume
+
     -- ** CreateInstance
     , module Network.AWS.OpsWorks.CreateInstance
+
+    -- ** DescribeLayers
+    , module Network.AWS.OpsWorks.DescribeLayers
 
     -- ** RegisterElasticIP
     , module Network.AWS.OpsWorks.RegisterElasticIP
@@ -109,17 +112,14 @@ module Network.AWS.OpsWorks
     -- ** DescribeAgentVersions
     , module Network.AWS.OpsWorks.DescribeAgentVersions
 
-    -- ** DescribeLayers
-    , module Network.AWS.OpsWorks.DescribeLayers
-
     -- ** CreateDeployment
     , module Network.AWS.OpsWorks.CreateDeployment
 
-    -- ** DeleteApp
-    , module Network.AWS.OpsWorks.DeleteApp
+    -- ** AssignInstance
+    , module Network.AWS.OpsWorks.AssignInstance
 
-    -- ** UpdateApp
-    , module Network.AWS.OpsWorks.UpdateApp
+    -- ** DescribeStacks
+    , module Network.AWS.OpsWorks.DescribeStacks
 
     -- ** DeleteInstance
     , module Network.AWS.OpsWorks.DeleteInstance
@@ -127,23 +127,23 @@ module Network.AWS.OpsWorks
     -- ** UpdateInstance
     , module Network.AWS.OpsWorks.UpdateInstance
 
-    -- ** DescribeStacks
-    , module Network.AWS.OpsWorks.DescribeStacks
-
     -- ** DeregisterVolume
     , module Network.AWS.OpsWorks.DeregisterVolume
-
-    -- ** AssignInstance
-    , module Network.AWS.OpsWorks.AssignInstance
 
     -- ** RebootInstance
     , module Network.AWS.OpsWorks.RebootInstance
 
-    -- ** DescribeTimeBasedAutoScaling
-    , module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
+    -- ** DeleteApp
+    , module Network.AWS.OpsWorks.DeleteApp
+
+    -- ** UpdateApp
+    , module Network.AWS.OpsWorks.UpdateApp
 
     -- ** UpdateRDSDBInstance
     , module Network.AWS.OpsWorks.UpdateRDSDBInstance
+
+    -- ** DescribeTimeBasedAutoScaling
+    , module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
 
     -- ** StopStack
     , module Network.AWS.OpsWorks.StopStack
@@ -166,17 +166,14 @@ module Network.AWS.OpsWorks
     -- ** SetTimeBasedAutoScaling
     , module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
 
-    -- ** DeregisterElasticIP
-    , module Network.AWS.OpsWorks.DeregisterElasticIP
+    -- ** DescribeUserProfiles
+    , module Network.AWS.OpsWorks.DescribeUserProfiles
 
     -- ** AttachElasticLoadBalancer
     , module Network.AWS.OpsWorks.AttachElasticLoadBalancer
 
-    -- ** DescribeUserProfiles
-    , module Network.AWS.OpsWorks.DescribeUserProfiles
-
-    -- ** DescribeStackSummary
-    , module Network.AWS.OpsWorks.DescribeStackSummary
+    -- ** DeregisterElasticIP
+    , module Network.AWS.OpsWorks.DeregisterElasticIP
 
     -- ** DeregisterEcsCluster
     , module Network.AWS.OpsWorks.DeregisterEcsCluster
@@ -187,20 +184,20 @@ module Network.AWS.OpsWorks
     -- ** UpdateMyUserProfile
     , module Network.AWS.OpsWorks.UpdateMyUserProfile
 
+    -- ** DescribeStackSummary
+    , module Network.AWS.OpsWorks.DescribeStackSummary
+
     -- ** DescribeInstances
     , module Network.AWS.OpsWorks.DescribeInstances
 
     -- ** DescribeDeployments
     , module Network.AWS.OpsWorks.DescribeDeployments
 
-    -- ** CreateStack
-    , module Network.AWS.OpsWorks.CreateStack
+    -- ** DescribeElasticIPs
+    , module Network.AWS.OpsWorks.DescribeElasticIPs
 
     -- ** GrantAccess
     , module Network.AWS.OpsWorks.GrantAccess
-
-    -- ** DescribeElasticIPs
-    , module Network.AWS.OpsWorks.DescribeElasticIPs
 
     -- ** DeleteLayer
     , module Network.AWS.OpsWorks.DeleteLayer
@@ -208,23 +205,26 @@ module Network.AWS.OpsWorks
     -- ** UpdateLayer
     , module Network.AWS.OpsWorks.UpdateLayer
 
-    -- ** CloneStack
-    , module Network.AWS.OpsWorks.CloneStack
-
-    -- ** GetHostnameSuggestion
-    , module Network.AWS.OpsWorks.GetHostnameSuggestion
-
-    -- ** CreateApp
-    , module Network.AWS.OpsWorks.CreateApp
-
-    -- ** DescribePermissions
-    , module Network.AWS.OpsWorks.DescribePermissions
+    -- ** CreateStack
+    , module Network.AWS.OpsWorks.CreateStack
 
     -- ** UpdateElasticIP
     , module Network.AWS.OpsWorks.UpdateElasticIP
 
-    -- ** DescribeLoadBasedAutoScaling
-    , module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
+    -- ** CreateApp
+    , module Network.AWS.OpsWorks.CreateApp
+
+    -- ** GetHostnameSuggestion
+    , module Network.AWS.OpsWorks.GetHostnameSuggestion
+
+    -- ** CloneStack
+    , module Network.AWS.OpsWorks.CloneStack
+
+    -- ** DescribePermissions
+    , module Network.AWS.OpsWorks.DescribePermissions
+
+    -- ** DetachElasticLoadBalancer
+    , module Network.AWS.OpsWorks.DetachElasticLoadBalancer
 
     -- ** RegisterInstance
     , module Network.AWS.OpsWorks.RegisterInstance
@@ -232,20 +232,17 @@ module Network.AWS.OpsWorks
     -- ** AssociateElasticIP
     , module Network.AWS.OpsWorks.AssociateElasticIP
 
-    -- ** DetachElasticLoadBalancer
-    , module Network.AWS.OpsWorks.DetachElasticLoadBalancer
+    -- ** DescribeLoadBasedAutoScaling
+    , module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
 
     -- ** DescribeStackProvisioningParameters
     , module Network.AWS.OpsWorks.DescribeStackProvisioningParameters
 
-    -- ** DescribeMyUserProfile
-    , module Network.AWS.OpsWorks.DescribeMyUserProfile
-
     -- ** UnassignInstance
     , module Network.AWS.OpsWorks.UnassignInstance
 
-    -- ** RegisterRDSDBInstance
-    , module Network.AWS.OpsWorks.RegisterRDSDBInstance
+    -- ** DescribeMyUserProfile
+    , module Network.AWS.OpsWorks.DescribeMyUserProfile
 
     -- ** DeleteUserProfile
     , module Network.AWS.OpsWorks.DeleteUserProfile
@@ -256,6 +253,9 @@ module Network.AWS.OpsWorks
     -- ** DescribeServiceErrors
     , module Network.AWS.OpsWorks.DescribeServiceErrors
 
+    -- ** RegisterRDSDBInstance
+    , module Network.AWS.OpsWorks.RegisterRDSDBInstance
+
     -- ** StartStack
     , module Network.AWS.OpsWorks.StartStack
 
@@ -265,26 +265,26 @@ module Network.AWS.OpsWorks
     -- ** DescribeCommands
     , module Network.AWS.OpsWorks.DescribeCommands
 
-    -- ** DescribeEcsClusters
-    , module Network.AWS.OpsWorks.DescribeEcsClusters
+    -- ** AssignVolume
+    , module Network.AWS.OpsWorks.AssignVolume
 
     -- ** DescribeElasticLoadBalancers
     , module Network.AWS.OpsWorks.DescribeElasticLoadBalancers
 
+    -- ** SetPermission
+    , module Network.AWS.OpsWorks.SetPermission
+
     -- ** DeregisterInstance
     , module Network.AWS.OpsWorks.DeregisterInstance
+
+    -- ** DescribeEcsClusters
+    , module Network.AWS.OpsWorks.DescribeEcsClusters
 
     -- ** DescribeRAIdArrays
     , module Network.AWS.OpsWorks.DescribeRAIdArrays
 
-    -- ** SetPermission
-    , module Network.AWS.OpsWorks.SetPermission
-
     -- ** UpdateVolume
     , module Network.AWS.OpsWorks.UpdateVolume
-
-    -- ** AssignVolume
-    , module Network.AWS.OpsWorks.AssignVolume
 
     -- ** StartInstance
     , module Network.AWS.OpsWorks.StartInstance
@@ -337,18 +337,18 @@ module Network.AWS.OpsWorks
     , App
     , app
     , appSSLConfiguration
-    , appShortname
+    , appEnvironment
     , appEnableSSL
     , appCreatedAt
-    , appEnvironment
+    , appShortname
     , appDataSources
-    , appAppId
     , appAppSource
-    , appName
+    , appAppId
     , appAttributes
+    , appName
     , appType
-    , appDomains
     , appStackId
+    , appDomains
     , appDescription
 
     -- ** AutoScalingThresholds
@@ -379,8 +379,8 @@ module Network.AWS.OpsWorks
     -- ** Command
     , Command
     , command
-    , cInstanceId
     , cDeploymentId
+    , cInstanceId
     , cStatus
     , cLogURL
     , cCreatedAt
@@ -453,8 +453,8 @@ module Network.AWS.OpsWorks
     , elbAvailabilityZones
     , elbRegion
     , elbElasticLoadBalancerName
-    , elbEC2InstanceIds
     , elbStackId
+    , elbEC2InstanceIds
     , elbLayerId
     , elbDNSName
 
@@ -468,29 +468,29 @@ module Network.AWS.OpsWorks
     -- ** Instance
     , Instance
     , instance'
+    , iPrivateDNS
+    , iReportedAgentVersion
     , iInstanceId
+    , iStatus
     , iPrivateIP
     , iInstallUpdatesOnBoot
-    , iReportedAgentVersion
-    , iStatus
-    , iPrivateDNS
     , iVirtualizationType
-    , iSecurityGroupIds
-    , iSSHHostRsaKeyFingerprint
     , iInstanceProfileARN
     , iPlatform
     , iHostname
+    , iSSHHostRsaKeyFingerprint
+    , iSecurityGroupIds
     , iEcsClusterARN
     , iCreatedAt
-    , iSSHKeyName
     , iEC2InstanceId
+    , iSSHKeyName
     , iAgentVersion
     , iRootDeviceVolumeId
     , iSubnetId
-    , iInstanceType
     , iInfrastructureClass
-    , iEBSOptimized
     , iSSHHostDsaKeyFingerprint
+    , iInstanceType
+    , iEBSOptimized
     , iElasticIP
     , iOS
     , iAvailabilityZone
@@ -499,14 +499,14 @@ module Network.AWS.OpsWorks
     , iLayerIds
     , iArchitecture
     , iPublicDNS
-    , iPublicIP
     , iAMIId
+    , iPublicIP
     , iReportedOS
-    , iStackId
     , iRegisteredBy
-    , iBlockDeviceMappings
-    , iEcsContainerInstanceARN
+    , iStackId
     , iRootDeviceType
+    , iEcsContainerInstanceARN
+    , iBlockDeviceMappings
 
     -- ** InstanceIdentity
     , InstanceIdentity
@@ -521,9 +521,9 @@ module Network.AWS.OpsWorks
     , icPending
     , icOnline
     , icUnassigning
-    , icRequested
-    , icRunningSetup
     , icDeregistering
+    , icRunningSetup
+    , icRequested
     , icBooting
     , icStopped
     , icRebooting
@@ -541,22 +541,22 @@ module Network.AWS.OpsWorks
     , Layer
     , layer
     , lCustomInstanceProfileARN
-    , lInstallUpdatesOnBoot
     , lCustomSecurityGroupIds
+    , lInstallUpdatesOnBoot
     , lLifecycleEventConfiguration
-    , lShortname
     , lCreatedAt
+    , lShortname
     , lDefaultRecipes
     , lCustomRecipes
-    , lVolumeConfigurations
     , lCustomJSON
+    , lVolumeConfigurations
     , lEnableAutoHealing
     , lPackages
-    , lName
     , lAttributes
+    , lName
     , lAutoAssignPublicIPs
-    , lUseEBSOptimizedInstances
     , lType
+    , lUseEBSOptimizedInstances
     , lStackId
     , lLayerId
     , lDefaultSecurityGroupNames
@@ -589,13 +589,13 @@ module Network.AWS.OpsWorks
     , rAIdArray
     , raiaInstanceId
     , raiaSize
-    , raiaCreatedAt
     , raiaIOPS
+    , raiaCreatedAt
     , raiaRAIdLevel
     , raiaDevice
     , raiaNumberOfDisks
-    , raiaName
     , raiaAvailabilityZone
+    , raiaName
     , raiaRAIdArrayId
     , raiaVolumeType
     , raiaStackId
@@ -604,8 +604,8 @@ module Network.AWS.OpsWorks
     -- ** RDSDBInstance
     , RDSDBInstance
     , rdsDBInstance
-    , rdiDBUser
     , rdiRDSDBInstanceARN
+    , rdiDBUser
     , rdiMissingOnRDS
     , rdiEngine
     , rdiAddress
@@ -618,8 +618,8 @@ module Network.AWS.OpsWorks
     , Recipes
     , recipes
     , rSetup
-    , rUndeploy
     , rShutdown
+    , rUndeploy
     , rConfigure
     , rDeploy
 
@@ -640,8 +640,8 @@ module Network.AWS.OpsWorks
     -- ** SelfUserProfile
     , SelfUserProfile
     , selfUserProfile
-    , supSSHUsername
     , supSSHPublicKey
+    , supSSHUsername
     , supIAMUserARN
     , supName
 
@@ -652,8 +652,8 @@ module Network.AWS.OpsWorks
     , seCreatedAt
     , seServiceErrorId
     , seType
-    , seMessage
     , seStackId
+    , seMessage
 
     -- ** ShutdownEventConfiguration
     , ShutdownEventConfiguration
@@ -676,20 +676,20 @@ module Network.AWS.OpsWorks
     , stack
     , sDefaultInstanceProfileARN
     , sServiceRoleARN
-    , sARN
     , sDefaultRootDeviceType
+    , sARN
     , sCreatedAt
-    , sChefConfiguration
     , sVPCId
+    , sChefConfiguration
     , sAgentVersion
     , sDefaultSSHKeyName
     , sCustomJSON
     , sCustomCookbooksSource
     , sDefaultAvailabilityZone
-    , sName
-    , sUseOpsworksSecurityGroups
-    , sDefaultOS
     , sAttributes
+    , sName
+    , sDefaultOS
+    , sUseOpsworksSecurityGroups
     , sUseCustomCookbooks
     , sDefaultSubnetId
     , sRegion
@@ -730,9 +730,9 @@ module Network.AWS.OpsWorks
     -- ** UserProfile
     , UserProfile
     , userProfile
-    , upSSHUsername
-    , upSSHPublicKey
     , upAllowSelfManagement
+    , upSSHPublicKey
+    , upSSHUsername
     , upIAMUserARN
     , upName
 
@@ -744,8 +744,8 @@ module Network.AWS.OpsWorks
     , vSize
     , vIOPS
     , vDevice
-    , vName
     , vAvailabilityZone
+    , vName
     , vRAIdArrayId
     , vVolumeId
     , vRegion

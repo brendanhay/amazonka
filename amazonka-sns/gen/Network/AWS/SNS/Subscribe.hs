@@ -39,7 +39,7 @@ module Network.AWS.SNS.Subscribe
     , SubscribeResponse
     -- * Response Lenses
     , srsSubscriptionARN
-    , srsStatus
+    , srsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,7 +52,7 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'subscribe' smart constructor.
 data Subscribe = Subscribe'
-    { _subEndpoint :: !(Maybe Endpoint)
+    { _subEndpoint :: !(Maybe Text)
     , _subTopicARN :: !Text
     , _subProtocol :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -92,7 +92,7 @@ subscribe pTopicARN_ pProtocol_ =
 --     queue
 -- -   For the 'application' protocol, the endpoint is the EndpointArn of a
 --     mobile app and device.
-subEndpoint :: Lens' Subscribe (Maybe Endpoint)
+subEndpoint :: Lens' Subscribe (Maybe Text)
 subEndpoint = lens _subEndpoint (\ s a -> s{_subEndpoint = a});
 
 -- | The ARN of the topic you want to subscribe to.
@@ -141,7 +141,7 @@ instance ToQuery Subscribe where
 -- /See:/ 'subscribeResponse' smart constructor.
 data SubscribeResponse = SubscribeResponse'
     { _srsSubscriptionARN :: !(Maybe Text)
-    , _srsStatus          :: !Int
+    , _srsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SubscribeResponse' with the minimum fields required to make a request.
@@ -150,14 +150,14 @@ data SubscribeResponse = SubscribeResponse'
 --
 -- * 'srsSubscriptionARN'
 --
--- * 'srsStatus'
+-- * 'srsResponseStatus'
 subscribeResponse
-    :: Int -- ^ 'srsStatus'
+    :: Int -- ^ 'srsResponseStatus'
     -> SubscribeResponse
-subscribeResponse pStatus_ =
+subscribeResponse pResponseStatus_ =
     SubscribeResponse'
     { _srsSubscriptionARN = Nothing
-    , _srsStatus = pStatus_
+    , _srsResponseStatus = pResponseStatus_
     }
 
 -- | The ARN of the subscription, if the service was able to create a
@@ -167,5 +167,5 @@ srsSubscriptionARN :: Lens' SubscribeResponse (Maybe Text)
 srsSubscriptionARN = lens _srsSubscriptionARN (\ s a -> s{_srsSubscriptionARN = a});
 
 -- | The response status code.
-srsStatus :: Lens' SubscribeResponse Int
-srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
+srsResponseStatus :: Lens' SubscribeResponse Int
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});

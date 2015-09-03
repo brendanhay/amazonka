@@ -29,6 +29,8 @@
 -- parameter in the request.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDestinations.html AWS API Reference> for DescribeDestinations.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeDestinations
     (
     -- * Creating a Request
@@ -45,11 +47,12 @@ module Network.AWS.CloudWatchLogs.DescribeDestinations
     -- * Response Lenses
     , ddrsNextToken
     , ddrsDestinations
-    , ddrsStatus
+    , ddrsResponseStatus
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
 import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -93,6 +96,13 @@ ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat;
 ddDestinationNamePrefix :: Lens' DescribeDestinations (Maybe Text)
 ddDestinationNamePrefix = lens _ddDestinationNamePrefix (\ s a -> s{_ddDestinationNamePrefix = a});
 
+instance AWSPager DescribeDestinations where
+        page rq rs
+          | stop (rs ^. ddrsNextToken) = Nothing
+          | stop (rs ^. ddrsDestinations) = Nothing
+          | otherwise =
+            Just $ rq & ddNextToken .~ rs ^. ddrsNextToken
+
 instance AWSRequest DescribeDestinations where
         type Rs DescribeDestinations =
              DescribeDestinationsResponse
@@ -131,9 +141,9 @@ instance ToQuery DescribeDestinations where
 
 -- | /See:/ 'describeDestinationsResponse' smart constructor.
 data DescribeDestinationsResponse = DescribeDestinationsResponse'
-    { _ddrsNextToken    :: !(Maybe Text)
-    , _ddrsDestinations :: !(Maybe [Destination])
-    , _ddrsStatus       :: !Int
+    { _ddrsNextToken      :: !(Maybe Text)
+    , _ddrsDestinations   :: !(Maybe [Destination])
+    , _ddrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDestinationsResponse' with the minimum fields required to make a request.
@@ -144,15 +154,15 @@ data DescribeDestinationsResponse = DescribeDestinationsResponse'
 --
 -- * 'ddrsDestinations'
 --
--- * 'ddrsStatus'
+-- * 'ddrsResponseStatus'
 describeDestinationsResponse
-    :: Int -- ^ 'ddrsStatus'
+    :: Int -- ^ 'ddrsResponseStatus'
     -> DescribeDestinationsResponse
-describeDestinationsResponse pStatus_ =
+describeDestinationsResponse pResponseStatus_ =
     DescribeDestinationsResponse'
     { _ddrsNextToken = Nothing
     , _ddrsDestinations = Nothing
-    , _ddrsStatus = pStatus_
+    , _ddrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -164,5 +174,5 @@ ddrsDestinations :: Lens' DescribeDestinationsResponse [Destination]
 ddrsDestinations = lens _ddrsDestinations (\ s a -> s{_ddrsDestinations = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddrsStatus :: Lens' DescribeDestinationsResponse Int
-ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
+ddrsResponseStatus :: Lens' DescribeDestinationsResponse Int
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});

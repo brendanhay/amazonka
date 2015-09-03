@@ -34,7 +34,7 @@ module Network.AWS.DirectConnect.DeleteInterconnect
     , DeleteInterconnectResponse
     -- * Response Lenses
     , drsInterconnectState
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -103,7 +103,7 @@ instance ToQuery DeleteInterconnect where
 -- /See:/ 'deleteInterconnectResponse' smart constructor.
 data DeleteInterconnectResponse = DeleteInterconnectResponse'
     { _drsInterconnectState :: !(Maybe InterconnectState)
-    , _drsStatus            :: !Int
+    , _drsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteInterconnectResponse' with the minimum fields required to make a request.
@@ -112,14 +112,14 @@ data DeleteInterconnectResponse = DeleteInterconnectResponse'
 --
 -- * 'drsInterconnectState'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 deleteInterconnectResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DeleteInterconnectResponse
-deleteInterconnectResponse pStatus_ =
+deleteInterconnectResponse pResponseStatus_ =
     DeleteInterconnectResponse'
     { _drsInterconnectState = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -127,5 +127,5 @@ drsInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectStat
 drsInterconnectState = lens _drsInterconnectState (\ s a -> s{_drsInterconnectState = a});
 
 -- | The response status code.
-drsStatus :: Lens' DeleteInterconnectResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DeleteInterconnectResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

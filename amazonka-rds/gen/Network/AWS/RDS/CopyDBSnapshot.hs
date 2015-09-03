@@ -38,7 +38,7 @@ module Network.AWS.RDS.CopyDBSnapshot
     , CopyDBSnapshotResponse
     -- * Response Lenses
     , cdsrsDBSnapshot
-    , cdsrsStatus
+    , cdsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -148,8 +148,8 @@ instance ToQuery CopyDBSnapshot where
 
 -- | /See:/ 'copyDBSnapshotResponse' smart constructor.
 data CopyDBSnapshotResponse = CopyDBSnapshotResponse'
-    { _cdsrsDBSnapshot :: !(Maybe DBSnapshot)
-    , _cdsrsStatus     :: !Int
+    { _cdsrsDBSnapshot     :: !(Maybe DBSnapshot)
+    , _cdsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CopyDBSnapshotResponse' with the minimum fields required to make a request.
@@ -158,14 +158,14 @@ data CopyDBSnapshotResponse = CopyDBSnapshotResponse'
 --
 -- * 'cdsrsDBSnapshot'
 --
--- * 'cdsrsStatus'
+-- * 'cdsrsResponseStatus'
 copyDBSnapshotResponse
-    :: Int -- ^ 'cdsrsStatus'
+    :: Int -- ^ 'cdsrsResponseStatus'
     -> CopyDBSnapshotResponse
-copyDBSnapshotResponse pStatus_ =
+copyDBSnapshotResponse pResponseStatus_ =
     CopyDBSnapshotResponse'
     { _cdsrsDBSnapshot = Nothing
-    , _cdsrsStatus = pStatus_
+    , _cdsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -173,5 +173,5 @@ cdsrsDBSnapshot :: Lens' CopyDBSnapshotResponse (Maybe DBSnapshot)
 cdsrsDBSnapshot = lens _cdsrsDBSnapshot (\ s a -> s{_cdsrsDBSnapshot = a});
 
 -- | The response status code.
-cdsrsStatus :: Lens' CopyDBSnapshotResponse Int
-cdsrsStatus = lens _cdsrsStatus (\ s a -> s{_cdsrsStatus = a});
+cdsrsResponseStatus :: Lens' CopyDBSnapshotResponse Int
+cdsrsResponseStatus = lens _cdsrsResponseStatus (\ s a -> s{_cdsrsResponseStatus = a});

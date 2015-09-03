@@ -55,14 +55,14 @@ module Network.AWS.EMR.RunJobFlow
     , rjfAMIVersion
     , rjfAdditionalInfo
     , rjfConfigurations
-    , rjfJobFlowRole
     , rjfSteps
+    , rjfJobFlowRole
     , rjfBootstrapActions
     , rjfReleaseLabel
-    , rjfNewSupportedProducts
     , rjfLogURI
-    , rjfSupportedProducts
+    , rjfNewSupportedProducts
     , rjfVisibleToAllUsers
+    , rjfSupportedProducts
     , rjfApplications
     , rjfTags
     , rjfServiceRole
@@ -74,7 +74,7 @@ module Network.AWS.EMR.RunJobFlow
     , RunJobFlowResponse
     -- * Response Lenses
     , rjfrsJobFlowId
-    , rjfrsStatus
+    , rjfrsResponseStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -90,14 +90,14 @@ data RunJobFlow = RunJobFlow'
     { _rjfAMIVersion           :: !(Maybe Text)
     , _rjfAdditionalInfo       :: !(Maybe Text)
     , _rjfConfigurations       :: !(Maybe [Configuration])
-    , _rjfJobFlowRole          :: !(Maybe Text)
     , _rjfSteps                :: !(Maybe [StepConfig])
+    , _rjfJobFlowRole          :: !(Maybe Text)
     , _rjfBootstrapActions     :: !(Maybe [BootstrapActionConfig])
     , _rjfReleaseLabel         :: !(Maybe Text)
-    , _rjfNewSupportedProducts :: !(Maybe [SupportedProductConfig])
     , _rjfLogURI               :: !(Maybe Text)
-    , _rjfSupportedProducts    :: !(Maybe [Text])
+    , _rjfNewSupportedProducts :: !(Maybe [SupportedProductConfig])
     , _rjfVisibleToAllUsers    :: !(Maybe Bool)
+    , _rjfSupportedProducts    :: !(Maybe [Text])
     , _rjfApplications         :: !(Maybe [Application])
     , _rjfTags                 :: !(Maybe [Tag])
     , _rjfServiceRole          :: !(Maybe Text)
@@ -115,21 +115,21 @@ data RunJobFlow = RunJobFlow'
 --
 -- * 'rjfConfigurations'
 --
--- * 'rjfJobFlowRole'
---
 -- * 'rjfSteps'
+--
+-- * 'rjfJobFlowRole'
 --
 -- * 'rjfBootstrapActions'
 --
 -- * 'rjfReleaseLabel'
 --
--- * 'rjfNewSupportedProducts'
---
 -- * 'rjfLogURI'
 --
--- * 'rjfSupportedProducts'
+-- * 'rjfNewSupportedProducts'
 --
 -- * 'rjfVisibleToAllUsers'
+--
+-- * 'rjfSupportedProducts'
 --
 -- * 'rjfApplications'
 --
@@ -149,14 +149,14 @@ runJobFlow pName_ pInstances_ =
     { _rjfAMIVersion = Nothing
     , _rjfAdditionalInfo = Nothing
     , _rjfConfigurations = Nothing
-    , _rjfJobFlowRole = Nothing
     , _rjfSteps = Nothing
+    , _rjfJobFlowRole = Nothing
     , _rjfBootstrapActions = Nothing
     , _rjfReleaseLabel = Nothing
-    , _rjfNewSupportedProducts = Nothing
     , _rjfLogURI = Nothing
-    , _rjfSupportedProducts = Nothing
+    , _rjfNewSupportedProducts = Nothing
     , _rjfVisibleToAllUsers = Nothing
+    , _rjfSupportedProducts = Nothing
     , _rjfApplications = Nothing
     , _rjfTags = Nothing
     , _rjfServiceRole = Nothing
@@ -195,15 +195,15 @@ rjfAdditionalInfo = lens _rjfAdditionalInfo (\ s a -> s{_rjfAdditionalInfo = a})
 rjfConfigurations :: Lens' RunJobFlow [Configuration]
 rjfConfigurations = lens _rjfConfigurations (\ s a -> s{_rjfConfigurations = a}) . _Default . _Coerce;
 
+-- | A list of steps to be executed by the job flow.
+rjfSteps :: Lens' RunJobFlow [StepConfig]
+rjfSteps = lens _rjfSteps (\ s a -> s{_rjfSteps = a}) . _Default . _Coerce;
+
 -- | An IAM role for the job flow. The EC2 instances of the job flow assume
 -- this role. The default role is 'EMRJobflowDefault'. In order to use the
 -- default role, you must have already created it using the CLI.
 rjfJobFlowRole :: Lens' RunJobFlow (Maybe Text)
 rjfJobFlowRole = lens _rjfJobFlowRole (\ s a -> s{_rjfJobFlowRole = a});
-
--- | A list of steps to be executed by the job flow.
-rjfSteps :: Lens' RunJobFlow [StepConfig]
-rjfSteps = lens _rjfSteps (\ s a -> s{_rjfSteps = a}) . _Default . _Coerce;
 
 -- | A list of bootstrap actions that will be run before Hadoop is started on
 -- the cluster nodes.
@@ -216,6 +216,11 @@ rjfBootstrapActions = lens _rjfBootstrapActions (\ s a -> s{_rjfBootstrapActions
 -- AMIs, use amiVersion instead instead of ReleaseLabel.
 rjfReleaseLabel :: Lens' RunJobFlow (Maybe Text)
 rjfReleaseLabel = lens _rjfReleaseLabel (\ s a -> s{_rjfReleaseLabel = a});
+
+-- | The location in Amazon S3 to write the log files of the job flow. If a
+-- value is not provided, logs are not created.
+rjfLogURI :: Lens' RunJobFlow (Maybe Text)
+rjfLogURI = lens _rjfLogURI (\ s a -> s{_rjfLogURI = a});
 
 -- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and
 -- greater, use Applications.
@@ -242,10 +247,13 @@ rjfReleaseLabel = lens _rjfReleaseLabel (\ s a -> s{_rjfReleaseLabel = a});
 rjfNewSupportedProducts :: Lens' RunJobFlow [SupportedProductConfig]
 rjfNewSupportedProducts = lens _rjfNewSupportedProducts (\ s a -> s{_rjfNewSupportedProducts = a}) . _Default . _Coerce;
 
--- | The location in Amazon S3 to write the log files of the job flow. If a
--- value is not provided, logs are not created.
-rjfLogURI :: Lens' RunJobFlow (Maybe Text)
-rjfLogURI = lens _rjfLogURI (\ s a -> s{_rjfLogURI = a});
+-- | Whether the job flow is visible to all IAM users of the AWS account
+-- associated with the job flow. If this value is set to 'true', all IAM
+-- users of that AWS account can view and (if they have the proper policy
+-- permissions set) manage the job flow. If it is set to 'false', only the
+-- IAM user that created the job flow can view and manage it.
+rjfVisibleToAllUsers :: Lens' RunJobFlow (Maybe Bool)
+rjfVisibleToAllUsers = lens _rjfVisibleToAllUsers (\ s a -> s{_rjfVisibleToAllUsers = a});
 
 -- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and
 -- greater, use Applications.
@@ -259,14 +267,6 @@ rjfLogURI = lens _rjfLogURI (\ s a -> s{_rjfLogURI = a});
 -- -   \"mapr-m5\" - launch the job flow using MapR M5 Edition.
 rjfSupportedProducts :: Lens' RunJobFlow [Text]
 rjfSupportedProducts = lens _rjfSupportedProducts (\ s a -> s{_rjfSupportedProducts = a}) . _Default . _Coerce;
-
--- | Whether the job flow is visible to all IAM users of the AWS account
--- associated with the job flow. If this value is set to 'true', all IAM
--- users of that AWS account can view and (if they have the proper policy
--- permissions set) manage the job flow. If it is set to 'false', only the
--- IAM user that created the job flow can view and manage it.
-rjfVisibleToAllUsers :: Lens' RunJobFlow (Maybe Bool)
-rjfVisibleToAllUsers = lens _rjfVisibleToAllUsers (\ s a -> s{_rjfVisibleToAllUsers = a});
 
 -- | Amazon EMR releases 4.x or later.
 --
@@ -319,15 +319,15 @@ instance ToJSON RunJobFlow where
                  [("AmiVersion" .=) <$> _rjfAMIVersion,
                   ("AdditionalInfo" .=) <$> _rjfAdditionalInfo,
                   ("Configurations" .=) <$> _rjfConfigurations,
-                  ("JobFlowRole" .=) <$> _rjfJobFlowRole,
                   ("Steps" .=) <$> _rjfSteps,
+                  ("JobFlowRole" .=) <$> _rjfJobFlowRole,
                   ("BootstrapActions" .=) <$> _rjfBootstrapActions,
                   ("ReleaseLabel" .=) <$> _rjfReleaseLabel,
+                  ("LogUri" .=) <$> _rjfLogURI,
                   ("NewSupportedProducts" .=) <$>
                     _rjfNewSupportedProducts,
-                  ("LogUri" .=) <$> _rjfLogURI,
-                  ("SupportedProducts" .=) <$> _rjfSupportedProducts,
                   ("VisibleToAllUsers" .=) <$> _rjfVisibleToAllUsers,
+                  ("SupportedProducts" .=) <$> _rjfSupportedProducts,
                   ("Applications" .=) <$> _rjfApplications,
                   ("Tags" .=) <$> _rjfTags,
                   ("ServiceRole" .=) <$> _rjfServiceRole,
@@ -344,8 +344,8 @@ instance ToQuery RunJobFlow where
 --
 -- /See:/ 'runJobFlowResponse' smart constructor.
 data RunJobFlowResponse = RunJobFlowResponse'
-    { _rjfrsJobFlowId :: !(Maybe Text)
-    , _rjfrsStatus    :: !Int
+    { _rjfrsJobFlowId      :: !(Maybe Text)
+    , _rjfrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RunJobFlowResponse' with the minimum fields required to make a request.
@@ -354,14 +354,14 @@ data RunJobFlowResponse = RunJobFlowResponse'
 --
 -- * 'rjfrsJobFlowId'
 --
--- * 'rjfrsStatus'
+-- * 'rjfrsResponseStatus'
 runJobFlowResponse
-    :: Int -- ^ 'rjfrsStatus'
+    :: Int -- ^ 'rjfrsResponseStatus'
     -> RunJobFlowResponse
-runJobFlowResponse pStatus_ =
+runJobFlowResponse pResponseStatus_ =
     RunJobFlowResponse'
     { _rjfrsJobFlowId = Nothing
-    , _rjfrsStatus = pStatus_
+    , _rjfrsResponseStatus = pResponseStatus_
     }
 
 -- | An unique identifier for the job flow.
@@ -369,5 +369,5 @@ rjfrsJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
 rjfrsJobFlowId = lens _rjfrsJobFlowId (\ s a -> s{_rjfrsJobFlowId = a});
 
 -- | The response status code.
-rjfrsStatus :: Lens' RunJobFlowResponse Int
-rjfrsStatus = lens _rjfrsStatus (\ s a -> s{_rjfrsStatus = a});
+rjfrsResponseStatus :: Lens' RunJobFlowResponse Int
+rjfrsResponseStatus = lens _rjfrsResponseStatus (\ s a -> s{_rjfrsResponseStatus = a});

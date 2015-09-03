@@ -47,7 +47,7 @@ module Network.AWS.IAM.GetRolePolicy
     , getRolePolicyResponse
     , GetRolePolicyResponse
     -- * Response Lenses
-    , grprsStatus
+    , grprsResponseStatus
     , grprsRoleName
     , grprsPolicyName
     , grprsPolicyDocument
@@ -119,7 +119,7 @@ instance ToQuery GetRolePolicy where
 --
 -- /See:/ 'getRolePolicyResponse' smart constructor.
 data GetRolePolicyResponse = GetRolePolicyResponse'
-    { _grprsStatus         :: !Int
+    { _grprsResponseStatus :: !Int
     , _grprsRoleName       :: !Text
     , _grprsPolicyName     :: !Text
     , _grprsPolicyDocument :: !Text
@@ -129,7 +129,7 @@ data GetRolePolicyResponse = GetRolePolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grprsStatus'
+-- * 'grprsResponseStatus'
 --
 -- * 'grprsRoleName'
 --
@@ -137,22 +137,22 @@ data GetRolePolicyResponse = GetRolePolicyResponse'
 --
 -- * 'grprsPolicyDocument'
 getRolePolicyResponse
-    :: Int -- ^ 'grprsStatus'
+    :: Int -- ^ 'grprsResponseStatus'
     -> Text -- ^ 'grprsRoleName'
     -> Text -- ^ 'grprsPolicyName'
     -> Text -- ^ 'grprsPolicyDocument'
     -> GetRolePolicyResponse
-getRolePolicyResponse pStatus_ pRoleName_ pPolicyName_ pPolicyDocument_ =
+getRolePolicyResponse pResponseStatus_ pRoleName_ pPolicyName_ pPolicyDocument_ =
     GetRolePolicyResponse'
-    { _grprsStatus = pStatus_
+    { _grprsResponseStatus = pResponseStatus_
     , _grprsRoleName = pRoleName_
     , _grprsPolicyName = pPolicyName_
     , _grprsPolicyDocument = pPolicyDocument_
     }
 
 -- | The response status code.
-grprsStatus :: Lens' GetRolePolicyResponse Int
-grprsStatus = lens _grprsStatus (\ s a -> s{_grprsStatus = a});
+grprsResponseStatus :: Lens' GetRolePolicyResponse Int
+grprsResponseStatus = lens _grprsResponseStatus (\ s a -> s{_grprsResponseStatus = a});
 
 -- | The role the policy is associated with.
 grprsRoleName :: Lens' GetRolePolicyResponse Text

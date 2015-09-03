@@ -26,8 +26,8 @@ import           Network.AWS.Route53Domains.Types.Sum
 data ContactDetail = ContactDetail'
     { _cdOrganizationName :: !(Maybe Text)
     , _cdEmail            :: !(Maybe Text)
-    , _cdFax              :: !(Maybe Text)
     , _cdState            :: !(Maybe Text)
+    , _cdFax              :: !(Maybe Text)
     , _cdLastName         :: !(Maybe Text)
     , _cdExtraParams      :: !(Maybe [ExtraParam])
     , _cdZipCode          :: !(Maybe Text)
@@ -48,9 +48,9 @@ data ContactDetail = ContactDetail'
 --
 -- * 'cdEmail'
 --
--- * 'cdFax'
---
 -- * 'cdState'
+--
+-- * 'cdFax'
 --
 -- * 'cdLastName'
 --
@@ -77,8 +77,8 @@ contactDetail =
     ContactDetail'
     { _cdOrganizationName = Nothing
     , _cdEmail = Nothing
-    , _cdFax = Nothing
     , _cdState = Nothing
+    , _cdFax = Nothing
     , _cdLastName = Nothing
     , _cdExtraParams = Nothing
     , _cdZipCode = Nothing
@@ -119,6 +119,20 @@ cdOrganizationName = lens _cdOrganizationName (\ s a -> s{_cdOrganizationName = 
 cdEmail :: Lens' ContactDetail (Maybe Text)
 cdEmail = lens _cdEmail (\ s a -> s{_cdEmail = a});
 
+-- | The state or province of the contact\'s city.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 255 characters.
+--
+-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
+--
+-- Required: No
+cdState :: Lens' ContactDetail (Maybe Text)
+cdState = lens _cdState (\ s a -> s{_cdState = a});
+
 -- | Fax number of the contact.
 --
 -- Type: String
@@ -134,20 +148,6 @@ cdEmail = lens _cdEmail (\ s a -> s{_cdEmail = a});
 -- Required: No
 cdFax :: Lens' ContactDetail (Maybe Text)
 cdFax = lens _cdFax (\ s a -> s{_cdFax = a});
-
--- | The state or province of the contact\'s city.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: No
-cdState :: Lens' ContactDetail (Maybe Text)
-cdState = lens _cdState (\ s a -> s{_cdState = a});
 
 -- | Last name of contact.
 --
@@ -303,8 +303,8 @@ instance FromJSON ContactDetail where
               (\ x ->
                  ContactDetail' <$>
                    (x .:? "OrganizationName") <*> (x .:? "Email") <*>
-                     (x .:? "Fax")
-                     <*> (x .:? "State")
+                     (x .:? "State")
+                     <*> (x .:? "Fax")
                      <*> (x .:? "LastName")
                      <*> (x .:? "ExtraParams" .!= mempty)
                      <*> (x .:? "ZipCode")
@@ -321,8 +321,8 @@ instance ToJSON ContactDetail where
           = object
               (catMaybes
                  [("OrganizationName" .=) <$> _cdOrganizationName,
-                  ("Email" .=) <$> _cdEmail, ("Fax" .=) <$> _cdFax,
-                  ("State" .=) <$> _cdState,
+                  ("Email" .=) <$> _cdEmail, ("State" .=) <$> _cdState,
+                  ("Fax" .=) <$> _cdFax,
                   ("LastName" .=) <$> _cdLastName,
                   ("ExtraParams" .=) <$> _cdExtraParams,
                   ("ZipCode" .=) <$> _cdZipCode,

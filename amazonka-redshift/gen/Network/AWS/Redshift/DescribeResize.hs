@@ -40,8 +40,9 @@ module Network.AWS.Redshift.DescribeResize
     , describeResizeResponse
     , DescribeResizeResponse
     -- * Response Lenses
-    , drrsEstimatedTimeToCompletionInSeconds
     , drrsImportTablesNotStarted
+    , drrsStatus
+    , drrsEstimatedTimeToCompletionInSeconds
     , drrsAvgResizeRateInMegaBytesPerSecond
     , drrsTargetNumberOfNodes
     , drrsTargetNodeType
@@ -49,9 +50,9 @@ module Network.AWS.Redshift.DescribeResize
     , drrsImportTablesCompleted
     , drrsProgressInMegaBytes
     , drrsTotalResizeDataInMegaBytes
-    , drrsElapsedTimeInSeconds
     , drrsTargetClusterType
-    , drrsStatus
+    , drrsElapsedTimeInSeconds
+    , drrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -95,9 +96,10 @@ instance AWSRequest DescribeResize where
           = receiveXMLWrapper "DescribeResizeResult"
               (\ s h x ->
                  DescribeResizeResponse' <$>
-                   (x .@? "EstimatedTimeToCompletionInSeconds") <*>
-                     (x .@? "ImportTablesNotStarted" .!@ mempty >>=
-                        may (parseXMLList "member"))
+                   (x .@? "ImportTablesNotStarted" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (x .@? "Status")
+                     <*> (x .@? "EstimatedTimeToCompletionInSeconds")
                      <*> (x .@? "AvgResizeRateInMegaBytesPerSecond")
                      <*> (x .@? "TargetNumberOfNodes")
                      <*> (x .@? "TargetNodeType")
@@ -109,8 +111,8 @@ instance AWSRequest DescribeResize where
                         may (parseXMLList "member"))
                      <*> (x .@? "ProgressInMegaBytes")
                      <*> (x .@? "TotalResizeDataInMegaBytes")
-                     <*> (x .@? "ElapsedTimeInSeconds")
                      <*> (x .@? "TargetClusterType")
+                     <*> (x .@? "ElapsedTimeInSeconds")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeResize where
@@ -130,8 +132,9 @@ instance ToQuery DescribeResize where
 --
 -- /See:/ 'describeResizeResponse' smart constructor.
 data DescribeResizeResponse = DescribeResizeResponse'
-    { _drrsEstimatedTimeToCompletionInSeconds :: !(Maybe Integer)
-    , _drrsImportTablesNotStarted             :: !(Maybe [Text])
+    { _drrsImportTablesNotStarted             :: !(Maybe [Text])
+    , _drrsStatus                             :: !(Maybe Text)
+    , _drrsEstimatedTimeToCompletionInSeconds :: !(Maybe Integer)
     , _drrsAvgResizeRateInMegaBytesPerSecond  :: !(Maybe Double)
     , _drrsTargetNumberOfNodes                :: !(Maybe Int)
     , _drrsTargetNodeType                     :: !(Maybe Text)
@@ -139,18 +142,20 @@ data DescribeResizeResponse = DescribeResizeResponse'
     , _drrsImportTablesCompleted              :: !(Maybe [Text])
     , _drrsProgressInMegaBytes                :: !(Maybe Integer)
     , _drrsTotalResizeDataInMegaBytes         :: !(Maybe Integer)
-    , _drrsElapsedTimeInSeconds               :: !(Maybe Integer)
     , _drrsTargetClusterType                  :: !(Maybe Text)
-    , _drrsStatus                             :: !Int
+    , _drrsElapsedTimeInSeconds               :: !(Maybe Integer)
+    , _drrsResponseStatus                     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeResizeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrsEstimatedTimeToCompletionInSeconds'
---
 -- * 'drrsImportTablesNotStarted'
+--
+-- * 'drrsStatus'
+--
+-- * 'drrsEstimatedTimeToCompletionInSeconds'
 --
 -- * 'drrsAvgResizeRateInMegaBytesPerSecond'
 --
@@ -166,18 +171,19 @@ data DescribeResizeResponse = DescribeResizeResponse'
 --
 -- * 'drrsTotalResizeDataInMegaBytes'
 --
--- * 'drrsElapsedTimeInSeconds'
---
 -- * 'drrsTargetClusterType'
 --
--- * 'drrsStatus'
+-- * 'drrsElapsedTimeInSeconds'
+--
+-- * 'drrsResponseStatus'
 describeResizeResponse
-    :: Int -- ^ 'drrsStatus'
+    :: Int -- ^ 'drrsResponseStatus'
     -> DescribeResizeResponse
-describeResizeResponse pStatus_ =
+describeResizeResponse pResponseStatus_ =
     DescribeResizeResponse'
-    { _drrsEstimatedTimeToCompletionInSeconds = Nothing
-    , _drrsImportTablesNotStarted = Nothing
+    { _drrsImportTablesNotStarted = Nothing
+    , _drrsStatus = Nothing
+    , _drrsEstimatedTimeToCompletionInSeconds = Nothing
     , _drrsAvgResizeRateInMegaBytesPerSecond = Nothing
     , _drrsTargetNumberOfNodes = Nothing
     , _drrsTargetNodeType = Nothing
@@ -185,10 +191,22 @@ describeResizeResponse pStatus_ =
     , _drrsImportTablesCompleted = Nothing
     , _drrsProgressInMegaBytes = Nothing
     , _drrsTotalResizeDataInMegaBytes = Nothing
-    , _drrsElapsedTimeInSeconds = Nothing
     , _drrsTargetClusterType = Nothing
-    , _drrsStatus = pStatus_
+    , _drrsElapsedTimeInSeconds = Nothing
+    , _drrsResponseStatus = pResponseStatus_
     }
+
+-- | The names of tables that have not been yet imported.
+--
+-- Valid Values: List of table names
+drrsImportTablesNotStarted :: Lens' DescribeResizeResponse [Text]
+drrsImportTablesNotStarted = lens _drrsImportTablesNotStarted (\ s a -> s{_drrsImportTablesNotStarted = a}) . _Default . _Coerce;
+
+-- | The status of the resize operation.
+--
+-- Valid Values: 'NONE' | 'IN_PROGRESS' | 'FAILED' | 'SUCCEEDED'
+drrsStatus :: Lens' DescribeResizeResponse (Maybe Text)
+drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});
 
 -- | The estimated time remaining, in seconds, until the resize operation is
 -- complete. This value is calculated based on the average resize rate and
@@ -196,12 +214,6 @@ describeResizeResponse pStatus_ =
 -- operation is complete, this value will be 0.
 drrsEstimatedTimeToCompletionInSeconds :: Lens' DescribeResizeResponse (Maybe Integer)
 drrsEstimatedTimeToCompletionInSeconds = lens _drrsEstimatedTimeToCompletionInSeconds (\ s a -> s{_drrsEstimatedTimeToCompletionInSeconds = a});
-
--- | The names of tables that have not been yet imported.
---
--- Valid Values: List of table names
-drrsImportTablesNotStarted :: Lens' DescribeResizeResponse [Text]
-drrsImportTablesNotStarted = lens _drrsImportTablesNotStarted (\ s a -> s{_drrsImportTablesNotStarted = a}) . _Default . _Coerce;
 
 -- | The average rate of the resize operation over the last few minutes,
 -- measured in megabytes per second. After the resize operation completes,
@@ -245,18 +257,18 @@ drrsProgressInMegaBytes = lens _drrsProgressInMegaBytes (\ s a -> s{_drrsProgres
 drrsTotalResizeDataInMegaBytes :: Lens' DescribeResizeResponse (Maybe Integer)
 drrsTotalResizeDataInMegaBytes = lens _drrsTotalResizeDataInMegaBytes (\ s a -> s{_drrsTotalResizeDataInMegaBytes = a});
 
--- | The amount of seconds that have elapsed since the resize operation
--- began. After the resize operation completes, this value shows the total
--- actual time, in seconds, for the resize operation.
-drrsElapsedTimeInSeconds :: Lens' DescribeResizeResponse (Maybe Integer)
-drrsElapsedTimeInSeconds = lens _drrsElapsedTimeInSeconds (\ s a -> s{_drrsElapsedTimeInSeconds = a});
-
 -- | The cluster type after the resize operation is complete.
 --
 -- Valid Values: 'multi-node' | 'single-node'
 drrsTargetClusterType :: Lens' DescribeResizeResponse (Maybe Text)
 drrsTargetClusterType = lens _drrsTargetClusterType (\ s a -> s{_drrsTargetClusterType = a});
 
+-- | The amount of seconds that have elapsed since the resize operation
+-- began. After the resize operation completes, this value shows the total
+-- actual time, in seconds, for the resize operation.
+drrsElapsedTimeInSeconds :: Lens' DescribeResizeResponse (Maybe Integer)
+drrsElapsedTimeInSeconds = lens _drrsElapsedTimeInSeconds (\ s a -> s{_drrsElapsedTimeInSeconds = a});
+
 -- | The response status code.
-drrsStatus :: Lens' DescribeResizeResponse Int
-drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});
+drrsResponseStatus :: Lens' DescribeResizeResponse Int
+drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});

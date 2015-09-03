@@ -35,12 +35,12 @@ module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     , describeSnapshotScheduleResponse
     , DescribeSnapshotScheduleResponse
     -- * Response Lenses
-    , dssrsVolumeARN
     , dssrsStartAt
+    , dssrsVolumeARN
     , dssrsRecurrenceInHours
     , dssrsTimezone
     , dssrsDescription
-    , dssrsStatus
+    , dssrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -83,7 +83,7 @@ instance AWSRequest DescribeSnapshotSchedule where
           = receiveJSON
               (\ s h x ->
                  DescribeSnapshotScheduleResponse' <$>
-                   (x .?> "VolumeARN") <*> (x .?> "StartAt") <*>
+                   (x .?> "StartAt") <*> (x .?> "VolumeARN") <*>
                      (x .?> "RecurrenceInHours")
                      <*> (x .?> "Timezone")
                      <*> (x .?> "Description")
@@ -112,21 +112,21 @@ instance ToQuery DescribeSnapshotSchedule where
 
 -- | /See:/ 'describeSnapshotScheduleResponse' smart constructor.
 data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
-    { _dssrsVolumeARN         :: !(Maybe Text)
-    , _dssrsStartAt           :: !(Maybe Nat)
+    { _dssrsStartAt           :: !(Maybe Nat)
+    , _dssrsVolumeARN         :: !(Maybe Text)
     , _dssrsRecurrenceInHours :: !(Maybe Nat)
     , _dssrsTimezone          :: !(Maybe Text)
     , _dssrsDescription       :: !(Maybe Text)
-    , _dssrsStatus            :: !Int
+    , _dssrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSnapshotScheduleResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssrsVolumeARN'
---
 -- * 'dssrsStartAt'
+--
+-- * 'dssrsVolumeARN'
 --
 -- * 'dssrsRecurrenceInHours'
 --
@@ -134,27 +134,27 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
 --
 -- * 'dssrsDescription'
 --
--- * 'dssrsStatus'
+-- * 'dssrsResponseStatus'
 describeSnapshotScheduleResponse
-    :: Int -- ^ 'dssrsStatus'
+    :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeSnapshotScheduleResponse
-describeSnapshotScheduleResponse pStatus_ =
+describeSnapshotScheduleResponse pResponseStatus_ =
     DescribeSnapshotScheduleResponse'
-    { _dssrsVolumeARN = Nothing
-    , _dssrsStartAt = Nothing
+    { _dssrsStartAt = Nothing
+    , _dssrsVolumeARN = Nothing
     , _dssrsRecurrenceInHours = Nothing
     , _dssrsTimezone = Nothing
     , _dssrsDescription = Nothing
-    , _dssrsStatus = pStatus_
+    , _dssrsResponseStatus = pResponseStatus_
     }
-
--- | Undocumented member.
-dssrsVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dssrsVolumeARN = lens _dssrsVolumeARN (\ s a -> s{_dssrsVolumeARN = a});
 
 -- | Undocumented member.
 dssrsStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
 dssrsStartAt = lens _dssrsStartAt (\ s a -> s{_dssrsStartAt = a}) . mapping _Nat;
+
+-- | Undocumented member.
+dssrsVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
+dssrsVolumeARN = lens _dssrsVolumeARN (\ s a -> s{_dssrsVolumeARN = a});
 
 -- | Undocumented member.
 dssrsRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
@@ -169,5 +169,5 @@ dssrsDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrsDescription = lens _dssrsDescription (\ s a -> s{_dssrsDescription = a});
 
 -- | The response status code.
-dssrsStatus :: Lens' DescribeSnapshotScheduleResponse Int
-dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});
+dssrsResponseStatus :: Lens' DescribeSnapshotScheduleResponse Int
+dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});

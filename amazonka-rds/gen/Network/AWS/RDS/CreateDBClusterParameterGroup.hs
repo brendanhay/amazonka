@@ -67,7 +67,7 @@ module Network.AWS.RDS.CreateDBClusterParameterGroup
     , CreateDBClusterParameterGroupResponse
     -- * Response Lenses
     , cdcpgrsDBClusterParameterGroup
-    , cdcpgrsStatus
+    , cdcpgrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -174,7 +174,7 @@ instance ToQuery CreateDBClusterParameterGroup where
 -- | /See:/ 'createDBClusterParameterGroupResponse' smart constructor.
 data CreateDBClusterParameterGroupResponse = CreateDBClusterParameterGroupResponse'
     { _cdcpgrsDBClusterParameterGroup :: !(Maybe DBClusterParameterGroup)
-    , _cdcpgrsStatus                  :: !Int
+    , _cdcpgrsResponseStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDBClusterParameterGroupResponse' with the minimum fields required to make a request.
@@ -183,14 +183,14 @@ data CreateDBClusterParameterGroupResponse = CreateDBClusterParameterGroupRespon
 --
 -- * 'cdcpgrsDBClusterParameterGroup'
 --
--- * 'cdcpgrsStatus'
+-- * 'cdcpgrsResponseStatus'
 createDBClusterParameterGroupResponse
-    :: Int -- ^ 'cdcpgrsStatus'
+    :: Int -- ^ 'cdcpgrsResponseStatus'
     -> CreateDBClusterParameterGroupResponse
-createDBClusterParameterGroupResponse pStatus_ =
+createDBClusterParameterGroupResponse pResponseStatus_ =
     CreateDBClusterParameterGroupResponse'
     { _cdcpgrsDBClusterParameterGroup = Nothing
-    , _cdcpgrsStatus = pStatus_
+    , _cdcpgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -198,5 +198,5 @@ cdcpgrsDBClusterParameterGroup :: Lens' CreateDBClusterParameterGroupResponse (M
 cdcpgrsDBClusterParameterGroup = lens _cdcpgrsDBClusterParameterGroup (\ s a -> s{_cdcpgrsDBClusterParameterGroup = a});
 
 -- | The response status code.
-cdcpgrsStatus :: Lens' CreateDBClusterParameterGroupResponse Int
-cdcpgrsStatus = lens _cdcpgrsStatus (\ s a -> s{_cdcpgrsStatus = a});
+cdcpgrsResponseStatus :: Lens' CreateDBClusterParameterGroupResponse Int
+cdcpgrsResponseStatus = lens _cdcpgrsResponseStatus (\ s a -> s{_cdcpgrsResponseStatus = a});

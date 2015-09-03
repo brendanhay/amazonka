@@ -526,8 +526,8 @@ instance FromXML HealthCheck where
 --
 -- /See:/ 'healthCheckConfig' smart constructor.
 data HealthCheckConfig = HealthCheckConfig'
-    { _hccIPAddress                :: !(Maybe Text)
-    , _hccFailureThreshold         :: !(Maybe Nat)
+    { _hccFailureThreshold         :: !(Maybe Nat)
+    , _hccIPAddress                :: !(Maybe Text)
     , _hccSearchString             :: !(Maybe Text)
     , _hccResourcePath             :: !(Maybe Text)
     , _hccFullyQualifiedDomainName :: !(Maybe Text)
@@ -540,9 +540,9 @@ data HealthCheckConfig = HealthCheckConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hccIPAddress'
---
 -- * 'hccFailureThreshold'
+--
+-- * 'hccIPAddress'
 --
 -- * 'hccSearchString'
 --
@@ -560,8 +560,8 @@ healthCheckConfig
     -> HealthCheckConfig
 healthCheckConfig pType_ =
     HealthCheckConfig'
-    { _hccIPAddress = Nothing
-    , _hccFailureThreshold = Nothing
+    { _hccFailureThreshold = Nothing
+    , _hccIPAddress = Nothing
     , _hccSearchString = Nothing
     , _hccResourcePath = Nothing
     , _hccFullyQualifiedDomainName = Nothing
@@ -569,10 +569,6 @@ healthCheckConfig pType_ =
     , _hccPort = Nothing
     , _hccType = pType_
     }
-
--- | IP Address of the instance being checked.
-hccIPAddress :: Lens' HealthCheckConfig (Maybe Text)
-hccIPAddress = lens _hccIPAddress (\ s a -> s{_hccIPAddress = a});
 
 -- | The number of consecutive health checks that an endpoint must pass or
 -- fail for Route 53 to change the current status of the endpoint from
@@ -583,6 +579,10 @@ hccIPAddress = lens _hccIPAddress (\ s a -> s{_hccIPAddress = a});
 -- Amazon Route 53 Developer Guide.
 hccFailureThreshold :: Lens' HealthCheckConfig (Maybe Natural)
 hccFailureThreshold = lens _hccFailureThreshold (\ s a -> s{_hccFailureThreshold = a}) . mapping _Nat;
+
+-- | IP Address of the instance being checked.
+hccIPAddress :: Lens' HealthCheckConfig (Maybe Text)
+hccIPAddress = lens _hccIPAddress (\ s a -> s{_hccIPAddress = a});
 
 -- | A string to search for in the body of a health check response. Required
 -- for HTTP_STR_MATCH and HTTPS_STR_MATCH health checks.
@@ -623,7 +623,7 @@ hccType = lens _hccType (\ s a -> s{_hccType = a});
 instance FromXML HealthCheckConfig where
         parseXML x
           = HealthCheckConfig' <$>
-              (x .@? "IPAddress") <*> (x .@? "FailureThreshold")
+              (x .@? "FailureThreshold") <*> (x .@? "IPAddress")
                 <*> (x .@? "SearchString")
                 <*> (x .@? "ResourcePath")
                 <*> (x .@? "FullyQualifiedDomainName")
@@ -634,8 +634,8 @@ instance FromXML HealthCheckConfig where
 instance ToXML HealthCheckConfig where
         toXML HealthCheckConfig'{..}
           = mconcat
-              ["IPAddress" @= _hccIPAddress,
-               "FailureThreshold" @= _hccFailureThreshold,
+              ["FailureThreshold" @= _hccFailureThreshold,
+               "IPAddress" @= _hccIPAddress,
                "SearchString" @= _hccSearchString,
                "ResourcePath" @= _hccResourcePath,
                "FullyQualifiedDomainName" @=
@@ -840,8 +840,8 @@ instance ToXML ResourceRecord where
 --
 -- /See:/ 'resourceRecordSet' smart constructor.
 data ResourceRecordSet = ResourceRecordSet'
-    { _rrsResourceRecords :: !(Maybe (List1 ResourceRecord))
-    , _rrsTTL             :: !(Maybe Nat)
+    { _rrsTTL             :: !(Maybe Nat)
+    , _rrsResourceRecords :: !(Maybe (List1 ResourceRecord))
     , _rrsAliasTarget     :: !(Maybe AliasTarget)
     , _rrsWeight          :: !(Maybe Nat)
     , _rrsSetIdentifier   :: !(Maybe Text)
@@ -857,9 +857,9 @@ data ResourceRecordSet = ResourceRecordSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrsResourceRecords'
---
 -- * 'rrsTTL'
+--
+-- * 'rrsResourceRecords'
 --
 -- * 'rrsAliasTarget'
 --
@@ -884,8 +884,8 @@ resourceRecordSet
     -> ResourceRecordSet
 resourceRecordSet pName_ pType_ =
     ResourceRecordSet'
-    { _rrsResourceRecords = Nothing
-    , _rrsTTL = Nothing
+    { _rrsTTL = Nothing
+    , _rrsResourceRecords = Nothing
     , _rrsAliasTarget = Nothing
     , _rrsWeight = Nothing
     , _rrsSetIdentifier = Nothing
@@ -897,14 +897,14 @@ resourceRecordSet pName_ pType_ =
     , _rrsType = pType_
     }
 
+-- | The cache time to live for the current resource record set.
+rrsTTL :: Lens' ResourceRecordSet (Maybe Natural)
+rrsTTL = lens _rrsTTL (\ s a -> s{_rrsTTL = a}) . mapping _Nat;
+
 -- | A complex type that contains the resource records for the current
 -- resource record set.
 rrsResourceRecords :: Lens' ResourceRecordSet (Maybe (NonEmpty ResourceRecord))
 rrsResourceRecords = lens _rrsResourceRecords (\ s a -> s{_rrsResourceRecords = a}) . mapping _List1;
-
--- | The cache time to live for the current resource record set.
-rrsTTL :: Lens' ResourceRecordSet (Maybe Natural)
-rrsTTL = lens _rrsTTL (\ s a -> s{_rrsTTL = a}) . mapping _Nat;
 
 -- | /Alias resource record sets only:/ Information about the AWS resource to
 -- which you are redirecting traffic.
@@ -973,9 +973,9 @@ rrsType = lens _rrsType (\ s a -> s{_rrsType = a});
 instance FromXML ResourceRecordSet where
         parseXML x
           = ResourceRecordSet' <$>
-              (x .@? "ResourceRecords" .!@ mempty >>=
-                 may (parseXMLList1 "ResourceRecord"))
-                <*> (x .@? "TTL")
+              (x .@? "TTL") <*>
+                (x .@? "ResourceRecords" .!@ mempty >>=
+                   may (parseXMLList1 "ResourceRecord"))
                 <*> (x .@? "AliasTarget")
                 <*> (x .@? "Weight")
                 <*> (x .@? "SetIdentifier")
@@ -989,10 +989,11 @@ instance FromXML ResourceRecordSet where
 instance ToXML ResourceRecordSet where
         toXML ResourceRecordSet'{..}
           = mconcat
-              ["ResourceRecords" @=
+              ["TTL" @= _rrsTTL,
+               "ResourceRecords" @=
                  toXML
                    (toXMLList "ResourceRecord" <$> _rrsResourceRecords),
-               "TTL" @= _rrsTTL, "AliasTarget" @= _rrsAliasTarget,
+               "AliasTarget" @= _rrsAliasTarget,
                "Weight" @= _rrsWeight,
                "SetIdentifier" @= _rrsSetIdentifier,
                "Failover" @= _rrsFailover,

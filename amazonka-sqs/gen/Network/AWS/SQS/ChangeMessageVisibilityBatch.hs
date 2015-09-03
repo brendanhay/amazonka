@@ -50,7 +50,7 @@ module Network.AWS.SQS.ChangeMessageVisibilityBatch
     , changeMessageVisibilityBatchResponse
     , ChangeMessageVisibilityBatchResponse
     -- * Response Lenses
-    , cmvbrsStatus
+    , cmvbrsResponseStatus
     , cmvbrsSuccessful
     , cmvbrsFailed
     ) where
@@ -131,33 +131,33 @@ instance ToQuery ChangeMessageVisibilityBatch where
 --
 -- /See:/ 'changeMessageVisibilityBatchResponse' smart constructor.
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'
-    { _cmvbrsStatus     :: !Int
-    , _cmvbrsSuccessful :: ![ChangeMessageVisibilityBatchResultEntry]
-    , _cmvbrsFailed     :: ![BatchResultErrorEntry]
+    { _cmvbrsResponseStatus :: !Int
+    , _cmvbrsSuccessful     :: ![ChangeMessageVisibilityBatchResultEntry]
+    , _cmvbrsFailed         :: ![BatchResultErrorEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ChangeMessageVisibilityBatchResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cmvbrsStatus'
+-- * 'cmvbrsResponseStatus'
 --
 -- * 'cmvbrsSuccessful'
 --
 -- * 'cmvbrsFailed'
 changeMessageVisibilityBatchResponse
-    :: Int -- ^ 'cmvbrsStatus'
+    :: Int -- ^ 'cmvbrsResponseStatus'
     -> ChangeMessageVisibilityBatchResponse
-changeMessageVisibilityBatchResponse pStatus_ =
+changeMessageVisibilityBatchResponse pResponseStatus_ =
     ChangeMessageVisibilityBatchResponse'
-    { _cmvbrsStatus = pStatus_
+    { _cmvbrsResponseStatus = pResponseStatus_
     , _cmvbrsSuccessful = mempty
     , _cmvbrsFailed = mempty
     }
 
 -- | The response status code.
-cmvbrsStatus :: Lens' ChangeMessageVisibilityBatchResponse Int
-cmvbrsStatus = lens _cmvbrsStatus (\ s a -> s{_cmvbrsStatus = a});
+cmvbrsResponseStatus :: Lens' ChangeMessageVisibilityBatchResponse Int
+cmvbrsResponseStatus = lens _cmvbrsResponseStatus (\ s a -> s{_cmvbrsResponseStatus = a});
 
 -- | A list of ChangeMessageVisibilityBatchResultEntry items.
 cmvbrsSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]

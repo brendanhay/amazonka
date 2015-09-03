@@ -41,7 +41,7 @@ module Network.AWS.S3.AbortMultipartUpload
     , AbortMultipartUploadResponse
     -- * Response Lenses
     , amursRequestCharged
-    , amursStatus
+    , amursResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -124,7 +124,7 @@ instance ToQuery AbortMultipartUpload where
 -- | /See:/ 'abortMultipartUploadResponse' smart constructor.
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
     { _amursRequestCharged :: !(Maybe RequestCharged)
-    , _amursStatus         :: !Int
+    , _amursResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AbortMultipartUploadResponse' with the minimum fields required to make a request.
@@ -133,14 +133,14 @@ data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
 --
 -- * 'amursRequestCharged'
 --
--- * 'amursStatus'
+-- * 'amursResponseStatus'
 abortMultipartUploadResponse
-    :: Int -- ^ 'amursStatus'
+    :: Int -- ^ 'amursResponseStatus'
     -> AbortMultipartUploadResponse
-abortMultipartUploadResponse pStatus_ =
+abortMultipartUploadResponse pResponseStatus_ =
     AbortMultipartUploadResponse'
     { _amursRequestCharged = Nothing
-    , _amursStatus = pStatus_
+    , _amursResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -148,5 +148,5 @@ amursRequestCharged :: Lens' AbortMultipartUploadResponse (Maybe RequestCharged)
 amursRequestCharged = lens _amursRequestCharged (\ s a -> s{_amursRequestCharged = a});
 
 -- | The response status code.
-amursStatus :: Lens' AbortMultipartUploadResponse Int
-amursStatus = lens _amursStatus (\ s a -> s{_amursStatus = a});
+amursResponseStatus :: Lens' AbortMultipartUploadResponse Int
+amursResponseStatus = lens _amursResponseStatus (\ s a -> s{_amursResponseStatus = a});

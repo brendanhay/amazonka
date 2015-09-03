@@ -31,17 +31,17 @@ import Test.AWS.CognitoSync.Internal
 --         [ testDescribeDataset $
 --             describeDataset
 --
---         , testDescribeIdentityPoolUsage $
---             describeIdentityPoolUsage
---
 --         , testSetCognitoEvents $
 --             setCognitoEvents
 --
---         , testListIdentityPoolUsage $
---             listIdentityPoolUsage
+--         , testDescribeIdentityPoolUsage $
+--             describeIdentityPoolUsage
 --
 --         , testGetBulkPublishDetails $
 --             getBulkPublishDetails
+--
+--         , testListIdentityPoolUsage $
+--             listIdentityPoolUsage
 --
 --         , testSetIdentityPoolConfiguration $
 --             setIdentityPoolConfiguration
@@ -49,11 +49,11 @@ import Test.AWS.CognitoSync.Internal
 --         , testDeleteDataset $
 --             deleteDataset
 --
---         , testDescribeIdentityUsage $
---             describeIdentityUsage
---
 --         , testGetCognitoEvents $
 --             getCognitoEvents
+--
+--         , testDescribeIdentityUsage $
+--             describeIdentityUsage
 --
 --         , testRegisterDevice $
 --             registerDevice
@@ -85,17 +85,17 @@ import Test.AWS.CognitoSync.Internal
 --         [ testDescribeDatasetResponse $
 --             describeDatasetResponse
 --
---         , testDescribeIdentityPoolUsageResponse $
---             describeIdentityPoolUsageResponse
---
 --         , testSetCognitoEventsResponse $
 --             setCognitoEventsResponse
 --
---         , testListIdentityPoolUsageResponse $
---             listIdentityPoolUsageResponse
+--         , testDescribeIdentityPoolUsageResponse $
+--             describeIdentityPoolUsageResponse
 --
 --         , testGetBulkPublishDetailsResponse $
 --             getBulkPublishDetailsResponse
+--
+--         , testListIdentityPoolUsageResponse $
+--             listIdentityPoolUsageResponse
 --
 --         , testSetIdentityPoolConfigurationResponse $
 --             setIdentityPoolConfigurationResponse
@@ -103,11 +103,11 @@ import Test.AWS.CognitoSync.Internal
 --         , testDeleteDatasetResponse $
 --             deleteDatasetResponse
 --
---         , testDescribeIdentityUsageResponse $
---             describeIdentityUsageResponse
---
 --         , testGetCognitoEventsResponse $
 --             getCognitoEventsResponse
+--
+--         , testDescribeIdentityUsageResponse $
+--             describeIdentityUsageResponse
 --
 --         , testRegisterDeviceResponse $
 --             registerDeviceResponse
@@ -143,25 +143,25 @@ testDescribeDataset = req
     "DescribeDataset"
     "fixture/DescribeDataset.yaml"
 
-testDescribeIdentityPoolUsage :: DescribeIdentityPoolUsage -> TestTree
-testDescribeIdentityPoolUsage = req
-    "DescribeIdentityPoolUsage"
-    "fixture/DescribeIdentityPoolUsage.yaml"
-
 testSetCognitoEvents :: SetCognitoEvents -> TestTree
 testSetCognitoEvents = req
     "SetCognitoEvents"
     "fixture/SetCognitoEvents.yaml"
 
-testListIdentityPoolUsage :: ListIdentityPoolUsage -> TestTree
-testListIdentityPoolUsage = req
-    "ListIdentityPoolUsage"
-    "fixture/ListIdentityPoolUsage.yaml"
+testDescribeIdentityPoolUsage :: DescribeIdentityPoolUsage -> TestTree
+testDescribeIdentityPoolUsage = req
+    "DescribeIdentityPoolUsage"
+    "fixture/DescribeIdentityPoolUsage.yaml"
 
 testGetBulkPublishDetails :: GetBulkPublishDetails -> TestTree
 testGetBulkPublishDetails = req
     "GetBulkPublishDetails"
     "fixture/GetBulkPublishDetails.yaml"
+
+testListIdentityPoolUsage :: ListIdentityPoolUsage -> TestTree
+testListIdentityPoolUsage = req
+    "ListIdentityPoolUsage"
+    "fixture/ListIdentityPoolUsage.yaml"
 
 testSetIdentityPoolConfiguration :: SetIdentityPoolConfiguration -> TestTree
 testSetIdentityPoolConfiguration = req
@@ -173,15 +173,15 @@ testDeleteDataset = req
     "DeleteDataset"
     "fixture/DeleteDataset.yaml"
 
-testDescribeIdentityUsage :: DescribeIdentityUsage -> TestTree
-testDescribeIdentityUsage = req
-    "DescribeIdentityUsage"
-    "fixture/DescribeIdentityUsage.yaml"
-
 testGetCognitoEvents :: GetCognitoEvents -> TestTree
 testGetCognitoEvents = req
     "GetCognitoEvents"
     "fixture/GetCognitoEvents.yaml"
+
+testDescribeIdentityUsage :: DescribeIdentityUsage -> TestTree
+testDescribeIdentityUsage = req
+    "DescribeIdentityUsage"
+    "fixture/DescribeIdentityUsage.yaml"
 
 testRegisterDevice :: RegisterDevice -> TestTree
 testRegisterDevice = req
@@ -232,13 +232,6 @@ testDescribeDatasetResponse = res
     cognitoSync
     (Proxy :: Proxy DescribeDataset)
 
-testDescribeIdentityPoolUsageResponse :: DescribeIdentityPoolUsageResponse -> TestTree
-testDescribeIdentityPoolUsageResponse = res
-    "DescribeIdentityPoolUsageResponse"
-    "fixture/DescribeIdentityPoolUsageResponse.proto"
-    cognitoSync
-    (Proxy :: Proxy DescribeIdentityPoolUsage)
-
 testSetCognitoEventsResponse :: SetCognitoEventsResponse -> TestTree
 testSetCognitoEventsResponse = res
     "SetCognitoEventsResponse"
@@ -246,12 +239,12 @@ testSetCognitoEventsResponse = res
     cognitoSync
     (Proxy :: Proxy SetCognitoEvents)
 
-testListIdentityPoolUsageResponse :: ListIdentityPoolUsageResponse -> TestTree
-testListIdentityPoolUsageResponse = res
-    "ListIdentityPoolUsageResponse"
-    "fixture/ListIdentityPoolUsageResponse.proto"
+testDescribeIdentityPoolUsageResponse :: DescribeIdentityPoolUsageResponse -> TestTree
+testDescribeIdentityPoolUsageResponse = res
+    "DescribeIdentityPoolUsageResponse"
+    "fixture/DescribeIdentityPoolUsageResponse.proto"
     cognitoSync
-    (Proxy :: Proxy ListIdentityPoolUsage)
+    (Proxy :: Proxy DescribeIdentityPoolUsage)
 
 testGetBulkPublishDetailsResponse :: GetBulkPublishDetailsResponse -> TestTree
 testGetBulkPublishDetailsResponse = res
@@ -259,6 +252,13 @@ testGetBulkPublishDetailsResponse = res
     "fixture/GetBulkPublishDetailsResponse.proto"
     cognitoSync
     (Proxy :: Proxy GetBulkPublishDetails)
+
+testListIdentityPoolUsageResponse :: ListIdentityPoolUsageResponse -> TestTree
+testListIdentityPoolUsageResponse = res
+    "ListIdentityPoolUsageResponse"
+    "fixture/ListIdentityPoolUsageResponse.proto"
+    cognitoSync
+    (Proxy :: Proxy ListIdentityPoolUsage)
 
 testSetIdentityPoolConfigurationResponse :: SetIdentityPoolConfigurationResponse -> TestTree
 testSetIdentityPoolConfigurationResponse = res
@@ -274,19 +274,19 @@ testDeleteDatasetResponse = res
     cognitoSync
     (Proxy :: Proxy DeleteDataset)
 
-testDescribeIdentityUsageResponse :: DescribeIdentityUsageResponse -> TestTree
-testDescribeIdentityUsageResponse = res
-    "DescribeIdentityUsageResponse"
-    "fixture/DescribeIdentityUsageResponse.proto"
-    cognitoSync
-    (Proxy :: Proxy DescribeIdentityUsage)
-
 testGetCognitoEventsResponse :: GetCognitoEventsResponse -> TestTree
 testGetCognitoEventsResponse = res
     "GetCognitoEventsResponse"
     "fixture/GetCognitoEventsResponse.proto"
     cognitoSync
     (Proxy :: Proxy GetCognitoEvents)
+
+testDescribeIdentityUsageResponse :: DescribeIdentityUsageResponse -> TestTree
+testDescribeIdentityUsageResponse = res
+    "DescribeIdentityUsageResponse"
+    "fixture/DescribeIdentityUsageResponse.proto"
+    cognitoSync
+    (Proxy :: Proxy DescribeIdentityUsage)
 
 testRegisterDeviceResponse :: RegisterDeviceResponse -> TestTree
 testRegisterDeviceResponse = res

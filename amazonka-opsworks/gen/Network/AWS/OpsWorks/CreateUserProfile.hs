@@ -32,9 +32,9 @@ module Network.AWS.OpsWorks.CreateUserProfile
       createUserProfile
     , CreateUserProfile
     -- * Request Lenses
-    , cupSSHUsername
-    , cupSSHPublicKey
     , cupAllowSelfManagement
+    , cupSSHPublicKey
+    , cupSSHUsername
     , cupIAMUserARN
 
     -- * Destructuring the Response
@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.CreateUserProfile
     , CreateUserProfileResponse
     -- * Response Lenses
     , cuprsIAMUserARN
-    , cuprsStatus
+    , cuprsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -53,9 +53,9 @@ import           Network.AWS.Response
 
 -- | /See:/ 'createUserProfile' smart constructor.
 data CreateUserProfile = CreateUserProfile'
-    { _cupSSHUsername         :: !(Maybe Text)
+    { _cupAllowSelfManagement :: !(Maybe Bool)
     , _cupSSHPublicKey        :: !(Maybe Text)
-    , _cupAllowSelfManagement :: !(Maybe Bool)
+    , _cupSSHUsername         :: !(Maybe Text)
     , _cupIAMUserARN          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -63,11 +63,11 @@ data CreateUserProfile = CreateUserProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cupSSHUsername'
+-- * 'cupAllowSelfManagement'
 --
 -- * 'cupSSHPublicKey'
 --
--- * 'cupAllowSelfManagement'
+-- * 'cupSSHUsername'
 --
 -- * 'cupIAMUserARN'
 createUserProfile
@@ -75,11 +75,21 @@ createUserProfile
     -> CreateUserProfile
 createUserProfile pIAMUserARN_ =
     CreateUserProfile'
-    { _cupSSHUsername = Nothing
+    { _cupAllowSelfManagement = Nothing
     , _cupSSHPublicKey = Nothing
-    , _cupAllowSelfManagement = Nothing
+    , _cupSSHUsername = Nothing
     , _cupIAMUserARN = pIAMUserARN_
     }
+
+-- | Whether users can specify their own SSH public key through the My
+-- Settings page. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User\'s Public SSH Key>.
+cupAllowSelfManagement :: Lens' CreateUserProfile (Maybe Bool)
+cupAllowSelfManagement = lens _cupAllowSelfManagement (\ s a -> s{_cupAllowSelfManagement = a});
+
+-- | The user\'s public SSH key.
+cupSSHPublicKey :: Lens' CreateUserProfile (Maybe Text)
+cupSSHPublicKey = lens _cupSSHPublicKey (\ s a -> s{_cupSSHPublicKey = a});
 
 -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
 -- [0-9], \'-\', and \'_\'. If the specified name includes other
@@ -88,16 +98,6 @@ createUserProfile pIAMUserARN_ =
 -- OpsWorks generates one from the IAM user name.
 cupSSHUsername :: Lens' CreateUserProfile (Maybe Text)
 cupSSHUsername = lens _cupSSHUsername (\ s a -> s{_cupSSHUsername = a});
-
--- | The user\'s public SSH key.
-cupSSHPublicKey :: Lens' CreateUserProfile (Maybe Text)
-cupSSHPublicKey = lens _cupSSHPublicKey (\ s a -> s{_cupSSHPublicKey = a});
-
--- | Whether users can specify their own SSH public key through the My
--- Settings page. For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User\'s Public SSH Key>.
-cupAllowSelfManagement :: Lens' CreateUserProfile (Maybe Bool)
-cupAllowSelfManagement = lens _cupAllowSelfManagement (\ s a -> s{_cupAllowSelfManagement = a});
 
 -- | The user\'s IAM ARN.
 cupIAMUserARN :: Lens' CreateUserProfile Text
@@ -126,10 +126,10 @@ instance ToJSON CreateUserProfile where
         toJSON CreateUserProfile'{..}
           = object
               (catMaybes
-                 [("SshUsername" .=) <$> _cupSSHUsername,
-                  ("SshPublicKey" .=) <$> _cupSSHPublicKey,
-                  ("AllowSelfManagement" .=) <$>
+                 [("AllowSelfManagement" .=) <$>
                     _cupAllowSelfManagement,
+                  ("SshPublicKey" .=) <$> _cupSSHPublicKey,
+                  ("SshUsername" .=) <$> _cupSSHUsername,
                   Just ("IamUserArn" .= _cupIAMUserARN)])
 
 instance ToPath CreateUserProfile where
@@ -142,8 +142,8 @@ instance ToQuery CreateUserProfile where
 --
 -- /See:/ 'createUserProfileResponse' smart constructor.
 data CreateUserProfileResponse = CreateUserProfileResponse'
-    { _cuprsIAMUserARN :: !(Maybe Text)
-    , _cuprsStatus     :: !Int
+    { _cuprsIAMUserARN     :: !(Maybe Text)
+    , _cuprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateUserProfileResponse' with the minimum fields required to make a request.
@@ -152,14 +152,14 @@ data CreateUserProfileResponse = CreateUserProfileResponse'
 --
 -- * 'cuprsIAMUserARN'
 --
--- * 'cuprsStatus'
+-- * 'cuprsResponseStatus'
 createUserProfileResponse
-    :: Int -- ^ 'cuprsStatus'
+    :: Int -- ^ 'cuprsResponseStatus'
     -> CreateUserProfileResponse
-createUserProfileResponse pStatus_ =
+createUserProfileResponse pResponseStatus_ =
     CreateUserProfileResponse'
     { _cuprsIAMUserARN = Nothing
-    , _cuprsStatus = pStatus_
+    , _cuprsResponseStatus = pResponseStatus_
     }
 
 -- | The user\'s IAM ARN.
@@ -167,5 +167,5 @@ cuprsIAMUserARN :: Lens' CreateUserProfileResponse (Maybe Text)
 cuprsIAMUserARN = lens _cuprsIAMUserARN (\ s a -> s{_cuprsIAMUserARN = a});
 
 -- | The response status code.
-cuprsStatus :: Lens' CreateUserProfileResponse Int
-cuprsStatus = lens _cuprsStatus (\ s a -> s{_cuprsStatus = a});
+cuprsResponseStatus :: Lens' CreateUserProfileResponse Int
+cuprsResponseStatus = lens _cuprsResponseStatus (\ s a -> s{_cuprsResponseStatus = a});

@@ -1,5 +1,5 @@
 name:                  amazonka-codepipeline
-version:               1.2.0.2
+version:               1.3.0
 synopsis:              Amazon CodePipeline SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -50,7 +50,9 @@ description:
     artifact through the pipeline. You can call GetPipelineState, which
     displays the status of a pipeline, including the status of stages in the
     pipeline, or GetPipeline, which returns the entire structure of the
-    pipeline, including the stages of that pipeline.
+    pipeline, including the stages of that pipeline. For more information
+    about the structure of stages and actions, also refer to the AWS
+    CodePipeline Pipeline Structure Reference.
 
     Pipeline stages include /actions/, which are categorized into categories
     such as source or build actions performed within a stage of a pipeline.
@@ -85,6 +87,7 @@ description:
 
         -   AcknowledgeJob, which confirms whether a job worker has received
             the specified job,
+        -   GetJobDetails, which returns the details of a job,
         -   PollForJobs, which determines whether there are any jobs to act
             upon,
         -   PutJobFailureResult, which provides details of a job failure,
@@ -98,6 +101,8 @@ description:
 
         -   AcknowledgeThirdPartyJob, which confirms whether a job worker
             has received the specified job,
+        -   GetThirdPartyJobDetails, which requests the details of a job for
+            a partner action,
         -   PollForThirdPartyJobs, which determines whether there are any
             jobs to act upon,
         -   PutThirdPartyJobFailureResult, which provides details of a job
@@ -162,7 +167,7 @@ library
         , Network.AWS.CodePipeline.Types.Sum
 
     build-depends:
-          amazonka-core == 1.2.0.*
+          amazonka-core == 1.3.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-codepipeline-test
@@ -182,9 +187,9 @@ test-suite amazonka-codepipeline-test
         , Test.AWS.CodePipeline.Internal
 
     build-depends:
-          amazonka-core == 1.2.0.*
-        , amazonka-test == 1.2.0.*
-        , amazonka-codepipeline == 1.2.0.*
+          amazonka-core == 1.3.0.*
+        , amazonka-test == 1.3.0.*
+        , amazonka-codepipeline == 1.3.0.*
         , base
         , bytestring
         , lens

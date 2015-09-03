@@ -576,18 +576,18 @@ instance FromJSON LambdaFunctionTimeoutType where
     parseJSON = parseJSONText "LambdaFunctionTimeoutType"
 
 data RecordMarkerFailedCause =
-    RMFCOperationNotPermitted
+    OperationNotPermitted
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RecordMarkerFailedCause where
     parser = takeLowerText >>= \case
-        "operation_not_permitted" -> pure RMFCOperationNotPermitted
+        "operation_not_permitted" -> pure OperationNotPermitted
         e -> fromTextError $ "Failure parsing RecordMarkerFailedCause from value: '" <> e
            <> "'. Accepted values: OPERATION_NOT_PERMITTED"
 
 instance ToText RecordMarkerFailedCause where
     toText = \case
-        RMFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
+        OperationNotPermitted -> "OPERATION_NOT_PERMITTED"
 
 instance Hashable     RecordMarkerFailedCause
 instance ToByteString RecordMarkerFailedCause
@@ -864,27 +864,27 @@ instance FromJSON StartLambdaFunctionFailedCause where
     parseJSON = parseJSONText "StartLambdaFunctionFailedCause"
 
 data StartTimerFailedCause
-    = OpenTimersLimitExceeded
-    | OperationNotPermitted
-    | TimerCreationRateExceeded
-    | TimerIdAlreadyInUse
+    = STFCOpenTimersLimitExceeded
+    | STFCOperationNotPermitted
+    | STFCTimerCreationRateExceeded
+    | STFCTimerIdAlreadyInUse
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StartTimerFailedCause where
     parser = takeLowerText >>= \case
-        "open_timers_limit_exceeded" -> pure OpenTimersLimitExceeded
-        "operation_not_permitted" -> pure OperationNotPermitted
-        "timer_creation_rate_exceeded" -> pure TimerCreationRateExceeded
-        "timer_id_already_in_use" -> pure TimerIdAlreadyInUse
+        "open_timers_limit_exceeded" -> pure STFCOpenTimersLimitExceeded
+        "operation_not_permitted" -> pure STFCOperationNotPermitted
+        "timer_creation_rate_exceeded" -> pure STFCTimerCreationRateExceeded
+        "timer_id_already_in_use" -> pure STFCTimerIdAlreadyInUse
         e -> fromTextError $ "Failure parsing StartTimerFailedCause from value: '" <> e
            <> "'. Accepted values: OPEN_TIMERS_LIMIT_EXCEEDED, OPERATION_NOT_PERMITTED, TIMER_CREATION_RATE_EXCEEDED, TIMER_ID_ALREADY_IN_USE"
 
 instance ToText StartTimerFailedCause where
     toText = \case
-        OpenTimersLimitExceeded -> "OPEN_TIMERS_LIMIT_EXCEEDED"
-        OperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-        TimerCreationRateExceeded -> "TIMER_CREATION_RATE_EXCEEDED"
-        TimerIdAlreadyInUse -> "TIMER_ID_ALREADY_IN_USE"
+        STFCOpenTimersLimitExceeded -> "OPEN_TIMERS_LIMIT_EXCEEDED"
+        STFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
+        STFCTimerCreationRateExceeded -> "TIMER_CREATION_RATE_EXCEEDED"
+        STFCTimerIdAlreadyInUse -> "TIMER_ID_ALREADY_IN_USE"
 
 instance Hashable     StartTimerFailedCause
 instance ToByteString StartTimerFailedCause

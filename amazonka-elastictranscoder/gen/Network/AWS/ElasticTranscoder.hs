@@ -24,11 +24,11 @@ module Network.AWS.ElasticTranscoder
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    , _ValidationException
-
     -- ** IncompatibleVersionException
     , _IncompatibleVersionException
+
+    -- ** ValidationException
+    , _ValidationException
 
     -- ** AccessDeniedException
     , _AccessDeniedException
@@ -39,11 +39,11 @@ module Network.AWS.ElasticTranscoder
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
 
-    -- ** ResourceInUseException
-    , _ResourceInUseException
-
     -- ** LimitExceededException
     , _LimitExceededException
+
+    -- ** ResourceInUseException
+    , _ResourceInUseException
 
     -- * Waiters
     -- $waiters
@@ -57,11 +57,11 @@ module Network.AWS.ElasticTranscoder
     -- ** DeletePreset
     , module Network.AWS.ElasticTranscoder.DeletePreset
 
-    -- ** ListJobsByPipeline (Paginated)
-    , module Network.AWS.ElasticTranscoder.ListJobsByPipeline
-
     -- ** UpdatePipelineStatus
     , module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
+
+    -- ** ListJobsByPipeline (Paginated)
+    , module Network.AWS.ElasticTranscoder.ListJobsByPipeline
 
     -- ** TestRole
     , module Network.AWS.ElasticTranscoder.TestRole
@@ -87,11 +87,11 @@ module Network.AWS.ElasticTranscoder
     -- ** ReadPreset
     , module Network.AWS.ElasticTranscoder.ReadPreset
 
-    -- ** UpdatePipelineNotifications
-    , module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
-
     -- ** ReadJob
     , module Network.AWS.ElasticTranscoder.ReadJob
+
+    -- ** UpdatePipelineNotifications
+    , module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
 
     -- ** ReadPipeline
     , module Network.AWS.ElasticTranscoder.ReadPipeline
@@ -111,8 +111,8 @@ module Network.AWS.ElasticTranscoder
     , Artwork
     , artwork
     , aSizingPolicy
-    , aMaxHeight
     , aAlbumArtFormat
+    , aMaxHeight
     , aInputKey
     , aPaddingPolicy
     , aEncryption
@@ -121,8 +121,8 @@ module Network.AWS.ElasticTranscoder
     -- ** AudioCodecOptions
     , AudioCodecOptions
     , audioCodecOptions
-    , acoBitDepth
     , acoSigned
+    , acoBitDepth
     , acoProfile
     , acoBitOrder
 
@@ -147,8 +147,8 @@ module Network.AWS.ElasticTranscoder
     , CaptionSource
     , captionSource
     , csTimeOffset
-    , csKey
     , csEncryption
+    , csKey
     , csLanguage
     , csLabel
 
@@ -173,8 +173,8 @@ module Network.AWS.ElasticTranscoder
     , cjoComposition
     , cjoAlbumArt
     , cjoWatermarks
-    , cjoKey
     , cjoEncryption
+    , cjoKey
     , cjoSegmentDuration
     , cjoThumbnailEncryption
     , cjoRotate
@@ -183,8 +183,8 @@ module Network.AWS.ElasticTranscoder
     , CreateJobPlaylist
     , createJobPlaylist
     , cjpPlayReadyDrm
-    , cjpOutputKeys
     , cjpFormat
+    , cjpOutputKeys
     , cjpName
     , cjpHlsContentProtection
 
@@ -200,8 +200,8 @@ module Network.AWS.ElasticTranscoder
     -- ** Encryption
     , Encryption
     , encryption
-    , eKeyMD5
     , eMode
+    , eKeyMD5
     , eKey
     , eInitializationVector
 
@@ -212,8 +212,8 @@ module Network.AWS.ElasticTranscoder
     , hcpKeyStoragePolicy
     , hcpKey
     , hcpMethod
-    , hcpLicenseAcquisitionURL
     , hcpInitializationVector
+    , hcpLicenseAcquisitionURL
 
     -- ** Job'
     , Job'
@@ -222,13 +222,13 @@ module Network.AWS.ElasticTranscoder
     , jPipelineId
     , jARN
     , jInput
-    , jOutputs
     , jUserMetadata
+    , jOutputs
     , jOutput
     , jId
     , jPlaylists
-    , jTiming
     , jOutputKeyPrefix
+    , jTiming
 
     -- ** JobAlbumArt
     , JobAlbumArt
@@ -242,9 +242,9 @@ module Network.AWS.ElasticTranscoder
     , jiFrameRate
     , jiResolution
     , jiAspectRatio
+    , jiEncryption
     , jiKey
     , jiDetectedProperties
-    , jiEncryption
     , jiContainer
     , jiInterlaced
 
@@ -252,8 +252,8 @@ module Network.AWS.ElasticTranscoder
     , JobOutput
     , jobOutput
     , joAppliedColorSpaceConversion
-    , joStatus
     , joThumbnailPattern
+    , joStatus
     , joHeight
     , joFrameRate
     , joCaptions
@@ -263,11 +263,11 @@ module Network.AWS.ElasticTranscoder
     , joFileSize
     , joWatermarks
     , joWidth
-    , joKey
     , joEncryption
+    , joKey
+    , joStatusDetail
     , joId
     , joSegmentDuration
-    , joStatusDetail
     , joDurationMillis
     , joThumbnailEncryption
     , joDuration
@@ -285,8 +285,8 @@ module Network.AWS.ElasticTranscoder
     , notifications
     , nError
     , nWarning
-    , nCompleted
     , nProgressing
+    , nCompleted
 
     -- ** Permission
     , Permission
@@ -307,8 +307,8 @@ module Network.AWS.ElasticTranscoder
     , pipName
     , pipAWSKMSKeyARN
     , pipId
-    , pipThumbnailConfig
     , pipNotifications
+    , pipThumbnailConfig
 
     -- ** PipelineOutputConfig
     , PipelineOutputConfig
@@ -321,43 +321,43 @@ module Network.AWS.ElasticTranscoder
     , PlayReadyDrm
     , playReadyDrm
     , prdKeyId
-    , prdKeyMD5
     , prdFormat
+    , prdKeyMD5
     , prdKey
-    , prdLicenseAcquisitionURL
     , prdInitializationVector
+    , prdLicenseAcquisitionURL
 
     -- ** Playlist
     , Playlist
     , playlist
-    , pPlayReadyDrm
     , pStatus
-    , pOutputKeys
+    , pPlayReadyDrm
     , pFormat
+    , pOutputKeys
     , pName
-    , pHlsContentProtection
     , pStatusDetail
+    , pHlsContentProtection
 
     -- ** Preset
     , Preset
     , preset
     , preARN
     , preVideo
-    , preName
     , preThumbnails
+    , preName
     , preContainer
     , preId
     , preType
-    , preAudio
     , preDescription
+    , preAudio
 
     -- ** PresetWatermark
     , PresetWatermark
     , presetWatermark
     , pwVerticalAlign
     , pwSizingPolicy
-    , pwMaxHeight
     , pwHorizontalOffset
+    , pwMaxHeight
     , pwOpacity
     , pwVerticalOffset
     , pwMaxWidth
@@ -372,8 +372,8 @@ module Network.AWS.ElasticTranscoder
     , tFormat
     , tMaxHeight
     , tResolution
-    , tPaddingPolicy
     , tAspectRatio
+    , tPaddingPolicy
     , tInterval
     , tMaxWidth
 
@@ -398,12 +398,12 @@ module Network.AWS.ElasticTranscoder
     , vpSizingPolicy
     , vpMaxFrameRate
     , vpMaxHeight
-    , vpDisplayAspectRatio
     , vpWatermarks
-    , vpCodec
+    , vpDisplayAspectRatio
     , vpResolution
-    , vpPaddingPolicy
+    , vpCodec
     , vpAspectRatio
+    , vpPaddingPolicy
     , vpMaxWidth
     , vpBitRate
     , vpFixedGOP

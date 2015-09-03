@@ -37,7 +37,7 @@ module Network.AWS.Route53Domains.UpdateTagsForDomain
     , updateTagsForDomainResponse
     , UpdateTagsForDomainResponse
     -- * Response Lenses
-    , utfdrsStatus
+    , utfdrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -169,22 +169,22 @@ instance ToQuery UpdateTagsForDomain where
 
 -- | /See:/ 'updateTagsForDomainResponse' smart constructor.
 newtype UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'
-    { _utfdrsStatus :: Int
+    { _utfdrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateTagsForDomainResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utfdrsStatus'
+-- * 'utfdrsResponseStatus'
 updateTagsForDomainResponse
-    :: Int -- ^ 'utfdrsStatus'
+    :: Int -- ^ 'utfdrsResponseStatus'
     -> UpdateTagsForDomainResponse
-updateTagsForDomainResponse pStatus_ =
+updateTagsForDomainResponse pResponseStatus_ =
     UpdateTagsForDomainResponse'
-    { _utfdrsStatus = pStatus_
+    { _utfdrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-utfdrsStatus :: Lens' UpdateTagsForDomainResponse Int
-utfdrsStatus = lens _utfdrsStatus (\ s a -> s{_utfdrsStatus = a});
+utfdrsResponseStatus :: Lens' UpdateTagsForDomainResponse Int
+utfdrsResponseStatus = lens _utfdrsResponseStatus (\ s a -> s{_utfdrsResponseStatus = a});

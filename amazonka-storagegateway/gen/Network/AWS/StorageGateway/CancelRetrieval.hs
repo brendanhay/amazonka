@@ -37,7 +37,7 @@ module Network.AWS.StorageGateway.CancelRetrieval
     , CancelRetrievalResponse
     -- * Response Lenses
     , crrsTapeARN
-    , crrsStatus
+    , crrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -116,8 +116,8 @@ instance ToQuery CancelRetrieval where
 --
 -- /See:/ 'cancelRetrievalResponse' smart constructor.
 data CancelRetrievalResponse = CancelRetrievalResponse'
-    { _crrsTapeARN :: !(Maybe Text)
-    , _crrsStatus  :: !Int
+    { _crrsTapeARN        :: !(Maybe Text)
+    , _crrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CancelRetrievalResponse' with the minimum fields required to make a request.
@@ -126,14 +126,14 @@ data CancelRetrievalResponse = CancelRetrievalResponse'
 --
 -- * 'crrsTapeARN'
 --
--- * 'crrsStatus'
+-- * 'crrsResponseStatus'
 cancelRetrievalResponse
-    :: Int -- ^ 'crrsStatus'
+    :: Int -- ^ 'crrsResponseStatus'
     -> CancelRetrievalResponse
-cancelRetrievalResponse pStatus_ =
+cancelRetrievalResponse pResponseStatus_ =
     CancelRetrievalResponse'
     { _crrsTapeARN = Nothing
-    , _crrsStatus = pStatus_
+    , _crrsResponseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which retrieval
@@ -142,5 +142,5 @@ crrsTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
 crrsTapeARN = lens _crrsTapeARN (\ s a -> s{_crrsTapeARN = a});
 
 -- | The response status code.
-crrsStatus :: Lens' CancelRetrievalResponse Int
-crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});
+crrsResponseStatus :: Lens' CancelRetrievalResponse Int
+crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});

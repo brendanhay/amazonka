@@ -50,7 +50,7 @@ module Network.AWS.ECS.DeregisterContainerInstance
     , DeregisterContainerInstanceResponse
     -- * Response Lenses
     , dcirsContainerInstance
-    , dcirsStatus
+    , dcirsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -150,7 +150,7 @@ instance ToQuery DeregisterContainerInstance where
 -- | /See:/ 'deregisterContainerInstanceResponse' smart constructor.
 data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
     { _dcirsContainerInstance :: !(Maybe ContainerInstance)
-    , _dcirsStatus            :: !Int
+    , _dcirsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeregisterContainerInstanceResponse' with the minimum fields required to make a request.
@@ -159,14 +159,14 @@ data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
 --
 -- * 'dcirsContainerInstance'
 --
--- * 'dcirsStatus'
+-- * 'dcirsResponseStatus'
 deregisterContainerInstanceResponse
-    :: Int -- ^ 'dcirsStatus'
+    :: Int -- ^ 'dcirsResponseStatus'
     -> DeregisterContainerInstanceResponse
-deregisterContainerInstanceResponse pStatus_ =
+deregisterContainerInstanceResponse pResponseStatus_ =
     DeregisterContainerInstanceResponse'
     { _dcirsContainerInstance = Nothing
-    , _dcirsStatus = pStatus_
+    , _dcirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -174,5 +174,5 @@ dcirsContainerInstance :: Lens' DeregisterContainerInstanceResponse (Maybe Conta
 dcirsContainerInstance = lens _dcirsContainerInstance (\ s a -> s{_dcirsContainerInstance = a});
 
 -- | The response status code.
-dcirsStatus :: Lens' DeregisterContainerInstanceResponse Int
-dcirsStatus = lens _dcirsStatus (\ s a -> s{_dcirsStatus = a});
+dcirsResponseStatus :: Lens' DeregisterContainerInstanceResponse Int
+dcirsResponseStatus = lens _dcirsResponseStatus (\ s a -> s{_dcirsResponseStatus = a});

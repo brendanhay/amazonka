@@ -47,7 +47,7 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     -- * Response Lenses
     , dmfrsNextToken
     , dmfrsMetricFilters
-    , dmfrsStatus
+    , dmfrsResponseStatus
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -154,9 +154,9 @@ instance ToQuery DescribeMetricFilters where
 
 -- | /See:/ 'describeMetricFiltersResponse' smart constructor.
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
-    { _dmfrsNextToken     :: !(Maybe Text)
-    , _dmfrsMetricFilters :: !(Maybe [MetricFilter])
-    , _dmfrsStatus        :: !Int
+    { _dmfrsNextToken      :: !(Maybe Text)
+    , _dmfrsMetricFilters  :: !(Maybe [MetricFilter])
+    , _dmfrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeMetricFiltersResponse' with the minimum fields required to make a request.
@@ -167,15 +167,15 @@ data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
 --
 -- * 'dmfrsMetricFilters'
 --
--- * 'dmfrsStatus'
+-- * 'dmfrsResponseStatus'
 describeMetricFiltersResponse
-    :: Int -- ^ 'dmfrsStatus'
+    :: Int -- ^ 'dmfrsResponseStatus'
     -> DescribeMetricFiltersResponse
-describeMetricFiltersResponse pStatus_ =
+describeMetricFiltersResponse pResponseStatus_ =
     DescribeMetricFiltersResponse'
     { _dmfrsNextToken = Nothing
     , _dmfrsMetricFilters = Nothing
-    , _dmfrsStatus = pStatus_
+    , _dmfrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -187,5 +187,5 @@ dmfrsMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
 dmfrsMetricFilters = lens _dmfrsMetricFilters (\ s a -> s{_dmfrsMetricFilters = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dmfrsStatus :: Lens' DescribeMetricFiltersResponse Int
-dmfrsStatus = lens _dmfrsStatus (\ s a -> s{_dmfrsStatus = a});
+dmfrsResponseStatus :: Lens' DescribeMetricFiltersResponse Int
+dmfrsResponseStatus = lens _dmfrsResponseStatus (\ s a -> s{_dmfrsResponseStatus = a});

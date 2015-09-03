@@ -38,7 +38,7 @@ module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     , RevokeCacheSecurityGroupIngressResponse
     -- * Response Lenses
     , rcsgirsCacheSecurityGroup
-    , rcsgirsStatus
+    , rcsgirsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -126,7 +126,7 @@ instance ToQuery RevokeCacheSecurityGroupIngress
 -- | /See:/ 'revokeCacheSecurityGroupIngressResponse' smart constructor.
 data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse'
     { _rcsgirsCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
-    , _rcsgirsStatus             :: !Int
+    , _rcsgirsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RevokeCacheSecurityGroupIngressResponse' with the minimum fields required to make a request.
@@ -135,14 +135,14 @@ data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressRe
 --
 -- * 'rcsgirsCacheSecurityGroup'
 --
--- * 'rcsgirsStatus'
+-- * 'rcsgirsResponseStatus'
 revokeCacheSecurityGroupIngressResponse
-    :: Int -- ^ 'rcsgirsStatus'
+    :: Int -- ^ 'rcsgirsResponseStatus'
     -> RevokeCacheSecurityGroupIngressResponse
-revokeCacheSecurityGroupIngressResponse pStatus_ =
+revokeCacheSecurityGroupIngressResponse pResponseStatus_ =
     RevokeCacheSecurityGroupIngressResponse'
     { _rcsgirsCacheSecurityGroup = Nothing
-    , _rcsgirsStatus = pStatus_
+    , _rcsgirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -150,5 +150,5 @@ rcsgirsCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Mayb
 rcsgirsCacheSecurityGroup = lens _rcsgirsCacheSecurityGroup (\ s a -> s{_rcsgirsCacheSecurityGroup = a});
 
 -- | The response status code.
-rcsgirsStatus :: Lens' RevokeCacheSecurityGroupIngressResponse Int
-rcsgirsStatus = lens _rcsgirsStatus (\ s a -> s{_rcsgirsStatus = a});
+rcsgirsResponseStatus :: Lens' RevokeCacheSecurityGroupIngressResponse Int
+rcsgirsResponseStatus = lens _rcsgirsResponseStatus (\ s a -> s{_rcsgirsResponseStatus = a});

@@ -24,8 +24,8 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'applicationDescription' smart constructor.
 data ApplicationDescription = ApplicationDescription'
-    { _adDateUpdated            :: !(Maybe ISO8601)
-    , _adVersions               :: !(Maybe [Text])
+    { _adVersions               :: !(Maybe [Text])
+    , _adDateUpdated            :: !(Maybe ISO8601)
     , _adDateCreated            :: !(Maybe ISO8601)
     , _adApplicationName        :: !(Maybe Text)
     , _adConfigurationTemplates :: !(Maybe [Text])
@@ -36,9 +36,9 @@ data ApplicationDescription = ApplicationDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'adDateUpdated'
---
 -- * 'adVersions'
+--
+-- * 'adDateUpdated'
 --
 -- * 'adDateCreated'
 --
@@ -51,21 +51,21 @@ applicationDescription
     :: ApplicationDescription
 applicationDescription =
     ApplicationDescription'
-    { _adDateUpdated = Nothing
-    , _adVersions = Nothing
+    { _adVersions = Nothing
+    , _adDateUpdated = Nothing
     , _adDateCreated = Nothing
     , _adApplicationName = Nothing
     , _adConfigurationTemplates = Nothing
     , _adDescription = Nothing
     }
 
--- | The date when the application was last modified.
-adDateUpdated :: Lens' ApplicationDescription (Maybe UTCTime)
-adDateUpdated = lens _adDateUpdated (\ s a -> s{_adDateUpdated = a}) . mapping _Time;
-
 -- | The names of the versions for this application.
 adVersions :: Lens' ApplicationDescription [Text]
 adVersions = lens _adVersions (\ s a -> s{_adVersions = a}) . _Default . _Coerce;
+
+-- | The date when the application was last modified.
+adDateUpdated :: Lens' ApplicationDescription (Maybe UTCTime)
+adDateUpdated = lens _adDateUpdated (\ s a -> s{_adDateUpdated = a}) . mapping _Time;
 
 -- | The date when the application was created.
 adDateCreated :: Lens' ApplicationDescription (Maybe UTCTime)
@@ -87,9 +87,9 @@ adDescription = lens _adDescription (\ s a -> s{_adDescription = a});
 instance FromXML ApplicationDescription where
         parseXML x
           = ApplicationDescription' <$>
-              (x .@? "DateUpdated") <*>
-                (x .@? "Versions" .!@ mempty >>=
-                   may (parseXMLList "member"))
+              (x .@? "Versions" .!@ mempty >>=
+                 may (parseXMLList "member"))
+                <*> (x .@? "DateUpdated")
                 <*> (x .@? "DateCreated")
                 <*> (x .@? "ApplicationName")
                 <*>
@@ -189,10 +189,10 @@ instance FromXML ApplicationMetrics where
 --
 -- /See:/ 'applicationVersionDescription' smart constructor.
 data ApplicationVersionDescription = ApplicationVersionDescription'
-    { _avdDateUpdated     :: !(Maybe ISO8601)
-    , _avdSourceBundle    :: !(Maybe S3Location)
-    , _avdVersionLabel    :: !(Maybe Text)
+    { _avdSourceBundle    :: !(Maybe S3Location)
+    , _avdDateUpdated     :: !(Maybe ISO8601)
     , _avdDateCreated     :: !(Maybe ISO8601)
+    , _avdVersionLabel    :: !(Maybe Text)
     , _avdApplicationName :: !(Maybe Text)
     , _avdDescription     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -201,13 +201,13 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avdDateUpdated'
---
 -- * 'avdSourceBundle'
 --
--- * 'avdVersionLabel'
+-- * 'avdDateUpdated'
 --
 -- * 'avdDateCreated'
+--
+-- * 'avdVersionLabel'
 --
 -- * 'avdApplicationName'
 --
@@ -216,29 +216,29 @@ applicationVersionDescription
     :: ApplicationVersionDescription
 applicationVersionDescription =
     ApplicationVersionDescription'
-    { _avdDateUpdated = Nothing
-    , _avdSourceBundle = Nothing
-    , _avdVersionLabel = Nothing
+    { _avdSourceBundle = Nothing
+    , _avdDateUpdated = Nothing
     , _avdDateCreated = Nothing
+    , _avdVersionLabel = Nothing
     , _avdApplicationName = Nothing
     , _avdDescription = Nothing
     }
-
--- | The last modified date of the application version.
-avdDateUpdated :: Lens' ApplicationVersionDescription (Maybe UTCTime)
-avdDateUpdated = lens _avdDateUpdated (\ s a -> s{_avdDateUpdated = a}) . mapping _Time;
 
 -- | The location where the source bundle is located for this version.
 avdSourceBundle :: Lens' ApplicationVersionDescription (Maybe S3Location)
 avdSourceBundle = lens _avdSourceBundle (\ s a -> s{_avdSourceBundle = a});
 
--- | A label uniquely identifying the version for the associated application.
-avdVersionLabel :: Lens' ApplicationVersionDescription (Maybe Text)
-avdVersionLabel = lens _avdVersionLabel (\ s a -> s{_avdVersionLabel = a});
+-- | The last modified date of the application version.
+avdDateUpdated :: Lens' ApplicationVersionDescription (Maybe UTCTime)
+avdDateUpdated = lens _avdDateUpdated (\ s a -> s{_avdDateUpdated = a}) . mapping _Time;
 
 -- | The creation date of the application version.
 avdDateCreated :: Lens' ApplicationVersionDescription (Maybe UTCTime)
 avdDateCreated = lens _avdDateCreated (\ s a -> s{_avdDateCreated = a}) . mapping _Time;
+
+-- | A label uniquely identifying the version for the associated application.
+avdVersionLabel :: Lens' ApplicationVersionDescription (Maybe Text)
+avdVersionLabel = lens _avdVersionLabel (\ s a -> s{_avdVersionLabel = a});
 
 -- | The name of the application associated with this release.
 avdApplicationName :: Lens' ApplicationVersionDescription (Maybe Text)
@@ -251,9 +251,9 @@ avdDescription = lens _avdDescription (\ s a -> s{_avdDescription = a});
 instance FromXML ApplicationVersionDescription where
         parseXML x
           = ApplicationVersionDescription' <$>
-              (x .@? "DateUpdated") <*> (x .@? "SourceBundle") <*>
-                (x .@? "VersionLabel")
-                <*> (x .@? "DateCreated")
+              (x .@? "SourceBundle") <*> (x .@? "DateUpdated") <*>
+                (x .@? "DateCreated")
+                <*> (x .@? "VersionLabel")
                 <*> (x .@? "ApplicationName")
                 <*> (x .@? "Description")
 
@@ -319,8 +319,8 @@ instance FromXML AutoScalingGroup where
 --
 -- /See:/ 'cpuUtilization' smart constructor.
 data CPUUtilization = CPUUtilization'
-    { _cuIdle    :: !(Maybe Double)
-    , _cuSoftIRQ :: !(Maybe Double)
+    { _cuSoftIRQ :: !(Maybe Double)
+    , _cuIdle    :: !(Maybe Double)
     , _cuIRQ     :: !(Maybe Double)
     , _cuSystem  :: !(Maybe Double)
     , _cuUser    :: !(Maybe Double)
@@ -332,9 +332,9 @@ data CPUUtilization = CPUUtilization'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cuIdle'
---
 -- * 'cuSoftIRQ'
+--
+-- * 'cuIdle'
 --
 -- * 'cuIRQ'
 --
@@ -349,8 +349,8 @@ cpuUtilization
     :: CPUUtilization
 cpuUtilization =
     CPUUtilization'
-    { _cuIdle = Nothing
-    , _cuSoftIRQ = Nothing
+    { _cuSoftIRQ = Nothing
+    , _cuIdle = Nothing
     , _cuIRQ = Nothing
     , _cuSystem = Nothing
     , _cuUser = Nothing
@@ -358,15 +358,15 @@ cpuUtilization =
     , _cuNice = Nothing
     }
 
--- | Percentage of time that the CPU has spent in the 'Idle' state over the
--- last 10 seconds.
-cuIdle :: Lens' CPUUtilization (Maybe Double)
-cuIdle = lens _cuIdle (\ s a -> s{_cuIdle = a});
-
 -- | Percentage of time that the CPU has spent in the 'SoftIRQ' state over
 -- the last 10 seconds.
 cuSoftIRQ :: Lens' CPUUtilization (Maybe Double)
 cuSoftIRQ = lens _cuSoftIRQ (\ s a -> s{_cuSoftIRQ = a});
+
+-- | Percentage of time that the CPU has spent in the 'Idle' state over the
+-- last 10 seconds.
+cuIdle :: Lens' CPUUtilization (Maybe Double)
+cuIdle = lens _cuIdle (\ s a -> s{_cuIdle = a});
 
 -- | Percentage of time that the CPU has spent in the 'IRQ' state over the
 -- last 10 seconds.
@@ -396,7 +396,7 @@ cuNice = lens _cuNice (\ s a -> s{_cuNice = a});
 instance FromXML CPUUtilization where
         parseXML x
           = CPUUtilization' <$>
-              (x .@? "Idle") <*> (x .@? "SoftIRQ") <*>
+              (x .@? "SoftIRQ") <*> (x .@? "Idle") <*>
                 (x .@? "IRQ")
                 <*> (x .@? "System")
                 <*> (x .@? "User")
@@ -409,10 +409,10 @@ instance FromXML CPUUtilization where
 data ConfigurationOptionDescription = ConfigurationOptionDescription'
     { _codMaxValue       :: !(Maybe Int)
     , _codRegex          :: !(Maybe OptionRestrictionRegex)
-    , _codUserDefined    :: !(Maybe Bool)
     , _codMaxLength      :: !(Maybe Int)
-    , _codValueOptions   :: !(Maybe [Text])
+    , _codUserDefined    :: !(Maybe Bool)
     , _codNamespace      :: !(Maybe Text)
+    , _codValueOptions   :: !(Maybe [Text])
     , _codName           :: !(Maybe Text)
     , _codChangeSeverity :: !(Maybe Text)
     , _codDefaultValue   :: !(Maybe Text)
@@ -428,13 +428,13 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
 --
 -- * 'codRegex'
 --
--- * 'codUserDefined'
---
 -- * 'codMaxLength'
 --
--- * 'codValueOptions'
+-- * 'codUserDefined'
 --
 -- * 'codNamespace'
+--
+-- * 'codValueOptions'
 --
 -- * 'codName'
 --
@@ -451,10 +451,10 @@ configurationOptionDescription =
     ConfigurationOptionDescription'
     { _codMaxValue = Nothing
     , _codRegex = Nothing
-    , _codUserDefined = Nothing
     , _codMaxLength = Nothing
-    , _codValueOptions = Nothing
+    , _codUserDefined = Nothing
     , _codNamespace = Nothing
+    , _codValueOptions = Nothing
     , _codName = Nothing
     , _codChangeSeverity = Nothing
     , _codDefaultValue = Nothing
@@ -471,6 +471,11 @@ codMaxValue = lens _codMaxValue (\ s a -> s{_codMaxValue = a});
 -- satisfies this regular expression.
 codRegex :: Lens' ConfigurationOptionDescription (Maybe OptionRestrictionRegex)
 codRegex = lens _codRegex (\ s a -> s{_codRegex = a});
+
+-- | If specified, the configuration option must be a string value no longer
+-- than this value.
+codMaxLength :: Lens' ConfigurationOptionDescription (Maybe Int)
+codMaxLength = lens _codMaxLength (\ s a -> s{_codMaxLength = a});
 
 -- | An indication of whether the user defined this configuration option:
 --
@@ -493,19 +498,14 @@ codRegex = lens _codRegex (\ s a -> s{_codRegex = a});
 codUserDefined :: Lens' ConfigurationOptionDescription (Maybe Bool)
 codUserDefined = lens _codUserDefined (\ s a -> s{_codUserDefined = a});
 
--- | If specified, the configuration option must be a string value no longer
--- than this value.
-codMaxLength :: Lens' ConfigurationOptionDescription (Maybe Int)
-codMaxLength = lens _codMaxLength (\ s a -> s{_codMaxLength = a});
+-- | A unique namespace identifying the option\'s associated AWS resource.
+codNamespace :: Lens' ConfigurationOptionDescription (Maybe Text)
+codNamespace = lens _codNamespace (\ s a -> s{_codNamespace = a});
 
 -- | If specified, values for the configuration option are selected from this
 -- list.
 codValueOptions :: Lens' ConfigurationOptionDescription [Text]
 codValueOptions = lens _codValueOptions (\ s a -> s{_codValueOptions = a}) . _Default . _Coerce;
-
--- | A unique namespace identifying the option\'s associated AWS resource.
-codNamespace :: Lens' ConfigurationOptionDescription (Maybe Text)
-codNamespace = lens _codNamespace (\ s a -> s{_codNamespace = a});
 
 -- | The name of the configuration option.
 codName :: Lens' ConfigurationOptionDescription (Maybe Text)
@@ -576,12 +576,12 @@ instance FromXML ConfigurationOptionDescription where
         parseXML x
           = ConfigurationOptionDescription' <$>
               (x .@? "MaxValue") <*> (x .@? "Regex") <*>
-                (x .@? "UserDefined")
-                <*> (x .@? "MaxLength")
+                (x .@? "MaxLength")
+                <*> (x .@? "UserDefined")
+                <*> (x .@? "Namespace")
                 <*>
                 (x .@? "ValueOptions" .!@ mempty >>=
                    may (parseXMLList "member"))
-                <*> (x .@? "Namespace")
                 <*> (x .@? "Name")
                 <*> (x .@? "ChangeSeverity")
                 <*> (x .@? "DefaultValue")
@@ -597,8 +597,8 @@ instance FromXML ConfigurationOptionDescription where
 data ConfigurationOptionSetting = ConfigurationOptionSetting'
     { _cosOptionName   :: !(Maybe Text)
     , _cosResourceName :: !(Maybe Text)
-    , _cosValue        :: !(Maybe Text)
     , _cosNamespace    :: !(Maybe Text)
+    , _cosValue        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ConfigurationOptionSetting' with the minimum fields required to make a request.
@@ -609,17 +609,17 @@ data ConfigurationOptionSetting = ConfigurationOptionSetting'
 --
 -- * 'cosResourceName'
 --
--- * 'cosValue'
---
 -- * 'cosNamespace'
+--
+-- * 'cosValue'
 configurationOptionSetting
     :: ConfigurationOptionSetting
 configurationOptionSetting =
     ConfigurationOptionSetting'
     { _cosOptionName = Nothing
     , _cosResourceName = Nothing
-    , _cosValue = Nothing
     , _cosNamespace = Nothing
+    , _cosValue = Nothing
     }
 
 -- | The name of the configuration option.
@@ -630,27 +630,27 @@ cosOptionName = lens _cosOptionName (\ s a -> s{_cosOptionName = a});
 cosResourceName :: Lens' ConfigurationOptionSetting (Maybe Text)
 cosResourceName = lens _cosResourceName (\ s a -> s{_cosResourceName = a});
 
--- | The current value for the configuration option.
-cosValue :: Lens' ConfigurationOptionSetting (Maybe Text)
-cosValue = lens _cosValue (\ s a -> s{_cosValue = a});
-
 -- | A unique namespace identifying the option\'s associated AWS resource.
 cosNamespace :: Lens' ConfigurationOptionSetting (Maybe Text)
 cosNamespace = lens _cosNamespace (\ s a -> s{_cosNamespace = a});
+
+-- | The current value for the configuration option.
+cosValue :: Lens' ConfigurationOptionSetting (Maybe Text)
+cosValue = lens _cosValue (\ s a -> s{_cosValue = a});
 
 instance FromXML ConfigurationOptionSetting where
         parseXML x
           = ConfigurationOptionSetting' <$>
               (x .@? "OptionName") <*> (x .@? "ResourceName") <*>
-                (x .@? "Value")
-                <*> (x .@? "Namespace")
+                (x .@? "Namespace")
+                <*> (x .@? "Value")
 
 instance ToQuery ConfigurationOptionSetting where
         toQuery ConfigurationOptionSetting'{..}
           = mconcat
               ["OptionName" =: _cosOptionName,
                "ResourceName" =: _cosResourceName,
-               "Value" =: _cosValue, "Namespace" =: _cosNamespace]
+               "Namespace" =: _cosNamespace, "Value" =: _cosValue]
 
 -- | Describes the settings for a configuration set.
 --
@@ -782,22 +782,22 @@ instance FromXML ConfigurationSettingsDescription
 --
 -- /See:/ 'environmentDescription' smart constructor.
 data EnvironmentDescription = EnvironmentDescription'
-    { _eCNAME                        :: !(Maybe Text)
-    , _eStatus                       :: !(Maybe EnvironmentStatus)
+    { _eStatus                       :: !(Maybe EnvironmentStatus)
+    , _eCNAME                        :: !(Maybe Text)
     , _eTemplateName                 :: !(Maybe Text)
     , _eAbortableOperationInProgress :: !(Maybe Bool)
     , _eEndpointURL                  :: !(Maybe Text)
-    , _eDateUpdated                  :: !(Maybe ISO8601)
     , _eResources                    :: !(Maybe EnvironmentResourcesDescription)
+    , _eDateUpdated                  :: !(Maybe ISO8601)
+    , _eDateCreated                  :: !(Maybe ISO8601)
     , _eHealth                       :: !(Maybe EnvironmentHealth)
     , _eVersionLabel                 :: !(Maybe Text)
-    , _eDateCreated                  :: !(Maybe ISO8601)
     , _eTier                         :: !(Maybe EnvironmentTier)
     , _eEnvironmentName              :: !(Maybe Text)
     , _eApplicationName              :: !(Maybe Text)
-    , _eHealthStatus                 :: !(Maybe EnvironmentHealthStatus)
-    , _eEnvironmentId                :: !(Maybe Text)
     , _eSolutionStackName            :: !(Maybe Text)
+    , _eEnvironmentId                :: !(Maybe Text)
+    , _eHealthStatus                 :: !(Maybe EnvironmentHealthStatus)
     , _eDescription                  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -805,9 +805,9 @@ data EnvironmentDescription = EnvironmentDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eCNAME'
---
 -- * 'eStatus'
+--
+-- * 'eCNAME'
 --
 -- * 'eTemplateName'
 --
@@ -815,15 +815,15 @@ data EnvironmentDescription = EnvironmentDescription'
 --
 -- * 'eEndpointURL'
 --
+-- * 'eResources'
+--
 -- * 'eDateUpdated'
 --
--- * 'eResources'
+-- * 'eDateCreated'
 --
 -- * 'eHealth'
 --
 -- * 'eVersionLabel'
---
--- * 'eDateCreated'
 --
 -- * 'eTier'
 --
@@ -831,39 +831,35 @@ data EnvironmentDescription = EnvironmentDescription'
 --
 -- * 'eApplicationName'
 --
--- * 'eHealthStatus'
+-- * 'eSolutionStackName'
 --
 -- * 'eEnvironmentId'
 --
--- * 'eSolutionStackName'
+-- * 'eHealthStatus'
 --
 -- * 'eDescription'
 environmentDescription
     :: EnvironmentDescription
 environmentDescription =
     EnvironmentDescription'
-    { _eCNAME = Nothing
-    , _eStatus = Nothing
+    { _eStatus = Nothing
+    , _eCNAME = Nothing
     , _eTemplateName = Nothing
     , _eAbortableOperationInProgress = Nothing
     , _eEndpointURL = Nothing
-    , _eDateUpdated = Nothing
     , _eResources = Nothing
+    , _eDateUpdated = Nothing
+    , _eDateCreated = Nothing
     , _eHealth = Nothing
     , _eVersionLabel = Nothing
-    , _eDateCreated = Nothing
     , _eTier = Nothing
     , _eEnvironmentName = Nothing
     , _eApplicationName = Nothing
-    , _eHealthStatus = Nothing
-    , _eEnvironmentId = Nothing
     , _eSolutionStackName = Nothing
+    , _eEnvironmentId = Nothing
+    , _eHealthStatus = Nothing
     , _eDescription = Nothing
     }
-
--- | The URL to the CNAME for this environment.
-eCNAME :: Lens' EnvironmentDescription (Maybe Text)
-eCNAME = lens _eCNAME (\ s a -> s{_eCNAME = a});
 
 -- | The current operational status of the environment:
 --
@@ -876,6 +872,10 @@ eCNAME = lens _eCNAME (\ s a -> s{_eCNAME = a});
 -- -   'Terminated': Environment is not running.
 eStatus :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
 eStatus = lens _eStatus (\ s a -> s{_eStatus = a});
+
+-- | The URL to the CNAME for this environment.
+eCNAME :: Lens' EnvironmentDescription (Maybe Text)
+eCNAME = lens _eCNAME (\ s a -> s{_eCNAME = a});
 
 -- | The name of the configuration template used to originally launch this
 -- environment.
@@ -897,13 +897,17 @@ eAbortableOperationInProgress = lens _eAbortableOperationInProgress (\ s a -> s{
 eEndpointURL :: Lens' EnvironmentDescription (Maybe Text)
 eEndpointURL = lens _eEndpointURL (\ s a -> s{_eEndpointURL = a});
 
+-- | The description of the AWS resources used by this environment.
+eResources :: Lens' EnvironmentDescription (Maybe EnvironmentResourcesDescription)
+eResources = lens _eResources (\ s a -> s{_eResources = a});
+
 -- | The last modified date for this environment.
 eDateUpdated :: Lens' EnvironmentDescription (Maybe UTCTime)
 eDateUpdated = lens _eDateUpdated (\ s a -> s{_eDateUpdated = a}) . mapping _Time;
 
--- | The description of the AWS resources used by this environment.
-eResources :: Lens' EnvironmentDescription (Maybe EnvironmentResourcesDescription)
-eResources = lens _eResources (\ s a -> s{_eResources = a});
+-- | The creation date for this environment.
+eDateCreated :: Lens' EnvironmentDescription (Maybe UTCTime)
+eDateCreated = lens _eDateCreated (\ s a -> s{_eDateCreated = a}) . mapping _Time;
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
 -- indicates the failure levels for a running environment:
@@ -933,10 +937,6 @@ eHealth = lens _eHealth (\ s a -> s{_eHealth = a});
 eVersionLabel :: Lens' EnvironmentDescription (Maybe Text)
 eVersionLabel = lens _eVersionLabel (\ s a -> s{_eVersionLabel = a});
 
--- | The creation date for this environment.
-eDateCreated :: Lens' EnvironmentDescription (Maybe UTCTime)
-eDateCreated = lens _eDateCreated (\ s a -> s{_eDateCreated = a}) . mapping _Time;
-
 -- | Describes the current tier of this environment.
 eTier :: Lens' EnvironmentDescription (Maybe EnvironmentTier)
 eTier = lens _eTier (\ s a -> s{_eTier = a});
@@ -949,19 +949,19 @@ eEnvironmentName = lens _eEnvironmentName (\ s a -> s{_eEnvironmentName = a});
 eApplicationName :: Lens' EnvironmentDescription (Maybe Text)
 eApplicationName = lens _eApplicationName (\ s a -> s{_eApplicationName = a});
 
--- | Returns the health status of the application running in your
--- environment. For more information, see
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
-eHealthStatus :: Lens' EnvironmentDescription (Maybe EnvironmentHealthStatus)
-eHealthStatus = lens _eHealthStatus (\ s a -> s{_eHealthStatus = a});
+-- | The name of the 'SolutionStack' deployed with this environment.
+eSolutionStackName :: Lens' EnvironmentDescription (Maybe Text)
+eSolutionStackName = lens _eSolutionStackName (\ s a -> s{_eSolutionStackName = a});
 
 -- | The ID of this environment.
 eEnvironmentId :: Lens' EnvironmentDescription (Maybe Text)
 eEnvironmentId = lens _eEnvironmentId (\ s a -> s{_eEnvironmentId = a});
 
--- | The name of the 'SolutionStack' deployed with this environment.
-eSolutionStackName :: Lens' EnvironmentDescription (Maybe Text)
-eSolutionStackName = lens _eSolutionStackName (\ s a -> s{_eSolutionStackName = a});
+-- | Returns the health status of the application running in your
+-- environment. For more information, see
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+eHealthStatus :: Lens' EnvironmentDescription (Maybe EnvironmentHealthStatus)
+eHealthStatus = lens _eHealthStatus (\ s a -> s{_eHealthStatus = a});
 
 -- | Describes this environment.
 eDescription :: Lens' EnvironmentDescription (Maybe Text)
@@ -970,21 +970,21 @@ eDescription = lens _eDescription (\ s a -> s{_eDescription = a});
 instance FromXML EnvironmentDescription where
         parseXML x
           = EnvironmentDescription' <$>
-              (x .@? "CNAME") <*> (x .@? "Status") <*>
+              (x .@? "Status") <*> (x .@? "CNAME") <*>
                 (x .@? "TemplateName")
                 <*> (x .@? "AbortableOperationInProgress")
                 <*> (x .@? "EndpointURL")
-                <*> (x .@? "DateUpdated")
                 <*> (x .@? "Resources")
+                <*> (x .@? "DateUpdated")
+                <*> (x .@? "DateCreated")
                 <*> (x .@? "Health")
                 <*> (x .@? "VersionLabel")
-                <*> (x .@? "DateCreated")
                 <*> (x .@? "Tier")
                 <*> (x .@? "EnvironmentName")
                 <*> (x .@? "ApplicationName")
-                <*> (x .@? "HealthStatus")
-                <*> (x .@? "EnvironmentId")
                 <*> (x .@? "SolutionStackName")
+                <*> (x .@? "EnvironmentId")
+                <*> (x .@? "HealthStatus")
                 <*> (x .@? "Description")
 
 -- | The information retrieved from the Amazon EC2 instances.
@@ -1049,8 +1049,8 @@ data EnvironmentResourceDescription = EnvironmentResourceDescription'
     { _erdQueues               :: !(Maybe [Queue])
     , _erdTriggers             :: !(Maybe [Trigger])
     , _erdLoadBalancers        :: !(Maybe [LoadBalancer])
-    , _erdInstances            :: !(Maybe [Instance])
     , _erdEnvironmentName      :: !(Maybe Text)
+    , _erdInstances            :: !(Maybe [Instance])
     , _erdLaunchConfigurations :: !(Maybe [LaunchConfiguration])
     , _erdAutoScalingGroups    :: !(Maybe [AutoScalingGroup])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1065,9 +1065,9 @@ data EnvironmentResourceDescription = EnvironmentResourceDescription'
 --
 -- * 'erdLoadBalancers'
 --
--- * 'erdInstances'
---
 -- * 'erdEnvironmentName'
+--
+-- * 'erdInstances'
 --
 -- * 'erdLaunchConfigurations'
 --
@@ -1079,8 +1079,8 @@ environmentResourceDescription =
     { _erdQueues = Nothing
     , _erdTriggers = Nothing
     , _erdLoadBalancers = Nothing
-    , _erdInstances = Nothing
     , _erdEnvironmentName = Nothing
+    , _erdInstances = Nothing
     , _erdLaunchConfigurations = Nothing
     , _erdAutoScalingGroups = Nothing
     }
@@ -1097,13 +1097,13 @@ erdTriggers = lens _erdTriggers (\ s a -> s{_erdTriggers = a}) . _Default . _Coe
 erdLoadBalancers :: Lens' EnvironmentResourceDescription [LoadBalancer]
 erdLoadBalancers = lens _erdLoadBalancers (\ s a -> s{_erdLoadBalancers = a}) . _Default . _Coerce;
 
--- | The Amazon EC2 instances used by this environment.
-erdInstances :: Lens' EnvironmentResourceDescription [Instance]
-erdInstances = lens _erdInstances (\ s a -> s{_erdInstances = a}) . _Default . _Coerce;
-
 -- | The name of the environment.
 erdEnvironmentName :: Lens' EnvironmentResourceDescription (Maybe Text)
 erdEnvironmentName = lens _erdEnvironmentName (\ s a -> s{_erdEnvironmentName = a});
+
+-- | The Amazon EC2 instances used by this environment.
+erdInstances :: Lens' EnvironmentResourceDescription [Instance]
+erdInstances = lens _erdInstances (\ s a -> s{_erdInstances = a}) . _Default . _Coerce;
 
 -- | The Auto Scaling launch configurations in use by this environment.
 erdLaunchConfigurations :: Lens' EnvironmentResourceDescription [LaunchConfiguration]
@@ -1124,10 +1124,10 @@ instance FromXML EnvironmentResourceDescription where
                 <*>
                 (x .@? "LoadBalancers" .!@ mempty >>=
                    may (parseXMLList "member"))
+                <*> (x .@? "EnvironmentName")
                 <*>
                 (x .@? "Instances" .!@ mempty >>=
                    may (parseXMLList "member"))
-                <*> (x .@? "EnvironmentName")
                 <*>
                 (x .@? "LaunchConfigurations" .!@ mempty >>=
                    may (parseXMLList "member"))
@@ -1832,9 +1832,9 @@ instance ToQuery S3Location where
 data SingleInstanceHealth = SingleInstanceHealth'
     { _sihInstanceId         :: !(Maybe Text)
     , _sihCauses             :: !(Maybe [Text])
+    , _sihSystem             :: !(Maybe SystemStatus)
     , _sihApplicationMetrics :: !(Maybe ApplicationMetrics)
     , _sihColor              :: !(Maybe Text)
-    , _sihSystem             :: !(Maybe SystemStatus)
     , _sihHealthStatus       :: !(Maybe Text)
     , _sihLaunchedAt         :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1847,11 +1847,11 @@ data SingleInstanceHealth = SingleInstanceHealth'
 --
 -- * 'sihCauses'
 --
+-- * 'sihSystem'
+--
 -- * 'sihApplicationMetrics'
 --
 -- * 'sihColor'
---
--- * 'sihSystem'
 --
 -- * 'sihHealthStatus'
 --
@@ -1862,9 +1862,9 @@ singleInstanceHealth =
     SingleInstanceHealth'
     { _sihInstanceId = Nothing
     , _sihCauses = Nothing
+    , _sihSystem = Nothing
     , _sihApplicationMetrics = Nothing
     , _sihColor = Nothing
-    , _sihSystem = Nothing
     , _sihHealthStatus = Nothing
     , _sihLaunchedAt = Nothing
     }
@@ -1879,6 +1879,10 @@ sihCauses :: Lens' SingleInstanceHealth [Text]
 sihCauses = lens _sihCauses (\ s a -> s{_sihCauses = a}) . _Default . _Coerce;
 
 -- | Undocumented member.
+sihSystem :: Lens' SingleInstanceHealth (Maybe SystemStatus)
+sihSystem = lens _sihSystem (\ s a -> s{_sihSystem = a});
+
+-- | Undocumented member.
 sihApplicationMetrics :: Lens' SingleInstanceHealth (Maybe ApplicationMetrics)
 sihApplicationMetrics = lens _sihApplicationMetrics (\ s a -> s{_sihApplicationMetrics = a});
 
@@ -1887,10 +1891,6 @@ sihApplicationMetrics = lens _sihApplicationMetrics (\ s a -> s{_sihApplicationM
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
 sihColor :: Lens' SingleInstanceHealth (Maybe Text)
 sihColor = lens _sihColor (\ s a -> s{_sihColor = a});
-
--- | Undocumented member.
-sihSystem :: Lens' SingleInstanceHealth (Maybe SystemStatus)
-sihSystem = lens _sihSystem (\ s a -> s{_sihSystem = a});
 
 -- | Returns the health status of the specified instance. For more
 -- information, see
@@ -1908,9 +1908,9 @@ instance FromXML SingleInstanceHealth where
               (x .@? "InstanceId") <*>
                 (x .@? "Causes" .!@ mempty >>=
                    may (parseXMLList "member"))
+                <*> (x .@? "System")
                 <*> (x .@? "ApplicationMetrics")
                 <*> (x .@? "Color")
-                <*> (x .@? "System")
                 <*> (x .@? "HealthStatus")
                 <*> (x .@? "LaunchedAt")
 

@@ -247,9 +247,9 @@ data Message = Message'
     { _mMessageAttributes      :: !(Maybe (Map Text MessageAttributeValue))
     , _mMD5OfBody              :: !(Maybe Text)
     , _mBody                   :: !(Maybe Text)
-    , _mAttributes             :: !(Maybe (Map QueueAttributeName Text))
-    , _mMessageId              :: !(Maybe Text)
+    , _mAttributes             :: !(Maybe (Map MessageAttribute Text))
     , _mReceiptHandle          :: !(Maybe Text)
+    , _mMessageId              :: !(Maybe Text)
     , _mMD5OfMessageAttributes :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -265,9 +265,9 @@ data Message = Message'
 --
 -- * 'mAttributes'
 --
--- * 'mMessageId'
---
 -- * 'mReceiptHandle'
+--
+-- * 'mMessageId'
 --
 -- * 'mMD5OfMessageAttributes'
 message
@@ -278,8 +278,8 @@ message =
     , _mMD5OfBody = Nothing
     , _mBody = Nothing
     , _mAttributes = Nothing
-    , _mMessageId = Nothing
     , _mReceiptHandle = Nothing
+    , _mMessageId = Nothing
     , _mMD5OfMessageAttributes = Nothing
     }
 
@@ -302,13 +302,8 @@ mBody = lens _mBody (\ s a -> s{_mBody = a});
 -- 'ApproximateFirstReceiveTimestamp' are each returned as an integer
 -- representing the <http://en.wikipedia.org/wiki/Unix_time epoch time> in
 -- milliseconds.
-mAttributes :: Lens' Message (HashMap QueueAttributeName Text)
+mAttributes :: Lens' Message (HashMap MessageAttribute Text)
 mAttributes = lens _mAttributes (\ s a -> s{_mAttributes = a}) . _Default . _Map;
-
--- | A unique identifier for the message. Message IDs are considered unique
--- across all AWS accounts for an extended period of time.
-mMessageId :: Lens' Message (Maybe Text)
-mMessageId = lens _mMessageId (\ s a -> s{_mMessageId = a});
 
 -- | An identifier associated with the act of receiving the message. A new
 -- receipt handle is returned every time you receive a message. When
@@ -316,6 +311,11 @@ mMessageId = lens _mMessageId (\ s a -> s{_mMessageId = a});
 -- delete the message.
 mReceiptHandle :: Lens' Message (Maybe Text)
 mReceiptHandle = lens _mReceiptHandle (\ s a -> s{_mReceiptHandle = a});
+
+-- | A unique identifier for the message. Message IDs are considered unique
+-- across all AWS accounts for an extended period of time.
+mMessageId :: Lens' Message (Maybe Text)
+mMessageId = lens _mMessageId (\ s a -> s{_mMessageId = a});
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. This can
 -- be used to verify that Amazon SQS received the message correctly. Amazon
@@ -332,8 +332,8 @@ instance FromXML Message where
                 <*> (x .@? "MD5OfBody")
                 <*> (x .@? "Body")
                 <*> (may (parseXMLMap "Attribute" "Name" "Value") x)
-                <*> (x .@? "MessageId")
                 <*> (x .@? "ReceiptHandle")
+                <*> (x .@? "MessageId")
                 <*> (x .@? "MD5OfMessageAttributes")
 
 -- | The user-specified message attribute value. For string data types, the

@@ -50,7 +50,7 @@ module Network.AWS.StorageGateway.ActivateGateway
     , ActivateGatewayResponse
     -- * Response Lenses
     , agrsGatewayARN
-    , agrsStatus
+    , agrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -212,8 +212,8 @@ instance ToQuery ActivateGateway where
 --
 -- /See:/ 'activateGatewayResponse' smart constructor.
 data ActivateGatewayResponse = ActivateGatewayResponse'
-    { _agrsGatewayARN :: !(Maybe Text)
-    , _agrsStatus     :: !Int
+    { _agrsGatewayARN     :: !(Maybe Text)
+    , _agrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ActivateGatewayResponse' with the minimum fields required to make a request.
@@ -222,14 +222,14 @@ data ActivateGatewayResponse = ActivateGatewayResponse'
 --
 -- * 'agrsGatewayARN'
 --
--- * 'agrsStatus'
+-- * 'agrsResponseStatus'
 activateGatewayResponse
-    :: Int -- ^ 'agrsStatus'
+    :: Int -- ^ 'agrsResponseStatus'
     -> ActivateGatewayResponse
-activateGatewayResponse pStatus_ =
+activateGatewayResponse pResponseStatus_ =
     ActivateGatewayResponse'
     { _agrsGatewayARN = Nothing
-    , _agrsStatus = pStatus_
+    , _agrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -237,5 +237,5 @@ agrsGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
 agrsGatewayARN = lens _agrsGatewayARN (\ s a -> s{_agrsGatewayARN = a});
 
 -- | The response status code.
-agrsStatus :: Lens' ActivateGatewayResponse Int
-agrsStatus = lens _agrsStatus (\ s a -> s{_agrsStatus = a});
+agrsResponseStatus :: Lens' ActivateGatewayResponse Int
+agrsResponseStatus = lens _agrsResponseStatus (\ s a -> s{_agrsResponseStatus = a});

@@ -37,8 +37,8 @@ module Network.AWS.RDS.RestoreDBClusterFromSnapshot
     , rdcfsEngineVersion
     , rdcfsDBSubnetGroupName
     , rdcfsAvailabilityZones
-    , rdcfsDatabaseName
     , rdcfsVPCSecurityGroupIds
+    , rdcfsDatabaseName
     , rdcfsOptionGroupName
     , rdcfsTags
     , rdcfsPort
@@ -51,7 +51,7 @@ module Network.AWS.RDS.RestoreDBClusterFromSnapshot
     , RestoreDBClusterFromSnapshotResponse
     -- * Response Lenses
     , rdcfsrsDBCluster
-    , rdcfsrsStatus
+    , rdcfsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -67,8 +67,8 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
     { _rdcfsEngineVersion       :: !(Maybe Text)
     , _rdcfsDBSubnetGroupName   :: !(Maybe Text)
     , _rdcfsAvailabilityZones   :: !(Maybe [Text])
-    , _rdcfsDatabaseName        :: !(Maybe Text)
     , _rdcfsVPCSecurityGroupIds :: !(Maybe [Text])
+    , _rdcfsDatabaseName        :: !(Maybe Text)
     , _rdcfsOptionGroupName     :: !(Maybe Text)
     , _rdcfsTags                :: !(Maybe [Tag])
     , _rdcfsPort                :: !(Maybe Int)
@@ -87,9 +87,9 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 --
 -- * 'rdcfsAvailabilityZones'
 --
--- * 'rdcfsDatabaseName'
---
 -- * 'rdcfsVPCSecurityGroupIds'
+--
+-- * 'rdcfsDatabaseName'
 --
 -- * 'rdcfsOptionGroupName'
 --
@@ -112,8 +112,8 @@ restoreDBClusterFromSnapshot pDBClusterIdentifier_ pSnapshotIdentifier_ pEngine_
     { _rdcfsEngineVersion = Nothing
     , _rdcfsDBSubnetGroupName = Nothing
     , _rdcfsAvailabilityZones = Nothing
-    , _rdcfsDatabaseName = Nothing
     , _rdcfsVPCSecurityGroupIds = Nothing
+    , _rdcfsDatabaseName = Nothing
     , _rdcfsOptionGroupName = Nothing
     , _rdcfsTags = Nothing
     , _rdcfsPort = Nothing
@@ -135,13 +135,13 @@ rdcfsDBSubnetGroupName = lens _rdcfsDBSubnetGroupName (\ s a -> s{_rdcfsDBSubnet
 rdcfsAvailabilityZones :: Lens' RestoreDBClusterFromSnapshot [Text]
 rdcfsAvailabilityZones = lens _rdcfsAvailabilityZones (\ s a -> s{_rdcfsAvailabilityZones = a}) . _Default . _Coerce;
 
--- | The database name for the restored DB cluster.
-rdcfsDatabaseName :: Lens' RestoreDBClusterFromSnapshot (Maybe Text)
-rdcfsDatabaseName = lens _rdcfsDatabaseName (\ s a -> s{_rdcfsDatabaseName = a});
-
 -- | A list of VPC security groups that the new DB cluster will belong to.
 rdcfsVPCSecurityGroupIds :: Lens' RestoreDBClusterFromSnapshot [Text]
 rdcfsVPCSecurityGroupIds = lens _rdcfsVPCSecurityGroupIds (\ s a -> s{_rdcfsVPCSecurityGroupIds = a}) . _Default . _Coerce;
+
+-- | The database name for the restored DB cluster.
+rdcfsDatabaseName :: Lens' RestoreDBClusterFromSnapshot (Maybe Text)
+rdcfsDatabaseName = lens _rdcfsDatabaseName (\ s a -> s{_rdcfsDatabaseName = a});
 
 -- | The name of the option group to use for the restored DB cluster.
 rdcfsOptionGroupName :: Lens' RestoreDBClusterFromSnapshot (Maybe Text)
@@ -220,11 +220,11 @@ instance ToQuery RestoreDBClusterFromSnapshot where
                  toQuery
                    (toQueryList "AvailabilityZone" <$>
                       _rdcfsAvailabilityZones),
-               "DatabaseName" =: _rdcfsDatabaseName,
                "VpcSecurityGroupIds" =:
                  toQuery
                    (toQueryList "VpcSecurityGroupId" <$>
                       _rdcfsVPCSecurityGroupIds),
+               "DatabaseName" =: _rdcfsDatabaseName,
                "OptionGroupName" =: _rdcfsOptionGroupName,
                "Tags" =: toQuery (toQueryList "Tag" <$> _rdcfsTags),
                "Port" =: _rdcfsPort,
@@ -234,8 +234,8 @@ instance ToQuery RestoreDBClusterFromSnapshot where
 
 -- | /See:/ 'restoreDBClusterFromSnapshotResponse' smart constructor.
 data RestoreDBClusterFromSnapshotResponse = RestoreDBClusterFromSnapshotResponse'
-    { _rdcfsrsDBCluster :: !(Maybe DBCluster)
-    , _rdcfsrsStatus    :: !Int
+    { _rdcfsrsDBCluster      :: !(Maybe DBCluster)
+    , _rdcfsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestoreDBClusterFromSnapshotResponse' with the minimum fields required to make a request.
@@ -244,14 +244,14 @@ data RestoreDBClusterFromSnapshotResponse = RestoreDBClusterFromSnapshotResponse
 --
 -- * 'rdcfsrsDBCluster'
 --
--- * 'rdcfsrsStatus'
+-- * 'rdcfsrsResponseStatus'
 restoreDBClusterFromSnapshotResponse
-    :: Int -- ^ 'rdcfsrsStatus'
+    :: Int -- ^ 'rdcfsrsResponseStatus'
     -> RestoreDBClusterFromSnapshotResponse
-restoreDBClusterFromSnapshotResponse pStatus_ =
+restoreDBClusterFromSnapshotResponse pResponseStatus_ =
     RestoreDBClusterFromSnapshotResponse'
     { _rdcfsrsDBCluster = Nothing
-    , _rdcfsrsStatus = pStatus_
+    , _rdcfsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -259,5 +259,5 @@ rdcfsrsDBCluster :: Lens' RestoreDBClusterFromSnapshotResponse (Maybe DBCluster)
 rdcfsrsDBCluster = lens _rdcfsrsDBCluster (\ s a -> s{_rdcfsrsDBCluster = a});
 
 -- | The response status code.
-rdcfsrsStatus :: Lens' RestoreDBClusterFromSnapshotResponse Int
-rdcfsrsStatus = lens _rdcfsrsStatus (\ s a -> s{_rdcfsrsStatus = a});
+rdcfsrsResponseStatus :: Lens' RestoreDBClusterFromSnapshotResponse Int
+rdcfsrsResponseStatus = lens _rdcfsrsResponseStatus (\ s a -> s{_rdcfsrsResponseStatus = a});

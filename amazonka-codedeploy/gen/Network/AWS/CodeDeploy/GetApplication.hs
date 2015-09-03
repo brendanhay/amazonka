@@ -34,7 +34,7 @@ module Network.AWS.CodeDeploy.GetApplication
     , GetApplicationResponse
     -- * Response Lenses
     , garsApplication
-    , garsStatus
+    , garsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -102,8 +102,8 @@ instance ToQuery GetApplication where
 --
 -- /See:/ 'getApplicationResponse' smart constructor.
 data GetApplicationResponse = GetApplicationResponse'
-    { _garsApplication :: !(Maybe ApplicationInfo)
-    , _garsStatus      :: !Int
+    { _garsApplication    :: !(Maybe ApplicationInfo)
+    , _garsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetApplicationResponse' with the minimum fields required to make a request.
@@ -112,14 +112,14 @@ data GetApplicationResponse = GetApplicationResponse'
 --
 -- * 'garsApplication'
 --
--- * 'garsStatus'
+-- * 'garsResponseStatus'
 getApplicationResponse
-    :: Int -- ^ 'garsStatus'
+    :: Int -- ^ 'garsResponseStatus'
     -> GetApplicationResponse
-getApplicationResponse pStatus_ =
+getApplicationResponse pResponseStatus_ =
     GetApplicationResponse'
     { _garsApplication = Nothing
-    , _garsStatus = pStatus_
+    , _garsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the application.
@@ -127,5 +127,5 @@ garsApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
 garsApplication = lens _garsApplication (\ s a -> s{_garsApplication = a});
 
 -- | The response status code.
-garsStatus :: Lens' GetApplicationResponse Int
-garsStatus = lens _garsStatus (\ s a -> s{_garsStatus = a});
+garsResponseStatus :: Lens' GetApplicationResponse Int
+garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});

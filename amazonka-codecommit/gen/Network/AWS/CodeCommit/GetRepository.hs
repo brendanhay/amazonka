@@ -41,7 +41,7 @@ module Network.AWS.CodeCommit.GetRepository
     , GetRepositoryResponse
     -- * Response Lenses
     , grrsRepositoryMetadata
-    , grrsStatus
+    , grrsResponseStatus
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -109,7 +109,7 @@ instance ToQuery GetRepository where
 -- /See:/ 'getRepositoryResponse' smart constructor.
 data GetRepositoryResponse = GetRepositoryResponse'
     { _grrsRepositoryMetadata :: !(Maybe RepositoryMetadata)
-    , _grrsStatus             :: !Int
+    , _grrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetRepositoryResponse' with the minimum fields required to make a request.
@@ -118,14 +118,14 @@ data GetRepositoryResponse = GetRepositoryResponse'
 --
 -- * 'grrsRepositoryMetadata'
 --
--- * 'grrsStatus'
+-- * 'grrsResponseStatus'
 getRepositoryResponse
-    :: Int -- ^ 'grrsStatus'
+    :: Int -- ^ 'grrsResponseStatus'
     -> GetRepositoryResponse
-getRepositoryResponse pStatus_ =
+getRepositoryResponse pResponseStatus_ =
     GetRepositoryResponse'
     { _grrsRepositoryMetadata = Nothing
-    , _grrsStatus = pStatus_
+    , _grrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the repository.
@@ -133,5 +133,5 @@ grrsRepositoryMetadata :: Lens' GetRepositoryResponse (Maybe RepositoryMetadata)
 grrsRepositoryMetadata = lens _grrsRepositoryMetadata (\ s a -> s{_grrsRepositoryMetadata = a});
 
 -- | The response status code.
-grrsStatus :: Lens' GetRepositoryResponse Int
-grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});
+grrsResponseStatus :: Lens' GetRepositoryResponse Int
+grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});

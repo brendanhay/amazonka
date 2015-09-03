@@ -36,9 +36,9 @@ module Network.AWS.Redshift.DescribeEvents
     , deStartTime
     , deSourceType
     , deSourceIdentifier
+    , deMarker
     , deMaxRecords
     , deEndTime
-    , deMarker
     , deDuration
 
     -- * Destructuring the Response
@@ -47,7 +47,7 @@ module Network.AWS.Redshift.DescribeEvents
     -- * Response Lenses
     , dersEvents
     , dersMarker
-    , dersStatus
+    , dersResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -64,9 +64,9 @@ data DescribeEvents = DescribeEvents'
     { _deStartTime        :: !(Maybe ISO8601)
     , _deSourceType       :: !(Maybe SourceType)
     , _deSourceIdentifier :: !(Maybe Text)
+    , _deMarker           :: !(Maybe Text)
     , _deMaxRecords       :: !(Maybe Int)
     , _deEndTime          :: !(Maybe ISO8601)
-    , _deMarker           :: !(Maybe Text)
     , _deDuration         :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -80,11 +80,11 @@ data DescribeEvents = DescribeEvents'
 --
 -- * 'deSourceIdentifier'
 --
+-- * 'deMarker'
+--
 -- * 'deMaxRecords'
 --
 -- * 'deEndTime'
---
--- * 'deMarker'
 --
 -- * 'deDuration'
 describeEvents
@@ -94,9 +94,9 @@ describeEvents =
     { _deStartTime = Nothing
     , _deSourceType = Nothing
     , _deSourceIdentifier = Nothing
+    , _deMarker = Nothing
     , _deMaxRecords = Nothing
     , _deEndTime = Nothing
-    , _deMarker = Nothing
     , _deDuration = Nothing
     }
 
@@ -143,6 +143,15 @@ deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
 deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a});
 
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeEvents request exceed
+-- the value specified in 'MaxRecords', AWS returns a value in the 'Marker'
+-- field of the response. You can retrieve the next set of response records
+-- by providing the returned marker value in the 'Marker' parameter and
+-- retrying the request.
+deMarker :: Lens' DescribeEvents (Maybe Text)
+deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
+
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified 'MaxRecords'
 -- value, a value is returned in a 'marker' field of the response. You can
@@ -162,15 +171,6 @@ deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
 -- Example: '2009-07-08T18:00Z'
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeEvents request exceed
--- the value specified in 'MaxRecords', AWS returns a value in the 'Marker'
--- field of the response. You can retrieve the next set of response records
--- by providing the returned marker value in the 'Marker' parameter and
--- retrying the request.
-deMarker :: Lens' DescribeEvents (Maybe Text)
-deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 
 -- | The number of minutes prior to the time of the request for which to
 -- retrieve events. For example, if the request is sent at 18:00 and you
@@ -214,17 +214,16 @@ instance ToQuery DescribeEvents where
                "StartTime" =: _deStartTime,
                "SourceType" =: _deSourceType,
                "SourceIdentifier" =: _deSourceIdentifier,
-               "MaxRecords" =: _deMaxRecords,
-               "EndTime" =: _deEndTime, "Marker" =: _deMarker,
-               "Duration" =: _deDuration]
+               "Marker" =: _deMarker, "MaxRecords" =: _deMaxRecords,
+               "EndTime" =: _deEndTime, "Duration" =: _deDuration]
 
 -- | Contains the output from the DescribeEvents action.
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-    { _dersEvents :: !(Maybe [Event])
-    , _dersMarker :: !(Maybe Text)
-    , _dersStatus :: !Int
+    { _dersEvents         :: !(Maybe [Event])
+    , _dersMarker         :: !(Maybe Text)
+    , _dersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
@@ -235,15 +234,15 @@ data DescribeEventsResponse = DescribeEventsResponse'
 --
 -- * 'dersMarker'
 --
--- * 'dersStatus'
+-- * 'dersResponseStatus'
 describeEventsResponse
-    :: Int -- ^ 'dersStatus'
+    :: Int -- ^ 'dersResponseStatus'
     -> DescribeEventsResponse
-describeEventsResponse pStatus_ =
+describeEventsResponse pResponseStatus_ =
     DescribeEventsResponse'
     { _dersEvents = Nothing
     , _dersMarker = Nothing
-    , _dersStatus = pStatus_
+    , _dersResponseStatus = pResponseStatus_
     }
 
 -- | A list of Event instances.
@@ -260,5 +259,5 @@ dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
 dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 
 -- | The response status code.
-dersStatus :: Lens' DescribeEventsResponse Int
-dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});
+dersResponseStatus :: Lens' DescribeEventsResponse Int
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});

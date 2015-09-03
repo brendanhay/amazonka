@@ -58,11 +58,11 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     , uasgVPCZoneIdentifier
     , uasgDefaultCooldown
     , uasgMaxSize
-    , uasgDesiredCapacity
     , uasgAvailabilityZones
+    , uasgDesiredCapacity
     , uasgMinSize
-    , uasgHealthCheckType
     , uasgLaunchConfigurationName
+    , uasgHealthCheckType
     , uasgPlacementGroup
     , uasgAutoScalingGroupName
 
@@ -84,11 +84,11 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
     , _uasgVPCZoneIdentifier       :: !(Maybe Text)
     , _uasgDefaultCooldown         :: !(Maybe Int)
     , _uasgMaxSize                 :: !(Maybe Int)
-    , _uasgDesiredCapacity         :: !(Maybe Int)
     , _uasgAvailabilityZones       :: !(Maybe (List1 Text))
+    , _uasgDesiredCapacity         :: !(Maybe Int)
     , _uasgMinSize                 :: !(Maybe Int)
-    , _uasgHealthCheckType         :: !(Maybe Text)
     , _uasgLaunchConfigurationName :: !(Maybe Text)
+    , _uasgHealthCheckType         :: !(Maybe Text)
     , _uasgPlacementGroup          :: !(Maybe Text)
     , _uasgAutoScalingGroupName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -107,15 +107,15 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
 --
 -- * 'uasgMaxSize'
 --
--- * 'uasgDesiredCapacity'
---
 -- * 'uasgAvailabilityZones'
+--
+-- * 'uasgDesiredCapacity'
 --
 -- * 'uasgMinSize'
 --
--- * 'uasgHealthCheckType'
---
 -- * 'uasgLaunchConfigurationName'
+--
+-- * 'uasgHealthCheckType'
 --
 -- * 'uasgPlacementGroup'
 --
@@ -130,11 +130,11 @@ updateAutoScalingGroup pAutoScalingGroupName_ =
     , _uasgVPCZoneIdentifier = Nothing
     , _uasgDefaultCooldown = Nothing
     , _uasgMaxSize = Nothing
-    , _uasgDesiredCapacity = Nothing
     , _uasgAvailabilityZones = Nothing
+    , _uasgDesiredCapacity = Nothing
     , _uasgMinSize = Nothing
-    , _uasgHealthCheckType = Nothing
     , _uasgLaunchConfigurationName = Nothing
+    , _uasgHealthCheckType = Nothing
     , _uasgPlacementGroup = Nothing
     , _uasgAutoScalingGroupName = pAutoScalingGroupName_
     }
@@ -179,29 +179,29 @@ uasgDefaultCooldown = lens _uasgDefaultCooldown (\ s a -> s{_uasgDefaultCooldown
 uasgMaxSize :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgMaxSize = lens _uasgMaxSize (\ s a -> s{_uasgMaxSize = a});
 
+-- | One or more Availability Zones for the group.
+uasgAvailabilityZones :: Lens' UpdateAutoScalingGroup (Maybe (NonEmpty Text))
+uasgAvailabilityZones = lens _uasgAvailabilityZones (\ s a -> s{_uasgAvailabilityZones = a}) . mapping _List1;
+
 -- | The number of EC2 instances that should be running in the Auto Scaling
 -- group. This number must be greater than or equal to the minimum size of
 -- the group and less than or equal to the maximum size of the group.
 uasgDesiredCapacity :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgDesiredCapacity = lens _uasgDesiredCapacity (\ s a -> s{_uasgDesiredCapacity = a});
 
--- | One or more Availability Zones for the group.
-uasgAvailabilityZones :: Lens' UpdateAutoScalingGroup (Maybe (NonEmpty Text))
-uasgAvailabilityZones = lens _uasgAvailabilityZones (\ s a -> s{_uasgAvailabilityZones = a}) . mapping _List1;
-
 -- | The minimum size of the Auto Scaling group.
 uasgMinSize :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgMinSize = lens _uasgMinSize (\ s a -> s{_uasgMinSize = a});
+
+-- | The name of the launch configuration.
+uasgLaunchConfigurationName :: Lens' UpdateAutoScalingGroup (Maybe Text)
+uasgLaunchConfigurationName = lens _uasgLaunchConfigurationName (\ s a -> s{_uasgLaunchConfigurationName = a});
 
 -- | The type of health check for the instances in the Auto Scaling group.
 -- The health check type can either be 'EC2' for Amazon EC2 or 'ELB' for
 -- Elastic Load Balancing.
 uasgHealthCheckType :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgHealthCheckType = lens _uasgHealthCheckType (\ s a -> s{_uasgHealthCheckType = a});
-
--- | The name of the launch configuration.
-uasgLaunchConfigurationName :: Lens' UpdateAutoScalingGroup (Maybe Text)
-uasgLaunchConfigurationName = lens _uasgLaunchConfigurationName (\ s a -> s{_uasgLaunchConfigurationName = a});
 
 -- | The name of the placement group into which you\'ll launch your
 -- instances, if any. For more information, see
@@ -240,14 +240,14 @@ instance ToQuery UpdateAutoScalingGroup where
                "VPCZoneIdentifier" =: _uasgVPCZoneIdentifier,
                "DefaultCooldown" =: _uasgDefaultCooldown,
                "MaxSize" =: _uasgMaxSize,
-               "DesiredCapacity" =: _uasgDesiredCapacity,
                "AvailabilityZones" =:
                  toQuery
                    (toQueryList "member" <$> _uasgAvailabilityZones),
+               "DesiredCapacity" =: _uasgDesiredCapacity,
                "MinSize" =: _uasgMinSize,
-               "HealthCheckType" =: _uasgHealthCheckType,
                "LaunchConfigurationName" =:
                  _uasgLaunchConfigurationName,
+               "HealthCheckType" =: _uasgHealthCheckType,
                "PlacementGroup" =: _uasgPlacementGroup,
                "AutoScalingGroupName" =: _uasgAutoScalingGroupName]
 

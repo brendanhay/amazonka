@@ -46,11 +46,11 @@ module Network.AWS.CloudFormation
     -- ** InsufficientCapabilitiesException
     , _InsufficientCapabilitiesException
 
-    -- ** LimitExceededException
-    , _LimitExceededException
-
     -- ** AlreadyExistsException
     , _AlreadyExistsException
+
+    -- ** LimitExceededException
+    , _LimitExceededException
 
     -- * Waiters
     -- $waiters
@@ -70,11 +70,11 @@ module Network.AWS.CloudFormation
     -- ** ListStackResources (Paginated)
     , module Network.AWS.CloudFormation.ListStackResources
 
-    -- ** DescribeStacks (Paginated)
-    , module Network.AWS.CloudFormation.DescribeStacks
-
     -- ** GetStackPolicy
     , module Network.AWS.CloudFormation.GetStackPolicy
+
+    -- ** DescribeStacks (Paginated)
+    , module Network.AWS.CloudFormation.DescribeStacks
 
     -- ** ValidateTemplate
     , module Network.AWS.CloudFormation.ValidateTemplate
@@ -82,23 +82,23 @@ module Network.AWS.CloudFormation
     -- ** CancelUpdateStack
     , module Network.AWS.CloudFormation.CancelUpdateStack
 
-    -- ** SetStackPolicy
-    , module Network.AWS.CloudFormation.SetStackPolicy
-
     -- ** DescribeStackEvents (Paginated)
     , module Network.AWS.CloudFormation.DescribeStackEvents
 
     -- ** SignalResource
     , module Network.AWS.CloudFormation.SignalResource
 
+    -- ** SetStackPolicy
+    , module Network.AWS.CloudFormation.SetStackPolicy
+
     -- ** ListStacks (Paginated)
     , module Network.AWS.CloudFormation.ListStacks
 
-    -- ** CreateStack
-    , module Network.AWS.CloudFormation.CreateStack
-
     -- ** DescribeStackResources
     , module Network.AWS.CloudFormation.DescribeStackResources
+
+    -- ** CreateStack
+    , module Network.AWS.CloudFormation.CreateStack
 
     -- ** EstimateTemplateCost
     , module Network.AWS.CloudFormation.EstimateTemplateCost
@@ -165,8 +165,8 @@ module Network.AWS.CloudFormation
     , sOutputs
     , sParameters
     , sStackId
-    , sCapabilities
     , sDescription
+    , sCapabilities
     , sTags
     , sTimeoutInMinutes
     , sStackName
@@ -177,9 +177,9 @@ module Network.AWS.CloudFormation
     , StackEvent
     , stackEvent
     , seLogicalResourceId
-    , seResourceStatusReason
-    , seResourceType
     , sePhysicalResourceId
+    , seResourceType
+    , seResourceStatusReason
     , seResourceProperties
     , seResourceStatus
     , seStackId
@@ -190,8 +190,8 @@ module Network.AWS.CloudFormation
     -- ** StackResource
     , StackResource
     , stackResource
-    , srResourceStatusReason
     , srPhysicalResourceId
+    , srResourceStatusReason
     , srStackId
     , srDescription
     , srStackName
@@ -203,8 +203,8 @@ module Network.AWS.CloudFormation
     -- ** StackResourceDetail
     , StackResourceDetail
     , stackResourceDetail
-    , srdResourceStatusReason
     , srdPhysicalResourceId
+    , srdResourceStatusReason
     , srdMetadata
     , srdStackId
     , srdDescription
@@ -217,8 +217,8 @@ module Network.AWS.CloudFormation
     -- ** StackResourceSummary
     , StackResourceSummary
     , stackResourceSummary
-    , srsResourceStatusReason
     , srsPhysicalResourceId
+    , srsResourceStatusReason
     , srsLogicalResourceId
     , srsResourceType
     , srsLastUpdatedTimestamp
@@ -228,8 +228,8 @@ module Network.AWS.CloudFormation
     , StackSummary
     , stackSummary
     , ssLastUpdatedTime
-    , ssTemplateDescription
     , ssStackStatusReason
+    , ssTemplateDescription
     , ssDeletionTime
     , ssStackId
     , ssStackName

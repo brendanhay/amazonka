@@ -42,7 +42,7 @@ module Network.AWS.EC2.AllocateAddress
     , aarsAllocationId
     , aarsDomain
     , aarsPublicIP
-    , aarsStatus
+    , aarsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -111,10 +111,10 @@ instance ToQuery AllocateAddress where
 
 -- | /See:/ 'allocateAddressResponse' smart constructor.
 data AllocateAddressResponse = AllocateAddressResponse'
-    { _aarsAllocationId :: !(Maybe Text)
-    , _aarsDomain       :: !(Maybe DomainType)
-    , _aarsPublicIP     :: !(Maybe Text)
-    , _aarsStatus       :: !Int
+    { _aarsAllocationId   :: !(Maybe Text)
+    , _aarsDomain         :: !(Maybe DomainType)
+    , _aarsPublicIP       :: !(Maybe Text)
+    , _aarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AllocateAddressResponse' with the minimum fields required to make a request.
@@ -127,16 +127,16 @@ data AllocateAddressResponse = AllocateAddressResponse'
 --
 -- * 'aarsPublicIP'
 --
--- * 'aarsStatus'
+-- * 'aarsResponseStatus'
 allocateAddressResponse
-    :: Int -- ^ 'aarsStatus'
+    :: Int -- ^ 'aarsResponseStatus'
     -> AllocateAddressResponse
-allocateAddressResponse pStatus_ =
+allocateAddressResponse pResponseStatus_ =
     AllocateAddressResponse'
     { _aarsAllocationId = Nothing
     , _aarsDomain = Nothing
     , _aarsPublicIP = Nothing
-    , _aarsStatus = pStatus_
+    , _aarsResponseStatus = pResponseStatus_
     }
 
 -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
@@ -154,5 +154,5 @@ aarsPublicIP :: Lens' AllocateAddressResponse (Maybe Text)
 aarsPublicIP = lens _aarsPublicIP (\ s a -> s{_aarsPublicIP = a});
 
 -- | The response status code.
-aarsStatus :: Lens' AllocateAddressResponse Int
-aarsStatus = lens _aarsStatus (\ s a -> s{_aarsStatus = a});
+aarsResponseStatus :: Lens' AllocateAddressResponse Int
+aarsResponseStatus = lens _aarsResponseStatus (\ s a -> s{_aarsResponseStatus = a});

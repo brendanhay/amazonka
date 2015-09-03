@@ -36,7 +36,7 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
     , AddSourceIdentifierToSubscriptionResponse
     -- * Response Lenses
     , asitsrsEventSubscription
-    , asitsrsStatus
+    , asitsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -125,7 +125,7 @@ instance ToQuery AddSourceIdentifierToSubscription
 -- | /See:/ 'addSourceIdentifierToSubscriptionResponse' smart constructor.
 data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'
     { _asitsrsEventSubscription :: !(Maybe EventSubscription)
-    , _asitsrsStatus            :: !Int
+    , _asitsrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddSourceIdentifierToSubscriptionResponse' with the minimum fields required to make a request.
@@ -134,14 +134,14 @@ data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscripti
 --
 -- * 'asitsrsEventSubscription'
 --
--- * 'asitsrsStatus'
+-- * 'asitsrsResponseStatus'
 addSourceIdentifierToSubscriptionResponse
-    :: Int -- ^ 'asitsrsStatus'
+    :: Int -- ^ 'asitsrsResponseStatus'
     -> AddSourceIdentifierToSubscriptionResponse
-addSourceIdentifierToSubscriptionResponse pStatus_ =
+addSourceIdentifierToSubscriptionResponse pResponseStatus_ =
     AddSourceIdentifierToSubscriptionResponse'
     { _asitsrsEventSubscription = Nothing
-    , _asitsrsStatus = pStatus_
+    , _asitsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -149,5 +149,5 @@ asitsrsEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (May
 asitsrsEventSubscription = lens _asitsrsEventSubscription (\ s a -> s{_asitsrsEventSubscription = a});
 
 -- | The response status code.
-asitsrsStatus :: Lens' AddSourceIdentifierToSubscriptionResponse Int
-asitsrsStatus = lens _asitsrsStatus (\ s a -> s{_asitsrsStatus = a});
+asitsrsResponseStatus :: Lens' AddSourceIdentifierToSubscriptionResponse Int
+asitsrsResponseStatus = lens _asitsrsResponseStatus (\ s a -> s{_asitsrsResponseStatus = a});

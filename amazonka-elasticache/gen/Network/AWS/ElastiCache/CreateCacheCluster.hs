@@ -29,11 +29,11 @@ module Network.AWS.ElastiCache.CreateCacheCluster
       createCacheCluster
     , CreateCacheCluster
     -- * Request Lenses
-    , cccCacheNodeType
     , cccEngineVersion
+    , cccCacheNodeType
     , cccSecurityGroupIds
-    , cccAutoMinorVersionUpgrade
     , cccSnapshotARNs
+    , cccAutoMinorVersionUpgrade
     , cccCacheParameterGroupName
     , cccSnapshotWindow
     , cccEngine
@@ -46,10 +46,10 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     , cccSnapshotName
     , cccReplicationGroupId
     , cccNotificationTopicARN
-    , cccTags
     , cccNumCacheNodes
-    , cccCacheSecurityGroupNames
+    , cccTags
     , cccPort
+    , cccCacheSecurityGroupNames
     , cccCacheClusterId
 
     -- * Destructuring the Response
@@ -57,7 +57,7 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     , CreateCacheClusterResponse
     -- * Response Lenses
     , cccrsCacheCluster
-    , cccrsStatus
+    , cccrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -70,11 +70,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createCacheCluster' smart constructor.
 data CreateCacheCluster = CreateCacheCluster'
-    { _cccCacheNodeType              :: !(Maybe Text)
-    , _cccEngineVersion              :: !(Maybe Text)
+    { _cccEngineVersion              :: !(Maybe Text)
+    , _cccCacheNodeType              :: !(Maybe Text)
     , _cccSecurityGroupIds           :: !(Maybe [Text])
-    , _cccAutoMinorVersionUpgrade    :: !(Maybe Bool)
     , _cccSnapshotARNs               :: !(Maybe [Text])
+    , _cccAutoMinorVersionUpgrade    :: !(Maybe Bool)
     , _cccCacheParameterGroupName    :: !(Maybe Text)
     , _cccSnapshotWindow             :: !(Maybe Text)
     , _cccEngine                     :: !(Maybe Text)
@@ -87,10 +87,10 @@ data CreateCacheCluster = CreateCacheCluster'
     , _cccSnapshotName               :: !(Maybe Text)
     , _cccReplicationGroupId         :: !(Maybe Text)
     , _cccNotificationTopicARN       :: !(Maybe Text)
-    , _cccTags                       :: !(Maybe [Tag])
     , _cccNumCacheNodes              :: !(Maybe Int)
-    , _cccCacheSecurityGroupNames    :: !(Maybe [Text])
+    , _cccTags                       :: !(Maybe [Tag])
     , _cccPort                       :: !(Maybe Int)
+    , _cccCacheSecurityGroupNames    :: !(Maybe [Text])
     , _cccCacheClusterId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -98,15 +98,15 @@ data CreateCacheCluster = CreateCacheCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cccCacheNodeType'
---
 -- * 'cccEngineVersion'
+--
+-- * 'cccCacheNodeType'
 --
 -- * 'cccSecurityGroupIds'
 --
--- * 'cccAutoMinorVersionUpgrade'
---
 -- * 'cccSnapshotARNs'
+--
+-- * 'cccAutoMinorVersionUpgrade'
 --
 -- * 'cccCacheParameterGroupName'
 --
@@ -132,13 +132,13 @@ data CreateCacheCluster = CreateCacheCluster'
 --
 -- * 'cccNotificationTopicARN'
 --
--- * 'cccTags'
---
 -- * 'cccNumCacheNodes'
 --
--- * 'cccCacheSecurityGroupNames'
+-- * 'cccTags'
 --
 -- * 'cccPort'
+--
+-- * 'cccCacheSecurityGroupNames'
 --
 -- * 'cccCacheClusterId'
 createCacheCluster
@@ -146,11 +146,11 @@ createCacheCluster
     -> CreateCacheCluster
 createCacheCluster pCacheClusterId_ =
     CreateCacheCluster'
-    { _cccCacheNodeType = Nothing
-    , _cccEngineVersion = Nothing
+    { _cccEngineVersion = Nothing
+    , _cccCacheNodeType = Nothing
     , _cccSecurityGroupIds = Nothing
-    , _cccAutoMinorVersionUpgrade = Nothing
     , _cccSnapshotARNs = Nothing
+    , _cccAutoMinorVersionUpgrade = Nothing
     , _cccCacheParameterGroupName = Nothing
     , _cccSnapshotWindow = Nothing
     , _cccEngine = Nothing
@@ -163,12 +163,18 @@ createCacheCluster pCacheClusterId_ =
     , _cccSnapshotName = Nothing
     , _cccReplicationGroupId = Nothing
     , _cccNotificationTopicARN = Nothing
-    , _cccTags = Nothing
     , _cccNumCacheNodes = Nothing
-    , _cccCacheSecurityGroupNames = Nothing
+    , _cccTags = Nothing
     , _cccPort = Nothing
+    , _cccCacheSecurityGroupNames = Nothing
     , _cccCacheClusterId = pCacheClusterId_
     }
+
+-- | The version number of the cache engine to be used for this cache
+-- cluster. To view the supported cache engine versions, use the
+-- /DescribeCacheEngineVersions/ action.
+cccEngineVersion :: Lens' CreateCacheCluster (Maybe Text)
+cccEngineVersion = lens _cccEngineVersion (\ s a -> s{_cccEngineVersion = a});
 
 -- | The compute and memory capacity of the nodes in the node group.
 --
@@ -204,22 +210,12 @@ createCacheCluster pCacheClusterId_ =
 cccCacheNodeType :: Lens' CreateCacheCluster (Maybe Text)
 cccCacheNodeType = lens _cccCacheNodeType (\ s a -> s{_cccCacheNodeType = a});
 
--- | The version number of the cache engine to be used for this cache
--- cluster. To view the supported cache engine versions, use the
--- /DescribeCacheEngineVersions/ action.
-cccEngineVersion :: Lens' CreateCacheCluster (Maybe Text)
-cccEngineVersion = lens _cccEngineVersion (\ s a -> s{_cccEngineVersion = a});
-
 -- | One or more VPC security groups associated with the cache cluster.
 --
 -- Use this parameter only when you are creating a cache cluster in an
 -- Amazon Virtual Private Cloud (VPC).
 cccSecurityGroupIds :: Lens' CreateCacheCluster [Text]
 cccSecurityGroupIds = lens _cccSecurityGroupIds (\ s a -> s{_cccSecurityGroupIds = a}) . _Default . _Coerce;
-
--- | This parameter is currently disabled.
-cccAutoMinorVersionUpgrade :: Lens' CreateCacheCluster (Maybe Bool)
-cccAutoMinorVersionUpgrade = lens _cccAutoMinorVersionUpgrade (\ s a -> s{_cccAutoMinorVersionUpgrade = a});
 
 -- | A single-element string list containing an Amazon Resource Name (ARN)
 -- that uniquely identifies a Redis RDB snapshot file stored in Amazon S3.
@@ -232,6 +228,10 @@ cccAutoMinorVersionUpgrade = lens _cccAutoMinorVersionUpgrade (\ s a -> s{_cccAu
 -- Example of an Amazon S3 ARN: 'arn:aws:s3:::my_bucket\/snapshot1.rdb'
 cccSnapshotARNs :: Lens' CreateCacheCluster [Text]
 cccSnapshotARNs = lens _cccSnapshotARNs (\ s a -> s{_cccSnapshotARNs = a}) . _Default . _Coerce;
+
+-- | This parameter is currently disabled.
+cccAutoMinorVersionUpgrade :: Lens' CreateCacheCluster (Maybe Bool)
+cccAutoMinorVersionUpgrade = lens _cccAutoMinorVersionUpgrade (\ s a -> s{_cccAutoMinorVersionUpgrade = a});
 
 -- | The name of the parameter group to associate with this cache cluster. If
 -- this argument is omitted, the default parameter group for the specified
@@ -377,11 +377,6 @@ cccReplicationGroupId = lens _cccReplicationGroupId (\ s a -> s{_cccReplicationG
 cccNotificationTopicARN :: Lens' CreateCacheCluster (Maybe Text)
 cccNotificationTopicARN = lens _cccNotificationTopicARN (\ s a -> s{_cccNotificationTopicARN = a});
 
--- | A list of cost allocation tags to be added to this resource. A tag is a
--- key-value pair. A tag key must be accompanied by a tag value.
-cccTags :: Lens' CreateCacheCluster [Tag]
-cccTags = lens _cccTags (\ s a -> s{_cccTags = a}) . _Default . _Coerce;
-
 -- | The initial number of cache nodes that the cache cluster will have.
 --
 -- For clusters running Redis, this value must be 1. For clusters running
@@ -393,17 +388,22 @@ cccTags = lens _cccTags (\ s a -> s{_cccTags = a}) . _Default . _Coerce;
 cccNumCacheNodes :: Lens' CreateCacheCluster (Maybe Int)
 cccNumCacheNodes = lens _cccNumCacheNodes (\ s a -> s{_cccNumCacheNodes = a});
 
+-- | A list of cost allocation tags to be added to this resource. A tag is a
+-- key-value pair. A tag key must be accompanied by a tag value.
+cccTags :: Lens' CreateCacheCluster [Tag]
+cccTags = lens _cccTags (\ s a -> s{_cccTags = a}) . _Default . _Coerce;
+
+-- | The port number on which each of the cache nodes will accept
+-- connections.
+cccPort :: Lens' CreateCacheCluster (Maybe Int)
+cccPort = lens _cccPort (\ s a -> s{_cccPort = a});
+
 -- | A list of security group names to associate with this cache cluster.
 --
 -- Use this parameter only when you are creating a cache cluster outside of
 -- an Amazon Virtual Private Cloud (VPC).
 cccCacheSecurityGroupNames :: Lens' CreateCacheCluster [Text]
 cccCacheSecurityGroupNames = lens _cccCacheSecurityGroupNames (\ s a -> s{_cccCacheSecurityGroupNames = a}) . _Default . _Coerce;
-
--- | The port number on which each of the cache nodes will accept
--- connections.
-cccPort :: Lens' CreateCacheCluster (Maybe Int)
-cccPort = lens _cccPort (\ s a -> s{_cccPort = a});
 
 -- | The node group identifier. This parameter is stored as a lowercase
 -- string.
@@ -437,17 +437,17 @@ instance ToQuery CreateCacheCluster where
           = mconcat
               ["Action" =: ("CreateCacheCluster" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "CacheNodeType" =: _cccCacheNodeType,
                "EngineVersion" =: _cccEngineVersion,
+               "CacheNodeType" =: _cccCacheNodeType,
                "SecurityGroupIds" =:
                  toQuery
                    (toQueryList "SecurityGroupId" <$>
                       _cccSecurityGroupIds),
-               "AutoMinorVersionUpgrade" =:
-                 _cccAutoMinorVersionUpgrade,
                "SnapshotArns" =:
                  toQuery
                    (toQueryList "SnapshotArn" <$> _cccSnapshotARNs),
+               "AutoMinorVersionUpgrade" =:
+                 _cccAutoMinorVersionUpgrade,
                "CacheParameterGroupName" =:
                  _cccCacheParameterGroupName,
                "SnapshotWindow" =: _cccSnapshotWindow,
@@ -467,19 +467,19 @@ instance ToQuery CreateCacheCluster where
                "SnapshotName" =: _cccSnapshotName,
                "ReplicationGroupId" =: _cccReplicationGroupId,
                "NotificationTopicArn" =: _cccNotificationTopicARN,
-               "Tags" =: toQuery (toQueryList "Tag" <$> _cccTags),
                "NumCacheNodes" =: _cccNumCacheNodes,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cccTags),
+               "Port" =: _cccPort,
                "CacheSecurityGroupNames" =:
                  toQuery
                    (toQueryList "CacheSecurityGroupName" <$>
                       _cccCacheSecurityGroupNames),
-               "Port" =: _cccPort,
                "CacheClusterId" =: _cccCacheClusterId]
 
 -- | /See:/ 'createCacheClusterResponse' smart constructor.
 data CreateCacheClusterResponse = CreateCacheClusterResponse'
-    { _cccrsCacheCluster :: !(Maybe CacheCluster)
-    , _cccrsStatus       :: !Int
+    { _cccrsCacheCluster   :: !(Maybe CacheCluster)
+    , _cccrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateCacheClusterResponse' with the minimum fields required to make a request.
@@ -488,14 +488,14 @@ data CreateCacheClusterResponse = CreateCacheClusterResponse'
 --
 -- * 'cccrsCacheCluster'
 --
--- * 'cccrsStatus'
+-- * 'cccrsResponseStatus'
 createCacheClusterResponse
-    :: Int -- ^ 'cccrsStatus'
+    :: Int -- ^ 'cccrsResponseStatus'
     -> CreateCacheClusterResponse
-createCacheClusterResponse pStatus_ =
+createCacheClusterResponse pResponseStatus_ =
     CreateCacheClusterResponse'
     { _cccrsCacheCluster = Nothing
-    , _cccrsStatus = pStatus_
+    , _cccrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -503,5 +503,5 @@ cccrsCacheCluster :: Lens' CreateCacheClusterResponse (Maybe CacheCluster)
 cccrsCacheCluster = lens _cccrsCacheCluster (\ s a -> s{_cccrsCacheCluster = a});
 
 -- | The response status code.
-cccrsStatus :: Lens' CreateCacheClusterResponse Int
-cccrsStatus = lens _cccrsStatus (\ s a -> s{_cccrsStatus = a});
+cccrsResponseStatus :: Lens' CreateCacheClusterResponse Int
+cccrsResponseStatus = lens _cccrsResponseStatus (\ s a -> s{_cccrsResponseStatus = a});

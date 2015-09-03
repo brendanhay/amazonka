@@ -34,7 +34,7 @@ module Network.AWS.DeviceFarm.GetDevice
     , GetDeviceResponse
     -- * Response Lenses
     , gdrsDevice
-    , gdrsStatus
+    , gdrsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -99,8 +99,8 @@ instance ToQuery GetDevice where
 --
 -- /See:/ 'getDeviceResponse' smart constructor.
 data GetDeviceResponse = GetDeviceResponse'
-    { _gdrsDevice :: !(Maybe Device)
-    , _gdrsStatus :: !Int
+    { _gdrsDevice         :: !(Maybe Device)
+    , _gdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDeviceResponse' with the minimum fields required to make a request.
@@ -109,14 +109,14 @@ data GetDeviceResponse = GetDeviceResponse'
 --
 -- * 'gdrsDevice'
 --
--- * 'gdrsStatus'
+-- * 'gdrsResponseStatus'
 getDeviceResponse
-    :: Int -- ^ 'gdrsStatus'
+    :: Int -- ^ 'gdrsResponseStatus'
     -> GetDeviceResponse
-getDeviceResponse pStatus_ =
+getDeviceResponse pResponseStatus_ =
     GetDeviceResponse'
     { _gdrsDevice = Nothing
-    , _gdrsStatus = pStatus_
+    , _gdrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -124,5 +124,5 @@ gdrsDevice :: Lens' GetDeviceResponse (Maybe Device)
 gdrsDevice = lens _gdrsDevice (\ s a -> s{_gdrsDevice = a});
 
 -- | The response status code.
-gdrsStatus :: Lens' GetDeviceResponse Int
-gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});
+gdrsResponseStatus :: Lens' GetDeviceResponse Int
+gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});

@@ -34,7 +34,7 @@ module Network.AWS.Route53.ListTagsForResources
     , listTagsForResourcesResponse
     , ListTagsForResourcesResponse
     -- * Response Lenses
-    , lrsStatus
+    , lrsResponseStatus
     , lrsResourceTagSets
     ) where
 
@@ -120,7 +120,7 @@ instance ToXML ListTagsForResources where
 --
 -- /See:/ 'listTagsForResourcesResponse' smart constructor.
 data ListTagsForResourcesResponse = ListTagsForResourcesResponse'
-    { _lrsStatus          :: !Int
+    { _lrsResponseStatus  :: !Int
     , _lrsResourceTagSets :: ![ResourceTagSet]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -128,21 +128,21 @@ data ListTagsForResourcesResponse = ListTagsForResourcesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrsStatus'
+-- * 'lrsResponseStatus'
 --
 -- * 'lrsResourceTagSets'
 listTagsForResourcesResponse
-    :: Int -- ^ 'lrsStatus'
+    :: Int -- ^ 'lrsResponseStatus'
     -> ListTagsForResourcesResponse
-listTagsForResourcesResponse pStatus_ =
+listTagsForResourcesResponse pResponseStatus_ =
     ListTagsForResourcesResponse'
-    { _lrsStatus = pStatus_
+    { _lrsResponseStatus = pResponseStatus_
     , _lrsResourceTagSets = mempty
     }
 
 -- | The response status code.
-lrsStatus :: Lens' ListTagsForResourcesResponse Int
-lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});
+lrsResponseStatus :: Lens' ListTagsForResourcesResponse Int
+lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 
 -- | A list of 'ResourceTagSet's containing tags associated with the
 -- specified resources.

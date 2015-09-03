@@ -40,7 +40,7 @@ module Network.AWS.S3.DeleteObjects
     , drsRequestCharged
     , drsDeleted
     , drsErrors
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -134,7 +134,7 @@ data DeleteObjectsResponse = DeleteObjectsResponse'
     { _drsRequestCharged :: !(Maybe RequestCharged)
     , _drsDeleted        :: !(Maybe [DeletedObject])
     , _drsErrors         :: !(Maybe [S3ServiceError])
-    , _drsStatus         :: !Int
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteObjectsResponse' with the minimum fields required to make a request.
@@ -147,16 +147,16 @@ data DeleteObjectsResponse = DeleteObjectsResponse'
 --
 -- * 'drsErrors'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 deleteObjectsResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DeleteObjectsResponse
-deleteObjectsResponse pStatus_ =
+deleteObjectsResponse pResponseStatus_ =
     DeleteObjectsResponse'
     { _drsRequestCharged = Nothing
     , _drsDeleted = Nothing
     , _drsErrors = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -172,5 +172,5 @@ drsErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
 drsErrors = lens _drsErrors (\ s a -> s{_drsErrors = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drsStatus :: Lens' DeleteObjectsResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DeleteObjectsResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

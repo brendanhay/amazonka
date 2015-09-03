@@ -39,7 +39,7 @@ module Network.AWS.S3.GetObjectACL
     , goarsRequestCharged
     , goarsGrants
     , goarsOwner
-    , goarsStatus
+    , goarsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -125,7 +125,7 @@ data GetObjectACLResponse = GetObjectACLResponse'
     { _goarsRequestCharged :: !(Maybe RequestCharged)
     , _goarsGrants         :: !(Maybe [Grant])
     , _goarsOwner          :: !(Maybe Owner)
-    , _goarsStatus         :: !Int
+    , _goarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetObjectACLResponse' with the minimum fields required to make a request.
@@ -138,16 +138,16 @@ data GetObjectACLResponse = GetObjectACLResponse'
 --
 -- * 'goarsOwner'
 --
--- * 'goarsStatus'
+-- * 'goarsResponseStatus'
 getObjectACLResponse
-    :: Int -- ^ 'goarsStatus'
+    :: Int -- ^ 'goarsResponseStatus'
     -> GetObjectACLResponse
-getObjectACLResponse pStatus_ =
+getObjectACLResponse pResponseStatus_ =
     GetObjectACLResponse'
     { _goarsRequestCharged = Nothing
     , _goarsGrants = Nothing
     , _goarsOwner = Nothing
-    , _goarsStatus = pStatus_
+    , _goarsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -163,5 +163,5 @@ goarsOwner :: Lens' GetObjectACLResponse (Maybe Owner)
 goarsOwner = lens _goarsOwner (\ s a -> s{_goarsOwner = a});
 
 -- | The response status code.
-goarsStatus :: Lens' GetObjectACLResponse Int
-goarsStatus = lens _goarsStatus (\ s a -> s{_goarsStatus = a});
+goarsResponseStatus :: Lens' GetObjectACLResponse Int
+goarsResponseStatus = lens _goarsResponseStatus (\ s a -> s{_goarsResponseStatus = a});

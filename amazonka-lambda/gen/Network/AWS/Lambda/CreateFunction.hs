@@ -46,8 +46,8 @@ module Network.AWS.Lambda.CreateFunction
     , functionConfiguration
     , FunctionConfiguration
     -- * Response Lenses
-    , fcRuntime
     , fcMemorySize
+    , fcRuntime
     , fcFunctionARN
     , fcRole
     , fcFunctionName

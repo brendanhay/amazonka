@@ -61,8 +61,8 @@ module Network.AWS.SWF.ListClosedWorkflowExecutions
     , ListClosedWorkflowExecutions
     -- * Request Lenses
     , lcweNextPageToken
-    , lcweCloseStatusFilter
     , lcweExecutionFilter
+    , lcweCloseStatusFilter
     , lcweTypeFilter
     , lcweCloseTimeFilter
     , lcweReverseOrder
@@ -89,8 +89,8 @@ import           Network.AWS.SWF.Types.Product
 -- | /See:/ 'listClosedWorkflowExecutions' smart constructor.
 data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'
     { _lcweNextPageToken     :: !(Maybe Text)
-    , _lcweCloseStatusFilter :: !(Maybe CloseStatusFilter)
     , _lcweExecutionFilter   :: !(Maybe WorkflowExecutionFilter)
+    , _lcweCloseStatusFilter :: !(Maybe CloseStatusFilter)
     , _lcweTypeFilter        :: !(Maybe WorkflowTypeFilter)
     , _lcweCloseTimeFilter   :: !(Maybe ExecutionTimeFilter)
     , _lcweReverseOrder      :: !(Maybe Bool)
@@ -106,9 +106,9 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'
 --
 -- * 'lcweNextPageToken'
 --
--- * 'lcweCloseStatusFilter'
---
 -- * 'lcweExecutionFilter'
+--
+-- * 'lcweCloseStatusFilter'
 --
 -- * 'lcweTypeFilter'
 --
@@ -129,8 +129,8 @@ listClosedWorkflowExecutions
 listClosedWorkflowExecutions pDomain_ =
     ListClosedWorkflowExecutions'
     { _lcweNextPageToken = Nothing
-    , _lcweCloseStatusFilter = Nothing
     , _lcweExecutionFilter = Nothing
+    , _lcweCloseStatusFilter = Nothing
     , _lcweTypeFilter = Nothing
     , _lcweCloseTimeFilter = Nothing
     , _lcweReverseOrder = Nothing
@@ -150,6 +150,14 @@ listClosedWorkflowExecutions pDomain_ =
 lcweNextPageToken :: Lens' ListClosedWorkflowExecutions (Maybe Text)
 lcweNextPageToken = lens _lcweNextPageToken (\ s a -> s{_lcweNextPageToken = a});
 
+-- | If specified, only workflow executions matching the workflow ID
+-- specified in the filter are returned.
+--
+-- 'closeStatusFilter', 'executionFilter', 'typeFilter' and 'tagFilter' are
+-- mutually exclusive. You can specify at most one of these in a request.
+lcweExecutionFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowExecutionFilter)
+lcweExecutionFilter = lens _lcweExecutionFilter (\ s a -> s{_lcweExecutionFilter = a});
+
 -- | If specified, only workflow executions that match this /close status/
 -- are listed. For example, if TERMINATED is specified, then only
 -- TERMINATED workflow executions are listed.
@@ -158,14 +166,6 @@ lcweNextPageToken = lens _lcweNextPageToken (\ s a -> s{_lcweNextPageToken = a})
 -- mutually exclusive. You can specify at most one of these in a request.
 lcweCloseStatusFilter :: Lens' ListClosedWorkflowExecutions (Maybe CloseStatusFilter)
 lcweCloseStatusFilter = lens _lcweCloseStatusFilter (\ s a -> s{_lcweCloseStatusFilter = a});
-
--- | If specified, only workflow executions matching the workflow ID
--- specified in the filter are returned.
---
--- 'closeStatusFilter', 'executionFilter', 'typeFilter' and 'tagFilter' are
--- mutually exclusive. You can specify at most one of these in a request.
-lcweExecutionFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowExecutionFilter)
-lcweExecutionFilter = lens _lcweExecutionFilter (\ s a -> s{_lcweExecutionFilter = a});
 
 -- | If specified, only executions of the type specified in the filter are
 -- returned.
@@ -252,8 +252,8 @@ instance ToJSON ListClosedWorkflowExecutions where
           = object
               (catMaybes
                  [("nextPageToken" .=) <$> _lcweNextPageToken,
-                  ("closeStatusFilter" .=) <$> _lcweCloseStatusFilter,
                   ("executionFilter" .=) <$> _lcweExecutionFilter,
+                  ("closeStatusFilter" .=) <$> _lcweCloseStatusFilter,
                   ("typeFilter" .=) <$> _lcweTypeFilter,
                   ("closeTimeFilter" .=) <$> _lcweCloseTimeFilter,
                   ("reverseOrder" .=) <$> _lcweReverseOrder,

@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeConversionTasks
       describeConversionTasks
     , DescribeConversionTasks
     -- * Request Lenses
-    , dctConversionTaskIds
     , dctFilters
+    , dctConversionTaskIds
     , dctDryRun
 
     -- * Destructuring the Response
@@ -39,7 +39,7 @@ module Network.AWS.EC2.DescribeConversionTasks
     , DescribeConversionTasksResponse
     -- * Response Lenses
     , dctrsConversionTasks
-    , dctrsStatus
+    , dctrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -50,8 +50,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeConversionTasks' smart constructor.
 data DescribeConversionTasks = DescribeConversionTasks'
-    { _dctConversionTaskIds :: !(Maybe [Text])
-    , _dctFilters           :: !(Maybe [Filter])
+    { _dctFilters           :: !(Maybe [Filter])
+    , _dctConversionTaskIds :: !(Maybe [Text])
     , _dctDryRun            :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -59,27 +59,27 @@ data DescribeConversionTasks = DescribeConversionTasks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dctConversionTaskIds'
---
 -- * 'dctFilters'
+--
+-- * 'dctConversionTaskIds'
 --
 -- * 'dctDryRun'
 describeConversionTasks
     :: DescribeConversionTasks
 describeConversionTasks =
     DescribeConversionTasks'
-    { _dctConversionTaskIds = Nothing
-    , _dctFilters = Nothing
+    { _dctFilters = Nothing
+    , _dctConversionTaskIds = Nothing
     , _dctDryRun = Nothing
     }
-
--- | One or more conversion task IDs.
-dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
-dctConversionTaskIds = lens _dctConversionTaskIds (\ s a -> s{_dctConversionTaskIds = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 dctFilters :: Lens' DescribeConversionTasks [Filter]
 dctFilters = lens _dctFilters (\ s a -> s{_dctFilters = a}) . _Default . _Coerce;
+
+-- | One or more conversion task IDs.
+dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
+dctConversionTaskIds = lens _dctConversionTaskIds (\ s a -> s{_dctConversionTaskIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -112,16 +112,16 @@ instance ToQuery DescribeConversionTasks where
               ["Action" =:
                  ("DescribeConversionTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
+               toQuery (toQueryList "Filter" <$> _dctFilters),
                toQuery
                  (toQueryList "ConversionTaskId" <$>
                     _dctConversionTaskIds),
-               toQuery (toQueryList "Filter" <$> _dctFilters),
                "DryRun" =: _dctDryRun]
 
 -- | /See:/ 'describeConversionTasksResponse' smart constructor.
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
     { _dctrsConversionTasks :: !(Maybe [ConversionTask])
-    , _dctrsStatus          :: !Int
+    , _dctrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeConversionTasksResponse' with the minimum fields required to make a request.
@@ -130,14 +130,14 @@ data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
 --
 -- * 'dctrsConversionTasks'
 --
--- * 'dctrsStatus'
+-- * 'dctrsResponseStatus'
 describeConversionTasksResponse
-    :: Int -- ^ 'dctrsStatus'
+    :: Int -- ^ 'dctrsResponseStatus'
     -> DescribeConversionTasksResponse
-describeConversionTasksResponse pStatus_ =
+describeConversionTasksResponse pResponseStatus_ =
     DescribeConversionTasksResponse'
     { _dctrsConversionTasks = Nothing
-    , _dctrsStatus = pStatus_
+    , _dctrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the conversion tasks.
@@ -145,5 +145,5 @@ dctrsConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
 dctrsConversionTasks = lens _dctrsConversionTasks (\ s a -> s{_dctrsConversionTasks = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dctrsStatus :: Lens' DescribeConversionTasksResponse Int
-dctrsStatus = lens _dctrsStatus (\ s a -> s{_dctrsStatus = a});
+dctrsResponseStatus :: Lens' DescribeConversionTasksResponse Int
+dctrsResponseStatus = lens _dctrsResponseStatus (\ s a -> s{_dctrsResponseStatus = a});

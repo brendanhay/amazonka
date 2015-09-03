@@ -1,5 +1,5 @@
 name:                  amazonka-cloudsearch
-version:               1.2.0.2
+version:               1.3.0
 synopsis:              Amazon CloudSearch SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -85,7 +85,7 @@ library
         , Network.AWS.CloudSearch.Types.Sum
 
     build-depends:
-          amazonka-core == 1.2.0.*
+          amazonka-core == 1.3.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloudsearch-test
@@ -105,9 +105,9 @@ test-suite amazonka-cloudsearch-test
         , Test.AWS.CloudSearch.Internal
 
     build-depends:
-          amazonka-core == 1.2.0.*
-        , amazonka-test == 1.2.0.*
-        , amazonka-cloudsearch == 1.2.0.*
+          amazonka-core == 1.3.0.*
+        , amazonka-test == 1.3.0.*
+        , amazonka-cloudsearch == 1.3.0.*
         , base
         , bytestring
         , lens

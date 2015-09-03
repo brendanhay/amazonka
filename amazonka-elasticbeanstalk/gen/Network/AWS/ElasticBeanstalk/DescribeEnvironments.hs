@@ -30,8 +30,8 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     , dEnvironmentIds
     , dEnvironmentNames
     , dVersionLabel
-    , dIncludedDeletedBackTo
     , dApplicationName
+    , dIncludedDeletedBackTo
     , dIncludeDeleted
 
     -- * Destructuring the Response
@@ -39,7 +39,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     , DescribeEnvironmentsResponse
     -- * Response Lenses
     , drsEnvironments
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -55,8 +55,8 @@ data DescribeEnvironments = DescribeEnvironments'
     { _dEnvironmentIds        :: !(Maybe [Text])
     , _dEnvironmentNames      :: !(Maybe [Text])
     , _dVersionLabel          :: !(Maybe Text)
-    , _dIncludedDeletedBackTo :: !(Maybe ISO8601)
     , _dApplicationName       :: !(Maybe Text)
+    , _dIncludedDeletedBackTo :: !(Maybe ISO8601)
     , _dIncludeDeleted        :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -70,9 +70,9 @@ data DescribeEnvironments = DescribeEnvironments'
 --
 -- * 'dVersionLabel'
 --
--- * 'dIncludedDeletedBackTo'
---
 -- * 'dApplicationName'
+--
+-- * 'dIncludedDeletedBackTo'
 --
 -- * 'dIncludeDeleted'
 describeEnvironments
@@ -82,8 +82,8 @@ describeEnvironments =
     { _dEnvironmentIds = Nothing
     , _dEnvironmentNames = Nothing
     , _dVersionLabel = Nothing
-    , _dIncludedDeletedBackTo = Nothing
     , _dApplicationName = Nothing
+    , _dIncludedDeletedBackTo = Nothing
     , _dIncludeDeleted = Nothing
     }
 
@@ -102,15 +102,15 @@ dEnvironmentNames = lens _dEnvironmentNames (\ s a -> s{_dEnvironmentNames = a})
 dVersionLabel :: Lens' DescribeEnvironments (Maybe Text)
 dVersionLabel = lens _dVersionLabel (\ s a -> s{_dVersionLabel = a});
 
--- | If specified when 'IncludeDeleted' is set to 'true', then environments
--- deleted after this date are displayed.
-dIncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe UTCTime)
-dIncludedDeletedBackTo = lens _dIncludedDeletedBackTo (\ s a -> s{_dIncludedDeletedBackTo = a}) . mapping _Time;
-
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that are associated with this application.
 dApplicationName :: Lens' DescribeEnvironments (Maybe Text)
 dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a});
+
+-- | If specified when 'IncludeDeleted' is set to 'true', then environments
+-- deleted after this date are displayed.
+dIncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe UTCTime)
+dIncludedDeletedBackTo = lens _dIncludedDeletedBackTo (\ s a -> s{_dIncludedDeletedBackTo = a}) . mapping _Time;
 
 -- | Indicates whether to include deleted environments:
 --
@@ -150,16 +150,16 @@ instance ToQuery DescribeEnvironments where
                  toQuery
                    (toQueryList "member" <$> _dEnvironmentNames),
                "VersionLabel" =: _dVersionLabel,
-               "IncludedDeletedBackTo" =: _dIncludedDeletedBackTo,
                "ApplicationName" =: _dApplicationName,
+               "IncludedDeletedBackTo" =: _dIncludedDeletedBackTo,
                "IncludeDeleted" =: _dIncludeDeleted]
 
 -- | Result message containing a list of environment descriptions.
 --
 -- /See:/ 'describeEnvironmentsResponse' smart constructor.
 data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
-    { _drsEnvironments :: !(Maybe [EnvironmentDescription])
-    , _drsStatus       :: !Int
+    { _drsEnvironments   :: !(Maybe [EnvironmentDescription])
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeEnvironmentsResponse' with the minimum fields required to make a request.
@@ -168,14 +168,14 @@ data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
 --
 -- * 'drsEnvironments'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 describeEnvironmentsResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DescribeEnvironmentsResponse
-describeEnvironmentsResponse pStatus_ =
+describeEnvironmentsResponse pResponseStatus_ =
     DescribeEnvironmentsResponse'
     { _drsEnvironments = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | Returns an EnvironmentDescription list.
@@ -183,5 +183,5 @@ drsEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
 drsEnvironments = lens _drsEnvironments (\ s a -> s{_drsEnvironments = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drsStatus :: Lens' DescribeEnvironmentsResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DescribeEnvironmentsResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

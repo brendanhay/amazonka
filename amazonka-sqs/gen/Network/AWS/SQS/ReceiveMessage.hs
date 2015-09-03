@@ -83,7 +83,7 @@ module Network.AWS.SQS.ReceiveMessage
     , ReceiveMessageResponse
     -- * Response Lenses
     , rmrsMessages
-    , rmrsStatus
+    , rmrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -223,8 +223,8 @@ instance ToQuery ReceiveMessage where
 --
 -- /See:/ 'receiveMessageResponse' smart constructor.
 data ReceiveMessageResponse = ReceiveMessageResponse'
-    { _rmrsMessages :: !(Maybe [Message])
-    , _rmrsStatus   :: !Int
+    { _rmrsMessages       :: !(Maybe [Message])
+    , _rmrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReceiveMessageResponse' with the minimum fields required to make a request.
@@ -233,14 +233,14 @@ data ReceiveMessageResponse = ReceiveMessageResponse'
 --
 -- * 'rmrsMessages'
 --
--- * 'rmrsStatus'
+-- * 'rmrsResponseStatus'
 receiveMessageResponse
-    :: Int -- ^ 'rmrsStatus'
+    :: Int -- ^ 'rmrsResponseStatus'
     -> ReceiveMessageResponse
-receiveMessageResponse pStatus_ =
+receiveMessageResponse pResponseStatus_ =
     ReceiveMessageResponse'
     { _rmrsMessages = Nothing
-    , _rmrsStatus = pStatus_
+    , _rmrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of messages.
@@ -248,5 +248,5 @@ rmrsMessages :: Lens' ReceiveMessageResponse [Message]
 rmrsMessages = lens _rmrsMessages (\ s a -> s{_rmrsMessages = a}) . _Default . _Coerce;
 
 -- | The response status code.
-rmrsStatus :: Lens' ReceiveMessageResponse Int
-rmrsStatus = lens _rmrsStatus (\ s a -> s{_rmrsStatus = a});
+rmrsResponseStatus :: Lens' ReceiveMessageResponse Int
+rmrsResponseStatus = lens _rmrsResponseStatus (\ s a -> s{_rmrsResponseStatus = a});

@@ -47,7 +47,7 @@ module Network.AWS.DirectoryService.DescribeSnapshots
     -- * Response Lenses
     , dssrsNextToken
     , dssrsSnapshots
-    , dssrsStatus
+    , dssrsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -146,9 +146,9 @@ instance ToQuery DescribeSnapshots where
 --
 -- /See:/ 'describeSnapshotsResponse' smart constructor.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-    { _dssrsNextToken :: !(Maybe Text)
-    , _dssrsSnapshots :: !(Maybe [Snapshot])
-    , _dssrsStatus    :: !Int
+    { _dssrsNextToken      :: !(Maybe Text)
+    , _dssrsSnapshots      :: !(Maybe [Snapshot])
+    , _dssrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSnapshotsResponse' with the minimum fields required to make a request.
@@ -159,15 +159,15 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
 --
 -- * 'dssrsSnapshots'
 --
--- * 'dssrsStatus'
+-- * 'dssrsResponseStatus'
 describeSnapshotsResponse
-    :: Int -- ^ 'dssrsStatus'
+    :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeSnapshotsResponse
-describeSnapshotsResponse pStatus_ =
+describeSnapshotsResponse pResponseStatus_ =
     DescribeSnapshotsResponse'
     { _dssrsNextToken = Nothing
     , _dssrsSnapshots = Nothing
-    , _dssrsStatus = pStatus_
+    , _dssrsResponseStatus = pResponseStatus_
     }
 
 -- | If not null, more results are available. Pass this value in the
@@ -185,5 +185,5 @@ dssrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dssrsStatus :: Lens' DescribeSnapshotsResponse Int
-dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});
+dssrsResponseStatus :: Lens' DescribeSnapshotsResponse Int
+dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});

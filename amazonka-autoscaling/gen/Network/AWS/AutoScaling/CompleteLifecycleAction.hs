@@ -56,7 +56,7 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
     , completeLifecycleActionResponse
     , CompleteLifecycleActionResponse
     -- * Response Lenses
-    , clarsStatus
+    , clarsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -147,22 +147,22 @@ instance ToQuery CompleteLifecycleAction where
 
 -- | /See:/ 'completeLifecycleActionResponse' smart constructor.
 newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
-    { _clarsStatus :: Int
+    { _clarsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CompleteLifecycleActionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clarsStatus'
+-- * 'clarsResponseStatus'
 completeLifecycleActionResponse
-    :: Int -- ^ 'clarsStatus'
+    :: Int -- ^ 'clarsResponseStatus'
     -> CompleteLifecycleActionResponse
-completeLifecycleActionResponse pStatus_ =
+completeLifecycleActionResponse pResponseStatus_ =
     CompleteLifecycleActionResponse'
-    { _clarsStatus = pStatus_
+    { _clarsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-clarsStatus :: Lens' CompleteLifecycleActionResponse Int
-clarsStatus = lens _clarsStatus (\ s a -> s{_clarsStatus = a});
+clarsResponseStatus :: Lens' CompleteLifecycleActionResponse Int
+clarsResponseStatus = lens _clarsResponseStatus (\ s a -> s{_clarsResponseStatus = a});

@@ -34,7 +34,7 @@ module Network.AWS.CodeDeploy.CreateApplication
     , CreateApplicationResponse
     -- * Response Lenses
     , carsApplicationId
-    , carsStatus
+    , carsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -103,8 +103,8 @@ instance ToQuery CreateApplication where
 --
 -- /See:/ 'createApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
-    { _carsApplicationId :: !(Maybe Text)
-    , _carsStatus        :: !Int
+    { _carsApplicationId  :: !(Maybe Text)
+    , _carsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateApplicationResponse' with the minimum fields required to make a request.
@@ -113,14 +113,14 @@ data CreateApplicationResponse = CreateApplicationResponse'
 --
 -- * 'carsApplicationId'
 --
--- * 'carsStatus'
+-- * 'carsResponseStatus'
 createApplicationResponse
-    :: Int -- ^ 'carsStatus'
+    :: Int -- ^ 'carsResponseStatus'
     -> CreateApplicationResponse
-createApplicationResponse pStatus_ =
+createApplicationResponse pResponseStatus_ =
     CreateApplicationResponse'
     { _carsApplicationId = Nothing
-    , _carsStatus = pStatus_
+    , _carsResponseStatus = pResponseStatus_
     }
 
 -- | A unique application ID.
@@ -128,5 +128,5 @@ carsApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
 carsApplicationId = lens _carsApplicationId (\ s a -> s{_carsApplicationId = a});
 
 -- | The response status code.
-carsStatus :: Lens' CreateApplicationResponse Int
-carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});
+carsResponseStatus :: Lens' CreateApplicationResponse Int
+carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});

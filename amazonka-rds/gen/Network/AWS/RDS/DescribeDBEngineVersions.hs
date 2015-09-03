@@ -35,8 +35,8 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     , ddevEngine
     , ddevDBParameterGroupFamily
     , ddevListSupportedCharacterSets
-    , ddevMaxRecords
     , ddevMarker
+    , ddevMaxRecords
 
     -- * Destructuring the Response
     , describeDBEngineVersionsResponse
@@ -44,7 +44,7 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     -- * Response Lenses
     , ddevrsMarker
     , ddevrsDBEngineVersions
-    , ddevrsStatus
+    , ddevrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -62,8 +62,8 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions'
     , _ddevEngine                     :: !(Maybe Text)
     , _ddevDBParameterGroupFamily     :: !(Maybe Text)
     , _ddevListSupportedCharacterSets :: !(Maybe Bool)
-    , _ddevMaxRecords                 :: !(Maybe Int)
     , _ddevMarker                     :: !(Maybe Text)
+    , _ddevMaxRecords                 :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBEngineVersions' with the minimum fields required to make a request.
@@ -82,9 +82,9 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions'
 --
 -- * 'ddevListSupportedCharacterSets'
 --
--- * 'ddevMaxRecords'
---
 -- * 'ddevMarker'
+--
+-- * 'ddevMaxRecords'
 describeDBEngineVersions
     :: DescribeDBEngineVersions
 describeDBEngineVersions =
@@ -95,8 +95,8 @@ describeDBEngineVersions =
     , _ddevEngine = Nothing
     , _ddevDBParameterGroupFamily = Nothing
     , _ddevListSupportedCharacterSets = Nothing
-    , _ddevMaxRecords = Nothing
     , _ddevMarker = Nothing
+    , _ddevMaxRecords = Nothing
     }
 
 -- | The database engine version to return.
@@ -134,6 +134,12 @@ ddevDBParameterGroupFamily = lens _ddevDBParameterGroupFamily (\ s a -> s{_ddevD
 ddevListSupportedCharacterSets :: Lens' DescribeDBEngineVersions (Maybe Bool)
 ddevListSupportedCharacterSets = lens _ddevListSupportedCharacterSets (\ s a -> s{_ddevListSupportedCharacterSets = a});
 
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by 'MaxRecords'.
+ddevMarker :: Lens' DescribeDBEngineVersions (Maybe Text)
+ddevMarker = lens _ddevMarker (\ s a -> s{_ddevMarker = a});
+
 -- | The maximum number of records to include in the response. If more than
 -- the 'MaxRecords' value is available, a pagination token called a marker
 -- is included in the response so that the following results can be
@@ -144,12 +150,6 @@ ddevListSupportedCharacterSets = lens _ddevListSupportedCharacterSets (\ s a -> 
 -- Constraints: Minimum 20, maximum 100.
 ddevMaxRecords :: Lens' DescribeDBEngineVersions (Maybe Int)
 ddevMaxRecords = lens _ddevMaxRecords (\ s a -> s{_ddevMaxRecords = a});
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
-ddevMarker :: Lens' DescribeDBEngineVersions (Maybe Text)
-ddevMarker = lens _ddevMarker (\ s a -> s{_ddevMarker = a});
 
 instance AWSPager DescribeDBEngineVersions where
         page rq rs
@@ -192,8 +192,8 @@ instance ToQuery DescribeDBEngineVersions where
                  _ddevDBParameterGroupFamily,
                "ListSupportedCharacterSets" =:
                  _ddevListSupportedCharacterSets,
-               "MaxRecords" =: _ddevMaxRecords,
-               "Marker" =: _ddevMarker]
+               "Marker" =: _ddevMarker,
+               "MaxRecords" =: _ddevMaxRecords]
 
 -- | Contains the result of a successful invocation of the
 -- DescribeDBEngineVersions action.
@@ -202,7 +202,7 @@ instance ToQuery DescribeDBEngineVersions where
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'
     { _ddevrsMarker           :: !(Maybe Text)
     , _ddevrsDBEngineVersions :: !(Maybe [DBEngineVersion])
-    , _ddevrsStatus           :: !Int
+    , _ddevrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBEngineVersionsResponse' with the minimum fields required to make a request.
@@ -213,15 +213,15 @@ data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'
 --
 -- * 'ddevrsDBEngineVersions'
 --
--- * 'ddevrsStatus'
+-- * 'ddevrsResponseStatus'
 describeDBEngineVersionsResponse
-    :: Int -- ^ 'ddevrsStatus'
+    :: Int -- ^ 'ddevrsResponseStatus'
     -> DescribeDBEngineVersionsResponse
-describeDBEngineVersionsResponse pStatus_ =
+describeDBEngineVersionsResponse pResponseStatus_ =
     DescribeDBEngineVersionsResponse'
     { _ddevrsMarker = Nothing
     , _ddevrsDBEngineVersions = Nothing
-    , _ddevrsStatus = pStatus_
+    , _ddevrsResponseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -235,5 +235,5 @@ ddevrsDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersio
 ddevrsDBEngineVersions = lens _ddevrsDBEngineVersions (\ s a -> s{_ddevrsDBEngineVersions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddevrsStatus :: Lens' DescribeDBEngineVersionsResponse Int
-ddevrsStatus = lens _ddevrsStatus (\ s a -> s{_ddevrsStatus = a});
+ddevrsResponseStatus :: Lens' DescribeDBEngineVersionsResponse Int
+ddevrsResponseStatus = lens _ddevrsResponseStatus (\ s a -> s{_ddevrsResponseStatus = a});

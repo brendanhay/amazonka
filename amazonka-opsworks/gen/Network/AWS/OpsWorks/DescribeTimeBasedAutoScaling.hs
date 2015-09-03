@@ -43,7 +43,7 @@ module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
     , DescribeTimeBasedAutoScalingResponse
     -- * Response Lenses
     , dtbasrsTimeBasedAutoScalingConfigurations
-    , dtbasrsStatus
+    , dtbasrsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -113,7 +113,7 @@ instance ToQuery DescribeTimeBasedAutoScaling where
 -- /See:/ 'describeTimeBasedAutoScalingResponse' smart constructor.
 data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'
     { _dtbasrsTimeBasedAutoScalingConfigurations :: !(Maybe [TimeBasedAutoScalingConfiguration])
-    , _dtbasrsStatus                             :: !Int
+    , _dtbasrsResponseStatus                     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTimeBasedAutoScalingResponse' with the minimum fields required to make a request.
@@ -122,14 +122,14 @@ data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
 --
 -- * 'dtbasrsTimeBasedAutoScalingConfigurations'
 --
--- * 'dtbasrsStatus'
+-- * 'dtbasrsResponseStatus'
 describeTimeBasedAutoScalingResponse
-    :: Int -- ^ 'dtbasrsStatus'
+    :: Int -- ^ 'dtbasrsResponseStatus'
     -> DescribeTimeBasedAutoScalingResponse
-describeTimeBasedAutoScalingResponse pStatus_ =
+describeTimeBasedAutoScalingResponse pResponseStatus_ =
     DescribeTimeBasedAutoScalingResponse'
     { _dtbasrsTimeBasedAutoScalingConfigurations = Nothing
-    , _dtbasrsStatus = pStatus_
+    , _dtbasrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of 'TimeBasedAutoScalingConfiguration' objects that describe
@@ -138,5 +138,5 @@ dtbasrsTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingR
 dtbasrsTimeBasedAutoScalingConfigurations = lens _dtbasrsTimeBasedAutoScalingConfigurations (\ s a -> s{_dtbasrsTimeBasedAutoScalingConfigurations = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dtbasrsStatus :: Lens' DescribeTimeBasedAutoScalingResponse Int
-dtbasrsStatus = lens _dtbasrsStatus (\ s a -> s{_dtbasrsStatus = a});
+dtbasrsResponseStatus :: Lens' DescribeTimeBasedAutoScalingResponse Int
+dtbasrsResponseStatus = lens _dtbasrsResponseStatus (\ s a -> s{_dtbasrsResponseStatus = a});

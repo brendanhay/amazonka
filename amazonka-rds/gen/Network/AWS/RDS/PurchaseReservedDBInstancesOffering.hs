@@ -37,7 +37,7 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     , PurchaseReservedDBInstancesOfferingResponse
     -- * Response Lenses
     , prdiorsReservedDBInstance
-    , prdiorsStatus
+    , prdiorsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -137,7 +137,7 @@ instance ToQuery PurchaseReservedDBInstancesOffering
 -- | /See:/ 'purchaseReservedDBInstancesOfferingResponse' smart constructor.
 data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse'
     { _prdiorsReservedDBInstance :: !(Maybe ReservedDBInstance)
-    , _prdiorsStatus             :: !Int
+    , _prdiorsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PurchaseReservedDBInstancesOfferingResponse' with the minimum fields required to make a request.
@@ -146,14 +146,14 @@ data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOf
 --
 -- * 'prdiorsReservedDBInstance'
 --
--- * 'prdiorsStatus'
+-- * 'prdiorsResponseStatus'
 purchaseReservedDBInstancesOfferingResponse
-    :: Int -- ^ 'prdiorsStatus'
+    :: Int -- ^ 'prdiorsResponseStatus'
     -> PurchaseReservedDBInstancesOfferingResponse
-purchaseReservedDBInstancesOfferingResponse pStatus_ =
+purchaseReservedDBInstancesOfferingResponse pResponseStatus_ =
     PurchaseReservedDBInstancesOfferingResponse'
     { _prdiorsReservedDBInstance = Nothing
-    , _prdiorsStatus = pStatus_
+    , _prdiorsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -161,5 +161,5 @@ prdiorsReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (
 prdiorsReservedDBInstance = lens _prdiorsReservedDBInstance (\ s a -> s{_prdiorsReservedDBInstance = a});
 
 -- | The response status code.
-prdiorsStatus :: Lens' PurchaseReservedDBInstancesOfferingResponse Int
-prdiorsStatus = lens _prdiorsStatus (\ s a -> s{_prdiorsStatus = a});
+prdiorsResponseStatus :: Lens' PurchaseReservedDBInstancesOfferingResponse Int
+prdiorsResponseStatus = lens _prdiorsResponseStatus (\ s a -> s{_prdiorsResponseStatus = a});

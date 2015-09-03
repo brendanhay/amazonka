@@ -259,8 +259,8 @@ instance FromJSON ActivityTaskFailedEventAttributes
 -- /See:/ 'activityTaskScheduledEventAttributes' smart constructor.
 data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes'
     { _atseaControl                      :: !(Maybe Text)
-    , _atseaScheduleToCloseTimeout       :: !(Maybe Text)
     , _atseaHeartbeatTimeout             :: !(Maybe Text)
+    , _atseaScheduleToCloseTimeout       :: !(Maybe Text)
     , _atseaInput                        :: !(Maybe Text)
     , _atseaTaskPriority                 :: !(Maybe Text)
     , _atseaScheduleToStartTimeout       :: !(Maybe Text)
@@ -277,9 +277,9 @@ data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
 --
 -- * 'atseaControl'
 --
--- * 'atseaScheduleToCloseTimeout'
---
 -- * 'atseaHeartbeatTimeout'
+--
+-- * 'atseaScheduleToCloseTimeout'
 --
 -- * 'atseaInput'
 --
@@ -305,8 +305,8 @@ activityTaskScheduledEventAttributes
 activityTaskScheduledEventAttributes pActivityType_ pActivityId_ pTaskList_ pDecisionTaskCompletedEventId_ =
     ActivityTaskScheduledEventAttributes'
     { _atseaControl = Nothing
-    , _atseaScheduleToCloseTimeout = Nothing
     , _atseaHeartbeatTimeout = Nothing
+    , _atseaScheduleToCloseTimeout = Nothing
     , _atseaInput = Nothing
     , _atseaTaskPriority = Nothing
     , _atseaScheduleToStartTimeout = Nothing
@@ -322,10 +322,6 @@ activityTaskScheduledEventAttributes pActivityType_ pActivityId_ pTaskList_ pDec
 atseaControl :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaControl = lens _atseaControl (\ s a -> s{_atseaControl = a});
 
--- | The maximum amount of time for this activity task.
-atseaScheduleToCloseTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
-atseaScheduleToCloseTimeout = lens _atseaScheduleToCloseTimeout (\ s a -> s{_atseaScheduleToCloseTimeout = a});
-
 -- | The maximum time before which the worker processing this task must
 -- report progress by calling RecordActivityTaskHeartbeat. If the timeout
 -- is exceeded, the activity task is automatically timed out. If the worker
@@ -333,6 +329,10 @@ atseaScheduleToCloseTimeout = lens _atseaScheduleToCloseTimeout (\ s a -> s{_ats
 -- be ignored.
 atseaHeartbeatTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaHeartbeatTimeout = lens _atseaHeartbeatTimeout (\ s a -> s{_atseaHeartbeatTimeout = a});
+
+-- | The maximum amount of time for this activity task.
+atseaScheduleToCloseTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
+atseaScheduleToCloseTimeout = lens _atseaScheduleToCloseTimeout (\ s a -> s{_atseaScheduleToCloseTimeout = a});
 
 -- | The input provided to the activity task.
 atseaInput :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
@@ -387,9 +387,8 @@ instance FromJSON
           = withObject "ActivityTaskScheduledEventAttributes"
               (\ x ->
                  ActivityTaskScheduledEventAttributes' <$>
-                   (x .:? "control") <*>
+                   (x .:? "control") <*> (x .:? "heartbeatTimeout") <*>
                      (x .:? "scheduleToCloseTimeout")
-                     <*> (x .:? "heartbeatTimeout")
                      <*> (x .:? "input")
                      <*> (x .:? "taskPriority")
                      <*> (x .:? "scheduleToStartTimeout")
@@ -1933,8 +1932,8 @@ data Decision = Decision'
     , _dRecordMarkerDecisionAttributes                           :: !(Maybe RecordMarkerDecisionAttributes)
     , _dFailWorkflowExecutionDecisionAttributes                  :: !(Maybe FailWorkflowExecutionDecisionAttributes)
     , _dStartChildWorkflowExecutionDecisionAttributes            :: !(Maybe StartChildWorkflowExecutionDecisionAttributes)
-    , _dScheduleLambdaFunctionDecisionAttributes                 :: !(Maybe ScheduleLambdaFunctionDecisionAttributes)
     , _dCompleteWorkflowExecutionDecisionAttributes              :: !(Maybe CompleteWorkflowExecutionDecisionAttributes)
+    , _dScheduleLambdaFunctionDecisionAttributes                 :: !(Maybe ScheduleLambdaFunctionDecisionAttributes)
     , _dRequestCancelActivityTaskDecisionAttributes              :: !(Maybe RequestCancelActivityTaskDecisionAttributes)
     , _dCancelWorkflowExecutionDecisionAttributes                :: !(Maybe CancelWorkflowExecutionDecisionAttributes)
     , _dCancelTimerDecisionAttributes                            :: !(Maybe CancelTimerDecisionAttributes)
@@ -1960,9 +1959,9 @@ data Decision = Decision'
 --
 -- * 'dStartChildWorkflowExecutionDecisionAttributes'
 --
--- * 'dScheduleLambdaFunctionDecisionAttributes'
---
 -- * 'dCompleteWorkflowExecutionDecisionAttributes'
+--
+-- * 'dScheduleLambdaFunctionDecisionAttributes'
 --
 -- * 'dRequestCancelActivityTaskDecisionAttributes'
 --
@@ -1985,8 +1984,8 @@ decision pDecisionType_ =
     , _dRecordMarkerDecisionAttributes = Nothing
     , _dFailWorkflowExecutionDecisionAttributes = Nothing
     , _dStartChildWorkflowExecutionDecisionAttributes = Nothing
-    , _dScheduleLambdaFunctionDecisionAttributes = Nothing
     , _dCompleteWorkflowExecutionDecisionAttributes = Nothing
+    , _dScheduleLambdaFunctionDecisionAttributes = Nothing
     , _dRequestCancelActivityTaskDecisionAttributes = Nothing
     , _dCancelWorkflowExecutionDecisionAttributes = Nothing
     , _dCancelTimerDecisionAttributes = Nothing
@@ -2029,14 +2028,14 @@ dFailWorkflowExecutionDecisionAttributes = lens _dFailWorkflowExecutionDecisionA
 dStartChildWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe StartChildWorkflowExecutionDecisionAttributes)
 dStartChildWorkflowExecutionDecisionAttributes = lens _dStartChildWorkflowExecutionDecisionAttributes (\ s a -> s{_dStartChildWorkflowExecutionDecisionAttributes = a});
 
--- | Undocumented member.
-dScheduleLambdaFunctionDecisionAttributes :: Lens' Decision (Maybe ScheduleLambdaFunctionDecisionAttributes)
-dScheduleLambdaFunctionDecisionAttributes = lens _dScheduleLambdaFunctionDecisionAttributes (\ s a -> s{_dScheduleLambdaFunctionDecisionAttributes = a});
-
 -- | Provides details of the 'CompleteWorkflowExecution' decision. It is not
 -- set for other decision types.
 dCompleteWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe CompleteWorkflowExecutionDecisionAttributes)
 dCompleteWorkflowExecutionDecisionAttributes = lens _dCompleteWorkflowExecutionDecisionAttributes (\ s a -> s{_dCompleteWorkflowExecutionDecisionAttributes = a});
+
+-- | Undocumented member.
+dScheduleLambdaFunctionDecisionAttributes :: Lens' Decision (Maybe ScheduleLambdaFunctionDecisionAttributes)
+dScheduleLambdaFunctionDecisionAttributes = lens _dScheduleLambdaFunctionDecisionAttributes (\ s a -> s{_dScheduleLambdaFunctionDecisionAttributes = a});
 
 -- | Provides details of the 'RequestCancelActivityTask' decision. It is not
 -- set for other decision types.
@@ -2084,10 +2083,10 @@ instance ToJSON Decision where
                     _dFailWorkflowExecutionDecisionAttributes,
                   ("startChildWorkflowExecutionDecisionAttributes" .=)
                     <$> _dStartChildWorkflowExecutionDecisionAttributes,
-                  ("scheduleLambdaFunctionDecisionAttributes" .=) <$>
-                    _dScheduleLambdaFunctionDecisionAttributes,
                   ("completeWorkflowExecutionDecisionAttributes" .=)
                     <$> _dCompleteWorkflowExecutionDecisionAttributes,
+                  ("scheduleLambdaFunctionDecisionAttributes" .=) <$>
+                    _dScheduleLambdaFunctionDecisionAttributes,
                   ("requestCancelActivityTaskDecisionAttributes" .=)
                     <$> _dRequestCancelActivityTaskDecisionAttributes,
                   ("cancelWorkflowExecutionDecisionAttributes" .=) <$>
@@ -2772,59 +2771,59 @@ instance FromJSON
 -- /See:/ 'historyEvent' smart constructor.
 data HistoryEvent = HistoryEvent'
     { _heWorkflowExecutionCancelRequestedEventAttributes                :: !(Maybe WorkflowExecutionCancelRequestedEventAttributes)
-    , _heDecisionTaskScheduledEventAttributes                           :: !(Maybe DecisionTaskScheduledEventAttributes)
-    , _heStartTimerFailedEventAttributes                                :: !(Maybe StartTimerFailedEventAttributes)
-    , _heLambdaFunctionStartedEventAttributes                           :: !(Maybe LambdaFunctionStartedEventAttributes)
     , _heRecordMarkerFailedEventAttributes                              :: !(Maybe RecordMarkerFailedEventAttributes)
     , _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes :: !(Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes)
+    , _heLambdaFunctionStartedEventAttributes                           :: !(Maybe LambdaFunctionStartedEventAttributes)
+    , _heDecisionTaskScheduledEventAttributes                           :: !(Maybe DecisionTaskScheduledEventAttributes)
     , _heWorkflowExecutionCompletedEventAttributes                      :: !(Maybe WorkflowExecutionCompletedEventAttributes)
+    , _heStartTimerFailedEventAttributes                                :: !(Maybe StartTimerFailedEventAttributes)
     , _heActivityTaskScheduledEventAttributes                           :: !(Maybe ActivityTaskScheduledEventAttributes)
-    , _heChildWorkflowExecutionCompletedEventAttributes                 :: !(Maybe ChildWorkflowExecutionCompletedEventAttributes)
     , _heScheduleActivityTaskFailedEventAttributes                      :: !(Maybe ScheduleActivityTaskFailedEventAttributes)
+    , _heChildWorkflowExecutionCompletedEventAttributes                 :: !(Maybe ChildWorkflowExecutionCompletedEventAttributes)
     , _heMarkerRecordedEventAttributes                                  :: !(Maybe MarkerRecordedEventAttributes)
     , _heScheduleLambdaFunctionFailedEventAttributes                    :: !(Maybe ScheduleLambdaFunctionFailedEventAttributes)
     , _heCompleteWorkflowExecutionFailedEventAttributes                 :: !(Maybe CompleteWorkflowExecutionFailedEventAttributes)
-    , _heRequestCancelExternalWorkflowExecutionFailedEventAttributes    :: !(Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes)
     , _heLambdaFunctionCompletedEventAttributes                         :: !(Maybe LambdaFunctionCompletedEventAttributes)
+    , _heRequestCancelExternalWorkflowExecutionFailedEventAttributes    :: !(Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes)
     , _heTimerCanceledEventAttributes                                   :: !(Maybe TimerCanceledEventAttributes)
     , _heWorkflowExecutionStartedEventAttributes                        :: !(Maybe WorkflowExecutionStartedEventAttributes)
     , _heActivityTaskCompletedEventAttributes                           :: !(Maybe ActivityTaskCompletedEventAttributes)
-    , _heChildWorkflowExecutionStartedEventAttributes                   :: !(Maybe ChildWorkflowExecutionStartedEventAttributes)
     , _heDecisionTaskTimedOutEventAttributes                            :: !(Maybe DecisionTaskTimedOutEventAttributes)
     , _heCancelTimerFailedEventAttributes                               :: !(Maybe CancelTimerFailedEventAttributes)
-    , _heActivityTaskTimedOutEventAttributes                            :: !(Maybe ActivityTaskTimedOutEventAttributes)
+    , _heChildWorkflowExecutionStartedEventAttributes                   :: !(Maybe ChildWorkflowExecutionStartedEventAttributes)
     , _heActivityTaskCanceledEventAttributes                            :: !(Maybe ActivityTaskCanceledEventAttributes)
-    , _heChildWorkflowExecutionCanceledEventAttributes                  :: !(Maybe ChildWorkflowExecutionCanceledEventAttributes)
+    , _heActivityTaskTimedOutEventAttributes                            :: !(Maybe ActivityTaskTimedOutEventAttributes)
     , _heDecisionTaskStartedEventAttributes                             :: !(Maybe DecisionTaskStartedEventAttributes)
-    , _heCancelWorkflowExecutionFailedEventAttributes                   :: !(Maybe CancelWorkflowExecutionFailedEventAttributes)
+    , _heWorkflowExecutionTerminatedEventAttributes                     :: !(Maybe WorkflowExecutionTerminatedEventAttributes)
+    , _heChildWorkflowExecutionCanceledEventAttributes                  :: !(Maybe ChildWorkflowExecutionCanceledEventAttributes)
+    , _heRequestCancelActivityTaskFailedEventAttributes                 :: !(Maybe RequestCancelActivityTaskFailedEventAttributes)
     , _heLambdaFunctionScheduledEventAttributes                         :: !(Maybe LambdaFunctionScheduledEventAttributes)
     , _heChildWorkflowExecutionTimedOutEventAttributes                  :: !(Maybe ChildWorkflowExecutionTimedOutEventAttributes)
-    , _heRequestCancelActivityTaskFailedEventAttributes                 :: !(Maybe RequestCancelActivityTaskFailedEventAttributes)
-    , _heWorkflowExecutionTerminatedEventAttributes                     :: !(Maybe WorkflowExecutionTerminatedEventAttributes)
+    , _heCancelWorkflowExecutionFailedEventAttributes                   :: !(Maybe CancelWorkflowExecutionFailedEventAttributes)
     , _heStartChildWorkflowExecutionInitiatedEventAttributes            :: !(Maybe StartChildWorkflowExecutionInitiatedEventAttributes)
-    , _heActivityTaskStartedEventAttributes                             :: !(Maybe ActivityTaskStartedEventAttributes)
     , _heSignalExternalWorkflowExecutionFailedEventAttributes           :: !(Maybe SignalExternalWorkflowExecutionFailedEventAttributes)
-    , _heTimerStartedEventAttributes                                    :: !(Maybe TimerStartedEventAttributes)
-    , _heWorkflowExecutionTimedOutEventAttributes                       :: !(Maybe WorkflowExecutionTimedOutEventAttributes)
-    , _heActivityTaskCancelRequestedEventAttributes                     :: !(Maybe ActivityTaskCancelRequestedEventAttributes)
+    , _heActivityTaskStartedEventAttributes                             :: !(Maybe ActivityTaskStartedEventAttributes)
     , _heStartLambdaFunctionFailedEventAttributes                       :: !(Maybe StartLambdaFunctionFailedEventAttributes)
     , _heChildWorkflowExecutionTerminatedEventAttributes                :: !(Maybe ChildWorkflowExecutionTerminatedEventAttributes)
     , _heLambdaFunctionFailedEventAttributes                            :: !(Maybe LambdaFunctionFailedEventAttributes)
     , _heWorkflowExecutionCanceledEventAttributes                       :: !(Maybe WorkflowExecutionCanceledEventAttributes)
+    , _heTimerStartedEventAttributes                                    :: !(Maybe TimerStartedEventAttributes)
+    , _heActivityTaskCancelRequestedEventAttributes                     :: !(Maybe ActivityTaskCancelRequestedEventAttributes)
+    , _heWorkflowExecutionTimedOutEventAttributes                       :: !(Maybe WorkflowExecutionTimedOutEventAttributes)
     , _heWorkflowExecutionSignaledEventAttributes                       :: !(Maybe WorkflowExecutionSignaledEventAttributes)
+    , _heTimerFiredEventAttributes                                      :: !(Maybe TimerFiredEventAttributes)
     , _heActivityTaskFailedEventAttributes                              :: !(Maybe ActivityTaskFailedEventAttributes)
     , _heExternalWorkflowExecutionSignaledEventAttributes               :: !(Maybe ExternalWorkflowExecutionSignaledEventAttributes)
-    , _heTimerFiredEventAttributes                                      :: !(Maybe TimerFiredEventAttributes)
-    , _heFailWorkflowExecutionFailedEventAttributes                     :: !(Maybe FailWorkflowExecutionFailedEventAttributes)
-    , _heChildWorkflowExecutionFailedEventAttributes                    :: !(Maybe ChildWorkflowExecutionFailedEventAttributes)
     , _heDecisionTaskCompletedEventAttributes                           :: !(Maybe DecisionTaskCompletedEventAttributes)
     , _heStartChildWorkflowExecutionFailedEventAttributes               :: !(Maybe StartChildWorkflowExecutionFailedEventAttributes)
-    , _heSignalExternalWorkflowExecutionInitiatedEventAttributes        :: !(Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes)
+    , _heChildWorkflowExecutionFailedEventAttributes                    :: !(Maybe ChildWorkflowExecutionFailedEventAttributes)
+    , _heFailWorkflowExecutionFailedEventAttributes                     :: !(Maybe FailWorkflowExecutionFailedEventAttributes)
     , _heContinueAsNewWorkflowExecutionFailedEventAttributes            :: !(Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes)
+    , _heSignalExternalWorkflowExecutionInitiatedEventAttributes        :: !(Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes)
+    , _heLambdaFunctionTimedOutEventAttributes                          :: !(Maybe LambdaFunctionTimedOutEventAttributes)
     , _heWorkflowExecutionFailedEventAttributes                         :: !(Maybe WorkflowExecutionFailedEventAttributes)
     , _heWorkflowExecutionContinuedAsNewEventAttributes                 :: !(Maybe WorkflowExecutionContinuedAsNewEventAttributes)
     , _heExternalWorkflowExecutionCancelRequestedEventAttributes        :: !(Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes)
-    , _heLambdaFunctionTimedOutEventAttributes                          :: !(Maybe LambdaFunctionTimedOutEventAttributes)
     , _heEventTimestamp                                                 :: !POSIX
     , _heEventType                                                      :: !EventType
     , _heEventId                                                        :: !Integer
@@ -2836,23 +2835,23 @@ data HistoryEvent = HistoryEvent'
 --
 -- * 'heWorkflowExecutionCancelRequestedEventAttributes'
 --
--- * 'heDecisionTaskScheduledEventAttributes'
---
--- * 'heStartTimerFailedEventAttributes'
---
--- * 'heLambdaFunctionStartedEventAttributes'
---
 -- * 'heRecordMarkerFailedEventAttributes'
 --
 -- * 'heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes'
 --
+-- * 'heLambdaFunctionStartedEventAttributes'
+--
+-- * 'heDecisionTaskScheduledEventAttributes'
+--
 -- * 'heWorkflowExecutionCompletedEventAttributes'
+--
+-- * 'heStartTimerFailedEventAttributes'
 --
 -- * 'heActivityTaskScheduledEventAttributes'
 --
--- * 'heChildWorkflowExecutionCompletedEventAttributes'
---
 -- * 'heScheduleActivityTaskFailedEventAttributes'
+--
+-- * 'heChildWorkflowExecutionCompletedEventAttributes'
 --
 -- * 'heMarkerRecordedEventAttributes'
 --
@@ -2860,9 +2859,9 @@ data HistoryEvent = HistoryEvent'
 --
 -- * 'heCompleteWorkflowExecutionFailedEventAttributes'
 --
--- * 'heRequestCancelExternalWorkflowExecutionFailedEventAttributes'
---
 -- * 'heLambdaFunctionCompletedEventAttributes'
+--
+-- * 'heRequestCancelExternalWorkflowExecutionFailedEventAttributes'
 --
 -- * 'heTimerCanceledEventAttributes'
 --
@@ -2870,41 +2869,35 @@ data HistoryEvent = HistoryEvent'
 --
 -- * 'heActivityTaskCompletedEventAttributes'
 --
--- * 'heChildWorkflowExecutionStartedEventAttributes'
---
 -- * 'heDecisionTaskTimedOutEventAttributes'
 --
 -- * 'heCancelTimerFailedEventAttributes'
 --
--- * 'heActivityTaskTimedOutEventAttributes'
+-- * 'heChildWorkflowExecutionStartedEventAttributes'
 --
 -- * 'heActivityTaskCanceledEventAttributes'
 --
--- * 'heChildWorkflowExecutionCanceledEventAttributes'
+-- * 'heActivityTaskTimedOutEventAttributes'
 --
 -- * 'heDecisionTaskStartedEventAttributes'
 --
--- * 'heCancelWorkflowExecutionFailedEventAttributes'
+-- * 'heWorkflowExecutionTerminatedEventAttributes'
+--
+-- * 'heChildWorkflowExecutionCanceledEventAttributes'
+--
+-- * 'heRequestCancelActivityTaskFailedEventAttributes'
 --
 -- * 'heLambdaFunctionScheduledEventAttributes'
 --
 -- * 'heChildWorkflowExecutionTimedOutEventAttributes'
 --
--- * 'heRequestCancelActivityTaskFailedEventAttributes'
---
--- * 'heWorkflowExecutionTerminatedEventAttributes'
+-- * 'heCancelWorkflowExecutionFailedEventAttributes'
 --
 -- * 'heStartChildWorkflowExecutionInitiatedEventAttributes'
 --
--- * 'heActivityTaskStartedEventAttributes'
---
 -- * 'heSignalExternalWorkflowExecutionFailedEventAttributes'
 --
--- * 'heTimerStartedEventAttributes'
---
--- * 'heWorkflowExecutionTimedOutEventAttributes'
---
--- * 'heActivityTaskCancelRequestedEventAttributes'
+-- * 'heActivityTaskStartedEventAttributes'
 --
 -- * 'heStartLambdaFunctionFailedEventAttributes'
 --
@@ -2914,33 +2907,39 @@ data HistoryEvent = HistoryEvent'
 --
 -- * 'heWorkflowExecutionCanceledEventAttributes'
 --
+-- * 'heTimerStartedEventAttributes'
+--
+-- * 'heActivityTaskCancelRequestedEventAttributes'
+--
+-- * 'heWorkflowExecutionTimedOutEventAttributes'
+--
 -- * 'heWorkflowExecutionSignaledEventAttributes'
+--
+-- * 'heTimerFiredEventAttributes'
 --
 -- * 'heActivityTaskFailedEventAttributes'
 --
 -- * 'heExternalWorkflowExecutionSignaledEventAttributes'
 --
--- * 'heTimerFiredEventAttributes'
---
--- * 'heFailWorkflowExecutionFailedEventAttributes'
---
--- * 'heChildWorkflowExecutionFailedEventAttributes'
---
 -- * 'heDecisionTaskCompletedEventAttributes'
 --
 -- * 'heStartChildWorkflowExecutionFailedEventAttributes'
 --
--- * 'heSignalExternalWorkflowExecutionInitiatedEventAttributes'
+-- * 'heChildWorkflowExecutionFailedEventAttributes'
+--
+-- * 'heFailWorkflowExecutionFailedEventAttributes'
 --
 -- * 'heContinueAsNewWorkflowExecutionFailedEventAttributes'
+--
+-- * 'heSignalExternalWorkflowExecutionInitiatedEventAttributes'
+--
+-- * 'heLambdaFunctionTimedOutEventAttributes'
 --
 -- * 'heWorkflowExecutionFailedEventAttributes'
 --
 -- * 'heWorkflowExecutionContinuedAsNewEventAttributes'
 --
 -- * 'heExternalWorkflowExecutionCancelRequestedEventAttributes'
---
--- * 'heLambdaFunctionTimedOutEventAttributes'
 --
 -- * 'heEventTimestamp'
 --
@@ -2955,59 +2954,59 @@ historyEvent
 historyEvent pEventTimestamp_ pEventType_ pEventId_ =
     HistoryEvent'
     { _heWorkflowExecutionCancelRequestedEventAttributes = Nothing
-    , _heDecisionTaskScheduledEventAttributes = Nothing
-    , _heStartTimerFailedEventAttributes = Nothing
-    , _heLambdaFunctionStartedEventAttributes = Nothing
     , _heRecordMarkerFailedEventAttributes = Nothing
     , _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes = Nothing
+    , _heLambdaFunctionStartedEventAttributes = Nothing
+    , _heDecisionTaskScheduledEventAttributes = Nothing
     , _heWorkflowExecutionCompletedEventAttributes = Nothing
+    , _heStartTimerFailedEventAttributes = Nothing
     , _heActivityTaskScheduledEventAttributes = Nothing
-    , _heChildWorkflowExecutionCompletedEventAttributes = Nothing
     , _heScheduleActivityTaskFailedEventAttributes = Nothing
+    , _heChildWorkflowExecutionCompletedEventAttributes = Nothing
     , _heMarkerRecordedEventAttributes = Nothing
     , _heScheduleLambdaFunctionFailedEventAttributes = Nothing
     , _heCompleteWorkflowExecutionFailedEventAttributes = Nothing
-    , _heRequestCancelExternalWorkflowExecutionFailedEventAttributes = Nothing
     , _heLambdaFunctionCompletedEventAttributes = Nothing
+    , _heRequestCancelExternalWorkflowExecutionFailedEventAttributes = Nothing
     , _heTimerCanceledEventAttributes = Nothing
     , _heWorkflowExecutionStartedEventAttributes = Nothing
     , _heActivityTaskCompletedEventAttributes = Nothing
-    , _heChildWorkflowExecutionStartedEventAttributes = Nothing
     , _heDecisionTaskTimedOutEventAttributes = Nothing
     , _heCancelTimerFailedEventAttributes = Nothing
-    , _heActivityTaskTimedOutEventAttributes = Nothing
+    , _heChildWorkflowExecutionStartedEventAttributes = Nothing
     , _heActivityTaskCanceledEventAttributes = Nothing
-    , _heChildWorkflowExecutionCanceledEventAttributes = Nothing
+    , _heActivityTaskTimedOutEventAttributes = Nothing
     , _heDecisionTaskStartedEventAttributes = Nothing
-    , _heCancelWorkflowExecutionFailedEventAttributes = Nothing
+    , _heWorkflowExecutionTerminatedEventAttributes = Nothing
+    , _heChildWorkflowExecutionCanceledEventAttributes = Nothing
+    , _heRequestCancelActivityTaskFailedEventAttributes = Nothing
     , _heLambdaFunctionScheduledEventAttributes = Nothing
     , _heChildWorkflowExecutionTimedOutEventAttributes = Nothing
-    , _heRequestCancelActivityTaskFailedEventAttributes = Nothing
-    , _heWorkflowExecutionTerminatedEventAttributes = Nothing
+    , _heCancelWorkflowExecutionFailedEventAttributes = Nothing
     , _heStartChildWorkflowExecutionInitiatedEventAttributes = Nothing
-    , _heActivityTaskStartedEventAttributes = Nothing
     , _heSignalExternalWorkflowExecutionFailedEventAttributes = Nothing
-    , _heTimerStartedEventAttributes = Nothing
-    , _heWorkflowExecutionTimedOutEventAttributes = Nothing
-    , _heActivityTaskCancelRequestedEventAttributes = Nothing
+    , _heActivityTaskStartedEventAttributes = Nothing
     , _heStartLambdaFunctionFailedEventAttributes = Nothing
     , _heChildWorkflowExecutionTerminatedEventAttributes = Nothing
     , _heLambdaFunctionFailedEventAttributes = Nothing
     , _heWorkflowExecutionCanceledEventAttributes = Nothing
+    , _heTimerStartedEventAttributes = Nothing
+    , _heActivityTaskCancelRequestedEventAttributes = Nothing
+    , _heWorkflowExecutionTimedOutEventAttributes = Nothing
     , _heWorkflowExecutionSignaledEventAttributes = Nothing
+    , _heTimerFiredEventAttributes = Nothing
     , _heActivityTaskFailedEventAttributes = Nothing
     , _heExternalWorkflowExecutionSignaledEventAttributes = Nothing
-    , _heTimerFiredEventAttributes = Nothing
-    , _heFailWorkflowExecutionFailedEventAttributes = Nothing
-    , _heChildWorkflowExecutionFailedEventAttributes = Nothing
     , _heDecisionTaskCompletedEventAttributes = Nothing
     , _heStartChildWorkflowExecutionFailedEventAttributes = Nothing
-    , _heSignalExternalWorkflowExecutionInitiatedEventAttributes = Nothing
+    , _heChildWorkflowExecutionFailedEventAttributes = Nothing
+    , _heFailWorkflowExecutionFailedEventAttributes = Nothing
     , _heContinueAsNewWorkflowExecutionFailedEventAttributes = Nothing
+    , _heSignalExternalWorkflowExecutionInitiatedEventAttributes = Nothing
+    , _heLambdaFunctionTimedOutEventAttributes = Nothing
     , _heWorkflowExecutionFailedEventAttributes = Nothing
     , _heWorkflowExecutionContinuedAsNewEventAttributes = Nothing
     , _heExternalWorkflowExecutionCancelRequestedEventAttributes = Nothing
-    , _heLambdaFunctionTimedOutEventAttributes = Nothing
     , _heEventTimestamp = _Time # pEventTimestamp_
     , _heEventType = pEventType_
     , _heEventId = pEventId_
@@ -3018,22 +3017,6 @@ historyEvent pEventTimestamp_ pEventType_ pEventId_ =
 -- not set for other event types.
 heWorkflowExecutionCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionCancelRequestedEventAttributes)
 heWorkflowExecutionCancelRequestedEventAttributes = lens _heWorkflowExecutionCancelRequestedEventAttributes (\ s a -> s{_heWorkflowExecutionCancelRequestedEventAttributes = a});
-
--- | If the event is of type 'DecisionTaskScheduled' then this member is set
--- and provides detailed information about the event. It is not set for
--- other event types.
-heDecisionTaskScheduledEventAttributes :: Lens' HistoryEvent (Maybe DecisionTaskScheduledEventAttributes)
-heDecisionTaskScheduledEventAttributes = lens _heDecisionTaskScheduledEventAttributes (\ s a -> s{_heDecisionTaskScheduledEventAttributes = a});
-
--- | If the event is of type 'StartTimerFailed' then this member is set and
--- provides detailed information about the event. It is not set for other
--- event types.
-heStartTimerFailedEventAttributes :: Lens' HistoryEvent (Maybe StartTimerFailedEventAttributes)
-heStartTimerFailedEventAttributes = lens _heStartTimerFailedEventAttributes (\ s a -> s{_heStartTimerFailedEventAttributes = a});
-
--- | Undocumented member.
-heLambdaFunctionStartedEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionStartedEventAttributes)
-heLambdaFunctionStartedEventAttributes = lens _heLambdaFunctionStartedEventAttributes (\ s a -> s{_heLambdaFunctionStartedEventAttributes = a});
 
 -- | If the event is of type 'DecisionTaskFailed' then this member is set and
 -- provides detailed information about the event. It is not set for other
@@ -3048,11 +3031,27 @@ heRecordMarkerFailedEventAttributes = lens _heRecordMarkerFailedEventAttributes 
 heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes :: Lens' HistoryEvent (Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes)
 heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes = lens _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes (\ s a -> s{_heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes = a});
 
+-- | Undocumented member.
+heLambdaFunctionStartedEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionStartedEventAttributes)
+heLambdaFunctionStartedEventAttributes = lens _heLambdaFunctionStartedEventAttributes (\ s a -> s{_heLambdaFunctionStartedEventAttributes = a});
+
+-- | If the event is of type 'DecisionTaskScheduled' then this member is set
+-- and provides detailed information about the event. It is not set for
+-- other event types.
+heDecisionTaskScheduledEventAttributes :: Lens' HistoryEvent (Maybe DecisionTaskScheduledEventAttributes)
+heDecisionTaskScheduledEventAttributes = lens _heDecisionTaskScheduledEventAttributes (\ s a -> s{_heDecisionTaskScheduledEventAttributes = a});
+
 -- | If the event is of type 'WorkflowExecutionCompleted' then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 heWorkflowExecutionCompletedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionCompletedEventAttributes)
 heWorkflowExecutionCompletedEventAttributes = lens _heWorkflowExecutionCompletedEventAttributes (\ s a -> s{_heWorkflowExecutionCompletedEventAttributes = a});
+
+-- | If the event is of type 'StartTimerFailed' then this member is set and
+-- provides detailed information about the event. It is not set for other
+-- event types.
+heStartTimerFailedEventAttributes :: Lens' HistoryEvent (Maybe StartTimerFailedEventAttributes)
+heStartTimerFailedEventAttributes = lens _heStartTimerFailedEventAttributes (\ s a -> s{_heStartTimerFailedEventAttributes = a});
 
 -- | If the event is of type 'ActivityTaskScheduled' then this member is set
 -- and provides detailed information about the event. It is not set for
@@ -3060,17 +3059,17 @@ heWorkflowExecutionCompletedEventAttributes = lens _heWorkflowExecutionCompleted
 heActivityTaskScheduledEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskScheduledEventAttributes)
 heActivityTaskScheduledEventAttributes = lens _heActivityTaskScheduledEventAttributes (\ s a -> s{_heActivityTaskScheduledEventAttributes = a});
 
--- | If the event is of type 'ChildWorkflowExecutionCompleted' then this
--- member is set and provides detailed information about the event. It is
--- not set for other event types.
-heChildWorkflowExecutionCompletedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionCompletedEventAttributes)
-heChildWorkflowExecutionCompletedEventAttributes = lens _heChildWorkflowExecutionCompletedEventAttributes (\ s a -> s{_heChildWorkflowExecutionCompletedEventAttributes = a});
-
 -- | If the event is of type 'ScheduleActivityTaskFailed' then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 heScheduleActivityTaskFailedEventAttributes :: Lens' HistoryEvent (Maybe ScheduleActivityTaskFailedEventAttributes)
 heScheduleActivityTaskFailedEventAttributes = lens _heScheduleActivityTaskFailedEventAttributes (\ s a -> s{_heScheduleActivityTaskFailedEventAttributes = a});
+
+-- | If the event is of type 'ChildWorkflowExecutionCompleted' then this
+-- member is set and provides detailed information about the event. It is
+-- not set for other event types.
+heChildWorkflowExecutionCompletedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionCompletedEventAttributes)
+heChildWorkflowExecutionCompletedEventAttributes = lens _heChildWorkflowExecutionCompletedEventAttributes (\ s a -> s{_heChildWorkflowExecutionCompletedEventAttributes = a});
 
 -- | If the event is of type 'MarkerRecorded' then this member is set and
 -- provides detailed information about the event. It is not set for other
@@ -3088,15 +3087,15 @@ heScheduleLambdaFunctionFailedEventAttributes = lens _heScheduleLambdaFunctionFa
 heCompleteWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe CompleteWorkflowExecutionFailedEventAttributes)
 heCompleteWorkflowExecutionFailedEventAttributes = lens _heCompleteWorkflowExecutionFailedEventAttributes (\ s a -> s{_heCompleteWorkflowExecutionFailedEventAttributes = a});
 
+-- | Undocumented member.
+heLambdaFunctionCompletedEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionCompletedEventAttributes)
+heLambdaFunctionCompletedEventAttributes = lens _heLambdaFunctionCompletedEventAttributes (\ s a -> s{_heLambdaFunctionCompletedEventAttributes = a});
+
 -- | If the event is of type 'RequestCancelExternalWorkflowExecutionFailed'
 -- then this member is set and provides detailed information about the
 -- event. It is not set for other event types.
 heRequestCancelExternalWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes)
 heRequestCancelExternalWorkflowExecutionFailedEventAttributes = lens _heRequestCancelExternalWorkflowExecutionFailedEventAttributes (\ s a -> s{_heRequestCancelExternalWorkflowExecutionFailedEventAttributes = a});
-
--- | Undocumented member.
-heLambdaFunctionCompletedEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionCompletedEventAttributes)
-heLambdaFunctionCompletedEventAttributes = lens _heLambdaFunctionCompletedEventAttributes (\ s a -> s{_heLambdaFunctionCompletedEventAttributes = a});
 
 -- | If the event is of type 'TimerCanceled' then this member is set and
 -- provides detailed information about the event. It is not set for other
@@ -3116,12 +3115,6 @@ heWorkflowExecutionStartedEventAttributes = lens _heWorkflowExecutionStartedEven
 heActivityTaskCompletedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskCompletedEventAttributes)
 heActivityTaskCompletedEventAttributes = lens _heActivityTaskCompletedEventAttributes (\ s a -> s{_heActivityTaskCompletedEventAttributes = a});
 
--- | If the event is of type 'ChildWorkflowExecutionStarted' then this member
--- is set and provides detailed information about the event. It is not set
--- for other event types.
-heChildWorkflowExecutionStartedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionStartedEventAttributes)
-heChildWorkflowExecutionStartedEventAttributes = lens _heChildWorkflowExecutionStartedEventAttributes (\ s a -> s{_heChildWorkflowExecutionStartedEventAttributes = a});
-
 -- | If the event is of type 'DecisionTaskTimedOut' then this member is set
 -- and provides detailed information about the event. It is not set for
 -- other event types.
@@ -3134,11 +3127,11 @@ heDecisionTaskTimedOutEventAttributes = lens _heDecisionTaskTimedOutEventAttribu
 heCancelTimerFailedEventAttributes :: Lens' HistoryEvent (Maybe CancelTimerFailedEventAttributes)
 heCancelTimerFailedEventAttributes = lens _heCancelTimerFailedEventAttributes (\ s a -> s{_heCancelTimerFailedEventAttributes = a});
 
--- | If the event is of type 'ActivityTaskTimedOut' then this member is set
--- and provides detailed information about the event. It is not set for
--- other event types.
-heActivityTaskTimedOutEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskTimedOutEventAttributes)
-heActivityTaskTimedOutEventAttributes = lens _heActivityTaskTimedOutEventAttributes (\ s a -> s{_heActivityTaskTimedOutEventAttributes = a});
+-- | If the event is of type 'ChildWorkflowExecutionStarted' then this member
+-- is set and provides detailed information about the event. It is not set
+-- for other event types.
+heChildWorkflowExecutionStartedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionStartedEventAttributes)
+heChildWorkflowExecutionStartedEventAttributes = lens _heChildWorkflowExecutionStartedEventAttributes (\ s a -> s{_heChildWorkflowExecutionStartedEventAttributes = a});
 
 -- | If the event is of type 'ActivityTaskCanceled' then this member is set
 -- and provides detailed information about the event. It is not set for
@@ -3146,11 +3139,11 @@ heActivityTaskTimedOutEventAttributes = lens _heActivityTaskTimedOutEventAttribu
 heActivityTaskCanceledEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskCanceledEventAttributes)
 heActivityTaskCanceledEventAttributes = lens _heActivityTaskCanceledEventAttributes (\ s a -> s{_heActivityTaskCanceledEventAttributes = a});
 
--- | If the event is of type 'ChildWorkflowExecutionCanceled' then this
--- member is set and provides detailed information about the event. It is
--- not set for other event types.
-heChildWorkflowExecutionCanceledEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionCanceledEventAttributes)
-heChildWorkflowExecutionCanceledEventAttributes = lens _heChildWorkflowExecutionCanceledEventAttributes (\ s a -> s{_heChildWorkflowExecutionCanceledEventAttributes = a});
+-- | If the event is of type 'ActivityTaskTimedOut' then this member is set
+-- and provides detailed information about the event. It is not set for
+-- other event types.
+heActivityTaskTimedOutEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskTimedOutEventAttributes)
+heActivityTaskTimedOutEventAttributes = lens _heActivityTaskTimedOutEventAttributes (\ s a -> s{_heActivityTaskTimedOutEventAttributes = a});
 
 -- | If the event is of type 'DecisionTaskStarted' then this member is set
 -- and provides detailed information about the event. It is not set for
@@ -3158,11 +3151,23 @@ heChildWorkflowExecutionCanceledEventAttributes = lens _heChildWorkflowExecution
 heDecisionTaskStartedEventAttributes :: Lens' HistoryEvent (Maybe DecisionTaskStartedEventAttributes)
 heDecisionTaskStartedEventAttributes = lens _heDecisionTaskStartedEventAttributes (\ s a -> s{_heDecisionTaskStartedEventAttributes = a});
 
--- | If the event is of type 'CancelWorkflowExecutionFailed' then this member
+-- | If the event is of type 'WorkflowExecutionTerminated' then this member
 -- is set and provides detailed information about the event. It is not set
 -- for other event types.
-heCancelWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe CancelWorkflowExecutionFailedEventAttributes)
-heCancelWorkflowExecutionFailedEventAttributes = lens _heCancelWorkflowExecutionFailedEventAttributes (\ s a -> s{_heCancelWorkflowExecutionFailedEventAttributes = a});
+heWorkflowExecutionTerminatedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionTerminatedEventAttributes)
+heWorkflowExecutionTerminatedEventAttributes = lens _heWorkflowExecutionTerminatedEventAttributes (\ s a -> s{_heWorkflowExecutionTerminatedEventAttributes = a});
+
+-- | If the event is of type 'ChildWorkflowExecutionCanceled' then this
+-- member is set and provides detailed information about the event. It is
+-- not set for other event types.
+heChildWorkflowExecutionCanceledEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionCanceledEventAttributes)
+heChildWorkflowExecutionCanceledEventAttributes = lens _heChildWorkflowExecutionCanceledEventAttributes (\ s a -> s{_heChildWorkflowExecutionCanceledEventAttributes = a});
+
+-- | If the event is of type 'RequestCancelActivityTaskFailed' then this
+-- member is set and provides detailed information about the event. It is
+-- not set for other event types.
+heRequestCancelActivityTaskFailedEventAttributes :: Lens' HistoryEvent (Maybe RequestCancelActivityTaskFailedEventAttributes)
+heRequestCancelActivityTaskFailedEventAttributes = lens _heRequestCancelActivityTaskFailedEventAttributes (\ s a -> s{_heRequestCancelActivityTaskFailedEventAttributes = a});
 
 -- | Undocumented member.
 heLambdaFunctionScheduledEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionScheduledEventAttributes)
@@ -3174,17 +3179,11 @@ heLambdaFunctionScheduledEventAttributes = lens _heLambdaFunctionScheduledEventA
 heChildWorkflowExecutionTimedOutEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionTimedOutEventAttributes)
 heChildWorkflowExecutionTimedOutEventAttributes = lens _heChildWorkflowExecutionTimedOutEventAttributes (\ s a -> s{_heChildWorkflowExecutionTimedOutEventAttributes = a});
 
--- | If the event is of type 'RequestCancelActivityTaskFailed' then this
--- member is set and provides detailed information about the event. It is
--- not set for other event types.
-heRequestCancelActivityTaskFailedEventAttributes :: Lens' HistoryEvent (Maybe RequestCancelActivityTaskFailedEventAttributes)
-heRequestCancelActivityTaskFailedEventAttributes = lens _heRequestCancelActivityTaskFailedEventAttributes (\ s a -> s{_heRequestCancelActivityTaskFailedEventAttributes = a});
-
--- | If the event is of type 'WorkflowExecutionTerminated' then this member
+-- | If the event is of type 'CancelWorkflowExecutionFailed' then this member
 -- is set and provides detailed information about the event. It is not set
 -- for other event types.
-heWorkflowExecutionTerminatedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionTerminatedEventAttributes)
-heWorkflowExecutionTerminatedEventAttributes = lens _heWorkflowExecutionTerminatedEventAttributes (\ s a -> s{_heWorkflowExecutionTerminatedEventAttributes = a});
+heCancelWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe CancelWorkflowExecutionFailedEventAttributes)
+heCancelWorkflowExecutionFailedEventAttributes = lens _heCancelWorkflowExecutionFailedEventAttributes (\ s a -> s{_heCancelWorkflowExecutionFailedEventAttributes = a});
 
 -- | If the event is of type 'StartChildWorkflowExecutionInitiated' then this
 -- member is set and provides detailed information about the event. It is
@@ -3192,35 +3191,17 @@ heWorkflowExecutionTerminatedEventAttributes = lens _heWorkflowExecutionTerminat
 heStartChildWorkflowExecutionInitiatedEventAttributes :: Lens' HistoryEvent (Maybe StartChildWorkflowExecutionInitiatedEventAttributes)
 heStartChildWorkflowExecutionInitiatedEventAttributes = lens _heStartChildWorkflowExecutionInitiatedEventAttributes (\ s a -> s{_heStartChildWorkflowExecutionInitiatedEventAttributes = a});
 
--- | If the event is of type 'ActivityTaskStarted' then this member is set
--- and provides detailed information about the event. It is not set for
--- other event types.
-heActivityTaskStartedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskStartedEventAttributes)
-heActivityTaskStartedEventAttributes = lens _heActivityTaskStartedEventAttributes (\ s a -> s{_heActivityTaskStartedEventAttributes = a});
-
 -- | If the event is of type 'SignalExternalWorkflowExecutionFailed' then
 -- this member is set and provides detailed information about the event. It
 -- is not set for other event types.
 heSignalExternalWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe SignalExternalWorkflowExecutionFailedEventAttributes)
 heSignalExternalWorkflowExecutionFailedEventAttributes = lens _heSignalExternalWorkflowExecutionFailedEventAttributes (\ s a -> s{_heSignalExternalWorkflowExecutionFailedEventAttributes = a});
 
--- | If the event is of type 'TimerStarted' then this member is set and
--- provides detailed information about the event. It is not set for other
--- event types.
-heTimerStartedEventAttributes :: Lens' HistoryEvent (Maybe TimerStartedEventAttributes)
-heTimerStartedEventAttributes = lens _heTimerStartedEventAttributes (\ s a -> s{_heTimerStartedEventAttributes = a});
-
--- | If the event is of type 'WorkflowExecutionTimedOut' then this member is
--- set and provides detailed information about the event. It is not set for
+-- | If the event is of type 'ActivityTaskStarted' then this member is set
+-- and provides detailed information about the event. It is not set for
 -- other event types.
-heWorkflowExecutionTimedOutEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionTimedOutEventAttributes)
-heWorkflowExecutionTimedOutEventAttributes = lens _heWorkflowExecutionTimedOutEventAttributes (\ s a -> s{_heWorkflowExecutionTimedOutEventAttributes = a});
-
--- | If the event is of type 'ActivityTaskcancelRequested' then this member
--- is set and provides detailed information about the event. It is not set
--- for other event types.
-heActivityTaskCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskCancelRequestedEventAttributes)
-heActivityTaskCancelRequestedEventAttributes = lens _heActivityTaskCancelRequestedEventAttributes (\ s a -> s{_heActivityTaskCancelRequestedEventAttributes = a});
+heActivityTaskStartedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskStartedEventAttributes)
+heActivityTaskStartedEventAttributes = lens _heActivityTaskStartedEventAttributes (\ s a -> s{_heActivityTaskStartedEventAttributes = a});
 
 -- | Undocumented member.
 heStartLambdaFunctionFailedEventAttributes :: Lens' HistoryEvent (Maybe StartLambdaFunctionFailedEventAttributes)
@@ -3242,11 +3223,35 @@ heLambdaFunctionFailedEventAttributes = lens _heLambdaFunctionFailedEventAttribu
 heWorkflowExecutionCanceledEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionCanceledEventAttributes)
 heWorkflowExecutionCanceledEventAttributes = lens _heWorkflowExecutionCanceledEventAttributes (\ s a -> s{_heWorkflowExecutionCanceledEventAttributes = a});
 
+-- | If the event is of type 'TimerStarted' then this member is set and
+-- provides detailed information about the event. It is not set for other
+-- event types.
+heTimerStartedEventAttributes :: Lens' HistoryEvent (Maybe TimerStartedEventAttributes)
+heTimerStartedEventAttributes = lens _heTimerStartedEventAttributes (\ s a -> s{_heTimerStartedEventAttributes = a});
+
+-- | If the event is of type 'ActivityTaskcancelRequested' then this member
+-- is set and provides detailed information about the event. It is not set
+-- for other event types.
+heActivityTaskCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskCancelRequestedEventAttributes)
+heActivityTaskCancelRequestedEventAttributes = lens _heActivityTaskCancelRequestedEventAttributes (\ s a -> s{_heActivityTaskCancelRequestedEventAttributes = a});
+
+-- | If the event is of type 'WorkflowExecutionTimedOut' then this member is
+-- set and provides detailed information about the event. It is not set for
+-- other event types.
+heWorkflowExecutionTimedOutEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionTimedOutEventAttributes)
+heWorkflowExecutionTimedOutEventAttributes = lens _heWorkflowExecutionTimedOutEventAttributes (\ s a -> s{_heWorkflowExecutionTimedOutEventAttributes = a});
+
 -- | If the event is of type 'WorkflowExecutionSignaled' then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 heWorkflowExecutionSignaledEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionSignaledEventAttributes)
 heWorkflowExecutionSignaledEventAttributes = lens _heWorkflowExecutionSignaledEventAttributes (\ s a -> s{_heWorkflowExecutionSignaledEventAttributes = a});
+
+-- | If the event is of type 'TimerFired' then this member is set and
+-- provides detailed information about the event. It is not set for other
+-- event types.
+heTimerFiredEventAttributes :: Lens' HistoryEvent (Maybe TimerFiredEventAttributes)
+heTimerFiredEventAttributes = lens _heTimerFiredEventAttributes (\ s a -> s{_heTimerFiredEventAttributes = a});
 
 -- | If the event is of type 'ActivityTaskFailed' then this member is set and
 -- provides detailed information about the event. It is not set for other
@@ -3260,24 +3265,6 @@ heActivityTaskFailedEventAttributes = lens _heActivityTaskFailedEventAttributes 
 heExternalWorkflowExecutionSignaledEventAttributes :: Lens' HistoryEvent (Maybe ExternalWorkflowExecutionSignaledEventAttributes)
 heExternalWorkflowExecutionSignaledEventAttributes = lens _heExternalWorkflowExecutionSignaledEventAttributes (\ s a -> s{_heExternalWorkflowExecutionSignaledEventAttributes = a});
 
--- | If the event is of type 'TimerFired' then this member is set and
--- provides detailed information about the event. It is not set for other
--- event types.
-heTimerFiredEventAttributes :: Lens' HistoryEvent (Maybe TimerFiredEventAttributes)
-heTimerFiredEventAttributes = lens _heTimerFiredEventAttributes (\ s a -> s{_heTimerFiredEventAttributes = a});
-
--- | If the event is of type 'FailWorkflowExecutionFailed' then this member
--- is set and provides detailed information about the event. It is not set
--- for other event types.
-heFailWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe FailWorkflowExecutionFailedEventAttributes)
-heFailWorkflowExecutionFailedEventAttributes = lens _heFailWorkflowExecutionFailedEventAttributes (\ s a -> s{_heFailWorkflowExecutionFailedEventAttributes = a});
-
--- | If the event is of type 'ChildWorkflowExecutionFailed' then this member
--- is set and provides detailed information about the event. It is not set
--- for other event types.
-heChildWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionFailedEventAttributes)
-heChildWorkflowExecutionFailedEventAttributes = lens _heChildWorkflowExecutionFailedEventAttributes (\ s a -> s{_heChildWorkflowExecutionFailedEventAttributes = a});
-
 -- | If the event is of type 'DecisionTaskCompleted' then this member is set
 -- and provides detailed information about the event. It is not set for
 -- other event types.
@@ -3290,17 +3277,33 @@ heDecisionTaskCompletedEventAttributes = lens _heDecisionTaskCompletedEventAttri
 heStartChildWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe StartChildWorkflowExecutionFailedEventAttributes)
 heStartChildWorkflowExecutionFailedEventAttributes = lens _heStartChildWorkflowExecutionFailedEventAttributes (\ s a -> s{_heStartChildWorkflowExecutionFailedEventAttributes = a});
 
--- | If the event is of type 'SignalExternalWorkflowExecutionInitiated' then
--- this member is set and provides detailed information about the event. It
--- is not set for other event types.
-heSignalExternalWorkflowExecutionInitiatedEventAttributes :: Lens' HistoryEvent (Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes)
-heSignalExternalWorkflowExecutionInitiatedEventAttributes = lens _heSignalExternalWorkflowExecutionInitiatedEventAttributes (\ s a -> s{_heSignalExternalWorkflowExecutionInitiatedEventAttributes = a});
+-- | If the event is of type 'ChildWorkflowExecutionFailed' then this member
+-- is set and provides detailed information about the event. It is not set
+-- for other event types.
+heChildWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionFailedEventAttributes)
+heChildWorkflowExecutionFailedEventAttributes = lens _heChildWorkflowExecutionFailedEventAttributes (\ s a -> s{_heChildWorkflowExecutionFailedEventAttributes = a});
+
+-- | If the event is of type 'FailWorkflowExecutionFailed' then this member
+-- is set and provides detailed information about the event. It is not set
+-- for other event types.
+heFailWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe FailWorkflowExecutionFailedEventAttributes)
+heFailWorkflowExecutionFailedEventAttributes = lens _heFailWorkflowExecutionFailedEventAttributes (\ s a -> s{_heFailWorkflowExecutionFailedEventAttributes = a});
 
 -- | If the event is of type 'ContinueAsNewWorkflowExecutionFailed' then this
 -- member is set and provides detailed information about the event. It is
 -- not set for other event types.
 heContinueAsNewWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes)
 heContinueAsNewWorkflowExecutionFailedEventAttributes = lens _heContinueAsNewWorkflowExecutionFailedEventAttributes (\ s a -> s{_heContinueAsNewWorkflowExecutionFailedEventAttributes = a});
+
+-- | If the event is of type 'SignalExternalWorkflowExecutionInitiated' then
+-- this member is set and provides detailed information about the event. It
+-- is not set for other event types.
+heSignalExternalWorkflowExecutionInitiatedEventAttributes :: Lens' HistoryEvent (Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes)
+heSignalExternalWorkflowExecutionInitiatedEventAttributes = lens _heSignalExternalWorkflowExecutionInitiatedEventAttributes (\ s a -> s{_heSignalExternalWorkflowExecutionInitiatedEventAttributes = a});
+
+-- | Undocumented member.
+heLambdaFunctionTimedOutEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionTimedOutEventAttributes)
+heLambdaFunctionTimedOutEventAttributes = lens _heLambdaFunctionTimedOutEventAttributes (\ s a -> s{_heLambdaFunctionTimedOutEventAttributes = a});
 
 -- | If the event is of type 'WorkflowExecutionFailed' then this member is
 -- set and provides detailed information about the event. It is not set for
@@ -3319,10 +3322,6 @@ heWorkflowExecutionContinuedAsNewEventAttributes = lens _heWorkflowExecutionCont
 -- is not set for other event types.
 heExternalWorkflowExecutionCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes)
 heExternalWorkflowExecutionCancelRequestedEventAttributes = lens _heExternalWorkflowExecutionCancelRequestedEventAttributes (\ s a -> s{_heExternalWorkflowExecutionCancelRequestedEventAttributes = a});
-
--- | Undocumented member.
-heLambdaFunctionTimedOutEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionTimedOutEventAttributes)
-heLambdaFunctionTimedOutEventAttributes = lens _heLambdaFunctionTimedOutEventAttributes (\ s a -> s{_heLambdaFunctionTimedOutEventAttributes = a});
 
 -- | The date and time when the event occurred.
 heEventTimestamp :: Lens' HistoryEvent UTCTime
@@ -3344,69 +3343,64 @@ instance FromJSON HistoryEvent where
                  HistoryEvent' <$>
                    (x .:?
                       "workflowExecutionCancelRequestedEventAttributes")
-                     <*> (x .:? "decisionTaskScheduledEventAttributes")
-                     <*> (x .:? "startTimerFailedEventAttributes")
-                     <*> (x .:? "lambdaFunctionStartedEventAttributes")
                      <*> (x .:? "recordMarkerFailedEventAttributes")
                      <*>
                      (x .:?
                         "requestCancelExternalWorkflowExecutionInitiatedEventAttributes")
+                     <*> (x .:? "lambdaFunctionStartedEventAttributes")
+                     <*> (x .:? "decisionTaskScheduledEventAttributes")
                      <*>
                      (x .:? "workflowExecutionCompletedEventAttributes")
+                     <*> (x .:? "startTimerFailedEventAttributes")
                      <*> (x .:? "activityTaskScheduledEventAttributes")
+                     <*>
+                     (x .:? "scheduleActivityTaskFailedEventAttributes")
                      <*>
                      (x .:?
                         "childWorkflowExecutionCompletedEventAttributes")
-                     <*>
-                     (x .:? "scheduleActivityTaskFailedEventAttributes")
                      <*> (x .:? "markerRecordedEventAttributes")
                      <*>
                      (x .:? "scheduleLambdaFunctionFailedEventAttributes")
                      <*>
                      (x .:?
                         "completeWorkflowExecutionFailedEventAttributes")
+                     <*> (x .:? "lambdaFunctionCompletedEventAttributes")
                      <*>
                      (x .:?
                         "requestCancelExternalWorkflowExecutionFailedEventAttributes")
-                     <*> (x .:? "lambdaFunctionCompletedEventAttributes")
                      <*> (x .:? "timerCanceledEventAttributes")
                      <*> (x .:? "workflowExecutionStartedEventAttributes")
                      <*> (x .:? "activityTaskCompletedEventAttributes")
+                     <*> (x .:? "decisionTaskTimedOutEventAttributes")
+                     <*> (x .:? "cancelTimerFailedEventAttributes")
                      <*>
                      (x .:?
                         "childWorkflowExecutionStartedEventAttributes")
-                     <*> (x .:? "decisionTaskTimedOutEventAttributes")
-                     <*> (x .:? "cancelTimerFailedEventAttributes")
-                     <*> (x .:? "activityTaskTimedOutEventAttributes")
                      <*> (x .:? "activityTaskCanceledEventAttributes")
+                     <*> (x .:? "activityTaskTimedOutEventAttributes")
+                     <*> (x .:? "decisionTaskStartedEventAttributes")
+                     <*>
+                     (x .:? "workflowExecutionTerminatedEventAttributes")
                      <*>
                      (x .:?
                         "childWorkflowExecutionCanceledEventAttributes")
-                     <*> (x .:? "decisionTaskStartedEventAttributes")
                      <*>
                      (x .:?
-                        "cancelWorkflowExecutionFailedEventAttributes")
+                        "requestCancelActivityTaskFailedEventAttributes")
                      <*> (x .:? "lambdaFunctionScheduledEventAttributes")
                      <*>
                      (x .:?
                         "childWorkflowExecutionTimedOutEventAttributes")
                      <*>
                      (x .:?
-                        "requestCancelActivityTaskFailedEventAttributes")
-                     <*>
-                     (x .:? "workflowExecutionTerminatedEventAttributes")
+                        "cancelWorkflowExecutionFailedEventAttributes")
                      <*>
                      (x .:?
                         "startChildWorkflowExecutionInitiatedEventAttributes")
-                     <*> (x .:? "activityTaskStartedEventAttributes")
                      <*>
                      (x .:?
                         "signalExternalWorkflowExecutionFailedEventAttributes")
-                     <*> (x .:? "timerStartedEventAttributes")
-                     <*>
-                     (x .:? "workflowExecutionTimedOutEventAttributes")
-                     <*>
-                     (x .:? "activityTaskCancelRequestedEventAttributes")
+                     <*> (x .:? "activityTaskStartedEventAttributes")
                      <*>
                      (x .:? "startLambdaFunctionFailedEventAttributes")
                      <*>
@@ -3415,27 +3409,33 @@ instance FromJSON HistoryEvent where
                      <*> (x .:? "lambdaFunctionFailedEventAttributes")
                      <*>
                      (x .:? "workflowExecutionCanceledEventAttributes")
+                     <*> (x .:? "timerStartedEventAttributes")
+                     <*>
+                     (x .:? "activityTaskCancelRequestedEventAttributes")
+                     <*>
+                     (x .:? "workflowExecutionTimedOutEventAttributes")
                      <*>
                      (x .:? "workflowExecutionSignaledEventAttributes")
+                     <*> (x .:? "timerFiredEventAttributes")
                      <*> (x .:? "activityTaskFailedEventAttributes")
                      <*>
                      (x .:?
                         "externalWorkflowExecutionSignaledEventAttributes")
-                     <*> (x .:? "timerFiredEventAttributes")
-                     <*>
-                     (x .:? "failWorkflowExecutionFailedEventAttributes")
-                     <*>
-                     (x .:? "childWorkflowExecutionFailedEventAttributes")
                      <*> (x .:? "decisionTaskCompletedEventAttributes")
                      <*>
                      (x .:?
                         "startChildWorkflowExecutionFailedEventAttributes")
                      <*>
-                     (x .:?
-                        "signalExternalWorkflowExecutionInitiatedEventAttributes")
+                     (x .:? "childWorkflowExecutionFailedEventAttributes")
+                     <*>
+                     (x .:? "failWorkflowExecutionFailedEventAttributes")
                      <*>
                      (x .:?
                         "continueAsNewWorkflowExecutionFailedEventAttributes")
+                     <*>
+                     (x .:?
+                        "signalExternalWorkflowExecutionInitiatedEventAttributes")
+                     <*> (x .:? "lambdaFunctionTimedOutEventAttributes")
                      <*> (x .:? "workflowExecutionFailedEventAttributes")
                      <*>
                      (x .:?
@@ -3443,7 +3443,6 @@ instance FromJSON HistoryEvent where
                      <*>
                      (x .:?
                         "externalWorkflowExecutionCancelRequestedEventAttributes")
-                     <*> (x .:? "lambdaFunctionTimedOutEventAttributes")
                      <*> (x .: "eventTimestamp")
                      <*> (x .: "eventType")
                      <*> (x .: "eventId"))
@@ -4314,8 +4313,8 @@ instance FromJSON
 -- /See:/ 'scheduleActivityTaskDecisionAttributes' smart constructor.
 data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttributes'
     { _satdaControl                :: !(Maybe Text)
-    , _satdaScheduleToCloseTimeout :: !(Maybe Text)
     , _satdaHeartbeatTimeout       :: !(Maybe Text)
+    , _satdaScheduleToCloseTimeout :: !(Maybe Text)
     , _satdaInput                  :: !(Maybe Text)
     , _satdaTaskList               :: !(Maybe TaskList)
     , _satdaTaskPriority           :: !(Maybe Text)
@@ -4331,9 +4330,9 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
 --
 -- * 'satdaControl'
 --
--- * 'satdaScheduleToCloseTimeout'
---
 -- * 'satdaHeartbeatTimeout'
+--
+-- * 'satdaScheduleToCloseTimeout'
 --
 -- * 'satdaInput'
 --
@@ -4355,8 +4354,8 @@ scheduleActivityTaskDecisionAttributes
 scheduleActivityTaskDecisionAttributes pActivityType_ pActivityId_ =
     ScheduleActivityTaskDecisionAttributes'
     { _satdaControl = Nothing
-    , _satdaScheduleToCloseTimeout = Nothing
     , _satdaHeartbeatTimeout = Nothing
+    , _satdaScheduleToCloseTimeout = Nothing
     , _satdaInput = Nothing
     , _satdaTaskList = Nothing
     , _satdaTaskPriority = Nothing
@@ -4371,18 +4370,6 @@ scheduleActivityTaskDecisionAttributes pActivityType_ pActivityId_ =
 satdaControl :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaControl = lens _satdaControl (\ s a -> s{_satdaControl = a});
 
--- | The maximum duration for this activity task.
---
--- The duration is specified in seconds; an integer greater than or equal
--- to 0. The value \"NONE\" can be used to specify unlimited duration.
---
--- A schedule-to-close timeout for this activity task must be specified
--- either as a default for the activity type or through this field. If
--- neither this field is set nor a default schedule-to-close timeout was
--- specified at registration time then a fault will be returned.
-satdaScheduleToCloseTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
-satdaScheduleToCloseTimeout = lens _satdaScheduleToCloseTimeout (\ s a -> s{_satdaScheduleToCloseTimeout = a});
-
 -- | If set, specifies the maximum time before which a worker processing a
 -- task of this type must report progress by calling
 -- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
@@ -4395,6 +4382,18 @@ satdaScheduleToCloseTimeout = lens _satdaScheduleToCloseTimeout (\ s a -> s{_sat
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
 satdaHeartbeatTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaHeartbeatTimeout = lens _satdaHeartbeatTimeout (\ s a -> s{_satdaHeartbeatTimeout = a});
+
+-- | The maximum duration for this activity task.
+--
+-- The duration is specified in seconds; an integer greater than or equal
+-- to 0. The value \"NONE\" can be used to specify unlimited duration.
+--
+-- A schedule-to-close timeout for this activity task must be specified
+-- either as a default for the activity type or through this field. If
+-- neither this field is set nor a default schedule-to-close timeout was
+-- specified at registration time then a fault will be returned.
+satdaScheduleToCloseTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
+satdaScheduleToCloseTimeout = lens _satdaScheduleToCloseTimeout (\ s a -> s{_satdaScheduleToCloseTimeout = a});
 
 -- | The input provided to the activity task.
 satdaInput :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
@@ -4477,9 +4476,9 @@ instance ToJSON
           = object
               (catMaybes
                  [("control" .=) <$> _satdaControl,
+                  ("heartbeatTimeout" .=) <$> _satdaHeartbeatTimeout,
                   ("scheduleToCloseTimeout" .=) <$>
                     _satdaScheduleToCloseTimeout,
-                  ("heartbeatTimeout" .=) <$> _satdaHeartbeatTimeout,
                   ("input" .=) <$> _satdaInput,
                   ("taskList" .=) <$> _satdaTaskList,
                   ("taskPriority" .=) <$> _satdaTaskPriority,

@@ -29,8 +29,8 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     -- * Request Lenses
     , udgServiceRoleARN
     , udgDeploymentConfigName
-    , udgEc2TagFilters
     , udgNewDeploymentGroupName
+    , udgEc2TagFilters
     , udgOnPremisesInstanceTagFilters
     , udgAutoScalingGroups
     , udgApplicationName
@@ -41,7 +41,7 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , UpdateDeploymentGroupResponse
     -- * Response Lenses
     , udgrsHooksNotCleanedUp
-    , udgrsStatus
+    , udgrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -56,8 +56,8 @@ import           Network.AWS.Response
 data UpdateDeploymentGroup = UpdateDeploymentGroup'
     { _udgServiceRoleARN               :: !(Maybe Text)
     , _udgDeploymentConfigName         :: !(Maybe Text)
-    , _udgEc2TagFilters                :: !(Maybe [EC2TagFilter])
     , _udgNewDeploymentGroupName       :: !(Maybe Text)
+    , _udgEc2TagFilters                :: !(Maybe [EC2TagFilter])
     , _udgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
     , _udgAutoScalingGroups            :: !(Maybe [Text])
     , _udgApplicationName              :: !Text
@@ -72,9 +72,9 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 --
 -- * 'udgDeploymentConfigName'
 --
--- * 'udgEc2TagFilters'
---
 -- * 'udgNewDeploymentGroupName'
+--
+-- * 'udgEc2TagFilters'
 --
 -- * 'udgOnPremisesInstanceTagFilters'
 --
@@ -91,8 +91,8 @@ updateDeploymentGroup pApplicationName_ pCurrentDeploymentGroupName_ =
     UpdateDeploymentGroup'
     { _udgServiceRoleARN = Nothing
     , _udgDeploymentConfigName = Nothing
-    , _udgEc2TagFilters = Nothing
     , _udgNewDeploymentGroupName = Nothing
+    , _udgEc2TagFilters = Nothing
     , _udgOnPremisesInstanceTagFilters = Nothing
     , _udgAutoScalingGroups = Nothing
     , _udgApplicationName = pApplicationName_
@@ -108,14 +108,14 @@ udgServiceRoleARN = lens _udgServiceRoleARN (\ s a -> s{_udgServiceRoleARN = a})
 udgDeploymentConfigName :: Lens' UpdateDeploymentGroup (Maybe Text)
 udgDeploymentConfigName = lens _udgDeploymentConfigName (\ s a -> s{_udgDeploymentConfigName = a});
 
+-- | The new name of the deployment group, if you want to change it.
+udgNewDeploymentGroupName :: Lens' UpdateDeploymentGroup (Maybe Text)
+udgNewDeploymentGroupName = lens _udgNewDeploymentGroupName (\ s a -> s{_udgNewDeploymentGroupName = a});
+
 -- | The replacement set of Amazon EC2 tags to filter on, if you want to
 -- change them.
 udgEc2TagFilters :: Lens' UpdateDeploymentGroup [EC2TagFilter]
 udgEc2TagFilters = lens _udgEc2TagFilters (\ s a -> s{_udgEc2TagFilters = a}) . _Default . _Coerce;
-
--- | The new name of the deployment group, if you want to change it.
-udgNewDeploymentGroupName :: Lens' UpdateDeploymentGroup (Maybe Text)
-udgNewDeploymentGroupName = lens _udgNewDeploymentGroupName (\ s a -> s{_udgNewDeploymentGroupName = a});
 
 -- | The replacement set of on-premises instance tags for filter on, if you
 -- want to change them.
@@ -163,9 +163,9 @@ instance ToJSON UpdateDeploymentGroup where
                  [("serviceRoleArn" .=) <$> _udgServiceRoleARN,
                   ("deploymentConfigName" .=) <$>
                     _udgDeploymentConfigName,
-                  ("ec2TagFilters" .=) <$> _udgEc2TagFilters,
                   ("newDeploymentGroupName" .=) <$>
                     _udgNewDeploymentGroupName,
+                  ("ec2TagFilters" .=) <$> _udgEc2TagFilters,
                   ("onPremisesInstanceTagFilters" .=) <$>
                     _udgOnPremisesInstanceTagFilters,
                   ("autoScalingGroups" .=) <$> _udgAutoScalingGroups,
@@ -185,7 +185,7 @@ instance ToQuery UpdateDeploymentGroup where
 -- /See:/ 'updateDeploymentGroupResponse' smart constructor.
 data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
     { _udgrsHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
-    , _udgrsStatus            :: !Int
+    , _udgrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateDeploymentGroupResponse' with the minimum fields required to make a request.
@@ -194,14 +194,14 @@ data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
 --
 -- * 'udgrsHooksNotCleanedUp'
 --
--- * 'udgrsStatus'
+-- * 'udgrsResponseStatus'
 updateDeploymentGroupResponse
-    :: Int -- ^ 'udgrsStatus'
+    :: Int -- ^ 'udgrsResponseStatus'
     -> UpdateDeploymentGroupResponse
-updateDeploymentGroupResponse pStatus_ =
+updateDeploymentGroupResponse pResponseStatus_ =
     UpdateDeploymentGroupResponse'
     { _udgrsHooksNotCleanedUp = Nothing
-    , _udgrsStatus = pStatus_
+    , _udgrsResponseStatus = pResponseStatus_
     }
 
 -- | If the output contains no data, and the corresponding deployment group
@@ -213,5 +213,5 @@ udgrsHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
 udgrsHooksNotCleanedUp = lens _udgrsHooksNotCleanedUp (\ s a -> s{_udgrsHooksNotCleanedUp = a}) . _Default . _Coerce;
 
 -- | The response status code.
-udgrsStatus :: Lens' UpdateDeploymentGroupResponse Int
-udgrsStatus = lens _udgrsStatus (\ s a -> s{_udgrsStatus = a});
+udgrsResponseStatus :: Lens' UpdateDeploymentGroupResponse Int
+udgrsResponseStatus = lens _udgrsResponseStatus (\ s a -> s{_udgrsResponseStatus = a});

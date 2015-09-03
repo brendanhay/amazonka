@@ -43,7 +43,7 @@ module Network.AWS.Route53.DeleteHealthCheck
     , deleteHealthCheckResponse
     , DeleteHealthCheckResponse
     -- * Response Lenses
-    , dhcrsStatus
+    , dhcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -100,22 +100,22 @@ instance ToQuery DeleteHealthCheck where
 --
 -- /See:/ 'deleteHealthCheckResponse' smart constructor.
 newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'
-    { _dhcrsStatus :: Int
+    { _dhcrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteHealthCheckResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhcrsStatus'
+-- * 'dhcrsResponseStatus'
 deleteHealthCheckResponse
-    :: Int -- ^ 'dhcrsStatus'
+    :: Int -- ^ 'dhcrsResponseStatus'
     -> DeleteHealthCheckResponse
-deleteHealthCheckResponse pStatus_ =
+deleteHealthCheckResponse pResponseStatus_ =
     DeleteHealthCheckResponse'
-    { _dhcrsStatus = pStatus_
+    { _dhcrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-dhcrsStatus :: Lens' DeleteHealthCheckResponse Int
-dhcrsStatus = lens _dhcrsStatus (\ s a -> s{_dhcrsStatus = a});
+dhcrsResponseStatus :: Lens' DeleteHealthCheckResponse Int
+dhcrsResponseStatus = lens _dhcrsResponseStatus (\ s a -> s{_dhcrsResponseStatus = a});

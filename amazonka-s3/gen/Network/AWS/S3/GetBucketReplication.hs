@@ -34,7 +34,7 @@ module Network.AWS.S3.GetBucketReplication
     , GetBucketReplicationResponse
     -- * Response Lenses
     , gbrrsReplicationConfiguration
-    , gbrrsStatus
+    , gbrrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -88,7 +88,7 @@ instance ToQuery GetBucketReplication where
 -- | /See:/ 'getBucketReplicationResponse' smart constructor.
 data GetBucketReplicationResponse = GetBucketReplicationResponse'
     { _gbrrsReplicationConfiguration :: !(Maybe ReplicationConfiguration)
-    , _gbrrsStatus                   :: !Int
+    , _gbrrsResponseStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketReplicationResponse' with the minimum fields required to make a request.
@@ -97,14 +97,14 @@ data GetBucketReplicationResponse = GetBucketReplicationResponse'
 --
 -- * 'gbrrsReplicationConfiguration'
 --
--- * 'gbrrsStatus'
+-- * 'gbrrsResponseStatus'
 getBucketReplicationResponse
-    :: Int -- ^ 'gbrrsStatus'
+    :: Int -- ^ 'gbrrsResponseStatus'
     -> GetBucketReplicationResponse
-getBucketReplicationResponse pStatus_ =
+getBucketReplicationResponse pResponseStatus_ =
     GetBucketReplicationResponse'
     { _gbrrsReplicationConfiguration = Nothing
-    , _gbrrsStatus = pStatus_
+    , _gbrrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -112,5 +112,5 @@ gbrrsReplicationConfiguration :: Lens' GetBucketReplicationResponse (Maybe Repli
 gbrrsReplicationConfiguration = lens _gbrrsReplicationConfiguration (\ s a -> s{_gbrrsReplicationConfiguration = a});
 
 -- | The response status code.
-gbrrsStatus :: Lens' GetBucketReplicationResponse Int
-gbrrsStatus = lens _gbrrsStatus (\ s a -> s{_gbrrsStatus = a});
+gbrrsResponseStatus :: Lens' GetBucketReplicationResponse Int
+gbrrsResponseStatus = lens _gbrrsResponseStatus (\ s a -> s{_gbrrsResponseStatus = a});

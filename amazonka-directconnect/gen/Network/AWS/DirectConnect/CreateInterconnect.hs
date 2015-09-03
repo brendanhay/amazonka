@@ -52,8 +52,8 @@ module Network.AWS.DirectConnect.CreateInterconnect
     , Interconnect
     -- * Response Lenses
     , iInterconnectId
-    , iInterconnectName
     , iLocation
+    , iInterconnectName
     , iBandwidth
     , iInterconnectState
     , iRegion

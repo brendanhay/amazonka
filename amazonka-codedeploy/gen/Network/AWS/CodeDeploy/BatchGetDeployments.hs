@@ -34,7 +34,7 @@ module Network.AWS.CodeDeploy.BatchGetDeployments
     , BatchGetDeploymentsResponse
     -- * Response Lenses
     , bgdrsDeploymentsInfo
-    , bgdrsStatus
+    , bgdrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -105,7 +105,7 @@ instance ToQuery BatchGetDeployments where
 -- /See:/ 'batchGetDeploymentsResponse' smart constructor.
 data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
     { _bgdrsDeploymentsInfo :: !(Maybe [DeploymentInfo])
-    , _bgdrsStatus          :: !Int
+    , _bgdrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BatchGetDeploymentsResponse' with the minimum fields required to make a request.
@@ -114,14 +114,14 @@ data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
 --
 -- * 'bgdrsDeploymentsInfo'
 --
--- * 'bgdrsStatus'
+-- * 'bgdrsResponseStatus'
 batchGetDeploymentsResponse
-    :: Int -- ^ 'bgdrsStatus'
+    :: Int -- ^ 'bgdrsResponseStatus'
     -> BatchGetDeploymentsResponse
-batchGetDeploymentsResponse pStatus_ =
+batchGetDeploymentsResponse pResponseStatus_ =
     BatchGetDeploymentsResponse'
     { _bgdrsDeploymentsInfo = Nothing
-    , _bgdrsStatus = pStatus_
+    , _bgdrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the deployments.
@@ -129,5 +129,5 @@ bgdrsDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
 bgdrsDeploymentsInfo = lens _bgdrsDeploymentsInfo (\ s a -> s{_bgdrsDeploymentsInfo = a}) . _Default . _Coerce;
 
 -- | The response status code.
-bgdrsStatus :: Lens' BatchGetDeploymentsResponse Int
-bgdrsStatus = lens _bgdrsStatus (\ s a -> s{_bgdrsStatus = a});
+bgdrsResponseStatus :: Lens' BatchGetDeploymentsResponse Int
+bgdrsResponseStatus = lens _bgdrsResponseStatus (\ s a -> s{_bgdrsResponseStatus = a});

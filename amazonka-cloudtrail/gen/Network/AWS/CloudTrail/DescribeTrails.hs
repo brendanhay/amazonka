@@ -35,7 +35,7 @@ module Network.AWS.CloudTrail.DescribeTrails
     , DescribeTrailsResponse
     -- * Response Lenses
     , dtrsTrailList
-    , dtrsStatus
+    , dtrsResponseStatus
     ) where
 
 import           Network.AWS.CloudTrail.Types
@@ -104,8 +104,8 @@ instance ToQuery DescribeTrails where
 --
 -- /See:/ 'describeTrailsResponse' smart constructor.
 data DescribeTrailsResponse = DescribeTrailsResponse'
-    { _dtrsTrailList :: !(Maybe [Trail])
-    , _dtrsStatus    :: !Int
+    { _dtrsTrailList      :: !(Maybe [Trail])
+    , _dtrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTrailsResponse' with the minimum fields required to make a request.
@@ -114,14 +114,14 @@ data DescribeTrailsResponse = DescribeTrailsResponse'
 --
 -- * 'dtrsTrailList'
 --
--- * 'dtrsStatus'
+-- * 'dtrsResponseStatus'
 describeTrailsResponse
-    :: Int -- ^ 'dtrsStatus'
+    :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTrailsResponse
-describeTrailsResponse pStatus_ =
+describeTrailsResponse pResponseStatus_ =
     DescribeTrailsResponse'
     { _dtrsTrailList = Nothing
-    , _dtrsStatus = pStatus_
+    , _dtrsResponseStatus = pResponseStatus_
     }
 
 -- | The list of trails.
@@ -129,5 +129,5 @@ dtrsTrailList :: Lens' DescribeTrailsResponse [Trail]
 dtrsTrailList = lens _dtrsTrailList (\ s a -> s{_dtrsTrailList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dtrsStatus :: Lens' DescribeTrailsResponse Int
-dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
+dtrsResponseStatus :: Lens' DescribeTrailsResponse Int
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});

@@ -70,11 +70,11 @@ module Network.AWS.Lambda
     -- ** GetFunctionConfiguration
     , module Network.AWS.Lambda.GetFunctionConfiguration
 
-    -- ** UpdateEventSourceMapping
-    , module Network.AWS.Lambda.UpdateEventSourceMapping
-
     -- ** DeleteEventSourceMapping
     , module Network.AWS.Lambda.DeleteEventSourceMapping
+
+    -- ** UpdateEventSourceMapping
+    , module Network.AWS.Lambda.UpdateEventSourceMapping
 
     -- ** RemovePermission
     , module Network.AWS.Lambda.RemovePermission
@@ -133,8 +133,8 @@ module Network.AWS.Lambda
     , EventSourceMappingConfiguration
     , eventSourceMappingConfiguration
     , esmcEventSourceARN
-    , esmcFunctionARN
     , esmcState
+    , esmcFunctionARN
     , esmcUUId
     , esmcLastProcessingResult
     , esmcBatchSize
@@ -158,8 +158,8 @@ module Network.AWS.Lambda
     -- ** FunctionConfiguration
     , FunctionConfiguration
     , functionConfiguration
-    , fcRuntime
     , fcMemorySize
+    , fcRuntime
     , fcFunctionARN
     , fcRole
     , fcFunctionName

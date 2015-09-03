@@ -45,7 +45,7 @@ module Network.AWS.ECS.DeregisterTaskDefinition
     , DeregisterTaskDefinitionResponse
     -- * Response Lenses
     , dtdrsTaskDefinition
-    , dtdrsStatus
+    , dtdrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -113,7 +113,7 @@ instance ToQuery DeregisterTaskDefinition where
 -- | /See:/ 'deregisterTaskDefinitionResponse' smart constructor.
 data DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'
     { _dtdrsTaskDefinition :: !(Maybe TaskDefinition)
-    , _dtdrsStatus         :: !Int
+    , _dtdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeregisterTaskDefinitionResponse' with the minimum fields required to make a request.
@@ -122,14 +122,14 @@ data DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'
 --
 -- * 'dtdrsTaskDefinition'
 --
--- * 'dtdrsStatus'
+-- * 'dtdrsResponseStatus'
 deregisterTaskDefinitionResponse
-    :: Int -- ^ 'dtdrsStatus'
+    :: Int -- ^ 'dtdrsResponseStatus'
     -> DeregisterTaskDefinitionResponse
-deregisterTaskDefinitionResponse pStatus_ =
+deregisterTaskDefinitionResponse pResponseStatus_ =
     DeregisterTaskDefinitionResponse'
     { _dtdrsTaskDefinition = Nothing
-    , _dtdrsStatus = pStatus_
+    , _dtdrsResponseStatus = pResponseStatus_
     }
 
 -- | The full description of the deregistered task.
@@ -137,5 +137,5 @@ dtdrsTaskDefinition :: Lens' DeregisterTaskDefinitionResponse (Maybe TaskDefinit
 dtdrsTaskDefinition = lens _dtdrsTaskDefinition (\ s a -> s{_dtdrsTaskDefinition = a});
 
 -- | The response status code.
-dtdrsStatus :: Lens' DeregisterTaskDefinitionResponse Int
-dtdrsStatus = lens _dtdrsStatus (\ s a -> s{_dtdrsStatus = a});
+dtdrsResponseStatus :: Lens' DeregisterTaskDefinitionResponse Int
+dtdrsResponseStatus = lens _dtdrsResponseStatus (\ s a -> s{_dtdrsResponseStatus = a});

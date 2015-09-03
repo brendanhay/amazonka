@@ -34,6 +34,7 @@ module Network.AWS.CloudHSM.DeleteHSM
     , deleteHSMResponse
     , DeleteHSMResponse
     -- * Response Lenses
+    , dhsmrsResponseStatus
     , dhsmrsStatus
     ) where
 
@@ -71,9 +72,10 @@ instance AWSRequest DeleteHSM where
         type Rs DeleteHSM = DeleteHSMResponse
         request = postJSON cloudHSM
         response
-          = receiveEmpty
+          = receiveJSON
               (\ s h x ->
-                 DeleteHSMResponse' <$> (pure (fromEnum s)))
+                 DeleteHSMResponse' <$>
+                   (pure (fromEnum s)) <*> (x .:> "Status"))
 
 instance ToHeaders DeleteHSM where
         toHeaders
@@ -97,23 +99,32 @@ instance ToQuery DeleteHSM where
 -- | Contains the output of the DeleteHsm action.
 --
 -- /See:/ 'deleteHSMResponse' smart constructor.
-newtype DeleteHSMResponse = DeleteHSMResponse'
-    { _dhsmrsStatus :: Int
+data DeleteHSMResponse = DeleteHSMResponse'
+    { _dhsmrsResponseStatus :: !Int
+    , _dhsmrsStatus         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteHSMResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dhsmrsResponseStatus'
+--
 -- * 'dhsmrsStatus'
 deleteHSMResponse
-    :: Int -- ^ 'dhsmrsStatus'
+    :: Int -- ^ 'dhsmrsResponseStatus'
+    -> Text -- ^ 'dhsmrsStatus'
     -> DeleteHSMResponse
-deleteHSMResponse pStatus_ =
+deleteHSMResponse pResponseStatus_ pStatus_ =
     DeleteHSMResponse'
-    { _dhsmrsStatus = pStatus_
+    { _dhsmrsResponseStatus = pResponseStatus_
+    , _dhsmrsStatus = pStatus_
     }
 
 -- | The response status code.
-dhsmrsStatus :: Lens' DeleteHSMResponse Int
+dhsmrsResponseStatus :: Lens' DeleteHSMResponse Int
+dhsmrsResponseStatus = lens _dhsmrsResponseStatus (\ s a -> s{_dhsmrsResponseStatus = a});
+
+-- | The status of the action.
+dhsmrsStatus :: Lens' DeleteHSMResponse Text
 dhsmrsStatus = lens _dhsmrsStatus (\ s a -> s{_dhsmrsStatus = a});

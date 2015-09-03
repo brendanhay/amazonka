@@ -54,7 +54,7 @@ module Network.AWS.Glacier.GetVaultNotifications
     , GetVaultNotificationsResponse
     -- * Response Lenses
     , gvnrsVaultNotificationConfig
-    , gvnrsStatus
+    , gvnrsResponseStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -129,7 +129,7 @@ instance ToQuery GetVaultNotifications where
 -- /See:/ 'getVaultNotificationsResponse' smart constructor.
 data GetVaultNotificationsResponse = GetVaultNotificationsResponse'
     { _gvnrsVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
-    , _gvnrsStatus                  :: !Int
+    , _gvnrsResponseStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetVaultNotificationsResponse' with the minimum fields required to make a request.
@@ -138,14 +138,14 @@ data GetVaultNotificationsResponse = GetVaultNotificationsResponse'
 --
 -- * 'gvnrsVaultNotificationConfig'
 --
--- * 'gvnrsStatus'
+-- * 'gvnrsResponseStatus'
 getVaultNotificationsResponse
-    :: Int -- ^ 'gvnrsStatus'
+    :: Int -- ^ 'gvnrsResponseStatus'
     -> GetVaultNotificationsResponse
-getVaultNotificationsResponse pStatus_ =
+getVaultNotificationsResponse pResponseStatus_ =
     GetVaultNotificationsResponse'
     { _gvnrsVaultNotificationConfig = Nothing
-    , _gvnrsStatus = pStatus_
+    , _gvnrsResponseStatus = pResponseStatus_
     }
 
 -- | Returns the notification configuration set on the vault.
@@ -153,5 +153,5 @@ gvnrsVaultNotificationConfig :: Lens' GetVaultNotificationsResponse (Maybe Vault
 gvnrsVaultNotificationConfig = lens _gvnrsVaultNotificationConfig (\ s a -> s{_gvnrsVaultNotificationConfig = a});
 
 -- | The response status code.
-gvnrsStatus :: Lens' GetVaultNotificationsResponse Int
-gvnrsStatus = lens _gvnrsStatus (\ s a -> s{_gvnrsStatus = a});
+gvnrsResponseStatus :: Lens' GetVaultNotificationsResponse Int
+gvnrsResponseStatus = lens _gvnrsResponseStatus (\ s a -> s{_gvnrsResponseStatus = a});

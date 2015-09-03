@@ -33,7 +33,7 @@ module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     -- * Response Lenses
     , lassrsSolutionStacks
     , lassrsSolutionStackDetails
-    , lassrsStatus
+    , lassrsResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -89,7 +89,7 @@ instance ToQuery ListAvailableSolutionStacks where
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
     { _lassrsSolutionStacks       :: !(Maybe [Text])
     , _lassrsSolutionStackDetails :: !(Maybe [SolutionStackDescription])
-    , _lassrsStatus               :: !Int
+    , _lassrsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListAvailableSolutionStacksResponse' with the minimum fields required to make a request.
@@ -100,15 +100,15 @@ data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
 --
 -- * 'lassrsSolutionStackDetails'
 --
--- * 'lassrsStatus'
+-- * 'lassrsResponseStatus'
 listAvailableSolutionStacksResponse
-    :: Int -- ^ 'lassrsStatus'
+    :: Int -- ^ 'lassrsResponseStatus'
     -> ListAvailableSolutionStacksResponse
-listAvailableSolutionStacksResponse pStatus_ =
+listAvailableSolutionStacksResponse pResponseStatus_ =
     ListAvailableSolutionStacksResponse'
     { _lassrsSolutionStacks = Nothing
     , _lassrsSolutionStackDetails = Nothing
-    , _lassrsStatus = pStatus_
+    , _lassrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of available solution stacks.
@@ -120,5 +120,5 @@ lassrsSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [Solutio
 lassrsSolutionStackDetails = lens _lassrsSolutionStackDetails (\ s a -> s{_lassrsSolutionStackDetails = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lassrsStatus :: Lens' ListAvailableSolutionStacksResponse Int
-lassrsStatus = lens _lassrsStatus (\ s a -> s{_lassrsStatus = a});
+lassrsResponseStatus :: Lens' ListAvailableSolutionStacksResponse Int
+lassrsResponseStatus = lens _lassrsResponseStatus (\ s a -> s{_lassrsResponseStatus = a});

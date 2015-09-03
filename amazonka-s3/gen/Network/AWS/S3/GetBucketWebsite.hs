@@ -35,9 +35,9 @@ module Network.AWS.S3.GetBucketWebsite
     -- * Response Lenses
     , gbwrsRedirectAllRequestsTo
     , gbwrsErrorDocument
-    , gbwrsRoutingRules
     , gbwrsIndexDocument
-    , gbwrsStatus
+    , gbwrsRoutingRules
+    , gbwrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -77,10 +77,10 @@ instance AWSRequest GetBucketWebsite where
                  GetBucketWebsiteResponse' <$>
                    (x .@? "RedirectAllRequestsTo") <*>
                      (x .@? "ErrorDocument")
+                     <*> (x .@? "IndexDocument")
                      <*>
                      (x .@? "RoutingRules" .!@ mempty >>=
                         may (parseXMLList "RoutingRule"))
-                     <*> (x .@? "IndexDocument")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders GetBucketWebsite where
@@ -97,9 +97,9 @@ instance ToQuery GetBucketWebsite where
 data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
     { _gbwrsRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
     , _gbwrsErrorDocument         :: !(Maybe ErrorDocument)
-    , _gbwrsRoutingRules          :: !(Maybe [RoutingRule])
     , _gbwrsIndexDocument         :: !(Maybe IndexDocument)
-    , _gbwrsStatus                :: !Int
+    , _gbwrsRoutingRules          :: !(Maybe [RoutingRule])
+    , _gbwrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketWebsiteResponse' with the minimum fields required to make a request.
@@ -110,21 +110,21 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
 --
 -- * 'gbwrsErrorDocument'
 --
--- * 'gbwrsRoutingRules'
---
 -- * 'gbwrsIndexDocument'
 --
--- * 'gbwrsStatus'
+-- * 'gbwrsRoutingRules'
+--
+-- * 'gbwrsResponseStatus'
 getBucketWebsiteResponse
-    :: Int -- ^ 'gbwrsStatus'
+    :: Int -- ^ 'gbwrsResponseStatus'
     -> GetBucketWebsiteResponse
-getBucketWebsiteResponse pStatus_ =
+getBucketWebsiteResponse pResponseStatus_ =
     GetBucketWebsiteResponse'
     { _gbwrsRedirectAllRequestsTo = Nothing
     , _gbwrsErrorDocument = Nothing
-    , _gbwrsRoutingRules = Nothing
     , _gbwrsIndexDocument = Nothing
-    , _gbwrsStatus = pStatus_
+    , _gbwrsRoutingRules = Nothing
+    , _gbwrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -136,13 +136,13 @@ gbwrsErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
 gbwrsErrorDocument = lens _gbwrsErrorDocument (\ s a -> s{_gbwrsErrorDocument = a});
 
 -- | Undocumented member.
-gbwrsRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
-gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a}) . _Default . _Coerce;
-
--- | Undocumented member.
 gbwrsIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
 gbwrsIndexDocument = lens _gbwrsIndexDocument (\ s a -> s{_gbwrsIndexDocument = a});
 
+-- | Undocumented member.
+gbwrsRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
+gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a}) . _Default . _Coerce;
+
 -- | The response status code.
-gbwrsStatus :: Lens' GetBucketWebsiteResponse Int
-gbwrsStatus = lens _gbwrsStatus (\ s a -> s{_gbwrsStatus = a});
+gbwrsResponseStatus :: Lens' GetBucketWebsiteResponse Int
+gbwrsResponseStatus = lens _gbwrsResponseStatus (\ s a -> s{_gbwrsResponseStatus = a});

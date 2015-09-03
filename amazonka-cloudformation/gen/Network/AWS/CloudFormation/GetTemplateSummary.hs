@@ -46,12 +46,12 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     , GetTemplateSummaryResponse
     -- * Response Lenses
     , gtsrsVersion
-    , gtsrsParameters
     , gtsrsCapabilitiesReason
+    , gtsrsParameters
     , gtsrsMetadata
-    , gtsrsCapabilities
     , gtsrsDescription
-    , gtsrsStatus
+    , gtsrsCapabilities
+    , gtsrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -127,15 +127,15 @@ instance AWSRequest GetTemplateSummary where
           = receiveXMLWrapper "GetTemplateSummaryResult"
               (\ s h x ->
                  GetTemplateSummaryResponse' <$>
-                   (x .@? "Version") <*>
+                   (x .@? "Version") <*> (x .@? "CapabilitiesReason")
+                     <*>
                      (x .@? "Parameters" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (x .@? "CapabilitiesReason")
                      <*> (x .@? "Metadata")
+                     <*> (x .@? "Description")
                      <*>
                      (x .@? "Capabilities" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (x .@? "Description")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders GetTemplateSummary where
@@ -158,12 +158,12 @@ instance ToQuery GetTemplateSummary where
 -- /See:/ 'getTemplateSummaryResponse' smart constructor.
 data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
     { _gtsrsVersion            :: !(Maybe Text)
-    , _gtsrsParameters         :: !(Maybe [ParameterDeclaration])
     , _gtsrsCapabilitiesReason :: !(Maybe Text)
+    , _gtsrsParameters         :: !(Maybe [ParameterDeclaration])
     , _gtsrsMetadata           :: !(Maybe Text)
-    , _gtsrsCapabilities       :: !(Maybe [Capability])
     , _gtsrsDescription        :: !(Maybe Text)
-    , _gtsrsStatus             :: !Int
+    , _gtsrsCapabilities       :: !(Maybe [Capability])
+    , _gtsrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetTemplateSummaryResponse' with the minimum fields required to make a request.
@@ -172,29 +172,29 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
 --
 -- * 'gtsrsVersion'
 --
--- * 'gtsrsParameters'
---
 -- * 'gtsrsCapabilitiesReason'
+--
+-- * 'gtsrsParameters'
 --
 -- * 'gtsrsMetadata'
 --
--- * 'gtsrsCapabilities'
---
 -- * 'gtsrsDescription'
 --
--- * 'gtsrsStatus'
+-- * 'gtsrsCapabilities'
+--
+-- * 'gtsrsResponseStatus'
 getTemplateSummaryResponse
-    :: Int -- ^ 'gtsrsStatus'
+    :: Int -- ^ 'gtsrsResponseStatus'
     -> GetTemplateSummaryResponse
-getTemplateSummaryResponse pStatus_ =
+getTemplateSummaryResponse pResponseStatus_ =
     GetTemplateSummaryResponse'
     { _gtsrsVersion = Nothing
-    , _gtsrsParameters = Nothing
     , _gtsrsCapabilitiesReason = Nothing
+    , _gtsrsParameters = Nothing
     , _gtsrsMetadata = Nothing
-    , _gtsrsCapabilities = Nothing
     , _gtsrsDescription = Nothing
-    , _gtsrsStatus = pStatus_
+    , _gtsrsCapabilities = Nothing
+    , _gtsrsResponseStatus = pResponseStatus_
     }
 
 -- | The AWS template format version, which identifies the capabilities of
@@ -202,19 +202,23 @@ getTemplateSummaryResponse pStatus_ =
 gtsrsVersion :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrsVersion = lens _gtsrsVersion (\ s a -> s{_gtsrsVersion = a});
 
--- | A list of parameter declarations that describe various properties for
--- each parameter.
-gtsrsParameters :: Lens' GetTemplateSummaryResponse [ParameterDeclaration]
-gtsrsParameters = lens _gtsrsParameters (\ s a -> s{_gtsrsParameters = a}) . _Default . _Coerce;
-
 -- | The list of resources that generated the values in the 'Capabilities'
 -- response element.
 gtsrsCapabilitiesReason :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrsCapabilitiesReason = lens _gtsrsCapabilitiesReason (\ s a -> s{_gtsrsCapabilitiesReason = a});
 
+-- | A list of parameter declarations that describe various properties for
+-- each parameter.
+gtsrsParameters :: Lens' GetTemplateSummaryResponse [ParameterDeclaration]
+gtsrsParameters = lens _gtsrsParameters (\ s a -> s{_gtsrsParameters = a}) . _Default . _Coerce;
+
 -- | The value that is defined for the 'Metadata' property of the template.
 gtsrsMetadata :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrsMetadata = lens _gtsrsMetadata (\ s a -> s{_gtsrsMetadata = a});
+
+-- | The value that is defined in the 'Description' property of the template.
+gtsrsDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)
+gtsrsDescription = lens _gtsrsDescription (\ s a -> s{_gtsrsDescription = a});
 
 -- | The capabilities found within the template. Currently, AWS
 -- CloudFormation supports only the CAPABILITY_IAM capability. If your
@@ -225,10 +229,6 @@ gtsrsMetadata = lens _gtsrsMetadata (\ s a -> s{_gtsrsMetadata = a});
 gtsrsCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
 gtsrsCapabilities = lens _gtsrsCapabilities (\ s a -> s{_gtsrsCapabilities = a}) . _Default . _Coerce;
 
--- | The value that is defined in the 'Description' property of the template.
-gtsrsDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)
-gtsrsDescription = lens _gtsrsDescription (\ s a -> s{_gtsrsDescription = a});
-
 -- | The response status code.
-gtsrsStatus :: Lens' GetTemplateSummaryResponse Int
-gtsrsStatus = lens _gtsrsStatus (\ s a -> s{_gtsrsStatus = a});
+gtsrsResponseStatus :: Lens' GetTemplateSummaryResponse Int
+gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a});

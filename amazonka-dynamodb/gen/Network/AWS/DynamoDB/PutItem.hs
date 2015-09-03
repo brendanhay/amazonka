@@ -54,10 +54,10 @@ module Network.AWS.DynamoDB.PutItem
       putItem
     , PutItem
     -- * Request Lenses
-    , piReturnValues
     , piExpressionAttributeNames
-    , piReturnConsumedCapacity
+    , piReturnValues
     , piExpressionAttributeValues
+    , piReturnConsumedCapacity
     , piReturnItemCollectionMetrics
     , piConditionExpression
     , piConditionalOperator
@@ -69,10 +69,10 @@ module Network.AWS.DynamoDB.PutItem
     , putItemResponse
     , PutItemResponse
     -- * Response Lenses
-    , pirsConsumedCapacity
     , pirsItemCollectionMetrics
+    , pirsConsumedCapacity
     , pirsAttributes
-    , pirsStatus
+    , pirsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -85,10 +85,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putItem' smart constructor.
 data PutItem = PutItem'
-    { _piReturnValues                :: !(Maybe ReturnValue)
-    , _piExpressionAttributeNames    :: !(Maybe (Map Text Text))
-    , _piReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    { _piExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    , _piReturnValues                :: !(Maybe ReturnValue)
     , _piExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
+    , _piReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
     , _piReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
     , _piConditionExpression         :: !(Maybe Text)
     , _piConditionalOperator         :: !(Maybe ConditionalOperator)
@@ -101,13 +101,13 @@ data PutItem = PutItem'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'piReturnValues'
---
 -- * 'piExpressionAttributeNames'
 --
--- * 'piReturnConsumedCapacity'
+-- * 'piReturnValues'
 --
 -- * 'piExpressionAttributeValues'
+--
+-- * 'piReturnConsumedCapacity'
 --
 -- * 'piReturnItemCollectionMetrics'
 --
@@ -125,10 +125,10 @@ putItem
     -> PutItem
 putItem pTableName_ =
     PutItem'
-    { _piReturnValues = Nothing
-    , _piExpressionAttributeNames = Nothing
-    , _piReturnConsumedCapacity = Nothing
+    { _piExpressionAttributeNames = Nothing
+    , _piReturnValues = Nothing
     , _piExpressionAttributeValues = Nothing
+    , _piReturnConsumedCapacity = Nothing
     , _piReturnItemCollectionMetrics = Nothing
     , _piConditionExpression = Nothing
     , _piConditionalOperator = Nothing
@@ -136,21 +136,6 @@ putItem pTableName_ =
     , _piTableName = pTableName_
     , _piItem = mempty
     }
-
--- | Use /ReturnValues/ if you want to get the item attributes as they
--- appeared before they were updated with the /PutItem/ request. For
--- /PutItem/, the valid values are:
---
--- -   'NONE' - If /ReturnValues/ is not specified, or if its value is
---     'NONE', then nothing is returned. (This setting is the default for
---     /ReturnValues/.)
---
--- -   'ALL_OLD' - If /PutItem/ overwrote an attribute name-value pair,
---     then the content of the old item is returned.
---
--- Other \"Valid Values\" are not relevant to PutItem.
-piReturnValues :: Lens' PutItem (Maybe ReturnValue)
-piReturnValues = lens _piReturnValues (\ s a -> s{_piReturnValues = a});
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using /ExpressionAttributeNames/:
@@ -192,9 +177,20 @@ piReturnValues = lens _piReturnValues (\ s a -> s{_piReturnValues = a});
 piExpressionAttributeNames :: Lens' PutItem (HashMap Text Text)
 piExpressionAttributeNames = lens _piExpressionAttributeNames (\ s a -> s{_piExpressionAttributeNames = a}) . _Default . _Map;
 
--- | Undocumented member.
-piReturnConsumedCapacity :: Lens' PutItem (Maybe ReturnConsumedCapacity)
-piReturnConsumedCapacity = lens _piReturnConsumedCapacity (\ s a -> s{_piReturnConsumedCapacity = a});
+-- | Use /ReturnValues/ if you want to get the item attributes as they
+-- appeared before they were updated with the /PutItem/ request. For
+-- /PutItem/, the valid values are:
+--
+-- -   'NONE' - If /ReturnValues/ is not specified, or if its value is
+--     'NONE', then nothing is returned. (This setting is the default for
+--     /ReturnValues/.)
+--
+-- -   'ALL_OLD' - If /PutItem/ overwrote an attribute name-value pair,
+--     then the content of the old item is returned.
+--
+-- Other \"Valid Values\" are not relevant to PutItem.
+piReturnValues :: Lens' PutItem (Maybe ReturnValue)
+piReturnValues = lens _piReturnValues (\ s a -> s{_piReturnValues = a});
 
 -- | One or more values that can be substituted in an expression.
 --
@@ -217,6 +213,10 @@ piReturnConsumedCapacity = lens _piReturnConsumedCapacity (\ s a -> s{_piReturnC
 -- in the /Amazon DynamoDB Developer Guide/.
 piExpressionAttributeValues :: Lens' PutItem (HashMap Text AttributeValue)
 piExpressionAttributeValues = lens _piExpressionAttributeValues (\ s a -> s{_piExpressionAttributeValues = a}) . _Default . _Map;
+
+-- | Undocumented member.
+piReturnConsumedCapacity :: Lens' PutItem (Maybe ReturnConsumedCapacity)
+piReturnConsumedCapacity = lens _piReturnConsumedCapacity (\ s a -> s{_piReturnConsumedCapacity = a});
 
 -- | Determines whether item collection metrics are returned. If set to
 -- 'SIZE', the response includes statistics about item collections, if any,
@@ -527,8 +527,8 @@ instance AWSRequest PutItem where
           = receiveJSON
               (\ s h x ->
                  PutItemResponse' <$>
-                   (x .?> "ConsumedCapacity") <*>
-                     (x .?> "ItemCollectionMetrics")
+                   (x .?> "ItemCollectionMetrics") <*>
+                     (x .?> "ConsumedCapacity")
                      <*> (x .?> "Attributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
@@ -545,13 +545,13 @@ instance ToJSON PutItem where
         toJSON PutItem'{..}
           = object
               (catMaybes
-                 [("ReturnValues" .=) <$> _piReturnValues,
-                  ("ExpressionAttributeNames" .=) <$>
+                 [("ExpressionAttributeNames" .=) <$>
                     _piExpressionAttributeNames,
-                  ("ReturnConsumedCapacity" .=) <$>
-                    _piReturnConsumedCapacity,
+                  ("ReturnValues" .=) <$> _piReturnValues,
                   ("ExpressionAttributeValues" .=) <$>
                     _piExpressionAttributeValues,
+                  ("ReturnConsumedCapacity" .=) <$>
+                    _piReturnConsumedCapacity,
                   ("ReturnItemCollectionMetrics" .=) <$>
                     _piReturnItemCollectionMetrics,
                   ("ConditionExpression" .=) <$>
@@ -572,37 +572,33 @@ instance ToQuery PutItem where
 --
 -- /See:/ 'putItemResponse' smart constructor.
 data PutItemResponse = PutItemResponse'
-    { _pirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
-    , _pirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
+    { _pirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
+    , _pirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
     , _pirsAttributes            :: !(Maybe (Map Text AttributeValue))
-    , _pirsStatus                :: !Int
+    , _pirsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutItemResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pirsConsumedCapacity'
---
 -- * 'pirsItemCollectionMetrics'
+--
+-- * 'pirsConsumedCapacity'
 --
 -- * 'pirsAttributes'
 --
--- * 'pirsStatus'
+-- * 'pirsResponseStatus'
 putItemResponse
-    :: Int -- ^ 'pirsStatus'
+    :: Int -- ^ 'pirsResponseStatus'
     -> PutItemResponse
-putItemResponse pStatus_ =
+putItemResponse pResponseStatus_ =
     PutItemResponse'
-    { _pirsConsumedCapacity = Nothing
-    , _pirsItemCollectionMetrics = Nothing
+    { _pirsItemCollectionMetrics = Nothing
+    , _pirsConsumedCapacity = Nothing
     , _pirsAttributes = Nothing
-    , _pirsStatus = pStatus_
+    , _pirsResponseStatus = pResponseStatus_
     }
-
--- | Undocumented member.
-pirsConsumedCapacity :: Lens' PutItemResponse (Maybe ConsumedCapacity)
-pirsConsumedCapacity = lens _pirsConsumedCapacity (\ s a -> s{_pirsConsumedCapacity = a});
 
 -- | Information about item collections, if any, that were affected by the
 -- operation. /ItemCollectionMetrics/ is only returned if the request asked
@@ -628,6 +624,10 @@ pirsConsumedCapacity = lens _pirsConsumedCapacity (\ s a -> s{_pirsConsumedCapac
 pirsItemCollectionMetrics :: Lens' PutItemResponse (Maybe ItemCollectionMetrics)
 pirsItemCollectionMetrics = lens _pirsItemCollectionMetrics (\ s a -> s{_pirsItemCollectionMetrics = a});
 
+-- | Undocumented member.
+pirsConsumedCapacity :: Lens' PutItemResponse (Maybe ConsumedCapacity)
+pirsConsumedCapacity = lens _pirsConsumedCapacity (\ s a -> s{_pirsConsumedCapacity = a});
+
 -- | The attribute values as they appeared before the /PutItem/ operation,
 -- but only if /ReturnValues/ is specified as 'ALL_OLD' in the request.
 -- Each element consists of an attribute name and an attribute value.
@@ -635,5 +635,5 @@ pirsAttributes :: Lens' PutItemResponse (HashMap Text AttributeValue)
 pirsAttributes = lens _pirsAttributes (\ s a -> s{_pirsAttributes = a}) . _Default . _Map;
 
 -- | The response status code.
-pirsStatus :: Lens' PutItemResponse Int
-pirsStatus = lens _pirsStatus (\ s a -> s{_pirsStatus = a});
+pirsResponseStatus :: Lens' PutItemResponse Int
+pirsResponseStatus = lens _pirsResponseStatus (\ s a -> s{_pirsResponseStatus = a});

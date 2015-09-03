@@ -59,7 +59,7 @@ module Network.AWS.Kinesis.DescribeStream
     , describeStreamResponse
     , DescribeStreamResponse
     -- * Response Lenses
-    , dsrsStatus
+    , dsrsResponseStatus
     , dsrsStreamDescription
     ) where
 
@@ -113,12 +113,11 @@ dStreamName = lens _dStreamName (\ s a -> s{_dStreamName = a});
 instance AWSPager DescribeStream where
         page rq rs
           | stop
-              (rs ^. dsrsStreamDescription . sdHasMoreShards)
-            = Nothing
-          | isNothing
               (rs ^?
                  dsrsStreamDescription . sdShards . _last . sShardId)
             = Nothing
+          | stop (rs ^. dsrsStreamDescription . sdShards) =
+            Nothing
           | otherwise =
             Just $ rq &
               dExclusiveStartShardId .~
@@ -162,7 +161,7 @@ instance ToQuery DescribeStream where
 --
 -- /See:/ 'describeStreamResponse' smart constructor.
 data DescribeStreamResponse = DescribeStreamResponse'
-    { _dsrsStatus            :: !Int
+    { _dsrsResponseStatus    :: !Int
     , _dsrsStreamDescription :: !StreamDescription
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -170,22 +169,22 @@ data DescribeStreamResponse = DescribeStreamResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsStatus'
+-- * 'dsrsResponseStatus'
 --
 -- * 'dsrsStreamDescription'
 describeStreamResponse
-    :: Int -- ^ 'dsrsStatus'
+    :: Int -- ^ 'dsrsResponseStatus'
     -> StreamDescription -- ^ 'dsrsStreamDescription'
     -> DescribeStreamResponse
-describeStreamResponse pStatus_ pStreamDescription_ =
+describeStreamResponse pResponseStatus_ pStreamDescription_ =
     DescribeStreamResponse'
-    { _dsrsStatus = pStatus_
+    { _dsrsResponseStatus = pResponseStatus_
     , _dsrsStreamDescription = pStreamDescription_
     }
 
 -- | The response status code.
-dsrsStatus :: Lens' DescribeStreamResponse Int
-dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
+dsrsResponseStatus :: Lens' DescribeStreamResponse Int
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
 -- | The current status of the stream, the stream ARN, an array of shard
 -- objects that comprise the stream, and states whether there are more

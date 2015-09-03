@@ -48,8 +48,8 @@ module Network.AWS.EC2.CreateRoute
       createRoute
     , CreateRoute
     -- * Request Lenses
-    , crInstanceId
     , crVPCPeeringConnectionId
+    , crInstanceId
     , crNetworkInterfaceId
     , crGatewayId
     , crDryRun
@@ -61,7 +61,7 @@ module Network.AWS.EC2.CreateRoute
     , CreateRouteResponse
     -- * Response Lenses
     , crrsReturn
-    , crrsStatus
+    , crrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -72,8 +72,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'createRoute' smart constructor.
 data CreateRoute = CreateRoute'
-    { _crInstanceId             :: !(Maybe Text)
-    , _crVPCPeeringConnectionId :: !(Maybe Text)
+    { _crVPCPeeringConnectionId :: !(Maybe Text)
+    , _crInstanceId             :: !(Maybe Text)
     , _crNetworkInterfaceId     :: !(Maybe Text)
     , _crGatewayId              :: !(Maybe Text)
     , _crDryRun                 :: !(Maybe Bool)
@@ -85,9 +85,9 @@ data CreateRoute = CreateRoute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crInstanceId'
---
 -- * 'crVPCPeeringConnectionId'
+--
+-- * 'crInstanceId'
 --
 -- * 'crNetworkInterfaceId'
 --
@@ -104,8 +104,8 @@ createRoute
     -> CreateRoute
 createRoute pRouteTableId_ pDestinationCIdRBlock_ =
     CreateRoute'
-    { _crInstanceId = Nothing
-    , _crVPCPeeringConnectionId = Nothing
+    { _crVPCPeeringConnectionId = Nothing
+    , _crInstanceId = Nothing
     , _crNetworkInterfaceId = Nothing
     , _crGatewayId = Nothing
     , _crDryRun = Nothing
@@ -113,14 +113,14 @@ createRoute pRouteTableId_ pDestinationCIdRBlock_ =
     , _crDestinationCIdRBlock = pDestinationCIdRBlock_
     }
 
+-- | The ID of a VPC peering connection.
+crVPCPeeringConnectionId :: Lens' CreateRoute (Maybe Text)
+crVPCPeeringConnectionId = lens _crVPCPeeringConnectionId (\ s a -> s{_crVPCPeeringConnectionId = a});
+
 -- | The ID of a NAT instance in your VPC. The operation fails if you specify
 -- an instance ID unless exactly one network interface is attached.
 crInstanceId :: Lens' CreateRoute (Maybe Text)
 crInstanceId = lens _crInstanceId (\ s a -> s{_crInstanceId = a});
-
--- | The ID of a VPC peering connection.
-crVPCPeeringConnectionId :: Lens' CreateRoute (Maybe Text)
-crVPCPeeringConnectionId = lens _crVPCPeeringConnectionId (\ s a -> s{_crVPCPeeringConnectionId = a});
 
 -- | The ID of a network interface.
 crNetworkInterfaceId :: Lens' CreateRoute (Maybe Text)
@@ -167,9 +167,9 @@ instance ToQuery CreateRoute where
           = mconcat
               ["Action" =: ("CreateRoute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "InstanceId" =: _crInstanceId,
                "VpcPeeringConnectionId" =:
                  _crVPCPeeringConnectionId,
+               "InstanceId" =: _crInstanceId,
                "NetworkInterfaceId" =: _crNetworkInterfaceId,
                "GatewayId" =: _crGatewayId, "DryRun" =: _crDryRun,
                "RouteTableId" =: _crRouteTableId,
@@ -177,8 +177,8 @@ instance ToQuery CreateRoute where
 
 -- | /See:/ 'createRouteResponse' smart constructor.
 data CreateRouteResponse = CreateRouteResponse'
-    { _crrsReturn :: !(Maybe Bool)
-    , _crrsStatus :: !Int
+    { _crrsReturn         :: !(Maybe Bool)
+    , _crrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateRouteResponse' with the minimum fields required to make a request.
@@ -187,14 +187,14 @@ data CreateRouteResponse = CreateRouteResponse'
 --
 -- * 'crrsReturn'
 --
--- * 'crrsStatus'
+-- * 'crrsResponseStatus'
 createRouteResponse
-    :: Int -- ^ 'crrsStatus'
+    :: Int -- ^ 'crrsResponseStatus'
     -> CreateRouteResponse
-createRouteResponse pStatus_ =
+createRouteResponse pResponseStatus_ =
     CreateRouteResponse'
     { _crrsReturn = Nothing
-    , _crrsStatus = pStatus_
+    , _crrsResponseStatus = pResponseStatus_
     }
 
 -- | Returns 'true' if the request succeeds; otherwise, it returns an error.
@@ -202,5 +202,5 @@ crrsReturn :: Lens' CreateRouteResponse (Maybe Bool)
 crrsReturn = lens _crrsReturn (\ s a -> s{_crrsReturn = a});
 
 -- | The response status code.
-crrsStatus :: Lens' CreateRouteResponse Int
-crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});
+crrsResponseStatus :: Lens' CreateRouteResponse Int
+crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});

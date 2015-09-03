@@ -49,7 +49,7 @@ module Network.AWS.RDS.FailoverDBCluster
     , FailoverDBClusterResponse
     -- * Response Lenses
     , fdcrsDBCluster
-    , fdcrsStatus
+    , fdcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -112,8 +112,8 @@ instance ToQuery FailoverDBCluster where
 
 -- | /See:/ 'failoverDBClusterResponse' smart constructor.
 data FailoverDBClusterResponse = FailoverDBClusterResponse'
-    { _fdcrsDBCluster :: !(Maybe DBCluster)
-    , _fdcrsStatus    :: !Int
+    { _fdcrsDBCluster      :: !(Maybe DBCluster)
+    , _fdcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FailoverDBClusterResponse' with the minimum fields required to make a request.
@@ -122,14 +122,14 @@ data FailoverDBClusterResponse = FailoverDBClusterResponse'
 --
 -- * 'fdcrsDBCluster'
 --
--- * 'fdcrsStatus'
+-- * 'fdcrsResponseStatus'
 failoverDBClusterResponse
-    :: Int -- ^ 'fdcrsStatus'
+    :: Int -- ^ 'fdcrsResponseStatus'
     -> FailoverDBClusterResponse
-failoverDBClusterResponse pStatus_ =
+failoverDBClusterResponse pResponseStatus_ =
     FailoverDBClusterResponse'
     { _fdcrsDBCluster = Nothing
-    , _fdcrsStatus = pStatus_
+    , _fdcrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -137,5 +137,5 @@ fdcrsDBCluster :: Lens' FailoverDBClusterResponse (Maybe DBCluster)
 fdcrsDBCluster = lens _fdcrsDBCluster (\ s a -> s{_fdcrsDBCluster = a});
 
 -- | The response status code.
-fdcrsStatus :: Lens' FailoverDBClusterResponse Int
-fdcrsStatus = lens _fdcrsStatus (\ s a -> s{_fdcrsStatus = a});
+fdcrsResponseStatus :: Lens' FailoverDBClusterResponse Int
+fdcrsResponseStatus = lens _fdcrsResponseStatus (\ s a -> s{_fdcrsResponseStatus = a});

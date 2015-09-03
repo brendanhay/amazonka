@@ -37,7 +37,7 @@ module Network.AWS.CodePipeline.UpdatePipeline
     , UpdatePipelineResponse
     -- * Response Lenses
     , uprsPipeline
-    , uprsStatus
+    , uprsResponseStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -104,8 +104,8 @@ instance ToQuery UpdatePipeline where
 --
 -- /See:/ 'updatePipelineResponse' smart constructor.
 data UpdatePipelineResponse = UpdatePipelineResponse'
-    { _uprsPipeline :: !(Maybe PipelineDeclaration)
-    , _uprsStatus   :: !Int
+    { _uprsPipeline       :: !(Maybe PipelineDeclaration)
+    , _uprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdatePipelineResponse' with the minimum fields required to make a request.
@@ -114,14 +114,14 @@ data UpdatePipelineResponse = UpdatePipelineResponse'
 --
 -- * 'uprsPipeline'
 --
--- * 'uprsStatus'
+-- * 'uprsResponseStatus'
 updatePipelineResponse
-    :: Int -- ^ 'uprsStatus'
+    :: Int -- ^ 'uprsResponseStatus'
     -> UpdatePipelineResponse
-updatePipelineResponse pStatus_ =
+updatePipelineResponse pResponseStatus_ =
     UpdatePipelineResponse'
     { _uprsPipeline = Nothing
-    , _uprsStatus = pStatus_
+    , _uprsResponseStatus = pResponseStatus_
     }
 
 -- | The structure of the updated pipeline.
@@ -129,5 +129,5 @@ uprsPipeline :: Lens' UpdatePipelineResponse (Maybe PipelineDeclaration)
 uprsPipeline = lens _uprsPipeline (\ s a -> s{_uprsPipeline = a});
 
 -- | The response status code.
-uprsStatus :: Lens' UpdatePipelineResponse Int
-uprsStatus = lens _uprsStatus (\ s a -> s{_uprsStatus = a});
+uprsResponseStatus :: Lens' UpdatePipelineResponse Int
+uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});

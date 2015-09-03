@@ -39,9 +39,9 @@ module Network.AWS.EC2.CreateImage
     , CreateImage
     -- * Request Lenses
     , ciiNoReboot
+    , ciiDescription
     , ciiBlockDeviceMappings
     , ciiDryRun
-    , ciiDescription
     , ciiInstanceId
     , ciiName
 
@@ -50,7 +50,7 @@ module Network.AWS.EC2.CreateImage
     , CreateImageResponse
     -- * Response Lenses
     , cirsImageId
-    , cirsStatus
+    , cirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -62,9 +62,9 @@ import           Network.AWS.Response
 -- | /See:/ 'createImage' smart constructor.
 data CreateImage = CreateImage'
     { _ciiNoReboot            :: !(Maybe Bool)
+    , _ciiDescription         :: !(Maybe Text)
     , _ciiBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _ciiDryRun              :: !(Maybe Bool)
-    , _ciiDescription         :: !(Maybe Text)
     , _ciiInstanceId          :: !Text
     , _ciiName                :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -75,11 +75,11 @@ data CreateImage = CreateImage'
 --
 -- * 'ciiNoReboot'
 --
+-- * 'ciiDescription'
+--
 -- * 'ciiBlockDeviceMappings'
 --
 -- * 'ciiDryRun'
---
--- * 'ciiDescription'
 --
 -- * 'ciiInstanceId'
 --
@@ -91,9 +91,9 @@ createImage
 createImage pInstanceId_ pName_ =
     CreateImage'
     { _ciiNoReboot = Nothing
+    , _ciiDescription = Nothing
     , _ciiBlockDeviceMappings = Nothing
     , _ciiDryRun = Nothing
-    , _ciiDescription = Nothing
     , _ciiInstanceId = pInstanceId_
     , _ciiName = pName_
     }
@@ -107,6 +107,10 @@ createImage pInstanceId_ pName_ =
 ciiNoReboot :: Lens' CreateImage (Maybe Bool)
 ciiNoReboot = lens _ciiNoReboot (\ s a -> s{_ciiNoReboot = a});
 
+-- | A description for the new image.
+ciiDescription :: Lens' CreateImage (Maybe Text)
+ciiDescription = lens _ciiDescription (\ s a -> s{_ciiDescription = a});
+
 -- | Information about one or more block device mappings.
 ciiBlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
 ciiBlockDeviceMappings = lens _ciiBlockDeviceMappings (\ s a -> s{_ciiBlockDeviceMappings = a}) . _Default . _Coerce;
@@ -117,10 +121,6 @@ ciiBlockDeviceMappings = lens _ciiBlockDeviceMappings (\ s a -> s{_ciiBlockDevic
 -- Otherwise, it is 'UnauthorizedOperation'.
 ciiDryRun :: Lens' CreateImage (Maybe Bool)
 ciiDryRun = lens _ciiDryRun (\ s a -> s{_ciiDryRun = a});
-
--- | A description for the new image.
-ciiDescription :: Lens' CreateImage (Maybe Text)
-ciiDescription = lens _ciiDescription (\ s a -> s{_ciiDescription = a});
 
 -- | The ID of the instance.
 ciiInstanceId :: Lens' CreateImage Text
@@ -155,17 +155,17 @@ instance ToQuery CreateImage where
               ["Action" =: ("CreateImage" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "NoReboot" =: _ciiNoReboot,
+               "Description" =: _ciiDescription,
                toQuery
                  (toQueryList "BlockDeviceMapping" <$>
                     _ciiBlockDeviceMappings),
                "DryRun" =: _ciiDryRun,
-               "Description" =: _ciiDescription,
                "InstanceId" =: _ciiInstanceId, "Name" =: _ciiName]
 
 -- | /See:/ 'createImageResponse' smart constructor.
 data CreateImageResponse = CreateImageResponse'
-    { _cirsImageId :: !(Maybe Text)
-    , _cirsStatus  :: !Int
+    { _cirsImageId        :: !(Maybe Text)
+    , _cirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateImageResponse' with the minimum fields required to make a request.
@@ -174,14 +174,14 @@ data CreateImageResponse = CreateImageResponse'
 --
 -- * 'cirsImageId'
 --
--- * 'cirsStatus'
+-- * 'cirsResponseStatus'
 createImageResponse
-    :: Int -- ^ 'cirsStatus'
+    :: Int -- ^ 'cirsResponseStatus'
     -> CreateImageResponse
-createImageResponse pStatus_ =
+createImageResponse pResponseStatus_ =
     CreateImageResponse'
     { _cirsImageId = Nothing
-    , _cirsStatus = pStatus_
+    , _cirsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the new AMI.
@@ -189,5 +189,5 @@ cirsImageId :: Lens' CreateImageResponse (Maybe Text)
 cirsImageId = lens _cirsImageId (\ s a -> s{_cirsImageId = a});
 
 -- | The response status code.
-cirsStatus :: Lens' CreateImageResponse Int
-cirsStatus = lens _cirsStatus (\ s a -> s{_cirsStatus = a});
+cirsResponseStatus :: Lens' CreateImageResponse Int
+cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});

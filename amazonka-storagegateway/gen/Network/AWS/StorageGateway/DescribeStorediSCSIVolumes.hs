@@ -37,7 +37,7 @@ module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     , DescribeStorediSCSIVolumesResponse
     -- * Response Lenses
     , dsscsivrsStorediSCSIVolumes
-    , dsscsivrsStatus
+    , dsscsivrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -108,7 +108,7 @@ instance ToQuery DescribeStorediSCSIVolumes where
 -- | /See:/ 'describeStorediSCSIVolumesResponse' smart constructor.
 data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'
     { _dsscsivrsStorediSCSIVolumes :: !(Maybe [StorediSCSIVolume])
-    , _dsscsivrsStatus             :: !Int
+    , _dsscsivrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeStorediSCSIVolumesResponse' with the minimum fields required to make a request.
@@ -117,14 +117,14 @@ data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'
 --
 -- * 'dsscsivrsStorediSCSIVolumes'
 --
--- * 'dsscsivrsStatus'
+-- * 'dsscsivrsResponseStatus'
 describeStorediSCSIVolumesResponse
-    :: Int -- ^ 'dsscsivrsStatus'
+    :: Int -- ^ 'dsscsivrsResponseStatus'
     -> DescribeStorediSCSIVolumesResponse
-describeStorediSCSIVolumesResponse pStatus_ =
+describeStorediSCSIVolumesResponse pResponseStatus_ =
     DescribeStorediSCSIVolumesResponse'
     { _dsscsivrsStorediSCSIVolumes = Nothing
-    , _dsscsivrsStatus = pStatus_
+    , _dsscsivrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -132,5 +132,5 @@ dsscsivrsStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [Storedi
 dsscsivrsStorediSCSIVolumes = lens _dsscsivrsStorediSCSIVolumes (\ s a -> s{_dsscsivrsStorediSCSIVolumes = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dsscsivrsStatus :: Lens' DescribeStorediSCSIVolumesResponse Int
-dsscsivrsStatus = lens _dsscsivrsStatus (\ s a -> s{_dsscsivrsStatus = a});
+dsscsivrsResponseStatus :: Lens' DescribeStorediSCSIVolumesResponse Int
+dsscsivrsResponseStatus = lens _dsscsivrsResponseStatus (\ s a -> s{_dsscsivrsResponseStatus = a});

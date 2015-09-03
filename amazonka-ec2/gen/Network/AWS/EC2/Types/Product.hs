@@ -134,8 +134,8 @@ instance FromXML ActiveInstance where
 --
 -- /See:/ 'address' smart constructor.
 data Address = Address'
-    { _aInstanceId              :: !(Maybe Text)
-    , _aAssociationId           :: !(Maybe Text)
+    { _aAssociationId           :: !(Maybe Text)
+    , _aInstanceId              :: !(Maybe Text)
     , _aNetworkInterfaceOwnerId :: !(Maybe Text)
     , _aAllocationId            :: !(Maybe Text)
     , _aDomain                  :: !(Maybe DomainType)
@@ -148,9 +148,9 @@ data Address = Address'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aInstanceId'
---
 -- * 'aAssociationId'
+--
+-- * 'aInstanceId'
 --
 -- * 'aNetworkInterfaceOwnerId'
 --
@@ -167,8 +167,8 @@ address
     :: Address
 address =
     Address'
-    { _aInstanceId = Nothing
-    , _aAssociationId = Nothing
+    { _aAssociationId = Nothing
+    , _aInstanceId = Nothing
     , _aNetworkInterfaceOwnerId = Nothing
     , _aAllocationId = Nothing
     , _aDomain = Nothing
@@ -177,14 +177,14 @@ address =
     , _aPublicIP = Nothing
     }
 
--- | The ID of the instance that the address is associated with (if any).
-aInstanceId :: Lens' Address (Maybe Text)
-aInstanceId = lens _aInstanceId (\ s a -> s{_aInstanceId = a});
-
 -- | The ID representing the association of the address with an instance in a
 -- VPC.
 aAssociationId :: Lens' Address (Maybe Text)
 aAssociationId = lens _aAssociationId (\ s a -> s{_aAssociationId = a});
+
+-- | The ID of the instance that the address is associated with (if any).
+aInstanceId :: Lens' Address (Maybe Text)
+aInstanceId = lens _aInstanceId (\ s a -> s{_aInstanceId = a});
 
 -- | The ID of the AWS account that owns the network interface.
 aNetworkInterfaceOwnerId :: Lens' Address (Maybe Text)
@@ -214,7 +214,7 @@ aPublicIP = lens _aPublicIP (\ s a -> s{_aPublicIP = a});
 instance FromXML Address where
         parseXML x
           = Address' <$>
-              (x .@? "instanceId") <*> (x .@? "associationId") <*>
+              (x .@? "associationId") <*> (x .@? "instanceId") <*>
                 (x .@? "networkInterfaceOwnerId")
                 <*> (x .@? "allocationId")
                 <*> (x .@? "domain")
@@ -287,8 +287,8 @@ instance ToQuery AttributeValue where
 --
 -- /See:/ 'availabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
-    { _azRegionName :: !(Maybe Text)
-    , _azState      :: !(Maybe AvailabilityZoneState)
+    { _azState      :: !(Maybe AvailabilityZoneState)
+    , _azRegionName :: !(Maybe Text)
     , _azZoneName   :: !(Maybe Text)
     , _azMessages   :: !(Maybe [AvailabilityZoneMessage])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -297,9 +297,9 @@ data AvailabilityZone = AvailabilityZone'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'azRegionName'
---
 -- * 'azState'
+--
+-- * 'azRegionName'
 --
 -- * 'azZoneName'
 --
@@ -308,20 +308,20 @@ availabilityZone
     :: AvailabilityZone
 availabilityZone =
     AvailabilityZone'
-    { _azRegionName = Nothing
-    , _azState = Nothing
+    { _azState = Nothing
+    , _azRegionName = Nothing
     , _azZoneName = Nothing
     , _azMessages = Nothing
     }
-
--- | The name of the region.
-azRegionName :: Lens' AvailabilityZone (Maybe Text)
-azRegionName = lens _azRegionName (\ s a -> s{_azRegionName = a});
 
 -- | The state of the Availability Zone ('available' | 'impaired' |
 -- 'unavailable').
 azState :: Lens' AvailabilityZone (Maybe AvailabilityZoneState)
 azState = lens _azState (\ s a -> s{_azState = a});
+
+-- | The name of the region.
+azRegionName :: Lens' AvailabilityZone (Maybe Text)
+azRegionName = lens _azRegionName (\ s a -> s{_azRegionName = a});
 
 -- | The name of the Availability Zone.
 azZoneName :: Lens' AvailabilityZone (Maybe Text)
@@ -334,7 +334,7 @@ azMessages = lens _azMessages (\ s a -> s{_azMessages = a}) . _Default . _Coerce
 instance FromXML AvailabilityZone where
         parseXML x
           = AvailabilityZone' <$>
-              (x .@? "regionName") <*> (x .@? "zoneState") <*>
+              (x .@? "zoneState") <*> (x .@? "regionName") <*>
                 (x .@? "zoneName")
                 <*>
                 (x .@? "messageSet" .!@ mempty >>=
@@ -1531,8 +1531,8 @@ instance ToQuery EBSBlockDevice where
 --
 -- /See:/ 'ebsInstanceBlockDevice' smart constructor.
 data EBSInstanceBlockDevice = EBSInstanceBlockDevice'
-    { _eibdDeleteOnTermination :: !(Maybe Bool)
-    , _eibdStatus              :: !(Maybe AttachmentStatus)
+    { _eibdStatus              :: !(Maybe AttachmentStatus)
+    , _eibdDeleteOnTermination :: !(Maybe Bool)
     , _eibdVolumeId            :: !(Maybe Text)
     , _eibdAttachTime          :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1541,9 +1541,9 @@ data EBSInstanceBlockDevice = EBSInstanceBlockDevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eibdDeleteOnTermination'
---
 -- * 'eibdStatus'
+--
+-- * 'eibdDeleteOnTermination'
 --
 -- * 'eibdVolumeId'
 --
@@ -1552,19 +1552,19 @@ ebsInstanceBlockDevice
     :: EBSInstanceBlockDevice
 ebsInstanceBlockDevice =
     EBSInstanceBlockDevice'
-    { _eibdDeleteOnTermination = Nothing
-    , _eibdStatus = Nothing
+    { _eibdStatus = Nothing
+    , _eibdDeleteOnTermination = Nothing
     , _eibdVolumeId = Nothing
     , _eibdAttachTime = Nothing
     }
 
--- | Indicates whether the volume is deleted on instance termination.
-eibdDeleteOnTermination :: Lens' EBSInstanceBlockDevice (Maybe Bool)
-eibdDeleteOnTermination = lens _eibdDeleteOnTermination (\ s a -> s{_eibdDeleteOnTermination = a});
-
 -- | The attachment state.
 eibdStatus :: Lens' EBSInstanceBlockDevice (Maybe AttachmentStatus)
 eibdStatus = lens _eibdStatus (\ s a -> s{_eibdStatus = a});
+
+-- | Indicates whether the volume is deleted on instance termination.
+eibdDeleteOnTermination :: Lens' EBSInstanceBlockDevice (Maybe Bool)
+eibdDeleteOnTermination = lens _eibdDeleteOnTermination (\ s a -> s{_eibdDeleteOnTermination = a});
 
 -- | The ID of the EBS volume.
 eibdVolumeId :: Lens' EBSInstanceBlockDevice (Maybe Text)
@@ -1577,7 +1577,7 @@ eibdAttachTime = lens _eibdAttachTime (\ s a -> s{_eibdAttachTime = a}) . mappin
 instance FromXML EBSInstanceBlockDevice where
         parseXML x
           = EBSInstanceBlockDevice' <$>
-              (x .@? "deleteOnTermination") <*> (x .@? "status")
+              (x .@? "status") <*> (x .@? "deleteOnTermination")
                 <*> (x .@? "volumeId")
                 <*> (x .@? "attachTime")
 
@@ -1684,7 +1684,7 @@ eiEventDescription = lens _eiEventDescription (\ s a -> s{_eiEventDescription = 
 --
 -- -   'expired' - The Spot fleet request has expired. A subsequent event
 --     indicates that the instances were terminated, if the request was
---     created with 'terminateInstancesWithExpiration' set.
+--     created with 'TerminateInstancesWithExpiration' set.
 --
 -- -   'price_update' - The bid price for a launch configuration was
 --     adjusted because it was too high. This change is permanent.
@@ -1951,8 +1951,8 @@ data FlowLog = FlowLog'
     , _flTrafficType              :: !(Maybe TrafficType)
     , _flDeliverLogsStatus        :: !(Maybe Text)
     , _flDeliverLogsErrorMessage  :: !(Maybe Text)
-    , _flDeliverLogsPermissionARN :: !(Maybe Text)
     , _flLogGroupName             :: !(Maybe Text)
+    , _flDeliverLogsPermissionARN :: !(Maybe Text)
     , _flFlowLogId                :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1972,9 +1972,9 @@ data FlowLog = FlowLog'
 --
 -- * 'flDeliverLogsErrorMessage'
 --
--- * 'flDeliverLogsPermissionARN'
---
 -- * 'flLogGroupName'
+--
+-- * 'flDeliverLogsPermissionARN'
 --
 -- * 'flFlowLogId'
 flowLog
@@ -1987,8 +1987,8 @@ flowLog =
     , _flTrafficType = Nothing
     , _flDeliverLogsStatus = Nothing
     , _flDeliverLogsErrorMessage = Nothing
-    , _flDeliverLogsPermissionARN = Nothing
     , _flLogGroupName = Nothing
+    , _flDeliverLogsPermissionARN = Nothing
     , _flFlowLogId = Nothing
     }
 
@@ -2020,13 +2020,13 @@ flDeliverLogsStatus = lens _flDeliverLogsStatus (\ s a -> s{_flDeliverLogsStatus
 flDeliverLogsErrorMessage :: Lens' FlowLog (Maybe Text)
 flDeliverLogsErrorMessage = lens _flDeliverLogsErrorMessage (\ s a -> s{_flDeliverLogsErrorMessage = a});
 
--- | The ARN of the IAM role that posts logs to CloudWatch Logs.
-flDeliverLogsPermissionARN :: Lens' FlowLog (Maybe Text)
-flDeliverLogsPermissionARN = lens _flDeliverLogsPermissionARN (\ s a -> s{_flDeliverLogsPermissionARN = a});
-
 -- | The name of the flow log group.
 flLogGroupName :: Lens' FlowLog (Maybe Text)
 flLogGroupName = lens _flLogGroupName (\ s a -> s{_flLogGroupName = a});
+
+-- | The ARN of the IAM role that posts logs to CloudWatch Logs.
+flDeliverLogsPermissionARN :: Lens' FlowLog (Maybe Text)
+flDeliverLogsPermissionARN = lens _flDeliverLogsPermissionARN (\ s a -> s{_flDeliverLogsPermissionARN = a});
 
 -- | The flow log ID.
 flFlowLogId :: Lens' FlowLog (Maybe Text)
@@ -2040,8 +2040,8 @@ instance FromXML FlowLog where
                 <*> (x .@? "trafficType")
                 <*> (x .@? "deliverLogsStatus")
                 <*> (x .@? "deliverLogsErrorMessage")
-                <*> (x .@? "deliverLogsPermissionArn")
                 <*> (x .@? "logGroupName")
+                <*> (x .@? "deliverLogsPermissionArn")
                 <*> (x .@? "flowLogId")
 
 -- | Describes a security group.
@@ -2413,8 +2413,8 @@ data Image = Image'
     , _iCreationDate        :: !(Maybe Text)
     , _iProductCodes        :: !(Maybe [ProductCode])
     , _iStateReason         :: !(Maybe StateReason)
-    , _iBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _iDescription         :: !(Maybe Text)
+    , _iBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _iTags                :: !(Maybe [Tag])
     , _iImageId             :: !Text
     , _iImageLocation       :: !Text
@@ -2452,9 +2452,9 @@ data Image = Image'
 --
 -- * 'iStateReason'
 --
--- * 'iBlockDeviceMappings'
---
 -- * 'iDescription'
+--
+-- * 'iBlockDeviceMappings'
 --
 -- * 'iTags'
 --
@@ -2501,8 +2501,8 @@ image pImageId_ pImageLocation_ pState_ pOwnerId_ pPublic_ pArchitecture_ pImage
     , _iCreationDate = Nothing
     , _iProductCodes = Nothing
     , _iStateReason = Nothing
-    , _iBlockDeviceMappings = Nothing
     , _iDescription = Nothing
+    , _iBlockDeviceMappings = Nothing
     , _iTags = Nothing
     , _iImageId = pImageId_
     , _iImageLocation = pImageLocation_
@@ -2560,13 +2560,13 @@ iProductCodes = lens _iProductCodes (\ s a -> s{_iProductCodes = a}) . _Default 
 iStateReason :: Lens' Image (Maybe StateReason)
 iStateReason = lens _iStateReason (\ s a -> s{_iStateReason = a});
 
--- | Any block device mapping entries.
-iBlockDeviceMappings :: Lens' Image [BlockDeviceMapping]
-iBlockDeviceMappings = lens _iBlockDeviceMappings (\ s a -> s{_iBlockDeviceMappings = a}) . _Default . _Coerce;
-
 -- | The description of the AMI that was provided during image creation.
 iDescription :: Lens' Image (Maybe Text)
 iDescription = lens _iDescription (\ s a -> s{_iDescription = a});
+
+-- | Any block device mapping entries.
+iBlockDeviceMappings :: Lens' Image [BlockDeviceMapping]
+iBlockDeviceMappings = lens _iBlockDeviceMappings (\ s a -> s{_iBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | Any tags assigned to the image.
 iTags :: Lens' Image [Tag]
@@ -2630,10 +2630,10 @@ instance FromXML Image where
                 (x .@? "productCodes" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@? "stateReason")
+                <*> (x .@? "description")
                 <*>
                 (x .@? "blockDeviceMapping" .!@ mempty >>=
                    may (parseXMLList "item"))
-                <*> (x .@? "description")
                 <*>
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
@@ -2652,8 +2652,8 @@ instance FromXML Image where
 --
 -- /See:/ 'imageDiskContainer' smart constructor.
 data ImageDiskContainer = ImageDiskContainer'
-    { _idcURL         :: !(Maybe Text)
-    , _idcFormat      :: !(Maybe Text)
+    { _idcFormat      :: !(Maybe Text)
+    , _idcURL         :: !(Maybe Text)
     , _idcDeviceName  :: !(Maybe Text)
     , _idcUserBucket  :: !(Maybe UserBucket)
     , _idcDescription :: !(Maybe Text)
@@ -2664,9 +2664,9 @@ data ImageDiskContainer = ImageDiskContainer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'idcURL'
---
 -- * 'idcFormat'
+--
+-- * 'idcURL'
 --
 -- * 'idcDeviceName'
 --
@@ -2679,24 +2679,24 @@ imageDiskContainer
     :: ImageDiskContainer
 imageDiskContainer =
     ImageDiskContainer'
-    { _idcURL = Nothing
-    , _idcFormat = Nothing
+    { _idcFormat = Nothing
+    , _idcURL = Nothing
     , _idcDeviceName = Nothing
     , _idcUserBucket = Nothing
     , _idcDescription = Nothing
     , _idcSnapshotId = Nothing
     }
 
--- | The URL to the Amazon S3-based disk image being imported. The URL can
--- either be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..)
-idcURL :: Lens' ImageDiskContainer (Maybe Text)
-idcURL = lens _idcURL (\ s a -> s{_idcURL = a});
-
 -- | The format of the disk image being imported.
 --
 -- Valid values: 'RAW' | 'VHD' | 'VMDK' | 'OVA'
 idcFormat :: Lens' ImageDiskContainer (Maybe Text)
 idcFormat = lens _idcFormat (\ s a -> s{_idcFormat = a});
+
+-- | The URL to the Amazon S3-based disk image being imported. The URL can
+-- either be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..)
+idcURL :: Lens' ImageDiskContainer (Maybe Text)
+idcURL = lens _idcURL (\ s a -> s{_idcURL = a});
 
 -- | The block device mapping for the disk.
 idcDeviceName :: Lens' ImageDiskContainer (Maybe Text)
@@ -2717,7 +2717,7 @@ idcSnapshotId = lens _idcSnapshotId (\ s a -> s{_idcSnapshotId = a});
 instance ToQuery ImageDiskContainer where
         toQuery ImageDiskContainer'{..}
           = mconcat
-              ["Url" =: _idcURL, "Format" =: _idcFormat,
+              ["Format" =: _idcFormat, "Url" =: _idcURL,
                "DeviceName" =: _idcDeviceName,
                "UserBucket" =: _idcUserBucket,
                "Description" =: _idcDescription,
@@ -2854,12 +2854,12 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'
     { _iilsAdditionalInfo                    :: !(Maybe Text)
     , _iilsGroupNames                        :: !(Maybe [Text])
     , _iilsSubnetId                          :: !(Maybe Text)
-    , _iilsGroupIds                          :: !(Maybe [Text])
     , _iilsInstanceType                      :: !(Maybe InstanceType)
+    , _iilsGroupIds                          :: !(Maybe [Text])
     , _iilsUserData                          :: !(Maybe UserData)
     , _iilsMonitoring                        :: !(Maybe Bool)
-    , _iilsInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
     , _iilsPrivateIPAddress                  :: !(Maybe Text)
+    , _iilsInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
     , _iilsArchitecture                      :: !(Maybe ArchitectureValues)
     , _iilsPlacement                         :: !(Maybe Placement)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -2874,17 +2874,17 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'
 --
 -- * 'iilsSubnetId'
 --
--- * 'iilsGroupIds'
---
 -- * 'iilsInstanceType'
+--
+-- * 'iilsGroupIds'
 --
 -- * 'iilsUserData'
 --
 -- * 'iilsMonitoring'
 --
--- * 'iilsInstanceInitiatedShutdownBehavior'
---
 -- * 'iilsPrivateIPAddress'
+--
+-- * 'iilsInstanceInitiatedShutdownBehavior'
 --
 -- * 'iilsArchitecture'
 --
@@ -2896,12 +2896,12 @@ importInstanceLaunchSpecification =
     { _iilsAdditionalInfo = Nothing
     , _iilsGroupNames = Nothing
     , _iilsSubnetId = Nothing
-    , _iilsGroupIds = Nothing
     , _iilsInstanceType = Nothing
+    , _iilsGroupIds = Nothing
     , _iilsUserData = Nothing
     , _iilsMonitoring = Nothing
-    , _iilsInstanceInitiatedShutdownBehavior = Nothing
     , _iilsPrivateIPAddress = Nothing
+    , _iilsInstanceInitiatedShutdownBehavior = Nothing
     , _iilsArchitecture = Nothing
     , _iilsPlacement = Nothing
     }
@@ -2918,16 +2918,16 @@ iilsGroupNames = lens _iilsGroupNames (\ s a -> s{_iilsGroupNames = a}) . _Defau
 iilsSubnetId :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
 iilsSubnetId = lens _iilsSubnetId (\ s a -> s{_iilsSubnetId = a});
 
--- | One or more security group IDs.
-iilsGroupIds :: Lens' ImportInstanceLaunchSpecification [Text]
-iilsGroupIds = lens _iilsGroupIds (\ s a -> s{_iilsGroupIds = a}) . _Default . _Coerce;
-
 -- | The instance type. For more information about the instance types that
 -- you can import, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html Before You Get Started>
 -- in the Amazon Elastic Compute Cloud User Guide.
 iilsInstanceType :: Lens' ImportInstanceLaunchSpecification (Maybe InstanceType)
 iilsInstanceType = lens _iilsInstanceType (\ s a -> s{_iilsInstanceType = a});
+
+-- | One or more security group IDs.
+iilsGroupIds :: Lens' ImportInstanceLaunchSpecification [Text]
+iilsGroupIds = lens _iilsGroupIds (\ s a -> s{_iilsGroupIds = a}) . _Default . _Coerce;
 
 -- | The Base64-encoded MIME user data to be made available to the instance.
 iilsUserData :: Lens' ImportInstanceLaunchSpecification (Maybe UserData)
@@ -2937,16 +2937,16 @@ iilsUserData = lens _iilsUserData (\ s a -> s{_iilsUserData = a});
 iilsMonitoring :: Lens' ImportInstanceLaunchSpecification (Maybe Bool)
 iilsMonitoring = lens _iilsMonitoring (\ s a -> s{_iilsMonitoring = a});
 
+-- | [EC2-VPC] An available IP address from the IP address range of the
+-- subnet.
+iilsPrivateIPAddress :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
+iilsPrivateIPAddress = lens _iilsPrivateIPAddress (\ s a -> s{_iilsPrivateIPAddress = a});
+
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for
 -- system shutdown).
 iilsInstanceInitiatedShutdownBehavior :: Lens' ImportInstanceLaunchSpecification (Maybe ShutdownBehavior)
 iilsInstanceInitiatedShutdownBehavior = lens _iilsInstanceInitiatedShutdownBehavior (\ s a -> s{_iilsInstanceInitiatedShutdownBehavior = a});
-
--- | [EC2-VPC] An available IP address from the IP address range of the
--- subnet.
-iilsPrivateIPAddress :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
-iilsPrivateIPAddress = lens _iilsPrivateIPAddress (\ s a -> s{_iilsPrivateIPAddress = a});
 
 -- | The architecture of the instance.
 iilsArchitecture :: Lens' ImportInstanceLaunchSpecification (Maybe ArchitectureValues)
@@ -2964,13 +2964,13 @@ instance ToQuery ImportInstanceLaunchSpecification
                toQuery
                  (toQueryList "GroupName" <$> _iilsGroupNames),
                "SubnetId" =: _iilsSubnetId,
-               toQuery (toQueryList "GroupId" <$> _iilsGroupIds),
                "InstanceType" =: _iilsInstanceType,
+               toQuery (toQueryList "GroupId" <$> _iilsGroupIds),
                "UserData" =: _iilsUserData,
                "Monitoring" =: _iilsMonitoring,
+               "PrivateIpAddress" =: _iilsPrivateIPAddress,
                "InstanceInitiatedShutdownBehavior" =:
                  _iilsInstanceInitiatedShutdownBehavior,
-               "PrivateIpAddress" =: _iilsPrivateIPAddress,
                "Architecture" =: _iilsArchitecture,
                "Placement" =: _iilsPlacement]
 
@@ -3238,17 +3238,17 @@ data Instance = Instance'
     , _insClientToken           :: !(Maybe Text)
     , _insSourceDestCheck       :: !(Maybe Bool)
     , _insVPCId                 :: !(Maybe Text)
-    , _insNetworkInterfaces     :: !(Maybe [InstanceNetworkInterface])
     , _insKeyName               :: !(Maybe Text)
+    , _insNetworkInterfaces     :: !(Maybe [InstanceNetworkInterface])
     , _insRAMDiskId             :: !(Maybe Text)
-    , _insKernelId              :: !(Maybe Text)
     , _insSubnetId              :: !(Maybe Text)
+    , _insKernelId              :: !(Maybe Text)
     , _insRootDeviceName        :: !(Maybe Text)
-    , _insEBSOptimized          :: !(Maybe Bool)
     , _insSRIOVNetSupport       :: !(Maybe Text)
+    , _insEBSOptimized          :: !(Maybe Bool)
     , _insStateTransitionReason :: !(Maybe Text)
-    , _insIAMInstanceProfile    :: !(Maybe IAMInstanceProfile)
     , _insInstanceLifecycle     :: !(Maybe InstanceLifecycleType)
+    , _insIAMInstanceProfile    :: !(Maybe IAMInstanceProfile)
     , _insPrivateIPAddress      :: !(Maybe Text)
     , _insProductCodes          :: !(Maybe [ProductCode])
     , _insSpotInstanceRequestId :: !(Maybe Text)
@@ -3287,27 +3287,27 @@ data Instance = Instance'
 --
 -- * 'insVPCId'
 --
--- * 'insNetworkInterfaces'
---
 -- * 'insKeyName'
+--
+-- * 'insNetworkInterfaces'
 --
 -- * 'insRAMDiskId'
 --
--- * 'insKernelId'
---
 -- * 'insSubnetId'
+--
+-- * 'insKernelId'
 --
 -- * 'insRootDeviceName'
 --
--- * 'insEBSOptimized'
---
 -- * 'insSRIOVNetSupport'
+--
+-- * 'insEBSOptimized'
 --
 -- * 'insStateTransitionReason'
 --
--- * 'insIAMInstanceProfile'
---
 -- * 'insInstanceLifecycle'
+--
+-- * 'insIAMInstanceProfile'
 --
 -- * 'insPrivateIPAddress'
 --
@@ -3370,17 +3370,17 @@ instance' pInstanceId_ pImageId_ pAMILaunchIndex_ pInstanceType_ pLaunchTime_ pP
     , _insClientToken = Nothing
     , _insSourceDestCheck = Nothing
     , _insVPCId = Nothing
-    , _insNetworkInterfaces = Nothing
     , _insKeyName = Nothing
+    , _insNetworkInterfaces = Nothing
     , _insRAMDiskId = Nothing
-    , _insKernelId = Nothing
     , _insSubnetId = Nothing
+    , _insKernelId = Nothing
     , _insRootDeviceName = Nothing
-    , _insEBSOptimized = Nothing
     , _insSRIOVNetSupport = Nothing
+    , _insEBSOptimized = Nothing
     , _insStateTransitionReason = Nothing
-    , _insIAMInstanceProfile = Nothing
     , _insInstanceLifecycle = Nothing
+    , _insIAMInstanceProfile = Nothing
     , _insPrivateIPAddress = Nothing
     , _insProductCodes = Nothing
     , _insSpotInstanceRequestId = Nothing
@@ -3434,30 +3434,34 @@ insSourceDestCheck = lens _insSourceDestCheck (\ s a -> s{_insSourceDestCheck = 
 insVPCId :: Lens' Instance (Maybe Text)
 insVPCId = lens _insVPCId (\ s a -> s{_insVPCId = a});
 
--- | [EC2-VPC] One or more network interfaces for the instance.
-insNetworkInterfaces :: Lens' Instance [InstanceNetworkInterface]
-insNetworkInterfaces = lens _insNetworkInterfaces (\ s a -> s{_insNetworkInterfaces = a}) . _Default . _Coerce;
-
 -- | The name of the key pair, if this instance was launched with an
 -- associated key pair.
 insKeyName :: Lens' Instance (Maybe Text)
 insKeyName = lens _insKeyName (\ s a -> s{_insKeyName = a});
 
+-- | [EC2-VPC] One or more network interfaces for the instance.
+insNetworkInterfaces :: Lens' Instance [InstanceNetworkInterface]
+insNetworkInterfaces = lens _insNetworkInterfaces (\ s a -> s{_insNetworkInterfaces = a}) . _Default . _Coerce;
+
 -- | The RAM disk associated with this instance.
 insRAMDiskId :: Lens' Instance (Maybe Text)
 insRAMDiskId = lens _insRAMDiskId (\ s a -> s{_insRAMDiskId = a});
-
--- | The kernel associated with this instance.
-insKernelId :: Lens' Instance (Maybe Text)
-insKernelId = lens _insKernelId (\ s a -> s{_insKernelId = a});
 
 -- | The ID of the subnet in which the instance is running.
 insSubnetId :: Lens' Instance (Maybe Text)
 insSubnetId = lens _insSubnetId (\ s a -> s{_insSubnetId = a});
 
+-- | The kernel associated with this instance.
+insKernelId :: Lens' Instance (Maybe Text)
+insKernelId = lens _insKernelId (\ s a -> s{_insKernelId = a});
+
 -- | The root device name (for example, '\/dev\/sda1' or '\/dev\/xvda').
 insRootDeviceName :: Lens' Instance (Maybe Text)
 insRootDeviceName = lens _insRootDeviceName (\ s a -> s{_insRootDeviceName = a});
+
+-- | Specifies whether enhanced networking is enabled.
+insSRIOVNetSupport :: Lens' Instance (Maybe Text)
+insSRIOVNetSupport = lens _insSRIOVNetSupport (\ s a -> s{_insSRIOVNetSupport = a});
 
 -- | Indicates whether the instance is optimized for EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
@@ -3467,22 +3471,18 @@ insRootDeviceName = lens _insRootDeviceName (\ s a -> s{_insRootDeviceName = a})
 insEBSOptimized :: Lens' Instance (Maybe Bool)
 insEBSOptimized = lens _insEBSOptimized (\ s a -> s{_insEBSOptimized = a});
 
--- | Specifies whether enhanced networking is enabled.
-insSRIOVNetSupport :: Lens' Instance (Maybe Text)
-insSRIOVNetSupport = lens _insSRIOVNetSupport (\ s a -> s{_insSRIOVNetSupport = a});
-
 -- | The reason for the most recent state transition. This might be an empty
 -- string.
 insStateTransitionReason :: Lens' Instance (Maybe Text)
 insStateTransitionReason = lens _insStateTransitionReason (\ s a -> s{_insStateTransitionReason = a});
 
--- | The IAM instance profile associated with the instance.
-insIAMInstanceProfile :: Lens' Instance (Maybe IAMInstanceProfile)
-insIAMInstanceProfile = lens _insIAMInstanceProfile (\ s a -> s{_insIAMInstanceProfile = a});
-
 -- | Indicates whether this is a Spot Instance.
 insInstanceLifecycle :: Lens' Instance (Maybe InstanceLifecycleType)
 insInstanceLifecycle = lens _insInstanceLifecycle (\ s a -> s{_insInstanceLifecycle = a});
+
+-- | The IAM instance profile associated with the instance.
+insIAMInstanceProfile :: Lens' Instance (Maybe IAMInstanceProfile)
+insIAMInstanceProfile = lens _insIAMInstanceProfile (\ s a -> s{_insIAMInstanceProfile = a});
 
 -- | The private IP address assigned to the instance.
 insPrivateIPAddress :: Lens' Instance (Maybe Text)
@@ -3577,19 +3577,19 @@ instance FromXML Instance where
                 <*> (x .@? "clientToken")
                 <*> (x .@? "sourceDestCheck")
                 <*> (x .@? "vpcId")
+                <*> (x .@? "keyName")
                 <*>
                 (x .@? "networkInterfaceSet" .!@ mempty >>=
                    may (parseXMLList "item"))
-                <*> (x .@? "keyName")
                 <*> (x .@? "ramdiskId")
-                <*> (x .@? "kernelId")
                 <*> (x .@? "subnetId")
+                <*> (x .@? "kernelId")
                 <*> (x .@? "rootDeviceName")
-                <*> (x .@? "ebsOptimized")
                 <*> (x .@? "sriovNetSupport")
+                <*> (x .@? "ebsOptimized")
                 <*> (x .@? "reason")
-                <*> (x .@? "iamInstanceProfile")
                 <*> (x .@? "instanceLifecycle")
+                <*> (x .@? "iamInstanceProfile")
                 <*> (x .@? "privateIpAddress")
                 <*>
                 (x .@? "productCodes" .!@ mempty >>=
@@ -3753,37 +3753,37 @@ instance FromXML InstanceCount where
 --
 -- /See:/ 'instanceExportDetails' smart constructor.
 data InstanceExportDetails = InstanceExportDetails'
-    { _iedInstanceId        :: !(Maybe Text)
-    , _iedTargetEnvironment :: !(Maybe ExportEnvironment)
+    { _iedTargetEnvironment :: !(Maybe ExportEnvironment)
+    , _iedInstanceId        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceExportDetails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iedInstanceId'
---
 -- * 'iedTargetEnvironment'
+--
+-- * 'iedInstanceId'
 instanceExportDetails
     :: InstanceExportDetails
 instanceExportDetails =
     InstanceExportDetails'
-    { _iedInstanceId = Nothing
-    , _iedTargetEnvironment = Nothing
+    { _iedTargetEnvironment = Nothing
+    , _iedInstanceId = Nothing
     }
-
--- | The ID of the resource being exported.
-iedInstanceId :: Lens' InstanceExportDetails (Maybe Text)
-iedInstanceId = lens _iedInstanceId (\ s a -> s{_iedInstanceId = a});
 
 -- | The target virtualization environment.
 iedTargetEnvironment :: Lens' InstanceExportDetails (Maybe ExportEnvironment)
 iedTargetEnvironment = lens _iedTargetEnvironment (\ s a -> s{_iedTargetEnvironment = a});
 
+-- | The ID of the resource being exported.
+iedInstanceId :: Lens' InstanceExportDetails (Maybe Text)
+iedInstanceId = lens _iedInstanceId (\ s a -> s{_iedInstanceId = a});
+
 instance FromXML InstanceExportDetails where
         parseXML x
           = InstanceExportDetails' <$>
-              (x .@? "instanceId") <*> (x .@? "targetEnvironment")
+              (x .@? "targetEnvironment") <*> (x .@? "instanceId")
 
 -- | Describes the monitoring information of the instance.
 --
@@ -3825,15 +3825,15 @@ instance FromXML InstanceMonitoring where
 --
 -- /See:/ 'instanceNetworkInterface' smart constructor.
 data InstanceNetworkInterface = InstanceNetworkInterface'
-    { _iniPrivateIPAddresses :: !(Maybe [InstancePrivateIPAddress])
+    { _iniGroups             :: !(Maybe [GroupIdentifier])
     , _iniStatus             :: !(Maybe NetworkInterfaceStatus)
-    , _iniGroups             :: !(Maybe [GroupIdentifier])
+    , _iniPrivateIPAddresses :: !(Maybe [InstancePrivateIPAddress])
     , _iniSourceDestCheck    :: !(Maybe Bool)
     , _iniVPCId              :: !(Maybe Text)
     , _iniNetworkInterfaceId :: !(Maybe Text)
     , _iniSubnetId           :: !(Maybe Text)
-    , _iniAttachment         :: !(Maybe InstanceNetworkInterfaceAttachment)
     , _iniMACAddress         :: !(Maybe Text)
+    , _iniAttachment         :: !(Maybe InstanceNetworkInterfaceAttachment)
     , _iniOwnerId            :: !(Maybe Text)
     , _iniPrivateIPAddress   :: !(Maybe Text)
     , _iniPrivateDNSName     :: !(Maybe Text)
@@ -3845,11 +3845,11 @@ data InstanceNetworkInterface = InstanceNetworkInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iniPrivateIPAddresses'
+-- * 'iniGroups'
 --
 -- * 'iniStatus'
 --
--- * 'iniGroups'
+-- * 'iniPrivateIPAddresses'
 --
 -- * 'iniSourceDestCheck'
 --
@@ -3859,9 +3859,9 @@ data InstanceNetworkInterface = InstanceNetworkInterface'
 --
 -- * 'iniSubnetId'
 --
--- * 'iniAttachment'
---
 -- * 'iniMACAddress'
+--
+-- * 'iniAttachment'
 --
 -- * 'iniOwnerId'
 --
@@ -3876,15 +3876,15 @@ instanceNetworkInterface
     :: InstanceNetworkInterface
 instanceNetworkInterface =
     InstanceNetworkInterface'
-    { _iniPrivateIPAddresses = Nothing
+    { _iniGroups = Nothing
     , _iniStatus = Nothing
-    , _iniGroups = Nothing
+    , _iniPrivateIPAddresses = Nothing
     , _iniSourceDestCheck = Nothing
     , _iniVPCId = Nothing
     , _iniNetworkInterfaceId = Nothing
     , _iniSubnetId = Nothing
-    , _iniAttachment = Nothing
     , _iniMACAddress = Nothing
+    , _iniAttachment = Nothing
     , _iniOwnerId = Nothing
     , _iniPrivateIPAddress = Nothing
     , _iniPrivateDNSName = Nothing
@@ -3892,17 +3892,17 @@ instanceNetworkInterface =
     , _iniAssociation = Nothing
     }
 
--- | The private IP addresses associated with the network interface.
-iniPrivateIPAddresses :: Lens' InstanceNetworkInterface [InstancePrivateIPAddress]
-iniPrivateIPAddresses = lens _iniPrivateIPAddresses (\ s a -> s{_iniPrivateIPAddresses = a}) . _Default . _Coerce;
+-- | One or more security groups.
+iniGroups :: Lens' InstanceNetworkInterface [GroupIdentifier]
+iniGroups = lens _iniGroups (\ s a -> s{_iniGroups = a}) . _Default . _Coerce;
 
 -- | The status of the network interface.
 iniStatus :: Lens' InstanceNetworkInterface (Maybe NetworkInterfaceStatus)
 iniStatus = lens _iniStatus (\ s a -> s{_iniStatus = a});
 
--- | One or more security groups.
-iniGroups :: Lens' InstanceNetworkInterface [GroupIdentifier]
-iniGroups = lens _iniGroups (\ s a -> s{_iniGroups = a}) . _Default . _Coerce;
+-- | The private IP addresses associated with the network interface.
+iniPrivateIPAddresses :: Lens' InstanceNetworkInterface [InstancePrivateIPAddress]
+iniPrivateIPAddresses = lens _iniPrivateIPAddresses (\ s a -> s{_iniPrivateIPAddresses = a}) . _Default . _Coerce;
 
 -- | Indicates whether to validate network traffic to or from this network
 -- interface.
@@ -3921,13 +3921,13 @@ iniNetworkInterfaceId = lens _iniNetworkInterfaceId (\ s a -> s{_iniNetworkInter
 iniSubnetId :: Lens' InstanceNetworkInterface (Maybe Text)
 iniSubnetId = lens _iniSubnetId (\ s a -> s{_iniSubnetId = a});
 
--- | The network interface attachment.
-iniAttachment :: Lens' InstanceNetworkInterface (Maybe InstanceNetworkInterfaceAttachment)
-iniAttachment = lens _iniAttachment (\ s a -> s{_iniAttachment = a});
-
 -- | The MAC address.
 iniMACAddress :: Lens' InstanceNetworkInterface (Maybe Text)
 iniMACAddress = lens _iniMACAddress (\ s a -> s{_iniMACAddress = a});
+
+-- | The network interface attachment.
+iniAttachment :: Lens' InstanceNetworkInterface (Maybe InstanceNetworkInterfaceAttachment)
+iniAttachment = lens _iniAttachment (\ s a -> s{_iniAttachment = a});
 
 -- | The ID of the AWS account that created the network interface.
 iniOwnerId :: Lens' InstanceNetworkInterface (Maybe Text)
@@ -3953,18 +3953,18 @@ iniAssociation = lens _iniAssociation (\ s a -> s{_iniAssociation = a});
 instance FromXML InstanceNetworkInterface where
         parseXML x
           = InstanceNetworkInterface' <$>
-              (x .@? "privateIpAddressesSet" .!@ mempty >>=
+              (x .@? "groupSet" .!@ mempty >>=
                  may (parseXMLList "item"))
                 <*> (x .@? "status")
                 <*>
-                (x .@? "groupSet" .!@ mempty >>=
+                (x .@? "privateIpAddressesSet" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@? "sourceDestCheck")
                 <*> (x .@? "vpcId")
                 <*> (x .@? "networkInterfaceId")
                 <*> (x .@? "subnetId")
-                <*> (x .@? "attachment")
                 <*> (x .@? "macAddress")
+                <*> (x .@? "attachment")
                 <*> (x .@? "ownerId")
                 <*> (x .@? "privateIpAddress")
                 <*> (x .@? "privateDnsName")
@@ -4022,8 +4022,8 @@ instance FromXML InstanceNetworkInterfaceAssociation
 --
 -- /See:/ 'instanceNetworkInterfaceAttachment' smart constructor.
 data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment'
-    { _iniaDeleteOnTermination :: !(Maybe Bool)
-    , _iniaStatus              :: !(Maybe AttachmentStatus)
+    { _iniaStatus              :: !(Maybe AttachmentStatus)
+    , _iniaDeleteOnTermination :: !(Maybe Bool)
     , _iniaAttachmentId        :: !(Maybe Text)
     , _iniaAttachTime          :: !(Maybe ISO8601)
     , _iniaDeviceIndex         :: !(Maybe Int)
@@ -4033,9 +4033,9 @@ data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iniaDeleteOnTermination'
---
 -- * 'iniaStatus'
+--
+-- * 'iniaDeleteOnTermination'
 --
 -- * 'iniaAttachmentId'
 --
@@ -4046,21 +4046,21 @@ instanceNetworkInterfaceAttachment
     :: InstanceNetworkInterfaceAttachment
 instanceNetworkInterfaceAttachment =
     InstanceNetworkInterfaceAttachment'
-    { _iniaDeleteOnTermination = Nothing
-    , _iniaStatus = Nothing
+    { _iniaStatus = Nothing
+    , _iniaDeleteOnTermination = Nothing
     , _iniaAttachmentId = Nothing
     , _iniaAttachTime = Nothing
     , _iniaDeviceIndex = Nothing
     }
 
+-- | The attachment state.
+iniaStatus :: Lens' InstanceNetworkInterfaceAttachment (Maybe AttachmentStatus)
+iniaStatus = lens _iniaStatus (\ s a -> s{_iniaStatus = a});
+
 -- | Indicates whether the network interface is deleted when the instance is
 -- terminated.
 iniaDeleteOnTermination :: Lens' InstanceNetworkInterfaceAttachment (Maybe Bool)
 iniaDeleteOnTermination = lens _iniaDeleteOnTermination (\ s a -> s{_iniaDeleteOnTermination = a});
-
--- | The attachment state.
-iniaStatus :: Lens' InstanceNetworkInterfaceAttachment (Maybe AttachmentStatus)
-iniaStatus = lens _iniaStatus (\ s a -> s{_iniaStatus = a});
 
 -- | The ID of the network interface attachment.
 iniaAttachmentId :: Lens' InstanceNetworkInterfaceAttachment (Maybe Text)
@@ -4079,7 +4079,7 @@ instance FromXML InstanceNetworkInterfaceAttachment
          where
         parseXML x
           = InstanceNetworkInterfaceAttachment' <$>
-              (x .@? "deleteOnTermination") <*> (x .@? "status")
+              (x .@? "status") <*> (x .@? "deleteOnTermination")
                 <*> (x .@? "attachmentId")
                 <*> (x .@? "attachTime")
                 <*> (x .@? "deviceIndex")
@@ -4088,27 +4088,27 @@ instance FromXML InstanceNetworkInterfaceAttachment
 --
 -- /See:/ 'instanceNetworkInterfaceSpecification' smart constructor.
 data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification'
-    { _inisPrivateIPAddresses             :: !(Maybe [PrivateIPAddressSpecification])
+    { _inisGroups                         :: !(Maybe [Text])
+    , _inisPrivateIPAddresses             :: !(Maybe [PrivateIPAddressSpecification])
     , _inisDeleteOnTermination            :: !(Maybe Bool)
-    , _inisGroups                         :: !(Maybe [Text])
     , _inisAssociatePublicIPAddress       :: !(Maybe Bool)
     , _inisNetworkInterfaceId             :: !(Maybe Text)
     , _inisSubnetId                       :: !(Maybe Text)
     , _inisPrivateIPAddress               :: !(Maybe Text)
     , _inisSecondaryPrivateIPAddressCount :: !(Maybe Int)
-    , _inisDeviceIndex                    :: !(Maybe Int)
     , _inisDescription                    :: !(Maybe Text)
+    , _inisDeviceIndex                    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceNetworkInterfaceSpecification' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'inisGroups'
+--
 -- * 'inisPrivateIPAddresses'
 --
 -- * 'inisDeleteOnTermination'
---
--- * 'inisGroups'
 --
 -- * 'inisAssociatePublicIPAddress'
 --
@@ -4120,24 +4120,29 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
 --
 -- * 'inisSecondaryPrivateIPAddressCount'
 --
--- * 'inisDeviceIndex'
---
 -- * 'inisDescription'
+--
+-- * 'inisDeviceIndex'
 instanceNetworkInterfaceSpecification
     :: InstanceNetworkInterfaceSpecification
 instanceNetworkInterfaceSpecification =
     InstanceNetworkInterfaceSpecification'
-    { _inisPrivateIPAddresses = Nothing
+    { _inisGroups = Nothing
+    , _inisPrivateIPAddresses = Nothing
     , _inisDeleteOnTermination = Nothing
-    , _inisGroups = Nothing
     , _inisAssociatePublicIPAddress = Nothing
     , _inisNetworkInterfaceId = Nothing
     , _inisSubnetId = Nothing
     , _inisPrivateIPAddress = Nothing
     , _inisSecondaryPrivateIPAddressCount = Nothing
-    , _inisDeviceIndex = Nothing
     , _inisDescription = Nothing
+    , _inisDeviceIndex = Nothing
     }
+
+-- | The IDs of the security groups for the network interface. Applies only
+-- if creating a network interface when launching an instance.
+inisGroups :: Lens' InstanceNetworkInterfaceSpecification [Text]
+inisGroups = lens _inisGroups (\ s a -> s{_inisGroups = a}) . _Default . _Coerce;
 
 -- | One or more private IP addresses to assign to the network interface.
 -- Only one private IP address can be designated as primary.
@@ -4149,11 +4154,6 @@ inisPrivateIPAddresses = lens _inisPrivateIPAddresses (\ s a -> s{_inisPrivateIP
 -- interface when launching an instance.
 inisDeleteOnTermination :: Lens' InstanceNetworkInterfaceSpecification (Maybe Bool)
 inisDeleteOnTermination = lens _inisDeleteOnTermination (\ s a -> s{_inisDeleteOnTermination = a});
-
--- | The IDs of the security groups for the network interface. Applies only
--- if creating a network interface when launching an instance.
-inisGroups :: Lens' InstanceNetworkInterfaceSpecification [Text]
-inisGroups = lens _inisGroups (\ s a -> s{_inisGroups = a}) . _Default . _Coerce;
 
 -- | Indicates whether to assign a public IP address to an instance you
 -- launch in a VPC. The public IP address can only be assigned to a network
@@ -4184,45 +4184,45 @@ inisPrivateIPAddress = lens _inisPrivateIPAddress (\ s a -> s{_inisPrivateIPAddr
 inisSecondaryPrivateIPAddressCount :: Lens' InstanceNetworkInterfaceSpecification (Maybe Int)
 inisSecondaryPrivateIPAddressCount = lens _inisSecondaryPrivateIPAddressCount (\ s a -> s{_inisSecondaryPrivateIPAddressCount = a});
 
+-- | The description of the network interface. Applies only if creating a
+-- network interface when launching an instance.
+inisDescription :: Lens' InstanceNetworkInterfaceSpecification (Maybe Text)
+inisDescription = lens _inisDescription (\ s a -> s{_inisDescription = a});
+
 -- | The index of the device on the instance for the network interface
 -- attachment. If you are specifying a network interface in a RunInstances
 -- request, you must provide the device index.
 inisDeviceIndex :: Lens' InstanceNetworkInterfaceSpecification (Maybe Int)
 inisDeviceIndex = lens _inisDeviceIndex (\ s a -> s{_inisDeviceIndex = a});
 
--- | The description of the network interface. Applies only if creating a
--- network interface when launching an instance.
-inisDescription :: Lens' InstanceNetworkInterfaceSpecification (Maybe Text)
-inisDescription = lens _inisDescription (\ s a -> s{_inisDescription = a});
-
 instance FromXML
          InstanceNetworkInterfaceSpecification where
         parseXML x
           = InstanceNetworkInterfaceSpecification' <$>
-              (x .@? "privateIpAddressesSet" .!@ mempty >>=
-                 may (parseXMLList "item"))
-                <*> (x .@? "deleteOnTermination")
+              (x .@? "SecurityGroupId" .!@ mempty >>=
+                 may (parseXMLList "SecurityGroupId"))
                 <*>
-                (x .@? "SecurityGroupId" .!@ mempty >>=
-                   may (parseXMLList "SecurityGroupId"))
+                (x .@? "privateIpAddressesSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "deleteOnTermination")
                 <*> (x .@? "associatePublicIpAddress")
                 <*> (x .@? "networkInterfaceId")
                 <*> (x .@? "subnetId")
                 <*> (x .@? "privateIpAddress")
                 <*> (x .@? "secondaryPrivateIpAddressCount")
-                <*> (x .@? "deviceIndex")
                 <*> (x .@? "description")
+                <*> (x .@? "deviceIndex")
 
 instance ToQuery
          InstanceNetworkInterfaceSpecification where
         toQuery InstanceNetworkInterfaceSpecification'{..}
           = mconcat
               [toQuery
+                 (toQueryList "SecurityGroupId" <$> _inisGroups),
+               toQuery
                  (toQueryList "PrivateIpAddresses" <$>
                     _inisPrivateIPAddresses),
                "DeleteOnTermination" =: _inisDeleteOnTermination,
-               toQuery
-                 (toQueryList "SecurityGroupId" <$> _inisGroups),
                "AssociatePublicIpAddress" =:
                  _inisAssociatePublicIPAddress,
                "NetworkInterfaceId" =: _inisNetworkInterfaceId,
@@ -4230,8 +4230,8 @@ instance ToQuery
                "PrivateIpAddress" =: _inisPrivateIPAddress,
                "SecondaryPrivateIpAddressCount" =:
                  _inisSecondaryPrivateIPAddressCount,
-               "DeviceIndex" =: _inisDeviceIndex,
-               "Description" =: _inisDescription]
+               "Description" =: _inisDescription,
+               "DeviceIndex" =: _inisDeviceIndex]
 
 -- | Describes a private IP address.
 --
@@ -4391,8 +4391,8 @@ instance FromXML InstanceStateChange where
 data InstanceStatus = InstanceStatus'
     { _isInstanceId       :: !(Maybe Text)
     , _isSystemStatus     :: !(Maybe InstanceStatusSummary)
-    , _isAvailabilityZone :: !(Maybe Text)
     , _isEvents           :: !(Maybe [InstanceStatusEvent])
+    , _isAvailabilityZone :: !(Maybe Text)
     , _isInstanceStatus   :: !(Maybe InstanceStatusSummary)
     , _isInstanceState    :: !(Maybe InstanceState)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -4405,9 +4405,9 @@ data InstanceStatus = InstanceStatus'
 --
 -- * 'isSystemStatus'
 --
--- * 'isAvailabilityZone'
---
 -- * 'isEvents'
+--
+-- * 'isAvailabilityZone'
 --
 -- * 'isInstanceStatus'
 --
@@ -4418,8 +4418,8 @@ instanceStatus =
     InstanceStatus'
     { _isInstanceId = Nothing
     , _isSystemStatus = Nothing
-    , _isAvailabilityZone = Nothing
     , _isEvents = Nothing
+    , _isAvailabilityZone = Nothing
     , _isInstanceStatus = Nothing
     , _isInstanceState = Nothing
     }
@@ -4434,13 +4434,13 @@ isInstanceId = lens _isInstanceId (\ s a -> s{_isInstanceId = a});
 isSystemStatus :: Lens' InstanceStatus (Maybe InstanceStatusSummary)
 isSystemStatus = lens _isSystemStatus (\ s a -> s{_isSystemStatus = a});
 
--- | The Availability Zone of the instance.
-isAvailabilityZone :: Lens' InstanceStatus (Maybe Text)
-isAvailabilityZone = lens _isAvailabilityZone (\ s a -> s{_isAvailabilityZone = a});
-
 -- | Any scheduled events associated with the instance.
 isEvents :: Lens' InstanceStatus [InstanceStatusEvent]
 isEvents = lens _isEvents (\ s a -> s{_isEvents = a}) . _Default . _Coerce;
+
+-- | The Availability Zone of the instance.
+isAvailabilityZone :: Lens' InstanceStatus (Maybe Text)
+isAvailabilityZone = lens _isAvailabilityZone (\ s a -> s{_isAvailabilityZone = a});
 
 -- | Reports impaired functionality that stems from issues internal to the
 -- instance, such as impaired reachability.
@@ -4456,10 +4456,9 @@ instance FromXML InstanceStatus where
         parseXML x
           = InstanceStatus' <$>
               (x .@? "instanceId") <*> (x .@? "systemStatus") <*>
-                (x .@? "availabilityZone")
-                <*>
                 (x .@? "eventsSet" .!@ mempty >>=
                    may (parseXMLList "item"))
+                <*> (x .@? "availabilityZone")
                 <*> (x .@? "instanceStatus")
                 <*> (x .@? "instanceState")
 
@@ -4817,19 +4816,19 @@ instance ToQuery LaunchPermissionModifications where
 -- /See:/ 'launchSpecification' smart constructor.
 data LaunchSpecification = LaunchSpecification'
     { _lsSecurityGroups      :: !(Maybe [GroupIdentifier])
-    , _lsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
     , _lsKeyName             :: !(Maybe Text)
+    , _lsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
     , _lsRAMDiskId           :: !(Maybe Text)
-    , _lsKernelId            :: !(Maybe Text)
     , _lsSubnetId            :: !(Maybe Text)
+    , _lsKernelId            :: !(Maybe Text)
     , _lsInstanceType        :: !(Maybe InstanceType)
     , _lsEBSOptimized        :: !(Maybe Bool)
     , _lsUserData            :: !(Maybe Text)
     , _lsMonitoring          :: !(Maybe RunInstancesMonitoringEnabled)
     , _lsIAMInstanceProfile  :: !(Maybe IAMInstanceProfileSpecification)
     , _lsImageId             :: !(Maybe Text)
-    , _lsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _lsAddressingType      :: !(Maybe Text)
+    , _lsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _lsPlacement           :: !(Maybe SpotPlacement)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -4839,15 +4838,15 @@ data LaunchSpecification = LaunchSpecification'
 --
 -- * 'lsSecurityGroups'
 --
--- * 'lsNetworkInterfaces'
---
 -- * 'lsKeyName'
+--
+-- * 'lsNetworkInterfaces'
 --
 -- * 'lsRAMDiskId'
 --
--- * 'lsKernelId'
---
 -- * 'lsSubnetId'
+--
+-- * 'lsKernelId'
 --
 -- * 'lsInstanceType'
 --
@@ -4861,9 +4860,9 @@ data LaunchSpecification = LaunchSpecification'
 --
 -- * 'lsImageId'
 --
--- * 'lsBlockDeviceMappings'
---
 -- * 'lsAddressingType'
+--
+-- * 'lsBlockDeviceMappings'
 --
 -- * 'lsPlacement'
 launchSpecification
@@ -4871,19 +4870,19 @@ launchSpecification
 launchSpecification =
     LaunchSpecification'
     { _lsSecurityGroups = Nothing
-    , _lsNetworkInterfaces = Nothing
     , _lsKeyName = Nothing
+    , _lsNetworkInterfaces = Nothing
     , _lsRAMDiskId = Nothing
-    , _lsKernelId = Nothing
     , _lsSubnetId = Nothing
+    , _lsKernelId = Nothing
     , _lsInstanceType = Nothing
     , _lsEBSOptimized = Nothing
     , _lsUserData = Nothing
     , _lsMonitoring = Nothing
     , _lsIAMInstanceProfile = Nothing
     , _lsImageId = Nothing
-    , _lsBlockDeviceMappings = Nothing
     , _lsAddressingType = Nothing
+    , _lsBlockDeviceMappings = Nothing
     , _lsPlacement = Nothing
     }
 
@@ -4894,25 +4893,25 @@ launchSpecification =
 lsSecurityGroups :: Lens' LaunchSpecification [GroupIdentifier]
 lsSecurityGroups = lens _lsSecurityGroups (\ s a -> s{_lsSecurityGroups = a}) . _Default . _Coerce;
 
--- | One or more network interfaces.
-lsNetworkInterfaces :: Lens' LaunchSpecification [InstanceNetworkInterfaceSpecification]
-lsNetworkInterfaces = lens _lsNetworkInterfaces (\ s a -> s{_lsNetworkInterfaces = a}) . _Default . _Coerce;
-
 -- | The name of the key pair.
 lsKeyName :: Lens' LaunchSpecification (Maybe Text)
 lsKeyName = lens _lsKeyName (\ s a -> s{_lsKeyName = a});
+
+-- | One or more network interfaces.
+lsNetworkInterfaces :: Lens' LaunchSpecification [InstanceNetworkInterfaceSpecification]
+lsNetworkInterfaces = lens _lsNetworkInterfaces (\ s a -> s{_lsNetworkInterfaces = a}) . _Default . _Coerce;
 
 -- | The ID of the RAM disk.
 lsRAMDiskId :: Lens' LaunchSpecification (Maybe Text)
 lsRAMDiskId = lens _lsRAMDiskId (\ s a -> s{_lsRAMDiskId = a});
 
--- | The ID of the kernel.
-lsKernelId :: Lens' LaunchSpecification (Maybe Text)
-lsKernelId = lens _lsKernelId (\ s a -> s{_lsKernelId = a});
-
 -- | The ID of the subnet in which to launch the instance.
 lsSubnetId :: Lens' LaunchSpecification (Maybe Text)
 lsSubnetId = lens _lsSubnetId (\ s a -> s{_lsSubnetId = a});
+
+-- | The ID of the kernel.
+lsKernelId :: Lens' LaunchSpecification (Maybe Text)
+lsKernelId = lens _lsKernelId (\ s a -> s{_lsKernelId = a});
 
 -- | The instance type.
 lsInstanceType :: Lens' LaunchSpecification (Maybe InstanceType)
@@ -4944,13 +4943,13 @@ lsIAMInstanceProfile = lens _lsIAMInstanceProfile (\ s a -> s{_lsIAMInstanceProf
 lsImageId :: Lens' LaunchSpecification (Maybe Text)
 lsImageId = lens _lsImageId (\ s a -> s{_lsImageId = a});
 
--- | One or more block device mapping entries.
-lsBlockDeviceMappings :: Lens' LaunchSpecification [BlockDeviceMapping]
-lsBlockDeviceMappings = lens _lsBlockDeviceMappings (\ s a -> s{_lsBlockDeviceMappings = a}) . _Default . _Coerce;
-
 -- | Deprecated.
 lsAddressingType :: Lens' LaunchSpecification (Maybe Text)
 lsAddressingType = lens _lsAddressingType (\ s a -> s{_lsAddressingType = a});
+
+-- | One or more block device mapping entries.
+lsBlockDeviceMappings :: Lens' LaunchSpecification [BlockDeviceMapping]
+lsBlockDeviceMappings = lens _lsBlockDeviceMappings (\ s a -> s{_lsBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | The placement information for the instance.
 lsPlacement :: Lens' LaunchSpecification (Maybe SpotPlacement)
@@ -4961,23 +4960,23 @@ instance FromXML LaunchSpecification where
           = LaunchSpecification' <$>
               (x .@? "groupSet" .!@ mempty >>=
                  may (parseXMLList "item"))
+                <*> (x .@? "keyName")
                 <*>
                 (x .@? "networkInterfaceSet" .!@ mempty >>=
                    may (parseXMLList "item"))
-                <*> (x .@? "keyName")
                 <*> (x .@? "ramdiskId")
-                <*> (x .@? "kernelId")
                 <*> (x .@? "subnetId")
+                <*> (x .@? "kernelId")
                 <*> (x .@? "instanceType")
                 <*> (x .@? "ebsOptimized")
                 <*> (x .@? "userData")
                 <*> (x .@? "monitoring")
                 <*> (x .@? "iamInstanceProfile")
                 <*> (x .@? "imageId")
+                <*> (x .@? "addressingType")
                 <*>
                 (x .@? "blockDeviceMapping" .!@ mempty >>=
                    may (parseXMLList "item"))
-                <*> (x .@? "addressingType")
                 <*> (x .@? "placement")
 
 -- | Describes the monitoring for the instance.
@@ -5051,8 +5050,8 @@ data NetworkACL = NetworkACL'
     , _naNetworkACLId :: !(Maybe Text)
     , _naVPCId        :: !(Maybe Text)
     , _naAssociations :: !(Maybe [NetworkACLAssociation])
-    , _naIsDefault    :: !(Maybe Bool)
     , _naTags         :: !(Maybe [Tag])
+    , _naIsDefault    :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'NetworkACL' with the minimum fields required to make a request.
@@ -5067,9 +5066,9 @@ data NetworkACL = NetworkACL'
 --
 -- * 'naAssociations'
 --
--- * 'naIsDefault'
---
 -- * 'naTags'
+--
+-- * 'naIsDefault'
 networkACL
     :: NetworkACL
 networkACL =
@@ -5078,8 +5077,8 @@ networkACL =
     , _naNetworkACLId = Nothing
     , _naVPCId = Nothing
     , _naAssociations = Nothing
-    , _naIsDefault = Nothing
     , _naTags = Nothing
+    , _naIsDefault = Nothing
     }
 
 -- | One or more entries (rules) in the network ACL.
@@ -5098,13 +5097,13 @@ naVPCId = lens _naVPCId (\ s a -> s{_naVPCId = a});
 naAssociations :: Lens' NetworkACL [NetworkACLAssociation]
 naAssociations = lens _naAssociations (\ s a -> s{_naAssociations = a}) . _Default . _Coerce;
 
--- | Indicates whether this is the default network ACL for the VPC.
-naIsDefault :: Lens' NetworkACL (Maybe Bool)
-naIsDefault = lens _naIsDefault (\ s a -> s{_naIsDefault = a});
-
 -- | Any tags assigned to the network ACL.
 naTags :: Lens' NetworkACL [Tag]
 naTags = lens _naTags (\ s a -> s{_naTags = a}) . _Default . _Coerce;
+
+-- | Indicates whether this is the default network ACL for the VPC.
+naIsDefault :: Lens' NetworkACL (Maybe Bool)
+naIsDefault = lens _naIsDefault (\ s a -> s{_naIsDefault = a});
 
 instance FromXML NetworkACL where
         parseXML x
@@ -5116,10 +5115,10 @@ instance FromXML NetworkACL where
                 <*>
                 (x .@? "associationSet" .!@ mempty >>=
                    may (parseXMLList "item"))
-                <*> (x .@? "default")
                 <*>
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
+                <*> (x .@? "default")
 
 -- | Describes an association between a network ACL and a subnet.
 --
@@ -5253,17 +5252,17 @@ instance FromXML NetworkACLEntry where
 --
 -- /See:/ 'networkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-    { _niPrivateIPAddresses :: !(Maybe [NetworkInterfacePrivateIPAddress])
+    { _niGroups             :: !(Maybe [GroupIdentifier])
     , _niStatus             :: !(Maybe NetworkInterfaceStatus)
-    , _niGroups             :: !(Maybe [GroupIdentifier])
+    , _niPrivateIPAddresses :: !(Maybe [NetworkInterfacePrivateIPAddress])
     , _niSourceDestCheck    :: !(Maybe Bool)
-    , _niTagSet             :: !(Maybe [Tag])
     , _niVPCId              :: !(Maybe Text)
+    , _niTagSet             :: !(Maybe [Tag])
     , _niRequesterManaged   :: !(Maybe Bool)
     , _niNetworkInterfaceId :: !(Maybe Text)
     , _niSubnetId           :: !(Maybe Text)
-    , _niAttachment         :: !(Maybe NetworkInterfaceAttachment)
     , _niMACAddress         :: !(Maybe Text)
+    , _niAttachment         :: !(Maybe NetworkInterfaceAttachment)
     , _niOwnerId            :: !(Maybe Text)
     , _niAvailabilityZone   :: !(Maybe Text)
     , _niPrivateIPAddress   :: !(Maybe Text)
@@ -5277,17 +5276,17 @@ data NetworkInterface = NetworkInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'niPrivateIPAddresses'
+-- * 'niGroups'
 --
 -- * 'niStatus'
 --
--- * 'niGroups'
+-- * 'niPrivateIPAddresses'
 --
 -- * 'niSourceDestCheck'
 --
--- * 'niTagSet'
---
 -- * 'niVPCId'
+--
+-- * 'niTagSet'
 --
 -- * 'niRequesterManaged'
 --
@@ -5295,9 +5294,9 @@ data NetworkInterface = NetworkInterface'
 --
 -- * 'niSubnetId'
 --
--- * 'niAttachment'
---
 -- * 'niMACAddress'
+--
+-- * 'niAttachment'
 --
 -- * 'niOwnerId'
 --
@@ -5316,17 +5315,17 @@ networkInterface
     :: NetworkInterface
 networkInterface =
     NetworkInterface'
-    { _niPrivateIPAddresses = Nothing
+    { _niGroups = Nothing
     , _niStatus = Nothing
-    , _niGroups = Nothing
+    , _niPrivateIPAddresses = Nothing
     , _niSourceDestCheck = Nothing
-    , _niTagSet = Nothing
     , _niVPCId = Nothing
+    , _niTagSet = Nothing
     , _niRequesterManaged = Nothing
     , _niNetworkInterfaceId = Nothing
     , _niSubnetId = Nothing
-    , _niAttachment = Nothing
     , _niMACAddress = Nothing
+    , _niAttachment = Nothing
     , _niOwnerId = Nothing
     , _niAvailabilityZone = Nothing
     , _niPrivateIPAddress = Nothing
@@ -5336,29 +5335,29 @@ networkInterface =
     , _niAssociation = Nothing
     }
 
--- | The private IP addresses associated with the network interface.
-niPrivateIPAddresses :: Lens' NetworkInterface [NetworkInterfacePrivateIPAddress]
-niPrivateIPAddresses = lens _niPrivateIPAddresses (\ s a -> s{_niPrivateIPAddresses = a}) . _Default . _Coerce;
+-- | Any security groups for the network interface.
+niGroups :: Lens' NetworkInterface [GroupIdentifier]
+niGroups = lens _niGroups (\ s a -> s{_niGroups = a}) . _Default . _Coerce;
 
 -- | The status of the network interface.
 niStatus :: Lens' NetworkInterface (Maybe NetworkInterfaceStatus)
 niStatus = lens _niStatus (\ s a -> s{_niStatus = a});
 
--- | Any security groups for the network interface.
-niGroups :: Lens' NetworkInterface [GroupIdentifier]
-niGroups = lens _niGroups (\ s a -> s{_niGroups = a}) . _Default . _Coerce;
+-- | The private IP addresses associated with the network interface.
+niPrivateIPAddresses :: Lens' NetworkInterface [NetworkInterfacePrivateIPAddress]
+niPrivateIPAddresses = lens _niPrivateIPAddresses (\ s a -> s{_niPrivateIPAddresses = a}) . _Default . _Coerce;
 
 -- | Indicates whether traffic to or from the instance is validated.
 niSourceDestCheck :: Lens' NetworkInterface (Maybe Bool)
 niSourceDestCheck = lens _niSourceDestCheck (\ s a -> s{_niSourceDestCheck = a});
 
--- | Any tags assigned to the network interface.
-niTagSet :: Lens' NetworkInterface [Tag]
-niTagSet = lens _niTagSet (\ s a -> s{_niTagSet = a}) . _Default . _Coerce;
-
 -- | The ID of the VPC.
 niVPCId :: Lens' NetworkInterface (Maybe Text)
 niVPCId = lens _niVPCId (\ s a -> s{_niVPCId = a});
+
+-- | Any tags assigned to the network interface.
+niTagSet :: Lens' NetworkInterface [Tag]
+niTagSet = lens _niTagSet (\ s a -> s{_niTagSet = a}) . _Default . _Coerce;
 
 -- | Indicates whether the network interface is being managed by AWS.
 niRequesterManaged :: Lens' NetworkInterface (Maybe Bool)
@@ -5372,13 +5371,13 @@ niNetworkInterfaceId = lens _niNetworkInterfaceId (\ s a -> s{_niNetworkInterfac
 niSubnetId :: Lens' NetworkInterface (Maybe Text)
 niSubnetId = lens _niSubnetId (\ s a -> s{_niSubnetId = a});
 
--- | The network interface attachment.
-niAttachment :: Lens' NetworkInterface (Maybe NetworkInterfaceAttachment)
-niAttachment = lens _niAttachment (\ s a -> s{_niAttachment = a});
-
 -- | The MAC address.
 niMACAddress :: Lens' NetworkInterface (Maybe Text)
 niMACAddress = lens _niMACAddress (\ s a -> s{_niMACAddress = a});
+
+-- | The network interface attachment.
+niAttachment :: Lens' NetworkInterface (Maybe NetworkInterfaceAttachment)
+niAttachment = lens _niAttachment (\ s a -> s{_niAttachment = a});
 
 -- | The AWS account ID of the owner of the network interface.
 niOwnerId :: Lens' NetworkInterface (Maybe Text)
@@ -5413,22 +5412,22 @@ niAssociation = lens _niAssociation (\ s a -> s{_niAssociation = a});
 instance FromXML NetworkInterface where
         parseXML x
           = NetworkInterface' <$>
-              (x .@? "privateIpAddressesSet" .!@ mempty >>=
+              (x .@? "groupSet" .!@ mempty >>=
                  may (parseXMLList "item"))
                 <*> (x .@? "status")
                 <*>
-                (x .@? "groupSet" .!@ mempty >>=
+                (x .@? "privateIpAddressesSet" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@? "sourceDestCheck")
+                <*> (x .@? "vpcId")
                 <*>
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
-                <*> (x .@? "vpcId")
                 <*> (x .@? "requesterManaged")
                 <*> (x .@? "networkInterfaceId")
                 <*> (x .@? "subnetId")
-                <*> (x .@? "attachment")
                 <*> (x .@? "macAddress")
+                <*> (x .@? "attachment")
                 <*> (x .@? "ownerId")
                 <*> (x .@? "availabilityZone")
                 <*> (x .@? "privateIpAddress")
@@ -5505,8 +5504,8 @@ instance FromXML NetworkInterfaceAssociation where
 -- /See:/ 'networkInterfaceAttachment' smart constructor.
 data NetworkInterfaceAttachment = NetworkInterfaceAttachment'
     { _niaInstanceId          :: !(Maybe Text)
-    , _niaDeleteOnTermination :: !(Maybe Bool)
     , _niaStatus              :: !(Maybe AttachmentStatus)
+    , _niaDeleteOnTermination :: !(Maybe Bool)
     , _niaAttachmentId        :: !(Maybe Text)
     , _niaInstanceOwnerId     :: !(Maybe Text)
     , _niaAttachTime          :: !(Maybe ISO8601)
@@ -5519,9 +5518,9 @@ data NetworkInterfaceAttachment = NetworkInterfaceAttachment'
 --
 -- * 'niaInstanceId'
 --
--- * 'niaDeleteOnTermination'
---
 -- * 'niaStatus'
+--
+-- * 'niaDeleteOnTermination'
 --
 -- * 'niaAttachmentId'
 --
@@ -5535,8 +5534,8 @@ networkInterfaceAttachment
 networkInterfaceAttachment =
     NetworkInterfaceAttachment'
     { _niaInstanceId = Nothing
-    , _niaDeleteOnTermination = Nothing
     , _niaStatus = Nothing
+    , _niaDeleteOnTermination = Nothing
     , _niaAttachmentId = Nothing
     , _niaInstanceOwnerId = Nothing
     , _niaAttachTime = Nothing
@@ -5547,14 +5546,14 @@ networkInterfaceAttachment =
 niaInstanceId :: Lens' NetworkInterfaceAttachment (Maybe Text)
 niaInstanceId = lens _niaInstanceId (\ s a -> s{_niaInstanceId = a});
 
+-- | The attachment state.
+niaStatus :: Lens' NetworkInterfaceAttachment (Maybe AttachmentStatus)
+niaStatus = lens _niaStatus (\ s a -> s{_niaStatus = a});
+
 -- | Indicates whether the network interface is deleted when the instance is
 -- terminated.
 niaDeleteOnTermination :: Lens' NetworkInterfaceAttachment (Maybe Bool)
 niaDeleteOnTermination = lens _niaDeleteOnTermination (\ s a -> s{_niaDeleteOnTermination = a});
-
--- | The attachment state.
-niaStatus :: Lens' NetworkInterfaceAttachment (Maybe AttachmentStatus)
-niaStatus = lens _niaStatus (\ s a -> s{_niaStatus = a});
 
 -- | The ID of the network interface attachment.
 niaAttachmentId :: Lens' NetworkInterfaceAttachment (Maybe Text)
@@ -5575,9 +5574,8 @@ niaDeviceIndex = lens _niaDeviceIndex (\ s a -> s{_niaDeviceIndex = a});
 instance FromXML NetworkInterfaceAttachment where
         parseXML x
           = NetworkInterfaceAttachment' <$>
-              (x .@? "instanceId") <*>
+              (x .@? "instanceId") <*> (x .@? "status") <*>
                 (x .@? "deleteOnTermination")
-                <*> (x .@? "status")
                 <*> (x .@? "attachmentId")
                 <*> (x .@? "instanceOwnerId")
                 <*> (x .@? "attachTime")
@@ -6186,37 +6184,37 @@ instance FromXML PropagatingVGW where
 --
 -- /See:/ 'recurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
-    { _rcFrequency :: !(Maybe RecurringChargeFrequency)
-    , _rcAmount    :: !(Maybe Double)
+    { _rcAmount    :: !(Maybe Double)
+    , _rcFrequency :: !(Maybe RecurringChargeFrequency)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcFrequency'
---
 -- * 'rcAmount'
+--
+-- * 'rcFrequency'
 recurringCharge
     :: RecurringCharge
 recurringCharge =
     RecurringCharge'
-    { _rcFrequency = Nothing
-    , _rcAmount = Nothing
+    { _rcAmount = Nothing
+    , _rcFrequency = Nothing
     }
-
--- | The frequency of the recurring charge.
-rcFrequency :: Lens' RecurringCharge (Maybe RecurringChargeFrequency)
-rcFrequency = lens _rcFrequency (\ s a -> s{_rcFrequency = a});
 
 -- | The amount of the recurring charge.
 rcAmount :: Lens' RecurringCharge (Maybe Double)
 rcAmount = lens _rcAmount (\ s a -> s{_rcAmount = a});
 
+-- | The frequency of the recurring charge.
+rcFrequency :: Lens' RecurringCharge (Maybe RecurringChargeFrequency)
+rcFrequency = lens _rcFrequency (\ s a -> s{_rcFrequency = a});
+
 instance FromXML RecurringCharge where
         parseXML x
           = RecurringCharge' <$>
-              (x .@? "frequency") <*> (x .@? "amount")
+              (x .@? "amount") <*> (x .@? "frequency")
 
 -- | Describes a region.
 --
@@ -6260,19 +6258,19 @@ instance FromXML RegionInfo where
 data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
     { _rslsSecurityGroupIds    :: !(Maybe [Text])
     , _rslsSecurityGroups      :: !(Maybe [Text])
-    , _rslsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
     , _rslsKeyName             :: !(Maybe Text)
+    , _rslsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
     , _rslsRAMDiskId           :: !(Maybe Text)
-    , _rslsKernelId            :: !(Maybe Text)
     , _rslsSubnetId            :: !(Maybe Text)
+    , _rslsKernelId            :: !(Maybe Text)
     , _rslsInstanceType        :: !(Maybe InstanceType)
     , _rslsEBSOptimized        :: !(Maybe Bool)
     , _rslsUserData            :: !(Maybe Text)
     , _rslsMonitoring          :: !(Maybe RunInstancesMonitoringEnabled)
     , _rslsIAMInstanceProfile  :: !(Maybe IAMInstanceProfileSpecification)
     , _rslsImageId             :: !(Maybe Text)
-    , _rslsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _rslsAddressingType      :: !(Maybe Text)
+    , _rslsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _rslsPlacement           :: !(Maybe SpotPlacement)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -6284,15 +6282,15 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
 --
 -- * 'rslsSecurityGroups'
 --
--- * 'rslsNetworkInterfaces'
---
 -- * 'rslsKeyName'
+--
+-- * 'rslsNetworkInterfaces'
 --
 -- * 'rslsRAMDiskId'
 --
--- * 'rslsKernelId'
---
 -- * 'rslsSubnetId'
+--
+-- * 'rslsKernelId'
 --
 -- * 'rslsInstanceType'
 --
@@ -6306,9 +6304,9 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
 --
 -- * 'rslsImageId'
 --
--- * 'rslsBlockDeviceMappings'
---
 -- * 'rslsAddressingType'
+--
+-- * 'rslsBlockDeviceMappings'
 --
 -- * 'rslsPlacement'
 requestSpotLaunchSpecification
@@ -6317,19 +6315,19 @@ requestSpotLaunchSpecification =
     RequestSpotLaunchSpecification'
     { _rslsSecurityGroupIds = Nothing
     , _rslsSecurityGroups = Nothing
-    , _rslsNetworkInterfaces = Nothing
     , _rslsKeyName = Nothing
+    , _rslsNetworkInterfaces = Nothing
     , _rslsRAMDiskId = Nothing
-    , _rslsKernelId = Nothing
     , _rslsSubnetId = Nothing
+    , _rslsKernelId = Nothing
     , _rslsInstanceType = Nothing
     , _rslsEBSOptimized = Nothing
     , _rslsUserData = Nothing
     , _rslsMonitoring = Nothing
     , _rslsIAMInstanceProfile = Nothing
     , _rslsImageId = Nothing
-    , _rslsBlockDeviceMappings = Nothing
     , _rslsAddressingType = Nothing
+    , _rslsBlockDeviceMappings = Nothing
     , _rslsPlacement = Nothing
     }
 
@@ -6341,25 +6339,25 @@ rslsSecurityGroupIds = lens _rslsSecurityGroupIds (\ s a -> s{_rslsSecurityGroup
 rslsSecurityGroups :: Lens' RequestSpotLaunchSpecification [Text]
 rslsSecurityGroups = lens _rslsSecurityGroups (\ s a -> s{_rslsSecurityGroups = a}) . _Default . _Coerce;
 
--- | One or more network interfaces.
-rslsNetworkInterfaces :: Lens' RequestSpotLaunchSpecification [InstanceNetworkInterfaceSpecification]
-rslsNetworkInterfaces = lens _rslsNetworkInterfaces (\ s a -> s{_rslsNetworkInterfaces = a}) . _Default . _Coerce;
-
 -- | The name of the key pair.
 rslsKeyName :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsKeyName = lens _rslsKeyName (\ s a -> s{_rslsKeyName = a});
+
+-- | One or more network interfaces.
+rslsNetworkInterfaces :: Lens' RequestSpotLaunchSpecification [InstanceNetworkInterfaceSpecification]
+rslsNetworkInterfaces = lens _rslsNetworkInterfaces (\ s a -> s{_rslsNetworkInterfaces = a}) . _Default . _Coerce;
 
 -- | The ID of the RAM disk.
 rslsRAMDiskId :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsRAMDiskId = lens _rslsRAMDiskId (\ s a -> s{_rslsRAMDiskId = a});
 
--- | The ID of the kernel.
-rslsKernelId :: Lens' RequestSpotLaunchSpecification (Maybe Text)
-rslsKernelId = lens _rslsKernelId (\ s a -> s{_rslsKernelId = a});
-
 -- | The ID of the subnet in which to launch the instance.
 rslsSubnetId :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsSubnetId = lens _rslsSubnetId (\ s a -> s{_rslsSubnetId = a});
+
+-- | The ID of the kernel.
+rslsKernelId :: Lens' RequestSpotLaunchSpecification (Maybe Text)
+rslsKernelId = lens _rslsKernelId (\ s a -> s{_rslsKernelId = a});
 
 -- | The instance type.
 rslsInstanceType :: Lens' RequestSpotLaunchSpecification (Maybe InstanceType)
@@ -6391,13 +6389,13 @@ rslsIAMInstanceProfile = lens _rslsIAMInstanceProfile (\ s a -> s{_rslsIAMInstan
 rslsImageId :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsImageId = lens _rslsImageId (\ s a -> s{_rslsImageId = a});
 
--- | One or more block device mapping entries.
-rslsBlockDeviceMappings :: Lens' RequestSpotLaunchSpecification [BlockDeviceMapping]
-rslsBlockDeviceMappings = lens _rslsBlockDeviceMappings (\ s a -> s{_rslsBlockDeviceMappings = a}) . _Default . _Coerce;
-
 -- | Deprecated.
 rslsAddressingType :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsAddressingType = lens _rslsAddressingType (\ s a -> s{_rslsAddressingType = a});
+
+-- | One or more block device mapping entries.
+rslsBlockDeviceMappings :: Lens' RequestSpotLaunchSpecification [BlockDeviceMapping]
+rslsBlockDeviceMappings = lens _rslsBlockDeviceMappings (\ s a -> s{_rslsBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | The placement information for the instance.
 rslsPlacement :: Lens' RequestSpotLaunchSpecification (Maybe SpotPlacement)
@@ -6412,23 +6410,23 @@ instance ToQuery RequestSpotLaunchSpecification where
                toQuery
                  (toQueryList "SecurityGroup" <$>
                     _rslsSecurityGroups),
+               "KeyName" =: _rslsKeyName,
                toQuery
                  (toQueryList "NetworkInterface" <$>
                     _rslsNetworkInterfaces),
-               "KeyName" =: _rslsKeyName,
                "RamdiskId" =: _rslsRAMDiskId,
-               "KernelId" =: _rslsKernelId,
                "SubnetId" =: _rslsSubnetId,
+               "KernelId" =: _rslsKernelId,
                "InstanceType" =: _rslsInstanceType,
                "EbsOptimized" =: _rslsEBSOptimized,
                "UserData" =: _rslsUserData,
                "Monitoring" =: _rslsMonitoring,
                "IamInstanceProfile" =: _rslsIAMInstanceProfile,
                "ImageId" =: _rslsImageId,
+               "AddressingType" =: _rslsAddressingType,
                toQuery
                  (toQueryList "BlockDeviceMapping" <$>
                     _rslsBlockDeviceMappings),
-               "AddressingType" =: _rslsAddressingType,
                "Placement" =: _rslsPlacement]
 
 -- | Describes a reservation.
@@ -6550,14 +6548,14 @@ data ReservedInstances = ReservedInstances'
     , _riProductDescription  :: !(Maybe RIProductDescription)
     , _riStart               :: !(Maybe ISO8601)
     , _riInstanceType        :: !(Maybe InstanceType)
-    , _riAvailabilityZone    :: !(Maybe Text)
     , _riEnd                 :: !(Maybe ISO8601)
+    , _riAvailabilityZone    :: !(Maybe Text)
+    , _riRecurringCharges    :: !(Maybe [RecurringCharge])
     , _riOfferingType        :: !(Maybe OfferingTypeValues)
     , _riUsagePrice          :: !(Maybe Double)
-    , _riRecurringCharges    :: !(Maybe [RecurringCharge])
-    , _riInstanceTenancy     :: !(Maybe Tenancy)
     , _riFixedPrice          :: !(Maybe Double)
     , _riReservedInstancesId :: !(Maybe Text)
+    , _riInstanceTenancy     :: !(Maybe Tenancy)
     , _riDuration            :: !(Maybe Integer)
     , _riTags                :: !(Maybe [Tag])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -6578,21 +6576,21 @@ data ReservedInstances = ReservedInstances'
 --
 -- * 'riInstanceType'
 --
+-- * 'riEnd'
+--
 -- * 'riAvailabilityZone'
 --
--- * 'riEnd'
+-- * 'riRecurringCharges'
 --
 -- * 'riOfferingType'
 --
 -- * 'riUsagePrice'
 --
--- * 'riRecurringCharges'
---
--- * 'riInstanceTenancy'
---
 -- * 'riFixedPrice'
 --
 -- * 'riReservedInstancesId'
+--
+-- * 'riInstanceTenancy'
 --
 -- * 'riDuration'
 --
@@ -6607,14 +6605,14 @@ reservedInstances =
     , _riProductDescription = Nothing
     , _riStart = Nothing
     , _riInstanceType = Nothing
-    , _riAvailabilityZone = Nothing
     , _riEnd = Nothing
+    , _riAvailabilityZone = Nothing
+    , _riRecurringCharges = Nothing
     , _riOfferingType = Nothing
     , _riUsagePrice = Nothing
-    , _riRecurringCharges = Nothing
-    , _riInstanceTenancy = Nothing
     , _riFixedPrice = Nothing
     , _riReservedInstancesId = Nothing
+    , _riInstanceTenancy = Nothing
     , _riDuration = Nothing
     , _riTags = Nothing
     }
@@ -6645,13 +6643,17 @@ riStart = lens _riStart (\ s a -> s{_riStart = a}) . mapping _Time;
 riInstanceType :: Lens' ReservedInstances (Maybe InstanceType)
 riInstanceType = lens _riInstanceType (\ s a -> s{_riInstanceType = a});
 
+-- | The time when the Reserved Instance expires.
+riEnd :: Lens' ReservedInstances (Maybe UTCTime)
+riEnd = lens _riEnd (\ s a -> s{_riEnd = a}) . mapping _Time;
+
 -- | The Availability Zone in which the Reserved Instance can be used.
 riAvailabilityZone :: Lens' ReservedInstances (Maybe Text)
 riAvailabilityZone = lens _riAvailabilityZone (\ s a -> s{_riAvailabilityZone = a});
 
--- | The time when the Reserved Instance expires.
-riEnd :: Lens' ReservedInstances (Maybe UTCTime)
-riEnd = lens _riEnd (\ s a -> s{_riEnd = a}) . mapping _Time;
+-- | The recurring charge tag assigned to the resource.
+riRecurringCharges :: Lens' ReservedInstances [RecurringCharge]
+riRecurringCharges = lens _riRecurringCharges (\ s a -> s{_riRecurringCharges = a}) . _Default . _Coerce;
 
 -- | The Reserved Instance offering type.
 riOfferingType :: Lens' ReservedInstances (Maybe OfferingTypeValues)
@@ -6661,14 +6663,6 @@ riOfferingType = lens _riOfferingType (\ s a -> s{_riOfferingType = a});
 riUsagePrice :: Lens' ReservedInstances (Maybe Double)
 riUsagePrice = lens _riUsagePrice (\ s a -> s{_riUsagePrice = a});
 
--- | The recurring charge tag assigned to the resource.
-riRecurringCharges :: Lens' ReservedInstances [RecurringCharge]
-riRecurringCharges = lens _riRecurringCharges (\ s a -> s{_riRecurringCharges = a}) . _Default . _Coerce;
-
--- | The tenancy of the reserved instance.
-riInstanceTenancy :: Lens' ReservedInstances (Maybe Tenancy)
-riInstanceTenancy = lens _riInstanceTenancy (\ s a -> s{_riInstanceTenancy = a});
-
 -- | The purchase price of the Reserved Instance.
 riFixedPrice :: Lens' ReservedInstances (Maybe Double)
 riFixedPrice = lens _riFixedPrice (\ s a -> s{_riFixedPrice = a});
@@ -6676,6 +6670,10 @@ riFixedPrice = lens _riFixedPrice (\ s a -> s{_riFixedPrice = a});
 -- | The ID of the Reserved Instance.
 riReservedInstancesId :: Lens' ReservedInstances (Maybe Text)
 riReservedInstancesId = lens _riReservedInstancesId (\ s a -> s{_riReservedInstancesId = a});
+
+-- | The tenancy of the reserved instance.
+riInstanceTenancy :: Lens' ReservedInstances (Maybe Tenancy)
+riInstanceTenancy = lens _riInstanceTenancy (\ s a -> s{_riInstanceTenancy = a});
 
 -- | The duration of the Reserved Instance, in seconds.
 riDuration :: Lens' ReservedInstances (Maybe Integer)
@@ -6693,16 +6691,16 @@ instance FromXML ReservedInstances where
                 <*> (x .@? "productDescription")
                 <*> (x .@? "start")
                 <*> (x .@? "instanceType")
-                <*> (x .@? "availabilityZone")
                 <*> (x .@? "end")
-                <*> (x .@? "offeringType")
-                <*> (x .@? "usagePrice")
+                <*> (x .@? "availabilityZone")
                 <*>
                 (x .@? "recurringCharges" .!@ mempty >>=
                    may (parseXMLList "item"))
-                <*> (x .@? "instanceTenancy")
+                <*> (x .@? "offeringType")
+                <*> (x .@? "usagePrice")
                 <*> (x .@? "fixedPrice")
                 <*> (x .@? "reservedInstancesId")
+                <*> (x .@? "instanceTenancy")
                 <*> (x .@? "duration")
                 <*>
                 (x .@? "tagSet" .!@ mempty >>=
@@ -6811,9 +6809,9 @@ data ReservedInstancesListing = ReservedInstancesListing'
     , _rilPriceSchedules             :: !(Maybe [PriceSchedule])
     , _rilStatusMessage              :: !(Maybe Text)
     , _rilReservedInstancesId        :: !(Maybe Text)
+    , _rilTags                       :: !(Maybe [Tag])
     , _rilInstanceCounts             :: !(Maybe [InstanceCount])
     , _rilReservedInstancesListingId :: !(Maybe Text)
-    , _rilTags                       :: !(Maybe [Tag])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReservedInstancesListing' with the minimum fields required to make a request.
@@ -6834,11 +6832,11 @@ data ReservedInstancesListing = ReservedInstancesListing'
 --
 -- * 'rilReservedInstancesId'
 --
+-- * 'rilTags'
+--
 -- * 'rilInstanceCounts'
 --
 -- * 'rilReservedInstancesListingId'
---
--- * 'rilTags'
 reservedInstancesListing
     :: ReservedInstancesListing
 reservedInstancesListing =
@@ -6850,9 +6848,9 @@ reservedInstancesListing =
     , _rilPriceSchedules = Nothing
     , _rilStatusMessage = Nothing
     , _rilReservedInstancesId = Nothing
+    , _rilTags = Nothing
     , _rilInstanceCounts = Nothing
     , _rilReservedInstancesListingId = Nothing
-    , _rilTags = Nothing
     }
 
 -- | The status of the Reserved Instance listing.
@@ -6886,6 +6884,10 @@ rilStatusMessage = lens _rilStatusMessage (\ s a -> s{_rilStatusMessage = a});
 rilReservedInstancesId :: Lens' ReservedInstancesListing (Maybe Text)
 rilReservedInstancesId = lens _rilReservedInstancesId (\ s a -> s{_rilReservedInstancesId = a});
 
+-- | Any tags assigned to the resource.
+rilTags :: Lens' ReservedInstancesListing [Tag]
+rilTags = lens _rilTags (\ s a -> s{_rilTags = a}) . _Default . _Coerce;
+
 -- | The number of instances in this state.
 rilInstanceCounts :: Lens' ReservedInstancesListing [InstanceCount]
 rilInstanceCounts = lens _rilInstanceCounts (\ s a -> s{_rilInstanceCounts = a}) . _Default . _Coerce;
@@ -6893,10 +6895,6 @@ rilInstanceCounts = lens _rilInstanceCounts (\ s a -> s{_rilInstanceCounts = a})
 -- | The ID of the Reserved Instance listing.
 rilReservedInstancesListingId :: Lens' ReservedInstancesListing (Maybe Text)
 rilReservedInstancesListingId = lens _rilReservedInstancesListingId (\ s a -> s{_rilReservedInstancesListingId = a});
-
--- | Any tags assigned to the resource.
-rilTags :: Lens' ReservedInstancesListing [Tag]
-rilTags = lens _rilTags (\ s a -> s{_rilTags = a}) . _Default . _Coerce;
 
 instance FromXML ReservedInstancesListing where
         parseXML x
@@ -6910,12 +6908,12 @@ instance FromXML ReservedInstancesListing where
                 <*> (x .@? "statusMessage")
                 <*> (x .@? "reservedInstancesId")
                 <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*>
                 (x .@? "instanceCounts" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@? "reservedInstancesListingId")
-                <*>
-                (x .@? "tagSet" .!@ mempty >>=
-                   may (parseXMLList "item"))
 
 -- | Describes a Reserved Instance modification.
 --
@@ -7072,12 +7070,12 @@ data ReservedInstancesOffering = ReservedInstancesOffering'
     , _rioInstanceType                :: !(Maybe InstanceType)
     , _rioAvailabilityZone            :: !(Maybe Text)
     , _rioPricingDetails              :: !(Maybe [PricingDetail])
+    , _rioRecurringCharges            :: !(Maybe [RecurringCharge])
     , _rioOfferingType                :: !(Maybe OfferingTypeValues)
     , _rioUsagePrice                  :: !(Maybe Double)
-    , _rioRecurringCharges            :: !(Maybe [RecurringCharge])
-    , _rioReservedInstancesOfferingId :: !(Maybe Text)
-    , _rioInstanceTenancy             :: !(Maybe Tenancy)
     , _rioFixedPrice                  :: !(Maybe Double)
+    , _rioInstanceTenancy             :: !(Maybe Tenancy)
+    , _rioReservedInstancesOfferingId :: !(Maybe Text)
     , _rioDuration                    :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -7097,17 +7095,17 @@ data ReservedInstancesOffering = ReservedInstancesOffering'
 --
 -- * 'rioPricingDetails'
 --
+-- * 'rioRecurringCharges'
+--
 -- * 'rioOfferingType'
 --
 -- * 'rioUsagePrice'
 --
--- * 'rioRecurringCharges'
---
--- * 'rioReservedInstancesOfferingId'
+-- * 'rioFixedPrice'
 --
 -- * 'rioInstanceTenancy'
 --
--- * 'rioFixedPrice'
+-- * 'rioReservedInstancesOfferingId'
 --
 -- * 'rioDuration'
 reservedInstancesOffering
@@ -7120,12 +7118,12 @@ reservedInstancesOffering =
     , _rioInstanceType = Nothing
     , _rioAvailabilityZone = Nothing
     , _rioPricingDetails = Nothing
+    , _rioRecurringCharges = Nothing
     , _rioOfferingType = Nothing
     , _rioUsagePrice = Nothing
-    , _rioRecurringCharges = Nothing
-    , _rioReservedInstancesOfferingId = Nothing
-    , _rioInstanceTenancy = Nothing
     , _rioFixedPrice = Nothing
+    , _rioInstanceTenancy = Nothing
+    , _rioReservedInstancesOfferingId = Nothing
     , _rioDuration = Nothing
     }
 
@@ -7157,6 +7155,10 @@ rioAvailabilityZone = lens _rioAvailabilityZone (\ s a -> s{_rioAvailabilityZone
 rioPricingDetails :: Lens' ReservedInstancesOffering [PricingDetail]
 rioPricingDetails = lens _rioPricingDetails (\ s a -> s{_rioPricingDetails = a}) . _Default . _Coerce;
 
+-- | The recurring charge tag assigned to the resource.
+rioRecurringCharges :: Lens' ReservedInstancesOffering [RecurringCharge]
+rioRecurringCharges = lens _rioRecurringCharges (\ s a -> s{_rioRecurringCharges = a}) . _Default . _Coerce;
+
 -- | The Reserved Instance offering type.
 rioOfferingType :: Lens' ReservedInstancesOffering (Maybe OfferingTypeValues)
 rioOfferingType = lens _rioOfferingType (\ s a -> s{_rioOfferingType = a});
@@ -7165,21 +7167,17 @@ rioOfferingType = lens _rioOfferingType (\ s a -> s{_rioOfferingType = a});
 rioUsagePrice :: Lens' ReservedInstancesOffering (Maybe Double)
 rioUsagePrice = lens _rioUsagePrice (\ s a -> s{_rioUsagePrice = a});
 
--- | The recurring charge tag assigned to the resource.
-rioRecurringCharges :: Lens' ReservedInstancesOffering [RecurringCharge]
-rioRecurringCharges = lens _rioRecurringCharges (\ s a -> s{_rioRecurringCharges = a}) . _Default . _Coerce;
-
--- | The ID of the Reserved Instance offering.
-rioReservedInstancesOfferingId :: Lens' ReservedInstancesOffering (Maybe Text)
-rioReservedInstancesOfferingId = lens _rioReservedInstancesOfferingId (\ s a -> s{_rioReservedInstancesOfferingId = a});
+-- | The purchase price of the Reserved Instance.
+rioFixedPrice :: Lens' ReservedInstancesOffering (Maybe Double)
+rioFixedPrice = lens _rioFixedPrice (\ s a -> s{_rioFixedPrice = a});
 
 -- | The tenancy of the reserved instance.
 rioInstanceTenancy :: Lens' ReservedInstancesOffering (Maybe Tenancy)
 rioInstanceTenancy = lens _rioInstanceTenancy (\ s a -> s{_rioInstanceTenancy = a});
 
--- | The purchase price of the Reserved Instance.
-rioFixedPrice :: Lens' ReservedInstancesOffering (Maybe Double)
-rioFixedPrice = lens _rioFixedPrice (\ s a -> s{_rioFixedPrice = a});
+-- | The ID of the Reserved Instance offering.
+rioReservedInstancesOfferingId :: Lens' ReservedInstancesOffering (Maybe Text)
+rioReservedInstancesOfferingId = lens _rioReservedInstancesOfferingId (\ s a -> s{_rioReservedInstancesOfferingId = a});
 
 -- | The duration of the Reserved Instance, in seconds.
 rioDuration :: Lens' ReservedInstancesOffering (Maybe Integer)
@@ -7195,23 +7193,23 @@ instance FromXML ReservedInstancesOffering where
                 <*>
                 (x .@? "pricingDetailsSet" .!@ mempty >>=
                    may (parseXMLList "item"))
-                <*> (x .@? "offeringType")
-                <*> (x .@? "usagePrice")
                 <*>
                 (x .@? "recurringCharges" .!@ mempty >>=
                    may (parseXMLList "item"))
-                <*> (x .@? "reservedInstancesOfferingId")
-                <*> (x .@? "instanceTenancy")
+                <*> (x .@? "offeringType")
+                <*> (x .@? "usagePrice")
                 <*> (x .@? "fixedPrice")
+                <*> (x .@? "instanceTenancy")
+                <*> (x .@? "reservedInstancesOfferingId")
                 <*> (x .@? "duration")
 
 -- | Describes a route in a route table.
 --
 -- /See:/ 'route' smart constructor.
 data Route = Route'
-    { _rInstanceId              :: !(Maybe Text)
+    { _rVPCPeeringConnectionId  :: !(Maybe Text)
+    , _rInstanceId              :: !(Maybe Text)
     , _rOrigin                  :: !(Maybe RouteOrigin)
-    , _rVPCPeeringConnectionId  :: !(Maybe Text)
     , _rState                   :: !(Maybe RouteState)
     , _rNetworkInterfaceId      :: !(Maybe Text)
     , _rGatewayId               :: !(Maybe Text)
@@ -7224,11 +7222,11 @@ data Route = Route'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'rVPCPeeringConnectionId'
+--
 -- * 'rInstanceId'
 --
 -- * 'rOrigin'
---
--- * 'rVPCPeeringConnectionId'
 --
 -- * 'rState'
 --
@@ -7245,9 +7243,9 @@ route
     :: Route
 route =
     Route'
-    { _rInstanceId = Nothing
+    { _rVPCPeeringConnectionId = Nothing
+    , _rInstanceId = Nothing
     , _rOrigin = Nothing
-    , _rVPCPeeringConnectionId = Nothing
     , _rState = Nothing
     , _rNetworkInterfaceId = Nothing
     , _rGatewayId = Nothing
@@ -7255,6 +7253,10 @@ route =
     , _rDestinationPrefixListId = Nothing
     , _rDestinationCIdRBlock = Nothing
     }
+
+-- | The ID of the VPC peering connection.
+rVPCPeeringConnectionId :: Lens' Route (Maybe Text)
+rVPCPeeringConnectionId = lens _rVPCPeeringConnectionId (\ s a -> s{_rVPCPeeringConnectionId = a});
 
 -- | The ID of a NAT instance in your VPC.
 rInstanceId :: Lens' Route (Maybe Text)
@@ -7270,10 +7272,6 @@ rInstanceId = lens _rInstanceId (\ s a -> s{_rInstanceId = a});
 --     by route propagation.
 rOrigin :: Lens' Route (Maybe RouteOrigin)
 rOrigin = lens _rOrigin (\ s a -> s{_rOrigin = a});
-
--- | The ID of the VPC peering connection.
-rVPCPeeringConnectionId :: Lens' Route (Maybe Text)
-rVPCPeeringConnectionId = lens _rVPCPeeringConnectionId (\ s a -> s{_rVPCPeeringConnectionId = a});
 
 -- | The state of the route. The 'blackhole' state indicates that the
 -- route\'s target isn\'t available (for example, the specified gateway
@@ -7305,8 +7303,9 @@ rDestinationCIdRBlock = lens _rDestinationCIdRBlock (\ s a -> s{_rDestinationCId
 instance FromXML Route where
         parseXML x
           = Route' <$>
-              (x .@? "instanceId") <*> (x .@? "origin") <*>
-                (x .@? "vpcPeeringConnectionId")
+              (x .@? "vpcPeeringConnectionId") <*>
+                (x .@? "instanceId")
+                <*> (x .@? "origin")
                 <*> (x .@? "state")
                 <*> (x .@? "networkInterfaceId")
                 <*> (x .@? "gatewayId")
@@ -7318,8 +7317,8 @@ instance FromXML Route where
 --
 -- /See:/ 'routeTable' smart constructor.
 data RouteTable = RouteTable'
-    { _rtRoutes          :: !(Maybe [Route])
-    , _rtRouteTableId    :: !(Maybe Text)
+    { _rtRouteTableId    :: !(Maybe Text)
+    , _rtRoutes          :: !(Maybe [Route])
     , _rtVPCId           :: !(Maybe Text)
     , _rtPropagatingVGWs :: !(Maybe [PropagatingVGW])
     , _rtAssociations    :: !(Maybe [RouteTableAssociation])
@@ -7330,9 +7329,9 @@ data RouteTable = RouteTable'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtRoutes'
---
 -- * 'rtRouteTableId'
+--
+-- * 'rtRoutes'
 --
 -- * 'rtVPCId'
 --
@@ -7345,21 +7344,21 @@ routeTable
     :: RouteTable
 routeTable =
     RouteTable'
-    { _rtRoutes = Nothing
-    , _rtRouteTableId = Nothing
+    { _rtRouteTableId = Nothing
+    , _rtRoutes = Nothing
     , _rtVPCId = Nothing
     , _rtPropagatingVGWs = Nothing
     , _rtAssociations = Nothing
     , _rtTags = Nothing
     }
 
--- | The routes in the route table.
-rtRoutes :: Lens' RouteTable [Route]
-rtRoutes = lens _rtRoutes (\ s a -> s{_rtRoutes = a}) . _Default . _Coerce;
-
 -- | The ID of the route table.
 rtRouteTableId :: Lens' RouteTable (Maybe Text)
 rtRouteTableId = lens _rtRouteTableId (\ s a -> s{_rtRouteTableId = a});
+
+-- | The routes in the route table.
+rtRoutes :: Lens' RouteTable [Route]
+rtRoutes = lens _rtRoutes (\ s a -> s{_rtRoutes = a}) . _Default . _Coerce;
 
 -- | The ID of the VPC.
 rtVPCId :: Lens' RouteTable (Maybe Text)
@@ -7380,9 +7379,9 @@ rtTags = lens _rtTags (\ s a -> s{_rtTags = a}) . _Default . _Coerce;
 instance FromXML RouteTable where
         parseXML x
           = RouteTable' <$>
-              (x .@? "routeSet" .!@ mempty >>=
-                 may (parseXMLList "item"))
-                <*> (x .@? "routeTableId")
+              (x .@? "routeTableId") <*>
+                (x .@? "routeSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "vpcId")
                 <*>
                 (x .@? "propagatingVgwSet" .!@ mempty >>=
@@ -7812,12 +7811,12 @@ instance FromXML Snapshot where
 data SnapshotDetail = SnapshotDetail'
     { _sdStatus        :: !(Maybe Text)
     , _sdProgress      :: !(Maybe Text)
-    , _sdURL           :: !(Maybe Text)
     , _sdFormat        :: !(Maybe Text)
+    , _sdURL           :: !(Maybe Text)
     , _sdDeviceName    :: !(Maybe Text)
+    , _sdStatusMessage :: !(Maybe Text)
     , _sdUserBucket    :: !(Maybe UserBucketDetails)
     , _sdDiskImageSize :: !(Maybe Double)
-    , _sdStatusMessage :: !(Maybe Text)
     , _sdDescription   :: !(Maybe Text)
     , _sdSnapshotId    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -7830,17 +7829,17 @@ data SnapshotDetail = SnapshotDetail'
 --
 -- * 'sdProgress'
 --
--- * 'sdURL'
---
 -- * 'sdFormat'
 --
+-- * 'sdURL'
+--
 -- * 'sdDeviceName'
+--
+-- * 'sdStatusMessage'
 --
 -- * 'sdUserBucket'
 --
 -- * 'sdDiskImageSize'
---
--- * 'sdStatusMessage'
 --
 -- * 'sdDescription'
 --
@@ -7851,12 +7850,12 @@ snapshotDetail =
     SnapshotDetail'
     { _sdStatus = Nothing
     , _sdProgress = Nothing
-    , _sdURL = Nothing
     , _sdFormat = Nothing
+    , _sdURL = Nothing
     , _sdDeviceName = Nothing
+    , _sdStatusMessage = Nothing
     , _sdUserBucket = Nothing
     , _sdDiskImageSize = Nothing
-    , _sdStatusMessage = Nothing
     , _sdDescription = Nothing
     , _sdSnapshotId = Nothing
     }
@@ -7869,17 +7868,21 @@ sdStatus = lens _sdStatus (\ s a -> s{_sdStatus = a});
 sdProgress :: Lens' SnapshotDetail (Maybe Text)
 sdProgress = lens _sdProgress (\ s a -> s{_sdProgress = a});
 
--- | The URL used to access the disk image.
-sdURL :: Lens' SnapshotDetail (Maybe Text)
-sdURL = lens _sdURL (\ s a -> s{_sdURL = a});
-
 -- | The format of the disk image from which the snapshot is created.
 sdFormat :: Lens' SnapshotDetail (Maybe Text)
 sdFormat = lens _sdFormat (\ s a -> s{_sdFormat = a});
 
+-- | The URL used to access the disk image.
+sdURL :: Lens' SnapshotDetail (Maybe Text)
+sdURL = lens _sdURL (\ s a -> s{_sdURL = a});
+
 -- | The block device mapping for the snapshot.
 sdDeviceName :: Lens' SnapshotDetail (Maybe Text)
 sdDeviceName = lens _sdDeviceName (\ s a -> s{_sdDeviceName = a});
+
+-- | A detailed status message for the snapshot creation.
+sdStatusMessage :: Lens' SnapshotDetail (Maybe Text)
+sdStatusMessage = lens _sdStatusMessage (\ s a -> s{_sdStatusMessage = a});
 
 -- | Undocumented member.
 sdUserBucket :: Lens' SnapshotDetail (Maybe UserBucketDetails)
@@ -7888,10 +7891,6 @@ sdUserBucket = lens _sdUserBucket (\ s a -> s{_sdUserBucket = a});
 -- | The size of the disk in the snapshot, in GiB.
 sdDiskImageSize :: Lens' SnapshotDetail (Maybe Double)
 sdDiskImageSize = lens _sdDiskImageSize (\ s a -> s{_sdDiskImageSize = a});
-
--- | A detailed status message for the snapshot creation.
-sdStatusMessage :: Lens' SnapshotDetail (Maybe Text)
-sdStatusMessage = lens _sdStatusMessage (\ s a -> s{_sdStatusMessage = a});
 
 -- | A description for the snapshot.
 sdDescription :: Lens' SnapshotDetail (Maybe Text)
@@ -7905,12 +7904,12 @@ instance FromXML SnapshotDetail where
         parseXML x
           = SnapshotDetail' <$>
               (x .@? "status") <*> (x .@? "progress") <*>
-                (x .@? "url")
-                <*> (x .@? "format")
+                (x .@? "format")
+                <*> (x .@? "url")
                 <*> (x .@? "deviceName")
+                <*> (x .@? "statusMessage")
                 <*> (x .@? "userBucket")
                 <*> (x .@? "diskImageSize")
-                <*> (x .@? "statusMessage")
                 <*> (x .@? "description")
                 <*> (x .@? "snapshotId")
 
@@ -7918,8 +7917,8 @@ instance FromXML SnapshotDetail where
 --
 -- /See:/ 'snapshotDiskContainer' smart constructor.
 data SnapshotDiskContainer = SnapshotDiskContainer'
-    { _sdcURL         :: !(Maybe Text)
-    , _sdcFormat      :: !(Maybe Text)
+    { _sdcFormat      :: !(Maybe Text)
+    , _sdcURL         :: !(Maybe Text)
     , _sdcUserBucket  :: !(Maybe UserBucket)
     , _sdcDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -7928,9 +7927,9 @@ data SnapshotDiskContainer = SnapshotDiskContainer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdcURL'
---
 -- * 'sdcFormat'
+--
+-- * 'sdcURL'
 --
 -- * 'sdcUserBucket'
 --
@@ -7939,22 +7938,22 @@ snapshotDiskContainer
     :: SnapshotDiskContainer
 snapshotDiskContainer =
     SnapshotDiskContainer'
-    { _sdcURL = Nothing
-    , _sdcFormat = Nothing
+    { _sdcFormat = Nothing
+    , _sdcURL = Nothing
     , _sdcUserBucket = Nothing
     , _sdcDescription = Nothing
     }
-
--- | The URL to the Amazon S3-based disk image being imported. It can either
--- be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..).
-sdcURL :: Lens' SnapshotDiskContainer (Maybe Text)
-sdcURL = lens _sdcURL (\ s a -> s{_sdcURL = a});
 
 -- | The format of the disk image being imported.
 --
 -- Valid values: 'RAW' | 'VHD' | 'VMDK' | 'OVA'
 sdcFormat :: Lens' SnapshotDiskContainer (Maybe Text)
 sdcFormat = lens _sdcFormat (\ s a -> s{_sdcFormat = a});
+
+-- | The URL to the Amazon S3-based disk image being imported. It can either
+-- be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..).
+sdcURL :: Lens' SnapshotDiskContainer (Maybe Text)
+sdcURL = lens _sdcURL (\ s a -> s{_sdcURL = a});
 
 -- | Undocumented member.
 sdcUserBucket :: Lens' SnapshotDiskContainer (Maybe UserBucket)
@@ -7967,7 +7966,7 @@ sdcDescription = lens _sdcDescription (\ s a -> s{_sdcDescription = a});
 instance ToQuery SnapshotDiskContainer where
         toQuery SnapshotDiskContainer'{..}
           = mconcat
-              ["Url" =: _sdcURL, "Format" =: _sdcFormat,
+              ["Format" =: _sdcFormat, "Url" =: _sdcURL,
                "UserBucket" =: _sdcUserBucket,
                "Description" =: _sdcDescription]
 
@@ -7977,11 +7976,11 @@ instance ToQuery SnapshotDiskContainer where
 data SnapshotTaskDetail = SnapshotTaskDetail'
     { _stdStatus        :: !(Maybe Text)
     , _stdProgress      :: !(Maybe Text)
-    , _stdURL           :: !(Maybe Text)
     , _stdFormat        :: !(Maybe Text)
+    , _stdURL           :: !(Maybe Text)
+    , _stdStatusMessage :: !(Maybe Text)
     , _stdUserBucket    :: !(Maybe UserBucketDetails)
     , _stdDiskImageSize :: !(Maybe Double)
-    , _stdStatusMessage :: !(Maybe Text)
     , _stdDescription   :: !(Maybe Text)
     , _stdSnapshotId    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -7994,15 +7993,15 @@ data SnapshotTaskDetail = SnapshotTaskDetail'
 --
 -- * 'stdProgress'
 --
+-- * 'stdFormat'
+--
 -- * 'stdURL'
 --
--- * 'stdFormat'
+-- * 'stdStatusMessage'
 --
 -- * 'stdUserBucket'
 --
 -- * 'stdDiskImageSize'
---
--- * 'stdStatusMessage'
 --
 -- * 'stdDescription'
 --
@@ -8013,11 +8012,11 @@ snapshotTaskDetail =
     SnapshotTaskDetail'
     { _stdStatus = Nothing
     , _stdProgress = Nothing
-    , _stdURL = Nothing
     , _stdFormat = Nothing
+    , _stdURL = Nothing
+    , _stdStatusMessage = Nothing
     , _stdUserBucket = Nothing
     , _stdDiskImageSize = Nothing
-    , _stdStatusMessage = Nothing
     , _stdDescription = Nothing
     , _stdSnapshotId = Nothing
     }
@@ -8030,13 +8029,17 @@ stdStatus = lens _stdStatus (\ s a -> s{_stdStatus = a});
 stdProgress :: Lens' SnapshotTaskDetail (Maybe Text)
 stdProgress = lens _stdProgress (\ s a -> s{_stdProgress = a});
 
+-- | The format of the disk image from which the snapshot is created.
+stdFormat :: Lens' SnapshotTaskDetail (Maybe Text)
+stdFormat = lens _stdFormat (\ s a -> s{_stdFormat = a});
+
 -- | The URL of the disk image from which the snapshot is created.
 stdURL :: Lens' SnapshotTaskDetail (Maybe Text)
 stdURL = lens _stdURL (\ s a -> s{_stdURL = a});
 
--- | The format of the disk image from which the snapshot is created.
-stdFormat :: Lens' SnapshotTaskDetail (Maybe Text)
-stdFormat = lens _stdFormat (\ s a -> s{_stdFormat = a});
+-- | A detailed status message for the import snapshot task.
+stdStatusMessage :: Lens' SnapshotTaskDetail (Maybe Text)
+stdStatusMessage = lens _stdStatusMessage (\ s a -> s{_stdStatusMessage = a});
 
 -- | The S3 bucket for the disk image.
 stdUserBucket :: Lens' SnapshotTaskDetail (Maybe UserBucketDetails)
@@ -8045,10 +8048,6 @@ stdUserBucket = lens _stdUserBucket (\ s a -> s{_stdUserBucket = a});
 -- | The size of the disk in the snapshot, in GiB.
 stdDiskImageSize :: Lens' SnapshotTaskDetail (Maybe Double)
 stdDiskImageSize = lens _stdDiskImageSize (\ s a -> s{_stdDiskImageSize = a});
-
--- | A detailed status message for the import snapshot task.
-stdStatusMessage :: Lens' SnapshotTaskDetail (Maybe Text)
-stdStatusMessage = lens _stdStatusMessage (\ s a -> s{_stdStatusMessage = a});
 
 -- | The description of the snapshot.
 stdDescription :: Lens' SnapshotTaskDetail (Maybe Text)
@@ -8062,11 +8061,11 @@ instance FromXML SnapshotTaskDetail where
         parseXML x
           = SnapshotTaskDetail' <$>
               (x .@? "status") <*> (x .@? "progress") <*>
-                (x .@? "url")
-                <*> (x .@? "format")
+                (x .@? "format")
+                <*> (x .@? "url")
+                <*> (x .@? "statusMessage")
                 <*> (x .@? "userBucket")
                 <*> (x .@? "diskImageSize")
-                <*> (x .@? "statusMessage")
                 <*> (x .@? "description")
                 <*> (x .@? "snapshotId")
 
@@ -8133,24 +8132,26 @@ instance FromXML SpotDatafeedSubscription where
                 <*> (x .@? "ownerId")
                 <*> (x .@? "fault")
 
--- | Describes the launch specification for an instance.
+-- | Describes the launch specification for one or more Spot Instances.
 --
 -- /See:/ 'spotFleetLaunchSpecification' smart constructor.
 data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
     { _sflsSecurityGroups      :: !(Maybe [GroupIdentifier])
-    , _sflsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
+    , _sflsSpotPrice           :: !(Maybe Text)
+    , _sflsWeightedCapacity    :: !(Maybe Double)
     , _sflsKeyName             :: !(Maybe Text)
+    , _sflsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
     , _sflsRAMDiskId           :: !(Maybe Text)
-    , _sflsKernelId            :: !(Maybe Text)
     , _sflsSubnetId            :: !(Maybe Text)
+    , _sflsKernelId            :: !(Maybe Text)
     , _sflsInstanceType        :: !(Maybe InstanceType)
     , _sflsEBSOptimized        :: !(Maybe Bool)
     , _sflsUserData            :: !(Maybe Text)
     , _sflsMonitoring          :: !(Maybe SpotFleetMonitoring)
     , _sflsIAMInstanceProfile  :: !(Maybe IAMInstanceProfileSpecification)
     , _sflsImageId             :: !(Maybe Text)
-    , _sflsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _sflsAddressingType      :: !(Maybe Text)
+    , _sflsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _sflsPlacement           :: !(Maybe SpotPlacement)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -8160,15 +8161,19 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
 --
 -- * 'sflsSecurityGroups'
 --
--- * 'sflsNetworkInterfaces'
+-- * 'sflsSpotPrice'
+--
+-- * 'sflsWeightedCapacity'
 --
 -- * 'sflsKeyName'
 --
+-- * 'sflsNetworkInterfaces'
+--
 -- * 'sflsRAMDiskId'
 --
--- * 'sflsKernelId'
---
 -- * 'sflsSubnetId'
+--
+-- * 'sflsKernelId'
 --
 -- * 'sflsInstanceType'
 --
@@ -8182,9 +8187,9 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
 --
 -- * 'sflsImageId'
 --
--- * 'sflsBlockDeviceMappings'
---
 -- * 'sflsAddressingType'
+--
+-- * 'sflsBlockDeviceMappings'
 --
 -- * 'sflsPlacement'
 spotFleetLaunchSpecification
@@ -8192,19 +8197,21 @@ spotFleetLaunchSpecification
 spotFleetLaunchSpecification =
     SpotFleetLaunchSpecification'
     { _sflsSecurityGroups = Nothing
-    , _sflsNetworkInterfaces = Nothing
+    , _sflsSpotPrice = Nothing
+    , _sflsWeightedCapacity = Nothing
     , _sflsKeyName = Nothing
+    , _sflsNetworkInterfaces = Nothing
     , _sflsRAMDiskId = Nothing
-    , _sflsKernelId = Nothing
     , _sflsSubnetId = Nothing
+    , _sflsKernelId = Nothing
     , _sflsInstanceType = Nothing
     , _sflsEBSOptimized = Nothing
     , _sflsUserData = Nothing
     , _sflsMonitoring = Nothing
     , _sflsIAMInstanceProfile = Nothing
     , _sflsImageId = Nothing
-    , _sflsBlockDeviceMappings = Nothing
     , _sflsAddressingType = Nothing
+    , _sflsBlockDeviceMappings = Nothing
     , _sflsPlacement = Nothing
     }
 
@@ -8215,31 +8222,49 @@ spotFleetLaunchSpecification =
 sflsSecurityGroups :: Lens' SpotFleetLaunchSpecification [GroupIdentifier]
 sflsSecurityGroups = lens _sflsSecurityGroups (\ s a -> s{_sflsSecurityGroups = a}) . _Default . _Coerce;
 
--- | One or more network interfaces.
-sflsNetworkInterfaces :: Lens' SpotFleetLaunchSpecification [InstanceNetworkInterfaceSpecification]
-sflsNetworkInterfaces = lens _sflsNetworkInterfaces (\ s a -> s{_sflsNetworkInterfaces = a}) . _Default . _Coerce;
+-- | The bid price per unit hour for the specified instance type. If this
+-- value is not specified, the default is the Spot bid price specified for
+-- the fleet. To determine the bid price per unit hour, divide the Spot bid
+-- price by the value of 'WeightedCapacity'.
+sflsSpotPrice :: Lens' SpotFleetLaunchSpecification (Maybe Text)
+sflsSpotPrice = lens _sflsSpotPrice (\ s a -> s{_sflsSpotPrice = a});
+
+-- | The number of units provided by the specified instance type. These are
+-- the same units that you chose to set the target capacity in terms
+-- (instances or a performance characteristic such as vCPUs, memory, or
+-- I\/O).
+--
+-- If the target capacity divided by this value is not a whole number, we
+-- round the number of instances to the next whole number. If this value is
+-- not specified, the default is 1.
+sflsWeightedCapacity :: Lens' SpotFleetLaunchSpecification (Maybe Double)
+sflsWeightedCapacity = lens _sflsWeightedCapacity (\ s a -> s{_sflsWeightedCapacity = a});
 
 -- | The name of the key pair.
 sflsKeyName :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsKeyName = lens _sflsKeyName (\ s a -> s{_sflsKeyName = a});
 
+-- | One or more network interfaces.
+sflsNetworkInterfaces :: Lens' SpotFleetLaunchSpecification [InstanceNetworkInterfaceSpecification]
+sflsNetworkInterfaces = lens _sflsNetworkInterfaces (\ s a -> s{_sflsNetworkInterfaces = a}) . _Default . _Coerce;
+
 -- | The ID of the RAM disk.
 sflsRAMDiskId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsRAMDiskId = lens _sflsRAMDiskId (\ s a -> s{_sflsRAMDiskId = a});
+
+-- | The ID of the subnet in which to launch the instances.
+sflsSubnetId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
+sflsSubnetId = lens _sflsSubnetId (\ s a -> s{_sflsSubnetId = a});
 
 -- | The ID of the kernel.
 sflsKernelId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsKernelId = lens _sflsKernelId (\ s a -> s{_sflsKernelId = a});
 
--- | The ID of the subnet in which to launch the instance.
-sflsSubnetId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
-sflsSubnetId = lens _sflsSubnetId (\ s a -> s{_sflsSubnetId = a});
-
 -- | The instance type.
 sflsInstanceType :: Lens' SpotFleetLaunchSpecification (Maybe InstanceType)
 sflsInstanceType = lens _sflsInstanceType (\ s a -> s{_sflsInstanceType = a});
 
--- | Indicates whether the instance is optimized for EBS I\/O. This
+-- | Indicates whether the instances are optimized for EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
 -- optimized configuration stack to provide optimal EBS I\/O performance.
 -- This optimization isn\'t available with all instance types. Additional
@@ -8253,11 +8278,11 @@ sflsEBSOptimized = lens _sflsEBSOptimized (\ s a -> s{_sflsEBSOptimized = a});
 sflsUserData :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsUserData = lens _sflsUserData (\ s a -> s{_sflsUserData = a});
 
--- | Enable or disable monitoring for the instance.
+-- | Enable or disable monitoring for the instances.
 sflsMonitoring :: Lens' SpotFleetLaunchSpecification (Maybe SpotFleetMonitoring)
 sflsMonitoring = lens _sflsMonitoring (\ s a -> s{_sflsMonitoring = a});
 
--- | Undocumented member.
+-- | The IAM instance profile.
 sflsIAMInstanceProfile :: Lens' SpotFleetLaunchSpecification (Maybe IAMInstanceProfileSpecification)
 sflsIAMInstanceProfile = lens _sflsIAMInstanceProfile (\ s a -> s{_sflsIAMInstanceProfile = a});
 
@@ -8265,15 +8290,15 @@ sflsIAMInstanceProfile = lens _sflsIAMInstanceProfile (\ s a -> s{_sflsIAMInstan
 sflsImageId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsImageId = lens _sflsImageId (\ s a -> s{_sflsImageId = a});
 
--- | One or more block device mapping entries.
-sflsBlockDeviceMappings :: Lens' SpotFleetLaunchSpecification [BlockDeviceMapping]
-sflsBlockDeviceMappings = lens _sflsBlockDeviceMappings (\ s a -> s{_sflsBlockDeviceMappings = a}) . _Default . _Coerce;
-
 -- | Deprecated.
 sflsAddressingType :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsAddressingType = lens _sflsAddressingType (\ s a -> s{_sflsAddressingType = a});
 
--- | Undocumented member.
+-- | One or more block device mapping entries.
+sflsBlockDeviceMappings :: Lens' SpotFleetLaunchSpecification [BlockDeviceMapping]
+sflsBlockDeviceMappings = lens _sflsBlockDeviceMappings (\ s a -> s{_sflsBlockDeviceMappings = a}) . _Default . _Coerce;
+
+-- | The placement information.
 sflsPlacement :: Lens' SpotFleetLaunchSpecification (Maybe SpotPlacement)
 sflsPlacement = lens _sflsPlacement (\ s a -> s{_sflsPlacement = a});
 
@@ -8282,23 +8307,25 @@ instance FromXML SpotFleetLaunchSpecification where
           = SpotFleetLaunchSpecification' <$>
               (x .@? "groupSet" .!@ mempty >>=
                  may (parseXMLList "item"))
+                <*> (x .@? "spotPrice")
+                <*> (x .@? "weightedCapacity")
+                <*> (x .@? "keyName")
                 <*>
                 (x .@? "networkInterfaceSet" .!@ mempty >>=
                    may (parseXMLList "item"))
-                <*> (x .@? "keyName")
                 <*> (x .@? "ramdiskId")
-                <*> (x .@? "kernelId")
                 <*> (x .@? "subnetId")
+                <*> (x .@? "kernelId")
                 <*> (x .@? "instanceType")
                 <*> (x .@? "ebsOptimized")
                 <*> (x .@? "userData")
                 <*> (x .@? "monitoring")
                 <*> (x .@? "iamInstanceProfile")
                 <*> (x .@? "imageId")
+                <*> (x .@? "addressingType")
                 <*>
                 (x .@? "blockDeviceMapping" .!@ mempty >>=
                    may (parseXMLList "item"))
-                <*> (x .@? "addressingType")
                 <*> (x .@? "placement")
 
 instance ToQuery SpotFleetLaunchSpecification where
@@ -8306,23 +8333,25 @@ instance ToQuery SpotFleetLaunchSpecification where
           = mconcat
               [toQuery
                  (toQueryList "GroupSet" <$> _sflsSecurityGroups),
+               "SpotPrice" =: _sflsSpotPrice,
+               "WeightedCapacity" =: _sflsWeightedCapacity,
+               "KeyName" =: _sflsKeyName,
                toQuery
                  (toQueryList "NetworkInterfaceSet" <$>
                     _sflsNetworkInterfaces),
-               "KeyName" =: _sflsKeyName,
                "RamdiskId" =: _sflsRAMDiskId,
-               "KernelId" =: _sflsKernelId,
                "SubnetId" =: _sflsSubnetId,
+               "KernelId" =: _sflsKernelId,
                "InstanceType" =: _sflsInstanceType,
                "EbsOptimized" =: _sflsEBSOptimized,
                "UserData" =: _sflsUserData,
                "Monitoring" =: _sflsMonitoring,
                "IamInstanceProfile" =: _sflsIAMInstanceProfile,
                "ImageId" =: _sflsImageId,
+               "AddressingType" =: _sflsAddressingType,
                toQuery
                  (toQueryList "BlockDeviceMapping" <$>
                     _sflsBlockDeviceMappings),
-               "AddressingType" =: _sflsAddressingType,
                "Placement" =: _sflsPlacement]
 
 -- | Describes whether monitoring is enabled.
@@ -8482,12 +8511,13 @@ sfrcdTerminateInstancesWithExpiration = lens _sfrcdTerminateInstancesWithExpirat
 sfrcdValidFrom :: Lens' SpotFleetRequestConfigData (Maybe UTCTime)
 sfrcdValidFrom = lens _sfrcdValidFrom (\ s a -> s{_sfrcdValidFrom = a}) . mapping _Time;
 
--- | The maximum hourly price (bid) for any Spot Instance launched to fulfill
--- the request.
+-- | The bid price per unit hour.
 sfrcdSpotPrice :: Lens' SpotFleetRequestConfigData Text
 sfrcdSpotPrice = lens _sfrcdSpotPrice (\ s a -> s{_sfrcdSpotPrice = a});
 
--- | The maximum number of Spot Instances to launch.
+-- | The number of units to request. You can choose to set the target
+-- capacity in terms of instances or a performance characteristic that is
+-- important to your application workload, such as vCPUs, memory, or I\/O.
 sfrcdTargetCapacity :: Lens' SpotFleetRequestConfigData Int
 sfrcdTargetCapacity = lens _sfrcdTargetCapacity (\ s a -> s{_sfrcdTargetCapacity = a});
 
@@ -8538,17 +8568,17 @@ data SpotInstanceRequest = SpotInstanceRequest'
     , _sirState                    :: !(Maybe SpotInstanceState)
     , _sirProductDescription       :: !(Maybe RIProductDescription)
     , _sirSpotPrice                :: !(Maybe Text)
-    , _sirAvailabilityZoneGroup    :: !(Maybe Text)
     , _sirLaunchSpecification      :: !(Maybe LaunchSpecification)
+    , _sirAvailabilityZoneGroup    :: !(Maybe Text)
     , _sirLaunchedAvailabilityZone :: !(Maybe Text)
     , _sirValidUntil               :: !(Maybe ISO8601)
-    , _sirFault                    :: !(Maybe SpotInstanceStateFault)
     , _sirLaunchGroup              :: !(Maybe Text)
+    , _sirFault                    :: !(Maybe SpotInstanceStateFault)
     , _sirSpotInstanceRequestId    :: !(Maybe Text)
     , _sirType                     :: !(Maybe SpotInstanceType)
     , _sirValidFrom                :: !(Maybe ISO8601)
-    , _sirTags                     :: !(Maybe [Tag])
     , _sirCreateTime               :: !(Maybe ISO8601)
+    , _sirTags                     :: !(Maybe [Tag])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SpotInstanceRequest' with the minimum fields required to make a request.
@@ -8565,17 +8595,17 @@ data SpotInstanceRequest = SpotInstanceRequest'
 --
 -- * 'sirSpotPrice'
 --
--- * 'sirAvailabilityZoneGroup'
---
 -- * 'sirLaunchSpecification'
+--
+-- * 'sirAvailabilityZoneGroup'
 --
 -- * 'sirLaunchedAvailabilityZone'
 --
 -- * 'sirValidUntil'
 --
--- * 'sirFault'
---
 -- * 'sirLaunchGroup'
+--
+-- * 'sirFault'
 --
 -- * 'sirSpotInstanceRequestId'
 --
@@ -8583,9 +8613,9 @@ data SpotInstanceRequest = SpotInstanceRequest'
 --
 -- * 'sirValidFrom'
 --
--- * 'sirTags'
---
 -- * 'sirCreateTime'
+--
+-- * 'sirTags'
 spotInstanceRequest
     :: SpotInstanceRequest
 spotInstanceRequest =
@@ -8595,17 +8625,17 @@ spotInstanceRequest =
     , _sirState = Nothing
     , _sirProductDescription = Nothing
     , _sirSpotPrice = Nothing
-    , _sirAvailabilityZoneGroup = Nothing
     , _sirLaunchSpecification = Nothing
+    , _sirAvailabilityZoneGroup = Nothing
     , _sirLaunchedAvailabilityZone = Nothing
     , _sirValidUntil = Nothing
-    , _sirFault = Nothing
     , _sirLaunchGroup = Nothing
+    , _sirFault = Nothing
     , _sirSpotInstanceRequestId = Nothing
     , _sirType = Nothing
     , _sirValidFrom = Nothing
-    , _sirTags = Nothing
     , _sirCreateTime = Nothing
+    , _sirTags = Nothing
     }
 
 -- | The instance ID, if an instance has been launched to fulfill the Spot
@@ -8633,15 +8663,15 @@ sirProductDescription = lens _sirProductDescription (\ s a -> s{_sirProductDescr
 sirSpotPrice :: Lens' SpotInstanceRequest (Maybe Text)
 sirSpotPrice = lens _sirSpotPrice (\ s a -> s{_sirSpotPrice = a});
 
+-- | Additional information for launching instances.
+sirLaunchSpecification :: Lens' SpotInstanceRequest (Maybe LaunchSpecification)
+sirLaunchSpecification = lens _sirLaunchSpecification (\ s a -> s{_sirLaunchSpecification = a});
+
 -- | The Availability Zone group. If you specify the same Availability Zone
 -- group for all Spot Instance requests, all Spot Instances are launched in
 -- the same Availability Zone.
 sirAvailabilityZoneGroup :: Lens' SpotInstanceRequest (Maybe Text)
 sirAvailabilityZoneGroup = lens _sirAvailabilityZoneGroup (\ s a -> s{_sirAvailabilityZoneGroup = a});
-
--- | Additional information for launching instances.
-sirLaunchSpecification :: Lens' SpotInstanceRequest (Maybe LaunchSpecification)
-sirLaunchSpecification = lens _sirLaunchSpecification (\ s a -> s{_sirLaunchSpecification = a});
 
 -- | The Availability Zone in which the bid is launched.
 sirLaunchedAvailabilityZone :: Lens' SpotInstanceRequest (Maybe Text)
@@ -8655,14 +8685,14 @@ sirLaunchedAvailabilityZone = lens _sirLaunchedAvailabilityZone (\ s a -> s{_sir
 sirValidUntil :: Lens' SpotInstanceRequest (Maybe UTCTime)
 sirValidUntil = lens _sirValidUntil (\ s a -> s{_sirValidUntil = a}) . mapping _Time;
 
--- | The fault codes for the Spot Instance request, if any.
-sirFault :: Lens' SpotInstanceRequest (Maybe SpotInstanceStateFault)
-sirFault = lens _sirFault (\ s a -> s{_sirFault = a});
-
 -- | The instance launch group. Launch groups are Spot Instances that launch
 -- together and terminate together.
 sirLaunchGroup :: Lens' SpotInstanceRequest (Maybe Text)
 sirLaunchGroup = lens _sirLaunchGroup (\ s a -> s{_sirLaunchGroup = a});
+
+-- | The fault codes for the Spot Instance request, if any.
+sirFault :: Lens' SpotInstanceRequest (Maybe SpotInstanceStateFault)
+sirFault = lens _sirFault (\ s a -> s{_sirFault = a});
 
 -- | The ID of the Spot Instance request.
 sirSpotInstanceRequestId :: Lens' SpotInstanceRequest (Maybe Text)
@@ -8681,14 +8711,14 @@ sirType = lens _sirType (\ s a -> s{_sirType = a});
 sirValidFrom :: Lens' SpotInstanceRequest (Maybe UTCTime)
 sirValidFrom = lens _sirValidFrom (\ s a -> s{_sirValidFrom = a}) . mapping _Time;
 
--- | Any tags assigned to the resource.
-sirTags :: Lens' SpotInstanceRequest [Tag]
-sirTags = lens _sirTags (\ s a -> s{_sirTags = a}) . _Default . _Coerce;
-
 -- | The date and time when the Spot Instance request was created, in UTC
 -- format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 sirCreateTime :: Lens' SpotInstanceRequest (Maybe UTCTime)
 sirCreateTime = lens _sirCreateTime (\ s a -> s{_sirCreateTime = a}) . mapping _Time;
+
+-- | Any tags assigned to the resource.
+sirTags :: Lens' SpotInstanceRequest [Tag]
+sirTags = lens _sirTags (\ s a -> s{_sirTags = a}) . _Default . _Coerce;
 
 instance FromXML SpotInstanceRequest where
         parseXML x
@@ -8697,19 +8727,19 @@ instance FromXML SpotInstanceRequest where
                 (x .@? "state")
                 <*> (x .@? "productDescription")
                 <*> (x .@? "spotPrice")
-                <*> (x .@? "availabilityZoneGroup")
                 <*> (x .@? "launchSpecification")
+                <*> (x .@? "availabilityZoneGroup")
                 <*> (x .@? "launchedAvailabilityZone")
                 <*> (x .@? "validUntil")
-                <*> (x .@? "fault")
                 <*> (x .@? "launchGroup")
+                <*> (x .@? "fault")
                 <*> (x .@? "spotInstanceRequestId")
                 <*> (x .@? "type")
                 <*> (x .@? "validFrom")
+                <*> (x .@? "createTime")
                 <*>
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
-                <*> (x .@? "createTime")
 
 -- | Describes a Spot Instance state change.
 --
@@ -9242,7 +9272,7 @@ instance FromXML UnsuccessfulItem where
           = UnsuccessfulItem' <$>
               (x .@? "resourceId") <*> (x .@ "error")
 
--- | Information about the error that occured. For more information about
+-- | Information about the error that occurred. For more information about
 -- errors, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
 --
@@ -9674,8 +9704,8 @@ instance FromXML VPCClassicLink where
 --
 -- /See:/ 'vpcEndpoint' smart constructor.
 data VPCEndpoint = VPCEndpoint'
-    { _vePolicyDocument    :: !(Maybe Text)
-    , _veState             :: !(Maybe State)
+    { _veState             :: !(Maybe State)
+    , _vePolicyDocument    :: !(Maybe Text)
     , _veVPCId             :: !(Maybe Text)
     , _veCreationTimestamp :: !(Maybe ISO8601)
     , _veServiceName       :: !(Maybe Text)
@@ -9687,9 +9717,9 @@ data VPCEndpoint = VPCEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vePolicyDocument'
---
 -- * 'veState'
+--
+-- * 'vePolicyDocument'
 --
 -- * 'veVPCId'
 --
@@ -9704,8 +9734,8 @@ vpcEndpoint
     :: VPCEndpoint
 vpcEndpoint =
     VPCEndpoint'
-    { _vePolicyDocument = Nothing
-    , _veState = Nothing
+    { _veState = Nothing
+    , _vePolicyDocument = Nothing
     , _veVPCId = Nothing
     , _veCreationTimestamp = Nothing
     , _veServiceName = Nothing
@@ -9713,13 +9743,13 @@ vpcEndpoint =
     , _veRouteTableIds = Nothing
     }
 
--- | The policy document associated with the endpoint.
-vePolicyDocument :: Lens' VPCEndpoint (Maybe Text)
-vePolicyDocument = lens _vePolicyDocument (\ s a -> s{_vePolicyDocument = a});
-
 -- | The state of the VPC endpoint.
 veState :: Lens' VPCEndpoint (Maybe State)
 veState = lens _veState (\ s a -> s{_veState = a});
+
+-- | The policy document associated with the endpoint.
+vePolicyDocument :: Lens' VPCEndpoint (Maybe Text)
+vePolicyDocument = lens _vePolicyDocument (\ s a -> s{_vePolicyDocument = a});
 
 -- | The ID of the VPC to which the endpoint is associated.
 veVPCId :: Lens' VPCEndpoint (Maybe Text)
@@ -9744,7 +9774,7 @@ veRouteTableIds = lens _veRouteTableIds (\ s a -> s{_veRouteTableIds = a}) . _De
 instance FromXML VPCEndpoint where
         parseXML x
           = VPCEndpoint' <$>
-              (x .@? "policyDocument") <*> (x .@? "state") <*>
+              (x .@? "state") <*> (x .@? "policyDocument") <*>
                 (x .@? "vpcId")
                 <*> (x .@? "creationTimestamp")
                 <*> (x .@? "serviceName")
@@ -9757,8 +9787,8 @@ instance FromXML VPCEndpoint where
 --
 -- /See:/ 'vpcPeeringConnection' smart constructor.
 data VPCPeeringConnection = VPCPeeringConnection'
-    { _vpcpcStatus                 :: !(Maybe VPCPeeringConnectionStateReason)
-    , _vpcpcVPCPeeringConnectionId :: !(Maybe Text)
+    { _vpcpcVPCPeeringConnectionId :: !(Maybe Text)
+    , _vpcpcStatus                 :: !(Maybe VPCPeeringConnectionStateReason)
     , _vpcpcAccepterVPCInfo        :: !(Maybe VPCPeeringConnectionVPCInfo)
     , _vpcpcRequesterVPCInfo       :: !(Maybe VPCPeeringConnectionVPCInfo)
     , _vpcpcExpirationTime         :: !(Maybe ISO8601)
@@ -9769,9 +9799,9 @@ data VPCPeeringConnection = VPCPeeringConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vpcpcStatus'
---
 -- * 'vpcpcVPCPeeringConnectionId'
+--
+-- * 'vpcpcStatus'
 --
 -- * 'vpcpcAccepterVPCInfo'
 --
@@ -9784,21 +9814,21 @@ vpcPeeringConnection
     :: VPCPeeringConnection
 vpcPeeringConnection =
     VPCPeeringConnection'
-    { _vpcpcStatus = Nothing
-    , _vpcpcVPCPeeringConnectionId = Nothing
+    { _vpcpcVPCPeeringConnectionId = Nothing
+    , _vpcpcStatus = Nothing
     , _vpcpcAccepterVPCInfo = Nothing
     , _vpcpcRequesterVPCInfo = Nothing
     , _vpcpcExpirationTime = Nothing
     , _vpcpcTags = Nothing
     }
 
--- | The status of the VPC peering connection.
-vpcpcStatus :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionStateReason)
-vpcpcStatus = lens _vpcpcStatus (\ s a -> s{_vpcpcStatus = a});
-
 -- | The ID of the VPC peering connection.
 vpcpcVPCPeeringConnectionId :: Lens' VPCPeeringConnection (Maybe Text)
 vpcpcVPCPeeringConnectionId = lens _vpcpcVPCPeeringConnectionId (\ s a -> s{_vpcpcVPCPeeringConnectionId = a});
+
+-- | The status of the VPC peering connection.
+vpcpcStatus :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionStateReason)
+vpcpcStatus = lens _vpcpcStatus (\ s a -> s{_vpcpcStatus = a});
 
 -- | The information of the peer VPC.
 vpcpcAccepterVPCInfo :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionVPCInfo)
@@ -9819,7 +9849,7 @@ vpcpcTags = lens _vpcpcTags (\ s a -> s{_vpcpcTags = a}) . _Default . _Coerce;
 instance FromXML VPCPeeringConnection where
         parseXML x
           = VPCPeeringConnection' <$>
-              (x .@? "status") <*> (x .@? "vpcPeeringConnectionId")
+              (x .@? "vpcPeeringConnectionId") <*> (x .@? "status")
                 <*> (x .@? "accepterVpcInfo")
                 <*> (x .@? "requesterVpcInfo")
                 <*> (x .@? "expirationTime")
@@ -9914,14 +9944,14 @@ instance FromXML VPCPeeringConnectionVPCInfo where
 --
 -- /See:/ 'vpnConnection' smart constructor.
 data VPNConnection = VPNConnection'
-    { _vcRoutes                       :: !(Maybe [VPNStaticRoute])
+    { _vcCustomerGatewayConfiguration :: !(Maybe Text)
+    , _vcRoutes                       :: !(Maybe [VPNStaticRoute])
     , _vcVPNGatewayId                 :: !(Maybe Text)
     , _vcOptions                      :: !(Maybe VPNConnectionOptions)
-    , _vcVGWTelemetry                 :: !(Maybe [VGWTelemetry])
     , _vcTags                         :: !(Maybe [Tag])
+    , _vcVGWTelemetry                 :: !(Maybe [VGWTelemetry])
     , _vcVPNConnectionId              :: !Text
     , _vcCustomerGatewayId            :: !Text
-    , _vcCustomerGatewayConfiguration :: !Text
     , _vcState                        :: !VPNState
     , _vcType                         :: !GatewayType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -9930,21 +9960,21 @@ data VPNConnection = VPNConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'vcCustomerGatewayConfiguration'
+--
 -- * 'vcRoutes'
 --
 -- * 'vcVPNGatewayId'
 --
 -- * 'vcOptions'
 --
--- * 'vcVGWTelemetry'
---
 -- * 'vcTags'
+--
+-- * 'vcVGWTelemetry'
 --
 -- * 'vcVPNConnectionId'
 --
 -- * 'vcCustomerGatewayId'
---
--- * 'vcCustomerGatewayConfiguration'
 --
 -- * 'vcState'
 --
@@ -9952,23 +9982,30 @@ data VPNConnection = VPNConnection'
 vpnConnection
     :: Text -- ^ 'vcVPNConnectionId'
     -> Text -- ^ 'vcCustomerGatewayId'
-    -> Text -- ^ 'vcCustomerGatewayConfiguration'
     -> VPNState -- ^ 'vcState'
     -> GatewayType -- ^ 'vcType'
     -> VPNConnection
-vpnConnection pVPNConnectionId_ pCustomerGatewayId_ pCustomerGatewayConfiguration_ pState_ pType_ =
+vpnConnection pVPNConnectionId_ pCustomerGatewayId_ pState_ pType_ =
     VPNConnection'
-    { _vcRoutes = Nothing
+    { _vcCustomerGatewayConfiguration = Nothing
+    , _vcRoutes = Nothing
     , _vcVPNGatewayId = Nothing
     , _vcOptions = Nothing
-    , _vcVGWTelemetry = Nothing
     , _vcTags = Nothing
+    , _vcVGWTelemetry = Nothing
     , _vcVPNConnectionId = pVPNConnectionId_
     , _vcCustomerGatewayId = pCustomerGatewayId_
-    , _vcCustomerGatewayConfiguration = pCustomerGatewayConfiguration_
     , _vcState = pState_
     , _vcType = pType_
     }
+
+-- | The configuration information for the VPN connection\'s customer gateway
+-- (in the native XML format). This element is always present in the
+-- CreateVpnConnection response; however, it\'s present in the
+-- DescribeVpnConnections response only if the VPN connection is in the
+-- 'pending' or 'available' state.
+vcCustomerGatewayConfiguration :: Lens' VPNConnection (Maybe Text)
+vcCustomerGatewayConfiguration = lens _vcCustomerGatewayConfiguration (\ s a -> s{_vcCustomerGatewayConfiguration = a});
 
 -- | The static routes associated with the VPN connection.
 vcRoutes :: Lens' VPNConnection [VPNStaticRoute]
@@ -9983,13 +10020,13 @@ vcVPNGatewayId = lens _vcVPNGatewayId (\ s a -> s{_vcVPNGatewayId = a});
 vcOptions :: Lens' VPNConnection (Maybe VPNConnectionOptions)
 vcOptions = lens _vcOptions (\ s a -> s{_vcOptions = a});
 
--- | Information about the VPN tunnel.
-vcVGWTelemetry :: Lens' VPNConnection [VGWTelemetry]
-vcVGWTelemetry = lens _vcVGWTelemetry (\ s a -> s{_vcVGWTelemetry = a}) . _Default . _Coerce;
-
 -- | Any tags assigned to the VPN connection.
 vcTags :: Lens' VPNConnection [Tag]
 vcTags = lens _vcTags (\ s a -> s{_vcTags = a}) . _Default . _Coerce;
+
+-- | Information about the VPN tunnel.
+vcVGWTelemetry :: Lens' VPNConnection [VGWTelemetry]
+vcVGWTelemetry = lens _vcVGWTelemetry (\ s a -> s{_vcVGWTelemetry = a}) . _Default . _Coerce;
 
 -- | The ID of the VPN connection.
 vcVPNConnectionId :: Lens' VPNConnection Text
@@ -9998,14 +10035,6 @@ vcVPNConnectionId = lens _vcVPNConnectionId (\ s a -> s{_vcVPNConnectionId = a})
 -- | The ID of the customer gateway at your end of the VPN connection.
 vcCustomerGatewayId :: Lens' VPNConnection Text
 vcCustomerGatewayId = lens _vcCustomerGatewayId (\ s a -> s{_vcCustomerGatewayId = a});
-
--- | The configuration information for the VPN connection\'s customer gateway
--- (in the native XML format). This element is always present in the
--- CreateVpnConnection response; however, it\'s present in the
--- DescribeVpnConnections response only if the VPN connection is in the
--- 'pending' or 'available' state.
-vcCustomerGatewayConfiguration :: Lens' VPNConnection Text
-vcCustomerGatewayConfiguration = lens _vcCustomerGatewayConfiguration (\ s a -> s{_vcCustomerGatewayConfiguration = a});
 
 -- | The current state of the VPN connection.
 vcState :: Lens' VPNConnection VPNState
@@ -10018,19 +10047,19 @@ vcType = lens _vcType (\ s a -> s{_vcType = a});
 instance FromXML VPNConnection where
         parseXML x
           = VPNConnection' <$>
-              (x .@? "routes" .!@ mempty >>=
-                 may (parseXMLList "item"))
+              (x .@? "customerGatewayConfiguration") <*>
+                (x .@? "routes" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "vpnGatewayId")
                 <*> (x .@? "options")
                 <*>
-                (x .@? "vgwTelemetry" .!@ mempty >>=
+                (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*>
-                (x .@? "tagSet" .!@ mempty >>=
+                (x .@? "vgwTelemetry" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@ "vpnConnectionId")
                 <*> (x .@ "customerGatewayId")
-                <*> (x .@ "customerGatewayConfiguration")
                 <*> (x .@ "state")
                 <*> (x .@ "type")
 
@@ -10097,8 +10126,8 @@ instance ToQuery VPNConnectionOptionsSpecification
 --
 -- /See:/ 'vpnGateway' smart constructor.
 data VPNGateway = VPNGateway'
-    { _vgVPCAttachments   :: !(Maybe [VPCAttachment])
-    , _vgState            :: !(Maybe VPNState)
+    { _vgState            :: !(Maybe VPNState)
+    , _vgVPCAttachments   :: !(Maybe [VPCAttachment])
     , _vgVPNGatewayId     :: !(Maybe Text)
     , _vgAvailabilityZone :: !(Maybe Text)
     , _vgType             :: !(Maybe GatewayType)
@@ -10109,9 +10138,9 @@ data VPNGateway = VPNGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vgVPCAttachments'
---
 -- * 'vgState'
+--
+-- * 'vgVPCAttachments'
 --
 -- * 'vgVPNGatewayId'
 --
@@ -10124,21 +10153,21 @@ vpnGateway
     :: VPNGateway
 vpnGateway =
     VPNGateway'
-    { _vgVPCAttachments = Nothing
-    , _vgState = Nothing
+    { _vgState = Nothing
+    , _vgVPCAttachments = Nothing
     , _vgVPNGatewayId = Nothing
     , _vgAvailabilityZone = Nothing
     , _vgType = Nothing
     , _vgTags = Nothing
     }
 
--- | Any VPCs attached to the virtual private gateway.
-vgVPCAttachments :: Lens' VPNGateway [VPCAttachment]
-vgVPCAttachments = lens _vgVPCAttachments (\ s a -> s{_vgVPCAttachments = a}) . _Default . _Coerce;
-
 -- | The current state of the virtual private gateway.
 vgState :: Lens' VPNGateway (Maybe VPNState)
 vgState = lens _vgState (\ s a -> s{_vgState = a});
+
+-- | Any VPCs attached to the virtual private gateway.
+vgVPCAttachments :: Lens' VPNGateway [VPCAttachment]
+vgVPCAttachments = lens _vgVPCAttachments (\ s a -> s{_vgVPCAttachments = a}) . _Default . _Coerce;
 
 -- | The ID of the virtual private gateway.
 vgVPNGatewayId :: Lens' VPNGateway (Maybe Text)
@@ -10159,9 +10188,9 @@ vgTags = lens _vgTags (\ s a -> s{_vgTags = a}) . _Default . _Coerce;
 instance FromXML VPNGateway where
         parseXML x
           = VPNGateway' <$>
-              (x .@? "attachments" .!@ mempty >>=
-                 may (parseXMLList "item"))
-                <*> (x .@? "state")
+              (x .@? "state") <*>
+                (x .@? "attachments" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "vpnGatewayId")
                 <*> (x .@? "availabilityZone")
                 <*> (x .@? "type")
@@ -10670,8 +10699,8 @@ instance FromXML VolumeStatusInfo where
 data VolumeStatusItem = VolumeStatusItem'
     { _vsiVolumeStatus     :: !(Maybe VolumeStatusInfo)
     , _vsiActions          :: !(Maybe [VolumeStatusAction])
-    , _vsiAvailabilityZone :: !(Maybe Text)
     , _vsiEvents           :: !(Maybe [VolumeStatusEvent])
+    , _vsiAvailabilityZone :: !(Maybe Text)
     , _vsiVolumeId         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -10683,9 +10712,9 @@ data VolumeStatusItem = VolumeStatusItem'
 --
 -- * 'vsiActions'
 --
--- * 'vsiAvailabilityZone'
---
 -- * 'vsiEvents'
+--
+-- * 'vsiAvailabilityZone'
 --
 -- * 'vsiVolumeId'
 volumeStatusItem
@@ -10694,8 +10723,8 @@ volumeStatusItem =
     VolumeStatusItem'
     { _vsiVolumeStatus = Nothing
     , _vsiActions = Nothing
-    , _vsiAvailabilityZone = Nothing
     , _vsiEvents = Nothing
+    , _vsiAvailabilityZone = Nothing
     , _vsiVolumeId = Nothing
     }
 
@@ -10707,13 +10736,13 @@ vsiVolumeStatus = lens _vsiVolumeStatus (\ s a -> s{_vsiVolumeStatus = a});
 vsiActions :: Lens' VolumeStatusItem [VolumeStatusAction]
 vsiActions = lens _vsiActions (\ s a -> s{_vsiActions = a}) . _Default . _Coerce;
 
--- | The Availability Zone of the volume.
-vsiAvailabilityZone :: Lens' VolumeStatusItem (Maybe Text)
-vsiAvailabilityZone = lens _vsiAvailabilityZone (\ s a -> s{_vsiAvailabilityZone = a});
-
 -- | A list of events associated with the volume.
 vsiEvents :: Lens' VolumeStatusItem [VolumeStatusEvent]
 vsiEvents = lens _vsiEvents (\ s a -> s{_vsiEvents = a}) . _Default . _Coerce;
+
+-- | The Availability Zone of the volume.
+vsiAvailabilityZone :: Lens' VolumeStatusItem (Maybe Text)
+vsiAvailabilityZone = lens _vsiAvailabilityZone (\ s a -> s{_vsiAvailabilityZone = a});
 
 -- | The volume ID.
 vsiVolumeId :: Lens' VolumeStatusItem (Maybe Text)
@@ -10725,8 +10754,8 @@ instance FromXML VolumeStatusItem where
               (x .@? "volumeStatus") <*>
                 (x .@? "actionsSet" .!@ mempty >>=
                    may (parseXMLList "item"))
-                <*> (x .@? "availabilityZone")
                 <*>
                 (x .@? "eventsSet" .!@ mempty >>=
                    may (parseXMLList "item"))
+                <*> (x .@? "availabilityZone")
                 <*> (x .@? "volumeId")

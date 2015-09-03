@@ -44,8 +44,8 @@ module Network.AWS.Lambda.UpdateEventSourceMapping
     , EventSourceMappingConfiguration
     -- * Response Lenses
     , esmcEventSourceARN
-    , esmcFunctionARN
     , esmcState
+    , esmcFunctionARN
     , esmcUUId
     , esmcLastProcessingResult
     , esmcBatchSize

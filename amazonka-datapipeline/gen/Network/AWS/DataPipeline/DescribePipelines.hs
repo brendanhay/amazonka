@@ -42,7 +42,7 @@ module Network.AWS.DataPipeline.DescribePipelines
     , describePipelinesResponse
     , DescribePipelinesResponse
     -- * Response Lenses
-    , dprsStatus
+    , dprsResponseStatus
     , dprsPipelineDescriptionList
     ) where
 
@@ -111,7 +111,7 @@ instance ToQuery DescribePipelines where
 --
 -- /See:/ 'describePipelinesResponse' smart constructor.
 data DescribePipelinesResponse = DescribePipelinesResponse'
-    { _dprsStatus                  :: !Int
+    { _dprsResponseStatus          :: !Int
     , _dprsPipelineDescriptionList :: ![PipelineDescription]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -119,21 +119,21 @@ data DescribePipelinesResponse = DescribePipelinesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dprsStatus'
+-- * 'dprsResponseStatus'
 --
 -- * 'dprsPipelineDescriptionList'
 describePipelinesResponse
-    :: Int -- ^ 'dprsStatus'
+    :: Int -- ^ 'dprsResponseStatus'
     -> DescribePipelinesResponse
-describePipelinesResponse pStatus_ =
+describePipelinesResponse pResponseStatus_ =
     DescribePipelinesResponse'
-    { _dprsStatus = pStatus_
+    { _dprsResponseStatus = pResponseStatus_
     , _dprsPipelineDescriptionList = mempty
     }
 
 -- | The response status code.
-dprsStatus :: Lens' DescribePipelinesResponse Int
-dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});
+dprsResponseStatus :: Lens' DescribePipelinesResponse Int
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 
 -- | An array of descriptions for the specified pipelines.
 dprsPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]

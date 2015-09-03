@@ -34,7 +34,7 @@ module Network.AWS.DeviceFarm.GetRun
     , GetRunResponse
     -- * Response Lenses
     , grrsRun
-    , grrsStatus
+    , grrsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -99,8 +99,8 @@ instance ToQuery GetRun where
 --
 -- /See:/ 'getRunResponse' smart constructor.
 data GetRunResponse = GetRunResponse'
-    { _grrsRun    :: !(Maybe Run)
-    , _grrsStatus :: !Int
+    { _grrsRun            :: !(Maybe Run)
+    , _grrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetRunResponse' with the minimum fields required to make a request.
@@ -109,14 +109,14 @@ data GetRunResponse = GetRunResponse'
 --
 -- * 'grrsRun'
 --
--- * 'grrsStatus'
+-- * 'grrsResponseStatus'
 getRunResponse
-    :: Int -- ^ 'grrsStatus'
+    :: Int -- ^ 'grrsResponseStatus'
     -> GetRunResponse
-getRunResponse pStatus_ =
+getRunResponse pResponseStatus_ =
     GetRunResponse'
     { _grrsRun = Nothing
-    , _grrsStatus = pStatus_
+    , _grrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -124,5 +124,5 @@ grrsRun :: Lens' GetRunResponse (Maybe Run)
 grrsRun = lens _grrsRun (\ s a -> s{_grrsRun = a});
 
 -- | The response status code.
-grrsStatus :: Lens' GetRunResponse Int
-grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});
+grrsResponseStatus :: Lens' GetRunResponse Int
+grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});

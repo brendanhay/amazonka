@@ -41,7 +41,7 @@ module Network.AWS.Redshift.CreateClusterSecurityGroup
     , CreateClusterSecurityGroupResponse
     -- * Response Lenses
     , crsClusterSecurityGroup
-    , crsStatus
+    , crsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -133,7 +133,7 @@ instance ToQuery CreateClusterSecurityGroup where
 -- | /See:/ 'createClusterSecurityGroupResponse' smart constructor.
 data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'
     { _crsClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
-    , _crsStatus               :: !Int
+    , _crsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateClusterSecurityGroupResponse' with the minimum fields required to make a request.
@@ -142,14 +142,14 @@ data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'
 --
 -- * 'crsClusterSecurityGroup'
 --
--- * 'crsStatus'
+-- * 'crsResponseStatus'
 createClusterSecurityGroupResponse
-    :: Int -- ^ 'crsStatus'
+    :: Int -- ^ 'crsResponseStatus'
     -> CreateClusterSecurityGroupResponse
-createClusterSecurityGroupResponse pStatus_ =
+createClusterSecurityGroupResponse pResponseStatus_ =
     CreateClusterSecurityGroupResponse'
     { _crsClusterSecurityGroup = Nothing
-    , _crsStatus = pStatus_
+    , _crsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -157,5 +157,5 @@ crsClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe Clust
 crsClusterSecurityGroup = lens _crsClusterSecurityGroup (\ s a -> s{_crsClusterSecurityGroup = a});
 
 -- | The response status code.
-crsStatus :: Lens' CreateClusterSecurityGroupResponse Int
-crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});
+crsResponseStatus :: Lens' CreateClusterSecurityGroupResponse Int
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});

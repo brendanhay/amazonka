@@ -44,7 +44,7 @@ module Network.AWS.ImportExport.UpdateJob
     , ujrsSuccess
     , ujrsWarningMessage
     , ujrsArtifactList
-    , ujrsStatus
+    , ujrsResponseStatus
     ) where
 
 import           Network.AWS.ImportExport.Types
@@ -147,7 +147,7 @@ data UpdateJobResponse = UpdateJobResponse'
     { _ujrsSuccess        :: !(Maybe Bool)
     , _ujrsWarningMessage :: !(Maybe Text)
     , _ujrsArtifactList   :: !(Maybe [Artifact])
-    , _ujrsStatus         :: !Int
+    , _ujrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.
@@ -160,16 +160,16 @@ data UpdateJobResponse = UpdateJobResponse'
 --
 -- * 'ujrsArtifactList'
 --
--- * 'ujrsStatus'
+-- * 'ujrsResponseStatus'
 updateJobResponse
-    :: Int -- ^ 'ujrsStatus'
+    :: Int -- ^ 'ujrsResponseStatus'
     -> UpdateJobResponse
-updateJobResponse pStatus_ =
+updateJobResponse pResponseStatus_ =
     UpdateJobResponse'
     { _ujrsSuccess = Nothing
     , _ujrsWarningMessage = Nothing
     , _ujrsArtifactList = Nothing
-    , _ujrsStatus = pStatus_
+    , _ujrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -185,5 +185,5 @@ ujrsArtifactList :: Lens' UpdateJobResponse [Artifact]
 ujrsArtifactList = lens _ujrsArtifactList (\ s a -> s{_ujrsArtifactList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ujrsStatus :: Lens' UpdateJobResponse Int
-ujrsStatus = lens _ujrsStatus (\ s a -> s{_ujrsStatus = a});
+ujrsResponseStatus :: Lens' UpdateJobResponse Int
+ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a});

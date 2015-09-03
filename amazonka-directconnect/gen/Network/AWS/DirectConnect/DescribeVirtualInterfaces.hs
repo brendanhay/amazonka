@@ -47,7 +47,7 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     , DescribeVirtualInterfacesResponse
     -- * Response Lenses
     , dvisrsVirtualInterfaces
-    , dvisrsStatus
+    , dvisrsResponseStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -127,7 +127,7 @@ instance ToQuery DescribeVirtualInterfaces where
 -- /See:/ 'describeVirtualInterfacesResponse' smart constructor.
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
     { _dvisrsVirtualInterfaces :: !(Maybe [VirtualInterface])
-    , _dvisrsStatus            :: !Int
+    , _dvisrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVirtualInterfacesResponse' with the minimum fields required to make a request.
@@ -136,14 +136,14 @@ data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
 --
 -- * 'dvisrsVirtualInterfaces'
 --
--- * 'dvisrsStatus'
+-- * 'dvisrsResponseStatus'
 describeVirtualInterfacesResponse
-    :: Int -- ^ 'dvisrsStatus'
+    :: Int -- ^ 'dvisrsResponseStatus'
     -> DescribeVirtualInterfacesResponse
-describeVirtualInterfacesResponse pStatus_ =
+describeVirtualInterfacesResponse pResponseStatus_ =
     DescribeVirtualInterfacesResponse'
     { _dvisrsVirtualInterfaces = Nothing
-    , _dvisrsStatus = pStatus_
+    , _dvisrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of virtual interfaces.
@@ -151,5 +151,5 @@ dvisrsVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInter
 dvisrsVirtualInterfaces = lens _dvisrsVirtualInterfaces (\ s a -> s{_dvisrsVirtualInterfaces = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dvisrsStatus :: Lens' DescribeVirtualInterfacesResponse Int
-dvisrsStatus = lens _dvisrsStatus (\ s a -> s{_dvisrsStatus = a});
+dvisrsResponseStatus :: Lens' DescribeVirtualInterfacesResponse Int
+dvisrsResponseStatus = lens _dvisrsResponseStatus (\ s a -> s{_dvisrsResponseStatus = a});

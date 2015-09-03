@@ -36,7 +36,7 @@ module Network.AWS.StorageGateway.ListVolumeInitiators
     , ListVolumeInitiatorsResponse
     -- * Response Lenses
     , lvirsInitiators
-    , lvirsStatus
+    , lvirsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -106,8 +106,8 @@ instance ToQuery ListVolumeInitiators where
 --
 -- /See:/ 'listVolumeInitiatorsResponse' smart constructor.
 data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
-    { _lvirsInitiators :: !(Maybe [Text])
-    , _lvirsStatus     :: !Int
+    { _lvirsInitiators     :: !(Maybe [Text])
+    , _lvirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListVolumeInitiatorsResponse' with the minimum fields required to make a request.
@@ -116,14 +116,14 @@ data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
 --
 -- * 'lvirsInitiators'
 --
--- * 'lvirsStatus'
+-- * 'lvirsResponseStatus'
 listVolumeInitiatorsResponse
-    :: Int -- ^ 'lvirsStatus'
+    :: Int -- ^ 'lvirsResponseStatus'
     -> ListVolumeInitiatorsResponse
-listVolumeInitiatorsResponse pStatus_ =
+listVolumeInitiatorsResponse pResponseStatus_ =
     ListVolumeInitiatorsResponse'
     { _lvirsInitiators = Nothing
-    , _lvirsStatus = pStatus_
+    , _lvirsResponseStatus = pResponseStatus_
     }
 
 -- | The host names and port numbers of all iSCSI initiators that are
@@ -132,5 +132,5 @@ lvirsInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
 lvirsInitiators = lens _lvirsInitiators (\ s a -> s{_lvirsInitiators = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lvirsStatus :: Lens' ListVolumeInitiatorsResponse Int
-lvirsStatus = lens _lvirsStatus (\ s a -> s{_lvirsStatus = a});
+lvirsResponseStatus :: Lens' ListVolumeInitiatorsResponse Int
+lvirsResponseStatus = lens _lvirsResponseStatus (\ s a -> s{_lvirsResponseStatus = a});

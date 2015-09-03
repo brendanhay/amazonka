@@ -35,7 +35,7 @@ module Network.AWS.ECS.DeleteService
     , DeleteServiceResponse
     -- * Response Lenses
     , dsrsService
-    , dsrsStatus
+    , dsrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -108,8 +108,8 @@ instance ToQuery DeleteService where
 
 -- | /See:/ 'deleteServiceResponse' smart constructor.
 data DeleteServiceResponse = DeleteServiceResponse'
-    { _dsrsService :: !(Maybe ContainerService)
-    , _dsrsStatus  :: !Int
+    { _dsrsService        :: !(Maybe ContainerService)
+    , _dsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteServiceResponse' with the minimum fields required to make a request.
@@ -118,14 +118,14 @@ data DeleteServiceResponse = DeleteServiceResponse'
 --
 -- * 'dsrsService'
 --
--- * 'dsrsStatus'
+-- * 'dsrsResponseStatus'
 deleteServiceResponse
-    :: Int -- ^ 'dsrsStatus'
+    :: Int -- ^ 'dsrsResponseStatus'
     -> DeleteServiceResponse
-deleteServiceResponse pStatus_ =
+deleteServiceResponse pResponseStatus_ =
     DeleteServiceResponse'
     { _dsrsService = Nothing
-    , _dsrsStatus = pStatus_
+    , _dsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -133,5 +133,5 @@ dsrsService :: Lens' DeleteServiceResponse (Maybe ContainerService)
 dsrsService = lens _dsrsService (\ s a -> s{_dsrsService = a});
 
 -- | The response status code.
-dsrsStatus :: Lens' DeleteServiceResponse Int
-dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
+dsrsResponseStatus :: Lens' DeleteServiceResponse Int
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});

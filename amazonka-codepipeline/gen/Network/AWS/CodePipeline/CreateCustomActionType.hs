@@ -40,7 +40,7 @@ module Network.AWS.CodePipeline.CreateCustomActionType
     , createCustomActionTypeResponse
     , CreateCustomActionTypeResponse
     -- * Response Lenses
-    , ccatrsStatus
+    , ccatrsResponseStatus
     , ccatrsActionType
     ) where
 
@@ -178,30 +178,30 @@ instance ToQuery CreateCustomActionType where
 --
 -- /See:/ 'createCustomActionTypeResponse' smart constructor.
 data CreateCustomActionTypeResponse = CreateCustomActionTypeResponse'
-    { _ccatrsStatus     :: !Int
-    , _ccatrsActionType :: !ActionType
+    { _ccatrsResponseStatus :: !Int
+    , _ccatrsActionType     :: !ActionType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateCustomActionTypeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccatrsStatus'
+-- * 'ccatrsResponseStatus'
 --
 -- * 'ccatrsActionType'
 createCustomActionTypeResponse
-    :: Int -- ^ 'ccatrsStatus'
+    :: Int -- ^ 'ccatrsResponseStatus'
     -> ActionType -- ^ 'ccatrsActionType'
     -> CreateCustomActionTypeResponse
-createCustomActionTypeResponse pStatus_ pActionType_ =
+createCustomActionTypeResponse pResponseStatus_ pActionType_ =
     CreateCustomActionTypeResponse'
-    { _ccatrsStatus = pStatus_
+    { _ccatrsResponseStatus = pResponseStatus_
     , _ccatrsActionType = pActionType_
     }
 
 -- | The response status code.
-ccatrsStatus :: Lens' CreateCustomActionTypeResponse Int
-ccatrsStatus = lens _ccatrsStatus (\ s a -> s{_ccatrsStatus = a});
+ccatrsResponseStatus :: Lens' CreateCustomActionTypeResponse Int
+ccatrsResponseStatus = lens _ccatrsResponseStatus (\ s a -> s{_ccatrsResponseStatus = a});
 
 -- | Undocumented member.
 ccatrsActionType :: Lens' CreateCustomActionTypeResponse ActionType

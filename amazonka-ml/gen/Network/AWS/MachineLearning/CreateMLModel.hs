@@ -58,7 +58,7 @@ module Network.AWS.MachineLearning.CreateMLModel
     , CreateMLModelResponse
     -- * Response Lenses
     , cmlmrsMLModelId
-    , cmlmrsStatus
+    , cmlmrsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -236,8 +236,8 @@ instance ToQuery CreateMLModel where
 --
 -- /See:/ 'createMLModelResponse' smart constructor.
 data CreateMLModelResponse = CreateMLModelResponse'
-    { _cmlmrsMLModelId :: !(Maybe Text)
-    , _cmlmrsStatus    :: !Int
+    { _cmlmrsMLModelId      :: !(Maybe Text)
+    , _cmlmrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateMLModelResponse' with the minimum fields required to make a request.
@@ -246,14 +246,14 @@ data CreateMLModelResponse = CreateMLModelResponse'
 --
 -- * 'cmlmrsMLModelId'
 --
--- * 'cmlmrsStatus'
+-- * 'cmlmrsResponseStatus'
 createMLModelResponse
-    :: Int -- ^ 'cmlmrsStatus'
+    :: Int -- ^ 'cmlmrsResponseStatus'
     -> CreateMLModelResponse
-createMLModelResponse pStatus_ =
+createMLModelResponse pResponseStatus_ =
     CreateMLModelResponse'
     { _cmlmrsMLModelId = Nothing
-    , _cmlmrsStatus = pStatus_
+    , _cmlmrsResponseStatus = pResponseStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the 'MLModel'. This value
@@ -262,5 +262,5 @@ cmlmrsMLModelId :: Lens' CreateMLModelResponse (Maybe Text)
 cmlmrsMLModelId = lens _cmlmrsMLModelId (\ s a -> s{_cmlmrsMLModelId = a});
 
 -- | The response status code.
-cmlmrsStatus :: Lens' CreateMLModelResponse Int
-cmlmrsStatus = lens _cmlmrsStatus (\ s a -> s{_cmlmrsStatus = a});
+cmlmrsResponseStatus :: Lens' CreateMLModelResponse Int
+cmlmrsResponseStatus = lens _cmlmrsResponseStatus (\ s a -> s{_cmlmrsResponseStatus = a});

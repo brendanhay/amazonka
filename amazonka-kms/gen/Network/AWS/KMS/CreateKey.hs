@@ -40,7 +40,7 @@ module Network.AWS.KMS.CreateKey
     , CreateKeyResponse
     -- * Response Lenses
     , ckrsKeyMetadata
-    , ckrsStatus
+    , ckrsResponseStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -124,8 +124,8 @@ instance ToQuery CreateKey where
 
 -- | /See:/ 'createKeyResponse' smart constructor.
 data CreateKeyResponse = CreateKeyResponse'
-    { _ckrsKeyMetadata :: !(Maybe KeyMetadata)
-    , _ckrsStatus      :: !Int
+    { _ckrsKeyMetadata    :: !(Maybe KeyMetadata)
+    , _ckrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateKeyResponse' with the minimum fields required to make a request.
@@ -134,14 +134,14 @@ data CreateKeyResponse = CreateKeyResponse'
 --
 -- * 'ckrsKeyMetadata'
 --
--- * 'ckrsStatus'
+-- * 'ckrsResponseStatus'
 createKeyResponse
-    :: Int -- ^ 'ckrsStatus'
+    :: Int -- ^ 'ckrsResponseStatus'
     -> CreateKeyResponse
-createKeyResponse pStatus_ =
+createKeyResponse pResponseStatus_ =
     CreateKeyResponse'
     { _ckrsKeyMetadata = Nothing
-    , _ckrsStatus = pStatus_
+    , _ckrsResponseStatus = pResponseStatus_
     }
 
 -- | Metadata associated with the key.
@@ -149,5 +149,5 @@ ckrsKeyMetadata :: Lens' CreateKeyResponse (Maybe KeyMetadata)
 ckrsKeyMetadata = lens _ckrsKeyMetadata (\ s a -> s{_ckrsKeyMetadata = a});
 
 -- | The response status code.
-ckrsStatus :: Lens' CreateKeyResponse Int
-ckrsStatus = lens _ckrsStatus (\ s a -> s{_ckrsStatus = a});
+ckrsResponseStatus :: Lens' CreateKeyResponse Int
+ckrsResponseStatus = lens _ckrsResponseStatus (\ s a -> s{_ckrsResponseStatus = a});

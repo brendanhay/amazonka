@@ -43,7 +43,7 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
     -- * Response Lenses
     , dwdrsDirectories
     , dwdrsNextToken
-    , dwdrsStatus
+    , dwdrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -125,9 +125,9 @@ instance ToQuery DescribeWorkspaceDirectories where
 --
 -- /See:/ 'describeWorkspaceDirectoriesResponse' smart constructor.
 data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'
-    { _dwdrsDirectories :: !(Maybe [WorkspaceDirectory])
-    , _dwdrsNextToken   :: !(Maybe Text)
-    , _dwdrsStatus      :: !Int
+    { _dwdrsDirectories    :: !(Maybe [WorkspaceDirectory])
+    , _dwdrsNextToken      :: !(Maybe Text)
+    , _dwdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeWorkspaceDirectoriesResponse' with the minimum fields required to make a request.
@@ -138,15 +138,15 @@ data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse
 --
 -- * 'dwdrsNextToken'
 --
--- * 'dwdrsStatus'
+-- * 'dwdrsResponseStatus'
 describeWorkspaceDirectoriesResponse
-    :: Int -- ^ 'dwdrsStatus'
+    :: Int -- ^ 'dwdrsResponseStatus'
     -> DescribeWorkspaceDirectoriesResponse
-describeWorkspaceDirectoriesResponse pStatus_ =
+describeWorkspaceDirectoriesResponse pResponseStatus_ =
     DescribeWorkspaceDirectoriesResponse'
     { _dwdrsDirectories = Nothing
     , _dwdrsNextToken = Nothing
-    , _dwdrsStatus = pStatus_
+    , _dwdrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of structures that contain information about the directories.
@@ -161,5 +161,5 @@ dwdrsNextToken :: Lens' DescribeWorkspaceDirectoriesResponse (Maybe Text)
 dwdrsNextToken = lens _dwdrsNextToken (\ s a -> s{_dwdrsNextToken = a});
 
 -- | The response status code.
-dwdrsStatus :: Lens' DescribeWorkspaceDirectoriesResponse Int
-dwdrsStatus = lens _dwdrsStatus (\ s a -> s{_dwdrsStatus = a});
+dwdrsResponseStatus :: Lens' DescribeWorkspaceDirectoriesResponse Int
+dwdrsResponseStatus = lens _dwdrsResponseStatus (\ s a -> s{_dwdrsResponseStatus = a});

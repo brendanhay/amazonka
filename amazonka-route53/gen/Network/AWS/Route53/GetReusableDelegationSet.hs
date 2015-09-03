@@ -34,7 +34,7 @@ module Network.AWS.Route53.GetReusableDelegationSet
     , getReusableDelegationSetResponse
     , GetReusableDelegationSetResponse
     -- * Response Lenses
-    , grdsrsStatus
+    , grdsrsResponseStatus
     , grdsrsDelegationSet
     ) where
 
@@ -95,30 +95,30 @@ instance ToQuery GetReusableDelegationSet where
 --
 -- /See:/ 'getReusableDelegationSetResponse' smart constructor.
 data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
-    { _grdsrsStatus        :: !Int
-    , _grdsrsDelegationSet :: !DelegationSet
+    { _grdsrsResponseStatus :: !Int
+    , _grdsrsDelegationSet  :: !DelegationSet
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetReusableDelegationSetResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grdsrsStatus'
+-- * 'grdsrsResponseStatus'
 --
 -- * 'grdsrsDelegationSet'
 getReusableDelegationSetResponse
-    :: Int -- ^ 'grdsrsStatus'
+    :: Int -- ^ 'grdsrsResponseStatus'
     -> DelegationSet -- ^ 'grdsrsDelegationSet'
     -> GetReusableDelegationSetResponse
-getReusableDelegationSetResponse pStatus_ pDelegationSet_ =
+getReusableDelegationSetResponse pResponseStatus_ pDelegationSet_ =
     GetReusableDelegationSetResponse'
-    { _grdsrsStatus = pStatus_
+    { _grdsrsResponseStatus = pResponseStatus_
     , _grdsrsDelegationSet = pDelegationSet_
     }
 
 -- | The response status code.
-grdsrsStatus :: Lens' GetReusableDelegationSetResponse Int
-grdsrsStatus = lens _grdsrsStatus (\ s a -> s{_grdsrsStatus = a});
+grdsrsResponseStatus :: Lens' GetReusableDelegationSetResponse Int
+grdsrsResponseStatus = lens _grdsrsResponseStatus (\ s a -> s{_grdsrsResponseStatus = a});
 
 -- | A complex type that contains the information about the nameservers for
 -- the specified delegation set ID.

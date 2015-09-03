@@ -37,8 +37,8 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     -- * Request Lenses
     , cctOptionSettings
     , cctSourceConfiguration
-    , cctEnvironmentId
     , cctSolutionStackName
+    , cctEnvironmentId
     , cctDescription
     , cctApplicationName
     , cctTemplateName
@@ -70,8 +70,8 @@ import           Network.AWS.Response
 data CreateConfigurationTemplate = CreateConfigurationTemplate'
     { _cctOptionSettings      :: !(Maybe [ConfigurationOptionSetting])
     , _cctSourceConfiguration :: !(Maybe SourceConfiguration)
-    , _cctEnvironmentId       :: !(Maybe Text)
     , _cctSolutionStackName   :: !(Maybe Text)
+    , _cctEnvironmentId       :: !(Maybe Text)
     , _cctDescription         :: !(Maybe Text)
     , _cctApplicationName     :: !Text
     , _cctTemplateName        :: !Text
@@ -85,9 +85,9 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate'
 --
 -- * 'cctSourceConfiguration'
 --
--- * 'cctEnvironmentId'
---
 -- * 'cctSolutionStackName'
+--
+-- * 'cctEnvironmentId'
 --
 -- * 'cctDescription'
 --
@@ -102,8 +102,8 @@ createConfigurationTemplate pApplicationName_ pTemplateName_ =
     CreateConfigurationTemplate'
     { _cctOptionSettings = Nothing
     , _cctSourceConfiguration = Nothing
-    , _cctEnvironmentId = Nothing
     , _cctSolutionStackName = Nothing
+    , _cctEnvironmentId = Nothing
     , _cctDescription = Nothing
     , _cctApplicationName = pApplicationName_
     , _cctTemplateName = pTemplateName_
@@ -132,10 +132,6 @@ cctOptionSettings = lens _cctOptionSettings (\ s a -> s{_cctOptionSettings = a})
 cctSourceConfiguration :: Lens' CreateConfigurationTemplate (Maybe SourceConfiguration)
 cctSourceConfiguration = lens _cctSourceConfiguration (\ s a -> s{_cctSourceConfiguration = a});
 
--- | The ID of the environment used with this configuration template.
-cctEnvironmentId :: Lens' CreateConfigurationTemplate (Maybe Text)
-cctEnvironmentId = lens _cctEnvironmentId (\ s a -> s{_cctEnvironmentId = a});
-
 -- | The name of the solution stack used by this configuration. The solution
 -- stack specifies the operating system, architecture, and application
 -- server for a configuration template. It determines the set of
@@ -153,6 +149,10 @@ cctEnvironmentId = lens _cctEnvironmentId (\ s a -> s{_cctEnvironmentId = a});
 -- stack as the source configuration template.
 cctSolutionStackName :: Lens' CreateConfigurationTemplate (Maybe Text)
 cctSolutionStackName = lens _cctSolutionStackName (\ s a -> s{_cctSolutionStackName = a});
+
+-- | The ID of the environment used with this configuration template.
+cctEnvironmentId :: Lens' CreateConfigurationTemplate (Maybe Text)
+cctEnvironmentId = lens _cctEnvironmentId (\ s a -> s{_cctEnvironmentId = a});
 
 -- | Describes this configuration.
 cctDescription :: Lens' CreateConfigurationTemplate (Maybe Text)
@@ -198,8 +198,8 @@ instance ToQuery CreateConfigurationTemplate where
                  toQuery
                    (toQueryList "member" <$> _cctOptionSettings),
                "SourceConfiguration" =: _cctSourceConfiguration,
-               "EnvironmentId" =: _cctEnvironmentId,
                "SolutionStackName" =: _cctSolutionStackName,
+               "EnvironmentId" =: _cctEnvironmentId,
                "Description" =: _cctDescription,
                "ApplicationName" =: _cctApplicationName,
                "TemplateName" =: _cctTemplateName]

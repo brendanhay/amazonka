@@ -59,7 +59,7 @@ module Network.AWS.EMR.AddJobFlowSteps
     , AddJobFlowStepsResponse
     -- * Response Lenses
     , ajfsrsStepIds
-    , ajfsrsStatus
+    , ajfsrsResponseStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -136,8 +136,8 @@ instance ToQuery AddJobFlowSteps where
 --
 -- /See:/ 'addJobFlowStepsResponse' smart constructor.
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
-    { _ajfsrsStepIds :: !(Maybe [Text])
-    , _ajfsrsStatus  :: !Int
+    { _ajfsrsStepIds        :: !(Maybe [Text])
+    , _ajfsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddJobFlowStepsResponse' with the minimum fields required to make a request.
@@ -146,14 +146,14 @@ data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
 --
 -- * 'ajfsrsStepIds'
 --
--- * 'ajfsrsStatus'
+-- * 'ajfsrsResponseStatus'
 addJobFlowStepsResponse
-    :: Int -- ^ 'ajfsrsStatus'
+    :: Int -- ^ 'ajfsrsResponseStatus'
     -> AddJobFlowStepsResponse
-addJobFlowStepsResponse pStatus_ =
+addJobFlowStepsResponse pResponseStatus_ =
     AddJobFlowStepsResponse'
     { _ajfsrsStepIds = Nothing
-    , _ajfsrsStatus = pStatus_
+    , _ajfsrsResponseStatus = pResponseStatus_
     }
 
 -- | The identifiers of the list of steps added to the job flow.
@@ -161,5 +161,5 @@ ajfsrsStepIds :: Lens' AddJobFlowStepsResponse [Text]
 ajfsrsStepIds = lens _ajfsrsStepIds (\ s a -> s{_ajfsrsStepIds = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ajfsrsStatus :: Lens' AddJobFlowStepsResponse Int
-ajfsrsStatus = lens _ajfsrsStatus (\ s a -> s{_ajfsrsStatus = a});
+ajfsrsResponseStatus :: Lens' AddJobFlowStepsResponse Int
+ajfsrsResponseStatus = lens _ajfsrsResponseStatus (\ s a -> s{_ajfsrsResponseStatus = a});

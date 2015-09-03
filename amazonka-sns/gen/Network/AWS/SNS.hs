@@ -57,11 +57,11 @@ module Network.AWS.SNS
     -- ** InternalErrorException
     , _InternalErrorException
 
-    -- ** NotFoundException
-    , _NotFoundException
-
     -- ** InvalidParameterValueException
     , _InvalidParameterValueException
+
+    -- ** NotFoundException
+    , _NotFoundException
 
     -- ** TopicLimitExceededException
     , _TopicLimitExceededException
@@ -78,11 +78,17 @@ module Network.AWS.SNS
     -- ** RemovePermission
     , module Network.AWS.SNS.RemovePermission
 
-    -- ** SetPlatformApplicationAttributes
-    , module Network.AWS.SNS.SetPlatformApplicationAttributes
+    -- ** DeleteTopic
+    , module Network.AWS.SNS.DeleteTopic
+
+    -- ** ListTopics (Paginated)
+    , module Network.AWS.SNS.ListTopics
 
     -- ** CreatePlatformEndpoint
     , module Network.AWS.SNS.CreatePlatformEndpoint
+
+    -- ** SetPlatformApplicationAttributes
+    , module Network.AWS.SNS.SetPlatformApplicationAttributes
 
     -- ** ListSubscriptionsByTopic (Paginated)
     , module Network.AWS.SNS.ListSubscriptionsByTopic
@@ -90,20 +96,17 @@ module Network.AWS.SNS
     -- ** GetTopicAttributes
     , module Network.AWS.SNS.GetTopicAttributes
 
-    -- ** DeleteTopic
-    , module Network.AWS.SNS.DeleteTopic
-
-    -- ** ListTopics (Paginated)
-    , module Network.AWS.SNS.ListTopics
-
     -- ** CreatePlatformApplication
     , module Network.AWS.SNS.CreatePlatformApplication
+
+    -- ** GetPlatformApplicationAttributes
+    , module Network.AWS.SNS.GetPlatformApplicationAttributes
 
     -- ** ListEndpointsByPlatformApplication (Paginated)
     , module Network.AWS.SNS.ListEndpointsByPlatformApplication
 
-    -- ** GetPlatformApplicationAttributes
-    , module Network.AWS.SNS.GetPlatformApplicationAttributes
+    -- ** SetTopicAttributes
+    , module Network.AWS.SNS.SetTopicAttributes
 
     -- ** DeletePlatformApplication
     , module Network.AWS.SNS.DeletePlatformApplication
@@ -111,20 +114,17 @@ module Network.AWS.SNS
     -- ** ListPlatformApplications (Paginated)
     , module Network.AWS.SNS.ListPlatformApplications
 
-    -- ** SetTopicAttributes
-    , module Network.AWS.SNS.SetTopicAttributes
+    -- ** AddPermission
+    , module Network.AWS.SNS.AddPermission
 
     -- ** GetEndpointAttributes
     , module Network.AWS.SNS.GetEndpointAttributes
 
-    -- ** AddPermission
-    , module Network.AWS.SNS.AddPermission
+    -- ** ListSubscriptions (Paginated)
+    , module Network.AWS.SNS.ListSubscriptions
 
     -- ** GetSubscriptionAttributes
     , module Network.AWS.SNS.GetSubscriptionAttributes
-
-    -- ** ListSubscriptions (Paginated)
-    , module Network.AWS.SNS.ListSubscriptions
 
     -- ** CreateTopic
     , module Network.AWS.SNS.CreateTopic

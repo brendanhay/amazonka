@@ -37,7 +37,7 @@ module Network.AWS.Route53Domains.CheckDomainAvailability
     , checkDomainAvailabilityResponse
     , CheckDomainAvailabilityResponse
     -- * Response Lenses
-    , cdarsStatus
+    , cdarsResponseStatus
     , cdarsAvailability
     ) where
 
@@ -126,30 +126,30 @@ instance ToQuery CheckDomainAvailability where
 --
 -- /See:/ 'checkDomainAvailabilityResponse' smart constructor.
 data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
-    { _cdarsStatus       :: !Int
-    , _cdarsAvailability :: !DomainAvailability
+    { _cdarsResponseStatus :: !Int
+    , _cdarsAvailability   :: !DomainAvailability
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CheckDomainAvailabilityResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdarsStatus'
+-- * 'cdarsResponseStatus'
 --
 -- * 'cdarsAvailability'
 checkDomainAvailabilityResponse
-    :: Int -- ^ 'cdarsStatus'
+    :: Int -- ^ 'cdarsResponseStatus'
     -> DomainAvailability -- ^ 'cdarsAvailability'
     -> CheckDomainAvailabilityResponse
-checkDomainAvailabilityResponse pStatus_ pAvailability_ =
+checkDomainAvailabilityResponse pResponseStatus_ pAvailability_ =
     CheckDomainAvailabilityResponse'
-    { _cdarsStatus = pStatus_
+    { _cdarsResponseStatus = pResponseStatus_
     , _cdarsAvailability = pAvailability_
     }
 
 -- | The response status code.
-cdarsStatus :: Lens' CheckDomainAvailabilityResponse Int
-cdarsStatus = lens _cdarsStatus (\ s a -> s{_cdarsStatus = a});
+cdarsResponseStatus :: Lens' CheckDomainAvailabilityResponse Int
+cdarsResponseStatus = lens _cdarsResponseStatus (\ s a -> s{_cdarsResponseStatus = a});
 
 -- | Whether the domain name is available for registering.
 --

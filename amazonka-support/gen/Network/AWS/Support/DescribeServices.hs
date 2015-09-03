@@ -48,7 +48,7 @@ module Network.AWS.Support.DescribeServices
     , DescribeServicesResponse
     -- * Response Lenses
     , dsrsServices
-    , dsrsStatus
+    , dsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -126,8 +126,8 @@ instance ToQuery DescribeServices where
 --
 -- /See:/ 'describeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-    { _dsrsServices :: !(Maybe [SupportService])
-    , _dsrsStatus   :: !Int
+    { _dsrsServices       :: !(Maybe [SupportService])
+    , _dsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeServicesResponse' with the minimum fields required to make a request.
@@ -136,14 +136,14 @@ data DescribeServicesResponse = DescribeServicesResponse'
 --
 -- * 'dsrsServices'
 --
--- * 'dsrsStatus'
+-- * 'dsrsResponseStatus'
 describeServicesResponse
-    :: Int -- ^ 'dsrsStatus'
+    :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeServicesResponse
-describeServicesResponse pStatus_ =
+describeServicesResponse pResponseStatus_ =
     DescribeServicesResponse'
     { _dsrsServices = Nothing
-    , _dsrsStatus = pStatus_
+    , _dsrsResponseStatus = pResponseStatus_
     }
 
 -- | A JSON-formatted list of AWS services.
@@ -151,5 +151,5 @@ dsrsServices :: Lens' DescribeServicesResponse [SupportService]
 dsrsServices = lens _dsrsServices (\ s a -> s{_dsrsServices = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dsrsStatus :: Lens' DescribeServicesResponse Int
-dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
+dsrsResponseStatus :: Lens' DescribeServicesResponse Int
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});

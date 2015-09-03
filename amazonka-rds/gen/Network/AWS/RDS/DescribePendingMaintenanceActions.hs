@@ -29,8 +29,8 @@ module Network.AWS.RDS.DescribePendingMaintenanceActions
     , DescribePendingMaintenanceActions
     -- * Request Lenses
     , dpmaFilters
-    , dpmaMaxRecords
     , dpmaMarker
+    , dpmaMaxRecords
     , dpmaResourceIdentifier
 
     -- * Destructuring the Response
@@ -39,7 +39,7 @@ module Network.AWS.RDS.DescribePendingMaintenanceActions
     -- * Response Lenses
     , dpmarsPendingMaintenanceActions
     , dpmarsMarker
-    , dpmarsStatus
+    , dpmarsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -53,8 +53,8 @@ import           Network.AWS.Response
 -- /See:/ 'describePendingMaintenanceActions' smart constructor.
 data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
     { _dpmaFilters            :: !(Maybe [Filter])
-    , _dpmaMaxRecords         :: !(Maybe Int)
     , _dpmaMarker             :: !(Maybe Text)
+    , _dpmaMaxRecords         :: !(Maybe Int)
     , _dpmaResourceIdentifier :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -64,9 +64,9 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
 --
 -- * 'dpmaFilters'
 --
--- * 'dpmaMaxRecords'
---
 -- * 'dpmaMarker'
+--
+-- * 'dpmaMaxRecords'
 --
 -- * 'dpmaResourceIdentifier'
 describePendingMaintenanceActions
@@ -74,8 +74,8 @@ describePendingMaintenanceActions
 describePendingMaintenanceActions =
     DescribePendingMaintenanceActions'
     { _dpmaFilters = Nothing
-    , _dpmaMaxRecords = Nothing
     , _dpmaMarker = Nothing
+    , _dpmaMaxRecords = Nothing
     , _dpmaResourceIdentifier = Nothing
     }
 
@@ -91,6 +91,13 @@ describePendingMaintenanceActions =
 dpmaFilters :: Lens' DescribePendingMaintenanceActions [Filter]
 dpmaFilters = lens _dpmaFilters (\ s a -> s{_dpmaFilters = a}) . _Default . _Coerce;
 
+-- | An optional pagination token provided by a previous
+-- 'DescribePendingMaintenanceActions' request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to a
+-- number of records specified by 'MaxRecords'.
+dpmaMarker :: Lens' DescribePendingMaintenanceActions (Maybe Text)
+dpmaMarker = lens _dpmaMarker (\ s a -> s{_dpmaMarker = a});
+
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -101,13 +108,6 @@ dpmaFilters = lens _dpmaFilters (\ s a -> s{_dpmaFilters = a}) . _Default . _Coe
 -- Constraints: Minimum 20, maximum 100.
 dpmaMaxRecords :: Lens' DescribePendingMaintenanceActions (Maybe Int)
 dpmaMaxRecords = lens _dpmaMaxRecords (\ s a -> s{_dpmaMaxRecords = a});
-
--- | An optional pagination token provided by a previous
--- 'DescribePendingMaintenanceActions' request. If this parameter is
--- specified, the response includes only records beyond the marker, up to a
--- number of records specified by 'MaxRecords'.
-dpmaMarker :: Lens' DescribePendingMaintenanceActions (Maybe Text)
-dpmaMarker = lens _dpmaMarker (\ s a -> s{_dpmaMarker = a});
 
 -- | The ARN of a resource to return pending maintenance actions for.
 dpmaResourceIdentifier :: Lens' DescribePendingMaintenanceActions (Maybe Text)
@@ -146,8 +146,8 @@ instance ToQuery DescribePendingMaintenanceActions
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
                  toQuery (toQueryList "Filter" <$> _dpmaFilters),
-               "MaxRecords" =: _dpmaMaxRecords,
                "Marker" =: _dpmaMarker,
+               "MaxRecords" =: _dpmaMaxRecords,
                "ResourceIdentifier" =: _dpmaResourceIdentifier]
 
 -- | Data returned from the __DescribePendingMaintenanceActions__ action.
@@ -156,7 +156,7 @@ instance ToQuery DescribePendingMaintenanceActions
 data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'
     { _dpmarsPendingMaintenanceActions :: !(Maybe [ResourcePendingMaintenanceActions])
     , _dpmarsMarker                    :: !(Maybe Text)
-    , _dpmarsStatus                    :: !Int
+    , _dpmarsResponseStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribePendingMaintenanceActionsResponse' with the minimum fields required to make a request.
@@ -167,15 +167,15 @@ data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActio
 --
 -- * 'dpmarsMarker'
 --
--- * 'dpmarsStatus'
+-- * 'dpmarsResponseStatus'
 describePendingMaintenanceActionsResponse
-    :: Int -- ^ 'dpmarsStatus'
+    :: Int -- ^ 'dpmarsResponseStatus'
     -> DescribePendingMaintenanceActionsResponse
-describePendingMaintenanceActionsResponse pStatus_ =
+describePendingMaintenanceActionsResponse pResponseStatus_ =
     DescribePendingMaintenanceActionsResponse'
     { _dpmarsPendingMaintenanceActions = Nothing
     , _dpmarsMarker = Nothing
-    , _dpmarsStatus = pStatus_
+    , _dpmarsResponseStatus = pResponseStatus_
     }
 
 -- | A list of the pending maintenance actions for the resource.
@@ -190,5 +190,5 @@ dpmarsMarker :: Lens' DescribePendingMaintenanceActionsResponse (Maybe Text)
 dpmarsMarker = lens _dpmarsMarker (\ s a -> s{_dpmarsMarker = a});
 
 -- | The response status code.
-dpmarsStatus :: Lens' DescribePendingMaintenanceActionsResponse Int
-dpmarsStatus = lens _dpmarsStatus (\ s a -> s{_dpmarsStatus = a});
+dpmarsResponseStatus :: Lens' DescribePendingMaintenanceActionsResponse Int
+dpmarsResponseStatus = lens _dpmarsResponseStatus (\ s a -> s{_dpmarsResponseStatus = a});

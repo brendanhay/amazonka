@@ -38,8 +38,8 @@ module Network.AWS.IAM.ListEntitiesForPolicy
     -- * Request Lenses
     , lefpPathPrefix
     , lefpEntityFilter
-    , lefpMaxItems
     , lefpMarker
+    , lefpMaxItems
     , lefpPolicyARN
 
     -- * Destructuring the Response
@@ -48,10 +48,10 @@ module Network.AWS.IAM.ListEntitiesForPolicy
     -- * Response Lenses
     , lefprsPolicyGroups
     , lefprsPolicyRoles
-    , lefprsPolicyUsers
     , lefprsMarker
+    , lefprsPolicyUsers
     , lefprsIsTruncated
-    , lefprsStatus
+    , lefprsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -64,8 +64,8 @@ import           Network.AWS.Response
 data ListEntitiesForPolicy = ListEntitiesForPolicy'
     { _lefpPathPrefix   :: !(Maybe Text)
     , _lefpEntityFilter :: !(Maybe EntityType)
-    , _lefpMaxItems     :: !(Maybe Nat)
     , _lefpMarker       :: !(Maybe Text)
+    , _lefpMaxItems     :: !(Maybe Nat)
     , _lefpPolicyARN    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -77,9 +77,9 @@ data ListEntitiesForPolicy = ListEntitiesForPolicy'
 --
 -- * 'lefpEntityFilter'
 --
--- * 'lefpMaxItems'
---
 -- * 'lefpMarker'
+--
+-- * 'lefpMaxItems'
 --
 -- * 'lefpPolicyARN'
 listEntitiesForPolicy
@@ -89,8 +89,8 @@ listEntitiesForPolicy pPolicyARN_ =
     ListEntitiesForPolicy'
     { _lefpPathPrefix = Nothing
     , _lefpEntityFilter = Nothing
-    , _lefpMaxItems = Nothing
     , _lefpMarker = Nothing
+    , _lefpMaxItems = Nothing
     , _lefpPolicyARN = pPolicyARN_
     }
 
@@ -109,6 +109,12 @@ lefpPathPrefix = lens _lefpPathPrefix (\ s a -> s{_lefpPathPrefix = a});
 lefpEntityFilter :: Lens' ListEntitiesForPolicy (Maybe EntityType)
 lefpEntityFilter = lens _lefpEntityFilter (\ s a -> s{_lefpEntityFilter = a});
 
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lefpMarker :: Lens' ListEntitiesForPolicy (Maybe Text)
+lefpMarker = lens _lefpMarker (\ s a -> s{_lefpMarker = a});
+
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
@@ -117,12 +123,6 @@ lefpEntityFilter = lens _lefpEntityFilter (\ s a -> s{_lefpEntityFilter = a});
 -- 100.
 lefpMaxItems :: Lens' ListEntitiesForPolicy (Maybe Natural)
 lefpMaxItems = lens _lefpMaxItems (\ s a -> s{_lefpMaxItems = a}) . mapping _Nat;
-
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lefpMarker :: Lens' ListEntitiesForPolicy (Maybe Text)
-lefpMarker = lens _lefpMarker (\ s a -> s{_lefpMarker = a});
 
 -- | Undocumented member.
 lefpPolicyARN :: Lens' ListEntitiesForPolicy Text
@@ -141,10 +141,10 @@ instance AWSRequest ListEntitiesForPolicy where
                      <*>
                      (x .@? "PolicyRoles" .!@ mempty >>=
                         may (parseXMLList "member"))
+                     <*> (x .@? "Marker")
                      <*>
                      (x .@? "PolicyUsers" .!@ mempty >>=
                         may (parseXMLList "member"))
-                     <*> (x .@? "Marker")
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
@@ -161,19 +161,19 @@ instance ToQuery ListEntitiesForPolicy where
                "Version" =: ("2010-05-08" :: ByteString),
                "PathPrefix" =: _lefpPathPrefix,
                "EntityFilter" =: _lefpEntityFilter,
-               "MaxItems" =: _lefpMaxItems, "Marker" =: _lefpMarker,
+               "Marker" =: _lefpMarker, "MaxItems" =: _lefpMaxItems,
                "PolicyArn" =: _lefpPolicyARN]
 
 -- | Contains the response to a successful ListEntitiesForPolicy request.
 --
 -- /See:/ 'listEntitiesForPolicyResponse' smart constructor.
 data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'
-    { _lefprsPolicyGroups :: !(Maybe [PolicyGroup])
-    , _lefprsPolicyRoles  :: !(Maybe [PolicyRole])
-    , _lefprsPolicyUsers  :: !(Maybe [PolicyUser])
-    , _lefprsMarker       :: !(Maybe Text)
-    , _lefprsIsTruncated  :: !(Maybe Bool)
-    , _lefprsStatus       :: !Int
+    { _lefprsPolicyGroups   :: !(Maybe [PolicyGroup])
+    , _lefprsPolicyRoles    :: !(Maybe [PolicyRole])
+    , _lefprsMarker         :: !(Maybe Text)
+    , _lefprsPolicyUsers    :: !(Maybe [PolicyUser])
+    , _lefprsIsTruncated    :: !(Maybe Bool)
+    , _lefprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListEntitiesForPolicyResponse' with the minimum fields required to make a request.
@@ -184,24 +184,24 @@ data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'
 --
 -- * 'lefprsPolicyRoles'
 --
--- * 'lefprsPolicyUsers'
---
 -- * 'lefprsMarker'
+--
+-- * 'lefprsPolicyUsers'
 --
 -- * 'lefprsIsTruncated'
 --
--- * 'lefprsStatus'
+-- * 'lefprsResponseStatus'
 listEntitiesForPolicyResponse
-    :: Int -- ^ 'lefprsStatus'
+    :: Int -- ^ 'lefprsResponseStatus'
     -> ListEntitiesForPolicyResponse
-listEntitiesForPolicyResponse pStatus_ =
+listEntitiesForPolicyResponse pResponseStatus_ =
     ListEntitiesForPolicyResponse'
     { _lefprsPolicyGroups = Nothing
     , _lefprsPolicyRoles = Nothing
-    , _lefprsPolicyUsers = Nothing
     , _lefprsMarker = Nothing
+    , _lefprsPolicyUsers = Nothing
     , _lefprsIsTruncated = Nothing
-    , _lefprsStatus = pStatus_
+    , _lefprsResponseStatus = pResponseStatus_
     }
 
 -- | A list of groups that the policy is attached to.
@@ -212,15 +212,15 @@ lefprsPolicyGroups = lens _lefprsPolicyGroups (\ s a -> s{_lefprsPolicyGroups = 
 lefprsPolicyRoles :: Lens' ListEntitiesForPolicyResponse [PolicyRole]
 lefprsPolicyRoles = lens _lefprsPolicyRoles (\ s a -> s{_lefprsPolicyRoles = a}) . _Default . _Coerce;
 
--- | A list of users that the policy is attached to.
-lefprsPolicyUsers :: Lens' ListEntitiesForPolicyResponse [PolicyUser]
-lefprsPolicyUsers = lens _lefprsPolicyUsers (\ s a -> s{_lefprsPolicyUsers = a}) . _Default . _Coerce;
-
 -- | When 'IsTruncated' is 'true', this element is present and contains the
 -- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 lefprsMarker :: Lens' ListEntitiesForPolicyResponse (Maybe Text)
 lefprsMarker = lens _lefprsMarker (\ s a -> s{_lefprsMarker = a});
+
+-- | A list of users that the policy is attached to.
+lefprsPolicyUsers :: Lens' ListEntitiesForPolicyResponse [PolicyUser]
+lefprsPolicyUsers = lens _lefprsPolicyUsers (\ s a -> s{_lefprsPolicyUsers = a}) . _Default . _Coerce;
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -229,5 +229,5 @@ lefprsIsTruncated :: Lens' ListEntitiesForPolicyResponse (Maybe Bool)
 lefprsIsTruncated = lens _lefprsIsTruncated (\ s a -> s{_lefprsIsTruncated = a});
 
 -- | The response status code.
-lefprsStatus :: Lens' ListEntitiesForPolicyResponse Int
-lefprsStatus = lens _lefprsStatus (\ s a -> s{_lefprsStatus = a});
+lefprsResponseStatus :: Lens' ListEntitiesForPolicyResponse Int
+lefprsResponseStatus = lens _lefprsResponseStatus (\ s a -> s{_lefprsResponseStatus = a});

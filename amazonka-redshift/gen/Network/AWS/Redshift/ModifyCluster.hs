@@ -44,8 +44,8 @@ module Network.AWS.Redshift.ModifyCluster
     , mcHSMConfigurationIdentifier
     , mcClusterSecurityGroups
     , mcAutomatedSnapshotRetentionPeriod
-    , mcNumberOfNodes
     , mcHSMClientCertificateIdentifier
+    , mcNumberOfNodes
     , mcPreferredMaintenanceWindow
     , mcVPCSecurityGroupIds
     , mcClusterType
@@ -61,7 +61,7 @@ module Network.AWS.Redshift.ModifyCluster
     , ModifyClusterResponse
     -- * Response Lenses
     , mcrsCluster
-    , mcrsStatus
+    , mcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -78,8 +78,8 @@ data ModifyCluster = ModifyCluster'
     , _mcHSMConfigurationIdentifier       :: !(Maybe Text)
     , _mcClusterSecurityGroups            :: !(Maybe [Text])
     , _mcAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _mcNumberOfNodes                    :: !(Maybe Int)
     , _mcHSMClientCertificateIdentifier   :: !(Maybe Text)
+    , _mcNumberOfNodes                    :: !(Maybe Int)
     , _mcPreferredMaintenanceWindow       :: !(Maybe Text)
     , _mcVPCSecurityGroupIds              :: !(Maybe [Text])
     , _mcClusterType                      :: !(Maybe Text)
@@ -103,9 +103,9 @@ data ModifyCluster = ModifyCluster'
 --
 -- * 'mcAutomatedSnapshotRetentionPeriod'
 --
--- * 'mcNumberOfNodes'
---
 -- * 'mcHSMClientCertificateIdentifier'
+--
+-- * 'mcNumberOfNodes'
 --
 -- * 'mcPreferredMaintenanceWindow'
 --
@@ -133,8 +133,8 @@ modifyCluster pClusterIdentifier_ =
     , _mcHSMConfigurationIdentifier = Nothing
     , _mcClusterSecurityGroups = Nothing
     , _mcAutomatedSnapshotRetentionPeriod = Nothing
-    , _mcNumberOfNodes = Nothing
     , _mcHSMClientCertificateIdentifier = Nothing
+    , _mcNumberOfNodes = Nothing
     , _mcPreferredMaintenanceWindow = Nothing
     , _mcVPCSecurityGroupIds = Nothing
     , _mcClusterType = Nothing
@@ -204,6 +204,11 @@ mcClusterSecurityGroups = lens _mcClusterSecurityGroups (\ s a -> s{_mcClusterSe
 mcAutomatedSnapshotRetentionPeriod :: Lens' ModifyCluster (Maybe Int)
 mcAutomatedSnapshotRetentionPeriod = lens _mcAutomatedSnapshotRetentionPeriod (\ s a -> s{_mcAutomatedSnapshotRetentionPeriod = a});
 
+-- | Specifies the name of the HSM client certificate the Amazon Redshift
+-- cluster uses to retrieve the data encryption keys stored in an HSM.
+mcHSMClientCertificateIdentifier :: Lens' ModifyCluster (Maybe Text)
+mcHSMClientCertificateIdentifier = lens _mcHSMClientCertificateIdentifier (\ s a -> s{_mcHSMClientCertificateIdentifier = a});
+
 -- | The new number of nodes of the cluster. If you specify a new number of
 -- nodes, you must also specify the node type parameter.
 --
@@ -218,11 +223,6 @@ mcAutomatedSnapshotRetentionPeriod = lens _mcAutomatedSnapshotRetentionPeriod (\
 -- Valid Values: Integer greater than '0'.
 mcNumberOfNodes :: Lens' ModifyCluster (Maybe Int)
 mcNumberOfNodes = lens _mcNumberOfNodes (\ s a -> s{_mcNumberOfNodes = a});
-
--- | Specifies the name of the HSM client certificate the Amazon Redshift
--- cluster uses to retrieve the data encryption keys stored in an HSM.
-mcHSMClientCertificateIdentifier :: Lens' ModifyCluster (Maybe Text)
-mcHSMClientCertificateIdentifier = lens _mcHSMClientCertificateIdentifier (\ s a -> s{_mcHSMClientCertificateIdentifier = a});
 
 -- | The weekly time range (in UTC) during which system maintenance can
 -- occur, if necessary. If system maintenance is necessary during the
@@ -359,9 +359,9 @@ instance ToQuery ModifyCluster where
                       _mcClusterSecurityGroups),
                "AutomatedSnapshotRetentionPeriod" =:
                  _mcAutomatedSnapshotRetentionPeriod,
-               "NumberOfNodes" =: _mcNumberOfNodes,
                "HsmClientCertificateIdentifier" =:
                  _mcHSMClientCertificateIdentifier,
+               "NumberOfNodes" =: _mcNumberOfNodes,
                "PreferredMaintenanceWindow" =:
                  _mcPreferredMaintenanceWindow,
                "VpcSecurityGroupIds" =:
@@ -379,8 +379,8 @@ instance ToQuery ModifyCluster where
 
 -- | /See:/ 'modifyClusterResponse' smart constructor.
 data ModifyClusterResponse = ModifyClusterResponse'
-    { _mcrsCluster :: !(Maybe Cluster)
-    , _mcrsStatus  :: !Int
+    { _mcrsCluster        :: !(Maybe Cluster)
+    , _mcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyClusterResponse' with the minimum fields required to make a request.
@@ -389,14 +389,14 @@ data ModifyClusterResponse = ModifyClusterResponse'
 --
 -- * 'mcrsCluster'
 --
--- * 'mcrsStatus'
+-- * 'mcrsResponseStatus'
 modifyClusterResponse
-    :: Int -- ^ 'mcrsStatus'
+    :: Int -- ^ 'mcrsResponseStatus'
     -> ModifyClusterResponse
-modifyClusterResponse pStatus_ =
+modifyClusterResponse pResponseStatus_ =
     ModifyClusterResponse'
     { _mcrsCluster = Nothing
-    , _mcrsStatus = pStatus_
+    , _mcrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -404,5 +404,5 @@ mcrsCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
 mcrsCluster = lens _mcrsCluster (\ s a -> s{_mcrsCluster = a});
 
 -- | The response status code.
-mcrsStatus :: Lens' ModifyClusterResponse Int
-mcrsStatus = lens _mcrsStatus (\ s a -> s{_mcrsStatus = a});
+mcrsResponseStatus :: Lens' ModifyClusterResponse Int
+mcrsResponseStatus = lens _mcrsResponseStatus (\ s a -> s{_mcrsResponseStatus = a});

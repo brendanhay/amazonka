@@ -35,7 +35,7 @@ module Network.AWS.KMS.GetKeyPolicy
     , GetKeyPolicyResponse
     -- * Response Lenses
     , gkprsPolicy
-    , gkprsStatus
+    , gkprsResponseStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -115,8 +115,8 @@ instance ToQuery GetKeyPolicy where
 
 -- | /See:/ 'getKeyPolicyResponse' smart constructor.
 data GetKeyPolicyResponse = GetKeyPolicyResponse'
-    { _gkprsPolicy :: !(Maybe Text)
-    , _gkprsStatus :: !Int
+    { _gkprsPolicy         :: !(Maybe Text)
+    , _gkprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetKeyPolicyResponse' with the minimum fields required to make a request.
@@ -125,14 +125,14 @@ data GetKeyPolicyResponse = GetKeyPolicyResponse'
 --
 -- * 'gkprsPolicy'
 --
--- * 'gkprsStatus'
+-- * 'gkprsResponseStatus'
 getKeyPolicyResponse
-    :: Int -- ^ 'gkprsStatus'
+    :: Int -- ^ 'gkprsResponseStatus'
     -> GetKeyPolicyResponse
-getKeyPolicyResponse pStatus_ =
+getKeyPolicyResponse pResponseStatus_ =
     GetKeyPolicyResponse'
     { _gkprsPolicy = Nothing
-    , _gkprsStatus = pStatus_
+    , _gkprsResponseStatus = pResponseStatus_
     }
 
 -- | A policy document in JSON format.
@@ -140,5 +140,5 @@ gkprsPolicy :: Lens' GetKeyPolicyResponse (Maybe Text)
 gkprsPolicy = lens _gkprsPolicy (\ s a -> s{_gkprsPolicy = a});
 
 -- | The response status code.
-gkprsStatus :: Lens' GetKeyPolicyResponse Int
-gkprsStatus = lens _gkprsStatus (\ s a -> s{_gkprsStatus = a});
+gkprsResponseStatus :: Lens' GetKeyPolicyResponse Int
+gkprsResponseStatus = lens _gkprsResponseStatus (\ s a -> s{_gkprsResponseStatus = a});

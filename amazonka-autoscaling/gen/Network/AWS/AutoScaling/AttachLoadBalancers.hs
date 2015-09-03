@@ -42,7 +42,7 @@ module Network.AWS.AutoScaling.AttachLoadBalancers
     , attachLoadBalancersResponse
     , AttachLoadBalancersResponse
     -- * Response Lenses
-    , albrsStatus
+    , albrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -107,22 +107,22 @@ instance ToQuery AttachLoadBalancers where
 
 -- | /See:/ 'attachLoadBalancersResponse' smart constructor.
 newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
-    { _albrsStatus :: Int
+    { _albrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AttachLoadBalancersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'albrsStatus'
+-- * 'albrsResponseStatus'
 attachLoadBalancersResponse
-    :: Int -- ^ 'albrsStatus'
+    :: Int -- ^ 'albrsResponseStatus'
     -> AttachLoadBalancersResponse
-attachLoadBalancersResponse pStatus_ =
+attachLoadBalancersResponse pResponseStatus_ =
     AttachLoadBalancersResponse'
-    { _albrsStatus = pStatus_
+    { _albrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-albrsStatus :: Lens' AttachLoadBalancersResponse Int
-albrsStatus = lens _albrsStatus (\ s a -> s{_albrsStatus = a});
+albrsResponseStatus :: Lens' AttachLoadBalancersResponse Int
+albrsResponseStatus = lens _albrsResponseStatus (\ s a -> s{_albrsResponseStatus = a});

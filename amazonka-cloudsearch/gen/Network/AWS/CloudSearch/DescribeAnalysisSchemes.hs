@@ -42,7 +42,7 @@ module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     , describeAnalysisSchemesResponse
     , DescribeAnalysisSchemesResponse
     -- * Response Lenses
-    , dasrsStatus
+    , dasrsResponseStatus
     , dasrsAnalysisSchemes
     ) where
 
@@ -132,7 +132,7 @@ instance ToQuery DescribeAnalysisSchemes where
 --
 -- /See:/ 'describeAnalysisSchemesResponse' smart constructor.
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
-    { _dasrsStatus          :: !Int
+    { _dasrsResponseStatus  :: !Int
     , _dasrsAnalysisSchemes :: ![AnalysisSchemeStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -140,21 +140,21 @@ data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dasrsStatus'
+-- * 'dasrsResponseStatus'
 --
 -- * 'dasrsAnalysisSchemes'
 describeAnalysisSchemesResponse
-    :: Int -- ^ 'dasrsStatus'
+    :: Int -- ^ 'dasrsResponseStatus'
     -> DescribeAnalysisSchemesResponse
-describeAnalysisSchemesResponse pStatus_ =
+describeAnalysisSchemesResponse pResponseStatus_ =
     DescribeAnalysisSchemesResponse'
-    { _dasrsStatus = pStatus_
+    { _dasrsResponseStatus = pResponseStatus_
     , _dasrsAnalysisSchemes = mempty
     }
 
 -- | The response status code.
-dasrsStatus :: Lens' DescribeAnalysisSchemesResponse Int
-dasrsStatus = lens _dasrsStatus (\ s a -> s{_dasrsStatus = a});
+dasrsResponseStatus :: Lens' DescribeAnalysisSchemesResponse Int
+dasrsResponseStatus = lens _dasrsResponseStatus (\ s a -> s{_dasrsResponseStatus = a});
 
 -- | The analysis scheme descriptions.
 dasrsAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]

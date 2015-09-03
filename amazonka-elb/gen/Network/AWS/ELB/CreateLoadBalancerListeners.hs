@@ -41,7 +41,7 @@ module Network.AWS.ELB.CreateLoadBalancerListeners
     , createLoadBalancerListenersResponse
     , CreateLoadBalancerListenersResponse
     -- * Response Lenses
-    , clblrsStatus
+    , clblrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -108,22 +108,22 @@ instance ToQuery CreateLoadBalancerListeners where
 
 -- | /See:/ 'createLoadBalancerListenersResponse' smart constructor.
 newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'
-    { _clblrsStatus :: Int
+    { _clblrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateLoadBalancerListenersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clblrsStatus'
+-- * 'clblrsResponseStatus'
 createLoadBalancerListenersResponse
-    :: Int -- ^ 'clblrsStatus'
+    :: Int -- ^ 'clblrsResponseStatus'
     -> CreateLoadBalancerListenersResponse
-createLoadBalancerListenersResponse pStatus_ =
+createLoadBalancerListenersResponse pResponseStatus_ =
     CreateLoadBalancerListenersResponse'
-    { _clblrsStatus = pStatus_
+    { _clblrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-clblrsStatus :: Lens' CreateLoadBalancerListenersResponse Int
-clblrsStatus = lens _clblrsStatus (\ s a -> s{_clblrsStatus = a});
+clblrsResponseStatus :: Lens' CreateLoadBalancerListenersResponse Int
+clblrsResponseStatus = lens _clblrsResponseStatus (\ s a -> s{_clblrsResponseStatus = a});

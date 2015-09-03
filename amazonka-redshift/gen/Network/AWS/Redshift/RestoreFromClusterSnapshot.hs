@@ -43,16 +43,16 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     , RestoreFromClusterSnapshot
     -- * Request Lenses
     , rfcsPubliclyAccessible
-    , rfcsHSMConfigurationIdentifier
     , rfcsSnapshotClusterIdentifier
+    , rfcsHSMConfigurationIdentifier
     , rfcsClusterSecurityGroups
     , rfcsAutomatedSnapshotRetentionPeriod
-    , rfcsHSMClientCertificateIdentifier
     , rfcsClusterSubnetGroupName
+    , rfcsHSMClientCertificateIdentifier
     , rfcsElasticIP
     , rfcsPreferredMaintenanceWindow
-    , rfcsAvailabilityZone
     , rfcsKMSKeyId
+    , rfcsAvailabilityZone
     , rfcsVPCSecurityGroupIds
     , rfcsOwnerAccount
     , rfcsNodeType
@@ -67,7 +67,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     , RestoreFromClusterSnapshotResponse
     -- * Response Lenses
     , rfcsrsCluster
-    , rfcsrsStatus
+    , rfcsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -81,16 +81,16 @@ import           Network.AWS.Response
 -- /See:/ 'restoreFromClusterSnapshot' smart constructor.
 data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     { _rfcsPubliclyAccessible               :: !(Maybe Bool)
-    , _rfcsHSMConfigurationIdentifier       :: !(Maybe Text)
     , _rfcsSnapshotClusterIdentifier        :: !(Maybe Text)
+    , _rfcsHSMConfigurationIdentifier       :: !(Maybe Text)
     , _rfcsClusterSecurityGroups            :: !(Maybe [Text])
     , _rfcsAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _rfcsHSMClientCertificateIdentifier   :: !(Maybe Text)
     , _rfcsClusterSubnetGroupName           :: !(Maybe Text)
+    , _rfcsHSMClientCertificateIdentifier   :: !(Maybe Text)
     , _rfcsElasticIP                        :: !(Maybe Text)
     , _rfcsPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _rfcsAvailabilityZone                 :: !(Maybe Text)
     , _rfcsKMSKeyId                         :: !(Maybe Text)
+    , _rfcsAvailabilityZone                 :: !(Maybe Text)
     , _rfcsVPCSecurityGroupIds              :: !(Maybe [Text])
     , _rfcsOwnerAccount                     :: !(Maybe Text)
     , _rfcsNodeType                         :: !(Maybe Text)
@@ -107,25 +107,25 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 --
 -- * 'rfcsPubliclyAccessible'
 --
--- * 'rfcsHSMConfigurationIdentifier'
---
 -- * 'rfcsSnapshotClusterIdentifier'
+--
+-- * 'rfcsHSMConfigurationIdentifier'
 --
 -- * 'rfcsClusterSecurityGroups'
 --
 -- * 'rfcsAutomatedSnapshotRetentionPeriod'
 --
--- * 'rfcsHSMClientCertificateIdentifier'
---
 -- * 'rfcsClusterSubnetGroupName'
+--
+-- * 'rfcsHSMClientCertificateIdentifier'
 --
 -- * 'rfcsElasticIP'
 --
 -- * 'rfcsPreferredMaintenanceWindow'
 --
--- * 'rfcsAvailabilityZone'
---
 -- * 'rfcsKMSKeyId'
+--
+-- * 'rfcsAvailabilityZone'
 --
 -- * 'rfcsVPCSecurityGroupIds'
 --
@@ -149,16 +149,16 @@ restoreFromClusterSnapshot
 restoreFromClusterSnapshot pClusterIdentifier_ pSnapshotIdentifier_ =
     RestoreFromClusterSnapshot'
     { _rfcsPubliclyAccessible = Nothing
-    , _rfcsHSMConfigurationIdentifier = Nothing
     , _rfcsSnapshotClusterIdentifier = Nothing
+    , _rfcsHSMConfigurationIdentifier = Nothing
     , _rfcsClusterSecurityGroups = Nothing
     , _rfcsAutomatedSnapshotRetentionPeriod = Nothing
-    , _rfcsHSMClientCertificateIdentifier = Nothing
     , _rfcsClusterSubnetGroupName = Nothing
+    , _rfcsHSMClientCertificateIdentifier = Nothing
     , _rfcsElasticIP = Nothing
     , _rfcsPreferredMaintenanceWindow = Nothing
-    , _rfcsAvailabilityZone = Nothing
     , _rfcsKMSKeyId = Nothing
+    , _rfcsAvailabilityZone = Nothing
     , _rfcsVPCSecurityGroupIds = Nothing
     , _rfcsOwnerAccount = Nothing
     , _rfcsNodeType = Nothing
@@ -173,18 +173,18 @@ restoreFromClusterSnapshot pClusterIdentifier_ pSnapshotIdentifier_ =
 rfcsPubliclyAccessible :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
 rfcsPubliclyAccessible = lens _rfcsPubliclyAccessible (\ s a -> s{_rfcsPubliclyAccessible = a});
 
--- | Specifies the name of the HSM configuration that contains the
--- information the Amazon Redshift cluster can use to retrieve and store
--- keys in an HSM.
-rfcsHSMConfigurationIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
-rfcsHSMConfigurationIdentifier = lens _rfcsHSMConfigurationIdentifier (\ s a -> s{_rfcsHSMConfigurationIdentifier = a});
-
 -- | The name of the cluster the source snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
 -- snapshot resource element that specifies anything other than * for the
 -- cluster name.
 rfcsSnapshotClusterIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsSnapshotClusterIdentifier = lens _rfcsSnapshotClusterIdentifier (\ s a -> s{_rfcsSnapshotClusterIdentifier = a});
+
+-- | Specifies the name of the HSM configuration that contains the
+-- information the Amazon Redshift cluster can use to retrieve and store
+-- keys in an HSM.
+rfcsHSMConfigurationIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
+rfcsHSMConfigurationIdentifier = lens _rfcsHSMConfigurationIdentifier (\ s a -> s{_rfcsHSMConfigurationIdentifier = a});
 
 -- | A list of security groups to be associated with this cluster.
 --
@@ -206,17 +206,17 @@ rfcsClusterSecurityGroups = lens _rfcsClusterSecurityGroups (\ s a -> s{_rfcsClu
 rfcsAutomatedSnapshotRetentionPeriod :: Lens' RestoreFromClusterSnapshot (Maybe Int)
 rfcsAutomatedSnapshotRetentionPeriod = lens _rfcsAutomatedSnapshotRetentionPeriod (\ s a -> s{_rfcsAutomatedSnapshotRetentionPeriod = a});
 
--- | Specifies the name of the HSM client certificate the Amazon Redshift
--- cluster uses to retrieve the data encryption keys stored in an HSM.
-rfcsHSMClientCertificateIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
-rfcsHSMClientCertificateIdentifier = lens _rfcsHSMClientCertificateIdentifier (\ s a -> s{_rfcsHSMClientCertificateIdentifier = a});
-
 -- | The name of the subnet group where you want to cluster restored.
 --
 -- A snapshot of cluster in VPC can be restored only in VPC. Therefore, you
 -- must provide subnet group name where you want the cluster restored.
 rfcsClusterSubnetGroupName :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsClusterSubnetGroupName = lens _rfcsClusterSubnetGroupName (\ s a -> s{_rfcsClusterSubnetGroupName = a});
+
+-- | Specifies the name of the HSM client certificate the Amazon Redshift
+-- cluster uses to retrieve the data encryption keys stored in an HSM.
+rfcsHSMClientCertificateIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
+rfcsHSMClientCertificateIdentifier = lens _rfcsHSMClientCertificateIdentifier (\ s a -> s{_rfcsHSMClientCertificateIdentifier = a});
 
 -- | The elastic IP (EIP) address for the cluster.
 rfcsElasticIP :: Lens' RestoreFromClusterSnapshot (Maybe Text)
@@ -238,6 +238,12 @@ rfcsElasticIP = lens _rfcsElasticIP (\ s a -> s{_rfcsElasticIP = a});
 rfcsPreferredMaintenanceWindow :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsPreferredMaintenanceWindow = lens _rfcsPreferredMaintenanceWindow (\ s a -> s{_rfcsPreferredMaintenanceWindow = a});
 
+-- | The AWS Key Management Service (KMS) key ID of the encryption key that
+-- you want to use to encrypt data in the cluster that you restore from a
+-- shared snapshot.
+rfcsKMSKeyId :: Lens' RestoreFromClusterSnapshot (Maybe Text)
+rfcsKMSKeyId = lens _rfcsKMSKeyId (\ s a -> s{_rfcsKMSKeyId = a});
+
 -- | The Amazon EC2 Availability Zone in which to restore the cluster.
 --
 -- Default: A random, system-chosen Availability Zone.
@@ -245,12 +251,6 @@ rfcsPreferredMaintenanceWindow = lens _rfcsPreferredMaintenanceWindow (\ s a -> 
 -- Example: 'us-east-1a'
 rfcsAvailabilityZone :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsAvailabilityZone = lens _rfcsAvailabilityZone (\ s a -> s{_rfcsAvailabilityZone = a});
-
--- | The AWS Key Management Service (KMS) key ID of the encryption key that
--- you want to use to encrypt data in the cluster that you restore from a
--- shared snapshot.
-rfcsKMSKeyId :: Lens' RestoreFromClusterSnapshot (Maybe Text)
-rfcsKMSKeyId = lens _rfcsKMSKeyId (\ s a -> s{_rfcsKMSKeyId = a});
 
 -- | A list of Virtual Private Cloud (VPC) security groups to be associated
 -- with the cluster.
@@ -355,25 +355,25 @@ instance ToQuery RestoreFromClusterSnapshot where
                  ("RestoreFromClusterSnapshot" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "PubliclyAccessible" =: _rfcsPubliclyAccessible,
-               "HsmConfigurationIdentifier" =:
-                 _rfcsHSMConfigurationIdentifier,
                "SnapshotClusterIdentifier" =:
                  _rfcsSnapshotClusterIdentifier,
+               "HsmConfigurationIdentifier" =:
+                 _rfcsHSMConfigurationIdentifier,
                "ClusterSecurityGroups" =:
                  toQuery
                    (toQueryList "ClusterSecurityGroupName" <$>
                       _rfcsClusterSecurityGroups),
                "AutomatedSnapshotRetentionPeriod" =:
                  _rfcsAutomatedSnapshotRetentionPeriod,
-               "HsmClientCertificateIdentifier" =:
-                 _rfcsHSMClientCertificateIdentifier,
                "ClusterSubnetGroupName" =:
                  _rfcsClusterSubnetGroupName,
+               "HsmClientCertificateIdentifier" =:
+                 _rfcsHSMClientCertificateIdentifier,
                "ElasticIp" =: _rfcsElasticIP,
                "PreferredMaintenanceWindow" =:
                  _rfcsPreferredMaintenanceWindow,
-               "AvailabilityZone" =: _rfcsAvailabilityZone,
                "KmsKeyId" =: _rfcsKMSKeyId,
+               "AvailabilityZone" =: _rfcsAvailabilityZone,
                "VpcSecurityGroupIds" =:
                  toQuery
                    (toQueryList "VpcSecurityGroupId" <$>
@@ -389,8 +389,8 @@ instance ToQuery RestoreFromClusterSnapshot where
 
 -- | /See:/ 'restoreFromClusterSnapshotResponse' smart constructor.
 data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'
-    { _rfcsrsCluster :: !(Maybe Cluster)
-    , _rfcsrsStatus  :: !Int
+    { _rfcsrsCluster        :: !(Maybe Cluster)
+    , _rfcsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestoreFromClusterSnapshotResponse' with the minimum fields required to make a request.
@@ -399,14 +399,14 @@ data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'
 --
 -- * 'rfcsrsCluster'
 --
--- * 'rfcsrsStatus'
+-- * 'rfcsrsResponseStatus'
 restoreFromClusterSnapshotResponse
-    :: Int -- ^ 'rfcsrsStatus'
+    :: Int -- ^ 'rfcsrsResponseStatus'
     -> RestoreFromClusterSnapshotResponse
-restoreFromClusterSnapshotResponse pStatus_ =
+restoreFromClusterSnapshotResponse pResponseStatus_ =
     RestoreFromClusterSnapshotResponse'
     { _rfcsrsCluster = Nothing
-    , _rfcsrsStatus = pStatus_
+    , _rfcsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -414,5 +414,5 @@ rfcsrsCluster :: Lens' RestoreFromClusterSnapshotResponse (Maybe Cluster)
 rfcsrsCluster = lens _rfcsrsCluster (\ s a -> s{_rfcsrsCluster = a});
 
 -- | The response status code.
-rfcsrsStatus :: Lens' RestoreFromClusterSnapshotResponse Int
-rfcsrsStatus = lens _rfcsrsStatus (\ s a -> s{_rfcsrsStatus = a});
+rfcsrsResponseStatus :: Lens' RestoreFromClusterSnapshotResponse Int
+rfcsrsResponseStatus = lens _rfcsrsResponseStatus (\ s a -> s{_rfcsrsResponseStatus = a});

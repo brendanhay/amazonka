@@ -153,8 +153,8 @@ data CaseDetails = CaseDetails'
     , _cdDisplayId            :: !(Maybe Text)
     , _cdSubmittedBy          :: !(Maybe Text)
     , _cdLanguage             :: !(Maybe Text)
-    , _cdCategoryCode         :: !(Maybe Text)
     , _cdTimeCreated          :: !(Maybe Text)
+    , _cdCategoryCode         :: !(Maybe Text)
     , _cdServiceCode          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -180,9 +180,9 @@ data CaseDetails = CaseDetails'
 --
 -- * 'cdLanguage'
 --
--- * 'cdCategoryCode'
---
 -- * 'cdTimeCreated'
+--
+-- * 'cdCategoryCode'
 --
 -- * 'cdServiceCode'
 caseDetails
@@ -198,8 +198,8 @@ caseDetails =
     , _cdDisplayId = Nothing
     , _cdSubmittedBy = Nothing
     , _cdLanguage = Nothing
-    , _cdCategoryCode = Nothing
     , _cdTimeCreated = Nothing
+    , _cdCategoryCode = Nothing
     , _cdServiceCode = Nothing
     }
 
@@ -249,13 +249,13 @@ cdSubmittedBy = lens _cdSubmittedBy (\ s a -> s{_cdSubmittedBy = a});
 cdLanguage :: Lens' CaseDetails (Maybe Text)
 cdLanguage = lens _cdLanguage (\ s a -> s{_cdLanguage = a});
 
--- | The category of problem for the AWS Support case.
-cdCategoryCode :: Lens' CaseDetails (Maybe Text)
-cdCategoryCode = lens _cdCategoryCode (\ s a -> s{_cdCategoryCode = a});
-
 -- | The time that the case was case created in the AWS Support Center.
 cdTimeCreated :: Lens' CaseDetails (Maybe Text)
 cdTimeCreated = lens _cdTimeCreated (\ s a -> s{_cdTimeCreated = a});
+
+-- | The category of problem for the AWS Support case.
+cdCategoryCode :: Lens' CaseDetails (Maybe Text)
+cdCategoryCode = lens _cdCategoryCode (\ s a -> s{_cdCategoryCode = a});
 
 -- | The code for the AWS service returned by the call to DescribeServices.
 cdServiceCode :: Lens' CaseDetails (Maybe Text)
@@ -274,8 +274,8 @@ instance FromJSON CaseDetails where
                      <*> (x .:? "displayId")
                      <*> (x .:? "submittedBy")
                      <*> (x .:? "language")
-                     <*> (x .:? "categoryCode")
                      <*> (x .:? "timeCreated")
+                     <*> (x .:? "categoryCode")
                      <*> (x .:? "serviceCode"))
 
 -- | A JSON-formatted name\/value pair that represents the category name and

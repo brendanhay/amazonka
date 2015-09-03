@@ -36,7 +36,7 @@ module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     , RemoveSourceIdentifierFromSubscriptionResponse
     -- * Response Lenses
     , rsifsrsEventSubscription
-    , rsifsrsStatus
+    , rsifsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -115,7 +115,7 @@ instance ToQuery
 -- | /See:/ 'removeSourceIdentifierFromSubscriptionResponse' smart constructor.
 data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse'
     { _rsifsrsEventSubscription :: !(Maybe EventSubscription)
-    , _rsifsrsStatus            :: !Int
+    , _rsifsrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RemoveSourceIdentifierFromSubscriptionResponse' with the minimum fields required to make a request.
@@ -124,14 +124,14 @@ data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFrom
 --
 -- * 'rsifsrsEventSubscription'
 --
--- * 'rsifsrsStatus'
+-- * 'rsifsrsResponseStatus'
 removeSourceIdentifierFromSubscriptionResponse
-    :: Int -- ^ 'rsifsrsStatus'
+    :: Int -- ^ 'rsifsrsResponseStatus'
     -> RemoveSourceIdentifierFromSubscriptionResponse
-removeSourceIdentifierFromSubscriptionResponse pStatus_ =
+removeSourceIdentifierFromSubscriptionResponse pResponseStatus_ =
     RemoveSourceIdentifierFromSubscriptionResponse'
     { _rsifsrsEventSubscription = Nothing
-    , _rsifsrsStatus = pStatus_
+    , _rsifsrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -139,5 +139,5 @@ rsifsrsEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse
 rsifsrsEventSubscription = lens _rsifsrsEventSubscription (\ s a -> s{_rsifsrsEventSubscription = a});
 
 -- | The response status code.
-rsifsrsStatus :: Lens' RemoveSourceIdentifierFromSubscriptionResponse Int
-rsifsrsStatus = lens _rsifsrsStatus (\ s a -> s{_rsifsrsStatus = a});
+rsifsrsResponseStatus :: Lens' RemoveSourceIdentifierFromSubscriptionResponse Int
+rsifsrsResponseStatus = lens _rsifsrsResponseStatus (\ s a -> s{_rsifsrsResponseStatus = a});

@@ -35,8 +35,8 @@ module Network.AWS.IAM.ListInstanceProfilesForRole
       listInstanceProfilesForRole
     , ListInstanceProfilesForRole
     -- * Request Lenses
-    , lipfrMaxItems
     , lipfrMarker
+    , lipfrMaxItems
     , lipfrRoleName
 
     -- * Destructuring the Response
@@ -45,7 +45,7 @@ module Network.AWS.IAM.ListInstanceProfilesForRole
     -- * Response Lenses
     , lipfrrsMarker
     , lipfrrsIsTruncated
-    , lipfrrsStatus
+    , lipfrrsResponseStatus
     , lipfrrsInstanceProfiles
     ) where
 
@@ -58,8 +58,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'listInstanceProfilesForRole' smart constructor.
 data ListInstanceProfilesForRole = ListInstanceProfilesForRole'
-    { _lipfrMaxItems :: !(Maybe Nat)
-    , _lipfrMarker   :: !(Maybe Text)
+    { _lipfrMarker   :: !(Maybe Text)
+    , _lipfrMaxItems :: !(Maybe Nat)
     , _lipfrRoleName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -67,9 +67,9 @@ data ListInstanceProfilesForRole = ListInstanceProfilesForRole'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lipfrMaxItems'
---
 -- * 'lipfrMarker'
+--
+-- * 'lipfrMaxItems'
 --
 -- * 'lipfrRoleName'
 listInstanceProfilesForRole
@@ -77,10 +77,16 @@ listInstanceProfilesForRole
     -> ListInstanceProfilesForRole
 listInstanceProfilesForRole pRoleName_ =
     ListInstanceProfilesForRole'
-    { _lipfrMaxItems = Nothing
-    , _lipfrMarker = Nothing
+    { _lipfrMarker = Nothing
+    , _lipfrMaxItems = Nothing
     , _lipfrRoleName = pRoleName_
     }
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lipfrMarker :: Lens' ListInstanceProfilesForRole (Maybe Text)
+lipfrMarker = lens _lipfrMarker (\ s a -> s{_lipfrMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -91,20 +97,14 @@ listInstanceProfilesForRole pRoleName_ =
 lipfrMaxItems :: Lens' ListInstanceProfilesForRole (Maybe Natural)
 lipfrMaxItems = lens _lipfrMaxItems (\ s a -> s{_lipfrMaxItems = a}) . mapping _Nat;
 
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lipfrMarker :: Lens' ListInstanceProfilesForRole (Maybe Text)
-lipfrMarker = lens _lipfrMarker (\ s a -> s{_lipfrMarker = a});
-
 -- | The name of the role to list instance profiles for.
 lipfrRoleName :: Lens' ListInstanceProfilesForRole Text
 lipfrRoleName = lens _lipfrRoleName (\ s a -> s{_lipfrRoleName = a});
 
 instance AWSPager ListInstanceProfilesForRole where
         page rq rs
-          | stop (rs ^. lipfrrsIsTruncated) = Nothing
-          | isNothing (rs ^. lipfrrsMarker) = Nothing
+          | stop (rs ^. lipfrrsMarker) = Nothing
+          | stop (rs ^. lipfrrsInstanceProfiles) = Nothing
           | otherwise =
             Just $ rq & lipfrMarker .~ rs ^. lipfrrsMarker
 
@@ -135,8 +135,8 @@ instance ToQuery ListInstanceProfilesForRole where
               ["Action" =:
                  ("ListInstanceProfilesForRole" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _lipfrMaxItems,
                "Marker" =: _lipfrMarker,
+               "MaxItems" =: _lipfrMaxItems,
                "RoleName" =: _lipfrRoleName]
 
 -- | Contains the response to a successful ListInstanceProfilesForRole
@@ -146,7 +146,7 @@ instance ToQuery ListInstanceProfilesForRole where
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
     { _lipfrrsMarker           :: !(Maybe Text)
     , _lipfrrsIsTruncated      :: !(Maybe Bool)
-    , _lipfrrsStatus           :: !Int
+    , _lipfrrsResponseStatus   :: !Int
     , _lipfrrsInstanceProfiles :: ![InstanceProfile]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -158,17 +158,17 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
 --
 -- * 'lipfrrsIsTruncated'
 --
--- * 'lipfrrsStatus'
+-- * 'lipfrrsResponseStatus'
 --
 -- * 'lipfrrsInstanceProfiles'
 listInstanceProfilesForRoleResponse
-    :: Int -- ^ 'lipfrrsStatus'
+    :: Int -- ^ 'lipfrrsResponseStatus'
     -> ListInstanceProfilesForRoleResponse
-listInstanceProfilesForRoleResponse pStatus_ =
+listInstanceProfilesForRoleResponse pResponseStatus_ =
     ListInstanceProfilesForRoleResponse'
     { _lipfrrsMarker = Nothing
     , _lipfrrsIsTruncated = Nothing
-    , _lipfrrsStatus = pStatus_
+    , _lipfrrsResponseStatus = pResponseStatus_
     , _lipfrrsInstanceProfiles = mempty
     }
 
@@ -185,8 +185,8 @@ lipfrrsIsTruncated :: Lens' ListInstanceProfilesForRoleResponse (Maybe Bool)
 lipfrrsIsTruncated = lens _lipfrrsIsTruncated (\ s a -> s{_lipfrrsIsTruncated = a});
 
 -- | The response status code.
-lipfrrsStatus :: Lens' ListInstanceProfilesForRoleResponse Int
-lipfrrsStatus = lens _lipfrrsStatus (\ s a -> s{_lipfrrsStatus = a});
+lipfrrsResponseStatus :: Lens' ListInstanceProfilesForRoleResponse Int
+lipfrrsResponseStatus = lens _lipfrrsResponseStatus (\ s a -> s{_lipfrrsResponseStatus = a});
 
 -- | A list of instance profiles.
 lipfrrsInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstanceProfile]

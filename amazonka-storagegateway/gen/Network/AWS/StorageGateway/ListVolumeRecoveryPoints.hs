@@ -42,7 +42,7 @@ module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     -- * Response Lenses
     , lvrprsVolumeRecoveryPointInfos
     , lvrprsGatewayARN
-    , lvrprsStatus
+    , lvrprsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -110,7 +110,7 @@ instance ToQuery ListVolumeRecoveryPoints where
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
     { _lvrprsVolumeRecoveryPointInfos :: !(Maybe [VolumeRecoveryPointInfo])
     , _lvrprsGatewayARN               :: !(Maybe Text)
-    , _lvrprsStatus                   :: !Int
+    , _lvrprsResponseStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListVolumeRecoveryPointsResponse' with the minimum fields required to make a request.
@@ -121,15 +121,15 @@ data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
 --
 -- * 'lvrprsGatewayARN'
 --
--- * 'lvrprsStatus'
+-- * 'lvrprsResponseStatus'
 listVolumeRecoveryPointsResponse
-    :: Int -- ^ 'lvrprsStatus'
+    :: Int -- ^ 'lvrprsResponseStatus'
     -> ListVolumeRecoveryPointsResponse
-listVolumeRecoveryPointsResponse pStatus_ =
+listVolumeRecoveryPointsResponse pResponseStatus_ =
     ListVolumeRecoveryPointsResponse'
     { _lvrprsVolumeRecoveryPointInfos = Nothing
     , _lvrprsGatewayARN = Nothing
-    , _lvrprsStatus = pStatus_
+    , _lvrprsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -141,5 +141,5 @@ lvrprsGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
 lvrprsGatewayARN = lens _lvrprsGatewayARN (\ s a -> s{_lvrprsGatewayARN = a});
 
 -- | The response status code.
-lvrprsStatus :: Lens' ListVolumeRecoveryPointsResponse Int
-lvrprsStatus = lens _lvrprsStatus (\ s a -> s{_lvrprsStatus = a});
+lvrprsResponseStatus :: Lens' ListVolumeRecoveryPointsResponse Int
+lvrprsResponseStatus = lens _lvrprsResponseStatus (\ s a -> s{_lvrprsResponseStatus = a});

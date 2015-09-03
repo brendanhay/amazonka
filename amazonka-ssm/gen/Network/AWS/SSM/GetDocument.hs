@@ -35,7 +35,7 @@ module Network.AWS.SSM.GetDocument
     -- * Response Lenses
     , gdrsContent
     , gdrsName
-    , gdrsStatus
+    , gdrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -97,9 +97,9 @@ instance ToQuery GetDocument where
 
 -- | /See:/ 'getDocumentResponse' smart constructor.
 data GetDocumentResponse = GetDocumentResponse'
-    { _gdrsContent :: !(Maybe Text)
-    , _gdrsName    :: !(Maybe Text)
-    , _gdrsStatus  :: !Int
+    { _gdrsContent        :: !(Maybe Text)
+    , _gdrsName           :: !(Maybe Text)
+    , _gdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDocumentResponse' with the minimum fields required to make a request.
@@ -110,15 +110,15 @@ data GetDocumentResponse = GetDocumentResponse'
 --
 -- * 'gdrsName'
 --
--- * 'gdrsStatus'
+-- * 'gdrsResponseStatus'
 getDocumentResponse
-    :: Int -- ^ 'gdrsStatus'
+    :: Int -- ^ 'gdrsResponseStatus'
     -> GetDocumentResponse
-getDocumentResponse pStatus_ =
+getDocumentResponse pResponseStatus_ =
     GetDocumentResponse'
     { _gdrsContent = Nothing
     , _gdrsName = Nothing
-    , _gdrsStatus = pStatus_
+    , _gdrsResponseStatus = pResponseStatus_
     }
 
 -- | The contents of the configuration document.
@@ -130,5 +130,5 @@ gdrsName :: Lens' GetDocumentResponse (Maybe Text)
 gdrsName = lens _gdrsName (\ s a -> s{_gdrsName = a});
 
 -- | The response status code.
-gdrsStatus :: Lens' GetDocumentResponse Int
-gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});
+gdrsResponseStatus :: Lens' GetDocumentResponse Int
+gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});

@@ -37,7 +37,7 @@ module Network.AWS.DeviceFarm.CreateUpload
     , CreateUploadResponse
     -- * Response Lenses
     , cursUpload
-    , cursStatus
+    , cursResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -155,8 +155,8 @@ instance ToQuery CreateUpload where
 --
 -- /See:/ 'createUploadResponse' smart constructor.
 data CreateUploadResponse = CreateUploadResponse'
-    { _cursUpload :: !(Maybe Upload)
-    , _cursStatus :: !Int
+    { _cursUpload         :: !(Maybe Upload)
+    , _cursResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateUploadResponse' with the minimum fields required to make a request.
@@ -165,14 +165,14 @@ data CreateUploadResponse = CreateUploadResponse'
 --
 -- * 'cursUpload'
 --
--- * 'cursStatus'
+-- * 'cursResponseStatus'
 createUploadResponse
-    :: Int -- ^ 'cursStatus'
+    :: Int -- ^ 'cursResponseStatus'
     -> CreateUploadResponse
-createUploadResponse pStatus_ =
+createUploadResponse pResponseStatus_ =
     CreateUploadResponse'
     { _cursUpload = Nothing
-    , _cursStatus = pStatus_
+    , _cursResponseStatus = pResponseStatus_
     }
 
 -- | The newly created upload.
@@ -180,5 +180,5 @@ cursUpload :: Lens' CreateUploadResponse (Maybe Upload)
 cursUpload = lens _cursUpload (\ s a -> s{_cursUpload = a});
 
 -- | The response status code.
-cursStatus :: Lens' CreateUploadResponse Int
-cursStatus = lens _cursStatus (\ s a -> s{_cursStatus = a});
+cursResponseStatus :: Lens' CreateUploadResponse Int
+cursResponseStatus = lens _cursResponseStatus (\ s a -> s{_cursResponseStatus = a});

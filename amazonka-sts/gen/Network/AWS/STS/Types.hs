@@ -17,11 +17,11 @@ module Network.AWS.STS.Types
 
     -- * Errors
     , _MalformedPolicyDocumentException
-    , _PackedPolicyTooLargeException
     , _InvalidAuthorizationMessageException
+    , _PackedPolicyTooLargeException
     , _IdPCommunicationErrorException
-    , _ExpiredTokenException
     , _InvalidIdentityTokenException
+    , _ExpiredTokenException
     , _IdPRejectedClaimException
 
     -- * AssumedRoleUser
@@ -87,13 +87,6 @@ _MalformedPolicyDocumentException :: AsError a => Getting (First ServiceError) a
 _MalformedPolicyDocumentException =
     _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument"
 
--- | The request was rejected because the policy document was too large. The
--- error message describes how big the policy document is, in packed form,
--- as a percentage of what the API allows.
-_PackedPolicyTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
-_PackedPolicyTooLargeException =
-    _ServiceError . hasStatus 400 . hasCode "PackedPolicyTooLarge"
-
 -- | The error returned if the message passed to 'DecodeAuthorizationMessage'
 -- was invalid. This can happen if the token contains invalid characters,
 -- such as linebreaks.
@@ -101,6 +94,13 @@ _InvalidAuthorizationMessageException :: AsError a => Getting (First ServiceErro
 _InvalidAuthorizationMessageException =
     _ServiceError .
     hasStatus 400 . hasCode "InvalidAuthorizationMessageException"
+
+-- | The request was rejected because the policy document was too large. The
+-- error message describes how big the policy document is, in packed form,
+-- as a percentage of what the API allows.
+_PackedPolicyTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
+_PackedPolicyTooLargeException =
+    _ServiceError . hasStatus 400 . hasCode "PackedPolicyTooLarge"
 
 -- | The request could not be fulfilled because the non-AWS identity provider
 -- (IDP) that was asked to verify the incoming identity token could not be
@@ -112,19 +112,19 @@ _IdPCommunicationErrorException :: AsError a => Getting (First ServiceError) a S
 _IdPCommunicationErrorException =
     _ServiceError . hasStatus 400 . hasCode "IDPCommunicationError"
 
--- | The web identity token that was passed is expired or is not valid. Get a
--- new identity token from the identity provider and then retry the
--- request.
-_ExpiredTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_ExpiredTokenException =
-    _ServiceError . hasStatus 400 . hasCode "ExpiredTokenException"
-
 -- | The web identity token that was passed could not be validated by AWS.
 -- Get a new identity token from the identity provider and then retry the
 -- request.
 _InvalidIdentityTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidIdentityTokenException =
     _ServiceError . hasStatus 400 . hasCode "InvalidIdentityToken"
+
+-- | The web identity token that was passed is expired or is not valid. Get a
+-- new identity token from the identity provider and then retry the
+-- request.
+_ExpiredTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_ExpiredTokenException =
+    _ServiceError . hasStatus 400 . hasCode "ExpiredTokenException"
 
 -- | The identity provider (IdP) reported that authentication failed. This
 -- might be because the claim is invalid.

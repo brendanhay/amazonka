@@ -37,7 +37,7 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     , DescribeLoadBalancerPolicyTypesResponse
     -- * Response Lenses
     , dlbptrsPolicyTypeDescriptions
-    , dlbptrsStatus
+    , dlbptrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -103,7 +103,7 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
 -- | /See:/ 'describeLoadBalancerPolicyTypesResponse' smart constructor.
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'
     { _dlbptrsPolicyTypeDescriptions :: !(Maybe [PolicyTypeDescription])
-    , _dlbptrsStatus                 :: !Int
+    , _dlbptrsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLoadBalancerPolicyTypesResponse' with the minimum fields required to make a request.
@@ -112,14 +112,14 @@ data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesRe
 --
 -- * 'dlbptrsPolicyTypeDescriptions'
 --
--- * 'dlbptrsStatus'
+-- * 'dlbptrsResponseStatus'
 describeLoadBalancerPolicyTypesResponse
-    :: Int -- ^ 'dlbptrsStatus'
+    :: Int -- ^ 'dlbptrsResponseStatus'
     -> DescribeLoadBalancerPolicyTypesResponse
-describeLoadBalancerPolicyTypesResponse pStatus_ =
+describeLoadBalancerPolicyTypesResponse pResponseStatus_ =
     DescribeLoadBalancerPolicyTypesResponse'
     { _dlbptrsPolicyTypeDescriptions = Nothing
-    , _dlbptrsStatus = pStatus_
+    , _dlbptrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the policy types.
@@ -127,5 +127,5 @@ dlbptrsPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [
 dlbptrsPolicyTypeDescriptions = lens _dlbptrsPolicyTypeDescriptions (\ s a -> s{_dlbptrsPolicyTypeDescriptions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dlbptrsStatus :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
-dlbptrsStatus = lens _dlbptrsStatus (\ s a -> s{_dlbptrsStatus = a});
+dlbptrsResponseStatus :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
+dlbptrsResponseStatus = lens _dlbptrsResponseStatus (\ s a -> s{_dlbptrsResponseStatus = a});

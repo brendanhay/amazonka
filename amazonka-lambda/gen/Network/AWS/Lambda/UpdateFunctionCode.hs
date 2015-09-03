@@ -42,8 +42,8 @@ module Network.AWS.Lambda.UpdateFunctionCode
     , functionConfiguration
     , FunctionConfiguration
     -- * Response Lenses
-    , fcRuntime
     , fcMemorySize
+    , fcRuntime
     , fcFunctionARN
     , fcRole
     , fcFunctionName

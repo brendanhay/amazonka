@@ -37,7 +37,7 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
     , listDeadLetterSourceQueuesResponse
     , ListDeadLetterSourceQueuesResponse
     -- * Response Lenses
-    , ldlsqrsStatus
+    , ldlsqrsResponseStatus
     , ldlsqrsQueueURLs
     ) where
 
@@ -98,29 +98,29 @@ instance ToQuery ListDeadLetterSourceQueues where
 --
 -- /See:/ 'listDeadLetterSourceQueuesResponse' smart constructor.
 data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'
-    { _ldlsqrsStatus    :: !Int
-    , _ldlsqrsQueueURLs :: ![Text]
+    { _ldlsqrsResponseStatus :: !Int
+    , _ldlsqrsQueueURLs      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListDeadLetterSourceQueuesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldlsqrsStatus'
+-- * 'ldlsqrsResponseStatus'
 --
 -- * 'ldlsqrsQueueURLs'
 listDeadLetterSourceQueuesResponse
-    :: Int -- ^ 'ldlsqrsStatus'
+    :: Int -- ^ 'ldlsqrsResponseStatus'
     -> ListDeadLetterSourceQueuesResponse
-listDeadLetterSourceQueuesResponse pStatus_ =
+listDeadLetterSourceQueuesResponse pResponseStatus_ =
     ListDeadLetterSourceQueuesResponse'
-    { _ldlsqrsStatus = pStatus_
+    { _ldlsqrsResponseStatus = pResponseStatus_
     , _ldlsqrsQueueURLs = mempty
     }
 
 -- | The response status code.
-ldlsqrsStatus :: Lens' ListDeadLetterSourceQueuesResponse Int
-ldlsqrsStatus = lens _ldlsqrsStatus (\ s a -> s{_ldlsqrsStatus = a});
+ldlsqrsResponseStatus :: Lens' ListDeadLetterSourceQueuesResponse Int
+ldlsqrsResponseStatus = lens _ldlsqrsResponseStatus (\ s a -> s{_ldlsqrsResponseStatus = a});
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue.

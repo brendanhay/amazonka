@@ -37,7 +37,7 @@ module Network.AWS.Route53Domains.EnableDomainTransferLock
     , enableDomainTransferLockResponse
     , EnableDomainTransferLockResponse
     -- * Response Lenses
-    , edtlrsStatus
+    , edtlrsResponseStatus
     , edtlrsOperationId
     ) where
 
@@ -116,30 +116,30 @@ instance ToQuery EnableDomainTransferLock where
 --
 -- /See:/ 'enableDomainTransferLockResponse' smart constructor.
 data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'
-    { _edtlrsStatus      :: !Int
-    , _edtlrsOperationId :: !Text
+    { _edtlrsResponseStatus :: !Int
+    , _edtlrsOperationId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnableDomainTransferLockResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edtlrsStatus'
+-- * 'edtlrsResponseStatus'
 --
 -- * 'edtlrsOperationId'
 enableDomainTransferLockResponse
-    :: Int -- ^ 'edtlrsStatus'
+    :: Int -- ^ 'edtlrsResponseStatus'
     -> Text -- ^ 'edtlrsOperationId'
     -> EnableDomainTransferLockResponse
-enableDomainTransferLockResponse pStatus_ pOperationId_ =
+enableDomainTransferLockResponse pResponseStatus_ pOperationId_ =
     EnableDomainTransferLockResponse'
-    { _edtlrsStatus = pStatus_
+    { _edtlrsResponseStatus = pResponseStatus_
     , _edtlrsOperationId = pOperationId_
     }
 
 -- | The response status code.
-edtlrsStatus :: Lens' EnableDomainTransferLockResponse Int
-edtlrsStatus = lens _edtlrsStatus (\ s a -> s{_edtlrsStatus = a});
+edtlrsResponseStatus :: Lens' EnableDomainTransferLockResponse Int
+edtlrsResponseStatus = lens _edtlrsResponseStatus (\ s a -> s{_edtlrsResponseStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.

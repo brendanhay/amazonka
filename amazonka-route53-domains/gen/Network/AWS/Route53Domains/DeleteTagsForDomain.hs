@@ -37,7 +37,7 @@ module Network.AWS.Route53Domains.DeleteTagsForDomain
     , deleteTagsForDomainResponse
     , DeleteTagsForDomainResponse
     -- * Response Lenses
-    , dtfdrsStatus
+    , dtfdrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -134,22 +134,22 @@ instance ToQuery DeleteTagsForDomain where
 
 -- | /See:/ 'deleteTagsForDomainResponse' smart constructor.
 newtype DeleteTagsForDomainResponse = DeleteTagsForDomainResponse'
-    { _dtfdrsStatus :: Int
+    { _dtfdrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteTagsForDomainResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtfdrsStatus'
+-- * 'dtfdrsResponseStatus'
 deleteTagsForDomainResponse
-    :: Int -- ^ 'dtfdrsStatus'
+    :: Int -- ^ 'dtfdrsResponseStatus'
     -> DeleteTagsForDomainResponse
-deleteTagsForDomainResponse pStatus_ =
+deleteTagsForDomainResponse pResponseStatus_ =
     DeleteTagsForDomainResponse'
-    { _dtfdrsStatus = pStatus_
+    { _dtfdrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-dtfdrsStatus :: Lens' DeleteTagsForDomainResponse Int
-dtfdrsStatus = lens _dtfdrsStatus (\ s a -> s{_dtfdrsStatus = a});
+dtfdrsResponseStatus :: Lens' DeleteTagsForDomainResponse Int
+dtfdrsResponseStatus = lens _dtfdrsResponseStatus (\ s a -> s{_dtfdrsResponseStatus = a});

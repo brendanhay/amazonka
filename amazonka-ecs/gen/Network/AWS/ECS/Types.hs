@@ -21,8 +21,8 @@ module Network.AWS.ECS.Types
     , _ClusterContainsServicesException
     , _ClusterContainsContainerInstancesException
     , _ServiceNotActiveException
-    , _NoUpdateAvailableException
     , _ClusterNotFoundException
+    , _NoUpdateAvailableException
     , _ServiceNotFoundException
     , _MissingVersionException
     , _UpdateInProgressException
@@ -105,30 +105,30 @@ module Network.AWS.ECS.Types
     -- * ContainerService
     , ContainerService
     , containerService
-    , csStatus
     , csRunningCount
+    , csStatus
     , csClusterARN
     , csDesiredCount
     , csLoadBalancers
     , csPendingCount
     , csEvents
-    , csServiceName
     , csDeployments
-    , csTaskDefinition
+    , csServiceName
     , csServiceARN
+    , csTaskDefinition
     , csRoleARN
 
     -- * Deployment
     , Deployment
     , deployment
-    , dStatus
     , dRunningCount
+    , dStatus
     , dCreatedAt
     , dDesiredCount
     , dPendingCount
     , dId
-    , dTaskDefinition
     , dUpdatedAt
+    , dTaskDefinition
 
     -- * Failure
     , Failure
@@ -197,8 +197,8 @@ module Network.AWS.ECS.Types
     , Task
     , task
     , tDesiredStatus
-    , tClusterARN
     , tOverrides
+    , tClusterARN
     , tTaskARN
     , tContainerInstanceARN
     , tLastStatus
@@ -224,8 +224,8 @@ module Network.AWS.ECS.Types
     -- * VersionInfo
     , VersionInfo
     , versionInfo
-    , viAgentVersion
     , viAgentHash
+    , viAgentVersion
     , viDockerVersion
 
     -- * Volume
@@ -308,17 +308,17 @@ _ServiceNotActiveException :: AsError a => Getting (First ServiceError) a Servic
 _ServiceNotActiveException =
     _ServiceError . hasCode "ServiceNotActiveException"
 
+-- | The specified cluster could not be found. You can view your available
+-- clusters with ListClusters. Amazon ECS clusters are region-specific.
+_ClusterNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ClusterNotFoundException = _ServiceError . hasCode "ClusterNotFoundException"
+
 -- | There is no update available for this Amazon ECS container agent. This
 -- could be because the agent is already running the latest version, or it
 -- is so old that there is no update path to the current version.
 _NoUpdateAvailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoUpdateAvailableException =
     _ServiceError . hasCode "NoUpdateAvailableException"
-
--- | The specified cluster could not be found. You can view your available
--- clusters with ListClusters. Amazon ECS clusters are region-specific.
-_ClusterNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ClusterNotFoundException = _ServiceError . hasCode "ClusterNotFoundException"
 
 -- | The specified service could not be found. You can view your available
 -- services with ListServices. Amazon ECS services are cluster-specific and

@@ -36,8 +36,8 @@ module Network.AWS.IAM.ListRoles
     , ListRoles
     -- * Request Lenses
     , lrPathPrefix
-    , lrMaxItems
     , lrMarker
+    , lrMaxItems
 
     -- * Destructuring the Response
     , listRolesResponse
@@ -45,7 +45,7 @@ module Network.AWS.IAM.ListRoles
     -- * Response Lenses
     , lrrsMarker
     , lrrsIsTruncated
-    , lrrsStatus
+    , lrrsResponseStatus
     , lrrsRoles
     ) where
 
@@ -59,8 +59,8 @@ import           Network.AWS.Response
 -- | /See:/ 'listRoles' smart constructor.
 data ListRoles = ListRoles'
     { _lrPathPrefix :: !(Maybe Text)
-    , _lrMaxItems   :: !(Maybe Nat)
     , _lrMarker     :: !(Maybe Text)
+    , _lrMaxItems   :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListRoles' with the minimum fields required to make a request.
@@ -69,16 +69,16 @@ data ListRoles = ListRoles'
 --
 -- * 'lrPathPrefix'
 --
--- * 'lrMaxItems'
---
 -- * 'lrMarker'
+--
+-- * 'lrMaxItems'
 listRoles
     :: ListRoles
 listRoles =
     ListRoles'
     { _lrPathPrefix = Nothing
-    , _lrMaxItems = Nothing
     , _lrMarker = Nothing
+    , _lrMaxItems = Nothing
     }
 
 -- | The path prefix for filtering the results. For example, the prefix
@@ -90,6 +90,12 @@ listRoles =
 lrPathPrefix :: Lens' ListRoles (Maybe Text)
 lrPathPrefix = lens _lrPathPrefix (\ s a -> s{_lrPathPrefix = a});
 
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lrMarker :: Lens' ListRoles (Maybe Text)
+lrMarker = lens _lrMarker (\ s a -> s{_lrMarker = a});
+
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
@@ -99,16 +105,10 @@ lrPathPrefix = lens _lrPathPrefix (\ s a -> s{_lrPathPrefix = a});
 lrMaxItems :: Lens' ListRoles (Maybe Natural)
 lrMaxItems = lens _lrMaxItems (\ s a -> s{_lrMaxItems = a}) . mapping _Nat;
 
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lrMarker :: Lens' ListRoles (Maybe Text)
-lrMarker = lens _lrMarker (\ s a -> s{_lrMarker = a});
-
 instance AWSPager ListRoles where
         page rq rs
-          | stop (rs ^. lrrsIsTruncated) = Nothing
-          | isNothing (rs ^. lrrsMarker) = Nothing
+          | stop (rs ^. lrrsMarker) = Nothing
+          | stop (rs ^. lrrsRoles) = Nothing
           | otherwise =
             Just $ rq & lrMarker .~ rs ^. lrrsMarker
 
@@ -135,17 +135,17 @@ instance ToQuery ListRoles where
           = mconcat
               ["Action" =: ("ListRoles" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _lrPathPrefix,
-               "MaxItems" =: _lrMaxItems, "Marker" =: _lrMarker]
+               "PathPrefix" =: _lrPathPrefix, "Marker" =: _lrMarker,
+               "MaxItems" =: _lrMaxItems]
 
 -- | Contains the response to a successful ListRoles request.
 --
 -- /See:/ 'listRolesResponse' smart constructor.
 data ListRolesResponse = ListRolesResponse'
-    { _lrrsMarker      :: !(Maybe Text)
-    , _lrrsIsTruncated :: !(Maybe Bool)
-    , _lrrsStatus      :: !Int
-    , _lrrsRoles       :: ![Role]
+    { _lrrsMarker         :: !(Maybe Text)
+    , _lrrsIsTruncated    :: !(Maybe Bool)
+    , _lrrsResponseStatus :: !Int
+    , _lrrsRoles          :: ![Role]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListRolesResponse' with the minimum fields required to make a request.
@@ -156,17 +156,17 @@ data ListRolesResponse = ListRolesResponse'
 --
 -- * 'lrrsIsTruncated'
 --
--- * 'lrrsStatus'
+-- * 'lrrsResponseStatus'
 --
 -- * 'lrrsRoles'
 listRolesResponse
-    :: Int -- ^ 'lrrsStatus'
+    :: Int -- ^ 'lrrsResponseStatus'
     -> ListRolesResponse
-listRolesResponse pStatus_ =
+listRolesResponse pResponseStatus_ =
     ListRolesResponse'
     { _lrrsMarker = Nothing
     , _lrrsIsTruncated = Nothing
-    , _lrrsStatus = pStatus_
+    , _lrrsResponseStatus = pResponseStatus_
     , _lrrsRoles = mempty
     }
 
@@ -183,8 +183,8 @@ lrrsIsTruncated :: Lens' ListRolesResponse (Maybe Bool)
 lrrsIsTruncated = lens _lrrsIsTruncated (\ s a -> s{_lrrsIsTruncated = a});
 
 -- | The response status code.
-lrrsStatus :: Lens' ListRolesResponse Int
-lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});
+lrrsResponseStatus :: Lens' ListRolesResponse Int
+lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
 
 -- | A list of roles.
 lrrsRoles :: Lens' ListRolesResponse [Role]

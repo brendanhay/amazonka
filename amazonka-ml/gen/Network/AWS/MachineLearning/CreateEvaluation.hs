@@ -54,7 +54,7 @@ module Network.AWS.MachineLearning.CreateEvaluation
     , CreateEvaluationResponse
     -- * Response Lenses
     , cersEvaluationId
-    , cersStatus
+    , cersResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -159,8 +159,8 @@ instance ToQuery CreateEvaluation where
 --
 -- /See:/ 'createEvaluationResponse' smart constructor.
 data CreateEvaluationResponse = CreateEvaluationResponse'
-    { _cersEvaluationId :: !(Maybe Text)
-    , _cersStatus       :: !Int
+    { _cersEvaluationId   :: !(Maybe Text)
+    , _cersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateEvaluationResponse' with the minimum fields required to make a request.
@@ -169,14 +169,14 @@ data CreateEvaluationResponse = CreateEvaluationResponse'
 --
 -- * 'cersEvaluationId'
 --
--- * 'cersStatus'
+-- * 'cersResponseStatus'
 createEvaluationResponse
-    :: Int -- ^ 'cersStatus'
+    :: Int -- ^ 'cersResponseStatus'
     -> CreateEvaluationResponse
-createEvaluationResponse pStatus_ =
+createEvaluationResponse pResponseStatus_ =
     CreateEvaluationResponse'
     { _cersEvaluationId = Nothing
-    , _cersStatus = pStatus_
+    , _cersResponseStatus = pResponseStatus_
     }
 
 -- | The user-supplied ID that uniquely identifies the 'Evaluation'. This
@@ -186,5 +186,5 @@ cersEvaluationId :: Lens' CreateEvaluationResponse (Maybe Text)
 cersEvaluationId = lens _cersEvaluationId (\ s a -> s{_cersEvaluationId = a});
 
 -- | The response status code.
-cersStatus :: Lens' CreateEvaluationResponse Int
-cersStatus = lens _cersStatus (\ s a -> s{_cersStatus = a});
+cersResponseStatus :: Lens' CreateEvaluationResponse Int
+cersResponseStatus = lens _cersResponseStatus (\ s a -> s{_cersResponseStatus = a});

@@ -51,7 +51,7 @@ module Network.AWS.StorageGateway.DeleteGateway
     , DeleteGatewayResponse
     -- * Response Lenses
     , dgrsGatewayARN
-    , dgrsStatus
+    , dgrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -118,8 +118,8 @@ instance ToQuery DeleteGateway where
 --
 -- /See:/ 'deleteGatewayResponse' smart constructor.
 data DeleteGatewayResponse = DeleteGatewayResponse'
-    { _dgrsGatewayARN :: !(Maybe Text)
-    , _dgrsStatus     :: !Int
+    { _dgrsGatewayARN     :: !(Maybe Text)
+    , _dgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteGatewayResponse' with the minimum fields required to make a request.
@@ -128,14 +128,14 @@ data DeleteGatewayResponse = DeleteGatewayResponse'
 --
 -- * 'dgrsGatewayARN'
 --
--- * 'dgrsStatus'
+-- * 'dgrsResponseStatus'
 deleteGatewayResponse
-    :: Int -- ^ 'dgrsStatus'
+    :: Int -- ^ 'dgrsResponseStatus'
     -> DeleteGatewayResponse
-deleteGatewayResponse pStatus_ =
+deleteGatewayResponse pResponseStatus_ =
     DeleteGatewayResponse'
     { _dgrsGatewayARN = Nothing
-    , _dgrsStatus = pStatus_
+    , _dgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -143,5 +143,5 @@ dgrsGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
 dgrsGatewayARN = lens _dgrsGatewayARN (\ s a -> s{_dgrsGatewayARN = a});
 
 -- | The response status code.
-dgrsStatus :: Lens' DeleteGatewayResponse Int
-dgrsStatus = lens _dgrsStatus (\ s a -> s{_dgrsStatus = a});
+dgrsResponseStatus :: Lens' DeleteGatewayResponse Int
+dgrsResponseStatus = lens _dgrsResponseStatus (\ s a -> s{_dgrsResponseStatus = a});

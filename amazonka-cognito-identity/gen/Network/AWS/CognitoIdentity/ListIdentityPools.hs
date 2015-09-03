@@ -38,7 +38,7 @@ module Network.AWS.CognitoIdentity.ListIdentityPools
     -- * Response Lenses
     , liprsIdentityPools
     , liprsNextToken
-    , liprsStatus
+    , liprsResponseStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -117,9 +117,9 @@ instance ToQuery ListIdentityPools where
 --
 -- /See:/ 'listIdentityPoolsResponse' smart constructor.
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
-    { _liprsIdentityPools :: !(Maybe [IdentityPoolShortDescription])
-    , _liprsNextToken     :: !(Maybe Text)
-    , _liprsStatus        :: !Int
+    { _liprsIdentityPools  :: !(Maybe [IdentityPoolShortDescription])
+    , _liprsNextToken      :: !(Maybe Text)
+    , _liprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListIdentityPoolsResponse' with the minimum fields required to make a request.
@@ -130,15 +130,15 @@ data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
 --
 -- * 'liprsNextToken'
 --
--- * 'liprsStatus'
+-- * 'liprsResponseStatus'
 listIdentityPoolsResponse
-    :: Int -- ^ 'liprsStatus'
+    :: Int -- ^ 'liprsResponseStatus'
     -> ListIdentityPoolsResponse
-listIdentityPoolsResponse pStatus_ =
+listIdentityPoolsResponse pResponseStatus_ =
     ListIdentityPoolsResponse'
     { _liprsIdentityPools = Nothing
     , _liprsNextToken = Nothing
-    , _liprsStatus = pStatus_
+    , _liprsResponseStatus = pResponseStatus_
     }
 
 -- | The identity pools returned by the ListIdentityPools action.
@@ -150,5 +150,5 @@ liprsNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
 liprsNextToken = lens _liprsNextToken (\ s a -> s{_liprsNextToken = a});
 
 -- | The response status code.
-liprsStatus :: Lens' ListIdentityPoolsResponse Int
-liprsStatus = lens _liprsStatus (\ s a -> s{_liprsStatus = a});
+liprsResponseStatus :: Lens' ListIdentityPoolsResponse Int
+liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a});

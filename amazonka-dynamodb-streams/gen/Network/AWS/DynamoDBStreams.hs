@@ -71,11 +71,11 @@ module Network.AWS.DynamoDBStreams
     -- * Operations
     -- $operations
 
-    -- ** GetRecords
-    , module Network.AWS.DynamoDBStreams.GetRecords
-
     -- ** GetShardIterator
     , module Network.AWS.DynamoDBStreams.GetShardIterator
+
+    -- ** GetRecords
+    , module Network.AWS.DynamoDBStreams.GetRecords
 
     -- ** ListStreams
     , module Network.AWS.DynamoDBStreams.ListStreams
@@ -104,8 +104,8 @@ module Network.AWS.DynamoDBStreams
     , AttributeValue
     , attributeValue
     , avL
-    , avM
     , avNS
+    , avM
     , avNULL
     , avN
     , avBS
@@ -157,8 +157,8 @@ module Network.AWS.DynamoDBStreams
     , sdStreamLabel
     , sdStreamStatus
     , sdKeySchema
-    , sdStreamARN
     , sdStreamViewType
+    , sdStreamARN
     , sdShards
     , sdTableName
     , sdCreationRequestDateTime
@@ -166,8 +166,8 @@ module Network.AWS.DynamoDBStreams
     -- ** StreamRecord
     , StreamRecord
     , streamRecord
-    , srSequenceNumber
     , srSizeBytes
+    , srSequenceNumber
     , srStreamViewType
     , srKeys
     , srOldImage

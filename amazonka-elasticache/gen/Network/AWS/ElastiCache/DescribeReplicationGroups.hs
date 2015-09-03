@@ -32,8 +32,8 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
       describeReplicationGroups
     , DescribeReplicationGroups
     -- * Request Lenses
-    , drgsMaxRecords
     , drgsMarker
+    , drgsMaxRecords
     , drgsReplicationGroupId
 
     -- * Destructuring the Response
@@ -42,7 +42,7 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
     -- * Response Lenses
     , drgrsMarker
     , drgrsReplicationGroups
-    , drgrsStatus
+    , drgrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -56,8 +56,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeReplicationGroups' smart constructor.
 data DescribeReplicationGroups = DescribeReplicationGroups'
-    { _drgsMaxRecords         :: !(Maybe Int)
-    , _drgsMarker             :: !(Maybe Text)
+    { _drgsMarker             :: !(Maybe Text)
+    , _drgsMaxRecords         :: !(Maybe Int)
     , _drgsReplicationGroupId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -65,19 +65,26 @@ data DescribeReplicationGroups = DescribeReplicationGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drgsMaxRecords'
---
 -- * 'drgsMarker'
+--
+-- * 'drgsMaxRecords'
 --
 -- * 'drgsReplicationGroupId'
 describeReplicationGroups
     :: DescribeReplicationGroups
 describeReplicationGroups =
     DescribeReplicationGroups'
-    { _drgsMaxRecords = Nothing
-    , _drgsMarker = Nothing
+    { _drgsMarker = Nothing
+    , _drgsMaxRecords = Nothing
     , _drgsReplicationGroupId = Nothing
     }
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+drgsMarker :: Lens' DescribeReplicationGroups (Maybe Text)
+drgsMarker = lens _drgsMarker (\ s a -> s{_drgsMarker = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a marker is
@@ -88,13 +95,6 @@ describeReplicationGroups =
 -- Constraints: minimum 20; maximum 100.
 drgsMaxRecords :: Lens' DescribeReplicationGroups (Maybe Int)
 drgsMaxRecords = lens _drgsMaxRecords (\ s a -> s{_drgsMaxRecords = a});
-
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
-drgsMarker :: Lens' DescribeReplicationGroups (Maybe Text)
-drgsMarker = lens _drgsMarker (\ s a -> s{_drgsMarker = a});
 
 -- | The identifier for the replication group to be described. This parameter
 -- is not case sensitive.
@@ -136,8 +136,8 @@ instance ToQuery DescribeReplicationGroups where
               ["Action" =:
                  ("DescribeReplicationGroups" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "MaxRecords" =: _drgsMaxRecords,
                "Marker" =: _drgsMarker,
+               "MaxRecords" =: _drgsMaxRecords,
                "ReplicationGroupId" =: _drgsReplicationGroupId]
 
 -- | Represents the output of a /DescribeReplicationGroups/ action.
@@ -146,7 +146,7 @@ instance ToQuery DescribeReplicationGroups where
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
     { _drgrsMarker            :: !(Maybe Text)
     , _drgrsReplicationGroups :: !(Maybe [ReplicationGroup])
-    , _drgrsStatus            :: !Int
+    , _drgrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReplicationGroupsResponse' with the minimum fields required to make a request.
@@ -157,15 +157,15 @@ data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
 --
 -- * 'drgrsReplicationGroups'
 --
--- * 'drgrsStatus'
+-- * 'drgrsResponseStatus'
 describeReplicationGroupsResponse
-    :: Int -- ^ 'drgrsStatus'
+    :: Int -- ^ 'drgrsResponseStatus'
     -> DescribeReplicationGroupsResponse
-describeReplicationGroupsResponse pStatus_ =
+describeReplicationGroupsResponse pResponseStatus_ =
     DescribeReplicationGroupsResponse'
     { _drgrsMarker = Nothing
     , _drgrsReplicationGroups = Nothing
-    , _drgrsStatus = pStatus_
+    , _drgrsResponseStatus = pResponseStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -178,5 +178,5 @@ drgrsReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGr
 drgrsReplicationGroups = lens _drgrsReplicationGroups (\ s a -> s{_drgrsReplicationGroups = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drgrsStatus :: Lens' DescribeReplicationGroupsResponse Int
-drgrsStatus = lens _drgrsStatus (\ s a -> s{_drgrsStatus = a});
+drgrsResponseStatus :: Lens' DescribeReplicationGroupsResponse Int
+drgrsResponseStatus = lens _drgrsResponseStatus (\ s a -> s{_drgrsResponseStatus = a});

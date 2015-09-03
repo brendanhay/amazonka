@@ -30,8 +30,8 @@ module Network.AWS.RDS.DescribeDBParameters
     , DescribeDBParameters
     -- * Request Lenses
     , ddpFilters
-    , ddpMaxRecords
     , ddpMarker
+    , ddpMaxRecords
     , ddpSource
     , ddpDBParameterGroupName
 
@@ -39,9 +39,9 @@ module Network.AWS.RDS.DescribeDBParameters
     , describeDBParametersResponse
     , DescribeDBParametersResponse
     -- * Response Lenses
-    , ddprsParameters
     , ddprsMarker
-    , ddprsStatus
+    , ddprsParameters
+    , ddprsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -54,8 +54,8 @@ import           Network.AWS.Response
 -- | /See:/ 'describeDBParameters' smart constructor.
 data DescribeDBParameters = DescribeDBParameters'
     { _ddpFilters              :: !(Maybe [Filter])
-    , _ddpMaxRecords           :: !(Maybe Int)
     , _ddpMarker               :: !(Maybe Text)
+    , _ddpMaxRecords           :: !(Maybe Int)
     , _ddpSource               :: !(Maybe Text)
     , _ddpDBParameterGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -66,9 +66,9 @@ data DescribeDBParameters = DescribeDBParameters'
 --
 -- * 'ddpFilters'
 --
--- * 'ddpMaxRecords'
---
 -- * 'ddpMarker'
+--
+-- * 'ddpMaxRecords'
 --
 -- * 'ddpSource'
 --
@@ -79,8 +79,8 @@ describeDBParameters
 describeDBParameters pDBParameterGroupName_ =
     DescribeDBParameters'
     { _ddpFilters = Nothing
-    , _ddpMaxRecords = Nothing
     , _ddpMarker = Nothing
+    , _ddpMaxRecords = Nothing
     , _ddpSource = Nothing
     , _ddpDBParameterGroupName = pDBParameterGroupName_
     }
@@ -88,6 +88,13 @@ describeDBParameters pDBParameterGroupName_ =
 -- | This parameter is not currently supported.
 ddpFilters :: Lens' DescribeDBParameters [Filter]
 ddpFilters = lens _ddpFilters (\ s a -> s{_ddpFilters = a}) . _Default . _Coerce;
+
+-- | An optional pagination token provided by a previous
+-- 'DescribeDBParameters' request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by 'MaxRecords'.
+ddpMarker :: Lens' DescribeDBParameters (Maybe Text)
+ddpMarker = lens _ddpMarker (\ s a -> s{_ddpMarker = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a pagination token
@@ -99,13 +106,6 @@ ddpFilters = lens _ddpFilters (\ s a -> s{_ddpFilters = a}) . _Default . _Coerce
 -- Constraints: Minimum 20, maximum 100.
 ddpMaxRecords :: Lens' DescribeDBParameters (Maybe Int)
 ddpMaxRecords = lens _ddpMaxRecords (\ s a -> s{_ddpMaxRecords = a});
-
--- | An optional pagination token provided by a previous
--- 'DescribeDBParameters' request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
-ddpMarker :: Lens' DescribeDBParameters (Maybe Text)
-ddpMarker = lens _ddpMarker (\ s a -> s{_ddpMarker = a});
 
 -- | The parameter types to return.
 --
@@ -140,9 +140,9 @@ instance AWSRequest DescribeDBParameters where
           = receiveXMLWrapper "DescribeDBParametersResult"
               (\ s h x ->
                  DescribeDBParametersResponse' <$>
-                   (x .@? "Parameters" .!@ mempty >>=
-                      may (parseXMLList "Parameter"))
-                     <*> (x .@? "Marker")
+                   (x .@? "Marker") <*>
+                     (x .@? "Parameters" .!@ mempty >>=
+                        may (parseXMLList "Parameter"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeDBParameters where
@@ -158,8 +158,9 @@ instance ToQuery DescribeDBParameters where
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
                  toQuery (toQueryList "Filter" <$> _ddpFilters),
+               "Marker" =: _ddpMarker,
                "MaxRecords" =: _ddpMaxRecords,
-               "Marker" =: _ddpMarker, "Source" =: _ddpSource,
+               "Source" =: _ddpSource,
                "DBParameterGroupName" =: _ddpDBParameterGroupName]
 
 -- | Contains the result of a successful invocation of the
@@ -167,33 +168,29 @@ instance ToQuery DescribeDBParameters where
 --
 -- /See:/ 'describeDBParametersResponse' smart constructor.
 data DescribeDBParametersResponse = DescribeDBParametersResponse'
-    { _ddprsParameters :: !(Maybe [Parameter])
-    , _ddprsMarker     :: !(Maybe Text)
-    , _ddprsStatus     :: !Int
+    { _ddprsMarker         :: !(Maybe Text)
+    , _ddprsParameters     :: !(Maybe [Parameter])
+    , _ddprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBParametersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddprsParameters'
---
 -- * 'ddprsMarker'
 --
--- * 'ddprsStatus'
+-- * 'ddprsParameters'
+--
+-- * 'ddprsResponseStatus'
 describeDBParametersResponse
-    :: Int -- ^ 'ddprsStatus'
+    :: Int -- ^ 'ddprsResponseStatus'
     -> DescribeDBParametersResponse
-describeDBParametersResponse pStatus_ =
+describeDBParametersResponse pResponseStatus_ =
     DescribeDBParametersResponse'
-    { _ddprsParameters = Nothing
-    , _ddprsMarker = Nothing
-    , _ddprsStatus = pStatus_
+    { _ddprsMarker = Nothing
+    , _ddprsParameters = Nothing
+    , _ddprsResponseStatus = pResponseStatus_
     }
-
--- | A list of Parameter values.
-ddprsParameters :: Lens' DescribeDBParametersResponse [Parameter]
-ddprsParameters = lens _ddprsParameters (\ s a -> s{_ddprsParameters = a}) . _Default . _Coerce;
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -201,6 +198,10 @@ ddprsParameters = lens _ddprsParameters (\ s a -> s{_ddprsParameters = a}) . _De
 ddprsMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
 ddprsMarker = lens _ddprsMarker (\ s a -> s{_ddprsMarker = a});
 
+-- | A list of Parameter values.
+ddprsParameters :: Lens' DescribeDBParametersResponse [Parameter]
+ddprsParameters = lens _ddprsParameters (\ s a -> s{_ddprsParameters = a}) . _Default . _Coerce;
+
 -- | The response status code.
-ddprsStatus :: Lens' DescribeDBParametersResponse Int
-ddprsStatus = lens _ddprsStatus (\ s a -> s{_ddprsStatus = a});
+ddprsResponseStatus :: Lens' DescribeDBParametersResponse Int
+ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a});

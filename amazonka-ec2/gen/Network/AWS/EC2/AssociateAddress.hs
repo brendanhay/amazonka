@@ -59,7 +59,7 @@ module Network.AWS.EC2.AssociateAddress
     , AssociateAddressResponse
     -- * Response Lenses
     , arsAssociationId
-    , arsStatus
+    , arsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -179,8 +179,8 @@ instance ToQuery AssociateAddress where
 
 -- | /See:/ 'associateAddressResponse' smart constructor.
 data AssociateAddressResponse = AssociateAddressResponse'
-    { _arsAssociationId :: !(Maybe Text)
-    , _arsStatus        :: !Int
+    { _arsAssociationId  :: !(Maybe Text)
+    , _arsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AssociateAddressResponse' with the minimum fields required to make a request.
@@ -189,14 +189,14 @@ data AssociateAddressResponse = AssociateAddressResponse'
 --
 -- * 'arsAssociationId'
 --
--- * 'arsStatus'
+-- * 'arsResponseStatus'
 associateAddressResponse
-    :: Int -- ^ 'arsStatus'
+    :: Int -- ^ 'arsResponseStatus'
     -> AssociateAddressResponse
-associateAddressResponse pStatus_ =
+associateAddressResponse pResponseStatus_ =
     AssociateAddressResponse'
     { _arsAssociationId = Nothing
-    , _arsStatus = pStatus_
+    , _arsResponseStatus = pResponseStatus_
     }
 
 -- | [EC2-VPC] The ID that represents the association of the Elastic IP
@@ -205,5 +205,5 @@ arsAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
 arsAssociationId = lens _arsAssociationId (\ s a -> s{_arsAssociationId = a});
 
 -- | The response status code.
-arsStatus :: Lens' AssociateAddressResponse Int
-arsStatus = lens _arsStatus (\ s a -> s{_arsStatus = a});
+arsResponseStatus :: Lens' AssociateAddressResponse Int
+arsResponseStatus = lens _arsResponseStatus (\ s a -> s{_arsResponseStatus = a});

@@ -38,7 +38,7 @@ module Network.AWS.SSM.ListAssociations
     -- * Response Lenses
     , larsNextToken
     , larsAssociations
-    , larsStatus
+    , larsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -127,9 +127,9 @@ instance ToQuery ListAssociations where
 
 -- | /See:/ 'listAssociationsResponse' smart constructor.
 data ListAssociationsResponse = ListAssociationsResponse'
-    { _larsNextToken    :: !(Maybe Text)
-    , _larsAssociations :: !(Maybe [Association])
-    , _larsStatus       :: !Int
+    { _larsNextToken      :: !(Maybe Text)
+    , _larsAssociations   :: !(Maybe [Association])
+    , _larsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListAssociationsResponse' with the minimum fields required to make a request.
@@ -140,15 +140,15 @@ data ListAssociationsResponse = ListAssociationsResponse'
 --
 -- * 'larsAssociations'
 --
--- * 'larsStatus'
+-- * 'larsResponseStatus'
 listAssociationsResponse
-    :: Int -- ^ 'larsStatus'
+    :: Int -- ^ 'larsResponseStatus'
     -> ListAssociationsResponse
-listAssociationsResponse pStatus_ =
+listAssociationsResponse pResponseStatus_ =
     ListAssociationsResponse'
     { _larsNextToken = Nothing
     , _larsAssociations = Nothing
-    , _larsStatus = pStatus_
+    , _larsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
@@ -161,5 +161,5 @@ larsAssociations :: Lens' ListAssociationsResponse [Association]
 larsAssociations = lens _larsAssociations (\ s a -> s{_larsAssociations = a}) . _Default . _Coerce;
 
 -- | The response status code.
-larsStatus :: Lens' ListAssociationsResponse Int
-larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});
+larsResponseStatus :: Lens' ListAssociationsResponse Int
+larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});

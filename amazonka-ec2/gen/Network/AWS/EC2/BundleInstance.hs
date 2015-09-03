@@ -45,7 +45,7 @@ module Network.AWS.EC2.BundleInstance
     , BundleInstanceResponse
     -- * Response Lenses
     , birsBundleTask
-    , birsStatus
+    , birsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -130,8 +130,8 @@ instance ToQuery BundleInstance where
 
 -- | /See:/ 'bundleInstanceResponse' smart constructor.
 data BundleInstanceResponse = BundleInstanceResponse'
-    { _birsBundleTask :: !(Maybe BundleTask)
-    , _birsStatus     :: !Int
+    { _birsBundleTask     :: !(Maybe BundleTask)
+    , _birsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BundleInstanceResponse' with the minimum fields required to make a request.
@@ -140,14 +140,14 @@ data BundleInstanceResponse = BundleInstanceResponse'
 --
 -- * 'birsBundleTask'
 --
--- * 'birsStatus'
+-- * 'birsResponseStatus'
 bundleInstanceResponse
-    :: Int -- ^ 'birsStatus'
+    :: Int -- ^ 'birsResponseStatus'
     -> BundleInstanceResponse
-bundleInstanceResponse pStatus_ =
+bundleInstanceResponse pResponseStatus_ =
     BundleInstanceResponse'
     { _birsBundleTask = Nothing
-    , _birsStatus = pStatus_
+    , _birsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the bundle task.
@@ -155,5 +155,5 @@ birsBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
 birsBundleTask = lens _birsBundleTask (\ s a -> s{_birsBundleTask = a});
 
 -- | The response status code.
-birsStatus :: Lens' BundleInstanceResponse Int
-birsStatus = lens _birsStatus (\ s a -> s{_birsStatus = a});
+birsResponseStatus :: Lens' BundleInstanceResponse Int
+birsResponseStatus = lens _birsResponseStatus (\ s a -> s{_birsResponseStatus = a});

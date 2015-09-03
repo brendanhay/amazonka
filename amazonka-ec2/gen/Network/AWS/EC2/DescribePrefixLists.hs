@@ -32,8 +32,8 @@ module Network.AWS.EC2.DescribePrefixLists
     , DescribePrefixLists
     -- * Request Lenses
     , dplFilters
-    , dplNextToken
     , dplPrefixListIds
+    , dplNextToken
     , dplDryRun
     , dplMaxResults
 
@@ -43,7 +43,7 @@ module Network.AWS.EC2.DescribePrefixLists
     -- * Response Lenses
     , dplrsNextToken
     , dplrsPrefixLists
-    , dplrsStatus
+    , dplrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -55,8 +55,8 @@ import           Network.AWS.Response
 -- | /See:/ 'describePrefixLists' smart constructor.
 data DescribePrefixLists = DescribePrefixLists'
     { _dplFilters       :: !(Maybe [Filter])
-    , _dplNextToken     :: !(Maybe Text)
     , _dplPrefixListIds :: !(Maybe [Text])
+    , _dplNextToken     :: !(Maybe Text)
     , _dplDryRun        :: !(Maybe Bool)
     , _dplMaxResults    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -67,9 +67,9 @@ data DescribePrefixLists = DescribePrefixLists'
 --
 -- * 'dplFilters'
 --
--- * 'dplNextToken'
---
 -- * 'dplPrefixListIds'
+--
+-- * 'dplNextToken'
 --
 -- * 'dplDryRun'
 --
@@ -79,8 +79,8 @@ describePrefixLists
 describePrefixLists =
     DescribePrefixLists'
     { _dplFilters = Nothing
-    , _dplNextToken = Nothing
     , _dplPrefixListIds = Nothing
+    , _dplNextToken = Nothing
     , _dplDryRun = Nothing
     , _dplMaxResults = Nothing
     }
@@ -94,14 +94,14 @@ describePrefixLists =
 dplFilters :: Lens' DescribePrefixLists [Filter]
 dplFilters = lens _dplFilters (\ s a -> s{_dplFilters = a}) . _Default . _Coerce;
 
+-- | One or more prefix list IDs.
+dplPrefixListIds :: Lens' DescribePrefixLists [Text]
+dplPrefixListIds = lens _dplPrefixListIds (\ s a -> s{_dplPrefixListIds = a}) . _Default . _Coerce;
+
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.)
 dplNextToken :: Lens' DescribePrefixLists (Maybe Text)
 dplNextToken = lens _dplNextToken (\ s a -> s{_dplNextToken = a});
-
--- | One or more prefix list IDs.
-dplPrefixListIds :: Lens' DescribePrefixLists [Text]
-dplPrefixListIds = lens _dplPrefixListIds (\ s a -> s{_dplPrefixListIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -144,17 +144,16 @@ instance ToQuery DescribePrefixLists where
               ["Action" =: ("DescribePrefixLists" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dplFilters),
-               "NextToken" =: _dplNextToken,
                toQuery
                  (toQueryList "PrefixListId" <$> _dplPrefixListIds),
-               "DryRun" =: _dplDryRun,
+               "NextToken" =: _dplNextToken, "DryRun" =: _dplDryRun,
                "MaxResults" =: _dplMaxResults]
 
 -- | /See:/ 'describePrefixListsResponse' smart constructor.
 data DescribePrefixListsResponse = DescribePrefixListsResponse'
-    { _dplrsNextToken   :: !(Maybe Text)
-    , _dplrsPrefixLists :: !(Maybe [PrefixList])
-    , _dplrsStatus      :: !Int
+    { _dplrsNextToken      :: !(Maybe Text)
+    , _dplrsPrefixLists    :: !(Maybe [PrefixList])
+    , _dplrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribePrefixListsResponse' with the minimum fields required to make a request.
@@ -165,15 +164,15 @@ data DescribePrefixListsResponse = DescribePrefixListsResponse'
 --
 -- * 'dplrsPrefixLists'
 --
--- * 'dplrsStatus'
+-- * 'dplrsResponseStatus'
 describePrefixListsResponse
-    :: Int -- ^ 'dplrsStatus'
+    :: Int -- ^ 'dplrsResponseStatus'
     -> DescribePrefixListsResponse
-describePrefixListsResponse pStatus_ =
+describePrefixListsResponse pResponseStatus_ =
     DescribePrefixListsResponse'
     { _dplrsNextToken = Nothing
     , _dplrsPrefixLists = Nothing
-    , _dplrsStatus = pStatus_
+    , _dplrsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
@@ -186,5 +185,5 @@ dplrsPrefixLists :: Lens' DescribePrefixListsResponse [PrefixList]
 dplrsPrefixLists = lens _dplrsPrefixLists (\ s a -> s{_dplrsPrefixLists = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dplrsStatus :: Lens' DescribePrefixListsResponse Int
-dplrsStatus = lens _dplrsStatus (\ s a -> s{_dplrsStatus = a});
+dplrsResponseStatus :: Lens' DescribePrefixListsResponse Int
+dplrsResponseStatus = lens _dplrsResponseStatus (\ s a -> s{_dplrsResponseStatus = a});

@@ -37,8 +37,9 @@ module Network.AWS.EC2.RestoreAddressToClassic
     , restoreAddressToClassicResponse
     , RestoreAddressToClassicResponse
     -- * Response Lenses
-    , ratcrsPublicIP
     , ratcrsStatus
+    , ratcrsPublicIP
+    , ratcrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -88,7 +89,8 @@ instance AWSRequest RestoreAddressToClassic where
           = receiveXML
               (\ s h x ->
                  RestoreAddressToClassicResponse' <$>
-                   (x .@? "publicIp") <*> (pure (fromEnum s)))
+                   (x .@? "status") <*> (x .@? "publicIp") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders RestoreAddressToClassic where
         toHeaders = const mempty
@@ -106,30 +108,38 @@ instance ToQuery RestoreAddressToClassic where
 
 -- | /See:/ 'restoreAddressToClassicResponse' smart constructor.
 data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
-    { _ratcrsPublicIP :: !(Maybe Text)
-    , _ratcrsStatus   :: !Int
+    { _ratcrsStatus         :: !(Maybe AddressStatus)
+    , _ratcrsPublicIP       :: !(Maybe Text)
+    , _ratcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestoreAddressToClassicResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'ratcrsStatus'
+--
 -- * 'ratcrsPublicIP'
 --
--- * 'ratcrsStatus'
+-- * 'ratcrsResponseStatus'
 restoreAddressToClassicResponse
-    :: Int -- ^ 'ratcrsStatus'
+    :: Int -- ^ 'ratcrsResponseStatus'
     -> RestoreAddressToClassicResponse
-restoreAddressToClassicResponse pStatus_ =
+restoreAddressToClassicResponse pResponseStatus_ =
     RestoreAddressToClassicResponse'
-    { _ratcrsPublicIP = Nothing
-    , _ratcrsStatus = pStatus_
+    { _ratcrsStatus = Nothing
+    , _ratcrsPublicIP = Nothing
+    , _ratcrsResponseStatus = pResponseStatus_
     }
+
+-- | The move status for the IP address.
+ratcrsStatus :: Lens' RestoreAddressToClassicResponse (Maybe AddressStatus)
+ratcrsStatus = lens _ratcrsStatus (\ s a -> s{_ratcrsStatus = a});
 
 -- | The Elastic IP address.
 ratcrsPublicIP :: Lens' RestoreAddressToClassicResponse (Maybe Text)
 ratcrsPublicIP = lens _ratcrsPublicIP (\ s a -> s{_ratcrsPublicIP = a});
 
 -- | The response status code.
-ratcrsStatus :: Lens' RestoreAddressToClassicResponse Int
-ratcrsStatus = lens _ratcrsStatus (\ s a -> s{_ratcrsStatus = a});
+ratcrsResponseStatus :: Lens' RestoreAddressToClassicResponse Int
+ratcrsResponseStatus = lens _ratcrsResponseStatus (\ s a -> s{_ratcrsResponseStatus = a});

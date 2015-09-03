@@ -48,7 +48,7 @@ module Network.AWS.WorkSpaces.DescribeWorkspaces
     -- * Response Lenses
     , dwrsNextToken
     , dwrsWorkspaces
-    , dwrsStatus
+    , dwrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -177,9 +177,9 @@ instance ToQuery DescribeWorkspaces where
 --
 -- /See:/ 'describeWorkspacesResponse' smart constructor.
 data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
-    { _dwrsNextToken  :: !(Maybe Text)
-    , _dwrsWorkspaces :: !(Maybe [Workspace])
-    , _dwrsStatus     :: !Int
+    { _dwrsNextToken      :: !(Maybe Text)
+    , _dwrsWorkspaces     :: !(Maybe [Workspace])
+    , _dwrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeWorkspacesResponse' with the minimum fields required to make a request.
@@ -190,15 +190,15 @@ data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
 --
 -- * 'dwrsWorkspaces'
 --
--- * 'dwrsStatus'
+-- * 'dwrsResponseStatus'
 describeWorkspacesResponse
-    :: Int -- ^ 'dwrsStatus'
+    :: Int -- ^ 'dwrsResponseStatus'
     -> DescribeWorkspacesResponse
-describeWorkspacesResponse pStatus_ =
+describeWorkspacesResponse pResponseStatus_ =
     DescribeWorkspacesResponse'
     { _dwrsNextToken = Nothing
     , _dwrsWorkspaces = Nothing
-    , _dwrsStatus = pStatus_
+    , _dwrsResponseStatus = pResponseStatus_
     }
 
 -- | If not null, more results are available. Pass this value for the
@@ -217,5 +217,5 @@ dwrsWorkspaces :: Lens' DescribeWorkspacesResponse [Workspace]
 dwrsWorkspaces = lens _dwrsWorkspaces (\ s a -> s{_dwrsWorkspaces = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dwrsStatus :: Lens' DescribeWorkspacesResponse Int
-dwrsStatus = lens _dwrsStatus (\ s a -> s{_dwrsStatus = a});
+dwrsResponseStatus :: Lens' DescribeWorkspacesResponse Int
+dwrsResponseStatus = lens _dwrsResponseStatus (\ s a -> s{_dwrsResponseStatus = a});

@@ -53,7 +53,7 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRDS
     , CreateDataSourceFromRDSResponse
     -- * Response Lenses
     , cdsfrdsrsDataSourceId
-    , cdsfrdsrsStatus
+    , cdsfrdsrsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -221,8 +221,8 @@ instance ToQuery CreateDataSourceFromRDS where
 --
 -- /See:/ 'createDataSourceFromRDSResponse' smart constructor.
 data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'
-    { _cdsfrdsrsDataSourceId :: !(Maybe Text)
-    , _cdsfrdsrsStatus       :: !Int
+    { _cdsfrdsrsDataSourceId   :: !(Maybe Text)
+    , _cdsfrdsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDataSourceFromRDSResponse' with the minimum fields required to make a request.
@@ -231,14 +231,14 @@ data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'
 --
 -- * 'cdsfrdsrsDataSourceId'
 --
--- * 'cdsfrdsrsStatus'
+-- * 'cdsfrdsrsResponseStatus'
 createDataSourceFromRDSResponse
-    :: Int -- ^ 'cdsfrdsrsStatus'
+    :: Int -- ^ 'cdsfrdsrsResponseStatus'
     -> CreateDataSourceFromRDSResponse
-createDataSourceFromRDSResponse pStatus_ =
+createDataSourceFromRDSResponse pResponseStatus_ =
     CreateDataSourceFromRDSResponse'
     { _cdsfrdsrsDataSourceId = Nothing
-    , _cdsfrdsrsStatus = pStatus_
+    , _cdsfrdsrsResponseStatus = pResponseStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
@@ -247,5 +247,5 @@ cdsfrdsrsDataSourceId :: Lens' CreateDataSourceFromRDSResponse (Maybe Text)
 cdsfrdsrsDataSourceId = lens _cdsfrdsrsDataSourceId (\ s a -> s{_cdsfrdsrsDataSourceId = a});
 
 -- | The response status code.
-cdsfrdsrsStatus :: Lens' CreateDataSourceFromRDSResponse Int
-cdsfrdsrsStatus = lens _cdsfrdsrsStatus (\ s a -> s{_cdsfrdsrsStatus = a});
+cdsfrdsrsResponseStatus :: Lens' CreateDataSourceFromRDSResponse Int
+cdsfrdsrsResponseStatus = lens _cdsfrdsrsResponseStatus (\ s a -> s{_cdsfrdsrsResponseStatus = a});

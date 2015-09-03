@@ -35,7 +35,7 @@ module Network.AWS.DirectoryService.EnableSSO
     , enableSSOResponse
     , EnableSSOResponse
     -- * Response Lenses
-    , esrsStatus
+    , esrsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -130,22 +130,22 @@ instance ToQuery EnableSSO where
 --
 -- /See:/ 'enableSSOResponse' smart constructor.
 newtype EnableSSOResponse = EnableSSOResponse'
-    { _esrsStatus :: Int
+    { _esrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnableSSOResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esrsStatus'
+-- * 'esrsResponseStatus'
 enableSSOResponse
-    :: Int -- ^ 'esrsStatus'
+    :: Int -- ^ 'esrsResponseStatus'
     -> EnableSSOResponse
-enableSSOResponse pStatus_ =
+enableSSOResponse pResponseStatus_ =
     EnableSSOResponse'
-    { _esrsStatus = pStatus_
+    { _esrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-esrsStatus :: Lens' EnableSSOResponse Int
-esrsStatus = lens _esrsStatus (\ s a -> s{_esrsStatus = a});
+esrsResponseStatus :: Lens' EnableSSOResponse Int
+esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a});

@@ -52,7 +52,7 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     -- * Response Lenses
     , ppdrsValidationErrors
     , ppdrsValidationWarnings
-    , ppdrsStatus
+    , ppdrsResponseStatus
     , ppdrsErrored
     ) where
 
@@ -154,7 +154,7 @@ instance ToQuery PutPipelineDefinition where
 data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
     { _ppdrsValidationErrors   :: !(Maybe [ValidationError])
     , _ppdrsValidationWarnings :: !(Maybe [ValidationWarning])
-    , _ppdrsStatus             :: !Int
+    , _ppdrsResponseStatus     :: !Int
     , _ppdrsErrored            :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -166,18 +166,18 @@ data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
 --
 -- * 'ppdrsValidationWarnings'
 --
--- * 'ppdrsStatus'
+-- * 'ppdrsResponseStatus'
 --
 -- * 'ppdrsErrored'
 putPipelineDefinitionResponse
-    :: Int -- ^ 'ppdrsStatus'
+    :: Int -- ^ 'ppdrsResponseStatus'
     -> Bool -- ^ 'ppdrsErrored'
     -> PutPipelineDefinitionResponse
-putPipelineDefinitionResponse pStatus_ pErrored_ =
+putPipelineDefinitionResponse pResponseStatus_ pErrored_ =
     PutPipelineDefinitionResponse'
     { _ppdrsValidationErrors = Nothing
     , _ppdrsValidationWarnings = Nothing
-    , _ppdrsStatus = pStatus_
+    , _ppdrsResponseStatus = pResponseStatus_
     , _ppdrsErrored = pErrored_
     }
 
@@ -192,8 +192,8 @@ ppdrsValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarnin
 ppdrsValidationWarnings = lens _ppdrsValidationWarnings (\ s a -> s{_ppdrsValidationWarnings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ppdrsStatus :: Lens' PutPipelineDefinitionResponse Int
-ppdrsStatus = lens _ppdrsStatus (\ s a -> s{_ppdrsStatus = a});
+ppdrsResponseStatus :: Lens' PutPipelineDefinitionResponse Int
+ppdrsResponseStatus = lens _ppdrsResponseStatus (\ s a -> s{_ppdrsResponseStatus = a});
 
 -- | Indicates whether there were validation errors, and the pipeline
 -- definition is stored but cannot be activated until you correct the

@@ -31,20 +31,20 @@ import Test.AWS.SES.Internal
 --         [ testGetSendQuota $
 --             getSendQuota
 --
---         , testDeleteIdentityPolicy $
---             deleteIdentityPolicy
---
 --         , testPutIdentityPolicy $
 --             putIdentityPolicy
 --
---         , testSetIdentityDkimEnabled $
---             setIdentityDkimEnabled
+--         , testDeleteIdentityPolicy $
+--             deleteIdentityPolicy
 --
 --         , testGetIdentityNotificationAttributes $
 --             getIdentityNotificationAttributes
 --
 --         , testListIdentityPolicies $
 --             listIdentityPolicies
+--
+--         , testSetIdentityDkimEnabled $
+--             setIdentityDkimEnabled
 --
 --         , testSetIdentityFeedbackForwardingEnabled $
 --             setIdentityFeedbackForwardingEnabled
@@ -58,35 +58,32 @@ import Test.AWS.SES.Internal
 --         , testVerifyDomainIdentity $
 --             verifyDomainIdentity
 --
+--         , testGetIdentityDkimAttributes $
+--             getIdentityDkimAttributes
+--
 --         , testVerifyDomainDkim $
 --             verifyDomainDkim
 --
 --         , testSendRawEmail $
 --             sendRawEmail
 --
---         , testGetIdentityDkimAttributes $
---             getIdentityDkimAttributes
+--         , testGetSendStatistics $
+--             getSendStatistics
 --
 --         , testDeleteIdentity $
 --             deleteIdentity
 --
---         , testGetSendStatistics $
---             getSendStatistics
---
 --         , testListIdentities $
 --             listIdentities
---
---         , testDeleteVerifiedEmailAddress $
---             deleteVerifiedEmailAddress
---
---         , testVerifyEmailAddress $
---             verifyEmailAddress
 --
 --         , testVerifyEmailIdentity $
 --             verifyEmailIdentity
 --
---         , testSendEmail $
---             sendEmail
+--         , testVerifyEmailAddress $
+--             verifyEmailAddress
+--
+--         , testDeleteVerifiedEmailAddress $
+--             deleteVerifiedEmailAddress
 --
 --         , testListVerifiedEmailAddresses $
 --             listVerifiedEmailAddresses
@@ -94,26 +91,29 @@ import Test.AWS.SES.Internal
 --         , testSetIdentityNotificationTopic $
 --             setIdentityNotificationTopic
 --
+--         , testSendEmail $
+--             sendEmail
+--
 --           ]
 
 --     , testGroup "response"
 --         [ testGetSendQuotaResponse $
 --             getSendQuotaResponse
 --
---         , testDeleteIdentityPolicyResponse $
---             deleteIdentityPolicyResponse
---
 --         , testPutIdentityPolicyResponse $
 --             putIdentityPolicyResponse
 --
---         , testSetIdentityDkimEnabledResponse $
---             setIdentityDkimEnabledResponse
+--         , testDeleteIdentityPolicyResponse $
+--             deleteIdentityPolicyResponse
 --
 --         , testGetIdentityNotificationAttributesResponse $
 --             getIdentityNotificationAttributesResponse
 --
 --         , testListIdentityPoliciesResponse $
 --             listIdentityPoliciesResponse
+--
+--         , testSetIdentityDkimEnabledResponse $
+--             setIdentityDkimEnabledResponse
 --
 --         , testSetIdentityFeedbackForwardingEnabledResponse $
 --             setIdentityFeedbackForwardingEnabledResponse
@@ -127,41 +127,41 @@ import Test.AWS.SES.Internal
 --         , testVerifyDomainIdentityResponse $
 --             verifyDomainIdentityResponse
 --
+--         , testGetIdentityDkimAttributesResponse $
+--             getIdentityDkimAttributesResponse
+--
 --         , testVerifyDomainDkimResponse $
 --             verifyDomainDkimResponse
 --
 --         , testSendRawEmailResponse $
 --             sendRawEmailResponse
 --
---         , testGetIdentityDkimAttributesResponse $
---             getIdentityDkimAttributesResponse
+--         , testGetSendStatisticsResponse $
+--             getSendStatisticsResponse
 --
 --         , testDeleteIdentityResponse $
 --             deleteIdentityResponse
 --
---         , testGetSendStatisticsResponse $
---             getSendStatisticsResponse
---
 --         , testListIdentitiesResponse $
 --             listIdentitiesResponse
---
---         , testDeleteVerifiedEmailAddressResponse $
---             deleteVerifiedEmailAddressResponse
---
---         , testVerifyEmailAddressResponse $
---             verifyEmailAddressResponse
 --
 --         , testVerifyEmailIdentityResponse $
 --             verifyEmailIdentityResponse
 --
---         , testSendEmailResponse $
---             sendEmailResponse
+--         , testVerifyEmailAddressResponse $
+--             verifyEmailAddressResponse
+--
+--         , testDeleteVerifiedEmailAddressResponse $
+--             deleteVerifiedEmailAddressResponse
 --
 --         , testListVerifiedEmailAddressesResponse $
 --             listVerifiedEmailAddressesResponse
 --
 --         , testSetIdentityNotificationTopicResponse $
 --             setIdentityNotificationTopicResponse
+--
+--         , testSendEmailResponse $
+--             sendEmailResponse
 --
 --           ]
 --     ]
@@ -173,20 +173,15 @@ testGetSendQuota = req
     "GetSendQuota"
     "fixture/GetSendQuota.yaml"
 
-testDeleteIdentityPolicy :: DeleteIdentityPolicy -> TestTree
-testDeleteIdentityPolicy = req
-    "DeleteIdentityPolicy"
-    "fixture/DeleteIdentityPolicy.yaml"
-
 testPutIdentityPolicy :: PutIdentityPolicy -> TestTree
 testPutIdentityPolicy = req
     "PutIdentityPolicy"
     "fixture/PutIdentityPolicy.yaml"
 
-testSetIdentityDkimEnabled :: SetIdentityDkimEnabled -> TestTree
-testSetIdentityDkimEnabled = req
-    "SetIdentityDkimEnabled"
-    "fixture/SetIdentityDkimEnabled.yaml"
+testDeleteIdentityPolicy :: DeleteIdentityPolicy -> TestTree
+testDeleteIdentityPolicy = req
+    "DeleteIdentityPolicy"
+    "fixture/DeleteIdentityPolicy.yaml"
 
 testGetIdentityNotificationAttributes :: GetIdentityNotificationAttributes -> TestTree
 testGetIdentityNotificationAttributes = req
@@ -197,6 +192,11 @@ testListIdentityPolicies :: ListIdentityPolicies -> TestTree
 testListIdentityPolicies = req
     "ListIdentityPolicies"
     "fixture/ListIdentityPolicies.yaml"
+
+testSetIdentityDkimEnabled :: SetIdentityDkimEnabled -> TestTree
+testSetIdentityDkimEnabled = req
+    "SetIdentityDkimEnabled"
+    "fixture/SetIdentityDkimEnabled.yaml"
 
 testSetIdentityFeedbackForwardingEnabled :: SetIdentityFeedbackForwardingEnabled -> TestTree
 testSetIdentityFeedbackForwardingEnabled = req
@@ -218,6 +218,11 @@ testVerifyDomainIdentity = req
     "VerifyDomainIdentity"
     "fixture/VerifyDomainIdentity.yaml"
 
+testGetIdentityDkimAttributes :: GetIdentityDkimAttributes -> TestTree
+testGetIdentityDkimAttributes = req
+    "GetIdentityDkimAttributes"
+    "fixture/GetIdentityDkimAttributes.yaml"
+
 testVerifyDomainDkim :: VerifyDomainDkim -> TestTree
 testVerifyDomainDkim = req
     "VerifyDomainDkim"
@@ -228,45 +233,35 @@ testSendRawEmail = req
     "SendRawEmail"
     "fixture/SendRawEmail.yaml"
 
-testGetIdentityDkimAttributes :: GetIdentityDkimAttributes -> TestTree
-testGetIdentityDkimAttributes = req
-    "GetIdentityDkimAttributes"
-    "fixture/GetIdentityDkimAttributes.yaml"
+testGetSendStatistics :: GetSendStatistics -> TestTree
+testGetSendStatistics = req
+    "GetSendStatistics"
+    "fixture/GetSendStatistics.yaml"
 
 testDeleteIdentity :: DeleteIdentity -> TestTree
 testDeleteIdentity = req
     "DeleteIdentity"
     "fixture/DeleteIdentity.yaml"
 
-testGetSendStatistics :: GetSendStatistics -> TestTree
-testGetSendStatistics = req
-    "GetSendStatistics"
-    "fixture/GetSendStatistics.yaml"
-
 testListIdentities :: ListIdentities -> TestTree
 testListIdentities = req
     "ListIdentities"
     "fixture/ListIdentities.yaml"
-
-testDeleteVerifiedEmailAddress :: DeleteVerifiedEmailAddress -> TestTree
-testDeleteVerifiedEmailAddress = req
-    "DeleteVerifiedEmailAddress"
-    "fixture/DeleteVerifiedEmailAddress.yaml"
-
-testVerifyEmailAddress :: VerifyEmailAddress -> TestTree
-testVerifyEmailAddress = req
-    "VerifyEmailAddress"
-    "fixture/VerifyEmailAddress.yaml"
 
 testVerifyEmailIdentity :: VerifyEmailIdentity -> TestTree
 testVerifyEmailIdentity = req
     "VerifyEmailIdentity"
     "fixture/VerifyEmailIdentity.yaml"
 
-testSendEmail :: SendEmail -> TestTree
-testSendEmail = req
-    "SendEmail"
-    "fixture/SendEmail.yaml"
+testVerifyEmailAddress :: VerifyEmailAddress -> TestTree
+testVerifyEmailAddress = req
+    "VerifyEmailAddress"
+    "fixture/VerifyEmailAddress.yaml"
+
+testDeleteVerifiedEmailAddress :: DeleteVerifiedEmailAddress -> TestTree
+testDeleteVerifiedEmailAddress = req
+    "DeleteVerifiedEmailAddress"
+    "fixture/DeleteVerifiedEmailAddress.yaml"
 
 testListVerifiedEmailAddresses :: ListVerifiedEmailAddresses -> TestTree
 testListVerifiedEmailAddresses = req
@@ -278,6 +273,11 @@ testSetIdentityNotificationTopic = req
     "SetIdentityNotificationTopic"
     "fixture/SetIdentityNotificationTopic.yaml"
 
+testSendEmail :: SendEmail -> TestTree
+testSendEmail = req
+    "SendEmail"
+    "fixture/SendEmail.yaml"
+
 -- Responses
 
 testGetSendQuotaResponse :: GetSendQuotaResponse -> TestTree
@@ -287,13 +287,6 @@ testGetSendQuotaResponse = res
     sES
     (Proxy :: Proxy GetSendQuota)
 
-testDeleteIdentityPolicyResponse :: DeleteIdentityPolicyResponse -> TestTree
-testDeleteIdentityPolicyResponse = res
-    "DeleteIdentityPolicyResponse"
-    "fixture/DeleteIdentityPolicyResponse.proto"
-    sES
-    (Proxy :: Proxy DeleteIdentityPolicy)
-
 testPutIdentityPolicyResponse :: PutIdentityPolicyResponse -> TestTree
 testPutIdentityPolicyResponse = res
     "PutIdentityPolicyResponse"
@@ -301,12 +294,12 @@ testPutIdentityPolicyResponse = res
     sES
     (Proxy :: Proxy PutIdentityPolicy)
 
-testSetIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse -> TestTree
-testSetIdentityDkimEnabledResponse = res
-    "SetIdentityDkimEnabledResponse"
-    "fixture/SetIdentityDkimEnabledResponse.proto"
+testDeleteIdentityPolicyResponse :: DeleteIdentityPolicyResponse -> TestTree
+testDeleteIdentityPolicyResponse = res
+    "DeleteIdentityPolicyResponse"
+    "fixture/DeleteIdentityPolicyResponse.proto"
     sES
-    (Proxy :: Proxy SetIdentityDkimEnabled)
+    (Proxy :: Proxy DeleteIdentityPolicy)
 
 testGetIdentityNotificationAttributesResponse :: GetIdentityNotificationAttributesResponse -> TestTree
 testGetIdentityNotificationAttributesResponse = res
@@ -321,6 +314,13 @@ testListIdentityPoliciesResponse = res
     "fixture/ListIdentityPoliciesResponse.proto"
     sES
     (Proxy :: Proxy ListIdentityPolicies)
+
+testSetIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse -> TestTree
+testSetIdentityDkimEnabledResponse = res
+    "SetIdentityDkimEnabledResponse"
+    "fixture/SetIdentityDkimEnabledResponse.proto"
+    sES
+    (Proxy :: Proxy SetIdentityDkimEnabled)
 
 testSetIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse -> TestTree
 testSetIdentityFeedbackForwardingEnabledResponse = res
@@ -350,6 +350,13 @@ testVerifyDomainIdentityResponse = res
     sES
     (Proxy :: Proxy VerifyDomainIdentity)
 
+testGetIdentityDkimAttributesResponse :: GetIdentityDkimAttributesResponse -> TestTree
+testGetIdentityDkimAttributesResponse = res
+    "GetIdentityDkimAttributesResponse"
+    "fixture/GetIdentityDkimAttributesResponse.proto"
+    sES
+    (Proxy :: Proxy GetIdentityDkimAttributes)
+
 testVerifyDomainDkimResponse :: VerifyDomainDkimResponse -> TestTree
 testVerifyDomainDkimResponse = res
     "VerifyDomainDkimResponse"
@@ -364,12 +371,12 @@ testSendRawEmailResponse = res
     sES
     (Proxy :: Proxy SendRawEmail)
 
-testGetIdentityDkimAttributesResponse :: GetIdentityDkimAttributesResponse -> TestTree
-testGetIdentityDkimAttributesResponse = res
-    "GetIdentityDkimAttributesResponse"
-    "fixture/GetIdentityDkimAttributesResponse.proto"
+testGetSendStatisticsResponse :: GetSendStatisticsResponse -> TestTree
+testGetSendStatisticsResponse = res
+    "GetSendStatisticsResponse"
+    "fixture/GetSendStatisticsResponse.proto"
     sES
-    (Proxy :: Proxy GetIdentityDkimAttributes)
+    (Proxy :: Proxy GetSendStatistics)
 
 testDeleteIdentityResponse :: DeleteIdentityResponse -> TestTree
 testDeleteIdentityResponse = res
@@ -378,33 +385,12 @@ testDeleteIdentityResponse = res
     sES
     (Proxy :: Proxy DeleteIdentity)
 
-testGetSendStatisticsResponse :: GetSendStatisticsResponse -> TestTree
-testGetSendStatisticsResponse = res
-    "GetSendStatisticsResponse"
-    "fixture/GetSendStatisticsResponse.proto"
-    sES
-    (Proxy :: Proxy GetSendStatistics)
-
 testListIdentitiesResponse :: ListIdentitiesResponse -> TestTree
 testListIdentitiesResponse = res
     "ListIdentitiesResponse"
     "fixture/ListIdentitiesResponse.proto"
     sES
     (Proxy :: Proxy ListIdentities)
-
-testDeleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse -> TestTree
-testDeleteVerifiedEmailAddressResponse = res
-    "DeleteVerifiedEmailAddressResponse"
-    "fixture/DeleteVerifiedEmailAddressResponse.proto"
-    sES
-    (Proxy :: Proxy DeleteVerifiedEmailAddress)
-
-testVerifyEmailAddressResponse :: VerifyEmailAddressResponse -> TestTree
-testVerifyEmailAddressResponse = res
-    "VerifyEmailAddressResponse"
-    "fixture/VerifyEmailAddressResponse.proto"
-    sES
-    (Proxy :: Proxy VerifyEmailAddress)
 
 testVerifyEmailIdentityResponse :: VerifyEmailIdentityResponse -> TestTree
 testVerifyEmailIdentityResponse = res
@@ -413,12 +399,19 @@ testVerifyEmailIdentityResponse = res
     sES
     (Proxy :: Proxy VerifyEmailIdentity)
 
-testSendEmailResponse :: SendEmailResponse -> TestTree
-testSendEmailResponse = res
-    "SendEmailResponse"
-    "fixture/SendEmailResponse.proto"
+testVerifyEmailAddressResponse :: VerifyEmailAddressResponse -> TestTree
+testVerifyEmailAddressResponse = res
+    "VerifyEmailAddressResponse"
+    "fixture/VerifyEmailAddressResponse.proto"
     sES
-    (Proxy :: Proxy SendEmail)
+    (Proxy :: Proxy VerifyEmailAddress)
+
+testDeleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse -> TestTree
+testDeleteVerifiedEmailAddressResponse = res
+    "DeleteVerifiedEmailAddressResponse"
+    "fixture/DeleteVerifiedEmailAddressResponse.proto"
+    sES
+    (Proxy :: Proxy DeleteVerifiedEmailAddress)
 
 testListVerifiedEmailAddressesResponse :: ListVerifiedEmailAddressesResponse -> TestTree
 testListVerifiedEmailAddressesResponse = res
@@ -433,3 +426,10 @@ testSetIdentityNotificationTopicResponse = res
     "fixture/SetIdentityNotificationTopicResponse.proto"
     sES
     (Proxy :: Proxy SetIdentityNotificationTopic)
+
+testSendEmailResponse :: SendEmailResponse -> TestTree
+testSendEmailResponse = res
+    "SendEmailResponse"
+    "fixture/SendEmailResponse.proto"
+    sES
+    (Proxy :: Proxy SendEmail)

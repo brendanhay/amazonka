@@ -42,7 +42,7 @@ module Network.AWS.DataPipeline.DescribeObjects
     -- * Response Lenses
     , dorsHasMoreResults
     , dorsMarker
-    , dorsStatus
+    , dorsResponseStatus
     , dorsPipelineObjects
     ) where
 
@@ -109,8 +109,8 @@ doObjectIds = lens _doObjectIds (\ s a -> s{_doObjectIds = a}) . _Coerce;
 
 instance AWSPager DescribeObjects where
         page rq rs
-          | stop (rs ^. dorsHasMoreResults) = Nothing
-          | isNothing (rs ^. dorsMarker) = Nothing
+          | stop (rs ^. dorsMarker) = Nothing
+          | stop (rs ^. dorsPipelineObjects) = Nothing
           | otherwise =
             Just $ rq & doMarker .~ rs ^. dorsMarker
 
@@ -156,7 +156,7 @@ instance ToQuery DescribeObjects where
 data DescribeObjectsResponse = DescribeObjectsResponse'
     { _dorsHasMoreResults  :: !(Maybe Bool)
     , _dorsMarker          :: !(Maybe Text)
-    , _dorsStatus          :: !Int
+    , _dorsResponseStatus  :: !Int
     , _dorsPipelineObjects :: ![PipelineObject]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -168,17 +168,17 @@ data DescribeObjectsResponse = DescribeObjectsResponse'
 --
 -- * 'dorsMarker'
 --
--- * 'dorsStatus'
+-- * 'dorsResponseStatus'
 --
 -- * 'dorsPipelineObjects'
 describeObjectsResponse
-    :: Int -- ^ 'dorsStatus'
+    :: Int -- ^ 'dorsResponseStatus'
     -> DescribeObjectsResponse
-describeObjectsResponse pStatus_ =
+describeObjectsResponse pResponseStatus_ =
     DescribeObjectsResponse'
     { _dorsHasMoreResults = Nothing
     , _dorsMarker = Nothing
-    , _dorsStatus = pStatus_
+    , _dorsResponseStatus = pResponseStatus_
     , _dorsPipelineObjects = mempty
     }
 
@@ -193,8 +193,8 @@ dorsMarker :: Lens' DescribeObjectsResponse (Maybe Text)
 dorsMarker = lens _dorsMarker (\ s a -> s{_dorsMarker = a});
 
 -- | The response status code.
-dorsStatus :: Lens' DescribeObjectsResponse Int
-dorsStatus = lens _dorsStatus (\ s a -> s{_dorsStatus = a});
+dorsResponseStatus :: Lens' DescribeObjectsResponse Int
+dorsResponseStatus = lens _dorsResponseStatus (\ s a -> s{_dorsResponseStatus = a});
 
 -- | An array of object definitions.
 dorsPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]

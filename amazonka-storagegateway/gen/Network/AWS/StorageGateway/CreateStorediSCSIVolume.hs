@@ -53,7 +53,7 @@ module Network.AWS.StorageGateway.CreateStorediSCSIVolume
     , csscsivrsTargetARN
     , csscsivrsVolumeARN
     , csscsivrsVolumeSizeInBytes
-    , csscsivrsStatus
+    , csscsivrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -205,7 +205,7 @@ data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
     { _csscsivrsTargetARN         :: !(Maybe Text)
     , _csscsivrsVolumeARN         :: !(Maybe Text)
     , _csscsivrsVolumeSizeInBytes :: !(Maybe Integer)
-    , _csscsivrsStatus            :: !Int
+    , _csscsivrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateStorediSCSIVolumeResponse' with the minimum fields required to make a request.
@@ -218,16 +218,16 @@ data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
 --
 -- * 'csscsivrsVolumeSizeInBytes'
 --
--- * 'csscsivrsStatus'
+-- * 'csscsivrsResponseStatus'
 createStorediSCSIVolumeResponse
-    :: Int -- ^ 'csscsivrsStatus'
+    :: Int -- ^ 'csscsivrsResponseStatus'
     -> CreateStorediSCSIVolumeResponse
-createStorediSCSIVolumeResponse pStatus_ =
+createStorediSCSIVolumeResponse pResponseStatus_ =
     CreateStorediSCSIVolumeResponse'
     { _csscsivrsTargetARN = Nothing
     , _csscsivrsVolumeARN = Nothing
     , _csscsivrsVolumeSizeInBytes = Nothing
-    , _csscsivrsStatus = pStatus_
+    , _csscsivrsResponseStatus = pResponseStatus_
     }
 
 -- | he Amazon Resource Name (ARN) of the volume target that includes the
@@ -244,5 +244,5 @@ csscsivrsVolumeSizeInBytes :: Lens' CreateStorediSCSIVolumeResponse (Maybe Integ
 csscsivrsVolumeSizeInBytes = lens _csscsivrsVolumeSizeInBytes (\ s a -> s{_csscsivrsVolumeSizeInBytes = a});
 
 -- | The response status code.
-csscsivrsStatus :: Lens' CreateStorediSCSIVolumeResponse Int
-csscsivrsStatus = lens _csscsivrsStatus (\ s a -> s{_csscsivrsStatus = a});
+csscsivrsResponseStatus :: Lens' CreateStorediSCSIVolumeResponse Int
+csscsivrsResponseStatus = lens _csscsivrsResponseStatus (\ s a -> s{_csscsivrsResponseStatus = a});

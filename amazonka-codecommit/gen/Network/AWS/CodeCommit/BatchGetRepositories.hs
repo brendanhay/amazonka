@@ -42,7 +42,7 @@ module Network.AWS.CodeCommit.BatchGetRepositories
     -- * Response Lenses
     , bgrrsRepositories
     , bgrrsRepositoriesNotFound
-    , bgrrsStatus
+    , bgrrsResponseStatus
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -114,7 +114,7 @@ instance ToQuery BatchGetRepositories where
 data BatchGetRepositoriesResponse = BatchGetRepositoriesResponse'
     { _bgrrsRepositories         :: !(Maybe [RepositoryMetadata])
     , _bgrrsRepositoriesNotFound :: !(Maybe [Text])
-    , _bgrrsStatus               :: !Int
+    , _bgrrsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BatchGetRepositoriesResponse' with the minimum fields required to make a request.
@@ -125,15 +125,15 @@ data BatchGetRepositoriesResponse = BatchGetRepositoriesResponse'
 --
 -- * 'bgrrsRepositoriesNotFound'
 --
--- * 'bgrrsStatus'
+-- * 'bgrrsResponseStatus'
 batchGetRepositoriesResponse
-    :: Int -- ^ 'bgrrsStatus'
+    :: Int -- ^ 'bgrrsResponseStatus'
     -> BatchGetRepositoriesResponse
-batchGetRepositoriesResponse pStatus_ =
+batchGetRepositoriesResponse pResponseStatus_ =
     BatchGetRepositoriesResponse'
     { _bgrrsRepositories = Nothing
     , _bgrrsRepositoriesNotFound = Nothing
-    , _bgrrsStatus = pStatus_
+    , _bgrrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of repositories returned by the batch get repositories operation.
@@ -146,5 +146,5 @@ bgrrsRepositoriesNotFound :: Lens' BatchGetRepositoriesResponse [Text]
 bgrrsRepositoriesNotFound = lens _bgrrsRepositoriesNotFound (\ s a -> s{_bgrrsRepositoriesNotFound = a}) . _Default . _Coerce;
 
 -- | The response status code.
-bgrrsStatus :: Lens' BatchGetRepositoriesResponse Int
-bgrrsStatus = lens _bgrrsStatus (\ s a -> s{_bgrrsStatus = a});
+bgrrsResponseStatus :: Lens' BatchGetRepositoriesResponse Int
+bgrrsResponseStatus = lens _bgrrsResponseStatus (\ s a -> s{_bgrrsResponseStatus = a});

@@ -36,7 +36,7 @@ module Network.AWS.SSM.DescribeAssociation
     , DescribeAssociationResponse
     -- * Response Lenses
     , darsAssociationDescription
-    , darsStatus
+    , darsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -112,7 +112,7 @@ instance ToQuery DescribeAssociation where
 -- | /See:/ 'describeAssociationResponse' smart constructor.
 data DescribeAssociationResponse = DescribeAssociationResponse'
     { _darsAssociationDescription :: !(Maybe AssociationDescription)
-    , _darsStatus                 :: !Int
+    , _darsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAssociationResponse' with the minimum fields required to make a request.
@@ -121,14 +121,14 @@ data DescribeAssociationResponse = DescribeAssociationResponse'
 --
 -- * 'darsAssociationDescription'
 --
--- * 'darsStatus'
+-- * 'darsResponseStatus'
 describeAssociationResponse
-    :: Int -- ^ 'darsStatus'
+    :: Int -- ^ 'darsResponseStatus'
     -> DescribeAssociationResponse
-describeAssociationResponse pStatus_ =
+describeAssociationResponse pResponseStatus_ =
     DescribeAssociationResponse'
     { _darsAssociationDescription = Nothing
-    , _darsStatus = pStatus_
+    , _darsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the association.
@@ -136,5 +136,5 @@ darsAssociationDescription :: Lens' DescribeAssociationResponse (Maybe Associati
 darsAssociationDescription = lens _darsAssociationDescription (\ s a -> s{_darsAssociationDescription = a});
 
 -- | The response status code.
-darsStatus :: Lens' DescribeAssociationResponse Int
-darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});
+darsResponseStatus :: Lens' DescribeAssociationResponse Int
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});

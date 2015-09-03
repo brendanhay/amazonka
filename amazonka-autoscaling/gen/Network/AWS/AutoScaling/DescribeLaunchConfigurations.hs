@@ -39,7 +39,7 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     , DescribeLaunchConfigurationsResponse
     -- * Response Lenses
     , dlcrsNextToken
-    , dlcrsStatus
+    , dlcrsResponseStatus
     , dlcrsLaunchConfigurations
     ) where
 
@@ -132,7 +132,7 @@ instance ToQuery DescribeLaunchConfigurations where
 -- | /See:/ 'describeLaunchConfigurationsResponse' smart constructor.
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'
     { _dlcrsNextToken            :: !(Maybe Text)
-    , _dlcrsStatus               :: !Int
+    , _dlcrsResponseStatus       :: !Int
     , _dlcrsLaunchConfigurations :: ![LaunchConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -142,16 +142,16 @@ data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
 --
 -- * 'dlcrsNextToken'
 --
--- * 'dlcrsStatus'
+-- * 'dlcrsResponseStatus'
 --
 -- * 'dlcrsLaunchConfigurations'
 describeLaunchConfigurationsResponse
-    :: Int -- ^ 'dlcrsStatus'
+    :: Int -- ^ 'dlcrsResponseStatus'
     -> DescribeLaunchConfigurationsResponse
-describeLaunchConfigurationsResponse pStatus_ =
+describeLaunchConfigurationsResponse pResponseStatus_ =
     DescribeLaunchConfigurationsResponse'
     { _dlcrsNextToken = Nothing
-    , _dlcrsStatus = pStatus_
+    , _dlcrsResponseStatus = pResponseStatus_
     , _dlcrsLaunchConfigurations = mempty
     }
 
@@ -161,8 +161,8 @@ dlcrsNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
 dlcrsNextToken = lens _dlcrsNextToken (\ s a -> s{_dlcrsNextToken = a});
 
 -- | The response status code.
-dlcrsStatus :: Lens' DescribeLaunchConfigurationsResponse Int
-dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});
+dlcrsResponseStatus :: Lens' DescribeLaunchConfigurationsResponse Int
+dlcrsResponseStatus = lens _dlcrsResponseStatus (\ s a -> s{_dlcrsResponseStatus = a});
 
 -- | The launch configurations.
 dlcrsLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]

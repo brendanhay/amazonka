@@ -50,7 +50,7 @@ module Network.AWS.DirectoryService.DescribeDirectories
     -- * Response Lenses
     , ddrsDirectoryDescriptions
     , ddrsNextToken
-    , ddrsStatus
+    , ddrsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -147,7 +147,7 @@ instance ToQuery DescribeDirectories where
 data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
     { _ddrsDirectoryDescriptions :: !(Maybe [DirectoryDescription])
     , _ddrsNextToken             :: !(Maybe Text)
-    , _ddrsStatus                :: !Int
+    , _ddrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDirectoriesResponse' with the minimum fields required to make a request.
@@ -158,15 +158,15 @@ data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
 --
 -- * 'ddrsNextToken'
 --
--- * 'ddrsStatus'
+-- * 'ddrsResponseStatus'
 describeDirectoriesResponse
-    :: Int -- ^ 'ddrsStatus'
+    :: Int -- ^ 'ddrsResponseStatus'
     -> DescribeDirectoriesResponse
-describeDirectoriesResponse pStatus_ =
+describeDirectoriesResponse pResponseStatus_ =
     DescribeDirectoriesResponse'
     { _ddrsDirectoryDescriptions = Nothing
     , _ddrsNextToken = Nothing
-    , _ddrsStatus = pStatus_
+    , _ddrsResponseStatus = pResponseStatus_
     }
 
 -- | The list of DirectoryDescription objects that were retrieved.
@@ -185,5 +185,5 @@ ddrsNextToken :: Lens' DescribeDirectoriesResponse (Maybe Text)
 ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a});
 
 -- | The response status code.
-ddrsStatus :: Lens' DescribeDirectoriesResponse Int
-ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
+ddrsResponseStatus :: Lens' DescribeDirectoriesResponse Int
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});

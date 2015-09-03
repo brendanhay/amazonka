@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeDHCPOptions
     , DescribeDHCPOptionsResponse
     -- * Response Lenses
     , ddorsDHCPOptions
-    , ddorsStatus
+    , ddorsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -142,8 +142,8 @@ instance ToQuery DescribeDHCPOptions where
 
 -- | /See:/ 'describeDHCPOptionsResponse' smart constructor.
 data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'
-    { _ddorsDHCPOptions :: !(Maybe [DHCPOptions])
-    , _ddorsStatus      :: !Int
+    { _ddorsDHCPOptions    :: !(Maybe [DHCPOptions])
+    , _ddorsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDHCPOptionsResponse' with the minimum fields required to make a request.
@@ -152,14 +152,14 @@ data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'
 --
 -- * 'ddorsDHCPOptions'
 --
--- * 'ddorsStatus'
+-- * 'ddorsResponseStatus'
 describeDHCPOptionsResponse
-    :: Int -- ^ 'ddorsStatus'
+    :: Int -- ^ 'ddorsResponseStatus'
     -> DescribeDHCPOptionsResponse
-describeDHCPOptionsResponse pStatus_ =
+describeDHCPOptionsResponse pResponseStatus_ =
     DescribeDHCPOptionsResponse'
     { _ddorsDHCPOptions = Nothing
-    , _ddorsStatus = pStatus_
+    , _ddorsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more DHCP options sets.
@@ -167,5 +167,5 @@ ddorsDHCPOptions :: Lens' DescribeDHCPOptionsResponse [DHCPOptions]
 ddorsDHCPOptions = lens _ddorsDHCPOptions (\ s a -> s{_ddorsDHCPOptions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddorsStatus :: Lens' DescribeDHCPOptionsResponse Int
-ddorsStatus = lens _ddorsStatus (\ s a -> s{_ddorsStatus = a});
+ddorsResponseStatus :: Lens' DescribeDHCPOptionsResponse Int
+ddorsResponseStatus = lens _ddorsResponseStatus (\ s a -> s{_ddorsResponseStatus = a});

@@ -36,7 +36,7 @@ module Network.AWS.ECS.DescribeServices
     -- * Response Lenses
     , dssrsFailures
     , dssrsServices
-    , dssrsStatus
+    , dssrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -110,9 +110,9 @@ instance ToQuery DescribeServices where
 
 -- | /See:/ 'describeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-    { _dssrsFailures :: !(Maybe [Failure])
-    , _dssrsServices :: !(Maybe [ContainerService])
-    , _dssrsStatus   :: !Int
+    { _dssrsFailures       :: !(Maybe [Failure])
+    , _dssrsServices       :: !(Maybe [ContainerService])
+    , _dssrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeServicesResponse' with the minimum fields required to make a request.
@@ -123,15 +123,15 @@ data DescribeServicesResponse = DescribeServicesResponse'
 --
 -- * 'dssrsServices'
 --
--- * 'dssrsStatus'
+-- * 'dssrsResponseStatus'
 describeServicesResponse
-    :: Int -- ^ 'dssrsStatus'
+    :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeServicesResponse
-describeServicesResponse pStatus_ =
+describeServicesResponse pResponseStatus_ =
     DescribeServicesResponse'
     { _dssrsFailures = Nothing
     , _dssrsServices = Nothing
-    , _dssrsStatus = pStatus_
+    , _dssrsResponseStatus = pResponseStatus_
     }
 
 -- | Any failures associated with the call.
@@ -143,5 +143,5 @@ dssrsServices :: Lens' DescribeServicesResponse [ContainerService]
 dssrsServices = lens _dssrsServices (\ s a -> s{_dssrsServices = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dssrsStatus :: Lens' DescribeServicesResponse Int
-dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});
+dssrsResponseStatus :: Lens' DescribeServicesResponse Int
+dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});

@@ -34,7 +34,7 @@ module Network.AWS.ELB.DeleteLoadBalancerListeners
     , deleteLoadBalancerListenersResponse
     , DeleteLoadBalancerListenersResponse
     -- * Response Lenses
-    , dlblrsStatus
+    , dlblrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -102,22 +102,22 @@ instance ToQuery DeleteLoadBalancerListeners where
 
 -- | /See:/ 'deleteLoadBalancerListenersResponse' smart constructor.
 newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse'
-    { _dlblrsStatus :: Int
+    { _dlblrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteLoadBalancerListenersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlblrsStatus'
+-- * 'dlblrsResponseStatus'
 deleteLoadBalancerListenersResponse
-    :: Int -- ^ 'dlblrsStatus'
+    :: Int -- ^ 'dlblrsResponseStatus'
     -> DeleteLoadBalancerListenersResponse
-deleteLoadBalancerListenersResponse pStatus_ =
+deleteLoadBalancerListenersResponse pResponseStatus_ =
     DeleteLoadBalancerListenersResponse'
-    { _dlblrsStatus = pStatus_
+    { _dlblrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-dlblrsStatus :: Lens' DeleteLoadBalancerListenersResponse Int
-dlblrsStatus = lens _dlblrsStatus (\ s a -> s{_dlblrsStatus = a});
+dlblrsResponseStatus :: Lens' DeleteLoadBalancerListenersResponse Int
+dlblrsResponseStatus = lens _dlblrsResponseStatus (\ s a -> s{_dlblrsResponseStatus = a});

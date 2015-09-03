@@ -34,7 +34,7 @@ module Network.AWS.DirectConnect.DescribeLocations
     , DescribeLocationsResponse
     -- * Response Lenses
     , dlrsLocations
-    , dlrsStatus
+    , dlrsResponseStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -84,8 +84,8 @@ instance ToQuery DescribeLocations where
 
 -- | /See:/ 'describeLocationsResponse' smart constructor.
 data DescribeLocationsResponse = DescribeLocationsResponse'
-    { _dlrsLocations :: !(Maybe [Location])
-    , _dlrsStatus    :: !Int
+    { _dlrsLocations      :: !(Maybe [Location])
+    , _dlrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLocationsResponse' with the minimum fields required to make a request.
@@ -94,14 +94,14 @@ data DescribeLocationsResponse = DescribeLocationsResponse'
 --
 -- * 'dlrsLocations'
 --
--- * 'dlrsStatus'
+-- * 'dlrsResponseStatus'
 describeLocationsResponse
-    :: Int -- ^ 'dlrsStatus'
+    :: Int -- ^ 'dlrsResponseStatus'
     -> DescribeLocationsResponse
-describeLocationsResponse pStatus_ =
+describeLocationsResponse pResponseStatus_ =
     DescribeLocationsResponse'
     { _dlrsLocations = Nothing
-    , _dlrsStatus = pStatus_
+    , _dlrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -109,5 +109,5 @@ dlrsLocations :: Lens' DescribeLocationsResponse [Location]
 dlrsLocations = lens _dlrsLocations (\ s a -> s{_dlrsLocations = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dlrsStatus :: Lens' DescribeLocationsResponse Int
-dlrsStatus = lens _dlrsStatus (\ s a -> s{_dlrsStatus = a});
+dlrsResponseStatus :: Lens' DescribeLocationsResponse Int
+dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});

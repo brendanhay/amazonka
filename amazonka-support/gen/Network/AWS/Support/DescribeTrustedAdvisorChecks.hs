@@ -37,7 +37,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorChecks
     , describeTrustedAdvisorChecksResponse
     , DescribeTrustedAdvisorChecksResponse
     -- * Response Lenses
-    , dtacrsStatus
+    , dtacrsResponseStatus
     , dtacrsChecks
     ) where
 
@@ -109,29 +109,29 @@ instance ToQuery DescribeTrustedAdvisorChecks where
 --
 -- /See:/ 'describeTrustedAdvisorChecksResponse' smart constructor.
 data DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse'
-    { _dtacrsStatus :: !Int
-    , _dtacrsChecks :: ![TrustedAdvisorCheckDescription]
+    { _dtacrsResponseStatus :: !Int
+    , _dtacrsChecks         :: ![TrustedAdvisorCheckDescription]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTrustedAdvisorChecksResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtacrsStatus'
+-- * 'dtacrsResponseStatus'
 --
 -- * 'dtacrsChecks'
 describeTrustedAdvisorChecksResponse
-    :: Int -- ^ 'dtacrsStatus'
+    :: Int -- ^ 'dtacrsResponseStatus'
     -> DescribeTrustedAdvisorChecksResponse
-describeTrustedAdvisorChecksResponse pStatus_ =
+describeTrustedAdvisorChecksResponse pResponseStatus_ =
     DescribeTrustedAdvisorChecksResponse'
-    { _dtacrsStatus = pStatus_
+    { _dtacrsResponseStatus = pResponseStatus_
     , _dtacrsChecks = mempty
     }
 
 -- | The response status code.
-dtacrsStatus :: Lens' DescribeTrustedAdvisorChecksResponse Int
-dtacrsStatus = lens _dtacrsStatus (\ s a -> s{_dtacrsStatus = a});
+dtacrsResponseStatus :: Lens' DescribeTrustedAdvisorChecksResponse Int
+dtacrsResponseStatus = lens _dtacrsResponseStatus (\ s a -> s{_dtacrsResponseStatus = a});
 
 -- | Information about all available Trusted Advisor checks.
 dtacrsChecks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]

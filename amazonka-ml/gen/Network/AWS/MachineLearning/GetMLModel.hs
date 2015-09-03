@@ -37,24 +37,25 @@ module Network.AWS.MachineLearning.GetMLModel
     , getMLModelResponse
     , GetMLModelResponse
     -- * Response Lenses
-    , gmlmrsTrainingParameters
+    , gmlmrsStatus
     , gmlmrsLastUpdatedAt
-    , gmlmrsCreatedAt
+    , gmlmrsTrainingParameters
     , gmlmrsScoreThresholdLastUpdatedAt
+    , gmlmrsCreatedAt
     , gmlmrsRecipe
     , gmlmrsInputDataLocationS3
-    , gmlmrsSizeInBytes
     , gmlmrsMLModelId
+    , gmlmrsSizeInBytes
     , gmlmrsSchema
     , gmlmrsScoreThreshold
-    , gmlmrsName
     , gmlmrsCreatedByIAMUser
+    , gmlmrsName
     , gmlmrsLogURI
     , gmlmrsEndpointInfo
     , gmlmrsTrainingDataSourceId
     , gmlmrsMessage
     , gmlmrsMLModelType
-    , gmlmrsStatus
+    , gmlmrsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -104,18 +105,18 @@ instance AWSRequest GetMLModel where
           = receiveJSON
               (\ s h x ->
                  GetMLModelResponse' <$>
-                   (x .?> "TrainingParameters" .!@ mempty) <*>
-                     (x .?> "LastUpdatedAt")
-                     <*> (x .?> "CreatedAt")
+                   (x .?> "Status") <*> (x .?> "LastUpdatedAt") <*>
+                     (x .?> "TrainingParameters" .!@ mempty)
                      <*> (x .?> "ScoreThresholdLastUpdatedAt")
+                     <*> (x .?> "CreatedAt")
                      <*> (x .?> "Recipe")
                      <*> (x .?> "InputDataLocationS3")
-                     <*> (x .?> "SizeInBytes")
                      <*> (x .?> "MLModelId")
+                     <*> (x .?> "SizeInBytes")
                      <*> (x .?> "Schema")
                      <*> (x .?> "ScoreThreshold")
-                     <*> (x .?> "Name")
                      <*> (x .?> "CreatedByIamUser")
+                     <*> (x .?> "Name")
                      <*> (x .?> "LogUri")
                      <*> (x .?> "EndpointInfo")
                      <*> (x .?> "TrainingDataSourceId")
@@ -150,53 +151,56 @@ instance ToQuery GetMLModel where
 --
 -- /See:/ 'getMLModelResponse' smart constructor.
 data GetMLModelResponse = GetMLModelResponse'
-    { _gmlmrsTrainingParameters          :: !(Maybe (Map Text Text))
+    { _gmlmrsStatus                      :: !(Maybe EntityStatus)
     , _gmlmrsLastUpdatedAt               :: !(Maybe POSIX)
-    , _gmlmrsCreatedAt                   :: !(Maybe POSIX)
+    , _gmlmrsTrainingParameters          :: !(Maybe (Map Text Text))
     , _gmlmrsScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
+    , _gmlmrsCreatedAt                   :: !(Maybe POSIX)
     , _gmlmrsRecipe                      :: !(Maybe Text)
     , _gmlmrsInputDataLocationS3         :: !(Maybe Text)
-    , _gmlmrsSizeInBytes                 :: !(Maybe Integer)
     , _gmlmrsMLModelId                   :: !(Maybe Text)
+    , _gmlmrsSizeInBytes                 :: !(Maybe Integer)
     , _gmlmrsSchema                      :: !(Maybe Text)
     , _gmlmrsScoreThreshold              :: !(Maybe Double)
-    , _gmlmrsName                        :: !(Maybe Text)
     , _gmlmrsCreatedByIAMUser            :: !(Maybe Text)
+    , _gmlmrsName                        :: !(Maybe Text)
     , _gmlmrsLogURI                      :: !(Maybe Text)
     , _gmlmrsEndpointInfo                :: !(Maybe RealtimeEndpointInfo)
     , _gmlmrsTrainingDataSourceId        :: !(Maybe Text)
     , _gmlmrsMessage                     :: !(Maybe Text)
     , _gmlmrsMLModelType                 :: !(Maybe MLModelType)
-    , _gmlmrsStatus                      :: !Int
+    , _gmlmrsResponseStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetMLModelResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmlmrsTrainingParameters'
+-- * 'gmlmrsStatus'
 --
 -- * 'gmlmrsLastUpdatedAt'
 --
--- * 'gmlmrsCreatedAt'
+-- * 'gmlmrsTrainingParameters'
 --
 -- * 'gmlmrsScoreThresholdLastUpdatedAt'
+--
+-- * 'gmlmrsCreatedAt'
 --
 -- * 'gmlmrsRecipe'
 --
 -- * 'gmlmrsInputDataLocationS3'
 --
--- * 'gmlmrsSizeInBytes'
---
 -- * 'gmlmrsMLModelId'
+--
+-- * 'gmlmrsSizeInBytes'
 --
 -- * 'gmlmrsSchema'
 --
 -- * 'gmlmrsScoreThreshold'
 --
--- * 'gmlmrsName'
---
 -- * 'gmlmrsCreatedByIAMUser'
+--
+-- * 'gmlmrsName'
 --
 -- * 'gmlmrsLogURI'
 --
@@ -208,31 +212,49 @@ data GetMLModelResponse = GetMLModelResponse'
 --
 -- * 'gmlmrsMLModelType'
 --
--- * 'gmlmrsStatus'
+-- * 'gmlmrsResponseStatus'
 getMLModelResponse
-    :: Int -- ^ 'gmlmrsStatus'
+    :: Int -- ^ 'gmlmrsResponseStatus'
     -> GetMLModelResponse
-getMLModelResponse pStatus_ =
+getMLModelResponse pResponseStatus_ =
     GetMLModelResponse'
-    { _gmlmrsTrainingParameters = Nothing
+    { _gmlmrsStatus = Nothing
     , _gmlmrsLastUpdatedAt = Nothing
-    , _gmlmrsCreatedAt = Nothing
+    , _gmlmrsTrainingParameters = Nothing
     , _gmlmrsScoreThresholdLastUpdatedAt = Nothing
+    , _gmlmrsCreatedAt = Nothing
     , _gmlmrsRecipe = Nothing
     , _gmlmrsInputDataLocationS3 = Nothing
-    , _gmlmrsSizeInBytes = Nothing
     , _gmlmrsMLModelId = Nothing
+    , _gmlmrsSizeInBytes = Nothing
     , _gmlmrsSchema = Nothing
     , _gmlmrsScoreThreshold = Nothing
-    , _gmlmrsName = Nothing
     , _gmlmrsCreatedByIAMUser = Nothing
+    , _gmlmrsName = Nothing
     , _gmlmrsLogURI = Nothing
     , _gmlmrsEndpointInfo = Nothing
     , _gmlmrsTrainingDataSourceId = Nothing
     , _gmlmrsMessage = Nothing
     , _gmlmrsMLModelType = Nothing
-    , _gmlmrsStatus = pStatus_
+    , _gmlmrsResponseStatus = pResponseStatus_
     }
+
+-- | The current status of the 'MLModel'. This element can have one of the
+-- following values:
+--
+-- -   'PENDING' - Amazon Machine Learning (Amazon ML) submitted a request
+--     to describe a 'MLModel'.
+-- -   'INPROGRESS' - The request is processing.
+-- -   'FAILED' - The request did not run to completion. It is not usable.
+-- -   'COMPLETED' - The request completed successfully.
+-- -   'DELETED' - The 'MLModel' is marked as deleted. It is not usable.
+gmlmrsStatus :: Lens' GetMLModelResponse (Maybe EntityStatus)
+gmlmrsStatus = lens _gmlmrsStatus (\ s a -> s{_gmlmrsStatus = a});
+
+-- | The time of the most recent edit to the 'MLModel'. The time is expressed
+-- in epoch time.
+gmlmrsLastUpdatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
+gmlmrsLastUpdatedAt = lens _gmlmrsLastUpdatedAt (\ s a -> s{_gmlmrsLastUpdatedAt = a}) . mapping _Time;
 
 -- | A list of the training parameters in the 'MLModel'. The list is
 -- implemented as a map of key\/value pairs.
@@ -273,20 +295,15 @@ getMLModelResponse pStatus_ =
 gmlmrsTrainingParameters :: Lens' GetMLModelResponse (HashMap Text Text)
 gmlmrsTrainingParameters = lens _gmlmrsTrainingParameters (\ s a -> s{_gmlmrsTrainingParameters = a}) . _Default . _Map;
 
--- | The time of the most recent edit to the 'MLModel'. The time is expressed
--- in epoch time.
-gmlmrsLastUpdatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
-gmlmrsLastUpdatedAt = lens _gmlmrsLastUpdatedAt (\ s a -> s{_gmlmrsLastUpdatedAt = a}) . mapping _Time;
+-- | The time of the most recent edit to the 'ScoreThreshold'. The time is
+-- expressed in epoch time.
+gmlmrsScoreThresholdLastUpdatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
+gmlmrsScoreThresholdLastUpdatedAt = lens _gmlmrsScoreThresholdLastUpdatedAt (\ s a -> s{_gmlmrsScoreThresholdLastUpdatedAt = a}) . mapping _Time;
 
 -- | The time that the 'MLModel' was created. The time is expressed in epoch
 -- time.
 gmlmrsCreatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
 gmlmrsCreatedAt = lens _gmlmrsCreatedAt (\ s a -> s{_gmlmrsCreatedAt = a}) . mapping _Time;
-
--- | The time of the most recent edit to the 'ScoreThreshold'. The time is
--- expressed in epoch time.
-gmlmrsScoreThresholdLastUpdatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
-gmlmrsScoreThresholdLastUpdatedAt = lens _gmlmrsScoreThresholdLastUpdatedAt (\ s a -> s{_gmlmrsScoreThresholdLastUpdatedAt = a}) . mapping _Time;
 
 -- | The recipe to use when training the 'MLModel'. The 'Recipe' provides
 -- detailed information about the observation data to use during training,
@@ -304,13 +321,13 @@ gmlmrsRecipe = lens _gmlmrsRecipe (\ s a -> s{_gmlmrsRecipe = a});
 gmlmrsInputDataLocationS3 :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsInputDataLocationS3 = lens _gmlmrsInputDataLocationS3 (\ s a -> s{_gmlmrsInputDataLocationS3 = a});
 
--- | Undocumented member.
-gmlmrsSizeInBytes :: Lens' GetMLModelResponse (Maybe Integer)
-gmlmrsSizeInBytes = lens _gmlmrsSizeInBytes (\ s a -> s{_gmlmrsSizeInBytes = a});
-
 -- | The MLModel ID which is same as the 'MLModelId' in the request.
 gmlmrsMLModelId :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsMLModelId = lens _gmlmrsMLModelId (\ s a -> s{_gmlmrsMLModelId = a});
+
+-- | Undocumented member.
+gmlmrsSizeInBytes :: Lens' GetMLModelResponse (Maybe Integer)
+gmlmrsSizeInBytes = lens _gmlmrsSizeInBytes (\ s a -> s{_gmlmrsSizeInBytes = a});
 
 -- | The schema used by all of the data files referenced by the 'DataSource'.
 --
@@ -330,15 +347,15 @@ gmlmrsSchema = lens _gmlmrsSchema (\ s a -> s{_gmlmrsSchema = a});
 gmlmrsScoreThreshold :: Lens' GetMLModelResponse (Maybe Double)
 gmlmrsScoreThreshold = lens _gmlmrsScoreThreshold (\ s a -> s{_gmlmrsScoreThreshold = a});
 
--- | A user-supplied name or description of the 'MLModel'.
-gmlmrsName :: Lens' GetMLModelResponse (Maybe Text)
-gmlmrsName = lens _gmlmrsName (\ s a -> s{_gmlmrsName = a});
-
 -- | The AWS user account from which the 'MLModel' was created. The account
 -- type can be either an AWS root account or an AWS Identity and Access
 -- Management (IAM) user account.
 gmlmrsCreatedByIAMUser :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsCreatedByIAMUser = lens _gmlmrsCreatedByIAMUser (\ s a -> s{_gmlmrsCreatedByIAMUser = a});
+
+-- | A user-supplied name or description of the 'MLModel'.
+gmlmrsName :: Lens' GetMLModelResponse (Maybe Text)
+gmlmrsName = lens _gmlmrsName (\ s a -> s{_gmlmrsName = a});
 
 -- | A link to the file that contains logs of the 'CreateMLModel' operation.
 gmlmrsLogURI :: Lens' GetMLModelResponse (Maybe Text)
@@ -369,5 +386,5 @@ gmlmrsMLModelType :: Lens' GetMLModelResponse (Maybe MLModelType)
 gmlmrsMLModelType = lens _gmlmrsMLModelType (\ s a -> s{_gmlmrsMLModelType = a});
 
 -- | The response status code.
-gmlmrsStatus :: Lens' GetMLModelResponse Int
-gmlmrsStatus = lens _gmlmrsStatus (\ s a -> s{_gmlmrsStatus = a});
+gmlmrsResponseStatus :: Lens' GetMLModelResponse Int
+gmlmrsResponseStatus = lens _gmlmrsResponseStatus (\ s a -> s{_gmlmrsResponseStatus = a});

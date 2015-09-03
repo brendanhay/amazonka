@@ -32,8 +32,8 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     , DescribeCacheSubnetGroups
     -- * Request Lenses
     , dcsgCacheSubnetGroupName
-    , dcsgMaxRecords
     , dcsgMarker
+    , dcsgMaxRecords
 
     -- * Destructuring the Response
     , describeCacheSubnetGroupsResponse
@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     -- * Response Lenses
     , dcsgrsMarker
     , dcsgrsCacheSubnetGroups
-    , dcsgrsStatus
+    , dcsgrsResponseStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -56,8 +56,8 @@ import           Network.AWS.Response
 -- /See:/ 'describeCacheSubnetGroups' smart constructor.
 data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups'
     { _dcsgCacheSubnetGroupName :: !(Maybe Text)
-    , _dcsgMaxRecords           :: !(Maybe Int)
     , _dcsgMarker               :: !(Maybe Text)
+    , _dcsgMaxRecords           :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCacheSubnetGroups' with the minimum fields required to make a request.
@@ -66,21 +66,28 @@ data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups'
 --
 -- * 'dcsgCacheSubnetGroupName'
 --
--- * 'dcsgMaxRecords'
---
 -- * 'dcsgMarker'
+--
+-- * 'dcsgMaxRecords'
 describeCacheSubnetGroups
     :: DescribeCacheSubnetGroups
 describeCacheSubnetGroups =
     DescribeCacheSubnetGroups'
     { _dcsgCacheSubnetGroupName = Nothing
-    , _dcsgMaxRecords = Nothing
     , _dcsgMarker = Nothing
+    , _dcsgMaxRecords = Nothing
     }
 
 -- | The name of the cache subnet group to return details for.
 dcsgCacheSubnetGroupName :: Lens' DescribeCacheSubnetGroups (Maybe Text)
 dcsgCacheSubnetGroupName = lens _dcsgCacheSubnetGroupName (\ s a -> s{_dcsgCacheSubnetGroupName = a});
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+dcsgMarker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
+dcsgMarker = lens _dcsgMarker (\ s a -> s{_dcsgMarker = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a marker is
@@ -91,13 +98,6 @@ dcsgCacheSubnetGroupName = lens _dcsgCacheSubnetGroupName (\ s a -> s{_dcsgCache
 -- Constraints: minimum 20; maximum 100.
 dcsgMaxRecords :: Lens' DescribeCacheSubnetGroups (Maybe Int)
 dcsgMaxRecords = lens _dcsgMaxRecords (\ s a -> s{_dcsgMaxRecords = a});
-
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
-dcsgMarker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
-dcsgMarker = lens _dcsgMarker (\ s a -> s{_dcsgMarker = a});
 
 instance AWSPager DescribeCacheSubnetGroups where
         page rq rs
@@ -132,8 +132,8 @@ instance ToQuery DescribeCacheSubnetGroups where
                  ("DescribeCacheSubnetGroups" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheSubnetGroupName" =: _dcsgCacheSubnetGroupName,
-               "MaxRecords" =: _dcsgMaxRecords,
-               "Marker" =: _dcsgMarker]
+               "Marker" =: _dcsgMarker,
+               "MaxRecords" =: _dcsgMaxRecords]
 
 -- | Represents the output of a /DescribeCacheSubnetGroups/ action.
 --
@@ -141,7 +141,7 @@ instance ToQuery DescribeCacheSubnetGroups where
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
     { _dcsgrsMarker            :: !(Maybe Text)
     , _dcsgrsCacheSubnetGroups :: !(Maybe [CacheSubnetGroup])
-    , _dcsgrsStatus            :: !Int
+    , _dcsgrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCacheSubnetGroupsResponse' with the minimum fields required to make a request.
@@ -152,15 +152,15 @@ data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
 --
 -- * 'dcsgrsCacheSubnetGroups'
 --
--- * 'dcsgrsStatus'
+-- * 'dcsgrsResponseStatus'
 describeCacheSubnetGroupsResponse
-    :: Int -- ^ 'dcsgrsStatus'
+    :: Int -- ^ 'dcsgrsResponseStatus'
     -> DescribeCacheSubnetGroupsResponse
-describeCacheSubnetGroupsResponse pStatus_ =
+describeCacheSubnetGroupsResponse pResponseStatus_ =
     DescribeCacheSubnetGroupsResponse'
     { _dcsgrsMarker = Nothing
     , _dcsgrsCacheSubnetGroups = Nothing
-    , _dcsgrsStatus = pStatus_
+    , _dcsgrsResponseStatus = pResponseStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -173,5 +173,5 @@ dcsgrsCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetG
 dcsgrsCacheSubnetGroups = lens _dcsgrsCacheSubnetGroups (\ s a -> s{_dcsgrsCacheSubnetGroups = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcsgrsStatus :: Lens' DescribeCacheSubnetGroupsResponse Int
-dcsgrsStatus = lens _dcsgrsStatus (\ s a -> s{_dcsgrsStatus = a});
+dcsgrsResponseStatus :: Lens' DescribeCacheSubnetGroupsResponse Int
+dcsgrsResponseStatus = lens _dcsgrsResponseStatus (\ s a -> s{_dcsgrsResponseStatus = a});

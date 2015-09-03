@@ -34,7 +34,7 @@ module Network.AWS.DeviceFarm.GetDevicePool
     , GetDevicePoolResponse
     -- * Response Lenses
     , gdprsDevicePool
-    , gdprsStatus
+    , gdprsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -99,8 +99,8 @@ instance ToQuery GetDevicePool where
 --
 -- /See:/ 'getDevicePoolResponse' smart constructor.
 data GetDevicePoolResponse = GetDevicePoolResponse'
-    { _gdprsDevicePool :: !(Maybe DevicePool)
-    , _gdprsStatus     :: !Int
+    { _gdprsDevicePool     :: !(Maybe DevicePool)
+    , _gdprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDevicePoolResponse' with the minimum fields required to make a request.
@@ -109,14 +109,14 @@ data GetDevicePoolResponse = GetDevicePoolResponse'
 --
 -- * 'gdprsDevicePool'
 --
--- * 'gdprsStatus'
+-- * 'gdprsResponseStatus'
 getDevicePoolResponse
-    :: Int -- ^ 'gdprsStatus'
+    :: Int -- ^ 'gdprsResponseStatus'
     -> GetDevicePoolResponse
-getDevicePoolResponse pStatus_ =
+getDevicePoolResponse pResponseStatus_ =
     GetDevicePoolResponse'
     { _gdprsDevicePool = Nothing
-    , _gdprsStatus = pStatus_
+    , _gdprsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -124,5 +124,5 @@ gdprsDevicePool :: Lens' GetDevicePoolResponse (Maybe DevicePool)
 gdprsDevicePool = lens _gdprsDevicePool (\ s a -> s{_gdprsDevicePool = a});
 
 -- | The response status code.
-gdprsStatus :: Lens' GetDevicePoolResponse Int
-gdprsStatus = lens _gdprsStatus (\ s a -> s{_gdprsStatus = a});
+gdprsResponseStatus :: Lens' GetDevicePoolResponse Int
+gdprsResponseStatus = lens _gdprsResponseStatus (\ s a -> s{_gdprsResponseStatus = a});

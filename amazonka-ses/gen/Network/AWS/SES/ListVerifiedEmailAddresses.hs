@@ -39,7 +39,7 @@ module Network.AWS.SES.ListVerifiedEmailAddresses
     , ListVerifiedEmailAddressesResponse
     -- * Response Lenses
     , lvearsVerifiedEmailAddresses
-    , lvearsStatus
+    , lvearsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -92,7 +92,7 @@ instance ToQuery ListVerifiedEmailAddresses where
 -- /See:/ 'listVerifiedEmailAddressesResponse' smart constructor.
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
     { _lvearsVerifiedEmailAddresses :: !(Maybe [Text])
-    , _lvearsStatus                 :: !Int
+    , _lvearsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListVerifiedEmailAddressesResponse' with the minimum fields required to make a request.
@@ -101,14 +101,14 @@ data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
 --
 -- * 'lvearsVerifiedEmailAddresses'
 --
--- * 'lvearsStatus'
+-- * 'lvearsResponseStatus'
 listVerifiedEmailAddressesResponse
-    :: Int -- ^ 'lvearsStatus'
+    :: Int -- ^ 'lvearsResponseStatus'
     -> ListVerifiedEmailAddressesResponse
-listVerifiedEmailAddressesResponse pStatus_ =
+listVerifiedEmailAddressesResponse pResponseStatus_ =
     ListVerifiedEmailAddressesResponse'
     { _lvearsVerifiedEmailAddresses = Nothing
-    , _lvearsStatus = pStatus_
+    , _lvearsResponseStatus = pResponseStatus_
     }
 
 -- | A list of email addresses that have been verified.
@@ -116,5 +116,5 @@ lvearsVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
 lvearsVerifiedEmailAddresses = lens _lvearsVerifiedEmailAddresses (\ s a -> s{_lvearsVerifiedEmailAddresses = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lvearsStatus :: Lens' ListVerifiedEmailAddressesResponse Int
-lvearsStatus = lens _lvearsStatus (\ s a -> s{_lvearsStatus = a});
+lvearsResponseStatus :: Lens' ListVerifiedEmailAddressesResponse Int
+lvearsResponseStatus = lens _lvearsResponseStatus (\ s a -> s{_lvearsResponseStatus = a});

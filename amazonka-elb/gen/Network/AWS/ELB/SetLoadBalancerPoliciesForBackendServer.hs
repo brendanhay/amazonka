@@ -46,7 +46,7 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     , setLoadBalancerPoliciesForBackendServerResponse
     , SetLoadBalancerPoliciesForBackendServerResponse
     -- * Response Lenses
-    , slbpfbsrsStatus
+    , slbpfbsrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -130,22 +130,22 @@ instance ToQuery
 
 -- | /See:/ 'setLoadBalancerPoliciesForBackendServerResponse' smart constructor.
 newtype SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse'
-    { _slbpfbsrsStatus :: Int
+    { _slbpfbsrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SetLoadBalancerPoliciesForBackendServerResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slbpfbsrsStatus'
+-- * 'slbpfbsrsResponseStatus'
 setLoadBalancerPoliciesForBackendServerResponse
-    :: Int -- ^ 'slbpfbsrsStatus'
+    :: Int -- ^ 'slbpfbsrsResponseStatus'
     -> SetLoadBalancerPoliciesForBackendServerResponse
-setLoadBalancerPoliciesForBackendServerResponse pStatus_ =
+setLoadBalancerPoliciesForBackendServerResponse pResponseStatus_ =
     SetLoadBalancerPoliciesForBackendServerResponse'
-    { _slbpfbsrsStatus = pStatus_
+    { _slbpfbsrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-slbpfbsrsStatus :: Lens' SetLoadBalancerPoliciesForBackendServerResponse Int
-slbpfbsrsStatus = lens _slbpfbsrsStatus (\ s a -> s{_slbpfbsrsStatus = a});
+slbpfbsrsResponseStatus :: Lens' SetLoadBalancerPoliciesForBackendServerResponse Int
+slbpfbsrsResponseStatus = lens _slbpfbsrsResponseStatus (\ s a -> s{_slbpfbsrsResponseStatus = a});

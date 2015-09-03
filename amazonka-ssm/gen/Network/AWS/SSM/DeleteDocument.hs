@@ -36,7 +36,7 @@ module Network.AWS.SSM.DeleteDocument
     , deleteDocumentResponse
     , DeleteDocumentResponse
     -- * Response Lenses
-    , ddrsStatus
+    , ddrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -96,22 +96,22 @@ instance ToQuery DeleteDocument where
 
 -- | /See:/ 'deleteDocumentResponse' smart constructor.
 newtype DeleteDocumentResponse = DeleteDocumentResponse'
-    { _ddrsStatus :: Int
+    { _ddrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDocumentResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddrsStatus'
+-- * 'ddrsResponseStatus'
 deleteDocumentResponse
-    :: Int -- ^ 'ddrsStatus'
+    :: Int -- ^ 'ddrsResponseStatus'
     -> DeleteDocumentResponse
-deleteDocumentResponse pStatus_ =
+deleteDocumentResponse pResponseStatus_ =
     DeleteDocumentResponse'
-    { _ddrsStatus = pStatus_
+    { _ddrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-ddrsStatus :: Lens' DeleteDocumentResponse Int
-ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
+ddrsResponseStatus :: Lens' DeleteDocumentResponse Int
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});

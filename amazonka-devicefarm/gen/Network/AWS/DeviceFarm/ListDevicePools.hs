@@ -37,7 +37,7 @@ module Network.AWS.DeviceFarm.ListDevicePools
     -- * Response Lenses
     , ldprsDevicePools
     , ldprsNextToken
-    , ldprsStatus
+    , ldprsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -135,9 +135,9 @@ instance ToQuery ListDevicePools where
 --
 -- /See:/ 'listDevicePoolsResponse' smart constructor.
 data ListDevicePoolsResponse = ListDevicePoolsResponse'
-    { _ldprsDevicePools :: !(Maybe [DevicePool])
-    , _ldprsNextToken   :: !(Maybe Text)
-    , _ldprsStatus      :: !Int
+    { _ldprsDevicePools    :: !(Maybe [DevicePool])
+    , _ldprsNextToken      :: !(Maybe Text)
+    , _ldprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListDevicePoolsResponse' with the minimum fields required to make a request.
@@ -148,15 +148,15 @@ data ListDevicePoolsResponse = ListDevicePoolsResponse'
 --
 -- * 'ldprsNextToken'
 --
--- * 'ldprsStatus'
+-- * 'ldprsResponseStatus'
 listDevicePoolsResponse
-    :: Int -- ^ 'ldprsStatus'
+    :: Int -- ^ 'ldprsResponseStatus'
     -> ListDevicePoolsResponse
-listDevicePoolsResponse pStatus_ =
+listDevicePoolsResponse pResponseStatus_ =
     ListDevicePoolsResponse'
     { _ldprsDevicePools = Nothing
     , _ldprsNextToken = Nothing
-    , _ldprsStatus = pStatus_
+    , _ldprsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the device pools.
@@ -170,5 +170,5 @@ ldprsNextToken :: Lens' ListDevicePoolsResponse (Maybe Text)
 ldprsNextToken = lens _ldprsNextToken (\ s a -> s{_ldprsNextToken = a});
 
 -- | The response status code.
-ldprsStatus :: Lens' ListDevicePoolsResponse Int
-ldprsStatus = lens _ldprsStatus (\ s a -> s{_ldprsStatus = a});
+ldprsResponseStatus :: Lens' ListDevicePoolsResponse Int
+ldprsResponseStatus = lens _ldprsResponseStatus (\ s a -> s{_ldprsResponseStatus = a});

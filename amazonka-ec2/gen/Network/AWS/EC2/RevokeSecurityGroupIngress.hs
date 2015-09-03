@@ -43,8 +43,8 @@ module Network.AWS.EC2.RevokeSecurityGroupIngress
     , rsgiGroupId
     , rsgiToPort
     , rsgiCIdRIP
-    , rsgiGroupName
     , rsgiSourceSecurityGroupOwnerId
+    , rsgiGroupName
     , rsgiSourceSecurityGroupName
     , rsgiDryRun
 
@@ -67,8 +67,8 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
     , _rsgiGroupId                    :: !(Maybe Text)
     , _rsgiToPort                     :: !(Maybe Int)
     , _rsgiCIdRIP                     :: !(Maybe Text)
-    , _rsgiGroupName                  :: !(Maybe Text)
     , _rsgiSourceSecurityGroupOwnerId :: !(Maybe Text)
+    , _rsgiGroupName                  :: !(Maybe Text)
     , _rsgiSourceSecurityGroupName    :: !(Maybe Text)
     , _rsgiDryRun                     :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -89,9 +89,9 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
 --
 -- * 'rsgiCIdRIP'
 --
--- * 'rsgiGroupName'
---
 -- * 'rsgiSourceSecurityGroupOwnerId'
+--
+-- * 'rsgiGroupName'
 --
 -- * 'rsgiSourceSecurityGroupName'
 --
@@ -106,8 +106,8 @@ revokeSecurityGroupIngress =
     , _rsgiGroupId = Nothing
     , _rsgiToPort = Nothing
     , _rsgiCIdRIP = Nothing
-    , _rsgiGroupName = Nothing
     , _rsgiSourceSecurityGroupOwnerId = Nothing
+    , _rsgiGroupName = Nothing
     , _rsgiSourceSecurityGroupName = Nothing
     , _rsgiDryRun = Nothing
     }
@@ -144,10 +144,6 @@ rsgiToPort = lens _rsgiToPort (\ s a -> s{_rsgiToPort = a});
 rsgiCIdRIP :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiCIdRIP = lens _rsgiCIdRIP (\ s a -> s{_rsgiCIdRIP = a});
 
--- | [EC2-Classic, default VPC] The name of the security group.
-rsgiGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgiGroupName = lens _rsgiGroupName (\ s a -> s{_rsgiGroupName = a});
-
 -- | [EC2-Classic, default VPC] The AWS account ID of the source security
 -- group. For EC2-VPC, the source security group must be in the same VPC.
 -- You can\'t specify this parameter in combination with the following
@@ -156,6 +152,10 @@ rsgiGroupName = lens _rsgiGroupName (\ s a -> s{_rsgiGroupName = a});
 -- an IP protocol and port range, use a set of IP permissions instead.
 rsgiSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiSourceSecurityGroupOwnerId = lens _rsgiSourceSecurityGroupOwnerId (\ s a -> s{_rsgiSourceSecurityGroupOwnerId = a});
+
+-- | [EC2-Classic, default VPC] The name of the security group.
+rsgiGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgiGroupName = lens _rsgiGroupName (\ s a -> s{_rsgiGroupName = a});
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You
 -- can\'t specify this parameter in combination with the following
@@ -197,9 +197,9 @@ instance ToQuery RevokeSecurityGroupIngress where
                "IpProtocol" =: _rsgiIPProtocol,
                "GroupId" =: _rsgiGroupId, "ToPort" =: _rsgiToPort,
                "CidrIp" =: _rsgiCIdRIP,
-               "GroupName" =: _rsgiGroupName,
                "SourceSecurityGroupOwnerId" =:
                  _rsgiSourceSecurityGroupOwnerId,
+               "GroupName" =: _rsgiGroupName,
                "SourceSecurityGroupName" =:
                  _rsgiSourceSecurityGroupName,
                "DryRun" =: _rsgiDryRun]

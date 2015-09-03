@@ -40,7 +40,7 @@ module Network.AWS.IAM.CreateUser
     , CreateUserResponse
     -- * Response Lenses
     , cursUser
-    , cursStatus
+    , cursResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -110,8 +110,8 @@ instance ToQuery CreateUser where
 --
 -- /See:/ 'createUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
-    { _cursUser   :: !(Maybe User)
-    , _cursStatus :: !Int
+    { _cursUser           :: !(Maybe User)
+    , _cursResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateUserResponse' with the minimum fields required to make a request.
@@ -120,14 +120,14 @@ data CreateUserResponse = CreateUserResponse'
 --
 -- * 'cursUser'
 --
--- * 'cursStatus'
+-- * 'cursResponseStatus'
 createUserResponse
-    :: Int -- ^ 'cursStatus'
+    :: Int -- ^ 'cursResponseStatus'
     -> CreateUserResponse
-createUserResponse pStatus_ =
+createUserResponse pResponseStatus_ =
     CreateUserResponse'
     { _cursUser = Nothing
-    , _cursStatus = pStatus_
+    , _cursResponseStatus = pResponseStatus_
     }
 
 -- | Information about the user.
@@ -135,5 +135,5 @@ cursUser :: Lens' CreateUserResponse (Maybe User)
 cursUser = lens _cursUser (\ s a -> s{_cursUser = a});
 
 -- | The response status code.
-cursStatus :: Lens' CreateUserResponse Int
-cursStatus = lens _cursStatus (\ s a -> s{_cursStatus = a});
+cursResponseStatus :: Lens' CreateUserResponse Int
+cursResponseStatus = lens _cursResponseStatus (\ s a -> s{_cursResponseStatus = a});

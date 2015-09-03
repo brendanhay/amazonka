@@ -41,7 +41,7 @@ module Network.AWS.CloudHSM.ListHSMs
     -- * Response Lenses
     , lhsmrsNextToken
     , lhsmrsHSMList
-    , lhsmrsStatus
+    , lhsmrsResponseStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -106,9 +106,9 @@ instance ToQuery ListHSMs where
 --
 -- /See:/ 'listHSMsResponse' smart constructor.
 data ListHSMsResponse = ListHSMsResponse'
-    { _lhsmrsNextToken :: !(Maybe Text)
-    , _lhsmrsHSMList   :: !(Maybe [Text])
-    , _lhsmrsStatus    :: !Int
+    { _lhsmrsNextToken      :: !(Maybe Text)
+    , _lhsmrsHSMList        :: !(Maybe [Text])
+    , _lhsmrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListHSMsResponse' with the minimum fields required to make a request.
@@ -119,15 +119,15 @@ data ListHSMsResponse = ListHSMsResponse'
 --
 -- * 'lhsmrsHSMList'
 --
--- * 'lhsmrsStatus'
+-- * 'lhsmrsResponseStatus'
 listHSMsResponse
-    :: Int -- ^ 'lhsmrsStatus'
+    :: Int -- ^ 'lhsmrsResponseStatus'
     -> ListHSMsResponse
-listHSMsResponse pStatus_ =
+listHSMsResponse pResponseStatus_ =
     ListHSMsResponse'
     { _lhsmrsNextToken = Nothing
     , _lhsmrsHSMList = Nothing
-    , _lhsmrsStatus = pStatus_
+    , _lhsmrsResponseStatus = pResponseStatus_
     }
 
 -- | If not null, more results are available. Pass this value to ListHsms to
@@ -140,5 +140,5 @@ lhsmrsHSMList :: Lens' ListHSMsResponse [Text]
 lhsmrsHSMList = lens _lhsmrsHSMList (\ s a -> s{_lhsmrsHSMList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lhsmrsStatus :: Lens' ListHSMsResponse Int
-lhsmrsStatus = lens _lhsmrsStatus (\ s a -> s{_lhsmrsStatus = a});
+lhsmrsResponseStatus :: Lens' ListHSMsResponse Int
+lhsmrsResponseStatus = lens _lhsmrsResponseStatus (\ s a -> s{_lhsmrsResponseStatus = a});

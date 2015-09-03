@@ -43,7 +43,7 @@ module Network.AWS.CognitoSync.DescribeDataset
     , DescribeDatasetResponse
     -- * Response Lenses
     , ddrsDataset
-    , ddrsStatus
+    , ddrsResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -130,8 +130,8 @@ instance ToQuery DescribeDataset where
 --
 -- /See:/ 'describeDatasetResponse' smart constructor.
 data DescribeDatasetResponse = DescribeDatasetResponse'
-    { _ddrsDataset :: !(Maybe Dataset)
-    , _ddrsStatus  :: !Int
+    { _ddrsDataset        :: !(Maybe Dataset)
+    , _ddrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDatasetResponse' with the minimum fields required to make a request.
@@ -140,14 +140,14 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
 --
 -- * 'ddrsDataset'
 --
--- * 'ddrsStatus'
+-- * 'ddrsResponseStatus'
 describeDatasetResponse
-    :: Int -- ^ 'ddrsStatus'
+    :: Int -- ^ 'ddrsResponseStatus'
     -> DescribeDatasetResponse
-describeDatasetResponse pStatus_ =
+describeDatasetResponse pResponseStatus_ =
     DescribeDatasetResponse'
     { _ddrsDataset = Nothing
-    , _ddrsStatus = pStatus_
+    , _ddrsResponseStatus = pResponseStatus_
     }
 
 -- | Meta data for a collection of data for an identity. An identity can have
@@ -159,5 +159,5 @@ ddrsDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
 ddrsDataset = lens _ddrsDataset (\ s a -> s{_ddrsDataset = a});
 
 -- | The response status code.
-ddrsStatus :: Lens' DescribeDatasetResponse Int
-ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
+ddrsResponseStatus :: Lens' DescribeDatasetResponse Int
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});

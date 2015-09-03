@@ -41,7 +41,7 @@ module Network.AWS.CodeDeploy.ListOnPremisesInstances
     -- * Response Lenses
     , lopirsNextToken
     , lopirsInstanceNames
-    , lopirsStatus
+    , lopirsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -140,9 +140,9 @@ instance ToQuery ListOnPremisesInstances where
 --
 -- /See:/ 'listOnPremisesInstancesResponse' smart constructor.
 data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
-    { _lopirsNextToken     :: !(Maybe Text)
-    , _lopirsInstanceNames :: !(Maybe [Text])
-    , _lopirsStatus        :: !Int
+    { _lopirsNextToken      :: !(Maybe Text)
+    , _lopirsInstanceNames  :: !(Maybe [Text])
+    , _lopirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListOnPremisesInstancesResponse' with the minimum fields required to make a request.
@@ -153,15 +153,15 @@ data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
 --
 -- * 'lopirsInstanceNames'
 --
--- * 'lopirsStatus'
+-- * 'lopirsResponseStatus'
 listOnPremisesInstancesResponse
-    :: Int -- ^ 'lopirsStatus'
+    :: Int -- ^ 'lopirsResponseStatus'
     -> ListOnPremisesInstancesResponse
-listOnPremisesInstancesResponse pStatus_ =
+listOnPremisesInstancesResponse pResponseStatus_ =
     ListOnPremisesInstancesResponse'
     { _lopirsNextToken = Nothing
     , _lopirsInstanceNames = Nothing
-    , _lopirsStatus = pStatus_
+    , _lopirsResponseStatus = pResponseStatus_
     }
 
 -- | If the amount of information that is returned is significantly large, an
@@ -176,5 +176,5 @@ lopirsInstanceNames :: Lens' ListOnPremisesInstancesResponse [Text]
 lopirsInstanceNames = lens _lopirsInstanceNames (\ s a -> s{_lopirsInstanceNames = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lopirsStatus :: Lens' ListOnPremisesInstancesResponse Int
-lopirsStatus = lens _lopirsStatus (\ s a -> s{_lopirsStatus = a});
+lopirsResponseStatus :: Lens' ListOnPremisesInstancesResponse Int
+lopirsResponseStatus = lens _lopirsResponseStatus (\ s a -> s{_lopirsResponseStatus = a});

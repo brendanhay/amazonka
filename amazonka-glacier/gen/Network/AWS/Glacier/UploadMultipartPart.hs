@@ -86,7 +86,7 @@ module Network.AWS.Glacier.UploadMultipartPart
     , UploadMultipartPartResponse
     -- * Response Lenses
     , umprsChecksum
-    , umprsStatus
+    , umprsResponseStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -204,8 +204,8 @@ instance ToQuery UploadMultipartPart where
 --
 -- /See:/ 'uploadMultipartPartResponse' smart constructor.
 data UploadMultipartPartResponse = UploadMultipartPartResponse'
-    { _umprsChecksum :: !(Maybe Text)
-    , _umprsStatus   :: !Int
+    { _umprsChecksum       :: !(Maybe Text)
+    , _umprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UploadMultipartPartResponse' with the minimum fields required to make a request.
@@ -214,14 +214,14 @@ data UploadMultipartPartResponse = UploadMultipartPartResponse'
 --
 -- * 'umprsChecksum'
 --
--- * 'umprsStatus'
+-- * 'umprsResponseStatus'
 uploadMultipartPartResponse
-    :: Int -- ^ 'umprsStatus'
+    :: Int -- ^ 'umprsResponseStatus'
     -> UploadMultipartPartResponse
-uploadMultipartPartResponse pStatus_ =
+uploadMultipartPartResponse pResponseStatus_ =
     UploadMultipartPartResponse'
     { _umprsChecksum = Nothing
-    , _umprsStatus = pStatus_
+    , _umprsResponseStatus = pResponseStatus_
     }
 
 -- | The SHA256 tree hash that Amazon Glacier computed for the uploaded part.
@@ -229,5 +229,5 @@ umprsChecksum :: Lens' UploadMultipartPartResponse (Maybe Text)
 umprsChecksum = lens _umprsChecksum (\ s a -> s{_umprsChecksum = a});
 
 -- | The response status code.
-umprsStatus :: Lens' UploadMultipartPartResponse Int
-umprsStatus = lens _umprsStatus (\ s a -> s{_umprsStatus = a});
+umprsResponseStatus :: Lens' UploadMultipartPartResponse Int
+umprsResponseStatus = lens _umprsResponseStatus (\ s a -> s{_umprsResponseStatus = a});

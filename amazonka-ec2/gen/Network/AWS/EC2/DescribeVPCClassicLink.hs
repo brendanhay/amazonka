@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeVPCClassicLink
     , DescribeVPCClassicLinkResponse
     -- * Response Lenses
     , dvclrsVPCs
-    , dvclrsStatus
+    , dvclrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -133,8 +133,8 @@ instance ToQuery DescribeVPCClassicLink where
 
 -- | /See:/ 'describeVPCClassicLinkResponse' smart constructor.
 data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'
-    { _dvclrsVPCs   :: !(Maybe [VPCClassicLink])
-    , _dvclrsStatus :: !Int
+    { _dvclrsVPCs           :: !(Maybe [VPCClassicLink])
+    , _dvclrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVPCClassicLinkResponse' with the minimum fields required to make a request.
@@ -143,14 +143,14 @@ data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'
 --
 -- * 'dvclrsVPCs'
 --
--- * 'dvclrsStatus'
+-- * 'dvclrsResponseStatus'
 describeVPCClassicLinkResponse
-    :: Int -- ^ 'dvclrsStatus'
+    :: Int -- ^ 'dvclrsResponseStatus'
     -> DescribeVPCClassicLinkResponse
-describeVPCClassicLinkResponse pStatus_ =
+describeVPCClassicLinkResponse pResponseStatus_ =
     DescribeVPCClassicLinkResponse'
     { _dvclrsVPCs = Nothing
-    , _dvclrsStatus = pStatus_
+    , _dvclrsResponseStatus = pResponseStatus_
     }
 
 -- | The ClassicLink status of one or more VPCs.
@@ -158,5 +158,5 @@ dvclrsVPCs :: Lens' DescribeVPCClassicLinkResponse [VPCClassicLink]
 dvclrsVPCs = lens _dvclrsVPCs (\ s a -> s{_dvclrsVPCs = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dvclrsStatus :: Lens' DescribeVPCClassicLinkResponse Int
-dvclrsStatus = lens _dvclrsStatus (\ s a -> s{_dvclrsStatus = a});
+dvclrsResponseStatus :: Lens' DescribeVPCClassicLinkResponse Int
+dvclrsResponseStatus = lens _dvclrsResponseStatus (\ s a -> s{_dvclrsResponseStatus = a});

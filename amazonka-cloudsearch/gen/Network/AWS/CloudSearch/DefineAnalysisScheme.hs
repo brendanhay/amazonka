@@ -38,7 +38,7 @@ module Network.AWS.CloudSearch.DefineAnalysisScheme
     , defineAnalysisSchemeResponse
     , DefineAnalysisSchemeResponse
     -- * Response Lenses
-    , defersStatus
+    , defersResponseStatus
     , defersAnalysisScheme
     ) where
 
@@ -112,7 +112,7 @@ instance ToQuery DefineAnalysisScheme where
 --
 -- /See:/ 'defineAnalysisSchemeResponse' smart constructor.
 data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
-    { _defersStatus         :: !Int
+    { _defersResponseStatus :: !Int
     , _defersAnalysisScheme :: !AnalysisSchemeStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -120,22 +120,22 @@ data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'defersStatus'
+-- * 'defersResponseStatus'
 --
 -- * 'defersAnalysisScheme'
 defineAnalysisSchemeResponse
-    :: Int -- ^ 'defersStatus'
+    :: Int -- ^ 'defersResponseStatus'
     -> AnalysisSchemeStatus -- ^ 'defersAnalysisScheme'
     -> DefineAnalysisSchemeResponse
-defineAnalysisSchemeResponse pStatus_ pAnalysisScheme_ =
+defineAnalysisSchemeResponse pResponseStatus_ pAnalysisScheme_ =
     DefineAnalysisSchemeResponse'
-    { _defersStatus = pStatus_
+    { _defersResponseStatus = pResponseStatus_
     , _defersAnalysisScheme = pAnalysisScheme_
     }
 
 -- | The response status code.
-defersStatus :: Lens' DefineAnalysisSchemeResponse Int
-defersStatus = lens _defersStatus (\ s a -> s{_defersStatus = a});
+defersResponseStatus :: Lens' DefineAnalysisSchemeResponse Int
+defersResponseStatus = lens _defersResponseStatus (\ s a -> s{_defersResponseStatus = a});
 
 -- | Undocumented member.
 defersAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus

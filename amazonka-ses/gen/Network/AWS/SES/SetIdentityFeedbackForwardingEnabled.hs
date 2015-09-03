@@ -46,7 +46,7 @@ module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     , setIdentityFeedbackForwardingEnabledResponse
     , SetIdentityFeedbackForwardingEnabledResponse
     -- * Response Lenses
-    , siffersStatus
+    , siffersResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -129,22 +129,22 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled
 --
 -- /See:/ 'setIdentityFeedbackForwardingEnabledResponse' smart constructor.
 newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
-    { _siffersStatus :: Int
+    { _siffersResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SetIdentityFeedbackForwardingEnabledResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'siffersStatus'
+-- * 'siffersResponseStatus'
 setIdentityFeedbackForwardingEnabledResponse
-    :: Int -- ^ 'siffersStatus'
+    :: Int -- ^ 'siffersResponseStatus'
     -> SetIdentityFeedbackForwardingEnabledResponse
-setIdentityFeedbackForwardingEnabledResponse pStatus_ =
+setIdentityFeedbackForwardingEnabledResponse pResponseStatus_ =
     SetIdentityFeedbackForwardingEnabledResponse'
-    { _siffersStatus = pStatus_
+    { _siffersResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-siffersStatus :: Lens' SetIdentityFeedbackForwardingEnabledResponse Int
-siffersStatus = lens _siffersStatus (\ s a -> s{_siffersStatus = a});
+siffersResponseStatus :: Lens' SetIdentityFeedbackForwardingEnabledResponse Int
+siffersResponseStatus = lens _siffersResponseStatus (\ s a -> s{_siffersResponseStatus = a});

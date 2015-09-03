@@ -1,5 +1,5 @@
 name:                  amazonka-directconnect
-version:               1.2.0.2
+version:               1.3.0
 synopsis:              Amazon Direct Connect SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -88,7 +88,7 @@ library
         , Network.AWS.DirectConnect.Types.Sum
 
     build-depends:
-          amazonka-core == 1.2.0.*
+          amazonka-core == 1.3.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-directconnect-test
@@ -108,9 +108,9 @@ test-suite amazonka-directconnect-test
         , Test.AWS.DirectConnect.Internal
 
     build-depends:
-          amazonka-core == 1.2.0.*
-        , amazonka-test == 1.2.0.*
-        , amazonka-directconnect == 1.2.0.*
+          amazonka-core == 1.3.0.*
+        , amazonka-test == 1.3.0.*
+        , amazonka-directconnect == 1.3.0.*
         , base
         , bytestring
         , lens

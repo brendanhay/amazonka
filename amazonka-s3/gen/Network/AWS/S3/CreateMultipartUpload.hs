@@ -34,18 +34,18 @@ module Network.AWS.S3.CreateMultipartUpload
     , CreateMultipartUpload
     -- * Request Lenses
     , cmuExpires
-    , cmuSSECustomerAlgorithm
     , cmuGrantReadACP
+    , cmuSSECustomerAlgorithm
     , cmuSSECustomerKey
     , cmuRequestPayer
     , cmuGrantWriteACP
     , cmuWebsiteRedirectLocation
     , cmuGrantRead
     , cmuStorageClass
-    , cmuContentEncoding
+    , cmuSSECustomerKeyMD5
     , cmuSSEKMSKeyId
     , cmuGrantFullControl
-    , cmuSSECustomerKeyMD5
+    , cmuContentEncoding
     , cmuMetadata
     , cmuCacheControl
     , cmuContentLanguage
@@ -61,14 +61,14 @@ module Network.AWS.S3.CreateMultipartUpload
     , CreateMultipartUploadResponse
     -- * Response Lenses
     , cmursRequestCharged
-    , cmursSSECustomerAlgorithm
     , cmursBucket
+    , cmursSSECustomerAlgorithm
     , cmursKey
-    , cmursSSEKMSKeyId
     , cmursSSECustomerKeyMD5
+    , cmursSSEKMSKeyId
     , cmursUploadId
     , cmursServerSideEncryption
-    , cmursStatus
+    , cmursResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -80,18 +80,18 @@ import           Network.AWS.S3.Types.Product
 -- | /See:/ 'createMultipartUpload' smart constructor.
 data CreateMultipartUpload = CreateMultipartUpload'
     { _cmuExpires                 :: !(Maybe RFC822)
-    , _cmuSSECustomerAlgorithm    :: !(Maybe Text)
     , _cmuGrantReadACP            :: !(Maybe Text)
+    , _cmuSSECustomerAlgorithm    :: !(Maybe Text)
     , _cmuSSECustomerKey          :: !(Maybe (Sensitive Text))
     , _cmuRequestPayer            :: !(Maybe RequestPayer)
     , _cmuGrantWriteACP           :: !(Maybe Text)
     , _cmuWebsiteRedirectLocation :: !(Maybe Text)
     , _cmuGrantRead               :: !(Maybe Text)
     , _cmuStorageClass            :: !(Maybe StorageClass)
-    , _cmuContentEncoding         :: !(Maybe Text)
+    , _cmuSSECustomerKeyMD5       :: !(Maybe Text)
     , _cmuSSEKMSKeyId             :: !(Maybe (Sensitive Text))
     , _cmuGrantFullControl        :: !(Maybe Text)
-    , _cmuSSECustomerKeyMD5       :: !(Maybe Text)
+    , _cmuContentEncoding         :: !(Maybe Text)
     , _cmuMetadata                :: !(Map Text Text)
     , _cmuCacheControl            :: !(Maybe Text)
     , _cmuContentLanguage         :: !(Maybe Text)
@@ -109,9 +109,9 @@ data CreateMultipartUpload = CreateMultipartUpload'
 --
 -- * 'cmuExpires'
 --
--- * 'cmuSSECustomerAlgorithm'
---
 -- * 'cmuGrantReadACP'
+--
+-- * 'cmuSSECustomerAlgorithm'
 --
 -- * 'cmuSSECustomerKey'
 --
@@ -125,13 +125,13 @@ data CreateMultipartUpload = CreateMultipartUpload'
 --
 -- * 'cmuStorageClass'
 --
--- * 'cmuContentEncoding'
+-- * 'cmuSSECustomerKeyMD5'
 --
 -- * 'cmuSSEKMSKeyId'
 --
 -- * 'cmuGrantFullControl'
 --
--- * 'cmuSSECustomerKeyMD5'
+-- * 'cmuContentEncoding'
 --
 -- * 'cmuMetadata'
 --
@@ -157,18 +157,18 @@ createMultipartUpload
 createMultipartUpload pBucket_ pKey_ =
     CreateMultipartUpload'
     { _cmuExpires = Nothing
-    , _cmuSSECustomerAlgorithm = Nothing
     , _cmuGrantReadACP = Nothing
+    , _cmuSSECustomerAlgorithm = Nothing
     , _cmuSSECustomerKey = Nothing
     , _cmuRequestPayer = Nothing
     , _cmuGrantWriteACP = Nothing
     , _cmuWebsiteRedirectLocation = Nothing
     , _cmuGrantRead = Nothing
     , _cmuStorageClass = Nothing
-    , _cmuContentEncoding = Nothing
+    , _cmuSSECustomerKeyMD5 = Nothing
     , _cmuSSEKMSKeyId = Nothing
     , _cmuGrantFullControl = Nothing
-    , _cmuSSECustomerKeyMD5 = Nothing
+    , _cmuContentEncoding = Nothing
     , _cmuMetadata = mempty
     , _cmuCacheControl = Nothing
     , _cmuContentLanguage = Nothing
@@ -184,14 +184,14 @@ createMultipartUpload pBucket_ pKey_ =
 cmuExpires :: Lens' CreateMultipartUpload (Maybe UTCTime)
 cmuExpires = lens _cmuExpires (\ s a -> s{_cmuExpires = a}) . mapping _Time;
 
+-- | Allows grantee to read the object ACL.
+cmuGrantReadACP :: Lens' CreateMultipartUpload (Maybe Text)
+cmuGrantReadACP = lens _cmuGrantReadACP (\ s a -> s{_cmuGrantReadACP = a});
+
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
 cmuSSECustomerAlgorithm :: Lens' CreateMultipartUpload (Maybe Text)
 cmuSSECustomerAlgorithm = lens _cmuSSECustomerAlgorithm (\ s a -> s{_cmuSSECustomerAlgorithm = a});
-
--- | Allows grantee to read the object ACL.
-cmuGrantReadACP :: Lens' CreateMultipartUpload (Maybe Text)
-cmuGrantReadACP = lens _cmuGrantReadACP (\ s a -> s{_cmuGrantReadACP = a});
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
@@ -223,11 +223,11 @@ cmuGrantRead = lens _cmuGrantRead (\ s a -> s{_cmuGrantRead = a});
 cmuStorageClass :: Lens' CreateMultipartUpload (Maybe StorageClass)
 cmuStorageClass = lens _cmuStorageClass (\ s a -> s{_cmuStorageClass = a});
 
--- | Specifies what content encodings have been applied to the object and
--- thus what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
-cmuContentEncoding :: Lens' CreateMultipartUpload (Maybe Text)
-cmuContentEncoding = lens _cmuContentEncoding (\ s a -> s{_cmuContentEncoding = a});
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
+-- 1321. Amazon S3 uses this header for a message integrity check to ensure
+-- the encryption key was transmitted without error.
+cmuSSECustomerKeyMD5 :: Lens' CreateMultipartUpload (Maybe Text)
+cmuSSECustomerKeyMD5 = lens _cmuSSECustomerKeyMD5 (\ s a -> s{_cmuSSECustomerKeyMD5 = a});
 
 -- | Specifies the AWS KMS key ID to use for object encryption. All GET and
 -- PUT requests for an object protected by AWS KMS will fail if not made
@@ -242,11 +242,11 @@ cmuSSEKMSKeyId = lens _cmuSSEKMSKeyId (\ s a -> s{_cmuSSEKMSKeyId = a}) . mappin
 cmuGrantFullControl :: Lens' CreateMultipartUpload (Maybe Text)
 cmuGrantFullControl = lens _cmuGrantFullControl (\ s a -> s{_cmuGrantFullControl = a});
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
-cmuSSECustomerKeyMD5 :: Lens' CreateMultipartUpload (Maybe Text)
-cmuSSECustomerKeyMD5 = lens _cmuSSECustomerKeyMD5 (\ s a -> s{_cmuSSECustomerKeyMD5 = a});
+-- | Specifies what content encodings have been applied to the object and
+-- thus what decoding mechanisms must be applied to obtain the media-type
+-- referenced by the Content-Type header field.
+cmuContentEncoding :: Lens' CreateMultipartUpload (Maybe Text)
+cmuContentEncoding = lens _cmuContentEncoding (\ s a -> s{_cmuContentEncoding = a});
 
 -- | A map of metadata to store with the object in S3.
 cmuMetadata :: Lens' CreateMultipartUpload (HashMap Text Text)
@@ -293,16 +293,16 @@ instance AWSRequest CreateMultipartUpload where
           = receiveXML
               (\ s h x ->
                  CreateMultipartUploadResponse' <$>
-                   (h .#? "x-amz-request-charged") <*>
+                   (h .#? "x-amz-request-charged") <*> (x .@? "Bucket")
+                     <*>
                      (h .#?
                         "x-amz-server-side-encryption-customer-algorithm")
-                     <*> (x .@? "Bucket")
                      <*> (x .@? "Key")
-                     <*>
-                     (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
                      <*>
                      (h .#?
                         "x-amz-server-side-encryption-customer-key-MD5")
+                     <*>
+                     (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
                      <*> (x .@? "UploadId")
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (pure (fromEnum s)))
@@ -311,9 +311,9 @@ instance ToHeaders CreateMultipartUpload where
         toHeaders CreateMultipartUpload'{..}
           = mconcat
               ["Expires" =# _cmuExpires,
+               "x-amz-grant-read-acp" =# _cmuGrantReadACP,
                "x-amz-server-side-encryption-customer-algorithm" =#
                  _cmuSSECustomerAlgorithm,
-               "x-amz-grant-read-acp" =# _cmuGrantReadACP,
                "x-amz-server-side-encryption-customer-key" =#
                  _cmuSSECustomerKey,
                "x-amz-request-payer" =# _cmuRequestPayer,
@@ -322,12 +322,12 @@ instance ToHeaders CreateMultipartUpload where
                  _cmuWebsiteRedirectLocation,
                "x-amz-grant-read" =# _cmuGrantRead,
                "x-amz-storage-class" =# _cmuStorageClass,
-               "Content-Encoding" =# _cmuContentEncoding,
+               "x-amz-server-side-encryption-customer-key-MD5" =#
+                 _cmuSSECustomerKeyMD5,
                "x-amz-server-side-encryption-aws-kms-key-id" =#
                  _cmuSSEKMSKeyId,
                "x-amz-grant-full-control" =# _cmuGrantFullControl,
-               "x-amz-server-side-encryption-customer-key-MD5" =#
-                 _cmuSSECustomerKeyMD5,
+               "Content-Encoding" =# _cmuContentEncoding,
                "x-amz-meta-" =# _cmuMetadata,
                "Cache-Control" =# _cmuCacheControl,
                "Content-Language" =# _cmuContentLanguage,
@@ -347,14 +347,14 @@ instance ToQuery CreateMultipartUpload where
 -- | /See:/ 'createMultipartUploadResponse' smart constructor.
 data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
     { _cmursRequestCharged       :: !(Maybe RequestCharged)
-    , _cmursSSECustomerAlgorithm :: !(Maybe Text)
     , _cmursBucket               :: !(Maybe BucketName)
+    , _cmursSSECustomerAlgorithm :: !(Maybe Text)
     , _cmursKey                  :: !(Maybe ObjectKey)
-    , _cmursSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _cmursSSECustomerKeyMD5    :: !(Maybe Text)
+    , _cmursSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _cmursUploadId             :: !(Maybe Text)
     , _cmursServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _cmursStatus               :: !Int
+    , _cmursResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateMultipartUploadResponse' with the minimum fields required to make a request.
@@ -363,40 +363,44 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
 --
 -- * 'cmursRequestCharged'
 --
--- * 'cmursSSECustomerAlgorithm'
---
 -- * 'cmursBucket'
+--
+-- * 'cmursSSECustomerAlgorithm'
 --
 -- * 'cmursKey'
 --
--- * 'cmursSSEKMSKeyId'
---
 -- * 'cmursSSECustomerKeyMD5'
+--
+-- * 'cmursSSEKMSKeyId'
 --
 -- * 'cmursUploadId'
 --
 -- * 'cmursServerSideEncryption'
 --
--- * 'cmursStatus'
+-- * 'cmursResponseStatus'
 createMultipartUploadResponse
-    :: Int -- ^ 'cmursStatus'
+    :: Int -- ^ 'cmursResponseStatus'
     -> CreateMultipartUploadResponse
-createMultipartUploadResponse pStatus_ =
+createMultipartUploadResponse pResponseStatus_ =
     CreateMultipartUploadResponse'
     { _cmursRequestCharged = Nothing
-    , _cmursSSECustomerAlgorithm = Nothing
     , _cmursBucket = Nothing
+    , _cmursSSECustomerAlgorithm = Nothing
     , _cmursKey = Nothing
-    , _cmursSSEKMSKeyId = Nothing
     , _cmursSSECustomerKeyMD5 = Nothing
+    , _cmursSSEKMSKeyId = Nothing
     , _cmursUploadId = Nothing
     , _cmursServerSideEncryption = Nothing
-    , _cmursStatus = pStatus_
+    , _cmursResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
 cmursRequestCharged :: Lens' CreateMultipartUploadResponse (Maybe RequestCharged)
 cmursRequestCharged = lens _cmursRequestCharged (\ s a -> s{_cmursRequestCharged = a});
+
+-- | Name of the bucket to which the multipart upload was initiated.
+cmursBucket :: Lens' CreateMultipartUploadResponse (Maybe BucketName)
+cmursBucket = lens _cmursBucket (\ s a -> s{_cmursBucket = a});
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the
@@ -404,24 +408,20 @@ cmursRequestCharged = lens _cmursRequestCharged (\ s a -> s{_cmursRequestCharged
 cmursSSECustomerAlgorithm :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmursSSECustomerAlgorithm = lens _cmursSSECustomerAlgorithm (\ s a -> s{_cmursSSECustomerAlgorithm = a});
 
--- | Name of the bucket to which the multipart upload was initiated.
-cmursBucket :: Lens' CreateMultipartUploadResponse (Maybe BucketName)
-cmursBucket = lens _cmursBucket (\ s a -> s{_cmursBucket = a});
-
 -- | Object key for which the multipart upload was initiated.
 cmursKey :: Lens' CreateMultipartUploadResponse (Maybe ObjectKey)
 cmursKey = lens _cmursKey (\ s a -> s{_cmursKey = a});
-
--- | If present, specifies the ID of the AWS Key Management Service (KMS)
--- master encryption key that was used for the object.
-cmursSSEKMSKeyId :: Lens' CreateMultipartUploadResponse (Maybe Text)
-cmursSSEKMSKeyId = lens _cmursSSEKMSKeyId (\ s a -> s{_cmursSSEKMSKeyId = a}) . mapping _Sensitive;
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
 cmursSSECustomerKeyMD5 :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmursSSECustomerKeyMD5 = lens _cmursSSECustomerKeyMD5 (\ s a -> s{_cmursSSECustomerKeyMD5 = a});
+
+-- | If present, specifies the ID of the AWS Key Management Service (KMS)
+-- master encryption key that was used for the object.
+cmursSSEKMSKeyId :: Lens' CreateMultipartUploadResponse (Maybe Text)
+cmursSSEKMSKeyId = lens _cmursSSEKMSKeyId (\ s a -> s{_cmursSSEKMSKeyId = a}) . mapping _Sensitive;
 
 -- | ID for the initiated multipart upload.
 cmursUploadId :: Lens' CreateMultipartUploadResponse (Maybe Text)
@@ -433,5 +433,5 @@ cmursServerSideEncryption :: Lens' CreateMultipartUploadResponse (Maybe ServerSi
 cmursServerSideEncryption = lens _cmursServerSideEncryption (\ s a -> s{_cmursServerSideEncryption = a});
 
 -- | The response status code.
-cmursStatus :: Lens' CreateMultipartUploadResponse Int
-cmursStatus = lens _cmursStatus (\ s a -> s{_cmursStatus = a});
+cmursResponseStatus :: Lens' CreateMultipartUploadResponse Int
+cmursResponseStatus = lens _cmursResponseStatus (\ s a -> s{_cmursResponseStatus = a});

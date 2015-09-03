@@ -42,7 +42,7 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
     , ddlfprsLogFileData
     , ddlfprsAdditionalDataPending
     , ddlfprsMarker
-    , ddlfprsStatus
+    , ddlfprsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -135,8 +135,8 @@ ddlfpLogFileName = lens _ddlfpLogFileName (\ s a -> s{_ddlfpLogFileName = a});
 
 instance AWSPager DownloadDBLogFilePortion where
         page rq rs
-          | stop (rs ^. ddlfprsAdditionalDataPending) = Nothing
-          | isNothing (rs ^. ddlfprsMarker) = Nothing
+          | stop (rs ^. ddlfprsMarker) = Nothing
+          | stop (rs ^. ddlfprsLogFileData) = Nothing
           | otherwise =
             Just $ rq & ddlfpMarker .~ rs ^. ddlfprsMarker
 
@@ -178,7 +178,7 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
     { _ddlfprsLogFileData           :: !(Maybe Text)
     , _ddlfprsAdditionalDataPending :: !(Maybe Bool)
     , _ddlfprsMarker                :: !(Maybe Text)
-    , _ddlfprsStatus                :: !Int
+    , _ddlfprsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DownloadDBLogFilePortionResponse' with the minimum fields required to make a request.
@@ -191,16 +191,16 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
 --
 -- * 'ddlfprsMarker'
 --
--- * 'ddlfprsStatus'
+-- * 'ddlfprsResponseStatus'
 downloadDBLogFilePortionResponse
-    :: Int -- ^ 'ddlfprsStatus'
+    :: Int -- ^ 'ddlfprsResponseStatus'
     -> DownloadDBLogFilePortionResponse
-downloadDBLogFilePortionResponse pStatus_ =
+downloadDBLogFilePortionResponse pResponseStatus_ =
     DownloadDBLogFilePortionResponse'
     { _ddlfprsLogFileData = Nothing
     , _ddlfprsAdditionalDataPending = Nothing
     , _ddlfprsMarker = Nothing
-    , _ddlfprsStatus = pStatus_
+    , _ddlfprsResponseStatus = pResponseStatus_
     }
 
 -- | Entries from the specified log file.
@@ -218,5 +218,5 @@ ddlfprsMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
 ddlfprsMarker = lens _ddlfprsMarker (\ s a -> s{_ddlfprsMarker = a});
 
 -- | The response status code.
-ddlfprsStatus :: Lens' DownloadDBLogFilePortionResponse Int
-ddlfprsStatus = lens _ddlfprsStatus (\ s a -> s{_ddlfprsStatus = a});
+ddlfprsResponseStatus :: Lens' DownloadDBLogFilePortionResponse Int
+ddlfprsResponseStatus = lens _ddlfprsResponseStatus (\ s a -> s{_ddlfprsResponseStatus = a});

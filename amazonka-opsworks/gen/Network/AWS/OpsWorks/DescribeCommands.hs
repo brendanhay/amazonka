@@ -35,8 +35,8 @@ module Network.AWS.OpsWorks.DescribeCommands
       describeCommands
     , DescribeCommands
     -- * Request Lenses
-    , dcInstanceId
     , dcDeploymentId
+    , dcInstanceId
     , dcCommandIds
 
     -- * Destructuring the Response
@@ -44,7 +44,7 @@ module Network.AWS.OpsWorks.DescribeCommands
     , DescribeCommandsResponse
     -- * Response Lenses
     , dcrsCommands
-    , dcrsStatus
+    , dcrsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -55,8 +55,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeCommands' smart constructor.
 data DescribeCommands = DescribeCommands'
-    { _dcInstanceId   :: !(Maybe Text)
-    , _dcDeploymentId :: !(Maybe Text)
+    { _dcDeploymentId :: !(Maybe Text)
+    , _dcInstanceId   :: !(Maybe Text)
     , _dcCommandIds   :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -64,31 +64,31 @@ data DescribeCommands = DescribeCommands'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcInstanceId'
---
 -- * 'dcDeploymentId'
+--
+-- * 'dcInstanceId'
 --
 -- * 'dcCommandIds'
 describeCommands
     :: DescribeCommands
 describeCommands =
     DescribeCommands'
-    { _dcInstanceId = Nothing
-    , _dcDeploymentId = Nothing
+    { _dcDeploymentId = Nothing
+    , _dcInstanceId = Nothing
     , _dcCommandIds = Nothing
     }
-
--- | The instance ID. If you include this parameter, 'DescribeCommands'
--- returns a description of the commands associated with the specified
--- instance.
-dcInstanceId :: Lens' DescribeCommands (Maybe Text)
-dcInstanceId = lens _dcInstanceId (\ s a -> s{_dcInstanceId = a});
 
 -- | The deployment ID. If you include this parameter, 'DescribeCommands'
 -- returns a description of the commands associated with the specified
 -- deployment.
 dcDeploymentId :: Lens' DescribeCommands (Maybe Text)
 dcDeploymentId = lens _dcDeploymentId (\ s a -> s{_dcDeploymentId = a});
+
+-- | The instance ID. If you include this parameter, 'DescribeCommands'
+-- returns a description of the commands associated with the specified
+-- instance.
+dcInstanceId :: Lens' DescribeCommands (Maybe Text)
+dcInstanceId = lens _dcInstanceId (\ s a -> s{_dcInstanceId = a});
 
 -- | An array of command IDs. If you include this parameter,
 -- 'DescribeCommands' returns a description of the specified commands.
@@ -119,8 +119,8 @@ instance ToJSON DescribeCommands where
         toJSON DescribeCommands'{..}
           = object
               (catMaybes
-                 [("InstanceId" .=) <$> _dcInstanceId,
-                  ("DeploymentId" .=) <$> _dcDeploymentId,
+                 [("DeploymentId" .=) <$> _dcDeploymentId,
+                  ("InstanceId" .=) <$> _dcInstanceId,
                   ("CommandIds" .=) <$> _dcCommandIds])
 
 instance ToPath DescribeCommands where
@@ -133,8 +133,8 @@ instance ToQuery DescribeCommands where
 --
 -- /See:/ 'describeCommandsResponse' smart constructor.
 data DescribeCommandsResponse = DescribeCommandsResponse'
-    { _dcrsCommands :: !(Maybe [Command])
-    , _dcrsStatus   :: !Int
+    { _dcrsCommands       :: !(Maybe [Command])
+    , _dcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCommandsResponse' with the minimum fields required to make a request.
@@ -143,14 +143,14 @@ data DescribeCommandsResponse = DescribeCommandsResponse'
 --
 -- * 'dcrsCommands'
 --
--- * 'dcrsStatus'
+-- * 'dcrsResponseStatus'
 describeCommandsResponse
-    :: Int -- ^ 'dcrsStatus'
+    :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCommandsResponse
-describeCommandsResponse pStatus_ =
+describeCommandsResponse pResponseStatus_ =
     DescribeCommandsResponse'
     { _dcrsCommands = Nothing
-    , _dcrsStatus = pStatus_
+    , _dcrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of 'Command' objects that describe each of the specified
@@ -159,5 +159,5 @@ dcrsCommands :: Lens' DescribeCommandsResponse [Command]
 dcrsCommands = lens _dcrsCommands (\ s a -> s{_dcrsCommands = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcrsStatus :: Lens' DescribeCommandsResponse Int
-dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});
+dcrsResponseStatus :: Lens' DescribeCommandsResponse Int
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});

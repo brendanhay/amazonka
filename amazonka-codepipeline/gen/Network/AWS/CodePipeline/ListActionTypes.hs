@@ -36,7 +36,7 @@ module Network.AWS.CodePipeline.ListActionTypes
     , ListActionTypesResponse
     -- * Response Lenses
     , latrsNextToken
-    , latrsStatus
+    , latrsResponseStatus
     , latrsActionTypes
     ) where
 
@@ -116,9 +116,9 @@ instance ToQuery ListActionTypes where
 --
 -- /See:/ 'listActionTypesResponse' smart constructor.
 data ListActionTypesResponse = ListActionTypesResponse'
-    { _latrsNextToken   :: !(Maybe Text)
-    , _latrsStatus      :: !Int
-    , _latrsActionTypes :: ![ActionType]
+    { _latrsNextToken      :: !(Maybe Text)
+    , _latrsResponseStatus :: !Int
+    , _latrsActionTypes    :: ![ActionType]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListActionTypesResponse' with the minimum fields required to make a request.
@@ -127,16 +127,16 @@ data ListActionTypesResponse = ListActionTypesResponse'
 --
 -- * 'latrsNextToken'
 --
--- * 'latrsStatus'
+-- * 'latrsResponseStatus'
 --
 -- * 'latrsActionTypes'
 listActionTypesResponse
-    :: Int -- ^ 'latrsStatus'
+    :: Int -- ^ 'latrsResponseStatus'
     -> ListActionTypesResponse
-listActionTypesResponse pStatus_ =
+listActionTypesResponse pResponseStatus_ =
     ListActionTypesResponse'
     { _latrsNextToken = Nothing
-    , _latrsStatus = pStatus_
+    , _latrsResponseStatus = pResponseStatus_
     , _latrsActionTypes = mempty
     }
 
@@ -147,8 +147,8 @@ latrsNextToken :: Lens' ListActionTypesResponse (Maybe Text)
 latrsNextToken = lens _latrsNextToken (\ s a -> s{_latrsNextToken = a});
 
 -- | The response status code.
-latrsStatus :: Lens' ListActionTypesResponse Int
-latrsStatus = lens _latrsStatus (\ s a -> s{_latrsStatus = a});
+latrsResponseStatus :: Lens' ListActionTypesResponse Int
+latrsResponseStatus = lens _latrsResponseStatus (\ s a -> s{_latrsResponseStatus = a});
 
 -- | Provides details of the action types.
 latrsActionTypes :: Lens' ListActionTypesResponse [ActionType]

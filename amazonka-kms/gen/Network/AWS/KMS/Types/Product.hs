@@ -205,46 +205,46 @@ instance FromJSON GrantListEntry where
 --
 -- /See:/ 'keyListEntry' smart constructor.
 data KeyListEntry = KeyListEntry'
-    { _kleKeyARN :: !(Maybe Text)
-    , _kleKeyId  :: !(Maybe Text)
+    { _kleKeyId  :: !(Maybe Text)
+    , _kleKeyARN :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'KeyListEntry' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'kleKeyARN'
---
 -- * 'kleKeyId'
+--
+-- * 'kleKeyARN'
 keyListEntry
     :: KeyListEntry
 keyListEntry =
     KeyListEntry'
-    { _kleKeyARN = Nothing
-    , _kleKeyId = Nothing
+    { _kleKeyId = Nothing
+    , _kleKeyARN = Nothing
     }
-
--- | ARN of the key.
-kleKeyARN :: Lens' KeyListEntry (Maybe Text)
-kleKeyARN = lens _kleKeyARN (\ s a -> s{_kleKeyARN = a});
 
 -- | Unique identifier of the key.
 kleKeyId :: Lens' KeyListEntry (Maybe Text)
 kleKeyId = lens _kleKeyId (\ s a -> s{_kleKeyId = a});
+
+-- | ARN of the key.
+kleKeyARN :: Lens' KeyListEntry (Maybe Text)
+kleKeyARN = lens _kleKeyARN (\ s a -> s{_kleKeyARN = a});
 
 instance FromJSON KeyListEntry where
         parseJSON
           = withObject "KeyListEntry"
               (\ x ->
                  KeyListEntry' <$>
-                   (x .:? "KeyArn") <*> (x .:? "KeyId"))
+                   (x .:? "KeyId") <*> (x .:? "KeyArn"))
 
 -- | Contains metadata associated with a specific key.
 --
 -- /See:/ 'keyMetadata' smart constructor.
 data KeyMetadata = KeyMetadata'
-    { _kmARN          :: !(Maybe Text)
-    , _kmEnabled      :: !(Maybe Bool)
+    { _kmEnabled      :: !(Maybe Bool)
+    , _kmARN          :: !(Maybe Text)
     , _kmAWSAccountId :: !(Maybe Text)
     , _kmKeyUsage     :: !(Maybe KeyUsageType)
     , _kmCreationDate :: !(Maybe POSIX)
@@ -256,9 +256,9 @@ data KeyMetadata = KeyMetadata'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'kmARN'
---
 -- * 'kmEnabled'
+--
+-- * 'kmARN'
 --
 -- * 'kmAWSAccountId'
 --
@@ -274,8 +274,8 @@ keyMetadata
     -> KeyMetadata
 keyMetadata pKeyId_ =
     KeyMetadata'
-    { _kmARN = Nothing
-    , _kmEnabled = Nothing
+    { _kmEnabled = Nothing
+    , _kmARN = Nothing
     , _kmAWSAccountId = Nothing
     , _kmKeyUsage = Nothing
     , _kmCreationDate = Nothing
@@ -283,13 +283,13 @@ keyMetadata pKeyId_ =
     , _kmKeyId = pKeyId_
     }
 
--- | Key ARN (Amazon Resource Name).
-kmARN :: Lens' KeyMetadata (Maybe Text)
-kmARN = lens _kmARN (\ s a -> s{_kmARN = a});
-
 -- | Value that specifies whether the key is enabled.
 kmEnabled :: Lens' KeyMetadata (Maybe Bool)
 kmEnabled = lens _kmEnabled (\ s a -> s{_kmEnabled = a});
+
+-- | Key ARN (Amazon Resource Name).
+kmARN :: Lens' KeyMetadata (Maybe Text)
+kmARN = lens _kmARN (\ s a -> s{_kmARN = a});
 
 -- | Account ID number.
 kmAWSAccountId :: Lens' KeyMetadata (Maybe Text)
@@ -316,7 +316,7 @@ instance FromJSON KeyMetadata where
           = withObject "KeyMetadata"
               (\ x ->
                  KeyMetadata' <$>
-                   (x .:? "Arn") <*> (x .:? "Enabled") <*>
+                   (x .:? "Enabled") <*> (x .:? "Arn") <*>
                      (x .:? "AWSAccountId")
                      <*> (x .:? "KeyUsage")
                      <*> (x .:? "CreationDate")

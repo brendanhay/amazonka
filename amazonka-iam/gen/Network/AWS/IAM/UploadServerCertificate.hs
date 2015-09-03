@@ -55,7 +55,7 @@ module Network.AWS.IAM.UploadServerCertificate
     , UploadServerCertificateResponse
     -- * Response Lenses
     , ursServerCertificateMetadata
-    , ursStatus
+    , ursResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -167,7 +167,7 @@ instance ToQuery UploadServerCertificate where
 -- /See:/ 'uploadServerCertificateResponse' smart constructor.
 data UploadServerCertificateResponse = UploadServerCertificateResponse'
     { _ursServerCertificateMetadata :: !(Maybe ServerCertificateMetadata)
-    , _ursStatus                    :: !Int
+    , _ursResponseStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UploadServerCertificateResponse' with the minimum fields required to make a request.
@@ -176,14 +176,14 @@ data UploadServerCertificateResponse = UploadServerCertificateResponse'
 --
 -- * 'ursServerCertificateMetadata'
 --
--- * 'ursStatus'
+-- * 'ursResponseStatus'
 uploadServerCertificateResponse
-    :: Int -- ^ 'ursStatus'
+    :: Int -- ^ 'ursResponseStatus'
     -> UploadServerCertificateResponse
-uploadServerCertificateResponse pStatus_ =
+uploadServerCertificateResponse pResponseStatus_ =
     UploadServerCertificateResponse'
     { _ursServerCertificateMetadata = Nothing
-    , _ursStatus = pStatus_
+    , _ursResponseStatus = pResponseStatus_
     }
 
 -- | The meta information of the uploaded server certificate without its
@@ -192,5 +192,5 @@ ursServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe Ser
 ursServerCertificateMetadata = lens _ursServerCertificateMetadata (\ s a -> s{_ursServerCertificateMetadata = a});
 
 -- | The response status code.
-ursStatus :: Lens' UploadServerCertificateResponse Int
-ursStatus = lens _ursStatus (\ s a -> s{_ursStatus = a});
+ursResponseStatus :: Lens' UploadServerCertificateResponse Int
+ursResponseStatus = lens _ursResponseStatus (\ s a -> s{_ursResponseStatus = a});

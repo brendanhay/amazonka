@@ -69,11 +69,11 @@ module Network.AWS.CognitoSync
     -- ** InvalidLambdaFunctionOutputException
     , _InvalidLambdaFunctionOutputException
 
-    -- ** ConcurrentModificationException
-    , _ConcurrentModificationException
-
     -- ** TooManyRequestsException
     , _TooManyRequestsException
+
+    -- ** ConcurrentModificationException
+    , _ConcurrentModificationException
 
     -- ** ResourceConflictException
     , _ResourceConflictException
@@ -93,17 +93,17 @@ module Network.AWS.CognitoSync
     -- ** DescribeDataset
     , module Network.AWS.CognitoSync.DescribeDataset
 
-    -- ** DescribeIdentityPoolUsage
-    , module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
-
     -- ** SetCognitoEvents
     , module Network.AWS.CognitoSync.SetCognitoEvents
 
-    -- ** ListIdentityPoolUsage
-    , module Network.AWS.CognitoSync.ListIdentityPoolUsage
+    -- ** DescribeIdentityPoolUsage
+    , module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
 
     -- ** GetBulkPublishDetails
     , module Network.AWS.CognitoSync.GetBulkPublishDetails
+
+    -- ** ListIdentityPoolUsage
+    , module Network.AWS.CognitoSync.ListIdentityPoolUsage
 
     -- ** SetIdentityPoolConfiguration
     , module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
@@ -111,11 +111,11 @@ module Network.AWS.CognitoSync
     -- ** DeleteDataset
     , module Network.AWS.CognitoSync.DeleteDataset
 
-    -- ** DescribeIdentityUsage
-    , module Network.AWS.CognitoSync.DescribeIdentityUsage
-
     -- ** GetCognitoEvents
     , module Network.AWS.CognitoSync.GetCognitoEvents
+
+    -- ** DescribeIdentityUsage
+    , module Network.AWS.CognitoSync.DescribeIdentityUsage
 
     -- ** RegisterDevice
     , module Network.AWS.CognitoSync.RegisterDevice
@@ -200,8 +200,8 @@ module Network.AWS.CognitoSync
     , Record
     , record
     , rSyncCount
-    , rLastModifiedDate
     , rDeviceLastModifiedDate
+    , rLastModifiedDate
     , rValue
     , rKey
     , rLastModifiedBy

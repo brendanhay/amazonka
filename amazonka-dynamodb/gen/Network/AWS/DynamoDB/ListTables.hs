@@ -40,7 +40,7 @@ module Network.AWS.DynamoDB.ListTables
     -- * Response Lenses
     , ltrsLastEvaluatedTableName
     , ltrsTableNames
-    , ltrsStatus
+    , ltrsResponseStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -133,7 +133,7 @@ instance ToQuery ListTables where
 data ListTablesResponse = ListTablesResponse'
     { _ltrsLastEvaluatedTableName :: !(Maybe Text)
     , _ltrsTableNames             :: !(Maybe [Text])
-    , _ltrsStatus                 :: !Int
+    , _ltrsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListTablesResponse' with the minimum fields required to make a request.
@@ -144,15 +144,15 @@ data ListTablesResponse = ListTablesResponse'
 --
 -- * 'ltrsTableNames'
 --
--- * 'ltrsStatus'
+-- * 'ltrsResponseStatus'
 listTablesResponse
-    :: Int -- ^ 'ltrsStatus'
+    :: Int -- ^ 'ltrsResponseStatus'
     -> ListTablesResponse
-listTablesResponse pStatus_ =
+listTablesResponse pResponseStatus_ =
     ListTablesResponse'
     { _ltrsLastEvaluatedTableName = Nothing
     , _ltrsTableNames = Nothing
-    , _ltrsStatus = pStatus_
+    , _ltrsResponseStatus = pResponseStatus_
     }
 
 -- | The name of the last table in the current page of results. Use this
@@ -174,5 +174,5 @@ ltrsTableNames :: Lens' ListTablesResponse [Text]
 ltrsTableNames = lens _ltrsTableNames (\ s a -> s{_ltrsTableNames = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ltrsStatus :: Lens' ListTablesResponse Int
-ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});
+ltrsResponseStatus :: Lens' ListTablesResponse Int
+ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});

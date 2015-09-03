@@ -40,7 +40,7 @@ module Network.AWS.CognitoSync.UnsubscribeFromDataset
     , unsubscribeFromDatasetResponse
     , UnsubscribeFromDatasetResponse
     -- * Response Lenses
-    , ufdrsStatus
+    , ufdrsResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -134,22 +134,22 @@ instance ToQuery UnsubscribeFromDataset where
 --
 -- /See:/ 'unsubscribeFromDatasetResponse' smart constructor.
 newtype UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'
-    { _ufdrsStatus :: Int
+    { _ufdrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UnsubscribeFromDatasetResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufdrsStatus'
+-- * 'ufdrsResponseStatus'
 unsubscribeFromDatasetResponse
-    :: Int -- ^ 'ufdrsStatus'
+    :: Int -- ^ 'ufdrsResponseStatus'
     -> UnsubscribeFromDatasetResponse
-unsubscribeFromDatasetResponse pStatus_ =
+unsubscribeFromDatasetResponse pResponseStatus_ =
     UnsubscribeFromDatasetResponse'
-    { _ufdrsStatus = pStatus_
+    { _ufdrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-ufdrsStatus :: Lens' UnsubscribeFromDatasetResponse Int
-ufdrsStatus = lens _ufdrsStatus (\ s a -> s{_ufdrsStatus = a});
+ufdrsResponseStatus :: Lens' UnsubscribeFromDatasetResponse Int
+ufdrsResponseStatus = lens _ufdrsResponseStatus (\ s a -> s{_ufdrsResponseStatus = a});

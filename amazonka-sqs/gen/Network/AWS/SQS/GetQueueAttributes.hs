@@ -83,7 +83,7 @@ module Network.AWS.SQS.GetQueueAttributes
     , GetQueueAttributesResponse
     -- * Response Lenses
     , gqarsAttributes
-    , gqarsStatus
+    , gqarsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -152,8 +152,8 @@ instance ToQuery GetQueueAttributes where
 --
 -- /See:/ 'getQueueAttributesResponse' smart constructor.
 data GetQueueAttributesResponse = GetQueueAttributesResponse'
-    { _gqarsAttributes :: !(Maybe (Map QueueAttributeName Text))
-    , _gqarsStatus     :: !Int
+    { _gqarsAttributes     :: !(Maybe (Map QueueAttributeName Text))
+    , _gqarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetQueueAttributesResponse' with the minimum fields required to make a request.
@@ -162,14 +162,14 @@ data GetQueueAttributesResponse = GetQueueAttributesResponse'
 --
 -- * 'gqarsAttributes'
 --
--- * 'gqarsStatus'
+-- * 'gqarsResponseStatus'
 getQueueAttributesResponse
-    :: Int -- ^ 'gqarsStatus'
+    :: Int -- ^ 'gqarsResponseStatus'
     -> GetQueueAttributesResponse
-getQueueAttributesResponse pStatus_ =
+getQueueAttributesResponse pResponseStatus_ =
     GetQueueAttributesResponse'
     { _gqarsAttributes = Nothing
-    , _gqarsStatus = pStatus_
+    , _gqarsResponseStatus = pResponseStatus_
     }
 
 -- | A map of attributes to the respective values.
@@ -177,5 +177,5 @@ gqarsAttributes :: Lens' GetQueueAttributesResponse (HashMap QueueAttributeName 
 gqarsAttributes = lens _gqarsAttributes (\ s a -> s{_gqarsAttributes = a}) . _Default . _Map;
 
 -- | The response status code.
-gqarsStatus :: Lens' GetQueueAttributesResponse Int
-gqarsStatus = lens _gqarsStatus (\ s a -> s{_gqarsStatus = a});
+gqarsResponseStatus :: Lens' GetQueueAttributesResponse Int
+gqarsResponseStatus = lens _gqarsResponseStatus (\ s a -> s{_gqarsResponseStatus = a});

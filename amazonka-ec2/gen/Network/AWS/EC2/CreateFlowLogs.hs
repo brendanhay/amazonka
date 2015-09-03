@@ -50,7 +50,7 @@ module Network.AWS.EC2.CreateFlowLogs
     , cflrsUnsuccessful
     , cflrsClientToken
     , cflrsFlowLogIds
-    , cflrsStatus
+    , cflrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -163,10 +163,10 @@ instance ToQuery CreateFlowLogs where
 
 -- | /See:/ 'createFlowLogsResponse' smart constructor.
 data CreateFlowLogsResponse = CreateFlowLogsResponse'
-    { _cflrsUnsuccessful :: !(Maybe [UnsuccessfulItem])
-    , _cflrsClientToken  :: !(Maybe Text)
-    , _cflrsFlowLogIds   :: !(Maybe [Text])
-    , _cflrsStatus       :: !Int
+    { _cflrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
+    , _cflrsClientToken    :: !(Maybe Text)
+    , _cflrsFlowLogIds     :: !(Maybe [Text])
+    , _cflrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateFlowLogsResponse' with the minimum fields required to make a request.
@@ -179,16 +179,16 @@ data CreateFlowLogsResponse = CreateFlowLogsResponse'
 --
 -- * 'cflrsFlowLogIds'
 --
--- * 'cflrsStatus'
+-- * 'cflrsResponseStatus'
 createFlowLogsResponse
-    :: Int -- ^ 'cflrsStatus'
+    :: Int -- ^ 'cflrsResponseStatus'
     -> CreateFlowLogsResponse
-createFlowLogsResponse pStatus_ =
+createFlowLogsResponse pResponseStatus_ =
     CreateFlowLogsResponse'
     { _cflrsUnsuccessful = Nothing
     , _cflrsClientToken = Nothing
     , _cflrsFlowLogIds = Nothing
-    , _cflrsStatus = pStatus_
+    , _cflrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the flow logs that could not be created successfully.
@@ -205,5 +205,5 @@ cflrsFlowLogIds :: Lens' CreateFlowLogsResponse [Text]
 cflrsFlowLogIds = lens _cflrsFlowLogIds (\ s a -> s{_cflrsFlowLogIds = a}) . _Default . _Coerce;
 
 -- | The response status code.
-cflrsStatus :: Lens' CreateFlowLogsResponse Int
-cflrsStatus = lens _cflrsStatus (\ s a -> s{_cflrsStatus = a});
+cflrsResponseStatus :: Lens' CreateFlowLogsResponse Int
+cflrsResponseStatus = lens _cflrsResponseStatus (\ s a -> s{_cflrsResponseStatus = a});

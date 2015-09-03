@@ -47,7 +47,7 @@ module Network.AWS.SES.GetIdentityPolicies
     , getIdentityPoliciesResponse
     , GetIdentityPoliciesResponse
     -- * Response Lenses
-    , giprsStatus
+    , giprsResponseStatus
     , giprsPolicies
     ) where
 
@@ -130,29 +130,29 @@ instance ToQuery GetIdentityPolicies where
 --
 -- /See:/ 'getIdentityPoliciesResponse' smart constructor.
 data GetIdentityPoliciesResponse = GetIdentityPoliciesResponse'
-    { _giprsStatus   :: !Int
-    , _giprsPolicies :: !(Map Text Text)
+    { _giprsResponseStatus :: !Int
+    , _giprsPolicies       :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetIdentityPoliciesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giprsStatus'
+-- * 'giprsResponseStatus'
 --
 -- * 'giprsPolicies'
 getIdentityPoliciesResponse
-    :: Int -- ^ 'giprsStatus'
+    :: Int -- ^ 'giprsResponseStatus'
     -> GetIdentityPoliciesResponse
-getIdentityPoliciesResponse pStatus_ =
+getIdentityPoliciesResponse pResponseStatus_ =
     GetIdentityPoliciesResponse'
-    { _giprsStatus = pStatus_
+    { _giprsResponseStatus = pResponseStatus_
     , _giprsPolicies = mempty
     }
 
 -- | The response status code.
-giprsStatus :: Lens' GetIdentityPoliciesResponse Int
-giprsStatus = lens _giprsStatus (\ s a -> s{_giprsStatus = a});
+giprsResponseStatus :: Lens' GetIdentityPoliciesResponse Int
+giprsResponseStatus = lens _giprsResponseStatus (\ s a -> s{_giprsResponseStatus = a});
 
 -- | A map of policy names to policies.
 giprsPolicies :: Lens' GetIdentityPoliciesResponse (HashMap Text Text)

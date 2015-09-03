@@ -35,7 +35,7 @@ module Network.AWS.ECS.DescribeClusters
     -- * Response Lenses
     , dcrsFailures
     , dcrsClusters
-    , dcrsStatus
+    , dcrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -101,9 +101,9 @@ instance ToQuery DescribeClusters where
 
 -- | /See:/ 'describeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
-    { _dcrsFailures :: !(Maybe [Failure])
-    , _dcrsClusters :: !(Maybe [Cluster])
-    , _dcrsStatus   :: !Int
+    { _dcrsFailures       :: !(Maybe [Failure])
+    , _dcrsClusters       :: !(Maybe [Cluster])
+    , _dcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeClustersResponse' with the minimum fields required to make a request.
@@ -114,15 +114,15 @@ data DescribeClustersResponse = DescribeClustersResponse'
 --
 -- * 'dcrsClusters'
 --
--- * 'dcrsStatus'
+-- * 'dcrsResponseStatus'
 describeClustersResponse
-    :: Int -- ^ 'dcrsStatus'
+    :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeClustersResponse
-describeClustersResponse pStatus_ =
+describeClustersResponse pResponseStatus_ =
     DescribeClustersResponse'
     { _dcrsFailures = Nothing
     , _dcrsClusters = Nothing
-    , _dcrsStatus = pStatus_
+    , _dcrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -134,5 +134,5 @@ dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dcrsStatus :: Lens' DescribeClustersResponse Int
-dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});
+dcrsResponseStatus :: Lens' DescribeClustersResponse Int
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});

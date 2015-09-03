@@ -33,9 +33,9 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     -- * Request Lenses
     , dsasStartTime
     , dsasNextToken
+    , dsasAutoScalingGroupName
     , dsasMaxRecords
     , dsasEndTime
-    , dsasAutoScalingGroupName
     , dsasScheduledActionNames
 
     -- * Destructuring the Response
@@ -44,7 +44,7 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     -- * Response Lenses
     , dsarsScheduledUpdateGroupActions
     , dsarsNextToken
-    , dsarsStatus
+    , dsarsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -58,9 +58,9 @@ import           Network.AWS.Response
 data DescribeScheduledActions = DescribeScheduledActions'
     { _dsasStartTime            :: !(Maybe ISO8601)
     , _dsasNextToken            :: !(Maybe Text)
+    , _dsasAutoScalingGroupName :: !(Maybe Text)
     , _dsasMaxRecords           :: !(Maybe Int)
     , _dsasEndTime              :: !(Maybe ISO8601)
-    , _dsasAutoScalingGroupName :: !(Maybe Text)
     , _dsasScheduledActionNames :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -72,11 +72,11 @@ data DescribeScheduledActions = DescribeScheduledActions'
 --
 -- * 'dsasNextToken'
 --
+-- * 'dsasAutoScalingGroupName'
+--
 -- * 'dsasMaxRecords'
 --
 -- * 'dsasEndTime'
---
--- * 'dsasAutoScalingGroupName'
 --
 -- * 'dsasScheduledActionNames'
 describeScheduledActions
@@ -85,9 +85,9 @@ describeScheduledActions =
     DescribeScheduledActions'
     { _dsasStartTime = Nothing
     , _dsasNextToken = Nothing
+    , _dsasAutoScalingGroupName = Nothing
     , _dsasMaxRecords = Nothing
     , _dsasEndTime = Nothing
-    , _dsasAutoScalingGroupName = Nothing
     , _dsasScheduledActionNames = Nothing
     }
 
@@ -101,6 +101,10 @@ dsasStartTime = lens _dsasStartTime (\ s a -> s{_dsasStartTime = a}) . mapping _
 dsasNextToken :: Lens' DescribeScheduledActions (Maybe Text)
 dsasNextToken = lens _dsasNextToken (\ s a -> s{_dsasNextToken = a});
 
+-- | The name of the group.
+dsasAutoScalingGroupName :: Lens' DescribeScheduledActions (Maybe Text)
+dsasAutoScalingGroupName = lens _dsasAutoScalingGroupName (\ s a -> s{_dsasAutoScalingGroupName = a});
+
 -- | The maximum number of items to return with this call.
 dsasMaxRecords :: Lens' DescribeScheduledActions (Maybe Int)
 dsasMaxRecords = lens _dsasMaxRecords (\ s a -> s{_dsasMaxRecords = a});
@@ -109,10 +113,6 @@ dsasMaxRecords = lens _dsasMaxRecords (\ s a -> s{_dsasMaxRecords = a});
 -- provided, this parameter is ignored.
 dsasEndTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
 dsasEndTime = lens _dsasEndTime (\ s a -> s{_dsasEndTime = a}) . mapping _Time;
-
--- | The name of the group.
-dsasAutoScalingGroupName :: Lens' DescribeScheduledActions (Maybe Text)
-dsasAutoScalingGroupName = lens _dsasAutoScalingGroupName (\ s a -> s{_dsasAutoScalingGroupName = a});
 
 -- | Describes one or more scheduled actions. If you omit this list, the call
 -- describes all scheduled actions. If you specify an unknown scheduled
@@ -160,9 +160,9 @@ instance ToQuery DescribeScheduledActions where
                "Version" =: ("2011-01-01" :: ByteString),
                "StartTime" =: _dsasStartTime,
                "NextToken" =: _dsasNextToken,
+               "AutoScalingGroupName" =: _dsasAutoScalingGroupName,
                "MaxRecords" =: _dsasMaxRecords,
                "EndTime" =: _dsasEndTime,
-               "AutoScalingGroupName" =: _dsasAutoScalingGroupName,
                "ScheduledActionNames" =:
                  toQuery
                    (toQueryList "member" <$> _dsasScheduledActionNames)]
@@ -171,7 +171,7 @@ instance ToQuery DescribeScheduledActions where
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
     { _dsarsScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
     , _dsarsNextToken                   :: !(Maybe Text)
-    , _dsarsStatus                      :: !Int
+    , _dsarsResponseStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeScheduledActionsResponse' with the minimum fields required to make a request.
@@ -182,15 +182,15 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
 --
 -- * 'dsarsNextToken'
 --
--- * 'dsarsStatus'
+-- * 'dsarsResponseStatus'
 describeScheduledActionsResponse
-    :: Int -- ^ 'dsarsStatus'
+    :: Int -- ^ 'dsarsResponseStatus'
     -> DescribeScheduledActionsResponse
-describeScheduledActionsResponse pStatus_ =
+describeScheduledActionsResponse pResponseStatus_ =
     DescribeScheduledActionsResponse'
     { _dsarsScheduledUpdateGroupActions = Nothing
     , _dsarsNextToken = Nothing
-    , _dsarsStatus = pStatus_
+    , _dsarsResponseStatus = pResponseStatus_
     }
 
 -- | The scheduled actions.
@@ -203,5 +203,5 @@ dsarsNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
 dsarsNextToken = lens _dsarsNextToken (\ s a -> s{_dsarsNextToken = a});
 
 -- | The response status code.
-dsarsStatus :: Lens' DescribeScheduledActionsResponse Int
-dsarsStatus = lens _dsarsStatus (\ s a -> s{_dsarsStatus = a});
+dsarsResponseStatus :: Lens' DescribeScheduledActionsResponse Int
+dsarsResponseStatus = lens _dsarsResponseStatus (\ s a -> s{_dsarsResponseStatus = a});

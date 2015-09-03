@@ -43,7 +43,7 @@ module Network.AWS.Route53Domains.UpdateDomainNameservers
     , updateDomainNameserversResponse
     , UpdateDomainNameserversResponse
     -- * Response Lenses
-    , udnrsStatus
+    , udnrsResponseStatus
     , udnrsOperationId
     ) where
 
@@ -147,30 +147,30 @@ instance ToQuery UpdateDomainNameservers where
 --
 -- /See:/ 'updateDomainNameserversResponse' smart constructor.
 data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
-    { _udnrsStatus      :: !Int
-    , _udnrsOperationId :: !Text
+    { _udnrsResponseStatus :: !Int
+    , _udnrsOperationId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateDomainNameserversResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udnrsStatus'
+-- * 'udnrsResponseStatus'
 --
 -- * 'udnrsOperationId'
 updateDomainNameserversResponse
-    :: Int -- ^ 'udnrsStatus'
+    :: Int -- ^ 'udnrsResponseStatus'
     -> Text -- ^ 'udnrsOperationId'
     -> UpdateDomainNameserversResponse
-updateDomainNameserversResponse pStatus_ pOperationId_ =
+updateDomainNameserversResponse pResponseStatus_ pOperationId_ =
     UpdateDomainNameserversResponse'
-    { _udnrsStatus = pStatus_
+    { _udnrsResponseStatus = pResponseStatus_
     , _udnrsOperationId = pOperationId_
     }
 
 -- | The response status code.
-udnrsStatus :: Lens' UpdateDomainNameserversResponse Int
-udnrsStatus = lens _udnrsStatus (\ s a -> s{_udnrsStatus = a});
+udnrsResponseStatus :: Lens' UpdateDomainNameserversResponse Int
+udnrsResponseStatus = lens _udnrsResponseStatus (\ s a -> s{_udnrsResponseStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.

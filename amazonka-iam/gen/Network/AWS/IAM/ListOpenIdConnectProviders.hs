@@ -32,7 +32,7 @@ module Network.AWS.IAM.ListOpenIdConnectProviders
     , ListOpenIdConnectProvidersResponse
     -- * Response Lenses
     , loicprsOpenIdConnectProviderList
-    , loicprsStatus
+    , loicprsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -85,7 +85,7 @@ instance ToQuery ListOpenIdConnectProviders where
 -- /See:/ 'listOpenIdConnectProvidersResponse' smart constructor.
 data ListOpenIdConnectProvidersResponse = ListOpenIdConnectProvidersResponse'
     { _loicprsOpenIdConnectProviderList :: !(Maybe [OpenIdConnectProviderListEntry])
-    , _loicprsStatus                    :: !Int
+    , _loicprsResponseStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListOpenIdConnectProvidersResponse' with the minimum fields required to make a request.
@@ -94,14 +94,14 @@ data ListOpenIdConnectProvidersResponse = ListOpenIdConnectProvidersResponse'
 --
 -- * 'loicprsOpenIdConnectProviderList'
 --
--- * 'loicprsStatus'
+-- * 'loicprsResponseStatus'
 listOpenIdConnectProvidersResponse
-    :: Int -- ^ 'loicprsStatus'
+    :: Int -- ^ 'loicprsResponseStatus'
     -> ListOpenIdConnectProvidersResponse
-listOpenIdConnectProvidersResponse pStatus_ =
+listOpenIdConnectProvidersResponse pResponseStatus_ =
     ListOpenIdConnectProvidersResponse'
     { _loicprsOpenIdConnectProviderList = Nothing
-    , _loicprsStatus = pStatus_
+    , _loicprsResponseStatus = pResponseStatus_
     }
 
 -- | The list of IAM OpenID Connect providers in the AWS account.
@@ -109,5 +109,5 @@ loicprsOpenIdConnectProviderList :: Lens' ListOpenIdConnectProvidersResponse [Op
 loicprsOpenIdConnectProviderList = lens _loicprsOpenIdConnectProviderList (\ s a -> s{_loicprsOpenIdConnectProviderList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-loicprsStatus :: Lens' ListOpenIdConnectProvidersResponse Int
-loicprsStatus = lens _loicprsStatus (\ s a -> s{_loicprsStatus = a});
+loicprsResponseStatus :: Lens' ListOpenIdConnectProvidersResponse Int
+loicprsResponseStatus = lens _loicprsResponseStatus (\ s a -> s{_loicprsResponseStatus = a});

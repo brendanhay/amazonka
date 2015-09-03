@@ -46,17 +46,17 @@ import Test.AWS.SDB.Internal
 --         , testSelect $
 --             select
 --
---         , testPutAttributes $
---             putAttributes
---
 --         , testDeleteAttributes $
 --             deleteAttributes
 --
---         , testListDomains $
---             listDomains
+--         , testPutAttributes $
+--             putAttributes
 --
 --         , testDeleteDomain $
 --             deleteDomain
+--
+--         , testListDomains $
+--             listDomains
 --
 --           ]
 
@@ -79,17 +79,17 @@ import Test.AWS.SDB.Internal
 --         , testSelectResponse $
 --             selectResponse
 --
---         , testPutAttributesResponse $
---             putAttributesResponse
---
 --         , testDeleteAttributesResponse $
 --             deleteAttributesResponse
 --
---         , testListDomainsResponse $
---             listDomainsResponse
+--         , testPutAttributesResponse $
+--             putAttributesResponse
 --
 --         , testDeleteDomainResponse $
 --             deleteDomainResponse
+--
+--         , testListDomainsResponse $
+--             listDomainsResponse
 --
 --           ]
 --     ]
@@ -126,25 +126,25 @@ testSelect = req
     "Select"
     "fixture/Select.yaml"
 
-testPutAttributes :: PutAttributes -> TestTree
-testPutAttributes = req
-    "PutAttributes"
-    "fixture/PutAttributes.yaml"
-
 testDeleteAttributes :: DeleteAttributes -> TestTree
 testDeleteAttributes = req
     "DeleteAttributes"
     "fixture/DeleteAttributes.yaml"
 
-testListDomains :: ListDomains -> TestTree
-testListDomains = req
-    "ListDomains"
-    "fixture/ListDomains.yaml"
+testPutAttributes :: PutAttributes -> TestTree
+testPutAttributes = req
+    "PutAttributes"
+    "fixture/PutAttributes.yaml"
 
 testDeleteDomain :: DeleteDomain -> TestTree
 testDeleteDomain = req
     "DeleteDomain"
     "fixture/DeleteDomain.yaml"
+
+testListDomains :: ListDomains -> TestTree
+testListDomains = req
+    "ListDomains"
+    "fixture/ListDomains.yaml"
 
 -- Responses
 
@@ -190,13 +190,6 @@ testSelectResponse = res
     sDB
     (Proxy :: Proxy Select)
 
-testPutAttributesResponse :: PutAttributesResponse -> TestTree
-testPutAttributesResponse = res
-    "PutAttributesResponse"
-    "fixture/PutAttributesResponse.proto"
-    sDB
-    (Proxy :: Proxy PutAttributes)
-
 testDeleteAttributesResponse :: DeleteAttributesResponse -> TestTree
 testDeleteAttributesResponse = res
     "DeleteAttributesResponse"
@@ -204,12 +197,12 @@ testDeleteAttributesResponse = res
     sDB
     (Proxy :: Proxy DeleteAttributes)
 
-testListDomainsResponse :: ListDomainsResponse -> TestTree
-testListDomainsResponse = res
-    "ListDomainsResponse"
-    "fixture/ListDomainsResponse.proto"
+testPutAttributesResponse :: PutAttributesResponse -> TestTree
+testPutAttributesResponse = res
+    "PutAttributesResponse"
+    "fixture/PutAttributesResponse.proto"
     sDB
-    (Proxy :: Proxy ListDomains)
+    (Proxy :: Proxy PutAttributes)
 
 testDeleteDomainResponse :: DeleteDomainResponse -> TestTree
 testDeleteDomainResponse = res
@@ -217,3 +210,10 @@ testDeleteDomainResponse = res
     "fixture/DeleteDomainResponse.proto"
     sDB
     (Proxy :: Proxy DeleteDomain)
+
+testListDomainsResponse :: ListDomainsResponse -> TestTree
+testListDomainsResponse = res
+    "ListDomainsResponse"
+    "fixture/ListDomainsResponse.proto"
+    sDB
+    (Proxy :: Proxy ListDomains)

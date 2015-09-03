@@ -48,11 +48,11 @@ module Network.AWS.DirectConnect.CreateConnection
     , cVlan
     , cLocation
     , cConnectionId
-    , cConnectionName
     , cPartnerName
+    , cConnectionName
     , cBandwidth
-    , cRegion
     , cOwnerAccount
+    , cRegion
     , cConnectionState
     ) where
 

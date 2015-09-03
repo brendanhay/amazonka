@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeVPNConnections
     , DescribeVPNConnectionsResponse
     -- * Response Lenses
     , dvcrsVPNConnections
-    , dvcrsStatus
+    , dvcrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -166,7 +166,7 @@ instance ToQuery DescribeVPNConnections where
 -- | /See:/ 'describeVPNConnectionsResponse' smart constructor.
 data DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'
     { _dvcrsVPNConnections :: !(Maybe [VPNConnection])
-    , _dvcrsStatus         :: !Int
+    , _dvcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVPNConnectionsResponse' with the minimum fields required to make a request.
@@ -175,14 +175,14 @@ data DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'
 --
 -- * 'dvcrsVPNConnections'
 --
--- * 'dvcrsStatus'
+-- * 'dvcrsResponseStatus'
 describeVPNConnectionsResponse
-    :: Int -- ^ 'dvcrsStatus'
+    :: Int -- ^ 'dvcrsResponseStatus'
     -> DescribeVPNConnectionsResponse
-describeVPNConnectionsResponse pStatus_ =
+describeVPNConnectionsResponse pResponseStatus_ =
     DescribeVPNConnectionsResponse'
     { _dvcrsVPNConnections = Nothing
-    , _dvcrsStatus = pStatus_
+    , _dvcrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more VPN connections.
@@ -190,5 +190,5 @@ dvcrsVPNConnections :: Lens' DescribeVPNConnectionsResponse [VPNConnection]
 dvcrsVPNConnections = lens _dvcrsVPNConnections (\ s a -> s{_dvcrsVPNConnections = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dvcrsStatus :: Lens' DescribeVPNConnectionsResponse Int
-dvcrsStatus = lens _dvcrsStatus (\ s a -> s{_dvcrsStatus = a});
+dvcrsResponseStatus :: Lens' DescribeVPNConnectionsResponse Int
+dvcrsResponseStatus = lens _dvcrsResponseStatus (\ s a -> s{_dvcrsResponseStatus = a});

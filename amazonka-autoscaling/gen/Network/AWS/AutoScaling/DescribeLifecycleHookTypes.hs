@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     , DescribeLifecycleHookTypesResponse
     -- * Response Lenses
     , dlhtrsLifecycleHookTypes
-    , dlhtrsStatus
+    , dlhtrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -82,7 +82,7 @@ instance ToQuery DescribeLifecycleHookTypes where
 -- | /See:/ 'describeLifecycleHookTypesResponse' smart constructor.
 data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
     { _dlhtrsLifecycleHookTypes :: !(Maybe [Text])
-    , _dlhtrsStatus             :: !Int
+    , _dlhtrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLifecycleHookTypesResponse' with the minimum fields required to make a request.
@@ -91,14 +91,14 @@ data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
 --
 -- * 'dlhtrsLifecycleHookTypes'
 --
--- * 'dlhtrsStatus'
+-- * 'dlhtrsResponseStatus'
 describeLifecycleHookTypesResponse
-    :: Int -- ^ 'dlhtrsStatus'
+    :: Int -- ^ 'dlhtrsResponseStatus'
     -> DescribeLifecycleHookTypesResponse
-describeLifecycleHookTypesResponse pStatus_ =
+describeLifecycleHookTypesResponse pResponseStatus_ =
     DescribeLifecycleHookTypesResponse'
     { _dlhtrsLifecycleHookTypes = Nothing
-    , _dlhtrsStatus = pStatus_
+    , _dlhtrsResponseStatus = pResponseStatus_
     }
 
 -- | One or more of the following notification types:
@@ -111,5 +111,5 @@ dlhtrsLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
 dlhtrsLifecycleHookTypes = lens _dlhtrsLifecycleHookTypes (\ s a -> s{_dlhtrsLifecycleHookTypes = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dlhtrsStatus :: Lens' DescribeLifecycleHookTypesResponse Int
-dlhtrsStatus = lens _dlhtrsStatus (\ s a -> s{_dlhtrsStatus = a});
+dlhtrsResponseStatus :: Lens' DescribeLifecycleHookTypesResponse Int
+dlhtrsResponseStatus = lens _dlhtrsResponseStatus (\ s a -> s{_dlhtrsResponseStatus = a});

@@ -46,7 +46,7 @@ module Network.AWS.SES.PutIdentityPolicy
     , putIdentityPolicyResponse
     , PutIdentityPolicyResponse
     -- * Response Lenses
-    , piprsStatus
+    , piprsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -138,22 +138,22 @@ instance ToQuery PutIdentityPolicy where
 --
 -- /See:/ 'putIdentityPolicyResponse' smart constructor.
 newtype PutIdentityPolicyResponse = PutIdentityPolicyResponse'
-    { _piprsStatus :: Int
+    { _piprsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutIdentityPolicyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'piprsStatus'
+-- * 'piprsResponseStatus'
 putIdentityPolicyResponse
-    :: Int -- ^ 'piprsStatus'
+    :: Int -- ^ 'piprsResponseStatus'
     -> PutIdentityPolicyResponse
-putIdentityPolicyResponse pStatus_ =
+putIdentityPolicyResponse pResponseStatus_ =
     PutIdentityPolicyResponse'
-    { _piprsStatus = pStatus_
+    { _piprsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-piprsStatus :: Lens' PutIdentityPolicyResponse Int
-piprsStatus = lens _piprsStatus (\ s a -> s{_piprsStatus = a});
+piprsResponseStatus :: Lens' PutIdentityPolicyResponse Int
+piprsResponseStatus = lens _piprsResponseStatus (\ s a -> s{_piprsResponseStatus = a});

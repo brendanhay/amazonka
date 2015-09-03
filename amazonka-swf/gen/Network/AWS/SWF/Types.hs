@@ -16,11 +16,11 @@ module Network.AWS.SWF.Types
       sWF
 
     -- * Errors
+    , _DomainAlreadyExistsFault
     , _LimitExceededFault
     , _WorkflowExecutionAlreadyStartedFault
-    , _DomainAlreadyExistsFault
-    , _UnknownResourceFault
     , _OperationNotPermittedFault
+    , _UnknownResourceFault
     , _DefaultUndefinedFault
     , _TypeDeprecatedFault
     , _TypeAlreadyExistsFault
@@ -137,8 +137,8 @@ module Network.AWS.SWF.Types
     , ActivityTaskScheduledEventAttributes
     , activityTaskScheduledEventAttributes
     , atseaControl
-    , atseaScheduleToCloseTimeout
     , atseaHeartbeatTimeout
+    , atseaScheduleToCloseTimeout
     , atseaInput
     , atseaTaskPriority
     , atseaScheduleToStartTimeout
@@ -307,8 +307,8 @@ module Network.AWS.SWF.Types
     , dRecordMarkerDecisionAttributes
     , dFailWorkflowExecutionDecisionAttributes
     , dStartChildWorkflowExecutionDecisionAttributes
-    , dScheduleLambdaFunctionDecisionAttributes
     , dCompleteWorkflowExecutionDecisionAttributes
+    , dScheduleLambdaFunctionDecisionAttributes
     , dRequestCancelActivityTaskDecisionAttributes
     , dCancelWorkflowExecutionDecisionAttributes
     , dCancelTimerDecisionAttributes
@@ -388,59 +388,59 @@ module Network.AWS.SWF.Types
     , HistoryEvent
     , historyEvent
     , heWorkflowExecutionCancelRequestedEventAttributes
-    , heDecisionTaskScheduledEventAttributes
-    , heStartTimerFailedEventAttributes
-    , heLambdaFunctionStartedEventAttributes
     , heRecordMarkerFailedEventAttributes
     , heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes
+    , heLambdaFunctionStartedEventAttributes
+    , heDecisionTaskScheduledEventAttributes
     , heWorkflowExecutionCompletedEventAttributes
+    , heStartTimerFailedEventAttributes
     , heActivityTaskScheduledEventAttributes
-    , heChildWorkflowExecutionCompletedEventAttributes
     , heScheduleActivityTaskFailedEventAttributes
+    , heChildWorkflowExecutionCompletedEventAttributes
     , heMarkerRecordedEventAttributes
     , heScheduleLambdaFunctionFailedEventAttributes
     , heCompleteWorkflowExecutionFailedEventAttributes
-    , heRequestCancelExternalWorkflowExecutionFailedEventAttributes
     , heLambdaFunctionCompletedEventAttributes
+    , heRequestCancelExternalWorkflowExecutionFailedEventAttributes
     , heTimerCanceledEventAttributes
     , heWorkflowExecutionStartedEventAttributes
     , heActivityTaskCompletedEventAttributes
-    , heChildWorkflowExecutionStartedEventAttributes
     , heDecisionTaskTimedOutEventAttributes
     , heCancelTimerFailedEventAttributes
-    , heActivityTaskTimedOutEventAttributes
+    , heChildWorkflowExecutionStartedEventAttributes
     , heActivityTaskCanceledEventAttributes
-    , heChildWorkflowExecutionCanceledEventAttributes
+    , heActivityTaskTimedOutEventAttributes
     , heDecisionTaskStartedEventAttributes
-    , heCancelWorkflowExecutionFailedEventAttributes
+    , heWorkflowExecutionTerminatedEventAttributes
+    , heChildWorkflowExecutionCanceledEventAttributes
+    , heRequestCancelActivityTaskFailedEventAttributes
     , heLambdaFunctionScheduledEventAttributes
     , heChildWorkflowExecutionTimedOutEventAttributes
-    , heRequestCancelActivityTaskFailedEventAttributes
-    , heWorkflowExecutionTerminatedEventAttributes
+    , heCancelWorkflowExecutionFailedEventAttributes
     , heStartChildWorkflowExecutionInitiatedEventAttributes
-    , heActivityTaskStartedEventAttributes
     , heSignalExternalWorkflowExecutionFailedEventAttributes
-    , heTimerStartedEventAttributes
-    , heWorkflowExecutionTimedOutEventAttributes
-    , heActivityTaskCancelRequestedEventAttributes
+    , heActivityTaskStartedEventAttributes
     , heStartLambdaFunctionFailedEventAttributes
     , heChildWorkflowExecutionTerminatedEventAttributes
     , heLambdaFunctionFailedEventAttributes
     , heWorkflowExecutionCanceledEventAttributes
+    , heTimerStartedEventAttributes
+    , heActivityTaskCancelRequestedEventAttributes
+    , heWorkflowExecutionTimedOutEventAttributes
     , heWorkflowExecutionSignaledEventAttributes
+    , heTimerFiredEventAttributes
     , heActivityTaskFailedEventAttributes
     , heExternalWorkflowExecutionSignaledEventAttributes
-    , heTimerFiredEventAttributes
-    , heFailWorkflowExecutionFailedEventAttributes
-    , heChildWorkflowExecutionFailedEventAttributes
     , heDecisionTaskCompletedEventAttributes
     , heStartChildWorkflowExecutionFailedEventAttributes
-    , heSignalExternalWorkflowExecutionInitiatedEventAttributes
+    , heChildWorkflowExecutionFailedEventAttributes
+    , heFailWorkflowExecutionFailedEventAttributes
     , heContinueAsNewWorkflowExecutionFailedEventAttributes
+    , heSignalExternalWorkflowExecutionInitiatedEventAttributes
+    , heLambdaFunctionTimedOutEventAttributes
     , heWorkflowExecutionFailedEventAttributes
     , heWorkflowExecutionContinuedAsNewEventAttributes
     , heExternalWorkflowExecutionCancelRequestedEventAttributes
-    , heLambdaFunctionTimedOutEventAttributes
     , heEventTimestamp
     , heEventType
     , heEventId
@@ -548,8 +548,8 @@ module Network.AWS.SWF.Types
     , ScheduleActivityTaskDecisionAttributes
     , scheduleActivityTaskDecisionAttributes
     , satdaControl
-    , satdaScheduleToCloseTimeout
     , satdaHeartbeatTimeout
+    , satdaScheduleToCloseTimeout
     , satdaInput
     , satdaTaskList
     , satdaTaskPriority
@@ -906,6 +906,11 @@ sWF =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+-- | Returned if the specified domain already exists. You will get this fault
+-- even if the existing domain is in deprecated status.
+_DomainAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
+_DomainAlreadyExistsFault = _ServiceError . hasCode "DomainAlreadyExistsFault"
+
 -- | Returned by any operation if a system imposed limitation has been
 -- reached. To address this fault you should either clean up unused
 -- resources or increase the limit by contacting AWS.
@@ -918,22 +923,17 @@ _WorkflowExecutionAlreadyStartedFault :: AsError a => Getting (First ServiceErro
 _WorkflowExecutionAlreadyStartedFault =
     _ServiceError . hasCode "WorkflowExecutionAlreadyStartedFault"
 
--- | Returned if the specified domain already exists. You will get this fault
--- even if the existing domain is in deprecated status.
-_DomainAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
-_DomainAlreadyExistsFault = _ServiceError . hasCode "DomainAlreadyExistsFault"
+-- | Returned when the caller does not have sufficient permissions to invoke
+-- the action.
+_OperationNotPermittedFault :: AsError a => Getting (First ServiceError) a ServiceError
+_OperationNotPermittedFault =
+    _ServiceError . hasCode "OperationNotPermittedFault"
 
 -- | Returned when the named resource cannot be found with in the scope of
 -- this operation (region or domain). This could happen if the named
 -- resource was never created or is no longer available for this operation.
 _UnknownResourceFault :: AsError a => Getting (First ServiceError) a ServiceError
 _UnknownResourceFault = _ServiceError . hasCode "UnknownResourceFault"
-
--- | Returned when the caller does not have sufficient permissions to invoke
--- the action.
-_OperationNotPermittedFault :: AsError a => Getting (First ServiceError) a ServiceError
-_OperationNotPermittedFault =
-    _ServiceError . hasCode "OperationNotPermittedFault"
 
 -- | Prism for DefaultUndefinedFault' errors.
 _DefaultUndefinedFault :: AsError a => Getting (First ServiceError) a ServiceError

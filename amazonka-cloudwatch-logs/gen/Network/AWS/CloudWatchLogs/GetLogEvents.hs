@@ -51,7 +51,7 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
     , glersNextBackwardToken
     , glersNextForwardToken
     , glersEvents
-    , glersStatus
+    , glersResponseStatus
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -181,7 +181,7 @@ data GetLogEventsResponse = GetLogEventsResponse'
     { _glersNextBackwardToken :: !(Maybe Text)
     , _glersNextForwardToken  :: !(Maybe Text)
     , _glersEvents            :: !(Maybe [OutputLogEvent])
-    , _glersStatus            :: !Int
+    , _glersResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetLogEventsResponse' with the minimum fields required to make a request.
@@ -194,16 +194,16 @@ data GetLogEventsResponse = GetLogEventsResponse'
 --
 -- * 'glersEvents'
 --
--- * 'glersStatus'
+-- * 'glersResponseStatus'
 getLogEventsResponse
-    :: Int -- ^ 'glersStatus'
+    :: Int -- ^ 'glersResponseStatus'
     -> GetLogEventsResponse
-getLogEventsResponse pStatus_ =
+getLogEventsResponse pResponseStatus_ =
     GetLogEventsResponse'
     { _glersNextBackwardToken = Nothing
     , _glersNextForwardToken = Nothing
     , _glersEvents = Nothing
-    , _glersStatus = pStatus_
+    , _glersResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -219,5 +219,5 @@ glersEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
 glersEvents = lens _glersEvents (\ s a -> s{_glersEvents = a}) . _Default . _Coerce;
 
 -- | The response status code.
-glersStatus :: Lens' GetLogEventsResponse Int
-glersStatus = lens _glersStatus (\ s a -> s{_glersStatus = a});
+glersResponseStatus :: Lens' GetLogEventsResponse Int
+glersResponseStatus = lens _glersResponseStatus (\ s a -> s{_glersResponseStatus = a});

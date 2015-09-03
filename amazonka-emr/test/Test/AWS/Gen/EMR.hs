@@ -37,23 +37,23 @@ import Test.AWS.EMR.Internal
 --         , testTerminateJobFlows $
 --             terminateJobFlows
 --
---         , testRemoveTags $
---             removeTags
---
 --         , testDescribeStep $
 --             describeStep
+--
+--         , testRemoveTags $
+--             removeTags
 --
 --         , testDescribeCluster $
 --             describeCluster
 --
---         , testModifyInstanceGroups $
---             modifyInstanceGroups
+--         , testSetTerminationProtection $
+--             setTerminationProtection
 --
 --         , testAddJobFlowSteps $
 --             addJobFlowSteps
 --
---         , testSetTerminationProtection $
---             setTerminationProtection
+--         , testModifyInstanceGroups $
+--             modifyInstanceGroups
 --
 --         , testListSteps $
 --             listSteps
@@ -88,23 +88,23 @@ import Test.AWS.EMR.Internal
 --         , testTerminateJobFlowsResponse $
 --             terminateJobFlowsResponse
 --
---         , testRemoveTagsResponse $
---             removeTagsResponse
---
 --         , testDescribeStepResponse $
 --             describeStepResponse
+--
+--         , testRemoveTagsResponse $
+--             removeTagsResponse
 --
 --         , testDescribeClusterResponse $
 --             describeClusterResponse
 --
---         , testModifyInstanceGroupsResponse $
---             modifyInstanceGroupsResponse
+--         , testSetTerminationProtectionResponse $
+--             setTerminationProtectionResponse
 --
 --         , testAddJobFlowStepsResponse $
 --             addJobFlowStepsResponse
 --
---         , testSetTerminationProtectionResponse $
---             setTerminationProtectionResponse
+--         , testModifyInstanceGroupsResponse $
+--             modifyInstanceGroupsResponse
 --
 --         , testListStepsResponse $
 --             listStepsResponse
@@ -147,35 +147,35 @@ testTerminateJobFlows = req
     "TerminateJobFlows"
     "fixture/TerminateJobFlows.yaml"
 
-testRemoveTags :: RemoveTags -> TestTree
-testRemoveTags = req
-    "RemoveTags"
-    "fixture/RemoveTags.yaml"
-
 testDescribeStep :: DescribeStep -> TestTree
 testDescribeStep = req
     "DescribeStep"
     "fixture/DescribeStep.yaml"
+
+testRemoveTags :: RemoveTags -> TestTree
+testRemoveTags = req
+    "RemoveTags"
+    "fixture/RemoveTags.yaml"
 
 testDescribeCluster :: DescribeCluster -> TestTree
 testDescribeCluster = req
     "DescribeCluster"
     "fixture/DescribeCluster.yaml"
 
-testModifyInstanceGroups :: ModifyInstanceGroups -> TestTree
-testModifyInstanceGroups = req
-    "ModifyInstanceGroups"
-    "fixture/ModifyInstanceGroups.yaml"
+testSetTerminationProtection :: SetTerminationProtection -> TestTree
+testSetTerminationProtection = req
+    "SetTerminationProtection"
+    "fixture/SetTerminationProtection.yaml"
 
 testAddJobFlowSteps :: AddJobFlowSteps -> TestTree
 testAddJobFlowSteps = req
     "AddJobFlowSteps"
     "fixture/AddJobFlowSteps.yaml"
 
-testSetTerminationProtection :: SetTerminationProtection -> TestTree
-testSetTerminationProtection = req
-    "SetTerminationProtection"
-    "fixture/SetTerminationProtection.yaml"
+testModifyInstanceGroups :: ModifyInstanceGroups -> TestTree
+testModifyInstanceGroups = req
+    "ModifyInstanceGroups"
+    "fixture/ModifyInstanceGroups.yaml"
 
 testListSteps :: ListSteps -> TestTree
 testListSteps = req
@@ -235,19 +235,19 @@ testTerminateJobFlowsResponse = res
     eMR
     (Proxy :: Proxy TerminateJobFlows)
 
-testRemoveTagsResponse :: RemoveTagsResponse -> TestTree
-testRemoveTagsResponse = res
-    "RemoveTagsResponse"
-    "fixture/RemoveTagsResponse.proto"
-    eMR
-    (Proxy :: Proxy RemoveTags)
-
 testDescribeStepResponse :: DescribeStepResponse -> TestTree
 testDescribeStepResponse = res
     "DescribeStepResponse"
     "fixture/DescribeStepResponse.proto"
     eMR
     (Proxy :: Proxy DescribeStep)
+
+testRemoveTagsResponse :: RemoveTagsResponse -> TestTree
+testRemoveTagsResponse = res
+    "RemoveTagsResponse"
+    "fixture/RemoveTagsResponse.proto"
+    eMR
+    (Proxy :: Proxy RemoveTags)
 
 testDescribeClusterResponse :: DescribeClusterResponse -> TestTree
 testDescribeClusterResponse = res
@@ -256,12 +256,12 @@ testDescribeClusterResponse = res
     eMR
     (Proxy :: Proxy DescribeCluster)
 
-testModifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse -> TestTree
-testModifyInstanceGroupsResponse = res
-    "ModifyInstanceGroupsResponse"
-    "fixture/ModifyInstanceGroupsResponse.proto"
+testSetTerminationProtectionResponse :: SetTerminationProtectionResponse -> TestTree
+testSetTerminationProtectionResponse = res
+    "SetTerminationProtectionResponse"
+    "fixture/SetTerminationProtectionResponse.proto"
     eMR
-    (Proxy :: Proxy ModifyInstanceGroups)
+    (Proxy :: Proxy SetTerminationProtection)
 
 testAddJobFlowStepsResponse :: AddJobFlowStepsResponse -> TestTree
 testAddJobFlowStepsResponse = res
@@ -270,12 +270,12 @@ testAddJobFlowStepsResponse = res
     eMR
     (Proxy :: Proxy AddJobFlowSteps)
 
-testSetTerminationProtectionResponse :: SetTerminationProtectionResponse -> TestTree
-testSetTerminationProtectionResponse = res
-    "SetTerminationProtectionResponse"
-    "fixture/SetTerminationProtectionResponse.proto"
+testModifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse -> TestTree
+testModifyInstanceGroupsResponse = res
+    "ModifyInstanceGroupsResponse"
+    "fixture/ModifyInstanceGroupsResponse.proto"
     eMR
-    (Proxy :: Proxy SetTerminationProtection)
+    (Proxy :: Proxy ModifyInstanceGroups)
 
 testListStepsResponse :: ListStepsResponse -> TestTree
 testListStepsResponse = res

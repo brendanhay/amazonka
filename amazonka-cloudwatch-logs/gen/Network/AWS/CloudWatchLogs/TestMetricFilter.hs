@@ -37,7 +37,7 @@ module Network.AWS.CloudWatchLogs.TestMetricFilter
     , TestMetricFilterResponse
     -- * Response Lenses
     , tmfrsMatches
-    , tmfrsStatus
+    , tmfrsResponseStatus
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -110,8 +110,8 @@ instance ToQuery TestMetricFilter where
 
 -- | /See:/ 'testMetricFilterResponse' smart constructor.
 data TestMetricFilterResponse = TestMetricFilterResponse'
-    { _tmfrsMatches :: !(Maybe [MetricFilterMatchRecord])
-    , _tmfrsStatus  :: !Int
+    { _tmfrsMatches        :: !(Maybe [MetricFilterMatchRecord])
+    , _tmfrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TestMetricFilterResponse' with the minimum fields required to make a request.
@@ -120,14 +120,14 @@ data TestMetricFilterResponse = TestMetricFilterResponse'
 --
 -- * 'tmfrsMatches'
 --
--- * 'tmfrsStatus'
+-- * 'tmfrsResponseStatus'
 testMetricFilterResponse
-    :: Int -- ^ 'tmfrsStatus'
+    :: Int -- ^ 'tmfrsResponseStatus'
     -> TestMetricFilterResponse
-testMetricFilterResponse pStatus_ =
+testMetricFilterResponse pResponseStatus_ =
     TestMetricFilterResponse'
     { _tmfrsMatches = Nothing
-    , _tmfrsStatus = pStatus_
+    , _tmfrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -135,5 +135,5 @@ tmfrsMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
 tmfrsMatches = lens _tmfrsMatches (\ s a -> s{_tmfrsMatches = a}) . _Default . _Coerce;
 
 -- | The response status code.
-tmfrsStatus :: Lens' TestMetricFilterResponse Int
-tmfrsStatus = lens _tmfrsStatus (\ s a -> s{_tmfrsStatus = a});
+tmfrsResponseStatus :: Lens' TestMetricFilterResponse Int
+tmfrsResponseStatus = lens _tmfrsResponseStatus (\ s a -> s{_tmfrsResponseStatus = a});

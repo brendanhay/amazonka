@@ -30,6 +30,12 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Security Groups>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
+-- [EC2-VPC only accounts] If you don\'t specify a subnet in the request,
+-- we choose a default subnet from your default VPC for you.
+--
+-- [EC2-Classic accounts] If you\'re launching into EC2-Classic and you
+-- don\'t specify an Availability Zone, we choose one for you.
+--
 -- Linux instances have access to the public key of the key pair at boot.
 -- You can use this key to provide secure access to the instance. Amazon
 -- EC2 public images use this feature to provide secure access without
@@ -62,23 +68,23 @@ module Network.AWS.EC2.RunInstances
       runInstances
     , RunInstances
     -- * Request Lenses
-    , rSecurityGroupIds
     , rAdditionalInfo
+    , rSecurityGroupIds
     , rSecurityGroups
     , rClientToken
     , rDisableAPITermination
-    , rNetworkInterfaces
     , rKeyName
+    , rNetworkInterfaces
     , rRAMDiskId
-    , rKernelId
     , rSubnetId
+    , rKernelId
     , rInstanceType
     , rEBSOptimized
     , rUserData
     , rMonitoring
     , rIAMInstanceProfile
-    , rInstanceInitiatedShutdownBehavior
     , rPrivateIPAddress
+    , rInstanceInitiatedShutdownBehavior
     , rBlockDeviceMappings
     , rDryRun
     , rPlacement
@@ -105,23 +111,23 @@ import           Network.AWS.Response
 
 -- | /See:/ 'runInstances' smart constructor.
 data RunInstances = RunInstances'
-    { _rSecurityGroupIds                  :: !(Maybe [Text])
-    , _rAdditionalInfo                    :: !(Maybe Text)
+    { _rAdditionalInfo                    :: !(Maybe Text)
+    , _rSecurityGroupIds                  :: !(Maybe [Text])
     , _rSecurityGroups                    :: !(Maybe [Text])
     , _rClientToken                       :: !(Maybe Text)
     , _rDisableAPITermination             :: !(Maybe Bool)
-    , _rNetworkInterfaces                 :: !(Maybe [InstanceNetworkInterfaceSpecification])
     , _rKeyName                           :: !(Maybe Text)
+    , _rNetworkInterfaces                 :: !(Maybe [InstanceNetworkInterfaceSpecification])
     , _rRAMDiskId                         :: !(Maybe Text)
-    , _rKernelId                          :: !(Maybe Text)
     , _rSubnetId                          :: !(Maybe Text)
+    , _rKernelId                          :: !(Maybe Text)
     , _rInstanceType                      :: !(Maybe InstanceType)
     , _rEBSOptimized                      :: !(Maybe Bool)
     , _rUserData                          :: !(Maybe Text)
     , _rMonitoring                        :: !(Maybe RunInstancesMonitoringEnabled)
     , _rIAMInstanceProfile                :: !(Maybe IAMInstanceProfileSpecification)
-    , _rInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
     , _rPrivateIPAddress                  :: !(Maybe Text)
+    , _rInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
     , _rBlockDeviceMappings               :: !(Maybe [BlockDeviceMapping])
     , _rDryRun                            :: !(Maybe Bool)
     , _rPlacement                         :: !(Maybe Placement)
@@ -134,9 +140,9 @@ data RunInstances = RunInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rSecurityGroupIds'
---
 -- * 'rAdditionalInfo'
+--
+-- * 'rSecurityGroupIds'
 --
 -- * 'rSecurityGroups'
 --
@@ -144,15 +150,15 @@ data RunInstances = RunInstances'
 --
 -- * 'rDisableAPITermination'
 --
--- * 'rNetworkInterfaces'
---
 -- * 'rKeyName'
+--
+-- * 'rNetworkInterfaces'
 --
 -- * 'rRAMDiskId'
 --
--- * 'rKernelId'
---
 -- * 'rSubnetId'
+--
+-- * 'rKernelId'
 --
 -- * 'rInstanceType'
 --
@@ -164,9 +170,9 @@ data RunInstances = RunInstances'
 --
 -- * 'rIAMInstanceProfile'
 --
--- * 'rInstanceInitiatedShutdownBehavior'
---
 -- * 'rPrivateIPAddress'
+--
+-- * 'rInstanceInitiatedShutdownBehavior'
 --
 -- * 'rBlockDeviceMappings'
 --
@@ -186,23 +192,23 @@ runInstances
     -> RunInstances
 runInstances pImageId_ pMinCount_ pMaxCount_ =
     RunInstances'
-    { _rSecurityGroupIds = Nothing
-    , _rAdditionalInfo = Nothing
+    { _rAdditionalInfo = Nothing
+    , _rSecurityGroupIds = Nothing
     , _rSecurityGroups = Nothing
     , _rClientToken = Nothing
     , _rDisableAPITermination = Nothing
-    , _rNetworkInterfaces = Nothing
     , _rKeyName = Nothing
+    , _rNetworkInterfaces = Nothing
     , _rRAMDiskId = Nothing
-    , _rKernelId = Nothing
     , _rSubnetId = Nothing
+    , _rKernelId = Nothing
     , _rInstanceType = Nothing
     , _rEBSOptimized = Nothing
     , _rUserData = Nothing
     , _rMonitoring = Nothing
     , _rIAMInstanceProfile = Nothing
-    , _rInstanceInitiatedShutdownBehavior = Nothing
     , _rPrivateIPAddress = Nothing
+    , _rInstanceInitiatedShutdownBehavior = Nothing
     , _rBlockDeviceMappings = Nothing
     , _rDryRun = Nothing
     , _rPlacement = Nothing
@@ -211,16 +217,16 @@ runInstances pImageId_ pMinCount_ pMaxCount_ =
     , _rMaxCount = pMaxCount_
     }
 
+-- | Reserved.
+rAdditionalInfo :: Lens' RunInstances (Maybe Text)
+rAdditionalInfo = lens _rAdditionalInfo (\ s a -> s{_rAdditionalInfo = a});
+
 -- | One or more security group IDs. You can create a security group using
 -- CreateSecurityGroup.
 --
 -- Default: Amazon EC2 uses the default security group.
 rSecurityGroupIds :: Lens' RunInstances [Text]
 rSecurityGroupIds = lens _rSecurityGroupIds (\ s a -> s{_rSecurityGroupIds = a}) . _Default . _Coerce;
-
--- | Reserved.
-rAdditionalInfo :: Lens' RunInstances (Maybe Text)
-rAdditionalInfo = lens _rAdditionalInfo (\ s a -> s{_rAdditionalInfo = a});
 
 -- | [EC2-Classic, default VPC] One or more security group names. For a
 -- nondefault VPC, you must use security group IDs instead.
@@ -250,10 +256,6 @@ rClientToken = lens _rClientToken (\ s a -> s{_rClientToken = a});
 rDisableAPITermination :: Lens' RunInstances (Maybe Bool)
 rDisableAPITermination = lens _rDisableAPITermination (\ s a -> s{_rDisableAPITermination = a});
 
--- | One or more network interfaces.
-rNetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
-rNetworkInterfaces = lens _rNetworkInterfaces (\ s a -> s{_rNetworkInterfaces = a}) . _Default . _Coerce;
-
 -- | The name of the key pair. You can create a key pair using CreateKeyPair
 -- or ImportKeyPair.
 --
@@ -262,6 +264,10 @@ rNetworkInterfaces = lens _rNetworkInterfaces (\ s a -> s{_rNetworkInterfaces = 
 -- to log in.
 rKeyName :: Lens' RunInstances (Maybe Text)
 rKeyName = lens _rKeyName (\ s a -> s{_rKeyName = a});
+
+-- | One or more network interfaces.
+rNetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
+rNetworkInterfaces = lens _rNetworkInterfaces (\ s a -> s{_rNetworkInterfaces = a}) . _Default . _Coerce;
 
 -- | The ID of the RAM disk.
 --
@@ -272,6 +278,10 @@ rKeyName = lens _rKeyName (\ s a -> s{_rKeyName = a});
 rRAMDiskId :: Lens' RunInstances (Maybe Text)
 rRAMDiskId = lens _rRAMDiskId (\ s a -> s{_rRAMDiskId = a});
 
+-- | [EC2-VPC] The ID of the subnet to launch the instance into.
+rSubnetId :: Lens' RunInstances (Maybe Text)
+rSubnetId = lens _rSubnetId (\ s a -> s{_rSubnetId = a});
+
 -- | The ID of the kernel.
 --
 -- We recommend that you use PV-GRUB instead of kernels and RAM disks. For
@@ -280,10 +290,6 @@ rRAMDiskId = lens _rRAMDiskId (\ s a -> s{_rRAMDiskId = a});
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 rKernelId :: Lens' RunInstances (Maybe Text)
 rKernelId = lens _rKernelId (\ s a -> s{_rKernelId = a});
-
--- | [EC2-VPC] The ID of the subnet to launch the instance into.
-rSubnetId :: Lens' RunInstances (Maybe Text)
-rSubnetId = lens _rSubnetId (\ s a -> s{_rSubnetId = a});
 
 -- | The instance type. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types>
@@ -315,14 +321,6 @@ rMonitoring = lens _rMonitoring (\ s a -> s{_rMonitoring = a});
 rIAMInstanceProfile :: Lens' RunInstances (Maybe IAMInstanceProfileSpecification)
 rIAMInstanceProfile = lens _rIAMInstanceProfile (\ s a -> s{_rIAMInstanceProfile = a});
 
--- | Indicates whether an instance stops or terminates when you initiate
--- shutdown from the instance (using the operating system command for
--- system shutdown).
---
--- Default: 'stop'
-rInstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe ShutdownBehavior)
-rInstanceInitiatedShutdownBehavior = lens _rInstanceInitiatedShutdownBehavior (\ s a -> s{_rInstanceInitiatedShutdownBehavior = a});
-
 -- | [EC2-VPC] The primary IP address. You must specify a value from the IP
 -- address range of the subnet.
 --
@@ -335,6 +333,14 @@ rInstanceInitiatedShutdownBehavior = lens _rInstanceInitiatedShutdownBehavior (\
 -- subnet.
 rPrivateIPAddress :: Lens' RunInstances (Maybe Text)
 rPrivateIPAddress = lens _rPrivateIPAddress (\ s a -> s{_rPrivateIPAddress = a});
+
+-- | Indicates whether an instance stops or terminates when you initiate
+-- shutdown from the instance (using the operating system command for
+-- system shutdown).
+--
+-- Default: 'stop'
+rInstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe ShutdownBehavior)
+rInstanceInitiatedShutdownBehavior = lens _rInstanceInitiatedShutdownBehavior (\ s a -> s{_rInstanceInitiatedShutdownBehavior = a});
 
 -- | The block device mapping.
 rBlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
@@ -395,27 +401,28 @@ instance ToQuery RunInstances where
           = mconcat
               ["Action" =: ("RunInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
+               "AdditionalInfo" =: _rAdditionalInfo,
                toQuery
                  (toQueryList "SecurityGroupId" <$>
                     _rSecurityGroupIds),
-               "AdditionalInfo" =: _rAdditionalInfo,
                toQuery
                  (toQueryList "SecurityGroup" <$> _rSecurityGroups),
                "ClientToken" =: _rClientToken,
                "DisableApiTermination" =: _rDisableAPITermination,
+               "KeyName" =: _rKeyName,
                toQuery
                  (toQueryList "NetworkInterface" <$>
                     _rNetworkInterfaces),
-               "KeyName" =: _rKeyName, "RamdiskId" =: _rRAMDiskId,
-               "KernelId" =: _rKernelId, "SubnetId" =: _rSubnetId,
+               "RamdiskId" =: _rRAMDiskId, "SubnetId" =: _rSubnetId,
+               "KernelId" =: _rKernelId,
                "InstanceType" =: _rInstanceType,
                "EbsOptimized" =: _rEBSOptimized,
                "UserData" =: _rUserData,
                "Monitoring" =: _rMonitoring,
                "IamInstanceProfile" =: _rIAMInstanceProfile,
+               "PrivateIpAddress" =: _rPrivateIPAddress,
                "InstanceInitiatedShutdownBehavior" =:
                  _rInstanceInitiatedShutdownBehavior,
-               "PrivateIpAddress" =: _rPrivateIPAddress,
                toQuery
                  (toQueryList "BlockDeviceMapping" <$>
                     _rBlockDeviceMappings),

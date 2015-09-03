@@ -34,7 +34,7 @@ module Network.AWS.S3.GetBucketRequestPayment
     , GetBucketRequestPaymentResponse
     -- * Response Lenses
     , gbrprsPayer
-    , gbrprsStatus
+    , gbrprsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -87,8 +87,8 @@ instance ToQuery GetBucketRequestPayment where
 
 -- | /See:/ 'getBucketRequestPaymentResponse' smart constructor.
 data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
-    { _gbrprsPayer  :: !(Maybe Payer)
-    , _gbrprsStatus :: !Int
+    { _gbrprsPayer          :: !(Maybe Payer)
+    , _gbrprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketRequestPaymentResponse' with the minimum fields required to make a request.
@@ -97,14 +97,14 @@ data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
 --
 -- * 'gbrprsPayer'
 --
--- * 'gbrprsStatus'
+-- * 'gbrprsResponseStatus'
 getBucketRequestPaymentResponse
-    :: Int -- ^ 'gbrprsStatus'
+    :: Int -- ^ 'gbrprsResponseStatus'
     -> GetBucketRequestPaymentResponse
-getBucketRequestPaymentResponse pStatus_ =
+getBucketRequestPaymentResponse pResponseStatus_ =
     GetBucketRequestPaymentResponse'
     { _gbrprsPayer = Nothing
-    , _gbrprsStatus = pStatus_
+    , _gbrprsResponseStatus = pResponseStatus_
     }
 
 -- | Specifies who pays for the download and request fees.
@@ -112,5 +112,5 @@ gbrprsPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
 gbrprsPayer = lens _gbrprsPayer (\ s a -> s{_gbrprsPayer = a});
 
 -- | The response status code.
-gbrprsStatus :: Lens' GetBucketRequestPaymentResponse Int
-gbrprsStatus = lens _gbrprsStatus (\ s a -> s{_gbrprsStatus = a});
+gbrprsResponseStatus :: Lens' GetBucketRequestPaymentResponse Int
+gbrprsResponseStatus = lens _gbrprsResponseStatus (\ s a -> s{_gbrprsResponseStatus = a});

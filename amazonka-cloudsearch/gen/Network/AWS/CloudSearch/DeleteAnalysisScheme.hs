@@ -36,7 +36,7 @@ module Network.AWS.CloudSearch.DeleteAnalysisScheme
     , deleteAnalysisSchemeResponse
     , DeleteAnalysisSchemeResponse
     -- * Response Lenses
-    , dasarsStatus
+    , dasarsResponseStatus
     , dasarsAnalysisScheme
     ) where
 
@@ -110,7 +110,7 @@ instance ToQuery DeleteAnalysisScheme where
 --
 -- /See:/ 'deleteAnalysisSchemeResponse' smart constructor.
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
-    { _dasarsStatus         :: !Int
+    { _dasarsResponseStatus :: !Int
     , _dasarsAnalysisScheme :: !AnalysisSchemeStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -118,22 +118,22 @@ data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dasarsStatus'
+-- * 'dasarsResponseStatus'
 --
 -- * 'dasarsAnalysisScheme'
 deleteAnalysisSchemeResponse
-    :: Int -- ^ 'dasarsStatus'
+    :: Int -- ^ 'dasarsResponseStatus'
     -> AnalysisSchemeStatus -- ^ 'dasarsAnalysisScheme'
     -> DeleteAnalysisSchemeResponse
-deleteAnalysisSchemeResponse pStatus_ pAnalysisScheme_ =
+deleteAnalysisSchemeResponse pResponseStatus_ pAnalysisScheme_ =
     DeleteAnalysisSchemeResponse'
-    { _dasarsStatus = pStatus_
+    { _dasarsResponseStatus = pResponseStatus_
     , _dasarsAnalysisScheme = pAnalysisScheme_
     }
 
 -- | The response status code.
-dasarsStatus :: Lens' DeleteAnalysisSchemeResponse Int
-dasarsStatus = lens _dasarsStatus (\ s a -> s{_dasarsStatus = a});
+dasarsResponseStatus :: Lens' DeleteAnalysisSchemeResponse Int
+dasarsResponseStatus = lens _dasarsResponseStatus (\ s a -> s{_dasarsResponseStatus = a});
 
 -- | The status of the analysis scheme being deleted.
 dasarsAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus

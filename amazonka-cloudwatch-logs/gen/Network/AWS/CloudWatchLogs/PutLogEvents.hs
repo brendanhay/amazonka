@@ -55,7 +55,7 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     -- * Response Lenses
     , plersRejectedLogEventsInfo
     , plersNextSequenceToken
-    , plersStatus
+    , plersResponseStatus
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -152,7 +152,7 @@ instance ToQuery PutLogEvents where
 data PutLogEventsResponse = PutLogEventsResponse'
     { _plersRejectedLogEventsInfo :: !(Maybe RejectedLogEventsInfo)
     , _plersNextSequenceToken     :: !(Maybe Text)
-    , _plersStatus                :: !Int
+    , _plersResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutLogEventsResponse' with the minimum fields required to make a request.
@@ -163,15 +163,15 @@ data PutLogEventsResponse = PutLogEventsResponse'
 --
 -- * 'plersNextSequenceToken'
 --
--- * 'plersStatus'
+-- * 'plersResponseStatus'
 putLogEventsResponse
-    :: Int -- ^ 'plersStatus'
+    :: Int -- ^ 'plersResponseStatus'
     -> PutLogEventsResponse
-putLogEventsResponse pStatus_ =
+putLogEventsResponse pResponseStatus_ =
     PutLogEventsResponse'
     { _plersRejectedLogEventsInfo = Nothing
     , _plersNextSequenceToken = Nothing
-    , _plersStatus = pStatus_
+    , _plersResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -183,5 +183,5 @@ plersNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
 plersNextSequenceToken = lens _plersNextSequenceToken (\ s a -> s{_plersNextSequenceToken = a});
 
 -- | The response status code.
-plersStatus :: Lens' PutLogEventsResponse Int
-plersStatus = lens _plersStatus (\ s a -> s{_plersStatus = a});
+plersResponseStatus :: Lens' PutLogEventsResponse Int
+plersResponseStatus = lens _plersResponseStatus (\ s a -> s{_plersResponseStatus = a});

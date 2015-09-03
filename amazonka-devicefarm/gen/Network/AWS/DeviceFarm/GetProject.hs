@@ -34,7 +34,7 @@ module Network.AWS.DeviceFarm.GetProject
     , GetProjectResponse
     -- * Response Lenses
     , gprsProject
-    , gprsStatus
+    , gprsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -99,8 +99,8 @@ instance ToQuery GetProject where
 --
 -- /See:/ 'getProjectResponse' smart constructor.
 data GetProjectResponse = GetProjectResponse'
-    { _gprsProject :: !(Maybe Project)
-    , _gprsStatus  :: !Int
+    { _gprsProject        :: !(Maybe Project)
+    , _gprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetProjectResponse' with the minimum fields required to make a request.
@@ -109,14 +109,14 @@ data GetProjectResponse = GetProjectResponse'
 --
 -- * 'gprsProject'
 --
--- * 'gprsStatus'
+-- * 'gprsResponseStatus'
 getProjectResponse
-    :: Int -- ^ 'gprsStatus'
+    :: Int -- ^ 'gprsResponseStatus'
     -> GetProjectResponse
-getProjectResponse pStatus_ =
+getProjectResponse pResponseStatus_ =
     GetProjectResponse'
     { _gprsProject = Nothing
-    , _gprsStatus = pStatus_
+    , _gprsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -124,5 +124,5 @@ gprsProject :: Lens' GetProjectResponse (Maybe Project)
 gprsProject = lens _gprsProject (\ s a -> s{_gprsProject = a});
 
 -- | The response status code.
-gprsStatus :: Lens' GetProjectResponse Int
-gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});
+gprsResponseStatus :: Lens' GetProjectResponse Int
+gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});

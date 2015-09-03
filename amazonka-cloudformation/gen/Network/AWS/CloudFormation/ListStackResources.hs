@@ -41,7 +41,7 @@ module Network.AWS.CloudFormation.ListStackResources
     -- * Response Lenses
     , lsrrsNextToken
     , lsrrsStackResourceSummaries
-    , lsrrsStatus
+    , lsrrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -133,7 +133,7 @@ instance ToQuery ListStackResources where
 data ListStackResourcesResponse = ListStackResourcesResponse'
     { _lsrrsNextToken              :: !(Maybe Text)
     , _lsrrsStackResourceSummaries :: !(Maybe [StackResourceSummary])
-    , _lsrrsStatus                 :: !Int
+    , _lsrrsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListStackResourcesResponse' with the minimum fields required to make a request.
@@ -144,15 +144,15 @@ data ListStackResourcesResponse = ListStackResourcesResponse'
 --
 -- * 'lsrrsStackResourceSummaries'
 --
--- * 'lsrrsStatus'
+-- * 'lsrrsResponseStatus'
 listStackResourcesResponse
-    :: Int -- ^ 'lsrrsStatus'
+    :: Int -- ^ 'lsrrsResponseStatus'
     -> ListStackResourcesResponse
-listStackResourcesResponse pStatus_ =
+listStackResourcesResponse pResponseStatus_ =
     ListStackResourcesResponse'
     { _lsrrsNextToken = Nothing
     , _lsrrsStackResourceSummaries = Nothing
-    , _lsrrsStatus = pStatus_
+    , _lsrrsResponseStatus = pResponseStatus_
     }
 
 -- | String that identifies the start of the next list of stack resources, if
@@ -165,5 +165,5 @@ lsrrsStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSu
 lsrrsStackResourceSummaries = lens _lsrrsStackResourceSummaries (\ s a -> s{_lsrrsStackResourceSummaries = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lsrrsStatus :: Lens' ListStackResourcesResponse Int
-lsrrsStatus = lens _lsrrsStatus (\ s a -> s{_lsrrsStatus = a});
+lsrrsResponseStatus :: Lens' ListStackResourcesResponse Int
+lsrrsResponseStatus = lens _lsrrsResponseStatus (\ s a -> s{_lsrrsResponseStatus = a});

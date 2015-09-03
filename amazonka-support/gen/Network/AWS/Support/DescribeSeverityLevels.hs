@@ -36,7 +36,7 @@ module Network.AWS.Support.DescribeSeverityLevels
     , DescribeSeverityLevelsResponse
     -- * Response Lenses
     , dslrsSeverityLevels
-    , dslrsStatus
+    , dslrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -107,7 +107,7 @@ instance ToQuery DescribeSeverityLevels where
 -- /See:/ 'describeSeverityLevelsResponse' smart constructor.
 data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
     { _dslrsSeverityLevels :: !(Maybe [SeverityLevel])
-    , _dslrsStatus         :: !Int
+    , _dslrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSeverityLevelsResponse' with the minimum fields required to make a request.
@@ -116,14 +116,14 @@ data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
 --
 -- * 'dslrsSeverityLevels'
 --
--- * 'dslrsStatus'
+-- * 'dslrsResponseStatus'
 describeSeverityLevelsResponse
-    :: Int -- ^ 'dslrsStatus'
+    :: Int -- ^ 'dslrsResponseStatus'
     -> DescribeSeverityLevelsResponse
-describeSeverityLevelsResponse pStatus_ =
+describeSeverityLevelsResponse pResponseStatus_ =
     DescribeSeverityLevelsResponse'
     { _dslrsSeverityLevels = Nothing
-    , _dslrsStatus = pStatus_
+    , _dslrsResponseStatus = pResponseStatus_
     }
 
 -- | The available severity levels for the support case. Available severity
@@ -132,5 +132,5 @@ dslrsSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
 dslrsSeverityLevels = lens _dslrsSeverityLevels (\ s a -> s{_dslrsSeverityLevels = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dslrsStatus :: Lens' DescribeSeverityLevelsResponse Int
-dslrsStatus = lens _dslrsStatus (\ s a -> s{_dslrsStatus = a});
+dslrsResponseStatus :: Lens' DescribeSeverityLevelsResponse Int
+dslrsResponseStatus = lens _dslrsResponseStatus (\ s a -> s{_dslrsResponseStatus = a});

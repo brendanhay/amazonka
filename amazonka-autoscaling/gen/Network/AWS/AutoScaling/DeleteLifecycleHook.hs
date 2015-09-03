@@ -38,7 +38,7 @@ module Network.AWS.AutoScaling.DeleteLifecycleHook
     , deleteLifecycleHookResponse
     , DeleteLifecycleHookResponse
     -- * Response Lenses
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -103,22 +103,22 @@ instance ToQuery DeleteLifecycleHook where
 
 -- | /See:/ 'deleteLifecycleHookResponse' smart constructor.
 newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
-    { _drsStatus :: Int
+    { _drsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteLifecycleHookResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 deleteLifecycleHookResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DeleteLifecycleHookResponse
-deleteLifecycleHookResponse pStatus_ =
+deleteLifecycleHookResponse pResponseStatus_ =
     DeleteLifecycleHookResponse'
-    { _drsStatus = pStatus_
+    { _drsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-drsStatus :: Lens' DeleteLifecycleHookResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DeleteLifecycleHookResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

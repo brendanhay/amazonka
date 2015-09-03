@@ -30,8 +30,8 @@ data AlarmHistoryItem = AlarmHistoryItem'
     { _ahiAlarmName       :: !(Maybe Text)
     , _ahiHistoryItemType :: !(Maybe HistoryItemType)
     , _ahiHistoryData     :: !(Maybe Text)
-    , _ahiTimestamp       :: !(Maybe ISO8601)
     , _ahiHistorySummary  :: !(Maybe Text)
+    , _ahiTimestamp       :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AlarmHistoryItem' with the minimum fields required to make a request.
@@ -44,9 +44,9 @@ data AlarmHistoryItem = AlarmHistoryItem'
 --
 -- * 'ahiHistoryData'
 --
--- * 'ahiTimestamp'
---
 -- * 'ahiHistorySummary'
+--
+-- * 'ahiTimestamp'
 alarmHistoryItem
     :: AlarmHistoryItem
 alarmHistoryItem =
@@ -54,8 +54,8 @@ alarmHistoryItem =
     { _ahiAlarmName = Nothing
     , _ahiHistoryItemType = Nothing
     , _ahiHistoryData = Nothing
-    , _ahiTimestamp = Nothing
     , _ahiHistorySummary = Nothing
+    , _ahiTimestamp = Nothing
     }
 
 -- | The descriptive name for the alarm.
@@ -70,6 +70,10 @@ ahiHistoryItemType = lens _ahiHistoryItemType (\ s a -> s{_ahiHistoryItemType = 
 ahiHistoryData :: Lens' AlarmHistoryItem (Maybe Text)
 ahiHistoryData = lens _ahiHistoryData (\ s a -> s{_ahiHistoryData = a});
 
+-- | A human-readable summary of the alarm history.
+ahiHistorySummary :: Lens' AlarmHistoryItem (Maybe Text)
+ahiHistorySummary = lens _ahiHistorySummary (\ s a -> s{_ahiHistorySummary = a});
+
 -- | The time stamp for the alarm history item. Amazon CloudWatch uses
 -- Coordinated Universal Time (UTC) when returning time stamps, which do
 -- not accommodate seasonal adjustments such as daylight savings time. For
@@ -79,17 +83,13 @@ ahiHistoryData = lens _ahiHistoryData (\ s a -> s{_ahiHistoryData = a});
 ahiTimestamp :: Lens' AlarmHistoryItem (Maybe UTCTime)
 ahiTimestamp = lens _ahiTimestamp (\ s a -> s{_ahiTimestamp = a}) . mapping _Time;
 
--- | A human-readable summary of the alarm history.
-ahiHistorySummary :: Lens' AlarmHistoryItem (Maybe Text)
-ahiHistorySummary = lens _ahiHistorySummary (\ s a -> s{_ahiHistorySummary = a});
-
 instance FromXML AlarmHistoryItem where
         parseXML x
           = AlarmHistoryItem' <$>
               (x .@? "AlarmName") <*> (x .@? "HistoryItemType") <*>
                 (x .@? "HistoryData")
-                <*> (x .@? "Timestamp")
                 <*> (x .@? "HistorySummary")
+                <*> (x .@? "Timestamp")
 
 -- | The 'Datapoint' data type encapsulates the statistical data that Amazon
 -- CloudWatch computes from metric data.
@@ -101,8 +101,8 @@ data Datapoint = Datapoint'
     , _dAverage     :: !(Maybe Double)
     , _dMinimum     :: !(Maybe Double)
     , _dSum         :: !(Maybe Double)
-    , _dTimestamp   :: !(Maybe ISO8601)
     , _dUnit        :: !(Maybe StandardUnit)
+    , _dTimestamp   :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Datapoint' with the minimum fields required to make a request.
@@ -119,9 +119,9 @@ data Datapoint = Datapoint'
 --
 -- * 'dSum'
 --
--- * 'dTimestamp'
---
 -- * 'dUnit'
+--
+-- * 'dTimestamp'
 datapoint
     :: Datapoint
 datapoint =
@@ -131,8 +131,8 @@ datapoint =
     , _dAverage = Nothing
     , _dMinimum = Nothing
     , _dSum = Nothing
-    , _dTimestamp = Nothing
     , _dUnit = Nothing
+    , _dTimestamp = Nothing
     }
 
 -- | The number of metric values that contributed to the aggregate value of
@@ -156,6 +156,10 @@ dMinimum = lens _dMinimum (\ s a -> s{_dMinimum = a});
 dSum :: Lens' Datapoint (Maybe Double)
 dSum = lens _dSum (\ s a -> s{_dSum = a});
 
+-- | The standard unit used for the datapoint.
+dUnit :: Lens' Datapoint (Maybe StandardUnit)
+dUnit = lens _dUnit (\ s a -> s{_dUnit = a});
+
 -- | The time stamp used for the datapoint. Amazon CloudWatch uses
 -- Coordinated Universal Time (UTC) when returning time stamps, which do
 -- not accommodate seasonal adjustments such as daylight savings time. For
@@ -165,10 +169,6 @@ dSum = lens _dSum (\ s a -> s{_dSum = a});
 dTimestamp :: Lens' Datapoint (Maybe UTCTime)
 dTimestamp = lens _dTimestamp (\ s a -> s{_dTimestamp = a}) . mapping _Time;
 
--- | The standard unit used for the datapoint.
-dUnit :: Lens' Datapoint (Maybe StandardUnit)
-dUnit = lens _dUnit (\ s a -> s{_dUnit = a});
-
 instance FromXML Datapoint where
         parseXML x
           = Datapoint' <$>
@@ -176,8 +176,8 @@ instance FromXML Datapoint where
                 (x .@? "Average")
                 <*> (x .@? "Minimum")
                 <*> (x .@? "Sum")
-                <*> (x .@? "Timestamp")
                 <*> (x .@? "Unit")
+                <*> (x .@? "Timestamp")
 
 -- | The 'Dimension' data type further expands on the identity of a metric
 -- using a Name, Value pair.
@@ -318,25 +318,25 @@ instance FromXML Metric where
 data MetricAlarm = MetricAlarm'
     { _maAlarmName                          :: !(Maybe Text)
     , _maStateUpdatedTimestamp              :: !(Maybe ISO8601)
-    , _maAlarmDescription                   :: !(Maybe Text)
     , _maPeriod                             :: !(Maybe Nat)
+    , _maAlarmDescription                   :: !(Maybe Text)
     , _maEvaluationPeriods                  :: !(Maybe Nat)
     , _maMetricName                         :: !(Maybe Text)
     , _maNamespace                          :: !(Maybe Text)
-    , _maOKActions                          :: !(Maybe [Text])
     , _maComparisonOperator                 :: !(Maybe ComparisonOperator)
+    , _maOKActions                          :: !(Maybe [Text])
     , _maStateValue                         :: !(Maybe StateValue)
     , _maThreshold                          :: !(Maybe Double)
-    , _maActionsEnabled                     :: !(Maybe Bool)
     , _maAlarmConfigurationUpdatedTimestamp :: !(Maybe ISO8601)
+    , _maActionsEnabled                     :: !(Maybe Bool)
     , _maInsufficientDataActions            :: !(Maybe [Text])
-    , _maDimensions                         :: !(Maybe [Dimension])
-    , _maStateReasonData                    :: !(Maybe Text)
     , _maStateReason                        :: !(Maybe Text)
+    , _maStateReasonData                    :: !(Maybe Text)
+    , _maDimensions                         :: !(Maybe [Dimension])
     , _maAlarmARN                           :: !(Maybe Text)
     , _maAlarmActions                       :: !(Maybe [Text])
-    , _maStatistic                          :: !(Maybe Statistic)
     , _maUnit                               :: !(Maybe StandardUnit)
+    , _maStatistic                          :: !(Maybe Statistic)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MetricAlarm' with the minimum fields required to make a request.
@@ -347,9 +347,9 @@ data MetricAlarm = MetricAlarm'
 --
 -- * 'maStateUpdatedTimestamp'
 --
--- * 'maAlarmDescription'
---
 -- * 'maPeriod'
+--
+-- * 'maAlarmDescription'
 --
 -- * 'maEvaluationPeriods'
 --
@@ -357,58 +357,58 @@ data MetricAlarm = MetricAlarm'
 --
 -- * 'maNamespace'
 --
--- * 'maOKActions'
---
 -- * 'maComparisonOperator'
+--
+-- * 'maOKActions'
 --
 -- * 'maStateValue'
 --
 -- * 'maThreshold'
 --
--- * 'maActionsEnabled'
---
 -- * 'maAlarmConfigurationUpdatedTimestamp'
+--
+-- * 'maActionsEnabled'
 --
 -- * 'maInsufficientDataActions'
 --
--- * 'maDimensions'
+-- * 'maStateReason'
 --
 -- * 'maStateReasonData'
 --
--- * 'maStateReason'
+-- * 'maDimensions'
 --
 -- * 'maAlarmARN'
 --
 -- * 'maAlarmActions'
 --
--- * 'maStatistic'
---
 -- * 'maUnit'
+--
+-- * 'maStatistic'
 metricAlarm
     :: MetricAlarm
 metricAlarm =
     MetricAlarm'
     { _maAlarmName = Nothing
     , _maStateUpdatedTimestamp = Nothing
-    , _maAlarmDescription = Nothing
     , _maPeriod = Nothing
+    , _maAlarmDescription = Nothing
     , _maEvaluationPeriods = Nothing
     , _maMetricName = Nothing
     , _maNamespace = Nothing
-    , _maOKActions = Nothing
     , _maComparisonOperator = Nothing
+    , _maOKActions = Nothing
     , _maStateValue = Nothing
     , _maThreshold = Nothing
-    , _maActionsEnabled = Nothing
     , _maAlarmConfigurationUpdatedTimestamp = Nothing
+    , _maActionsEnabled = Nothing
     , _maInsufficientDataActions = Nothing
-    , _maDimensions = Nothing
-    , _maStateReasonData = Nothing
     , _maStateReason = Nothing
+    , _maStateReasonData = Nothing
+    , _maDimensions = Nothing
     , _maAlarmARN = Nothing
     , _maAlarmActions = Nothing
-    , _maStatistic = Nothing
     , _maUnit = Nothing
+    , _maStatistic = Nothing
     }
 
 -- | The name of the alarm.
@@ -424,13 +424,13 @@ maAlarmName = lens _maAlarmName (\ s a -> s{_maAlarmName = a});
 maStateUpdatedTimestamp :: Lens' MetricAlarm (Maybe UTCTime)
 maStateUpdatedTimestamp = lens _maStateUpdatedTimestamp (\ s a -> s{_maStateUpdatedTimestamp = a}) . mapping _Time;
 
--- | The description for the alarm.
-maAlarmDescription :: Lens' MetricAlarm (Maybe Text)
-maAlarmDescription = lens _maAlarmDescription (\ s a -> s{_maAlarmDescription = a});
-
 -- | The period in seconds over which the statistic is applied.
 maPeriod :: Lens' MetricAlarm (Maybe Natural)
 maPeriod = lens _maPeriod (\ s a -> s{_maPeriod = a}) . mapping _Nat;
+
+-- | The description for the alarm.
+maAlarmDescription :: Lens' MetricAlarm (Maybe Text)
+maAlarmDescription = lens _maAlarmDescription (\ s a -> s{_maAlarmDescription = a});
 
 -- | The number of periods over which data is compared to the specified
 -- threshold.
@@ -445,18 +445,18 @@ maMetricName = lens _maMetricName (\ s a -> s{_maMetricName = a});
 maNamespace :: Lens' MetricAlarm (Maybe Text)
 maNamespace = lens _maNamespace (\ s a -> s{_maNamespace = a});
 
+-- | The arithmetic operation to use when comparing the specified 'Statistic'
+-- and 'Threshold'. The specified 'Statistic' value is used as the first
+-- operand.
+maComparisonOperator :: Lens' MetricAlarm (Maybe ComparisonOperator)
+maComparisonOperator = lens _maComparisonOperator (\ s a -> s{_maComparisonOperator = a});
+
 -- | The list of actions to execute when this alarm transitions into an 'OK'
 -- state from any other state. Each action is specified as an Amazon
 -- Resource Number (ARN). Currently the only actions supported are
 -- publishing to an Amazon SNS topic and triggering an Auto Scaling policy.
 maOKActions :: Lens' MetricAlarm [Text]
 maOKActions = lens _maOKActions (\ s a -> s{_maOKActions = a}) . _Default . _Coerce;
-
--- | The arithmetic operation to use when comparing the specified 'Statistic'
--- and 'Threshold'. The specified 'Statistic' value is used as the first
--- operand.
-maComparisonOperator :: Lens' MetricAlarm (Maybe ComparisonOperator)
-maComparisonOperator = lens _maComparisonOperator (\ s a -> s{_maComparisonOperator = a});
 
 -- | The state value for the alarm.
 maStateValue :: Lens' MetricAlarm (Maybe StateValue)
@@ -466,11 +466,6 @@ maStateValue = lens _maStateValue (\ s a -> s{_maStateValue = a});
 maThreshold :: Lens' MetricAlarm (Maybe Double)
 maThreshold = lens _maThreshold (\ s a -> s{_maThreshold = a});
 
--- | Indicates whether actions should be executed during any changes to the
--- alarm\'s state.
-maActionsEnabled :: Lens' MetricAlarm (Maybe Bool)
-maActionsEnabled = lens _maActionsEnabled (\ s a -> s{_maActionsEnabled = a});
-
 -- | The time stamp of the last update to the alarm configuration. Amazon
 -- CloudWatch uses Coordinated Universal Time (UTC) when returning time
 -- stamps, which do not accommodate seasonal adjustments such as daylight
@@ -479,6 +474,11 @@ maActionsEnabled = lens _maActionsEnabled (\ s a -> s{_maActionsEnabled = a});
 -- in the /Amazon CloudWatch Developer Guide/.
 maAlarmConfigurationUpdatedTimestamp :: Lens' MetricAlarm (Maybe UTCTime)
 maAlarmConfigurationUpdatedTimestamp = lens _maAlarmConfigurationUpdatedTimestamp (\ s a -> s{_maAlarmConfigurationUpdatedTimestamp = a}) . mapping _Time;
+
+-- | Indicates whether actions should be executed during any changes to the
+-- alarm\'s state.
+maActionsEnabled :: Lens' MetricAlarm (Maybe Bool)
+maActionsEnabled = lens _maActionsEnabled (\ s a -> s{_maActionsEnabled = a});
 
 -- | The list of actions to execute when this alarm transitions into an
 -- 'INSUFFICIENT_DATA' state from any other state. Each action is specified
@@ -490,17 +490,17 @@ maAlarmConfigurationUpdatedTimestamp = lens _maAlarmConfigurationUpdatedTimestam
 maInsufficientDataActions :: Lens' MetricAlarm [Text]
 maInsufficientDataActions = lens _maInsufficientDataActions (\ s a -> s{_maInsufficientDataActions = a}) . _Default . _Coerce;
 
--- | The list of dimensions associated with the alarm\'s associated metric.
-maDimensions :: Lens' MetricAlarm [Dimension]
-maDimensions = lens _maDimensions (\ s a -> s{_maDimensions = a}) . _Default . _Coerce;
+-- | A human-readable explanation for the alarm\'s state.
+maStateReason :: Lens' MetricAlarm (Maybe Text)
+maStateReason = lens _maStateReason (\ s a -> s{_maStateReason = a});
 
 -- | An explanation for the alarm\'s state in machine-readable JSON format
 maStateReasonData :: Lens' MetricAlarm (Maybe Text)
 maStateReasonData = lens _maStateReasonData (\ s a -> s{_maStateReasonData = a});
 
--- | A human-readable explanation for the alarm\'s state.
-maStateReason :: Lens' MetricAlarm (Maybe Text)
-maStateReason = lens _maStateReason (\ s a -> s{_maStateReason = a});
+-- | The list of dimensions associated with the alarm\'s associated metric.
+maDimensions :: Lens' MetricAlarm [Dimension]
+maDimensions = lens _maDimensions (\ s a -> s{_maDimensions = a}) . _Default . _Coerce;
 
 -- | The Amazon Resource Name (ARN) of the alarm.
 maAlarmARN :: Lens' MetricAlarm (Maybe Text)
@@ -513,46 +513,46 @@ maAlarmARN = lens _maAlarmARN (\ s a -> s{_maAlarmARN = a});
 maAlarmActions :: Lens' MetricAlarm [Text]
 maAlarmActions = lens _maAlarmActions (\ s a -> s{_maAlarmActions = a}) . _Default . _Coerce;
 
--- | The statistic to apply to the alarm\'s associated metric.
-maStatistic :: Lens' MetricAlarm (Maybe Statistic)
-maStatistic = lens _maStatistic (\ s a -> s{_maStatistic = a});
-
 -- | The unit of the alarm\'s associated metric.
 maUnit :: Lens' MetricAlarm (Maybe StandardUnit)
 maUnit = lens _maUnit (\ s a -> s{_maUnit = a});
+
+-- | The statistic to apply to the alarm\'s associated metric.
+maStatistic :: Lens' MetricAlarm (Maybe Statistic)
+maStatistic = lens _maStatistic (\ s a -> s{_maStatistic = a});
 
 instance FromXML MetricAlarm where
         parseXML x
           = MetricAlarm' <$>
               (x .@? "AlarmName") <*>
                 (x .@? "StateUpdatedTimestamp")
-                <*> (x .@? "AlarmDescription")
                 <*> (x .@? "Period")
+                <*> (x .@? "AlarmDescription")
                 <*> (x .@? "EvaluationPeriods")
                 <*> (x .@? "MetricName")
                 <*> (x .@? "Namespace")
+                <*> (x .@? "ComparisonOperator")
                 <*>
                 (x .@? "OKActions" .!@ mempty >>=
                    may (parseXMLList "member"))
-                <*> (x .@? "ComparisonOperator")
                 <*> (x .@? "StateValue")
                 <*> (x .@? "Threshold")
-                <*> (x .@? "ActionsEnabled")
                 <*> (x .@? "AlarmConfigurationUpdatedTimestamp")
+                <*> (x .@? "ActionsEnabled")
                 <*>
                 (x .@? "InsufficientDataActions" .!@ mempty >>=
                    may (parseXMLList "member"))
+                <*> (x .@? "StateReason")
+                <*> (x .@? "StateReasonData")
                 <*>
                 (x .@? "Dimensions" .!@ mempty >>=
                    may (parseXMLList "member"))
-                <*> (x .@? "StateReasonData")
-                <*> (x .@? "StateReason")
                 <*> (x .@? "AlarmArn")
                 <*>
                 (x .@? "AlarmActions" .!@ mempty >>=
                    may (parseXMLList "member"))
-                <*> (x .@? "Statistic")
                 <*> (x .@? "Unit")
+                <*> (x .@? "Statistic")
 
 -- | The 'MetricDatum' data type encapsulates the information sent with
 -- PutMetricData to either create a new metric or add new values to be
@@ -562,9 +562,9 @@ instance FromXML MetricAlarm where
 data MetricDatum = MetricDatum'
     { _mdValue           :: !(Maybe Double)
     , _mdDimensions      :: !(Maybe [Dimension])
+    , _mdUnit            :: !(Maybe StandardUnit)
     , _mdTimestamp       :: !(Maybe ISO8601)
     , _mdStatisticValues :: !(Maybe StatisticSet)
-    , _mdUnit            :: !(Maybe StandardUnit)
     , _mdMetricName      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -576,11 +576,11 @@ data MetricDatum = MetricDatum'
 --
 -- * 'mdDimensions'
 --
+-- * 'mdUnit'
+--
 -- * 'mdTimestamp'
 --
 -- * 'mdStatisticValues'
---
--- * 'mdUnit'
 --
 -- * 'mdMetricName'
 metricDatum
@@ -590,9 +590,9 @@ metricDatum pMetricName_ =
     MetricDatum'
     { _mdValue = Nothing
     , _mdDimensions = Nothing
+    , _mdUnit = Nothing
     , _mdTimestamp = Nothing
     , _mdStatisticValues = Nothing
-    , _mdUnit = Nothing
     , _mdMetricName = pMetricName_
     }
 
@@ -612,6 +612,10 @@ mdValue = lens _mdValue (\ s a -> s{_mdValue = a});
 mdDimensions :: Lens' MetricDatum [Dimension]
 mdDimensions = lens _mdDimensions (\ s a -> s{_mdDimensions = a}) . _Default . _Coerce;
 
+-- | The unit of the metric.
+mdUnit :: Lens' MetricDatum (Maybe StandardUnit)
+mdUnit = lens _mdUnit (\ s a -> s{_mdUnit = a});
+
 -- | The time stamp used for the metric. If not specified, the default value
 -- is set to the time the metric data was received. Amazon CloudWatch uses
 -- Coordinated Universal Time (UTC) when returning time stamps, which do
@@ -626,10 +630,6 @@ mdTimestamp = lens _mdTimestamp (\ s a -> s{_mdTimestamp = a}) . mapping _Time;
 mdStatisticValues :: Lens' MetricDatum (Maybe StatisticSet)
 mdStatisticValues = lens _mdStatisticValues (\ s a -> s{_mdStatisticValues = a});
 
--- | The unit of the metric.
-mdUnit :: Lens' MetricDatum (Maybe StandardUnit)
-mdUnit = lens _mdUnit (\ s a -> s{_mdUnit = a});
-
 -- | The name of the metric.
 mdMetricName :: Lens' MetricDatum Text
 mdMetricName = lens _mdMetricName (\ s a -> s{_mdMetricName = a});
@@ -640,9 +640,9 @@ instance ToQuery MetricDatum where
               ["Value" =: _mdValue,
                "Dimensions" =:
                  toQuery (toQueryList "member" <$> _mdDimensions),
-               "Timestamp" =: _mdTimestamp,
+               "Unit" =: _mdUnit, "Timestamp" =: _mdTimestamp,
                "StatisticValues" =: _mdStatisticValues,
-               "Unit" =: _mdUnit, "MetricName" =: _mdMetricName]
+               "MetricName" =: _mdMetricName]
 
 -- | The 'StatisticSet' data type describes the 'StatisticValues' component
 -- of MetricDatum, and represents a set of statistics that describes a

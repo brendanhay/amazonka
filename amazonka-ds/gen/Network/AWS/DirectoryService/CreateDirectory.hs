@@ -39,7 +39,7 @@ module Network.AWS.DirectoryService.CreateDirectory
     , CreateDirectoryResponse
     -- * Response Lenses
     , crsDirectoryId
-    , crsStatus
+    , crsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -157,8 +157,8 @@ instance ToQuery CreateDirectory where
 --
 -- /See:/ 'createDirectoryResponse' smart constructor.
 data CreateDirectoryResponse = CreateDirectoryResponse'
-    { _crsDirectoryId :: !(Maybe Text)
-    , _crsStatus      :: !Int
+    { _crsDirectoryId    :: !(Maybe Text)
+    , _crsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDirectoryResponse' with the minimum fields required to make a request.
@@ -167,14 +167,14 @@ data CreateDirectoryResponse = CreateDirectoryResponse'
 --
 -- * 'crsDirectoryId'
 --
--- * 'crsStatus'
+-- * 'crsResponseStatus'
 createDirectoryResponse
-    :: Int -- ^ 'crsStatus'
+    :: Int -- ^ 'crsResponseStatus'
     -> CreateDirectoryResponse
-createDirectoryResponse pStatus_ =
+createDirectoryResponse pResponseStatus_ =
     CreateDirectoryResponse'
     { _crsDirectoryId = Nothing
-    , _crsStatus = pStatus_
+    , _crsResponseStatus = pResponseStatus_
     }
 
 -- | The identifier of the directory that was created.
@@ -182,5 +182,5 @@ crsDirectoryId :: Lens' CreateDirectoryResponse (Maybe Text)
 crsDirectoryId = lens _crsDirectoryId (\ s a -> s{_crsDirectoryId = a});
 
 -- | The response status code.
-crsStatus :: Lens' CreateDirectoryResponse Int
-crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});
+crsResponseStatus :: Lens' CreateDirectoryResponse Int
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});

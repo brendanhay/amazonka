@@ -24,8 +24,8 @@ module Network.AWS.CognitoSync.Types
     , _LambdaThrottledException
     , _AlreadyStreamedException
     , _InvalidLambdaFunctionOutputException
-    , _ConcurrentModificationException
     , _TooManyRequestsException
+    , _ConcurrentModificationException
     , _ResourceConflictException
     , _ResourceNotFoundException
     , _LimitExceededException
@@ -87,8 +87,8 @@ module Network.AWS.CognitoSync.Types
     , Record
     , record
     , rSyncCount
-    , rLastModifiedDate
     , rDeviceLastModifiedDate
+    , rLastModifiedDate
     , rValue
     , rKey
     , rLastModifiedBy
@@ -182,15 +182,15 @@ _InvalidLambdaFunctionOutputException :: AsError a => Getting (First ServiceErro
 _InvalidLambdaFunctionOutputException =
     _ServiceError . hasStatus 400 . hasCode "InvalidLambdaFunctionOutput"
 
--- | Thrown if there are parallel requests to modify a resource.
-_ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
-_ConcurrentModificationException =
-    _ServiceError . hasStatus 400 . hasCode "ConcurrentModification"
-
 -- | Thrown if the request is throttled.
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException =
     _ServiceError . hasStatus 429 . hasCode "TooManyRequests"
+
+-- | Thrown if there are parallel requests to modify a resource.
+_ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
+_ConcurrentModificationException =
+    _ServiceError . hasStatus 400 . hasCode "ConcurrentModification"
 
 -- | Thrown if an update can\'t be applied because the resource was changed
 -- by another call and this would result in a conflict.

@@ -39,7 +39,7 @@ module Network.AWS.EMR.ListBootstrapActions
     -- * Response Lenses
     , lbarsBootstrapActions
     , lbarsMarker
-    , lbarsStatus
+    , lbarsResponseStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -130,7 +130,7 @@ instance ToQuery ListBootstrapActions where
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
     { _lbarsBootstrapActions :: !(Maybe [Command])
     , _lbarsMarker           :: !(Maybe Text)
-    , _lbarsStatus           :: !Int
+    , _lbarsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListBootstrapActionsResponse' with the minimum fields required to make a request.
@@ -141,15 +141,15 @@ data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
 --
 -- * 'lbarsMarker'
 --
--- * 'lbarsStatus'
+-- * 'lbarsResponseStatus'
 listBootstrapActionsResponse
-    :: Int -- ^ 'lbarsStatus'
+    :: Int -- ^ 'lbarsResponseStatus'
     -> ListBootstrapActionsResponse
-listBootstrapActionsResponse pStatus_ =
+listBootstrapActionsResponse pResponseStatus_ =
     ListBootstrapActionsResponse'
     { _lbarsBootstrapActions = Nothing
     , _lbarsMarker = Nothing
-    , _lbarsStatus = pStatus_
+    , _lbarsResponseStatus = pResponseStatus_
     }
 
 -- | The bootstrap actions associated with the cluster .
@@ -162,5 +162,5 @@ lbarsMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
 lbarsMarker = lens _lbarsMarker (\ s a -> s{_lbarsMarker = a});
 
 -- | The response status code.
-lbarsStatus :: Lens' ListBootstrapActionsResponse Int
-lbarsStatus = lens _lbarsStatus (\ s a -> s{_lbarsStatus = a});
+lbarsResponseStatus :: Lens' ListBootstrapActionsResponse Int
+lbarsResponseStatus = lens _lbarsResponseStatus (\ s a -> s{_lbarsResponseStatus = a});

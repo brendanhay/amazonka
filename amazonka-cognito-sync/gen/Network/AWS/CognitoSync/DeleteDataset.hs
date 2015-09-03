@@ -42,7 +42,7 @@ module Network.AWS.CognitoSync.DeleteDataset
     , DeleteDatasetResponse
     -- * Response Lenses
     , drsDataset
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -128,8 +128,8 @@ instance ToQuery DeleteDataset where
 --
 -- /See:/ 'deleteDatasetResponse' smart constructor.
 data DeleteDatasetResponse = DeleteDatasetResponse'
-    { _drsDataset :: !(Maybe Dataset)
-    , _drsStatus  :: !Int
+    { _drsDataset        :: !(Maybe Dataset)
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDatasetResponse' with the minimum fields required to make a request.
@@ -138,14 +138,14 @@ data DeleteDatasetResponse = DeleteDatasetResponse'
 --
 -- * 'drsDataset'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 deleteDatasetResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DeleteDatasetResponse
-deleteDatasetResponse pStatus_ =
+deleteDatasetResponse pResponseStatus_ =
     DeleteDatasetResponse'
     { _drsDataset = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | A collection of data for an identity pool. An identity pool can have
@@ -157,5 +157,5 @@ drsDataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
 drsDataset = lens _drsDataset (\ s a -> s{_drsDataset = a});
 
 -- | The response status code.
-drsStatus :: Lens' DeleteDatasetResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DeleteDatasetResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

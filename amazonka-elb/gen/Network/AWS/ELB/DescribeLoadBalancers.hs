@@ -40,7 +40,7 @@ module Network.AWS.ELB.DescribeLoadBalancers
     -- * Response Lenses
     , dlbrsLoadBalancerDescriptions
     , dlbrsNextMarker
-    , dlbrsStatus
+    , dlbrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -130,7 +130,7 @@ instance ToQuery DescribeLoadBalancers where
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancerDescriptions :: !(Maybe [LoadBalancerDescription])
     , _dlbrsNextMarker               :: !(Maybe Text)
-    , _dlbrsStatus                   :: !Int
+    , _dlbrsResponseStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLoadBalancersResponse' with the minimum fields required to make a request.
@@ -141,15 +141,15 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
 --
 -- * 'dlbrsNextMarker'
 --
--- * 'dlbrsStatus'
+-- * 'dlbrsResponseStatus'
 describeLoadBalancersResponse
-    :: Int -- ^ 'dlbrsStatus'
+    :: Int -- ^ 'dlbrsResponseStatus'
     -> DescribeLoadBalancersResponse
-describeLoadBalancersResponse pStatus_ =
+describeLoadBalancersResponse pResponseStatus_ =
     DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancerDescriptions = Nothing
     , _dlbrsNextMarker = Nothing
-    , _dlbrsStatus = pStatus_
+    , _dlbrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the load balancers.
@@ -162,5 +162,5 @@ dlbrsNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrsNextMarker = lens _dlbrsNextMarker (\ s a -> s{_dlbrsNextMarker = a});
 
 -- | The response status code.
-dlbrsStatus :: Lens' DescribeLoadBalancersResponse Int
-dlbrsStatus = lens _dlbrsStatus (\ s a -> s{_dlbrsStatus = a});
+dlbrsResponseStatus :: Lens' DescribeLoadBalancersResponse Int
+dlbrsResponseStatus = lens _dlbrsResponseStatus (\ s a -> s{_dlbrsResponseStatus = a});

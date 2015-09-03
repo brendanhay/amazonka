@@ -47,7 +47,7 @@ module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     , UpdateSnapshotScheduleResponse
     -- * Response Lenses
     , ussrsVolumeARN
-    , ussrsStatus
+    , ussrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -154,8 +154,8 @@ instance ToQuery UpdateSnapshotSchedule where
 --
 -- /See:/ 'updateSnapshotScheduleResponse' smart constructor.
 data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
-    { _ussrsVolumeARN :: !(Maybe Text)
-    , _ussrsStatus    :: !Int
+    { _ussrsVolumeARN      :: !(Maybe Text)
+    , _ussrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateSnapshotScheduleResponse' with the minimum fields required to make a request.
@@ -164,14 +164,14 @@ data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
 --
 -- * 'ussrsVolumeARN'
 --
--- * 'ussrsStatus'
+-- * 'ussrsResponseStatus'
 updateSnapshotScheduleResponse
-    :: Int -- ^ 'ussrsStatus'
+    :: Int -- ^ 'ussrsResponseStatus'
     -> UpdateSnapshotScheduleResponse
-updateSnapshotScheduleResponse pStatus_ =
+updateSnapshotScheduleResponse pResponseStatus_ =
     UpdateSnapshotScheduleResponse'
     { _ussrsVolumeARN = Nothing
-    , _ussrsStatus = pStatus_
+    , _ussrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -179,5 +179,5 @@ ussrsVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
 ussrsVolumeARN = lens _ussrsVolumeARN (\ s a -> s{_ussrsVolumeARN = a});
 
 -- | The response status code.
-ussrsStatus :: Lens' UpdateSnapshotScheduleResponse Int
-ussrsStatus = lens _ussrsStatus (\ s a -> s{_ussrsStatus = a});
+ussrsResponseStatus :: Lens' UpdateSnapshotScheduleResponse Int
+ussrsResponseStatus = lens _ussrsResponseStatus (\ s a -> s{_ussrsResponseStatus = a});

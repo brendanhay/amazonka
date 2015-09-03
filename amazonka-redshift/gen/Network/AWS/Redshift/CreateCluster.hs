@@ -39,21 +39,21 @@ module Network.AWS.Redshift.CreateCluster
     , ccClusterSecurityGroups
     , ccAutomatedSnapshotRetentionPeriod
     , ccEncrypted
-    , ccNumberOfNodes
-    , ccHSMClientCertificateIdentifier
     , ccClusterSubnetGroupName
+    , ccHSMClientCertificateIdentifier
+    , ccNumberOfNodes
     , ccElasticIP
     , ccPreferredMaintenanceWindow
-    , ccAvailabilityZone
     , ccKMSKeyId
+    , ccAvailabilityZone
     , ccVPCSecurityGroupIds
     , ccClusterType
     , ccClusterVersion
     , ccAllowVersionUpgrade
     , ccClusterParameterGroupName
-    , ccDBName
     , ccTags
     , ccPort
+    , ccDBName
     , ccClusterIdentifier
     , ccNodeType
     , ccMasterUsername
@@ -64,7 +64,7 @@ module Network.AWS.Redshift.CreateCluster
     , CreateClusterResponse
     -- * Response Lenses
     , ccrsCluster
-    , ccrsStatus
+    , ccrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -82,21 +82,21 @@ data CreateCluster = CreateCluster'
     , _ccClusterSecurityGroups            :: !(Maybe [Text])
     , _ccAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
     , _ccEncrypted                        :: !(Maybe Bool)
-    , _ccNumberOfNodes                    :: !(Maybe Int)
-    , _ccHSMClientCertificateIdentifier   :: !(Maybe Text)
     , _ccClusterSubnetGroupName           :: !(Maybe Text)
+    , _ccHSMClientCertificateIdentifier   :: !(Maybe Text)
+    , _ccNumberOfNodes                    :: !(Maybe Int)
     , _ccElasticIP                        :: !(Maybe Text)
     , _ccPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _ccAvailabilityZone                 :: !(Maybe Text)
     , _ccKMSKeyId                         :: !(Maybe Text)
+    , _ccAvailabilityZone                 :: !(Maybe Text)
     , _ccVPCSecurityGroupIds              :: !(Maybe [Text])
     , _ccClusterType                      :: !(Maybe Text)
     , _ccClusterVersion                   :: !(Maybe Text)
     , _ccAllowVersionUpgrade              :: !(Maybe Bool)
     , _ccClusterParameterGroupName        :: !(Maybe Text)
-    , _ccDBName                           :: !(Maybe Text)
     , _ccTags                             :: !(Maybe [Tag])
     , _ccPort                             :: !(Maybe Int)
+    , _ccDBName                           :: !(Maybe Text)
     , _ccClusterIdentifier                :: !Text
     , _ccNodeType                         :: !Text
     , _ccMasterUsername                   :: !Text
@@ -117,19 +117,19 @@ data CreateCluster = CreateCluster'
 --
 -- * 'ccEncrypted'
 --
--- * 'ccNumberOfNodes'
+-- * 'ccClusterSubnetGroupName'
 --
 -- * 'ccHSMClientCertificateIdentifier'
 --
--- * 'ccClusterSubnetGroupName'
+-- * 'ccNumberOfNodes'
 --
 -- * 'ccElasticIP'
 --
 -- * 'ccPreferredMaintenanceWindow'
 --
--- * 'ccAvailabilityZone'
---
 -- * 'ccKMSKeyId'
+--
+-- * 'ccAvailabilityZone'
 --
 -- * 'ccVPCSecurityGroupIds'
 --
@@ -141,11 +141,11 @@ data CreateCluster = CreateCluster'
 --
 -- * 'ccClusterParameterGroupName'
 --
--- * 'ccDBName'
---
 -- * 'ccTags'
 --
 -- * 'ccPort'
+--
+-- * 'ccDBName'
 --
 -- * 'ccClusterIdentifier'
 --
@@ -167,21 +167,21 @@ createCluster pClusterIdentifier_ pNodeType_ pMasterUsername_ pMasterUserPasswor
     , _ccClusterSecurityGroups = Nothing
     , _ccAutomatedSnapshotRetentionPeriod = Nothing
     , _ccEncrypted = Nothing
-    , _ccNumberOfNodes = Nothing
-    , _ccHSMClientCertificateIdentifier = Nothing
     , _ccClusterSubnetGroupName = Nothing
+    , _ccHSMClientCertificateIdentifier = Nothing
+    , _ccNumberOfNodes = Nothing
     , _ccElasticIP = Nothing
     , _ccPreferredMaintenanceWindow = Nothing
-    , _ccAvailabilityZone = Nothing
     , _ccKMSKeyId = Nothing
+    , _ccAvailabilityZone = Nothing
     , _ccVPCSecurityGroupIds = Nothing
     , _ccClusterType = Nothing
     , _ccClusterVersion = Nothing
     , _ccAllowVersionUpgrade = Nothing
     , _ccClusterParameterGroupName = Nothing
-    , _ccDBName = Nothing
     , _ccTags = Nothing
     , _ccPort = Nothing
+    , _ccDBName = Nothing
     , _ccClusterIdentifier = pClusterIdentifier_
     , _ccNodeType = pNodeType_
     , _ccMasterUsername = pMasterUsername_
@@ -221,6 +221,18 @@ ccAutomatedSnapshotRetentionPeriod = lens _ccAutomatedSnapshotRetentionPeriod (\
 ccEncrypted :: Lens' CreateCluster (Maybe Bool)
 ccEncrypted = lens _ccEncrypted (\ s a -> s{_ccEncrypted = a});
 
+-- | The name of a cluster subnet group to be associated with this cluster.
+--
+-- If this parameter is not provided the resulting cluster will be deployed
+-- outside virtual private cloud (VPC).
+ccClusterSubnetGroupName :: Lens' CreateCluster (Maybe Text)
+ccClusterSubnetGroupName = lens _ccClusterSubnetGroupName (\ s a -> s{_ccClusterSubnetGroupName = a});
+
+-- | Specifies the name of the HSM client certificate the Amazon Redshift
+-- cluster uses to retrieve the data encryption keys stored in an HSM.
+ccHSMClientCertificateIdentifier :: Lens' CreateCluster (Maybe Text)
+ccHSMClientCertificateIdentifier = lens _ccHSMClientCertificateIdentifier (\ s a -> s{_ccHSMClientCertificateIdentifier = a});
+
 -- | The number of compute nodes in the cluster. This parameter is required
 -- when the __ClusterType__ parameter is specified as 'multi-node'.
 --
@@ -237,18 +249,6 @@ ccEncrypted = lens _ccEncrypted (\ s a -> s{_ccEncrypted = a});
 -- Constraints: Value must be at least 1 and no more than 100.
 ccNumberOfNodes :: Lens' CreateCluster (Maybe Int)
 ccNumberOfNodes = lens _ccNumberOfNodes (\ s a -> s{_ccNumberOfNodes = a});
-
--- | Specifies the name of the HSM client certificate the Amazon Redshift
--- cluster uses to retrieve the data encryption keys stored in an HSM.
-ccHSMClientCertificateIdentifier :: Lens' CreateCluster (Maybe Text)
-ccHSMClientCertificateIdentifier = lens _ccHSMClientCertificateIdentifier (\ s a -> s{_ccHSMClientCertificateIdentifier = a});
-
--- | The name of a cluster subnet group to be associated with this cluster.
---
--- If this parameter is not provided the resulting cluster will be deployed
--- outside virtual private cloud (VPC).
-ccClusterSubnetGroupName :: Lens' CreateCluster (Maybe Text)
-ccClusterSubnetGroupName = lens _ccClusterSubnetGroupName (\ s a -> s{_ccClusterSubnetGroupName = a});
 
 -- | The Elastic IP (EIP) address for the cluster.
 --
@@ -277,6 +277,11 @@ ccElasticIP = lens _ccElasticIP (\ s a -> s{_ccElasticIP = a});
 ccPreferredMaintenanceWindow :: Lens' CreateCluster (Maybe Text)
 ccPreferredMaintenanceWindow = lens _ccPreferredMaintenanceWindow (\ s a -> s{_ccPreferredMaintenanceWindow = a});
 
+-- | The AWS Key Management Service (KMS) key ID of the encryption key that
+-- you want to use to encrypt data in the cluster.
+ccKMSKeyId :: Lens' CreateCluster (Maybe Text)
+ccKMSKeyId = lens _ccKMSKeyId (\ s a -> s{_ccKMSKeyId = a});
+
 -- | The EC2 Availability Zone (AZ) in which you want Amazon Redshift to
 -- provision the cluster. For example, if you have several EC2 instances
 -- running in a specific Availability Zone, then you might want the cluster
@@ -291,11 +296,6 @@ ccPreferredMaintenanceWindow = lens _ccPreferredMaintenanceWindow (\ s a -> s{_c
 -- as the current endpoint.
 ccAvailabilityZone :: Lens' CreateCluster (Maybe Text)
 ccAvailabilityZone = lens _ccAvailabilityZone (\ s a -> s{_ccAvailabilityZone = a});
-
--- | The AWS Key Management Service (KMS) key ID of the encryption key that
--- you want to use to encrypt data in the cluster.
-ccKMSKeyId :: Lens' CreateCluster (Maybe Text)
-ccKMSKeyId = lens _ccKMSKeyId (\ s a -> s{_ccKMSKeyId = a});
 
 -- | A list of Virtual Private Cloud (VPC) security groups to be associated
 -- with the cluster.
@@ -352,6 +352,22 @@ ccAllowVersionUpgrade = lens _ccAllowVersionUpgrade (\ s a -> s{_ccAllowVersionU
 ccClusterParameterGroupName :: Lens' CreateCluster (Maybe Text)
 ccClusterParameterGroupName = lens _ccClusterParameterGroupName (\ s a -> s{_ccClusterParameterGroupName = a});
 
+-- | A list of tag instances.
+ccTags :: Lens' CreateCluster [Tag]
+ccTags = lens _ccTags (\ s a -> s{_ccTags = a}) . _Default . _Coerce;
+
+-- | The port number on which the cluster accepts incoming connections.
+--
+-- The cluster is accessible only via the JDBC and ODBC connection strings.
+-- Part of the connection string requires the port on which the cluster
+-- will listen for incoming connections.
+--
+-- Default: '5439'
+--
+-- Valid Values: '1150-65535'
+ccPort :: Lens' CreateCluster (Maybe Int)
+ccPort = lens _ccPort (\ s a -> s{_ccPort = a});
+
 -- | The name of the first database to be created when the cluster is
 -- created.
 --
@@ -373,22 +389,6 @@ ccClusterParameterGroupName = lens _ccClusterParameterGroupName (\ s a -> s{_ccC
 --     in the Amazon Redshift Database Developer Guide.
 ccDBName :: Lens' CreateCluster (Maybe Text)
 ccDBName = lens _ccDBName (\ s a -> s{_ccDBName = a});
-
--- | A list of tag instances.
-ccTags :: Lens' CreateCluster [Tag]
-ccTags = lens _ccTags (\ s a -> s{_ccTags = a}) . _Default . _Coerce;
-
--- | The port number on which the cluster accepts incoming connections.
---
--- The cluster is accessible only via the JDBC and ODBC connection strings.
--- Part of the connection string requires the port on which the cluster
--- will listen for incoming connections.
---
--- Default: '5439'
---
--- Valid Values: '1150-65535'
-ccPort :: Lens' CreateCluster (Maybe Int)
-ccPort = lens _ccPort (\ s a -> s{_ccPort = a});
 
 -- | A unique identifier for the cluster. You use this identifier to refer to
 -- the cluster for any subsequent cluster operations such as deleting or
@@ -473,16 +473,16 @@ instance ToQuery CreateCluster where
                "AutomatedSnapshotRetentionPeriod" =:
                  _ccAutomatedSnapshotRetentionPeriod,
                "Encrypted" =: _ccEncrypted,
-               "NumberOfNodes" =: _ccNumberOfNodes,
-               "HsmClientCertificateIdentifier" =:
-                 _ccHSMClientCertificateIdentifier,
                "ClusterSubnetGroupName" =:
                  _ccClusterSubnetGroupName,
+               "HsmClientCertificateIdentifier" =:
+                 _ccHSMClientCertificateIdentifier,
+               "NumberOfNodes" =: _ccNumberOfNodes,
                "ElasticIp" =: _ccElasticIP,
                "PreferredMaintenanceWindow" =:
                  _ccPreferredMaintenanceWindow,
-               "AvailabilityZone" =: _ccAvailabilityZone,
                "KmsKeyId" =: _ccKMSKeyId,
+               "AvailabilityZone" =: _ccAvailabilityZone,
                "VpcSecurityGroupIds" =:
                  toQuery
                    (toQueryList "VpcSecurityGroupId" <$>
@@ -492,9 +492,8 @@ instance ToQuery CreateCluster where
                "AllowVersionUpgrade" =: _ccAllowVersionUpgrade,
                "ClusterParameterGroupName" =:
                  _ccClusterParameterGroupName,
-               "DBName" =: _ccDBName,
                "Tags" =: toQuery (toQueryList "Tag" <$> _ccTags),
-               "Port" =: _ccPort,
+               "Port" =: _ccPort, "DBName" =: _ccDBName,
                "ClusterIdentifier" =: _ccClusterIdentifier,
                "NodeType" =: _ccNodeType,
                "MasterUsername" =: _ccMasterUsername,
@@ -502,8 +501,8 @@ instance ToQuery CreateCluster where
 
 -- | /See:/ 'createClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
-    { _ccrsCluster :: !(Maybe Cluster)
-    , _ccrsStatus  :: !Int
+    { _ccrsCluster        :: !(Maybe Cluster)
+    , _ccrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateClusterResponse' with the minimum fields required to make a request.
@@ -512,14 +511,14 @@ data CreateClusterResponse = CreateClusterResponse'
 --
 -- * 'ccrsCluster'
 --
--- * 'ccrsStatus'
+-- * 'ccrsResponseStatus'
 createClusterResponse
-    :: Int -- ^ 'ccrsStatus'
+    :: Int -- ^ 'ccrsResponseStatus'
     -> CreateClusterResponse
-createClusterResponse pStatus_ =
+createClusterResponse pResponseStatus_ =
     CreateClusterResponse'
     { _ccrsCluster = Nothing
-    , _ccrsStatus = pStatus_
+    , _ccrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -527,5 +526,5 @@ ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
 ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a});
 
 -- | The response status code.
-ccrsStatus :: Lens' CreateClusterResponse Int
-ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});
+ccrsResponseStatus :: Lens' CreateClusterResponse Int
+ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});

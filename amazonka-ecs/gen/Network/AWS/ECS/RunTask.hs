@@ -43,7 +43,7 @@ module Network.AWS.ECS.RunTask
     -- * Response Lenses
     , rtrsFailures
     , rtrsTasks
-    , rtrsStatus
+    , rtrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -168,9 +168,9 @@ instance ToQuery RunTask where
 
 -- | /See:/ 'runTaskResponse' smart constructor.
 data RunTaskResponse = RunTaskResponse'
-    { _rtrsFailures :: !(Maybe [Failure])
-    , _rtrsTasks    :: !(Maybe [Task])
-    , _rtrsStatus   :: !Int
+    { _rtrsFailures       :: !(Maybe [Failure])
+    , _rtrsTasks          :: !(Maybe [Task])
+    , _rtrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RunTaskResponse' with the minimum fields required to make a request.
@@ -181,15 +181,15 @@ data RunTaskResponse = RunTaskResponse'
 --
 -- * 'rtrsTasks'
 --
--- * 'rtrsStatus'
+-- * 'rtrsResponseStatus'
 runTaskResponse
-    :: Int -- ^ 'rtrsStatus'
+    :: Int -- ^ 'rtrsResponseStatus'
     -> RunTaskResponse
-runTaskResponse pStatus_ =
+runTaskResponse pResponseStatus_ =
     RunTaskResponse'
     { _rtrsFailures = Nothing
     , _rtrsTasks = Nothing
-    , _rtrsStatus = pStatus_
+    , _rtrsResponseStatus = pResponseStatus_
     }
 
 -- | Any failed tasks from your 'RunTask' action are listed here.
@@ -202,5 +202,5 @@ rtrsTasks :: Lens' RunTaskResponse [Task]
 rtrsTasks = lens _rtrsTasks (\ s a -> s{_rtrsTasks = a}) . _Default . _Coerce;
 
 -- | The response status code.
-rtrsStatus :: Lens' RunTaskResponse Int
-rtrsStatus = lens _rtrsStatus (\ s a -> s{_rtrsStatus = a});
+rtrsResponseStatus :: Lens' RunTaskResponse Int
+rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});

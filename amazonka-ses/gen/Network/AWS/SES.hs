@@ -45,20 +45,20 @@ module Network.AWS.SES
     -- ** GetSendQuota
     , module Network.AWS.SES.GetSendQuota
 
-    -- ** DeleteIdentityPolicy
-    , module Network.AWS.SES.DeleteIdentityPolicy
-
     -- ** PutIdentityPolicy
     , module Network.AWS.SES.PutIdentityPolicy
 
-    -- ** SetIdentityDkimEnabled
-    , module Network.AWS.SES.SetIdentityDkimEnabled
+    -- ** DeleteIdentityPolicy
+    , module Network.AWS.SES.DeleteIdentityPolicy
 
     -- ** GetIdentityNotificationAttributes
     , module Network.AWS.SES.GetIdentityNotificationAttributes
 
     -- ** ListIdentityPolicies
     , module Network.AWS.SES.ListIdentityPolicies
+
+    -- ** SetIdentityDkimEnabled
+    , module Network.AWS.SES.SetIdentityDkimEnabled
 
     -- ** SetIdentityFeedbackForwardingEnabled
     , module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
@@ -72,41 +72,41 @@ module Network.AWS.SES
     -- ** VerifyDomainIdentity
     , module Network.AWS.SES.VerifyDomainIdentity
 
+    -- ** GetIdentityDkimAttributes
+    , module Network.AWS.SES.GetIdentityDkimAttributes
+
     -- ** VerifyDomainDkim
     , module Network.AWS.SES.VerifyDomainDkim
 
     -- ** SendRawEmail
     , module Network.AWS.SES.SendRawEmail
 
-    -- ** GetIdentityDkimAttributes
-    , module Network.AWS.SES.GetIdentityDkimAttributes
+    -- ** GetSendStatistics
+    , module Network.AWS.SES.GetSendStatistics
 
     -- ** DeleteIdentity
     , module Network.AWS.SES.DeleteIdentity
 
-    -- ** GetSendStatistics
-    , module Network.AWS.SES.GetSendStatistics
-
     -- ** ListIdentities (Paginated)
     , module Network.AWS.SES.ListIdentities
-
-    -- ** DeleteVerifiedEmailAddress
-    , module Network.AWS.SES.DeleteVerifiedEmailAddress
-
-    -- ** VerifyEmailAddress
-    , module Network.AWS.SES.VerifyEmailAddress
 
     -- ** VerifyEmailIdentity
     , module Network.AWS.SES.VerifyEmailIdentity
 
-    -- ** SendEmail
-    , module Network.AWS.SES.SendEmail
+    -- ** VerifyEmailAddress
+    , module Network.AWS.SES.VerifyEmailAddress
+
+    -- ** DeleteVerifiedEmailAddress
+    , module Network.AWS.SES.DeleteVerifiedEmailAddress
 
     -- ** ListVerifiedEmailAddresses
     , module Network.AWS.SES.ListVerifiedEmailAddresses
 
     -- ** SetIdentityNotificationTopic
     , module Network.AWS.SES.SetIdentityNotificationTopic
+
+    -- ** SendEmail
+    , module Network.AWS.SES.SendEmail
 
     -- * Types
 

@@ -41,7 +41,7 @@ module Network.AWS.DirectoryService.CreateAlias
     -- * Response Lenses
     , carsDirectoryId
     , carsAlias
-    , carsStatus
+    , carsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -123,9 +123,9 @@ instance ToQuery CreateAlias where
 --
 -- /See:/ 'createAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'
-    { _carsDirectoryId :: !(Maybe Text)
-    , _carsAlias       :: !(Maybe Text)
-    , _carsStatus      :: !Int
+    { _carsDirectoryId    :: !(Maybe Text)
+    , _carsAlias          :: !(Maybe Text)
+    , _carsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAliasResponse' with the minimum fields required to make a request.
@@ -136,15 +136,15 @@ data CreateAliasResponse = CreateAliasResponse'
 --
 -- * 'carsAlias'
 --
--- * 'carsStatus'
+-- * 'carsResponseStatus'
 createAliasResponse
-    :: Int -- ^ 'carsStatus'
+    :: Int -- ^ 'carsResponseStatus'
     -> CreateAliasResponse
-createAliasResponse pStatus_ =
+createAliasResponse pResponseStatus_ =
     CreateAliasResponse'
     { _carsDirectoryId = Nothing
     , _carsAlias = Nothing
-    , _carsStatus = pStatus_
+    , _carsResponseStatus = pResponseStatus_
     }
 
 -- | The identifier of the directory.
@@ -156,5 +156,5 @@ carsAlias :: Lens' CreateAliasResponse (Maybe Text)
 carsAlias = lens _carsAlias (\ s a -> s{_carsAlias = a});
 
 -- | The response status code.
-carsStatus :: Lens' CreateAliasResponse Int
-carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});
+carsResponseStatus :: Lens' CreateAliasResponse Int
+carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});

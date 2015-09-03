@@ -56,7 +56,7 @@ module Network.AWS.EC2.StartInstances
     , StartInstancesResponse
     -- * Response Lenses
     , srsStartingInstances
-    , srsStatus
+    , srsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -134,7 +134,7 @@ instance ToQuery StartInstances where
 -- | /See:/ 'startInstancesResponse' smart constructor.
 data StartInstancesResponse = StartInstancesResponse'
     { _srsStartingInstances :: !(Maybe [InstanceStateChange])
-    , _srsStatus            :: !Int
+    , _srsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StartInstancesResponse' with the minimum fields required to make a request.
@@ -143,14 +143,14 @@ data StartInstancesResponse = StartInstancesResponse'
 --
 -- * 'srsStartingInstances'
 --
--- * 'srsStatus'
+-- * 'srsResponseStatus'
 startInstancesResponse
-    :: Int -- ^ 'srsStatus'
+    :: Int -- ^ 'srsResponseStatus'
     -> StartInstancesResponse
-startInstancesResponse pStatus_ =
+startInstancesResponse pResponseStatus_ =
     StartInstancesResponse'
     { _srsStartingInstances = Nothing
-    , _srsStatus = pStatus_
+    , _srsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more started instances.
@@ -158,5 +158,5 @@ srsStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
 srsStartingInstances = lens _srsStartingInstances (\ s a -> s{_srsStartingInstances = a}) . _Default . _Coerce;
 
 -- | The response status code.
-srsStatus :: Lens' StartInstancesResponse Int
-srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
+srsResponseStatus :: Lens' StartInstancesResponse Int
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});

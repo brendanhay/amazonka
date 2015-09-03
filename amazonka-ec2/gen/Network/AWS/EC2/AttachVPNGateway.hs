@@ -38,7 +38,7 @@ module Network.AWS.EC2.AttachVPNGateway
     , AttachVPNGatewayResponse
     -- * Response Lenses
     , avgrsVPCAttachment
-    , avgrsStatus
+    , avgrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -115,8 +115,8 @@ instance ToQuery AttachVPNGateway where
 
 -- | /See:/ 'attachVPNGatewayResponse' smart constructor.
 data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
-    { _avgrsVPCAttachment :: !(Maybe VPCAttachment)
-    , _avgrsStatus        :: !Int
+    { _avgrsVPCAttachment  :: !(Maybe VPCAttachment)
+    , _avgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AttachVPNGatewayResponse' with the minimum fields required to make a request.
@@ -125,14 +125,14 @@ data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
 --
 -- * 'avgrsVPCAttachment'
 --
--- * 'avgrsStatus'
+-- * 'avgrsResponseStatus'
 attachVPNGatewayResponse
-    :: Int -- ^ 'avgrsStatus'
+    :: Int -- ^ 'avgrsResponseStatus'
     -> AttachVPNGatewayResponse
-attachVPNGatewayResponse pStatus_ =
+attachVPNGatewayResponse pResponseStatus_ =
     AttachVPNGatewayResponse'
     { _avgrsVPCAttachment = Nothing
-    , _avgrsStatus = pStatus_
+    , _avgrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the attachment.
@@ -140,5 +140,5 @@ avgrsVPCAttachment :: Lens' AttachVPNGatewayResponse (Maybe VPCAttachment)
 avgrsVPCAttachment = lens _avgrsVPCAttachment (\ s a -> s{_avgrsVPCAttachment = a});
 
 -- | The response status code.
-avgrsStatus :: Lens' AttachVPNGatewayResponse Int
-avgrsStatus = lens _avgrsStatus (\ s a -> s{_avgrsStatus = a});
+avgrsResponseStatus :: Lens' AttachVPNGatewayResponse Int
+avgrsResponseStatus = lens _avgrsResponseStatus (\ s a -> s{_avgrsResponseStatus = a});

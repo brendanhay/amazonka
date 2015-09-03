@@ -64,7 +64,7 @@ module Network.AWS.SWF.ListDomains
     , ListDomainsResponse
     -- * Response Lenses
     , ldrsNextPageToken
-    , ldrsStatus
+    , ldrsResponseStatus
     , ldrsDomainInfos
     ) where
 
@@ -182,9 +182,9 @@ instance ToQuery ListDomains where
 --
 -- /See:/ 'listDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
-    { _ldrsNextPageToken :: !(Maybe Text)
-    , _ldrsStatus        :: !Int
-    , _ldrsDomainInfos   :: ![DomainInfo]
+    { _ldrsNextPageToken  :: !(Maybe Text)
+    , _ldrsResponseStatus :: !Int
+    , _ldrsDomainInfos    :: ![DomainInfo]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListDomainsResponse' with the minimum fields required to make a request.
@@ -193,16 +193,16 @@ data ListDomainsResponse = ListDomainsResponse'
 --
 -- * 'ldrsNextPageToken'
 --
--- * 'ldrsStatus'
+-- * 'ldrsResponseStatus'
 --
 -- * 'ldrsDomainInfos'
 listDomainsResponse
-    :: Int -- ^ 'ldrsStatus'
+    :: Int -- ^ 'ldrsResponseStatus'
     -> ListDomainsResponse
-listDomainsResponse pStatus_ =
+listDomainsResponse pResponseStatus_ =
     ListDomainsResponse'
     { _ldrsNextPageToken = Nothing
-    , _ldrsStatus = pStatus_
+    , _ldrsResponseStatus = pResponseStatus_
     , _ldrsDomainInfos = mempty
     }
 
@@ -217,8 +217,8 @@ ldrsNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrsNextPageToken = lens _ldrsNextPageToken (\ s a -> s{_ldrsNextPageToken = a});
 
 -- | The response status code.
-ldrsStatus :: Lens' ListDomainsResponse Int
-ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
+ldrsResponseStatus :: Lens' ListDomainsResponse Int
+ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 
 -- | A list of DomainInfo structures.
 ldrsDomainInfos :: Lens' ListDomainsResponse [DomainInfo]

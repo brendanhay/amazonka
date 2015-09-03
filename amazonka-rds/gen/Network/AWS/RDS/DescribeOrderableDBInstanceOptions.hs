@@ -34,8 +34,8 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     , dodioFilters
     , dodioDBInstanceClass
     , dodioLicenseModel
-    , dodioMaxRecords
     , dodioMarker
+    , dodioMaxRecords
     , dodioVPC
     , dodioEngine
 
@@ -45,7 +45,7 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     -- * Response Lenses
     , dodiorsOrderableDBInstanceOptions
     , dodiorsMarker
-    , dodiorsStatus
+    , dodiorsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -63,8 +63,8 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
     , _dodioFilters         :: !(Maybe [Filter])
     , _dodioDBInstanceClass :: !(Maybe Text)
     , _dodioLicenseModel    :: !(Maybe Text)
-    , _dodioMaxRecords      :: !(Maybe Int)
     , _dodioMarker          :: !(Maybe Text)
+    , _dodioMaxRecords      :: !(Maybe Int)
     , _dodioVPC             :: !(Maybe Bool)
     , _dodioEngine          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -81,9 +81,9 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
 --
 -- * 'dodioLicenseModel'
 --
--- * 'dodioMaxRecords'
---
 -- * 'dodioMarker'
+--
+-- * 'dodioMaxRecords'
 --
 -- * 'dodioVPC'
 --
@@ -97,8 +97,8 @@ describeOrderableDBInstanceOptions pEngine_ =
     , _dodioFilters = Nothing
     , _dodioDBInstanceClass = Nothing
     , _dodioLicenseModel = Nothing
-    , _dodioMaxRecords = Nothing
     , _dodioMarker = Nothing
+    , _dodioMaxRecords = Nothing
     , _dodioVPC = Nothing
     , _dodioEngine = pEngine_
     }
@@ -122,6 +122,13 @@ dodioDBInstanceClass = lens _dodioDBInstanceClass (\ s a -> s{_dodioDBInstanceCl
 dodioLicenseModel :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
 dodioLicenseModel = lens _dodioLicenseModel (\ s a -> s{_dodioLicenseModel = a});
 
+-- | An optional pagination token provided by a previous
+-- DescribeOrderableDBInstanceOptions request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by 'MaxRecords' .
+dodioMarker :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
+dodioMarker = lens _dodioMarker (\ s a -> s{_dodioMarker = a});
+
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -132,13 +139,6 @@ dodioLicenseModel = lens _dodioLicenseModel (\ s a -> s{_dodioLicenseModel = a})
 -- Constraints: Minimum 20, maximum 100.
 dodioMaxRecords :: Lens' DescribeOrderableDBInstanceOptions (Maybe Int)
 dodioMaxRecords = lens _dodioMaxRecords (\ s a -> s{_dodioMaxRecords = a});
-
--- | An optional pagination token provided by a previous
--- DescribeOrderableDBInstanceOptions request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by 'MaxRecords' .
-dodioMarker :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodioMarker = lens _dodioMarker (\ s a -> s{_dodioMarker = a});
 
 -- | The VPC filter value. Specify this parameter to show only the available
 -- VPC or non-VPC offerings.
@@ -193,8 +193,8 @@ instance ToQuery DescribeOrderableDBInstanceOptions
                  toQuery (toQueryList "Filter" <$> _dodioFilters),
                "DBInstanceClass" =: _dodioDBInstanceClass,
                "LicenseModel" =: _dodioLicenseModel,
-               "MaxRecords" =: _dodioMaxRecords,
-               "Marker" =: _dodioMarker, "Vpc" =: _dodioVPC,
+               "Marker" =: _dodioMarker,
+               "MaxRecords" =: _dodioMaxRecords, "Vpc" =: _dodioVPC,
                "Engine" =: _dodioEngine]
 
 -- | Contains the result of a successful invocation of the
@@ -204,7 +204,7 @@ instance ToQuery DescribeOrderableDBInstanceOptions
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'
     { _dodiorsOrderableDBInstanceOptions :: !(Maybe [OrderableDBInstanceOption])
     , _dodiorsMarker                     :: !(Maybe Text)
-    , _dodiorsStatus                     :: !Int
+    , _dodiorsResponseStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeOrderableDBInstanceOptionsResponse' with the minimum fields required to make a request.
@@ -215,15 +215,15 @@ data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOpt
 --
 -- * 'dodiorsMarker'
 --
--- * 'dodiorsStatus'
+-- * 'dodiorsResponseStatus'
 describeOrderableDBInstanceOptionsResponse
-    :: Int -- ^ 'dodiorsStatus'
+    :: Int -- ^ 'dodiorsResponseStatus'
     -> DescribeOrderableDBInstanceOptionsResponse
-describeOrderableDBInstanceOptionsResponse pStatus_ =
+describeOrderableDBInstanceOptionsResponse pResponseStatus_ =
     DescribeOrderableDBInstanceOptionsResponse'
     { _dodiorsOrderableDBInstanceOptions = Nothing
     , _dodiorsMarker = Nothing
-    , _dodiorsStatus = pStatus_
+    , _dodiorsResponseStatus = pResponseStatus_
     }
 
 -- | An OrderableDBInstanceOption structure containing information about
@@ -239,5 +239,5 @@ dodiorsMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
 dodiorsMarker = lens _dodiorsMarker (\ s a -> s{_dodiorsMarker = a});
 
 -- | The response status code.
-dodiorsStatus :: Lens' DescribeOrderableDBInstanceOptionsResponse Int
-dodiorsStatus = lens _dodiorsStatus (\ s a -> s{_dodiorsStatus = a});
+dodiorsResponseStatus :: Lens' DescribeOrderableDBInstanceOptionsResponse Int
+dodiorsResponseStatus = lens _dodiorsResponseStatus (\ s a -> s{_dodiorsResponseStatus = a});

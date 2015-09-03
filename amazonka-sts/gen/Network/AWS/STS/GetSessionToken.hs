@@ -69,7 +69,7 @@ module Network.AWS.STS.GetSessionToken
     , GetSessionTokenResponse
     -- * Response Lenses
     , gstrsCredentials
-    , gstrsStatus
+    , gstrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -161,8 +161,8 @@ instance ToQuery GetSessionToken where
 --
 -- /See:/ 'getSessionTokenResponse' smart constructor.
 data GetSessionTokenResponse = GetSessionTokenResponse'
-    { _gstrsCredentials :: !(Maybe Credentials)
-    , _gstrsStatus      :: !Int
+    { _gstrsCredentials    :: !(Maybe Credentials)
+    , _gstrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetSessionTokenResponse' with the minimum fields required to make a request.
@@ -171,14 +171,14 @@ data GetSessionTokenResponse = GetSessionTokenResponse'
 --
 -- * 'gstrsCredentials'
 --
--- * 'gstrsStatus'
+-- * 'gstrsResponseStatus'
 getSessionTokenResponse
-    :: Int -- ^ 'gstrsStatus'
+    :: Int -- ^ 'gstrsResponseStatus'
     -> GetSessionTokenResponse
-getSessionTokenResponse pStatus_ =
+getSessionTokenResponse pResponseStatus_ =
     GetSessionTokenResponse'
     { _gstrsCredentials = Nothing
-    , _gstrsStatus = pStatus_
+    , _gstrsResponseStatus = pResponseStatus_
     }
 
 -- | The session credentials for API authentication.
@@ -186,5 +186,5 @@ gstrsCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
 gstrsCredentials = lens _gstrsCredentials (\ s a -> s{_gstrsCredentials = a});
 
 -- | The response status code.
-gstrsStatus :: Lens' GetSessionTokenResponse Int
-gstrsStatus = lens _gstrsStatus (\ s a -> s{_gstrsStatus = a});
+gstrsResponseStatus :: Lens' GetSessionTokenResponse Int
+gstrsResponseStatus = lens _gstrsResponseStatus (\ s a -> s{_gstrsResponseStatus = a});

@@ -39,7 +39,7 @@ module Network.AWS.CloudHSM.ListHAPGs
     , ListHAPGsResponse
     -- * Response Lenses
     , lhrsNextToken
-    , lhrsStatus
+    , lhrsResponseStatus
     , lhrsHAPGList
     ) where
 
@@ -103,9 +103,9 @@ instance ToQuery ListHAPGs where
 
 -- | /See:/ 'listHAPGsResponse' smart constructor.
 data ListHAPGsResponse = ListHAPGsResponse'
-    { _lhrsNextToken :: !(Maybe Text)
-    , _lhrsStatus    :: !Int
-    , _lhrsHAPGList  :: ![Text]
+    { _lhrsNextToken      :: !(Maybe Text)
+    , _lhrsResponseStatus :: !Int
+    , _lhrsHAPGList       :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListHAPGsResponse' with the minimum fields required to make a request.
@@ -114,16 +114,16 @@ data ListHAPGsResponse = ListHAPGsResponse'
 --
 -- * 'lhrsNextToken'
 --
--- * 'lhrsStatus'
+-- * 'lhrsResponseStatus'
 --
 -- * 'lhrsHAPGList'
 listHAPGsResponse
-    :: Int -- ^ 'lhrsStatus'
+    :: Int -- ^ 'lhrsResponseStatus'
     -> ListHAPGsResponse
-listHAPGsResponse pStatus_ =
+listHAPGsResponse pResponseStatus_ =
     ListHAPGsResponse'
     { _lhrsNextToken = Nothing
-    , _lhrsStatus = pStatus_
+    , _lhrsResponseStatus = pResponseStatus_
     , _lhrsHAPGList = mempty
     }
 
@@ -133,8 +133,8 @@ lhrsNextToken :: Lens' ListHAPGsResponse (Maybe Text)
 lhrsNextToken = lens _lhrsNextToken (\ s a -> s{_lhrsNextToken = a});
 
 -- | The response status code.
-lhrsStatus :: Lens' ListHAPGsResponse Int
-lhrsStatus = lens _lhrsStatus (\ s a -> s{_lhrsStatus = a});
+lhrsResponseStatus :: Lens' ListHAPGsResponse Int
+lhrsResponseStatus = lens _lhrsResponseStatus (\ s a -> s{_lhrsResponseStatus = a});
 
 -- | The list of high-availability partition groups.
 lhrsHAPGList :: Lens' ListHAPGsResponse [Text]

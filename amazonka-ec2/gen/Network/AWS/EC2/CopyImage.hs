@@ -35,8 +35,8 @@ module Network.AWS.EC2.CopyImage
     , CopyImage
     -- * Request Lenses
     , ciClientToken
-    , ciDryRun
     , ciDescription
+    , ciDryRun
     , ciSourceRegion
     , ciSourceImageId
     , ciName
@@ -46,7 +46,7 @@ module Network.AWS.EC2.CopyImage
     , CopyImageResponse
     -- * Response Lenses
     , coprsImageId
-    , coprsStatus
+    , coprsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -58,8 +58,8 @@ import           Network.AWS.Response
 -- | /See:/ 'copyImage' smart constructor.
 data CopyImage = CopyImage'
     { _ciClientToken   :: !(Maybe Text)
-    , _ciDryRun        :: !(Maybe Bool)
     , _ciDescription   :: !(Maybe Text)
+    , _ciDryRun        :: !(Maybe Bool)
     , _ciSourceRegion  :: !Text
     , _ciSourceImageId :: !Text
     , _ciName          :: !Text
@@ -71,9 +71,9 @@ data CopyImage = CopyImage'
 --
 -- * 'ciClientToken'
 --
--- * 'ciDryRun'
---
 -- * 'ciDescription'
+--
+-- * 'ciDryRun'
 --
 -- * 'ciSourceRegion'
 --
@@ -88,8 +88,8 @@ copyImage
 copyImage pSourceRegion_ pSourceImageId_ pName_ =
     CopyImage'
     { _ciClientToken = Nothing
-    , _ciDryRun = Nothing
     , _ciDescription = Nothing
+    , _ciDryRun = Nothing
     , _ciSourceRegion = pSourceRegion_
     , _ciSourceImageId = pSourceImageId_
     , _ciName = pName_
@@ -102,16 +102,16 @@ copyImage pSourceRegion_ pSourceImageId_ pName_ =
 ciClientToken :: Lens' CopyImage (Maybe Text)
 ciClientToken = lens _ciClientToken (\ s a -> s{_ciClientToken = a});
 
+-- | A description for the new AMI in the destination region.
+ciDescription :: Lens' CopyImage (Maybe Text)
+ciDescription = lens _ciDescription (\ s a -> s{_ciDescription = a});
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is 'DryRunOperation'.
 -- Otherwise, it is 'UnauthorizedOperation'.
 ciDryRun :: Lens' CopyImage (Maybe Bool)
 ciDryRun = lens _ciDryRun (\ s a -> s{_ciDryRun = a});
-
--- | A description for the new AMI in the destination region.
-ciDescription :: Lens' CopyImage (Maybe Text)
-ciDescription = lens _ciDescription (\ s a -> s{_ciDescription = a});
 
 -- | The name of the region that contains the AMI to copy.
 ciSourceRegion :: Lens' CopyImage Text
@@ -146,16 +146,16 @@ instance ToQuery CopyImage where
               ["Action" =: ("CopyImage" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "ClientToken" =: _ciClientToken,
-               "DryRun" =: _ciDryRun,
                "Description" =: _ciDescription,
+               "DryRun" =: _ciDryRun,
                "SourceRegion" =: _ciSourceRegion,
                "SourceImageId" =: _ciSourceImageId,
                "Name" =: _ciName]
 
 -- | /See:/ 'copyImageResponse' smart constructor.
 data CopyImageResponse = CopyImageResponse'
-    { _coprsImageId :: !(Maybe Text)
-    , _coprsStatus  :: !Int
+    { _coprsImageId        :: !(Maybe Text)
+    , _coprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CopyImageResponse' with the minimum fields required to make a request.
@@ -164,14 +164,14 @@ data CopyImageResponse = CopyImageResponse'
 --
 -- * 'coprsImageId'
 --
--- * 'coprsStatus'
+-- * 'coprsResponseStatus'
 copyImageResponse
-    :: Int -- ^ 'coprsStatus'
+    :: Int -- ^ 'coprsResponseStatus'
     -> CopyImageResponse
-copyImageResponse pStatus_ =
+copyImageResponse pResponseStatus_ =
     CopyImageResponse'
     { _coprsImageId = Nothing
-    , _coprsStatus = pStatus_
+    , _coprsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the new AMI.
@@ -179,5 +179,5 @@ coprsImageId :: Lens' CopyImageResponse (Maybe Text)
 coprsImageId = lens _coprsImageId (\ s a -> s{_coprsImageId = a});
 
 -- | The response status code.
-coprsStatus :: Lens' CopyImageResponse Int
-coprsStatus = lens _coprsStatus (\ s a -> s{_coprsStatus = a});
+coprsResponseStatus :: Lens' CopyImageResponse Int
+coprsResponseStatus = lens _coprsResponseStatus (\ s a -> s{_coprsResponseStatus = a});

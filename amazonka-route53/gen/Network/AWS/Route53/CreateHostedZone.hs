@@ -50,8 +50,8 @@ module Network.AWS.Route53.CreateHostedZone
     , CreateHostedZone
     -- * Request Lenses
     , chzDelegationSetId
-    , chzHostedZoneConfig
     , chzVPC
+    , chzHostedZoneConfig
     , chzName
     , chzCallerReference
 
@@ -60,7 +60,7 @@ module Network.AWS.Route53.CreateHostedZone
     , CreateHostedZoneResponse
     -- * Response Lenses
     , chzrsVPC
-    , chzrsStatus
+    , chzrsResponseStatus
     , chzrsHostedZone
     , chzrsChangeInfo
     , chzrsDelegationSet
@@ -79,8 +79,8 @@ import           Network.AWS.Route53.Types.Product
 -- /See:/ 'createHostedZone' smart constructor.
 data CreateHostedZone = CreateHostedZone'
     { _chzDelegationSetId  :: !(Maybe Text)
-    , _chzHostedZoneConfig :: !(Maybe HostedZoneConfig)
     , _chzVPC              :: !(Maybe VPC)
+    , _chzHostedZoneConfig :: !(Maybe HostedZoneConfig)
     , _chzName             :: !Text
     , _chzCallerReference  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -91,9 +91,9 @@ data CreateHostedZone = CreateHostedZone'
 --
 -- * 'chzDelegationSetId'
 --
--- * 'chzHostedZoneConfig'
---
 -- * 'chzVPC'
+--
+-- * 'chzHostedZoneConfig'
 --
 -- * 'chzName'
 --
@@ -105,8 +105,8 @@ createHostedZone
 createHostedZone pName_ pCallerReference_ =
     CreateHostedZone'
     { _chzDelegationSetId = Nothing
-    , _chzHostedZoneConfig = Nothing
     , _chzVPC = Nothing
+    , _chzHostedZoneConfig = Nothing
     , _chzName = pName_
     , _chzCallerReference = pCallerReference_
     }
@@ -116,15 +116,15 @@ createHostedZone pName_ pCallerReference_ =
 chzDelegationSetId :: Lens' CreateHostedZone (Maybe Text)
 chzDelegationSetId = lens _chzDelegationSetId (\ s a -> s{_chzDelegationSetId = a});
 
--- | A complex type that contains an optional comment about your hosted zone.
-chzHostedZoneConfig :: Lens' CreateHostedZone (Maybe HostedZoneConfig)
-chzHostedZoneConfig = lens _chzHostedZoneConfig (\ s a -> s{_chzHostedZoneConfig = a});
-
 -- | The VPC that you want your hosted zone to be associated with. By
 -- providing this parameter, your newly created hosted cannot be resolved
 -- anywhere other than the given VPC.
 chzVPC :: Lens' CreateHostedZone (Maybe VPC)
 chzVPC = lens _chzVPC (\ s a -> s{_chzVPC = a});
+
+-- | A complex type that contains an optional comment about your hosted zone.
+chzHostedZoneConfig :: Lens' CreateHostedZone (Maybe HostedZoneConfig)
+chzHostedZoneConfig = lens _chzHostedZoneConfig (\ s a -> s{_chzHostedZoneConfig = a});
 
 -- | The name of the domain. This must be a fully-specified domain, for
 -- example, www.example.com. The trailing dot is optional; Route 53 assumes
@@ -182,8 +182,9 @@ instance ToXML CreateHostedZone where
         toXML CreateHostedZone'{..}
           = mconcat
               ["DelegationSetId" @= _chzDelegationSetId,
+               "VPC" @= _chzVPC,
                "HostedZoneConfig" @= _chzHostedZoneConfig,
-               "VPC" @= _chzVPC, "Name" @= _chzName,
+               "Name" @= _chzName,
                "CallerReference" @= _chzCallerReference]
 
 -- | A complex type containing the response information for the new hosted
@@ -191,12 +192,12 @@ instance ToXML CreateHostedZone where
 --
 -- /See:/ 'createHostedZoneResponse' smart constructor.
 data CreateHostedZoneResponse = CreateHostedZoneResponse'
-    { _chzrsVPC           :: !(Maybe VPC)
-    , _chzrsStatus        :: !Int
-    , _chzrsHostedZone    :: !HostedZone
-    , _chzrsChangeInfo    :: !ChangeInfo
-    , _chzrsDelegationSet :: !DelegationSet
-    , _chzrsLocation      :: !Text
+    { _chzrsVPC            :: !(Maybe VPC)
+    , _chzrsResponseStatus :: !Int
+    , _chzrsHostedZone     :: !HostedZone
+    , _chzrsChangeInfo     :: !ChangeInfo
+    , _chzrsDelegationSet  :: !DelegationSet
+    , _chzrsLocation       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateHostedZoneResponse' with the minimum fields required to make a request.
@@ -205,7 +206,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse'
 --
 -- * 'chzrsVPC'
 --
--- * 'chzrsStatus'
+-- * 'chzrsResponseStatus'
 --
 -- * 'chzrsHostedZone'
 --
@@ -215,16 +216,16 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse'
 --
 -- * 'chzrsLocation'
 createHostedZoneResponse
-    :: Int -- ^ 'chzrsStatus'
+    :: Int -- ^ 'chzrsResponseStatus'
     -> HostedZone -- ^ 'chzrsHostedZone'
     -> ChangeInfo -- ^ 'chzrsChangeInfo'
     -> DelegationSet -- ^ 'chzrsDelegationSet'
     -> Text -- ^ 'chzrsLocation'
     -> CreateHostedZoneResponse
-createHostedZoneResponse pStatus_ pHostedZone_ pChangeInfo_ pDelegationSet_ pLocation_ =
+createHostedZoneResponse pResponseStatus_ pHostedZone_ pChangeInfo_ pDelegationSet_ pLocation_ =
     CreateHostedZoneResponse'
     { _chzrsVPC = Nothing
-    , _chzrsStatus = pStatus_
+    , _chzrsResponseStatus = pResponseStatus_
     , _chzrsHostedZone = pHostedZone_
     , _chzrsChangeInfo = pChangeInfo_
     , _chzrsDelegationSet = pDelegationSet_
@@ -236,8 +237,8 @@ chzrsVPC :: Lens' CreateHostedZoneResponse (Maybe VPC)
 chzrsVPC = lens _chzrsVPC (\ s a -> s{_chzrsVPC = a});
 
 -- | The response status code.
-chzrsStatus :: Lens' CreateHostedZoneResponse Int
-chzrsStatus = lens _chzrsStatus (\ s a -> s{_chzrsStatus = a});
+chzrsResponseStatus :: Lens' CreateHostedZoneResponse Int
+chzrsResponseStatus = lens _chzrsResponseStatus (\ s a -> s{_chzrsResponseStatus = a});
 
 -- | A complex type that contains identifying information about the hosted
 -- zone.

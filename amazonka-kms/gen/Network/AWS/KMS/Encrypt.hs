@@ -59,7 +59,7 @@ module Network.AWS.KMS.Encrypt
     -- * Response Lenses
     , ersKeyId
     , ersCiphertextBlob
-    , ersStatus
+    , ersResponseStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -173,7 +173,7 @@ instance ToQuery Encrypt where
 data EncryptResponse = EncryptResponse'
     { _ersKeyId          :: !(Maybe Text)
     , _ersCiphertextBlob :: !(Maybe Base64)
-    , _ersStatus         :: !Int
+    , _ersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EncryptResponse' with the minimum fields required to make a request.
@@ -184,15 +184,15 @@ data EncryptResponse = EncryptResponse'
 --
 -- * 'ersCiphertextBlob'
 --
--- * 'ersStatus'
+-- * 'ersResponseStatus'
 encryptResponse
-    :: Int -- ^ 'ersStatus'
+    :: Int -- ^ 'ersResponseStatus'
     -> EncryptResponse
-encryptResponse pStatus_ =
+encryptResponse pResponseStatus_ =
     EncryptResponse'
     { _ersKeyId = Nothing
     , _ersCiphertextBlob = Nothing
-    , _ersStatus = pStatus_
+    , _ersResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the key used during encryption.
@@ -211,5 +211,5 @@ ersCiphertextBlob :: Lens' EncryptResponse (Maybe ByteString)
 ersCiphertextBlob = lens _ersCiphertextBlob (\ s a -> s{_ersCiphertextBlob = a}) . mapping _Base64;
 
 -- | The response status code.
-ersStatus :: Lens' EncryptResponse Int
-ersStatus = lens _ersStatus (\ s a -> s{_ersStatus = a});
+ersResponseStatus :: Lens' EncryptResponse Int
+ersResponseStatus = lens _ersResponseStatus (\ s a -> s{_ersResponseStatus = a});

@@ -37,7 +37,7 @@ module Network.AWS.SNS.GetPlatformApplicationAttributes
     , GetPlatformApplicationAttributesResponse
     -- * Response Lenses
     , gpaarsAttributes
-    , gpaarsStatus
+    , gpaarsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -106,8 +106,8 @@ instance ToQuery GetPlatformApplicationAttributes
 --
 -- /See:/ 'getPlatformApplicationAttributesResponse' smart constructor.
 data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'
-    { _gpaarsAttributes :: !(Maybe (Map Text Text))
-    , _gpaarsStatus     :: !Int
+    { _gpaarsAttributes     :: !(Maybe (Map Text Text))
+    , _gpaarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetPlatformApplicationAttributesResponse' with the minimum fields required to make a request.
@@ -116,14 +116,14 @@ data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributes
 --
 -- * 'gpaarsAttributes'
 --
--- * 'gpaarsStatus'
+-- * 'gpaarsResponseStatus'
 getPlatformApplicationAttributesResponse
-    :: Int -- ^ 'gpaarsStatus'
+    :: Int -- ^ 'gpaarsResponseStatus'
     -> GetPlatformApplicationAttributesResponse
-getPlatformApplicationAttributesResponse pStatus_ =
+getPlatformApplicationAttributesResponse pResponseStatus_ =
     GetPlatformApplicationAttributesResponse'
     { _gpaarsAttributes = Nothing
-    , _gpaarsStatus = pStatus_
+    , _gpaarsResponseStatus = pResponseStatus_
     }
 
 -- | Attributes include the following:
@@ -141,5 +141,5 @@ gpaarsAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text
 gpaarsAttributes = lens _gpaarsAttributes (\ s a -> s{_gpaarsAttributes = a}) . _Default . _Map;
 
 -- | The response status code.
-gpaarsStatus :: Lens' GetPlatformApplicationAttributesResponse Int
-gpaarsStatus = lens _gpaarsStatus (\ s a -> s{_gpaarsStatus = a});
+gpaarsResponseStatus :: Lens' GetPlatformApplicationAttributesResponse Int
+gpaarsResponseStatus = lens _gpaarsResponseStatus (\ s a -> s{_gpaarsResponseStatus = a});

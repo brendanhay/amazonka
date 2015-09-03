@@ -37,7 +37,7 @@ module Network.AWS.IAM.GetUser
     , getUserResponse
     , GetUserResponse
     -- * Response Lenses
-    , gursStatus
+    , gursResponseStatus
     , gursUser
     ) where
 
@@ -97,30 +97,30 @@ instance ToQuery GetUser where
 --
 -- /See:/ 'getUserResponse' smart constructor.
 data GetUserResponse = GetUserResponse'
-    { _gursStatus :: !Int
-    , _gursUser   :: !User
+    { _gursResponseStatus :: !Int
+    , _gursUser           :: !User
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetUserResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gursStatus'
+-- * 'gursResponseStatus'
 --
 -- * 'gursUser'
 getUserResponse
-    :: Int -- ^ 'gursStatus'
+    :: Int -- ^ 'gursResponseStatus'
     -> User -- ^ 'gursUser'
     -> GetUserResponse
-getUserResponse pStatus_ pUser_ =
+getUserResponse pResponseStatus_ pUser_ =
     GetUserResponse'
-    { _gursStatus = pStatus_
+    { _gursResponseStatus = pResponseStatus_
     , _gursUser = pUser_
     }
 
 -- | The response status code.
-gursStatus :: Lens' GetUserResponse Int
-gursStatus = lens _gursStatus (\ s a -> s{_gursStatus = a});
+gursResponseStatus :: Lens' GetUserResponse Int
+gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a});
 
 -- | Information about the user.
 gursUser :: Lens' GetUserResponse User

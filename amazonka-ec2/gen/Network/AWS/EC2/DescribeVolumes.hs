@@ -50,7 +50,7 @@ module Network.AWS.EC2.DescribeVolumes
     -- * Response Lenses
     , dvvrsNextToken
     , dvvrsVolumes
-    , dvvrsStatus
+    , dvvrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -208,9 +208,9 @@ instance ToQuery DescribeVolumes where
 
 -- | /See:/ 'describeVolumesResponse' smart constructor.
 data DescribeVolumesResponse = DescribeVolumesResponse'
-    { _dvvrsNextToken :: !(Maybe Text)
-    , _dvvrsVolumes   :: !(Maybe [Volume])
-    , _dvvrsStatus    :: !Int
+    { _dvvrsNextToken      :: !(Maybe Text)
+    , _dvvrsVolumes        :: !(Maybe [Volume])
+    , _dvvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVolumesResponse' with the minimum fields required to make a request.
@@ -221,15 +221,15 @@ data DescribeVolumesResponse = DescribeVolumesResponse'
 --
 -- * 'dvvrsVolumes'
 --
--- * 'dvvrsStatus'
+-- * 'dvvrsResponseStatus'
 describeVolumesResponse
-    :: Int -- ^ 'dvvrsStatus'
+    :: Int -- ^ 'dvvrsResponseStatus'
     -> DescribeVolumesResponse
-describeVolumesResponse pStatus_ =
+describeVolumesResponse pResponseStatus_ =
     DescribeVolumesResponse'
     { _dvvrsNextToken = Nothing
     , _dvvrsVolumes = Nothing
-    , _dvvrsStatus = pStatus_
+    , _dvvrsResponseStatus = pResponseStatus_
     }
 
 -- | The 'NextToken' value to include in a future 'DescribeVolumes' request.
@@ -244,5 +244,5 @@ dvvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvvrsVolumes = lens _dvvrsVolumes (\ s a -> s{_dvvrsVolumes = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dvvrsStatus :: Lens' DescribeVolumesResponse Int
-dvvrsStatus = lens _dvvrsStatus (\ s a -> s{_dvvrsStatus = a});
+dvvrsResponseStatus :: Lens' DescribeVolumesResponse Int
+dvvrsResponseStatus = lens _dvvrsResponseStatus (\ s a -> s{_dvvrsResponseStatus = a});

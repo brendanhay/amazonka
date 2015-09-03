@@ -46,7 +46,7 @@ module Network.AWS.Support.AddAttachmentsToSet
     -- * Response Lenses
     , aatsrsExpiryTime
     , aatsrsAttachmentSetId
-    , aatsrsStatus
+    , aatsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -129,7 +129,7 @@ instance ToQuery AddAttachmentsToSet where
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
     { _aatsrsExpiryTime      :: !(Maybe Text)
     , _aatsrsAttachmentSetId :: !(Maybe Text)
-    , _aatsrsStatus          :: !Int
+    , _aatsrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddAttachmentsToSetResponse' with the minimum fields required to make a request.
@@ -140,15 +140,15 @@ data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
 --
 -- * 'aatsrsAttachmentSetId'
 --
--- * 'aatsrsStatus'
+-- * 'aatsrsResponseStatus'
 addAttachmentsToSetResponse
-    :: Int -- ^ 'aatsrsStatus'
+    :: Int -- ^ 'aatsrsResponseStatus'
     -> AddAttachmentsToSetResponse
-addAttachmentsToSetResponse pStatus_ =
+addAttachmentsToSetResponse pResponseStatus_ =
     AddAttachmentsToSetResponse'
     { _aatsrsExpiryTime = Nothing
     , _aatsrsAttachmentSetId = Nothing
-    , _aatsrsStatus = pStatus_
+    , _aatsrsResponseStatus = pResponseStatus_
     }
 
 -- | The time and date when the attachment set expires.
@@ -163,5 +163,5 @@ aatsrsAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatsrsAttachmentSetId = lens _aatsrsAttachmentSetId (\ s a -> s{_aatsrsAttachmentSetId = a});
 
 -- | The response status code.
-aatsrsStatus :: Lens' AddAttachmentsToSetResponse Int
-aatsrsStatus = lens _aatsrsStatus (\ s a -> s{_aatsrsStatus = a});
+aatsrsResponseStatus :: Lens' AddAttachmentsToSetResponse Int
+aatsrsResponseStatus = lens _aatsrsResponseStatus (\ s a -> s{_aatsrsResponseStatus = a});

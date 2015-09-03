@@ -44,7 +44,7 @@ module Network.AWS.OpsWorks.DescribeRAIdArrays
     , DescribeRAIdArraysResponse
     -- * Response Lenses
     , draiarsRAIdArrays
-    , draiarsStatus
+    , draiarsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -132,8 +132,8 @@ instance ToQuery DescribeRAIdArrays where
 --
 -- /See:/ 'describeRAIdArraysResponse' smart constructor.
 data DescribeRAIdArraysResponse = DescribeRAIdArraysResponse'
-    { _draiarsRAIdArrays :: !(Maybe [RAIdArray])
-    , _draiarsStatus     :: !Int
+    { _draiarsRAIdArrays     :: !(Maybe [RAIdArray])
+    , _draiarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeRAIdArraysResponse' with the minimum fields required to make a request.
@@ -142,14 +142,14 @@ data DescribeRAIdArraysResponse = DescribeRAIdArraysResponse'
 --
 -- * 'draiarsRAIdArrays'
 --
--- * 'draiarsStatus'
+-- * 'draiarsResponseStatus'
 describeRAIdArraysResponse
-    :: Int -- ^ 'draiarsStatus'
+    :: Int -- ^ 'draiarsResponseStatus'
     -> DescribeRAIdArraysResponse
-describeRAIdArraysResponse pStatus_ =
+describeRAIdArraysResponse pResponseStatus_ =
     DescribeRAIdArraysResponse'
     { _draiarsRAIdArrays = Nothing
-    , _draiarsStatus = pStatus_
+    , _draiarsResponseStatus = pResponseStatus_
     }
 
 -- | A 'RaidArrays' object that describes the specified RAID arrays.
@@ -157,5 +157,5 @@ draiarsRAIdArrays :: Lens' DescribeRAIdArraysResponse [RAIdArray]
 draiarsRAIdArrays = lens _draiarsRAIdArrays (\ s a -> s{_draiarsRAIdArrays = a}) . _Default . _Coerce;
 
 -- | The response status code.
-draiarsStatus :: Lens' DescribeRAIdArraysResponse Int
-draiarsStatus = lens _draiarsStatus (\ s a -> s{_draiarsStatus = a});
+draiarsResponseStatus :: Lens' DescribeRAIdArraysResponse Int
+draiarsResponseStatus = lens _draiarsResponseStatus (\ s a -> s{_draiarsResponseStatus = a});

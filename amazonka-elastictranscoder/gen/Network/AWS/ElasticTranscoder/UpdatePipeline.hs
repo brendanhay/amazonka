@@ -36,8 +36,8 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     , upRole
     , upName
     , upAWSKMSKeyARN
-    , upThumbnailConfig
     , upNotifications
+    , upThumbnailConfig
     , upId
 
     -- * Destructuring the Response
@@ -46,7 +46,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     -- * Response Lenses
     , uprsWarnings
     , uprsPipeline
-    , uprsStatus
+    , uprsResponseStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -64,8 +64,8 @@ data UpdatePipeline = UpdatePipeline'
     , _upRole            :: !(Maybe Text)
     , _upName            :: !(Maybe Text)
     , _upAWSKMSKeyARN    :: !(Maybe Text)
-    , _upThumbnailConfig :: !(Maybe PipelineOutputConfig)
     , _upNotifications   :: !(Maybe Notifications)
+    , _upThumbnailConfig :: !(Maybe PipelineOutputConfig)
     , _upId              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -83,9 +83,9 @@ data UpdatePipeline = UpdatePipeline'
 --
 -- * 'upAWSKMSKeyARN'
 --
--- * 'upThumbnailConfig'
---
 -- * 'upNotifications'
+--
+-- * 'upThumbnailConfig'
 --
 -- * 'upId'
 updatePipeline
@@ -98,8 +98,8 @@ updatePipeline pId_ =
     , _upRole = Nothing
     , _upName = Nothing
     , _upAWSKMSKeyARN = Nothing
-    , _upThumbnailConfig = Nothing
     , _upNotifications = Nothing
+    , _upThumbnailConfig = Nothing
     , _upId = pId_
     }
 
@@ -192,6 +192,10 @@ upName = lens _upName (\ s a -> s{_upName = a});
 upAWSKMSKeyARN :: Lens' UpdatePipeline (Maybe Text)
 upAWSKMSKeyARN = lens _upAWSKMSKeyARN (\ s a -> s{_upAWSKMSKeyARN = a});
 
+-- | Undocumented member.
+upNotifications :: Lens' UpdatePipeline (Maybe Notifications)
+upNotifications = lens _upNotifications (\ s a -> s{_upNotifications = a});
+
 -- | The 'ThumbnailConfig' object specifies several values, including the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
 -- files, which users you want to have access to the files, the type of
@@ -246,10 +250,6 @@ upAWSKMSKeyARN = lens _upAWSKMSKeyARN (\ s a -> s{_upAWSKMSKeyARN = a});
 upThumbnailConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
 upThumbnailConfig = lens _upThumbnailConfig (\ s a -> s{_upThumbnailConfig = a});
 
--- | Undocumented member.
-upNotifications :: Lens' UpdatePipeline (Maybe Notifications)
-upNotifications = lens _upNotifications (\ s a -> s{_upNotifications = a});
-
 -- | The ID of the pipeline that you want to update.
 upId :: Lens' UpdatePipeline Text
 upId = lens _upId (\ s a -> s{_upId = a});
@@ -275,8 +275,8 @@ instance ToJSON UpdatePipeline where
                   ("ContentConfig" .=) <$> _upContentConfig,
                   ("Role" .=) <$> _upRole, ("Name" .=) <$> _upName,
                   ("AwsKmsKeyArn" .=) <$> _upAWSKMSKeyARN,
-                  ("ThumbnailConfig" .=) <$> _upThumbnailConfig,
-                  ("Notifications" .=) <$> _upNotifications])
+                  ("Notifications" .=) <$> _upNotifications,
+                  ("ThumbnailConfig" .=) <$> _upThumbnailConfig])
 
 instance ToPath UpdatePipeline where
         toPath UpdatePipeline'{..}
@@ -290,9 +290,9 @@ instance ToQuery UpdatePipeline where
 --
 -- /See:/ 'updatePipelineResponse' smart constructor.
 data UpdatePipelineResponse = UpdatePipelineResponse'
-    { _uprsWarnings :: !(Maybe [Warning])
-    , _uprsPipeline :: !(Maybe Pipeline)
-    , _uprsStatus   :: !Int
+    { _uprsWarnings       :: !(Maybe [Warning])
+    , _uprsPipeline       :: !(Maybe Pipeline)
+    , _uprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdatePipelineResponse' with the minimum fields required to make a request.
@@ -303,15 +303,15 @@ data UpdatePipelineResponse = UpdatePipelineResponse'
 --
 -- * 'uprsPipeline'
 --
--- * 'uprsStatus'
+-- * 'uprsResponseStatus'
 updatePipelineResponse
-    :: Int -- ^ 'uprsStatus'
+    :: Int -- ^ 'uprsResponseStatus'
     -> UpdatePipelineResponse
-updatePipelineResponse pStatus_ =
+updatePipelineResponse pResponseStatus_ =
     UpdatePipelineResponse'
     { _uprsWarnings = Nothing
     , _uprsPipeline = Nothing
-    , _uprsStatus = pStatus_
+    , _uprsResponseStatus = pResponseStatus_
     }
 
 -- | Elastic Transcoder returns a warning if the resources used by your
@@ -328,5 +328,5 @@ uprsPipeline :: Lens' UpdatePipelineResponse (Maybe Pipeline)
 uprsPipeline = lens _uprsPipeline (\ s a -> s{_uprsPipeline = a});
 
 -- | The response status code.
-uprsStatus :: Lens' UpdatePipelineResponse Int
-uprsStatus = lens _uprsStatus (\ s a -> s{_uprsStatus = a});
+uprsResponseStatus :: Lens' UpdatePipelineResponse Int
+uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});

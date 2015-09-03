@@ -42,7 +42,7 @@ module Network.AWS.EC2.CreateVPNGateway
     , CreateVPNGatewayResponse
     -- * Response Lenses
     , cvgrsVPNGateway
-    , cvgrsStatus
+    , cvgrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -117,8 +117,8 @@ instance ToQuery CreateVPNGateway where
 
 -- | /See:/ 'createVPNGatewayResponse' smart constructor.
 data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
-    { _cvgrsVPNGateway :: !(Maybe VPNGateway)
-    , _cvgrsStatus     :: !Int
+    { _cvgrsVPNGateway     :: !(Maybe VPNGateway)
+    , _cvgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateVPNGatewayResponse' with the minimum fields required to make a request.
@@ -127,14 +127,14 @@ data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
 --
 -- * 'cvgrsVPNGateway'
 --
--- * 'cvgrsStatus'
+-- * 'cvgrsResponseStatus'
 createVPNGatewayResponse
-    :: Int -- ^ 'cvgrsStatus'
+    :: Int -- ^ 'cvgrsResponseStatus'
     -> CreateVPNGatewayResponse
-createVPNGatewayResponse pStatus_ =
+createVPNGatewayResponse pResponseStatus_ =
     CreateVPNGatewayResponse'
     { _cvgrsVPNGateway = Nothing
-    , _cvgrsStatus = pStatus_
+    , _cvgrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the virtual private gateway.
@@ -142,5 +142,5 @@ cvgrsVPNGateway :: Lens' CreateVPNGatewayResponse (Maybe VPNGateway)
 cvgrsVPNGateway = lens _cvgrsVPNGateway (\ s a -> s{_cvgrsVPNGateway = a});
 
 -- | The response status code.
-cvgrsStatus :: Lens' CreateVPNGatewayResponse Int
-cvgrsStatus = lens _cvgrsStatus (\ s a -> s{_cvgrsStatus = a});
+cvgrsResponseStatus :: Lens' CreateVPNGatewayResponse Int
+cvgrsResponseStatus = lens _cvgrsResponseStatus (\ s a -> s{_cvgrsResponseStatus = a});

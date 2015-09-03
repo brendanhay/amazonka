@@ -44,7 +44,7 @@ module Network.AWS.EC2.DescribeSpotFleetRequestHistory
     , DescribeSpotFleetRequestHistoryResponse
     -- * Response Lenses
     , dsfrhrsNextToken
-    , dsfrhrsStatus
+    , dsfrhrsResponseStatus
     , dsfrhrsSpotFleetRequestId
     , dsfrhrsStartTime
     , dsfrhrsLastEvaluatedTime
@@ -172,7 +172,7 @@ instance ToQuery DescribeSpotFleetRequestHistory
 -- /See:/ 'describeSpotFleetRequestHistoryResponse' smart constructor.
 data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'
     { _dsfrhrsNextToken          :: !(Maybe Text)
-    , _dsfrhrsStatus             :: !Int
+    , _dsfrhrsResponseStatus     :: !Int
     , _dsfrhrsSpotFleetRequestId :: !Text
     , _dsfrhrsStartTime          :: !ISO8601
     , _dsfrhrsLastEvaluatedTime  :: !ISO8601
@@ -185,7 +185,7 @@ data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryRe
 --
 -- * 'dsfrhrsNextToken'
 --
--- * 'dsfrhrsStatus'
+-- * 'dsfrhrsResponseStatus'
 --
 -- * 'dsfrhrsSpotFleetRequestId'
 --
@@ -195,15 +195,15 @@ data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryRe
 --
 -- * 'dsfrhrsHistoryRecords'
 describeSpotFleetRequestHistoryResponse
-    :: Int -- ^ 'dsfrhrsStatus'
+    :: Int -- ^ 'dsfrhrsResponseStatus'
     -> Text -- ^ 'dsfrhrsSpotFleetRequestId'
     -> UTCTime -- ^ 'dsfrhrsStartTime'
     -> UTCTime -- ^ 'dsfrhrsLastEvaluatedTime'
     -> DescribeSpotFleetRequestHistoryResponse
-describeSpotFleetRequestHistoryResponse pStatus_ pSpotFleetRequestId_ pStartTime_ pLastEvaluatedTime_ =
+describeSpotFleetRequestHistoryResponse pResponseStatus_ pSpotFleetRequestId_ pStartTime_ pLastEvaluatedTime_ =
     DescribeSpotFleetRequestHistoryResponse'
     { _dsfrhrsNextToken = Nothing
-    , _dsfrhrsStatus = pStatus_
+    , _dsfrhrsResponseStatus = pResponseStatus_
     , _dsfrhrsSpotFleetRequestId = pSpotFleetRequestId_
     , _dsfrhrsStartTime = _Time # pStartTime_
     , _dsfrhrsLastEvaluatedTime = _Time # pLastEvaluatedTime_
@@ -216,8 +216,8 @@ dsfrhrsNextToken :: Lens' DescribeSpotFleetRequestHistoryResponse (Maybe Text)
 dsfrhrsNextToken = lens _dsfrhrsNextToken (\ s a -> s{_dsfrhrsNextToken = a});
 
 -- | The response status code.
-dsfrhrsStatus :: Lens' DescribeSpotFleetRequestHistoryResponse Int
-dsfrhrsStatus = lens _dsfrhrsStatus (\ s a -> s{_dsfrhrsStatus = a});
+dsfrhrsResponseStatus :: Lens' DescribeSpotFleetRequestHistoryResponse Int
+dsfrhrsResponseStatus = lens _dsfrhrsResponseStatus (\ s a -> s{_dsfrhrsResponseStatus = a});
 
 -- | The ID of the Spot fleet request.
 dsfrhrsSpotFleetRequestId :: Lens' DescribeSpotFleetRequestHistoryResponse Text

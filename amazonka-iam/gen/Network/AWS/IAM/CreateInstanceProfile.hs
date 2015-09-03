@@ -41,7 +41,7 @@ module Network.AWS.IAM.CreateInstanceProfile
     , createInstanceProfileResponse
     , CreateInstanceProfileResponse
     -- * Response Lenses
-    , ciprsStatus
+    , ciprsResponseStatus
     , ciprsInstanceProfile
     ) where
 
@@ -114,7 +114,7 @@ instance ToQuery CreateInstanceProfile where
 --
 -- /See:/ 'createInstanceProfileResponse' smart constructor.
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
-    { _ciprsStatus          :: !Int
+    { _ciprsResponseStatus  :: !Int
     , _ciprsInstanceProfile :: !InstanceProfile
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -122,22 +122,22 @@ data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ciprsStatus'
+-- * 'ciprsResponseStatus'
 --
 -- * 'ciprsInstanceProfile'
 createInstanceProfileResponse
-    :: Int -- ^ 'ciprsStatus'
+    :: Int -- ^ 'ciprsResponseStatus'
     -> InstanceProfile -- ^ 'ciprsInstanceProfile'
     -> CreateInstanceProfileResponse
-createInstanceProfileResponse pStatus_ pInstanceProfile_ =
+createInstanceProfileResponse pResponseStatus_ pInstanceProfile_ =
     CreateInstanceProfileResponse'
-    { _ciprsStatus = pStatus_
+    { _ciprsResponseStatus = pResponseStatus_
     , _ciprsInstanceProfile = pInstanceProfile_
     }
 
 -- | The response status code.
-ciprsStatus :: Lens' CreateInstanceProfileResponse Int
-ciprsStatus = lens _ciprsStatus (\ s a -> s{_ciprsStatus = a});
+ciprsResponseStatus :: Lens' CreateInstanceProfileResponse Int
+ciprsResponseStatus = lens _ciprsResponseStatus (\ s a -> s{_ciprsResponseStatus = a});
 
 -- | Information about the instance profile.
 ciprsInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile

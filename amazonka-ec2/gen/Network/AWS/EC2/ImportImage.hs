@@ -34,8 +34,8 @@ module Network.AWS.EC2.ImportImage
     , impLicenseType
     , impRoleName
     , impArchitecture
-    , impDryRun
     , impDescription
+    , impDryRun
     , impClientData
     , impDiskContainers
 
@@ -43,6 +43,7 @@ module Network.AWS.EC2.ImportImage
     , importImageResponse
     , ImportImageResponse
     -- * Response Lenses
+    , irsStatus
     , irsHypervisor
     , irsPlatform
     , irsProgress
@@ -53,7 +54,7 @@ module Network.AWS.EC2.ImportImage
     , irsImportTaskId
     , irsArchitecture
     , irsDescription
-    , irsStatus
+    , irsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -70,8 +71,8 @@ data ImportImage = ImportImage'
     , _impLicenseType    :: !(Maybe Text)
     , _impRoleName       :: !(Maybe Text)
     , _impArchitecture   :: !(Maybe Text)
-    , _impDryRun         :: !(Maybe Bool)
     , _impDescription    :: !(Maybe Text)
+    , _impDryRun         :: !(Maybe Bool)
     , _impClientData     :: !(Maybe ClientData)
     , _impDiskContainers :: !(Maybe [ImageDiskContainer])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -92,9 +93,9 @@ data ImportImage = ImportImage'
 --
 -- * 'impArchitecture'
 --
--- * 'impDryRun'
---
 -- * 'impDescription'
+--
+-- * 'impDryRun'
 --
 -- * 'impClientData'
 --
@@ -109,8 +110,8 @@ importImage =
     , _impLicenseType = Nothing
     , _impRoleName = Nothing
     , _impArchitecture = Nothing
-    , _impDryRun = Nothing
     , _impDescription = Nothing
+    , _impDryRun = Nothing
     , _impClientData = Nothing
     , _impDiskContainers = Nothing
     }
@@ -155,16 +156,16 @@ impRoleName = lens _impRoleName (\ s a -> s{_impRoleName = a});
 impArchitecture :: Lens' ImportImage (Maybe Text)
 impArchitecture = lens _impArchitecture (\ s a -> s{_impArchitecture = a});
 
+-- | A description string for the import image task.
+impDescription :: Lens' ImportImage (Maybe Text)
+impDescription = lens _impDescription (\ s a -> s{_impDescription = a});
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is 'DryRunOperation'.
 -- Otherwise, it is 'UnauthorizedOperation'.
 impDryRun :: Lens' ImportImage (Maybe Bool)
 impDryRun = lens _impDryRun (\ s a -> s{_impDryRun = a});
-
--- | A description string for the import image task.
-impDescription :: Lens' ImportImage (Maybe Text)
-impDescription = lens _impDescription (\ s a -> s{_impDescription = a});
 
 -- | The client-specific data.
 impClientData :: Lens' ImportImage (Maybe ClientData)
@@ -181,8 +182,9 @@ instance AWSRequest ImportImage where
           = receiveXML
               (\ s h x ->
                  ImportImageResponse' <$>
-                   (x .@? "hypervisor") <*> (x .@? "platform") <*>
-                     (x .@? "progress")
+                   (x .@? "status") <*> (x .@? "hypervisor") <*>
+                     (x .@? "platform")
+                     <*> (x .@? "progress")
                      <*> (x .@? "licenseType")
                      <*>
                      (x .@? "snapshotDetailSet" .!@ mempty >>=
@@ -211,15 +213,16 @@ instance ToQuery ImportImage where
                "LicenseType" =: _impLicenseType,
                "RoleName" =: _impRoleName,
                "Architecture" =: _impArchitecture,
-               "DryRun" =: _impDryRun,
                "Description" =: _impDescription,
+               "DryRun" =: _impDryRun,
                "ClientData" =: _impClientData,
                toQuery
                  (toQueryList "DiskContainer" <$> _impDiskContainers)]
 
 -- | /See:/ 'importImageResponse' smart constructor.
 data ImportImageResponse = ImportImageResponse'
-    { _irsHypervisor      :: !(Maybe Text)
+    { _irsStatus          :: !(Maybe Text)
+    , _irsHypervisor      :: !(Maybe Text)
     , _irsPlatform        :: !(Maybe Text)
     , _irsProgress        :: !(Maybe Text)
     , _irsLicenseType     :: !(Maybe Text)
@@ -229,12 +232,14 @@ data ImportImageResponse = ImportImageResponse'
     , _irsImportTaskId    :: !(Maybe Text)
     , _irsArchitecture    :: !(Maybe Text)
     , _irsDescription     :: !(Maybe Text)
-    , _irsStatus          :: !Int
+    , _irsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImportImageResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'irsStatus'
 --
 -- * 'irsHypervisor'
 --
@@ -256,13 +261,14 @@ data ImportImageResponse = ImportImageResponse'
 --
 -- * 'irsDescription'
 --
--- * 'irsStatus'
+-- * 'irsResponseStatus'
 importImageResponse
-    :: Int -- ^ 'irsStatus'
+    :: Int -- ^ 'irsResponseStatus'
     -> ImportImageResponse
-importImageResponse pStatus_ =
+importImageResponse pResponseStatus_ =
     ImportImageResponse'
-    { _irsHypervisor = Nothing
+    { _irsStatus = Nothing
+    , _irsHypervisor = Nothing
     , _irsPlatform = Nothing
     , _irsProgress = Nothing
     , _irsLicenseType = Nothing
@@ -272,8 +278,12 @@ importImageResponse pStatus_ =
     , _irsImportTaskId = Nothing
     , _irsArchitecture = Nothing
     , _irsDescription = Nothing
-    , _irsStatus = pStatus_
+    , _irsResponseStatus = pResponseStatus_
     }
+
+-- | A brief status of the task.
+irsStatus :: Lens' ImportImageResponse (Maybe Text)
+irsStatus = lens _irsStatus (\ s a -> s{_irsStatus = a});
 
 -- | The target hypervisor of the import task.
 irsHypervisor :: Lens' ImportImageResponse (Maybe Text)
@@ -316,5 +326,5 @@ irsDescription :: Lens' ImportImageResponse (Maybe Text)
 irsDescription = lens _irsDescription (\ s a -> s{_irsDescription = a});
 
 -- | The response status code.
-irsStatus :: Lens' ImportImageResponse Int
-irsStatus = lens _irsStatus (\ s a -> s{_irsStatus = a});
+irsResponseStatus :: Lens' ImportImageResponse Int
+irsResponseStatus = lens _irsResponseStatus (\ s a -> s{_irsResponseStatus = a});

@@ -186,8 +186,8 @@ data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
     { _dcsdCustomerUserName  :: !(Maybe Text)
     , _dcsdSubnetIds         :: !(Maybe [Text])
     , _dcsdVPCId             :: !(Maybe Text)
-    , _dcsdConnectIPs        :: !(Maybe [Text])
     , _dcsdSecurityGroupId   :: !(Maybe Text)
+    , _dcsdConnectIPs        :: !(Maybe [Text])
     , _dcsdAvailabilityZones :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -201,9 +201,9 @@ data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
 --
 -- * 'dcsdVPCId'
 --
--- * 'dcsdConnectIPs'
---
 -- * 'dcsdSecurityGroupId'
+--
+-- * 'dcsdConnectIPs'
 --
 -- * 'dcsdAvailabilityZones'
 directoryConnectSettingsDescription
@@ -213,8 +213,8 @@ directoryConnectSettingsDescription =
     { _dcsdCustomerUserName = Nothing
     , _dcsdSubnetIds = Nothing
     , _dcsdVPCId = Nothing
-    , _dcsdConnectIPs = Nothing
     , _dcsdSecurityGroupId = Nothing
+    , _dcsdConnectIPs = Nothing
     , _dcsdAvailabilityZones = Nothing
     }
 
@@ -230,13 +230,13 @@ dcsdSubnetIds = lens _dcsdSubnetIds (\ s a -> s{_dcsdSubnetIds = a}) . _Default 
 dcsdVPCId :: Lens' DirectoryConnectSettingsDescription (Maybe Text)
 dcsdVPCId = lens _dcsdVPCId (\ s a -> s{_dcsdVPCId = a});
 
--- | The IP addresses of the AD Connector servers.
-dcsdConnectIPs :: Lens' DirectoryConnectSettingsDescription [Text]
-dcsdConnectIPs = lens _dcsdConnectIPs (\ s a -> s{_dcsdConnectIPs = a}) . _Default . _Coerce;
-
 -- | The security group identifier for the AD Connector directory.
 dcsdSecurityGroupId :: Lens' DirectoryConnectSettingsDescription (Maybe Text)
 dcsdSecurityGroupId = lens _dcsdSecurityGroupId (\ s a -> s{_dcsdSecurityGroupId = a});
+
+-- | The IP addresses of the AD Connector servers.
+dcsdConnectIPs :: Lens' DirectoryConnectSettingsDescription [Text]
+dcsdConnectIPs = lens _dcsdConnectIPs (\ s a -> s{_dcsdConnectIPs = a}) . _Default . _Coerce;
 
 -- | A list of the Availability Zones that the directory is in.
 dcsdAvailabilityZones :: Lens' DirectoryConnectSettingsDescription [Text]
@@ -251,8 +251,8 @@ instance FromJSON DirectoryConnectSettingsDescription
                    (x .:? "CustomerUserName") <*>
                      (x .:? "SubnetIds" .!= mempty)
                      <*> (x .:? "VpcId")
-                     <*> (x .:? "ConnectIps" .!= mempty)
                      <*> (x .:? "SecurityGroupId")
+                     <*> (x .:? "ConnectIps" .!= mempty)
                      <*> (x .:? "AvailabilityZones" .!= mempty))
 
 -- | Contains information about an AWS Directory Service directory.
@@ -260,8 +260,8 @@ instance FromJSON DirectoryConnectSettingsDescription
 -- /See:/ 'directoryDescription' smart constructor.
 data DirectoryDescription = DirectoryDescription'
     { _ddRadiusStatus             :: !(Maybe RadiusStatus)
-    , _ddDirectoryId              :: !(Maybe Text)
     , _ddStage                    :: !(Maybe DirectoryStage)
+    , _ddDirectoryId              :: !(Maybe Text)
     , _ddAccessURL                :: !(Maybe Text)
     , _ddShortName                :: !(Maybe Text)
     , _ddSize                     :: !(Maybe DirectorySize)
@@ -269,12 +269,12 @@ data DirectoryDescription = DirectoryDescription'
     , _ddLaunchTime               :: !(Maybe POSIX)
     , _ddAlias                    :: !(Maybe Text)
     , _ddName                     :: !(Maybe Text)
-    , _ddSSOEnabled               :: !(Maybe Bool)
     , _ddStageLastUpdatedDateTime :: !(Maybe POSIX)
-    , _ddStageReason              :: !(Maybe Text)
+    , _ddSSOEnabled               :: !(Maybe Bool)
     , _ddDNSIPAddrs               :: !(Maybe [Text])
     , _ddVPCSettings              :: !(Maybe DirectoryVPCSettingsDescription)
     , _ddType                     :: !(Maybe DirectoryType)
+    , _ddStageReason              :: !(Maybe Text)
     , _ddConnectSettings          :: !(Maybe DirectoryConnectSettingsDescription)
     , _ddDescription              :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -285,9 +285,9 @@ data DirectoryDescription = DirectoryDescription'
 --
 -- * 'ddRadiusStatus'
 --
--- * 'ddDirectoryId'
---
 -- * 'ddStage'
+--
+-- * 'ddDirectoryId'
 --
 -- * 'ddAccessURL'
 --
@@ -303,17 +303,17 @@ data DirectoryDescription = DirectoryDescription'
 --
 -- * 'ddName'
 --
--- * 'ddSSOEnabled'
---
 -- * 'ddStageLastUpdatedDateTime'
 --
--- * 'ddStageReason'
+-- * 'ddSSOEnabled'
 --
 -- * 'ddDNSIPAddrs'
 --
 -- * 'ddVPCSettings'
 --
 -- * 'ddType'
+--
+-- * 'ddStageReason'
 --
 -- * 'ddConnectSettings'
 --
@@ -323,8 +323,8 @@ directoryDescription
 directoryDescription =
     DirectoryDescription'
     { _ddRadiusStatus = Nothing
-    , _ddDirectoryId = Nothing
     , _ddStage = Nothing
+    , _ddDirectoryId = Nothing
     , _ddAccessURL = Nothing
     , _ddShortName = Nothing
     , _ddSize = Nothing
@@ -332,12 +332,12 @@ directoryDescription =
     , _ddLaunchTime = Nothing
     , _ddAlias = Nothing
     , _ddName = Nothing
-    , _ddSSOEnabled = Nothing
     , _ddStageLastUpdatedDateTime = Nothing
-    , _ddStageReason = Nothing
+    , _ddSSOEnabled = Nothing
     , _ddDNSIPAddrs = Nothing
     , _ddVPCSettings = Nothing
     , _ddType = Nothing
+    , _ddStageReason = Nothing
     , _ddConnectSettings = Nothing
     , _ddDescription = Nothing
     }
@@ -346,13 +346,13 @@ directoryDescription =
 ddRadiusStatus :: Lens' DirectoryDescription (Maybe RadiusStatus)
 ddRadiusStatus = lens _ddRadiusStatus (\ s a -> s{_ddRadiusStatus = a});
 
--- | The directory identifier.
-ddDirectoryId :: Lens' DirectoryDescription (Maybe Text)
-ddDirectoryId = lens _ddDirectoryId (\ s a -> s{_ddDirectoryId = a});
-
 -- | The current stage of the directory.
 ddStage :: Lens' DirectoryDescription (Maybe DirectoryStage)
 ddStage = lens _ddStage (\ s a -> s{_ddStage = a});
+
+-- | The directory identifier.
+ddDirectoryId :: Lens' DirectoryDescription (Maybe Text)
+ddDirectoryId = lens _ddDirectoryId (\ s a -> s{_ddDirectoryId = a});
 
 -- | The access URL for the directory, such as
 -- 'http:\/\/\<alias>.awsapps.com'.
@@ -384,18 +384,14 @@ ddAlias = lens _ddAlias (\ s a -> s{_ddAlias = a});
 ddName :: Lens' DirectoryDescription (Maybe Text)
 ddName = lens _ddName (\ s a -> s{_ddName = a});
 
--- | Indicates if single-sign on is enabled for the directory. For more
--- information, see EnableSso and DisableSso.
-ddSSOEnabled :: Lens' DirectoryDescription (Maybe Bool)
-ddSSOEnabled = lens _ddSSOEnabled (\ s a -> s{_ddSSOEnabled = a});
-
 -- | The date and time that the stage was last updated.
 ddStageLastUpdatedDateTime :: Lens' DirectoryDescription (Maybe UTCTime)
 ddStageLastUpdatedDateTime = lens _ddStageLastUpdatedDateTime (\ s a -> s{_ddStageLastUpdatedDateTime = a}) . mapping _Time;
 
--- | Additional information about the directory stage.
-ddStageReason :: Lens' DirectoryDescription (Maybe Text)
-ddStageReason = lens _ddStageReason (\ s a -> s{_ddStageReason = a});
+-- | Indicates if single-sign on is enabled for the directory. For more
+-- information, see EnableSso and DisableSso.
+ddSSOEnabled :: Lens' DirectoryDescription (Maybe Bool)
+ddSSOEnabled = lens _ddSSOEnabled (\ s a -> s{_ddSSOEnabled = a});
 
 -- | The IP addresses of the DNS servers for the directory. For a Simple AD
 -- directory, these are the IP addresses of the Simple AD directory
@@ -415,6 +411,10 @@ ddVPCSettings = lens _ddVPCSettings (\ s a -> s{_ddVPCSettings = a});
 ddType :: Lens' DirectoryDescription (Maybe DirectoryType)
 ddType = lens _ddType (\ s a -> s{_ddType = a});
 
+-- | Additional information about the directory stage.
+ddStageReason :: Lens' DirectoryDescription (Maybe Text)
+ddStageReason = lens _ddStageReason (\ s a -> s{_ddStageReason = a});
+
 -- | A DirectoryConnectSettingsDescription object that contains additional
 -- information about an AD Connector directory. This member is only present
 -- if the directory is an AD Connector directory.
@@ -430,8 +430,8 @@ instance FromJSON DirectoryDescription where
           = withObject "DirectoryDescription"
               (\ x ->
                  DirectoryDescription' <$>
-                   (x .:? "RadiusStatus") <*> (x .:? "DirectoryId") <*>
-                     (x .:? "Stage")
+                   (x .:? "RadiusStatus") <*> (x .:? "Stage") <*>
+                     (x .:? "DirectoryId")
                      <*> (x .:? "AccessUrl")
                      <*> (x .:? "ShortName")
                      <*> (x .:? "Size")
@@ -439,12 +439,12 @@ instance FromJSON DirectoryDescription where
                      <*> (x .:? "LaunchTime")
                      <*> (x .:? "Alias")
                      <*> (x .:? "Name")
-                     <*> (x .:? "SsoEnabled")
                      <*> (x .:? "StageLastUpdatedDateTime")
-                     <*> (x .:? "StageReason")
+                     <*> (x .:? "SsoEnabled")
                      <*> (x .:? "DnsIpAddrs" .!= mempty)
                      <*> (x .:? "VpcSettings")
                      <*> (x .:? "Type")
+                     <*> (x .:? "StageReason")
                      <*> (x .:? "ConnectSettings")
                      <*> (x .:? "Description"))
 
@@ -628,9 +628,9 @@ instance FromJSON DirectoryVPCSettingsDescription
 -- /See:/ 'radiusSettings' smart constructor.
 data RadiusSettings = RadiusSettings'
     { _rsDisplayLabel           :: !(Maybe Text)
-    , _rsRadiusServers          :: !(Maybe [Text])
     , _rsRadiusRetries          :: !(Maybe Nat)
     , _rsAuthenticationProtocol :: !(Maybe RadiusAuthenticationProtocol)
+    , _rsRadiusServers          :: !(Maybe [Text])
     , _rsUseSameUsername        :: !(Maybe Bool)
     , _rsSharedSecret           :: !(Maybe (Sensitive Text))
     , _rsRadiusTimeout          :: !(Maybe Nat)
@@ -643,11 +643,11 @@ data RadiusSettings = RadiusSettings'
 --
 -- * 'rsDisplayLabel'
 --
--- * 'rsRadiusServers'
---
 -- * 'rsRadiusRetries'
 --
 -- * 'rsAuthenticationProtocol'
+--
+-- * 'rsRadiusServers'
 --
 -- * 'rsUseSameUsername'
 --
@@ -661,9 +661,9 @@ radiusSettings
 radiusSettings =
     RadiusSettings'
     { _rsDisplayLabel = Nothing
-    , _rsRadiusServers = Nothing
     , _rsRadiusRetries = Nothing
     , _rsAuthenticationProtocol = Nothing
+    , _rsRadiusServers = Nothing
     , _rsUseSameUsername = Nothing
     , _rsSharedSecret = Nothing
     , _rsRadiusTimeout = Nothing
@@ -674,11 +674,6 @@ radiusSettings =
 rsDisplayLabel :: Lens' RadiusSettings (Maybe Text)
 rsDisplayLabel = lens _rsDisplayLabel (\ s a -> s{_rsDisplayLabel = a});
 
--- | An array of strings that contains the IP addresses of the RADIUS server
--- endpoints, or the IP addresses of your RADIUS server load balancer.
-rsRadiusServers :: Lens' RadiusSettings [Text]
-rsRadiusServers = lens _rsRadiusServers (\ s a -> s{_rsRadiusServers = a}) . _Default . _Coerce;
-
 -- | The maximum number of times that communication with the RADIUS server is
 -- attempted.
 rsRadiusRetries :: Lens' RadiusSettings (Maybe Natural)
@@ -687,6 +682,11 @@ rsRadiusRetries = lens _rsRadiusRetries (\ s a -> s{_rsRadiusRetries = a}) . map
 -- | The protocol specified for your RADIUS endpoints.
 rsAuthenticationProtocol :: Lens' RadiusSettings (Maybe RadiusAuthenticationProtocol)
 rsAuthenticationProtocol = lens _rsAuthenticationProtocol (\ s a -> s{_rsAuthenticationProtocol = a});
+
+-- | An array of strings that contains the IP addresses of the RADIUS server
+-- endpoints, or the IP addresses of your RADIUS server load balancer.
+rsRadiusServers :: Lens' RadiusSettings [Text]
+rsRadiusServers = lens _rsRadiusServers (\ s a -> s{_rsRadiusServers = a}) . _Default . _Coerce;
 
 -- | Not currently used.
 rsUseSameUsername :: Lens' RadiusSettings (Maybe Bool)
@@ -713,10 +713,9 @@ instance FromJSON RadiusSettings where
           = withObject "RadiusSettings"
               (\ x ->
                  RadiusSettings' <$>
-                   (x .:? "DisplayLabel") <*>
-                     (x .:? "RadiusServers" .!= mempty)
-                     <*> (x .:? "RadiusRetries")
+                   (x .:? "DisplayLabel") <*> (x .:? "RadiusRetries")
                      <*> (x .:? "AuthenticationProtocol")
+                     <*> (x .:? "RadiusServers" .!= mempty)
                      <*> (x .:? "UseSameUsername")
                      <*> (x .:? "SharedSecret")
                      <*> (x .:? "RadiusTimeout")
@@ -727,10 +726,10 @@ instance ToJSON RadiusSettings where
           = object
               (catMaybes
                  [("DisplayLabel" .=) <$> _rsDisplayLabel,
-                  ("RadiusServers" .=) <$> _rsRadiusServers,
                   ("RadiusRetries" .=) <$> _rsRadiusRetries,
                   ("AuthenticationProtocol" .=) <$>
                     _rsAuthenticationProtocol,
+                  ("RadiusServers" .=) <$> _rsRadiusServers,
                   ("UseSameUsername" .=) <$> _rsUseSameUsername,
                   ("SharedSecret" .=) <$> _rsSharedSecret,
                   ("RadiusTimeout" .=) <$> _rsRadiusTimeout,
@@ -740,8 +739,8 @@ instance ToJSON RadiusSettings where
 --
 -- /See:/ 'snapshot' smart constructor.
 data Snapshot = Snapshot'
-    { _sDirectoryId :: !(Maybe Text)
-    , _sStatus      :: !(Maybe SnapshotStatus)
+    { _sStatus      :: !(Maybe SnapshotStatus)
+    , _sDirectoryId :: !(Maybe Text)
     , _sStartTime   :: !(Maybe POSIX)
     , _sName        :: !(Maybe Text)
     , _sType        :: !(Maybe SnapshotType)
@@ -752,9 +751,9 @@ data Snapshot = Snapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sDirectoryId'
---
 -- * 'sStatus'
+--
+-- * 'sDirectoryId'
 --
 -- * 'sStartTime'
 --
@@ -767,21 +766,21 @@ snapshot
     :: Snapshot
 snapshot =
     Snapshot'
-    { _sDirectoryId = Nothing
-    , _sStatus = Nothing
+    { _sStatus = Nothing
+    , _sDirectoryId = Nothing
     , _sStartTime = Nothing
     , _sName = Nothing
     , _sType = Nothing
     , _sSnapshotId = Nothing
     }
 
--- | The directory identifier.
-sDirectoryId :: Lens' Snapshot (Maybe Text)
-sDirectoryId = lens _sDirectoryId (\ s a -> s{_sDirectoryId = a});
-
 -- | The snapshot status.
 sStatus :: Lens' Snapshot (Maybe SnapshotStatus)
 sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
+
+-- | The directory identifier.
+sDirectoryId :: Lens' Snapshot (Maybe Text)
+sDirectoryId = lens _sDirectoryId (\ s a -> s{_sDirectoryId = a});
 
 -- | The date and time that the snapshot was taken.
 sStartTime :: Lens' Snapshot (Maybe UTCTime)
@@ -804,7 +803,7 @@ instance FromJSON Snapshot where
           = withObject "Snapshot"
               (\ x ->
                  Snapshot' <$>
-                   (x .:? "DirectoryId") <*> (x .:? "Status") <*>
+                   (x .:? "Status") <*> (x .:? "DirectoryId") <*>
                      (x .:? "StartTime")
                      <*> (x .:? "Name")
                      <*> (x .:? "Type")

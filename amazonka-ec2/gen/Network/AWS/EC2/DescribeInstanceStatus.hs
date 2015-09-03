@@ -65,7 +65,7 @@ module Network.AWS.EC2.DescribeInstanceStatus
     -- * Response Lenses
     , disrsInstanceStatuses
     , disrsNextToken
-    , disrsStatus
+    , disrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -236,7 +236,7 @@ instance ToQuery DescribeInstanceStatus where
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
     { _disrsInstanceStatuses :: !(Maybe [InstanceStatus])
     , _disrsNextToken        :: !(Maybe Text)
-    , _disrsStatus           :: !Int
+    , _disrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeInstanceStatusResponse' with the minimum fields required to make a request.
@@ -247,15 +247,15 @@ data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
 --
 -- * 'disrsNextToken'
 --
--- * 'disrsStatus'
+-- * 'disrsResponseStatus'
 describeInstanceStatusResponse
-    :: Int -- ^ 'disrsStatus'
+    :: Int -- ^ 'disrsResponseStatus'
     -> DescribeInstanceStatusResponse
-describeInstanceStatusResponse pStatus_ =
+describeInstanceStatusResponse pResponseStatus_ =
     DescribeInstanceStatusResponse'
     { _disrsInstanceStatuses = Nothing
     , _disrsNextToken = Nothing
-    , _disrsStatus = pStatus_
+    , _disrsResponseStatus = pResponseStatus_
     }
 
 -- | One or more instance status descriptions.
@@ -268,5 +268,5 @@ disrsNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
 disrsNextToken = lens _disrsNextToken (\ s a -> s{_disrsNextToken = a});
 
 -- | The response status code.
-disrsStatus :: Lens' DescribeInstanceStatusResponse Int
-disrsStatus = lens _disrsStatus (\ s a -> s{_disrsStatus = a});
+disrsResponseStatus :: Lens' DescribeInstanceStatusResponse Int
+disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});

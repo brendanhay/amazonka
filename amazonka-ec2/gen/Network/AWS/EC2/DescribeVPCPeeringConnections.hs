@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeVPCPeeringConnections
     , DescribeVPCPeeringConnectionsResponse
     -- * Response Lenses
     , dvpcpcrsVPCPeeringConnections
-    , dvpcpcrsStatus
+    , dvpcpcrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -164,7 +164,7 @@ instance ToQuery DescribeVPCPeeringConnections where
 -- | /See:/ 'describeVPCPeeringConnectionsResponse' smart constructor.
 data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'
     { _dvpcpcrsVPCPeeringConnections :: !(Maybe [VPCPeeringConnection])
-    , _dvpcpcrsStatus                :: !Int
+    , _dvpcpcrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVPCPeeringConnectionsResponse' with the minimum fields required to make a request.
@@ -173,14 +173,14 @@ data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsRespon
 --
 -- * 'dvpcpcrsVPCPeeringConnections'
 --
--- * 'dvpcpcrsStatus'
+-- * 'dvpcpcrsResponseStatus'
 describeVPCPeeringConnectionsResponse
-    :: Int -- ^ 'dvpcpcrsStatus'
+    :: Int -- ^ 'dvpcpcrsResponseStatus'
     -> DescribeVPCPeeringConnectionsResponse
-describeVPCPeeringConnectionsResponse pStatus_ =
+describeVPCPeeringConnectionsResponse pResponseStatus_ =
     DescribeVPCPeeringConnectionsResponse'
     { _dvpcpcrsVPCPeeringConnections = Nothing
-    , _dvpcpcrsStatus = pStatus_
+    , _dvpcpcrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the VPC peering connections.
@@ -188,5 +188,5 @@ dvpcpcrsVPCPeeringConnections :: Lens' DescribeVPCPeeringConnectionsResponse [VP
 dvpcpcrsVPCPeeringConnections = lens _dvpcpcrsVPCPeeringConnections (\ s a -> s{_dvpcpcrsVPCPeeringConnections = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dvpcpcrsStatus :: Lens' DescribeVPCPeeringConnectionsResponse Int
-dvpcpcrsStatus = lens _dvpcpcrsStatus (\ s a -> s{_dvpcpcrsStatus = a});
+dvpcpcrsResponseStatus :: Lens' DescribeVPCPeeringConnectionsResponse Int
+dvpcpcrsResponseStatus = lens _dvpcpcrsResponseStatus (\ s a -> s{_dvpcpcrsResponseStatus = a});

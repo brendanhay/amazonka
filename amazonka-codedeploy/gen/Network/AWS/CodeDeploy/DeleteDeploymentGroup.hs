@@ -35,7 +35,7 @@ module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     , DeleteDeploymentGroupResponse
     -- * Response Lenses
     , ddgrsHooksNotCleanedUp
-    , ddgrsStatus
+    , ddgrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -118,7 +118,7 @@ instance ToQuery DeleteDeploymentGroup where
 -- /See:/ 'deleteDeploymentGroupResponse' smart constructor.
 data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
     { _ddgrsHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
-    , _ddgrsStatus            :: !Int
+    , _ddgrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDeploymentGroupResponse' with the minimum fields required to make a request.
@@ -127,14 +127,14 @@ data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
 --
 -- * 'ddgrsHooksNotCleanedUp'
 --
--- * 'ddgrsStatus'
+-- * 'ddgrsResponseStatus'
 deleteDeploymentGroupResponse
-    :: Int -- ^ 'ddgrsStatus'
+    :: Int -- ^ 'ddgrsResponseStatus'
     -> DeleteDeploymentGroupResponse
-deleteDeploymentGroupResponse pStatus_ =
+deleteDeploymentGroupResponse pResponseStatus_ =
     DeleteDeploymentGroupResponse'
     { _ddgrsHooksNotCleanedUp = Nothing
-    , _ddgrsStatus = pStatus_
+    , _ddgrsResponseStatus = pResponseStatus_
     }
 
 -- | If the output contains no data, and the corresponding deployment group
@@ -147,5 +147,5 @@ ddgrsHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
 ddgrsHooksNotCleanedUp = lens _ddgrsHooksNotCleanedUp (\ s a -> s{_ddgrsHooksNotCleanedUp = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddgrsStatus :: Lens' DeleteDeploymentGroupResponse Int
-ddgrsStatus = lens _ddgrsStatus (\ s a -> s{_ddgrsStatus = a});
+ddgrsResponseStatus :: Lens' DeleteDeploymentGroupResponse Int
+ddgrsResponseStatus = lens _ddgrsResponseStatus (\ s a -> s{_ddgrsResponseStatus = a});

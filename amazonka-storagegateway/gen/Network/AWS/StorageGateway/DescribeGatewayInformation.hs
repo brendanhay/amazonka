@@ -44,7 +44,7 @@ module Network.AWS.StorageGateway.DescribeGatewayInformation
     , dgirsGatewayId
     , dgirsGatewayType
     , dgirsGatewayTimezone
-    , dgirsStatus
+    , dgirsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -127,7 +127,7 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
     , _dgirsGatewayId                  :: !(Maybe Text)
     , _dgirsGatewayType                :: !(Maybe Text)
     , _dgirsGatewayTimezone            :: !(Maybe Text)
-    , _dgirsStatus                     :: !Int
+    , _dgirsResponseStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeGatewayInformationResponse' with the minimum fields required to make a request.
@@ -150,11 +150,11 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
 --
 -- * 'dgirsGatewayTimezone'
 --
--- * 'dgirsStatus'
+-- * 'dgirsResponseStatus'
 describeGatewayInformationResponse
-    :: Int -- ^ 'dgirsStatus'
+    :: Int -- ^ 'dgirsResponseStatus'
     -> DescribeGatewayInformationResponse
-describeGatewayInformationResponse pStatus_ =
+describeGatewayInformationResponse pResponseStatus_ =
     DescribeGatewayInformationResponse'
     { _dgirsGatewayState = Nothing
     , _dgirsGatewayARN = Nothing
@@ -164,7 +164,7 @@ describeGatewayInformationResponse pStatus_ =
     , _dgirsGatewayId = Nothing
     , _dgirsGatewayType = Nothing
     , _dgirsGatewayTimezone = Nothing
-    , _dgirsStatus = pStatus_
+    , _dgirsResponseStatus = pResponseStatus_
     }
 
 -- | One of the values that indicates the operating state of the gateway.
@@ -206,5 +206,5 @@ dgirsGatewayTimezone :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayTimezone = lens _dgirsGatewayTimezone (\ s a -> s{_dgirsGatewayTimezone = a});
 
 -- | The response status code.
-dgirsStatus :: Lens' DescribeGatewayInformationResponse Int
-dgirsStatus = lens _dgirsStatus (\ s a -> s{_dgirsStatus = a});
+dgirsResponseStatus :: Lens' DescribeGatewayInformationResponse Int
+dgirsResponseStatus = lens _dgirsResponseStatus (\ s a -> s{_dgirsResponseStatus = a});

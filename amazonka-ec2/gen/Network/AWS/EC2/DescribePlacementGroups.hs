@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribePlacementGroups
       describePlacementGroups
     , DescribePlacementGroups
     -- * Request Lenses
-    , dpgsGroupNames
     , dpgsFilters
+    , dpgsGroupNames
     , dpgsDryRun
 
     -- * Destructuring the Response
@@ -39,7 +39,7 @@ module Network.AWS.EC2.DescribePlacementGroups
     , DescribePlacementGroupsResponse
     -- * Response Lenses
     , dpgrsPlacementGroups
-    , dpgrsStatus
+    , dpgrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -50,8 +50,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describePlacementGroups' smart constructor.
 data DescribePlacementGroups = DescribePlacementGroups'
-    { _dpgsGroupNames :: !(Maybe [Text])
-    , _dpgsFilters    :: !(Maybe [Filter])
+    { _dpgsFilters    :: !(Maybe [Filter])
+    , _dpgsGroupNames :: !(Maybe [Text])
     , _dpgsDryRun     :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -59,26 +59,19 @@ data DescribePlacementGroups = DescribePlacementGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpgsGroupNames'
---
 -- * 'dpgsFilters'
+--
+-- * 'dpgsGroupNames'
 --
 -- * 'dpgsDryRun'
 describePlacementGroups
     :: DescribePlacementGroups
 describePlacementGroups =
     DescribePlacementGroups'
-    { _dpgsGroupNames = Nothing
-    , _dpgsFilters = Nothing
+    { _dpgsFilters = Nothing
+    , _dpgsGroupNames = Nothing
     , _dpgsDryRun = Nothing
     }
-
--- | One or more placement group names.
---
--- Default: Describes all your placement groups, or only those otherwise
--- specified.
-dpgsGroupNames :: Lens' DescribePlacementGroups [Text]
-dpgsGroupNames = lens _dpgsGroupNames (\ s a -> s{_dpgsGroupNames = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -91,6 +84,13 @@ dpgsGroupNames = lens _dpgsGroupNames (\ s a -> s{_dpgsGroupNames = a}) . _Defau
 --
 dpgsFilters :: Lens' DescribePlacementGroups [Filter]
 dpgsFilters = lens _dpgsFilters (\ s a -> s{_dpgsFilters = a}) . _Default . _Coerce;
+
+-- | One or more placement group names.
+--
+-- Default: Describes all your placement groups, or only those otherwise
+-- specified.
+dpgsGroupNames :: Lens' DescribePlacementGroups [Text]
+dpgsGroupNames = lens _dpgsGroupNames (\ s a -> s{_dpgsGroupNames = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -123,15 +123,15 @@ instance ToQuery DescribePlacementGroups where
               ["Action" =:
                  ("DescribePlacementGroups" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
+               toQuery (toQueryList "Filter" <$> _dpgsFilters),
                toQuery
                  (toQueryList "GroupName" <$> _dpgsGroupNames),
-               toQuery (toQueryList "Filter" <$> _dpgsFilters),
                "DryRun" =: _dpgsDryRun]
 
 -- | /See:/ 'describePlacementGroupsResponse' smart constructor.
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
     { _dpgrsPlacementGroups :: !(Maybe [PlacementGroup])
-    , _dpgrsStatus          :: !Int
+    , _dpgrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribePlacementGroupsResponse' with the minimum fields required to make a request.
@@ -140,14 +140,14 @@ data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
 --
 -- * 'dpgrsPlacementGroups'
 --
--- * 'dpgrsStatus'
+-- * 'dpgrsResponseStatus'
 describePlacementGroupsResponse
-    :: Int -- ^ 'dpgrsStatus'
+    :: Int -- ^ 'dpgrsResponseStatus'
     -> DescribePlacementGroupsResponse
-describePlacementGroupsResponse pStatus_ =
+describePlacementGroupsResponse pResponseStatus_ =
     DescribePlacementGroupsResponse'
     { _dpgrsPlacementGroups = Nothing
-    , _dpgrsStatus = pStatus_
+    , _dpgrsResponseStatus = pResponseStatus_
     }
 
 -- | One or more placement groups.
@@ -155,5 +155,5 @@ dpgrsPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgrsPlacementGroups = lens _dpgrsPlacementGroups (\ s a -> s{_dpgrsPlacementGroups = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dpgrsStatus :: Lens' DescribePlacementGroupsResponse Int
-dpgrsStatus = lens _dpgrsStatus (\ s a -> s{_dpgrsStatus = a});
+dpgrsResponseStatus :: Lens' DescribePlacementGroupsResponse Int
+dpgrsResponseStatus = lens _dpgrsResponseStatus (\ s a -> s{_dpgrsResponseStatus = a});

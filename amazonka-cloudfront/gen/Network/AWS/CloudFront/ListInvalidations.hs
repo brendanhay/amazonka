@@ -27,15 +27,15 @@ module Network.AWS.CloudFront.ListInvalidations
       listInvalidations
     , ListInvalidations
     -- * Request Lenses
-    , liMaxItems
     , liMarker
+    , liMaxItems
     , liDistributionId
 
     -- * Destructuring the Response
     , listInvalidationsResponse
     , ListInvalidationsResponse
     -- * Response Lenses
-    , lirsStatus
+    , lirsResponseStatus
     , lirsInvalidationList
     ) where
 
@@ -49,8 +49,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listInvalidations' smart constructor.
 data ListInvalidations = ListInvalidations'
-    { _liMaxItems       :: !(Maybe Text)
-    , _liMarker         :: !(Maybe Text)
+    { _liMarker         :: !(Maybe Text)
+    , _liMaxItems       :: !(Maybe Text)
     , _liDistributionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -58,9 +58,9 @@ data ListInvalidations = ListInvalidations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'liMaxItems'
---
 -- * 'liMarker'
+--
+-- * 'liMaxItems'
 --
 -- * 'liDistributionId'
 listInvalidations
@@ -68,15 +68,10 @@ listInvalidations
     -> ListInvalidations
 listInvalidations pDistributionId_ =
     ListInvalidations'
-    { _liMaxItems = Nothing
-    , _liMarker = Nothing
+    { _liMarker = Nothing
+    , _liMaxItems = Nothing
     , _liDistributionId = pDistributionId_
     }
-
--- | The maximum number of invalidation batches you want in the response
--- body.
-liMaxItems :: Lens' ListInvalidations (Maybe Text)
-liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
 
 -- | Use this parameter when paginating results to indicate where to begin in
 -- your list of invalidation batches. Because the results are returned in
@@ -87,6 +82,11 @@ liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
 -- the ID of the last invalidation batch on that page.
 liMarker :: Lens' ListInvalidations (Maybe Text)
 liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
+
+-- | The maximum number of invalidation batches you want in the response
+-- body.
+liMaxItems :: Lens' ListInvalidations (Maybe Text)
+liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
 
 -- | The distribution\'s id.
 liDistributionId :: Lens' ListInvalidations Text
@@ -113,13 +113,13 @@ instance ToPath ListInvalidations where
 instance ToQuery ListInvalidations where
         toQuery ListInvalidations'{..}
           = mconcat
-              ["MaxItems" =: _liMaxItems, "Marker" =: _liMarker]
+              ["Marker" =: _liMarker, "MaxItems" =: _liMaxItems]
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'listInvalidationsResponse' smart constructor.
 data ListInvalidationsResponse = ListInvalidationsResponse'
-    { _lirsStatus           :: !Int
+    { _lirsResponseStatus   :: !Int
     , _lirsInvalidationList :: !InvalidationList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -127,22 +127,22 @@ data ListInvalidationsResponse = ListInvalidationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lirsStatus'
+-- * 'lirsResponseStatus'
 --
 -- * 'lirsInvalidationList'
 listInvalidationsResponse
-    :: Int -- ^ 'lirsStatus'
+    :: Int -- ^ 'lirsResponseStatus'
     -> InvalidationList -- ^ 'lirsInvalidationList'
     -> ListInvalidationsResponse
-listInvalidationsResponse pStatus_ pInvalidationList_ =
+listInvalidationsResponse pResponseStatus_ pInvalidationList_ =
     ListInvalidationsResponse'
-    { _lirsStatus = pStatus_
+    { _lirsResponseStatus = pResponseStatus_
     , _lirsInvalidationList = pInvalidationList_
     }
 
 -- | The response status code.
-lirsStatus :: Lens' ListInvalidationsResponse Int
-lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});
+lirsResponseStatus :: Lens' ListInvalidationsResponse Int
+lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
 
 -- | Information about invalidation batches.
 lirsInvalidationList :: Lens' ListInvalidationsResponse InvalidationList

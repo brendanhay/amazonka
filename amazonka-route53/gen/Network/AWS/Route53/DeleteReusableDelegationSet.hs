@@ -42,7 +42,7 @@ module Network.AWS.Route53.DeleteReusableDelegationSet
     , deleteReusableDelegationSetResponse
     , DeleteReusableDelegationSetResponse
     -- * Response Lenses
-    , drdsrsStatus
+    , drdsrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -100,22 +100,22 @@ instance ToQuery DeleteReusableDelegationSet where
 --
 -- /See:/ 'deleteReusableDelegationSetResponse' smart constructor.
 newtype DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse'
-    { _drdsrsStatus :: Int
+    { _drdsrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteReusableDelegationSetResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drdsrsStatus'
+-- * 'drdsrsResponseStatus'
 deleteReusableDelegationSetResponse
-    :: Int -- ^ 'drdsrsStatus'
+    :: Int -- ^ 'drdsrsResponseStatus'
     -> DeleteReusableDelegationSetResponse
-deleteReusableDelegationSetResponse pStatus_ =
+deleteReusableDelegationSetResponse pResponseStatus_ =
     DeleteReusableDelegationSetResponse'
-    { _drdsrsStatus = pStatus_
+    { _drdsrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-drdsrsStatus :: Lens' DeleteReusableDelegationSetResponse Int
-drdsrsStatus = lens _drdsrsStatus (\ s a -> s{_drdsrsStatus = a});
+drdsrsResponseStatus :: Lens' DeleteReusableDelegationSetResponse Int
+drdsrsResponseStatus = lens _drdsrsResponseStatus (\ s a -> s{_drdsrsResponseStatus = a});

@@ -41,7 +41,7 @@ module Network.AWS.DataPipeline.SetTaskStatus
     , setTaskStatusResponse
     , SetTaskStatusResponse
     -- * Response Lenses
-    , stsrsStatus
+    , stsrsResponseStatus
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -155,22 +155,22 @@ instance ToQuery SetTaskStatus where
 --
 -- /See:/ 'setTaskStatusResponse' smart constructor.
 newtype SetTaskStatusResponse = SetTaskStatusResponse'
-    { _stsrsStatus :: Int
+    { _stsrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SetTaskStatusResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stsrsStatus'
+-- * 'stsrsResponseStatus'
 setTaskStatusResponse
-    :: Int -- ^ 'stsrsStatus'
+    :: Int -- ^ 'stsrsResponseStatus'
     -> SetTaskStatusResponse
-setTaskStatusResponse pStatus_ =
+setTaskStatusResponse pResponseStatus_ =
     SetTaskStatusResponse'
-    { _stsrsStatus = pStatus_
+    { _stsrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-stsrsStatus :: Lens' SetTaskStatusResponse Int
-stsrsStatus = lens _stsrsStatus (\ s a -> s{_stsrsStatus = a});
+stsrsResponseStatus :: Lens' SetTaskStatusResponse Int
+stsrsResponseStatus = lens _stsrsResponseStatus (\ s a -> s{_stsrsResponseStatus = a});

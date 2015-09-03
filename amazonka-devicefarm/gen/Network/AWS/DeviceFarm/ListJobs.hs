@@ -36,7 +36,7 @@ module Network.AWS.DeviceFarm.ListJobs
     -- * Response Lenses
     , ljrsJobs
     , ljrsNextToken
-    , ljrsStatus
+    , ljrsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -115,9 +115,9 @@ instance ToQuery ListJobs where
 --
 -- /See:/ 'listJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-    { _ljrsJobs      :: !(Maybe [Job])
-    , _ljrsNextToken :: !(Maybe Text)
-    , _ljrsStatus    :: !Int
+    { _ljrsJobs           :: !(Maybe [Job])
+    , _ljrsNextToken      :: !(Maybe Text)
+    , _ljrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
@@ -128,15 +128,15 @@ data ListJobsResponse = ListJobsResponse'
 --
 -- * 'ljrsNextToken'
 --
--- * 'ljrsStatus'
+-- * 'ljrsResponseStatus'
 listJobsResponse
-    :: Int -- ^ 'ljrsStatus'
+    :: Int -- ^ 'ljrsResponseStatus'
     -> ListJobsResponse
-listJobsResponse pStatus_ =
+listJobsResponse pResponseStatus_ =
     ListJobsResponse'
     { _ljrsJobs = Nothing
     , _ljrsNextToken = Nothing
-    , _ljrsStatus = pStatus_
+    , _ljrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the jobs.
@@ -150,5 +150,5 @@ ljrsNextToken :: Lens' ListJobsResponse (Maybe Text)
 ljrsNextToken = lens _ljrsNextToken (\ s a -> s{_ljrsNextToken = a});
 
 -- | The response status code.
-ljrsStatus :: Lens' ListJobsResponse Int
-ljrsStatus = lens _ljrsStatus (\ s a -> s{_ljrsStatus = a});
+ljrsResponseStatus :: Lens' ListJobsResponse Int
+ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});

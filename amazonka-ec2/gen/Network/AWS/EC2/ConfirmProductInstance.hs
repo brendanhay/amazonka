@@ -40,7 +40,7 @@ module Network.AWS.EC2.ConfirmProductInstance
     -- * Response Lenses
     , cpirsReturn
     , cpirsOwnerId
-    , cpirsStatus
+    , cpirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -120,9 +120,9 @@ instance ToQuery ConfirmProductInstance where
 
 -- | /See:/ 'confirmProductInstanceResponse' smart constructor.
 data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
-    { _cpirsReturn  :: !(Maybe Bool)
-    , _cpirsOwnerId :: !(Maybe Text)
-    , _cpirsStatus  :: !Int
+    { _cpirsReturn         :: !(Maybe Bool)
+    , _cpirsOwnerId        :: !(Maybe Text)
+    , _cpirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ConfirmProductInstanceResponse' with the minimum fields required to make a request.
@@ -133,15 +133,15 @@ data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
 --
 -- * 'cpirsOwnerId'
 --
--- * 'cpirsStatus'
+-- * 'cpirsResponseStatus'
 confirmProductInstanceResponse
-    :: Int -- ^ 'cpirsStatus'
+    :: Int -- ^ 'cpirsResponseStatus'
     -> ConfirmProductInstanceResponse
-confirmProductInstanceResponse pStatus_ =
+confirmProductInstanceResponse pResponseStatus_ =
     ConfirmProductInstanceResponse'
     { _cpirsReturn = Nothing
     , _cpirsOwnerId = Nothing
-    , _cpirsStatus = pStatus_
+    , _cpirsResponseStatus = pResponseStatus_
     }
 
 -- | The return value of the request. Returns 'true' if the specified product
@@ -156,5 +156,5 @@ cpirsOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
 cpirsOwnerId = lens _cpirsOwnerId (\ s a -> s{_cpirsOwnerId = a});
 
 -- | The response status code.
-cpirsStatus :: Lens' ConfirmProductInstanceResponse Int
-cpirsStatus = lens _cpirsStatus (\ s a -> s{_cpirsStatus = a});
+cpirsResponseStatus :: Lens' ConfirmProductInstanceResponse Int
+cpirsResponseStatus = lens _cpirsResponseStatus (\ s a -> s{_cpirsResponseStatus = a});

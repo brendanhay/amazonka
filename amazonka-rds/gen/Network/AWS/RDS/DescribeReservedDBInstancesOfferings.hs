@@ -32,9 +32,9 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     , drdioProductDescription
     , drdioFilters
     , drdioDBInstanceClass
+    , drdioMarker
     , drdioMaxRecords
     , drdioMultiAZ
-    , drdioMarker
     , drdioReservedDBInstancesOfferingId
     , drdioOfferingType
     , drdioDuration
@@ -45,7 +45,7 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     -- * Response Lenses
     , drdiorsMarker
     , drdiorsReservedDBInstancesOfferings
-    , drdiorsStatus
+    , drdiorsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -62,9 +62,9 @@ data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
     { _drdioProductDescription            :: !(Maybe Text)
     , _drdioFilters                       :: !(Maybe [Filter])
     , _drdioDBInstanceClass               :: !(Maybe Text)
+    , _drdioMarker                        :: !(Maybe Text)
     , _drdioMaxRecords                    :: !(Maybe Int)
     , _drdioMultiAZ                       :: !(Maybe Bool)
-    , _drdioMarker                        :: !(Maybe Text)
     , _drdioReservedDBInstancesOfferingId :: !(Maybe Text)
     , _drdioOfferingType                  :: !(Maybe Text)
     , _drdioDuration                      :: !(Maybe Text)
@@ -80,11 +80,11 @@ data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
 --
 -- * 'drdioDBInstanceClass'
 --
+-- * 'drdioMarker'
+--
 -- * 'drdioMaxRecords'
 --
 -- * 'drdioMultiAZ'
---
--- * 'drdioMarker'
 --
 -- * 'drdioReservedDBInstancesOfferingId'
 --
@@ -98,9 +98,9 @@ describeReservedDBInstancesOfferings =
     { _drdioProductDescription = Nothing
     , _drdioFilters = Nothing
     , _drdioDBInstanceClass = Nothing
+    , _drdioMarker = Nothing
     , _drdioMaxRecords = Nothing
     , _drdioMultiAZ = Nothing
-    , _drdioMarker = Nothing
     , _drdioReservedDBInstancesOfferingId = Nothing
     , _drdioOfferingType = Nothing
     , _drdioDuration = Nothing
@@ -120,6 +120,12 @@ drdioFilters = lens _drdioFilters (\ s a -> s{_drdioFilters = a}) . _Default . _
 drdioDBInstanceClass :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdioDBInstanceClass = lens _drdioDBInstanceClass (\ s a -> s{_drdioDBInstanceClass = a});
 
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by 'MaxRecords'.
+drdioMarker :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
+drdioMarker = lens _drdioMarker (\ s a -> s{_drdioMarker = a});
+
 -- | The maximum number of records to include in the response. If more than
 -- the 'MaxRecords' value is available, a pagination token called a marker
 -- is included in the response so that the following results can be
@@ -135,12 +141,6 @@ drdioMaxRecords = lens _drdioMaxRecords (\ s a -> s{_drdioMaxRecords = a});
 -- available offerings matching the specified Multi-AZ parameter.
 drdioMultiAZ :: Lens' DescribeReservedDBInstancesOfferings (Maybe Bool)
 drdioMultiAZ = lens _drdioMultiAZ (\ s a -> s{_drdioMultiAZ = a});
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
-drdioMarker :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
-drdioMarker = lens _drdioMarker (\ s a -> s{_drdioMarker = a});
 
 -- | The offering identifier filter value. Specify this parameter to show
 -- only the available offering that matches the specified reservation
@@ -208,8 +208,9 @@ instance ToQuery DescribeReservedDBInstancesOfferings
                "Filters" =:
                  toQuery (toQueryList "Filter" <$> _drdioFilters),
                "DBInstanceClass" =: _drdioDBInstanceClass,
+               "Marker" =: _drdioMarker,
                "MaxRecords" =: _drdioMaxRecords,
-               "MultiAZ" =: _drdioMultiAZ, "Marker" =: _drdioMarker,
+               "MultiAZ" =: _drdioMultiAZ,
                "ReservedDBInstancesOfferingId" =:
                  _drdioReservedDBInstancesOfferingId,
                "OfferingType" =: _drdioOfferingType,
@@ -222,7 +223,7 @@ instance ToQuery DescribeReservedDBInstancesOfferings
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'
     { _drdiorsMarker                       :: !(Maybe Text)
     , _drdiorsReservedDBInstancesOfferings :: !(Maybe [ReservedDBInstancesOffering])
-    , _drdiorsStatus                       :: !Int
+    , _drdiorsResponseStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeReservedDBInstancesOfferingsResponse' with the minimum fields required to make a request.
@@ -233,15 +234,15 @@ data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesO
 --
 -- * 'drdiorsReservedDBInstancesOfferings'
 --
--- * 'drdiorsStatus'
+-- * 'drdiorsResponseStatus'
 describeReservedDBInstancesOfferingsResponse
-    :: Int -- ^ 'drdiorsStatus'
+    :: Int -- ^ 'drdiorsResponseStatus'
     -> DescribeReservedDBInstancesOfferingsResponse
-describeReservedDBInstancesOfferingsResponse pStatus_ =
+describeReservedDBInstancesOfferingsResponse pResponseStatus_ =
     DescribeReservedDBInstancesOfferingsResponse'
     { _drdiorsMarker = Nothing
     , _drdiorsReservedDBInstancesOfferings = Nothing
-    , _drdiorsStatus = pStatus_
+    , _drdiorsResponseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -255,5 +256,5 @@ drdiorsReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOffering
 drdiorsReservedDBInstancesOfferings = lens _drdiorsReservedDBInstancesOfferings (\ s a -> s{_drdiorsReservedDBInstancesOfferings = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drdiorsStatus :: Lens' DescribeReservedDBInstancesOfferingsResponse Int
-drdiorsStatus = lens _drdiorsStatus (\ s a -> s{_drdiorsStatus = a});
+drdiorsResponseStatus :: Lens' DescribeReservedDBInstancesOfferingsResponse Int
+drdiorsResponseStatus = lens _drdiorsResponseStatus (\ s a -> s{_drdiorsResponseStatus = a});

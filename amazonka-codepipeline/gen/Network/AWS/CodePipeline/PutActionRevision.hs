@@ -39,7 +39,7 @@ module Network.AWS.CodePipeline.PutActionRevision
     -- * Response Lenses
     , parrsNewRevision
     , parrsPipelineExecutionId
-    , parrsStatus
+    , parrsResponseStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -143,7 +143,7 @@ instance ToQuery PutActionRevision where
 data PutActionRevisionResponse = PutActionRevisionResponse'
     { _parrsNewRevision         :: !(Maybe Bool)
     , _parrsPipelineExecutionId :: !(Maybe Text)
-    , _parrsStatus              :: !Int
+    , _parrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutActionRevisionResponse' with the minimum fields required to make a request.
@@ -154,15 +154,15 @@ data PutActionRevisionResponse = PutActionRevisionResponse'
 --
 -- * 'parrsPipelineExecutionId'
 --
--- * 'parrsStatus'
+-- * 'parrsResponseStatus'
 putActionRevisionResponse
-    :: Int -- ^ 'parrsStatus'
+    :: Int -- ^ 'parrsResponseStatus'
     -> PutActionRevisionResponse
-putActionRevisionResponse pStatus_ =
+putActionRevisionResponse pResponseStatus_ =
     PutActionRevisionResponse'
     { _parrsNewRevision = Nothing
     , _parrsPipelineExecutionId = Nothing
-    , _parrsStatus = pStatus_
+    , _parrsResponseStatus = pResponseStatus_
     }
 
 -- | The new revision number or ID for the revision after the action
@@ -175,5 +175,5 @@ parrsPipelineExecutionId :: Lens' PutActionRevisionResponse (Maybe Text)
 parrsPipelineExecutionId = lens _parrsPipelineExecutionId (\ s a -> s{_parrsPipelineExecutionId = a});
 
 -- | The response status code.
-parrsStatus :: Lens' PutActionRevisionResponse Int
-parrsStatus = lens _parrsStatus (\ s a -> s{_parrsStatus = a});
+parrsResponseStatus :: Lens' PutActionRevisionResponse Int
+parrsResponseStatus = lens _parrsResponseStatus (\ s a -> s{_parrsResponseStatus = a});

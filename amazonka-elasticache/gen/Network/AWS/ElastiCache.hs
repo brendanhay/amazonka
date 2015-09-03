@@ -35,17 +35,20 @@ module Network.AWS.ElastiCache
     -- * Errors
     -- $errors
 
-    -- ** CacheSubnetGroupAlreadyExistsFault
-    , _CacheSubnetGroupAlreadyExistsFault
-
     -- ** CacheSubnetGroupInUse
     , _CacheSubnetGroupInUse
+
+    -- ** ReservedCacheNodeAlreadyExistsFault
+    , _ReservedCacheNodeAlreadyExistsFault
 
     -- ** CacheSecurityGroupNotFoundFault
     , _CacheSecurityGroupNotFoundFault
 
-    -- ** ReservedCacheNodeAlreadyExistsFault
-    , _ReservedCacheNodeAlreadyExistsFault
+    -- ** CacheSubnetGroupAlreadyExistsFault
+    , _CacheSubnetGroupAlreadyExistsFault
+
+    -- ** CacheSubnetGroupQuotaExceededFault
+    , _CacheSubnetGroupQuotaExceededFault
 
     -- ** AuthorizationAlreadyExistsFault
     , _AuthorizationAlreadyExistsFault
@@ -53,20 +56,17 @@ module Network.AWS.ElastiCache
     -- ** ReservedCacheNodeQuotaExceededFault
     , _ReservedCacheNodeQuotaExceededFault
 
-    -- ** CacheSubnetGroupQuotaExceededFault
-    , _CacheSubnetGroupQuotaExceededFault
+    -- ** ReservedCacheNodesOfferingNotFoundFault
+    , _ReservedCacheNodesOfferingNotFoundFault
 
     -- ** ReplicationGroupNotFoundFault
     , _ReplicationGroupNotFoundFault
 
-    -- ** ReservedCacheNodesOfferingNotFoundFault
-    , _ReservedCacheNodesOfferingNotFoundFault
+    -- ** InvalidSubnet
+    , _InvalidSubnet
 
     -- ** TagQuotaPerResourceExceeded
     , _TagQuotaPerResourceExceeded
-
-    -- ** InvalidSubnet
-    , _InvalidSubnet
 
     -- ** SnapshotNotFoundFault
     , _SnapshotNotFoundFault
@@ -86,29 +86,23 @@ module Network.AWS.ElastiCache
     -- ** SnapshotQuotaExceededFault
     , _SnapshotQuotaExceededFault
 
-    -- ** CacheParameterGroupAlreadyExistsFault
-    , _CacheParameterGroupAlreadyExistsFault
-
     -- ** NodeQuotaForClusterExceededFault
     , _NodeQuotaForClusterExceededFault
 
-    -- ** SnapshotFeatureNotSupportedFault
-    , _SnapshotFeatureNotSupportedFault
-
-    -- ** CacheSubnetGroupNotFoundFault
-    , _CacheSubnetGroupNotFoundFault
+    -- ** CacheParameterGroupAlreadyExistsFault
+    , _CacheParameterGroupAlreadyExistsFault
 
     -- ** ReservedCacheNodeNotFoundFault
     , _ReservedCacheNodeNotFoundFault
 
+    -- ** CacheSubnetGroupNotFoundFault
+    , _CacheSubnetGroupNotFoundFault
+
+    -- ** SnapshotFeatureNotSupportedFault
+    , _SnapshotFeatureNotSupportedFault
+
     -- ** InvalidParameterValueException
     , _InvalidParameterValueException
-
-    -- ** InvalidVPCNetworkStateFault
-    , _InvalidVPCNetworkStateFault
-
-    -- ** CacheClusterNotFoundFault
-    , _CacheClusterNotFoundFault
 
     -- ** InvalidReplicationGroupStateFault
     , _InvalidReplicationGroupStateFault
@@ -116,11 +110,14 @@ module Network.AWS.ElastiCache
     -- ** ReplicationGroupAlreadyExistsFault
     , _ReplicationGroupAlreadyExistsFault
 
+    -- ** InvalidVPCNetworkStateFault
+    , _InvalidVPCNetworkStateFault
+
     -- ** SubnetInUse
     , _SubnetInUse
 
-    -- ** CacheClusterAlreadyExistsFault
-    , _CacheClusterAlreadyExistsFault
+    -- ** CacheClusterNotFoundFault
+    , _CacheClusterNotFoundFault
 
     -- ** ClusterQuotaForCustomerExceededFault
     , _ClusterQuotaForCustomerExceededFault
@@ -128,11 +125,14 @@ module Network.AWS.ElastiCache
     -- ** AuthorizationNotFoundFault
     , _AuthorizationNotFoundFault
 
+    -- ** InvalidCacheClusterStateFault
+    , _InvalidCacheClusterStateFault
+
     -- ** CacheSecurityGroupQuotaExceededFault
     , _CacheSecurityGroupQuotaExceededFault
 
-    -- ** InvalidCacheClusterStateFault
-    , _InvalidCacheClusterStateFault
+    -- ** CacheClusterAlreadyExistsFault
+    , _CacheClusterAlreadyExistsFault
 
     -- ** CacheParameterGroupQuotaExceededFault
     , _CacheParameterGroupQuotaExceededFault
@@ -146,20 +146,20 @@ module Network.AWS.ElastiCache
     -- ** CacheParameterGroupNotFoundFault
     , _CacheParameterGroupNotFoundFault
 
-    -- ** InvalidParameterCombinationException
-    , _InvalidParameterCombinationException
-
     -- ** InvalidARNFault
     , _InvalidARNFault
 
     -- ** InvalidCacheParameterGroupStateFault
     , _InvalidCacheParameterGroupStateFault
 
-    -- ** CacheSecurityGroupAlreadyExistsFault
-    , _CacheSecurityGroupAlreadyExistsFault
+    -- ** InvalidParameterCombinationException
+    , _InvalidParameterCombinationException
 
     -- ** InvalidCacheSecurityGroupStateFault
     , _InvalidCacheSecurityGroupStateFault
+
+    -- ** CacheSecurityGroupAlreadyExistsFault
+    , _CacheSecurityGroupAlreadyExistsFault
 
     -- * Waiters
     -- $waiters
@@ -194,6 +194,9 @@ module Network.AWS.ElastiCache
     -- ** RevokeCacheSecurityGroupIngress
     , module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
 
+    -- ** CreateCacheCluster
+    , module Network.AWS.ElastiCache.CreateCacheCluster
+
     -- ** DescribeEvents (Paginated)
     , module Network.AWS.ElastiCache.DescribeEvents
 
@@ -203,26 +206,23 @@ module Network.AWS.ElastiCache
     -- ** ModifyCacheParameterGroup
     , module Network.AWS.ElastiCache.ModifyCacheParameterGroup
 
-    -- ** CreateCacheCluster
-    , module Network.AWS.ElastiCache.CreateCacheCluster
+    -- ** DeleteReplicationGroup
+    , module Network.AWS.ElastiCache.DeleteReplicationGroup
 
     -- ** ListTagsForResource
     , module Network.AWS.ElastiCache.ListTagsForResource
 
-    -- ** DeleteReplicationGroup
-    , module Network.AWS.ElastiCache.DeleteReplicationGroup
+    -- ** DescribeCacheClusters (Paginated)
+    , module Network.AWS.ElastiCache.DescribeCacheClusters
 
     -- ** PurchaseReservedCacheNodesOffering
     , module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
 
-    -- ** DescribeCacheClusters (Paginated)
-    , module Network.AWS.ElastiCache.DescribeCacheClusters
+    -- ** RemoveTagsFromResource
+    , module Network.AWS.ElastiCache.RemoveTagsFromResource
 
     -- ** ModifyReplicationGroup
     , module Network.AWS.ElastiCache.ModifyReplicationGroup
-
-    -- ** RemoveTagsFromResource
-    , module Network.AWS.ElastiCache.RemoveTagsFromResource
 
     -- ** DescribeCacheParameters (Paginated)
     , module Network.AWS.ElastiCache.DescribeCacheParameters
@@ -254,14 +254,14 @@ module Network.AWS.ElastiCache
     -- ** DescribeSnapshots (Paginated)
     , module Network.AWS.ElastiCache.DescribeSnapshots
 
-    -- ** DescribeReservedCacheNodesOfferings (Paginated)
-    , module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
+    -- ** DescribeReplicationGroups (Paginated)
+    , module Network.AWS.ElastiCache.DescribeReplicationGroups
 
     -- ** DeleteSnapshot
     , module Network.AWS.ElastiCache.DeleteSnapshot
 
-    -- ** DescribeReplicationGroups (Paginated)
-    , module Network.AWS.ElastiCache.DescribeReplicationGroups
+    -- ** DescribeReservedCacheNodesOfferings (Paginated)
+    , module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
 
     -- ** ModifyCacheSubnetGroup
     , module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
@@ -269,23 +269,23 @@ module Network.AWS.ElastiCache
     -- ** CreateSnapshot
     , module Network.AWS.ElastiCache.CreateSnapshot
 
-    -- ** DescribeCacheSecurityGroups (Paginated)
-    , module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
-
     -- ** DeleteCacheParameterGroup
     , module Network.AWS.ElastiCache.DeleteCacheParameterGroup
 
-    -- ** DescribeReservedCacheNodes (Paginated)
-    , module Network.AWS.ElastiCache.DescribeReservedCacheNodes
-
-    -- ** DescribeCacheEngineVersions (Paginated)
-    , module Network.AWS.ElastiCache.DescribeCacheEngineVersions
+    -- ** DescribeCacheSecurityGroups (Paginated)
+    , module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
 
     -- ** ModifyCacheCluster
     , module Network.AWS.ElastiCache.ModifyCacheCluster
 
+    -- ** DescribeCacheEngineVersions (Paginated)
+    , module Network.AWS.ElastiCache.DescribeCacheEngineVersions
+
     -- ** CreateCacheParameterGroup
     , module Network.AWS.ElastiCache.CreateCacheParameterGroup
+
+    -- ** DescribeReservedCacheNodes (Paginated)
+    , module Network.AWS.ElastiCache.DescribeReservedCacheNodes
 
     -- ** DeleteCacheSubnetGroup
     , module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
@@ -312,8 +312,8 @@ module Network.AWS.ElastiCache
     -- ** CacheCluster
     , CacheCluster
     , cacheCluster
-    , ccCacheNodeType
     , ccEngineVersion
+    , ccCacheNodeType
     , ccCacheNodes
     , ccCacheClusterCreateTime
     , ccAutoMinorVersionUpgrade
@@ -327,9 +327,9 @@ module Network.AWS.ElastiCache
     , ccClientDownloadLandingPage
     , ccPreferredMaintenanceWindow
     , ccCacheSubnetGroupName
-    , ccCacheClusterStatus
     , ccPreferredAvailabilityZone
     , ccCacheParameterGroup
+    , ccCacheClusterStatus
     , ccSnapshotRetentionLimit
     , ccReplicationGroupId
     , ccPendingModifiedValues
@@ -338,11 +338,11 @@ module Network.AWS.ElastiCache
     -- ** CacheEngineVersion
     , CacheEngineVersion
     , cacheEngineVersion
-    , cevCacheEngineDescription
-    , cevCacheParameterGroupFamily
     , cevEngineVersion
-    , cevCacheEngineVersionDescription
+    , cevCacheParameterGroupFamily
+    , cevCacheEngineDescription
     , cevEngine
+    , cevCacheEngineVersionDescription
 
     -- ** CacheNode
     , CacheNode
@@ -362,8 +362,8 @@ module Network.AWS.ElastiCache
     , cntspMinimumEngineVersion
     , cntspSource
     , cntspIsModifiable
-    , cntspAllowedValues
     , cntspDataType
+    , cntspAllowedValues
     , cntspParameterName
     , cntspDescription
 
@@ -432,8 +432,8 @@ module Network.AWS.ElastiCache
     , engineDefaults
     , edCacheParameterGroupFamily
     , edCacheNodeTypeSpecificParameters
-    , edParameters
     , edMarker
+    , edParameters
 
     -- ** Event
     , Event
@@ -481,8 +481,8 @@ module Network.AWS.ElastiCache
     , pMinimumEngineVersion
     , pSource
     , pIsModifiable
-    , pAllowedValues
     , pDataType
+    , pAllowedValues
     , pParameterName
     , pDescription
 
@@ -508,13 +508,13 @@ module Network.AWS.ElastiCache
     -- ** ReplicationGroup
     , ReplicationGroup
     , replicationGroup
-    , rgNodeGroups
     , rgStatus
+    , rgNodeGroups
     , rgSnapshottingClusterId
     , rgMemberClusters
+    , rgDescription
     , rgReplicationGroupId
     , rgPendingModifiedValues
-    , rgDescription
     , rgAutomaticFailover
 
     -- ** ReplicationGroupPendingModifiedValues
@@ -528,13 +528,13 @@ module Network.AWS.ElastiCache
     , reservedCacheNode
     , rcnCacheNodeType
     , rcnState
-    , rcnProductDescription
     , rcnStartTime
+    , rcnProductDescription
     , rcnCacheNodeCount
     , rcnReservedCacheNodeId
+    , rcnRecurringCharges
     , rcnOfferingType
     , rcnUsagePrice
-    , rcnRecurringCharges
     , rcnFixedPrice
     , rcnDuration
     , rcnReservedCacheNodesOfferingId
@@ -544,9 +544,9 @@ module Network.AWS.ElastiCache
     , reservedCacheNodesOffering
     , rcnoCacheNodeType
     , rcnoProductDescription
+    , rcnoRecurringCharges
     , rcnoOfferingType
     , rcnoUsagePrice
-    , rcnoRecurringCharges
     , rcnoFixedPrice
     , rcnoDuration
     , rcnoReservedCacheNodesOfferingId
@@ -560,26 +560,26 @@ module Network.AWS.ElastiCache
     -- ** Snapshot
     , Snapshot
     , snapshot
-    , sCacheNodeType
     , sEngineVersion
+    , sCacheNodeType
     , sCacheClusterCreateTime
     , sAutoMinorVersionUpgrade
     , sCacheParameterGroupName
+    , sVPCId
     , sSnapshotStatus
     , sSnapshotWindow
-    , sVPCId
     , sCacheClusterId
     , sEngine
     , sPreferredMaintenanceWindow
     , sTopicARN
-    , sCacheSubnetGroupName
     , sNodeSnapshots
+    , sCacheSubnetGroupName
     , sPreferredAvailabilityZone
     , sSnapshotRetentionLimit
     , sSnapshotName
-    , sSnapshotSource
     , sNumCacheNodes
     , sPort
+    , sSnapshotSource
 
     -- ** Subnet
     , Subnet

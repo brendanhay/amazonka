@@ -33,8 +33,8 @@ module Network.AWS.IAM.ListGroups
     , ListGroups
     -- * Request Lenses
     , lgPathPrefix
-    , lgMaxItems
     , lgMarker
+    , lgMaxItems
 
     -- * Destructuring the Response
     , listGroupsResponse
@@ -42,7 +42,7 @@ module Network.AWS.IAM.ListGroups
     -- * Response Lenses
     , lgrsMarker
     , lgrsIsTruncated
-    , lgrsStatus
+    , lgrsResponseStatus
     , lgrsGroups
     ) where
 
@@ -56,8 +56,8 @@ import           Network.AWS.Response
 -- | /See:/ 'listGroups' smart constructor.
 data ListGroups = ListGroups'
     { _lgPathPrefix :: !(Maybe Text)
-    , _lgMaxItems   :: !(Maybe Nat)
     , _lgMarker     :: !(Maybe Text)
+    , _lgMaxItems   :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListGroups' with the minimum fields required to make a request.
@@ -66,16 +66,16 @@ data ListGroups = ListGroups'
 --
 -- * 'lgPathPrefix'
 --
--- * 'lgMaxItems'
---
 -- * 'lgMarker'
+--
+-- * 'lgMaxItems'
 listGroups
     :: ListGroups
 listGroups =
     ListGroups'
     { _lgPathPrefix = Nothing
-    , _lgMaxItems = Nothing
     , _lgMarker = Nothing
+    , _lgMaxItems = Nothing
     }
 
 -- | The path prefix for filtering the results. For example, the prefix
@@ -87,6 +87,12 @@ listGroups =
 lgPathPrefix :: Lens' ListGroups (Maybe Text)
 lgPathPrefix = lens _lgPathPrefix (\ s a -> s{_lgPathPrefix = a});
 
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lgMarker :: Lens' ListGroups (Maybe Text)
+lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
+
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
@@ -96,16 +102,10 @@ lgPathPrefix = lens _lgPathPrefix (\ s a -> s{_lgPathPrefix = a});
 lgMaxItems :: Lens' ListGroups (Maybe Natural)
 lgMaxItems = lens _lgMaxItems (\ s a -> s{_lgMaxItems = a}) . mapping _Nat;
 
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lgMarker :: Lens' ListGroups (Maybe Text)
-lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
-
 instance AWSPager ListGroups where
         page rq rs
-          | stop (rs ^. lgrsIsTruncated) = Nothing
-          | isNothing (rs ^. lgrsMarker) = Nothing
+          | stop (rs ^. lgrsMarker) = Nothing
+          | stop (rs ^. lgrsGroups) = Nothing
           | otherwise =
             Just $ rq & lgMarker .~ rs ^. lgrsMarker
 
@@ -133,17 +133,17 @@ instance ToQuery ListGroups where
           = mconcat
               ["Action" =: ("ListGroups" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _lgPathPrefix,
-               "MaxItems" =: _lgMaxItems, "Marker" =: _lgMarker]
+               "PathPrefix" =: _lgPathPrefix, "Marker" =: _lgMarker,
+               "MaxItems" =: _lgMaxItems]
 
 -- | Contains the response to a successful ListGroups request.
 --
 -- /See:/ 'listGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-    { _lgrsMarker      :: !(Maybe Text)
-    , _lgrsIsTruncated :: !(Maybe Bool)
-    , _lgrsStatus      :: !Int
-    , _lgrsGroups      :: ![Group]
+    { _lgrsMarker         :: !(Maybe Text)
+    , _lgrsIsTruncated    :: !(Maybe Bool)
+    , _lgrsResponseStatus :: !Int
+    , _lgrsGroups         :: ![Group]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListGroupsResponse' with the minimum fields required to make a request.
@@ -154,17 +154,17 @@ data ListGroupsResponse = ListGroupsResponse'
 --
 -- * 'lgrsIsTruncated'
 --
--- * 'lgrsStatus'
+-- * 'lgrsResponseStatus'
 --
 -- * 'lgrsGroups'
 listGroupsResponse
-    :: Int -- ^ 'lgrsStatus'
+    :: Int -- ^ 'lgrsResponseStatus'
     -> ListGroupsResponse
-listGroupsResponse pStatus_ =
+listGroupsResponse pResponseStatus_ =
     ListGroupsResponse'
     { _lgrsMarker = Nothing
     , _lgrsIsTruncated = Nothing
-    , _lgrsStatus = pStatus_
+    , _lgrsResponseStatus = pResponseStatus_
     , _lgrsGroups = mempty
     }
 
@@ -181,8 +181,8 @@ lgrsIsTruncated :: Lens' ListGroupsResponse (Maybe Bool)
 lgrsIsTruncated = lens _lgrsIsTruncated (\ s a -> s{_lgrsIsTruncated = a});
 
 -- | The response status code.
-lgrsStatus :: Lens' ListGroupsResponse Int
-lgrsStatus = lens _lgrsStatus (\ s a -> s{_lgrsStatus = a});
+lgrsResponseStatus :: Lens' ListGroupsResponse Int
+lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a});
 
 -- | A list of groups.
 lgrsGroups :: Lens' ListGroupsResponse [Group]

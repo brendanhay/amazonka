@@ -355,9 +355,9 @@ data ActionExecution = ActionExecution'
     , _aeStatus               :: !(Maybe ActionExecutionStatus)
     , _aeLastStatusChange     :: !(Maybe POSIX)
     , _aeExternalExecutionURL :: !(Maybe Text)
-    , _aePercentComplete      :: !(Maybe Nat)
-    , _aeErrorDetails         :: !(Maybe ErrorDetails)
     , _aeExternalExecutionId  :: !(Maybe Text)
+    , _aeErrorDetails         :: !(Maybe ErrorDetails)
+    , _aePercentComplete      :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ActionExecution' with the minimum fields required to make a request.
@@ -372,11 +372,11 @@ data ActionExecution = ActionExecution'
 --
 -- * 'aeExternalExecutionURL'
 --
--- * 'aePercentComplete'
+-- * 'aeExternalExecutionId'
 --
 -- * 'aeErrorDetails'
 --
--- * 'aeExternalExecutionId'
+-- * 'aePercentComplete'
 actionExecution
     :: ActionExecution
 actionExecution =
@@ -385,9 +385,9 @@ actionExecution =
     , _aeStatus = Nothing
     , _aeLastStatusChange = Nothing
     , _aeExternalExecutionURL = Nothing
-    , _aePercentComplete = Nothing
-    , _aeErrorDetails = Nothing
     , _aeExternalExecutionId = Nothing
+    , _aeErrorDetails = Nothing
+    , _aePercentComplete = Nothing
     }
 
 -- | A summary of the run of the action.
@@ -408,17 +408,17 @@ aeLastStatusChange = lens _aeLastStatusChange (\ s a -> s{_aeLastStatusChange = 
 aeExternalExecutionURL :: Lens' ActionExecution (Maybe Text)
 aeExternalExecutionURL = lens _aeExternalExecutionURL (\ s a -> s{_aeExternalExecutionURL = a});
 
--- | A percentage of completeness of the action as it runs.
-aePercentComplete :: Lens' ActionExecution (Maybe Natural)
-aePercentComplete = lens _aePercentComplete (\ s a -> s{_aePercentComplete = a}) . mapping _Nat;
+-- | The external ID of the run of the action.
+aeExternalExecutionId :: Lens' ActionExecution (Maybe Text)
+aeExternalExecutionId = lens _aeExternalExecutionId (\ s a -> s{_aeExternalExecutionId = a});
 
 -- | The details of an error returned by a URL external to AWS.
 aeErrorDetails :: Lens' ActionExecution (Maybe ErrorDetails)
 aeErrorDetails = lens _aeErrorDetails (\ s a -> s{_aeErrorDetails = a});
 
--- | The external ID of the run of the action.
-aeExternalExecutionId :: Lens' ActionExecution (Maybe Text)
-aeExternalExecutionId = lens _aeExternalExecutionId (\ s a -> s{_aeExternalExecutionId = a});
+-- | A percentage of completeness of the action as it runs.
+aePercentComplete :: Lens' ActionExecution (Maybe Natural)
+aePercentComplete = lens _aePercentComplete (\ s a -> s{_aePercentComplete = a}) . mapping _Nat;
 
 instance FromJSON ActionExecution where
         parseJSON
@@ -428,9 +428,9 @@ instance FromJSON ActionExecution where
                    (x .:? "summary") <*> (x .:? "status") <*>
                      (x .:? "lastStatusChange")
                      <*> (x .:? "externalExecutionUrl")
-                     <*> (x .:? "percentComplete")
+                     <*> (x .:? "externalExecutionId")
                      <*> (x .:? "errorDetails")
-                     <*> (x .:? "externalExecutionId"))
+                     <*> (x .:? "percentComplete"))
 
 -- | Represents information about the version (or revision) of an action.
 --
@@ -496,8 +496,8 @@ instance ToJSON ActionRevision where
 --
 -- /See:/ 'actionState' smart constructor.
 data ActionState = ActionState'
-    { _asEntityURL       :: !(Maybe Text)
-    , _asRevisionURL     :: !(Maybe Text)
+    { _asRevisionURL     :: !(Maybe Text)
+    , _asEntityURL       :: !(Maybe Text)
     , _asActionName      :: !(Maybe Text)
     , _asCurrentRevision :: !(Maybe ActionRevision)
     , _asLatestExecution :: !(Maybe ActionExecution)
@@ -507,9 +507,9 @@ data ActionState = ActionState'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asEntityURL'
---
 -- * 'asRevisionURL'
+--
+-- * 'asEntityURL'
 --
 -- * 'asActionName'
 --
@@ -520,22 +520,22 @@ actionState
     :: ActionState
 actionState =
     ActionState'
-    { _asEntityURL = Nothing
-    , _asRevisionURL = Nothing
+    { _asRevisionURL = Nothing
+    , _asEntityURL = Nothing
     , _asActionName = Nothing
     , _asCurrentRevision = Nothing
     , _asLatestExecution = Nothing
     }
 
--- | A URL link for more information about the state of the action, such as a
--- deployment group details page.
-asEntityURL :: Lens' ActionState (Maybe Text)
-asEntityURL = lens _asEntityURL (\ s a -> s{_asEntityURL = a});
-
 -- | A URL link for more information about the revision, such as a commit
 -- details page.
 asRevisionURL :: Lens' ActionState (Maybe Text)
 asRevisionURL = lens _asRevisionURL (\ s a -> s{_asRevisionURL = a});
+
+-- | A URL link for more information about the state of the action, such as a
+-- deployment group details page.
+asEntityURL :: Lens' ActionState (Maybe Text)
+asEntityURL = lens _asEntityURL (\ s a -> s{_asEntityURL = a});
 
 -- | The name of the action.
 asActionName :: Lens' ActionState (Maybe Text)
@@ -554,7 +554,7 @@ instance FromJSON ActionState where
           = withObject "ActionState"
               (\ x ->
                  ActionState' <$>
-                   (x .:? "entityUrl") <*> (x .:? "revisionUrl") <*>
+                   (x .:? "revisionUrl") <*> (x .:? "entityUrl") <*>
                      (x .:? "actionName")
                      <*> (x .:? "currentRevision")
                      <*> (x .:? "latestExecution"))
@@ -708,8 +708,8 @@ instance ToJSON ActionTypeId where
 data ActionTypeSettings = ActionTypeSettings'
     { _atsThirdPartyConfigurationURL :: !(Maybe Text)
     , _atsExecutionURLTemplate       :: !(Maybe Text)
-    , _atsEntityURLTemplate          :: !(Maybe Text)
     , _atsRevisionURLTemplate        :: !(Maybe Text)
+    , _atsEntityURLTemplate          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ActionTypeSettings' with the minimum fields required to make a request.
@@ -720,17 +720,17 @@ data ActionTypeSettings = ActionTypeSettings'
 --
 -- * 'atsExecutionURLTemplate'
 --
--- * 'atsEntityURLTemplate'
---
 -- * 'atsRevisionURLTemplate'
+--
+-- * 'atsEntityURLTemplate'
 actionTypeSettings
     :: ActionTypeSettings
 actionTypeSettings =
     ActionTypeSettings'
     { _atsThirdPartyConfigurationURL = Nothing
     , _atsExecutionURLTemplate = Nothing
-    , _atsEntityURLTemplate = Nothing
     , _atsRevisionURLTemplate = Nothing
+    , _atsEntityURLTemplate = Nothing
     }
 
 -- | The URL of a sign-up page where users can sign up for an external
@@ -747,18 +747,18 @@ atsThirdPartyConfigurationURL = lens _atsThirdPartyConfigurationURL (\ s a -> s{
 atsExecutionURLTemplate :: Lens' ActionTypeSettings (Maybe Text)
 atsExecutionURLTemplate = lens _atsExecutionURLTemplate (\ s a -> s{_atsExecutionURLTemplate = a});
 
+-- | The URL returned to the AWS CodePipeline console that contains a link to
+-- the page where customers can update or change the configuration of the
+-- external action.
+atsRevisionURLTemplate :: Lens' ActionTypeSettings (Maybe Text)
+atsRevisionURLTemplate = lens _atsRevisionURLTemplate (\ s a -> s{_atsRevisionURLTemplate = a});
+
 -- | The URL returned to the AWS CodePipeline console that provides a deep
 -- link to the resources of the external system, such as the configuration
 -- page for an AWS CodeDeploy deployment group. This link is provided as
 -- part of the action display within the pipeline.
 atsEntityURLTemplate :: Lens' ActionTypeSettings (Maybe Text)
 atsEntityURLTemplate = lens _atsEntityURLTemplate (\ s a -> s{_atsEntityURLTemplate = a});
-
--- | The URL returned to the AWS CodePipeline console that contains a link to
--- the page where customers can update or change the configuration of the
--- external action.
-atsRevisionURLTemplate :: Lens' ActionTypeSettings (Maybe Text)
-atsRevisionURLTemplate = lens _atsRevisionURLTemplate (\ s a -> s{_atsRevisionURLTemplate = a});
 
 instance FromJSON ActionTypeSettings where
         parseJSON
@@ -767,8 +767,8 @@ instance FromJSON ActionTypeSettings where
                  ActionTypeSettings' <$>
                    (x .:? "thirdPartyConfigurationUrl") <*>
                      (x .:? "executionUrlTemplate")
-                     <*> (x .:? "entityUrlTemplate")
-                     <*> (x .:? "revisionUrlTemplate"))
+                     <*> (x .:? "revisionUrlTemplate")
+                     <*> (x .:? "entityUrlTemplate"))
 
 instance ToJSON ActionTypeSettings where
         toJSON ActionTypeSettings'{..}
@@ -778,9 +778,9 @@ instance ToJSON ActionTypeSettings where
                     _atsThirdPartyConfigurationURL,
                   ("executionUrlTemplate" .=) <$>
                     _atsExecutionURLTemplate,
-                  ("entityUrlTemplate" .=) <$> _atsEntityURLTemplate,
                   ("revisionUrlTemplate" .=) <$>
-                    _atsRevisionURLTemplate])
+                    _atsRevisionURLTemplate,
+                  ("entityUrlTemplate" .=) <$> _atsEntityURLTemplate])
 
 -- | Represents information about an artifact that will be worked upon by
 -- actions in the pipeline.
@@ -922,13 +922,16 @@ instance FromJSON ArtifactLocation where
 --
 -- /See:/ 'artifactStore' smart constructor.
 data ArtifactStore = ArtifactStore'
-    { _asType     :: !ArtifactStoreType
-    , _asLocation :: !Text
+    { _asEncryptionKey :: !(Maybe EncryptionKey)
+    , _asType          :: !ArtifactStoreType
+    , _asLocation      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ArtifactStore' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asEncryptionKey'
 --
 -- * 'asType'
 --
@@ -939,9 +942,16 @@ artifactStore
     -> ArtifactStore
 artifactStore pType_ pLocation_ =
     ArtifactStore'
-    { _asType = pType_
+    { _asEncryptionKey = Nothing
+    , _asType = pType_
     , _asLocation = pLocation_
     }
+
+-- | The AWS Key Management Service (AWS KMS) key used to encrypt the data in
+-- the artifact store. If this is undefined, the default key for Amazon S3
+-- is used.
+asEncryptionKey :: Lens' ArtifactStore (Maybe EncryptionKey)
+asEncryptionKey = lens _asEncryptionKey (\ s a -> s{_asEncryptionKey = a});
 
 -- | The type of the artifact store, such as S3.
 asType :: Lens' ArtifactStore ArtifactStoreType
@@ -957,13 +967,15 @@ instance FromJSON ArtifactStore where
           = withObject "ArtifactStore"
               (\ x ->
                  ArtifactStore' <$>
-                   (x .: "type") <*> (x .: "location"))
+                   (x .:? "encryptionKey") <*> (x .: "type") <*>
+                     (x .: "location"))
 
 instance ToJSON ArtifactStore where
         toJSON ArtifactStore'{..}
           = object
               (catMaybes
-                 [Just ("type" .= _asType),
+                 [("encryptionKey" .=) <$> _asEncryptionKey,
+                  Just ("type" .= _asType),
                   Just ("location" .= _asLocation)])
 
 -- | Represents information about a gate declaration.
@@ -1052,6 +1064,52 @@ instance ToJSON CurrentRevision where
                  [Just ("revision" .= _crRevision),
                   Just ("changeIdentifier" .= _crChangeIdentifier)])
 
+-- | Represents information about the AWS Key Management Service (AWS KMS)
+-- key used to encrypt data in the artifact store.
+--
+-- /See:/ 'encryptionKey' smart constructor.
+data EncryptionKey = EncryptionKey'
+    { _ekId   :: !Text
+    , _ekType :: !EncryptionKeyType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EncryptionKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ekId'
+--
+-- * 'ekType'
+encryptionKey
+    :: Text -- ^ 'ekId'
+    -> EncryptionKeyType -- ^ 'ekType'
+    -> EncryptionKey
+encryptionKey pId_ pType_ =
+    EncryptionKey'
+    { _ekId = pId_
+    , _ekType = pType_
+    }
+
+-- | The ID of the AWS KMS key.
+ekId :: Lens' EncryptionKey Text
+ekId = lens _ekId (\ s a -> s{_ekId = a});
+
+-- | The type of AWS KMS key, such as a customer master key.
+ekType :: Lens' EncryptionKey EncryptionKeyType
+ekType = lens _ekType (\ s a -> s{_ekType = a});
+
+instance FromJSON EncryptionKey where
+        parseJSON
+          = withObject "EncryptionKey"
+              (\ x ->
+                 EncryptionKey' <$> (x .: "id") <*> (x .: "type"))
+
+instance ToJSON EncryptionKey where
+        toJSON EncryptionKey'{..}
+          = object
+              (catMaybes
+                 [Just ("id" .= _ekId), Just ("type" .= _ekType)])
+
 -- | Represents information about an error in AWS CodePipeline.
 --
 -- /See:/ 'errorDetails' smart constructor.
@@ -1096,8 +1154,8 @@ instance FromJSON ErrorDetails where
 -- /See:/ 'executionDetails' smart constructor.
 data ExecutionDetails = ExecutionDetails'
     { _edSummary             :: !(Maybe Text)
-    , _edPercentComplete     :: !(Maybe Nat)
     , _edExternalExecutionId :: !(Maybe Text)
+    , _edPercentComplete     :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ExecutionDetails' with the minimum fields required to make a request.
@@ -1106,48 +1164,48 @@ data ExecutionDetails = ExecutionDetails'
 --
 -- * 'edSummary'
 --
--- * 'edPercentComplete'
---
 -- * 'edExternalExecutionId'
+--
+-- * 'edPercentComplete'
 executionDetails
     :: ExecutionDetails
 executionDetails =
     ExecutionDetails'
     { _edSummary = Nothing
-    , _edPercentComplete = Nothing
     , _edExternalExecutionId = Nothing
+    , _edPercentComplete = Nothing
     }
 
 -- | The summary of the current status of the actions.
 edSummary :: Lens' ExecutionDetails (Maybe Text)
 edSummary = lens _edSummary (\ s a -> s{_edSummary = a});
 
--- | The percentage of work completed on the action, represented on a scale
--- of zero to one hundred percent.
-edPercentComplete :: Lens' ExecutionDetails (Maybe Natural)
-edPercentComplete = lens _edPercentComplete (\ s a -> s{_edPercentComplete = a}) . mapping _Nat;
-
 -- | The system-generated unique ID of this action used to identify this job
 -- worker in any external systems, such as AWS CodeDeploy.
 edExternalExecutionId :: Lens' ExecutionDetails (Maybe Text)
 edExternalExecutionId = lens _edExternalExecutionId (\ s a -> s{_edExternalExecutionId = a});
+
+-- | The percentage of work completed on the action, represented on a scale
+-- of zero to one hundred percent.
+edPercentComplete :: Lens' ExecutionDetails (Maybe Natural)
+edPercentComplete = lens _edPercentComplete (\ s a -> s{_edPercentComplete = a}) . mapping _Nat;
 
 instance ToJSON ExecutionDetails where
         toJSON ExecutionDetails'{..}
           = object
               (catMaybes
                  [("summary" .=) <$> _edSummary,
-                  ("percentComplete" .=) <$> _edPercentComplete,
                   ("externalExecutionId" .=) <$>
-                    _edExternalExecutionId])
+                    _edExternalExecutionId,
+                  ("percentComplete" .=) <$> _edPercentComplete])
 
 -- | Represents information about failure details.
 --
 -- /See:/ 'failureDetails' smart constructor.
 data FailureDetails = FailureDetails'
     { _fdExternalExecutionId :: !(Maybe Text)
-    , _fdMessage             :: !(Maybe Text)
     , _fdType                :: !FailureType
+    , _fdMessage             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FailureDetails' with the minimum fields required to make a request.
@@ -1156,30 +1214,31 @@ data FailureDetails = FailureDetails'
 --
 -- * 'fdExternalExecutionId'
 --
--- * 'fdMessage'
---
 -- * 'fdType'
+--
+-- * 'fdMessage'
 failureDetails
     :: FailureType -- ^ 'fdType'
+    -> Text -- ^ 'fdMessage'
     -> FailureDetails
-failureDetails pType_ =
+failureDetails pType_ pMessage_ =
     FailureDetails'
     { _fdExternalExecutionId = Nothing
-    , _fdMessage = Nothing
     , _fdType = pType_
+    , _fdMessage = pMessage_
     }
 
 -- | The external ID of the run of the action that failed.
 fdExternalExecutionId :: Lens' FailureDetails (Maybe Text)
 fdExternalExecutionId = lens _fdExternalExecutionId (\ s a -> s{_fdExternalExecutionId = a});
 
--- | The message about the failure.
-fdMessage :: Lens' FailureDetails (Maybe Text)
-fdMessage = lens _fdMessage (\ s a -> s{_fdMessage = a});
-
 -- | The type of the failure.
 fdType :: Lens' FailureDetails FailureType
 fdType = lens _fdType (\ s a -> s{_fdType = a});
+
+-- | The message about the failure.
+fdMessage :: Lens' FailureDetails Text
+fdMessage = lens _fdMessage (\ s a -> s{_fdMessage = a});
 
 instance ToJSON FailureDetails where
         toJSON FailureDetails'{..}
@@ -1187,8 +1246,8 @@ instance ToJSON FailureDetails where
               (catMaybes
                  [("externalExecutionId" .=) <$>
                     _fdExternalExecutionId,
-                  ("message" .=) <$> _fdMessage,
-                  Just ("type" .= _fdType)])
+                  Just ("type" .= _fdType),
+                  Just ("message" .= _fdMessage)])
 
 -- | Represents information about an artifact to be worked on, such as a test
 -- or build artifact.
@@ -1297,6 +1356,7 @@ data JobData = JobData'
     , _jdOutputArtifacts     :: !(Maybe [Artifact])
     , _jdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
     , _jdPipelineContext     :: !(Maybe PipelineContext)
+    , _jdEncryptionKey       :: !(Maybe EncryptionKey)
     , _jdActionTypeId        :: !(Maybe ActionTypeId)
     , _jdInputArtifacts      :: !(Maybe [Artifact])
     , _jdActionConfiguration :: !(Maybe ActionConfiguration)
@@ -1314,6 +1374,8 @@ data JobData = JobData'
 --
 -- * 'jdPipelineContext'
 --
+-- * 'jdEncryptionKey'
+--
 -- * 'jdActionTypeId'
 --
 -- * 'jdInputArtifacts'
@@ -1327,6 +1389,7 @@ jobData =
     , _jdOutputArtifacts = Nothing
     , _jdArtifactCredentials = Nothing
     , _jdPipelineContext = Nothing
+    , _jdEncryptionKey = Nothing
     , _jdActionTypeId = Nothing
     , _jdInputArtifacts = Nothing
     , _jdActionConfiguration = Nothing
@@ -1350,6 +1413,10 @@ jdPipelineContext :: Lens' JobData (Maybe PipelineContext)
 jdPipelineContext = lens _jdPipelineContext (\ s a -> s{_jdPipelineContext = a});
 
 -- | Undocumented member.
+jdEncryptionKey :: Lens' JobData (Maybe EncryptionKey)
+jdEncryptionKey = lens _jdEncryptionKey (\ s a -> s{_jdEncryptionKey = a});
+
+-- | Undocumented member.
 jdActionTypeId :: Lens' JobData (Maybe ActionTypeId)
 jdActionTypeId = lens _jdActionTypeId (\ s a -> s{_jdActionTypeId = a});
 
@@ -1370,6 +1437,7 @@ instance FromJSON JobData where
                      (x .:? "outputArtifacts" .!= mempty)
                      <*> (x .:? "artifactCredentials")
                      <*> (x .:? "pipelineContext")
+                     <*> (x .:? "encryptionKey")
                      <*> (x .:? "actionTypeId")
                      <*> (x .:? "inputArtifacts" .!= mempty)
                      <*> (x .:? "actionConfiguration"))
@@ -1874,6 +1942,7 @@ data ThirdPartyJobData = ThirdPartyJobData'
     , _tpjdOutputArtifacts     :: !(Maybe [Artifact])
     , _tpjdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
     , _tpjdPipelineContext     :: !(Maybe PipelineContext)
+    , _tpjdEncryptionKey       :: !(Maybe EncryptionKey)
     , _tpjdActionTypeId        :: !(Maybe ActionTypeId)
     , _tpjdInputArtifacts      :: !(Maybe [Artifact])
     , _tpjdActionConfiguration :: !(Maybe ActionConfiguration)
@@ -1891,6 +1960,8 @@ data ThirdPartyJobData = ThirdPartyJobData'
 --
 -- * 'tpjdPipelineContext'
 --
+-- * 'tpjdEncryptionKey'
+--
 -- * 'tpjdActionTypeId'
 --
 -- * 'tpjdInputArtifacts'
@@ -1904,6 +1975,7 @@ thirdPartyJobData =
     , _tpjdOutputArtifacts = Nothing
     , _tpjdArtifactCredentials = Nothing
     , _tpjdPipelineContext = Nothing
+    , _tpjdEncryptionKey = Nothing
     , _tpjdActionTypeId = Nothing
     , _tpjdInputArtifacts = Nothing
     , _tpjdActionConfiguration = Nothing
@@ -1927,6 +1999,11 @@ tpjdArtifactCredentials = lens _tpjdArtifactCredentials (\ s a -> s{_tpjdArtifac
 -- | Undocumented member.
 tpjdPipelineContext :: Lens' ThirdPartyJobData (Maybe PipelineContext)
 tpjdPipelineContext = lens _tpjdPipelineContext (\ s a -> s{_tpjdPipelineContext = a});
+
+-- | The AWS Key Management Service (AWS KMS) key used to encrypt and decrypt
+-- data in the artifact store for the pipeline.
+tpjdEncryptionKey :: Lens' ThirdPartyJobData (Maybe EncryptionKey)
+tpjdEncryptionKey = lens _tpjdEncryptionKey (\ s a -> s{_tpjdEncryptionKey = a});
 
 -- | Undocumented member.
 tpjdActionTypeId :: Lens' ThirdPartyJobData (Maybe ActionTypeId)
@@ -1953,6 +2030,7 @@ instance FromJSON ThirdPartyJobData where
                      (x .:? "outputArtifacts" .!= mempty)
                      <*> (x .:? "artifactCredentials")
                      <*> (x .:? "pipelineContext")
+                     <*> (x .:? "encryptionKey")
                      <*> (x .:? "actionTypeId")
                      <*> (x .:? "inputArtifacts" .!= mempty)
                      <*> (x .:? "actionConfiguration"))

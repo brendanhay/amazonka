@@ -46,7 +46,7 @@ module Network.AWS.SES.ListIdentityPolicies
     , listIdentityPoliciesResponse
     , ListIdentityPoliciesResponse
     -- * Response Lenses
-    , liprsStatus
+    , liprsResponseStatus
     , liprsPolicyNames
     ) where
 
@@ -117,29 +117,29 @@ instance ToQuery ListIdentityPolicies where
 --
 -- /See:/ 'listIdentityPoliciesResponse' smart constructor.
 data ListIdentityPoliciesResponse = ListIdentityPoliciesResponse'
-    { _liprsStatus      :: !Int
-    , _liprsPolicyNames :: ![Text]
+    { _liprsResponseStatus :: !Int
+    , _liprsPolicyNames    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListIdentityPoliciesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'liprsStatus'
+-- * 'liprsResponseStatus'
 --
 -- * 'liprsPolicyNames'
 listIdentityPoliciesResponse
-    :: Int -- ^ 'liprsStatus'
+    :: Int -- ^ 'liprsResponseStatus'
     -> ListIdentityPoliciesResponse
-listIdentityPoliciesResponse pStatus_ =
+listIdentityPoliciesResponse pResponseStatus_ =
     ListIdentityPoliciesResponse'
-    { _liprsStatus = pStatus_
+    { _liprsResponseStatus = pResponseStatus_
     , _liprsPolicyNames = mempty
     }
 
 -- | The response status code.
-liprsStatus :: Lens' ListIdentityPoliciesResponse Int
-liprsStatus = lens _liprsStatus (\ s a -> s{_liprsStatus = a});
+liprsResponseStatus :: Lens' ListIdentityPoliciesResponse Int
+liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a});
 
 -- | A list of names of policies that apply to the specified identity.
 liprsPolicyNames :: Lens' ListIdentityPoliciesResponse [Text]

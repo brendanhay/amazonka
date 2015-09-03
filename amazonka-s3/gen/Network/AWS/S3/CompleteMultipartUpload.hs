@@ -37,16 +37,16 @@ module Network.AWS.S3.CompleteMultipartUpload
     , completeMultipartUploadResponse
     , CompleteMultipartUploadResponse
     -- * Response Lenses
-    , crsVersionId
-    , crsETag
     , crsRequestCharged
+    , crsETag
+    , crsVersionId
     , crsLocation
     , crsExpiration
     , crsBucket
     , crsKey
     , crsSSEKMSKeyId
     , crsServerSideEncryption
-    , crsStatus
+    , crsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -119,8 +119,8 @@ instance AWSRequest CompleteMultipartUpload where
           = receiveXML
               (\ s h x ->
                  CompleteMultipartUploadResponse' <$>
-                   (h .#? "x-amz-version-id") <*> (x .@? "ETag") <*>
-                     (h .#? "x-amz-request-charged")
+                   (h .#? "x-amz-request-charged") <*> (x .@? "ETag")
+                     <*> (h .#? "x-amz-version-id")
                      <*> (x .@? "Location")
                      <*> (h .#? "x-amz-expiration")
                      <*> (x .@? "Bucket")
@@ -151,27 +151,27 @@ instance ToQuery CompleteMultipartUpload where
 
 -- | /See:/ 'completeMultipartUploadResponse' smart constructor.
 data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
-    { _crsVersionId            :: !(Maybe ObjectVersionId)
+    { _crsRequestCharged       :: !(Maybe RequestCharged)
     , _crsETag                 :: !(Maybe ETag)
-    , _crsRequestCharged       :: !(Maybe RequestCharged)
+    , _crsVersionId            :: !(Maybe ObjectVersionId)
     , _crsLocation             :: !(Maybe Text)
     , _crsExpiration           :: !(Maybe Text)
     , _crsBucket               :: !(Maybe BucketName)
     , _crsKey                  :: !(Maybe ObjectKey)
     , _crsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _crsServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _crsStatus               :: !Int
+    , _crsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CompleteMultipartUploadResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsVersionId'
+-- * 'crsRequestCharged'
 --
 -- * 'crsETag'
 --
--- * 'crsRequestCharged'
+-- * 'crsVersionId'
 --
 -- * 'crsLocation'
 --
@@ -185,35 +185,35 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
 --
 -- * 'crsServerSideEncryption'
 --
--- * 'crsStatus'
+-- * 'crsResponseStatus'
 completeMultipartUploadResponse
-    :: Int -- ^ 'crsStatus'
+    :: Int -- ^ 'crsResponseStatus'
     -> CompleteMultipartUploadResponse
-completeMultipartUploadResponse pStatus_ =
+completeMultipartUploadResponse pResponseStatus_ =
     CompleteMultipartUploadResponse'
-    { _crsVersionId = Nothing
+    { _crsRequestCharged = Nothing
     , _crsETag = Nothing
-    , _crsRequestCharged = Nothing
+    , _crsVersionId = Nothing
     , _crsLocation = Nothing
     , _crsExpiration = Nothing
     , _crsBucket = Nothing
     , _crsKey = Nothing
     , _crsSSEKMSKeyId = Nothing
     , _crsServerSideEncryption = Nothing
-    , _crsStatus = pStatus_
+    , _crsResponseStatus = pResponseStatus_
     }
 
--- | Version of the object.
-crsVersionId :: Lens' CompleteMultipartUploadResponse (Maybe ObjectVersionId)
-crsVersionId = lens _crsVersionId (\ s a -> s{_crsVersionId = a});
+-- | Undocumented member.
+crsRequestCharged :: Lens' CompleteMultipartUploadResponse (Maybe RequestCharged)
+crsRequestCharged = lens _crsRequestCharged (\ s a -> s{_crsRequestCharged = a});
 
 -- | Entity tag of the object.
 crsETag :: Lens' CompleteMultipartUploadResponse (Maybe ETag)
 crsETag = lens _crsETag (\ s a -> s{_crsETag = a});
 
--- | Undocumented member.
-crsRequestCharged :: Lens' CompleteMultipartUploadResponse (Maybe RequestCharged)
-crsRequestCharged = lens _crsRequestCharged (\ s a -> s{_crsRequestCharged = a});
+-- | Version of the object.
+crsVersionId :: Lens' CompleteMultipartUploadResponse (Maybe ObjectVersionId)
+crsVersionId = lens _crsVersionId (\ s a -> s{_crsVersionId = a});
 
 -- | Undocumented member.
 crsLocation :: Lens' CompleteMultipartUploadResponse (Maybe Text)
@@ -244,5 +244,5 @@ crsServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSi
 crsServerSideEncryption = lens _crsServerSideEncryption (\ s a -> s{_crsServerSideEncryption = a});
 
 -- | The response status code.
-crsStatus :: Lens' CompleteMultipartUploadResponse Int
-crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});
+crsResponseStatus :: Lens' CompleteMultipartUploadResponse Int
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});

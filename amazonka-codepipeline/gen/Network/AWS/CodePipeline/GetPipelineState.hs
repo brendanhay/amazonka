@@ -35,11 +35,11 @@ module Network.AWS.CodePipeline.GetPipelineState
     , GetPipelineStateResponse
     -- * Response Lenses
     , gpsrsPipelineName
-    , gpsrsPipelineVersion
     , gpsrsCreated
     , gpsrsStageStates
+    , gpsrsPipelineVersion
     , gpsrsUpdated
-    , gpsrsStatus
+    , gpsrsResponseStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -79,9 +79,9 @@ instance AWSRequest GetPipelineState where
           = receiveJSON
               (\ s h x ->
                  GetPipelineStateResponse' <$>
-                   (x .?> "pipelineName") <*> (x .?> "pipelineVersion")
-                     <*> (x .?> "created")
-                     <*> (x .?> "stageStates" .!@ mempty)
+                   (x .?> "pipelineName") <*> (x .?> "created") <*>
+                     (x .?> "stageStates" .!@ mempty)
+                     <*> (x .?> "pipelineVersion")
                      <*> (x .?> "updated")
                      <*> (pure (fromEnum s)))
 
@@ -110,11 +110,11 @@ instance ToQuery GetPipelineState where
 -- /See:/ 'getPipelineStateResponse' smart constructor.
 data GetPipelineStateResponse = GetPipelineStateResponse'
     { _gpsrsPipelineName    :: !(Maybe Text)
-    , _gpsrsPipelineVersion :: !(Maybe Nat)
     , _gpsrsCreated         :: !(Maybe POSIX)
     , _gpsrsStageStates     :: !(Maybe [StageState])
+    , _gpsrsPipelineVersion :: !(Maybe Nat)
     , _gpsrsUpdated         :: !(Maybe POSIX)
-    , _gpsrsStatus          :: !Int
+    , _gpsrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetPipelineStateResponse' with the minimum fields required to make a request.
@@ -123,37 +123,31 @@ data GetPipelineStateResponse = GetPipelineStateResponse'
 --
 -- * 'gpsrsPipelineName'
 --
--- * 'gpsrsPipelineVersion'
---
 -- * 'gpsrsCreated'
 --
 -- * 'gpsrsStageStates'
 --
+-- * 'gpsrsPipelineVersion'
+--
 -- * 'gpsrsUpdated'
 --
--- * 'gpsrsStatus'
+-- * 'gpsrsResponseStatus'
 getPipelineStateResponse
-    :: Int -- ^ 'gpsrsStatus'
+    :: Int -- ^ 'gpsrsResponseStatus'
     -> GetPipelineStateResponse
-getPipelineStateResponse pStatus_ =
+getPipelineStateResponse pResponseStatus_ =
     GetPipelineStateResponse'
     { _gpsrsPipelineName = Nothing
-    , _gpsrsPipelineVersion = Nothing
     , _gpsrsCreated = Nothing
     , _gpsrsStageStates = Nothing
+    , _gpsrsPipelineVersion = Nothing
     , _gpsrsUpdated = Nothing
-    , _gpsrsStatus = pStatus_
+    , _gpsrsResponseStatus = pResponseStatus_
     }
 
 -- | The name of the pipeline for which you want to get the state.
 gpsrsPipelineName :: Lens' GetPipelineStateResponse (Maybe Text)
 gpsrsPipelineName = lens _gpsrsPipelineName (\ s a -> s{_gpsrsPipelineName = a});
-
--- | The version number of the pipeline.
---
--- A newly-created pipeline is always assigned a version number of '1'.
-gpsrsPipelineVersion :: Lens' GetPipelineStateResponse (Maybe Natural)
-gpsrsPipelineVersion = lens _gpsrsPipelineVersion (\ s a -> s{_gpsrsPipelineVersion = a}) . mapping _Nat;
 
 -- | The date and time the pipeline was created, in timestamp format.
 gpsrsCreated :: Lens' GetPipelineStateResponse (Maybe UTCTime)
@@ -165,10 +159,16 @@ gpsrsCreated = lens _gpsrsCreated (\ s a -> s{_gpsrsCreated = a}) . mapping _Tim
 gpsrsStageStates :: Lens' GetPipelineStateResponse [StageState]
 gpsrsStageStates = lens _gpsrsStageStates (\ s a -> s{_gpsrsStageStates = a}) . _Default . _Coerce;
 
+-- | The version number of the pipeline.
+--
+-- A newly-created pipeline is always assigned a version number of '1'.
+gpsrsPipelineVersion :: Lens' GetPipelineStateResponse (Maybe Natural)
+gpsrsPipelineVersion = lens _gpsrsPipelineVersion (\ s a -> s{_gpsrsPipelineVersion = a}) . mapping _Nat;
+
 -- | The date and time the pipeline was last updated, in timestamp format.
 gpsrsUpdated :: Lens' GetPipelineStateResponse (Maybe UTCTime)
 gpsrsUpdated = lens _gpsrsUpdated (\ s a -> s{_gpsrsUpdated = a}) . mapping _Time;
 
 -- | The response status code.
-gpsrsStatus :: Lens' GetPipelineStateResponse Int
-gpsrsStatus = lens _gpsrsStatus (\ s a -> s{_gpsrsStatus = a});
+gpsrsResponseStatus :: Lens' GetPipelineStateResponse Int
+gpsrsResponseStatus = lens _gpsrsResponseStatus (\ s a -> s{_gpsrsResponseStatus = a});

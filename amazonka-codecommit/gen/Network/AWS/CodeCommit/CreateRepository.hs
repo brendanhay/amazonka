@@ -35,7 +35,7 @@ module Network.AWS.CodeCommit.CreateRepository
     , CreateRepositoryResponse
     -- * Response Lenses
     , crrsRepositoryMetadata
-    , crrsStatus
+    , crrsResponseStatus
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -118,7 +118,7 @@ instance ToQuery CreateRepository where
 -- /See:/ 'createRepositoryResponse' smart constructor.
 data CreateRepositoryResponse = CreateRepositoryResponse'
     { _crrsRepositoryMetadata :: !(Maybe RepositoryMetadata)
-    , _crrsStatus             :: !Int
+    , _crrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateRepositoryResponse' with the minimum fields required to make a request.
@@ -127,14 +127,14 @@ data CreateRepositoryResponse = CreateRepositoryResponse'
 --
 -- * 'crrsRepositoryMetadata'
 --
--- * 'crrsStatus'
+-- * 'crrsResponseStatus'
 createRepositoryResponse
-    :: Int -- ^ 'crrsStatus'
+    :: Int -- ^ 'crrsResponseStatus'
     -> CreateRepositoryResponse
-createRepositoryResponse pStatus_ =
+createRepositoryResponse pResponseStatus_ =
     CreateRepositoryResponse'
     { _crrsRepositoryMetadata = Nothing
-    , _crrsStatus = pStatus_
+    , _crrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the newly created repository.
@@ -142,5 +142,5 @@ crrsRepositoryMetadata :: Lens' CreateRepositoryResponse (Maybe RepositoryMetada
 crrsRepositoryMetadata = lens _crrsRepositoryMetadata (\ s a -> s{_crrsRepositoryMetadata = a});
 
 -- | The response status code.
-crrsStatus :: Lens' CreateRepositoryResponse Int
-crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});
+crrsResponseStatus :: Lens' CreateRepositoryResponse Int
+crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});

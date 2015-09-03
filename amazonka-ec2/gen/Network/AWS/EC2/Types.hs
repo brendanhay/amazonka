@@ -128,6 +128,9 @@ module Network.AWS.EC2.Types
     -- * OfferingTypeValues
     , OfferingTypeValues (..)
 
+    -- * OperationType
+    , OperationType (..)
+
     -- * PermissionGroup
     , PermissionGroup (..)
 
@@ -269,8 +272,8 @@ module Network.AWS.EC2.Types
     -- * Address
     , Address
     , address
-    , aInstanceId
     , aAssociationId
+    , aInstanceId
     , aNetworkInterfaceOwnerId
     , aAllocationId
     , aDomain
@@ -291,8 +294,8 @@ module Network.AWS.EC2.Types
     -- * AvailabilityZone
     , AvailabilityZone
     , availabilityZone
-    , azRegionName
     , azState
+    , azRegionName
     , azZoneName
     , azMessages
 
@@ -460,8 +463,8 @@ module Network.AWS.EC2.Types
     -- * EBSInstanceBlockDevice
     , EBSInstanceBlockDevice
     , ebsInstanceBlockDevice
-    , eibdDeleteOnTermination
     , eibdStatus
+    , eibdDeleteOnTermination
     , eibdVolumeId
     , eibdAttachTime
 
@@ -519,8 +522,8 @@ module Network.AWS.EC2.Types
     , flTrafficType
     , flDeliverLogsStatus
     , flDeliverLogsErrorMessage
-    , flDeliverLogsPermissionARN
     , flLogGroupName
+    , flDeliverLogsPermissionARN
     , flFlowLogId
 
     -- * GroupIdentifier
@@ -582,8 +585,8 @@ module Network.AWS.EC2.Types
     , iCreationDate
     , iProductCodes
     , iStateReason
-    , iBlockDeviceMappings
     , iDescription
+    , iBlockDeviceMappings
     , iTags
     , iImageId
     , iImageLocation
@@ -599,8 +602,8 @@ module Network.AWS.EC2.Types
     -- * ImageDiskContainer
     , ImageDiskContainer
     , imageDiskContainer
-    , idcURL
     , idcFormat
+    , idcURL
     , idcDeviceName
     , idcUserBucket
     , idcDescription
@@ -627,12 +630,12 @@ module Network.AWS.EC2.Types
     , iilsAdditionalInfo
     , iilsGroupNames
     , iilsSubnetId
-    , iilsGroupIds
     , iilsInstanceType
+    , iilsGroupIds
     , iilsUserData
     , iilsMonitoring
-    , iilsInstanceInitiatedShutdownBehavior
     , iilsPrivateIPAddress
+    , iilsInstanceInitiatedShutdownBehavior
     , iilsArchitecture
     , iilsPlacement
 
@@ -680,17 +683,17 @@ module Network.AWS.EC2.Types
     , insClientToken
     , insSourceDestCheck
     , insVPCId
-    , insNetworkInterfaces
     , insKeyName
+    , insNetworkInterfaces
     , insRAMDiskId
-    , insKernelId
     , insSubnetId
+    , insKernelId
     , insRootDeviceName
-    , insEBSOptimized
     , insSRIOVNetSupport
+    , insEBSOptimized
     , insStateTransitionReason
-    , insIAMInstanceProfile
     , insInstanceLifecycle
+    , insIAMInstanceProfile
     , insPrivateIPAddress
     , insProductCodes
     , insSpotInstanceRequestId
@@ -735,8 +738,8 @@ module Network.AWS.EC2.Types
     -- * InstanceExportDetails
     , InstanceExportDetails
     , instanceExportDetails
-    , iedInstanceId
     , iedTargetEnvironment
+    , iedInstanceId
 
     -- * InstanceMonitoring
     , InstanceMonitoring
@@ -747,15 +750,15 @@ module Network.AWS.EC2.Types
     -- * InstanceNetworkInterface
     , InstanceNetworkInterface
     , instanceNetworkInterface
-    , iniPrivateIPAddresses
-    , iniStatus
     , iniGroups
+    , iniStatus
+    , iniPrivateIPAddresses
     , iniSourceDestCheck
     , iniVPCId
     , iniNetworkInterfaceId
     , iniSubnetId
-    , iniAttachment
     , iniMACAddress
+    , iniAttachment
     , iniOwnerId
     , iniPrivateIPAddress
     , iniPrivateDNSName
@@ -772,8 +775,8 @@ module Network.AWS.EC2.Types
     -- * InstanceNetworkInterfaceAttachment
     , InstanceNetworkInterfaceAttachment
     , instanceNetworkInterfaceAttachment
-    , iniaDeleteOnTermination
     , iniaStatus
+    , iniaDeleteOnTermination
     , iniaAttachmentId
     , iniaAttachTime
     , iniaDeviceIndex
@@ -781,16 +784,16 @@ module Network.AWS.EC2.Types
     -- * InstanceNetworkInterfaceSpecification
     , InstanceNetworkInterfaceSpecification
     , instanceNetworkInterfaceSpecification
+    , inisGroups
     , inisPrivateIPAddresses
     , inisDeleteOnTermination
-    , inisGroups
     , inisAssociatePublicIPAddress
     , inisNetworkInterfaceId
     , inisSubnetId
     , inisPrivateIPAddress
     , inisSecondaryPrivateIPAddressCount
-    , inisDeviceIndex
     , inisDescription
+    , inisDeviceIndex
 
     -- * InstancePrivateIPAddress
     , InstancePrivateIPAddress
@@ -818,8 +821,8 @@ module Network.AWS.EC2.Types
     , instanceStatus
     , isInstanceId
     , isSystemStatus
-    , isAvailabilityZone
     , isEvents
+    , isAvailabilityZone
     , isInstanceStatus
     , isInstanceState
 
@@ -879,19 +882,19 @@ module Network.AWS.EC2.Types
     , LaunchSpecification
     , launchSpecification
     , lsSecurityGroups
-    , lsNetworkInterfaces
     , lsKeyName
+    , lsNetworkInterfaces
     , lsRAMDiskId
-    , lsKernelId
     , lsSubnetId
+    , lsKernelId
     , lsInstanceType
     , lsEBSOptimized
     , lsUserData
     , lsMonitoring
     , lsIAMInstanceProfile
     , lsImageId
-    , lsBlockDeviceMappings
     , lsAddressingType
+    , lsBlockDeviceMappings
     , lsPlacement
 
     -- * Monitoring
@@ -912,8 +915,8 @@ module Network.AWS.EC2.Types
     , naNetworkACLId
     , naVPCId
     , naAssociations
-    , naIsDefault
     , naTags
+    , naIsDefault
 
     -- * NetworkACLAssociation
     , NetworkACLAssociation
@@ -936,17 +939,17 @@ module Network.AWS.EC2.Types
     -- * NetworkInterface
     , NetworkInterface
     , networkInterface
-    , niPrivateIPAddresses
-    , niStatus
     , niGroups
+    , niStatus
+    , niPrivateIPAddresses
     , niSourceDestCheck
-    , niTagSet
     , niVPCId
+    , niTagSet
     , niRequesterManaged
     , niNetworkInterfaceId
     , niSubnetId
-    , niAttachment
     , niMACAddress
+    , niAttachment
     , niOwnerId
     , niAvailabilityZone
     , niPrivateIPAddress
@@ -968,8 +971,8 @@ module Network.AWS.EC2.Types
     , NetworkInterfaceAttachment
     , networkInterfaceAttachment
     , niaInstanceId
-    , niaDeleteOnTermination
     , niaStatus
+    , niaDeleteOnTermination
     , niaAttachmentId
     , niaInstanceOwnerId
     , niaAttachTime
@@ -1068,8 +1071,8 @@ module Network.AWS.EC2.Types
     -- * RecurringCharge
     , RecurringCharge
     , recurringCharge
-    , rcFrequency
     , rcAmount
+    , rcFrequency
 
     -- * RegionInfo
     , RegionInfo
@@ -1082,19 +1085,19 @@ module Network.AWS.EC2.Types
     , requestSpotLaunchSpecification
     , rslsSecurityGroupIds
     , rslsSecurityGroups
-    , rslsNetworkInterfaces
     , rslsKeyName
+    , rslsNetworkInterfaces
     , rslsRAMDiskId
-    , rslsKernelId
     , rslsSubnetId
+    , rslsKernelId
     , rslsInstanceType
     , rslsEBSOptimized
     , rslsUserData
     , rslsMonitoring
     , rslsIAMInstanceProfile
     , rslsImageId
-    , rslsBlockDeviceMappings
     , rslsAddressingType
+    , rslsBlockDeviceMappings
     , rslsPlacement
 
     -- * Reservation
@@ -1121,14 +1124,14 @@ module Network.AWS.EC2.Types
     , riProductDescription
     , riStart
     , riInstanceType
-    , riAvailabilityZone
     , riEnd
+    , riAvailabilityZone
+    , riRecurringCharges
     , riOfferingType
     , riUsagePrice
-    , riRecurringCharges
-    , riInstanceTenancy
     , riFixedPrice
     , riReservedInstancesId
+    , riInstanceTenancy
     , riDuration
     , riTags
 
@@ -1155,9 +1158,9 @@ module Network.AWS.EC2.Types
     , rilPriceSchedules
     , rilStatusMessage
     , rilReservedInstancesId
+    , rilTags
     , rilInstanceCounts
     , rilReservedInstancesListingId
-    , rilTags
 
     -- * ReservedInstancesModification
     , ReservedInstancesModification
@@ -1187,20 +1190,20 @@ module Network.AWS.EC2.Types
     , rioInstanceType
     , rioAvailabilityZone
     , rioPricingDetails
+    , rioRecurringCharges
     , rioOfferingType
     , rioUsagePrice
-    , rioRecurringCharges
-    , rioReservedInstancesOfferingId
-    , rioInstanceTenancy
     , rioFixedPrice
+    , rioInstanceTenancy
+    , rioReservedInstancesOfferingId
     , rioDuration
 
     -- * Route
     , Route
     , route
+    , rVPCPeeringConnectionId
     , rInstanceId
     , rOrigin
-    , rVPCPeeringConnectionId
     , rState
     , rNetworkInterfaceId
     , rGatewayId
@@ -1211,8 +1214,8 @@ module Network.AWS.EC2.Types
     -- * RouteTable
     , RouteTable
     , routeTable
-    , rtRoutes
     , rtRouteTableId
+    , rtRoutes
     , rtVPCId
     , rtPropagatingVGWs
     , rtAssociations
@@ -1273,20 +1276,20 @@ module Network.AWS.EC2.Types
     , snapshotDetail
     , sdStatus
     , sdProgress
-    , sdURL
     , sdFormat
+    , sdURL
     , sdDeviceName
+    , sdStatusMessage
     , sdUserBucket
     , sdDiskImageSize
-    , sdStatusMessage
     , sdDescription
     , sdSnapshotId
 
     -- * SnapshotDiskContainer
     , SnapshotDiskContainer
     , snapshotDiskContainer
-    , sdcURL
     , sdcFormat
+    , sdcURL
     , sdcUserBucket
     , sdcDescription
 
@@ -1295,11 +1298,11 @@ module Network.AWS.EC2.Types
     , snapshotTaskDetail
     , stdStatus
     , stdProgress
-    , stdURL
     , stdFormat
+    , stdURL
+    , stdStatusMessage
     , stdUserBucket
     , stdDiskImageSize
-    , stdStatusMessage
     , stdDescription
     , stdSnapshotId
 
@@ -1316,19 +1319,21 @@ module Network.AWS.EC2.Types
     , SpotFleetLaunchSpecification
     , spotFleetLaunchSpecification
     , sflsSecurityGroups
-    , sflsNetworkInterfaces
+    , sflsSpotPrice
+    , sflsWeightedCapacity
     , sflsKeyName
+    , sflsNetworkInterfaces
     , sflsRAMDiskId
-    , sflsKernelId
     , sflsSubnetId
+    , sflsKernelId
     , sflsInstanceType
     , sflsEBSOptimized
     , sflsUserData
     , sflsMonitoring
     , sflsIAMInstanceProfile
     , sflsImageId
-    , sflsBlockDeviceMappings
     , sflsAddressingType
+    , sflsBlockDeviceMappings
     , sflsPlacement
 
     -- * SpotFleetMonitoring
@@ -1363,17 +1368,17 @@ module Network.AWS.EC2.Types
     , sirState
     , sirProductDescription
     , sirSpotPrice
-    , sirAvailabilityZoneGroup
     , sirLaunchSpecification
+    , sirAvailabilityZoneGroup
     , sirLaunchedAvailabilityZone
     , sirValidUntil
-    , sirFault
     , sirLaunchGroup
+    , sirFault
     , sirSpotInstanceRequestId
     , sirType
     , sirValidFrom
-    , sirTags
     , sirCreateTime
+    , sirTags
 
     -- * SpotInstanceStateFault
     , SpotInstanceStateFault
@@ -1513,8 +1518,8 @@ module Network.AWS.EC2.Types
     -- * VPCEndpoint
     , VPCEndpoint
     , vpcEndpoint
-    , vePolicyDocument
     , veState
+    , vePolicyDocument
     , veVPCId
     , veCreationTimestamp
     , veServiceName
@@ -1524,8 +1529,8 @@ module Network.AWS.EC2.Types
     -- * VPCPeeringConnection
     , VPCPeeringConnection
     , vpcPeeringConnection
-    , vpcpcStatus
     , vpcpcVPCPeeringConnectionId
+    , vpcpcStatus
     , vpcpcAccepterVPCInfo
     , vpcpcRequesterVPCInfo
     , vpcpcExpirationTime
@@ -1547,14 +1552,14 @@ module Network.AWS.EC2.Types
     -- * VPNConnection
     , VPNConnection
     , vpnConnection
+    , vcCustomerGatewayConfiguration
     , vcRoutes
     , vcVPNGatewayId
     , vcOptions
-    , vcVGWTelemetry
     , vcTags
+    , vcVGWTelemetry
     , vcVPNConnectionId
     , vcCustomerGatewayId
-    , vcCustomerGatewayConfiguration
     , vcState
     , vcType
 
@@ -1571,8 +1576,8 @@ module Network.AWS.EC2.Types
     -- * VPNGateway
     , VPNGateway
     , vpnGateway
-    , vgVPCAttachments
     , vgState
+    , vgVPCAttachments
     , vgVPNGatewayId
     , vgAvailabilityZone
     , vgType
@@ -1650,8 +1655,8 @@ module Network.AWS.EC2.Types
     , volumeStatusItem
     , vsiVolumeStatus
     , vsiActions
-    , vsiAvailabilityZone
     , vsiEvents
+    , vsiAvailabilityZone
     , vsiVolumeId
     ) where
 

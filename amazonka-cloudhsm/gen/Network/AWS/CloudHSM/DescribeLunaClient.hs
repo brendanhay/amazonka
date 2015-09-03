@@ -35,11 +35,11 @@ module Network.AWS.CloudHSM.DescribeLunaClient
     , DescribeLunaClientResponse
     -- * Response Lenses
     , drsClientARN
-    , drsCertificateFingerprint
     , drsLastModifiedTimestamp
+    , drsCertificateFingerprint
     , drsCertificate
     , drsLabel
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -86,8 +86,8 @@ instance AWSRequest DescribeLunaClient where
               (\ s h x ->
                  DescribeLunaClientResponse' <$>
                    (x .?> "ClientArn") <*>
-                     (x .?> "CertificateFingerprint")
-                     <*> (x .?> "LastModifiedTimestamp")
+                     (x .?> "LastModifiedTimestamp")
+                     <*> (x .?> "CertificateFingerprint")
                      <*> (x .?> "Certificate")
                      <*> (x .?> "Label")
                      <*> (pure (fromEnum s)))
@@ -119,11 +119,11 @@ instance ToQuery DescribeLunaClient where
 -- | /See:/ 'describeLunaClientResponse' smart constructor.
 data DescribeLunaClientResponse = DescribeLunaClientResponse'
     { _drsClientARN              :: !(Maybe Text)
-    , _drsCertificateFingerprint :: !(Maybe Text)
     , _drsLastModifiedTimestamp  :: !(Maybe Text)
+    , _drsCertificateFingerprint :: !(Maybe Text)
     , _drsCertificate            :: !(Maybe Text)
     , _drsLabel                  :: !(Maybe Text)
-    , _drsStatus                 :: !Int
+    , _drsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLunaClientResponse' with the minimum fields required to make a request.
@@ -132,39 +132,39 @@ data DescribeLunaClientResponse = DescribeLunaClientResponse'
 --
 -- * 'drsClientARN'
 --
--- * 'drsCertificateFingerprint'
---
 -- * 'drsLastModifiedTimestamp'
+--
+-- * 'drsCertificateFingerprint'
 --
 -- * 'drsCertificate'
 --
 -- * 'drsLabel'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 describeLunaClientResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DescribeLunaClientResponse
-describeLunaClientResponse pStatus_ =
+describeLunaClientResponse pResponseStatus_ =
     DescribeLunaClientResponse'
     { _drsClientARN = Nothing
-    , _drsCertificateFingerprint = Nothing
     , _drsLastModifiedTimestamp = Nothing
+    , _drsCertificateFingerprint = Nothing
     , _drsCertificate = Nothing
     , _drsLabel = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | The ARN of the client.
 drsClientARN :: Lens' DescribeLunaClientResponse (Maybe Text)
 drsClientARN = lens _drsClientARN (\ s a -> s{_drsClientARN = a});
 
--- | The certificate fingerprint.
-drsCertificateFingerprint :: Lens' DescribeLunaClientResponse (Maybe Text)
-drsCertificateFingerprint = lens _drsCertificateFingerprint (\ s a -> s{_drsCertificateFingerprint = a});
-
 -- | The date and time the client was last modified.
 drsLastModifiedTimestamp :: Lens' DescribeLunaClientResponse (Maybe Text)
 drsLastModifiedTimestamp = lens _drsLastModifiedTimestamp (\ s a -> s{_drsLastModifiedTimestamp = a});
+
+-- | The certificate fingerprint.
+drsCertificateFingerprint :: Lens' DescribeLunaClientResponse (Maybe Text)
+drsCertificateFingerprint = lens _drsCertificateFingerprint (\ s a -> s{_drsCertificateFingerprint = a});
 
 -- | The certificate installed on the HSMs used by this client.
 drsCertificate :: Lens' DescribeLunaClientResponse (Maybe Text)
@@ -175,5 +175,5 @@ drsLabel :: Lens' DescribeLunaClientResponse (Maybe Text)
 drsLabel = lens _drsLabel (\ s a -> s{_drsLabel = a});
 
 -- | The response status code.
-drsStatus :: Lens' DescribeLunaClientResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DescribeLunaClientResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

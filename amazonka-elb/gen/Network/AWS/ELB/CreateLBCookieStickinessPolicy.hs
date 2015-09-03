@@ -54,7 +54,7 @@ module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     , createLBCookieStickinessPolicyResponse
     , CreateLBCookieStickinessPolicyResponse
     -- * Response Lenses
-    , clbcsprsStatus
+    , clbcsprsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -137,22 +137,22 @@ instance ToQuery CreateLBCookieStickinessPolicy where
 
 -- | /See:/ 'createLBCookieStickinessPolicyResponse' smart constructor.
 newtype CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse'
-    { _clbcsprsStatus :: Int
+    { _clbcsprsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateLBCookieStickinessPolicyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clbcsprsStatus'
+-- * 'clbcsprsResponseStatus'
 createLBCookieStickinessPolicyResponse
-    :: Int -- ^ 'clbcsprsStatus'
+    :: Int -- ^ 'clbcsprsResponseStatus'
     -> CreateLBCookieStickinessPolicyResponse
-createLBCookieStickinessPolicyResponse pStatus_ =
+createLBCookieStickinessPolicyResponse pResponseStatus_ =
     CreateLBCookieStickinessPolicyResponse'
-    { _clbcsprsStatus = pStatus_
+    { _clbcsprsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-clbcsprsStatus :: Lens' CreateLBCookieStickinessPolicyResponse Int
-clbcsprsStatus = lens _clbcsprsStatus (\ s a -> s{_clbcsprsStatus = a});
+clbcsprsResponseStatus :: Lens' CreateLBCookieStickinessPolicyResponse Int
+clbcsprsResponseStatus = lens _clbcsprsResponseStatus (\ s a -> s{_clbcsprsResponseStatus = a});

@@ -39,7 +39,7 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     , DescribeNotificationConfigurationsResponse
     -- * Response Lenses
     , dncrsNextToken
-    , dncrsStatus
+    , dncrsResponseStatus
     , dncrsNotificationConfigurations
     ) where
 
@@ -135,7 +135,7 @@ instance ToQuery DescribeNotificationConfigurations
 -- | /See:/ 'describeNotificationConfigurationsResponse' smart constructor.
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'
     { _dncrsNextToken                  :: !(Maybe Text)
-    , _dncrsStatus                     :: !Int
+    , _dncrsResponseStatus             :: !Int
     , _dncrsNotificationConfigurations :: ![NotificationConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -145,16 +145,16 @@ data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurat
 --
 -- * 'dncrsNextToken'
 --
--- * 'dncrsStatus'
+-- * 'dncrsResponseStatus'
 --
 -- * 'dncrsNotificationConfigurations'
 describeNotificationConfigurationsResponse
-    :: Int -- ^ 'dncrsStatus'
+    :: Int -- ^ 'dncrsResponseStatus'
     -> DescribeNotificationConfigurationsResponse
-describeNotificationConfigurationsResponse pStatus_ =
+describeNotificationConfigurationsResponse pResponseStatus_ =
     DescribeNotificationConfigurationsResponse'
     { _dncrsNextToken = Nothing
-    , _dncrsStatus = pStatus_
+    , _dncrsResponseStatus = pResponseStatus_
     , _dncrsNotificationConfigurations = mempty
     }
 
@@ -164,8 +164,8 @@ dncrsNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
 dncrsNextToken = lens _dncrsNextToken (\ s a -> s{_dncrsNextToken = a});
 
 -- | The response status code.
-dncrsStatus :: Lens' DescribeNotificationConfigurationsResponse Int
-dncrsStatus = lens _dncrsStatus (\ s a -> s{_dncrsStatus = a});
+dncrsResponseStatus :: Lens' DescribeNotificationConfigurationsResponse Int
+dncrsResponseStatus = lens _dncrsResponseStatus (\ s a -> s{_dncrsResponseStatus = a});
 
 -- | The notification configurations.
 dncrsNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]

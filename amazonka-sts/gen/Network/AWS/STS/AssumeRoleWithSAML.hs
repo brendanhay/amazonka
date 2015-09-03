@@ -89,15 +89,15 @@ module Network.AWS.STS.AssumeRoleWithSAML
     , assumeRoleWithSAMLResponse
     , AssumeRoleWithSAMLResponse
     -- * Response Lenses
-    , arwsamlrsAudience
     , arwsamlrsSubject
+    , arwsamlrsAudience
     , arwsamlrsPackedPolicySize
     , arwsamlrsCredentials
     , arwsamlrsSubjectType
     , arwsamlrsNameQualifier
     , arwsamlrsAssumedRoleUser
     , arwsamlrsIssuer
-    , arwsamlrsStatus
+    , arwsamlrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -199,7 +199,7 @@ instance AWSRequest AssumeRoleWithSAML where
           = receiveXMLWrapper "AssumeRoleWithSAMLResult"
               (\ s h x ->
                  AssumeRoleWithSAMLResponse' <$>
-                   (x .@? "Audience") <*> (x .@? "Subject") <*>
+                   (x .@? "Subject") <*> (x .@? "Audience") <*>
                      (x .@? "PackedPolicySize")
                      <*> (x .@? "Credentials")
                      <*> (x .@? "SubjectType")
@@ -231,24 +231,24 @@ instance ToQuery AssumeRoleWithSAML where
 --
 -- /See:/ 'assumeRoleWithSAMLResponse' smart constructor.
 data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
-    { _arwsamlrsAudience         :: !(Maybe Text)
-    , _arwsamlrsSubject          :: !(Maybe Text)
+    { _arwsamlrsSubject          :: !(Maybe Text)
+    , _arwsamlrsAudience         :: !(Maybe Text)
     , _arwsamlrsPackedPolicySize :: !(Maybe Nat)
     , _arwsamlrsCredentials      :: !(Maybe Credentials)
     , _arwsamlrsSubjectType      :: !(Maybe Text)
     , _arwsamlrsNameQualifier    :: !(Maybe Text)
     , _arwsamlrsAssumedRoleUser  :: !(Maybe AssumedRoleUser)
     , _arwsamlrsIssuer           :: !(Maybe Text)
-    , _arwsamlrsStatus           :: !Int
+    , _arwsamlrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AssumeRoleWithSAMLResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arwsamlrsAudience'
---
 -- * 'arwsamlrsSubject'
+--
+-- * 'arwsamlrsAudience'
 --
 -- * 'arwsamlrsPackedPolicySize'
 --
@@ -262,32 +262,32 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
 --
 -- * 'arwsamlrsIssuer'
 --
--- * 'arwsamlrsStatus'
+-- * 'arwsamlrsResponseStatus'
 assumeRoleWithSAMLResponse
-    :: Int -- ^ 'arwsamlrsStatus'
+    :: Int -- ^ 'arwsamlrsResponseStatus'
     -> AssumeRoleWithSAMLResponse
-assumeRoleWithSAMLResponse pStatus_ =
+assumeRoleWithSAMLResponse pResponseStatus_ =
     AssumeRoleWithSAMLResponse'
-    { _arwsamlrsAudience = Nothing
-    , _arwsamlrsSubject = Nothing
+    { _arwsamlrsSubject = Nothing
+    , _arwsamlrsAudience = Nothing
     , _arwsamlrsPackedPolicySize = Nothing
     , _arwsamlrsCredentials = Nothing
     , _arwsamlrsSubjectType = Nothing
     , _arwsamlrsNameQualifier = Nothing
     , _arwsamlrsAssumedRoleUser = Nothing
     , _arwsamlrsIssuer = Nothing
-    , _arwsamlrsStatus = pStatus_
+    , _arwsamlrsResponseStatus = pResponseStatus_
     }
-
--- | The value of the 'Recipient' attribute of the 'SubjectConfirmationData'
--- element of the SAML assertion.
-arwsamlrsAudience :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
-arwsamlrsAudience = lens _arwsamlrsAudience (\ s a -> s{_arwsamlrsAudience = a});
 
 -- | The value of the 'NameID' element in the 'Subject' element of the SAML
 -- assertion.
 arwsamlrsSubject :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsSubject = lens _arwsamlrsSubject (\ s a -> s{_arwsamlrsSubject = a});
+
+-- | The value of the 'Recipient' attribute of the 'SubjectConfirmationData'
+-- element of the SAML assertion.
+arwsamlrsAudience :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
+arwsamlrsAudience = lens _arwsamlrsAudience (\ s a -> s{_arwsamlrsAudience = a});
 
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100
@@ -331,5 +331,5 @@ arwsamlrsIssuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsIssuer = lens _arwsamlrsIssuer (\ s a -> s{_arwsamlrsIssuer = a});
 
 -- | The response status code.
-arwsamlrsStatus :: Lens' AssumeRoleWithSAMLResponse Int
-arwsamlrsStatus = lens _arwsamlrsStatus (\ s a -> s{_arwsamlrsStatus = a});
+arwsamlrsResponseStatus :: Lens' AssumeRoleWithSAMLResponse Int
+arwsamlrsResponseStatus = lens _arwsamlrsResponseStatus (\ s a -> s{_arwsamlrsResponseStatus = a});

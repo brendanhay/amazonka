@@ -35,7 +35,7 @@ module Network.AWS.S3.GetBucketACL
     -- * Response Lenses
     , gbarsGrants
     , gbarsOwner
-    , gbarsStatus
+    , gbarsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -90,9 +90,9 @@ instance ToQuery GetBucketACL where
 
 -- | /See:/ 'getBucketACLResponse' smart constructor.
 data GetBucketACLResponse = GetBucketACLResponse'
-    { _gbarsGrants :: !(Maybe [Grant])
-    , _gbarsOwner  :: !(Maybe Owner)
-    , _gbarsStatus :: !Int
+    { _gbarsGrants         :: !(Maybe [Grant])
+    , _gbarsOwner          :: !(Maybe Owner)
+    , _gbarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketACLResponse' with the minimum fields required to make a request.
@@ -103,15 +103,15 @@ data GetBucketACLResponse = GetBucketACLResponse'
 --
 -- * 'gbarsOwner'
 --
--- * 'gbarsStatus'
+-- * 'gbarsResponseStatus'
 getBucketACLResponse
-    :: Int -- ^ 'gbarsStatus'
+    :: Int -- ^ 'gbarsResponseStatus'
     -> GetBucketACLResponse
-getBucketACLResponse pStatus_ =
+getBucketACLResponse pResponseStatus_ =
     GetBucketACLResponse'
     { _gbarsGrants = Nothing
     , _gbarsOwner = Nothing
-    , _gbarsStatus = pStatus_
+    , _gbarsResponseStatus = pResponseStatus_
     }
 
 -- | A list of grants.
@@ -123,5 +123,5 @@ gbarsOwner :: Lens' GetBucketACLResponse (Maybe Owner)
 gbarsOwner = lens _gbarsOwner (\ s a -> s{_gbarsOwner = a});
 
 -- | The response status code.
-gbarsStatus :: Lens' GetBucketACLResponse Int
-gbarsStatus = lens _gbarsStatus (\ s a -> s{_gbarsStatus = a});
+gbarsResponseStatus :: Lens' GetBucketACLResponse Int
+gbarsResponseStatus = lens _gbarsResponseStatus (\ s a -> s{_gbarsResponseStatus = a});

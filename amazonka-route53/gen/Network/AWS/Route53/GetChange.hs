@@ -41,7 +41,7 @@ module Network.AWS.Route53.GetChange
     , getChangeResponse
     , GetChangeResponse
     -- * Response Lenses
-    , gcrsStatus
+    , gcrsResponseStatus
     , gcrsChangeInfo
     ) where
 
@@ -100,30 +100,30 @@ instance ToQuery GetChange where
 --
 -- /See:/ 'getChangeResponse' smart constructor.
 data GetChangeResponse = GetChangeResponse'
-    { _gcrsStatus     :: !Int
-    , _gcrsChangeInfo :: !ChangeInfo
+    { _gcrsResponseStatus :: !Int
+    , _gcrsChangeInfo     :: !ChangeInfo
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetChangeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcrsStatus'
+-- * 'gcrsResponseStatus'
 --
 -- * 'gcrsChangeInfo'
 getChangeResponse
-    :: Int -- ^ 'gcrsStatus'
+    :: Int -- ^ 'gcrsResponseStatus'
     -> ChangeInfo -- ^ 'gcrsChangeInfo'
     -> GetChangeResponse
-getChangeResponse pStatus_ pChangeInfo_ =
+getChangeResponse pResponseStatus_ pChangeInfo_ =
     GetChangeResponse'
-    { _gcrsStatus = pStatus_
+    { _gcrsResponseStatus = pResponseStatus_
     , _gcrsChangeInfo = pChangeInfo_
     }
 
 -- | The response status code.
-gcrsStatus :: Lens' GetChangeResponse Int
-gcrsStatus = lens _gcrsStatus (\ s a -> s{_gcrsStatus = a});
+gcrsResponseStatus :: Lens' GetChangeResponse Int
+gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
 
 -- | A complex type that contains information about the specified change
 -- batch, including the change batch ID, the status of the change, and the

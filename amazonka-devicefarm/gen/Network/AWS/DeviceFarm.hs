@@ -27,11 +27,11 @@ module Network.AWS.DeviceFarm
     -- ** IdempotencyException
     , _IdempotencyException
 
-    -- ** NotFoundException
-    , _NotFoundException
-
     -- ** ArgumentException
     , _ArgumentException
+
+    -- ** NotFoundException
+    , _NotFoundException
 
     -- ** ServiceAccountException
     , _ServiceAccountException
@@ -54,23 +54,20 @@ module Network.AWS.DeviceFarm
     -- ** ListTests
     , module Network.AWS.DeviceFarm.ListTests
 
-    -- ** CreateUpload
-    , module Network.AWS.DeviceFarm.CreateUpload
-
     -- ** ListArtifacts
     , module Network.AWS.DeviceFarm.ListArtifacts
+
+    -- ** CreateUpload
+    , module Network.AWS.DeviceFarm.CreateUpload
 
     -- ** GetDevicePool
     , module Network.AWS.DeviceFarm.GetDevicePool
 
-    -- ** GetUpload
-    , module Network.AWS.DeviceFarm.GetUpload
-
     -- ** ListDevicePools
     , module Network.AWS.DeviceFarm.ListDevicePools
 
-    -- ** GetTest
-    , module Network.AWS.DeviceFarm.GetTest
+    -- ** GetUpload
+    , module Network.AWS.DeviceFarm.GetUpload
 
     -- ** CreateDevicePool
     , module Network.AWS.DeviceFarm.CreateDevicePool
@@ -78,11 +75,14 @@ module Network.AWS.DeviceFarm
     -- ** ListRuns
     , module Network.AWS.DeviceFarm.ListRuns
 
-    -- ** ListJobs
-    , module Network.AWS.DeviceFarm.ListJobs
+    -- ** GetTest
+    , module Network.AWS.DeviceFarm.GetTest
 
     -- ** GetDevice
     , module Network.AWS.DeviceFarm.GetDevice
+
+    -- ** ListJobs
+    , module Network.AWS.DeviceFarm.ListJobs
 
     -- ** GetJob
     , module Network.AWS.DeviceFarm.GetJob
@@ -111,11 +111,11 @@ module Network.AWS.DeviceFarm
     -- ** GetProject
     , module Network.AWS.DeviceFarm.GetProject
 
-    -- ** ListDevices
-    , module Network.AWS.DeviceFarm.ListDevices
-
     -- ** ListUniqueProblems
     , module Network.AWS.DeviceFarm.ListUniqueProblems
+
+    -- ** ListDevices
+    , module Network.AWS.DeviceFarm.ListDevices
 
     -- ** CreateProject
     , module Network.AWS.DeviceFarm.CreateProject
@@ -306,15 +306,15 @@ module Network.AWS.DeviceFarm
     -- ** Run
     , Run
     , run
-    , runStatus
     , runBillingMethod
+    , runStatus
     , runCounters
     , runPlatform
     , runArn
     , runCreated
-    , runCompletedJobs
     , runStopped
     , runResult
+    , runCompletedJobs
     , runName
     , runType
     , runMessage
@@ -324,9 +324,9 @@ module Network.AWS.DeviceFarm
     -- ** Sample
     , Sample
     , sample
-    , sArn
-    , sUrl
-    , sType
+    , samArn
+    , samUrl
+    , samType
 
     -- ** ScheduleRunConfiguration
     , ScheduleRunConfiguration
@@ -350,16 +350,16 @@ module Network.AWS.DeviceFarm
     -- ** Suite
     , Suite
     , suite
-    , suiStatus
-    , suiCounters
-    , suiArn
-    , suiCreated
-    , suiStopped
-    , suiResult
-    , suiName
-    , suiType
-    , suiMessage
-    , suiStarted
+    , sStatus
+    , sCounters
+    , sArn
+    , sCreated
+    , sStopped
+    , sResult
+    , sName
+    , sType
+    , sMessage
+    , sStarted
 
     -- ** Test
     , Test

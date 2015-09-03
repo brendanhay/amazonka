@@ -36,7 +36,7 @@ module Network.AWS.StorageGateway.CancelArchival
     , CancelArchivalResponse
     -- * Response Lenses
     , carsTapeARN
-    , carsStatus
+    , carsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -115,8 +115,8 @@ instance ToQuery CancelArchival where
 --
 -- /See:/ 'cancelArchivalResponse' smart constructor.
 data CancelArchivalResponse = CancelArchivalResponse'
-    { _carsTapeARN :: !(Maybe Text)
-    , _carsStatus  :: !Int
+    { _carsTapeARN        :: !(Maybe Text)
+    , _carsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CancelArchivalResponse' with the minimum fields required to make a request.
@@ -125,14 +125,14 @@ data CancelArchivalResponse = CancelArchivalResponse'
 --
 -- * 'carsTapeARN'
 --
--- * 'carsStatus'
+-- * 'carsResponseStatus'
 cancelArchivalResponse
-    :: Int -- ^ 'carsStatus'
+    :: Int -- ^ 'carsResponseStatus'
     -> CancelArchivalResponse
-cancelArchivalResponse pStatus_ =
+cancelArchivalResponse pResponseStatus_ =
     CancelArchivalResponse'
     { _carsTapeARN = Nothing
-    , _carsStatus = pStatus_
+    , _carsResponseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which archiving
@@ -141,5 +141,5 @@ carsTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 carsTapeARN = lens _carsTapeARN (\ s a -> s{_carsTapeARN = a});
 
 -- | The response status code.
-carsStatus :: Lens' CancelArchivalResponse Int
-carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});
+carsResponseStatus :: Lens' CancelArchivalResponse Int
+carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});

@@ -47,7 +47,7 @@ module Network.AWS.SES.SetIdentityNotificationTopic
     , setIdentityNotificationTopicResponse
     , SetIdentityNotificationTopicResponse
     -- * Response Lenses
-    , sintrsStatus
+    , sintrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -136,22 +136,22 @@ instance ToQuery SetIdentityNotificationTopic where
 --
 -- /See:/ 'setIdentityNotificationTopicResponse' smart constructor.
 newtype SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'
-    { _sintrsStatus :: Int
+    { _sintrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SetIdentityNotificationTopicResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sintrsStatus'
+-- * 'sintrsResponseStatus'
 setIdentityNotificationTopicResponse
-    :: Int -- ^ 'sintrsStatus'
+    :: Int -- ^ 'sintrsResponseStatus'
     -> SetIdentityNotificationTopicResponse
-setIdentityNotificationTopicResponse pStatus_ =
+setIdentityNotificationTopicResponse pResponseStatus_ =
     SetIdentityNotificationTopicResponse'
-    { _sintrsStatus = pStatus_
+    { _sintrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-sintrsStatus :: Lens' SetIdentityNotificationTopicResponse Int
-sintrsStatus = lens _sintrsStatus (\ s a -> s{_sintrsStatus = a});
+sintrsResponseStatus :: Lens' SetIdentityNotificationTopicResponse Int
+sintrsResponseStatus = lens _sintrsResponseStatus (\ s a -> s{_sintrsResponseStatus = a});

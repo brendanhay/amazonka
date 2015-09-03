@@ -38,7 +38,7 @@ module Network.AWS.CloudFormation.DescribeStackResource
     , DescribeStackResourceResponse
     -- * Response Lenses
     , dsrrsStackResourceDetail
-    , dsrrsStatus
+    , dsrrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -119,7 +119,7 @@ instance ToQuery DescribeStackResource where
 -- /See:/ 'describeStackResourceResponse' smart constructor.
 data DescribeStackResourceResponse = DescribeStackResourceResponse'
     { _dsrrsStackResourceDetail :: !(Maybe StackResourceDetail)
-    , _dsrrsStatus              :: !Int
+    , _dsrrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeStackResourceResponse' with the minimum fields required to make a request.
@@ -128,14 +128,14 @@ data DescribeStackResourceResponse = DescribeStackResourceResponse'
 --
 -- * 'dsrrsStackResourceDetail'
 --
--- * 'dsrrsStatus'
+-- * 'dsrrsResponseStatus'
 describeStackResourceResponse
-    :: Int -- ^ 'dsrrsStatus'
+    :: Int -- ^ 'dsrrsResponseStatus'
     -> DescribeStackResourceResponse
-describeStackResourceResponse pStatus_ =
+describeStackResourceResponse pResponseStatus_ =
     DescribeStackResourceResponse'
     { _dsrrsStackResourceDetail = Nothing
-    , _dsrrsStatus = pStatus_
+    , _dsrrsResponseStatus = pResponseStatus_
     }
 
 -- | A 'StackResourceDetail' structure containing the description of the
@@ -144,5 +144,5 @@ dsrrsStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackReso
 dsrrsStackResourceDetail = lens _dsrrsStackResourceDetail (\ s a -> s{_dsrrsStackResourceDetail = a});
 
 -- | The response status code.
-dsrrsStatus :: Lens' DescribeStackResourceResponse Int
-dsrrsStatus = lens _dsrrsStatus (\ s a -> s{_dsrrsStatus = a});
+dsrrsResponseStatus :: Lens' DescribeStackResourceResponse Int
+dsrrsResponseStatus = lens _dsrrsResponseStatus (\ s a -> s{_dsrrsResponseStatus = a});

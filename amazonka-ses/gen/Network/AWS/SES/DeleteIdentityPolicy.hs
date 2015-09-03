@@ -46,7 +46,7 @@ module Network.AWS.SES.DeleteIdentityPolicy
     , deleteIdentityPolicyResponse
     , DeleteIdentityPolicyResponse
     -- * Response Lenses
-    , diprsStatus
+    , diprsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -125,22 +125,22 @@ instance ToQuery DeleteIdentityPolicy where
 --
 -- /See:/ 'deleteIdentityPolicyResponse' smart constructor.
 newtype DeleteIdentityPolicyResponse = DeleteIdentityPolicyResponse'
-    { _diprsStatus :: Int
+    { _diprsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteIdentityPolicyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diprsStatus'
+-- * 'diprsResponseStatus'
 deleteIdentityPolicyResponse
-    :: Int -- ^ 'diprsStatus'
+    :: Int -- ^ 'diprsResponseStatus'
     -> DeleteIdentityPolicyResponse
-deleteIdentityPolicyResponse pStatus_ =
+deleteIdentityPolicyResponse pResponseStatus_ =
     DeleteIdentityPolicyResponse'
-    { _diprsStatus = pStatus_
+    { _diprsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-diprsStatus :: Lens' DeleteIdentityPolicyResponse Int
-diprsStatus = lens _diprsStatus (\ s a -> s{_diprsStatus = a});
+diprsResponseStatus :: Lens' DeleteIdentityPolicyResponse Int
+diprsResponseStatus = lens _diprsResponseStatus (\ s a -> s{_diprsResponseStatus = a});

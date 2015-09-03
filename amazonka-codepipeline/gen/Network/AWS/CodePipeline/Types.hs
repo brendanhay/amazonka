@@ -16,8 +16,8 @@ module Network.AWS.CodePipeline.Types
       codePipeline
 
     -- * Errors
-    , _ValidationException
     , _InvalidClientTokenException
+    , _ValidationException
     , _InvalidNonceException
     , _ActionNotFoundException
     , _InvalidBlockerDeclarationException
@@ -29,10 +29,10 @@ module Network.AWS.CodePipeline.Types
     , _InvalidStageDeclarationException
     , _InvalidActionDeclarationException
     , _StageNotFoundException
-    , _JobNotFoundException
     , _InvalidStructureException
-    , _PipelineNotFoundException
+    , _JobNotFoundException
     , _PipelineNameInUseException
+    , _PipelineNotFoundException
     , _LimitExceededException
 
     -- * ActionCategory
@@ -55,6 +55,9 @@ module Network.AWS.CodePipeline.Types
 
     -- * BlockerType
     , BlockerType (..)
+
+    -- * EncryptionKeyType
+    , EncryptionKeyType (..)
 
     -- * FailureType
     , FailureType (..)
@@ -111,9 +114,9 @@ module Network.AWS.CodePipeline.Types
     , aeStatus
     , aeLastStatusChange
     , aeExternalExecutionURL
-    , aePercentComplete
-    , aeErrorDetails
     , aeExternalExecutionId
+    , aeErrorDetails
+    , aePercentComplete
 
     -- * ActionRevision
     , ActionRevision
@@ -125,8 +128,8 @@ module Network.AWS.CodePipeline.Types
     -- * ActionState
     , ActionState
     , actionState
-    , asEntityURL
     , asRevisionURL
+    , asEntityURL
     , asActionName
     , asCurrentRevision
     , asLatestExecution
@@ -153,8 +156,8 @@ module Network.AWS.CodePipeline.Types
     , actionTypeSettings
     , atsThirdPartyConfigurationURL
     , atsExecutionURLTemplate
-    , atsEntityURLTemplate
     , atsRevisionURLTemplate
+    , atsEntityURLTemplate
 
     -- * Artifact
     , Artifact
@@ -178,6 +181,7 @@ module Network.AWS.CodePipeline.Types
     -- * ArtifactStore
     , ArtifactStore
     , artifactStore
+    , asEncryptionKey
     , asType
     , asLocation
 
@@ -193,6 +197,12 @@ module Network.AWS.CodePipeline.Types
     , crRevision
     , crChangeIdentifier
 
+    -- * EncryptionKey
+    , EncryptionKey
+    , encryptionKey
+    , ekId
+    , ekType
+
     -- * ErrorDetails
     , ErrorDetails
     , errorDetails
@@ -203,15 +213,15 @@ module Network.AWS.CodePipeline.Types
     , ExecutionDetails
     , executionDetails
     , edSummary
-    , edPercentComplete
     , edExternalExecutionId
+    , edPercentComplete
 
     -- * FailureDetails
     , FailureDetails
     , failureDetails
     , fdExternalExecutionId
-    , fdMessage
     , fdType
+    , fdMessage
 
     -- * InputArtifact
     , InputArtifact
@@ -233,6 +243,7 @@ module Network.AWS.CodePipeline.Types
     , jdOutputArtifacts
     , jdArtifactCredentials
     , jdPipelineContext
+    , jdEncryptionKey
     , jdActionTypeId
     , jdInputArtifacts
     , jdActionConfiguration
@@ -311,6 +322,7 @@ module Network.AWS.CodePipeline.Types
     , tpjdOutputArtifacts
     , tpjdArtifactCredentials
     , tpjdPipelineContext
+    , tpjdEncryptionKey
     , tpjdActionTypeId
     , tpjdInputArtifacts
     , tpjdActionConfiguration
@@ -367,14 +379,14 @@ codePipeline =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The validation was specified in an invalid format.
-_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-_ValidationException = _ServiceError . hasCode "ValidationException"
-
 -- | The client token was specified in an invalid format
 _InvalidClientTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidClientTokenException =
     _ServiceError . hasCode "InvalidClientTokenException"
+
+-- | The validation was specified in an invalid format.
+_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
+_ValidationException = _ServiceError . hasCode "ValidationException"
 
 -- | The specified nonce was specified in an invalid format.
 _InvalidNonceException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -429,25 +441,25 @@ _InvalidActionDeclarationException =
 _StageNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _StageNotFoundException = _ServiceError . hasCode "StageNotFoundException"
 
--- | The specified job was specified in an invalid format or cannot be found.
-_JobNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_JobNotFoundException = _ServiceError . hasCode "JobNotFoundException"
-
 -- | The specified structure was specified in an invalid format.
 _InvalidStructureException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidStructureException =
     _ServiceError . hasCode "InvalidStructureException"
+
+-- | The specified job was specified in an invalid format or cannot be found.
+_JobNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_JobNotFoundException = _ServiceError . hasCode "JobNotFoundException"
+
+-- | The specified pipeline name is already in use.
+_PipelineNameInUseException :: AsError a => Getting (First ServiceError) a ServiceError
+_PipelineNameInUseException =
+    _ServiceError . hasCode "PipelineNameInUseException"
 
 -- | The specified pipeline was specified in an invalid format or cannot be
 -- found.
 _PipelineNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _PipelineNotFoundException =
     _ServiceError . hasCode "PipelineNotFoundException"
-
--- | The specified pipeline name is already in use.
-_PipelineNameInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_PipelineNameInUseException =
-    _ServiceError . hasCode "PipelineNameInUseException"
 
 -- | The number of pipelines associated with the AWS account has exceeded the
 -- limit allowed for the account.

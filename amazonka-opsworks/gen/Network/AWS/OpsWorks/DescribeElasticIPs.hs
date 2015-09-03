@@ -45,7 +45,7 @@ module Network.AWS.OpsWorks.DescribeElasticIPs
     , DescribeElasticIPsResponse
     -- * Response Lenses
     , deirsElasticIPs
-    , deirsStatus
+    , deirsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -137,8 +137,8 @@ instance ToQuery DescribeElasticIPs where
 --
 -- /See:/ 'describeElasticIPsResponse' smart constructor.
 data DescribeElasticIPsResponse = DescribeElasticIPsResponse'
-    { _deirsElasticIPs :: !(Maybe [ElasticIP])
-    , _deirsStatus     :: !Int
+    { _deirsElasticIPs     :: !(Maybe [ElasticIP])
+    , _deirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeElasticIPsResponse' with the minimum fields required to make a request.
@@ -147,14 +147,14 @@ data DescribeElasticIPsResponse = DescribeElasticIPsResponse'
 --
 -- * 'deirsElasticIPs'
 --
--- * 'deirsStatus'
+-- * 'deirsResponseStatus'
 describeElasticIPsResponse
-    :: Int -- ^ 'deirsStatus'
+    :: Int -- ^ 'deirsResponseStatus'
     -> DescribeElasticIPsResponse
-describeElasticIPsResponse pStatus_ =
+describeElasticIPsResponse pResponseStatus_ =
     DescribeElasticIPsResponse'
     { _deirsElasticIPs = Nothing
-    , _deirsStatus = pStatus_
+    , _deirsResponseStatus = pResponseStatus_
     }
 
 -- | An 'ElasticIps' object that describes the specified Elastic IP
@@ -163,5 +163,5 @@ deirsElasticIPs :: Lens' DescribeElasticIPsResponse [ElasticIP]
 deirsElasticIPs = lens _deirsElasticIPs (\ s a -> s{_deirsElasticIPs = a}) . _Default . _Coerce;
 
 -- | The response status code.
-deirsStatus :: Lens' DescribeElasticIPsResponse Int
-deirsStatus = lens _deirsStatus (\ s a -> s{_deirsStatus = a});
+deirsResponseStatus :: Lens' DescribeElasticIPsResponse Int
+deirsResponseStatus = lens _deirsResponseStatus (\ s a -> s{_deirsResponseStatus = a});

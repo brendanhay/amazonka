@@ -38,7 +38,7 @@ module Network.AWS.SES.GetIdentityVerificationAttributes
     , getIdentityVerificationAttributesResponse
     , GetIdentityVerificationAttributesResponse
     -- * Response Lenses
-    , givarsStatus
+    , givarsResponseStatus
     , givarsVerificationAttributes
     ) where
 
@@ -107,7 +107,7 @@ instance ToQuery GetIdentityVerificationAttributes
 --
 -- /See:/ 'getIdentityVerificationAttributesResponse' smart constructor.
 data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
-    { _givarsStatus                 :: !Int
+    { _givarsResponseStatus         :: !Int
     , _givarsVerificationAttributes :: !(Map Text IdentityVerificationAttributes)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -115,21 +115,21 @@ data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttribut
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'givarsStatus'
+-- * 'givarsResponseStatus'
 --
 -- * 'givarsVerificationAttributes'
 getIdentityVerificationAttributesResponse
-    :: Int -- ^ 'givarsStatus'
+    :: Int -- ^ 'givarsResponseStatus'
     -> GetIdentityVerificationAttributesResponse
-getIdentityVerificationAttributesResponse pStatus_ =
+getIdentityVerificationAttributesResponse pResponseStatus_ =
     GetIdentityVerificationAttributesResponse'
-    { _givarsStatus = pStatus_
+    { _givarsResponseStatus = pResponseStatus_
     , _givarsVerificationAttributes = mempty
     }
 
 -- | The response status code.
-givarsStatus :: Lens' GetIdentityVerificationAttributesResponse Int
-givarsStatus = lens _givarsStatus (\ s a -> s{_givarsStatus = a});
+givarsResponseStatus :: Lens' GetIdentityVerificationAttributesResponse Int
+givarsResponseStatus = lens _givarsResponseStatus (\ s a -> s{_givarsResponseStatus = a});
 
 -- | A map of Identities to IdentityVerificationAttributes objects.
 givarsVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (HashMap Text IdentityVerificationAttributes)

@@ -47,7 +47,7 @@ module Network.AWS.ECS.ListTasks
     -- * Response Lenses
     , ltrsNextToken
     , ltrsTaskARNs
-    , ltrsStatus
+    , ltrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -208,9 +208,9 @@ instance ToQuery ListTasks where
 
 -- | /See:/ 'listTasksResponse' smart constructor.
 data ListTasksResponse = ListTasksResponse'
-    { _ltrsNextToken :: !(Maybe Text)
-    , _ltrsTaskARNs  :: !(Maybe [Text])
-    , _ltrsStatus    :: !Int
+    { _ltrsNextToken      :: !(Maybe Text)
+    , _ltrsTaskARNs       :: !(Maybe [Text])
+    , _ltrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListTasksResponse' with the minimum fields required to make a request.
@@ -221,15 +221,15 @@ data ListTasksResponse = ListTasksResponse'
 --
 -- * 'ltrsTaskARNs'
 --
--- * 'ltrsStatus'
+-- * 'ltrsResponseStatus'
 listTasksResponse
-    :: Int -- ^ 'ltrsStatus'
+    :: Int -- ^ 'ltrsResponseStatus'
     -> ListTasksResponse
-listTasksResponse pStatus_ =
+listTasksResponse pResponseStatus_ =
     ListTasksResponse'
     { _ltrsNextToken = Nothing
     , _ltrsTaskARNs = Nothing
-    , _ltrsStatus = pStatus_
+    , _ltrsResponseStatus = pResponseStatus_
     }
 
 -- | The 'nextToken' value to include in a future 'ListTasks' request. When
@@ -245,5 +245,5 @@ ltrsTaskARNs :: Lens' ListTasksResponse [Text]
 ltrsTaskARNs = lens _ltrsTaskARNs (\ s a -> s{_ltrsTaskARNs = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ltrsStatus :: Lens' ListTasksResponse Int
-ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});
+ltrsResponseStatus :: Lens' ListTasksResponse Int
+ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});

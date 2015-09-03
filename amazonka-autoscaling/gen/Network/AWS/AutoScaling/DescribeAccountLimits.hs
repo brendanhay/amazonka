@@ -35,9 +35,9 @@ module Network.AWS.AutoScaling.DescribeAccountLimits
     , describeAccountLimitsResponse
     , DescribeAccountLimitsResponse
     -- * Response Lenses
-    , dalrsMaxNumberOfLaunchConfigurations
     , dalrsMaxNumberOfAutoScalingGroups
-    , dalrsStatus
+    , dalrsMaxNumberOfLaunchConfigurations
+    , dalrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -65,8 +65,8 @@ instance AWSRequest DescribeAccountLimits where
           = receiveXMLWrapper "DescribeAccountLimitsResult"
               (\ s h x ->
                  DescribeAccountLimitsResponse' <$>
-                   (x .@? "MaxNumberOfLaunchConfigurations") <*>
-                     (x .@? "MaxNumberOfAutoScalingGroups")
+                   (x .@? "MaxNumberOfAutoScalingGroups") <*>
+                     (x .@? "MaxNumberOfLaunchConfigurations")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders DescribeAccountLimits where
@@ -84,40 +84,40 @@ instance ToQuery DescribeAccountLimits where
 
 -- | /See:/ 'describeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-    { _dalrsMaxNumberOfLaunchConfigurations :: !(Maybe Int)
-    , _dalrsMaxNumberOfAutoScalingGroups    :: !(Maybe Int)
-    , _dalrsStatus                          :: !Int
+    { _dalrsMaxNumberOfAutoScalingGroups    :: !(Maybe Int)
+    , _dalrsMaxNumberOfLaunchConfigurations :: !(Maybe Int)
+    , _dalrsResponseStatus                  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAccountLimitsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dalrsMaxNumberOfLaunchConfigurations'
---
 -- * 'dalrsMaxNumberOfAutoScalingGroups'
 --
--- * 'dalrsStatus'
+-- * 'dalrsMaxNumberOfLaunchConfigurations'
+--
+-- * 'dalrsResponseStatus'
 describeAccountLimitsResponse
-    :: Int -- ^ 'dalrsStatus'
+    :: Int -- ^ 'dalrsResponseStatus'
     -> DescribeAccountLimitsResponse
-describeAccountLimitsResponse pStatus_ =
+describeAccountLimitsResponse pResponseStatus_ =
     DescribeAccountLimitsResponse'
-    { _dalrsMaxNumberOfLaunchConfigurations = Nothing
-    , _dalrsMaxNumberOfAutoScalingGroups = Nothing
-    , _dalrsStatus = pStatus_
+    { _dalrsMaxNumberOfAutoScalingGroups = Nothing
+    , _dalrsMaxNumberOfLaunchConfigurations = Nothing
+    , _dalrsResponseStatus = pResponseStatus_
     }
-
--- | The maximum number of launch configurations allowed for your AWS
--- account. The default limit is 100 per region.
-dalrsMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Int)
-dalrsMaxNumberOfLaunchConfigurations = lens _dalrsMaxNumberOfLaunchConfigurations (\ s a -> s{_dalrsMaxNumberOfLaunchConfigurations = a});
 
 -- | The maximum number of groups allowed for your AWS account. The default
 -- limit is 20 per region.
 dalrsMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Int)
 dalrsMaxNumberOfAutoScalingGroups = lens _dalrsMaxNumberOfAutoScalingGroups (\ s a -> s{_dalrsMaxNumberOfAutoScalingGroups = a});
 
+-- | The maximum number of launch configurations allowed for your AWS
+-- account. The default limit is 100 per region.
+dalrsMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Int)
+dalrsMaxNumberOfLaunchConfigurations = lens _dalrsMaxNumberOfLaunchConfigurations (\ s a -> s{_dalrsMaxNumberOfLaunchConfigurations = a});
+
 -- | The response status code.
-dalrsStatus :: Lens' DescribeAccountLimitsResponse Int
-dalrsStatus = lens _dalrsStatus (\ s a -> s{_dalrsStatus = a});
+dalrsResponseStatus :: Lens' DescribeAccountLimitsResponse Int
+dalrsResponseStatus = lens _dalrsResponseStatus (\ s a -> s{_dalrsResponseStatus = a});

@@ -34,7 +34,7 @@ module Network.AWS.CodeDeploy.GetDeployment
     , GetDeploymentResponse
     -- * Response Lenses
     , gdrsDeploymentInfo
-    , gdrsStatus
+    , gdrsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -103,7 +103,7 @@ instance ToQuery GetDeployment where
 -- /See:/ 'getDeploymentResponse' smart constructor.
 data GetDeploymentResponse = GetDeploymentResponse'
     { _gdrsDeploymentInfo :: !(Maybe DeploymentInfo)
-    , _gdrsStatus         :: !Int
+    , _gdrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDeploymentResponse' with the minimum fields required to make a request.
@@ -112,14 +112,14 @@ data GetDeploymentResponse = GetDeploymentResponse'
 --
 -- * 'gdrsDeploymentInfo'
 --
--- * 'gdrsStatus'
+-- * 'gdrsResponseStatus'
 getDeploymentResponse
-    :: Int -- ^ 'gdrsStatus'
+    :: Int -- ^ 'gdrsResponseStatus'
     -> GetDeploymentResponse
-getDeploymentResponse pStatus_ =
+getDeploymentResponse pResponseStatus_ =
     GetDeploymentResponse'
     { _gdrsDeploymentInfo = Nothing
-    , _gdrsStatus = pStatus_
+    , _gdrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the deployment.
@@ -127,5 +127,5 @@ gdrsDeploymentInfo :: Lens' GetDeploymentResponse (Maybe DeploymentInfo)
 gdrsDeploymentInfo = lens _gdrsDeploymentInfo (\ s a -> s{_gdrsDeploymentInfo = a});
 
 -- | The response status code.
-gdrsStatus :: Lens' GetDeploymentResponse Int
-gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});
+gdrsResponseStatus :: Lens' GetDeploymentResponse Int
+gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});

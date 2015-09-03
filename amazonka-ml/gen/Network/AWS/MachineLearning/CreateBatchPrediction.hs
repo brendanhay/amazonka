@@ -52,7 +52,7 @@ module Network.AWS.MachineLearning.CreateBatchPrediction
     , CreateBatchPredictionResponse
     -- * Response Lenses
     , cbprsBatchPredictionId
-    , cbprsStatus
+    , cbprsResponseStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -177,7 +177,7 @@ instance ToQuery CreateBatchPrediction where
 -- /See:/ 'createBatchPredictionResponse' smart constructor.
 data CreateBatchPredictionResponse = CreateBatchPredictionResponse'
     { _cbprsBatchPredictionId :: !(Maybe Text)
-    , _cbprsStatus            :: !Int
+    , _cbprsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateBatchPredictionResponse' with the minimum fields required to make a request.
@@ -186,14 +186,14 @@ data CreateBatchPredictionResponse = CreateBatchPredictionResponse'
 --
 -- * 'cbprsBatchPredictionId'
 --
--- * 'cbprsStatus'
+-- * 'cbprsResponseStatus'
 createBatchPredictionResponse
-    :: Int -- ^ 'cbprsStatus'
+    :: Int -- ^ 'cbprsResponseStatus'
     -> CreateBatchPredictionResponse
-createBatchPredictionResponse pStatus_ =
+createBatchPredictionResponse pResponseStatus_ =
     CreateBatchPredictionResponse'
     { _cbprsBatchPredictionId = Nothing
-    , _cbprsStatus = pStatus_
+    , _cbprsResponseStatus = pResponseStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the 'BatchPrediction'. This
@@ -203,5 +203,5 @@ cbprsBatchPredictionId :: Lens' CreateBatchPredictionResponse (Maybe Text)
 cbprsBatchPredictionId = lens _cbprsBatchPredictionId (\ s a -> s{_cbprsBatchPredictionId = a});
 
 -- | The response status code.
-cbprsStatus :: Lens' CreateBatchPredictionResponse Int
-cbprsStatus = lens _cbprsStatus (\ s a -> s{_cbprsStatus = a});
+cbprsResponseStatus :: Lens' CreateBatchPredictionResponse Int
+cbprsResponseStatus = lens _cbprsResponseStatus (\ s a -> s{_cbprsResponseStatus = a});

@@ -43,7 +43,7 @@ module Network.AWS.DataPipeline.QueryObjects
     , qorsHasMoreResults
     , qorsIds
     , qorsMarker
-    , qorsStatus
+    , qorsResponseStatus
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -120,8 +120,8 @@ qoSphere = lens _qoSphere (\ s a -> s{_qoSphere = a});
 
 instance AWSPager QueryObjects where
         page rq rs
-          | stop (rs ^. qorsHasMoreResults) = Nothing
-          | isNothing (rs ^. qorsMarker) = Nothing
+          | stop (rs ^. qorsMarker) = Nothing
+          | stop (rs ^. qorsIds) = Nothing
           | otherwise =
             Just $ rq & qoMarker .~ rs ^. qorsMarker
 
@@ -168,7 +168,7 @@ data QueryObjectsResponse = QueryObjectsResponse'
     { _qorsHasMoreResults :: !(Maybe Bool)
     , _qorsIds            :: !(Maybe [Text])
     , _qorsMarker         :: !(Maybe Text)
-    , _qorsStatus         :: !Int
+    , _qorsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'QueryObjectsResponse' with the minimum fields required to make a request.
@@ -181,16 +181,16 @@ data QueryObjectsResponse = QueryObjectsResponse'
 --
 -- * 'qorsMarker'
 --
--- * 'qorsStatus'
+-- * 'qorsResponseStatus'
 queryObjectsResponse
-    :: Int -- ^ 'qorsStatus'
+    :: Int -- ^ 'qorsResponseStatus'
     -> QueryObjectsResponse
-queryObjectsResponse pStatus_ =
+queryObjectsResponse pResponseStatus_ =
     QueryObjectsResponse'
     { _qorsHasMoreResults = Nothing
     , _qorsIds = Nothing
     , _qorsMarker = Nothing
-    , _qorsStatus = pStatus_
+    , _qorsResponseStatus = pResponseStatus_
     }
 
 -- | Indicates whether there are more results that can be obtained by a
@@ -209,5 +209,5 @@ qorsMarker :: Lens' QueryObjectsResponse (Maybe Text)
 qorsMarker = lens _qorsMarker (\ s a -> s{_qorsMarker = a});
 
 -- | The response status code.
-qorsStatus :: Lens' QueryObjectsResponse Int
-qorsStatus = lens _qorsStatus (\ s a -> s{_qorsStatus = a});
+qorsResponseStatus :: Lens' QueryObjectsResponse Int
+qorsResponseStatus = lens _qorsResponseStatus (\ s a -> s{_qorsResponseStatus = a});

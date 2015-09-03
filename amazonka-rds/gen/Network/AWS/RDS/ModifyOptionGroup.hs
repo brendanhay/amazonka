@@ -37,7 +37,7 @@ module Network.AWS.RDS.ModifyOptionGroup
     , ModifyOptionGroupResponse
     -- * Response Lenses
     , mogrsOptionGroup
-    , mogrsStatus
+    , mogrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -135,8 +135,8 @@ instance ToQuery ModifyOptionGroup where
 
 -- | /See:/ 'modifyOptionGroupResponse' smart constructor.
 data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
-    { _mogrsOptionGroup :: !(Maybe OptionGroup)
-    , _mogrsStatus      :: !Int
+    { _mogrsOptionGroup    :: !(Maybe OptionGroup)
+    , _mogrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyOptionGroupResponse' with the minimum fields required to make a request.
@@ -145,14 +145,14 @@ data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
 --
 -- * 'mogrsOptionGroup'
 --
--- * 'mogrsStatus'
+-- * 'mogrsResponseStatus'
 modifyOptionGroupResponse
-    :: Int -- ^ 'mogrsStatus'
+    :: Int -- ^ 'mogrsResponseStatus'
     -> ModifyOptionGroupResponse
-modifyOptionGroupResponse pStatus_ =
+modifyOptionGroupResponse pResponseStatus_ =
     ModifyOptionGroupResponse'
     { _mogrsOptionGroup = Nothing
-    , _mogrsStatus = pStatus_
+    , _mogrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -160,5 +160,5 @@ mogrsOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
 mogrsOptionGroup = lens _mogrsOptionGroup (\ s a -> s{_mogrsOptionGroup = a});
 
 -- | The response status code.
-mogrsStatus :: Lens' ModifyOptionGroupResponse Int
-mogrsStatus = lens _mogrsStatus (\ s a -> s{_mogrsStatus = a});
+mogrsResponseStatus :: Lens' ModifyOptionGroupResponse Int
+mogrsResponseStatus = lens _mogrsResponseStatus (\ s a -> s{_mogrsResponseStatus = a});

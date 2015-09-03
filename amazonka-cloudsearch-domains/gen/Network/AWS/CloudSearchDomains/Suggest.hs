@@ -55,6 +55,7 @@ module Network.AWS.CloudSearchDomains.Suggest
     -- * Response Lenses
     , srsSuggest
     , srsStatus
+    , srsResponseStatus
     ) where
 
 import           Network.AWS.CloudSearchDomains.Types
@@ -111,7 +112,8 @@ instance AWSRequest Suggest where
           = receiveJSON
               (\ s h x ->
                  SuggestResponse' <$>
-                   (x .?> "suggest") <*> (pure (fromEnum s)))
+                   (x .?> "suggest") <*> (x .?> "status") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders Suggest where
         toHeaders
@@ -133,8 +135,9 @@ instance ToQuery Suggest where
 --
 -- /See:/ 'suggestResponse' smart constructor.
 data SuggestResponse = SuggestResponse'
-    { _srsSuggest :: !(Maybe SuggestModel)
-    , _srsStatus  :: !Int
+    { _srsSuggest        :: !(Maybe SuggestModel)
+    , _srsStatus         :: !(Maybe SuggestStatus)
+    , _srsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SuggestResponse' with the minimum fields required to make a request.
@@ -144,19 +147,27 @@ data SuggestResponse = SuggestResponse'
 -- * 'srsSuggest'
 --
 -- * 'srsStatus'
+--
+-- * 'srsResponseStatus'
 suggestResponse
-    :: Int -- ^ 'srsStatus'
+    :: Int -- ^ 'srsResponseStatus'
     -> SuggestResponse
-suggestResponse pStatus_ =
+suggestResponse pResponseStatus_ =
     SuggestResponse'
     { _srsSuggest = Nothing
-    , _srsStatus = pStatus_
+    , _srsStatus = Nothing
+    , _srsResponseStatus = pResponseStatus_
     }
 
 -- | Container for the matching search suggestion information.
 srsSuggest :: Lens' SuggestResponse (Maybe SuggestModel)
 srsSuggest = lens _srsSuggest (\ s a -> s{_srsSuggest = a});
 
--- | The response status code.
-srsStatus :: Lens' SuggestResponse Int
+-- | The status of a 'SuggestRequest'. Contains the resource ID ('rid') and
+-- how long it took to process the request ('timems').
+srsStatus :: Lens' SuggestResponse (Maybe SuggestStatus)
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
+
+-- | The response status code.
+srsResponseStatus :: Lens' SuggestResponse Int
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});

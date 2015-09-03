@@ -44,7 +44,7 @@ module Network.AWS.StorageGateway.UpdateChapCredentials
     -- * Response Lenses
     , uccrsTargetARN
     , uccrsInitiatorName
-    , uccrsStatus
+    , uccrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -161,9 +161,9 @@ instance ToQuery UpdateChapCredentials where
 --
 -- /See:/ 'updateChapCredentialsResponse' smart constructor.
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
-    { _uccrsTargetARN     :: !(Maybe Text)
-    , _uccrsInitiatorName :: !(Maybe Text)
-    , _uccrsStatus        :: !Int
+    { _uccrsTargetARN      :: !(Maybe Text)
+    , _uccrsInitiatorName  :: !(Maybe Text)
+    , _uccrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateChapCredentialsResponse' with the minimum fields required to make a request.
@@ -174,15 +174,15 @@ data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
 --
 -- * 'uccrsInitiatorName'
 --
--- * 'uccrsStatus'
+-- * 'uccrsResponseStatus'
 updateChapCredentialsResponse
-    :: Int -- ^ 'uccrsStatus'
+    :: Int -- ^ 'uccrsResponseStatus'
     -> UpdateChapCredentialsResponse
-updateChapCredentialsResponse pStatus_ =
+updateChapCredentialsResponse pResponseStatus_ =
     UpdateChapCredentialsResponse'
     { _uccrsTargetARN = Nothing
     , _uccrsInitiatorName = Nothing
-    , _uccrsStatus = pStatus_
+    , _uccrsResponseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the target. This is the same target
@@ -196,5 +196,5 @@ uccrsInitiatorName :: Lens' UpdateChapCredentialsResponse (Maybe Text)
 uccrsInitiatorName = lens _uccrsInitiatorName (\ s a -> s{_uccrsInitiatorName = a});
 
 -- | The response status code.
-uccrsStatus :: Lens' UpdateChapCredentialsResponse Int
-uccrsStatus = lens _uccrsStatus (\ s a -> s{_uccrsStatus = a});
+uccrsResponseStatus :: Lens' UpdateChapCredentialsResponse Int
+uccrsResponseStatus = lens _uccrsResponseStatus (\ s a -> s{_uccrsResponseStatus = a});

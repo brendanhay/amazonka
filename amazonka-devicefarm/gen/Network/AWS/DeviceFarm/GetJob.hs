@@ -34,7 +34,7 @@ module Network.AWS.DeviceFarm.GetJob
     , GetJobResponse
     -- * Response Lenses
     , gjrsJob
-    , gjrsStatus
+    , gjrsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -99,8 +99,8 @@ instance ToQuery GetJob where
 --
 -- /See:/ 'getJobResponse' smart constructor.
 data GetJobResponse = GetJobResponse'
-    { _gjrsJob    :: !(Maybe Job)
-    , _gjrsStatus :: !Int
+    { _gjrsJob            :: !(Maybe Job)
+    , _gjrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetJobResponse' with the minimum fields required to make a request.
@@ -109,14 +109,14 @@ data GetJobResponse = GetJobResponse'
 --
 -- * 'gjrsJob'
 --
--- * 'gjrsStatus'
+-- * 'gjrsResponseStatus'
 getJobResponse
-    :: Int -- ^ 'gjrsStatus'
+    :: Int -- ^ 'gjrsResponseStatus'
     -> GetJobResponse
-getJobResponse pStatus_ =
+getJobResponse pResponseStatus_ =
     GetJobResponse'
     { _gjrsJob = Nothing
-    , _gjrsStatus = pStatus_
+    , _gjrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -124,5 +124,5 @@ gjrsJob :: Lens' GetJobResponse (Maybe Job)
 gjrsJob = lens _gjrsJob (\ s a -> s{_gjrsJob = a});
 
 -- | The response status code.
-gjrsStatus :: Lens' GetJobResponse Int
-gjrsStatus = lens _gjrsStatus (\ s a -> s{_gjrsStatus = a});
+gjrsResponseStatus :: Lens' GetJobResponse Int
+gjrsResponseStatus = lens _gjrsResponseStatus (\ s a -> s{_gjrsResponseStatus = a});

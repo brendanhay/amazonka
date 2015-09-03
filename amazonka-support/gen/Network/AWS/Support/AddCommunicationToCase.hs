@@ -46,7 +46,7 @@ module Network.AWS.Support.AddCommunicationToCase
     , AddCommunicationToCaseResponse
     -- * Response Lenses
     , actcrsResult
-    , actcrsStatus
+    , actcrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -147,8 +147,8 @@ instance ToQuery AddCommunicationToCase where
 --
 -- /See:/ 'addCommunicationToCaseResponse' smart constructor.
 data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
-    { _actcrsResult :: !(Maybe Bool)
-    , _actcrsStatus :: !Int
+    { _actcrsResult         :: !(Maybe Bool)
+    , _actcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddCommunicationToCaseResponse' with the minimum fields required to make a request.
@@ -157,14 +157,14 @@ data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
 --
 -- * 'actcrsResult'
 --
--- * 'actcrsStatus'
+-- * 'actcrsResponseStatus'
 addCommunicationToCaseResponse
-    :: Int -- ^ 'actcrsStatus'
+    :: Int -- ^ 'actcrsResponseStatus'
     -> AddCommunicationToCaseResponse
-addCommunicationToCaseResponse pStatus_ =
+addCommunicationToCaseResponse pResponseStatus_ =
     AddCommunicationToCaseResponse'
     { _actcrsResult = Nothing
-    , _actcrsStatus = pStatus_
+    , _actcrsResponseStatus = pResponseStatus_
     }
 
 -- | True if AddCommunicationToCase succeeds. Otherwise, returns an error.
@@ -172,5 +172,5 @@ actcrsResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
 actcrsResult = lens _actcrsResult (\ s a -> s{_actcrsResult = a});
 
 -- | The response status code.
-actcrsStatus :: Lens' AddCommunicationToCaseResponse Int
-actcrsStatus = lens _actcrsStatus (\ s a -> s{_actcrsStatus = a});
+actcrsResponseStatus :: Lens' AddCommunicationToCaseResponse Int
+actcrsResponseStatus = lens _actcrsResponseStatus (\ s a -> s{_actcrsResponseStatus = a});

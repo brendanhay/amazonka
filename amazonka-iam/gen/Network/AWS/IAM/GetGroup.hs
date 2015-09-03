@@ -30,8 +30,8 @@ module Network.AWS.IAM.GetGroup
       getGroup
     , GetGroup
     -- * Request Lenses
-    , ggMaxItems
     , ggMarker
+    , ggMaxItems
     , ggGroupName
 
     -- * Destructuring the Response
@@ -40,7 +40,7 @@ module Network.AWS.IAM.GetGroup
     -- * Response Lenses
     , ggrsMarker
     , ggrsIsTruncated
-    , ggrsStatus
+    , ggrsResponseStatus
     , ggrsGroup
     , ggrsUsers
     ) where
@@ -54,8 +54,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'getGroup' smart constructor.
 data GetGroup = GetGroup'
-    { _ggMaxItems  :: !(Maybe Nat)
-    , _ggMarker    :: !(Maybe Text)
+    { _ggMarker    :: !(Maybe Text)
+    , _ggMaxItems  :: !(Maybe Nat)
     , _ggGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -63,9 +63,9 @@ data GetGroup = GetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggMaxItems'
---
 -- * 'ggMarker'
+--
+-- * 'ggMaxItems'
 --
 -- * 'ggGroupName'
 getGroup
@@ -73,10 +73,16 @@ getGroup
     -> GetGroup
 getGroup pGroupName_ =
     GetGroup'
-    { _ggMaxItems = Nothing
-    , _ggMarker = Nothing
+    { _ggMarker = Nothing
+    , _ggMaxItems = Nothing
     , _ggGroupName = pGroupName_
     }
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+ggMarker :: Lens' GetGroup (Maybe Text)
+ggMarker = lens _ggMarker (\ s a -> s{_ggMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -87,20 +93,14 @@ getGroup pGroupName_ =
 ggMaxItems :: Lens' GetGroup (Maybe Natural)
 ggMaxItems = lens _ggMaxItems (\ s a -> s{_ggMaxItems = a}) . mapping _Nat;
 
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-ggMarker :: Lens' GetGroup (Maybe Text)
-ggMarker = lens _ggMarker (\ s a -> s{_ggMarker = a});
-
 -- | The name of the group.
 ggGroupName :: Lens' GetGroup Text
 ggGroupName = lens _ggGroupName (\ s a -> s{_ggGroupName = a});
 
 instance AWSPager GetGroup where
         page rq rs
-          | stop (rs ^. ggrsIsTruncated) = Nothing
-          | isNothing (rs ^. ggrsMarker) = Nothing
+          | stop (rs ^. ggrsMarker) = Nothing
+          | stop (rs ^. ggrsUsers) = Nothing
           | otherwise =
             Just $ rq & ggMarker .~ rs ^. ggrsMarker
 
@@ -128,18 +128,18 @@ instance ToQuery GetGroup where
           = mconcat
               ["Action" =: ("GetGroup" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _ggMaxItems, "Marker" =: _ggMarker,
+               "Marker" =: _ggMarker, "MaxItems" =: _ggMaxItems,
                "GroupName" =: _ggGroupName]
 
 -- | Contains the response to a successful GetGroup request.
 --
 -- /See:/ 'getGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
-    { _ggrsMarker      :: !(Maybe Text)
-    , _ggrsIsTruncated :: !(Maybe Bool)
-    , _ggrsStatus      :: !Int
-    , _ggrsGroup       :: !Group
-    , _ggrsUsers       :: ![User]
+    { _ggrsMarker         :: !(Maybe Text)
+    , _ggrsIsTruncated    :: !(Maybe Bool)
+    , _ggrsResponseStatus :: !Int
+    , _ggrsGroup          :: !Group
+    , _ggrsUsers          :: ![User]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetGroupResponse' with the minimum fields required to make a request.
@@ -150,20 +150,20 @@ data GetGroupResponse = GetGroupResponse'
 --
 -- * 'ggrsIsTruncated'
 --
--- * 'ggrsStatus'
+-- * 'ggrsResponseStatus'
 --
 -- * 'ggrsGroup'
 --
 -- * 'ggrsUsers'
 getGroupResponse
-    :: Int -- ^ 'ggrsStatus'
+    :: Int -- ^ 'ggrsResponseStatus'
     -> Group -- ^ 'ggrsGroup'
     -> GetGroupResponse
-getGroupResponse pStatus_ pGroup_ =
+getGroupResponse pResponseStatus_ pGroup_ =
     GetGroupResponse'
     { _ggrsMarker = Nothing
     , _ggrsIsTruncated = Nothing
-    , _ggrsStatus = pStatus_
+    , _ggrsResponseStatus = pResponseStatus_
     , _ggrsGroup = pGroup_
     , _ggrsUsers = mempty
     }
@@ -181,8 +181,8 @@ ggrsIsTruncated :: Lens' GetGroupResponse (Maybe Bool)
 ggrsIsTruncated = lens _ggrsIsTruncated (\ s a -> s{_ggrsIsTruncated = a});
 
 -- | The response status code.
-ggrsStatus :: Lens' GetGroupResponse Int
-ggrsStatus = lens _ggrsStatus (\ s a -> s{_ggrsStatus = a});
+ggrsResponseStatus :: Lens' GetGroupResponse Int
+ggrsResponseStatus = lens _ggrsResponseStatus (\ s a -> s{_ggrsResponseStatus = a});
 
 -- | Information about the group.
 ggrsGroup :: Lens' GetGroupResponse Group

@@ -63,7 +63,7 @@ module Network.AWS.SWF.GetWorkflowExecutionHistory
     , GetWorkflowExecutionHistoryResponse
     -- * Response Lenses
     , gwehrsNextPageToken
-    , gwehrsStatus
+    , gwehrsResponseStatus
     , gwehrsEvents
     ) where
 
@@ -194,9 +194,9 @@ instance ToQuery GetWorkflowExecutionHistory where
 --
 -- /See:/ 'getWorkflowExecutionHistoryResponse' smart constructor.
 data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'
-    { _gwehrsNextPageToken :: !(Maybe Text)
-    , _gwehrsStatus        :: !Int
-    , _gwehrsEvents        :: ![HistoryEvent]
+    { _gwehrsNextPageToken  :: !(Maybe Text)
+    , _gwehrsResponseStatus :: !Int
+    , _gwehrsEvents         :: ![HistoryEvent]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetWorkflowExecutionHistoryResponse' with the minimum fields required to make a request.
@@ -205,16 +205,16 @@ data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'
 --
 -- * 'gwehrsNextPageToken'
 --
--- * 'gwehrsStatus'
+-- * 'gwehrsResponseStatus'
 --
 -- * 'gwehrsEvents'
 getWorkflowExecutionHistoryResponse
-    :: Int -- ^ 'gwehrsStatus'
+    :: Int -- ^ 'gwehrsResponseStatus'
     -> GetWorkflowExecutionHistoryResponse
-getWorkflowExecutionHistoryResponse pStatus_ =
+getWorkflowExecutionHistoryResponse pResponseStatus_ =
     GetWorkflowExecutionHistoryResponse'
     { _gwehrsNextPageToken = Nothing
-    , _gwehrsStatus = pStatus_
+    , _gwehrsResponseStatus = pResponseStatus_
     , _gwehrsEvents = mempty
     }
 
@@ -229,8 +229,8 @@ gwehrsNextPageToken :: Lens' GetWorkflowExecutionHistoryResponse (Maybe Text)
 gwehrsNextPageToken = lens _gwehrsNextPageToken (\ s a -> s{_gwehrsNextPageToken = a});
 
 -- | The response status code.
-gwehrsStatus :: Lens' GetWorkflowExecutionHistoryResponse Int
-gwehrsStatus = lens _gwehrsStatus (\ s a -> s{_gwehrsStatus = a});
+gwehrsResponseStatus :: Lens' GetWorkflowExecutionHistoryResponse Int
+gwehrsResponseStatus = lens _gwehrsResponseStatus (\ s a -> s{_gwehrsResponseStatus = a});
 
 -- | The list of history events.
 gwehrsEvents :: Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]

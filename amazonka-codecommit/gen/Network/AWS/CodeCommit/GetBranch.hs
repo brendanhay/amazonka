@@ -36,7 +36,7 @@ module Network.AWS.CodeCommit.GetBranch
     , GetBranchResponse
     -- * Response Lenses
     , gbrsBranch
-    , gbrsStatus
+    , gbrsResponseStatus
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -111,8 +111,8 @@ instance ToQuery GetBranch where
 --
 -- /See:/ 'getBranchResponse' smart constructor.
 data GetBranchResponse = GetBranchResponse'
-    { _gbrsBranch :: !(Maybe BranchInfo)
-    , _gbrsStatus :: !Int
+    { _gbrsBranch         :: !(Maybe BranchInfo)
+    , _gbrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBranchResponse' with the minimum fields required to make a request.
@@ -121,14 +121,14 @@ data GetBranchResponse = GetBranchResponse'
 --
 -- * 'gbrsBranch'
 --
--- * 'gbrsStatus'
+-- * 'gbrsResponseStatus'
 getBranchResponse
-    :: Int -- ^ 'gbrsStatus'
+    :: Int -- ^ 'gbrsResponseStatus'
     -> GetBranchResponse
-getBranchResponse pStatus_ =
+getBranchResponse pResponseStatus_ =
     GetBranchResponse'
     { _gbrsBranch = Nothing
-    , _gbrsStatus = pStatus_
+    , _gbrsResponseStatus = pResponseStatus_
     }
 
 -- | The name of the branch.
@@ -136,5 +136,5 @@ gbrsBranch :: Lens' GetBranchResponse (Maybe BranchInfo)
 gbrsBranch = lens _gbrsBranch (\ s a -> s{_gbrsBranch = a});
 
 -- | The response status code.
-gbrsStatus :: Lens' GetBranchResponse Int
-gbrsStatus = lens _gbrsStatus (\ s a -> s{_gbrsStatus = a});
+gbrsResponseStatus :: Lens' GetBranchResponse Int
+gbrsResponseStatus = lens _gbrsResponseStatus (\ s a -> s{_gbrsResponseStatus = a});

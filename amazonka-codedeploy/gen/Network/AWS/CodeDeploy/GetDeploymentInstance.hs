@@ -35,7 +35,7 @@ module Network.AWS.CodeDeploy.GetDeploymentInstance
     , GetDeploymentInstanceResponse
     -- * Response Lenses
     , gdirsInstanceSummary
-    , gdirsStatus
+    , gdirsResponseStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -115,7 +115,7 @@ instance ToQuery GetDeploymentInstance where
 -- /See:/ 'getDeploymentInstanceResponse' smart constructor.
 data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'
     { _gdirsInstanceSummary :: !(Maybe InstanceSummary)
-    , _gdirsStatus          :: !Int
+    , _gdirsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDeploymentInstanceResponse' with the minimum fields required to make a request.
@@ -124,14 +124,14 @@ data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'
 --
 -- * 'gdirsInstanceSummary'
 --
--- * 'gdirsStatus'
+-- * 'gdirsResponseStatus'
 getDeploymentInstanceResponse
-    :: Int -- ^ 'gdirsStatus'
+    :: Int -- ^ 'gdirsResponseStatus'
     -> GetDeploymentInstanceResponse
-getDeploymentInstanceResponse pStatus_ =
+getDeploymentInstanceResponse pResponseStatus_ =
     GetDeploymentInstanceResponse'
     { _gdirsInstanceSummary = Nothing
-    , _gdirsStatus = pStatus_
+    , _gdirsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the instance.
@@ -139,5 +139,5 @@ gdirsInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSumma
 gdirsInstanceSummary = lens _gdirsInstanceSummary (\ s a -> s{_gdirsInstanceSummary = a});
 
 -- | The response status code.
-gdirsStatus :: Lens' GetDeploymentInstanceResponse Int
-gdirsStatus = lens _gdirsStatus (\ s a -> s{_gdirsStatus = a});
+gdirsResponseStatus :: Lens' GetDeploymentInstanceResponse Int
+gdirsResponseStatus = lens _gdirsResponseStatus (\ s a -> s{_gdirsResponseStatus = a});

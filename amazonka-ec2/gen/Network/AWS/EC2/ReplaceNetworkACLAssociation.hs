@@ -40,7 +40,7 @@ module Network.AWS.EC2.ReplaceNetworkACLAssociation
     , ReplaceNetworkACLAssociationResponse
     -- * Response Lenses
     , rnaarsNewAssociationId
-    , rnaarsStatus
+    , rnaarsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -122,7 +122,7 @@ instance ToQuery ReplaceNetworkACLAssociation where
 -- | /See:/ 'replaceNetworkACLAssociationResponse' smart constructor.
 data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'
     { _rnaarsNewAssociationId :: !(Maybe Text)
-    , _rnaarsStatus           :: !Int
+    , _rnaarsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReplaceNetworkACLAssociationResponse' with the minimum fields required to make a request.
@@ -131,14 +131,14 @@ data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse
 --
 -- * 'rnaarsNewAssociationId'
 --
--- * 'rnaarsStatus'
+-- * 'rnaarsResponseStatus'
 replaceNetworkACLAssociationResponse
-    :: Int -- ^ 'rnaarsStatus'
+    :: Int -- ^ 'rnaarsResponseStatus'
     -> ReplaceNetworkACLAssociationResponse
-replaceNetworkACLAssociationResponse pStatus_ =
+replaceNetworkACLAssociationResponse pResponseStatus_ =
     ReplaceNetworkACLAssociationResponse'
     { _rnaarsNewAssociationId = Nothing
-    , _rnaarsStatus = pStatus_
+    , _rnaarsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the new association.
@@ -146,5 +146,5 @@ rnaarsNewAssociationId :: Lens' ReplaceNetworkACLAssociationResponse (Maybe Text
 rnaarsNewAssociationId = lens _rnaarsNewAssociationId (\ s a -> s{_rnaarsNewAssociationId = a});
 
 -- | The response status code.
-rnaarsStatus :: Lens' ReplaceNetworkACLAssociationResponse Int
-rnaarsStatus = lens _rnaarsStatus (\ s a -> s{_rnaarsStatus = a});
+rnaarsResponseStatus :: Lens' ReplaceNetworkACLAssociationResponse Int
+rnaarsResponseStatus = lens _rnaarsResponseStatus (\ s a -> s{_rnaarsResponseStatus = a});

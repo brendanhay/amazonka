@@ -34,12 +34,12 @@ module Network.AWS.OpsWorks.UpdateApp
     , UpdateApp
     -- * Request Lenses
     , uaSSLConfiguration
-    , uaEnableSSL
     , uaEnvironment
+    , uaEnableSSL
     , uaDataSources
     , uaAppSource
-    , uaName
     , uaAttributes
+    , uaName
     , uaType
     , uaDomains
     , uaDescription
@@ -59,12 +59,12 @@ import           Network.AWS.Response
 -- | /See:/ 'updateApp' smart constructor.
 data UpdateApp = UpdateApp'
     { _uaSSLConfiguration :: !(Maybe SSLConfiguration)
-    , _uaEnableSSL        :: !(Maybe Bool)
     , _uaEnvironment      :: !(Maybe [EnvironmentVariable])
+    , _uaEnableSSL        :: !(Maybe Bool)
     , _uaDataSources      :: !(Maybe [DataSource])
     , _uaAppSource        :: !(Maybe Source)
-    , _uaName             :: !(Maybe Text)
     , _uaAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+    , _uaName             :: !(Maybe Text)
     , _uaType             :: !(Maybe AppType)
     , _uaDomains          :: !(Maybe [Text])
     , _uaDescription      :: !(Maybe Text)
@@ -77,17 +77,17 @@ data UpdateApp = UpdateApp'
 --
 -- * 'uaSSLConfiguration'
 --
--- * 'uaEnableSSL'
---
 -- * 'uaEnvironment'
+--
+-- * 'uaEnableSSL'
 --
 -- * 'uaDataSources'
 --
 -- * 'uaAppSource'
 --
--- * 'uaName'
---
 -- * 'uaAttributes'
+--
+-- * 'uaName'
 --
 -- * 'uaType'
 --
@@ -102,12 +102,12 @@ updateApp
 updateApp pAppId_ =
     UpdateApp'
     { _uaSSLConfiguration = Nothing
-    , _uaEnableSSL = Nothing
     , _uaEnvironment = Nothing
+    , _uaEnableSSL = Nothing
     , _uaDataSources = Nothing
     , _uaAppSource = Nothing
-    , _uaName = Nothing
     , _uaAttributes = Nothing
+    , _uaName = Nothing
     , _uaType = Nothing
     , _uaDomains = Nothing
     , _uaDescription = Nothing
@@ -117,10 +117,6 @@ updateApp pAppId_ =
 -- | An 'SslConfiguration' object with the SSL configuration.
 uaSSLConfiguration :: Lens' UpdateApp (Maybe SSLConfiguration)
 uaSSLConfiguration = lens _uaSSLConfiguration (\ s a -> s{_uaSSLConfiguration = a});
-
--- | Whether SSL is enabled for the app.
-uaEnableSSL :: Lens' UpdateApp (Maybe Bool)
-uaEnableSSL = lens _uaEnableSSL (\ s a -> s{_uaEnableSSL = a});
 
 -- | An array of 'EnvironmentVariable' objects that specify environment
 -- variables to be associated with the app. After you deploy the app, these
@@ -141,6 +137,10 @@ uaEnableSSL = lens _uaEnableSSL (\ s a -> s{_uaEnableSSL = a});
 uaEnvironment :: Lens' UpdateApp [EnvironmentVariable]
 uaEnvironment = lens _uaEnvironment (\ s a -> s{_uaEnvironment = a}) . _Default . _Coerce;
 
+-- | Whether SSL is enabled for the app.
+uaEnableSSL :: Lens' UpdateApp (Maybe Bool)
+uaEnableSSL = lens _uaEnableSSL (\ s a -> s{_uaEnableSSL = a});
+
 -- | The app\'s data sources.
 uaDataSources :: Lens' UpdateApp [DataSource]
 uaDataSources = lens _uaDataSources (\ s a -> s{_uaDataSources = a}) . _Default . _Coerce;
@@ -149,14 +149,14 @@ uaDataSources = lens _uaDataSources (\ s a -> s{_uaDataSources = a}) . _Default 
 uaAppSource :: Lens' UpdateApp (Maybe Source)
 uaAppSource = lens _uaAppSource (\ s a -> s{_uaAppSource = a});
 
--- | The app name.
-uaName :: Lens' UpdateApp (Maybe Text)
-uaName = lens _uaName (\ s a -> s{_uaName = a});
-
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
 uaAttributes :: Lens' UpdateApp (HashMap AppAttributesKeys Text)
 uaAttributes = lens _uaAttributes (\ s a -> s{_uaAttributes = a}) . _Default . _Map;
+
+-- | The app name.
+uaName :: Lens' UpdateApp (Maybe Text)
+uaName = lens _uaName (\ s a -> s{_uaName = a});
 
 -- | The app type.
 uaType :: Lens' UpdateApp (Maybe AppType)
@@ -194,13 +194,12 @@ instance ToJSON UpdateApp where
           = object
               (catMaybes
                  [("SslConfiguration" .=) <$> _uaSSLConfiguration,
-                  ("EnableSsl" .=) <$> _uaEnableSSL,
                   ("Environment" .=) <$> _uaEnvironment,
+                  ("EnableSsl" .=) <$> _uaEnableSSL,
                   ("DataSources" .=) <$> _uaDataSources,
                   ("AppSource" .=) <$> _uaAppSource,
-                  ("Name" .=) <$> _uaName,
                   ("Attributes" .=) <$> _uaAttributes,
-                  ("Type" .=) <$> _uaType,
+                  ("Name" .=) <$> _uaName, ("Type" .=) <$> _uaType,
                   ("Domains" .=) <$> _uaDomains,
                   ("Description" .=) <$> _uaDescription,
                   Just ("AppId" .= _uaAppId)])

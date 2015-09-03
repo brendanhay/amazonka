@@ -34,7 +34,7 @@ module Network.AWS.ELB.DescribeLoadBalancerAttributes
     , DescribeLoadBalancerAttributesResponse
     -- * Response Lenses
     , dlbarsLoadBalancerAttributes
-    , dlbarsStatus
+    , dlbarsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -96,7 +96,7 @@ instance ToQuery DescribeLoadBalancerAttributes where
 -- | /See:/ 'describeLoadBalancerAttributesResponse' smart constructor.
 data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'
     { _dlbarsLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
-    , _dlbarsStatus                 :: !Int
+    , _dlbarsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLoadBalancerAttributesResponse' with the minimum fields required to make a request.
@@ -105,14 +105,14 @@ data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResp
 --
 -- * 'dlbarsLoadBalancerAttributes'
 --
--- * 'dlbarsStatus'
+-- * 'dlbarsResponseStatus'
 describeLoadBalancerAttributesResponse
-    :: Int -- ^ 'dlbarsStatus'
+    :: Int -- ^ 'dlbarsResponseStatus'
     -> DescribeLoadBalancerAttributesResponse
-describeLoadBalancerAttributesResponse pStatus_ =
+describeLoadBalancerAttributesResponse pResponseStatus_ =
     DescribeLoadBalancerAttributesResponse'
     { _dlbarsLoadBalancerAttributes = Nothing
-    , _dlbarsStatus = pStatus_
+    , _dlbarsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the load balancer attributes.
@@ -120,5 +120,5 @@ dlbarsLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Ma
 dlbarsLoadBalancerAttributes = lens _dlbarsLoadBalancerAttributes (\ s a -> s{_dlbarsLoadBalancerAttributes = a});
 
 -- | The response status code.
-dlbarsStatus :: Lens' DescribeLoadBalancerAttributesResponse Int
-dlbarsStatus = lens _dlbarsStatus (\ s a -> s{_dlbarsStatus = a});
+dlbarsResponseStatus :: Lens' DescribeLoadBalancerAttributesResponse Int
+dlbarsResponseStatus = lens _dlbarsResponseStatus (\ s a -> s{_dlbarsResponseStatus = a});

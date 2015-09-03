@@ -43,7 +43,7 @@ module Network.AWS.OpsWorks.DescribeLayers
     , DescribeLayersResponse
     -- * Response Lenses
     , dlrsLayers
-    , dlrsStatus
+    , dlrsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -118,8 +118,8 @@ instance ToQuery DescribeLayers where
 --
 -- /See:/ 'describeLayersResponse' smart constructor.
 data DescribeLayersResponse = DescribeLayersResponse'
-    { _dlrsLayers :: !(Maybe [Layer])
-    , _dlrsStatus :: !Int
+    { _dlrsLayers         :: !(Maybe [Layer])
+    , _dlrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLayersResponse' with the minimum fields required to make a request.
@@ -128,14 +128,14 @@ data DescribeLayersResponse = DescribeLayersResponse'
 --
 -- * 'dlrsLayers'
 --
--- * 'dlrsStatus'
+-- * 'dlrsResponseStatus'
 describeLayersResponse
-    :: Int -- ^ 'dlrsStatus'
+    :: Int -- ^ 'dlrsResponseStatus'
     -> DescribeLayersResponse
-describeLayersResponse pStatus_ =
+describeLayersResponse pResponseStatus_ =
     DescribeLayersResponse'
     { _dlrsLayers = Nothing
-    , _dlrsStatus = pStatus_
+    , _dlrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of 'Layer' objects that describe the layers.
@@ -143,5 +143,5 @@ dlrsLayers :: Lens' DescribeLayersResponse [Layer]
 dlrsLayers = lens _dlrsLayers (\ s a -> s{_dlrsLayers = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dlrsStatus :: Lens' DescribeLayersResponse Int
-dlrsStatus = lens _dlrsStatus (\ s a -> s{_dlrsStatus = a});
+dlrsResponseStatus :: Lens' DescribeLayersResponse Int
+dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});

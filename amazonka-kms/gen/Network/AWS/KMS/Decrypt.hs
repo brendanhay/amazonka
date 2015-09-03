@@ -51,7 +51,7 @@ module Network.AWS.KMS.Decrypt
     -- * Response Lenses
     , drsKeyId
     , drsPlaintext
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -143,9 +143,9 @@ instance ToQuery Decrypt where
 
 -- | /See:/ 'decryptResponse' smart constructor.
 data DecryptResponse = DecryptResponse'
-    { _drsKeyId     :: !(Maybe Text)
-    , _drsPlaintext :: !(Maybe (Sensitive Base64))
-    , _drsStatus    :: !Int
+    { _drsKeyId          :: !(Maybe Text)
+    , _drsPlaintext      :: !(Maybe (Sensitive Base64))
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DecryptResponse' with the minimum fields required to make a request.
@@ -156,15 +156,15 @@ data DecryptResponse = DecryptResponse'
 --
 -- * 'drsPlaintext'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 decryptResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DecryptResponse
-decryptResponse pStatus_ =
+decryptResponse pResponseStatus_ =
     DecryptResponse'
     { _drsKeyId = Nothing
     , _drsPlaintext = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | ARN of the key used to perform the decryption. This value is returned if
@@ -184,5 +184,5 @@ drsPlaintext :: Lens' DecryptResponse (Maybe ByteString)
 drsPlaintext = lens _drsPlaintext (\ s a -> s{_drsPlaintext = a}) . mapping (_Sensitive . _Base64);
 
 -- | The response status code.
-drsStatus :: Lens' DecryptResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DecryptResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

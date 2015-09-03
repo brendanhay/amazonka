@@ -19,24 +19,32 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers an AMI. When you\'re creating an AMI, this is the final step
--- you must complete before you can launch an instance from the AMI. This
--- step is required if you\'re creating an instance store-backed Linux or
--- Windows AMI. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-instance-store.html Creating an Instance Store-Backed Linux AMI>
--- and
--- <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html Creating an Instance Store-Backed Windows AMI>
+-- you must complete before you can launch an instance from the AMI. For
+-- more information about creating AMIs, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- For Amazon EBS-backed instances, CreateImage creates and registers the
 -- AMI in a single request, so you don\'t have to register the AMI
 -- yourself.
 --
--- You can also use 'RegisterImage' to create an Amazon EBS-backed AMI from
--- a snapshot of a root device volume. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-launch-snapshot.html Launching an Instance from a Backup>
--- in the /Amazon Elastic Compute Cloud User Guide/. Note that although you
--- can create a Windows AMI from a snapshot, you can\'t launch an instance
--- from the AMI - use the CreateImage command instead.
+-- You can also use 'RegisterImage' to create an Amazon EBS-backed Linux
+-- AMI from a snapshot of a root device volume. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html Launching an Instance from a Snapshot>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- Some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and
+-- SUSE Linux Enterprise Server (SLES), use the EC2 'billingProduct' code
+-- associated with an AMI to verify subscription status for package
+-- updates. Creating an AMI from an EBS snapshot does not maintain this
+-- billing code, and subsequent instances launched from such an AMI will
+-- not be able to connect to package update infrastructure.
+--
+-- Similarly, although you can create a Windows AMI from a snapshot, you
+-- can\'t successfully launch an instance from the AMI.
+--
+-- To create Windows AMIs or to create AMIs for Linux operating systems
+-- that must retain AMI billing codes to work properly, see CreateImage.
 --
 -- If needed, you can deregister an AMI at any time. Any modifications you
 -- make to an AMI backed by an instance store volume invalidates its
@@ -60,9 +68,9 @@ module Network.AWS.EC2.RegisterImage
     , riRootDeviceName
     , riSRIOVNetSupport
     , riArchitecture
+    , riDescription
     , riBlockDeviceMappings
     , riDryRun
-    , riDescription
     , riName
 
     -- * Destructuring the Response
@@ -70,7 +78,7 @@ module Network.AWS.EC2.RegisterImage
     , RegisterImageResponse
     -- * Response Lenses
     , rirsImageId
-    , rirsStatus
+    , rirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -88,9 +96,9 @@ data RegisterImage = RegisterImage'
     , _riRootDeviceName      :: !(Maybe Text)
     , _riSRIOVNetSupport     :: !(Maybe Text)
     , _riArchitecture        :: !(Maybe ArchitectureValues)
+    , _riDescription         :: !(Maybe Text)
     , _riBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _riDryRun              :: !(Maybe Bool)
-    , _riDescription         :: !(Maybe Text)
     , _riName                :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -112,11 +120,11 @@ data RegisterImage = RegisterImage'
 --
 -- * 'riArchitecture'
 --
+-- * 'riDescription'
+--
 -- * 'riBlockDeviceMappings'
 --
 -- * 'riDryRun'
---
--- * 'riDescription'
 --
 -- * 'riName'
 registerImage
@@ -131,9 +139,9 @@ registerImage pName_ =
     , _riRootDeviceName = Nothing
     , _riSRIOVNetSupport = Nothing
     , _riArchitecture = Nothing
+    , _riDescription = Nothing
     , _riBlockDeviceMappings = Nothing
     , _riDryRun = Nothing
-    , _riDescription = Nothing
     , _riName = pName_
     }
 
@@ -177,6 +185,10 @@ riSRIOVNetSupport = lens _riSRIOVNetSupport (\ s a -> s{_riSRIOVNetSupport = a})
 riArchitecture :: Lens' RegisterImage (Maybe ArchitectureValues)
 riArchitecture = lens _riArchitecture (\ s a -> s{_riArchitecture = a});
 
+-- | A description for your AMI.
+riDescription :: Lens' RegisterImage (Maybe Text)
+riDescription = lens _riDescription (\ s a -> s{_riDescription = a});
+
 -- | One or more block device mapping entries.
 riBlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
 riBlockDeviceMappings = lens _riBlockDeviceMappings (\ s a -> s{_riBlockDeviceMappings = a}) . _Default . _Coerce;
@@ -187,10 +199,6 @@ riBlockDeviceMappings = lens _riBlockDeviceMappings (\ s a -> s{_riBlockDeviceMa
 -- Otherwise, it is 'UnauthorizedOperation'.
 riDryRun :: Lens' RegisterImage (Maybe Bool)
 riDryRun = lens _riDryRun (\ s a -> s{_riDryRun = a});
-
--- | A description for your AMI.
-riDescription :: Lens' RegisterImage (Maybe Text)
-riDescription = lens _riDescription (\ s a -> s{_riDescription = a});
 
 -- | A name for your AMI.
 --
@@ -227,16 +235,16 @@ instance ToQuery RegisterImage where
                "RootDeviceName" =: _riRootDeviceName,
                "SriovNetSupport" =: _riSRIOVNetSupport,
                "Architecture" =: _riArchitecture,
+               "Description" =: _riDescription,
                toQuery
                  (toQueryList "BlockDeviceMapping" <$>
                     _riBlockDeviceMappings),
-               "DryRun" =: _riDryRun,
-               "Description" =: _riDescription, "Name" =: _riName]
+               "DryRun" =: _riDryRun, "Name" =: _riName]
 
 -- | /See:/ 'registerImageResponse' smart constructor.
 data RegisterImageResponse = RegisterImageResponse'
-    { _rirsImageId :: !(Maybe Text)
-    , _rirsStatus  :: !Int
+    { _rirsImageId        :: !(Maybe Text)
+    , _rirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterImageResponse' with the minimum fields required to make a request.
@@ -245,14 +253,14 @@ data RegisterImageResponse = RegisterImageResponse'
 --
 -- * 'rirsImageId'
 --
--- * 'rirsStatus'
+-- * 'rirsResponseStatus'
 registerImageResponse
-    :: Int -- ^ 'rirsStatus'
+    :: Int -- ^ 'rirsResponseStatus'
     -> RegisterImageResponse
-registerImageResponse pStatus_ =
+registerImageResponse pResponseStatus_ =
     RegisterImageResponse'
     { _rirsImageId = Nothing
-    , _rirsStatus = pStatus_
+    , _rirsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the newly registered AMI.
@@ -260,5 +268,5 @@ rirsImageId :: Lens' RegisterImageResponse (Maybe Text)
 rirsImageId = lens _rirsImageId (\ s a -> s{_rirsImageId = a});
 
 -- | The response status code.
-rirsStatus :: Lens' RegisterImageResponse Int
-rirsStatus = lens _rirsStatus (\ s a -> s{_rirsStatus = a});
+rirsResponseStatus :: Lens' RegisterImageResponse Int
+rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a});

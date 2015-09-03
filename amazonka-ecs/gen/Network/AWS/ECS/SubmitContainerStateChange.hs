@@ -43,7 +43,7 @@ module Network.AWS.ECS.SubmitContainerStateChange
     , SubmitContainerStateChangeResponse
     -- * Response Lenses
     , scscrsAcknowledgment
-    , scscrsStatus
+    , scscrsResponseStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -164,7 +164,7 @@ instance ToQuery SubmitContainerStateChange where
 -- | /See:/ 'submitContainerStateChangeResponse' smart constructor.
 data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
     { _scscrsAcknowledgment :: !(Maybe Text)
-    , _scscrsStatus         :: !Int
+    , _scscrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SubmitContainerStateChangeResponse' with the minimum fields required to make a request.
@@ -173,14 +173,14 @@ data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
 --
 -- * 'scscrsAcknowledgment'
 --
--- * 'scscrsStatus'
+-- * 'scscrsResponseStatus'
 submitContainerStateChangeResponse
-    :: Int -- ^ 'scscrsStatus'
+    :: Int -- ^ 'scscrsResponseStatus'
     -> SubmitContainerStateChangeResponse
-submitContainerStateChangeResponse pStatus_ =
+submitContainerStateChangeResponse pResponseStatus_ =
     SubmitContainerStateChangeResponse'
     { _scscrsAcknowledgment = Nothing
-    , _scscrsStatus = pStatus_
+    , _scscrsResponseStatus = pResponseStatus_
     }
 
 -- | Acknowledgement of the state change.
@@ -188,5 +188,5 @@ scscrsAcknowledgment :: Lens' SubmitContainerStateChangeResponse (Maybe Text)
 scscrsAcknowledgment = lens _scscrsAcknowledgment (\ s a -> s{_scscrsAcknowledgment = a});
 
 -- | The response status code.
-scscrsStatus :: Lens' SubmitContainerStateChangeResponse Int
-scscrsStatus = lens _scscrsStatus (\ s a -> s{_scscrsStatus = a});
+scscrsResponseStatus :: Lens' SubmitContainerStateChangeResponse Int
+scscrsResponseStatus = lens _scscrsResponseStatus (\ s a -> s{_scscrsResponseStatus = a});

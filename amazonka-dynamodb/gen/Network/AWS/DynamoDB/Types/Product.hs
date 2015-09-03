@@ -80,8 +80,8 @@ instance ToJSON AttributeDefinition where
 -- /See:/ 'attributeValue' smart constructor.
 data AttributeValue = AttributeValue'
     { _avL    :: !(Maybe [AttributeValue])
-    , _avM    :: !(Maybe (Map Text AttributeValue))
     , _avNS   :: !(Maybe [Text])
+    , _avM    :: !(Maybe (Map Text AttributeValue))
     , _avNULL :: !(Maybe Bool)
     , _avN    :: !(Maybe Text)
     , _avBS   :: !(Maybe [Base64])
@@ -97,9 +97,9 @@ data AttributeValue = AttributeValue'
 --
 -- * 'avL'
 --
--- * 'avM'
---
 -- * 'avNS'
+--
+-- * 'avM'
 --
 -- * 'avNULL'
 --
@@ -119,8 +119,8 @@ attributeValue
 attributeValue =
     AttributeValue'
     { _avL = Nothing
-    , _avM = Nothing
     , _avNS = Nothing
+    , _avM = Nothing
     , _avNULL = Nothing
     , _avN = Nothing
     , _avBS = Nothing
@@ -134,13 +134,13 @@ attributeValue =
 avL :: Lens' AttributeValue [AttributeValue]
 avL = lens _avL (\ s a -> s{_avL = a}) . _Default . _Coerce;
 
--- | A Map of attribute values.
-avM :: Lens' AttributeValue (HashMap Text AttributeValue)
-avM = lens _avM (\ s a -> s{_avM = a}) . _Default . _Map;
-
 -- | A Number Set data type.
 avNS :: Lens' AttributeValue [Text]
 avNS = lens _avNS (\ s a -> s{_avNS = a}) . _Default . _Coerce;
+
+-- | A Map of attribute values.
+avM :: Lens' AttributeValue (HashMap Text AttributeValue)
+avM = lens _avM (\ s a -> s{_avM = a}) . _Default . _Map;
 
 -- | A Null data type.
 avNULL :: Lens' AttributeValue (Maybe Bool)
@@ -181,8 +181,8 @@ instance FromJSON AttributeValue where
           = withObject "AttributeValue"
               (\ x ->
                  AttributeValue' <$>
-                   (x .:? "L" .!= mempty) <*> (x .:? "M" .!= mempty) <*>
-                     (x .:? "NS" .!= mempty)
+                   (x .:? "L" .!= mempty) <*> (x .:? "NS" .!= mempty)
+                     <*> (x .:? "M" .!= mempty)
                      <*> (x .:? "NULL")
                      <*> (x .:? "N")
                      <*> (x .:? "BS" .!= mempty)
@@ -195,8 +195,8 @@ instance ToJSON AttributeValue where
         toJSON AttributeValue'{..}
           = object
               (catMaybes
-                 [("L" .=) <$> _avL, ("M" .=) <$> _avM,
-                  ("NS" .=) <$> _avNS, ("NULL" .=) <$> _avNULL,
+                 [("L" .=) <$> _avL, ("NS" .=) <$> _avNS,
+                  ("M" .=) <$> _avM, ("NULL" .=) <$> _avNULL,
                   ("N" .=) <$> _avN, ("BS" .=) <$> _avBS,
                   ("B" .=) <$> _avB, ("SS" .=) <$> _avSS,
                   ("S" .=) <$> _avS, ("BOOL" .=) <$> _avBOOL])
@@ -573,8 +573,8 @@ instance ToJSON Condition where
 --
 -- /See:/ 'consumedCapacity' smart constructor.
 data ConsumedCapacity = ConsumedCapacity'
-    { _ccCapacityUnits          :: !(Maybe Double)
-    , _ccGlobalSecondaryIndexes :: !(Maybe (Map Text Capacity))
+    { _ccGlobalSecondaryIndexes :: !(Maybe (Map Text Capacity))
+    , _ccCapacityUnits          :: !(Maybe Double)
     , _ccLocalSecondaryIndexes  :: !(Maybe (Map Text Capacity))
     , _ccTable                  :: !(Maybe Capacity)
     , _ccTableName              :: !(Maybe Text)
@@ -584,9 +584,9 @@ data ConsumedCapacity = ConsumedCapacity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccCapacityUnits'
---
 -- * 'ccGlobalSecondaryIndexes'
+--
+-- * 'ccCapacityUnits'
 --
 -- * 'ccLocalSecondaryIndexes'
 --
@@ -597,21 +597,21 @@ consumedCapacity
     :: ConsumedCapacity
 consumedCapacity =
     ConsumedCapacity'
-    { _ccCapacityUnits = Nothing
-    , _ccGlobalSecondaryIndexes = Nothing
+    { _ccGlobalSecondaryIndexes = Nothing
+    , _ccCapacityUnits = Nothing
     , _ccLocalSecondaryIndexes = Nothing
     , _ccTable = Nothing
     , _ccTableName = Nothing
     }
 
--- | The total number of capacity units consumed by the operation.
-ccCapacityUnits :: Lens' ConsumedCapacity (Maybe Double)
-ccCapacityUnits = lens _ccCapacityUnits (\ s a -> s{_ccCapacityUnits = a});
-
 -- | The amount of throughput consumed on each global index affected by the
 -- operation.
 ccGlobalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
 ccGlobalSecondaryIndexes = lens _ccGlobalSecondaryIndexes (\ s a -> s{_ccGlobalSecondaryIndexes = a}) . _Default . _Map;
+
+-- | The total number of capacity units consumed by the operation.
+ccCapacityUnits :: Lens' ConsumedCapacity (Maybe Double)
+ccCapacityUnits = lens _ccCapacityUnits (\ s a -> s{_ccCapacityUnits = a});
 
 -- | The amount of throughput consumed on each local index affected by the
 -- operation.
@@ -632,8 +632,8 @@ instance FromJSON ConsumedCapacity where
           = withObject "ConsumedCapacity"
               (\ x ->
                  ConsumedCapacity' <$>
-                   (x .:? "CapacityUnits") <*>
-                     (x .:? "GlobalSecondaryIndexes" .!= mempty)
+                   (x .:? "GlobalSecondaryIndexes" .!= mempty) <*>
+                     (x .:? "CapacityUnits")
                      <*> (x .:? "LocalSecondaryIndexes" .!= mempty)
                      <*> (x .:? "Table")
                      <*> (x .:? "TableName"))
@@ -1105,9 +1105,9 @@ instance ToJSON GlobalSecondaryIndex where
 -- /See:/ 'globalSecondaryIndexDescription' smart constructor.
 data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
     { _gsidBackfilling           :: !(Maybe Bool)
-    , _gsidProvisionedThroughput :: !(Maybe ProvisionedThroughputDescription)
-    , _gsidIndexStatus           :: !(Maybe IndexStatus)
     , _gsidIndexSizeBytes        :: !(Maybe Integer)
+    , _gsidIndexStatus           :: !(Maybe IndexStatus)
+    , _gsidProvisionedThroughput :: !(Maybe ProvisionedThroughputDescription)
     , _gsidIndexARN              :: !(Maybe Text)
     , _gsidKeySchema             :: !(Maybe (List1 KeySchemaElement))
     , _gsidProjection            :: !(Maybe Projection)
@@ -1121,11 +1121,11 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
 --
 -- * 'gsidBackfilling'
 --
--- * 'gsidProvisionedThroughput'
+-- * 'gsidIndexSizeBytes'
 --
 -- * 'gsidIndexStatus'
 --
--- * 'gsidIndexSizeBytes'
+-- * 'gsidProvisionedThroughput'
 --
 -- * 'gsidIndexARN'
 --
@@ -1141,9 +1141,9 @@ globalSecondaryIndexDescription
 globalSecondaryIndexDescription =
     GlobalSecondaryIndexDescription'
     { _gsidBackfilling = Nothing
-    , _gsidProvisionedThroughput = Nothing
-    , _gsidIndexStatus = Nothing
     , _gsidIndexSizeBytes = Nothing
+    , _gsidIndexStatus = Nothing
+    , _gsidProvisionedThroughput = Nothing
     , _gsidIndexARN = Nothing
     , _gsidKeySchema = Nothing
     , _gsidProjection = Nothing
@@ -1163,9 +1163,11 @@ globalSecondaryIndexDescription =
 gsidBackfilling :: Lens' GlobalSecondaryIndexDescription (Maybe Bool)
 gsidBackfilling = lens _gsidBackfilling (\ s a -> s{_gsidBackfilling = a});
 
--- | Undocumented member.
-gsidProvisionedThroughput :: Lens' GlobalSecondaryIndexDescription (Maybe ProvisionedThroughputDescription)
-gsidProvisionedThroughput = lens _gsidProvisionedThroughput (\ s a -> s{_gsidProvisionedThroughput = a});
+-- | The total size of the specified index, in bytes. DynamoDB updates this
+-- value approximately every six hours. Recent changes might not be
+-- reflected in this value.
+gsidIndexSizeBytes :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
+gsidIndexSizeBytes = lens _gsidIndexSizeBytes (\ s a -> s{_gsidIndexSizeBytes = a});
 
 -- | The current state of the global secondary index:
 --
@@ -1180,11 +1182,9 @@ gsidProvisionedThroughput = lens _gsidProvisionedThroughput (\ s a -> s{_gsidPro
 gsidIndexStatus :: Lens' GlobalSecondaryIndexDescription (Maybe IndexStatus)
 gsidIndexStatus = lens _gsidIndexStatus (\ s a -> s{_gsidIndexStatus = a});
 
--- | The total size of the specified index, in bytes. DynamoDB updates this
--- value approximately every six hours. Recent changes might not be
--- reflected in this value.
-gsidIndexSizeBytes :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
-gsidIndexSizeBytes = lens _gsidIndexSizeBytes (\ s a -> s{_gsidIndexSizeBytes = a});
+-- | Undocumented member.
+gsidProvisionedThroughput :: Lens' GlobalSecondaryIndexDescription (Maybe ProvisionedThroughputDescription)
+gsidProvisionedThroughput = lens _gsidProvisionedThroughput (\ s a -> s{_gsidProvisionedThroughput = a});
 
 -- | The Amazon Resource Name (ARN) that uniquely identifies the index.
 gsidIndexARN :: Lens' GlobalSecondaryIndexDescription (Maybe Text)
@@ -1215,10 +1215,9 @@ instance FromJSON GlobalSecondaryIndexDescription
           = withObject "GlobalSecondaryIndexDescription"
               (\ x ->
                  GlobalSecondaryIndexDescription' <$>
-                   (x .:? "Backfilling") <*>
-                     (x .:? "ProvisionedThroughput")
+                   (x .:? "Backfilling") <*> (x .:? "IndexSizeBytes")
                      <*> (x .:? "IndexStatus")
-                     <*> (x .:? "IndexSizeBytes")
+                     <*> (x .:? "ProvisionedThroughput")
                      <*> (x .:? "IndexArn")
                      <*> (x .:? "KeySchema")
                      <*> (x .:? "Projection")
@@ -1412,9 +1411,9 @@ instance ToJSON KeySchemaElement where
 -- /See:/ 'keysAndAttributes' smart constructor.
 data KeysAndAttributes = KeysAndAttributes'
     { _kaaProjectionExpression     :: !(Maybe Text)
-    , _kaaConsistentRead           :: !(Maybe Bool)
-    , _kaaExpressionAttributeNames :: !(Maybe (Map Text Text))
     , _kaaAttributesToGet          :: !(Maybe (List1 Text))
+    , _kaaExpressionAttributeNames :: !(Maybe (Map Text Text))
+    , _kaaConsistentRead           :: !(Maybe Bool)
     , _kaaKeys                     :: !(List1 (Map Text AttributeValue))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1424,11 +1423,11 @@ data KeysAndAttributes = KeysAndAttributes'
 --
 -- * 'kaaProjectionExpression'
 --
--- * 'kaaConsistentRead'
+-- * 'kaaAttributesToGet'
 --
 -- * 'kaaExpressionAttributeNames'
 --
--- * 'kaaAttributesToGet'
+-- * 'kaaConsistentRead'
 --
 -- * 'kaaKeys'
 keysAndAttributes
@@ -1437,9 +1436,9 @@ keysAndAttributes
 keysAndAttributes pKeys_ =
     KeysAndAttributes'
     { _kaaProjectionExpression = Nothing
-    , _kaaConsistentRead = Nothing
-    , _kaaExpressionAttributeNames = Nothing
     , _kaaAttributesToGet = Nothing
+    , _kaaExpressionAttributeNames = Nothing
+    , _kaaConsistentRead = Nothing
     , _kaaKeys = _List1 # pKeys_
     }
 
@@ -1460,11 +1459,12 @@ keysAndAttributes pKeys_ =
 kaaProjectionExpression :: Lens' KeysAndAttributes (Maybe Text)
 kaaProjectionExpression = lens _kaaProjectionExpression (\ s a -> s{_kaaProjectionExpression = a});
 
--- | The consistency of a read operation. If set to 'true', then a strongly
--- consistent read is used; otherwise, an eventually consistent read is
--- used.
-kaaConsistentRead :: Lens' KeysAndAttributes (Maybe Bool)
-kaaConsistentRead = lens _kaaConsistentRead (\ s a -> s{_kaaConsistentRead = a});
+-- | One or more attributes to retrieve from the table or index. If no
+-- attribute names are specified then all attributes will be returned. If
+-- any of the specified attributes are not found, they will not appear in
+-- the result.
+kaaAttributesToGet :: Lens' KeysAndAttributes (Maybe (NonEmpty Text))
+kaaAttributesToGet = lens _kaaAttributesToGet (\ s a -> s{_kaaAttributesToGet = a}) . mapping _List1;
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using /ExpressionAttributeNames/:
@@ -1506,12 +1506,11 @@ kaaConsistentRead = lens _kaaConsistentRead (\ s a -> s{_kaaConsistentRead = a})
 kaaExpressionAttributeNames :: Lens' KeysAndAttributes (HashMap Text Text)
 kaaExpressionAttributeNames = lens _kaaExpressionAttributeNames (\ s a -> s{_kaaExpressionAttributeNames = a}) . _Default . _Map;
 
--- | One or more attributes to retrieve from the table or index. If no
--- attribute names are specified then all attributes will be returned. If
--- any of the specified attributes are not found, they will not appear in
--- the result.
-kaaAttributesToGet :: Lens' KeysAndAttributes (Maybe (NonEmpty Text))
-kaaAttributesToGet = lens _kaaAttributesToGet (\ s a -> s{_kaaAttributesToGet = a}) . mapping _List1;
+-- | The consistency of a read operation. If set to 'true', then a strongly
+-- consistent read is used; otherwise, an eventually consistent read is
+-- used.
+kaaConsistentRead :: Lens' KeysAndAttributes (Maybe Bool)
+kaaConsistentRead = lens _kaaConsistentRead (\ s a -> s{_kaaConsistentRead = a});
 
 -- | The primary key attribute values that define the items and the
 -- attributes associated with the items.
@@ -1524,9 +1523,9 @@ instance FromJSON KeysAndAttributes where
               (\ x ->
                  KeysAndAttributes' <$>
                    (x .:? "ProjectionExpression") <*>
-                     (x .:? "ConsistentRead")
+                     (x .:? "AttributesToGet")
                      <*> (x .:? "ExpressionAttributeNames" .!= mempty)
-                     <*> (x .:? "AttributesToGet")
+                     <*> (x .:? "ConsistentRead")
                      <*> (x .: "Keys"))
 
 instance ToJSON KeysAndAttributes where
@@ -1535,10 +1534,10 @@ instance ToJSON KeysAndAttributes where
               (catMaybes
                  [("ProjectionExpression" .=) <$>
                     _kaaProjectionExpression,
-                  ("ConsistentRead" .=) <$> _kaaConsistentRead,
+                  ("AttributesToGet" .=) <$> _kaaAttributesToGet,
                   ("ExpressionAttributeNames" .=) <$>
                     _kaaExpressionAttributeNames,
-                  ("AttributesToGet" .=) <$> _kaaAttributesToGet,
+                  ("ConsistentRead" .=) <$> _kaaConsistentRead,
                   Just ("Keys" .= _kaaKeys)])
 
 -- | Represents the properties of a local secondary index.
@@ -1911,29 +1910,24 @@ instance ToJSON PutRequest where
 --
 -- /See:/ 'streamSpecification' smart constructor.
 data StreamSpecification = StreamSpecification'
-    { _ssStreamEnabled  :: !(Maybe Bool)
-    , _ssStreamViewType :: !(Maybe StreamViewType)
+    { _ssStreamViewType :: !(Maybe StreamViewType)
+    , _ssStreamEnabled  :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StreamSpecification' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssStreamEnabled'
---
 -- * 'ssStreamViewType'
+--
+-- * 'ssStreamEnabled'
 streamSpecification
     :: StreamSpecification
 streamSpecification =
     StreamSpecification'
-    { _ssStreamEnabled = Nothing
-    , _ssStreamViewType = Nothing
+    { _ssStreamViewType = Nothing
+    , _ssStreamEnabled = Nothing
     }
-
--- | Indicates whether DynamoDB Streams is enabled (true) or disabled (false)
--- on the table.
-ssStreamEnabled :: Lens' StreamSpecification (Maybe Bool)
-ssStreamEnabled = lens _ssStreamEnabled (\ s a -> s{_ssStreamEnabled = a});
 
 -- | The DynamoDB Streams settings for the table. These settings consist of:
 --
@@ -1959,33 +1953,38 @@ ssStreamEnabled = lens _ssStreamEnabled (\ s a -> s{_ssStreamEnabled = a});
 ssStreamViewType :: Lens' StreamSpecification (Maybe StreamViewType)
 ssStreamViewType = lens _ssStreamViewType (\ s a -> s{_ssStreamViewType = a});
 
+-- | Indicates whether DynamoDB Streams is enabled (true) or disabled (false)
+-- on the table.
+ssStreamEnabled :: Lens' StreamSpecification (Maybe Bool)
+ssStreamEnabled = lens _ssStreamEnabled (\ s a -> s{_ssStreamEnabled = a});
+
 instance FromJSON StreamSpecification where
         parseJSON
           = withObject "StreamSpecification"
               (\ x ->
                  StreamSpecification' <$>
-                   (x .:? "StreamEnabled") <*> (x .:? "StreamViewType"))
+                   (x .:? "StreamViewType") <*> (x .:? "StreamEnabled"))
 
 instance ToJSON StreamSpecification where
         toJSON StreamSpecification'{..}
           = object
               (catMaybes
-                 [("StreamEnabled" .=) <$> _ssStreamEnabled,
-                  ("StreamViewType" .=) <$> _ssStreamViewType])
+                 [("StreamViewType" .=) <$> _ssStreamViewType,
+                  ("StreamEnabled" .=) <$> _ssStreamEnabled])
 
 -- | Represents the properties of a table.
 --
 -- /See:/ 'tableDescription' smart constructor.
 data TableDescription = TableDescription'
-    { _tdProvisionedThroughput  :: !(Maybe ProvisionedThroughputDescription)
+    { _tdTableSizeBytes         :: !(Maybe Integer)
     , _tdAttributeDefinitions   :: !(Maybe [AttributeDefinition])
     , _tdLatestStreamARN        :: !(Maybe Text)
-    , _tdTableSizeBytes         :: !(Maybe Integer)
+    , _tdProvisionedThroughput  :: !(Maybe ProvisionedThroughputDescription)
     , _tdTableStatus            :: !(Maybe TableStatus)
     , _tdTableARN               :: !(Maybe Text)
     , _tdKeySchema              :: !(Maybe (List1 KeySchemaElement))
-    , _tdLatestStreamLabel      :: !(Maybe Text)
     , _tdGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndexDescription])
+    , _tdLatestStreamLabel      :: !(Maybe Text)
     , _tdLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndexDescription])
     , _tdCreationDateTime       :: !(Maybe POSIX)
     , _tdItemCount              :: !(Maybe Integer)
@@ -1997,13 +1996,13 @@ data TableDescription = TableDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tdProvisionedThroughput'
+-- * 'tdTableSizeBytes'
 --
 -- * 'tdAttributeDefinitions'
 --
 -- * 'tdLatestStreamARN'
 --
--- * 'tdTableSizeBytes'
+-- * 'tdProvisionedThroughput'
 --
 -- * 'tdTableStatus'
 --
@@ -2011,9 +2010,9 @@ data TableDescription = TableDescription'
 --
 -- * 'tdKeySchema'
 --
--- * 'tdLatestStreamLabel'
---
 -- * 'tdGlobalSecondaryIndexes'
+--
+-- * 'tdLatestStreamLabel'
 --
 -- * 'tdLocalSecondaryIndexes'
 --
@@ -2028,15 +2027,15 @@ tableDescription
     :: TableDescription
 tableDescription =
     TableDescription'
-    { _tdProvisionedThroughput = Nothing
+    { _tdTableSizeBytes = Nothing
     , _tdAttributeDefinitions = Nothing
     , _tdLatestStreamARN = Nothing
-    , _tdTableSizeBytes = Nothing
+    , _tdProvisionedThroughput = Nothing
     , _tdTableStatus = Nothing
     , _tdTableARN = Nothing
     , _tdKeySchema = Nothing
-    , _tdLatestStreamLabel = Nothing
     , _tdGlobalSecondaryIndexes = Nothing
+    , _tdLatestStreamLabel = Nothing
     , _tdLocalSecondaryIndexes = Nothing
     , _tdCreationDateTime = Nothing
     , _tdItemCount = Nothing
@@ -2044,10 +2043,11 @@ tableDescription =
     , _tdStreamSpecification = Nothing
     }
 
--- | The provisioned throughput settings for the table, consisting of read
--- and write capacity units, along with data about increases and decreases.
-tdProvisionedThroughput :: Lens' TableDescription (Maybe ProvisionedThroughputDescription)
-tdProvisionedThroughput = lens _tdProvisionedThroughput (\ s a -> s{_tdProvisionedThroughput = a});
+-- | The total size of the specified table, in bytes. DynamoDB updates this
+-- value approximately every six hours. Recent changes might not be
+-- reflected in this value.
+tdTableSizeBytes :: Lens' TableDescription (Maybe Integer)
+tdTableSizeBytes = lens _tdTableSizeBytes (\ s a -> s{_tdTableSizeBytes = a});
 
 -- | An array of /AttributeDefinition/ objects. Each of these objects
 -- describes one attribute in the table and index key schema.
@@ -2066,11 +2066,10 @@ tdAttributeDefinitions = lens _tdAttributeDefinitions (\ s a -> s{_tdAttributeDe
 tdLatestStreamARN :: Lens' TableDescription (Maybe Text)
 tdLatestStreamARN = lens _tdLatestStreamARN (\ s a -> s{_tdLatestStreamARN = a});
 
--- | The total size of the specified table, in bytes. DynamoDB updates this
--- value approximately every six hours. Recent changes might not be
--- reflected in this value.
-tdTableSizeBytes :: Lens' TableDescription (Maybe Integer)
-tdTableSizeBytes = lens _tdTableSizeBytes (\ s a -> s{_tdTableSizeBytes = a});
+-- | The provisioned throughput settings for the table, consisting of read
+-- and write capacity units, along with data about increases and decreases.
+tdProvisionedThroughput :: Lens' TableDescription (Maybe ProvisionedThroughputDescription)
+tdProvisionedThroughput = lens _tdProvisionedThroughput (\ s a -> s{_tdProvisionedThroughput = a});
 
 -- | The current state of the table:
 --
@@ -2102,22 +2101,6 @@ tdTableARN = lens _tdTableARN (\ s a -> s{_tdTableARN = a});
 -- in the /Amazon DynamoDB Developer Guide/.
 tdKeySchema :: Lens' TableDescription (Maybe (NonEmpty KeySchemaElement))
 tdKeySchema = lens _tdKeySchema (\ s a -> s{_tdKeySchema = a}) . mapping _List1;
-
--- | A timestamp, in ISO 8601 format, for this stream.
---
--- Note that /LatestStreamLabel/ is not a unique identifier for the stream,
--- because it is possible that a stream from another table might have the
--- same timestamp. However, the combination of the following three elements
--- is guaranteed to be unique:
---
--- -   the AWS customer ID.
---
--- -   the table name.
---
--- -   the /StreamLabel/.
---
-tdLatestStreamLabel :: Lens' TableDescription (Maybe Text)
-tdLatestStreamLabel = lens _tdLatestStreamLabel (\ s a -> s{_tdLatestStreamLabel = a});
 
 -- | The global secondary indexes, if any, on the table. Each index is scoped
 -- to a given hash key value. Each element is composed of:
@@ -2186,6 +2169,22 @@ tdLatestStreamLabel = lens _tdLatestStreamLabel (\ s a -> s{_tdLatestStreamLabel
 -- will be returned.
 tdGlobalSecondaryIndexes :: Lens' TableDescription [GlobalSecondaryIndexDescription]
 tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalSecondaryIndexes = a}) . _Default . _Coerce;
+
+-- | A timestamp, in ISO 8601 format, for this stream.
+--
+-- Note that /LatestStreamLabel/ is not a unique identifier for the stream,
+-- because it is possible that a stream from another table might have the
+-- same timestamp. However, the combination of the following three elements
+-- is guaranteed to be unique:
+--
+-- -   the AWS customer ID.
+--
+-- -   the table name.
+--
+-- -   the /StreamLabel/.
+--
+tdLatestStreamLabel :: Lens' TableDescription (Maybe Text)
+tdLatestStreamLabel = lens _tdLatestStreamLabel (\ s a -> s{_tdLatestStreamLabel = a});
 
 -- | Represents one or more local secondary indexes on the table. Each index
 -- is scoped to a given hash key value. Tables with one or more local
@@ -2261,15 +2260,15 @@ instance FromJSON TableDescription where
           = withObject "TableDescription"
               (\ x ->
                  TableDescription' <$>
-                   (x .:? "ProvisionedThroughput") <*>
+                   (x .:? "TableSizeBytes") <*>
                      (x .:? "AttributeDefinitions" .!= mempty)
                      <*> (x .:? "LatestStreamArn")
-                     <*> (x .:? "TableSizeBytes")
+                     <*> (x .:? "ProvisionedThroughput")
                      <*> (x .:? "TableStatus")
                      <*> (x .:? "TableArn")
                      <*> (x .:? "KeySchema")
-                     <*> (x .:? "LatestStreamLabel")
                      <*> (x .:? "GlobalSecondaryIndexes" .!= mempty)
+                     <*> (x .:? "LatestStreamLabel")
                      <*> (x .:? "LocalSecondaryIndexes" .!= mempty)
                      <*> (x .:? "CreationDateTime")
                      <*> (x .:? "ItemCount")
@@ -2327,43 +2326,43 @@ instance ToJSON UpdateGlobalSecondaryIndexAction
 --
 -- /See:/ 'writeRequest' smart constructor.
 data WriteRequest = WriteRequest'
-    { _wrPutRequest    :: !(Maybe PutRequest)
-    , _wrDeleteRequest :: !(Maybe DeleteRequest)
+    { _wrDeleteRequest :: !(Maybe DeleteRequest)
+    , _wrPutRequest    :: !(Maybe PutRequest)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'WriteRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wrPutRequest'
---
 -- * 'wrDeleteRequest'
+--
+-- * 'wrPutRequest'
 writeRequest
     :: WriteRequest
 writeRequest =
     WriteRequest'
-    { _wrPutRequest = Nothing
-    , _wrDeleteRequest = Nothing
+    { _wrDeleteRequest = Nothing
+    , _wrPutRequest = Nothing
     }
-
--- | A request to perform a /PutItem/ operation.
-wrPutRequest :: Lens' WriteRequest (Maybe PutRequest)
-wrPutRequest = lens _wrPutRequest (\ s a -> s{_wrPutRequest = a});
 
 -- | A request to perform a /DeleteItem/ operation.
 wrDeleteRequest :: Lens' WriteRequest (Maybe DeleteRequest)
 wrDeleteRequest = lens _wrDeleteRequest (\ s a -> s{_wrDeleteRequest = a});
+
+-- | A request to perform a /PutItem/ operation.
+wrPutRequest :: Lens' WriteRequest (Maybe PutRequest)
+wrPutRequest = lens _wrPutRequest (\ s a -> s{_wrPutRequest = a});
 
 instance FromJSON WriteRequest where
         parseJSON
           = withObject "WriteRequest"
               (\ x ->
                  WriteRequest' <$>
-                   (x .:? "PutRequest") <*> (x .:? "DeleteRequest"))
+                   (x .:? "DeleteRequest") <*> (x .:? "PutRequest"))
 
 instance ToJSON WriteRequest where
         toJSON WriteRequest'{..}
           = object
               (catMaybes
-                 [("PutRequest" .=) <$> _wrPutRequest,
-                  ("DeleteRequest" .=) <$> _wrDeleteRequest])
+                 [("DeleteRequest" .=) <$> _wrDeleteRequest,
+                  ("PutRequest" .=) <$> _wrPutRequest])

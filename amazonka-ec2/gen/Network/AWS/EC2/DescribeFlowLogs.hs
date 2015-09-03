@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeFlowLogs
     , DescribeFlowLogs
     -- * Request Lenses
     , dNextToken
-    , dFilter
     , dFlowLogIds
+    , dFilter
     , dMaxResults
 
     -- * Destructuring the Response
@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeFlowLogs
     -- * Response Lenses
     , dflsrsNextToken
     , dflsrsFlowLogs
-    , dflsrsStatus
+    , dflsrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -52,8 +52,8 @@ import           Network.AWS.Response
 -- | /See:/ 'describeFlowLogs' smart constructor.
 data DescribeFlowLogs = DescribeFlowLogs'
     { _dNextToken  :: !(Maybe Text)
-    , _dFilter     :: !(Maybe [Filter])
     , _dFlowLogIds :: !(Maybe [Text])
+    , _dFilter     :: !(Maybe [Filter])
     , _dMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -63,9 +63,9 @@ data DescribeFlowLogs = DescribeFlowLogs'
 --
 -- * 'dNextToken'
 --
--- * 'dFilter'
---
 -- * 'dFlowLogIds'
+--
+-- * 'dFilter'
 --
 -- * 'dMaxResults'
 describeFlowLogs
@@ -73,14 +73,18 @@ describeFlowLogs
 describeFlowLogs =
     DescribeFlowLogs'
     { _dNextToken = Nothing
-    , _dFilter = Nothing
     , _dFlowLogIds = Nothing
+    , _dFilter = Nothing
     , _dMaxResults = Nothing
     }
 
 -- | The token to retrieve the next page of results.
 dNextToken :: Lens' DescribeFlowLogs (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
+
+-- | One or more flow log IDs.
+dFlowLogIds :: Lens' DescribeFlowLogs [Text]
+dFlowLogIds = lens _dFlowLogIds (\ s a -> s{_dFlowLogIds = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -97,10 +101,6 @@ dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 --
 dFilter :: Lens' DescribeFlowLogs [Filter]
 dFilter = lens _dFilter (\ s a -> s{_dFilter = a}) . _Default . _Coerce;
-
--- | One or more flow log IDs.
-dFlowLogIds :: Lens' DescribeFlowLogs [Text]
-dFlowLogIds = lens _dFlowLogIds (\ s a -> s{_dFlowLogIds = a}) . _Default . _Coerce;
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
@@ -135,15 +135,15 @@ instance ToQuery DescribeFlowLogs where
               ["Action" =: ("DescribeFlowLogs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "NextToken" =: _dNextToken,
-               toQuery (toQueryList "Filter" <$> _dFilter),
                toQuery (toQueryList "FlowLogId" <$> _dFlowLogIds),
+               toQuery (toQueryList "Filter" <$> _dFilter),
                "MaxResults" =: _dMaxResults]
 
 -- | /See:/ 'describeFlowLogsResponse' smart constructor.
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
-    { _dflsrsNextToken :: !(Maybe Text)
-    , _dflsrsFlowLogs  :: !(Maybe [FlowLog])
-    , _dflsrsStatus    :: !Int
+    { _dflsrsNextToken      :: !(Maybe Text)
+    , _dflsrsFlowLogs       :: !(Maybe [FlowLog])
+    , _dflsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeFlowLogsResponse' with the minimum fields required to make a request.
@@ -154,15 +154,15 @@ data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
 --
 -- * 'dflsrsFlowLogs'
 --
--- * 'dflsrsStatus'
+-- * 'dflsrsResponseStatus'
 describeFlowLogsResponse
-    :: Int -- ^ 'dflsrsStatus'
+    :: Int -- ^ 'dflsrsResponseStatus'
     -> DescribeFlowLogsResponse
-describeFlowLogsResponse pStatus_ =
+describeFlowLogsResponse pResponseStatus_ =
     DescribeFlowLogsResponse'
     { _dflsrsNextToken = Nothing
     , _dflsrsFlowLogs = Nothing
-    , _dflsrsStatus = pStatus_
+    , _dflsrsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
@@ -175,5 +175,5 @@ dflsrsFlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
 dflsrsFlowLogs = lens _dflsrsFlowLogs (\ s a -> s{_dflsrsFlowLogs = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dflsrsStatus :: Lens' DescribeFlowLogsResponse Int
-dflsrsStatus = lens _dflsrsStatus (\ s a -> s{_dflsrsStatus = a});
+dflsrsResponseStatus :: Lens' DescribeFlowLogsResponse Int
+dflsrsResponseStatus = lens _dflsrsResponseStatus (\ s a -> s{_dflsrsResponseStatus = a});

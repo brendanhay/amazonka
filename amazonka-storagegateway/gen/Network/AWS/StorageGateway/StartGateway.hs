@@ -45,8 +45,8 @@ module Network.AWS.StorageGateway.StartGateway
     , startGatewayResponse
     , StartGatewayResponse
     -- * Response Lenses
-    , srsGatewayARN
-    , srsStatus
+    , sgrsGatewayARN
+    , sgrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -113,30 +113,30 @@ instance ToQuery StartGateway where
 --
 -- /See:/ 'startGatewayResponse' smart constructor.
 data StartGatewayResponse = StartGatewayResponse'
-    { _srsGatewayARN :: !(Maybe Text)
-    , _srsStatus     :: !Int
+    { _sgrsGatewayARN     :: !(Maybe Text)
+    , _sgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StartGatewayResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsGatewayARN'
+-- * 'sgrsGatewayARN'
 --
--- * 'srsStatus'
+-- * 'sgrsResponseStatus'
 startGatewayResponse
-    :: Int -- ^ 'srsStatus'
+    :: Int -- ^ 'sgrsResponseStatus'
     -> StartGatewayResponse
-startGatewayResponse pStatus_ =
+startGatewayResponse pResponseStatus_ =
     StartGatewayResponse'
-    { _srsGatewayARN = Nothing
-    , _srsStatus = pStatus_
+    { _sgrsGatewayARN = Nothing
+    , _sgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
-srsGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
-srsGatewayARN = lens _srsGatewayARN (\ s a -> s{_srsGatewayARN = a});
+sgrsGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
+sgrsGatewayARN = lens _sgrsGatewayARN (\ s a -> s{_sgrsGatewayARN = a});
 
 -- | The response status code.
-srsStatus :: Lens' StartGatewayResponse Int
-srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
+sgrsResponseStatus :: Lens' StartGatewayResponse Int
+sgrsResponseStatus = lens _sgrsResponseStatus (\ s a -> s{_sgrsResponseStatus = a});

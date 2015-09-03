@@ -42,12 +42,12 @@ module Network.AWS.EC2.CopySnapshot
       copySnapshot
     , CopySnapshot
     -- * Request Lenses
-    , csEncrypted
     , csPresignedURL
+    , csEncrypted
     , csDestinationRegion
     , csKMSKeyId
-    , csDryRun
     , csDescription
+    , csDryRun
     , csSourceRegion
     , csSourceSnapshotId
 
@@ -56,7 +56,7 @@ module Network.AWS.EC2.CopySnapshot
     , CopySnapshotResponse
     -- * Response Lenses
     , csrsSnapshotId
-    , csrsStatus
+    , csrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -67,12 +67,12 @@ import           Network.AWS.Response
 
 -- | /See:/ 'copySnapshot' smart constructor.
 data CopySnapshot = CopySnapshot'
-    { _csEncrypted         :: !(Maybe Bool)
-    , _csPresignedURL      :: !(Maybe Text)
+    { _csPresignedURL      :: !(Maybe Text)
+    , _csEncrypted         :: !(Maybe Bool)
     , _csDestinationRegion :: !(Maybe Text)
     , _csKMSKeyId          :: !(Maybe Text)
-    , _csDryRun            :: !(Maybe Bool)
     , _csDescription       :: !(Maybe Text)
+    , _csDryRun            :: !(Maybe Bool)
     , _csSourceRegion      :: !Text
     , _csSourceSnapshotId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -81,17 +81,17 @@ data CopySnapshot = CopySnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csEncrypted'
---
 -- * 'csPresignedURL'
+--
+-- * 'csEncrypted'
 --
 -- * 'csDestinationRegion'
 --
 -- * 'csKMSKeyId'
 --
--- * 'csDryRun'
---
 -- * 'csDescription'
+--
+-- * 'csDryRun'
 --
 -- * 'csSourceRegion'
 --
@@ -102,26 +102,15 @@ copySnapshot
     -> CopySnapshot
 copySnapshot pSourceRegion_ pSourceSnapshotId_ =
     CopySnapshot'
-    { _csEncrypted = Nothing
-    , _csPresignedURL = Nothing
+    { _csPresignedURL = Nothing
+    , _csEncrypted = Nothing
     , _csDestinationRegion = Nothing
     , _csKMSKeyId = Nothing
-    , _csDryRun = Nothing
     , _csDescription = Nothing
+    , _csDryRun = Nothing
     , _csSourceRegion = pSourceRegion_
     , _csSourceSnapshotId = pSourceSnapshotId_
     }
-
--- | Specifies whether the destination snapshot should be encrypted. There is
--- no way to create an unencrypted snapshot copy from an encrypted
--- snapshot; however, you can encrypt a copy of an unencrypted snapshot
--- with this flag. The default CMK for EBS is used unless a non-default AWS
--- Key Management Service (AWS KMS) CMK is specified with 'KmsKeyId'. For
--- more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
--- in the /Amazon Elastic Compute Cloud User Guide/.
-csEncrypted :: Lens' CopySnapshot (Maybe Bool)
-csEncrypted = lens _csEncrypted (\ s a -> s{_csEncrypted = a});
 
 -- | The pre-signed URL that facilitates copying an encrypted snapshot. This
 -- parameter is only required when copying an encrypted snapshot with the
@@ -138,6 +127,17 @@ csEncrypted = lens _csEncrypted (\ s a -> s{_csEncrypted = a});
 -- asynchronously, and the snapshot will move to an 'error' state.
 csPresignedURL :: Lens' CopySnapshot (Maybe Text)
 csPresignedURL = lens _csPresignedURL (\ s a -> s{_csPresignedURL = a});
+
+-- | Specifies whether the destination snapshot should be encrypted. There is
+-- no way to create an unencrypted snapshot copy from an encrypted
+-- snapshot; however, you can encrypt a copy of an unencrypted snapshot
+-- with this flag. The default CMK for EBS is used unless a non-default AWS
+-- Key Management Service (AWS KMS) CMK is specified with 'KmsKeyId'. For
+-- more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+csEncrypted :: Lens' CopySnapshot (Maybe Bool)
+csEncrypted = lens _csEncrypted (\ s a -> s{_csEncrypted = a});
 
 -- | The destination region to use in the 'PresignedUrl' parameter of a
 -- snapshot copy operation. This parameter is only valid for specifying the
@@ -163,16 +163,16 @@ csDestinationRegion = lens _csDestinationRegion (\ s a -> s{_csDestinationRegion
 csKMSKeyId :: Lens' CopySnapshot (Maybe Text)
 csKMSKeyId = lens _csKMSKeyId (\ s a -> s{_csKMSKeyId = a});
 
+-- | A description for the EBS snapshot.
+csDescription :: Lens' CopySnapshot (Maybe Text)
+csDescription = lens _csDescription (\ s a -> s{_csDescription = a});
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is 'DryRunOperation'.
 -- Otherwise, it is 'UnauthorizedOperation'.
 csDryRun :: Lens' CopySnapshot (Maybe Bool)
 csDryRun = lens _csDryRun (\ s a -> s{_csDryRun = a});
-
--- | A description for the EBS snapshot.
-csDescription :: Lens' CopySnapshot (Maybe Text)
-csDescription = lens _csDescription (\ s a -> s{_csDescription = a});
 
 -- | The ID of the region that contains the snapshot to be copied.
 csSourceRegion :: Lens' CopySnapshot Text
@@ -202,18 +202,19 @@ instance ToQuery CopySnapshot where
           = mconcat
               ["Action" =: ("CopySnapshot" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Encrypted" =: _csEncrypted,
                "PresignedUrl" =: _csPresignedURL,
+               "Encrypted" =: _csEncrypted,
                "DestinationRegion" =: _csDestinationRegion,
-               "KmsKeyId" =: _csKMSKeyId, "DryRun" =: _csDryRun,
+               "KmsKeyId" =: _csKMSKeyId,
                "Description" =: _csDescription,
+               "DryRun" =: _csDryRun,
                "SourceRegion" =: _csSourceRegion,
                "SourceSnapshotId" =: _csSourceSnapshotId]
 
 -- | /See:/ 'copySnapshotResponse' smart constructor.
 data CopySnapshotResponse = CopySnapshotResponse'
-    { _csrsSnapshotId :: !(Maybe Text)
-    , _csrsStatus     :: !Int
+    { _csrsSnapshotId     :: !(Maybe Text)
+    , _csrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CopySnapshotResponse' with the minimum fields required to make a request.
@@ -222,14 +223,14 @@ data CopySnapshotResponse = CopySnapshotResponse'
 --
 -- * 'csrsSnapshotId'
 --
--- * 'csrsStatus'
+-- * 'csrsResponseStatus'
 copySnapshotResponse
-    :: Int -- ^ 'csrsStatus'
+    :: Int -- ^ 'csrsResponseStatus'
     -> CopySnapshotResponse
-copySnapshotResponse pStatus_ =
+copySnapshotResponse pResponseStatus_ =
     CopySnapshotResponse'
     { _csrsSnapshotId = Nothing
-    , _csrsStatus = pStatus_
+    , _csrsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the new snapshot.
@@ -237,5 +238,5 @@ csrsSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
 csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 
 -- | The response status code.
-csrsStatus :: Lens' CopySnapshotResponse Int
-csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});
+csrsResponseStatus :: Lens' CopySnapshotResponse Int
+csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});

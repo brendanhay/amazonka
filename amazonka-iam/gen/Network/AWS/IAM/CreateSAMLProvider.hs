@@ -58,7 +58,7 @@ module Network.AWS.IAM.CreateSAMLProvider
     , CreateSAMLProviderResponse
     -- * Response Lenses
     , csamlprsSAMLProviderARN
-    , csamlprsStatus
+    , csamlprsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -137,7 +137,7 @@ instance ToQuery CreateSAMLProvider where
 -- /See:/ 'createSAMLProviderResponse' smart constructor.
 data CreateSAMLProviderResponse = CreateSAMLProviderResponse'
     { _csamlprsSAMLProviderARN :: !(Maybe Text)
-    , _csamlprsStatus          :: !Int
+    , _csamlprsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateSAMLProviderResponse' with the minimum fields required to make a request.
@@ -146,14 +146,14 @@ data CreateSAMLProviderResponse = CreateSAMLProviderResponse'
 --
 -- * 'csamlprsSAMLProviderARN'
 --
--- * 'csamlprsStatus'
+-- * 'csamlprsResponseStatus'
 createSAMLProviderResponse
-    :: Int -- ^ 'csamlprsStatus'
+    :: Int -- ^ 'csamlprsResponseStatus'
     -> CreateSAMLProviderResponse
-createSAMLProviderResponse pStatus_ =
+createSAMLProviderResponse pResponseStatus_ =
     CreateSAMLProviderResponse'
     { _csamlprsSAMLProviderARN = Nothing
-    , _csamlprsStatus = pStatus_
+    , _csamlprsResponseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider.
@@ -161,5 +161,5 @@ csamlprsSAMLProviderARN :: Lens' CreateSAMLProviderResponse (Maybe Text)
 csamlprsSAMLProviderARN = lens _csamlprsSAMLProviderARN (\ s a -> s{_csamlprsSAMLProviderARN = a});
 
 -- | The response status code.
-csamlprsStatus :: Lens' CreateSAMLProviderResponse Int
-csamlprsStatus = lens _csamlprsStatus (\ s a -> s{_csamlprsStatus = a});
+csamlprsResponseStatus :: Lens' CreateSAMLProviderResponse Int
+csamlprsResponseStatus = lens _csamlprsResponseStatus (\ s a -> s{_csamlprsResponseStatus = a});

@@ -70,7 +70,7 @@ module Network.AWS.KMS.GenerateDataKey
     , generateDataKeyResponse
     , GenerateDataKeyResponse
     -- * Response Lenses
-    , gdkrsStatus
+    , gdkrsResponseStatus
     , gdkrsKeyId
     , gdkrsPlaintext
     , gdkrsCiphertextBlob
@@ -191,7 +191,7 @@ instance ToQuery GenerateDataKey where
 
 -- | /See:/ 'generateDataKeyResponse' smart constructor.
 data GenerateDataKeyResponse = GenerateDataKeyResponse'
-    { _gdkrsStatus         :: !Int
+    { _gdkrsResponseStatus :: !Int
     , _gdkrsKeyId          :: !Text
     , _gdkrsPlaintext      :: !(Sensitive Base64)
     , _gdkrsCiphertextBlob :: !Base64
@@ -201,7 +201,7 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdkrsStatus'
+-- * 'gdkrsResponseStatus'
 --
 -- * 'gdkrsKeyId'
 --
@@ -209,22 +209,22 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse'
 --
 -- * 'gdkrsCiphertextBlob'
 generateDataKeyResponse
-    :: Int -- ^ 'gdkrsStatus'
+    :: Int -- ^ 'gdkrsResponseStatus'
     -> Text -- ^ 'gdkrsKeyId'
     -> ByteString -- ^ 'gdkrsPlaintext'
     -> ByteString -- ^ 'gdkrsCiphertextBlob'
     -> GenerateDataKeyResponse
-generateDataKeyResponse pStatus_ pKeyId_ pPlaintext_ pCiphertextBlob_ =
+generateDataKeyResponse pResponseStatus_ pKeyId_ pPlaintext_ pCiphertextBlob_ =
     GenerateDataKeyResponse'
-    { _gdkrsStatus = pStatus_
+    { _gdkrsResponseStatus = pResponseStatus_
     , _gdkrsKeyId = pKeyId_
     , _gdkrsPlaintext = _Sensitive . _Base64 # pPlaintext_
     , _gdkrsCiphertextBlob = _Base64 # pCiphertextBlob_
     }
 
 -- | The response status code.
-gdkrsStatus :: Lens' GenerateDataKeyResponse Int
-gdkrsStatus = lens _gdkrsStatus (\ s a -> s{_gdkrsStatus = a});
+gdkrsResponseStatus :: Lens' GenerateDataKeyResponse Int
+gdkrsResponseStatus = lens _gdkrsResponseStatus (\ s a -> s{_gdkrsResponseStatus = a});
 
 -- | System generated unique identifier of the key to be used to decrypt the
 -- encrypted copy of the data key.

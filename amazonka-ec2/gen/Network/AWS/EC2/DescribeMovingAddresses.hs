@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeMovingAddresses
       describeMovingAddresses
     , DescribeMovingAddresses
     -- * Request Lenses
-    , dmaPublicIPs
     , dmaFilters
+    , dmaPublicIPs
     , dmaNextToken
     , dmaDryRun
     , dmaMaxResults
@@ -42,7 +42,7 @@ module Network.AWS.EC2.DescribeMovingAddresses
     -- * Response Lenses
     , dmarsMovingAddressStatuses
     , dmarsNextToken
-    , dmarsStatus
+    , dmarsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -53,8 +53,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeMovingAddresses' smart constructor.
 data DescribeMovingAddresses = DescribeMovingAddresses'
-    { _dmaPublicIPs  :: !(Maybe [Text])
-    , _dmaFilters    :: !(Maybe [Filter])
+    { _dmaFilters    :: !(Maybe [Filter])
+    , _dmaPublicIPs  :: !(Maybe [Text])
     , _dmaNextToken  :: !(Maybe Text)
     , _dmaDryRun     :: !(Maybe Bool)
     , _dmaMaxResults :: !(Maybe Int)
@@ -64,9 +64,9 @@ data DescribeMovingAddresses = DescribeMovingAddresses'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmaPublicIPs'
---
 -- * 'dmaFilters'
+--
+-- * 'dmaPublicIPs'
 --
 -- * 'dmaNextToken'
 --
@@ -77,16 +77,12 @@ describeMovingAddresses
     :: DescribeMovingAddresses
 describeMovingAddresses =
     DescribeMovingAddresses'
-    { _dmaPublicIPs = Nothing
-    , _dmaFilters = Nothing
+    { _dmaFilters = Nothing
+    , _dmaPublicIPs = Nothing
     , _dmaNextToken = Nothing
     , _dmaDryRun = Nothing
     , _dmaMaxResults = Nothing
     }
-
--- | One or more Elastic IP addresses.
-dmaPublicIPs :: Lens' DescribeMovingAddresses [Text]
-dmaPublicIPs = lens _dmaPublicIPs (\ s a -> s{_dmaPublicIPs = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -95,6 +91,10 @@ dmaPublicIPs = lens _dmaPublicIPs (\ s a -> s{_dmaPublicIPs = a}) . _Default . _
 --
 dmaFilters :: Lens' DescribeMovingAddresses [Filter]
 dmaFilters = lens _dmaFilters (\ s a -> s{_dmaFilters = a}) . _Default . _Coerce;
+
+-- | One or more Elastic IP addresses.
+dmaPublicIPs :: Lens' DescribeMovingAddresses [Text]
+dmaPublicIPs = lens _dmaPublicIPs (\ s a -> s{_dmaPublicIPs = a}) . _Default . _Coerce;
 
 -- | The token to use to retrieve the next page of results.
 dmaNextToken :: Lens' DescribeMovingAddresses (Maybe Text)
@@ -142,8 +142,8 @@ instance ToQuery DescribeMovingAddresses where
               ["Action" =:
                  ("DescribeMovingAddresses" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "PublicIp" <$> _dmaPublicIPs),
                toQuery (toQueryList "Filter" <$> _dmaFilters),
+               toQuery (toQueryList "PublicIp" <$> _dmaPublicIPs),
                "NextToken" =: _dmaNextToken, "DryRun" =: _dmaDryRun,
                "MaxResults" =: _dmaMaxResults]
 
@@ -151,7 +151,7 @@ instance ToQuery DescribeMovingAddresses where
 data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
     { _dmarsMovingAddressStatuses :: !(Maybe [MovingAddressStatus])
     , _dmarsNextToken             :: !(Maybe Text)
-    , _dmarsStatus                :: !Int
+    , _dmarsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeMovingAddressesResponse' with the minimum fields required to make a request.
@@ -162,15 +162,15 @@ data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
 --
 -- * 'dmarsNextToken'
 --
--- * 'dmarsStatus'
+-- * 'dmarsResponseStatus'
 describeMovingAddressesResponse
-    :: Int -- ^ 'dmarsStatus'
+    :: Int -- ^ 'dmarsResponseStatus'
     -> DescribeMovingAddressesResponse
-describeMovingAddressesResponse pStatus_ =
+describeMovingAddressesResponse pResponseStatus_ =
     DescribeMovingAddressesResponse'
     { _dmarsMovingAddressStatuses = Nothing
     , _dmarsNextToken = Nothing
-    , _dmarsStatus = pStatus_
+    , _dmarsResponseStatus = pResponseStatus_
     }
 
 -- | The status for each Elastic IP address.
@@ -183,5 +183,5 @@ dmarsNextToken :: Lens' DescribeMovingAddressesResponse (Maybe Text)
 dmarsNextToken = lens _dmarsNextToken (\ s a -> s{_dmarsNextToken = a});
 
 -- | The response status code.
-dmarsStatus :: Lens' DescribeMovingAddressesResponse Int
-dmarsStatus = lens _dmarsStatus (\ s a -> s{_dmarsStatus = a});
+dmarsResponseStatus :: Lens' DescribeMovingAddressesResponse Int
+dmarsResponseStatus = lens _dmarsResponseStatus (\ s a -> s{_dmarsResponseStatus = a});

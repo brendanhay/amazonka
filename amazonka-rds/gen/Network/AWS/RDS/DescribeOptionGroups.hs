@@ -32,8 +32,8 @@ module Network.AWS.RDS.DescribeOptionGroups
     , dogFilters
     , dogEngineName
     , dogMajorEngineVersion
-    , dogMaxRecords
     , dogMarker
+    , dogMaxRecords
     , dogOptionGroupName
 
     -- * Destructuring the Response
@@ -42,7 +42,7 @@ module Network.AWS.RDS.DescribeOptionGroups
     -- * Response Lenses
     , dogrsMarker
     , dogrsOptionGroupsList
-    , dogrsStatus
+    , dogrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -59,8 +59,8 @@ data DescribeOptionGroups = DescribeOptionGroups'
     { _dogFilters            :: !(Maybe [Filter])
     , _dogEngineName         :: !(Maybe Text)
     , _dogMajorEngineVersion :: !(Maybe Text)
-    , _dogMaxRecords         :: !(Maybe Int)
     , _dogMarker             :: !(Maybe Text)
+    , _dogMaxRecords         :: !(Maybe Int)
     , _dogOptionGroupName    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -74,9 +74,9 @@ data DescribeOptionGroups = DescribeOptionGroups'
 --
 -- * 'dogMajorEngineVersion'
 --
--- * 'dogMaxRecords'
---
 -- * 'dogMarker'
+--
+-- * 'dogMaxRecords'
 --
 -- * 'dogOptionGroupName'
 describeOptionGroups
@@ -86,8 +86,8 @@ describeOptionGroups =
     { _dogFilters = Nothing
     , _dogEngineName = Nothing
     , _dogMajorEngineVersion = Nothing
-    , _dogMaxRecords = Nothing
     , _dogMarker = Nothing
+    , _dogMaxRecords = Nothing
     , _dogOptionGroupName = Nothing
     }
 
@@ -106,6 +106,12 @@ dogEngineName = lens _dogEngineName (\ s a -> s{_dogEngineName = a});
 dogMajorEngineVersion :: Lens' DescribeOptionGroups (Maybe Text)
 dogMajorEngineVersion = lens _dogMajorEngineVersion (\ s a -> s{_dogMajorEngineVersion = a});
 
+-- | An optional pagination token provided by a previous DescribeOptionGroups
+-- request. If this parameter is specified, the response includes only
+-- records beyond the marker, up to the value specified by 'MaxRecords'.
+dogMarker :: Lens' DescribeOptionGroups (Maybe Text)
+dogMarker = lens _dogMarker (\ s a -> s{_dogMarker = a});
+
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -116,12 +122,6 @@ dogMajorEngineVersion = lens _dogMajorEngineVersion (\ s a -> s{_dogMajorEngineV
 -- Constraints: Minimum 20, maximum 100.
 dogMaxRecords :: Lens' DescribeOptionGroups (Maybe Int)
 dogMaxRecords = lens _dogMaxRecords (\ s a -> s{_dogMaxRecords = a});
-
--- | An optional pagination token provided by a previous DescribeOptionGroups
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by 'MaxRecords'.
-dogMarker :: Lens' DescribeOptionGroups (Maybe Text)
-dogMarker = lens _dogMarker (\ s a -> s{_dogMarker = a});
 
 -- | The name of the option group to describe. Cannot be supplied together
 -- with EngineName or MajorEngineVersion.
@@ -163,8 +163,8 @@ instance ToQuery DescribeOptionGroups where
                  toQuery (toQueryList "Filter" <$> _dogFilters),
                "EngineName" =: _dogEngineName,
                "MajorEngineVersion" =: _dogMajorEngineVersion,
-               "MaxRecords" =: _dogMaxRecords,
                "Marker" =: _dogMarker,
+               "MaxRecords" =: _dogMaxRecords,
                "OptionGroupName" =: _dogOptionGroupName]
 
 -- | List of option groups.
@@ -173,7 +173,7 @@ instance ToQuery DescribeOptionGroups where
 data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
     { _dogrsMarker           :: !(Maybe Text)
     , _dogrsOptionGroupsList :: !(Maybe [OptionGroup])
-    , _dogrsStatus           :: !Int
+    , _dogrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeOptionGroupsResponse' with the minimum fields required to make a request.
@@ -184,15 +184,15 @@ data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
 --
 -- * 'dogrsOptionGroupsList'
 --
--- * 'dogrsStatus'
+-- * 'dogrsResponseStatus'
 describeOptionGroupsResponse
-    :: Int -- ^ 'dogrsStatus'
+    :: Int -- ^ 'dogrsResponseStatus'
     -> DescribeOptionGroupsResponse
-describeOptionGroupsResponse pStatus_ =
+describeOptionGroupsResponse pResponseStatus_ =
     DescribeOptionGroupsResponse'
     { _dogrsMarker = Nothing
     , _dogrsOptionGroupsList = Nothing
-    , _dogrsStatus = pStatus_
+    , _dogrsResponseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -206,5 +206,5 @@ dogrsOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
 dogrsOptionGroupsList = lens _dogrsOptionGroupsList (\ s a -> s{_dogrsOptionGroupsList = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dogrsStatus :: Lens' DescribeOptionGroupsResponse Int
-dogrsStatus = lens _dogrsStatus (\ s a -> s{_dogrsStatus = a});
+dogrsResponseStatus :: Lens' DescribeOptionGroupsResponse Int
+dogrsResponseStatus = lens _dogrsResponseStatus (\ s a -> s{_dogrsResponseStatus = a});

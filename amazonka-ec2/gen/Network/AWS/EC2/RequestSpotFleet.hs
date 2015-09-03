@@ -20,7 +20,11 @@
 --
 -- Creates a Spot fleet request.
 --
--- For more information, see
+-- You can submit a single request that specifies multiple instance types,
+-- each with its own instance weighting that reflects its value to your
+-- application workload. Amazon EC2 computes the bid price for each launch
+-- specification and requests Spot Instances in the Spot pool where the
+-- price per unit is the lowest. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html Spot Fleets>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
@@ -38,7 +42,7 @@ module Network.AWS.EC2.RequestSpotFleet
     , requestSpotFleetResponse
     , RequestSpotFleetResponse
     -- * Response Lenses
-    , rsfrsStatus
+    , rsfrsResponseStatus
     , rsfrsSpotFleetRequestId
     ) where
 
@@ -111,7 +115,7 @@ instance ToQuery RequestSpotFleet where
 --
 -- /See:/ 'requestSpotFleetResponse' smart constructor.
 data RequestSpotFleetResponse = RequestSpotFleetResponse'
-    { _rsfrsStatus             :: !Int
+    { _rsfrsResponseStatus     :: !Int
     , _rsfrsSpotFleetRequestId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -119,22 +123,22 @@ data RequestSpotFleetResponse = RequestSpotFleetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsfrsStatus'
+-- * 'rsfrsResponseStatus'
 --
 -- * 'rsfrsSpotFleetRequestId'
 requestSpotFleetResponse
-    :: Int -- ^ 'rsfrsStatus'
+    :: Int -- ^ 'rsfrsResponseStatus'
     -> Text -- ^ 'rsfrsSpotFleetRequestId'
     -> RequestSpotFleetResponse
-requestSpotFleetResponse pStatus_ pSpotFleetRequestId_ =
+requestSpotFleetResponse pResponseStatus_ pSpotFleetRequestId_ =
     RequestSpotFleetResponse'
-    { _rsfrsStatus = pStatus_
+    { _rsfrsResponseStatus = pResponseStatus_
     , _rsfrsSpotFleetRequestId = pSpotFleetRequestId_
     }
 
 -- | The response status code.
-rsfrsStatus :: Lens' RequestSpotFleetResponse Int
-rsfrsStatus = lens _rsfrsStatus (\ s a -> s{_rsfrsStatus = a});
+rsfrsResponseStatus :: Lens' RequestSpotFleetResponse Int
+rsfrsResponseStatus = lens _rsfrsResponseStatus (\ s a -> s{_rsfrsResponseStatus = a});
 
 -- | The ID of the Spot fleet request.
 rsfrsSpotFleetRequestId :: Lens' RequestSpotFleetResponse Text

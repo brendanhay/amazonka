@@ -36,8 +36,8 @@ module Network.AWS.IAM.ListInstanceProfiles
     , ListInstanceProfiles
     -- * Request Lenses
     , lipPathPrefix
-    , lipMaxItems
     , lipMarker
+    , lipMaxItems
 
     -- * Destructuring the Response
     , listInstanceProfilesResponse
@@ -45,7 +45,7 @@ module Network.AWS.IAM.ListInstanceProfiles
     -- * Response Lenses
     , liprsMarker
     , liprsIsTruncated
-    , liprsStatus
+    , liprsResponseStatus
     , liprsInstanceProfiles
     ) where
 
@@ -59,8 +59,8 @@ import           Network.AWS.Response
 -- | /See:/ 'listInstanceProfiles' smart constructor.
 data ListInstanceProfiles = ListInstanceProfiles'
     { _lipPathPrefix :: !(Maybe Text)
-    , _lipMaxItems   :: !(Maybe Nat)
     , _lipMarker     :: !(Maybe Text)
+    , _lipMaxItems   :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListInstanceProfiles' with the minimum fields required to make a request.
@@ -69,16 +69,16 @@ data ListInstanceProfiles = ListInstanceProfiles'
 --
 -- * 'lipPathPrefix'
 --
--- * 'lipMaxItems'
---
 -- * 'lipMarker'
+--
+-- * 'lipMaxItems'
 listInstanceProfiles
     :: ListInstanceProfiles
 listInstanceProfiles =
     ListInstanceProfiles'
     { _lipPathPrefix = Nothing
-    , _lipMaxItems = Nothing
     , _lipMarker = Nothing
+    , _lipMaxItems = Nothing
     }
 
 -- | The path prefix for filtering the results. For example, the prefix
@@ -90,6 +90,12 @@ listInstanceProfiles =
 lipPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
 lipPathPrefix = lens _lipPathPrefix (\ s a -> s{_lipPathPrefix = a});
 
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lipMarker :: Lens' ListInstanceProfiles (Maybe Text)
+lipMarker = lens _lipMarker (\ s a -> s{_lipMarker = a});
+
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
@@ -99,16 +105,10 @@ lipPathPrefix = lens _lipPathPrefix (\ s a -> s{_lipPathPrefix = a});
 lipMaxItems :: Lens' ListInstanceProfiles (Maybe Natural)
 lipMaxItems = lens _lipMaxItems (\ s a -> s{_lipMaxItems = a}) . mapping _Nat;
 
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
-lipMarker :: Lens' ListInstanceProfiles (Maybe Text)
-lipMarker = lens _lipMarker (\ s a -> s{_lipMarker = a});
-
 instance AWSPager ListInstanceProfiles where
         page rq rs
-          | stop (rs ^. liprsIsTruncated) = Nothing
-          | isNothing (rs ^. liprsMarker) = Nothing
+          | stop (rs ^. liprsMarker) = Nothing
+          | stop (rs ^. liprsInstanceProfiles) = Nothing
           | otherwise =
             Just $ rq & lipMarker .~ rs ^. liprsMarker
 
@@ -138,7 +138,7 @@ instance ToQuery ListInstanceProfiles where
               ["Action" =: ("ListInstanceProfiles" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "PathPrefix" =: _lipPathPrefix,
-               "MaxItems" =: _lipMaxItems, "Marker" =: _lipMarker]
+               "Marker" =: _lipMarker, "MaxItems" =: _lipMaxItems]
 
 -- | Contains the response to a successful ListInstanceProfiles request.
 --
@@ -146,7 +146,7 @@ instance ToQuery ListInstanceProfiles where
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
     { _liprsMarker           :: !(Maybe Text)
     , _liprsIsTruncated      :: !(Maybe Bool)
-    , _liprsStatus           :: !Int
+    , _liprsResponseStatus   :: !Int
     , _liprsInstanceProfiles :: ![InstanceProfile]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -158,17 +158,17 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
 --
 -- * 'liprsIsTruncated'
 --
--- * 'liprsStatus'
+-- * 'liprsResponseStatus'
 --
 -- * 'liprsInstanceProfiles'
 listInstanceProfilesResponse
-    :: Int -- ^ 'liprsStatus'
+    :: Int -- ^ 'liprsResponseStatus'
     -> ListInstanceProfilesResponse
-listInstanceProfilesResponse pStatus_ =
+listInstanceProfilesResponse pResponseStatus_ =
     ListInstanceProfilesResponse'
     { _liprsMarker = Nothing
     , _liprsIsTruncated = Nothing
-    , _liprsStatus = pStatus_
+    , _liprsResponseStatus = pResponseStatus_
     , _liprsInstanceProfiles = mempty
     }
 
@@ -185,8 +185,8 @@ liprsIsTruncated :: Lens' ListInstanceProfilesResponse (Maybe Bool)
 liprsIsTruncated = lens _liprsIsTruncated (\ s a -> s{_liprsIsTruncated = a});
 
 -- | The response status code.
-liprsStatus :: Lens' ListInstanceProfilesResponse Int
-liprsStatus = lens _liprsStatus (\ s a -> s{_liprsStatus = a});
+liprsResponseStatus :: Lens' ListInstanceProfilesResponse Int
+liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a});
 
 -- | A list of instance profiles.
 liprsInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]

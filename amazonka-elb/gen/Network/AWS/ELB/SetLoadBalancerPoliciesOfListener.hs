@@ -37,7 +37,7 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     , setLoadBalancerPoliciesOfListenerResponse
     , SetLoadBalancerPoliciesOfListenerResponse
     -- * Response Lenses
-    , slbpolrsStatus
+    , slbpolrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -120,22 +120,22 @@ instance ToQuery SetLoadBalancerPoliciesOfListener
 
 -- | /See:/ 'setLoadBalancerPoliciesOfListenerResponse' smart constructor.
 newtype SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse'
-    { _slbpolrsStatus :: Int
+    { _slbpolrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SetLoadBalancerPoliciesOfListenerResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slbpolrsStatus'
+-- * 'slbpolrsResponseStatus'
 setLoadBalancerPoliciesOfListenerResponse
-    :: Int -- ^ 'slbpolrsStatus'
+    :: Int -- ^ 'slbpolrsResponseStatus'
     -> SetLoadBalancerPoliciesOfListenerResponse
-setLoadBalancerPoliciesOfListenerResponse pStatus_ =
+setLoadBalancerPoliciesOfListenerResponse pResponseStatus_ =
     SetLoadBalancerPoliciesOfListenerResponse'
-    { _slbpolrsStatus = pStatus_
+    { _slbpolrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-slbpolrsStatus :: Lens' SetLoadBalancerPoliciesOfListenerResponse Int
-slbpolrsStatus = lens _slbpolrsStatus (\ s a -> s{_slbpolrsStatus = a});
+slbpolrsResponseStatus :: Lens' SetLoadBalancerPoliciesOfListenerResponse Int
+slbpolrsResponseStatus = lens _slbpolrsResponseStatus (\ s a -> s{_slbpolrsResponseStatus = a});

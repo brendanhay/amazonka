@@ -39,7 +39,7 @@ module Network.AWS.DeviceFarm.ScheduleRun
     , ScheduleRunResponse
     -- * Response Lenses
     , srrsRun
-    , srrsStatus
+    , srrsResponseStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -154,8 +154,8 @@ instance ToQuery ScheduleRun where
 --
 -- /See:/ 'scheduleRunResponse' smart constructor.
 data ScheduleRunResponse = ScheduleRunResponse'
-    { _srrsRun    :: !(Maybe Run)
-    , _srrsStatus :: !Int
+    { _srrsRun            :: !(Maybe Run)
+    , _srrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ScheduleRunResponse' with the minimum fields required to make a request.
@@ -164,14 +164,14 @@ data ScheduleRunResponse = ScheduleRunResponse'
 --
 -- * 'srrsRun'
 --
--- * 'srrsStatus'
+-- * 'srrsResponseStatus'
 scheduleRunResponse
-    :: Int -- ^ 'srrsStatus'
+    :: Int -- ^ 'srrsResponseStatus'
     -> ScheduleRunResponse
-scheduleRunResponse pStatus_ =
+scheduleRunResponse pResponseStatus_ =
     ScheduleRunResponse'
     { _srrsRun = Nothing
-    , _srrsStatus = pStatus_
+    , _srrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the scheduled run.
@@ -179,5 +179,5 @@ srrsRun :: Lens' ScheduleRunResponse (Maybe Run)
 srrsRun = lens _srrsRun (\ s a -> s{_srrsRun = a});
 
 -- | The response status code.
-srrsStatus :: Lens' ScheduleRunResponse Int
-srrsStatus = lens _srrsStatus (\ s a -> s{_srrsStatus = a});
+srrsResponseStatus :: Lens' ScheduleRunResponse Int
+srrsResponseStatus = lens _srrsResponseStatus (\ s a -> s{_srrsResponseStatus = a});

@@ -42,7 +42,7 @@ module Network.AWS.SNS.ListSubscriptionsByTopic
     -- * Response Lenses
     , lsbtrsNextToken
     , lsbtrsSubscriptions
-    , lsbtrsStatus
+    , lsbtrsResponseStatus
     ) where
 
 import           Network.AWS.Pager
@@ -123,9 +123,9 @@ instance ToQuery ListSubscriptionsByTopic where
 --
 -- /See:/ 'listSubscriptionsByTopicResponse' smart constructor.
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'
-    { _lsbtrsNextToken     :: !(Maybe Text)
-    , _lsbtrsSubscriptions :: !(Maybe [Subscription])
-    , _lsbtrsStatus        :: !Int
+    { _lsbtrsNextToken      :: !(Maybe Text)
+    , _lsbtrsSubscriptions  :: !(Maybe [Subscription])
+    , _lsbtrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListSubscriptionsByTopicResponse' with the minimum fields required to make a request.
@@ -136,15 +136,15 @@ data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'
 --
 -- * 'lsbtrsSubscriptions'
 --
--- * 'lsbtrsStatus'
+-- * 'lsbtrsResponseStatus'
 listSubscriptionsByTopicResponse
-    :: Int -- ^ 'lsbtrsStatus'
+    :: Int -- ^ 'lsbtrsResponseStatus'
     -> ListSubscriptionsByTopicResponse
-listSubscriptionsByTopicResponse pStatus_ =
+listSubscriptionsByTopicResponse pResponseStatus_ =
     ListSubscriptionsByTopicResponse'
     { _lsbtrsNextToken = Nothing
     , _lsbtrsSubscriptions = Nothing
-    , _lsbtrsStatus = pStatus_
+    , _lsbtrsResponseStatus = pResponseStatus_
     }
 
 -- | Token to pass along to the next 'ListSubscriptionsByTopic' request. This
@@ -157,5 +157,5 @@ lsbtrsSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
 lsbtrsSubscriptions = lens _lsbtrsSubscriptions (\ s a -> s{_lsbtrsSubscriptions = a}) . _Default . _Coerce;
 
 -- | The response status code.
-lsbtrsStatus :: Lens' ListSubscriptionsByTopicResponse Int
-lsbtrsStatus = lens _lsbtrsStatus (\ s a -> s{_lsbtrsStatus = a});
+lsbtrsResponseStatus :: Lens' ListSubscriptionsByTopicResponse Int
+lsbtrsResponseStatus = lens _lsbtrsResponseStatus (\ s a -> s{_lsbtrsResponseStatus = a});

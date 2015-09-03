@@ -34,8 +34,8 @@ module Network.AWS.EC2.DescribeSecurityGroups
       describeSecurityGroups
     , DescribeSecurityGroups
     -- * Request Lenses
-    , dsgsGroupNames
     , dsgsFilters
+    , dsgsGroupNames
     , dsgsGroupIds
     , dsgsDryRun
 
@@ -44,7 +44,7 @@ module Network.AWS.EC2.DescribeSecurityGroups
     , DescribeSecurityGroupsResponse
     -- * Response Lenses
     , dsgrsSecurityGroups
-    , dsgrsStatus
+    , dsgrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -55,8 +55,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeSecurityGroups' smart constructor.
 data DescribeSecurityGroups = DescribeSecurityGroups'
-    { _dsgsGroupNames :: !(Maybe [Text])
-    , _dsgsFilters    :: !(Maybe [Filter])
+    { _dsgsFilters    :: !(Maybe [Filter])
+    , _dsgsGroupNames :: !(Maybe [Text])
     , _dsgsGroupIds   :: !(Maybe [Text])
     , _dsgsDryRun     :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -65,9 +65,9 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsgsGroupNames'
---
 -- * 'dsgsFilters'
+--
+-- * 'dsgsGroupNames'
 --
 -- * 'dsgsGroupIds'
 --
@@ -76,20 +76,11 @@ describeSecurityGroups
     :: DescribeSecurityGroups
 describeSecurityGroups =
     DescribeSecurityGroups'
-    { _dsgsGroupNames = Nothing
-    , _dsgsFilters = Nothing
+    { _dsgsFilters = Nothing
+    , _dsgsGroupNames = Nothing
     , _dsgsGroupIds = Nothing
     , _dsgsDryRun = Nothing
     }
-
--- | [EC2-Classic and default VPC only] One or more security group names. You
--- can specify either the security group name or the security group ID. For
--- security groups in a nondefault VPC, use the 'group-name' filter to
--- describe security groups by name.
---
--- Default: Describes all your security groups.
-dsgsGroupNames :: Lens' DescribeSecurityGroups [Text]
-dsgsGroupNames = lens _dsgsGroupNames (\ s a -> s{_dsgsGroupNames = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -135,6 +126,15 @@ dsgsGroupNames = lens _dsgsGroupNames (\ s a -> s{_dsgsGroupNames = a}) . _Defau
 dsgsFilters :: Lens' DescribeSecurityGroups [Filter]
 dsgsFilters = lens _dsgsFilters (\ s a -> s{_dsgsFilters = a}) . _Default . _Coerce;
 
+-- | [EC2-Classic and default VPC only] One or more security group names. You
+-- can specify either the security group name or the security group ID. For
+-- security groups in a nondefault VPC, use the 'group-name' filter to
+-- describe security groups by name.
+--
+-- Default: Describes all your security groups.
+dsgsGroupNames :: Lens' DescribeSecurityGroups [Text]
+dsgsGroupNames = lens _dsgsGroupNames (\ s a -> s{_dsgsGroupNames = a}) . _Default . _Coerce;
+
 -- | One or more security group IDs. Required for security groups in a
 -- nondefault VPC.
 --
@@ -173,16 +173,16 @@ instance ToQuery DescribeSecurityGroups where
               ["Action" =:
                  ("DescribeSecurityGroups" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
+               toQuery (toQueryList "Filter" <$> _dsgsFilters),
                toQuery
                  (toQueryList "GroupName" <$> _dsgsGroupNames),
-               toQuery (toQueryList "Filter" <$> _dsgsFilters),
                toQuery (toQueryList "GroupId" <$> _dsgsGroupIds),
                "DryRun" =: _dsgsDryRun]
 
 -- | /See:/ 'describeSecurityGroupsResponse' smart constructor.
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
     { _dsgrsSecurityGroups :: !(Maybe [SecurityGroup])
-    , _dsgrsStatus         :: !Int
+    , _dsgrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSecurityGroupsResponse' with the minimum fields required to make a request.
@@ -191,14 +191,14 @@ data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
 --
 -- * 'dsgrsSecurityGroups'
 --
--- * 'dsgrsStatus'
+-- * 'dsgrsResponseStatus'
 describeSecurityGroupsResponse
-    :: Int -- ^ 'dsgrsStatus'
+    :: Int -- ^ 'dsgrsResponseStatus'
     -> DescribeSecurityGroupsResponse
-describeSecurityGroupsResponse pStatus_ =
+describeSecurityGroupsResponse pResponseStatus_ =
     DescribeSecurityGroupsResponse'
     { _dsgrsSecurityGroups = Nothing
-    , _dsgrsStatus = pStatus_
+    , _dsgrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more security groups.
@@ -206,5 +206,5 @@ dsgrsSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgrsSecurityGroups = lens _dsgrsSecurityGroups (\ s a -> s{_dsgrsSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dsgrsStatus :: Lens' DescribeSecurityGroupsResponse Int
-dsgrsStatus = lens _dsgrsStatus (\ s a -> s{_dsgrsStatus = a});
+dsgrsResponseStatus :: Lens' DescribeSecurityGroupsResponse Int
+dsgrsResponseStatus = lens _dsgrsResponseStatus (\ s a -> s{_dsgrsResponseStatus = a});

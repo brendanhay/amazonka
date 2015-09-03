@@ -46,7 +46,7 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
     -- * Response Lenses
     , dwbrsBundles
     , dwbrsNextToken
-    , dwbrsStatus
+    , dwbrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -143,9 +143,9 @@ instance ToQuery DescribeWorkspaceBundles where
 --
 -- /See:/ 'describeWorkspaceBundlesResponse' smart constructor.
 data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
-    { _dwbrsBundles   :: !(Maybe [WorkspaceBundle])
-    , _dwbrsNextToken :: !(Maybe Text)
-    , _dwbrsStatus    :: !Int
+    { _dwbrsBundles        :: !(Maybe [WorkspaceBundle])
+    , _dwbrsNextToken      :: !(Maybe Text)
+    , _dwbrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeWorkspaceBundlesResponse' with the minimum fields required to make a request.
@@ -156,15 +156,15 @@ data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
 --
 -- * 'dwbrsNextToken'
 --
--- * 'dwbrsStatus'
+-- * 'dwbrsResponseStatus'
 describeWorkspaceBundlesResponse
-    :: Int -- ^ 'dwbrsStatus'
+    :: Int -- ^ 'dwbrsResponseStatus'
     -> DescribeWorkspaceBundlesResponse
-describeWorkspaceBundlesResponse pStatus_ =
+describeWorkspaceBundlesResponse pResponseStatus_ =
     DescribeWorkspaceBundlesResponse'
     { _dwbrsBundles = Nothing
     , _dwbrsNextToken = Nothing
-    , _dwbrsStatus = pStatus_
+    , _dwbrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of structures that contain information about the bundles.
@@ -179,5 +179,5 @@ dwbrsNextToken :: Lens' DescribeWorkspaceBundlesResponse (Maybe Text)
 dwbrsNextToken = lens _dwbrsNextToken (\ s a -> s{_dwbrsNextToken = a});
 
 -- | The response status code.
-dwbrsStatus :: Lens' DescribeWorkspaceBundlesResponse Int
-dwbrsStatus = lens _dwbrsStatus (\ s a -> s{_dwbrsStatus = a});
+dwbrsResponseStatus :: Lens' DescribeWorkspaceBundlesResponse Int
+dwbrsResponseStatus = lens _dwbrsResponseStatus (\ s a -> s{_dwbrsResponseStatus = a});

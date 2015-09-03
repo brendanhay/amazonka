@@ -50,7 +50,7 @@ module Network.AWS.Lambda.AddPermission
     , AddPermissionResponse
     -- * Response Lenses
     , aprsStatement
-    , aprsStatus
+    , aprsResponseStatus
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -189,8 +189,8 @@ instance ToQuery AddPermission where
 
 -- | /See:/ 'addPermissionResponse' smart constructor.
 data AddPermissionResponse = AddPermissionResponse'
-    { _aprsStatement :: !(Maybe Text)
-    , _aprsStatus    :: !Int
+    { _aprsStatement      :: !(Maybe Text)
+    , _aprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddPermissionResponse' with the minimum fields required to make a request.
@@ -199,14 +199,14 @@ data AddPermissionResponse = AddPermissionResponse'
 --
 -- * 'aprsStatement'
 --
--- * 'aprsStatus'
+-- * 'aprsResponseStatus'
 addPermissionResponse
-    :: Int -- ^ 'aprsStatus'
+    :: Int -- ^ 'aprsResponseStatus'
     -> AddPermissionResponse
-addPermissionResponse pStatus_ =
+addPermissionResponse pResponseStatus_ =
     AddPermissionResponse'
     { _aprsStatement = Nothing
-    , _aprsStatus = pStatus_
+    , _aprsResponseStatus = pResponseStatus_
     }
 
 -- | The permission statement you specified in the request. The response
@@ -216,5 +216,5 @@ aprsStatement :: Lens' AddPermissionResponse (Maybe Text)
 aprsStatement = lens _aprsStatement (\ s a -> s{_aprsStatement = a});
 
 -- | The response status code.
-aprsStatus :: Lens' AddPermissionResponse Int
-aprsStatus = lens _aprsStatus (\ s a -> s{_aprsStatus = a});
+aprsResponseStatus :: Lens' AddPermissionResponse Int
+aprsResponseStatus = lens _aprsResponseStatus (\ s a -> s{_aprsResponseStatus = a});

@@ -36,7 +36,7 @@ module Network.AWS.IAM.GenerateCredentialReport
     -- * Response Lenses
     , gcrrsState
     , gcrrsDescription
-    , gcrrsStatus
+    , gcrrsResponseStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -85,9 +85,9 @@ instance ToQuery GenerateCredentialReport where
 --
 -- /See:/ 'generateCredentialReportResponse' smart constructor.
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
-    { _gcrrsState       :: !(Maybe ReportStateType)
-    , _gcrrsDescription :: !(Maybe Text)
-    , _gcrrsStatus      :: !Int
+    { _gcrrsState          :: !(Maybe ReportStateType)
+    , _gcrrsDescription    :: !(Maybe Text)
+    , _gcrrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GenerateCredentialReportResponse' with the minimum fields required to make a request.
@@ -98,15 +98,15 @@ data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
 --
 -- * 'gcrrsDescription'
 --
--- * 'gcrrsStatus'
+-- * 'gcrrsResponseStatus'
 generateCredentialReportResponse
-    :: Int -- ^ 'gcrrsStatus'
+    :: Int -- ^ 'gcrrsResponseStatus'
     -> GenerateCredentialReportResponse
-generateCredentialReportResponse pStatus_ =
+generateCredentialReportResponse pResponseStatus_ =
     GenerateCredentialReportResponse'
     { _gcrrsState = Nothing
     , _gcrrsDescription = Nothing
-    , _gcrrsStatus = pStatus_
+    , _gcrrsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the state of the credential report.
@@ -118,5 +118,5 @@ gcrrsDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
 gcrrsDescription = lens _gcrrsDescription (\ s a -> s{_gcrrsDescription = a});
 
 -- | The response status code.
-gcrrsStatus :: Lens' GenerateCredentialReportResponse Int
-gcrrsStatus = lens _gcrrsStatus (\ s a -> s{_gcrrsStatus = a});
+gcrrsResponseStatus :: Lens' GenerateCredentialReportResponse Int
+gcrrsResponseStatus = lens _gcrrsResponseStatus (\ s a -> s{_gcrrsResponseStatus = a});

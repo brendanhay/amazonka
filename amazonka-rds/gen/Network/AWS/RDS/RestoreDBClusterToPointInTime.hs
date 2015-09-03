@@ -51,7 +51,7 @@ module Network.AWS.RDS.RestoreDBClusterToPointInTime
     , RestoreDBClusterToPointInTimeResponse
     -- * Response Lenses
     , rdctpitrsDBCluster
-    , rdctpitrsStatus
+    , rdctpitrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -225,8 +225,8 @@ instance ToQuery RestoreDBClusterToPointInTime where
 
 -- | /See:/ 'restoreDBClusterToPointInTimeResponse' smart constructor.
 data RestoreDBClusterToPointInTimeResponse = RestoreDBClusterToPointInTimeResponse'
-    { _rdctpitrsDBCluster :: !(Maybe DBCluster)
-    , _rdctpitrsStatus    :: !Int
+    { _rdctpitrsDBCluster      :: !(Maybe DBCluster)
+    , _rdctpitrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestoreDBClusterToPointInTimeResponse' with the minimum fields required to make a request.
@@ -235,14 +235,14 @@ data RestoreDBClusterToPointInTimeResponse = RestoreDBClusterToPointInTimeRespon
 --
 -- * 'rdctpitrsDBCluster'
 --
--- * 'rdctpitrsStatus'
+-- * 'rdctpitrsResponseStatus'
 restoreDBClusterToPointInTimeResponse
-    :: Int -- ^ 'rdctpitrsStatus'
+    :: Int -- ^ 'rdctpitrsResponseStatus'
     -> RestoreDBClusterToPointInTimeResponse
-restoreDBClusterToPointInTimeResponse pStatus_ =
+restoreDBClusterToPointInTimeResponse pResponseStatus_ =
     RestoreDBClusterToPointInTimeResponse'
     { _rdctpitrsDBCluster = Nothing
-    , _rdctpitrsStatus = pStatus_
+    , _rdctpitrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -250,5 +250,5 @@ rdctpitrsDBCluster :: Lens' RestoreDBClusterToPointInTimeResponse (Maybe DBClust
 rdctpitrsDBCluster = lens _rdctpitrsDBCluster (\ s a -> s{_rdctpitrsDBCluster = a});
 
 -- | The response status code.
-rdctpitrsStatus :: Lens' RestoreDBClusterToPointInTimeResponse Int
-rdctpitrsStatus = lens _rdctpitrsStatus (\ s a -> s{_rdctpitrsStatus = a});
+rdctpitrsResponseStatus :: Lens' RestoreDBClusterToPointInTimeResponse Int
+rdctpitrsResponseStatus = lens _rdctpitrsResponseStatus (\ s a -> s{_rdctpitrsResponseStatus = a});

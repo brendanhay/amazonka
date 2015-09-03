@@ -38,7 +38,7 @@ module Network.AWS.CloudFormation.EstimateTemplateCost
     , EstimateTemplateCostResponse
     -- * Response Lenses
     , etcrsURL
-    , etcrsStatus
+    , etcrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -127,8 +127,8 @@ instance ToQuery EstimateTemplateCost where
 --
 -- /See:/ 'estimateTemplateCostResponse' smart constructor.
 data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
-    { _etcrsURL    :: !(Maybe Text)
-    , _etcrsStatus :: !Int
+    { _etcrsURL            :: !(Maybe Text)
+    , _etcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EstimateTemplateCostResponse' with the minimum fields required to make a request.
@@ -137,14 +137,14 @@ data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
 --
 -- * 'etcrsURL'
 --
--- * 'etcrsStatus'
+-- * 'etcrsResponseStatus'
 estimateTemplateCostResponse
-    :: Int -- ^ 'etcrsStatus'
+    :: Int -- ^ 'etcrsResponseStatus'
     -> EstimateTemplateCostResponse
-estimateTemplateCostResponse pStatus_ =
+estimateTemplateCostResponse pResponseStatus_ =
     EstimateTemplateCostResponse'
     { _etcrsURL = Nothing
-    , _etcrsStatus = pStatus_
+    , _etcrsResponseStatus = pResponseStatus_
     }
 
 -- | An AWS Simple Monthly Calculator URL with a query string that describes
@@ -153,5 +153,5 @@ etcrsURL :: Lens' EstimateTemplateCostResponse (Maybe Text)
 etcrsURL = lens _etcrsURL (\ s a -> s{_etcrsURL = a});
 
 -- | The response status code.
-etcrsStatus :: Lens' EstimateTemplateCostResponse Int
-etcrsStatus = lens _etcrsStatus (\ s a -> s{_etcrsStatus = a});
+etcrsResponseStatus :: Lens' EstimateTemplateCostResponse Int
+etcrsResponseStatus = lens _etcrsResponseStatus (\ s a -> s{_etcrsResponseStatus = a});

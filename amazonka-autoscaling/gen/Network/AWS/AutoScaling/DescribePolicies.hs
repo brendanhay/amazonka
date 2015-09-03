@@ -31,8 +31,8 @@ module Network.AWS.AutoScaling.DescribePolicies
     -- * Request Lenses
     , dpsPolicyNames
     , dpsNextToken
-    , dpsMaxRecords
     , dpsAutoScalingGroupName
+    , dpsMaxRecords
     , dpsPolicyTypes
 
     -- * Destructuring the Response
@@ -41,7 +41,7 @@ module Network.AWS.AutoScaling.DescribePolicies
     -- * Response Lenses
     , dprsNextToken
     , dprsScalingPolicies
-    , dprsStatus
+    , dprsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -55,8 +55,8 @@ import           Network.AWS.Response
 data DescribePolicies = DescribePolicies'
     { _dpsPolicyNames          :: !(Maybe [Text])
     , _dpsNextToken            :: !(Maybe Text)
-    , _dpsMaxRecords           :: !(Maybe Int)
     , _dpsAutoScalingGroupName :: !(Maybe Text)
+    , _dpsMaxRecords           :: !(Maybe Int)
     , _dpsPolicyTypes          :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -68,9 +68,9 @@ data DescribePolicies = DescribePolicies'
 --
 -- * 'dpsNextToken'
 --
--- * 'dpsMaxRecords'
---
 -- * 'dpsAutoScalingGroupName'
+--
+-- * 'dpsMaxRecords'
 --
 -- * 'dpsPolicyTypes'
 describePolicies
@@ -79,8 +79,8 @@ describePolicies =
     DescribePolicies'
     { _dpsPolicyNames = Nothing
     , _dpsNextToken = Nothing
-    , _dpsMaxRecords = Nothing
     , _dpsAutoScalingGroupName = Nothing
+    , _dpsMaxRecords = Nothing
     , _dpsPolicyTypes = Nothing
     }
 
@@ -96,13 +96,13 @@ dpsPolicyNames = lens _dpsPolicyNames (\ s a -> s{_dpsPolicyNames = a}) . _Defau
 dpsNextToken :: Lens' DescribePolicies (Maybe Text)
 dpsNextToken = lens _dpsNextToken (\ s a -> s{_dpsNextToken = a});
 
--- | The maximum number of items to be returned with each call.
-dpsMaxRecords :: Lens' DescribePolicies (Maybe Int)
-dpsMaxRecords = lens _dpsMaxRecords (\ s a -> s{_dpsMaxRecords = a});
-
 -- | The name of the group.
 dpsAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
 dpsAutoScalingGroupName = lens _dpsAutoScalingGroupName (\ s a -> s{_dpsAutoScalingGroupName = a});
+
+-- | The maximum number of items to be returned with each call.
+dpsMaxRecords :: Lens' DescribePolicies (Maybe Int)
+dpsMaxRecords = lens _dpsMaxRecords (\ s a -> s{_dpsMaxRecords = a});
 
 -- | One or more policy types. Valid values are 'SimpleScaling' and
 -- 'StepScaling'.
@@ -142,8 +142,8 @@ instance ToQuery DescribePolicies where
                "PolicyNames" =:
                  toQuery (toQueryList "member" <$> _dpsPolicyNames),
                "NextToken" =: _dpsNextToken,
-               "MaxRecords" =: _dpsMaxRecords,
                "AutoScalingGroupName" =: _dpsAutoScalingGroupName,
+               "MaxRecords" =: _dpsMaxRecords,
                "PolicyTypes" =:
                  toQuery (toQueryList "member" <$> _dpsPolicyTypes)]
 
@@ -151,7 +151,7 @@ instance ToQuery DescribePolicies where
 data DescribePoliciesResponse = DescribePoliciesResponse'
     { _dprsNextToken       :: !(Maybe Text)
     , _dprsScalingPolicies :: !(Maybe [ScalingPolicy])
-    , _dprsStatus          :: !Int
+    , _dprsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribePoliciesResponse' with the minimum fields required to make a request.
@@ -162,15 +162,15 @@ data DescribePoliciesResponse = DescribePoliciesResponse'
 --
 -- * 'dprsScalingPolicies'
 --
--- * 'dprsStatus'
+-- * 'dprsResponseStatus'
 describePoliciesResponse
-    :: Int -- ^ 'dprsStatus'
+    :: Int -- ^ 'dprsResponseStatus'
     -> DescribePoliciesResponse
-describePoliciesResponse pStatus_ =
+describePoliciesResponse pResponseStatus_ =
     DescribePoliciesResponse'
     { _dprsNextToken = Nothing
     , _dprsScalingPolicies = Nothing
-    , _dprsStatus = pStatus_
+    , _dprsResponseStatus = pResponseStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
@@ -183,5 +183,5 @@ dprsScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
 dprsScalingPolicies = lens _dprsScalingPolicies (\ s a -> s{_dprsScalingPolicies = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dprsStatus :: Lens' DescribePoliciesResponse Int
-dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});
+dprsResponseStatus :: Lens' DescribePoliciesResponse Int
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});

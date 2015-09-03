@@ -44,7 +44,7 @@ module Network.AWS.OpsWorks.DescribeDeployments
     , DescribeDeploymentsResponse
     -- * Response Lenses
     , ddrsDeployments
-    , ddrsStatus
+    , ddrsResponseStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -134,8 +134,8 @@ instance ToQuery DescribeDeployments where
 --
 -- /See:/ 'describeDeploymentsResponse' smart constructor.
 data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
-    { _ddrsDeployments :: !(Maybe [Deployment])
-    , _ddrsStatus      :: !Int
+    { _ddrsDeployments    :: !(Maybe [Deployment])
+    , _ddrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDeploymentsResponse' with the minimum fields required to make a request.
@@ -144,14 +144,14 @@ data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
 --
 -- * 'ddrsDeployments'
 --
--- * 'ddrsStatus'
+-- * 'ddrsResponseStatus'
 describeDeploymentsResponse
-    :: Int -- ^ 'ddrsStatus'
+    :: Int -- ^ 'ddrsResponseStatus'
     -> DescribeDeploymentsResponse
-describeDeploymentsResponse pStatus_ =
+describeDeploymentsResponse pResponseStatus_ =
     DescribeDeploymentsResponse'
     { _ddrsDeployments = Nothing
-    , _ddrsStatus = pStatus_
+    , _ddrsResponseStatus = pResponseStatus_
     }
 
 -- | An array of 'Deployment' objects that describe the deployments.
@@ -159,5 +159,5 @@ ddrsDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
 ddrsDeployments = lens _ddrsDeployments (\ s a -> s{_ddrsDeployments = a}) . _Default . _Coerce;
 
 -- | The response status code.
-ddrsStatus :: Lens' DescribeDeploymentsResponse Int
-ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
+ddrsResponseStatus :: Lens' DescribeDeploymentsResponse Int
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});

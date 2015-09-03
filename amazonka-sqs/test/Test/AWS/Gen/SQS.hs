@@ -34,11 +34,11 @@ import Test.AWS.SQS.Internal
 --         , testPurgeQueue $
 --             purgeQueue
 --
---         , testSendMessage $
---             sendMessage
---
 --         , testChangeMessageVisibilityBatch $
 --             changeMessageVisibilityBatch
+--
+--         , testSendMessage $
+--             sendMessage
 --
 --         , testRemovePermission $
 --             removePermission
@@ -73,11 +73,11 @@ import Test.AWS.SQS.Internal
 --         , testCreateQueue $
 --             createQueue
 --
---         , testChangeMessageVisibility $
---             changeMessageVisibility
---
 --         , testSendMessageBatch $
 --             sendMessageBatch
+--
+--         , testChangeMessageVisibility $
+--             changeMessageVisibility
 --
 --           ]
 
@@ -88,11 +88,11 @@ import Test.AWS.SQS.Internal
 --         , testPurgeQueueResponse $
 --             purgeQueueResponse
 --
---         , testSendMessageResponse $
---             sendMessageResponse
---
 --         , testChangeMessageVisibilityBatchResponse $
 --             changeMessageVisibilityBatchResponse
+--
+--         , testSendMessageResponse $
+--             sendMessageResponse
 --
 --         , testRemovePermissionResponse $
 --             removePermissionResponse
@@ -127,11 +127,11 @@ import Test.AWS.SQS.Internal
 --         , testCreateQueueResponse $
 --             createQueueResponse
 --
---         , testChangeMessageVisibilityResponse $
---             changeMessageVisibilityResponse
---
 --         , testSendMessageBatchResponse $
 --             sendMessageBatchResponse
+--
+--         , testChangeMessageVisibilityResponse $
+--             changeMessageVisibilityResponse
 --
 --           ]
 --     ]
@@ -148,15 +148,15 @@ testPurgeQueue = req
     "PurgeQueue"
     "fixture/PurgeQueue.yaml"
 
-testSendMessage :: SendMessage -> TestTree
-testSendMessage = req
-    "SendMessage"
-    "fixture/SendMessage.yaml"
-
 testChangeMessageVisibilityBatch :: ChangeMessageVisibilityBatch -> TestTree
 testChangeMessageVisibilityBatch = req
     "ChangeMessageVisibilityBatch"
     "fixture/ChangeMessageVisibilityBatch.yaml"
+
+testSendMessage :: SendMessage -> TestTree
+testSendMessage = req
+    "SendMessage"
+    "fixture/SendMessage.yaml"
 
 testRemovePermission :: RemovePermission -> TestTree
 testRemovePermission = req
@@ -213,15 +213,15 @@ testCreateQueue = req
     "CreateQueue"
     "fixture/CreateQueue.yaml"
 
-testChangeMessageVisibility :: ChangeMessageVisibility -> TestTree
-testChangeMessageVisibility = req
-    "ChangeMessageVisibility"
-    "fixture/ChangeMessageVisibility.yaml"
-
 testSendMessageBatch :: SendMessageBatch -> TestTree
 testSendMessageBatch = req
     "SendMessageBatch"
     "fixture/SendMessageBatch.yaml"
+
+testChangeMessageVisibility :: ChangeMessageVisibility -> TestTree
+testChangeMessageVisibility = req
+    "ChangeMessageVisibility"
+    "fixture/ChangeMessageVisibility.yaml"
 
 -- Responses
 
@@ -239,19 +239,19 @@ testPurgeQueueResponse = res
     sQS
     (Proxy :: Proxy PurgeQueue)
 
-testSendMessageResponse :: SendMessageResponse -> TestTree
-testSendMessageResponse = res
-    "SendMessageResponse"
-    "fixture/SendMessageResponse.proto"
-    sQS
-    (Proxy :: Proxy SendMessage)
-
 testChangeMessageVisibilityBatchResponse :: ChangeMessageVisibilityBatchResponse -> TestTree
 testChangeMessageVisibilityBatchResponse = res
     "ChangeMessageVisibilityBatchResponse"
     "fixture/ChangeMessageVisibilityBatchResponse.proto"
     sQS
     (Proxy :: Proxy ChangeMessageVisibilityBatch)
+
+testSendMessageResponse :: SendMessageResponse -> TestTree
+testSendMessageResponse = res
+    "SendMessageResponse"
+    "fixture/SendMessageResponse.proto"
+    sQS
+    (Proxy :: Proxy SendMessage)
 
 testRemovePermissionResponse :: RemovePermissionResponse -> TestTree
 testRemovePermissionResponse = res
@@ -330,16 +330,16 @@ testCreateQueueResponse = res
     sQS
     (Proxy :: Proxy CreateQueue)
 
-testChangeMessageVisibilityResponse :: ChangeMessageVisibilityResponse -> TestTree
-testChangeMessageVisibilityResponse = res
-    "ChangeMessageVisibilityResponse"
-    "fixture/ChangeMessageVisibilityResponse.proto"
-    sQS
-    (Proxy :: Proxy ChangeMessageVisibility)
-
 testSendMessageBatchResponse :: SendMessageBatchResponse -> TestTree
 testSendMessageBatchResponse = res
     "SendMessageBatchResponse"
     "fixture/SendMessageBatchResponse.proto"
     sQS
     (Proxy :: Proxy SendMessageBatch)
+
+testChangeMessageVisibilityResponse :: ChangeMessageVisibilityResponse -> TestTree
+testChangeMessageVisibilityResponse = res
+    "ChangeMessageVisibilityResponse"
+    "fixture/ChangeMessageVisibilityResponse.proto"
+    sQS
+    (Proxy :: Proxy ChangeMessageVisibility)

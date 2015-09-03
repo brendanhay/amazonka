@@ -39,7 +39,7 @@ module Network.AWS.CognitoSync.GetCognitoEvents
     , GetCognitoEventsResponse
     -- * Response Lenses
     , gcersEvents
-    , gcersStatus
+    , gcersResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -101,8 +101,8 @@ instance ToQuery GetCognitoEvents where
 --
 -- /See:/ 'getCognitoEventsResponse' smart constructor.
 data GetCognitoEventsResponse = GetCognitoEventsResponse'
-    { _gcersEvents :: !(Maybe (Map Text Text))
-    , _gcersStatus :: !Int
+    { _gcersEvents         :: !(Maybe (Map Text Text))
+    , _gcersResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetCognitoEventsResponse' with the minimum fields required to make a request.
@@ -111,14 +111,14 @@ data GetCognitoEventsResponse = GetCognitoEventsResponse'
 --
 -- * 'gcersEvents'
 --
--- * 'gcersStatus'
+-- * 'gcersResponseStatus'
 getCognitoEventsResponse
-    :: Int -- ^ 'gcersStatus'
+    :: Int -- ^ 'gcersResponseStatus'
     -> GetCognitoEventsResponse
-getCognitoEventsResponse pStatus_ =
+getCognitoEventsResponse pResponseStatus_ =
     GetCognitoEventsResponse'
     { _gcersEvents = Nothing
-    , _gcersStatus = pStatus_
+    , _gcersResponseStatus = pResponseStatus_
     }
 
 -- | The Cognito Events returned from the GetCognitoEvents request
@@ -126,5 +126,5 @@ gcersEvents :: Lens' GetCognitoEventsResponse (HashMap Text Text)
 gcersEvents = lens _gcersEvents (\ s a -> s{_gcersEvents = a}) . _Default . _Map;
 
 -- | The response status code.
-gcersStatus :: Lens' GetCognitoEventsResponse Int
-gcersStatus = lens _gcersStatus (\ s a -> s{_gcersStatus = a});
+gcersResponseStatus :: Lens' GetCognitoEventsResponse Int
+gcersResponseStatus = lens _gcersResponseStatus (\ s a -> s{_gcersResponseStatus = a});

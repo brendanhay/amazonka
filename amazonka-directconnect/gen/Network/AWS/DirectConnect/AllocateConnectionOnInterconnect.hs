@@ -43,11 +43,11 @@ module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     , cVlan
     , cLocation
     , cConnectionId
-    , cConnectionName
     , cPartnerName
+    , cConnectionName
     , cBandwidth
-    , cRegion
     , cOwnerAccount
+    , cRegion
     , cConnectionState
     ) where
 

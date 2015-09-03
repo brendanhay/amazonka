@@ -34,7 +34,7 @@ module Network.AWS.DirectConnect.DeleteVirtualInterface
     , DeleteVirtualInterfaceResponse
     -- * Response Lenses
     , dvirsVirtualInterfaceState
-    , dvirsStatus
+    , dvirsResponseStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -106,7 +106,7 @@ instance ToQuery DeleteVirtualInterface where
 -- /See:/ 'deleteVirtualInterfaceResponse' smart constructor.
 data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
     { _dvirsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _dvirsStatus                :: !Int
+    , _dvirsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteVirtualInterfaceResponse' with the minimum fields required to make a request.
@@ -115,14 +115,14 @@ data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
 --
 -- * 'dvirsVirtualInterfaceState'
 --
--- * 'dvirsStatus'
+-- * 'dvirsResponseStatus'
 deleteVirtualInterfaceResponse
-    :: Int -- ^ 'dvirsStatus'
+    :: Int -- ^ 'dvirsResponseStatus'
     -> DeleteVirtualInterfaceResponse
-deleteVirtualInterfaceResponse pStatus_ =
+deleteVirtualInterfaceResponse pResponseStatus_ =
     DeleteVirtualInterfaceResponse'
     { _dvirsVirtualInterfaceState = Nothing
-    , _dvirsStatus = pStatus_
+    , _dvirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
@@ -130,5 +130,5 @@ dvirsVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe Virtua
 dvirsVirtualInterfaceState = lens _dvirsVirtualInterfaceState (\ s a -> s{_dvirsVirtualInterfaceState = a});
 
 -- | The response status code.
-dvirsStatus :: Lens' DeleteVirtualInterfaceResponse Int
-dvirsStatus = lens _dvirsStatus (\ s a -> s{_dvirsStatus = a});
+dvirsResponseStatus :: Lens' DeleteVirtualInterfaceResponse Int
+dvirsResponseStatus = lens _dvirsResponseStatus (\ s a -> s{_dvirsResponseStatus = a});

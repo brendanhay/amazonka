@@ -47,7 +47,7 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     , DisableAvailabilityZonesForLoadBalancerResponse
     -- * Response Lenses
     , dazflbrsAvailabilityZones
-    , dazflbrsStatus
+    , dazflbrsResponseStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -123,7 +123,7 @@ instance ToQuery
 -- | /See:/ 'disableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse'
     { _dazflbrsAvailabilityZones :: !(Maybe [Text])
-    , _dazflbrsStatus            :: !Int
+    , _dazflbrsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DisableAvailabilityZonesForLoadBalancerResponse' with the minimum fields required to make a request.
@@ -132,14 +132,14 @@ data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesF
 --
 -- * 'dazflbrsAvailabilityZones'
 --
--- * 'dazflbrsStatus'
+-- * 'dazflbrsResponseStatus'
 disableAvailabilityZonesForLoadBalancerResponse
-    :: Int -- ^ 'dazflbrsStatus'
+    :: Int -- ^ 'dazflbrsResponseStatus'
     -> DisableAvailabilityZonesForLoadBalancerResponse
-disableAvailabilityZonesForLoadBalancerResponse pStatus_ =
+disableAvailabilityZonesForLoadBalancerResponse pResponseStatus_ =
     DisableAvailabilityZonesForLoadBalancerResponse'
     { _dazflbrsAvailabilityZones = Nothing
-    , _dazflbrsStatus = pStatus_
+    , _dazflbrsResponseStatus = pResponseStatus_
     }
 
 -- | The remaining Availability Zones for the load balancer.
@@ -147,5 +147,5 @@ dazflbrsAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerRespon
 dazflbrsAvailabilityZones = lens _dazflbrsAvailabilityZones (\ s a -> s{_dazflbrsAvailabilityZones = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dazflbrsStatus :: Lens' DisableAvailabilityZonesForLoadBalancerResponse Int
-dazflbrsStatus = lens _dazflbrsStatus (\ s a -> s{_dazflbrsStatus = a});
+dazflbrsResponseStatus :: Lens' DisableAvailabilityZonesForLoadBalancerResponse Int
+dazflbrsResponseStatus = lens _dazflbrsResponseStatus (\ s a -> s{_dazflbrsResponseStatus = a});

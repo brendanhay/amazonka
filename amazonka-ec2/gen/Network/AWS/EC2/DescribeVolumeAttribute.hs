@@ -40,10 +40,10 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     , describeVolumeAttributeResponse
     , DescribeVolumeAttributeResponse
     -- * Response Lenses
-    , dvarsProductCodes
     , dvarsVolumeId
+    , dvarsProductCodes
     , dvarsAutoEnableIO
-    , dvarsStatus
+    , dvarsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -101,9 +101,9 @@ instance AWSRequest DescribeVolumeAttribute where
           = receiveXML
               (\ s h x ->
                  DescribeVolumeAttributeResponse' <$>
-                   (x .@? "productCodes" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (x .@? "volumeId")
+                   (x .@? "volumeId") <*>
+                     (x .@? "productCodes" .!@ mempty >>=
+                        may (parseXMLList "item"))
                      <*> (x .@? "autoEnableIO")
                      <*> (pure (fromEnum s)))
 
@@ -124,46 +124,46 @@ instance ToQuery DescribeVolumeAttribute where
 
 -- | /See:/ 'describeVolumeAttributeResponse' smart constructor.
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
-    { _dvarsProductCodes :: !(Maybe [ProductCode])
-    , _dvarsVolumeId     :: !(Maybe Text)
-    , _dvarsAutoEnableIO :: !(Maybe AttributeBooleanValue)
-    , _dvarsStatus       :: !Int
+    { _dvarsVolumeId       :: !(Maybe Text)
+    , _dvarsProductCodes   :: !(Maybe [ProductCode])
+    , _dvarsAutoEnableIO   :: !(Maybe AttributeBooleanValue)
+    , _dvarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVolumeAttributeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvarsProductCodes'
---
 -- * 'dvarsVolumeId'
+--
+-- * 'dvarsProductCodes'
 --
 -- * 'dvarsAutoEnableIO'
 --
--- * 'dvarsStatus'
+-- * 'dvarsResponseStatus'
 describeVolumeAttributeResponse
-    :: Int -- ^ 'dvarsStatus'
+    :: Int -- ^ 'dvarsResponseStatus'
     -> DescribeVolumeAttributeResponse
-describeVolumeAttributeResponse pStatus_ =
+describeVolumeAttributeResponse pResponseStatus_ =
     DescribeVolumeAttributeResponse'
-    { _dvarsProductCodes = Nothing
-    , _dvarsVolumeId = Nothing
+    { _dvarsVolumeId = Nothing
+    , _dvarsProductCodes = Nothing
     , _dvarsAutoEnableIO = Nothing
-    , _dvarsStatus = pStatus_
+    , _dvarsResponseStatus = pResponseStatus_
     }
-
--- | A list of product codes.
-dvarsProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
-dvarsProductCodes = lens _dvarsProductCodes (\ s a -> s{_dvarsProductCodes = a}) . _Default . _Coerce;
 
 -- | The ID of the volume.
 dvarsVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
 dvarsVolumeId = lens _dvarsVolumeId (\ s a -> s{_dvarsVolumeId = a});
+
+-- | A list of product codes.
+dvarsProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
+dvarsProductCodes = lens _dvarsProductCodes (\ s a -> s{_dvarsProductCodes = a}) . _Default . _Coerce;
 
 -- | The state of 'autoEnableIO' attribute.
 dvarsAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
 dvarsAutoEnableIO = lens _dvarsAutoEnableIO (\ s a -> s{_dvarsAutoEnableIO = a});
 
 -- | The response status code.
-dvarsStatus :: Lens' DescribeVolumeAttributeResponse Int
-dvarsStatus = lens _dvarsStatus (\ s a -> s{_dvarsStatus = a});
+dvarsResponseStatus :: Lens' DescribeVolumeAttributeResponse Int
+dvarsResponseStatus = lens _dvarsResponseStatus (\ s a -> s{_dvarsResponseStatus = a});

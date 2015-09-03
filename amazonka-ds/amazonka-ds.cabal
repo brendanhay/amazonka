@@ -1,5 +1,5 @@
 name:                  amazonka-ds
-version:               1.2.0.2
+version:               1.3.0
 synopsis:              Amazon Directory Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -70,7 +70,7 @@ library
         , Network.AWS.DirectoryService.Types.Sum
 
     build-depends:
-          amazonka-core == 1.2.0.*
+          amazonka-core == 1.3.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ds-test
@@ -90,9 +90,9 @@ test-suite amazonka-ds-test
         , Test.AWS.DirectoryService.Internal
 
     build-depends:
-          amazonka-core == 1.2.0.*
-        , amazonka-test == 1.2.0.*
-        , amazonka-ds == 1.2.0.*
+          amazonka-core == 1.3.0.*
+        , amazonka-test == 1.3.0.*
+        , amazonka-ds == 1.3.0.*
         , base
         , bytestring
         , lens

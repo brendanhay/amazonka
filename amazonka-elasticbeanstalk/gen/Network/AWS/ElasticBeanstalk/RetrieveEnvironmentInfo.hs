@@ -41,7 +41,7 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     , RetrieveEnvironmentInfoResponse
     -- * Response Lenses
     , reirsEnvironmentInfo
-    , reirsStatus
+    , reirsResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -138,7 +138,7 @@ instance ToQuery RetrieveEnvironmentInfo where
 -- /See:/ 'retrieveEnvironmentInfoResponse' smart constructor.
 data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'
     { _reirsEnvironmentInfo :: !(Maybe [EnvironmentInfoDescription])
-    , _reirsStatus          :: !Int
+    , _reirsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RetrieveEnvironmentInfoResponse' with the minimum fields required to make a request.
@@ -147,14 +147,14 @@ data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'
 --
 -- * 'reirsEnvironmentInfo'
 --
--- * 'reirsStatus'
+-- * 'reirsResponseStatus'
 retrieveEnvironmentInfoResponse
-    :: Int -- ^ 'reirsStatus'
+    :: Int -- ^ 'reirsResponseStatus'
     -> RetrieveEnvironmentInfoResponse
-retrieveEnvironmentInfoResponse pStatus_ =
+retrieveEnvironmentInfoResponse pResponseStatus_ =
     RetrieveEnvironmentInfoResponse'
     { _reirsEnvironmentInfo = Nothing
-    , _reirsStatus = pStatus_
+    , _reirsResponseStatus = pResponseStatus_
     }
 
 -- | The EnvironmentInfoDescription of the environment.
@@ -162,5 +162,5 @@ reirsEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDe
 reirsEnvironmentInfo = lens _reirsEnvironmentInfo (\ s a -> s{_reirsEnvironmentInfo = a}) . _Default . _Coerce;
 
 -- | The response status code.
-reirsStatus :: Lens' RetrieveEnvironmentInfoResponse Int
-reirsStatus = lens _reirsStatus (\ s a -> s{_reirsStatus = a});
+reirsResponseStatus :: Lens' RetrieveEnvironmentInfoResponse Int
+reirsResponseStatus = lens _reirsResponseStatus (\ s a -> s{_reirsResponseStatus = a});

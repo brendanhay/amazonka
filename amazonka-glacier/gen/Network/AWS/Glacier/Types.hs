@@ -61,23 +61,23 @@ module Network.AWS.Glacier.Types
     -- * GlacierJobDescription
     , GlacierJobDescription
     , glacierJobDescription
-    , gjdArchiveId
     , gjdSHA256TreeHash
+    , gjdArchiveId
     , gjdJobId
     , gjdRetrievalByteRange
     , gjdInventoryRetrievalParameters
     , gjdAction
     , gjdJobDescription
     , gjdSNSTopic
-    , gjdVaultARN
     , gjdStatusMessage
+    , gjdVaultARN
     , gjdArchiveSHA256TreeHash
     , gjdCreationDate
     , gjdCompleted
     , gjdCompletionDate
+    , gjdInventorySizeInBytes
     , gjdArchiveSizeInBytes
     , gjdStatusCode
-    , gjdInventorySizeInBytes
 
     -- * InventoryRetrievalJobDescription
     , InventoryRetrievalJobDescription
@@ -100,8 +100,8 @@ module Network.AWS.Glacier.Types
     , JobParameters
     , jobParameters
     , jpArchiveId
-    , jpRetrievalByteRange
     , jpFormat
+    , jpRetrievalByteRange
     , jpInventoryRetrievalParameters
     , jpSNSTopic
     , jpType
@@ -117,8 +117,8 @@ module Network.AWS.Glacier.Types
     , UploadListElement
     , uploadListElement
     , uleMultipartUploadId
-    , uleArchiveDescription
     , ulePartSizeInBytes
+    , uleArchiveDescription
     , uleVaultARN
     , uleCreationDate
 

@@ -34,7 +34,7 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
     , DescribeApplicationsResponse
     -- * Response Lenses
     , darsApplications
-    , darsStatus
+    , darsResponseStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -98,8 +98,8 @@ instance ToQuery DescribeApplications where
 --
 -- /See:/ 'describeApplicationsResponse' smart constructor.
 data DescribeApplicationsResponse = DescribeApplicationsResponse'
-    { _darsApplications :: !(Maybe [ApplicationDescription])
-    , _darsStatus       :: !Int
+    { _darsApplications   :: !(Maybe [ApplicationDescription])
+    , _darsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeApplicationsResponse' with the minimum fields required to make a request.
@@ -108,14 +108,14 @@ data DescribeApplicationsResponse = DescribeApplicationsResponse'
 --
 -- * 'darsApplications'
 --
--- * 'darsStatus'
+-- * 'darsResponseStatus'
 describeApplicationsResponse
-    :: Int -- ^ 'darsStatus'
+    :: Int -- ^ 'darsResponseStatus'
     -> DescribeApplicationsResponse
-describeApplicationsResponse pStatus_ =
+describeApplicationsResponse pResponseStatus_ =
     DescribeApplicationsResponse'
     { _darsApplications = Nothing
-    , _darsStatus = pStatus_
+    , _darsResponseStatus = pResponseStatus_
     }
 
 -- | This parameter contains a list of ApplicationDescription.
@@ -123,5 +123,5 @@ darsApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darsApplications = lens _darsApplications (\ s a -> s{_darsApplications = a}) . _Default . _Coerce;
 
 -- | The response status code.
-darsStatus :: Lens' DescribeApplicationsResponse Int
-darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});
+darsResponseStatus :: Lens' DescribeApplicationsResponse Int
+darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});

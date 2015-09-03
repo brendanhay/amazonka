@@ -41,8 +41,8 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'application' smart constructor.
 data Application = Application'
-    { _aAdditionalInfo :: !(Maybe (Map Text Text))
-    , _aArgs           :: !(Maybe [Text])
+    { _aArgs           :: !(Maybe [Text])
+    , _aAdditionalInfo :: !(Maybe (Map Text Text))
     , _aName           :: !(Maybe Text)
     , _aVersion        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -51,9 +51,9 @@ data Application = Application'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aAdditionalInfo'
---
 -- * 'aArgs'
+--
+-- * 'aAdditionalInfo'
 --
 -- * 'aName'
 --
@@ -62,21 +62,21 @@ application
     :: Application
 application =
     Application'
-    { _aAdditionalInfo = Nothing
-    , _aArgs = Nothing
+    { _aArgs = Nothing
+    , _aAdditionalInfo = Nothing
     , _aName = Nothing
     , _aVersion = Nothing
     }
+
+-- | Arguments for Amazon EMR to pass to the application.
+aArgs :: Lens' Application [Text]
+aArgs = lens _aArgs (\ s a -> s{_aArgs = a}) . _Default . _Coerce;
 
 -- | This option is for advanced users only. This is meta information about
 -- third-party applications that third-party vendors use for testing
 -- purposes.
 aAdditionalInfo :: Lens' Application (HashMap Text Text)
 aAdditionalInfo = lens _aAdditionalInfo (\ s a -> s{_aAdditionalInfo = a}) . _Default . _Map;
-
--- | Arguments for Amazon EMR to pass to the application.
-aArgs :: Lens' Application [Text]
-aArgs = lens _aArgs (\ s a -> s{_aArgs = a}) . _Default . _Coerce;
 
 -- | The name of the application.
 aName :: Lens' Application (Maybe Text)
@@ -91,8 +91,8 @@ instance FromJSON Application where
           = withObject "Application"
               (\ x ->
                  Application' <$>
-                   (x .:? "AdditionalInfo" .!= mempty) <*>
-                     (x .:? "Args" .!= mempty)
+                   (x .:? "Args" .!= mempty) <*>
+                     (x .:? "AdditionalInfo" .!= mempty)
                      <*> (x .:? "Name")
                      <*> (x .:? "Version"))
 
@@ -100,8 +100,9 @@ instance ToJSON Application where
         toJSON Application'{..}
           = object
               (catMaybes
-                 [("AdditionalInfo" .=) <$> _aAdditionalInfo,
-                  ("Args" .=) <$> _aArgs, ("Name" .=) <$> _aName,
+                 [("Args" .=) <$> _aArgs,
+                  ("AdditionalInfo" .=) <$> _aAdditionalInfo,
+                  ("Name" .=) <$> _aName,
                   ("Version" .=) <$> _aVersion])
 
 -- | Configuration of a bootstrap action.
@@ -158,9 +159,9 @@ data Cluster = Cluster'
     , _cluLogURI                  :: !(Maybe Text)
     , _cluRunningAMIVersion       :: !(Maybe Text)
     , _cluMasterPublicDNSName     :: !(Maybe Text)
-    , _cluAutoTerminate           :: !(Maybe Bool)
     , _cluTerminationProtected    :: !(Maybe Bool)
     , _cluVisibleToAllUsers       :: !(Maybe Bool)
+    , _cluAutoTerminate           :: !(Maybe Bool)
     , _cluApplications            :: !(Maybe [Application])
     , _cluTags                    :: !(Maybe [Tag])
     , _cluServiceRole             :: !(Maybe Text)
@@ -189,11 +190,11 @@ data Cluster = Cluster'
 --
 -- * 'cluMasterPublicDNSName'
 --
--- * 'cluAutoTerminate'
---
 -- * 'cluTerminationProtected'
 --
 -- * 'cluVisibleToAllUsers'
+--
+-- * 'cluAutoTerminate'
 --
 -- * 'cluApplications'
 --
@@ -221,9 +222,9 @@ cluster pId_ pName_ pStatus_ =
     , _cluLogURI = Nothing
     , _cluRunningAMIVersion = Nothing
     , _cluMasterPublicDNSName = Nothing
-    , _cluAutoTerminate = Nothing
     , _cluTerminationProtected = Nothing
     , _cluVisibleToAllUsers = Nothing
+    , _cluAutoTerminate = Nothing
     , _cluApplications = Nothing
     , _cluTags = Nothing
     , _cluServiceRole = Nothing
@@ -273,11 +274,6 @@ cluRunningAMIVersion = lens _cluRunningAMIVersion (\ s a -> s{_cluRunningAMIVers
 cluMasterPublicDNSName :: Lens' Cluster (Maybe Text)
 cluMasterPublicDNSName = lens _cluMasterPublicDNSName (\ s a -> s{_cluMasterPublicDNSName = a});
 
--- | Specifies whether the cluster should terminate after completing all
--- steps.
-cluAutoTerminate :: Lens' Cluster (Maybe Bool)
-cluAutoTerminate = lens _cluAutoTerminate (\ s a -> s{_cluAutoTerminate = a});
-
 -- | Indicates whether Amazon EMR will lock the cluster to prevent the EC2
 -- instances from being terminated by an API call or user intervention, or
 -- in the event of a cluster error.
@@ -292,6 +288,11 @@ cluTerminationProtected = lens _cluTerminationProtected (\ s a -> s{_cluTerminat
 -- value can be changed using the SetVisibleToAllUsers action.
 cluVisibleToAllUsers :: Lens' Cluster (Maybe Bool)
 cluVisibleToAllUsers = lens _cluVisibleToAllUsers (\ s a -> s{_cluVisibleToAllUsers = a});
+
+-- | Specifies whether the cluster should terminate after completing all
+-- steps.
+cluAutoTerminate :: Lens' Cluster (Maybe Bool)
+cluAutoTerminate = lens _cluAutoTerminate (\ s a -> s{_cluAutoTerminate = a});
 
 -- | The applications installed on this cluster.
 cluApplications :: Lens' Cluster [Application]
@@ -331,9 +332,9 @@ instance FromJSON Cluster where
                      <*> (x .:? "LogUri")
                      <*> (x .:? "RunningAmiVersion")
                      <*> (x .:? "MasterPublicDnsName")
-                     <*> (x .:? "AutoTerminate")
                      <*> (x .:? "TerminationProtected")
                      <*> (x .:? "VisibleToAllUsers")
+                     <*> (x .:? "AutoTerminate")
                      <*> (x .:? "Applications" .!= mempty)
                      <*> (x .:? "Tags" .!= mempty)
                      <*> (x .:? "ServiceRole")
@@ -657,8 +658,8 @@ data EC2InstanceAttributes = EC2InstanceAttributes'
     { _eiaEC2KeyName                     :: !(Maybe Text)
     , _eiaEmrManagedSlaveSecurityGroup   :: !(Maybe Text)
     , _eiaAdditionalSlaveSecurityGroups  :: !(Maybe [Text])
-    , _eiaIAMInstanceProfile             :: !(Maybe Text)
     , _eiaAdditionalMasterSecurityGroups :: !(Maybe [Text])
+    , _eiaIAMInstanceProfile             :: !(Maybe Text)
     , _eiaEmrManagedMasterSecurityGroup  :: !(Maybe Text)
     , _eiaEC2SubnetId                    :: !(Maybe Text)
     , _eiaEC2AvailabilityZone            :: !(Maybe Text)
@@ -674,9 +675,9 @@ data EC2InstanceAttributes = EC2InstanceAttributes'
 --
 -- * 'eiaAdditionalSlaveSecurityGroups'
 --
--- * 'eiaIAMInstanceProfile'
---
 -- * 'eiaAdditionalMasterSecurityGroups'
+--
+-- * 'eiaIAMInstanceProfile'
 --
 -- * 'eiaEmrManagedMasterSecurityGroup'
 --
@@ -690,8 +691,8 @@ ec2InstanceAttributes =
     { _eiaEC2KeyName = Nothing
     , _eiaEmrManagedSlaveSecurityGroup = Nothing
     , _eiaAdditionalSlaveSecurityGroups = Nothing
-    , _eiaIAMInstanceProfile = Nothing
     , _eiaAdditionalMasterSecurityGroups = Nothing
+    , _eiaIAMInstanceProfile = Nothing
     , _eiaEmrManagedMasterSecurityGroup = Nothing
     , _eiaEC2SubnetId = Nothing
     , _eiaEC2AvailabilityZone = Nothing
@@ -711,14 +712,14 @@ eiaEmrManagedSlaveSecurityGroup = lens _eiaEmrManagedSlaveSecurityGroup (\ s a -
 eiaAdditionalSlaveSecurityGroups :: Lens' EC2InstanceAttributes [Text]
 eiaAdditionalSlaveSecurityGroups = lens _eiaAdditionalSlaveSecurityGroups (\ s a -> s{_eiaAdditionalSlaveSecurityGroups = a}) . _Default . _Coerce;
 
+-- | A list of additional Amazon EC2 security group IDs for the master node.
+eiaAdditionalMasterSecurityGroups :: Lens' EC2InstanceAttributes [Text]
+eiaAdditionalMasterSecurityGroups = lens _eiaAdditionalMasterSecurityGroups (\ s a -> s{_eiaAdditionalMasterSecurityGroups = a}) . _Default . _Coerce;
+
 -- | The IAM role that was specified when the job flow was launched. The EC2
 -- instances of the job flow assume this role.
 eiaIAMInstanceProfile :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaIAMInstanceProfile = lens _eiaIAMInstanceProfile (\ s a -> s{_eiaIAMInstanceProfile = a});
-
--- | A list of additional Amazon EC2 security group IDs for the master node.
-eiaAdditionalMasterSecurityGroups :: Lens' EC2InstanceAttributes [Text]
-eiaAdditionalMasterSecurityGroups = lens _eiaAdditionalMasterSecurityGroups (\ s a -> s{_eiaAdditionalMasterSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The identifier of the Amazon EC2 security group (managed by Amazon
 -- Elastic MapReduce) for the master node.
@@ -749,9 +750,9 @@ instance FromJSON EC2InstanceAttributes where
                      (x .:? "EmrManagedSlaveSecurityGroup")
                      <*>
                      (x .:? "AdditionalSlaveSecurityGroups" .!= mempty)
-                     <*> (x .:? "IamInstanceProfile")
                      <*>
                      (x .:? "AdditionalMasterSecurityGroups" .!= mempty)
+                     <*> (x .:? "IamInstanceProfile")
                      <*> (x .:? "EmrManagedMasterSecurityGroup")
                      <*> (x .:? "Ec2SubnetId")
                      <*> (x .:? "Ec2AvailabilityZone"))
@@ -1497,8 +1498,8 @@ instance FromJSON InstanceTimeline where
 --
 -- /See:/ 'jobFlowInstancesConfig' smart constructor.
 data JobFlowInstancesConfig = JobFlowInstancesConfig'
-    { _jficSlaveInstanceType              :: !(Maybe Text)
-    , _jficEC2KeyName                     :: !(Maybe Text)
+    { _jficEC2KeyName                     :: !(Maybe Text)
+    , _jficSlaveInstanceType              :: !(Maybe Text)
     , _jficInstanceCount                  :: !(Maybe Int)
     , _jficEmrManagedSlaveSecurityGroup   :: !(Maybe Text)
     , _jficAdditionalSlaveSecurityGroups  :: !(Maybe [Text])
@@ -1517,9 +1518,9 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jficSlaveInstanceType'
---
 -- * 'jficEC2KeyName'
+--
+-- * 'jficSlaveInstanceType'
 --
 -- * 'jficInstanceCount'
 --
@@ -1548,8 +1549,8 @@ jobFlowInstancesConfig
     :: JobFlowInstancesConfig
 jobFlowInstancesConfig =
     JobFlowInstancesConfig'
-    { _jficSlaveInstanceType = Nothing
-    , _jficEC2KeyName = Nothing
+    { _jficEC2KeyName = Nothing
+    , _jficSlaveInstanceType = Nothing
     , _jficInstanceCount = Nothing
     , _jficEmrManagedSlaveSecurityGroup = Nothing
     , _jficAdditionalSlaveSecurityGroups = Nothing
@@ -1564,14 +1565,14 @@ jobFlowInstancesConfig =
     , _jficPlacement = Nothing
     }
 
--- | The EC2 instance type of the slave nodes.
-jficSlaveInstanceType :: Lens' JobFlowInstancesConfig (Maybe Text)
-jficSlaveInstanceType = lens _jficSlaveInstanceType (\ s a -> s{_jficSlaveInstanceType = a});
-
 -- | The name of the Amazon EC2 key pair that can be used to ssh to the
 -- master node as the user called \"hadoop.\"
 jficEC2KeyName :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEC2KeyName = lens _jficEC2KeyName (\ s a -> s{_jficEC2KeyName = a});
+
+-- | The EC2 instance type of the slave nodes.
+jficSlaveInstanceType :: Lens' JobFlowInstancesConfig (Maybe Text)
+jficSlaveInstanceType = lens _jficSlaveInstanceType (\ s a -> s{_jficSlaveInstanceType = a});
 
 -- | The number of Amazon EC2 instances used to execute the job flow.
 jficInstanceCount :: Lens' JobFlowInstancesConfig (Maybe Int)
@@ -1643,8 +1644,8 @@ instance ToJSON JobFlowInstancesConfig where
         toJSON JobFlowInstancesConfig'{..}
           = object
               (catMaybes
-                 [("SlaveInstanceType" .=) <$> _jficSlaveInstanceType,
-                  ("Ec2KeyName" .=) <$> _jficEC2KeyName,
+                 [("Ec2KeyName" .=) <$> _jficEC2KeyName,
+                  ("SlaveInstanceType" .=) <$> _jficSlaveInstanceType,
                   ("InstanceCount" .=) <$> _jficInstanceCount,
                   ("EmrManagedSlaveSecurityGroup" .=) <$>
                     _jficEmrManagedSlaveSecurityGroup,

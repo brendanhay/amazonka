@@ -36,6 +36,7 @@ module Network.AWS.CodePipeline.AcknowledgeJob
     , AcknowledgeJobResponse
     -- * Response Lenses
     , ajrsStatus
+    , ajrsResponseStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -84,9 +85,10 @@ instance AWSRequest AcknowledgeJob where
         type Rs AcknowledgeJob = AcknowledgeJobResponse
         request = postJSON codePipeline
         response
-          = receiveEmpty
+          = receiveJSON
               (\ s h x ->
-                 AcknowledgeJobResponse' <$> (pure (fromEnum s)))
+                 AcknowledgeJobResponse' <$>
+                   (x .?> "status") <*> (pure (fromEnum s)))
 
 instance ToHeaders AcknowledgeJob where
         toHeaders
@@ -114,8 +116,9 @@ instance ToQuery AcknowledgeJob where
 -- | Represents the output of an acknowledge job action.
 --
 -- /See:/ 'acknowledgeJobResponse' smart constructor.
-newtype AcknowledgeJobResponse = AcknowledgeJobResponse'
-    { _ajrsStatus :: Int
+data AcknowledgeJobResponse = AcknowledgeJobResponse'
+    { _ajrsStatus         :: !(Maybe JobStatus)
+    , _ajrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AcknowledgeJobResponse' with the minimum fields required to make a request.
@@ -123,14 +126,21 @@ newtype AcknowledgeJobResponse = AcknowledgeJobResponse'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ajrsStatus'
+--
+-- * 'ajrsResponseStatus'
 acknowledgeJobResponse
-    :: Int -- ^ 'ajrsStatus'
+    :: Int -- ^ 'ajrsResponseStatus'
     -> AcknowledgeJobResponse
-acknowledgeJobResponse pStatus_ =
+acknowledgeJobResponse pResponseStatus_ =
     AcknowledgeJobResponse'
-    { _ajrsStatus = pStatus_
+    { _ajrsStatus = Nothing
+    , _ajrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
-ajrsStatus :: Lens' AcknowledgeJobResponse Int
+-- | Whether the job worker has received the specified job.
+ajrsStatus :: Lens' AcknowledgeJobResponse (Maybe JobStatus)
 ajrsStatus = lens _ajrsStatus (\ s a -> s{_ajrsStatus = a});
+
+-- | The response status code.
+ajrsResponseStatus :: Lens' AcknowledgeJobResponse Int
+ajrsResponseStatus = lens _ajrsResponseStatus (\ s a -> s{_ajrsResponseStatus = a});

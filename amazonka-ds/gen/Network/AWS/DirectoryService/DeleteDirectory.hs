@@ -34,7 +34,7 @@ module Network.AWS.DirectoryService.DeleteDirectory
     , DeleteDirectoryResponse
     -- * Response Lenses
     , drsDirectoryId
-    , drsStatus
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -101,8 +101,8 @@ instance ToQuery DeleteDirectory where
 --
 -- /See:/ 'deleteDirectoryResponse' smart constructor.
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
-    { _drsDirectoryId :: !(Maybe Text)
-    , _drsStatus      :: !Int
+    { _drsDirectoryId    :: !(Maybe Text)
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDirectoryResponse' with the minimum fields required to make a request.
@@ -111,14 +111,14 @@ data DeleteDirectoryResponse = DeleteDirectoryResponse'
 --
 -- * 'drsDirectoryId'
 --
--- * 'drsStatus'
+-- * 'drsResponseStatus'
 deleteDirectoryResponse
-    :: Int -- ^ 'drsStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DeleteDirectoryResponse
-deleteDirectoryResponse pStatus_ =
+deleteDirectoryResponse pResponseStatus_ =
     DeleteDirectoryResponse'
     { _drsDirectoryId = Nothing
-    , _drsStatus = pStatus_
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | The directory identifier.
@@ -126,5 +126,5 @@ drsDirectoryId :: Lens' DeleteDirectoryResponse (Maybe Text)
 drsDirectoryId = lens _drsDirectoryId (\ s a -> s{_drsDirectoryId = a});
 
 -- | The response status code.
-drsStatus :: Lens' DeleteDirectoryResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+drsResponseStatus :: Lens' DeleteDirectoryResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

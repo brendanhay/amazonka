@@ -48,7 +48,7 @@ module Network.AWS.EC2.GetPasswordData
     , getPasswordDataResponse
     , GetPasswordDataResponse
     -- * Response Lenses
-    , gpdrsStatus
+    , gpdrsResponseStatus
     , gpdrsInstanceId
     , gpdrsPasswordData
     , gpdrsTimestamp
@@ -120,17 +120,17 @@ instance ToQuery GetPasswordData where
 
 -- | /See:/ 'getPasswordDataResponse' smart constructor.
 data GetPasswordDataResponse = GetPasswordDataResponse'
-    { _gpdrsStatus       :: !Int
-    , _gpdrsInstanceId   :: !Text
-    , _gpdrsPasswordData :: !Text
-    , _gpdrsTimestamp    :: !ISO8601
+    { _gpdrsResponseStatus :: !Int
+    , _gpdrsInstanceId     :: !Text
+    , _gpdrsPasswordData   :: !Text
+    , _gpdrsTimestamp      :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetPasswordDataResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpdrsStatus'
+-- * 'gpdrsResponseStatus'
 --
 -- * 'gpdrsInstanceId'
 --
@@ -138,22 +138,22 @@ data GetPasswordDataResponse = GetPasswordDataResponse'
 --
 -- * 'gpdrsTimestamp'
 getPasswordDataResponse
-    :: Int -- ^ 'gpdrsStatus'
+    :: Int -- ^ 'gpdrsResponseStatus'
     -> Text -- ^ 'gpdrsInstanceId'
     -> Text -- ^ 'gpdrsPasswordData'
     -> UTCTime -- ^ 'gpdrsTimestamp'
     -> GetPasswordDataResponse
-getPasswordDataResponse pStatus_ pInstanceId_ pPasswordData_ pTimestamp_ =
+getPasswordDataResponse pResponseStatus_ pInstanceId_ pPasswordData_ pTimestamp_ =
     GetPasswordDataResponse'
-    { _gpdrsStatus = pStatus_
+    { _gpdrsResponseStatus = pResponseStatus_
     , _gpdrsInstanceId = pInstanceId_
     , _gpdrsPasswordData = pPasswordData_
     , _gpdrsTimestamp = _Time # pTimestamp_
     }
 
 -- | The response status code.
-gpdrsStatus :: Lens' GetPasswordDataResponse Int
-gpdrsStatus = lens _gpdrsStatus (\ s a -> s{_gpdrsStatus = a});
+gpdrsResponseStatus :: Lens' GetPasswordDataResponse Int
+gpdrsResponseStatus = lens _gpdrsResponseStatus (\ s a -> s{_gpdrsResponseStatus = a});
 
 -- | The ID of the Windows instance.
 gpdrsInstanceId :: Lens' GetPasswordDataResponse Text

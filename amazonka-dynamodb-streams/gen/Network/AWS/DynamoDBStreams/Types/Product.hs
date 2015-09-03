@@ -32,8 +32,8 @@ import           Network.AWS.Prelude
 -- /See:/ 'attributeValue' smart constructor.
 data AttributeValue = AttributeValue'
     { _avL    :: !(Maybe [AttributeValue])
-    , _avM    :: !(Maybe (Map Text AttributeValue))
     , _avNS   :: !(Maybe [Text])
+    , _avM    :: !(Maybe (Map Text AttributeValue))
     , _avNULL :: !(Maybe Bool)
     , _avN    :: !(Maybe Text)
     , _avBS   :: !(Maybe [Base64])
@@ -49,9 +49,9 @@ data AttributeValue = AttributeValue'
 --
 -- * 'avL'
 --
--- * 'avM'
---
 -- * 'avNS'
+--
+-- * 'avM'
 --
 -- * 'avNULL'
 --
@@ -71,8 +71,8 @@ attributeValue
 attributeValue =
     AttributeValue'
     { _avL = Nothing
-    , _avM = Nothing
     , _avNS = Nothing
+    , _avM = Nothing
     , _avNULL = Nothing
     , _avN = Nothing
     , _avBS = Nothing
@@ -86,13 +86,13 @@ attributeValue =
 avL :: Lens' AttributeValue [AttributeValue]
 avL = lens _avL (\ s a -> s{_avL = a}) . _Default . _Coerce;
 
--- | A Map data type.
-avM :: Lens' AttributeValue (HashMap Text AttributeValue)
-avM = lens _avM (\ s a -> s{_avM = a}) . _Default . _Map;
-
 -- | A Number Set data type.
 avNS :: Lens' AttributeValue [Text]
 avNS = lens _avNS (\ s a -> s{_avNS = a}) . _Default . _Coerce;
+
+-- | A Map data type.
+avM :: Lens' AttributeValue (HashMap Text AttributeValue)
+avM = lens _avM (\ s a -> s{_avM = a}) . _Default . _Map;
 
 -- | A Null data type.
 avNULL :: Lens' AttributeValue (Maybe Bool)
@@ -133,8 +133,8 @@ instance FromJSON AttributeValue where
           = withObject "AttributeValue"
               (\ x ->
                  AttributeValue' <$>
-                   (x .:? "L" .!= mempty) <*> (x .:? "M" .!= mempty) <*>
-                     (x .:? "NS" .!= mempty)
+                   (x .:? "L" .!= mempty) <*> (x .:? "NS" .!= mempty)
+                     <*> (x .:? "M" .!= mempty)
                      <*> (x .:? "NULL")
                      <*> (x .:? "N")
                      <*> (x .:? "BS" .!= mempty)
@@ -432,8 +432,8 @@ data StreamDescription = StreamDescription'
     , _sdStreamLabel             :: !(Maybe Text)
     , _sdStreamStatus            :: !(Maybe StreamStatus)
     , _sdKeySchema               :: !(Maybe (List1 KeySchemaElement))
-    , _sdStreamARN               :: !(Maybe Text)
     , _sdStreamViewType          :: !(Maybe StreamViewType)
+    , _sdStreamARN               :: !(Maybe Text)
     , _sdShards                  :: !(Maybe [Shard])
     , _sdTableName               :: !(Maybe Text)
     , _sdCreationRequestDateTime :: !(Maybe POSIX)
@@ -451,9 +451,9 @@ data StreamDescription = StreamDescription'
 --
 -- * 'sdKeySchema'
 --
--- * 'sdStreamARN'
---
 -- * 'sdStreamViewType'
+--
+-- * 'sdStreamARN'
 --
 -- * 'sdShards'
 --
@@ -468,8 +468,8 @@ streamDescription =
     , _sdStreamLabel = Nothing
     , _sdStreamStatus = Nothing
     , _sdKeySchema = Nothing
-    , _sdStreamARN = Nothing
     , _sdStreamViewType = Nothing
+    , _sdStreamARN = Nothing
     , _sdShards = Nothing
     , _sdTableName = Nothing
     , _sdCreationRequestDateTime = Nothing
@@ -524,10 +524,6 @@ sdStreamStatus = lens _sdStreamStatus (\ s a -> s{_sdStreamStatus = a});
 sdKeySchema :: Lens' StreamDescription (Maybe (NonEmpty KeySchemaElement))
 sdKeySchema = lens _sdKeySchema (\ s a -> s{_sdKeySchema = a}) . mapping _List1;
 
--- | The Amazon Resource Name (ARN) for the stream.
-sdStreamARN :: Lens' StreamDescription (Maybe Text)
-sdStreamARN = lens _sdStreamARN (\ s a -> s{_sdStreamARN = a});
-
 -- | Indicates the format of the records within this stream:
 --
 -- -   'KEYS_ONLY' - only the key attributes of items that were modified in
@@ -544,6 +540,10 @@ sdStreamARN = lens _sdStreamARN (\ s a -> s{_sdStreamARN = a});
 --
 sdStreamViewType :: Lens' StreamDescription (Maybe StreamViewType)
 sdStreamViewType = lens _sdStreamViewType (\ s a -> s{_sdStreamViewType = a});
+
+-- | The Amazon Resource Name (ARN) for the stream.
+sdStreamARN :: Lens' StreamDescription (Maybe Text)
+sdStreamARN = lens _sdStreamARN (\ s a -> s{_sdStreamARN = a});
 
 -- | The shards that comprise the stream.
 sdShards :: Lens' StreamDescription [Shard]
@@ -566,8 +566,8 @@ instance FromJSON StreamDescription where
                      (x .:? "StreamLabel")
                      <*> (x .:? "StreamStatus")
                      <*> (x .:? "KeySchema")
-                     <*> (x .:? "StreamArn")
                      <*> (x .:? "StreamViewType")
+                     <*> (x .:? "StreamArn")
                      <*> (x .:? "Shards" .!= mempty)
                      <*> (x .:? "TableName")
                      <*> (x .:? "CreationRequestDateTime"))
@@ -577,8 +577,8 @@ instance FromJSON StreamDescription where
 --
 -- /See:/ 'streamRecord' smart constructor.
 data StreamRecord = StreamRecord'
-    { _srSequenceNumber :: !(Maybe Text)
-    , _srSizeBytes      :: !(Maybe Nat)
+    { _srSizeBytes      :: !(Maybe Nat)
+    , _srSequenceNumber :: !(Maybe Text)
     , _srStreamViewType :: !(Maybe StreamViewType)
     , _srKeys           :: !(Maybe (Map Text AttributeValue))
     , _srOldImage       :: !(Maybe (Map Text AttributeValue))
@@ -589,9 +589,9 @@ data StreamRecord = StreamRecord'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srSequenceNumber'
---
 -- * 'srSizeBytes'
+--
+-- * 'srSequenceNumber'
 --
 -- * 'srStreamViewType'
 --
@@ -604,21 +604,21 @@ streamRecord
     :: StreamRecord
 streamRecord =
     StreamRecord'
-    { _srSequenceNumber = Nothing
-    , _srSizeBytes = Nothing
+    { _srSizeBytes = Nothing
+    , _srSequenceNumber = Nothing
     , _srStreamViewType = Nothing
     , _srKeys = Nothing
     , _srOldImage = Nothing
     , _srNewImage = Nothing
     }
 
--- | The sequence number of the stream record.
-srSequenceNumber :: Lens' StreamRecord (Maybe Text)
-srSequenceNumber = lens _srSequenceNumber (\ s a -> s{_srSequenceNumber = a});
-
 -- | The size of the stream record, in bytes.
 srSizeBytes :: Lens' StreamRecord (Maybe Natural)
 srSizeBytes = lens _srSizeBytes (\ s a -> s{_srSizeBytes = a}) . mapping _Nat;
+
+-- | The sequence number of the stream record.
+srSequenceNumber :: Lens' StreamRecord (Maybe Text)
+srSequenceNumber = lens _srSequenceNumber (\ s a -> s{_srSequenceNumber = a});
 
 -- | The type of data from the modified DynamoDB item that was captured in
 -- this stream record:
@@ -653,7 +653,7 @@ instance FromJSON StreamRecord where
           = withObject "StreamRecord"
               (\ x ->
                  StreamRecord' <$>
-                   (x .:? "SequenceNumber") <*> (x .:? "SizeBytes") <*>
+                   (x .:? "SizeBytes") <*> (x .:? "SequenceNumber") <*>
                      (x .:? "StreamViewType")
                      <*> (x .:? "Keys" .!= mempty)
                      <*> (x .:? "OldImage" .!= mempty)

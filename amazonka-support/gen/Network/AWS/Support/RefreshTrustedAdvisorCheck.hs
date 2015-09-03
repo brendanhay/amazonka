@@ -44,6 +44,7 @@ module Network.AWS.Support.RefreshTrustedAdvisorCheck
     , refreshTrustedAdvisorCheckResponse
     , RefreshTrustedAdvisorCheckResponse
     -- * Response Lenses
+    , rtacrsResponseStatus
     , rtacrsStatus
     ) where
 
@@ -80,10 +81,10 @@ instance AWSRequest RefreshTrustedAdvisorCheck where
              RefreshTrustedAdvisorCheckResponse
         request = postJSON support
         response
-          = receiveEmpty
+          = receiveJSON
               (\ s h x ->
                  RefreshTrustedAdvisorCheckResponse' <$>
-                   (pure (fromEnum s)))
+                   (pure (fromEnum s)) <*> (x .:> "status"))
 
 instance ToHeaders RefreshTrustedAdvisorCheck where
         toHeaders
@@ -109,23 +110,33 @@ instance ToQuery RefreshTrustedAdvisorCheck where
 -- | The current refresh status of a Trusted Advisor check.
 --
 -- /See:/ 'refreshTrustedAdvisorCheckResponse' smart constructor.
-newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'
-    { _rtacrsStatus :: Int
+data RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'
+    { _rtacrsResponseStatus :: !Int
+    , _rtacrsStatus         :: !TrustedAdvisorCheckRefreshStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RefreshTrustedAdvisorCheckResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'rtacrsResponseStatus'
+--
 -- * 'rtacrsStatus'
 refreshTrustedAdvisorCheckResponse
-    :: Int -- ^ 'rtacrsStatus'
+    :: Int -- ^ 'rtacrsResponseStatus'
+    -> TrustedAdvisorCheckRefreshStatus -- ^ 'rtacrsStatus'
     -> RefreshTrustedAdvisorCheckResponse
-refreshTrustedAdvisorCheckResponse pStatus_ =
+refreshTrustedAdvisorCheckResponse pResponseStatus_ pStatus_ =
     RefreshTrustedAdvisorCheckResponse'
-    { _rtacrsStatus = pStatus_
+    { _rtacrsResponseStatus = pResponseStatus_
+    , _rtacrsStatus = pStatus_
     }
 
 -- | The response status code.
-rtacrsStatus :: Lens' RefreshTrustedAdvisorCheckResponse Int
+rtacrsResponseStatus :: Lens' RefreshTrustedAdvisorCheckResponse Int
+rtacrsResponseStatus = lens _rtacrsResponseStatus (\ s a -> s{_rtacrsResponseStatus = a});
+
+-- | The current refresh status for a check, including the amount of time
+-- until the check is eligible for refresh.
+rtacrsStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
 rtacrsStatus = lens _rtacrsStatus (\ s a -> s{_rtacrsStatus = a});

@@ -42,7 +42,7 @@ module Network.AWS.CognitoSync.GetBulkPublishDetails
     , gbpdrsBulkPublishCompleteTime
     , gbpdrsFailureMessage
     , gbpdrsBulkPublishStatus
-    , gbpdrsStatus
+    , gbpdrsResponseStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -120,7 +120,7 @@ data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
     , _gbpdrsBulkPublishCompleteTime :: !(Maybe POSIX)
     , _gbpdrsFailureMessage          :: !(Maybe Text)
     , _gbpdrsBulkPublishStatus       :: !(Maybe BulkPublishStatus)
-    , _gbpdrsStatus                  :: !Int
+    , _gbpdrsResponseStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBulkPublishDetailsResponse' with the minimum fields required to make a request.
@@ -137,18 +137,18 @@ data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
 --
 -- * 'gbpdrsBulkPublishStatus'
 --
--- * 'gbpdrsStatus'
+-- * 'gbpdrsResponseStatus'
 getBulkPublishDetailsResponse
-    :: Int -- ^ 'gbpdrsStatus'
+    :: Int -- ^ 'gbpdrsResponseStatus'
     -> GetBulkPublishDetailsResponse
-getBulkPublishDetailsResponse pStatus_ =
+getBulkPublishDetailsResponse pResponseStatus_ =
     GetBulkPublishDetailsResponse'
     { _gbpdrsBulkPublishStartTime = Nothing
     , _gbpdrsIdentityPoolId = Nothing
     , _gbpdrsBulkPublishCompleteTime = Nothing
     , _gbpdrsFailureMessage = Nothing
     , _gbpdrsBulkPublishStatus = Nothing
-    , _gbpdrsStatus = pStatus_
+    , _gbpdrsResponseStatus = pResponseStatus_
     }
 
 -- | The date\/time at which the last bulk publish was initiated.
@@ -186,5 +186,5 @@ gbpdrsBulkPublishStatus :: Lens' GetBulkPublishDetailsResponse (Maybe BulkPublis
 gbpdrsBulkPublishStatus = lens _gbpdrsBulkPublishStatus (\ s a -> s{_gbpdrsBulkPublishStatus = a});
 
 -- | The response status code.
-gbpdrsStatus :: Lens' GetBulkPublishDetailsResponse Int
-gbpdrsStatus = lens _gbpdrsStatus (\ s a -> s{_gbpdrsStatus = a});
+gbpdrsResponseStatus :: Lens' GetBulkPublishDetailsResponse Int
+gbpdrsResponseStatus = lens _gbpdrsResponseStatus (\ s a -> s{_gbpdrsResponseStatus = a});

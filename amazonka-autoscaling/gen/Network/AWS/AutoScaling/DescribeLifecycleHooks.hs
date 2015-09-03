@@ -35,7 +35,7 @@ module Network.AWS.AutoScaling.DescribeLifecycleHooks
     , DescribeLifecycleHooksResponse
     -- * Response Lenses
     , dlhrsLifecycleHooks
-    , dlhrsStatus
+    , dlhrsResponseStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -106,7 +106,7 @@ instance ToQuery DescribeLifecycleHooks where
 -- | /See:/ 'describeLifecycleHooksResponse' smart constructor.
 data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
     { _dlhrsLifecycleHooks :: !(Maybe [LifecycleHook])
-    , _dlhrsStatus         :: !Int
+    , _dlhrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeLifecycleHooksResponse' with the minimum fields required to make a request.
@@ -115,14 +115,14 @@ data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
 --
 -- * 'dlhrsLifecycleHooks'
 --
--- * 'dlhrsStatus'
+-- * 'dlhrsResponseStatus'
 describeLifecycleHooksResponse
-    :: Int -- ^ 'dlhrsStatus'
+    :: Int -- ^ 'dlhrsResponseStatus'
     -> DescribeLifecycleHooksResponse
-describeLifecycleHooksResponse pStatus_ =
+describeLifecycleHooksResponse pResponseStatus_ =
     DescribeLifecycleHooksResponse'
     { _dlhrsLifecycleHooks = Nothing
-    , _dlhrsStatus = pStatus_
+    , _dlhrsResponseStatus = pResponseStatus_
     }
 
 -- | The lifecycle hooks for the specified group.
@@ -130,5 +130,5 @@ dlhrsLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
 dlhrsLifecycleHooks = lens _dlhrsLifecycleHooks (\ s a -> s{_dlhrsLifecycleHooks = a}) . _Default . _Coerce;
 
 -- | The response status code.
-dlhrsStatus :: Lens' DescribeLifecycleHooksResponse Int
-dlhrsStatus = lens _dlhrsStatus (\ s a -> s{_dlhrsStatus = a});
+dlhrsResponseStatus :: Lens' DescribeLifecycleHooksResponse Int
+dlhrsResponseStatus = lens _dlhrsResponseStatus (\ s a -> s{_dlhrsResponseStatus = a});

@@ -10,7 +10,7 @@ maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
-extra-source-files:    README.md
+extra-source-files:    README.md CHANGELOG.md
 cabal-version:         >= 1.10
 
 description:

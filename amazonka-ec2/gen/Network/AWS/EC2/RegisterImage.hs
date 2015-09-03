@@ -19,24 +19,32 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers an AMI. When you\'re creating an AMI, this is the final step
--- you must complete before you can launch an instance from the AMI. This
--- step is required if you\'re creating an instance store-backed Linux or
--- Windows AMI. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-instance-store.html Creating an Instance Store-Backed Linux AMI>
--- and
--- <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html Creating an Instance Store-Backed Windows AMI>
+-- you must complete before you can launch an instance from the AMI. For
+-- more information about creating AMIs, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- For Amazon EBS-backed instances, CreateImage creates and registers the
 -- AMI in a single request, so you don\'t have to register the AMI
 -- yourself.
 --
--- You can also use 'RegisterImage' to create an Amazon EBS-backed AMI from
--- a snapshot of a root device volume. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-launch-snapshot.html Launching an Instance from a Backup>
--- in the /Amazon Elastic Compute Cloud User Guide/. Note that although you
--- can create a Windows AMI from a snapshot, you can\'t launch an instance
--- from the AMI - use the CreateImage command instead.
+-- You can also use 'RegisterImage' to create an Amazon EBS-backed Linux
+-- AMI from a snapshot of a root device volume. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html Launching an Instance from a Snapshot>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- Some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and
+-- SUSE Linux Enterprise Server (SLES), use the EC2 'billingProduct' code
+-- associated with an AMI to verify subscription status for package
+-- updates. Creating an AMI from an EBS snapshot does not maintain this
+-- billing code, and subsequent instances launched from such an AMI will
+-- not be able to connect to package update infrastructure.
+--
+-- Similarly, although you can create a Windows AMI from a snapshot, you
+-- can\'t successfully launch an instance from the AMI.
+--
+-- To create Windows AMIs or to create AMIs for Linux operating systems
+-- that must retain AMI billing codes to work properly, see CreateImage.
 --
 -- If needed, you can deregister an AMI at any time. Any modifications you
 -- make to an AMI backed by an instance store volume invalidates its

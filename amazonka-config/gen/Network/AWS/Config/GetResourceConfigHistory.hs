@@ -20,15 +20,18 @@
 --
 -- Returns a list of configuration items for the specified resource. The
 -- list contains details about each state of the resource during the
--- specified time interval. You can specify a 'limit' on the number of
--- results returned on the page. If a limit is specified, a 'nextToken' is
--- returned as part of the result that you can use to continue this
--- request.
+-- specified time interval.
+--
+-- The response is paginated, and by default, AWS Config returns a limit of
+-- 10 configuration items per page. You can customize this number with the
+-- 'limit' parameter. The response includes a 'nextToken' string, and to
+-- get the next page of results, run the request again and enter this
+-- string for the 'nextToken' parameter.
 --
 -- Each call to the API is limited to span a duration of seven days. It is
 -- likely that the number of records returned is smaller than the specified
--- 'limit'. In such cases, you can make another call, using the 'nextToken'
--- .
+-- 'limit'. In such cases, you can make another call, using the
+-- 'nextToken'.
 --
 -- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html AWS API Reference> for GetResourceConfigHistory.
 module Network.AWS.Config.GetResourceConfigHistory
@@ -110,12 +113,14 @@ getResourceConfigHistory pResourceType_ pResourceId_ =
 grchChronologicalOrder :: Lens' GetResourceConfigHistory (Maybe ChronologicalOrder)
 grchChronologicalOrder = lens _grchChronologicalOrder (\ s a -> s{_grchChronologicalOrder = a});
 
--- | An optional parameter used for pagination of the results.
+-- | The 'nextToken' string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 grchNextToken :: Lens' GetResourceConfigHistory (Maybe Text)
 grchNextToken = lens _grchNextToken (\ s a -> s{_grchNextToken = a});
 
--- | The maximum number of configuration items returned in each page. The
--- default is 10. You cannot specify a limit greater than 100.
+-- | The maximum number of configuration items returned on each page. The
+-- default is 10. You cannot specify a limit greater than 100. If you
+-- specify 0, AWS Config uses the default.
 grchLimit :: Lens' GetResourceConfigHistory (Maybe Natural)
 grchLimit = lens _grchLimit (\ s a -> s{_grchLimit = a}) . mapping _Nat;
 
@@ -207,7 +212,8 @@ getResourceConfigHistoryResponse pResponseStatus_ =
     , _grchrsResponseStatus = pResponseStatus_
     }
 
--- | A token used for pagination of results.
+-- | The string that you use in a subsequent request to get the next page of
+-- results in a paginated response.
 grchrsNextToken :: Lens' GetResourceConfigHistoryResponse (Maybe Text)
 grchrsNextToken = lens _grchrsNextToken (\ s a -> s{_grchrsNextToken = a});
 

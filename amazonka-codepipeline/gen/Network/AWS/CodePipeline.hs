@@ -48,7 +48,9 @@
 -- artifact through the pipeline. You can call GetPipelineState, which
 -- displays the status of a pipeline, including the status of stages in the
 -- pipeline, or GetPipeline, which returns the entire structure of the
--- pipeline, including the stages of that pipeline.
+-- pipeline, including the stages of that pipeline. For more information
+-- about the structure of stages and actions, also refer to the AWS
+-- CodePipeline Pipeline Structure Reference.
 --
 -- Pipeline stages include /actions/, which are categorized into categories
 -- such as source or build actions performed within a stage of a pipeline.
@@ -83,6 +85,7 @@
 --
 --     -   AcknowledgeJob, which confirms whether a job worker has received
 --         the specified job,
+--     -   GetJobDetails, which returns the details of a job,
 --     -   PollForJobs, which determines whether there are any jobs to act
 --         upon,
 --     -   PutJobFailureResult, which provides details of a job failure,
@@ -96,6 +99,8 @@
 --
 --     -   AcknowledgeThirdPartyJob, which confirms whether a job worker
 --         has received the specified job,
+--     -   GetThirdPartyJobDetails, which requests the details of a job for
+--         a partner action,
 --     -   PollForThirdPartyJobs, which determines whether there are any
 --         jobs to act upon,
 --     -   PutThirdPartyJobFailureResult, which provides details of a job
@@ -264,6 +269,9 @@ module Network.AWS.CodePipeline
     -- ** BlockerType
     , BlockerType (..)
 
+    -- ** EncryptionKeyType
+    , EncryptionKeyType (..)
+
     -- ** FailureType
     , FailureType (..)
 
@@ -386,6 +394,7 @@ module Network.AWS.CodePipeline
     -- ** ArtifactStore
     , ArtifactStore
     , artifactStore
+    , asEncryptionKey
     , asType
     , asLocation
 
@@ -400,6 +409,12 @@ module Network.AWS.CodePipeline
     , currentRevision
     , crRevision
     , crChangeIdentifier
+
+    -- ** EncryptionKey
+    , EncryptionKey
+    , encryptionKey
+    , ekId
+    , ekType
 
     -- ** ErrorDetails
     , ErrorDetails
@@ -418,8 +433,8 @@ module Network.AWS.CodePipeline
     , FailureDetails
     , failureDetails
     , fdExternalExecutionId
-    , fdMessage
     , fdType
+    , fdMessage
 
     -- ** InputArtifact
     , InputArtifact
@@ -441,6 +456,7 @@ module Network.AWS.CodePipeline
     , jdOutputArtifacts
     , jdArtifactCredentials
     , jdPipelineContext
+    , jdEncryptionKey
     , jdActionTypeId
     , jdInputArtifacts
     , jdActionConfiguration
@@ -519,6 +535,7 @@ module Network.AWS.CodePipeline
     , tpjdOutputArtifacts
     , tpjdArtifactCredentials
     , tpjdPipelineContext
+    , tpjdEncryptionKey
     , tpjdActionTypeId
     , tpjdInputArtifacts
     , tpjdActionConfiguration

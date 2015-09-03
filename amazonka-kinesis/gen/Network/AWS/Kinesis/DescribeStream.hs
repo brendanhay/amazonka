@@ -113,12 +113,11 @@ dStreamName = lens _dStreamName (\ s a -> s{_dStreamName = a});
 instance AWSPager DescribeStream where
         page rq rs
           | stop
-              (rs ^. dsrsStreamDescription . sdHasMoreShards)
-            = Nothing
-          | isNothing
               (rs ^?
                  dsrsStreamDescription . sdShards . _last . sShardId)
             = Nothing
+          | stop (rs ^. dsrsStreamDescription . sdShards) =
+            Nothing
           | otherwise =
             Just $ rq &
               dExclusiveStartShardId .~

@@ -56,6 +56,9 @@ module Network.AWS.CodePipeline.Types
     -- * BlockerType
     , BlockerType (..)
 
+    -- * EncryptionKeyType
+    , EncryptionKeyType (..)
+
     -- * FailureType
     , FailureType (..)
 
@@ -178,6 +181,7 @@ module Network.AWS.CodePipeline.Types
     -- * ArtifactStore
     , ArtifactStore
     , artifactStore
+    , asEncryptionKey
     , asType
     , asLocation
 
@@ -192,6 +196,12 @@ module Network.AWS.CodePipeline.Types
     , currentRevision
     , crRevision
     , crChangeIdentifier
+
+    -- * EncryptionKey
+    , EncryptionKey
+    , encryptionKey
+    , ekId
+    , ekType
 
     -- * ErrorDetails
     , ErrorDetails
@@ -210,8 +220,8 @@ module Network.AWS.CodePipeline.Types
     , FailureDetails
     , failureDetails
     , fdExternalExecutionId
-    , fdMessage
     , fdType
+    , fdMessage
 
     -- * InputArtifact
     , InputArtifact
@@ -233,6 +243,7 @@ module Network.AWS.CodePipeline.Types
     , jdOutputArtifacts
     , jdArtifactCredentials
     , jdPipelineContext
+    , jdEncryptionKey
     , jdActionTypeId
     , jdInputArtifacts
     , jdActionConfiguration
@@ -311,6 +322,7 @@ module Network.AWS.CodePipeline.Types
     , tpjdOutputArtifacts
     , tpjdArtifactCredentials
     , tpjdPipelineContext
+    , tpjdEncryptionKey
     , tpjdActionTypeId
     , tpjdInputArtifacts
     , tpjdActionConfiguration

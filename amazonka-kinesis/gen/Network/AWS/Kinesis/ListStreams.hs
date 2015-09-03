@@ -97,8 +97,8 @@ lsExclusiveStartStreamName = lens _lsExclusiveStartStreamName (\ s a -> s{_lsExc
 
 instance AWSPager ListStreams where
         page rq rs
-          | stop (rs ^. lsrsHasMoreStreams) = Nothing
-          | isNothing (rs ^? lsrsStreamNames . _last) = Nothing
+          | stop (rs ^? lsrsStreamNames . _last) = Nothing
+          | stop (rs ^. lsrsStreamNames) = Nothing
           | otherwise =
             Just $ rq &
               lsExclusiveStartStreamName .~

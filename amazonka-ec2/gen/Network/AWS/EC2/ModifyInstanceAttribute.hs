@@ -152,7 +152,8 @@ mSourceDestCheck :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mSourceDestCheck = lens _mSourceDestCheck (\ s a -> s{_mSourceDestCheck = a});
 
 -- | If the value is 'true', you can\'t terminate the instance using the
--- Amazon EC2 console, CLI, or API; otherwise, you can.
+-- Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this
+-- paramater for Spot Instances.
 mDisableAPITermination :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mDisableAPITermination = lens _mDisableAPITermination (\ s a -> s{_mDisableAPITermination = a});
 
@@ -172,7 +173,7 @@ mRAMDisk = lens _mRAMDisk (\ s a -> s{_mRAMDisk = a});
 
 -- | A new value for the attribute. Use only with the 'kernel', 'ramdisk',
 -- 'userData', 'disableApiTermination', or
--- 'intanceInitiateShutdownBehavior' attribute.
+-- 'instanceInitiatedShutdownBehavior' attribute.
 mValue :: Lens' ModifyInstanceAttribute (Maybe Text)
 mValue = lens _mValue (\ s a -> s{_mValue = a});
 

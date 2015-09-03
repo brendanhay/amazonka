@@ -32,10 +32,10 @@
 -- terminate instance store-backed instances. What happens to an instance
 -- differs if you stop it or terminate it. For example, when you stop an
 -- instance, the root device and any other devices attached to the instance
--- persist. When you terminate an instance, the root device and any other
--- devices attached during the instance launch are automatically deleted.
--- For more information about the differences between stopping and
--- terminating instances, see
+-- persist. When you terminate an instance, any attached EBS volumes with
+-- the 'DeleteOnTermination' block device mapping parameter set to 'true'
+-- are automatically deleted. For more information about the differences
+-- between stopping and terminating instances, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html Instance Lifecycle>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --

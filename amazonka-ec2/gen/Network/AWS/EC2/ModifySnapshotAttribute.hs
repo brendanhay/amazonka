@@ -62,7 +62,7 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute'
     , _msaCreateVolumePermission :: !(Maybe CreateVolumePermissionModifications)
     , _msaUserIds                :: !(Maybe [Text])
     , _msaGroupNames             :: !(Maybe [Text])
-    , _msaOperationType          :: !(Maybe Text)
+    , _msaOperationType          :: !(Maybe OperationType)
     , _msaDryRun                 :: !(Maybe Bool)
     , _msaSnapshotId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -117,7 +117,7 @@ msaGroupNames :: Lens' ModifySnapshotAttribute [Text]
 msaGroupNames = lens _msaGroupNames (\ s a -> s{_msaGroupNames = a}) . _Default . _Coerce;
 
 -- | The type of operation to perform to the attribute.
-msaOperationType :: Lens' ModifySnapshotAttribute (Maybe Text)
+msaOperationType :: Lens' ModifySnapshotAttribute (Maybe OperationType)
 msaOperationType = lens _msaOperationType (\ s a -> s{_msaOperationType = a});
 
 -- | Checks whether you have the required permissions for the action, without

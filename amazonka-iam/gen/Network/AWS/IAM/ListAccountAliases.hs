@@ -93,8 +93,8 @@ laaMaxItems = lens _laaMaxItems (\ s a -> s{_laaMaxItems = a}) . mapping _Nat;
 
 instance AWSPager ListAccountAliases where
         page rq rs
-          | stop (rs ^. laarsIsTruncated) = Nothing
-          | isNothing (rs ^. laarsMarker) = Nothing
+          | stop (rs ^. laarsMarker) = Nothing
+          | stop (rs ^. laarsAccountAliases) = Nothing
           | otherwise =
             Just $ rq & laaMarker .~ rs ^. laarsMarker
 

@@ -99,8 +99,8 @@ ggGroupName = lens _ggGroupName (\ s a -> s{_ggGroupName = a});
 
 instance AWSPager GetGroup where
         page rq rs
-          | stop (rs ^. ggrsIsTruncated) = Nothing
-          | isNothing (rs ^. ggrsMarker) = Nothing
+          | stop (rs ^. ggrsMarker) = Nothing
+          | stop (rs ^. ggrsUsers) = Nothing
           | otherwise =
             Just $ rq & ggMarker .~ rs ^. ggrsMarker
 

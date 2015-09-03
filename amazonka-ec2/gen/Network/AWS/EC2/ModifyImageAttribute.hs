@@ -60,7 +60,7 @@ data ModifyImageAttribute = ModifyImageAttribute'
     , _miaUserGroups       :: !(Maybe [Text])
     , _miaValue            :: !(Maybe Text)
     , _miaLaunchPermission :: !(Maybe LaunchPermissionModifications)
-    , _miaOperationType    :: !(Maybe Text)
+    , _miaOperationType    :: !(Maybe OperationType)
     , _miaProductCodes     :: !(Maybe [Text])
     , _miaDescription      :: !(Maybe AttributeValue)
     , _miaDryRun           :: !(Maybe Bool)
@@ -131,7 +131,7 @@ miaLaunchPermission :: Lens' ModifyImageAttribute (Maybe LaunchPermissionModific
 miaLaunchPermission = lens _miaLaunchPermission (\ s a -> s{_miaLaunchPermission = a});
 
 -- | The operation type.
-miaOperationType :: Lens' ModifyImageAttribute (Maybe Text)
+miaOperationType :: Lens' ModifyImageAttribute (Maybe OperationType)
 miaOperationType = lens _miaOperationType (\ s a -> s{_miaOperationType = a});
 
 -- | One or more product codes. After you add a product code to an AMI, it

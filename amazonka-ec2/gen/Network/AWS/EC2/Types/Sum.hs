@@ -1271,6 +1271,28 @@ instance ToHeader     OfferingTypeValues
 instance FromXML OfferingTypeValues where
     parseXML = parseXMLText "OfferingTypeValues"
 
+data OperationType
+    = Add
+    | Remove
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText OperationType where
+    parser = takeLowerText >>= \case
+        "add" -> pure Add
+        "remove" -> pure Remove
+        e -> fromTextError $ "Failure parsing OperationType from value: '" <> e
+           <> "'. Accepted values: add, remove"
+
+instance ToText OperationType where
+    toText = \case
+        Add -> "add"
+        Remove -> "remove"
+
+instance Hashable     OperationType
+instance ToByteString OperationType
+instance ToQuery      OperationType
+instance ToHeader     OperationType
+
 data PermissionGroup =
     All
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)

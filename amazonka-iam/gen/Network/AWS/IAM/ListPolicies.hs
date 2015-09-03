@@ -142,8 +142,8 @@ lpMaxItems = lens _lpMaxItems (\ s a -> s{_lpMaxItems = a}) . mapping _Nat;
 
 instance AWSPager ListPolicies where
         page rq rs
-          | stop (rs ^. lprsIsTruncated) = Nothing
-          | isNothing (rs ^. lprsMarker) = Nothing
+          | stop (rs ^. lprsMarker) = Nothing
+          | stop (rs ^. lprsPolicies) = Nothing
           | otherwise =
             Just $ rq & lpMarker .~ rs ^. lprsMarker
 

@@ -58,6 +58,9 @@ import Test.AWS.Config.Internal
 --         , testDeleteDeliveryChannel $
 --             deleteDeliveryChannel
 --
+--         , testListDiscoveredResources $
+--             listDiscoveredResources
+--
 --         , testDescribeDeliveryChannels $
 --             describeDeliveryChannels
 --
@@ -93,6 +96,9 @@ import Test.AWS.Config.Internal
 --
 --         , testDeleteDeliveryChannelResponse $
 --             deleteDeliveryChannelResponse
+--
+--         , testListDiscoveredResourcesResponse $
+--             listDiscoveredResourcesResponse
 --
 --         , testDescribeDeliveryChannelsResponse $
 --             describeDeliveryChannelsResponse
@@ -151,6 +157,11 @@ testDeleteDeliveryChannel :: DeleteDeliveryChannel -> TestTree
 testDeleteDeliveryChannel = req
     "DeleteDeliveryChannel"
     "fixture/DeleteDeliveryChannel.yaml"
+
+testListDiscoveredResources :: ListDiscoveredResources -> TestTree
+testListDiscoveredResources = req
+    "ListDiscoveredResources"
+    "fixture/ListDiscoveredResources.yaml"
 
 testDescribeDeliveryChannels :: DescribeDeliveryChannels -> TestTree
 testDescribeDeliveryChannels = req
@@ -228,6 +239,13 @@ testDeleteDeliveryChannelResponse = res
     "fixture/DeleteDeliveryChannelResponse.proto"
     config
     (Proxy :: Proxy DeleteDeliveryChannel)
+
+testListDiscoveredResourcesResponse :: ListDiscoveredResourcesResponse -> TestTree
+testListDiscoveredResourcesResponse = res
+    "ListDiscoveredResourcesResponse"
+    "fixture/ListDiscoveredResourcesResponse.proto"
+    config
+    (Proxy :: Proxy ListDiscoveredResources)
 
 testDescribeDeliveryChannelsResponse :: DescribeDeliveryChannelsResponse -> TestTree
 testDescribeDeliveryChannelsResponse = res

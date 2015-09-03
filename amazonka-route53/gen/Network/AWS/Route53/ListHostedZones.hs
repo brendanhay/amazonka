@@ -117,8 +117,8 @@ lhzMaxItems = lens _lhzMaxItems (\ s a -> s{_lhzMaxItems = a});
 
 instance AWSPager ListHostedZones where
         page rq rs
-          | stop (rs ^. lhzrsIsTruncated) = Nothing
-          | isNothing (rs ^. lhzrsNextMarker) = Nothing
+          | stop (rs ^. lhzrsNextMarker) = Nothing
+          | stop (rs ^. lhzrsHostedZones) = Nothing
           | otherwise =
             Just $ rq & lhzMarker .~ rs ^. lhzrsNextMarker
 

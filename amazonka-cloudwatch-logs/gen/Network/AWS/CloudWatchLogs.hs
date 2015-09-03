@@ -92,7 +92,7 @@ module Network.AWS.CloudWatchLogs
     -- * Operations
     -- $operations
 
-    -- ** DescribeDestinations
+    -- ** DescribeDestinations (Paginated)
     , module Network.AWS.CloudWatchLogs.DescribeDestinations
 
     -- ** PutDestination

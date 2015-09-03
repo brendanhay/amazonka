@@ -128,6 +128,9 @@ module Network.AWS.EC2.Types
     -- * OfferingTypeValues
     , OfferingTypeValues (..)
 
+    -- * OperationType
+    , OperationType (..)
+
     -- * PermissionGroup
     , PermissionGroup (..)
 
@@ -1316,6 +1319,8 @@ module Network.AWS.EC2.Types
     , SpotFleetLaunchSpecification
     , spotFleetLaunchSpecification
     , sflsSecurityGroups
+    , sflsSpotPrice
+    , sflsWeightedCapacity
     , sflsKeyName
     , sflsNetworkInterfaces
     , sflsRAMDiskId

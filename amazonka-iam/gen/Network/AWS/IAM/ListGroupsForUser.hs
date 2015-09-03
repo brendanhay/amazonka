@@ -100,8 +100,8 @@ lgfuUserName = lens _lgfuUserName (\ s a -> s{_lgfuUserName = a});
 
 instance AWSPager ListGroupsForUser where
         page rq rs
-          | stop (rs ^. lgfursIsTruncated) = Nothing
-          | isNothing (rs ^. lgfursMarker) = Nothing
+          | stop (rs ^. lgfursMarker) = Nothing
+          | stop (rs ^. lgfursGroups) = Nothing
           | otherwise =
             Just $ rq & lgfuMarker .~ rs ^. lgfursMarker
 

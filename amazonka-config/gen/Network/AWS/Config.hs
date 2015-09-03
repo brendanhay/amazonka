@@ -149,6 +149,9 @@ module Network.AWS.Config
     -- ** DeleteDeliveryChannel
     , module Network.AWS.Config.DeleteDeliveryChannel
 
+    -- ** ListDiscoveredResources
+    , module Network.AWS.Config.ListDiscoveredResources
+
     -- ** DescribeDeliveryChannels
     , module Network.AWS.Config.DescribeDeliveryChannels
 
@@ -193,6 +196,7 @@ module Network.AWS.Config
     , ciResourceType
     , ciConfigurationStateId
     , ciArn
+    , ciResourceName
     , ciResourceCreationTime
     , ciConfigurationItemStatus
     , ciConfigurationItemCaptureTime
@@ -200,6 +204,7 @@ module Network.AWS.Config
     , ciAvailabilityZone
     , ciRelationships
     , ciVersion
+    , ciAwsRegion
     , ciRelatedEvents
     , ciConfiguration
     , ciConfigurationItemMD5Hash
@@ -251,7 +256,16 @@ module Network.AWS.Config
     , relationship
     , rResourceId
     , rResourceType
+    , rResourceName
     , rRelationshipName
+
+    -- ** ResourceIdentifier
+    , ResourceIdentifier
+    , resourceIdentifier
+    , riResourceId
+    , riResourceType
+    , riResourceName
+    , riResourceDeletionTime
     ) where
 
 import           Network.AWS.Config.DeleteDeliveryChannel
@@ -261,6 +275,7 @@ import           Network.AWS.Config.DescribeConfigurationRecorderStatus
 import           Network.AWS.Config.DescribeDeliveryChannels
 import           Network.AWS.Config.DescribeDeliveryChannelStatus
 import           Network.AWS.Config.GetResourceConfigHistory
+import           Network.AWS.Config.ListDiscoveredResources
 import           Network.AWS.Config.PutConfigurationRecorder
 import           Network.AWS.Config.PutDeliveryChannel
 import           Network.AWS.Config.StartConfigurationRecorder

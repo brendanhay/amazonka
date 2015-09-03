@@ -160,6 +160,7 @@ data ConfigurationItem = ConfigurationItem'
     , _ciResourceType                 :: !(Maybe ResourceType)
     , _ciConfigurationStateId         :: !(Maybe Text)
     , _ciArn                          :: !(Maybe Text)
+    , _ciResourceName                 :: !(Maybe Text)
     , _ciResourceCreationTime         :: !(Maybe POSIX)
     , _ciConfigurationItemStatus      :: !(Maybe ConfigurationItemStatus)
     , _ciConfigurationItemCaptureTime :: !(Maybe POSIX)
@@ -167,6 +168,7 @@ data ConfigurationItem = ConfigurationItem'
     , _ciAvailabilityZone             :: !(Maybe Text)
     , _ciRelationships                :: !(Maybe [Relationship])
     , _ciVersion                      :: !(Maybe Text)
+    , _ciAwsRegion                    :: !(Maybe Text)
     , _ciRelatedEvents                :: !(Maybe [Text])
     , _ciConfiguration                :: !(Maybe Text)
     , _ciConfigurationItemMD5Hash     :: !(Maybe Text)
@@ -185,6 +187,8 @@ data ConfigurationItem = ConfigurationItem'
 --
 -- * 'ciArn'
 --
+-- * 'ciResourceName'
+--
 -- * 'ciResourceCreationTime'
 --
 -- * 'ciConfigurationItemStatus'
@@ -198,6 +202,8 @@ data ConfigurationItem = ConfigurationItem'
 -- * 'ciRelationships'
 --
 -- * 'ciVersion'
+--
+-- * 'ciAwsRegion'
 --
 -- * 'ciRelatedEvents'
 --
@@ -214,6 +220,7 @@ configurationItem =
     , _ciResourceType = Nothing
     , _ciConfigurationStateId = Nothing
     , _ciArn = Nothing
+    , _ciResourceName = Nothing
     , _ciResourceCreationTime = Nothing
     , _ciConfigurationItemStatus = Nothing
     , _ciConfigurationItemCaptureTime = Nothing
@@ -221,6 +228,7 @@ configurationItem =
     , _ciAvailabilityZone = Nothing
     , _ciRelationships = Nothing
     , _ciVersion = Nothing
+    , _ciAwsRegion = Nothing
     , _ciRelatedEvents = Nothing
     , _ciConfiguration = Nothing
     , _ciConfigurationItemMD5Hash = Nothing
@@ -243,6 +251,10 @@ ciConfigurationStateId = lens _ciConfigurationStateId (\ s a -> s{_ciConfigurati
 -- | The Amazon Resource Name (ARN) of the resource.
 ciArn :: Lens' ConfigurationItem (Maybe Text)
 ciArn = lens _ciArn (\ s a -> s{_ciArn = a});
+
+-- | The custom name of the resource, if available.
+ciResourceName :: Lens' ConfigurationItem (Maybe Text)
+ciResourceName = lens _ciResourceName (\ s a -> s{_ciResourceName = a});
 
 -- | The time stamp when the resource was created.
 ciResourceCreationTime :: Lens' ConfigurationItem (Maybe UTCTime)
@@ -271,6 +283,10 @@ ciRelationships = lens _ciRelationships (\ s a -> s{_ciRelationships = a}) . _De
 -- | The version number of the resource configuration.
 ciVersion :: Lens' ConfigurationItem (Maybe Text)
 ciVersion = lens _ciVersion (\ s a -> s{_ciVersion = a});
+
+-- | The region where the resource resides.
+ciAwsRegion :: Lens' ConfigurationItem (Maybe Text)
+ciAwsRegion = lens _ciAwsRegion (\ s a -> s{_ciAwsRegion = a});
 
 -- | A list of CloudTrail event IDs.
 --
@@ -307,6 +323,7 @@ instance FromJSON ConfigurationItem where
                    (x .:? "resourceId") <*> (x .:? "resourceType") <*>
                      (x .:? "configurationStateId")
                      <*> (x .:? "arn")
+                     <*> (x .:? "resourceName")
                      <*> (x .:? "resourceCreationTime")
                      <*> (x .:? "configurationItemStatus")
                      <*> (x .:? "configurationItemCaptureTime")
@@ -314,6 +331,7 @@ instance FromJSON ConfigurationItem where
                      <*> (x .:? "availabilityZone")
                      <*> (x .:? "relationships" .!= mempty)
                      <*> (x .:? "version")
+                     <*> (x .:? "awsRegion")
                      <*> (x .:? "relatedEvents" .!= mempty)
                      <*> (x .:? "configuration")
                      <*> (x .:? "configurationItemMD5Hash")
@@ -508,8 +526,8 @@ deliveryChannel =
 dcS3KeyPrefix :: Lens' DeliveryChannel (Maybe Text)
 dcS3KeyPrefix = lens _dcS3KeyPrefix (\ s a -> s{_dcS3KeyPrefix = a});
 
--- | The Amazon Resource Name (ARN) of the IAM role used for accessing the
--- Amazon S3 bucket and the Amazon SNS topic.
+-- | The Amazon Resource Name (ARN) of the SNS topic that AWS Config delivers
+-- notifications to.
 dcSnsTopicARN :: Lens' DeliveryChannel (Maybe Text)
 dcSnsTopicARN = lens _dcSnsTopicARN (\ s a -> s{_dcSnsTopicARN = a});
 
@@ -640,7 +658,7 @@ rgAllSupported :: Lens' RecordingGroup (Maybe Bool)
 rgAllSupported = lens _rgAllSupported (\ s a -> s{_rgAllSupported = a});
 
 -- | A comma-separated list of strings representing valid AWS resource types
--- (e.g., 'AWS::EC2::Instance' or 'AWS::CloudTrail::Trail').
+-- (for example, 'AWS::EC2::Instance' or 'AWS::CloudTrail::Trail').
 -- __resourceTypes__ is only valid if you have chosen not to select
 -- __allSupported__. For a list of valid __resourceTypes__ values, see the
 -- __resourceType Value__ column in the following topic:
@@ -669,6 +687,7 @@ instance ToJSON RecordingGroup where
 data Relationship = Relationship'
     { _rResourceId       :: !(Maybe Text)
     , _rResourceType     :: !(Maybe ResourceType)
+    , _rResourceName     :: !(Maybe Text)
     , _rRelationshipName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -680,6 +699,8 @@ data Relationship = Relationship'
 --
 -- * 'rResourceType'
 --
+-- * 'rResourceName'
+--
 -- * 'rRelationshipName'
 relationship
     :: Relationship
@@ -687,10 +708,11 @@ relationship =
     Relationship'
     { _rResourceId = Nothing
     , _rResourceType = Nothing
+    , _rResourceName = Nothing
     , _rRelationshipName = Nothing
     }
 
--- | The resource ID of the related resource (for example, 'sg-xxxxxx').
+-- | The ID of the related resource (for example, 'sg-xxxxxx').
 rResourceId :: Lens' Relationship (Maybe Text)
 rResourceId = lens _rResourceId (\ s a -> s{_rResourceId = a});
 
@@ -698,7 +720,11 @@ rResourceId = lens _rResourceId (\ s a -> s{_rResourceId = a});
 rResourceType :: Lens' Relationship (Maybe ResourceType)
 rResourceType = lens _rResourceType (\ s a -> s{_rResourceType = a});
 
--- | The name of the related resource.
+-- | The custom name of the related resource, if available.
+rResourceName :: Lens' Relationship (Maybe Text)
+rResourceName = lens _rResourceName (\ s a -> s{_rResourceName = a});
+
+-- | The type of relationship with the related resource.
 rRelationshipName :: Lens' Relationship (Maybe Text)
 rRelationshipName = lens _rRelationshipName (\ s a -> s{_rRelationshipName = a});
 
@@ -708,4 +734,63 @@ instance FromJSON Relationship where
               (\ x ->
                  Relationship' <$>
                    (x .:? "resourceId") <*> (x .:? "resourceType") <*>
-                     (x .:? "relationshipName"))
+                     (x .:? "resourceName")
+                     <*> (x .:? "relationshipName"))
+
+-- | The details that identify a resource that is discovered by AWS Config,
+-- including the resource type, ID, and (if available) the custom resource
+-- name.
+--
+-- /See:/ 'resourceIdentifier' smart constructor.
+data ResourceIdentifier = ResourceIdentifier'
+    { _riResourceId           :: !(Maybe Text)
+    , _riResourceType         :: !(Maybe ResourceType)
+    , _riResourceName         :: !(Maybe Text)
+    , _riResourceDeletionTime :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceIdentifier' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'riResourceId'
+--
+-- * 'riResourceType'
+--
+-- * 'riResourceName'
+--
+-- * 'riResourceDeletionTime'
+resourceIdentifier
+    :: ResourceIdentifier
+resourceIdentifier =
+    ResourceIdentifier'
+    { _riResourceId = Nothing
+    , _riResourceType = Nothing
+    , _riResourceName = Nothing
+    , _riResourceDeletionTime = Nothing
+    }
+
+-- | The ID of the resource (for example., 'sg-xxxxxx').
+riResourceId :: Lens' ResourceIdentifier (Maybe Text)
+riResourceId = lens _riResourceId (\ s a -> s{_riResourceId = a});
+
+-- | The type of resource.
+riResourceType :: Lens' ResourceIdentifier (Maybe ResourceType)
+riResourceType = lens _riResourceType (\ s a -> s{_riResourceType = a});
+
+-- | The custom name of the resource (if available).
+riResourceName :: Lens' ResourceIdentifier (Maybe Text)
+riResourceName = lens _riResourceName (\ s a -> s{_riResourceName = a});
+
+-- | The time that the resource was deleted.
+riResourceDeletionTime :: Lens' ResourceIdentifier (Maybe UTCTime)
+riResourceDeletionTime = lens _riResourceDeletionTime (\ s a -> s{_riResourceDeletionTime = a}) . mapping _Time;
+
+instance FromJSON ResourceIdentifier where
+        parseJSON
+          = withObject "ResourceIdentifier"
+              (\ x ->
+                 ResourceIdentifier' <$>
+                   (x .:? "resourceId") <*> (x .:? "resourceType") <*>
+                     (x .:? "resourceName")
+                     <*> (x .:? "resourceDeletionTime"))

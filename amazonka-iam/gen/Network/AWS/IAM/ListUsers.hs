@@ -106,8 +106,8 @@ luMaxItems = lens _luMaxItems (\ s a -> s{_luMaxItems = a}) . mapping _Nat;
 
 instance AWSPager ListUsers where
         page rq rs
-          | stop (rs ^. lursIsTruncated) = Nothing
-          | isNothing (rs ^. lursMarker) = Nothing
+          | stop (rs ^. lursMarker) = Nothing
+          | stop (rs ^. lursUsers) = Nothing
           | otherwise =
             Just $ rq & luMarker .~ rs ^. lursMarker
 

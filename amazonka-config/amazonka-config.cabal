@@ -76,6 +76,7 @@ library
         , Network.AWS.Config.DescribeDeliveryChannelStatus
         , Network.AWS.Config.DescribeDeliveryChannels
         , Network.AWS.Config.GetResourceConfigHistory
+        , Network.AWS.Config.ListDiscoveredResources
         , Network.AWS.Config.PutConfigurationRecorder
         , Network.AWS.Config.PutDeliveryChannel
         , Network.AWS.Config.StartConfigurationRecorder

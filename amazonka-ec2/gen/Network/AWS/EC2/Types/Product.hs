@@ -1684,7 +1684,7 @@ eiEventDescription = lens _eiEventDescription (\ s a -> s{_eiEventDescription = 
 --
 -- -   'expired' - The Spot fleet request has expired. A subsequent event
 --     indicates that the instances were terminated, if the request was
---     created with 'terminateInstancesWithExpiration' set.
+--     created with 'TerminateInstancesWithExpiration' set.
 --
 -- -   'price_update' - The bid price for a launch configuration was
 --     adjusted because it was too high. This change is permanent.
@@ -8132,11 +8132,13 @@ instance FromXML SpotDatafeedSubscription where
                 <*> (x .@? "ownerId")
                 <*> (x .@? "fault")
 
--- | Describes the launch specification for an instance.
+-- | Describes the launch specification for one or more Spot Instances.
 --
 -- /See:/ 'spotFleetLaunchSpecification' smart constructor.
 data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
     { _sflsSecurityGroups      :: !(Maybe [GroupIdentifier])
+    , _sflsSpotPrice           :: !(Maybe Text)
+    , _sflsWeightedCapacity    :: !(Maybe Double)
     , _sflsKeyName             :: !(Maybe Text)
     , _sflsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
     , _sflsRAMDiskId           :: !(Maybe Text)
@@ -8158,6 +8160,10 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sflsSecurityGroups'
+--
+-- * 'sflsSpotPrice'
+--
+-- * 'sflsWeightedCapacity'
 --
 -- * 'sflsKeyName'
 --
@@ -8191,6 +8197,8 @@ spotFleetLaunchSpecification
 spotFleetLaunchSpecification =
     SpotFleetLaunchSpecification'
     { _sflsSecurityGroups = Nothing
+    , _sflsSpotPrice = Nothing
+    , _sflsWeightedCapacity = Nothing
     , _sflsKeyName = Nothing
     , _sflsNetworkInterfaces = Nothing
     , _sflsRAMDiskId = Nothing
@@ -8214,6 +8222,24 @@ spotFleetLaunchSpecification =
 sflsSecurityGroups :: Lens' SpotFleetLaunchSpecification [GroupIdentifier]
 sflsSecurityGroups = lens _sflsSecurityGroups (\ s a -> s{_sflsSecurityGroups = a}) . _Default . _Coerce;
 
+-- | The bid price per unit hour for the specified instance type. If this
+-- value is not specified, the default is the Spot bid price specified for
+-- the fleet. To determine the bid price per unit hour, divide the Spot bid
+-- price by the value of 'WeightedCapacity'.
+sflsSpotPrice :: Lens' SpotFleetLaunchSpecification (Maybe Text)
+sflsSpotPrice = lens _sflsSpotPrice (\ s a -> s{_sflsSpotPrice = a});
+
+-- | The number of units provided by the specified instance type. These are
+-- the same units that you chose to set the target capacity in terms
+-- (instances or a performance characteristic such as vCPUs, memory, or
+-- I\/O).
+--
+-- If the target capacity divided by this value is not a whole number, we
+-- round the number of instances to the next whole number. If this value is
+-- not specified, the default is 1.
+sflsWeightedCapacity :: Lens' SpotFleetLaunchSpecification (Maybe Double)
+sflsWeightedCapacity = lens _sflsWeightedCapacity (\ s a -> s{_sflsWeightedCapacity = a});
+
 -- | The name of the key pair.
 sflsKeyName :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsKeyName = lens _sflsKeyName (\ s a -> s{_sflsKeyName = a});
@@ -8226,7 +8252,7 @@ sflsNetworkInterfaces = lens _sflsNetworkInterfaces (\ s a -> s{_sflsNetworkInte
 sflsRAMDiskId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsRAMDiskId = lens _sflsRAMDiskId (\ s a -> s{_sflsRAMDiskId = a});
 
--- | The ID of the subnet in which to launch the instance.
+-- | The ID of the subnet in which to launch the instances.
 sflsSubnetId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsSubnetId = lens _sflsSubnetId (\ s a -> s{_sflsSubnetId = a});
 
@@ -8238,7 +8264,7 @@ sflsKernelId = lens _sflsKernelId (\ s a -> s{_sflsKernelId = a});
 sflsInstanceType :: Lens' SpotFleetLaunchSpecification (Maybe InstanceType)
 sflsInstanceType = lens _sflsInstanceType (\ s a -> s{_sflsInstanceType = a});
 
--- | Indicates whether the instance is optimized for EBS I\/O. This
+-- | Indicates whether the instances are optimized for EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
 -- optimized configuration stack to provide optimal EBS I\/O performance.
 -- This optimization isn\'t available with all instance types. Additional
@@ -8252,11 +8278,11 @@ sflsEBSOptimized = lens _sflsEBSOptimized (\ s a -> s{_sflsEBSOptimized = a});
 sflsUserData :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsUserData = lens _sflsUserData (\ s a -> s{_sflsUserData = a});
 
--- | Enable or disable monitoring for the instance.
+-- | Enable or disable monitoring for the instances.
 sflsMonitoring :: Lens' SpotFleetLaunchSpecification (Maybe SpotFleetMonitoring)
 sflsMonitoring = lens _sflsMonitoring (\ s a -> s{_sflsMonitoring = a});
 
--- | Undocumented member.
+-- | The IAM instance profile.
 sflsIAMInstanceProfile :: Lens' SpotFleetLaunchSpecification (Maybe IAMInstanceProfileSpecification)
 sflsIAMInstanceProfile = lens _sflsIAMInstanceProfile (\ s a -> s{_sflsIAMInstanceProfile = a});
 
@@ -8272,7 +8298,7 @@ sflsAddressingType = lens _sflsAddressingType (\ s a -> s{_sflsAddressingType = 
 sflsBlockDeviceMappings :: Lens' SpotFleetLaunchSpecification [BlockDeviceMapping]
 sflsBlockDeviceMappings = lens _sflsBlockDeviceMappings (\ s a -> s{_sflsBlockDeviceMappings = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The placement information.
 sflsPlacement :: Lens' SpotFleetLaunchSpecification (Maybe SpotPlacement)
 sflsPlacement = lens _sflsPlacement (\ s a -> s{_sflsPlacement = a});
 
@@ -8281,6 +8307,8 @@ instance FromXML SpotFleetLaunchSpecification where
           = SpotFleetLaunchSpecification' <$>
               (x .@? "groupSet" .!@ mempty >>=
                  may (parseXMLList "item"))
+                <*> (x .@? "spotPrice")
+                <*> (x .@? "weightedCapacity")
                 <*> (x .@? "keyName")
                 <*>
                 (x .@? "networkInterfaceSet" .!@ mempty >>=
@@ -8305,6 +8333,8 @@ instance ToQuery SpotFleetLaunchSpecification where
           = mconcat
               [toQuery
                  (toQueryList "GroupSet" <$> _sflsSecurityGroups),
+               "SpotPrice" =: _sflsSpotPrice,
+               "WeightedCapacity" =: _sflsWeightedCapacity,
                "KeyName" =: _sflsKeyName,
                toQuery
                  (toQueryList "NetworkInterfaceSet" <$>
@@ -8481,12 +8511,13 @@ sfrcdTerminateInstancesWithExpiration = lens _sfrcdTerminateInstancesWithExpirat
 sfrcdValidFrom :: Lens' SpotFleetRequestConfigData (Maybe UTCTime)
 sfrcdValidFrom = lens _sfrcdValidFrom (\ s a -> s{_sfrcdValidFrom = a}) . mapping _Time;
 
--- | The maximum hourly price (bid) for any Spot Instance launched to fulfill
--- the request.
+-- | The bid price per unit hour.
 sfrcdSpotPrice :: Lens' SpotFleetRequestConfigData Text
 sfrcdSpotPrice = lens _sfrcdSpotPrice (\ s a -> s{_sfrcdSpotPrice = a});
 
--- | The maximum number of Spot Instances to launch.
+-- | The number of units to request. You can choose to set the target
+-- capacity in terms of instances or a performance characteristic that is
+-- important to your application workload, such as vCPUs, memory, or I\/O.
 sfrcdTargetCapacity :: Lens' SpotFleetRequestConfigData Int
 sfrcdTargetCapacity = lens _sfrcdTargetCapacity (\ s a -> s{_sfrcdTargetCapacity = a});
 
@@ -9241,7 +9272,7 @@ instance FromXML UnsuccessfulItem where
           = UnsuccessfulItem' <$>
               (x .@? "resourceId") <*> (x .@ "error")
 
--- | Information about the error that occured. For more information about
+-- | Information about the error that occurred. For more information about
 -- errors, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
 --

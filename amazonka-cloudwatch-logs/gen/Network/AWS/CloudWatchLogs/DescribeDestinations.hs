@@ -29,6 +29,8 @@
 -- parameter in the request.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDestinations.html AWS API Reference> for DescribeDestinations.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeDestinations
     (
     -- * Creating a Request
@@ -50,6 +52,7 @@ module Network.AWS.CloudWatchLogs.DescribeDestinations
 
 import           Network.AWS.CloudWatchLogs.Types
 import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -92,6 +95,13 @@ ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat;
 -- applied.
 ddDestinationNamePrefix :: Lens' DescribeDestinations (Maybe Text)
 ddDestinationNamePrefix = lens _ddDestinationNamePrefix (\ s a -> s{_ddDestinationNamePrefix = a});
+
+instance AWSPager DescribeDestinations where
+        page rq rs
+          | stop (rs ^. ddrsNextToken) = Nothing
+          | stop (rs ^. ddrsDestinations) = Nothing
+          | otherwise =
+            Just $ rq & ddNextToken .~ rs ^. ddrsNextToken
 
 instance AWSRequest DescribeDestinations where
         type Rs DescribeDestinations =

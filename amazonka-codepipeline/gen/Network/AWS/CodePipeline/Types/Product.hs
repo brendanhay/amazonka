@@ -922,13 +922,16 @@ instance FromJSON ArtifactLocation where
 --
 -- /See:/ 'artifactStore' smart constructor.
 data ArtifactStore = ArtifactStore'
-    { _asType     :: !ArtifactStoreType
-    , _asLocation :: !Text
+    { _asEncryptionKey :: !(Maybe EncryptionKey)
+    , _asType          :: !ArtifactStoreType
+    , _asLocation      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ArtifactStore' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asEncryptionKey'
 --
 -- * 'asType'
 --
@@ -939,9 +942,16 @@ artifactStore
     -> ArtifactStore
 artifactStore pType_ pLocation_ =
     ArtifactStore'
-    { _asType = pType_
+    { _asEncryptionKey = Nothing
+    , _asType = pType_
     , _asLocation = pLocation_
     }
+
+-- | The AWS Key Management Service (AWS KMS) key used to encrypt the data in
+-- the artifact store. If this is undefined, the default key for Amazon S3
+-- is used.
+asEncryptionKey :: Lens' ArtifactStore (Maybe EncryptionKey)
+asEncryptionKey = lens _asEncryptionKey (\ s a -> s{_asEncryptionKey = a});
 
 -- | The type of the artifact store, such as S3.
 asType :: Lens' ArtifactStore ArtifactStoreType
@@ -957,13 +967,15 @@ instance FromJSON ArtifactStore where
           = withObject "ArtifactStore"
               (\ x ->
                  ArtifactStore' <$>
-                   (x .: "type") <*> (x .: "location"))
+                   (x .:? "encryptionKey") <*> (x .: "type") <*>
+                     (x .: "location"))
 
 instance ToJSON ArtifactStore where
         toJSON ArtifactStore'{..}
           = object
               (catMaybes
-                 [Just ("type" .= _asType),
+                 [("encryptionKey" .=) <$> _asEncryptionKey,
+                  Just ("type" .= _asType),
                   Just ("location" .= _asLocation)])
 
 -- | Represents information about a gate declaration.
@@ -1051,6 +1063,52 @@ instance ToJSON CurrentRevision where
               (catMaybes
                  [Just ("revision" .= _crRevision),
                   Just ("changeIdentifier" .= _crChangeIdentifier)])
+
+-- | Represents information about the AWS Key Management Service (AWS KMS)
+-- key used to encrypt data in the artifact store.
+--
+-- /See:/ 'encryptionKey' smart constructor.
+data EncryptionKey = EncryptionKey'
+    { _ekId   :: !Text
+    , _ekType :: !EncryptionKeyType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EncryptionKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ekId'
+--
+-- * 'ekType'
+encryptionKey
+    :: Text -- ^ 'ekId'
+    -> EncryptionKeyType -- ^ 'ekType'
+    -> EncryptionKey
+encryptionKey pId_ pType_ =
+    EncryptionKey'
+    { _ekId = pId_
+    , _ekType = pType_
+    }
+
+-- | The ID of the AWS KMS key.
+ekId :: Lens' EncryptionKey Text
+ekId = lens _ekId (\ s a -> s{_ekId = a});
+
+-- | The type of AWS KMS key, such as a customer master key.
+ekType :: Lens' EncryptionKey EncryptionKeyType
+ekType = lens _ekType (\ s a -> s{_ekType = a});
+
+instance FromJSON EncryptionKey where
+        parseJSON
+          = withObject "EncryptionKey"
+              (\ x ->
+                 EncryptionKey' <$> (x .: "id") <*> (x .: "type"))
+
+instance ToJSON EncryptionKey where
+        toJSON EncryptionKey'{..}
+          = object
+              (catMaybes
+                 [Just ("id" .= _ekId), Just ("type" .= _ekType)])
 
 -- | Represents information about an error in AWS CodePipeline.
 --
@@ -1146,8 +1204,8 @@ instance ToJSON ExecutionDetails where
 -- /See:/ 'failureDetails' smart constructor.
 data FailureDetails = FailureDetails'
     { _fdExternalExecutionId :: !(Maybe Text)
-    , _fdMessage             :: !(Maybe Text)
     , _fdType                :: !FailureType
+    , _fdMessage             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FailureDetails' with the minimum fields required to make a request.
@@ -1156,30 +1214,31 @@ data FailureDetails = FailureDetails'
 --
 -- * 'fdExternalExecutionId'
 --
--- * 'fdMessage'
---
 -- * 'fdType'
+--
+-- * 'fdMessage'
 failureDetails
     :: FailureType -- ^ 'fdType'
+    -> Text -- ^ 'fdMessage'
     -> FailureDetails
-failureDetails pType_ =
+failureDetails pType_ pMessage_ =
     FailureDetails'
     { _fdExternalExecutionId = Nothing
-    , _fdMessage = Nothing
     , _fdType = pType_
+    , _fdMessage = pMessage_
     }
 
 -- | The external ID of the run of the action that failed.
 fdExternalExecutionId :: Lens' FailureDetails (Maybe Text)
 fdExternalExecutionId = lens _fdExternalExecutionId (\ s a -> s{_fdExternalExecutionId = a});
 
--- | The message about the failure.
-fdMessage :: Lens' FailureDetails (Maybe Text)
-fdMessage = lens _fdMessage (\ s a -> s{_fdMessage = a});
-
 -- | The type of the failure.
 fdType :: Lens' FailureDetails FailureType
 fdType = lens _fdType (\ s a -> s{_fdType = a});
+
+-- | The message about the failure.
+fdMessage :: Lens' FailureDetails Text
+fdMessage = lens _fdMessage (\ s a -> s{_fdMessage = a});
 
 instance ToJSON FailureDetails where
         toJSON FailureDetails'{..}
@@ -1187,8 +1246,8 @@ instance ToJSON FailureDetails where
               (catMaybes
                  [("externalExecutionId" .=) <$>
                     _fdExternalExecutionId,
-                  ("message" .=) <$> _fdMessage,
-                  Just ("type" .= _fdType)])
+                  Just ("type" .= _fdType),
+                  Just ("message" .= _fdMessage)])
 
 -- | Represents information about an artifact to be worked on, such as a test
 -- or build artifact.
@@ -1297,6 +1356,7 @@ data JobData = JobData'
     , _jdOutputArtifacts     :: !(Maybe [Artifact])
     , _jdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
     , _jdPipelineContext     :: !(Maybe PipelineContext)
+    , _jdEncryptionKey       :: !(Maybe EncryptionKey)
     , _jdActionTypeId        :: !(Maybe ActionTypeId)
     , _jdInputArtifacts      :: !(Maybe [Artifact])
     , _jdActionConfiguration :: !(Maybe ActionConfiguration)
@@ -1314,6 +1374,8 @@ data JobData = JobData'
 --
 -- * 'jdPipelineContext'
 --
+-- * 'jdEncryptionKey'
+--
 -- * 'jdActionTypeId'
 --
 -- * 'jdInputArtifacts'
@@ -1327,6 +1389,7 @@ jobData =
     , _jdOutputArtifacts = Nothing
     , _jdArtifactCredentials = Nothing
     , _jdPipelineContext = Nothing
+    , _jdEncryptionKey = Nothing
     , _jdActionTypeId = Nothing
     , _jdInputArtifacts = Nothing
     , _jdActionConfiguration = Nothing
@@ -1350,6 +1413,10 @@ jdPipelineContext :: Lens' JobData (Maybe PipelineContext)
 jdPipelineContext = lens _jdPipelineContext (\ s a -> s{_jdPipelineContext = a});
 
 -- | Undocumented member.
+jdEncryptionKey :: Lens' JobData (Maybe EncryptionKey)
+jdEncryptionKey = lens _jdEncryptionKey (\ s a -> s{_jdEncryptionKey = a});
+
+-- | Undocumented member.
 jdActionTypeId :: Lens' JobData (Maybe ActionTypeId)
 jdActionTypeId = lens _jdActionTypeId (\ s a -> s{_jdActionTypeId = a});
 
@@ -1370,6 +1437,7 @@ instance FromJSON JobData where
                      (x .:? "outputArtifacts" .!= mempty)
                      <*> (x .:? "artifactCredentials")
                      <*> (x .:? "pipelineContext")
+                     <*> (x .:? "encryptionKey")
                      <*> (x .:? "actionTypeId")
                      <*> (x .:? "inputArtifacts" .!= mempty)
                      <*> (x .:? "actionConfiguration"))
@@ -1874,6 +1942,7 @@ data ThirdPartyJobData = ThirdPartyJobData'
     , _tpjdOutputArtifacts     :: !(Maybe [Artifact])
     , _tpjdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
     , _tpjdPipelineContext     :: !(Maybe PipelineContext)
+    , _tpjdEncryptionKey       :: !(Maybe EncryptionKey)
     , _tpjdActionTypeId        :: !(Maybe ActionTypeId)
     , _tpjdInputArtifacts      :: !(Maybe [Artifact])
     , _tpjdActionConfiguration :: !(Maybe ActionConfiguration)
@@ -1891,6 +1960,8 @@ data ThirdPartyJobData = ThirdPartyJobData'
 --
 -- * 'tpjdPipelineContext'
 --
+-- * 'tpjdEncryptionKey'
+--
 -- * 'tpjdActionTypeId'
 --
 -- * 'tpjdInputArtifacts'
@@ -1904,6 +1975,7 @@ thirdPartyJobData =
     , _tpjdOutputArtifacts = Nothing
     , _tpjdArtifactCredentials = Nothing
     , _tpjdPipelineContext = Nothing
+    , _tpjdEncryptionKey = Nothing
     , _tpjdActionTypeId = Nothing
     , _tpjdInputArtifacts = Nothing
     , _tpjdActionConfiguration = Nothing
@@ -1927,6 +1999,11 @@ tpjdArtifactCredentials = lens _tpjdArtifactCredentials (\ s a -> s{_tpjdArtifac
 -- | Undocumented member.
 tpjdPipelineContext :: Lens' ThirdPartyJobData (Maybe PipelineContext)
 tpjdPipelineContext = lens _tpjdPipelineContext (\ s a -> s{_tpjdPipelineContext = a});
+
+-- | The AWS Key Management Service (AWS KMS) key used to encrypt and decrypt
+-- data in the artifact store for the pipeline.
+tpjdEncryptionKey :: Lens' ThirdPartyJobData (Maybe EncryptionKey)
+tpjdEncryptionKey = lens _tpjdEncryptionKey (\ s a -> s{_tpjdEncryptionKey = a});
 
 -- | Undocumented member.
 tpjdActionTypeId :: Lens' ThirdPartyJobData (Maybe ActionTypeId)
@@ -1953,6 +2030,7 @@ instance FromJSON ThirdPartyJobData where
                      (x .:? "outputArtifacts" .!= mempty)
                      <*> (x .:? "artifactCredentials")
                      <*> (x .:? "pipelineContext")
+                     <*> (x .:? "encryptionKey")
                      <*> (x .:? "actionTypeId")
                      <*> (x .:? "inputArtifacts" .!= mempty)
                      <*> (x .:? "actionConfiguration"))

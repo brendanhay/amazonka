@@ -30,6 +30,12 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Security Groups>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
+-- [EC2-VPC only accounts] If you don\'t specify a subnet in the request,
+-- we choose a default subnet from your default VPC for you.
+--
+-- [EC2-Classic accounts] If you\'re launching into EC2-Classic and you
+-- don\'t specify an Availability Zone, we choose one for you.
+--
 -- Linux instances have access to the public key of the key pair at boot.
 -- You can use this key to provide secure access to the instance. Amazon
 -- EC2 public images use this feature to provide secure access without

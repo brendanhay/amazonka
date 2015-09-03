@@ -50,7 +50,9 @@ the source location, or a user takes action to re-run the most recent
 artifact through the pipeline. You can call GetPipelineState, which
 displays the status of a pipeline, including the status of stages in the
 pipeline, or GetPipeline, which returns the entire structure of the
-pipeline, including the stages of that pipeline.
+pipeline, including the stages of that pipeline. For more information
+about the structure of stages and actions, also refer to the AWS
+CodePipeline Pipeline Structure Reference.
 
 Pipeline stages include /actions/, which are categorized into categories
 such as source or build actions performed within a stage of a pipeline.
@@ -85,6 +87,7 @@ developers will need to work with the following items:
 
     -   AcknowledgeJob, which confirms whether a job worker has received
         the specified job,
+    -   GetJobDetails, which returns the details of a job,
     -   PollForJobs, which determines whether there are any jobs to act
         upon,
     -   PutJobFailureResult, which provides details of a job failure,
@@ -98,6 +101,8 @@ developers will need to work with the following items:
 
     -   AcknowledgeThirdPartyJob, which confirms whether a job worker
         has received the specified job,
+    -   GetThirdPartyJobDetails, which requests the details of a job for
+        a partner action,
     -   PollForThirdPartyJobs, which determines whether there are any
         jobs to act upon,
     -   PutThirdPartyJobFailureResult, which provides details of a job

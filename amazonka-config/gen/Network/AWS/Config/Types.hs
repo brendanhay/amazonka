@@ -77,6 +77,7 @@ module Network.AWS.Config.Types
     , ciResourceType
     , ciConfigurationStateId
     , ciArn
+    , ciResourceName
     , ciResourceCreationTime
     , ciConfigurationItemStatus
     , ciConfigurationItemCaptureTime
@@ -84,6 +85,7 @@ module Network.AWS.Config.Types
     , ciAvailabilityZone
     , ciRelationships
     , ciVersion
+    , ciAwsRegion
     , ciRelatedEvents
     , ciConfiguration
     , ciConfigurationItemMD5Hash
@@ -135,7 +137,16 @@ module Network.AWS.Config.Types
     , relationship
     , rResourceId
     , rResourceType
+    , rResourceName
     , rRelationshipName
+
+    -- * ResourceIdentifier
+    , ResourceIdentifier
+    , resourceIdentifier
+    , riResourceId
+    , riResourceType
+    , riResourceName
+    , riResourceDeletionTime
     ) where
 
 import           Network.AWS.Config.Types.Product
@@ -206,7 +217,7 @@ _LastDeliveryChannelDeleteFailedException :: AsError a => Getting (First Service
 _LastDeliveryChannelDeleteFailedException =
     _ServiceError . hasCode "LastDeliveryChannelDeleteFailedException"
 
--- | You have reached the limit on the pagination.
+-- | The specified limit is outside the allowable range.
 _InvalidLimitException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLimitException = _ServiceError . hasCode "InvalidLimitException"
 
@@ -226,13 +237,14 @@ _ResourceNotDiscoveredException :: AsError a => Getting (First ServiceError) a S
 _ResourceNotDiscoveredException =
     _ServiceError . hasCode "ResourceNotDiscoveredException"
 
--- | The specified nextToken for pagination is not valid.
+-- | The specified next token is invalid. Specify the 'nextToken' string that
+-- was returned in the previous response to get the next page of results.
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
     _ServiceError . hasCode "InvalidNextTokenException"
 
 -- | There are no configuration recorders available to provide the role
--- needed to describe your resources.
+-- needed to describe your resources. Create a configuration recorder.
 _NoAvailableConfigurationRecorderException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoAvailableConfigurationRecorderException =
     _ServiceError . hasCode "NoAvailableConfigurationRecorderException"

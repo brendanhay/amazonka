@@ -127,12 +127,12 @@ loBucket = lens _loBucket (\ s a -> s{_loBucket = a});
 
 instance AWSPager ListObjects where
         page rq rs
-          | stop (rs ^. lorsIsTruncated) = Nothing
-          | isNothing
+          | stop
               (rs ^.
                  choice (^. lorsNextMarker)
                    (^? (lorsContents . _last . oKey)))
             = Nothing
+          | stop (rs ^. lorsContents) = Nothing
           | otherwise =
             Just $ rq &
               loMarker .~

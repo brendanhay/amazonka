@@ -129,9 +129,8 @@ lpUploadId = lens _lpUploadId (\ s a -> s{_lpUploadId = a});
 
 instance AWSPager ListParts where
         page rq rs
-          | stop (rs ^. lprsIsTruncated) = Nothing
-          | isNothing (rs ^. lprsNextPartNumberMarker) =
-            Nothing
+          | stop (rs ^. lprsNextPartNumberMarker) = Nothing
+          | stop (rs ^. lprsParts) = Nothing
           | otherwise =
             Just $ rq &
               lpPartNumberMarker .~ rs ^. lprsNextPartNumberMarker

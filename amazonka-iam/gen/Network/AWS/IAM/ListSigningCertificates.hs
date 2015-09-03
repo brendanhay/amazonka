@@ -107,8 +107,8 @@ lMaxItems = lens _lMaxItems (\ s a -> s{_lMaxItems = a}) . mapping _Nat;
 
 instance AWSPager ListSigningCertificates where
         page rq rs
-          | stop (rs ^. lrsIsTruncated) = Nothing
-          | isNothing (rs ^. lrsMarker) = Nothing
+          | stop (rs ^. lrsMarker) = Nothing
+          | stop (rs ^. lrsCertificates) = Nothing
           | otherwise = Just $ rq & lMarker .~ rs ^. lrsMarker
 
 instance AWSRequest ListSigningCertificates where

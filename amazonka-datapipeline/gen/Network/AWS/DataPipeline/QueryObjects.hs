@@ -120,8 +120,8 @@ qoSphere = lens _qoSphere (\ s a -> s{_qoSphere = a});
 
 instance AWSPager QueryObjects where
         page rq rs
-          | stop (rs ^. qorsHasMoreResults) = Nothing
-          | isNothing (rs ^. qorsMarker) = Nothing
+          | stop (rs ^. qorsMarker) = Nothing
+          | stop (rs ^. qorsIds) = Nothing
           | otherwise =
             Just $ rq & qoMarker .~ rs ^. qorsMarker
 

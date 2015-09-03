@@ -5,8 +5,9 @@
 [![Gitter Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/brendanhay/amazonka?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 * [Description](#description)
-* [Organisation](#organisation)
 * [Documentation](#documentation)
+* [Organisation](#organisation)
+* [Change Log](#change-log)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
@@ -44,6 +45,11 @@ This repository is organised into the following directory structure:
 * [`script`](script): CI scripts to manage the release lifecycle of the service libraries.
 * [`share`](share): Makefile plumbing common to all service libraries
 * [`test`](test): The `amazonka-test` library containing common test functionality.
+
+
+## Change Log
+
+A change log can be found at [`amazonka/CHANGELOG.md`](amazonka/CHANGELOG.md).
 
 
 ## Contribute

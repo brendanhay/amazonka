@@ -1,7 +1,7 @@
 # Change Log
 
 ## [1.3.0](https://github.com/brendanhay/amazonka/tree/1.3.0)
-Released: **03 September, 2015**, Commits: [1.2.0.2](https://github.com/brendanhay/amazonka/compare/1.2.0.2...1.3.0)
+Released: **03 September, 2015**, Compare: [1.2.0.2](https://github.com/brendanhay/amazonka/compare/1.2.0.2...1.3.0)
 
 ### Changed
 
@@ -16,24 +16,24 @@ Released: **03 September, 2015**, Commits: [1.2.0.2](https://github.com/brendanh
 
 
 ## [1.2.0.2](https://github.com/brendanhay/amazonka/tree/1.2.0.2)
-Released: **29 August, 2015**, Commits: [1.2.0.2](https://github.com/brendanhay/amazonka/compare/1.2.0.1...1.2.0.2)
+Released: **29 August, 2015**, Compare: [1.2.0.1](https://github.com/brendanhay/amazonka/compare/1.2.0.1...1.2.0.2)
 
 
 ## [1.2.0.1](https://github.com/brendanhay/amazonka/tree/1.2.0.1)
-Released: **28 August, 2015**, Commits: [1.2.0.1](https://github.com/brendanhay/amazonka/compare/1.2.0...1.2.0.1)
+Released: **28 August, 2015**, Compare: [1.2.0](https://github.com/brendanhay/amazonka/compare/1.2.0...1.2.0.1)
 
 
 ## [1.2.0](https://github.com/brendanhay/amazonka/tree/1.2.0)
-Released: **27 August, 2015**, Commits: [1.2.0](https://github.com/brendanhay/amazonka/compare/1.1.0...1.2.0)
+Released: **27 August, 2015**, Compare: [1.1.0](https://github.com/brendanhay/amazonka/compare/1.1.0...1.2.0)
 
 
 ## [1.1.0](https://github.com/brendanhay/amazonka/tree/1.1.0)
-Released: **21 August, 2015**, Commits: [1.1.0](https://github.com/brendanhay/amazonka/compare/1.0.1...1.1.0)
+Released: **21 August, 2015**, Compare: [1.0.1](https://github.com/brendanhay/amazonka/compare/1.0.1...1.1.0)
 
 
 ## [1.0.1](https://github.com/brendanhay/amazonka/tree/1.0.1)
-Released: **18 August, 2015**, Commits: [1.0.0](https://github.com/brendanhay/amazonka/compare/1.0.0...1.0.1)
+Released: **18 August, 2015**, Compare: [1.0.0](https://github.com/brendanhay/amazonka/compare/1.0.0...1.0.1)
 
 
 ## [1.0.0](https://github.com/brendanhay/amazonka/tree/1.0.0)
-Released: **16 August, 2015**, Commits: [0.3.6](https://github.com/brendanhay/amazonka/compare/0.3.6...1.0.0)
+Released: **16 August, 2015**, Compare: [0.3.6](https://github.com/brendanhay/amazonka/compare/0.3.6...1.0.0)

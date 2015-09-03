@@ -1,10 +1,14 @@
-{-# LANGUAGE DefaultSignatures  #-}
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE FlexibleInstances  #-}
-{-# LANGUAGE LambdaCase         #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE PackageImports     #-}
+{-# LANGUAGE DefaultSignatures          #-}
+{-# LANGUAGE DeriveDataTypeable         #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE ExtendedDefaultRules       #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase                 #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE PackageImports             #-}
+
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
 -- |
 -- Module      : Network.AWS.Data.Body
@@ -19,6 +23,7 @@ module Network.AWS.Data.Body where
 import           Control.Lens
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
+import           Data.ByteString.Builder      (Builder)
 import qualified Data.ByteString.Char8        as BS8
 import qualified Data.ByteString.Lazy         as LBS
 import qualified Data.ByteString.Lazy.Char8   as LBS8
@@ -31,12 +36,15 @@ import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Encoding      as LText
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Crypto
+import           Network.AWS.Data.Log
 import           Network.AWS.Data.Query       (QueryString)
 import           Network.AWS.Data.XML         (encodeXML)
 import           Network.HTTP.Client
 import           Text.XML                     (Element)
 
 import           Prelude
+
+default (Builder)
 
 -- | A streaming, exception safe response body.
 newtype RsBody = RsBody
@@ -47,6 +55,22 @@ newtype RsBody = RsBody
 instance Show RsBody where
     show = const "RsBody { ResumableSource (ResourceT IO) ByteString }"
 
+-- | Specifies the transmitted size of the 'Transfer-Encoding' chunks.
+--
+-- /See:/ 'defaultChunk'.
+newtype ChunkSize = ChunkSize Int
+    deriving (Eq, Ord, Show, Enum, Num, Real, Integral)
+
+instance ToLog ChunkSize where
+    build = build . show
+
+-- | The default chunk size of 128 KB. The minimum chunk size accepted by
+-- AWS is 8 KB, unless the entirety of the request is below this threshold.
+--
+-- A chunk size of 64 KB or higher is recommended for performance reasons.
+defaultChunkSize :: ChunkSize
+defaultChunkSize = 128 * 1024
+
 -- | An opaque request body which will be transmitted via
 -- @Transfer-Encoding: chunked@.
 --
@@ -54,13 +78,37 @@ instance Show RsBody where
 -- accept a 'ChunkedBody'. This is enforced by the type signatures
 -- emitted by the generator.
 data ChunkedBody = ChunkedBody
-    { _chunkedRequest :: Source (ResourceT IO) ByteString -> RequestBody
-    , _chunkedBody    :: Source (ResourceT IO) ByteString
-    , _chunkedTotal   :: !Integer
+    { _chunkedRequest  :: Source (ResourceT IO) ByteString -> RequestBody
+    , _chunkedBody     :: Source (ResourceT IO) ByteString
+    , _chunkedSize     :: !ChunkSize
+    , _chunkedOriginal :: !Integer
     }
 
 instance Show ChunkedBody where
-    show = const "ChunkedBody"
+    show c = BS8.unpack . toBS $ build
+          "ChunkedBody { chunkSize = "
+        <> build (_chunkedSize c)
+        <> "<> originalLength = "
+        <> build (_chunkedOriginal c)
+        <> "<> fullChunks = "
+        <> build (fullChunks c)
+        <> "<> leftoverBytes = "
+        <> build (leftoverBytes c)
+        <> "}"
+
+fuseChunks :: Conduit ByteString (ResourceT IO) ByteString
+           -> ChunkedBody
+           -> ChunkedBody
+fuseChunks f c = c { _chunkedBody = _chunkedBody c =$= f }
+
+fullChunks :: ChunkedBody -> Integer
+fullChunks c = _chunkedOriginal c `div` fromIntegral (_chunkedSize c)
+
+leftoverBytes :: ChunkedBody -> Maybe Integer
+leftoverBytes c =
+    case _chunkedOriginal c `mod` toInteger (_chunkedSize c) of
+         0 -> Nothing
+         n -> Just n
 
 -- | An opaque request body containing a 'SHA256' hash.
 data HashedBody = HashedBody
@@ -69,8 +117,12 @@ data HashedBody = HashedBody
     }
 
 instance Show HashedBody where
-    show (HashedBody h _) = BS8.unpack $
-        "HashedBody { SHA256 = " <> digestToBase Base16 h <> " }"
+    show b@(HashedBody h _) = BS8.unpack . toBS $
+           "HashedBody { sha256 = "
+        <> build (digestToBase Base16 h)
+        <> ", streaming = "
+        <> build (isStreaming (Hashed b))
+        <> " }"
 
 instance IsString HashedBody where
     fromString = toHashedBody

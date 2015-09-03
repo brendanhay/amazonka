@@ -56,19 +56,6 @@ hashedBody :: Digest SHA256
            -> HashedBody
 hashedBody h n = HashedBody h . requestBodySource (fromIntegral n)
 
--- | Specifies the transmitted size of the 'Transfer-Encoding' chunks.
---
--- /See:/ 'defaultChunk'.
-newtype ChunkSize = ChunkSize Int
-    deriving (Eq, Ord, Show, Enum, Num, Real, Integral)
-
--- | The default chunk size of 128 KB. The minimum chunk size accepted by
--- AWS is 8 KB, unless the entirety of the request is below this threshold.
---
--- A chunk size of 64 KB or higher is recommended for performance reasons.
-defaultChunkSize :: ChunkSize
-defaultChunkSize = 131072
-
 -- | Something something.
 --
 -- Will intelligently revert to 'HashedBody' if the file is smaller than the
@@ -81,7 +68,7 @@ chunkedFile :: MonadIO m => ChunkSize -> FilePath -> m RqBody
 chunkedFile c f = do
     n <- getFileSize f
     if n > toInteger c
-        then return $ unsafeChunkedBody n (sourceFileChunks c f)
+        then return $ unsafeChunkedBody c n (sourceFileChunks c f)
         else Hashed `liftM` hashedFile f
 
 -- | Something something.
@@ -96,8 +83,11 @@ chunkedFile c f = do
 -- is too small.
 --
 -- /See:/ 'ToBody'.
-unsafeChunkedBody :: Integer -> Source (ResourceT IO) ByteString -> RqBody
-unsafeChunkedBody n s = Chunked (ChunkedBody requestBodySourceChunked s n)
+unsafeChunkedBody :: ChunkSize
+                  -> Integer
+                  -> Source (ResourceT IO) ByteString
+                  -> RqBody
+unsafeChunkedBody c n s = Chunked (ChunkedBody requestBodySourceChunked s c n)
 
 -- Uses hGet with a specific buffer size, instead of hGetSome.
 sourceFileChunks :: MonadResource m

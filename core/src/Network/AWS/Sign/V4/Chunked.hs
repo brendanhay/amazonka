@@ -1,0 +1,136 @@
+{-# LANGUAGE DataKinds            #-}
+{-# LANGUAGE ExtendedDefaultRules #-}
+{-# LANGUAGE FlexibleInstances    #-}
+{-# LANGUAGE LambdaCase           #-}
+{-# LANGUAGE OverloadedStrings    #-}
+{-# LANGUAGE PackageImports       #-}
+{-# LANGUAGE RankNTypes           #-}
+{-# LANGUAGE RecordWildCards      #-}
+{-# LANGUAGE TupleSections        #-}
+{-# LANGUAGE TypeFamilies         #-}
+{-# LANGUAGE ViewPatterns         #-}
+
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
+
+-- |
+-- Module      : Network.AWS.Sign.V4.Chunked
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : provisional
+-- Portability : non-portable (GHC extensions)
+--
+module Network.AWS.Sign.V4.Chunked
+    ( chunked
+    ) where
+
+import           Control.Applicative
+import           Control.Lens
+import qualified Data.ByteString             as BS
+import           Data.ByteString.Builder
+import qualified Data.ByteString.Char8       as BS8
+import           Data.Conduit
+import           Data.Maybe
+import           Data.Monoid
+import           Network.AWS.Data.Body
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Crypto
+import           Network.AWS.Data.Headers
+import           Network.AWS.Data.Time
+import           Network.AWS.Sign.V4.Base    hiding (algorithm)
+import           Network.AWS.Types
+import           Network.HTTP.Types.Header
+
+import           Prelude
+
+default (Builder, Integer)
+
+chunked :: ChunkedBody -> Algorithm a
+chunked c rq a r ts = signRequest meta (bodyRequest body) auth
+  where
+    (meta, auth) = base (Tag digest) (prepare rq) a r ts
+
+    prepare = rqHeaders <>~
+        [ (hContentEncoding,         "aws-chunked")
+        , (hAMZDecodedContentLength, toBS (_chunkedOriginal c))
+        , (hContentLength,           toBS (contentLength    c))
+        ]
+
+    body = Chunked (sign (metaSignature meta) `fuseChunks` c)
+
+    sign :: Monad m => Signature -> Conduit ByteString m ByteString
+    sign prev = do
+        mx <- await
+        let next = chunkSignature prev (fromMaybe mempty mx)
+        case mx of
+            Nothing -> yield (chunkData next mempty)
+            Just x  -> yield (chunkData next x) >> sign next
+
+    chunkData next x = toBS
+         $ word64Hex  (fromIntegral (BS.length x))
+        <> byteString chunkSignatureHeader
+        <> byteString (toBS next)
+        <> byteString crlf
+        <> byteString x
+        <> byteString crlf
+
+    chunkSignature prev x =
+        signature (_authSecret a) scope (chunkStringToSign prev x)
+
+    chunkStringToSign prev x = Tag $ BS8.intercalate "\n"
+        [ algorithm
+        , time
+        , toBS scope
+        , toBS prev
+        , sha256Empty
+        , sha256 x
+        ]
+
+    time :: ByteString
+    time = toBS (Time ts :: AWSTime)
+
+    scope :: CredentialScope
+    scope = credentialScope (_rqService rq) end ts
+
+    end :: Endpoint
+    end = _svcEndpoint (_rqService rq) r
+
+contentLength :: ChunkedBody -> Integer
+contentLength c =
+      -- Number of full sized chunks.
+      fullChunks c * chunkLength (_chunkedSize c)
+      -- Non-full chunk preceeding the final chunk.
+    + maybe 0 chunkLength (leftoverBytes c)
+      -- The final empty chunk.
+    + chunkLength 0
+  where
+    chunkLength :: Integral a => a -> Integer
+    chunkLength (toInteger -> n) =
+          _chunkedOriginal c
+        + headerLength
+        + signatureLength
+        + crlfLength
+        + n
+        + crlfLength
+
+    headerLength    = toInteger (BS.length chunkSignatureHeader)
+    crlfLength      = toInteger (BS.length crlf)
+    signatureLength = 64
+
+sha256 :: ByteString -> ByteString
+sha256 = digestToBase Base16 . hashSHA256
+
+sha256Empty :: ByteString
+sha256Empty = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+
+algorithm :: ByteString
+algorithm = "AWS4-HMAC-SHA256-PAYLOAD"
+
+digest :: ByteString
+digest = "STREAMING-AWS4-HMAC-SHA256-PAYLOAD"
+
+chunkSignatureHeader :: ByteString
+chunkSignatureHeader = ";chunk-signature="
+
+crlf :: ByteString
+crlf = "\r\n"

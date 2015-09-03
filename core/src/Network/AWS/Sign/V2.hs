@@ -50,10 +50,10 @@ instance ToLog V2 where
         ]
 
 v2 :: Signer
-v2 = Signer sign' (const sign') -- FIXME: revisit v2 presigning.
+v2 = Signer sign (const sign) -- FIXME: revisit v2 presigning.
 
-sign' :: Algorithm a
-sign' Request{..} AuthEnv{..} r t = Signed meta rq
+sign :: Algorithm a
+sign Request{..} AuthEnv{..} r t = Signed meta rq
   where
     meta = Meta (V2 t end signature)
 

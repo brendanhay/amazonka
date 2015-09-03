@@ -1,5 +1,5 @@
 name:                  amazonka-test
-version:               1.2.0.2
+version:               1.3.0
 synopsis:              Common functionality for Amazonka library test-suites.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -37,7 +37,7 @@ library
 
     build-depends:
           aeson                >= 0.8
-        , amazonka-core        == 1.2.0.*
+        , amazonka-core        == 1.3.0.*
         , base                 >= 4.7     && < 5
         , bifunctors           >= 4.1
         , bytestring           >= 0.9

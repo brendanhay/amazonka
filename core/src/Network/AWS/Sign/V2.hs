@@ -62,7 +62,7 @@ sign Request{..} AuthEnv{..} r t = Signed meta rq
         , Client.path           = path'
         , Client.queryString    = toBS authorised
         , Client.requestHeaders = headers
-        , Client.requestBody    = bodyRequest _rqBody
+        , Client.requestBody    = toRequestBody _rqBody
         }
 
     meth  = toBS _rqMethod

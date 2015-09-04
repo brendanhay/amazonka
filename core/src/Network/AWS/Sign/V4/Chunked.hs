@@ -46,17 +46,17 @@ import           Prelude
 default (Builder, Integer)
 
 chunked :: ChunkedBody -> Algorithm a
-chunked c rq a r ts = signRequest meta (bodyRequest body) auth
+chunked c rq a r ts = signRequest meta (toRequestBody body) auth
   where
     (meta, auth) = base (Tag digest) (prepare rq) a r ts
 
     prepare = rqHeaders <>~
         [ (hContentEncoding,         "aws-chunked")
         , (hAMZDecodedContentLength, toBS (_chunkedOriginal c))
-        , (hContentLength,           toBS (contentLength    c))
+        , (hContentLength,           toBS (metadataLength   c))
         ]
 
-    body = Chunked (sign (metaSignature meta) `fuseChunks` c)
+    body = Chunked (c `fuseChunks` sign (metaSignature meta))
 
     sign :: Monad m => Signature -> Conduit ByteString m ByteString
     sign prev = do
@@ -95,12 +95,12 @@ chunked c rq a r ts = signRequest meta (bodyRequest body) auth
     end :: Endpoint
     end = _svcEndpoint (_rqService rq) r
 
-contentLength :: ChunkedBody -> Integer
-contentLength c =
+metadataLength :: ChunkedBody -> Integer
+metadataLength c =
       -- Number of full sized chunks.
       fullChunks c * chunkLength (_chunkedSize c)
       -- Non-full chunk preceeding the final chunk.
-    + maybe 0 chunkLength (leftoverBytes c)
+    + maybe 0 chunkLength (remainderBytes c)
       -- The final empty chunk.
     + chunkLength 0
   where

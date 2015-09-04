@@ -23,6 +23,7 @@ module Network.AWS.Data.Body where
 import           Control.Lens
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
+import qualified Data.ByteString              as BS
 import           Data.ByteString.Builder      (Builder)
 import qualified Data.ByteString.Char8        as BS8
 import qualified Data.ByteString.Lazy         as LBS
@@ -75,14 +76,16 @@ defaultChunkSize = 128 * 1024
 -- @Transfer-Encoding: chunked@.
 --
 -- /Invariant:/ Only services that support chunked encoding can
--- accept a 'ChunkedBody'. This is enforced by the type signatures
--- emitted by the generator.
+-- accept a 'ChunkedBody'. (Currently S3.) This is enforced by the type
+-- signatures emitted by the generator.
 data ChunkedBody = ChunkedBody
-    { _chunkedRequest  :: Source (ResourceT IO) ByteString -> RequestBody
-    , _chunkedBody     :: Source (ResourceT IO) ByteString
+    { _chunkedBody     :: Source (ResourceT IO) ByteString
     , _chunkedSize     :: !ChunkSize
     , _chunkedOriginal :: !Integer
     }
+
+-- Maybe revert to using Source's, and then enforce the chunk size
+-- during conversion from HashedBody -> ChunkedBody
 
 instance Show ChunkedBody where
     show c = BS8.unpack . toBS $ build
@@ -92,44 +95,50 @@ instance Show ChunkedBody where
         <> build (_chunkedOriginal c)
         <> "<> fullChunks = "
         <> build (fullChunks c)
-        <> "<> leftoverBytes = "
-        <> build (leftoverBytes c)
+        <> "<> remainderBytes = "
+        <> build (remainderBytes c)
         <> "}"
 
-fuseChunks :: Conduit ByteString (ResourceT IO) ByteString
+fuseChunks :: ChunkedBody
+           -> Conduit ByteString (ResourceT IO) ByteString
            -> ChunkedBody
-           -> ChunkedBody
-fuseChunks f c = c { _chunkedBody = _chunkedBody c =$= f }
+fuseChunks c f = c { _chunkedBody = _chunkedBody c =$= f }
 
 fullChunks :: ChunkedBody -> Integer
 fullChunks c = _chunkedOriginal c `div` fromIntegral (_chunkedSize c)
 
-leftoverBytes :: ChunkedBody -> Maybe Integer
-leftoverBytes c =
+remainderBytes :: ChunkedBody -> Maybe Integer
+remainderBytes c =
     case _chunkedOriginal c `mod` toInteger (_chunkedSize c) of
          0 -> Nothing
          n -> Just n
 
 -- | An opaque request body containing a 'SHA256' hash.
-data HashedBody = HashedBody
-    { _hashedDigest :: Digest SHA256
-    , _hashedBody   :: RequestBody
-    }
+data HashedBody
+    = HashedStream (Digest SHA256) !Integer (Source (ResourceT IO) ByteString)
+    | HashedBytes  (Digest SHA256) ByteString
 
 instance Show HashedBody where
-    show b@(HashedBody h _) = BS8.unpack . toBS $
-           "HashedBody { sha256 = "
-        <> build (digestToBase Base16 h)
-        <> ", streaming = "
-        <> build (isStreaming (Hashed b))
-        <> " }"
+    show = \case
+        HashedStream h n _ -> str "HashedStream" h n
+        HashedBytes  h x   -> str "HashedBody"   h (BS.length x)
+      where
+        str c h n = BS8.unpack . toBS $
+            c <> " { sha256 = "
+              <> build (digestToBase Base16 h)
+              <> ", length = "
+              <> build n
 
 instance IsString HashedBody where
-    fromString = toHashedBody
+    fromString = toHashed
 
 sha256Base16 :: HashedBody -> ByteString
-sha256Base16 = digestToBase Base16 . _hashedDigest
+sha256Base16 = digestToBase Base16 . \case
+    HashedStream h _ _ -> h
+    HashedBytes  h _   -> h
 
+-- | Invariant: only services that support _both_ standard and
+-- chunked signing expose 'RqBody' as a parameter.
 data RqBody
     = Chunked ChunkedBody
     | Hashed  HashedBody
@@ -138,72 +147,54 @@ data RqBody
 instance IsString RqBody where
     fromString = Hashed . fromString
 
-isStreaming :: RqBody -> Bool
-isStreaming = f . bodyRequest
-  where
-    f RequestBodyLBS           {} = False
-    f RequestBodyBS            {} = False
-    f RequestBodyBuilder       {} = False
-    f RequestBodyStream        {} = True
-    f RequestBodyStreamChunked {} = True
-
-bodyRequest :: RqBody -> RequestBody
-bodyRequest = \case
-    Chunked x -> _chunkedRequest x (_chunkedBody x)
-    Hashed  x -> _hashedBody  x
-
 md5Base64 :: RqBody -> Maybe ByteString
-md5Base64 Chunked {} = Nothing
-md5Base64 (Hashed x) =
-    let md5 = Just . digestToBase Base64 . hashMD5
-     in case _hashedBody x of
-        RequestBodyLBS       lbs -> md5 (toBS lbs)
-        RequestBodyBS        bs  -> md5 bs
-        RequestBodyBuilder _ b   -> md5 (toBS b)
-        _                        -> Nothing
+md5Base64 = \case
+    Hashed (HashedBytes _ x) -> Just . digestToBase Base64 $ hashMD5 x
+    _                        -> Nothing
+
+isStreaming :: RqBody -> Bool
+isStreaming = \case
+    Hashed (HashedStream {}) -> True
+    _                        -> False
+
+toRequestBody :: RqBody -> RequestBody
+toRequestBody = undefined --  \case
+    -- Chunked x -> RequestBodyStreamChunked (_chunkedBody x)
+    -- Hashed  x -> case x of
+    --      HashedStream _ n f -> RequestBodyStream (fromIntegral n) (_hashedBody x)
+    --      HashedBytes  _ b   -> RequestBodyBS b
+
+contentLength :: RqBody -> Integer
+contentLength = \case
+    Chunked x -> _chunkedOriginal x
+    Hashed  x -> case x of
+        HashedStream _ n _ -> n
+        HashedBytes  _ b   -> fromIntegral (BS.length b)
 
 -- | Anything that can be safely converted to a 'HashedBody'.
 class ToHashedBody a where
     -- | Convert a value to a hashed request body.
-    toHashedBody :: a -> HashedBody
-
-instance ToHashedBody HashedBody where
-    toHashedBody = id
-
-instance ToHashedBody String where
-    toHashedBody = toHashedBody . LBS8.pack
-
-instance ToHashedBody LBS.ByteString where
-    toHashedBody x = HashedBody (hashlazy x) (RequestBodyLBS x)
+    toHashed :: a -> HashedBody
 
 instance ToHashedBody ByteString where
-    toHashedBody x = HashedBody (hash x) (RequestBodyBS x)
+    toHashed x = HashedBytes (hash x) x
 
-instance ToHashedBody Text where
-    toHashedBody = toHashedBody . Text.encodeUtf8
-
-instance ToHashedBody LText.Text where
-    toHashedBody = toHashedBody . LText.encodeUtf8
-
-instance ToHashedBody Value where
-    toHashedBody = toHashedBody . encode
-
-instance ToHashedBody Element where
-    toHashedBody = toHashedBody . encodeXML
-
-instance ToHashedBody QueryString where
-    toHashedBody = toHashedBody . toBS
+instance ToHashedBody HashedBody     where toHashed = id
+instance ToHashedBody String         where toHashed = toHashed . LBS8.pack
+instance ToHashedBody LBS.ByteString where toHashed = toHashed . toBS
+instance ToHashedBody Text           where toHashed = toHashed . Text.encodeUtf8
+instance ToHashedBody LText.Text     where toHashed = toHashed . LText.encodeUtf8
+instance ToHashedBody Value          where toHashed = toHashed . encode
+instance ToHashedBody Element        where toHashed = toHashed . encodeXML
+instance ToHashedBody QueryString    where toHashed = toHashed . toBS
 
 -- | Anything that can be converted to a streaming request 'Body'.
---
--- Invariant: only services that support chunked signing expose
--- 'ToBody', otherwise use 'ToHashedBody'.
 class ToBody a where
     -- | Convert a value to a request body.
     toBody :: a -> RqBody
 
     default toBody :: ToHashedBody a => a -> RqBody
-    toBody = Hashed . toHashedBody
+    toBody = Hashed . toHashed
 
 instance ToBody RqBody        where toBody = id
 instance ToBody HashedBody  where toBody = Hashed

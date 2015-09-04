@@ -494,7 +494,9 @@ class AWSRequest a where
     response :: MonadResource m
              => Logger
              -> Service
-             -> Proxy a
+             -> a -- the actual 'a' is needed not just for injectivity reasons,
+                  -- but because putEncrypted/Instructions for example constructs
+                  -- a 'chain' of request/responses.
              -> ClientResponse
              -> m (Response a)
 

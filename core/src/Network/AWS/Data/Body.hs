@@ -29,6 +29,7 @@ import qualified Data.ByteString.Char8        as BS8
 import qualified Data.ByteString.Lazy         as LBS
 import qualified Data.ByteString.Lazy.Char8   as LBS8
 import           Data.Conduit
+import qualified Data.Conduit.List            as CL
 import           Data.Monoid
 import           Data.String
 import           Data.Text                    (Text)
@@ -56,6 +57,11 @@ newtype RsBody = RsBody
 instance Show RsBody where
     show = const "RsBody { ResumableSource (ResourceT IO) ByteString }"
 
+fuseStream :: RsBody
+           -> Conduit ByteString (ResourceT IO) ByteString
+           -> RsBody
+fuseStream b f = b { _streamBody = _streamBody b $=+ f }
+
 -- | Specifies the transmitted size of the 'Transfer-Encoding' chunks.
 --
 -- /See:/ 'defaultChunk'.
@@ -79,9 +85,9 @@ defaultChunkSize = 128 * 1024
 -- accept a 'ChunkedBody'. (Currently S3.) This is enforced by the type
 -- signatures emitted by the generator.
 data ChunkedBody = ChunkedBody
-    { _chunkedBody     :: Source (ResourceT IO) ByteString
-    , _chunkedSize     :: !ChunkSize
+    { _chunkedSize     :: !ChunkSize
     , _chunkedOriginal :: !Integer
+    , _chunkedBody     :: Source (ResourceT IO) ByteString
     }
 
 -- Maybe revert to using Source's, and then enforce the chunk size
@@ -188,6 +194,27 @@ instance ToHashedBody Value          where toHashed = toHashed . encode
 instance ToHashedBody Element        where toHashed = toHashed . encodeXML
 instance ToHashedBody QueryString    where toHashed = toHashed . toBS
 
+class ToChunkedBody a where
+    toChunked :: a -> ChunkedBody
+
+instance ToChunkedBody ChunkedBody where
+    toChunked = id
+
+instance ToChunkedBody HashedBody where
+    toChunked = \case
+        HashedStream _ n s -> chk n s
+        HashedBytes  _ b   -> chk (fromIntegral (BS.length b)) (CL.sourceList [b])
+      where
+        chk n = ChunkedBody defaultChunkSize n . enforceChunkSize defaultChunkSize
+
+        -- FIXME: Enforce chunk size, how? Using vectorbuilder shit?
+        enforceChunkSize sz s = s
+
+instance ToChunkedBody RqBody where
+    toChunked = \case
+        Chunked c -> c
+        Hashed  h -> toChunked h
+
 -- | Anything that can be converted to a streaming request 'Body'.
 class ToBody a where
     -- | Convert a value to a request body.
@@ -196,7 +223,7 @@ class ToBody a where
     default toBody :: ToHashedBody a => a -> RqBody
     toBody = Hashed . toHashed
 
-instance ToBody RqBody        where toBody = id
+instance ToBody RqBody      where toBody = id
 instance ToBody HashedBody  where toBody = Hashed
 instance ToBody ChunkedBody where toBody = Chunked
 

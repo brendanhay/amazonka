@@ -48,7 +48,7 @@ retrier :: ( MonadCatch m
 retrier x = do
     e  <- view environment
     rq <- configured x
-    retrying (policy rq) (check e rq) (perform e rq)
+    retrying (policy rq) (check e rq) (perform e x rq)
   where
     policy rq = retryStream rq <> retryService (_rqService rq)
 
@@ -85,7 +85,7 @@ waiter :: ( MonadCatch m
 waiter w@Wait{..} x = do
    e@Env{..} <- view environment
    rq        <- configured x
-   retrying policy (check _envLogger) (result rq <$> perform e rq) >>= exit
+   retrying policy (check _envLogger) (result rq <$> perform e x rq) >>= exit
   where
     policy = limitRetries _waitAttempts
           <> constantDelay (microseconds _waitDelay)
@@ -115,24 +115,25 @@ waiter w@Wait{..} x = do
 -- | The 'Service' is configured + unwrapped at this point.
 perform :: (MonadCatch m, MonadResource m, AWSRequest a)
         => Env
+        -> a
         -> Request a
         -> m (Either Error (Response a))
-perform Env{..} x = catches go handlers
+perform Env{..} x rq = catches go handlers
   where
     go = do
         t           <- liftIO getCurrentTime
-        Signed m rq <-
+        Signed m sg <-
             withAuth _envAuth $ \a ->
-                return $! rqSign x a _envRegion t
+                return $! rqSign rq a _envRegion t
 
         logTrace _envLogger m  -- trace:Signing:Meta
-        logDebug _envLogger rq -- debug:ClientRequest
+        logDebug _envLogger sg -- debug:ClientRequest
 
-        rs          <- liftResourceT (http rq _envManager)
+        rs          <- liftResourceT (http sg _envManager)
 
         logDebug _envLogger rs -- debug:ClientResponse
 
-        Right <$> response _envLogger (_rqService x) (p x) rs
+        Right <$> response _envLogger (_rqService rq) x rs
 
     handlers =
         [ Handler $ err
@@ -140,9 +141,6 @@ perform Env{..} x = catches go handlers
         ]
       where
         err e = logError _envLogger e >> return (Left e)
-
-    p :: Request a -> Proxy a
-    p = const Proxy
 
 configured :: (MonadReader r m, HasEnv r, AWSRequest a)
            => a

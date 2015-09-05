@@ -5,6 +5,7 @@
 {-# LANGUAGE RecordWildCards     #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TypeFamilies        #-}
+{-# LANGUAGE ViewPatterns        #-}
 
 -- |
 -- Module      : Network.AWS.S3.Encryption
@@ -17,294 +18,153 @@
 module Network.AWS.S3.Encryption where
 
 import           Conduit
+import           Control.Lens                  (view)
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Crypto.Cipher.AES
 import           Crypto.Cipher.Types
 import           Crypto.Error
+import qualified Crypto.PubKey.RSA.PKCS15      as RSA
+import           Crypto.PubKey.RSA.Types
 import           Crypto.Random
 import           Data.Aeson
 import           Data.Aeson.Types
 import           Data.Bifunctor
-import           Data.ByteArray
+import           Data.Bifunctor
+import           Data.ByteArray                hiding (view)
 import qualified Data.ByteString.Lazy          as LBS
 import           Data.ByteString.Lazy.Internal (defaultChunkSize)
 import           Data.ByteVector
+import           Data.CaseInsensitive          (CI, FoldCase)
+import qualified Data.CaseInsensitive          as CI
 import           Data.Coerce
 import           Data.HashMap.Strict           (HashMap)
+import qualified Data.HashMap.Strict           as Map
 import           Data.Proxy
+import           Data.String
 import           GHC.TypeLits
+import           Network.AWS
+import           Network.AWS.KMS               hiding (AES256)
+import qualified Network.AWS.KMS               as KMS
 import           Network.AWS.Prelude           hiding (coerce)
 import           Network.AWS.Response
+import           Network.AWS.Response
 import           Network.AWS.S3
+import           Network.HTTP.Client           (responseHeaders, responseStatus)
+import qualified Network.HTTP.Client           as Client
 import           System.IO
 
-newtype Material = Material (HashMap Text Text)
--- Asymmetric keypair or Symmetric key or KMS?
-
--- 'x-amz-matdesc' => Json.dump(encryption_context)
--- "{\"kms_cmk_id\":\"kms-key-id\"}",
-
-instance FromText Material where
-    parser = fmap Material $
-        takeText >>= either fail pure . eitherDecode . LBS.fromStrict . toBS
-
-instance ToByteString Material where
-    toBS (Material m) = toBS (encode m)
-
-data ContentAlgorithm
-    = AES_GCM_NoPadding    -- ^ AES/GCM/NoPadding
-    | AES_CBC_PKCS5Padding -- ^ AES/CBC/PKCS5Padding
+data ContentAlgorithm = AES_CBC_PKCS5Padding -- ^ AES/CBC/PKCS5Padding
 
 instance FromText ContentAlgorithm where
     parser = takeText >>= \case
---        "AES/GCM/NoPadding"    -> pure AES_GCM_NoPadding
         "AES/CBC/PKCS5Padding" -> pure AES_CBC_PKCS5Padding
-        e -> fromTextError $ "Failure parsing CEK algorithm from " <> e
+        e -> fromTextError $ "Unrecognised content encryption algorithm: " <> e
 
 instance ToByteString ContentAlgorithm where
-    toBS = \case
-        AES_GCM_NoPadding    -> "AES/GCM/NoPadding"
-        AES_CBC_PKCS5Padding -> "AES/CBC/PKCS5Padding"
+    toBS AES_CBC_PKCS5Padding = "AES/CBC/PKCS5Padding"
 
-data WrappingAlgorithm
-    = AESWrap       -- ^ AESWrap
-    | RSA_ECB_OAEP  -- ^ RSA/ECB/OAEPWithSHA-256AndMGF1Padding
-    | KMS           -- ^ Key Management Service.
+data WrappingAlgorithm = KMSWrap -- ^ Key Management Service.
 
 instance FromText WrappingAlgorithm where
     parser = takeText >>= \case
-        "AESWrap"                               -> pure AESWrap
-        "RSA/ECB/OAEPWithSHA-256AndMGF1Padding" -> pure RSA_ECB_OAEP
-        "kms"                                   -> pure KMS
-        e -> fromTextError $ "Failure parsing key wrapping algorithim from " <> e
+        "kms" -> pure KMSWrap
+        e     -> fromTextError $ "Unrecognised key wrapping algorithm: " <> e
 
 instance ToByteString WrappingAlgorithm where
-    toBS = \case
-        AESWrap       -> "AESWrap"
-        RSA_ECB_OAEP  -> "RSA/ECB/OAEPWithSHA-256AndMGF1Padding"
-        KMS           -> "kms"
+    toBS KMSWrap = "kms"
 
 -- FIXME: base64 encoding
 
 data V1Envelope = V1Envelope
-    { _v1Key           :: !ByteString
+    { _v1Key      :: !ByteString
       -- ^ @x-amz-key@: Content encrypting key (cek) in encrypted form, base64
       -- encoded. The cek is randomly generated per S3 object, and is always
       -- an AES 256-bit key. The corresponding cipher is always @AES/CBC/PKCS5Padding@.
-    , _v1IV            :: !(IV AES256)
+    , _v1IV       :: !(IV AES256)
       -- ^ @x-amz-iv@: Randomly generated IV (per S3 object), base64 encoded.
-    , _v1Material      :: !Material
+    , _v1Material :: !Material
       -- ^ @x-amz-matdesc@: Customer provided material description in JSON (UTF8)
       -- format. Used to identify the client-side master key (ie used to encrypt/wrap
       -- the generated content encrypting key).
-    , _v1ContentLength :: !(Maybe Integer)
-      -- ^ @x-amz-unencrypted-content-length@: Unencrypted content length (optional but
-      -- should be specified whenever possible).
-    , _v1Cipher        :: !AES256
     }
 
--- data V2Envelope = V2Envelope
---     { _v2Key               :: !ByteString
---       -- ^ @x-amz-key-v2@: CEK in key wrapped form. This is necessary so that
---       -- the S3 encryption client that doesn't recognize the v2 format will not
---       -- mistakenly decrypt S3 object encrypted in v2 format.
---     , _v2IV                :: !ByteString
---       -- ^ @x-amz-iv@: Randomly generated IV (per S3 object), base64 encoded.
---     , _v2CEKAlgorithm      :: !ContentAlgorithm
---       -- ^ @x-amz-cek-alg@: Content encryption algorithm used.  Supported values:
---       -- @AES/GCM/NoPadding@, @AES/CBC/PKCS5Padding@ Default to @AES/CBC/PKCS5Padding@
---       -- if this key is absent.
---       --
---       -- Supported values: @AESWrap@, @RSA/ECB/OAEPWithSHA-256AndMGF1Padding@, @kms@ No
---       -- standard key wrapping is used if this meta information is absent Always set to
---       -- @kms@ if KMS is used for client-side encryption
---     , _v2WrapAlgorithm     :: !WrappingAlgorithm
---       -- ^ @x-amz-wrap-alg@: Key wrapping algorithm used.
---     , _v2Material         :: !Material
---       -- ^ @x-amz-matdesc@: Customer provided material description in JSON format.
---       -- Used to identify the client-side master key.  For KMS client side
---       -- encryption, the KMS Customer Master Key ID is stored as part of the material
---       -- description, @x-amz-matdesc, under the key-name @kms_cmk_id@.
---     , _v2TagLength         :: !(Maybe Integer)
---       -- ^ @x-amz-tag-len@: Tag length (in bits) when AEAD is in use.  Only applicable if
---       -- AEAD is in use. This meta information is absent otherwise, or if KMS is in use.
---       -- Supported value: @128@
---     , _v2UnencryptedLength :: !(Maybe Integer)
---       -- ^ @x-amz-unencrypted-content-length@: Unencrypted content length. (optional but
---       -- should be specified whenever possible.)
---     }
+data V2Envelope = V2Envelope
+    { _v2Key           :: !ByteString
+      -- ^ @x-amz-key-v2@: CEK in key wrapped form. This is necessary so that
+      -- the S3 encryption client that doesn't recognize the v2 format will not
+      -- mistakenly decrypt S3 object encrypted in v2 format.
+    , _v2IV            :: !(IV AES256)
+      -- ^ @x-amz-iv@: Randomly generated IV (per S3 object), base64 encoded.
+    , _v2CEKAlgorithm  :: !ContentAlgorithm
+      -- ^ @x-amz-cek-alg@: Content encryption algorithm used.  Supported values:
+      -- @AES/GCM/NoPadding@, @AES/CBC/PKCS5Padding@ Default to @AES/CBC/PKCS5Padding@
+      -- if this key is absent.
+      --
+      -- Supported values: @AESWrap@, @RSA/ECB/OAEPWithSHA-256AndMGF1Padding@, @kms@ No
+      -- standard key wrapping is used if this meta information is absent Always set to
+      -- @kms@ if KMS is used for client-side encryption
+    , _v2WrapAlgorithm :: !WrappingAlgorithm
+      -- ^ @x-amz-wrap-alg@: Key wrapping algorithm used.
+    , _v2Material      :: !Material
+      -- ^ @x-amz-matdesc@: Customer provided material description in JSON format.
+      -- Used to identify the client-side master key.  For KMS client side
+      -- encryption, the KMS Customer Master Key ID is stored as part of the material
+      -- description, @x-amz-matdesc, under the key-name @kms_cmk_id@.
+    }
 
--- data Envelope
---     = V1 !V1Envelope
-    -- | V2 !V2Envelope
+newtype Material = Material (HashMap Text Text)
 
--- Metadata storage.
-instance ToHeaders V1Envelope where
-    toHeaders (V1Envelope {..}) =
-        [ ("X-Amz-Meta-X-Amz-Key",          _v1Key)
---        , ("X-Amz-Meta-X-Amz-IV",      toBS _v1IV)
-        , ("X-Amz-Meta-X-Amz-Matdesc", toBS _v1Material)
-        ]
-        --    , ("x-amz-unencrypted-content-length", _v1ContentLength)
---     toHeaders (V2 V2Envelope {..}) =
---         [ ("X-Amz-Meta-X-Amz-Key-V2",        _v2Key)
---         , ("X-Amz-Meta-X-Amz-IV",       toBS _v2IV)
---         , ("X-Amz-Meta-X-Amz-CEK-Alg",  toBS _v2CEKAlgorithm)
---         , ("X-Amz-Meta-X-Amz-Wrap-Alg", toBS _v2WrapAlgorithm)
---         , ("X-Amz-Meta-X-Amz-Matdesc",  toBS _v2Material)
---         ]
--- --    , ("X-Amz-Meta-X-Amz-Unencrypted-content-length",       toBS _v2ContentLength)
--- --        , ("X-Amz-Meta-X-Amz-Tag-len",                    encode _v2Material) FIXME: Maybe
+-- Provide opaque, smart constructors to create this?
+data Key
+    = Symmetric  AES256  Material
+    | Asymmetric KeyPair Material
+    | KMS        Text -- ^ master key id
 
--- Instruction file storage.
-instance ToJSON V1Envelope where
-    toJSON = undefined
+data Envelope
+    = V1 AES256 V1Envelope
+    | V2 AES256 V2Envelope
 
-instance FromJSON V1Envelope where
-    parseJSON = undefined
+envelopeCipher :: Envelope -> (AES256, IV AES256)
+envelopeCipher = \case
+    V1 c v1 -> (c, _v1IV v1)
+    V2 c v2 -> (c, _v2IV v2)
 
-fromMetadata :: [Header] -> Either String V1Envelope
-fromMetadata x = v1 -- <|> V2 <$> v2
-  where
-    v1 = V1Envelope
-        <$> x .#  "X-Amz-Meta-X-Amz-Key"
-        <*> undefined -- x .#  "X-Amz-Meta-X-Amz-IV"
-        <*> x .#  "X-Amz-Meta-X-Amz-Matdesc"
-        <*> x .#? "X-Amz-Meta-X-Amz-Unencrypted-Content-Length"
-        <*> undefined
+newEnvelope :: (MonadResource m, MonadRandom m)
+            => Env
+            -> Key
+            -> m Envelope
+newEnvelope e = \case
+    Symmetric  secret m -> v1 (ecbEncrypt secret) m
+    Asymmetric pair   m -> undefined -- v1 (RSA.encrypt (toPublicKey pair)) m FIXME: handle errors
+    KMS        mkid     -> v2 mkid
+   where
+    v1 encrypt m = do
+        k  <- getRandomBytes aesKeySize
+        c  <- createCipher k
+        iv <- randomIV
+        return . V1 c $ V1Envelope
+            { _v1Key      = encrypt k
+            , _v1IV       = iv
+            , _v1Material = m
+            }
 
-    -- v2 = V2Envelope
-    --     <$> x .#  "X-Amz-Meta-X-Amz-Key-V2"
-    --     <*> x .#  "X-Amz-Meta-X-Amz-IV"
-    --     <*> x .#  "X-Amz-Meta-X-Amz-CEK-Alg"
-    --     <*> x .#  "X-Amz-Meta-X-Amz-Wrap-Alg"
-    --     <*> x .#  "X-Amz-Meta-X-Amz-Matdesc"
-    --     <*> x .#? "X-Amz-Meta-X-Amz-Tag-Len"
-    --     <*> x .#? "X-Amz-Meta-X-Amz-Unencrypted-Content-Length"
+    v2 mkid = do
+        let ctx = Map.singleton "kms_cmk_id" mkid
 
--- - Note about or enforce the chunkSize to be a multiple of 128?
--- - How to get this module to appear in the generated cabal file?
--- - How to customise materials, kms vs aes etc.
--- - FUTURE: getObject should be transparent, or, if instruction file is supported then not?
+        rs <- runAWS e . send $
+            generateDataKey mkid
+                & gdkEncryptionContext .~ ctx
+                & gdkKeySpec           ?~ KMS.AES256
 
--- target :: AWSRequest a => Lens' (Encryd a) a
--- target = lens _target (\s a -> s { _tar = a })
-
-defaultInstructionExt :: Text
-defaultInstructionExt = ".instruction"
-
-data Location = Metadata | Instructions
-
-data Encrypted a = Encrypted a !Location V1Envelope
-
-putEncryptedObject :: MonadRandom m
-                   => Material
-                   -> BucketName
-                   -> ObjectKey
-                   -> RqBody
-                   -> m (Encrypted PutObject)
-putEncryptedObject mat b k x =
-    Encrypted (putObject b k x) Metadata <$>
-        createEnvelope mat (contentLength x)
-
-instance AWSRequest (Encrypted PutObject) where
-    type Rs (Encrypted PutObject) = PutObjectResponse
-
-    request = \case
-        Encrypted x Metadata e -> rq x e & rqHeaders <>~ toHeaders e
-        Encrypted x _        e -> rq x e
-      where
-        rq x e = coerce (request x) & rqBody %~ encryptBody e
-
-    response l s (Encrypted x _ _) = response l s x
-
-data Decrypted a = Decrypted a (Maybe V1Envelope)
-
-getEncryptedObject :: BucketName
-                   -> ObjectKey
-                   -> Decrypted GetObject
-getEncryptedObject b k = Decrypted (getObject b k) Nothing
-
-instance AWSRequest (Decrypted GetObject) where
-    type Rs (Decrypted GetObject) = GetObjectResponse
-
-    request (Decrypted x _) = coerce (request x)
-
-    response l s (Decrypted x m) =
-        response l s x >=> \(n, rs) -> do
-            e <- maybe (error "lookup metadata") pure m -- FIXME: lookup metadata map
-            return (n, rs & gorsBody %~ decryptBody e)
-
-data PutInstructions =
-    PutInstructions BucketName ObjectKey Text RqBody V1Envelope
-
-putEncryptedObjectInstructions :: MonadRandom m
-                               => Material
-                               -> BucketName
-                               -> ObjectKey
-                               -> RqBody
-                               -> m PutInstructions
-putEncryptedObjectInstructions mat b k x =
-    PutInstructions b k defaultInstructionExt x <$>
-        createEnvelope mat (contentLength x)
-
-instance AWSRequest PutInstructions where
-    type Rs PutInstructions = Encrypted PutObject
-
-    request (PutInstructions b k ext _ e) =
-        coerce . request $ putObject b (k {- <.> ext -}) (toBody (toJSON e))
-
-    response l s rq@(PutInstructions b k _ x e) =
-        receiveNull (Encrypted (putObject b k x) Instructions e) l s rq
-
-data GetInstructions = GetInstructions BucketName ObjectKey Text
-
--- giInstructionsExtension :: Lens' GetInstructions Text
-
-getEncryptedObjectInstructions :: BucketName
-                               -> ObjectKey
-                               -> GetInstructions
-getEncryptedObjectInstructions b k = GetInstructions b k defaultInstructionExt
-
-instance AWSRequest GetInstructions where
-    type Rs GetInstructions = Decrypted GetObject
-
-    request (GetInstructions b k ext) =
-        coerce . request $ getObject b (k) -- <.> ext)
-
-    response l s rq@(GetInstructions b k _) = receiveJSON f l s rq
-       where
-         f _ _ o = do
-             e <- parseEither parseJSON (Object o)
-             return $! Decrypted (getObject b k) (Just e)
-
-decryptBody :: V1Envelope -> RsBody -> RsBody
-decryptBody = undefined
-
-encryptBody :: V1Envelope -> RqBody -> RqBody
-encryptBody V1Envelope{..} x = Chunked (body `fuseChunks` encrypt)
-  where
-    body = case x of
-        Chunked c                   -> c
-        Hashed (HashedStream _ n f) -> undefined
-        Hashed (HashedBytes  _ x)   -> undefined
-
-    encrypt = awaitForever (yield . cbcEncrypt _v1Cipher _v1IV)
-
-createEnvelope :: MonadRandom m => Material -> Integer -> m V1Envelope
-createEnvelope mat n = env
-  where
-    env = do
-        key <- getRandomBytes aesKeySize
-        iv  <- randomIV
-        aes <- createCipher key
-        return $! V1Envelope
-            { _v1Key           = key
-            , _v1IV            = iv
-            , _v1Material      = mat
-            , _v1ContentLength = Just n
-            , _v1Cipher        = aes
+        c  <- createCipher (rs ^. gdkrsPlaintext)
+        iv <- randomIV
+        return . V2 c $ V2Envelope
+            { _v2Key           =  rs ^. gdkrsCiphertextBlob
+            , _v2IV            = iv
+            , _v2CEKAlgorithm  = AES_CBC_PKCS5Padding
+            , _v2WrapAlgorithm = KMSWrap
+            , _v2Material      = Material ctx
             }
 
     aesKeySize   = 32 -- AES256 key size.
@@ -319,58 +179,190 @@ createEnvelope mat n = env
             Nothing -> error "getRandomBytes" -- FIXME: explosion!
             Just x  -> return x
 
+parseEnvelope :: MonadResource m
+              => Env
+              -> Key
+              -> [(CI ByteString, ByteString)]
+              -> m Envelope
+parseEnvelope e k = undefined
+
 createCipher :: (Monad m, ByteArray k, Cipher a) => k -> m a
 createCipher = onCryptoFailure (error "Crypto.Error") return . cipherInit
 
--- instance AWSRequest (Encrypted PutObject) where
---     type Rs (Encrypted PutObject) = PutObjectResponse
+encryptBody :: Envelope -> RqBody -> RqBody
+encryptBody (envelopeCipher -> (aes, iv)) x =
+    Chunked (toChunked x `fuseChunks` encrypt)
+  where
+    encrypt = awaitForever (yield . cbcEncrypt aes iv)
 
---     request (Encrypted e x) = coerce (request x)
---         & rqHeaders <>~ toHeaders   e
---         & rqBody     %~ encryptBody e
+decryptBody :: Envelope -> RsBody -> RsBody
+decryptBody (envelopeCipher -> (aes, iv)) x =
+    x `fuseStream` decrypt
+  where
+    decrypt = awaitForever (yield . cbcDecrypt aes iv)
 
---     response l s = const (response l s (Proxy :: Proxy PutObject))
+instructionSuffix :: Text
+instructionSuffix = ".instruction"
 
---   if md5 = context.params.delete(:content_md5)
---     context.params[:metadata]['x-amz-unencrypted-content-md5'] = md5
---   end
+data Location = Metadata | Instruction
 
--- encryptedBody :: (MonadResource m,  MonadRandom m)
---               => FilePath
---               -> m (Encrypted RqBody)
--- encryptedBody f = liftIO $ do
---     -- FIXME: Just going to assume AES256/CBC initially.
---     iv  <- randomIV n
---     k   <- getRandomBytes n
---     aes <- createCipher k
+data Encrypted a = Encrypted a !Location Envelope
+data Decrypted a = Decrypted a (Maybe Envelope)
 
--- RequestBodyStream Int64 (IO ByteString -> IO ()) -> IO ()
+-- putEncryptedObject :: (MonadRandom m, MonadReader r m, HasEnv r)
+--                    => Key
+--                    -> BucketName
+--                    -> ObjectKey
+--                    -> RqBody
+--                    -> m (Encrypted PutObject)
+putEncryptedObject key b k x = do
+    env <- view environment
+    Encrypted (putObject b k x) Metadata <$>
+        undefined -- newEnvelope key
+-- Both of these go into normal headers for putObject, not metadata:
+-- context.params[:metadata]['x-amz-unencrypted-content-length'] = io.size
+-- if md5 = context.params.delete(:content_md5)
+-- context.params[:metadata]['x-amz-unencrypted-content-md5'] = md5
 
--- Do the S3 incremental signer. Then figure out how to integrate it nicely:
---   pre-signing plugins?
---   specialised RqBody just for S3 putObject?
+instance AWSRequest (Encrypted PutObject) where
+    type Rs (Encrypted PutObject) = PutObjectResponse
 
---   How to support the mutliple requests it generates?
---    - Signers yield one or more requests?
+    request (Encrypted x l e) =
+        let rq = coerce (request x) & rqBody %~ encryptBody e
+         in case l of
+            Metadata    -> rq & rqHeaders <>~ toHeaders e
+            Instruction -> rq
 
---   - What about .instruction files, and their multiple requests?
---     Explicit better than implicit. smart ctor return tupled requests?
+    response l s (Encrypted x _ _) = response l s x
+
+-- getEncryptedObject :: BucketName
+--                    -> ObjectKey
+--                    -> Decrypted GetObject
+-- getEncryptedObject b k = Decrypted (getObject b k) Nothing
+
+-- instance AWSRequest (Decrypted GetObject) where
+--     type Rs (Decrypted GetObject) = GetObjectResponse
+
+--     request (Decrypted x _) = coerce (request x)
+
+--     response l s (Decrypted x m) r = do
+--         e       <- maybe (parseEnvelope s r) return m
+--         (n, rs) <- response l s x r
+--         return (n, rs & gorsBody %~ decryptBody e)
+
+-- data PutInstruction = PutInstruction BucketName ObjectKey Text RqBody Envelope
+
+-- putEncryptedObjectInstruction :: MonadRandom m
+--                               => Key
+--                               -> BucketName
+--                               -> ObjectKey
+--                               -> RqBody
+--                               -> m PutInstruction
+-- putEncryptedObjectInstruction key b k x =
+--     PutInstruction b k instructionSuffix x <$>
+--         createEnvelope key (contentLength x)
+
+-- instance AWSRequest PutInstruction where
+--     type Rs PutInstruction = Encrypted PutObject
+
+--     request (PutInstruction b k ext _ e) =
+--         coerce . request $ putObject b (k {- <.> ext -}) (toBody (toJSON e))
+
+--     response l s rq@(PutInstruction b k _ x e) =
+--         receiveNull (Encrypted (putObject b k x) Instruction e) l s rq
+
+-- data GetInstruction = GetInstruction BucketName ObjectKey Text
+
+-- -- giInstructionExtension :: Lens' GetInstruction Text
+
+-- getEncryptedObjectInstruction :: BucketName
+--                                -> ObjectKey
+--                                -> GetInstruction
+-- getEncryptedObjectInstruction b k = GetInstruction b k instructionSuffix
+
+-- instance AWSRequest GetInstruction where
+--     type Rs GetInstruction = Decrypted GetObject
+
+--     request (GetInstruction b k ext) =
+--         coerce . request $ getObject b (k) -- <.> ext)
+
+--     response l s rq@(GetInstruction b k _) = receiveJSON (\_ _ -> f) l s rq
+--        where
+--          f o = do
+--              e <- parseEither parseJSON (Object o)
+--              return $! Decrypted (getObject b k) (Just e)
+
+-- -- Headers storage.
+-- instance ToHeaders Envelope where
+--     toHeaders = map (first CI.mk) . toKVs -- prepend x-amz-meta ?
+
+-- -- Instruction file storage.
+-- instance ToJSON Envelope where
+--     toJSON = toJSON . Map.fromList . map (bimap toText toText) . toKVs
+
+-- instance FromJSON Envelope where
+--     parseJSON = parseJSON >=> either fail pure . fromKVs . f
+--       where
+--         f :: HashMap Text Text -> [Header]
+--         f = map (bimap (CI.mk . toBS) toBS) . Map.toList
+
+-- toKVs :: Envelope -> [(ByteString, ByteString)]
+-- toKVs = \case
+--     V1 V1Envelope {..} ->
+--         [ ("x-amz-key",          _v1Key)
+--     --        , ("X-Amz-Meta-X-Amz-IV",      toBS _v1IV)
+--         , ("x-amz-matdesc", toBS _v1Material)
+--         ]
+
+--     V2 V2Envelope {..} -> []
+--         -- [ ("X-Amz-Meta-X-Amz-Key-V2",        _v2Key)
+--         -- , ("X-Amz-Meta-X-Amz-IV",       toBS _v2IV)
+--         -- , ("X-Amz-Meta-X-Amz-CEK-Alg",  toBS _v2CEKAlgorithm)
+--         -- , ("X-Amz-Meta-X-Amz-Wrap-Alg", toBS _v2WrapAlgorithm)
+--         -- , ("X-Amz-Meta-X-Amz-Matdesc",  toBS _v2Material)
+--         -- ]
 
 
---     -- get original file size.
+-- --       Base64 encoding.
 
---     -- create secure temporary file.
 
---     -- stream and encrypt the contents to this temp file.
+      -- FIXME: md5
+      -- if md5 = context.params.delete(:content_md5)
+      --   context.params[:metadata]['x-amz-unencrypted-content-md5'] = md5
+      -- end
 
---     -- contentSHA256
-
---     (sha, ) <- runResourceT (sourceFile f =$= setChunkSize sz $$ go)
-
---     RqBody (sourceFile f =$= setChunkSize sz =$= go)
+-- fromKVs :: [(CI ByteString, ByteString)] -> Either String Envelope
+-- fromKVs x = V1 <$> v1 <|> V2 <$> v2
 --   where
+--     v1 = V1Envelope
+--         <$> x .#  "X-Amz-Key"
+--         <*> undefined -- iv
+--         <*> x .#  "X-Amz-Matdesc"
+--         <*> x .#? "X-Amz-Unencrypted-Content-Length"
 
---     go hash ciph = undefined
+--     v2 = V2Envelope
+--         <$> x .#  "X-Amz-Meta-X-Amz-Key-V2"
+--         <*> x .#  "X-Amz-Meta-X-Amz-IV"
+--         <*> x .#  "X-Amz-Meta-X-Amz-CEK-Alg"
+--         <*> x .#  "X-Amz-Meta-X-Amz-Wrap-Alg"
+--         <*> x .#  "X-Amz-Meta-X-Amz-Matdesc"
+--         <*> x .#? "X-Amz-Meta-X-Amz-Tag-Len"
+--         <*> x .#? "X-Amz-Meta-X-Amz-Unencrypted-Content-Length"
+
+-- parseEnvelope :: MonadThrow m => Service -> ClientResponse -> m Envelope
+-- parseEnvelope s r =
+--     case fromKVs (responseHeaders r) of
+--         Right m -> return m
+--         Left  e -> throwM . SerializeError $
+--             SerializeError' (_svcAbbrev s) (responseStatus r) e
+
+-- - Note about or enforce the chunkSize to be a multiple of 128?
+-- - How to get this module to appear in the generated cabal file?
+-- - How to customise materials, kms vs aes etc.
+-- - FUTURE: getObject should be transparent, or, if instruction file is supported then not?
+
+-- target :: AWSRequest a => Lens' (Encryd a) a
+-- target = lens _target (\s a -> s { _tar = a })
 
 -- setChunkSize :: MonadResource m => Int -> Conduit ByteString m ByteString
 -- setChunkSize n = vectorBuilderC n mapM_CE =$= mapC fromByteVector
@@ -389,7 +381,6 @@ createCipher = onCryptoFailure (error "Crypto.Error") return . cipherInit
 -- --       (\iv' input -> let output = C.decryptBlock k input `zwp` iv'
 -- --                      in (input, output))
 -- --       (\_ _ -> fail "conduitDecryptCbc: input has an incomplete final block.")
-
 
 -- -- conduit-combinators.encodeBase64 :: Monad m => Conduit ByteString m ByteString
 

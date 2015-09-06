@@ -495,8 +495,7 @@ class AWSRequest a where
              => Logger
              -> Service
              -> a -- the actual 'a' is needed not just for injectivity reasons,
-                  -- but because putEncrypted/Instructions (for example)
-                  -- construct a dependent chain of request/responses.
+                  -- but to construct a dependent chain of request/responses.
              -> ClientResponse
              -> m (Response a)
 

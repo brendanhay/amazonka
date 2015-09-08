@@ -81,7 +81,7 @@ listArtifacts pArn_ pType_ =
 laNextToken :: Lens' ListArtifacts (Maybe Text)
 laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
--- | The artifacts\' ARNs.
+-- | The Run, Job, Suite, or Test ARN.
 laArn :: Lens' ListArtifacts Text
 laArn = lens _laArn (\ s a -> s{_laArn = a});
 

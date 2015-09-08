@@ -69,6 +69,7 @@ library
           Network.AWS.StorageGateway
         , Network.AWS.StorageGateway.ActivateGateway
         , Network.AWS.StorageGateway.AddCache
+        , Network.AWS.StorageGateway.AddTagsToResource
         , Network.AWS.StorageGateway.AddUploadBuffer
         , Network.AWS.StorageGateway.AddWorkingStorage
         , Network.AWS.StorageGateway.CancelArchival
@@ -102,9 +103,11 @@ library
         , Network.AWS.StorageGateway.DisableGateway
         , Network.AWS.StorageGateway.ListGateways
         , Network.AWS.StorageGateway.ListLocalDisks
+        , Network.AWS.StorageGateway.ListTagsForResource
         , Network.AWS.StorageGateway.ListVolumeInitiators
         , Network.AWS.StorageGateway.ListVolumeRecoveryPoints
         , Network.AWS.StorageGateway.ListVolumes
+        , Network.AWS.StorageGateway.RemoveTagsFromResource
         , Network.AWS.StorageGateway.ResetCache
         , Network.AWS.StorageGateway.RetrieveTapeArchive
         , Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint

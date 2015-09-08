@@ -184,7 +184,7 @@ createTapesResponse pResponseStatus_ =
     , _ctrsResponseStatus = pResponseStatus_
     }
 
--- | A list of unique Amazon Resource Named (ARN) the represents the virtual
+-- | A list of unique Amazon Resource Named (ARN) that represents the virtual
 -- tapes that were created.
 ctrsTapeARNs :: Lens' CreateTapesResponse [Text]
 ctrsTapeARNs = lens _ctrsTapeARNs (\ s a -> s{_ctrsTapeARNs = a}) . _Default . _Coerce;

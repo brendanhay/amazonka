@@ -317,6 +317,7 @@ instance FromJSON Disk where
 data GatewayInfo = GatewayInfo'
     { _giGatewayARN              :: !(Maybe Text)
     , _giGatewayOperationalState :: !(Maybe Text)
+    , _giGatewayName             :: !(Maybe Text)
     , _giGatewayType             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -328,6 +329,8 @@ data GatewayInfo = GatewayInfo'
 --
 -- * 'giGatewayOperationalState'
 --
+-- * 'giGatewayName'
+--
 -- * 'giGatewayType'
 gatewayInfo
     :: GatewayInfo
@@ -335,6 +338,7 @@ gatewayInfo =
     GatewayInfo'
     { _giGatewayARN = Nothing
     , _giGatewayOperationalState = Nothing
+    , _giGatewayName = Nothing
     , _giGatewayType = Nothing
     }
 
@@ -347,6 +351,10 @@ giGatewayOperationalState :: Lens' GatewayInfo (Maybe Text)
 giGatewayOperationalState = lens _giGatewayOperationalState (\ s a -> s{_giGatewayOperationalState = a});
 
 -- | Undocumented member.
+giGatewayName :: Lens' GatewayInfo (Maybe Text)
+giGatewayName = lens _giGatewayName (\ s a -> s{_giGatewayName = a});
+
+-- | Undocumented member.
 giGatewayType :: Lens' GatewayInfo (Maybe Text)
 giGatewayType = lens _giGatewayType (\ s a -> s{_giGatewayType = a});
 
@@ -357,6 +365,7 @@ instance FromJSON GatewayInfo where
                  GatewayInfo' <$>
                    (x .:? "GatewayARN") <*>
                      (x .:? "GatewayOperationalState")
+                     <*> (x .:? "GatewayName")
                      <*> (x .:? "GatewayType"))
 
 -- | Describes a gateway\'s network interface.
@@ -517,6 +526,49 @@ instance FromJSON StorediSCSIVolume where
                      <*> (x .:? "VolumeId")
                      <*> (x .:? "VolumeDiskId")
                      <*> (x .:? "VolumeType"))
+
+-- | /See:/ 'tag' smart constructor.
+data Tag = Tag'
+    { _tagKey   :: !Text
+    , _tagValue :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagKey'
+--
+-- * 'tagValue'
+tag
+    :: Text -- ^ 'tagKey'
+    -> Text -- ^ 'tagValue'
+    -> Tag
+tag pKey_ pValue_ =
+    Tag'
+    { _tagKey = pKey_
+    , _tagValue = pValue_
+    }
+
+-- | Undocumented member.
+tagKey :: Lens' Tag Text
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+
+-- | Undocumented member.
+tagValue :: Lens' Tag Text
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+
+instance FromJSON Tag where
+        parseJSON
+          = withObject "Tag"
+              (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
+
+instance ToJSON Tag where
+        toJSON Tag'{..}
+          = object
+              (catMaybes
+                 [Just ("Key" .= _tagKey),
+                  Just ("Value" .= _tagValue)])
 
 -- | Describes a virtual tape object.
 --

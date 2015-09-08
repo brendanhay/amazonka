@@ -38,6 +38,7 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
     , UpdateGatewayInformationResponse
     -- * Response Lenses
     , ugirsGatewayARN
+    , ugirsGatewayName
     , ugirsResponseStatus
     ) where
 
@@ -93,7 +94,8 @@ instance AWSRequest UpdateGatewayInformation where
           = receiveJSON
               (\ s h x ->
                  UpdateGatewayInformationResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+                   (x .?> "GatewayARN") <*> (x .?> "GatewayName") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders UpdateGatewayInformation where
         toHeaders
@@ -124,6 +126,7 @@ instance ToQuery UpdateGatewayInformation where
 -- /See:/ 'updateGatewayInformationResponse' smart constructor.
 data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
     { _ugirsGatewayARN     :: !(Maybe Text)
+    , _ugirsGatewayName    :: !(Maybe Text)
     , _ugirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -133,6 +136,8 @@ data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
 --
 -- * 'ugirsGatewayARN'
 --
+-- * 'ugirsGatewayName'
+--
 -- * 'ugirsResponseStatus'
 updateGatewayInformationResponse
     :: Int -- ^ 'ugirsResponseStatus'
@@ -140,12 +145,17 @@ updateGatewayInformationResponse
 updateGatewayInformationResponse pResponseStatus_ =
     UpdateGatewayInformationResponse'
     { _ugirsGatewayARN = Nothing
+    , _ugirsGatewayName = Nothing
     , _ugirsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
 ugirsGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugirsGatewayARN = lens _ugirsGatewayARN (\ s a -> s{_ugirsGatewayARN = a});
+
+-- | Undocumented member.
+ugirsGatewayName :: Lens' UpdateGatewayInformationResponse (Maybe Text)
+ugirsGatewayName = lens _ugirsGatewayName (\ s a -> s{_ugirsGatewayName = a});
 
 -- | The response status code.
 ugirsResponseStatus :: Lens' UpdateGatewayInformationResponse Int

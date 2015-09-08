@@ -63,6 +63,7 @@ module Network.AWS.StorageGateway.Types
     , gatewayInfo
     , giGatewayARN
     , giGatewayOperationalState
+    , giGatewayName
     , giGatewayType
 
     -- * NetworkInterface
@@ -85,6 +86,12 @@ module Network.AWS.StorageGateway.Types
     , sscsivVolumeId
     , sscsivVolumeDiskId
     , sscsivVolumeType
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
 
     -- * Tape
     , Tape

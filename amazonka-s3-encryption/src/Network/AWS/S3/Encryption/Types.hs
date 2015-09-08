@@ -124,3 +124,18 @@ data Key
     = Symmetric  AES256  Material -- Materials is not really used currently?
     | Asymmetric KeyPair Material -- ^
     | KMS        Text -- ^ master key id
+
+data KeyEnv = KeyEnv
+    { _envInner :: !Env
+    , _envKey   :: !Key
+    }
+
+instance HasEnv KeyEnv where
+    environment = lens _envInner (\s a -> s { _envInner = a })
+
+class HasKeyEnv a where
+    keyEnvironment :: Lens' a KeyEnv
+
+    -- | Key material used to encrypt/decrypt requests.
+    envKey :: Lens' a Key
+    envKey = keyEnvironment . lens _envKey (\s a -> s { _envKey = a })

@@ -193,11 +193,6 @@ decodeEnvelope k e xs =
 fromMetadata :: MonadResource m => Key -> Env -> HashMap Text Text -> m Envelope
 fromMetadata key e = decodeEnvelope key e . map (first CI.mk) . Map.toList
 
-fromInstructions :: MonadResource m => Key -> Env -> Object -> m Envelope
-fromInstructions key e o =
-    hoistError (EnvelopeInvalid "Instructions") (parseEither parseJSON (Object o))
-        >>= fromMetadata key e
-
 aesKeySize, aesBlockSize :: Int
 aesKeySize   = 32
 aesBlockSize = 16

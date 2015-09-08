@@ -27,9 +27,10 @@ library
 
     exposed-modules:
           Network.AWS.S3.Encryption
-        , Network.AWS.S3.Encryption.GetObject
-        , Network.AWS.S3.Encryption.PutObject
+        , Network.AWS.S3.Encryption.Decrypt
+        , Network.AWS.S3.Encryption.Encrypt
         , Network.AWS.S3.Encryption.Envelope
+        , Network.AWS.S3.Encryption.Instructions
         , Network.AWS.S3.Encryption.Types
 
     build-depends:

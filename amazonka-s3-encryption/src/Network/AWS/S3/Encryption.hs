@@ -54,8 +54,8 @@ encryptInstructions :: (AWSConstraint r m, HasKeyEnv r)
                     -> m PutObjectResponse
 encryptInstructions x = do
     (a, b) <- encrypted x
-    _      <- send a
-    send b
+    _      <- send b
+    send a
 
 -- | Note about parallelism/concurrency, and encryption of parts. If you don't
 -- encrypt any of the parts then the entire thing is unencrypted!

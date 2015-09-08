@@ -9532,10 +9532,10 @@ instance FromXML VGWTelemetry where
 -- /See:/ 'vpc' smart constructor.
 data VPC = VPC'
     { _vpcTags            :: !(Maybe [Tag])
+    , _vpcIsDefault       :: !(Maybe Bool)
     , _vpcCIdRBlock       :: !Text
     , _vpcDHCPOptionsId   :: !Text
     , _vpcInstanceTenancy :: !Tenancy
-    , _vpcIsDefault       :: !Bool
     , _vpcState           :: !VPCState
     , _vpcVPCId           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -9546,13 +9546,13 @@ data VPC = VPC'
 --
 -- * 'vpcTags'
 --
+-- * 'vpcIsDefault'
+--
 -- * 'vpcCIdRBlock'
 --
 -- * 'vpcDHCPOptionsId'
 --
 -- * 'vpcInstanceTenancy'
---
--- * 'vpcIsDefault'
 --
 -- * 'vpcState'
 --
@@ -9561,17 +9561,16 @@ vpc
     :: Text -- ^ 'vpcCIdRBlock'
     -> Text -- ^ 'vpcDHCPOptionsId'
     -> Tenancy -- ^ 'vpcInstanceTenancy'
-    -> Bool -- ^ 'vpcIsDefault'
     -> VPCState -- ^ 'vpcState'
     -> Text -- ^ 'vpcVPCId'
     -> VPC
-vpc pCIdRBlock_ pDHCPOptionsId_ pInstanceTenancy_ pIsDefault_ pState_ pVPCId_ =
+vpc pCIdRBlock_ pDHCPOptionsId_ pInstanceTenancy_ pState_ pVPCId_ =
     VPC'
     { _vpcTags = Nothing
+    , _vpcIsDefault = Nothing
     , _vpcCIdRBlock = pCIdRBlock_
     , _vpcDHCPOptionsId = pDHCPOptionsId_
     , _vpcInstanceTenancy = pInstanceTenancy_
-    , _vpcIsDefault = pIsDefault_
     , _vpcState = pState_
     , _vpcVPCId = pVPCId_
     }
@@ -9579,6 +9578,10 @@ vpc pCIdRBlock_ pDHCPOptionsId_ pInstanceTenancy_ pIsDefault_ pState_ pVPCId_ =
 -- | Any tags assigned to the VPC.
 vpcTags :: Lens' VPC [Tag]
 vpcTags = lens _vpcTags (\ s a -> s{_vpcTags = a}) . _Default . _Coerce;
+
+-- | Indicates whether the VPC is the default VPC.
+vpcIsDefault :: Lens' VPC (Maybe Bool)
+vpcIsDefault = lens _vpcIsDefault (\ s a -> s{_vpcIsDefault = a});
 
 -- | The CIDR block for the VPC.
 vpcCIdRBlock :: Lens' VPC Text
@@ -9593,10 +9596,6 @@ vpcDHCPOptionsId = lens _vpcDHCPOptionsId (\ s a -> s{_vpcDHCPOptionsId = a});
 vpcInstanceTenancy :: Lens' VPC Tenancy
 vpcInstanceTenancy = lens _vpcInstanceTenancy (\ s a -> s{_vpcInstanceTenancy = a});
 
--- | Indicates whether the VPC is the default VPC.
-vpcIsDefault :: Lens' VPC Bool
-vpcIsDefault = lens _vpcIsDefault (\ s a -> s{_vpcIsDefault = a});
-
 -- | The current state of the VPC.
 vpcState :: Lens' VPC VPCState
 vpcState = lens _vpcState (\ s a -> s{_vpcState = a});
@@ -9610,10 +9609,10 @@ instance FromXML VPC where
           = VPC' <$>
               (x .@? "tagSet" .!@ mempty >>=
                  may (parseXMLList "item"))
+                <*> (x .@? "isDefault")
                 <*> (x .@ "cidrBlock")
                 <*> (x .@ "dhcpOptionsId")
                 <*> (x .@ "instanceTenancy")
-                <*> (x .@ "isDefault")
                 <*> (x .@ "state")
                 <*> (x .@ "vpcId")
 

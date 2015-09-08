@@ -2131,10 +2131,10 @@ module Network.AWS.EC2
     , VPC
     , vpc
     , vpcTags
+    , vpcIsDefault
     , vpcCIdRBlock
     , vpcDHCPOptionsId
     , vpcInstanceTenancy
-    , vpcIsDefault
     , vpcState
     , vpcVPCId
 

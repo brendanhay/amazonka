@@ -35,7 +35,7 @@ library
         , Network.AWS.S3.Encryption.Types
 
     build-depends:
-          aeson
+          aeson                >= 0.8
         , amazonka             == 1.3.0.*
         , amazonka-core        == 1.3.0.*
         , amazonka-kms         == 1.3.0.*

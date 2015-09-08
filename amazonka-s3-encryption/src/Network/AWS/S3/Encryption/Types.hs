@@ -1,8 +1,6 @@
-{-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TemplateHaskell            #-}
 
 -- |
@@ -18,31 +16,17 @@ module Network.AWS.S3.Encryption.Types where
 import           Control.Exception
 import           Control.Exception.Lens
 import           Control.Lens
-import           Control.Monad.Catch
-import           Control.Monad.Reader
-import           Control.Monad.Trans.Resource
 import           Crypto.Cipher.AES
-import           Crypto.Cipher.Types
 import           Crypto.Error
-import qualified Crypto.PubKey.RSA.PKCS15     as RSA
-import           Crypto.PubKey.RSA.Types      as RSA
-import           Crypto.Random
+import           Crypto.PubKey.RSA.Types as RSA
 import           Data.Aeson
-import           Data.Bifunctor
-import           Data.ByteArray
-import qualified Data.ByteString.Lazy         as LBS
-import           Data.CaseInsensitive         (CI)
-import qualified Data.CaseInsensitive         as CI
-import qualified Data.CaseInsensitive         as CI
-import           Data.Conduit
-import qualified Data.HashMap.Strict          as Map
+import qualified Data.ByteString.Lazy    as LBS
+import           Data.CaseInsensitive    (CI)
 import           Data.String
-import qualified Data.Text                    as Text
+import qualified Data.Text               as Text
 import           Network.AWS
-import           Network.AWS.KMS              as KMS
 import           Network.AWS.Prelude
-import           Network.AWS.S3               (ObjectKey (..))
-import qualified Network.AWS.S3               as S3
+import           Network.AWS.S3          (ObjectKey (..))
 
 -- | An error thrown when performing encryption or decryption.
 data EncryptionError

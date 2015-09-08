@@ -1,9 +1,7 @@
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE LambdaCase                 #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE ViewPatterns               #-}
+{-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- |
 -- Module      : Network.AWS.S3.Encryption.Envelope
@@ -15,9 +13,8 @@
 --
 module Network.AWS.S3.Encryption.Envelope where
 
-import           Control.Monad.Catch
-import           Control.Monad.Reader
-import           Control.Monad.Trans.Resource
+import           Conduit
+import           Control.Monad
 import           Crypto.Cipher.AES
 import           Crypto.Cipher.Types
 import           Crypto.Error
@@ -25,16 +22,15 @@ import qualified Crypto.PubKey.RSA.PKCS15        as RSA
 import           Crypto.PubKey.RSA.Types
 import           Crypto.Random
 import           Data.Aeson
-import           Data.Aeson.Types                (parseEither)
 import           Data.Bifunctor
 import           Data.ByteArray
 import           Data.CaseInsensitive            (CI)
 import qualified Data.CaseInsensitive            as CI
-import           Data.Conduit
 import qualified Data.HashMap.Strict             as Map
 import           Network.AWS
 import           Network.AWS.KMS                 as KMS
 import           Network.AWS.Prelude
+import           Network.AWS.S3.Encryption.Body
 import           Network.AWS.S3.Encryption.Types
 
 -- FIXME: Crypto related errors?
@@ -197,12 +193,6 @@ aesKeySize, aesBlockSize :: Int
 aesKeySize   = 32
 aesBlockSize = 16
 
-rsaEncrypt :: (MonadThrow m, MonadRandom m) => KeyPair -> ByteString -> m ByteString
-rsaEncrypt k = RSA.encrypt (toPublicKey k) >=> hoistError PubKeyFailure
-
-rsaDecrypt :: (MonadThrow m, MonadRandom m) => KeyPair -> ByteString -> m ByteString
-rsaDecrypt k = RSA.decryptSafer (toPrivateKey k) >=> hoistError PubKeyFailure
-
 bodyEncrypt :: Envelope -> RqBody -> RqBody
 bodyEncrypt (getCipher -> (aes, iv)) x = Chunked $
     toChunked x `fuseChunks` awaitForever (yield . cbcEncrypt aes iv)
@@ -210,6 +200,12 @@ bodyEncrypt (getCipher -> (aes, iv)) x = Chunked $
 bodyDecrypt :: Envelope -> RsBody -> RsBody
 bodyDecrypt (getCipher -> (aes, iv)) x =
     x `fuseStream` awaitForever (yield . cbcDecrypt aes iv)
+
+rsaEncrypt :: (MonadThrow m, MonadRandom m) => KeyPair -> ByteString -> m ByteString
+rsaEncrypt k = RSA.encrypt (toPublicKey k) >=> hoistError PubKeyFailure
+
+rsaDecrypt :: (MonadThrow m, MonadRandom m) => KeyPair -> ByteString -> m ByteString
+rsaDecrypt k = RSA.decryptSafer (toPrivateKey k) >=> hoistError PubKeyFailure
 
 getCipher :: Envelope -> (AES256, IV AES256)
 getCipher = \case

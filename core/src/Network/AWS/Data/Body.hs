@@ -194,27 +194,6 @@ instance ToHashedBody Value          where toHashed = toHashed . encode
 instance ToHashedBody Element        where toHashed = toHashed . encodeXML
 instance ToHashedBody QueryString    where toHashed = toHashed . toBS
 
-class ToChunkedBody a where
-    toChunked :: a -> ChunkedBody
-
-instance ToChunkedBody ChunkedBody where
-    toChunked = id
-
-instance ToChunkedBody HashedBody where
-    toChunked = \case
-        HashedStream _ n s -> chk n s
-        HashedBytes  _ b   -> chk (fromIntegral (BS.length b)) (CL.sourceList [b])
-      where
-        chk n = ChunkedBody defaultChunkSize n . enforceChunkSize defaultChunkSize
-
-        -- FIXME: Enforce chunk size, how? Using vectorbuilder shit?
-        enforceChunkSize _ s = s
-
-instance ToChunkedBody RqBody where
-    toChunked = \case
-        Chunked c -> c
-        Hashed  h -> toChunked h
-
 -- | Anything that can be converted to a streaming request 'Body'.
 class ToBody a where
     -- | Convert a value to a request body.

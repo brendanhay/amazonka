@@ -1,8 +1,4 @@
-{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RankNTypes        #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeFamilies      #-}
 
 -- |
@@ -18,29 +14,17 @@ module Network.AWS.S3.Encryption
 
     ) where
 
-import           Control.Arrow
-import           Control.Monad.Catch
-import           Control.Monad.Reader
 import           Control.Monad.Trans.AWS
-import           Control.Monad.Trans.Resource
-import qualified Data.Aeson.Types                       as Aeson
-import           Data.Coerce
-import           Data.Conduit
-import           Data.Proxy
 import           Network.AWS.Prelude                    hiding (coerce)
-import           Network.AWS.Response
 import           Network.AWS.S3
-import qualified Network.AWS.S3                         as S3
 import           Network.AWS.S3.Encryption.Decrypt
 import           Network.AWS.S3.Encryption.Encrypt
-import           Network.AWS.S3.Encryption.Envelope
 import           Network.AWS.S3.Encryption.Instructions
 import           Network.AWS.S3.Encryption.Types
-import           System.IO
 
--- | Set the key material used to encrypt/decrypt a block of actions.
-material :: (MonadReader r m, HasKeyEnv r) => Key -> m a -> m a
-material k = local (envKey .~ k)
+-- -- | Set the key material used to encrypt/decrypt a block of actions.
+-- material :: (MonadReader r m, HasKeyEnv r) => Key -> m a -> m a
+-- material k = local (envKey .~ k)
 
 encrypt :: (AWSConstraint r m, HasKeyEnv r)
         => PutObject

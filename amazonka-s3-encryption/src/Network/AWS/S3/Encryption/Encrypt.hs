@@ -75,7 +75,10 @@ instance AWSRequest a => AWSRequest (Encrypted a) where
         hs  | l == Metadata = xs <> toHeaders e
             | otherwise     = xs
 
-    response l s (Encrypted x _ _ _) = response l s x
+    response l s p = response l s (proxy p)
+
+proxy :: forall a. Proxy (Encrypted a) -> Proxy a
+proxy = const Proxy
 
 class AddInstructions a => ToEncrypted a where
     -- | Create an encryption context.

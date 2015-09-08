@@ -18,22 +18,15 @@
 module Network.AWS.S3.Encryption.Instructions where
 
 import           Control.Arrow
-import           Control.Monad.Catch
-import           Control.Monad.Reader
 import           Control.Monad.Trans.AWS
-import           Control.Monad.Trans.Resource
 import           Data.Aeson.Types                   (parseEither)
-import qualified Data.Aeson.Types                   as Aeson
 import           Data.Coerce
-import           Data.Conduit
 import           Data.Proxy
 import           Network.AWS.Prelude                hiding (coerce)
 import           Network.AWS.Response
 import           Network.AWS.S3
-import qualified Network.AWS.S3                     as S3
 import           Network.AWS.S3.Encryption.Envelope
 import           Network.AWS.S3.Encryption.Types
-import           System.IO
 
 newtype Instructions = Instructions
     (forall m r. (AWSConstraint r m, HasKeyEnv r) => m Envelope)
@@ -65,7 +58,7 @@ instance AWSRequest PutInstructions where
     request x = coerce . request $
         _piPut x & poKey %~ appendSuffix (_piExt x)
 
-    response s l (PutInstructions _ x) = response s l x
+    response s l _ = response s l (Proxy :: Proxy PutObject)
 
 data GetInstructions = GetInstructions
     { _giExt :: Ext
@@ -84,7 +77,7 @@ instance AWSRequest GetInstructions where
     request x = coerce . request $
         _giGet x & goKey %~ appendSuffix (_giExt x)
 
-    response  = receiveJSON $ \_ _ o ->
+    response = receiveJSON $ \_ _ o ->
          return $ Instructions $ do
             k <- view envKey
             e <- view environment
@@ -117,4 +110,4 @@ instance AWSRequest DeleteInstructions where
     request x = coerce . request $
         _diDelete x & doKey %~ appendSuffix (_diExt x)
 
-    response s l (DeleteInstructions _ x) = response s l x
+    response s l _ = response s l (Proxy :: Proxy DeleteObject)

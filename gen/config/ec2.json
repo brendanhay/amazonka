@@ -154,7 +154,6 @@
                 "CidrBlock",
                 "DhcpOptionsId",
                 "InstanceTenancy",
-                "IsDefault",
                 "State",
                 "VpcId"
             ]

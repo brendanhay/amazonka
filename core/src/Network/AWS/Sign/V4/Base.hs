@@ -22,12 +22,12 @@ module Network.AWS.Sign.V4.Base where
 import           Control.Applicative
 import           Control.Lens
 import           Data.Bifunctor
-import qualified Data.ByteString              as BS
-import qualified Data.ByteString.Char8        as BS8
-import qualified Data.CaseInsensitive         as CI
-import qualified Data.Foldable                as Fold
-import           Data.Function                (on)
-import           Data.List                    (nubBy, sortBy)
+import qualified Data.ByteString             as BS
+import qualified Data.ByteString.Char8       as BS8
+import qualified Data.CaseInsensitive        as CI
+import qualified Data.Foldable               as Fold
+import           Data.Function               (on)
+import           Data.List                   (nubBy, sortBy)
 import           Data.Maybe
 import           Data.Monoid
 import           GHC.TypeLits
@@ -40,7 +40,7 @@ import           Network.AWS.Data.Query
 import           Network.AWS.Data.Time
 import           Network.AWS.Request
 import           Network.AWS.Types
-import qualified Network.HTTP.Client.Internal as Client
+import qualified Network.HTTP.Conduit        as Client
 import           Network.HTTP.Types.Header
 
 import           Prelude

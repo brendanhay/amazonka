@@ -25,7 +25,7 @@ import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
 import           Network.AWS.Types
-import           Network.HTTP.Client
+import           Network.HTTP.Conduit
 import           Network.HTTP.Types.Status   (Status (..))
 
 statusSuccess :: Status -> Bool

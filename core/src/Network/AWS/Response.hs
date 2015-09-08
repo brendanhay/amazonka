@@ -28,7 +28,7 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Log
 import           Network.AWS.Data.XML
 import           Network.AWS.Types
-import           Network.HTTP.Client          hiding (Proxy, Request, Response)
+import           Network.HTTP.Conduit         hiding (Proxy, Request, Response)
 import           Network.HTTP.Types
 import           Text.XML                     (Node)
 

@@ -41,7 +41,7 @@ import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Log
 import           Network.AWS.Data.Query       (QueryString)
 import           Network.AWS.Data.XML         (encodeXML)
-import           Network.HTTP.Client
+import           Network.HTTP.Conduit
 import           Text.XML                     (Element)
 
 import           Prelude
@@ -164,11 +164,11 @@ isStreaming = \case
     _                        -> False
 
 toRequestBody :: RqBody -> RequestBody
-toRequestBody = undefined --  \case
-    -- Chunked x -> RequestBodyStreamChunked (_chunkedBody x)
-    -- Hashed  x -> case x of
-    --      HashedStream _ n f -> RequestBodyStream (fromIntegral n) (_hashedBody x)
-    --      HashedBytes  _ b   -> RequestBodyBS b
+toRequestBody = \case
+    Chunked x -> requestBodySourceChunked (_chunkedBody x)
+    Hashed  x -> case x of
+         HashedStream _ n f -> requestBodySource (fromIntegral n) f
+         HashedBytes  _ b   -> RequestBodyBS b
 
 contentLength :: RqBody -> Integer
 contentLength = \case
@@ -208,7 +208,7 @@ instance ToChunkedBody HashedBody where
         chk n = ChunkedBody defaultChunkSize n . enforceChunkSize defaultChunkSize
 
         -- FIXME: Enforce chunk size, how? Using vectorbuilder shit?
-        enforceChunkSize sz s = s
+        enforceChunkSize _ s = s
 
 instance ToChunkedBody RqBody where
     toChunked = \case

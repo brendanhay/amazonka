@@ -37,7 +37,7 @@ import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
-import           Network.HTTP.Client
+import           Network.HTTP.Conduit
 import           Network.HTTP.Types
 import           Numeric
 

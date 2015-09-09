@@ -258,9 +258,8 @@ pagerFields m o = traverse go (o ^. opPager)
 
     go :: Pager Id -> Either Error (Pager Field)
     go = \case
-        Next x t  -> Next <$> notation m out x <*> token t
---        One  x t  -> One  <$> notation m out x <*> token t
-        Many x ts -> Many <$> notation m out x <*> traverse token ts
+        Next ks t  -> Next <$> traverse (notation m out) ks <*> token t
+        Many k  ts -> Many <$> notation m out k <*> traverse token ts
 
     token :: Token Id -> Either Error (Token Field)
     token (Token x y) = Token

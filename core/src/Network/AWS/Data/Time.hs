@@ -98,7 +98,7 @@ class TimeFormat a where
     format :: Tagged a String
 
 instance TimeFormat RFC822    where format = Tagged "%a, %d %b %Y %H:%M:%S GMT"
-instance TimeFormat ISO8601   where format = Tagged (iso8601DateFormat (Just "%X%Q%Z"))
+instance TimeFormat ISO8601   where format = Tagged (iso8601DateFormat (Just "%X%QZ"))
 instance TimeFormat BasicTime where format = Tagged "%Y%m%d"
 instance TimeFormat AWSTime   where format = Tagged "%Y%m%dT%H%M%SZ"
 
@@ -112,13 +112,18 @@ instance FromText RFC822 where
 instance FromText ISO8601 where
     parser = (convert :: RFC822 -> ISO8601) <$> parseFormattedTime
          <|> parseFormattedTime
+         -- Deprecated, but ensure compatibility with examples until further investigation can be done
+         <|> parseFormattedTime' (Tagged $ iso8601DateFormat (Just "%X%Q%Z"))
 
 instance FromText POSIX where
     parser = Time . posixSecondsToUTCTime . realToFrac
         <$> (parser :: Parser Scientific)
 
 parseFormattedTime :: forall a. TimeFormat (Time a) => Parser (Time a)
-parseFormattedTime = do
+parseFormattedTime = parseFormattedTime' format
+
+parseFormattedTime' :: Tagged (Time a) String -> Parser (Time a)
+parseFormattedTime' f = do
     x <- Text.unpack <$> AText.takeText
     p (parseTime defaultTimeLocale (untag f) x) x
   where
@@ -131,9 +136,6 @@ parseFormattedTime = do
         , s
         , "'"
         ]
-
-    f :: Tagged (Time a) String
-    f = format
 
 instance ToText RFC822    where toText = Text.pack . renderFormattedTime
 instance ToText ISO8601   where toText = Text.pack . renderFormattedTime

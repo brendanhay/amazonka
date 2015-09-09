@@ -52,6 +52,9 @@ import Test.AWS.StorageGateway.Internal
 --         , testAddUploadBuffer $
 --             addUploadBuffer
 --
+--         , testListTagsForResource $
+--             listTagsForResource
+--
 --         , testUpdateGatewayInformation $
 --             updateGatewayInformation
 --
@@ -76,6 +79,9 @@ import Test.AWS.StorageGateway.Internal
 --         , testUpdateGatewaySoftwareNow $
 --             updateGatewaySoftwareNow
 --
+--         , testRemoveTagsFromResource $
+--             removeTagsFromResource
+--
 --         , testDeleteChapCredentials $
 --             deleteChapCredentials
 --
@@ -96,6 +102,9 @@ import Test.AWS.StorageGateway.Internal
 --
 --         , testRetrieveTapeRecoveryPoint $
 --             retrieveTapeRecoveryPoint
+--
+--         , testAddTagsToResource $
+--             addTagsToResource
 --
 --         , testDeleteGateway $
 --             deleteGateway
@@ -205,6 +214,9 @@ import Test.AWS.StorageGateway.Internal
 --         , testAddUploadBufferResponse $
 --             addUploadBufferResponse
 --
+--         , testListTagsForResourceResponse $
+--             listTagsForResourceResponse
+--
 --         , testUpdateGatewayInformationResponse $
 --             updateGatewayInformationResponse
 --
@@ -229,6 +241,9 @@ import Test.AWS.StorageGateway.Internal
 --         , testUpdateGatewaySoftwareNowResponse $
 --             updateGatewaySoftwareNowResponse
 --
+--         , testRemoveTagsFromResourceResponse $
+--             removeTagsFromResourceResponse
+--
 --         , testDeleteChapCredentialsResponse $
 --             deleteChapCredentialsResponse
 --
@@ -249,6 +264,9 @@ import Test.AWS.StorageGateway.Internal
 --
 --         , testRetrieveTapeRecoveryPointResponse $
 --             retrieveTapeRecoveryPointResponse
+--
+--         , testAddTagsToResourceResponse $
+--             addTagsToResourceResponse
 --
 --         , testDeleteGatewayResponse $
 --             deleteGatewayResponse
@@ -376,6 +394,11 @@ testAddUploadBuffer = req
     "AddUploadBuffer"
     "fixture/AddUploadBuffer.yaml"
 
+testListTagsForResource :: ListTagsForResource -> TestTree
+testListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 testUpdateGatewayInformation :: UpdateGatewayInformation -> TestTree
 testUpdateGatewayInformation = req
     "UpdateGatewayInformation"
@@ -416,6 +439,11 @@ testUpdateGatewaySoftwareNow = req
     "UpdateGatewaySoftwareNow"
     "fixture/UpdateGatewaySoftwareNow.yaml"
 
+testRemoveTagsFromResource :: RemoveTagsFromResource -> TestTree
+testRemoveTagsFromResource = req
+    "RemoveTagsFromResource"
+    "fixture/RemoveTagsFromResource.yaml"
+
 testDeleteChapCredentials :: DeleteChapCredentials -> TestTree
 testDeleteChapCredentials = req
     "DeleteChapCredentials"
@@ -450,6 +478,11 @@ testRetrieveTapeRecoveryPoint :: RetrieveTapeRecoveryPoint -> TestTree
 testRetrieveTapeRecoveryPoint = req
     "RetrieveTapeRecoveryPoint"
     "fixture/RetrieveTapeRecoveryPoint.yaml"
+
+testAddTagsToResource :: AddTagsToResource -> TestTree
+testAddTagsToResource = req
+    "AddTagsToResource"
+    "fixture/AddTagsToResource.yaml"
 
 testDeleteGateway :: DeleteGateway -> TestTree
 testDeleteGateway = req
@@ -644,6 +677,13 @@ testAddUploadBufferResponse = res
     storageGateway
     (Proxy :: Proxy AddUploadBuffer)
 
+testListTagsForResourceResponse :: ListTagsForResourceResponse -> TestTree
+testListTagsForResourceResponse = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    storageGateway
+    (Proxy :: Proxy ListTagsForResource)
+
 testUpdateGatewayInformationResponse :: UpdateGatewayInformationResponse -> TestTree
 testUpdateGatewayInformationResponse = res
     "UpdateGatewayInformationResponse"
@@ -700,6 +740,13 @@ testUpdateGatewaySoftwareNowResponse = res
     storageGateway
     (Proxy :: Proxy UpdateGatewaySoftwareNow)
 
+testRemoveTagsFromResourceResponse :: RemoveTagsFromResourceResponse -> TestTree
+testRemoveTagsFromResourceResponse = res
+    "RemoveTagsFromResourceResponse"
+    "fixture/RemoveTagsFromResourceResponse.proto"
+    storageGateway
+    (Proxy :: Proxy RemoveTagsFromResource)
+
 testDeleteChapCredentialsResponse :: DeleteChapCredentialsResponse -> TestTree
 testDeleteChapCredentialsResponse = res
     "DeleteChapCredentialsResponse"
@@ -748,6 +795,13 @@ testRetrieveTapeRecoveryPointResponse = res
     "fixture/RetrieveTapeRecoveryPointResponse.proto"
     storageGateway
     (Proxy :: Proxy RetrieveTapeRecoveryPoint)
+
+testAddTagsToResourceResponse :: AddTagsToResourceResponse -> TestTree
+testAddTagsToResourceResponse = res
+    "AddTagsToResourceResponse"
+    "fixture/AddTagsToResourceResponse.proto"
+    storageGateway
+    (Proxy :: Proxy AddTagsToResource)
 
 testDeleteGatewayResponse :: DeleteGatewayResponse -> TestTree
 testDeleteGatewayResponse = res

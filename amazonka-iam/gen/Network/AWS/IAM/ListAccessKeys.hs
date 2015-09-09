@@ -109,8 +109,8 @@ lakMaxItems = lens _lakMaxItems (\ s a -> s{_lakMaxItems = a}) . mapping _Nat;
 
 instance AWSPager ListAccessKeys where
         page rq rs
-          | stop (rs ^. lakrsMarker) = Nothing
-          | stop (rs ^. lakrsAccessKeyMetadata) = Nothing
+          | stop (rs ^. lakrsIsTruncated) = Nothing
+          | isNothing (rs ^. lakrsMarker) = Nothing
           | otherwise =
             Just $ rq & lakMarker .~ rs ^. lakrsMarker
 

@@ -51,7 +51,9 @@ stripSuffix :: Text -> Text -> Text
 stripSuffix s t = Text.strip . fromMaybe t $ s `Text.stripSuffix` t
 
 renameOperation :: Text -> Text
-renameOperation = Text.dropWhileEnd f . Text.strip
+renameOperation x
+    | "S3" `Text.isSuffixOf` x = x
+    | otherwise                = Text.dropWhileEnd f (Text.strip x)
   where
     f x = x == '_'
        || isDigit x

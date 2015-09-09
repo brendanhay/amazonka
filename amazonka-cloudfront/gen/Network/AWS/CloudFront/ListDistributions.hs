@@ -21,6 +21,8 @@
 -- List distributions.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListDistributions.html AWS API Reference> for ListDistributions.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFront.ListDistributions
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.CloudFront.ListDistributions
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -78,6 +81,18 @@ ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
 -- | The maximum number of distributions you want in the response body.
 ldMaxItems :: Lens' ListDistributions (Maybe Text)
 ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
+
+instance AWSPager ListDistributions where
+        page rq rs
+          | stop (rs ^. ldrsDistributionList . dlIsTruncated) =
+            Nothing
+          | isNothing
+              (rs ^? ldrsDistributionList . dlNextMarker . _Just)
+            = Nothing
+          | otherwise =
+            Just $ rq &
+              ldMarker .~
+                rs ^? ldrsDistributionList . dlNextMarker . _Just
 
 instance AWSRequest ListDistributions where
         type Rs ListDistributions = ListDistributionsResponse

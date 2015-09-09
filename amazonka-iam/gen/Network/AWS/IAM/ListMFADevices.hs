@@ -102,8 +102,8 @@ lmdMaxItems = lens _lmdMaxItems (\ s a -> s{_lmdMaxItems = a}) . mapping _Nat;
 
 instance AWSPager ListMFADevices where
         page rq rs
-          | stop (rs ^. lmdrsMarker) = Nothing
-          | stop (rs ^. lmdrsMFADevices) = Nothing
+          | stop (rs ^. lmdrsIsTruncated) = Nothing
+          | isNothing (rs ^. lmdrsMarker) = Nothing
           | otherwise =
             Just $ rq & lmdMarker .~ rs ^. lmdrsMarker
 

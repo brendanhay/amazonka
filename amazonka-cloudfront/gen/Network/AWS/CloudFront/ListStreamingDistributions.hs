@@ -21,6 +21,8 @@
 -- List streaming distributions.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListStreamingDistributions.html AWS API Reference> for ListStreamingDistributions.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFront.ListStreamingDistributions
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.CloudFront.ListStreamingDistributions
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -79,6 +82,24 @@ lsdMarker = lens _lsdMarker (\ s a -> s{_lsdMarker = a});
 -- body.
 lsdMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
 lsdMaxItems = lens _lsdMaxItems (\ s a -> s{_lsdMaxItems = a});
+
+instance AWSPager ListStreamingDistributions where
+        page rq rs
+          | stop
+              (rs ^.
+                 lsdrsStreamingDistributionList . sdlIsTruncated)
+            = Nothing
+          | isNothing
+              (rs ^?
+                 lsdrsStreamingDistributionList .
+                   sdlNextMarker . _Just)
+            = Nothing
+          | otherwise =
+            Just $ rq &
+              lsdMarker .~
+                rs ^?
+                  lsdrsStreamingDistributionList .
+                    sdlNextMarker . _Just
 
 instance AWSRequest ListStreamingDistributions where
         type Rs ListStreamingDistributions =

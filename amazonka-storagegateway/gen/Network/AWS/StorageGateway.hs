@@ -84,6 +84,9 @@ module Network.AWS.StorageGateway
     -- ** AddUploadBuffer
     , module Network.AWS.StorageGateway.AddUploadBuffer
 
+    -- ** ListTagsForResource
+    , module Network.AWS.StorageGateway.ListTagsForResource
+
     -- ** UpdateGatewayInformation
     , module Network.AWS.StorageGateway.UpdateGatewayInformation
 
@@ -108,6 +111,9 @@ module Network.AWS.StorageGateway
     -- ** UpdateGatewaySoftwareNow
     , module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
 
+    -- ** RemoveTagsFromResource
+    , module Network.AWS.StorageGateway.RemoveTagsFromResource
+
     -- ** DeleteChapCredentials
     , module Network.AWS.StorageGateway.DeleteChapCredentials
 
@@ -128,6 +134,9 @@ module Network.AWS.StorageGateway
 
     -- ** RetrieveTapeRecoveryPoint
     , module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
+
+    -- ** AddTagsToResource
+    , module Network.AWS.StorageGateway.AddTagsToResource
 
     -- ** DeleteGateway
     , module Network.AWS.StorageGateway.DeleteGateway
@@ -256,6 +265,7 @@ module Network.AWS.StorageGateway
     , gatewayInfo
     , giGatewayARN
     , giGatewayOperationalState
+    , giGatewayName
     , giGatewayType
 
     -- ** NetworkInterface
@@ -278,6 +288,12 @@ module Network.AWS.StorageGateway
     , sscsivVolumeId
     , sscsivVolumeDiskId
     , sscsivVolumeType
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
 
     -- ** Tape
     , Tape
@@ -342,6 +358,7 @@ module Network.AWS.StorageGateway
 
 import           Network.AWS.StorageGateway.ActivateGateway
 import           Network.AWS.StorageGateway.AddCache
+import           Network.AWS.StorageGateway.AddTagsToResource
 import           Network.AWS.StorageGateway.AddUploadBuffer
 import           Network.AWS.StorageGateway.AddWorkingStorage
 import           Network.AWS.StorageGateway.CancelArchival
@@ -375,9 +392,11 @@ import           Network.AWS.StorageGateway.DescribeWorkingStorage
 import           Network.AWS.StorageGateway.DisableGateway
 import           Network.AWS.StorageGateway.ListGateways
 import           Network.AWS.StorageGateway.ListLocalDisks
+import           Network.AWS.StorageGateway.ListTagsForResource
 import           Network.AWS.StorageGateway.ListVolumeInitiators
 import           Network.AWS.StorageGateway.ListVolumeRecoveryPoints
 import           Network.AWS.StorageGateway.ListVolumes
+import           Network.AWS.StorageGateway.RemoveTagsFromResource
 import           Network.AWS.StorageGateway.ResetCache
 import           Network.AWS.StorageGateway.RetrieveTapeArchive
 import           Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint

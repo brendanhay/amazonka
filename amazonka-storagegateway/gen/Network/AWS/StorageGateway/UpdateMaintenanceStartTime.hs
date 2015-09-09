@@ -91,7 +91,7 @@ updateMaintenanceStartTime pGatewayARN_ pHourOfDay_ pMinuteOfHour_ pDayOfWeek_ =
 umstGatewayARN :: Lens' UpdateMaintenanceStartTime Text
 umstGatewayARN = lens _umstGatewayARN (\ s a -> s{_umstGatewayARN = a});
 
--- | The hour component of the maintenance start time represented as hh,
+-- | The hour component of the maintenance start time represented as /hh/,
 -- where /hh/ is the hour (00 to 23). The hour of the day is in the time
 -- zone of the gateway.
 umstHourOfDay :: Lens' UpdateMaintenanceStartTime Natural

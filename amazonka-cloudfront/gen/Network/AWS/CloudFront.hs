@@ -179,6 +179,15 @@ module Network.AWS.CloudFront
     -- * Waiters
     -- $waiters
 
+    -- ** StreamingDistributionDeployed
+    , streamingDistributionDeployed
+
+    -- ** DistributionDeployed
+    , distributionDeployed
+
+    -- ** InvalidationCompleted
+    , invalidationCompleted
+
     -- * Operations
     -- $operations
 
@@ -203,7 +212,7 @@ module Network.AWS.CloudFront
     -- ** DeleteCloudFrontOriginAccessIdentity
     , module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
 
-    -- ** ListStreamingDistributions
+    -- ** ListStreamingDistributions (Paginated)
     , module Network.AWS.CloudFront.ListStreamingDistributions
 
     -- ** GetStreamingDistributionConfig
@@ -218,13 +227,13 @@ module Network.AWS.CloudFront
     -- ** CreateCloudFrontOriginAccessIdentity
     , module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
 
-    -- ** ListCloudFrontOriginAccessIdentities
+    -- ** ListCloudFrontOriginAccessIdentities (Paginated)
     , module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
 
     -- ** GetInvalidation
     , module Network.AWS.CloudFront.GetInvalidation
 
-    -- ** ListInvalidations
+    -- ** ListInvalidations (Paginated)
     , module Network.AWS.CloudFront.ListInvalidations
 
     -- ** CreateInvalidation
@@ -242,7 +251,7 @@ module Network.AWS.CloudFront
     -- ** DeleteDistribution
     , module Network.AWS.CloudFront.DeleteDistribution
 
-    -- ** ListDistributions
+    -- ** ListDistributions (Paginated)
     , module Network.AWS.CloudFront.ListDistributions
 
     -- * Types

@@ -94,8 +94,9 @@ ljMaxJobs = lens _ljMaxJobs (\ s a -> s{_ljMaxJobs = a});
 
 instance AWSPager ListJobs where
         page rq rs
-          | stop (rs ^? ljrsJobs . _last . jobJobId) = Nothing
-          | stop (rs ^. ljrsJobs) = Nothing
+          | stop (rs ^. ljrsIsTruncated) = Nothing
+          | isNothing (rs ^? ljrsJobs . _last . jobJobId) =
+            Nothing
           | otherwise =
             Just $ rq &
               ljMarker .~ rs ^? ljrsJobs . _last . jobJobId

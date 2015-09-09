@@ -41,6 +41,7 @@ module Network.AWS.StorageGateway.DescribeGatewayInformation
     , dgirsGatewayNetworkInterfaces
     , dgirsNextUpdateAvailabilityDate
     , dgirsLastSoftwareUpdate
+    , dgirsGatewayName
     , dgirsGatewayId
     , dgirsGatewayType
     , dgirsGatewayTimezone
@@ -89,6 +90,7 @@ instance AWSRequest DescribeGatewayInformation where
                      (x .?> "GatewayNetworkInterfaces" .!@ mempty)
                      <*> (x .?> "NextUpdateAvailabilityDate")
                      <*> (x .?> "LastSoftwareUpdate")
+                     <*> (x .?> "GatewayName")
                      <*> (x .?> "GatewayId")
                      <*> (x .?> "GatewayType")
                      <*> (x .?> "GatewayTimezone")
@@ -124,6 +126,7 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
     , _dgirsGatewayNetworkInterfaces   :: !(Maybe [NetworkInterface])
     , _dgirsNextUpdateAvailabilityDate :: !(Maybe Text)
     , _dgirsLastSoftwareUpdate         :: !(Maybe Text)
+    , _dgirsGatewayName                :: !(Maybe Text)
     , _dgirsGatewayId                  :: !(Maybe Text)
     , _dgirsGatewayType                :: !(Maybe Text)
     , _dgirsGatewayTimezone            :: !(Maybe Text)
@@ -144,6 +147,8 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
 --
 -- * 'dgirsLastSoftwareUpdate'
 --
+-- * 'dgirsGatewayName'
+--
 -- * 'dgirsGatewayId'
 --
 -- * 'dgirsGatewayType'
@@ -161,6 +166,7 @@ describeGatewayInformationResponse pResponseStatus_ =
     , _dgirsGatewayNetworkInterfaces = Nothing
     , _dgirsNextUpdateAvailabilityDate = Nothing
     , _dgirsLastSoftwareUpdate = Nothing
+    , _dgirsGatewayName = Nothing
     , _dgirsGatewayId = Nothing
     , _dgirsGatewayType = Nothing
     , _dgirsGatewayTimezone = Nothing
@@ -191,6 +197,10 @@ dgirsNextUpdateAvailabilityDate = lens _dgirsNextUpdateAvailabilityDate (\ s a -
 -- value in the response.
 dgirsLastSoftwareUpdate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsLastSoftwareUpdate = lens _dgirsLastSoftwareUpdate (\ s a -> s{_dgirsLastSoftwareUpdate = a});
+
+-- | The gateway name.
+dgirsGatewayName :: Lens' DescribeGatewayInformationResponse (Maybe Text)
+dgirsGatewayName = lens _dgirsGatewayName (\ s a -> s{_dgirsGatewayName = a});
 
 -- | The gateway ID.
 dgirsGatewayId :: Lens' DescribeGatewayInformationResponse (Maybe Text)

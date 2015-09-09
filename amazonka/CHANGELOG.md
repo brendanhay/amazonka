@@ -1,5 +1,16 @@
 # Change Log
 
+
+## [1.3.1](https://github.com/brendanhay/amazonka/tree/1.3.1)
+Released: **09 September, 2015**, Compare: [1.3.0](https://github.com/brendanhay/amazonka/compare/1.3.0...1.3.1)
+
+### Fixed
+
+- Fix S3 ListObject pagination regression. [\#218](https://github.com/brendanhay/amazonka/issues/218)
+- Corrected IS08601 timezone de/serialisation. [\#217](https://github.com/brendanhay/amazonka/issues/217)
+- Remove required EC2 VPC `isDefault` member. [\#214](https://github.com/brendanhay/amazonka/issues/214)
+
+
 ## [1.3.0](https://github.com/brendanhay/amazonka/tree/1.3.0)
 Released: **03 September, 2015**, Compare: [1.2.0.2](https://github.com/brendanhay/amazonka/compare/1.2.0.2...1.3.0)
 

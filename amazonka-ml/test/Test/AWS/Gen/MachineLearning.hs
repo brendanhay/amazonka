@@ -37,8 +37,8 @@ import Test.AWS.MachineLearning.Internal
 --         , testCreateDataSourceFromRedshift $
 --             createDataSourceFromRedshift
 --
---         , testCreateDataSourceFromS $
---             createDataSourceFromS
+--         , testCreateDataSourceFromS3 $
+--             createDataSourceFromS3
 --
 --         , testCreateMLModel $
 --             createMLModel
@@ -115,8 +115,8 @@ import Test.AWS.MachineLearning.Internal
 --         , testCreateDataSourceFromRedshiftResponse $
 --             createDataSourceFromRedshiftResponse
 --
---         , testCreateDataSourceFromSResponse $
---             createDataSourceFromSResponse
+--         , testCreateDataSourceFromS3Response $
+--             createDataSourceFromS3Response
 --
 --         , testCreateMLModelResponse $
 --             createMLModelResponse
@@ -201,10 +201,10 @@ testCreateDataSourceFromRedshift = req
     "CreateDataSourceFromRedshift"
     "fixture/CreateDataSourceFromRedshift.yaml"
 
-testCreateDataSourceFromS :: CreateDataSourceFromS -> TestTree
-testCreateDataSourceFromS = req
-    "CreateDataSourceFromS"
-    "fixture/CreateDataSourceFromS.yaml"
+testCreateDataSourceFromS3 :: CreateDataSourceFromS3 -> TestTree
+testCreateDataSourceFromS3 = req
+    "CreateDataSourceFromS3"
+    "fixture/CreateDataSourceFromS3.yaml"
 
 testCreateMLModel :: CreateMLModel -> TestTree
 testCreateMLModel = req
@@ -334,12 +334,12 @@ testCreateDataSourceFromRedshiftResponse = res
     machineLearning
     (Proxy :: Proxy CreateDataSourceFromRedshift)
 
-testCreateDataSourceFromSResponse :: CreateDataSourceFromSResponse -> TestTree
-testCreateDataSourceFromSResponse = res
-    "CreateDataSourceFromSResponse"
-    "fixture/CreateDataSourceFromSResponse.proto"
+testCreateDataSourceFromS3Response :: CreateDataSourceFromS3Response -> TestTree
+testCreateDataSourceFromS3Response = res
+    "CreateDataSourceFromS3Response"
+    "fixture/CreateDataSourceFromS3Response.proto"
     machineLearning
-    (Proxy :: Proxy CreateDataSourceFromS)
+    (Proxy :: Proxy CreateDataSourceFromS3)
 
 testCreateMLModelResponse :: CreateMLModelResponse -> TestTree
 testCreateMLModelResponse = res

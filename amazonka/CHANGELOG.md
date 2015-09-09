@@ -9,7 +9,19 @@ Released: **09 September, 2015**, Compare: [1.3.0](https://github.com/brendanhay
 - Fix S3 ListObject pagination regression. [\#218](https://github.com/brendanhay/amazonka/issues/218)
 - Corrected IS08601 timezone de/serialisation. [\#217](https://github.com/brendanhay/amazonka/issues/217)
 - Remove required EC2 VPC `isDefault` member. [\#214](https://github.com/brendanhay/amazonka/issues/214)
+- Correctly named MachineLearning CreateDataSourceFromS3. [4805074]
 
+### Updated Service Definitions
+
+- DeviceFarm
+- IAM
+- RDS
+- ImportExport
+- Route53
+- CloudWatchLogs
+- Kinesis
+- DataPipeline
+- EFS: Namespace rename from ElasticFileSystem -> EFS.
 
 ## [1.3.0](https://github.com/brendanhay/amazonka/tree/1.3.0)
 Released: **03 September, 2015**, Compare: [1.2.0.2](https://github.com/brendanhay/amazonka/compare/1.2.0.2...1.3.0)

@@ -105,9 +105,8 @@ lscMaxItems = lens _lscMaxItems (\ s a -> s{_lscMaxItems = a}) . mapping _Nat;
 
 instance AWSPager ListServerCertificates where
         page rq rs
-          | stop (rs ^. lscrsMarker) = Nothing
-          | stop (rs ^. lscrsServerCertificateMetadataList) =
-            Nothing
+          | stop (rs ^. lscrsIsTruncated) = Nothing
+          | isNothing (rs ^. lscrsMarker) = Nothing
           | otherwise =
             Just $ rq & lscMarker .~ rs ^. lscrsMarker
 

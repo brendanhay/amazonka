@@ -105,8 +105,8 @@ lhcMaxItems = lens _lhcMaxItems (\ s a -> s{_lhcMaxItems = a});
 
 instance AWSPager ListHealthChecks where
         page rq rs
-          | stop (rs ^. lhcrsNextMarker) = Nothing
-          | stop (rs ^. lhcrsHealthChecks) = Nothing
+          | stop (rs ^. lhcrsIsTruncated) = Nothing
+          | isNothing (rs ^. lhcrsNextMarker) = Nothing
           | otherwise =
             Just $ rq & lhcMarker .~ rs ^. lhcrsNextMarker
 

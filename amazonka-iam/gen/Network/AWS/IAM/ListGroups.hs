@@ -104,8 +104,8 @@ lgMaxItems = lens _lgMaxItems (\ s a -> s{_lgMaxItems = a}) . mapping _Nat;
 
 instance AWSPager ListGroups where
         page rq rs
-          | stop (rs ^. lgrsMarker) = Nothing
-          | stop (rs ^. lgrsGroups) = Nothing
+          | stop (rs ^. lgrsIsTruncated) = Nothing
+          | isNothing (rs ^. lgrsMarker) = Nothing
           | otherwise =
             Just $ rq & lgMarker .~ rs ^. lgrsMarker
 

@@ -109,8 +109,8 @@ doObjectIds = lens _doObjectIds (\ s a -> s{_doObjectIds = a}) . _Coerce;
 
 instance AWSPager DescribeObjects where
         page rq rs
-          | stop (rs ^. dorsMarker) = Nothing
-          | stop (rs ^. dorsPipelineObjects) = Nothing
+          | stop (rs ^. dorsHasMoreResults) = Nothing
+          | isNothing (rs ^. dorsMarker) = Nothing
           | otherwise =
             Just $ rq & doMarker .~ rs ^. dorsMarker
 

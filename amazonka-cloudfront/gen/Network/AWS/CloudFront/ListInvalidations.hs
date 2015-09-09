@@ -21,6 +21,8 @@
 -- List invalidation batches.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListInvalidations.html AWS API Reference> for ListInvalidations.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFront.ListInvalidations
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.CloudFront.ListInvalidations
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -91,6 +94,18 @@ liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
 -- | The distribution\'s id.
 liDistributionId :: Lens' ListInvalidations Text
 liDistributionId = lens _liDistributionId (\ s a -> s{_liDistributionId = a});
+
+instance AWSPager ListInvalidations where
+        page rq rs
+          | stop (rs ^. lirsInvalidationList . ilIsTruncated) =
+            Nothing
+          | isNothing
+              (rs ^? lirsInvalidationList . ilNextMarker . _Just)
+            = Nothing
+          | otherwise =
+            Just $ rq &
+              liMarker .~
+                rs ^? lirsInvalidationList . ilNextMarker . _Just
 
 instance AWSRequest ListInvalidations where
         type Rs ListInvalidations = ListInvalidationsResponse

@@ -104,8 +104,8 @@ lvmdMaxItems = lens _lvmdMaxItems (\ s a -> s{_lvmdMaxItems = a}) . mapping _Nat
 
 instance AWSPager ListVirtualMFADevices where
         page rq rs
-          | stop (rs ^. lvmdrsMarker) = Nothing
-          | stop (rs ^. lvmdrsVirtualMFADevices) = Nothing
+          | stop (rs ^. lvmdrsIsTruncated) = Nothing
+          | isNothing (rs ^. lvmdrsMarker) = Nothing
           | otherwise =
             Just $ rq & lvmdMarker .~ rs ^. lvmdrsMarker
 

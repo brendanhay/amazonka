@@ -77,8 +77,8 @@ lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 
 instance AWSPager ListPipelines where
         page rq rs
-          | stop (rs ^. lprsMarker) = Nothing
-          | stop (rs ^. lprsPipelineIdList) = Nothing
+          | stop (rs ^. lprsHasMoreResults) = Nothing
+          | isNothing (rs ^. lprsMarker) = Nothing
           | otherwise =
             Just $ rq & lpMarker .~ rs ^. lprsMarker
 

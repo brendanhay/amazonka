@@ -107,8 +107,8 @@ lrMaxItems = lens _lrMaxItems (\ s a -> s{_lrMaxItems = a}) . mapping _Nat;
 
 instance AWSPager ListRoles where
         page rq rs
-          | stop (rs ^. lrrsMarker) = Nothing
-          | stop (rs ^. lrrsRoles) = Nothing
+          | stop (rs ^. lrrsIsTruncated) = Nothing
+          | isNothing (rs ^. lrrsMarker) = Nothing
           | otherwise =
             Just $ rq & lrMarker .~ rs ^. lrrsMarker
 

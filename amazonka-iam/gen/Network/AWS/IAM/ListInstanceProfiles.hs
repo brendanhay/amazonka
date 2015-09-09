@@ -107,8 +107,8 @@ lipMaxItems = lens _lipMaxItems (\ s a -> s{_lipMaxItems = a}) . mapping _Nat;
 
 instance AWSPager ListInstanceProfiles where
         page rq rs
-          | stop (rs ^. liprsMarker) = Nothing
-          | stop (rs ^. liprsInstanceProfiles) = Nothing
+          | stop (rs ^. liprsIsTruncated) = Nothing
+          | isNothing (rs ^. liprsMarker) = Nothing
           | otherwise =
             Just $ rq & lipMarker .~ rs ^. liprsMarker
 

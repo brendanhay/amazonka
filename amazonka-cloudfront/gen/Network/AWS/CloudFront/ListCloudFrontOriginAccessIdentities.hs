@@ -21,6 +21,8 @@
 -- List origin access identities.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListCloudFrontOriginAccessIdentities.html AWS API Reference> for ListCloudFrontOriginAccessIdentities.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -79,6 +82,26 @@ lcfoaiMarker = lens _lcfoaiMarker (\ s a -> s{_lcfoaiMarker = a});
 -- body.
 lcfoaiMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
 lcfoaiMaxItems = lens _lcfoaiMaxItems (\ s a -> s{_lcfoaiMaxItems = a});
+
+instance AWSPager
+         ListCloudFrontOriginAccessIdentities where
+        page rq rs
+          | stop
+              (rs ^.
+                 lcfoairsCloudFrontOriginAccessIdentityList .
+                   cfoailIsTruncated)
+            = Nothing
+          | isNothing
+              (rs ^?
+                 lcfoairsCloudFrontOriginAccessIdentityList .
+                   cfoailNextMarker . _Just)
+            = Nothing
+          | otherwise =
+            Just $ rq &
+              lcfoaiMarker .~
+                rs ^?
+                  lcfoairsCloudFrontOriginAccessIdentityList .
+                    cfoailNextMarker . _Just
 
 instance AWSRequest
          ListCloudFrontOriginAccessIdentities where

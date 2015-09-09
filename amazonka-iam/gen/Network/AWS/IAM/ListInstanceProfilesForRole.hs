@@ -103,8 +103,8 @@ lipfrRoleName = lens _lipfrRoleName (\ s a -> s{_lipfrRoleName = a});
 
 instance AWSPager ListInstanceProfilesForRole where
         page rq rs
-          | stop (rs ^. lipfrrsMarker) = Nothing
-          | stop (rs ^. lipfrrsInstanceProfiles) = Nothing
+          | stop (rs ^. lipfrrsIsTruncated) = Nothing
+          | isNothing (rs ^. lipfrrsMarker) = Nothing
           | otherwise =
             Just $ rq & lipfrMarker .~ rs ^. lipfrrsMarker
 

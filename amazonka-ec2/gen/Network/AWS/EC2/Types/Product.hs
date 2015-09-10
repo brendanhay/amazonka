@@ -9023,11 +9023,11 @@ instance ToQuery Storage where
 --
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
-    { _subTags                    :: !(Maybe [Tag])
+    { _subDefaultForAz            :: !(Maybe Bool)
+    , _subTags                    :: !(Maybe [Tag])
     , _subAvailabilityZone        :: !Text
     , _subAvailableIPAddressCount :: !Int
     , _subCIdRBlock               :: !Text
-    , _subDefaultForAz            :: !Bool
     , _subMapPublicIPOnLaunch     :: !Bool
     , _subState                   :: !SubnetState
     , _subSubnetId                :: !Text
@@ -9038,6 +9038,8 @@ data Subnet = Subnet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'subDefaultForAz'
+--
 -- * 'subTags'
 --
 -- * 'subAvailabilityZone'
@@ -9045,8 +9047,6 @@ data Subnet = Subnet'
 -- * 'subAvailableIPAddressCount'
 --
 -- * 'subCIdRBlock'
---
--- * 'subDefaultForAz'
 --
 -- * 'subMapPublicIPOnLaunch'
 --
@@ -9059,24 +9059,27 @@ subnet
     :: Text -- ^ 'subAvailabilityZone'
     -> Int -- ^ 'subAvailableIPAddressCount'
     -> Text -- ^ 'subCIdRBlock'
-    -> Bool -- ^ 'subDefaultForAz'
     -> Bool -- ^ 'subMapPublicIPOnLaunch'
     -> SubnetState -- ^ 'subState'
     -> Text -- ^ 'subSubnetId'
     -> Text -- ^ 'subVPCId'
     -> Subnet
-subnet pAvailabilityZone_ pAvailableIPAddressCount_ pCIdRBlock_ pDefaultForAz_ pMapPublicIPOnLaunch_ pState_ pSubnetId_ pVPCId_ =
+subnet pAvailabilityZone_ pAvailableIPAddressCount_ pCIdRBlock_ pMapPublicIPOnLaunch_ pState_ pSubnetId_ pVPCId_ =
     Subnet'
-    { _subTags = Nothing
+    { _subDefaultForAz = Nothing
+    , _subTags = Nothing
     , _subAvailabilityZone = pAvailabilityZone_
     , _subAvailableIPAddressCount = pAvailableIPAddressCount_
     , _subCIdRBlock = pCIdRBlock_
-    , _subDefaultForAz = pDefaultForAz_
     , _subMapPublicIPOnLaunch = pMapPublicIPOnLaunch_
     , _subState = pState_
     , _subSubnetId = pSubnetId_
     , _subVPCId = pVPCId_
     }
+
+-- | Indicates whether this is the default subnet for the Availability Zone.
+subDefaultForAz :: Lens' Subnet (Maybe Bool)
+subDefaultForAz = lens _subDefaultForAz (\ s a -> s{_subDefaultForAz = a});
 
 -- | Any tags assigned to the subnet.
 subTags :: Lens' Subnet [Tag]
@@ -9094,10 +9097,6 @@ subAvailableIPAddressCount = lens _subAvailableIPAddressCount (\ s a -> s{_subAv
 -- | The CIDR block assigned to the subnet.
 subCIdRBlock :: Lens' Subnet Text
 subCIdRBlock = lens _subCIdRBlock (\ s a -> s{_subCIdRBlock = a});
-
--- | Indicates whether this is the default subnet for the Availability Zone.
-subDefaultForAz :: Lens' Subnet Bool
-subDefaultForAz = lens _subDefaultForAz (\ s a -> s{_subDefaultForAz = a});
 
 -- | Indicates whether instances launched in this subnet receive a public IP
 -- address.
@@ -9119,12 +9118,12 @@ subVPCId = lens _subVPCId (\ s a -> s{_subVPCId = a});
 instance FromXML Subnet where
         parseXML x
           = Subnet' <$>
-              (x .@? "tagSet" .!@ mempty >>=
-                 may (parseXMLList "item"))
+              (x .@? "defaultForAz") <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@ "availabilityZone")
                 <*> (x .@ "availableIpAddressCount")
                 <*> (x .@ "cidrBlock")
-                <*> (x .@ "defaultForAz")
                 <*> (x .@ "mapPublicIpOnLaunch")
                 <*> (x .@ "state")
                 <*> (x .@ "subnetId")

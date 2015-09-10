@@ -1422,11 +1422,11 @@ module Network.AWS.EC2.Types
     -- * Subnet
     , Subnet
     , subnet
+    , subDefaultForAz
     , subTags
     , subAvailabilityZone
     , subAvailableIPAddressCount
     , subCIdRBlock
-    , subDefaultForAz
     , subMapPublicIPOnLaunch
     , subState
     , subSubnetId

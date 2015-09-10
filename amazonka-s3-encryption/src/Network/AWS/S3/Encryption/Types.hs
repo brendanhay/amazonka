@@ -31,7 +31,7 @@ import           Network.AWS.S3          (ObjectKey (..))
 -- | An error thrown when performing encryption or decryption.
 data EncryptionError
     = CipherFailure CryptoError
-      -- ^ Error creating an AES cipher.
+      -- ^ Error initialising an AES cipher from a secret key.
 
     | PubKeyFailure RSA.Error
       -- ^ Failure performing asymmetric encryption/decryption.
@@ -93,8 +93,8 @@ appendSuffix (Ext s) o@(ObjectKey k)
     | s `Text.isSuffixOf` k = o
     | otherwise             = ObjectKey (k <> s)
 
-newtype Material = Material { material :: HashMap Text Text }
-    deriving (Eq, Show, FromJSON, ToJSON)
+newtype Material = Material { fromMaterial :: HashMap Text Text }
+    deriving (Eq, Show, Monoid, FromJSON, ToJSON)
 
 instance ToByteString Material where
     toBS = toBS . encode
@@ -103,23 +103,30 @@ instance FromText Material where
     parser = parser >>=
         either fail pure . eitherDecode . LBS.fromStrict
 
--- Provide opaque, smart constructors to create this?
+-- | Key material used to encrypt/decrypt request envelopes.
 data Key
-    = Symmetric  AES256  Material -- Materials is not really used currently?
-    | Asymmetric KeyPair Material -- ^
+    = Symmetric  AES256  Material -- Material is not really used currently?
+    | Asymmetric KeyPair Material
     | KMS        Text -- ^ master key id
 
+-- | An 'AWS' environment composed with the key material used to encrypt/decrypt
+-- request envelopes.
 data KeyEnv = KeyEnv
-    { _envInner :: !Env
-    , _envKey   :: !Key
+    { _envExtended :: !Env -- ^ The underlying 'AWS' environment.
+    , _envKey      :: !Key -- ^ The 'Key' material used for encryption.
     }
 
-instance HasEnv KeyEnv where
-    environment = lens _envInner (\s a -> s { _envInner = a })
-
 class HasKeyEnv a where
-    keyEnvironment :: Lens' a KeyEnv
+    keys :: Lens' a KeyEnv
 
-    -- | Key material used to encrypt/decrypt requests.
+    -- | Key material used to encrypt/decrypt request envelopes.
     envKey :: Lens' a Key
-    envKey = keyEnvironment . lens _envKey (\s a -> s { _envKey = a })
+    envKey = keys . lens _envKey (\s a -> s { _envKey = a })
+
+instance HasKeyEnv KeyEnv where
+    keys = id
+
+instance HasEnv KeyEnv where
+    environment = lens _envExtended (\s a -> s { _envExtended = a })
+
+instance HasKeyEnv Env

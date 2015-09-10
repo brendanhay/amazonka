@@ -33,8 +33,6 @@ import           Network.AWS.Prelude
 import           Network.AWS.S3.Encryption.Body
 import           Network.AWS.S3.Encryption.Types
 
--- FIXME: Crypto related errors?
-
 data V1Envelope = V1Envelope
     { _v1Key      :: !ByteString
       -- ^ @x-amz-key@: Content encrypting key (cek) in encrypted form, base64
@@ -124,7 +122,7 @@ decodeV2 xs e = do
 
     rs  <- runAWS e . send $
         KMS.decrypt raw
-            & dEncryptionContext .~ material m
+            & dEncryptionContext .~ fromMaterial m
     k   <- plaintext rs
     c   <- createCipher k
 
@@ -135,7 +133,7 @@ data Envelope
     | V2 AES256 V2Envelope
 
 instance ToHeaders Envelope where
-    toHeaders = toMetadata
+    toHeaders = fmap (first (CI.map ("X-Amz-Meta-" <>))) . toMetadata
 
 instance ToJSON Envelope where
     toJSON = object . map (bimap k v) . toMetadata
@@ -212,7 +210,7 @@ getCipher = \case
     V1 c v1 -> (c, _v1IV v1)
     V2 c v2 -> (c, _v2IV v2)
 
-createCipher :: (MonadThrow m, Cipher a) => ByteString -> m a
+createCipher :: (MonadThrow m, ByteArray a, Cipher b) => a -> m b
 createCipher = onCryptoFailure (throwM . CipherFailure) return . cipherInit
 
 createIV :: (MonadThrow m, BlockCipher a) => ByteString -> m (IV a)

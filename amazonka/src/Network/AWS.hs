@@ -222,7 +222,7 @@ instance (Monoid w, MonadAWS m) => MonadAWS (LRW.RWST r w s m) where
 --
 -- /See:/ 'AWST.runAWST', 'runResourceT'.
 runAWS :: (MonadResource m, HasEnv r) => r -> AWS a -> m a
-runAWS e = liftResourceT . AWST.runAWST e
+runAWS e = liftResourceT . AWST.runAWST (e ^. environment)
 
 -- | Scope an action such that all requests belonging to the supplied service
 -- will use this configuration instead of the default.

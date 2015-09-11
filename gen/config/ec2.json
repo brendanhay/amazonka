@@ -185,7 +185,6 @@
                 "AvailabilityZone",
                 "AvailableIpAddressCount",
                 "CidrBlock",
-                "MapPublicIpOnLaunch",
                 "State",
                 "SubnetId",
                 "VpcId"

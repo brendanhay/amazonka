@@ -2058,12 +2058,12 @@ module Network.AWS.EC2
     -- ** Subnet
     , Subnet
     , subnet
+    , subMapPublicIPOnLaunch
     , subDefaultForAz
     , subTags
     , subAvailabilityZone
     , subAvailableIPAddressCount
     , subCIdRBlock
-    , subMapPublicIPOnLaunch
     , subState
     , subSubnetId
     , subVPCId

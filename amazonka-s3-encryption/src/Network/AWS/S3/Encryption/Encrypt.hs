@@ -24,6 +24,8 @@ import           Network.AWS.S3.Encryption.Envelope
 import           Network.AWS.S3.Encryption.Instructions
 import           Network.AWS.S3.Encryption.Types
 
+-- FIXME: Material
+
 -- | Note about how it doesn't attach metadata by default.
 -- You can re-set the location and then discard the PutInstructions request.
 encrypted :: (AWSConstraint r m, HasKeyEnv r, ToEncrypted a)

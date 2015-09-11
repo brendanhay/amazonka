@@ -17,6 +17,7 @@ import           Conduit
 import           Control.Monad
 import           Crypto.Cipher.AES
 import           Crypto.Cipher.Types
+import           Crypto.Data.Padding
 import           Crypto.Error
 import qualified Crypto.PubKey.RSA.PKCS15        as RSA
 import           Crypto.PubKey.RSA.Types
@@ -192,12 +193,16 @@ aesKeySize   = 32
 aesBlockSize = 16
 
 bodyEncrypt :: Envelope -> RqBody -> RqBody
-bodyEncrypt (getCipher -> (aes, iv)) x = Chunked $
-    toChunked x `fuseChunks` awaitForever (yield . cbcEncrypt aes iv)
+bodyEncrypt (getCipher -> (aes, iv)) x =
+    Chunked $ toChunked x `fuseChunks` awaitForever (yield . go)
+  where
+    go = cbcEncrypt aes iv . pad PKCS5
 
 bodyDecrypt :: Envelope -> RsBody -> RsBody
 bodyDecrypt (getCipher -> (aes, iv)) x =
-    x `fuseStream` awaitForever (yield . cbcDecrypt aes iv)
+    x `fuseStream` awaitForever (yield . go)
+  where
+    go b = cbcDecrypt aes iv $ fromMaybe b (unpad PKCS5 b)
 
 rsaEncrypt :: (MonadThrow m, MonadRandom m) => KeyPair -> ByteString -> m ByteString
 rsaEncrypt k = RSA.encrypt (toPublicKey k) >=> hoistError PubKeyFailure

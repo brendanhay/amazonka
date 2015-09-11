@@ -52,7 +52,7 @@ chunked c rq a r ts = signRequest meta (toRequestBody body) auth
 
     prepare = rqHeaders <>~
         [ (hContentEncoding,         "aws-chunked")
-        , (hAMZDecodedContentLength, toBS (_chunkedOriginal c))
+        , (hAMZDecodedContentLength, toBS (_chunkedLength c))
         , (hContentLength,           toBS (metadataLength   c))
         ]
 
@@ -106,7 +106,7 @@ metadataLength c =
   where
     chunkLength :: Integral a => a -> Integer
     chunkLength (toInteger -> n) =
-          _chunkedOriginal c
+          _chunkedLength c
         + headerLength
         + signatureLength
         + crlfLength

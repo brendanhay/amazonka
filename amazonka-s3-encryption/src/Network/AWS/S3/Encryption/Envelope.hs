@@ -193,16 +193,20 @@ aesKeySize   = 32
 aesBlockSize = 16
 
 bodyEncrypt :: Envelope -> RqBody -> RqBody
-bodyEncrypt (getCipher -> (aes, iv)) x =
-    Chunked $ toChunked x `fuseChunks` awaitForever (yield . go)
+bodyEncrypt (getCipher -> (aes, iv)) x = Chunked $
+    y `fuseChunks` awaitForever (yield . go)
   where
     go = cbcEncrypt aes iv . pad PKCS5
+    y  = toChunked x & chunkedLength +~ padding
+
+    padding = 8 - (contentLength x `mod` 8) -- 8 == PKCS5
 
 bodyDecrypt :: Envelope -> RsBody -> RsBody
 bodyDecrypt (getCipher -> (aes, iv)) x =
     x `fuseStream` awaitForever (yield . go)
   where
-    go b = cbcDecrypt aes iv $ fromMaybe b (unpad PKCS5 b)
+    go b = let r = cbcDecrypt aes iv b
+            in fromMaybe r (unpad PKCS5 r)
 
 rsaEncrypt :: (MonadThrow m, MonadRandom m) => KeyPair -> ByteString -> m ByteString
 rsaEncrypt k = RSA.encrypt (toPublicKey k) >=> hoistError PubKeyFailure

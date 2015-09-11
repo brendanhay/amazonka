@@ -17,7 +17,7 @@ import qualified Data.ByteString.Lazy  as LBS
 import           Data.Int
 import           Network.AWS.Data.Body
 
--- Resides here since it's unsafe without use of enforceChunks,
+-- Resides here since it's unsafe without the use of enforceChunks,
 -- which incurs extra dependencies not desired in core.
 class ToChunkedBody a where
     toChunked :: a -> ChunkedBody

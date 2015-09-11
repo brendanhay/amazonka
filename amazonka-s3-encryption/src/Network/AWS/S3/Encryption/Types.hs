@@ -116,6 +116,9 @@ data KeyEnv = KeyEnv
     , _envKey      :: !Key -- ^ The 'Key' material used for encryption.
     }
 
+instance HasEnv KeyEnv where
+    environment = lens _envExtended (\s a -> s { _envExtended = a })
+
 class HasKeyEnv a where
     keys :: Lens' a KeyEnv
 
@@ -125,8 +128,3 @@ class HasKeyEnv a where
 
 instance HasKeyEnv KeyEnv where
     keys = id
-
-instance HasEnv KeyEnv where
-    environment = lens _envExtended (\s a -> s { _envExtended = a })
-
-instance HasKeyEnv Env

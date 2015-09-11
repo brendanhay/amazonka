@@ -52,7 +52,7 @@ default (Builder)
 newtype RsBody = RsBody
     { _streamBody :: ResumableSource (ResourceT IO) ByteString
     }
--- newtype for show/orhpan instance purposes
+-- newtype for show/orhpan instance purposes.
 
 instance Show RsBody where
     show = const "RsBody { ResumableSource (ResourceT IO) ByteString }"
@@ -85,10 +85,13 @@ defaultChunkSize = 128 * 1024
 -- accept a 'ChunkedBody'. (Currently S3.) This is enforced by the type
 -- signatures emitted by the generator.
 data ChunkedBody = ChunkedBody
-    { _chunkedSize     :: !ChunkSize
-    , _chunkedOriginal :: !Integer
-    , _chunkedBody     :: Source (ResourceT IO) ByteString
+    { _chunkedSize   :: !ChunkSize
+    , _chunkedLength :: !Integer
+    , _chunkedBody   :: Source (ResourceT IO) ByteString
     }
+
+chunkedLength :: Lens' ChunkedBody Integer
+chunkedLength = lens _chunkedLength (\s a -> s { _chunkedLength = a })
 
 -- Maybe revert to using Source's, and then enforce the chunk size
 -- during conversion from HashedBody -> ChunkedBody
@@ -98,7 +101,7 @@ instance Show ChunkedBody where
           "ChunkedBody { chunkSize = "
         <> build (_chunkedSize c)
         <> "<> originalLength = "
-        <> build (_chunkedOriginal c)
+        <> build (_chunkedLength c)
         <> "<> fullChunks = "
         <> build (fullChunks c)
         <> "<> remainderBytes = "
@@ -111,11 +114,11 @@ fuseChunks :: ChunkedBody
 fuseChunks c f = c { _chunkedBody = _chunkedBody c =$= f }
 
 fullChunks :: ChunkedBody -> Integer
-fullChunks c = _chunkedOriginal c `div` fromIntegral (_chunkedSize c)
+fullChunks c = _chunkedLength c `div` fromIntegral (_chunkedSize c)
 
 remainderBytes :: ChunkedBody -> Maybe Integer
 remainderBytes c =
-    case _chunkedOriginal c `mod` toInteger (_chunkedSize c) of
+    case _chunkedLength c `mod` toInteger (_chunkedSize c) of
          0 -> Nothing
          n -> Just n
 
@@ -172,7 +175,7 @@ toRequestBody = \case
 
 contentLength :: RqBody -> Integer
 contentLength = \case
-    Chunked x -> _chunkedOriginal x
+    Chunked x -> _chunkedLength x
     Hashed  x -> case x of
         HashedStream _ n _ -> n
         HashedBytes  _ b   -> fromIntegral (BS.length b)

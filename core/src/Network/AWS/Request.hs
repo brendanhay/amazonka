@@ -35,7 +35,6 @@ module Network.AWS.Request
     , defaultRequest
 
     -- ** Hashing
-    , contentSHA256
     , contentMD5
 
     -- ** Lenses
@@ -49,7 +48,6 @@ import           Data.Maybe
 import           Data.Monoid
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
-import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Headers
 import           Network.AWS.Data.JSON
 import           Network.AWS.Data.Path
@@ -69,7 +67,7 @@ delete :: ToRequest a => Service -> a -> Request a
 delete s x = get s x & rqMethod .~ DELETE
 
 get :: ToRequest a => Service -> a -> Request a
-get s = contentSHA256 . defaultRequest s
+get s = defaultRequest s
 
 post :: ToRequest a => Service -> a -> Request a
 post s x = get s x & rqMethod .~ POST
@@ -91,7 +89,7 @@ postQuery s x = Request
     , _rqQuery   = mempty
     , _rqBody    = toBody (toQuery x)
     , _rqHeaders = hdr hContentType hFormEncoded (toHeaders x)
-    } & contentSHA256
+    }
 
 postBody :: (ToRequest a, ToBody a) => Service -> a -> Request a
 postBody s x = putBody s x & rqMethod .~ POST
@@ -100,19 +98,16 @@ putXML :: (ToRequest a, ToElement a) => Service -> a -> Request a
 putXML s x = defaultRequest s x
     & rqMethod .~ PUT
     & rqBody   .~ toBody (toElement x)
-    & contentSHA256
 
 putJSON :: (ToRequest a, ToJSON a) => Service -> a -> Request a
 putJSON s x = defaultRequest s x
     & rqMethod .~ PUT
     & rqBody   .~ toBody (toJSON x)
-    & contentSHA256
 
 putBody :: (ToRequest a, ToBody a) => Service -> a -> Request a
 putBody s x = defaultRequest s x
     & rqMethod .~ PUT
     & rqBody   .~ toBody x
-    & contentSHA256
 
 defaultRequest :: ToRequest a => Service -> a -> Request a
 defaultRequest s x = Request
@@ -124,17 +119,13 @@ defaultRequest s x = Request
     , _rqBody    = ""
     }
 
-contentSHA256 :: Request a -> Request a
-contentSHA256 rq = rq & rqHeaders %~
-    hdr hAMZContentSHA256 (rq ^. rqBody . to (digestToBase Base16 . bodySHA256))
-
 contentMD5 :: Request a -> Request a
 contentMD5 rq
     | missing, Just x <- md5 = rq & rqHeaders %~ hdr HTTP.hContentMD5 x
     | otherwise              = rq
   where
-    missing = isNothing $ lookup HTTP.hContentMD5 (rq ^. rqHeaders)
-    md5     = rq ^. rqBody . to (fmap (digestToBase Base64) . bodyCalculateMD5)
+    missing = isNothing $ lookup HTTP.hContentMD5 (_rqHeaders rq)
+    md5     = md5Base64 (_rqBody rq)
 
 queryString :: Lens' Client.Request ByteString
 queryString f x =

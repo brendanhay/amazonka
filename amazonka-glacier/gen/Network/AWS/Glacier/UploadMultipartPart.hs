@@ -105,7 +105,7 @@ data UploadMultipartPart = UploadMultipartPart'
     , _umpAccountId :: !Text
     , _umpVaultName :: !Text
     , _umpUploadId  :: !Text
-    , _umpBody      :: !RqBody
+    , _umpBody      :: !HashedBody
     } deriving (Show,Generic)
 
 -- | Creates a value of 'UploadMultipartPart' with the minimum fields required to make a request.
@@ -127,7 +127,7 @@ uploadMultipartPart
     :: Text -- ^ 'umpAccountId'
     -> Text -- ^ 'umpVaultName'
     -> Text -- ^ 'umpUploadId'
-    -> RqBody -- ^ 'umpBody'
+    -> HashedBody -- ^ 'umpBody'
     -> UploadMultipartPart
 uploadMultipartPart pAccountId_ pVaultName_ pUploadId_ pBody_ =
     UploadMultipartPart'
@@ -167,7 +167,7 @@ umpUploadId :: Lens' UploadMultipartPart Text
 umpUploadId = lens _umpUploadId (\ s a -> s{_umpUploadId = a});
 
 -- | The data to upload.
-umpBody :: Lens' UploadMultipartPart RqBody
+umpBody :: Lens' UploadMultipartPart HashedBody
 umpBody = lens _umpBody (\ s a -> s{_umpBody = a});
 
 instance AWSRequest UploadMultipartPart where
@@ -182,7 +182,7 @@ instance AWSRequest UploadMultipartPart where
                      (pure (fromEnum s)))
 
 instance ToBody UploadMultipartPart where
-        toBody = _umpBody
+        toBody = toBody . _umpBody
 
 instance ToHeaders UploadMultipartPart where
         toHeaders UploadMultipartPart'{..}

@@ -96,7 +96,7 @@ data UploadArchive = UploadArchive'
     , _uaArchiveDescription :: !(Maybe Text)
     , _uaVaultName          :: !Text
     , _uaAccountId          :: !Text
-    , _uaBody               :: !RqBody
+    , _uaBody               :: !HashedBody
     } deriving (Show,Generic)
 
 -- | Creates a value of 'UploadArchive' with the minimum fields required to make a request.
@@ -115,7 +115,7 @@ data UploadArchive = UploadArchive'
 uploadArchive
     :: Text -- ^ 'uaVaultName'
     -> Text -- ^ 'uaAccountId'
-    -> RqBody -- ^ 'uaBody'
+    -> HashedBody -- ^ 'uaBody'
     -> UploadArchive
 uploadArchive pVaultName_ pAccountId_ pBody_ =
     UploadArchive'
@@ -147,7 +147,7 @@ uaAccountId :: Lens' UploadArchive Text
 uaAccountId = lens _uaAccountId (\ s a -> s{_uaAccountId = a});
 
 -- | The data to upload.
-uaBody :: Lens' UploadArchive RqBody
+uaBody :: Lens' UploadArchive HashedBody
 uaBody = lens _uaBody (\ s a -> s{_uaBody = a});
 
 instance AWSRequest UploadArchive where
@@ -162,7 +162,7 @@ instance AWSRequest UploadArchive where
                      <*> (h .#? "Location"))
 
 instance ToBody UploadArchive where
-        toBody = _uaBody
+        toBody = toBody . _uaBody
 
 instance ToHeaders UploadArchive where
         toHeaders UploadArchive'{..}

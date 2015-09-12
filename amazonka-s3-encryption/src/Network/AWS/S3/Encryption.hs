@@ -83,7 +83,7 @@ module Network.AWS.S3.Encryption
     , initiateInstructions
     , cleanupInstructions
 
-    -- *** Default Extension
+    -- *** Default Instruction Extension
     , Ext (..)
     , defaultExtension
 
@@ -150,7 +150,7 @@ encrypt x = do
 
 -- | Encrypt an object, storing the encryption envelope in an adjacent instruction
 -- file with the same 'ObjectKey' and 'defaultExtension'.
--- This makes two HTTP requests, storing the instructions first and upon success,
+-- This makes two HTTP requests, storing the instruction file first and upon success,
 -- storing the actual object.
 --
 -- Throws 'EncryptionError', 'AWST.Error'.
@@ -170,6 +170,13 @@ encryptInstructions x = do
 -- assumed that each part is uploaded in order and each part needs to be
 -- individually encrypted.
 --
+-- For example:
+--
+-- @
+-- (a', f) <- initiate (a :: CreateMultipartUpload)
+-- b'      <- send (f b :: Encrypted UploadPart)
+-- @
+--
 -- Throws 'EncryptionError', 'AWST.Error'.
 initiate :: (AWSConstraint r m, HasKeyEnv r)
          => CreateMultipartUpload
@@ -182,7 +189,7 @@ initiate x = do
     return (rs, encryptPart a)
 
 -- | Initiate an encrypted multipart upload, storing the encryption envelope
--- in an adjacent instructions file with the same 'ObjectKey' and 'defaultExtension'.
+-- in an adjacent instruction file with the same 'ObjectKey' and 'defaultExtension'.
 --
 -- The returned 'UploadPart' @->@ 'Encrypted' 'UploadPart' function is used to encrypt
 -- each part of the object. The same caveats for multipart upload apply, it is

@@ -14,19 +14,29 @@ cabal-version:         >= 1.10
 extra-source-files:    README.md
 description:
     Addons for <http://hackage.haskell.org/package/amazonka-s3 amazonka-s3> to
-    support client-side encryption. Keys can be specified as a client-side master
-    key (symmetric secret or asymmetric RSA), or a <http://hackage.haskell.org/amazonka-kms KMS> managed
-    server-side key can be used.
+    support client-side encryption. This allows the use of a client-side master key
+    to encrypt/decrypt data locally and store encrypted data in S3 to be later
+    decrypt by any other client with access to the same master key. Unencrypted
+    object data or keys are not sent to Amazon S3 using this method, but object
+    metadata is transmitted in plaintext.
     .
-    Data and key material is encrypted and stored in an envelope format compatible
-    with the official Amazon Java SDK. The envelope can be attached as header metadata
+    Encryption and decryption are done in a streaming fashion, with
+    encrypted requests being incrementally signed using the version 4 signature
+    algorithm and sent via chunked-encoding.
+    .
+    The client-side master key you provide can be a symmetric key, an
+    asymmetric public/private key pair, or a KMS master key.
+    .
+    This library is designed to be compatible with the official Java
+    AWS SDK (both V1 and V2 envelopes), but only a limited set of the possible
+    encryption options are supported. Therefore assuming defaults, objects stored
+    with this library should be retrievable by any of the other official SDKs, and
+    vice versa. The metadata can be attached as header metadata
     on the stored object or as a separate JSON instructions file.
+    @PutObject@, @GetObject@, and the various multipart upload operations are supported.
     .
-    Both encryption and decryption are done in a streaming fashion, with
-    encrypted requests being incrementally signed via chunked-encoding.
-    .
-    @PutObject@, @GetObject@, and the various multipart upload operations are
-    supported.
+    See <http://hackage.haskell.org/package/amazonka-s3-encryption/docs/Network-AWS-S3-Encryption.html Network.AWS.S3.Encryption>
+    to get started.
 
 source-repository head
     type:     git

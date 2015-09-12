@@ -11,43 +11,66 @@
 --
 -- Addons for <http://hackage.haskell.org/package/amazonka-s3 amazonka-s3> to
 -- support client-side encryption.
+--
+-- Your client-side master keys and your unencrypted data are never sent to AWS;
+-- therefore, it is important that you safely manage your encryption keys. If
+-- you lose them, you won't be able to decrypt your data.
+-- When generating a symmetric key, you should ensure
+-- that the key length is compatible with the underlying 'AES256' cipher.
+--
+-- The encryption procedure is:
+--
+-- * A one-time-use symmetric key a.k.a. a data encryption key (or data key) and
+-- initialisation vector (IV) are generated locally. This data key and IV are used
+-- to encrypt the data of a single S3 object using an AES256 cipher in CBC mode,
+-- with PKCS5 padding. (For each object sent, a completely separate data key and IV are generated.)
+--
+-- * The generated data encryption key used above is encrypted using a symmetric
+-- AES256 cipher in ECB mode, asymmetric RSA, or KMS facilities, depending on the
+-- client-side master key you provide.
+--
+-- * The encrypted data is uploaded and the encrypted data key and material description
+-- are attached as object metadata (either headers or a separate instruction file).
+-- If KMS is used, the material description helps determine which client-side master
+-- key to later use for decryption, otherwise the configured client-side key at
+-- time of decryption is used.
+--
+-- For decryption:
+--
+-- The encrypted object is downloaded from Amazon S3 along with any metadata.
+-- If KMS was used to encrypt the data then the master key id is take from the
+-- metadata material description, otherwise the client-side master key in the
+-- current environment is used to decrypt the data key, which in turn is used
+-- to decrypt the object data.
+--
+-- The client-side master key you provide can be either a symmetric key, an
+-- asymmetric public/private key pair, or a KMS master key.
+--
+-- The stored metadata format is designed to be compatible with the official Java
+-- AWS SDK (both V1 and V2 envelopes), but only a limited set of the possible
+-- encryption options are supported. Therefore assuming defaults, objects stored
+-- with this library should be retrievable by any of the other official SDKs, and
+-- vice versa.
 module Network.AWS.S3.Encryption
     (
     -- * Usage
     -- $usage
 
-    -- * Specifying Key Material
-    -- $material
+    -- * Specifying Master Keys
+    -- $master-key
 
-      Key
+      KeyEnv
+    , Key
     , kmsKey
     , asymmetricKey
     , symmetricKey
-    , newKey
+    , newSecret
 
-    -- ** Key Environment
-    , KeyEnv    (..)
-    , HasKeyEnv (..)
-
-    -- ** Modifying Material per Request
-    , material
-
-    -- * Handling Errors
-    -- $errors
-
-    , EncryptionError   (..)
-
-    -- ** Prisms
-    , AsEncryptionError (..)
-
-    -- ** Re-exported Types
-    , CryptoError
-    , RSA.Error
+    , master
 
     -- * Request Encryption/Decryption
     -- $requests
 
-    -- ** Metadata Headers
     , encrypt
     , decrypt
     , initiate
@@ -60,19 +83,25 @@ module Network.AWS.S3.Encryption
     , initiateInstructions
     , cleanupInstructions
 
-    -- *** Default Suffix
+    -- *** Default Extension
     , Ext (..)
-    , defaultSuffix
+    , defaultExtension
+
+    -- * Handling Errors
+    -- $errors
+
+    , EncryptionError   (..)
+    , AsEncryptionError (..)
     ) where
 
 import           Control.Lens
 import           Control.Monad.Catch
 import           Control.Monad.Reader
 import           Control.Monad.Trans.AWS                as AWST
-import           Crypto.Error
 import           Crypto.PubKey.RSA.Types                as RSA
 import           Crypto.Random
-import           Network.AWS.Prelude                    hiding (coerce)
+import           Data.ByteString                        (ByteString)
+import           Data.Text                              (Text)
 import           Network.AWS.S3
 import           Network.AWS.S3.Encryption.Decrypt
 import           Network.AWS.S3.Encryption.Encrypt
@@ -80,29 +109,33 @@ import           Network.AWS.S3.Encryption.Envelope
 import           Network.AWS.S3.Encryption.Instructions
 import           Network.AWS.S3.Encryption.Types
 
--- | Set the key material used to encrypt/decrypt a block of actions.
-material :: (MonadReader r m, HasKeyEnv r) => Key -> m a -> m a
-material k = local (envKey .~ k)
+-- | Set (using 'local') the client-side master key used to encrypt/decrypt
+-- a block of actions.
+master :: (MonadReader r m, HasKeyEnv r) => Key -> m a -> m a
+master k = local (envKey .~ k)
 
--- | Initialise the AES256 cipher used for ECB encryption with the
--- specified secret key.
---
--- Throws 'EncryptionError', specifically 'CipherFailure'.
-symmetricKey :: MonadThrow m => ByteString -> m Key
-symmetricKey = fmap (`Symmetric` mempty) . createCipher
+-- | Specify a KMS master key to use.
+kmsKey :: Text -> Key
+kmsKey = KMS
 
--- | Generate a new random secret key. This will need to be stored securely
--- to be able to decrypt any requests that are encrypted with this key.
-newKey :: (MonadThrow m, MonadRandom m) => m Key
-newKey = getRandomBytes aesKeySize >>= symmetricKey
-
--- | Specify the asymmetric key material used for RSA encryption.
+-- | Specify the asymmetric key used for RSA encryption.
 asymmetricKey :: PrivateKey -> Key
 asymmetricKey = (`Asymmetric` mempty) . KeyPair
 
--- | Specify the KMS master key id to use for encryption.
-kmsKey :: Text -> Key
-kmsKey = KMS
+-- | Specify the shared secret to use for symmetric key encryption.
+-- This must be compatible with the AES256 key size, 32 bytes.
+--
+-- Throws 'EncryptionError', specifically 'CipherFailure'.
+--
+-- /See:/ 'newSecret'.
+symmetricKey :: MonadThrow m => ByteString -> m Key
+symmetricKey = fmap (`Symmetric` mempty) . createCipher
+
+-- | Generate a random shared secret that is of the correct length to use with
+-- 'symmetricKey'. This will need to be stored securely to enable decryption
+-- of any requests that are encrypted using this secret.
+newSecret :: (MonadThrow m, MonadRandom m) => m ByteString
+newSecret = getRandomBytes aesKeySize
 
 -- | Encrypt an object, storing the encryption envelope in @x-amz-meta-*@
 -- headers.
@@ -115,8 +148,8 @@ encrypt x = do
     (a, _) <- encrypted x
     send (set location Metadata a)
 
--- | Encrypt an object, storing the encryption envelope in an adjacent instructions
--- file with the same 'ObjectKey' and 'defaultSuffix'.
+-- | Encrypt an object, storing the encryption envelope in an adjacent instruction
+-- file with the same 'ObjectKey' and 'defaultExtension'.
 -- This makes two HTTP requests, storing the instructions first and upon success,
 -- storing the actual object.
 --
@@ -149,7 +182,7 @@ initiate x = do
     return (rs, encryptPart a)
 
 -- | Initiate an encrypted multipart upload, storing the encryption envelope
--- in an adjacent instructions file with the same 'ObjectKey' and 'defaultSuffix'.
+-- in an adjacent instructions file with the same 'ObjectKey' and 'defaultExtension'.
 --
 -- The returned 'UploadPart' @->@ 'Encrypted' 'UploadPart' function is used to encrypt
 -- each part of the object. The same caveats for multipart upload apply, it is
@@ -180,7 +213,7 @@ decrypt x = do
     Decrypted f <- send a
     f Nothing
 
--- | Retrieve an object and its adjacent instructions file. The instructions
+-- | Retrieve an object and its adjacent instruction file. The instruction
 -- are retrieved and parsed first.
 -- Performs two HTTP requests.
 --
@@ -195,7 +228,7 @@ decryptInstructions x = do
     g >>= f . Just
 
 -- | Given a request to execute, such as 'AbortMultipartUpload' or 'DeleteObject',
--- remove the adjacent instructions file, if it exists with the 'defaultSuffix'.
+-- remove the adjacent instruction file, if it exists with the 'defaultExtension'.
 -- Performs two HTTP requests.
 --
 -- Throws 'EncryptionError', 'AWST.Error'.
@@ -208,44 +241,36 @@ cleanupInstructions x = do
     return rs
 
 {- $usage
-Encryption and decryption require the use of a client-side secret (symmetric) or
-RSA private key (asymmetric) if KMS is not used. You should generate this key and
-store it securely - whoever has access to this can decrypt any objects which were
-encrypted with the same key. When generating a symmetric key, you should ensure
-that the key length is compatible with the underlying 'AES256' cipher.
-'newKey' is provided for this reason.
-
-When sending requests that make use of key material - an extension to the underlying
+When sending requests that make use of a master key, an extension to the underlying
 'AWS' environment is required. You can specify this environment as follows:
 
 @
+import Network.AWS
+import Network.AWS.S3
+import Network.AWS.S3.Encryption
+import System.IO
+
 example :: Key -> IO GetObjectResponse
 example k = do
+    -- A standard AWS environment with credentials is created using 'newEnv':
     e <- newEnv Frankfurt Discover
 
-    -- The environment needed for encryption is an extended variant
-    -- of the typical 'AWS' 'Env':
-    runAWS (KeyEnv e k) $ do
-        -- To store an encrypted object, 'encrypt' is used inplace
-        -- of where you would typically use 'AWST.send':
+    -- The environment needed for encryption is then extended using a 'Key':
+    runAWS (KeyEnv e (kmsKey "alias/master-key")) $ do
+        -- To store an encrypted object, 'encrypt' is used inplace of where you would
+        -- typically use 'AWST.send':
         _  <- encrypt (putObject "bucket-name" "object-key" body)
 
-        -- To retrieve a previously encrypted object, 'decrypt' is
-        -- used, again similarly to how you'd use 'AWST.send':
+        -- To retrieve a previously encrypted object, 'decrypt' is used, again similarly to
+        -- how you'd use 'AWST.send':
         rs <- decrypt (getObject "bucket-name" "object-key")
 
-        -- The 'GetObjectResponse' here contains a 'gorsBody' that is decrypted
-        -- during read:
+        -- The 'GetObjectResponse' here contains a 'gorsBody' that is decrypted during read:
         return rs
 @
-
-The stored envelope format is designed to be compatible with the official Java
-AWS SDK, but only a limited set of the possible encryption options are supported.
-Therefore assuming defaults, objects stored with this library should
-be retrievable by any of the other official SDKs, and vice versa.
 -}
 
-{- $material
+{- $master-key
 You master key should be stored and secured by you alone (or KMS). The specific
 key that is used to encrypt an object is required to decrypt the same object.
 If you lose this key, you will not be able to decrypt the related objects.
@@ -253,29 +278,22 @@ If you lose this key, you will not be able to decrypt the related objects.
 
 {- $errors
 Errors are thrown by the library using 'MonadThrow' and will consist of one of
-the branches from 'EncryptionError' for anything crypto related, or an 'AWST.Error'
-for anything related to the underlying 'AWS' calls.
+the branches from 'EncryptionError' for anything crypto related, or a disparate
+'AWST.Error' anything related to the underlying 'AWS' service calls.
 
-You can catch errors and sub-errors via "Control.Exception.Lens.trying" etc,
-and the appropriate 'AsEncryptionError' "Control.Lens.Prism":
+You can catch errors and sub-errors via 'trying' etc. from "Control.Exception.Lens",
+and the appropriate 'AsEncryptionError' 'Prism':
 
 @
-trying '_EncryptionError' (encrypt (putObject "bkt" "key") :: Either 'EncryptionError' PutObjectResponse
+trying '_EncryptionError' (encrypt (putObject "bkt" "key")) :: Either 'EncryptionError' PutObjectResponse
 @
 -}
 
 {- $requests
 Only a small number of S3 operations actually utilise encryption/decryption
 behaviour, namely 'PutObject', 'GetObject', and the related multipart upload
-operations.
-
-When performing encryption, an initialisation vector ('IV') and content encryption key
-('CEK') are created per object. The CEK is then encrypted using the key material provided
-by the available 'KeyEnv'. The CEK + IV is used to encrypt the content body using
-'AES256' in 'ECB' mode and the encrypted CEK + IV are stored with the object
-in S3. For decryption, the metadata envelope is parsed and then the CEK is
-decrypted using the key material from the 'KeyEnv'. The decrypted CEK is then
-used to decrypt the actual content body.
+operations. The following functions store the encryption envelope in object
+metadata (headers).
 -}
 
 {- $instructions
@@ -284,16 +302,15 @@ object is provided for the case when metadata headers are reserved for other
 data. This method removes the metadata overhead at the expense of an additional
 HTTP request to perform encryption/decryption.
 The provided @*Instruction@ functions make the convenient assumption that
-the 'defaultSuffix' is desired. If you wish to override the suffix\/extension,
+the 'defaultExtension' is desired. If you wish to override the suffix\/extension,
 you can simply call the underlying plumbing to modify the
 'PutInstructions' or 'GetInstructions' suffix before sending.
 
-An example of encryption with a non-default suffix:
+An example of encryption with a non-default instruction extension:
 
 @
 (a, b) <- 'encrypted' (x :: 'PutObject')
-_      <- 'AWST.send' (b & 'piSuffix' .~ ".envelope" -- Store the instructions.
+_      <- 'AWST.send' (b & 'piExtension' .~ ".envelope") -- Store the custom instruction file.
 'AWST.send' a -- Store the actual encrypted object.
 @
-
 -}

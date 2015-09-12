@@ -44,16 +44,16 @@ data PutInstructions = PutInstructions
 
 putInstructions :: AddInstructions a => a -> Envelope -> PutInstructions
 putInstructions (add' -> (b, k)) =
-    PutInstructions defaultSuffix . putObject b k . toBody
+    PutInstructions defaultExtension . putObject b k . toBody
 
-piSuffix :: Lens' PutInstructions Ext
-piSuffix = lens _piExt (\s a -> s { _piExt = a })
+piExtension :: Lens' PutInstructions Ext
+piExtension = lens _piExt (\s a -> s { _piExt = a })
 
 instance AWSRequest PutInstructions where
     type Rs PutInstructions = PutObjectResponse
 
     request x = coerce . request $
-        _piPut x & poKey %~ appendSuffix (_piExt x)
+        _piPut x & poKey %~ appendExtension (_piExt x)
 
     response s l _ = response s l (Proxy :: Proxy PutObject)
 
@@ -63,16 +63,16 @@ data GetInstructions = GetInstructions
     } deriving (Show)
 
 getInstructions :: AddInstructions a => a -> GetInstructions
-getInstructions = GetInstructions defaultSuffix . uncurry getObject . add'
+getInstructions = GetInstructions defaultExtension . uncurry getObject . add'
 
-giSuffix :: Lens' GetInstructions Ext
-giSuffix = lens _giExt (\s a -> s { _giExt = a })
+giExtension :: Lens' GetInstructions Ext
+giExtension = lens _giExt (\s a -> s { _giExt = a })
 
 instance AWSRequest GetInstructions where
     type Rs GetInstructions = Instructions
 
     request x = coerce . request $
-        _giGet x & goKey %~ appendSuffix (_giExt x)
+        _giGet x & goKey %~ appendExtension (_giExt x)
 
     response = receiveJSON $ \_ _ o ->
          return $ Instructions $ do
@@ -96,15 +96,15 @@ data DeleteInstructions = DeleteInstructions
 
 deleteInstructions :: RemoveInstructions a => a -> DeleteInstructions
 deleteInstructions =
-    DeleteInstructions defaultSuffix . uncurry deleteObject . remove'
+    DeleteInstructions defaultExtension . uncurry deleteObject . remove'
 
-diSuffix :: Lens' DeleteInstructions Ext
-diSuffix = lens _diExt (\s a -> s { _diExt = a })
+diExtension :: Lens' DeleteInstructions Ext
+diExtension = lens _diExt (\s a -> s { _diExt = a })
 
 instance AWSRequest DeleteInstructions where
     type Rs DeleteInstructions = DeleteObjectResponse
 
     request x = coerce . request $
-        _diDelete x & doKey %~ appendSuffix (_diExt x)
+        _diDelete x & doKey %~ appendExtension (_diExt x)
 
     response s l _ = response s l (Proxy :: Proxy DeleteObject)

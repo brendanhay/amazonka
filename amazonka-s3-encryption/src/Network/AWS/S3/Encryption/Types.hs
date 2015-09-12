@@ -82,14 +82,16 @@ instance ToByteString WrappingAlgorithm where
 data Location = Metadata | Discard
     deriving (Eq)
 
+-- | An instructions file extension.
 newtype Ext = Ext Text
     deriving (Eq, Show, IsString)
 
-defaultSuffix :: Ext
-defaultSuffix = ".instruction"
+-- | Defaults to @.instruction@
+defaultExtension :: Ext
+defaultExtension = ".instruction"
 
-appendSuffix :: Ext -> ObjectKey -> ObjectKey
-appendSuffix (Ext s) o@(ObjectKey k)
+appendExtension :: Ext -> ObjectKey -> ObjectKey
+appendExtension (Ext s) o@(ObjectKey k)
     | s `Text.isSuffixOf` k = o
     | otherwise             = ObjectKey (k <> s)
 
@@ -103,17 +105,18 @@ instance FromText Material where
     parser = parser >>=
         either fail pure . eitherDecode . LBS.fromStrict
 
--- | Key material used to encrypt/decrypt request envelopes.
+-- | Master key used for encryption and decryption.
 data Key
-    = Symmetric  AES256  Material -- Material is not really used currently?
+    = Symmetric  AES256  Material
     | Asymmetric KeyPair Material
-    | KMS        Text -- ^ master key id
+    | KMS        Text
 
--- | An 'AWS' environment composed with the key material used to encrypt/decrypt
--- request envelopes.
+-- | An 'AWS' environment composed with the master key used to encrypt/decrypt
+-- requests. This environment is used in place of 'AWST.Env' when
+-- running AWS actions.
 data KeyEnv = KeyEnv
     { _envExtended :: !Env -- ^ The underlying 'AWS' environment.
-    , _envKey      :: !Key -- ^ The 'Key' material used for encryption.
+    , _envKey      :: !Key -- ^ The master 'Key' used for encryption.
     }
 
 instance HasEnv KeyEnv where

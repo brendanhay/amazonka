@@ -38,7 +38,7 @@
 -- For decryption:
 --
 -- The encrypted object is downloaded from Amazon S3 along with any metadata.
--- If KMS was used to encrypt the data then the master key id is take from the
+-- If KMS was used to encrypt the data then the master key id is taken from the
 -- metadata material description, otherwise the client-side master key in the
 -- current environment is used to decrypt the data key, which in turn is used
 -- to decrypt the object data.

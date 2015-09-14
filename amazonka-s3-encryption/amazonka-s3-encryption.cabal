@@ -67,7 +67,7 @@ library
         , bytestring           >= 0.9
         , case-insensitive     >= 1.2
         , conduit-combinators  >= 0.3
-        , cryptonite           >= 0.4
+        , cryptonite           >= 0.7
         , exceptions           >= 0.6
         , lens                 >= 4.4
         , memory               >= 0.6

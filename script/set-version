@@ -20,6 +20,7 @@ specs=(
  examples/amazonka-examples.cabal
  gen/amazonka-gen.cabal
  test/amazonka-test.cabal
+ amazonka-s3-encryption/amazonka-s3-encryption.cabal
 )
 
 echo "Bumping version to $pvp and dependencies to == $semantic ..."

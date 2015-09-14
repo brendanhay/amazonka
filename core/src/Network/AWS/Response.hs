@@ -28,7 +28,7 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Log
 import           Network.AWS.Data.XML
 import           Network.AWS.Types
-import           Network.HTTP.Client          hiding (Proxy, Request, Response)
+import           Network.HTTP.Conduit         hiding (Proxy, Request, Response)
 import           Network.HTTP.Types
 import           Text.XML                     (Node)
 
@@ -110,7 +110,7 @@ receive :: MonadResource m
         -> Proxy a
         -> ClientResponse
         -> m (Response a)
-receive f  Service{..} _ rs
+receive f Service{..} _ rs
     | not (_svcCheck s) = sinkLBS x >>= serviceErr
     | otherwise          = do
         p <- f (fromEnum s) h x

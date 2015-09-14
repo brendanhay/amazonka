@@ -52,6 +52,7 @@ packages:
   - amazonka-route53
   - amazonka-route53-domains
   - amazonka-s3
+  - amazonka-s3-encryption
   - amazonka-sdb
   - amazonka-ses
   - amazonka-sns

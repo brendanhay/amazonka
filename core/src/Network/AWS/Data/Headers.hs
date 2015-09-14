@@ -31,6 +31,7 @@ import           Prelude
 
 infixl 7 .#, .#?
 
+-- FIXME: This whole toText/fromText shit is just stupid.
 (.#) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
 hs .# k = hs .#? k >>= note
   where

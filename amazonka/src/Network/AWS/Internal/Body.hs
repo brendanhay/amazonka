@@ -19,8 +19,6 @@ import qualified Data.ByteString              as BS
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Network.AWS.Prelude
-import qualified Network.HTTP.Client          as Client
-import           Network.HTTP.Conduit
 import           System.IO
 
 import           Prelude
@@ -42,9 +40,10 @@ sinkBody (RsBody s) sink = hoist liftResourceT s $$+- sink
 --
 -- /See:/ 'ToHashedBody'.
 hashedFile :: MonadIO m => FilePath -> m HashedBody
-hashedFile f = liftIO $ HashedBody
+hashedFile f = liftIO $ HashedStream
     <$> runResourceT (Conduit.sourceFile f $$ sinkSHA256)
-    <*> Client.streamFile f
+    <*> getFileSize f
+    <*> pure (Conduit.sourceFile f)
 
 -- | Construct a 'HashedBody' from a source, manually specifying the
 -- 'SHA256' hash and file size.
@@ -54,7 +53,7 @@ hashedBody :: Digest SHA256
            -> Integer
            -> Source (ResourceT IO) ByteString
            -> HashedBody
-hashedBody h n = HashedBody h . requestBodySource (fromIntegral n)
+hashedBody h n = HashedStream h n
 
 -- | Something something.
 --
@@ -87,7 +86,7 @@ unsafeChunkedBody :: ChunkSize
                   -> Integer
                   -> Source (ResourceT IO) ByteString
                   -> RqBody
-unsafeChunkedBody c n s = Chunked (ChunkedBody requestBodySourceChunked s c n)
+unsafeChunkedBody c n = Chunked . ChunkedBody c n
 
 -- Uses hGet with a specific buffer size, instead of hGetSome.
 sourceFileChunks :: MonadResource m

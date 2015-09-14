@@ -54,9 +54,9 @@ import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.XML
 import           Network.AWS.Types
-import qualified Network.HTTP.Client.Internal as Client
-import           Network.HTTP.Types           (StdMethod (..))
-import qualified Network.HTTP.Types           as HTTP
+import qualified Network.HTTP.Conduit        as Client
+import           Network.HTTP.Types          (StdMethod (..))
+import qualified Network.HTTP.Types          as HTTP
 
 type ToRequest a = (ToPath a, ToQuery a, ToHeaders a)
 

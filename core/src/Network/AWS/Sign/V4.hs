@@ -71,4 +71,4 @@ sign rq a r ts =
 hashed :: HashedBody -> Algorithm a
 hashed x rq a r ts =
     let (meta, auth) = base (Tag (sha256Base16 x)) rq a r ts
-     in signRequest meta (_hashedBody x) auth
+     in signRequest meta (toRequestBody (Hashed x)) auth

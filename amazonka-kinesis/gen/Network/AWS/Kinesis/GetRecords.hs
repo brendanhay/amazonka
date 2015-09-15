@@ -40,13 +40,11 @@
 -- record with the sequence number or other attribute that marks it as the
 -- last record to process.
 --
--- Each data record can be up to 50 KB in size, and each shard can read up
+-- Each data record can be up to 1 MB in size, and each shard can read up
 -- to 2 MB per second. You can ensure that your calls don\'t exceed the
 -- maximum supported size or throughput by using the 'Limit' parameter to
 -- specify the maximum number of records that GetRecords can return.
--- Consider your average record size when determining this limit. For
--- example, if your average record size is 40 KB, you can limit the data
--- returned to about 1 MB per call by specifying 25 as the limit.
+-- Consider your average record size when determining this limit.
 --
 -- The size of the data returned by GetRecords will vary depending on the
 -- utilization of the shard. The maximum size of data that GetRecords can
@@ -62,10 +60,19 @@
 --
 -- To detect whether the application is falling behind in processing, you
 -- can use the 'MillisBehindLatest' response attribute. You can also
--- monitor the amount of data in a stream using the CloudWatch metrics. For
--- more information, see
--- <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring_with_cloudwatch.html Monitoring Amazon Kinesis with Amazon CloudWatch>
--- in the /Amazon Kinesis Developer Guide/.
+-- monitor the stream using CloudWatch metrics (see
+-- <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring.html Monitoring Amazon Kinesis>
+-- in the /Amazon Kinesis Developer Guide/).
+--
+-- Each Amazon Kinesis record includes a value,
+-- 'ApproximateArrivalTimestamp', that is set when an Amazon Kinesis stream
+-- successfully receives and stores a record. This is commonly referred to
+-- as a server-side timestamp, which is different than a client-side
+-- timestamp, where the timestamp is set when a data producer creates or
+-- sends the record to a stream. The timestamp has millisecond precision.
+-- There are no guarantees about the timestamp accuracy, or that the
+-- timestamp is always increasing. For example, records in a shard or
+-- across a stream might have timestamps that are out of order.
 --
 -- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html AWS API Reference> for GetRecords.
 module Network.AWS.Kinesis.GetRecords

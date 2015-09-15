@@ -21,7 +21,7 @@
 -- Deletes the specified AWS account alias. For information about using an
 -- AWS account alias, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountAlias.html AWS API Reference> for DeleteAccountAlias.
 module Network.AWS.IAM.DeleteAccountAlias

@@ -160,7 +160,7 @@ cdsfrdsDataSourceId = lens _cdsfrdsDataSourceId (\ s a -> s{_cdsfrdsDataSourceId
 --     requirement of a 'Datasource'.
 --
 --     Sample -
---     ' \"{\\\"randomSeed\\\":\\\"some-random-seed\\\", \\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'
+--     ' \"{\\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'
 --
 cdsfrdsRDSData :: Lens' CreateDataSourceFromRDS RDSDataSpec
 cdsfrdsRDSData = lens _cdsfrdsRDSData (\ s a -> s{_cdsfrdsRDSData = a});

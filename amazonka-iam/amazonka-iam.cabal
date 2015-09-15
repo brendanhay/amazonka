@@ -68,9 +68,6 @@ description:
     -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html IAM Best Practices>.
         This topic presents a list of suggestions for using the IAM service
         to help secure your AWS resources.
-    -   <http://docs.aws.amazon.com/STS/latest/UsingSTS/ AWS Security Token Service>.
-        This guide describes how to create and use temporary security
-        credentials.
     -   <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests>.
         This set of topics walk you through the process of signing a request
         using an access key ID and secret access key.
@@ -149,6 +146,8 @@ library
         , Network.AWS.IAM.GetAccountAuthorizationDetails
         , Network.AWS.IAM.GetAccountPasswordPolicy
         , Network.AWS.IAM.GetAccountSummary
+        , Network.AWS.IAM.GetContextKeysForCustomPolicy
+        , Network.AWS.IAM.GetContextKeysForPrincipalPolicy
         , Network.AWS.IAM.GetCredentialReport
         , Network.AWS.IAM.GetGroup
         , Network.AWS.IAM.GetGroupPolicy
@@ -196,6 +195,8 @@ library
         , Network.AWS.IAM.RemoveUserFromGroup
         , Network.AWS.IAM.ResyncMFADevice
         , Network.AWS.IAM.SetDefaultPolicyVersion
+        , Network.AWS.IAM.SimulateCustomPolicy
+        , Network.AWS.IAM.SimulatePrincipalPolicy
         , Network.AWS.IAM.Types
         , Network.AWS.IAM.UpdateAccessKey
         , Network.AWS.IAM.UpdateAccountPasswordPolicy

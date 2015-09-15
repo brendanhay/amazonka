@@ -78,9 +78,10 @@ getGroup pGroupName_ =
     , _ggGroupName = pGroupName_
     }
 
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the 'Marker' element in the response you received to inform
+-- the next call about where to start.
 ggMarker :: Lens' GetGroup (Maybe Text)
 ggMarker = lens _ggMarker (\ s a -> s{_ggMarker = a});
 
@@ -89,7 +90,10 @@ ggMarker = lens _ggMarker (\ s a -> s{_ggMarker = a});
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
--- 100.
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. If this is the case, the 'IsTruncated' response
+-- element returns 'true' and 'Marker' contains a value to include in the
+-- subsequent call that tells the service where to continue from.
 ggMaxItems :: Lens' GetGroup (Maybe Natural)
 ggMaxItems = lens _ggMaxItems (\ s a -> s{_ggMaxItems = a}) . mapping _Nat;
 
@@ -176,7 +180,11 @@ ggrsMarker = lens _ggrsMarker (\ s a -> s{_ggrsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items. Note that
+-- IAM might return fewer than the 'MaxItems' number of results even when
+-- there are more results available. We recommend that you check
+-- 'IsTruncated' after every call to ensure that you receive all of your
+-- results.
 ggrsIsTruncated :: Lens' GetGroupResponse (Maybe Bool)
 ggrsIsTruncated = lens _ggrsIsTruncated (\ s a -> s{_ggrsIsTruncated = a});
 

@@ -23,9 +23,8 @@
 -- After using the 'DeleteMLModel' operation, you can use the GetMLModel
 -- operation to verify that the status of the 'MLModel' changed to DELETED.
 --
--- Caution
---
--- The result of the 'DeleteMLModel' operation is irreversible.
+-- __Caution:__ The result of the 'DeleteMLModel' operation is
+-- irreversible.
 --
 -- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteMLModel.html AWS API Reference> for DeleteMLModel.
 module Network.AWS.MachineLearning.DeleteMLModel

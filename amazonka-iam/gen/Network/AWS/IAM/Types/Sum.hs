@@ -44,6 +44,58 @@ instance ToByteString AssignmentStatusType
 instance ToQuery      AssignmentStatusType
 instance ToHeader     AssignmentStatusType
 
+data ContextKeyTypeEnum
+    = Binary
+    | BinaryList
+    | Boolean
+    | BooleanList
+    | Date
+    | DateList
+    | IP
+    | IPList
+    | Numeric
+    | NumericList
+    | String
+    | StringList
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText ContextKeyTypeEnum where
+    parser = takeLowerText >>= \case
+        "binary" -> pure Binary
+        "binarylist" -> pure BinaryList
+        "boolean" -> pure Boolean
+        "booleanlist" -> pure BooleanList
+        "date" -> pure Date
+        "datelist" -> pure DateList
+        "ip" -> pure IP
+        "iplist" -> pure IPList
+        "numeric" -> pure Numeric
+        "numericlist" -> pure NumericList
+        "string" -> pure String
+        "stringlist" -> pure StringList
+        e -> fromTextError $ "Failure parsing ContextKeyTypeEnum from value: '" <> e
+           <> "'. Accepted values: binary, binaryList, boolean, booleanList, date, dateList, ip, ipList, numeric, numericList, string, stringList"
+
+instance ToText ContextKeyTypeEnum where
+    toText = \case
+        Binary -> "binary"
+        BinaryList -> "binaryList"
+        Boolean -> "boolean"
+        BooleanList -> "booleanList"
+        Date -> "date"
+        DateList -> "dateList"
+        IP -> "ip"
+        IPList -> "ipList"
+        Numeric -> "numeric"
+        NumericList -> "numericList"
+        String -> "string"
+        StringList -> "stringList"
+
+instance Hashable     ContextKeyTypeEnum
+instance ToByteString ContextKeyTypeEnum
+instance ToQuery      ContextKeyTypeEnum
+instance ToHeader     ContextKeyTypeEnum
+
 data EncodingType
     = Pem
     | SSH
@@ -67,35 +119,63 @@ instance ToQuery      EncodingType
 instance ToHeader     EncodingType
 
 data EntityType
-    = AWSManagedPolicy
-    | Group
-    | LocalManagedPolicy
-    | Role
-    | User
+    = ETAWSManagedPolicy
+    | ETGroup
+    | ETLocalManagedPolicy
+    | ETRole
+    | ETUser
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EntityType where
     parser = takeLowerText >>= \case
-        "awsmanagedpolicy" -> pure AWSManagedPolicy
-        "group" -> pure Group
-        "localmanagedpolicy" -> pure LocalManagedPolicy
-        "role" -> pure Role
-        "user" -> pure User
+        "awsmanagedpolicy" -> pure ETAWSManagedPolicy
+        "group" -> pure ETGroup
+        "localmanagedpolicy" -> pure ETLocalManagedPolicy
+        "role" -> pure ETRole
+        "user" -> pure ETUser
         e -> fromTextError $ "Failure parsing EntityType from value: '" <> e
            <> "'. Accepted values: AWSManagedPolicy, Group, LocalManagedPolicy, Role, User"
 
 instance ToText EntityType where
     toText = \case
-        AWSManagedPolicy -> "AWSManagedPolicy"
-        Group -> "Group"
-        LocalManagedPolicy -> "LocalManagedPolicy"
-        Role -> "Role"
-        User -> "User"
+        ETAWSManagedPolicy -> "AWSManagedPolicy"
+        ETGroup -> "Group"
+        ETLocalManagedPolicy -> "LocalManagedPolicy"
+        ETRole -> "Role"
+        ETUser -> "User"
 
 instance Hashable     EntityType
 instance ToByteString EntityType
 instance ToQuery      EntityType
 instance ToHeader     EntityType
+
+data PolicyEvaluationDecisionType
+    = Allowed
+    | ExplicitDeny
+    | ImplicitDeny
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText PolicyEvaluationDecisionType where
+    parser = takeLowerText >>= \case
+        "allowed" -> pure Allowed
+        "explicitdeny" -> pure ExplicitDeny
+        "implicitdeny" -> pure ImplicitDeny
+        e -> fromTextError $ "Failure parsing PolicyEvaluationDecisionType from value: '" <> e
+           <> "'. Accepted values: allowed, explicitDeny, implicitDeny"
+
+instance ToText PolicyEvaluationDecisionType where
+    toText = \case
+        Allowed -> "allowed"
+        ExplicitDeny -> "explicitDeny"
+        ImplicitDeny -> "implicitDeny"
+
+instance Hashable     PolicyEvaluationDecisionType
+instance ToByteString PolicyEvaluationDecisionType
+instance ToQuery      PolicyEvaluationDecisionType
+instance ToHeader     PolicyEvaluationDecisionType
+
+instance FromXML PolicyEvaluationDecisionType where
+    parseXML = parseXMLText "PolicyEvaluationDecisionType"
 
 data PolicyScopeType
     = AWS
@@ -121,6 +201,43 @@ instance Hashable     PolicyScopeType
 instance ToByteString PolicyScopeType
 instance ToQuery      PolicyScopeType
 instance ToHeader     PolicyScopeType
+
+data PolicySourceType
+    = AWSManaged
+    | Group
+    | None
+    | Role
+    | User
+    | UserManaged
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText PolicySourceType where
+    parser = takeLowerText >>= \case
+        "aws-managed" -> pure AWSManaged
+        "group" -> pure Group
+        "none" -> pure None
+        "role" -> pure Role
+        "user" -> pure User
+        "user-managed" -> pure UserManaged
+        e -> fromTextError $ "Failure parsing PolicySourceType from value: '" <> e
+           <> "'. Accepted values: aws-managed, group, none, role, user, user-managed"
+
+instance ToText PolicySourceType where
+    toText = \case
+        AWSManaged -> "aws-managed"
+        Group -> "group"
+        None -> "none"
+        Role -> "role"
+        User -> "user"
+        UserManaged -> "user-managed"
+
+instance Hashable     PolicySourceType
+instance ToByteString PolicySourceType
+instance ToQuery      PolicySourceType
+instance ToHeader     PolicySourceType
+
+instance FromXML PolicySourceType where
+    parseXML = parseXMLText "PolicySourceType"
 
 data ReportFormatType =
     TextCSV

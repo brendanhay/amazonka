@@ -27,7 +27,7 @@
 --
 -- For information about versions for managed policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicyVersion.html AWS API Reference> for DeletePolicyVersion.
 module Network.AWS.IAM.DeletePolicyVersion
@@ -81,7 +81,7 @@ dpvPolicyARN = lens _dpvPolicyARN (\ s a -> s{_dpvPolicyARN = a});
 --
 -- For more information about managed policy versions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 dpvVersionId :: Lens' DeletePolicyVersion Text
 dpvVersionId = lens _dpvVersionId (\ s a -> s{_dpvVersionId = a});
 

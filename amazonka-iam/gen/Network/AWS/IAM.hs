@@ -66,9 +66,6 @@
 -- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html IAM Best Practices>.
 --     This topic presents a list of suggestions for using the IAM service
 --     to help secure your AWS resources.
--- -   <http://docs.aws.amazon.com/STS/latest/UsingSTS/ AWS Security Token Service>.
---     This guide describes how to create and use temporary security
---     credentials.
 -- -   <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests>.
 --     This set of topics walk you through the process of signing a request
 --     using an access key ID and secret access key.
@@ -139,6 +136,9 @@ module Network.AWS.IAM
     -- ** KeyPairMismatchException
     , _KeyPairMismatchException
 
+    -- ** PolicyEvaluationException
+    , _PolicyEvaluationException
+
     -- ** PasswordPolicyViolationException
     , _PasswordPolicyViolationException
 
@@ -156,6 +156,9 @@ module Network.AWS.IAM
 
     -- * Operations
     -- $operations
+
+    -- ** GetContextKeysForPrincipalPolicy
+    , module Network.AWS.IAM.GetContextKeysForPrincipalPolicy
 
     -- ** ListPolicies (Paginated)
     , module Network.AWS.IAM.ListPolicies
@@ -222,6 +225,9 @@ module Network.AWS.IAM
 
     -- ** UploadSSHPublicKey
     , module Network.AWS.IAM.UploadSSHPublicKey
+
+    -- ** SimulateCustomPolicy
+    , module Network.AWS.IAM.SimulateCustomPolicy
 
     -- ** DeleteRole
     , module Network.AWS.IAM.DeleteRole
@@ -337,6 +343,9 @@ module Network.AWS.IAM
     -- ** AddUserToGroup
     , module Network.AWS.IAM.AddUserToGroup
 
+    -- ** SimulatePrincipalPolicy
+    , module Network.AWS.IAM.SimulatePrincipalPolicy
+
     -- ** GetPolicyVersion
     , module Network.AWS.IAM.GetPolicyVersion
 
@@ -387,6 +396,9 @@ module Network.AWS.IAM
 
     -- ** PutRolePolicy
     , module Network.AWS.IAM.PutRolePolicy
+
+    -- ** GetContextKeysForCustomPolicy
+    , module Network.AWS.IAM.GetContextKeysForCustomPolicy
 
     -- ** UploadSigningCertificate
     , module Network.AWS.IAM.UploadSigningCertificate
@@ -489,14 +501,23 @@ module Network.AWS.IAM
     -- ** AssignmentStatusType
     , AssignmentStatusType (..)
 
+    -- ** ContextKeyTypeEnum
+    , ContextKeyTypeEnum (..)
+
     -- ** EncodingType
     , EncodingType (..)
 
     -- ** EntityType
     , EntityType (..)
 
+    -- ** PolicyEvaluationDecisionType
+    , PolicyEvaluationDecisionType (..)
+
     -- ** PolicyScopeType
     , PolicyScopeType (..)
+
+    -- ** PolicySourceType
+    , PolicySourceType (..)
 
     -- ** ReportFormatType
     , ReportFormatType (..)
@@ -539,6 +560,27 @@ module Network.AWS.IAM
     , attachedPolicy
     , apPolicyName
     , apPolicyARN
+
+    -- ** ContextEntry
+    , ContextEntry
+    , contextEntry
+    , ceContextKeyValues
+    , ceContextKeyName
+    , ceContextKeyType
+
+    -- ** EvaluationResult
+    , EvaluationResult
+    , evaluationResult
+    , erMatchedStatements
+    , erMissingContextValues
+    , erEvalActionName
+    , erEvalResourceName
+    , erEvalDecision
+
+    -- ** GetContextKeysForPolicyResponse
+    , GetContextKeysForPolicyResponse
+    , getContextKeysForPolicyResponse
+    , gckfpContextKeyNames
 
     -- ** Group
     , Group
@@ -661,6 +703,12 @@ module Network.AWS.IAM
     , pvDocument
     , pvIsDefaultVersion
 
+    -- ** Position
+    , Position
+    , position
+    , pLine
+    , pColumn
+
     -- ** Role
     , Role
     , role
@@ -734,6 +782,21 @@ module Network.AWS.IAM
     , scCertificateId
     , scCertificateBody
     , scStatus
+
+    -- ** SimulatePolicyResponse
+    , SimulatePolicyResponse
+    , simulatePolicyResponse
+    , spEvaluationResults
+    , spMarker
+    , spIsTruncated
+
+    -- ** Statement
+    , Statement
+    , statement
+    , sSourcePolicyType
+    , sSourcePolicyId
+    , sEndPosition
+    , sStartPosition
 
     -- ** User
     , User
@@ -815,6 +878,8 @@ import           Network.AWS.IAM.GetAccessKeyLastUsed
 import           Network.AWS.IAM.GetAccountAuthorizationDetails
 import           Network.AWS.IAM.GetAccountPasswordPolicy
 import           Network.AWS.IAM.GetAccountSummary
+import           Network.AWS.IAM.GetContextKeysForCustomPolicy
+import           Network.AWS.IAM.GetContextKeysForPrincipalPolicy
 import           Network.AWS.IAM.GetCredentialReport
 import           Network.AWS.IAM.GetGroup
 import           Network.AWS.IAM.GetGroupPolicy
@@ -862,6 +927,8 @@ import           Network.AWS.IAM.RemoveRoleFromInstanceProfile
 import           Network.AWS.IAM.RemoveUserFromGroup
 import           Network.AWS.IAM.ResyncMFADevice
 import           Network.AWS.IAM.SetDefaultPolicyVersion
+import           Network.AWS.IAM.SimulateCustomPolicy
+import           Network.AWS.IAM.SimulatePrincipalPolicy
 import           Network.AWS.IAM.Types
 import           Network.AWS.IAM.UpdateAccessKey
 import           Network.AWS.IAM.UpdateAccountPasswordPolicy

@@ -30,7 +30,7 @@
 -- policy in a role, use PutRolePolicy. For more information about
 -- policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html AWS API Reference> for AttachRolePolicy.
 module Network.AWS.IAM.AttachRolePolicy

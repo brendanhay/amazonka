@@ -25,7 +25,7 @@
 -- For information about the number of server certificates you can upload,
 -- see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- Because the body of the public key certificate, private key, and the
 -- certificate chain can be large, you should use POST rather than GET when
@@ -35,7 +35,7 @@
 -- in the /AWS General Reference/. For general information about using the
 -- Query API with IAM, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html AWS API Reference> for UploadServerCertificate.
 module Network.AWS.IAM.UploadServerCertificate

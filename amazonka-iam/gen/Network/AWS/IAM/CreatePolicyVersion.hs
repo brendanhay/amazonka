@@ -31,7 +31,7 @@
 --
 -- For more information about managed policy versions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicyVersion.html AWS API Reference> for CreatePolicyVersion.
 module Network.AWS.IAM.CreatePolicyVersion
@@ -93,7 +93,7 @@ createPolicyVersion pPolicyARN_ pPolicyDocument_ =
 --
 -- For more information about managed policy versions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 cpvSetAsDefault :: Lens' CreatePolicyVersion (Maybe Bool)
 cpvSetAsDefault = lens _cpvSetAsDefault (\ s a -> s{_cpvSetAsDefault = a});
 

@@ -140,7 +140,7 @@ cdsfsDataSourceId = lens _cdsfsDataSourceId (\ s a -> s{_cdsfsDataSourceId = a})
 --     requirement of a 'Datasource'.
 --
 --     Sample -
---     ' \"{\\\"randomSeed\\\":\\\"some-random-seed\\\", \\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'
+--     ' \"{\\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'
 --
 cdsfsDataSpec :: Lens' CreateDataSourceFromS3 S3DataSpec
 cdsfsDataSpec = lens _cdsfsDataSpec (\ s a -> s{_cdsfsDataSpec = a});

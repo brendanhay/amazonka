@@ -19,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Generates a prediction for the observation using the specified
--- 'MLModel'.
+-- 'ML Model'.
 --
 -- Note
 --
--- Not all response parameters will be populated because this is dependent
--- on the type of requested model.
+-- Not all response parameters will be populated. Whether a response
+-- parameter is populated depends on the type of model requested.
 --
 -- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_Predict.html AWS API Reference> for Predict.
 module Network.AWS.MachineLearning.Predict

@@ -95,6 +95,11 @@ appendExtension (Ext s) o@(ObjectKey k)
     | s `Text.isSuffixOf` k = o
     | otherwise             = ObjectKey (k <> s)
 
+-- | A key material description. This is attached in plaintext to the metadata,
+-- and will be logged using CloudTrail. For KMS decryption this must match
+-- exactly the description that was used during encryption and any supplemental
+-- material description is merged with the description stored on the object during
+-- decryption.
 newtype Description = Description { fromDescription :: HashMap Text Text }
     deriving (Eq, Show, Monoid, FromJSON, ToJSON)
 
@@ -110,6 +115,22 @@ data Key
     | Asymmetric KeyPair Description
     | KMS        Text    Description
 
+-- | Modify the material description of a key.
+--
+-- /See:/ 'Description'.
+description :: Lens' Key Description
+description = lens f (flip g)
+  where
+    f = \case
+        Symmetric  _ a -> a
+        Asymmetric _ a -> a
+        KMS        _ a -> a
+
+    g a = \case
+        Symmetric  c _ -> Symmetric  c a
+        Asymmetric k _ -> Asymmetric k a
+        KMS        k _ -> KMS        k a
+
 -- | An 'AWS' environment composed with the master key used to encrypt/decrypt
 -- requests. This environment is used in place of 'AWST.Env' when
 -- running AWS actions.
@@ -122,11 +143,11 @@ instance HasEnv KeyEnv where
     environment = lens _envExtended (\s a -> s { _envExtended = a })
 
 class HasKeyEnv a where
-    keys :: Lens' a KeyEnv
+    keyed :: Lens' a KeyEnv
 
     -- | Key material used to encrypt/decrypt request envelopes.
     envKey :: Lens' a Key
-    envKey = keys . lens _envKey (\s a -> s { _envKey = a })
+    envKey = keyed . lens _envKey (\s a -> s { _envKey = a })
 
 instance HasKeyEnv KeyEnv where
-    keys = id
+    keyed = id

@@ -67,6 +67,7 @@ module Network.AWS.S3.Encryption
     , newSecret
 
     , master
+    , materials
 
     -- * Request Encryption/Decryption
     -- $requests
@@ -114,23 +115,31 @@ import           Network.AWS.S3.Encryption.Types
 master :: (MonadReader r m, HasKeyEnv r) => Key -> m a -> m a
 master k = local (envKey .~ k)
 
--- | Specify a KMS master key to use, and any additional (possibly empty)
--- material context to
-kmsKey :: Text -> Description -> Key
-kmsKey k = KMS k
+-- | Set (using 'local') a different material description used to encrypt/decrypt
+-- a block of actions.
+materials :: (MonadReader r m, HasKeyEnv r) => Description -> m a -> m a
+materials d = local (envKey . description .~ d)
+
+-- | Specify a KMS master key to use, with an initially empty material description.
+--
+-- /See:/ 'description', 'materials'.
+kmsKey :: Text -> Key
+kmsKey k = KMS k mempty
 
 -- | Specify the asymmetric key used for RSA encryption.
-asymmetricKey :: PrivateKey -> Description -> Key
-asymmetricKey k = Asymmetric (KeyPair k)
+--
+-- /See:/ 'description', 'materials'.
+asymmetricKey :: PrivateKey -> Key
+asymmetricKey k = Asymmetric (KeyPair k) mempty
 
 -- | Specify the shared secret to use for symmetric key encryption.
 -- This must be compatible with the AES256 key size, 32 bytes.
 --
 -- Throws 'EncryptionError', specifically 'CipherFailure'.
 --
--- /See:/ 'newSecret'.
-symmetricKey :: MonadThrow m => ByteString -> Description -> m Key
-symmetricKey x d = (`Symmetric` d) <$> createCipher x
+-- /See:/ 'newSecret', 'description', 'materials'.
+symmetricKey :: MonadThrow m => ByteString -> m Key
+symmetricKey = fmap (`Symmetric` mempty) . createCipher
 
 -- | Generate a random shared secret that is of the correct length to use with
 -- 'symmetricKey'. This will need to be stored securely to enable decryption

@@ -35,28 +35,27 @@ import           Network.AWS.S3.Encryption.Body
 import           Network.AWS.S3.Encryption.Types
 
 data V1Envelope = V1Envelope
-    { _v1Key      :: !ByteString
+    { _v1Key         :: !ByteString
       -- ^ @x-amz-key@: Content encrypting key (cek) in encrypted form, base64
       -- encoded. The cek is randomly generated per S3 object, and is always
       -- an AES 256-bit key. The corresponding cipher is always @AES/CBC/PKCS5Padding@.
-    , _v1IV       :: !(IV AES256)
+    , _v1IV          :: !(IV AES256)
       -- ^ @x-amz-iv@: Randomly generated IV (per S3 object), base64 encoded.
-    , _v1Material :: !Material
+    , _v1Description :: !Description
       -- ^ @x-amz-matdesc@: Customer provided material description in JSON (UTF8)
-      -- format. Used to identify the client-side master key (ie used to encrypt/wrap
-      -- the generated content encrypting key).
+      -- format.
     }
 
-newV1 :: MonadIO m => (ByteString -> IO ByteString) -> Material -> m Envelope
-newV1 f m = liftIO $ do
+newV1 :: MonadIO m => (ByteString -> IO ByteString) -> Description -> m Envelope
+newV1 f d = liftIO $ do
     k  <- getRandomBytes aesKeySize
     c  <- createCipher k
     ek <- f k
     iv <- createIV =<< getRandomBytes aesBlockSize
     return . V1 c $ V1Envelope
-        { _v1Key      = ek
-        , _v1IV       = iv
-        , _v1Material = m
+        { _v1Key         = ek
+        , _v1IV          = iv
+        , _v1Description = d
         }
 
 decodeV1 :: MonadResource m
@@ -66,9 +65,9 @@ decodeV1 :: MonadResource m
 decodeV1 xs f = do
     k  <- xs .& "X-Amz-Key" >>= liftIO . f . unBase64
     iv <- xs .& "X-Amz-IV"  >>= createIV . unBase64
-    m  <- xs .& "X-Amz-Matdesc"
+    d  <- xs .& "X-Amz-Matdesc"
     c  <- createCipher k
-    return . V1 c $ V1Envelope k iv m
+    return . V1 c $ V1Envelope k iv d
 
 data V2Envelope = V2Envelope
     { _v2Key           :: !ByteString
@@ -87,18 +86,18 @@ data V2Envelope = V2Envelope
       -- @kms@ if KMS is used for client-side encryption
     , _v2WrapAlgorithm :: !WrappingAlgorithm
       -- ^ @x-amz-wrap-alg@: Key wrapping algorithm used.
-    , _v2Material      :: !Material
+    , _v2Description   :: !Description
       -- ^ @x-amz-matdesc@: Customer provided material description in JSON format.
-      -- Used to identify the client-side master key.  For KMS client side
+      -- Used to identify the client-side master key. For KMS client side
       -- encryption, the KMS Customer Master Key ID is stored as part of the material
       -- description, @x-amz-matdesc, under the key-name @kms_cmk_id@.
     }
 
-newV2 :: MonadResource m => Text -> Env -> m Envelope
-newV2 mkid e = do
-    let ctx = Map.singleton "kms_cmk_id" mkid
+newV2 :: MonadResource m => Text -> Description -> Env -> m Envelope
+newV2 kid d e = do
+    let ctx = Map.insert "kms_cmk_id" kid (fromDescription d)
     rs <- runAWS e . send $
-        KMS.generateDataKey mkid
+        KMS.generateDataKey kid
             & gdkEncryptionContext .~ ctx
             & gdkKeySpec           ?~ KMS.AES256
 
@@ -110,7 +109,7 @@ newV2 mkid e = do
         , _v2IV            = iv
         , _v2CEKAlgorithm  = AES_CBC_PKCS5Padding
         , _v2WrapAlgorithm = KMSWrap
-        , _v2Material      = Material ctx
+        , _v2Description   = Description ctx
         }
 
 decodeV2 :: MonadResource m => [(CI Text, Text)] -> Env -> m Envelope
@@ -119,15 +118,15 @@ decodeV2 xs e = do
     w   <- xs .& "X-Amz-Wrap-Alg"
     raw <- xs .& "X-Amz-Key-V2" >>= return   . unBase64
     iv  <- xs .& "X-Amz-IV"     >>= createIV . unBase64
-    m   <- xs .& "X-Amz-Matdesc"
+    d   <- xs .& "X-Amz-Matdesc"
 
     rs  <- runAWS e . send $
         KMS.decrypt raw
-            & dEncryptionContext .~ fromMaterial m
+            & dEncryptionContext .~ fromDescription d
     k   <- plaintext rs
     c   <- createCipher k
 
-    return . V2 c $ V2Envelope k iv a w m
+    return . V2 c $ V2Envelope k iv a w d
 
 data Envelope
     = V1 AES256 V1Envelope
@@ -153,7 +152,7 @@ toMetadata = \case
     v1 V1Envelope {..} =
         [ ("X-Amz-Key",      b64  _v1Key)
         , ("X-Amz-IV",       b64  (convert _v1IV))
-        , ("X-Amz-Matdesc",  toBS _v1Material)
+        , ("X-Amz-Matdesc",  toBS _v1Description)
         ]
 
     v2 V2Envelope {..} =
@@ -161,7 +160,7 @@ toMetadata = \case
         , ("X-Amz-IV",       b64  (convert _v2IV))
         , ("X-Amz-CEK-Alg",  toBS _v2CEKAlgorithm)
         , ("X-Amz-Wrap-Alg", toBS _v2WrapAlgorithm)
-        , ("X-Amz-Matdesc",  toBS _v2Material)
+        , ("X-Amz-Matdesc",  toBS _v2Description)
         ]
 
     b64 :: ByteString -> ByteString
@@ -170,9 +169,9 @@ toMetadata = \case
 newEnvelope :: MonadResource m => Key -> Env -> m Envelope
 newEnvelope k e =
     case k of
-        Symmetric  c m  -> newV1 (return . ecbEncrypt c) m
-        Asymmetric p m  -> newV1 (rsaEncrypt p) m
-        KMS        mkid -> newV2 mkid e
+        Symmetric  c   d -> newV1 (return . ecbEncrypt c) d
+        Asymmetric p   d -> newV1 (rsaEncrypt p) d
+        KMS        kid d -> newV2 kid d e
 
 decodeEnvelope :: MonadResource m
                => Key
@@ -183,7 +182,7 @@ decodeEnvelope k e xs =
     case k of
         Symmetric  c _ -> decodeV1 xs (return . ecbDecrypt c)
         Asymmetric p _ -> decodeV1 xs (rsaDecrypt p)
-        KMS        _   -> decodeV2 xs e
+        KMS        _ _ -> decodeV2 xs e
 
 fromMetadata :: MonadResource m => Key -> Env -> HashMap Text Text -> m Envelope
 fromMetadata key e = decodeEnvelope key e . map (first CI.mk) . Map.toList

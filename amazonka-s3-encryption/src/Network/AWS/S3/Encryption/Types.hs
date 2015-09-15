@@ -95,21 +95,20 @@ appendExtension (Ext s) o@(ObjectKey k)
     | s `Text.isSuffixOf` k = o
     | otherwise             = ObjectKey (k <> s)
 
-newtype Material = Material { fromMaterial :: HashMap Text Text }
+newtype Description = Description { fromDescription :: HashMap Text Text }
     deriving (Eq, Show, Monoid, FromJSON, ToJSON)
 
-instance ToByteString Material where
+instance ToByteString Description where
     toBS = toBS . encode
 
-instance FromText Material where
-    parser = parser >>=
-        either fail pure . eitherDecode . LBS.fromStrict
+instance FromText Description where
+    parser = parser >>= either fail pure . eitherDecode . LBS.fromStrict
 
 -- | Master key used for encryption and decryption.
 data Key
-    = Symmetric  AES256  Material
-    | Asymmetric KeyPair Material
-    | KMS        Text
+    = Symmetric  AES256  Description
+    | Asymmetric KeyPair Description
+    | KMS        Text    Description
 
 -- | An 'AWS' environment composed with the master key used to encrypt/decrypt
 -- requests. This environment is used in place of 'AWST.Env' when

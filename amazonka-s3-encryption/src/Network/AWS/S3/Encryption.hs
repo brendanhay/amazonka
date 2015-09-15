@@ -114,13 +114,14 @@ import           Network.AWS.S3.Encryption.Types
 master :: (MonadReader r m, HasKeyEnv r) => Key -> m a -> m a
 master k = local (envKey .~ k)
 
--- | Specify a KMS master key to use.
-kmsKey :: Text -> Key
-kmsKey = KMS
+-- | Specify a KMS master key to use, and any additional (possibly empty)
+-- material context to
+kmsKey :: Text -> Description -> Key
+kmsKey k = KMS k
 
 -- | Specify the asymmetric key used for RSA encryption.
-asymmetricKey :: PrivateKey -> Key
-asymmetricKey = (`Asymmetric` mempty) . KeyPair
+asymmetricKey :: PrivateKey -> Description -> Key
+asymmetricKey k = Asymmetric (KeyPair k)
 
 -- | Specify the shared secret to use for symmetric key encryption.
 -- This must be compatible with the AES256 key size, 32 bytes.
@@ -128,8 +129,8 @@ asymmetricKey = (`Asymmetric` mempty) . KeyPair
 -- Throws 'EncryptionError', specifically 'CipherFailure'.
 --
 -- /See:/ 'newSecret'.
-symmetricKey :: MonadThrow m => ByteString -> m Key
-symmetricKey = fmap (`Symmetric` mempty) . createCipher
+symmetricKey :: MonadThrow m => ByteString -> Description -> m Key
+symmetricKey x d = (`Symmetric` d) <$> createCipher x
 
 -- | Generate a random shared secret that is of the correct length to use with
 -- 'symmetricKey'. This will need to be stored securely to enable decryption

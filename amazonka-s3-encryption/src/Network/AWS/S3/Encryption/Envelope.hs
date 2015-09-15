@@ -28,7 +28,7 @@ import           Data.ByteArray
 import           Data.CaseInsensitive            (CI)
 import qualified Data.CaseInsensitive            as CI
 import qualified Data.HashMap.Strict             as Map
-import           Network.AWS
+import           Network.AWS                     hiding (PKCS7)
 import           Network.AWS.KMS                 as KMS
 import           Network.AWS.Prelude
 import           Network.AWS.S3.Encryption.Body
@@ -196,17 +196,18 @@ bodyEncrypt :: Envelope -> RqBody -> RqBody
 bodyEncrypt (getCipher -> (aes, iv)) x = Chunked $
     y `fuseChunks` awaitForever (yield . go)
   where
-    go = cbcEncrypt aes iv . pad PKCS5
+    go = cbcEncrypt aes iv . pad (PKCS7 aesBlockSize)
     y  = toChunked x & chunkedLength +~ padding
 
-    padding = 8 - (contentLength x `mod` 8) -- 8 == PKCS5
+    padding = n - (contentLength x `mod` n)
+    n       = fromIntegral aesBlockSize
 
 bodyDecrypt :: Envelope -> RsBody -> RsBody
 bodyDecrypt (getCipher -> (aes, iv)) x =
     x `fuseStream` awaitForever (yield . go)
   where
     go b = let r = cbcDecrypt aes iv b
-            in fromMaybe r (unpad PKCS5 r)
+            in fromMaybe r (unpad (PKCS7 aesBlockSize) r)
 
 rsaEncrypt :: (MonadThrow m, MonadRandom m) => KeyPair -> ByteString -> m ByteString
 rsaEncrypt k = RSA.encrypt (toPublicKey k) >=> hoistError PubKeyFailure

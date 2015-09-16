@@ -67,7 +67,7 @@ module Network.AWS.S3.Encryption
     , newSecret
 
     , master
-    , materials
+    , material
 
     -- * Request Encryption/Decryption
     -- $requests
@@ -115,10 +115,15 @@ import           Network.AWS.S3.Encryption.Types
 master :: (MonadReader r m, HasKeyEnv r) => Key -> m a -> m a
 master k = local (envKey .~ k)
 
--- | Set (using 'local') a different material description used to encrypt/decrypt
--- a block of actions.
-materials :: (MonadReader r m, HasKeyEnv r) => Description -> m a -> m a
-materials d = local (envKey . description .~ d)
+-- | Set (using 'local') any additional material description to be used.
+--
+-- For encryption, this provides audit and logging information and is logged
+-- by CloudTrail, if enabled.
+--
+-- For decryption when using KMS, this is merged with whatever material description
+-- is stored on the envelope and supplied to KMS as a decryption context.
+material :: (MonadReader r m, HasKeyEnv r) => Description -> m a -> m a
+material d = local (envKey . description .~ d)
 
 -- | Specify a KMS master key to use, with an initially empty material description.
 --

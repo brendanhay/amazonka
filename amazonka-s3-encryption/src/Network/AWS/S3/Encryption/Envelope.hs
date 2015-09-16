@@ -185,7 +185,7 @@ decodeEnvelope k e xs =
     case k of
         Symmetric  c _ -> decodeV1 xs (return . ecbDecrypt c)
         Asymmetric p _ -> decodeV1 xs (rsaDecrypt p)
-        KMS        _ _ -> decodeV2 xs e
+        KMS        _ d -> decodeV2 xs d e
 
 fromMetadata :: MonadResource m => Key -> Env -> HashMap Text Text -> m Envelope
 fromMetadata key e = decodeEnvelope key e . map (first CI.mk) . Map.toList

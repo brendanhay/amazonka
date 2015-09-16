@@ -117,7 +117,7 @@ decodeV2 :: MonadResource m
          -> Description
          -> Env
          -> m Envelope
-decodeV2 xs d e = do
+decodeV2 xs m e = do
     a   <- xs .& "X-Amz-CEK-Alg"
     w   <- xs .& "X-Amz-Wrap-Alg"
     raw <- xs .& "X-Amz-Key-V2" >>= return   . unBase64
@@ -126,7 +126,11 @@ decodeV2 xs d e = do
 
     rs  <- runAWS e . send $
         KMS.decrypt raw
-            & dEncryptionContext .~ fromDescription d
+            & dEncryptionContext .~ fromDescription (m <> d)
+            -- ^ Left-associative merge for material description,
+            -- keys in the supplied description override those
+            -- on the envelope.
+
     k   <- plaintext rs
     c   <- createCipher k
 

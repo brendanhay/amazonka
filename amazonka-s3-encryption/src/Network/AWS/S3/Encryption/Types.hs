@@ -96,8 +96,7 @@ appendExtension (Ext s) o@(ObjectKey k)
     | otherwise             = ObjectKey (k <> s)
 
 -- | A key material description. This is attached in plaintext to the metadata,
--- and will be logged using CloudTrail. For KMS decryption this must match
--- exactly the description that was used during encryption and any supplemental
+-- and will be logged using CloudTrail. For KMS decryption any supplemental
 -- material description is merged with the description stored on the object during
 -- decryption.
 newtype Description = Description { fromDescription :: HashMap Text Text }

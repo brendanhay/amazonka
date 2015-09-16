@@ -114,9 +114,10 @@ newV2 kid d e = do
 
 decodeV2 :: MonadResource m
          => [(CI Text, Text)]
+         -> Description
          -> Env
          -> m Envelope
-decodeV2 xs e = do
+decodeV2 xs d e = do
     a   <- xs .& "X-Amz-CEK-Alg"
     w   <- xs .& "X-Amz-Wrap-Alg"
     raw <- xs .& "X-Amz-Key-V2" >>= return   . unBase64

@@ -127,13 +127,13 @@ material d = local (envKey . description .~ d)
 
 -- | Specify a KMS master key to use, with an initially empty material description.
 --
--- /See:/ 'description', 'materials'.
+-- /See:/ 'description', 'material'.
 kmsKey :: Text -> Key
 kmsKey k = KMS k mempty
 
 -- | Specify the asymmetric key used for RSA encryption.
 --
--- /See:/ 'description', 'materials'.
+-- /See:/ 'description', 'material'.
 asymmetricKey :: PrivateKey -> Key
 asymmetricKey k = Asymmetric (KeyPair k) mempty
 
@@ -142,7 +142,7 @@ asymmetricKey k = Asymmetric (KeyPair k) mempty
 --
 -- Throws 'EncryptionError', specifically 'CipherFailure'.
 --
--- /See:/ 'newSecret', 'description', 'materials'.
+-- /See:/ 'newSecret', 'description', 'material'.
 symmetricKey :: MonadThrow m => ByteString -> m Key
 symmetricKey = fmap (`Symmetric` mempty) . createCipher
 

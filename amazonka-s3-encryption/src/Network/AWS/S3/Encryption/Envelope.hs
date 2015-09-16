@@ -114,10 +114,9 @@ newV2 kid d e = do
 
 decodeV2 :: MonadResource m
          => [(CI Text, Text)]
-         -> Description
          -> Env
          -> m Envelope
-decodeV2 xs m e = do
+decodeV2 xs e = do
     a   <- xs .& "X-Amz-CEK-Alg"
     w   <- xs .& "X-Amz-Wrap-Alg"
     raw <- xs .& "X-Amz-Key-V2" >>= return   . unBase64
@@ -126,7 +125,7 @@ decodeV2 xs m e = do
 
     rs  <- runAWS e . send $
         KMS.decrypt raw
-            & dEncryptionContext .~ fromDescription (m <> d)
+            & dEncryptionContext .~ fromDescription d
     k   <- plaintext rs
     c   <- createCipher k
 
@@ -186,7 +185,7 @@ decodeEnvelope k e xs =
     case k of
         Symmetric  c _ -> decodeV1 xs (return . ecbDecrypt c)
         Asymmetric p _ -> decodeV1 xs (rsaDecrypt p)
-        KMS        _ d -> decodeV2 xs d e
+        KMS        _ _ -> decodeV2 xs e
 
 fromMetadata :: MonadResource m => Key -> Env -> HashMap Text Text -> m Envelope
 fromMetadata key e = decodeEnvelope key e . map (first CI.mk) . Map.toList

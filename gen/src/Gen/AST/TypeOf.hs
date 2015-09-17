@@ -112,7 +112,7 @@ derivingOf = uniq . typ . typeOf
         Blob   -> base
         Time   -> DOrd : base
         Bool   -> enum <> base
-        Json   -> base
+        Json   -> [DEq, DShow, DData, DTypeable, DGeneric]
 
 stream, string, num, frac, monoid, enum, base :: [Derive]
 stream = [DShow, DGeneric]

@@ -31,10 +31,10 @@ module Network.AWS.Lambda.Invoke
     , Invoke
     -- * Request Lenses
     , iInvocationType
-    , iPayload
     , iLogType
     , iClientContext
     , iFunctionName
+    , iPayload
 
     -- * Destructuring the Response
     , invokeResponse
@@ -55,10 +55,10 @@ import           Network.AWS.Response
 -- | /See:/ 'invoke' smart constructor.
 data Invoke = Invoke'
     { _iInvocationType :: !(Maybe InvocationType)
-    , _iPayload        :: !(Maybe (HashMap Text Value))
     , _iLogType        :: !(Maybe LogType)
     , _iClientContext  :: !(Maybe Text)
     , _iFunctionName   :: !Text
+    , _iPayload        :: !(HashMap Text Value)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Invoke' with the minimum fields required to make a request.
@@ -67,23 +67,24 @@ data Invoke = Invoke'
 --
 -- * 'iInvocationType'
 --
--- * 'iPayload'
---
 -- * 'iLogType'
 --
 -- * 'iClientContext'
 --
 -- * 'iFunctionName'
+--
+-- * 'iPayload'
 invoke
     :: Text -- ^ 'iFunctionName'
+    -> HashMap Text Value -- ^ 'iPayload'
     -> Invoke
-invoke pFunctionName_ =
+invoke pFunctionName_ pPayload_ =
     Invoke'
     { _iInvocationType = Nothing
-    , _iPayload = Nothing
     , _iLogType = Nothing
     , _iClientContext = Nothing
     , _iFunctionName = pFunctionName_
+    , _iPayload = pPayload_
     }
 
 -- | By default, the 'Invoke' API assumes \"RequestResponse\" invocation
@@ -96,10 +97,6 @@ invoke pFunctionName_ =
 -- want to verify access to a function without running it.
 iInvocationType :: Lens' Invoke (Maybe InvocationType)
 iInvocationType = lens _iInvocationType (\ s a -> s{_iInvocationType = a});
-
--- | JSON that you want to provide to your Lambda function as input.
-iPayload :: Lens' Invoke (Maybe (HashMap Text Value))
-iPayload = lens _iPayload (\ s a -> s{_iPayload = a});
 
 -- | You can set this optional parameter to \"Tail\" in the request only if
 -- you specify the 'InvocationType' parameter with value
@@ -132,6 +129,10 @@ iClientContext = lens _iClientContext (\ s a -> s{_iClientContext = a});
 -- character in length.
 iFunctionName :: Lens' Invoke Text
 iFunctionName = lens _iFunctionName (\ s a -> s{_iFunctionName = a});
+
+-- | JSON that you want to provide to your Lambda function as input.
+iPayload :: Lens' Invoke (HashMap Text Value)
+iPayload = lens _iPayload (\ s a -> s{_iPayload = a});
 
 instance AWSRequest Invoke where
         type Rs Invoke = InvokeResponse

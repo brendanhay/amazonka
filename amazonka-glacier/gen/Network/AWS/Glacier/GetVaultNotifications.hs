@@ -109,8 +109,7 @@ instance AWSRequest GetVaultNotifications where
           = receiveJSON
               (\ s h x ->
                  GetVaultNotificationsResponse' <$>
-                   (x .?> "vaultNotificationConfig") <*>
-                     (pure (fromEnum s)))
+                   (eitherParseJSON x) <*> (pure (fromEnum s)))
 
 instance ToHeaders GetVaultNotifications where
         toHeaders = const mempty

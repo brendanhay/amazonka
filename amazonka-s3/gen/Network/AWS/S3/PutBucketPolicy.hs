@@ -47,7 +47,7 @@ import           Network.AWS.S3.Types.Product
 data PutBucketPolicy = PutBucketPolicy'
     { _pbpContentMD5 :: !(Maybe Text)
     , _pbpBucket     :: !BucketName
-    , _pbpPolicy     :: !Text
+    , _pbpPolicy     :: !(HashMap Text Value)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutBucketPolicy' with the minimum fields required to make a request.
@@ -61,7 +61,7 @@ data PutBucketPolicy = PutBucketPolicy'
 -- * 'pbpPolicy'
 putBucketPolicy
     :: BucketName -- ^ 'pbpBucket'
-    -> Text -- ^ 'pbpPolicy'
+    -> HashMap Text Value -- ^ 'pbpPolicy'
     -> PutBucketPolicy
 putBucketPolicy pBucket_ pPolicy_ =
     PutBucketPolicy'
@@ -79,16 +79,16 @@ pbpBucket :: Lens' PutBucketPolicy BucketName
 pbpBucket = lens _pbpBucket (\ s a -> s{_pbpBucket = a});
 
 -- | The bucket policy as a JSON document.
-pbpPolicy :: Lens' PutBucketPolicy Text
+pbpPolicy :: Lens' PutBucketPolicy (HashMap Text Value)
 pbpPolicy = lens _pbpPolicy (\ s a -> s{_pbpPolicy = a});
 
 instance AWSRequest PutBucketPolicy where
         type Rs PutBucketPolicy = PutBucketPolicyResponse
-        request = contentMD5 . putXML s3
+        request = contentMD5 . putBody s3
         response = receiveNull PutBucketPolicyResponse'
 
-instance ToElement PutBucketPolicy where
-        toElement = mkElement "Policy" . _pbpPolicy
+instance ToBody PutBucketPolicy where
+        toBody = toBody . _pbpPolicy
 
 instance ToHeaders PutBucketPolicy where
         toHeaders PutBucketPolicy'{..}

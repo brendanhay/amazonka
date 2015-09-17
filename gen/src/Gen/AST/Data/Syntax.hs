@@ -20,6 +20,7 @@ module Gen.AST.Data.Syntax where
 import           Control.Comonad
 import           Control.Error
 import           Control.Lens                 hiding (iso, mapping, op, strict)
+import           Data.Foldable                (foldl', foldr')
 import qualified Data.Foldable                as Fold
 import qualified Data.HashMap.Strict          as Map
 import           Data.List.NonEmpty           (NonEmpty (..))
@@ -80,7 +81,7 @@ toQMap  = var "toQueryMap"
 ctorS :: HasMetadata a Identity => a -> Id -> [Field] -> Decl
 ctorS m n fs = TypeSig noLoc [ident (smartCtorId n)] ty
   where
-    ty = Fold.foldr' TyFun (tycon (typeId n)) ps
+    ty = foldr' TyFun (tycon (typeId n)) ps
     ps = map (external m) (filter fieldIsParam fs)
 
 ctorD :: Id -> [Field] -> Decl
@@ -135,7 +136,7 @@ errorS n = TypeSig noLoc [ident n] $
 errorD :: Text -> Maybe Integer -> Text -> Decl
 errorD n s c = sfun noLoc (ident n) [] (UnGuardedRhs rhs) noBinds
   where
-    rhs = Fold.foldl' (\l r -> infixApp l "." r) (var "_ServiceError") $
+    rhs = foldl' (\l r -> infixApp l "." r) (var "_ServiceError") $
         catMaybes [status <$> s, Just code]
 
     status i = app (var "hasStatus") (intE i)
@@ -238,14 +239,14 @@ pagerD n p = instD "AWSPager" n
 
     stop x = guardE (app (var "stop") (rs x)) nothingE
 
-    other = otherE . Fold.foldl' f rq
+    other = otherE . foldl' f rq
       where
         f :: Exp -> Token Field -> Exp
         f e x = infixApp e "&"
               . infixApp (x ^. tokenInput . to notationE) ".~"
               $ rs (x ^. tokenOutput . to notationE)
 
-    check t ts = guardE (Fold.foldl' f (g t) ts) nothingE
+    check t ts = guardE (foldl' f (g t) ts) nothingE
       where
         f x = infixApp x "&&" . g
         g y = app (var "isNothing") $ rs (y ^. tokenOutput . to notationE)
@@ -273,7 +274,7 @@ notationE = \case
     branch x = let e = notationE x in paren $ app (var (getterN e)) e
 
     labels k [] = label False k
-    labels k ks = Fold.foldl' f (label True k) ks
+    labels k ks = foldl' f (label True k) ks
       where
          f e x = infixApp e "." (label True x)
 
@@ -328,10 +329,20 @@ responseE p r fs = app (responseF p r fs) bdy
     parseProto :: Field -> Exp
     parseProto f =
         case p of
+            _ | f ^. fieldPayload -> parseOne   f
             JSON                  -> parseJSONE p pJE pJEMay pJEDef f
             RestJSON              -> parseJSONE p pJE pJEMay pJEDef f
-            _ | f ^. fieldPayload -> parseAll
             _                     -> parseXMLE  p f
+
+    parseOne :: Field -> Exp
+    parseOne f
+        | fieldLit f =
+             if fieldIsParam f
+                 then app (var "pure") (var "x")
+                 else app (var "pure") (paren (app (var "Just") (var "x")))
+          -- ^ This ensures anything which is set as a payload,
+          -- but is a primitive type is just consumed as a bytestring.
+        | otherwise  = parseAll
 
     parseAll :: Exp
     parseAll = flip app (var "x") $
@@ -621,7 +632,7 @@ requestF :: HasMetadata a Identity
          -> Ref
          -> [Inst]
          -> Exp
-requestF c meta h r is = maybe e (Fold.foldr' plugin e) ps
+requestF c meta h r is = maybe e (foldr' plugin e) ps
   where
     plugin x = infixApp (var x) "."
 
@@ -655,6 +666,7 @@ responseF :: Protocol -> RefF a -> [Field] -> Exp
 responseF p r fs
     | null fs                         = var "receiveNull"
     | any fieldStream fs              = var "receiveBody"
+    | any fieldLitPayload fs          = var "receiveJSON" -- Currently assumes JSON body literal.
     | Just x <- r ^. refResultWrapper = app (var (suf <> "Wrapper")) (str x)
     | all (not . fieldBody) fs        = var "receiveEmpty"
     | otherwise                       = var suf
@@ -796,6 +808,7 @@ literal i ts = \case
     Bool             -> tycon "Bool"
     Time | i         -> tycon (tsToText ts)
          | otherwise -> tycon "UTCTime"
+    Json             -> TyApp (TyApp (tycon "HashMap") (tycon "Text")) (tycon "Value")
 
 strict :: Type -> Type
 strict = TyBang BangedTy . \case

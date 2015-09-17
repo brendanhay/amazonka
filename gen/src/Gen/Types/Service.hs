@@ -349,6 +349,7 @@ instance FromJSON (ShapeF ()) where
             "blob"      -> pure (Lit i Blob)
             "boolean"   -> pure (Lit i Bool)
             "timestamp" -> pure (Lit i Time)
+            "json"      -> pure (Lit i Json)
             "string"    -> pure (maybe (Lit i Text) f m)
               where
                 f = Enum i . Map.fromList . map (first mkId . renameBranch)

@@ -59,7 +59,7 @@ data Invoke = Invoke'
     , _iClientContext  :: !(Maybe Text)
     , _iFunctionName   :: !Text
     , _iPayload        :: !(HashMap Text Value)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Invoke' with the minimum fields required to make a request.
 --
@@ -173,7 +173,7 @@ data InvokeResponse = InvokeResponse'
     , _irsLogResult     :: !(Maybe Text)
     , _irsPayload       :: !(Maybe (HashMap Text Value))
     , _irsStatusCode    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InvokeResponse' with the minimum fields required to make a request.
 --

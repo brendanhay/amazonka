@@ -88,7 +88,7 @@ instance ToQuery GetBucketPolicy where
 data GetBucketPolicyResponse = GetBucketPolicyResponse'
     { _gbprsResponseStatus :: !Int
     , _gbprsPolicy         :: !(HashMap Text Value)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketPolicyResponse' with the minimum fields required to make a request.
 --

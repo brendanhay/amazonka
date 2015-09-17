@@ -17,6 +17,11 @@
         "Network.AWS.S3.Internal"
     ],
     "typeOverrides": {
+        "GetBucketPolicyOutput": {
+            "requiredFields": [
+                "Policy"
+            ]
+        },
         "Error": {
             "renamedTo": "S3ServiceError"
         },

@@ -20,11 +20,6 @@
         "Error": {
             "renamedTo": "S3ServiceError"
         },
-        "ListObjectsResponse": {
-            "requiredFields": [
-                "Name"
-            ]
-        },
         "Bucket": {
             "requiredFields": [
                 "CreationDate",

@@ -102,7 +102,8 @@ instance ToXML Failover where
     toXML = toXMLText
 
 data HealthCheckType
-    = HTTP
+    = Calculated
+    | HTTP
     | HTTPS
     | HTTPSStrMatch
     | HTTPStrMatch
@@ -111,16 +112,18 @@ data HealthCheckType
 
 instance FromText HealthCheckType where
     parser = takeLowerText >>= \case
+        "calculated" -> pure Calculated
         "http" -> pure HTTP
         "https" -> pure HTTPS
         "https_str_match" -> pure HTTPSStrMatch
         "http_str_match" -> pure HTTPStrMatch
         "tcp" -> pure TCP
         e -> fromTextError $ "Failure parsing HealthCheckType from value: '" <> e
-           <> "'. Accepted values: HTTP, HTTPS, HTTPS_STR_MATCH, HTTP_STR_MATCH, TCP"
+           <> "'. Accepted values: CALCULATED, HTTP, HTTPS, HTTPS_STR_MATCH, HTTP_STR_MATCH, TCP"
 
 instance ToText HealthCheckType where
     toText = \case
+        Calculated -> "CALCULATED"
         HTTP -> "HTTP"
         HTTPS -> "HTTPS"
         HTTPSStrMatch -> "HTTPS_STR_MATCH"

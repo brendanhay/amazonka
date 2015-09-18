@@ -81,6 +81,8 @@ library
 
     exposed-modules:
           Network.AWS.CloudWatchLogs
+        , Network.AWS.CloudWatchLogs.CancelExportTask
+        , Network.AWS.CloudWatchLogs.CreateExportTask
         , Network.AWS.CloudWatchLogs.CreateLogGroup
         , Network.AWS.CloudWatchLogs.CreateLogStream
         , Network.AWS.CloudWatchLogs.DeleteDestination
@@ -90,6 +92,7 @@ library
         , Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
         , Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
         , Network.AWS.CloudWatchLogs.DescribeDestinations
+        , Network.AWS.CloudWatchLogs.DescribeExportTasks
         , Network.AWS.CloudWatchLogs.DescribeLogGroups
         , Network.AWS.CloudWatchLogs.DescribeLogStreams
         , Network.AWS.CloudWatchLogs.DescribeMetricFilters

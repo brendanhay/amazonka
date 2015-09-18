@@ -20,7 +20,10 @@ module Network.AWS.CloudWatchLogs.Types.Product where
 import           Network.AWS.CloudWatchLogs.Types.Sum
 import           Network.AWS.Prelude
 
--- | /See:/ 'destination' smart constructor.
+-- | A cross account destination that is the recipient of subscription log
+-- events.
+--
+-- /See:/ 'destination' smart constructor.
 data Destination = Destination'
     { _dTargetARN       :: !(Maybe Text)
     , _dCreationTime    :: !(Maybe Nat)
@@ -57,27 +60,30 @@ destination =
     , _dRoleARN = Nothing
     }
 
--- | Undocumented member.
+-- | ARN of the physical target where the log events will be delivered (eg.
+-- ARN of a Kinesis stream).
 dTargetARN :: Lens' Destination (Maybe Text)
 dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
 
--- | Undocumented member.
+-- | A point in time expressed as the number of milliseconds since Jan 1,
+-- 1970 00:00:00 UTC specifying when this destination was created.
 dCreationTime :: Lens' Destination (Maybe Natural)
 dCreationTime = lens _dCreationTime (\ s a -> s{_dCreationTime = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | ARN of this destination.
 dArn :: Lens' Destination (Maybe Text)
 dArn = lens _dArn (\ s a -> s{_dArn = a});
 
--- | Undocumented member.
+-- | An IAM policy document that governs which AWS accounts can create
+-- subscription filters against this destination.
 dAccessPolicy :: Lens' Destination (Maybe Text)
 dAccessPolicy = lens _dAccessPolicy (\ s a -> s{_dAccessPolicy = a});
 
--- | Undocumented member.
+-- | Name of the destination.
 dDestinationName :: Lens' Destination (Maybe Text)
 dDestinationName = lens _dDestinationName (\ s a -> s{_dDestinationName = a});
 
--- | Undocumented member.
+-- | A role for impersonation for delivering log events to the target.
 dRoleARN :: Lens' Destination (Maybe Text)
 dRoleARN = lens _dRoleARN (\ s a -> s{_dRoleARN = a});
 
@@ -91,6 +97,186 @@ instance FromJSON Destination where
                      <*> (x .:? "accessPolicy")
                      <*> (x .:? "destinationName")
                      <*> (x .:? "roleArn"))
+
+-- | Represents an export task.
+--
+-- /See:/ 'exportTask' smart constructor.
+data ExportTask = ExportTask'
+    { _etDestinationPrefix :: !(Maybe Text)
+    , _etDestination       :: !(Maybe Text)
+    , _etStatus            :: !(Maybe ExportTaskStatus)
+    , _etTaskName          :: !(Maybe Text)
+    , _etTaskId            :: !(Maybe Text)
+    , _etTo                :: !(Maybe Nat)
+    , _etFrom              :: !(Maybe Nat)
+    , _etLogGroupName      :: !(Maybe Text)
+    , _etExecutionInfo     :: !(Maybe ExportTaskExecutionInfo)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ExportTask' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'etDestinationPrefix'
+--
+-- * 'etDestination'
+--
+-- * 'etStatus'
+--
+-- * 'etTaskName'
+--
+-- * 'etTaskId'
+--
+-- * 'etTo'
+--
+-- * 'etFrom'
+--
+-- * 'etLogGroupName'
+--
+-- * 'etExecutionInfo'
+exportTask
+    :: ExportTask
+exportTask =
+    ExportTask'
+    { _etDestinationPrefix = Nothing
+    , _etDestination = Nothing
+    , _etStatus = Nothing
+    , _etTaskName = Nothing
+    , _etTaskId = Nothing
+    , _etTo = Nothing
+    , _etFrom = Nothing
+    , _etLogGroupName = Nothing
+    , _etExecutionInfo = Nothing
+    }
+
+-- | Prefix that was used as the start of Amazon S3 key for every object
+-- exported.
+etDestinationPrefix :: Lens' ExportTask (Maybe Text)
+etDestinationPrefix = lens _etDestinationPrefix (\ s a -> s{_etDestinationPrefix = a});
+
+-- | Name of Amazon S3 bucket to which the log data was exported.
+etDestination :: Lens' ExportTask (Maybe Text)
+etDestination = lens _etDestination (\ s a -> s{_etDestination = a});
+
+-- | Status of the export task.
+etStatus :: Lens' ExportTask (Maybe ExportTaskStatus)
+etStatus = lens _etStatus (\ s a -> s{_etStatus = a});
+
+-- | The name of the export task.
+etTaskName :: Lens' ExportTask (Maybe Text)
+etTaskName = lens _etTaskName (\ s a -> s{_etTaskName = a});
+
+-- | Id of the export task.
+etTaskId :: Lens' ExportTask (Maybe Text)
+etTaskId = lens _etTaskId (\ s a -> s{_etTaskId = a});
+
+-- | A unix timestamp indicating the end time of the range for the request.
+-- Events with a timestamp later than this time were not exported.
+etTo :: Lens' ExportTask (Maybe Natural)
+etTo = lens _etTo (\ s a -> s{_etTo = a}) . mapping _Nat;
+
+-- | A unix timestamp indicating the start time of the range for the request.
+-- Events with a timestamp prior to this time were not exported.
+etFrom :: Lens' ExportTask (Maybe Natural)
+etFrom = lens _etFrom (\ s a -> s{_etFrom = a}) . mapping _Nat;
+
+-- | The name of the log group from which logs data was exported.
+etLogGroupName :: Lens' ExportTask (Maybe Text)
+etLogGroupName = lens _etLogGroupName (\ s a -> s{_etLogGroupName = a});
+
+-- | Execution info about the export task.
+etExecutionInfo :: Lens' ExportTask (Maybe ExportTaskExecutionInfo)
+etExecutionInfo = lens _etExecutionInfo (\ s a -> s{_etExecutionInfo = a});
+
+instance FromJSON ExportTask where
+        parseJSON
+          = withObject "ExportTask"
+              (\ x ->
+                 ExportTask' <$>
+                   (x .:? "destinationPrefix") <*> (x .:? "destination")
+                     <*> (x .:? "status")
+                     <*> (x .:? "taskName")
+                     <*> (x .:? "taskId")
+                     <*> (x .:? "to")
+                     <*> (x .:? "from")
+                     <*> (x .:? "logGroupName")
+                     <*> (x .:? "executionInfo"))
+
+-- | Represents the status of an export task.
+--
+-- /See:/ 'exportTaskExecutionInfo' smart constructor.
+data ExportTaskExecutionInfo = ExportTaskExecutionInfo'
+    { _eteiCreationTime   :: !(Maybe Nat)
+    , _eteiCompletionTime :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ExportTaskExecutionInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eteiCreationTime'
+--
+-- * 'eteiCompletionTime'
+exportTaskExecutionInfo
+    :: ExportTaskExecutionInfo
+exportTaskExecutionInfo =
+    ExportTaskExecutionInfo'
+    { _eteiCreationTime = Nothing
+    , _eteiCompletionTime = Nothing
+    }
+
+-- | A point in time when the export task got created.
+eteiCreationTime :: Lens' ExportTaskExecutionInfo (Maybe Natural)
+eteiCreationTime = lens _eteiCreationTime (\ s a -> s{_eteiCreationTime = a}) . mapping _Nat;
+
+-- | A point in time when the export task got completed.
+eteiCompletionTime :: Lens' ExportTaskExecutionInfo (Maybe Natural)
+eteiCompletionTime = lens _eteiCompletionTime (\ s a -> s{_eteiCompletionTime = a}) . mapping _Nat;
+
+instance FromJSON ExportTaskExecutionInfo where
+        parseJSON
+          = withObject "ExportTaskExecutionInfo"
+              (\ x ->
+                 ExportTaskExecutionInfo' <$>
+                   (x .:? "creationTime") <*> (x .:? "completionTime"))
+
+-- | Represents the status of an export task.
+--
+-- /See:/ 'exportTaskStatus' smart constructor.
+data ExportTaskStatus = ExportTaskStatus'
+    { _etsCode    :: !(Maybe ExportTaskStatusCode)
+    , _etsMessage :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ExportTaskStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'etsCode'
+--
+-- * 'etsMessage'
+exportTaskStatus
+    :: ExportTaskStatus
+exportTaskStatus =
+    ExportTaskStatus'
+    { _etsCode = Nothing
+    , _etsMessage = Nothing
+    }
+
+-- | Status code of the export task.
+etsCode :: Lens' ExportTaskStatus (Maybe ExportTaskStatusCode)
+etsCode = lens _etsCode (\ s a -> s{_etsCode = a});
+
+-- | Status message related to the 'code'.
+etsMessage :: Lens' ExportTaskStatus (Maybe Text)
+etsMessage = lens _etsMessage (\ s a -> s{_etsMessage = a});
+
+instance FromJSON ExportTaskStatus where
+        parseJSON
+          = withObject "ExportTaskStatus"
+              (\ x ->
+                 ExportTaskStatus' <$>
+                   (x .:? "code") <*> (x .:? "message"))
 
 -- | Represents a matched event from a 'FilterLogEvents' request.
 --

@@ -92,6 +92,31 @@ instance FromXML Bucket where
         parseXML x
           = Bucket' <$> (x .@ "CreationDate") <*> (x .@ "Name")
 
+-- | /See:/ 'bucketLifecycleConfiguration' smart constructor.
+newtype BucketLifecycleConfiguration = BucketLifecycleConfiguration'
+    { _blcRules :: [LifecycleRule]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BucketLifecycleConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'blcRules'
+bucketLifecycleConfiguration
+    :: BucketLifecycleConfiguration
+bucketLifecycleConfiguration =
+    BucketLifecycleConfiguration'
+    { _blcRules = mempty
+    }
+
+-- | Undocumented member.
+blcRules :: Lens' BucketLifecycleConfiguration [LifecycleRule]
+blcRules = lens _blcRules (\ s a -> s{_blcRules = a}) . _Coerce;
+
+instance ToXML BucketLifecycleConfiguration where
+        toXML BucketLifecycleConfiguration'{..}
+          = mconcat [toXMLList "Rule" _blcRules]
+
 -- | /See:/ 'bucketLoggingStatus' smart constructor.
 newtype BucketLoggingStatus = BucketLoggingStatus'
     { _blsLoggingEnabled :: Maybe LoggingEnabled
@@ -119,7 +144,7 @@ instance ToXML BucketLoggingStatus where
 
 -- | /See:/ 'corsConfiguration' smart constructor.
 newtype CORSConfiguration = CORSConfiguration'
-    { _ccCORSRules :: Maybe [CORSRule]
+    { _ccCORSRules :: [CORSRule]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CORSConfiguration' with the minimum fields required to make a request.
@@ -131,55 +156,49 @@ corsConfiguration
     :: CORSConfiguration
 corsConfiguration =
     CORSConfiguration'
-    { _ccCORSRules = Nothing
+    { _ccCORSRules = mempty
     }
 
 -- | Undocumented member.
 ccCORSRules :: Lens' CORSConfiguration [CORSRule]
-ccCORSRules = lens _ccCORSRules (\ s a -> s{_ccCORSRules = a}) . _Default . _Coerce;
+ccCORSRules = lens _ccCORSRules (\ s a -> s{_ccCORSRules = a}) . _Coerce;
 
 instance ToXML CORSConfiguration where
         toXML CORSConfiguration'{..}
-          = mconcat
-              [toXML (toXMLList "CORSRule" <$> _ccCORSRules)]
+          = mconcat [toXMLList "CORSRule" _ccCORSRules]
 
 -- | /See:/ 'corsRule' smart constructor.
 data CORSRule = CORSRule'
-    { _crAllowedMethods :: !(Maybe [Text])
-    , _crMaxAgeSeconds  :: !(Maybe Int)
+    { _crMaxAgeSeconds  :: !(Maybe Int)
     , _crAllowedHeaders :: !(Maybe [Text])
-    , _crAllowedOrigins :: !(Maybe [Text])
     , _crExposeHeaders  :: !(Maybe [Text])
+    , _crAllowedMethods :: ![Text]
+    , _crAllowedOrigins :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CORSRule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crAllowedMethods'
---
 -- * 'crMaxAgeSeconds'
 --
 -- * 'crAllowedHeaders'
 --
--- * 'crAllowedOrigins'
---
 -- * 'crExposeHeaders'
+--
+-- * 'crAllowedMethods'
+--
+-- * 'crAllowedOrigins'
 corsRule
     :: CORSRule
 corsRule =
     CORSRule'
-    { _crAllowedMethods = Nothing
-    , _crMaxAgeSeconds = Nothing
+    { _crMaxAgeSeconds = Nothing
     , _crAllowedHeaders = Nothing
-    , _crAllowedOrigins = Nothing
     , _crExposeHeaders = Nothing
+    , _crAllowedMethods = mempty
+    , _crAllowedOrigins = mempty
     }
-
--- | Identifies HTTP methods that the domain\/origin specified in the rule is
--- allowed to execute.
-crAllowedMethods :: Lens' CORSRule [Text]
-crAllowedMethods = lens _crAllowedMethods (\ s a -> s{_crAllowedMethods = a}) . _Default . _Coerce;
 
 -- | The time in seconds that your browser is to cache the preflight response
 -- for the specified resource.
@@ -190,38 +209,41 @@ crMaxAgeSeconds = lens _crMaxAgeSeconds (\ s a -> s{_crMaxAgeSeconds = a});
 crAllowedHeaders :: Lens' CORSRule [Text]
 crAllowedHeaders = lens _crAllowedHeaders (\ s a -> s{_crAllowedHeaders = a}) . _Default . _Coerce;
 
--- | One or more origins you want customers to be able to access the bucket
--- from.
-crAllowedOrigins :: Lens' CORSRule [Text]
-crAllowedOrigins = lens _crAllowedOrigins (\ s a -> s{_crAllowedOrigins = a}) . _Default . _Coerce;
-
 -- | One or more headers in the response that you want customers to be able
 -- to access from their applications (for example, from a JavaScript
 -- XMLHttpRequest object).
 crExposeHeaders :: Lens' CORSRule [Text]
 crExposeHeaders = lens _crExposeHeaders (\ s a -> s{_crExposeHeaders = a}) . _Default . _Coerce;
 
+-- | Identifies HTTP methods that the domain\/origin specified in the rule is
+-- allowed to execute.
+crAllowedMethods :: Lens' CORSRule [Text]
+crAllowedMethods = lens _crAllowedMethods (\ s a -> s{_crAllowedMethods = a}) . _Coerce;
+
+-- | One or more origins you want customers to be able to access the bucket
+-- from.
+crAllowedOrigins :: Lens' CORSRule [Text]
+crAllowedOrigins = lens _crAllowedOrigins (\ s a -> s{_crAllowedOrigins = a}) . _Coerce;
+
 instance FromXML CORSRule where
         parseXML x
           = CORSRule' <$>
-              (may (parseXMLList "AllowedMethod") x) <*>
-                (x .@? "MaxAgeSeconds")
-                <*> (may (parseXMLList "AllowedHeader") x)
-                <*> (may (parseXMLList "AllowedOrigin") x)
+              (x .@? "MaxAgeSeconds") <*>
+                (may (parseXMLList "AllowedHeader") x)
                 <*> (may (parseXMLList "ExposeHeader") x)
+                <*> (parseXMLList "AllowedMethod" x)
+                <*> (parseXMLList "AllowedOrigin" x)
 
 instance ToXML CORSRule where
         toXML CORSRule'{..}
           = mconcat
-              [toXML
-                 (toXMLList "AllowedMethod" <$> _crAllowedMethods),
-               "MaxAgeSeconds" @= _crMaxAgeSeconds,
+              ["MaxAgeSeconds" @= _crMaxAgeSeconds,
                toXML
                  (toXMLList "AllowedHeader" <$> _crAllowedHeaders),
                toXML
-                 (toXMLList "AllowedOrigin" <$> _crAllowedOrigins),
-               toXML
-                 (toXMLList "ExposeHeader" <$> _crExposeHeaders)]
+                 (toXMLList "ExposeHeader" <$> _crExposeHeaders),
+               toXMLList "AllowedMethod" _crAllowedMethods,
+               toXMLList "AllowedOrigin" _crAllowedOrigins]
 
 -- | /See:/ 'commonPrefix' smart constructor.
 newtype CommonPrefix = CommonPrefix'
@@ -607,13 +629,16 @@ instance FromXML DeletedObject where
                 <*> (x .@? "Key")
 
 -- | /See:/ 'destination' smart constructor.
-newtype Destination = Destination'
-    { _dBucket :: BucketName
+data Destination = Destination'
+    { _dStorageClass :: !(Maybe StorageClass)
+    , _dBucket       :: !BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Destination' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dStorageClass'
 --
 -- * 'dBucket'
 destination
@@ -621,8 +646,13 @@ destination
     -> Destination
 destination pBucket_ =
     Destination'
-    { _dBucket = pBucket_
+    { _dStorageClass = Nothing
+    , _dBucket = pBucket_
     }
+
+-- | The class of storage used to store the object.
+dStorageClass :: Lens' Destination (Maybe StorageClass)
+dStorageClass = lens _dStorageClass (\ s a -> s{_dStorageClass = a});
 
 -- | Amazon resource name (ARN) of the bucket where you want Amazon S3 to
 -- store replicas of the object identified by the rule.
@@ -630,11 +660,15 @@ dBucket :: Lens' Destination BucketName
 dBucket = lens _dBucket (\ s a -> s{_dBucket = a});
 
 instance FromXML Destination where
-        parseXML x = Destination' <$> (x .@ "Bucket")
+        parseXML x
+          = Destination' <$>
+              (x .@? "StorageClass") <*> (x .@ "Bucket")
 
 instance ToXML Destination where
         toXML Destination'{..}
-          = mconcat ["Bucket" @= _dBucket]
+          = mconcat
+              ["StorageClass" @= _dStorageClass,
+               "Bucket" @= _dBucket]
 
 -- | /See:/ 'errorDocument' smart constructor.
 newtype ErrorDocument = ErrorDocument'
@@ -949,31 +983,6 @@ instance ToXML LambdaFunctionConfiguration where
                "CloudFunction" @= _lfcLambdaFunctionARN,
                toXMLList "Event" _lfcEvents]
 
--- | /See:/ 'lifecycleConfiguration' smart constructor.
-newtype LifecycleConfiguration = LifecycleConfiguration'
-    { _lcRules :: [Rule]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | Creates a value of 'LifecycleConfiguration' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcRules'
-lifecycleConfiguration
-    :: LifecycleConfiguration
-lifecycleConfiguration =
-    LifecycleConfiguration'
-    { _lcRules = mempty
-    }
-
--- | Undocumented member.
-lcRules :: Lens' LifecycleConfiguration [Rule]
-lcRules = lens _lcRules (\ s a -> s{_lcRules = a}) . _Coerce;
-
-instance ToXML LifecycleConfiguration where
-        toXML LifecycleConfiguration'{..}
-          = mconcat [toXMLList "Rule" _lcRules]
-
 -- | /See:/ 'lifecycleExpiration' smart constructor.
 data LifecycleExpiration = LifecycleExpiration'
     { _leDays :: !(Maybe Int)
@@ -1013,6 +1022,103 @@ instance FromXML LifecycleExpiration where
 instance ToXML LifecycleExpiration where
         toXML LifecycleExpiration'{..}
           = mconcat ["Days" @= _leDays, "Date" @= _leDate]
+
+-- | /See:/ 'lifecycleRule' smart constructor.
+data LifecycleRule = LifecycleRule'
+    { _lrTransitions                  :: !(Maybe [Transition])
+    , _lrNoncurrentVersionExpiration  :: !(Maybe NoncurrentVersionExpiration)
+    , _lrNoncurrentVersionTransitions :: !(Maybe [NoncurrentVersionTransition])
+    , _lrExpiration                   :: !(Maybe LifecycleExpiration)
+    , _lrId                           :: !(Maybe Text)
+    , _lrPrefix                       :: !Text
+    , _lrStatus                       :: !ExpirationStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LifecycleRule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lrTransitions'
+--
+-- * 'lrNoncurrentVersionExpiration'
+--
+-- * 'lrNoncurrentVersionTransitions'
+--
+-- * 'lrExpiration'
+--
+-- * 'lrId'
+--
+-- * 'lrPrefix'
+--
+-- * 'lrStatus'
+lifecycleRule
+    :: Text -- ^ 'lrPrefix'
+    -> ExpirationStatus -- ^ 'lrStatus'
+    -> LifecycleRule
+lifecycleRule pPrefix_ pStatus_ =
+    LifecycleRule'
+    { _lrTransitions = Nothing
+    , _lrNoncurrentVersionExpiration = Nothing
+    , _lrNoncurrentVersionTransitions = Nothing
+    , _lrExpiration = Nothing
+    , _lrId = Nothing
+    , _lrPrefix = pPrefix_
+    , _lrStatus = pStatus_
+    }
+
+-- | Undocumented member.
+lrTransitions :: Lens' LifecycleRule [Transition]
+lrTransitions = lens _lrTransitions (\ s a -> s{_lrTransitions = a}) . _Default . _Coerce;
+
+-- | Undocumented member.
+lrNoncurrentVersionExpiration :: Lens' LifecycleRule (Maybe NoncurrentVersionExpiration)
+lrNoncurrentVersionExpiration = lens _lrNoncurrentVersionExpiration (\ s a -> s{_lrNoncurrentVersionExpiration = a});
+
+-- | Undocumented member.
+lrNoncurrentVersionTransitions :: Lens' LifecycleRule [NoncurrentVersionTransition]
+lrNoncurrentVersionTransitions = lens _lrNoncurrentVersionTransitions (\ s a -> s{_lrNoncurrentVersionTransitions = a}) . _Default . _Coerce;
+
+-- | Undocumented member.
+lrExpiration :: Lens' LifecycleRule (Maybe LifecycleExpiration)
+lrExpiration = lens _lrExpiration (\ s a -> s{_lrExpiration = a});
+
+-- | Unique identifier for the rule. The value cannot be longer than 255
+-- characters.
+lrId :: Lens' LifecycleRule (Maybe Text)
+lrId = lens _lrId (\ s a -> s{_lrId = a});
+
+-- | Prefix identifying one or more objects to which the rule applies.
+lrPrefix :: Lens' LifecycleRule Text
+lrPrefix = lens _lrPrefix (\ s a -> s{_lrPrefix = a});
+
+-- | If \'Enabled\', the rule is currently being applied. If \'Disabled\',
+-- the rule is not currently being applied.
+lrStatus :: Lens' LifecycleRule ExpirationStatus
+lrStatus = lens _lrStatus (\ s a -> s{_lrStatus = a});
+
+instance FromXML LifecycleRule where
+        parseXML x
+          = LifecycleRule' <$>
+              (may (parseXMLList "Transition") x) <*>
+                (x .@? "NoncurrentVersionExpiration")
+                <*>
+                (may (parseXMLList "NoncurrentVersionTransition") x)
+                <*> (x .@? "Expiration")
+                <*> (x .@? "ID")
+                <*> (x .@ "Prefix")
+                <*> (x .@ "Status")
+
+instance ToXML LifecycleRule where
+        toXML LifecycleRule'{..}
+          = mconcat
+              [toXML (toXMLList "Transition" <$> _lrTransitions),
+               "NoncurrentVersionExpiration" @=
+                 _lrNoncurrentVersionExpiration,
+               toXML
+                 (toXMLList "NoncurrentVersionTransition" <$>
+                    _lrNoncurrentVersionTransitions),
+               "Expiration" @= _lrExpiration, "ID" @= _lrId,
+               "Prefix" @= _lrPrefix, "Status" @= _lrStatus]
 
 -- | /See:/ 'loggingEnabled' smart constructor.
 data LoggingEnabled = LoggingEnabled'
@@ -1185,10 +1291,11 @@ instance ToXML NoncurrentVersionExpiration where
           = mconcat ["NoncurrentDays" @= _nveNoncurrentDays]
 
 -- | Container for the transition rule that describes when noncurrent objects
--- transition to the GLACIER storage class. If your bucket is
--- versioning-enabled (or versioning is suspended), you can set this action
--- to request that Amazon S3 transition noncurrent object versions to the
--- GLACIER storage class at a specific period in the object\'s lifetime.
+-- transition to the STANDARD_IA or GLACIER storage class. If your bucket
+-- is versioning-enabled (or versioning is suspended), you can set this
+-- action to request that Amazon S3 transition noncurrent object versions
+-- to the STANDARD_IA or GLACIER storage class at a specific period in the
+-- object\'s lifetime.
 --
 -- /See:/ 'noncurrentVersionTransition' smart constructor.
 data NoncurrentVersionTransition = NoncurrentVersionTransition'
@@ -2012,102 +2119,6 @@ instance ToXML RoutingRule where
           = mconcat
               ["Condition" @= _rrCondition,
                "Redirect" @= _rrRedirect]
-
--- | /See:/ 'rule' smart constructor.
-data Rule = Rule'
-    { _rNoncurrentVersionExpiration :: !(Maybe NoncurrentVersionExpiration)
-    , _rTransition                  :: !(Maybe Transition)
-    , _rExpiration                  :: !(Maybe LifecycleExpiration)
-    , _rNoncurrentVersionTransition :: !(Maybe NoncurrentVersionTransition)
-    , _rId                          :: !(Maybe Text)
-    , _rPrefix                      :: !Text
-    , _rStatus                      :: !ExpirationStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | Creates a value of 'Rule' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rNoncurrentVersionExpiration'
---
--- * 'rTransition'
---
--- * 'rExpiration'
---
--- * 'rNoncurrentVersionTransition'
---
--- * 'rId'
---
--- * 'rPrefix'
---
--- * 'rStatus'
-rule
-    :: Text -- ^ 'rPrefix'
-    -> ExpirationStatus -- ^ 'rStatus'
-    -> Rule
-rule pPrefix_ pStatus_ =
-    Rule'
-    { _rNoncurrentVersionExpiration = Nothing
-    , _rTransition = Nothing
-    , _rExpiration = Nothing
-    , _rNoncurrentVersionTransition = Nothing
-    , _rId = Nothing
-    , _rPrefix = pPrefix_
-    , _rStatus = pStatus_
-    }
-
--- | Undocumented member.
-rNoncurrentVersionExpiration :: Lens' Rule (Maybe NoncurrentVersionExpiration)
-rNoncurrentVersionExpiration = lens _rNoncurrentVersionExpiration (\ s a -> s{_rNoncurrentVersionExpiration = a});
-
--- | Undocumented member.
-rTransition :: Lens' Rule (Maybe Transition)
-rTransition = lens _rTransition (\ s a -> s{_rTransition = a});
-
--- | Undocumented member.
-rExpiration :: Lens' Rule (Maybe LifecycleExpiration)
-rExpiration = lens _rExpiration (\ s a -> s{_rExpiration = a});
-
--- | Undocumented member.
-rNoncurrentVersionTransition :: Lens' Rule (Maybe NoncurrentVersionTransition)
-rNoncurrentVersionTransition = lens _rNoncurrentVersionTransition (\ s a -> s{_rNoncurrentVersionTransition = a});
-
--- | Unique identifier for the rule. The value cannot be longer than 255
--- characters.
-rId :: Lens' Rule (Maybe Text)
-rId = lens _rId (\ s a -> s{_rId = a});
-
--- | Prefix identifying one or more objects to which the rule applies.
-rPrefix :: Lens' Rule Text
-rPrefix = lens _rPrefix (\ s a -> s{_rPrefix = a});
-
--- | If \'Enabled\', the rule is currently being applied. If \'Disabled\',
--- the rule is not currently being applied.
-rStatus :: Lens' Rule ExpirationStatus
-rStatus = lens _rStatus (\ s a -> s{_rStatus = a});
-
-instance FromXML Rule where
-        parseXML x
-          = Rule' <$>
-              (x .@? "NoncurrentVersionExpiration") <*>
-                (x .@? "Transition")
-                <*> (x .@? "Expiration")
-                <*> (x .@? "NoncurrentVersionTransition")
-                <*> (x .@? "ID")
-                <*> (x .@ "Prefix")
-                <*> (x .@ "Status")
-
-instance ToXML Rule where
-        toXML Rule'{..}
-          = mconcat
-              ["NoncurrentVersionExpiration" @=
-                 _rNoncurrentVersionExpiration,
-               "Transition" @= _rTransition,
-               "Expiration" @= _rExpiration,
-               "NoncurrentVersionTransition" @=
-                 _rNoncurrentVersionTransition,
-               "ID" @= _rId, "Prefix" @= _rPrefix,
-               "Status" @= _rStatus]
 
 -- | Container for object key name prefix and suffix filtering rules.
 --

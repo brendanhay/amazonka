@@ -33,8 +33,8 @@ module Network.AWS.S3.GetBucketLocation
     , getBucketLocationResponse
     , GetBucketLocationResponse
     -- * Response Lenses
-    , getrsLocationConstraint
-    , getrsResponseStatus
+    , grsLocationConstraint
+    , grsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -86,30 +86,30 @@ instance ToQuery GetBucketLocation where
 
 -- | /See:/ 'getBucketLocationResponse' smart constructor.
 data GetBucketLocationResponse = GetBucketLocationResponse'
-    { _getrsLocationConstraint :: !(Maybe Region)
-    , _getrsResponseStatus     :: !Int
+    { _grsLocationConstraint :: !(Maybe Region)
+    , _grsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketLocationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'getrsLocationConstraint'
+-- * 'grsLocationConstraint'
 --
--- * 'getrsResponseStatus'
+-- * 'grsResponseStatus'
 getBucketLocationResponse
-    :: Int -- ^ 'getrsResponseStatus'
+    :: Int -- ^ 'grsResponseStatus'
     -> GetBucketLocationResponse
 getBucketLocationResponse pResponseStatus_ =
     GetBucketLocationResponse'
-    { _getrsLocationConstraint = Nothing
-    , _getrsResponseStatus = pResponseStatus_
+    { _grsLocationConstraint = Nothing
+    , _grsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
-getrsLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
-getrsLocationConstraint = lens _getrsLocationConstraint (\ s a -> s{_getrsLocationConstraint = a});
+grsLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
+grsLocationConstraint = lens _grsLocationConstraint (\ s a -> s{_grsLocationConstraint = a});
 
 -- | The response status code.
-getrsResponseStatus :: Lens' GetBucketLocationResponse Int
-getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a});
+grsResponseStatus :: Lens' GetBucketLocationResponse Int
+grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});

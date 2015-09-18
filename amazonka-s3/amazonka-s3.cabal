@@ -63,7 +63,7 @@ library
         , Network.AWS.S3.DeleteObjects
         , Network.AWS.S3.GetBucketACL
         , Network.AWS.S3.GetBucketCORS
-        , Network.AWS.S3.GetBucketLifecycle
+        , Network.AWS.S3.GetBucketLifecycleConfiguration
         , Network.AWS.S3.GetBucketLocation
         , Network.AWS.S3.GetBucketLogging
         , Network.AWS.S3.GetBucketNotificationConfiguration
@@ -85,7 +85,7 @@ library
         , Network.AWS.S3.ListParts
         , Network.AWS.S3.PutBucketACL
         , Network.AWS.S3.PutBucketCORS
-        , Network.AWS.S3.PutBucketLifecycle
+        , Network.AWS.S3.PutBucketLifecycleConfiguration
         , Network.AWS.S3.PutBucketLogging
         , Network.AWS.S3.PutBucketNotificationConfiguration
         , Network.AWS.S3.PutBucketPolicy

@@ -310,8 +310,12 @@ module Network.AWS.Route53
     , hccFailureThreshold
     , hccIPAddress
     , hccSearchString
+    , hccHealthThreshold
     , hccResourcePath
+    , hccMeasureLatency
+    , hccInverted
     , hccFullyQualifiedDomainName
+    , hccChildHealthChecks
     , hccRequestInterval
     , hccPort
     , hccType

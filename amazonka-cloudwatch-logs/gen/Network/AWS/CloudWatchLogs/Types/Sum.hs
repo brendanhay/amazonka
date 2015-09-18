@@ -19,6 +19,46 @@ module Network.AWS.CloudWatchLogs.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data ExportTaskStatusCode
+    = Cancelled
+    | Completed
+    | Failed
+    | Pending
+    | PendingCancel
+    | Running
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText ExportTaskStatusCode where
+    parser = takeLowerText >>= \case
+        "cancelled" -> pure Cancelled
+        "completed" -> pure Completed
+        "failed" -> pure Failed
+        "pending" -> pure Pending
+        "pending_cancel" -> pure PendingCancel
+        "running" -> pure Running
+        e -> fromTextError $ "Failure parsing ExportTaskStatusCode from value: '" <> e
+           <> "'. Accepted values: CANCELLED, COMPLETED, FAILED, PENDING, PENDING_CANCEL, RUNNING"
+
+instance ToText ExportTaskStatusCode where
+    toText = \case
+        Cancelled -> "CANCELLED"
+        Completed -> "COMPLETED"
+        Failed -> "FAILED"
+        Pending -> "PENDING"
+        PendingCancel -> "PENDING_CANCEL"
+        Running -> "RUNNING"
+
+instance Hashable     ExportTaskStatusCode
+instance ToByteString ExportTaskStatusCode
+instance ToQuery      ExportTaskStatusCode
+instance ToHeader     ExportTaskStatusCode
+
+instance ToJSON ExportTaskStatusCode where
+    toJSON = toJSONText
+
+instance FromJSON ExportTaskStatusCode where
+    parseJSON = parseJSONText "ExportTaskStatusCode"
+
 data OrderBy
     = LastEventTime
     | LogStreamName

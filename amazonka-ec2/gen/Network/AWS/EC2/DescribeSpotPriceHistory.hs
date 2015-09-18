@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the Spot Price history. The prices returned are listed in
+-- Describes the Spot price history. The prices returned are listed in
 -- chronological order, from the oldest to the most recent, for up to the
 -- past 90 days. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html Spot Instance Pricing History>
@@ -133,15 +133,15 @@ dsphStartTime = lens _dsphStartTime (\ s a -> s{_dsphStartTime = a}) . mapping _
 --
 -- -   'instance-type' - The type of instance (for example, 'm1.small').
 --
--- -   'product-description' - The product description for the Spot Price
+-- -   'product-description' - The product description for the Spot price
 --     ('Linux\/UNIX' | 'SUSE Linux' | 'Windows' |
 --     'Linux\/UNIX (Amazon VPC)' | 'SUSE Linux (Amazon VPC)' |
 --     'Windows (Amazon VPC)').
 --
--- -   'spot-price' - The Spot Price. The value must match exactly (or use
+-- -   'spot-price' - The Spot price. The value must match exactly (or use
 --     wildcards; greater than or less than comparison is not supported).
 --
--- -   'timestamp' - The timestamp of the Spot Price history, in UTC format
+-- -   'timestamp' - The timestamp of the Spot price history, in UTC format
 --     (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). You can use
 --     wildcards (* and ?). Greater than or less than comparison is not
 --     supported.
@@ -259,7 +259,7 @@ describeSpotPriceHistoryResponse pResponseStatus_ =
 dsphrsNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
 dsphrsNextToken = lens _dsphrsNextToken (\ s a -> s{_dsphrsNextToken = a});
 
--- | The historical Spot Prices.
+-- | The historical Spot prices.
 dsphrsSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
 dsphrsSpotPriceHistory = lens _dsphrsSpotPriceHistory (\ s a -> s{_dsphrsSpotPriceHistory = a}) . _Default . _Coerce;
 

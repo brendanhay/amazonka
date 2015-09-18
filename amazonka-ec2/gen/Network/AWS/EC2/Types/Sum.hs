@@ -69,6 +69,31 @@ instance ToHeader     AddressStatus
 instance FromXML AddressStatus where
     parseXML = parseXMLText "AddressStatus"
 
+data AllocationStrategy
+    = Diversified
+    | LowestPrice
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText AllocationStrategy where
+    parser = takeLowerText >>= \case
+        "diversified" -> pure Diversified
+        "lowestprice" -> pure LowestPrice
+        e -> fromTextError $ "Failure parsing AllocationStrategy from value: '" <> e
+           <> "'. Accepted values: diversified, lowestPrice"
+
+instance ToText AllocationStrategy where
+    toText = \case
+        Diversified -> "diversified"
+        LowestPrice -> "lowestPrice"
+
+instance Hashable     AllocationStrategy
+instance ToByteString AllocationStrategy
+instance ToQuery      AllocationStrategy
+instance ToHeader     AllocationStrategy
+
+instance FromXML AllocationStrategy where
+    parseXML = parseXMLText "AllocationStrategy"
+
 data ArchitectureValues
     = I386
     | X86_64

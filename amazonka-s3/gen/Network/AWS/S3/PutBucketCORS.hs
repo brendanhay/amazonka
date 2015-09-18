@@ -28,8 +28,8 @@ module Network.AWS.S3.PutBucketCORS
     , PutBucketCORS
     -- * Request Lenses
     , pbcContentMD5
-    , pbcCORSConfiguration
     , pbcBucket
+    , pbcCORSConfiguration
 
     -- * Destructuring the Response
     , putBucketCORSResponse
@@ -45,8 +45,8 @@ import           Network.AWS.S3.Types.Product
 -- | /See:/ 'putBucketCORS' smart constructor.
 data PutBucketCORS = PutBucketCORS'
     { _pbcContentMD5        :: !(Maybe Text)
-    , _pbcCORSConfiguration :: !(Maybe CORSConfiguration)
     , _pbcBucket            :: !BucketName
+    , _pbcCORSConfiguration :: !CORSConfiguration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutBucketCORS' with the minimum fields required to make a request.
@@ -55,17 +55,18 @@ data PutBucketCORS = PutBucketCORS'
 --
 -- * 'pbcContentMD5'
 --
--- * 'pbcCORSConfiguration'
---
 -- * 'pbcBucket'
+--
+-- * 'pbcCORSConfiguration'
 putBucketCORS
     :: BucketName -- ^ 'pbcBucket'
+    -> CORSConfiguration -- ^ 'pbcCORSConfiguration'
     -> PutBucketCORS
-putBucketCORS pBucket_ =
+putBucketCORS pBucket_ pCORSConfiguration_ =
     PutBucketCORS'
     { _pbcContentMD5 = Nothing
-    , _pbcCORSConfiguration = Nothing
     , _pbcBucket = pBucket_
+    , _pbcCORSConfiguration = pCORSConfiguration_
     }
 
 -- | Undocumented member.
@@ -73,12 +74,12 @@ pbcContentMD5 :: Lens' PutBucketCORS (Maybe Text)
 pbcContentMD5 = lens _pbcContentMD5 (\ s a -> s{_pbcContentMD5 = a});
 
 -- | Undocumented member.
-pbcCORSConfiguration :: Lens' PutBucketCORS (Maybe CORSConfiguration)
-pbcCORSConfiguration = lens _pbcCORSConfiguration (\ s a -> s{_pbcCORSConfiguration = a});
-
--- | Undocumented member.
 pbcBucket :: Lens' PutBucketCORS BucketName
 pbcBucket = lens _pbcBucket (\ s a -> s{_pbcBucket = a});
+
+-- | Undocumented member.
+pbcCORSConfiguration :: Lens' PutBucketCORS CORSConfiguration
+pbcCORSConfiguration = lens _pbcCORSConfiguration (\ s a -> s{_pbcCORSConfiguration = a});
 
 instance AWSRequest PutBucketCORS where
         type Rs PutBucketCORS = PutBucketCORSResponse

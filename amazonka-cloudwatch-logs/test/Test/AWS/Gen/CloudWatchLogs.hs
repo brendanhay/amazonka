@@ -31,6 +31,9 @@ import Test.AWS.CloudWatchLogs.Internal
 --         [ testDescribeDestinations $
 --             describeDestinations
 --
+--         , testCreateExportTask $
+--             createExportTask
+--
 --         , testPutDestination $
 --             putDestination
 --
@@ -57,6 +60,12 @@ import Test.AWS.CloudWatchLogs.Internal
 --
 --         , testCreateLogGroup $
 --             createLogGroup
+--
+--         , testDescribeExportTasks $
+--             describeExportTasks
+--
+--         , testCancelExportTask $
+--             cancelExportTask
 --
 --         , testPutSubscriptionFilter $
 --             putSubscriptionFilter
@@ -100,6 +109,9 @@ import Test.AWS.CloudWatchLogs.Internal
 --         [ testDescribeDestinationsResponse $
 --             describeDestinationsResponse
 --
+--         , testCreateExportTaskResponse $
+--             createExportTaskResponse
+--
 --         , testPutDestinationResponse $
 --             putDestinationResponse
 --
@@ -126,6 +138,12 @@ import Test.AWS.CloudWatchLogs.Internal
 --
 --         , testCreateLogGroupResponse $
 --             createLogGroupResponse
+--
+--         , testDescribeExportTasksResponse $
+--             describeExportTasksResponse
+--
+--         , testCancelExportTaskResponse $
+--             cancelExportTaskResponse
 --
 --         , testPutSubscriptionFilterResponse $
 --             putSubscriptionFilterResponse
@@ -173,6 +191,11 @@ testDescribeDestinations = req
     "DescribeDestinations"
     "fixture/DescribeDestinations.yaml"
 
+testCreateExportTask :: CreateExportTask -> TestTree
+testCreateExportTask = req
+    "CreateExportTask"
+    "fixture/CreateExportTask.yaml"
+
 testPutDestination :: PutDestination -> TestTree
 testPutDestination = req
     "PutDestination"
@@ -217,6 +240,16 @@ testCreateLogGroup :: CreateLogGroup -> TestTree
 testCreateLogGroup = req
     "CreateLogGroup"
     "fixture/CreateLogGroup.yaml"
+
+testDescribeExportTasks :: DescribeExportTasks -> TestTree
+testDescribeExportTasks = req
+    "DescribeExportTasks"
+    "fixture/DescribeExportTasks.yaml"
+
+testCancelExportTask :: CancelExportTask -> TestTree
+testCancelExportTask = req
+    "CancelExportTask"
+    "fixture/CancelExportTask.yaml"
 
 testPutSubscriptionFilter :: PutSubscriptionFilter -> TestTree
 testPutSubscriptionFilter = req
@@ -287,6 +320,13 @@ testDescribeDestinationsResponse = res
     cloudWatchLogs
     (Proxy :: Proxy DescribeDestinations)
 
+testCreateExportTaskResponse :: CreateExportTaskResponse -> TestTree
+testCreateExportTaskResponse = res
+    "CreateExportTaskResponse"
+    "fixture/CreateExportTaskResponse.proto"
+    cloudWatchLogs
+    (Proxy :: Proxy CreateExportTask)
+
 testPutDestinationResponse :: PutDestinationResponse -> TestTree
 testPutDestinationResponse = res
     "PutDestinationResponse"
@@ -349,6 +389,20 @@ testCreateLogGroupResponse = res
     "fixture/CreateLogGroupResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy CreateLogGroup)
+
+testDescribeExportTasksResponse :: DescribeExportTasksResponse -> TestTree
+testDescribeExportTasksResponse = res
+    "DescribeExportTasksResponse"
+    "fixture/DescribeExportTasksResponse.proto"
+    cloudWatchLogs
+    (Proxy :: Proxy DescribeExportTasks)
+
+testCancelExportTaskResponse :: CancelExportTaskResponse -> TestTree
+testCancelExportTaskResponse = res
+    "CancelExportTaskResponse"
+    "fixture/CancelExportTaskResponse.proto"
+    cloudWatchLogs
+    (Proxy :: Proxy CancelExportTask)
 
 testPutSubscriptionFilterResponse :: PutSubscriptionFilterResponse -> TestTree
 testPutSubscriptionFilterResponse = res

@@ -120,7 +120,7 @@ aiInstanceId = lens _aiInstanceId (\ s a -> s{_aiInstanceId = a});
 aiInstanceType :: Lens' ActiveInstance (Maybe Text)
 aiInstanceType = lens _aiInstanceType (\ s a -> s{_aiInstanceType = a});
 
--- | The ID of the Spot Instance request.
+-- | The ID of the Spot instance request.
 aiSpotInstanceRequestId :: Lens' ActiveInstance (Maybe Text)
 aiSpotInstanceRequestId = lens _aiSpotInstanceRequestId (\ s a -> s{_aiSpotInstanceRequestId = a});
 
@@ -732,7 +732,7 @@ instance FromXML CancelSpotFleetRequestsSuccessItem
                 (x .@ "currentSpotFleetRequestState")
                 <*> (x .@ "previousSpotFleetRequestState")
 
--- | Describes a request to cancel a Spot Instance.
+-- | Describes a request to cancel a Spot instance.
 --
 -- /See:/ 'cancelledSpotInstanceRequest' smart constructor.
 data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest'
@@ -755,11 +755,11 @@ cancelledSpotInstanceRequest =
     , _csirSpotInstanceRequestId = Nothing
     }
 
--- | The state of the Spot Instance request.
+-- | The state of the Spot instance request.
 csirState :: Lens' CancelledSpotInstanceRequest (Maybe CancelSpotInstanceRequestState)
 csirState = lens _csirState (\ s a -> s{_csirState = a});
 
--- | The ID of the Spot Instance request.
+-- | The ID of the Spot instance request.
 csirSpotInstanceRequestId :: Lens' CancelledSpotInstanceRequest (Maybe Text)
 csirSpotInstanceRequestId = lens _csirSpotInstanceRequestId (\ s a -> s{_csirSpotInstanceRequestId = a});
 
@@ -1664,23 +1664,23 @@ eiEventDescription = lens _eiEventDescription (\ s a -> s{_eiEventDescription = 
 --     valid. For more information, see the description.
 --
 -- -   'spotInstanceCountLimitExceeded' - You\'ve reached the limit on the
---     number of Spot Instances that you can launch.
+--     number of Spot instances that you can launch.
 --
 -- The following are the 'fleetRequestChange' events.
 --
 -- -   'active' - The Spot fleet has been validated and Amazon EC2 is
---     attempting to maintain the target number of running Spot Instances.
+--     attempting to maintain the target number of running Spot instances.
 --
 -- -   'cancelled' - The Spot fleet is canceled and has no running Spot
---     Instances. The Spot fleet will be deleted two days after its
+--     instances. The Spot fleet will be deleted two days after its
 --     instances were terminated.
 --
 -- -   'cancelled_running' - The Spot fleet is canceled and will not launch
---     additional Spot Instances, but its existing Spot Instances will
---     continue to run until they are interrupted or terminated.
+--     additional Spot instances, but its existing Spot instances continue
+--     to run until they are interrupted or terminated.
 --
 -- -   'cancelled_terminating' - The Spot fleet is canceled and its Spot
---     Instances are terminating.
+--     instances are terminating.
 --
 -- -   'expired' - The Spot fleet request has expired. A subsequent event
 --     indicates that the instances were terminated, if the request was
@@ -1690,7 +1690,7 @@ eiEventDescription = lens _eiEventDescription (\ s a -> s{_eiEventDescription = 
 --     adjusted because it was too high. This change is permanent.
 --
 -- -   'submitted' - The Spot fleet request is being evaluated and Amazon
---     EC2 is preparing to launch the target number of Spot Instances.
+--     EC2 is preparing to launch the target number of Spot instances.
 --
 -- The following are the 'instanceChange' events.
 --
@@ -7670,25 +7670,31 @@ instance FromXML SecurityGroup where
 --
 -- /See:/ 'snapshot' smart constructor.
 data Snapshot = Snapshot'
-    { _sOwnerAlias  :: !(Maybe Text)
-    , _sKMSKeyId    :: !(Maybe Text)
-    , _sTags        :: !(Maybe [Tag])
-    , _sSnapshotId  :: !Text
-    , _sOwnerId     :: !Text
-    , _sVolumeId    :: !Text
-    , _sVolumeSize  :: !Int
-    , _sDescription :: !Text
-    , _sStartTime   :: !ISO8601
-    , _sProgress    :: !Text
-    , _sState       :: !SnapshotState
-    , _sEncrypted   :: !Bool
+    { _sStateMessage        :: !(Maybe Text)
+    , _sOwnerAlias          :: !(Maybe Text)
+    , _sDataEncryptionKeyId :: !(Maybe Text)
+    , _sKMSKeyId            :: !(Maybe Text)
+    , _sTags                :: !(Maybe [Tag])
+    , _sSnapshotId          :: !Text
+    , _sOwnerId             :: !Text
+    , _sVolumeId            :: !Text
+    , _sVolumeSize          :: !Int
+    , _sDescription         :: !Text
+    , _sStartTime           :: !ISO8601
+    , _sProgress            :: !Text
+    , _sState               :: !SnapshotState
+    , _sEncrypted           :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'sStateMessage'
+--
 -- * 'sOwnerAlias'
+--
+-- * 'sDataEncryptionKeyId'
 --
 -- * 'sKMSKeyId'
 --
@@ -7724,7 +7730,9 @@ snapshot
     -> Snapshot
 snapshot pSnapshotId_ pOwnerId_ pVolumeId_ pVolumeSize_ pDescription_ pStartTime_ pProgress_ pState_ pEncrypted_ =
     Snapshot'
-    { _sOwnerAlias = Nothing
+    { _sStateMessage = Nothing
+    , _sOwnerAlias = Nothing
+    , _sDataEncryptionKeyId = Nothing
     , _sKMSKeyId = Nothing
     , _sTags = Nothing
     , _sSnapshotId = pSnapshotId_
@@ -7738,10 +7746,28 @@ snapshot pSnapshotId_ pOwnerId_ pVolumeId_ pVolumeSize_ pDescription_ pStartTime
     , _sEncrypted = pEncrypted_
     }
 
+-- | Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot
+-- copy operation fails (for example, if the proper AWS Key Management
+-- Service (AWS KMS) permissions are not obtained) this field displays
+-- error state details to help you diagnose why the error occurred. This
+-- parameter is only returned by the DescribeSnapshots API operation.
+sStateMessage :: Lens' Snapshot (Maybe Text)
+sStateMessage = lens _sStateMessage (\ s a -> s{_sStateMessage = a});
+
 -- | The AWS account alias (for example, 'amazon', 'self') or AWS account ID
 -- that owns the snapshot.
 sOwnerAlias :: Lens' Snapshot (Maybe Text)
 sOwnerAlias = lens _sOwnerAlias (\ s a -> s{_sOwnerAlias = a});
+
+-- | The data encryption key identifier for the snapshot. This value is a
+-- unique identifier that corresponds to the data encryption key that was
+-- used to encrypt the original volume or snapshot copy. Because data
+-- encryption keys are inherited by volumes created from snapshots, and
+-- vice versa, if snapshots share the same data encryption key identifier,
+-- then they belong to the same volume\/snapshot lineage. This parameter is
+-- only returned by the DescribeSnapshots API operation.
+sDataEncryptionKeyId :: Lens' Snapshot (Maybe Text)
+sDataEncryptionKeyId = lens _sDataEncryptionKeyId (\ s a -> s{_sDataEncryptionKeyId = a});
 
 -- | The full ARN of the AWS Key Management Service (AWS KMS) customer master
 -- key (CMK) that was used to protect the volume encryption key for the
@@ -7753,7 +7779,8 @@ sKMSKeyId = lens _sKMSKeyId (\ s a -> s{_sKMSKeyId = a});
 sTags :: Lens' Snapshot [Tag]
 sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default . _Coerce;
 
--- | The ID of the snapshot.
+-- | The ID of the snapshot. Each snapshot receives a unique identifier when
+-- it is created.
 sSnapshotId :: Lens' Snapshot Text
 sSnapshotId = lens _sSnapshotId (\ s a -> s{_sSnapshotId = a});
 
@@ -7761,7 +7788,7 @@ sSnapshotId = lens _sSnapshotId (\ s a -> s{_sSnapshotId = a});
 sOwnerId :: Lens' Snapshot Text
 sOwnerId = lens _sOwnerId (\ s a -> s{_sOwnerId = a});
 
--- | The ID of the volume.
+-- | The ID of the volume that was used to create the snapshot.
 sVolumeId :: Lens' Snapshot Text
 sVolumeId = lens _sVolumeId (\ s a -> s{_sVolumeId = a});
 
@@ -7792,7 +7819,10 @@ sEncrypted = lens _sEncrypted (\ s a -> s{_sEncrypted = a});
 instance FromXML Snapshot where
         parseXML x
           = Snapshot' <$>
-              (x .@? "ownerAlias") <*> (x .@? "kmsKeyId") <*>
+              (x .@? "statusMessage") <*> (x .@? "ownerAlias") <*>
+                (x .@? "dataEncryptionKeyId")
+                <*> (x .@? "kmsKeyId")
+                <*>
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@ "snapshotId")
@@ -8069,7 +8099,7 @@ instance FromXML SnapshotTaskDetail where
                 <*> (x .@? "description")
                 <*> (x .@? "snapshotId")
 
--- | Describes the data feed for a Spot Instance.
+-- | Describes the data feed for a Spot instance.
 --
 -- /See:/ 'spotDatafeedSubscription' smart constructor.
 data SpotDatafeedSubscription = SpotDatafeedSubscription'
@@ -8104,7 +8134,7 @@ spotDatafeedSubscription =
     , _sdsFault = Nothing
     }
 
--- | The state of the Spot Instance data feed subscription.
+-- | The state of the Spot instance data feed subscription.
 sdsState :: Lens' SpotDatafeedSubscription (Maybe DatafeedSubscriptionState)
 sdsState = lens _sdsState (\ s a -> s{_sdsState = a});
 
@@ -8112,7 +8142,7 @@ sdsState = lens _sdsState (\ s a -> s{_sdsState = a});
 sdsPrefix :: Lens' SpotDatafeedSubscription (Maybe Text)
 sdsPrefix = lens _sdsPrefix (\ s a -> s{_sdsPrefix = a});
 
--- | The Amazon S3 bucket where the Spot Instance data feed is located.
+-- | The Amazon S3 bucket where the Spot instance data feed is located.
 sdsBucket :: Lens' SpotDatafeedSubscription (Maybe Text)
 sdsBucket = lens _sdsBucket (\ s a -> s{_sdsBucket = a});
 
@@ -8120,7 +8150,7 @@ sdsBucket = lens _sdsBucket (\ s a -> s{_sdsBucket = a});
 sdsOwnerId :: Lens' SpotDatafeedSubscription (Maybe Text)
 sdsOwnerId = lens _sdsOwnerId (\ s a -> s{_sdsOwnerId = a});
 
--- | The fault codes for the Spot Instance request, if any.
+-- | The fault codes for the Spot instance request, if any.
 sdsFault :: Lens' SpotDatafeedSubscription (Maybe SpotInstanceStateFault)
 sdsFault = lens _sdsFault (\ s a -> s{_sdsFault = a});
 
@@ -8132,7 +8162,7 @@ instance FromXML SpotDatafeedSubscription where
                 <*> (x .@? "ownerId")
                 <*> (x .@? "fault")
 
--- | Describes the launch specification for one or more Spot Instances.
+-- | Describes the launch specification for one or more Spot instances.
 --
 -- /See:/ 'spotFleetLaunchSpecification' smart constructor.
 data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
@@ -8444,6 +8474,7 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     , _sfrcdValidUntil                       :: !(Maybe ISO8601)
     , _sfrcdTerminateInstancesWithExpiration :: !(Maybe Bool)
     , _sfrcdValidFrom                        :: !(Maybe ISO8601)
+    , _sfrcdAllocationStrategy               :: !(Maybe AllocationStrategy)
     , _sfrcdSpotPrice                        :: !Text
     , _sfrcdTargetCapacity                   :: !Int
     , _sfrcdIAMFleetRole                     :: !Text
@@ -8461,6 +8492,8 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 -- * 'sfrcdTerminateInstancesWithExpiration'
 --
 -- * 'sfrcdValidFrom'
+--
+-- * 'sfrcdAllocationStrategy'
 --
 -- * 'sfrcdSpotPrice'
 --
@@ -8481,6 +8514,7 @@ spotFleetRequestConfigData pSpotPrice_ pTargetCapacity_ pIAMFleetRole_ pLaunchSp
     , _sfrcdValidUntil = Nothing
     , _sfrcdTerminateInstancesWithExpiration = Nothing
     , _sfrcdValidFrom = Nothing
+    , _sfrcdAllocationStrategy = Nothing
     , _sfrcdSpotPrice = pSpotPrice_
     , _sfrcdTargetCapacity = pTargetCapacity_
     , _sfrcdIAMFleetRole = pIAMFleetRole_
@@ -8495,13 +8529,13 @@ sfrcdClientToken :: Lens' SpotFleetRequestConfigData (Maybe Text)
 sfrcdClientToken = lens _sfrcdClientToken (\ s a -> s{_sfrcdClientToken = a});
 
 -- | The end date and time of the request, in UTC format (for example,
--- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). At this point, no new Spot Instance
+-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). At this point, no new Spot instance
 -- requests are placed or enabled to fulfill the request.
 sfrcdValidUntil :: Lens' SpotFleetRequestConfigData (Maybe UTCTime)
 sfrcdValidUntil = lens _sfrcdValidUntil (\ s a -> s{_sfrcdValidUntil = a}) . mapping _Time;
 
--- | Indicates whether running instances should be terminated when the Spot
--- fleet request expires.
+-- | Indicates whether running Spot instances should be terminated when the
+-- Spot fleet request expires.
 sfrcdTerminateInstancesWithExpiration :: Lens' SpotFleetRequestConfigData (Maybe Bool)
 sfrcdTerminateInstancesWithExpiration = lens _sfrcdTerminateInstancesWithExpiration (\ s a -> s{_sfrcdTerminateInstancesWithExpiration = a});
 
@@ -8510,6 +8544,11 @@ sfrcdTerminateInstancesWithExpiration = lens _sfrcdTerminateInstancesWithExpirat
 -- the request immediately.
 sfrcdValidFrom :: Lens' SpotFleetRequestConfigData (Maybe UTCTime)
 sfrcdValidFrom = lens _sfrcdValidFrom (\ s a -> s{_sfrcdValidFrom = a}) . mapping _Time;
+
+-- | Determines how to allocate the target capacity across the Spot pools
+-- specified by the Spot fleet request. The default is 'lowestPrice'.
+sfrcdAllocationStrategy :: Lens' SpotFleetRequestConfigData (Maybe AllocationStrategy)
+sfrcdAllocationStrategy = lens _sfrcdAllocationStrategy (\ s a -> s{_sfrcdAllocationStrategy = a});
 
 -- | The bid price per unit hour.
 sfrcdSpotPrice :: Lens' SpotFleetRequestConfigData Text
@@ -8521,14 +8560,14 @@ sfrcdSpotPrice = lens _sfrcdSpotPrice (\ s a -> s{_sfrcdSpotPrice = a});
 sfrcdTargetCapacity :: Lens' SpotFleetRequestConfigData Int
 sfrcdTargetCapacity = lens _sfrcdTargetCapacity (\ s a -> s{_sfrcdTargetCapacity = a});
 
--- | Grants the Spot fleet service permission to terminate instances on your
--- behalf when you cancel a Spot fleet request using
+-- | Grants the Spot fleet permission to terminate Spot instances on your
+-- behalf when you cancel its Spot fleet request using
 -- CancelSpotFleetRequests or when the Spot fleet request expires, if you
 -- set 'terminateInstancesWithExpiration'.
 sfrcdIAMFleetRole :: Lens' SpotFleetRequestConfigData Text
 sfrcdIAMFleetRole = lens _sfrcdIAMFleetRole (\ s a -> s{_sfrcdIAMFleetRole = a});
 
--- | Information about the launch specifications for the instances.
+-- | Information about the launch specifications for the Spot fleet request.
 sfrcdLaunchSpecifications :: Lens' SpotFleetRequestConfigData (NonEmpty SpotFleetLaunchSpecification)
 sfrcdLaunchSpecifications = lens _sfrcdLaunchSpecifications (\ s a -> s{_sfrcdLaunchSpecifications = a}) . _List1;
 
@@ -8538,6 +8577,7 @@ instance FromXML SpotFleetRequestConfigData where
               (x .@? "clientToken") <*> (x .@? "validUntil") <*>
                 (x .@? "terminateInstancesWithExpiration")
                 <*> (x .@? "validFrom")
+                <*> (x .@? "allocationStrategy")
                 <*> (x .@ "spotPrice")
                 <*> (x .@ "targetCapacity")
                 <*> (x .@ "iamFleetRole")
@@ -8553,13 +8593,14 @@ instance ToQuery SpotFleetRequestConfigData where
                "TerminateInstancesWithExpiration" =:
                  _sfrcdTerminateInstancesWithExpiration,
                "ValidFrom" =: _sfrcdValidFrom,
+               "AllocationStrategy" =: _sfrcdAllocationStrategy,
                "SpotPrice" =: _sfrcdSpotPrice,
                "TargetCapacity" =: _sfrcdTargetCapacity,
                "IamFleetRole" =: _sfrcdIAMFleetRole,
                toQueryList "LaunchSpecifications"
                  _sfrcdLaunchSpecifications]
 
--- | Describe a Spot Instance request.
+-- | Describe a Spot instance request.
 --
 -- /See:/ 'spotInstanceRequest' smart constructor.
 data SpotInstanceRequest = SpotInstanceRequest'
@@ -8639,26 +8680,26 @@ spotInstanceRequest =
     }
 
 -- | The instance ID, if an instance has been launched to fulfill the Spot
--- Instance request.
+-- instance request.
 sirInstanceId :: Lens' SpotInstanceRequest (Maybe Text)
 sirInstanceId = lens _sirInstanceId (\ s a -> s{_sirInstanceId = a});
 
--- | The status code and status message describing the Spot Instance request.
+-- | The status code and status message describing the Spot instance request.
 sirStatus :: Lens' SpotInstanceRequest (Maybe SpotInstanceStatus)
 sirStatus = lens _sirStatus (\ s a -> s{_sirStatus = a});
 
--- | The state of the Spot Instance request. Spot bid status information can
--- help you track your Spot Instance requests. For more information, see
+-- | The state of the Spot instance request. Spot bid status information can
+-- help you track your Spot instance requests. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot Bid Status>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 sirState :: Lens' SpotInstanceRequest (Maybe SpotInstanceState)
 sirState = lens _sirState (\ s a -> s{_sirState = a});
 
--- | The product description associated with the Spot Instance.
+-- | The product description associated with the Spot instance.
 sirProductDescription :: Lens' SpotInstanceRequest (Maybe RIProductDescription)
 sirProductDescription = lens _sirProductDescription (\ s a -> s{_sirProductDescription = a});
 
--- | The maximum hourly price (bid) for any Spot Instance launched to fulfill
+-- | The maximum hourly price (bid) for any Spot instance launched to fulfill
 -- the request.
 sirSpotPrice :: Lens' SpotInstanceRequest (Maybe Text)
 sirSpotPrice = lens _sirSpotPrice (\ s a -> s{_sirSpotPrice = a});
@@ -8668,7 +8709,7 @@ sirLaunchSpecification :: Lens' SpotInstanceRequest (Maybe LaunchSpecification)
 sirLaunchSpecification = lens _sirLaunchSpecification (\ s a -> s{_sirLaunchSpecification = a});
 
 -- | The Availability Zone group. If you specify the same Availability Zone
--- group for all Spot Instance requests, all Spot Instances are launched in
+-- group for all Spot instance requests, all Spot instances are launched in
 -- the same Availability Zone.
 sirAvailabilityZoneGroup :: Lens' SpotInstanceRequest (Maybe Text)
 sirAvailabilityZoneGroup = lens _sirAvailabilityZoneGroup (\ s a -> s{_sirAvailabilityZoneGroup = a});
@@ -8685,20 +8726,20 @@ sirLaunchedAvailabilityZone = lens _sirLaunchedAvailabilityZone (\ s a -> s{_sir
 sirValidUntil :: Lens' SpotInstanceRequest (Maybe UTCTime)
 sirValidUntil = lens _sirValidUntil (\ s a -> s{_sirValidUntil = a}) . mapping _Time;
 
--- | The instance launch group. Launch groups are Spot Instances that launch
+-- | The instance launch group. Launch groups are Spot instances that launch
 -- together and terminate together.
 sirLaunchGroup :: Lens' SpotInstanceRequest (Maybe Text)
 sirLaunchGroup = lens _sirLaunchGroup (\ s a -> s{_sirLaunchGroup = a});
 
--- | The fault codes for the Spot Instance request, if any.
+-- | The fault codes for the Spot instance request, if any.
 sirFault :: Lens' SpotInstanceRequest (Maybe SpotInstanceStateFault)
 sirFault = lens _sirFault (\ s a -> s{_sirFault = a});
 
--- | The ID of the Spot Instance request.
+-- | The ID of the Spot instance request.
 sirSpotInstanceRequestId :: Lens' SpotInstanceRequest (Maybe Text)
 sirSpotInstanceRequestId = lens _sirSpotInstanceRequestId (\ s a -> s{_sirSpotInstanceRequestId = a});
 
--- | The Spot Instance request type.
+-- | The Spot instance request type.
 sirType :: Lens' SpotInstanceRequest (Maybe SpotInstanceType)
 sirType = lens _sirType (\ s a -> s{_sirType = a});
 
@@ -8711,7 +8752,7 @@ sirType = lens _sirType (\ s a -> s{_sirType = a});
 sirValidFrom :: Lens' SpotInstanceRequest (Maybe UTCTime)
 sirValidFrom = lens _sirValidFrom (\ s a -> s{_sirValidFrom = a}) . mapping _Time;
 
--- | The date and time when the Spot Instance request was created, in UTC
+-- | The date and time when the Spot instance request was created, in UTC
 -- format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 sirCreateTime :: Lens' SpotInstanceRequest (Maybe UTCTime)
 sirCreateTime = lens _sirCreateTime (\ s a -> s{_sirCreateTime = a}) . mapping _Time;
@@ -8741,7 +8782,7 @@ instance FromXML SpotInstanceRequest where
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
 
--- | Describes a Spot Instance state change.
+-- | Describes a Spot instance state change.
 --
 -- /See:/ 'spotInstanceStateFault' smart constructor.
 data SpotInstanceStateFault = SpotInstanceStateFault'
@@ -8764,11 +8805,11 @@ spotInstanceStateFault =
     , _sisfMessage = Nothing
     }
 
--- | The reason code for the Spot Instance state change.
+-- | The reason code for the Spot instance state change.
 sisfCode :: Lens' SpotInstanceStateFault (Maybe Text)
 sisfCode = lens _sisfCode (\ s a -> s{_sisfCode = a});
 
--- | The message for the Spot Instance state change.
+-- | The message for the Spot instance state change.
 sisfMessage :: Lens' SpotInstanceStateFault (Maybe Text)
 sisfMessage = lens _sisfMessage (\ s a -> s{_sisfMessage = a});
 
@@ -8777,7 +8818,7 @@ instance FromXML SpotInstanceStateFault where
           = SpotInstanceStateFault' <$>
               (x .@? "code") <*> (x .@? "message")
 
--- | Describes the status of a Spot Instance request.
+-- | Describes the status of a Spot instance request.
 --
 -- /See:/ 'spotInstanceStatus' smart constructor.
 data SpotInstanceStatus = SpotInstanceStatus'
@@ -8823,7 +8864,7 @@ instance FromXML SpotInstanceStatus where
               (x .@? "updateTime") <*> (x .@? "code") <*>
                 (x .@? "message")
 
--- | Describes Spot Instance placement.
+-- | Describes Spot instance placement.
 --
 -- /See:/ 'spotPlacement' smart constructor.
 data SpotPlacement = SpotPlacement'
@@ -8865,7 +8906,7 @@ instance ToQuery SpotPlacement where
               ["AvailabilityZone" =: _spAvailabilityZone,
                "GroupName" =: _spGroupName]
 
--- | Describes the maximum hourly price (bid) for any Spot Instance launched
+-- | Describes the maximum hourly price (bid) for any Spot instance launched
 -- to fulfill the request.
 --
 -- /See:/ 'spotPrice' smart constructor.
@@ -8905,7 +8946,7 @@ spotPrice =
 sProductDescription :: Lens' SpotPrice (Maybe RIProductDescription)
 sProductDescription = lens _sProductDescription (\ s a -> s{_sProductDescription = a});
 
--- | The maximum price (bid) that you are willing to pay for a Spot Instance.
+-- | The maximum price (bid) that you are willing to pay for a Spot instance.
 sSpotPrice :: Lens' SpotPrice (Maybe Text)
 sSpotPrice = lens _sSpotPrice (\ s a -> s{_sSpotPrice = a});
 

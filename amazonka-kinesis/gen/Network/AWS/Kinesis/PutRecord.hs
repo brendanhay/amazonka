@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Puts (writes) a single data record from a producer into an Amazon
--- Kinesis stream. Call 'PutRecord' to send data from the producer into the
--- Amazon Kinesis stream for real-time ingestion and subsequent processing,
--- one record at a time. Each shard can support up to 1000 records written
--- per second, up to a maximum total of 1 MB data written per second.
+-- Writes a single data record from a producer into an Amazon Kinesis
+-- stream. Call 'PutRecord' to send data from the producer into the Amazon
+-- Kinesis stream for real-time ingestion and subsequent processing, one
+-- record at a time. Each shard can support writes up to 1,000 records per
+-- second, up to a maximum data write total of 1 MB per second.
 --
 -- You must specify the name of the stream that captures, stores, and
 -- transports the data; a partition key; and the data blob itself.
@@ -42,7 +42,7 @@
 -- shards using the hash key ranges of the shards. You can override hashing
 -- the partition key to determine the shard by explicitly specifying a hash
 -- value using the 'ExplicitHashKey' parameter. For more information, see
--- <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html Adding Data to a Stream>
+-- <http://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream Adding Data to a Stream>
 -- in the /Amazon Kinesis Developer Guide/.
 --
 -- 'PutRecord' returns the shard ID of where the data record was placed and
@@ -51,7 +51,7 @@
 -- Sequence numbers generally increase over time. To guarantee strictly
 -- increasing ordering, use the 'SequenceNumberForOrdering' parameter. For
 -- more information, see
--- <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html Adding Data to a Stream>
+-- <http://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream Adding Data to a Stream>
 -- in the /Amazon Kinesis Developer Guide/.
 --
 -- If a 'PutRecord' request cannot be processed because of insufficient
@@ -146,8 +146,9 @@ prStreamName :: Lens' PutRecord Text
 prStreamName = lens _prStreamName (\ s a -> s{_prStreamName = a});
 
 -- | The data blob to put into the record, which is base64-encoded when the
--- blob is serialized. The maximum size of the data blob (the payload
--- before base64-encoding) is 50 kilobytes (KB)
+-- blob is serialized. When the data blob (the payload before
+-- base64-encoding) is added to the partition key size, the total size must
+-- not exceed the maximum record size (1 MB).
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.

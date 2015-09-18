@@ -330,7 +330,7 @@ instance AWSRequest PutObject where
                      <*> (pure (fromEnum s)))
 
 instance ToBody PutObject where
-        toBody = _poBody
+        toBody = toBody . _poBody
 
 instance ToHeaders PutObject where
         toHeaders PutObject'{..}

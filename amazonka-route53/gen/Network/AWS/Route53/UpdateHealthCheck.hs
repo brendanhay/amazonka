@@ -36,9 +36,12 @@ module Network.AWS.Route53.UpdateHealthCheck
     , uhcFailureThreshold
     , uhcIPAddress
     , uhcSearchString
+    , uhcHealthThreshold
     , uhcResourcePath
     , uhcHealthCheckVersion
+    , uhcInverted
     , uhcFullyQualifiedDomainName
+    , uhcChildHealthChecks
     , uhcPort
     , uhcHealthCheckId
 
@@ -64,9 +67,12 @@ data UpdateHealthCheck = UpdateHealthCheck'
     { _uhcFailureThreshold         :: !(Maybe Nat)
     , _uhcIPAddress                :: !(Maybe Text)
     , _uhcSearchString             :: !(Maybe Text)
+    , _uhcHealthThreshold          :: !(Maybe Nat)
     , _uhcResourcePath             :: !(Maybe Text)
     , _uhcHealthCheckVersion       :: !(Maybe Nat)
+    , _uhcInverted                 :: !(Maybe Bool)
     , _uhcFullyQualifiedDomainName :: !(Maybe Text)
+    , _uhcChildHealthChecks        :: !(Maybe [Text])
     , _uhcPort                     :: !(Maybe Nat)
     , _uhcHealthCheckId            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -81,11 +87,17 @@ data UpdateHealthCheck = UpdateHealthCheck'
 --
 -- * 'uhcSearchString'
 --
+-- * 'uhcHealthThreshold'
+--
 -- * 'uhcResourcePath'
 --
 -- * 'uhcHealthCheckVersion'
 --
+-- * 'uhcInverted'
+--
 -- * 'uhcFullyQualifiedDomainName'
+--
+-- * 'uhcChildHealthChecks'
 --
 -- * 'uhcPort'
 --
@@ -98,9 +110,12 @@ updateHealthCheck pHealthCheckId_ =
     { _uhcFailureThreshold = Nothing
     , _uhcIPAddress = Nothing
     , _uhcSearchString = Nothing
+    , _uhcHealthThreshold = Nothing
     , _uhcResourcePath = Nothing
     , _uhcHealthCheckVersion = Nothing
+    , _uhcInverted = Nothing
     , _uhcFullyQualifiedDomainName = Nothing
+    , _uhcChildHealthChecks = Nothing
     , _uhcPort = Nothing
     , _uhcHealthCheckId = pHealthCheckId_
     }
@@ -132,6 +147,14 @@ uhcIPAddress = lens _uhcIPAddress (\ s a -> s{_uhcIPAddress = a});
 uhcSearchString :: Lens' UpdateHealthCheck (Maybe Text)
 uhcSearchString = lens _uhcSearchString (\ s a -> s{_uhcSearchString = a});
 
+-- | The minimum number of child health checks that must be healthy for Route
+-- 53 to consider the parent health check to be healthy. Valid values are
+-- integers between 0 and 256, inclusive.
+--
+-- Specify this value only if you want to change it.
+uhcHealthThreshold :: Lens' UpdateHealthCheck (Maybe Natural)
+uhcHealthThreshold = lens _uhcHealthThreshold (\ s a -> s{_uhcHealthThreshold = a}) . mapping _Nat;
+
 -- | The path that you want Amazon Route 53 to request when performing health
 -- checks. The path can be any value for which your endpoint will return an
 -- HTTP status code of 2xx or 3xx when the endpoint is healthy, for example
@@ -149,11 +172,26 @@ uhcResourcePath = lens _uhcResourcePath (\ s a -> s{_uhcResourcePath = a});
 uhcHealthCheckVersion :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcHealthCheckVersion = lens _uhcHealthCheckVersion (\ s a -> s{_uhcHealthCheckVersion = a}) . mapping _Nat;
 
+-- | A boolean value that indicates whether the status of health check should
+-- be inverted. For example, if a health check is healthy but 'Inverted' is
+-- 'True', then Route 53 considers the health check to be unhealthy.
+--
+-- Specify this value only if you want to change it.
+uhcInverted :: Lens' UpdateHealthCheck (Maybe Bool)
+uhcInverted = lens _uhcInverted (\ s a -> s{_uhcInverted = a});
+
 -- | Fully qualified domain name of the instance to be health checked.
 --
 -- Specify this value only if you want to change it.
 uhcFullyQualifiedDomainName :: Lens' UpdateHealthCheck (Maybe Text)
 uhcFullyQualifiedDomainName = lens _uhcFullyQualifiedDomainName (\ s a -> s{_uhcFullyQualifiedDomainName = a});
+
+-- | For a specified parent health check, a list of 'HealthCheckId' values
+-- for the associated child health checks.
+--
+-- Specify this value only if you want to change it.
+uhcChildHealthChecks :: Lens' UpdateHealthCheck [Text]
+uhcChildHealthChecks = lens _uhcChildHealthChecks (\ s a -> s{_uhcChildHealthChecks = a}) . _Default . _Coerce;
 
 -- | The port on which you want Route 53 to open a connection to perform
 -- health checks.
@@ -197,10 +235,16 @@ instance ToXML UpdateHealthCheck where
               ["FailureThreshold" @= _uhcFailureThreshold,
                "IPAddress" @= _uhcIPAddress,
                "SearchString" @= _uhcSearchString,
+               "HealthThreshold" @= _uhcHealthThreshold,
                "ResourcePath" @= _uhcResourcePath,
                "HealthCheckVersion" @= _uhcHealthCheckVersion,
+               "Inverted" @= _uhcInverted,
                "FullyQualifiedDomainName" @=
                  _uhcFullyQualifiedDomainName,
+               "ChildHealthChecks" @=
+                 toXML
+                   (toXMLList "ChildHealthCheck" <$>
+                      _uhcChildHealthChecks),
                "Port" @= _uhcPort]
 
 -- | /See:/ 'updateHealthCheckResponse' smart constructor.

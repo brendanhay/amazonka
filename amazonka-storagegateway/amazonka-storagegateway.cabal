@@ -1,5 +1,5 @@
 name:                  amazonka-storagegateway
-version:               1.3.1
+version:               1.3.2
 synopsis:              Amazon Storage Gateway SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -128,7 +128,7 @@ library
         , Network.AWS.StorageGateway.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.1.*
+          amazonka-core == 1.3.2.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-storagegateway-test
@@ -148,9 +148,9 @@ test-suite amazonka-storagegateway-test
         , Test.AWS.StorageGateway.Internal
 
     build-depends:
-          amazonka-core == 1.3.1.*
-        , amazonka-test == 1.3.1.*
-        , amazonka-storagegateway == 1.3.1.*
+          amazonka-core == 1.3.2.*
+        , amazonka-test == 1.3.2.*
+        , amazonka-storagegateway == 1.3.2.*
         , base
         , bytestring
         , lens

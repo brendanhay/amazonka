@@ -18,16 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels one or more Spot Instance requests. Spot Instances are instances
+-- Cancels one or more Spot instance requests. Spot instances are instances
 -- that Amazon EC2 starts on your behalf when the bid price that you
--- specify exceeds the current Spot Price. Amazon EC2 periodically sets the
--- Spot Price based on available Spot Instance capacity and current Spot
--- Instance requests. For more information, see
+-- specify exceeds the current Spot price. Amazon EC2 periodically sets the
+-- Spot price based on available Spot instance capacity and current Spot
+-- instance requests. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Canceling a Spot Instance request does not terminate running Spot
--- Instances associated with the request.
+-- Canceling a Spot instance request does not terminate running Spot
+-- instances associated with the request.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotInstanceRequests.html AWS API Reference> for CancelSpotInstanceRequests.
 module Network.AWS.EC2.CancelSpotInstanceRequests
@@ -83,7 +83,7 @@ cancelSpotInstanceRequests =
 csirDryRun :: Lens' CancelSpotInstanceRequests (Maybe Bool)
 csirDryRun = lens _csirDryRun (\ s a -> s{_csirDryRun = a});
 
--- | One or more Spot Instance request IDs.
+-- | One or more Spot instance request IDs.
 csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
 csirSpotInstanceRequestIds = lens _csirSpotInstanceRequestIds (\ s a -> s{_csirSpotInstanceRequestIds = a}) . _Coerce;
 
@@ -139,7 +139,7 @@ cancelSpotInstanceRequestsResponse pResponseStatus_ =
     , _csirrsResponseStatus = pResponseStatus_
     }
 
--- | One or more Spot Instance requests.
+-- | One or more Spot instance requests.
 csirrsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
 csirrsCancelledSpotInstanceRequests = lens _csirrsCancelledSpotInstanceRequests (\ s a -> s{_csirrsCancelledSpotInstanceRequests = a}) . _Default . _Coerce;
 

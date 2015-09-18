@@ -60,7 +60,7 @@
 -- For the default shard limit for an AWS account, see
 -- <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Amazon Kinesis Limits>.
 -- If you need to increase this limit,
--- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support>
+-- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support>.
 --
 -- If you try to operate on too many streams in parallel using
 -- CreateStream, DeleteStream, MergeShards or SplitShard, you receive a

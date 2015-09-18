@@ -111,6 +111,7 @@ data Lit
     | Blob
     | Time
     | Bool
+    | Json
       deriving (Show)
 
 data TType

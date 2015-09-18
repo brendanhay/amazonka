@@ -123,6 +123,7 @@ module Network.AWS.Kinesis
     -- ** Record
     , Record
     , record
+    , rApproximateArrivalTimestamp
     , rSequenceNumber
     , rData
     , rPartitionKey

@@ -20,6 +20,7 @@ module Gen.AST.Data.Syntax where
 import           Control.Comonad
 import           Control.Error
 import           Control.Lens                 hiding (iso, mapping, op, strict)
+import           Data.Foldable                (foldl', foldr')
 import qualified Data.Foldable                as Fold
 import qualified Data.HashMap.Strict          as Map
 import           Data.List.NonEmpty           (NonEmpty (..))
@@ -77,11 +78,11 @@ toXMap, toQMap :: Exp
 toXMap  = var "toXMLMap"
 toQMap  = var "toQueryMap"
 
-ctorS :: Timestamp -> Id -> [Field] -> Decl
-ctorS ts n fs = TypeSig noLoc [ident (smartCtorId n)] ty
+ctorS :: HasMetadata a Identity => a -> Id -> [Field] -> Decl
+ctorS m n fs = TypeSig noLoc [ident (smartCtorId n)] ty
   where
-    ty = Fold.foldr' TyFun (tycon (typeId n)) ps
-    ps = map (external ts) (filter fieldIsParam fs)
+    ty = foldr' TyFun (tycon (typeId n)) ps
+    ps = map (external m) (filter fieldIsParam fs)
 
 ctorD :: Id -> [Field] -> Decl
 ctorD n fs =
@@ -98,19 +99,20 @@ fieldUpdate :: Field -> FieldUpdate
 fieldUpdate f = FieldUpdate (unqual (fieldAccessor f)) rhs
   where
     rhs :: Exp
-    rhs | fieldMaybe f             = nothingE
-        | fieldMonoid f            = memptyE
-        | Just v <- iso (typeOf f) = infixApp v "#" p
-        | otherwise                = p
+    rhs | fieldMaybe f  = nothingE
+        | fieldMonoid f = memptyE
+        | Just v <- iso (typeOf f)
+                        = infixApp v "#" p
+        | otherwise     = p
 
     p :: Exp
     p = Exts.Var (UnQual (fieldParamName f))
 
-lensS :: Timestamp -> TType -> Field -> Decl
-lensS ts t f = TypeSig noLoc [ident (fieldLens f)] $
+lensS :: HasMetadata a Identity => a -> TType -> Field -> Decl
+lensS m t f = TypeSig noLoc [ident (fieldLens f)] $
     TyApp (TyApp (tycon "Lens'")
-                 (signature ts t))
-          (external ts f)
+                 (signature m t))
+          (external m f)
 
 lensD :: Field -> Decl
 lensD f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) noBinds
@@ -134,7 +136,7 @@ errorS n = TypeSig noLoc [ident n] $
 errorD :: Text -> Maybe Integer -> Text -> Decl
 errorD n s c = sfun noLoc (ident n) [] (UnGuardedRhs rhs) noBinds
   where
-    rhs = Fold.foldl' (\l r -> infixApp l "." r) (var "_ServiceError") $
+    rhs = foldl' (\l r -> infixApp l "." r) (var "_ServiceError") $
         catMaybes [status <$> s, Just code]
 
     status i = app (var "hasStatus") (intE i)
@@ -149,11 +151,11 @@ dataD n fs cs = DataDecl noLoc arity [] (ident (typeId n)) [] fs ds
 
     ds = map ((,[]) . UnQual . Ident . drop 1 . show) cs
 
-recordD :: Timestamp -> Id -> [Field] -> QualConDecl
-recordD ts n = conD . \case
+recordD :: HasMetadata a Identity => a -> Id -> [Field] -> QualConDecl
+recordD m n = conD . \case
     []  -> ConDecl c []
-    [x] -> RecDecl c [g (internal ts) x]
-    xs  -> RecDecl c (map (g (strict . internal ts)) xs)
+    [x] -> RecDecl c [g (internal m) x]
+    xs  -> RecDecl c (map (g (strict . internal m)) xs)
   where
     g h f = ([ident (fieldAccessor f)], h f)
 
@@ -162,10 +164,10 @@ recordD ts n = conD . \case
 conD :: ConDecl -> QualConDecl
 conD = QualConDecl noLoc [] []
 
-serviceS :: HasMetadata a f => a -> Decl
+serviceS :: HasMetadata a Identity => a -> Decl
 serviceS m = TypeSig noLoc [ident (serviceFunction m)] (tycon "Service")
 
-serviceD :: HasMetadata a f => a -> Retry -> Decl
+serviceD :: HasMetadata a Identity => a -> Retry -> Decl
 serviceD m r = patBindWhere noLoc (pvar n) rhs bs
   where
     bs  = [try noBinds, chk noBinds]
@@ -237,14 +239,14 @@ pagerD n p = instD "AWSPager" n
 
     stop x = guardE (app (var "stop") (rs x)) nothingE
 
-    other = otherE . Fold.foldl' f rq
+    other = otherE . foldl' f rq
       where
         f :: Exp -> Token Field -> Exp
         f e x = infixApp e "&"
               . infixApp (x ^. tokenInput . to notationE) ".~"
               $ rs (x ^. tokenOutput . to notationE)
 
-    check t ts = guardE (Fold.foldl' f (g t) ts) nothingE
+    check t ts = guardE (foldl' f (g t) ts) nothingE
       where
         f x = infixApp x "&&" . g
         g y = app (var "isNothing") $ rs (y ^. tokenOutput . to notationE)
@@ -272,7 +274,7 @@ notationE = \case
     branch x = let e = notationE x in paren $ app (var (getterN e)) e
 
     labels k [] = label False k
-    labels k ks = Fold.foldl' f (label True k) ks
+    labels k ks = foldl' f (label True k) ks
       where
          f e x = infixApp e "." (label True x)
 
@@ -287,7 +289,7 @@ notationE = \case
         | fieldMaybe f  = infixApp (key False f) "." (var "_Just")
         | otherwise     = key False f
 
-requestD :: HasMetadata a f
+requestD :: HasMetadata a Identity
          => Config
          -> a
          -> HTTP Identity
@@ -327,10 +329,20 @@ responseE p r fs = app (responseF p r fs) bdy
     parseProto :: Field -> Exp
     parseProto f =
         case p of
+            _ | f ^. fieldPayload -> parseOne   f
             JSON                  -> parseJSONE p pJE pJEMay pJEDef f
             RestJSON              -> parseJSONE p pJE pJEMay pJEDef f
-            _ | f ^. fieldPayload -> parseAll
             _                     -> parseXMLE  p f
+
+    parseOne :: Field -> Exp
+    parseOne f
+        | fieldLit f =
+             if fieldIsParam f
+                 then app (var "pure") (var "x")
+                 else app (var "pure") (paren (app (var "Just") (var "x")))
+          -- ^ This ensures anything which is set as a payload,
+          -- but is a primitive type is just consumed as a bytestring.
+        | otherwise  = parseAll
 
     parseAll :: Exp
     parseAll = flip app (var "x") $
@@ -541,7 +553,7 @@ toPathE :: Either Text Field -> Exp
 toPathE = either str (app (var "toBS") . var . fieldAccessor)
 
 toBodyE :: Field -> Exp
-toBodyE = var . fieldAccessor
+toBodyE = infixApp (var "toBody") "." . var . fieldAccessor
 
 toGenericE :: Protocol -> QOp -> Text -> Exp -> Exp -> Field -> Exp
 toGenericE p toO toF toM toL f = case inputNames p f of
@@ -613,14 +625,14 @@ inputNames, outputNames :: Protocol -> Field -> Names
 inputNames  p f = Proto.nestedNames p Input  (f ^. fieldId) (f ^. fieldRef)
 outputNames p f = Proto.nestedNames p Output (f ^. fieldId) (f ^. fieldRef)
 
-requestF :: HasMetadata a f
+requestF :: HasMetadata a Identity
          => Config
          -> a
          -> HTTP Identity
          -> Ref
          -> [Inst]
          -> Exp
-requestF c meta h r is = maybe e (Fold.foldr' plugin e) ps
+requestF c meta h r is = maybe e (foldr' plugin e) ps
   where
     plugin x = infixApp (var x) "."
 
@@ -654,6 +666,7 @@ responseF :: Protocol -> RefF a -> [Field] -> Exp
 responseF p r fs
     | null fs                         = var "receiveNull"
     | any fieldStream fs              = var "receiveBody"
+    | any fieldLitPayload fs          = var "receiveJSON" -- Currently assumes JSON body literal.
     | Just x <- r ^. refResultWrapper = app (var (suf <> "Wrapper")) (str x)
     | all (not . fieldBody) fs        = var "receiveEmpty"
     | otherwise                       = var suf
@@ -706,18 +719,23 @@ waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
             Textual {} -> \y -> infixApp y "." (app (var "to") (var "toTextCI"))
             _          -> id
 
-signature :: Timestamp -> TType -> Type
-signature ts = directed False ts Nothing
+signature :: HasMetadata a Identity => a -> TType -> Type
+signature m = directed False m Nothing
 
-internal, external :: Timestamp -> Field -> Type
-internal ts f = directed True  ts (f ^. fieldDirection) f
-external ts f = directed False ts (f ^. fieldDirection) f
+internal, external :: HasMetadata a Identity => a -> Field -> Type
+internal m f = directed True  m (_fieldDirection f) f
+external m f = directed False m (_fieldDirection f) f
 
 -- FIXME: split again into internal/external
-directed :: TypeOf a => Bool -> Timestamp -> Maybe Direction -> a -> Type
-directed i ts d (typeOf -> t) = case t of
+directed :: (HasMetadata a Identity, TypeOf b)
+         => Bool
+         -> a
+         -> Maybe Direction
+         -> b
+         -> Type
+directed i m d (typeOf -> t) = case t of
     TType      x _ -> tycon x
-    TLit       x   -> literal i ts x
+    TLit       x   -> literal i (m ^. timestampFormat . _Identity) x
     TNatural       -> tycon nat
     TStream        -> tycon stream
     TSensitive x   -> sensitive (go x)
@@ -726,7 +744,7 @@ directed i ts d (typeOf -> t) = case t of
     TList1     x   -> list1  (go x)
     TMap       k v -> hmap k v
   where
-    go = directed i ts d
+    go = directed i m d
 
     nat | i         = "Nat"
         | otherwise = "Natural"
@@ -748,9 +766,12 @@ directed i ts d (typeOf -> t) = case t of
         | otherwise = TyApp (TyApp (tycon "HashMap") (go k)) (go v)
 
     stream = case d of
-        Nothing     -> "Stream"
-        Just Input  -> "RqBody"
-        Just Output -> "RsBody"
+        Nothing         -> "RsBody"
+        Just Output     -> "RsBody"     -- ^ Response stream.
+        Just Input
+            | m ^. signatureVersion == S3
+                        -> "RqBody"     -- ^ If the signer supports chunked encoding, both body types are accepted.
+            | otherwise -> "HashedBody" -- ^ Otherwise only a pre-hashed body is accepted.
 
 mapping :: TType -> Exp -> Exp
 mapping t e = infixE e "." (go t)
@@ -787,6 +808,7 @@ literal i ts = \case
     Bool             -> tycon "Bool"
     Time | i         -> tycon (tsToText ts)
          | otherwise -> tycon "UTCTime"
+    Json             -> TyApp (TyApp (tycon "HashMap") (tycon "Text")) (tycon "Value")
 
 strict :: Type -> Type
 strict = TyBang BangedTy . \case

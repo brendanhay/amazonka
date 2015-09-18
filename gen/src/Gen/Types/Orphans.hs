@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP               #-}
 {-# LANGUAGE FlexibleInstances #-}
 
 {-# OPTIONS_GHC -fno-warn-orphans #-}
@@ -28,6 +29,12 @@ import           Gen.Types.Map
 import qualified Language.Haskell.Exts as Exts
 import           Numeric.Natural
 
+#if MIN_VERSION_aeson(0,8,1)
+#else
+instance ToJSON a => ToJSON (Identity a) where
+    toJSON = toJSON . runIdentity
+#endif
+
 instance FromJSON a => FromJSON (NonEmpty a) where
     parseJSON = parseJSON >=> maybe (fail msg) pure . NE.nonEmpty
       where
@@ -47,9 +54,6 @@ instance FromJSON Natural where
 
 instance ToJSON Natural where
     toJSON = toJSON . toInteger
-
-instance ToJSON a => ToJSON (Identity a) where
-    toJSON = toJSON . runIdentity
 
 instance IsString Exts.QOp where
     fromString = Exts.op . Exts.sym

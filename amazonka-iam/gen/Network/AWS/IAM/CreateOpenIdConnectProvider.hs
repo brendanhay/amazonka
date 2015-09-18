@@ -137,7 +137,7 @@ coicpURL = lens _coicpURL (\ s a -> s{_coicpURL = a});
 -- For more information about obtaining the OIDC provider\'s thumbprint,
 -- see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the Thumbprint for an OpenID Connect Provider>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 coicpThumbprintList :: Lens' CreateOpenIdConnectProvider [Text]
 coicpThumbprintList = lens _coicpThumbprintList (\ s a -> s{_coicpThumbprintList = a}) . _Coerce;
 

@@ -18,12 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the descriptions of the current mount targets for a file system.
--- The order of mount targets returned in the response is unspecified.
+-- Returns the descriptions of all the current mount targets, or a specific
+-- mount target, for a file system. When requesting all of the current
+-- mount targets, the order of mount targets returned in the response is
+-- unspecified.
 --
 -- This operation requires permission for the
--- 'elasticfilesystem:DescribeMountTargets' action on the file system
--- 'FileSystemId'.
+-- 'elasticfilesystem:DescribeMountTargets' action, on either the file
+-- system id that you specify in 'FileSystemId', or on the file system of
+-- the mount target that you specify in 'MountTargetId'.
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeMountTargets.html AWS API Reference> for DescribeMountTargets.
 module Network.AWS.EFS.DescribeMountTargets
@@ -32,9 +35,10 @@ module Network.AWS.EFS.DescribeMountTargets
       describeMountTargets
     , DescribeMountTargets
     -- * Request Lenses
+    , dmtFileSystemId
     , dmtMarker
     , dmtMaxItems
-    , dmtFileSystemId
+    , dmtMountTargetId
 
     -- * Destructuring the Response
     , describeMountTargetsResponse
@@ -54,29 +58,38 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeMountTargets' smart constructor.
 data DescribeMountTargets = DescribeMountTargets'
-    { _dmtMarker       :: !(Maybe Text)
-    , _dmtMaxItems     :: !(Maybe Nat)
-    , _dmtFileSystemId :: !Text
+    { _dmtFileSystemId  :: !(Maybe Text)
+    , _dmtMarker        :: !(Maybe Text)
+    , _dmtMaxItems      :: !(Maybe Nat)
+    , _dmtMountTargetId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeMountTargets' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dmtFileSystemId'
+--
 -- * 'dmtMarker'
 --
 -- * 'dmtMaxItems'
 --
--- * 'dmtFileSystemId'
+-- * 'dmtMountTargetId'
 describeMountTargets
-    :: Text -- ^ 'dmtFileSystemId'
-    -> DescribeMountTargets
-describeMountTargets pFileSystemId_ =
+    :: DescribeMountTargets
+describeMountTargets =
     DescribeMountTargets'
-    { _dmtMarker = Nothing
+    { _dmtFileSystemId = Nothing
+    , _dmtMarker = Nothing
     , _dmtMaxItems = Nothing
-    , _dmtFileSystemId = pFileSystemId_
+    , _dmtMountTargetId = Nothing
     }
+
+-- | Optional. String. The ID of the file system whose mount targets you want
+-- to list. It must be included in your request if 'MountTargetId' is not
+-- included.
+dmtFileSystemId :: Lens' DescribeMountTargets (Maybe Text)
+dmtFileSystemId = lens _dmtFileSystemId (\ s a -> s{_dmtFileSystemId = a});
 
 -- | Optional. String. Opaque pagination token returned from a previous
 -- 'DescribeMountTargets' operation. If present, it specifies to continue
@@ -89,9 +102,11 @@ dmtMarker = lens _dmtMarker (\ s a -> s{_dmtMarker = a});
 dmtMaxItems :: Lens' DescribeMountTargets (Maybe Natural)
 dmtMaxItems = lens _dmtMaxItems (\ s a -> s{_dmtMaxItems = a}) . mapping _Nat;
 
--- | String. The ID of the file system whose mount targets you want to list.
-dmtFileSystemId :: Lens' DescribeMountTargets Text
-dmtFileSystemId = lens _dmtFileSystemId (\ s a -> s{_dmtFileSystemId = a});
+-- | Optional. String. The ID of the mount target that you want to have
+-- described. It must be included in your request if 'FileSystemId' is not
+-- included.
+dmtMountTargetId :: Lens' DescribeMountTargets (Maybe Text)
+dmtMountTargetId = lens _dmtMountTargetId (\ s a -> s{_dmtMountTargetId = a});
 
 instance AWSRequest DescribeMountTargets where
         type Rs DescribeMountTargets =
@@ -115,8 +130,9 @@ instance ToPath DescribeMountTargets where
 instance ToQuery DescribeMountTargets where
         toQuery DescribeMountTargets'{..}
           = mconcat
-              ["Marker" =: _dmtMarker, "MaxItems" =: _dmtMaxItems,
-               "FileSystemId" =: _dmtFileSystemId]
+              ["FileSystemId" =: _dmtFileSystemId,
+               "Marker" =: _dmtMarker, "MaxItems" =: _dmtMaxItems,
+               "MountTargetId" =: _dmtMountTargetId]
 
 -- | /See:/ 'describeMountTargetsResponse' smart constructor.
 data DescribeMountTargetsResponse = DescribeMountTargetsResponse'

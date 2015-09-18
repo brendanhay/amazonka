@@ -201,7 +201,7 @@ instance AWSRequest UploadPart where
                      <*> (pure (fromEnum s)))
 
 instance ToBody UploadPart where
-        toBody = _upBody
+        toBody = toBody . _upBody
 
 instance ToHeaders UploadPart where
         toHeaders UploadPart'{..}

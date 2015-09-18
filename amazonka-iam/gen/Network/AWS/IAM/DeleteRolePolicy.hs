@@ -25,7 +25,7 @@
 -- managed policy from a role, use DetachRolePolicy. For more information
 -- about policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRolePolicy.html AWS API Reference> for DeleteRolePolicy.
 module Network.AWS.IAM.DeleteRolePolicy

@@ -281,6 +281,179 @@ instance FromXML AttachedPolicy where
           = AttachedPolicy' <$>
               (x .@? "PolicyName") <*> (x .@? "PolicyArn")
 
+-- | Contains information about a condition context key. It includes the name
+-- of the key and specifies the value (or values, if the context key
+-- supports multiple values) to use in the simulation. This information is
+-- used when evaluating the 'Condition' elements of the input policies.
+--
+-- This data type is used as an input parameter to 'SimulatePolicy'.
+--
+-- /See:/ 'contextEntry' smart constructor.
+data ContextEntry = ContextEntry'
+    { _ceContextKeyValues :: !(Maybe [Text])
+    , _ceContextKeyName   :: !(Maybe Text)
+    , _ceContextKeyType   :: !(Maybe ContextKeyTypeEnum)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ContextEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ceContextKeyValues'
+--
+-- * 'ceContextKeyName'
+--
+-- * 'ceContextKeyType'
+contextEntry
+    :: ContextEntry
+contextEntry =
+    ContextEntry'
+    { _ceContextKeyValues = Nothing
+    , _ceContextKeyName = Nothing
+    , _ceContextKeyType = Nothing
+    }
+
+-- | The value (or values, if the condition context key supports multiple
+-- values) to provide to the simulation for use when the key is referenced
+-- by a 'Condition' element in an input policy.
+ceContextKeyValues :: Lens' ContextEntry [Text]
+ceContextKeyValues = lens _ceContextKeyValues (\ s a -> s{_ceContextKeyValues = a}) . _Default . _Coerce;
+
+-- | The full name of a condition context key, including the service prefix.
+-- For example, 'aws:SourceIp' or 's3:VersionId'.
+ceContextKeyName :: Lens' ContextEntry (Maybe Text)
+ceContextKeyName = lens _ceContextKeyName (\ s a -> s{_ceContextKeyName = a});
+
+-- | The data type of the value (or values) specified in the
+-- 'ContextKeyValues' parameter.
+ceContextKeyType :: Lens' ContextEntry (Maybe ContextKeyTypeEnum)
+ceContextKeyType = lens _ceContextKeyType (\ s a -> s{_ceContextKeyType = a});
+
+instance ToQuery ContextEntry where
+        toQuery ContextEntry'{..}
+          = mconcat
+              ["ContextKeyValues" =:
+                 toQuery
+                   (toQueryList "member" <$> _ceContextKeyValues),
+               "ContextKeyName" =: _ceContextKeyName,
+               "ContextKeyType" =: _ceContextKeyType]
+
+-- | Contains the results of a simulation.
+--
+-- This data type is used by the return parameter of 'SimulatePolicy'.
+--
+-- /See:/ 'evaluationResult' smart constructor.
+data EvaluationResult = EvaluationResult'
+    { _erMatchedStatements    :: !(Maybe [Statement])
+    , _erMissingContextValues :: !(Maybe [Text])
+    , _erEvalActionName       :: !Text
+    , _erEvalResourceName     :: !Text
+    , _erEvalDecision         :: !PolicyEvaluationDecisionType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EvaluationResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'erMatchedStatements'
+--
+-- * 'erMissingContextValues'
+--
+-- * 'erEvalActionName'
+--
+-- * 'erEvalResourceName'
+--
+-- * 'erEvalDecision'
+evaluationResult
+    :: Text -- ^ 'erEvalActionName'
+    -> Text -- ^ 'erEvalResourceName'
+    -> PolicyEvaluationDecisionType -- ^ 'erEvalDecision'
+    -> EvaluationResult
+evaluationResult pEvalActionName_ pEvalResourceName_ pEvalDecision_ =
+    EvaluationResult'
+    { _erMatchedStatements = Nothing
+    , _erMissingContextValues = Nothing
+    , _erEvalActionName = pEvalActionName_
+    , _erEvalResourceName = pEvalResourceName_
+    , _erEvalDecision = pEvalDecision_
+    }
+
+-- | A list of the statements in the input policies that determine the result
+-- for this scenario. Remember that even if multiple statements allow the
+-- action on the resource, if only one statement denies that action, then
+-- the explicit deny overrides any allow, and the deny statement is the
+-- only entry included in the result.
+erMatchedStatements :: Lens' EvaluationResult [Statement]
+erMatchedStatements = lens _erMatchedStatements (\ s a -> s{_erMatchedStatements = a}) . _Default . _Coerce;
+
+-- | A list of context keys that are required by the included input policies
+-- but that were not provided by one of the input parameters. To discover
+-- the context keys used by a set of policies, you can call
+-- GetContextKeysForCustomPolicy or GetContextKeysForPrincipalPolicy.
+--
+-- If the response includes any keys in this list, then the reported
+-- results might be untrustworthy because the simulation could not
+-- completely evaluate all of the conditions specified in the policies that
+-- would occur in a real world request.
+erMissingContextValues :: Lens' EvaluationResult [Text]
+erMissingContextValues = lens _erMissingContextValues (\ s a -> s{_erMissingContextValues = a}) . _Default . _Coerce;
+
+-- | The name of the API action tested on the indicated resource.
+erEvalActionName :: Lens' EvaluationResult Text
+erEvalActionName = lens _erEvalActionName (\ s a -> s{_erEvalActionName = a});
+
+-- | The ARN of the resource that the indicated API action was tested on.
+erEvalResourceName :: Lens' EvaluationResult Text
+erEvalResourceName = lens _erEvalResourceName (\ s a -> s{_erEvalResourceName = a});
+
+-- | The result of the simulation.
+erEvalDecision :: Lens' EvaluationResult PolicyEvaluationDecisionType
+erEvalDecision = lens _erEvalDecision (\ s a -> s{_erEvalDecision = a});
+
+instance FromXML EvaluationResult where
+        parseXML x
+          = EvaluationResult' <$>
+              (x .@? "MatchedStatements" .!@ mempty >>=
+                 may (parseXMLList "member"))
+                <*>
+                (x .@? "MissingContextValues" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@ "EvalActionName")
+                <*> (x .@ "EvalResourceName")
+                <*> (x .@ "EvalDecision")
+
+-- | Contains the response to a successful GetContextKeysForPrincipalPolicy
+-- or GetContextKeysForCustomPolicy request.
+--
+-- /See:/ 'getContextKeysForPolicyResponse' smart constructor.
+newtype GetContextKeysForPolicyResponse = GetContextKeysForPolicyResponse'
+    { _gckfpContextKeyNames :: Maybe [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetContextKeysForPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gckfpContextKeyNames'
+getContextKeysForPolicyResponse
+    :: GetContextKeysForPolicyResponse
+getContextKeysForPolicyResponse =
+    GetContextKeysForPolicyResponse'
+    { _gckfpContextKeyNames = Nothing
+    }
+
+-- | The list of context keys that are used in the 'Condition' elements of
+-- the input policies.
+gckfpContextKeyNames :: Lens' GetContextKeysForPolicyResponse [Text]
+gckfpContextKeyNames = lens _gckfpContextKeyNames (\ s a -> s{_gckfpContextKeyNames = a}) . _Default . _Coerce;
+
+instance FromXML GetContextKeysForPolicyResponse
+         where
+        parseXML x
+          = GetContextKeysForPolicyResponse' <$>
+              (x .@? "ContextKeyNames" .!@ mempty >>=
+                 may (parseXMLList "member"))
+
 -- | Contains information about an IAM group entity.
 --
 -- This data type is used as a response element in the following actions:
@@ -1307,6 +1480,45 @@ instance FromXML PolicyVersion where
                 (x .@? "Document")
                 <*> (x .@? "IsDefaultVersion")
 
+-- | Contains the row and column of a location of a 'Statement' element in a
+-- policy document.
+--
+-- This data type is used as a member of the 'Statement' type.
+--
+-- /See:/ 'position' smart constructor.
+data Position = Position'
+    { _pLine   :: !(Maybe Int)
+    , _pColumn :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Position' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pLine'
+--
+-- * 'pColumn'
+position
+    :: Position
+position =
+    Position'
+    { _pLine = Nothing
+    , _pColumn = Nothing
+    }
+
+-- | The line containing the specified position in the document.
+pLine :: Lens' Position (Maybe Int)
+pLine = lens _pLine (\ s a -> s{_pLine = a});
+
+-- | The column in the line containing the specified position in the
+-- document.
+pColumn :: Lens' Position (Maybe Int)
+pColumn = lens _pColumn (\ s a -> s{_pColumn = a});
+
+instance FromXML Position where
+        parseXML x
+          = Position' <$> (x .@? "Line") <*> (x .@? "Column")
+
 -- | Contains information about an IAM role.
 --
 -- This data type is used as a response element in the following actions:
@@ -1927,6 +2139,121 @@ instance FromXML SigningCertificate where
                 (x .@ "CertificateId")
                 <*> (x .@ "CertificateBody")
                 <*> (x .@ "Status")
+
+-- | Contains the response to a successful SimulatePrincipalPolicy or
+-- SimulateCustomPolicy request.
+--
+-- /See:/ 'simulatePolicyResponse' smart constructor.
+data SimulatePolicyResponse = SimulatePolicyResponse'
+    { _spEvaluationResults :: !(Maybe [EvaluationResult])
+    , _spMarker            :: !(Maybe Text)
+    , _spIsTruncated       :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SimulatePolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'spEvaluationResults'
+--
+-- * 'spMarker'
+--
+-- * 'spIsTruncated'
+simulatePolicyResponse
+    :: SimulatePolicyResponse
+simulatePolicyResponse =
+    SimulatePolicyResponse'
+    { _spEvaluationResults = Nothing
+    , _spMarker = Nothing
+    , _spIsTruncated = Nothing
+    }
+
+-- | The results of the simulation.
+spEvaluationResults :: Lens' SimulatePolicyResponse [EvaluationResult]
+spEvaluationResults = lens _spEvaluationResults (\ s a -> s{_spEvaluationResults = a}) . _Default . _Coerce;
+
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
+-- request.
+spMarker :: Lens' SimulatePolicyResponse (Maybe Text)
+spMarker = lens _spMarker (\ s a -> s{_spMarker = a});
+
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the 'Marker' request parameter to retrieve more items. Note that
+-- IAM might return fewer than the 'MaxItems' number of results even when
+-- there are more results available. We recommend that you check
+-- 'IsTruncated' after every call to ensure that you receive all of your
+-- results.
+spIsTruncated :: Lens' SimulatePolicyResponse (Maybe Bool)
+spIsTruncated = lens _spIsTruncated (\ s a -> s{_spIsTruncated = a});
+
+instance FromXML SimulatePolicyResponse where
+        parseXML x
+          = SimulatePolicyResponse' <$>
+              (x .@? "EvaluationResults" .!@ mempty >>=
+                 may (parseXMLList "member"))
+                <*> (x .@? "Marker")
+                <*> (x .@? "IsTruncated")
+
+-- | Contains a reference to a 'Statement' element in a policy document that
+-- determines the result of the simulation.
+--
+-- This data type is used by the 'MatchedStatements' member of the
+-- 'EvaluationResult' type.
+--
+-- /See:/ 'statement' smart constructor.
+data Statement = Statement'
+    { _sSourcePolicyType :: !(Maybe PolicySourceType)
+    , _sSourcePolicyId   :: !(Maybe Text)
+    , _sEndPosition      :: !(Maybe Position)
+    , _sStartPosition    :: !(Maybe Position)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Statement' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sSourcePolicyType'
+--
+-- * 'sSourcePolicyId'
+--
+-- * 'sEndPosition'
+--
+-- * 'sStartPosition'
+statement
+    :: Statement
+statement =
+    Statement'
+    { _sSourcePolicyType = Nothing
+    , _sSourcePolicyId = Nothing
+    , _sEndPosition = Nothing
+    , _sStartPosition = Nothing
+    }
+
+-- | The type of the policy.
+sSourcePolicyType :: Lens' Statement (Maybe PolicySourceType)
+sSourcePolicyType = lens _sSourcePolicyType (\ s a -> s{_sSourcePolicyType = a});
+
+-- | The identifier of the policy that was provided as an input.
+sSourcePolicyId :: Lens' Statement (Maybe Text)
+sSourcePolicyId = lens _sSourcePolicyId (\ s a -> s{_sSourcePolicyId = a});
+
+-- | The row and column of the end of a 'Statement' in an IAM policy.
+sEndPosition :: Lens' Statement (Maybe Position)
+sEndPosition = lens _sEndPosition (\ s a -> s{_sEndPosition = a});
+
+-- | The row and column of the beginning of the 'Statement' in an IAM policy.
+sStartPosition :: Lens' Statement (Maybe Position)
+sStartPosition = lens _sStartPosition (\ s a -> s{_sStartPosition = a});
+
+instance FromXML Statement where
+        parseXML x
+          = Statement' <$>
+              (x .@? "SourcePolicyType") <*>
+                (x .@? "SourcePolicyId")
+                <*> (x .@? "EndPosition")
+                <*> (x .@? "StartPosition")
 
 -- | Contains information about an IAM user entity.
 --

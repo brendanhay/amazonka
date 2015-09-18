@@ -95,7 +95,7 @@ instance AWSRequest GetVaultAccessPolicy where
           = receiveJSON
               (\ s h x ->
                  GetVaultAccessPolicyResponse' <$>
-                   (x .?> "policy") <*> (pure (fromEnum s)))
+                   (eitherParseJSON x) <*> (pure (fromEnum s)))
 
 instance ToHeaders GetVaultAccessPolicy where
         toHeaders = const mempty

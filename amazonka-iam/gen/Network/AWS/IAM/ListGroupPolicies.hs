@@ -25,7 +25,7 @@
 -- managed policies that are attached to a group, use
 -- ListAttachedGroupPolicies. For more information about policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters. If there are no inline policies embedded with the specified
@@ -87,9 +87,10 @@ listGroupPolicies pGroupName_ =
     , _lgpGroupName = pGroupName_
     }
 
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the 'Marker' element in the response you received to inform
+-- the next call about where to start.
 lgpMarker :: Lens' ListGroupPolicies (Maybe Text)
 lgpMarker = lens _lgpMarker (\ s a -> s{_lgpMarker = a});
 
@@ -98,7 +99,10 @@ lgpMarker = lens _lgpMarker (\ s a -> s{_lgpMarker = a});
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
--- 100.
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. If this is the case, the 'IsTruncated' response
+-- element returns 'true' and 'Marker' contains a value to include in the
+-- subsequent call that tells the service where to continue from.
 lgpMaxItems :: Lens' ListGroupPolicies (Maybe Natural)
 lgpMaxItems = lens _lgpMaxItems (\ s a -> s{_lgpMaxItems = a}) . mapping _Nat;
 
@@ -180,7 +184,11 @@ lgprsMarker = lens _lgprsMarker (\ s a -> s{_lgprsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items. Note that
+-- IAM might return fewer than the 'MaxItems' number of results even when
+-- there are more results available. We recommend that you check
+-- 'IsTruncated' after every call to ensure that you receive all of your
+-- results.
 lgprsIsTruncated :: Lens' ListGroupPoliciesResponse (Maybe Bool)
 lgprsIsTruncated = lens _lgprsIsTruncated (\ s a -> s{_lgprsIsTruncated = a});
 

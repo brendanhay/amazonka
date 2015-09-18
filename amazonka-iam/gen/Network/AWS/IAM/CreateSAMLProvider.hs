@@ -38,10 +38,10 @@
 -- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/STSMgmtConsole-SAML.html Giving Console Access Using SAML>
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html Enabling SAML 2.0 Federated Users to Access the AWS Management Console>
 -- and
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating Temporary Security Credentials for SAML Federation>
--- in the /Using Temporary Credentials/ guide.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html About SAML 2.0-based Federation>
+-- in the /IAM User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateSAMLProvider.html AWS API Reference> for CreateSAMLProvider.
 module Network.AWS.IAM.CreateSAMLProvider
@@ -98,8 +98,8 @@ createSAMLProvider pSAMLMetadataDocument_ pName_ =
 -- software that is used as your organization\'s IdP.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating Temporary Security Credentials for SAML Federation>
--- in the /Using Temporary Security Credentials/ guide.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html About SAML 2.0-based Federation>
+-- in the /IAM User Guide/
 csamlpSAMLMetadataDocument :: Lens' CreateSAMLProvider Text
 csamlpSAMLMetadataDocument = lens _csamlpSAMLMetadataDocument (\ s a -> s{_csamlpSAMLMetadataDocument = a});
 

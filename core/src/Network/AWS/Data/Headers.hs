@@ -31,6 +31,7 @@ import           Prelude
 
 infixl 7 .#, .#?
 
+-- FIXME: This whole toText/fromText shit is just stupid.
 (.#) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
 hs .# k = hs .#? k >>= note
   where
@@ -111,6 +112,12 @@ hAMZNErrorType = "X-Amzn-ErrorType"
 
 hAMZNAuth :: HeaderName
 hAMZNAuth = "X-Amzn-Authorization"
+
+hAMZDecodedContentLength :: HeaderName
+hAMZDecodedContentLength = "X-Amz-Decoded-Content-Length"
+
+hTransferEncoding :: HeaderName
+hTransferEncoding = "Transfer-Encoding"
 
 hFormEncoded :: ByteString
 hFormEncoded = "application/x-www-form-urlencoded; charset=utf-8"

@@ -22,8 +22,12 @@ module Network.AWS.CloudWatchLogs.Types
     , _OperationAbortedException
     , _ServiceUnavailableException
     , _DataAlreadyAcceptedException
+    , _InvalidOperationException
     , _ResourceNotFoundException
     , _LimitExceededException
+
+    -- * ExportTaskStatusCode
+    , ExportTaskStatusCode (..)
 
     -- * OrderBy
     , OrderBy (..)
@@ -37,6 +41,31 @@ module Network.AWS.CloudWatchLogs.Types
     , dAccessPolicy
     , dDestinationName
     , dRoleARN
+
+    -- * ExportTask
+    , ExportTask
+    , exportTask
+    , etDestinationPrefix
+    , etDestination
+    , etStatus
+    , etTaskName
+    , etTaskId
+    , etTo
+    , etFrom
+    , etLogGroupName
+    , etExecutionInfo
+
+    -- * ExportTaskExecutionInfo
+    , ExportTaskExecutionInfo
+    , exportTaskExecutionInfo
+    , eteiCreationTime
+    , eteiCompletionTime
+
+    -- * ExportTaskStatus
+    , ExportTaskStatus
+    , exportTaskStatus
+    , etsCode
+    , etsMessage
 
     -- * FilteredLogEvent
     , FilteredLogEvent
@@ -194,6 +223,11 @@ _ServiceUnavailableException =
 _DataAlreadyAcceptedException :: AsError a => Getting (First ServiceError) a ServiceError
 _DataAlreadyAcceptedException =
     _ServiceError . hasCode "DataAlreadyAcceptedException"
+
+-- | Returned if the operation is not valid on the specified resource
+_InvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidOperationException =
+    _ServiceError . hasCode "InvalidOperationException"
 
 -- | Returned if the specified resource does not exist.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError

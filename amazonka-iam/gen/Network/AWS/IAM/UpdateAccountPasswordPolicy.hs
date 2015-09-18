@@ -27,7 +27,7 @@
 --
 -- For more information about using a password policy, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAM Password Policy>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html AWS API Reference> for UpdateAccountPasswordPolicy.
 module Network.AWS.IAM.UpdateAccountPasswordPolicy
@@ -167,7 +167,7 @@ uappRequireUppercaseCharacters = lens _uappRequireUppercaseCharacters (\ s a -> 
 -- | Allows all IAM users in your account to use the AWS Management Console
 -- to change their own passwords. For more information, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html Letting IAM Users Change Their Own Passwords>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- Default value: false
 uappAllowUsersToChangePassword :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)

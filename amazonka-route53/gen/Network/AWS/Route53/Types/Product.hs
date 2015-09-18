@@ -529,8 +529,12 @@ data HealthCheckConfig = HealthCheckConfig'
     { _hccFailureThreshold         :: !(Maybe Nat)
     , _hccIPAddress                :: !(Maybe Text)
     , _hccSearchString             :: !(Maybe Text)
+    , _hccHealthThreshold          :: !(Maybe Nat)
     , _hccResourcePath             :: !(Maybe Text)
+    , _hccMeasureLatency           :: !(Maybe Bool)
+    , _hccInverted                 :: !(Maybe Bool)
     , _hccFullyQualifiedDomainName :: !(Maybe Text)
+    , _hccChildHealthChecks        :: !(Maybe [Text])
     , _hccRequestInterval          :: !(Maybe Nat)
     , _hccPort                     :: !(Maybe Nat)
     , _hccType                     :: !HealthCheckType
@@ -546,9 +550,17 @@ data HealthCheckConfig = HealthCheckConfig'
 --
 -- * 'hccSearchString'
 --
+-- * 'hccHealthThreshold'
+--
 -- * 'hccResourcePath'
 --
+-- * 'hccMeasureLatency'
+--
+-- * 'hccInverted'
+--
 -- * 'hccFullyQualifiedDomainName'
+--
+-- * 'hccChildHealthChecks'
 --
 -- * 'hccRequestInterval'
 --
@@ -563,8 +575,12 @@ healthCheckConfig pType_ =
     { _hccFailureThreshold = Nothing
     , _hccIPAddress = Nothing
     , _hccSearchString = Nothing
+    , _hccHealthThreshold = Nothing
     , _hccResourcePath = Nothing
+    , _hccMeasureLatency = Nothing
+    , _hccInverted = Nothing
     , _hccFullyQualifiedDomainName = Nothing
+    , _hccChildHealthChecks = Nothing
     , _hccRequestInterval = Nothing
     , _hccPort = Nothing
     , _hccType = pType_
@@ -589,15 +605,39 @@ hccIPAddress = lens _hccIPAddress (\ s a -> s{_hccIPAddress = a});
 hccSearchString :: Lens' HealthCheckConfig (Maybe Text)
 hccSearchString = lens _hccSearchString (\ s a -> s{_hccSearchString = a});
 
+-- | The minimum number of child health checks that must be healthy for Route
+-- 53 to consider the parent health check to be healthy. Valid values are
+-- integers between 0 and 256, inclusive.
+hccHealthThreshold :: Lens' HealthCheckConfig (Maybe Natural)
+hccHealthThreshold = lens _hccHealthThreshold (\ s a -> s{_hccHealthThreshold = a}) . mapping _Nat;
+
 -- | Path to ping on the instance to check the health. Required for HTTP,
 -- HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH health checks, HTTP request
 -- is issued to the instance on the given port and path.
 hccResourcePath :: Lens' HealthCheckConfig (Maybe Text)
 hccResourcePath = lens _hccResourcePath (\ s a -> s{_hccResourcePath = a});
 
+-- | A Boolean value that indicates whether you want Route 53 to measure the
+-- latency between health checkers in multiple AWS regions and your
+-- endpoint and to display CloudWatch latency graphs in the Route 53
+-- console.
+hccMeasureLatency :: Lens' HealthCheckConfig (Maybe Bool)
+hccMeasureLatency = lens _hccMeasureLatency (\ s a -> s{_hccMeasureLatency = a});
+
+-- | A boolean value that indicates whether the status of health check should
+-- be inverted. For example, if a health check is healthy but 'Inverted' is
+-- 'True', then Route 53 considers the health check to be unhealthy.
+hccInverted :: Lens' HealthCheckConfig (Maybe Bool)
+hccInverted = lens _hccInverted (\ s a -> s{_hccInverted = a});
+
 -- | Fully qualified domain name of the instance to be health checked.
 hccFullyQualifiedDomainName :: Lens' HealthCheckConfig (Maybe Text)
 hccFullyQualifiedDomainName = lens _hccFullyQualifiedDomainName (\ s a -> s{_hccFullyQualifiedDomainName = a});
+
+-- | For a specified parent health check, a list of 'HealthCheckId' values
+-- for the associated child health checks.
+hccChildHealthChecks :: Lens' HealthCheckConfig [Text]
+hccChildHealthChecks = lens _hccChildHealthChecks (\ s a -> s{_hccChildHealthChecks = a}) . _Default . _Coerce;
 
 -- | The number of seconds between the time that Route 53 gets a response
 -- from your endpoint and the time that it sends the next health-check
@@ -625,8 +665,14 @@ instance FromXML HealthCheckConfig where
           = HealthCheckConfig' <$>
               (x .@? "FailureThreshold") <*> (x .@? "IPAddress")
                 <*> (x .@? "SearchString")
+                <*> (x .@? "HealthThreshold")
                 <*> (x .@? "ResourcePath")
+                <*> (x .@? "MeasureLatency")
+                <*> (x .@? "Inverted")
                 <*> (x .@? "FullyQualifiedDomainName")
+                <*>
+                (x .@? "ChildHealthChecks" .!@ mempty >>=
+                   may (parseXMLList "ChildHealthCheck"))
                 <*> (x .@? "RequestInterval")
                 <*> (x .@? "Port")
                 <*> (x .@ "Type")
@@ -637,9 +683,16 @@ instance ToXML HealthCheckConfig where
               ["FailureThreshold" @= _hccFailureThreshold,
                "IPAddress" @= _hccIPAddress,
                "SearchString" @= _hccSearchString,
+               "HealthThreshold" @= _hccHealthThreshold,
                "ResourcePath" @= _hccResourcePath,
+               "MeasureLatency" @= _hccMeasureLatency,
+               "Inverted" @= _hccInverted,
                "FullyQualifiedDomainName" @=
                  _hccFullyQualifiedDomainName,
+               "ChildHealthChecks" @=
+                 toXML
+                   (toXMLList "ChildHealthCheck" <$>
+                      _hccChildHealthChecks),
                "RequestInterval" @= _hccRequestInterval,
                "Port" @= _hccPort, "Type" @= _hccType]
 

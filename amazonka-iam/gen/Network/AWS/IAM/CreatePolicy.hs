@@ -24,11 +24,11 @@
 -- 'v1' and sets v1 as the policy\'s default version. For more information
 -- about policy versions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- For more information about managed policies in general, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html AWS API Reference> for CreatePolicy.
 module Network.AWS.IAM.CreatePolicy
@@ -91,7 +91,7 @@ createPolicy pPolicyName_ pPolicyDocument_ =
 --
 -- For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/).

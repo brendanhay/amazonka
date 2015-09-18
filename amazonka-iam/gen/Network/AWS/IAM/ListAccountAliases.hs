@@ -21,7 +21,7 @@
 -- Lists the account aliases associated with the account. For information
 -- about using an AWS account alias, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
@@ -76,9 +76,10 @@ listAccountAliases =
     , _laaMaxItems = Nothing
     }
 
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the 'Marker' element in the response you received to inform
+-- the next call about where to start.
 laaMarker :: Lens' ListAccountAliases (Maybe Text)
 laaMarker = lens _laaMarker (\ s a -> s{_laaMarker = a});
 
@@ -87,7 +88,10 @@ laaMarker = lens _laaMarker (\ s a -> s{_laaMarker = a});
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
--- 100.
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. If this is the case, the 'IsTruncated' response
+-- element returns 'true' and 'Marker' contains a value to include in the
+-- subsequent call that tells the service where to continue from.
 laaMaxItems :: Lens' ListAccountAliases (Maybe Natural)
 laaMaxItems = lens _laaMaxItems (\ s a -> s{_laaMaxItems = a}) . mapping _Nat;
 
@@ -165,7 +169,11 @@ laarsMarker = lens _laarsMarker (\ s a -> s{_laarsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items. Note that
+-- IAM might return fewer than the 'MaxItems' number of results even when
+-- there are more results available. We recommend that you check
+-- 'IsTruncated' after every call to ensure that you receive all of your
+-- results.
 laarsIsTruncated :: Lens' ListAccountAliasesResponse (Maybe Bool)
 laarsIsTruncated = lens _laarsIsTruncated (\ s a -> s{_laarsIsTruncated = a});
 

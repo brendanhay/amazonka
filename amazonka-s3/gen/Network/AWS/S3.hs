@@ -115,20 +115,17 @@ module Network.AWS.S3
     -- ** DeleteBucketReplication
     , module Network.AWS.S3.DeleteBucketReplication
 
-    -- ** GetBucketLifecycle
-    , module Network.AWS.S3.GetBucketLifecycle
-
     -- ** ListObjectVersions (Paginated)
     , module Network.AWS.S3.ListObjectVersions
 
     -- ** HeadBucket
     , module Network.AWS.S3.HeadBucket
 
-    -- ** PutBucketLifecycle
-    , module Network.AWS.S3.PutBucketLifecycle
-
     -- ** DeleteBucketLifecycle
     , module Network.AWS.S3.DeleteBucketLifecycle
+
+    -- ** PutBucketLifecycleConfiguration
+    , module Network.AWS.S3.PutBucketLifecycleConfiguration
 
     -- ** CreateMultipartUpload
     , module Network.AWS.S3.CreateMultipartUpload
@@ -210,6 +207,9 @@ module Network.AWS.S3
 
     -- ** GetBucketACL
     , module Network.AWS.S3.GetBucketACL
+
+    -- ** GetBucketLifecycleConfiguration
+    , module Network.AWS.S3.GetBucketLifecycleConfiguration
 
     -- ** ListParts (Paginated)
     , module Network.AWS.S3.ListParts
@@ -309,6 +309,11 @@ module Network.AWS.S3
     , bCreationDate
     , bName
 
+    -- ** BucketLifecycleConfiguration
+    , BucketLifecycleConfiguration
+    , bucketLifecycleConfiguration
+    , blcRules
+
     -- ** BucketLoggingStatus
     , BucketLoggingStatus
     , bucketLoggingStatus
@@ -322,11 +327,11 @@ module Network.AWS.S3
     -- ** CORSRule
     , CORSRule
     , corsRule
-    , crAllowedMethods
     , crMaxAgeSeconds
     , crAllowedHeaders
-    , crAllowedOrigins
     , crExposeHeaders
+    , crAllowedMethods
+    , crAllowedOrigins
 
     -- ** CommonPrefix
     , CommonPrefix
@@ -393,6 +398,7 @@ module Network.AWS.S3
     -- ** Destination
     , Destination
     , destination
+    , dStorageClass
     , dBucket
 
     -- ** ErrorDocument
@@ -440,16 +446,22 @@ module Network.AWS.S3
     , lfcLambdaFunctionARN
     , lfcEvents
 
-    -- ** LifecycleConfiguration
-    , LifecycleConfiguration
-    , lifecycleConfiguration
-    , lcRules
-
     -- ** LifecycleExpiration
     , LifecycleExpiration
     , lifecycleExpiration
     , leDays
     , leDate
+
+    -- ** LifecycleRule
+    , LifecycleRule
+    , lifecycleRule
+    , lrTransitions
+    , lrNoncurrentVersionExpiration
+    , lrNoncurrentVersionTransitions
+    , lrExpiration
+    , lrId
+    , lrPrefix
+    , lrStatus
 
     -- ** LoggingEnabled
     , LoggingEnabled
@@ -586,17 +598,6 @@ module Network.AWS.S3
     , rrCondition
     , rrRedirect
 
-    -- ** Rule
-    , Rule
-    , rule
-    , rNoncurrentVersionExpiration
-    , rTransition
-    , rExpiration
-    , rNoncurrentVersionTransition
-    , rId
-    , rPrefix
-    , rStatus
-
     -- ** S3KeyFilter
     , S3KeyFilter
     , s3KeyFilter
@@ -673,7 +674,7 @@ import           Network.AWS.S3.DeleteObject
 import           Network.AWS.S3.DeleteObjects
 import           Network.AWS.S3.GetBucketACL
 import           Network.AWS.S3.GetBucketCORS
-import           Network.AWS.S3.GetBucketLifecycle
+import           Network.AWS.S3.GetBucketLifecycleConfiguration
 import           Network.AWS.S3.GetBucketLocation
 import           Network.AWS.S3.GetBucketLogging
 import           Network.AWS.S3.GetBucketNotificationConfiguration
@@ -696,7 +697,7 @@ import           Network.AWS.S3.ListObjectVersions
 import           Network.AWS.S3.ListParts
 import           Network.AWS.S3.PutBucketACL
 import           Network.AWS.S3.PutBucketCORS
-import           Network.AWS.S3.PutBucketLifecycle
+import           Network.AWS.S3.PutBucketLifecycleConfiguration
 import           Network.AWS.S3.PutBucketLogging
 import           Network.AWS.S3.PutBucketNotificationConfiguration
 import           Network.AWS.S3.PutBucketPolicy

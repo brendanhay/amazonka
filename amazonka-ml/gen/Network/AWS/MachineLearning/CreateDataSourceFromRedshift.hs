@@ -160,7 +160,7 @@ cdsfrDataSourceId = lens _cdsfrDataSourceId (\ s a -> s{_cdsfrDataSourceId = a})
 --     requirement of a 'Datasource'.
 --
 --     Sample -
---     ' \"{\\\"randomSeed\\\":\\\"some-random-seed\\\", \\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'
+--     ' \"{\\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'
 --
 cdsfrDataSpec :: Lens' CreateDataSourceFromRedshift RedshiftDataSpec
 cdsfrDataSpec = lens _cdsfrDataSpec (\ s a -> s{_cdsfrDataSpec = a});

@@ -28,7 +28,7 @@
 --
 -- For more information about policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroupPolicy.html AWS API Reference> for GetGroupPolicy.
 module Network.AWS.IAM.GetGroupPolicy

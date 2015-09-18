@@ -154,7 +154,7 @@ configured (request -> x) = do
 retryStream :: Request a -> RetryPolicy
 retryStream x = RetryPolicy (const $ listToMaybe [0 | not p])
   where
-    !p = bodyStream (_rqBody x)
+    !p = isStreaming (_rqBody x)
 
 retryService :: Service -> RetryPolicy
 retryService s = limitRetries _retryAttempts <> RetryPolicy delay

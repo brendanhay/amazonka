@@ -26,12 +26,12 @@
 -- managed policy, use CreatePolicy. For information about policies, refer
 -- to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- For information about limits on the number of inline policies that you
 -- can embed in a group, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- Because policy documents can be large, you should use POST rather than
 -- GET when calling 'PutGroupPolicy'. For general information about using

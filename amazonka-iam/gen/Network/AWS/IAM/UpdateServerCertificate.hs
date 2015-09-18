@@ -23,7 +23,7 @@
 -- You should understand the implications of changing a server
 -- certificate\'s path or name. For more information, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html Managing Server Certificates>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- To change a server certificate name the requester must have appropriate
 -- permissions on both the source object and the target object. For

@@ -23,7 +23,7 @@
 -- You should understand the implications of changing a user\'s path or
 -- name. For more information, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html Renaming Users and Groups>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- To change a user name the requester must have appropriate permissions on
 -- both the source object and the target object. For example, to change Bob

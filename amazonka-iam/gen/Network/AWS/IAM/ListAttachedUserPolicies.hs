@@ -24,7 +24,7 @@
 -- inline policies for a user, use the ListUserPolicies API. For
 -- information about policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters. You can use the 'PathPrefix' parameter to limit the list of
@@ -96,9 +96,10 @@ listAttachedUserPolicies pUserName_ =
 laupPathPrefix :: Lens' ListAttachedUserPolicies (Maybe Text)
 laupPathPrefix = lens _laupPathPrefix (\ s a -> s{_laupPathPrefix = a});
 
--- | Use this parameter only when paginating results and only after you have
--- received a response where the results are truncated. Set it to the value
--- of the 'Marker' element in the response you just received.
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the 'Marker' element in the response you received to inform
+-- the next call about where to start.
 laupMarker :: Lens' ListAttachedUserPolicies (Maybe Text)
 laupMarker = lens _laupMarker (\ s a -> s{_laupMarker = a});
 
@@ -107,7 +108,10 @@ laupMarker = lens _laupMarker (\ s a -> s{_laupMarker = a});
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
--- 100.
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. If this is the case, the 'IsTruncated' response
+-- element returns 'true' and 'Marker' contains a value to include in the
+-- subsequent call that tells the service where to continue from.
 laupMaxItems :: Lens' ListAttachedUserPolicies (Maybe Natural)
 laupMaxItems = lens _laupMaxItems (\ s a -> s{_laupMaxItems = a}) . mapping _Nat;
 
@@ -190,7 +194,11 @@ lauprsMarker = lens _lauprsMarker (\ s a -> s{_lauprsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items. Note that
+-- IAM might return fewer than the 'MaxItems' number of results even when
+-- there are more results available. We recommend that you check
+-- 'IsTruncated' after every call to ensure that you receive all of your
+-- results.
 lauprsIsTruncated :: Lens' ListAttachedUserPoliciesResponse (Maybe Bool)
 lauprsIsTruncated = lens _lauprsIsTruncated (\ s a -> s{_lauprsIsTruncated = a});
 

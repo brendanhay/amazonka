@@ -27,7 +27,7 @@
 --
 -- For information about managed policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_SetDefaultPolicyVersion.html AWS API Reference> for SetDefaultPolicyVersion.
 module Network.AWS.IAM.SetDefaultPolicyVersion
@@ -81,7 +81,7 @@ sdpvPolicyARN = lens _sdpvPolicyARN (\ s a -> s{_sdpvPolicyARN = a});
 --
 -- For more information about managed policy versions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 sdpvVersionId :: Lens' SetDefaultPolicyVersion Text
 sdpvVersionId = lens _sdpvVersionId (\ s a -> s{_sdpvVersionId = a});
 

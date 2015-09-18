@@ -96,8 +96,9 @@ prreExplicitHashKey :: Lens' PutRecordsRequestEntry (Maybe Text)
 prreExplicitHashKey = lens _prreExplicitHashKey (\ s a -> s{_prreExplicitHashKey = a});
 
 -- | The data blob to put into the record, which is base64-encoded when the
--- blob is serialized. The maximum size of the data blob (the payload
--- before base64-encoding) is 50 kilobytes (KB)
+-- blob is serialized. When the data blob (the payload before
+-- base64-encoding) is added to the partition key size, the total size must
+-- not exceed the maximum record size (1 MB).
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
@@ -197,14 +198,17 @@ instance FromJSON PutRecordsResultEntry where
 --
 -- /See:/ 'record' smart constructor.
 data Record = Record'
-    { _rSequenceNumber :: !Text
-    , _rData           :: !Base64
-    , _rPartitionKey   :: !Text
+    { _rApproximateArrivalTimestamp :: !(Maybe POSIX)
+    , _rSequenceNumber              :: !Text
+    , _rData                        :: !Base64
+    , _rPartitionKey                :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Record' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rApproximateArrivalTimestamp'
 --
 -- * 'rSequenceNumber'
 --
@@ -218,19 +222,25 @@ record
     -> Record
 record pSequenceNumber_ pData_ pPartitionKey_ =
     Record'
-    { _rSequenceNumber = pSequenceNumber_
+    { _rApproximateArrivalTimestamp = Nothing
+    , _rSequenceNumber = pSequenceNumber_
     , _rData = _Base64 # pData_
     , _rPartitionKey = pPartitionKey_
     }
 
--- | The unique identifier for the record in the Amazon Kinesis stream.
+-- | The approximate time that the record was inserted into the stream.
+rApproximateArrivalTimestamp :: Lens' Record (Maybe UTCTime)
+rApproximateArrivalTimestamp = lens _rApproximateArrivalTimestamp (\ s a -> s{_rApproximateArrivalTimestamp = a}) . mapping _Time;
+
+-- | The unique identifier of the record in the stream.
 rSequenceNumber :: Lens' Record Text
 rSequenceNumber = lens _rSequenceNumber (\ s a -> s{_rSequenceNumber = a});
 
 -- | The data blob. The data in the blob is both opaque and immutable to the
 -- Amazon Kinesis service, which does not inspect, interpret, or change the
--- data in the blob in any way. The maximum size of the data blob (the
--- payload before base64-encoding) is 50 kilobytes (KB)
+-- data in the blob in any way. When the data blob (the payload before
+-- base64-encoding) is added to the partition key size, the total size must
+-- not exceed the maximum record size (1 MB).
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
@@ -249,8 +259,10 @@ instance FromJSON Record where
           = withObject "Record"
               (\ x ->
                  Record' <$>
-                   (x .: "SequenceNumber") <*> (x .: "Data") <*>
-                     (x .: "PartitionKey"))
+                   (x .:? "ApproximateArrivalTimestamp") <*>
+                     (x .: "SequenceNumber")
+                     <*> (x .: "Data")
+                     <*> (x .: "PartitionKey"))
 
 -- | The range of possible sequence numbers for the shard.
 --

@@ -8,7 +8,7 @@
 
 ## Version
 
-`1.3.1`
+`1.3.2`
 
 
 ## Description
@@ -68,9 +68,6 @@ For more information, see the following:
 -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html IAM Best Practices>.
     This topic presents a list of suggestions for using the IAM service
     to help secure your AWS resources.
--   <http://docs.aws.amazon.com/STS/latest/UsingSTS/ AWS Security Token Service>.
-    This guide describes how to create and use temporary security
-    credentials.
 -   <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests>.
     This set of topics walk you through the process of signing a request
     using an access key ID and secret access key.

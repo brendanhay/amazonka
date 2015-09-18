@@ -643,19 +643,22 @@ instance ToXML ServerSideEncryption where
 data StorageClass
     = ReducedRedundancy
     | Standard
+    | StandardIa
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StorageClass where
     parser = takeLowerText >>= \case
         "reduced_redundancy" -> pure ReducedRedundancy
         "standard" -> pure Standard
+        "standard_ia" -> pure StandardIa
         e -> fromTextError $ "Failure parsing StorageClass from value: '" <> e
-           <> "'. Accepted values: REDUCED_REDUNDANCY, STANDARD"
+           <> "'. Accepted values: REDUCED_REDUNDANCY, STANDARD, STANDARD_IA"
 
 instance ToText StorageClass where
     toText = \case
         ReducedRedundancy -> "REDUCED_REDUNDANCY"
         Standard -> "STANDARD"
+        StandardIa -> "STANDARD_IA"
 
 instance Hashable     StorageClass
 instance ToByteString StorageClass
@@ -668,19 +671,22 @@ instance FromXML StorageClass where
 instance ToXML StorageClass where
     toXML = toXMLText
 
-data TransitionStorageClass =
-    Glacier
+data TransitionStorageClass
+    = TSCGlacier
+    | TSCStandardIa
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TransitionStorageClass where
     parser = takeLowerText >>= \case
-        "glacier" -> pure Glacier
+        "glacier" -> pure TSCGlacier
+        "standard_ia" -> pure TSCStandardIa
         e -> fromTextError $ "Failure parsing TransitionStorageClass from value: '" <> e
-           <> "'. Accepted values: GLACIER"
+           <> "'. Accepted values: GLACIER, STANDARD_IA"
 
 instance ToText TransitionStorageClass where
     toText = \case
-        Glacier -> "GLACIER"
+        TSCGlacier -> "GLACIER"
+        TSCStandardIa -> "STANDARD_IA"
 
 instance Hashable     TransitionStorageClass
 instance ToByteString TransitionStorageClass

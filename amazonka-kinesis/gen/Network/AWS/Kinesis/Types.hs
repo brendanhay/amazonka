@@ -53,6 +53,7 @@ module Network.AWS.Kinesis.Types
     -- * Record
     , Record
     , record
+    , rApproximateArrivalTimestamp
     , rSequenceNumber
     , rData
     , rPartitionKey

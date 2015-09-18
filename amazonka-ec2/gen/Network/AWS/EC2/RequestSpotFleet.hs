@@ -20,12 +20,22 @@
 --
 -- Creates a Spot fleet request.
 --
--- You can submit a single request that specifies multiple instance types,
--- each with its own instance weighting that reflects its value to your
--- application workload. Amazon EC2 computes the bid price for each launch
--- specification and requests Spot Instances in the Spot pool where the
--- price per unit is the lowest. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html Spot Fleets>
+-- You can submit a single request that includes multiple launch
+-- specifications that vary by instance type, AMI, Availability Zone, or
+-- subnet.
+--
+-- By default, the Spot fleet requests Spot instances in the Spot pool
+-- where the price per unit is the lowest. Each launch specification can
+-- include its own instance weighting that reflects the value of the
+-- instance type to your application workload.
+--
+-- Alternatively, you can specify that the Spot fleet distribute the target
+-- capacity across the Spot pools included in its launch specifications. By
+-- ensuring that the Spot instances in your Spot fleet are in different
+-- Spot pools, you can improve the availability of your fleet.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html Spot Fleet Requests>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RequestSpotFleet.html AWS API Reference> for RequestSpotFleet.

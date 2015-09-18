@@ -35,11 +35,15 @@ module Network.AWS.IAM.Types
     , _EntityTemporarilyUnmodifiableException
     , _DuplicateSSHPublicKeyException
     , _KeyPairMismatchException
+    , _PolicyEvaluationException
     , _PasswordPolicyViolationException
     , _LimitExceededException
 
     -- * AssignmentStatusType
     , AssignmentStatusType (..)
+
+    -- * ContextKeyTypeEnum
+    , ContextKeyTypeEnum (..)
 
     -- * EncodingType
     , EncodingType (..)
@@ -47,8 +51,14 @@ module Network.AWS.IAM.Types
     -- * EntityType
     , EntityType (..)
 
+    -- * PolicyEvaluationDecisionType
+    , PolicyEvaluationDecisionType (..)
+
     -- * PolicyScopeType
     , PolicyScopeType (..)
+
+    -- * PolicySourceType
+    , PolicySourceType (..)
 
     -- * ReportFormatType
     , ReportFormatType (..)
@@ -91,6 +101,27 @@ module Network.AWS.IAM.Types
     , attachedPolicy
     , apPolicyName
     , apPolicyARN
+
+    -- * ContextEntry
+    , ContextEntry
+    , contextEntry
+    , ceContextKeyValues
+    , ceContextKeyName
+    , ceContextKeyType
+
+    -- * EvaluationResult
+    , EvaluationResult
+    , evaluationResult
+    , erMatchedStatements
+    , erMissingContextValues
+    , erEvalActionName
+    , erEvalResourceName
+    , erEvalDecision
+
+    -- * GetContextKeysForPolicyResponse
+    , GetContextKeysForPolicyResponse
+    , getContextKeysForPolicyResponse
+    , gckfpContextKeyNames
 
     -- * Group
     , Group
@@ -213,6 +244,12 @@ module Network.AWS.IAM.Types
     , pvDocument
     , pvIsDefaultVersion
 
+    -- * Position
+    , Position
+    , position
+    , pLine
+    , pColumn
+
     -- * Role
     , Role
     , role
@@ -286,6 +323,21 @@ module Network.AWS.IAM.Types
     , scCertificateId
     , scCertificateBody
     , scStatus
+
+    -- * SimulatePolicyResponse
+    , SimulatePolicyResponse
+    , simulatePolicyResponse
+    , spEvaluationResults
+    , spMarker
+    , spIsTruncated
+
+    -- * Statement
+    , Statement
+    , statement
+    , sSourcePolicyType
+    , sSourcePolicyId
+    , sEndPosition
+    , sStartPosition
 
     -- * User
     , User
@@ -390,7 +442,7 @@ _MalformedCertificateException =
 -- GenerateCredentialReport. For more information about credential report
 -- expiration, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 _CredentialReportExpiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _CredentialReportExpiredException =
     _ServiceError . hasStatus 410 . hasCode "ReportExpired"
@@ -473,6 +525,13 @@ _DuplicateSSHPublicKeyException =
 _KeyPairMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
 _KeyPairMismatchException =
     _ServiceError . hasStatus 400 . hasCode "KeyPairMismatch"
+
+-- | The request failed because a provided policy could not be successfully
+-- evaluated. An additional detail message indicates the source of the
+-- failure.
+_PolicyEvaluationException :: AsError a => Getting (First ServiceError) a ServiceError
+_PolicyEvaluationException =
+    _ServiceError . hasStatus 500 . hasCode "PolicyEvaluation"
 
 -- | The request was rejected because the provided password did not meet the
 -- requirements imposed by the account password policy.

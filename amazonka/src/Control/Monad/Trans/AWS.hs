@@ -30,6 +30,7 @@ module Control.Monad.Trans.AWS
     (
     -- * Running AWS Actions
       AWST
+    , AWST'
     , runAWST
     , AWSConstraint
 
@@ -77,11 +78,16 @@ module Control.Monad.Trans.AWS
     -- $streaming
 
     -- *** Request Bodies
+    , ToHashedBody (..)
+    , hashedFile
+    , hashedBody
+
+    -- *** Chunked Request Bodies
     , ToBody       (..)
-    , sourceBody
-    , sourceHandle
-    , sourceFile
-    , sourceFileIO
+    , ChunkSize    (..)
+    , defaultChunkSize
+    , chunkedFile
+    , unsafeChunkedBody
 
     -- *** Response Bodies
     , sinkBody
@@ -134,11 +140,13 @@ module Control.Monad.Trans.AWS
     , setEndpoint
 
     -- * Re-exported Types
-    , RqBody
-    , RsBody
     , module Network.AWS.Types
     , module Network.AWS.Waiter
     , module Network.AWS.Pager
+    , RqBody
+    , HashedBody
+    , ChunkedBody
+    , RsBody
 
     -- * runResourceT
     , runResourceT
@@ -172,8 +180,9 @@ import           Network.AWS.Request          (requestURL)
 import           Network.AWS.Types            hiding (LogLevel (..))
 import           Network.AWS.Waiter           (Wait)
 
--- | The 'AWST' transformer.
-newtype AWST m a = AWST { unAWST :: ReaderT Env m a }
+type AWST = AWST' Env
+
+newtype AWST' r m a = AWST' { unAWST :: ReaderT r m a }
     deriving
         ( Functor
         , Applicative
@@ -181,64 +190,66 @@ newtype AWST m a = AWST { unAWST :: ReaderT Env m a }
         , Monad
         , MonadPlus
         , MonadIO
-        , MonadReader Env
         , MonadActive
+        , MonadTrans
         )
 
-instance MonadThrow m => MonadThrow (AWST m) where
+instance MonadThrow m => MonadThrow (AWST' r m) where
     throwM = lift . throwM
 
-instance MonadCatch m => MonadCatch (AWST m) where
-    catch (AWST m) f = AWST (catch m (unAWST . f))
+instance MonadCatch m => MonadCatch (AWST' r m) where
+    catch (AWST' m) f = AWST' (catch m (unAWST . f))
 
-instance MonadMask m => MonadMask (AWST m) where
-    mask a = AWST $ mask $ \u ->
-        unAWST $ a (AWST . u . unAWST)
+instance MonadMask m => MonadMask (AWST' r m) where
+    mask a = AWST' $ mask $ \u ->
+        unAWST $ a (AWST' . u . unAWST)
 
-    uninterruptibleMask a = AWST $ uninterruptibleMask $ \u ->
-        unAWST $ a (AWST . u . unAWST)
+    uninterruptibleMask a = AWST' $ uninterruptibleMask $ \u ->
+        unAWST $ a (AWST' . u . unAWST)
 
-instance MonadBase b m => MonadBase b (AWST m) where
+instance MonadBase b m => MonadBase b (AWST' r m) where
     liftBase = liftBaseDefault
 
-instance MonadTransControl AWST where
-    type StT AWST a = StT (ReaderT Env) a
+instance MonadTransControl (AWST' r) where
+    type StT (AWST' r) a = StT (ReaderT r) a
 
-    liftWith = defaultLiftWith AWST unAWST
-    restoreT = defaultRestoreT AWST
+    liftWith = defaultLiftWith AWST' unAWST
+    restoreT = defaultRestoreT AWST'
 
-instance MonadBaseControl b m => MonadBaseControl b (AWST m) where
-    type StM (AWST m) a = ComposeSt AWST m a
+instance MonadBaseControl b m => MonadBaseControl b (AWST' r m) where
+    type StM (AWST' r m) a = ComposeSt (AWST' r) m a
 
     liftBaseWith = defaultLiftBaseWith
     restoreM     = defaultRestoreM
 
-instance MonadTrans AWST where
-    lift = AWST . lift
-
-instance MonadResource m => MonadResource (AWST m) where
+instance MonadResource m => MonadResource (AWST' r m) where
     liftResourceT = lift . liftResourceT
 
-instance MonadError e m => MonadError e (AWST m) where
+instance MonadError e m => MonadError e (AWST' r m) where
     throwError     = lift . throwError
-    catchError m f = AWST (unAWST m `catchError` (unAWST . f))
+    catchError m f = AWST' (unAWST m `catchError` (unAWST . f))
 
-instance MonadState s m => MonadState s (AWST m) where
+instance Monad m => MonadReader r (AWST' r m) where
+    ask     = AWST' ask
+    local f = AWST' . local f . unAWST
+    reader  = AWST' . reader
+
+instance MonadWriter w m => MonadWriter w (AWST' r m) where
+    writer = lift . writer
+    tell   = lift . tell
+    listen = AWST' . listen . unAWST
+    pass   = AWST' . pass   . unAWST
+
+instance MonadState s m => MonadState s (AWST' r m) where
     get = lift get
     put = lift . put
 
-instance MonadWriter w m => MonadWriter w (AWST m) where
-    writer = lift . writer
-    tell   = lift . tell
-    listen = AWST . listen . unAWST
-    pass   = AWST . pass   . unAWST
+instance MFunctor (AWST' r) where
+    hoist nat = AWST' . hoist nat . unAWST
 
-instance MFunctor AWST where
-    hoist nat = AWST . hoist nat . unAWST
-
--- | Run an 'AWST' action with the specified 'HasEnv' environment.
-runAWST :: HasEnv r => r -> AWST m a -> m a
-runAWST r (AWST m) = runReaderT m (r ^. environment)
+-- | Run an 'AWST' action with the specified environment.
+runAWST :: HasEnv r => r -> AWST' r m a -> m a
+runAWST r (AWST' m) = runReaderT m r
 
 -- | An alias for the constraints required to send requests,
 -- which 'AWST' implicitly fulfils.
@@ -449,13 +460,19 @@ configuration for all service requests within their respective scope.
 -}
 
 {- $streaming
-Streaming request bodies (such as 'PutObject') require a precomputed
-'SHA256' for signing purposes.
-The 'ToBody' typeclass has instances available to construct a 'RqBody',
-automatically calculating the hash as needed for types such as 'Text' and 'ByteString'.
+Streaming comes in two flavours. 'HashedBody' represents a request
+that requires a precomputed 'SHA256' hash, or a 'ChunkedBody' type for those services
+that can perform incremental signing and do not require the entire payload to
+be hashed (such as 'S3'). The type signatures for request smart constructors
+advertise which respective body type is required, denoting the underlying signing
+capabilities.
 
-For reading files and handles, functions such 'sourceFileIO' or 'sourceHandle'
-can be used.
+'ToHashedBody' and 'ToBody' typeclass instances are available to construct the
+streaming bodies, automatically calculating any hash or size as needed for types
+such as 'Text', 'ByteString', or Aeson's 'Value' type. To read files and other
+'IO' primitives, functions such as 'hashedFile', 'chunkedFile', or 'hashedBody'
+should be used.
+
 For responses that contain streaming bodies (such as 'GetObject'), you can use
 'sinkBody' to connect the response body to a <http://hackage.haskell.org/package/conduit conduit>
 compatible sink.

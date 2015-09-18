@@ -23,7 +23,7 @@
 --
 -- For information about limitations on IAM entities, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html AWS API Reference> for GetAccountSummary.
 module Network.AWS.IAM.GetAccountSummary

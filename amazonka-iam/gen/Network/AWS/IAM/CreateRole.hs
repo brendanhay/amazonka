@@ -24,7 +24,7 @@
 -- For information about limitations on role names and the number of roles
 -- you can create, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/.
 --
 -- The policy in the following example grants permission to an EC2 instance
 -- to assume the role.

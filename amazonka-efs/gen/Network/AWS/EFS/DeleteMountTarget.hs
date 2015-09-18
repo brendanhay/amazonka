@@ -52,7 +52,7 @@ module Network.AWS.EFS.DeleteMountTarget
       deleteMountTarget
     , DeleteMountTarget
     -- * Request Lenses
-    , dmtMountTargetId
+    , dMountTargetId
 
     -- * Destructuring the Response
     , deleteMountTargetResponse
@@ -67,25 +67,25 @@ import           Network.AWS.Response
 
 -- | /See:/ 'deleteMountTarget' smart constructor.
 newtype DeleteMountTarget = DeleteMountTarget'
-    { _dmtMountTargetId :: Text
+    { _dMountTargetId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteMountTarget' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmtMountTargetId'
+-- * 'dMountTargetId'
 deleteMountTarget
-    :: Text -- ^ 'dmtMountTargetId'
+    :: Text -- ^ 'dMountTargetId'
     -> DeleteMountTarget
 deleteMountTarget pMountTargetId_ =
     DeleteMountTarget'
-    { _dmtMountTargetId = pMountTargetId_
+    { _dMountTargetId = pMountTargetId_
     }
 
 -- | String. The ID of the mount target to delete.
-dmtMountTargetId :: Lens' DeleteMountTarget Text
-dmtMountTargetId = lens _dmtMountTargetId (\ s a -> s{_dmtMountTargetId = a});
+dMountTargetId :: Lens' DeleteMountTarget Text
+dMountTargetId = lens _dMountTargetId (\ s a -> s{_dMountTargetId = a});
 
 instance AWSRequest DeleteMountTarget where
         type Rs DeleteMountTarget = DeleteMountTargetResponse
@@ -98,8 +98,7 @@ instance ToHeaders DeleteMountTarget where
 instance ToPath DeleteMountTarget where
         toPath DeleteMountTarget'{..}
           = mconcat
-              ["/2015-02-01/mount-targets/",
-               toBS _dmtMountTargetId]
+              ["/2015-02-01/mount-targets/", toBS _dMountTargetId]
 
 instance ToQuery DeleteMountTarget where
         toQuery = const mempty

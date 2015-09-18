@@ -110,6 +110,11 @@ module Network.AWS.S3.Types
     , bCreationDate
     , bName
 
+    -- * BucketLifecycleConfiguration
+    , BucketLifecycleConfiguration
+    , bucketLifecycleConfiguration
+    , blcRules
+
     -- * BucketLoggingStatus
     , BucketLoggingStatus
     , bucketLoggingStatus
@@ -123,11 +128,11 @@ module Network.AWS.S3.Types
     -- * CORSRule
     , CORSRule
     , corsRule
-    , crAllowedMethods
     , crMaxAgeSeconds
     , crAllowedHeaders
-    , crAllowedOrigins
     , crExposeHeaders
+    , crAllowedMethods
+    , crAllowedOrigins
 
     -- * CommonPrefix
     , CommonPrefix
@@ -194,6 +199,7 @@ module Network.AWS.S3.Types
     -- * Destination
     , Destination
     , destination
+    , dStorageClass
     , dBucket
 
     -- * ErrorDocument
@@ -241,16 +247,22 @@ module Network.AWS.S3.Types
     , lfcLambdaFunctionARN
     , lfcEvents
 
-    -- * LifecycleConfiguration
-    , LifecycleConfiguration
-    , lifecycleConfiguration
-    , lcRules
-
     -- * LifecycleExpiration
     , LifecycleExpiration
     , lifecycleExpiration
     , leDays
     , leDate
+
+    -- * LifecycleRule
+    , LifecycleRule
+    , lifecycleRule
+    , lrTransitions
+    , lrNoncurrentVersionExpiration
+    , lrNoncurrentVersionTransitions
+    , lrExpiration
+    , lrId
+    , lrPrefix
+    , lrStatus
 
     -- * LoggingEnabled
     , LoggingEnabled
@@ -386,17 +398,6 @@ module Network.AWS.S3.Types
     , routingRule
     , rrCondition
     , rrRedirect
-
-    -- * Rule
-    , Rule
-    , rule
-    , rNoncurrentVersionExpiration
-    , rTransition
-    , rExpiration
-    , rNoncurrentVersionTransition
-    , rId
-    , rPrefix
-    , rStatus
 
     -- * S3KeyFilter
     , S3KeyFilter

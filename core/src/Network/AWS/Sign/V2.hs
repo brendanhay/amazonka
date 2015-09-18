@@ -17,7 +17,7 @@ module Network.AWS.Sign.V2
     ) where
 
 import           Control.Applicative
-import qualified Data.ByteString.Char8        as BS8
+import qualified Data.ByteString.Char8       as BS8
 import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data.Body
@@ -29,8 +29,8 @@ import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Time
 import           Network.AWS.Types
-import qualified Network.HTTP.Client.Internal as Client
-import           Network.HTTP.Types           hiding (toQuery)
+import qualified Network.HTTP.Conduit        as Client
+import           Network.HTTP.Types          hiding (toQuery)
 
 import           Prelude
 
@@ -50,10 +50,10 @@ instance ToLog V2 where
         ]
 
 v2 :: Signer
-v2 = Signer sign' (const sign') -- FIXME: revisit v2 presigning.
+v2 = Signer sign (const sign) -- FIXME: revisit v2 presigning.
 
-sign' :: Algorithm a
-sign' Request{..} AuthEnv{..} r t = Signed meta rq
+sign :: Algorithm a
+sign Request{..} AuthEnv{..} r t = Signed meta rq
   where
     meta = Meta (V2 t end signature)
 
@@ -62,7 +62,7 @@ sign' Request{..} AuthEnv{..} r t = Signed meta rq
         , Client.path           = path'
         , Client.queryString    = toBS authorised
         , Client.requestHeaders = headers
-        , Client.requestBody    = bodyRequest _rqBody
+        , Client.requestBody    = toRequestBody _rqBody
         }
 
     meth  = toBS _rqMethod

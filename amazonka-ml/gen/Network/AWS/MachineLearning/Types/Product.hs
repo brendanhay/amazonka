@@ -908,8 +908,39 @@ rdsDataSpec pDatabaseInformation_ pSelectSqlQuery_ pDatabaseCredentials_ pS3Stag
 rdsdsDataSchemaURI :: Lens' RDSDataSpec (Maybe Text)
 rdsdsDataSchemaURI = lens _rdsdsDataSchemaURI (\ s a -> s{_rdsdsDataSchemaURI = a});
 
--- | A JSON string that represents the schema. This is not required if
--- 'DataSchemaUri' is specified.
+-- | A JSON string that represents the schema for an Amazon RDS 'DataSource'.
+-- The 'DataSchema' defines the structure of the observation data in the
+-- data file(s) referenced in the 'DataSource'.
+--
+-- A 'DataSchema' is not required if you specify a 'DataSchemaUri'
+--
+-- Define your 'DataSchema' as a series of key-value pairs. 'attributes'
+-- and 'excludedVariableNames' have an array of key-value pairs for their
+-- value. Use the following format to define your 'DataSchema'.
+--
+-- { \"version\": \"1.0\",
+--
+-- \"recordAnnotationFieldName\": \"F1\",
+--
+-- \"recordWeightFieldName\": \"F2\",
+--
+-- \"targetFieldName\": \"F3\",
+--
+-- \"dataFormat\": \"CSV\",
+--
+-- \"dataFileContainsHeader\": true,
+--
+-- \"attributes\": [
+--
+-- { \"fieldName\": \"F1\", \"fieldType\": \"TEXT\" }, { \"fieldName\":
+-- \"F2\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F3\",
+-- \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F4\",
+-- \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F5\", \"fieldType\":
+-- \"CATEGORICAL\" }, { \"fieldName\": \"F6\", \"fieldType\": \"TEXT\" }, {
+-- \"fieldName\": \"F7\", \"fieldType\": \"WEIGHTED_INT_SEQUENCE\" }, {
+-- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
+--
+-- \"excludedVariableNames\": [ \"F6\" ] }
 rdsdsDataSchema :: Lens' RDSDataSpec (Maybe Text)
 rdsdsDataSchema = lens _rdsdsDataSchema (\ s a -> s{_rdsdsDataSchema = a});
 
@@ -917,7 +948,7 @@ rdsdsDataSchema = lens _rdsdsDataSchema (\ s a -> s{_rdsdsDataSchema = a});
 -- requirement of a 'DataSource'.
 --
 -- Sample -
--- ' \"{\\\"randomSeed\\\":\\\"some-random-seed\\\", \\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'
+-- ' \"{\\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'
 rdsdsDataRearrangement :: Lens' RDSDataSpec (Maybe Text)
 rdsdsDataRearrangement = lens _rdsdsDataRearrangement (\ s a -> s{_rdsdsDataRearrangement = a});
 
@@ -1283,7 +1314,39 @@ redshiftDataSpec pDatabaseInformation_ pSelectSqlQuery_ pDatabaseCredentials_ pS
 rDataSchemaURI :: Lens' RedshiftDataSpec (Maybe Text)
 rDataSchemaURI = lens _rDataSchemaURI (\ s a -> s{_rDataSchemaURI = a});
 
--- | Describes the schema for an Amazon Redshift 'DataSource'.
+-- | A JSON string that represents the schema for an Amazon Redshift
+-- 'DataSource'. The 'DataSchema' defines the structure of the observation
+-- data in the data file(s) referenced in the 'DataSource'.
+--
+-- A 'DataSchema' is not required if you specify a 'DataSchemaUri'.
+--
+-- Define your 'DataSchema' as a series of key-value pairs. 'attributes'
+-- and 'excludedVariableNames' have an array of key-value pairs for their
+-- value. Use the following format to define your 'DataSchema'.
+--
+-- { \"version\": \"1.0\",
+--
+-- \"recordAnnotationFieldName\": \"F1\",
+--
+-- \"recordWeightFieldName\": \"F2\",
+--
+-- \"targetFieldName\": \"F3\",
+--
+-- \"dataFormat\": \"CSV\",
+--
+-- \"dataFileContainsHeader\": true,
+--
+-- \"attributes\": [
+--
+-- { \"fieldName\": \"F1\", \"fieldType\": \"TEXT\" }, { \"fieldName\":
+-- \"F2\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F3\",
+-- \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F4\",
+-- \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F5\", \"fieldType\":
+-- \"CATEGORICAL\" }, { \"fieldName\": \"F6\", \"fieldType\": \"TEXT\" }, {
+-- \"fieldName\": \"F7\", \"fieldType\": \"WEIGHTED_INT_SEQUENCE\" }, {
+-- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
+--
+-- \"excludedVariableNames\": [ \"F6\" ] }
 rDataSchema :: Lens' RedshiftDataSpec (Maybe Text)
 rDataSchema = lens _rDataSchema (\ s a -> s{_rDataSchema = a});
 
@@ -1495,7 +1558,37 @@ s3DataSpec pDataLocationS3_ =
     , _sdsDataLocationS3 = pDataLocationS3_
     }
 
--- | Describes the schema for an Amazon S3 'DataSource'.
+-- | A JSON string that represents the schema for an Amazon S3 'DataSource'.
+-- The 'DataSchema' defines the structure of the observation data in the
+-- data file(s) referenced in the 'DataSource'.
+--
+-- Define your 'DataSchema' as a series of key-value pairs. 'attributes'
+-- and 'excludedVariableNames' have an array of key-value pairs for their
+-- value. Use the following format to define your 'DataSchema'.
+--
+-- { \"version\": \"1.0\",
+--
+-- \"recordAnnotationFieldName\": \"F1\",
+--
+-- \"recordWeightFieldName\": \"F2\",
+--
+-- \"targetFieldName\": \"F3\",
+--
+-- \"dataFormat\": \"CSV\",
+--
+-- \"dataFileContainsHeader\": true,
+--
+-- \"attributes\": [
+--
+-- { \"fieldName\": \"F1\", \"fieldType\": \"TEXT\" }, { \"fieldName\":
+-- \"F2\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F3\",
+-- \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F4\",
+-- \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F5\", \"fieldType\":
+-- \"CATEGORICAL\" }, { \"fieldName\": \"F6\", \"fieldType\": \"TEXT\" }, {
+-- \"fieldName\": \"F7\", \"fieldType\": \"WEIGHTED_INT_SEQUENCE\" }, {
+-- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
+--
+-- \"excludedVariableNames\": [ \"F6\" ] }
 sdsDataSchema :: Lens' S3DataSpec (Maybe Text)
 sdsDataSchema = lens _sdsDataSchema (\ s a -> s{_sdsDataSchema = a});
 

@@ -77,7 +77,7 @@ import           Network.AWS.Response
 -- /See:/ 'uploadDocuments' smart constructor.
 data UploadDocuments = UploadDocuments'
     { _udContentType :: !ContentType
-    , _udDocuments   :: !RqBody
+    , _udDocuments   :: !HashedBody
     } deriving (Show,Generic)
 
 -- | Creates a value of 'UploadDocuments' with the minimum fields required to make a request.
@@ -89,7 +89,7 @@ data UploadDocuments = UploadDocuments'
 -- * 'udDocuments'
 uploadDocuments
     :: ContentType -- ^ 'udContentType'
-    -> RqBody -- ^ 'udDocuments'
+    -> HashedBody -- ^ 'udDocuments'
     -> UploadDocuments
 uploadDocuments pContentType_ pDocuments_ =
     UploadDocuments'
@@ -106,7 +106,7 @@ udContentType :: Lens' UploadDocuments ContentType
 udContentType = lens _udContentType (\ s a -> s{_udContentType = a});
 
 -- | A batch of documents formatted in JSON or HTML.
-udDocuments :: Lens' UploadDocuments RqBody
+udDocuments :: Lens' UploadDocuments HashedBody
 udDocuments = lens _udDocuments (\ s a -> s{_udDocuments = a});
 
 instance AWSRequest UploadDocuments where
@@ -122,7 +122,7 @@ instance AWSRequest UploadDocuments where
                      <*> (pure (fromEnum s)))
 
 instance ToBody UploadDocuments where
-        toBody = _udDocuments
+        toBody = toBody . _udDocuments
 
 instance ToHeaders UploadDocuments where
         toHeaders UploadDocuments'{..}

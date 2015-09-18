@@ -28,7 +28,10 @@ import Test.AWS.IAM.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testListPolicies $
+--         [ testGetContextKeysForPrincipalPolicy $
+--             getContextKeysForPrincipalPolicy
+--
+--         , testListPolicies $
 --             listPolicies
 --
 --         , testCreatePolicy $
@@ -93,6 +96,9 @@ import Test.AWS.IAM.Internal
 --
 --         , testUploadSSHPublicKey $
 --             uploadSSHPublicKey
+--
+--         , testSimulateCustomPolicy $
+--             simulateCustomPolicy
 --
 --         , testDeleteRole $
 --             deleteRole
@@ -208,6 +214,9 @@ import Test.AWS.IAM.Internal
 --         , testAddUserToGroup $
 --             addUserToGroup
 --
+--         , testSimulatePrincipalPolicy $
+--             simulatePrincipalPolicy
+--
 --         , testGetPolicyVersion $
 --             getPolicyVersion
 --
@@ -258,6 +267,9 @@ import Test.AWS.IAM.Internal
 --
 --         , testPutRolePolicy $
 --             putRolePolicy
+--
+--         , testGetContextKeysForCustomPolicy $
+--             getContextKeysForCustomPolicy
 --
 --         , testUploadSigningCertificate $
 --             uploadSigningCertificate
@@ -358,7 +370,10 @@ import Test.AWS.IAM.Internal
 --           ]
 
 --     , testGroup "response"
---         [ testListPoliciesResponse $
+--         [ testGetContextKeysForPrincipalPolicyResponse $
+--             getContextKeysForPolicyResponse
+--
+--         , testListPoliciesResponse $
 --             listPoliciesResponse
 --
 --         , testCreatePolicyResponse $
@@ -423,6 +438,9 @@ import Test.AWS.IAM.Internal
 --
 --         , testUploadSSHPublicKeyResponse $
 --             uploadSSHPublicKeyResponse
+--
+--         , testSimulateCustomPolicyResponse $
+--             simulatePolicyResponse
 --
 --         , testDeleteRoleResponse $
 --             deleteRoleResponse
@@ -538,6 +556,9 @@ import Test.AWS.IAM.Internal
 --         , testAddUserToGroupResponse $
 --             addUserToGroupResponse
 --
+--         , testSimulatePrincipalPolicyResponse $
+--             simulatePolicyResponse
+--
 --         , testGetPolicyVersionResponse $
 --             getPolicyVersionResponse
 --
@@ -588,6 +609,9 @@ import Test.AWS.IAM.Internal
 --
 --         , testPutRolePolicyResponse $
 --             putRolePolicyResponse
+--
+--         , testGetContextKeysForCustomPolicyResponse $
+--             getContextKeysForPolicyResponse
 --
 --         , testUploadSigningCertificateResponse $
 --             uploadSigningCertificateResponse
@@ -689,6 +713,11 @@ import Test.AWS.IAM.Internal
 --     ]
 
 -- Requests
+
+testGetContextKeysForPrincipalPolicy :: GetContextKeysForPrincipalPolicy -> TestTree
+testGetContextKeysForPrincipalPolicy = req
+    "GetContextKeysForPrincipalPolicy"
+    "fixture/GetContextKeysForPrincipalPolicy.yaml"
 
 testListPolicies :: ListPolicies -> TestTree
 testListPolicies = req
@@ -799,6 +828,11 @@ testUploadSSHPublicKey :: UploadSSHPublicKey -> TestTree
 testUploadSSHPublicKey = req
     "UploadSSHPublicKey"
     "fixture/UploadSSHPublicKey.yaml"
+
+testSimulateCustomPolicy :: SimulateCustomPolicy -> TestTree
+testSimulateCustomPolicy = req
+    "SimulateCustomPolicy"
+    "fixture/SimulateCustomPolicy.yaml"
 
 testDeleteRole :: DeleteRole -> TestTree
 testDeleteRole = req
@@ -990,6 +1024,11 @@ testAddUserToGroup = req
     "AddUserToGroup"
     "fixture/AddUserToGroup.yaml"
 
+testSimulatePrincipalPolicy :: SimulatePrincipalPolicy -> TestTree
+testSimulatePrincipalPolicy = req
+    "SimulatePrincipalPolicy"
+    "fixture/SimulatePrincipalPolicy.yaml"
+
 testGetPolicyVersion :: GetPolicyVersion -> TestTree
 testGetPolicyVersion = req
     "GetPolicyVersion"
@@ -1074,6 +1113,11 @@ testPutRolePolicy :: PutRolePolicy -> TestTree
 testPutRolePolicy = req
     "PutRolePolicy"
     "fixture/PutRolePolicy.yaml"
+
+testGetContextKeysForCustomPolicy :: GetContextKeysForCustomPolicy -> TestTree
+testGetContextKeysForCustomPolicy = req
+    "GetContextKeysForCustomPolicy"
+    "fixture/GetContextKeysForCustomPolicy.yaml"
 
 testUploadSigningCertificate :: UploadSigningCertificate -> TestTree
 testUploadSigningCertificate = req
@@ -1237,6 +1281,13 @@ testListAttachedGroupPolicies = req
 
 -- Responses
 
+testGetContextKeysForPrincipalPolicyResponse :: GetContextKeysForPolicyResponse -> TestTree
+testGetContextKeysForPrincipalPolicyResponse = res
+    "GetContextKeysForPrincipalPolicyResponse"
+    "fixture/GetContextKeysForPrincipalPolicyResponse.proto"
+    iAM
+    (Proxy :: Proxy GetContextKeysForPrincipalPolicy)
+
 testListPoliciesResponse :: ListPoliciesResponse -> TestTree
 testListPoliciesResponse = res
     "ListPoliciesResponse"
@@ -1390,6 +1441,13 @@ testUploadSSHPublicKeyResponse = res
     "fixture/UploadSSHPublicKeyResponse.proto"
     iAM
     (Proxy :: Proxy UploadSSHPublicKey)
+
+testSimulateCustomPolicyResponse :: SimulatePolicyResponse -> TestTree
+testSimulateCustomPolicyResponse = res
+    "SimulateCustomPolicyResponse"
+    "fixture/SimulateCustomPolicyResponse.proto"
+    iAM
+    (Proxy :: Proxy SimulateCustomPolicy)
 
 testDeleteRoleResponse :: DeleteRoleResponse -> TestTree
 testDeleteRoleResponse = res
@@ -1657,6 +1715,13 @@ testAddUserToGroupResponse = res
     iAM
     (Proxy :: Proxy AddUserToGroup)
 
+testSimulatePrincipalPolicyResponse :: SimulatePolicyResponse -> TestTree
+testSimulatePrincipalPolicyResponse = res
+    "SimulatePrincipalPolicyResponse"
+    "fixture/SimulatePrincipalPolicyResponse.proto"
+    iAM
+    (Proxy :: Proxy SimulatePrincipalPolicy)
+
 testGetPolicyVersionResponse :: GetPolicyVersionResponse -> TestTree
 testGetPolicyVersionResponse = res
     "GetPolicyVersionResponse"
@@ -1775,6 +1840,13 @@ testPutRolePolicyResponse = res
     "fixture/PutRolePolicyResponse.proto"
     iAM
     (Proxy :: Proxy PutRolePolicy)
+
+testGetContextKeysForCustomPolicyResponse :: GetContextKeysForPolicyResponse -> TestTree
+testGetContextKeysForCustomPolicyResponse = res
+    "GetContextKeysForCustomPolicyResponse"
+    "fixture/GetContextKeysForCustomPolicyResponse.proto"
+    iAM
+    (Proxy :: Proxy GetContextKeysForCustomPolicy)
 
 testUploadSigningCertificateResponse :: UploadSigningCertificateResponse -> TestTree
 testUploadSigningCertificateResponse = res

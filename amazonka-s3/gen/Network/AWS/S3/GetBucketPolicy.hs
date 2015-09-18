@@ -33,8 +33,8 @@ module Network.AWS.S3.GetBucketPolicy
     , getBucketPolicyResponse
     , GetBucketPolicyResponse
     -- * Response Lenses
-    , gbprsPolicy
     , gbprsResponseStatus
+    , gbprsPolicy
     ) where
 
 import           Network.AWS.Prelude
@@ -69,10 +69,10 @@ instance AWSRequest GetBucketPolicy where
         type Rs GetBucketPolicy = GetBucketPolicyResponse
         request = get s3
         response
-          = receiveXML
+          = receiveJSON
               (\ s h x ->
                  GetBucketPolicyResponse' <$>
-                   (parseXML x) <*> (pure (fromEnum s)))
+                   (pure (fromEnum s)) <*> (pure x))
 
 instance ToHeaders GetBucketPolicy where
         toHeaders = const mempty
@@ -86,30 +86,31 @@ instance ToQuery GetBucketPolicy where
 
 -- | /See:/ 'getBucketPolicyResponse' smart constructor.
 data GetBucketPolicyResponse = GetBucketPolicyResponse'
-    { _gbprsPolicy         :: !(Maybe Text)
-    , _gbprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _gbprsResponseStatus :: !Int
+    , _gbprsPolicy         :: !(HashMap Text Value)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketPolicyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbprsPolicy'
---
 -- * 'gbprsResponseStatus'
+--
+-- * 'gbprsPolicy'
 getBucketPolicyResponse
     :: Int -- ^ 'gbprsResponseStatus'
+    -> HashMap Text Value -- ^ 'gbprsPolicy'
     -> GetBucketPolicyResponse
-getBucketPolicyResponse pResponseStatus_ =
+getBucketPolicyResponse pResponseStatus_ pPolicy_ =
     GetBucketPolicyResponse'
-    { _gbprsPolicy = Nothing
-    , _gbprsResponseStatus = pResponseStatus_
+    { _gbprsResponseStatus = pResponseStatus_
+    , _gbprsPolicy = pPolicy_
     }
-
--- | The bucket policy as a JSON document.
-gbprsPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
-gbprsPolicy = lens _gbprsPolicy (\ s a -> s{_gbprsPolicy = a});
 
 -- | The response status code.
 gbprsResponseStatus :: Lens' GetBucketPolicyResponse Int
 gbprsResponseStatus = lens _gbprsResponseStatus (\ s a -> s{_gbprsResponseStatus = a});
+
+-- | The bucket policy as a JSON document.
+gbprsPolicy :: Lens' GetBucketPolicyResponse (HashMap Text Value)
+gbprsPolicy = lens _gbprsPolicy (\ s a -> s{_gbprsPolicy = a});

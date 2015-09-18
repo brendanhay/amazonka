@@ -1,5 +1,24 @@
 {
     "metadata": {
         "serviceAbbreviation": "Lambda"
+    },
+    "shapes": {
+        "InvocationResponse": {
+            "members": {
+                "Payload": {
+                    "shape": "JsonPayload"
+                }
+            }
+        },
+        "InvocationRequest": {
+            "members": {
+                "Payload": {
+                    "shape": "JsonPayload"
+                }
+            }
+        },
+        "JsonPayload": {
+            "type": "json"
+        }
     }
 }

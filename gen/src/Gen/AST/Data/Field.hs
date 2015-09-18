@@ -152,12 +152,23 @@ fieldHelp f =
 fieldLocation :: Field -> Maybe Location
 fieldLocation = view (fieldRef . refLocation)
 
+-- | Is the field reference or its parent annotation streaming?
+fieldStream :: Field -> Bool
+fieldStream x =
+       x ^. fieldRef . refStreaming
+    || x ^. fieldAnn . infoStreaming
+
+-- | Does the field have its location set to 'Body'?
 fieldBody :: Field -> Bool
 fieldBody x =
     case fieldLocation x of
         Just Body -> True
         Nothing   -> True
         _         -> fieldStream x
+
+-- | Is this primitive field set as the payload in the parent shape?
+fieldLitPayload :: Field -> Bool
+fieldLitPayload x = _fieldPayload x && fieldLit x
 
 fieldMaybe :: Field -> Bool
 fieldMaybe f =
@@ -168,12 +179,8 @@ fieldMaybe f =
 fieldMonoid :: Field -> Bool
 fieldMonoid = elem DMonoid . derivingOf . view fieldAnn
 
-fieldStream :: Field -> Bool
-fieldStream x =
-       x ^. fieldRef . refStreaming
-    || x ^. fieldAnn . infoStreaming
-
-fieldList1, fieldList, fieldMap :: Field -> Bool
+fieldList1, fieldList, fieldMap, fieldLit :: Field -> Bool
 fieldList1 f = fieldList f && nonEmpty f
 fieldList    = not . isn't _List . unwrap . view fieldAnn
 fieldMap     = not . isn't _Map  . unwrap . view fieldAnn
+fieldLit     = not . isn't _Lit  . unwrap . view fieldAnn

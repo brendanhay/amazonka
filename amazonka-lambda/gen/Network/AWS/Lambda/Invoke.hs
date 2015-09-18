@@ -31,10 +31,10 @@ module Network.AWS.Lambda.Invoke
     , Invoke
     -- * Request Lenses
     , iInvocationType
-    , iPayload
     , iLogType
     , iClientContext
     , iFunctionName
+    , iPayload
 
     -- * Destructuring the Response
     , invokeResponse
@@ -55,11 +55,11 @@ import           Network.AWS.Response
 -- | /See:/ 'invoke' smart constructor.
 data Invoke = Invoke'
     { _iInvocationType :: !(Maybe InvocationType)
-    , _iPayload        :: !(Maybe Base64)
     , _iLogType        :: !(Maybe LogType)
     , _iClientContext  :: !(Maybe Text)
     , _iFunctionName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    , _iPayload        :: !(HashMap Text Value)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Invoke' with the minimum fields required to make a request.
 --
@@ -67,23 +67,24 @@ data Invoke = Invoke'
 --
 -- * 'iInvocationType'
 --
--- * 'iPayload'
---
 -- * 'iLogType'
 --
 -- * 'iClientContext'
 --
 -- * 'iFunctionName'
+--
+-- * 'iPayload'
 invoke
     :: Text -- ^ 'iFunctionName'
+    -> HashMap Text Value -- ^ 'iPayload'
     -> Invoke
-invoke pFunctionName_ =
+invoke pFunctionName_ pPayload_ =
     Invoke'
     { _iInvocationType = Nothing
-    , _iPayload = Nothing
     , _iLogType = Nothing
     , _iClientContext = Nothing
     , _iFunctionName = pFunctionName_
+    , _iPayload = pPayload_
     }
 
 -- | By default, the 'Invoke' API assumes \"RequestResponse\" invocation
@@ -96,16 +97,6 @@ invoke pFunctionName_ =
 -- want to verify access to a function without running it.
 iInvocationType :: Lens' Invoke (Maybe InvocationType)
 iInvocationType = lens _iInvocationType (\ s a -> s{_iInvocationType = a});
-
--- | JSON that you want to provide to your Lambda function as input.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
-iPayload :: Lens' Invoke (Maybe ByteString)
-iPayload = lens _iPayload (\ s a -> s{_iPayload = a}) . mapping _Base64;
 
 -- | You can set this optional parameter to \"Tail\" in the request only if
 -- you specify the 'InvocationType' parameter with value
@@ -139,17 +130,24 @@ iClientContext = lens _iClientContext (\ s a -> s{_iClientContext = a});
 iFunctionName :: Lens' Invoke Text
 iFunctionName = lens _iFunctionName (\ s a -> s{_iFunctionName = a});
 
+-- | JSON that you want to provide to your Lambda function as input.
+iPayload :: Lens' Invoke (HashMap Text Value)
+iPayload = lens _iPayload (\ s a -> s{_iPayload = a});
+
 instance AWSRequest Invoke where
         type Rs Invoke = InvokeResponse
-        request = postJSON lambda
+        request = postBody lambda
         response
           = receiveJSON
               (\ s h x ->
                  InvokeResponse' <$>
                    (h .#? "X-Amz-Function-Error") <*>
                      (h .#? "X-Amz-Log-Result")
-                     <*> (x .?> "Payload")
+                     <*> (pure (Just x))
                      <*> (pure (fromEnum s)))
+
+instance ToBody Invoke where
+        toBody = toBody . _iPayload
 
 instance ToHeaders Invoke where
         toHeaders Invoke'{..}
@@ -157,10 +155,6 @@ instance ToHeaders Invoke where
               ["X-Amz-Invocation-Type" =# _iInvocationType,
                "X-Amz-Log-Type" =# _iLogType,
                "X-Amz-Client-Context" =# _iClientContext]
-
-instance ToJSON Invoke where
-        toJSON Invoke'{..}
-          = object (catMaybes [("Payload" .=) <$> _iPayload])
 
 instance ToPath Invoke where
         toPath Invoke'{..}
@@ -177,9 +171,9 @@ instance ToQuery Invoke where
 data InvokeResponse = InvokeResponse'
     { _irsFunctionError :: !(Maybe Text)
     , _irsLogResult     :: !(Maybe Text)
-    , _irsPayload       :: !(Maybe Base64)
+    , _irsPayload       :: !(Maybe (HashMap Text Value))
     , _irsStatusCode    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InvokeResponse' with the minimum fields required to make a request.
 --
@@ -227,14 +221,8 @@ irsLogResult = lens _irsLogResult (\ s a -> s{_irsLogResult = a});
 -- describing the error. For the 'Handled' errors the Lambda function will
 -- report this message. For 'Unhandled' errors AWS Lambda reports the
 -- message.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
-irsPayload :: Lens' InvokeResponse (Maybe ByteString)
-irsPayload = lens _irsPayload (\ s a -> s{_irsPayload = a}) . mapping _Base64;
+irsPayload :: Lens' InvokeResponse (Maybe (HashMap Text Value))
+irsPayload = lens _irsPayload (\ s a -> s{_irsPayload = a});
 
 -- | The HTTP status code will be in the 200 range for successful request.
 -- For the \"RequestResonse\" invocation type this status code will be 200.

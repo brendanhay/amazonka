@@ -27,9 +27,8 @@ echo "Bumping version to $pvp and dependencies to == $semantic ..."
 
 for cabal in ${specs[@]}; do
     sed -i"" "s/^\(version: *\).*$/\1$pvp/" $cabal
-    sed -i"" "s/^\(.*amazonka-core *== *\)\([0-9\.]\+\*\)$/\1$semantic.*/" $cabal
+    sed -i"" "s/^\(.*amazonka-[a-z0-9]* *== *\)\([0-9\.]\+\*\)$/\1$semantic.*/" $cabal
     sed -i"" "s/^\(.*amazonka *== *\)\([0-9\.]\+\*\)$/\1$semantic.*/" $cabal
-    sed -i"" "s/^\(.*amazonka-test *== *\)\([0-9\.]\+\*\)$/\1$semantic.*/" $cabal
 done
 
 echo "Done."

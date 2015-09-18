@@ -23,6 +23,9 @@ module Network.AWS.EC2.Types
     -- * AddressStatus
     , AddressStatus (..)
 
+    -- * AllocationStrategy
+    , AllocationStrategy (..)
+
     -- * ArchitectureValues
     , ArchitectureValues (..)
 
@@ -1258,7 +1261,9 @@ module Network.AWS.EC2.Types
     -- * Snapshot
     , Snapshot
     , snapshot
+    , sStateMessage
     , sOwnerAlias
+    , sDataEncryptionKeyId
     , sKMSKeyId
     , sTags
     , sSnapshotId
@@ -1355,6 +1360,7 @@ module Network.AWS.EC2.Types
     , sfrcdValidUntil
     , sfrcdTerminateInstancesWithExpiration
     , sfrcdValidFrom
+    , sfrcdAllocationStrategy
     , sfrcdSpotPrice
     , sfrcdTargetCapacity
     , sfrcdIAMFleetRole

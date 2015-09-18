@@ -18,16 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the Spot Instance requests that belong to your account. Spot
--- Instances are instances that Amazon EC2 launches when the bid price that
--- you specify exceeds the current Spot Price. Amazon EC2 periodically sets
--- the Spot Price based on available Spot Instance capacity and current
--- Spot Instance requests. For more information, see
+-- Describes the Spot instance requests that belong to your account. Spot
+-- instances are instances that Amazon EC2 launches when the bid price that
+-- you specify exceeds the current Spot price. Amazon EC2 periodically sets
+-- the Spot price based on available Spot instance capacity and current
+-- Spot instance requests. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- You can use 'DescribeSpotInstanceRequests' to find a running Spot
--- Instance by examining the response. If the status of the Spot Instance
+-- instance by examining the response. If the status of the Spot instance
 -- is 'fulfilled', the instance ID appears in the response and contains the
 -- identifier of the instance. Alternatively, you can use DescribeInstances
 -- with a filter to look for instances where the instance lifecycle is
@@ -89,7 +89,7 @@ describeSpotInstanceRequests =
 --
 -- -   'availability-zone-group' - The Availability Zone group.
 --
--- -   'create-time' - The time stamp when the Spot Instance request was
+-- -   'create-time' - The time stamp when the Spot instance request was
 --     created.
 --
 -- -   'fault-code' - The fault code related to the request.
@@ -98,7 +98,7 @@ describeSpotInstanceRequests =
 --
 -- -   'instance-id' - The ID of the instance that fulfilled the request.
 --
--- -   'launch-group' - The Spot Instance launch group.
+-- -   'launch-group' - The Spot instance launch group.
 --
 -- -   'launch.block-device-mapping.delete-on-termination' - Indicates
 --     whether the Amazon EBS volume is deleted on instance termination.
@@ -128,7 +128,7 @@ describeSpotInstanceRequests =
 --     with.
 --
 -- -   'launch.monitoring-enabled' - Whether monitoring is enabled for the
---     Spot Instance.
+--     Spot instance.
 --
 -- -   'launch.ramdisk-id' - The RAM disk ID.
 --
@@ -162,23 +162,23 @@ describeSpotInstanceRequests =
 -- -   'product-description' - The product description associated with the
 --     instance ('Linux\/UNIX' | 'Windows').
 --
--- -   'spot-instance-request-id' - The Spot Instance request ID.
+-- -   'spot-instance-request-id' - The Spot instance request ID.
 --
--- -   'spot-price' - The maximum hourly price for any Spot Instance
+-- -   'spot-price' - The maximum hourly price for any Spot instance
 --     launched to fulfill the request.
 --
--- -   'state' - The state of the Spot Instance request ('open' | 'active'
+-- -   'state' - The state of the Spot instance request ('open' | 'active'
 --     | 'closed' | 'cancelled' | 'failed'). Spot bid status information
---     can help you track your Amazon EC2 Spot Instance requests. For more
+--     can help you track your Amazon EC2 Spot instance requests. For more
 --     information, see
 --     <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot Bid Status>
 --     in the Amazon Elastic Compute Cloud User Guide.
 --
 -- -   'status-code' - The short code describing the most recent evaluation
---     of your Spot Instance request.
+--     of your Spot instance request.
 --
 -- -   'status-message' - The message explaining the status of the Spot
---     Instance request.
+--     instance request.
 --
 -- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned
 --     to the resource.
@@ -194,7 +194,7 @@ describeSpotInstanceRequests =
 -- -   'tag-value' - The value of a tag assigned to the resource. This
 --     filter is independent of the 'tag-key' filter.
 --
--- -   'type' - The type of Spot Instance request ('one-time' |
+-- -   'type' - The type of Spot instance request ('one-time' |
 --     'persistent').
 --
 -- -   'launched-availability-zone' - The Availability Zone in which the
@@ -207,7 +207,7 @@ describeSpotInstanceRequests =
 dsirFilters :: Lens' DescribeSpotInstanceRequests [Filter]
 dsirFilters = lens _dsirFilters (\ s a -> s{_dsirFilters = a}) . _Default . _Coerce;
 
--- | One or more Spot Instance request IDs.
+-- | One or more Spot instance request IDs.
 dsirSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
 dsirSpotInstanceRequestIds = lens _dsirSpotInstanceRequestIds (\ s a -> s{_dsirSpotInstanceRequestIds = a}) . _Default . _Coerce;
 
@@ -273,7 +273,7 @@ describeSpotInstanceRequestsResponse pResponseStatus_ =
     , _dsirrsResponseStatus = pResponseStatus_
     }
 
--- | One or more Spot Instance requests.
+-- | One or more Spot instance requests.
 dsirrsSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
 dsirrsSpotInstanceRequests = lens _dsirrsSpotInstanceRequests (\ s a -> s{_dsirrsSpotInstanceRequests = a}) . _Default . _Coerce;
 

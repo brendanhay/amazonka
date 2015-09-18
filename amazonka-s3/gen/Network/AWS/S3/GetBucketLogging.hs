@@ -28,14 +28,14 @@ module Network.AWS.S3.GetBucketLogging
       getBucketLogging
     , GetBucketLogging
     -- * Request Lenses
-    , getBucket
+    , gBucket
 
     -- * Destructuring the Response
     , getBucketLoggingResponse
     , GetBucketLoggingResponse
     -- * Response Lenses
-    , grsLoggingEnabled
-    , grsResponseStatus
+    , gblrsLoggingEnabled
+    , gblrsResponseStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -46,25 +46,25 @@ import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketLogging' smart constructor.
 newtype GetBucketLogging = GetBucketLogging'
-    { _getBucket :: BucketName
+    { _gBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketLogging' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'getBucket'
+-- * 'gBucket'
 getBucketLogging
-    :: BucketName -- ^ 'getBucket'
+    :: BucketName -- ^ 'gBucket'
     -> GetBucketLogging
 getBucketLogging pBucket_ =
     GetBucketLogging'
-    { _getBucket = pBucket_
+    { _gBucket = pBucket_
     }
 
 -- | Undocumented member.
-getBucket :: Lens' GetBucketLogging BucketName
-getBucket = lens _getBucket (\ s a -> s{_getBucket = a});
+gBucket :: Lens' GetBucketLogging BucketName
+gBucket = lens _gBucket (\ s a -> s{_gBucket = a});
 
 instance AWSRequest GetBucketLogging where
         type Rs GetBucketLogging = GetBucketLoggingResponse
@@ -80,37 +80,37 @@ instance ToHeaders GetBucketLogging where
 
 instance ToPath GetBucketLogging where
         toPath GetBucketLogging'{..}
-          = mconcat ["/", toBS _getBucket]
+          = mconcat ["/", toBS _gBucket]
 
 instance ToQuery GetBucketLogging where
         toQuery = const (mconcat ["logging"])
 
 -- | /See:/ 'getBucketLoggingResponse' smart constructor.
 data GetBucketLoggingResponse = GetBucketLoggingResponse'
-    { _grsLoggingEnabled :: !(Maybe LoggingEnabled)
-    , _grsResponseStatus :: !Int
+    { _gblrsLoggingEnabled :: !(Maybe LoggingEnabled)
+    , _gblrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketLoggingResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grsLoggingEnabled'
+-- * 'gblrsLoggingEnabled'
 --
--- * 'grsResponseStatus'
+-- * 'gblrsResponseStatus'
 getBucketLoggingResponse
-    :: Int -- ^ 'grsResponseStatus'
+    :: Int -- ^ 'gblrsResponseStatus'
     -> GetBucketLoggingResponse
 getBucketLoggingResponse pResponseStatus_ =
     GetBucketLoggingResponse'
-    { _grsLoggingEnabled = Nothing
-    , _grsResponseStatus = pResponseStatus_
+    { _gblrsLoggingEnabled = Nothing
+    , _gblrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
-grsLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
-grsLoggingEnabled = lens _grsLoggingEnabled (\ s a -> s{_grsLoggingEnabled = a});
+gblrsLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
+gblrsLoggingEnabled = lens _gblrsLoggingEnabled (\ s a -> s{_gblrsLoggingEnabled = a});
 
 -- | The response status code.
-grsResponseStatus :: Lens' GetBucketLoggingResponse Int
-grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
+gblrsResponseStatus :: Lens' GetBucketLoggingResponse Int
+gblrsResponseStatus = lens _gblrsResponseStatus (\ s a -> s{_gblrsResponseStatus = a});

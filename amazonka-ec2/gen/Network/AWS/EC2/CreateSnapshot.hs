@@ -65,7 +65,9 @@ module Network.AWS.EC2.CreateSnapshot
     , snapshot
     , Snapshot
     -- * Response Lenses
+    , sStateMessage
     , sOwnerAlias
+    , sDataEncryptionKeyId
     , sKMSKeyId
     , sTags
     , sSnapshotId

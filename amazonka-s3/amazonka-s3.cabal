@@ -1,5 +1,5 @@
 name:                  amazonka-s3
-version:               1.3.1
+version:               1.3.2
 synopsis:              Amazon Simple Storage Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -63,7 +63,7 @@ library
         , Network.AWS.S3.DeleteObjects
         , Network.AWS.S3.GetBucketACL
         , Network.AWS.S3.GetBucketCORS
-        , Network.AWS.S3.GetBucketLifecycle
+        , Network.AWS.S3.GetBucketLifecycleConfiguration
         , Network.AWS.S3.GetBucketLocation
         , Network.AWS.S3.GetBucketLogging
         , Network.AWS.S3.GetBucketNotificationConfiguration
@@ -85,7 +85,7 @@ library
         , Network.AWS.S3.ListParts
         , Network.AWS.S3.PutBucketACL
         , Network.AWS.S3.PutBucketCORS
-        , Network.AWS.S3.PutBucketLifecycle
+        , Network.AWS.S3.PutBucketLifecycleConfiguration
         , Network.AWS.S3.PutBucketLogging
         , Network.AWS.S3.PutBucketNotificationConfiguration
         , Network.AWS.S3.PutBucketPolicy
@@ -108,7 +108,7 @@ library
         , Network.AWS.S3.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.1.*
+          amazonka-core == 1.3.2.*
         , base          >= 4.7     && < 5
         , lens >= 4.4
         , text >= 1.1
@@ -130,9 +130,9 @@ test-suite amazonka-s3-test
         , Test.AWS.S3.Internal
 
     build-depends:
-          amazonka-core == 1.3.1.*
-        , amazonka-test == 1.3.1.*
-        , amazonka-s3 == 1.3.1.*
+          amazonka-core == 1.3.2.*
+        , amazonka-test == 1.3.2.*
+        , amazonka-s3 == 1.3.2.*
         , base
         , bytestring
         , lens

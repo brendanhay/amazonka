@@ -110,8 +110,8 @@ eFS =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Returned if there is no mount target with the specified ID is found in
--- the caller\'s account.
+-- | Returned if there is no mount target with the specified ID found in the
+-- caller\'s account.
 _MountTargetNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _MountTargetNotFound =
     _ServiceError . hasStatus 404 . hasCode "MountTargetNotFound"

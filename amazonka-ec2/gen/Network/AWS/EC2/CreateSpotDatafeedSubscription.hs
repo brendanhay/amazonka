@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a data feed for Spot Instances, enabling you to view Spot
--- Instance usage logs. You can create one data feed per AWS account. For
+-- Creates a data feed for Spot instances, enabling you to view Spot
+-- instance usage logs. You can create one data feed per AWS account. For
 -- more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -88,7 +88,7 @@ csdsPrefix = lens _csdsPrefix (\ s a -> s{_csdsPrefix = a});
 csdsDryRun :: Lens' CreateSpotDatafeedSubscription (Maybe Bool)
 csdsDryRun = lens _csdsDryRun (\ s a -> s{_csdsDryRun = a});
 
--- | The Amazon S3 bucket in which to store the Spot Instance data feed.
+-- | The Amazon S3 bucket in which to store the Spot instance data feed.
 csdsBucket :: Lens' CreateSpotDatafeedSubscription Text
 csdsBucket = lens _csdsBucket (\ s a -> s{_csdsBucket = a});
 
@@ -144,7 +144,7 @@ createSpotDatafeedSubscriptionResponse pResponseStatus_ =
     , _csdsrsResponseStatus = pResponseStatus_
     }
 
--- | The Spot Instance data feed subscription.
+-- | The Spot instance data feed subscription.
 csdsrsSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 csdsrsSpotDatafeedSubscription = lens _csdsrsSpotDatafeedSubscription (\ s a -> s{_csdsrsSpotDatafeedSubscription = a});
 

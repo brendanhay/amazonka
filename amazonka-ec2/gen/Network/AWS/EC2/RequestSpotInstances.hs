@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a Spot Instance request. Spot Instances are instances that
+-- Creates a Spot instance request. Spot instances are instances that
 -- Amazon EC2 launches when the bid price that you specify exceeds the
--- current Spot Price. Amazon EC2 periodically sets the Spot Price based on
--- available Spot Instance capacity and current Spot Instance requests. For
+-- current Spot price. Amazon EC2 periodically sets the Spot price based on
+-- available Spot Instance capacity and current Spot instance requests. For
 -- more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -121,7 +121,7 @@ requestSpotInstances pSpotPrice_ =
 rsiClientToken :: Lens' RequestSpotInstances (Maybe Text)
 rsiClientToken = lens _rsiClientToken (\ s a -> s{_rsiClientToken = a});
 
--- | The maximum number of Spot Instances to launch.
+-- | The maximum number of Spot instances to launch.
 --
 -- Default: 1
 rsiInstanceCount :: Lens' RequestSpotInstances (Maybe Int)
@@ -134,20 +134,20 @@ rsiLaunchSpecification = lens _rsiLaunchSpecification (\ s a -> s{_rsiLaunchSpec
 -- | The user-specified name for a logical grouping of bids.
 --
 -- When you specify an Availability Zone group in a Spot Instance request,
--- all Spot Instances in the request are launched in the same Availability
+-- all Spot instances in the request are launched in the same Availability
 -- Zone. Instance proximity is maintained with this parameter, but the
 -- choice of Availability Zone is not. The group applies only to bids for
--- Spot Instances of the same instance type. Any additional Spot Instance
+-- Spot Instances of the same instance type. Any additional Spot instance
 -- requests that are specified with the same Availability Zone group name
 -- are launched in that same Availability Zone, as long as at least one
 -- instance from the group is still active.
 --
 -- If there is no active instance running in the Availability Zone group
--- that you specify for a new Spot Instance request (all instances are
+-- that you specify for a new Spot instance request (all instances are
 -- terminated, the bid is expired, or the bid falls below current market),
 -- then Amazon EC2 launches the instance in any Availability Zone where the
 -- constraint can be met. Consequently, the subsequent set of Spot
--- Instances could be placed in a different zone from the original request,
+-- instances could be placed in a different zone from the original request,
 -- even if you specified the same Availability Zone group.
 --
 -- Default: Instances are launched in any available Availability Zone.
@@ -163,14 +163,14 @@ rsiAvailabilityZoneGroup = lens _rsiAvailabilityZoneGroup (\ s a -> s{_rsiAvaila
 rsiValidUntil :: Lens' RequestSpotInstances (Maybe UTCTime)
 rsiValidUntil = lens _rsiValidUntil (\ s a -> s{_rsiValidUntil = a}) . mapping _Time;
 
--- | The instance launch group. Launch groups are Spot Instances that launch
+-- | The instance launch group. Launch groups are Spot instances that launch
 -- together and terminate together.
 --
 -- Default: Instances are launched and terminated individually
 rsiLaunchGroup :: Lens' RequestSpotInstances (Maybe Text)
 rsiLaunchGroup = lens _rsiLaunchGroup (\ s a -> s{_rsiLaunchGroup = a});
 
--- | The Spot Instance request type.
+-- | The Spot instance request type.
 --
 -- Default: 'one-time'
 rsiType :: Lens' RequestSpotInstances (Maybe SpotInstanceType)
@@ -193,7 +193,7 @@ rsiValidFrom = lens _rsiValidFrom (\ s a -> s{_rsiValidFrom = a}) . mapping _Tim
 rsiDryRun :: Lens' RequestSpotInstances (Maybe Bool)
 rsiDryRun = lens _rsiDryRun (\ s a -> s{_rsiDryRun = a});
 
--- | The maximum hourly price (bid) for any Spot Instance launched to fulfill
+-- | The maximum hourly price (bid) for any Spot instance launched to fulfill
 -- the request.
 rsiSpotPrice :: Lens' RequestSpotInstances Text
 rsiSpotPrice = lens _rsiSpotPrice (\ s a -> s{_rsiSpotPrice = a});
@@ -254,7 +254,7 @@ requestSpotInstancesResponse pResponseStatus_ =
     , _rsirsResponseStatus = pResponseStatus_
     }
 
--- | One or more Spot Instance requests.
+-- | One or more Spot instance requests.
 rsirsSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
 rsirsSpotInstanceRequests = lens _rsirsSpotInstanceRequests (\ s a -> s{_rsirsSpotInstanceRequests = a}) . _Default . _Coerce;
 

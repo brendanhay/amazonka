@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the data feed for Spot Instances. For more information, see
+-- Describes the data feed for Spot instances. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
@@ -124,7 +124,7 @@ describeSpotDatafeedSubscriptionResponse pResponseStatus_ =
     , _dsdsrsResponseStatus = pResponseStatus_
     }
 
--- | The Spot Instance data feed subscription.
+-- | The Spot instance data feed subscription.
 dsdsrsSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 dsdsrsSpotDatafeedSubscription = lens _dsdsrsSpotDatafeedSubscription (\ s a -> s{_dsdsrsSpotDatafeedSubscription = a});
 

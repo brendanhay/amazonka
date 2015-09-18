@@ -82,7 +82,9 @@ describeSecurityGroups =
     , _dsgsDryRun = Nothing
     }
 
--- | One or more filters.
+-- | One or more filters. If using multiple filters for rules, the results
+-- include security groups for which any combination of rules - not
+-- necessarily a single rule - match all filters.
 --
 -- -   'description' - The description of the security group.
 --

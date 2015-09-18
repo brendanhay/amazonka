@@ -102,7 +102,7 @@ requestInsts m h r fs = do
     toPath = ToPath <$> uriFields h uriPath id fs
 
     toBody :: Maybe Inst
-    toBody = ToBody <$> (stream <|> payload)
+    toBody = ToBody <$> (stream <|> pay)
 
     concatQuery :: [Inst] -> Either Error [Inst]
     concatQuery is = do
@@ -175,7 +175,7 @@ requestInsts m h r fs = do
 
     (listToMaybe -> stream, fields) = partition fieldStream notLocated
 
-    payload = find fieldLitPayload fields
+    pay = find fieldLitPayload fields
 
     notLocated :: [Field]
     notLocated = satisfy (\l -> isNothing l || Just Body == l) fs

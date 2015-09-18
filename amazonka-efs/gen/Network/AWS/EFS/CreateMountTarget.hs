@@ -49,7 +49,7 @@
 -- mount target\'s DNS name when mounting the file system. The EC2 instance
 -- on which you mount the file system via the mount target can resolve the
 -- mount target\'s DNS name to its IP address. For more information, see
--- <http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-implementation How it Works: Implementation Overview>
+-- <http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-implementation How it Works: Implementation Overview>.
 --
 -- Note that you can create mount targets for a file system in only one
 -- VPC, and there can be only one mount target per Availability Zone. That
@@ -104,7 +104,7 @@
 -- <http://aws.amazon.com/efs/ Amazon EFS> product detail page. In
 -- addition, by always using a mount target local to the instance\'s
 -- Availability Zone, you eliminate a partial failure scenario; if the
--- Availablity Zone in which your mount target is created goes down, then
+-- Availability Zone in which your mount target is created goes down, then
 -- you won\'t be able to access your file system through that mount target.
 --
 -- This operation requires permission for the following action on the file

@@ -1,5 +1,32 @@
 # Change Log
 
+## [1.3.2](https://github.com/brendanhay/amazonka/tree/1.3.2)
+Released: **18 September, 2015**, Compare: [1.3.1](https://github.com/brendanhay/amazonka/compare/1.3.1...1.3.2)
+
+### Fixed
+
+- Ensure opqaue JSON bodies are handled correctly. [\#224](https://github.com/brendanhay/amazonka/issues/224) [\#226](https://github.com/brendanhay/amazonka/issues/226)
+
+### Updated Service Definitions
+
+- EC2: Documentation updates.
+- EFS: Documentation updates.
+- Route53: Inverted, Measured Latency, and Child Health Check updates.
+- CloudWatchLogs
+    * `InvalidOperationException` error matcher added.
+    * `DescribeExportTasks` operation added
+    * `CreateExportTask` operation added
+    * `CancelExportTask` operation added
+    * `ExportTask`, `ExportTaskExecutionInfo`, `ExportTaskStatus` types added.
+- S3
+    * Infrequent access storage tier updates.
+    * `GetBucketLifecycle` operation removed (deprecated).
+    * `PutBucketLifecycle` operation removed (deprecated).
+    * `Rule` product removed (deprecated).
+    * `GetbucketLifecycleConfiguration` operation added.
+    * `PutBucketLifecycleConfiguration` operation added.
+    * `BucketLifecycleConfiguration` product added.
+    * `LifecycleRule` product added.
 
 ## [1.3.1](https://github.com/brendanhay/amazonka/tree/1.3.1)
 Released: **09 September, 2015**, Compare: [1.3.0](https://github.com/brendanhay/amazonka/compare/1.3.0...1.3.1)
@@ -22,6 +49,7 @@ Released: **09 September, 2015**, Compare: [1.3.0](https://github.com/brendanhay
 - Kinesis
 - DataPipeline
 - EFS: Namespace rename from ElasticFileSystem -> EFS.
+
 
 ## [1.3.0](https://github.com/brendanhay/amazonka/tree/1.3.0)
 Released: **03 September, 2015**, Compare: [1.2.0.2](https://github.com/brendanhay/amazonka/compare/1.2.0.2...1.3.0)

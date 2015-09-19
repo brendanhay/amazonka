@@ -14,7 +14,6 @@ import           Conduit
 import           Data.ByteString       (ByteString)
 import qualified Data.ByteString       as BS
 import qualified Data.ByteString.Lazy  as LBS
-import           Data.Int
 import           Network.AWS.Data.Body
 
 -- Resides here since it's unsafe without the use of enforceChunks,
@@ -27,20 +26,23 @@ instance ToChunkedBody ChunkedBody where
 
 instance ToChunkedBody HashedBody where
     toChunked = \case
-        HashedStream _ n s -> chk n s
-        HashedBytes  _ b   -> chk (fromIntegral (BS.length b)) (mapM_ yield [b])
-      where
-        chk n = ChunkedBody defaultChunkSize n
-            . flip fuse (enforceChunks sz)
-
-        sz = fromIntegral defaultChunkSize
+        HashedStream _ n s -> enforceChunks n s
+        HashedBytes  _ b   -> enforceChunks (BS.length b) (mapM_ yield [b])
 
 instance ToChunkedBody RqBody where
     toChunked = \case
         Chunked c -> c
         Hashed  h -> toChunked h
 
-enforceChunks :: Monad m => Int64 -> Conduit ByteString m ByteString
-enforceChunks n = awaitForever (\i -> leftover i >> sinkLazy >>= yield)
-    =$= takeCE n
-    =$= mapC LBS.toStrict
+enforceChunks :: Integral a
+              => a
+              -> Source (ResourceT IO) ByteString
+              -> ChunkedBody
+enforceChunks sz =
+    ChunkedBody defaultChunkSize (fromIntegral sz) . flip fuse go
+  where
+    go = awaitForever (\i -> leftover i >> sinkLazy >>= yield)
+      =$= takeCE n
+      =$= mapC LBS.toStrict
+
+    n = fromIntegral defaultChunkSize

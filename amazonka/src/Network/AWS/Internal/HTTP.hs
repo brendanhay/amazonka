@@ -160,7 +160,7 @@ retryService :: Service -> RetryPolicy
 retryService s = limitRetries _retryAttempts <> RetryPolicy delay
   where
     delay n
-        | n > 0     = Just $ truncate (grow * 1000000)
+        | n >= 0    = Just $ truncate (grow * 1000000)
         | otherwise = Nothing
       where
         grow = _retryBase * (fromIntegral _retryGrowth ^^ (n - 1))

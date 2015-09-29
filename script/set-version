@@ -2,10 +2,6 @@
 
 set -e
 
-#!/usr/bin/env bash
-
-set -e
-
 pvp="$1"
 semantic="$2"
 

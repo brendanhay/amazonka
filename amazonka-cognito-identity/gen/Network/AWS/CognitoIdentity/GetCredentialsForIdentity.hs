@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns credentials for the the provided identity ID. Any provided
--- logins will be validated against supported login providers. If the token
--- is for cognito-identity.amazonaws.com, it will be passed through to AWS
+-- Returns credentials for the provided identity ID. Any provided logins
+-- will be validated against supported login providers. If the token is for
+-- cognito-identity.amazonaws.com, it will be passed through to AWS
 -- Security Token Service with the appropriate role for the token.
 --
 -- This is a public API. You do not need any credentials to call this API.
@@ -146,7 +146,7 @@ getCredentialsForIdentityResponse pResponseStatus_ =
     , _gcfirsResponseStatus = pResponseStatus_
     }
 
--- | Credentials for the the provided identity ID.
+-- | Credentials for the provided identity ID.
 gcfirsCredentials :: Lens' GetCredentialsForIdentityResponse (Maybe Credentials)
 gcfirsCredentials = lens _gcfirsCredentials (\ s a -> s{_gcfirsCredentials = a});
 

@@ -24,7 +24,7 @@
 -- identities as well as the developer user identifier, the Cognito
 -- identity becomes inaccessible.
 --
--- This is a public API. You do not need any credentials to call this API.
+-- You must use AWS Developer credentials to call this API.
 --
 -- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UnlinkDeveloperIdentity.html AWS API Reference> for UnlinkDeveloperIdentity.
 module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity

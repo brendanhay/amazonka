@@ -21,8 +21,6 @@
 -- Generates (or retrieves) a Cognito ID. Supplying multiple logins will
 -- create an implicit linked account.
 --
--- token+\";\"+tokenSecret.
---
 -- This is a public API. You do not need any credentials to call this API.
 --
 -- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetId.html AWS API Reference> for GetId.
@@ -90,7 +88,7 @@ giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a});
 -- -   Facebook: 'graph.facebook.com'
 -- -   Google: 'accounts.google.com'
 -- -   Amazon: 'www.amazon.com'
--- -   Twitter: 'www.twitter.com'
+-- -   Twitter: 'api.twitter.com'
 -- -   Digits: 'www.digits.com'
 giLogins :: Lens' GetId (HashMap Text Text)
 giLogins = lens _giLogins (\ s a -> s{_giLogins = a}) . _Default . _Map;

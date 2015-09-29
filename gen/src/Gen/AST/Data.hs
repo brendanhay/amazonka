@@ -173,7 +173,7 @@ prodData m s st = (,fields) <$> mk
                 "' with the minimum fields required to make a request.\n")
                 n
 
-    -- FIXME: dirty, dirty hack to render smart ctor parameter haddock coments
+    -- FIXME: dirty hack to render smart ctor parameter haddock comments.
     addParamComments :: [Field] -> Rendered -> Rendered
     addParamComments fs =
           LText.replace " :: " "\n    :: "
@@ -316,21 +316,22 @@ notation m = go
     descendErr =
         format ("Unable to descend into nested reference " % iprimary)
 
-data Ident
+data PP
     = Indent
     | Print
     | None
       deriving (Eq)
 
-pp :: Pretty a => Ident -> a -> Either Error LText.Text
+pp :: Pretty a => PP -> a -> Either Error Rendered
 pp i d
     | i == Indent = bimap e Build.toLazyText (reformat johanTibell Nothing p)
     | otherwise   = pure p
   where
     e = flip mappend (", when formatting datatype: " <> p) . LText.pack
 
-    p = LText.dropWhile isSpace . LText.pack $
-        prettyPrintStyleMode s m d
+    p = LText.dropWhile isSpace
+      . LText.pack
+      $ prettyPrintStyleMode s m d
 
     s = style
         { mode           = PageMode

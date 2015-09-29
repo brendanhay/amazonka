@@ -20,8 +20,16 @@
 --
 -- Creates a new identity pool. The identity pool is a store of user
 -- identity information that is specific to your AWS account. The limit on
--- identity pools is 60 per account. You must use AWS Developer credentials
--- to call this API.
+-- identity pools is 60 per account. The keys for 'SupportedLoginProviders'
+-- are as follows:
+--
+-- -   Facebook: 'graph.facebook.com'
+-- -   Google: 'accounts.google.com'
+-- -   Amazon: 'www.amazon.com'
+-- -   Twitter: 'api.twitter.com'
+-- -   Digits: 'www.digits.com'
+--
+-- You must use AWS Developer credentials to call this API.
 --
 -- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_CreateIdentityPool.html AWS API Reference> for CreateIdentityPool.
 module Network.AWS.CognitoIdentity.CreateIdentityPool

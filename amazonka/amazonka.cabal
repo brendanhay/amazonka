@@ -1,6 +1,6 @@
 name:                  amazonka
-version:               1.3.2
-synopsis:              Comprehensive Amazon Web Services SDK
+version:               1.3.2.1
+synopsis:              Comprehensive Amazon Web Services SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
 license:               OtherLicense

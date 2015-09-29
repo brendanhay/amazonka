@@ -74,5 +74,3 @@ fixtureImports l =
     [ l ^. libraryNS
     , mkNS $ "Test.AWS." <> l ^. serviceAbbrev <> ".Internal"
     ]
-
-

@@ -20,7 +20,7 @@ module Network.AWS.CognitoIdentity.Types.Product where
 import           Network.AWS.CognitoIdentity.Types.Sum
 import           Network.AWS.Prelude
 
--- | Credentials for the the provided identity ID.
+-- | Credentials for the provided identity ID.
 --
 -- /See:/ 'credentials' smart constructor.
 data Credentials = Credentials'

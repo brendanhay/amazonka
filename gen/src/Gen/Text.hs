@@ -225,7 +225,6 @@ upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
          , ("Eq([^u]|$)",    "EQ$1")
          , ("Lt$",           "LT")
          , ("Gt$",           "GT")
-         , ("Gt$",           "GT")
          , ("X8664",         "X86_64")
          ]
 

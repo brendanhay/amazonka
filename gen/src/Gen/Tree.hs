@@ -132,7 +132,7 @@ populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
        n = typeId (_opName o)
 
     mod :: NS -> [NS] -> Template -> DirTree (Either Error Touch)
-    mod n is t = write . module' n is t . pure $ toJSON l
+    mod n is t = write $ module' n is t (pure env)
 
     file :: Path -> Template -> DirTree (Either Error Touch)
     file p t = write $ file' p t (pure env)

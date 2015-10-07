@@ -328,7 +328,7 @@ example = do
     b <- sourceFileIO "local\/path\/to\/object-payload"
 
     -- We now run the AWS computation with the overriden logger, performing the PutObject request:
-    runAWS (e & envLogger .~ l) $
+    runResourceT . runAWS (e & envLogger .~ l) $
         send (putObject "bucket-name" "object-key" b)
 @
 -}

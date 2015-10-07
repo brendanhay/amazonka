@@ -186,8 +186,12 @@ import           Prelude
 type AWS = AWST (ResourceT IO)
 
 -- | Monads in which 'AWS' actions may be embedded.
-class (Functor m, Applicative m, Monad m, MonadIO m, MonadCatch m) => MonadAWS m
-  where
+class ( Functor     m
+      , Applicative m
+      , Monad       m
+      , MonadIO     m
+      , MonadCatch  m
+      ) => MonadAWS m where
     -- | Lift a computation to the 'AWS' monad.
     liftAWS :: AWS a -> m a
 

@@ -17,6 +17,13 @@
                 "REDUCED_REDUNDANCY",
                 "GLACIER"
             ]
+        },
+        "GetBucketLocationOutput": {
+            "required": [
+                "LocationConstraint"
+            ],
+            "payload": "LocationConstraint"
         }
     }
 }
+

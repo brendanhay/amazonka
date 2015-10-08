@@ -33,8 +33,8 @@ module Network.AWS.S3.GetBucketLocation
     , getBucketLocationResponse
     , GetBucketLocationResponse
     -- * Response Lenses
-    , grsLocationConstraint
     , grsResponseStatus
+    , grsLocationConstraint
     ) where
 
 import           Network.AWS.Prelude
@@ -72,7 +72,7 @@ instance AWSRequest GetBucketLocation where
           = receiveXML
               (\ s h x ->
                  GetBucketLocationResponse' <$>
-                   (x .@? "LocationConstraint") <*> (pure (fromEnum s)))
+                   (pure (fromEnum s)) <*> (parseXML x))
 
 instance ToHeaders GetBucketLocation where
         toHeaders = const mempty
@@ -86,30 +86,31 @@ instance ToQuery GetBucketLocation where
 
 -- | /See:/ 'getBucketLocationResponse' smart constructor.
 data GetBucketLocationResponse = GetBucketLocationResponse'
-    { _grsLocationConstraint :: !(Maybe Region)
-    , _grsResponseStatus     :: !Int
+    { _grsResponseStatus     :: !Int
+    , _grsLocationConstraint :: !Region
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketLocationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grsLocationConstraint'
---
 -- * 'grsResponseStatus'
+--
+-- * 'grsLocationConstraint'
 getBucketLocationResponse
     :: Int -- ^ 'grsResponseStatus'
+    -> Region -- ^ 'grsLocationConstraint'
     -> GetBucketLocationResponse
-getBucketLocationResponse pResponseStatus_ =
+getBucketLocationResponse pResponseStatus_ pLocationConstraint_ =
     GetBucketLocationResponse'
-    { _grsLocationConstraint = Nothing
-    , _grsResponseStatus = pResponseStatus_
+    { _grsResponseStatus = pResponseStatus_
+    , _grsLocationConstraint = pLocationConstraint_
     }
-
--- | Undocumented member.
-grsLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
-grsLocationConstraint = lens _grsLocationConstraint (\ s a -> s{_grsLocationConstraint = a});
 
 -- | The response status code.
 grsResponseStatus :: Lens' GetBucketLocationResponse Int
 grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
+
+-- | Undocumented member.
+grsLocationConstraint :: Lens' GetBucketLocationResponse Region
+grsLocationConstraint = lens _grsLocationConstraint (\ s a -> s{_grsLocationConstraint = a});

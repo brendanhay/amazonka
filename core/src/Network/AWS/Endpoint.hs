@@ -82,6 +82,9 @@ defaultEndpoint (_svcPrefix -> p) r = go (CI.mk p)
         "cloudfront"
             | not china -> global "cloudfront.amazonaws.com"
 
+        "waf"
+            | not china -> global "waf.amazonaws.com"
+
         _   | china     -> region (p <> "." <> reg <> ".amazonaws.com.cn")
             | otherwise -> region (p <> "." <> reg <> ".amazonaws.com")
 

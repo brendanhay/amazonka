@@ -2,7 +2,7 @@
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
--- Module      : Test.AWS.ElasticSearch
+-- Module      : Test.AWS.WAF
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -12,7 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Test.AWS.ElasticSearch where
+module Test.AWS.WAF where
 
 import           Test.AWS.Prelude
 

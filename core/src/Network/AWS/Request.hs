@@ -106,8 +106,9 @@ putJSON s x = defaultRequest s x
 
 putBody :: (ToRequest a, ToBody a) => Service -> a -> Request a
 putBody s x = defaultRequest s x
-    & rqMethod .~ PUT
-    & rqBody   .~ toBody x
+    & rqMethod  .~ PUT
+    & rqBody    .~ toBody x
+    & rqHeaders %~ hdr hExpect "100-continue"
 
 defaultRequest :: ToRequest a => Service -> a -> Request a
 defaultRequest s x = Request

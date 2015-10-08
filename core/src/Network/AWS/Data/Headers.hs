@@ -119,5 +119,8 @@ hAMZDecodedContentLength = "X-Amz-Decoded-Content-Length"
 hTransferEncoding :: HeaderName
 hTransferEncoding = "Transfer-Encoding"
 
+hExpect :: HeaderName
+hExpect = "Expect"
+
 hFormEncoded :: ByteString
 hFormEncoded = "application/x-www-form-urlencoded; charset=utf-8"

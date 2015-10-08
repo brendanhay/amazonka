@@ -36,6 +36,7 @@ packages:
   - amazonka-efs
   - amazonka-elasticache
   - amazonka-elasticbeanstalk
+  - amazonka-elasticsearch
   - amazonka-elastictranscoder
   - amazonka-elb
   - amazonka-emr

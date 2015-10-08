@@ -130,6 +130,8 @@ matrix:
       addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.2 LIBRARY=amazonka-elasticbeanstalk
       addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
+    - env: GHCVER=7.10.2 LIBRARY=amazonka-elasticsearch
+      addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.2 LIBRARY=amazonka-elastictranscoder
       addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.2 LIBRARY=amazonka-emr

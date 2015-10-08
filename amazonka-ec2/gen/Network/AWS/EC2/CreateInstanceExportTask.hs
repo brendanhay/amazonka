@@ -119,7 +119,7 @@ instance ToQuery CreateInstanceExportTask where
           = mconcat
               ["Action" =:
                  ("CreateInstanceExportTask" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "TargetEnvironment" =: _cietTargetEnvironment,
                "ExportToS3" =: _cietExportToS3Task,
                "Description" =: _cietDescription,

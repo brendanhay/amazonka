@@ -1278,6 +1278,7 @@ data DistributionConfig = DistributionConfig'
     , _dcDefaultRootObject    :: !(Maybe Text)
     , _dcPriceClass           :: !(Maybe PriceClass)
     , _dcCustomErrorResponses :: !(Maybe CustomErrorResponses)
+    , _dcWebACLId             :: !(Maybe Text)
     , _dcViewerCertificate    :: !(Maybe ViewerCertificate)
     , _dcRestrictions         :: !(Maybe Restrictions)
     , _dcLogging              :: !(Maybe LoggingConfig)
@@ -1300,6 +1301,8 @@ data DistributionConfig = DistributionConfig'
 -- * 'dcPriceClass'
 --
 -- * 'dcCustomErrorResponses'
+--
+-- * 'dcWebACLId'
 --
 -- * 'dcViewerCertificate'
 --
@@ -1331,6 +1334,7 @@ distributionConfig pCallerReference_ pOrigins_ pDefaultCacheBehavior_ pComment_ 
     , _dcDefaultRootObject = Nothing
     , _dcPriceClass = Nothing
     , _dcCustomErrorResponses = Nothing
+    , _dcWebACLId = Nothing
     , _dcViewerCertificate = Nothing
     , _dcRestrictions = Nothing
     , _dcLogging = Nothing
@@ -1369,6 +1373,11 @@ dcPriceClass = lens _dcPriceClass (\ s a -> s{_dcPriceClass = a});
 -- | A complex type that contains zero or more CustomErrorResponse elements.
 dcCustomErrorResponses :: Lens' DistributionConfig (Maybe CustomErrorResponses)
 dcCustomErrorResponses = lens _dcCustomErrorResponses (\ s a -> s{_dcCustomErrorResponses = a});
+
+-- | (Optional) If you\'re using AWS WAF to filter CloudFront requests, the
+-- Id of the AWS WAF web ACL that is associated with the distribution.
+dcWebACLId :: Lens' DistributionConfig (Maybe Text)
+dcWebACLId = lens _dcWebACLId (\ s a -> s{_dcWebACLId = a});
 
 -- | Undocumented member.
 dcViewerCertificate :: Lens' DistributionConfig (Maybe ViewerCertificate)
@@ -1427,6 +1436,7 @@ instance FromXML DistributionConfig where
               (x .@? "Aliases") <*> (x .@? "DefaultRootObject") <*>
                 (x .@? "PriceClass")
                 <*> (x .@? "CustomErrorResponses")
+                <*> (x .@? "WebACLId")
                 <*> (x .@? "ViewerCertificate")
                 <*> (x .@? "Restrictions")
                 <*> (x .@? "Logging")
@@ -1444,6 +1454,7 @@ instance ToXML DistributionConfig where
                "DefaultRootObject" @= _dcDefaultRootObject,
                "PriceClass" @= _dcPriceClass,
                "CustomErrorResponses" @= _dcCustomErrorResponses,
+               "WebACLId" @= _dcWebACLId,
                "ViewerCertificate" @= _dcViewerCertificate,
                "Restrictions" @= _dcRestrictions,
                "Logging" @= _dcLogging,
@@ -1556,6 +1567,7 @@ data DistributionSummary = DistributionSummary'
     , _dsEnabled              :: !Bool
     , _dsViewerCertificate    :: !ViewerCertificate
     , _dsRestrictions         :: !Restrictions
+    , _dsWebACLId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DistributionSummary' with the minimum fields required to make a request.
@@ -1589,6 +1601,8 @@ data DistributionSummary = DistributionSummary'
 -- * 'dsViewerCertificate'
 --
 -- * 'dsRestrictions'
+--
+-- * 'dsWebACLId'
 distributionSummary
     :: Text -- ^ 'dsId'
     -> Text -- ^ 'dsStatus'
@@ -1604,8 +1618,9 @@ distributionSummary
     -> Bool -- ^ 'dsEnabled'
     -> ViewerCertificate -- ^ 'dsViewerCertificate'
     -> Restrictions -- ^ 'dsRestrictions'
+    -> Text -- ^ 'dsWebACLId'
     -> DistributionSummary
-distributionSummary pId_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases_ pOrigins_ pDefaultCacheBehavior_ pCacheBehaviors_ pCustomErrorResponses_ pComment_ pPriceClass_ pEnabled_ pViewerCertificate_ pRestrictions_ =
+distributionSummary pId_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases_ pOrigins_ pDefaultCacheBehavior_ pCacheBehaviors_ pCustomErrorResponses_ pComment_ pPriceClass_ pEnabled_ pViewerCertificate_ pRestrictions_ pWebACLId_ =
     DistributionSummary'
     { _dsId = pId_
     , _dsStatus = pStatus_
@@ -1621,6 +1636,7 @@ distributionSummary pId_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases_ pOri
     , _dsEnabled = pEnabled_
     , _dsViewerCertificate = pViewerCertificate_
     , _dsRestrictions = pRestrictions_
+    , _dsWebACLId = pWebACLId_
     }
 
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
@@ -1688,6 +1704,10 @@ dsViewerCertificate = lens _dsViewerCertificate (\ s a -> s{_dsViewerCertificate
 dsRestrictions :: Lens' DistributionSummary Restrictions
 dsRestrictions = lens _dsRestrictions (\ s a -> s{_dsRestrictions = a});
 
+-- | The Web ACL Id (if any) associated with the distribution.
+dsWebACLId :: Lens' DistributionSummary Text
+dsWebACLId = lens _dsWebACLId (\ s a -> s{_dsWebACLId = a});
+
 instance FromXML DistributionSummary where
         parseXML x
           = DistributionSummary' <$>
@@ -1704,6 +1724,7 @@ instance FromXML DistributionSummary where
                 <*> (x .@ "Enabled")
                 <*> (x .@ "ViewerCertificate")
                 <*> (x .@ "Restrictions")
+                <*> (x .@ "WebACLId")
 
 -- | A complex type that specifies how CloudFront handles query strings,
 -- cookies and headers.

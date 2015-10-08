@@ -153,7 +153,7 @@ instance ToQuery CreateImage where
         toQuery CreateImage'{..}
           = mconcat
               ["Action" =: ("CreateImage" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "NoReboot" =: _ciiNoReboot,
                "Description" =: _ciiDescription,
                toQuery

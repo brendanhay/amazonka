@@ -49,9 +49,19 @@ library
 
     exposed-modules:
           Network.AWS.SES
+        , Network.AWS.SES.CloneReceiptRuleSet
+        , Network.AWS.SES.CreateReceiptFilter
+        , Network.AWS.SES.CreateReceiptRule
+        , Network.AWS.SES.CreateReceiptRuleSet
         , Network.AWS.SES.DeleteIdentity
         , Network.AWS.SES.DeleteIdentityPolicy
+        , Network.AWS.SES.DeleteReceiptFilter
+        , Network.AWS.SES.DeleteReceiptRule
+        , Network.AWS.SES.DeleteReceiptRuleSet
         , Network.AWS.SES.DeleteVerifiedEmailAddress
+        , Network.AWS.SES.DescribeActiveReceiptRuleSet
+        , Network.AWS.SES.DescribeReceiptRule
+        , Network.AWS.SES.DescribeReceiptRuleSet
         , Network.AWS.SES.GetIdentityDkimAttributes
         , Network.AWS.SES.GetIdentityNotificationAttributes
         , Network.AWS.SES.GetIdentityPolicies
@@ -60,14 +70,21 @@ library
         , Network.AWS.SES.GetSendStatistics
         , Network.AWS.SES.ListIdentities
         , Network.AWS.SES.ListIdentityPolicies
+        , Network.AWS.SES.ListReceiptFilters
+        , Network.AWS.SES.ListReceiptRuleSets
         , Network.AWS.SES.ListVerifiedEmailAddresses
         , Network.AWS.SES.PutIdentityPolicy
+        , Network.AWS.SES.ReorderReceiptRuleSet
+        , Network.AWS.SES.SendBounce
         , Network.AWS.SES.SendEmail
         , Network.AWS.SES.SendRawEmail
+        , Network.AWS.SES.SetActiveReceiptRuleSet
         , Network.AWS.SES.SetIdentityDkimEnabled
         , Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
         , Network.AWS.SES.SetIdentityNotificationTopic
+        , Network.AWS.SES.SetReceiptRulePosition
         , Network.AWS.SES.Types
+        , Network.AWS.SES.UpdateReceiptRule
         , Network.AWS.SES.VerifyDomainDkim
         , Network.AWS.SES.VerifyDomainIdentity
         , Network.AWS.SES.VerifyEmailAddress

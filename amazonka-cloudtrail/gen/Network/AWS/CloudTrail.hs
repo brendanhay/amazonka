@@ -53,11 +53,26 @@ module Network.AWS.CloudTrail
     -- ** MaximumNumberOfTrailsExceededException
     , _MaximumNumberOfTrailsExceededException
 
+    -- ** UnsupportedOperationException
+    , _UnsupportedOperationException
+
+    -- ** KMSKeyDisabledException
+    , _KMSKeyDisabledException
+
+    -- ** InsufficientEncryptionPolicyException
+    , _InsufficientEncryptionPolicyException
+
     -- ** InsufficientSNSTopicPolicyException
     , _InsufficientSNSTopicPolicyException
 
     -- ** InvalidCloudWatchLogsRoleARNException
     , _InvalidCloudWatchLogsRoleARNException
+
+    -- ** TagsLimitExceededException
+    , _TagsLimitExceededException
+
+    -- ** CloudTrailARNInvalidException
+    , _CloudTrailARNInvalidException
 
     -- ** InvalidLookupAttributesException
     , _InvalidLookupAttributesException
@@ -68,11 +83,20 @@ module Network.AWS.CloudTrail
     -- ** InvalidSNSTopicNameException
     , _InvalidSNSTopicNameException
 
+    -- ** ResourceTypeNotSupportedException
+    , _ResourceTypeNotSupportedException
+
     -- ** CloudWatchLogsDeliveryUnavailableException
     , _CloudWatchLogsDeliveryUnavailableException
 
+    -- ** KMSKeyNotFoundException
+    , _KMSKeyNotFoundException
+
     -- ** TrailNotFoundException
     , _TrailNotFoundException
+
+    -- ** TrailNotProvidedException
+    , _TrailNotProvidedException
 
     -- ** InvalidS3BucketNameException
     , _InvalidS3BucketNameException
@@ -86,6 +110,15 @@ module Network.AWS.CloudTrail
     -- ** InvalidNextTokenException
     , _InvalidNextTokenException
 
+    -- ** InvalidTagParameterException
+    , _InvalidTagParameterException
+
+    -- ** OperationNotPermittedException
+    , _OperationNotPermittedException
+
+    -- ** InvalidTokenException
+    , _InvalidTokenException
+
     -- ** InvalidMaxResultsException
     , _InvalidMaxResultsException
 
@@ -95,6 +128,12 @@ module Network.AWS.CloudTrail
     -- ** InvalidS3PrefixException
     , _InvalidS3PrefixException
 
+    -- ** ResourceNotFoundException
+    , _ResourceNotFoundException
+
+    -- ** InvalidKMSKeyIdException
+    , _InvalidKMSKeyIdException
+
     -- * Waiters
     -- $waiters
 
@@ -103,6 +142,12 @@ module Network.AWS.CloudTrail
 
     -- ** DescribeTrails
     , module Network.AWS.CloudTrail.DescribeTrails
+
+    -- ** ListPublicKeys
+    , module Network.AWS.CloudTrail.ListPublicKeys
+
+    -- ** RemoveTags
+    , module Network.AWS.CloudTrail.RemoveTags
 
     -- ** LookupEvents
     , module Network.AWS.CloudTrail.LookupEvents
@@ -121,6 +166,12 @@ module Network.AWS.CloudTrail
 
     -- ** GetTrailStatus
     , module Network.AWS.CloudTrail.GetTrailStatus
+
+    -- ** AddTags
+    , module Network.AWS.CloudTrail.AddTags
+
+    -- ** ListTags
+    , module Network.AWS.CloudTrail.ListTags
 
     -- ** StartLogging
     , module Network.AWS.CloudTrail.StartLogging
@@ -146,29 +197,56 @@ module Network.AWS.CloudTrail
     , laAttributeKey
     , laAttributeValue
 
+    -- ** PublicKey
+    , PublicKey
+    , publicKey
+    , pkFingerprint
+    , pkValidityEndTime
+    , pkValue
+    , pkValidityStartTime
+
     -- ** Resource
     , Resource
     , resource
     , rResourceType
     , rResourceName
 
+    -- ** ResourceTag
+    , ResourceTag
+    , resourceTag
+    , rResourceId
+    , rTagsList
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
+
     -- ** Trail
     , Trail
     , trail
+    , tLogFileValidationEnabled
+    , tTrailARN
     , tS3KeyPrefix
     , tSNSTopicName
     , tCloudWatchLogsLogGroupARN
+    , tKMSKeyId
     , tName
     , tIncludeGlobalServiceEvents
     , tCloudWatchLogsRoleARN
     , tS3BucketName
     ) where
 
+import           Network.AWS.CloudTrail.AddTags
 import           Network.AWS.CloudTrail.CreateTrail
 import           Network.AWS.CloudTrail.DeleteTrail
 import           Network.AWS.CloudTrail.DescribeTrails
 import           Network.AWS.CloudTrail.GetTrailStatus
+import           Network.AWS.CloudTrail.ListPublicKeys
+import           Network.AWS.CloudTrail.ListTags
 import           Network.AWS.CloudTrail.LookupEvents
+import           Network.AWS.CloudTrail.RemoveTags
 import           Network.AWS.CloudTrail.StartLogging
 import           Network.AWS.CloudTrail.StopLogging
 import           Network.AWS.CloudTrail.Types

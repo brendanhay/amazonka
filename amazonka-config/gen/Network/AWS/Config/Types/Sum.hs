@@ -44,6 +44,68 @@ instance ToHeader     ChronologicalOrder
 instance ToJSON ChronologicalOrder where
     toJSON = toJSONText
 
+data ComplianceType
+    = Compliant
+    | InsufficientData
+    | NonCompliant
+    | NotApplicable
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText ComplianceType where
+    parser = takeLowerText >>= \case
+        "compliant" -> pure Compliant
+        "insufficient_data" -> pure InsufficientData
+        "non_compliant" -> pure NonCompliant
+        "not_applicable" -> pure NotApplicable
+        e -> fromTextError $ "Failure parsing ComplianceType from value: '" <> e
+           <> "'. Accepted values: COMPLIANT, INSUFFICIENT_DATA, NON_COMPLIANT, NOT_APPLICABLE"
+
+instance ToText ComplianceType where
+    toText = \case
+        Compliant -> "COMPLIANT"
+        InsufficientData -> "INSUFFICIENT_DATA"
+        NonCompliant -> "NON_COMPLIANT"
+        NotApplicable -> "NOT_APPLICABLE"
+
+instance Hashable     ComplianceType
+instance ToByteString ComplianceType
+instance ToQuery      ComplianceType
+instance ToHeader     ComplianceType
+
+instance ToJSON ComplianceType where
+    toJSON = toJSONText
+
+instance FromJSON ComplianceType where
+    parseJSON = parseJSONText "ComplianceType"
+
+data ConfigRuleState
+    = Active
+    | Deleting
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText ConfigRuleState where
+    parser = takeLowerText >>= \case
+        "active" -> pure Active
+        "deleting" -> pure Deleting
+        e -> fromTextError $ "Failure parsing ConfigRuleState from value: '" <> e
+           <> "'. Accepted values: ACTIVE, DELETING"
+
+instance ToText ConfigRuleState where
+    toText = \case
+        Active -> "ACTIVE"
+        Deleting -> "DELETING"
+
+instance Hashable     ConfigRuleState
+instance ToByteString ConfigRuleState
+instance ToQuery      ConfigRuleState
+instance ToHeader     ConfigRuleState
+
+instance ToJSON ConfigRuleState where
+    toJSON = toJSONText
+
+instance FromJSON ConfigRuleState where
+    parseJSON = parseJSONText "ConfigRuleState"
+
 data ConfigurationItemStatus
     = Deleted
     | Discovered
@@ -76,24 +138,24 @@ instance FromJSON ConfigurationItemStatus where
     parseJSON = parseJSONText "ConfigurationItemStatus"
 
 data DeliveryStatus
-    = Failure
-    | NotApplicable
-    | Success
+    = DSFailure
+    | DSNotApplicable
+    | DSSuccess
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeliveryStatus where
     parser = takeLowerText >>= \case
-        "failure" -> pure Failure
-        "not_applicable" -> pure NotApplicable
-        "success" -> pure Success
+        "failure" -> pure DSFailure
+        "not_applicable" -> pure DSNotApplicable
+        "success" -> pure DSSuccess
         e -> fromTextError $ "Failure parsing DeliveryStatus from value: '" <> e
            <> "'. Accepted values: Failure, Not_Applicable, Success"
 
 instance ToText DeliveryStatus where
     toText = \case
-        Failure -> "Failure"
-        NotApplicable -> "Not_Applicable"
-        Success -> "Success"
+        DSFailure -> "Failure"
+        DSNotApplicable -> "Not_Applicable"
+        DSSuccess -> "Success"
 
 instance Hashable     DeliveryStatus
 instance ToByteString DeliveryStatus
@@ -103,25 +165,143 @@ instance ToHeader     DeliveryStatus
 instance FromJSON DeliveryStatus where
     parseJSON = parseJSONText "DeliveryStatus"
 
+data EventSource =
+    AWS_Config
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText EventSource where
+    parser = takeLowerText >>= \case
+        "aws.config" -> pure AWS_Config
+        e -> fromTextError $ "Failure parsing EventSource from value: '" <> e
+           <> "'. Accepted values: aws.config"
+
+instance ToText EventSource where
+    toText = \case
+        AWS_Config -> "aws.config"
+
+instance Hashable     EventSource
+instance ToByteString EventSource
+instance ToQuery      EventSource
+instance ToHeader     EventSource
+
+instance ToJSON EventSource where
+    toJSON = toJSONText
+
+instance FromJSON EventSource where
+    parseJSON = parseJSONText "EventSource"
+
+data MaximumExecutionFrequency
+    = OneHour
+    | SixHours
+    | ThreeHours
+    | TwelveHours
+    | TwentyFourHours
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText MaximumExecutionFrequency where
+    parser = takeLowerText >>= \case
+        "one_hour" -> pure OneHour
+        "six_hours" -> pure SixHours
+        "three_hours" -> pure ThreeHours
+        "twelve_hours" -> pure TwelveHours
+        "twentyfour_hours" -> pure TwentyFourHours
+        e -> fromTextError $ "Failure parsing MaximumExecutionFrequency from value: '" <> e
+           <> "'. Accepted values: One_Hour, Six_Hours, Three_Hours, Twelve_Hours, TwentyFour_Hours"
+
+instance ToText MaximumExecutionFrequency where
+    toText = \case
+        OneHour -> "One_Hour"
+        SixHours -> "Six_Hours"
+        ThreeHours -> "Three_Hours"
+        TwelveHours -> "Twelve_Hours"
+        TwentyFourHours -> "TwentyFour_Hours"
+
+instance Hashable     MaximumExecutionFrequency
+instance ToByteString MaximumExecutionFrequency
+instance ToQuery      MaximumExecutionFrequency
+instance ToHeader     MaximumExecutionFrequency
+
+instance ToJSON MaximumExecutionFrequency where
+    toJSON = toJSONText
+
+instance FromJSON MaximumExecutionFrequency where
+    parseJSON = parseJSONText "MaximumExecutionFrequency"
+
+data MessageType
+    = ConfigurationItemChangeNotification
+    | ConfigurationSnapshotDeliveryCompleted
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText MessageType where
+    parser = takeLowerText >>= \case
+        "configurationitemchangenotification" -> pure ConfigurationItemChangeNotification
+        "configurationsnapshotdeliverycompleted" -> pure ConfigurationSnapshotDeliveryCompleted
+        e -> fromTextError $ "Failure parsing MessageType from value: '" <> e
+           <> "'. Accepted values: ConfigurationItemChangeNotification, ConfigurationSnapshotDeliveryCompleted"
+
+instance ToText MessageType where
+    toText = \case
+        ConfigurationItemChangeNotification -> "ConfigurationItemChangeNotification"
+        ConfigurationSnapshotDeliveryCompleted -> "ConfigurationSnapshotDeliveryCompleted"
+
+instance Hashable     MessageType
+instance ToByteString MessageType
+instance ToQuery      MessageType
+instance ToHeader     MessageType
+
+instance ToJSON MessageType where
+    toJSON = toJSONText
+
+instance FromJSON MessageType where
+    parseJSON = parseJSONText "MessageType"
+
+data Owner
+    = AWS
+    | CustomLambda
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText Owner where
+    parser = takeLowerText >>= \case
+        "aws" -> pure AWS
+        "custom_lambda" -> pure CustomLambda
+        e -> fromTextError $ "Failure parsing Owner from value: '" <> e
+           <> "'. Accepted values: AWS, CUSTOM_LAMBDA"
+
+instance ToText Owner where
+    toText = \case
+        AWS -> "AWS"
+        CustomLambda -> "CUSTOM_LAMBDA"
+
+instance Hashable     Owner
+instance ToByteString Owner
+instance ToQuery      Owner
+instance ToHeader     Owner
+
+instance ToJSON Owner where
+    toJSON = toJSONText
+
+instance FromJSON Owner where
+    parseJSON = parseJSONText "Owner"
+
 data RecorderStatus
-    = RSFailure
-    | RSPending
-    | RSSuccess
+    = Failure
+    | Pending
+    | Success
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RecorderStatus where
     parser = takeLowerText >>= \case
-        "failure" -> pure RSFailure
-        "pending" -> pure RSPending
-        "success" -> pure RSSuccess
+        "failure" -> pure Failure
+        "pending" -> pure Pending
+        "success" -> pure Success
         e -> fromTextError $ "Failure parsing RecorderStatus from value: '" <> e
            <> "'. Accepted values: Failure, Pending, Success"
 
 instance ToText RecorderStatus where
     toText = \case
-        RSFailure -> "Failure"
-        RSPending -> "Pending"
-        RSSuccess -> "Success"
+        Failure -> "Failure"
+        Pending -> "Pending"
+        Success -> "Success"
 
 instance Hashable     RecorderStatus
 instance ToByteString RecorderStatus

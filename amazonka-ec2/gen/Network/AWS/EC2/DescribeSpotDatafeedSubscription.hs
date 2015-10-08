@@ -97,7 +97,7 @@ instance ToQuery DescribeSpotDatafeedSubscription
           = mconcat
               ["Action" =:
                  ("DescribeSpotDatafeedSubscription" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _dsdsDryRun]
 
 -- | Contains the output of DescribeSpotDatafeedSubscription.

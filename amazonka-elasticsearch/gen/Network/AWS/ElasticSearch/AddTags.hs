@@ -23,7 +23,7 @@
 -- 10 tags. See
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging Tagging Amazon Elasticsearch Service Domains for more information.>
 --
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AddTags.html AWS API Reference> for AddTags.
+-- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-AddTags.html AWS API Reference> for AddTags.
 module Network.AWS.ElasticSearch.AddTags
     (
     -- * Creating a Request

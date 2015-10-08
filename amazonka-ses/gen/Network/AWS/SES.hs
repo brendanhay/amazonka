@@ -30,17 +30,44 @@ module Network.AWS.SES
     -- * Errors
     -- $errors
 
+    -- ** CannotDeleteException
+    , _CannotDeleteException
+
+    -- ** RuleDoesNotExistException
+    , _RuleDoesNotExistException
+
     -- ** MessageRejected
     , _MessageRejected
 
+    -- ** RuleSetDoesNotExistException
+    , _RuleSetDoesNotExistException
+
+    -- ** InvalidLambdaFunctionException
+    , _InvalidLambdaFunctionException
+
     -- ** InvalidPolicyException
     , _InvalidPolicyException
+
+    -- ** InvalidS3ConfigurationException
+    , _InvalidS3ConfigurationException
+
+    -- ** InvalidSNSTopicException
+    , _InvalidSNSTopicException
+
+    -- ** AlreadyExistsException
+    , _AlreadyExistsException
+
+    -- ** LimitExceededException
+    , _LimitExceededException
 
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** CreateReceiptRuleSet
+    , module Network.AWS.SES.CreateReceiptRuleSet
 
     -- ** GetSendQuota
     , module Network.AWS.SES.GetSendQuota
@@ -60,6 +87,15 @@ module Network.AWS.SES
     -- ** SetIdentityDkimEnabled
     , module Network.AWS.SES.SetIdentityDkimEnabled
 
+    -- ** ListReceiptFilters
+    , module Network.AWS.SES.ListReceiptFilters
+
+    -- ** DescribeReceiptRuleSet
+    , module Network.AWS.SES.DescribeReceiptRuleSet
+
+    -- ** CreateReceiptFilter
+    , module Network.AWS.SES.CreateReceiptFilter
+
     -- ** SetIdentityFeedbackForwardingEnabled
     , module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
 
@@ -71,6 +107,21 @@ module Network.AWS.SES
 
     -- ** VerifyDomainIdentity
     , module Network.AWS.SES.VerifyDomainIdentity
+
+    -- ** ReorderReceiptRuleSet
+    , module Network.AWS.SES.ReorderReceiptRuleSet
+
+    -- ** ListReceiptRuleSets
+    , module Network.AWS.SES.ListReceiptRuleSets
+
+    -- ** DeleteReceiptRuleSet
+    , module Network.AWS.SES.DeleteReceiptRuleSet
+
+    -- ** SetReceiptRulePosition
+    , module Network.AWS.SES.SetReceiptRulePosition
+
+    -- ** SendBounce
+    , module Network.AWS.SES.SendBounce
 
     -- ** GetIdentityDkimAttributes
     , module Network.AWS.SES.GetIdentityDkimAttributes
@@ -87,6 +138,9 @@ module Network.AWS.SES
     -- ** DeleteIdentity
     , module Network.AWS.SES.DeleteIdentity
 
+    -- ** DescribeReceiptRule
+    , module Network.AWS.SES.DescribeReceiptRule
+
     -- ** ListIdentities (Paginated)
     , module Network.AWS.SES.ListIdentities
 
@@ -99,6 +153,9 @@ module Network.AWS.SES
     -- ** DeleteVerifiedEmailAddress
     , module Network.AWS.SES.DeleteVerifiedEmailAddress
 
+    -- ** DeleteReceiptFilter
+    , module Network.AWS.SES.DeleteReceiptFilter
+
     -- ** ListVerifiedEmailAddresses
     , module Network.AWS.SES.ListVerifiedEmailAddresses
 
@@ -108,22 +165,81 @@ module Network.AWS.SES
     -- ** SendEmail
     , module Network.AWS.SES.SendEmail
 
+    -- ** DeleteReceiptRule
+    , module Network.AWS.SES.DeleteReceiptRule
+
+    -- ** UpdateReceiptRule
+    , module Network.AWS.SES.UpdateReceiptRule
+
+    -- ** CloneReceiptRuleSet
+    , module Network.AWS.SES.CloneReceiptRuleSet
+
+    -- ** CreateReceiptRule
+    , module Network.AWS.SES.CreateReceiptRule
+
+    -- ** SetActiveReceiptRuleSet
+    , module Network.AWS.SES.SetActiveReceiptRuleSet
+
+    -- ** DescribeActiveReceiptRuleSet
+    , module Network.AWS.SES.DescribeActiveReceiptRuleSet
+
     -- * Types
+
+    -- ** BounceType
+    , BounceType (..)
+
+    -- ** DsnAction
+    , DsnAction (..)
 
     -- ** IdentityType
     , IdentityType (..)
 
+    -- ** InvocationType
+    , InvocationType (..)
+
     -- ** NotificationType
     , NotificationType (..)
 
+    -- ** ReceiptFilterPolicy
+    , ReceiptFilterPolicy (..)
+
+    -- ** StopScope
+    , StopScope (..)
+
+    -- ** TLSPolicy
+    , TLSPolicy (..)
+
     -- ** VerificationStatus
     , VerificationStatus (..)
+
+    -- ** AddHeaderAction
+    , AddHeaderAction
+    , addHeaderAction
+    , ahaHeaderName
+    , ahaHeaderValue
 
     -- ** Body
     , Body
     , body
     , bText
     , bHTML
+
+    -- ** BounceAction
+    , BounceAction
+    , bounceAction
+    , baTopicARN
+    , baStatusCode
+    , baSmtpReplyCode
+    , baMessage
+    , baSender
+
+    -- ** BouncedRecipientInfo
+    , BouncedRecipientInfo
+    , bouncedRecipientInfo
+    , briBounceType
+    , briRecipientDsnFields
+    , briRecipientARN
+    , briRecipient
 
     -- ** Content
     , Content
@@ -137,6 +253,12 @@ module Network.AWS.SES
     , dBCCAddresses
     , dCCAddresses
     , dToAddresses
+
+    -- ** ExtensionField
+    , ExtensionField
+    , extensionField
+    , efName
+    , efValue
 
     -- ** IdentityDkimAttributes
     , IdentityDkimAttributes
@@ -159,16 +281,93 @@ module Network.AWS.SES
     , ivaVerificationToken
     , ivaVerificationStatus
 
+    -- ** LambdaAction
+    , LambdaAction
+    , lambdaAction
+    , laInvocationType
+    , laTopicARN
+    , laFunctionARN
+
     -- ** Message
     , Message
     , message
     , mSubject
     , mBody
 
+    -- ** MessageDsn
+    , MessageDsn
+    , messageDsn
+    , mdArrivalDate
+    , mdExtensionFields
+    , mdReportingMta
+
     -- ** RawMessage
     , RawMessage
     , rawMessage
     , rmData
+
+    -- ** ReceiptAction
+    , ReceiptAction
+    , receiptAction
+    , raAddHeaderAction
+    , raSNSAction
+    , raWorkmailAction
+    , raBounceAction
+    , raLambdaAction
+    , raStopAction
+    , raS3Action
+
+    -- ** ReceiptFilter
+    , ReceiptFilter
+    , receiptFilter
+    , rfName
+    , rfIPFilter
+
+    -- ** ReceiptIPFilter
+    , ReceiptIPFilter
+    , receiptIPFilter
+    , rifPolicy
+    , rifCIdR
+
+    -- ** ReceiptRule
+    , ReceiptRule
+    , receiptRule
+    , rrScanEnabled
+    , rrEnabled
+    , rrActions
+    , rrRecipients
+    , rrTLSPolicy
+    , rrName
+
+    -- ** ReceiptRuleSetMetadata
+    , ReceiptRuleSetMetadata
+    , receiptRuleSetMetadata
+    , rrsmName
+    , rrsmCreatedTimestamp
+
+    -- ** RecipientDsnFields
+    , RecipientDsnFields
+    , recipientDsnFields
+    , rdfDiagnosticCode
+    , rdfRemoteMta
+    , rdfFinalRecipient
+    , rdfExtensionFields
+    , rdfLastAttemptDate
+    , rdfAction
+    , rdfStatus
+
+    -- ** S3Action
+    , S3Action
+    , s3Action
+    , s3KMSKeyARN
+    , s3TopicARN
+    , s3ObjectKeyPrefix
+    , s3BucketName
+
+    -- ** SNSAction
+    , SNSAction
+    , snsAction
+    , saTopicARN
 
     -- ** SendDataPoint
     , SendDataPoint
@@ -178,11 +377,33 @@ module Network.AWS.SES
     , sdpDeliveryAttempts
     , sdpBounces
     , sdpTimestamp
+
+    -- ** StopAction
+    , StopAction
+    , stopAction
+    , sTopicARN
+    , sScope
+
+    -- ** WorkmailAction
+    , WorkmailAction
+    , workmailAction
+    , waTopicARN
+    , waOrganizationARN
     ) where
 
+import           Network.AWS.SES.CloneReceiptRuleSet
+import           Network.AWS.SES.CreateReceiptFilter
+import           Network.AWS.SES.CreateReceiptRule
+import           Network.AWS.SES.CreateReceiptRuleSet
 import           Network.AWS.SES.DeleteIdentity
 import           Network.AWS.SES.DeleteIdentityPolicy
+import           Network.AWS.SES.DeleteReceiptFilter
+import           Network.AWS.SES.DeleteReceiptRule
+import           Network.AWS.SES.DeleteReceiptRuleSet
 import           Network.AWS.SES.DeleteVerifiedEmailAddress
+import           Network.AWS.SES.DescribeActiveReceiptRuleSet
+import           Network.AWS.SES.DescribeReceiptRule
+import           Network.AWS.SES.DescribeReceiptRuleSet
 import           Network.AWS.SES.GetIdentityDkimAttributes
 import           Network.AWS.SES.GetIdentityNotificationAttributes
 import           Network.AWS.SES.GetIdentityPolicies
@@ -191,14 +412,21 @@ import           Network.AWS.SES.GetSendQuota
 import           Network.AWS.SES.GetSendStatistics
 import           Network.AWS.SES.ListIdentities
 import           Network.AWS.SES.ListIdentityPolicies
+import           Network.AWS.SES.ListReceiptFilters
+import           Network.AWS.SES.ListReceiptRuleSets
 import           Network.AWS.SES.ListVerifiedEmailAddresses
 import           Network.AWS.SES.PutIdentityPolicy
+import           Network.AWS.SES.ReorderReceiptRuleSet
+import           Network.AWS.SES.SendBounce
 import           Network.AWS.SES.SendEmail
 import           Network.AWS.SES.SendRawEmail
+import           Network.AWS.SES.SetActiveReceiptRuleSet
 import           Network.AWS.SES.SetIdentityDkimEnabled
 import           Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
 import           Network.AWS.SES.SetIdentityNotificationTopic
+import           Network.AWS.SES.SetReceiptRulePosition
 import           Network.AWS.SES.Types
+import           Network.AWS.SES.UpdateReceiptRule
 import           Network.AWS.SES.VerifyDomainDkim
 import           Network.AWS.SES.VerifyDomainIdentity
 import           Network.AWS.SES.VerifyEmailAddress

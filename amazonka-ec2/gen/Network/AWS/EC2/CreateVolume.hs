@@ -207,7 +207,7 @@ instance ToQuery CreateVolume where
         toQuery CreateVolume'{..}
           = mconcat
               ["Action" =: ("CreateVolume" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "Size" =: _creSize, "Iops" =: _creIOPS,
                "Encrypted" =: _creEncrypted,
                "KmsKeyId" =: _creKMSKeyId,

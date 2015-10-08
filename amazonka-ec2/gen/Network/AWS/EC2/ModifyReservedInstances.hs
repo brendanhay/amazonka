@@ -113,7 +113,7 @@ instance ToQuery ModifyReservedInstances where
           = mconcat
               ["Action" =:
                  ("ModifyReservedInstances" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "ClientToken" =: _mriClientToken,
                toQueryList "ReservedInstancesId"
                  _mriReservedInstancesIds,

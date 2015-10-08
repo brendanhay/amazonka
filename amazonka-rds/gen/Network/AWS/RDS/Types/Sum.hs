@@ -45,27 +45,30 @@ instance FromXML ApplyMethod where
     parseXML = parseXMLText "ApplyMethod"
 
 data SourceType
-    = DBInstance
+    = DBCluster
+    | DBClusterSnapshot
+    | DBInstance
     | DBParameterGroup
     | DBSecurityGroup
-    | DBSnapshot
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
+        "db-cluster" -> pure DBCluster
+        "db-cluster-snapshot" -> pure DBClusterSnapshot
         "db-instance" -> pure DBInstance
         "db-parameter-group" -> pure DBParameterGroup
         "db-security-group" -> pure DBSecurityGroup
-        "db-snapshot" -> pure DBSnapshot
         e -> fromTextError $ "Failure parsing SourceType from value: '" <> e
-           <> "'. Accepted values: db-instance, db-parameter-group, db-security-group, db-snapshot"
+           <> "'. Accepted values: db-cluster, db-cluster-snapshot, db-instance, db-parameter-group, db-security-group"
 
 instance ToText SourceType where
     toText = \case
+        DBCluster -> "db-cluster"
+        DBClusterSnapshot -> "db-cluster-snapshot"
         DBInstance -> "db-instance"
         DBParameterGroup -> "db-parameter-group"
         DBSecurityGroup -> "db-security-group"
-        DBSnapshot -> "db-snapshot"
 
 instance Hashable     SourceType
 instance ToByteString SourceType

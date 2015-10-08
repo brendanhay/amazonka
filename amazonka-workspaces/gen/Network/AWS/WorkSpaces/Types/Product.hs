@@ -337,15 +337,19 @@ instance FromJSON UserStorage where
 --
 -- /See:/ 'workspace' smart constructor.
 data Workspace = Workspace'
-    { _wDirectoryId  :: !(Maybe Text)
-    , _wState        :: !(Maybe WorkspaceState)
-    , _wIPAddress    :: !(Maybe Text)
-    , _wUserName     :: !(Maybe Text)
-    , _wSubnetId     :: !(Maybe Text)
-    , _wBundleId     :: !(Maybe Text)
-    , _wErrorCode    :: !(Maybe Text)
-    , _wWorkspaceId  :: !(Maybe Text)
-    , _wErrorMessage :: !(Maybe Text)
+    { _wDirectoryId                 :: !(Maybe Text)
+    , _wState                       :: !(Maybe WorkspaceState)
+    , _wIPAddress                   :: !(Maybe Text)
+    , _wUserName                    :: !(Maybe Text)
+    , _wSubnetId                    :: !(Maybe Text)
+    , _wBundleId                    :: !(Maybe Text)
+    , _wRootVolumeEncryptionEnabled :: !(Maybe Bool)
+    , _wErrorCode                   :: !(Maybe Text)
+    , _wVolumeEncryptionKey         :: !(Maybe Text)
+    , _wComputerName                :: !(Maybe Text)
+    , _wWorkspaceId                 :: !(Maybe Text)
+    , _wUserVolumeEncryptionEnabled :: !(Maybe Bool)
+    , _wErrorMessage                :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Workspace' with the minimum fields required to make a request.
@@ -364,9 +368,17 @@ data Workspace = Workspace'
 --
 -- * 'wBundleId'
 --
+-- * 'wRootVolumeEncryptionEnabled'
+--
 -- * 'wErrorCode'
 --
+-- * 'wVolumeEncryptionKey'
+--
+-- * 'wComputerName'
+--
 -- * 'wWorkspaceId'
+--
+-- * 'wUserVolumeEncryptionEnabled'
 --
 -- * 'wErrorMessage'
 workspace
@@ -379,8 +391,12 @@ workspace =
     , _wUserName = Nothing
     , _wSubnetId = Nothing
     , _wBundleId = Nothing
+    , _wRootVolumeEncryptionEnabled = Nothing
     , _wErrorCode = Nothing
+    , _wVolumeEncryptionKey = Nothing
+    , _wComputerName = Nothing
     , _wWorkspaceId = Nothing
+    , _wUserVolumeEncryptionEnabled = Nothing
     , _wErrorMessage = Nothing
     }
 
@@ -409,13 +425,31 @@ wSubnetId = lens _wSubnetId (\ s a -> s{_wSubnetId = a});
 wBundleId :: Lens' Workspace (Maybe Text)
 wBundleId = lens _wBundleId (\ s a -> s{_wBundleId = a});
 
+-- | Specifies whether the data stored on the root volume, or C: drive, is
+-- encrypted.
+wRootVolumeEncryptionEnabled :: Lens' Workspace (Maybe Bool)
+wRootVolumeEncryptionEnabled = lens _wRootVolumeEncryptionEnabled (\ s a -> s{_wRootVolumeEncryptionEnabled = a});
+
 -- | If the WorkSpace could not be created, this contains the error code.
 wErrorCode :: Lens' Workspace (Maybe Text)
 wErrorCode = lens _wErrorCode (\ s a -> s{_wErrorCode = a});
 
+-- | The KMS key used to encrypt data stored on your WorkSpace.
+wVolumeEncryptionKey :: Lens' Workspace (Maybe Text)
+wVolumeEncryptionKey = lens _wVolumeEncryptionKey (\ s a -> s{_wVolumeEncryptionKey = a});
+
+-- | The name of the WorkSpace as seen by the operating system.
+wComputerName :: Lens' Workspace (Maybe Text)
+wComputerName = lens _wComputerName (\ s a -> s{_wComputerName = a});
+
 -- | The identifier of the WorkSpace.
 wWorkspaceId :: Lens' Workspace (Maybe Text)
 wWorkspaceId = lens _wWorkspaceId (\ s a -> s{_wWorkspaceId = a});
+
+-- | Specifies whether the data stored on the user volume, or D: drive, is
+-- encrypted.
+wUserVolumeEncryptionEnabled :: Lens' Workspace (Maybe Bool)
+wUserVolumeEncryptionEnabled = lens _wUserVolumeEncryptionEnabled (\ s a -> s{_wUserVolumeEncryptionEnabled = a});
 
 -- | If the WorkSpace could not be created, this contains a textual error
 -- message that describes the failure.
@@ -432,8 +466,12 @@ instance FromJSON Workspace where
                      <*> (x .:? "UserName")
                      <*> (x .:? "SubnetId")
                      <*> (x .:? "BundleId")
+                     <*> (x .:? "RootVolumeEncryptionEnabled")
                      <*> (x .:? "ErrorCode")
+                     <*> (x .:? "VolumeEncryptionKey")
+                     <*> (x .:? "ComputerName")
                      <*> (x .:? "WorkspaceId")
+                     <*> (x .:? "UserVolumeEncryptionEnabled")
                      <*> (x .:? "ErrorMessage"))
 
 -- | Contains information about a WorkSpace bundle.
@@ -652,14 +690,23 @@ instance FromJSON WorkspaceDirectory where
 --
 -- /See:/ 'workspaceRequest' smart constructor.
 data WorkspaceRequest = WorkspaceRequest'
-    { _wrDirectoryId :: !Text
-    , _wrUserName    :: !Text
-    , _wrBundleId    :: !Text
+    { _wrRootVolumeEncryptionEnabled :: !(Maybe Bool)
+    , _wrVolumeEncryptionKey         :: !(Maybe Text)
+    , _wrUserVolumeEncryptionEnabled :: !(Maybe Bool)
+    , _wrDirectoryId                 :: !Text
+    , _wrUserName                    :: !Text
+    , _wrBundleId                    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'WorkspaceRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'wrRootVolumeEncryptionEnabled'
+--
+-- * 'wrVolumeEncryptionKey'
+--
+-- * 'wrUserVolumeEncryptionEnabled'
 --
 -- * 'wrDirectoryId'
 --
@@ -673,10 +720,27 @@ workspaceRequest
     -> WorkspaceRequest
 workspaceRequest pDirectoryId_ pUserName_ pBundleId_ =
     WorkspaceRequest'
-    { _wrDirectoryId = pDirectoryId_
+    { _wrRootVolumeEncryptionEnabled = Nothing
+    , _wrVolumeEncryptionKey = Nothing
+    , _wrUserVolumeEncryptionEnabled = Nothing
+    , _wrDirectoryId = pDirectoryId_
     , _wrUserName = pUserName_
     , _wrBundleId = pBundleId_
     }
+
+-- | Specifies whether the data stored on the root volume, or C: drive, is
+-- encrypted.
+wrRootVolumeEncryptionEnabled :: Lens' WorkspaceRequest (Maybe Bool)
+wrRootVolumeEncryptionEnabled = lens _wrRootVolumeEncryptionEnabled (\ s a -> s{_wrRootVolumeEncryptionEnabled = a});
+
+-- | The KMS key used to encrypt data stored on your WorkSpace.
+wrVolumeEncryptionKey :: Lens' WorkspaceRequest (Maybe Text)
+wrVolumeEncryptionKey = lens _wrVolumeEncryptionKey (\ s a -> s{_wrVolumeEncryptionKey = a});
+
+-- | Specifies whether the data stored on the user volume, or D: drive, is
+-- encrypted.
+wrUserVolumeEncryptionEnabled :: Lens' WorkspaceRequest (Maybe Bool)
+wrUserVolumeEncryptionEnabled = lens _wrUserVolumeEncryptionEnabled (\ s a -> s{_wrUserVolumeEncryptionEnabled = a});
 
 -- | The identifier of the AWS Directory Service directory to create the
 -- WorkSpace in. You can use the DescribeWorkspaceDirectories operation to
@@ -701,13 +765,23 @@ instance FromJSON WorkspaceRequest where
           = withObject "WorkspaceRequest"
               (\ x ->
                  WorkspaceRequest' <$>
-                   (x .: "DirectoryId") <*> (x .: "UserName") <*>
-                     (x .: "BundleId"))
+                   (x .:? "RootVolumeEncryptionEnabled") <*>
+                     (x .:? "VolumeEncryptionKey")
+                     <*> (x .:? "UserVolumeEncryptionEnabled")
+                     <*> (x .: "DirectoryId")
+                     <*> (x .: "UserName")
+                     <*> (x .: "BundleId"))
 
 instance ToJSON WorkspaceRequest where
         toJSON WorkspaceRequest'{..}
           = object
               (catMaybes
-                 [Just ("DirectoryId" .= _wrDirectoryId),
+                 [("RootVolumeEncryptionEnabled" .=) <$>
+                    _wrRootVolumeEncryptionEnabled,
+                  ("VolumeEncryptionKey" .=) <$>
+                    _wrVolumeEncryptionKey,
+                  ("UserVolumeEncryptionEnabled" .=) <$>
+                    _wrUserVolumeEncryptionEnabled,
+                  Just ("DirectoryId" .= _wrDirectoryId),
                   Just ("UserName" .= _wrUserName),
                   Just ("BundleId" .= _wrBundleId)])

@@ -67,6 +67,7 @@ library
         , Network.AWS.CloudFront.GetStreamingDistributionConfig
         , Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
         , Network.AWS.CloudFront.ListDistributions
+        , Network.AWS.CloudFront.ListDistributionsByWebACLId
         , Network.AWS.CloudFront.ListInvalidations
         , Network.AWS.CloudFront.ListStreamingDistributions
         , Network.AWS.CloudFront.Types

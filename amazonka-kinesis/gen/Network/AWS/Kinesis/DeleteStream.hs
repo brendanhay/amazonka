@@ -59,7 +59,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for 'DeleteStream'.
+-- | Represents the input for DeleteStream.
 --
 -- /See:/ 'deleteStream' smart constructor.
 newtype DeleteStream = DeleteStream'

@@ -174,7 +174,7 @@ instance ToQuery DescribeSecurityGroups where
           = mconcat
               ["Action" =:
                  ("DescribeSecurityGroups" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dsgsFilters),
                toQuery
                  (toQueryList "GroupName" <$> _dsgsGroupNames),

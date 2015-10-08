@@ -63,7 +63,11 @@ describeTrails =
     { _dtTrailNameList = Nothing
     }
 
--- | The trail returned.
+-- | Specifies a list of trail names, trail ARNs, or both, of the trails to
+-- describe. The format of a trail ARN is
+-- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'. If an empty
+-- list is specified, information for the trail in the current region is
+-- returned.
 dtTrailNameList :: Lens' DescribeTrails [Text]
 dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a}) . _Default . _Coerce;
 
@@ -124,7 +128,7 @@ describeTrailsResponse pResponseStatus_ =
     , _dtrsResponseStatus = pResponseStatus_
     }
 
--- | The list of trails.
+-- | The list of trail objects.
 dtrsTrailList :: Lens' DescribeTrailsResponse [Trail]
 dtrsTrailList = lens _dtrsTrailList (\ s a -> s{_dtrsTrailList = a}) . _Default . _Coerce;
 

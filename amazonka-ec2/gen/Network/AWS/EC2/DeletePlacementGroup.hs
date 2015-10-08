@@ -94,7 +94,7 @@ instance ToQuery DeletePlacementGroup where
         toQuery DeletePlacementGroup'{..}
           = mconcat
               ["Action" =: ("DeletePlacementGroup" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _dpgDryRun, "GroupName" =: _dpgGroupName]
 
 -- | /See:/ 'deletePlacementGroupResponse' smart constructor.

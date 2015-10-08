@@ -69,16 +69,27 @@ library
 
     exposed-modules:
           Network.AWS.Config
+        , Network.AWS.Config.DeleteConfigRule
         , Network.AWS.Config.DeleteDeliveryChannel
         , Network.AWS.Config.DeliverConfigSnapshot
+        , Network.AWS.Config.DescribeComplianceByConfigRule
+        , Network.AWS.Config.DescribeComplianceByResource
+        , Network.AWS.Config.DescribeConfigRuleEvaluationStatus
+        , Network.AWS.Config.DescribeConfigRules
         , Network.AWS.Config.DescribeConfigurationRecorderStatus
         , Network.AWS.Config.DescribeConfigurationRecorders
         , Network.AWS.Config.DescribeDeliveryChannelStatus
         , Network.AWS.Config.DescribeDeliveryChannels
+        , Network.AWS.Config.GetComplianceDetailsByConfigRule
+        , Network.AWS.Config.GetComplianceDetailsByResource
+        , Network.AWS.Config.GetComplianceSummaryByConfigRule
+        , Network.AWS.Config.GetComplianceSummaryByResourceType
         , Network.AWS.Config.GetResourceConfigHistory
         , Network.AWS.Config.ListDiscoveredResources
+        , Network.AWS.Config.PutConfigRule
         , Network.AWS.Config.PutConfigurationRecorder
         , Network.AWS.Config.PutDeliveryChannel
+        , Network.AWS.Config.PutEvaluations
         , Network.AWS.Config.StartConfigurationRecorder
         , Network.AWS.Config.StopConfigurationRecorder
         , Network.AWS.Config.Types

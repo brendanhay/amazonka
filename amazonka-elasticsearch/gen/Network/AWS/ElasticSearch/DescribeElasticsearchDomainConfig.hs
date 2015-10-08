@@ -22,7 +22,7 @@
 -- Elasticsearch domain, such as the state, creation date, update version,
 -- and update date for cluster options.
 --
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeElasticsearchDomainConfig.html AWS API Reference> for DescribeElasticsearchDomainConfig.
+-- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-DescribeElasticsearchDomainConfig.html AWS API Reference> for DescribeElasticsearchDomainConfig.
 module Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
     (
     -- * Creating a Request

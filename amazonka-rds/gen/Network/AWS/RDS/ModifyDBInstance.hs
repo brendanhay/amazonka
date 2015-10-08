@@ -36,7 +36,6 @@ module Network.AWS.RDS.ModifyDBInstance
     , mdiIOPS
     , mdiAllowMajorVersionUpgrade
     , mdiNewDBInstanceIdentifier
-    , mdiDomain
     , mdiTDECredentialPassword
     , mdiDBInstanceClass
     , mdiPreferredMaintenanceWindow
@@ -79,7 +78,6 @@ data ModifyDBInstance = ModifyDBInstance'
     , _mdiIOPS                       :: !(Maybe Int)
     , _mdiAllowMajorVersionUpgrade   :: !(Maybe Bool)
     , _mdiNewDBInstanceIdentifier    :: !(Maybe Text)
-    , _mdiDomain                     :: !(Maybe Text)
     , _mdiTDECredentialPassword      :: !(Maybe Text)
     , _mdiDBInstanceClass            :: !(Maybe Text)
     , _mdiPreferredMaintenanceWindow :: !(Maybe Text)
@@ -115,8 +113,6 @@ data ModifyDBInstance = ModifyDBInstance'
 -- * 'mdiAllowMajorVersionUpgrade'
 --
 -- * 'mdiNewDBInstanceIdentifier'
---
--- * 'mdiDomain'
 --
 -- * 'mdiTDECredentialPassword'
 --
@@ -161,7 +157,6 @@ modifyDBInstance pDBInstanceIdentifier_ =
     , _mdiIOPS = Nothing
     , _mdiAllowMajorVersionUpgrade = Nothing
     , _mdiNewDBInstanceIdentifier = Nothing
-    , _mdiDomain = Nothing
     , _mdiTDECredentialPassword = Nothing
     , _mdiDBInstanceClass = Nothing
     , _mdiPreferredMaintenanceWindow = Nothing
@@ -217,9 +212,9 @@ mdiDBSecurityGroups = lens _mdiDBSecurityGroups (\ s a -> s{_mdiDBSecurityGroups
 --
 -- Default: Uses existing setting
 --
--- Constraints: Must be 8 to 41 alphanumeric characters (MySQL), 8 to 30
--- alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters
--- (SQL Server).
+-- Constraints: Must be 8 to 41 alphanumeric characters (MySQL and Amazon
+-- Aurora), 8 to 30 alphanumeric characters (Oracle), or 8 to 128
+-- alphanumeric characters (SQL Server).
 --
 -- Amazon RDS API actions never return the password, so this action
 -- provides a way to regain access to a primary instance user if the
@@ -300,13 +295,6 @@ mdiAllowMajorVersionUpgrade = lens _mdiAllowMajorVersionUpgrade (\ s a -> s{_mdi
 mdiNewDBInstanceIdentifier :: Lens' ModifyDBInstance (Maybe Text)
 mdiNewDBInstanceIdentifier = lens _mdiNewDBInstanceIdentifier (\ s a -> s{_mdiNewDBInstanceIdentifier = a});
 
--- | Specify the Active Directory Domain to move the instance to.
---
--- The specified Active Directory Domain must be created prior to this
--- operation. Currently only SQL Server instance can be created in a Domain
-mdiDomain :: Lens' ModifyDBInstance (Maybe Text)
-mdiDomain = lens _mdiDomain (\ s a -> s{_mdiDomain = a});
-
 -- | The password for the given ARN from the Key Store in order to access the
 -- device.
 mdiTDECredentialPassword :: Lens' ModifyDBInstance (Maybe Text)
@@ -323,7 +311,7 @@ mdiTDECredentialPassword = lens _mdiTDECredentialPassword (\ s a -> s{_mdiTDECre
 -- Default: Uses existing setting
 --
 -- Valid Values:
--- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium'
+-- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
 mdiDBInstanceClass :: Lens' ModifyDBInstance (Maybe Text)
 mdiDBInstanceClass = lens _mdiDBInstanceClass (\ s a -> s{_mdiDBInstanceClass = a});
 
@@ -524,7 +512,8 @@ mdiApplyImmediately = lens _mdiApplyImmediately (\ s a -> s{_mdiApplyImmediately
 mdiOptionGroupName :: Lens' ModifyDBInstance (Maybe Text)
 mdiOptionGroupName = lens _mdiOptionGroupName (\ s a -> s{_mdiOptionGroupName = a});
 
--- | This property is not currently implemented.
+-- | True to copy all tags from the DB instance to snapshots of the DB
+-- instance; otherwise false. The default is false.
 mdiCopyTagsToSnapshot :: Lens' ModifyDBInstance (Maybe Bool)
 mdiCopyTagsToSnapshot = lens _mdiCopyTagsToSnapshot (\ s a -> s{_mdiCopyTagsToSnapshot = a});
 
@@ -589,7 +578,6 @@ instance ToQuery ModifyDBInstance where
                  _mdiAllowMajorVersionUpgrade,
                "NewDBInstanceIdentifier" =:
                  _mdiNewDBInstanceIdentifier,
-               "Domain" =: _mdiDomain,
                "TdeCredentialPassword" =: _mdiTDECredentialPassword,
                "DBInstanceClass" =: _mdiDBInstanceClass,
                "PreferredMaintenanceWindow" =:

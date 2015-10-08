@@ -142,7 +142,7 @@ instance ToQuery DescribePrefixLists where
         toQuery DescribePrefixLists'{..}
           = mconcat
               ["Action" =: ("DescribePrefixLists" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dplFilters),
                toQuery
                  (toQueryList "PrefixListId" <$> _dplPrefixListIds),

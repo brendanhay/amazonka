@@ -59,6 +59,9 @@ module Network.AWS.CloudFront
     -- ** TooManyInvalidationsInProgress
     , _TooManyInvalidationsInProgress
 
+    -- ** InvalidWebACLId
+    , _InvalidWebACLId
+
     -- ** TooManyDistributionCNAMEs
     , _TooManyDistributionCNAMEs
 
@@ -251,6 +254,9 @@ module Network.AWS.CloudFront
     -- ** DeleteDistribution
     , module Network.AWS.CloudFront.DeleteDistribution
 
+    -- ** ListDistributionsByWebACLId
+    , module Network.AWS.CloudFront.ListDistributionsByWebACLId
+
     -- ** ListDistributions (Paginated)
     , module Network.AWS.CloudFront.ListDistributions
 
@@ -420,6 +426,7 @@ module Network.AWS.CloudFront
     , dcDefaultRootObject
     , dcPriceClass
     , dcCustomErrorResponses
+    , dcWebACLId
     , dcViewerCertificate
     , dcRestrictions
     , dcLogging
@@ -457,6 +464,7 @@ module Network.AWS.CloudFront
     , dsEnabled
     , dsViewerCertificate
     , dsRestrictions
+    , dsWebACLId
 
     -- ** ForwardedValues
     , ForwardedValues
@@ -651,6 +659,7 @@ import           Network.AWS.CloudFront.GetStreamingDistribution
 import           Network.AWS.CloudFront.GetStreamingDistributionConfig
 import           Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
 import           Network.AWS.CloudFront.ListDistributions
+import           Network.AWS.CloudFront.ListDistributionsByWebACLId
 import           Network.AWS.CloudFront.ListInvalidations
 import           Network.AWS.CloudFront.ListStreamingDistributions
 import           Network.AWS.CloudFront.Types

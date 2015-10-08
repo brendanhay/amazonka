@@ -144,7 +144,7 @@ instance ToQuery CopyImage where
         toQuery CopyImage'{..}
           = mconcat
               ["Action" =: ("CopyImage" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "ClientToken" =: _ciClientToken,
                "Description" =: _ciDescription,
                "DryRun" =: _ciDryRun,

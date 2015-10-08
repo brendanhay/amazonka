@@ -343,6 +343,9 @@ import Test.AWS.EC2.Internal
 --         , testDescribeExportTasks $
 --             describeExportTasks
 --
+--         , testModifySpotFleetRequest $
+--             modifySpotFleetRequest
+--
 --         , testDetachVPNGateway $
 --             detachVPNGateway
 --
@@ -891,6 +894,9 @@ import Test.AWS.EC2.Internal
 --
 --         , testDescribeExportTasksResponse $
 --             describeExportTasksResponse
+--
+--         , testModifySpotFleetRequestResponse $
+--             modifySpotFleetRequestResponse
 --
 --         , testDetachVPNGatewayResponse $
 --             detachVPNGatewayResponse
@@ -1652,6 +1658,11 @@ testDescribeExportTasks :: DescribeExportTasks -> TestTree
 testDescribeExportTasks = req
     "DescribeExportTasks"
     "fixture/DescribeExportTasks.yaml"
+
+testModifySpotFleetRequest :: ModifySpotFleetRequest -> TestTree
+testModifySpotFleetRequest = req
+    "ModifySpotFleetRequest"
+    "fixture/ModifySpotFleetRequest.yaml"
 
 testDetachVPNGateway :: DetachVPNGateway -> TestTree
 testDetachVPNGateway = req
@@ -2774,6 +2785,13 @@ testDescribeExportTasksResponse = res
     "fixture/DescribeExportTasksResponse.proto"
     eC2
     (Proxy :: Proxy DescribeExportTasks)
+
+testModifySpotFleetRequestResponse :: ModifySpotFleetRequestResponse -> TestTree
+testModifySpotFleetRequestResponse = res
+    "ModifySpotFleetRequestResponse"
+    "fixture/ModifySpotFleetRequestResponse.proto"
+    eC2
+    (Proxy :: Proxy ModifySpotFleetRequest)
 
 testDetachVPNGatewayResponse :: DetachVPNGatewayResponse -> TestTree
 testDetachVPNGatewayResponse = res

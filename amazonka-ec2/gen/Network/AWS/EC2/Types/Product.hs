@@ -314,8 +314,7 @@ availabilityZone =
     , _azMessages = Nothing
     }
 
--- | The state of the Availability Zone ('available' | 'impaired' |
--- 'unavailable').
+-- | The state of the Availability Zone.
 azState :: Lens' AvailabilityZone (Maybe AvailabilityZoneState)
 azState = lens _azState (\ s a -> s{_azState = a});
 
@@ -1657,11 +1656,15 @@ eiEventDescription = lens _eiEventDescription (\ s a -> s{_eiEventDescription = 
 --
 -- The following are the 'error' events.
 --
--- -   'iamFleetRoleInvalid' - Spot fleet did not have the required
+-- -   'iamFleetRoleInvalid' - The Spot fleet did not have the required
 --     permissions either to launch or terminate an instance.
 --
+-- -   'launchSpecTemporarilyBlacklisted' - The configuration is not valid
+--     and several attempts to launch instances have failed. For more
+--     information, see the description of the event.
+--
 -- -   'spotFleetRequestConfigurationInvalid' - The configuration is not
---     valid. For more information, see the description.
+--     valid. For more information, see the description of the event.
 --
 -- -   'spotInstanceCountLimitExceeded' - You\'ve reached the limit on the
 --     number of Spot instances that you can launch.
@@ -1685,6 +1688,11 @@ eiEventDescription = lens _eiEventDescription (\ s a -> s{_eiEventDescription = 
 -- -   'expired' - The Spot fleet request has expired. A subsequent event
 --     indicates that the instances were terminated, if the request was
 --     created with 'TerminateInstancesWithExpiration' set.
+--
+-- -   'modify_in_progress' - A request to modify the Spot fleet request
+--     was accepted and is in progress.
+--
+-- -   'modify_successful' - The Spot fleet request was modified.
 --
 -- -   'price_update' - The bid price for a launch configuration was
 --     adjusted because it was too high. This change is permanent.
@@ -4886,10 +4894,10 @@ launchSpecification =
     , _lsPlacement = Nothing
     }
 
--- | One or more security groups. To request an instance in a nondefault VPC,
--- you must specify the ID of the security group. To request an instance in
--- EC2-Classic or a default VPC, you can specify the name or the ID of the
--- security group.
+-- | One or more security groups. When requesting instances in a VPC, you
+-- must specify the IDs of the security groups. When requesting instances
+-- in EC2-Classic, you can specify the names or the IDs of the security
+-- groups.
 lsSecurityGroups :: Lens' LaunchSpecification [GroupIdentifier]
 lsSecurityGroups = lens _lsSecurityGroups (\ s a -> s{_lsSecurityGroups = a}) . _Default . _Coerce;
 
@@ -8245,10 +8253,10 @@ spotFleetLaunchSpecification =
     , _sflsPlacement = Nothing
     }
 
--- | One or more security groups. To request an instance in a nondefault VPC,
--- you must specify the ID of the security group. To request an instance in
--- EC2-Classic or a default VPC, you can specify the name or the ID of the
--- security group.
+-- | One or more security groups. When requesting instances in a VPC, you
+-- must specify the IDs of the security groups. When requesting instances
+-- in EC2-Classic, you can specify the names or the IDs of the security
+-- groups.
 sflsSecurityGroups :: Lens' SpotFleetLaunchSpecification [GroupIdentifier]
 sflsSecurityGroups = lens _sflsSecurityGroups (\ s a -> s{_sflsSecurityGroups = a}) . _Default . _Coerce;
 
@@ -8424,6 +8432,7 @@ data SpotFleetRequestConfig = SpotFleetRequestConfig'
     { _sfrcSpotFleetRequestId     :: !Text
     , _sfrcSpotFleetRequestState  :: !BatchState
     , _sfrcSpotFleetRequestConfig :: !SpotFleetRequestConfigData
+    , _sfrcCreateTime             :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SpotFleetRequestConfig' with the minimum fields required to make a request.
@@ -8435,16 +8444,20 @@ data SpotFleetRequestConfig = SpotFleetRequestConfig'
 -- * 'sfrcSpotFleetRequestState'
 --
 -- * 'sfrcSpotFleetRequestConfig'
+--
+-- * 'sfrcCreateTime'
 spotFleetRequestConfig
     :: Text -- ^ 'sfrcSpotFleetRequestId'
     -> BatchState -- ^ 'sfrcSpotFleetRequestState'
     -> SpotFleetRequestConfigData -- ^ 'sfrcSpotFleetRequestConfig'
+    -> UTCTime -- ^ 'sfrcCreateTime'
     -> SpotFleetRequestConfig
-spotFleetRequestConfig pSpotFleetRequestId_ pSpotFleetRequestState_ pSpotFleetRequestConfig_ =
+spotFleetRequestConfig pSpotFleetRequestId_ pSpotFleetRequestState_ pSpotFleetRequestConfig_ pCreateTime_ =
     SpotFleetRequestConfig'
     { _sfrcSpotFleetRequestId = pSpotFleetRequestId_
     , _sfrcSpotFleetRequestState = pSpotFleetRequestState_
     , _sfrcSpotFleetRequestConfig = pSpotFleetRequestConfig_
+    , _sfrcCreateTime = _Time # pCreateTime_
     }
 
 -- | The ID of the Spot fleet request.
@@ -8459,18 +8472,24 @@ sfrcSpotFleetRequestState = lens _sfrcSpotFleetRequestState (\ s a -> s{_sfrcSpo
 sfrcSpotFleetRequestConfig :: Lens' SpotFleetRequestConfig SpotFleetRequestConfigData
 sfrcSpotFleetRequestConfig = lens _sfrcSpotFleetRequestConfig (\ s a -> s{_sfrcSpotFleetRequestConfig = a});
 
+-- | The creation date and time of the request.
+sfrcCreateTime :: Lens' SpotFleetRequestConfig UTCTime
+sfrcCreateTime = lens _sfrcCreateTime (\ s a -> s{_sfrcCreateTime = a}) . _Time;
+
 instance FromXML SpotFleetRequestConfig where
         parseXML x
           = SpotFleetRequestConfig' <$>
               (x .@ "spotFleetRequestId") <*>
                 (x .@ "spotFleetRequestState")
                 <*> (x .@ "spotFleetRequestConfig")
+                <*> (x .@ "createTime")
 
 -- | Describes the configuration of a Spot fleet request.
 --
 -- /See:/ 'spotFleetRequestConfigData' smart constructor.
 data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     { _sfrcdClientToken                      :: !(Maybe Text)
+    , _sfrcdExcessCapacityTerminationPolicy  :: !(Maybe ExcessCapacityTerminationPolicy)
     , _sfrcdValidUntil                       :: !(Maybe ISO8601)
     , _sfrcdTerminateInstancesWithExpiration :: !(Maybe Bool)
     , _sfrcdValidFrom                        :: !(Maybe ISO8601)
@@ -8486,6 +8505,8 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sfrcdClientToken'
+--
+-- * 'sfrcdExcessCapacityTerminationPolicy'
 --
 -- * 'sfrcdValidUntil'
 --
@@ -8511,6 +8532,7 @@ spotFleetRequestConfigData
 spotFleetRequestConfigData pSpotPrice_ pTargetCapacity_ pIAMFleetRole_ pLaunchSpecifications_ =
     SpotFleetRequestConfigData'
     { _sfrcdClientToken = Nothing
+    , _sfrcdExcessCapacityTerminationPolicy = Nothing
     , _sfrcdValidUntil = Nothing
     , _sfrcdTerminateInstancesWithExpiration = Nothing
     , _sfrcdValidFrom = Nothing
@@ -8527,6 +8549,12 @@ spotFleetRequestConfigData pSpotPrice_ pTargetCapacity_ pIAMFleetRole_ pLaunchSp
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 sfrcdClientToken :: Lens' SpotFleetRequestConfigData (Maybe Text)
 sfrcdClientToken = lens _sfrcdClientToken (\ s a -> s{_sfrcdClientToken = a});
+
+-- | Indicates whether running Spot instances should be terminated if the
+-- target capacity of the Spot fleet request is decreased below the current
+-- size of the Spot fleet.
+sfrcdExcessCapacityTerminationPolicy :: Lens' SpotFleetRequestConfigData (Maybe ExcessCapacityTerminationPolicy)
+sfrcdExcessCapacityTerminationPolicy = lens _sfrcdExcessCapacityTerminationPolicy (\ s a -> s{_sfrcdExcessCapacityTerminationPolicy = a});
 
 -- | The end date and time of the request, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). At this point, no new Spot instance
@@ -8545,7 +8573,7 @@ sfrcdTerminateInstancesWithExpiration = lens _sfrcdTerminateInstancesWithExpirat
 sfrcdValidFrom :: Lens' SpotFleetRequestConfigData (Maybe UTCTime)
 sfrcdValidFrom = lens _sfrcdValidFrom (\ s a -> s{_sfrcdValidFrom = a}) . mapping _Time;
 
--- | Determines how to allocate the target capacity across the Spot pools
+-- | Indicates how to allocate the target capacity across the Spot pools
 -- specified by the Spot fleet request. The default is 'lowestPrice'.
 sfrcdAllocationStrategy :: Lens' SpotFleetRequestConfigData (Maybe AllocationStrategy)
 sfrcdAllocationStrategy = lens _sfrcdAllocationStrategy (\ s a -> s{_sfrcdAllocationStrategy = a});
@@ -8574,8 +8602,10 @@ sfrcdLaunchSpecifications = lens _sfrcdLaunchSpecifications (\ s a -> s{_sfrcdLa
 instance FromXML SpotFleetRequestConfigData where
         parseXML x
           = SpotFleetRequestConfigData' <$>
-              (x .@? "clientToken") <*> (x .@? "validUntil") <*>
-                (x .@? "terminateInstancesWithExpiration")
+              (x .@? "clientToken") <*>
+                (x .@? "excessCapacityTerminationPolicy")
+                <*> (x .@? "validUntil")
+                <*> (x .@? "terminateInstancesWithExpiration")
                 <*> (x .@? "validFrom")
                 <*> (x .@? "allocationStrategy")
                 <*> (x .@ "spotPrice")
@@ -8589,6 +8619,8 @@ instance ToQuery SpotFleetRequestConfigData where
         toQuery SpotFleetRequestConfigData'{..}
           = mconcat
               ["ClientToken" =: _sfrcdClientToken,
+               "ExcessCapacityTerminationPolicy" =:
+                 _sfrcdExcessCapacityTerminationPolicy,
                "ValidUntil" =: _sfrcdValidUntil,
                "TerminateInstancesWithExpiration" =:
                  _sfrcdTerminateInstancesWithExpiration,
@@ -8600,13 +8632,15 @@ instance ToQuery SpotFleetRequestConfigData where
                toQueryList "LaunchSpecifications"
                  _sfrcdLaunchSpecifications]
 
--- | Describe a Spot instance request.
+-- | Describes a Spot instance request.
 --
 -- /See:/ 'spotInstanceRequest' smart constructor.
 data SpotInstanceRequest = SpotInstanceRequest'
     { _sirInstanceId               :: !(Maybe Text)
     , _sirStatus                   :: !(Maybe SpotInstanceStatus)
     , _sirState                    :: !(Maybe SpotInstanceState)
+    , _sirActualBlockHourlyPrice   :: !(Maybe Text)
+    , _sirBlockDurationMinutes     :: !(Maybe Int)
     , _sirProductDescription       :: !(Maybe RIProductDescription)
     , _sirSpotPrice                :: !(Maybe Text)
     , _sirLaunchSpecification      :: !(Maybe LaunchSpecification)
@@ -8631,6 +8665,10 @@ data SpotInstanceRequest = SpotInstanceRequest'
 -- * 'sirStatus'
 --
 -- * 'sirState'
+--
+-- * 'sirActualBlockHourlyPrice'
+--
+-- * 'sirBlockDurationMinutes'
 --
 -- * 'sirProductDescription'
 --
@@ -8664,6 +8702,8 @@ spotInstanceRequest =
     { _sirInstanceId = Nothing
     , _sirStatus = Nothing
     , _sirState = Nothing
+    , _sirActualBlockHourlyPrice = Nothing
+    , _sirBlockDurationMinutes = Nothing
     , _sirProductDescription = Nothing
     , _sirSpotPrice = Nothing
     , _sirLaunchSpecification = Nothing
@@ -8695,11 +8735,21 @@ sirStatus = lens _sirStatus (\ s a -> s{_sirStatus = a});
 sirState :: Lens' SpotInstanceRequest (Maybe SpotInstanceState)
 sirState = lens _sirState (\ s a -> s{_sirState = a});
 
+-- | If you specified a required duration and your request was fulfilled,
+-- this is the fixed hourly price in effect for the Spot instance while it
+-- runs.
+sirActualBlockHourlyPrice :: Lens' SpotInstanceRequest (Maybe Text)
+sirActualBlockHourlyPrice = lens _sirActualBlockHourlyPrice (\ s a -> s{_sirActualBlockHourlyPrice = a});
+
+-- | The required duration for the Spot instance, in minutes.
+sirBlockDurationMinutes :: Lens' SpotInstanceRequest (Maybe Int)
+sirBlockDurationMinutes = lens _sirBlockDurationMinutes (\ s a -> s{_sirBlockDurationMinutes = a});
+
 -- | The product description associated with the Spot instance.
 sirProductDescription :: Lens' SpotInstanceRequest (Maybe RIProductDescription)
 sirProductDescription = lens _sirProductDescription (\ s a -> s{_sirProductDescription = a});
 
--- | The maximum hourly price (bid) for any Spot instance launched to fulfill
+-- | The maximum hourly price (bid) for the Spot instance launched to fulfill
 -- the request.
 sirSpotPrice :: Lens' SpotInstanceRequest (Maybe Text)
 sirSpotPrice = lens _sirSpotPrice (\ s a -> s{_sirSpotPrice = a});
@@ -8719,10 +8769,10 @@ sirLaunchedAvailabilityZone :: Lens' SpotInstanceRequest (Maybe Text)
 sirLaunchedAvailabilityZone = lens _sirLaunchedAvailabilityZone (\ s a -> s{_sirLaunchedAvailabilityZone = a});
 
 -- | The end date of the request, in UTC format (for example,
--- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). If this is a one-time request, the
--- request remains active until all instances launch, the request is
--- canceled, or this date is reached. If the request is persistent, it
--- remains active until it is canceled or this date is reached.
+-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). If this is a one-time request, it
+-- remains active until all instances launch, the request is canceled, or
+-- this date is reached. If the request is persistent, it remains active
+-- until it is canceled or this date is reached.
 sirValidUntil :: Lens' SpotInstanceRequest (Maybe UTCTime)
 sirValidUntil = lens _sirValidUntil (\ s a -> s{_sirValidUntil = a}) . mapping _Time;
 
@@ -8744,11 +8794,8 @@ sirType :: Lens' SpotInstanceRequest (Maybe SpotInstanceType)
 sirType = lens _sirType (\ s a -> s{_sirType = a});
 
 -- | The start date of the request, in UTC format (for example,
--- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). If this is a one-time request, the
--- request becomes active at this date and time and remains active until
--- all instances launch, the request expires, or the request is canceled.
--- If the request is persistent, the request becomes active at this date
--- and time and remains active until it expires or is canceled.
+-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). The request becomes active at this
+-- date and time.
 sirValidFrom :: Lens' SpotInstanceRequest (Maybe UTCTime)
 sirValidFrom = lens _sirValidFrom (\ s a -> s{_sirValidFrom = a}) . mapping _Time;
 
@@ -8766,6 +8813,8 @@ instance FromXML SpotInstanceRequest where
           = SpotInstanceRequest' <$>
               (x .@? "instanceId") <*> (x .@? "status") <*>
                 (x .@? "state")
+                <*> (x .@? "actualBlockHourlyPrice")
+                <*> (x .@? "blockDurationMinutes")
                 <*> (x .@? "productDescription")
                 <*> (x .@? "spotPrice")
                 <*> (x .@? "launchSpecification")

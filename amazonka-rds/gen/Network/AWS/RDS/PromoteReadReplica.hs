@@ -117,7 +117,7 @@ prrBackupRetentionPeriod = lens _prrBackupRetentionPeriod (\ s a -> s{_prrBackup
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
--- Example: mydbinstance
+-- Example: 'mydbinstance'
 prrDBInstanceIdentifier :: Lens' PromoteReadReplica Text
 prrDBInstanceIdentifier = lens _prrDBInstanceIdentifier (\ s a -> s{_prrDBInstanceIdentifier = a});
 

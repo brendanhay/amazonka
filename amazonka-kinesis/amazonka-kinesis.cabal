@@ -46,10 +46,12 @@ library
           Network.AWS.Kinesis
         , Network.AWS.Kinesis.AddTagsToStream
         , Network.AWS.Kinesis.CreateStream
+        , Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
         , Network.AWS.Kinesis.DeleteStream
         , Network.AWS.Kinesis.DescribeStream
         , Network.AWS.Kinesis.GetRecords
         , Network.AWS.Kinesis.GetShardIterator
+        , Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
         , Network.AWS.Kinesis.ListStreams
         , Network.AWS.Kinesis.ListTagsForStream
         , Network.AWS.Kinesis.MergeShards

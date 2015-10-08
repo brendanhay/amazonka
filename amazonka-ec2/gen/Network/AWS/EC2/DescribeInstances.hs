@@ -397,7 +397,7 @@ instance ToQuery DescribeInstances where
         toQuery DescribeInstances'{..}
           = mconcat
               ["Action" =: ("DescribeInstances" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                toQuery (toQueryList "Filter" <$> _diiFilters),
                "NextToken" =: _diiNextToken,
                toQuery

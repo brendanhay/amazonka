@@ -36,20 +36,17 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
       restoreDBInstanceToPointInTime
     , RestoreDBInstanceToPointInTime
     -- * Request Lenses
-    , rditpitDBSecurityGroups
     , rditpitUseLatestRestorableTime
     , rditpitPubliclyAccessible
     , rditpitAutoMinorVersionUpgrade
     , rditpitDBSubnetGroupName
     , rditpitRestoreTime
     , rditpitIOPS
-    , rditpitDomain
     , rditpitEngine
     , rditpitTDECredentialPassword
     , rditpitDBInstanceClass
     , rditpitLicenseModel
     , rditpitAvailabilityZone
-    , rditpitVPCSecurityGroupIds
     , rditpitMultiAZ
     , rditpitOptionGroupName
     , rditpitCopyTagsToSnapshot
@@ -79,20 +76,17 @@ import           Network.AWS.Response
 --
 -- /See:/ 'restoreDBInstanceToPointInTime' smart constructor.
 data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
-    { _rditpitDBSecurityGroups           :: !(Maybe [Text])
-    , _rditpitUseLatestRestorableTime    :: !(Maybe Bool)
+    { _rditpitUseLatestRestorableTime    :: !(Maybe Bool)
     , _rditpitPubliclyAccessible         :: !(Maybe Bool)
     , _rditpitAutoMinorVersionUpgrade    :: !(Maybe Bool)
     , _rditpitDBSubnetGroupName          :: !(Maybe Text)
     , _rditpitRestoreTime                :: !(Maybe ISO8601)
     , _rditpitIOPS                       :: !(Maybe Int)
-    , _rditpitDomain                     :: !(Maybe Text)
     , _rditpitEngine                     :: !(Maybe Text)
     , _rditpitTDECredentialPassword      :: !(Maybe Text)
     , _rditpitDBInstanceClass            :: !(Maybe Text)
     , _rditpitLicenseModel               :: !(Maybe Text)
     , _rditpitAvailabilityZone           :: !(Maybe Text)
-    , _rditpitVPCSecurityGroupIds        :: !(Maybe [Text])
     , _rditpitMultiAZ                    :: !(Maybe Bool)
     , _rditpitOptionGroupName            :: !(Maybe Text)
     , _rditpitCopyTagsToSnapshot         :: !(Maybe Bool)
@@ -109,8 +103,6 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rditpitDBSecurityGroups'
---
 -- * 'rditpitUseLatestRestorableTime'
 --
 -- * 'rditpitPubliclyAccessible'
@@ -123,8 +115,6 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 --
 -- * 'rditpitIOPS'
 --
--- * 'rditpitDomain'
---
 -- * 'rditpitEngine'
 --
 -- * 'rditpitTDECredentialPassword'
@@ -134,8 +124,6 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 -- * 'rditpitLicenseModel'
 --
 -- * 'rditpitAvailabilityZone'
---
--- * 'rditpitVPCSecurityGroupIds'
 --
 -- * 'rditpitMultiAZ'
 --
@@ -162,20 +150,17 @@ restoreDBInstanceToPointInTime
     -> RestoreDBInstanceToPointInTime
 restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier_ pTargetDBInstanceIdentifier_ =
     RestoreDBInstanceToPointInTime'
-    { _rditpitDBSecurityGroups = Nothing
-    , _rditpitUseLatestRestorableTime = Nothing
+    { _rditpitUseLatestRestorableTime = Nothing
     , _rditpitPubliclyAccessible = Nothing
     , _rditpitAutoMinorVersionUpgrade = Nothing
     , _rditpitDBSubnetGroupName = Nothing
     , _rditpitRestoreTime = Nothing
     , _rditpitIOPS = Nothing
-    , _rditpitDomain = Nothing
     , _rditpitEngine = Nothing
     , _rditpitTDECredentialPassword = Nothing
     , _rditpitDBInstanceClass = Nothing
     , _rditpitLicenseModel = Nothing
     , _rditpitAvailabilityZone = Nothing
-    , _rditpitVPCSecurityGroupIds = Nothing
     , _rditpitMultiAZ = Nothing
     , _rditpitOptionGroupName = Nothing
     , _rditpitCopyTagsToSnapshot = Nothing
@@ -187,12 +172,6 @@ restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier_ pTargetDBInstanceIde
     , _rditpitSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier_
     , _rditpitTargetDBInstanceIdentifier = pTargetDBInstanceIdentifier_
     }
-
--- | A list of DB security groups to associate with this DB instance.
---
--- Default: The default DB security group for the database engine.
-rditpitDBSecurityGroups :: Lens' RestoreDBInstanceToPointInTime [Text]
-rditpitDBSecurityGroups = lens _rditpitDBSecurityGroups (\ s a -> s{_rditpitDBSecurityGroups = a}) . _Default . _Coerce;
 
 -- | Specifies whether ('true') or not ('false') the DB instance is restored
 -- from the latest backup time.
@@ -259,10 +238,6 @@ rditpitRestoreTime = lens _rditpitRestoreTime (\ s a -> s{_rditpitRestoreTime = 
 rditpitIOPS :: Lens' RestoreDBInstanceToPointInTime (Maybe Int)
 rditpitIOPS = lens _rditpitIOPS (\ s a -> s{_rditpitIOPS = a});
 
--- | Specify the Active Directory Domain to restore the instance in.
-rditpitDomain :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitDomain = lens _rditpitDomain (\ s a -> s{_rditpitDomain = a});
-
 -- | The database engine to use for the new instance.
 --
 -- Default: The same as source
@@ -283,7 +258,7 @@ rditpitTDECredentialPassword = lens _rditpitTDECredentialPassword (\ s a -> s{_r
 -- | The compute and memory capacity of the Amazon RDS DB instance.
 --
 -- Valid Values:
--- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium'
+-- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
 --
 -- Default: The same DBInstanceClass as the original DB instance.
 rditpitDBInstanceClass :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
@@ -309,13 +284,6 @@ rditpitLicenseModel = lens _rditpitLicenseModel (\ s a -> s{_rditpitLicenseModel
 rditpitAvailabilityZone :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitAvailabilityZone = lens _rditpitAvailabilityZone (\ s a -> s{_rditpitAvailabilityZone = a});
 
--- | A list of EC2 VPC security groups to associate with this DB instance.
---
--- Default: The default EC2 VPC security group for the DB subnet group\'s
--- VPC.
-rditpitVPCSecurityGroupIds :: Lens' RestoreDBInstanceToPointInTime [Text]
-rditpitVPCSecurityGroupIds = lens _rditpitVPCSecurityGroupIds (\ s a -> s{_rditpitVPCSecurityGroupIds = a}) . _Default . _Coerce;
-
 -- | Specifies if the DB instance is a Multi-AZ deployment.
 --
 -- Constraint: You cannot specify the AvailabilityZone parameter if the
@@ -332,7 +300,8 @@ rditpitMultiAZ = lens _rditpitMultiAZ (\ s a -> s{_rditpitMultiAZ = a});
 rditpitOptionGroupName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitOptionGroupName = lens _rditpitOptionGroupName (\ s a -> s{_rditpitOptionGroupName = a});
 
--- | This property is not currently implemented.
+-- | True to copy all tags from the restored DB instance to snapshots of the
+-- DB instance; otherwise false. The default is false.
 rditpitCopyTagsToSnapshot :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
 rditpitCopyTagsToSnapshot = lens _rditpitCopyTagsToSnapshot (\ s a -> s{_rditpitCopyTagsToSnapshot = a});
 
@@ -417,10 +386,6 @@ instance ToQuery RestoreDBInstanceToPointInTime where
               ["Action" =:
                  ("RestoreDBInstanceToPointInTime" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "DBSecurityGroups" =:
-                 toQuery
-                   (toQueryList "DBSecurityGroupName" <$>
-                      _rditpitDBSecurityGroups),
                "UseLatestRestorableTime" =:
                  _rditpitUseLatestRestorableTime,
                "PubliclyAccessible" =: _rditpitPubliclyAccessible,
@@ -428,17 +393,12 @@ instance ToQuery RestoreDBInstanceToPointInTime where
                  _rditpitAutoMinorVersionUpgrade,
                "DBSubnetGroupName" =: _rditpitDBSubnetGroupName,
                "RestoreTime" =: _rditpitRestoreTime,
-               "Iops" =: _rditpitIOPS, "Domain" =: _rditpitDomain,
-               "Engine" =: _rditpitEngine,
+               "Iops" =: _rditpitIOPS, "Engine" =: _rditpitEngine,
                "TdeCredentialPassword" =:
                  _rditpitTDECredentialPassword,
                "DBInstanceClass" =: _rditpitDBInstanceClass,
                "LicenseModel" =: _rditpitLicenseModel,
                "AvailabilityZone" =: _rditpitAvailabilityZone,
-               "VpcSecurityGroupIds" =:
-                 toQuery
-                   (toQueryList "VpcSecurityGroupId" <$>
-                      _rditpitVPCSecurityGroupIds),
                "MultiAZ" =: _rditpitMultiAZ,
                "OptionGroupName" =: _rditpitOptionGroupName,
                "CopyTagsToSnapshot" =: _rditpitCopyTagsToSnapshot,

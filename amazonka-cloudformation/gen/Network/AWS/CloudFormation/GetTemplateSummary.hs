@@ -51,6 +51,7 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     , gtsrsMetadata
     , gtsrsDescription
     , gtsrsCapabilities
+    , gtsrsResourceTypes
     , gtsrsResponseStatus
     ) where
 
@@ -99,8 +100,8 @@ gtsTemplateBody :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateBody = lens _gtsTemplateBody (\ s a -> s{_gtsTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
--- template (max size: 460,800 bytes) located in an Amazon S3 bucket. For
--- more information about templates, see
+-- template (max size: 460,800 bytes) that is located in an Amazon S3
+-- bucket. For more information about templates, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the AWS CloudFormation User Guide.
 --
@@ -136,6 +137,9 @@ instance AWSRequest GetTemplateSummary where
                      <*>
                      (x .@? "Capabilities" .!@ mempty >>=
                         may (parseXMLList "member"))
+                     <*>
+                     (x .@? "ResourceTypes" .!@ mempty >>=
+                        may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders GetTemplateSummary where
@@ -163,6 +167,7 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
     , _gtsrsMetadata           :: !(Maybe Text)
     , _gtsrsDescription        :: !(Maybe Text)
     , _gtsrsCapabilities       :: !(Maybe [Capability])
+    , _gtsrsResourceTypes      :: !(Maybe [Text])
     , _gtsrsResponseStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -182,6 +187,8 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
 --
 -- * 'gtsrsCapabilities'
 --
+-- * 'gtsrsResourceTypes'
+--
 -- * 'gtsrsResponseStatus'
 getTemplateSummaryResponse
     :: Int -- ^ 'gtsrsResponseStatus'
@@ -194,6 +201,7 @@ getTemplateSummaryResponse pResponseStatus_ =
     , _gtsrsMetadata = Nothing
     , _gtsrsDescription = Nothing
     , _gtsrsCapabilities = Nothing
+    , _gtsrsResourceTypes = Nothing
     , _gtsrsResponseStatus = pResponseStatus_
     }
 
@@ -228,6 +236,17 @@ gtsrsDescription = lens _gtsrsDescription (\ s a -> s{_gtsrsDescription = a});
 -- InsufficientCapabilities error.
 gtsrsCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
 gtsrsCapabilities = lens _gtsrsCapabilities (\ s a -> s{_gtsrsCapabilities = a}) . _Default . _Coerce;
+
+-- | A list of all the template resource types that are defined in the
+-- template, such as 'AWS::EC2::Instance', 'AWS::Dynamo::Table', and
+-- 'Custom::MyCustomInstance'. Use the following syntax to describe
+-- template resource types: 'AWS::*' (for all AWS resources), 'Custom::*'
+-- (for all custom resources), 'Custom::logical_ID' (for a specific custom
+-- resource), 'AWS::service_name::*' (for all resources of a particular AWS
+-- service), and 'AWS::service_name::resource_logical_ID' (for a specific
+-- AWS resource).
+gtsrsResourceTypes :: Lens' GetTemplateSummaryResponse [Text]
+gtsrsResourceTypes = lens _gtsrsResourceTypes (\ s a -> s{_gtsrsResourceTypes = a}) . _Default . _Coerce;
 
 -- | The response status code.
 gtsrsResponseStatus :: Lens' GetTemplateSummaryResponse Int

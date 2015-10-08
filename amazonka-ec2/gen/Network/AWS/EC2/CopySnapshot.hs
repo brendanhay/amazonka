@@ -201,7 +201,7 @@ instance ToQuery CopySnapshot where
         toQuery CopySnapshot'{..}
           = mconcat
               ["Action" =: ("CopySnapshot" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "PresignedUrl" =: _csPresignedURL,
                "Encrypted" =: _csEncrypted,
                "DestinationRegion" =: _csDestinationRegion,

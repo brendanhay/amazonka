@@ -24,9 +24,13 @@ module Network.AWS.Config.Types
     , _LastDeliveryChannelDeleteFailedException
     , _InvalidLimitException
     , _InvalidDeliveryChannelNameException
+    , _InvalidParameterValueException
+    , _InvalidResultTokenException
     , _NoSuchDeliveryChannelException
+    , _NoSuchConfigRuleException
     , _ResourceNotDiscoveredException
     , _InvalidNextTokenException
+    , _MaxNumberOfConfigRulesExceededException
     , _NoAvailableConfigurationRecorderException
     , _NoSuchBucketException
     , _NoAvailableDeliveryChannelException
@@ -37,9 +41,16 @@ module Network.AWS.Config.Types
     , _MaxNumberOfDeliveryChannelsExceededException
     , _NoSuchConfigurationRecorderException
     , _InvalidS3KeyPrefixException
+    , _ResourceInUseException
 
     -- * ChronologicalOrder
     , ChronologicalOrder (..)
+
+    -- * ComplianceType
+    , ComplianceType (..)
+
+    -- * ConfigRuleState
+    , ConfigRuleState (..)
 
     -- * ConfigurationItemStatus
     , ConfigurationItemStatus (..)
@@ -47,11 +58,61 @@ module Network.AWS.Config.Types
     -- * DeliveryStatus
     , DeliveryStatus (..)
 
+    -- * EventSource
+    , EventSource (..)
+
+    -- * MaximumExecutionFrequency
+    , MaximumExecutionFrequency (..)
+
+    -- * MessageType
+    , MessageType (..)
+
+    -- * Owner
+    , Owner (..)
+
     -- * RecorderStatus
     , RecorderStatus (..)
 
     -- * ResourceType
     , ResourceType (..)
+
+    -- * Compliance
+    , Compliance
+    , compliance
+    , cComplianceContributorCount
+    , cComplianceType
+
+    -- * ComplianceByConfigRule
+    , ComplianceByConfigRule
+    , complianceByConfigRule
+    , cbcrCompliance
+    , cbcrConfigRuleName
+
+    -- * ComplianceByResource
+    , ComplianceByResource
+    , complianceByResource
+    , cbrResourceId
+    , cbrResourceType
+    , cbrCompliance
+
+    -- * ComplianceContributorCount
+    , ComplianceContributorCount
+    , complianceContributorCount
+    , cccCappedCount
+    , cccCapExceeded
+
+    -- * ComplianceSummary
+    , ComplianceSummary
+    , complianceSummary
+    , csComplianceSummaryTimestamp
+    , csCompliantResourceCount
+    , csNonCompliantResourceCount
+
+    -- * ComplianceSummaryByResourceType
+    , ComplianceSummaryByResourceType
+    , complianceSummaryByResourceType
+    , csbrtResourceType
+    , csbrtComplianceSummary
 
     -- * ConfigExportDeliveryInfo
     , ConfigExportDeliveryInfo
@@ -61,6 +122,37 @@ module Network.AWS.Config.Types
     , cediLastSuccessfulTime
     , cediLastStatus
     , cediLastErrorMessage
+    , cediNextDeliveryTime
+
+    -- * ConfigRule
+    , ConfigRule
+    , configRule
+    , crInputParameters
+    , crConfigRuleName
+    , crMaximumExecutionFrequency
+    , crConfigRuleId
+    , crScope
+    , crConfigRuleState
+    , crDescription
+    , crConfigRuleARN
+    , crSource
+
+    -- * ConfigRuleEvaluationStatus
+    , ConfigRuleEvaluationStatus
+    , configRuleEvaluationStatus
+    , cresLastErrorCode
+    , cresFirstActivatedTime
+    , cresConfigRuleName
+    , cresLastErrorMessage
+    , cresConfigRuleId
+    , cresLastFailedInvocationTime
+    , cresLastSuccessfulInvocationTime
+    , cresConfigRuleARN
+
+    -- * ConfigSnapshotDeliveryProperties
+    , ConfigSnapshotDeliveryProperties
+    , configSnapshotDeliveryProperties
+    , csdpDeliveryFrequency
 
     -- * ConfigStreamDeliveryInfo
     , ConfigStreamDeliveryInfo
@@ -116,6 +208,7 @@ module Network.AWS.Config.Types
     , dcS3KeyPrefix
     , dcSnsTopicARN
     , dcName
+    , dcConfigSnapshotDeliveryProperties
     , dcS3BucketName
 
     -- * DeliveryChannelStatus
@@ -125,6 +218,38 @@ module Network.AWS.Config.Types
     , dcsConfigStreamDeliveryInfo
     , dcsConfigHistoryDeliveryInfo
     , dcsName
+
+    -- * Evaluation
+    , Evaluation
+    , evaluation
+    , eAnnotation
+    , eComplianceResourceType
+    , eComplianceResourceId
+    , eComplianceType
+    , eOrderingTimestamp
+
+    -- * EvaluationResult
+    , EvaluationResult
+    , evaluationResult
+    , erEvaluationResultIdentifier
+    , erAnnotation
+    , erConfigRuleInvokedTime
+    , erResultRecordedTime
+    , erResultToken
+    , erComplianceType
+
+    -- * EvaluationResultIdentifier
+    , EvaluationResultIdentifier
+    , evaluationResultIdentifier
+    , eriEvaluationResultQualifier
+    , eriOrderingTimestamp
+
+    -- * EvaluationResultQualifier
+    , EvaluationResultQualifier
+    , evaluationResultQualifier
+    , erqResourceId
+    , erqResourceType
+    , erqConfigRuleName
 
     -- * RecordingGroup
     , RecordingGroup
@@ -147,6 +272,27 @@ module Network.AWS.Config.Types
     , riResourceType
     , riResourceName
     , riResourceDeletionTime
+
+    -- * Scope
+    , Scope
+    , scope
+    , sComplianceResourceTypes
+    , sComplianceResourceId
+    , sTagValue
+    , sTagKey
+
+    -- * Source
+    , Source
+    , source
+    , sSourceIdentifier
+    , sOwner
+    , sSourceDetails
+
+    -- * SourceDetail
+    , SourceDetail
+    , sourceDetail
+    , sdMessageType
+    , sdEventSource
     ) where
 
 import           Network.AWS.Config.Types.Product
@@ -226,10 +372,27 @@ _InvalidDeliveryChannelNameException :: AsError a => Getting (First ServiceError
 _InvalidDeliveryChannelNameException =
     _ServiceError . hasCode "InvalidDeliveryChannelNameException"
 
+-- | One or more of the specified parameters are invalid. Verify that your
+-- parameters are valid and try again.
+_InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterValueException =
+    _ServiceError . hasCode "InvalidParameterValueException"
+
+-- | The result token is invalid.
+_InvalidResultTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidResultTokenException =
+    _ServiceError . hasCode "InvalidResultTokenException"
+
 -- | You have specified a delivery channel that does not exist.
 _NoSuchDeliveryChannelException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchDeliveryChannelException =
     _ServiceError . hasCode "NoSuchDeliveryChannelException"
+
+-- | One or more AWS Config rules in the request are invalid. Verify that the
+-- rule names are correct and try again.
+_NoSuchConfigRuleException :: AsError a => Getting (First ServiceError) a ServiceError
+_NoSuchConfigRuleException =
+    _ServiceError . hasCode "NoSuchConfigRuleException"
 
 -- | You have specified a resource that is either unknown or has not been
 -- discovered.
@@ -242,6 +405,13 @@ _ResourceNotDiscoveredException =
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
     _ServiceError . hasCode "InvalidNextTokenException"
+
+-- | Failed to add the AWS Config rule because the account already contains
+-- the maximum number of 25 rules. Consider deleting any deactivated rules
+-- before adding new rules.
+_MaxNumberOfConfigRulesExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_MaxNumberOfConfigRulesExceededException =
+    _ServiceError . hasCode "MaxNumberOfConfigRulesExceededException"
 
 -- | There are no configuration recorders available to provide the role
 -- needed to describe your resources. Create a configuration recorder.
@@ -294,3 +464,7 @@ _NoSuchConfigurationRecorderException =
 _InvalidS3KeyPrefixException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidS3KeyPrefixException =
     _ServiceError . hasCode "InvalidS3KeyPrefixException"
+
+-- | The rule is currently being deleted. Wait for a while and try again.
+_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"

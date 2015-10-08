@@ -148,7 +148,7 @@ instance ToQuery CreateVPCEndpoint where
         toQuery CreateVPCEndpoint'{..}
           = mconcat
               ["Action" =: ("CreateVpcEndpoint" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "PolicyDocument" =: _cvePolicyDocument,
                "ClientToken" =: _cveClientToken,
                "DryRun" =: _cveDryRun,

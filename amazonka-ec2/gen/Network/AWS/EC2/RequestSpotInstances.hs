@@ -33,6 +33,7 @@ module Network.AWS.EC2.RequestSpotInstances
       requestSpotInstances
     , RequestSpotInstances
     -- * Request Lenses
+    , rsiBlockDurationMinutes
     , rsiClientToken
     , rsiInstanceCount
     , rsiLaunchSpecification
@@ -62,7 +63,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'requestSpotInstances' smart constructor.
 data RequestSpotInstances = RequestSpotInstances'
-    { _rsiClientToken           :: !(Maybe Text)
+    { _rsiBlockDurationMinutes  :: !(Maybe Int)
+    , _rsiClientToken           :: !(Maybe Text)
     , _rsiInstanceCount         :: !(Maybe Int)
     , _rsiLaunchSpecification   :: !(Maybe RequestSpotLaunchSpecification)
     , _rsiAvailabilityZoneGroup :: !(Maybe Text)
@@ -77,6 +79,8 @@ data RequestSpotInstances = RequestSpotInstances'
 -- | Creates a value of 'RequestSpotInstances' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsiBlockDurationMinutes'
 --
 -- * 'rsiClientToken'
 --
@@ -102,7 +106,8 @@ requestSpotInstances
     -> RequestSpotInstances
 requestSpotInstances pSpotPrice_ =
     RequestSpotInstances'
-    { _rsiClientToken = Nothing
+    { _rsiBlockDurationMinutes = Nothing
+    , _rsiClientToken = Nothing
     , _rsiInstanceCount = Nothing
     , _rsiLaunchSpecification = Nothing
     , _rsiAvailabilityZoneGroup = Nothing
@@ -113,6 +118,20 @@ requestSpotInstances pSpotPrice_ =
     , _rsiDryRun = Nothing
     , _rsiSpotPrice = pSpotPrice_
     }
+
+-- | The required duration for the Spot instances, in minutes. This value
+-- must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
+--
+-- The duration period starts as soon as your Spot instance receives its
+-- instance ID. At the end of the duration period, Amazon EC2 marks the
+-- Spot instance for termination and provides a Spot instance termination
+-- notice, which gives the instance a two-minute warning before it
+-- terminates.
+--
+-- Note that you can\'t specify an Availability Zone group or a launch
+-- group if you specify a required duration.
+rsiBlockDurationMinutes :: Lens' RequestSpotInstances (Maybe Int)
+rsiBlockDurationMinutes = lens _rsiBlockDurationMinutes (\ s a -> s{_rsiBlockDurationMinutes = a});
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
@@ -220,7 +239,8 @@ instance ToQuery RequestSpotInstances where
         toQuery RequestSpotInstances'{..}
           = mconcat
               ["Action" =: ("RequestSpotInstances" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
+               "BlockDurationMinutes" =: _rsiBlockDurationMinutes,
                "ClientToken" =: _rsiClientToken,
                "InstanceCount" =: _rsiInstanceCount,
                "LaunchSpecification" =: _rsiLaunchSpecification,

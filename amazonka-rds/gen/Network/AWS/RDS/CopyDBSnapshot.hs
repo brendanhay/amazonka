@@ -80,7 +80,8 @@ copyDBSnapshot pSourceDBSnapshotIdentifier_ pTargetDBSnapshotIdentifier_ =
     , _cdsTargetDBSnapshotIdentifier = pTargetDBSnapshotIdentifier_
     }
 
--- | This property is not currently implemented.
+-- | True to copy all tags from the source DB snapshot to the target DB
+-- snapshot; otherwise false. The default is false.
 cdsCopyTags :: Lens' CopyDBSnapshot (Maybe Bool)
 cdsCopyTags = lens _cdsCopyTags (\ s a -> s{_cdsCopyTags = a});
 

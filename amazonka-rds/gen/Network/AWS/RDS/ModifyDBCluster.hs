@@ -32,7 +32,6 @@ module Network.AWS.RDS.ModifyDBCluster
       modifyDBCluster
     , ModifyDBCluster
     -- * Request Lenses
-    , mdcDBClusterIdentifier
     , mdcMasterUserPassword
     , mdcPreferredMaintenanceWindow
     , mdcPreferredBackupWindow
@@ -43,6 +42,7 @@ module Network.AWS.RDS.ModifyDBCluster
     , mdcOptionGroupName
     , mdcNewDBClusterIdentifier
     , mdcPort
+    , mdcDBClusterIdentifier
 
     -- * Destructuring the Response
     , modifyDBClusterResponse
@@ -62,8 +62,7 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyDBCluster' smart constructor.
 data ModifyDBCluster = ModifyDBCluster'
-    { _mdcDBClusterIdentifier         :: !(Maybe Text)
-    , _mdcMasterUserPassword          :: !(Maybe Text)
+    { _mdcMasterUserPassword          :: !(Maybe Text)
     , _mdcPreferredMaintenanceWindow  :: !(Maybe Text)
     , _mdcPreferredBackupWindow       :: !(Maybe Text)
     , _mdcBackupRetentionPeriod       :: !(Maybe Int)
@@ -73,13 +72,12 @@ data ModifyDBCluster = ModifyDBCluster'
     , _mdcOptionGroupName             :: !(Maybe Text)
     , _mdcNewDBClusterIdentifier      :: !(Maybe Text)
     , _mdcPort                        :: !(Maybe Int)
+    , _mdcDBClusterIdentifier         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyDBCluster' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
---
--- * 'mdcDBClusterIdentifier'
 --
 -- * 'mdcMasterUserPassword'
 --
@@ -100,12 +98,14 @@ data ModifyDBCluster = ModifyDBCluster'
 -- * 'mdcNewDBClusterIdentifier'
 --
 -- * 'mdcPort'
+--
+-- * 'mdcDBClusterIdentifier'
 modifyDBCluster
-    :: ModifyDBCluster
-modifyDBCluster =
+    :: Text -- ^ 'mdcDBClusterIdentifier'
+    -> ModifyDBCluster
+modifyDBCluster pDBClusterIdentifier_ =
     ModifyDBCluster'
-    { _mdcDBClusterIdentifier = Nothing
-    , _mdcMasterUserPassword = Nothing
+    { _mdcMasterUserPassword = Nothing
     , _mdcPreferredMaintenanceWindow = Nothing
     , _mdcPreferredBackupWindow = Nothing
     , _mdcBackupRetentionPeriod = Nothing
@@ -115,19 +115,8 @@ modifyDBCluster =
     , _mdcOptionGroupName = Nothing
     , _mdcNewDBClusterIdentifier = Nothing
     , _mdcPort = Nothing
+    , _mdcDBClusterIdentifier = pDBClusterIdentifier_
     }
-
--- | The DB cluster identifier for the cluster being modified. This parameter
--- is not case-sensitive.
---
--- Constraints:
---
--- -   Must be the identifier for an existing DB cluster.
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
--- -   First character must be a letter.
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
-mdcDBClusterIdentifier :: Lens' ModifyDBCluster (Maybe Text)
-mdcDBClusterIdentifier = lens _mdcDBClusterIdentifier (\ s a -> s{_mdcDBClusterIdentifier = a});
 
 -- | The new password for the master database user. This password can contain
 -- any printable ASCII character except \"\/\", \"\"\", or \"\'\".
@@ -239,6 +228,18 @@ mdcNewDBClusterIdentifier = lens _mdcNewDBClusterIdentifier (\ s a -> s{_mdcNewD
 mdcPort :: Lens' ModifyDBCluster (Maybe Int)
 mdcPort = lens _mdcPort (\ s a -> s{_mdcPort = a});
 
+-- | The DB cluster identifier for the cluster being modified. This parameter
+-- is not case-sensitive.
+--
+-- Constraints:
+--
+-- -   Must be the identifier for an existing DB cluster.
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+-- -   First character must be a letter.
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
+mdcDBClusterIdentifier :: Lens' ModifyDBCluster Text
+mdcDBClusterIdentifier = lens _mdcDBClusterIdentifier (\ s a -> s{_mdcDBClusterIdentifier = a});
+
 instance AWSRequest ModifyDBCluster where
         type Rs ModifyDBCluster = ModifyDBClusterResponse
         request = postQuery rDS
@@ -259,7 +260,6 @@ instance ToQuery ModifyDBCluster where
           = mconcat
               ["Action" =: ("ModifyDBCluster" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "DBClusterIdentifier" =: _mdcDBClusterIdentifier,
                "MasterUserPassword" =: _mdcMasterUserPassword,
                "PreferredMaintenanceWindow" =:
                  _mdcPreferredMaintenanceWindow,
@@ -275,7 +275,8 @@ instance ToQuery ModifyDBCluster where
                "OptionGroupName" =: _mdcOptionGroupName,
                "NewDBClusterIdentifier" =:
                  _mdcNewDBClusterIdentifier,
-               "Port" =: _mdcPort]
+               "Port" =: _mdcPort,
+               "DBClusterIdentifier" =: _mdcDBClusterIdentifier]
 
 -- | /See:/ 'modifyDBClusterResponse' smart constructor.
 data ModifyDBClusterResponse = ModifyDBClusterResponse'

@@ -31,11 +31,7 @@ module Network.AWS.RDS.CreateDBCluster
     , CreateDBCluster
     -- * Request Lenses
     , cdcEngineVersion
-    , cdcDBClusterIdentifier
-    , cdcMasterUserPassword
-    , cdcMasterUsername
     , cdcDBSubnetGroupName
-    , cdcEngine
     , cdcPreferredMaintenanceWindow
     , cdcAvailabilityZones
     , cdcCharacterSetName
@@ -47,6 +43,10 @@ module Network.AWS.RDS.CreateDBCluster
     , cdcOptionGroupName
     , cdcTags
     , cdcPort
+    , cdcDBClusterIdentifier
+    , cdcEngine
+    , cdcMasterUsername
+    , cdcMasterUserPassword
 
     -- * Destructuring the Response
     , createDBClusterResponse
@@ -67,11 +67,7 @@ import           Network.AWS.Response
 -- /See:/ 'createDBCluster' smart constructor.
 data CreateDBCluster = CreateDBCluster'
     { _cdcEngineVersion               :: !(Maybe Text)
-    , _cdcDBClusterIdentifier         :: !(Maybe Text)
-    , _cdcMasterUserPassword          :: !(Maybe Text)
-    , _cdcMasterUsername              :: !(Maybe Text)
     , _cdcDBSubnetGroupName           :: !(Maybe Text)
-    , _cdcEngine                      :: !(Maybe Text)
     , _cdcPreferredMaintenanceWindow  :: !(Maybe Text)
     , _cdcAvailabilityZones           :: !(Maybe [Text])
     , _cdcCharacterSetName            :: !(Maybe Text)
@@ -83,6 +79,10 @@ data CreateDBCluster = CreateDBCluster'
     , _cdcOptionGroupName             :: !(Maybe Text)
     , _cdcTags                        :: !(Maybe [Tag])
     , _cdcPort                        :: !(Maybe Int)
+    , _cdcDBClusterIdentifier         :: !Text
+    , _cdcEngine                      :: !Text
+    , _cdcMasterUsername              :: !Text
+    , _cdcMasterUserPassword          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDBCluster' with the minimum fields required to make a request.
@@ -91,15 +91,7 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- * 'cdcEngineVersion'
 --
--- * 'cdcDBClusterIdentifier'
---
--- * 'cdcMasterUserPassword'
---
--- * 'cdcMasterUsername'
---
 -- * 'cdcDBSubnetGroupName'
---
--- * 'cdcEngine'
 --
 -- * 'cdcPreferredMaintenanceWindow'
 --
@@ -122,16 +114,24 @@ data CreateDBCluster = CreateDBCluster'
 -- * 'cdcTags'
 --
 -- * 'cdcPort'
+--
+-- * 'cdcDBClusterIdentifier'
+--
+-- * 'cdcEngine'
+--
+-- * 'cdcMasterUsername'
+--
+-- * 'cdcMasterUserPassword'
 createDBCluster
-    :: CreateDBCluster
-createDBCluster =
+    :: Text -- ^ 'cdcDBClusterIdentifier'
+    -> Text -- ^ 'cdcEngine'
+    -> Text -- ^ 'cdcMasterUsername'
+    -> Text -- ^ 'cdcMasterUserPassword'
+    -> CreateDBCluster
+createDBCluster pDBClusterIdentifier_ pEngine_ pMasterUsername_ pMasterUserPassword_ =
     CreateDBCluster'
     { _cdcEngineVersion = Nothing
-    , _cdcDBClusterIdentifier = Nothing
-    , _cdcMasterUserPassword = Nothing
-    , _cdcMasterUsername = Nothing
     , _cdcDBSubnetGroupName = Nothing
-    , _cdcEngine = Nothing
     , _cdcPreferredMaintenanceWindow = Nothing
     , _cdcAvailabilityZones = Nothing
     , _cdcCharacterSetName = Nothing
@@ -143,55 +143,23 @@ createDBCluster =
     , _cdcOptionGroupName = Nothing
     , _cdcTags = Nothing
     , _cdcPort = Nothing
+    , _cdcDBClusterIdentifier = pDBClusterIdentifier_
+    , _cdcEngine = pEngine_
+    , _cdcMasterUsername = pMasterUsername_
+    , _cdcMasterUserPassword = pMasterUserPassword_
     }
 
 -- | The version number of the database engine to use.
 --
 -- __Aurora__
 --
--- Example: '5.6.0'
+-- Example: '5.6.10a'
 cdcEngineVersion :: Lens' CreateDBCluster (Maybe Text)
 cdcEngineVersion = lens _cdcEngineVersion (\ s a -> s{_cdcEngineVersion = a});
-
--- | The DB cluster identifier. This parameter is stored as a lowercase
--- string.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
--- -   First character must be a letter.
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
---
--- Example: 'my-cluster1'
-cdcDBClusterIdentifier :: Lens' CreateDBCluster (Maybe Text)
-cdcDBClusterIdentifier = lens _cdcDBClusterIdentifier (\ s a -> s{_cdcDBClusterIdentifier = a});
-
--- | The password for the master database user. This password can contain any
--- printable ASCII character except \"\/\", \"\"\", or \"\'\".
---
--- Constraints: Must contain from 8 to 41 characters.
-cdcMasterUserPassword :: Lens' CreateDBCluster (Maybe Text)
-cdcMasterUserPassword = lens _cdcMasterUserPassword (\ s a -> s{_cdcMasterUserPassword = a});
-
--- | The name of the master user for the client DB cluster.
---
--- Constraints:
---
--- -   Must be 1 to 16 alphanumeric characters.
--- -   First character must be a letter.
--- -   Cannot be a reserved word for the chosen database engine.
-cdcMasterUsername :: Lens' CreateDBCluster (Maybe Text)
-cdcMasterUsername = lens _cdcMasterUsername (\ s a -> s{_cdcMasterUsername = a});
 
 -- | A DB subnet group to associate with this DB cluster.
 cdcDBSubnetGroupName :: Lens' CreateDBCluster (Maybe Text)
 cdcDBSubnetGroupName = lens _cdcDBSubnetGroupName (\ s a -> s{_cdcDBSubnetGroupName = a});
-
--- | The name of the database engine to be used for this DB cluster.
---
--- Valid Values: 'MySQL'
-cdcEngine :: Lens' CreateDBCluster (Maybe Text)
-cdcEngine = lens _cdcEngine (\ s a -> s{_cdcEngine = a});
 
 -- | The weekly time range during which system maintenance can occur, in
 -- Universal Coordinated Time (UTC).
@@ -293,6 +261,42 @@ cdcTags = lens _cdcTags (\ s a -> s{_cdcTags = a}) . _Default . _Coerce;
 cdcPort :: Lens' CreateDBCluster (Maybe Int)
 cdcPort = lens _cdcPort (\ s a -> s{_cdcPort = a});
 
+-- | The DB cluster identifier. This parameter is stored as a lowercase
+-- string.
+--
+-- Constraints:
+--
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+-- -   First character must be a letter.
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
+--
+-- Example: 'my-cluster1'
+cdcDBClusterIdentifier :: Lens' CreateDBCluster Text
+cdcDBClusterIdentifier = lens _cdcDBClusterIdentifier (\ s a -> s{_cdcDBClusterIdentifier = a});
+
+-- | The name of the database engine to be used for this DB cluster.
+--
+-- Valid Values: 'aurora'
+cdcEngine :: Lens' CreateDBCluster Text
+cdcEngine = lens _cdcEngine (\ s a -> s{_cdcEngine = a});
+
+-- | The name of the master user for the client DB cluster.
+--
+-- Constraints:
+--
+-- -   Must be 1 to 16 alphanumeric characters.
+-- -   First character must be a letter.
+-- -   Cannot be a reserved word for the chosen database engine.
+cdcMasterUsername :: Lens' CreateDBCluster Text
+cdcMasterUsername = lens _cdcMasterUsername (\ s a -> s{_cdcMasterUsername = a});
+
+-- | The password for the master database user. This password can contain any
+-- printable ASCII character except \"\/\", \"\"\", or \"\'\".
+--
+-- Constraints: Must contain from 8 to 41 characters.
+cdcMasterUserPassword :: Lens' CreateDBCluster Text
+cdcMasterUserPassword = lens _cdcMasterUserPassword (\ s a -> s{_cdcMasterUserPassword = a});
+
 instance AWSRequest CreateDBCluster where
         type Rs CreateDBCluster = CreateDBClusterResponse
         request = postQuery rDS
@@ -314,11 +318,7 @@ instance ToQuery CreateDBCluster where
               ["Action" =: ("CreateDBCluster" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "EngineVersion" =: _cdcEngineVersion,
-               "DBClusterIdentifier" =: _cdcDBClusterIdentifier,
-               "MasterUserPassword" =: _cdcMasterUserPassword,
-               "MasterUsername" =: _cdcMasterUsername,
                "DBSubnetGroupName" =: _cdcDBSubnetGroupName,
-               "Engine" =: _cdcEngine,
                "PreferredMaintenanceWindow" =:
                  _cdcPreferredMaintenanceWindow,
                "AvailabilityZones" =:
@@ -337,7 +337,11 @@ instance ToQuery CreateDBCluster where
                  _cdcDBClusterParameterGroupName,
                "OptionGroupName" =: _cdcOptionGroupName,
                "Tags" =: toQuery (toQueryList "Tag" <$> _cdcTags),
-               "Port" =: _cdcPort]
+               "Port" =: _cdcPort,
+               "DBClusterIdentifier" =: _cdcDBClusterIdentifier,
+               "Engine" =: _cdcEngine,
+               "MasterUsername" =: _cdcMasterUsername,
+               "MasterUserPassword" =: _cdcMasterUserPassword]
 
 -- | /See:/ 'createDBClusterResponse' smart constructor.
 data CreateDBClusterResponse = CreateDBClusterResponse'

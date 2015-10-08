@@ -22,7 +22,7 @@
 -- domain, setting as setting the instance type and the number of
 -- instances.
 --
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_UpdateElasticsearchDomainConfig.html AWS API Reference> for UpdateElasticsearchDomainConfig.
+-- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-UpdateElasticsearchDomainConfig.html AWS API Reference> for UpdateElasticsearchDomainConfig.
 module Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
     (
     -- * Creating a Request

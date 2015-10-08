@@ -22,7 +22,7 @@
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains>
 -- in the /Amazon Elasticsearch Service Developer Guide/.
 --
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateElasticsearchDomain.html AWS API Reference> for CreateElasticsearchDomain.
+-- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-CreateElasticsearchDomain.html AWS API Reference> for CreateElasticsearchDomain.
 module Network.AWS.ElasticSearch.CreateElasticsearchDomain
     (
     -- * Creating a Request

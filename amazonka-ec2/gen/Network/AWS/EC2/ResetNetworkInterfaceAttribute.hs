@@ -104,7 +104,7 @@ instance ToQuery ResetNetworkInterfaceAttribute where
           = mconcat
               ["Action" =:
                  ("ResetNetworkInterfaceAttribute" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "SourceDestCheck" =: _rniaSourceDestCheck,
                "DryRun" =: _rniaDryRun,
                "NetworkInterfaceId" =: _rniaNetworkInterfaceId]

@@ -203,7 +203,7 @@ instance ToQuery AuthorizeSecurityGroupIngress where
           = mconcat
               ["Action" =:
                  ("AuthorizeSecurityGroupIngress" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "FromPort" =: _asgiFromPort,
                toQuery
                  (toQueryList "IpPermissions" <$> _asgiIPPermissions),

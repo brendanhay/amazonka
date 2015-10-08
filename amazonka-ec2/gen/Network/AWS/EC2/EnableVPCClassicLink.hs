@@ -105,7 +105,7 @@ instance ToQuery EnableVPCClassicLink where
         toQuery EnableVPCClassicLink'{..}
           = mconcat
               ["Action" =: ("EnableVpcClassicLink" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _evclDryRun, "VpcId" =: _evclVPCId]
 
 -- | /See:/ 'enableVPCClassicLinkResponse' smart constructor.

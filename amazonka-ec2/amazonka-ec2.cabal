@@ -197,6 +197,7 @@ library
         , Network.AWS.EC2.ModifyNetworkInterfaceAttribute
         , Network.AWS.EC2.ModifyReservedInstances
         , Network.AWS.EC2.ModifySnapshotAttribute
+        , Network.AWS.EC2.ModifySpotFleetRequest
         , Network.AWS.EC2.ModifySubnetAttribute
         , Network.AWS.EC2.ModifyVPCAttribute
         , Network.AWS.EC2.ModifyVPCEndpoint

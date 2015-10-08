@@ -123,7 +123,7 @@ instance ToQuery DescribeSpotFleetRequests where
           = mconcat
               ["Action" =:
                  ("DescribeSpotFleetRequests" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                toQuery
                  (toQueryList "SpotFleetRequestId" <$>
                     _dsfrSpotFleetRequestIds),

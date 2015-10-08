@@ -20,7 +20,9 @@
 --
 -- Returns a JSON-formatted list of information about the specified trail.
 -- Fields include information on delivery errors, Amazon SNS and Amazon S3
--- errors, and start and stop logging times for each trail.
+-- errors, and start and stop logging times for each trail. This operation
+-- returns trail status from a single region. To return trail status from
+-- all regions, you must call the operation on each region.
 --
 -- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetTrailStatus.html AWS API Reference> for GetTrailStatus.
 module Network.AWS.CloudTrail.GetTrailStatus
@@ -35,14 +37,22 @@ module Network.AWS.CloudTrail.GetTrailStatus
     , getTrailStatusResponse
     , GetTrailStatusResponse
     -- * Response Lenses
+    , gtsrsTimeLoggingStopped
     , gtsrsLatestDeliveryError
+    , gtsrsLatestDigestDeliveryTime
+    , gtsrsLatestNotificationAttemptSucceeded
     , gtsrsStartLoggingTime
     , gtsrsLatestNotificationError
+    , gtsrsLatestDeliveryAttemptSucceeded
     , gtsrsIsLogging
+    , gtsrsTimeLoggingStarted
+    , gtsrsLatestDigestDeliveryError
+    , gtsrsLatestDeliveryAttemptTime
     , gtsrsLatestDeliveryTime
     , gtsrsLatestCloudWatchLogsDeliveryTime
     , gtsrsLatestCloudWatchLogsDeliveryError
     , gtsrsLatestNotificationTime
+    , gtsrsLatestNotificationAttemptTime
     , gtsrsStopLoggingTime
     , gtsrsResponseStatus
     ) where
@@ -73,7 +83,9 @@ getTrailStatus pName_ =
     { _gtsName = pName_
     }
 
--- | The name of the trail for which you are requesting the current status.
+-- | Specifies the name or the CloudTrail ARN of the trail for which you are
+-- requesting status. The format of a trail ARN is
+-- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
 gtsName :: Lens' GetTrailStatus Text
 gtsName = lens _gtsName (\ s a -> s{_gtsName = a});
 
@@ -84,14 +96,22 @@ instance AWSRequest GetTrailStatus where
           = receiveJSON
               (\ s h x ->
                  GetTrailStatusResponse' <$>
-                   (x .?> "LatestDeliveryError") <*>
-                     (x .?> "StartLoggingTime")
+                   (x .?> "TimeLoggingStopped") <*>
+                     (x .?> "LatestDeliveryError")
+                     <*> (x .?> "LatestDigestDeliveryTime")
+                     <*> (x .?> "LatestNotificationAttemptSucceeded")
+                     <*> (x .?> "StartLoggingTime")
                      <*> (x .?> "LatestNotificationError")
+                     <*> (x .?> "LatestDeliveryAttemptSucceeded")
                      <*> (x .?> "IsLogging")
+                     <*> (x .?> "TimeLoggingStarted")
+                     <*> (x .?> "LatestDigestDeliveryError")
+                     <*> (x .?> "LatestDeliveryAttemptTime")
                      <*> (x .?> "LatestDeliveryTime")
                      <*> (x .?> "LatestCloudWatchLogsDeliveryTime")
                      <*> (x .?> "LatestCloudWatchLogsDeliveryError")
                      <*> (x .?> "LatestNotificationTime")
+                     <*> (x .?> "LatestNotificationAttemptTime")
                      <*> (x .?> "StopLoggingTime")
                      <*> (pure (fromEnum s)))
 
@@ -120,29 +140,51 @@ instance ToQuery GetTrailStatus where
 --
 -- /See:/ 'getTrailStatusResponse' smart constructor.
 data GetTrailStatusResponse = GetTrailStatusResponse'
-    { _gtsrsLatestDeliveryError               :: !(Maybe Text)
-    , _gtsrsStartLoggingTime                  :: !(Maybe POSIX)
-    , _gtsrsLatestNotificationError           :: !(Maybe Text)
-    , _gtsrsIsLogging                         :: !(Maybe Bool)
-    , _gtsrsLatestDeliveryTime                :: !(Maybe POSIX)
-    , _gtsrsLatestCloudWatchLogsDeliveryTime  :: !(Maybe POSIX)
-    , _gtsrsLatestCloudWatchLogsDeliveryError :: !(Maybe Text)
-    , _gtsrsLatestNotificationTime            :: !(Maybe POSIX)
-    , _gtsrsStopLoggingTime                   :: !(Maybe POSIX)
-    , _gtsrsResponseStatus                    :: !Int
+    { _gtsrsTimeLoggingStopped                 :: !(Maybe Text)
+    , _gtsrsLatestDeliveryError                :: !(Maybe Text)
+    , _gtsrsLatestDigestDeliveryTime           :: !(Maybe POSIX)
+    , _gtsrsLatestNotificationAttemptSucceeded :: !(Maybe Text)
+    , _gtsrsStartLoggingTime                   :: !(Maybe POSIX)
+    , _gtsrsLatestNotificationError            :: !(Maybe Text)
+    , _gtsrsLatestDeliveryAttemptSucceeded     :: !(Maybe Text)
+    , _gtsrsIsLogging                          :: !(Maybe Bool)
+    , _gtsrsTimeLoggingStarted                 :: !(Maybe Text)
+    , _gtsrsLatestDigestDeliveryError          :: !(Maybe Text)
+    , _gtsrsLatestDeliveryAttemptTime          :: !(Maybe Text)
+    , _gtsrsLatestDeliveryTime                 :: !(Maybe POSIX)
+    , _gtsrsLatestCloudWatchLogsDeliveryTime   :: !(Maybe POSIX)
+    , _gtsrsLatestCloudWatchLogsDeliveryError  :: !(Maybe Text)
+    , _gtsrsLatestNotificationTime             :: !(Maybe POSIX)
+    , _gtsrsLatestNotificationAttemptTime      :: !(Maybe Text)
+    , _gtsrsStopLoggingTime                    :: !(Maybe POSIX)
+    , _gtsrsResponseStatus                     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetTrailStatusResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'gtsrsTimeLoggingStopped'
+--
 -- * 'gtsrsLatestDeliveryError'
+--
+-- * 'gtsrsLatestDigestDeliveryTime'
+--
+-- * 'gtsrsLatestNotificationAttemptSucceeded'
 --
 -- * 'gtsrsStartLoggingTime'
 --
 -- * 'gtsrsLatestNotificationError'
 --
+-- * 'gtsrsLatestDeliveryAttemptSucceeded'
+--
 -- * 'gtsrsIsLogging'
+--
+-- * 'gtsrsTimeLoggingStarted'
+--
+-- * 'gtsrsLatestDigestDeliveryError'
+--
+-- * 'gtsrsLatestDeliveryAttemptTime'
 --
 -- * 'gtsrsLatestDeliveryTime'
 --
@@ -152,6 +194,8 @@ data GetTrailStatusResponse = GetTrailStatusResponse'
 --
 -- * 'gtsrsLatestNotificationTime'
 --
+-- * 'gtsrsLatestNotificationAttemptTime'
+--
 -- * 'gtsrsStopLoggingTime'
 --
 -- * 'gtsrsResponseStatus'
@@ -160,25 +204,51 @@ getTrailStatusResponse
     -> GetTrailStatusResponse
 getTrailStatusResponse pResponseStatus_ =
     GetTrailStatusResponse'
-    { _gtsrsLatestDeliveryError = Nothing
+    { _gtsrsTimeLoggingStopped = Nothing
+    , _gtsrsLatestDeliveryError = Nothing
+    , _gtsrsLatestDigestDeliveryTime = Nothing
+    , _gtsrsLatestNotificationAttemptSucceeded = Nothing
     , _gtsrsStartLoggingTime = Nothing
     , _gtsrsLatestNotificationError = Nothing
+    , _gtsrsLatestDeliveryAttemptSucceeded = Nothing
     , _gtsrsIsLogging = Nothing
+    , _gtsrsTimeLoggingStarted = Nothing
+    , _gtsrsLatestDigestDeliveryError = Nothing
+    , _gtsrsLatestDeliveryAttemptTime = Nothing
     , _gtsrsLatestDeliveryTime = Nothing
     , _gtsrsLatestCloudWatchLogsDeliveryTime = Nothing
     , _gtsrsLatestCloudWatchLogsDeliveryError = Nothing
     , _gtsrsLatestNotificationTime = Nothing
+    , _gtsrsLatestNotificationAttemptTime = Nothing
     , _gtsrsStopLoggingTime = Nothing
     , _gtsrsResponseStatus = pResponseStatus_
     }
+
+-- | This field is deprecated.
+gtsrsTimeLoggingStopped :: Lens' GetTrailStatusResponse (Maybe Text)
+gtsrsTimeLoggingStopped = lens _gtsrsTimeLoggingStopped (\ s a -> s{_gtsrsTimeLoggingStopped = a});
 
 -- | Displays any Amazon S3 error that CloudTrail encountered when attempting
 -- to deliver log files to the designated bucket. For more information see
 -- the topic
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses>
 -- in the Amazon S3 API Reference.
+--
+-- This error occurs only when there is a problem with the destination S3
+-- bucket and will not occur for timeouts. To resolve the issue, create a
+-- new bucket and call 'UpdateTrail' to specify the new bucket, or fix the
+-- existing objects so that CloudTrail can again write to the bucket.
 gtsrsLatestDeliveryError :: Lens' GetTrailStatusResponse (Maybe Text)
 gtsrsLatestDeliveryError = lens _gtsrsLatestDeliveryError (\ s a -> s{_gtsrsLatestDeliveryError = a});
+
+-- | Specifies the date and time that CloudTrail last delivered a digest file
+-- to an account\'s Amazon S3 bucket.
+gtsrsLatestDigestDeliveryTime :: Lens' GetTrailStatusResponse (Maybe UTCTime)
+gtsrsLatestDigestDeliveryTime = lens _gtsrsLatestDigestDeliveryTime (\ s a -> s{_gtsrsLatestDigestDeliveryTime = a}) . mapping _Time;
+
+-- | This field is deprecated.
+gtsrsLatestNotificationAttemptSucceeded :: Lens' GetTrailStatusResponse (Maybe Text)
+gtsrsLatestNotificationAttemptSucceeded = lens _gtsrsLatestNotificationAttemptSucceeded (\ s a -> s{_gtsrsLatestNotificationAttemptSucceeded = a});
 
 -- | Specifies the most recent date and time when CloudTrail started
 -- recording API calls for an AWS account.
@@ -192,9 +262,34 @@ gtsrsStartLoggingTime = lens _gtsrsStartLoggingTime (\ s a -> s{_gtsrsStartLoggi
 gtsrsLatestNotificationError :: Lens' GetTrailStatusResponse (Maybe Text)
 gtsrsLatestNotificationError = lens _gtsrsLatestNotificationError (\ s a -> s{_gtsrsLatestNotificationError = a});
 
+-- | This field is deprecated.
+gtsrsLatestDeliveryAttemptSucceeded :: Lens' GetTrailStatusResponse (Maybe Text)
+gtsrsLatestDeliveryAttemptSucceeded = lens _gtsrsLatestDeliveryAttemptSucceeded (\ s a -> s{_gtsrsLatestDeliveryAttemptSucceeded = a});
+
 -- | Whether the CloudTrail is currently logging AWS API calls.
 gtsrsIsLogging :: Lens' GetTrailStatusResponse (Maybe Bool)
 gtsrsIsLogging = lens _gtsrsIsLogging (\ s a -> s{_gtsrsIsLogging = a});
+
+-- | This field is deprecated.
+gtsrsTimeLoggingStarted :: Lens' GetTrailStatusResponse (Maybe Text)
+gtsrsTimeLoggingStarted = lens _gtsrsTimeLoggingStarted (\ s a -> s{_gtsrsTimeLoggingStarted = a});
+
+-- | Displays any Amazon S3 error that CloudTrail encountered when attempting
+-- to deliver a digest file to the designated bucket. For more information
+-- see the topic
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses>
+-- in the Amazon S3 API Reference.
+--
+-- This error occurs only when there is a problem with the destination S3
+-- bucket and will not occur for timeouts. To resolve the issue, create a
+-- new bucket and call 'UpdateTrail' to specify the new bucket, or fix the
+-- existing objects so that CloudTrail can again write to the bucket.
+gtsrsLatestDigestDeliveryError :: Lens' GetTrailStatusResponse (Maybe Text)
+gtsrsLatestDigestDeliveryError = lens _gtsrsLatestDigestDeliveryError (\ s a -> s{_gtsrsLatestDigestDeliveryError = a});
+
+-- | This field is deprecated.
+gtsrsLatestDeliveryAttemptTime :: Lens' GetTrailStatusResponse (Maybe Text)
+gtsrsLatestDeliveryAttemptTime = lens _gtsrsLatestDeliveryAttemptTime (\ s a -> s{_gtsrsLatestDeliveryAttemptTime = a});
 
 -- | Specifies the date and time that CloudTrail last delivered log files to
 -- an account\'s Amazon S3 bucket.
@@ -216,6 +311,10 @@ gtsrsLatestCloudWatchLogsDeliveryError = lens _gtsrsLatestCloudWatchLogsDelivery
 -- bucket.
 gtsrsLatestNotificationTime :: Lens' GetTrailStatusResponse (Maybe UTCTime)
 gtsrsLatestNotificationTime = lens _gtsrsLatestNotificationTime (\ s a -> s{_gtsrsLatestNotificationTime = a}) . mapping _Time;
+
+-- | This field is deprecated.
+gtsrsLatestNotificationAttemptTime :: Lens' GetTrailStatusResponse (Maybe Text)
+gtsrsLatestNotificationAttemptTime = lens _gtsrsLatestNotificationAttemptTime (\ s a -> s{_gtsrsLatestNotificationAttemptTime = a});
 
 -- | Specifies the most recent date and time when CloudTrail stopped
 -- recording API calls for an AWS account.

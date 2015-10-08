@@ -20,7 +20,7 @@
 --
 -- Returns all tags for the given Elasticsearch domain.
 --
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ListTags.html AWS API Reference> for ListTags.
+-- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-ListTags.html AWS API Reference> for ListTags.
 module Network.AWS.ElasticSearch.ListTags
     (
     -- * Creating a Request

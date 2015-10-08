@@ -55,6 +55,9 @@ module Network.AWS.Kinesis
     -- ** PutRecord
     , module Network.AWS.Kinesis.PutRecord
 
+    -- ** DecreaseStreamRetentionPeriod
+    , module Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
+
     -- ** MergeShards
     , module Network.AWS.Kinesis.MergeShards
 
@@ -87,6 +90,9 @@ module Network.AWS.Kinesis
 
     -- ** SplitShard
     , module Network.AWS.Kinesis.SplitShard
+
+    -- ** IncreaseStreamRetentionPeriod
+    , module Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
 
     -- ** DescribeStream (Paginated)
     , module Network.AWS.Kinesis.DescribeStream
@@ -151,6 +157,7 @@ module Network.AWS.Kinesis
     , sdStreamStatus
     , sdShards
     , sdHasMoreShards
+    , sdRetentionPeriodHours
 
     -- ** Tag
     , Tag
@@ -161,10 +168,12 @@ module Network.AWS.Kinesis
 
 import           Network.AWS.Kinesis.AddTagsToStream
 import           Network.AWS.Kinesis.CreateStream
+import           Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
 import           Network.AWS.Kinesis.DeleteStream
 import           Network.AWS.Kinesis.DescribeStream
 import           Network.AWS.Kinesis.GetRecords
 import           Network.AWS.Kinesis.GetShardIterator
+import           Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
 import           Network.AWS.Kinesis.ListStreams
 import           Network.AWS.Kinesis.ListTagsForStream
 import           Network.AWS.Kinesis.MergeShards

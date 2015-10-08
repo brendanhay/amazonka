@@ -65,6 +65,7 @@ library
         , Network.AWS.CloudFormation.CancelUpdateStack
         , Network.AWS.CloudFormation.CreateStack
         , Network.AWS.CloudFormation.DeleteStack
+        , Network.AWS.CloudFormation.DescribeAccountLimits
         , Network.AWS.CloudFormation.DescribeStackEvents
         , Network.AWS.CloudFormation.DescribeStackResource
         , Network.AWS.CloudFormation.DescribeStackResources

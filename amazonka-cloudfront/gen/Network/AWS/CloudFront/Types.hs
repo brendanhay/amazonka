@@ -25,6 +25,7 @@ module Network.AWS.CloudFront.Types
     , _InconsistentQuantities
     , _InvalidArgument
     , _TooManyInvalidationsInProgress
+    , _InvalidWebACLId
     , _TooManyDistributionCNAMEs
     , _NoSuchCloudFrontOriginAccessIdentity
     , _CloudFrontOriginAccessIdentityInUse
@@ -229,6 +230,7 @@ module Network.AWS.CloudFront.Types
     , dcDefaultRootObject
     , dcPriceClass
     , dcCustomErrorResponses
+    , dcWebACLId
     , dcViewerCertificate
     , dcRestrictions
     , dcLogging
@@ -266,6 +268,7 @@ module Network.AWS.CloudFront.Types
     , dsEnabled
     , dsViewerCertificate
     , dsRestrictions
+    , dsWebACLId
 
     -- * ForwardedValues
     , ForwardedValues
@@ -449,14 +452,14 @@ import           Network.AWS.CloudFront.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-04-17' of the Amazon CloudFront SDK configuration.
+-- | API version '2015-07-27' of the Amazon CloudFront SDK configuration.
 cloudFront :: Service
 cloudFront =
     Service
     { _svcAbbrev = "CloudFront"
     , _svcSigner = v4
     , _svcPrefix = "cloudfront"
-    , _svcVersion = "2015-04-17"
+    , _svcVersion = "2015-07-27"
     , _svcEndpoint = defaultEndpoint cloudFront
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
@@ -525,6 +528,10 @@ _InvalidArgument = _ServiceError . hasStatus 400 . hasCode "InvalidArgument"
 _TooManyInvalidationsInProgress :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyInvalidationsInProgress =
     _ServiceError . hasStatus 400 . hasCode "TooManyInvalidationsInProgress"
+
+-- | Prism for InvalidWebACLId' errors.
+_InvalidWebACLId :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidWebACLId = _ServiceError . hasStatus 400 . hasCode "InvalidWebACLId"
 
 -- | Your request contains more CNAMEs than are allowed per distribution.
 _TooManyDistributionCNAMEs :: AsError a => Getting (First ServiceError) a ServiceError

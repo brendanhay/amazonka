@@ -27,8 +27,10 @@
 -- maximum number of attributes that can be specified in any one lookup
 -- request are time range and one other attribute. The default number of
 -- results returned is 10, with a maximum of 50 possible. The response
--- includes a token that you can use to get the next page of results. The
--- rate of lookup requests is limited to one per second per account.
+-- includes a token that you can use to get the next page of results.
+--
+-- The rate of lookup requests is limited to one per second per account. If
+-- this limit is exceeded, a throttling error occurs.
 --
 -- Events that occurred during the selected time range will not be
 -- available for lookup if CloudTrail logging was not enabled when the

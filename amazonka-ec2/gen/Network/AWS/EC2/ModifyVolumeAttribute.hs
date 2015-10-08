@@ -109,7 +109,7 @@ instance ToQuery ModifyVolumeAttribute where
         toQuery ModifyVolumeAttribute'{..}
           = mconcat
               ["Action" =: ("ModifyVolumeAttribute" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "AutoEnableIO" =: _mvaAutoEnableIO,
                "DryRun" =: _mvaDryRun, "VolumeId" =: _mvaVolumeId]
 

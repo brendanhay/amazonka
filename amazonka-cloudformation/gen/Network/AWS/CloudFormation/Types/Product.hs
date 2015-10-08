@@ -20,6 +20,43 @@ module Network.AWS.CloudFormation.Types.Product where
 import           Network.AWS.CloudFormation.Types.Sum
 import           Network.AWS.Prelude
 
+-- | The AccountLimit data type.
+--
+-- /See:/ 'accountLimit' smart constructor.
+data AccountLimit = AccountLimit'
+    { _alValue :: !(Maybe Int)
+    , _alName  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AccountLimit' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'alValue'
+--
+-- * 'alName'
+accountLimit
+    :: AccountLimit
+accountLimit =
+    AccountLimit'
+    { _alValue = Nothing
+    , _alName = Nothing
+    }
+
+-- | The value that is associated with the account limit name.
+alValue :: Lens' AccountLimit (Maybe Int)
+alValue = lens _alValue (\ s a -> s{_alValue = a});
+
+-- | The name of the account limit. Currently, the only account limit is
+-- 'StackLimit'.
+alName :: Lens' AccountLimit (Maybe Text)
+alName = lens _alName (\ s a -> s{_alName = a});
+
+instance FromXML AccountLimit where
+        parseXML x
+          = AccountLimit' <$>
+              (x .@? "Value") <*> (x .@? "Name")
+
 -- | The Output data type.
 --
 -- /See:/ 'output' smart constructor.
@@ -331,7 +368,7 @@ sParameters = lens _sParameters (\ s a -> s{_sParameters = a}) . _Default . _Coe
 sStackId :: Lens' Stack (Maybe Text)
 sStackId = lens _sStackId (\ s a -> s{_sStackId = a});
 
--- | User defined description associated with the stack.
+-- | A user-defined description associated with the stack.
 sDescription :: Lens' Stack (Maybe Text)
 sDescription = lens _sDescription (\ s a -> s{_sDescription = a});
 
@@ -351,7 +388,7 @@ sTimeoutInMinutes = lens _sTimeoutInMinutes (\ s a -> s{_sTimeoutInMinutes = a})
 sStackName :: Lens' Stack Text
 sStackName = lens _sStackName (\ s a -> s{_sStackName = a});
 
--- | Time at which the stack was created.
+-- | The time at which the stack was created.
 sCreationTime :: Lens' Stack UTCTime
 sCreationTime = lens _sCreationTime (\ s a -> s{_sCreationTime = a}) . _Time;
 

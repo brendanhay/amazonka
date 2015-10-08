@@ -81,6 +81,7 @@ module Network.AWS.Kinesis.Types
     , sdStreamStatus
     , sdShards
     , sdHasMoreShards
+    , sdRetentionPeriodHours
 
     -- * Tag
     , Tag
@@ -143,8 +144,9 @@ _ProvisionedThroughputExceededException :: AsError a => Getting (First ServiceEr
 _ProvisionedThroughputExceededException =
     _ServiceError . hasCode "ProvisionedThroughputExceededException"
 
--- | The requested resource could not be found. It might not be specified
--- correctly, or it might not be in the 'ACTIVE' state.
+-- | The requested resource could not be found. The stream might not be
+-- specified correctly, or it might not be in the 'ACTIVE' state if the
+-- operation requires it.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
@@ -154,7 +156,7 @@ _ResourceNotFoundException =
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"
 
--- | The resource is not available for this operation. For example, you
--- attempted to split a shard but the stream is not in the 'ACTIVE' state.
+-- | The resource is not available for this operation. For successful
+-- operation, the resource needs to be in the 'ACTIVE' state.
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"

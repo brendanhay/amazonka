@@ -92,7 +92,7 @@ instance ToQuery DeregisterImage where
         toQuery DeregisterImage'{..}
           = mconcat
               ["Action" =: ("DeregisterImage" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _diDryRun, "ImageId" =: _diImageId]
 
 -- | /See:/ 'deregisterImageResponse' smart constructor.

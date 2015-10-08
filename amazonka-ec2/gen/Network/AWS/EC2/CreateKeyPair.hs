@@ -116,7 +116,7 @@ instance ToQuery CreateKeyPair where
         toQuery CreateKeyPair'{..}
           = mconcat
               ["Action" =: ("CreateKeyPair" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _ckpDryRun, "KeyName" =: _ckpKeyName]
 
 -- | Describes a key pair.

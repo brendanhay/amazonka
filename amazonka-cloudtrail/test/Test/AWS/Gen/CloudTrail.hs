@@ -31,6 +31,12 @@ import Test.AWS.CloudTrail.Internal
 --         [ testDescribeTrails $
 --             describeTrails
 --
+--         , testListPublicKeys $
+--             listPublicKeys
+--
+--         , testRemoveTags $
+--             removeTags
+--
 --         , testLookupEvents $
 --             lookupEvents
 --
@@ -49,6 +55,12 @@ import Test.AWS.CloudTrail.Internal
 --         , testGetTrailStatus $
 --             getTrailStatus
 --
+--         , testAddTags $
+--             addTags
+--
+--         , testListTags $
+--             listTags
+--
 --         , testStartLogging $
 --             startLogging
 --
@@ -57,6 +69,12 @@ import Test.AWS.CloudTrail.Internal
 --     , testGroup "response"
 --         [ testDescribeTrailsResponse $
 --             describeTrailsResponse
+--
+--         , testListPublicKeysResponse $
+--             listPublicKeysResponse
+--
+--         , testRemoveTagsResponse $
+--             removeTagsResponse
 --
 --         , testLookupEventsResponse $
 --             lookupEventsResponse
@@ -76,6 +94,12 @@ import Test.AWS.CloudTrail.Internal
 --         , testGetTrailStatusResponse $
 --             getTrailStatusResponse
 --
+--         , testAddTagsResponse $
+--             addTagsResponse
+--
+--         , testListTagsResponse $
+--             listTagsResponse
+--
 --         , testStartLoggingResponse $
 --             startLoggingResponse
 --
@@ -88,6 +112,16 @@ testDescribeTrails :: DescribeTrails -> TestTree
 testDescribeTrails = req
     "DescribeTrails"
     "fixture/DescribeTrails.yaml"
+
+testListPublicKeys :: ListPublicKeys -> TestTree
+testListPublicKeys = req
+    "ListPublicKeys"
+    "fixture/ListPublicKeys.yaml"
+
+testRemoveTags :: RemoveTags -> TestTree
+testRemoveTags = req
+    "RemoveTags"
+    "fixture/RemoveTags.yaml"
 
 testLookupEvents :: LookupEvents -> TestTree
 testLookupEvents = req
@@ -119,6 +153,16 @@ testGetTrailStatus = req
     "GetTrailStatus"
     "fixture/GetTrailStatus.yaml"
 
+testAddTags :: AddTags -> TestTree
+testAddTags = req
+    "AddTags"
+    "fixture/AddTags.yaml"
+
+testListTags :: ListTags -> TestTree
+testListTags = req
+    "ListTags"
+    "fixture/ListTags.yaml"
+
 testStartLogging :: StartLogging -> TestTree
 testStartLogging = req
     "StartLogging"
@@ -132,6 +176,20 @@ testDescribeTrailsResponse = res
     "fixture/DescribeTrailsResponse.proto"
     cloudTrail
     (Proxy :: Proxy DescribeTrails)
+
+testListPublicKeysResponse :: ListPublicKeysResponse -> TestTree
+testListPublicKeysResponse = res
+    "ListPublicKeysResponse"
+    "fixture/ListPublicKeysResponse.proto"
+    cloudTrail
+    (Proxy :: Proxy ListPublicKeys)
+
+testRemoveTagsResponse :: RemoveTagsResponse -> TestTree
+testRemoveTagsResponse = res
+    "RemoveTagsResponse"
+    "fixture/RemoveTagsResponse.proto"
+    cloudTrail
+    (Proxy :: Proxy RemoveTags)
 
 testLookupEventsResponse :: LookupEventsResponse -> TestTree
 testLookupEventsResponse = res
@@ -174,6 +232,20 @@ testGetTrailStatusResponse = res
     "fixture/GetTrailStatusResponse.proto"
     cloudTrail
     (Proxy :: Proxy GetTrailStatus)
+
+testAddTagsResponse :: AddTagsResponse -> TestTree
+testAddTagsResponse = res
+    "AddTagsResponse"
+    "fixture/AddTagsResponse.proto"
+    cloudTrail
+    (Proxy :: Proxy AddTags)
+
+testListTagsResponse :: ListTagsResponse -> TestTree
+testListTagsResponse = res
+    "ListTagsResponse"
+    "fixture/ListTagsResponse.proto"
+    cloudTrail
+    (Proxy :: Proxy ListTags)
 
 testStartLoggingResponse :: StartLoggingResponse -> TestTree
 testStartLoggingResponse = res

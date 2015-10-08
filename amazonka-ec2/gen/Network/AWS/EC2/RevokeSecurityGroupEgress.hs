@@ -176,7 +176,7 @@ instance ToQuery RevokeSecurityGroupEgress where
           = mconcat
               ["Action" =:
                  ("RevokeSecurityGroupEgress" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "FromPort" =: _rsgeFromPort,
                toQuery
                  (toQueryList "IpPermissions" <$> _rsgeIPPermissions),

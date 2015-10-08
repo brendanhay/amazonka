@@ -85,7 +85,7 @@ instance ToQuery DeleteFlowLogs where
         toQuery DeleteFlowLogs'{..}
           = mconcat
               ["Action" =: ("DeleteFlowLogs" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                toQueryList "FlowLogId" _dflFlowLogIds]
 
 -- | /See:/ 'deleteFlowLogsResponse' smart constructor.

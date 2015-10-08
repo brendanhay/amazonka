@@ -146,7 +146,7 @@ instance ToQuery CreateVPNConnection where
         toQuery CreateVPNConnection'{..}
           = mconcat
               ["Action" =: ("CreateVpnConnection" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "Options" =: _cvcOptions, "DryRun" =: _cvcDryRun,
                "Type" =: _cvcType,
                "CustomerGatewayId" =: _cvcCustomerGatewayId,

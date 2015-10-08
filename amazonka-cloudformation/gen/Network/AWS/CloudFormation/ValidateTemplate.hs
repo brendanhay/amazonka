@@ -81,8 +81,8 @@ vtTemplateBody :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateBody = lens _vtTemplateBody (\ s a -> s{_vtTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
--- template (max size: 460,800 bytes) located in an S3 bucket in the same
--- region as the stack. For more information, go to
+-- template (max size: 460,800 bytes) that is located in an Amazon S3
+-- bucket. For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the AWS CloudFormation User Guide.
 --

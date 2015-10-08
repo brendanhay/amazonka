@@ -49,6 +49,7 @@ module Network.AWS.CloudFormation.UpdateStack
     , usTemplateBody
     , usTemplateURL
     , usCapabilities
+    , usResourceTypes
     , usStackName
 
     -- * Destructuring the Response
@@ -79,6 +80,7 @@ data UpdateStack = UpdateStack'
     , _usTemplateBody                :: !(Maybe Text)
     , _usTemplateURL                 :: !(Maybe Text)
     , _usCapabilities                :: !(Maybe [Capability])
+    , _usResourceTypes               :: !(Maybe [Text])
     , _usStackName                   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -106,6 +108,8 @@ data UpdateStack = UpdateStack'
 --
 -- * 'usCapabilities'
 --
+-- * 'usResourceTypes'
+--
 -- * 'usStackName'
 updateStack
     :: Text -- ^ 'usStackName'
@@ -122,6 +126,7 @@ updateStack pStackName_ =
     , _usTemplateBody = Nothing
     , _usTemplateURL = Nothing
     , _usCapabilities = Nothing
+    , _usResourceTypes = Nothing
     , _usStackName = pStackName_
     }
 
@@ -199,8 +204,8 @@ usTemplateBody :: Lens' UpdateStack (Maybe Text)
 usTemplateBody = lens _usTemplateBody (\ s a -> s{_usTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
--- template located in an S3 bucket in the same region as the stack. For
--- more information, go to
+-- template that is located in an Amazon S3 bucket. For more information,
+-- go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the AWS CloudFormation User Guide.
 --
@@ -228,6 +233,19 @@ usTemplateURL = lens _usTemplateURL (\ s a -> s{_usTemplateURL = a});
 -- parameter, this action returns an InsufficientCapabilities error.
 usCapabilities :: Lens' UpdateStack [Capability]
 usCapabilities = lens _usCapabilities (\ s a -> s{_usCapabilities = a}) . _Default . _Coerce;
+
+-- | The template resource types that you have permissions to work with for
+-- this update stack action, such as 'AWS::EC2::Instance', 'AWS::EC2::*',
+-- or 'Custom::MyCustomInstance'.
+--
+-- If the list of resource types doesn\'t include a resource that you\'re
+-- updating, the stack update fails. By default, AWS CloudFormation grants
+-- permissions to all resource types. AWS Identity and Access Management
+-- (IAM) uses this parameter for AWS CloudFormation-specific condition keys
+-- in IAM policies. For more information, see
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with AWS Identity and Access Management>
+usResourceTypes :: Lens' UpdateStack [Text]
+usResourceTypes = lens _usResourceTypes (\ s a -> s{_usResourceTypes = a}) . _Default . _Coerce;
 
 -- | The name or unique stack ID of the stack to update.
 usStackName :: Lens' UpdateStack Text
@@ -269,6 +287,8 @@ instance ToQuery UpdateStack where
                "TemplateURL" =: _usTemplateURL,
                "Capabilities" =:
                  toQuery (toQueryList "member" <$> _usCapabilities),
+               "ResourceTypes" =:
+                 toQuery (toQueryList "member" <$> _usResourceTypes),
                "StackName" =: _usStackName]
 
 -- | The output for a UpdateStack action.

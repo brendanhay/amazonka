@@ -16,23 +16,72 @@ module Network.AWS.SES.Types
       sES
 
     -- * Errors
+    , _CannotDeleteException
+    , _RuleDoesNotExistException
     , _MessageRejected
+    , _RuleSetDoesNotExistException
+    , _InvalidLambdaFunctionException
     , _InvalidPolicyException
+    , _InvalidS3ConfigurationException
+    , _InvalidSNSTopicException
+    , _AlreadyExistsException
+    , _LimitExceededException
+
+    -- * BounceType
+    , BounceType (..)
+
+    -- * DsnAction
+    , DsnAction (..)
 
     -- * IdentityType
     , IdentityType (..)
 
+    -- * InvocationType
+    , InvocationType (..)
+
     -- * NotificationType
     , NotificationType (..)
 
+    -- * ReceiptFilterPolicy
+    , ReceiptFilterPolicy (..)
+
+    -- * StopScope
+    , StopScope (..)
+
+    -- * TLSPolicy
+    , TLSPolicy (..)
+
     -- * VerificationStatus
     , VerificationStatus (..)
+
+    -- * AddHeaderAction
+    , AddHeaderAction
+    , addHeaderAction
+    , ahaHeaderName
+    , ahaHeaderValue
 
     -- * Body
     , Body
     , body
     , bText
     , bHTML
+
+    -- * BounceAction
+    , BounceAction
+    , bounceAction
+    , baTopicARN
+    , baStatusCode
+    , baSmtpReplyCode
+    , baMessage
+    , baSender
+
+    -- * BouncedRecipientInfo
+    , BouncedRecipientInfo
+    , bouncedRecipientInfo
+    , briBounceType
+    , briRecipientDsnFields
+    , briRecipientARN
+    , briRecipient
 
     -- * Content
     , Content
@@ -46,6 +95,12 @@ module Network.AWS.SES.Types
     , dBCCAddresses
     , dCCAddresses
     , dToAddresses
+
+    -- * ExtensionField
+    , ExtensionField
+    , extensionField
+    , efName
+    , efValue
 
     -- * IdentityDkimAttributes
     , IdentityDkimAttributes
@@ -68,16 +123,93 @@ module Network.AWS.SES.Types
     , ivaVerificationToken
     , ivaVerificationStatus
 
+    -- * LambdaAction
+    , LambdaAction
+    , lambdaAction
+    , laInvocationType
+    , laTopicARN
+    , laFunctionARN
+
     -- * Message
     , Message
     , message
     , mSubject
     , mBody
 
+    -- * MessageDsn
+    , MessageDsn
+    , messageDsn
+    , mdArrivalDate
+    , mdExtensionFields
+    , mdReportingMta
+
     -- * RawMessage
     , RawMessage
     , rawMessage
     , rmData
+
+    -- * ReceiptAction
+    , ReceiptAction
+    , receiptAction
+    , raAddHeaderAction
+    , raSNSAction
+    , raWorkmailAction
+    , raBounceAction
+    , raLambdaAction
+    , raStopAction
+    , raS3Action
+
+    -- * ReceiptFilter
+    , ReceiptFilter
+    , receiptFilter
+    , rfName
+    , rfIPFilter
+
+    -- * ReceiptIPFilter
+    , ReceiptIPFilter
+    , receiptIPFilter
+    , rifPolicy
+    , rifCIdR
+
+    -- * ReceiptRule
+    , ReceiptRule
+    , receiptRule
+    , rrScanEnabled
+    , rrEnabled
+    , rrActions
+    , rrRecipients
+    , rrTLSPolicy
+    , rrName
+
+    -- * ReceiptRuleSetMetadata
+    , ReceiptRuleSetMetadata
+    , receiptRuleSetMetadata
+    , rrsmName
+    , rrsmCreatedTimestamp
+
+    -- * RecipientDsnFields
+    , RecipientDsnFields
+    , recipientDsnFields
+    , rdfDiagnosticCode
+    , rdfRemoteMta
+    , rdfFinalRecipient
+    , rdfExtensionFields
+    , rdfLastAttemptDate
+    , rdfAction
+    , rdfStatus
+
+    -- * S3Action
+    , S3Action
+    , s3Action
+    , s3KMSKeyARN
+    , s3TopicARN
+    , s3ObjectKeyPrefix
+    , s3BucketName
+
+    -- * SNSAction
+    , SNSAction
+    , snsAction
+    , saTopicARN
 
     -- * SendDataPoint
     , SendDataPoint
@@ -87,6 +219,18 @@ module Network.AWS.SES.Types
     , sdpDeliveryAttempts
     , sdpBounces
     , sdpTimestamp
+
+    -- * StopAction
+    , StopAction
+    , stopAction
+    , sTopicARN
+    , sScope
+
+    -- * WorkmailAction
+    , WorkmailAction
+    , workmailAction
+    , waTopicARN
+    , waOrganizationARN
     ) where
 
 import           Network.AWS.Prelude
@@ -125,13 +269,64 @@ sES =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+-- | Indicates that the delete operation could not be completed.
+_CannotDeleteException :: AsError a => Getting (First ServiceError) a ServiceError
+_CannotDeleteException = _ServiceError . hasStatus 400 . hasCode "CannotDelete"
+
+-- | Indicates that the provided receipt rule does not exist.
+_RuleDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_RuleDoesNotExistException =
+    _ServiceError . hasStatus 400 . hasCode "RuleDoesNotExist"
+
 -- | Indicates that the action failed, and the message could not be sent.
 -- Check the error stack for more information about what caused the error.
 _MessageRejected :: AsError a => Getting (First ServiceError) a ServiceError
 _MessageRejected = _ServiceError . hasStatus 400 . hasCode "MessageRejected"
+
+-- | Indicates that the provided receipt rule set does not exist.
+_RuleSetDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_RuleSetDoesNotExistException =
+    _ServiceError . hasStatus 400 . hasCode "RuleSetDoesNotExist"
+
+-- | Indicates that the provided AWS Lambda function is invalid, or that
+-- Amazon SES could not execute the provided function, possibly due to
+-- permissions issues. For information about giving permissions, see the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
+_InvalidLambdaFunctionException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidLambdaFunctionException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidLambdaFunction"
 
 -- | Indicates that the provided policy is invalid. Check the error stack for
 -- more information about what caused the error.
 _InvalidPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidPolicyException =
     _ServiceError . hasStatus 400 . hasCode "InvalidPolicy"
+
+-- | Indicates that the provided Amazon S3 bucket or AWS KMS encryption key
+-- is invalid, or that Amazon SES could not publish to the bucket, possibly
+-- due to permissions issues. For information about giving permissions, see
+-- the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
+_InvalidS3ConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidS3ConfigurationException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidS3Configuration"
+
+-- | Indicates that the provided Amazon SNS topic is invalid, or that Amazon
+-- SES could not publish to the topic, possibly due to permissions issues.
+-- For information about giving permissions, see the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
+_InvalidSNSTopicException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidSNSTopicException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidSnsTopic"
+
+-- | Indicates that a resource could not be created due to a naming conflict.
+_AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+_AlreadyExistsException =
+    _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
+
+-- | Indicates that a resource could not be created due to service limits.
+-- For a list of Amazon SES limits, see the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html Amazon SES Developer Guide>.
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException =
+    _ServiceError . hasStatus 400 . hasCode "LimitExceeded"

@@ -94,6 +94,9 @@ module Network.AWS.CloudFormation
     -- ** ListStacks (Paginated)
     , module Network.AWS.CloudFormation.ListStacks
 
+    -- ** DescribeAccountLimits
+    , module Network.AWS.CloudFormation.DescribeAccountLimits
+
     -- ** DescribeStackResources
     , module Network.AWS.CloudFormation.DescribeStackResources
 
@@ -125,6 +128,12 @@ module Network.AWS.CloudFormation
 
     -- ** StackStatus
     , StackStatus (..)
+
+    -- ** AccountLimit
+    , AccountLimit
+    , accountLimit
+    , alValue
+    , alName
 
     -- ** Output
     , Output
@@ -254,6 +263,7 @@ module Network.AWS.CloudFormation
 import           Network.AWS.CloudFormation.CancelUpdateStack
 import           Network.AWS.CloudFormation.CreateStack
 import           Network.AWS.CloudFormation.DeleteStack
+import           Network.AWS.CloudFormation.DescribeAccountLimits
 import           Network.AWS.CloudFormation.DescribeStackEvents
 import           Network.AWS.CloudFormation.DescribeStackResource
 import           Network.AWS.CloudFormation.DescribeStackResources

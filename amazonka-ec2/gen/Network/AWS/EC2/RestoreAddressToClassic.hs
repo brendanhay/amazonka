@@ -103,7 +103,7 @@ instance ToQuery RestoreAddressToClassic where
           = mconcat
               ["Action" =:
                  ("RestoreAddressToClassic" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _ratcDryRun, "PublicIp" =: _ratcPublicIP]
 
 -- | /See:/ 'restoreAddressToClassicResponse' smart constructor.

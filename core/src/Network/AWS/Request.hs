@@ -22,6 +22,8 @@ module Network.AWS.Request
     , put
 
     -- ** Specialised body
+    , patchJSON
+
     , postXML
     , postJSON
     , postQuery
@@ -74,6 +76,9 @@ post s x = get s x & rqMethod .~ POST
 
 put :: ToRequest a => Service -> a -> Request a
 put s x = get s x & rqMethod .~ PUT
+
+patchJSON :: (ToRequest a, ToJSON a) => Service -> a -> Request a
+patchJSON s x = putJSON s x & rqMethod .~ PATCH
 
 postXML :: (ToRequest a, ToElement a) => Service -> a -> Request a
 postXML s x = putXML s x & rqMethod .~ POST

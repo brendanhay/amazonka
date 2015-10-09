@@ -23,12 +23,12 @@ Released: **08 October, 2015**, Compare: [1.3.2.1](https://github.com/brendanhay
 
 ### New Libraries
 
-- `amazonka-waf`: Web Application Firewall Service.
-- `amazonka-firehose`: Kinesis Firehose Service.
-- `amazonka-marketplace-analytics`: Marketplace Commerce Analytics Service.
 - `amazonka-elasticsearch`: ElasticSearch Service.
 - `amazonka-inspector`: Inspector Service.
 - `amazonka-iot`: Internet of Things Platform.
+- `amazonka-kinesis-firehose`: Kinesis Firehose Service.
+- `amazonka-marketplace-analytics`: Marketplace Commerce Analytics Service.
+- `amazonka-waf`: Web Application Firewall Service.
 
 
 ## [1.3.2](https://github.com/brendanhay/amazonka/tree/1.3.2)

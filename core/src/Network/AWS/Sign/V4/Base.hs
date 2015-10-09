@@ -41,7 +41,7 @@ import           Network.AWS.Data.Time
 import           Network.AWS.Request
 import           Network.AWS.Types
 import qualified Network.HTTP.Conduit        as Client
-import           Network.HTTP.Types.Header
+import qualified Network.HTTP.Types.Header   as H
 
 import           Prelude
 
@@ -88,7 +88,7 @@ base :: Hash
      -> (V4, ClientRequest -> ClientRequest)
 base h rq a r ts = (meta, auth)
   where
-    auth = requestHeaders <>~ [(hAuthorization, authorisation meta)]
+    auth = requestHeaders <>~ [(H.hAuthorization, authorisation meta)]
 
     meta = signMetadata a r ts presigner h (prepare rq)
 

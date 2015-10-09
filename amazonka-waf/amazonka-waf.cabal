@@ -1,0 +1,114 @@
+name:                  amazonka-waf
+version:               1.3.3
+synopsis:              Amazon WAF SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2015 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+cabal-version:         >= 1.10
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto
+description:
+    This is the /AWS WAF API Reference/. This guide is for developers who
+    need detailed information about the AWS WAF API actions, data types, and
+    errors. For detailed information about AWS WAF features and an overview
+    of how to use the AWS WAF API, see the
+    <http://docs.aws.amazon.com/waf/latest/dev/ AWS WAF Developer Guide>.
+    .
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information and sending requests.
+    .
+    Use of lenses is required for constructing and manipulating types.
+    This is due to the amount of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.WAF" and the <http://docs.aws.amazon.com/waf/latest/APIReference/Welcome.html AWS API Reference>
+    to get started.
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.WAF
+        , Network.AWS.WAF.CreateByteMatchSet
+        , Network.AWS.WAF.CreateIPSet
+        , Network.AWS.WAF.CreateRule
+        , Network.AWS.WAF.CreateSqlInjectionMatchSet
+        , Network.AWS.WAF.CreateWebACL
+        , Network.AWS.WAF.DeleteByteMatchSet
+        , Network.AWS.WAF.DeleteIPSet
+        , Network.AWS.WAF.DeleteRule
+        , Network.AWS.WAF.DeleteSqlInjectionMatchSet
+        , Network.AWS.WAF.DeleteWebACL
+        , Network.AWS.WAF.GetByteMatchSet
+        , Network.AWS.WAF.GetChangeToken
+        , Network.AWS.WAF.GetChangeTokenStatus
+        , Network.AWS.WAF.GetIPSet
+        , Network.AWS.WAF.GetRule
+        , Network.AWS.WAF.GetSampledRequests
+        , Network.AWS.WAF.GetSqlInjectionMatchSet
+        , Network.AWS.WAF.GetWebACL
+        , Network.AWS.WAF.ListByteMatchSets
+        , Network.AWS.WAF.ListIPSets
+        , Network.AWS.WAF.ListRules
+        , Network.AWS.WAF.ListSqlInjectionMatchSets
+        , Network.AWS.WAF.ListWebACLs
+        , Network.AWS.WAF.Types
+        , Network.AWS.WAF.UpdateByteMatchSet
+        , Network.AWS.WAF.UpdateIPSet
+        , Network.AWS.WAF.UpdateRule
+        , Network.AWS.WAF.UpdateSqlInjectionMatchSet
+        , Network.AWS.WAF.UpdateWebACL
+        , Network.AWS.WAF.Waiters
+
+    other-modules:
+          Network.AWS.WAF.Types.Product
+        , Network.AWS.WAF.Types.Sum
+
+    build-depends:
+          amazonka-core == 1.3.3.*
+        , base          >= 4.7     && < 5
+
+test-suite amazonka-waf-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.WAF
+        , Test.AWS.Gen.WAF
+        , Test.AWS.WAF.Internal
+
+    build-depends:
+          amazonka-core == 1.3.3.*
+        , amazonka-test == 1.3.3.*
+        , amazonka-waf == 1.3.3.*
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

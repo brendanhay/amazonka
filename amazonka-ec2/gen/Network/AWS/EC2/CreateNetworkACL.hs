@@ -102,7 +102,7 @@ instance ToQuery CreateNetworkACL where
         toQuery CreateNetworkACL'{..}
           = mconcat
               ["Action" =: ("CreateNetworkAcl" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _cnaDryRun, "VpcId" =: _cnaVPCId]
 
 -- | /See:/ 'createNetworkACLResponse' smart constructor.

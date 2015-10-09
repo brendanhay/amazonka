@@ -74,14 +74,26 @@ module Network.AWS.Config
     -- ** InvalidDeliveryChannelNameException
     , _InvalidDeliveryChannelNameException
 
+    -- ** InvalidParameterValueException
+    , _InvalidParameterValueException
+
+    -- ** InvalidResultTokenException
+    , _InvalidResultTokenException
+
     -- ** NoSuchDeliveryChannelException
     , _NoSuchDeliveryChannelException
+
+    -- ** NoSuchConfigRuleException
+    , _NoSuchConfigRuleException
 
     -- ** ResourceNotDiscoveredException
     , _ResourceNotDiscoveredException
 
     -- ** InvalidNextTokenException
     , _InvalidNextTokenException
+
+    -- ** MaxNumberOfConfigRulesExceededException
+    , _MaxNumberOfConfigRulesExceededException
 
     -- ** NoAvailableConfigurationRecorderException
     , _NoAvailableConfigurationRecorderException
@@ -113,6 +125,9 @@ module Network.AWS.Config
     -- ** InvalidS3KeyPrefixException
     , _InvalidS3KeyPrefixException
 
+    -- ** ResourceInUseException
+    , _ResourceInUseException
+
     -- * Waiters
     -- $waiters
 
@@ -122,11 +137,35 @@ module Network.AWS.Config
     -- ** GetResourceConfigHistory
     , module Network.AWS.Config.GetResourceConfigHistory
 
+    -- ** DescribeComplianceByConfigRule
+    , module Network.AWS.Config.DescribeComplianceByConfigRule
+
     -- ** StopConfigurationRecorder
     , module Network.AWS.Config.StopConfigurationRecorder
 
+    -- ** DescribeConfigRules
+    , module Network.AWS.Config.DescribeConfigRules
+
+    -- ** PutConfigRule
+    , module Network.AWS.Config.PutConfigRule
+
+    -- ** DeleteConfigRule
+    , module Network.AWS.Config.DeleteConfigRule
+
+    -- ** GetComplianceDetailsByResource
+    , module Network.AWS.Config.GetComplianceDetailsByResource
+
     -- ** DeliverConfigSnapshot
     , module Network.AWS.Config.DeliverConfigSnapshot
+
+    -- ** DescribeConfigRuleEvaluationStatus
+    , module Network.AWS.Config.DescribeConfigRuleEvaluationStatus
+
+    -- ** DescribeComplianceByResource
+    , module Network.AWS.Config.DescribeComplianceByResource
+
+    -- ** PutEvaluations
+    , module Network.AWS.Config.PutEvaluations
 
     -- ** DescribeConfigurationRecorders
     , module Network.AWS.Config.DescribeConfigurationRecorders
@@ -134,17 +173,26 @@ module Network.AWS.Config
     -- ** StartConfigurationRecorder
     , module Network.AWS.Config.StartConfigurationRecorder
 
+    -- ** GetComplianceSummaryByConfigRule
+    , module Network.AWS.Config.GetComplianceSummaryByConfigRule
+
     -- ** DescribeConfigurationRecorderStatus
     , module Network.AWS.Config.DescribeConfigurationRecorderStatus
 
     -- ** PutConfigurationRecorder
     , module Network.AWS.Config.PutConfigurationRecorder
 
+    -- ** GetComplianceSummaryByResourceType
+    , module Network.AWS.Config.GetComplianceSummaryByResourceType
+
     -- ** DescribeDeliveryChannelStatus
     , module Network.AWS.Config.DescribeDeliveryChannelStatus
 
     -- ** PutDeliveryChannel
     , module Network.AWS.Config.PutDeliveryChannel
+
+    -- ** GetComplianceDetailsByConfigRule
+    , module Network.AWS.Config.GetComplianceDetailsByConfigRule
 
     -- ** DeleteDeliveryChannel
     , module Network.AWS.Config.DeleteDeliveryChannel
@@ -160,17 +208,73 @@ module Network.AWS.Config
     -- ** ChronologicalOrder
     , ChronologicalOrder (..)
 
+    -- ** ComplianceType
+    , ComplianceType (..)
+
+    -- ** ConfigRuleState
+    , ConfigRuleState (..)
+
     -- ** ConfigurationItemStatus
     , ConfigurationItemStatus (..)
 
     -- ** DeliveryStatus
     , DeliveryStatus (..)
 
+    -- ** EventSource
+    , EventSource (..)
+
+    -- ** MaximumExecutionFrequency
+    , MaximumExecutionFrequency (..)
+
+    -- ** MessageType
+    , MessageType (..)
+
+    -- ** Owner
+    , Owner (..)
+
     -- ** RecorderStatus
     , RecorderStatus (..)
 
     -- ** ResourceType
     , ResourceType (..)
+
+    -- ** Compliance
+    , Compliance
+    , compliance
+    , cComplianceContributorCount
+    , cComplianceType
+
+    -- ** ComplianceByConfigRule
+    , ComplianceByConfigRule
+    , complianceByConfigRule
+    , cbcrCompliance
+    , cbcrConfigRuleName
+
+    -- ** ComplianceByResource
+    , ComplianceByResource
+    , complianceByResource
+    , cbrResourceId
+    , cbrResourceType
+    , cbrCompliance
+
+    -- ** ComplianceContributorCount
+    , ComplianceContributorCount
+    , complianceContributorCount
+    , cccCappedCount
+    , cccCapExceeded
+
+    -- ** ComplianceSummary
+    , ComplianceSummary
+    , complianceSummary
+    , csComplianceSummaryTimestamp
+    , csCompliantResourceCount
+    , csNonCompliantResourceCount
+
+    -- ** ComplianceSummaryByResourceType
+    , ComplianceSummaryByResourceType
+    , complianceSummaryByResourceType
+    , csbrtResourceType
+    , csbrtComplianceSummary
 
     -- ** ConfigExportDeliveryInfo
     , ConfigExportDeliveryInfo
@@ -180,6 +284,37 @@ module Network.AWS.Config
     , cediLastSuccessfulTime
     , cediLastStatus
     , cediLastErrorMessage
+    , cediNextDeliveryTime
+
+    -- ** ConfigRule
+    , ConfigRule
+    , configRule
+    , crInputParameters
+    , crConfigRuleName
+    , crMaximumExecutionFrequency
+    , crConfigRuleId
+    , crScope
+    , crConfigRuleState
+    , crDescription
+    , crConfigRuleARN
+    , crSource
+
+    -- ** ConfigRuleEvaluationStatus
+    , ConfigRuleEvaluationStatus
+    , configRuleEvaluationStatus
+    , cresLastErrorCode
+    , cresFirstActivatedTime
+    , cresConfigRuleName
+    , cresLastErrorMessage
+    , cresConfigRuleId
+    , cresLastFailedInvocationTime
+    , cresLastSuccessfulInvocationTime
+    , cresConfigRuleARN
+
+    -- ** ConfigSnapshotDeliveryProperties
+    , ConfigSnapshotDeliveryProperties
+    , configSnapshotDeliveryProperties
+    , csdpDeliveryFrequency
 
     -- ** ConfigStreamDeliveryInfo
     , ConfigStreamDeliveryInfo
@@ -235,6 +370,7 @@ module Network.AWS.Config
     , dcS3KeyPrefix
     , dcSnsTopicARN
     , dcName
+    , dcConfigSnapshotDeliveryProperties
     , dcS3BucketName
 
     -- ** DeliveryChannelStatus
@@ -244,6 +380,38 @@ module Network.AWS.Config
     , dcsConfigStreamDeliveryInfo
     , dcsConfigHistoryDeliveryInfo
     , dcsName
+
+    -- ** Evaluation
+    , Evaluation
+    , evaluation
+    , eAnnotation
+    , eComplianceResourceType
+    , eComplianceResourceId
+    , eComplianceType
+    , eOrderingTimestamp
+
+    -- ** EvaluationResult
+    , EvaluationResult
+    , evaluationResult
+    , erEvaluationResultIdentifier
+    , erAnnotation
+    , erConfigRuleInvokedTime
+    , erResultRecordedTime
+    , erResultToken
+    , erComplianceType
+
+    -- ** EvaluationResultIdentifier
+    , EvaluationResultIdentifier
+    , evaluationResultIdentifier
+    , eriEvaluationResultQualifier
+    , eriOrderingTimestamp
+
+    -- ** EvaluationResultQualifier
+    , EvaluationResultQualifier
+    , evaluationResultQualifier
+    , erqResourceId
+    , erqResourceType
+    , erqConfigRuleName
 
     -- ** RecordingGroup
     , RecordingGroup
@@ -266,18 +434,50 @@ module Network.AWS.Config
     , riResourceType
     , riResourceName
     , riResourceDeletionTime
+
+    -- ** Scope
+    , Scope
+    , scope
+    , sComplianceResourceTypes
+    , sComplianceResourceId
+    , sTagValue
+    , sTagKey
+
+    -- ** Source
+    , Source
+    , source
+    , sSourceIdentifier
+    , sOwner
+    , sSourceDetails
+
+    -- ** SourceDetail
+    , SourceDetail
+    , sourceDetail
+    , sdMessageType
+    , sdEventSource
     ) where
 
+import           Network.AWS.Config.DeleteConfigRule
 import           Network.AWS.Config.DeleteDeliveryChannel
 import           Network.AWS.Config.DeliverConfigSnapshot
+import           Network.AWS.Config.DescribeComplianceByConfigRule
+import           Network.AWS.Config.DescribeComplianceByResource
+import           Network.AWS.Config.DescribeConfigRuleEvaluationStatus
+import           Network.AWS.Config.DescribeConfigRules
 import           Network.AWS.Config.DescribeConfigurationRecorders
 import           Network.AWS.Config.DescribeConfigurationRecorderStatus
 import           Network.AWS.Config.DescribeDeliveryChannels
 import           Network.AWS.Config.DescribeDeliveryChannelStatus
+import           Network.AWS.Config.GetComplianceDetailsByConfigRule
+import           Network.AWS.Config.GetComplianceDetailsByResource
+import           Network.AWS.Config.GetComplianceSummaryByConfigRule
+import           Network.AWS.Config.GetComplianceSummaryByResourceType
 import           Network.AWS.Config.GetResourceConfigHistory
 import           Network.AWS.Config.ListDiscoveredResources
+import           Network.AWS.Config.PutConfigRule
 import           Network.AWS.Config.PutConfigurationRecorder
 import           Network.AWS.Config.PutDeliveryChannel
+import           Network.AWS.Config.PutEvaluations
 import           Network.AWS.Config.StartConfigurationRecorder
 import           Network.AWS.Config.StopConfigurationRecorder
 import           Network.AWS.Config.Types

@@ -78,6 +78,7 @@ data Method
     | HEAD
     | PUT
     | DELETE
+    | PATCH
       deriving (Eq, Show, Generic)
 
 instance FromJSON Method where
@@ -90,6 +91,7 @@ methodToText = \case
    HEAD   -> "head'"
    PUT    -> "put"
    DELETE -> "delete"
+   PATCH  -> "patch"
 
 data HTTP f = HTTP
     { _method       :: !Method

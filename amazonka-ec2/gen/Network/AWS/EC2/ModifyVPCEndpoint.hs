@@ -136,7 +136,7 @@ instance ToQuery ModifyVPCEndpoint where
         toQuery ModifyVPCEndpoint'{..}
           = mconcat
               ["Action" =: ("ModifyVpcEndpoint" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "PolicyDocument" =: _mvePolicyDocument,
                toQuery
                  (toQueryList "RemoveRouteTableId" <$>

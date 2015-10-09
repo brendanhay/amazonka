@@ -74,6 +74,9 @@ module Network.AWS.EC2.Types
     -- * EventType
     , EventType (..)
 
+    -- * ExcessCapacityTerminationPolicy
+    , ExcessCapacityTerminationPolicy (..)
+
     -- * ExportEnvironment
     , ExportEnvironment (..)
 
@@ -1352,11 +1355,13 @@ module Network.AWS.EC2.Types
     , sfrcSpotFleetRequestId
     , sfrcSpotFleetRequestState
     , sfrcSpotFleetRequestConfig
+    , sfrcCreateTime
 
     -- * SpotFleetRequestConfigData
     , SpotFleetRequestConfigData
     , spotFleetRequestConfigData
     , sfrcdClientToken
+    , sfrcdExcessCapacityTerminationPolicy
     , sfrcdValidUntil
     , sfrcdTerminateInstancesWithExpiration
     , sfrcdValidFrom
@@ -1372,6 +1377,8 @@ module Network.AWS.EC2.Types
     , sirInstanceId
     , sirStatus
     , sirState
+    , sirActualBlockHourlyPrice
+    , sirBlockDurationMinutes
     , sirProductDescription
     , sirSpotPrice
     , sirLaunchSpecification
@@ -1671,14 +1678,14 @@ import           Network.AWS.EC2.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-04-15' of the Amazon Elastic Compute Cloud SDK configuration.
+-- | API version '2015-10-01' of the Amazon Elastic Compute Cloud SDK configuration.
 eC2 :: Service
 eC2 =
     Service
     { _svcAbbrev = "EC2"
     , _svcSigner = v4
     , _svcPrefix = "ec2"
-    , _svcVersion = "2015-04-15"
+    , _svcVersion = "2015-10-01"
     , _svcEndpoint = defaultEndpoint eC2
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess

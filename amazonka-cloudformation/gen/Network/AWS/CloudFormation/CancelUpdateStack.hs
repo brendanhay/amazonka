@@ -19,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels an update on the specified stack. If the call completes
--- successfully, the stack will roll back the update and revert to the
+-- successfully, the stack rolls back the update and reverts to the
 -- previous stack configuration.
 --
--- Only stacks that are in the UPDATE_IN_PROGRESS state can be canceled.
+-- You can cancel only stacks that are in the UPDATE_IN_PROGRESS state.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html AWS API Reference> for CancelUpdateStack.
 module Network.AWS.CloudFormation.CancelUpdateStack
@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for CancelUpdateStack action.
+-- | The input for the CancelUpdateStack action.
 --
 -- /See:/ 'cancelUpdateStack' smart constructor.
 newtype CancelUpdateStack = CancelUpdateStack'

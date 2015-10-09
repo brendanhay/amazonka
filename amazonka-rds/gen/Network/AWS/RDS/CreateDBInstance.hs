@@ -37,7 +37,6 @@ module Network.AWS.RDS.CreateDBInstance
     , cdiMasterUsername
     , cdiDBSubnetGroupName
     , cdiIOPS
-    , cdiDomain
     , cdiTDECredentialPassword
     , cdiLicenseModel
     , cdiPreferredMaintenanceWindow
@@ -89,7 +88,6 @@ data CreateDBInstance = CreateDBInstance'
     , _cdiMasterUsername             :: !(Maybe Text)
     , _cdiDBSubnetGroupName          :: !(Maybe Text)
     , _cdiIOPS                       :: !(Maybe Int)
-    , _cdiDomain                     :: !(Maybe Text)
     , _cdiTDECredentialPassword      :: !(Maybe Text)
     , _cdiLicenseModel               :: !(Maybe Text)
     , _cdiPreferredMaintenanceWindow :: !(Maybe Text)
@@ -137,8 +135,6 @@ data CreateDBInstance = CreateDBInstance'
 -- * 'cdiDBSubnetGroupName'
 --
 -- * 'cdiIOPS'
---
--- * 'cdiDomain'
 --
 -- * 'cdiTDECredentialPassword'
 --
@@ -200,7 +196,6 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
     , _cdiMasterUsername = Nothing
     , _cdiDBSubnetGroupName = Nothing
     , _cdiIOPS = Nothing
-    , _cdiDomain = Nothing
     , _cdiTDECredentialPassword = Nothing
     , _cdiLicenseModel = Nothing
     , _cdiPreferredMaintenanceWindow = Nothing
@@ -244,45 +239,6 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
 -- -   __Version 5.6 (Available in all regions):__
 --     ' 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23'
 --
--- __MySQL__
---
--- -   __Version 5.1 (Only available in the following regions:
---     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ ' 5.1.73a | 5.1.73b'
--- -   __Version 5.5 (Only available in the following regions:
---     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ ' 5.5.40 | 5.5.40a'
--- -   __Version 5.5 (Available in all regions):__
---     ' 5.5.40b | 5.5.41 | 5.5.42'
--- -   __Version 5.6 (Available in all regions):__
---     ' 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23'
---
--- __MySQL__
---
--- -   __Version 5.1 (Only available in the following regions:
---     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ ' 5.1.73a | 5.1.73b'
--- -   __Version 5.5 (Only available in the following regions:
---     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ ' 5.5.40 | 5.5.40a'
--- -   __Version 5.5 (Available in all regions):__
---     ' 5.5.40b | 5.5.41 | 5.5.42'
--- -   __Version 5.6 (Available in all regions):__
---     ' 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23'
---
--- __MySQL__
---
--- -   __Version 5.1 (Only available in the following regions:
---     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ ' 5.1.73a | 5.1.73b'
--- -   __Version 5.5 (Only available in the following regions:
---     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ ' 5.5.40 | 5.5.40a'
--- -   __Version 5.5 (Available in all regions):__
---     ' 5.5.40b | 5.5.41 | 5.5.42'
--- -   __Version 5.6 (Available in all regions):__
---     ' 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23'
---
 -- __Oracle Database Enterprise Edition (oracle-ee)__
 --
 -- -   __Version 11.2 (Only available in the following regions:
@@ -290,28 +246,9 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
 --     sa-east-1, us-west-1, us-west-2):__
 --     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
 -- -   __Version 11.2 (Available in all regions):__
---     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
--- -   __Version 12.1 (Available in all regions):__ ' 12.1.0.1.v1'
---
--- __Oracle Database Enterprise Edition (oracle-ee)__
---
--- -   __Version 11.2 (Only available in the following regions:
---     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__
---     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
--- -   __Version 11.2 (Available in all regions):__
---     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
--- -   __Version 12.1 (Available in all regions):__ ' 12.1.0.1.v1'
---
--- __Oracle Database Enterprise Edition (oracle-ee)__
---
--- -   __Version 11.2 (Only available in the following regions:
---     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__
---     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
--- -   __Version 11.2 (Available in all regions):__
---     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
--- -   __Version 12.1 (Available in all regions):__ ' 12.1.0.1.v1'
+--     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3 | 11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4'
+-- -   __Version 12.1 (Available in all regions):__
+--     '12.1.0.1.v1 | 12.1.0.1.v2 | 12.1.0.2.v1 '
 --
 -- __Oracle Database Standard Edition (oracle-se)__
 --
@@ -320,31 +257,9 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
 --     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
 -- -   __Version 11.2 (Only available in the following regions:
 --     eu-central-1, us-west-1):__
---     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
+--     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3 | 11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4'
 -- -   __Version 12.1 (Only available in the following regions:
---     eu-central-1, us-west-1):__ ' 12.1.0.1.v1'
---
--- __Oracle Database Standard Edition (oracle-se)__
---
--- -   __Version 11.2 (Only available in the following regions:
---     us-west-1):__
---     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
--- -   __Version 11.2 (Only available in the following regions:
---     eu-central-1, us-west-1):__
---     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
--- -   __Version 12.1 (Only available in the following regions:
---     eu-central-1, us-west-1):__ ' 12.1.0.1.v1'
---
--- __Oracle Database Standard Edition (oracle-se)__
---
--- -   __Version 11.2 (Only available in the following regions:
---     us-west-1):__
---     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
--- -   __Version 11.2 (Only available in the following regions:
---     eu-central-1, us-west-1):__
---     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
--- -   __Version 12.1 (Only available in the following regions:
---     eu-central-1, us-west-1):__ ' 12.1.0.1.v1'
+--     eu-central-1, us-west-1):__ '12.1.0.1.v1 | 12.1.0.1.v2'
 --
 -- __Oracle Database Standard Edition One (oracle-se1)__
 --
@@ -353,47 +268,9 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
 --     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
 -- -   __Version 11.2 (Only available in the following regions:
 --     eu-central-1, us-west-1):__
---     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
+--     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3 | 11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4'
 -- -   __Version 12.1 (Only available in the following regions:
---     eu-central-1, us-west-1):__ ' 12.1.0.1.v1'
---
--- __Oracle Database Standard Edition One (oracle-se1)__
---
--- -   __Version 11.2 (Only available in the following regions:
---     us-west-1):__
---     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
--- -   __Version 11.2 (Only available in the following regions:
---     eu-central-1, us-west-1):__
---     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
--- -   __Version 12.1 (Only available in the following regions:
---     eu-central-1, us-west-1):__ ' 12.1.0.1.v1'
---
--- __Oracle Database Standard Edition One (oracle-se1)__
---
--- -   __Version 11.2 (Only available in the following regions:
---     us-west-1):__
---     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
--- -   __Version 11.2 (Only available in the following regions:
---     eu-central-1, us-west-1):__
---     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
--- -   __Version 12.1 (Only available in the following regions:
---     eu-central-1, us-west-1):__ ' 12.1.0.1.v1'
---
--- __PostgreSQL__
---
--- -   __Version 9.3 (Only available in the following regions:
---     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ ' 9.3.1 | 9.3.2'
--- -   __Version 9.3 (Available in all regions):__ ' 9.3.3 | 9.3.5 | 9.3.6'
--- -   __Version 9.4 (Available in all regions):__ ' 9.4.1'
---
--- __PostgreSQL__
---
--- -   __Version 9.3 (Only available in the following regions:
---     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ ' 9.3.1 | 9.3.2'
--- -   __Version 9.3 (Available in all regions):__ ' 9.3.3 | 9.3.5 | 9.3.6'
--- -   __Version 9.4 (Available in all regions):__ ' 9.4.1'
+--     eu-central-1, us-west-1):__ ' 12.1.0.1.v1 | 12.1.0.1.v2'
 --
 -- __PostgreSQL__
 --
@@ -410,34 +287,12 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
 -- -   __Version 11.00 (Only available in the following regions:
 --     eu-central-1, us-west-1):__ ' 11.00.2100.60.v1'
 --
--- __Microsoft SQL Server Enterprise Edition (sqlserver-ee)__
---
--- -   __Version 10.50 (Only available in the following regions:
---     eu-central-1, us-west-1):__ ' 10.50.2789.0.v1'
--- -   __Version 11.00 (Only available in the following regions:
---     eu-central-1, us-west-1):__ ' 11.00.2100.60.v1'
---
--- __Microsoft SQL Server Express Edition (sqlserver-ex)__
---
--- -   __Version 10.50 (Available in all regions):__ ' 10.50.2789.0.v1'
--- -   __Version 11.00 (Available in all regions):__ ' 11.00.2100.60.v1'
---
 -- __Microsoft SQL Server Express Edition (sqlserver-ex)__
 --
 -- -   __Version 10.50 (Available in all regions):__ ' 10.50.2789.0.v1'
 -- -   __Version 11.00 (Available in all regions):__ ' 11.00.2100.60.v1'
 --
 -- __Microsoft SQL Server Standard Edition (sqlserver-se)__
---
--- -   __Version 10.50 (Available in all regions):__ ' 10.50.2789.0.v1'
--- -   __Version 11.00 (Available in all regions):__ ' 11.00.2100.60.v1'
---
--- __Microsoft SQL Server Standard Edition (sqlserver-se)__
---
--- -   __Version 10.50 (Available in all regions):__ ' 10.50.2789.0.v1'
--- -   __Version 11.00 (Available in all regions):__ ' 11.00.2100.60.v1'
---
--- __Microsoft SQL Server Web Edition (sqlserver-web)__
 --
 -- -   __Version 10.50 (Available in all regions):__ ' 10.50.2789.0.v1'
 -- -   __Version 11.00 (Available in all regions):__ ' 11.00.2100.60.v1'
@@ -489,6 +344,10 @@ cdiDBClusterIdentifier = lens _cdiDBClusterIdentifier (\ s a -> s{_cdiDBClusterI
 -- __PostgreSQL__
 --
 -- Constraints: Must contain from 8 to 128 characters.
+--
+-- __Amazon Aurora__
+--
+-- Constraints: Must contain from 8 to 41 characters.
 cdiMasterUserPassword :: Lens' CreateDBInstance (Maybe Text)
 cdiMasterUserPassword = lens _cdiMasterUserPassword (\ s a -> s{_cdiMasterUserPassword = a});
 
@@ -571,10 +430,6 @@ cdiDBSubnetGroupName = lens _cdiDBSubnetGroupName (\ s a -> s{_cdiDBSubnetGroupN
 -- 1000.
 cdiIOPS :: Lens' CreateDBInstance (Maybe Int)
 cdiIOPS = lens _cdiIOPS (\ s a -> s{_cdiIOPS = a});
-
--- | Specify the Active Directory Domain to create the instance in.
-cdiDomain :: Lens' CreateDBInstance (Maybe Text)
-cdiDomain = lens _cdiDomain (\ s a -> s{_cdiDomain = a});
 
 -- | The password for the given ARN from the Key Store in order to access the
 -- device.
@@ -735,7 +590,8 @@ cdiAllocatedStorage = lens _cdiAllocatedStorage (\ s a -> s{_cdiAllocatedStorage
 cdiOptionGroupName :: Lens' CreateDBInstance (Maybe Text)
 cdiOptionGroupName = lens _cdiOptionGroupName (\ s a -> s{_cdiOptionGroupName = a});
 
--- | This property is not currently implemented.
+-- | True to copy all tags from the DB instance to snapshots of the DB
+-- instance; otherwise false. The default is false.
 cdiCopyTagsToSnapshot :: Lens' CreateDBInstance (Maybe Bool)
 cdiCopyTagsToSnapshot = lens _cdiCopyTagsToSnapshot (\ s a -> s{_cdiCopyTagsToSnapshot = a});
 
@@ -778,6 +634,14 @@ cdiTags = lens _cdiTags (\ s a -> s{_cdiTags = a}) . _Default . _Coerce;
 --
 -- Valid Values: '1150-65535' except for '1434', '3389', '47001', '49152',
 -- and '49152' through '49156'.
+--
+-- __Amazon Aurora__
+--
+-- Default: '3306'
+--
+-- Valid Values: '1150-65535'
+--
+-- Type: Integer
 cdiPort :: Lens' CreateDBInstance (Maybe Int)
 cdiPort = lens _cdiPort (\ s a -> s{_cdiPort = a});
 
@@ -835,6 +699,17 @@ cdiStorageType = lens _cdiStorageType (\ s a -> s{_cdiStorageType = a});
 -- __SQL Server__
 --
 -- Not applicable. Must be null.
+--
+-- __Amazon Aurora__
+--
+-- The name of the database to create when the primary instance of the DB
+-- cluster is created. If this parameter is not specified, no database is
+-- created in the DB instance.
+--
+-- Constraints:
+--
+-- -   Must contain 1 to 64 alphanumeric characters
+-- -   Cannot be a word reserved by the specified database engine
 cdiDBName :: Lens' CreateDBInstance (Maybe Text)
 cdiDBName = lens _cdiDBName (\ s a -> s{_cdiDBName = a});
 
@@ -855,7 +730,7 @@ cdiDBInstanceIdentifier = lens _cdiDBInstanceIdentifier (\ s a -> s{_cdiDBInstan
 -- | The compute and memory capacity of the DB instance.
 --
 -- Valid Values:
--- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium'
+-- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
 cdiDBInstanceClass :: Lens' CreateDBInstance Text
 cdiDBInstanceClass = lens _cdiDBInstanceClass (\ s a -> s{_cdiDBInstanceClass = a});
 
@@ -902,7 +777,7 @@ instance ToQuery CreateDBInstance where
                  _cdiAutoMinorVersionUpgrade,
                "MasterUsername" =: _cdiMasterUsername,
                "DBSubnetGroupName" =: _cdiDBSubnetGroupName,
-               "Iops" =: _cdiIOPS, "Domain" =: _cdiDomain,
+               "Iops" =: _cdiIOPS,
                "TdeCredentialPassword" =: _cdiTDECredentialPassword,
                "LicenseModel" =: _cdiLicenseModel,
                "PreferredMaintenanceWindow" =:

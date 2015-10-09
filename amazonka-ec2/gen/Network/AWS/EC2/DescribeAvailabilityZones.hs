@@ -90,7 +90,7 @@ dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a}) . _Default . _
 --     (for example, 'us-east-1').
 --
 -- -   'state' - The state of the Availability Zone ('available' |
---     'impaired' | 'unavailable').
+--     'information' | 'impaired' | 'unavailable').
 --
 -- -   'zone-name' - The name of the Availability Zone (for example,
 --     'us-east-1a').
@@ -128,7 +128,7 @@ instance ToQuery DescribeAvailabilityZones where
           = mconcat
               ["Action" =:
                  ("DescribeAvailabilityZones" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                toQuery (toQueryList "ZoneName" <$> _dazZoneNames),
                toQuery (toQueryList "Filter" <$> _dazFilters),
                "DryRun" =: _dazDryRun]

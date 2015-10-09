@@ -206,7 +206,7 @@ instance ToQuery ImportImage where
         toQuery ImportImage'{..}
           = mconcat
               ["Action" =: ("ImportImage" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "Hypervisor" =: _impHypervisor,
                "Platform" =: _impPlatform,
                "ClientToken" =: _impClientToken,

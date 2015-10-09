@@ -130,7 +130,7 @@ instance ToQuery CreateVPCPeeringConnection where
           = mconcat
               ["Action" =:
                  ("CreateVpcPeeringConnection" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "PeerVpcId" =: _cvpcPeerVPCId, "VpcId" =: _cvpcVPCId,
                "PeerOwnerId" =: _cvpcPeerOwnerId,
                "DryRun" =: _cvpcDryRun]

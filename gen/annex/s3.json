@@ -9,6 +9,21 @@
         },
         "CompletedPartList": {
             "min": 1
+        },
+        "ObjectStorageClass": {
+            "enum": [
+                "STANDARD",
+                "STANDARD_IA",
+                "REDUCED_REDUNDANCY",
+                "GLACIER"
+            ]
+        },
+        "GetBucketLocationOutput": {
+            "required": [
+                "LocationConstraint"
+            ],
+            "payload": "LocationConstraint"
         }
     }
 }
+

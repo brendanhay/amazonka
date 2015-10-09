@@ -1,5 +1,5 @@
 name:                  amazonka-kinesis
-version:               1.3.2
+version:               1.3.3
 synopsis:              Amazon Kinesis SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -46,10 +46,12 @@ library
           Network.AWS.Kinesis
         , Network.AWS.Kinesis.AddTagsToStream
         , Network.AWS.Kinesis.CreateStream
+        , Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
         , Network.AWS.Kinesis.DeleteStream
         , Network.AWS.Kinesis.DescribeStream
         , Network.AWS.Kinesis.GetRecords
         , Network.AWS.Kinesis.GetShardIterator
+        , Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
         , Network.AWS.Kinesis.ListStreams
         , Network.AWS.Kinesis.ListTagsForStream
         , Network.AWS.Kinesis.MergeShards
@@ -65,7 +67,7 @@ library
         , Network.AWS.Kinesis.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.2.*
+          amazonka-core == 1.3.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-kinesis-test
@@ -85,9 +87,9 @@ test-suite amazonka-kinesis-test
         , Test.AWS.Kinesis.Internal
 
     build-depends:
-          amazonka-core == 1.3.2.*
-        , amazonka-test == 1.3.2.*
-        , amazonka-kinesis == 1.3.2.*
+          amazonka-core == 1.3.3.*
+        , amazonka-test == 1.3.3.*
+        , amazonka-kinesis == 1.3.3.*
         , base
         , bytestring
         , lens

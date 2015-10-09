@@ -136,6 +136,68 @@ instance ToJSON LookupAttribute where
                  [Just ("AttributeKey" .= _laAttributeKey),
                   Just ("AttributeValue" .= _laAttributeValue)])
 
+-- | Contains information about a returned public key.
+--
+-- /See:/ 'publicKey' smart constructor.
+data PublicKey = PublicKey'
+    { _pkFingerprint       :: !(Maybe Text)
+    , _pkValidityEndTime   :: !(Maybe POSIX)
+    , _pkValue             :: !(Maybe Base64)
+    , _pkValidityStartTime :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PublicKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pkFingerprint'
+--
+-- * 'pkValidityEndTime'
+--
+-- * 'pkValue'
+--
+-- * 'pkValidityStartTime'
+publicKey
+    :: PublicKey
+publicKey =
+    PublicKey'
+    { _pkFingerprint = Nothing
+    , _pkValidityEndTime = Nothing
+    , _pkValue = Nothing
+    , _pkValidityStartTime = Nothing
+    }
+
+-- | The fingerprint of the public key.
+pkFingerprint :: Lens' PublicKey (Maybe Text)
+pkFingerprint = lens _pkFingerprint (\ s a -> s{_pkFingerprint = a});
+
+-- | The ending time of validity of the public key.
+pkValidityEndTime :: Lens' PublicKey (Maybe UTCTime)
+pkValidityEndTime = lens _pkValidityEndTime (\ s a -> s{_pkValidityEndTime = a}) . mapping _Time;
+
+-- | The DER encoded public key value in PKCS#1 format.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+pkValue :: Lens' PublicKey (Maybe ByteString)
+pkValue = lens _pkValue (\ s a -> s{_pkValue = a}) . mapping _Base64;
+
+-- | The starting time of validity of the public key.
+pkValidityStartTime :: Lens' PublicKey (Maybe UTCTime)
+pkValidityStartTime = lens _pkValidityStartTime (\ s a -> s{_pkValidityStartTime = a}) . mapping _Time;
+
+instance FromJSON PublicKey where
+        parseJSON
+          = withObject "PublicKey"
+              (\ x ->
+                 PublicKey' <$>
+                   (x .:? "Fingerprint") <*> (x .:? "ValidityEndTime")
+                     <*> (x .:? "Value")
+                     <*> (x .:? "ValidityStartTime"))
+
 -- | Specifies the type and name of a resource referenced by an event.
 --
 -- /See:/ 'resource' smart constructor.
@@ -182,13 +244,103 @@ instance FromJSON Resource where
                  Resource' <$>
                    (x .:? "ResourceType") <*> (x .:? "ResourceName"))
 
+-- | A resource tag.
+--
+-- /See:/ 'resourceTag' smart constructor.
+data ResourceTag = ResourceTag'
+    { _rResourceId :: !(Maybe Text)
+    , _rTagsList   :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceTag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rResourceId'
+--
+-- * 'rTagsList'
+resourceTag
+    :: ResourceTag
+resourceTag =
+    ResourceTag'
+    { _rResourceId = Nothing
+    , _rTagsList = Nothing
+    }
+
+-- | Specifies the ARN of the resource.
+rResourceId :: Lens' ResourceTag (Maybe Text)
+rResourceId = lens _rResourceId (\ s a -> s{_rResourceId = a});
+
+-- | Undocumented member.
+rTagsList :: Lens' ResourceTag [Tag]
+rTagsList = lens _rTagsList (\ s a -> s{_rTagsList = a}) . _Default . _Coerce;
+
+instance FromJSON ResourceTag where
+        parseJSON
+          = withObject "ResourceTag"
+              (\ x ->
+                 ResourceTag' <$>
+                   (x .:? "ResourceId") <*>
+                     (x .:? "TagsList" .!= mempty))
+
+-- | A custom key-value pair associated with a resource such as a CloudTrail
+-- trail.
+--
+-- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+    { _tagValue :: !(Maybe Text)
+    , _tagKey   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Text -- ^ 'tagKey'
+    -> Tag
+tag pKey_ =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = pKey_
+    }
+
+-- | The value in a key-value pair of a tag. The value must be no longer than
+-- 256 Unicode characters.
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+
+-- | The key in a key-value pair. The key must be must be no longer than 128
+-- Unicode characters. The key must be unique for the resource to which it
+-- applies.
+tagKey :: Lens' Tag Text
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+
+instance FromJSON Tag where
+        parseJSON
+          = withObject "Tag"
+              (\ x -> Tag' <$> (x .:? "Value") <*> (x .: "Key"))
+
+instance ToJSON Tag where
+        toJSON Tag'{..}
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _tagValue,
+                  Just ("Key" .= _tagKey)])
+
 -- | The settings for a trail.
 --
 -- /See:/ 'trail' smart constructor.
 data Trail = Trail'
-    { _tS3KeyPrefix                :: !(Maybe Text)
+    { _tLogFileValidationEnabled   :: !(Maybe Bool)
+    , _tTrailARN                   :: !(Maybe Text)
+    , _tS3KeyPrefix                :: !(Maybe Text)
     , _tSNSTopicName               :: !(Maybe Text)
     , _tCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _tKMSKeyId                   :: !(Maybe Text)
     , _tName                       :: !(Maybe Text)
     , _tIncludeGlobalServiceEvents :: !(Maybe Bool)
     , _tCloudWatchLogsRoleARN      :: !(Maybe Text)
@@ -199,11 +351,17 @@ data Trail = Trail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'tLogFileValidationEnabled'
+--
+-- * 'tTrailARN'
+--
 -- * 'tS3KeyPrefix'
 --
 -- * 'tSNSTopicName'
 --
 -- * 'tCloudWatchLogsLogGroupARN'
+--
+-- * 'tKMSKeyId'
 --
 -- * 'tName'
 --
@@ -216,21 +374,38 @@ trail
     :: Trail
 trail =
     Trail'
-    { _tS3KeyPrefix = Nothing
+    { _tLogFileValidationEnabled = Nothing
+    , _tTrailARN = Nothing
+    , _tS3KeyPrefix = Nothing
     , _tSNSTopicName = Nothing
     , _tCloudWatchLogsLogGroupARN = Nothing
+    , _tKMSKeyId = Nothing
     , _tName = Nothing
     , _tIncludeGlobalServiceEvents = Nothing
     , _tCloudWatchLogsRoleARN = Nothing
     , _tS3BucketName = Nothing
     }
 
--- | Value of the Amazon S3 prefix.
+-- | Specifies whether log file validation is enabled.
+tLogFileValidationEnabled :: Lens' Trail (Maybe Bool)
+tLogFileValidationEnabled = lens _tLogFileValidationEnabled (\ s a -> s{_tLogFileValidationEnabled = a});
+
+-- | The Amazon Resource Name of the trail. The 'TrailARN' format is
+-- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
+tTrailARN :: Lens' Trail (Maybe Text)
+tTrailARN = lens _tTrailARN (\ s a -> s{_tTrailARN = a});
+
+-- | Specifies the Amazon S3 key prefix that comes after the name of the
+-- bucket you have designated for log file delivery. For more information,
+-- see
+-- <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files>.The
+-- maximum length is 200 characters.
 tS3KeyPrefix :: Lens' Trail (Maybe Text)
 tS3KeyPrefix = lens _tS3KeyPrefix (\ s a -> s{_tS3KeyPrefix = a});
 
 -- | Name of the existing Amazon SNS topic that CloudTrail uses to notify the
--- account owner when new CloudTrail log files have been delivered.
+-- account owner when new CloudTrail log files have been delivered. The
+-- maximum length is 256 characters.
 tSNSTopicName :: Lens' Trail (Maybe Text)
 tSNSTopicName = lens _tSNSTopicName (\ s a -> s{_tSNSTopicName = a});
 
@@ -239,7 +414,15 @@ tSNSTopicName = lens _tSNSTopicName (\ s a -> s{_tSNSTopicName = a});
 tCloudWatchLogsLogGroupARN :: Lens' Trail (Maybe Text)
 tCloudWatchLogsLogGroupARN = lens _tCloudWatchLogsLogGroupARN (\ s a -> s{_tCloudWatchLogsLogGroupARN = a});
 
--- | Name of the trail set by calling CreateTrail.
+-- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail.
+-- The value is a fully specified ARN to a KMS key in the format:
+--
+-- 'arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012'
+tKMSKeyId :: Lens' Trail (Maybe Text)
+tKMSKeyId = lens _tKMSKeyId (\ s a -> s{_tKMSKeyId = a});
+
+-- | Name of the trail set by calling CreateTrail. The maximum length is 128
+-- characters.
 tName :: Lens' Trail (Maybe Text)
 tName = lens _tName (\ s a -> s{_tName = a});
 
@@ -249,12 +432,13 @@ tIncludeGlobalServiceEvents :: Lens' Trail (Maybe Bool)
 tIncludeGlobalServiceEvents = lens _tIncludeGlobalServiceEvents (\ s a -> s{_tIncludeGlobalServiceEvents = a});
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write
--- to a user’s log group.
+-- to a user\'s log group.
 tCloudWatchLogsRoleARN :: Lens' Trail (Maybe Text)
 tCloudWatchLogsRoleARN = lens _tCloudWatchLogsRoleARN (\ s a -> s{_tCloudWatchLogsRoleARN = a});
 
 -- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail
--- files.
+-- files. See
+-- <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements>.
 tS3BucketName :: Lens' Trail (Maybe Text)
 tS3BucketName = lens _tS3BucketName (\ s a -> s{_tS3BucketName = a});
 
@@ -263,8 +447,12 @@ instance FromJSON Trail where
           = withObject "Trail"
               (\ x ->
                  Trail' <$>
-                   (x .:? "S3KeyPrefix") <*> (x .:? "SnsTopicName") <*>
-                     (x .:? "CloudWatchLogsLogGroupArn")
+                   (x .:? "LogFileValidationEnabled") <*>
+                     (x .:? "TrailARN")
+                     <*> (x .:? "S3KeyPrefix")
+                     <*> (x .:? "SnsTopicName")
+                     <*> (x .:? "CloudWatchLogsLogGroupArn")
+                     <*> (x .:? "KmsKeyId")
                      <*> (x .:? "Name")
                      <*> (x .:? "IncludeGlobalServiceEvents")
                      <*> (x .:? "CloudWatchLogsRoleArn")

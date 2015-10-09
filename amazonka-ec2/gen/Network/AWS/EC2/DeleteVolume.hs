@@ -96,7 +96,7 @@ instance ToQuery DeleteVolume where
         toQuery DeleteVolume'{..}
           = mconcat
               ["Action" =: ("DeleteVolume" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _dvvDryRun, "VolumeId" =: _dvvVolumeId]
 
 -- | /See:/ 'deleteVolumeResponse' smart constructor.

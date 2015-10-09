@@ -35,6 +35,12 @@ module Network.AWS.CloudFormation.Types
     -- * StackStatus
     , StackStatus (..)
 
+    -- * AccountLimit
+    , AccountLimit
+    , accountLimit
+    , alValue
+    , alName
+
     -- * Output
     , Output
     , output

@@ -1,5 +1,5 @@
 name:                  amazonka-ses
-version:               1.3.2
+version:               1.3.3
 synopsis:              Amazon Simple Email Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -49,9 +49,19 @@ library
 
     exposed-modules:
           Network.AWS.SES
+        , Network.AWS.SES.CloneReceiptRuleSet
+        , Network.AWS.SES.CreateReceiptFilter
+        , Network.AWS.SES.CreateReceiptRule
+        , Network.AWS.SES.CreateReceiptRuleSet
         , Network.AWS.SES.DeleteIdentity
         , Network.AWS.SES.DeleteIdentityPolicy
+        , Network.AWS.SES.DeleteReceiptFilter
+        , Network.AWS.SES.DeleteReceiptRule
+        , Network.AWS.SES.DeleteReceiptRuleSet
         , Network.AWS.SES.DeleteVerifiedEmailAddress
+        , Network.AWS.SES.DescribeActiveReceiptRuleSet
+        , Network.AWS.SES.DescribeReceiptRule
+        , Network.AWS.SES.DescribeReceiptRuleSet
         , Network.AWS.SES.GetIdentityDkimAttributes
         , Network.AWS.SES.GetIdentityNotificationAttributes
         , Network.AWS.SES.GetIdentityPolicies
@@ -60,14 +70,21 @@ library
         , Network.AWS.SES.GetSendStatistics
         , Network.AWS.SES.ListIdentities
         , Network.AWS.SES.ListIdentityPolicies
+        , Network.AWS.SES.ListReceiptFilters
+        , Network.AWS.SES.ListReceiptRuleSets
         , Network.AWS.SES.ListVerifiedEmailAddresses
         , Network.AWS.SES.PutIdentityPolicy
+        , Network.AWS.SES.ReorderReceiptRuleSet
+        , Network.AWS.SES.SendBounce
         , Network.AWS.SES.SendEmail
         , Network.AWS.SES.SendRawEmail
+        , Network.AWS.SES.SetActiveReceiptRuleSet
         , Network.AWS.SES.SetIdentityDkimEnabled
         , Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
         , Network.AWS.SES.SetIdentityNotificationTopic
+        , Network.AWS.SES.SetReceiptRulePosition
         , Network.AWS.SES.Types
+        , Network.AWS.SES.UpdateReceiptRule
         , Network.AWS.SES.VerifyDomainDkim
         , Network.AWS.SES.VerifyDomainIdentity
         , Network.AWS.SES.VerifyEmailAddress
@@ -79,7 +96,7 @@ library
         , Network.AWS.SES.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.2.*
+          amazonka-core == 1.3.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ses-test
@@ -99,9 +116,9 @@ test-suite amazonka-ses-test
         , Test.AWS.SES.Internal
 
     build-depends:
-          amazonka-core == 1.3.2.*
-        , amazonka-test == 1.3.2.*
-        , amazonka-ses == 1.3.2.*
+          amazonka-core == 1.3.3.*
+        , amazonka-test == 1.3.3.*
+        , amazonka-ses == 1.3.3.*
         , base
         , bytestring
         , lens

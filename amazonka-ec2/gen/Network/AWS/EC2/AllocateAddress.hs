@@ -106,7 +106,7 @@ instance ToQuery AllocateAddress where
         toQuery AllocateAddress'{..}
           = mconcat
               ["Action" =: ("AllocateAddress" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "Domain" =: _aaDomain, "DryRun" =: _aaDryRun]
 
 -- | /See:/ 'allocateAddressResponse' smart constructor.

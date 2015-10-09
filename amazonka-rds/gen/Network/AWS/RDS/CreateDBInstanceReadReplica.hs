@@ -186,7 +186,7 @@ cdirrIOPS = lens _cdirrIOPS (\ s a -> s{_cdirrIOPS = a});
 -- | The compute and memory capacity of the Read Replica.
 --
 -- Valid Values:
--- 'db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium'
+-- 'db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
 --
 -- Default: Inherits from the source DB instance.
 cdirrDBInstanceClass :: Lens' CreateDBInstanceReadReplica (Maybe Text)
@@ -207,7 +207,8 @@ cdirrAvailabilityZone = lens _cdirrAvailabilityZone (\ s a -> s{_cdirrAvailabili
 cdirrOptionGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrOptionGroupName = lens _cdirrOptionGroupName (\ s a -> s{_cdirrOptionGroupName = a});
 
--- | This property is not currently implemented.
+-- | True to copy all tags from the Read Replica to snapshots of the Read
+-- Replica; otherwise false. The default is false.
 cdirrCopyTagsToSnapshot :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
 cdirrCopyTagsToSnapshot = lens _cdirrCopyTagsToSnapshot (\ s a -> s{_cdirrCopyTagsToSnapshot = a});
 

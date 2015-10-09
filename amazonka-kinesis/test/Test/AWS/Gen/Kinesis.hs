@@ -31,6 +31,9 @@ import Test.AWS.Kinesis.Internal
 --         [ testPutRecord $
 --             putRecord
 --
+--         , testDecreaseStreamRetentionPeriod $
+--             decreaseStreamRetentionPeriod
+--
 --         , testMergeShards $
 --             mergeShards
 --
@@ -64,6 +67,9 @@ import Test.AWS.Kinesis.Internal
 --         , testSplitShard $
 --             splitShard
 --
+--         , testIncreaseStreamRetentionPeriod $
+--             increaseStreamRetentionPeriod
+--
 --         , testDescribeStream $
 --             describeStream
 --
@@ -72,6 +78,9 @@ import Test.AWS.Kinesis.Internal
 --     , testGroup "response"
 --         [ testPutRecordResponse $
 --             putRecordResponse
+--
+--         , testDecreaseStreamRetentionPeriodResponse $
+--             decreaseStreamRetentionPeriodResponse
 --
 --         , testMergeShardsResponse $
 --             mergeShardsResponse
@@ -106,6 +115,9 @@ import Test.AWS.Kinesis.Internal
 --         , testSplitShardResponse $
 --             splitShardResponse
 --
+--         , testIncreaseStreamRetentionPeriodResponse $
+--             increaseStreamRetentionPeriodResponse
+--
 --         , testDescribeStreamResponse $
 --             describeStreamResponse
 --
@@ -118,6 +130,11 @@ testPutRecord :: PutRecord -> TestTree
 testPutRecord = req
     "PutRecord"
     "fixture/PutRecord.yaml"
+
+testDecreaseStreamRetentionPeriod :: DecreaseStreamRetentionPeriod -> TestTree
+testDecreaseStreamRetentionPeriod = req
+    "DecreaseStreamRetentionPeriod"
+    "fixture/DecreaseStreamRetentionPeriod.yaml"
 
 testMergeShards :: MergeShards -> TestTree
 testMergeShards = req
@@ -174,6 +191,11 @@ testSplitShard = req
     "SplitShard"
     "fixture/SplitShard.yaml"
 
+testIncreaseStreamRetentionPeriod :: IncreaseStreamRetentionPeriod -> TestTree
+testIncreaseStreamRetentionPeriod = req
+    "IncreaseStreamRetentionPeriod"
+    "fixture/IncreaseStreamRetentionPeriod.yaml"
+
 testDescribeStream :: DescribeStream -> TestTree
 testDescribeStream = req
     "DescribeStream"
@@ -187,6 +209,13 @@ testPutRecordResponse = res
     "fixture/PutRecordResponse.proto"
     kinesis
     (Proxy :: Proxy PutRecord)
+
+testDecreaseStreamRetentionPeriodResponse :: DecreaseStreamRetentionPeriodResponse -> TestTree
+testDecreaseStreamRetentionPeriodResponse = res
+    "DecreaseStreamRetentionPeriodResponse"
+    "fixture/DecreaseStreamRetentionPeriodResponse.proto"
+    kinesis
+    (Proxy :: Proxy DecreaseStreamRetentionPeriod)
 
 testMergeShardsResponse :: MergeShardsResponse -> TestTree
 testMergeShardsResponse = res
@@ -264,6 +293,13 @@ testSplitShardResponse = res
     "fixture/SplitShardResponse.proto"
     kinesis
     (Proxy :: Proxy SplitShard)
+
+testIncreaseStreamRetentionPeriodResponse :: IncreaseStreamRetentionPeriodResponse -> TestTree
+testIncreaseStreamRetentionPeriodResponse = res
+    "IncreaseStreamRetentionPeriodResponse"
+    "fixture/IncreaseStreamRetentionPeriodResponse.proto"
+    kinesis
+    (Proxy :: Proxy IncreaseStreamRetentionPeriod)
 
 testDescribeStreamResponse :: DescribeStreamResponse -> TestTree
 testDescribeStreamResponse = res

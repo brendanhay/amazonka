@@ -799,6 +799,7 @@ data DBEngineVersion = DBEngineVersion'
     , _devDBParameterGroupFamily     :: !(Maybe Text)
     , _devSupportedCharacterSets     :: !(Maybe [CharacterSet])
     , _devDBEngineDescription        :: !(Maybe Text)
+    , _devValidUpgradeTarget         :: !(Maybe [UpgradeTarget])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DBEngineVersion' with the minimum fields required to make a request.
@@ -818,6 +819,8 @@ data DBEngineVersion = DBEngineVersion'
 -- * 'devSupportedCharacterSets'
 --
 -- * 'devDBEngineDescription'
+--
+-- * 'devValidUpgradeTarget'
 dbEngineVersion
     :: DBEngineVersion
 dbEngineVersion =
@@ -829,6 +832,7 @@ dbEngineVersion =
     , _devDBParameterGroupFamily = Nothing
     , _devSupportedCharacterSets = Nothing
     , _devDBEngineDescription = Nothing
+    , _devValidUpgradeTarget = Nothing
     }
 
 -- | The version number of the database engine.
@@ -862,6 +866,11 @@ devSupportedCharacterSets = lens _devSupportedCharacterSets (\ s a -> s{_devSupp
 devDBEngineDescription :: Lens' DBEngineVersion (Maybe Text)
 devDBEngineDescription = lens _devDBEngineDescription (\ s a -> s{_devDBEngineDescription = a});
 
+-- | A list of engine versions that this database engine version can be
+-- upgraded to.
+devValidUpgradeTarget :: Lens' DBEngineVersion [UpgradeTarget]
+devValidUpgradeTarget = lens _devValidUpgradeTarget (\ s a -> s{_devValidUpgradeTarget = a}) . _Default . _Coerce;
+
 instance FromXML DBEngineVersion where
         parseXML x
           = DBEngineVersion' <$>
@@ -874,6 +883,9 @@ instance FromXML DBEngineVersion where
                 (x .@? "SupportedCharacterSets" .!@ mempty >>=
                    may (parseXMLList "CharacterSet"))
                 <*> (x .@? "DBEngineDescription")
+                <*>
+                (x .@? "ValidUpgradeTarget" .!@ mempty >>=
+                   may (parseXMLList "UpgradeTarget"))
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -925,7 +937,6 @@ data DBInstance = DBInstance'
     , _diPendingModifiedValues                 :: !(Maybe PendingModifiedValues)
     , _diStorageType                           :: !(Maybe Text)
     , _diStatusInfos                           :: !(Maybe [DBInstanceStatusInfo])
-    , _diDomainMemberships                     :: !(Maybe [DomainMembership])
     , _diDBName                                :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1011,8 +1022,6 @@ data DBInstance = DBInstance'
 --
 -- * 'diStatusInfos'
 --
--- * 'diDomainMemberships'
---
 -- * 'diDBName'
 dbInstance
     :: DBInstance
@@ -1057,7 +1066,6 @@ dbInstance =
     , _diPendingModifiedValues = Nothing
     , _diStorageType = Nothing
     , _diStatusInfos = Nothing
-    , _diDomainMemberships = Nothing
     , _diDBName = Nothing
     }
 
@@ -1224,7 +1232,8 @@ diDBiResourceId = lens _diDBiResourceId (\ s a -> s{_diDBiResourceId = a});
 diDBParameterGroups :: Lens' DBInstance [DBParameterGroupStatus]
 diDBParameterGroups = lens _diDBParameterGroups (\ s a -> s{_diDBParameterGroups = a}) . _Default . _Coerce;
 
--- | This property is not currently implemented.
+-- | Specifies whether tags are copied from the DB instance to snapshots of
+-- the DB instance.
 diCopyTagsToSnapshot :: Lens' DBInstance (Maybe Bool)
 diCopyTagsToSnapshot = lens _diCopyTagsToSnapshot (\ s a -> s{_diCopyTagsToSnapshot = a});
 
@@ -1262,17 +1271,12 @@ diStorageType = lens _diStorageType (\ s a -> s{_diStorageType = a});
 diStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
 diStatusInfos = lens _diStatusInfos (\ s a -> s{_diStatusInfos = a}) . _Default . _Coerce;
 
--- | The Active Directory Domain membership records associated with the DB
--- instance.
-diDomainMemberships :: Lens' DBInstance [DomainMembership]
-diDomainMemberships = lens _diDomainMemberships (\ s a -> s{_diDomainMemberships = a}) . _Default . _Coerce;
-
 -- | The meaning of this parameter differs according to the database engine
 -- you use. For example, this value returns either MySQL or PostgreSQL
 -- information when returning values from CreateDBInstanceReadReplica since
 -- Read Replicas are only supported for MySQL and PostgreSQL.
 --
--- __MySQL, SQL Server, PostgreSQL__
+-- __MySQL, SQL Server, PostgreSQL, Amazon Aurora__
 --
 -- Contains the name of the initial database of this instance that was
 -- provided at create time, if one was specified when the DB instance was
@@ -1342,9 +1346,6 @@ instance FromXML DBInstance where
                 <*>
                 (x .@? "StatusInfos" .!@ mempty >>=
                    may (parseXMLList "DBInstanceStatusInfo"))
-                <*>
-                (x .@? "DomainMemberships" .!@ mempty >>=
-                   may (parseXMLList "DomainMembership"))
                 <*> (x .@? "DBName")
 
 -- | Provides a list of status information for a DB instance.
@@ -2011,53 +2012,6 @@ instance FromXML DescribeDBLogFilesDetails where
           = DescribeDBLogFilesDetails' <$>
               (x .@? "LastWritten") <*> (x .@? "Size") <*>
                 (x .@? "LogFileName")
-
--- | An Active Directory Domain membership record associated with the DB
--- instance.
---
--- /See:/ 'domainMembership' smart constructor.
-data DomainMembership = DomainMembership'
-    { _dmStatus       :: !(Maybe Text)
-    , _dmDomain       :: !(Maybe Text)
-    , _dmConnectivity :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | Creates a value of 'DomainMembership' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmStatus'
---
--- * 'dmDomain'
---
--- * 'dmConnectivity'
-domainMembership
-    :: DomainMembership
-domainMembership =
-    DomainMembership'
-    { _dmStatus = Nothing
-    , _dmDomain = Nothing
-    , _dmConnectivity = Nothing
-    }
-
--- | The status of the DB instance\'s Active Directory Domain membership
--- (e.g. joined, pending-join, failed etc).
-dmStatus :: Lens' DomainMembership (Maybe Text)
-dmStatus = lens _dmStatus (\ s a -> s{_dmStatus = a});
-
--- | The identifier of the Active Directory Domain.
-dmDomain :: Lens' DomainMembership (Maybe Text)
-dmDomain = lens _dmDomain (\ s a -> s{_dmDomain = a});
-
--- | The observed connectivity of the Active Directory Domain.
-dmConnectivity :: Lens' DomainMembership (Maybe Text)
-dmConnectivity = lens _dmConnectivity (\ s a -> s{_dmConnectivity = a});
-
-instance FromXML DomainMembership where
-        parseXML x
-          = DomainMembership' <$>
-              (x .@? "Status") <*> (x .@? "Domain") <*>
-                (x .@? "Connectivity")
 
 -- | This data type is used as a response element in the following actions:
 --
@@ -4014,6 +3968,74 @@ instance FromXML Tag where
 instance ToQuery Tag where
         toQuery Tag'{..}
           = mconcat ["Value" =: _tagValue, "Key" =: _tagKey]
+
+-- | The version of the database engine that a DB instance can be upgraded
+-- to.
+--
+-- /See:/ 'upgradeTarget' smart constructor.
+data UpgradeTarget = UpgradeTarget'
+    { _utEngineVersion         :: !(Maybe Text)
+    , _utIsMajorVersionUpgrade :: !(Maybe Bool)
+    , _utEngine                :: !(Maybe Text)
+    , _utAutoUpgrade           :: !(Maybe Bool)
+    , _utDescription           :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpgradeTarget' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'utEngineVersion'
+--
+-- * 'utIsMajorVersionUpgrade'
+--
+-- * 'utEngine'
+--
+-- * 'utAutoUpgrade'
+--
+-- * 'utDescription'
+upgradeTarget
+    :: UpgradeTarget
+upgradeTarget =
+    UpgradeTarget'
+    { _utEngineVersion = Nothing
+    , _utIsMajorVersionUpgrade = Nothing
+    , _utEngine = Nothing
+    , _utAutoUpgrade = Nothing
+    , _utDescription = Nothing
+    }
+
+-- | The version number of the upgrade target database engine.
+utEngineVersion :: Lens' UpgradeTarget (Maybe Text)
+utEngineVersion = lens _utEngineVersion (\ s a -> s{_utEngineVersion = a});
+
+-- | A value that indicates whether a database engine will be upgraded to a
+-- major version.
+utIsMajorVersionUpgrade :: Lens' UpgradeTarget (Maybe Bool)
+utIsMajorVersionUpgrade = lens _utIsMajorVersionUpgrade (\ s a -> s{_utIsMajorVersionUpgrade = a});
+
+-- | The name of the upgrade target database engine.
+utEngine :: Lens' UpgradeTarget (Maybe Text)
+utEngine = lens _utEngine (\ s a -> s{_utEngine = a});
+
+-- | A value that indicates whether the target version will be applied to any
+-- source DB instances that have AutoMinorVersionUpgrade set to true.
+utAutoUpgrade :: Lens' UpgradeTarget (Maybe Bool)
+utAutoUpgrade = lens _utAutoUpgrade (\ s a -> s{_utAutoUpgrade = a});
+
+-- | The version of the database engine that a DB instance can be upgraded
+-- to.
+utDescription :: Lens' UpgradeTarget (Maybe Text)
+utDescription = lens _utDescription (\ s a -> s{_utDescription = a});
+
+instance FromXML UpgradeTarget where
+        parseXML x
+          = UpgradeTarget' <$>
+              (x .@? "EngineVersion") <*>
+                (x .@? "IsMajorVersionUpgrade")
+                <*> (x .@? "Engine")
+                <*> (x .@? "AutoUpgrade")
+                <*> (x .@? "Description")
 
 -- | This data type is used as a response element for queries on VPC security
 -- group membership.

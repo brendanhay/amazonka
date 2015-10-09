@@ -148,6 +148,6 @@ instance ToQuery AttachVolume where
         toQuery AttachVolume'{..}
           = mconcat
               ["Action" =: ("AttachVolume" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _avDryRun, "VolumeId" =: _avVolumeId,
                "InstanceId" =: _avInstanceId, "Device" =: _avDevice]

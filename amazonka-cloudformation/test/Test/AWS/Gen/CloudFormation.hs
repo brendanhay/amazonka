@@ -64,6 +64,9 @@ import Test.AWS.CloudFormation.Internal
 --         , testListStacks $
 --             listStacks
 --
+--         , testDescribeAccountLimits $
+--             describeAccountLimits
+--
 --         , testDescribeStackResources $
 --             describeStackResources
 --
@@ -117,6 +120,9 @@ import Test.AWS.CloudFormation.Internal
 --
 --         , testListStacksResponse $
 --             listStacksResponse
+--
+--         , testDescribeAccountLimitsResponse $
+--             describeAccountLimitsResponse
 --
 --         , testDescribeStackResourcesResponse $
 --             describeStackResourcesResponse
@@ -197,6 +203,11 @@ testListStacks :: ListStacks -> TestTree
 testListStacks = req
     "ListStacks"
     "fixture/ListStacks.yaml"
+
+testDescribeAccountLimits :: DescribeAccountLimits -> TestTree
+testDescribeAccountLimits = req
+    "DescribeAccountLimits"
+    "fixture/DescribeAccountLimits.yaml"
 
 testDescribeStackResources :: DescribeStackResources -> TestTree
 testDescribeStackResources = req
@@ -308,6 +319,13 @@ testListStacksResponse = res
     "fixture/ListStacksResponse.proto"
     cloudFormation
     (Proxy :: Proxy ListStacks)
+
+testDescribeAccountLimitsResponse :: DescribeAccountLimitsResponse -> TestTree
+testDescribeAccountLimitsResponse = res
+    "DescribeAccountLimitsResponse"
+    "fixture/DescribeAccountLimitsResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy DescribeAccountLimits)
 
 testDescribeStackResourcesResponse :: DescribeStackResourcesResponse -> TestTree
 testDescribeStackResourcesResponse = res

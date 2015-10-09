@@ -88,6 +88,9 @@ import Test.AWS.CloudFront.Internal
 --         , testDeleteDistribution $
 --             deleteDistribution
 --
+--         , testListDistributionsByWebACLId $
+--             listDistributionsByWebACLId
+--
 --         , testListDistributions $
 --             listDistributions
 --
@@ -153,6 +156,9 @@ import Test.AWS.CloudFront.Internal
 --
 --         , testDeleteDistributionResponse $
 --             deleteDistributionResponse
+--
+--         , testListDistributionsByWebACLIdResponse $
+--             listDistributionsByWebACLIdResponse
 --
 --         , testListDistributionsResponse $
 --             listDistributionsResponse
@@ -261,6 +267,11 @@ testDeleteDistribution :: DeleteDistribution -> TestTree
 testDeleteDistribution = req
     "DeleteDistribution"
     "fixture/DeleteDistribution.yaml"
+
+testListDistributionsByWebACLId :: ListDistributionsByWebACLId -> TestTree
+testListDistributionsByWebACLId = req
+    "ListDistributionsByWebACLId"
+    "fixture/ListDistributionsByWebACLId.yaml"
 
 testListDistributions :: ListDistributions -> TestTree
 testListDistributions = req
@@ -408,6 +419,13 @@ testDeleteDistributionResponse = res
     "fixture/DeleteDistributionResponse.proto"
     cloudFront
     (Proxy :: Proxy DeleteDistribution)
+
+testListDistributionsByWebACLIdResponse :: ListDistributionsByWebACLIdResponse -> TestTree
+testListDistributionsByWebACLIdResponse = res
+    "ListDistributionsByWebACLIdResponse"
+    "fixture/ListDistributionsByWebACLIdResponse.proto"
+    cloudFront
+    (Proxy :: Proxy ListDistributionsByWebACLId)
 
 testListDistributionsResponse :: ListDistributionsResponse -> TestTree
 testListDistributionsResponse = res

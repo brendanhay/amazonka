@@ -70,15 +70,16 @@ listDistributions =
     , _ldMaxItems = Nothing
     }
 
--- | Use this when paginating results to indicate where to begin in your list
--- of distributions. The results include distributions in the list that
--- occur after the marker. To get the next page of results, set the Marker
--- to the value of the NextMarker from the current page\'s response (which
--- is also the ID of the last distribution on that page).
+-- | Use Marker and MaxItems to control pagination of results. If you have
+-- more than MaxItems distributions that satisfy the request, the response
+-- includes a NextMarker element. To get the next page of results, submit
+-- another request. For the value of Marker, specify the value of
+-- NextMarker from the last response. (For the first request, omit Marker.)
 ldMarker :: Lens' ListDistributions (Maybe Text)
 ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
 
--- | The maximum number of distributions you want in the response body.
+-- | The maximum number of distributions that you want CloudFront to return
+-- in the response body. The maximum and default values are both 100.
 ldMaxItems :: Lens' ListDistributions (Maybe Text)
 ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
 
@@ -107,7 +108,7 @@ instance ToHeaders ListDistributions where
         toHeaders = const mempty
 
 instance ToPath ListDistributions where
-        toPath = const "/2015-04-17/distribution"
+        toPath = const "/2015-07-27/distribution"
 
 instance ToQuery ListDistributions where
         toQuery ListDistributions'{..}

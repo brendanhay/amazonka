@@ -420,6 +420,9 @@ module Network.AWS.EC2
     -- ** DescribeExportTasks
     , module Network.AWS.EC2.DescribeExportTasks
 
+    -- ** ModifySpotFleetRequest
+    , module Network.AWS.EC2.ModifySpotFleetRequest
+
     -- ** DetachVPNGateway
     , module Network.AWS.EC2.DetachVPNGateway
 
@@ -709,6 +712,9 @@ module Network.AWS.EC2
 
     -- ** EventType
     , EventType (..)
+
+    -- ** ExcessCapacityTerminationPolicy
+    , ExcessCapacityTerminationPolicy (..)
 
     -- ** ExportEnvironment
     , ExportEnvironment (..)
@@ -1988,11 +1994,13 @@ module Network.AWS.EC2
     , sfrcSpotFleetRequestId
     , sfrcSpotFleetRequestState
     , sfrcSpotFleetRequestConfig
+    , sfrcCreateTime
 
     -- ** SpotFleetRequestConfigData
     , SpotFleetRequestConfigData
     , spotFleetRequestConfigData
     , sfrcdClientToken
+    , sfrcdExcessCapacityTerminationPolicy
     , sfrcdValidUntil
     , sfrcdTerminateInstancesWithExpiration
     , sfrcdValidFrom
@@ -2008,6 +2016,8 @@ module Network.AWS.EC2
     , sirInstanceId
     , sirStatus
     , sirState
+    , sirActualBlockHourlyPrice
+    , sirBlockDurationMinutes
     , sirProductDescription
     , sirSpotPrice
     , sirLaunchSpecification
@@ -2453,6 +2463,7 @@ import           Network.AWS.EC2.ModifyInstanceAttribute
 import           Network.AWS.EC2.ModifyNetworkInterfaceAttribute
 import           Network.AWS.EC2.ModifyReservedInstances
 import           Network.AWS.EC2.ModifySnapshotAttribute
+import           Network.AWS.EC2.ModifySpotFleetRequest
 import           Network.AWS.EC2.ModifySubnetAttribute
 import           Network.AWS.EC2.ModifyVolumeAttribute
 import           Network.AWS.EC2.ModifyVPCAttribute

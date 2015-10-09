@@ -5,8 +5,8 @@ extra-deps:
 packages:
   - core
   - test
-  - amazonka
   - examples
+  - amazonka
   - amazonka-autoscaling
   - amazonka-cloudformation
   - amazonka-cloudfront
@@ -33,15 +33,20 @@ packages:
   - amazonka-efs
   - amazonka-elasticache
   - amazonka-elasticbeanstalk
+  - amazonka-elasticsearch
   - amazonka-elastictranscoder
   - amazonka-elb
   - amazonka-emr
   - amazonka-glacier
   - amazonka-iam
   - amazonka-importexport
+  - amazonka-inspector
+  - amazonka-iot
   - amazonka-kinesis
+  - amazonka-kinesis-firehose
   - amazonka-kms
   - amazonka-lambda
+  - amazonka-marketplace-analytics
   - amazonka-ml
   - amazonka-opsworks
   - amazonka-rds
@@ -59,4 +64,5 @@ packages:
   - amazonka-sts
   - amazonka-support
   - amazonka-swf
+  - amazonka-waf
   - amazonka-workspaces

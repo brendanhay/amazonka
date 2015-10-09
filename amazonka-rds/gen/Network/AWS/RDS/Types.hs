@@ -54,7 +54,6 @@ module Network.AWS.RDS.Types
     , _DBSecurityGroupNotFoundFault
     , _DBSecurityGroupNotSupportedFault
     , _InstanceQuotaExceededFault
-    , _DomainNotFoundFault
     , _DBParameterGroupNotFoundFault
     , _InvalidDBSubnetGroupFault
     , _ReservedDBInstancesOfferingNotFoundFault
@@ -77,7 +76,6 @@ module Network.AWS.RDS.Types
     , _InvalidRestoreFault
     , _InvalidDBSecurityGroupStateFault
     , _ResourceNotFoundFault
-    , _InsufficientDomainCapacityFault
     , _DBSubnetGroupNotFoundFault
     , _DBUpgradeDependencyFailureFault
     , _InvalidDBInstanceStateFault
@@ -202,6 +200,7 @@ module Network.AWS.RDS.Types
     , devDBParameterGroupFamily
     , devSupportedCharacterSets
     , devDBEngineDescription
+    , devValidUpgradeTarget
 
     -- * DBInstance
     , DBInstance
@@ -245,7 +244,6 @@ module Network.AWS.RDS.Types
     , diPendingModifiedValues
     , diStorageType
     , diStatusInfos
-    , diDomainMemberships
     , diDBName
 
     -- * DBInstanceStatusInfo
@@ -332,13 +330,6 @@ module Network.AWS.RDS.Types
     , ddlfdLastWritten
     , ddlfdSize
     , ddlfdLogFileName
-
-    -- * DomainMembership
-    , DomainMembership
-    , domainMembership
-    , dmStatus
-    , dmDomain
-    , dmConnectivity
 
     -- * EC2SecurityGroup
     , EC2SecurityGroup
@@ -588,6 +579,15 @@ module Network.AWS.RDS.Types
     , tagValue
     , tagKey
 
+    -- * UpgradeTarget
+    , UpgradeTarget
+    , upgradeTarget
+    , utEngineVersion
+    , utIsMajorVersionUpgrade
+    , utEngine
+    , utAutoUpgrade
+    , utDescription
+
     -- * VPCSecurityGroupMembership
     , VPCSecurityGroupMembership
     , vpcSecurityGroupMembership
@@ -834,11 +834,6 @@ _InstanceQuotaExceededFault :: AsError a => Getting (First ServiceError) a Servi
 _InstanceQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "InstanceQuotaExceeded"
 
--- | /Domain/ does not refer to an existing Active Directory Domain.
-_DomainNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
-_DomainNotFoundFault =
-    _ServiceError . hasStatus 404 . hasCode "DomainNotFoundFault"
-
 -- | /DBParameterGroupName/ does not refer to an existing DB parameter group.
 _DBParameterGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBParameterGroupNotFoundFault =
@@ -963,12 +958,6 @@ _InvalidDBSecurityGroupStateFault =
 _ResourceNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundFault"
-
--- | Requested Active Directory Domain has reached maximum number of
--- instances.
-_InsufficientDomainCapacityFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InsufficientDomainCapacityFault =
-    _ServiceError . hasStatus 400 . hasCode "InsufficientDomainCapacityFault"
 
 -- | /DBSubnetGroupName/ does not refer to an existing DB subnet group.
 _DBSubnetGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError

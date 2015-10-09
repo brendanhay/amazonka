@@ -35,9 +35,9 @@ module Network.AWS.RDS.DeleteDBCluster
       deleteDBCluster
     , DeleteDBCluster
     -- * Request Lenses
-    , ddbcDBClusterIdentifier
     , ddbcFinalDBSnapshotIdentifier
     , ddbcSkipFinalSnapshot
+    , ddbcDBClusterIdentifier
 
     -- * Destructuring the Response
     , deleteDBClusterResponse
@@ -57,39 +57,29 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDBCluster' smart constructor.
 data DeleteDBCluster = DeleteDBCluster'
-    { _ddbcDBClusterIdentifier       :: !(Maybe Text)
-    , _ddbcFinalDBSnapshotIdentifier :: !(Maybe Text)
+    { _ddbcFinalDBSnapshotIdentifier :: !(Maybe Text)
     , _ddbcSkipFinalSnapshot         :: !(Maybe Bool)
+    , _ddbcDBClusterIdentifier       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDBCluster' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbcDBClusterIdentifier'
---
 -- * 'ddbcFinalDBSnapshotIdentifier'
 --
 -- * 'ddbcSkipFinalSnapshot'
+--
+-- * 'ddbcDBClusterIdentifier'
 deleteDBCluster
-    :: DeleteDBCluster
-deleteDBCluster =
+    :: Text -- ^ 'ddbcDBClusterIdentifier'
+    -> DeleteDBCluster
+deleteDBCluster pDBClusterIdentifier_ =
     DeleteDBCluster'
-    { _ddbcDBClusterIdentifier = Nothing
-    , _ddbcFinalDBSnapshotIdentifier = Nothing
+    { _ddbcFinalDBSnapshotIdentifier = Nothing
     , _ddbcSkipFinalSnapshot = Nothing
+    , _ddbcDBClusterIdentifier = pDBClusterIdentifier_
     }
-
--- | The DB cluster identifier for the DB cluster to be deleted. This
--- parameter isn\'t case-sensitive.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens
--- -   First character must be a letter
--- -   Cannot end with a hyphen or contain two consecutive hyphens
-ddbcDBClusterIdentifier :: Lens' DeleteDBCluster (Maybe Text)
-ddbcDBClusterIdentifier = lens _ddbcDBClusterIdentifier (\ s a -> s{_ddbcDBClusterIdentifier = a});
 
 -- | The DB cluster snapshot identifier of the new DB cluster snapshot
 -- created when 'SkipFinalSnapshot' is set to 'false'.
@@ -117,6 +107,17 @@ ddbcFinalDBSnapshotIdentifier = lens _ddbcFinalDBSnapshotIdentifier (\ s a -> s{
 ddbcSkipFinalSnapshot :: Lens' DeleteDBCluster (Maybe Bool)
 ddbcSkipFinalSnapshot = lens _ddbcSkipFinalSnapshot (\ s a -> s{_ddbcSkipFinalSnapshot = a});
 
+-- | The DB cluster identifier for the DB cluster to be deleted. This
+-- parameter isn\'t case-sensitive.
+--
+-- Constraints:
+--
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+ddbcDBClusterIdentifier :: Lens' DeleteDBCluster Text
+ddbcDBClusterIdentifier = lens _ddbcDBClusterIdentifier (\ s a -> s{_ddbcDBClusterIdentifier = a});
+
 instance AWSRequest DeleteDBCluster where
         type Rs DeleteDBCluster = DeleteDBClusterResponse
         request = postQuery rDS
@@ -137,10 +138,10 @@ instance ToQuery DeleteDBCluster where
           = mconcat
               ["Action" =: ("DeleteDBCluster" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "DBClusterIdentifier" =: _ddbcDBClusterIdentifier,
                "FinalDBSnapshotIdentifier" =:
                  _ddbcFinalDBSnapshotIdentifier,
-               "SkipFinalSnapshot" =: _ddbcSkipFinalSnapshot]
+               "SkipFinalSnapshot" =: _ddbcSkipFinalSnapshot,
+               "DBClusterIdentifier" =: _ddbcDBClusterIdentifier]
 
 -- | /See:/ 'deleteDBClusterResponse' smart constructor.
 data DeleteDBClusterResponse = DeleteDBClusterResponse'

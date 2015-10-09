@@ -13,3 +13,5 @@ module Test.AWS.Prelude
 import           Test.AWS.Assert  as Export
 import           Test.AWS.Orphans as Export ()
 import           Test.AWS.TH      as Export
+import           Test.Tasty       as Export (TestTree, testGroup)
+import           Test.Tasty.HUnit as Export (testCase)

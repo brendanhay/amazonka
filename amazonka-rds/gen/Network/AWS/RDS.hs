@@ -163,9 +163,6 @@ module Network.AWS.RDS
     -- ** InstanceQuotaExceededFault
     , _InstanceQuotaExceededFault
 
-    -- ** DomainNotFoundFault
-    , _DomainNotFoundFault
-
     -- ** DBParameterGroupNotFoundFault
     , _DBParameterGroupNotFoundFault
 
@@ -231,9 +228,6 @@ module Network.AWS.RDS
 
     -- ** ResourceNotFoundFault
     , _ResourceNotFoundFault
-
-    -- ** InsufficientDomainCapacityFault
-    , _InsufficientDomainCapacityFault
 
     -- ** DBSubnetGroupNotFoundFault
     , _DBSubnetGroupNotFoundFault
@@ -623,6 +617,7 @@ module Network.AWS.RDS
     , devDBParameterGroupFamily
     , devSupportedCharacterSets
     , devDBEngineDescription
+    , devValidUpgradeTarget
 
     -- ** DBInstance
     , DBInstance
@@ -666,7 +661,6 @@ module Network.AWS.RDS
     , diPendingModifiedValues
     , diStorageType
     , diStatusInfos
-    , diDomainMemberships
     , diDBName
 
     -- ** DBInstanceStatusInfo
@@ -753,13 +747,6 @@ module Network.AWS.RDS
     , ddlfdLastWritten
     , ddlfdSize
     , ddlfdLogFileName
-
-    -- ** DomainMembership
-    , DomainMembership
-    , domainMembership
-    , dmStatus
-    , dmDomain
-    , dmConnectivity
 
     -- ** EC2SecurityGroup
     , EC2SecurityGroup
@@ -1008,6 +995,15 @@ module Network.AWS.RDS
     , tag
     , tagValue
     , tagKey
+
+    -- ** UpgradeTarget
+    , UpgradeTarget
+    , upgradeTarget
+    , utEngineVersion
+    , utIsMajorVersionUpgrade
+    , utEngine
+    , utAutoUpgrade
+    , utDescription
 
     -- ** VPCSecurityGroupMembership
     , VPCSecurityGroupMembership

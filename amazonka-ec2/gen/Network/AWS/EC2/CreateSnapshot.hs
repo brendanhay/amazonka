@@ -143,6 +143,6 @@ instance ToQuery CreateSnapshot where
         toQuery CreateSnapshot'{..}
           = mconcat
               ["Action" =: ("CreateSnapshot" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "Description" =: _ccDescription,
                "DryRun" =: _ccDryRun, "VolumeId" =: _ccVolumeId]

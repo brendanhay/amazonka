@@ -18,7 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a trail.
+-- Deletes a trail. This operation must be called from the region in which
+-- the trail was created.
 --
 -- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteTrail.html AWS API Reference> for DeleteTrail.
 module Network.AWS.CloudTrail.DeleteTrail
@@ -62,7 +63,9 @@ deleteTrail pName_ =
     { _dtName = pName_
     }
 
--- | The name of a trail to be deleted.
+-- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The
+-- format of a trail ARN is
+-- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
 dtName :: Lens' DeleteTrail Text
 dtName = lens _dtName (\ s a -> s{_dtName = a});
 

@@ -89,8 +89,12 @@ module Network.AWS.WorkSpaces.Types
     , wUserName
     , wSubnetId
     , wBundleId
+    , wRootVolumeEncryptionEnabled
     , wErrorCode
+    , wVolumeEncryptionKey
+    , wComputerName
     , wWorkspaceId
+    , wUserVolumeEncryptionEnabled
     , wErrorMessage
 
     -- * WorkspaceBundle
@@ -122,6 +126,9 @@ module Network.AWS.WorkSpaces.Types
     -- * WorkspaceRequest
     , WorkspaceRequest
     , workspaceRequest
+    , wrRootVolumeEncryptionEnabled
+    , wrVolumeEncryptionKey
+    , wrUserVolumeEncryptionEnabled
     , wrDirectoryId
     , wrUserName
     , wrBundleId

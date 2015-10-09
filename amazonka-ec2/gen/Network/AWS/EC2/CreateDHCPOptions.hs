@@ -133,7 +133,7 @@ instance ToQuery CreateDHCPOptions where
         toQuery CreateDHCPOptions'{..}
           = mconcat
               ["Action" =: ("CreateDhcpOptions" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _cdoDryRun,
                toQueryList "DhcpConfiguration"
                  _cdoDHCPConfigurations]

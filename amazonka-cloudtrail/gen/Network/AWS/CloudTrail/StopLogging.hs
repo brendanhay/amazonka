@@ -66,8 +66,9 @@ stopLogging pName_ =
     { _slName = pName_
     }
 
--- | Communicates to CloudTrail the name of the trail for which to stop
--- logging AWS API calls.
+-- | Specifies the name or the CloudTrail ARN of the trail for which
+-- CloudTrail will stop logging AWS API calls. The format of a trail ARN is
+-- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
 slName :: Lens' StopLogging Text
 slName = lens _slName (\ s a -> s{_slName = a});
 

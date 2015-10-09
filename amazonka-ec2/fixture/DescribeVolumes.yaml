@@ -1,10 +1,10 @@
 ---
 method: POST
 headers:
-  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/ec2/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=4d4feec12db89156943c54efc553c0eaaf0f0b338d6d3563e554ef2404d8c487
+  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/ec2/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=e118d8ebf72e54043d55c94cde8d59d7d76140337733c9105ae0fa39c45b45ee
   Host:                  ec2.us-east-1.amazonaws.com
   Content-Type:          application/x-www-form-urlencoded; charset=utf-8
-  X-Amz-Content-SHA256:  cb99638689d7058ba63f04955b5f4037c9391699863d0bf007b5f802cd0e0036
+  X-Amz-Content-SHA256:  a98743a8daba897037142a2229e0db501af78d6ab080f2ddf7acdeeff5fc5bca
   X-Amz-Date:            20091028T223200Z
 body:
-  Action=DescribeVolumes&Filter.1.Name=tag%3AName&Filter.1.Value.1=octopus&Filter.2.Name=tag%3ARole&Filter.2.Value.1=database&Filter.2.Value.2=server&Version=2015-04-15&VolumeId.1=foo&VolumeId.2=bar&VolumeId.3=baz
+  Action=DescribeVolumes&Filter.1.Name=tag%3AName&Filter.1.Value.1=octopus&Filter.2.Name=tag%3ARole&Filter.2.Value.1=database&Filter.2.Value.2=server&Version=2015-10-01&VolumeId.1=foo&VolumeId.2=bar&VolumeId.3=baz

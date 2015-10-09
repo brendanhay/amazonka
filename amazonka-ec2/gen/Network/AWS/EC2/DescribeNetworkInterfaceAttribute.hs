@@ -122,7 +122,7 @@ instance ToQuery DescribeNetworkInterfaceAttribute
           = mconcat
               ["Action" =:
                  ("DescribeNetworkInterfaceAttribute" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "Attribute" =: _dniaAttribute,
                "DryRun" =: _dniaDryRun,
                "NetworkInterfaceId" =: _dniaNetworkInterfaceId]

@@ -144,7 +144,7 @@ instance ToQuery CreateSubnet where
         toQuery CreateSubnet'{..}
           = mconcat
               ["Action" =: ("CreateSubnet" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "AvailabilityZone" =: _cssAvailabilityZone,
                "DryRun" =: _cssDryRun, "VpcId" =: _cssVPCId,
                "CidrBlock" =: _cssCIdRBlock]

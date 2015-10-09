@@ -163,7 +163,7 @@ instance ToQuery DescribeClassicLinkInstances where
           = mconcat
               ["Action" =:
                  ("DescribeClassicLinkInstances" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dcliFilters),
                "NextToken" =: _dcliNextToken,
                toQuery

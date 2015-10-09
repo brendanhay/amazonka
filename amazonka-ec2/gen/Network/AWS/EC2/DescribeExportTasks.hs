@@ -86,7 +86,7 @@ instance ToQuery DescribeExportTasks where
         toQuery DescribeExportTasks'{..}
           = mconcat
               ["Action" =: ("DescribeExportTasks" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                toQuery
                  (toQueryList "ExportTaskId" <$> _detExportTaskIds)]
 

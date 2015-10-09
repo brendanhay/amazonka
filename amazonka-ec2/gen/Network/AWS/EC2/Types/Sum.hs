@@ -150,19 +150,28 @@ instance ToHeader     AttachmentStatus
 instance FromXML AttachmentStatus where
     parseXML = parseXMLText "AttachmentStatus"
 
-data AvailabilityZoneState =
-    AZSAvailable
+data AvailabilityZoneState
+    = AZSAvailable
+    | AZSImpaired
+    | AZSInformation
+    | AZSUnavailable
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AvailabilityZoneState where
     parser = takeLowerText >>= \case
         "available" -> pure AZSAvailable
+        "impaired" -> pure AZSImpaired
+        "information" -> pure AZSInformation
+        "unavailable" -> pure AZSUnavailable
         e -> fromTextError $ "Failure parsing AvailabilityZoneState from value: '" <> e
-           <> "'. Accepted values: available"
+           <> "'. Accepted values: available, impaired, information, unavailable"
 
 instance ToText AvailabilityZoneState where
     toText = \case
         AZSAvailable -> "available"
+        AZSImpaired -> "impaired"
+        AZSInformation -> "information"
+        AZSUnavailable -> "unavailable"
 
 instance Hashable     AvailabilityZoneState
 instance ToByteString AvailabilityZoneState
@@ -178,6 +187,7 @@ data BatchState
     | BSCancelledRunning
     | BSCancelledTerminating
     | BSFailed
+    | BSModifying
     | BSSubmitted
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
@@ -188,9 +198,10 @@ instance FromText BatchState where
         "cancelled_running" -> pure BSCancelledRunning
         "cancelled_terminating" -> pure BSCancelledTerminating
         "failed" -> pure BSFailed
+        "modifying" -> pure BSModifying
         "submitted" -> pure BSSubmitted
         e -> fromTextError $ "Failure parsing BatchState from value: '" <> e
-           <> "'. Accepted values: active, cancelled, cancelled_running, cancelled_terminating, failed, submitted"
+           <> "'. Accepted values: active, cancelled, cancelled_running, cancelled_terminating, failed, modifying, submitted"
 
 instance ToText BatchState where
     toText = \case
@@ -199,6 +210,7 @@ instance ToText BatchState where
         BSCancelledRunning -> "cancelled_running"
         BSCancelledTerminating -> "cancelled_terminating"
         BSFailed -> "failed"
+        BSModifying -> "modifying"
         BSSubmitted -> "submitted"
 
 instance Hashable     BatchState
@@ -553,6 +565,31 @@ instance ToHeader     EventType
 
 instance FromXML EventType where
     parseXML = parseXMLText "EventType"
+
+data ExcessCapacityTerminationPolicy
+    = ECTPDefault
+    | ECTPNoTermination
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText ExcessCapacityTerminationPolicy where
+    parser = takeLowerText >>= \case
+        "default" -> pure ECTPDefault
+        "notermination" -> pure ECTPNoTermination
+        e -> fromTextError $ "Failure parsing ExcessCapacityTerminationPolicy from value: '" <> e
+           <> "'. Accepted values: default, noTermination"
+
+instance ToText ExcessCapacityTerminationPolicy where
+    toText = \case
+        ECTPDefault -> "default"
+        ECTPNoTermination -> "noTermination"
+
+instance Hashable     ExcessCapacityTerminationPolicy
+instance ToByteString ExcessCapacityTerminationPolicy
+instance ToQuery      ExcessCapacityTerminationPolicy
+instance ToHeader     ExcessCapacityTerminationPolicy
+
+instance FromXML ExcessCapacityTerminationPolicy where
+    parseXML = parseXMLText "ExcessCapacityTerminationPolicy"
 
 data ExportEnvironment
     = Citrix

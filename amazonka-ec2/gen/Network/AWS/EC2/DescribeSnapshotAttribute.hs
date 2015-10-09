@@ -121,7 +121,7 @@ instance ToQuery DescribeSnapshotAttribute where
           = mconcat
               ["Action" =:
                  ("DescribeSnapshotAttribute" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _dsaDryRun,
                "SnapshotId" =: _dsaSnapshotId,
                "Attribute" =: _dsaAttribute]

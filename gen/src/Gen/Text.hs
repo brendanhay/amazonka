@@ -226,6 +226,7 @@ upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
          , ("Lt$",           "LT")
          , ("Gt$",           "GT")
          , ("X8664",         "X86_64")
+         , ("Ia$",           "IA")
          ]
 
 acronyms :: [(String, String)]

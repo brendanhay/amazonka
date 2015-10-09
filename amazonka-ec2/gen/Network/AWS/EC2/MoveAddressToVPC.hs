@@ -104,7 +104,7 @@ instance ToQuery MoveAddressToVPC where
         toQuery MoveAddressToVPC'{..}
           = mconcat
               ["Action" =: ("MoveAddressToVpc" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _matvDryRun, "PublicIp" =: _matvPublicIP]
 
 -- | /See:/ 'moveAddressToVPCResponse' smart constructor.

@@ -1,0 +1,123 @@
+name:                  amazonka-inspector
+version:               1.3.3
+synopsis:              Amazon Inspector SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2015 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+cabal-version:         >= 1.10
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto
+description:
+    Amazon Inspector
+
+    Amazon Inspector enables you to analyze the behavior of the applications
+    you run in AWS and to identify potential security issues. For more
+    information, see
+    <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide>.
+    .
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information and sending requests.
+    .
+    Use of lenses is required for constructing and manipulating types.
+    This is due to the amount of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.Inspector" and the <http://docs.aws.amazon.com/inspector/latest/APIReference/Welcome.html AWS API Reference>
+    to get started.
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.Inspector
+        , Network.AWS.Inspector.AddAttributesToFindings
+        , Network.AWS.Inspector.AttachAssessmentAndRulesPackage
+        , Network.AWS.Inspector.CreateApplication
+        , Network.AWS.Inspector.CreateAssessment
+        , Network.AWS.Inspector.CreateResourceGroup
+        , Network.AWS.Inspector.DeleteApplication
+        , Network.AWS.Inspector.DeleteAssessment
+        , Network.AWS.Inspector.DeleteRun
+        , Network.AWS.Inspector.DescribeApplication
+        , Network.AWS.Inspector.DescribeAssessment
+        , Network.AWS.Inspector.DescribeCrossAccountAccessRole
+        , Network.AWS.Inspector.DescribeFinding
+        , Network.AWS.Inspector.DescribeResourceGroup
+        , Network.AWS.Inspector.DescribeRulesPackage
+        , Network.AWS.Inspector.DescribeRun
+        , Network.AWS.Inspector.DetachAssessmentAndRulesPackage
+        , Network.AWS.Inspector.GetAssessmentTelemetry
+        , Network.AWS.Inspector.ListApplications
+        , Network.AWS.Inspector.ListAssessmentAgents
+        , Network.AWS.Inspector.ListAssessments
+        , Network.AWS.Inspector.ListAttachedAssessments
+        , Network.AWS.Inspector.ListAttachedRulesPackages
+        , Network.AWS.Inspector.ListFindings
+        , Network.AWS.Inspector.ListRulesPackages
+        , Network.AWS.Inspector.ListRuns
+        , Network.AWS.Inspector.ListTagsForResource
+        , Network.AWS.Inspector.LocalizeText
+        , Network.AWS.Inspector.PreviewAgentsForResourceGroup
+        , Network.AWS.Inspector.RegisterCrossAccountAccessRole
+        , Network.AWS.Inspector.RemoveAttributesFromFindings
+        , Network.AWS.Inspector.RunAssessment
+        , Network.AWS.Inspector.SetTagsForResource
+        , Network.AWS.Inspector.StartDataCollection
+        , Network.AWS.Inspector.StopDataCollection
+        , Network.AWS.Inspector.Types
+        , Network.AWS.Inspector.UpdateApplication
+        , Network.AWS.Inspector.UpdateAssessment
+        , Network.AWS.Inspector.Waiters
+
+    other-modules:
+          Network.AWS.Inspector.Types.Product
+        , Network.AWS.Inspector.Types.Sum
+
+    build-depends:
+          amazonka-core == 1.3.3.*
+        , base          >= 4.7     && < 5
+
+test-suite amazonka-inspector-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.Inspector
+        , Test.AWS.Gen.Inspector
+        , Test.AWS.Inspector.Internal
+
+    build-depends:
+          amazonka-core == 1.3.3.*
+        , amazonka-test == 1.3.3.*
+        , amazonka-inspector == 1.3.3.*
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

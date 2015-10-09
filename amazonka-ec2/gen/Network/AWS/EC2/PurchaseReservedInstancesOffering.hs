@@ -138,7 +138,7 @@ instance ToQuery PurchaseReservedInstancesOffering
           = mconcat
               ["Action" =:
                  ("PurchaseReservedInstancesOffering" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "LimitPrice" =: _prioLimitPrice,
                "DryRun" =: _prioDryRun,
                "ReservedInstancesOfferingId" =:

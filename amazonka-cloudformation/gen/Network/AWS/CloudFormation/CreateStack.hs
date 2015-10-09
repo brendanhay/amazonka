@@ -38,6 +38,7 @@ module Network.AWS.CloudFormation.CreateStack
     , csTemplateURL
     , csCapabilities
     , csOnFailure
+    , csResourceTypes
     , csTags
     , csTimeoutInMinutes
     , csStackName
@@ -69,6 +70,7 @@ data CreateStack = CreateStack'
     , _csTemplateURL      :: !(Maybe Text)
     , _csCapabilities     :: !(Maybe [Capability])
     , _csOnFailure        :: !(Maybe OnFailure)
+    , _csResourceTypes    :: !(Maybe [Text])
     , _csTags             :: !(Maybe [Tag])
     , _csTimeoutInMinutes :: !(Maybe Nat)
     , _csStackName        :: !Text
@@ -96,6 +98,8 @@ data CreateStack = CreateStack'
 --
 -- * 'csOnFailure'
 --
+-- * 'csResourceTypes'
+--
 -- * 'csTags'
 --
 -- * 'csTimeoutInMinutes'
@@ -115,6 +119,7 @@ createStack pStackName_ =
     , _csTemplateURL = Nothing
     , _csCapabilities = Nothing
     , _csOnFailure = Nothing
+    , _csResourceTypes = Nothing
     , _csTags = Nothing
     , _csTimeoutInMinutes = Nothing
     , _csStackName = pStackName_
@@ -164,8 +169,8 @@ csTemplateBody :: Lens' CreateStack (Maybe Text)
 csTemplateBody = lens _csTemplateBody (\ s a -> s{_csTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
--- template (max size: 460,800 bytes) located in an S3 bucket in the same
--- region as the stack. For more information, go to the
+-- template (max size: 460,800 bytes) that is located in an Amazon S3
+-- bucket. For more information, go to the
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the AWS CloudFormation User Guide.
 --
@@ -203,6 +208,24 @@ csCapabilities = lens _csCapabilities (\ s a -> s{_csCapabilities = a}) . _Defau
 -- Default: 'ROLLBACK'
 csOnFailure :: Lens' CreateStack (Maybe OnFailure)
 csOnFailure = lens _csOnFailure (\ s a -> s{_csOnFailure = a});
+
+-- | The template resource types that you have permissions to work with for
+-- this create stack action, such as 'AWS::EC2::Instance', 'AWS::EC2::*',
+-- or 'Custom::MyCustomInstance'. Use the following syntax to describe
+-- template resource types: 'AWS::*' (for all AWS resource), 'Custom::*'
+-- (for all custom resources), 'Custom::logical_ID' (for a specific custom
+-- resource), 'AWS::service_name::*' (for all resources of a particular AWS
+-- service), and 'AWS::service_name::resource_logical_ID' (for a specific
+-- AWS resource).
+--
+-- If the list of resource types doesn\'t include a resource that you\'re
+-- creating, the stack creation fails. By default, AWS CloudFormation
+-- grants permissions to all resource types. AWS Identity and Access
+-- Management (IAM) uses this parameter for AWS CloudFormation-specific
+-- condition keys in IAM policies. For more information, see
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with AWS Identity and Access Management>.
+csResourceTypes :: Lens' CreateStack [Text]
+csResourceTypes = lens _csResourceTypes (\ s a -> s{_csResourceTypes = a}) . _Default . _Coerce;
 
 -- | A set of user-defined 'Tags' to associate with this stack, represented
 -- by key\/value pairs. Tags defined for the stack are propagated to EC2
@@ -259,6 +282,8 @@ instance ToQuery CreateStack where
                "Capabilities" =:
                  toQuery (toQueryList "member" <$> _csCapabilities),
                "OnFailure" =: _csOnFailure,
+               "ResourceTypes" =:
+                 toQuery (toQueryList "member" <$> _csResourceTypes),
                "Tags" =: toQuery (toQueryList "member" <$> _csTags),
                "TimeoutInMinutes" =: _csTimeoutInMinutes,
                "StackName" =: _csStackName]

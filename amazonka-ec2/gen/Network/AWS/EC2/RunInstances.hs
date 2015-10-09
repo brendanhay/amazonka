@@ -400,7 +400,7 @@ instance ToQuery RunInstances where
         toQuery RunInstances'{..}
           = mconcat
               ["Action" =: ("RunInstances" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "AdditionalInfo" =: _rAdditionalInfo,
                toQuery
                  (toQueryList "SecurityGroupId" <$>

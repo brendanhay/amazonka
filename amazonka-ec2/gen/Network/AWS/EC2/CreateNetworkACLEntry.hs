@@ -182,7 +182,7 @@ instance ToQuery CreateNetworkACLEntry where
         toQuery CreateNetworkACLEntry'{..}
           = mconcat
               ["Action" =: ("CreateNetworkAclEntry" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "Icmp" =: _cnaeICMPTypeCode,
                "PortRange" =: _cnaePortRange,
                "DryRun" =: _cnaeDryRun,

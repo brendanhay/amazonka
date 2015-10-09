@@ -91,7 +91,7 @@ instance ToQuery DeleteInternetGateway where
         toQuery DeleteInternetGateway'{..}
           = mconcat
               ["Action" =: ("DeleteInternetGateway" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _digiDryRun,
                "InternetGatewayId" =: _digiInternetGatewayId]
 

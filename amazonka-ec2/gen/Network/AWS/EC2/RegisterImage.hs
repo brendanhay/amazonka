@@ -227,7 +227,7 @@ instance ToQuery RegisterImage where
         toQuery RegisterImage'{..}
           = mconcat
               ["Action" =: ("RegisterImage" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "VirtualizationType" =: _riVirtualizationType,
                "ImageLocation" =: _riImageLocation,
                "RamdiskId" =: _riRAMDiskId,

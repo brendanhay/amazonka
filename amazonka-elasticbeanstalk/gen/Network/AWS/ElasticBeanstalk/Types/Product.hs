@@ -1894,7 +1894,7 @@ sihColor = lens _sihColor (\ s a -> s{_sihColor = a});
 
 -- | Returns the health status of the specified instance. For more
 -- information, see
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html >.
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
 sihHealthStatus :: Lens' SingleInstanceHealth (Maybe Text)
 sihHealthStatus = lens _sihHealthStatus (\ s a -> s{_sihHealthStatus = a});
 

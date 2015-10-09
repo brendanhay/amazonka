@@ -166,7 +166,7 @@ instance ToQuery CreateRoute where
         toQuery CreateRoute'{..}
           = mconcat
               ["Action" =: ("CreateRoute" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "VpcPeeringConnectionId" =:
                  _crVPCPeeringConnectionId,
                "InstanceId" =: _crInstanceId,

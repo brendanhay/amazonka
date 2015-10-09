@@ -20,6 +20,14 @@
 --
 -- Cancels the specified Spot fleet requests.
 --
+-- After you cancel a Spot fleet request, the Spot fleet launches no new
+-- Spot instances. You must specify whether the Spot fleet should also
+-- terminate its Spot instances. If you terminate the instances, the Spot
+-- fleet request enters the 'cancelled_terminating' state. Otherwise, the
+-- Spot fleet request enters the 'cancelled_running' state and the
+-- instances continue to run until they are interrupted or you terminate
+-- them manually.
+--
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotFleetRequests.html AWS API Reference> for CancelSpotFleetRequests.
 module Network.AWS.EC2.CancelSpotFleetRequests
     (
@@ -116,7 +124,7 @@ instance ToQuery CancelSpotFleetRequests where
           = mconcat
               ["Action" =:
                  ("CancelSpotFleetRequests" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _csfrDryRun,
                toQueryList "SpotFleetRequestId"
                  _csfrSpotFleetRequestIds,

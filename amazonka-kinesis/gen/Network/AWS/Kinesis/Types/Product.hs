@@ -375,15 +375,16 @@ instance FromJSON Shard where
                      <*> (x .: "HashKeyRange")
                      <*> (x .: "SequenceNumberRange"))
 
--- | Represents the output for 'DescribeStream'.
+-- | Represents the output for DescribeStream.
 --
 -- /See:/ 'streamDescription' smart constructor.
 data StreamDescription = StreamDescription'
-    { _sdStreamName    :: !Text
-    , _sdStreamARN     :: !Text
-    , _sdStreamStatus  :: !StreamStatus
-    , _sdShards        :: ![Shard]
-    , _sdHasMoreShards :: !Bool
+    { _sdStreamName           :: !Text
+    , _sdStreamARN            :: !Text
+    , _sdStreamStatus         :: !StreamStatus
+    , _sdShards               :: ![Shard]
+    , _sdHasMoreShards        :: !Bool
+    , _sdRetentionPeriodHours :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StreamDescription' with the minimum fields required to make a request.
@@ -399,19 +400,23 @@ data StreamDescription = StreamDescription'
 -- * 'sdShards'
 --
 -- * 'sdHasMoreShards'
+--
+-- * 'sdRetentionPeriodHours'
 streamDescription
     :: Text -- ^ 'sdStreamName'
     -> Text -- ^ 'sdStreamARN'
     -> StreamStatus -- ^ 'sdStreamStatus'
     -> Bool -- ^ 'sdHasMoreShards'
+    -> Natural -- ^ 'sdRetentionPeriodHours'
     -> StreamDescription
-streamDescription pStreamName_ pStreamARN_ pStreamStatus_ pHasMoreShards_ =
+streamDescription pStreamName_ pStreamARN_ pStreamStatus_ pHasMoreShards_ pRetentionPeriodHours_ =
     StreamDescription'
     { _sdStreamName = pStreamName_
     , _sdStreamARN = pStreamARN_
     , _sdStreamStatus = pStreamStatus_
     , _sdShards = mempty
     , _sdHasMoreShards = pHasMoreShards_
+    , _sdRetentionPeriodHours = _Nat # pRetentionPeriodHours_
     }
 
 -- | The name of the stream being described.
@@ -447,6 +452,10 @@ sdShards = lens _sdShards (\ s a -> s{_sdShards = a}) . _Coerce;
 sdHasMoreShards :: Lens' StreamDescription Bool
 sdHasMoreShards = lens _sdHasMoreShards (\ s a -> s{_sdHasMoreShards = a});
 
+-- | The current retention period, in hours.
+sdRetentionPeriodHours :: Lens' StreamDescription Natural
+sdRetentionPeriodHours = lens _sdRetentionPeriodHours (\ s a -> s{_sdRetentionPeriodHours = a}) . _Nat;
+
 instance FromJSON StreamDescription where
         parseJSON
           = withObject "StreamDescription"
@@ -455,7 +464,8 @@ instance FromJSON StreamDescription where
                    (x .: "StreamName") <*> (x .: "StreamARN") <*>
                      (x .: "StreamStatus")
                      <*> (x .:? "Shards" .!= mempty)
-                     <*> (x .: "HasMoreShards"))
+                     <*> (x .: "HasMoreShards")
+                     <*> (x .: "RetentionPeriodHours"))
 
 -- | Metadata assigned to the stream, consisting of a key-value pair.
 --

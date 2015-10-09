@@ -169,7 +169,7 @@ instance ToQuery ReportInstanceStatus where
         toQuery ReportInstanceStatus'{..}
           = mconcat
               ["Action" =: ("ReportInstanceStatus" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "StartTime" =: _risStartTime,
                "EndTime" =: _risEndTime,
                "Description" =: _risDescription,

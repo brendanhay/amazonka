@@ -143,7 +143,7 @@ instance ToQuery DetachVolume where
         toQuery DetachVolume'{..}
           = mconcat
               ["Action" =: ("DetachVolume" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                "InstanceId" =: _dvInstanceId, "Force" =: _dvForce,
                "Device" =: _dvDevice, "DryRun" =: _dvDryRun,
                "VolumeId" =: _dvVolumeId]

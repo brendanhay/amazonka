@@ -128,7 +128,7 @@ instance ToQuery AssignPrivateIPAddresses where
           = mconcat
               ["Action" =:
                  ("AssignPrivateIpAddresses" :: ByteString),
-               "Version" =: ("2015-04-15" :: ByteString),
+               "Version" =: ("2015-10-01" :: ByteString),
                toQuery
                  (toQueryList "PrivateIpAddress" <$>
                     _apiaPrivateIPAddresses),

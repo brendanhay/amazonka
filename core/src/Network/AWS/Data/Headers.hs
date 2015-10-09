@@ -74,6 +74,9 @@ instance ToText a => ToHeader (Maybe a) where
 hHost :: HeaderName
 hHost = "Host"
 
+hExpect :: HeaderName
+hExpect = "Expect"
+
 hAMZToken :: HeaderName
 hAMZToken = "X-Amz-Security-Token"
 
@@ -118,9 +121,6 @@ hAMZDecodedContentLength = "X-Amz-Decoded-Content-Length"
 
 hTransferEncoding :: HeaderName
 hTransferEncoding = "Transfer-Encoding"
-
-hExpect :: HeaderName
-hExpect = "Expect"
 
 hFormEncoded :: ByteString
 hFormEncoded = "application/x-www-form-urlencoded; charset=utf-8"

@@ -19,7 +19,7 @@ Amazon Kinesis Firehose is a fully-managed service that delivers
 real-time streaming data to destinations such as Amazon S3 and Amazon
 Redshift.
 
-Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-firehose)
+Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-kinesis-firehose)
 and the [AWS API Reference](http://docs.aws.amazon.com/firehose/latest/APIReference/Welcome.html).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
@@ -40,7 +40,7 @@ For any problems, comments, or feedback please create an issue [here on GitHub](
 
 ## Licence
 
-`amazonka-firehose` is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).
+`amazonka-kinesis-firehose` is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).
 
 Parts of the code are derived from AWS service descriptions, licensed under Apache 2.0.
 Source files subject to this contain an additional licensing clause in their header.

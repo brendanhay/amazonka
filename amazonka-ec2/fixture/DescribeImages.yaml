@@ -1,10 +1,10 @@
 ---
 method: POST
 headers:
-  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/ec2/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=703971f74f0e6477389f0f0573ffca8f6cc149858b3e64a5ad7b1e68234c3b53
+  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/ec2/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=ebaff8e1ce437ed31de2059b4f38524aab94d158b2739a0c3d751e5b9ae022ea
   Host:                  ec2.us-east-1.amazonaws.com
   Content-Type:          application/x-www-form-urlencoded; charset=utf-8
-  X-Amz-Content-SHA256:  856e4442dce881de9a90f3b5f6d2c7984d9756b8285e0eb558af0c0ed25ab8c7
+  X-Amz-Content-SHA256:  43769959351330e944b6850bb27670a87dfcc6081765215c80a608a67793073c
   X-Amz-Date:            20091028T223200Z
 body:
-  Action=DescribeImages&Filter.1.Name=is-public&Filter.1.Value.1=true&Filter.2.Name=architecture&Filter.2.Value.1=x86_64&Filter.3.Name=platform&Filter.3.Value.1=windows&Version=2015-04-15
+  Action=DescribeImages&Filter.1.Name=is-public&Filter.1.Value.1=true&Filter.2.Name=architecture&Filter.2.Value.1=x86_64&Filter.3.Name=platform&Filter.3.Value.1=windows&Version=2015-10-01

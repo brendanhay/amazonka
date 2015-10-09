@@ -46,8 +46,9 @@ import           Numeric.Natural             as Export (Natural)
 
 import           Network.AWS.Types           as Export hiding (AccessKey,
                                                         Algorithm, Endpoint,
-                                                        Seconds, SecretKey,
-                                                        Signer, serviceEndpoint)
+                                                        LogLevel (..), Seconds,
+                                                        SecretKey, Signer,
+                                                        serviceEndpoint)
 
 infixl 7 .!@
 

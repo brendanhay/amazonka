@@ -136,15 +136,17 @@ matrix:
       addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.2 LIBRARY=amazonka-emr
       addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
-    - env: GHCVER=7.10.2 LIBRARY=amazonka-firehose
-      addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.2 LIBRARY=amazonka-glacier
       addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.2 LIBRARY=amazonka-importexport
       addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.2 LIBRARY=amazonka-inspector
       addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
+    - env: GHCVER=7.10.2 LIBRARY=amazonka-iot
+      addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.2 LIBRARY=amazonka-kinesis
+      addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
+    - env: GHCVER=7.10.2 LIBRARY=amazonka-kinesis-firehose
       addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.2 LIBRARY=amazonka-kms
       addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }

@@ -40,12 +40,13 @@ packages:
   - amazonka-elastictranscoder
   - amazonka-elb
   - amazonka-emr
-  - amazonka-firehose
   - amazonka-glacier
   - amazonka-iam
   - amazonka-importexport
   - amazonka-inspector
+  - amazonka-iot
   - amazonka-kinesis
+  - amazonka-kinesis-firehose
   - amazonka-kms
   - amazonka-lambda
   - amazonka-marketplace-analytics

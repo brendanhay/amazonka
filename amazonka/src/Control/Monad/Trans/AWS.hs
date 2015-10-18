@@ -32,6 +32,7 @@ module Control.Monad.Trans.AWS
       AWST
     , AWST'
     , runAWST
+    , runResourceT
     , AWSConstraint
 
     -- * Authentication and Environment
@@ -147,9 +148,6 @@ module Control.Monad.Trans.AWS
     , HashedBody
     , ChunkedBody
     , RsBody
-
-    -- * runResourceT
-    , runResourceT
     ) where
 
 import           Control.Applicative

@@ -30,6 +30,7 @@ module Network.AWS
       AWS
     , MonadAWS    (..)
     , runAWS
+    , runResourceT
 
     -- * Authentication and Environment
     , newEnv
@@ -143,9 +144,6 @@ module Network.AWS
     , HashedBody
     , ChunkedBody
     , RsBody
-
-    -- * runResourceT
-    , runResourceT
     ) where
 
 import           Control.Applicative

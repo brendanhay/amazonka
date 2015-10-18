@@ -20,9 +20,9 @@
 module Network.AWS.Auth
     (
     -- * Authentication
-    -- ** Retrieving authentication
+    -- ** Retrieving Authentication
       getAuth
-    , Credentials   (..)
+    , Credentials  (..)
     , Auth
 
     -- ** Defaults
@@ -38,6 +38,7 @@ module Network.AWS.Auth
     , credProfile
     , credFile
 
+    -- ** Credentials
     -- $credentials
 
     , fromKeys
@@ -55,8 +56,8 @@ module Network.AWS.Auth
     , SessionToken (..)
 
     -- ** Handling Errors
-    , AsAuthError (..)
-    , AuthError   (..)
+    , AsAuthError  (..)
+    , AuthError    (..)
     ) where
 
 import           Control.Applicative
@@ -160,7 +161,7 @@ data Credentials
 
     | FromProfile Text
       -- ^ An IAM Profile name to lookup from the local EC2 instance-data.
-      -- ^ Environment variables to lookup for the access key, secret key and
+      -- Environment variables to lookup for the access key, secret key and
       -- optional session token.
 
     | FromFile Text FilePath
@@ -168,7 +169,7 @@ data Credentials
       -- <http://blogs.aws.amazon.com/security/post/Tx3D6U6WSFGOK2H/A-New-and-Standardized-Way-to-Manage-Credentials-in-the-AWS-SDKs credentials> file.
 
     | Discover
-      -- ^ Attempt to credentials discovery via the following steps:
+      -- ^ Attempt credentials discovery via the following steps:
       --
       -- * Read the 'envAccessKey' and 'envSecretKey' from the environment if they are set.
       --
@@ -352,7 +353,8 @@ fromFilePath :: (Applicative m, MonadIO m, MonadCatch m)
              -> m Auth
 fromFilePath n f = do
     p <- liftIO (doesFileExist f)
-    unless p $ throwM (MissingFileError f)
+    unless p $
+        throwM (MissingFileError f)
     i <- liftIO (INI.readIniFile f) >>= either (invalidErr Nothing) return
     fmap Auth $ AuthEnv
         <$> (req credAccessKey i    <&> AccessKey)

@@ -1,5 +1,22 @@
 # Change Log
 
+## [1.3.4](https://github.com/brendanhay/amazonka/tree/1.3.4)
+Released: **25 October, 2015**, Compare: [1.3.4](https://github.com/brendanhay/amazonka/compare/1.3.3...1.3.4)
+
+### Updated Services Definitions
+
+- AutoScaling: Documentation updates.
+- EC2: Paginator updates.
+- Glacier: Paginator additions.
+- IAM: Paginator, type, and documentation updates.
+- KMS: Multiple type, operation, and documentation updates.
+- S3: Minor type updates. (Server side encryption related.)
+
+### New Libraries
+
+- `amazonka-iot-dataplane`: Internet of Things Data Plane.
+
+
 ## [1.3.3](https://github.com/brendanhay/amazonka/tree/1.3.3)
 Released: **08 October, 2015**, Compare: [1.3.2.1](https://github.com/brendanhay/amazonka/compare/1.3.2.1...1.3.3)
 

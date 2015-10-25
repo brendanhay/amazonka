@@ -53,7 +53,7 @@ import           Network.AWS.Response
 -- /See:/ 'updateThingShadow' smart constructor.
 data UpdateThingShadow = UpdateThingShadow'
     { _utsThingName :: !Text
-    , _utsPayload   :: !Base64
+    , _utsPayload   :: !(HashMap Text Value)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateThingShadow' with the minimum fields required to make a request.
@@ -65,12 +65,12 @@ data UpdateThingShadow = UpdateThingShadow'
 -- * 'utsPayload'
 updateThingShadow
     :: Text -- ^ 'utsThingName'
-    -> ByteString -- ^ 'utsPayload'
+    -> HashMap Text Value -- ^ 'utsPayload'
     -> UpdateThingShadow
 updateThingShadow pThingName_ pPayload_ =
     UpdateThingShadow'
     { _utsThingName = pThingName_
-    , _utsPayload = _Base64 # pPayload_
+    , _utsPayload = pPayload_
     }
 
 -- | The name of the thing.
@@ -78,14 +78,8 @@ utsThingName :: Lens' UpdateThingShadow Text
 utsThingName = lens _utsThingName (\ s a -> s{_utsThingName = a});
 
 -- | The state information, in JSON format.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
-utsPayload :: Lens' UpdateThingShadow ByteString
-utsPayload = lens _utsPayload (\ s a -> s{_utsPayload = a}) . _Base64;
+utsPayload :: Lens' UpdateThingShadow (HashMap Text Value)
+utsPayload = lens _utsPayload (\ s a -> s{_utsPayload = a});
 
 instance AWSRequest UpdateThingShadow where
         type Rs UpdateThingShadow = UpdateThingShadowResponse
@@ -113,7 +107,7 @@ instance ToQuery UpdateThingShadow where
 --
 -- /See:/ 'updateThingShadowResponse' smart constructor.
 data UpdateThingShadowResponse = UpdateThingShadowResponse'
-    { _utsrsPayload        :: !(Maybe Base64)
+    { _utsrsPayload        :: !(Maybe (HashMap Text Value))
     , _utsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -134,14 +128,8 @@ updateThingShadowResponse pResponseStatus_ =
     }
 
 -- | The state information, in JSON format.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
-utsrsPayload :: Lens' UpdateThingShadowResponse (Maybe ByteString)
-utsrsPayload = lens _utsrsPayload (\ s a -> s{_utsrsPayload = a}) . mapping _Base64;
+utsrsPayload :: Lens' UpdateThingShadowResponse (Maybe (HashMap Text Value))
+utsrsPayload = lens _utsrsPayload (\ s a -> s{_utsrsPayload = a});
 
 -- | The response status code.
 utsrsResponseStatus :: Lens' UpdateThingShadowResponse Int

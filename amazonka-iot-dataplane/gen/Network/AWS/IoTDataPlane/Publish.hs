@@ -50,10 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'publish' smart constructor.
 data Publish = Publish'
-    { _pPayload :: !(Maybe Base64)
+    { _pPayload :: !(Maybe (HashMap Text Value))
     , _pQos     :: !(Maybe Nat)
     , _pTopic   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Publish' with the minimum fields required to make a request.
 --
@@ -75,14 +75,8 @@ publish pTopic_ =
     }
 
 -- | The state information, in JSON format.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
-pPayload :: Lens' Publish (Maybe ByteString)
-pPayload = lens _pPayload (\ s a -> s{_pPayload = a}) . mapping _Base64;
+pPayload :: Lens' Publish (Maybe (HashMap Text Value))
+pPayload = lens _pPayload (\ s a -> s{_pPayload = a});
 
 -- | The Quality of Service (QoS) level.
 pQos :: Lens' Publish (Maybe Natural)

@@ -3,6 +3,9 @@
         "serviceAbbreviation": "IoTDataPlane"
     },
     "shapes": {
+        "JsonDocument": {
+            "type": "json"
+        },
         "Payload": {
             "type": "json"
         }

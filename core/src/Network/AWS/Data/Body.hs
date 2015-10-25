@@ -212,6 +212,9 @@ instance ToBody RqBody      where toBody = id
 instance ToBody HashedBody  where toBody = Hashed
 instance ToBody ChunkedBody where toBody = Chunked
 
+instance ToHashedBody a => ToBody (Maybe a) where
+    toBody = Hashed . maybe (toHashed BS.empty) toHashed
+
 instance ToBody String
 instance ToBody LBS.ByteString
 instance ToBody ByteString

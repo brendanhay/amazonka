@@ -96,7 +96,7 @@ instance ToQuery DeleteThingShadow where
 data DeleteThingShadowResponse = DeleteThingShadowResponse'
     { _dtsrsResponseStatus :: !Int
     , _dtsrsPayload        :: !(HashMap Text Value)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteThingShadowResponse' with the minimum fields required to make a request.
 --

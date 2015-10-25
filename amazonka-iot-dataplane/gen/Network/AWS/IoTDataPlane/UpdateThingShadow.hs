@@ -54,7 +54,7 @@ import           Network.AWS.Response
 data UpdateThingShadow = UpdateThingShadow'
     { _utsThingName :: !Text
     , _utsPayload   :: !(HashMap Text Value)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateThingShadow' with the minimum fields required to make a request.
 --
@@ -109,7 +109,7 @@ instance ToQuery UpdateThingShadow where
 data UpdateThingShadowResponse = UpdateThingShadowResponse'
     { _utsrsPayload        :: !(Maybe (HashMap Text Value))
     , _utsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateThingShadowResponse' with the minimum fields required to make a request.
 --

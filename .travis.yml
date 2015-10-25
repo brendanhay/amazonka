@@ -144,6 +144,8 @@ matrix:
       addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.2 LIBRARY=amazonka-iot
       addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
+    - env: GHCVER=7.10.2 LIBRARY=amazonka-iot-dataplane
+      addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.2 LIBRARY=amazonka-kinesis
       addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.2 LIBRARY=amazonka-kinesis-firehose

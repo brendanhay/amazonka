@@ -45,6 +45,7 @@ packages:
   - amazonka-importexport
   - amazonka-inspector
   - amazonka-iot
+  - amazonka-iot-dataplane
   - amazonka-kinesis
   - amazonka-kinesis-firehose
   - amazonka-kms

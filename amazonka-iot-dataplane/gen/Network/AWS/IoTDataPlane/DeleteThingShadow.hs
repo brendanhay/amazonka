@@ -95,8 +95,8 @@ instance ToQuery DeleteThingShadow where
 -- /See:/ 'deleteThingShadowResponse' smart constructor.
 data DeleteThingShadowResponse = DeleteThingShadowResponse'
     { _dtsrsResponseStatus :: !Int
-    , _dtsrsPayload        :: !Base64
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    , _dtsrsPayload        :: !(HashMap Text Value)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteThingShadowResponse' with the minimum fields required to make a request.
 --
@@ -107,12 +107,12 @@ data DeleteThingShadowResponse = DeleteThingShadowResponse'
 -- * 'dtsrsPayload'
 deleteThingShadowResponse
     :: Int -- ^ 'dtsrsResponseStatus'
-    -> ByteString -- ^ 'dtsrsPayload'
+    -> HashMap Text Value -- ^ 'dtsrsPayload'
     -> DeleteThingShadowResponse
 deleteThingShadowResponse pResponseStatus_ pPayload_ =
     DeleteThingShadowResponse'
     { _dtsrsResponseStatus = pResponseStatus_
-    , _dtsrsPayload = _Base64 # pPayload_
+    , _dtsrsPayload = pPayload_
     }
 
 -- | The response status code.
@@ -120,11 +120,5 @@ dtsrsResponseStatus :: Lens' DeleteThingShadowResponse Int
 dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a});
 
 -- | The state information, in JSON format.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
-dtsrsPayload :: Lens' DeleteThingShadowResponse ByteString
-dtsrsPayload = lens _dtsrsPayload (\ s a -> s{_dtsrsPayload = a}) . _Base64;
+dtsrsPayload :: Lens' DeleteThingShadowResponse (HashMap Text Value)
+dtsrsPayload = lens _dtsrsPayload (\ s a -> s{_dtsrsPayload = a});

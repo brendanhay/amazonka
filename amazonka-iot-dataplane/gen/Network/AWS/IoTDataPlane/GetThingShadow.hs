@@ -94,9 +94,9 @@ instance ToQuery GetThingShadow where
 --
 -- /See:/ 'getThingShadowResponse' smart constructor.
 data GetThingShadowResponse = GetThingShadowResponse'
-    { _gtsrsPayload        :: !(Maybe Base64)
+    { _gtsrsPayload        :: !(Maybe (HashMap Text Value))
     , _gtsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetThingShadowResponse' with the minimum fields required to make a request.
 --
@@ -115,14 +115,8 @@ getThingShadowResponse pResponseStatus_ =
     }
 
 -- | The state information, in JSON format.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
-gtsrsPayload :: Lens' GetThingShadowResponse (Maybe ByteString)
-gtsrsPayload = lens _gtsrsPayload (\ s a -> s{_gtsrsPayload = a}) . mapping _Base64;
+gtsrsPayload :: Lens' GetThingShadowResponse (Maybe (HashMap Text Value))
+gtsrsPayload = lens _gtsrsPayload (\ s a -> s{_gtsrsPayload = a});
 
 -- | The response status code.
 gtsrsResponseStatus :: Lens' GetThingShadowResponse Int

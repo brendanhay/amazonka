@@ -33,6 +33,8 @@
 -- specified path prefix), the action returns an empty list.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedUserPolicies.html AWS API Reference> for ListAttachedUserPolicies.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.ListAttachedUserPolicies
     (
     -- * Creating a Request
@@ -56,6 +58,7 @@ module Network.AWS.IAM.ListAttachedUserPolicies
 
 import           Network.AWS.IAM.Types
 import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -98,19 +101,19 @@ laupPathPrefix = lens _laupPathPrefix (\ s a -> s{_laupPathPrefix = a});
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
--- the value of the 'Marker' element in the response you received to inform
--- the next call about where to start.
+-- the value of the 'Marker' element in the response that you received to
+-- indicate where the next call should start.
 laupMarker :: Lens' ListAttachedUserPolicies (Maybe Text)
 laupMarker = lens _laupMarker (\ s a -> s{_laupMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
--- items you want in the response. If there are additional items beyond the
+-- items you want in the response. If additional items exist beyond the
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100. Note that IAM might return fewer results, even when there are more
--- results available. If this is the case, the 'IsTruncated' response
--- element returns 'true' and 'Marker' contains a value to include in the
+-- results available. In that case, the 'IsTruncated' response element
+-- returns 'true' and 'Marker' contains a value to include in the
 -- subsequent call that tells the service where to continue from.
 laupMaxItems :: Lens' ListAttachedUserPolicies (Maybe Natural)
 laupMaxItems = lens _laupMaxItems (\ s a -> s{_laupMaxItems = a}) . mapping _Nat;
@@ -119,6 +122,13 @@ laupMaxItems = lens _laupMaxItems (\ s a -> s{_laupMaxItems = a}) . mapping _Nat
 -- for.
 laupUserName :: Lens' ListAttachedUserPolicies Text
 laupUserName = lens _laupUserName (\ s a -> s{_laupUserName = a});
+
+instance AWSPager ListAttachedUserPolicies where
+        page rq rs
+          | stop (rs ^. lauprsIsTruncated) = Nothing
+          | isNothing (rs ^. lauprsMarker) = Nothing
+          | otherwise =
+            Just $ rq & laupMarker .~ rs ^. lauprsMarker
 
 instance AWSRequest ListAttachedUserPolicies where
         type Rs ListAttachedUserPolicies =

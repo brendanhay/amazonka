@@ -83,9 +83,9 @@ updateContainerAgent pContainerInstance_ =
 ucaCluster :: Lens' UpdateContainerAgent (Maybe Text)
 ucaCluster = lens _ucaCluster (\ s a -> s{_ucaCluster = a});
 
--- | The container instance UUID or full Amazon Resource Name (ARN) entries
--- for the container instance on which you would like to update the Amazon
--- ECS container agent.
+-- | The container instance ID or full Amazon Resource Name (ARN) entries for
+-- the container instance on which you would like to update the Amazon ECS
+-- container agent.
 ucaContainerInstance :: Lens' UpdateContainerAgent Text
 ucaContainerInstance = lens _ucaContainerInstance (\ s a -> s{_ucaContainerInstance = a});
 

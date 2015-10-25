@@ -345,6 +345,7 @@ instance ToQuery ContextEntry where
 -- /See:/ 'evaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
     { _erMatchedStatements    :: !(Maybe [Statement])
+    , _erEvalDecisionDetails  :: !(Maybe (Map Text PolicyEvaluationDecisionType))
     , _erMissingContextValues :: !(Maybe [Text])
     , _erEvalActionName       :: !Text
     , _erEvalResourceName     :: !Text
@@ -356,6 +357,8 @@ data EvaluationResult = EvaluationResult'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'erMatchedStatements'
+--
+-- * 'erEvalDecisionDetails'
 --
 -- * 'erMissingContextValues'
 --
@@ -372,6 +375,7 @@ evaluationResult
 evaluationResult pEvalActionName_ pEvalResourceName_ pEvalDecision_ =
     EvaluationResult'
     { _erMatchedStatements = Nothing
+    , _erEvalDecisionDetails = Nothing
     , _erMissingContextValues = Nothing
     , _erEvalActionName = pEvalActionName_
     , _erEvalResourceName = pEvalResourceName_
@@ -385,6 +389,15 @@ evaluationResult pEvalActionName_ pEvalResourceName_ pEvalDecision_ =
 -- only entry included in the result.
 erMatchedStatements :: Lens' EvaluationResult [Statement]
 erMatchedStatements = lens _erMatchedStatements (\ s a -> s{_erMatchedStatements = a}) . _Default . _Coerce;
+
+-- | Additional details about the results of the evaluation decision. When
+-- there are both IAM policies and resource policies, this parameter
+-- explains how each set of policies contributes to the final evaluation
+-- decision. When simulating cross-account access to a resource, both the
+-- resource-based policy and the caller\'s IAM policy must grant access.
+-- See How IAM Roles Differ from Resource-based Policies
+erEvalDecisionDetails :: Lens' EvaluationResult (HashMap Text PolicyEvaluationDecisionType)
+erEvalDecisionDetails = lens _erEvalDecisionDetails (\ s a -> s{_erEvalDecisionDetails = a}) . _Default . _Map;
 
 -- | A list of context keys that are required by the included input policies
 -- but that were not provided by one of the input parameters. To discover
@@ -415,6 +428,9 @@ instance FromXML EvaluationResult where
           = EvaluationResult' <$>
               (x .@? "MatchedStatements" .!@ mempty >>=
                  may (parseXMLList "member"))
+                <*>
+                (x .@? "EvalDecisionDetails" .!@ mempty >>=
+                   may (parseXMLMap "entry" "key" "value"))
                 <*>
                 (x .@? "MissingContextValues" .!@ mempty >>=
                    may (parseXMLList "member"))

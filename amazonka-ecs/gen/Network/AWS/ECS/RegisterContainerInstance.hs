@@ -21,8 +21,8 @@
 -- This action is only used by the Amazon EC2 Container Service agent, and
 -- it is not intended for use outside of the agent.
 --
--- Registers an Amazon EC2 instance into the specified cluster. This
--- instance will become available to place containers on.
+-- Registers an EC2 instance into the specified cluster. This instance
+-- becomes available to place containers on.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterContainerInstance.html AWS API Reference> for RegisterContainerInstance.
 module Network.AWS.ECS.RegisterContainerInstance
@@ -36,6 +36,7 @@ module Network.AWS.ECS.RegisterContainerInstance
     , rciInstanceIdentityDocument
     , rciContainerInstanceARN
     , rciVersionInfo
+    , rciAttributes
     , rciTotalResources
 
     -- * Destructuring the Response
@@ -59,6 +60,7 @@ data RegisterContainerInstance = RegisterContainerInstance'
     , _rciInstanceIdentityDocument          :: !(Maybe Text)
     , _rciContainerInstanceARN              :: !(Maybe Text)
     , _rciVersionInfo                       :: !(Maybe VersionInfo)
+    , _rciAttributes                        :: !(Maybe [Attribute])
     , _rciTotalResources                    :: !(Maybe [Resource])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -76,6 +78,8 @@ data RegisterContainerInstance = RegisterContainerInstance'
 --
 -- * 'rciVersionInfo'
 --
+-- * 'rciAttributes'
+--
 -- * 'rciTotalResources'
 registerContainerInstance
     :: RegisterContainerInstance
@@ -86,24 +90,25 @@ registerContainerInstance =
     , _rciInstanceIdentityDocument = Nothing
     , _rciContainerInstanceARN = Nothing
     , _rciVersionInfo = Nothing
+    , _rciAttributes = Nothing
     , _rciTotalResources = Nothing
     }
 
--- | The instance identity document signature for the Amazon EC2 instance to
+-- | The instance identity document signature for the EC2 instance to
 -- register. This signature can be found by running the following command
 -- from the instance:
 -- 'curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/signature\/'
 rciInstanceIdentityDocumentSignature :: Lens' RegisterContainerInstance (Maybe Text)
 rciInstanceIdentityDocumentSignature = lens _rciInstanceIdentityDocumentSignature (\ s a -> s{_rciInstanceIdentityDocumentSignature = a});
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- you want to register your container instance with. If you do not specify
--- a cluster, the default cluster is assumed..
+-- | The short name or full Amazon Resource Name (ARN) of the cluster with
+-- which to register your container instance. If you do not specify a
+-- cluster, the default cluster is assumed..
 rciCluster :: Lens' RegisterContainerInstance (Maybe Text)
 rciCluster = lens _rciCluster (\ s a -> s{_rciCluster = a});
 
--- | The instance identity document for the Amazon EC2 instance to register.
--- This document can be found by running the following command from the
+-- | The instance identity document for the EC2 instance to register. This
+-- document can be found by running the following command from the
 -- instance:
 -- 'curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/document\/'
 rciInstanceIdentityDocument :: Lens' RegisterContainerInstance (Maybe Text)
@@ -118,6 +123,10 @@ rciContainerInstanceARN = lens _rciContainerInstanceARN (\ s a -> s{_rciContaine
 -- daemon running on the container instance.
 rciVersionInfo :: Lens' RegisterContainerInstance (Maybe VersionInfo)
 rciVersionInfo = lens _rciVersionInfo (\ s a -> s{_rciVersionInfo = a});
+
+-- | The container instance attributes that this container instance supports.
+rciAttributes :: Lens' RegisterContainerInstance [Attribute]
+rciAttributes = lens _rciAttributes (\ s a -> s{_rciAttributes = a}) . _Default . _Coerce;
 
 -- | The resources available on the instance.
 rciTotalResources :: Lens' RegisterContainerInstance [Resource]
@@ -155,6 +164,7 @@ instance ToJSON RegisterContainerInstance where
                   ("containerInstanceArn" .=) <$>
                     _rciContainerInstanceARN,
                   ("versionInfo" .=) <$> _rciVersionInfo,
+                  ("attributes" .=) <$> _rciAttributes,
                   ("totalResources" .=) <$> _rciTotalResources])
 
 instance ToPath RegisterContainerInstance where

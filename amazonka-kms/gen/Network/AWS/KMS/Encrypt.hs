@@ -106,8 +106,11 @@ encrypt pKeyId_ pPlaintext_ =
 eEncryptionContext :: Lens' Encrypt (HashMap Text Text)
 eEncryptionContext = lens _eEncryptionContext (\ s a -> s{_eEncryptionContext = a}) . _Default . _Map;
 
--- | For more information, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
+-- | A list of grant tokens.
+--
+-- For more information, go to
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
+-- in the /AWS Key Management Service Developer Guide/.
 eGrantTokens :: Lens' Encrypt [Text]
 eGrantTokens = lens _eGrantTokens (\ s a -> s{_eGrantTokens = a}) . _Default . _Coerce;
 

@@ -125,7 +125,7 @@ describeClustersResponse pResponseStatus_ =
     , _dcrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | Any failures associated with the call.
 dcrsFailures :: Lens' DescribeClustersResponse [Failure]
 dcrsFailures = lens _dcrsFailures (\ s a -> s{_dcrsFailures = a}) . _Default . _Coerce;
 

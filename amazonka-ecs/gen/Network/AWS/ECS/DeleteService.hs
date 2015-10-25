@@ -66,11 +66,12 @@ deleteService pService_ =
     , _dsService = pService_
     }
 
--- | The name of the cluster that hosts the service you want to delete.
+-- | The name of the cluster that hosts the service to delete. If you do not
+-- specify a cluster, the default cluster is assumed.
 dsCluster :: Lens' DeleteService (Maybe Text)
 dsCluster = lens _dsCluster (\ s a -> s{_dsCluster = a});
 
--- | The name of the service you want to delete.
+-- | The name of the service to delete.
 dsService :: Lens' DeleteService Text
 dsService = lens _dsService (\ s a -> s{_dsService = a});
 
@@ -128,7 +129,7 @@ deleteServiceResponse pResponseStatus_ =
     , _dsrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The full description of the deleted service.
 dsrsService :: Lens' DeleteServiceResponse (Maybe ContainerService)
 dsrsService = lens _dsrsService (\ s a -> s{_dsrsService = a});
 

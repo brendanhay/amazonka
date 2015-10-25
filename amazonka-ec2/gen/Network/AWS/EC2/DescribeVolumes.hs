@@ -32,6 +32,8 @@
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html AWS API Reference> for DescribeVolumes.
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVolumes
     (
     -- * Creating a Request
@@ -55,6 +57,7 @@ module Network.AWS.EC2.DescribeVolumes
 
 import           Network.AWS.EC2.Types
 import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -177,6 +180,13 @@ desDryRun = lens _desDryRun (\ s a -> s{_desDryRun = a});
 -- same request.
 desMaxResults :: Lens' DescribeVolumes (Maybe Int)
 desMaxResults = lens _desMaxResults (\ s a -> s{_desMaxResults = a});
+
+instance AWSPager DescribeVolumes where
+        page rq rs
+          | stop (rs ^. dvvrsNextToken) = Nothing
+          | stop (rs ^. dvvrsVolumes) = Nothing
+          | otherwise =
+            Just $ rq & desNextToken .~ rs ^. dvvrsNextToken
 
 instance AWSRequest DescribeVolumes where
         type Rs DescribeVolumes = DescribeVolumesResponse

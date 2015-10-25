@@ -243,7 +243,7 @@ clcKernelId = lens _clcKernelId (\ s a -> s{_clcKernelId = a});
 -- | The instance type of the EC2 instance. For information about available
 -- instance types, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types>
--- in the /Amazon Elastic Cloud Compute User Guide./
+-- in the /Amazon Elastic Compute Cloud User Guide./
 clcInstanceType :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcInstanceType = lens _clcInstanceType (\ s a -> s{_clcInstanceType = a});
 

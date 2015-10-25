@@ -34,6 +34,9 @@ module Network.AWS.ECS.Types
     -- * DesiredStatus
     , DesiredStatus (..)
 
+    -- * LogDriver
+    , LogDriver (..)
+
     -- * SortOrder
     , SortOrder (..)
 
@@ -42,6 +45,15 @@ module Network.AWS.ECS.Types
 
     -- * TransportProtocol
     , TransportProtocol (..)
+
+    -- * UlimitName
+    , UlimitName (..)
+
+    -- * Attribute
+    , Attribute
+    , attribute
+    , aValue
+    , aName
 
     -- * Cluster
     , Cluster
@@ -70,14 +82,27 @@ module Network.AWS.ECS.Types
     , containerDefinition
     , cdImage
     , cdCommand
+    , cdHostname
+    , cdDockerSecurityOptions
+    , cdDisableNetworking
     , cdVolumesFrom
     , cdEnvironment
     , cdEntryPoint
+    , cdWorkingDirectory
+    , cdUlimits
+    , cdPrivileged
     , cdPortMappings
+    , cdDockerLabels
+    , cdExtraHosts
     , cdMemory
+    , cdUser
+    , cdDnsSearchDomains
+    , cdLogConfiguration
     , cdName
+    , cdDnsServers
     , cdMountPoints
     , cdLinks
+    , cdReadonlyRootFilesystem
     , cdEssential
     , cdCpu
 
@@ -92,6 +117,7 @@ module Network.AWS.ECS.Types
     , ciAgentConnected
     , ciVersionInfo
     , ciAgentUpdateStatus
+    , ciAttributes
     , ciPendingTasksCount
     , ciRegisteredResources
 
@@ -136,6 +162,12 @@ module Network.AWS.ECS.Types
     , fArn
     , fReason
 
+    -- * HostEntry
+    , HostEntry
+    , hostEntry
+    , heHostname
+    , heIpAddress
+
     -- * HostVolumeProperties
     , HostVolumeProperties
     , hostVolumeProperties
@@ -153,6 +185,12 @@ module Network.AWS.ECS.Types
     , lbLoadBalancerName
     , lbContainerName
     , lbContainerPort
+
+    -- * LogConfiguration
+    , LogConfiguration
+    , logConfiguration
+    , lcOptions
+    , lcLogDriver
 
     -- * MountPoint
     , MountPoint
@@ -215,11 +253,19 @@ module Network.AWS.ECS.Types
     , tdTaskDefinitionARN
     , tdRevision
     , tdVolumes
+    , tdRequiresAttributes
 
     -- * TaskOverride
     , TaskOverride
     , taskOverride
     , toContainerOverrides
+
+    -- * Ulimit
+    , Ulimit
+    , ulimit
+    , uName
+    , uSoftLimit
+    , uHardLimit
 
     -- * VersionInfo
     , VersionInfo
@@ -283,7 +329,7 @@ _InvalidParameterException :: AsError a => Getting (First ServiceError) a Servic
 _InvalidParameterException =
     _ServiceError . hasCode "InvalidParameterException"
 
--- | These errors are usually caused by a server-side issue.
+-- | These errors are usually caused by a server issue.
 _ServerException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServerException = _ServiceError . hasCode "ServerException"
 
@@ -302,7 +348,7 @@ _ClusterContainsContainerInstancesException =
     _ServiceError . hasCode "ClusterContainsContainerInstancesException"
 
 -- | The specified service is not active. You cannot update a service that is
--- not active. If you have previously deleted a service, you can recreate
+-- not active. If you have previously deleted a service, you can re-create
 -- it with CreateService.
 _ServiceNotActiveException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceNotActiveException =
@@ -338,14 +384,14 @@ _MissingVersionException = _ServiceError . hasCode "MissingVersionException"
 -- on the specified container instance. If the container agent becomes
 -- disconnected while it is in a transitional stage, such as 'PENDING' or
 -- 'STAGING', the update process can get stuck in that state. However, when
--- the agent reconnects, it will resume where it stopped previously.
+-- the agent reconnects, it resumes where it stopped previously.
 _UpdateInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
 _UpdateInProgressException =
     _ServiceError . hasCode "UpdateInProgressException"
 
--- | These errors are usually caused by something the client did, such as use
--- an action or resource on behalf of a user that doesn\'t have permission
--- to use the action or resource, or specify an identifier that is not
+-- | These errors are usually caused by a client action, such as using an
+-- action or resource on behalf of a user that doesn\'t have permission to
+-- use the action or resource, or specifying an identifier that is not
 -- valid.
 _ClientException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClientException = _ServiceError . hasCode "ClientException"

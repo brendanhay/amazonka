@@ -113,6 +113,7 @@ module Network.AWS.IAM.Types
     , EvaluationResult
     , evaluationResult
     , erMatchedStatements
+    , erEvalDecisionDetails
     , erMissingContextValues
     , erEvalActionName
     , erEvalResourceName

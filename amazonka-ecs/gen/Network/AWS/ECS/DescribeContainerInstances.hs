@@ -69,13 +69,13 @@ describeContainerInstances =
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the container instances you want to describe. If you do not
--- specify a cluster, the default cluster is assumed.
+-- hosts the container instances to describe. If you do not specify a
+-- cluster, the default cluster is assumed.
 dciCluster :: Lens' DescribeContainerInstances (Maybe Text)
 dciCluster = lens _dciCluster (\ s a -> s{_dciCluster = a});
 
--- | A space-separated list of container instance UUIDs or full Amazon
--- Resource Name (ARN) entries.
+-- | A space-separated list of container instance IDs or full Amazon Resource
+-- Name (ARN) entries.
 dciContainerInstances :: Lens' DescribeContainerInstances [Text]
 dciContainerInstances = lens _dciContainerInstances (\ s a -> s{_dciContainerInstances = a}) . _Coerce;
 
@@ -141,7 +141,7 @@ describeContainerInstancesResponse pResponseStatus_ =
     , _dcisrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | Any failures associated with the call.
 dcisrsFailures :: Lens' DescribeContainerInstancesResponse [Failure]
 dcisrsFailures = lens _dcisrsFailures (\ s a -> s{_dcisrsFailures = a}) . _Default . _Coerce;
 

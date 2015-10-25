@@ -276,6 +276,7 @@ module Network.AWS.AutoScaling
     , ebsDeleteOnTermination
     , ebsVolumeSize
     , ebsIOPS
+    , ebsEncrypted
     , ebsVolumeType
     , ebsSnapshotId
 

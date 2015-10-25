@@ -64,8 +64,8 @@ deleteCluster pCluster_ =
     { _dcCluster = pCluster_
     }
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- you want to delete.
+-- | The short name or full Amazon Resource Name (ARN) of the cluster to
+-- delete.
 dcCluster :: Lens' DeleteCluster Text
 dcCluster = lens _dcCluster (\ s a -> s{_dcCluster = a});
 

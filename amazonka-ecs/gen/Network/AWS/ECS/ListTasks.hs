@@ -102,23 +102,23 @@ listTasks =
     , _ltMaxResults = Nothing
     }
 
--- | The task status that you want to filter the 'ListTasks' results with.
--- Specifying a 'desiredStatus' of 'STOPPED' will limit the results to
--- tasks that are in the 'STOPPED' status, which can be useful for
--- debugging tasks that are not starting properly or have died or finished.
--- The default status filter is 'RUNNING'.
+-- | The task status with which to filter the 'ListTasks' results. Specifying
+-- a 'desiredStatus' of 'STOPPED' limits the results to tasks that are in
+-- the 'STOPPED' status, which can be useful for debugging tasks that are
+-- not starting properly or have died or finished. The default status
+-- filter is 'RUNNING'.
 ltDesiredStatus :: Lens' ListTasks (Maybe DesiredStatus)
 ltDesiredStatus = lens _ltDesiredStatus (\ s a -> s{_ltDesiredStatus = a});
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the tasks you want to list. If you do not specify a cluster, the
--- default cluster is assumed..
+-- hosts the tasks to list. If you do not specify a cluster, the default
+-- cluster is assumed..
 ltCluster :: Lens' ListTasks (Maybe Text)
 ltCluster = lens _ltCluster (\ s a -> s{_ltCluster = a});
 
--- | The name of the family that you want to filter the 'ListTasks' results
--- with. Specifying a 'family' will limit the results to tasks that belong
--- to that family.
+-- | The name of the family with which to filter the 'ListTasks' results.
+-- Specifying a 'family' limits the results to tasks that belong to that
+-- family.
 ltFamily :: Lens' ListTasks (Maybe Text)
 ltFamily = lens _ltFamily (\ s a -> s{_ltFamily = a});
 
@@ -130,22 +130,22 @@ ltFamily = lens _ltFamily (\ s a -> s{_ltFamily = a});
 ltNextToken :: Lens' ListTasks (Maybe Text)
 ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 
--- | The 'startedBy' value that you want to filter the task results with.
--- Specifying a 'startedBy' value will limit the results to tasks that were
--- started with that value.
+-- | The 'startedBy' value with which to filter the task results. Specifying
+-- a 'startedBy' value limits the results to tasks that were started with
+-- that value.
 ltStartedBy :: Lens' ListTasks (Maybe Text)
 ltStartedBy = lens _ltStartedBy (\ s a -> s{_ltStartedBy = a});
 
--- | The name of the service that you want to filter the 'ListTasks' results
--- with. Specifying a 'serviceName' will limit the results to tasks that
--- belong to that service.
+-- | The name of the service with which to filter the 'ListTasks' results.
+-- Specifying a 'serviceName' limits the results to tasks that belong to
+-- that service.
 ltServiceName :: Lens' ListTasks (Maybe Text)
 ltServiceName = lens _ltServiceName (\ s a -> s{_ltServiceName = a});
 
--- | The container instance UUID or full Amazon Resource Name (ARN) of the
--- container instance that you want to filter the 'ListTasks' results with.
--- Specifying a 'containerInstance' will limit the results to tasks that
--- belong to that container instance.
+-- | The container instance ID or full Amazon Resource Name (ARN) of the
+-- container instance with which to filter the 'ListTasks' results.
+-- Specifying a 'containerInstance' limits the results to tasks that belong
+-- to that container instance.
 ltContainerInstance :: Lens' ListTasks (Maybe Text)
 ltContainerInstance = lens _ltContainerInstance (\ s a -> s{_ltContainerInstance = a});
 

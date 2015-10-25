@@ -39,6 +39,14 @@ module Network.AWS.Lambda.Types
     -- * Runtime
     , Runtime (..)
 
+    -- * AliasConfiguration
+    , AliasConfiguration
+    , aliasConfiguration
+    , acName
+    , acFunctionVersion
+    , acAliasARN
+    , acDescription
+
     -- * EventSourceMappingConfiguration
     , EventSourceMappingConfiguration
     , eventSourceMappingConfiguration
@@ -72,11 +80,13 @@ module Network.AWS.Lambda.Types
     , fcRuntime
     , fcFunctionARN
     , fcRole
+    , fcVersion
     , fcFunctionName
     , fcCodeSize
     , fcHandler
     , fcTimeout
     , fcLastModified
+    , fcCodeSha256
     , fcDescription
     ) where
 
@@ -121,7 +131,7 @@ _PolicyLengthExceededException :: AsError a => Getting (First ServiceError) a Se
 _PolicyLengthExceededException =
     _ServiceError . hasStatus 400 . hasCode "PolicyLengthExceededException"
 
--- | Prism for UnsupportedMediaTypeException' errors.
+-- | The content type of the 'Invoke' request body is not JSON.
 _UnsupportedMediaTypeException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedMediaTypeException =
     _ServiceError . hasStatus 415 . hasCode "UnsupportedMediaTypeException"
@@ -139,7 +149,9 @@ _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a S
 _InvalidParameterValueException =
     _ServiceError . hasStatus 400 . hasCode "InvalidParameterValueException"
 
--- | Prism for RequestTooLargeException' errors.
+-- | The request payload exceeded the 'Invoke' request body JSON input limit.
+-- For more information, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/limits.html Limits>
 _RequestTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
 _RequestTooLargeException =
     _ServiceError . hasStatus 413 . hasCode "RequestTooLargeException"
@@ -153,7 +165,8 @@ _TooManyRequestsException =
 _ServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceException = _ServiceError . hasStatus 500 . hasCode "ServiceException"
 
--- | Prism for CodeStorageExceededException' errors.
+-- | You have exceeded your maximum total code size per account.
+-- <http://docs.aws.amazon.com/lambda/latest/dg/limits.html Limits>
 _CodeStorageExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _CodeStorageExceededException =
     _ServiceError . hasStatus 400 . hasCode "CodeStorageExceededException"

@@ -53,6 +53,8 @@
 -- in the /Amazon Glacier Developer Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListMultipartUploads.html AWS API Reference> for ListMultipartUploads.
+--
+-- This operation returns paginated results.
 module Network.AWS.Glacier.ListMultipartUploads
     (
     -- * Creating a Request
@@ -75,6 +77,7 @@ module Network.AWS.Glacier.ListMultipartUploads
 
 import           Network.AWS.Glacier.Types
 import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -138,6 +141,13 @@ lmuAccountId = lens _lmuAccountId (\ s a -> s{_lmuAccountId = a});
 -- | The name of the vault.
 lmuVaultName :: Lens' ListMultipartUploads Text
 lmuVaultName = lens _lmuVaultName (\ s a -> s{_lmuVaultName = a});
+
+instance AWSPager ListMultipartUploads where
+        page rq rs
+          | stop (rs ^. lmursMarker) = Nothing
+          | stop (rs ^. lmursUploadsList) = Nothing
+          | otherwise =
+            Just $ rq & lmuMarker .~ rs ^. lmursMarker
 
 instance AWSRequest ListMultipartUploads where
         type Rs ListMultipartUploads =

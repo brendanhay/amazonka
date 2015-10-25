@@ -20,7 +20,7 @@
 --
 -- Registers a new task definition from the supplied 'family' and
 -- 'containerDefinitions'. Optionally, you can add data volumes to your
--- containers with the 'volumes' parameter. For more information on task
+-- containers with the 'volumes' parameter. For more information about task
 -- definition parameters and defaults, see
 -- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions>
 -- in the /Amazon EC2 Container Service Developer Guide/.
@@ -82,10 +82,9 @@ rtdVolumes :: Lens' RegisterTaskDefinition [Volume]
 rtdVolumes = lens _rtdVolumes (\ s a -> s{_rtdVolumes = a}) . _Default . _Coerce;
 
 -- | You must specify a 'family' for a task definition, which allows you to
--- track multiple versions of the same task definition. You can think of
--- the 'family' as a name for your task definition. Up to 255 letters
--- (uppercase and lowercase), numbers, hyphens, and underscores are
--- allowed.
+-- track multiple versions of the same task definition. The 'family' is
+-- used as a name for your task definition. Up to 255 letters (uppercase
+-- and lowercase), numbers, hyphens, and underscores are allowed.
 rtdFamily :: Lens' RegisterTaskDefinition Text
 rtdFamily = lens _rtdFamily (\ s a -> s{_rtdFamily = a});
 
@@ -152,7 +151,7 @@ registerTaskDefinitionResponse pResponseStatus_ =
     , _rtdrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The full description of the registered task definition.
 rtdrsTaskDefinition :: Lens' RegisterTaskDefinitionResponse (Maybe TaskDefinition)
 rtdrsTaskDefinition = lens _rtdrsTaskDefinition (\ s a -> s{_rtdrsTaskDefinition = a});
 

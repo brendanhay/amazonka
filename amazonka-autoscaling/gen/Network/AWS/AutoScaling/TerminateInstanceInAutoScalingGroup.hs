@@ -21,7 +21,7 @@
 -- Terminates the specified instance and optionally adjusts the desired
 -- group size.
 --
--- This call simply makes a termination request. The instances is not
+-- This call simply makes a termination request. The instance is not
 -- terminated immediately.
 --
 -- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_TerminateInstanceInAutoScalingGroup.html AWS API Reference> for TerminateInstanceInAutoScalingGroup.
@@ -75,8 +75,8 @@ terminateInstanceInAutoScalingGroup pInstanceId_ pShouldDecrementDesiredCapacity
 tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
 tiiasgInstanceId = lens _tiiasgInstanceId (\ s a -> s{_tiiasgInstanceId = a});
 
--- | If 'true', terminating this instance also decrements the size of the
--- Auto Scaling group.
+-- | If 'true', terminating the instance also decrements the size of the Auto
+-- Scaling group.
 tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
 tiiasgShouldDecrementDesiredCapacity = lens _tiiasgShouldDecrementDesiredCapacity (\ s a -> s{_tiiasgShouldDecrementDesiredCapacity = a});
 

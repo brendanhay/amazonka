@@ -76,11 +76,23 @@ module Network.AWS.Lambda
     -- ** UpdateEventSourceMapping
     , module Network.AWS.Lambda.UpdateEventSourceMapping
 
+    -- ** CreateAlias
+    , module Network.AWS.Lambda.CreateAlias
+
+    -- ** ListVersionsByFunction
+    , module Network.AWS.Lambda.ListVersionsByFunction
+
+    -- ** ListAliases
+    , module Network.AWS.Lambda.ListAliases
+
     -- ** RemovePermission
     , module Network.AWS.Lambda.RemovePermission
 
     -- ** Invoke
     , module Network.AWS.Lambda.Invoke
+
+    -- ** GetAlias
+    , module Network.AWS.Lambda.GetAlias
 
     -- ** GetEventSourceMapping
     , module Network.AWS.Lambda.GetEventSourceMapping
@@ -97,8 +109,17 @@ module Network.AWS.Lambda
     -- ** ListEventSourceMappings (Paginated)
     , module Network.AWS.Lambda.ListEventSourceMappings
 
+    -- ** DeleteAlias
+    , module Network.AWS.Lambda.DeleteAlias
+
+    -- ** UpdateAlias
+    , module Network.AWS.Lambda.UpdateAlias
+
     -- ** AddPermission
     , module Network.AWS.Lambda.AddPermission
+
+    -- ** PublishVersion
+    , module Network.AWS.Lambda.PublishVersion
 
     -- ** DeleteFunction
     , module Network.AWS.Lambda.DeleteFunction
@@ -128,6 +149,14 @@ module Network.AWS.Lambda
 
     -- ** Runtime
     , Runtime (..)
+
+    -- ** AliasConfiguration
+    , AliasConfiguration
+    , aliasConfiguration
+    , acName
+    , acFunctionVersion
+    , acAliasARN
+    , acDescription
 
     -- ** EventSourceMappingConfiguration
     , EventSourceMappingConfiguration
@@ -162,28 +191,37 @@ module Network.AWS.Lambda
     , fcRuntime
     , fcFunctionARN
     , fcRole
+    , fcVersion
     , fcFunctionName
     , fcCodeSize
     , fcHandler
     , fcTimeout
     , fcLastModified
+    , fcCodeSha256
     , fcDescription
     ) where
 
 import           Network.AWS.Lambda.AddPermission
+import           Network.AWS.Lambda.CreateAlias
 import           Network.AWS.Lambda.CreateEventSourceMapping
 import           Network.AWS.Lambda.CreateFunction
+import           Network.AWS.Lambda.DeleteAlias
 import           Network.AWS.Lambda.DeleteEventSourceMapping
 import           Network.AWS.Lambda.DeleteFunction
+import           Network.AWS.Lambda.GetAlias
 import           Network.AWS.Lambda.GetEventSourceMapping
 import           Network.AWS.Lambda.GetFunction
 import           Network.AWS.Lambda.GetFunctionConfiguration
 import           Network.AWS.Lambda.GetPolicy
 import           Network.AWS.Lambda.Invoke
+import           Network.AWS.Lambda.ListAliases
 import           Network.AWS.Lambda.ListEventSourceMappings
 import           Network.AWS.Lambda.ListFunctions
+import           Network.AWS.Lambda.ListVersionsByFunction
+import           Network.AWS.Lambda.PublishVersion
 import           Network.AWS.Lambda.RemovePermission
 import           Network.AWS.Lambda.Types
+import           Network.AWS.Lambda.UpdateAlias
 import           Network.AWS.Lambda.UpdateEventSourceMapping
 import           Network.AWS.Lambda.UpdateFunctionCode
 import           Network.AWS.Lambda.UpdateFunctionConfiguration

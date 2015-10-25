@@ -22,6 +22,12 @@
 -- same information you provided as parameters when uploading the function
 -- by using CreateFunction.
 --
+-- You can use the optional 'Qualifier' parameter to retrieve configuration
+-- information for a specific Lambda function version. If you don\'t
+-- provide it, the API returns information about the $LATEST version of the
+-- function. For more information about versioning, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html AWS Lambda Function Versioning and Aliases>.
+--
 -- This operation requires permission for the
 -- 'lambda:GetFunctionConfiguration' operation.
 --
@@ -32,6 +38,7 @@ module Network.AWS.Lambda.GetFunctionConfiguration
       getFunctionConfiguration
     , GetFunctionConfiguration
     -- * Request Lenses
+    , gfcQualifier
     , gfcFunctionName
 
     -- * Destructuring the Response
@@ -42,11 +49,13 @@ module Network.AWS.Lambda.GetFunctionConfiguration
     , fcRuntime
     , fcFunctionARN
     , fcRole
+    , fcVersion
     , fcFunctionName
     , fcCodeSize
     , fcHandler
     , fcTimeout
     , fcLastModified
+    , fcCodeSha256
     , fcDescription
     ) where
 
@@ -57,13 +66,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getFunctionConfiguration' smart constructor.
-newtype GetFunctionConfiguration = GetFunctionConfiguration'
-    { _gfcFunctionName :: Text
+data GetFunctionConfiguration = GetFunctionConfiguration'
+    { _gfcQualifier    :: !(Maybe Text)
+    , _gfcFunctionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetFunctionConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gfcQualifier'
 --
 -- * 'gfcFunctionName'
 getFunctionConfiguration
@@ -71,8 +83,20 @@ getFunctionConfiguration
     -> GetFunctionConfiguration
 getFunctionConfiguration pFunctionName_ =
     GetFunctionConfiguration'
-    { _gfcFunctionName = pFunctionName_
+    { _gfcQualifier = Nothing
+    , _gfcFunctionName = pFunctionName_
     }
+
+-- | Using this optional parameter you can specify function version or alias
+-- name. If you specify function version, the API uses qualified function
+-- ARN and returns information about the specific function version. if you
+-- specify alias name, the API uses alias ARN and returns information about
+-- the function version to which the alias points.
+--
+-- If you don\'t specify this parameter, the API uses unqualified function
+-- ARN, and returns information about the $LATEST function version.
+gfcQualifier :: Lens' GetFunctionConfiguration (Maybe Text)
+gfcQualifier = lens _gfcQualifier (\ s a -> s{_gfcQualifier = a});
 
 -- | The name of the Lambda function for which you want to retrieve the
 -- configuration information.
@@ -101,7 +125,8 @@ instance ToPath GetFunctionConfiguration where
         toPath GetFunctionConfiguration'{..}
           = mconcat
               ["/2015-03-31/functions/", toBS _gfcFunctionName,
-               "/versions/HEAD/configuration"]
+               "/configuration"]
 
 instance ToQuery GetFunctionConfiguration where
-        toQuery = const mempty
+        toQuery GetFunctionConfiguration'{..}
+          = mconcat ["Qualifier" =: _gfcQualifier]

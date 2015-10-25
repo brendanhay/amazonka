@@ -36,6 +36,7 @@ module Network.AWS.Lambda.UpdateFunctionCode
     , uS3Key
     , uZipFile
     , uS3Bucket
+    , uPublish
     , uFunctionName
 
     -- * Destructuring the Response
@@ -46,11 +47,13 @@ module Network.AWS.Lambda.UpdateFunctionCode
     , fcRuntime
     , fcFunctionARN
     , fcRole
+    , fcVersion
     , fcFunctionName
     , fcCodeSize
     , fcHandler
     , fcTimeout
     , fcLastModified
+    , fcCodeSha256
     , fcDescription
     ) where
 
@@ -66,6 +69,7 @@ data UpdateFunctionCode = UpdateFunctionCode'
     , _uS3Key           :: !(Maybe Text)
     , _uZipFile         :: !(Maybe Base64)
     , _uS3Bucket        :: !(Maybe Text)
+    , _uPublish         :: !(Maybe Bool)
     , _uFunctionName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -81,6 +85,8 @@ data UpdateFunctionCode = UpdateFunctionCode'
 --
 -- * 'uS3Bucket'
 --
+-- * 'uPublish'
+--
 -- * 'uFunctionName'
 updateFunctionCode
     :: Text -- ^ 'uFunctionName'
@@ -91,6 +97,7 @@ updateFunctionCode pFunctionName_ =
     , _uS3Key = Nothing
     , _uZipFile = Nothing
     , _uS3Bucket = Nothing
+    , _uPublish = Nothing
     , _uFunctionName = pFunctionName_
     }
 
@@ -120,6 +127,11 @@ uZipFile = lens _uZipFile (\ s a -> s{_uZipFile = a}) . mapping _Base64;
 uS3Bucket :: Lens' UpdateFunctionCode (Maybe Text)
 uS3Bucket = lens _uS3Bucket (\ s a -> s{_uS3Bucket = a});
 
+-- | This boolean parameter can be used to request AWS Lambda to update the
+-- Lambda function and publish a version as an atomic operation.
+uPublish :: Lens' UpdateFunctionCode (Maybe Bool)
+uPublish = lens _uPublish (\ s a -> s{_uPublish = a});
+
 -- | The existing Lambda function name whose code you want to replace.
 --
 -- You can specify an unqualified function name (for example,
@@ -148,13 +160,14 @@ instance ToJSON UpdateFunctionCode where
                  [("S3ObjectVersion" .=) <$> _uS3ObjectVersion,
                   ("S3Key" .=) <$> _uS3Key,
                   ("ZipFile" .=) <$> _uZipFile,
-                  ("S3Bucket" .=) <$> _uS3Bucket])
+                  ("S3Bucket" .=) <$> _uS3Bucket,
+                  ("Publish" .=) <$> _uPublish])
 
 instance ToPath UpdateFunctionCode where
         toPath UpdateFunctionCode'{..}
           = mconcat
               ["/2015-03-31/functions/", toBS _uFunctionName,
-               "/versions/HEAD/code"]
+               "/code"]
 
 instance ToQuery UpdateFunctionCode where
         toQuery = const mempty

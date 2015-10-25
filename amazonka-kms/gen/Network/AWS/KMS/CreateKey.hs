@@ -80,8 +80,9 @@ createKey =
 ckKeyUsage :: Lens' CreateKey (Maybe KeyUsageType)
 ckKeyUsage = lens _ckKeyUsage (\ s a -> s{_ckKeyUsage = a});
 
--- | Policy to be attached to the key. This is required and delegates back to
--- the account. The key is the root of trust.
+-- | Policy to attach to the key. This is required and delegates back to the
+-- account. The key is the root of trust. The policy size limit is 32 KiB
+-- (32768 bytes).
 ckPolicy :: Lens' CreateKey (Maybe Text)
 ckPolicy = lens _ckPolicy (\ s a -> s{_ckPolicy = a});
 

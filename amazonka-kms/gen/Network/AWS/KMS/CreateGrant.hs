@@ -18,16 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a grant to a key to specify who can access the key and under what
+-- Adds a grant to a key to specify who can use the key and under what
 -- conditions. Grants are alternate permission mechanisms to key policies.
+--
 -- For more information about grants, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants>
--- in the developer guide. If a grant is absent, access to the key is
--- evaluated based on IAM policies attached to the user.
---
--- 1.  ListGrants
--- 2.  RetireGrant
--- 3.  RevokeGrant
+-- in the /AWS Key Management Service Developer Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html AWS API Reference> for CreateGrant.
 module Network.AWS.KMS.CreateGrant
@@ -39,6 +35,7 @@ module Network.AWS.KMS.CreateGrant
     , cgRetiringPrincipal
     , cgGrantTokens
     , cgConstraints
+    , cgName
     , cgOperations
     , cgKeyId
     , cgGranteePrincipal
@@ -63,6 +60,7 @@ data CreateGrant = CreateGrant'
     { _cgRetiringPrincipal :: !(Maybe Text)
     , _cgGrantTokens       :: !(Maybe [Text])
     , _cgConstraints       :: !(Maybe GrantConstraints)
+    , _cgName              :: !(Maybe Text)
     , _cgOperations        :: !(Maybe [GrantOperation])
     , _cgKeyId             :: !Text
     , _cgGranteePrincipal  :: !Text
@@ -78,6 +76,8 @@ data CreateGrant = CreateGrant'
 --
 -- * 'cgConstraints'
 --
+-- * 'cgName'
+--
 -- * 'cgOperations'
 --
 -- * 'cgKeyId'
@@ -92,52 +92,97 @@ createGrant pKeyId_ pGranteePrincipal_ =
     { _cgRetiringPrincipal = Nothing
     , _cgGrantTokens = Nothing
     , _cgConstraints = Nothing
+    , _cgName = Nothing
     , _cgOperations = Nothing
     , _cgKeyId = pKeyId_
     , _cgGranteePrincipal = pGranteePrincipal_
     }
 
--- | Principal given permission to retire the grant. For more information,
--- see RetireGrant.
+-- | The principal that is given permission to retire the grant by using
+-- RetireGrant operation.
+--
+-- To specify the principal, use the
+-- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- of an AWS principal. Valid AWS principals include AWS accounts (root),
+-- IAM users, federated users, and assumed role users. For examples of the
+-- ARN syntax to use for specifying a principal, see
+-- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)>
+-- in the Example ARNs section of the /AWS General Reference/.
 cgRetiringPrincipal :: Lens' CreateGrant (Maybe Text)
 cgRetiringPrincipal = lens _cgRetiringPrincipal (\ s a -> s{_cgRetiringPrincipal = a});
 
--- | For more information, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
+-- | A list of grant tokens.
+--
+-- For more information, go to
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
+-- in the /AWS Key Management Service Developer Guide/.
 cgGrantTokens :: Lens' CreateGrant [Text]
 cgGrantTokens = lens _cgGrantTokens (\ s a -> s{_cgGrantTokens = a}) . _Default . _Coerce;
 
--- | Specifies the conditions under which the actions specified by the
--- 'Operations' parameter are allowed.
+-- | The conditions under which the operations permitted by the grant are
+-- allowed.
+--
+-- You can use this value to allow the operations permitted by the grant
+-- only when a specified encryption context is present. For more
+-- information, see
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>
+-- in the /AWS Key Management Service Developer Guide/.
 cgConstraints :: Lens' CreateGrant (Maybe GrantConstraints)
 cgConstraints = lens _cgConstraints (\ s a -> s{_cgConstraints = a});
 
--- | List of operations permitted by the grant. This can be any combination
--- of one or more of the following values:
+-- | A friendly name for identifying the grant. Use this value to prevent
+-- unintended creation of duplicate grants when retrying this request.
 --
--- 1.  Decrypt
--- 2.  Encrypt
--- 3.  GenerateDataKey
--- 4.  GenerateDataKeyWithoutPlaintext
--- 5.  ReEncryptFrom
--- 6.  ReEncryptTo
--- 7.  CreateGrant
--- 8.  RetireGrant
+-- When this value is absent, all 'CreateGrant' requests result in a new
+-- grant with a unique 'GrantId' even if all the supplied parameters are
+-- identical. This can result in unintended duplicates when you retry the
+-- 'CreateGrant' request.
+--
+-- When this value is present, you can retry a 'CreateGrant' request with
+-- identical parameters; if the grant already exists, the original
+-- 'GrantId' is returned without creating a new grant. Note that the
+-- returned grant token is unique with every 'CreateGrant' request, even
+-- when a duplicate 'GrantId' is returned. All grant tokens obtained in
+-- this way can be used interchangeably.
+cgName :: Lens' CreateGrant (Maybe Text)
+cgName = lens _cgName (\ s a -> s{_cgName = a});
+
+-- | A list of operations that the grant permits. The list can contain any
+-- combination of one or more of the following values:
+--
+-- -   Decrypt
+-- -   Encrypt
+-- -   GenerateDataKey
+-- -   GenerateDataKeyWithoutPlaintext
+-- -   ReEncryptFrom
+-- -   ReEncryptTo
+-- -   CreateGrant
+-- -   RetireGrant
 cgOperations :: Lens' CreateGrant [GrantOperation]
 cgOperations = lens _cgOperations (\ s a -> s{_cgOperations = a}) . _Default . _Coerce;
 
--- | A unique identifier for the customer master key. This value can be a
--- globally unique identifier or the fully specified ARN to a key.
+-- | The unique identifier for the customer master key (CMK) that the grant
+-- applies to.
 --
--- -   Key ARN Example -
---     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
--- -   Globally Unique Key ID Example -
---     12345678-1234-1234-1234-123456789012
+-- To specify this value, use the globally unique key ID or the Amazon
+-- Resource Name (ARN) of the key. Examples:
+--
+-- -   Globally unique key ID: 12345678-1234-1234-1234-123456789012
+-- -   Key ARN:
+--     arn:aws:kms:us-west-2:123456789012:key\/12345678-1234-1234-1234-123456789012
 cgKeyId :: Lens' CreateGrant Text
 cgKeyId = lens _cgKeyId (\ s a -> s{_cgKeyId = a});
 
--- | Principal given permission by the grant to use the key identified by the
--- 'keyId' parameter.
+-- | The principal that is given permission to perform the operations that
+-- the grant permits.
+--
+-- To specify the principal, use the
+-- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- of an AWS principal. Valid AWS principals include AWS accounts (root),
+-- IAM users, federated users, and assumed role users. For examples of the
+-- ARN syntax to use for specifying a principal, see
+-- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)>
+-- in the Example ARNs section of the /AWS General Reference/.
 cgGranteePrincipal :: Lens' CreateGrant Text
 cgGranteePrincipal = lens _cgGranteePrincipal (\ s a -> s{_cgGranteePrincipal = a});
 
@@ -167,6 +212,7 @@ instance ToJSON CreateGrant where
                  [("RetiringPrincipal" .=) <$> _cgRetiringPrincipal,
                   ("GrantTokens" .=) <$> _cgGrantTokens,
                   ("Constraints" .=) <$> _cgConstraints,
+                  ("Name" .=) <$> _cgName,
                   ("Operations" .=) <$> _cgOperations,
                   Just ("KeyId" .= _cgKeyId),
                   Just ("GranteePrincipal" .= _cgGranteePrincipal)])
@@ -203,13 +249,18 @@ createGrantResponse pResponseStatus_ =
     , _cgrsResponseStatus = pResponseStatus_
     }
 
--- | Unique grant identifier. You can use the /GrantId/ value to revoke a
--- grant.
+-- | The unique identifier for the grant.
+--
+-- You can use the 'GrantId' in a subsequent RetireGrant or RevokeGrant
+-- operation.
 cgrsGrantId :: Lens' CreateGrantResponse (Maybe Text)
 cgrsGrantId = lens _cgrsGrantId (\ s a -> s{_cgrsGrantId = a});
 
--- | For more information, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
+-- | The grant token.
+--
+-- For more information about using grant tokens, see
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
+-- in the /AWS Key Management Service Developer Guide/.
 cgrsGrantToken :: Lens' CreateGrantResponse (Maybe Text)
 cgrsGrantToken = lens _cgrsGrantToken (\ s a -> s{_cgrsGrantToken = a});
 

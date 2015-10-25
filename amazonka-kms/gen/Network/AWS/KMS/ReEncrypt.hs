@@ -105,8 +105,11 @@ reDestinationEncryptionContext = lens _reDestinationEncryptionContext (\ s a -> 
 reSourceEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
 reSourceEncryptionContext = lens _reSourceEncryptionContext (\ s a -> s{_reSourceEncryptionContext = a}) . _Default . _Map;
 
--- | For more information, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
+-- | A list of grant tokens.
+--
+-- For more information, go to
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
+-- in the /AWS Key Management Service Developer Guide/.
 reGrantTokens :: Lens' ReEncrypt [Text]
 reGrantTokens = lens _reGrantTokens (\ s a -> s{_reGrantTokens = a}) . _Default . _Coerce;
 

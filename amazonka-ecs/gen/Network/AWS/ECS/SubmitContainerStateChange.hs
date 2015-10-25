@@ -118,7 +118,7 @@ scscReason = lens _scscReason (\ s a -> s{_scscReason = a});
 scscExitCode :: Lens' SubmitContainerStateChange (Maybe Int)
 scscExitCode = lens _scscExitCode (\ s a -> s{_scscExitCode = a});
 
--- | The task UUID or full Amazon Resource Name (ARN) of the task that hosts
+-- | The task ID or full Amazon Resource Name (ARN) of the task that hosts
 -- the container.
 scscTask :: Lens' SubmitContainerStateChange (Maybe Text)
 scscTask = lens _scscTask (\ s a -> s{_scscTask = a});

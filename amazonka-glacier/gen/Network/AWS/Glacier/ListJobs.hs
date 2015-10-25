@@ -64,6 +64,8 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html List Jobs>
 --
 -- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListJobs.html AWS API Reference> for ListJobs.
+--
+-- This operation returns paginated results.
 module Network.AWS.Glacier.ListJobs
     (
     -- * Creating a Request
@@ -88,6 +90,7 @@ module Network.AWS.Glacier.ListJobs
 
 import           Network.AWS.Glacier.Types
 import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -168,6 +171,13 @@ ljAccountId = lens _ljAccountId (\ s a -> s{_ljAccountId = a});
 -- | The name of the vault.
 ljVaultName :: Lens' ListJobs Text
 ljVaultName = lens _ljVaultName (\ s a -> s{_ljVaultName = a});
+
+instance AWSPager ListJobs where
+        page rq rs
+          | stop (rs ^. ljrsMarker) = Nothing
+          | stop (rs ^. ljrsJobList) = Nothing
+          | otherwise =
+            Just $ rq & ljMarker .~ rs ^. ljrsMarker
 
 instance AWSRequest ListJobs where
         type Rs ListJobs = ListJobsResponse

@@ -17,6 +17,7 @@ module Network.AWS.KMS.Types
 
     -- * Errors
     , _InvalidMarkerException
+    , _KMSInvalidStateException
     , _InvalidKeyUsageException
     , _MalformedPolicyDocumentException
     , _UnsupportedOperationException
@@ -25,6 +26,7 @@ module Network.AWS.KMS.Types
     , _KMSInternalException
     , _NotFoundException
     , _InvalidAliasNameException
+    , _InvalidGrantIdException
     , _InvalidGrantTokenException
     , _InvalidARNException
     , _DependencyTimeoutException
@@ -37,6 +39,9 @@ module Network.AWS.KMS.Types
 
     -- * GrantOperation
     , GrantOperation (..)
+
+    -- * KeyState
+    , KeyState (..)
 
     -- * KeyUsageType
     , KeyUsageType (..)
@@ -57,11 +62,14 @@ module Network.AWS.KMS.Types
     -- * GrantListEntry
     , GrantListEntry
     , grantListEntry
+    , gleKeyId
     , gleRetiringPrincipal
     , gleIssuingAccount
     , gleGrantId
     , gleConstraints
     , gleGranteePrincipal
+    , gleName
+    , gleCreationDate
     , gleOperations
 
     -- * KeyListEntry
@@ -75,11 +83,20 @@ module Network.AWS.KMS.Types
     , keyMetadata
     , kmEnabled
     , kmARN
+    , kmKeyState
     , kmAWSAccountId
     , kmKeyUsage
     , kmCreationDate
+    , kmDeletionDate
     , kmDescription
     , kmKeyId
+
+    -- * ListGrantsResponse
+    , ListGrantsResponse
+    , listGrantsResponse
+    , lgTruncated
+    , lgGrants
+    , lgNextMarker
     ) where
 
 import           Network.AWS.KMS.Types.Product
@@ -124,6 +141,17 @@ _InvalidMarkerException :: AsError a => Getting (First ServiceError) a ServiceEr
 _InvalidMarkerException =
     _ServiceError . hasStatus 400 . hasCode "InvalidMarker"
 
+-- | The request was rejected because the state of the specified resource is
+-- not valid for this request.
+--
+-- For more information about how key state affects the use of a customer
+-- master key (CMK), go to
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key>
+-- in the /AWS Key Management Service Developer Guide/.
+_KMSInvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSInvalidStateException =
+    _ServiceError . hasStatus 409 . hasCode "KMSInvalidStateException"
+
 -- | The request was rejected because the specified KeySpec parameter is not
 -- valid. The currently supported value is ENCRYPT\/DECRYPT.
 _InvalidKeyUsageException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -141,18 +169,19 @@ _UnsupportedOperationException :: AsError a => Getting (First ServiceError) a Se
 _UnsupportedOperationException =
     _ServiceError . hasStatus 400 . hasCode "UnsupportedOperation"
 
--- | A request was rejected because the specified key was marked as disabled.
+-- | The request was rejected because the specified key was marked as
+-- disabled.
 _DisabledException :: AsError a => Getting (First ServiceError) a ServiceError
 _DisabledException = _ServiceError . hasStatus 409 . hasCode "Disabled"
 
--- | The request was rejected because the key was disabled, not found, or
--- otherwise not available.
+-- | The request was rejected because the key was not available. The request
+-- can be retried.
 _KeyUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _KeyUnavailableException =
     _ServiceError . hasStatus 500 . hasCode "KeyUnavailable"
 
--- | The request was rejected because an internal exception occurred. This
--- error can be retried.
+-- | The request was rejected because an internal exception occurred. The
+-- request can be retried.
 _KMSInternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSInternalException = _ServiceError . hasStatus 500 . hasCode "KMSInternal"
 
@@ -166,7 +195,13 @@ _InvalidAliasNameException :: AsError a => Getting (First ServiceError) a Servic
 _InvalidAliasNameException =
     _ServiceError . hasStatus 400 . hasCode "InvalidAliasName"
 
--- | A grant token provided as part of the request is invalid.
+-- | The request was rejected because the specified 'GrantId' is not valid.
+_InvalidGrantIdException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidGrantIdException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidGrantId"
+
+-- | The request was rejected because a grant token provided as part of the
+-- request is invalid.
 _InvalidGrantTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGrantTokenException =
     _ServiceError . hasStatus 400 . hasCode "InvalidGrantToken"
@@ -175,7 +210,8 @@ _InvalidGrantTokenException =
 _InvalidARNException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidARNException = _ServiceError . hasStatus 400 . hasCode "InvalidArn"
 
--- | The system timed out while trying to fulfill the request.
+-- | The system timed out while trying to fulfill the request. The request
+-- can be retried.
 _DependencyTimeoutException :: AsError a => Getting (First ServiceError) a ServiceError
 _DependencyTimeoutException =
     _ServiceError . hasStatus 503 . hasCode "DependencyTimeout"
@@ -192,7 +228,10 @@ _AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceEr
 _AlreadyExistsException =
     _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
 
--- | The request was rejected because a quota was exceeded.
+-- | The request was rejected because a limit was exceeded. For more
+-- information, see
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/limits.html Limits>
+-- in the /AWS Key Management Service Developer Guide/.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 400 . hasCode "LimitExceeded"

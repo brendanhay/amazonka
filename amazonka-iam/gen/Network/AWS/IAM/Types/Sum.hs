@@ -206,6 +206,7 @@ data PolicySourceType
     = AWSManaged
     | Group
     | None
+    | Resource
     | Role
     | User
     | UserManaged
@@ -216,17 +217,19 @@ instance FromText PolicySourceType where
         "aws-managed" -> pure AWSManaged
         "group" -> pure Group
         "none" -> pure None
+        "resource" -> pure Resource
         "role" -> pure Role
         "user" -> pure User
         "user-managed" -> pure UserManaged
         e -> fromTextError $ "Failure parsing PolicySourceType from value: '" <> e
-           <> "'. Accepted values: aws-managed, group, none, role, user, user-managed"
+           <> "'. Accepted values: aws-managed, group, none, resource, role, user, user-managed"
 
 instance ToText PolicySourceType where
     toText = \case
         AWSManaged -> "aws-managed"
         Group -> "group"
         None -> "none"
+        Resource -> "resource"
         Role -> "role"
         User -> "user"
         UserManaged -> "user-managed"

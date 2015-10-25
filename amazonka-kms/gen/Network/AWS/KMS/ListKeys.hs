@@ -67,17 +67,18 @@ listKeys =
     , _lkLimit = Nothing
     }
 
--- | Use this parameter only when paginating results, and only in a
--- subsequent request after you\'ve received a response where the results
--- are truncated. Set it to the value of the 'NextMarker' in the response
--- you just received.
+-- | Use this parameter only when paginating results and only in a subsequent
+-- request after you\'ve received a response with truncated results. Set it
+-- to the value of 'NextMarker' from the response you just received.
 lkMarker :: Lens' ListKeys (Maybe Text)
 lkMarker = lens _lkMarker (\ s a -> s{_lkMarker = a});
 
--- | Specify this parameter only when paginating results to indicate the
--- maximum number of keys you want listed in the response. If there are
--- additional keys beyond the maximum you specify, the 'Truncated' response
--- element will be set to 'true.'
+-- | When paginating results, specify the maximum number of items to return
+-- in the response. If additional items exist beyond the number you
+-- specify, the 'Truncated' element in the response is set to true.
+--
+-- This value is optional. If you include a value, it must be between 1 and
+-- 1000, inclusive. If you do not include a value, it defaults to 100.
 lkLimit :: Lens' ListKeys (Maybe Natural)
 lkLimit = lens _lkLimit (\ s a -> s{_lkLimit = a}) . mapping _Nat;
 
@@ -145,8 +146,8 @@ listKeysResponse pResponseStatus_ =
     }
 
 -- | A flag that indicates whether there are more items in the list. If your
--- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more keys in the list.
+-- results were truncated, you can use the 'Marker' parameter to make a
+-- subsequent pagination request to retrieve more items in the list.
 lkrsTruncated :: Lens' ListKeysResponse (Maybe Bool)
 lkrsTruncated = lens _lkrsTruncated (\ s a -> s{_lkrsTruncated = a});
 
@@ -154,9 +155,8 @@ lkrsTruncated = lens _lkrsTruncated (\ s a -> s{_lkrsTruncated = a});
 lkrsKeys :: Lens' ListKeysResponse [KeyListEntry]
 lkrsKeys = lens _lkrsKeys (\ s a -> s{_lkrsKeys = a}) . _Default . _Coerce;
 
--- | If 'Truncated' is true, this value is present and contains the value to
--- use for the 'Marker' request parameter in a subsequent pagination
--- request.
+-- | When 'Truncated' is true, this value is present and contains the value
+-- to use for the 'Marker' parameter in a subsequent pagination request.
 lkrsNextMarker :: Lens' ListKeysResponse (Maybe Text)
 lkrsNextMarker = lens _lkrsNextMarker (\ s a -> s{_lkrsNextMarker = a});
 

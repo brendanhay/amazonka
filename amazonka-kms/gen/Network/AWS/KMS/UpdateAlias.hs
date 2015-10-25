@@ -18,7 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an alias to associate it with a different key.
+-- Updates an alias to map it to a different key.
+--
+-- An alias is not a property of a key. Therefore, an alias can be mapped
+-- to and unmapped from an existing key without changing the properties of
+-- the key.
 --
 -- An alias name can contain only alphanumeric characters, forward slashes
 -- (\/), underscores (_), and dashes (-). An alias must start with the word
@@ -26,12 +30,8 @@
 -- with \"aws\" after the forward slash (alias\/aws...) is reserved by
 -- Amazon Web Services (AWS).
 --
--- An alias is not a property of a key. Therefore, an alias can be
--- associated with and disassociated from an existing key without changing
--- the properties of the key.
---
--- Note that you cannot create or update an alias that represents a key in
--- another account.
+-- The alias and the key it is mapped to must be in the same AWS account
+-- and the same region.
 --
 -- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateAlias.html AWS API Reference> for UpdateAlias.
 module Network.AWS.KMS.UpdateAlias
@@ -77,20 +77,23 @@ updateAlias pAliasName_ pTargetKeyId_ =
     , _uaTargetKeyId = pTargetKeyId_
     }
 
--- | String that contains the name of the alias to be modifed. The name must
+-- | String that contains the name of the alias to be modified. The name must
 -- start with the word \"alias\" followed by a forward slash (alias\/).
--- Aliases that begin with \"alias\/AWS\" are reserved.
+-- Aliases that begin with \"alias\/aws\" are reserved.
 uaAliasName :: Lens' UpdateAlias Text
 uaAliasName = lens _uaAliasName (\ s a -> s{_uaAliasName = a});
 
--- | Unique identifier of the customer master key to be associated with the
--- alias. This value can be a globally unique identifier or the fully
--- specified ARN of a key.
+-- | Unique identifier of the customer master key to be mapped to the alias.
+-- This value can be a globally unique identifier or the fully specified
+-- ARN of a key.
 --
 -- -   Key ARN Example -
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
+--
+-- You can call ListAliases to verify that the alias is mapped to the
+-- correct 'TargetKeyId'.
 uaTargetKeyId :: Lens' UpdateAlias Text
 uaTargetKeyId = lens _uaTargetKeyId (\ s a -> s{_uaTargetKeyId = a});
 

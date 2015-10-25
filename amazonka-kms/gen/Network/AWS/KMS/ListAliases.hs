@@ -67,17 +67,18 @@ listAliases =
     , _laLimit = Nothing
     }
 
--- | Use this parameter when paginating results, and only in a subsequent
--- request after you\'ve received a response where the results are
--- truncated. Set it to the value of the 'NextMarker' element in the
--- response you just received.
+-- | Use this parameter only when paginating results and only in a subsequent
+-- request after you\'ve received a response with truncated results. Set it
+-- to the value of 'NextMarker' from the response you just received.
 laMarker :: Lens' ListAliases (Maybe Text)
 laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
 
--- | Specify this parameter when paginating results to indicate the maximum
--- number of aliases you want in each response. If there are additional
--- aliases beyond the maximum you specify, the 'Truncated' response element
--- will be set to 'true.'
+-- | When paginating results, specify the maximum number of items to return
+-- in the response. If additional items exist beyond the number you
+-- specify, the 'Truncated' element in the response is set to true.
+--
+-- This value is optional. If you include a value, it must be between 1 and
+-- 100, inclusive. If you do not include a value, it defaults to 50.
 laLimit :: Lens' ListAliases (Maybe Natural)
 laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat;
 
@@ -145,9 +146,8 @@ listAliasesResponse pResponseStatus_ =
     }
 
 -- | A flag that indicates whether there are more items in the list. If your
--- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more aliases in the
--- list.
+-- results were truncated, you can use the 'Marker' parameter to make a
+-- subsequent pagination request to retrieve more items in the list.
 larsTruncated :: Lens' ListAliasesResponse (Maybe Bool)
 larsTruncated = lens _larsTruncated (\ s a -> s{_larsTruncated = a});
 
@@ -155,9 +155,8 @@ larsTruncated = lens _larsTruncated (\ s a -> s{_larsTruncated = a});
 larsAliases :: Lens' ListAliasesResponse [AliasListEntry]
 larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coerce;
 
--- | If 'Truncated' is true, this value is present and contains the value to
--- use for the 'Marker' request parameter in a subsequent pagination
--- request.
+-- | When 'Truncated' is true, this value is present and contains the value
+-- to use for the 'Marker' parameter in a subsequent pagination request.
 larsNextMarker :: Lens' ListAliasesResponse (Maybe Text)
 larsNextMarker = lens _larsNextMarker (\ s a -> s{_larsNextMarker = a});
 

@@ -20,6 +20,13 @@
 --
 -- Stops a running task.
 --
+-- When StopTask is called on a task, the equivalent of 'docker stop' is
+-- issued to the containers running in the task. This results in a
+-- 'SIGTERM' and a 30-second timeout, after which 'SIGKILL' is sent and the
+-- containers are forcibly stopped. If the container handles the 'SIGTERM'
+-- gracefully and exits within 30 seconds from receiving it, no 'SIGKILL'
+-- is sent.
+--
 -- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StopTask.html AWS API Reference> for StopTask.
 module Network.AWS.ECS.StopTask
     (
@@ -67,13 +74,13 @@ stopTask pTask_ =
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the task you want to stop. If you do not specify a cluster, the
--- default cluster is assumed..
+-- hosts the task to stop. If you do not specify a cluster, the default
+-- cluster is assumed..
 stCluster :: Lens' StopTask (Maybe Text)
 stCluster = lens _stCluster (\ s a -> s{_stCluster = a});
 
--- | The task UUIDs or full Amazon Resource Name (ARN) entry of the task you
--- would like to stop.
+-- | The task ID or full Amazon Resource Name (ARN) entry of the task to
+-- stop.
 stTask :: Lens' StopTask Text
 stTask = lens _stTask (\ s a -> s{_stTask = a});
 

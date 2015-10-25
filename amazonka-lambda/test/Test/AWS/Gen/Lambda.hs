@@ -37,11 +37,23 @@ import Test.AWS.Lambda.Internal
 --         , testUpdateEventSourceMapping $
 --             updateEventSourceMapping
 --
+--         , testCreateAlias $
+--             createAlias
+--
+--         , testListVersionsByFunction $
+--             listVersionsByFunction
+--
+--         , testListAliases $
+--             listAliases
+--
 --         , testRemovePermission $
 --             removePermission
 --
 --         , testInvoke $
 --             invoke
+--
+--         , testGetAlias $
+--             getAlias
 --
 --         , testGetEventSourceMapping $
 --             getEventSourceMapping
@@ -58,8 +70,17 @@ import Test.AWS.Lambda.Internal
 --         , testListEventSourceMappings $
 --             listEventSourceMappings
 --
+--         , testDeleteAlias $
+--             deleteAlias
+--
+--         , testUpdateAlias $
+--             updateAlias
+--
 --         , testAddPermission $
 --             addPermission
+--
+--         , testPublishVersion $
+--             publishVersion
 --
 --         , testDeleteFunction $
 --             deleteFunction
@@ -88,11 +109,23 @@ import Test.AWS.Lambda.Internal
 --         , testUpdateEventSourceMappingResponse $
 --             eventSourceMappingConfiguration
 --
+--         , testCreateAliasResponse $
+--             aliasConfiguration
+--
+--         , testListVersionsByFunctionResponse $
+--             listVersionsByFunctionResponse
+--
+--         , testListAliasesResponse $
+--             listAliasesResponse
+--
 --         , testRemovePermissionResponse $
 --             removePermissionResponse
 --
 --         , testInvokeResponse $
 --             invokeResponse
+--
+--         , testGetAliasResponse $
+--             aliasConfiguration
 --
 --         , testGetEventSourceMappingResponse $
 --             eventSourceMappingConfiguration
@@ -109,8 +142,17 @@ import Test.AWS.Lambda.Internal
 --         , testListEventSourceMappingsResponse $
 --             listEventSourceMappingsResponse
 --
+--         , testDeleteAliasResponse $
+--             deleteAliasResponse
+--
+--         , testUpdateAliasResponse $
+--             aliasConfiguration
+--
 --         , testAddPermissionResponse $
 --             addPermissionResponse
+--
+--         , testPublishVersionResponse $
+--             functionConfiguration
 --
 --         , testDeleteFunctionResponse $
 --             deleteFunctionResponse
@@ -147,6 +189,21 @@ testUpdateEventSourceMapping = req
     "UpdateEventSourceMapping"
     "fixture/UpdateEventSourceMapping.yaml"
 
+testCreateAlias :: CreateAlias -> TestTree
+testCreateAlias = req
+    "CreateAlias"
+    "fixture/CreateAlias.yaml"
+
+testListVersionsByFunction :: ListVersionsByFunction -> TestTree
+testListVersionsByFunction = req
+    "ListVersionsByFunction"
+    "fixture/ListVersionsByFunction.yaml"
+
+testListAliases :: ListAliases -> TestTree
+testListAliases = req
+    "ListAliases"
+    "fixture/ListAliases.yaml"
+
 testRemovePermission :: RemovePermission -> TestTree
 testRemovePermission = req
     "RemovePermission"
@@ -156,6 +213,11 @@ testInvoke :: Invoke -> TestTree
 testInvoke = req
     "Invoke"
     "fixture/Invoke.yaml"
+
+testGetAlias :: GetAlias -> TestTree
+testGetAlias = req
+    "GetAlias"
+    "fixture/GetAlias.yaml"
 
 testGetEventSourceMapping :: GetEventSourceMapping -> TestTree
 testGetEventSourceMapping = req
@@ -182,10 +244,25 @@ testListEventSourceMappings = req
     "ListEventSourceMappings"
     "fixture/ListEventSourceMappings.yaml"
 
+testDeleteAlias :: DeleteAlias -> TestTree
+testDeleteAlias = req
+    "DeleteAlias"
+    "fixture/DeleteAlias.yaml"
+
+testUpdateAlias :: UpdateAlias -> TestTree
+testUpdateAlias = req
+    "UpdateAlias"
+    "fixture/UpdateAlias.yaml"
+
 testAddPermission :: AddPermission -> TestTree
 testAddPermission = req
     "AddPermission"
     "fixture/AddPermission.yaml"
+
+testPublishVersion :: PublishVersion -> TestTree
+testPublishVersion = req
+    "PublishVersion"
+    "fixture/PublishVersion.yaml"
 
 testDeleteFunction :: DeleteFunction -> TestTree
 testDeleteFunction = req
@@ -235,6 +312,27 @@ testUpdateEventSourceMappingResponse = res
     lambda
     (Proxy :: Proxy UpdateEventSourceMapping)
 
+testCreateAliasResponse :: AliasConfiguration -> TestTree
+testCreateAliasResponse = res
+    "CreateAliasResponse"
+    "fixture/CreateAliasResponse.proto"
+    lambda
+    (Proxy :: Proxy CreateAlias)
+
+testListVersionsByFunctionResponse :: ListVersionsByFunctionResponse -> TestTree
+testListVersionsByFunctionResponse = res
+    "ListVersionsByFunctionResponse"
+    "fixture/ListVersionsByFunctionResponse.proto"
+    lambda
+    (Proxy :: Proxy ListVersionsByFunction)
+
+testListAliasesResponse :: ListAliasesResponse -> TestTree
+testListAliasesResponse = res
+    "ListAliasesResponse"
+    "fixture/ListAliasesResponse.proto"
+    lambda
+    (Proxy :: Proxy ListAliases)
+
 testRemovePermissionResponse :: RemovePermissionResponse -> TestTree
 testRemovePermissionResponse = res
     "RemovePermissionResponse"
@@ -248,6 +346,13 @@ testInvokeResponse = res
     "fixture/InvokeResponse.proto"
     lambda
     (Proxy :: Proxy Invoke)
+
+testGetAliasResponse :: AliasConfiguration -> TestTree
+testGetAliasResponse = res
+    "GetAliasResponse"
+    "fixture/GetAliasResponse.proto"
+    lambda
+    (Proxy :: Proxy GetAlias)
 
 testGetEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
 testGetEventSourceMappingResponse = res
@@ -284,12 +389,33 @@ testListEventSourceMappingsResponse = res
     lambda
     (Proxy :: Proxy ListEventSourceMappings)
 
+testDeleteAliasResponse :: DeleteAliasResponse -> TestTree
+testDeleteAliasResponse = res
+    "DeleteAliasResponse"
+    "fixture/DeleteAliasResponse.proto"
+    lambda
+    (Proxy :: Proxy DeleteAlias)
+
+testUpdateAliasResponse :: AliasConfiguration -> TestTree
+testUpdateAliasResponse = res
+    "UpdateAliasResponse"
+    "fixture/UpdateAliasResponse.proto"
+    lambda
+    (Proxy :: Proxy UpdateAlias)
+
 testAddPermissionResponse :: AddPermissionResponse -> TestTree
 testAddPermissionResponse = res
     "AddPermissionResponse"
     "fixture/AddPermissionResponse.proto"
     lambda
     (Proxy :: Proxy AddPermission)
+
+testPublishVersionResponse :: FunctionConfiguration -> TestTree
+testPublishVersionResponse = res
+    "PublishVersionResponse"
+    "fixture/PublishVersionResponse.proto"
+    lambda
+    (Proxy :: Proxy PublishVersion)
 
 testDeleteFunctionResponse :: DeleteFunctionResponse -> TestTree
 testDeleteFunctionResponse = res

@@ -75,8 +75,8 @@ listContainerInstances =
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the container instances you want to list. If you do not specify a
--- cluster, the default cluster is assumed..
+-- hosts the container instances to list. If you do not specify a cluster,
+-- the default cluster is assumed..
 lciCluster :: Lens' ListContainerInstances (Maybe Text)
 lciCluster = lens _lciCluster (\ s a -> s{_lciCluster = a});
 
@@ -169,8 +169,9 @@ listContainerInstancesResponse pResponseStatus_ =
     , _lcirsResponseStatus = pResponseStatus_
     }
 
--- | The list of container instance full Amazon Resource Name (ARN) entries
--- for each container instance associated with the specified cluster.
+-- | The list of container instances with full Amazon Resource Name (ARN)
+-- entries for each container instance associated with the specified
+-- cluster.
 lcirsContainerInstanceARNs :: Lens' ListContainerInstancesResponse [Text]
 lcirsContainerInstanceARNs = lens _lcirsContainerInstanceARNs (\ s a -> s{_lcirsContainerInstanceARNs = a}) . _Default . _Coerce;
 

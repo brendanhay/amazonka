@@ -35,10 +35,9 @@ module Network.AWS.KMS.ListGrants
     , listGrantsResponse
     , ListGrantsResponse
     -- * Response Lenses
-    , lgrsTruncated
-    , lgrsGrants
-    , lgrsNextMarker
-    , lgrsResponseStatus
+    , lgTruncated
+    , lgGrants
+    , lgNextMarker
     ) where
 
 import           Network.AWS.KMS.Types
@@ -73,17 +72,18 @@ listGrants pKeyId_ =
     , _lgKeyId = pKeyId_
     }
 
--- | Use this parameter only when paginating results, and only in a
--- subsequent request after you\'ve received a response where the results
--- are truncated. Set it to the value of the 'NextMarker' in the response
--- you just received.
+-- | Use this parameter only when paginating results and only in a subsequent
+-- request after you\'ve received a response with truncated results. Set it
+-- to the value of 'NextMarker' from the response you just received.
 lgMarker :: Lens' ListGrants (Maybe Text)
 lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
 
--- | Specify this parameter only when paginating results to indicate the
--- maximum number of grants you want listed in the response. If there are
--- additional grants beyond the maximum you specify, the 'Truncated'
--- response element will be set to 'true.'
+-- | When paginating results, specify the maximum number of items to return
+-- in the response. If additional items exist beyond the number you
+-- specify, the 'Truncated' element in the response is set to true.
+--
+-- This value is optional. If you include a value, it must be between 1 and
+-- 100, inclusive. If you do not include a value, it defaults to 50.
 lgLimit :: Lens' ListGrants (Maybe Natural)
 lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
 
@@ -100,13 +100,7 @@ lgKeyId = lens _lgKeyId (\ s a -> s{_lgKeyId = a});
 instance AWSRequest ListGrants where
         type Rs ListGrants = ListGrantsResponse
         request = postJSON kMS
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListGrantsResponse' <$>
-                   (x .?> "Truncated") <*> (x .?> "Grants" .!@ mempty)
-                     <*> (x .?> "NextMarker")
-                     <*> (pure (fromEnum s)))
+        response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders ListGrants where
         toHeaders
@@ -130,54 +124,3 @@ instance ToPath ListGrants where
 
 instance ToQuery ListGrants where
         toQuery = const mempty
-
--- | /See:/ 'listGrantsResponse' smart constructor.
-data ListGrantsResponse = ListGrantsResponse'
-    { _lgrsTruncated      :: !(Maybe Bool)
-    , _lgrsGrants         :: !(Maybe [GrantListEntry])
-    , _lgrsNextMarker     :: !(Maybe Text)
-    , _lgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | Creates a value of 'ListGrantsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgrsTruncated'
---
--- * 'lgrsGrants'
---
--- * 'lgrsNextMarker'
---
--- * 'lgrsResponseStatus'
-listGrantsResponse
-    :: Int -- ^ 'lgrsResponseStatus'
-    -> ListGrantsResponse
-listGrantsResponse pResponseStatus_ =
-    ListGrantsResponse'
-    { _lgrsTruncated = Nothing
-    , _lgrsGrants = Nothing
-    , _lgrsNextMarker = Nothing
-    , _lgrsResponseStatus = pResponseStatus_
-    }
-
--- | A flag that indicates whether there are more items in the list. If your
--- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more grants in the
--- list.
-lgrsTruncated :: Lens' ListGrantsResponse (Maybe Bool)
-lgrsTruncated = lens _lgrsTruncated (\ s a -> s{_lgrsTruncated = a});
-
--- | A list of grants.
-lgrsGrants :: Lens' ListGrantsResponse [GrantListEntry]
-lgrsGrants = lens _lgrsGrants (\ s a -> s{_lgrsGrants = a}) . _Default . _Coerce;
-
--- | If 'Truncated' is true, this value is present and contains the value to
--- use for the 'Marker' request parameter in a subsequent pagination
--- request.
-lgrsNextMarker :: Lens' ListGrantsResponse (Maybe Text)
-lgrsNextMarker = lens _lgrsNextMarker (\ s a -> s{_lgrsNextMarker = a});
-
--- | The response status code.
-lgrsResponseStatus :: Lens' ListGrantsResponse Int
-lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a});

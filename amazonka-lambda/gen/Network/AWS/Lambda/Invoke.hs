@@ -18,7 +18,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Invokes a specified Lambda function.
+-- Invokes a specific Lambda function version.
+--
+-- If you don\'t provide the 'Qualifier' parameter, it uses the unqualified
+-- function ARN which results in invocation of the $LATEST version of the
+-- Lambda function (when you create a Lambda function, the $LATEST is the
+-- version). The AWS Lambda versioning and aliases feature allows you to
+-- publish multiple versions of a Lambda function and also create aliases
+-- for each function version. So each your Lambda function version can be
+-- invoked using multiple ARNs. For more information, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html AWS Lambda Function Versioning and Aliases>.
+-- Using the 'Qualifier' parameter, you can specify a function version or
+-- alias name to invoke specific function version. If you specify function
+-- version, the API uses the qualified function ARN to invoke a specific
+-- function version. If you specify alias name, the API uses the alias ARN
+-- to invoke the function version to which the alias points.
 --
 -- This operation requires permission for the 'lambda:InvokeFunction'
 -- action.
@@ -32,6 +46,7 @@ module Network.AWS.Lambda.Invoke
     -- * Request Lenses
     , iInvocationType
     , iLogType
+    , iQualifier
     , iClientContext
     , iFunctionName
     , iPayload
@@ -56,6 +71,7 @@ import           Network.AWS.Response
 data Invoke = Invoke'
     { _iInvocationType :: !(Maybe InvocationType)
     , _iLogType        :: !(Maybe LogType)
+    , _iQualifier      :: !(Maybe Text)
     , _iClientContext  :: !(Maybe Text)
     , _iFunctionName   :: !Text
     , _iPayload        :: !(HashMap Text Value)
@@ -68,6 +84,8 @@ data Invoke = Invoke'
 -- * 'iInvocationType'
 --
 -- * 'iLogType'
+--
+-- * 'iQualifier'
 --
 -- * 'iClientContext'
 --
@@ -82,6 +100,7 @@ invoke pFunctionName_ pPayload_ =
     Invoke'
     { _iInvocationType = Nothing
     , _iLogType = Nothing
+    , _iQualifier = Nothing
     , _iClientContext = Nothing
     , _iFunctionName = pFunctionName_
     , _iPayload = pPayload_
@@ -105,6 +124,17 @@ iInvocationType = lens _iInvocationType (\ s a -> s{_iInvocationType = a});
 -- 'x-amz-log-results' header.
 iLogType :: Lens' Invoke (Maybe LogType)
 iLogType = lens _iLogType (\ s a -> s{_iLogType = a});
+
+-- | You can use this optional paramter to specify a Lambda function version
+-- or alias name. If you specify function version, the API uses qualified
+-- function ARN to invoke a specific Lambda function. If you specify alias
+-- name, the API uses the alias ARN to invoke the Lambda function version
+-- to which the alias points.
+--
+-- If you don\'t provide this parameter, then the API uses unqualified
+-- function ARN which results in invocation of the $LATEST version.
+iQualifier :: Lens' Invoke (Maybe Text)
+iQualifier = lens _iQualifier (\ s a -> s{_iQualifier = a});
 
 -- | Using the 'ClientContext' you can pass client-specific information to
 -- the Lambda function you are invoking. You can then process the client
@@ -163,7 +193,8 @@ instance ToPath Invoke where
                "/invocations"]
 
 instance ToQuery Invoke where
-        toQuery = const mempty
+        toQuery Invoke'{..}
+          = mconcat ["Qualifier" =: _iQualifier]
 
 -- | Upon success, returns an empty response. Otherwise, throws an exception.
 --

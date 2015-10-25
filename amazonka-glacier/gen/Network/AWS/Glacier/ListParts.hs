@@ -47,6 +47,8 @@
 -- in the /Amazon Glacier Developer Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListParts.html AWS API Reference> for ListParts.
+--
+-- This operation returns paginated results.
 module Network.AWS.Glacier.ListParts
     (
     -- * Creating a Request
@@ -75,6 +77,7 @@ module Network.AWS.Glacier.ListParts
 
 import           Network.AWS.Glacier.Types
 import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -147,6 +150,13 @@ lpVaultName = lens _lpVaultName (\ s a -> s{_lpVaultName = a});
 -- | The upload ID of the multipart upload.
 lpUploadId :: Lens' ListParts Text
 lpUploadId = lens _lpUploadId (\ s a -> s{_lpUploadId = a});
+
+instance AWSPager ListParts where
+        page rq rs
+          | stop (rs ^. lprsMarker) = Nothing
+          | stop (rs ^. lprsParts) = Nothing
+          | otherwise =
+            Just $ rq & lpMarker .~ rs ^. lprsMarker
 
 instance AWSRequest ListParts where
         type Rs ListParts = ListPartsResponse

@@ -19,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts a new task from the specified task definition on the specified
--- container instance or instances. If you want to use the default Amazon
--- ECS scheduler to place your task, use 'RunTask' instead.
+-- container instance or instances. To use the default Amazon ECS scheduler
+-- to place your task, use 'RunTask' instead.
 --
 -- The list of container instances to start tasks on is limited to 10.
 --
@@ -99,9 +99,9 @@ startTask pTaskDefinition_ =
 sOverrides :: Lens' StartTask (Maybe TaskOverride)
 sOverrides = lens _sOverrides (\ s a -> s{_sOverrides = a});
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- you want to start your task on. If you do not specify a cluster, the
--- default cluster is assumed..
+-- | The short name or full Amazon Resource Name (ARN) of the cluster on
+-- which to start your task. If you do not specify a cluster, the default
+-- cluster is assumed..
 sCluster :: Lens' StartTask (Maybe Text)
 sCluster = lens _sCluster (\ s a -> s{_sCluster = a});
 
@@ -117,12 +117,12 @@ sStartedBy :: Lens' StartTask (Maybe Text)
 sStartedBy = lens _sStartedBy (\ s a -> s{_sStartedBy = a});
 
 -- | The 'family' and 'revision' ('family:revision') or full Amazon Resource
--- Name (ARN) of the task definition that you want to start. If a
--- 'revision' is not specified, the latest 'ACTIVE' revision is used.
+-- Name (ARN) of the task definition to start. If a 'revision' is not
+-- specified, the latest 'ACTIVE' revision is used.
 sTaskDefinition :: Lens' StartTask Text
 sTaskDefinition = lens _sTaskDefinition (\ s a -> s{_sTaskDefinition = a});
 
--- | The container instance UUIDs or full Amazon Resource Name (ARN) entries
+-- | The container instance IDs or full Amazon Resource Name (ARN) entries
 -- for the container instances on which you would like to place your task.
 --
 -- The list of container instances to start tasks on is limited to 10.
@@ -192,12 +192,12 @@ startTaskResponse pResponseStatus_ =
     , _strsResponseStatus = pResponseStatus_
     }
 
--- | Any failed tasks from your 'StartTask' action are listed here.
+-- | Any failures associated with the call.
 strsFailures :: Lens' StartTaskResponse [Failure]
 strsFailures = lens _strsFailures (\ s a -> s{_strsFailures = a}) . _Default . _Coerce;
 
 -- | A full description of the tasks that were started. Each task that was
--- successfully placed on your container instances will be described here.
+-- successfully placed on your container instances are described here.
 strsTasks :: Lens' StartTaskResponse [Task]
 strsTasks = lens _strsTasks (\ s a -> s{_strsTasks = a}) . _Default . _Coerce;
 

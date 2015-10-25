@@ -49,11 +49,13 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     , fcRuntime
     , fcFunctionARN
     , fcRole
+    , fcVersion
     , fcFunctionName
     , fcCodeSize
     , fcHandler
     , fcTimeout
     , fcLastModified
+    , fcCodeSha256
     , fcDescription
     ) where
 
@@ -168,7 +170,7 @@ instance ToPath UpdateFunctionConfiguration where
         toPath UpdateFunctionConfiguration'{..}
           = mconcat
               ["/2015-03-31/functions/", toBS _ufcFunctionName,
-               "/versions/HEAD/configuration"]
+               "/configuration"]
 
 instance ToQuery UpdateFunctionConfiguration where
         toQuery = const mempty

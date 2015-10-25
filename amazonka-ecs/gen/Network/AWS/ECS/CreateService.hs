@@ -20,8 +20,8 @@
 --
 -- Runs and maintains a desired number of tasks from a specified task
 -- definition. If the number of tasks running in a service drops below
--- 'desiredCount', Amazon ECS will spawn another instantiation of the task
--- in the specified cluster.
+-- 'desiredCount', Amazon ECS spawns another instantiation of the task in
+-- the specified cluster.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html AWS API Reference> for CreateService.
 module Network.AWS.ECS.CreateService
@@ -96,9 +96,9 @@ createService pServiceName_ pTaskDefinition_ pDesiredCount_ =
     , _cDesiredCount = pDesiredCount_
     }
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- you want to run your service on. If you do not specify a cluster, the
--- default cluster is assumed.
+-- | The short name or full Amazon Resource Name (ARN) of the cluster on
+-- which to run your service. If you do not specify a cluster, the default
+-- cluster is assumed.
 cCluster :: Lens' CreateService (Maybe Text)
 cCluster = lens _cCluster (\ s a -> s{_cCluster = a});
 
@@ -128,13 +128,13 @@ cServiceName :: Lens' CreateService Text
 cServiceName = lens _cServiceName (\ s a -> s{_cServiceName = a});
 
 -- | The 'family' and 'revision' ('family:revision') or full Amazon Resource
--- Name (ARN) of the task definition that you want to run in your service.
--- If a 'revision' is not specified, the latest 'ACTIVE' revision is used.
+-- Name (ARN) of the task definition to run in your service. If a
+-- 'revision' is not specified, the latest 'ACTIVE' revision is used.
 cTaskDefinition :: Lens' CreateService Text
 cTaskDefinition = lens _cTaskDefinition (\ s a -> s{_cTaskDefinition = a});
 
--- | The number of instantiations of the specified task definition that you
--- would like to place and keep running on your cluster.
+-- | The number of instantiations of the specified task definition to place
+-- and keep running on your cluster.
 cDesiredCount :: Lens' CreateService Int
 cDesiredCount = lens _cDesiredCount (\ s a -> s{_cDesiredCount = a});
 

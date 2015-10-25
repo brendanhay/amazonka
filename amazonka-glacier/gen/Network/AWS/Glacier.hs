@@ -113,10 +113,10 @@ module Network.AWS.Glacier
     -- ** AbortVaultLock
     , module Network.AWS.Glacier.AbortVaultLock
 
-    -- ** ListVaults
+    -- ** ListVaults (Paginated)
     , module Network.AWS.Glacier.ListVaults
 
-    -- ** ListJobs
+    -- ** ListJobs (Paginated)
     , module Network.AWS.Glacier.ListJobs
 
     -- ** SetVaultNotifications
@@ -128,7 +128,7 @@ module Network.AWS.Glacier
     -- ** CompleteMultipartUpload
     , module Network.AWS.Glacier.CompleteMultipartUpload
 
-    -- ** ListMultipartUploads
+    -- ** ListMultipartUploads (Paginated)
     , module Network.AWS.Glacier.ListMultipartUploads
 
     -- ** AbortMultipartUpload
@@ -167,7 +167,7 @@ module Network.AWS.Glacier
     -- ** InitiateMultipartUpload
     , module Network.AWS.Glacier.InitiateMultipartUpload
 
-    -- ** ListParts
+    -- ** ListParts (Paginated)
     , module Network.AWS.Glacier.ListParts
 
     -- ** AddTagsToVault

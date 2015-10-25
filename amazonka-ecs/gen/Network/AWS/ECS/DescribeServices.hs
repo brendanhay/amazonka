@@ -66,11 +66,12 @@ describeServices =
     , _dServices = mempty
     }
 
--- | The name of the cluster that hosts the service you want to describe.
+-- | The name of the cluster that hosts the service to describe. If you do
+-- not specify a cluster, the default cluster is assumed.
 dCluster :: Lens' DescribeServices (Maybe Text)
 dCluster = lens _dCluster (\ s a -> s{_dCluster = a});
 
--- | A list of services you want to describe.
+-- | A list of services to describe.
 dServices :: Lens' DescribeServices [Text]
 dServices = lens _dServices (\ s a -> s{_dServices = a}) . _Coerce;
 

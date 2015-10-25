@@ -36,6 +36,7 @@ module Network.AWS.Lambda.CreateFunction
     , cfMemorySize
     , cfTimeout
     , cfDescription
+    , cfPublish
     , cfFunctionName
     , cfRuntime
     , cfRole
@@ -50,11 +51,13 @@ module Network.AWS.Lambda.CreateFunction
     , fcRuntime
     , fcFunctionARN
     , fcRole
+    , fcVersion
     , fcFunctionName
     , fcCodeSize
     , fcHandler
     , fcTimeout
     , fcLastModified
+    , fcCodeSha256
     , fcDescription
     ) where
 
@@ -69,6 +72,7 @@ data CreateFunction = CreateFunction'
     { _cfMemorySize   :: !(Maybe Nat)
     , _cfTimeout      :: !(Maybe Nat)
     , _cfDescription  :: !(Maybe Text)
+    , _cfPublish      :: !(Maybe Bool)
     , _cfFunctionName :: !Text
     , _cfRuntime      :: !Runtime
     , _cfRole         :: !Text
@@ -85,6 +89,8 @@ data CreateFunction = CreateFunction'
 -- * 'cfTimeout'
 --
 -- * 'cfDescription'
+--
+-- * 'cfPublish'
 --
 -- * 'cfFunctionName'
 --
@@ -107,6 +113,7 @@ createFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
     { _cfMemorySize = Nothing
     , _cfTimeout = Nothing
     , _cfDescription = Nothing
+    , _cfPublish = Nothing
     , _cfFunctionName = pFunctionName_
     , _cfRuntime = pRuntime_
     , _cfRole = pRole_
@@ -134,6 +141,11 @@ cfTimeout = lens _cfTimeout (\ s a -> s{_cfTimeout = a}) . mapping _Nat;
 -- value. Assign a meaningful description as you see fit.
 cfDescription :: Lens' CreateFunction (Maybe Text)
 cfDescription = lens _cfDescription (\ s a -> s{_cfDescription = a});
+
+-- | This boolean parameter can be used to request AWS Lambda to create the
+-- Lambda function and publish a version as an atomic operation.
+cfPublish :: Lens' CreateFunction (Maybe Bool)
+cfPublish = lens _cfPublish (\ s a -> s{_cfPublish = a});
 
 -- | The name you want to assign to the function you are uploading. You can
 -- specify an unqualified function name (for example, \"Thumbnail\") or you
@@ -187,6 +199,7 @@ instance ToJSON CreateFunction where
                  [("MemorySize" .=) <$> _cfMemorySize,
                   ("Timeout" .=) <$> _cfTimeout,
                   ("Description" .=) <$> _cfDescription,
+                  ("Publish" .=) <$> _cfPublish,
                   Just ("FunctionName" .= _cfFunctionName),
                   Just ("Runtime" .= _cfRuntime),
                   Just ("Role" .= _cfRole),

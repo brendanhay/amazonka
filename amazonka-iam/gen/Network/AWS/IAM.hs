@@ -202,7 +202,7 @@ module Network.AWS.IAM
     -- ** GetUserPolicy
     , module Network.AWS.IAM.GetUserPolicy
 
-    -- ** ListAttachedRolePolicies
+    -- ** ListAttachedRolePolicies (Paginated)
     , module Network.AWS.IAM.ListAttachedRolePolicies
 
     -- ** GetRole
@@ -337,7 +337,7 @@ module Network.AWS.IAM
     -- ** ListGroupsForUser (Paginated)
     , module Network.AWS.IAM.ListGroupsForUser
 
-    -- ** ListEntitiesForPolicy
+    -- ** ListEntitiesForPolicy (Paginated)
     , module Network.AWS.IAM.ListEntitiesForPolicy
 
     -- ** AddUserToGroup
@@ -364,7 +364,7 @@ module Network.AWS.IAM
     -- ** UpdateSigningCertificate
     , module Network.AWS.IAM.UpdateSigningCertificate
 
-    -- ** ListAttachedUserPolicies
+    -- ** ListAttachedUserPolicies (Paginated)
     , module Network.AWS.IAM.ListAttachedUserPolicies
 
     -- ** RemoveClientIdFromOpenIdConnectProvider
@@ -454,7 +454,7 @@ module Network.AWS.IAM
     -- ** SetDefaultPolicyVersion
     , module Network.AWS.IAM.SetDefaultPolicyVersion
 
-    -- ** ListPolicyVersions
+    -- ** ListPolicyVersions (Paginated)
     , module Network.AWS.IAM.ListPolicyVersions
 
     -- ** ListSAMLProviders
@@ -493,7 +493,7 @@ module Network.AWS.IAM
     -- ** UpdateServerCertificate
     , module Network.AWS.IAM.UpdateServerCertificate
 
-    -- ** ListAttachedGroupPolicies
+    -- ** ListAttachedGroupPolicies (Paginated)
     , module Network.AWS.IAM.ListAttachedGroupPolicies
 
     -- * Types
@@ -572,6 +572,7 @@ module Network.AWS.IAM
     , EvaluationResult
     , evaluationResult
     , erMatchedStatements
+    , erEvalDecisionDetails
     , erMissingContextValues
     , erEvalActionName
     , erEvalResourceName

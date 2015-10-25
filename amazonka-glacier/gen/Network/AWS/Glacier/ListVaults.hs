@@ -43,6 +43,8 @@
 -- in the /Amazon Glacier Developer Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListVaults.html AWS API Reference> for ListVaults.
+--
+-- This operation returns paginated results.
 module Network.AWS.Glacier.ListVaults
     (
     -- * Creating a Request
@@ -64,6 +66,7 @@ module Network.AWS.Glacier.ListVaults
 
 import           Network.AWS.Glacier.Types
 import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -116,6 +119,13 @@ lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a});
 -- ID.
 lvAccountId :: Lens' ListVaults Text
 lvAccountId = lens _lvAccountId (\ s a -> s{_lvAccountId = a});
+
+instance AWSPager ListVaults where
+        page rq rs
+          | stop (rs ^. lvrsMarker) = Nothing
+          | stop (rs ^. lvrsVaultList) = Nothing
+          | otherwise =
+            Just $ rq & lvMarker .~ rs ^. lvrsMarker
 
 instance AWSRequest ListVaults where
         type Rs ListVaults = ListVaultsResponse

@@ -152,7 +152,9 @@ uasgTerminationPolicies = lens _uasgTerminationPolicies (\ s a -> s{_uasgTermina
 -- | The amount of time, in seconds, that Auto Scaling waits before checking
 -- the health status of an instance. The grace period begins when the
 -- instance passes the system status and instance status checks from Amazon
--- EC2. For more information, see < >.
+-- EC2. For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks>
+-- in the /Auto Scaling Developer Guide/.
 uasgHealthCheckGracePeriod :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgHealthCheckGracePeriod = lens _uasgHealthCheckGracePeriod (\ s a -> s{_uasgHealthCheckGracePeriod = a});
 
@@ -171,7 +173,8 @@ uasgVPCZoneIdentifier = lens _uasgVPCZoneIdentifier (\ s a -> s{_uasgVPCZoneIden
 
 -- | The amount of time, in seconds, after a scaling activity completes
 -- before another scaling activity can start. For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>.
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
+-- in the /Auto Scaling Developer Guide/.
 uasgDefaultCooldown :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgDefaultCooldown = lens _uasgDefaultCooldown (\ s a -> s{_uasgDefaultCooldown = a});
 
@@ -205,7 +208,8 @@ uasgHealthCheckType = lens _uasgHealthCheckType (\ s a -> s{_uasgHealthCheckType
 
 -- | The name of the placement group into which you\'ll launch your
 -- instances, if any. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>.
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 uasgPlacementGroup :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgPlacementGroup = lens _uasgPlacementGroup (\ s a -> s{_uasgPlacementGroup = a});
 

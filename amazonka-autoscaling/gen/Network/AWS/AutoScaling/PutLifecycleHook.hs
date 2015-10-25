@@ -133,12 +133,11 @@ putLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
 plhDefaultResult :: Lens' PutLifecycleHook (Maybe Text)
 plhDefaultResult = lens _plhDefaultResult (\ s a -> s{_plhDefaultResult = a});
 
--- | Defines the amount of time, in seconds, that can elapse before the
--- lifecycle hook times out. When the lifecycle hook times out, Auto
--- Scaling performs the action defined in the 'DefaultResult' parameter.
--- You can prevent the lifecycle hook from timing out by calling
--- RecordLifecycleActionHeartbeat. The default value for this parameter is
--- 3600 seconds (1 hour).
+-- | The amount of time, in seconds, that can elapse before the lifecycle
+-- hook times out. When the lifecycle hook times out, Auto Scaling performs
+-- the action defined in the 'DefaultResult' parameter. You can prevent the
+-- lifecycle hook from timing out by calling
+-- RecordLifecycleActionHeartbeat. The default is 3600 seconds (1 hour).
 plhHeartbeatTimeout :: Lens' PutLifecycleHook (Maybe Int)
 plhHeartbeatTimeout = lens _plhHeartbeatTimeout (\ s a -> s{_plhHeartbeatTimeout = a});
 

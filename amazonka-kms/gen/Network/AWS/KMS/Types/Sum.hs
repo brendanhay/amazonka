@@ -47,6 +47,7 @@ instance ToJSON DataKeySpec where
 data GrantOperation
     = CreateGrant
     | Decrypt
+    | DescribeKey
     | Encrypt
     | GenerateDataKey
     | GenerateDataKeyWithoutPlaintext
@@ -59,6 +60,7 @@ instance FromText GrantOperation where
     parser = takeLowerText >>= \case
         "creategrant" -> pure CreateGrant
         "decrypt" -> pure Decrypt
+        "describekey" -> pure DescribeKey
         "encrypt" -> pure Encrypt
         "generatedatakey" -> pure GenerateDataKey
         "generatedatakeywithoutplaintext" -> pure GenerateDataKeyWithoutPlaintext
@@ -66,12 +68,13 @@ instance FromText GrantOperation where
         "reencryptto" -> pure ReEncryptTo
         "retiregrant" -> pure RetireGrant
         e -> fromTextError $ "Failure parsing GrantOperation from value: '" <> e
-           <> "'. Accepted values: CreateGrant, Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, RetireGrant"
+           <> "'. Accepted values: CreateGrant, Decrypt, DescribeKey, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, RetireGrant"
 
 instance ToText GrantOperation where
     toText = \case
         CreateGrant -> "CreateGrant"
         Decrypt -> "Decrypt"
+        DescribeKey -> "DescribeKey"
         Encrypt -> "Encrypt"
         GenerateDataKey -> "GenerateDataKey"
         GenerateDataKeyWithoutPlaintext -> "GenerateDataKeyWithoutPlaintext"
@@ -89,6 +92,34 @@ instance ToJSON GrantOperation where
 
 instance FromJSON GrantOperation where
     parseJSON = parseJSONText "GrantOperation"
+
+data KeyState
+    = Disabled
+    | Enabled
+    | PendingDeletion
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText KeyState where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "enabled" -> pure Enabled
+        "pendingdeletion" -> pure PendingDeletion
+        e -> fromTextError $ "Failure parsing KeyState from value: '" <> e
+           <> "'. Accepted values: Disabled, Enabled, PendingDeletion"
+
+instance ToText KeyState where
+    toText = \case
+        Disabled -> "Disabled"
+        Enabled -> "Enabled"
+        PendingDeletion -> "PendingDeletion"
+
+instance Hashable     KeyState
+instance ToByteString KeyState
+instance ToQuery      KeyState
+instance ToHeader     KeyState
+
+instance FromJSON KeyState where
+    parseJSON = parseJSONText "KeyState"
 
 data KeyUsageType =
     EncryptDecrypt

@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new Amazon ECS cluster. By default, your account will receive
--- a 'default' cluster when you launch your first container instance.
+-- Creates a new Amazon ECS cluster. By default, your account receives a
+-- 'default' cluster when you launch your first container instance.
 -- However, you can create your own cluster with a unique name with the
 -- 'CreateCluster' action.
 --
@@ -64,8 +64,8 @@ createCluster =
     }
 
 -- | The name of your cluster. If you do not specify a name for your cluster,
--- you will create a cluster named 'default'. Up to 255 letters (uppercase
--- and lowercase), numbers, hyphens, and underscores are allowed.
+-- you create a cluster named 'default'. Up to 255 letters (uppercase and
+-- lowercase), numbers, hyphens, and underscores are allowed.
 ccClusterName :: Lens' CreateCluster (Maybe Text)
 ccClusterName = lens _ccClusterName (\ s a -> s{_ccClusterName = a});
 

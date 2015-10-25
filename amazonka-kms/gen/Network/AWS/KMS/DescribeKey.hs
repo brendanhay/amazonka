@@ -27,6 +27,7 @@ module Network.AWS.KMS.DescribeKey
       describeKey
     , DescribeKey
     -- * Request Lenses
+    , dGrantTokens
     , dKeyId
 
     -- * Destructuring the Response
@@ -44,13 +45,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeKey' smart constructor.
-newtype DescribeKey = DescribeKey'
-    { _dKeyId :: Text
+data DescribeKey = DescribeKey'
+    { _dGrantTokens :: !(Maybe [Text])
+    , _dKeyId       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeKey' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dGrantTokens'
 --
 -- * 'dKeyId'
 describeKey
@@ -58,8 +62,17 @@ describeKey
     -> DescribeKey
 describeKey pKeyId_ =
     DescribeKey'
-    { _dKeyId = pKeyId_
+    { _dGrantTokens = Nothing
+    , _dKeyId = pKeyId_
     }
+
+-- | A list of grant tokens.
+--
+-- For more information, go to
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
+-- in the /AWS Key Management Service Developer Guide/.
+dGrantTokens :: Lens' DescribeKey [Text]
+dGrantTokens = lens _dGrantTokens (\ s a -> s{_dGrantTokens = a}) . _Default . _Coerce;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier, a fully specified ARN to either an alias or
@@ -95,7 +108,10 @@ instance ToHeaders DescribeKey where
 
 instance ToJSON DescribeKey where
         toJSON DescribeKey'{..}
-          = object (catMaybes [Just ("KeyId" .= _dKeyId)])
+          = object
+              (catMaybes
+                 [("GrantTokens" .=) <$> _dGrantTokens,
+                  Just ("KeyId" .= _dKeyId)])
 
 instance ToPath DescribeKey where
         toPath = const "/"

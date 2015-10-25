@@ -86,8 +86,8 @@ listTaskDefinitions =
     , _ltdMaxResults = Nothing
     }
 
--- | The task definition status that you want to filter the
--- 'ListTaskDefinitions' results with. By default, only 'ACTIVE' task
+-- | The task definition status with which to filter the
+-- 'ListTaskDefinitions' results. By default, only 'ACTIVE' task
 -- definitions are listed. By setting this parameter to 'INACTIVE', you can
 -- view task definitions that are 'INACTIVE' as long as an active task or
 -- service still references them. If you paginate the resulting output, be
@@ -95,9 +95,9 @@ listTaskDefinitions =
 ltdStatus :: Lens' ListTaskDefinitions (Maybe TaskDefinitionStatus)
 ltdStatus = lens _ltdStatus (\ s a -> s{_ltdStatus = a});
 
--- | The full family name that you want to filter the 'ListTaskDefinitions'
--- results with. Specifying a 'familyPrefix' will limit the listed task
--- definitions to task definition revisions that belong to that family.
+-- | The full family name with which to filter the 'ListTaskDefinitions'
+-- results. Specifying a 'familyPrefix' limits the listed task definitions
+-- to task definition revisions that belong to that family.
 ltdFamilyPrefix :: Lens' ListTaskDefinitions (Maybe Text)
 ltdFamilyPrefix = lens _ltdFamilyPrefix (\ s a -> s{_ltdFamilyPrefix = a});
 
@@ -202,7 +202,7 @@ listTaskDefinitionsResponse pResponseStatus_ =
     }
 
 -- | The list of task definition Amazon Resource Name (ARN) entries for the
--- 'ListTaskDefintions' request.
+-- 'ListTaskDefinitions' request.
 ltdrsTaskDefinitionARNs :: Lens' ListTaskDefinitionsResponse [Text]
 ltdrsTaskDefinitionARNs = lens _ltdrsTaskDefinitionARNs (\ s a -> s{_ltdrsTaskDefinitionARNs = a}) . _Default . _Coerce;
 

@@ -18,8 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- You can remove individual permissions from an access policy associated
--- with a Lambda function by providing a Statement ID.
+-- You can remove individual permissions from an resource policy associated
+-- with a Lambda function by providing a statement ID that you provided
+-- when you addded the permission. The API removes corresponding permission
+-- that is associated with the specific ARN identified by the 'Qualifier'
+-- parameter.
 --
 -- Note that removal of a permission will cause an active event source to
 -- lose permission to the function.
@@ -33,6 +36,7 @@ module Network.AWS.Lambda.RemovePermission
       removePermission
     , RemovePermission
     -- * Request Lenses
+    , rpQualifier
     , rpFunctionName
     , rpStatementId
 
@@ -49,13 +53,16 @@ import           Network.AWS.Response
 
 -- | /See:/ 'removePermission' smart constructor.
 data RemovePermission = RemovePermission'
-    { _rpFunctionName :: !Text
+    { _rpQualifier    :: !(Maybe Text)
+    , _rpFunctionName :: !Text
     , _rpStatementId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RemovePermission' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rpQualifier'
 --
 -- * 'rpFunctionName'
 --
@@ -66,11 +73,20 @@ removePermission
     -> RemovePermission
 removePermission pFunctionName_ pStatementId_ =
     RemovePermission'
-    { _rpFunctionName = pFunctionName_
+    { _rpQualifier = Nothing
+    , _rpFunctionName = pFunctionName_
     , _rpStatementId = pStatementId_
     }
 
--- | Lambda function whose access policy you want to remove a permission
+-- | You can specify this optional parameter to remove permission associated
+-- with a specific function version or function alias. The value of this
+-- paramter is the function version or alias name. If you don\'t specify
+-- this parameter, the API removes permission associated with the
+-- unqualified function ARN.
+rpQualifier :: Lens' RemovePermission (Maybe Text)
+rpQualifier = lens _rpQualifier (\ s a -> s{_rpQualifier = a});
+
+-- | Lambda function whose resource policy you want to remove a permission
 -- from.
 --
 -- You can specify an unqualified function name (for example,
@@ -100,10 +116,11 @@ instance ToPath RemovePermission where
         toPath RemovePermission'{..}
           = mconcat
               ["/2015-03-31/functions/", toBS _rpFunctionName,
-               "/versions/HEAD/policy/", toBS _rpStatementId]
+               "/policy/", toBS _rpStatementId]
 
 instance ToQuery RemovePermission where
-        toQuery = const mempty
+        toQuery RemovePermission'{..}
+          = mconcat ["Qualifier" =: _rpQualifier]
 
 -- | /See:/ 'removePermissionResponse' smart constructor.
 data RemovePermissionResponse =

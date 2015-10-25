@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Marks a key as enabled, thereby permitting its use. You can have up to
--- 25 enabled keys at one time.
+-- Marks a key as enabled, thereby permitting its use.
 --
 -- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html AWS API Reference> for EnableKey.
 module Network.AWS.KMS.EnableKey

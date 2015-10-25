@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the access policy, containing a list of permissions granted via
--- the 'AddPermission' API, associated with the specified bucket.
+-- Returns the resource policy, containing a list of permissions that apply
+-- to a specific to an ARN that you specify via the 'Qualifier' paramter.
+--
+-- For informration about adding permissions, see AddPermission.
 --
 -- You need permission for the 'lambda:GetPolicy action.'
 --
@@ -30,6 +32,7 @@ module Network.AWS.Lambda.GetPolicy
       getPolicy
     , GetPolicy
     -- * Request Lenses
+    , gpQualifier
     , gpFunctionName
 
     -- * Destructuring the Response
@@ -47,13 +50,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getPolicy' smart constructor.
-newtype GetPolicy = GetPolicy'
-    { _gpFunctionName :: Text
+data GetPolicy = GetPolicy'
+    { _gpQualifier    :: !(Maybe Text)
+    , _gpFunctionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpQualifier'
 --
 -- * 'gpFunctionName'
 getPolicy
@@ -61,10 +67,19 @@ getPolicy
     -> GetPolicy
 getPolicy pFunctionName_ =
     GetPolicy'
-    { _gpFunctionName = pFunctionName_
+    { _gpQualifier = Nothing
+    , _gpFunctionName = pFunctionName_
     }
 
--- | Function name whose access policy you want to retrieve.
+-- | You can specify this optional query parameter to specify function
+-- version or alias name in which case this API will return all permissions
+-- associated with the specific ARN. If you don\'t provide this parameter,
+-- the API will return permissions that apply to the unqualified function
+-- ARN.
+gpQualifier :: Lens' GetPolicy (Maybe Text)
+gpQualifier = lens _gpQualifier (\ s a -> s{_gpQualifier = a});
+
+-- | Function name whose resource policy you want to retrieve.
 --
 -- You can specify an unqualified function name (for example,
 -- \"Thumbnail\") or you can specify Amazon Resource Name (ARN) of the
@@ -93,7 +108,7 @@ instance ToPath GetPolicy where
         toPath GetPolicy'{..}
           = mconcat
               ["/2015-03-31/functions/", toBS _gpFunctionName,
-               "/versions/HEAD/policy"]
+               "/policy"]
 
 instance ToQuery GetPolicy where
         toQuery = const mempty
@@ -120,7 +135,7 @@ getPolicyResponse pResponseStatus_ =
     , _gprsResponseStatus = pResponseStatus_
     }
 
--- | The access policy associated with the specified function. The response
+-- | The resource policy associated with the specified function. The response
 -- returns the same as a string using \"\\\" as an escape character in the
 -- JSON.
 gprsPolicy :: Lens' GetPolicyResponse (Maybe Text)

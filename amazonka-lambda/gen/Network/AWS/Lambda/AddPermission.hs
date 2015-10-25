@@ -18,15 +18,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a permission to the access policy associated with the specified AWS
--- Lambda function. In a \"push event\" model, the access policy attached
--- to the Lambda function grants Amazon S3 or a user application permission
--- for the Lambda 'lambda:Invoke' action. For information about the push
--- model, see
+-- Adds a permission to the resource policy associated with the specified
+-- AWS Lambda function. You use resource policies to grant permissions to
+-- event sources that use \"push\" model. In \"push\" model, event sources
+-- (such as Amazon S3 and custom applications) invoke your Lambda function.
+-- Each permission you add to the resource policy allows an event source,
+-- permission to invoke the Lambda function.
+--
+-- For information about the push model, see
 -- <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>.
--- Each Lambda function has one access policy associated with it. You can
--- use the 'AddPermission' API to add a permission to the policy. You have
--- one access policy but it can have multiple permission statements.
+--
+-- If you are using versioning feature (see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html AWS Lambda Function Versioning and Aliases>),
+-- a Lambda function can have multiple ARNs that can be used to invoke the
+-- function. Note that, each permission you add to resource policy using
+-- this API is specific to an ARN, specified using the 'Qualifier'
+-- parameter
 --
 -- This operation requires permission for the 'lambda:AddPermission'
 -- action.
@@ -40,6 +47,7 @@ module Network.AWS.Lambda.AddPermission
     -- * Request Lenses
     , apSourceAccount
     , apSourceARN
+    , apQualifier
     , apFunctionName
     , apStatementId
     , apAction
@@ -63,6 +71,7 @@ import           Network.AWS.Response
 data AddPermission = AddPermission'
     { _apSourceAccount :: !(Maybe Text)
     , _apSourceARN     :: !(Maybe Text)
+    , _apQualifier     :: !(Maybe Text)
     , _apFunctionName  :: !Text
     , _apStatementId   :: !Text
     , _apAction        :: !Text
@@ -76,6 +85,8 @@ data AddPermission = AddPermission'
 -- * 'apSourceAccount'
 --
 -- * 'apSourceARN'
+--
+-- * 'apQualifier'
 --
 -- * 'apFunctionName'
 --
@@ -94,6 +105,7 @@ addPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ =
     AddPermission'
     { _apSourceAccount = Nothing
     , _apSourceARN = Nothing
+    , _apQualifier = Nothing
     , _apFunctionName = pFunctionName_
     , _apStatementId = pStatementId_
     , _apAction = pAction_
@@ -121,7 +133,27 @@ apSourceAccount = lens _apSourceAccount (\ s a -> s{_apSourceAccount = a});
 apSourceARN :: Lens' AddPermission (Maybe Text)
 apSourceARN = lens _apSourceARN (\ s a -> s{_apSourceARN = a});
 
--- | Name of the Lambda function whose access policy you are updating by
+-- | You can specify this optional query parameter to specify function
+-- version or alias name. The permission will then apply to the specific
+-- qualified ARN. For example, if you specify function version 2 as the
+-- qualifier, then permission applies only when request is made using
+-- qualified function ARN:
+--
+-- 'arn:aws:lambda:aws-region:acct-id:function:function-name:2'
+--
+-- If you specify alias name, for example \"PROD\", then the permission is
+-- valid only for requests made using the alias ARN:
+--
+-- 'arn:aws:lambda:aws-region:acct-id:function:function-name:PROD'
+--
+-- If the qualifier is not specified, the permission is valid only when
+-- requests is made using unqualified function ARN.
+--
+-- 'arn:aws:lambda:aws-region:acct-id:function:function-name'
+apQualifier :: Lens' AddPermission (Maybe Text)
+apQualifier = lens _apQualifier (\ s a -> s{_apQualifier = a});
+
+-- | Name of the Lambda function whose resource policy you are updating by
 -- adding a new permission.
 --
 -- You can specify an unqualified function name (for example,
@@ -182,10 +214,11 @@ instance ToPath AddPermission where
         toPath AddPermission'{..}
           = mconcat
               ["/2015-03-31/functions/", toBS _apFunctionName,
-               "/versions/HEAD/policy"]
+               "/policy"]
 
 instance ToQuery AddPermission where
-        toQuery = const mempty
+        toQuery AddPermission'{..}
+          = mconcat ["Qualifier" =: _apQualifier]
 
 -- | /See:/ 'addPermissionResponse' smart constructor.
 data AddPermissionResponse = AddPermissionResponse'

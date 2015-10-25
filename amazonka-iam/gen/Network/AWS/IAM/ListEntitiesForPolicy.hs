@@ -30,6 +30,8 @@
 -- parameters.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListEntitiesForPolicy.html AWS API Reference> for ListEntitiesForPolicy.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.ListEntitiesForPolicy
     (
     -- * Creating a Request
@@ -56,6 +58,7 @@ module Network.AWS.IAM.ListEntitiesForPolicy
 
 import           Network.AWS.IAM.Types
 import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -111,19 +114,19 @@ lefpEntityFilter = lens _lefpEntityFilter (\ s a -> s{_lefpEntityFilter = a});
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
--- the value of the 'Marker' element in the response you received to inform
--- the next call about where to start.
+-- the value of the 'Marker' element in the response that you received to
+-- indicate where the next call should start.
 lefpMarker :: Lens' ListEntitiesForPolicy (Maybe Text)
 lefpMarker = lens _lefpMarker (\ s a -> s{_lefpMarker = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
--- items you want in the response. If there are additional items beyond the
+-- items you want in the response. If additional items exist beyond the
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100. Note that IAM might return fewer results, even when there are more
--- results available. If this is the case, the 'IsTruncated' response
--- element returns 'true' and 'Marker' contains a value to include in the
+-- results available. In that case, the 'IsTruncated' response element
+-- returns 'true' and 'Marker' contains a value to include in the
 -- subsequent call that tells the service where to continue from.
 lefpMaxItems :: Lens' ListEntitiesForPolicy (Maybe Natural)
 lefpMaxItems = lens _lefpMaxItems (\ s a -> s{_lefpMaxItems = a}) . mapping _Nat;
@@ -131,6 +134,13 @@ lefpMaxItems = lens _lefpMaxItems (\ s a -> s{_lefpMaxItems = a}) . mapping _Nat
 -- | Undocumented member.
 lefpPolicyARN :: Lens' ListEntitiesForPolicy Text
 lefpPolicyARN = lens _lefpPolicyARN (\ s a -> s{_lefpPolicyARN = a});
+
+instance AWSPager ListEntitiesForPolicy where
+        page rq rs
+          | stop (rs ^. lefprsIsTruncated) = Nothing
+          | isNothing (rs ^. lefprsMarker) = Nothing
+          | otherwise =
+            Just $ rq & lefpMarker .~ rs ^. lefprsMarker
 
 instance AWSRequest ListEntitiesForPolicy where
         type Rs ListEntitiesForPolicy =

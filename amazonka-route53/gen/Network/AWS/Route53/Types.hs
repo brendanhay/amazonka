@@ -243,9 +243,13 @@ route53 =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "Throttling" . hasStatus 400) e =
+          Just "request_limit_exceeded"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasCode "PriorRequestNotComplete" . hasStatus 400) e =
+          Just "still_processing"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"

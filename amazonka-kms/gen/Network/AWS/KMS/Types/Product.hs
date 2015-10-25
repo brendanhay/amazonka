@@ -67,7 +67,14 @@ instance FromJSON AliasListEntry where
                    (x .:? "TargetKeyId") <*> (x .:? "AliasName") <*>
                      (x .:? "AliasArn"))
 
--- | Contains constraints on the grant.
+-- | A structure for specifying the conditions under which the operations
+-- permitted by the grant are allowed.
+--
+-- You can use this structure to allow the operations permitted by the
+-- grant only when a specified encryption context is present. For more
+-- information about encryption context, see
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>
+-- in the /AWS Key Management Service Developer Guide/.
 --
 -- /See:/ 'grantConstraints' smart constructor.
 data GrantConstraints = GrantConstraints'
@@ -90,12 +97,19 @@ grantConstraints =
     , _gcEncryptionContextSubset = Nothing
     }
 
--- | The constraint contains additional key\/value pairs that serve to
--- further limit the grant.
+-- | Contains a list of key-value pairs that must be present in the
+-- encryption context of a subsequent operation permitted by the grant.
+-- When a subsequent operation permitted by the grant includes an
+-- encryption context that matches this list, the grant allows the
+-- operation. Otherwise, the operation is not allowed.
 gcEncryptionContextEquals :: Lens' GrantConstraints (HashMap Text Text)
 gcEncryptionContextEquals = lens _gcEncryptionContextEquals (\ s a -> s{_gcEncryptionContextEquals = a}) . _Default . _Map;
 
--- | The constraint equals the full encryption context.
+-- | Contains a list of key-value pairs, a subset of which must be present in
+-- the encryption context of a subsequent operation permitted by the grant.
+-- When a subsequent operation permitted by the grant includes an
+-- encryption context that matches this list or is a subset of this list,
+-- the grant allows the operation. Otherwise, the operation is not allowed.
 gcEncryptionContextSubset :: Lens' GrantConstraints (HashMap Text Text)
 gcEncryptionContextSubset = lens _gcEncryptionContextSubset (\ s a -> s{_gcEncryptionContextSubset = a}) . _Default . _Map;
 
@@ -116,21 +130,26 @@ instance ToJSON GrantConstraints where
                   ("EncryptionContextSubset" .=) <$>
                     _gcEncryptionContextSubset])
 
--- | Contains information about each entry in the grant list.
+-- | Contains information about an entry in a list of grants.
 --
 -- /See:/ 'grantListEntry' smart constructor.
 data GrantListEntry = GrantListEntry'
-    { _gleRetiringPrincipal :: !(Maybe Text)
+    { _gleKeyId             :: !(Maybe Text)
+    , _gleRetiringPrincipal :: !(Maybe Text)
     , _gleIssuingAccount    :: !(Maybe Text)
     , _gleGrantId           :: !(Maybe Text)
     , _gleConstraints       :: !(Maybe GrantConstraints)
     , _gleGranteePrincipal  :: !(Maybe Text)
+    , _gleName              :: !(Maybe Text)
+    , _gleCreationDate      :: !(Maybe POSIX)
     , _gleOperations        :: !(Maybe [GrantOperation])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GrantListEntry' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gleKeyId'
 --
 -- * 'gleRetiringPrincipal'
 --
@@ -142,50 +161,62 @@ data GrantListEntry = GrantListEntry'
 --
 -- * 'gleGranteePrincipal'
 --
+-- * 'gleName'
+--
+-- * 'gleCreationDate'
+--
 -- * 'gleOperations'
 grantListEntry
     :: GrantListEntry
 grantListEntry =
     GrantListEntry'
-    { _gleRetiringPrincipal = Nothing
+    { _gleKeyId = Nothing
+    , _gleRetiringPrincipal = Nothing
     , _gleIssuingAccount = Nothing
     , _gleGrantId = Nothing
     , _gleConstraints = Nothing
     , _gleGranteePrincipal = Nothing
+    , _gleName = Nothing
+    , _gleCreationDate = Nothing
     , _gleOperations = Nothing
     }
 
--- | The principal that can retire the account.
+-- | The unique identifier for the customer master key (CMK) to which the
+-- grant applies.
+gleKeyId :: Lens' GrantListEntry (Maybe Text)
+gleKeyId = lens _gleKeyId (\ s a -> s{_gleKeyId = a});
+
+-- | The principal that can retire the grant.
 gleRetiringPrincipal :: Lens' GrantListEntry (Maybe Text)
 gleRetiringPrincipal = lens _gleRetiringPrincipal (\ s a -> s{_gleRetiringPrincipal = a});
 
--- | The account under which the grant was issued.
+-- | The AWS account under which the grant was issued.
 gleIssuingAccount :: Lens' GrantListEntry (Maybe Text)
 gleIssuingAccount = lens _gleIssuingAccount (\ s a -> s{_gleIssuingAccount = a});
 
--- | Unique grant identifier.
+-- | The unique identifier for the grant.
 gleGrantId :: Lens' GrantListEntry (Maybe Text)
 gleGrantId = lens _gleGrantId (\ s a -> s{_gleGrantId = a});
 
--- | Specifies the conditions under which the actions specified by the
--- 'Operations' parameter are allowed.
+-- | The conditions under which the grant\'s operations are allowed.
 gleConstraints :: Lens' GrantListEntry (Maybe GrantConstraints)
 gleConstraints = lens _gleConstraints (\ s a -> s{_gleConstraints = a});
 
--- | The principal that receives the grant permission.
+-- | The principal that receives the grant\'s permissions.
 gleGranteePrincipal :: Lens' GrantListEntry (Maybe Text)
 gleGranteePrincipal = lens _gleGranteePrincipal (\ s a -> s{_gleGranteePrincipal = a});
 
--- | List of operations permitted by the grant. This can be any combination
--- of one or more of the following values:
---
--- 1.  Decrypt
--- 2.  Encrypt
--- 3.  GenerateDataKey
--- 4.  GenerateDataKeyWithoutPlaintext
--- 5.  ReEncryptFrom
--- 6.  ReEncryptTo
--- 7.  CreateGrant
+-- | The friendly name that identifies the grant. If a name was provided in
+-- the CreateGrant request, that name is returned. Otherwise this value is
+-- null.
+gleName :: Lens' GrantListEntry (Maybe Text)
+gleName = lens _gleName (\ s a -> s{_gleName = a});
+
+-- | The date and time when the grant was created.
+gleCreationDate :: Lens' GrantListEntry (Maybe UTCTime)
+gleCreationDate = lens _gleCreationDate (\ s a -> s{_gleCreationDate = a}) . mapping _Time;
+
+-- | The list of operations permitted by the grant.
 gleOperations :: Lens' GrantListEntry [GrantOperation]
 gleOperations = lens _gleOperations (\ s a -> s{_gleOperations = a}) . _Default . _Coerce;
 
@@ -194,11 +225,13 @@ instance FromJSON GrantListEntry where
           = withObject "GrantListEntry"
               (\ x ->
                  GrantListEntry' <$>
-                   (x .:? "RetiringPrincipal") <*>
+                   (x .:? "KeyId") <*> (x .:? "RetiringPrincipal") <*>
                      (x .:? "IssuingAccount")
                      <*> (x .:? "GrantId")
                      <*> (x .:? "Constraints")
                      <*> (x .:? "GranteePrincipal")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "CreationDate")
                      <*> (x .:? "Operations" .!= mempty))
 
 -- | Contains information about each entry in the key list.
@@ -239,15 +272,20 @@ instance FromJSON KeyListEntry where
                  KeyListEntry' <$>
                    (x .:? "KeyId") <*> (x .:? "KeyArn"))
 
--- | Contains metadata associated with a specific key.
+-- | Contains metadata about a customer master key (CMK).
+--
+-- This data type is used as a response element for the CreateKey and
+-- DescribeKey operations.
 --
 -- /See:/ 'keyMetadata' smart constructor.
 data KeyMetadata = KeyMetadata'
     { _kmEnabled      :: !(Maybe Bool)
     , _kmARN          :: !(Maybe Text)
+    , _kmKeyState     :: !(Maybe KeyState)
     , _kmAWSAccountId :: !(Maybe Text)
     , _kmKeyUsage     :: !(Maybe KeyUsageType)
     , _kmCreationDate :: !(Maybe POSIX)
+    , _kmDeletionDate :: !(Maybe POSIX)
     , _kmDescription  :: !(Maybe Text)
     , _kmKeyId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -260,11 +298,15 @@ data KeyMetadata = KeyMetadata'
 --
 -- * 'kmARN'
 --
+-- * 'kmKeyState'
+--
 -- * 'kmAWSAccountId'
 --
 -- * 'kmKeyUsage'
 --
 -- * 'kmCreationDate'
+--
+-- * 'kmDeletionDate'
 --
 -- * 'kmDescription'
 --
@@ -276,38 +318,59 @@ keyMetadata pKeyId_ =
     KeyMetadata'
     { _kmEnabled = Nothing
     , _kmARN = Nothing
+    , _kmKeyState = Nothing
     , _kmAWSAccountId = Nothing
     , _kmKeyUsage = Nothing
     , _kmCreationDate = Nothing
+    , _kmDeletionDate = Nothing
     , _kmDescription = Nothing
     , _kmKeyId = pKeyId_
     }
 
--- | Value that specifies whether the key is enabled.
+-- | Specifies whether the key is enabled. When 'KeyState' is 'Enabled' this
+-- value is true, otherwise it is false.
 kmEnabled :: Lens' KeyMetadata (Maybe Bool)
 kmEnabled = lens _kmEnabled (\ s a -> s{_kmEnabled = a});
 
--- | Key ARN (Amazon Resource Name).
+-- | The Amazon Resource Name (ARN) of the key. For examples, see
+-- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms AWS Key Management Service (AWS KMS)>
+-- in the Example ARNs section of the /AWS General Reference/.
 kmARN :: Lens' KeyMetadata (Maybe Text)
 kmARN = lens _kmARN (\ s a -> s{_kmARN = a});
 
--- | Account ID number.
+-- | The state of the customer master key (CMK).
+--
+-- For more information about how key state affects the use of a CMK, go to
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key>
+-- in the /AWS Key Management Service Developer Guide/.
+kmKeyState :: Lens' KeyMetadata (Maybe KeyState)
+kmKeyState = lens _kmKeyState (\ s a -> s{_kmKeyState = a});
+
+-- | The twelve-digit account ID of the AWS account that owns the key.
 kmAWSAccountId :: Lens' KeyMetadata (Maybe Text)
 kmAWSAccountId = lens _kmAWSAccountId (\ s a -> s{_kmAWSAccountId = a});
 
--- | A value that specifies what operation(s) the key can perform.
+-- | The cryptographic operations for which you can use the key. Currently
+-- the only allowed value is 'ENCRYPT_DECRYPT', which means you can use the
+-- key for the Encrypt and Decrypt operations.
 kmKeyUsage :: Lens' KeyMetadata (Maybe KeyUsageType)
 kmKeyUsage = lens _kmKeyUsage (\ s a -> s{_kmKeyUsage = a});
 
--- | Date the key was created.
+-- | The date and time when the key was created.
 kmCreationDate :: Lens' KeyMetadata (Maybe UTCTime)
 kmCreationDate = lens _kmCreationDate (\ s a -> s{_kmCreationDate = a}) . mapping _Time;
 
--- | The description of the key.
+-- | The date and time after which AWS KMS deletes the customer master key
+-- (CMK). This value is present only when 'KeyState' is 'PendingDeletion',
+-- otherwise this value is null.
+kmDeletionDate :: Lens' KeyMetadata (Maybe UTCTime)
+kmDeletionDate = lens _kmDeletionDate (\ s a -> s{_kmDeletionDate = a}) . mapping _Time;
+
+-- | The friendly description of the key.
 kmDescription :: Lens' KeyMetadata (Maybe Text)
 kmDescription = lens _kmDescription (\ s a -> s{_kmDescription = a});
 
--- | Unique identifier for the key.
+-- | The globally unique identifier for the key.
 kmKeyId :: Lens' KeyMetadata Text
 kmKeyId = lens _kmKeyId (\ s a -> s{_kmKeyId = a});
 
@@ -317,8 +380,58 @@ instance FromJSON KeyMetadata where
               (\ x ->
                  KeyMetadata' <$>
                    (x .:? "Enabled") <*> (x .:? "Arn") <*>
-                     (x .:? "AWSAccountId")
+                     (x .:? "KeyState")
+                     <*> (x .:? "AWSAccountId")
                      <*> (x .:? "KeyUsage")
                      <*> (x .:? "CreationDate")
+                     <*> (x .:? "DeletionDate")
                      <*> (x .:? "Description")
                      <*> (x .: "KeyId"))
+
+-- | /See:/ 'listGrantsResponse' smart constructor.
+data ListGrantsResponse = ListGrantsResponse'
+    { _lgTruncated  :: !(Maybe Bool)
+    , _lgGrants     :: !(Maybe [GrantListEntry])
+    , _lgNextMarker :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListGrantsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lgTruncated'
+--
+-- * 'lgGrants'
+--
+-- * 'lgNextMarker'
+listGrantsResponse
+    :: ListGrantsResponse
+listGrantsResponse =
+    ListGrantsResponse'
+    { _lgTruncated = Nothing
+    , _lgGrants = Nothing
+    , _lgNextMarker = Nothing
+    }
+
+-- | A flag that indicates whether there are more items in the list. If your
+-- results were truncated, you can use the 'Marker' parameter to make a
+-- subsequent pagination request to retrieve more items in the list.
+lgTruncated :: Lens' ListGrantsResponse (Maybe Bool)
+lgTruncated = lens _lgTruncated (\ s a -> s{_lgTruncated = a});
+
+-- | A list of grants.
+lgGrants :: Lens' ListGrantsResponse [GrantListEntry]
+lgGrants = lens _lgGrants (\ s a -> s{_lgGrants = a}) . _Default . _Coerce;
+
+-- | When 'Truncated' is true, this value is present and contains the value
+-- to use for the 'Marker' parameter in a subsequent pagination request.
+lgNextMarker :: Lens' ListGrantsResponse (Maybe Text)
+lgNextMarker = lens _lgNextMarker (\ s a -> s{_lgNextMarker = a});
+
+instance FromJSON ListGrantsResponse where
+        parseJSON
+          = withObject "ListGrantsResponse"
+              (\ x ->
+                 ListGrantsResponse' <$>
+                   (x .:? "Truncated") <*> (x .:? "Grants" .!= mempty)
+                     <*> (x .:? "NextMarker"))

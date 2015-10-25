@@ -116,8 +116,8 @@ lpOnlyAttached = lens _lpOnlyAttached (\ s a -> s{_lpOnlyAttached = a});
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
--- the value of the 'Marker' element in the response you received to inform
--- the next call about where to start.
+-- the value of the 'Marker' element in the response that you received to
+-- indicate where the next call should start.
 lpMarker :: Lens' ListPolicies (Maybe Text)
 lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 
@@ -133,13 +133,13 @@ lpScope :: Lens' ListPolicies (Maybe PolicyScopeType)
 lpScope = lens _lpScope (\ s a -> s{_lpScope = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
--- items you want in the response. If there are additional items beyond the
+-- items you want in the response. If additional items exist beyond the
 -- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100. Note that IAM might return fewer results, even when there are more
--- results available. If this is the case, the 'IsTruncated' response
--- element returns 'true' and 'Marker' contains a value to include in the
+-- results available. In that case, the 'IsTruncated' response element
+-- returns 'true' and 'Marker' contains a value to include in the
 -- subsequent call that tells the service where to continue from.
 lpMaxItems :: Lens' ListPolicies (Maybe Natural)
 lpMaxItems = lens _lpMaxItems (\ s a -> s{_lpMaxItems = a}) . mapping _Nat;

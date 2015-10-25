@@ -85,7 +85,9 @@ pkpKeyId = lens _pkpKeyId (\ s a -> s{_pkpKeyId = a});
 pkpPolicyName :: Lens' PutKeyPolicy Text
 pkpPolicyName = lens _pkpPolicyName (\ s a -> s{_pkpPolicyName = a});
 
--- | The policy, in JSON format, to be attached to the key.
+-- | The policy to attach to the key. This is required and delegates back to
+-- the account. The key is the root of trust. The policy size limit is 32
+-- KiB (32768 bytes).
 pkpPolicy :: Lens' PutKeyPolicy Text
 pkpPolicy = lens _pkpPolicy (\ s a -> s{_pkpPolicy = a});
 

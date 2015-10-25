@@ -18,7 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Marks a key as disabled, thereby preventing its use.
+-- Sets the state of a master key to disabled, thereby preventing its use
+-- for cryptographic operations. For more information about how key state
+-- affects the use of a master key, go to
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key>
+-- in the /AWS Key Management Service Developer Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html AWS API Reference> for DisableKey.
 module Network.AWS.KMS.DisableKey

@@ -51,19 +51,26 @@ library
     exposed-modules:
           Network.AWS.Lambda
         , Network.AWS.Lambda.AddPermission
+        , Network.AWS.Lambda.CreateAlias
         , Network.AWS.Lambda.CreateEventSourceMapping
         , Network.AWS.Lambda.CreateFunction
+        , Network.AWS.Lambda.DeleteAlias
         , Network.AWS.Lambda.DeleteEventSourceMapping
         , Network.AWS.Lambda.DeleteFunction
+        , Network.AWS.Lambda.GetAlias
         , Network.AWS.Lambda.GetEventSourceMapping
         , Network.AWS.Lambda.GetFunction
         , Network.AWS.Lambda.GetFunctionConfiguration
         , Network.AWS.Lambda.GetPolicy
         , Network.AWS.Lambda.Invoke
+        , Network.AWS.Lambda.ListAliases
         , Network.AWS.Lambda.ListEventSourceMappings
         , Network.AWS.Lambda.ListFunctions
+        , Network.AWS.Lambda.ListVersionsByFunction
+        , Network.AWS.Lambda.PublishVersion
         , Network.AWS.Lambda.RemovePermission
         , Network.AWS.Lambda.Types
+        , Network.AWS.Lambda.UpdateAlias
         , Network.AWS.Lambda.UpdateEventSourceMapping
         , Network.AWS.Lambda.UpdateFunctionCode
         , Network.AWS.Lambda.UpdateFunctionConfiguration

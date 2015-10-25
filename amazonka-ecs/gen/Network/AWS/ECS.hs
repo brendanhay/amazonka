@@ -13,11 +13,11 @@
 --
 -- Amazon EC2 Container Service (Amazon ECS) is a highly scalable, fast,
 -- container management service that makes it easy to run, stop, and manage
--- Docker containers on a cluster of Amazon EC2 instances. Amazon ECS lets
--- you launch and stop container-enabled applications with simple API
--- calls, allows you to get the state of your cluster from a centralized
--- service, and gives you access to many familiar Amazon EC2 features like
--- security groups, Amazon EBS volumes, and IAM roles.
+-- Docker containers on a cluster of EC2 instances. Amazon ECS lets you
+-- launch and stop container-enabled applications with simple API calls,
+-- allows you to get the state of your cluster from a centralized service,
+-- and gives you access to many familiar Amazon EC2 features like security
+-- groups, Amazon EBS volumes, and IAM roles.
 --
 -- You can use Amazon ECS to schedule the placement of containers across
 -- your cluster based on your resource needs, isolation policies, and
@@ -172,6 +172,9 @@ module Network.AWS.ECS
     -- ** DesiredStatus
     , DesiredStatus (..)
 
+    -- ** LogDriver
+    , LogDriver (..)
+
     -- ** SortOrder
     , SortOrder (..)
 
@@ -180,6 +183,15 @@ module Network.AWS.ECS
 
     -- ** TransportProtocol
     , TransportProtocol (..)
+
+    -- ** UlimitName
+    , UlimitName (..)
+
+    -- ** Attribute
+    , Attribute
+    , attribute
+    , aValue
+    , aName
 
     -- ** Cluster
     , Cluster
@@ -208,14 +220,27 @@ module Network.AWS.ECS
     , containerDefinition
     , cdImage
     , cdCommand
+    , cdHostname
+    , cdDockerSecurityOptions
+    , cdDisableNetworking
     , cdVolumesFrom
     , cdEnvironment
     , cdEntryPoint
+    , cdWorkingDirectory
+    , cdUlimits
+    , cdPrivileged
     , cdPortMappings
+    , cdDockerLabels
+    , cdExtraHosts
     , cdMemory
+    , cdUser
+    , cdDnsSearchDomains
+    , cdLogConfiguration
     , cdName
+    , cdDnsServers
     , cdMountPoints
     , cdLinks
+    , cdReadonlyRootFilesystem
     , cdEssential
     , cdCpu
 
@@ -230,6 +255,7 @@ module Network.AWS.ECS
     , ciAgentConnected
     , ciVersionInfo
     , ciAgentUpdateStatus
+    , ciAttributes
     , ciPendingTasksCount
     , ciRegisteredResources
 
@@ -274,6 +300,12 @@ module Network.AWS.ECS
     , fArn
     , fReason
 
+    -- ** HostEntry
+    , HostEntry
+    , hostEntry
+    , heHostname
+    , heIpAddress
+
     -- ** HostVolumeProperties
     , HostVolumeProperties
     , hostVolumeProperties
@@ -291,6 +323,12 @@ module Network.AWS.ECS
     , lbLoadBalancerName
     , lbContainerName
     , lbContainerPort
+
+    -- ** LogConfiguration
+    , LogConfiguration
+    , logConfiguration
+    , lcOptions
+    , lcLogDriver
 
     -- ** MountPoint
     , MountPoint
@@ -353,11 +391,19 @@ module Network.AWS.ECS
     , tdTaskDefinitionARN
     , tdRevision
     , tdVolumes
+    , tdRequiresAttributes
 
     -- ** TaskOverride
     , TaskOverride
     , taskOverride
     , toContainerOverrides
+
+    -- ** Ulimit
+    , Ulimit
+    , ulimit
+    , uName
+    , uSoftLimit
+    , uHardLimit
 
     -- ** VersionInfo
     , VersionInfo

@@ -27,10 +27,10 @@
 -- after the forward slash (alias\/aws...) is reserved by Amazon Web
 -- Services (AWS).
 --
--- To associate an alias with a different key, call UpdateAlias.
+-- The alias and the key it is mapped to must be in the same AWS account
+-- and the same region.
 --
--- Note that you cannot create or update an alias that represents a key in
--- another account.
+-- To map an alias to a different key, call UpdateAlias.
 --
 -- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateAlias.html AWS API Reference> for CreateAlias.
 module Network.AWS.KMS.CreateAlias

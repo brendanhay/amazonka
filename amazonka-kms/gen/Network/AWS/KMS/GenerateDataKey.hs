@@ -134,8 +134,11 @@ gdkEncryptionContext = lens _gdkEncryptionContext (\ s a -> s{_gdkEncryptionCont
 gdkNumberOfBytes :: Lens' GenerateDataKey (Maybe Natural)
 gdkNumberOfBytes = lens _gdkNumberOfBytes (\ s a -> s{_gdkNumberOfBytes = a}) . mapping _Nat;
 
--- | For more information, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
+-- | A list of grant tokens.
+--
+-- For more information, go to
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
+-- in the /AWS Key Management Service Developer Guide/.
 gdkGrantTokens :: Lens' GenerateDataKey [Text]
 gdkGrantTokens = lens _gdkGrantTokens (\ s a -> s{_gdkGrantTokens = a}) . _Default . _Coerce;
 

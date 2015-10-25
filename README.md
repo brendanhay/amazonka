@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/brendanhay/amazonka.svg?branch=develop)](https://travis-ci.org/brendanhay/amazonka)
 [![Hackage Version](https://img.shields.io/hackage/v/amazonka.svg)](http://hackage.haskell.org/package/amazonka)
-[![Gitter Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/brendanhay/amazonka?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/brendanhay/amazonka)
 
 * [Description](#description)
 * [Documentation](#documentation)

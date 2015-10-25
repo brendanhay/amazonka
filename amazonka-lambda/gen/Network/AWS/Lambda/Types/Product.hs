@@ -20,6 +20,66 @@ module Network.AWS.Lambda.Types.Product where
 import           Network.AWS.Lambda.Types.Sum
 import           Network.AWS.Prelude
 
+-- | Provides configuration information about a Lambda function version
+-- alias.
+--
+-- /See:/ 'aliasConfiguration' smart constructor.
+data AliasConfiguration = AliasConfiguration'
+    { _acName            :: !(Maybe Text)
+    , _acFunctionVersion :: !(Maybe Text)
+    , _acAliasARN        :: !(Maybe Text)
+    , _acDescription     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AliasConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acName'
+--
+-- * 'acFunctionVersion'
+--
+-- * 'acAliasARN'
+--
+-- * 'acDescription'
+aliasConfiguration
+    :: AliasConfiguration
+aliasConfiguration =
+    AliasConfiguration'
+    { _acName = Nothing
+    , _acFunctionVersion = Nothing
+    , _acAliasARN = Nothing
+    , _acDescription = Nothing
+    }
+
+-- | Alias name.
+acName :: Lens' AliasConfiguration (Maybe Text)
+acName = lens _acName (\ s a -> s{_acName = a});
+
+-- | Function version to which the alias points.
+acFunctionVersion :: Lens' AliasConfiguration (Maybe Text)
+acFunctionVersion = lens _acFunctionVersion (\ s a -> s{_acFunctionVersion = a});
+
+-- | Lambda function ARN that is qualified using alias name as the suffix.
+-- For example, if you create an alias \"BETA\" pointing to a helloworld
+-- function version, the ARN is
+-- 'arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA'.
+acAliasARN :: Lens' AliasConfiguration (Maybe Text)
+acAliasARN = lens _acAliasARN (\ s a -> s{_acAliasARN = a});
+
+-- | Alias description.
+acDescription :: Lens' AliasConfiguration (Maybe Text)
+acDescription = lens _acDescription (\ s a -> s{_acDescription = a});
+
+instance FromJSON AliasConfiguration where
+        parseJSON
+          = withObject "AliasConfiguration"
+              (\ x ->
+                 AliasConfiguration' <$>
+                   (x .:? "Name") <*> (x .:? "FunctionVersion") <*>
+                     (x .:? "AliasArn")
+                     <*> (x .:? "Description"))
+
 -- | Describes mapping between an Amazon Kinesis stream and a Lambda
 -- function.
 --
@@ -238,11 +298,13 @@ data FunctionConfiguration = FunctionConfiguration'
     , _fcRuntime      :: !(Maybe Runtime)
     , _fcFunctionARN  :: !(Maybe Text)
     , _fcRole         :: !(Maybe Text)
+    , _fcVersion      :: !(Maybe Text)
     , _fcFunctionName :: !(Maybe Text)
     , _fcCodeSize     :: !(Maybe Integer)
     , _fcHandler      :: !(Maybe Text)
     , _fcTimeout      :: !(Maybe Nat)
     , _fcLastModified :: !(Maybe Text)
+    , _fcCodeSha256   :: !(Maybe Text)
     , _fcDescription  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -258,6 +320,8 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- * 'fcRole'
 --
+-- * 'fcVersion'
+--
 -- * 'fcFunctionName'
 --
 -- * 'fcCodeSize'
@@ -268,6 +332,8 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- * 'fcLastModified'
 --
+-- * 'fcCodeSha256'
+--
 -- * 'fcDescription'
 functionConfiguration
     :: FunctionConfiguration
@@ -277,11 +343,13 @@ functionConfiguration =
     , _fcRuntime = Nothing
     , _fcFunctionARN = Nothing
     , _fcRole = Nothing
+    , _fcVersion = Nothing
     , _fcFunctionName = Nothing
     , _fcCodeSize = Nothing
     , _fcHandler = Nothing
     , _fcTimeout = Nothing
     , _fcLastModified = Nothing
+    , _fcCodeSha256 = Nothing
     , _fcDescription = Nothing
     }
 
@@ -303,6 +371,10 @@ fcFunctionARN = lens _fcFunctionARN (\ s a -> s{_fcFunctionARN = a});
 -- resources.
 fcRole :: Lens' FunctionConfiguration (Maybe Text)
 fcRole = lens _fcRole (\ s a -> s{_fcRole = a});
+
+-- | The version of the Lambda function.
+fcVersion :: Lens' FunctionConfiguration (Maybe Text)
+fcVersion = lens _fcVersion (\ s a -> s{_fcVersion = a});
 
 -- | The name of the function.
 fcFunctionName :: Lens' FunctionConfiguration (Maybe Text)
@@ -327,6 +399,10 @@ fcTimeout = lens _fcTimeout (\ s a -> s{_fcTimeout = a}) . mapping _Nat;
 fcLastModified :: Lens' FunctionConfiguration (Maybe Text)
 fcLastModified = lens _fcLastModified (\ s a -> s{_fcLastModified = a});
 
+-- | It is the SHA256 hash of your function deployment package.
+fcCodeSha256 :: Lens' FunctionConfiguration (Maybe Text)
+fcCodeSha256 = lens _fcCodeSha256 (\ s a -> s{_fcCodeSha256 = a});
+
 -- | The user-provided description.
 fcDescription :: Lens' FunctionConfiguration (Maybe Text)
 fcDescription = lens _fcDescription (\ s a -> s{_fcDescription = a});
@@ -339,9 +415,11 @@ instance FromJSON FunctionConfiguration where
                    (x .:? "MemorySize") <*> (x .:? "Runtime") <*>
                      (x .:? "FunctionArn")
                      <*> (x .:? "Role")
+                     <*> (x .:? "Version")
                      <*> (x .:? "FunctionName")
                      <*> (x .:? "CodeSize")
                      <*> (x .:? "Handler")
                      <*> (x .:? "Timeout")
                      <*> (x .:? "LastModified")
+                     <*> (x .:? "CodeSha256")
                      <*> (x .:? "Description"))

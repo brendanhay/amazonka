@@ -64,6 +64,7 @@ module Network.AWS.S3.CopyObject
     , CopyObjectResponse
     -- * Response Lenses
     , corsRequestCharged
+    , corsVersionId
     , corsExpiration
     , corsSSECustomerAlgorithm
     , corsCopySourceVersionId
@@ -377,7 +378,8 @@ instance AWSRequest CopyObject where
               (\ s h x ->
                  CopyObjectResponse' <$>
                    (h .#? "x-amz-request-charged") <*>
-                     (h .#? "x-amz-expiration")
+                     (h .#? "x-amz-version-id")
+                     <*> (h .#? "x-amz-expiration")
                      <*>
                      (h .#?
                         "x-amz-server-side-encryption-customer-algorithm")
@@ -446,6 +448,7 @@ instance ToQuery CopyObject where
 -- | /See:/ 'copyObjectResponse' smart constructor.
 data CopyObjectResponse = CopyObjectResponse'
     { _corsRequestCharged       :: !(Maybe RequestCharged)
+    , _corsVersionId            :: !(Maybe ObjectVersionId)
     , _corsExpiration           :: !(Maybe Text)
     , _corsSSECustomerAlgorithm :: !(Maybe Text)
     , _corsCopySourceVersionId  :: !(Maybe Text)
@@ -461,6 +464,8 @@ data CopyObjectResponse = CopyObjectResponse'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'corsRequestCharged'
+--
+-- * 'corsVersionId'
 --
 -- * 'corsExpiration'
 --
@@ -483,6 +488,7 @@ copyObjectResponse
 copyObjectResponse pResponseStatus_ =
     CopyObjectResponse'
     { _corsRequestCharged = Nothing
+    , _corsVersionId = Nothing
     , _corsExpiration = Nothing
     , _corsSSECustomerAlgorithm = Nothing
     , _corsCopySourceVersionId = Nothing
@@ -496,6 +502,10 @@ copyObjectResponse pResponseStatus_ =
 -- | Undocumented member.
 corsRequestCharged :: Lens' CopyObjectResponse (Maybe RequestCharged)
 corsRequestCharged = lens _corsRequestCharged (\ s a -> s{_corsRequestCharged = a});
+
+-- | Version ID of the newly created copy.
+corsVersionId :: Lens' CopyObjectResponse (Maybe ObjectVersionId)
+corsVersionId = lens _corsVersionId (\ s a -> s{_corsVersionId = a});
 
 -- | If the object expiration is configured, the response includes this
 -- header.

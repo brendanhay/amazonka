@@ -84,6 +84,43 @@ instance ToHeader     DesiredStatus
 instance ToJSON DesiredStatus where
     toJSON = toJSONText
 
+data LogDriver
+    = Fluentd
+    | Gelf
+    | JSONFile
+    | Journald
+    | Syslog
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText LogDriver where
+    parser = takeLowerText >>= \case
+        "fluentd" -> pure Fluentd
+        "gelf" -> pure Gelf
+        "json-file" -> pure JSONFile
+        "journald" -> pure Journald
+        "syslog" -> pure Syslog
+        e -> fromTextError $ "Failure parsing LogDriver from value: '" <> e
+           <> "'. Accepted values: fluentd, gelf, json-file, journald, syslog"
+
+instance ToText LogDriver where
+    toText = \case
+        Fluentd -> "fluentd"
+        Gelf -> "gelf"
+        JSONFile -> "json-file"
+        Journald -> "journald"
+        Syslog -> "syslog"
+
+instance Hashable     LogDriver
+instance ToByteString LogDriver
+instance ToQuery      LogDriver
+instance ToHeader     LogDriver
+
+instance ToJSON LogDriver where
+    toJSON = toJSONText
+
+instance FromJSON LogDriver where
+    parseJSON = parseJSONText "LogDriver"
+
 data SortOrder
     = Asc
     | Desc
@@ -164,3 +201,70 @@ instance ToJSON TransportProtocol where
 
 instance FromJSON TransportProtocol where
     parseJSON = parseJSONText "TransportProtocol"
+
+data UlimitName
+    = CPU
+    | Core
+    | Data
+    | Fsize
+    | Locks
+    | Memlock
+    | Msgqueue
+    | Nice
+    | Nofile
+    | Nproc
+    | Rss
+    | Rtprio
+    | Rttime
+    | Sigpending
+    | Stack
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText UlimitName where
+    parser = takeLowerText >>= \case
+        "cpu" -> pure CPU
+        "core" -> pure Core
+        "data" -> pure Data
+        "fsize" -> pure Fsize
+        "locks" -> pure Locks
+        "memlock" -> pure Memlock
+        "msgqueue" -> pure Msgqueue
+        "nice" -> pure Nice
+        "nofile" -> pure Nofile
+        "nproc" -> pure Nproc
+        "rss" -> pure Rss
+        "rtprio" -> pure Rtprio
+        "rttime" -> pure Rttime
+        "sigpending" -> pure Sigpending
+        "stack" -> pure Stack
+        e -> fromTextError $ "Failure parsing UlimitName from value: '" <> e
+           <> "'. Accepted values: cpu, core, data, fsize, locks, memlock, msgqueue, nice, nofile, nproc, rss, rtprio, rttime, sigpending, stack"
+
+instance ToText UlimitName where
+    toText = \case
+        CPU -> "cpu"
+        Core -> "core"
+        Data -> "data"
+        Fsize -> "fsize"
+        Locks -> "locks"
+        Memlock -> "memlock"
+        Msgqueue -> "msgqueue"
+        Nice -> "nice"
+        Nofile -> "nofile"
+        Nproc -> "nproc"
+        Rss -> "rss"
+        Rtprio -> "rtprio"
+        Rttime -> "rttime"
+        Sigpending -> "sigpending"
+        Stack -> "stack"
+
+instance Hashable     UlimitName
+instance ToByteString UlimitName
+instance ToQuery      UlimitName
+instance ToHeader     UlimitName
+
+instance ToJSON UlimitName where
+    toJSON = toJSONText
+
+instance FromJSON UlimitName where
+    parseJSON = parseJSONText "UlimitName"

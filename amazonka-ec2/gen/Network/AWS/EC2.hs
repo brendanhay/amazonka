@@ -324,7 +324,7 @@ module Network.AWS.EC2
     -- ** RequestSpotInstances
     , module Network.AWS.EC2.RequestSpotInstances
 
-    -- ** DescribeVolumes
+    -- ** DescribeVolumes (Paginated)
     , module Network.AWS.EC2.DescribeVolumes
 
     -- ** RejectVPCPeeringConnection

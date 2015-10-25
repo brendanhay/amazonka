@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes a task definition. You can specify a 'family' and 'revision'
--- to find information on a specific task definition, or you can simply
+-- to find information about a specific task definition, or you can simply
 -- specify the family to find the latest 'ACTIVE' revision in that family.
 --
 -- You can only describe 'INACTIVE' task definitions while an active task
@@ -68,8 +68,7 @@ describeTaskDefinition pTaskDefinition_ =
 
 -- | The 'family' for the latest 'ACTIVE' revision, 'family' and 'revision'
 -- ('family:revision') for a specific revision in the family, or full
--- Amazon Resource Name (ARN) of the task definition that you want to
--- describe.
+-- Amazon Resource Name (ARN) of the task definition to describe.
 dtdTaskDefinition :: Lens' DescribeTaskDefinition Text
 dtdTaskDefinition = lens _dtdTaskDefinition (\ s a -> s{_dtdTaskDefinition = a});
 

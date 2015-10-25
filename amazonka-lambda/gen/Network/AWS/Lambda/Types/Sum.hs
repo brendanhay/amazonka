@@ -100,19 +100,22 @@ instance ToJSON LogType where
 data Runtime
     = JAVA8
     | Nodejs
+    | PYTHON2_7
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Runtime where
     parser = takeLowerText >>= \case
         "java8" -> pure JAVA8
         "nodejs" -> pure Nodejs
+        "python2.7" -> pure PYTHON2_7
         e -> fromTextError $ "Failure parsing Runtime from value: '" <> e
-           <> "'. Accepted values: java8, nodejs"
+           <> "'. Accepted values: java8, nodejs, python2.7"
 
 instance ToText Runtime where
     toText = \case
         JAVA8 -> "java8"
         Nodejs -> "nodejs"
+        PYTHON2_7 -> "python2.7"
 
 instance Hashable     Runtime
 instance ToByteString Runtime

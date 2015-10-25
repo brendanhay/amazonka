@@ -73,8 +73,8 @@ deregisterTaskDefinition pTaskDefinition_ =
     }
 
 -- | The 'family' and 'revision' ('family:revision') or full Amazon Resource
--- Name (ARN) of the task definition that you want to deregister. You must
--- specify a 'revision'.
+-- Name (ARN) of the task definition to deregister. You must specify a
+-- 'revision'.
 derTaskDefinition :: Lens' DeregisterTaskDefinition Text
 derTaskDefinition = lens _derTaskDefinition (\ s a -> s{_derTaskDefinition = a});
 

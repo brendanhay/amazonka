@@ -13,22 +13,22 @@
 --
 -- AWS Key Management Service
 --
--- AWS Key Management Service (KMS) is an encryption and key management web
--- service. This guide describes the KMS actions that you can call
--- programmatically. For general information about KMS, see the
--- <http://docs.aws.amazon.com/kms/latest/developerguide/overview.html AWS Key Management Service Developer Guide>
+-- AWS Key Management Service (AWS KMS) is an encryption and key management
+-- web service. This guide describes the AWS KMS operations that you can
+-- call programmatically. For general information about AWS KMS, see the
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/ AWS Key Management Service Developer Guide>.
 --
 -- AWS provides SDKs that consist of libraries and sample code for various
 -- programming languages and platforms (Java, Ruby, .Net, iOS, Android,
 -- etc.). The SDKs provide a convenient way to create programmatic access
--- to KMS and AWS. For example, the SDKs take care of tasks such as signing
--- requests (see below), managing errors, and retrying requests
--- automatically. For more information about the AWS SDKs, including how to
--- download and install them, see
+-- to AWS KMS and other AWS services. For example, the SDKs take care of
+-- tasks such as signing requests (see below), managing errors, and
+-- retrying requests automatically. For more information about the AWS
+-- SDKs, including how to download and install them, see
 -- <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
 --
 -- We recommend that you use the AWS SDKs to make programmatic API calls to
--- KMS.
+-- AWS KMS.
 --
 -- Clients must support TLS (Transport Layer Security) 1.0. We recommend
 -- TLS 1.2. Clients must also support cipher suites with Perfect Forward
@@ -39,38 +39,38 @@
 -- __Signing Requests__
 --
 -- Requests must be signed by using an access key ID and a secret access
--- key. We strongly recommend that you do not use your AWS account access
--- key ID and secret key for everyday work with KMS. Instead, use the
+-- key. We strongly recommend that you /do not/ use your AWS account access
+-- key ID and secret key for everyday work with AWS KMS. Instead, use the
 -- access key ID and secret access key for an IAM user, or you can use the
 -- AWS Security Token Service to generate temporary security credentials
 -- that you can use to sign requests.
 --
--- All KMS operations require
+-- All AWS KMS operations require
 -- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 --
--- __Recording API Requests__
+-- __Logging API Requests__
 --
--- KMS supports AWS CloudTrail, a service that records AWS API calls and
+-- AWS KMS supports AWS CloudTrail, a service that logs AWS API calls and
 -- related events for your AWS account and delivers them to an Amazon S3
 -- bucket that you specify. By using the information collected by
--- CloudTrail, you can determine what requests were made to KMS, who made
--- the request, when it was made, and so on. To learn more about
+-- CloudTrail, you can determine what requests were made to AWS KMS, who
+-- made the request, when it was made, and so on. To learn more about
 -- CloudTrail, including how to turn it on and find your log files, see the
--- <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/whatiscloudtrail.html AWS CloudTrail User Guide>
+-- <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/ AWS CloudTrail User Guide>.
 --
 -- __Additional Resources__
 --
 -- For more information about credentials and request signing, see the
 -- following:
 --
--- -   <http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html AWS Security Credentials>.
---     This topic provides general information about the types of
+-- -   <http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html AWS Security Credentials>
+--     - This topic provides general information about the types of
 --     credentials used for accessing AWS.
--- -   <http://docs.aws.amazon.com/STS/latest/UsingSTS/ AWS Security Token Service>.
---     This guide describes how to create and use temporary security
+-- -   <http://docs.aws.amazon.com/STS/latest/UsingSTS/ AWS Security Token Service>
+--     - This guide describes how to create and use temporary security
 --     credentials.
--- -   <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests>.
---     This set of topics walks you through the process of signing a
+-- -   <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests>
+--     - This set of topics walks you through the process of signing a
 --     request using an access key ID and a secret access key.
 --
 -- __Commonly Used APIs__
@@ -97,6 +97,9 @@ module Network.AWS.KMS
     -- ** InvalidMarkerException
     , _InvalidMarkerException
 
+    -- ** KMSInvalidStateException
+    , _KMSInvalidStateException
+
     -- ** InvalidKeyUsageException
     , _InvalidKeyUsageException
 
@@ -120,6 +123,9 @@ module Network.AWS.KMS
 
     -- ** InvalidAliasNameException
     , _InvalidAliasNameException
+
+    -- ** InvalidGrantIdException
+    , _InvalidGrantIdException
 
     -- ** InvalidGrantTokenException
     , _InvalidGrantTokenException
@@ -169,6 +175,9 @@ module Network.AWS.KMS
     -- ** ListAliases
     , module Network.AWS.KMS.ListAliases
 
+    -- ** ListRetirableGrants
+    , module Network.AWS.KMS.ListRetirableGrants
+
     -- ** GenerateRandom
     , module Network.AWS.KMS.GenerateRandom
 
@@ -199,6 +208,9 @@ module Network.AWS.KMS
     -- ** DescribeKey
     , module Network.AWS.KMS.DescribeKey
 
+    -- ** CancelKeyDeletion
+    , module Network.AWS.KMS.CancelKeyDeletion
+
     -- ** Decrypt
     , module Network.AWS.KMS.Decrypt
 
@@ -210,6 +222,9 @@ module Network.AWS.KMS
 
     -- ** ListKeyPolicies
     , module Network.AWS.KMS.ListKeyPolicies
+
+    -- ** ScheduleKeyDeletion
+    , module Network.AWS.KMS.ScheduleKeyDeletion
 
     -- ** PutKeyPolicy
     , module Network.AWS.KMS.PutKeyPolicy
@@ -231,6 +246,9 @@ module Network.AWS.KMS
     -- ** GrantOperation
     , GrantOperation (..)
 
+    -- ** KeyState
+    , KeyState (..)
+
     -- ** KeyUsageType
     , KeyUsageType (..)
 
@@ -250,11 +268,14 @@ module Network.AWS.KMS
     -- ** GrantListEntry
     , GrantListEntry
     , grantListEntry
+    , gleKeyId
     , gleRetiringPrincipal
     , gleIssuingAccount
     , gleGrantId
     , gleConstraints
     , gleGranteePrincipal
+    , gleName
+    , gleCreationDate
     , gleOperations
 
     -- ** KeyListEntry
@@ -268,13 +289,23 @@ module Network.AWS.KMS
     , keyMetadata
     , kmEnabled
     , kmARN
+    , kmKeyState
     , kmAWSAccountId
     , kmKeyUsage
     , kmCreationDate
+    , kmDeletionDate
     , kmDescription
     , kmKeyId
+
+    -- ** ListGrantsResponse
+    , ListGrantsResponse
+    , listGrantsResponse
+    , lgTruncated
+    , lgGrants
+    , lgNextMarker
     ) where
 
+import           Network.AWS.KMS.CancelKeyDeletion
 import           Network.AWS.KMS.CreateAlias
 import           Network.AWS.KMS.CreateGrant
 import           Network.AWS.KMS.CreateKey
@@ -295,10 +326,12 @@ import           Network.AWS.KMS.ListAliases
 import           Network.AWS.KMS.ListGrants
 import           Network.AWS.KMS.ListKeyPolicies
 import           Network.AWS.KMS.ListKeys
+import           Network.AWS.KMS.ListRetirableGrants
 import           Network.AWS.KMS.PutKeyPolicy
 import           Network.AWS.KMS.ReEncrypt
 import           Network.AWS.KMS.RetireGrant
 import           Network.AWS.KMS.RevokeGrant
+import           Network.AWS.KMS.ScheduleKeyDeletion
 import           Network.AWS.KMS.Types
 import           Network.AWS.KMS.UpdateAlias
 import           Network.AWS.KMS.UpdateKeyDescription

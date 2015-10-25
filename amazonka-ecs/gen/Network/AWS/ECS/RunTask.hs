@@ -19,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Start a task using random placement and the default Amazon ECS
--- scheduler. If you want to use your own scheduler or place a task on a
--- specific container instance, use 'StartTask' instead.
+-- scheduler. To use your own scheduler or place a task on a specific
+-- container instance, use 'StartTask' instead.
 --
 -- The 'count' parameter is limited to 10 tasks per call.
 --
@@ -99,14 +99,14 @@ runTask pTaskDefinition_ =
 rtOverrides :: Lens' RunTask (Maybe TaskOverride)
 rtOverrides = lens _rtOverrides (\ s a -> s{_rtOverrides = a});
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- you want to run your task on. If you do not specify a cluster, the
--- default cluster is assumed..
+-- | The short name or full Amazon Resource Name (ARN) of the cluster on
+-- which to run your task. If you do not specify a cluster, the default
+-- cluster is assumed..
 rtCluster :: Lens' RunTask (Maybe Text)
 rtCluster = lens _rtCluster (\ s a -> s{_rtCluster = a});
 
--- | The number of instantiations of the specified task that you would like
--- to place on your cluster.
+-- | The number of instantiations of the specified task to place on your
+-- cluster.
 --
 -- The 'count' parameter is limited to 10 tasks per call.
 rtCount :: Lens' RunTask (Maybe Int)
@@ -124,8 +124,8 @@ rtStartedBy :: Lens' RunTask (Maybe Text)
 rtStartedBy = lens _rtStartedBy (\ s a -> s{_rtStartedBy = a});
 
 -- | The 'family' and 'revision' ('family:revision') or full Amazon Resource
--- Name (ARN) of the task definition that you want to run. If a 'revision'
--- is not specified, the latest 'ACTIVE' revision is used.
+-- Name (ARN) of the task definition to run. If a 'revision' is not
+-- specified, the latest 'ACTIVE' revision is used.
 rtTaskDefinition :: Lens' RunTask Text
 rtTaskDefinition = lens _rtTaskDefinition (\ s a -> s{_rtTaskDefinition = a});
 
@@ -192,12 +192,12 @@ runTaskResponse pResponseStatus_ =
     , _rtrsResponseStatus = pResponseStatus_
     }
 
--- | Any failed tasks from your 'RunTask' action are listed here.
+-- | Any failures associated with the call.
 rtrsFailures :: Lens' RunTaskResponse [Failure]
 rtrsFailures = lens _rtrsFailures (\ s a -> s{_rtrsFailures = a}) . _Default . _Coerce;
 
 -- | A full description of the tasks that were run. Each task that was
--- successfully placed on your cluster will be described here.
+-- successfully placed on your cluster are described here.
 rtrsTasks :: Lens' RunTaskResponse [Task]
 rtrsTasks = lens _rtrsTasks (\ s a -> s{_rtrsTasks = a}) . _Default . _Coerce;
 

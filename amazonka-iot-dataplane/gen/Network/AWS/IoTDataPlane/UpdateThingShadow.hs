@@ -1,0 +1,148 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.IoTDataPlane.UpdateThingShadow
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Updates the thing shadow for the specified thing.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html UpdateThingShadow>
+-- in the /AWS IoT Developer Guide/.
+--
+-- /See:/ <https://aws.amazon.com/iot#UpdateThingShadow.html AWS API Reference> for UpdateThingShadow.
+module Network.AWS.IoTDataPlane.UpdateThingShadow
+    (
+    -- * Creating a Request
+      updateThingShadow
+    , UpdateThingShadow
+    -- * Request Lenses
+    , utsThingName
+    , utsPayload
+
+    -- * Destructuring the Response
+    , updateThingShadowResponse
+    , UpdateThingShadowResponse
+    -- * Response Lenses
+    , utsrsPayload
+    , utsrsResponseStatus
+    ) where
+
+import           Network.AWS.IoTDataPlane.Types
+import           Network.AWS.IoTDataPlane.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+
+-- | The input for the UpdateThingShadow operation.
+--
+-- /See:/ 'updateThingShadow' smart constructor.
+data UpdateThingShadow = UpdateThingShadow'
+    { _utsThingName :: !Text
+    , _utsPayload   :: !Base64
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateThingShadow' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'utsThingName'
+--
+-- * 'utsPayload'
+updateThingShadow
+    :: Text -- ^ 'utsThingName'
+    -> ByteString -- ^ 'utsPayload'
+    -> UpdateThingShadow
+updateThingShadow pThingName_ pPayload_ =
+    UpdateThingShadow'
+    { _utsThingName = pThingName_
+    , _utsPayload = _Base64 # pPayload_
+    }
+
+-- | The name of the thing.
+utsThingName :: Lens' UpdateThingShadow Text
+utsThingName = lens _utsThingName (\ s a -> s{_utsThingName = a});
+
+-- | The state information, in JSON format.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+utsPayload :: Lens' UpdateThingShadow ByteString
+utsPayload = lens _utsPayload (\ s a -> s{_utsPayload = a}) . _Base64;
+
+instance AWSRequest UpdateThingShadow where
+        type Rs UpdateThingShadow = UpdateThingShadowResponse
+        request = postBody ioTDataPlane
+        response
+          = receiveJSON
+              (\ s h x ->
+                 UpdateThingShadowResponse' <$>
+                   (pure (Just x)) <*> (pure (fromEnum s)))
+
+instance ToBody UpdateThingShadow where
+        toBody = toBody . _utsPayload
+
+instance ToHeaders UpdateThingShadow where
+        toHeaders = const mempty
+
+instance ToPath UpdateThingShadow where
+        toPath UpdateThingShadow'{..}
+          = mconcat ["/things/", toBS _utsThingName, "/shadow"]
+
+instance ToQuery UpdateThingShadow where
+        toQuery = const mempty
+
+-- | The output from the UpdateThingShadow operation.
+--
+-- /See:/ 'updateThingShadowResponse' smart constructor.
+data UpdateThingShadowResponse = UpdateThingShadowResponse'
+    { _utsrsPayload        :: !(Maybe Base64)
+    , _utsrsResponseStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateThingShadowResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'utsrsPayload'
+--
+-- * 'utsrsResponseStatus'
+updateThingShadowResponse
+    :: Int -- ^ 'utsrsResponseStatus'
+    -> UpdateThingShadowResponse
+updateThingShadowResponse pResponseStatus_ =
+    UpdateThingShadowResponse'
+    { _utsrsPayload = Nothing
+    , _utsrsResponseStatus = pResponseStatus_
+    }
+
+-- | The state information, in JSON format.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+utsrsPayload :: Lens' UpdateThingShadowResponse (Maybe ByteString)
+utsrsPayload = lens _utsrsPayload (\ s a -> s{_utsrsPayload = a}) . mapping _Base64;
+
+-- | The response status code.
+utsrsResponseStatus :: Lens' UpdateThingShadowResponse Int
+utsrsResponseStatus = lens _utsrsResponseStatus (\ s a -> s{_utsrsResponseStatus = a});

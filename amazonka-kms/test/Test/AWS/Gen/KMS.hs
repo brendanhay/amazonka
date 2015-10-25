@@ -52,6 +52,9 @@ import Test.AWS.KMS.Internal
 --         , testListAliases $
 --             listAliases
 --
+--         , testListRetirableGrants $
+--             listRetirableGrants
+--
 --         , testGenerateRandom $
 --             generateRandom
 --
@@ -82,6 +85,9 @@ import Test.AWS.KMS.Internal
 --         , testDescribeKey $
 --             describeKey
 --
+--         , testCancelKeyDeletion $
+--             cancelKeyDeletion
+--
 --         , testDecrypt $
 --             decrypt
 --
@@ -93,6 +99,9 @@ import Test.AWS.KMS.Internal
 --
 --         , testListKeyPolicies $
 --             listKeyPolicies
+--
+--         , testScheduleKeyDeletion $
+--             scheduleKeyDeletion
 --
 --         , testPutKeyPolicy $
 --             putKeyPolicy
@@ -133,6 +142,9 @@ import Test.AWS.KMS.Internal
 --         , testListAliasesResponse $
 --             listAliasesResponse
 --
+--         , testListRetirableGrantsResponse $
+--             listGrantsResponse
+--
 --         , testGenerateRandomResponse $
 --             generateRandomResponse
 --
@@ -163,6 +175,9 @@ import Test.AWS.KMS.Internal
 --         , testDescribeKeyResponse $
 --             describeKeyResponse
 --
+--         , testCancelKeyDeletionResponse $
+--             cancelKeyDeletionResponse
+--
 --         , testDecryptResponse $
 --             decryptResponse
 --
@@ -174,6 +189,9 @@ import Test.AWS.KMS.Internal
 --
 --         , testListKeyPoliciesResponse $
 --             listKeyPoliciesResponse
+--
+--         , testScheduleKeyDeletionResponse $
+--             scheduleKeyDeletionResponse
 --
 --         , testPutKeyPolicyResponse $
 --             putKeyPolicyResponse
@@ -232,6 +250,11 @@ testListAliases = req
     "ListAliases"
     "fixture/ListAliases.yaml"
 
+testListRetirableGrants :: ListRetirableGrants -> TestTree
+testListRetirableGrants = req
+    "ListRetirableGrants"
+    "fixture/ListRetirableGrants.yaml"
+
 testGenerateRandom :: GenerateRandom -> TestTree
 testGenerateRandom = req
     "GenerateRandom"
@@ -282,6 +305,11 @@ testDescribeKey = req
     "DescribeKey"
     "fixture/DescribeKey.yaml"
 
+testCancelKeyDeletion :: CancelKeyDeletion -> TestTree
+testCancelKeyDeletion = req
+    "CancelKeyDeletion"
+    "fixture/CancelKeyDeletion.yaml"
+
 testDecrypt :: Decrypt -> TestTree
 testDecrypt = req
     "Decrypt"
@@ -301,6 +329,11 @@ testListKeyPolicies :: ListKeyPolicies -> TestTree
 testListKeyPolicies = req
     "ListKeyPolicies"
     "fixture/ListKeyPolicies.yaml"
+
+testScheduleKeyDeletion :: ScheduleKeyDeletion -> TestTree
+testScheduleKeyDeletion = req
+    "ScheduleKeyDeletion"
+    "fixture/ScheduleKeyDeletion.yaml"
 
 testPutKeyPolicy :: PutKeyPolicy -> TestTree
 testPutKeyPolicy = req
@@ -380,6 +413,13 @@ testListAliasesResponse = res
     kMS
     (Proxy :: Proxy ListAliases)
 
+testListRetirableGrantsResponse :: ListGrantsResponse -> TestTree
+testListRetirableGrantsResponse = res
+    "ListRetirableGrantsResponse"
+    "fixture/ListRetirableGrantsResponse.proto"
+    kMS
+    (Proxy :: Proxy ListRetirableGrants)
+
 testGenerateRandomResponse :: GenerateRandomResponse -> TestTree
 testGenerateRandomResponse = res
     "GenerateRandomResponse"
@@ -450,6 +490,13 @@ testDescribeKeyResponse = res
     kMS
     (Proxy :: Proxy DescribeKey)
 
+testCancelKeyDeletionResponse :: CancelKeyDeletionResponse -> TestTree
+testCancelKeyDeletionResponse = res
+    "CancelKeyDeletionResponse"
+    "fixture/CancelKeyDeletionResponse.proto"
+    kMS
+    (Proxy :: Proxy CancelKeyDeletion)
+
 testDecryptResponse :: DecryptResponse -> TestTree
 testDecryptResponse = res
     "DecryptResponse"
@@ -477,6 +524,13 @@ testListKeyPoliciesResponse = res
     "fixture/ListKeyPoliciesResponse.proto"
     kMS
     (Proxy :: Proxy ListKeyPolicies)
+
+testScheduleKeyDeletionResponse :: ScheduleKeyDeletionResponse -> TestTree
+testScheduleKeyDeletionResponse = res
+    "ScheduleKeyDeletionResponse"
+    "fixture/ScheduleKeyDeletionResponse.proto"
+    kMS
+    (Proxy :: Proxy ScheduleKeyDeletion)
 
 testPutKeyPolicyResponse :: PutKeyPolicyResponse -> TestTree
 testPutKeyPolicyResponse = res

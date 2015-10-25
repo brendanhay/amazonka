@@ -35,6 +35,13 @@
 -- your service, you can reduce the desired count of your service by one
 -- before modifying the task definition.
 --
+-- When UpdateService replaces a task during an update, the equivalent of
+-- 'docker stop' is issued to the containers running in the task. This
+-- results in a 'SIGTERM' and a 30-second timeout, after which 'SIGKILL' is
+-- sent and the containers are forcibly stopped. If the container handles
+-- the 'SIGTERM' gracefully and exits within 30 seconds from receiving it,
+-- no 'SIGKILL' is sent.
+--
 -- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html AWS API Reference> for UpdateService.
 module Network.AWS.ECS.UpdateService
     (
@@ -97,21 +104,21 @@ updateService pService_ =
 usCluster :: Lens' UpdateService (Maybe Text)
 usCluster = lens _usCluster (\ s a -> s{_usCluster = a});
 
--- | The number of instantiations of the task that you would like to place
--- and keep running in your service.
+-- | The number of instantiations of the task to place and keep running in
+-- your service.
 usDesiredCount :: Lens' UpdateService (Maybe Int)
 usDesiredCount = lens _usDesiredCount (\ s a -> s{_usDesiredCount = a});
 
 -- | The 'family' and 'revision' ('family:revision') or full Amazon Resource
--- Name (ARN) of the task definition that you want to run in your service.
--- If a 'revision' is not specified, the latest 'ACTIVE' revision is used.
--- If you modify the task definition with 'UpdateService', Amazon ECS
--- spawns a task with the new version of the task definition and then stops
--- an old task after the new version is running.
+-- Name (ARN) of the task definition to run in your service. If a
+-- 'revision' is not specified, the latest 'ACTIVE' revision is used. If
+-- you modify the task definition with 'UpdateService', Amazon ECS spawns a
+-- task with the new version of the task definition and then stops an old
+-- task after the new version is running.
 usTaskDefinition :: Lens' UpdateService (Maybe Text)
 usTaskDefinition = lens _usTaskDefinition (\ s a -> s{_usTaskDefinition = a});
 
--- | The name of the service that you want to update.
+-- | The name of the service to update.
 usService :: Lens' UpdateService Text
 usService = lens _usService (\ s a -> s{_usService = a});
 

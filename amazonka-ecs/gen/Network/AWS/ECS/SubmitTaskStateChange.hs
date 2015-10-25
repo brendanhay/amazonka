@@ -91,8 +91,8 @@ stscCluster = lens _stscCluster (\ s a -> s{_stscCluster = a});
 stscReason :: Lens' SubmitTaskStateChange (Maybe Text)
 stscReason = lens _stscReason (\ s a -> s{_stscReason = a});
 
--- | The task UUID or full Amazon Resource Name (ARN) of the task in the
--- state change request.
+-- | The task ID or full Amazon Resource Name (ARN) of the task in the state
+-- change request.
 stscTask :: Lens' SubmitTaskStateChange (Maybe Text)
 stscTask = lens _stscTask (\ s a -> s{_stscTask = a});
 

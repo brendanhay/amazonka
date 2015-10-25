@@ -195,8 +195,7 @@ casgVPCZoneIdentifier = lens _casgVPCZoneIdentifier (\ s a -> s{_casgVPCZoneIden
 -- | The amount of time, in seconds, after a scaling activity completes
 -- before another scaling activity can start.
 --
--- If this parameter is not specified, the default value is 300. For more
--- information, see
+-- The default is 300. For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
 -- in the /Auto Scaling Developer Guide/.
 casgDefaultCooldown :: Lens' CreateAutoScalingGroup (Maybe Int)
@@ -224,7 +223,8 @@ casgLaunchConfigurationName = lens _casgLaunchConfigurationName (\ s a -> s{_cas
 --
 -- By default, health checks use Amazon EC2 instance status checks to
 -- determine the health of an instance. For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks>.
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks>
+-- in the /Auto Scaling Developer Guide/.
 casgHealthCheckType :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgHealthCheckType = lens _casgHealthCheckType (\ s a -> s{_casgHealthCheckType = a});
 

@@ -41,9 +41,9 @@ module Network.AWS.KMS.Decrypt
       decrypt
     , Decrypt
     -- * Request Lenses
-    , dEncryptionContext
-    , dGrantTokens
-    , dCiphertextBlob
+    , decEncryptionContext
+    , decGrantTokens
+    , decCiphertextBlob
 
     -- * Destructuring the Response
     , decryptResponse
@@ -62,41 +62,44 @@ import           Network.AWS.Response
 
 -- | /See:/ 'decrypt' smart constructor.
 data Decrypt = Decrypt'
-    { _dEncryptionContext :: !(Maybe (Map Text Text))
-    , _dGrantTokens       :: !(Maybe [Text])
-    , _dCiphertextBlob    :: !Base64
+    { _decEncryptionContext :: !(Maybe (Map Text Text))
+    , _decGrantTokens       :: !(Maybe [Text])
+    , _decCiphertextBlob    :: !Base64
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Decrypt' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dEncryptionContext'
+-- * 'decEncryptionContext'
 --
--- * 'dGrantTokens'
+-- * 'decGrantTokens'
 --
--- * 'dCiphertextBlob'
+-- * 'decCiphertextBlob'
 decrypt
-    :: ByteString -- ^ 'dCiphertextBlob'
+    :: ByteString -- ^ 'decCiphertextBlob'
     -> Decrypt
 decrypt pCiphertextBlob_ =
     Decrypt'
-    { _dEncryptionContext = Nothing
-    , _dGrantTokens = Nothing
-    , _dCiphertextBlob = _Base64 # pCiphertextBlob_
+    { _decEncryptionContext = Nothing
+    , _decGrantTokens = Nothing
+    , _decCiphertextBlob = _Base64 # pCiphertextBlob_
     }
 
 -- | The encryption context. If this was specified in the Encrypt function,
 -- it must be specified here or the decryption operation will fail. For
 -- more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
-dEncryptionContext :: Lens' Decrypt (HashMap Text Text)
-dEncryptionContext = lens _dEncryptionContext (\ s a -> s{_dEncryptionContext = a}) . _Default . _Map;
+decEncryptionContext :: Lens' Decrypt (HashMap Text Text)
+decEncryptionContext = lens _decEncryptionContext (\ s a -> s{_decEncryptionContext = a}) . _Default . _Map;
 
--- | For more information, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-dGrantTokens :: Lens' Decrypt [Text]
-dGrantTokens = lens _dGrantTokens (\ s a -> s{_dGrantTokens = a}) . _Default . _Coerce;
+-- | A list of grant tokens.
+--
+-- For more information, go to
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
+-- in the /AWS Key Management Service Developer Guide/.
+decGrantTokens :: Lens' Decrypt [Text]
+decGrantTokens = lens _decGrantTokens (\ s a -> s{_decGrantTokens = a}) . _Default . _Coerce;
 
 -- | Ciphertext to be decrypted. The blob includes metadata.
 --
@@ -105,8 +108,8 @@ dGrantTokens = lens _dGrantTokens (\ s a -> s{_dGrantTokens = a}) . _Default . _
 -- The underlying isomorphism will encode to Base64 representation during
 -- serialisation, and decode from Base64 representation during deserialisation.
 -- This 'Lens' accepts and returns only raw unencoded data.
-dCiphertextBlob :: Lens' Decrypt ByteString
-dCiphertextBlob = lens _dCiphertextBlob (\ s a -> s{_dCiphertextBlob = a}) . _Base64;
+decCiphertextBlob :: Lens' Decrypt ByteString
+decCiphertextBlob = lens _decCiphertextBlob (\ s a -> s{_decCiphertextBlob = a}) . _Base64;
 
 instance AWSRequest Decrypt where
         type Rs Decrypt = DecryptResponse
@@ -131,9 +134,9 @@ instance ToJSON Decrypt where
         toJSON Decrypt'{..}
           = object
               (catMaybes
-                 [("EncryptionContext" .=) <$> _dEncryptionContext,
-                  ("GrantTokens" .=) <$> _dGrantTokens,
-                  Just ("CiphertextBlob" .= _dCiphertextBlob)])
+                 [("EncryptionContext" .=) <$> _decEncryptionContext,
+                  ("GrantTokens" .=) <$> _decGrantTokens,
+                  Just ("CiphertextBlob" .= _decCiphertextBlob)])
 
 instance ToPath Decrypt where
         toPath = const "/"

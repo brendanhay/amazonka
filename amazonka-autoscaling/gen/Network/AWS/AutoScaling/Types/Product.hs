@@ -347,7 +347,8 @@ asgAutoScalingGroupARN = lens _asgAutoScalingGroupARN (\ s a -> s{_asgAutoScalin
 
 -- | The name of the placement group into which you\'ll launch your
 -- instances, if any. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>.
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 asgPlacementGroup :: Lens' AutoScalingGroup (Maybe Text)
 asgPlacementGroup = lens _asgPlacementGroup (\ s a -> s{_asgPlacementGroup = a});
 
@@ -548,7 +549,7 @@ blockDeviceMapping pDeviceName_ =
     , _bdmDeviceName = pDeviceName_
     }
 
--- | The name of the virtual device, 'ephemeral0' to 'ephemeral3'.
+-- | The name of the virtual device (for example, 'ephemeral0').
 bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
 bdmVirtualName = lens _bdmVirtualName (\ s a -> s{_bdmVirtualName = a});
 
@@ -590,6 +591,7 @@ data EBS = EBS'
     { _ebsDeleteOnTermination :: !(Maybe Bool)
     , _ebsVolumeSize          :: !(Maybe Nat)
     , _ebsIOPS                :: !(Maybe Nat)
+    , _ebsEncrypted           :: !(Maybe Bool)
     , _ebsVolumeType          :: !(Maybe Text)
     , _ebsSnapshotId          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -604,6 +606,8 @@ data EBS = EBS'
 --
 -- * 'ebsIOPS'
 --
+-- * 'ebsEncrypted'
+--
 -- * 'ebsVolumeType'
 --
 -- * 'ebsSnapshotId'
@@ -614,6 +618,7 @@ ebs =
     { _ebsDeleteOnTermination = Nothing
     , _ebsVolumeSize = Nothing
     , _ebsIOPS = Nothing
+    , _ebsEncrypted = Nothing
     , _ebsVolumeType = Nothing
     , _ebsSnapshotId = Nothing
     }
@@ -640,11 +645,20 @@ ebsVolumeSize = lens _ebsVolumeSize (\ s a -> s{_ebsVolumeSize = a}) . mapping _
 -- | For Provisioned IOPS (SSD) volumes only. The number of I\/O operations
 -- per second (IOPS) to provision for the volume.
 --
--- Valid values: Range is 100 to 4000.
---
 -- Default: None
 ebsIOPS :: Lens' EBS (Maybe Natural)
 ebsIOPS = lens _ebsIOPS (\ s a -> s{_ebsIOPS = a}) . mapping _Nat;
+
+-- | Indicates whether the volume should be encrypted. Encrypted EBS volumes
+-- must be attached to instances that support Amazon EBS encryption.
+-- Volumes that are created from encrypted snapshots are automatically
+-- encrypted. There is no way to create an encrypted volume from an
+-- unencrypted snapshot or an unencrypted volume from an encrypted
+-- snapshot. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+ebsEncrypted :: Lens' EBS (Maybe Bool)
+ebsEncrypted = lens _ebsEncrypted (\ s a -> s{_ebsEncrypted = a});
 
 -- | The volume type.
 --
@@ -664,6 +678,7 @@ instance FromXML EBS where
               (x .@? "DeleteOnTermination") <*>
                 (x .@? "VolumeSize")
                 <*> (x .@? "Iops")
+                <*> (x .@? "Encrypted")
                 <*> (x .@? "VolumeType")
                 <*> (x .@? "SnapshotId")
 
@@ -672,6 +687,7 @@ instance ToQuery EBS where
           = mconcat
               ["DeleteOnTermination" =: _ebsDeleteOnTermination,
                "VolumeSize" =: _ebsVolumeSize, "Iops" =: _ebsIOPS,
+               "Encrypted" =: _ebsEncrypted,
                "VolumeType" =: _ebsVolumeType,
                "SnapshotId" =: _ebsSnapshotId]
 
@@ -702,7 +718,7 @@ enabledMetric =
 emGranularity :: Lens' EnabledMetric (Maybe Text)
 emGranularity = lens _emGranularity (\ s a -> s{_emGranularity = a});
 
--- | The name of the metric.
+-- | One of the following metrics:
 --
 -- -   'GroupMinSize'
 --
@@ -963,8 +979,8 @@ launchConfiguration pLaunchConfigurationName_ pImageId_ pInstanceType_ pCreatedT
     , _lcCreatedTime = _Time # pCreatedTime_
     }
 
--- | Specifies whether the instances are associated with a public IP address
--- ('true') or not ('false').
+-- | [EC2-VPC] Indicates whether to assign a public IP address to each
+-- instance.
 lcAssociatePublicIPAddress :: Lens' LaunchConfiguration (Maybe Bool)
 lcAssociatePublicIPAddress = lens _lcAssociatePublicIPAddress (\ s a -> s{_lcAssociatePublicIPAddress = a});
 
@@ -1156,10 +1172,11 @@ lhDefaultResult = lens _lhDefaultResult (\ s a -> s{_lhDefaultResult = a});
 lhLifecycleHookName :: Lens' LifecycleHook (Maybe Text)
 lhLifecycleHookName = lens _lhLifecycleHookName (\ s a -> s{_lhLifecycleHookName = a});
 
--- | The amount of time that can elapse before the lifecycle hook times out.
--- When the lifecycle hook times out, Auto Scaling performs the action
--- defined in the 'DefaultResult' parameter. You can prevent the lifecycle
--- hook from timing out by calling RecordLifecycleActionHeartbeat.
+-- | The maximum time, in seconds, that can elapse before the lifecycle hook
+-- times out. The default is 3600 seconds (1 hour). When the lifecycle hook
+-- times out, Auto Scaling performs the action defined in the
+-- 'DefaultResult' parameter. You can prevent the lifecycle hook from
+-- timing out by calling RecordLifecycleActionHeartbeat.
 lhHeartbeatTimeout :: Lens' LifecycleHook (Maybe Int)
 lhHeartbeatTimeout = lens _lhHeartbeatTimeout (\ s a -> s{_lhHeartbeatTimeout = a});
 
@@ -1172,8 +1189,9 @@ lhAutoScalingGroupName = lens _lhAutoScalingGroupName (\ s a -> s{_lhAutoScaling
 lhNotificationMetadata :: Lens' LifecycleHook (Maybe Text)
 lhNotificationMetadata = lens _lhNotificationMetadata (\ s a -> s{_lhNotificationMetadata = a});
 
--- | The maximum length of time an instance can remain in a 'Pending:Wait' or
--- 'Terminating:Wait' state. Currently, the maximum is set to 48 hours.
+-- | The maximum time, in seconds, that an instance can remain in a
+-- 'Pending:Wait' or 'Terminating:Wait' state. The default is 172800
+-- seconds (48 hours).
 lhGlobalTimeout :: Lens' LifecycleHook (Maybe Int)
 lhGlobalTimeout = lens _lhGlobalTimeout (\ s a -> s{_lhGlobalTimeout = a});
 
@@ -1239,7 +1257,7 @@ loadBalancerState =
     , _lbsLoadBalancerName = Nothing
     }
 
--- | The state of the load balancer.
+-- | One of the following load balancer states:
 --
 -- -   'Adding' - The instances in the group are being registered with the
 --     load balancer.
@@ -1286,7 +1304,7 @@ metricCollectionType =
     { _mctMetric = Nothing
     }
 
--- | The metric.
+-- | One of the following metrics:
 --
 -- -   'GroupMinSize'
 --
@@ -1374,7 +1392,7 @@ ncTopicARN = lens _ncTopicARN (\ s a -> s{_ncTopicARN = a});
 ncAutoScalingGroupName :: Lens' NotificationConfiguration (Maybe Text)
 ncAutoScalingGroupName = lens _ncAutoScalingGroupName (\ s a -> s{_ncAutoScalingGroupName = a});
 
--- | The types of events for an action to start.
+-- | One of the following event notification types:
 --
 -- -   'autoscaling:EC2_INSTANCE_LAUNCH'
 --
@@ -1419,7 +1437,7 @@ processType pProcessName_ =
     { _ptProcessName = pProcessName_
     }
 
--- | The name of the process.
+-- | One of the following processes:
 --
 -- -   'Launch'
 --

@@ -126,7 +126,7 @@ decodeV2 xs m e = do
 
     rs  <- runAWS e . send $
         KMS.decrypt raw
-            & dEncryptionContext .~ fromDescription (m <> d)
+            & decEncryptionContext .~ fromDescription (m <> d)
             -- Left-associative merge for material description,
             -- keys in the supplied description override those
             -- on the envelope.

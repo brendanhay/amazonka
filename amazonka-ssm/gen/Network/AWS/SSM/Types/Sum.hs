@@ -76,24 +76,24 @@ instance FromJSON AssociationStatusName where
     parseJSON = parseJSONText "AssociationStatusName"
 
 data CommandFilterKey
-    = InvokedAfter
-    | InvokedBefore
-    | Status
+    = CommandInvokedAfter
+    | CommandInvokedBefore
+    | CommandStatus
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CommandFilterKey where
     parser = takeLowerText >>= \case
-        "invokedafter" -> pure InvokedAfter
-        "invokedbefore" -> pure InvokedBefore
-        "status" -> pure Status
+        "invokedafter" -> pure CommandInvokedAfter
+        "invokedbefore" -> pure CommandInvokedBefore
+        "status" -> pure CommandStatus
         e -> fromTextError $ "Failure parsing CommandFilterKey from value: '" <> e
            <> "'. Accepted values: InvokedAfter, InvokedBefore, Status"
 
 instance ToText CommandFilterKey where
     toText = \case
-        InvokedAfter -> "InvokedAfter"
-        InvokedBefore -> "InvokedBefore"
-        Status -> "Status"
+        CommandInvokedAfter -> "InvokedAfter"
+        CommandInvokedBefore -> "InvokedBefore"
+        CommandStatus -> "Status"
 
 instance Hashable     CommandFilterKey
 instance ToByteString CommandFilterKey

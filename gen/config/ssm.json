@@ -1,5 +1,10 @@
 {
     "referenceUrl": "http://docs.aws.amazon.com/ssm/latest/APIReference/Welcome.html",
     "operationUrl": "http://docs.aws.amazon.com/ssm/latest/APIReference/API_",
-    "libraryName": "amazonka-ssm"
+    "libraryName": "amazonka-ssm",
+    "typeOverrides": {
+        "CommandFilterKey": {
+            "enumPrefix": "Command"
+        }
+    }
 }

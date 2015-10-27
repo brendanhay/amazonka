@@ -8,7 +8,7 @@
 
 ## Version
 
-`1.3.4`
+`1.3.5`
 
 
 ## Description

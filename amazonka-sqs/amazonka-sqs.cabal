@@ -1,5 +1,5 @@
 name:                  amazonka-sqs
-version:               1.3.4
+version:               1.3.5
 synopsis:              Amazon Simple Queue Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -94,7 +94,7 @@ library
         , Network.AWS.SQS.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.4.*
+          amazonka-core == 1.3.5.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-sqs-test
@@ -114,9 +114,9 @@ test-suite amazonka-sqs-test
         , Test.AWS.SQS.Internal
 
     build-depends:
-          amazonka-core == 1.3.4.*
-        , amazonka-test == 1.3.4.*
-        , amazonka-sqs == 1.3.4.*
+          amazonka-core == 1.3.5.*
+        , amazonka-test == 1.3.5.*
+        , amazonka-sqs == 1.3.5.*
         , base
         , bytestring
         , lens

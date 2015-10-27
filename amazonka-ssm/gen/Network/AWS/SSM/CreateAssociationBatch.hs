@@ -18,16 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates the specified configuration documents with the specified
--- instances.
+-- Associates the specified SSM document with the specified instances.
 --
--- When you associate a configuration document with an instance, the
--- configuration agent on the instance processes the configuration document
--- and configures the instance as specified.
+-- When you associate an SSM document with an instance, the configuration
+-- agent on the instance processes the document and configures the instance
+-- as specified.
 --
--- If you associate a configuration document with an instance that already
--- has an associated configuration document, we replace the current
--- configuration document with the new configuration document.
+-- If you associate a document with an instance that already has an
+-- associated document, the system throws the AssociationAlreadyExists
+-- exception.
 --
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateAssociationBatch.html AWS API Reference> for CreateAssociationBatch.
 module Network.AWS.SSM.CreateAssociationBatch

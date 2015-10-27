@@ -20,21 +20,21 @@ module Network.AWS.CloudHSM.Types.Sum where
 import           Network.AWS.Prelude
 
 data ClientVersion
-    = V5_1
-    | V5_3
+    = VD5_1
+    | VD5_3
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ClientVersion where
     parser = takeLowerText >>= \case
-        "5.1" -> pure V5_1
-        "5.3" -> pure V5_3
+        "5.1" -> pure VD5_1
+        "5.3" -> pure VD5_3
         e -> fromTextError $ "Failure parsing ClientVersion from value: '" <> e
            <> "'. Accepted values: 5.1, 5.3"
 
 instance ToText ClientVersion where
     toText = \case
-        V5_1 -> "5.1"
-        V5_3 -> "5.3"
+        VD5_1 -> "5.1"
+        VD5_3 -> "5.3"
 
 instance Hashable     ClientVersion
 instance ToByteString ClientVersion

@@ -16,12 +16,17 @@ module Network.AWS.SSM.Types
       sSM
 
     -- * Errors
+    , _UnsupportedPlatformType
     , _AssociatedInstances
     , _InvalidInstanceId
     , _StatusUnchanged
     , _InvalidNextToken
+    , _InvalidOutputFolder
+    , _InvalidCommandId
     , _DuplicateInstanceId
     , _InvalidDocument
+    , _InvalidFilterKey
+    , _InvalidInstanceInformationFilterValue
     , _AssociationAlreadyExists
     , _InvalidDocumentContent
     , _AssociationLimitExceeded
@@ -29,6 +34,7 @@ module Network.AWS.SSM.Types
     , _InternalServerError
     , _TooManyUpdates
     , _MaxDocumentSizeExceeded
+    , _InvalidParameters
     , _DocumentAlreadyExists
     , _DocumentLimitExceeded
 
@@ -38,14 +44,38 @@ module Network.AWS.SSM.Types
     -- * AssociationStatusName
     , AssociationStatusName (..)
 
+    -- * CommandFilterKey
+    , CommandFilterKey (..)
+
+    -- * CommandInvocationStatus
+    , CommandInvocationStatus (..)
+
+    -- * CommandPluginStatus
+    , CommandPluginStatus (..)
+
+    -- * CommandStatus
+    , CommandStatus (..)
+
     -- * DocumentFilterKey
     , DocumentFilterKey (..)
+
+    -- * DocumentParameterType
+    , DocumentParameterType (..)
 
     -- * DocumentStatus
     , DocumentStatus (..)
 
     -- * Fault
     , Fault (..)
+
+    -- * InstanceInformationFilterKey
+    , InstanceInformationFilterKey (..)
+
+    -- * PingStatus
+    , PingStatus (..)
+
+    -- * PlatformType
+    , PlatformType (..)
 
     -- * Association
     , Association
@@ -60,6 +90,7 @@ module Network.AWS.SSM.Types
     , adStatus
     , adDate
     , adName
+    , adParameters
 
     -- * AssociationFilter
     , AssociationFilter
@@ -75,19 +106,67 @@ module Network.AWS.SSM.Types
     , asName
     , asMessage
 
+    -- * Command
+    , Command
+    , command
+    , cStatus
+    , cExpiresAfter
+    , cOutputS3KeyPrefix
+    , cDocumentName
+    , cInstanceIds
+    , cCommandId
+    , cParameters
+    , cComment
+    , cOutputS3BucketName
+    , cRequestedDateTime
+
+    -- * CommandFilter
+    , CommandFilter
+    , commandFilter
+    , cfKey
+    , cfValue
+
+    -- * CommandInvocation
+    , CommandInvocation
+    , commandInvocation
+    , ciInstanceId
+    , ciStatus
+    , ciCommandPlugins
+    , ciDocumentName
+    , ciCommandId
+    , ciComment
+    , ciTraceOutput
+    , ciRequestedDateTime
+
+    -- * CommandPlugin
+    , CommandPlugin
+    , commandPlugin
+    , cpStatus
+    , cpResponseStartDateTime
+    , cpOutputS3KeyPrefix
+    , cpResponseCode
+    , cpOutput
+    , cpName
+    , cpOutputS3BucketName
+    , cpResponseFinishDateTime
+
     -- * CreateAssociationBatchRequestEntry
     , CreateAssociationBatchRequestEntry
     , createAssociationBatchRequestEntry
     , cabreInstanceId
     , cabreName
+    , cabreParameters
 
     -- * DocumentDescription
     , DocumentDescription
     , documentDescription
     , dStatus
     , dSha1
+    , dPlatformTypes
     , dCreatedDate
     , dName
+    , dParameters
+    , dDescription
 
     -- * DocumentFilter
     , DocumentFilter
@@ -98,7 +177,16 @@ module Network.AWS.SSM.Types
     -- * DocumentIdentifier
     , DocumentIdentifier
     , documentIdentifier
+    , diPlatformTypes
     , diName
+
+    -- * DocumentParameter
+    , DocumentParameter
+    , documentParameter
+    , dpName
+    , dpDefaultValue
+    , dpType
+    , dpDescription
 
     -- * FailedCreateAssociation
     , FailedCreateAssociation
@@ -106,6 +194,24 @@ module Network.AWS.SSM.Types
     , fcaEntry
     , fcaFault
     , fcaMessage
+
+    -- * InstanceInformation
+    , InstanceInformation
+    , instanceInformation
+    , iiInstanceId
+    , iiPingStatus
+    , iiPlatformVersion
+    , iiIsLatestVersion
+    , iiAgentVersion
+    , iiLastPingDateTime
+    , iiPlatformType
+    , iiPlatformName
+
+    -- * InstanceInformationFilter
+    , InstanceInformationFilter
+    , instanceInformationFilter
+    , iifKey
+    , iifValueSet
     ) where
 
 import           Network.AWS.Prelude
@@ -144,13 +250,20 @@ sSM =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | You must disassociate a configuration document from all instances before
--- you can delete it.
+-- | The document does not support the platform type of the given instance
+-- ID(s).
+_UnsupportedPlatformType :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedPlatformType =
+    _ServiceError . hasStatus 400 . hasCode "UnsupportedPlatformType"
+
+-- | You must disassociate an SSM document from all instances before you can
+-- delete it.
 _AssociatedInstances :: AsError a => Getting (First ServiceError) a ServiceError
 _AssociatedInstances =
     _ServiceError . hasStatus 400 . hasCode "AssociatedInstances"
 
--- | You must specify the ID of a running instance.
+-- | The instance is not in valid state. Valid states are: Running, Pending,
+-- Stopped, Stopping. Invalid states are: Shutting-down and Terminated.
 _InvalidInstanceId :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInstanceId =
     _ServiceError . hasStatus 404 . hasCode "InvalidInstanceId"
@@ -163,21 +276,40 @@ _StatusUnchanged = _ServiceError . hasStatus 400 . hasCode "StatusUnchanged"
 _InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
+-- | The S3 bucket does not exist.
+_InvalidOutputFolder :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidOutputFolder =
+    _ServiceError . hasStatus 400 . hasCode "InvalidOutputFolder"
+
+-- | Prism for InvalidCommandId' errors.
+_InvalidCommandId :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidCommandId = _ServiceError . hasStatus 404 . hasCode "InvalidCommandId"
+
 -- | You cannot specify an instance ID in more than one association.
 _DuplicateInstanceId :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateInstanceId =
     _ServiceError . hasStatus 404 . hasCode "DuplicateInstanceId"
 
--- | The configuration document is not valid.
+-- | The specified document does not exist.
 _InvalidDocument :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDocument = _ServiceError . hasStatus 404 . hasCode "InvalidDocument"
+
+-- | The specified key is not valid.
+_InvalidFilterKey :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidFilterKey = _ServiceError . hasStatus 400 . hasCode "InvalidFilterKey"
+
+-- | The specified filter value is not valid.
+_InvalidInstanceInformationFilterValue :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidInstanceInformationFilterValue =
+    _ServiceError .
+    hasStatus 400 . hasCode "InvalidInstanceInformationFilterValue"
 
 -- | The specified association already exists.
 _AssociationAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _AssociationAlreadyExists =
     _ServiceError . hasStatus 400 . hasCode "AssociationAlreadyExists"
 
--- | The content for the configuration document is not valid.
+-- | The content for the SSM document is not valid.
 _InvalidDocumentContent :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDocumentContent =
     _ServiceError . hasStatus 400 . hasCode "InvalidDocumentContent"
@@ -202,17 +334,23 @@ _InternalServerError =
 _TooManyUpdates :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyUpdates = _ServiceError . hasStatus 429 . hasCode "TooManyUpdates"
 
--- | The size limit of a configuration document is 64 KB.
+-- | The size limit of an SSM document is 64 KB.
 _MaxDocumentSizeExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _MaxDocumentSizeExceeded =
     _ServiceError . hasStatus 400 . hasCode "MaxDocumentSizeExceeded"
 
--- | The specified configuration document already exists.
+-- | You must specify values for all required parameters in the SSM document.
+-- You can only supply values to parameters defined in the SSM document.
+_InvalidParameters :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidParameters =
+    _ServiceError . hasStatus 400 . hasCode "InvalidParameters"
+
+-- | The specified SSM document already exists.
 _DocumentAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _DocumentAlreadyExists =
     _ServiceError . hasStatus 400 . hasCode "DocumentAlreadyExists"
 
--- | You can have at most 100 active configuration documents.
+-- | You can have at most 100 active SSM documents.
 _DocumentLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _DocumentLimitExceeded =
     _ServiceError . hasStatus 400 . hasCode "DocumentLimitExceeded"

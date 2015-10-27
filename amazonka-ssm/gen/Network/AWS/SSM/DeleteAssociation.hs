@@ -18,14 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates the specified configuration document from the specified
--- instance.
+-- Disassociates the specified SSM document from the specified instance.
 --
--- When you disassociate a configuration document from an instance, it does
--- not change the configuration of the instance. To change the
--- configuration state of an instance after you disassociate a
--- configuration document, you must create a new configuration document
--- with the desired configuration and associate it with the instance.
+-- When you disassociate an SSM document from an instance, it does not
+-- change the configuration of the instance. To change the configuration
+-- state of an instance after you disassociate a document, you must create
+-- a new document with the desired configuration and associate it with the
+-- instance.
 --
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DeleteAssociation.html AWS API Reference> for DeleteAssociation.
 module Network.AWS.SSM.DeleteAssociation
@@ -73,7 +72,7 @@ deleteAssociation pName_ pInstanceId_ =
     , _delInstanceId = pInstanceId_
     }
 
--- | The name of the configuration document.
+-- | The name of the SSM document.
 delName :: Lens' DeleteAssociation Text
 delName = lens _delName (\ s a -> s{_delName = a});
 

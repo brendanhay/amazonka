@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of your configuration documents.
+-- Describes one or more of your SSM documents.
 --
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListDocuments.html AWS API Reference> for ListDocuments.
 module Network.AWS.SSM.ListDocuments
@@ -147,7 +147,7 @@ listDocumentsResponse pResponseStatus_ =
     , _ldrsResponseStatus = pResponseStatus_
     }
 
--- | The names of the configuration documents.
+-- | The names of the SSM documents.
 ldrsDocumentIdentifiers :: Lens' ListDocumentsResponse [DocumentIdentifier]
 ldrsDocumentIdentifiers = lens _ldrsDocumentIdentifiers (\ s a -> s{_ldrsDocumentIdentifiers = a}) . _Default . _Coerce;
 

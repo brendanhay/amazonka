@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a configuration document.
+-- Creates an SSM document.
 --
--- After you create a configuration document, you can use CreateAssociation
--- to associate it with one or more running instances.
+-- After you create an SSM document, you can use CreateAssociation to
+-- associate it with one or more running instances.
 --
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateDocument.html AWS API Reference> for CreateDocument.
 module Network.AWS.SSM.CreateDocument
@@ -70,13 +70,13 @@ createDocument pContent_ pName_ =
     , _cdName = pName_
     }
 
--- | A valid JSON file. For more information about the contents of this file,
--- see
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html Configuration Document>.
+-- | A valid JSON string. For more information about the contents of this
+-- string, see
+-- <http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html SSM Document>.
 cdContent :: Lens' CreateDocument Text
 cdContent = lens _cdContent (\ s a -> s{_cdContent = a});
 
--- | A name for the configuration document.
+-- | A name for the SSM document.
 cdName :: Lens' CreateDocument Text
 cdName = lens _cdName (\ s a -> s{_cdName = a});
 
@@ -134,7 +134,7 @@ createDocumentResponse pResponseStatus_ =
     , _cdrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the configuration document.
+-- | Information about the SSM document.
 cdrsDocumentDescription :: Lens' CreateDocumentResponse (Maybe DocumentDescription)
 cdrsDocumentDescription = lens _cdrsDocumentDescription (\ s a -> s{_cdrsDocumentDescription = a});
 

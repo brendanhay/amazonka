@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the contents of the specified configuration document.
+-- Gets the contents of the specified SSM document.
 --
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_GetDocument.html AWS API Reference> for GetDocument.
 module Network.AWS.SSM.GetDocument
@@ -62,7 +62,7 @@ getDocument pName_ =
     { _gdName = pName_
     }
 
--- | The name of the configuration document.
+-- | The name of the SSM document.
 gdName :: Lens' GetDocument Text
 gdName = lens _gdName (\ s a -> s{_gdName = a});
 
@@ -121,11 +121,11 @@ getDocumentResponse pResponseStatus_ =
     , _gdrsResponseStatus = pResponseStatus_
     }
 
--- | The contents of the configuration document.
+-- | The contents of the SSM document.
 gdrsContent :: Lens' GetDocumentResponse (Maybe Text)
 gdrsContent = lens _gdrsContent (\ s a -> s{_gdrsContent = a});
 
--- | The name of the configuration document.
+-- | The name of the SSM document.
 gdrsName :: Lens' GetDocumentResponse (Maybe Text)
 gdrsName = lens _gdrsName (\ s a -> s{_gdrsName = a});
 

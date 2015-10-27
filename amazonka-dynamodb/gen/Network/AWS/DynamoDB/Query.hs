@@ -702,6 +702,8 @@ instance AWSPager Query where
         page rq rs
           | stop (rs ^. qrsLastEvaluatedKey) = Nothing
           | stop (rs ^. qrsItems) = Nothing
+          | stop (rs ^. qrsCount) = Nothing
+          | stop (rs ^. qrsScannedCount) = Nothing
           | otherwise =
             Just $ rq &
               qExclusiveStartKey .~ rs ^. qrsLastEvaluatedKey

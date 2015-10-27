@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified configuration document.
+-- Describes the specified SSM document.
 --
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeDocument.html AWS API Reference> for DescribeDocument.
 module Network.AWS.SSM.DescribeDocument
@@ -61,7 +61,7 @@ describeDocument pName_ =
     { _ddName = pName_
     }
 
--- | The name of the configuration document.
+-- | The name of the SSM document.
 ddName :: Lens' DescribeDocument Text
 ddName = lens _ddName (\ s a -> s{_ddName = a});
 
@@ -115,7 +115,7 @@ describeDocumentResponse pResponseStatus_ =
     , _drsResponseStatus = pResponseStatus_
     }
 
--- | Information about the configuration document.
+-- | Information about the SSM document.
 drsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
 drsDocument = lens _drsDocument (\ s a -> s{_drsDocument = a});
 

@@ -82,6 +82,8 @@ matrix:
       addons: { apt: { packages: [ghc-7.8.4], sources: [hvr-ghc] } }
 
     # Remainder
+    - env: GHCVER=7.10.2 LIBRARY=amazonka-apigateway
+      addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.2 LIBRARY=amazonka-cloudformation
       addons: { apt: { packages: [ghc-7.10.2], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.2 LIBRARY=amazonka-cloudfront

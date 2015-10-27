@@ -1,0 +1,129 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.APIGateway.UpdateIntegration
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Represents an update integration.
+--
+-- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateIntegration.html AWS API Reference> for UpdateIntegration.
+module Network.AWS.APIGateway.UpdateIntegration
+    (
+    -- * Creating a Request
+      updateIntegration
+    , UpdateIntegration
+    -- * Request Lenses
+    , updPatchOperations
+    , updRestAPIId
+    , updResourceId
+    , updHttpMethod
+
+    -- * Destructuring the Response
+    , integration
+    , Integration
+    -- * Response Lenses
+    , iHttpMethod
+    , iRequestTemplates
+    , iCredentials
+    , iRequestParameters
+    , iUri
+    , iIntegrationResponses
+    , iCacheNamespace
+    , iType
+    , iCacheKeyParameters
+    ) where
+
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+
+-- | Represents an update integration request.
+--
+-- /See:/ 'updateIntegration' smart constructor.
+data UpdateIntegration = UpdateIntegration'
+    { _updPatchOperations :: !(Maybe [PatchOperation])
+    , _updRestAPIId       :: !Text
+    , _updResourceId      :: !Text
+    , _updHttpMethod      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateIntegration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'updPatchOperations'
+--
+-- * 'updRestAPIId'
+--
+-- * 'updResourceId'
+--
+-- * 'updHttpMethod'
+updateIntegration
+    :: Text -- ^ 'updRestAPIId'
+    -> Text -- ^ 'updResourceId'
+    -> Text -- ^ 'updHttpMethod'
+    -> UpdateIntegration
+updateIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
+    UpdateIntegration'
+    { _updPatchOperations = Nothing
+    , _updRestAPIId = pRestAPIId_
+    , _updResourceId = pResourceId_
+    , _updHttpMethod = pHttpMethod_
+    }
+
+-- | A list of operations describing the updates to apply to the specified
+-- resource. The patches are applied in the order specified in the list.
+updPatchOperations :: Lens' UpdateIntegration [PatchOperation]
+updPatchOperations = lens _updPatchOperations (\ s a -> s{_updPatchOperations = a}) . _Default . _Coerce;
+
+-- | Represents an update integration request\'s API identifier.
+updRestAPIId :: Lens' UpdateIntegration Text
+updRestAPIId = lens _updRestAPIId (\ s a -> s{_updRestAPIId = a});
+
+-- | Represents an update integration request\'s resource identifier.
+updResourceId :: Lens' UpdateIntegration Text
+updResourceId = lens _updResourceId (\ s a -> s{_updResourceId = a});
+
+-- | Represents an update integration request\'s HTTP method.
+updHttpMethod :: Lens' UpdateIntegration Text
+updHttpMethod = lens _updHttpMethod (\ s a -> s{_updHttpMethod = a});
+
+instance AWSRequest UpdateIntegration where
+        type Rs UpdateIntegration = Integration
+        request = patchJSON aPIGateway
+        response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance ToHeaders UpdateIntegration where
+        toHeaders = const mempty
+
+instance ToJSON UpdateIntegration where
+        toJSON UpdateIntegration'{..}
+          = object
+              (catMaybes
+                 [("patchOperations" .=) <$> _updPatchOperations])
+
+instance ToPath UpdateIntegration where
+        toPath UpdateIntegration'{..}
+          = mconcat
+              ["/restapis/", toBS _updRestAPIId, "/resources/",
+               toBS _updResourceId, "/methods/",
+               toBS _updHttpMethod, "/integration"]
+
+instance ToQuery UpdateIntegration where
+        toQuery = const mempty

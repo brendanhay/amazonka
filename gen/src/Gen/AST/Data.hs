@@ -60,7 +60,7 @@ operationData cfg m o = do
     (xd, xs) <- prodData m xa x
     (yd, ys) <- prodData m ya y
 
-    is       <- requestInsts m h xr xs
+    is       <- requestInsts m (_opName o) h xr xs
 
     cls      <- pp Print $ requestD cfg m h (xr, is) (yr, ys)
 

@@ -79,10 +79,16 @@ substitute svc@Service{..} = do
             }
 
     -- This ensures the Response type has a unique name
-    -- even in the presence of sharing.
+    -- even in the presence of sharing. A check is performed to ensure that
+    -- a response type isn't inserted before we get to another top-level
+    -- operation with the same name.
     name :: Direction -> Id -> Id
     name Input  n = n
-    name Output n = mkId (typeId (appendId n "Response"))
+    name Output n
+        | Map.member rs _operations = mkId (typeId (appendId n "Response'"))
+        | otherwise                 = rs
+      where
+        rs = mkId (typeId (appendId n "Response"))
 
     http :: HTTP Maybe -> HTTP Identity
     http h = h

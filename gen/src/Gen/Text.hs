@@ -76,8 +76,10 @@ renameService =
 renameBranch :: Text -> (Text, Text)
 renameBranch = first (renameReserved . go) . join (,)
   where
-    go x | Text.length x <= 2 = Text.toUpper x
-         | otherwise          = upperAcronym . cat $ split x
+    go x | decimal x           = Text.cons 'D' . cat $ split x
+         | Text.all isDigit x  = Text.cons 'N' x
+         | Text.length x <= 2  = Text.toUpper x
+         | otherwise           = upperAcronym . cat $ split x
 
     cat   = Fold.foldMap (Text.intercalate "_" . map component . Text.split dot)
     split = Text.split seperator
@@ -101,6 +103,8 @@ renameBranch = first (renameReserved . go) . join (,)
         | isDigit (Text.last x) = Text.toUpper x
         | Text.all isUpper x    = toPascal (Text.toLower x)
         | otherwise             = toPascal x
+
+    decimal = Text.all (\c -> isDigit c || c == '.')
 
 renameReserved :: Text -> Text
 renameReserved x
@@ -228,6 +232,7 @@ upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
          , ("X8664",         "X86_64")
          , ("Ia$",           "IA")
          , ("Qos",           "QOS")
+         , ("Sdk",           "SDK")
          ]
 
 acronyms :: [(String, String)]
@@ -298,4 +303,6 @@ acronyms =
     , ("XLarge",   "Xlarge")
     , ("HAPG",     "Hapg")
     , ("ID",       "Id")
+    , ("QOS",      "Qos")
+    , ("SDK",       "Sdk")
     ]

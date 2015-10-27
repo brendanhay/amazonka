@@ -1,0 +1,114 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.APIGateway.UpdateModel
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Changes information about a model.
+--
+-- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateModel.html AWS API Reference> for UpdateModel.
+module Network.AWS.APIGateway.UpdateModel
+    (
+    -- * Creating a Request
+      updateModel
+    , UpdateModel
+    -- * Request Lenses
+    , uPatchOperations
+    , uRestAPIId
+    , uModelName
+
+    -- * Destructuring the Response
+    , model
+    , Model
+    -- * Response Lenses
+    , mSchema
+    , mName
+    , mId
+    , mDescription
+    , mContentType
+    ) where
+
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+
+-- | Request to update an existing model in an existing RestApi resource.
+--
+-- /See:/ 'updateModel' smart constructor.
+data UpdateModel = UpdateModel'
+    { _uPatchOperations :: !(Maybe [PatchOperation])
+    , _uRestAPIId       :: !Text
+    , _uModelName       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateModel' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uPatchOperations'
+--
+-- * 'uRestAPIId'
+--
+-- * 'uModelName'
+updateModel
+    :: Text -- ^ 'uRestAPIId'
+    -> Text -- ^ 'uModelName'
+    -> UpdateModel
+updateModel pRestAPIId_ pModelName_ =
+    UpdateModel'
+    { _uPatchOperations = Nothing
+    , _uRestAPIId = pRestAPIId_
+    , _uModelName = pModelName_
+    }
+
+-- | A list of operations describing the updates to apply to the specified
+-- resource. The patches are applied in the order specified in the list.
+uPatchOperations :: Lens' UpdateModel [PatchOperation]
+uPatchOperations = lens _uPatchOperations (\ s a -> s{_uPatchOperations = a}) . _Default . _Coerce;
+
+-- | The RestApi identifier under which the model exists.
+uRestAPIId :: Lens' UpdateModel Text
+uRestAPIId = lens _uRestAPIId (\ s a -> s{_uRestAPIId = a});
+
+-- | The name of the model to update.
+uModelName :: Lens' UpdateModel Text
+uModelName = lens _uModelName (\ s a -> s{_uModelName = a});
+
+instance AWSRequest UpdateModel where
+        type Rs UpdateModel = Model
+        request = patchJSON aPIGateway
+        response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance ToHeaders UpdateModel where
+        toHeaders = const mempty
+
+instance ToJSON UpdateModel where
+        toJSON UpdateModel'{..}
+          = object
+              (catMaybes
+                 [("patchOperations" .=) <$> _uPatchOperations])
+
+instance ToPath UpdateModel where
+        toPath UpdateModel'{..}
+          = mconcat
+              ["/restapis/", toBS _uRestAPIId, "/models/",
+               toBS _uModelName]
+
+instance ToQuery UpdateModel where
+        toQuery = const mempty

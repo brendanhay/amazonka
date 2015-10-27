@@ -1,0 +1,135 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.APIGateway.CreateModel
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Adds a new Model resource to an existing RestApi resource.
+--
+-- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateModel.html AWS API Reference> for CreateModel.
+module Network.AWS.APIGateway.CreateModel
+    (
+    -- * Creating a Request
+      createModel
+    , CreateModel
+    -- * Request Lenses
+    , cmSchema
+    , cmDescription
+    , cmRestAPIId
+    , cmName
+    , cmContentType
+
+    -- * Destructuring the Response
+    , model
+    , Model
+    -- * Response Lenses
+    , mSchema
+    , mName
+    , mId
+    , mDescription
+    , mContentType
+    ) where
+
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+
+-- | Request to add a new Model to an existing RestApi resource.
+--
+-- /See:/ 'createModel' smart constructor.
+data CreateModel = CreateModel'
+    { _cmSchema      :: !(Maybe Text)
+    , _cmDescription :: !(Maybe Text)
+    , _cmRestAPIId   :: !Text
+    , _cmName        :: !Text
+    , _cmContentType :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateModel' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cmSchema'
+--
+-- * 'cmDescription'
+--
+-- * 'cmRestAPIId'
+--
+-- * 'cmName'
+--
+-- * 'cmContentType'
+createModel
+    :: Text -- ^ 'cmRestAPIId'
+    -> Text -- ^ 'cmName'
+    -> Text -- ^ 'cmContentType'
+    -> CreateModel
+createModel pRestAPIId_ pName_ pContentType_ =
+    CreateModel'
+    { _cmSchema = Nothing
+    , _cmDescription = Nothing
+    , _cmRestAPIId = pRestAPIId_
+    , _cmName = pName_
+    , _cmContentType = pContentType_
+    }
+
+-- | The schema for the model. For 'application\/json' models, this should be
+-- <http://json-schema.org/documentation.html JSON-schema draft v4> model.
+cmSchema :: Lens' CreateModel (Maybe Text)
+cmSchema = lens _cmSchema (\ s a -> s{_cmSchema = a});
+
+-- | The description of the model.
+cmDescription :: Lens' CreateModel (Maybe Text)
+cmDescription = lens _cmDescription (\ s a -> s{_cmDescription = a});
+
+-- | The RestApi identifier under which the Model will be created.
+cmRestAPIId :: Lens' CreateModel Text
+cmRestAPIId = lens _cmRestAPIId (\ s a -> s{_cmRestAPIId = a});
+
+-- | The name of the model.
+cmName :: Lens' CreateModel Text
+cmName = lens _cmName (\ s a -> s{_cmName = a});
+
+-- | The content-type for the model.
+cmContentType :: Lens' CreateModel Text
+cmContentType = lens _cmContentType (\ s a -> s{_cmContentType = a});
+
+instance AWSRequest CreateModel where
+        type Rs CreateModel = Model
+        request = postJSON aPIGateway
+        response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance ToHeaders CreateModel where
+        toHeaders = const mempty
+
+instance ToJSON CreateModel where
+        toJSON CreateModel'{..}
+          = object
+              (catMaybes
+                 [("schema" .=) <$> _cmSchema,
+                  ("description" .=) <$> _cmDescription,
+                  Just ("name" .= _cmName),
+                  Just ("contentType" .= _cmContentType)])
+
+instance ToPath CreateModel where
+        toPath CreateModel'{..}
+          = mconcat
+              ["/restapis/", toBS _cmRestAPIId, "/models"]
+
+instance ToQuery CreateModel where
+        toQuery = const mempty

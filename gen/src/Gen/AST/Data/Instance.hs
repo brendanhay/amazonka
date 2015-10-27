@@ -81,11 +81,12 @@ shapeInsts p m fs = go m
 
 requestInsts :: HasMetadata a f
              => a
+             -> Id
              -> HTTP Identity
              -> Ref
              -> [Field]
              -> Either Error [Inst]
-requestInsts m h r fs = do
+requestInsts m oname h r fs = do
     path' <- toPath
     concatQuery =<< replaceXML
         ( [toHeaders, path']
@@ -99,14 +100,14 @@ requestInsts m h r fs = do
         ++ map Left  protocolHeaders
 
     toPath :: Either Error Inst
-    toPath = ToPath <$> uriFields h uriPath id fs
+    toPath = ToPath <$> uriFields oname h uriPath id fs
 
     toBody :: Maybe Inst
     toBody = ToBody <$> (stream <|> pay)
 
     concatQuery :: [Inst] -> Either Error [Inst]
     concatQuery is = do
-        xs <- uriFields h uriQuery (,Nothing) fs
+        xs <- uriFields oname h uriQuery (,Nothing) fs
         return $! merged xs : filter (not . f) is
       where
         merged xs =
@@ -208,26 +209,29 @@ requestInsts m h r fs = do
     n = identifier r
 
 uriFields :: (Foldable f, Traversable t)
-          => s
+          => Id
+          -> s
           -> Getter s (t Segment)
           -> (Text -> a)
           -> f Field
           -> Either Error (t (Either a Field))
-uriFields h l f fs = traverse go (h ^. l)
+uriFields oname h l f fs = traverse go (h ^. l)
   where
     go (Tok t) = return $ Left (f t)
     go (Var v) = Right <$> note missing (find match fs)
       where
-        match x = memberId v ==
-            fromMaybe (x ^. fieldId  . to memberId)
-                      (x ^. fieldRef . refLocationName)
-
+        match x = memberId v == name x
         missing = format ("Missing field corresponding to URI variable "
-                         % iprimary % " in field names " % shown)
-                         v ids
+                         % iprimary % " in field names " % shown
+                         % "\nfor operation " % iprimary)
+                         v ids oname
 
     ids :: [Text]
-    ids = foldMap ((:[]) . memberId . _fieldId) fs
+    ids = foldMap ((:[]) . name) fs
+
+    name x =
+        fromMaybe (x ^. fieldId  . to memberId)
+                  (x ^. fieldRef . refLocationName)
 
 satisfies :: [Location] -> [Field] -> [Field]
 satisfies xs = satisfy (`elem` map Just xs)

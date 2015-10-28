@@ -1,5 +1,5 @@
 name:                  amazonka-swf
-version:               1.3.4
+version:               1.3.5
 synopsis:              Amazon Simple Workflow Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -96,7 +96,7 @@ library
         , Network.AWS.SWF.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.4.*
+          amazonka-core == 1.3.5.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-swf-test
@@ -116,9 +116,9 @@ test-suite amazonka-swf-test
         , Test.AWS.SWF.Internal
 
     build-depends:
-          amazonka-core == 1.3.4.*
-        , amazonka-test == 1.3.4.*
-        , amazonka-swf == 1.3.4.*
+          amazonka-core == 1.3.5.*
+        , amazonka-test == 1.3.5.*
+        , amazonka-swf == 1.3.5.*
         , base
         , bytestring
         , lens

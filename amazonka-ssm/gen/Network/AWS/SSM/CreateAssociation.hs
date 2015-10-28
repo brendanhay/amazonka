@@ -18,16 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates the specified configuration document with the specified
--- instance.
+-- Associates the specified SSM document with the specified instance.
 --
--- When you associate a configuration document with an instance, the
--- configuration agent on the instance processes the configuration document
--- and configures the instance as specified.
+-- When you associate an SSM document with an instance, the configuration
+-- agent on the instance processes the document and configures the instance
+-- as specified.
 --
--- If you associate a configuration document with an instance that already
--- has an associated configuration document, we replace the current
--- configuration document with the new configuration document.
+-- If you associate a document with an instance that already has an
+-- associated document, the system throws the AssociationAlreadyExists
+-- exception.
 --
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateAssociation.html AWS API Reference> for CreateAssociation.
 module Network.AWS.SSM.CreateAssociation
@@ -36,6 +35,7 @@ module Network.AWS.SSM.CreateAssociation
       createAssociation
     , CreateAssociation
     -- * Request Lenses
+    , caParameters
     , caName
     , caInstanceId
 
@@ -55,13 +55,16 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createAssociation' smart constructor.
 data CreateAssociation = CreateAssociation'
-    { _caName       :: !Text
+    { _caParameters :: !(Maybe (Map Text [Text]))
+    , _caName       :: !Text
     , _caInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAssociation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'caParameters'
 --
 -- * 'caName'
 --
@@ -72,15 +75,20 @@ createAssociation
     -> CreateAssociation
 createAssociation pName_ pInstanceId_ =
     CreateAssociation'
-    { _caName = pName_
+    { _caParameters = Nothing
+    , _caName = pName_
     , _caInstanceId = pInstanceId_
     }
 
--- | The name of the configuration document.
+-- | The parameters for the document’s runtime configuration.
+caParameters :: Lens' CreateAssociation (HashMap Text [Text])
+caParameters = lens _caParameters (\ s a -> s{_caParameters = a}) . _Default . _Map;
+
+-- | The name of the SSM document.
 caName :: Lens' CreateAssociation Text
 caName = lens _caName (\ s a -> s{_caName = a});
 
--- | The ID of the instance.
+-- | The instance ID.
 caInstanceId :: Lens' CreateAssociation Text
 caInstanceId = lens _caInstanceId (\ s a -> s{_caInstanceId = a});
 
@@ -107,7 +115,8 @@ instance ToJSON CreateAssociation where
         toJSON CreateAssociation'{..}
           = object
               (catMaybes
-                 [Just ("Name" .= _caName),
+                 [("Parameters" .=) <$> _caParameters,
+                  Just ("Name" .= _caName),
                   Just ("InstanceId" .= _caInstanceId)])
 
 instance ToPath CreateAssociation where

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the associations for the specified configuration document or
--- instance.
+-- Describes the associations for the specified SSM document or instance.
 --
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeAssociation.html AWS API Reference> for DescribeAssociation.
 module Network.AWS.SSM.DescribeAssociation
@@ -68,7 +67,7 @@ describeAssociation pName_ pInstanceId_ =
     , _daInstanceId = pInstanceId_
     }
 
--- | The name of the configuration document.
+-- | The name of the SSM document.
 daName :: Lens' DescribeAssociation Text
 daName = lens _daName (\ s a -> s{_daName = a});
 

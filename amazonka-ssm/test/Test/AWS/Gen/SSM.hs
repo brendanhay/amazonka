@@ -37,11 +37,17 @@ import Test.AWS.SSM.Internal
 --         , testCreateDocument $
 --             createDocument
 --
+--         , testListCommandInvocations $
+--             listCommandInvocations
+--
 --         , testListDocuments $
 --             listDocuments
 --
 --         , testGetDocument $
 --             getDocument
+--
+--         , testCancelCommand $
+--             cancelCommand
 --
 --         , testDescribeAssociation $
 --             describeAssociation
@@ -49,11 +55,20 @@ import Test.AWS.SSM.Internal
 --         , testUpdateAssociationStatus $
 --             updateAssociationStatus
 --
+--         , testDescribeInstanceInformation $
+--             describeInstanceInformation
+--
 --         , testListAssociations $
 --             listAssociations
 --
 --         , testDeleteAssociation $
 --             deleteAssociation
+--
+--         , testSendCommand $
+--             sendCommand
+--
+--         , testListCommands $
+--             listCommands
 --
 --         , testDeleteDocument $
 --             deleteDocument
@@ -73,11 +88,17 @@ import Test.AWS.SSM.Internal
 --         , testCreateDocumentResponse $
 --             createDocumentResponse
 --
+--         , testListCommandInvocationsResponse $
+--             listCommandInvocationsResponse
+--
 --         , testListDocumentsResponse $
 --             listDocumentsResponse
 --
 --         , testGetDocumentResponse $
 --             getDocumentResponse
+--
+--         , testCancelCommandResponse $
+--             cancelCommandResponse
 --
 --         , testDescribeAssociationResponse $
 --             describeAssociationResponse
@@ -85,11 +106,20 @@ import Test.AWS.SSM.Internal
 --         , testUpdateAssociationStatusResponse $
 --             updateAssociationStatusResponse
 --
+--         , testDescribeInstanceInformationResponse $
+--             describeInstanceInformationResponse
+--
 --         , testListAssociationsResponse $
 --             listAssociationsResponse
 --
 --         , testDeleteAssociationResponse $
 --             deleteAssociationResponse
+--
+--         , testSendCommandResponse $
+--             sendCommandResponse
+--
+--         , testListCommandsResponse $
+--             listCommandsResponse
 --
 --         , testDeleteDocumentResponse $
 --             deleteDocumentResponse
@@ -117,6 +147,11 @@ testCreateDocument = req
     "CreateDocument"
     "fixture/CreateDocument.yaml"
 
+testListCommandInvocations :: ListCommandInvocations -> TestTree
+testListCommandInvocations = req
+    "ListCommandInvocations"
+    "fixture/ListCommandInvocations.yaml"
+
 testListDocuments :: ListDocuments -> TestTree
 testListDocuments = req
     "ListDocuments"
@@ -126,6 +161,11 @@ testGetDocument :: GetDocument -> TestTree
 testGetDocument = req
     "GetDocument"
     "fixture/GetDocument.yaml"
+
+testCancelCommand :: CancelCommand -> TestTree
+testCancelCommand = req
+    "CancelCommand"
+    "fixture/CancelCommand.yaml"
 
 testDescribeAssociation :: DescribeAssociation -> TestTree
 testDescribeAssociation = req
@@ -137,6 +177,11 @@ testUpdateAssociationStatus = req
     "UpdateAssociationStatus"
     "fixture/UpdateAssociationStatus.yaml"
 
+testDescribeInstanceInformation :: DescribeInstanceInformation -> TestTree
+testDescribeInstanceInformation = req
+    "DescribeInstanceInformation"
+    "fixture/DescribeInstanceInformation.yaml"
+
 testListAssociations :: ListAssociations -> TestTree
 testListAssociations = req
     "ListAssociations"
@@ -146,6 +191,16 @@ testDeleteAssociation :: DeleteAssociation -> TestTree
 testDeleteAssociation = req
     "DeleteAssociation"
     "fixture/DeleteAssociation.yaml"
+
+testSendCommand :: SendCommand -> TestTree
+testSendCommand = req
+    "SendCommand"
+    "fixture/SendCommand.yaml"
+
+testListCommands :: ListCommands -> TestTree
+testListCommands = req
+    "ListCommands"
+    "fixture/ListCommands.yaml"
 
 testDeleteDocument :: DeleteDocument -> TestTree
 testDeleteDocument = req
@@ -180,6 +235,13 @@ testCreateDocumentResponse = res
     sSM
     (Proxy :: Proxy CreateDocument)
 
+testListCommandInvocationsResponse :: ListCommandInvocationsResponse -> TestTree
+testListCommandInvocationsResponse = res
+    "ListCommandInvocationsResponse"
+    "fixture/ListCommandInvocationsResponse.proto"
+    sSM
+    (Proxy :: Proxy ListCommandInvocations)
+
 testListDocumentsResponse :: ListDocumentsResponse -> TestTree
 testListDocumentsResponse = res
     "ListDocumentsResponse"
@@ -193,6 +255,13 @@ testGetDocumentResponse = res
     "fixture/GetDocumentResponse.proto"
     sSM
     (Proxy :: Proxy GetDocument)
+
+testCancelCommandResponse :: CancelCommandResponse -> TestTree
+testCancelCommandResponse = res
+    "CancelCommandResponse"
+    "fixture/CancelCommandResponse.proto"
+    sSM
+    (Proxy :: Proxy CancelCommand)
 
 testDescribeAssociationResponse :: DescribeAssociationResponse -> TestTree
 testDescribeAssociationResponse = res
@@ -208,6 +277,13 @@ testUpdateAssociationStatusResponse = res
     sSM
     (Proxy :: Proxy UpdateAssociationStatus)
 
+testDescribeInstanceInformationResponse :: DescribeInstanceInformationResponse -> TestTree
+testDescribeInstanceInformationResponse = res
+    "DescribeInstanceInformationResponse"
+    "fixture/DescribeInstanceInformationResponse.proto"
+    sSM
+    (Proxy :: Proxy DescribeInstanceInformation)
+
 testListAssociationsResponse :: ListAssociationsResponse -> TestTree
 testListAssociationsResponse = res
     "ListAssociationsResponse"
@@ -221,6 +297,20 @@ testDeleteAssociationResponse = res
     "fixture/DeleteAssociationResponse.proto"
     sSM
     (Proxy :: Proxy DeleteAssociation)
+
+testSendCommandResponse :: SendCommandResponse -> TestTree
+testSendCommandResponse = res
+    "SendCommandResponse"
+    "fixture/SendCommandResponse.proto"
+    sSM
+    (Proxy :: Proxy SendCommand)
+
+testListCommandsResponse :: ListCommandsResponse -> TestTree
+testListCommandsResponse = res
+    "ListCommandsResponse"
+    "fixture/ListCommandsResponse.proto"
+    sSM
+    (Proxy :: Proxy ListCommands)
 
 testDeleteDocumentResponse :: DeleteDocumentResponse -> TestTree
 testDeleteDocumentResponse = res

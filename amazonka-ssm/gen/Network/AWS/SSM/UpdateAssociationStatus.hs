@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the status of the configuration document associated with the
--- specified instance.
+-- Updates the status of the SSM document associated with the specified
+-- instance.
 --
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_UpdateAssociationStatus.html AWS API Reference> for UpdateAssociationStatus.
 module Network.AWS.SSM.UpdateAssociationStatus
@@ -74,7 +74,7 @@ updateAssociationStatus pName_ pInstanceId_ pAssociationStatus_ =
     , _uasAssociationStatus = pAssociationStatus_
     }
 
--- | The name of the configuration document.
+-- | The name of the SSM document.
 uasName :: Lens' UpdateAssociationStatus Text
 uasName = lens _uasName (\ s a -> s{_uasName = a});
 

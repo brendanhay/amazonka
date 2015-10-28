@@ -18,10 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified configuration document.
+-- Deletes the SSM document and all instance associations to the document.
 --
--- You must use DeleteAssociation to disassociate all instances that are
--- associated with the configuration document before you can delete it.
+-- Before you delete the SSM document, we recommend that you use
+-- DeleteAssociation to disassociate all instances that are associated with
+-- the document.
 --
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DeleteDocument.html AWS API Reference> for DeleteDocument.
 module Network.AWS.SSM.DeleteDocument
@@ -63,7 +64,7 @@ deleteDocument pName_ =
     { _dddName = pName_
     }
 
--- | The name of the configuration document.
+-- | The name of the SSM document.
 dddName :: Lens' DeleteDocument Text
 dddName = lens _dddName (\ s a -> s{_dddName = a});
 

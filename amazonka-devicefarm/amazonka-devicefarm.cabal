@@ -1,5 +1,5 @@
 name:                  amazonka-devicefarm
-version:               1.3.4
+version:               1.3.5
 synopsis:              Amazon Device Farm SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -76,7 +76,7 @@ library
         , Network.AWS.DeviceFarm.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.4.*
+          amazonka-core == 1.3.5.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-devicefarm-test
@@ -96,9 +96,9 @@ test-suite amazonka-devicefarm-test
         , Test.AWS.DeviceFarm.Internal
 
     build-depends:
-          amazonka-core == 1.3.4.*
-        , amazonka-test == 1.3.4.*
-        , amazonka-devicefarm == 1.3.4.*
+          amazonka-core == 1.3.5.*
+        , amazonka-test == 1.3.5.*
+        , amazonka-devicefarm == 1.3.5.*
         , base
         , bytestring
         , lens

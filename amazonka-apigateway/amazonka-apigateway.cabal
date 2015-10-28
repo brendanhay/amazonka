@@ -1,0 +1,155 @@
+name:                  amazonka-apigateway
+version:               1.3.5
+synopsis:              Amazon API Gateway SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2015 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+cabal-version:         >= 1.10
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto
+description:
+    Amazon API Gateway
+
+    Amazon API Gateway helps developers deliver robust, secure and scalable
+    mobile and web application backends. Amazon API Gateway allows
+    developers to securely connect mobile and web applications to APIs that
+    run on AWS Lambda, Amazon EC2, or other publicly addressable web
+    services that are hosted outside of AWS.
+    .
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information and sending requests.
+    .
+    Use of lenses is required for constructing and manipulating types.
+    This is due to the amount of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.APIGateway" and the <http://docs.aws.amazon.com/apigateway/api-reference/ AWS API Reference>
+    to get started.
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.APIGateway
+        , Network.AWS.APIGateway.CreateAPIKey
+        , Network.AWS.APIGateway.CreateBasePathMapping
+        , Network.AWS.APIGateway.CreateDeployment
+        , Network.AWS.APIGateway.CreateDomainName
+        , Network.AWS.APIGateway.CreateModel
+        , Network.AWS.APIGateway.CreateResource
+        , Network.AWS.APIGateway.CreateRestAPI
+        , Network.AWS.APIGateway.CreateStage
+        , Network.AWS.APIGateway.DeleteAPIKey
+        , Network.AWS.APIGateway.DeleteBasePathMapping
+        , Network.AWS.APIGateway.DeleteClientCertificate
+        , Network.AWS.APIGateway.DeleteDeployment
+        , Network.AWS.APIGateway.DeleteDomainName
+        , Network.AWS.APIGateway.DeleteIntegration
+        , Network.AWS.APIGateway.DeleteIntegrationResponse
+        , Network.AWS.APIGateway.DeleteMethod
+        , Network.AWS.APIGateway.DeleteMethodResponse
+        , Network.AWS.APIGateway.DeleteModel
+        , Network.AWS.APIGateway.DeleteResource
+        , Network.AWS.APIGateway.DeleteRestAPI
+        , Network.AWS.APIGateway.DeleteStage
+        , Network.AWS.APIGateway.FlushStageCache
+        , Network.AWS.APIGateway.GenerateClientCertificate
+        , Network.AWS.APIGateway.GetAPIKey
+        , Network.AWS.APIGateway.GetAPIKeys
+        , Network.AWS.APIGateway.GetAccount
+        , Network.AWS.APIGateway.GetBasePathMapping
+        , Network.AWS.APIGateway.GetBasePathMappings
+        , Network.AWS.APIGateway.GetClientCertificate
+        , Network.AWS.APIGateway.GetClientCertificates
+        , Network.AWS.APIGateway.GetDeployment
+        , Network.AWS.APIGateway.GetDeployments
+        , Network.AWS.APIGateway.GetDomainName
+        , Network.AWS.APIGateway.GetDomainNames
+        , Network.AWS.APIGateway.GetIntegration
+        , Network.AWS.APIGateway.GetIntegrationResponse
+        , Network.AWS.APIGateway.GetMethod
+        , Network.AWS.APIGateway.GetMethodResponse
+        , Network.AWS.APIGateway.GetModel
+        , Network.AWS.APIGateway.GetModelTemplate
+        , Network.AWS.APIGateway.GetModels
+        , Network.AWS.APIGateway.GetResource
+        , Network.AWS.APIGateway.GetResources
+        , Network.AWS.APIGateway.GetRestAPI
+        , Network.AWS.APIGateway.GetRestAPIs
+        , Network.AWS.APIGateway.GetSDK
+        , Network.AWS.APIGateway.GetStage
+        , Network.AWS.APIGateway.GetStages
+        , Network.AWS.APIGateway.PutIntegration
+        , Network.AWS.APIGateway.PutIntegrationResponse
+        , Network.AWS.APIGateway.PutMethod
+        , Network.AWS.APIGateway.PutMethodResponse
+        , Network.AWS.APIGateway.TestInvokeMethod
+        , Network.AWS.APIGateway.Types
+        , Network.AWS.APIGateway.UpdateAPIKey
+        , Network.AWS.APIGateway.UpdateAccount
+        , Network.AWS.APIGateway.UpdateBasePathMapping
+        , Network.AWS.APIGateway.UpdateClientCertificate
+        , Network.AWS.APIGateway.UpdateDeployment
+        , Network.AWS.APIGateway.UpdateDomainName
+        , Network.AWS.APIGateway.UpdateIntegration
+        , Network.AWS.APIGateway.UpdateIntegrationResponse
+        , Network.AWS.APIGateway.UpdateMethod
+        , Network.AWS.APIGateway.UpdateMethodResponse
+        , Network.AWS.APIGateway.UpdateModel
+        , Network.AWS.APIGateway.UpdateResource
+        , Network.AWS.APIGateway.UpdateRestAPI
+        , Network.AWS.APIGateway.UpdateStage
+        , Network.AWS.APIGateway.Waiters
+
+    other-modules:
+          Network.AWS.APIGateway.Types.Product
+        , Network.AWS.APIGateway.Types.Sum
+
+    build-depends:
+          amazonka-core == 1.3.5.*
+        , base          >= 4.7     && < 5
+
+test-suite amazonka-apigateway-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.APIGateway
+        , Test.AWS.Gen.APIGateway
+        , Test.AWS.APIGateway.Internal
+
+    build-depends:
+          amazonka-core == 1.3.5.*
+        , amazonka-test == 1.3.5.*
+        , amazonka-apigateway == 1.3.5.*
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

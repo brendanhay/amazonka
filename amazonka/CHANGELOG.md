@@ -1,5 +1,19 @@
 # Change Log
 
+## [1.3.5](https://github.com/brendanhay/amazonka/tree/1.3.5)
+Released: **27 October, 2015**, Compare: [1.3.5](https://github.com/brendanhay/amazonka/compare/1.3.4...1.3.5)
+
+### Updated Services Definitions
+
+- SSM: Multiple additions and documentation updates.
+- DynamoDB: Paginator updates.
+
+
+### New Libraries
+
+- `amazonka-apigateway`: API Gateway Service.
+
+
 ## [1.3.4](https://github.com/brendanhay/amazonka/tree/1.3.4)
 Released: **25 October, 2015**, Compare: [1.3.4](https://github.com/brendanhay/amazonka/compare/1.3.3...1.3.4)
 

@@ -21,6 +21,8 @@
 -- Describes existing Models defined for a RestApi resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetModels.html AWS API Reference> for GetModels.
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetModels
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.APIGateway.GetModels
 
 import           Network.AWS.APIGateway.Types
 import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -87,6 +90,13 @@ gmsPosition = lens _gmsPosition (\ s a -> s{_gmsPosition = a});
 -- | The RestApi identifier.
 gmsRestAPIId :: Lens' GetModels Text
 gmsRestAPIId = lens _gmsRestAPIId (\ s a -> s{_gmsRestAPIId = a});
+
+instance AWSPager GetModels where
+        page rq rs
+          | stop (rs ^. gmrsPosition) = Nothing
+          | stop (rs ^. gmrsItems) = Nothing
+          | otherwise =
+            Just $ rq & gmsPosition .~ rs ^. gmrsPosition
 
 instance AWSRequest GetModels where
         type Rs GetModels = GetModelsResponse

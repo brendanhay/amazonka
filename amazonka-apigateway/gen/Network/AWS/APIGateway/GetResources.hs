@@ -21,6 +21,8 @@
 -- Lists information about a collection of Resource resources.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetResources.html AWS API Reference> for GetResources.
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetResources
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.APIGateway.GetResources
 
 import           Network.AWS.APIGateway.Types
 import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -88,6 +91,13 @@ grsPosition = lens _grsPosition (\ s a -> s{_grsPosition = a});
 -- | The RestApi identifier for the Resource.
 grsRestAPIId :: Lens' GetResources Text
 grsRestAPIId = lens _grsRestAPIId (\ s a -> s{_grsRestAPIId = a});
+
+instance AWSPager GetResources where
+        page rq rs
+          | stop (rs ^. grrsPosition) = Nothing
+          | stop (rs ^. grrsItems) = Nothing
+          | otherwise =
+            Just $ rq & grsPosition .~ rs ^. grrsPosition
 
 instance AWSRequest GetResources where
         type Rs GetResources = GetResourcesResponse

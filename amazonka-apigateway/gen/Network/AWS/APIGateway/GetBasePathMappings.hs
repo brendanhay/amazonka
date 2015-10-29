@@ -21,6 +21,8 @@
 -- Represents a collection of BasePathMapping resources.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetBasePathMappings.html AWS API Reference> for GetBasePathMappings.
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetBasePathMappings
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.APIGateway.GetBasePathMappings
 
 import           Network.AWS.APIGateway.Types
 import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -89,6 +92,13 @@ gPosition = lens _gPosition (\ s a -> s{_gPosition = a});
 -- | The domain name of a BasePathMapping resource.
 gDomainName :: Lens' GetBasePathMappings Text
 gDomainName = lens _gDomainName (\ s a -> s{_gDomainName = a});
+
+instance AWSPager GetBasePathMappings where
+        page rq rs
+          | stop (rs ^. gbpmrsPosition) = Nothing
+          | stop (rs ^. gbpmrsItems) = Nothing
+          | otherwise =
+            Just $ rq & gPosition .~ rs ^. gbpmrsPosition
 
 instance AWSRequest GetBasePathMappings where
         type Rs GetBasePathMappings =

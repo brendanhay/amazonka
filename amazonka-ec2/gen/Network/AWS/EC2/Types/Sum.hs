@@ -2322,6 +2322,7 @@ instance FromXML VirtualizationType where
 data VolumeAttachmentState
     = VASAttached
     | VASAttaching
+    | VASBusy
     | VASDetached
     | VASDetaching
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
@@ -2330,15 +2331,17 @@ instance FromText VolumeAttachmentState where
     parser = takeLowerText >>= \case
         "attached" -> pure VASAttached
         "attaching" -> pure VASAttaching
+        "busy" -> pure VASBusy
         "detached" -> pure VASDetached
         "detaching" -> pure VASDetaching
         e -> fromTextError $ "Failure parsing VolumeAttachmentState from value: '" <> e
-           <> "'. Accepted values: attached, attaching, detached, detaching"
+           <> "'. Accepted values: attached, attaching, busy, detached, detaching"
 
 instance ToText VolumeAttachmentState where
     toText = \case
         VASAttached -> "attached"
         VASAttaching -> "attaching"
+        VASBusy -> "busy"
         VASDetached -> "detached"
         VASDetaching -> "detaching"
 

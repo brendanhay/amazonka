@@ -11,6 +11,15 @@
                 "detached",
                 "busy"
             ]
+        },
+        "VolumeAttachmentState": {
+            "enum":[
+                "attaching",
+                "attached",
+                "detaching",
+                "detached",
+                "busy"
+            ]
         }
     },
     "waiters": {

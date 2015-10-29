@@ -122,6 +122,7 @@ instance FromXML ArchitectureValues where
 data AttachmentStatus
     = Attached
     | Attaching
+    | Busy
     | Detached
     | Detaching
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
@@ -130,15 +131,17 @@ instance FromText AttachmentStatus where
     parser = takeLowerText >>= \case
         "attached" -> pure Attached
         "attaching" -> pure Attaching
+        "busy" -> pure Busy
         "detached" -> pure Detached
         "detaching" -> pure Detaching
         e -> fromTextError $ "Failure parsing AttachmentStatus from value: '" <> e
-           <> "'. Accepted values: attached, attaching, detached, detaching"
+           <> "'. Accepted values: attached, attaching, busy, detached, detaching"
 
 instance ToText AttachmentStatus where
     toText = \case
         Attached -> "attached"
         Attaching -> "attaching"
+        Busy -> "busy"
         Detached -> "detached"
         Detaching -> "detaching"
 

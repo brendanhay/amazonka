@@ -202,8 +202,8 @@ instance ToPath PutIntegration where
         toPath PutIntegration'{..}
           = mconcat
               ["/restapis/", toBS _pRestAPIId, "/resources/",
-               toBS _pResourceId, "/methods/",
-               toBS _pIntegrationHTTPMethod, "/integration"]
+               toBS _pResourceId, "/methods/", toBS _pHttpMethod,
+               "/integration"]
 
 instance ToQuery PutIntegration where
         toQuery = const mempty

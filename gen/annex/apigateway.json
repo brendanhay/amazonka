@@ -2,13 +2,6 @@
     "metadata": {
         "serviceAbbreviation": "APIGateway"
     },
-    "operations": {
-        "PutIntegration": {
-            "http": {
-                "requestUri": "/restapis/{restapi_id}/resources/{resource_id}/methods/{httpMethod}/integration"
-            }
-        }
-    },
     "shapes": {
         "Blob": {
             "type": "json"

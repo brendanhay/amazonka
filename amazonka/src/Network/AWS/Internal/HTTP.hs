@@ -81,7 +81,7 @@ waiter :: ( MonadCatch m
           )
        => Wait a
        -> a
-       -> m (Maybe Error)
+       -> m (Either Error Accept)
 waiter w@Wait{..} x = do
    e@Env{..} <- view environment
    rq        <- configured x
@@ -98,9 +98,9 @@ waiter w@Wait{..} x = do
 
     result rq = first (fromMaybe AcceptRetry . accept w rq) . join (,)
 
-    exit (AcceptSuccess, _) = return Nothing
-    exit (_,        Left e) = return (Just e)
-    exit (_,             _) = return Nothing
+    exit (AcceptSuccess, _) = return $ Right AcceptSuccess
+    exit (_,        Left e) = return $ Left e
+    exit (accept,        _) = return $ Right accept
 
     msg l n a = logDebug l
         . mconcat

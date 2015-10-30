@@ -260,7 +260,7 @@ paginate = hoist liftAWS . AWST.paginate
 
 -- | Poll the API with the supplied request until a specific 'Wait' condition
 -- is fulfilled.
-await :: (MonadAWS m, AWSRequest a) => Wait a -> a -> m ()
+await :: (MonadAWS m, AWSRequest a) => Wait a -> a -> m AWST.Accept
 await w = liftAWS . AWST.await w
 
 -- | Presign an URL that is valid from the specified time until the

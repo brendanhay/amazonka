@@ -176,7 +176,7 @@ import           Network.AWS.Prelude          as AWS
 import qualified Network.AWS.Presign          as Sign
 import           Network.AWS.Request          (requestURL)
 import           Network.AWS.Types            hiding (LogLevel (..))
-import           Network.AWS.Waiter           (Wait)
+import           Network.AWS.Waiter           (Accept, Wait)
 
 type AWST = AWST' Env
 
@@ -287,8 +287,8 @@ paginate = go
 await :: (AWSConstraint r m, AWSRequest a)
       => Wait a
       -> a
-      -> m ()
-await w = waiter w >=> hoistError . maybe (Right ()) Left
+      -> m Accept
+await w = waiter w >=> hoistError
 
 -- | Presign an URL that is valid from the specified time until the
 -- number of seconds expiry has elapsed.

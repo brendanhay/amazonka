@@ -102,7 +102,7 @@ postBody s x = putBody s x & rqMethod .~ POST
 putXML :: (ToRequest a, ToElement a) => Service -> a -> Request a
 putXML s x = defaultRequest s x
     & rqMethod .~ PUT
-    & rqBody   .~ toBody (toElement x)
+    & rqBody   .~ maybe "" toBody (maybeElement x)
 
 putJSON :: (ToRequest a, ToJSON a) => Service -> a -> Request a
 putJSON s x = defaultRequest s x

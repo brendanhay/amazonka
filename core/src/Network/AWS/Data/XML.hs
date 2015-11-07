@@ -4,6 +4,7 @@
 {-# LANGUAGE LambdaCase          #-}
 {-# LANGUAGE OverloadedStrings   #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TupleSections       #-}
 
 -- |
 -- Module      : Network.AWS.Data.XML
@@ -118,6 +119,14 @@ class ToElement a where
 
 instance ToElement Element where
     toElement = id
+
+-- | Convert to an 'Element', only if the resulting element contains @> 0@ nodes.
+maybeElement :: ToElement a => a -> Maybe Element
+maybeElement x =
+    case toElement x of
+        e@(Element _ _ ns)
+            | null ns   -> Nothing
+            | otherwise -> Just e
 
 -- | Provides a way to make the operators for ToXML instance
 -- declaration be consistent WRT to single nodes or lists of nodes.

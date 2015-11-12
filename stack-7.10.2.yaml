@@ -68,3 +68,4 @@ packages:
   - amazonka-swf
   - amazonka-waf
   - amazonka-workspaces
+  - ../retry

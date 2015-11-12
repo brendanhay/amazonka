@@ -1,4 +1,5 @@
 {-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -31,6 +32,9 @@ module Network.AWS.Env
     , within
     , once
     , timeout
+
+    -- * Retry HTTP Exceptions
+    , retryConnectionFailure
     ) where
 
 import           Control.Applicative
@@ -168,6 +172,12 @@ timeout s = local (override (serviceTimeout ?~ s))
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
 -- Lenses from 'HasEnv' can be used to further configure the resulting 'Env'.
 --
+-- /Since:/ @1.3.6@ - The default logic for retrying 'HttpException's now uses
+-- 'retryConnectionFailure' to retry specific connection failure conditions up to 3 times.
+-- Previously only service specific errors were automatically retried.
+-- This can be reverted to the old behaviour by resetting the 'Env' using
+-- 'envRetryCheck' lens to @(\\_ _ -> False)@.
+--
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
 --
 -- /See:/ 'newEnvWith'.
@@ -188,7 +198,17 @@ newEnvWith :: (Applicative m, MonadIO m, MonadCatch m)
            -> Manager
            -> m Env
 newEnvWith r c p m =
-    Env r logger check mempty m <$> liftIO (newIORef p) <*> getAuth m c
-  where
-    logger _ _ = return ()
-    check  _ _ = True
+    Env r (\_ _ -> pure ()) (retryConnectionFailure 3) mempty m
+        <$> liftIO (newIORef p)
+        <*> getAuth m c
+
+-- | Retry the subset of transport specific errors encompassing connection
+-- failure up to the specific number of times.
+retryConnectionFailure :: Int -> Int -> HttpException -> Bool
+retryConnectionFailure limit n = \case
+    _ | n >= limit                -> False
+    NoResponseDataReceived        -> True
+    FailedConnectionException  {} -> True
+    FailedConnectionException2 {} -> True
+    TlsException               {} -> True
+    _                             -> False

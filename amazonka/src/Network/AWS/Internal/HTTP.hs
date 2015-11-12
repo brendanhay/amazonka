@@ -98,9 +98,9 @@ waiter w@Wait{..} x = do
 
     result rq = first (fromMaybe AcceptRetry . accept w rq) . join (,)
 
-    exit (AcceptSuccess, _) = return $ Right AcceptSuccess
-    exit (_,        Left e) = return $ Left e
-    exit (accept,        _) = return $ Right accept
+    exit (AcceptSuccess, _) = return (Right AcceptSuccess)
+    exit (_,        Left e) = return (Left e)
+    exit (a,        _)      = return (Right a)
 
     msg l n a = logDebug l
         . mconcat

@@ -13,8 +13,10 @@
 
 module Test.AWS.S3.Internal where
 
+import           Data.Time
 import           Network.AWS.Prelude
 import           Network.AWS.S3
+import           Test.AWS.Fixture
 import           Test.AWS.Prelude
 import           Test.Tasty
 import           Test.Tasty.HUnit
@@ -43,3 +45,13 @@ objectKeyTests = testGroup "object key"
   where
     enc :: ObjectKey -> ByteString
     enc = toBS . escapePath . rawPath
+
+testPutObjectACLWithBody :: PutObjectACL -> TestTree
+testPutObjectACLWithBody = req
+    "PutObjectACLWithBody"
+    "fixture/PutObjectACLWithBody.yaml"
+
+testPutObjectACLWithHeaders :: PutObjectACL -> TestTree
+testPutObjectACLWithHeaders = req
+    "PutObjectACLWithHeaders"
+    "fixture/PutObjectACLWithHeaders.yaml"

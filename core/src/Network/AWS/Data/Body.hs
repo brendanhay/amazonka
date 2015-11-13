@@ -51,8 +51,7 @@ default (Builder)
 -- | A streaming, exception safe response body.
 newtype RsBody = RsBody
     { _streamBody :: ResumableSource (ResourceT IO) ByteString
-    }
--- newtype for show/orhpan instance purposes.
+    } -- newtype for show/orhpan instance purposes.
 
 instance Show RsBody where
     show = const "RsBody { ResumableSource (ResourceT IO) ByteString }"

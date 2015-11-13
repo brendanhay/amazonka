@@ -20,7 +20,6 @@ import           Network.AWS.S3
 import           Test.AWS.Gen.S3
 import           Test.AWS.Prelude
 import           Test.AWS.S3.Internal
-import           Test.Tasty
 
 tests :: [TestTree]
 tests =
@@ -39,6 +38,18 @@ fixtures =
 
         , testListMultipartUploads $
             listMultipartUploads "foo-bucket" & lmuMaxUploads ?~ 3
+
+        , testPutObjectACLWithBody $
+            putObjectACL "bucket-body" "key-body"
+                & poaAccessControlPolicy ?~
+                    ( accessControlPolicy
+                        & acpGrants .~ [grant & gPermission ?~ PWrite]
+                        & acpOwner  ?~ (owner & oId         ?~ "foo-oid")
+                    )
+
+        , testPutObjectACLWithHeaders $
+            putObjectACL "bucket-headers" "key-headers"
+                & poaACL ?~ OBucketOwnerRead
         ]
 
     , testGroup "response"

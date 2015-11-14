@@ -5,6 +5,7 @@ flags:
 extra-deps:
   - groom-0.1.2
   - cryptonite-0.5
+  - retry-0.7
 packages:
   - core
   - test

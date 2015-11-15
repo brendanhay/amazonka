@@ -2,6 +2,7 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
 {-# LANGUAGE ViewPatterns      #-}
@@ -48,28 +49,28 @@ retrier :: ( MonadCatch m
 retrier x = do
     e  <- view environment
     rq <- configured x
-    retrying (policy rq) (check e rq) (perform e rq)
+    retrying (policy rq) (check e rq) (\_ -> perform e rq)
   where
     policy rq = retryStream rq <> retryService (_rqService rq)
 
-    check e rq n (Left r)
-        | Just p <- r ^? transportErr, p = msg e "http_error" n >> return True
-        | Just m <- r ^? serviceErr      = msg e m            n >> return True
+    check e rq s (Left r)
+        | Just p <- r ^? transportErr, p = msg e "http_error" s >> return True
+        | Just m <- r ^? serviceErr      = msg e m            s >> return True
       where
-        transportErr = _TransportError . to (_envRetryCheck e n)
+        transportErr = _TransportError . to (_envRetryCheck e (rsIterNumber s))
         serviceErr   = _ServiceError . to rc . _Just
 
         rc = rq ^. rqService . serviceRetry . retryCheck
 
     check _ _ _ _                          = return False
 
-    msg :: MonadIO m => Env -> Text -> Int -> m ()
-    msg e m n = logDebug (_envLogger e)
+    msg :: MonadIO m => Env -> Text -> RetryStatus -> m ()
+    msg e m s = logDebug (_envLogger e)
         . mconcat
         . intersperse " "
         $ [ "[Retry " <> build m <> "]"
           , "after"
-          , build (n + 1)
+          , build (rsIterNumber s + 1)
           , "attempts."
           ]
 
@@ -85,7 +86,7 @@ waiter :: ( MonadCatch m
 waiter w@Wait{..} x = do
    e@Env{..} <- view environment
    rq        <- configured x
-   retrying policy (check _envLogger) (result rq <$> perform e rq) >>= exit
+   retrying policy (check _envLogger) (\_ -> result rq <$> perform e rq) >>= exit
   where
     policy = limitRetries _waitAttempts
           <> constantDelay (microseconds _waitDelay)
@@ -102,13 +103,13 @@ waiter w@Wait{..} x = do
     exit (_,        Left e) = return (Left e)
     exit (a,        _)      = return (Right a)
 
-    msg l n a = logDebug l
+    msg l s a = logDebug l
         . mconcat
         . intersperse " "
         $ [ "[Await " <> build _waitName <> "]"
           , build a
           , "after"
-          , build (n + 1)
+          , build (rsIterNumber s + 1)
           , "attempts."
           ]
 
@@ -152,17 +153,18 @@ configured (request -> x) = do
     return $! x & rqService %~ appEndo (getDual o)
 
 retryStream :: Request a -> RetryPolicy
-retryStream x = RetryPolicy (const $ listToMaybe [0 | not p])
+retryStream x = RetryPolicyM (\_ -> return (listToMaybe [0 | not p]))
   where
     !p = isStreaming (_rqBody x)
 
 retryService :: Service -> RetryPolicy
-retryService s = limitRetries _retryAttempts <> RetryPolicy delay
+retryService s = limitRetries _retryAttempts <> RetryPolicyM (return . delay)
   where
-    delay n
-        | n >= 0    = Just $ truncate (grow * 1000000)
+    delay s
+        | n >= 0 = Just $ truncate (grow * 1000000)
         | otherwise = Nothing
       where
+        n = rsIterNumber s
         grow = _retryBase * (fromIntegral _retryGrowth ^^ (n - 1))
 
     Exponential{..} = _svcRetry s

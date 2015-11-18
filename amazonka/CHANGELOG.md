@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.3.5.1](https://github.com/brendanhay/amazonka/tree/1.3.5.1)
+Released: **18 November, 2015**, Compare: [1.3.5.1](https://github.com/brendanhay/amazonka/compare/1.3.5...1.3.5.1)
+
+### Fixed
+
+- Fixed ambigiuty issue when using `lens >= 4.13`
+- Constraining `retry < 0.7` to avoid breaking changes.
+
+
 ## [1.3.5](https://github.com/brendanhay/amazonka/tree/1.3.5)
 Released: **27 October, 2015**, Compare: [1.3.5](https://github.com/brendanhay/amazonka/compare/1.3.4...1.3.5)
 

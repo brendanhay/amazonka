@@ -1,5 +1,5 @@
 name:                  amazonka-s3-encryption
-version:               1.3.5
+version:               1.3.5.1
 synopsis:              Amazon Simple Storage Service SDK - Client-Side Encryption.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues

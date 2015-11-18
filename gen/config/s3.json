@@ -48,7 +48,7 @@
         },
         "BucketLocationConstraint": {
             "replacedBy": {
-                "name": "Region",
+                "name": "LocationConstraint",
                 "deriving": []
             }
         },

@@ -129,7 +129,7 @@ requestSpotInstances pSpotPrice_ =
 -- terminates.
 --
 -- Note that you can\'t specify an Availability Zone group or a launch
--- group if you specify a required duration.
+-- group if you specify a duration.
 rsiBlockDurationMinutes :: Lens' RequestSpotInstances (Maybe Int)
 rsiBlockDurationMinutes = lens _rsiBlockDurationMinutes (\ s a -> s{_rsiBlockDurationMinutes = a});
 

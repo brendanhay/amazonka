@@ -72,7 +72,9 @@ modifyVPCAttribute pVPCId_ =
 -- If enabled, instances in the VPC get DNS hostnames; otherwise, they do
 -- not.
 --
--- You can only enable DNS hostnames if you also enable DNS support.
+-- You cannot modify the DNS resolution and DNS hostnames attributes in the
+-- same request. Use separate requests for each attribute. You can only
+-- enable DNS hostnames if you\'ve enabled DNS support.
 mvaEnableDNSHostnames :: Lens' ModifyVPCAttribute (Maybe AttributeBooleanValue)
 mvaEnableDNSHostnames = lens _mvaEnableDNSHostnames (\ s a -> s{_mvaEnableDNSHostnames = a});
 
@@ -82,6 +84,9 @@ mvaEnableDNSHostnames = lens _mvaEnableDNSHostnames (\ s a -> s{_mvaEnableDNSHos
 -- the VPC network range \"plus two\" will succeed. If disabled, the Amazon
 -- provided DNS service in the VPC that resolves public DNS hostnames to IP
 -- addresses is not enabled.
+--
+-- You cannot modify the DNS resolution and DNS hostnames attributes in the
+-- same request. Use separate requests for each attribute.
 mvaEnableDNSSupport :: Lens' ModifyVPCAttribute (Maybe AttributeBooleanValue)
 mvaEnableDNSSupport = lens _mvaEnableDNSSupport (\ s a -> s{_mvaEnableDNSSupport = a});
 

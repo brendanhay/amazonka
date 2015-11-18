@@ -3412,7 +3412,8 @@ instance' pInstanceId_ pImageId_ pAMILaunchIndex_ pInstanceType_ pLaunchTime_ pP
     }
 
 -- | The public DNS name assigned to the instance. This name is not available
--- until the instance enters the 'running' state.
+-- until the instance enters the 'running' state. For EC2-VPC, this name is
+-- only available if you\'ve enabled DNS hostnames for your VPC.
 insPublicDNSName :: Lens' Instance (Maybe Text)
 insPublicDNSName = lens _insPublicDNSName (\ s a -> s{_insPublicDNSName = a});
 
@@ -3424,7 +3425,8 @@ insPlatform = lens _insPlatform (\ s a -> s{_insPlatform = a});
 insSecurityGroups :: Lens' Instance [GroupIdentifier]
 insSecurityGroups = lens _insSecurityGroups (\ s a -> s{_insSecurityGroups = a}) . _Default . _Coerce;
 
--- | The idempotency token you provided when you launched the instance.
+-- | The idempotency token you provided when you launched the instance, if
+-- applicable.
 insClientToken :: Lens' Instance (Maybe Text)
 insClientToken = lens _insClientToken (\ s a -> s{_insClientToken = a});
 
@@ -3438,7 +3440,7 @@ insClientToken = lens _insClientToken (\ s a -> s{_insClientToken = a});
 insSourceDestCheck :: Lens' Instance (Maybe Bool)
 insSourceDestCheck = lens _insSourceDestCheck (\ s a -> s{_insSourceDestCheck = a});
 
--- | The ID of the VPC in which the instance is running.
+-- | [EC2-VPC] The ID of the VPC in which the instance is running.
 insVPCId :: Lens' Instance (Maybe Text)
 insVPCId = lens _insVPCId (\ s a -> s{_insVPCId = a});
 
@@ -3451,15 +3453,15 @@ insKeyName = lens _insKeyName (\ s a -> s{_insKeyName = a});
 insNetworkInterfaces :: Lens' Instance [InstanceNetworkInterface]
 insNetworkInterfaces = lens _insNetworkInterfaces (\ s a -> s{_insNetworkInterfaces = a}) . _Default . _Coerce;
 
--- | The RAM disk associated with this instance.
+-- | The RAM disk associated with this instance, if applicable.
 insRAMDiskId :: Lens' Instance (Maybe Text)
 insRAMDiskId = lens _insRAMDiskId (\ s a -> s{_insRAMDiskId = a});
 
--- | The ID of the subnet in which the instance is running.
+-- | [EC2-VPC] The ID of the subnet in which the instance is running.
 insSubnetId :: Lens' Instance (Maybe Text)
 insSubnetId = lens _insSubnetId (\ s a -> s{_insSubnetId = a});
 
--- | The kernel associated with this instance.
+-- | The kernel associated with this instance, if applicable.
 insKernelId :: Lens' Instance (Maybe Text)
 insKernelId = lens _insKernelId (\ s a -> s{_insKernelId = a});
 
@@ -3488,7 +3490,7 @@ insStateTransitionReason = lens _insStateTransitionReason (\ s a -> s{_insStateT
 insInstanceLifecycle :: Lens' Instance (Maybe InstanceLifecycleType)
 insInstanceLifecycle = lens _insInstanceLifecycle (\ s a -> s{_insInstanceLifecycle = a});
 
--- | The IAM instance profile associated with the instance.
+-- | The IAM instance profile associated with the instance, if applicable.
 insIAMInstanceProfile :: Lens' Instance (Maybe IAMInstanceProfile)
 insIAMInstanceProfile = lens _insIAMInstanceProfile (\ s a -> s{_insIAMInstanceProfile = a});
 
@@ -3496,17 +3498,18 @@ insIAMInstanceProfile = lens _insIAMInstanceProfile (\ s a -> s{_insIAMInstanceP
 insPrivateIPAddress :: Lens' Instance (Maybe Text)
 insPrivateIPAddress = lens _insPrivateIPAddress (\ s a -> s{_insPrivateIPAddress = a});
 
--- | The product codes attached to this instance.
+-- | The product codes attached to this instance, if applicable.
 insProductCodes :: Lens' Instance [ProductCode]
 insProductCodes = lens _insProductCodes (\ s a -> s{_insProductCodes = a}) . _Default . _Coerce;
 
--- | The ID of the Spot Instance request.
+-- | If the request is a Spot instance request, the ID of the request.
 insSpotInstanceRequestId :: Lens' Instance (Maybe Text)
 insSpotInstanceRequestId = lens _insSpotInstanceRequestId (\ s a -> s{_insSpotInstanceRequestId = a});
 
 -- | The private DNS name assigned to the instance. This DNS name can only be
 -- used inside the Amazon EC2 network. This name is not available until the
--- instance enters the 'running' state.
+-- instance enters the 'running' state. For EC2-VPC, this name is only
+-- available if you\'ve enabled DNS hostnames for your VPC.
 insPrivateDNSName :: Lens' Instance (Maybe Text)
 insPrivateDNSName = lens _insPrivateDNSName (\ s a -> s{_insPrivateDNSName = a});
 
@@ -3518,7 +3521,7 @@ insStateReason = lens _insStateReason (\ s a -> s{_insStateReason = a});
 insBlockDeviceMappings :: Lens' Instance [InstanceBlockDeviceMapping]
 insBlockDeviceMappings = lens _insBlockDeviceMappings (\ s a -> s{_insBlockDeviceMappings = a}) . _Default . _Coerce;
 
--- | The public IP address assigned to the instance.
+-- | The public IP address assigned to the instance, if applicable.
 insPublicIPAddress :: Lens' Instance (Maybe Text)
 insPublicIPAddress = lens _insPublicIPAddress (\ s a -> s{_insPublicIPAddress = a});
 
@@ -3547,7 +3550,7 @@ insInstanceType = lens _insInstanceType (\ s a -> s{_insInstanceType = a});
 insLaunchTime :: Lens' Instance UTCTime
 insLaunchTime = lens _insLaunchTime (\ s a -> s{_insLaunchTime = a}) . _Time;
 
--- | The location where the instance launched.
+-- | The location where the instance launched, if applicable.
 insPlacement :: Lens' Instance Placement
 insPlacement = lens _insPlacement (\ s a -> s{_insPlacement = a});
 
@@ -8735,13 +8738,13 @@ sirStatus = lens _sirStatus (\ s a -> s{_sirStatus = a});
 sirState :: Lens' SpotInstanceRequest (Maybe SpotInstanceState)
 sirState = lens _sirState (\ s a -> s{_sirState = a});
 
--- | If you specified a required duration and your request was fulfilled,
--- this is the fixed hourly price in effect for the Spot instance while it
--- runs.
+-- | If you specified a duration and your Spot instance request was
+-- fulfilled, this is the fixed hourly price in effect for the Spot
+-- instance while it runs.
 sirActualBlockHourlyPrice :: Lens' SpotInstanceRequest (Maybe Text)
 sirActualBlockHourlyPrice = lens _sirActualBlockHourlyPrice (\ s a -> s{_sirActualBlockHourlyPrice = a});
 
--- | The required duration for the Spot instance, in minutes.
+-- | The duration for the Spot instance, in minutes.
 sirBlockDurationMinutes :: Lens' SpotInstanceRequest (Maybe Int)
 sirBlockDurationMinutes = lens _sirBlockDurationMinutes (\ s a -> s{_sirBlockDurationMinutes = a});
 
@@ -8899,7 +8902,9 @@ spotInstanceStatus =
 sisUpdateTime :: Lens' SpotInstanceStatus (Maybe UTCTime)
 sisUpdateTime = lens _sisUpdateTime (\ s a -> s{_sisUpdateTime = a}) . mapping _Time;
 
--- | The status code.
+-- | The status code. For a list of status codes, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand Spot Bid Status Codes>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 sisCode :: Lens' SpotInstanceStatus (Maybe Text)
 sisCode = lens _sisCode (\ s a -> s{_sisCode = a});
 

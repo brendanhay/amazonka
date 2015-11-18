@@ -25,6 +25,10 @@
 --
 -- For more information about tags, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources>
+-- in the /Amazon Elastic Compute Cloud User Guide/. For more information
+-- about creating IAM policies that control users\' access to resources
+-- based on tags, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html Supported Resource-Level Permissions for Amazon EC2 API Actions>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateTags.html AWS API Reference> for CreateTags.

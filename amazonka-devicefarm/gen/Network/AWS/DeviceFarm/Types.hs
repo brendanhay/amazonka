@@ -100,29 +100,36 @@ module Network.AWS.DeviceFarm.Types
     -- * Device
     , Device
     , device
-    , dCarrier
-    , dImage
-    , dManufacturer
-    , dPlatform
-    , dArn
-    , dFormFactor
-    , dResolution
-    , dMemory
-    , dRadio
-    , dOs
-    , dName
-    , dModel
-    , dCpu
-    , dHeapSize
+    , devCarrier
+    , devImage
+    , devManufacturer
+    , devPlatform
+    , devArn
+    , devFormFactor
+    , devResolution
+    , devMemory
+    , devRadio
+    , devOs
+    , devName
+    , devModel
+    , devCpu
+    , devHeapSize
+
+    -- * DeviceMinutes
+    , DeviceMinutes
+    , deviceMinutes
+    , dmMetered
+    , dmTotal
+    , dmUnmetered
 
     -- * DevicePool
     , DevicePool
     , devicePool
-    , dpArn
-    , dpRules
-    , dpName
-    , dpType
-    , dpDescription
+    , dArn
+    , dRules
+    , dName
+    , dType
+    , dDescription
 
     -- * DevicePoolCompatibilityResult
     , DevicePoolCompatibilityResult
@@ -148,6 +155,7 @@ module Network.AWS.DeviceFarm.Types
     , jobStopped
     , jobResult
     , jobName
+    , jobDeviceMinutes
     , jobType
     , jobMessage
     , jobStarted
@@ -216,6 +224,7 @@ module Network.AWS.DeviceFarm.Types
     , runResult
     , runCompletedJobs
     , runName
+    , runDeviceMinutes
     , runType
     , runMessage
     , runTotalJobs
@@ -257,6 +266,7 @@ module Network.AWS.DeviceFarm.Types
     , sStopped
     , sResult
     , sName
+    , sDeviceMinutes
     , sType
     , sMessage
     , sStarted
@@ -271,6 +281,7 @@ module Network.AWS.DeviceFarm.Types
     , tStopped
     , tResult
     , tName
+    , tDeviceMinutes
     , tType
     , tMessage
     , tStarted

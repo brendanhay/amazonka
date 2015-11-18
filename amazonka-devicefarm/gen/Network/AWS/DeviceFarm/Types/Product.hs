@@ -299,84 +299,84 @@ instance FromJSON Counters where
 --
 -- /See:/ 'device' smart constructor.
 data Device = Device'
-    { _dCarrier      :: !(Maybe Text)
-    , _dImage        :: !(Maybe Text)
-    , _dManufacturer :: !(Maybe Text)
-    , _dPlatform     :: !(Maybe DevicePlatform)
-    , _dArn          :: !(Maybe Text)
-    , _dFormFactor   :: !(Maybe DeviceFormFactor)
-    , _dResolution   :: !(Maybe Resolution)
-    , _dMemory       :: !(Maybe Integer)
-    , _dRadio        :: !(Maybe Text)
-    , _dOs           :: !(Maybe Text)
-    , _dName         :: !(Maybe Text)
-    , _dModel        :: !(Maybe Text)
-    , _dCpu          :: !(Maybe CPU)
-    , _dHeapSize     :: !(Maybe Integer)
+    { _devCarrier      :: !(Maybe Text)
+    , _devImage        :: !(Maybe Text)
+    , _devManufacturer :: !(Maybe Text)
+    , _devPlatform     :: !(Maybe DevicePlatform)
+    , _devArn          :: !(Maybe Text)
+    , _devFormFactor   :: !(Maybe DeviceFormFactor)
+    , _devResolution   :: !(Maybe Resolution)
+    , _devMemory       :: !(Maybe Integer)
+    , _devRadio        :: !(Maybe Text)
+    , _devOs           :: !(Maybe Text)
+    , _devName         :: !(Maybe Text)
+    , _devModel        :: !(Maybe Text)
+    , _devCpu          :: !(Maybe CPU)
+    , _devHeapSize     :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Device' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dCarrier'
+-- * 'devCarrier'
 --
--- * 'dImage'
+-- * 'devImage'
 --
--- * 'dManufacturer'
+-- * 'devManufacturer'
 --
--- * 'dPlatform'
+-- * 'devPlatform'
 --
--- * 'dArn'
+-- * 'devArn'
 --
--- * 'dFormFactor'
+-- * 'devFormFactor'
 --
--- * 'dResolution'
+-- * 'devResolution'
 --
--- * 'dMemory'
+-- * 'devMemory'
 --
--- * 'dRadio'
+-- * 'devRadio'
 --
--- * 'dOs'
+-- * 'devOs'
 --
--- * 'dName'
+-- * 'devName'
 --
--- * 'dModel'
+-- * 'devModel'
 --
--- * 'dCpu'
+-- * 'devCpu'
 --
--- * 'dHeapSize'
+-- * 'devHeapSize'
 device
     :: Device
 device =
     Device'
-    { _dCarrier = Nothing
-    , _dImage = Nothing
-    , _dManufacturer = Nothing
-    , _dPlatform = Nothing
-    , _dArn = Nothing
-    , _dFormFactor = Nothing
-    , _dResolution = Nothing
-    , _dMemory = Nothing
-    , _dRadio = Nothing
-    , _dOs = Nothing
-    , _dName = Nothing
-    , _dModel = Nothing
-    , _dCpu = Nothing
-    , _dHeapSize = Nothing
+    { _devCarrier = Nothing
+    , _devImage = Nothing
+    , _devManufacturer = Nothing
+    , _devPlatform = Nothing
+    , _devArn = Nothing
+    , _devFormFactor = Nothing
+    , _devResolution = Nothing
+    , _devMemory = Nothing
+    , _devRadio = Nothing
+    , _devOs = Nothing
+    , _devName = Nothing
+    , _devModel = Nothing
+    , _devCpu = Nothing
+    , _devHeapSize = Nothing
     }
 
 -- | The device\'s carrier.
-dCarrier :: Lens' Device (Maybe Text)
-dCarrier = lens _dCarrier (\ s a -> s{_dCarrier = a});
+devCarrier :: Lens' Device (Maybe Text)
+devCarrier = lens _devCarrier (\ s a -> s{_devCarrier = a});
 
 -- | The device\'s image name.
-dImage :: Lens' Device (Maybe Text)
-dImage = lens _dImage (\ s a -> s{_dImage = a});
+devImage :: Lens' Device (Maybe Text)
+devImage = lens _devImage (\ s a -> s{_devImage = a});
 
 -- | The device\'s manufacturer name.
-dManufacturer :: Lens' Device (Maybe Text)
-dManufacturer = lens _dManufacturer (\ s a -> s{_dManufacturer = a});
+devManufacturer :: Lens' Device (Maybe Text)
+devManufacturer = lens _devManufacturer (\ s a -> s{_devManufacturer = a});
 
 -- | The device\'s platform.
 --
@@ -386,12 +386,12 @@ dManufacturer = lens _dManufacturer (\ s a -> s{_dManufacturer = a});
 --
 -- -   IOS: The iOS platform.
 --
-dPlatform :: Lens' Device (Maybe DevicePlatform)
-dPlatform = lens _dPlatform (\ s a -> s{_dPlatform = a});
+devPlatform :: Lens' Device (Maybe DevicePlatform)
+devPlatform = lens _devPlatform (\ s a -> s{_devPlatform = a});
 
 -- | The device\'s ARN.
-dArn :: Lens' Device (Maybe Text)
-dArn = lens _dArn (\ s a -> s{_dArn = a});
+devArn :: Lens' Device (Maybe Text)
+devArn = lens _devArn (\ s a -> s{_devArn = a});
 
 -- | The device\'s form factor.
 --
@@ -401,40 +401,40 @@ dArn = lens _dArn (\ s a -> s{_dArn = a});
 --
 -- -   TABLET: The tablet form factor.
 --
-dFormFactor :: Lens' Device (Maybe DeviceFormFactor)
-dFormFactor = lens _dFormFactor (\ s a -> s{_dFormFactor = a});
+devFormFactor :: Lens' Device (Maybe DeviceFormFactor)
+devFormFactor = lens _devFormFactor (\ s a -> s{_devFormFactor = a});
 
 -- | Undocumented member.
-dResolution :: Lens' Device (Maybe Resolution)
-dResolution = lens _dResolution (\ s a -> s{_dResolution = a});
+devResolution :: Lens' Device (Maybe Resolution)
+devResolution = lens _devResolution (\ s a -> s{_devResolution = a});
 
 -- | The device\'s total memory size, expressed in bytes.
-dMemory :: Lens' Device (Maybe Integer)
-dMemory = lens _dMemory (\ s a -> s{_dMemory = a});
+devMemory :: Lens' Device (Maybe Integer)
+devMemory = lens _devMemory (\ s a -> s{_devMemory = a});
 
 -- | The device\'s radio.
-dRadio :: Lens' Device (Maybe Text)
-dRadio = lens _dRadio (\ s a -> s{_dRadio = a});
+devRadio :: Lens' Device (Maybe Text)
+devRadio = lens _devRadio (\ s a -> s{_devRadio = a});
 
 -- | The device\'s operating system type.
-dOs :: Lens' Device (Maybe Text)
-dOs = lens _dOs (\ s a -> s{_dOs = a});
+devOs :: Lens' Device (Maybe Text)
+devOs = lens _devOs (\ s a -> s{_devOs = a});
 
 -- | The device\'s display name.
-dName :: Lens' Device (Maybe Text)
-dName = lens _dName (\ s a -> s{_dName = a});
+devName :: Lens' Device (Maybe Text)
+devName = lens _devName (\ s a -> s{_devName = a});
 
 -- | The device\'s model name.
-dModel :: Lens' Device (Maybe Text)
-dModel = lens _dModel (\ s a -> s{_dModel = a});
+devModel :: Lens' Device (Maybe Text)
+devModel = lens _devModel (\ s a -> s{_devModel = a});
 
 -- | Information about the device\'s CPU.
-dCpu :: Lens' Device (Maybe CPU)
-dCpu = lens _dCpu (\ s a -> s{_dCpu = a});
+devCpu :: Lens' Device (Maybe CPU)
+devCpu = lens _devCpu (\ s a -> s{_devCpu = a});
 
 -- | The device\'s heap size, expressed in bytes.
-dHeapSize :: Lens' Device (Maybe Integer)
-dHeapSize = lens _dHeapSize (\ s a -> s{_dHeapSize = a});
+devHeapSize :: Lens' Device (Maybe Integer)
+devHeapSize = lens _devHeapSize (\ s a -> s{_devHeapSize = a});
 
 instance FromJSON Device where
         parseJSON
@@ -455,52 +455,103 @@ instance FromJSON Device where
                      <*> (x .:? "cpu")
                      <*> (x .:? "heapSize"))
 
+-- | Represents the total (metered or unmetered) minutes used by the resource
+-- to run tests. Contains the sum of minutes consumed by all children.
+--
+-- /See:/ 'deviceMinutes' smart constructor.
+data DeviceMinutes = DeviceMinutes'
+    { _dmMetered   :: !(Maybe Double)
+    , _dmTotal     :: !(Maybe Double)
+    , _dmUnmetered :: !(Maybe Double)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeviceMinutes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmMetered'
+--
+-- * 'dmTotal'
+--
+-- * 'dmUnmetered'
+deviceMinutes
+    :: DeviceMinutes
+deviceMinutes =
+    DeviceMinutes'
+    { _dmMetered = Nothing
+    , _dmTotal = Nothing
+    , _dmUnmetered = Nothing
+    }
+
+-- | When specified, represents only the sum of metered minutes used by the
+-- resource to run tests.
+dmMetered :: Lens' DeviceMinutes (Maybe Double)
+dmMetered = lens _dmMetered (\ s a -> s{_dmMetered = a});
+
+-- | When specified, represents the total minutes used by the resource to run
+-- tests.
+dmTotal :: Lens' DeviceMinutes (Maybe Double)
+dmTotal = lens _dmTotal (\ s a -> s{_dmTotal = a});
+
+-- | When specified, represents only the sum of unmetered minutes used by the
+-- resource to run tests.
+dmUnmetered :: Lens' DeviceMinutes (Maybe Double)
+dmUnmetered = lens _dmUnmetered (\ s a -> s{_dmUnmetered = a});
+
+instance FromJSON DeviceMinutes where
+        parseJSON
+          = withObject "DeviceMinutes"
+              (\ x ->
+                 DeviceMinutes' <$>
+                   (x .:? "metered") <*> (x .:? "total") <*>
+                     (x .:? "unmetered"))
+
 -- | Represents a collection of device types.
 --
 -- /See:/ 'devicePool' smart constructor.
 data DevicePool = DevicePool'
-    { _dpArn         :: !(Maybe Text)
-    , _dpRules       :: !(Maybe [Rule])
-    , _dpName        :: !(Maybe Text)
-    , _dpType        :: !(Maybe DevicePoolType)
-    , _dpDescription :: !(Maybe Text)
+    { _dArn         :: !(Maybe Text)
+    , _dRules       :: !(Maybe [Rule])
+    , _dName        :: !(Maybe Text)
+    , _dType        :: !(Maybe DevicePoolType)
+    , _dDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DevicePool' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpArn'
+-- * 'dArn'
 --
--- * 'dpRules'
+-- * 'dRules'
 --
--- * 'dpName'
+-- * 'dName'
 --
--- * 'dpType'
+-- * 'dType'
 --
--- * 'dpDescription'
+-- * 'dDescription'
 devicePool
     :: DevicePool
 devicePool =
     DevicePool'
-    { _dpArn = Nothing
-    , _dpRules = Nothing
-    , _dpName = Nothing
-    , _dpType = Nothing
-    , _dpDescription = Nothing
+    { _dArn = Nothing
+    , _dRules = Nothing
+    , _dName = Nothing
+    , _dType = Nothing
+    , _dDescription = Nothing
     }
 
 -- | The device pool\'s ARN.
-dpArn :: Lens' DevicePool (Maybe Text)
-dpArn = lens _dpArn (\ s a -> s{_dpArn = a});
+dArn :: Lens' DevicePool (Maybe Text)
+dArn = lens _dArn (\ s a -> s{_dArn = a});
 
 -- | Information about the device pool\'s rules.
-dpRules :: Lens' DevicePool [Rule]
-dpRules = lens _dpRules (\ s a -> s{_dpRules = a}) . _Default . _Coerce;
+dRules :: Lens' DevicePool [Rule]
+dRules = lens _dRules (\ s a -> s{_dRules = a}) . _Default . _Coerce;
 
 -- | The device pool\'s name.
-dpName :: Lens' DevicePool (Maybe Text)
-dpName = lens _dpName (\ s a -> s{_dpName = a});
+dName :: Lens' DevicePool (Maybe Text)
+dName = lens _dName (\ s a -> s{_dName = a});
 
 -- | The device pool\'s type.
 --
@@ -512,12 +563,12 @@ dpName = lens _dpName (\ s a -> s{_dpName = a});
 -- -   PRIVATE: A device pool that is created and managed by the device
 --     pool developer.
 --
-dpType :: Lens' DevicePool (Maybe DevicePoolType)
-dpType = lens _dpType (\ s a -> s{_dpType = a});
+dType :: Lens' DevicePool (Maybe DevicePoolType)
+dType = lens _dType (\ s a -> s{_dType = a});
 
 -- | The device pool\'s description.
-dpDescription :: Lens' DevicePool (Maybe Text)
-dpDescription = lens _dpDescription (\ s a -> s{_dpDescription = a});
+dDescription :: Lens' DevicePool (Maybe Text)
+dDescription = lens _dDescription (\ s a -> s{_dDescription = a});
 
 instance FromJSON DevicePool where
         parseJSON
@@ -629,17 +680,18 @@ instance FromJSON IncompatibilityMessage where
 --
 -- /See:/ 'job' smart constructor.
 data Job = Job'
-    { _jobStatus   :: !(Maybe ExecutionStatus)
-    , _jobCounters :: !(Maybe Counters)
-    , _jobArn      :: !(Maybe Text)
-    , _jobCreated  :: !(Maybe POSIX)
-    , _jobDevice   :: !(Maybe Device)
-    , _jobStopped  :: !(Maybe POSIX)
-    , _jobResult   :: !(Maybe ExecutionResult)
-    , _jobName     :: !(Maybe Text)
-    , _jobType     :: !(Maybe TestType)
-    , _jobMessage  :: !(Maybe Text)
-    , _jobStarted  :: !(Maybe POSIX)
+    { _jobStatus        :: !(Maybe ExecutionStatus)
+    , _jobCounters      :: !(Maybe Counters)
+    , _jobArn           :: !(Maybe Text)
+    , _jobCreated       :: !(Maybe POSIX)
+    , _jobDevice        :: !(Maybe Device)
+    , _jobStopped       :: !(Maybe POSIX)
+    , _jobResult        :: !(Maybe ExecutionResult)
+    , _jobName          :: !(Maybe Text)
+    , _jobDeviceMinutes :: !(Maybe DeviceMinutes)
+    , _jobType          :: !(Maybe TestType)
+    , _jobMessage       :: !(Maybe Text)
+    , _jobStarted       :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Job' with the minimum fields required to make a request.
@@ -662,6 +714,8 @@ data Job = Job'
 --
 -- * 'jobName'
 --
+-- * 'jobDeviceMinutes'
+--
 -- * 'jobType'
 --
 -- * 'jobMessage'
@@ -679,6 +733,7 @@ job =
     , _jobStopped = Nothing
     , _jobResult = Nothing
     , _jobName = Nothing
+    , _jobDeviceMinutes = Nothing
     , _jobType = Nothing
     , _jobMessage = Nothing
     , _jobStarted = Nothing
@@ -746,6 +801,10 @@ jobResult = lens _jobResult (\ s a -> s{_jobResult = a});
 jobName :: Lens' Job (Maybe Text)
 jobName = lens _jobName (\ s a -> s{_jobName = a});
 
+-- | Represents the total (metered or unmetered) minutes used by the job.
+jobDeviceMinutes :: Lens' Job (Maybe DeviceMinutes)
+jobDeviceMinutes = lens _jobDeviceMinutes (\ s a -> s{_jobDeviceMinutes = a});
+
 -- | The job\'s type.
 --
 -- Allowed values include the following:
@@ -793,6 +852,7 @@ instance FromJSON Job where
                      <*> (x .:? "stopped")
                      <*> (x .:? "result")
                      <*> (x .:? "name")
+                     <*> (x .:? "deviceMinutes")
                      <*> (x .:? "type")
                      <*> (x .:? "message")
                      <*> (x .:? "started"))
@@ -1212,6 +1272,7 @@ data Run = Run'
     , _runResult        :: !(Maybe ExecutionResult)
     , _runCompletedJobs :: !(Maybe Int)
     , _runName          :: !(Maybe Text)
+    , _runDeviceMinutes :: !(Maybe DeviceMinutes)
     , _runType          :: !(Maybe TestType)
     , _runMessage       :: !(Maybe Text)
     , _runTotalJobs     :: !(Maybe Int)
@@ -1242,6 +1303,8 @@ data Run = Run'
 --
 -- * 'runName'
 --
+-- * 'runDeviceMinutes'
+--
 -- * 'runType'
 --
 -- * 'runMessage'
@@ -1263,6 +1326,7 @@ run =
     , _runResult = Nothing
     , _runCompletedJobs = Nothing
     , _runName = Nothing
+    , _runDeviceMinutes = Nothing
     , _runType = Nothing
     , _runMessage = Nothing
     , _runTotalJobs = Nothing
@@ -1347,6 +1411,11 @@ runCompletedJobs = lens _runCompletedJobs (\ s a -> s{_runCompletedJobs = a});
 runName :: Lens' Run (Maybe Text)
 runName = lens _runName (\ s a -> s{_runName = a});
 
+-- | Represents the total (metered or unmetered) minutes used by the test
+-- run.
+runDeviceMinutes :: Lens' Run (Maybe DeviceMinutes)
+runDeviceMinutes = lens _runDeviceMinutes (\ s a -> s{_runDeviceMinutes = a});
+
 -- | The run\'s type.
 --
 -- Must be one of the following values:
@@ -1400,6 +1469,7 @@ instance FromJSON Run where
                      <*> (x .:? "result")
                      <*> (x .:? "completedJobs")
                      <*> (x .:? "name")
+                     <*> (x .:? "deviceMinutes")
                      <*> (x .:? "type")
                      <*> (x .:? "message")
                      <*> (x .:? "totalJobs")
@@ -1668,16 +1738,17 @@ instance ToJSON ScheduleRunTest where
 --
 -- /See:/ 'suite' smart constructor.
 data Suite = Suite'
-    { _sStatus   :: !(Maybe ExecutionStatus)
-    , _sCounters :: !(Maybe Counters)
-    , _sArn      :: !(Maybe Text)
-    , _sCreated  :: !(Maybe POSIX)
-    , _sStopped  :: !(Maybe POSIX)
-    , _sResult   :: !(Maybe ExecutionResult)
-    , _sName     :: !(Maybe Text)
-    , _sType     :: !(Maybe TestType)
-    , _sMessage  :: !(Maybe Text)
-    , _sStarted  :: !(Maybe POSIX)
+    { _sStatus        :: !(Maybe ExecutionStatus)
+    , _sCounters      :: !(Maybe Counters)
+    , _sArn           :: !(Maybe Text)
+    , _sCreated       :: !(Maybe POSIX)
+    , _sStopped       :: !(Maybe POSIX)
+    , _sResult        :: !(Maybe ExecutionResult)
+    , _sName          :: !(Maybe Text)
+    , _sDeviceMinutes :: !(Maybe DeviceMinutes)
+    , _sType          :: !(Maybe TestType)
+    , _sMessage       :: !(Maybe Text)
+    , _sStarted       :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Suite' with the minimum fields required to make a request.
@@ -1698,6 +1769,8 @@ data Suite = Suite'
 --
 -- * 'sName'
 --
+-- * 'sDeviceMinutes'
+--
 -- * 'sType'
 --
 -- * 'sMessage'
@@ -1714,6 +1787,7 @@ suite =
     , _sStopped = Nothing
     , _sResult = Nothing
     , _sName = Nothing
+    , _sDeviceMinutes = Nothing
     , _sType = Nothing
     , _sMessage = Nothing
     , _sStarted = Nothing
@@ -1777,6 +1851,11 @@ sResult = lens _sResult (\ s a -> s{_sResult = a});
 sName :: Lens' Suite (Maybe Text)
 sName = lens _sName (\ s a -> s{_sName = a});
 
+-- | Represents the total (metered or unmetered) minutes used by the test
+-- suite.
+sDeviceMinutes :: Lens' Suite (Maybe DeviceMinutes)
+sDeviceMinutes = lens _sDeviceMinutes (\ s a -> s{_sDeviceMinutes = a});
+
 -- | The suite\'s type.
 --
 -- Must be one of the following values:
@@ -1823,6 +1902,7 @@ instance FromJSON Suite where
                      <*> (x .:? "stopped")
                      <*> (x .:? "result")
                      <*> (x .:? "name")
+                     <*> (x .:? "deviceMinutes")
                      <*> (x .:? "type")
                      <*> (x .:? "message")
                      <*> (x .:? "started"))
@@ -1831,16 +1911,17 @@ instance FromJSON Suite where
 --
 -- /See:/ 'test' smart constructor.
 data Test = Test'
-    { _tStatus   :: !(Maybe ExecutionStatus)
-    , _tCounters :: !(Maybe Counters)
-    , _tArn      :: !(Maybe Text)
-    , _tCreated  :: !(Maybe POSIX)
-    , _tStopped  :: !(Maybe POSIX)
-    , _tResult   :: !(Maybe ExecutionResult)
-    , _tName     :: !(Maybe Text)
-    , _tType     :: !(Maybe TestType)
-    , _tMessage  :: !(Maybe Text)
-    , _tStarted  :: !(Maybe POSIX)
+    { _tStatus        :: !(Maybe ExecutionStatus)
+    , _tCounters      :: !(Maybe Counters)
+    , _tArn           :: !(Maybe Text)
+    , _tCreated       :: !(Maybe POSIX)
+    , _tStopped       :: !(Maybe POSIX)
+    , _tResult        :: !(Maybe ExecutionResult)
+    , _tName          :: !(Maybe Text)
+    , _tDeviceMinutes :: !(Maybe DeviceMinutes)
+    , _tType          :: !(Maybe TestType)
+    , _tMessage       :: !(Maybe Text)
+    , _tStarted       :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Test' with the minimum fields required to make a request.
@@ -1861,6 +1942,8 @@ data Test = Test'
 --
 -- * 'tName'
 --
+-- * 'tDeviceMinutes'
+--
 -- * 'tType'
 --
 -- * 'tMessage'
@@ -1877,6 +1960,7 @@ test =
     , _tStopped = Nothing
     , _tResult = Nothing
     , _tName = Nothing
+    , _tDeviceMinutes = Nothing
     , _tType = Nothing
     , _tMessage = Nothing
     , _tStarted = Nothing
@@ -1940,6 +2024,10 @@ tResult = lens _tResult (\ s a -> s{_tResult = a});
 tName :: Lens' Test (Maybe Text)
 tName = lens _tName (\ s a -> s{_tName = a});
 
+-- | Represents the total (metered or unmetered) minutes used by the test.
+tDeviceMinutes :: Lens' Test (Maybe DeviceMinutes)
+tDeviceMinutes = lens _tDeviceMinutes (\ s a -> s{_tDeviceMinutes = a});
+
 -- | The test\'s type.
 --
 -- Must be one of the following values:
@@ -1986,6 +2074,7 @@ instance FromJSON Test where
                      <*> (x .:? "stopped")
                      <*> (x .:? "result")
                      <*> (x .:? "name")
+                     <*> (x .:? "deviceMinutes")
                      <*> (x .:? "type")
                      <*> (x .:? "message")
                      <*> (x .:? "started"))

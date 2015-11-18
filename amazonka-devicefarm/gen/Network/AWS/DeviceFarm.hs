@@ -48,6 +48,12 @@ module Network.AWS.DeviceFarm
     -- ** ListProjects
     , module Network.AWS.DeviceFarm.ListProjects
 
+    -- ** DeleteProject
+    , module Network.AWS.DeviceFarm.DeleteProject
+
+    -- ** UpdateProject
+    , module Network.AWS.DeviceFarm.UpdateProject
+
     -- ** GetDevicePoolCompatibility
     , module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
 
@@ -60,17 +66,29 @@ module Network.AWS.DeviceFarm
     -- ** CreateUpload
     , module Network.AWS.DeviceFarm.CreateUpload
 
+    -- ** DeleteUpload
+    , module Network.AWS.DeviceFarm.DeleteUpload
+
     -- ** GetDevicePool
     , module Network.AWS.DeviceFarm.GetDevicePool
 
     -- ** ListDevicePools
     , module Network.AWS.DeviceFarm.ListDevicePools
 
+    -- ** UpdateDevicePool
+    , module Network.AWS.DeviceFarm.UpdateDevicePool
+
+    -- ** DeleteDevicePool
+    , module Network.AWS.DeviceFarm.DeleteDevicePool
+
     -- ** GetUpload
     , module Network.AWS.DeviceFarm.GetUpload
 
     -- ** CreateDevicePool
     , module Network.AWS.DeviceFarm.CreateDevicePool
+
+    -- ** DeleteRun
+    , module Network.AWS.DeviceFarm.DeleteRun
 
     -- ** ListRuns
     , module Network.AWS.DeviceFarm.ListRuns
@@ -200,29 +218,36 @@ module Network.AWS.DeviceFarm
     -- ** Device
     , Device
     , device
-    , dCarrier
-    , dImage
-    , dManufacturer
-    , dPlatform
-    , dArn
-    , dFormFactor
-    , dResolution
-    , dMemory
-    , dRadio
-    , dOs
-    , dName
-    , dModel
-    , dCpu
-    , dHeapSize
+    , devCarrier
+    , devImage
+    , devManufacturer
+    , devPlatform
+    , devArn
+    , devFormFactor
+    , devResolution
+    , devMemory
+    , devRadio
+    , devOs
+    , devName
+    , devModel
+    , devCpu
+    , devHeapSize
+
+    -- ** DeviceMinutes
+    , DeviceMinutes
+    , deviceMinutes
+    , dmMetered
+    , dmTotal
+    , dmUnmetered
 
     -- ** DevicePool
     , DevicePool
     , devicePool
-    , dpArn
-    , dpRules
-    , dpName
-    , dpType
-    , dpDescription
+    , dArn
+    , dRules
+    , dName
+    , dType
+    , dDescription
 
     -- ** DevicePoolCompatibilityResult
     , DevicePoolCompatibilityResult
@@ -248,6 +273,7 @@ module Network.AWS.DeviceFarm
     , jobStopped
     , jobResult
     , jobName
+    , jobDeviceMinutes
     , jobType
     , jobMessage
     , jobStarted
@@ -316,6 +342,7 @@ module Network.AWS.DeviceFarm
     , runResult
     , runCompletedJobs
     , runName
+    , runDeviceMinutes
     , runType
     , runMessage
     , runTotalJobs
@@ -357,6 +384,7 @@ module Network.AWS.DeviceFarm
     , sStopped
     , sResult
     , sName
+    , sDeviceMinutes
     , sType
     , sMessage
     , sStarted
@@ -371,6 +399,7 @@ module Network.AWS.DeviceFarm
     , tStopped
     , tResult
     , tName
+    , tDeviceMinutes
     , tType
     , tMessage
     , tStarted
@@ -398,6 +427,10 @@ module Network.AWS.DeviceFarm
 import           Network.AWS.DeviceFarm.CreateDevicePool
 import           Network.AWS.DeviceFarm.CreateProject
 import           Network.AWS.DeviceFarm.CreateUpload
+import           Network.AWS.DeviceFarm.DeleteDevicePool
+import           Network.AWS.DeviceFarm.DeleteProject
+import           Network.AWS.DeviceFarm.DeleteRun
+import           Network.AWS.DeviceFarm.DeleteUpload
 import           Network.AWS.DeviceFarm.GetAccountSettings
 import           Network.AWS.DeviceFarm.GetDevice
 import           Network.AWS.DeviceFarm.GetDevicePool
@@ -421,6 +454,8 @@ import           Network.AWS.DeviceFarm.ListUniqueProblems
 import           Network.AWS.DeviceFarm.ListUploads
 import           Network.AWS.DeviceFarm.ScheduleRun
 import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.DeviceFarm.UpdateDevicePool
+import           Network.AWS.DeviceFarm.UpdateProject
 import           Network.AWS.DeviceFarm.Waiters
 
 {- $errors

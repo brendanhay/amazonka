@@ -29,6 +29,7 @@ module Network.AWS.APIGateway.CreateDeployment
     , CreateDeployment
     -- * Request Lenses
     , cdStageDescription
+    , cdVariables
     , cdCacheClusterSize
     , cdCacheClusterEnabled
     , cdDescription
@@ -56,6 +57,7 @@ import           Network.AWS.Response
 -- /See:/ 'createDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
     { _cdStageDescription    :: !(Maybe Text)
+    , _cdVariables           :: !(Maybe (Map Text Text))
     , _cdCacheClusterSize    :: !(Maybe CacheClusterSize)
     , _cdCacheClusterEnabled :: !(Maybe Bool)
     , _cdDescription         :: !(Maybe Text)
@@ -68,6 +70,8 @@ data CreateDeployment = CreateDeployment'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdStageDescription'
+--
+-- * 'cdVariables'
 --
 -- * 'cdCacheClusterSize'
 --
@@ -85,6 +89,7 @@ createDeployment
 createDeployment pRestAPIId_ pStageName_ =
     CreateDeployment'
     { _cdStageDescription = Nothing
+    , _cdVariables = Nothing
     , _cdCacheClusterSize = Nothing
     , _cdCacheClusterEnabled = Nothing
     , _cdDescription = Nothing
@@ -96,6 +101,12 @@ createDeployment pRestAPIId_ pStageName_ =
 -- create.
 cdStageDescription :: Lens' CreateDeployment (Maybe Text)
 cdStageDescription = lens _cdStageDescription (\ s a -> s{_cdStageDescription = a});
+
+-- | A map that defines the stage variables for the Stage resource that is
+-- associated with the new deployment. Variable names can have alphabetic
+-- characters, and the values must match [A-Za-z0-9-._~:\/?#&=,]+
+cdVariables :: Lens' CreateDeployment (HashMap Text Text)
+cdVariables = lens _cdVariables (\ s a -> s{_cdVariables = a}) . _Default . _Map;
 
 -- | Specifies the cache cluster size for the Stage resource specified in the
 -- input, if a cache cluster is enabled.
@@ -131,6 +142,7 @@ instance ToJSON CreateDeployment where
           = object
               (catMaybes
                  [("stageDescription" .=) <$> _cdStageDescription,
+                  ("variables" .=) <$> _cdVariables,
                   ("cacheClusterSize" .=) <$> _cdCacheClusterSize,
                   ("cacheClusterEnabled" .=) <$>
                     _cdCacheClusterEnabled,

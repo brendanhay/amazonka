@@ -30,6 +30,7 @@ module Network.AWS.APIGateway.TestInvokeMethod
     , timPathWithQueryString
     , timBody
     , timClientCertificateId
+    , timStageVariables
     , timHeaders
     , timRestAPIId
     , timResourceId
@@ -58,6 +59,7 @@ data TestInvokeMethod = TestInvokeMethod'
     { _timPathWithQueryString :: !(Maybe Text)
     , _timBody                :: !(Maybe Text)
     , _timClientCertificateId :: !(Maybe Text)
+    , _timStageVariables      :: !(Maybe (Map Text Text))
     , _timHeaders             :: !(Maybe (Map Text Text))
     , _timRestAPIId           :: !Text
     , _timResourceId          :: !Text
@@ -73,6 +75,8 @@ data TestInvokeMethod = TestInvokeMethod'
 -- * 'timBody'
 --
 -- * 'timClientCertificateId'
+--
+-- * 'timStageVariables'
 --
 -- * 'timHeaders'
 --
@@ -91,6 +95,7 @@ testInvokeMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
     { _timPathWithQueryString = Nothing
     , _timBody = Nothing
     , _timClientCertificateId = Nothing
+    , _timStageVariables = Nothing
     , _timHeaders = Nothing
     , _timRestAPIId = pRestAPIId_
     , _timResourceId = pResourceId_
@@ -108,6 +113,10 @@ timBody = lens _timBody (\ s a -> s{_timBody = a});
 -- | Undocumented member.
 timClientCertificateId :: Lens' TestInvokeMethod (Maybe Text)
 timClientCertificateId = lens _timClientCertificateId (\ s a -> s{_timClientCertificateId = a});
+
+-- | Undocumented member.
+timStageVariables :: Lens' TestInvokeMethod (HashMap Text Text)
+timStageVariables = lens _timStageVariables (\ s a -> s{_timStageVariables = a}) . _Default . _Map;
 
 -- | Undocumented member.
 timHeaders :: Lens' TestInvokeMethod (HashMap Text Text)
@@ -149,6 +158,7 @@ instance ToJSON TestInvokeMethod where
                   ("body" .=) <$> _timBody,
                   ("clientCertificateId" .=) <$>
                     _timClientCertificateId,
+                  ("stageVariables" .=) <$> _timStageVariables,
                   ("headers" .=) <$> _timHeaders])
 
 instance ToPath TestInvokeMethod where

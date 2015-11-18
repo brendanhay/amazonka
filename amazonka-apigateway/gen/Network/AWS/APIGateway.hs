@@ -414,6 +414,7 @@ module Network.AWS.APIGateway
     , Stage
     , stage
     , sDeploymentId
+    , sVariables
     , sClientCertificateId
     , sCreatedDate
     , sCacheClusterStatus

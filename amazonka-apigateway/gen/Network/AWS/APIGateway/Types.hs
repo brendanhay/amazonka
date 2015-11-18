@@ -180,6 +180,7 @@ module Network.AWS.APIGateway.Types
     , Stage
     , stage
     , sDeploymentId
+    , sVariables
     , sClientCertificateId
     , sCreatedDate
     , sCacheClusterStatus

@@ -27,6 +27,7 @@ module Network.AWS.APIGateway.CreateStage
       createStage
     , CreateStage
     -- * Request Lenses
+    , csVariables
     , csCacheClusterSize
     , csCacheClusterEnabled
     , csDescription
@@ -39,6 +40,7 @@ module Network.AWS.APIGateway.CreateStage
     , Stage
     -- * Response Lenses
     , sDeploymentId
+    , sVariables
     , sClientCertificateId
     , sCreatedDate
     , sCacheClusterStatus
@@ -60,7 +62,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createStage' smart constructor.
 data CreateStage = CreateStage'
-    { _csCacheClusterSize    :: !(Maybe CacheClusterSize)
+    { _csVariables           :: !(Maybe (Map Text Text))
+    , _csCacheClusterSize    :: !(Maybe CacheClusterSize)
     , _csCacheClusterEnabled :: !(Maybe Bool)
     , _csDescription         :: !(Maybe Text)
     , _csRestAPIId           :: !Text
@@ -71,6 +74,8 @@ data CreateStage = CreateStage'
 -- | Creates a value of 'CreateStage' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csVariables'
 --
 -- * 'csCacheClusterSize'
 --
@@ -90,13 +95,20 @@ createStage
     -> CreateStage
 createStage pRestAPIId_ pStageName_ pDeploymentId_ =
     CreateStage'
-    { _csCacheClusterSize = Nothing
+    { _csVariables = Nothing
+    , _csCacheClusterSize = Nothing
     , _csCacheClusterEnabled = Nothing
     , _csDescription = Nothing
     , _csRestAPIId = pRestAPIId_
     , _csStageName = pStageName_
     , _csDeploymentId = pDeploymentId_
     }
+
+-- | A map that defines the stage variables for the new Stage resource.
+-- Variable names can have alphabetic characters, and the values must match
+-- [A-Za-z0-9-._~:\/?#&=,]+
+csVariables :: Lens' CreateStage (HashMap Text Text)
+csVariables = lens _csVariables (\ s a -> s{_csVariables = a}) . _Default . _Map;
 
 -- | The stage\'s cache cluster size.
 csCacheClusterSize :: Lens' CreateStage (Maybe CacheClusterSize)
@@ -134,7 +146,8 @@ instance ToJSON CreateStage where
         toJSON CreateStage'{..}
           = object
               (catMaybes
-                 [("cacheClusterSize" .=) <$> _csCacheClusterSize,
+                 [("variables" .=) <$> _csVariables,
+                  ("cacheClusterSize" .=) <$> _csCacheClusterSize,
                   ("cacheClusterEnabled" .=) <$>
                     _csCacheClusterEnabled,
                   ("description" .=) <$> _csDescription,

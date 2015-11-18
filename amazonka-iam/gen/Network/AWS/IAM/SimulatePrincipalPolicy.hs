@@ -60,6 +60,7 @@ module Network.AWS.IAM.SimulatePrincipalPolicy
     , sppPolicyInputList
     , sppResourcePolicy
     , sppCallerARN
+    , sppResourceHandlingOption
     , sppResourceARNs
     , sppMarker
     , sppMaxItems
@@ -85,16 +86,17 @@ import           Network.AWS.Response
 
 -- | /See:/ 'simulatePrincipalPolicy' smart constructor.
 data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
-    { _sppPolicyInputList :: !(Maybe [Text])
-    , _sppResourcePolicy  :: !(Maybe Text)
-    , _sppCallerARN       :: !(Maybe Text)
-    , _sppResourceARNs    :: !(Maybe [Text])
-    , _sppMarker          :: !(Maybe Text)
-    , _sppMaxItems        :: !(Maybe Nat)
-    , _sppContextEntries  :: !(Maybe [ContextEntry])
-    , _sppResourceOwner   :: !(Maybe Text)
-    , _sppPolicySourceARN :: !Text
-    , _sppActionNames     :: ![Text]
+    { _sppPolicyInputList        :: !(Maybe [Text])
+    , _sppResourcePolicy         :: !(Maybe Text)
+    , _sppCallerARN              :: !(Maybe Text)
+    , _sppResourceHandlingOption :: !(Maybe Text)
+    , _sppResourceARNs           :: !(Maybe [Text])
+    , _sppMarker                 :: !(Maybe Text)
+    , _sppMaxItems               :: !(Maybe Nat)
+    , _sppContextEntries         :: !(Maybe [ContextEntry])
+    , _sppResourceOwner          :: !(Maybe Text)
+    , _sppPolicySourceARN        :: !Text
+    , _sppActionNames            :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SimulatePrincipalPolicy' with the minimum fields required to make a request.
@@ -106,6 +108,8 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
 -- * 'sppResourcePolicy'
 --
 -- * 'sppCallerARN'
+--
+-- * 'sppResourceHandlingOption'
 --
 -- * 'sppResourceARNs'
 --
@@ -128,6 +132,7 @@ simulatePrincipalPolicy pPolicySourceARN_ =
     { _sppPolicyInputList = Nothing
     , _sppResourcePolicy = Nothing
     , _sppCallerARN = Nothing
+    , _sppResourceHandlingOption = Nothing
     , _sppResourceARNs = Nothing
     , _sppMarker = Nothing
     , _sppMaxItems = Nothing
@@ -167,6 +172,51 @@ sppResourcePolicy = lens _sppResourcePolicy (\ s a -> s{_sppResourcePolicy = a})
 -- in evaluating the policy.
 sppCallerARN :: Lens' SimulatePrincipalPolicy (Maybe Text)
 sppCallerARN = lens _sppCallerARN (\ s a -> s{_sppCallerARN = a});
+
+-- | Specifies the type of simulation to run. Different APIs that support
+-- resource-based policies require different combinations of resources. By
+-- specifying the type of simulation to run, you enable the policy
+-- simulator to enforce the presence of the required resources to ensure
+-- reliable simulation results. If your simulation does not match one of
+-- the following scenarios, then you can omit this parameter. The following
+-- list shows each of the supported scenario values and the resources that
+-- you must define to run the simulation.
+--
+-- Each of the EC2 scenarios requires that you specify instance, image, and
+-- security-group resources. If your scenario includes an EBS volume, then
+-- you must specify that volume as a resource. If the EC2 scenario includes
+-- VPC, then you must supply the network-interface resource. If it includes
+-- an IP subnet, then you must specify the subnet resource. For more
+-- information on the EC2 scenario options, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>
+-- in the /AWS EC2 User Guide/.
+--
+-- -   __EC2-Classic-InstanceStore__
+--
+--     instance, image, security-group
+--
+-- -   __EC2-Classic-EBS__
+--
+--     instance, image, security-group, volume
+--
+-- -   __EC2-VPC-InstanceStore__
+--
+--     instance, image, security-group, network-interface
+--
+-- -   __EC2-VPC-InstanceStore-Subnet__
+--
+--     instance, image, security-group, network-interface, subnet
+--
+-- -   __EC2-VPC-EBS__
+--
+--     instance, image, security-group, network-interface, volume
+--
+-- -   __EC2-VPC-EBS-Subnet__
+--
+--     instance, image, security-group, network-interface, subnet, volume
+--
+sppResourceHandlingOption :: Lens' SimulatePrincipalPolicy (Maybe Text)
+sppResourceHandlingOption = lens _sppResourceHandlingOption (\ s a -> s{_sppResourceHandlingOption = a});
 
 -- | A list of ARNs of AWS resources to include in the simulation. If this
 -- parameter is not provided then the value defaults to '*' (all
@@ -258,6 +308,8 @@ instance ToQuery SimulatePrincipalPolicy where
                    (toQueryList "member" <$> _sppPolicyInputList),
                "ResourcePolicy" =: _sppResourcePolicy,
                "CallerArn" =: _sppCallerARN,
+               "ResourceHandlingOption" =:
+                 _sppResourceHandlingOption,
                "ResourceArns" =:
                  toQuery (toQueryList "member" <$> _sppResourceARNs),
                "Marker" =: _sppMarker, "MaxItems" =: _sppMaxItems,

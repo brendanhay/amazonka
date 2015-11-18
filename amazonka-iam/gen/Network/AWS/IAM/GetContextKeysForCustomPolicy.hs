@@ -71,7 +71,8 @@ getContextKeysForCustomPolicy =
     }
 
 -- | A list of policies for which you want list of context keys used in
--- 'Condition' elements.
+-- 'Condition' elements. Each document is specified as a string containing
+-- the complete, valid JSON text of an IAM policy.
 gckfcpPolicyInputList :: Lens' GetContextKeysForCustomPolicy [Text]
 gckfcpPolicyInputList = lens _gckfcpPolicyInputList (\ s a -> s{_gckfcpPolicyInputList = a}) . _Coerce;
 

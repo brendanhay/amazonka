@@ -1,5 +1,6 @@
-resolver: nightly-2015-08-06
+resolver: nightly-2015-11-17
 flags:    {}
-packages: ['.']
 extra-deps:
-  - text-regex-replace-0.1.0.1
+  - text-regex-replace-0.1.1.1
+packages:
+  - '.'

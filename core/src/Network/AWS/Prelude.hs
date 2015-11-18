@@ -12,7 +12,7 @@ module Network.AWS.Prelude
     ) where
 
 import           Control.Applicative         as Export (Applicative, pure)
-import           Control.Applicative         as Export ((<$>), (<|>))
+import           Control.Applicative         as Export ((<$>), (<*>), (<|>))
 import           Control.Lens                as Export (Getting, Iso', Lens',
                                                         Prism')
 import           Control.Lens                as Export (has, iso, lens, mapping,

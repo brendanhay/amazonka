@@ -99,6 +99,14 @@ rdpgResetAllParameters = lens _rdpgResetAllParameters (\ s a -> s{_rdpgResetAllP
 -- use the 'pending-reboot' value for both dynamic and static parameters,
 -- and changes are applied when DB instance reboots.
 --
+-- __MariaDB__
+--
+-- Valid Values (for Apply method): 'immediate' | 'pending-reboot'
+--
+-- You can use the immediate value with dynamic parameters only. You can
+-- use the 'pending-reboot' value for both dynamic and static parameters,
+-- and changes are applied when DB instance reboots.
+--
 -- __Oracle__
 --
 -- Valid Values (for Apply method): 'pending-reboot'

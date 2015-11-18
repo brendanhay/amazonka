@@ -207,15 +207,14 @@ cdcCharacterSetName = lens _cdcCharacterSetName (\ s a -> s{_cdcCharacterSetName
 cdcPreferredBackupWindow :: Lens' CreateDBCluster (Maybe Text)
 cdcPreferredBackupWindow = lens _cdcPreferredBackupWindow (\ s a -> s{_cdcPreferredBackupWindow = a});
 
--- | The number of days for which automated backups are retained. Setting
--- this parameter to a positive number enables backups. Setting this
--- parameter to 0 disables automated backups.
+-- | The number of days for which automated backups are retained. You must
+-- specify a minimum value of 1.
 --
 -- Default: 1
 --
 -- Constraints:
 --
--- -   Must be a value from 0 to 35
+-- -   Must be a value from 1 to 35
 cdcBackupRetentionPeriod :: Lens' CreateDBCluster (Maybe Int)
 cdcBackupRetentionPeriod = lens _cdcBackupRetentionPeriod (\ s a -> s{_cdcBackupRetentionPeriod = a});
 

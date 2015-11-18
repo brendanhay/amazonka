@@ -239,6 +239,11 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
 -- -   __Version 5.6 (Available in all regions):__
 --     ' 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23'
 --
+-- __MariaDB__
+--
+-- -   __Version 10.0 (Available in all regions except AWS GovCloud (US)
+--     Region (us-gov-west-1)):__ ' 10.0.17 '
+--
 -- __Oracle Database Enterprise Edition (oracle-ee)__
 --
 -- -   __Version 11.2 (Only available in the following regions:
@@ -282,25 +287,34 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
 --
 -- __Microsoft SQL Server Enterprise Edition (sqlserver-ee)__
 --
--- -   __Version 10.50 (Only available in the following regions:
---     eu-central-1, us-west-1):__ ' 10.50.2789.0.v1'
--- -   __Version 11.00 (Only available in the following regions:
---     eu-central-1, us-west-1):__ ' 11.00.2100.60.v1'
+-- -   __Version 10.50 (Available in all regions):__ ' 10.50.2789.0.v1'
+-- -   __Version 10.50 (Available in all regions):__ ' 10.50.6000.34.v1'
+-- -   __Version 11.00 (Available in all regions):__ ' 11.00.2100.60.v1'
+-- -   __Version 11.00 (Available in all regions):__ ' 11.00.5058.0.v1'
 --
 -- __Microsoft SQL Server Express Edition (sqlserver-ex)__
 --
 -- -   __Version 10.50 (Available in all regions):__ ' 10.50.2789.0.v1'
+-- -   __Version 10.50 (Available in all regions):__ ' 10.50.6000.34.v1'
 -- -   __Version 11.00 (Available in all regions):__ ' 11.00.2100.60.v1'
+-- -   __Version 11.00 (Available in all regions):__ ' 11.00.5058.0.v1'
+-- -   __Version 12.00 (Available in all regions):__ ' 12.00.4422.0.v1'
 --
 -- __Microsoft SQL Server Standard Edition (sqlserver-se)__
 --
 -- -   __Version 10.50 (Available in all regions):__ ' 10.50.2789.0.v1'
+-- -   __Version 10.50 (Available in all regions):__ ' 10.50.6000.34.v1'
 -- -   __Version 11.00 (Available in all regions):__ ' 11.00.2100.60.v1'
+-- -   __Version 11.00 (Available in all regions):__ ' 11.00.5058.0.v1'
+-- -   __Version 12.00 (Available in all regions):__ ' 12.00.4422.0.v1'
 --
 -- __Microsoft SQL Server Web Edition (sqlserver-web)__
 --
 -- -   __Version 10.50 (Available in all regions):__ ' 10.50.2789.0.v1'
+-- -   __Version 10.50 (Available in all regions):__ ' 10.50.6000.34.v1'
 -- -   __Version 11.00 (Available in all regions):__ ' 11.00.2100.60.v1'
+-- -   __Version 11.00 (Available in all regions):__ ' 11.00.5058.0.v1'
+-- -   __Version 12.00 (Available in all regions):__ ' 12.00.4422.0.v1'
 cdiEngineVersion :: Lens' CreateDBInstance (Maybe Text)
 cdiEngineVersion = lens _cdiEngineVersion (\ s a -> s{_cdiEngineVersion = a});
 
@@ -330,6 +344,10 @@ cdiDBClusterIdentifier = lens _cdiDBClusterIdentifier (\ s a -> s{_cdiDBClusterI
 -- Type: String
 --
 -- __MySQL__
+--
+-- Constraints: Must contain from 8 to 41 characters.
+--
+-- __MariaDB__
 --
 -- Constraints: Must contain from 8 to 41 characters.
 --
@@ -387,6 +405,13 @@ cdiAutoMinorVersionUpgrade = lens _cdiAutoMinorVersionUpgrade (\ s a -> s{_cdiAu
 --
 -- -   Must be 1 to 16 alphanumeric characters.
 -- -   First character must be a letter.
+-- -   Cannot be a reserved word for the chosen database engine.
+--
+-- __MariaDB__
+--
+-- Constraints:
+--
+-- -   Must be 1 to 16 alphanumeric characters.
 -- -   Cannot be a reserved word for the chosen database engine.
 --
 -- Type: String
@@ -468,7 +493,7 @@ cdiCharacterSetName = lens _cdiCharacterSetName (\ s a -> s{_cdiCharacterSetName
 
 -- | The KMS key identifier for an encrypted DB instance.
 --
--- The KMS key identifier is the Amazon Resoure Name (ARN) for the KMS
+-- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS
 -- encryption key. If you are creating a DB instance with the same AWS
 -- account that owns the KMS encryption key used to encrypt the new DB
 -- instance, then you can use the KMS key alias instead of the ARN for the
@@ -565,6 +590,10 @@ cdiMultiAZ = lens _cdiMultiAZ (\ s a -> s{_cdiMultiAZ = a});
 --
 -- Constraints: Must be an integer from 5 to 6144.
 --
+-- __MariaDB__
+--
+-- Constraints: Must be an integer from 5 to 6144.
+--
 -- __PostgreSQL__
 --
 -- Constraints: Must be an integer from 5 to 6144.
@@ -607,6 +636,14 @@ cdiTags = lens _cdiTags (\ s a -> s{_cdiTags = a}) . _Default . _Coerce;
 -- | The port number on which the database accepts connections.
 --
 -- __MySQL__
+--
+-- Default: '3306'
+--
+-- Valid Values: '1150-65535'
+--
+-- Type: Integer
+--
+-- __MariaDB__
 --
 -- Default: '3306'
 --
@@ -663,6 +700,17 @@ cdiStorageType = lens _cdiStorageType (\ s a -> s{_cdiStorageType = a});
 -- Type: String
 --
 -- __MySQL__
+--
+-- The name of the database to create when the DB instance is created. If
+-- this parameter is not specified, no database is created in the DB
+-- instance.
+--
+-- Constraints:
+--
+-- -   Must contain 1 to 64 alphanumeric characters
+-- -   Cannot be a word reserved by the specified database engine
+--
+-- __MariaDB__
 --
 -- The name of the database to create when the DB instance is created. If
 -- this parameter is not specified, no database is created in the DB
@@ -730,15 +778,15 @@ cdiDBInstanceIdentifier = lens _cdiDBInstanceIdentifier (\ s a -> s{_cdiDBInstan
 -- | The compute and memory capacity of the DB instance.
 --
 -- Valid Values:
--- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
+-- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
 cdiDBInstanceClass :: Lens' CreateDBInstance Text
 cdiDBInstanceClass = lens _cdiDBInstanceClass (\ s a -> s{_cdiDBInstanceClass = a});
 
 -- | The name of the database engine to be used for this instance.
 --
--- Valid Values: 'MySQL' | 'oracle-se1' | 'oracle-se' | 'oracle-ee' |
--- 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' | 'sqlserver-web' |
--- 'postgres'
+-- Valid Values: 'MySQL' | 'mariadb' | 'oracle-se1' | 'oracle-se' |
+-- 'oracle-ee' | 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' |
+-- 'sqlserver-web' | 'postgres'
 --
 -- Not every database engine is available for every AWS region.
 cdiEngine :: Lens' CreateDBInstance Text

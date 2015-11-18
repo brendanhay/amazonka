@@ -160,15 +160,14 @@ mdcPreferredMaintenanceWindow = lens _mdcPreferredMaintenanceWindow (\ s a -> s{
 mdcPreferredBackupWindow :: Lens' ModifyDBCluster (Maybe Text)
 mdcPreferredBackupWindow = lens _mdcPreferredBackupWindow (\ s a -> s{_mdcPreferredBackupWindow = a});
 
--- | The number of days for which automated backups are retained. Setting
--- this parameter to a positive number enables backups. Setting this
--- parameter to 0 disables automated backups.
+-- | The number of days for which automated backups are retained. You must
+-- specify a minimum value of 1.
 --
 -- Default: 1
 --
 -- Constraints:
 --
--- -   Must be a value from 0 to 35
+-- -   Must be a value from 1 to 35
 mdcBackupRetentionPeriod :: Lens' ModifyDBCluster (Maybe Int)
 mdcBackupRetentionPeriod = lens _mdcBackupRetentionPeriod (\ s a -> s{_mdcBackupRetentionPeriod = a});
 

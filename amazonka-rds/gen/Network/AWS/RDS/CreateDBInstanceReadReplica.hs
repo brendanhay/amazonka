@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a DB instance for a DB instance running MySQL or PostgreSQL that
--- acts as a Read Replica of a source DB instance.
+-- Creates a DB instance for a DB instance running MySQL, MariaDB, or
+-- PostgreSQL that acts as a Read Replica of a source DB instance.
 --
 -- All Read Replica DB instances are created as Single-AZ deployments with
 -- backups disabled. All other DB instance attributes (including DB
@@ -186,7 +186,7 @@ cdirrIOPS = lens _cdirrIOPS (\ s a -> s{_cdirrIOPS = a});
 -- | The compute and memory capacity of the Read Replica.
 --
 -- Valid Values:
--- 'db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
+-- 'db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
 --
 -- Default: Inherits from the source DB instance.
 cdirrDBInstanceClass :: Lens' CreateDBInstanceReadReplica (Maybe Text)
@@ -247,7 +247,8 @@ cdirrDBInstanceIdentifier = lens _cdirrDBInstanceIdentifier (\ s a -> s{_cdirrDB
 --
 -- Constraints:
 --
--- -   Must be the identifier of an existing DB instance.
+-- -   Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL
+--     DB instance.
 -- -   Can specify a DB instance that is a MySQL Read Replica only if the
 --     source is running MySQL 5.6.
 -- -   Can specify a DB instance that is a PostgreSQL Read Replica only if

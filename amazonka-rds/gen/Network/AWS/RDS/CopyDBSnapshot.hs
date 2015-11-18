@@ -18,8 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Copies the specified DBSnapshot. The source DBSnapshot must be in the
+-- Copies the specified DBSnapshot. The source DB snapshot must be in the
 -- \"available\" state.
+--
+-- If you are copying from a shared manual DB snapshot, the
+-- 'SourceDBSnapshotIdentifier' must be the ARN of the shared DB snapshot.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBSnapshot.html AWS API Reference> for CopyDBSnapshot.
 module Network.AWS.RDS.CopyDBSnapshot
@@ -90,6 +93,9 @@ cdsTags :: Lens' CopyDBSnapshot [Tag]
 cdsTags = lens _cdsTags (\ s a -> s{_cdsTags = a}) . _Default . _Coerce;
 
 -- | The identifier for the source DB snapshot.
+--
+-- If you are copying from a shared manual DB snapshot, this must be the
+-- ARN of the shared DB snapshot.
 --
 -- Constraints:
 --

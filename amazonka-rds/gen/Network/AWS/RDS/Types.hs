@@ -32,6 +32,7 @@ module Network.AWS.RDS.Types
     , _SubscriptionCategoryNotFoundFault
     , _SubscriptionNotFoundFault
     , _InvalidSubnet
+    , _SharedSnapshotQuotaExceededFault
     , _DBSubnetQuotaExceededFault
     , _OptionGroupNotFoundFault
     , _DBClusterNotFoundFault
@@ -127,6 +128,7 @@ module Network.AWS.RDS.Types
     , dcStatus
     , dcDBClusterIdentifier
     , dcDBClusterMembers
+    , dcHostedZoneId
     , dcDBClusterParameterGroup
     , dcMasterUsername
     , dcEarliestRestorableTime
@@ -315,6 +317,18 @@ module Network.AWS.RDS.Types
     , dsPort
     , dsStorageType
 
+    -- * DBSnapshotAttribute
+    , DBSnapshotAttribute
+    , dbSnapshotAttribute
+    , dsaAttributeValues
+    , dsaAttributeName
+
+    -- * DBSnapshotAttributesResult
+    , DBSnapshotAttributesResult
+    , dbSnapshotAttributesResult
+    , dsarDBSnapshotIdentifier
+    , dsarDBSnapshotAttributes
+
     -- * DBSubnetGroup
     , DBSubnetGroup
     , dbSubnetGroup
@@ -342,6 +356,7 @@ module Network.AWS.RDS.Types
     -- * Endpoint
     , Endpoint
     , endpoint
+    , eHostedZoneId
     , eAddress
     , ePort
 
@@ -715,6 +730,12 @@ _SubscriptionNotFoundFault =
 -- are not all in a common VPC.
 _InvalidSubnet :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSubnet = _ServiceError . hasStatus 400 . hasCode "InvalidSubnet"
+
+-- | You have exceeded the maximum number of account ids that you can share a
+-- manual DB snapshot with.
+_SharedSnapshotQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
+_SharedSnapshotQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "SharedSnapshotQuotaExceeded"
 
 -- | Request would result in user exceeding the allowed number of subnets in
 -- a DB subnet groups.

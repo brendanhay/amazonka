@@ -49,6 +49,9 @@ module Network.AWS.Kinesis
     -- ** StreamExists
     , streamExists
 
+    -- ** StreamNotExists
+    , streamNotExists
+
     -- * Operations
     -- $operations
 

@@ -152,6 +152,7 @@ module Control.Monad.Trans.AWS
 
 import           Control.Applicative
 import           Control.Exception.Lens
+import           Control.Lens
 import           Control.Monad.Base
 import           Control.Monad.Catch
 import           Control.Monad.Error.Class    (MonadError (..))

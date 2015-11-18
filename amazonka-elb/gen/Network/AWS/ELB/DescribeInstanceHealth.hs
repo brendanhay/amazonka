@@ -18,10 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the state of the specified instances registered with the
+-- Describes the state of the specified instances with respect to the
 -- specified load balancer. If no instances are specified, the call
--- describes the state of all instances registered with the load balancer,
--- not including any terminated instances.
+-- describes the state of all instances that are currently registered with
+-- the load balancer. If instances are specified, their state is returned
+-- even if they are no longer registered with the load balancer. The state
+-- of terminated instances is not returned.
 --
 -- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeInstanceHealth.html AWS API Reference> for DescribeInstanceHealth.
 module Network.AWS.ELB.DescribeInstanceHealth

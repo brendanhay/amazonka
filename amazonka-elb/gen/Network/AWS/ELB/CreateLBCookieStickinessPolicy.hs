@@ -100,7 +100,8 @@ clbcspCookieExpirationPeriod = lens _clbcspCookieExpirationPeriod (\ s a -> s{_c
 clbcspLoadBalancerName :: Lens' CreateLBCookieStickinessPolicy Text
 clbcspLoadBalancerName = lens _clbcspLoadBalancerName (\ s a -> s{_clbcspLoadBalancerName = a});
 
--- | The name of the policy being created. This name must be unique within
+-- | The name of the policy being created. Policy names must consist of
+-- alphanumeric characters and dashes (-). This name must be unique within
 -- the set of policies for this load balancer.
 clbcspPolicyName :: Lens' CreateLBCookieStickinessPolicy Text
 clbcspPolicyName = lens _clbcspPolicyName (\ s a -> s{_clbcspPolicyName = a});

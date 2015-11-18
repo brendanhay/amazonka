@@ -11,18 +11,28 @@ module Network.AWS.Prelude
     , module Export
     ) where
 
-import           Control.Applicative         as Export (Applicative, pure,
-                                                        (<$>), (<*>), (<|>))
-import           Control.Lens                as Export hiding ((.=))
+import           Control.Applicative         as Export (Applicative, pure)
+import           Control.Applicative         as Export ((<$>), (<*>), (<|>))
+import           Control.Lens                as Export (Getting, Iso', Lens',
+                                                        Prism')
+import           Control.Lens                as Export (concatOf, folding, has,
+                                                        iso, lens, mapping,
+                                                        prism, to, _Just, _last)
+import           Control.Lens                as Export (( # ), (&), (.~), (<&>),
+                                                        (^.), (^?))
 import           Data.Data                   as Export (Data, Typeable)
 import           Data.Foldable               as Export (Foldable)
 import           Data.Hashable               as Export (Hashable)
 import           Data.HashMap.Strict         as Export (HashMap)
 import           Data.List.NonEmpty          as Export (NonEmpty (..))
 import           Data.Maybe                  as Export
-import           Data.Monoid                 as Export (First, mconcat, mempty,
-                                                        (<>))
+import           Data.Monoid                 as Export (First, mconcat, mempty)
+import           Data.Monoid                 as Export ((<>))
 import           GHC.Generics                as Export (Generic)
+import           Network.HTTP.Types.Status   as Export (Status (..))
+import           Network.HTTP.Types.URI      as Export (urlDecode, urlEncode)
+import           Numeric.Natural             as Export (Natural)
+
 import           Network.AWS.Data.Base64     as Export
 import           Network.AWS.Data.Body       as Export
 import           Network.AWS.Data.ByteString as Export
@@ -40,10 +50,6 @@ import           Network.AWS.Data.Time       as Export
 import           Network.AWS.Data.XML        as Export
 import           Network.AWS.Endpoint        as Export
 import           Network.AWS.Error           as Export
-import           Network.HTTP.Types.Status   as Export (Status (..))
-import           Network.HTTP.Types.URI      as Export (urlDecode, urlEncode)
-import           Numeric.Natural             as Export (Natural)
-
 import           Network.AWS.Types           as Export hiding (AccessKey,
                                                         Algorithm, Endpoint,
                                                         LogLevel (..), Seconds,

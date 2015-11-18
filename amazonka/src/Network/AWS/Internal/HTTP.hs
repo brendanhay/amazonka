@@ -20,6 +20,7 @@ module Network.AWS.Internal.HTTP
     ) where
 
 import           Control.Arrow                (first)
+import           Control.Lens
 import           Control.Monad
 import           Control.Monad.Catch
 import           Control.Monad.Reader

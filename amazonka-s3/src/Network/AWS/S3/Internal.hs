@@ -101,7 +101,7 @@ newtype ObjectVersionId = ObjectVersionId Text
         , ToLog
         )
 
-newtype LocationConstraint = LocationConstraint { location :: Region }
+newtype LocationConstraint = LocationConstraint { constraintRegion :: Region }
     deriving
         ( Eq
         , Ord
@@ -116,7 +116,7 @@ newtype LocationConstraint = LocationConstraint { location :: Region }
         )
 
 _LocationConstraint :: Iso' LocationConstraint Region
-_LocationConstraint = iso location LocationConstraint
+_LocationConstraint = iso constraintRegion LocationConstraint
 
 instance FromText LocationConstraint where
     parser = LocationConstraint <$> (parser <|> go)

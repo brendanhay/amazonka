@@ -87,7 +87,7 @@ instance ToQuery GetBucketLocation where
 -- | /See:/ 'getBucketLocationResponse' smart constructor.
 data GetBucketLocationResponse = GetBucketLocationResponse'
     { _grsResponseStatus     :: !Int
-    , _grsLocationConstraint :: !Region
+    , _grsLocationConstraint :: !LocationConstraint
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketLocationResponse' with the minimum fields required to make a request.
@@ -99,7 +99,7 @@ data GetBucketLocationResponse = GetBucketLocationResponse'
 -- * 'grsLocationConstraint'
 getBucketLocationResponse
     :: Int -- ^ 'grsResponseStatus'
-    -> Region -- ^ 'grsLocationConstraint'
+    -> LocationConstraint -- ^ 'grsLocationConstraint'
     -> GetBucketLocationResponse
 getBucketLocationResponse pResponseStatus_ pLocationConstraint_ =
     GetBucketLocationResponse'
@@ -112,5 +112,5 @@ grsResponseStatus :: Lens' GetBucketLocationResponse Int
 grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
 
 -- | Undocumented member.
-grsLocationConstraint :: Lens' GetBucketLocationResponse Region
+grsLocationConstraint :: Lens' GetBucketLocationResponse LocationConstraint
 grsLocationConstraint = lens _grsLocationConstraint (\ s a -> s{_grsLocationConstraint = a});

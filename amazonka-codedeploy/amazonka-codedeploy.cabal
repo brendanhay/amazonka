@@ -1,5 +1,5 @@
 name:                  amazonka-codedeploy
-version:               1.3.5
+version:               1.3.6
 synopsis:              Amazon CodeDeploy SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -140,7 +140,7 @@ library
         , Network.AWS.CodeDeploy.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.5.*
+          amazonka-core == 1.3.6.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-codedeploy-test
@@ -160,9 +160,9 @@ test-suite amazonka-codedeploy-test
         , Test.AWS.CodeDeploy.Internal
 
     build-depends:
-          amazonka-core == 1.3.5.*
-        , amazonka-test == 1.3.5.*
-        , amazonka-codedeploy == 1.3.5.*
+          amazonka-core == 1.3.6.*
+        , amazonka-test == 1.3.6.*
+        , amazonka-codedeploy == 1.3.6.*
         , base
         , bytestring
         , lens

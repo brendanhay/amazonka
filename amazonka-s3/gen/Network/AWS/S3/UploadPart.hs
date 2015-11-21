@@ -39,7 +39,6 @@ module Network.AWS.S3.UploadPart
     , upRequestPayer
     , upSSECustomerKeyMD5
     , upContentMD5
-    , upServerSideEncryption
     , upBucket
     , upKey
     , upPartNumber
@@ -73,7 +72,6 @@ data UploadPart = UploadPart'
     , _upRequestPayer         :: !(Maybe RequestPayer)
     , _upSSECustomerKeyMD5    :: !(Maybe Text)
     , _upContentMD5           :: !(Maybe Text)
-    , _upServerSideEncryption :: !(Maybe UploadPartRequestServerSideEncryption)
     , _upBucket               :: !BucketName
     , _upKey                  :: !ObjectKey
     , _upPartNumber           :: !Int
@@ -96,8 +94,6 @@ data UploadPart = UploadPart'
 -- * 'upSSECustomerKeyMD5'
 --
 -- * 'upContentMD5'
---
--- * 'upServerSideEncryption'
 --
 -- * 'upBucket'
 --
@@ -123,7 +119,6 @@ uploadPart pBucket_ pKey_ pPartNumber_ pUploadId_ pBody_ =
     , _upRequestPayer = Nothing
     , _upSSECustomerKeyMD5 = Nothing
     , _upContentMD5 = Nothing
-    , _upServerSideEncryption = Nothing
     , _upBucket = pBucket_
     , _upKey = pKey_
     , _upPartNumber = pPartNumber_
@@ -164,10 +159,6 @@ upSSECustomerKeyMD5 = lens _upSSECustomerKeyMD5 (\ s a -> s{_upSSECustomerKeyMD5
 -- | Undocumented member.
 upContentMD5 :: Lens' UploadPart (Maybe Text)
 upContentMD5 = lens _upContentMD5 (\ s a -> s{_upContentMD5 = a});
-
--- | Undocumented member.
-upServerSideEncryption :: Lens' UploadPart (Maybe UploadPartRequestServerSideEncryption)
-upServerSideEncryption = lens _upServerSideEncryption (\ s a -> s{_upServerSideEncryption = a});
 
 -- | Undocumented member.
 upBucket :: Lens' UploadPart BucketName
@@ -223,9 +214,7 @@ instance ToHeaders UploadPart where
                "x-amz-request-payer" =# _upRequestPayer,
                "x-amz-server-side-encryption-customer-key-MD5" =#
                  _upSSECustomerKeyMD5,
-               "Content-MD5" =# _upContentMD5,
-               "x-amz-server-side-encryption" =#
-                 _upServerSideEncryption]
+               "Content-MD5" =# _upContentMD5]
 
 instance ToPath UploadPart where
         toPath UploadPart'{..}

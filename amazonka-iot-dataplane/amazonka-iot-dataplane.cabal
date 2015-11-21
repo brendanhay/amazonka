@@ -1,5 +1,5 @@
 name:                  amazonka-iot-dataplane
-version:               1.3.5
+version:               1.3.6
 synopsis:              Amazon IoT Data Plane SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -63,7 +63,7 @@ library
         , Network.AWS.IoTDataPlane.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.5.*
+          amazonka-core == 1.3.6.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-iot-dataplane-test
@@ -83,9 +83,9 @@ test-suite amazonka-iot-dataplane-test
         , Test.AWS.IoTDataPlane.Internal
 
     build-depends:
-          amazonka-core == 1.3.5.*
-        , amazonka-test == 1.3.5.*
-        , amazonka-iot-dataplane == 1.3.5.*
+          amazonka-core == 1.3.6.*
+        , amazonka-test == 1.3.6.*
+        , amazonka-iot-dataplane == 1.3.6.*
         , base
         , bytestring
         , lens

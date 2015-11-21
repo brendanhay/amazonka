@@ -48,6 +48,7 @@ module Network.AWS.IAM.SimulateCustomPolicy
     -- * Request Lenses
     , scpResourcePolicy
     , scpCallerARN
+    , scpResourceHandlingOption
     , scpResourceARNs
     , scpMarker
     , scpMaxItems
@@ -73,15 +74,16 @@ import           Network.AWS.Response
 
 -- | /See:/ 'simulateCustomPolicy' smart constructor.
 data SimulateCustomPolicy = SimulateCustomPolicy'
-    { _scpResourcePolicy  :: !(Maybe Text)
-    , _scpCallerARN       :: !(Maybe Text)
-    , _scpResourceARNs    :: !(Maybe [Text])
-    , _scpMarker          :: !(Maybe Text)
-    , _scpMaxItems        :: !(Maybe Nat)
-    , _scpContextEntries  :: !(Maybe [ContextEntry])
-    , _scpResourceOwner   :: !(Maybe Text)
-    , _scpPolicyInputList :: ![Text]
-    , _scpActionNames     :: ![Text]
+    { _scpResourcePolicy         :: !(Maybe Text)
+    , _scpCallerARN              :: !(Maybe Text)
+    , _scpResourceHandlingOption :: !(Maybe Text)
+    , _scpResourceARNs           :: !(Maybe [Text])
+    , _scpMarker                 :: !(Maybe Text)
+    , _scpMaxItems               :: !(Maybe Nat)
+    , _scpContextEntries         :: !(Maybe [ContextEntry])
+    , _scpResourceOwner          :: !(Maybe Text)
+    , _scpPolicyInputList        :: ![Text]
+    , _scpActionNames            :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SimulateCustomPolicy' with the minimum fields required to make a request.
@@ -91,6 +93,8 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
 -- * 'scpResourcePolicy'
 --
 -- * 'scpCallerARN'
+--
+-- * 'scpResourceHandlingOption'
 --
 -- * 'scpResourceARNs'
 --
@@ -111,6 +115,7 @@ simulateCustomPolicy =
     SimulateCustomPolicy'
     { _scpResourcePolicy = Nothing
     , _scpCallerARN = Nothing
+    , _scpResourceHandlingOption = Nothing
     , _scpResourceARNs = Nothing
     , _scpMarker = Nothing
     , _scpMaxItems = Nothing
@@ -136,6 +141,51 @@ scpResourcePolicy = lens _scpResourcePolicy (\ s a -> s{_scpResourcePolicy = a})
 -- of an assumed role, federated user, or a service principal.
 scpCallerARN :: Lens' SimulateCustomPolicy (Maybe Text)
 scpCallerARN = lens _scpCallerARN (\ s a -> s{_scpCallerARN = a});
+
+-- | Specifies the type of simulation to run. Different APIs that support
+-- resource-based policies require different combinations of resources. By
+-- specifying the type of simulation to run, you enable the policy
+-- simulator to enforce the presence of the required resources to ensure
+-- reliable simulation results. If your simulation does not match one of
+-- the following scenarios, then you can omit this parameter. The following
+-- list shows each of the supported scenario values and the resources that
+-- you must define to run the simulation.
+--
+-- Each of the EC2 scenarios requires that you specify instance, image, and
+-- security-group resources. If your scenario includes an EBS volume, then
+-- you must specify that volume as a resource. If the EC2 scenario includes
+-- VPC, then you must supply the network-interface resource. If it includes
+-- an IP subnet, then you must specify the subnet resource. For more
+-- information on the EC2 scenario options, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>
+-- in the /AWS EC2 User Guide/.
+--
+-- -   __EC2-Classic-InstanceStore__
+--
+--     instance, image, security-group
+--
+-- -   __EC2-Classic-EBS__
+--
+--     instance, image, security-group, volume
+--
+-- -   __EC2-VPC-InstanceStore__
+--
+--     instance, image, security-group, network-interface
+--
+-- -   __EC2-VPC-InstanceStore-Subnet__
+--
+--     instance, image, security-group, network-interface, subnet
+--
+-- -   __EC2-VPC-EBS__
+--
+--     instance, image, security-group, network-interface, volume
+--
+-- -   __EC2-VPC-EBS-Subnet__
+--
+--     instance, image, security-group, network-interface, subnet, volume
+--
+scpResourceHandlingOption :: Lens' SimulateCustomPolicy (Maybe Text)
+scpResourceHandlingOption = lens _scpResourceHandlingOption (\ s a -> s{_scpResourceHandlingOption = a});
 
 -- | A list of ARNs of AWS resources to include in the simulation. If this
 -- parameter is not provided then the value defaults to '*' (all
@@ -233,6 +283,8 @@ instance ToQuery SimulateCustomPolicy where
                "Version" =: ("2010-05-08" :: ByteString),
                "ResourcePolicy" =: _scpResourcePolicy,
                "CallerArn" =: _scpCallerARN,
+               "ResourceHandlingOption" =:
+                 _scpResourceHandlingOption,
                "ResourceArns" =:
                  toQuery (toQueryList "member" <$> _scpResourceARNs),
                "Marker" =: _scpMarker, "MaxItems" =: _scpMaxItems,

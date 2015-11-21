@@ -18,13 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the account aliases associated with the account. For information
--- about using an AWS account alias, see
+-- Lists the account alias associated with the account (Note: you can have
+-- only one). For information about using an AWS account alias, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID>
 -- in the /IAM User Guide/.
---
--- You can paginate the results using the 'MaxItems' and 'Marker'
--- parameters.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccountAliases.html AWS API Reference> for ListAccountAliases.
 --
@@ -181,6 +178,7 @@ laarsIsTruncated = lens _laarsIsTruncated (\ s a -> s{_laarsIsTruncated = a});
 laarsResponseStatus :: Lens' ListAccountAliasesResponse Int
 laarsResponseStatus = lens _laarsResponseStatus (\ s a -> s{_laarsResponseStatus = a});
 
--- | A list of aliases associated with the account.
+-- | A list of aliases associated with the account. AWS supports only one
+-- alias per account.
 laarsAccountAliases :: Lens' ListAccountAliasesResponse [Text]
 laarsAccountAliases = lens _laarsAccountAliases (\ s a -> s{_laarsAccountAliases = a}) . _Coerce;

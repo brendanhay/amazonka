@@ -47,8 +47,8 @@
 -- policy to grant permissions that are in excess of those allowed by the
 -- access policy of the role that is being assumed. For more information,
 -- see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithSAML>
--- in /Using Temporary Security Credentials/.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity>
+-- in the /Using IAM/.
 --
 -- Before your application can call 'AssumeRoleWithSAML', you must
 -- configure your SAML identity provider (IdP) to issue the claims required
@@ -64,13 +64,14 @@
 --
 -- For more information, see the following resources:
 --
--- -   <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating Temporary Security Credentials for SAML Federation>.
--- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/idp-managing-identityproviders.html SAML Providers>
---     in /Using IAM/.
--- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuring a Relying Party and Claims>
---     in /Using IAM/.
--- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml.html Creating a Role for SAML-Based Federation>
---     in /Using IAM/.
+-- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html About SAML 2.0-based Federation>
+--     in the /Using IAM/.
+-- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html Creating SAML Identity Providers>
+--     in the /Using IAM/.
+-- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_relying-party.html Configuring a Relying Party and Claims>
+--     in the /Using IAM/.
+-- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html Creating a Role for SAML 2.0 Federation>
+--     in the /Using IAM/.
 --
 -- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html AWS API Reference> for AssumeRoleWithSAML.
 module Network.AWS.STS.AssumeRoleWithSAML
@@ -162,9 +163,9 @@ arwsamlDurationSeconds = lens _arwsamlDurationSeconds (\ s a -> s{_arwsamlDurati
 -- way to further restrict the permissions for the resulting temporary
 -- security credentials. You cannot use the passed policy to grant
 -- permissions that are in excess of those allowed by the access policy of
--- the role that is being assumed. For more information, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithSAML>
--- in /Using Temporary Security Credentials/.
+-- the role that is being assumed. For more information,
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity>
+-- in the /Using IAM/.
 --
 -- The policy plain text must be 2048 bytes or shorter. However, an
 -- internal conversion compresses it into a packed binary format with a

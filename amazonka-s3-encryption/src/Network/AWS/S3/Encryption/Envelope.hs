@@ -14,6 +14,7 @@
 module Network.AWS.S3.Encryption.Envelope where
 
 import           Conduit
+import           Control.Lens
 import           Control.Monad
 import           Crypto.Cipher.AES
 import           Crypto.Cipher.Types

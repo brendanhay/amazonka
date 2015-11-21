@@ -31,6 +31,12 @@ import Test.AWS.DeviceFarm.Internal
 --         [ testListProjects $
 --             listProjects
 --
+--         , testDeleteProject $
+--             deleteProject
+--
+--         , testUpdateProject $
+--             updateProject
+--
 --         , testGetDevicePoolCompatibility $
 --             getDevicePoolCompatibility
 --
@@ -43,17 +49,29 @@ import Test.AWS.DeviceFarm.Internal
 --         , testCreateUpload $
 --             createUpload
 --
+--         , testDeleteUpload $
+--             deleteUpload
+--
 --         , testGetDevicePool $
 --             getDevicePool
 --
 --         , testListDevicePools $
 --             listDevicePools
 --
+--         , testUpdateDevicePool $
+--             updateDevicePool
+--
+--         , testDeleteDevicePool $
+--             deleteDevicePool
+--
 --         , testGetUpload $
 --             getUpload
 --
 --         , testCreateDevicePool $
 --             createDevicePool
+--
+--         , testDeleteRun $
+--             deleteRun
 --
 --         , testListRuns $
 --             listRuns
@@ -109,6 +127,12 @@ import Test.AWS.DeviceFarm.Internal
 --         [ testListProjectsResponse $
 --             listProjectsResponse
 --
+--         , testDeleteProjectResponse $
+--             deleteProjectResponse
+--
+--         , testUpdateProjectResponse $
+--             updateProjectResponse
+--
 --         , testGetDevicePoolCompatibilityResponse $
 --             getDevicePoolCompatibilityResponse
 --
@@ -121,17 +145,29 @@ import Test.AWS.DeviceFarm.Internal
 --         , testCreateUploadResponse $
 --             createUploadResponse
 --
+--         , testDeleteUploadResponse $
+--             deleteUploadResponse
+--
 --         , testGetDevicePoolResponse $
 --             getDevicePoolResponse
 --
 --         , testListDevicePoolsResponse $
 --             listDevicePoolsResponse
 --
+--         , testUpdateDevicePoolResponse $
+--             updateDevicePoolResponse
+--
+--         , testDeleteDevicePoolResponse $
+--             deleteDevicePoolResponse
+--
 --         , testGetUploadResponse $
 --             getUploadResponse
 --
 --         , testCreateDevicePoolResponse $
 --             createDevicePoolResponse
+--
+--         , testDeleteRunResponse $
+--             deleteRunResponse
 --
 --         , testListRunsResponse $
 --             listRunsResponse
@@ -191,6 +227,16 @@ testListProjects = req
     "ListProjects"
     "fixture/ListProjects.yaml"
 
+testDeleteProject :: DeleteProject -> TestTree
+testDeleteProject = req
+    "DeleteProject"
+    "fixture/DeleteProject.yaml"
+
+testUpdateProject :: UpdateProject -> TestTree
+testUpdateProject = req
+    "UpdateProject"
+    "fixture/UpdateProject.yaml"
+
 testGetDevicePoolCompatibility :: GetDevicePoolCompatibility -> TestTree
 testGetDevicePoolCompatibility = req
     "GetDevicePoolCompatibility"
@@ -211,6 +257,11 @@ testCreateUpload = req
     "CreateUpload"
     "fixture/CreateUpload.yaml"
 
+testDeleteUpload :: DeleteUpload -> TestTree
+testDeleteUpload = req
+    "DeleteUpload"
+    "fixture/DeleteUpload.yaml"
+
 testGetDevicePool :: GetDevicePool -> TestTree
 testGetDevicePool = req
     "GetDevicePool"
@@ -221,6 +272,16 @@ testListDevicePools = req
     "ListDevicePools"
     "fixture/ListDevicePools.yaml"
 
+testUpdateDevicePool :: UpdateDevicePool -> TestTree
+testUpdateDevicePool = req
+    "UpdateDevicePool"
+    "fixture/UpdateDevicePool.yaml"
+
+testDeleteDevicePool :: DeleteDevicePool -> TestTree
+testDeleteDevicePool = req
+    "DeleteDevicePool"
+    "fixture/DeleteDevicePool.yaml"
+
 testGetUpload :: GetUpload -> TestTree
 testGetUpload = req
     "GetUpload"
@@ -230,6 +291,11 @@ testCreateDevicePool :: CreateDevicePool -> TestTree
 testCreateDevicePool = req
     "CreateDevicePool"
     "fixture/CreateDevicePool.yaml"
+
+testDeleteRun :: DeleteRun -> TestTree
+testDeleteRun = req
+    "DeleteRun"
+    "fixture/DeleteRun.yaml"
 
 testListRuns :: ListRuns -> TestTree
 testListRuns = req
@@ -320,6 +386,20 @@ testListProjectsResponse = res
     deviceFarm
     (Proxy :: Proxy ListProjects)
 
+testDeleteProjectResponse :: DeleteProjectResponse -> TestTree
+testDeleteProjectResponse = res
+    "DeleteProjectResponse"
+    "fixture/DeleteProjectResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy DeleteProject)
+
+testUpdateProjectResponse :: UpdateProjectResponse -> TestTree
+testUpdateProjectResponse = res
+    "UpdateProjectResponse"
+    "fixture/UpdateProjectResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy UpdateProject)
+
 testGetDevicePoolCompatibilityResponse :: GetDevicePoolCompatibilityResponse -> TestTree
 testGetDevicePoolCompatibilityResponse = res
     "GetDevicePoolCompatibilityResponse"
@@ -348,6 +428,13 @@ testCreateUploadResponse = res
     deviceFarm
     (Proxy :: Proxy CreateUpload)
 
+testDeleteUploadResponse :: DeleteUploadResponse -> TestTree
+testDeleteUploadResponse = res
+    "DeleteUploadResponse"
+    "fixture/DeleteUploadResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy DeleteUpload)
+
 testGetDevicePoolResponse :: GetDevicePoolResponse -> TestTree
 testGetDevicePoolResponse = res
     "GetDevicePoolResponse"
@@ -362,6 +449,20 @@ testListDevicePoolsResponse = res
     deviceFarm
     (Proxy :: Proxy ListDevicePools)
 
+testUpdateDevicePoolResponse :: UpdateDevicePoolResponse -> TestTree
+testUpdateDevicePoolResponse = res
+    "UpdateDevicePoolResponse"
+    "fixture/UpdateDevicePoolResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy UpdateDevicePool)
+
+testDeleteDevicePoolResponse :: DeleteDevicePoolResponse -> TestTree
+testDeleteDevicePoolResponse = res
+    "DeleteDevicePoolResponse"
+    "fixture/DeleteDevicePoolResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy DeleteDevicePool)
+
 testGetUploadResponse :: GetUploadResponse -> TestTree
 testGetUploadResponse = res
     "GetUploadResponse"
@@ -375,6 +476,13 @@ testCreateDevicePoolResponse = res
     "fixture/CreateDevicePoolResponse.proto"
     deviceFarm
     (Proxy :: Proxy CreateDevicePool)
+
+testDeleteRunResponse :: DeleteRunResponse -> TestTree
+testDeleteRunResponse = res
+    "DeleteRunResponse"
+    "fixture/DeleteRunResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy DeleteRun)
 
 testListRunsResponse :: ListRunsResponse -> TestTree
 testListRunsResponse = res

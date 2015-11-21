@@ -18,6 +18,7 @@ import           Data.Aeson
 import qualified Data.CaseInsensitive as CI
 import qualified Data.HashMap.Strict  as Map
 import qualified Data.Text.Encoding   as Text
+import           Data.Traversable     (traverse)
 import           Network.AWS.Prelude
 
 instance FromJSON ByteString where

@@ -636,8 +636,9 @@ lSSLCertificateId = lens _lSSLCertificateId (\ s a -> s{_lSSLCertificateId = a})
 lProtocol :: Lens' Listener Text
 lProtocol = lens _lProtocol (\ s a -> s{_lProtocol = a});
 
--- | The port on which the load balancer is listening. The supported ports
--- are: 25, 80, 443, 465, 587, and 1024-65535.
+-- | The port on which the load balancer is listening. On EC2-VPC, you can
+-- specify any port from the range 1-65535. On EC2-Classic, you can specify
+-- any port from the following list: 25, 80, 443, 465, 587, 1024-65535.
 lLoadBalancerPort :: Lens' Listener Int
 lLoadBalancerPort = lens _lLoadBalancerPort (\ s a -> s{_lLoadBalancerPort = a});
 

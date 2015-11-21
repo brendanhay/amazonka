@@ -14,6 +14,7 @@ module Test.AWS.EC2
     , fixtures
     ) where
 
+import           Control.Lens
 import           Data.Time
 import           Network.AWS.EC2
 import           Network.AWS.Prelude

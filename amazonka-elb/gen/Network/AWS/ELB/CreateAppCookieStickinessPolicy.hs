@@ -92,7 +92,8 @@ createAppCookieStickinessPolicy pLoadBalancerName_ pPolicyName_ pCookieName_ =
 cacspLoadBalancerName :: Lens' CreateAppCookieStickinessPolicy Text
 cacspLoadBalancerName = lens _cacspLoadBalancerName (\ s a -> s{_cacspLoadBalancerName = a});
 
--- | The name of the policy being created. This name must be unique within
+-- | The name of the policy being created. Policy names must consist of
+-- alphanumeric characters and dashes (-). This name must be unique within
 -- the set of policies for this load balancer.
 cacspPolicyName :: Lens' CreateAppCookieStickinessPolicy Text
 cacspPolicyName = lens _cacspPolicyName (\ s a -> s{_cacspPolicyName = a});

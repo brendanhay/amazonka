@@ -51,6 +51,7 @@ data ArtifactType
     = AppiumJavaOutput
     | AppiumJavaXMLOutput
     | AppiumServerOutput
+    | ApplicationCrashReport
     | AutomationOutput
     | CalabashJSONOutput
     | CalabashJavaXMLOutput
@@ -58,6 +59,8 @@ data ArtifactType
     | CalabashStandardOutput
     | DeviceLog
     | ExerciserMonkeyOutput
+    | ExplorerEventLog
+    | ExplorerSummaryLog
     | InstrumentationOutput
     | MessageLog
     | ResultLog
@@ -71,6 +74,7 @@ instance FromText ArtifactType where
         "appium_java_output" -> pure AppiumJavaOutput
         "appium_java_xml_output" -> pure AppiumJavaXMLOutput
         "appium_server_output" -> pure AppiumServerOutput
+        "application_crash_report" -> pure ApplicationCrashReport
         "automation_output" -> pure AutomationOutput
         "calabash_json_output" -> pure CalabashJSONOutput
         "calabash_java_xml_output" -> pure CalabashJavaXMLOutput
@@ -78,6 +82,8 @@ instance FromText ArtifactType where
         "calabash_standard_output" -> pure CalabashStandardOutput
         "device_log" -> pure DeviceLog
         "exerciser_monkey_output" -> pure ExerciserMonkeyOutput
+        "explorer_event_log" -> pure ExplorerEventLog
+        "explorer_summary_log" -> pure ExplorerSummaryLog
         "instrumentation_output" -> pure InstrumentationOutput
         "message_log" -> pure MessageLog
         "result_log" -> pure ResultLog
@@ -85,13 +91,14 @@ instance FromText ArtifactType where
         "service_log" -> pure ServiceLog
         "unknown" -> pure Unknown
         e -> fromTextError $ "Failure parsing ArtifactType from value: '" <> e
-           <> "'. Accepted values: APPIUM_JAVA_OUTPUT, APPIUM_JAVA_XML_OUTPUT, APPIUM_SERVER_OUTPUT, AUTOMATION_OUTPUT, CALABASH_JSON_OUTPUT, CALABASH_JAVA_XML_OUTPUT, CALABASH_PRETTY_OUTPUT, CALABASH_STANDARD_OUTPUT, DEVICE_LOG, EXERCISER_MONKEY_OUTPUT, INSTRUMENTATION_OUTPUT, MESSAGE_LOG, RESULT_LOG, SCREENSHOT, SERVICE_LOG, UNKNOWN"
+           <> "'. Accepted values: APPIUM_JAVA_OUTPUT, APPIUM_JAVA_XML_OUTPUT, APPIUM_SERVER_OUTPUT, APPLICATION_CRASH_REPORT, AUTOMATION_OUTPUT, CALABASH_JSON_OUTPUT, CALABASH_JAVA_XML_OUTPUT, CALABASH_PRETTY_OUTPUT, CALABASH_STANDARD_OUTPUT, DEVICE_LOG, EXERCISER_MONKEY_OUTPUT, EXPLORER_EVENT_LOG, EXPLORER_SUMMARY_LOG, INSTRUMENTATION_OUTPUT, MESSAGE_LOG, RESULT_LOG, SCREENSHOT, SERVICE_LOG, UNKNOWN"
 
 instance ToText ArtifactType where
     toText = \case
         AppiumJavaOutput -> "APPIUM_JAVA_OUTPUT"
         AppiumJavaXMLOutput -> "APPIUM_JAVA_XML_OUTPUT"
         AppiumServerOutput -> "APPIUM_SERVER_OUTPUT"
+        ApplicationCrashReport -> "APPLICATION_CRASH_REPORT"
         AutomationOutput -> "AUTOMATION_OUTPUT"
         CalabashJSONOutput -> "CALABASH_JSON_OUTPUT"
         CalabashJavaXMLOutput -> "CALABASH_JAVA_XML_OUTPUT"
@@ -99,6 +106,8 @@ instance ToText ArtifactType where
         CalabashStandardOutput -> "CALABASH_STANDARD_OUTPUT"
         DeviceLog -> "DEVICE_LOG"
         ExerciserMonkeyOutput -> "EXERCISER_MONKEY_OUTPUT"
+        ExplorerEventLog -> "EXPLORER_EVENT_LOG"
+        ExplorerSummaryLog -> "EXPLORER_SUMMARY_LOG"
         InstrumentationOutput -> "INSTRUMENTATION_OUTPUT"
         MessageLog -> "MESSAGE_LOG"
         ResultLog -> "RESULT_LOG"

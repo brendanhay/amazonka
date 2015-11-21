@@ -258,7 +258,7 @@ describeInstances =
 -- -   'network-interface.vpc-id' - The ID of the VPC for the network
 --     interface.
 --
--- -   'network-interface.network-interface.id' - The ID of the network
+-- -   'network-interface.network-interface-id' - The ID of the network
 --     interface.
 --
 -- -   'network-interface.owner-id' - The ID of the owner of the network

@@ -64,7 +64,8 @@
 -- policy to grant permissions that are in excess of those allowed by the
 -- access policy of the role that is being assumed. For more information,
 -- see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithWebIdentity>.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity>
+-- in the /Using IAM/.
 --
 -- Before your application can call 'AssumeRoleWithWebIdentity', you must
 -- have an identity token from a supported identity provider and create a
@@ -76,9 +77,9 @@
 -- For more information about how to use web identity federation and the
 -- 'AssumeRoleWithWebIdentity' API, see the following resources:
 --
--- -   <http://docs.aws.amazon.com/STS/latest/UsingSTS/STSUseCases.html#MobileApplication-KnownProvider Creating a Mobile Application with Third-Party Sign-In>
+-- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc_manual Using Web Identity Federation APIs for Mobile Apps>
 --     and
---     <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html Creating Temporary Security Credentials for Mobile Apps Using Third-Party Identity Providers>.
+--     <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity Federation Through a Web-based Identity Provider>.
 -- -   <https://web-identity-federation-playground.s3.amazonaws.com/index.html Web Identity Federation Playground>.
 --     This interactive website lets you walk through the process of
 --     authenticating via Login with Amazon, Facebook, or Google, getting
@@ -195,7 +196,8 @@ arwwiDurationSeconds = lens _arwwiDurationSeconds (\ s a -> s{_arwwiDurationSeco
 -- security credentials. You cannot use the passed policy to grant
 -- permissions that are in excess of those allowed by the access policy of
 -- the role that is being assumed. For more information, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithWebIdentity>.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html Permissions for AssumeRoleWithWebIdentity>
+-- in the /Using IAM/.
 --
 -- The policy plain text must be 2048 bytes or shorter. However, an
 -- internal conversion compresses it into a packed binary format with a

@@ -214,6 +214,7 @@ data DBCluster = DBCluster'
     , _dcStatus                          :: !(Maybe Text)
     , _dcDBClusterIdentifier             :: !(Maybe Text)
     , _dcDBClusterMembers                :: !(Maybe [DBClusterMember])
+    , _dcHostedZoneId                    :: !(Maybe Text)
     , _dcDBClusterParameterGroup         :: !(Maybe Text)
     , _dcMasterUsername                  :: !(Maybe Text)
     , _dcEarliestRestorableTime          :: !(Maybe ISO8601)
@@ -245,6 +246,8 @@ data DBCluster = DBCluster'
 -- * 'dcDBClusterIdentifier'
 --
 -- * 'dcDBClusterMembers'
+--
+-- * 'dcHostedZoneId'
 --
 -- * 'dcDBClusterParameterGroup'
 --
@@ -289,6 +292,7 @@ dbCluster =
     , _dcStatus = Nothing
     , _dcDBClusterIdentifier = Nothing
     , _dcDBClusterMembers = Nothing
+    , _dcHostedZoneId = Nothing
     , _dcDBClusterParameterGroup = Nothing
     , _dcMasterUsername = Nothing
     , _dcEarliestRestorableTime = Nothing
@@ -325,6 +329,11 @@ dcDBClusterIdentifier = lens _dcDBClusterIdentifier (\ s a -> s{_dcDBClusterIden
 -- | Provides the list of instances that make up the DB cluster.
 dcDBClusterMembers :: Lens' DBCluster [DBClusterMember]
 dcDBClusterMembers = lens _dcDBClusterMembers (\ s a -> s{_dcDBClusterMembers = a}) . _Default . _Coerce;
+
+-- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
+-- zone.
+dcHostedZoneId :: Lens' DBCluster (Maybe Text)
+dcHostedZoneId = lens _dcHostedZoneId (\ s a -> s{_dcHostedZoneId = a});
 
 -- | Specifies the name of the DB cluster parameter group for the DB cluster.
 dcDBClusterParameterGroup :: Lens' DBCluster (Maybe Text)
@@ -419,6 +428,7 @@ instance FromXML DBCluster where
                 <*>
                 (x .@? "DBClusterMembers" .!@ mempty >>=
                    may (parseXMLList "DBClusterMember"))
+                <*> (x .@? "HostedZoneId")
                 <*> (x .@? "DBClusterParameterGroup")
                 <*> (x .@? "MasterUsername")
                 <*> (x .@? "EarliestRestorableTime")
@@ -1272,11 +1282,11 @@ diStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
 diStatusInfos = lens _diStatusInfos (\ s a -> s{_diStatusInfos = a}) . _Default . _Coerce;
 
 -- | The meaning of this parameter differs according to the database engine
--- you use. For example, this value returns either MySQL or PostgreSQL
+-- you use. For example, this value returns MySQL, MariaDB, or PostgreSQL
 -- information when returning values from CreateDBInstanceReadReplica since
--- Read Replicas are only supported for MySQL and PostgreSQL.
+-- Read Replicas are only supported for these engines.
 --
--- __MySQL, SQL Server, PostgreSQL, Amazon Aurora__
+-- __MySQL, MariaDB, SQL Server, PostgreSQL, Amazon Aurora__
 --
 -- Contains the name of the initial database of this instance that was
 -- provided at create time, if one was specified when the DB instance was
@@ -1896,6 +1906,100 @@ instance FromXML DBSnapshot where
                 <*> (x .@? "Port")
                 <*> (x .@? "StorageType")
 
+-- | Contains the name and values of a manual DB snapshot attribute
+--
+-- Manual DB snapshot attributes are used to authorize other AWS accounts
+-- to restore a manual DB snapshot. For more information, see the
+-- ModifyDBSnapshotAttribute API.
+--
+-- /See:/ 'dbSnapshotAttribute' smart constructor.
+data DBSnapshotAttribute = DBSnapshotAttribute'
+    { _dsaAttributeValues :: !(Maybe [Text])
+    , _dsaAttributeName   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DBSnapshotAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsaAttributeValues'
+--
+-- * 'dsaAttributeName'
+dbSnapshotAttribute
+    :: DBSnapshotAttribute
+dbSnapshotAttribute =
+    DBSnapshotAttribute'
+    { _dsaAttributeValues = Nothing
+    , _dsaAttributeName = Nothing
+    }
+
+-- | The value(s) for the manual DB snapshot attribute.
+--
+-- If the 'AttributeName' field is 'restore', then this field returns a
+-- list of AWS account ids that are authorized to copy or restore the
+-- manual DB snapshot. If a value of 'all' is in the list, then the manual
+-- DB snapshot is public and available for any AWS account to copy or
+-- restore.
+dsaAttributeValues :: Lens' DBSnapshotAttribute [Text]
+dsaAttributeValues = lens _dsaAttributeValues (\ s a -> s{_dsaAttributeValues = a}) . _Default . _Coerce;
+
+-- | The name of the manual DB snapshot attribute.
+--
+-- An attribute name of 'restore' applies to the list of AWS accounts that
+-- have permission to copy or restore the manual DB snapshot.
+dsaAttributeName :: Lens' DBSnapshotAttribute (Maybe Text)
+dsaAttributeName = lens _dsaAttributeName (\ s a -> s{_dsaAttributeName = a});
+
+instance FromXML DBSnapshotAttribute where
+        parseXML x
+          = DBSnapshotAttribute' <$>
+              (x .@? "AttributeValues" .!@ mempty >>=
+                 may (parseXMLList "AttributeValue"))
+                <*> (x .@? "AttributeName")
+
+-- | Contains the results of a successful call to the
+-- DescribeDBSnapshotAttributes API.
+--
+-- Manual DB snapshot attributes are used to authorize other AWS accounts
+-- to copy or restore a manual DB snapshot. For more information, see the
+-- ModifyDBSnapshotAttribute API.
+--
+-- /See:/ 'dbSnapshotAttributesResult' smart constructor.
+data DBSnapshotAttributesResult = DBSnapshotAttributesResult'
+    { _dsarDBSnapshotIdentifier :: !(Maybe Text)
+    , _dsarDBSnapshotAttributes :: !(Maybe [DBSnapshotAttribute])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DBSnapshotAttributesResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsarDBSnapshotIdentifier'
+--
+-- * 'dsarDBSnapshotAttributes'
+dbSnapshotAttributesResult
+    :: DBSnapshotAttributesResult
+dbSnapshotAttributesResult =
+    DBSnapshotAttributesResult'
+    { _dsarDBSnapshotIdentifier = Nothing
+    , _dsarDBSnapshotAttributes = Nothing
+    }
+
+-- | The identifier of the manual DB snapshot that the attributes apply to.
+dsarDBSnapshotIdentifier :: Lens' DBSnapshotAttributesResult (Maybe Text)
+dsarDBSnapshotIdentifier = lens _dsarDBSnapshotIdentifier (\ s a -> s{_dsarDBSnapshotIdentifier = a});
+
+-- | The list of attributes and values for the manual DB snapshot.
+dsarDBSnapshotAttributes :: Lens' DBSnapshotAttributesResult [DBSnapshotAttribute]
+dsarDBSnapshotAttributes = lens _dsarDBSnapshotAttributes (\ s a -> s{_dsarDBSnapshotAttributes = a}) . _Default . _Coerce;
+
+instance FromXML DBSnapshotAttributesResult where
+        parseXML x
+          = DBSnapshotAttributesResult' <$>
+              (x .@? "DBSnapshotIdentifier") <*>
+                (x .@? "DBSnapshotAttributes" .!@ mempty >>=
+                   may (parseXMLList "DBSnapshotAttribute"))
+
 -- | Contains the result of a successful invocation of the following actions:
 --
 -- -   CreateDBSubnetGroup
@@ -2082,13 +2186,16 @@ instance FromXML EC2SecurityGroup where
 --
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
-    { _eAddress :: !(Maybe Text)
-    , _ePort    :: !(Maybe Int)
+    { _eHostedZoneId :: !(Maybe Text)
+    , _eAddress      :: !(Maybe Text)
+    , _ePort         :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eHostedZoneId'
 --
 -- * 'eAddress'
 --
@@ -2097,9 +2204,15 @@ endpoint
     :: Endpoint
 endpoint =
     Endpoint'
-    { _eAddress = Nothing
+    { _eHostedZoneId = Nothing
+    , _eAddress = Nothing
     , _ePort = Nothing
     }
+
+-- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
+-- zone.
+eHostedZoneId :: Lens' Endpoint (Maybe Text)
+eHostedZoneId = lens _eHostedZoneId (\ s a -> s{_eHostedZoneId = a});
 
 -- | Specifies the DNS address of the DB instance.
 eAddress :: Lens' Endpoint (Maybe Text)
@@ -2111,7 +2224,9 @@ ePort = lens _ePort (\ s a -> s{_ePort = a});
 
 instance FromXML Endpoint where
         parseXML x
-          = Endpoint' <$> (x .@? "Address") <*> (x .@? "Port")
+          = Endpoint' <$>
+              (x .@? "HostedZoneId") <*> (x .@? "Address") <*>
+                (x .@? "Port")
 
 -- | Contains the result of a successful invocation of the
 -- DescribeEngineDefaultParameters action.

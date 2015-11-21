@@ -244,9 +244,9 @@ rditpitIOPS = lens _rditpitIOPS (\ s a -> s{_rditpitIOPS = a});
 --
 -- Constraint: Must be compatible with the engine of the source
 --
--- Valid Values: 'MySQL' | 'oracle-se1' | 'oracle-se' | 'oracle-ee' |
--- 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' | 'sqlserver-web' |
--- 'postgres'
+-- Valid Values: 'MySQL' | 'mariadb' | 'oracle-se1' | 'oracle-se' |
+-- 'oracle-ee' | 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' |
+-- 'sqlserver-web' | 'postgres'
 rditpitEngine :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitEngine = lens _rditpitEngine (\ s a -> s{_rditpitEngine = a});
 
@@ -258,7 +258,7 @@ rditpitTDECredentialPassword = lens _rditpitTDECredentialPassword (\ s a -> s{_r
 -- | The compute and memory capacity of the Amazon RDS DB instance.
 --
 -- Valid Values:
--- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
+-- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
 --
 -- Default: The same DBInstanceClass as the original DB instance.
 rditpitDBInstanceClass :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
@@ -336,7 +336,7 @@ rditpitStorageType = lens _rditpitStorageType (\ s a -> s{_rditpitStorageType = 
 
 -- | The database name for the restored DB instance.
 --
--- This parameter is not used for the MySQL engine.
+-- This parameter is not used for the MySQL or MariaDB engines.
 rditpitDBName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitDBName = lens _rditpitDBName (\ s a -> s{_rditpitDBName = a});
 

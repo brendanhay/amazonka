@@ -1,5 +1,32 @@
 # Change Log
 
+## [1.3.6](https://github.com/brendanhay/amazonka/tree/1.3.6)
+Released: **18 November, 2015**, Compare: [1.3.6](https://github.com/brendanhay/amazonka/compare/1.3.5.1...1.3.6)
+
+### Fixed
+
+- Upgrading `retry` dependency to `>= 0.7`.
+- Fix S3 `BucketLocationConstraint` type de/serialisation. [\#249](https://github.com/brendanhay/amazonka/issues/249)
+- Fix S3 `PutBucketACL` header vs request body serialisation. [\#241](https://github.com/brendanhay/amazonka/issues/241)
+
+### Updated
+
+- `await` responses now indicate request fulfillment. [\#245](https://github.com/brendanhay/amazonka/issues/245)
+
+### Updated Services Definitions
+
+- EC2: Documentation updates.
+- IAM: Documentation updates.
+- ELB: Documentation updates.
+- Kinesis: Waiter updates.
+- RDS: Documentation and type updates.
+- SQS: Documentation updates.
+- STS: Documentation updates.
+- S3: Minor type and operation updates (`UploadPart` headers).
+- DeviceFarm: Documentation updates.
+- API Gateway: Multiple type, operation, and documentation updates.
+
+
 ## [1.3.5.1](https://github.com/brendanhay/amazonka/tree/1.3.5.1)
 Released: **18 November, 2015**, Compare: [1.3.5.1](https://github.com/brendanhay/amazonka/compare/1.3.5...1.3.5.1)
 

@@ -13,10 +13,10 @@
 --
 module Network.AWS.S3.Encryption.Decrypt where
 
+import           Control.Lens                           hiding (coerce)
 import           Control.Monad.Trans.AWS
 import           Data.Coerce
 import           Data.Proxy
-import           Network.AWS.Prelude                    hiding (coerce)
 import           Network.AWS.S3
 import           Network.AWS.S3.Encryption.Envelope
 import           Network.AWS.S3.Encryption.Instructions

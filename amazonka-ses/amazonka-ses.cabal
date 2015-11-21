@@ -1,5 +1,5 @@
 name:                  amazonka-ses
-version:               1.3.5
+version:               1.3.6
 synopsis:              Amazon Simple Email Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -96,7 +96,7 @@ library
         , Network.AWS.SES.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.5.*
+          amazonka-core == 1.3.6.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ses-test
@@ -116,9 +116,9 @@ test-suite amazonka-ses-test
         , Test.AWS.SES.Internal
 
     build-depends:
-          amazonka-core == 1.3.5.*
-        , amazonka-test == 1.3.5.*
-        , amazonka-ses == 1.3.5.*
+          amazonka-core == 1.3.6.*
+        , amazonka-test == 1.3.6.*
+        , amazonka-ses == 1.3.6.*
         , base
         , bytestring
         , lens

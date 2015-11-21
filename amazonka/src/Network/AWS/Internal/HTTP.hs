@@ -161,11 +161,10 @@ retryStream x = RetryPolicyM (\_ -> return (listToMaybe [0 | not p]))
 retryService :: Service -> RetryPolicy
 retryService s = limitRetries _retryAttempts <> RetryPolicyM (return . delay)
   where
-    delay s
+    delay (rsIterNumber -> n)
         | n >= 0 = Just $ truncate (grow * 1000000)
         | otherwise = Nothing
       where
-        n = rsIterNumber s
         grow = _retryBase * (fromIntegral _retryGrowth ^^ (n - 1))
 
     Exponential{..} = _svcRetry s

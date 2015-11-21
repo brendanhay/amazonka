@@ -12,13 +12,14 @@ module Network.AWS.Prelude
     ) where
 
 import           Control.Applicative         as Export (Applicative, pure)
-import           Control.Applicative         as Export ((<$>), (<|>))
+import           Control.Applicative         as Export ((<$>), (<*>), (<|>))
 import           Control.Lens                as Export (Getting, Iso', Lens',
                                                         Prism')
-import           Control.Lens                as Export (has, iso, lens, mapping,
-                                                        prism, _last)
+import           Control.Lens                as Export (concatOf, folding, has,
+                                                        iso, lens, mapping,
+                                                        prism, to, _Just, _last)
 import           Control.Lens                as Export (( # ), (&), (.~), (<&>),
-                                                        (^.), (^?))
+                                                        (^.), (^?), (^?))
 import           Data.Data                   as Export (Data, Typeable)
 import           Data.Foldable               as Export (Foldable)
 import           Data.Hashable               as Export (Hashable)

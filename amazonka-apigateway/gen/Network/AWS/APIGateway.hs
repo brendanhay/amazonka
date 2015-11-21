@@ -58,13 +58,13 @@ module Network.AWS.APIGateway
     -- ** GetResource
     , module Network.AWS.APIGateway.GetResource
 
-    -- ** GetDeployments
+    -- ** GetDeployments (Paginated)
     , module Network.AWS.APIGateway.GetDeployments
 
     -- ** GetDeployment
     , module Network.AWS.APIGateway.GetDeployment
 
-    -- ** GetDomainNames
+    -- ** GetDomainNames (Paginated)
     , module Network.AWS.APIGateway.GetDomainNames
 
     -- ** GetClientCertificate
@@ -73,7 +73,7 @@ module Network.AWS.APIGateway
     -- ** GetMethodResponse
     , module Network.AWS.APIGateway.GetMethodResponse
 
-    -- ** GetModels
+    -- ** GetModels (Paginated)
     , module Network.AWS.APIGateway.GetModels
 
     -- ** GetBasePathMapping
@@ -94,7 +94,7 @@ module Network.AWS.APIGateway
     -- ** UpdateStage
     , module Network.AWS.APIGateway.UpdateStage
 
-    -- ** GetRestAPIs
+    -- ** GetRestAPIs (Paginated)
     , module Network.AWS.APIGateway.GetRestAPIs
 
     -- ** CreateDeployment
@@ -190,7 +190,7 @@ module Network.AWS.APIGateway
     -- ** GenerateClientCertificate
     , module Network.AWS.APIGateway.GenerateClientCertificate
 
-    -- ** GetResources
+    -- ** GetResources (Paginated)
     , module Network.AWS.APIGateway.GetResources
 
     -- ** GetAccount
@@ -205,7 +205,7 @@ module Network.AWS.APIGateway
     -- ** GetSDK
     , module Network.AWS.APIGateway.GetSDK
 
-    -- ** GetAPIKeys
+    -- ** GetAPIKeys (Paginated)
     , module Network.AWS.APIGateway.GetAPIKeys
 
     -- ** DeleteBasePathMapping
@@ -244,13 +244,13 @@ module Network.AWS.APIGateway
     -- ** UpdateMethod
     , module Network.AWS.APIGateway.UpdateMethod
 
-    -- ** GetClientCertificates
+    -- ** GetClientCertificates (Paginated)
     , module Network.AWS.APIGateway.GetClientCertificates
 
     -- ** GetModelTemplate
     , module Network.AWS.APIGateway.GetModelTemplate
 
-    -- ** GetBasePathMappings
+    -- ** GetBasePathMappings (Paginated)
     , module Network.AWS.APIGateway.GetBasePathMappings
 
     -- ** GetAPIKey
@@ -414,6 +414,7 @@ module Network.AWS.APIGateway
     , Stage
     , stage
     , sDeploymentId
+    , sVariables
     , sClientCertificateId
     , sCreatedDate
     , sCacheClusterStatus

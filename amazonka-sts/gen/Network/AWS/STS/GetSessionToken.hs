@@ -26,7 +26,8 @@
 -- 'GetSessionToken' and submit an MFA code that is associated with their
 -- MFA device. Using the temporary security credentials that are returned
 -- from the call, IAM users can then make programmatic calls to APIs that
--- require MFA authentication.
+-- require MFA authentication. If you do not supply a correct MFA code,
+-- then the API returns an access denied error.
 --
 -- The 'GetSessionToken' action must be called by using the long-term AWS
 -- security credentials of the AWS account or an IAM user. Credentials that
@@ -37,7 +38,7 @@
 --
 -- We recommend that you do not call 'GetSessionToken' with root account
 -- credentials. Instead, follow our
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html#create-iam-users best practices>
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users best practices>
 -- by creating one or more IAM users, giving them the necessary
 -- permissions, and using IAM users for everyday interaction with AWS.
 --
@@ -51,7 +52,8 @@
 --
 -- For more information about using 'GetSessionToken' to create temporary
 -- credentials, go to
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSessionTokens.html Creating Temporary Credentials to Enable Access for IAM Users>.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken Temporary Credentials for Users in Untrusted Environments>
+-- in the /Using IAM/.
 --
 -- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html AWS API Reference> for GetSessionToken.
 module Network.AWS.STS.GetSessionToken

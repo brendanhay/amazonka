@@ -38,6 +38,9 @@
 -- replace the original DB instance with the DB instance created from the
 -- snapshot.
 --
+-- If you are restoring from a shared manual DB snapshot, the
+-- 'DBSnapshotIdentifier' must be the ARN of the shared DB snapshot.
+--
 -- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceFromDBSnapshot.html AWS API Reference> for RestoreDBInstanceFromDBSnapshot.
 module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     (
@@ -224,9 +227,9 @@ rdifdsIOPS = lens _rdifdsIOPS (\ s a -> s{_rdifdsIOPS = a});
 --
 -- Constraint: Must be compatible with the engine of the source
 --
--- Valid Values: 'MySQL' | 'oracle-se1' | 'oracle-se' | 'oracle-ee' |
--- 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' | 'sqlserver-web' |
--- 'postgres'
+-- Valid Values: 'MySQL' | 'mariadb' | 'oracle-se1' | 'oracle-se' |
+-- 'oracle-ee' | 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' |
+-- 'sqlserver-web' | 'postgres'
 rdifdsEngine :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsEngine = lens _rdifdsEngine (\ s a -> s{_rdifdsEngine = a});
 
@@ -238,7 +241,7 @@ rdifdsTDECredentialPassword = lens _rdifdsTDECredentialPassword (\ s a -> s{_rdi
 -- | The compute and memory capacity of the Amazon RDS DB instance.
 --
 -- Valid Values:
--- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
+-- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
 rdifdsDBInstanceClass :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsDBInstanceClass = lens _rdifdsDBInstanceClass (\ s a -> s{_rdifdsDBInstanceClass = a});
 
@@ -314,7 +317,7 @@ rdifdsStorageType = lens _rdifdsStorageType (\ s a -> s{_rdifdsStorageType = a})
 
 -- | The database name for the restored DB instance.
 --
--- This parameter doesn\'t apply to the MySQL engine.
+-- This parameter doesn\'t apply to the MySQL or MariaDB engines.
 rdifdsDBName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsDBName = lens _rdifdsDBName (\ s a -> s{_rdifdsDBName = a});
 
@@ -339,6 +342,9 @@ rdifdsDBInstanceIdentifier = lens _rdifdsDBInstanceIdentifier (\ s a -> s{_rdifd
 -- -   Must contain from 1 to 255 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
+-- If you are restoring from a shared manual DB snapshot, the
+-- 'DBSnapshotIdentifier' must be the ARN of the shared DB snapshot.
 rdifdsDBSnapshotIdentifier :: Lens' RestoreDBInstanceFromDBSnapshot Text
 rdifdsDBSnapshotIdentifier = lens _rdifdsDBSnapshotIdentifier (\ s a -> s{_rdifdsDBSnapshotIdentifier = a});
 

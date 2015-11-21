@@ -16,6 +16,7 @@
 module Network.AWS.Kinesis.Waiters where
 
 import           Network.AWS.Kinesis.DescribeStream
+import           Network.AWS.Kinesis.DescribeStream
 import           Network.AWS.Kinesis.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
@@ -33,4 +34,15 @@ streamExists =
                              AcceptSuccess
                              (dsrsStreamDescription .
                               sdStreamStatus . to toTextCI)]
+    }
+
+-- | Polls 'Network.AWS.Kinesis.DescribeStream' every 10 seconds until a
+-- successful state is reached. An error is returned after 18 failed checks.
+streamNotExists :: Wait DescribeStream
+streamNotExists =
+    Wait
+    { _waitName = "StreamNotExists"
+    , _waitAttempts = 18
+    , _waitDelay = 10
+    , _waitAcceptors = [matchError "ResourceNotFoundException" AcceptSuccess]
     }

@@ -297,9 +297,6 @@ module Network.AWS.S3
     -- ** Type
     , Type (..)
 
-    -- ** UploadPartRequestServerSideEncryption
-    , UploadPartRequestServerSideEncryption (..)
-
     -- ** AccessControlPolicy
     , AccessControlPolicy
     , accessControlPolicy

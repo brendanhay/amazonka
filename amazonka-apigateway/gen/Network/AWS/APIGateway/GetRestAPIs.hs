@@ -21,6 +21,8 @@
 -- Lists the RestApis resources for your collection.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetRestAPIs.html AWS API Reference> for GetRestAPIs.
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetRestAPIs
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.APIGateway.GetRestAPIs
 
 import           Network.AWS.APIGateway.Types
 import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -78,6 +81,13 @@ graLimit = lens _graLimit (\ s a -> s{_graLimit = a});
 -- information about.
 graPosition :: Lens' GetRestAPIs (Maybe Text)
 graPosition = lens _graPosition (\ s a -> s{_graPosition = a});
+
+instance AWSPager GetRestAPIs where
+        page rq rs
+          | stop (rs ^. grarsPosition) = Nothing
+          | stop (rs ^. grarsItems) = Nothing
+          | otherwise =
+            Just $ rq & graPosition .~ rs ^. grarsPosition
 
 instance AWSRequest GetRestAPIs where
         type Rs GetRestAPIs = GetRestAPIsResponse

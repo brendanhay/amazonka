@@ -29,12 +29,14 @@ module Network.AWS.RDS.DescribeDBSnapshots
       describeDBSnapshots
     , DescribeDBSnapshots
     -- * Request Lenses
+    , ddsIncludeShared
     , ddsFilters
     , ddsDBSnapshotIdentifier
     , ddsSnapshotType
     , ddsDBInstanceIdentifier
     , ddsMarker
     , ddsMaxRecords
+    , ddsIncludePublic
 
     -- * Destructuring the Response
     , describeDBSnapshotsResponse
@@ -56,17 +58,21 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeDBSnapshots' smart constructor.
 data DescribeDBSnapshots = DescribeDBSnapshots'
-    { _ddsFilters              :: !(Maybe [Filter])
+    { _ddsIncludeShared        :: !(Maybe Bool)
+    , _ddsFilters              :: !(Maybe [Filter])
     , _ddsDBSnapshotIdentifier :: !(Maybe Text)
     , _ddsSnapshotType         :: !(Maybe Text)
     , _ddsDBInstanceIdentifier :: !(Maybe Text)
     , _ddsMarker               :: !(Maybe Text)
     , _ddsMaxRecords           :: !(Maybe Int)
+    , _ddsIncludePublic        :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDBSnapshots' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddsIncludeShared'
 --
 -- * 'ddsFilters'
 --
@@ -79,17 +85,30 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
 -- * 'ddsMarker'
 --
 -- * 'ddsMaxRecords'
+--
+-- * 'ddsIncludePublic'
 describeDBSnapshots
     :: DescribeDBSnapshots
 describeDBSnapshots =
     DescribeDBSnapshots'
-    { _ddsFilters = Nothing
+    { _ddsIncludeShared = Nothing
+    , _ddsFilters = Nothing
     , _ddsDBSnapshotIdentifier = Nothing
     , _ddsSnapshotType = Nothing
     , _ddsDBInstanceIdentifier = Nothing
     , _ddsMarker = Nothing
     , _ddsMaxRecords = Nothing
+    , _ddsIncludePublic = Nothing
     }
+
+-- | True to include shared manual DB snapshots from other AWS accounts that
+-- this AWS account has been given permission to copy or restore; otherwise
+-- false. The default is false.
+--
+-- An AWS account is given permission to restore a manual DB snapshot from
+-- another AWS account by the ModifyDBSnapshotAttribute API.
+ddsIncludeShared :: Lens' DescribeDBSnapshots (Maybe Bool)
+ddsIncludeShared = lens _ddsIncludeShared (\ s a -> s{_ddsIncludeShared = a});
 
 -- | This parameter is not currently supported.
 ddsFilters :: Lens' DescribeDBSnapshots [Filter]
@@ -109,9 +128,28 @@ ddsFilters = lens _ddsFilters (\ s a -> s{_ddsFilters = a}) . _Default . _Coerce
 ddsDBSnapshotIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsDBSnapshotIdentifier = lens _ddsDBSnapshotIdentifier (\ s a -> s{_ddsDBSnapshotIdentifier = a});
 
--- | The type of snapshots that will be returned. Values can be \"automated\"
--- or \"manual.\" If not specified, the returned results will include all
--- snapshots types.
+-- | The type of snapshots that will be returned. You can specify one of the
+-- following values:
+--
+-- -   'automated' - Return all DB snapshots that have been automatically
+--     taken by Amazon RDS for my AWS account.
+-- -   'manual' - Return all DB snapshots that have been taken by my AWS
+--     account.
+-- -   'shared' - Return all manual DB snapshots that have been shared to
+--     my AWS account.
+-- -   'public' - Return all DB snapshots that have been marked as public.
+--
+-- If you do not specify a 'SnapshotType', then both automated and manual
+-- snapshots are returned. You can include shared snapshots with these
+-- results by setting the 'IncludeShared' parameter to 'true'. You can
+-- include public snapshots with these results by setting the
+-- 'IncludePublic' parameter to 'true'.
+--
+-- The 'IncludeShared' and 'IncludePublic' parameters do not apply for
+-- 'SnapshotType' values of 'manual' or 'automated'. The 'IncludePublic'
+-- paramter does not apply when 'SnapshotType' is set to 'shared'. the
+-- 'IncludeShared' parameter does not apply when 'SnapshotType' is set to
+-- 'public'.
 ddsSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsSnapshotType = lens _ddsSnapshotType (\ s a -> s{_ddsSnapshotType = a});
 
@@ -145,6 +183,14 @@ ddsMarker = lens _ddsMarker (\ s a -> s{_ddsMarker = a});
 ddsMaxRecords :: Lens' DescribeDBSnapshots (Maybe Int)
 ddsMaxRecords = lens _ddsMaxRecords (\ s a -> s{_ddsMaxRecords = a});
 
+-- | True to include manual DB snapshots that are public and can be copied or
+-- restored by any AWS account; otherwise false. The default is false.
+--
+-- An manual DB snapshot is shared as public by the
+-- ModifyDBSnapshotAttribute API.
+ddsIncludePublic :: Lens' DescribeDBSnapshots (Maybe Bool)
+ddsIncludePublic = lens _ddsIncludePublic (\ s a -> s{_ddsIncludePublic = a});
+
 instance AWSPager DescribeDBSnapshots where
         page rq rs
           | stop (rs ^. ddsrsMarker) = Nothing
@@ -176,13 +222,15 @@ instance ToQuery DescribeDBSnapshots where
           = mconcat
               ["Action" =: ("DescribeDBSnapshots" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
+               "IncludeShared" =: _ddsIncludeShared,
                "Filters" =:
                  toQuery (toQueryList "Filter" <$> _ddsFilters),
                "DBSnapshotIdentifier" =: _ddsDBSnapshotIdentifier,
                "SnapshotType" =: _ddsSnapshotType,
                "DBInstanceIdentifier" =: _ddsDBInstanceIdentifier,
                "Marker" =: _ddsMarker,
-               "MaxRecords" =: _ddsMaxRecords]
+               "MaxRecords" =: _ddsMaxRecords,
+               "IncludePublic" =: _ddsIncludePublic]
 
 -- | Contains the result of a successful invocation of the
 -- DescribeDBSnapshots action.

@@ -1,5 +1,5 @@
 name:                  amazonka-iot
-version:               1.3.5
+version:               1.3.6
 synopsis:              Amazon IoT SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -101,7 +101,7 @@ library
         , Network.AWS.IoT.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.5.*
+          amazonka-core == 1.3.6.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-iot-test
@@ -121,9 +121,9 @@ test-suite amazonka-iot-test
         , Test.AWS.IoT.Internal
 
     build-depends:
-          amazonka-core == 1.3.5.*
-        , amazonka-test == 1.3.5.*
-        , amazonka-iot == 1.3.5.*
+          amazonka-core == 1.3.6.*
+        , amazonka-test == 1.3.6.*
+        , amazonka-iot == 1.3.6.*
         , base
         , bytestring
         , lens

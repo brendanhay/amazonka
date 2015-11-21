@@ -1146,6 +1146,7 @@ instance FromJSON RestAPI where
 -- /See:/ 'stage' smart constructor.
 data Stage = Stage'
     { _sDeploymentId        :: !(Maybe Text)
+    , _sVariables           :: !(Maybe (Map Text Text))
     , _sClientCertificateId :: !(Maybe Text)
     , _sCreatedDate         :: !(Maybe POSIX)
     , _sCacheClusterStatus  :: !(Maybe CacheClusterStatus)
@@ -1162,6 +1163,8 @@ data Stage = Stage'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sDeploymentId'
+--
+-- * 'sVariables'
 --
 -- * 'sClientCertificateId'
 --
@@ -1185,6 +1188,7 @@ stage
 stage =
     Stage'
     { _sDeploymentId = Nothing
+    , _sVariables = Nothing
     , _sClientCertificateId = Nothing
     , _sCreatedDate = Nothing
     , _sCacheClusterStatus = Nothing
@@ -1199,6 +1203,12 @@ stage =
 -- | The identifier of the Deployment that the stage points to.
 sDeploymentId :: Lens' Stage (Maybe Text)
 sDeploymentId = lens _sDeploymentId (\ s a -> s{_sDeploymentId = a});
+
+-- | A map that defines the stage variables for a Stage resource. Variable
+-- names can have alphabetic characters, and the values must match
+-- [A-Za-z0-9-._~:\/?#&=,]+
+sVariables :: Lens' Stage (HashMap Text Text)
+sVariables = lens _sVariables (\ s a -> s{_sVariables = a}) . _Default . _Map;
 
 -- | Undocumented member.
 sClientCertificateId :: Lens' Stage (Maybe Text)
@@ -1248,7 +1258,8 @@ instance FromJSON Stage where
               (\ x ->
                  Stage' <$>
                    (x .:? "deploymentId") <*>
-                     (x .:? "clientCertificateId")
+                     (x .:? "variables" .!= mempty)
+                     <*> (x .:? "clientCertificateId")
                      <*> (x .:? "createdDate")
                      <*> (x .:? "cacheClusterStatus")
                      <*> (x .:? "methodSettings" .!= mempty)

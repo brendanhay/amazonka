@@ -3,7 +3,9 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE MultiWayIf                 #-}
+{-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RankNTypes                 #-}
 
 -- |
@@ -15,12 +17,18 @@
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.S3.Internal
-    ( Region          (..)
-    , BucketName      (..)
-    , ETag            (..)
-    , ObjectVersionId (..)
+    ( Region             (..)
+    , BucketName         (..)
+    , ETag               (..)
+    , ObjectVersionId    (..)
+
+    -- * Bucket Location
+    , LocationConstraint (..)
+    , _LocationConstraint
+
+    -- * Object Key
     , Delimiter
-    , ObjectKey       (..)
+    , ObjectKey          (..)
     , _ObjectKey
     , keyPrefix
     , keyName
@@ -92,6 +100,42 @@ newtype ObjectVersionId = ObjectVersionId Text
         , ToQuery
         , ToLog
         )
+
+newtype LocationConstraint = LocationConstraint { constraintRegion :: Region }
+    deriving
+        ( Eq
+        , Ord
+        , Read
+        , Show
+        , Data
+        , Typeable
+        , Generic
+        , ToText
+        , ToByteString
+        , ToLog
+        )
+
+_LocationConstraint :: Iso' LocationConstraint Region
+_LocationConstraint = iso constraintRegion LocationConstraint
+
+instance FromText LocationConstraint where
+    parser = LocationConstraint <$> (parser <|> go)
+      where
+        go = takeLowerText >>= \case
+            ""   -> pure NorthVirginia
+            "eu" -> pure Ireland
+            e    -> fromTextError $
+                "Failure parsing LocationConstraint from " <> e
+
+instance FromXML LocationConstraint where
+    parseXML = \case
+        [] -> pure (LocationConstraint NorthVirginia)
+        ns -> parseXMLText "LocationConstraint" ns
+
+instance ToXML LocationConstraint where
+    toXML = \case
+        LocationConstraint NorthVirginia -> XNull
+        LocationConstraint r             -> toXMLText r
 
 newtype ObjectKey = ObjectKey Text
     deriving

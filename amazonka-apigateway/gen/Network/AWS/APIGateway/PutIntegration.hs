@@ -32,6 +32,7 @@ module Network.AWS.APIGateway.PutIntegration
     , pRequestParameters
     , pUri
     , pCacheNamespace
+    , pIntegrationHTTPMethod
     , pCacheKeyParameters
     , pRestAPIId
     , pResourceId
@@ -63,16 +64,17 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putIntegration' smart constructor.
 data PutIntegration = PutIntegration'
-    { _pRequestTemplates   :: !(Maybe (Map Text Text))
-    , _pCredentials        :: !(Maybe Text)
-    , _pRequestParameters  :: !(Maybe (Map Text Text))
-    , _pUri                :: !(Maybe Text)
-    , _pCacheNamespace     :: !(Maybe Text)
-    , _pCacheKeyParameters :: !(Maybe [Text])
-    , _pRestAPIId          :: !Text
-    , _pResourceId         :: !Text
-    , _pHttpMethod         :: !Text
-    , _pType               :: !IntegrationType
+    { _pRequestTemplates      :: !(Maybe (Map Text Text))
+    , _pCredentials           :: !(Maybe Text)
+    , _pRequestParameters     :: !(Maybe (Map Text Text))
+    , _pUri                   :: !(Maybe Text)
+    , _pCacheNamespace        :: !(Maybe Text)
+    , _pIntegrationHTTPMethod :: !(Maybe Text)
+    , _pCacheKeyParameters    :: !(Maybe [Text])
+    , _pRestAPIId             :: !Text
+    , _pResourceId            :: !Text
+    , _pHttpMethod            :: !Text
+    , _pType                  :: !IntegrationType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutIntegration' with the minimum fields required to make a request.
@@ -88,6 +90,8 @@ data PutIntegration = PutIntegration'
 -- * 'pUri'
 --
 -- * 'pCacheNamespace'
+--
+-- * 'pIntegrationHTTPMethod'
 --
 -- * 'pCacheKeyParameters'
 --
@@ -111,6 +115,7 @@ putIntegration pRestAPIId_ pResourceId_ pHttpMethod_ pType_ =
     , _pRequestParameters = Nothing
     , _pUri = Nothing
     , _pCacheNamespace = Nothing
+    , _pIntegrationHTTPMethod = Nothing
     , _pCacheKeyParameters = Nothing
     , _pRestAPIId = pRestAPIId_
     , _pResourceId = pResourceId_
@@ -148,6 +153,10 @@ pUri = lens _pUri (\ s a -> s{_pUri = a});
 pCacheNamespace :: Lens' PutIntegration (Maybe Text)
 pCacheNamespace = lens _pCacheNamespace (\ s a -> s{_pCacheNamespace = a});
 
+-- | Specifies a put integration HTTP method.
+pIntegrationHTTPMethod :: Lens' PutIntegration (Maybe Text)
+pIntegrationHTTPMethod = lens _pIntegrationHTTPMethod (\ s a -> s{_pIntegrationHTTPMethod = a});
+
 -- | Specifies a put integration input\'s cache key parameters.
 pCacheKeyParameters :: Lens' PutIntegration [Text]
 pCacheKeyParameters = lens _pCacheKeyParameters (\ s a -> s{_pCacheKeyParameters = a}) . _Default . _Coerce;
@@ -160,7 +169,7 @@ pRestAPIId = lens _pRestAPIId (\ s a -> s{_pRestAPIId = a});
 pResourceId :: Lens' PutIntegration Text
 pResourceId = lens _pResourceId (\ s a -> s{_pResourceId = a});
 
--- | Specifies a put integration HTTP method.
+-- | Specifies a put integration request\'s HTTP method.
 pHttpMethod :: Lens' PutIntegration Text
 pHttpMethod = lens _pHttpMethod (\ s a -> s{_pHttpMethod = a});
 
@@ -185,8 +194,8 @@ instance ToJSON PutIntegration where
                   ("requestParameters" .=) <$> _pRequestParameters,
                   ("uri" .=) <$> _pUri,
                   ("cacheNamespace" .=) <$> _pCacheNamespace,
+                  ("httpMethod" .=) <$> _pIntegrationHTTPMethod,
                   ("cacheKeyParameters" .=) <$> _pCacheKeyParameters,
-                  Just ("httpMethod" .= _pHttpMethod),
                   Just ("type" .= _pType)])
 
 instance ToPath PutIntegration where

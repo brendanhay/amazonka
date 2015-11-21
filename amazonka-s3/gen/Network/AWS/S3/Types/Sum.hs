@@ -732,27 +732,3 @@ instance FromXML Type where
 
 instance ToXML Type where
     toXML = toXMLText
-
--- | The Server-side encryption algorithm used when storing this object in S3
--- (e.g., AES256).
-data UploadPartRequestServerSideEncryption =
-    UPRSSEAES256
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
-
-instance FromText UploadPartRequestServerSideEncryption where
-    parser = takeLowerText >>= \case
-        "aes256" -> pure UPRSSEAES256
-        e -> fromTextError $ "Failure parsing UploadPartRequestServerSideEncryption from value: '" <> e
-           <> "'. Accepted values: AES256"
-
-instance ToText UploadPartRequestServerSideEncryption where
-    toText = \case
-        UPRSSEAES256 -> "AES256"
-
-instance Hashable     UploadPartRequestServerSideEncryption
-instance ToByteString UploadPartRequestServerSideEncryption
-instance ToQuery      UploadPartRequestServerSideEncryption
-instance ToHeader     UploadPartRequestServerSideEncryption
-
-instance ToXML UploadPartRequestServerSideEncryption where
-    toXML = toXMLText

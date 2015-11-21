@@ -131,7 +131,7 @@ dsphStartTime = lens _dsphStartTime (\ s a -> s{_dsphStartTime = a}) . mapping _
 -- -   'availability-zone' - The Availability Zone for which prices should
 --     be returned.
 --
--- -   'instance-type' - The type of instance (for example, 'm1.small').
+-- -   'instance-type' - The type of instance (for example, 'm3.medium').
 --
 -- -   'product-description' - The product description for the Spot price
 --     ('Linux\/UNIX' | 'SUSE Linux' | 'Windows' |

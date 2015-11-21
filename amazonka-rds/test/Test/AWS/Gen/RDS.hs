@@ -91,6 +91,9 @@ import Test.AWS.RDS.Internal
 --         , testDescribeEngineDefaultClusterParameters $
 --             describeEngineDefaultClusterParameters
 --
+--         , testDescribeDBSnapshotAttributes $
+--             describeDBSnapshotAttributes
+--
 --         , testRemoveTagsFromResource $
 --             removeTagsFromResource
 --
@@ -132,6 +135,9 @@ import Test.AWS.RDS.Internal
 --
 --         , testDescribeDBParameterGroups $
 --             describeDBParameterGroups
+--
+--         , testModifyDBSnapshotAttribute $
+--             modifyDBSnapshotAttribute
 --
 --         , testDeleteDBClusterSnapshot $
 --             deleteDBClusterSnapshot
@@ -322,6 +328,9 @@ import Test.AWS.RDS.Internal
 --         , testDescribeEngineDefaultClusterParametersResponse $
 --             describeEngineDefaultClusterParametersResponse
 --
+--         , testDescribeDBSnapshotAttributesResponse $
+--             describeDBSnapshotAttributesResponse
+--
 --         , testRemoveTagsFromResourceResponse $
 --             removeTagsFromResourceResponse
 --
@@ -363,6 +372,9 @@ import Test.AWS.RDS.Internal
 --
 --         , testDescribeDBParameterGroupsResponse $
 --             describeDBParameterGroupsResponse
+--
+--         , testModifyDBSnapshotAttributeResponse $
+--             modifyDBSnapshotAttributeResponse
 --
 --         , testDeleteDBClusterSnapshotResponse $
 --             deleteDBClusterSnapshotResponse
@@ -597,6 +609,11 @@ testDescribeEngineDefaultClusterParameters = req
     "DescribeEngineDefaultClusterParameters"
     "fixture/DescribeEngineDefaultClusterParameters.yaml"
 
+testDescribeDBSnapshotAttributes :: DescribeDBSnapshotAttributes -> TestTree
+testDescribeDBSnapshotAttributes = req
+    "DescribeDBSnapshotAttributes"
+    "fixture/DescribeDBSnapshotAttributes.yaml"
+
 testRemoveTagsFromResource :: RemoveTagsFromResource -> TestTree
 testRemoveTagsFromResource = req
     "RemoveTagsFromResource"
@@ -666,6 +683,11 @@ testDescribeDBParameterGroups :: DescribeDBParameterGroups -> TestTree
 testDescribeDBParameterGroups = req
     "DescribeDBParameterGroups"
     "fixture/DescribeDBParameterGroups.yaml"
+
+testModifyDBSnapshotAttribute :: ModifyDBSnapshotAttribute -> TestTree
+testModifyDBSnapshotAttribute = req
+    "ModifyDBSnapshotAttribute"
+    "fixture/ModifyDBSnapshotAttribute.yaml"
 
 testDeleteDBClusterSnapshot :: DeleteDBClusterSnapshot -> TestTree
 testDeleteDBClusterSnapshot = req
@@ -1021,6 +1043,13 @@ testDescribeEngineDefaultClusterParametersResponse = res
     rDS
     (Proxy :: Proxy DescribeEngineDefaultClusterParameters)
 
+testDescribeDBSnapshotAttributesResponse :: DescribeDBSnapshotAttributesResponse -> TestTree
+testDescribeDBSnapshotAttributesResponse = res
+    "DescribeDBSnapshotAttributesResponse"
+    "fixture/DescribeDBSnapshotAttributesResponse.proto"
+    rDS
+    (Proxy :: Proxy DescribeDBSnapshotAttributes)
+
 testRemoveTagsFromResourceResponse :: RemoveTagsFromResourceResponse -> TestTree
 testRemoveTagsFromResourceResponse = res
     "RemoveTagsFromResourceResponse"
@@ -1118,6 +1147,13 @@ testDescribeDBParameterGroupsResponse = res
     "fixture/DescribeDBParameterGroupsResponse.proto"
     rDS
     (Proxy :: Proxy DescribeDBParameterGroups)
+
+testModifyDBSnapshotAttributeResponse :: ModifyDBSnapshotAttributeResponse -> TestTree
+testModifyDBSnapshotAttributeResponse = res
+    "ModifyDBSnapshotAttributeResponse"
+    "fixture/ModifyDBSnapshotAttributeResponse.proto"
+    rDS
+    (Proxy :: Proxy ModifyDBSnapshotAttribute)
 
 testDeleteDBClusterSnapshotResponse :: DeleteDBClusterSnapshotResponse -> TestTree
 testDeleteDBClusterSnapshotResponse = res

@@ -120,7 +120,7 @@ describeSpotInstanceRequests =
 -- -   'launch.image-id' - The ID of the AMI.
 --
 -- -   'launch.instance-type' - The type of instance (for example,
---     'm1.small').
+--     'm3.medium').
 --
 -- -   'launch.kernel-id' - The kernel ID.
 --

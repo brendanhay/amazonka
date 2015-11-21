@@ -454,7 +454,7 @@ instance FromXML CopyPartResult where
 
 -- | /See:/ 'createBucketConfiguration' smart constructor.
 newtype CreateBucketConfiguration = CreateBucketConfiguration'
-    { _cbcLocationConstraint :: Maybe Region
+    { _cbcLocationConstraint :: Maybe LocationConstraint
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateBucketConfiguration' with the minimum fields required to make a request.
@@ -471,7 +471,7 @@ createBucketConfiguration =
 
 -- | Specifies the region where the bucket will be created. If you don\'t
 -- specify a region, the bucket will be created in US Standard.
-cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe Region)
+cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe LocationConstraint)
 cbcLocationConstraint = lens _cbcLocationConstraint (\ s a -> s{_cbcLocationConstraint = a});
 
 instance ToXML CreateBucketConfiguration where

@@ -344,12 +344,13 @@ instance ToQuery ContextEntry where
 --
 -- /See:/ 'evaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
-    { _erMatchedStatements    :: !(Maybe [Statement])
-    , _erEvalDecisionDetails  :: !(Maybe (Map Text PolicyEvaluationDecisionType))
-    , _erMissingContextValues :: !(Maybe [Text])
-    , _erEvalActionName       :: !Text
-    , _erEvalResourceName     :: !Text
-    , _erEvalDecision         :: !PolicyEvaluationDecisionType
+    { _erMatchedStatements       :: !(Maybe [Statement])
+    , _erEvalDecisionDetails     :: !(Maybe (Map Text PolicyEvaluationDecisionType))
+    , _erResourceSpecificResults :: !(Maybe [ResourceSpecificResult])
+    , _erEvalResourceName        :: !(Maybe Text)
+    , _erMissingContextValues    :: !(Maybe [Text])
+    , _erEvalActionName          :: !Text
+    , _erEvalDecision            :: !PolicyEvaluationDecisionType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EvaluationResult' with the minimum fields required to make a request.
@@ -360,25 +361,27 @@ data EvaluationResult = EvaluationResult'
 --
 -- * 'erEvalDecisionDetails'
 --
+-- * 'erResourceSpecificResults'
+--
+-- * 'erEvalResourceName'
+--
 -- * 'erMissingContextValues'
 --
 -- * 'erEvalActionName'
 --
--- * 'erEvalResourceName'
---
 -- * 'erEvalDecision'
 evaluationResult
     :: Text -- ^ 'erEvalActionName'
-    -> Text -- ^ 'erEvalResourceName'
     -> PolicyEvaluationDecisionType -- ^ 'erEvalDecision'
     -> EvaluationResult
-evaluationResult pEvalActionName_ pEvalResourceName_ pEvalDecision_ =
+evaluationResult pEvalActionName_ pEvalDecision_ =
     EvaluationResult'
     { _erMatchedStatements = Nothing
     , _erEvalDecisionDetails = Nothing
+    , _erResourceSpecificResults = Nothing
+    , _erEvalResourceName = Nothing
     , _erMissingContextValues = Nothing
     , _erEvalActionName = pEvalActionName_
-    , _erEvalResourceName = pEvalResourceName_
     , _erEvalDecision = pEvalDecision_
     }
 
@@ -395,9 +398,19 @@ erMatchedStatements = lens _erMatchedStatements (\ s a -> s{_erMatchedStatements
 -- explains how each set of policies contributes to the final evaluation
 -- decision. When simulating cross-account access to a resource, both the
 -- resource-based policy and the caller\'s IAM policy must grant access.
--- See How IAM Roles Differ from Resource-based Policies
+-- See
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html How IAM Roles Differ from Resource-based Policies>
 erEvalDecisionDetails :: Lens' EvaluationResult (HashMap Text PolicyEvaluationDecisionType)
 erEvalDecisionDetails = lens _erEvalDecisionDetails (\ s a -> s{_erEvalDecisionDetails = a}) . _Default . _Map;
+
+-- | The individual results of the simulation of the API action specified in
+-- EvalActionName on each resource.
+erResourceSpecificResults :: Lens' EvaluationResult [ResourceSpecificResult]
+erResourceSpecificResults = lens _erResourceSpecificResults (\ s a -> s{_erResourceSpecificResults = a}) . _Default . _Coerce;
+
+-- | The ARN of the resource that the indicated API action was tested on.
+erEvalResourceName :: Lens' EvaluationResult (Maybe Text)
+erEvalResourceName = lens _erEvalResourceName (\ s a -> s{_erEvalResourceName = a});
 
 -- | A list of context keys that are required by the included input policies
 -- but that were not provided by one of the input parameters. To discover
@@ -415,10 +428,6 @@ erMissingContextValues = lens _erMissingContextValues (\ s a -> s{_erMissingCont
 erEvalActionName :: Lens' EvaluationResult Text
 erEvalActionName = lens _erEvalActionName (\ s a -> s{_erEvalActionName = a});
 
--- | The ARN of the resource that the indicated API action was tested on.
-erEvalResourceName :: Lens' EvaluationResult Text
-erEvalResourceName = lens _erEvalResourceName (\ s a -> s{_erEvalResourceName = a});
-
 -- | The result of the simulation.
 erEvalDecision :: Lens' EvaluationResult PolicyEvaluationDecisionType
 erEvalDecision = lens _erEvalDecision (\ s a -> s{_erEvalDecision = a});
@@ -432,10 +441,13 @@ instance FromXML EvaluationResult where
                 (x .@? "EvalDecisionDetails" .!@ mempty >>=
                    may (parseXMLMap "entry" "key" "value"))
                 <*>
+                (x .@? "ResourceSpecificResults" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@? "EvalResourceName")
+                <*>
                 (x .@? "MissingContextValues" .!@ mempty >>=
                    may (parseXMLList "member"))
                 <*> (x .@ "EvalActionName")
-                <*> (x .@ "EvalResourceName")
                 <*> (x .@ "EvalDecision")
 
 -- | Contains the response to a successful GetContextKeysForPrincipalPolicy
@@ -1089,8 +1101,9 @@ passwordPolicy =
     , _ppAllowUsersToChangePassword = Nothing
     }
 
--- | Specifies whether IAM users are required to change their password after
--- a specified number of days.
+-- | Indicates whether passwords in the account expire. Returns true if
+-- MaxPasswordAge is contains a value greater than 0. Returns false if
+-- MaxPasswordAge is 0 or not present.
 ppExpirePasswords :: Lens' PasswordPolicy (Maybe Bool)
 ppExpirePasswords = lens _ppExpirePasswords (\ s a -> s{_ppExpirePasswords = a});
 
@@ -1534,6 +1547,93 @@ pColumn = lens _pColumn (\ s a -> s{_pColumn = a});
 instance FromXML Position where
         parseXML x
           = Position' <$> (x .@? "Line") <*> (x .@? "Column")
+
+-- | Contains the result of the simulation of a single API action call on a
+-- single resource.
+--
+-- This data type is used by a member of the EvaluationResult data type.
+--
+-- /See:/ 'resourceSpecificResult' smart constructor.
+data ResourceSpecificResult = ResourceSpecificResult'
+    { _rsrMatchedStatements    :: !(Maybe [Statement])
+    , _rsrEvalDecisionDetails  :: !(Maybe (Map Text PolicyEvaluationDecisionType))
+    , _rsrMissingContextValues :: !(Maybe [Text])
+    , _rsrEvalResourceName     :: !Text
+    , _rsrEvalResourceDecision :: !PolicyEvaluationDecisionType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceSpecificResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsrMatchedStatements'
+--
+-- * 'rsrEvalDecisionDetails'
+--
+-- * 'rsrMissingContextValues'
+--
+-- * 'rsrEvalResourceName'
+--
+-- * 'rsrEvalResourceDecision'
+resourceSpecificResult
+    :: Text -- ^ 'rsrEvalResourceName'
+    -> PolicyEvaluationDecisionType -- ^ 'rsrEvalResourceDecision'
+    -> ResourceSpecificResult
+resourceSpecificResult pEvalResourceName_ pEvalResourceDecision_ =
+    ResourceSpecificResult'
+    { _rsrMatchedStatements = Nothing
+    , _rsrEvalDecisionDetails = Nothing
+    , _rsrMissingContextValues = Nothing
+    , _rsrEvalResourceName = pEvalResourceName_
+    , _rsrEvalResourceDecision = pEvalResourceDecision_
+    }
+
+-- | A list of the statements in the input policies that determine the result
+-- for this part of the simulation. Remember that even if multiple
+-- statements allow the action on the resource, if /any/ statement denies
+-- that action, then the explicit deny overrides any allow, and the deny
+-- statement is the only entry included in the result.
+rsrMatchedStatements :: Lens' ResourceSpecificResult [Statement]
+rsrMatchedStatements = lens _rsrMatchedStatements (\ s a -> s{_rsrMatchedStatements = a}) . _Default . _Coerce;
+
+-- | Additional details about the results of the evaluation decision. When
+-- there are both IAM policies and resource policies, this parameter
+-- explains how each set of policies contributes to the final evaluation
+-- decision. When simulating cross-account access to a resource, both the
+-- resource-based policy and the caller\'s IAM policy must grant access.
+rsrEvalDecisionDetails :: Lens' ResourceSpecificResult (HashMap Text PolicyEvaluationDecisionType)
+rsrEvalDecisionDetails = lens _rsrEvalDecisionDetails (\ s a -> s{_rsrEvalDecisionDetails = a}) . _Default . _Map;
+
+-- | A list of context keys that are required by the included input policies
+-- but that were not provided by one of the input parameters. To discover
+-- the context keys used by a set of policies, you can call
+-- GetContextKeysForCustomPolicy or GetContextKeysForPrincipalPolicy.
+rsrMissingContextValues :: Lens' ResourceSpecificResult [Text]
+rsrMissingContextValues = lens _rsrMissingContextValues (\ s a -> s{_rsrMissingContextValues = a}) . _Default . _Coerce;
+
+-- | The name of the simulated resource, in Amazon Resource Name (ARN)
+-- format.
+rsrEvalResourceName :: Lens' ResourceSpecificResult Text
+rsrEvalResourceName = lens _rsrEvalResourceName (\ s a -> s{_rsrEvalResourceName = a});
+
+-- | The result of the simulation of the simulated API action on the resource
+-- specified in 'EvalResourceName'.
+rsrEvalResourceDecision :: Lens' ResourceSpecificResult PolicyEvaluationDecisionType
+rsrEvalResourceDecision = lens _rsrEvalResourceDecision (\ s a -> s{_rsrEvalResourceDecision = a});
+
+instance FromXML ResourceSpecificResult where
+        parseXML x
+          = ResourceSpecificResult' <$>
+              (x .@? "MatchedStatements" .!@ mempty >>=
+                 may (parseXMLList "member"))
+                <*>
+                (x .@? "EvalDecisionDetails" .!@ mempty >>=
+                   may (parseXMLMap "entry" "key" "value"))
+                <*>
+                (x .@? "MissingContextValues" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@ "EvalResourceName")
+                <*> (x .@ "EvalResourceDecision")
 
 -- | Contains information about an IAM role.
 --

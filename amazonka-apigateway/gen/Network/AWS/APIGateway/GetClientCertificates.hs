@@ -21,6 +21,8 @@
 -- Undocumented operation.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetClientCertificates.html AWS API Reference> for GetClientCertificates.
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetClientCertificates
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.APIGateway.GetClientCertificates
 
 import           Network.AWS.APIGateway.Types
 import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -73,6 +76,13 @@ gccLimit = lens _gccLimit (\ s a -> s{_gccLimit = a});
 -- | Undocumented member.
 gccPosition :: Lens' GetClientCertificates (Maybe Text)
 gccPosition = lens _gccPosition (\ s a -> s{_gccPosition = a});
+
+instance AWSPager GetClientCertificates where
+        page rq rs
+          | stop (rs ^. gccrsPosition) = Nothing
+          | stop (rs ^. gccrsItems) = Nothing
+          | otherwise =
+            Just $ rq & gccPosition .~ rs ^. gccrsPosition
 
 instance AWSRequest GetClientCertificates where
         type Rs GetClientCertificates =

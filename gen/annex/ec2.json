@@ -2,6 +2,26 @@
     "metadata": {
         "serviceAbbreviation": "EC2"
     },
+    "shapes": {
+        "AttachmentStatus": {
+            "enum":[
+                "attaching",
+                "attached",
+                "detaching",
+                "detached",
+                "busy"
+            ]
+        },
+        "VolumeAttachmentState": {
+            "enum":[
+                "attaching",
+                "attached",
+                "detaching",
+                "detached",
+                "busy"
+            ]
+        }
+    },
     "waiters": {
         "ImageAvailable": {
             "operation": "DescribeImages",

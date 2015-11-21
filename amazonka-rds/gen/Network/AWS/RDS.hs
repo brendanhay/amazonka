@@ -20,15 +20,16 @@
 -- administration tasks, freeing up developers to focus on what makes their
 -- applications and businesses unique.
 --
--- Amazon RDS gives you access to the capabilities of a MySQL, PostgreSQL,
--- Microsoft SQL Server, Oracle, or Aurora database server. This means the
--- code, applications, and tools you already use today with your existing
--- databases work with Amazon RDS without modification. Amazon RDS
--- automatically backs up your database and maintains the database software
--- that powers your DB instance. Amazon RDS is flexible: you can scale your
--- database instance\'s compute resources and storage capacity to meet your
--- application\'s demand. As with all Amazon Web Services, there are no
--- up-front investments, and you pay only for the resources you use.
+-- Amazon RDS gives you access to the capabilities of a MySQL, MariaDB,
+-- PostgreSQL, Microsoft SQL Server, Oracle, or Aurora database server.
+-- This means the code, applications, and tools you already use today with
+-- your existing databases work with Amazon RDS without modification.
+-- Amazon RDS automatically backs up your database and maintains the
+-- database software that powers your DB instance. Amazon RDS is flexible:
+-- you can scale your database instance\'s compute resources and storage
+-- capacity to meet your application\'s demand. As with all Amazon Web
+-- Services, there are no up-front investments, and you pay only for the
+-- resources you use.
 --
 -- This is an interface reference for Amazon RDS. It contains documentation
 -- for a programming or command line interface you can use to manage Amazon
@@ -96,6 +97,9 @@ module Network.AWS.RDS
 
     -- ** InvalidSubnet
     , _InvalidSubnet
+
+    -- ** SharedSnapshotQuotaExceededFault
+    , _SharedSnapshotQuotaExceededFault
 
     -- ** DBSubnetQuotaExceededFault
     , _DBSubnetQuotaExceededFault
@@ -337,6 +341,9 @@ module Network.AWS.RDS
     -- ** DescribeEngineDefaultClusterParameters
     , module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
 
+    -- ** DescribeDBSnapshotAttributes
+    , module Network.AWS.RDS.DescribeDBSnapshotAttributes
+
     -- ** RemoveTagsFromResource
     , module Network.AWS.RDS.RemoveTagsFromResource
 
@@ -378,6 +385,9 @@ module Network.AWS.RDS
 
     -- ** DescribeDBParameterGroups (Paginated)
     , module Network.AWS.RDS.DescribeDBParameterGroups
+
+    -- ** ModifyDBSnapshotAttribute
+    , module Network.AWS.RDS.ModifyDBSnapshotAttribute
 
     -- ** DeleteDBClusterSnapshot
     , module Network.AWS.RDS.DeleteDBClusterSnapshot
@@ -544,6 +554,7 @@ module Network.AWS.RDS
     , dcStatus
     , dcDBClusterIdentifier
     , dcDBClusterMembers
+    , dcHostedZoneId
     , dcDBClusterParameterGroup
     , dcMasterUsername
     , dcEarliestRestorableTime
@@ -732,6 +743,18 @@ module Network.AWS.RDS
     , dsPort
     , dsStorageType
 
+    -- ** DBSnapshotAttribute
+    , DBSnapshotAttribute
+    , dbSnapshotAttribute
+    , dsaAttributeValues
+    , dsaAttributeName
+
+    -- ** DBSnapshotAttributesResult
+    , DBSnapshotAttributesResult
+    , dbSnapshotAttributesResult
+    , dsarDBSnapshotIdentifier
+    , dsarDBSnapshotAttributes
+
     -- ** DBSubnetGroup
     , DBSubnetGroup
     , dbSubnetGroup
@@ -759,6 +782,7 @@ module Network.AWS.RDS
     -- ** Endpoint
     , Endpoint
     , endpoint
+    , eHostedZoneId
     , eAddress
     , ePort
 
@@ -1053,6 +1077,7 @@ import           Network.AWS.RDS.DescribeDBLogFiles
 import           Network.AWS.RDS.DescribeDBParameterGroups
 import           Network.AWS.RDS.DescribeDBParameters
 import           Network.AWS.RDS.DescribeDBSecurityGroups
+import           Network.AWS.RDS.DescribeDBSnapshotAttributes
 import           Network.AWS.RDS.DescribeDBSnapshots
 import           Network.AWS.RDS.DescribeDBSubnetGroups
 import           Network.AWS.RDS.DescribeEngineDefaultClusterParameters
@@ -1073,6 +1098,7 @@ import           Network.AWS.RDS.ModifyDBCluster
 import           Network.AWS.RDS.ModifyDBClusterParameterGroup
 import           Network.AWS.RDS.ModifyDBInstance
 import           Network.AWS.RDS.ModifyDBParameterGroup
+import           Network.AWS.RDS.ModifyDBSnapshotAttribute
 import           Network.AWS.RDS.ModifyDBSubnetGroup
 import           Network.AWS.RDS.ModifyEventSubscription
 import           Network.AWS.RDS.ModifyOptionGroup

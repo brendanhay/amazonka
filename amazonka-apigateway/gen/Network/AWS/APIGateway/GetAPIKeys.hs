@@ -21,6 +21,8 @@
 -- Gets information about the current ApiKeys resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetAPIKeys.html AWS API Reference> for GetAPIKeys.
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetAPIKeys
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.APIGateway.GetAPIKeys
 
 import           Network.AWS.APIGateway.Types
 import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -75,6 +78,13 @@ gakLimit = lens _gakLimit (\ s a -> s{_gakLimit = a});
 -- | The position of the current ApiKeys resource to get information about.
 gakPosition :: Lens' GetAPIKeys (Maybe Text)
 gakPosition = lens _gakPosition (\ s a -> s{_gakPosition = a});
+
+instance AWSPager GetAPIKeys where
+        page rq rs
+          | stop (rs ^. gakrsPosition) = Nothing
+          | stop (rs ^. gakrsItems) = Nothing
+          | otherwise =
+            Just $ rq & gakPosition .~ rs ^. gakrsPosition
 
 instance AWSRequest GetAPIKeys where
         type Rs GetAPIKeys = GetAPIKeysResponse

@@ -32,7 +32,7 @@
 -- Facebook, Google, or an OpenID Connect-compatible identity provider, we
 -- recommend that you use <http://aws.amazon.com/cognito/ Amazon Cognito>
 -- or 'AssumeRoleWithWebIdentity'. For more information, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html Creating Temporary Security Credentials for Mobile Apps Using Identity Providers>.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity Federation Through a Web-based Identity Provider>.
 --
 -- The 'GetFederationToken' action must be called by using the long-term
 -- AWS security credentials of an IAM user. You can also call
@@ -41,8 +41,8 @@
 -- create an IAM user for the purpose of the proxy application and then
 -- attach a policy to the IAM user that limits federated users to only the
 -- actions and resources they need access to. For more information, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html IAM Best Practices>
--- in /Using IAM/.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html IAM Best Practices>
+-- in the /Using IAM/.
 --
 -- The temporary security credentials that are obtained by using the
 -- long-term credentials of an IAM user are valid for the specified
@@ -85,10 +85,10 @@
 -- to access the resource.
 --
 -- For more information about how permissions work, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-get-federation-token.html Permissions for GetFederationToken>.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getfederationtoken.html Permissions for GetFederationToken>.
 -- For information about using 'GetFederationToken' to create temporary
 -- security credentials, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingFedTokens.html Creating Temporary Credentials to Enable Access for Federated Users>.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getfederationtoken GetFederationToken—Federation Through a Custom Identity Broker>.
 --
 -- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html AWS API Reference> for GetFederationToken.
 module Network.AWS.STS.GetFederationToken
@@ -177,7 +177,7 @@ gftDurationSeconds = lens _gftDurationSeconds (\ s a -> s{_gftDurationSeconds = 
 -- equaling the maximum allowed size.
 --
 -- For more information about how permissions work, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-get-federation-token.html Permissions for GetFederationToken>.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getfederationtoken.html Permissions for GetFederationToken>.
 gftPolicy :: Lens' GetFederationToken (Maybe Text)
 gftPolicy = lens _gftPolicy (\ s a -> s{_gftPolicy = a});
 

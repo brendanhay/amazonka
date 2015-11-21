@@ -1,5 +1,5 @@
 name:                  amazonka
-version:               1.3.5.1
+version:               1.3.6
 synopsis:              Comprehensive Amazon Web Services SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -55,7 +55,7 @@ library
         , Network.AWS.Internal.Logger
 
     build-depends:
-          amazonka-core       == 1.3.5.*
+          amazonka-core       == 1.3.6.*
         , base                >= 4.7     && < 5
         , bytestring          >= 0.9
         , conduit             >= 1.1
@@ -69,7 +69,7 @@ library
         , monad-control       >= 1
         , mtl                 >= 2.1.3.1
         , resourcet           >= 1.1
-        , retry               >= 0.5     && < 0.7
+        , retry               >= 0.7
         , text                >= 1.1
         , time                >= 1.2
         , transformers        >= 0.2

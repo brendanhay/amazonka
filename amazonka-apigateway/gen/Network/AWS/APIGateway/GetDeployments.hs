@@ -21,6 +21,8 @@
 -- Gets information about a Deployments collection.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetDeployments.html AWS API Reference> for GetDeployments.
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetDeployments
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.APIGateway.GetDeployments
 
 import           Network.AWS.APIGateway.Types
 import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -90,6 +93,13 @@ gdPosition = lens _gdPosition (\ s a -> s{_gdPosition = a});
 -- resources to get information about.
 gdRestAPIId :: Lens' GetDeployments Text
 gdRestAPIId = lens _gdRestAPIId (\ s a -> s{_gdRestAPIId = a});
+
+instance AWSPager GetDeployments where
+        page rq rs
+          | stop (rs ^. gdrsPosition) = Nothing
+          | stop (rs ^. gdrsItems) = Nothing
+          | otherwise =
+            Just $ rq & gdPosition .~ rs ^. gdrsPosition
 
 instance AWSRequest GetDeployments where
         type Rs GetDeployments = GetDeploymentsResponse

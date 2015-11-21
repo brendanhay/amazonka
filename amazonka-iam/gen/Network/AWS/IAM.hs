@@ -573,9 +573,10 @@ module Network.AWS.IAM
     , evaluationResult
     , erMatchedStatements
     , erEvalDecisionDetails
+    , erResourceSpecificResults
+    , erEvalResourceName
     , erMissingContextValues
     , erEvalActionName
-    , erEvalResourceName
     , erEvalDecision
 
     -- ** GetContextKeysForPolicyResponse
@@ -709,6 +710,15 @@ module Network.AWS.IAM
     , position
     , pLine
     , pColumn
+
+    -- ** ResourceSpecificResult
+    , ResourceSpecificResult
+    , resourceSpecificResult
+    , rsrMatchedStatements
+    , rsrEvalDecisionDetails
+    , rsrMissingContextValues
+    , rsrEvalResourceName
+    , rsrEvalResourceDecision
 
     -- ** Role
     , Role

@@ -36,7 +36,7 @@
 -- to access all the other accounts by assuming roles in those accounts.
 -- For more information about roles, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html IAM Roles (Delegation and Federation)>
--- in /Using IAM/.
+-- in the /Using IAM/.
 --
 -- For federation, you can, for example, grant single sign-on access to the
 -- AWS Management Console. If you already have an identity and
@@ -47,8 +47,8 @@
 -- get temporary security credentials for that user. With those temporary
 -- security credentials, you construct a sign-in URL that users can use to
 -- access the console. For more information, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/STSUseCases.html Scenarios for Granting Temporary Access>
--- in /Using Temporary Security Credentials/.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html#sts-introduction Common Scenarios for Temporary Credentials>
+-- in the /Using IAM/.
 --
 -- The temporary security credentials are valid for the duration that you
 -- specified when calling 'AssumeRole', which can be from 900 seconds (15
@@ -66,8 +66,8 @@
 -- policy to grant permissions that are in excess of those allowed by the
 -- access policy of the role that is being assumed. For more information,
 -- see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity>
--- in /Using Temporary Security Credentials/.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity>
+-- in the /Using IAM/.
 --
 -- To assume a role, your AWS account must be trusted by the role. The
 -- trust relationship is defined in the role\'s trust policy when the role
@@ -90,7 +90,7 @@
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/MFAProtectedAPI.html Configuring MFA-Protected API Access>
--- in /Using IAM/ guide.
+-- in the /Using IAM/ guide.
 --
 -- To use MFA with 'AssumeRole', you pass values for the 'SerialNumber' and
 -- 'TokenCode' parameters. The 'SerialNumber' value identifies the user\'s
@@ -195,8 +195,8 @@ arDurationSeconds = lens _arDurationSeconds (\ s a -> s{_arDurationSeconds = a})
 -- security credentials. You cannot use the passed policy to grant
 -- permissions that are in excess of those allowed by the access policy of
 -- the role that is being assumed. For more information, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity>
--- in /Using Temporary Security Credentials/.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity>
+-- in the /Using IAM/.
 --
 -- The policy plain text must be 2048 bytes or shorter. However, an
 -- internal conversion compresses it into a packed binary format with a
@@ -214,8 +214,8 @@ arPolicy = lens _arPolicy (\ s a -> s{_arPolicy = a});
 -- external ID. The external ID is useful in order to help third parties
 -- bind a role to the customer who created it. For more information about
 -- the external ID, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/sts-delegating-externalid.html How to Use External ID When Granting Access to Your AWS Resources>
--- in /Using Temporary Security Credentials/.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html How to Use an External ID When Granting Access to Your AWS Resources to a Third Party>
+-- in the /Using IAM/.
 arExternalId :: Lens' AssumeRole (Maybe Text)
 arExternalId = lens _arExternalId (\ s a -> s{_arExternalId = a});
 

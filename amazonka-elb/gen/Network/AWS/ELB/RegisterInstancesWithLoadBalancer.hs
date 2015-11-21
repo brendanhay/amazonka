@@ -27,8 +27,8 @@
 -- EC2-Classic instances with the load balancer in the VPC.
 --
 -- Note that 'RegisterInstanceWithLoadBalancer' completes when the request
--- has been registered. Instance registration happens shortly afterwards.
--- To check the state of the registered instances, use
+-- has been registered. Instance registration takes a little time to
+-- complete. To check the state of the registered instances, use
 -- DescribeLoadBalancers or DescribeInstanceHealth.
 --
 -- After the instance is registered, it starts receiving traffic and

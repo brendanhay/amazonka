@@ -21,6 +21,8 @@
 -- Represents a collection of DomainName resources.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetDomainNames.html AWS API Reference> for GetDomainNames.
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetDomainNames
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.APIGateway.GetDomainNames
 
 import           Network.AWS.APIGateway.Types
 import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -77,6 +80,13 @@ gdnLimit = lens _gdnLimit (\ s a -> s{_gdnLimit = a});
 -- | The position of the current domain names to get information about.
 gdnPosition :: Lens' GetDomainNames (Maybe Text)
 gdnPosition = lens _gdnPosition (\ s a -> s{_gdnPosition = a});
+
+instance AWSPager GetDomainNames where
+        page rq rs
+          | stop (rs ^. gdnrsPosition) = Nothing
+          | stop (rs ^. gdnrsItems) = Nothing
+          | otherwise =
+            Just $ rq & gdnPosition .~ rs ^. gdnrsPosition
 
 instance AWSRequest GetDomainNames where
         type Rs GetDomainNames = GetDomainNamesResponse

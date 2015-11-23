@@ -22,7 +22,7 @@ import           Network.AWS.Prelude
 data ChronologicalOrder
     = Forward
     | Reverse
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ChronologicalOrder where
     parser = takeLowerText >>= \case
@@ -49,7 +49,7 @@ data ComplianceType
     | InsufficientData
     | NonCompliant
     | NotApplicable
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ComplianceType where
     parser = takeLowerText >>= \case
@@ -81,7 +81,7 @@ instance FromJSON ComplianceType where
 data ConfigRuleState
     = Active
     | Deleting
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ConfigRuleState where
     parser = takeLowerText >>= \case
@@ -111,7 +111,7 @@ data ConfigurationItemStatus
     | Discovered
     | Failed
     | OK
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ConfigurationItemStatus where
     parser = takeLowerText >>= \case
@@ -141,7 +141,7 @@ data DeliveryStatus
     = DSFailure
     | DSNotApplicable
     | DSSuccess
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DeliveryStatus where
     parser = takeLowerText >>= \case
@@ -167,7 +167,7 @@ instance FromJSON DeliveryStatus where
 
 data EventSource =
     AWS_Config
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EventSource where
     parser = takeLowerText >>= \case
@@ -196,7 +196,7 @@ data MaximumExecutionFrequency
     | ThreeHours
     | TwelveHours
     | TwentyFourHours
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MaximumExecutionFrequency where
     parser = takeLowerText >>= \case
@@ -230,7 +230,7 @@ instance FromJSON MaximumExecutionFrequency where
 data MessageType
     = ConfigurationItemChangeNotification
     | ConfigurationSnapshotDeliveryCompleted
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MessageType where
     parser = takeLowerText >>= \case
@@ -258,7 +258,7 @@ instance FromJSON MessageType where
 data Owner
     = AWS
     | CustomLambda
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Owner where
     parser = takeLowerText >>= \case
@@ -287,7 +287,7 @@ data RecorderStatus
     = Failure
     | Pending
     | Success
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RecorderStatus where
     parser = takeLowerText >>= \case
@@ -326,7 +326,7 @@ data ResourceType
     | AWSEC2VPNConnection
     | AWSEC2VPNGateway
     | AWSEC2Volume
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case

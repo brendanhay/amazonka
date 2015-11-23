@@ -45,7 +45,7 @@ data ConnectionState
     | CSPending
     | CSRejected
     | CSRequested
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ConnectionState where
     parser = takeLowerText >>= \case
@@ -97,7 +97,7 @@ data InterconnectState
     | ISDown
     | ISPending
     | ISRequested
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InterconnectState where
     parser = takeLowerText >>= \case
@@ -157,7 +157,7 @@ data VirtualInterfaceState
     | Pending
     | Rejected
     | Verifying
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText VirtualInterfaceState where
     parser = takeLowerText >>= \case

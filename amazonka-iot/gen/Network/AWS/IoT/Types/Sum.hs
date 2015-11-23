@@ -24,7 +24,7 @@ data CertificateStatus
     | Inactive
     | PendingTransfer
     | Revoked
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CertificateStatus where
     parser = takeLowerText >>= \case
@@ -59,7 +59,7 @@ data LogLevel
     | Error'
     | Info
     | Warn
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText LogLevel where
     parser = takeLowerText >>= \case

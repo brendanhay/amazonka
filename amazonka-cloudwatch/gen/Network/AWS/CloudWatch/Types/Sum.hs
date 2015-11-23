@@ -24,7 +24,7 @@ data ComparisonOperator
     | GreaterThanThreshold
     | LessThanOrEqualToThreshold
     | LessThanThreshold
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ComparisonOperator where
     parser = takeLowerText >>= \case
@@ -54,7 +54,7 @@ data HistoryItemType
     = Action
     | ConfigurationUpdate
     | StateUpdate
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText HistoryItemType where
     parser = takeLowerText >>= \case
@@ -106,7 +106,7 @@ data StandardUnit
     | TerabitsSecond
     | Terabytes
     | TerabytesSecond
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StandardUnit where
     parser = takeLowerText >>= \case
@@ -182,7 +182,7 @@ data StateValue
     = Alarm
     | InsufficientData
     | OK
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StateValue where
     parser = takeLowerText >>= \case
@@ -212,7 +212,7 @@ data Statistic
     | Minimum
     | SampleCount
     | Sum
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Statistic where
     parser = takeLowerText >>= \case

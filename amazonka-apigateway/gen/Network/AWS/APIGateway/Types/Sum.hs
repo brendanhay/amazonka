@@ -29,7 +29,7 @@ data CacheClusterSize
     | D28_4
     | D58_2
     | D6_1
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CacheClusterSize where
     parser = takeLowerText >>= \case
@@ -73,7 +73,7 @@ data CacheClusterStatus
     | DeleteInProgress
     | FlushInProgress
     | NotAvailable
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CacheClusterStatus where
     parser = takeLowerText >>= \case
@@ -106,7 +106,7 @@ data IntegrationType
     = AWS
     | HTTP
     | Mock
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText IntegrationType where
     parser = takeLowerText >>= \case
@@ -140,7 +140,7 @@ data Op
     | Remove
     | Replace
     | Test
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Op where
     parser = takeLowerText >>= \case

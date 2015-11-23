@@ -34,7 +34,7 @@ data ESPartitionInstanceType
     | T2_Medium_Elasticsearch
     | T2_Micro_Elasticsearch
     | T2_Small_Elasticsearch
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ESPartitionInstanceType where
     parser = takeLowerText >>= \case
@@ -92,7 +92,7 @@ data OptionState
     = Active
     | Processing
     | RequiresIndexDocuments
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText OptionState where
     parser = takeLowerText >>= \case
@@ -123,7 +123,7 @@ data VolumeType
     = GP2
     | IO1
     | Standard
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText VolumeType where
     parser = takeLowerText >>= \case

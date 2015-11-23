@@ -33,7 +33,7 @@ data LifecycleState
     | Terminating
     | TerminatingProceed
     | TerminatingWait
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText LifecycleState where
     parser = takeLowerText >>= \case
@@ -89,7 +89,7 @@ data ScalingActivityStatusCode
     | WaitingForInstanceWarmup
     | WaitingForSpotInstanceId
     | WaitingForSpotInstanceRequestId
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ScalingActivityStatusCode where
     parser = takeLowerText >>= \case

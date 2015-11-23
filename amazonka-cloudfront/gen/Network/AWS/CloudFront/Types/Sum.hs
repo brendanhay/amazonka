@@ -23,7 +23,7 @@ data GeoRestrictionType
     = Blacklist
     | None
     | Whitelist
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText GeoRestrictionType where
     parser = takeLowerText >>= \case
@@ -54,7 +54,7 @@ data ItemSelection
     = ISAll
     | ISNone
     | ISWhitelist
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ItemSelection where
     parser = takeLowerText >>= \case
@@ -89,7 +89,7 @@ data Method
     | Patch
     | Post
     | Put
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Method where
     parser = takeLowerText >>= \case
@@ -127,7 +127,7 @@ instance ToXML Method where
 data MinimumProtocolVersion
     = SSLV3
     | TLSV1
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MinimumProtocolVersion where
     parser = takeLowerText >>= \case
@@ -155,7 +155,7 @@ instance ToXML MinimumProtocolVersion where
 data OriginProtocolPolicy
     = HTTPOnly
     | MatchViewer
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText OriginProtocolPolicy where
     parser = takeLowerText >>= \case
@@ -184,7 +184,7 @@ data PriceClass
     = PriceClass100
     | PriceClass200
     | PriceClassAll
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PriceClass where
     parser = takeLowerText >>= \case
@@ -214,7 +214,7 @@ instance ToXML PriceClass where
 data SSLSupportMethod
     = SNIOnly
     | VIP
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SSLSupportMethod where
     parser = takeLowerText >>= \case
@@ -243,7 +243,7 @@ data ViewerProtocolPolicy
     = AllowAll
     | HTTPSOnly
     | RedirectToHTTPS
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ViewerProtocolPolicy where
     parser = takeLowerText >>= \case

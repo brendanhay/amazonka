@@ -22,7 +22,7 @@ import           Network.AWS.Prelude
 data EventSourcePosition
     = Latest
     | TrimHorizon
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EventSourcePosition where
     parser = takeLowerText >>= \case
@@ -48,7 +48,7 @@ data InvocationType
     = DryRun
     | Event
     | RequestResponse
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InvocationType where
     parser = takeLowerText >>= \case
@@ -75,7 +75,7 @@ instance ToJSON InvocationType where
 data LogType
     = None
     | Tail
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText LogType where
     parser = takeLowerText >>= \case
@@ -101,7 +101,7 @@ data Runtime
     = JAVA8
     | Nodejs
     | PYTHON2_7
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Runtime where
     parser = takeLowerText >>= \case

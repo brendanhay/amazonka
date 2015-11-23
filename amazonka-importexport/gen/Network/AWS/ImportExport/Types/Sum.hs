@@ -23,7 +23,7 @@ import           Network.AWS.Prelude
 data JobType
     = Export
     | Import
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText JobType where
     parser = takeLowerText >>= \case

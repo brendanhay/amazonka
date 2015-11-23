@@ -98,6 +98,10 @@ envSecretKey = "AWS_SECRET_ACCESS_KEY"
 envSessionToken :: Text -- ^ AWS_SESSION_TOKEN
 envSessionToken = "AWS_SESSION_TOKEN"
 
+-- | Credentials profile environment variable.
+envProfile :: Text -- ^ AWS_PROFILE
+envProfile = "AWS_PROFILE"
+
 -- | Credentials INI file access key variable.
 credAccessKey :: Text -- ^ aws_access_key_id
 credAccessKey = "aws_access_key_id"
@@ -338,9 +342,13 @@ fromEnvKeys a s t = fmap Auth $ AuthEnv
 -- Throws 'MissingFileError' if 'credFile' is missing, or 'InvalidFileError'
 -- if an error occurs during parsing.
 --
--- /See:/ 'credProfile' and 'credFile'
+-- /See:/ 'credProfile', 'credFile', and 'envProfile'
 fromFile :: (Applicative m, MonadIO m, MonadCatch m) => m Auth
-fromFile = credFile >>= fromFilePath credProfile
+fromFile = do
+  f <- credFile
+  ep <- liftIO (lookupEnv (Text.unpack envProfile))
+  let p = Text.pack (fromMaybe (Text.unpack credProfile) ep)
+  fromFilePath p f
 
 -- | Retrieve the access, secret and session token from the specified section
 -- (profile) in a valid INI @credentials@ file.

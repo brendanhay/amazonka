@@ -26,7 +26,7 @@ data ExportTaskStatusCode
     | Pending
     | PendingCancel
     | Running
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ExportTaskStatusCode where
     parser = takeLowerText >>= \case
@@ -62,7 +62,7 @@ instance FromJSON ExportTaskStatusCode where
 data OrderBy
     = LastEventTime
     | LogStreamName
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText OrderBy where
     parser = takeLowerText >>= \case

@@ -21,7 +21,7 @@ import           Network.AWS.Prelude
 
 data Capability =
     CapabilityIAM
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Capability where
     parser = takeLowerText >>= \case
@@ -45,7 +45,7 @@ data OnFailure
     = Delete
     | DoNothing
     | Rollback
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText OnFailure where
     parser = takeLowerText >>= \case
@@ -69,7 +69,7 @@ instance ToHeader     OnFailure
 data ResourceSignalStatus
     = Failure
     | Success
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ResourceSignalStatus where
     parser = takeLowerText >>= \case
@@ -99,7 +99,7 @@ data ResourceStatus
     | UpdateComplete
     | UpdateFailed
     | UpdateInProgress
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ResourceStatus where
     parser = takeLowerText >>= \case
@@ -154,7 +154,7 @@ data StackStatus
     | SSUpdateRollbackCompleteCleanupInProgress
     | SSUpdateRollbackFailed
     | SSUpdateRollbackInProgress
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StackStatus where
     parser = takeLowerText >>= \case

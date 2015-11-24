@@ -26,7 +26,7 @@ data BounceType
     | BTMessageTooLarge
     | BTTemporaryFailure
     | BTUndefined
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText BounceType where
     parser = takeLowerText >>= \case
@@ -59,7 +59,7 @@ data DsnAction
     | DAExpanded
     | DAFailed
     | DARelayed
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DsnAction where
     parser = takeLowerText >>= \case
@@ -87,7 +87,7 @@ instance ToHeader     DsnAction
 data IdentityType
     = Domain
     | EmailAddress
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText IdentityType where
     parser = takeLowerText >>= \case
@@ -109,7 +109,7 @@ instance ToHeader     IdentityType
 data InvocationType
     = Event
     | RequestResponse
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InvocationType where
     parser = takeLowerText >>= \case
@@ -135,7 +135,7 @@ data NotificationType
     = Bounce
     | Complaint
     | Delivery
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText NotificationType where
     parser = takeLowerText >>= \case
@@ -159,7 +159,7 @@ instance ToHeader     NotificationType
 data ReceiptFilterPolicy
     = Allow
     | Block
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ReceiptFilterPolicy where
     parser = takeLowerText >>= \case
@@ -183,7 +183,7 @@ instance FromXML ReceiptFilterPolicy where
 
 data StopScope =
     RuleSet
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StopScope where
     parser = takeLowerText >>= \case
@@ -206,7 +206,7 @@ instance FromXML StopScope where
 data TLSPolicy
     = Optional
     | Require
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TLSPolicy where
     parser = takeLowerText >>= \case
@@ -234,7 +234,7 @@ data VerificationStatus
     | Pending
     | Success
     | TemporaryFailure
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText VerificationStatus where
     parser = takeLowerText >>= \case

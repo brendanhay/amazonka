@@ -24,7 +24,7 @@ data ActivityTaskTimeoutType
     | ATTTScheduleToClose
     | ATTTScheduleToStart
     | ATTTStartToClose
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ActivityTaskTimeoutType where
     parser = takeLowerText >>= \case
@@ -53,7 +53,7 @@ instance FromJSON ActivityTaskTimeoutType where
 data CancelTimerFailedCause
     = CTFCOperationNotPermitted
     | CTFCTimerIdUnknown
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CancelTimerFailedCause where
     parser = takeLowerText >>= \case
@@ -78,7 +78,7 @@ instance FromJSON CancelTimerFailedCause where
 data CancelWorkflowExecutionFailedCause
     = COperationNotPermitted
     | CUnhandledDecision
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CancelWorkflowExecutionFailedCause where
     parser = takeLowerText >>= \case
@@ -104,7 +104,7 @@ data ChildPolicy
     = Abandon
     | RequestCancel
     | Terminate
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ChildPolicy where
     parser = takeLowerText >>= \case
@@ -138,7 +138,7 @@ data CloseStatus
     | Failed
     | Terminated
     | TimedOut
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CloseStatus where
     parser = takeLowerText >>= \case
@@ -174,7 +174,7 @@ instance FromJSON CloseStatus where
 data CompleteWorkflowExecutionFailedCause
     = CWEFCOperationNotPermitted
     | CWEFCUnhandledDecision
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CompleteWorkflowExecutionFailedCause where
     parser = takeLowerText >>= \case
@@ -206,7 +206,7 @@ data ContinueAsNewWorkflowExecutionFailedCause
     | CANWEFCUnhandledDecision
     | CANWEFCWorkflowTypeDeprecated
     | CANWEFCWorkflowTypeDoesNotExist
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ContinueAsNewWorkflowExecutionFailedCause where
     parser = takeLowerText >>= \case
@@ -244,7 +244,7 @@ instance FromJSON ContinueAsNewWorkflowExecutionFailedCause where
 
 data DecisionTaskTimeoutType =
     StartToClose
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DecisionTaskTimeoutType where
     parser = takeLowerText >>= \case
@@ -278,7 +278,7 @@ data DecisionType
     | SignalExternalWorkflowExecution
     | StartChildWorkflowExecution
     | StartTimer
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DecisionType where
     parser = takeLowerText >>= \case
@@ -377,7 +377,7 @@ data EventType
     | WorkflowExecutionStarted
     | WorkflowExecutionTerminated
     | WorkflowExecutionTimedOut
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EventType where
     parser = takeLowerText >>= \case
@@ -506,7 +506,7 @@ instance FromJSON EventType where
 data ExecutionStatus
     = Closed
     | Open
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ExecutionStatus where
     parser = takeLowerText >>= \case
@@ -531,7 +531,7 @@ instance FromJSON ExecutionStatus where
 data FailWorkflowExecutionFailedCause
     = FWEFCOperationNotPermitted
     | FWEFCUnhandledDecision
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText FailWorkflowExecutionFailedCause where
     parser = takeLowerText >>= \case
@@ -555,7 +555,7 @@ instance FromJSON FailWorkflowExecutionFailedCause where
 
 data LambdaFunctionTimeoutType =
     LFTTStartToClose
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText LambdaFunctionTimeoutType where
     parser = takeLowerText >>= \case
@@ -577,7 +577,7 @@ instance FromJSON LambdaFunctionTimeoutType where
 
 data RecordMarkerFailedCause =
     OperationNotPermitted
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RecordMarkerFailedCause where
     parser = takeLowerText >>= \case
@@ -600,7 +600,7 @@ instance FromJSON RecordMarkerFailedCause where
 data RegistrationStatus
     = Deprecated
     | Registered
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RegistrationStatus where
     parser = takeLowerText >>= \case
@@ -628,7 +628,7 @@ instance FromJSON RegistrationStatus where
 data RequestCancelActivityTaskFailedCause
     = RCATFCActivityIdUnknown
     | RCATFCOperationNotPermitted
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RequestCancelActivityTaskFailedCause where
     parser = takeLowerText >>= \case
@@ -654,7 +654,7 @@ data RequestCancelExternalWorkflowExecutionFailedCause
     = RCEWEFCOperationNotPermitted
     | RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded
     | RCEWEFCUnknownExternalWorkflowExecution
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RequestCancelExternalWorkflowExecutionFailedCause where
     parser = takeLowerText >>= \case
@@ -690,7 +690,7 @@ data ScheduleActivityTaskFailedCause
     | SATFCDefaultTaskListUndefined
     | SATFCOpenActivitiesLimitExceeded
     | SATFCOperationNotPermitted
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ScheduleActivityTaskFailedCause where
     parser = takeLowerText >>= \case
@@ -735,7 +735,7 @@ data ScheduleLambdaFunctionFailedCause
     | LambdaFunctionCreationRateExceeded
     | LambdaServiceNotAvailableInRegion
     | OpenLambdaFunctionsLimitExceeded
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ScheduleLambdaFunctionFailedCause where
     parser = takeLowerText >>= \case
@@ -765,7 +765,7 @@ data SignalExternalWorkflowExecutionFailedCause
     = SEWEFCOperationNotPermitted
     | SEWEFCSignalExternalWorkflowExecutionRateExceeded
     | SEWEFCUnknownExternalWorkflowExecution
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SignalExternalWorkflowExecutionFailedCause where
     parser = takeLowerText >>= \case
@@ -801,7 +801,7 @@ data StartChildWorkflowExecutionFailedCause
     | SCWEFCWorkflowAlreadyRunning
     | SCWEFCWorkflowTypeDeprecated
     | SCWEFCWorkflowTypeDoesNotExist
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StartChildWorkflowExecutionFailedCause where
     parser = takeLowerText >>= \case
@@ -843,7 +843,7 @@ instance FromJSON StartChildWorkflowExecutionFailedCause where
 
 data StartLambdaFunctionFailedCause =
     AssumeRoleFailed
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StartLambdaFunctionFailedCause where
     parser = takeLowerText >>= \case
@@ -868,7 +868,7 @@ data StartTimerFailedCause
     | STFCOperationNotPermitted
     | STFCTimerCreationRateExceeded
     | STFCTimerIdAlreadyInUse
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StartTimerFailedCause where
     parser = takeLowerText >>= \case
@@ -896,7 +896,7 @@ instance FromJSON StartTimerFailedCause where
 
 data WorkflowExecutionCancelRequestedCause =
     ChildPolicyApplied
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText WorkflowExecutionCancelRequestedCause where
     parser = takeLowerText >>= \case
@@ -920,7 +920,7 @@ data WorkflowExecutionTerminatedCause
     = WETCChildPolicyApplied
     | WETCEventLimitExceeded
     | WETCOperatorInitiated
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText WorkflowExecutionTerminatedCause where
     parser = takeLowerText >>= \case
@@ -946,7 +946,7 @@ instance FromJSON WorkflowExecutionTerminatedCause where
 
 data WorkflowExecutionTimeoutType =
     WETTStartToClose
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText WorkflowExecutionTimeoutType where
     parser = takeLowerText >>= \case

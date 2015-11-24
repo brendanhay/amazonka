@@ -24,7 +24,7 @@ data AppAttributesKeys
     | AutoBundleOnDeploy
     | DocumentRoot
     | RailsEnv
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AppAttributesKeys where
     parser = takeLowerText >>= \case
@@ -61,7 +61,7 @@ data AppType
     | ATPHP
     | ATRails
     | ATStatic
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AppType where
     parser = takeLowerText >>= \case
@@ -99,7 +99,7 @@ instance FromJSON AppType where
 data Architecture
     = I386
     | X86_64
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Architecture where
     parser = takeLowerText >>= \case
@@ -127,7 +127,7 @@ instance FromJSON Architecture where
 data AutoScalingType
     = Load
     | Timer
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AutoScalingType where
     parser = takeLowerText >>= \case
@@ -165,7 +165,7 @@ data DeploymentCommandName
     | Undeploy
     | UpdateCustomCookbooks
     | UpdateDependencies
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DeploymentCommandName where
     parser = takeLowerText >>= \case
@@ -236,7 +236,7 @@ data LayerAttributesKeys
     | RailsStack
     | RubyVersion
     | RubygemsVersion
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText LayerAttributesKeys where
     parser = takeLowerText >>= \case
@@ -320,7 +320,7 @@ data LayerType
     | PHPApp
     | RailsApp
     | Web
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText LayerType where
     parser = takeLowerText >>= \case
@@ -368,7 +368,7 @@ instance FromJSON LayerType where
 data RootDeviceType
     = EBS
     | InstanceStore
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RootDeviceType where
     parser = takeLowerText >>= \case
@@ -398,7 +398,7 @@ data SourceType
     | Git
     | S3
     | SVN
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
@@ -429,7 +429,7 @@ instance FromJSON SourceType where
 
 data StackAttributesKeys =
     Color
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StackAttributesKeys where
     parser = takeLowerText >>= \case
@@ -455,7 +455,7 @@ instance FromJSON StackAttributesKeys where
 data VirtualizationType
     = HVM
     | Paravirtual
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText VirtualizationType where
     parser = takeLowerText >>= \case
@@ -481,7 +481,7 @@ data VolumeType
     = GP2
     | IO1
     | Standard
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText VolumeType where
     parser = takeLowerText >>= \case

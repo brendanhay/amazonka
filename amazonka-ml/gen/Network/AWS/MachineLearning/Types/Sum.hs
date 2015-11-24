@@ -26,7 +26,7 @@ import           Network.AWS.Prelude
 -- -   RandomForest - Random forest of decision trees.
 data Algorithm =
     SGD
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Algorithm where
     parser = takeLowerText >>= \case
@@ -72,7 +72,7 @@ data BatchPredictionFilterVariable
     | BatchMLModelId
     | BatchName
     | BatchStatus
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText BatchPredictionFilterVariable where
     parser = takeLowerText >>= \case
@@ -129,7 +129,7 @@ data DataSourceFilterVariable
     | DataLastUpdatedAt
     | DataName
     | DataStatus
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DataSourceFilterVariable where
     parser = takeLowerText >>= \case
@@ -165,7 +165,7 @@ instance ToJSON DataSourceFilterVariable where
 data DetailsAttributes
     = Algorithm
     | PredictiveModelType
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DetailsAttributes where
     parser = takeLowerText >>= \case
@@ -200,7 +200,7 @@ data EntityStatus
     | ESFailed
     | ESInprogress
     | ESPending
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EntityStatus where
     parser = takeLowerText >>= \case
@@ -253,7 +253,7 @@ data EvaluationFilterVariable
     | EvalMLModelId
     | EvalName
     | EvalStatus
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EvaluationFilterVariable where
     parser = takeLowerText >>= \case
@@ -298,7 +298,7 @@ data MLModelFilterVariable
     | MLMFVStatus
     | MLMFVTrainingDataSourceId
     | MLMFVTrainingDataURI
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MLModelFilterVariable where
     parser = takeLowerText >>= \case
@@ -340,7 +340,7 @@ data MLModelType
     = Binary
     | Multiclass
     | Regression
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MLModelType where
     parser = takeLowerText >>= \case
@@ -372,7 +372,7 @@ data RealtimeEndpointStatus
     | None
     | Ready
     | Updating
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RealtimeEndpointStatus where
     parser = takeLowerText >>= \case
@@ -406,7 +406,7 @@ instance FromJSON RealtimeEndpointStatus where
 data SortOrder
     = Asc
     | Dsc
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SortOrder where
     parser = takeLowerText >>= \case

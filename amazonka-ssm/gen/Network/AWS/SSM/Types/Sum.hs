@@ -22,7 +22,7 @@ import           Network.AWS.Prelude
 data AssociationFilterKey
     = AFKInstanceId
     | AFKName
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AssociationFilterKey where
     parser = takeLowerText >>= \case
@@ -48,7 +48,7 @@ data AssociationStatusName
     = ASNFailed
     | ASNPending
     | ASNSuccess
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AssociationStatusName where
     parser = takeLowerText >>= \case
@@ -79,7 +79,7 @@ data CommandFilterKey
     = CommandInvokedAfter
     | CommandInvokedBefore
     | CommandStatus
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CommandFilterKey where
     parser = takeLowerText >>= \case
@@ -111,7 +111,7 @@ data CommandInvocationStatus
     | CISPending
     | CISSuccess
     | CISTimedOut
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CommandInvocationStatus where
     parser = takeLowerText >>= \case
@@ -150,7 +150,7 @@ data CommandPluginStatus
     | CPSPending
     | CPSSuccess
     | CPSTimedOut
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CommandPluginStatus where
     parser = takeLowerText >>= \case
@@ -188,7 +188,7 @@ data CommandStatus
     | Pending
     | Success
     | TimedOut
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CommandStatus where
     parser = takeLowerText >>= \case
@@ -224,7 +224,7 @@ data DocumentFilterKey
     = Name
     | Owner
     | PlatformTypes
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DocumentFilterKey where
     parser = takeLowerText >>= \case
@@ -251,7 +251,7 @@ instance ToJSON DocumentFilterKey where
 data DocumentParameterType
     = String
     | StringList
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DocumentParameterType where
     parser = takeLowerText >>= \case
@@ -277,7 +277,7 @@ data DocumentStatus
     = Active
     | Creating
     | Deleting
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DocumentStatus where
     parser = takeLowerText >>= \case
@@ -305,7 +305,7 @@ data Fault
     = Client
     | Server
     | Unknown
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Fault where
     parser = takeLowerText >>= \case
@@ -334,7 +334,7 @@ data InstanceInformationFilterKey
     | IIFKInstanceIds
     | IIFKPingStatus
     | IIFKPlatformTypes
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InstanceInformationFilterKey where
     parser = takeLowerText >>= \case
@@ -364,7 +364,7 @@ data PingStatus
     = ConnectionLost
     | Inactive
     | Online
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PingStatus where
     parser = takeLowerText >>= \case
@@ -391,7 +391,7 @@ instance FromJSON PingStatus where
 data PlatformType
     = Linux
     | Windows
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PlatformType where
     parser = takeLowerText >>= \case

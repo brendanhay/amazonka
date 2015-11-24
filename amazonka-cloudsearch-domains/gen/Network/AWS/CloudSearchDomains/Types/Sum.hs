@@ -22,7 +22,7 @@ import           Network.AWS.Prelude
 data ContentType
     = ApplicationJSON
     | ApplicationXML
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ContentType where
     parser = takeLowerText >>= \case
@@ -49,7 +49,7 @@ data QueryParser
     | Lucene
     | Simple
     | Structured
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText QueryParser where
     parser = takeLowerText >>= \case

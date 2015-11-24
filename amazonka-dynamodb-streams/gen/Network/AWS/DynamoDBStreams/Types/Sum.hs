@@ -22,7 +22,7 @@ import           Network.AWS.Prelude
 data KeyType
     = Hash
     | Range
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText KeyType where
     parser = takeLowerText >>= \case
@@ -48,7 +48,7 @@ data OperationType
     = Insert
     | Modify
     | Remove
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText OperationType where
     parser = takeLowerText >>= \case
@@ -77,7 +77,7 @@ data ShardIteratorType
     | AtSequenceNumber
     | Latest
     | TrimHorizon
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ShardIteratorType where
     parser = takeLowerText >>= \case
@@ -108,7 +108,7 @@ data StreamStatus
     | Disabling
     | Enabled
     | Enabling
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StreamStatus where
     parser = takeLowerText >>= \case
@@ -139,7 +139,7 @@ data StreamViewType
     | NewAndOldImages
     | NewImage
     | OldImage
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StreamViewType where
     parser = takeLowerText >>= \case

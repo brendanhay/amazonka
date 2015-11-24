@@ -24,7 +24,7 @@ data ActionOnFailure
     | Continue
     | TerminateCluster
     | TerminateJobFlow
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ActionOnFailure where
     parser = takeLowerText >>= \case
@@ -61,7 +61,7 @@ data ClusterState
     | CSTerminatedWithErrors
     | CSTerminating
     | CSWaiting
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ClusterState where
     parser = takeLowerText >>= \case
@@ -104,7 +104,7 @@ data ClusterStateChangeReasonCode
     | CSCRCStepFailure
     | CSCRCUserRequest
     | CSCRCValidationError
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ClusterStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -147,7 +147,7 @@ data InstanceGroupState
     | Suspended
     | Terminated
     | Terminating
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InstanceGroupState where
     parser = takeLowerText >>= \case
@@ -190,7 +190,7 @@ data InstanceGroupStateChangeReasonCode
     | InstanceFailure
     | InternalError
     | ValidationError
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InstanceGroupStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -220,7 +220,7 @@ data InstanceGroupType
     = Core
     | Master
     | Task
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InstanceGroupType where
     parser = takeLowerText >>= \case
@@ -251,7 +251,7 @@ data InstanceRoleType
     = IRTCore
     | IRTMaster
     | IRTTask
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InstanceRoleType where
     parser = takeLowerText >>= \case
@@ -281,7 +281,7 @@ data InstanceState
     | ISProvisioning
     | ISRunning
     | ISTerminated
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InstanceState where
     parser = takeLowerText >>= \case
@@ -315,7 +315,7 @@ data InstanceStateChangeReasonCode
     | ISCRCInstanceFailure
     | ISCRCInternalError
     | ISCRCValidationError
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InstanceStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -346,7 +346,7 @@ instance FromJSON InstanceStateChangeReasonCode where
 data MarketType
     = OnDemand
     | Spot
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MarketType where
     parser = takeLowerText >>= \case
@@ -378,7 +378,7 @@ data StepState
     | SSInterrupted
     | SSPending
     | SSRunning
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StepState where
     parser = takeLowerText >>= \case
@@ -413,7 +413,7 @@ instance FromJSON StepState where
 
 data StepStateChangeReasonCode =
     None
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StepStateChangeReasonCode where
     parser = takeLowerText >>= \case

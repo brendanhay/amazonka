@@ -22,7 +22,7 @@ import           Network.AWS.Prelude
 data DirectorySize
     = Large
     | Small
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DirectorySize where
     parser = takeLowerText >>= \case
@@ -59,7 +59,7 @@ data DirectoryStage
     | DSRequested
     | DSRestoreFailed
     | DSRestoring
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DirectoryStage where
     parser = takeLowerText >>= \case
@@ -102,7 +102,7 @@ instance FromJSON DirectoryStage where
 data DirectoryType
     = ADConnector
     | SimpleAD
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DirectoryType where
     parser = takeLowerText >>= \case
@@ -129,7 +129,7 @@ data RadiusAuthenticationProtocol
     | MsCHAPV1
     | MsCHAPV2
     | Pap
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RadiusAuthenticationProtocol where
     parser = takeLowerText >>= \case
@@ -162,7 +162,7 @@ data RadiusStatus
     = Completed
     | Creating
     | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RadiusStatus where
     parser = takeLowerText >>= \case
@@ -190,7 +190,7 @@ data SnapshotStatus
     = SSCompleted
     | SSCreating
     | SSFailed
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SnapshotStatus where
     parser = takeLowerText >>= \case
@@ -217,7 +217,7 @@ instance FromJSON SnapshotStatus where
 data SnapshotType
     = Auto
     | Manual
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SnapshotType where
     parser = takeLowerText >>= \case

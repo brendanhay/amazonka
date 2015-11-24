@@ -23,7 +23,7 @@ data AssignmentStatusType
     = Any
     | Assigned
     | Unassigned
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AssignmentStatusType where
     parser = takeLowerText >>= \case
@@ -57,7 +57,7 @@ data ContextKeyTypeEnum
     | NumericList
     | String
     | StringList
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ContextKeyTypeEnum where
     parser = takeLowerText >>= \case
@@ -99,7 +99,7 @@ instance ToHeader     ContextKeyTypeEnum
 data EncodingType
     = Pem
     | SSH
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EncodingType where
     parser = takeLowerText >>= \case
@@ -124,7 +124,7 @@ data EntityType
     | ETLocalManagedPolicy
     | ETRole
     | ETUser
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EntityType where
     parser = takeLowerText >>= \case
@@ -153,7 +153,7 @@ data PolicyEvaluationDecisionType
     = Allowed
     | ExplicitDeny
     | ImplicitDeny
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PolicyEvaluationDecisionType where
     parser = takeLowerText >>= \case
@@ -181,7 +181,7 @@ data PolicyScopeType
     = AWS
     | All
     | Local
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PolicyScopeType where
     parser = takeLowerText >>= \case
@@ -210,7 +210,7 @@ data PolicySourceType
     | Role
     | User
     | UserManaged
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PolicySourceType where
     parser = takeLowerText >>= \case
@@ -244,7 +244,7 @@ instance FromXML PolicySourceType where
 
 data ReportFormatType =
     TextCSV
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ReportFormatType where
     parser = takeLowerText >>= \case
@@ -268,7 +268,7 @@ data ReportStateType
     = Complete
     | Inprogress
     | Started
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ReportStateType where
     parser = takeLowerText >>= \case
@@ -295,7 +295,7 @@ instance FromXML ReportStateType where
 data StatusType
     = Active
     | Inactive
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StatusType where
     parser = takeLowerText >>= \case
@@ -343,7 +343,7 @@ data SummaryKeyType
     | Users
     | UsersQuota
     | VersionsPerPolicyQuota
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SummaryKeyType where
     parser = takeLowerText >>= \case

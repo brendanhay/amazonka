@@ -25,7 +25,7 @@ data MessageAttribute
     | ApproximateReceiveCount
     | SenderId
     | SentTimestamp
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MessageAttribute where
     parser = takeLowerText >>= \case
@@ -67,7 +67,7 @@ data QueueAttributeName
     | ReceiveMessageWaitTimeSeconds
     | RedrivePolicy
     | VisibilityTimeout
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText QueueAttributeName where
     parser = takeLowerText >>= \case

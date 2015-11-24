@@ -120,7 +120,7 @@ string = [DOrd, DIsString]
 num    = DNum : DIntegral : DReal : enum
 frac   = [DOrd, DRealFrac, DRealFloat]
 monoid = [DMonoid, DSemigroup]
-enum   = [DOrd, DEnum]
+enum   = [DOrd, DEnum, DBounded]
 base   = [DEq, DRead, DShow, DData, DTypeable, DGeneric]
 
 typeDefault :: TType -> Bool

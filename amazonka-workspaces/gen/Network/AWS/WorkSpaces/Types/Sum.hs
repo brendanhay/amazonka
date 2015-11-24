@@ -23,7 +23,7 @@ data Compute
     = Performance
     | Standard
     | Value
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Compute where
     parser = takeLowerText >>= \case
@@ -53,7 +53,7 @@ data WorkspaceDirectoryState
     | Error'
     | Registered
     | Registering
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText WorkspaceDirectoryState where
     parser = takeLowerText >>= \case
@@ -84,7 +84,7 @@ instance FromJSON WorkspaceDirectoryState where
 data WorkspaceDirectoryType
     = AdConnector
     | SimpleAd
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText WorkspaceDirectoryType where
     parser = takeLowerText >>= \case
@@ -117,7 +117,7 @@ data WorkspaceState
     | WSTerminated
     | WSTerminating
     | WSUnhealthy
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText WorkspaceState where
     parser = takeLowerText >>= \case

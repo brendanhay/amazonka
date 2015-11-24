@@ -23,7 +23,7 @@ data ConfigurationDeploymentStatus
     = Deployed
     | Failed
     | Pending
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ConfigurationDeploymentStatus where
     parser = takeLowerText >>= \case
@@ -50,7 +50,7 @@ instance FromXML ConfigurationDeploymentStatus where
 data ConfigurationOptionValueType
     = List
     | Scalar
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ConfigurationOptionValueType where
     parser = takeLowerText >>= \case
@@ -77,7 +77,7 @@ data EnvironmentHealth
     | Grey
     | Red
     | Yellow
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EnvironmentHealth where
     parser = takeLowerText >>= \case
@@ -112,7 +112,7 @@ data EnvironmentHealthAttribute
     | EHAInstancesHealth
     | EHARefreshedAt
     | EHAStatus
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EnvironmentHealthAttribute where
     parser = takeLowerText >>= \case
@@ -152,7 +152,7 @@ data EnvironmentHealthStatus
     | EHSSevere
     | EHSUnknown
     | EHSWarning
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EnvironmentHealthStatus where
     parser = takeLowerText >>= \case
@@ -189,7 +189,7 @@ instance FromXML EnvironmentHealthStatus where
 data EnvironmentInfoType
     = Bundle
     | Tail
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EnvironmentInfoType where
     parser = takeLowerText >>= \case
@@ -217,7 +217,7 @@ data EnvironmentStatus
     | Terminated
     | Terminating
     | Updating
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EnvironmentStatus where
     parser = takeLowerText >>= \case
@@ -252,7 +252,7 @@ data EventSeverity
     | LevelInfo
     | LevelTrace
     | LevelWarn
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EventSeverity where
     parser = takeLowerText >>= \case
@@ -291,7 +291,7 @@ data InstancesHealthAttribute
     | LaunchedAt
     | RefreshedAt
     | System
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InstancesHealthAttribute where
     parser = takeLowerText >>= \case
@@ -325,7 +325,7 @@ instance ToHeader     InstancesHealthAttribute
 data ValidationSeverity
     = Error'
     | Warning
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ValidationSeverity where
     parser = takeLowerText >>= \case

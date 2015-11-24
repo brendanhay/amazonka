@@ -23,7 +23,7 @@ data ApplicationRevisionSortBy
     = FirstUsedTime
     | LastUsedTime
     | RegisterTime
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ApplicationRevisionSortBy where
     parser = takeLowerText >>= \case
@@ -51,7 +51,7 @@ data BundleType
     = TAR
     | TGZ
     | Zip
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText BundleType where
     parser = takeLowerText >>= \case
@@ -92,7 +92,7 @@ data DeployErrorCode
     | RevisionMissing
     | Throttled
     | Timeout
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DeployErrorCode where
     parser = takeLowerText >>= \case
@@ -139,7 +139,7 @@ instance FromJSON DeployErrorCode where
 data DeploymentCreator
     = Autoscaling
     | User
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DeploymentCreator where
     parser = takeLowerText >>= \case
@@ -168,7 +168,7 @@ data DeploymentStatus
     | Queued
     | Stopped
     | Succeeded
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DeploymentStatus where
     parser = takeLowerText >>= \case
@@ -205,7 +205,7 @@ data EC2TagFilterType
     = KeyAndValue
     | KeyOnly
     | ValueOnly
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EC2TagFilterType where
     parser = takeLowerText >>= \case
@@ -239,7 +239,7 @@ data InstanceStatus
     | ISSkipped
     | ISSucceeded
     | ISUnknown
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InstanceStatus where
     parser = takeLowerText >>= \case
@@ -279,7 +279,7 @@ data LifecycleErrorCode
     | ScriptTimedOut
     | Success
     | UnknownError
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText LifecycleErrorCode where
     parser = takeLowerText >>= \case
@@ -316,7 +316,7 @@ data LifecycleEventStatus
     | LESSkipped
     | LESSucceeded
     | LESUnknown
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText LifecycleEventStatus where
     parser = takeLowerText >>= \case
@@ -350,7 +350,7 @@ data ListStateFilterAction
     = Exclude
     | Ignore
     | Include
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ListStateFilterAction where
     parser = takeLowerText >>= \case
@@ -377,7 +377,7 @@ instance ToJSON ListStateFilterAction where
 data MinimumHealthyHostsType
     = FleetPercent
     | HostCount
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MinimumHealthyHostsType where
     parser = takeLowerText >>= \case
@@ -405,7 +405,7 @@ instance FromJSON MinimumHealthyHostsType where
 data RegistrationStatus
     = Deregistered
     | Registered
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RegistrationStatus where
     parser = takeLowerText >>= \case
@@ -430,7 +430,7 @@ instance ToJSON RegistrationStatus where
 data RevisionLocationType
     = GitHub
     | S3
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RevisionLocationType where
     parser = takeLowerText >>= \case
@@ -458,7 +458,7 @@ instance FromJSON RevisionLocationType where
 data SortOrder
     = Ascending
     | Descending
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SortOrder where
     parser = takeLowerText >>= \case
@@ -483,7 +483,7 @@ instance ToJSON SortOrder where
 data StopStatus
     = SSPending
     | SSSucceeded
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StopStatus where
     parser = takeLowerText >>= \case
@@ -509,7 +509,7 @@ data TagFilterType
     = TFTKeyAndValue
     | TFTKeyOnly
     | TFTValueOnly
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TagFilterType where
     parser = takeLowerText >>= \case

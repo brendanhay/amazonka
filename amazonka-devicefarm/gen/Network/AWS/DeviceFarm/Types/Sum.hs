@@ -23,7 +23,7 @@ data ArtifactCategory
     = ACFile
     | ACLog
     | ACScreenshot
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ArtifactCategory where
     parser = takeLowerText >>= \case
@@ -67,7 +67,7 @@ data ArtifactType
     | Screenshot
     | ServiceLog
     | Unknown
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ArtifactType where
     parser = takeLowerText >>= \case
@@ -126,7 +126,7 @@ instance FromJSON ArtifactType where
 data BillingMethod
     = Metered
     | Unmetered
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText BillingMethod where
     parser = takeLowerText >>= \case
@@ -156,7 +156,7 @@ data DeviceAttribute
     | FormFactor
     | Manufacturer
     | Platform
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DeviceAttribute where
     parser = takeLowerText >>= \case
@@ -188,7 +188,7 @@ instance FromJSON DeviceAttribute where
 data DeviceFormFactor
     = Phone
     | Tablet
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DeviceFormFactor where
     parser = takeLowerText >>= \case
@@ -213,7 +213,7 @@ instance FromJSON DeviceFormFactor where
 data DevicePlatform
     = Android
     | Ios
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DevicePlatform where
     parser = takeLowerText >>= \case
@@ -238,7 +238,7 @@ instance FromJSON DevicePlatform where
 data DevicePoolType
     = Curated
     | Private
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DevicePoolType where
     parser = takeLowerText >>= \case
@@ -271,7 +271,7 @@ data ExecutionResult
     | ERSkipped
     | ERStopped
     | ERWarned
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ExecutionResult where
     parser = takeLowerText >>= \case
@@ -309,7 +309,7 @@ data ExecutionStatus
     | Processing
     | Running
     | Scheduling
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ExecutionStatus where
     parser = takeLowerText >>= \case
@@ -343,7 +343,7 @@ data RuleOperator
     | IN
     | LessThan
     | NotIn
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RuleOperator where
     parser = takeLowerText >>= \case
@@ -392,7 +392,7 @@ data SampleType
     | TX
     | Threads
     | TxRate
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SampleType where
     parser = takeLowerText >>= \case
@@ -454,7 +454,7 @@ data TestType
     | Uiautomation
     | Uiautomator
     | Xctest
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TestType where
     parser = takeLowerText >>= \case
@@ -498,7 +498,7 @@ data UploadStatus
     | USInitialized
     | USProcessing
     | USSucceeded
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText UploadStatus where
     parser = takeLowerText >>= \case
@@ -535,7 +535,7 @@ data UploadType
     | UiautomationTestPackage
     | UiautomatorTestPackage
     | XctestTestPackage
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText UploadType where
     parser = takeLowerText >>= \case

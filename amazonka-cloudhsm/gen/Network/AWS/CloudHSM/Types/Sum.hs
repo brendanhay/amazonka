@@ -22,7 +22,7 @@ import           Network.AWS.Prelude
 data ClientVersion
     = VD5_1
     | VD5_3
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ClientVersion where
     parser = takeLowerText >>= \case
@@ -48,7 +48,7 @@ data CloudHSMObjectState
     = Degraded
     | Ready
     | Updating
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CloudHSMObjectState where
     parser = takeLowerText >>= \case
@@ -80,7 +80,7 @@ data HSMStatus
     | HSTerminated
     | HSTerminating
     | HSUpdating
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText HSMStatus where
     parser = takeLowerText >>= \case
@@ -114,7 +114,7 @@ instance FromJSON HSMStatus where
 
 data SubscriptionType =
     Production
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SubscriptionType where
     parser = takeLowerText >>= \case

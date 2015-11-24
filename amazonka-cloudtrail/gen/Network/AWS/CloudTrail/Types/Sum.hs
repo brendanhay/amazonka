@@ -25,7 +25,7 @@ data LookupAttributeKey
     | ResourceName
     | ResourceType
     | Username
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText LookupAttributeKey where
     parser = takeLowerText >>= \case

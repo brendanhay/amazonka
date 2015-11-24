@@ -22,7 +22,7 @@ import           Network.AWS.Prelude
 data ChangeAction
     = Delete
     | Insert
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ChangeAction where
     parser = takeLowerText >>= \case
@@ -48,7 +48,7 @@ data ChangeTokenStatus
     = Insync
     | Pending
     | Provisioned
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ChangeTokenStatus where
     parser = takeLowerText >>= \case
@@ -74,7 +74,7 @@ instance FromJSON ChangeTokenStatus where
 
 data IPSetDescriptorType =
     IPV4
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText IPSetDescriptorType where
     parser = takeLowerText >>= \case
@@ -102,7 +102,7 @@ data MatchFieldType
     | Method
     | QueryString
     | URI
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MatchFieldType where
     parser = takeLowerText >>= \case
@@ -137,7 +137,7 @@ data PositionalConstraint
     | EndsWith
     | Exactly
     | StartsWith
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PositionalConstraint where
     parser = takeLowerText >>= \case
@@ -172,7 +172,7 @@ data PredicateType
     = ByteMatch
     | IPMatch
     | SqlInjectionMatch
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PredicateType where
     parser = takeLowerText >>= \case
@@ -206,7 +206,7 @@ data TextTransformation
     | Lowercase
     | None
     | URLDecode
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TextTransformation where
     parser = takeLowerText >>= \case
@@ -243,7 +243,7 @@ data WafActionType
     = Allow
     | Block
     | Count
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText WafActionType where
     parser = takeLowerText >>= \case

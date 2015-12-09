@@ -89,7 +89,7 @@ module Network.AWS.Types
     , serviceMessage
     , serviceRequestId
     -- ** Error Types
-    , ErrorCode
+    , ErrorCode      (..)
     , errorCode
     , ErrorMessage   (..)
     , RequestId      (..)

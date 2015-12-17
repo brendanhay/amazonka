@@ -47,6 +47,7 @@ module Network.AWS.RDS.DescribeDBSnapshots
     , ddsrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types

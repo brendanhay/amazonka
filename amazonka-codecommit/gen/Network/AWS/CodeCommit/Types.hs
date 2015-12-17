@@ -75,6 +75,7 @@ module Network.AWS.CodeCommit.Types
 
 import           Network.AWS.CodeCommit.Types.Product
 import           Network.AWS.CodeCommit.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

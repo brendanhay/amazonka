@@ -134,6 +134,7 @@ module Network.AWS.WorkSpaces.Types
     , wrBundleId
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 import           Network.AWS.WorkSpaces.Types.Product

@@ -18,6 +18,7 @@
 module Network.AWS.ElastiCache.Types.Product where
 
 import           Network.AWS.ElastiCache.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Describes an Availability Zone in which the cache cluster is launched.

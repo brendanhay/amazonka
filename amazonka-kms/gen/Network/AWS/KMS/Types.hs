@@ -101,6 +101,7 @@ module Network.AWS.KMS.Types
 
 import           Network.AWS.KMS.Types.Product
 import           Network.AWS.KMS.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

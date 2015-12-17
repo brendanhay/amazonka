@@ -72,6 +72,7 @@ module Network.AWS.CognitoIdentity.Types
 
 import           Network.AWS.CognitoIdentity.Types.Product
 import           Network.AWS.CognitoIdentity.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

@@ -16,5 +16,6 @@
 module Network.AWS.CloudTrail.Waiters where
 
 import           Network.AWS.CloudTrail.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

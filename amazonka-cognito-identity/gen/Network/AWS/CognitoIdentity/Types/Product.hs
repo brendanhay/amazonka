@@ -18,6 +18,7 @@
 module Network.AWS.CognitoIdentity.Types.Product where
 
 import           Network.AWS.CognitoIdentity.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Credentials for the provided identity ID.

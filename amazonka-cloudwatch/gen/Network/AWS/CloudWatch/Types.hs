@@ -125,6 +125,7 @@ module Network.AWS.CloudWatch.Types
 
 import           Network.AWS.CloudWatch.Types.Product
 import           Network.AWS.CloudWatch.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

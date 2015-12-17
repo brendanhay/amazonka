@@ -18,6 +18,7 @@
 module Network.AWS.CodePipeline.Types.Product where
 
 import           Network.AWS.CodePipeline.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Represents an AWS session credentials object. These credentials are

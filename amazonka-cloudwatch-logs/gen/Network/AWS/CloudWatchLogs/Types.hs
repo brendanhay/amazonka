@@ -159,6 +159,7 @@ module Network.AWS.CloudWatchLogs.Types
 
 import           Network.AWS.CloudWatchLogs.Types.Product
 import           Network.AWS.CloudWatchLogs.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

@@ -18,6 +18,7 @@
 module Network.AWS.ELB.Types.Product where
 
 import           Network.AWS.ELB.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Information about the 'AccessLog' attribute.

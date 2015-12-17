@@ -34,6 +34,7 @@ module Network.AWS.Redshift.DeleteSnapshotCopyGrant
     , DeleteSnapshotCopyGrantResponse
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types
 import           Network.AWS.Redshift.Types.Product

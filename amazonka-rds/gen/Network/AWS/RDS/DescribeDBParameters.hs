@@ -44,6 +44,7 @@ module Network.AWS.RDS.DescribeDBParameters
     , ddprsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types

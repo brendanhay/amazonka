@@ -18,6 +18,7 @@
 module Network.AWS.AutoScaling.Types.Product where
 
 import           Network.AWS.AutoScaling.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Describes scaling activity, which is a long-running process that

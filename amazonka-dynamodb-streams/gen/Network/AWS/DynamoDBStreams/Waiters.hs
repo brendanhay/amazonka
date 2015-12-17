@@ -16,5 +16,6 @@
 module Network.AWS.DynamoDBStreams.Waiters where
 
 import           Network.AWS.DynamoDBStreams.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

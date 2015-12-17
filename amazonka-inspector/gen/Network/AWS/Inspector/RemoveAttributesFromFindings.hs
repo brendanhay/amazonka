@@ -42,6 +42,7 @@ module Network.AWS.Inspector.RemoveAttributesFromFindings
 
 import           Network.AWS.Inspector.Types
 import           Network.AWS.Inspector.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

@@ -67,6 +67,7 @@ module Network.AWS.Redshift.CreateEventSubscription
     , cesrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types
 import           Network.AWS.Redshift.Types.Product

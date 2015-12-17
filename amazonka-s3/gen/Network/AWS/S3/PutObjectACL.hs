@@ -48,6 +48,7 @@ module Network.AWS.S3.PutObjectACL
     , poarsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

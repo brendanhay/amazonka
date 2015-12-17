@@ -40,6 +40,7 @@ module Network.AWS.SES.ListReceiptFilters
     , lrfrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

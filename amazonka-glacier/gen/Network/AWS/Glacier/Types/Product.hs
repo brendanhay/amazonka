@@ -18,6 +18,7 @@
 module Network.AWS.Glacier.Types.Product where
 
 import           Network.AWS.Glacier.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Contains the Amazon Glacier response to your request.

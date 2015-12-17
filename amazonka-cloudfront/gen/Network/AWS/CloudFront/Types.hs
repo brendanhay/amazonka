@@ -449,6 +449,7 @@ module Network.AWS.CloudFront.Types
 
 import           Network.AWS.CloudFront.Types.Product
 import           Network.AWS.CloudFront.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

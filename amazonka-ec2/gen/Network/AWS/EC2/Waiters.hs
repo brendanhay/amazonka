@@ -40,6 +40,7 @@ import           Network.AWS.EC2.DescribeVPNConnections
 import           Network.AWS.EC2.DescribeVPNConnections
 import           Network.AWS.EC2.GetPasswordData
 import           Network.AWS.EC2.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 

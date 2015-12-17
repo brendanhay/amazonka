@@ -41,6 +41,7 @@ module Network.AWS.SSM.CreateDocument
     , cdrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

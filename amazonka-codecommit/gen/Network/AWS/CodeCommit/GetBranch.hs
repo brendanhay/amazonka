@@ -41,6 +41,7 @@ module Network.AWS.CodeCommit.GetBranch
 
 import           Network.AWS.CodeCommit.Types
 import           Network.AWS.CodeCommit.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

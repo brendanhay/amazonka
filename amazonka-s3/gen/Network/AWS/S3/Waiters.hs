@@ -15,6 +15,7 @@
 --
 module Network.AWS.S3.Waiters where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.S3.HeadBucket
 import           Network.AWS.S3.HeadBucket

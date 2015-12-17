@@ -18,6 +18,7 @@
 module Network.AWS.EMR.Types.Product where
 
 import           Network.AWS.EMR.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | An application is any Amazon or third-party software that you can add to

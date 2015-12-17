@@ -118,7 +118,6 @@ test-suite amazonka-elb-test
         , amazonka-elb == 1.3.6.*
         , base
         , bytestring
-        , lens
         , tasty
         , tasty-hunit
         , text

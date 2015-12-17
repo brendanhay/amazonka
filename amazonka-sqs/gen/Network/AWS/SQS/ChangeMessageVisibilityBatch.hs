@@ -55,6 +55,7 @@ module Network.AWS.SQS.ChangeMessageVisibilityBatch
     , cmvbrsFailed
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

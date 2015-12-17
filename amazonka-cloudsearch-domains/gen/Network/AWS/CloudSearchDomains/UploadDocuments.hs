@@ -68,6 +68,7 @@ module Network.AWS.CloudSearchDomains.UploadDocuments
 
 import           Network.AWS.CloudSearchDomains.Types
 import           Network.AWS.CloudSearchDomains.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

@@ -86,6 +86,7 @@ module Network.AWS.CloudSearchDomains.Types
 
 import           Network.AWS.CloudSearchDomains.Types.Product
 import           Network.AWS.CloudSearchDomains.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

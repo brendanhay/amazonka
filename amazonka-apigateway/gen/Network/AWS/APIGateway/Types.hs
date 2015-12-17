@@ -206,6 +206,7 @@ module Network.AWS.APIGateway.Types
 
 import           Network.AWS.APIGateway.Types.Product
 import           Network.AWS.APIGateway.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

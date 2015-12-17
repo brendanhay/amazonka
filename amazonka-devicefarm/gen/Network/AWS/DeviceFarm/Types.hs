@@ -308,6 +308,7 @@ module Network.AWS.DeviceFarm.Types
 
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.DeviceFarm.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

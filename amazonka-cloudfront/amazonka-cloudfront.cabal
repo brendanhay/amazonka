@@ -106,7 +106,6 @@ test-suite amazonka-cloudfront-test
         , amazonka-cloudfront == 1.3.6.*
         , base
         , bytestring
-        , lens
         , tasty
         , tasty-hunit
         , text

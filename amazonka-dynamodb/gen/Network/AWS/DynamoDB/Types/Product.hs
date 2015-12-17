@@ -18,6 +18,7 @@
 module Network.AWS.DynamoDB.Types.Product where
 
 import           Network.AWS.DynamoDB.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Represents an attribute for describing the key schema for the table and

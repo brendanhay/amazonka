@@ -47,6 +47,7 @@ module Network.AWS.OpsWorks.DescribeInstances
     , dirsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.OpsWorks.Types
 import           Network.AWS.OpsWorks.Types.Product
 import           Network.AWS.Prelude

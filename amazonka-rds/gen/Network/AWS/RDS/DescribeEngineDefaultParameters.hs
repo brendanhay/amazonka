@@ -43,6 +43,7 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     , dedprsEngineDefaults
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types

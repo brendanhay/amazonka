@@ -39,6 +39,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     , dtacrsrsStatuses
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

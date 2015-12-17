@@ -51,6 +51,7 @@ module Network.AWS.Route53.DeleteHostedZone
     , dhzrsChangeInfo
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

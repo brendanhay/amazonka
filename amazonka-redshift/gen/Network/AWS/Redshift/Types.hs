@@ -470,6 +470,7 @@ module Network.AWS.Redshift.Types
     , vsgmVPCSecurityGroupId
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Redshift.Types.Sum

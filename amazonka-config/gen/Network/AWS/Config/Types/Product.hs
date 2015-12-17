@@ -18,6 +18,7 @@
 module Network.AWS.Config.Types.Product where
 
 import           Network.AWS.Config.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Indicates whether an AWS resource or AWS Config rule is compliant and

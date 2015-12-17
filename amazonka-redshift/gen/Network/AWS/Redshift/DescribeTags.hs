@@ -64,6 +64,7 @@ module Network.AWS.Redshift.DescribeTags
     , dtrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types
 import           Network.AWS.Redshift.Types.Product

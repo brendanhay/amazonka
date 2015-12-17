@@ -18,6 +18,7 @@
 module Network.AWS.CloudTrail.Types.Product where
 
 import           Network.AWS.CloudTrail.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Contains information about an event that was returned by a lookup

@@ -68,6 +68,7 @@ module Network.AWS.RDS.CreateDBInstance
     , cdirsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
 import           Network.AWS.RDS.Types.Product

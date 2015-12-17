@@ -51,6 +51,7 @@ module Network.AWS.MachineLearning.DescribeDataSources
     , ddssrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.MachineLearning.Types
 import           Network.AWS.MachineLearning.Types.Product
 import           Network.AWS.Pager

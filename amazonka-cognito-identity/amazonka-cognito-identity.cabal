@@ -128,7 +128,6 @@ test-suite amazonka-cognito-identity-test
         , amazonka-cognito-identity == 1.3.6.*
         , base
         , bytestring
-        , lens
         , tasty
         , tasty-hunit
         , text

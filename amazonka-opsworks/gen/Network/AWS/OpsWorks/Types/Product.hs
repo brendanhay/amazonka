@@ -17,6 +17,7 @@
 --
 module Network.AWS.OpsWorks.Types.Product where
 
+import           Network.AWS.Lens
 import           Network.AWS.OpsWorks.Types.Sum
 import           Network.AWS.Prelude
 

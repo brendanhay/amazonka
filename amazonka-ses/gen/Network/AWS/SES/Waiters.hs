@@ -15,6 +15,7 @@
 --
 module Network.AWS.SES.Waiters where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.SES.Types
 import           Network.AWS.Waiter

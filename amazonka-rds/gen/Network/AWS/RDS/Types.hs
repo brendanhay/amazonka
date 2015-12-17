@@ -610,6 +610,7 @@ module Network.AWS.RDS.Types
     , vsgmVPCSecurityGroupId
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types.Product
 import           Network.AWS.RDS.Types.Sum

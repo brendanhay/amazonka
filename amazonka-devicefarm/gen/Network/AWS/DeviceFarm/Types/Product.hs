@@ -18,6 +18,7 @@
 module Network.AWS.DeviceFarm.Types.Product where
 
 import           Network.AWS.DeviceFarm.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | A container for account-level settings within AWS Device Farm.

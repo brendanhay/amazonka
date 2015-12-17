@@ -16,5 +16,6 @@
 module Network.AWS.ElasticBeanstalk.Waiters where
 
 import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

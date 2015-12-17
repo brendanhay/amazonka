@@ -18,6 +18,7 @@
 module Network.AWS.CloudFront.Types.Product where
 
 import           Network.AWS.CloudFront.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | A complex type that lists the AWS accounts, if any, that you included in

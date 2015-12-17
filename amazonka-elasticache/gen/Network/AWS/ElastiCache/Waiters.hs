@@ -20,6 +20,7 @@ import           Network.AWS.ElastiCache.DescribeCacheClusters
 import           Network.AWS.ElastiCache.DescribeReplicationGroups
 import           Network.AWS.ElastiCache.DescribeReplicationGroups
 import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 

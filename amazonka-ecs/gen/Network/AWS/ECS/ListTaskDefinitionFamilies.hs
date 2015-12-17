@@ -47,6 +47,7 @@ module Network.AWS.ECS.ListTaskDefinitionFamilies
 
 import           Network.AWS.ECS.Types
 import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request

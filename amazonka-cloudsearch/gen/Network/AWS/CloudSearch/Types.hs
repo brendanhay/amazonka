@@ -287,6 +287,7 @@ module Network.AWS.CloudSearch.Types
 
 import           Network.AWS.CloudSearch.Types.Product
 import           Network.AWS.CloudSearch.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

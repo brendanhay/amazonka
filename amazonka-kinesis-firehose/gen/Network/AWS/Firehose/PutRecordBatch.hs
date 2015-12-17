@@ -103,6 +103,7 @@ module Network.AWS.Firehose.PutRecordBatch
 
 import           Network.AWS.Firehose.Types
 import           Network.AWS.Firehose.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

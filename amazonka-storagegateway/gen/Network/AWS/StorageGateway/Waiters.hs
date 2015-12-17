@@ -15,6 +15,7 @@
 --
 module Network.AWS.StorageGateway.Waiters where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.StorageGateway.Types
 import           Network.AWS.Waiter

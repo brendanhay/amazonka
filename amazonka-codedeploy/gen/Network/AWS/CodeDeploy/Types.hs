@@ -292,6 +292,7 @@ module Network.AWS.CodeDeploy.Types
 
 import           Network.AWS.CodeDeploy.Types.Product
 import           Network.AWS.CodeDeploy.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

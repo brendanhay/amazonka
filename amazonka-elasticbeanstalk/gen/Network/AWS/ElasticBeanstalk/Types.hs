@@ -349,6 +349,7 @@ module Network.AWS.ElasticBeanstalk.Types
 
 import           Network.AWS.ElasticBeanstalk.Types.Product
 import           Network.AWS.ElasticBeanstalk.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

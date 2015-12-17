@@ -18,6 +18,7 @@
 module Network.AWS.IoT.Types.Product where
 
 import           Network.AWS.IoT.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Describes the actions associated with a rule.

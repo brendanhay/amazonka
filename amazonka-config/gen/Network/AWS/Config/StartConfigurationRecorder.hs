@@ -40,6 +40,7 @@ module Network.AWS.Config.StartConfigurationRecorder
 
 import           Network.AWS.Config.Types
 import           Network.AWS.Config.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

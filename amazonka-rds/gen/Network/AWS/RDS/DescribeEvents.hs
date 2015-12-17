@@ -52,6 +52,7 @@ module Network.AWS.RDS.DescribeEvents
     , dersResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types

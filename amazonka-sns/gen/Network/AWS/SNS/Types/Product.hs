@@ -17,6 +17,7 @@
 --
 module Network.AWS.SNS.Types.Product where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.SNS.Types.Sum
 

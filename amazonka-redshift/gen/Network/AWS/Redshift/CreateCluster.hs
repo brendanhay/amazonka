@@ -67,6 +67,7 @@ module Network.AWS.Redshift.CreateCluster
     , ccrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types
 import           Network.AWS.Redshift.Types.Product

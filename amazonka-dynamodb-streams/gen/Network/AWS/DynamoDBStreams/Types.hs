@@ -113,6 +113,7 @@ module Network.AWS.DynamoDBStreams.Types
 
 import           Network.AWS.DynamoDBStreams.Types.Product
 import           Network.AWS.DynamoDBStreams.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

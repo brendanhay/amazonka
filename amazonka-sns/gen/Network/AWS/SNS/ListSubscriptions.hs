@@ -43,6 +43,7 @@ module Network.AWS.SNS.ListSubscriptions
     , lsrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request

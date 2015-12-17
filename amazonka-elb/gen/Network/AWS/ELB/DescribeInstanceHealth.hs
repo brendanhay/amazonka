@@ -45,6 +45,7 @@ module Network.AWS.ELB.DescribeInstanceHealth
 
 import           Network.AWS.ELB.Types
 import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

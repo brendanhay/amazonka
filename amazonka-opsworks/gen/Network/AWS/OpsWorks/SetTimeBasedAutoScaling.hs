@@ -43,6 +43,7 @@ module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
     , SetTimeBasedAutoScalingResponse
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.OpsWorks.Types
 import           Network.AWS.OpsWorks.Types.Product
 import           Network.AWS.Prelude

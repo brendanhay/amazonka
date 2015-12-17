@@ -15,6 +15,7 @@
 --
 module Network.AWS.STS.Waiters where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.STS.Types
 import           Network.AWS.Waiter

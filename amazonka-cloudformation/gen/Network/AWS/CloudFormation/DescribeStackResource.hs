@@ -43,6 +43,7 @@ module Network.AWS.CloudFormation.DescribeStackResource
 
 import           Network.AWS.CloudFormation.Types
 import           Network.AWS.CloudFormation.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

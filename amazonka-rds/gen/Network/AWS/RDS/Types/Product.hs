@@ -17,6 +17,7 @@
 --
 module Network.AWS.RDS.Types.Product where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types.Sum
 

@@ -41,6 +41,7 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     , cdsgrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
 import           Network.AWS.RDS.Types.Product

@@ -18,6 +18,7 @@
 module Network.AWS.CloudWatchLogs.Types.Product where
 
 import           Network.AWS.CloudWatchLogs.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | A cross account destination that is the recipient of subscription log

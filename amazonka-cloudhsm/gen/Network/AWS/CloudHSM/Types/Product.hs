@@ -18,4 +18,5 @@
 module Network.AWS.CloudHSM.Types.Product where
 
 import           Network.AWS.CloudHSM.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude

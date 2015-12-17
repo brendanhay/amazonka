@@ -109,6 +109,7 @@ module Network.AWS.CloudTrail.Types
 
 import           Network.AWS.CloudTrail.Types.Product
 import           Network.AWS.CloudTrail.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

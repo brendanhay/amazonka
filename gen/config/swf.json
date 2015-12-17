@@ -1,5 +1,18 @@
 {
     "referenceUrl": "http://docs.aws.amazon.com/amazonswf/latest/apireference/Welcome.html",
     "operationUrl": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_",
-    "libraryName": "amazonka-swf"
+    "libraryName": "amazonka-swf",
+    "typeOverrides": {
+        "ActivityTask": {
+            "optionalFields": [
+                "activityId",
+                "taskToken"
+            ]
+        },
+        "DecisionTask": {
+            "optionalFields": [
+                "taskToken"
+            ]
+        }
+    }
 }

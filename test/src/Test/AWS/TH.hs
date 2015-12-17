@@ -12,6 +12,7 @@
 --
 module Test.AWS.TH where
 
+import           Control.Applicative
 import           Data.Time
 import           Language.Haskell.TH
 import           Language.Haskell.TH.Syntax

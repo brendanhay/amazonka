@@ -42,13 +42,13 @@ typeImports l = sort $
 
 sumImports :: Library -> [NS]
 sumImports l = sort $
-      "Network.AWS.Lens"
-    : "Network.AWS.Prelude"
+      "Network.AWS.Prelude"
     : l ^. typeModules
 
 productImports :: Library -> [NS]
 productImports l = sort $
-      "Network.AWS.Prelude"
+      "Network.AWS.Lens"
+    : "Network.AWS.Prelude"
     : l ^. sumNS
     : l ^. typeModules
 

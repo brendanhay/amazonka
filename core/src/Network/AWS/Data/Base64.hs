@@ -15,7 +15,6 @@ module Network.AWS.Data.Base64
     , _Base64
     ) where
 
-import           Control.Lens
 import           Data.Aeson.Types
 import qualified Data.Attoparsec.Text        as AText
 import qualified Data.ByteArray.Encoding     as BA
@@ -28,8 +27,7 @@ import           Network.AWS.Data.JSON
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
-
-import           Prelude
+import           Network.AWS.Lens            (Iso', iso)
 
 -- | Base64 encoded binary data.
 --

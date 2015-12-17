@@ -62,7 +62,6 @@ module Network.AWS.Auth
 
 import           Control.Applicative
 import           Control.Concurrent
-import           Control.Exception.Lens
 import           Control.Monad
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class
@@ -77,14 +76,15 @@ import qualified Data.Text.Encoding         as Text
 import           Data.Time                  (diffUTCTime, getCurrentTime)
 import           Network.AWS.Data.Log
 import           Network.AWS.EC2.Metadata
+import           Network.AWS.Lens           (catching, catching_, exception,
+                                             throwingM, _IOException)
+import           Network.AWS.Lens           (Prism', prism)
 import           Network.AWS.Prelude
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
 import           System.Directory           (doesFileExist, getHomeDirectory)
 import           System.Environment
 import           System.Mem.Weak
-
-import           Prelude
 
 -- | Default access key environment variable.
 envAccessKey :: Text -- ^ AWS_ACCESS_KEY_ID
@@ -323,9 +323,9 @@ fromEnvKeys :: (Applicative m, MonadIO m, MonadThrow m)
             -> Maybe Text -- ^ Session token environment variable.
             -> m Auth
 fromEnvKeys a s t = fmap Auth $ AuthEnv
-    <$> (req a <&> AccessKey)
-    <*> (req s <&> SecretKey)
-    <*> (opt t <&> fmap SessionToken)
+    <$> (AccessKey         <$> req a)
+    <*> (SecretKey         <$> req s)
+    <*> (fmap SessionToken <$> opt t)
     <*> pure Nothing
   where
     req k = do
@@ -365,9 +365,9 @@ fromFilePath n f = do
         throwM (MissingFileError f)
     i <- liftIO (INI.readIniFile f) >>= either (invalidErr Nothing) return
     fmap Auth $ AuthEnv
-        <$> (req credAccessKey i    <&> AccessKey)
-        <*> (req credSecretKey i    <&> SecretKey)
-        <*> (opt credSessionToken i <&> fmap SessionToken)
+        <$> (AccessKey         <$> req credAccessKey    i)
+        <*> (SecretKey         <$> req credSecretKey    i)
+        <*> (fmap SessionToken <$> opt credSessionToken i)
         <*> pure Nothing
   where
     req k i =

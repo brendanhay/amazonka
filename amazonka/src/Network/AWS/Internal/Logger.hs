@@ -35,8 +35,6 @@ import           Network.AWS.Data.Log
 import           Network.AWS.Types
 import           System.IO
 
-import           Prelude
-
 -- | This is a primitive logger which can be used to log builds to a 'Handle'.
 --
 -- /Note:/ A more sophisticated logging library such as

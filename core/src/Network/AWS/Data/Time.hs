@@ -35,7 +35,6 @@ module Network.AWS.Data.Time
     ) where
 
 import           Control.Applicative
-import           Control.Lens
 import           Data.Aeson
 import           Data.Attoparsec.Text        (Parser)
 import qualified Data.Attoparsec.Text        as AText
@@ -56,8 +55,7 @@ import           Network.AWS.Data.JSON
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
-
-import           Prelude
+import           Network.AWS.Lens            (Iso', iso)
 
 data Format
     = RFC822Format

@@ -32,8 +32,6 @@ import           Network.HTTP.Conduit         hiding (Proxy, Request, Response)
 import           Network.HTTP.Types
 import           Text.XML                     (Node)
 
-import           Prelude
-
 receiveNull :: MonadResource m
             => Rs a
             -> Logger

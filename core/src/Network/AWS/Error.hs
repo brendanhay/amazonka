@@ -13,7 +13,6 @@
 module Network.AWS.Error where
 
 import           Control.Applicative
-import           Control.Lens
 import           Control.Monad
 import           Data.Aeson
 import           Data.Aeson.Types            (parseEither)
@@ -24,6 +23,8 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
+import           Network.AWS.Lens            (Choice, Getting, Optic', filtered)
+import           Network.AWS.Lens            ((<&>))
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
 import           Network.HTTP.Types.Status   (Status (..))

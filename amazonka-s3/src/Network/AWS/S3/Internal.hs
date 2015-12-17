@@ -35,11 +35,13 @@ module Network.AWS.S3.Internal
     , keyComponents
     ) where
 
-import           Control.Lens
 import           Data.String
 import qualified Data.Text            as Text
 import           Network.AWS.Data.Log
 import           Network.AWS.Data.XML
+import           Network.AWS.Lens     (IndexedTraversal', Iso', Prism',
+                                       Traversal')
+import           Network.AWS.Lens     (iso, prism, traversed, _1, _2)
 import           Network.AWS.Prelude
 
 newtype BucketName = BucketName Text

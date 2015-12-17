@@ -21,8 +21,6 @@ import qualified Data.Conduit.Binary          as Conduit
 import           Network.AWS.Prelude
 import           System.IO
 
-import           Prelude
-
 -- | Convenience function for obtaining the size of a file.
 getFileSize :: MonadIO m => FilePath -> m Integer
 getFileSize f = liftIO (withBinaryFile f ReadMode hFileSize)

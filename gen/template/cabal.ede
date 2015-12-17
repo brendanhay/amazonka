@@ -79,7 +79,6 @@ test-suite {{ libraryName }}-test
         , {{ libraryName }} == {{ clientVersion }}.*
         , base
         , bytestring
-        , lens
         , tasty
         , tasty-hunit
         , text

@@ -23,7 +23,6 @@ import           Data.CaseInsensitive         (CI)
 import qualified Data.CaseInsensitive         as CI
 import           Data.Int
 import           Data.List                    (intersperse)
-import           Data.Maybe
 import           Data.Monoid
 import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
@@ -31,7 +30,6 @@ import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Encoding      as LText
 import           Data.Time                    (UTCTime)
 import           Data.Word
-import           GHC.Float
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Path
@@ -40,8 +38,6 @@ import           Network.AWS.Data.Text
 import           Network.HTTP.Conduit
 import           Network.HTTP.Types
 import           Numeric
-
-import           Prelude
 
 class ToLog a where
     -- | Convert a value to a loggable builder.

@@ -35,8 +35,6 @@ import           Text.XML
 import qualified Text.XML.Stream.Render      as Stream
 import           Text.XML.Unresolved         (toEvents)
 
-import           Prelude
-
 infixl 7 .@, .@?
 
 (.@) :: FromXML a => [Node] -> Text -> Either String a

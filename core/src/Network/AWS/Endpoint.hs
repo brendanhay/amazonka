@@ -13,14 +13,12 @@
 --
 module Network.AWS.Endpoint where
 
-import           Control.Lens
 import qualified Data.CaseInsensitive        as CI
 import qualified Data.HashSet                as Set
 import           Data.Monoid
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Lens            ((%~), (.~))
 import           Network.AWS.Types
-
-import           Prelude
 
 -- | A convenience function for overriding the 'Service' 'Endpoint'.
 --

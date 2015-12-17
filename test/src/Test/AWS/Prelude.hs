@@ -10,10 +10,10 @@ module Test.AWS.Prelude
     ( module Export
     ) where
 
-import           Control.Lens.Operators as Export
-import           Data.Traversable       as Export (traverse)
-import           Test.AWS.Assert        as Export
-import           Test.AWS.Orphans       as Export ()
-import           Test.AWS.TH            as Export
-import           Test.Tasty             as Export (TestTree, testGroup)
-import           Test.Tasty.HUnit       as Export (testCase)
+import           Data.Traversable as Export (traverse)
+import           Network.AWS.Lens as Export
+import           Test.AWS.Assert  as Export
+import           Test.AWS.Orphans as Export ()
+import           Test.AWS.TH      as Export
+import           Test.Tasty       as Export (TestTree, testGroup)
+import           Test.Tasty.HUnit as Export (testCase)

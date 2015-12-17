@@ -173,12 +173,11 @@ import           Network.AWS.Env              (Env, HasEnv (..), newEnv)
 import qualified Network.AWS.Env              as Env
 import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.Logger
+import           Network.AWS.Lens             ((^.))
 import           Network.AWS.Pager            (AWSPager)
 import           Network.AWS.Prelude
 import           Network.AWS.Types            hiding (LogLevel (..))
 import           Network.AWS.Waiter           (Wait)
-
-import           Prelude
 
 -- | A specialisation of the 'AWST' transformer.
 type AWS = AWST (ResourceT IO)

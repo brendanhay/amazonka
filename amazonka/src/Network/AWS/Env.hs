@@ -38,21 +38,19 @@ module Network.AWS.Env
     ) where
 
 import           Control.Applicative
-import           Control.Lens
-import           Control.Monad
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
-import           Control.Retry
 import           Data.Function               (on)
 import           Data.IORef
 import           Data.Monoid
 import           Network.AWS.Auth
 import           Network.AWS.Internal.Logger
+import           Network.AWS.Lens            (Getter, Lens')
+import           Network.AWS.Lens            (lens, to)
+import           Network.AWS.Lens            ((.~), (<>~), (?~))
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
-
-import           Prelude
 
 -- | The environment containing the parameters required to make AWS requests.
 data Env = Env

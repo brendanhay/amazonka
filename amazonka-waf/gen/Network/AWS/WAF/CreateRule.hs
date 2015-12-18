@@ -71,6 +71,7 @@ module Network.AWS.WAF.CreateRule
     , crrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

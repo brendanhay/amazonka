@@ -40,6 +40,7 @@ module Network.AWS.KMS.DisableKey
 
 import           Network.AWS.KMS.Types
 import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

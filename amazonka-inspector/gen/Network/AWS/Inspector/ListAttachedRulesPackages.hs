@@ -28,9 +28,9 @@ module Network.AWS.Inspector.ListAttachedRulesPackages
       listAttachedRulesPackages
     , ListAttachedRulesPackages
     -- * Request Lenses
-    , larpAssessmentARN
     , larpNextToken
     , larpMaxResults
+    , larpAssessmentARN
 
     -- * Destructuring the Response
     , listAttachedRulesPackagesResponse
@@ -43,38 +43,36 @@ module Network.AWS.Inspector.ListAttachedRulesPackages
 
 import           Network.AWS.Inspector.Types
 import           Network.AWS.Inspector.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listAttachedRulesPackages' smart constructor.
 data ListAttachedRulesPackages = ListAttachedRulesPackages'
-    { _larpAssessmentARN :: !(Maybe Text)
-    , _larpNextToken     :: !(Maybe Text)
+    { _larpNextToken     :: !(Maybe Text)
     , _larpMaxResults    :: !(Maybe Int)
+    , _larpAssessmentARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListAttachedRulesPackages' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'larpAssessmentARN'
---
 -- * 'larpNextToken'
 --
 -- * 'larpMaxResults'
+--
+-- * 'larpAssessmentARN'
 listAttachedRulesPackages
-    :: ListAttachedRulesPackages
-listAttachedRulesPackages =
+    :: Text -- ^ 'larpAssessmentARN'
+    -> ListAttachedRulesPackages
+listAttachedRulesPackages pAssessmentARN_ =
     ListAttachedRulesPackages'
-    { _larpAssessmentARN = Nothing
-    , _larpNextToken = Nothing
+    { _larpNextToken = Nothing
     , _larpMaxResults = Nothing
+    , _larpAssessmentARN = pAssessmentARN_
     }
-
--- | The ARN specifying the assessment whose rules packages you want to list.
-larpAssessmentARN :: Lens' ListAttachedRulesPackages (Maybe Text)
-larpAssessmentARN = lens _larpAssessmentARN (\ s a -> s{_larpAssessmentARN = a});
 
 -- | You can use this parameter when paginating results. Set the value of
 -- this parameter to \'null\' on your first call to the
@@ -88,6 +86,10 @@ larpNextToken = lens _larpNextToken (\ s a -> s{_larpNextToken = a});
 -- want in the response. The default value is 10. The maximum value is 500.
 larpMaxResults :: Lens' ListAttachedRulesPackages (Maybe Int)
 larpMaxResults = lens _larpMaxResults (\ s a -> s{_larpMaxResults = a});
+
+-- | The ARN specifying the assessment whose rules packages you want to list.
+larpAssessmentARN :: Lens' ListAttachedRulesPackages Text
+larpAssessmentARN = lens _larpAssessmentARN (\ s a -> s{_larpAssessmentARN = a});
 
 instance AWSRequest ListAttachedRulesPackages where
         type Rs ListAttachedRulesPackages =
@@ -115,9 +117,9 @@ instance ToJSON ListAttachedRulesPackages where
         toJSON ListAttachedRulesPackages'{..}
           = object
               (catMaybes
-                 [("assessmentArn" .=) <$> _larpAssessmentARN,
-                  ("nextToken" .=) <$> _larpNextToken,
-                  ("maxResults" .=) <$> _larpMaxResults])
+                 [("nextToken" .=) <$> _larpNextToken,
+                  ("maxResults" .=) <$> _larpMaxResults,
+                  Just ("assessmentArn" .= _larpAssessmentARN)])
 
 instance ToPath ListAttachedRulesPackages where
         toPath = const "/"

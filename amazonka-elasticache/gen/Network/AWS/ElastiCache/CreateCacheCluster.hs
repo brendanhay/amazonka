@@ -62,6 +62,7 @@ module Network.AWS.ElastiCache.CreateCacheCluster
 
 import           Network.AWS.ElastiCache.Types
 import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

@@ -22,7 +22,7 @@ import           Network.AWS.Prelude
 data ActionCode
     = ArchiveRetrieval
     | InventoryRetrieval
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ActionCode where
     parser = takeLowerText >>= \case
@@ -48,7 +48,7 @@ data StatusCode
     = Failed
     | InProgress
     | Succeeded
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StatusCode where
     parser = takeLowerText >>= \case

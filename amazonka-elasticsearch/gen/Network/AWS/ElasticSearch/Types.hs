@@ -135,6 +135,7 @@ module Network.AWS.ElasticSearch.Types
 
 import           Network.AWS.ElasticSearch.Types.Product
 import           Network.AWS.ElasticSearch.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

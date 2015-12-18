@@ -15,6 +15,7 @@
 --
 module Network.AWS.Redshift.Waiters where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.DescribeClusters
 import           Network.AWS.Redshift.DescribeClusters

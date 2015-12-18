@@ -32,8 +32,6 @@ import           Network.AWS.Types
 import qualified Network.HTTP.Conduit        as Client
 import           Network.HTTP.Types          hiding (toQuery)
 
-import           Prelude
-
 data V2 = V2
     { metaTime      :: !UTCTime
     , metaEndpoint  :: !Endpoint

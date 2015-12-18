@@ -27,6 +27,7 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
       terminateEnvironment
     , TerminateEnvironment
     -- * Request Lenses
+    , teForceTerminate
     , teTerminateResources
     , teEnvironmentName
     , teEnvironmentId
@@ -51,20 +52,23 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     , eSolutionStackName
     , eEnvironmentId
     , eHealthStatus
+    , eEnvironmentLinks
     , eDescription
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
 import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | This documentation target is not reported in the API reference.
+-- |
 --
 -- /See:/ 'terminateEnvironment' smart constructor.
 data TerminateEnvironment = TerminateEnvironment'
-    { _teTerminateResources :: !(Maybe Bool)
+    { _teForceTerminate     :: !(Maybe Bool)
+    , _teTerminateResources :: !(Maybe Bool)
     , _teEnvironmentName    :: !(Maybe Text)
     , _teEnvironmentId      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -72,6 +76,8 @@ data TerminateEnvironment = TerminateEnvironment'
 -- | Creates a value of 'TerminateEnvironment' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'teForceTerminate'
 --
 -- * 'teTerminateResources'
 --
@@ -82,19 +88,19 @@ terminateEnvironment
     :: TerminateEnvironment
 terminateEnvironment =
     TerminateEnvironment'
-    { _teTerminateResources = Nothing
+    { _teForceTerminate = Nothing
+    , _teTerminateResources = Nothing
     , _teEnvironmentName = Nothing
     , _teEnvironmentId = Nothing
     }
 
+-- | Terminates the target environment even if another environment in the
+-- same group is dependent on it.
+teForceTerminate :: Lens' TerminateEnvironment (Maybe Bool)
+teForceTerminate = lens _teForceTerminate (\ s a -> s{_teForceTerminate = a});
+
 -- | Indicates whether the associated AWS resources should shut down when the
 -- environment is terminated:
---
--- 'true': (default) The user AWS resources (for example, the Auto Scaling
--- group, LoadBalancer, etc.) are terminated along with the environment.
---
--- 'false': The environment is removed from the AWS Elastic Beanstalk but
--- the AWS resources continue to operate.
 --
 -- -   'true': The specified environment as well as the associated AWS
 --     resources, such as Auto Scaling group and LoadBalancer, are
@@ -145,6 +151,7 @@ instance ToQuery TerminateEnvironment where
           = mconcat
               ["Action" =: ("TerminateEnvironment" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
+               "ForceTerminate" =: _teForceTerminate,
                "TerminateResources" =: _teTerminateResources,
                "EnvironmentName" =: _teEnvironmentName,
                "EnvironmentId" =: _teEnvironmentId]

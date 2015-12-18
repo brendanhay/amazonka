@@ -54,6 +54,7 @@ module Network.AWS.Lambda.GetFunction
 
 import           Network.AWS.Lambda.Types
 import           Network.AWS.Lambda.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

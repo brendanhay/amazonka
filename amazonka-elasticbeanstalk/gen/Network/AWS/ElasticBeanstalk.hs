@@ -121,6 +121,9 @@ module Network.AWS.ElasticBeanstalk
     -- ** CreateApplication
     , module Network.AWS.ElasticBeanstalk.CreateApplication
 
+    -- ** ComposeEnvironments
+    , module Network.AWS.ElasticBeanstalk.ComposeEnvironments
+
     -- ** AbortEnvironmentUpdate
     , module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
 
@@ -186,6 +189,9 @@ module Network.AWS.ElasticBeanstalk
 
     -- * Types
 
+    -- ** ApplicationVersionStatus
+    , ApplicationVersionStatus (..)
+
     -- ** ConfigurationDeploymentStatus
     , ConfigurationDeploymentStatus (..)
 
@@ -242,6 +248,7 @@ module Network.AWS.ElasticBeanstalk
     -- ** ApplicationVersionDescription
     , ApplicationVersionDescription
     , applicationVersionDescription
+    , avdStatus
     , avdSourceBundle
     , avdDateUpdated
     , avdDateCreated
@@ -325,7 +332,13 @@ module Network.AWS.ElasticBeanstalk
     , eSolutionStackName
     , eEnvironmentId
     , eHealthStatus
+    , eEnvironmentLinks
     , eDescription
+
+    -- ** EnvironmentDescriptionsMessage
+    , EnvironmentDescriptionsMessage
+    , environmentDescriptionsMessage
+    , edmEnvironments
 
     -- ** EnvironmentInfoDescription
     , EnvironmentInfoDescription
@@ -334,6 +347,12 @@ module Network.AWS.ElasticBeanstalk
     , eidEC2InstanceId
     , eidInfoType
     , eidMessage
+
+    -- ** EnvironmentLink
+    , EnvironmentLink
+    , environmentLink
+    , elLinkName
+    , elEnvironmentName
 
     -- ** EnvironmentResourceDescription
     , EnvironmentResourceDescription
@@ -506,6 +525,7 @@ module Network.AWS.ElasticBeanstalk
 
 import           Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
 import           Network.AWS.ElasticBeanstalk.CheckDNSAvailability
+import           Network.AWS.ElasticBeanstalk.ComposeEnvironments
 import           Network.AWS.ElasticBeanstalk.CreateApplication
 import           Network.AWS.ElasticBeanstalk.CreateApplicationVersion
 import           Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate

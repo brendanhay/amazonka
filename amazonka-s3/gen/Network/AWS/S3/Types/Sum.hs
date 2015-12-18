@@ -25,7 +25,7 @@ data BucketCannedACL
     | BPrivate
     | BPublicRead
     | BPublicReadWrite
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText BucketCannedACL where
     parser = takeLowerText >>= \case
@@ -55,7 +55,7 @@ data BucketLogsPermission
     = FullControl
     | Read
     | Write
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText BucketLogsPermission where
     parser = takeLowerText >>= \case
@@ -85,7 +85,7 @@ instance ToXML BucketLogsPermission where
 data BucketVersioningStatus
     = BVSEnabled
     | BVSSuspended
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText BucketVersioningStatus where
     parser = takeLowerText >>= \case
@@ -118,7 +118,7 @@ instance ToXML BucketVersioningStatus where
 -- Amazon S3 encode the keys in the response.
 data EncodingType =
     URL
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EncodingType where
     parser = takeLowerText >>= \case
@@ -152,7 +152,7 @@ data Event
     | S3ObjectRemovedDelete
     | S3ObjectRemovedDeleteMarkerCreated
     | S3ReducedRedundancyLostObject
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Event where
     parser = takeLowerText >>= \case
@@ -194,7 +194,7 @@ instance ToXML Event where
 data ExpirationStatus
     = ESDisabled
     | ESEnabled
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ExpirationStatus where
     parser = takeLowerText >>= \case
@@ -222,7 +222,7 @@ instance ToXML ExpirationStatus where
 data FilterRuleName
     = Prefix
     | Suffix
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText FilterRuleName where
     parser = takeLowerText >>= \case
@@ -250,7 +250,7 @@ instance ToXML FilterRuleName where
 data MFADelete
     = MDDisabled
     | MDEnabled
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MFADelete where
     parser = takeLowerText >>= \case
@@ -275,7 +275,7 @@ instance ToXML MFADelete where
 data MFADeleteStatus
     = MDSDisabled
     | MDSEnabled
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MFADeleteStatus where
     parser = takeLowerText >>= \case
@@ -300,7 +300,7 @@ instance FromXML MFADeleteStatus where
 data MetadataDirective
     = Copy
     | Replace
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MetadataDirective where
     parser = takeLowerText >>= \case
@@ -323,16 +323,18 @@ instance ToXML MetadataDirective where
     toXML = toXMLText
 
 data ObjectCannedACL
-    = OAuthenticatedRead
+    = OAWSExecRead
+    | OAuthenticatedRead
     | OBucketOwnerFullControl
     | OBucketOwnerRead
     | OPrivate
     | OPublicRead
     | OPublicReadWrite
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ObjectCannedACL where
     parser = takeLowerText >>= \case
+        "aws-exec-read" -> pure OAWSExecRead
         "authenticated-read" -> pure OAuthenticatedRead
         "bucket-owner-full-control" -> pure OBucketOwnerFullControl
         "bucket-owner-read" -> pure OBucketOwnerRead
@@ -340,10 +342,11 @@ instance FromText ObjectCannedACL where
         "public-read" -> pure OPublicRead
         "public-read-write" -> pure OPublicReadWrite
         e -> fromTextError $ "Failure parsing ObjectCannedACL from value: '" <> e
-           <> "'. Accepted values: authenticated-read, bucket-owner-full-control, bucket-owner-read, private, public-read, public-read-write"
+           <> "'. Accepted values: aws-exec-read, authenticated-read, bucket-owner-full-control, bucket-owner-read, private, public-read, public-read-write"
 
 instance ToText ObjectCannedACL where
     toText = \case
+        OAWSExecRead -> "aws-exec-read"
         OAuthenticatedRead -> "authenticated-read"
         OBucketOwnerFullControl -> "bucket-owner-full-control"
         OBucketOwnerRead -> "bucket-owner-read"
@@ -364,7 +367,7 @@ data ObjectStorageClass
     | OSCReducedRedundancy
     | OSCStandard
     | OSCStandardIA
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ObjectStorageClass where
     parser = takeLowerText >>= \case
@@ -392,7 +395,7 @@ instance FromXML ObjectStorageClass where
 
 data ObjectVersionStorageClass =
     OVSCStandard
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ObjectVersionStorageClass where
     parser = takeLowerText >>= \case
@@ -415,7 +418,7 @@ instance FromXML ObjectVersionStorageClass where
 data Payer
     = BucketOwner
     | Requester
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Payer where
     parser = takeLowerText >>= \case
@@ -446,7 +449,7 @@ data Permission
     | PReadAcp
     | PWrite
     | PWriteAcp
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Permission where
     parser = takeLowerText >>= \case
@@ -480,7 +483,7 @@ instance ToXML Permission where
 data Protocol
     = HTTP
     | HTTPS
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Protocol where
     parser = takeLowerText >>= \case
@@ -508,7 +511,7 @@ instance ToXML Protocol where
 data ReplicationRuleStatus
     = Disabled
     | Enabled
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ReplicationRuleStatus where
     parser = takeLowerText >>= \case
@@ -538,7 +541,7 @@ data ReplicationStatus
     | Failed
     | Pending
     | Replica
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ReplicationStatus where
     parser = takeLowerText >>= \case
@@ -568,7 +571,7 @@ instance FromXML ReplicationStatus where
 -- the request.
 data RequestCharged =
     RCRequester
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RequestCharged where
     parser = takeLowerText >>= \case
@@ -595,7 +598,7 @@ instance FromXML RequestCharged where
 -- http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/ObjectsinRequesterPaysBuckets.html
 data RequestPayer =
     RPRequester
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RequestPayer where
     parser = takeLowerText >>= \case
@@ -618,7 +621,7 @@ instance ToXML RequestPayer where
 data ServerSideEncryption
     = AES256
     | AWSKMS
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ServerSideEncryption where
     parser = takeLowerText >>= \case
@@ -647,7 +650,7 @@ data StorageClass
     = ReducedRedundancy
     | Standard
     | StandardIA
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StorageClass where
     parser = takeLowerText >>= \case
@@ -677,7 +680,7 @@ instance ToXML StorageClass where
 data TransitionStorageClass
     = TSCGlacier
     | TSCStandardIA
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TransitionStorageClass where
     parser = takeLowerText >>= \case
@@ -706,7 +709,7 @@ data Type
     = AmazonCustomerByEmail
     | CanonicalUser
     | Group
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Type where
     parser = takeLowerText >>= \case

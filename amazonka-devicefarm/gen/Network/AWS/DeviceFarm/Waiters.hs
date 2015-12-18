@@ -16,5 +16,6 @@
 module Network.AWS.DeviceFarm.Waiters where
 
 import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

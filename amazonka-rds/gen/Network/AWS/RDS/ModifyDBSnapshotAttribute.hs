@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds an attribute and values to, or removes an attibute and values from
+-- Adds an attribute and values to, or removes an attribute and values from
 -- a manual DB snapshot.
 --
 -- To share a manual DB snapshot with other AWS accounts, specify 'restore'
@@ -55,6 +55,7 @@ module Network.AWS.RDS.ModifyDBSnapshotAttribute
     , mdsarsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
 import           Network.AWS.RDS.Types.Product

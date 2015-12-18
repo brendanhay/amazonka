@@ -148,6 +148,9 @@ import Test.AWS.AutoScaling.Internal
 --         , testPutScheduledUpdateGroupAction $
 --             putScheduledUpdateGroupAction
 --
+--         , testSetInstanceProtection $
+--             setInstanceProtection
+--
 --         , testDescribePolicies $
 --             describePolicies
 --
@@ -294,6 +297,9 @@ import Test.AWS.AutoScaling.Internal
 --
 --         , testPutScheduledUpdateGroupActionResponse $
 --             putScheduledUpdateGroupActionResponse
+--
+--         , testSetInstanceProtectionResponse $
+--             setInstanceProtectionResponse
 --
 --         , testDescribePoliciesResponse $
 --             describePoliciesResponse
@@ -523,6 +529,11 @@ testPutScheduledUpdateGroupAction :: PutScheduledUpdateGroupAction -> TestTree
 testPutScheduledUpdateGroupAction = req
     "PutScheduledUpdateGroupAction"
     "fixture/PutScheduledUpdateGroupAction.yaml"
+
+testSetInstanceProtection :: SetInstanceProtection -> TestTree
+testSetInstanceProtection = req
+    "SetInstanceProtection"
+    "fixture/SetInstanceProtection.yaml"
 
 testDescribePolicies :: DescribePolicies -> TestTree
 testDescribePolicies = req
@@ -845,6 +856,13 @@ testPutScheduledUpdateGroupActionResponse = res
     "fixture/PutScheduledUpdateGroupActionResponse.proto"
     autoScaling
     (Proxy :: Proxy PutScheduledUpdateGroupAction)
+
+testSetInstanceProtectionResponse :: SetInstanceProtectionResponse -> TestTree
+testSetInstanceProtectionResponse = res
+    "SetInstanceProtectionResponse"
+    "fixture/SetInstanceProtectionResponse.proto"
+    autoScaling
+    (Proxy :: Proxy SetInstanceProtection)
 
 testDescribePoliciesResponse :: DescribePoliciesResponse -> TestTree
 testDescribePoliciesResponse = res

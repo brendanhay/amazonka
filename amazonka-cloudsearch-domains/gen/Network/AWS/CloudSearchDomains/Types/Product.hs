@@ -18,6 +18,7 @@
 module Network.AWS.CloudSearchDomains.Types.Product where
 
 import           Network.AWS.CloudSearchDomains.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | A container for facet information.

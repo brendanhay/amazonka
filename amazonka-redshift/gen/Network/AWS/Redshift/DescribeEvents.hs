@@ -50,6 +50,7 @@ module Network.AWS.Redshift.DescribeEvents
     , dersResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types

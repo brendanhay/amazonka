@@ -58,6 +58,7 @@ module Network.AWS.WAF.CreateSqlInjectionMatchSet
     , csimsrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

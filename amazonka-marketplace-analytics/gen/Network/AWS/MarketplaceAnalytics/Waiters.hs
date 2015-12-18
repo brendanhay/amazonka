@@ -15,6 +15,7 @@
 --
 module Network.AWS.MarketplaceAnalytics.Waiters where
 
+import           Network.AWS.Lens
 import           Network.AWS.MarketplaceAnalytics.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

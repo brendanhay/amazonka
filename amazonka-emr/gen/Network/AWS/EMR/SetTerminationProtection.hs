@@ -56,6 +56,7 @@ module Network.AWS.EMR.SetTerminationProtection
 
 import           Network.AWS.EMR.Types
 import           Network.AWS.EMR.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

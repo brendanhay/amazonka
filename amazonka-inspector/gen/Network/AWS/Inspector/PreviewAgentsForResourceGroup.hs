@@ -28,9 +28,9 @@ module Network.AWS.Inspector.PreviewAgentsForResourceGroup
       previewAgentsForResourceGroup
     , PreviewAgentsForResourceGroup
     -- * Request Lenses
-    , pafrgResourceGroupARN
     , pafrgNextToken
     , pafrgMaxResults
+    , pafrgResourceGroupARN
 
     -- * Destructuring the Response
     , previewAgentsForResourceGroupResponse
@@ -43,38 +43,36 @@ module Network.AWS.Inspector.PreviewAgentsForResourceGroup
 
 import           Network.AWS.Inspector.Types
 import           Network.AWS.Inspector.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'previewAgentsForResourceGroup' smart constructor.
 data PreviewAgentsForResourceGroup = PreviewAgentsForResourceGroup'
-    { _pafrgResourceGroupARN :: !(Maybe Text)
-    , _pafrgNextToken        :: !(Maybe Text)
+    { _pafrgNextToken        :: !(Maybe Text)
     , _pafrgMaxResults       :: !(Maybe Int)
+    , _pafrgResourceGroupARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PreviewAgentsForResourceGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pafrgResourceGroupARN'
---
 -- * 'pafrgNextToken'
 --
 -- * 'pafrgMaxResults'
+--
+-- * 'pafrgResourceGroupARN'
 previewAgentsForResourceGroup
-    :: PreviewAgentsForResourceGroup
-previewAgentsForResourceGroup =
+    :: Text -- ^ 'pafrgResourceGroupARN'
+    -> PreviewAgentsForResourceGroup
+previewAgentsForResourceGroup pResourceGroupARN_ =
     PreviewAgentsForResourceGroup'
-    { _pafrgResourceGroupARN = Nothing
-    , _pafrgNextToken = Nothing
+    { _pafrgNextToken = Nothing
     , _pafrgMaxResults = Nothing
+    , _pafrgResourceGroupARN = pResourceGroupARN_
     }
-
--- | The ARN of the resource group that is used to create an application.
-pafrgResourceGroupARN :: Lens' PreviewAgentsForResourceGroup (Maybe Text)
-pafrgResourceGroupARN = lens _pafrgResourceGroupARN (\ s a -> s{_pafrgResourceGroupARN = a});
 
 -- | You can use this parameter when paginating results. Set the value of
 -- this parameter to \'null\' on your first call to the
@@ -88,6 +86,10 @@ pafrgNextToken = lens _pafrgNextToken (\ s a -> s{_pafrgNextToken = a});
 -- want in the response. The default value is 10. The maximum value is 500.
 pafrgMaxResults :: Lens' PreviewAgentsForResourceGroup (Maybe Int)
 pafrgMaxResults = lens _pafrgMaxResults (\ s a -> s{_pafrgMaxResults = a});
+
+-- | The ARN of the resource group that is used to create an application.
+pafrgResourceGroupARN :: Lens' PreviewAgentsForResourceGroup Text
+pafrgResourceGroupARN = lens _pafrgResourceGroupARN (\ s a -> s{_pafrgResourceGroupARN = a});
 
 instance AWSRequest PreviewAgentsForResourceGroup
          where
@@ -117,9 +119,9 @@ instance ToJSON PreviewAgentsForResourceGroup where
         toJSON PreviewAgentsForResourceGroup'{..}
           = object
               (catMaybes
-                 [("resourceGroupArn" .=) <$> _pafrgResourceGroupARN,
-                  ("nextToken" .=) <$> _pafrgNextToken,
-                  ("maxResults" .=) <$> _pafrgMaxResults])
+                 [("nextToken" .=) <$> _pafrgNextToken,
+                  ("maxResults" .=) <$> _pafrgMaxResults,
+                  Just ("resourceGroupArn" .= _pafrgResourceGroupARN)])
 
 instance ToPath PreviewAgentsForResourceGroup where
         toPath = const "/"

@@ -34,6 +34,7 @@ module Network.AWS.RDS.DeleteOptionGroup
     , DeleteOptionGroupResponse
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
 import           Network.AWS.RDS.Types.Product

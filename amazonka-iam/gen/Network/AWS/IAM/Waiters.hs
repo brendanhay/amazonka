@@ -18,6 +18,7 @@ module Network.AWS.IAM.Waiters where
 import           Network.AWS.IAM.GetInstanceProfile
 import           Network.AWS.IAM.GetUser
 import           Network.AWS.IAM.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 

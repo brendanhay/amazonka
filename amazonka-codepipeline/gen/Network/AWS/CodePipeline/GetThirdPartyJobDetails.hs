@@ -47,6 +47,7 @@ module Network.AWS.CodePipeline.GetThirdPartyJobDetails
 
 import           Network.AWS.CodePipeline.Types
 import           Network.AWS.CodePipeline.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

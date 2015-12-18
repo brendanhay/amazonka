@@ -56,6 +56,7 @@ module Network.AWS.EC2.DescribeInstances
 
 import           Network.AWS.EC2.Types
 import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
@@ -96,6 +97,9 @@ describeInstances =
 
 -- | One or more filters.
 --
+-- -   'affinity' - The affinity setting for an instance running on a
+--     Dedicated host ('default' | 'host').
+--
 -- -   'architecture' - The instance architecture ('i386' | 'x86_64').
 --
 -- -   'availability-zone' - The Availability Zone of the instance.
@@ -125,6 +129,9 @@ describeInstances =
 --
 -- -   'group-name' - The name of the security group for the instance.
 --     EC2-Classic only.
+--
+-- -   'host-Id' - The ID of the Dedicated host on which the instance is
+--     running, if applicable.
 --
 -- -   'hypervisor' - The hypervisor type of the instance ('ovm' | 'xen').
 --
@@ -220,7 +227,7 @@ describeInstances =
 --     be 'false' for the instance to perform network address translation
 --     (NAT) in your VPC.
 --
--- -   'spot-instance-request-id' - The ID of the Spot Instance request.
+-- -   'spot-instance-request-id' - The ID of the Spot instance request.
 --
 -- -   'state-reason-code' - The reason code for the state change.
 --
@@ -242,7 +249,8 @@ describeInstances =
 -- -   'tag-value' - The value of a tag assigned to the resource. This
 --     filter is independent of the 'tag-key' filter.
 --
--- -   'tenancy' - The tenancy of an instance ('dedicated' | 'default').
+-- -   'tenancy' - The tenancy of an instance ('dedicated' | 'default' |
+--     'host').
 --
 -- -   'virtualization-type' - The virtualization type of the instance
 --     ('paravirtual' | 'hvm').
@@ -436,7 +444,7 @@ describeInstancesResponse pResponseStatus_ =
 dirsNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
 dirsNextToken = lens _dirsNextToken (\ s a -> s{_dirsNextToken = a});
 
--- | One or more reservations.
+-- | Zero or more reservations.
 dirsReservations :: Lens' DescribeInstancesResponse [Reservation]
 dirsReservations = lens _dirsReservations (\ s a -> s{_dirsReservations = a}) . _Default . _Coerce;
 

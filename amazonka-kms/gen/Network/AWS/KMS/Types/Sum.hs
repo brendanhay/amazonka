@@ -22,7 +22,7 @@ import           Network.AWS.Prelude
 data DataKeySpec
     = AES128
     | AES256
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DataKeySpec where
     parser = takeLowerText >>= \case
@@ -54,7 +54,7 @@ data GrantOperation
     | ReEncryptFrom
     | ReEncryptTo
     | RetireGrant
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText GrantOperation where
     parser = takeLowerText >>= \case
@@ -97,7 +97,7 @@ data KeyState
     = Disabled
     | Enabled
     | PendingDeletion
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText KeyState where
     parser = takeLowerText >>= \case
@@ -123,7 +123,7 @@ instance FromJSON KeyState where
 
 data KeyUsageType =
     EncryptDecrypt
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText KeyUsageType where
     parser = takeLowerText >>= \case

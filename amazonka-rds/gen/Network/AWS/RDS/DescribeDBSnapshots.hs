@@ -47,6 +47,7 @@ module Network.AWS.RDS.DescribeDBSnapshots
     , ddsrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
@@ -147,7 +148,7 @@ ddsDBSnapshotIdentifier = lens _ddsDBSnapshotIdentifier (\ s a -> s{_ddsDBSnapsh
 --
 -- The 'IncludeShared' and 'IncludePublic' parameters do not apply for
 -- 'SnapshotType' values of 'manual' or 'automated'. The 'IncludePublic'
--- paramter does not apply when 'SnapshotType' is set to 'shared'. the
+-- parameter does not apply when 'SnapshotType' is set to 'shared'. the
 -- 'IncludeShared' parameter does not apply when 'SnapshotType' is set to
 -- 'public'.
 ddsSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)

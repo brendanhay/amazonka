@@ -40,6 +40,7 @@ module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     , dsscsivrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

@@ -503,6 +503,7 @@ module Network.AWS.OpsWorks.Types
     , wassTuesday
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.OpsWorks.Types.Product
 import           Network.AWS.OpsWorks.Types.Sum
 import           Network.AWS.Prelude

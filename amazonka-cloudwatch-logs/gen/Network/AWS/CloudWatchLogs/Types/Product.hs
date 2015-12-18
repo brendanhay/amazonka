@@ -18,6 +18,7 @@
 module Network.AWS.CloudWatchLogs.Types.Product where
 
 import           Network.AWS.CloudWatchLogs.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | A cross account destination that is the recipient of subscription log
@@ -170,13 +171,15 @@ etTaskName = lens _etTaskName (\ s a -> s{_etTaskName = a});
 etTaskId :: Lens' ExportTask (Maybe Text)
 etTaskId = lens _etTaskId (\ s a -> s{_etTaskId = a});
 
--- | A unix timestamp indicating the end time of the range for the request.
--- Events with a timestamp later than this time were not exported.
+-- | A point in time expressed as the number of milliseconds since Jan 1,
+-- 1970 00:00:00 UTC. Events with a timestamp later than this time are not
+-- exported.
 etTo :: Lens' ExportTask (Maybe Natural)
 etTo = lens _etTo (\ s a -> s{_etTo = a}) . mapping _Nat;
 
--- | A unix timestamp indicating the start time of the range for the request.
--- Events with a timestamp prior to this time were not exported.
+-- | A point in time expressed as the number of milliseconds since Jan 1,
+-- 1970 00:00:00 UTC. Events with a timestamp prior to this time are not
+-- exported.
 etFrom :: Lens' ExportTask (Maybe Natural)
 etFrom = lens _etFrom (\ s a -> s{_etFrom = a}) . mapping _Nat;
 

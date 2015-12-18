@@ -45,6 +45,7 @@ module Network.AWS.STS.Types
     , fuARN
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 import           Network.AWS.STS.Types.Product

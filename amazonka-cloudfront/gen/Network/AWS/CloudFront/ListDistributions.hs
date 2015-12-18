@@ -42,6 +42,7 @@ module Network.AWS.CloudFront.ListDistributions
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
@@ -108,7 +109,7 @@ instance ToHeaders ListDistributions where
         toHeaders = const mempty
 
 instance ToPath ListDistributions where
-        toPath = const "/2015-07-27/distribution"
+        toPath = const "/2015-09-17/distribution"
 
 instance ToQuery ListDistributions where
         toQuery ListDistributions'{..}

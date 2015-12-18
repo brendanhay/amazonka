@@ -36,7 +36,9 @@ module Network.AWS.RDS.CreateDBInstance
     , cdiAutoMinorVersionUpgrade
     , cdiMasterUsername
     , cdiDBSubnetGroupName
+    , cdiMonitoringRoleARN
     , cdiIOPS
+    , cdiMonitoringInterval
     , cdiTDECredentialPassword
     , cdiLicenseModel
     , cdiPreferredMaintenanceWindow
@@ -68,6 +70,7 @@ module Network.AWS.RDS.CreateDBInstance
     , cdirsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
 import           Network.AWS.RDS.Types.Product
@@ -87,7 +90,9 @@ data CreateDBInstance = CreateDBInstance'
     , _cdiAutoMinorVersionUpgrade    :: !(Maybe Bool)
     , _cdiMasterUsername             :: !(Maybe Text)
     , _cdiDBSubnetGroupName          :: !(Maybe Text)
+    , _cdiMonitoringRoleARN          :: !(Maybe Text)
     , _cdiIOPS                       :: !(Maybe Int)
+    , _cdiMonitoringInterval         :: !(Maybe Int)
     , _cdiTDECredentialPassword      :: !(Maybe Text)
     , _cdiLicenseModel               :: !(Maybe Text)
     , _cdiPreferredMaintenanceWindow :: !(Maybe Text)
@@ -134,7 +139,11 @@ data CreateDBInstance = CreateDBInstance'
 --
 -- * 'cdiDBSubnetGroupName'
 --
+-- * 'cdiMonitoringRoleARN'
+--
 -- * 'cdiIOPS'
+--
+-- * 'cdiMonitoringInterval'
 --
 -- * 'cdiTDECredentialPassword'
 --
@@ -195,7 +204,9 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
     , _cdiAutoMinorVersionUpgrade = Nothing
     , _cdiMasterUsername = Nothing
     , _cdiDBSubnetGroupName = Nothing
+    , _cdiMonitoringRoleARN = Nothing
     , _cdiIOPS = Nothing
+    , _cdiMonitoringInterval = Nothing
     , _cdiTDECredentialPassword = Nothing
     , _cdiLicenseModel = Nothing
     , _cdiPreferredMaintenanceWindow = Nothing
@@ -282,8 +293,9 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
 -- -   __Version 9.3 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
 --     sa-east-1, us-west-1, us-west-2):__ ' 9.3.1 | 9.3.2'
--- -   __Version 9.3 (Available in all regions):__ ' 9.3.3 | 9.3.5 | 9.3.6'
--- -   __Version 9.4 (Available in all regions):__ ' 9.4.1'
+-- -   __Version 9.3 (Available in all regions):__
+--     ' 9.3.3 | 9.3.5 | 9.3.6 | 9.3.9 | 9.3.10'
+-- -   __Version 9.4 (Available in all regions):__ ' 9.4.1 | 9.4.4 | 9.4.5'
 --
 -- __Microsoft SQL Server Enterprise Edition (sqlserver-ee)__
 --
@@ -448,6 +460,17 @@ cdiMasterUsername = lens _cdiMasterUsername (\ s a -> s{_cdiMasterUsername = a})
 cdiDBSubnetGroupName :: Lens' CreateDBInstance (Maybe Text)
 cdiDBSubnetGroupName = lens _cdiDBSubnetGroupName (\ s a -> s{_cdiDBSubnetGroupName = a});
 
+-- | The ARN for the IAM role that permits RDS to send enhanced monitoring
+-- metrics to CloudWatch Logs. For example,
+-- 'arn:aws:iam:123456789012:role\/emaccess'. For information on creating a
+-- monitoring role, go to
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole To create an IAM role for Amazon RDS Enhanced Monitoring>.
+--
+-- If 'MonitoringInterval' is set to a value other than 0, then you must
+-- supply a 'MonitoringRoleArn' value.
+cdiMonitoringRoleARN :: Lens' CreateDBInstance (Maybe Text)
+cdiMonitoringRoleARN = lens _cdiMonitoringRoleARN (\ s a -> s{_cdiMonitoringRoleARN = a});
+
 -- | The amount of Provisioned IOPS (input\/output operations per second) to
 -- be initially allocated for the DB instance.
 --
@@ -455,6 +478,17 @@ cdiDBSubnetGroupName = lens _cdiDBSubnetGroupName (\ s a -> s{_cdiDBSubnetGroupN
 -- 1000.
 cdiIOPS :: Lens' CreateDBInstance (Maybe Int)
 cdiIOPS = lens _cdiIOPS (\ s a -> s{_cdiIOPS = a});
+
+-- | The interval, in seconds, between points when Enhanced Monitoring
+-- metrics are collected for the DB instance. To disable collecting
+-- Enhanced Monitoring metrics, specify 0. The default is 60.
+--
+-- If 'MonitoringRoleArn' is specified, then you must also set
+-- 'MonitoringInterval' to a value other than 0.
+--
+-- Valid Values: '0, 1, 5, 10, 15, 30, 60'
+cdiMonitoringInterval :: Lens' CreateDBInstance (Maybe Int)
+cdiMonitoringInterval = lens _cdiMonitoringInterval (\ s a -> s{_cdiMonitoringInterval = a});
 
 -- | The password for the given ARN from the Key Store in order to access the
 -- device.
@@ -786,7 +820,7 @@ cdiDBInstanceClass = lens _cdiDBInstanceClass (\ s a -> s{_cdiDBInstanceClass = 
 --
 -- Valid Values: 'MySQL' | 'mariadb' | 'oracle-se1' | 'oracle-se' |
 -- 'oracle-ee' | 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' |
--- 'sqlserver-web' | 'postgres'
+-- 'sqlserver-web' | 'postgres' | 'aurora'
 --
 -- Not every database engine is available for every AWS region.
 cdiEngine :: Lens' CreateDBInstance Text
@@ -825,7 +859,9 @@ instance ToQuery CreateDBInstance where
                  _cdiAutoMinorVersionUpgrade,
                "MasterUsername" =: _cdiMasterUsername,
                "DBSubnetGroupName" =: _cdiDBSubnetGroupName,
+               "MonitoringRoleArn" =: _cdiMonitoringRoleARN,
                "Iops" =: _cdiIOPS,
+               "MonitoringInterval" =: _cdiMonitoringInterval,
                "TdeCredentialPassword" =: _cdiTDECredentialPassword,
                "LicenseModel" =: _cdiLicenseModel,
                "PreferredMaintenanceWindow" =:

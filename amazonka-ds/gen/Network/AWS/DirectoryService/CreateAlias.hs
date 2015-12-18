@@ -20,7 +20,7 @@
 --
 -- Creates an alias for a directory and assigns the alias to the directory.
 -- The alias is used to construct the access URL for the directory, such as
--- 'http:\/\/\<alias>.awsapps.com'.
+-- 'http:\/\/&#x3C;alias&#x3E;.awsapps.com'.
 --
 -- After an alias has been created, it cannot be deleted or reused, so this
 -- operation should only be used when absolutely necessary.
@@ -46,6 +46,7 @@ module Network.AWS.DirectoryService.CreateAlias
 
 import           Network.AWS.DirectoryService.Types
 import           Network.AWS.DirectoryService.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -75,14 +76,15 @@ createAlias pDirectoryId_ pAlias_ =
     , _caAlias = pAlias_
     }
 
--- | The identifier of the directory to create the alias for.
+-- | The identifier of the directory for which to create the alias.
 caDirectoryId :: Lens' CreateAlias Text
 caDirectoryId = lens _caDirectoryId (\ s a -> s{_caDirectoryId = a});
 
 -- | The requested alias.
 --
--- The alias must be unique amongst all aliases in AWS. This operation will
--- throw an 'EntityAlreadyExistsException' if this alias already exists.
+-- The alias must be unique amongst all aliases in AWS. This operation
+-- throws an 'EntityAlreadyExistsException' error if the alias already
+-- exists.
 caAlias :: Lens' CreateAlias Text
 caAlias = lens _caAlias (\ s a -> s{_caAlias = a});
 

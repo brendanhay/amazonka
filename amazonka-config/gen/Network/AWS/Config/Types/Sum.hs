@@ -22,7 +22,7 @@ import           Network.AWS.Prelude
 data ChronologicalOrder
     = Forward
     | Reverse
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ChronologicalOrder where
     parser = takeLowerText >>= \case
@@ -49,7 +49,7 @@ data ComplianceType
     | InsufficientData
     | NonCompliant
     | NotApplicable
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ComplianceType where
     parser = takeLowerText >>= \case
@@ -81,7 +81,7 @@ instance FromJSON ComplianceType where
 data ConfigRuleState
     = Active
     | Deleting
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ConfigRuleState where
     parser = takeLowerText >>= \case
@@ -111,7 +111,7 @@ data ConfigurationItemStatus
     | Discovered
     | Failed
     | OK
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ConfigurationItemStatus where
     parser = takeLowerText >>= \case
@@ -141,7 +141,7 @@ data DeliveryStatus
     = DSFailure
     | DSNotApplicable
     | DSSuccess
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DeliveryStatus where
     parser = takeLowerText >>= \case
@@ -167,7 +167,7 @@ instance FromJSON DeliveryStatus where
 
 data EventSource =
     AWS_Config
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EventSource where
     parser = takeLowerText >>= \case
@@ -196,7 +196,7 @@ data MaximumExecutionFrequency
     | ThreeHours
     | TwelveHours
     | TwentyFourHours
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MaximumExecutionFrequency where
     parser = takeLowerText >>= \case
@@ -230,7 +230,7 @@ instance FromJSON MaximumExecutionFrequency where
 data MessageType
     = ConfigurationItemChangeNotification
     | ConfigurationSnapshotDeliveryCompleted
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MessageType where
     parser = takeLowerText >>= \case
@@ -258,7 +258,7 @@ instance FromJSON MessageType where
 data Owner
     = AWS
     | CustomLambda
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Owner where
     parser = takeLowerText >>= \case
@@ -287,7 +287,7 @@ data RecorderStatus
     = Failure
     | Pending
     | Success
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RecorderStatus where
     parser = takeLowerText >>= \case
@@ -315,6 +315,7 @@ data ResourceType
     = AWSCloudTrailTrail
     | AWSEC2CustomerGateway
     | AWSEC2EIP
+    | AWSEC2Host
     | AWSEC2Instance
     | AWSEC2InternetGateway
     | AWSEC2NetworkACL
@@ -326,13 +327,18 @@ data ResourceType
     | AWSEC2VPNConnection
     | AWSEC2VPNGateway
     | AWSEC2Volume
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    | AWSIAMGroup
+    | AWSIAMPolicy
+    | AWSIAMRole
+    | AWSIAMUser
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case
         "aws::cloudtrail::trail" -> pure AWSCloudTrailTrail
         "aws::ec2::customergateway" -> pure AWSEC2CustomerGateway
         "aws::ec2::eip" -> pure AWSEC2EIP
+        "aws::ec2::host" -> pure AWSEC2Host
         "aws::ec2::instance" -> pure AWSEC2Instance
         "aws::ec2::internetgateway" -> pure AWSEC2InternetGateway
         "aws::ec2::networkacl" -> pure AWSEC2NetworkACL
@@ -344,14 +350,19 @@ instance FromText ResourceType where
         "aws::ec2::vpnconnection" -> pure AWSEC2VPNConnection
         "aws::ec2::vpngateway" -> pure AWSEC2VPNGateway
         "aws::ec2::volume" -> pure AWSEC2Volume
+        "aws::iam::group" -> pure AWSIAMGroup
+        "aws::iam::policy" -> pure AWSIAMPolicy
+        "aws::iam::role" -> pure AWSIAMRole
+        "aws::iam::user" -> pure AWSIAMUser
         e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
-           <> "'. Accepted values: AWS::CloudTrail::Trail, AWS::EC2::CustomerGateway, AWS::EC2::EIP, AWS::EC2::Instance, AWS::EC2::InternetGateway, AWS::EC2::NetworkAcl, AWS::EC2::NetworkInterface, AWS::EC2::RouteTable, AWS::EC2::SecurityGroup, AWS::EC2::Subnet, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::EC2::Volume"
+           <> "'. Accepted values: AWS::CloudTrail::Trail, AWS::EC2::CustomerGateway, AWS::EC2::EIP, AWS::EC2::Host, AWS::EC2::Instance, AWS::EC2::InternetGateway, AWS::EC2::NetworkAcl, AWS::EC2::NetworkInterface, AWS::EC2::RouteTable, AWS::EC2::SecurityGroup, AWS::EC2::Subnet, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::EC2::Volume, AWS::IAM::Group, AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User"
 
 instance ToText ResourceType where
     toText = \case
         AWSCloudTrailTrail -> "AWS::CloudTrail::Trail"
         AWSEC2CustomerGateway -> "AWS::EC2::CustomerGateway"
         AWSEC2EIP -> "AWS::EC2::EIP"
+        AWSEC2Host -> "AWS::EC2::Host"
         AWSEC2Instance -> "AWS::EC2::Instance"
         AWSEC2InternetGateway -> "AWS::EC2::InternetGateway"
         AWSEC2NetworkACL -> "AWS::EC2::NetworkAcl"
@@ -363,6 +374,10 @@ instance ToText ResourceType where
         AWSEC2VPNConnection -> "AWS::EC2::VPNConnection"
         AWSEC2VPNGateway -> "AWS::EC2::VPNGateway"
         AWSEC2Volume -> "AWS::EC2::Volume"
+        AWSIAMGroup -> "AWS::IAM::Group"
+        AWSIAMPolicy -> "AWS::IAM::Policy"
+        AWSIAMRole -> "AWS::IAM::Role"
+        AWSIAMUser -> "AWS::IAM::User"
 
 instance Hashable     ResourceType
 instance ToByteString ResourceType

@@ -16,5 +16,6 @@
 module Network.AWS.EFS.Waiters where
 
 import           Network.AWS.EFS.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

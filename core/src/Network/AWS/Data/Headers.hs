@@ -27,8 +27,6 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text
 import           Network.HTTP.Types
 
-import           Prelude
-
 infixl 7 .#, .#?
 
 -- FIXME: This whole toText/fromText shit is just stupid.

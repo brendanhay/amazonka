@@ -40,13 +40,14 @@ module Network.AWS.Inspector.GetAssessmentTelemetry
 
 import           Network.AWS.Inspector.Types
 import           Network.AWS.Inspector.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getAssessmentTelemetry' smart constructor.
 newtype GetAssessmentTelemetry = GetAssessmentTelemetry'
-    { _gatAssessmentARN :: Maybe Text
+    { _gatAssessmentARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetAssessmentTelemetry' with the minimum fields required to make a request.
@@ -55,15 +56,16 @@ newtype GetAssessmentTelemetry = GetAssessmentTelemetry'
 --
 -- * 'gatAssessmentARN'
 getAssessmentTelemetry
-    :: GetAssessmentTelemetry
-getAssessmentTelemetry =
+    :: Text -- ^ 'gatAssessmentARN'
+    -> GetAssessmentTelemetry
+getAssessmentTelemetry pAssessmentARN_ =
     GetAssessmentTelemetry'
-    { _gatAssessmentARN = Nothing
+    { _gatAssessmentARN = pAssessmentARN_
     }
 
 -- | The ARN specifying the assessment the telemetry of which you want to
 -- obtain.
-gatAssessmentARN :: Lens' GetAssessmentTelemetry (Maybe Text)
+gatAssessmentARN :: Lens' GetAssessmentTelemetry Text
 gatAssessmentARN = lens _gatAssessmentARN (\ s a -> s{_gatAssessmentARN = a});
 
 instance AWSRequest GetAssessmentTelemetry where
@@ -91,7 +93,7 @@ instance ToJSON GetAssessmentTelemetry where
         toJSON GetAssessmentTelemetry'{..}
           = object
               (catMaybes
-                 [("assessmentArn" .=) <$> _gatAssessmentARN])
+                 [Just ("assessmentArn" .= _gatAssessmentARN)])
 
 instance ToPath GetAssessmentTelemetry where
         toPath = const "/"

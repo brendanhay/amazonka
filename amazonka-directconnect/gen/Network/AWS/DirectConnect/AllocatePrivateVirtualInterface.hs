@@ -63,6 +63,7 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
 
 import           Network.AWS.DirectConnect.Types
 import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

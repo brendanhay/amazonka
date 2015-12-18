@@ -154,6 +154,7 @@ module Network.AWS.StorageGateway.Types
     , vscsiaNetworkInterfacePort
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 import           Network.AWS.StorageGateway.Types.Product

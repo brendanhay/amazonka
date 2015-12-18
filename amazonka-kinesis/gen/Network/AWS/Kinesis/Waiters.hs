@@ -18,6 +18,7 @@ module Network.AWS.Kinesis.Waiters where
 import           Network.AWS.Kinesis.DescribeStream
 import           Network.AWS.Kinesis.DescribeStream
 import           Network.AWS.Kinesis.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 

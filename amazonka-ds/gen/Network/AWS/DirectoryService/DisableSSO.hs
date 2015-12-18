@@ -40,6 +40,7 @@ module Network.AWS.DirectoryService.DisableSSO
 
 import           Network.AWS.DirectoryService.Types
 import           Network.AWS.DirectoryService.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -74,10 +75,10 @@ disableSSO pDirectoryId_ =
 
 -- | The username of an alternate account to use to disable single-sign on.
 -- This is only used for AD Connector directories. This account must have
--- privileges to remove a service principle name.
+-- privileges to remove a service principal name.
 --
 -- If the AD Connector service account does not have privileges to remove a
--- service principle name, you can specify an alternate account with the
+-- service principal name, you can specify an alternate account with the
 -- /UserName/ and /Password/ parameters. These credentials are only used to
 -- disable single sign-on and are not stored by the service. The AD
 -- Connector service account is not changed.
@@ -85,12 +86,12 @@ dssoUserName :: Lens' DisableSSO (Maybe Text)
 dssoUserName = lens _dssoUserName (\ s a -> s{_dssoUserName = a});
 
 -- | The password of an alternate account to use to disable single-sign on.
--- This is only used for AD Connector directories. See the /UserName/
--- parameter for more information.
+-- This is only used for AD Connector directories. For more information,
+-- see the /UserName/ parameter.
 dssoPassword :: Lens' DisableSSO (Maybe Text)
 dssoPassword = lens _dssoPassword (\ s a -> s{_dssoPassword = a}) . mapping _Sensitive;
 
--- | The identifier of the directory to disable single-sign on for.
+-- | The identifier of the directory for which to disable single-sign on.
 dssoDirectoryId :: Lens' DisableSSO Text
 dssoDirectoryId = lens _dssoDirectoryId (\ s a -> s{_dssoDirectoryId = a});
 

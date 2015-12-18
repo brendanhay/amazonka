@@ -55,6 +55,7 @@ module Network.AWS.DirectoryService.DescribeDirectories
 
 import           Network.AWS.DirectoryService.Types
 import           Network.AWS.DirectoryService.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -91,9 +92,9 @@ describeDirectories =
 ddNextToken :: Lens' DescribeDirectories (Maybe Text)
 ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a});
 
--- | A list of identifiers of the directories to obtain the information for.
--- If this member is null, all directories that belong to the current
--- account are returned.
+-- | A list of identifiers of the directories for which to obtain the
+-- information. If this member is null, all directories that belong to the
+-- current account are returned.
 --
 -- An empty list results in an 'InvalidParameterException' being thrown.
 ddDirectoryIds :: Lens' DescribeDirectories [Text]

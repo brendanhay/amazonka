@@ -15,6 +15,7 @@
 --
 module Network.AWS.Route53.Waiters where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Route53.GetChange
 import           Network.AWS.Route53.Types

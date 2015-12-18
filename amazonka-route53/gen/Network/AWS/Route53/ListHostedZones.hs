@@ -54,6 +54,7 @@ module Network.AWS.Route53.ListHostedZones
     , lhzrsMaxItems
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
@@ -69,11 +70,11 @@ import           Network.AWS.Route53.Types.Product
 -- 'MaxItems' parameter. You can use the 'Marker' parameter to control the
 -- hosted zone that the list begins with. For more information about
 -- listing hosted zones, see
--- <http://docs.amazonwebservices.com/Route53/latest/DeveloperGuide/ListInfoOnHostedZone.html Listing the Hosted Zones for an AWS Account>
+-- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ListInfoOnHostedZone.html Listing the Hosted Zones for an AWS Account>
 -- in the /Amazon Route 53 Developer Guide/.
 --
--- Route 53 returns a maximum of 100 items. If you set 'MaxItems' to a
--- value greater than 100, Route 53 returns only the first 100.
+-- Amazon Route 53 returns a maximum of 100 items. If you set 'MaxItems' to
+-- a value greater than 100, Amazon Route 53 returns only the first 100.
 --
 -- /See:/ 'listHostedZones' smart constructor.
 data ListHostedZones = ListHostedZones'

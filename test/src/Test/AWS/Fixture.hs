@@ -19,7 +19,6 @@
 --
 module Test.AWS.Fixture where
 
-import           Control.Exception.Lens       (trying)
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import           Data.Bifunctor
@@ -33,7 +32,8 @@ import           Data.Proxy
 import           Data.Time
 import qualified Data.Yaml                    as YAML
 import           Network.AWS.Data.ByteString
-import           Network.AWS.Prelude          hiding ((<.>))
+import           Network.AWS.Lens             (trying, (<&>))
+import           Network.AWS.Prelude
 import           Network.HTTP.Client.Internal hiding (Proxy, Request, Response)
 import qualified Network.HTTP.Client.Internal as Client
 import           Network.HTTP.Types

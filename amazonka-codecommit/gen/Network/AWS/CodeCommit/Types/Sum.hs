@@ -22,7 +22,7 @@ import           Network.AWS.Prelude
 data OrderEnum
     = Ascending
     | Descending
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText OrderEnum where
     parser = takeLowerText >>= \case
@@ -47,7 +47,7 @@ instance ToJSON OrderEnum where
 data SortByEnum
     = LastModifiedDate
     | RepositoryName
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SortByEnum where
     parser = takeLowerText >>= \case

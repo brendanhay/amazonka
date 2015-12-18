@@ -41,6 +41,7 @@ module Network.AWS.Kinesis.AddTagsToStream
 
 import           Network.AWS.Kinesis.Types
 import           Network.AWS.Kinesis.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

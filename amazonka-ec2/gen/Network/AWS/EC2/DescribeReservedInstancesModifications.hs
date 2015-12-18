@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the modifications made to your Reserved Instances. If no
--- parameter is specified, information about all your Reserved Instances
+-- Describes the modifications made to your Reserved instances. If no
+-- parameter is specified, information about all your Reserved instances
 -- modification requests is returned. If a modification ID is specified,
 -- only information about the specific modification is returned.
 --
@@ -51,6 +51,7 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
 
 import           Network.AWS.EC2.Types
 import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
@@ -90,28 +91,28 @@ describeReservedInstancesModifications =
 -- -   'effective-date' - The time when the modification becomes effective.
 --
 -- -   'modification-result.reserved-instances-id' - The ID for the
---     Reserved Instances created as part of the modification request. This
+--     Reserved instances created as part of the modification request. This
 --     ID is only available when the status of the modification is
 --     'fulfilled'.
 --
 -- -   'modification-result.target-configuration.availability-zone' - The
---     Availability Zone for the new Reserved Instances.
+--     Availability Zone for the new Reserved instances.
 --
 -- -   'modification-result.target-configuration.instance-count ' - The
---     number of new Reserved Instances.
+--     number of new Reserved instances.
 --
 -- -   'modification-result.target-configuration.instance-type' - The
---     instance type of the new Reserved Instances.
+--     instance type of the new Reserved instances.
 --
 -- -   'modification-result.target-configuration.platform' - The network
---     platform of the new Reserved Instances ('EC2-Classic' | 'EC2-VPC').
+--     platform of the new Reserved instances ('EC2-Classic' | 'EC2-VPC').
 --
--- -   'reserved-instances-id' - The ID of the Reserved Instances modified.
+-- -   'reserved-instances-id' - The ID of the Reserved instances modified.
 --
 -- -   'reserved-instances-modification-id' - The ID of the modification
 --     request.
 --
--- -   'status' - The status of the Reserved Instances modification request
+-- -   'status' - The status of the Reserved instances modification request
 --     ('processing' | 'fulfilled' | 'failed').
 --
 -- -   'status-message' - The reason for the status.
@@ -206,7 +207,7 @@ describeReservedInstancesModificationsResponse pResponseStatus_ =
 drimrsNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
 drimrsNextToken = lens _drimrsNextToken (\ s a -> s{_drimrsNextToken = a});
 
--- | The Reserved Instance modification information.
+-- | The Reserved instance modification information.
 drimrsReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
 drimrsReservedInstancesModifications = lens _drimrsReservedInstancesModifications (\ s a -> s{_drimrsReservedInstancesModifications = a}) . _Default . _Coerce;
 

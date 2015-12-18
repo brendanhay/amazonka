@@ -22,7 +22,7 @@ import           Network.AWS.Prelude
 data ApplyMethod
     = Immediate
     | PendingReboot
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ApplyMethod where
     parser = takeLowerText >>= \case
@@ -51,7 +51,7 @@ data SourceType
     | DBParameterGroup
     | DBSecurityGroup
     | DBSnapshot
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case

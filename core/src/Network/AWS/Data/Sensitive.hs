@@ -12,7 +12,6 @@
 --
 module Network.AWS.Data.Sensitive where
 
-import           Control.Lens
 import           Data.Data                   (Data, Typeable)
 import           Data.Monoid
 import           Data.String
@@ -22,8 +21,7 @@ import           Network.AWS.Data.JSON
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
-
-import           Prelude
+import           Network.AWS.Lens            (Iso', iso)
 
 -- | /Note/: read . show /= isomorphic
 newtype Sensitive a = Sensitive { desensitise :: a }

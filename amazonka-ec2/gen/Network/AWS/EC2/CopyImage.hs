@@ -20,8 +20,7 @@
 --
 -- Initiates the copy of an AMI from the specified source region to the
 -- current region. You specify the destination region by using its endpoint
--- when making the request. AMIs that use encrypted EBS snapshots cannot be
--- copied with this method.
+-- when making the request.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html Copying AMIs>
@@ -35,6 +34,8 @@ module Network.AWS.EC2.CopyImage
     , CopyImage
     -- * Request Lenses
     , ciClientToken
+    , ciEncrypted
+    , ciKMSKeyId
     , ciDescription
     , ciDryRun
     , ciSourceRegion
@@ -51,6 +52,7 @@ module Network.AWS.EC2.CopyImage
 
 import           Network.AWS.EC2.Types
 import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -58,6 +60,8 @@ import           Network.AWS.Response
 -- | /See:/ 'copyImage' smart constructor.
 data CopyImage = CopyImage'
     { _ciClientToken   :: !(Maybe Text)
+    , _ciEncrypted     :: !(Maybe Bool)
+    , _ciKMSKeyId      :: !(Maybe Text)
     , _ciDescription   :: !(Maybe Text)
     , _ciDryRun        :: !(Maybe Bool)
     , _ciSourceRegion  :: !Text
@@ -70,6 +74,10 @@ data CopyImage = CopyImage'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ciClientToken'
+--
+-- * 'ciEncrypted'
+--
+-- * 'ciKMSKeyId'
 --
 -- * 'ciDescription'
 --
@@ -88,6 +96,8 @@ copyImage
 copyImage pSourceRegion_ pSourceImageId_ pName_ =
     CopyImage'
     { _ciClientToken = Nothing
+    , _ciEncrypted = Nothing
+    , _ciKMSKeyId = Nothing
     , _ciDescription = Nothing
     , _ciDryRun = Nothing
     , _ciSourceRegion = pSourceRegion_
@@ -101,6 +111,29 @@ copyImage pSourceRegion_ pSourceImageId_ pName_ =
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 ciClientToken :: Lens' CopyImage (Maybe Text)
 ciClientToken = lens _ciClientToken (\ s a -> s{_ciClientToken = a});
+
+-- | Specifies whether the destination snapshots of the copied image should
+-- be encrypted. The default CMK for EBS is used unless a non-default AWS
+-- Key Management Service (AWS KMS) CMK is specified with 'KmsKeyId'. For
+-- more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+ciEncrypted :: Lens' CopyImage (Maybe Bool)
+ciEncrypted = lens _ciEncrypted (\ s a -> s{_ciEncrypted = a});
+
+-- | The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when
+-- encrypting the snapshots of an image during a copy operation. This
+-- parameter is only required if you want to use a non-default CMK; if this
+-- parameter is not specified, the default CMK for EBS is used. The ARN
+-- contains the 'arn:aws:kms' namespace, followed by the region of the CMK,
+-- the AWS account ID of the CMK owner, the 'key' namespace, and then the
+-- CMK ID. For example,
+-- arn:aws:kms:/us-east-1/:/012345678910/:key\//abcd1234-a123-456a-a12b-a123b4cd56ef/.
+-- The specified CMK must exist in the region that the snapshot is being
+-- copied to. If a 'KmsKeyId' is specified, the 'Encrypted' flag must also
+-- be set.
+ciKMSKeyId :: Lens' CopyImage (Maybe Text)
+ciKMSKeyId = lens _ciKMSKeyId (\ s a -> s{_ciKMSKeyId = a});
 
 -- | A description for the new AMI in the destination region.
 ciDescription :: Lens' CopyImage (Maybe Text)
@@ -146,6 +179,8 @@ instance ToQuery CopyImage where
               ["Action" =: ("CopyImage" :: ByteString),
                "Version" =: ("2015-10-01" :: ByteString),
                "ClientToken" =: _ciClientToken,
+               "Encrypted" =: _ciEncrypted,
+               "KmsKeyId" =: _ciKMSKeyId,
                "Description" =: _ciDescription,
                "DryRun" =: _ciDryRun,
                "SourceRegion" =: _ciSourceRegion,

@@ -57,6 +57,7 @@ module Network.AWS.RDS.ModifyDBParameterGroup
     , dpgnmDBParameterGroupName
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
 import           Network.AWS.RDS.Types.Product

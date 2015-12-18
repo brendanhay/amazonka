@@ -85,6 +85,7 @@ data Derive
     | DRead
     | DShow
     | DEnum
+    | DBounded
     | DNum
     | DIntegral
     | DReal

@@ -24,7 +24,7 @@ data AlgorithmicStemming
     | ASLight
     | ASMinimal
     | ASNone
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AlgorithmicStemming where
     parser = takeLowerText >>= \case
@@ -88,7 +88,7 @@ data AnalysisSchemeLanguage
     | TR
     | ZhHans
     | ZhHant
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AnalysisSchemeLanguage where
     parser = takeLowerText >>= \case
@@ -192,7 +192,7 @@ data IndexFieldType
     | LiteralArray
     | Text
     | TextArray
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText IndexFieldType where
     parser = takeLowerText >>= \case
@@ -249,7 +249,7 @@ data OptionState
     | FailedToValidate
     | Processing
     | RequiresIndexDocuments
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText OptionState where
     parser = takeLowerText >>= \case
@@ -286,7 +286,7 @@ data PartitionInstanceType
     | Search_M3_Large
     | Search_M3_Medium
     | Search_M3_XLarge
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PartitionInstanceType where
     parser = takeLowerText >>= \case
@@ -324,7 +324,7 @@ data SuggesterFuzzyMatching
     = High
     | Low
     | None
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SuggesterFuzzyMatching where
     parser = takeLowerText >>= \case

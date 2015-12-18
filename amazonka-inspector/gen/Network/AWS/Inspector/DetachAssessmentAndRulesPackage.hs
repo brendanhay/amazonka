@@ -41,14 +41,15 @@ module Network.AWS.Inspector.DetachAssessmentAndRulesPackage
 
 import           Network.AWS.Inspector.Types
 import           Network.AWS.Inspector.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'detachAssessmentAndRulesPackage' smart constructor.
 data DetachAssessmentAndRulesPackage = DetachAssessmentAndRulesPackage'
-    { _daarpAssessmentARN   :: !(Maybe Text)
-    , _daarpRulesPackageARN :: !(Maybe Text)
+    { _daarpAssessmentARN   :: !Text
+    , _daarpRulesPackageARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DetachAssessmentAndRulesPackage' with the minimum fields required to make a request.
@@ -59,21 +60,23 @@ data DetachAssessmentAndRulesPackage = DetachAssessmentAndRulesPackage'
 --
 -- * 'daarpRulesPackageARN'
 detachAssessmentAndRulesPackage
-    :: DetachAssessmentAndRulesPackage
-detachAssessmentAndRulesPackage =
+    :: Text -- ^ 'daarpAssessmentARN'
+    -> Text -- ^ 'daarpRulesPackageARN'
+    -> DetachAssessmentAndRulesPackage
+detachAssessmentAndRulesPackage pAssessmentARN_ pRulesPackageARN_ =
     DetachAssessmentAndRulesPackage'
-    { _daarpAssessmentARN = Nothing
-    , _daarpRulesPackageARN = Nothing
+    { _daarpAssessmentARN = pAssessmentARN_
+    , _daarpRulesPackageARN = pRulesPackageARN_
     }
 
 -- | The ARN specifying the assessment from which you want to detach a rules
 -- package.
-daarpAssessmentARN :: Lens' DetachAssessmentAndRulesPackage (Maybe Text)
+daarpAssessmentARN :: Lens' DetachAssessmentAndRulesPackage Text
 daarpAssessmentARN = lens _daarpAssessmentARN (\ s a -> s{_daarpAssessmentARN = a});
 
 -- | The ARN specifying the rules package that you want to detach from the
 -- assessment.
-daarpRulesPackageARN :: Lens' DetachAssessmentAndRulesPackage (Maybe Text)
+daarpRulesPackageARN :: Lens' DetachAssessmentAndRulesPackage Text
 daarpRulesPackageARN = lens _daarpRulesPackageARN (\ s a -> s{_daarpRulesPackageARN = a});
 
 instance AWSRequest DetachAssessmentAndRulesPackage
@@ -102,8 +105,8 @@ instance ToJSON DetachAssessmentAndRulesPackage where
         toJSON DetachAssessmentAndRulesPackage'{..}
           = object
               (catMaybes
-                 [("assessmentArn" .=) <$> _daarpAssessmentARN,
-                  ("rulesPackageArn" .=) <$> _daarpRulesPackageARN])
+                 [Just ("assessmentArn" .= _daarpAssessmentARN),
+                  Just ("rulesPackageArn" .= _daarpRulesPackageARN)])
 
 instance ToPath DetachAssessmentAndRulesPackage where
         toPath = const "/"

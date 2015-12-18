@@ -33,6 +33,7 @@ import           Network.AWS.Prelude
 -- -   __Available__: The network link is up, and the connection is ready
 --     for use.
 -- -   __Down__: The network link is down.
+-- -   __Deleting__: The connection is in the process of being deleted.
 -- -   __Deleted__: The connection has been deleted.
 -- -   __Rejected__: A hosted connection in the \'Ordering\' state will
 --     enter the \'Rejected\' state if it is deleted by the end customer.
@@ -45,7 +46,7 @@ data ConnectionState
     | CSPending
     | CSRejected
     | CSRequested
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ConnectionState where
     parser = takeLowerText >>= \case
@@ -89,6 +90,7 @@ instance FromJSON ConnectionState where
 -- -   __Available__: The network link is up, and the interconnect is ready
 --     for use.
 -- -   __Down__: The network link is down.
+-- -   __Deleting__: The interconnect is in the process of being deleted.
 -- -   __Deleted__: The interconnect has been deleted.
 data InterconnectState
     = ISAvailable
@@ -97,7 +99,7 @@ data InterconnectState
     | ISDown
     | ISPending
     | ISRequested
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InterconnectState where
     parser = takeLowerText >>= \case
@@ -141,6 +143,7 @@ instance FromJSON InterconnectState where
 --     it is created until the virtual interface is ready to forward
 --     traffic.
 -- -   __Available__: A virtual interface that is able to forward traffic.
+-- -   __Down__: A virtual interface that is BGP down.
 -- -   __Deleting__: A virtual interface is in this state immediately after
 --     calling /DeleteVirtualInterface/ until it can no longer forward
 --     traffic.
@@ -157,7 +160,7 @@ data VirtualInterfaceState
     | Pending
     | Rejected
     | Verifying
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText VirtualInterfaceState where
     parser = takeLowerText >>= \case

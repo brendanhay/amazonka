@@ -48,6 +48,7 @@ module Network.AWS.CloudSearch.DescribeAnalysisSchemes
 
 import           Network.AWS.CloudSearch.Types
 import           Network.AWS.CloudSearch.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

@@ -18,23 +18,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a listing for Amazon EC2 Reserved Instances to be sold in the
--- Reserved Instance Marketplace. You can submit one Reserved Instance
--- listing at a time. To get a list of your Reserved Instances, you can use
+-- Creates a listing for Amazon EC2 Reserved instances to be sold in the
+-- Reserved Instance Marketplace. You can submit one Reserved instance
+-- listing at a time. To get a list of your Reserved instances, you can use
 -- the DescribeReservedInstances operation.
 --
 -- The Reserved Instance Marketplace matches sellers who want to resell
--- Reserved Instance capacity that they no longer need with buyers who want
--- to purchase additional capacity. Reserved Instances bought and sold
+-- Reserved instance capacity that they no longer need with buyers who want
+-- to purchase additional capacity. Reserved instances bought and sold
 -- through the Reserved Instance Marketplace work like any other Reserved
--- Instances.
+-- instances.
 --
--- To sell your Reserved Instances, you must first register as a seller in
+-- To sell your Reserved instances, you must first register as a seller in
 -- the Reserved Instance Marketplace. After completing the registration
 -- process, you can create a Reserved Instance Marketplace listing of some
--- or all of your Reserved Instances, and specify the upfront price to
--- receive for them. Your Reserved Instance listings then become available
--- for purchase. To view the details of your Reserved Instance listing, you
+-- or all of your Reserved instances, and specify the upfront price to
+-- receive for them. Your Reserved instance listings then become available
+-- for purchase. To view the details of your Reserved instance listing, you
 -- can use the DescribeReservedInstancesListings operation.
 --
 -- For more information, see
@@ -63,6 +63,7 @@ module Network.AWS.EC2.CreateReservedInstancesListing
 
 import           Network.AWS.EC2.Types
 import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -99,19 +100,19 @@ createReservedInstancesListing pReservedInstancesId_ pInstanceCount_ pClientToke
     , _crilClientToken = pClientToken_
     }
 
--- | The ID of the active Reserved Instance.
+-- | The ID of the active Reserved instance.
 crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
 crilReservedInstancesId = lens _crilReservedInstancesId (\ s a -> s{_crilReservedInstancesId = a});
 
--- | The number of instances that are a part of a Reserved Instance account
+-- | The number of instances that are a part of a Reserved instance account
 -- to be listed in the Reserved Instance Marketplace. This number should be
 -- less than or equal to the instance count associated with the Reserved
--- Instance ID specified in this call.
+-- instance ID specified in this call.
 crilInstanceCount :: Lens' CreateReservedInstancesListing Int
 crilInstanceCount = lens _crilInstanceCount (\ s a -> s{_crilInstanceCount = a});
 
--- | A list specifying the price of the Reserved Instance for each month
--- remaining in the Reserved Instance term.
+-- | A list specifying the price of the Reserved instance for each month
+-- remaining in the Reserved instance term.
 crilPriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
 crilPriceSchedules = lens _crilPriceSchedules (\ s a -> s{_crilPriceSchedules = a}) . _Coerce;
 
@@ -175,7 +176,7 @@ createReservedInstancesListingResponse pResponseStatus_ =
     , _crersResponseStatus = pResponseStatus_
     }
 
--- | Information about the Reserved Instances listing.
+-- | Information about the Reserved instance listing.
 crersReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
 crersReservedInstancesListings = lens _crersReservedInstancesListings (\ s a -> s{_crersReservedInstancesListings = a}) . _Default . _Coerce;
 

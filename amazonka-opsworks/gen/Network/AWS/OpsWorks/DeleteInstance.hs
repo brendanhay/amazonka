@@ -46,6 +46,7 @@ module Network.AWS.OpsWorks.DeleteInstance
     , DeleteInstanceResponse
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.OpsWorks.Types
 import           Network.AWS.OpsWorks.Types.Product
 import           Network.AWS.Prelude

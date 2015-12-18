@@ -40,6 +40,7 @@ module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
 
 import           Network.AWS.ElasticBeanstalk.Types
 import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -126,10 +127,6 @@ cdarsFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
 cdarsFullyQualifiedCNAME = lens _cdarsFullyQualifiedCNAME (\ s a -> s{_cdarsFullyQualifiedCNAME = a});
 
 -- | Indicates if the specified CNAME is available:
---
--- 'true' : The CNAME is available.
---
--- 'true' : The CNAME is not available.
 --
 -- -   'true' : The CNAME is available.
 -- -   'false' : The CNAME is not available.

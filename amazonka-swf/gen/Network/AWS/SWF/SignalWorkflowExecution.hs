@@ -67,6 +67,7 @@ module Network.AWS.SWF.SignalWorkflowExecution
     , SignalWorkflowExecutionResponse
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

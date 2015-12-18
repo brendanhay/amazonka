@@ -18,6 +18,7 @@
 module Network.AWS.ElasticSearch.Types.Product where
 
 import           Network.AWS.ElasticSearch.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | The configured access rules for the domain\'s document and search

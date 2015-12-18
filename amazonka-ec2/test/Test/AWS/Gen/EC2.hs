@@ -127,6 +127,9 @@ import Test.AWS.EC2.Internal
 --         , testReplaceNetworkACLAssociation $
 --             replaceNetworkACLAssociation
 --
+--         , testDescribeNatGateways $
+--             describeNatGateways
+--
 --         , testDescribeAddresses $
 --             describeAddresses
 --
@@ -208,6 +211,9 @@ import Test.AWS.EC2.Internal
 --         , testAttachInternetGateway $
 --             attachInternetGateway
 --
+--         , testModifyInstancePlacement $
+--             modifyInstancePlacement
+--
 --         , testDescribeFlowLogs $
 --             describeFlowLogs
 --
@@ -219,6 +225,9 @@ import Test.AWS.EC2.Internal
 --
 --         , testDescribeReservedInstances $
 --             describeReservedInstances
+--
+--         , testDescribeIdFormat $
+--             describeIdFormat
 --
 --         , testDescribeVPCs $
 --             describeVPCs
@@ -258,6 +267,9 @@ import Test.AWS.EC2.Internal
 --
 --         , testModifyVPCEndpoint $
 --             modifyVPCEndpoint
+--
+--         , testAllocateHosts $
+--             allocateHosts
 --
 --         , testRegisterImage $
 --             registerImage
@@ -355,6 +367,9 @@ import Test.AWS.EC2.Internal
 --         , testDescribeInstances $
 --             describeInstances
 --
+--         , testCreateNatGateway $
+--             createNatGateway
+--
 --         , testDescribeVPCPeeringConnections $
 --             describeVPCPeeringConnections
 --
@@ -382,6 +397,9 @@ import Test.AWS.EC2.Internal
 --         , testDescribeNetworkInterfaceAttribute $
 --             describeNetworkInterfaceAttribute
 --
+--         , testReleaseHosts $
+--             releaseHosts
+--
 --         , testResetNetworkInterfaceAttribute $
 --             resetNetworkInterfaceAttribute
 --
@@ -393,6 +411,9 @@ import Test.AWS.EC2.Internal
 --
 --         , testCreateVPNConnection $
 --             createVPNConnection
+--
+--         , testDeleteNatGateway $
+--             deleteNatGateway
 --
 --         , testDescribeImportSnapshotTasks $
 --             describeImportSnapshotTasks
@@ -481,6 +502,9 @@ import Test.AWS.EC2.Internal
 --         , testDescribeAccountAttributes $
 --             describeAccountAttributes
 --
+--         , testModifyHosts $
+--             modifyHosts
+--
 --         , testRebootInstances $
 --             rebootInstances
 --
@@ -508,8 +532,14 @@ import Test.AWS.EC2.Internal
 --         , testGetConsoleOutput $
 --             getConsoleOutput
 --
+--         , testDescribeHosts $
+--             describeHosts
+--
 --         , testDescribeImageAttribute $
 --             describeImageAttribute
+--
+--         , testModifyIdFormat $
+--             modifyIdFormat
 --
 --         , testDeleteRouteTable $
 --             deleteRouteTable
@@ -679,6 +709,9 @@ import Test.AWS.EC2.Internal
 --         , testReplaceNetworkACLAssociationResponse $
 --             replaceNetworkACLAssociationResponse
 --
+--         , testDescribeNatGatewaysResponse $
+--             describeNatGatewaysResponse
+--
 --         , testDescribeAddressesResponse $
 --             describeAddressesResponse
 --
@@ -760,6 +793,9 @@ import Test.AWS.EC2.Internal
 --         , testAttachInternetGatewayResponse $
 --             attachInternetGatewayResponse
 --
+--         , testModifyInstancePlacementResponse $
+--             modifyInstancePlacementResponse
+--
 --         , testDescribeFlowLogsResponse $
 --             describeFlowLogsResponse
 --
@@ -771,6 +807,9 @@ import Test.AWS.EC2.Internal
 --
 --         , testDescribeReservedInstancesResponse $
 --             describeReservedInstancesResponse
+--
+--         , testDescribeIdFormatResponse $
+--             describeIdFormatResponse
 --
 --         , testDescribeVPCsResponse $
 --             describeVPCsResponse
@@ -810,6 +849,9 @@ import Test.AWS.EC2.Internal
 --
 --         , testModifyVPCEndpointResponse $
 --             modifyVPCEndpointResponse
+--
+--         , testAllocateHostsResponse $
+--             allocateHostsResponse
 --
 --         , testRegisterImageResponse $
 --             registerImageResponse
@@ -907,6 +949,9 @@ import Test.AWS.EC2.Internal
 --         , testDescribeInstancesResponse $
 --             describeInstancesResponse
 --
+--         , testCreateNatGatewayResponse $
+--             createNatGatewayResponse
+--
 --         , testDescribeVPCPeeringConnectionsResponse $
 --             describeVPCPeeringConnectionsResponse
 --
@@ -934,6 +979,9 @@ import Test.AWS.EC2.Internal
 --         , testDescribeNetworkInterfaceAttributeResponse $
 --             describeNetworkInterfaceAttributeResponse
 --
+--         , testReleaseHostsResponse $
+--             releaseHostsResponse
+--
 --         , testResetNetworkInterfaceAttributeResponse $
 --             resetNetworkInterfaceAttributeResponse
 --
@@ -945,6 +993,9 @@ import Test.AWS.EC2.Internal
 --
 --         , testCreateVPNConnectionResponse $
 --             createVPNConnectionResponse
+--
+--         , testDeleteNatGatewayResponse $
+--             deleteNatGatewayResponse
 --
 --         , testDescribeImportSnapshotTasksResponse $
 --             describeImportSnapshotTasksResponse
@@ -1033,6 +1084,9 @@ import Test.AWS.EC2.Internal
 --         , testDescribeAccountAttributesResponse $
 --             describeAccountAttributesResponse
 --
+--         , testModifyHostsResponse $
+--             modifyHostsResponse
+--
 --         , testRebootInstancesResponse $
 --             rebootInstancesResponse
 --
@@ -1060,8 +1114,14 @@ import Test.AWS.EC2.Internal
 --         , testGetConsoleOutputResponse $
 --             getConsoleOutputResponse
 --
+--         , testDescribeHostsResponse $
+--             describeHostsResponse
+--
 --         , testDescribeImageAttributeResponse $
 --             describeImageAttributeResponse
+--
+--         , testModifyIdFormatResponse $
+--             modifyIdFormatResponse
 --
 --         , testDeleteRouteTableResponse $
 --             deleteRouteTableResponse
@@ -1299,6 +1359,11 @@ testReplaceNetworkACLAssociation = req
     "ReplaceNetworkACLAssociation"
     "fixture/ReplaceNetworkACLAssociation.yaml"
 
+testDescribeNatGateways :: DescribeNatGateways -> TestTree
+testDescribeNatGateways = req
+    "DescribeNatGateways"
+    "fixture/DescribeNatGateways.yaml"
+
 testDescribeAddresses :: DescribeAddresses -> TestTree
 testDescribeAddresses = req
     "DescribeAddresses"
@@ -1434,6 +1499,11 @@ testAttachInternetGateway = req
     "AttachInternetGateway"
     "fixture/AttachInternetGateway.yaml"
 
+testModifyInstancePlacement :: ModifyInstancePlacement -> TestTree
+testModifyInstancePlacement = req
+    "ModifyInstancePlacement"
+    "fixture/ModifyInstancePlacement.yaml"
+
 testDescribeFlowLogs :: DescribeFlowLogs -> TestTree
 testDescribeFlowLogs = req
     "DescribeFlowLogs"
@@ -1453,6 +1523,11 @@ testDescribeReservedInstances :: DescribeReservedInstances -> TestTree
 testDescribeReservedInstances = req
     "DescribeReservedInstances"
     "fixture/DescribeReservedInstances.yaml"
+
+testDescribeIdFormat :: DescribeIdFormat -> TestTree
+testDescribeIdFormat = req
+    "DescribeIdFormat"
+    "fixture/DescribeIdFormat.yaml"
 
 testDescribeVPCs :: DescribeVPCs -> TestTree
 testDescribeVPCs = req
@@ -1518,6 +1593,11 @@ testModifyVPCEndpoint :: ModifyVPCEndpoint -> TestTree
 testModifyVPCEndpoint = req
     "ModifyVPCEndpoint"
     "fixture/ModifyVPCEndpoint.yaml"
+
+testAllocateHosts :: AllocateHosts -> TestTree
+testAllocateHosts = req
+    "AllocateHosts"
+    "fixture/AllocateHosts.yaml"
 
 testRegisterImage :: RegisterImage -> TestTree
 testRegisterImage = req
@@ -1679,6 +1759,11 @@ testDescribeInstances = req
     "DescribeInstances"
     "fixture/DescribeInstances.yaml"
 
+testCreateNatGateway :: CreateNatGateway -> TestTree
+testCreateNatGateway = req
+    "CreateNatGateway"
+    "fixture/CreateNatGateway.yaml"
+
 testDescribeVPCPeeringConnections :: DescribeVPCPeeringConnections -> TestTree
 testDescribeVPCPeeringConnections = req
     "DescribeVPCPeeringConnections"
@@ -1724,6 +1809,11 @@ testDescribeNetworkInterfaceAttribute = req
     "DescribeNetworkInterfaceAttribute"
     "fixture/DescribeNetworkInterfaceAttribute.yaml"
 
+testReleaseHosts :: ReleaseHosts -> TestTree
+testReleaseHosts = req
+    "ReleaseHosts"
+    "fixture/ReleaseHosts.yaml"
+
 testResetNetworkInterfaceAttribute :: ResetNetworkInterfaceAttribute -> TestTree
 testResetNetworkInterfaceAttribute = req
     "ResetNetworkInterfaceAttribute"
@@ -1743,6 +1833,11 @@ testCreateVPNConnection :: CreateVPNConnection -> TestTree
 testCreateVPNConnection = req
     "CreateVPNConnection"
     "fixture/CreateVPNConnection.yaml"
+
+testDeleteNatGateway :: DeleteNatGateway -> TestTree
+testDeleteNatGateway = req
+    "DeleteNatGateway"
+    "fixture/DeleteNatGateway.yaml"
 
 testDescribeImportSnapshotTasks :: DescribeImportSnapshotTasks -> TestTree
 testDescribeImportSnapshotTasks = req
@@ -1889,6 +1984,11 @@ testDescribeAccountAttributes = req
     "DescribeAccountAttributes"
     "fixture/DescribeAccountAttributes.yaml"
 
+testModifyHosts :: ModifyHosts -> TestTree
+testModifyHosts = req
+    "ModifyHosts"
+    "fixture/ModifyHosts.yaml"
+
 testRebootInstances :: RebootInstances -> TestTree
 testRebootInstances = req
     "RebootInstances"
@@ -1934,10 +2034,20 @@ testGetConsoleOutput = req
     "GetConsoleOutput"
     "fixture/GetConsoleOutput.yaml"
 
+testDescribeHosts :: DescribeHosts -> TestTree
+testDescribeHosts = req
+    "DescribeHosts"
+    "fixture/DescribeHosts.yaml"
+
 testDescribeImageAttribute :: DescribeImageAttribute -> TestTree
 testDescribeImageAttribute = req
     "DescribeImageAttribute"
     "fixture/DescribeImageAttribute.yaml"
+
+testModifyIdFormat :: ModifyIdFormat -> TestTree
+testModifyIdFormat = req
+    "ModifyIdFormat"
+    "fixture/ModifyIdFormat.yaml"
 
 testDeleteRouteTable :: DeleteRouteTable -> TestTree
 testDeleteRouteTable = req
@@ -2282,6 +2392,13 @@ testReplaceNetworkACLAssociationResponse = res
     eC2
     (Proxy :: Proxy ReplaceNetworkACLAssociation)
 
+testDescribeNatGatewaysResponse :: DescribeNatGatewaysResponse -> TestTree
+testDescribeNatGatewaysResponse = res
+    "DescribeNatGatewaysResponse"
+    "fixture/DescribeNatGatewaysResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeNatGateways)
+
 testDescribeAddressesResponse :: DescribeAddressesResponse -> TestTree
 testDescribeAddressesResponse = res
     "DescribeAddressesResponse"
@@ -2471,6 +2588,13 @@ testAttachInternetGatewayResponse = res
     eC2
     (Proxy :: Proxy AttachInternetGateway)
 
+testModifyInstancePlacementResponse :: ModifyInstancePlacementResponse -> TestTree
+testModifyInstancePlacementResponse = res
+    "ModifyInstancePlacementResponse"
+    "fixture/ModifyInstancePlacementResponse.proto"
+    eC2
+    (Proxy :: Proxy ModifyInstancePlacement)
+
 testDescribeFlowLogsResponse :: DescribeFlowLogsResponse -> TestTree
 testDescribeFlowLogsResponse = res
     "DescribeFlowLogsResponse"
@@ -2498,6 +2622,13 @@ testDescribeReservedInstancesResponse = res
     "fixture/DescribeReservedInstancesResponse.proto"
     eC2
     (Proxy :: Proxy DescribeReservedInstances)
+
+testDescribeIdFormatResponse :: DescribeIdFormatResponse -> TestTree
+testDescribeIdFormatResponse = res
+    "DescribeIdFormatResponse"
+    "fixture/DescribeIdFormatResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeIdFormat)
 
 testDescribeVPCsResponse :: DescribeVPCsResponse -> TestTree
 testDescribeVPCsResponse = res
@@ -2589,6 +2720,13 @@ testModifyVPCEndpointResponse = res
     "fixture/ModifyVPCEndpointResponse.proto"
     eC2
     (Proxy :: Proxy ModifyVPCEndpoint)
+
+testAllocateHostsResponse :: AllocateHostsResponse -> TestTree
+testAllocateHostsResponse = res
+    "AllocateHostsResponse"
+    "fixture/AllocateHostsResponse.proto"
+    eC2
+    (Proxy :: Proxy AllocateHosts)
 
 testRegisterImageResponse :: RegisterImageResponse -> TestTree
 testRegisterImageResponse = res
@@ -2814,6 +2952,13 @@ testDescribeInstancesResponse = res
     eC2
     (Proxy :: Proxy DescribeInstances)
 
+testCreateNatGatewayResponse :: CreateNatGatewayResponse -> TestTree
+testCreateNatGatewayResponse = res
+    "CreateNatGatewayResponse"
+    "fixture/CreateNatGatewayResponse.proto"
+    eC2
+    (Proxy :: Proxy CreateNatGateway)
+
 testDescribeVPCPeeringConnectionsResponse :: DescribeVPCPeeringConnectionsResponse -> TestTree
 testDescribeVPCPeeringConnectionsResponse = res
     "DescribeVPCPeeringConnectionsResponse"
@@ -2877,6 +3022,13 @@ testDescribeNetworkInterfaceAttributeResponse = res
     eC2
     (Proxy :: Proxy DescribeNetworkInterfaceAttribute)
 
+testReleaseHostsResponse :: ReleaseHostsResponse -> TestTree
+testReleaseHostsResponse = res
+    "ReleaseHostsResponse"
+    "fixture/ReleaseHostsResponse.proto"
+    eC2
+    (Proxy :: Proxy ReleaseHosts)
+
 testResetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse -> TestTree
 testResetNetworkInterfaceAttributeResponse = res
     "ResetNetworkInterfaceAttributeResponse"
@@ -2904,6 +3056,13 @@ testCreateVPNConnectionResponse = res
     "fixture/CreateVPNConnectionResponse.proto"
     eC2
     (Proxy :: Proxy CreateVPNConnection)
+
+testDeleteNatGatewayResponse :: DeleteNatGatewayResponse -> TestTree
+testDeleteNatGatewayResponse = res
+    "DeleteNatGatewayResponse"
+    "fixture/DeleteNatGatewayResponse.proto"
+    eC2
+    (Proxy :: Proxy DeleteNatGateway)
 
 testDescribeImportSnapshotTasksResponse :: DescribeImportSnapshotTasksResponse -> TestTree
 testDescribeImportSnapshotTasksResponse = res
@@ -3108,6 +3267,13 @@ testDescribeAccountAttributesResponse = res
     eC2
     (Proxy :: Proxy DescribeAccountAttributes)
 
+testModifyHostsResponse :: ModifyHostsResponse -> TestTree
+testModifyHostsResponse = res
+    "ModifyHostsResponse"
+    "fixture/ModifyHostsResponse.proto"
+    eC2
+    (Proxy :: Proxy ModifyHosts)
+
 testRebootInstancesResponse :: RebootInstancesResponse -> TestTree
 testRebootInstancesResponse = res
     "RebootInstancesResponse"
@@ -3171,12 +3337,26 @@ testGetConsoleOutputResponse = res
     eC2
     (Proxy :: Proxy GetConsoleOutput)
 
+testDescribeHostsResponse :: DescribeHostsResponse -> TestTree
+testDescribeHostsResponse = res
+    "DescribeHostsResponse"
+    "fixture/DescribeHostsResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeHosts)
+
 testDescribeImageAttributeResponse :: DescribeImageAttributeResponse -> TestTree
 testDescribeImageAttributeResponse = res
     "DescribeImageAttributeResponse"
     "fixture/DescribeImageAttributeResponse.proto"
     eC2
     (Proxy :: Proxy DescribeImageAttribute)
+
+testModifyIdFormatResponse :: ModifyIdFormatResponse -> TestTree
+testModifyIdFormatResponse = res
+    "ModifyIdFormatResponse"
+    "fixture/ModifyIdFormatResponse.proto"
+    eC2
+    (Proxy :: Proxy ModifyIdFormat)
 
 testDeleteRouteTableResponse :: DeleteRouteTableResponse -> TestTree
 testDeleteRouteTableResponse = res

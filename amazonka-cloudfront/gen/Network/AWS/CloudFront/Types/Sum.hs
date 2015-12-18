@@ -19,11 +19,39 @@ module Network.AWS.CloudFront.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data CertificateSource
+    = Cloudfront
+    | IAM
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText CertificateSource where
+    parser = takeLowerText >>= \case
+        "cloudfront" -> pure Cloudfront
+        "iam" -> pure IAM
+        e -> fromTextError $ "Failure parsing CertificateSource from value: '" <> e
+           <> "'. Accepted values: cloudfront, iam"
+
+instance ToText CertificateSource where
+    toText = \case
+        Cloudfront -> "cloudfront"
+        IAM -> "iam"
+
+instance Hashable     CertificateSource
+instance ToByteString CertificateSource
+instance ToQuery      CertificateSource
+instance ToHeader     CertificateSource
+
+instance FromXML CertificateSource where
+    parseXML = parseXMLText "CertificateSource"
+
+instance ToXML CertificateSource where
+    toXML = toXMLText
+
 data GeoRestrictionType
     = Blacklist
     | None
     | Whitelist
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText GeoRestrictionType where
     parser = takeLowerText >>= \case
@@ -54,7 +82,7 @@ data ItemSelection
     = ISAll
     | ISNone
     | ISWhitelist
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ItemSelection where
     parser = takeLowerText >>= \case
@@ -89,7 +117,7 @@ data Method
     | Patch
     | Post
     | Put
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Method where
     parser = takeLowerText >>= \case
@@ -127,7 +155,7 @@ instance ToXML Method where
 data MinimumProtocolVersion
     = SSLV3
     | TLSV1
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MinimumProtocolVersion where
     parser = takeLowerText >>= \case
@@ -155,7 +183,7 @@ instance ToXML MinimumProtocolVersion where
 data OriginProtocolPolicy
     = HTTPOnly
     | MatchViewer
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText OriginProtocolPolicy where
     parser = takeLowerText >>= \case
@@ -184,7 +212,7 @@ data PriceClass
     = PriceClass100
     | PriceClass200
     | PriceClassAll
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PriceClass where
     parser = takeLowerText >>= \case
@@ -214,7 +242,7 @@ instance ToXML PriceClass where
 data SSLSupportMethod
     = SNIOnly
     | VIP
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SSLSupportMethod where
     parser = takeLowerText >>= \case
@@ -243,7 +271,7 @@ data ViewerProtocolPolicy
     = AllowAll
     | HTTPSOnly
     | RedirectToHTTPS
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ViewerProtocolPolicy where
     parser = takeLowerText >>= \case

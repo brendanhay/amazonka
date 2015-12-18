@@ -80,6 +80,15 @@ module Network.AWS.DirectoryService
     -- ** DescribeDirectories
     , module Network.AWS.DirectoryService.DescribeDirectories
 
+    -- ** DescribeTrusts
+    , module Network.AWS.DirectoryService.DescribeTrusts
+
+    -- ** DeleteTrust
+    , module Network.AWS.DirectoryService.DeleteTrust
+
+    -- ** CreateMicrosoftAD
+    , module Network.AWS.DirectoryService.CreateMicrosoftAD
+
     -- ** CreateDirectory
     , module Network.AWS.DirectoryService.CreateDirectory
 
@@ -101,6 +110,9 @@ module Network.AWS.DirectoryService
     -- ** DeleteSnapshot
     , module Network.AWS.DirectoryService.DeleteSnapshot
 
+    -- ** CreateTrust
+    , module Network.AWS.DirectoryService.CreateTrust
+
     -- ** DeleteDirectory
     , module Network.AWS.DirectoryService.DeleteDirectory
 
@@ -112,6 +124,9 @@ module Network.AWS.DirectoryService
 
     -- ** DisableSSO
     , module Network.AWS.DirectoryService.DisableSSO
+
+    -- ** VerifyTrust
+    , module Network.AWS.DirectoryService.VerifyTrust
 
     -- ** GetDirectoryLimits
     , module Network.AWS.DirectoryService.GetDirectoryLimits
@@ -141,6 +156,15 @@ module Network.AWS.DirectoryService
 
     -- ** SnapshotType
     , SnapshotType (..)
+
+    -- ** TrustDirection
+    , TrustDirection (..)
+
+    -- ** TrustState
+    , TrustState (..)
+
+    -- ** TrustType
+    , TrustType (..)
 
     -- ** Attribute
     , Attribute
@@ -199,11 +223,14 @@ module Network.AWS.DirectoryService
     , DirectoryLimits
     , directoryLimits
     , dlConnectedDirectoriesCurrentCount
+    , dlCloudOnlyMicrosoftADLimitReached
     , dlConnectedDirectoriesLimit
     , dlConnectedDirectoriesLimitReached
+    , dlCloudOnlyMicrosoftADLimit
     , dlCloudOnlyDirectoriesLimit
     , dlCloudOnlyDirectoriesCurrentCount
     , dlCloudOnlyDirectoriesLimitReached
+    , dlCloudOnlyMicrosoftADCurrentCount
 
     -- ** DirectoryVPCSettings
     , DirectoryVPCSettings
@@ -247,17 +274,34 @@ module Network.AWS.DirectoryService
     , slManualSnapshotsLimitReached
     , slManualSnapshotsCurrentCount
     , slManualSnapshotsLimit
+
+    -- ** Trust
+    , Trust
+    , trust
+    , tDirectoryId
+    , tTrustState
+    , tLastUpdatedDateTime
+    , tTrustDirection
+    , tStateLastUpdatedDateTime
+    , tTrustType
+    , tRemoteDomainName
+    , tTrustId
+    , tCreatedDateTime
     ) where
 
 import           Network.AWS.DirectoryService.ConnectDirectory
 import           Network.AWS.DirectoryService.CreateAlias
 import           Network.AWS.DirectoryService.CreateComputer
 import           Network.AWS.DirectoryService.CreateDirectory
+import           Network.AWS.DirectoryService.CreateMicrosoftAD
 import           Network.AWS.DirectoryService.CreateSnapshot
+import           Network.AWS.DirectoryService.CreateTrust
 import           Network.AWS.DirectoryService.DeleteDirectory
 import           Network.AWS.DirectoryService.DeleteSnapshot
+import           Network.AWS.DirectoryService.DeleteTrust
 import           Network.AWS.DirectoryService.DescribeDirectories
 import           Network.AWS.DirectoryService.DescribeSnapshots
+import           Network.AWS.DirectoryService.DescribeTrusts
 import           Network.AWS.DirectoryService.DisableRadius
 import           Network.AWS.DirectoryService.DisableSSO
 import           Network.AWS.DirectoryService.EnableRadius
@@ -267,6 +311,7 @@ import           Network.AWS.DirectoryService.GetSnapshotLimits
 import           Network.AWS.DirectoryService.RestoreFromSnapshot
 import           Network.AWS.DirectoryService.Types
 import           Network.AWS.DirectoryService.UpdateRadius
+import           Network.AWS.DirectoryService.VerifyTrust
 import           Network.AWS.DirectoryService.Waiters
 
 {- $errors

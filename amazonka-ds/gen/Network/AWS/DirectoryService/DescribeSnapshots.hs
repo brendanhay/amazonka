@@ -52,6 +52,7 @@ module Network.AWS.DirectoryService.DescribeSnapshots
 
 import           Network.AWS.DirectoryService.Types
 import           Network.AWS.DirectoryService.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -87,7 +88,8 @@ describeSnapshots =
     , _dsLimit = Nothing
     }
 
--- | The identifier of the directory to retrieve snapshot information for.
+-- | The identifier of the directory for which to retrieve snapshot
+-- information.
 dsDirectoryId :: Lens' DescribeSnapshots (Maybe Text)
 dsDirectoryId = lens _dsDirectoryId (\ s a -> s{_dsDirectoryId = a});
 

@@ -41,14 +41,15 @@ module Network.AWS.Inspector.RunAssessment
 
 import           Network.AWS.Inspector.Types
 import           Network.AWS.Inspector.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'runAssessment' smart constructor.
 data RunAssessment = RunAssessment'
-    { _raAssessmentARN :: !(Maybe Text)
-    , _raRunName       :: !(Maybe Text)
+    { _raAssessmentARN :: !Text
+    , _raRunName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RunAssessment' with the minimum fields required to make a request.
@@ -59,19 +60,21 @@ data RunAssessment = RunAssessment'
 --
 -- * 'raRunName'
 runAssessment
-    :: RunAssessment
-runAssessment =
+    :: Text -- ^ 'raAssessmentARN'
+    -> Text -- ^ 'raRunName'
+    -> RunAssessment
+runAssessment pAssessmentARN_ pRunName_ =
     RunAssessment'
-    { _raAssessmentARN = Nothing
-    , _raRunName = Nothing
+    { _raAssessmentARN = pAssessmentARN_
+    , _raRunName = pRunName_
     }
 
 -- | The ARN of the assessment that you want to run.
-raAssessmentARN :: Lens' RunAssessment (Maybe Text)
+raAssessmentARN :: Lens' RunAssessment Text
 raAssessmentARN = lens _raAssessmentARN (\ s a -> s{_raAssessmentARN = a});
 
 -- | A name specifying the run of the assessment.
-raRunName :: Lens' RunAssessment (Maybe Text)
+raRunName :: Lens' RunAssessment Text
 raRunName = lens _raRunName (\ s a -> s{_raRunName = a});
 
 instance AWSRequest RunAssessment where
@@ -96,8 +99,8 @@ instance ToJSON RunAssessment where
         toJSON RunAssessment'{..}
           = object
               (catMaybes
-                 [("assessmentArn" .=) <$> _raAssessmentARN,
-                  ("runName" .=) <$> _raRunName])
+                 [Just ("assessmentArn" .= _raAssessmentARN),
+                  Just ("runName" .= _raRunName)])
 
 instance ToPath RunAssessment where
         toPath = const "/"

@@ -1,5 +1,5 @@
 name:                  amazonka-core
-version:               1.3.6
+version:               1.3.7
 synopsis:              Core data types and functionality for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -56,6 +56,7 @@ library
         , Network.AWS.Data.XML
         , Network.AWS.Endpoint
         , Network.AWS.Error
+        , Network.AWS.Lens
         , Network.AWS.Pager
         , Network.AWS.Prelude
         , Network.AWS.Request
@@ -136,7 +137,6 @@ test-suite tests
         , bytestring
         , case-insensitive
         , http-types
-        , lens
         , tasty
         , tasty-hunit
         , tasty-quickcheck

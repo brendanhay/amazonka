@@ -18,6 +18,7 @@
 module Network.AWS.ElasticBeanstalk.Types.Product where
 
 import           Network.AWS.ElasticBeanstalk.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Describes the properties of an application.
@@ -189,7 +190,8 @@ instance FromXML ApplicationMetrics where
 --
 -- /See:/ 'applicationVersionDescription' smart constructor.
 data ApplicationVersionDescription = ApplicationVersionDescription'
-    { _avdSourceBundle    :: !(Maybe S3Location)
+    { _avdStatus          :: !(Maybe ApplicationVersionStatus)
+    , _avdSourceBundle    :: !(Maybe S3Location)
     , _avdDateUpdated     :: !(Maybe ISO8601)
     , _avdDateCreated     :: !(Maybe ISO8601)
     , _avdVersionLabel    :: !(Maybe Text)
@@ -200,6 +202,8 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
 -- | Creates a value of 'ApplicationVersionDescription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'avdStatus'
 --
 -- * 'avdSourceBundle'
 --
@@ -216,13 +220,18 @@ applicationVersionDescription
     :: ApplicationVersionDescription
 applicationVersionDescription =
     ApplicationVersionDescription'
-    { _avdSourceBundle = Nothing
+    { _avdStatus = Nothing
+    , _avdSourceBundle = Nothing
     , _avdDateUpdated = Nothing
     , _avdDateCreated = Nothing
     , _avdVersionLabel = Nothing
     , _avdApplicationName = Nothing
     , _avdDescription = Nothing
     }
+
+-- | The processing status of the application version.
+avdStatus :: Lens' ApplicationVersionDescription (Maybe ApplicationVersionStatus)
+avdStatus = lens _avdStatus (\ s a -> s{_avdStatus = a});
 
 -- | The location where the source bundle is located for this version.
 avdSourceBundle :: Lens' ApplicationVersionDescription (Maybe S3Location)
@@ -251,8 +260,9 @@ avdDescription = lens _avdDescription (\ s a -> s{_avdDescription = a});
 instance FromXML ApplicationVersionDescription where
         parseXML x
           = ApplicationVersionDescription' <$>
-              (x .@? "SourceBundle") <*> (x .@? "DateUpdated") <*>
-                (x .@? "DateCreated")
+              (x .@? "Status") <*> (x .@? "SourceBundle") <*>
+                (x .@? "DateUpdated")
+                <*> (x .@? "DateCreated")
                 <*> (x .@? "VersionLabel")
                 <*> (x .@? "ApplicationName")
                 <*> (x .@? "Description")
@@ -479,12 +489,6 @@ codMaxLength = lens _codMaxLength (\ s a -> s{_codMaxLength = a});
 
 -- | An indication of whether the user defined this configuration option:
 --
--- 'true' : This configuration option was defined by the user. It is a
--- valid choice for specifying this as an Option to Remove when updating
--- configuration settings.
---
--- 'false' : This configuration was not defined by the user.
---
 -- -   'true' : This configuration option was defined by the user. It is a
 --     valid choice for specifying if this as an 'Option to Remove' when
 --     updating configuration settings.
@@ -514,17 +518,6 @@ codName = lens _codName (\ s a -> s{_codName = a});
 -- | An indication of which action is required if the value for this
 -- configuration option changes:
 --
--- NoInterruption - There is no interruption to the environment or
--- application availability.
---
--- RestartEnvironment - The environment is restarted, all AWS resources are
--- deleted and recreated, and the environment is unavailable during the
--- process.
---
--- RestartApplicationServer - The environment is available the entire time.
--- However, a short application outage occurs when the application servers
--- on the running Amazon EC2 instances are restarted.
---
 -- -   'NoInterruption' : There is no interruption to the environment or
 --     application availability.
 -- -   'RestartEnvironment' : The environment is entirely restarted, all
@@ -543,18 +536,6 @@ codDefaultValue = lens _codDefaultValue (\ s a -> s{_codDefaultValue = a});
 
 -- | An indication of which type of values this option has and whether it is
 -- allowable to select one or more than one of the possible values:
---
--- 'Scalar' : Values for this option are a single selection from the
--- possible values, or a unformatted string or numeric value governed by
--- the MIN\/MAX\/Regex constraints:
---
--- 'List' : Values for this option are multiple selections of the possible
--- values.
---
--- 'Boolean' : Values for this option are either 'true' or 'false' .
---
--- 'Json' : Values for this option are a JSON representation of a
--- 'ConfigDocument'.
 --
 -- -   'Scalar' : Values for this option are a single selection from the
 --     possible values, or an unformatted string, or numeric value governed
@@ -733,17 +714,6 @@ csdApplicationName = lens _csdApplicationName (\ s a -> s{_csdApplicationName = 
 -- 'DeploymentStatus' parameter indicates the deployment status of this
 -- configuration set:
 --
--- 'null': This configuration is not associated with a running environment.
---
--- 'pending': This is a draft configuration that is not deployed to the
--- associated environment but is in the process of deploying.
---
--- 'deployed': This is the configuration that is currently deployed to the
--- associated running environment.
---
--- 'failed': This is a draft configuration, that failed to successfully
--- deploy.
---
 -- -   'null': This configuration is not associated with a running
 --     environment.
 -- -   'pending': This is a draft configuration that is not deployed to the
@@ -798,6 +768,7 @@ data EnvironmentDescription = EnvironmentDescription'
     , _eSolutionStackName            :: !(Maybe Text)
     , _eEnvironmentId                :: !(Maybe Text)
     , _eHealthStatus                 :: !(Maybe EnvironmentHealthStatus)
+    , _eEnvironmentLinks             :: !(Maybe [EnvironmentLink])
     , _eDescription                  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -837,6 +808,8 @@ data EnvironmentDescription = EnvironmentDescription'
 --
 -- * 'eHealthStatus'
 --
+-- * 'eEnvironmentLinks'
+--
 -- * 'eDescription'
 environmentDescription
     :: EnvironmentDescription
@@ -858,6 +831,7 @@ environmentDescription =
     , _eSolutionStackName = Nothing
     , _eEnvironmentId = Nothing
     , _eHealthStatus = Nothing
+    , _eEnvironmentLinks = Nothing
     , _eDescription = Nothing
     }
 
@@ -912,13 +886,6 @@ eDateCreated = lens _eDateCreated (\ s a -> s{_eDateCreated = a}) . mapping _Tim
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
 -- indicates the failure levels for a running environment:
 --
--- 'Red' : Indicates the environment is not working.
---
--- 'Yellow': Indicates that something is wrong, the application might not
--- be available, but the instances appear running.
---
--- 'Green': Indicates the environment is healthy and fully functional.
---
 -- -   'Red': Indicates the environment is not responsive. Occurs when
 --     three or more consecutive failures occur for an environment.
 -- -   'Yellow': Indicates that something is wrong. Occurs when two
@@ -963,6 +930,10 @@ eEnvironmentId = lens _eEnvironmentId (\ s a -> s{_eEnvironmentId = a});
 eHealthStatus :: Lens' EnvironmentDescription (Maybe EnvironmentHealthStatus)
 eHealthStatus = lens _eHealthStatus (\ s a -> s{_eHealthStatus = a});
 
+-- | A list of links to other environments in the same group.
+eEnvironmentLinks :: Lens' EnvironmentDescription [EnvironmentLink]
+eEnvironmentLinks = lens _eEnvironmentLinks (\ s a -> s{_eEnvironmentLinks = a}) . _Default . _Coerce;
+
 -- | Describes this environment.
 eDescription :: Lens' EnvironmentDescription (Maybe Text)
 eDescription = lens _eDescription (\ s a -> s{_eDescription = a});
@@ -985,7 +956,39 @@ instance FromXML EnvironmentDescription where
                 <*> (x .@? "SolutionStackName")
                 <*> (x .@? "EnvironmentId")
                 <*> (x .@? "HealthStatus")
+                <*>
+                (x .@? "EnvironmentLinks" .!@ mempty >>=
+                   may (parseXMLList "member"))
                 <*> (x .@? "Description")
+
+-- | Result message containing a list of environment descriptions.
+--
+-- /See:/ 'environmentDescriptionsMessage' smart constructor.
+newtype EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage'
+    { _edmEnvironments :: Maybe [EnvironmentDescription]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EnvironmentDescriptionsMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'edmEnvironments'
+environmentDescriptionsMessage
+    :: EnvironmentDescriptionsMessage
+environmentDescriptionsMessage =
+    EnvironmentDescriptionsMessage'
+    { _edmEnvironments = Nothing
+    }
+
+-- | Returns an EnvironmentDescription list.
+edmEnvironments :: Lens' EnvironmentDescriptionsMessage [EnvironmentDescription]
+edmEnvironments = lens _edmEnvironments (\ s a -> s{_edmEnvironments = a}) . _Default . _Coerce;
+
+instance FromXML EnvironmentDescriptionsMessage where
+        parseXML x
+          = EnvironmentDescriptionsMessage' <$>
+              (x .@? "Environments" .!@ mempty >>=
+                 may (parseXMLList "member"))
 
 -- | The information retrieved from the Amazon EC2 instances.
 --
@@ -1040,6 +1043,46 @@ instance FromXML EnvironmentInfoDescription where
               (x .@? "SampleTimestamp") <*> (x .@? "Ec2InstanceId")
                 <*> (x .@? "InfoType")
                 <*> (x .@? "Message")
+
+-- | A link to another environment, defined in the environment\'s manifest.
+-- Links provide connection information in system properties that can be
+-- used to connect to another environment in the same group. See
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html#environment-mgmt-compose-envyaml Environment Manifest (env.yaml)>
+-- for details.
+--
+-- /See:/ 'environmentLink' smart constructor.
+data EnvironmentLink = EnvironmentLink'
+    { _elLinkName        :: !(Maybe Text)
+    , _elEnvironmentName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EnvironmentLink' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'elLinkName'
+--
+-- * 'elEnvironmentName'
+environmentLink
+    :: EnvironmentLink
+environmentLink =
+    EnvironmentLink'
+    { _elLinkName = Nothing
+    , _elEnvironmentName = Nothing
+    }
+
+-- | The name of the link.
+elLinkName :: Lens' EnvironmentLink (Maybe Text)
+elLinkName = lens _elLinkName (\ s a -> s{_elLinkName = a});
+
+-- | The name of the linked environment (the dependency).
+elEnvironmentName :: Lens' EnvironmentLink (Maybe Text)
+elEnvironmentName = lens _elEnvironmentName (\ s a -> s{_elEnvironmentName = a});
+
+instance FromXML EnvironmentLink where
+        parseXML x
+          = EnvironmentLink' <$>
+              (x .@? "LinkName") <*> (x .@? "EnvironmentName")
 
 -- | Describes the AWS resources in use by this environment. This data is
 -- live.
@@ -2188,16 +2231,10 @@ vmOptionName = lens _vmOptionName (\ s a -> s{_vmOptionName = a});
 
 -- | An indication of the severity of this message:
 --
--- error: This message indicates that this is not a valid setting for an
--- option.
---
--- warning: This message is providing information you should take into
--- account.
---
--- -   error: This message indicates that this is not a valid setting for
+-- -   'error': This message indicates that this is not a valid setting for
 --     an option.
--- -   warning: This message is providing information you should take into
---     account.
+-- -   'warning': This message is providing information you should take
+--     into account.
 vmSeverity :: Lens' ValidationMessage (Maybe ValidationSeverity)
 vmSeverity = lens _vmSeverity (\ s a -> s{_vmSeverity = a});
 

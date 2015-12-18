@@ -17,6 +17,7 @@
 --
 module Network.AWS.Route53Domains.Types.Product where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Route53Domains.Types.Sum
 

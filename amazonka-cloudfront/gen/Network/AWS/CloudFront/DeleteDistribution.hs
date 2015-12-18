@@ -37,6 +37,7 @@ module Network.AWS.CloudFront.DeleteDistribution
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -86,7 +87,7 @@ instance ToHeaders DeleteDistribution where
 
 instance ToPath DeleteDistribution where
         toPath DeleteDistribution'{..}
-          = mconcat ["/2015-07-27/distribution/", toBS _ddId]
+          = mconcat ["/2015-09-17/distribution/", toBS _ddId]
 
 instance ToQuery DeleteDistribution where
         toQuery = const mempty

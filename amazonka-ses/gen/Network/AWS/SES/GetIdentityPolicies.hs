@@ -51,6 +51,7 @@ module Network.AWS.SES.GetIdentityPolicies
     , giprsPolicies
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

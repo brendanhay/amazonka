@@ -50,6 +50,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
 
 import           Network.AWS.ElasticBeanstalk.Types
 import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -82,16 +83,24 @@ describeEnvironmentHealth =
     }
 
 -- | Specifies the AWS Elastic Beanstalk environment name.
+--
+-- Condition: You must specify either this or an EnvironmentId, or both. If
+-- you do not specify either, AWS Elastic Beanstalk returns
+-- 'MissingRequiredParameter' error.
 dehEnvironmentName :: Lens' DescribeEnvironmentHealth (Maybe Text)
 dehEnvironmentName = lens _dehEnvironmentName (\ s a -> s{_dehEnvironmentName = a});
 
 -- | Specifies the response elements you wish to receive. If no attribute
--- names are specified, AWS Elastic Beanstalk returns all response
--- elements.
+-- names are specified, AWS Elastic Beanstalk only returns the name of the
+-- environment.
 dehAttributeNames :: Lens' DescribeEnvironmentHealth [EnvironmentHealthAttribute]
 dehAttributeNames = lens _dehAttributeNames (\ s a -> s{_dehAttributeNames = a}) . _Default . _Coerce;
 
 -- | Specifies the AWS Elastic Beanstalk environment ID.
+--
+-- Condition: You must specify either this or an EnvironmentName, or both.
+-- If you do not specify either, AWS Elastic Beanstalk returns
+-- 'MissingRequiredParameter' error.
 dehEnvironmentId :: Lens' DescribeEnvironmentHealth (Maybe Text)
 dehEnvironmentId = lens _dehEnvironmentId (\ s a -> s{_dehEnvironmentId = a});
 

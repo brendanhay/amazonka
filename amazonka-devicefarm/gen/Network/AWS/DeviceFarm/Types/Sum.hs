@@ -23,7 +23,7 @@ data ArtifactCategory
     = ACFile
     | ACLog
     | ACScreenshot
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ArtifactCategory where
     parser = takeLowerText >>= \case
@@ -67,7 +67,8 @@ data ArtifactType
     | Screenshot
     | ServiceLog
     | Unknown
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    | WebkitLog
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ArtifactType where
     parser = takeLowerText >>= \case
@@ -90,8 +91,9 @@ instance FromText ArtifactType where
         "screenshot" -> pure Screenshot
         "service_log" -> pure ServiceLog
         "unknown" -> pure Unknown
+        "webkit_log" -> pure WebkitLog
         e -> fromTextError $ "Failure parsing ArtifactType from value: '" <> e
-           <> "'. Accepted values: APPIUM_JAVA_OUTPUT, APPIUM_JAVA_XML_OUTPUT, APPIUM_SERVER_OUTPUT, APPLICATION_CRASH_REPORT, AUTOMATION_OUTPUT, CALABASH_JSON_OUTPUT, CALABASH_JAVA_XML_OUTPUT, CALABASH_PRETTY_OUTPUT, CALABASH_STANDARD_OUTPUT, DEVICE_LOG, EXERCISER_MONKEY_OUTPUT, EXPLORER_EVENT_LOG, EXPLORER_SUMMARY_LOG, INSTRUMENTATION_OUTPUT, MESSAGE_LOG, RESULT_LOG, SCREENSHOT, SERVICE_LOG, UNKNOWN"
+           <> "'. Accepted values: APPIUM_JAVA_OUTPUT, APPIUM_JAVA_XML_OUTPUT, APPIUM_SERVER_OUTPUT, APPLICATION_CRASH_REPORT, AUTOMATION_OUTPUT, CALABASH_JSON_OUTPUT, CALABASH_JAVA_XML_OUTPUT, CALABASH_PRETTY_OUTPUT, CALABASH_STANDARD_OUTPUT, DEVICE_LOG, EXERCISER_MONKEY_OUTPUT, EXPLORER_EVENT_LOG, EXPLORER_SUMMARY_LOG, INSTRUMENTATION_OUTPUT, MESSAGE_LOG, RESULT_LOG, SCREENSHOT, SERVICE_LOG, UNKNOWN, WEBKIT_LOG"
 
 instance ToText ArtifactType where
     toText = \case
@@ -114,6 +116,7 @@ instance ToText ArtifactType where
         Screenshot -> "SCREENSHOT"
         ServiceLog -> "SERVICE_LOG"
         Unknown -> "UNKNOWN"
+        WebkitLog -> "WEBKIT_LOG"
 
 instance Hashable     ArtifactType
 instance ToByteString ArtifactType
@@ -126,7 +129,7 @@ instance FromJSON ArtifactType where
 data BillingMethod
     = Metered
     | Unmetered
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText BillingMethod where
     parser = takeLowerText >>= \case
@@ -156,7 +159,7 @@ data DeviceAttribute
     | FormFactor
     | Manufacturer
     | Platform
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DeviceAttribute where
     parser = takeLowerText >>= \case
@@ -188,7 +191,7 @@ instance FromJSON DeviceAttribute where
 data DeviceFormFactor
     = Phone
     | Tablet
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DeviceFormFactor where
     parser = takeLowerText >>= \case
@@ -213,7 +216,7 @@ instance FromJSON DeviceFormFactor where
 data DevicePlatform
     = Android
     | Ios
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DevicePlatform where
     parser = takeLowerText >>= \case
@@ -238,7 +241,7 @@ instance FromJSON DevicePlatform where
 data DevicePoolType
     = Curated
     | Private
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DevicePoolType where
     parser = takeLowerText >>= \case
@@ -271,7 +274,7 @@ data ExecutionResult
     | ERSkipped
     | ERStopped
     | ERWarned
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ExecutionResult where
     parser = takeLowerText >>= \case
@@ -309,7 +312,7 @@ data ExecutionStatus
     | Processing
     | Running
     | Scheduling
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ExecutionStatus where
     parser = takeLowerText >>= \case
@@ -343,7 +346,7 @@ data RuleOperator
     | IN
     | LessThan
     | NotIn
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RuleOperator where
     parser = takeLowerText >>= \case
@@ -392,7 +395,7 @@ data SampleType
     | TX
     | Threads
     | TxRate
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SampleType where
     parser = takeLowerText >>= \case
@@ -447,6 +450,8 @@ instance FromJSON SampleType where
 data TestType
     = AppiumJavaJunit
     | AppiumJavaTestng
+    | AppiumWebJavaJunit
+    | AppiumWebJavaTestng
     | BuiltinExplorer
     | BuiltinFuzz
     | Calabash
@@ -454,12 +459,14 @@ data TestType
     | Uiautomation
     | Uiautomator
     | Xctest
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TestType where
     parser = takeLowerText >>= \case
         "appium_java_junit" -> pure AppiumJavaJunit
         "appium_java_testng" -> pure AppiumJavaTestng
+        "appium_web_java_junit" -> pure AppiumWebJavaJunit
+        "appium_web_java_testng" -> pure AppiumWebJavaTestng
         "builtin_explorer" -> pure BuiltinExplorer
         "builtin_fuzz" -> pure BuiltinFuzz
         "calabash" -> pure Calabash
@@ -468,12 +475,14 @@ instance FromText TestType where
         "uiautomator" -> pure Uiautomator
         "xctest" -> pure Xctest
         e -> fromTextError $ "Failure parsing TestType from value: '" <> e
-           <> "'. Accepted values: APPIUM_JAVA_JUNIT, APPIUM_JAVA_TESTNG, BUILTIN_EXPLORER, BUILTIN_FUZZ, CALABASH, INSTRUMENTATION, UIAUTOMATION, UIAUTOMATOR, XCTEST"
+           <> "'. Accepted values: APPIUM_JAVA_JUNIT, APPIUM_JAVA_TESTNG, APPIUM_WEB_JAVA_JUNIT, APPIUM_WEB_JAVA_TESTNG, BUILTIN_EXPLORER, BUILTIN_FUZZ, CALABASH, INSTRUMENTATION, UIAUTOMATION, UIAUTOMATOR, XCTEST"
 
 instance ToText TestType where
     toText = \case
         AppiumJavaJunit -> "APPIUM_JAVA_JUNIT"
         AppiumJavaTestng -> "APPIUM_JAVA_TESTNG"
+        AppiumWebJavaJunit -> "APPIUM_WEB_JAVA_JUNIT"
+        AppiumWebJavaTestng -> "APPIUM_WEB_JAVA_TESTNG"
         BuiltinExplorer -> "BUILTIN_EXPLORER"
         BuiltinFuzz -> "BUILTIN_FUZZ"
         Calabash -> "CALABASH"
@@ -498,7 +507,7 @@ data UploadStatus
     | USInitialized
     | USProcessing
     | USSucceeded
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText UploadStatus where
     parser = takeLowerText >>= \case
@@ -528,41 +537,50 @@ data UploadType
     = AndroidApp
     | AppiumJavaJunitTestPackage
     | AppiumJavaTestngTestPackage
+    | AppiumWebJavaJunitTestPackage
+    | AppiumWebJavaTestngTestPackage
     | CalabashTestPackage
     | ExternalData
     | InstrumentationTestPackage
     | IosApp
     | UiautomationTestPackage
     | UiautomatorTestPackage
+    | WebApp
     | XctestTestPackage
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText UploadType where
     parser = takeLowerText >>= \case
         "android_app" -> pure AndroidApp
         "appium_java_junit_test_package" -> pure AppiumJavaJunitTestPackage
         "appium_java_testng_test_package" -> pure AppiumJavaTestngTestPackage
+        "appium_web_java_junit_test_package" -> pure AppiumWebJavaJunitTestPackage
+        "appium_web_java_testng_test_package" -> pure AppiumWebJavaTestngTestPackage
         "calabash_test_package" -> pure CalabashTestPackage
         "external_data" -> pure ExternalData
         "instrumentation_test_package" -> pure InstrumentationTestPackage
         "ios_app" -> pure IosApp
         "uiautomation_test_package" -> pure UiautomationTestPackage
         "uiautomator_test_package" -> pure UiautomatorTestPackage
+        "web_app" -> pure WebApp
         "xctest_test_package" -> pure XctestTestPackage
         e -> fromTextError $ "Failure parsing UploadType from value: '" <> e
-           <> "'. Accepted values: ANDROID_APP, APPIUM_JAVA_JUNIT_TEST_PACKAGE, APPIUM_JAVA_TESTNG_TEST_PACKAGE, CALABASH_TEST_PACKAGE, EXTERNAL_DATA, INSTRUMENTATION_TEST_PACKAGE, IOS_APP, UIAUTOMATION_TEST_PACKAGE, UIAUTOMATOR_TEST_PACKAGE, XCTEST_TEST_PACKAGE"
+           <> "'. Accepted values: ANDROID_APP, APPIUM_JAVA_JUNIT_TEST_PACKAGE, APPIUM_JAVA_TESTNG_TEST_PACKAGE, APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE, APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE, CALABASH_TEST_PACKAGE, EXTERNAL_DATA, INSTRUMENTATION_TEST_PACKAGE, IOS_APP, UIAUTOMATION_TEST_PACKAGE, UIAUTOMATOR_TEST_PACKAGE, WEB_APP, XCTEST_TEST_PACKAGE"
 
 instance ToText UploadType where
     toText = \case
         AndroidApp -> "ANDROID_APP"
         AppiumJavaJunitTestPackage -> "APPIUM_JAVA_JUNIT_TEST_PACKAGE"
         AppiumJavaTestngTestPackage -> "APPIUM_JAVA_TESTNG_TEST_PACKAGE"
+        AppiumWebJavaJunitTestPackage -> "APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE"
+        AppiumWebJavaTestngTestPackage -> "APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE"
         CalabashTestPackage -> "CALABASH_TEST_PACKAGE"
         ExternalData -> "EXTERNAL_DATA"
         InstrumentationTestPackage -> "INSTRUMENTATION_TEST_PACKAGE"
         IosApp -> "IOS_APP"
         UiautomationTestPackage -> "UIAUTOMATION_TEST_PACKAGE"
         UiautomatorTestPackage -> "UIAUTOMATOR_TEST_PACKAGE"
+        WebApp -> "WEB_APP"
         XctestTestPackage -> "XCTEST_TEST_PACKAGE"
 
 instance Hashable     UploadType

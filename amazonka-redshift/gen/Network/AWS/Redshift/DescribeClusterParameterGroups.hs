@@ -62,6 +62,7 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     , dcpgrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types

@@ -42,6 +42,7 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
@@ -122,7 +123,7 @@ instance ToPath ListCloudFrontOriginAccessIdentities
          where
         toPath
           = const
-              "/2015-07-27/origin-access-identity/cloudfront"
+              "/2015-09-17/origin-access-identity/cloudfront"
 
 instance ToQuery ListCloudFrontOriginAccessIdentities
          where

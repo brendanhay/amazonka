@@ -24,7 +24,7 @@ data BulkPublishStatus
     | InProgress
     | NotStarted
     | Succeeded
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText BulkPublishStatus where
     parser = takeLowerText >>= \case
@@ -53,7 +53,7 @@ instance FromJSON BulkPublishStatus where
 data Operation
     = Remove
     | Replace
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Operation where
     parser = takeLowerText >>= \case
@@ -80,7 +80,7 @@ data Platform
     | APNS
     | APNSSandbox
     | GCM
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Platform where
     parser = takeLowerText >>= \case
@@ -109,7 +109,7 @@ instance ToJSON Platform where
 data StreamingStatus
     = Disabled
     | Enabled
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StreamingStatus where
     parser = takeLowerText >>= \case

@@ -44,6 +44,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
 
 import           Network.AWS.ElasticTranscoder.Types
 import           Network.AWS.ElasticTranscoder.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

@@ -29,6 +29,9 @@ module Network.AWS.ElasticBeanstalk.Types
     , _S3LocationNotInServiceRegionException
     , _TooManyEnvironmentsException
 
+    -- * ApplicationVersionStatus
+    , ApplicationVersionStatus (..)
+
     -- * ConfigurationDeploymentStatus
     , ConfigurationDeploymentStatus (..)
 
@@ -85,6 +88,7 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * ApplicationVersionDescription
     , ApplicationVersionDescription
     , applicationVersionDescription
+    , avdStatus
     , avdSourceBundle
     , avdDateUpdated
     , avdDateCreated
@@ -168,7 +172,13 @@ module Network.AWS.ElasticBeanstalk.Types
     , eSolutionStackName
     , eEnvironmentId
     , eHealthStatus
+    , eEnvironmentLinks
     , eDescription
+
+    -- * EnvironmentDescriptionsMessage
+    , EnvironmentDescriptionsMessage
+    , environmentDescriptionsMessage
+    , edmEnvironments
 
     -- * EnvironmentInfoDescription
     , EnvironmentInfoDescription
@@ -177,6 +187,12 @@ module Network.AWS.ElasticBeanstalk.Types
     , eidEC2InstanceId
     , eidInfoType
     , eidMessage
+
+    -- * EnvironmentLink
+    , EnvironmentLink
+    , environmentLink
+    , elLinkName
+    , elEnvironmentName
 
     -- * EnvironmentResourceDescription
     , EnvironmentResourceDescription
@@ -349,6 +365,7 @@ module Network.AWS.ElasticBeanstalk.Types
 
 import           Network.AWS.ElasticBeanstalk.Types.Product
 import           Network.AWS.ElasticBeanstalk.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
@@ -383,61 +400,57 @@ elasticBeanstalk =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The request is invalid, please check parameters and their values
+-- | One or more input parameters is not valid. Please correct the input
+-- parameters and try the operation again.
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException =
     _ServiceError . hasStatus 400 . hasCode "InvalidRequestException"
 
--- | The web service attempted to create a bucket in an Amazon S3 account
--- that already has 100 buckets.
+-- | The specified account has reached its limit of Amazon S3 buckets.
 _TooManyBucketsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyBucketsException =
     _ServiceError . hasStatus 400 . hasCode "TooManyBucketsException"
 
--- | The caller does not have a subscription to Amazon S3.
+-- | The specified account does not have a subscription to Amazon S3.
 _S3SubscriptionRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _S3SubscriptionRequiredException =
     _ServiceError . hasStatus 400 . hasCode "S3SubscriptionRequiredException"
 
--- | Unable to perform the specified operation because another operation is
--- already in progress affecting an element in this activity.
+-- | Unable to perform the specified operation because another operation that
+-- effects an element in this activity is already in progress.
 _OperationInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationInProgressException =
     _ServiceError . hasStatus 400 . hasCode "OperationInProgressFailure"
 
--- | The caller has exceeded the limit on the number of application versions
--- associated with their account.
+-- | The specified account has reached its limit of application versions.
 _TooManyApplicationVersionsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyApplicationVersionsException =
     _ServiceError . hasCode "TooManyApplicationVersionsException"
 
--- | The caller has exceeded the limit on the number of configuration
--- templates associated with their account.
+-- | The specified account has reached its limit of configuration templates.
 _TooManyConfigurationTemplatesException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyConfigurationTemplatesException =
     _ServiceError .
     hasStatus 400 . hasCode "TooManyConfigurationTemplatesException"
 
--- | Unable to perform the specified operation because the user does not have
--- enough privileges for one of more downstream aws services
+-- | The specified account does not have sufficient privileges for one of
+-- more AWS services.
 _InsufficientPrivilegesException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientPrivilegesException =
     _ServiceError . hasStatus 403 . hasCode "InsufficientPrivilegesException"
 
--- | Prism for ElasticBeanstalkServiceException' errors.
+-- | A generic service exception has occurred.
 _ElasticBeanstalkServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _ElasticBeanstalkServiceException =
     _ServiceError . hasCode "ElasticBeanstalkServiceException"
 
--- | The caller has exceeded the limit on the number of applications
--- associated with their account.
+-- | The specified account has reached its limit of applications.
 _TooManyApplicationsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyApplicationsException =
     _ServiceError . hasStatus 400 . hasCode "TooManyApplicationsException"
 
 -- | Unable to delete the Amazon S3 source bundle associated with the
--- application version, although the application version deleted
--- successfully.
+-- application version. The application version was deleted successfully.
 _SourceBundleDeletionException :: AsError a => Getting (First ServiceError) a ServiceError
 _SourceBundleDeletionException =
     _ServiceError . hasStatus 400 . hasCode "SourceBundleDeletionFailure"
@@ -449,8 +462,7 @@ _S3LocationNotInServiceRegionException =
     _ServiceError .
     hasStatus 400 . hasCode "S3LocationNotInServiceRegionException"
 
--- | The caller has exceeded the limit of allowed environments associated
--- with the account.
+-- | The specified account has reached its limit of environments.
 _TooManyEnvironmentsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyEnvironmentsException =
     _ServiceError . hasStatus 400 . hasCode "TooManyEnvironmentsException"

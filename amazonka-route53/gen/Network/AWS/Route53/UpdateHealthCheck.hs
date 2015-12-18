@@ -53,6 +53,7 @@ module Network.AWS.Route53.UpdateHealthCheck
     , uhcrsHealthCheck
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -121,8 +122,8 @@ updateHealthCheck pHealthCheckId_ =
     }
 
 -- | The number of consecutive health checks that an endpoint must pass or
--- fail for Route 53 to change the current status of the endpoint from
--- unhealthy to healthy or vice versa.
+-- fail for Amazon Route 53 to change the current status of the endpoint
+-- from unhealthy to healthy or vice versa.
 --
 -- Valid values are integers between 1 and 10. For more information, see
 -- \"How Amazon Route 53 Determines Whether an Endpoint Is Healthy\" in the
@@ -139,17 +140,17 @@ uhcIPAddress :: Lens' UpdateHealthCheck (Maybe Text)
 uhcIPAddress = lens _uhcIPAddress (\ s a -> s{_uhcIPAddress = a});
 
 -- | If the value of 'Type' is 'HTTP_STR_MATCH' or 'HTTP_STR_MATCH', the
--- string that you want Route 53 to search for in the response body from
--- the specified resource. If the string appears in the response body,
--- Route 53 considers the resource healthy.
+-- string that you want Amazon Route 53 to search for in the response body
+-- from the specified resource. If the string appears in the response body,
+-- Amazon Route 53 considers the resource healthy.
 --
 -- Specify this value only if you want to change it.
 uhcSearchString :: Lens' UpdateHealthCheck (Maybe Text)
 uhcSearchString = lens _uhcSearchString (\ s a -> s{_uhcSearchString = a});
 
--- | The minimum number of child health checks that must be healthy for Route
--- 53 to consider the parent health check to be healthy. Valid values are
--- integers between 0 and 256, inclusive.
+-- | The minimum number of child health checks that must be healthy for
+-- Amazon Route 53 to consider the parent health check to be healthy. Valid
+-- values are integers between 0 and 256, inclusive.
 --
 -- Specify this value only if you want to change it.
 uhcHealthThreshold :: Lens' UpdateHealthCheck (Maybe Natural)
@@ -164,17 +165,17 @@ uhcHealthThreshold = lens _uhcHealthThreshold (\ s a -> s{_uhcHealthThreshold = 
 uhcResourcePath :: Lens' UpdateHealthCheck (Maybe Text)
 uhcResourcePath = lens _uhcResourcePath (\ s a -> s{_uhcResourcePath = a});
 
--- | Optional. When you specify a health check version, Route 53 compares
--- this value with the current value in the health check, which prevents
--- you from updating the health check when the versions don\'t match. Using
--- 'HealthCheckVersion' lets you prevent overwriting another change to the
--- health check.
+-- | Optional. When you specify a health check version, Amazon Route 53
+-- compares this value with the current value in the health check, which
+-- prevents you from updating the health check when the versions don\'t
+-- match. Using 'HealthCheckVersion' lets you prevent overwriting another
+-- change to the health check.
 uhcHealthCheckVersion :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcHealthCheckVersion = lens _uhcHealthCheckVersion (\ s a -> s{_uhcHealthCheckVersion = a}) . mapping _Nat;
 
 -- | A boolean value that indicates whether the status of health check should
 -- be inverted. For example, if a health check is healthy but 'Inverted' is
--- 'True', then Route 53 considers the health check to be unhealthy.
+-- 'True', then Amazon Route 53 considers the health check to be unhealthy.
 --
 -- Specify this value only if you want to change it.
 uhcInverted :: Lens' UpdateHealthCheck (Maybe Bool)
@@ -193,8 +194,8 @@ uhcFullyQualifiedDomainName = lens _uhcFullyQualifiedDomainName (\ s a -> s{_uhc
 uhcChildHealthChecks :: Lens' UpdateHealthCheck [Text]
 uhcChildHealthChecks = lens _uhcChildHealthChecks (\ s a -> s{_uhcChildHealthChecks = a}) . _Default . _Coerce;
 
--- | The port on which you want Route 53 to open a connection to perform
--- health checks.
+-- | The port on which you want Amazon Route 53 to open a connection to
+-- perform health checks.
 --
 -- Specify this value only if you want to change it.
 uhcPort :: Lens' UpdateHealthCheck (Maybe Natural)

@@ -18,6 +18,7 @@
 module Network.AWS.DirectoryService.Types.Product where
 
 import           Network.AWS.DirectoryService.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Represents a named directory attribute.
@@ -94,8 +95,8 @@ computer =
 cComputerId :: Lens' Computer (Maybe Text)
 cComputerId = lens _cComputerId (\ s a -> s{_cComputerId = a});
 
--- | An array of Attribute objects that contain the LDAP attributes that
--- belong to the computer account.
+-- | An array of Attribute objects containing the LDAP attributes that belong
+-- to the computer account.
 cComputerAttributes :: Lens' Computer [Attribute]
 cComputerAttributes = lens _cComputerAttributes (\ s a -> s{_cComputerAttributes = a}) . _Default . _Coerce;
 
@@ -146,12 +147,12 @@ directoryConnectSettings pVPCId_ pCustomerUserName_ =
     , _dcsCustomerUserName = pCustomerUserName_
     }
 
--- | The identifier of the VPC that the AD Connector is created in.
+-- | The identifier of the VPC in which the AD Connector is created.
 dcsVPCId :: Lens' DirectoryConnectSettings Text
 dcsVPCId = lens _dcsVPCId (\ s a -> s{_dcsVPCId = a});
 
--- | A list of subnet identifiers in the VPC that the AD Connector is created
--- in.
+-- | A list of subnet identifiers in the VPC in which the AD Connector is
+-- created.
 dcsSubnetIds :: Lens' DirectoryConnectSettings [Text]
 dcsSubnetIds = lens _dcsSubnetIds (\ s a -> s{_dcsSubnetIds = a}) . _Coerce;
 
@@ -355,7 +356,9 @@ ddDirectoryId :: Lens' DirectoryDescription (Maybe Text)
 ddDirectoryId = lens _ddDirectoryId (\ s a -> s{_ddDirectoryId = a});
 
 -- | The access URL for the directory, such as
--- 'http:\/\/\<alias>.awsapps.com'.
+-- 'http:\/\/&#x3C;alias&#x3E;.awsapps.com'. If no alias has been created
+-- for the directory, '&#x3C;alias&#x3E;' is the directory identifier, such
+-- as 'd-XXXXXXXXXX'.
 ddAccessURL :: Lens' DirectoryDescription (Maybe Text)
 ddAccessURL = lens _ddAccessURL (\ s a -> s{_ddAccessURL = a});
 
@@ -376,7 +379,9 @@ ddRadiusSettings = lens _ddRadiusSettings (\ s a -> s{_ddRadiusSettings = a});
 ddLaunchTime :: Lens' DirectoryDescription (Maybe UTCTime)
 ddLaunchTime = lens _ddLaunchTime (\ s a -> s{_ddLaunchTime = a}) . mapping _Time;
 
--- | The alias for the directory.
+-- | The alias for the directory. If no alias has been created for the
+-- directory, the alias is the directory identifier, such as
+-- 'd-XXXXXXXXXX'.
 ddAlias :: Lens' DirectoryDescription (Maybe Text)
 ddAlias = lens _ddAlias (\ s a -> s{_ddAlias = a});
 
@@ -394,16 +399,16 @@ ddSSOEnabled :: Lens' DirectoryDescription (Maybe Bool)
 ddSSOEnabled = lens _ddSSOEnabled (\ s a -> s{_ddSSOEnabled = a});
 
 -- | The IP addresses of the DNS servers for the directory. For a Simple AD
--- directory, these are the IP addresses of the Simple AD directory
--- servers. For an AD Connector directory, these are the IP addresses of
--- the DNS servers or domain controllers in the on-premises directory that
--- the AD Connector is connected to.
+-- or Microsoft AD directory, these are the IP addresses of the Simple AD
+-- or Microsoft AD directory servers. For an AD Connector directory, these
+-- are the IP addresses of the DNS servers or domain controllers in the
+-- on-premises directory to which the AD Connector is connected.
 ddDNSIPAddrs :: Lens' DirectoryDescription [Text]
 ddDNSIPAddrs = lens _ddDNSIPAddrs (\ s a -> s{_ddDNSIPAddrs = a}) . _Default . _Coerce;
 
 -- | A DirectoryVpcSettingsDescription object that contains additional
--- information about a Simple AD directory. This member is only present if
--- the directory is a Simple AD directory.
+-- information about a directory. This member is only present if the
+-- directory is a Simple AD or Managed AD directory.
 ddVPCSettings :: Lens' DirectoryDescription (Maybe DirectoryVPCSettingsDescription)
 ddVPCSettings = lens _ddVPCSettings (\ s a -> s{_ddVPCSettings = a});
 
@@ -453,11 +458,14 @@ instance FromJSON DirectoryDescription where
 -- /See:/ 'directoryLimits' smart constructor.
 data DirectoryLimits = DirectoryLimits'
     { _dlConnectedDirectoriesCurrentCount :: !(Maybe Nat)
+    , _dlCloudOnlyMicrosoftADLimitReached :: !(Maybe Bool)
     , _dlConnectedDirectoriesLimit        :: !(Maybe Nat)
     , _dlConnectedDirectoriesLimitReached :: !(Maybe Bool)
+    , _dlCloudOnlyMicrosoftADLimit        :: !(Maybe Nat)
     , _dlCloudOnlyDirectoriesLimit        :: !(Maybe Nat)
     , _dlCloudOnlyDirectoriesCurrentCount :: !(Maybe Nat)
     , _dlCloudOnlyDirectoriesLimitReached :: !(Maybe Bool)
+    , _dlCloudOnlyMicrosoftADCurrentCount :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DirectoryLimits' with the minimum fields required to make a request.
@@ -466,30 +474,43 @@ data DirectoryLimits = DirectoryLimits'
 --
 -- * 'dlConnectedDirectoriesCurrentCount'
 --
+-- * 'dlCloudOnlyMicrosoftADLimitReached'
+--
 -- * 'dlConnectedDirectoriesLimit'
 --
 -- * 'dlConnectedDirectoriesLimitReached'
+--
+-- * 'dlCloudOnlyMicrosoftADLimit'
 --
 -- * 'dlCloudOnlyDirectoriesLimit'
 --
 -- * 'dlCloudOnlyDirectoriesCurrentCount'
 --
 -- * 'dlCloudOnlyDirectoriesLimitReached'
+--
+-- * 'dlCloudOnlyMicrosoftADCurrentCount'
 directoryLimits
     :: DirectoryLimits
 directoryLimits =
     DirectoryLimits'
     { _dlConnectedDirectoriesCurrentCount = Nothing
+    , _dlCloudOnlyMicrosoftADLimitReached = Nothing
     , _dlConnectedDirectoriesLimit = Nothing
     , _dlConnectedDirectoriesLimitReached = Nothing
+    , _dlCloudOnlyMicrosoftADLimit = Nothing
     , _dlCloudOnlyDirectoriesLimit = Nothing
     , _dlCloudOnlyDirectoriesCurrentCount = Nothing
     , _dlCloudOnlyDirectoriesLimitReached = Nothing
+    , _dlCloudOnlyMicrosoftADCurrentCount = Nothing
     }
 
 -- | The current number of connected directories in the region.
 dlConnectedDirectoriesCurrentCount :: Lens' DirectoryLimits (Maybe Natural)
 dlConnectedDirectoriesCurrentCount = lens _dlConnectedDirectoriesCurrentCount (\ s a -> s{_dlConnectedDirectoriesCurrentCount = a}) . mapping _Nat;
+
+-- | Indicates if the Microsoft AD directory limit has been reached.
+dlCloudOnlyMicrosoftADLimitReached :: Lens' DirectoryLimits (Maybe Bool)
+dlCloudOnlyMicrosoftADLimitReached = lens _dlCloudOnlyMicrosoftADLimitReached (\ s a -> s{_dlCloudOnlyMicrosoftADLimitReached = a});
 
 -- | The maximum number of connected directories allowed in the region.
 dlConnectedDirectoriesLimit :: Lens' DirectoryLimits (Maybe Natural)
@@ -498,6 +519,10 @@ dlConnectedDirectoriesLimit = lens _dlConnectedDirectoriesLimit (\ s a -> s{_dlC
 -- | Indicates if the connected directory limit has been reached.
 dlConnectedDirectoriesLimitReached :: Lens' DirectoryLimits (Maybe Bool)
 dlConnectedDirectoriesLimitReached = lens _dlConnectedDirectoriesLimitReached (\ s a -> s{_dlConnectedDirectoriesLimitReached = a});
+
+-- | The maximum number of Microsoft AD directories allowed in the region.
+dlCloudOnlyMicrosoftADLimit :: Lens' DirectoryLimits (Maybe Natural)
+dlCloudOnlyMicrosoftADLimit = lens _dlCloudOnlyMicrosoftADLimit (\ s a -> s{_dlCloudOnlyMicrosoftADLimit = a}) . mapping _Nat;
 
 -- | The maximum number of cloud directories allowed in the region.
 dlCloudOnlyDirectoriesLimit :: Lens' DirectoryLimits (Maybe Natural)
@@ -511,20 +536,27 @@ dlCloudOnlyDirectoriesCurrentCount = lens _dlCloudOnlyDirectoriesCurrentCount (\
 dlCloudOnlyDirectoriesLimitReached :: Lens' DirectoryLimits (Maybe Bool)
 dlCloudOnlyDirectoriesLimitReached = lens _dlCloudOnlyDirectoriesLimitReached (\ s a -> s{_dlCloudOnlyDirectoriesLimitReached = a});
 
+-- | The current number of Microsoft AD directories in the region.
+dlCloudOnlyMicrosoftADCurrentCount :: Lens' DirectoryLimits (Maybe Natural)
+dlCloudOnlyMicrosoftADCurrentCount = lens _dlCloudOnlyMicrosoftADCurrentCount (\ s a -> s{_dlCloudOnlyMicrosoftADCurrentCount = a}) . mapping _Nat;
+
 instance FromJSON DirectoryLimits where
         parseJSON
           = withObject "DirectoryLimits"
               (\ x ->
                  DirectoryLimits' <$>
                    (x .:? "ConnectedDirectoriesCurrentCount") <*>
-                     (x .:? "ConnectedDirectoriesLimit")
+                     (x .:? "CloudOnlyMicrosoftADLimitReached")
+                     <*> (x .:? "ConnectedDirectoriesLimit")
                      <*> (x .:? "ConnectedDirectoriesLimitReached")
+                     <*> (x .:? "CloudOnlyMicrosoftADLimit")
                      <*> (x .:? "CloudOnlyDirectoriesLimit")
                      <*> (x .:? "CloudOnlyDirectoriesCurrentCount")
-                     <*> (x .:? "CloudOnlyDirectoriesLimitReached"))
+                     <*> (x .:? "CloudOnlyDirectoriesLimitReached")
+                     <*> (x .:? "CloudOnlyMicrosoftADCurrentCount"))
 
--- | Contains information for the CreateDirectory operation when a Simple AD
--- directory is being created.
+-- | Contains VPC information for the CreateDirectory or CreateMicrosoftAD
+-- operation.
 --
 -- /See:/ 'directoryVPCSettings' smart constructor.
 data DirectoryVPCSettings = DirectoryVPCSettings'
@@ -548,7 +580,7 @@ directoryVPCSettings pVPCId_ =
     , _dvsSubnetIds = mempty
     }
 
--- | The identifier of the VPC to create the Simple AD directory in.
+-- | The identifier of the VPC in which to create the directory.
 dvsVPCId :: Lens' DirectoryVPCSettings Text
 dvsVPCId = lens _dvsVPCId (\ s a -> s{_dvsVPCId = a});
 
@@ -565,7 +597,7 @@ instance ToJSON DirectoryVPCSettings where
                  [Just ("VpcId" .= _dvsVPCId),
                   Just ("SubnetIds" .= _dvsSubnetIds)])
 
--- | Contains information about a Simple AD directory.
+-- | Contains information about the directory.
 --
 -- /See:/ 'directoryVPCSettingsDescription' smart constructor.
 data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'
@@ -604,7 +636,10 @@ dvsdSubnetIds = lens _dvsdSubnetIds (\ s a -> s{_dvsdSubnetIds = a}) . _Default 
 dvsdVPCId :: Lens' DirectoryVPCSettingsDescription (Maybe Text)
 dvsdVPCId = lens _dvsdVPCId (\ s a -> s{_dvsdVPCId = a});
 
--- | The security group identifier for the directory.
+-- | The security group identifier for the directory. If the directory was
+-- created before 8\/1\/2014, this is the identifier of the directory
+-- members security group that was created when the directory was created.
+-- If the directory was created after this date, this value is null.
 dvsdSecurityGroupId :: Lens' DirectoryVPCSettingsDescription (Maybe Text)
 dvsdSecurityGroupId = lens _dvsdSecurityGroupId (\ s a -> s{_dvsdSecurityGroupId = a});
 
@@ -856,3 +891,107 @@ instance FromJSON SnapshotLimits where
                    (x .:? "ManualSnapshotsLimitReached") <*>
                      (x .:? "ManualSnapshotsCurrentCount")
                      <*> (x .:? "ManualSnapshotsLimit"))
+
+-- | Describes a trust relationship between an Microsoft AD in the AWS cloud
+-- and an external domain.
+--
+-- /See:/ 'trust' smart constructor.
+data Trust = Trust'
+    { _tDirectoryId              :: !(Maybe Text)
+    , _tTrustState               :: !(Maybe TrustState)
+    , _tLastUpdatedDateTime      :: !(Maybe POSIX)
+    , _tTrustDirection           :: !(Maybe TrustDirection)
+    , _tStateLastUpdatedDateTime :: !(Maybe POSIX)
+    , _tTrustType                :: !(Maybe TrustType)
+    , _tRemoteDomainName         :: !(Maybe Text)
+    , _tTrustId                  :: !(Maybe Text)
+    , _tCreatedDateTime          :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Trust' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tDirectoryId'
+--
+-- * 'tTrustState'
+--
+-- * 'tLastUpdatedDateTime'
+--
+-- * 'tTrustDirection'
+--
+-- * 'tStateLastUpdatedDateTime'
+--
+-- * 'tTrustType'
+--
+-- * 'tRemoteDomainName'
+--
+-- * 'tTrustId'
+--
+-- * 'tCreatedDateTime'
+trust
+    :: Trust
+trust =
+    Trust'
+    { _tDirectoryId = Nothing
+    , _tTrustState = Nothing
+    , _tLastUpdatedDateTime = Nothing
+    , _tTrustDirection = Nothing
+    , _tStateLastUpdatedDateTime = Nothing
+    , _tTrustType = Nothing
+    , _tRemoteDomainName = Nothing
+    , _tTrustId = Nothing
+    , _tCreatedDateTime = Nothing
+    }
+
+-- | The Directory ID of the AWS directory involved in the trust
+-- relationship.
+tDirectoryId :: Lens' Trust (Maybe Text)
+tDirectoryId = lens _tDirectoryId (\ s a -> s{_tDirectoryId = a});
+
+-- | The trust relationship state.
+tTrustState :: Lens' Trust (Maybe TrustState)
+tTrustState = lens _tTrustState (\ s a -> s{_tTrustState = a});
+
+-- | The date and time that the trust relationship was last updated.
+tLastUpdatedDateTime :: Lens' Trust (Maybe UTCTime)
+tLastUpdatedDateTime = lens _tLastUpdatedDateTime (\ s a -> s{_tLastUpdatedDateTime = a}) . mapping _Time;
+
+-- | The trust relationship direction.
+tTrustDirection :: Lens' Trust (Maybe TrustDirection)
+tTrustDirection = lens _tTrustDirection (\ s a -> s{_tTrustDirection = a});
+
+-- | The date and time that the TrustState was last updated.
+tStateLastUpdatedDateTime :: Lens' Trust (Maybe UTCTime)
+tStateLastUpdatedDateTime = lens _tStateLastUpdatedDateTime (\ s a -> s{_tStateLastUpdatedDateTime = a}) . mapping _Time;
+
+-- | The trust relationship type.
+tTrustType :: Lens' Trust (Maybe TrustType)
+tTrustType = lens _tTrustType (\ s a -> s{_tTrustType = a});
+
+-- | The Fully Qualified Domain Name (FQDN) of the external domain involved
+-- in the trust relationship.
+tRemoteDomainName :: Lens' Trust (Maybe Text)
+tRemoteDomainName = lens _tRemoteDomainName (\ s a -> s{_tRemoteDomainName = a});
+
+-- | The unique ID of the trust relationship.
+tTrustId :: Lens' Trust (Maybe Text)
+tTrustId = lens _tTrustId (\ s a -> s{_tTrustId = a});
+
+-- | The date and time that the trust relationship was created.
+tCreatedDateTime :: Lens' Trust (Maybe UTCTime)
+tCreatedDateTime = lens _tCreatedDateTime (\ s a -> s{_tCreatedDateTime = a}) . mapping _Time;
+
+instance FromJSON Trust where
+        parseJSON
+          = withObject "Trust"
+              (\ x ->
+                 Trust' <$>
+                   (x .:? "DirectoryId") <*> (x .:? "TrustState") <*>
+                     (x .:? "LastUpdatedDateTime")
+                     <*> (x .:? "TrustDirection")
+                     <*> (x .:? "StateLastUpdatedDateTime")
+                     <*> (x .:? "TrustType")
+                     <*> (x .:? "RemoteDomainName")
+                     <*> (x .:? "TrustId")
+                     <*> (x .:? "CreatedDateTime"))

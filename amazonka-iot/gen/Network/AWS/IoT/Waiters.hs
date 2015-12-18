@@ -16,5 +16,6 @@
 module Network.AWS.IoT.Waiters where
 
 import           Network.AWS.IoT.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

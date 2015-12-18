@@ -262,6 +262,9 @@ module Network.AWS.CloudFront
 
     -- * Types
 
+    -- ** CertificateSource
+    , CertificateSource (..)
+
     -- ** GeoRestrictionType
     , GeoRestrictionType (..)
 
@@ -311,6 +314,7 @@ module Network.AWS.CloudFront
     , cacheBehavior
     , cbAllowedMethods
     , cbMaxTTL
+    , cbCompress
     , cbSmoothStreaming
     , cbDefaultTTL
     , cbPathPattern
@@ -400,6 +404,7 @@ module Network.AWS.CloudFront
     , defaultCacheBehavior
     , dcbAllowedMethods
     , dcbMaxTTL
+    , dcbCompress
     , dcbSmoothStreaming
     , dcbDefaultTTL
     , dcbTargetOriginId
@@ -638,7 +643,9 @@ module Network.AWS.CloudFront
     , ViewerCertificate
     , viewerCertificate
     , vcSSLSupportMethod
+    , vcCertificateSource
     , vcMinimumProtocolVersion
+    , vcCertificate
     , vcIAMCertificateId
     , vcCloudFrontDefaultCertificate
     ) where

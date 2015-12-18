@@ -24,7 +24,7 @@ data CompressionFormat
     | Snappy
     | Uncompressed
     | Zip
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CompressionFormat where
     parser = takeLowerText >>= \case
@@ -57,7 +57,7 @@ data DeliveryStreamStatus
     = Active
     | Creating
     | Deleting
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DeliveryStreamStatus where
     parser = takeLowerText >>= \case
@@ -83,7 +83,7 @@ instance FromJSON DeliveryStreamStatus where
 
 data NoEncryptionConfig =
     NoEncryption
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText NoEncryptionConfig where
     parser = takeLowerText >>= \case

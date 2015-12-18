@@ -18,6 +18,7 @@
 module Network.AWS.AutoScaling.Types.Product where
 
 import           Network.AWS.AutoScaling.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Describes scaling activity, which is a long-running process that
@@ -207,26 +208,27 @@ instance FromXML Alarm where
 --
 -- /See:/ 'autoScalingGroup' smart constructor.
 data AutoScalingGroup = AutoScalingGroup'
-    { _asgStatus                  :: !(Maybe Text)
-    , _asgTerminationPolicies     :: !(Maybe [Text])
-    , _asgHealthCheckGracePeriod  :: !(Maybe Int)
-    , _asgVPCZoneIdentifier       :: !(Maybe Text)
-    , _asgEnabledMetrics          :: !(Maybe [EnabledMetric])
-    , _asgLaunchConfigurationName :: !(Maybe Text)
-    , _asgInstances               :: !(Maybe [Instance])
-    , _asgAutoScalingGroupARN     :: !(Maybe Text)
-    , _asgPlacementGroup          :: !(Maybe Text)
-    , _asgSuspendedProcesses      :: !(Maybe [SuspendedProcess])
-    , _asgLoadBalancerNames       :: !(Maybe [Text])
-    , _asgTags                    :: !(Maybe [TagDescription])
-    , _asgAutoScalingGroupName    :: !Text
-    , _asgMinSize                 :: !Int
-    , _asgMaxSize                 :: !Int
-    , _asgDesiredCapacity         :: !Int
-    , _asgDefaultCooldown         :: !Int
-    , _asgAvailabilityZones       :: !(List1 Text)
-    , _asgHealthCheckType         :: !Text
-    , _asgCreatedTime             :: !ISO8601
+    { _asgStatus                           :: !(Maybe Text)
+    , _asgTerminationPolicies              :: !(Maybe [Text])
+    , _asgHealthCheckGracePeriod           :: !(Maybe Int)
+    , _asgNewInstancesProtectedFromScaleIn :: !(Maybe Bool)
+    , _asgVPCZoneIdentifier                :: !(Maybe Text)
+    , _asgEnabledMetrics                   :: !(Maybe [EnabledMetric])
+    , _asgLaunchConfigurationName          :: !(Maybe Text)
+    , _asgInstances                        :: !(Maybe [Instance])
+    , _asgAutoScalingGroupARN              :: !(Maybe Text)
+    , _asgPlacementGroup                   :: !(Maybe Text)
+    , _asgSuspendedProcesses               :: !(Maybe [SuspendedProcess])
+    , _asgLoadBalancerNames                :: !(Maybe [Text])
+    , _asgTags                             :: !(Maybe [TagDescription])
+    , _asgAutoScalingGroupName             :: !Text
+    , _asgMinSize                          :: !Int
+    , _asgMaxSize                          :: !Int
+    , _asgDesiredCapacity                  :: !Int
+    , _asgDefaultCooldown                  :: !Int
+    , _asgAvailabilityZones                :: !(List1 Text)
+    , _asgHealthCheckType                  :: !Text
+    , _asgCreatedTime                      :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AutoScalingGroup' with the minimum fields required to make a request.
@@ -238,6 +240,8 @@ data AutoScalingGroup = AutoScalingGroup'
 -- * 'asgTerminationPolicies'
 --
 -- * 'asgHealthCheckGracePeriod'
+--
+-- * 'asgNewInstancesProtectedFromScaleIn'
 --
 -- * 'asgVPCZoneIdentifier'
 --
@@ -287,6 +291,7 @@ autoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ pDesiredCapacity_ pD
     { _asgStatus = Nothing
     , _asgTerminationPolicies = Nothing
     , _asgHealthCheckGracePeriod = Nothing
+    , _asgNewInstancesProtectedFromScaleIn = Nothing
     , _asgVPCZoneIdentifier = Nothing
     , _asgEnabledMetrics = Nothing
     , _asgLaunchConfigurationName = Nothing
@@ -315,11 +320,15 @@ asgStatus = lens _asgStatus (\ s a -> s{_asgStatus = a});
 asgTerminationPolicies :: Lens' AutoScalingGroup [Text]
 asgTerminationPolicies = lens _asgTerminationPolicies (\ s a -> s{_asgTerminationPolicies = a}) . _Default . _Coerce;
 
--- | The amount of time that Auto Scaling waits before checking an
--- instance\'s health status. The grace period begins when an instance
--- comes into service.
+-- | The amount of time, in seconds, that Auto Scaling waits before checking
+-- the health status of an EC2 instance that has come into service.
 asgHealthCheckGracePeriod :: Lens' AutoScalingGroup (Maybe Int)
 asgHealthCheckGracePeriod = lens _asgHealthCheckGracePeriod (\ s a -> s{_asgHealthCheckGracePeriod = a});
+
+-- | Indicates whether newly launched instances are protected from
+-- termination by Auto Scaling when scaling in.
+asgNewInstancesProtectedFromScaleIn :: Lens' AutoScalingGroup (Maybe Bool)
+asgNewInstancesProtectedFromScaleIn = lens _asgNewInstancesProtectedFromScaleIn (\ s a -> s{_asgNewInstancesProtectedFromScaleIn = a});
 
 -- | One or more subnet IDs, if applicable, separated by commas.
 --
@@ -380,8 +389,8 @@ asgMaxSize = lens _asgMaxSize (\ s a -> s{_asgMaxSize = a});
 asgDesiredCapacity :: Lens' AutoScalingGroup Int
 asgDesiredCapacity = lens _asgDesiredCapacity (\ s a -> s{_asgDesiredCapacity = a});
 
--- | The number of seconds after a scaling activity completes before any
--- further scaling activities can start.
+-- | The amount of time, in seconds, after a scaling activity completes
+-- before another scaling activity can start.
 asgDefaultCooldown :: Lens' AutoScalingGroup Int
 asgDefaultCooldown = lens _asgDefaultCooldown (\ s a -> s{_asgDefaultCooldown = a});
 
@@ -389,8 +398,8 @@ asgDefaultCooldown = lens _asgDefaultCooldown (\ s a -> s{_asgDefaultCooldown = 
 asgAvailabilityZones :: Lens' AutoScalingGroup (NonEmpty Text)
 asgAvailabilityZones = lens _asgAvailabilityZones (\ s a -> s{_asgAvailabilityZones = a}) . _List1;
 
--- | The service of interest for the health status check, which can be either
--- 'EC2' for Amazon EC2 or 'ELB' for Elastic Load Balancing.
+-- | The service to use for the health checks. The valid values are 'EC2' and
+-- 'ELB'.
 asgHealthCheckType :: Lens' AutoScalingGroup Text
 asgHealthCheckType = lens _asgHealthCheckType (\ s a -> s{_asgHealthCheckType = a});
 
@@ -405,6 +414,7 @@ instance FromXML AutoScalingGroup where
                 (x .@? "TerminationPolicies" .!@ mempty >>=
                    may (parseXMLList "member"))
                 <*> (x .@? "HealthCheckGracePeriod")
+                <*> (x .@? "NewInstancesProtectedFromScaleIn")
                 <*> (x .@? "VPCZoneIdentifier")
                 <*>
                 (x .@? "EnabledMetrics" .!@ mempty >>=
@@ -445,6 +455,7 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
     , _asidLifecycleState          :: !Text
     , _asidHealthStatus            :: !Text
     , _asidLaunchConfigurationName :: !Text
+    , _asidProtectedFromScaleIn    :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AutoScalingInstanceDetails' with the minimum fields required to make a request.
@@ -462,6 +473,8 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
 -- * 'asidHealthStatus'
 --
 -- * 'asidLaunchConfigurationName'
+--
+-- * 'asidProtectedFromScaleIn'
 autoScalingInstanceDetails
     :: Text -- ^ 'asidInstanceId'
     -> Text -- ^ 'asidAutoScalingGroupName'
@@ -469,8 +482,9 @@ autoScalingInstanceDetails
     -> Text -- ^ 'asidLifecycleState'
     -> Text -- ^ 'asidHealthStatus'
     -> Text -- ^ 'asidLaunchConfigurationName'
+    -> Bool -- ^ 'asidProtectedFromScaleIn'
     -> AutoScalingInstanceDetails
-autoScalingInstanceDetails pInstanceId_ pAutoScalingGroupName_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ pLaunchConfigurationName_ =
+autoScalingInstanceDetails pInstanceId_ pAutoScalingGroupName_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ pLaunchConfigurationName_ pProtectedFromScaleIn_ =
     AutoScalingInstanceDetails'
     { _asidInstanceId = pInstanceId_
     , _asidAutoScalingGroupName = pAutoScalingGroupName_
@@ -478,6 +492,7 @@ autoScalingInstanceDetails pInstanceId_ pAutoScalingGroupName_ pAvailabilityZone
     , _asidLifecycleState = pLifecycleState_
     , _asidHealthStatus = pHealthStatus_
     , _asidLaunchConfigurationName = pLaunchConfigurationName_
+    , _asidProtectedFromScaleIn = pProtectedFromScaleIn_
     }
 
 -- | The ID of the instance.
@@ -508,6 +523,11 @@ asidHealthStatus = lens _asidHealthStatus (\ s a -> s{_asidHealthStatus = a});
 asidLaunchConfigurationName :: Lens' AutoScalingInstanceDetails Text
 asidLaunchConfigurationName = lens _asidLaunchConfigurationName (\ s a -> s{_asidLaunchConfigurationName = a});
 
+-- | Indicates whether the instance is protected from termination by Auto
+-- Scaling when scaling in.
+asidProtectedFromScaleIn :: Lens' AutoScalingInstanceDetails Bool
+asidProtectedFromScaleIn = lens _asidProtectedFromScaleIn (\ s a -> s{_asidProtectedFromScaleIn = a});
+
 instance FromXML AutoScalingInstanceDetails where
         parseXML x
           = AutoScalingInstanceDetails' <$>
@@ -516,6 +536,7 @@ instance FromXML AutoScalingInstanceDetails where
                 <*> (x .@ "LifecycleState")
                 <*> (x .@ "HealthStatus")
                 <*> (x .@ "LaunchConfigurationName")
+                <*> (x .@ "ProtectedFromScaleIn")
 
 -- | Describes a block device mapping.
 --
@@ -793,6 +814,7 @@ data Instance = Instance'
     , _iAvailabilityZone        :: !Text
     , _iLifecycleState          :: !LifecycleState
     , _iHealthStatus            :: !Text
+    , _iProtectedFromScaleIn    :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
@@ -808,19 +830,23 @@ data Instance = Instance'
 -- * 'iLifecycleState'
 --
 -- * 'iHealthStatus'
+--
+-- * 'iProtectedFromScaleIn'
 instance'
     :: Text -- ^ 'iInstanceId'
     -> Text -- ^ 'iAvailabilityZone'
     -> LifecycleState -- ^ 'iLifecycleState'
     -> Text -- ^ 'iHealthStatus'
+    -> Bool -- ^ 'iProtectedFromScaleIn'
     -> Instance
-instance' pInstanceId_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ =
+instance' pInstanceId_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ pProtectedFromScaleIn_ =
     Instance'
     { _iLaunchConfigurationName = Nothing
     , _iInstanceId = pInstanceId_
     , _iAvailabilityZone = pAvailabilityZone_
     , _iLifecycleState = pLifecycleState_
     , _iHealthStatus = pHealthStatus_
+    , _iProtectedFromScaleIn = pProtectedFromScaleIn_
     }
 
 -- | The launch configuration associated with the instance.
@@ -844,6 +870,11 @@ iLifecycleState = lens _iLifecycleState (\ s a -> s{_iLifecycleState = a});
 iHealthStatus :: Lens' Instance Text
 iHealthStatus = lens _iHealthStatus (\ s a -> s{_iHealthStatus = a});
 
+-- | Indicates whether the instance is protected from termination by Auto
+-- Scaling when scaling in.
+iProtectedFromScaleIn :: Lens' Instance Bool
+iProtectedFromScaleIn = lens _iProtectedFromScaleIn (\ s a -> s{_iProtectedFromScaleIn = a});
+
 instance FromXML Instance where
         parseXML x
           = Instance' <$>
@@ -852,6 +883,7 @@ instance FromXML Instance where
                 <*> (x .@ "AvailabilityZone")
                 <*> (x .@ "LifecycleState")
                 <*> (x .@ "HealthStatus")
+                <*> (x .@ "ProtectedFromScaleIn")
 
 -- | Describes whether instance monitoring is enabled.
 --

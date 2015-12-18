@@ -18,6 +18,7 @@
 module Network.AWS.EFS.Types.Product where
 
 import           Network.AWS.EFS.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | This object provides description of a file system.

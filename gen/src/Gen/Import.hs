@@ -24,6 +24,7 @@ operationImports :: Library -> Operation Identity SData a -> [NS]
 operationImports l o = sort $
       "Network.AWS.Request"
     : "Network.AWS.Response"
+    : "Network.AWS.Lens"
     : "Network.AWS.Prelude"
     : l ^. typesNS
     : l ^. productNS
@@ -32,7 +33,8 @@ operationImports l o = sort $
 
 typeImports :: Library -> [NS]
 typeImports l = sort $
-      "Network.AWS.Prelude"
+      "Network.AWS.Lens"
+    : "Network.AWS.Prelude"
     : signatureImport (l ^. signatureVersion)
     : l ^. sumNS
     : l ^. productNS
@@ -45,13 +47,15 @@ sumImports l = sort $
 
 productImports :: Library -> [NS]
 productImports l = sort $
-      "Network.AWS.Prelude"
+      "Network.AWS.Lens"
+    : "Network.AWS.Prelude"
     : l ^. sumNS
     : l ^. typeModules
 
 waiterImports :: Library -> [NS]
 waiterImports l = sort $
-      "Network.AWS.Prelude"
+      "Network.AWS.Lens"
+    : "Network.AWS.Prelude"
     : "Network.AWS.Waiter"
     : l ^. typesNS
     : map (operationNS ns . _waitOpName) (l ^.. waiters . each)

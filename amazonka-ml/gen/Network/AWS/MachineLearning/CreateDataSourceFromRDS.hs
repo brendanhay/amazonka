@@ -56,6 +56,7 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRDS
     , cdsfrdsrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.MachineLearning.Types
 import           Network.AWS.MachineLearning.Types.Product
 import           Network.AWS.Prelude

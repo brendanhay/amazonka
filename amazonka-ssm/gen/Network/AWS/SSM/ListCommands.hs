@@ -42,6 +42,7 @@ module Network.AWS.SSM.ListCommands
     , lcrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

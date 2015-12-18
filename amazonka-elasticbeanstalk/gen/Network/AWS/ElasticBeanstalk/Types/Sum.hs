@@ -19,25 +19,56 @@ module Network.AWS.ElasticBeanstalk.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data ApplicationVersionStatus
+    = Failed
+    | Processed
+    | Processing
+    | Unprocessed
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ApplicationVersionStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure Failed
+        "processed" -> pure Processed
+        "processing" -> pure Processing
+        "unprocessed" -> pure Unprocessed
+        e -> fromTextError $ "Failure parsing ApplicationVersionStatus from value: '" <> e
+           <> "'. Accepted values: Failed, Processed, Processing, Unprocessed"
+
+instance ToText ApplicationVersionStatus where
+    toText = \case
+        Failed -> "Failed"
+        Processed -> "Processed"
+        Processing -> "Processing"
+        Unprocessed -> "Unprocessed"
+
+instance Hashable     ApplicationVersionStatus
+instance ToByteString ApplicationVersionStatus
+instance ToQuery      ApplicationVersionStatus
+instance ToHeader     ApplicationVersionStatus
+
+instance FromXML ApplicationVersionStatus where
+    parseXML = parseXMLText "ApplicationVersionStatus"
+
 data ConfigurationDeploymentStatus
-    = Deployed
-    | Failed
-    | Pending
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    = CDSDeployed
+    | CDSFailed
+    | CDSPending
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ConfigurationDeploymentStatus where
     parser = takeLowerText >>= \case
-        "deployed" -> pure Deployed
-        "failed" -> pure Failed
-        "pending" -> pure Pending
+        "deployed" -> pure CDSDeployed
+        "failed" -> pure CDSFailed
+        "pending" -> pure CDSPending
         e -> fromTextError $ "Failure parsing ConfigurationDeploymentStatus from value: '" <> e
            <> "'. Accepted values: deployed, failed, pending"
 
 instance ToText ConfigurationDeploymentStatus where
     toText = \case
-        Deployed -> "deployed"
-        Failed -> "failed"
-        Pending -> "pending"
+        CDSDeployed -> "deployed"
+        CDSFailed -> "failed"
+        CDSPending -> "pending"
 
 instance Hashable     ConfigurationDeploymentStatus
 instance ToByteString ConfigurationDeploymentStatus
@@ -50,7 +81,7 @@ instance FromXML ConfigurationDeploymentStatus where
 data ConfigurationOptionValueType
     = List
     | Scalar
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ConfigurationOptionValueType where
     parser = takeLowerText >>= \case
@@ -77,7 +108,7 @@ data EnvironmentHealth
     | Grey
     | Red
     | Yellow
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EnvironmentHealth where
     parser = takeLowerText >>= \case
@@ -112,7 +143,7 @@ data EnvironmentHealthAttribute
     | EHAInstancesHealth
     | EHARefreshedAt
     | EHAStatus
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EnvironmentHealthAttribute where
     parser = takeLowerText >>= \case
@@ -144,39 +175,39 @@ instance ToQuery      EnvironmentHealthAttribute
 instance ToHeader     EnvironmentHealthAttribute
 
 data EnvironmentHealthStatus
-    = EHSDegraded
-    | EHSInfo
-    | EHSNoData
-    | EHSOK
-    | EHSPending
-    | EHSSevere
-    | EHSUnknown
-    | EHSWarning
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    = Degraded
+    | Info
+    | NoData
+    | OK
+    | Pending
+    | Severe
+    | Unknown
+    | Warning
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EnvironmentHealthStatus where
     parser = takeLowerText >>= \case
-        "degraded" -> pure EHSDegraded
-        "info" -> pure EHSInfo
-        "nodata" -> pure EHSNoData
-        "ok" -> pure EHSOK
-        "pending" -> pure EHSPending
-        "severe" -> pure EHSSevere
-        "unknown" -> pure EHSUnknown
-        "warning" -> pure EHSWarning
+        "degraded" -> pure Degraded
+        "info" -> pure Info
+        "nodata" -> pure NoData
+        "ok" -> pure OK
+        "pending" -> pure Pending
+        "severe" -> pure Severe
+        "unknown" -> pure Unknown
+        "warning" -> pure Warning
         e -> fromTextError $ "Failure parsing EnvironmentHealthStatus from value: '" <> e
            <> "'. Accepted values: Degraded, Info, NoData, Ok, Pending, Severe, Unknown, Warning"
 
 instance ToText EnvironmentHealthStatus where
     toText = \case
-        EHSDegraded -> "Degraded"
-        EHSInfo -> "Info"
-        EHSNoData -> "NoData"
-        EHSOK -> "Ok"
-        EHSPending -> "Pending"
-        EHSSevere -> "Severe"
-        EHSUnknown -> "Unknown"
-        EHSWarning -> "Warning"
+        Degraded -> "Degraded"
+        Info -> "Info"
+        NoData -> "NoData"
+        OK -> "Ok"
+        Pending -> "Pending"
+        Severe -> "Severe"
+        Unknown -> "Unknown"
+        Warning -> "Warning"
 
 instance Hashable     EnvironmentHealthStatus
 instance ToByteString EnvironmentHealthStatus
@@ -189,7 +220,7 @@ instance FromXML EnvironmentHealthStatus where
 data EnvironmentInfoType
     = Bundle
     | Tail
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EnvironmentInfoType where
     parser = takeLowerText >>= \case
@@ -217,7 +248,7 @@ data EnvironmentStatus
     | Terminated
     | Terminating
     | Updating
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EnvironmentStatus where
     parser = takeLowerText >>= \case
@@ -252,7 +283,7 @@ data EventSeverity
     | LevelInfo
     | LevelTrace
     | LevelWarn
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EventSeverity where
     parser = takeLowerText >>= \case
@@ -291,7 +322,7 @@ data InstancesHealthAttribute
     | LaunchedAt
     | RefreshedAt
     | System
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InstancesHealthAttribute where
     parser = takeLowerText >>= \case
@@ -323,21 +354,21 @@ instance ToQuery      InstancesHealthAttribute
 instance ToHeader     InstancesHealthAttribute
 
 data ValidationSeverity
-    = Error'
-    | Warning
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    = VSError'
+    | VSWarning
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ValidationSeverity where
     parser = takeLowerText >>= \case
-        "error" -> pure Error'
-        "warning" -> pure Warning
+        "error" -> pure VSError'
+        "warning" -> pure VSWarning
         e -> fromTextError $ "Failure parsing ValidationSeverity from value: '" <> e
            <> "'. Accepted values: error, warning"
 
 instance ToText ValidationSeverity where
     toText = \case
-        Error' -> "error"
-        Warning -> "warning"
+        VSError' -> "error"
+        VSWarning -> "warning"
 
 instance Hashable     ValidationSeverity
 instance ToByteString ValidationSeverity

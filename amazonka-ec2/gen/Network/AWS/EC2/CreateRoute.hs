@@ -21,8 +21,8 @@
 -- Creates a route in a route table within a VPC.
 --
 -- You must specify one of the following targets: Internet gateway or
--- virtual private gateway, NAT instance, VPC peering connection, or
--- network interface.
+-- virtual private gateway, NAT instance, NAT gateway, VPC peering
+-- connection, or network interface.
 --
 -- When determining how to route traffic, we use the route with the most
 -- specific match. For example, let\'s say the traffic is destined for
@@ -50,6 +50,7 @@ module Network.AWS.EC2.CreateRoute
     -- * Request Lenses
     , crVPCPeeringConnectionId
     , crInstanceId
+    , crNatGatewayId
     , crNetworkInterfaceId
     , crGatewayId
     , crDryRun
@@ -66,6 +67,7 @@ module Network.AWS.EC2.CreateRoute
 
 import           Network.AWS.EC2.Types
 import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -74,6 +76,7 @@ import           Network.AWS.Response
 data CreateRoute = CreateRoute'
     { _crVPCPeeringConnectionId :: !(Maybe Text)
     , _crInstanceId             :: !(Maybe Text)
+    , _crNatGatewayId           :: !(Maybe Text)
     , _crNetworkInterfaceId     :: !(Maybe Text)
     , _crGatewayId              :: !(Maybe Text)
     , _crDryRun                 :: !(Maybe Bool)
@@ -88,6 +91,8 @@ data CreateRoute = CreateRoute'
 -- * 'crVPCPeeringConnectionId'
 --
 -- * 'crInstanceId'
+--
+-- * 'crNatGatewayId'
 --
 -- * 'crNetworkInterfaceId'
 --
@@ -106,6 +111,7 @@ createRoute pRouteTableId_ pDestinationCIdRBlock_ =
     CreateRoute'
     { _crVPCPeeringConnectionId = Nothing
     , _crInstanceId = Nothing
+    , _crNatGatewayId = Nothing
     , _crNetworkInterfaceId = Nothing
     , _crGatewayId = Nothing
     , _crDryRun = Nothing
@@ -121,6 +127,10 @@ crVPCPeeringConnectionId = lens _crVPCPeeringConnectionId (\ s a -> s{_crVPCPeer
 -- an instance ID unless exactly one network interface is attached.
 crInstanceId :: Lens' CreateRoute (Maybe Text)
 crInstanceId = lens _crInstanceId (\ s a -> s{_crInstanceId = a});
+
+-- | The ID of a NAT gateway.
+crNatGatewayId :: Lens' CreateRoute (Maybe Text)
+crNatGatewayId = lens _crNatGatewayId (\ s a -> s{_crNatGatewayId = a});
 
 -- | The ID of a network interface.
 crNetworkInterfaceId :: Lens' CreateRoute (Maybe Text)
@@ -170,6 +180,7 @@ instance ToQuery CreateRoute where
                "VpcPeeringConnectionId" =:
                  _crVPCPeeringConnectionId,
                "InstanceId" =: _crInstanceId,
+               "NatGatewayId" =: _crNatGatewayId,
                "NetworkInterfaceId" =: _crNetworkInterfaceId,
                "GatewayId" =: _crGatewayId, "DryRun" =: _crDryRun,
                "RouteTableId" =: _crRouteTableId,

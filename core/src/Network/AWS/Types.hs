@@ -89,7 +89,7 @@ module Network.AWS.Types
     , serviceMessage
     , serviceRequestId
     -- ** Error Types
-    , ErrorCode
+    , ErrorCode      (..)
     , errorCode
     , ErrorMessage   (..)
     , RequestId      (..)
@@ -123,8 +123,6 @@ module Network.AWS.Types
 import           Control.Applicative
 import           Control.Concurrent           (ThreadId)
 import           Control.Exception
-import           Control.Exception.Lens       (exception)
-import           Control.Lens                 hiding (coerce)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
@@ -151,14 +149,15 @@ import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
+import           Network.AWS.Lens             (Iso', Lens', Prism', Setter')
+import           Network.AWS.Lens             (exception, iso, lens, prism,
+                                               sets)
 import           Network.HTTP.Conduit         hiding (Proxy, Request, Response)
 import qualified Network.HTTP.Conduit         as Client
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 import           Network.HTTP.Types.Status    (Status)
 import           Text.XML                     (def)
-
-import           Prelude
 
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request

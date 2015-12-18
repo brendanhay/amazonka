@@ -24,7 +24,7 @@ data ChangeAction
     = Create
     | Delete
     | Upsert
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ChangeAction where
     parser = takeLowerText >>= \case
@@ -45,13 +45,16 @@ instance ToByteString ChangeAction
 instance ToQuery      ChangeAction
 instance ToHeader     ChangeAction
 
+instance FromXML ChangeAction where
+    parseXML = parseXMLText "ChangeAction"
+
 instance ToXML ChangeAction where
     toXML = toXMLText
 
 data ChangeStatus
     = Insync
     | Pending
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ChangeStatus where
     parser = takeLowerText >>= \case
@@ -76,7 +79,7 @@ instance FromXML ChangeStatus where
 data Failover
     = Primary
     | Secondary
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Failover where
     parser = takeLowerText >>= \case
@@ -108,7 +111,7 @@ data HealthCheckType
     | HTTPSStrMatch
     | HTTPStrMatch
     | TCP
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText HealthCheckType where
     parser = takeLowerText >>= \case
@@ -152,7 +155,7 @@ data RecordType
     | Spf
     | Srv
     | Txt
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RecordType where
     parser = takeLowerText >>= \case
@@ -196,7 +199,7 @@ instance ToXML RecordType where
 data TagResourceType
     = Healthcheck
     | Hostedzone
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TagResourceType where
     parser = takeLowerText >>= \case
@@ -232,7 +235,7 @@ data VPCRegion
     | UsEast1
     | UsWest1
     | UsWest2
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText VPCRegion where
     parser = takeLowerText >>= \case

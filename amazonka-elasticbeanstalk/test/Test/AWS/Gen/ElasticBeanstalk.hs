@@ -61,6 +61,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , testCreateApplication $
 --             createApplication
 --
+--         , testComposeEnvironments $
+--             composeEnvironments
+--
 --         , testAbortEnvironmentUpdate $
 --             abortEnvironmentUpdate
 --
@@ -160,6 +163,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , testCreateApplicationResponse $
 --             applicationDescriptionMessage
 --
+--         , testComposeEnvironmentsResponse $
+--             environmentDescriptionsMessage
+--
 --         , testAbortEnvironmentUpdateResponse $
 --             abortEnvironmentUpdateResponse
 --
@@ -212,7 +218,7 @@ import Test.AWS.ElasticBeanstalk.Internal
 --             restartAppServerResponse
 --
 --         , testDescribeEnvironmentsResponse $
---             describeEnvironmentsResponse
+--             environmentDescriptionsMessage
 --
 --         , testCheckDNSAvailabilityResponse $
 --             checkDNSAvailabilityResponse
@@ -282,6 +288,11 @@ testCreateApplication :: CreateApplication -> TestTree
 testCreateApplication = req
     "CreateApplication"
     "fixture/CreateApplication.yaml"
+
+testComposeEnvironments :: ComposeEnvironments -> TestTree
+testComposeEnvironments = req
+    "ComposeEnvironments"
+    "fixture/ComposeEnvironments.yaml"
 
 testAbortEnvironmentUpdate :: AbortEnvironmentUpdate -> TestTree
 testAbortEnvironmentUpdate = req
@@ -467,6 +478,13 @@ testCreateApplicationResponse = res
     elasticBeanstalk
     (Proxy :: Proxy CreateApplication)
 
+testComposeEnvironmentsResponse :: EnvironmentDescriptionsMessage -> TestTree
+testComposeEnvironmentsResponse = res
+    "ComposeEnvironmentsResponse"
+    "fixture/ComposeEnvironmentsResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy ComposeEnvironments)
+
 testAbortEnvironmentUpdateResponse :: AbortEnvironmentUpdateResponse -> TestTree
 testAbortEnvironmentUpdateResponse = res
     "AbortEnvironmentUpdateResponse"
@@ -586,7 +604,7 @@ testRestartAppServerResponse = res
     elasticBeanstalk
     (Proxy :: Proxy RestartAppServer)
 
-testDescribeEnvironmentsResponse :: DescribeEnvironmentsResponse -> TestTree
+testDescribeEnvironmentsResponse :: EnvironmentDescriptionsMessage -> TestTree
 testDescribeEnvironmentsResponse = res
     "DescribeEnvironmentsResponse"
     "fixture/DescribeEnvironmentsResponse.proto"

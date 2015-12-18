@@ -19,6 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts the recording of AWS API calls and log file delivery for a trail.
+-- For a trail that is enabled in all regions, this operation must be
+-- called from the region in which the trail was created. This operation
+-- cannot be called on the shadow trails (replicated trails in other
+-- regions) of a trail that is enabled in all regions.
 --
 -- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html AWS API Reference> for StartLogging.
 module Network.AWS.CloudTrail.StartLogging
@@ -38,6 +42,7 @@ module Network.AWS.CloudTrail.StartLogging
 
 import           Network.AWS.CloudTrail.Types
 import           Network.AWS.CloudTrail.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

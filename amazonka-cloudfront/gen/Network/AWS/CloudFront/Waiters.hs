@@ -19,6 +19,7 @@ import           Network.AWS.CloudFront.GetDistribution
 import           Network.AWS.CloudFront.GetInvalidation
 import           Network.AWS.CloudFront.GetStreamingDistribution
 import           Network.AWS.CloudFront.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 

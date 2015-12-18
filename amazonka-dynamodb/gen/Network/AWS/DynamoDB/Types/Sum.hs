@@ -23,7 +23,7 @@ data AttributeAction
     = Add
     | Delete
     | Put
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AttributeAction where
     parser = takeLowerText >>= \case
@@ -61,7 +61,7 @@ data ComparisonOperator
     | NotContains
     | NotNull
     | Null
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ComparisonOperator where
     parser = takeLowerText >>= \case
@@ -108,7 +108,7 @@ instance ToJSON ComparisonOperator where
 data ConditionalOperator
     = And
     | OR
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ConditionalOperator where
     parser = takeLowerText >>= \case
@@ -135,7 +135,7 @@ data IndexStatus
     | ISCreating
     | ISDeleting
     | ISUpdating
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText IndexStatus where
     parser = takeLowerText >>= \case
@@ -164,7 +164,7 @@ instance FromJSON IndexStatus where
 data KeyType
     = Hash
     | Range
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText KeyType where
     parser = takeLowerText >>= \case
@@ -193,7 +193,7 @@ data ProjectionType
     = All
     | Include
     | KeysOnly
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ProjectionType where
     parser = takeLowerText >>= \case
@@ -240,7 +240,7 @@ data ReturnConsumedCapacity
     = RCCIndexes
     | RCCNone
     | RCCTotal
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ReturnConsumedCapacity where
     parser = takeLowerText >>= \case
@@ -267,7 +267,7 @@ instance ToJSON ReturnConsumedCapacity where
 data ReturnItemCollectionMetrics
     = RICMNone
     | RICMSize
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ReturnItemCollectionMetrics where
     parser = takeLowerText >>= \case
@@ -295,7 +295,7 @@ data ReturnValue
     | None
     | UpdatedNew
     | UpdatedOld
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ReturnValue where
     parser = takeLowerText >>= \case
@@ -327,7 +327,7 @@ data ScalarAttributeType
     = B
     | N
     | S
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ScalarAttributeType where
     parser = takeLowerText >>= \case
@@ -359,7 +359,7 @@ data Select
     | AllProjectedAttributes
     | Count
     | SpecificAttributes
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Select where
     parser = takeLowerText >>= \case
@@ -390,7 +390,7 @@ data StreamViewType
     | SVTNewAndOldImages
     | SVTNewImage
     | SVTOldImage
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StreamViewType where
     parser = takeLowerText >>= \case
@@ -424,7 +424,7 @@ data TableStatus
     | Creating
     | Deleting
     | Updating
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TableStatus where
     parser = takeLowerText >>= \case

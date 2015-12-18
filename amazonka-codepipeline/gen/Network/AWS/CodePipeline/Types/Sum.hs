@@ -25,7 +25,7 @@ data ActionCategory
     | Invoke
     | Source
     | Test
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ActionCategory where
     parser = takeLowerText >>= \case
@@ -60,7 +60,7 @@ data ActionConfigurationPropertyType
     = Boolean
     | Number
     | String
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ActionConfigurationPropertyType where
     parser = takeLowerText >>= \case
@@ -91,7 +91,7 @@ data ActionExecutionStatus
     = Failed
     | InProgress
     | Succeeded
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ActionExecutionStatus where
     parser = takeLowerText >>= \case
@@ -119,7 +119,7 @@ data ActionOwner
     = AWS
     | Custom
     | ThirdParty
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ActionOwner where
     parser = takeLowerText >>= \case
@@ -148,7 +148,7 @@ instance FromJSON ActionOwner where
 
 data ArtifactLocationType =
     ALTS3
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ArtifactLocationType where
     parser = takeLowerText >>= \case
@@ -170,7 +170,7 @@ instance FromJSON ArtifactLocationType where
 
 data ArtifactStoreType =
     S3
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ArtifactStoreType where
     parser = takeLowerText >>= \case
@@ -195,7 +195,7 @@ instance FromJSON ArtifactStoreType where
 
 data BlockerType =
     Schedule
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText BlockerType where
     parser = takeLowerText >>= \case
@@ -220,7 +220,7 @@ instance FromJSON BlockerType where
 
 data EncryptionKeyType =
     KMS
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EncryptionKeyType where
     parser = takeLowerText >>= \case
@@ -250,7 +250,7 @@ data FailureType
     | RevisionOutOfSync
     | RevisionUnavailable
     | SystemUnavailable
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText FailureType where
     parser = takeLowerText >>= \case
@@ -288,7 +288,7 @@ data JobStatus
     | JSQueued
     | JSSucceeded
     | JSTimedOut
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText JobStatus where
     parser = takeLowerText >>= \case
@@ -323,7 +323,7 @@ instance FromJSON JobStatus where
 data StageTransitionType
     = Inbound
     | Outbound
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StageTransitionType where
     parser = takeLowerText >>= \case

@@ -53,11 +53,12 @@ module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
 
 import           Network.AWS.ElasticBeanstalk.Types
 import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | This documentation target is not reported in the API reference.
+-- |
 --
 -- /See:/ 'requestEnvironmentInfo' smart constructor.
 data RequestEnvironmentInfo = RequestEnvironmentInfo'

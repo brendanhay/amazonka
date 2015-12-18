@@ -62,7 +62,6 @@ module Network.AWS.Auth
 
 import           Control.Applicative
 import           Control.Concurrent
-import           Control.Exception.Lens
 import           Control.Monad
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class
@@ -77,14 +76,15 @@ import qualified Data.Text.Encoding         as Text
 import           Data.Time                  (diffUTCTime, getCurrentTime)
 import           Network.AWS.Data.Log
 import           Network.AWS.EC2.Metadata
+import           Network.AWS.Lens           (catching, catching_, exception,
+                                             throwingM, _IOException)
+import           Network.AWS.Lens           (Prism', prism)
 import           Network.AWS.Prelude
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
 import           System.Directory           (doesFileExist, getHomeDirectory)
 import           System.Environment
 import           System.Mem.Weak
-
-import           Prelude
 
 -- | Default access key environment variable.
 envAccessKey :: Text -- ^ AWS_ACCESS_KEY_ID
@@ -97,6 +97,10 @@ envSecretKey = "AWS_SECRET_ACCESS_KEY"
 -- | Default session token environment variable.
 envSessionToken :: Text -- ^ AWS_SESSION_TOKEN
 envSessionToken = "AWS_SESSION_TOKEN"
+
+-- | Credentials profile environment variable.
+envProfile :: Text -- ^ AWS_PROFILE
+envProfile = "AWS_PROFILE"
 
 -- | Credentials INI file access key variable.
 credAccessKey :: Text -- ^ aws_access_key_id
@@ -319,9 +323,9 @@ fromEnvKeys :: (Applicative m, MonadIO m, MonadThrow m)
             -> Maybe Text -- ^ Session token environment variable.
             -> m Auth
 fromEnvKeys a s t = fmap Auth $ AuthEnv
-    <$> (req a <&> AccessKey)
-    <*> (req s <&> SecretKey)
-    <*> (opt t <&> fmap SessionToken)
+    <$> (AccessKey         <$> req a)
+    <*> (SecretKey         <$> req s)
+    <*> (fmap SessionToken <$> opt t)
     <*> pure Nothing
   where
     req k = do
@@ -338,9 +342,13 @@ fromEnvKeys a s t = fmap Auth $ AuthEnv
 -- Throws 'MissingFileError' if 'credFile' is missing, or 'InvalidFileError'
 -- if an error occurs during parsing.
 --
--- /See:/ 'credProfile' and 'credFile'
+-- /See:/ 'credProfile', 'credFile', and 'envProfile'
 fromFile :: (Applicative m, MonadIO m, MonadCatch m) => m Auth
-fromFile = credFile >>= fromFilePath credProfile
+fromFile = do
+  f <- credFile
+  ep <- liftIO (lookupEnv (Text.unpack envProfile))
+  let p = Text.pack (fromMaybe (Text.unpack credProfile) ep)
+  fromFilePath p f
 
 -- | Retrieve the access, secret and session token from the specified section
 -- (profile) in a valid INI @credentials@ file.
@@ -357,9 +365,9 @@ fromFilePath n f = do
         throwM (MissingFileError f)
     i <- liftIO (INI.readIniFile f) >>= either (invalidErr Nothing) return
     fmap Auth $ AuthEnv
-        <$> (req credAccessKey i    <&> AccessKey)
-        <*> (req credSecretKey i    <&> SecretKey)
-        <*> (opt credSessionToken i <&> fmap SessionToken)
+        <$> (AccessKey         <$> req credAccessKey    i)
+        <*> (SecretKey         <$> req credSecretKey    i)
+        <*> (fmap SessionToken <$> opt credSessionToken i)
         <*> pure Nothing
   where
     req k i =

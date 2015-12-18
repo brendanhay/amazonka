@@ -30,6 +30,7 @@ module Network.AWS.IoTDataPlane.Types
 
 import           Network.AWS.IoTDataPlane.Types.Product
 import           Network.AWS.IoTDataPlane.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

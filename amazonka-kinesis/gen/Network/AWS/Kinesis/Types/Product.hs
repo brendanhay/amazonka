@@ -18,6 +18,7 @@
 module Network.AWS.Kinesis.Types.Product where
 
 import           Network.AWS.Kinesis.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | The range of possible hash key values for the shard, which is a set of

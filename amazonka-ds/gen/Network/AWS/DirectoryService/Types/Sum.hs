@@ -22,7 +22,7 @@ import           Network.AWS.Prelude
 data DirectorySize
     = Large
     | Small
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DirectorySize where
     parser = takeLowerText >>= \case
@@ -59,7 +59,7 @@ data DirectoryStage
     | DSRequested
     | DSRestoreFailed
     | DSRestoring
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DirectoryStage where
     parser = takeLowerText >>= \case
@@ -101,19 +101,22 @@ instance FromJSON DirectoryStage where
 
 data DirectoryType
     = ADConnector
+    | MicrosoftAD
     | SimpleAD
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DirectoryType where
     parser = takeLowerText >>= \case
         "adconnector" -> pure ADConnector
+        "microsoftad" -> pure MicrosoftAD
         "simplead" -> pure SimpleAD
         e -> fromTextError $ "Failure parsing DirectoryType from value: '" <> e
-           <> "'. Accepted values: ADConnector, SimpleAD"
+           <> "'. Accepted values: ADConnector, MicrosoftAD, SimpleAD"
 
 instance ToText DirectoryType where
     toText = \case
         ADConnector -> "ADConnector"
+        MicrosoftAD -> "MicrosoftAD"
         SimpleAD -> "SimpleAD"
 
 instance Hashable     DirectoryType
@@ -129,7 +132,7 @@ data RadiusAuthenticationProtocol
     | MsCHAPV1
     | MsCHAPV2
     | Pap
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RadiusAuthenticationProtocol where
     parser = takeLowerText >>= \case
@@ -162,7 +165,7 @@ data RadiusStatus
     = Completed
     | Creating
     | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RadiusStatus where
     parser = takeLowerText >>= \case
@@ -190,7 +193,7 @@ data SnapshotStatus
     = SSCompleted
     | SSCreating
     | SSFailed
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SnapshotStatus where
     parser = takeLowerText >>= \case
@@ -217,7 +220,7 @@ instance FromJSON SnapshotStatus where
 data SnapshotType
     = Auto
     | Manual
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SnapshotType where
     parser = takeLowerText >>= \case
@@ -238,3 +241,102 @@ instance ToHeader     SnapshotType
 
 instance FromJSON SnapshotType where
     parseJSON = parseJSONText "SnapshotType"
+
+data TrustDirection
+    = OneWayIncoming
+    | OneWayOutgoing
+    | TwoWay
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TrustDirection where
+    parser = takeLowerText >>= \case
+        "one-way: incoming" -> pure OneWayIncoming
+        "one-way: outgoing" -> pure OneWayOutgoing
+        "two-way" -> pure TwoWay
+        e -> fromTextError $ "Failure parsing TrustDirection from value: '" <> e
+           <> "'. Accepted values: One-Way: Incoming, One-Way: Outgoing, Two-Way"
+
+instance ToText TrustDirection where
+    toText = \case
+        OneWayIncoming -> "One-Way: Incoming"
+        OneWayOutgoing -> "One-Way: Outgoing"
+        TwoWay -> "Two-Way"
+
+instance Hashable     TrustDirection
+instance ToByteString TrustDirection
+instance ToQuery      TrustDirection
+instance ToHeader     TrustDirection
+
+instance ToJSON TrustDirection where
+    toJSON = toJSONText
+
+instance FromJSON TrustDirection where
+    parseJSON = parseJSONText "TrustDirection"
+
+data TrustState
+    = TSCreated
+    | TSCreating
+    | TSDeleted
+    | TSDeleting
+    | TSFailed
+    | TSVerified
+    | TSVerifyFailed
+    | TSVerifying
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TrustState where
+    parser = takeLowerText >>= \case
+        "created" -> pure TSCreated
+        "creating" -> pure TSCreating
+        "deleted" -> pure TSDeleted
+        "deleting" -> pure TSDeleting
+        "failed" -> pure TSFailed
+        "verified" -> pure TSVerified
+        "verifyfailed" -> pure TSVerifyFailed
+        "verifying" -> pure TSVerifying
+        e -> fromTextError $ "Failure parsing TrustState from value: '" <> e
+           <> "'. Accepted values: Created, Creating, Deleted, Deleting, Failed, Verified, VerifyFailed, Verifying"
+
+instance ToText TrustState where
+    toText = \case
+        TSCreated -> "Created"
+        TSCreating -> "Creating"
+        TSDeleted -> "Deleted"
+        TSDeleting -> "Deleting"
+        TSFailed -> "Failed"
+        TSVerified -> "Verified"
+        TSVerifyFailed -> "VerifyFailed"
+        TSVerifying -> "Verifying"
+
+instance Hashable     TrustState
+instance ToByteString TrustState
+instance ToQuery      TrustState
+instance ToHeader     TrustState
+
+instance FromJSON TrustState where
+    parseJSON = parseJSONText "TrustState"
+
+data TrustType =
+    Forest
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TrustType where
+    parser = takeLowerText >>= \case
+        "forest" -> pure Forest
+        e -> fromTextError $ "Failure parsing TrustType from value: '" <> e
+           <> "'. Accepted values: Forest"
+
+instance ToText TrustType where
+    toText = \case
+        Forest -> "Forest"
+
+instance Hashable     TrustType
+instance ToByteString TrustType
+instance ToQuery      TrustType
+instance ToHeader     TrustType
+
+instance ToJSON TrustType where
+    toJSON = toJSONText
+
+instance FromJSON TrustType where
+    parseJSON = parseJSONText "TrustType"

@@ -40,6 +40,7 @@ module Network.AWS.CloudFront.GetDistribution
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -83,7 +84,7 @@ instance ToHeaders GetDistribution where
 
 instance ToPath GetDistribution where
         toPath GetDistribution'{..}
-          = mconcat ["/2015-07-27/distribution/", toBS _gdId]
+          = mconcat ["/2015-09-17/distribution/", toBS _gdId]
 
 instance ToQuery GetDistribution where
         toQuery = const mempty

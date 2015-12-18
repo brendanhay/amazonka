@@ -31,12 +31,15 @@ module Network.AWS.RDS.ModifyDBInstance
     -- * Request Lenses
     , mdiEngineVersion
     , mdiDBSecurityGroups
+    , mdiDBPortNumber
     , mdiMasterUserPassword
     , mdiPubliclyAccessible
     , mdiAutoMinorVersionUpgrade
+    , mdiMonitoringRoleARN
     , mdiIOPS
     , mdiAllowMajorVersionUpgrade
     , mdiNewDBInstanceIdentifier
+    , mdiMonitoringInterval
     , mdiTDECredentialPassword
     , mdiDBInstanceClass
     , mdiPreferredMaintenanceWindow
@@ -62,6 +65,7 @@ module Network.AWS.RDS.ModifyDBInstance
     , mdirsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
 import           Network.AWS.RDS.Types.Product
@@ -74,12 +78,15 @@ import           Network.AWS.Response
 data ModifyDBInstance = ModifyDBInstance'
     { _mdiEngineVersion              :: !(Maybe Text)
     , _mdiDBSecurityGroups           :: !(Maybe [Text])
+    , _mdiDBPortNumber               :: !(Maybe Int)
     , _mdiMasterUserPassword         :: !(Maybe Text)
     , _mdiPubliclyAccessible         :: !(Maybe Bool)
     , _mdiAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _mdiMonitoringRoleARN          :: !(Maybe Text)
     , _mdiIOPS                       :: !(Maybe Int)
     , _mdiAllowMajorVersionUpgrade   :: !(Maybe Bool)
     , _mdiNewDBInstanceIdentifier    :: !(Maybe Text)
+    , _mdiMonitoringInterval         :: !(Maybe Int)
     , _mdiTDECredentialPassword      :: !(Maybe Text)
     , _mdiDBInstanceClass            :: !(Maybe Text)
     , _mdiPreferredMaintenanceWindow :: !(Maybe Text)
@@ -106,17 +113,23 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- * 'mdiDBSecurityGroups'
 --
+-- * 'mdiDBPortNumber'
+--
 -- * 'mdiMasterUserPassword'
 --
 -- * 'mdiPubliclyAccessible'
 --
 -- * 'mdiAutoMinorVersionUpgrade'
 --
+-- * 'mdiMonitoringRoleARN'
+--
 -- * 'mdiIOPS'
 --
 -- * 'mdiAllowMajorVersionUpgrade'
 --
 -- * 'mdiNewDBInstanceIdentifier'
+--
+-- * 'mdiMonitoringInterval'
 --
 -- * 'mdiTDECredentialPassword'
 --
@@ -156,12 +169,15 @@ modifyDBInstance pDBInstanceIdentifier_ =
     ModifyDBInstance'
     { _mdiEngineVersion = Nothing
     , _mdiDBSecurityGroups = Nothing
+    , _mdiDBPortNumber = Nothing
     , _mdiMasterUserPassword = Nothing
     , _mdiPubliclyAccessible = Nothing
     , _mdiAutoMinorVersionUpgrade = Nothing
+    , _mdiMonitoringRoleARN = Nothing
     , _mdiIOPS = Nothing
     , _mdiAllowMajorVersionUpgrade = Nothing
     , _mdiNewDBInstanceIdentifier = Nothing
+    , _mdiMonitoringInterval = Nothing
     , _mdiTDECredentialPassword = Nothing
     , _mdiDBInstanceClass = Nothing
     , _mdiPreferredMaintenanceWindow = Nothing
@@ -205,6 +221,53 @@ mdiEngineVersion = lens _mdiEngineVersion (\ s a -> s{_mdiEngineVersion = a});
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 mdiDBSecurityGroups :: Lens' ModifyDBInstance [Text]
 mdiDBSecurityGroups = lens _mdiDBSecurityGroups (\ s a -> s{_mdiDBSecurityGroups = a}) . _Default . _Coerce;
+
+-- | The port number on which the database accepts connections.
+--
+-- The value of the 'DBPortNumber' parameter must not match any of the port
+-- values specified for options in the option group for the DB instance.
+--
+-- Your database will restart when you change the 'DBPortNumber' value
+-- regardless of the value of the 'ApplyImmediately' parameter.
+--
+-- __MySQL__
+--
+-- Default: '3306'
+--
+-- Valid Values: '1150-65535'
+--
+-- __MariaDB__
+--
+-- Default: '3306'
+--
+-- Valid Values: '1150-65535'
+--
+-- __PostgreSQL__
+--
+-- Default: '5432'
+--
+-- Valid Values: '1150-65535'
+--
+-- __Oracle__
+--
+-- Default: '1521'
+--
+-- Valid Values: '1150-65535'
+--
+-- __SQL Server__
+--
+-- Default: '1433'
+--
+-- Valid Values: '1150-65535' except for '1434', '3389', '47001', '49152',
+-- and '49152' through '49156'.
+--
+-- __Amazon Aurora__
+--
+-- Default: '3306'
+--
+-- Valid Values: '1150-65535'
+mdiDBPortNumber :: Lens' ModifyDBInstance (Maybe Int)
+mdiDBPortNumber = lens _mdiDBPortNumber (\ s a -> s{_mdiDBPortNumber = a});
 
 -- | The new password for the DB instance master user. Can be any printable
 -- ASCII character except \"\/\", \"\"\", or \"\'\".
@@ -252,6 +315,17 @@ mdiPubliclyAccessible = lens _mdiPubliclyAccessible (\ s a -> s{_mdiPubliclyAcce
 -- that engine version.
 mdiAutoMinorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
 mdiAutoMinorVersionUpgrade = lens _mdiAutoMinorVersionUpgrade (\ s a -> s{_mdiAutoMinorVersionUpgrade = a});
+
+-- | The ARN for the IAM role that permits RDS to send enhanced monitoring
+-- metrics to CloudWatch Logs. For example,
+-- 'arn:aws:iam:123456789012:role\/emaccess'. For information on creating a
+-- monitoring role, go to
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole To create an IAM role for Amazon RDS Enhanced Monitoring>.
+--
+-- If 'MonitoringInterval' is set to a value other than 0, then you must
+-- supply a 'MonitoringRoleArn' value.
+mdiMonitoringRoleARN :: Lens' ModifyDBInstance (Maybe Text)
+mdiMonitoringRoleARN = lens _mdiMonitoringRoleARN (\ s a -> s{_mdiMonitoringRoleARN = a});
 
 -- | The new Provisioned IOPS (I\/O operations per second) value for the RDS
 -- instance. Changing this setting does not result in an outage and the
@@ -314,6 +388,17 @@ mdiAllowMajorVersionUpgrade = lens _mdiAllowMajorVersionUpgrade (\ s a -> s{_mdi
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 mdiNewDBInstanceIdentifier :: Lens' ModifyDBInstance (Maybe Text)
 mdiNewDBInstanceIdentifier = lens _mdiNewDBInstanceIdentifier (\ s a -> s{_mdiNewDBInstanceIdentifier = a});
+
+-- | The interval, in seconds, between points when Enhanced Monitoring
+-- metrics are collected for the DB instance. To disable collecting
+-- Enhanced Monitoring metrics, specify 0. The default is 60.
+--
+-- If 'MonitoringRoleArn' is specified, then you must also set
+-- 'MonitoringInterval' to a value other than 0.
+--
+-- Valid Values: '0, 1, 5, 10, 15, 30, 60'
+mdiMonitoringInterval :: Lens' ModifyDBInstance (Maybe Int)
+mdiMonitoringInterval = lens _mdiMonitoringInterval (\ s a -> s{_mdiMonitoringInterval = a});
 
 -- | The password for the given ARN from the Key Store in order to access the
 -- device.
@@ -520,7 +605,7 @@ mdiAllocatedStorage = lens _mdiAllocatedStorage (\ s a -> s{_mdiAllocatedStorage
 -- cause an outage and will be applied on the next call to
 -- RebootDBInstance, or the next failure reboot. Review the table of
 -- parameters in
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.html#Overview.DBInstance.Modifying Modifying a DB Instance and Using the Apply Immediately Parameter>
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html Modifying a DB Instance and Using the Apply Immediately Parameter>
 -- to see the impact that setting 'ApplyImmediately' to 'true' or 'false'
 -- has for each modified parameter and to determine when the changes will
 -- be applied.
@@ -603,15 +688,18 @@ instance ToQuery ModifyDBInstance where
                  toQuery
                    (toQueryList "DBSecurityGroupName" <$>
                       _mdiDBSecurityGroups),
+               "DBPortNumber" =: _mdiDBPortNumber,
                "MasterUserPassword" =: _mdiMasterUserPassword,
                "PubliclyAccessible" =: _mdiPubliclyAccessible,
                "AutoMinorVersionUpgrade" =:
                  _mdiAutoMinorVersionUpgrade,
+               "MonitoringRoleArn" =: _mdiMonitoringRoleARN,
                "Iops" =: _mdiIOPS,
                "AllowMajorVersionUpgrade" =:
                  _mdiAllowMajorVersionUpgrade,
                "NewDBInstanceIdentifier" =:
                  _mdiNewDBInstanceIdentifier,
+               "MonitoringInterval" =: _mdiMonitoringInterval,
                "TdeCredentialPassword" =: _mdiTDECredentialPassword,
                "DBInstanceClass" =: _mdiDBInstanceClass,
                "PreferredMaintenanceWindow" =:

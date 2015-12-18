@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a snapshot of an existing directory.
+-- Creates a snapshot of a Simple AD directory.
 --
--- You cannot take snapshots of extended or connected directories.
+-- You cannot take snapshots of AD Connector directories.
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateSnapshot.html AWS API Reference> for CreateSnapshot.
 module Network.AWS.DirectoryService.CreateSnapshot
@@ -42,6 +42,7 @@ module Network.AWS.DirectoryService.CreateSnapshot
 
 import           Network.AWS.DirectoryService.Types
 import           Network.AWS.DirectoryService.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

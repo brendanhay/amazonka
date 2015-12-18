@@ -46,6 +46,7 @@ module Network.AWS.ElasticTranscoder.ListJobsByStatus
 
 import           Network.AWS.ElasticTranscoder.Types
 import           Network.AWS.ElasticTranscoder.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request

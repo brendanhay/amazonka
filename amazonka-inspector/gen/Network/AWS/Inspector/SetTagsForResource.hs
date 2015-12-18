@@ -28,8 +28,8 @@ module Network.AWS.Inspector.SetTagsForResource
       setTagsForResource
     , SetTagsForResource
     -- * Request Lenses
-    , stfrResourceARN
     , stfrTags
+    , stfrResourceARN
 
     -- * Destructuring the Response
     , setTagsForResourceResponse
@@ -41,39 +41,41 @@ module Network.AWS.Inspector.SetTagsForResource
 
 import           Network.AWS.Inspector.Types
 import           Network.AWS.Inspector.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'setTagsForResource' smart constructor.
 data SetTagsForResource = SetTagsForResource'
-    { _stfrResourceARN :: !(Maybe Text)
-    , _stfrTags        :: !(Maybe [Tag])
+    { _stfrTags        :: !(Maybe [Tag])
+    , _stfrResourceARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SetTagsForResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stfrResourceARN'
---
 -- * 'stfrTags'
+--
+-- * 'stfrResourceARN'
 setTagsForResource
-    :: SetTagsForResource
-setTagsForResource =
+    :: Text -- ^ 'stfrResourceARN'
+    -> SetTagsForResource
+setTagsForResource pResourceARN_ =
     SetTagsForResource'
-    { _stfrResourceARN = Nothing
-    , _stfrTags = Nothing
+    { _stfrTags = Nothing
+    , _stfrResourceARN = pResourceARN_
     }
-
--- | The ARN of the assessment that you want to set tags to.
-stfrResourceARN :: Lens' SetTagsForResource (Maybe Text)
-stfrResourceARN = lens _stfrResourceARN (\ s a -> s{_stfrResourceARN = a});
 
 -- | A collection of key and value pairs that you want to set to an
 -- assessment.
 stfrTags :: Lens' SetTagsForResource [Tag]
 stfrTags = lens _stfrTags (\ s a -> s{_stfrTags = a}) . _Default . _Coerce;
+
+-- | The ARN of the assessment that you want to set tags to.
+stfrResourceARN :: Lens' SetTagsForResource Text
+stfrResourceARN = lens _stfrResourceARN (\ s a -> s{_stfrResourceARN = a});
 
 instance AWSRequest SetTagsForResource where
         type Rs SetTagsForResource =
@@ -99,8 +101,8 @@ instance ToJSON SetTagsForResource where
         toJSON SetTagsForResource'{..}
           = object
               (catMaybes
-                 [("resourceArn" .=) <$> _stfrResourceARN,
-                  ("tags" .=) <$> _stfrTags])
+                 [("tags" .=) <$> _stfrTags,
+                  Just ("resourceArn" .= _stfrResourceARN)])
 
 instance ToPath SetTagsForResource where
         toPath = const "/"

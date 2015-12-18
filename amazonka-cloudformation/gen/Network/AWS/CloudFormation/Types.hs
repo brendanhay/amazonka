@@ -168,6 +168,7 @@ module Network.AWS.CloudFormation.Types
 
 import           Network.AWS.CloudFormation.Types.Product
 import           Network.AWS.CloudFormation.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

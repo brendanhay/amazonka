@@ -16,5 +16,6 @@
 module Network.AWS.Inspector.Waiters where
 
 import           Network.AWS.Inspector.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

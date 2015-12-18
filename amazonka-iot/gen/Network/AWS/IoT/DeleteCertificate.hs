@@ -20,13 +20,10 @@
 --
 -- Deletes the specified certificate.
 --
--- A certificate cannot be deleted if it has a policy attached to it. To
--- delete a certificate, first detach all policies using the
--- DetachPrincipalPolicy operation.
---
--- In addition, a certificate cannot be deleted if it is in ACTIVE status.
--- To delete a certificate, first change the status to INACTIVE using the
--- UpdateCertificate operation.
+-- A certificate cannot be deleted if it has a policy attached to it or if
+-- its status is set to ACTIVE. To delete a certificate, first detach all
+-- policies using the DetachPrincipalPolicy API. Next use the
+-- UpdateCertificate API to set the certificate to the INACTIVE status.
 --
 -- /See:/ <https://aws.amazon.com/iot#DeleteCertificate.html AWS API Reference> for DeleteCertificate.
 module Network.AWS.IoT.DeleteCertificate
@@ -44,6 +41,7 @@ module Network.AWS.IoT.DeleteCertificate
 
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

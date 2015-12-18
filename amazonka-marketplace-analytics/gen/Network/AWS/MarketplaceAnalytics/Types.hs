@@ -22,6 +22,7 @@ module Network.AWS.MarketplaceAnalytics.Types
     , DataSetType (..)
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.MarketplaceAnalytics.Types.Product
 import           Network.AWS.MarketplaceAnalytics.Types.Sum
 import           Network.AWS.Prelude

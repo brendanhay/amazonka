@@ -25,7 +25,7 @@ data OperatorType
     | OperatorGE
     | OperatorLE
     | OperatorRefEQ
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText OperatorType where
     parser = takeLowerText >>= \case
@@ -57,7 +57,7 @@ data TaskStatus
     = Failed
     | False'
     | Finished
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TaskStatus where
     parser = takeLowerText >>= \case

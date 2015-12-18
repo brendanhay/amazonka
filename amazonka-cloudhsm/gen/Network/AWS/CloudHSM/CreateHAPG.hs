@@ -41,6 +41,7 @@ module Network.AWS.CloudHSM.CreateHAPG
 
 import           Network.AWS.CloudHSM.Types
 import           Network.AWS.CloudHSM.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

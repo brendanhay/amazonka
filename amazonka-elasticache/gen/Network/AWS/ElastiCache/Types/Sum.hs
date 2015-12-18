@@ -22,7 +22,7 @@ import           Network.AWS.Prelude
 data AZMode
     = CrossAz
     | SingleAz
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AZMode where
     parser = takeLowerText >>= \case
@@ -46,7 +46,7 @@ data AutomaticFailoverStatus
     | AFSDisabling
     | AFSEnabled
     | AFSEnabling
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AutomaticFailoverStatus where
     parser = takeLowerText >>= \case
@@ -75,7 +75,7 @@ instance FromXML AutomaticFailoverStatus where
 data PendingAutomaticFailoverStatus
     = Disabled
     | Enabled
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PendingAutomaticFailoverStatus where
     parser = takeLowerText >>= \case
@@ -102,7 +102,7 @@ data SourceType
     | CacheParameterGroup
     | CacheSecurityGroup
     | CacheSubnetGroup
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case

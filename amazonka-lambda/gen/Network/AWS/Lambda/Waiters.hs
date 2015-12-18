@@ -16,5 +16,6 @@
 module Network.AWS.Lambda.Waiters where
 
 import           Network.AWS.Lambda.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

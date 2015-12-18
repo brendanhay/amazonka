@@ -41,6 +41,7 @@ module Network.AWS.CloudFront.CreateStreamingDistribution
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -84,7 +85,7 @@ instance AWSRequest CreateStreamingDistribution where
 instance ToElement CreateStreamingDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2015-07-27/}StreamingDistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2015-09-17/}StreamingDistributionConfig"
               .
               _csdStreamingDistributionConfig
 
@@ -92,7 +93,7 @@ instance ToHeaders CreateStreamingDistribution where
         toHeaders = const mempty
 
 instance ToPath CreateStreamingDistribution where
-        toPath = const "/2015-07-27/streaming-distribution"
+        toPath = const "/2015-09-17/streaming-distribution"
 
 instance ToQuery CreateStreamingDistribution where
         toQuery = const mempty

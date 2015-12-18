@@ -46,6 +46,7 @@ module Network.AWS.DataPipeline.SetTaskStatus
 
 import           Network.AWS.DataPipeline.Types
 import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

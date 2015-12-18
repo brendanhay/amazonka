@@ -18,6 +18,7 @@
 module Network.AWS.CloudTrail.Types.Product where
 
 import           Network.AWS.CloudTrail.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Contains information about an event that was returned by a lookup
@@ -341,10 +342,12 @@ data Trail = Trail'
     , _tSNSTopicName               :: !(Maybe Text)
     , _tCloudWatchLogsLogGroupARN  :: !(Maybe Text)
     , _tKMSKeyId                   :: !(Maybe Text)
+    , _tHomeRegion                 :: !(Maybe Text)
     , _tName                       :: !(Maybe Text)
     , _tIncludeGlobalServiceEvents :: !(Maybe Bool)
     , _tCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _tS3BucketName               :: !(Maybe Text)
+    , _tIsMultiRegionTrail         :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Trail' with the minimum fields required to make a request.
@@ -363,6 +366,8 @@ data Trail = Trail'
 --
 -- * 'tKMSKeyId'
 --
+-- * 'tHomeRegion'
+--
 -- * 'tName'
 --
 -- * 'tIncludeGlobalServiceEvents'
@@ -370,6 +375,8 @@ data Trail = Trail'
 -- * 'tCloudWatchLogsRoleARN'
 --
 -- * 'tS3BucketName'
+--
+-- * 'tIsMultiRegionTrail'
 trail
     :: Trail
 trail =
@@ -380,10 +387,12 @@ trail =
     , _tSNSTopicName = Nothing
     , _tCloudWatchLogsLogGroupARN = Nothing
     , _tKMSKeyId = Nothing
+    , _tHomeRegion = Nothing
     , _tName = Nothing
     , _tIncludeGlobalServiceEvents = Nothing
     , _tCloudWatchLogsRoleARN = Nothing
     , _tS3BucketName = Nothing
+    , _tIsMultiRegionTrail = Nothing
     }
 
 -- | Specifies whether log file validation is enabled.
@@ -421,6 +430,10 @@ tCloudWatchLogsLogGroupARN = lens _tCloudWatchLogsLogGroupARN (\ s a -> s{_tClou
 tKMSKeyId :: Lens' Trail (Maybe Text)
 tKMSKeyId = lens _tKMSKeyId (\ s a -> s{_tKMSKeyId = a});
 
+-- | The region in which the trail was created.
+tHomeRegion :: Lens' Trail (Maybe Text)
+tHomeRegion = lens _tHomeRegion (\ s a -> s{_tHomeRegion = a});
+
 -- | Name of the trail set by calling CreateTrail. The maximum length is 128
 -- characters.
 tName :: Lens' Trail (Maybe Text)
@@ -442,6 +455,11 @@ tCloudWatchLogsRoleARN = lens _tCloudWatchLogsRoleARN (\ s a -> s{_tCloudWatchLo
 tS3BucketName :: Lens' Trail (Maybe Text)
 tS3BucketName = lens _tS3BucketName (\ s a -> s{_tS3BucketName = a});
 
+-- | Specifies whether the trail belongs only to one region or exists in all
+-- regions.
+tIsMultiRegionTrail :: Lens' Trail (Maybe Bool)
+tIsMultiRegionTrail = lens _tIsMultiRegionTrail (\ s a -> s{_tIsMultiRegionTrail = a});
+
 instance FromJSON Trail where
         parseJSON
           = withObject "Trail"
@@ -453,7 +471,9 @@ instance FromJSON Trail where
                      <*> (x .:? "SnsTopicName")
                      <*> (x .:? "CloudWatchLogsLogGroupArn")
                      <*> (x .:? "KmsKeyId")
+                     <*> (x .:? "HomeRegion")
                      <*> (x .:? "Name")
                      <*> (x .:? "IncludeGlobalServiceEvents")
                      <*> (x .:? "CloudWatchLogsRoleArn")
-                     <*> (x .:? "S3BucketName"))
+                     <*> (x .:? "S3BucketName")
+                     <*> (x .:? "IsMultiRegionTrail"))

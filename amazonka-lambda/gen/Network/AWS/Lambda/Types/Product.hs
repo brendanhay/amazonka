@@ -18,6 +18,7 @@
 module Network.AWS.Lambda.Types.Product where
 
 import           Network.AWS.Lambda.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Provides configuration information about a Lambda function version

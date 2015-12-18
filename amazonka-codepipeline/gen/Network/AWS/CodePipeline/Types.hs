@@ -345,6 +345,7 @@ module Network.AWS.CodePipeline.Types
 
 import           Network.AWS.CodePipeline.Types.Product
 import           Network.AWS.CodePipeline.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

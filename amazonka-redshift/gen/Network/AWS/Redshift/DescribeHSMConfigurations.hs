@@ -56,6 +56,7 @@ module Network.AWS.Redshift.DescribeHSMConfigurations
     , dhcrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types

@@ -26,7 +26,7 @@ data AgentUpdateStatus
     | AUSStaging
     | AUSUpdated
     | AUSUpdating
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AgentUpdateStatus where
     parser = takeLowerText >>= \case
@@ -60,7 +60,7 @@ data DesiredStatus
     = Pending
     | Running
     | Stopped
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DesiredStatus where
     parser = takeLowerText >>= \case
@@ -90,7 +90,7 @@ data LogDriver
     | JSONFile
     | Journald
     | Syslog
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText LogDriver where
     parser = takeLowerText >>= \case
@@ -124,7 +124,7 @@ instance FromJSON LogDriver where
 data SortOrder
     = Asc
     | Desc
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SortOrder where
     parser = takeLowerText >>= \case
@@ -149,7 +149,7 @@ instance ToJSON SortOrder where
 data TaskDefinitionStatus
     = Active
     | Inactive
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TaskDefinitionStatus where
     parser = takeLowerText >>= \case
@@ -177,7 +177,7 @@ instance FromJSON TaskDefinitionStatus where
 data TransportProtocol
     = TCP
     | Udp
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TransportProtocol where
     parser = takeLowerText >>= \case
@@ -218,7 +218,7 @@ data UlimitName
     | Rttime
     | Sigpending
     | Stack
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText UlimitName where
     parser = takeLowerText >>= \case

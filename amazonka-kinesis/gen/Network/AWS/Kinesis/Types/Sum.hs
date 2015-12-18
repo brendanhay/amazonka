@@ -24,7 +24,7 @@ data ShardIteratorType
     | AtSequenceNumber
     | Latest
     | TrimHorizon
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ShardIteratorType where
     parser = takeLowerText >>= \case
@@ -55,7 +55,7 @@ data StreamStatus
     | Creating
     | Deleting
     | Updating
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StreamStatus where
     parser = takeLowerText >>= \case

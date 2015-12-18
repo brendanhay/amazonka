@@ -44,6 +44,7 @@ module Network.AWS.DirectoryService.CreateComputer
 
 import           Network.AWS.DirectoryService.Types
 import           Network.AWS.DirectoryService.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -96,7 +97,7 @@ ccComputerAttributes = lens _ccComputerAttributes (\ s a -> s{_ccComputerAttribu
 ccOrganizationalUnitDistinguishedName :: Lens' CreateComputer (Maybe Text)
 ccOrganizationalUnitDistinguishedName = lens _ccOrganizationalUnitDistinguishedName (\ s a -> s{_ccOrganizationalUnitDistinguishedName = a});
 
--- | The identifier of the directory to create the computer account in.
+-- | The identifier of the directory in which to create the computer account.
 ccDirectoryId :: Lens' CreateComputer Text
 ccDirectoryId = lens _ccDirectoryId (\ s a -> s{_ccDirectoryId = a});
 
@@ -169,7 +170,7 @@ createComputerResponse pResponseStatus_ =
     , _ccrsResponseStatus = pResponseStatus_
     }
 
--- | A Computer object the represents the computer account.
+-- | A Computer object that represents the computer account.
 ccrsComputer :: Lens' CreateComputerResponse (Maybe Computer)
 ccrsComputer = lens _ccrsComputer (\ s a -> s{_ccrsComputer = a});
 

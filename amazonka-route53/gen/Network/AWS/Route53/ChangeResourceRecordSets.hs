@@ -27,28 +27,26 @@
 -- Changes are a list of change items and are considered transactional. For
 -- more information on transactional changes, also known as change batches,
 -- see
--- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/RRSchanges.html#RRSchanges_API Creating, Changing, and Deleting Resource Record Sets Using the Route 53 API>
--- in the /Amazon Route 53 Developer Guide/.
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/ POST ChangeResourceRecordSets>
+-- in the /Amazon Route 53 API Reference/.
 --
 -- Due to the nature of transactional changes, you cannot delete the same
 -- resource record set more than once in a single change batch. If you
--- attempt to delete the same change batch more than once, Route 53 returns
--- an 'InvalidChangeBatch' error.
+-- attempt to delete the same change batch more than once, Amazon Route 53
+-- returns an 'InvalidChangeBatch' error.
 --
 -- In response to a 'ChangeResourceRecordSets' request, your DNS data is
--- changed on all Route 53 DNS servers. Initially, the status of a change
--- is 'PENDING'. This means the change has not yet propagated to all the
--- authoritative Route 53 DNS servers. When the change is propagated to all
--- hosts, the change returns a status of 'INSYNC'.
+-- changed on all Amazon Route 53 DNS servers. Initially, the status of a
+-- change is 'PENDING'. This means the change has not yet propagated to all
+-- the authoritative Amazon Route 53 DNS servers. When the change is
+-- propagated to all hosts, the change returns a status of 'INSYNC'.
 --
 -- Note the following limitations on a 'ChangeResourceRecordSets' request:
 --
--- - A request cannot contain more than 100 Change elements.
---
--- - A request cannot contain more than 1000 ResourceRecord elements.
---
--- The sum of the number of characters (including spaces) in all 'Value'
--- elements in a request cannot exceed 32,000 characters.
+-- -   A request cannot contain more than 100 Change elements.
+-- -   A request cannot contain more than 1000 ResourceRecord elements.
+-- -   The sum of the number of characters (including spaces) in all
+--     'Value' elements in a request cannot exceed 32,000 characters.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html AWS API Reference> for ChangeResourceRecordSets.
 module Network.AWS.Route53.ChangeResourceRecordSets
@@ -68,6 +66,7 @@ module Network.AWS.Route53.ChangeResourceRecordSets
     , crrsrsChangeInfo
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

@@ -53,6 +53,7 @@ module Network.AWS.EC2.CreateVPC
 
 import           Network.AWS.EC2.Types
 import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -89,6 +90,9 @@ createVPC pCIdRBlock_ =
 -- VPC are launched as dedicated tenancy instances regardless of the
 -- tenancy assigned to the instance at launch. Dedicated tenancy instances
 -- run on single-tenant hardware.
+--
+-- __Important:__ The 'host' value cannot be used with this parameter. Use
+-- the 'default' or 'dedicated' values only.
 --
 -- Default: 'default'
 cvInstanceTenancy :: Lens' CreateVPC (Maybe Tenancy)

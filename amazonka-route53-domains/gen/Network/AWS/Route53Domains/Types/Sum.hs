@@ -25,7 +25,7 @@ data ContactType
     | Person
     | PublicBody
     | Reseller
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ContactType where
     parser = takeLowerText >>= \case
@@ -286,7 +286,7 @@ data CountryCode
     | ZA
     | ZM
     | ZW
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CountryCode where
     parser = takeLowerText >>= \case
@@ -774,7 +774,7 @@ data DomainAvailability
     | Unavailable
     | UnavailablePremium
     | UnavailableRestricted
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DomainAvailability where
     parser = takeLowerText >>= \case
@@ -829,7 +829,7 @@ data ExtraParamName
     | SeIdNumber
     | SgIdNumber
     | VatNumber
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ExtraParamName where
     parser = takeLowerText >>= \case
@@ -896,7 +896,7 @@ data OperationStatus
     | InProgress
     | Submitted
     | Successful
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText OperationStatus where
     parser = takeLowerText >>= \case
@@ -932,7 +932,7 @@ data OperationType
     | TransferInDomain
     | UpdateDomainContact
     | UpdateNameserver
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText OperationType where
     parser = takeLowerText >>= \case

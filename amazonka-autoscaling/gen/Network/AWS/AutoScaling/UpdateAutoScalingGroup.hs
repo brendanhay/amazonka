@@ -55,6 +55,7 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     -- * Request Lenses
     , uasgTerminationPolicies
     , uasgHealthCheckGracePeriod
+    , uasgNewInstancesProtectedFromScaleIn
     , uasgVPCZoneIdentifier
     , uasgDefaultCooldown
     , uasgMaxSize
@@ -73,24 +74,26 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
 
 import           Network.AWS.AutoScaling.Types
 import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateAutoScalingGroup' smart constructor.
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
-    { _uasgTerminationPolicies     :: !(Maybe [Text])
-    , _uasgHealthCheckGracePeriod  :: !(Maybe Int)
-    , _uasgVPCZoneIdentifier       :: !(Maybe Text)
-    , _uasgDefaultCooldown         :: !(Maybe Int)
-    , _uasgMaxSize                 :: !(Maybe Int)
-    , _uasgAvailabilityZones       :: !(Maybe (List1 Text))
-    , _uasgDesiredCapacity         :: !(Maybe Int)
-    , _uasgMinSize                 :: !(Maybe Int)
-    , _uasgLaunchConfigurationName :: !(Maybe Text)
-    , _uasgHealthCheckType         :: !(Maybe Text)
-    , _uasgPlacementGroup          :: !(Maybe Text)
-    , _uasgAutoScalingGroupName    :: !Text
+    { _uasgTerminationPolicies              :: !(Maybe [Text])
+    , _uasgHealthCheckGracePeriod           :: !(Maybe Int)
+    , _uasgNewInstancesProtectedFromScaleIn :: !(Maybe Bool)
+    , _uasgVPCZoneIdentifier                :: !(Maybe Text)
+    , _uasgDefaultCooldown                  :: !(Maybe Int)
+    , _uasgMaxSize                          :: !(Maybe Int)
+    , _uasgAvailabilityZones                :: !(Maybe (List1 Text))
+    , _uasgDesiredCapacity                  :: !(Maybe Int)
+    , _uasgMinSize                          :: !(Maybe Int)
+    , _uasgLaunchConfigurationName          :: !(Maybe Text)
+    , _uasgHealthCheckType                  :: !(Maybe Text)
+    , _uasgPlacementGroup                   :: !(Maybe Text)
+    , _uasgAutoScalingGroupName             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateAutoScalingGroup' with the minimum fields required to make a request.
@@ -100,6 +103,8 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
 -- * 'uasgTerminationPolicies'
 --
 -- * 'uasgHealthCheckGracePeriod'
+--
+-- * 'uasgNewInstancesProtectedFromScaleIn'
 --
 -- * 'uasgVPCZoneIdentifier'
 --
@@ -127,6 +132,7 @@ updateAutoScalingGroup pAutoScalingGroupName_ =
     UpdateAutoScalingGroup'
     { _uasgTerminationPolicies = Nothing
     , _uasgHealthCheckGracePeriod = Nothing
+    , _uasgNewInstancesProtectedFromScaleIn = Nothing
     , _uasgVPCZoneIdentifier = Nothing
     , _uasgDefaultCooldown = Nothing
     , _uasgMaxSize = Nothing
@@ -150,13 +156,19 @@ uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
 uasgTerminationPolicies = lens _uasgTerminationPolicies (\ s a -> s{_uasgTerminationPolicies = a}) . _Default . _Coerce;
 
 -- | The amount of time, in seconds, that Auto Scaling waits before checking
--- the health status of an instance. The grace period begins when the
--- instance passes the system status and instance status checks from Amazon
--- EC2. For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks>
+-- the health status of an EC2 instance that has come into service. The
+-- default is 300.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks For Auto Scaling Instances>
 -- in the /Auto Scaling Developer Guide/.
 uasgHealthCheckGracePeriod :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgHealthCheckGracePeriod = lens _uasgHealthCheckGracePeriod (\ s a -> s{_uasgHealthCheckGracePeriod = a});
+
+-- | Indicates whether newly launched instances are protected from
+-- termination by Auto Scaling when scaling in.
+uasgNewInstancesProtectedFromScaleIn :: Lens' UpdateAutoScalingGroup (Maybe Bool)
+uasgNewInstancesProtectedFromScaleIn = lens _uasgNewInstancesProtectedFromScaleIn (\ s a -> s{_uasgNewInstancesProtectedFromScaleIn = a});
 
 -- | The ID of the subnet, if you are launching into a VPC. You can specify
 -- several subnets in a comma-separated list.
@@ -172,7 +184,9 @@ uasgVPCZoneIdentifier :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgVPCZoneIdentifier = lens _uasgVPCZoneIdentifier (\ s a -> s{_uasgVPCZoneIdentifier = a});
 
 -- | The amount of time, in seconds, after a scaling activity completes
--- before another scaling activity can start. For more information, see
+-- before another scaling activity can start. The default is 300.
+--
+-- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
 -- in the /Auto Scaling Developer Guide/.
 uasgDefaultCooldown :: Lens' UpdateAutoScalingGroup (Maybe Int)
@@ -200,9 +214,8 @@ uasgMinSize = lens _uasgMinSize (\ s a -> s{_uasgMinSize = a});
 uasgLaunchConfigurationName :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgLaunchConfigurationName = lens _uasgLaunchConfigurationName (\ s a -> s{_uasgLaunchConfigurationName = a});
 
--- | The type of health check for the instances in the Auto Scaling group.
--- The health check type can either be 'EC2' for Amazon EC2 or 'ELB' for
--- Elastic Load Balancing.
+-- | The service to use for the health checks. The valid values are 'EC2' and
+-- 'ELB'.
 uasgHealthCheckType :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgHealthCheckType = lens _uasgHealthCheckType (\ s a -> s{_uasgHealthCheckType = a});
 
@@ -241,6 +254,8 @@ instance ToQuery UpdateAutoScalingGroup where
                    (toQueryList "member" <$> _uasgTerminationPolicies),
                "HealthCheckGracePeriod" =:
                  _uasgHealthCheckGracePeriod,
+               "NewInstancesProtectedFromScaleIn" =:
+                 _uasgNewInstancesProtectedFromScaleIn,
                "VPCZoneIdentifier" =: _uasgVPCZoneIdentifier,
                "DefaultCooldown" =: _uasgDefaultCooldown,
                "MaxSize" =: _uasgMaxSize,

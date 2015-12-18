@@ -28,8 +28,8 @@ module Network.AWS.Inspector.UpdateApplication
     , UpdateApplication
     -- * Request Lenses
     , uaApplicationARN
-    , uaResourceGroupARN
     , uaApplicationName
+    , uaResourceGroupARN
 
     -- * Destructuring the Response
     , updateApplicationResponse
@@ -41,15 +41,16 @@ module Network.AWS.Inspector.UpdateApplication
 
 import           Network.AWS.Inspector.Types
 import           Network.AWS.Inspector.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-    { _uaApplicationARN   :: !(Maybe Text)
-    , _uaResourceGroupARN :: !(Maybe Text)
-    , _uaApplicationName  :: !(Maybe Text)
+    { _uaApplicationARN   :: !Text
+    , _uaApplicationName  :: !Text
+    , _uaResourceGroupARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
@@ -58,29 +59,32 @@ data UpdateApplication = UpdateApplication'
 --
 -- * 'uaApplicationARN'
 --
--- * 'uaResourceGroupARN'
---
 -- * 'uaApplicationName'
+--
+-- * 'uaResourceGroupARN'
 updateApplication
-    :: UpdateApplication
-updateApplication =
+    :: Text -- ^ 'uaApplicationARN'
+    -> Text -- ^ 'uaApplicationName'
+    -> Text -- ^ 'uaResourceGroupARN'
+    -> UpdateApplication
+updateApplication pApplicationARN_ pApplicationName_ pResourceGroupARN_ =
     UpdateApplication'
-    { _uaApplicationARN = Nothing
-    , _uaResourceGroupARN = Nothing
-    , _uaApplicationName = Nothing
+    { _uaApplicationARN = pApplicationARN_
+    , _uaApplicationName = pApplicationName_
+    , _uaResourceGroupARN = pResourceGroupARN_
     }
 
 -- | Application ARN that you want to update.
-uaApplicationARN :: Lens' UpdateApplication (Maybe Text)
+uaApplicationARN :: Lens' UpdateApplication Text
 uaApplicationARN = lens _uaApplicationARN (\ s a -> s{_uaApplicationARN = a});
 
--- | The resource group ARN that you want to update.
-uaResourceGroupARN :: Lens' UpdateApplication (Maybe Text)
-uaResourceGroupARN = lens _uaResourceGroupARN (\ s a -> s{_uaResourceGroupARN = a});
-
 -- | Application name that you want to update.
-uaApplicationName :: Lens' UpdateApplication (Maybe Text)
+uaApplicationName :: Lens' UpdateApplication Text
 uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
+
+-- | The resource group ARN that you want to update.
+uaResourceGroupARN :: Lens' UpdateApplication Text
+uaResourceGroupARN = lens _uaResourceGroupARN (\ s a -> s{_uaResourceGroupARN = a});
 
 instance AWSRequest UpdateApplication where
         type Rs UpdateApplication = UpdateApplicationResponse
@@ -104,9 +108,9 @@ instance ToJSON UpdateApplication where
         toJSON UpdateApplication'{..}
           = object
               (catMaybes
-                 [("applicationArn" .=) <$> _uaApplicationARN,
-                  ("resourceGroupArn" .=) <$> _uaResourceGroupARN,
-                  ("applicationName" .=) <$> _uaApplicationName])
+                 [Just ("applicationArn" .= _uaApplicationARN),
+                  Just ("applicationName" .= _uaApplicationName),
+                  Just ("resourceGroupArn" .= _uaResourceGroupARN)])
 
 instance ToPath UpdateApplication where
         toPath = const "/"

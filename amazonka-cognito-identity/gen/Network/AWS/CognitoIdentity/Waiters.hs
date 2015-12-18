@@ -16,5 +16,6 @@
 module Network.AWS.CognitoIdentity.Waiters where
 
 import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

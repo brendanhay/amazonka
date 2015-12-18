@@ -107,6 +107,7 @@ module Network.AWS.SQS.Types
     , smbreMD5OfMessageBody
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 import           Network.AWS.SQS.Types.Product

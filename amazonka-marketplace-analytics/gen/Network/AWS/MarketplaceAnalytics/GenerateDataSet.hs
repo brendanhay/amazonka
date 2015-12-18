@@ -53,6 +53,7 @@ module Network.AWS.MarketplaceAnalytics.GenerateDataSet
     , gdsrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.MarketplaceAnalytics.Types
 import           Network.AWS.MarketplaceAnalytics.Types.Product
 import           Network.AWS.Prelude

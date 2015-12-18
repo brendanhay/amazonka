@@ -55,6 +55,7 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     , adsgirsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
 import           Network.AWS.RDS.Types.Product

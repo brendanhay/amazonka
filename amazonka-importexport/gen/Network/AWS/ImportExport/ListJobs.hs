@@ -48,6 +48,7 @@ module Network.AWS.ImportExport.ListJobs
 
 import           Network.AWS.ImportExport.Types
 import           Network.AWS.ImportExport.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request

@@ -44,6 +44,7 @@ module Network.AWS.Redshift.CreateClusterSnapshot
     , crersResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types
 import           Network.AWS.Redshift.Types.Product

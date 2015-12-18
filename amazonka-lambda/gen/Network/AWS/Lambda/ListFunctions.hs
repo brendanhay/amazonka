@@ -48,6 +48,7 @@ module Network.AWS.Lambda.ListFunctions
 
 import           Network.AWS.Lambda.Types
 import           Network.AWS.Lambda.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request

@@ -15,6 +15,7 @@
 --
 module Network.AWS.RDS.Waiters where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.DescribeDBInstances
 import           Network.AWS.RDS.DescribeDBInstances

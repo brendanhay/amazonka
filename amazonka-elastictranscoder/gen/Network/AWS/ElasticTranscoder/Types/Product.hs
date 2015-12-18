@@ -18,6 +18,7 @@
 module Network.AWS.ElasticTranscoder.Types.Product where
 
 import           Network.AWS.ElasticTranscoder.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | The file to be used as album art. There can be multiple artworks

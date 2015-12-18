@@ -11,7 +11,6 @@
 --
 module Test.AWS.Error (tests) where
 
-import           Control.Lens
 import qualified Data.ByteString.Char8    as BS8
 import qualified Data.Foldable            as Fold
 import           Data.List                (sort)

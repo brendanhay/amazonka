@@ -18,6 +18,7 @@
 module Network.AWS.IAM.Types.Product where
 
 import           Network.AWS.IAM.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Contains information about an AWS access key.

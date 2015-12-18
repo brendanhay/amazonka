@@ -63,6 +63,7 @@ module Network.AWS.RDS.CreateEventSubscription
     , cesrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
 import           Network.AWS.RDS.Types.Product

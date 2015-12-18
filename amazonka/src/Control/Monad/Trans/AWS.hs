@@ -151,8 +151,6 @@ module Control.Monad.Trans.AWS
     ) where
 
 import           Control.Applicative
-import           Control.Exception.Lens
-import           Control.Lens
 import           Control.Monad.Base
 import           Control.Monad.Catch
 import           Control.Monad.Error.Class    (MonadError (..))
@@ -172,6 +170,8 @@ import           Network.AWS.Env
 import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.HTTP
 import           Network.AWS.Internal.Logger
+import           Network.AWS.Lens             (catching, throwingM, trying,
+                                               view)
 import           Network.AWS.Pager            (AWSPager (..))
 import           Network.AWS.Prelude          as AWS
 import qualified Network.AWS.Presign          as Sign

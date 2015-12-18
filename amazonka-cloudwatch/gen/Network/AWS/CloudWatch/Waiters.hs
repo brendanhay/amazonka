@@ -16,5 +16,6 @@
 module Network.AWS.CloudWatch.Waiters where
 
 import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

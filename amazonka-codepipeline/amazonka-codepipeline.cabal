@@ -192,7 +192,6 @@ test-suite amazonka-codepipeline-test
         , amazonka-codepipeline == 1.3.6.*
         , base
         , bytestring
-        , lens
         , tasty
         , tasty-hunit
         , text

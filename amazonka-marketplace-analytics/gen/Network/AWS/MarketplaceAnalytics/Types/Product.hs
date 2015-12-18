@@ -17,5 +17,6 @@
 --
 module Network.AWS.MarketplaceAnalytics.Types.Product where
 
+import           Network.AWS.Lens
 import           Network.AWS.MarketplaceAnalytics.Types.Sum
 import           Network.AWS.Prelude

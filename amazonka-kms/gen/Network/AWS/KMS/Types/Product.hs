@@ -18,6 +18,7 @@
 module Network.AWS.KMS.Types.Product where
 
 import           Network.AWS.KMS.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Contains information about an alias.

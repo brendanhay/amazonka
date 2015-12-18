@@ -18,6 +18,7 @@
 module Network.AWS.CloudWatch.Types.Product where
 
 import           Network.AWS.CloudWatch.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | The 'AlarmHistoryItem' data type contains descriptive information about

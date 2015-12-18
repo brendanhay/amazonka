@@ -40,6 +40,7 @@ module Network.AWS.CodeDeploy.CreateDeploymentConfig
 
 import           Network.AWS.CodeDeploy.Types
 import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

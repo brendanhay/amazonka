@@ -459,6 +459,7 @@ module Network.AWS.S3.Types
     , wcRoutingRules
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.S3.Internal
 import           Network.AWS.S3.Types.Product

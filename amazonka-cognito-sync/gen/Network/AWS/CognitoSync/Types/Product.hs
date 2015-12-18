@@ -18,6 +18,7 @@
 module Network.AWS.CognitoSync.Types.Product where
 
 import           Network.AWS.CognitoSync.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Configuration options for configure Cognito streams.

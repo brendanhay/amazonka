@@ -60,6 +60,7 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     , dcsgsrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types

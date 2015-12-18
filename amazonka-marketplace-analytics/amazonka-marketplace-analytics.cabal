@@ -75,7 +75,6 @@ test-suite amazonka-marketplace-analytics-test
         , amazonka-marketplace-analytics == 1.3.6.*
         , base
         , bytestring
-        , lens
         , tasty
         , tasty-hunit
         , text

@@ -17,6 +17,7 @@ module Network.AWS.ElasticTranscoder.Waiters where
 
 import           Network.AWS.ElasticTranscoder.ReadJob
 import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 

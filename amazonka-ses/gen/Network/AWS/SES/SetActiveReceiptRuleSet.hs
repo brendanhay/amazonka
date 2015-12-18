@@ -44,6 +44,7 @@ module Network.AWS.SES.SetActiveReceiptRuleSet
     , sarrsrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

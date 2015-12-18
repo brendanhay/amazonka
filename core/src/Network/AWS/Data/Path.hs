@@ -36,8 +36,6 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text
 import           Network.HTTP.Types.URI
 
-import           Prelude
-
 class ToPath a where
     toPath :: a -> ByteString
 

@@ -13,7 +13,6 @@
 --
 module Network.AWS.Data.Numeric where
 
-import           Control.Lens
 import           Control.Monad
 import           Data.Aeson.Types
 import           Data.Data                   (Data, Typeable)
@@ -24,9 +23,8 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
+import           Network.AWS.Lens            (Iso', iso)
 import           Numeric.Natural
-
-import           Prelude
 
 newtype Nat = Nat { unNat :: Natural }
     deriving

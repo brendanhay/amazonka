@@ -57,6 +57,7 @@ module Network.AWS.ImportExport.Types
 
 import           Network.AWS.ImportExport.Types.Product
 import           Network.AWS.ImportExport.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V2
 

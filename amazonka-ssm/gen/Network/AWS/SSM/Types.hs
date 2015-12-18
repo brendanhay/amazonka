@@ -214,6 +214,7 @@ module Network.AWS.SSM.Types
     , iifValueSet
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 import           Network.AWS.SSM.Types.Product

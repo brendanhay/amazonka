@@ -335,6 +335,7 @@ module Network.AWS.ElasticTranscoder.Types
 
 import           Network.AWS.ElasticTranscoder.Types.Product
 import           Network.AWS.ElasticTranscoder.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

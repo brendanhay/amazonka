@@ -25,7 +25,6 @@ module Network.AWS.Sign.V4.Chunked
     ) where
 
 import           Control.Applicative
-import           Control.Lens
 import qualified Data.ByteString             as BS
 import           Data.ByteString.Builder
 import qualified Data.ByteString.Char8       as BS8
@@ -37,11 +36,10 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Time
+import           Network.AWS.Lens            ((<>~))
 import           Network.AWS.Sign.V4.Base    hiding (algorithm)
 import           Network.AWS.Types
 import           Network.HTTP.Types.Header
-
-import           Prelude
 
 default (Builder, Integer)
 

@@ -39,6 +39,7 @@ module Network.AWS.StorageGateway.CancelArchival
     , carsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

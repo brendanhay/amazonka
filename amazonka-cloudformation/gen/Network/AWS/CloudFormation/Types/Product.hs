@@ -18,6 +18,7 @@
 module Network.AWS.CloudFormation.Types.Product where
 
 import           Network.AWS.CloudFormation.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | The AccountLimit data type.

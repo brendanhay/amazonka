@@ -42,6 +42,7 @@ module Network.AWS.Route53Domains.ListOperations
     , lorsOperations
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request

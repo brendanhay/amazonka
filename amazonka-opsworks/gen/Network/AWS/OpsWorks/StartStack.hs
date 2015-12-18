@@ -40,6 +40,7 @@ module Network.AWS.OpsWorks.StartStack
     , StartStackResponse
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.OpsWorks.Types
 import           Network.AWS.OpsWorks.Types.Product
 import           Network.AWS.Prelude

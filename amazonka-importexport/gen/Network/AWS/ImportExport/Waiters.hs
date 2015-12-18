@@ -16,5 +16,6 @@
 module Network.AWS.ImportExport.Waiters where
 
 import           Network.AWS.ImportExport.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

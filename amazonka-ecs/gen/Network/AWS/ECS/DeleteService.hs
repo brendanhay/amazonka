@@ -40,6 +40,7 @@ module Network.AWS.ECS.DeleteService
 
 import           Network.AWS.ECS.Types
 import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

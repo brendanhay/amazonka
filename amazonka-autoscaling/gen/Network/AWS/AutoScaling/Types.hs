@@ -267,6 +267,7 @@ module Network.AWS.AutoScaling.Types
 
 import           Network.AWS.AutoScaling.Types.Product
 import           Network.AWS.AutoScaling.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

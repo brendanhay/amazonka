@@ -68,6 +68,7 @@ module Network.AWS.SWF.ListDomains
     , ldrsDomainInfos
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request

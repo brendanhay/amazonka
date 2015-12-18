@@ -44,6 +44,7 @@ module Network.AWS.CognitoSync.GetCognitoEvents
 
 import           Network.AWS.CognitoSync.Types
 import           Network.AWS.CognitoSync.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

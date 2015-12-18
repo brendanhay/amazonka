@@ -18,6 +18,7 @@
 module Network.AWS.Inspector.Types.Product where
 
 import           Network.AWS.Inspector.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Contains information about an Inspector agent. This data type is used as

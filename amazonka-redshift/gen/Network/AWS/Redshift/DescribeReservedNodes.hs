@@ -42,6 +42,7 @@ module Network.AWS.Redshift.DescribeReservedNodes
     , drnrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types

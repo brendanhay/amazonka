@@ -58,6 +58,7 @@ module Network.AWS.ImportExport.GetStatus
 
 import           Network.AWS.ImportExport.Types
 import           Network.AWS.ImportExport.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

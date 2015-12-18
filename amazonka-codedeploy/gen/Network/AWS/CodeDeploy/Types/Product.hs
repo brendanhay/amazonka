@@ -18,6 +18,7 @@
 module Network.AWS.CodeDeploy.Types.Product where
 
 import           Network.AWS.CodeDeploy.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Information about an application.

@@ -32,16 +32,14 @@ module Network.AWS.Waiter
     ) where
 
 import           Control.Applicative
-import           Control.Lens
 import           Data.Maybe
 import           Data.Text                   (Text)
 import qualified Data.Text                   as Text
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Log
 import           Network.AWS.Error
+import           Network.AWS.Lens            (Fold, allOf, anyOf, to, (^?))
 import           Network.AWS.Types
-
-import           Prelude
 
 type Acceptor a = Request a -> Either Error (Response a) -> Maybe Accept
 

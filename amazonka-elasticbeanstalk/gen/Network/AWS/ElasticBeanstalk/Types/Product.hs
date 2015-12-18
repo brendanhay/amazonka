@@ -18,6 +18,7 @@
 module Network.AWS.ElasticBeanstalk.Types.Product where
 
 import           Network.AWS.ElasticBeanstalk.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Describes the properties of an application.

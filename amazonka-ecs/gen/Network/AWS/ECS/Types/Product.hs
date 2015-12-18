@@ -18,6 +18,7 @@
 module Network.AWS.ECS.Types.Product where
 
 import           Network.AWS.ECS.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | The attributes applicable to a container instance when it is registered.

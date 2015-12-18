@@ -41,6 +41,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
     , dtacsrsSummaries
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

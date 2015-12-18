@@ -47,7 +47,6 @@ library
         , groom                >= 0.1.1
         , http-client          >= 0.4.9
         , http-types           >= 0.8
-        , lens                 >= 4.4
         , process              >= 1.2
         , resourcet            >= 1.1
         , tasty                >= 0.10

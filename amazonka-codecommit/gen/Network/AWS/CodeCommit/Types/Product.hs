@@ -18,6 +18,7 @@
 module Network.AWS.CodeCommit.Types.Product where
 
 import           Network.AWS.CodeCommit.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Returns information about a branch.

@@ -36,6 +36,7 @@ module Network.AWS.SNS.DeleteEndpoint
     , DeleteEndpointResponse
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

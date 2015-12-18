@@ -46,6 +46,7 @@ module Network.AWS.CloudFormation.ListStackResources
 
 import           Network.AWS.CloudFormation.Types
 import           Network.AWS.CloudFormation.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request

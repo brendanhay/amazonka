@@ -42,6 +42,7 @@ module Network.AWS.StorageGateway.ListTagsForResource
     , ltfrrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

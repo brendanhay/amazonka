@@ -233,6 +233,7 @@ module Network.AWS.SES.Types
     , waOrganizationARN
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.SES.Types.Product
 import           Network.AWS.SES.Types.Sum

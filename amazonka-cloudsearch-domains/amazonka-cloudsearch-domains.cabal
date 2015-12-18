@@ -88,7 +88,6 @@ test-suite amazonka-cloudsearch-domains-test
         , amazonka-cloudsearch-domains == 1.3.6.*
         , base
         , bytestring
-        , lens
         , tasty
         , tasty-hunit
         , text

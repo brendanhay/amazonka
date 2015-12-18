@@ -40,6 +40,7 @@ module Network.AWS.ElasticSearch.DeleteElasticsearchDomain
 
 import           Network.AWS.ElasticSearch.Types
 import           Network.AWS.ElasticSearch.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

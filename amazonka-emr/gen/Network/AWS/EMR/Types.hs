@@ -339,6 +339,7 @@ module Network.AWS.EMR.Types
 
 import           Network.AWS.EMR.Types.Product
 import           Network.AWS.EMR.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

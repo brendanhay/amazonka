@@ -40,6 +40,7 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

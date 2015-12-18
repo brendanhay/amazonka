@@ -57,6 +57,7 @@ module Network.AWS.S3.ListObjectVersions
     , lovrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request

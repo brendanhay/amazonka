@@ -65,6 +65,7 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     , dcssrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types

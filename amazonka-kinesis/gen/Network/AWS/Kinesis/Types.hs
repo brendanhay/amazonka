@@ -92,6 +92,7 @@ module Network.AWS.Kinesis.Types
 
 import           Network.AWS.Kinesis.Types.Product
 import           Network.AWS.Kinesis.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

@@ -18,6 +18,7 @@
 module Network.AWS.DirectoryService.Types.Product where
 
 import           Network.AWS.DirectoryService.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Represents a named directory attribute.

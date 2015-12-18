@@ -108,7 +108,6 @@ test-suite amazonka-cloudtrail-test
         , amazonka-cloudtrail == 1.3.6.*
         , base
         , bytestring
-        , lens
         , tasty
         , tasty-hunit
         , text

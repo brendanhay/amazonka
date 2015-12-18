@@ -18,6 +18,7 @@
 module Network.AWS.DynamoDBStreams.Types.Product where
 
 import           Network.AWS.DynamoDBStreams.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Represents the data for an attribute. You can set one, and only one, of

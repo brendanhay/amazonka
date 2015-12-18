@@ -49,6 +49,7 @@ module Network.AWS.SES.PutIdentityPolicy
     , piprsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

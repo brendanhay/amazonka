@@ -289,6 +289,7 @@ module Network.AWS.ECS.Types
 
 import           Network.AWS.ECS.Types.Product
 import           Network.AWS.ECS.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

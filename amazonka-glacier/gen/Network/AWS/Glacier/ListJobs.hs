@@ -90,6 +90,7 @@ module Network.AWS.Glacier.ListJobs
 
 import           Network.AWS.Glacier.Types
 import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request

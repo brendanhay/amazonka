@@ -48,6 +48,7 @@ module Network.AWS.StorageGateway.DescribeGatewayInformation
     , dgirsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

@@ -15,6 +15,7 @@
 --
 module Network.AWS.WAF.Waiters where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.WAF.Types
 import           Network.AWS.Waiter

@@ -218,6 +218,7 @@ module Network.AWS.ELB.Types
 
 import           Network.AWS.ELB.Types.Product
 import           Network.AWS.ELB.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

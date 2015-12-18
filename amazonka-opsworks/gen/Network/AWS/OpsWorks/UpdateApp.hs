@@ -50,6 +50,7 @@ module Network.AWS.OpsWorks.UpdateApp
     , UpdateAppResponse
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.OpsWorks.Types
 import           Network.AWS.OpsWorks.Types.Product
 import           Network.AWS.Prelude

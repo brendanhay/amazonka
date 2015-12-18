@@ -76,6 +76,7 @@ module Network.AWS.SDB.Types
     , ucName
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.SDB.Types.Product
 import           Network.AWS.SDB.Types.Sum

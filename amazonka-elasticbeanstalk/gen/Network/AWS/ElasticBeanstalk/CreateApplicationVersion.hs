@@ -47,6 +47,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
 
 import           Network.AWS.ElasticBeanstalk.Types
 import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

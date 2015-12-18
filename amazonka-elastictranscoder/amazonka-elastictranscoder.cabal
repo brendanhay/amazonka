@@ -93,7 +93,6 @@ test-suite amazonka-elastictranscoder-test
         , amazonka-elastictranscoder == 1.3.6.*
         , base
         , bytestring
-        , lens
         , tasty
         , tasty-hunit
         , text

@@ -41,6 +41,7 @@ module Network.AWS.MachineLearning.UpdateDataSource
     , udsrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.MachineLearning.Types
 import           Network.AWS.MachineLearning.Types.Product
 import           Network.AWS.Prelude

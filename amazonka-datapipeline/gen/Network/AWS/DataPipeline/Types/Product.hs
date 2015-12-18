@@ -18,6 +18,7 @@
 module Network.AWS.DataPipeline.Types.Product where
 
 import           Network.AWS.DataPipeline.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | A key-value pair that describes a property of a pipeline object. The

@@ -214,6 +214,7 @@ module Network.AWS.Route53.Types
     , vpcVPCId
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Route53.Internal
 import           Network.AWS.Route53.Types.Product

@@ -56,6 +56,7 @@ module Network.AWS.S3.ListMultipartUploads
     , lmursResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request

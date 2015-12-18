@@ -114,7 +114,6 @@ test-suite amazonka-cognito-sync-test
         , amazonka-cognito-sync == 1.3.6.*
         , base
         , bytestring
-        , lens
         , tasty
         , tasty-hunit
         , text

@@ -135,7 +135,6 @@ test-suite amazonka-sts-test
         , amazonka-sts == 1.3.6.*
         , base
         , bytestring
-        , lens
         , tasty
         , tasty-hunit
         , text

@@ -46,7 +46,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeResourceGroup' smart constructor.
 newtype DescribeResourceGroup = DescribeResourceGroup'
-    { _drgResourceGroupARN :: Maybe Text
+    { _drgResourceGroupARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeResourceGroup' with the minimum fields required to make a request.
@@ -55,14 +55,15 @@ newtype DescribeResourceGroup = DescribeResourceGroup'
 --
 -- * 'drgResourceGroupARN'
 describeResourceGroup
-    :: DescribeResourceGroup
-describeResourceGroup =
+    :: Text -- ^ 'drgResourceGroupARN'
+    -> DescribeResourceGroup
+describeResourceGroup pResourceGroupARN_ =
     DescribeResourceGroup'
-    { _drgResourceGroupARN = Nothing
+    { _drgResourceGroupARN = pResourceGroupARN_
     }
 
 -- | The ARN specifying the resource group that you want to describe.
-drgResourceGroupARN :: Lens' DescribeResourceGroup (Maybe Text)
+drgResourceGroupARN :: Lens' DescribeResourceGroup Text
 drgResourceGroupARN = lens _drgResourceGroupARN (\ s a -> s{_drgResourceGroupARN = a});
 
 instance AWSRequest DescribeResourceGroup where
@@ -89,7 +90,7 @@ instance ToJSON DescribeResourceGroup where
         toJSON DescribeResourceGroup'{..}
           = object
               (catMaybes
-                 [("resourceGroupArn" .=) <$> _drgResourceGroupARN])
+                 [Just ("resourceGroupArn" .= _drgResourceGroupARN)])
 
 instance ToPath DescribeResourceGroup where
         toPath = const "/"

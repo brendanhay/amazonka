@@ -91,6 +91,9 @@ createVPC pCIdRBlock_ =
 -- tenancy assigned to the instance at launch. Dedicated tenancy instances
 -- run on single-tenant hardware.
 --
+-- __Important:__ The 'host' value cannot be used with this parameter. Use
+-- the 'default' or 'dedicated' values only.
+--
 -- Default: 'default'
 cvInstanceTenancy :: Lens' CreateVPC (Maybe Tenancy)
 cvInstanceTenancy = lens _cvInstanceTenancy (\ s a -> s{_cvInstanceTenancy = a});

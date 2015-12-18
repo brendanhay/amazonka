@@ -50,6 +50,15 @@ module Network.AWS.DirectoryService.Types
     -- * SnapshotType
     , SnapshotType (..)
 
+    -- * TrustDirection
+    , TrustDirection (..)
+
+    -- * TrustState
+    , TrustState (..)
+
+    -- * TrustType
+    , TrustType (..)
+
     -- * Attribute
     , Attribute
     , attribute
@@ -107,11 +116,14 @@ module Network.AWS.DirectoryService.Types
     , DirectoryLimits
     , directoryLimits
     , dlConnectedDirectoriesCurrentCount
+    , dlCloudOnlyMicrosoftADLimitReached
     , dlConnectedDirectoriesLimit
     , dlConnectedDirectoriesLimitReached
+    , dlCloudOnlyMicrosoftADLimit
     , dlCloudOnlyDirectoriesLimit
     , dlCloudOnlyDirectoriesCurrentCount
     , dlCloudOnlyDirectoriesLimitReached
+    , dlCloudOnlyMicrosoftADCurrentCount
 
     -- * DirectoryVPCSettings
     , DirectoryVPCSettings
@@ -155,6 +167,19 @@ module Network.AWS.DirectoryService.Types
     , slManualSnapshotsLimitReached
     , slManualSnapshotsCurrentCount
     , slManualSnapshotsLimit
+
+    -- * Trust
+    , Trust
+    , trust
+    , tDirectoryId
+    , tTrustState
+    , tLastUpdatedDateTime
+    , tTrustDirection
+    , tStateLastUpdatedDateTime
+    , tTrustType
+    , tRemoteDomainName
+    , tTrustId
+    , tCreatedDateTime
     ) where
 
 import           Network.AWS.DirectoryService.Types.Product

@@ -88,7 +88,8 @@ describeSnapshots =
     , _dsLimit = Nothing
     }
 
--- | The identifier of the directory to retrieve snapshot information for.
+-- | The identifier of the directory for which to retrieve snapshot
+-- information.
 dsDirectoryId :: Lens' DescribeSnapshots (Maybe Text)
 dsDirectoryId = lens _dsDirectoryId (\ s a -> s{_dsDirectoryId = a});
 

@@ -19,8 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes one or more instances from the specified Auto Scaling group.
+--
 -- After the instances are detached, you can manage them independently from
 -- the rest of the Auto Scaling group.
+--
+-- If you do not specify the option to decrement the desired capacity, Auto
+-- Scaling launches instances to replace the ones that are detached.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group>

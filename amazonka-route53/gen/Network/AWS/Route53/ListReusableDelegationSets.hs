@@ -68,8 +68,8 @@ import           Network.AWS.Route53.Types.Product
 -- You can use the 'Marker' parameter to control the delegation set that
 -- the list begins with.
 --
--- Route 53 returns a maximum of 100 items. If you set 'MaxItems' to a
--- value greater than 100, Route 53 returns only the first 100.
+-- Amazon Route 53 returns a maximum of 100 items. If you set 'MaxItems' to
+-- a value greater than 100, Amazon Route 53 returns only the first 100.
 --
 -- /See:/ 'listReusableDelegationSets' smart constructor.
 data ListReusableDelegationSets = ListReusableDelegationSets'

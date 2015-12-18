@@ -45,7 +45,9 @@ module Network.AWS.CloudTrail.Types
     , _TrailAlreadyExistsException
     , _InvalidS3PrefixException
     , _ResourceNotFoundException
+    , _InvalidParameterCombinationException
     , _InvalidKMSKeyIdException
+    , _InvalidHomeRegionException
 
     -- * LookupAttributeKey
     , LookupAttributeKey (..)
@@ -101,10 +103,12 @@ module Network.AWS.CloudTrail.Types
     , tSNSTopicName
     , tCloudWatchLogsLogGroupARN
     , tKMSKeyId
+    , tHomeRegion
     , tName
     , tIncludeGlobalServiceEvents
     , tCloudWatchLogsRoleARN
     , tS3BucketName
+    , tIsMultiRegionTrail
     ) where
 
 import           Network.AWS.CloudTrail.Types.Product
@@ -149,65 +153,62 @@ cloudTrail =
 -- values.
 _InvalidTimeRangeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTimeRangeException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidTimeRange"
+    _ServiceError . hasCode "InvalidTimeRangeException"
 
 -- | This exception is thrown when the policy on the S3 bucket is not
 -- sufficient.
 _InsufficientS3BucketPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientS3BucketPolicyException =
-    _ServiceError . hasStatus 403 . hasCode "InsufficientS3BucketPolicy"
+    _ServiceError . hasCode "InsufficientS3BucketPolicyException"
 
 -- | This exception is thrown when the maximum number of trails is reached.
 _MaximumNumberOfTrailsExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaximumNumberOfTrailsExceededException =
-    _ServiceError . hasStatus 403 . hasCode "MaximumNumberOfTrailsExceeded"
+    _ServiceError . hasCode "MaximumNumberOfTrailsExceededException"
 
 -- | This exception is thrown when the requested operation is not supported.
--- For example, this exception will occur if an attempt is made to tag a
--- trail and tagging is not supported in the current region.
 _UnsupportedOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedOperationException =
-    _ServiceError . hasStatus 400 . hasCode "UnsupportedOperation"
+    _ServiceError . hasCode "UnsupportedOperationException"
 
 -- | This exception is thrown when the KMS key is disabled.
 _KMSKeyDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
-_KMSKeyDisabledException =
-    _ServiceError . hasStatus 400 . hasCode "KmsKeyDisabled"
+_KMSKeyDisabledException = _ServiceError . hasCode "KmsKeyDisabledException"
 
 -- | This exception is thrown when the policy on the S3 bucket or KMS key is
 -- not sufficient.
 _InsufficientEncryptionPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientEncryptionPolicyException =
-    _ServiceError . hasStatus 400 . hasCode "InsufficientEncryptionPolicy"
+    _ServiceError . hasCode "InsufficientEncryptionPolicyException"
 
 -- | This exception is thrown when the policy on the SNS topic is not
 -- sufficient.
 _InsufficientSNSTopicPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientSNSTopicPolicyException =
-    _ServiceError . hasStatus 403 . hasCode "InsufficientSnsTopicPolicy"
+    _ServiceError . hasCode "InsufficientSnsTopicPolicyException"
 
 -- | This exception is thrown when the provided role is not valid.
 _InvalidCloudWatchLogsRoleARNException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCloudWatchLogsRoleARNException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidCloudWatchLogsRoleArn"
+    _ServiceError . hasCode "InvalidCloudWatchLogsRoleArnException"
 
 -- | The number of tags per trail has exceeded the permitted amount.
 -- Currently, the limit is 10.
 _TagsLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _TagsLimitExceededException =
-    _ServiceError . hasStatus 400 . hasCode "TagsLimitExceeded"
+    _ServiceError . hasCode "TagsLimitExceededException"
 
 -- | This exception is thrown when an operation is called with an invalid
 -- trail ARN. The format of a trail ARN is
 -- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
 _CloudTrailARNInvalidException :: AsError a => Getting (First ServiceError) a ServiceError
 _CloudTrailARNInvalidException =
-    _ServiceError . hasStatus 400 . hasCode "CloudTrailARNInvalid"
+    _ServiceError . hasCode "CloudTrailARNInvalidException"
 
 -- | Occurs when an invalid lookup attribute is specified.
 _InvalidLookupAttributesException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLookupAttributesException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidLookupAttributes"
+    _ServiceError . hasCode "InvalidLookupAttributesException"
 
 -- | This exception is thrown when the provided trail name is not valid.
 -- Trail names must meet the following requirements:
@@ -221,100 +222,108 @@ _InvalidLookupAttributesException =
 -- -   Not be in IP address format (for example, 192.168.5.4)
 _InvalidTrailNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTrailNameException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidTrailName"
+    _ServiceError . hasCode "InvalidTrailNameException"
 
 -- | This exception is thrown when the provided SNS topic name is not valid.
 _InvalidSNSTopicNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSNSTopicNameException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidSnsTopicName"
+    _ServiceError . hasCode "InvalidSnsTopicNameException"
 
 -- | This exception is thrown when the specified resource type is not
 -- supported by CloudTrail.
 _ResourceTypeNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceTypeNotSupportedException =
-    _ServiceError . hasStatus 400 . hasCode "ResourceTypeNotSupported"
+    _ServiceError . hasCode "ResourceTypeNotSupportedException"
 
 -- | Cannot set a CloudWatch Logs delivery for this region.
 _CloudWatchLogsDeliveryUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _CloudWatchLogsDeliveryUnavailableException =
-    _ServiceError . hasStatus 400 . hasCode "CloudWatchLogsDeliveryUnavailable"
+    _ServiceError . hasCode "CloudWatchLogsDeliveryUnavailableException"
 
 -- | This exception is thrown when the KMS key does not exist, or when the S3
 -- bucket and the KMS key are not in the same region.
 _KMSKeyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_KMSKeyNotFoundException =
-    _ServiceError . hasStatus 400 . hasCode "KmsKeyNotFound"
+_KMSKeyNotFoundException = _ServiceError . hasCode "KmsKeyNotFoundException"
 
 -- | This exception is thrown when the trail with the given name is not
 -- found.
 _TrailNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_TrailNotFoundException =
-    _ServiceError . hasStatus 404 . hasCode "TrailNotFound"
+_TrailNotFoundException = _ServiceError . hasCode "TrailNotFoundException"
 
 -- | This exception is deprecated.
 _TrailNotProvidedException :: AsError a => Getting (First ServiceError) a ServiceError
 _TrailNotProvidedException =
-    _ServiceError . hasStatus 404 . hasCode "TrailNotProvided"
+    _ServiceError . hasCode "TrailNotProvidedException"
 
 -- | This exception is thrown when the provided S3 bucket name is not valid.
 _InvalidS3BucketNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidS3BucketNameException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidS3BucketName"
+    _ServiceError . hasCode "InvalidS3BucketNameException"
 
 -- | This exception is thrown when the provided CloudWatch log group is not
 -- valid.
 _InvalidCloudWatchLogsLogGroupARNException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCloudWatchLogsLogGroupARNException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidCloudWatchLogsLogGroupArn"
+    _ServiceError . hasCode "InvalidCloudWatchLogsLogGroupArnException"
 
 -- | This exception is thrown when the specified S3 bucket does not exist.
 _S3BucketDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _S3BucketDoesNotExistException =
-    _ServiceError . hasStatus 404 . hasCode "S3BucketDoesNotExist"
+    _ServiceError . hasCode "S3BucketDoesNotExistException"
 
 -- | Invalid token or token that was previously used in a request with
 -- different parameters. This exception is thrown if the token is invalid.
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
+    _ServiceError . hasCode "InvalidNextTokenException"
 
 -- | This exception is thrown when the key or value specified for the tag
 -- does not match the regular expression
 -- '^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-\']*)$'.
 _InvalidTagParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTagParameterException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidTagParameter"
+    _ServiceError . hasCode "InvalidTagParameterException"
 
 -- | This exception is thrown when the requested operation is not permitted.
 _OperationNotPermittedException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationNotPermittedException =
-    _ServiceError . hasStatus 400 . hasCode "OperationNotPermitted"
+    _ServiceError . hasCode "OperationNotPermittedException"
 
 -- | Reserved for future use.
 _InvalidTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTokenException = _ServiceError . hasStatus 400 . hasCode "InvalidToken"
+_InvalidTokenException = _ServiceError . hasCode "InvalidTokenException"
 
 -- | This exception is thrown if the limit specified is invalid.
 _InvalidMaxResultsException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidMaxResultsException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidMaxResults"
+    _ServiceError . hasCode "InvalidMaxResultsException"
 
 -- | This exception is thrown when the specified trail already exists.
 _TrailAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TrailAlreadyExistsException =
-    _ServiceError . hasStatus 400 . hasCode "TrailAlreadyExists"
+    _ServiceError . hasCode "TrailAlreadyExistsException"
 
 -- | This exception is thrown when the provided S3 prefix is not valid.
 _InvalidS3PrefixException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidS3PrefixException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidS3Prefix"
+_InvalidS3PrefixException = _ServiceError . hasCode "InvalidS3PrefixException"
 
 -- | This exception is thrown when the specified resource is not found.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasStatus 400 . hasCode "ResourceNotFound"
+    _ServiceError . hasCode "ResourceNotFoundException"
+
+-- | This exception is thrown when the combination of parameters provided is
+-- not valid.
+_InvalidParameterCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterCombinationException =
+    _ServiceError . hasCode "InvalidParameterCombinationException"
 
 -- | This exception is thrown when the KMS key ARN is invalid.
 _InvalidKMSKeyIdException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidKMSKeyIdException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidKmsKeyId"
+_InvalidKMSKeyIdException = _ServiceError . hasCode "InvalidKmsKeyIdException"
+
+-- | This exception is thrown when an operation is called on a trail from a
+-- region other than the region in which the trail was created.
+_InvalidHomeRegionException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidHomeRegionException =
+    _ServiceError . hasCode "InvalidHomeRegionException"

@@ -18,7 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new version of the specified AWS IoT policy.
+-- Creates a new version of the specified AWS IoT policy. To update a
+-- policy, create a new policy version. A managed policy can have up to
+-- five versions. If the policy has five versions, you must delete an
+-- existing version using DeletePolicyVersion before you create a new
+-- version.
+--
+-- Optionally, you can set the new version as the policy\'s default
+-- version. The default version is the operative version; that is, the
+-- version that is in effect for the certificates that the policy is
+-- attached to.
 --
 -- /See:/ <https://aws.amazon.com/iot#CreatePolicyVersion.html AWS API Reference> for CreatePolicyVersion.
 module Network.AWS.IoT.CreatePolicyVersion
@@ -78,7 +87,10 @@ createPolicyVersion pPolicyName_ pPolicyDocument_ =
     , _cpvPolicyDocument = pPolicyDocument_
     }
 
--- | Specifies whether the policy version is set as the default.
+-- | Specifies whether the policy version is set as the default. When this
+-- parameter is true, the new policy version becomes the operative version;
+-- that is, the version that is in effect for the certificates that the
+-- policy is attached to.
 cpvSetAsDefault :: Lens' CreatePolicyVersion (Maybe Bool)
 cpvSetAsDefault = lens _cpvSetAsDefault (\ s a -> s{_cpvSetAsDefault = a});
 
@@ -86,7 +98,8 @@ cpvSetAsDefault = lens _cpvSetAsDefault (\ s a -> s{_cpvSetAsDefault = a});
 cpvPolicyName :: Lens' CreatePolicyVersion Text
 cpvPolicyName = lens _cpvPolicyName (\ s a -> s{_cpvPolicyName = a});
 
--- | The JSON document that describes the policy.
+-- | The JSON document that describes the policy. Minimum length of 1.
+-- Maximum length of 2048 excluding whitespaces
 cpvPolicyDocument :: Lens' CreatePolicyVersion Text
 cpvPolicyDocument = lens _cpvPolicyDocument (\ s a -> s{_cpvPolicyDocument = a});
 

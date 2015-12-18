@@ -82,6 +82,7 @@ data ScalingActivityStatusCode
     | Failed
     | InProgress
     | MidLifecycleAction
+    | PendingSpotBidPlacement
     | PreInService
     | Successful
     | WaitingForELBConnectionDraining
@@ -97,6 +98,7 @@ instance FromText ScalingActivityStatusCode where
         "failed" -> pure Failed
         "inprogress" -> pure InProgress
         "midlifecycleaction" -> pure MidLifecycleAction
+        "pendingspotbidplacement" -> pure PendingSpotBidPlacement
         "preinservice" -> pure PreInService
         "successful" -> pure Successful
         "waitingforelbconnectiondraining" -> pure WaitingForELBConnectionDraining
@@ -105,7 +107,7 @@ instance FromText ScalingActivityStatusCode where
         "waitingforspotinstanceid" -> pure WaitingForSpotInstanceId
         "waitingforspotinstancerequestid" -> pure WaitingForSpotInstanceRequestId
         e -> fromTextError $ "Failure parsing ScalingActivityStatusCode from value: '" <> e
-           <> "'. Accepted values: Cancelled, Failed, InProgress, MidLifecycleAction, PreInService, Successful, WaitingForELBConnectionDraining, WaitingForInstanceId, WaitingForInstanceWarmup, WaitingForSpotInstanceId, WaitingForSpotInstanceRequestId"
+           <> "'. Accepted values: Cancelled, Failed, InProgress, MidLifecycleAction, PendingSpotBidPlacement, PreInService, Successful, WaitingForELBConnectionDraining, WaitingForInstanceId, WaitingForInstanceWarmup, WaitingForSpotInstanceId, WaitingForSpotInstanceRequestId"
 
 instance ToText ScalingActivityStatusCode where
     toText = \case
@@ -113,6 +115,7 @@ instance ToText ScalingActivityStatusCode where
         Failed -> "Failed"
         InProgress -> "InProgress"
         MidLifecycleAction -> "MidLifecycleAction"
+        PendingSpotBidPlacement -> "PendingSpotBidPlacement"
         PreInService -> "PreInService"
         Successful -> "Successful"
         WaitingForELBConnectionDraining -> "WaitingForELBConnectionDraining"

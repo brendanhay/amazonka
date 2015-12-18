@@ -254,104 +254,89 @@ sSM =
 -- | The document does not support the platform type of the given instance
 -- ID(s).
 _UnsupportedPlatformType :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedPlatformType =
-    _ServiceError . hasStatus 400 . hasCode "UnsupportedPlatformType"
+_UnsupportedPlatformType = _ServiceError . hasCode "UnsupportedPlatformType"
 
 -- | You must disassociate an SSM document from all instances before you can
 -- delete it.
 _AssociatedInstances :: AsError a => Getting (First ServiceError) a ServiceError
-_AssociatedInstances =
-    _ServiceError . hasStatus 400 . hasCode "AssociatedInstances"
+_AssociatedInstances = _ServiceError . hasCode "AssociatedInstances"
 
 -- | The instance is not in valid state. Valid states are: Running, Pending,
 -- Stopped, Stopping. Invalid states are: Shutting-down and Terminated.
 _InvalidInstanceId :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidInstanceId =
-    _ServiceError . hasStatus 404 . hasCode "InvalidInstanceId"
+_InvalidInstanceId = _ServiceError . hasCode "InvalidInstanceId"
 
 -- | The updated status is the same as the current status.
 _StatusUnchanged :: AsError a => Getting (First ServiceError) a ServiceError
-_StatusUnchanged = _ServiceError . hasStatus 400 . hasCode "StatusUnchanged"
+_StatusUnchanged = _ServiceError . hasCode "StatusUnchanged"
 
 -- | The specified token is not valid.
 _InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
+_InvalidNextToken = _ServiceError . hasCode "InvalidNextToken"
 
 -- | The S3 bucket does not exist.
 _InvalidOutputFolder :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidOutputFolder =
-    _ServiceError . hasStatus 400 . hasCode "InvalidOutputFolder"
+_InvalidOutputFolder = _ServiceError . hasCode "InvalidOutputFolder"
 
 -- | Prism for InvalidCommandId' errors.
 _InvalidCommandId :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidCommandId = _ServiceError . hasStatus 404 . hasCode "InvalidCommandId"
+_InvalidCommandId = _ServiceError . hasCode "InvalidCommandId"
 
 -- | You cannot specify an instance ID in more than one association.
 _DuplicateInstanceId :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateInstanceId =
-    _ServiceError . hasStatus 404 . hasCode "DuplicateInstanceId"
+_DuplicateInstanceId = _ServiceError . hasCode "DuplicateInstanceId"
 
 -- | The specified document does not exist.
 _InvalidDocument :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidDocument = _ServiceError . hasStatus 404 . hasCode "InvalidDocument"
+_InvalidDocument = _ServiceError . hasCode "InvalidDocument"
 
 -- | The specified key is not valid.
 _InvalidFilterKey :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidFilterKey = _ServiceError . hasStatus 400 . hasCode "InvalidFilterKey"
+_InvalidFilterKey = _ServiceError . hasCode "InvalidFilterKey"
 
 -- | The specified filter value is not valid.
 _InvalidInstanceInformationFilterValue :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInstanceInformationFilterValue =
-    _ServiceError .
-    hasStatus 400 . hasCode "InvalidInstanceInformationFilterValue"
+    _ServiceError . hasCode "InvalidInstanceInformationFilterValue"
 
 -- | The specified association already exists.
 _AssociationAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
-_AssociationAlreadyExists =
-    _ServiceError . hasStatus 400 . hasCode "AssociationAlreadyExists"
+_AssociationAlreadyExists = _ServiceError . hasCode "AssociationAlreadyExists"
 
 -- | The content for the SSM document is not valid.
 _InvalidDocumentContent :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidDocumentContent =
-    _ServiceError . hasStatus 400 . hasCode "InvalidDocumentContent"
+_InvalidDocumentContent = _ServiceError . hasCode "InvalidDocumentContent"
 
 -- | You can have at most 2,000 active associations.
 _AssociationLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_AssociationLimitExceeded =
-    _ServiceError . hasStatus 400 . hasCode "AssociationLimitExceeded"
+_AssociationLimitExceeded = _ServiceError . hasCode "AssociationLimitExceeded"
 
 -- | The specified association does not exist.
 _AssociationDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
-_AssociationDoesNotExist =
-    _ServiceError . hasStatus 404 . hasCode "AssociationDoesNotExist"
+_AssociationDoesNotExist = _ServiceError . hasCode "AssociationDoesNotExist"
 
 -- | An error occurred on the server side.
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerError =
-    _ServiceError . hasStatus 500 . hasCode "InternalServerError"
+_InternalServerError = _ServiceError . hasCode "InternalServerError"
 
 -- | There are concurrent updates for a resource that supports one update at
 -- a time.
 _TooManyUpdates :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyUpdates = _ServiceError . hasStatus 429 . hasCode "TooManyUpdates"
+_TooManyUpdates = _ServiceError . hasCode "TooManyUpdates"
 
 -- | The size limit of an SSM document is 64 KB.
 _MaxDocumentSizeExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_MaxDocumentSizeExceeded =
-    _ServiceError . hasStatus 400 . hasCode "MaxDocumentSizeExceeded"
+_MaxDocumentSizeExceeded = _ServiceError . hasCode "MaxDocumentSizeExceeded"
 
 -- | You must specify values for all required parameters in the SSM document.
 -- You can only supply values to parameters defined in the SSM document.
 _InvalidParameters :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameters =
-    _ServiceError . hasStatus 400 . hasCode "InvalidParameters"
+_InvalidParameters = _ServiceError . hasCode "InvalidParameters"
 
 -- | The specified SSM document already exists.
 _DocumentAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
-_DocumentAlreadyExists =
-    _ServiceError . hasStatus 400 . hasCode "DocumentAlreadyExists"
+_DocumentAlreadyExists = _ServiceError . hasCode "DocumentAlreadyExists"
 
 -- | You can have at most 100 active SSM documents.
 _DocumentLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_DocumentLimitExceeded =
-    _ServiceError . hasStatus 400 . hasCode "DocumentLimitExceeded"
+_DocumentLimitExceeded = _ServiceError . hasCode "DocumentLimitExceeded"

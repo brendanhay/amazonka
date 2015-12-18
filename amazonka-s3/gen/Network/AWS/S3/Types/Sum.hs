@@ -323,7 +323,8 @@ instance ToXML MetadataDirective where
     toXML = toXMLText
 
 data ObjectCannedACL
-    = OAuthenticatedRead
+    = OAWSExecRead
+    | OAuthenticatedRead
     | OBucketOwnerFullControl
     | OBucketOwnerRead
     | OPrivate
@@ -333,6 +334,7 @@ data ObjectCannedACL
 
 instance FromText ObjectCannedACL where
     parser = takeLowerText >>= \case
+        "aws-exec-read" -> pure OAWSExecRead
         "authenticated-read" -> pure OAuthenticatedRead
         "bucket-owner-full-control" -> pure OBucketOwnerFullControl
         "bucket-owner-read" -> pure OBucketOwnerRead
@@ -340,10 +342,11 @@ instance FromText ObjectCannedACL where
         "public-read" -> pure OPublicRead
         "public-read-write" -> pure OPublicReadWrite
         e -> fromTextError $ "Failure parsing ObjectCannedACL from value: '" <> e
-           <> "'. Accepted values: authenticated-read, bucket-owner-full-control, bucket-owner-read, private, public-read, public-read-write"
+           <> "'. Accepted values: aws-exec-read, authenticated-read, bucket-owner-full-control, bucket-owner-read, private, public-read, public-read-write"
 
 instance ToText ObjectCannedACL where
     toText = \case
+        OAWSExecRead -> "aws-exec-read"
         OAuthenticatedRead -> "authenticated-read"
         OBucketOwnerFullControl -> "bucket-owner-full-control"
         OBucketOwnerRead -> "bucket-owner-read"

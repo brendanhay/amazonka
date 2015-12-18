@@ -32,6 +32,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
       createApplicationVersion
     , CreateApplicationVersion
     -- * Request Lenses
+    , cavProcess
     , cavSourceBundle
     , cavAutoCreateApplication
     , cavDescription
@@ -56,7 +57,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createApplicationVersion' smart constructor.
 data CreateApplicationVersion = CreateApplicationVersion'
-    { _cavSourceBundle          :: !(Maybe S3Location)
+    { _cavProcess               :: !(Maybe Bool)
+    , _cavSourceBundle          :: !(Maybe S3Location)
     , _cavAutoCreateApplication :: !(Maybe Bool)
     , _cavDescription           :: !(Maybe Text)
     , _cavApplicationName       :: !Text
@@ -66,6 +68,8 @@ data CreateApplicationVersion = CreateApplicationVersion'
 -- | Creates a value of 'CreateApplicationVersion' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cavProcess'
 --
 -- * 'cavSourceBundle'
 --
@@ -82,12 +86,19 @@ createApplicationVersion
     -> CreateApplicationVersion
 createApplicationVersion pApplicationName_ pVersionLabel_ =
     CreateApplicationVersion'
-    { _cavSourceBundle = Nothing
+    { _cavProcess = Nothing
+    , _cavSourceBundle = Nothing
     , _cavAutoCreateApplication = Nothing
     , _cavDescription = Nothing
     , _cavApplicationName = pApplicationName_
     , _cavVersionLabel = pVersionLabel_
     }
+
+-- | Preprocesses and validates the environment manifest and configuration
+-- files in the source bundle. Validating configuration files can identify
+-- issues prior to deploying the application version to an environment.
+cavProcess :: Lens' CreateApplicationVersion (Maybe Bool)
+cavProcess = lens _cavProcess (\ s a -> s{_cavProcess = a});
 
 -- | The Amazon S3 bucket and key that identify the location of the source
 -- bundle for this version.
@@ -106,12 +117,6 @@ cavSourceBundle = lens _cavSourceBundle (\ s a -> s{_cavSourceBundle = a});
 
 -- | Determines how the system behaves if the specified application for this
 -- version does not already exist:
---
--- 'true': Automatically creates the specified application for this version
--- if it does not already exist.
---
--- 'false': Returns an 'InvalidParameterValue' if the specified application
--- for this version does not already exist.
 --
 -- -   'true' : Automatically creates the specified application for this
 --     release if it does not already exist.
@@ -162,6 +167,7 @@ instance ToQuery CreateApplicationVersion where
               ["Action" =:
                  ("CreateApplicationVersion" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
+               "Process" =: _cavProcess,
                "SourceBundle" =: _cavSourceBundle,
                "AutoCreateApplication" =: _cavAutoCreateApplication,
                "Description" =: _cavDescription,

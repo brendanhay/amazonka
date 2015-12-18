@@ -38,6 +38,7 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     , casgInstanceId
     , casgTerminationPolicies
     , casgHealthCheckGracePeriod
+    , casgNewInstancesProtectedFromScaleIn
     , casgVPCZoneIdentifier
     , casgDefaultCooldown
     , casgAvailabilityZones
@@ -65,21 +66,22 @@ import           Network.AWS.Response
 
 -- | /See:/ 'createAutoScalingGroup' smart constructor.
 data CreateAutoScalingGroup = CreateAutoScalingGroup'
-    { _casgInstanceId              :: !(Maybe Text)
-    , _casgTerminationPolicies     :: !(Maybe [Text])
-    , _casgHealthCheckGracePeriod  :: !(Maybe Int)
-    , _casgVPCZoneIdentifier       :: !(Maybe Text)
-    , _casgDefaultCooldown         :: !(Maybe Int)
-    , _casgAvailabilityZones       :: !(Maybe (List1 Text))
-    , _casgDesiredCapacity         :: !(Maybe Int)
-    , _casgLaunchConfigurationName :: !(Maybe Text)
-    , _casgHealthCheckType         :: !(Maybe Text)
-    , _casgPlacementGroup          :: !(Maybe Text)
-    , _casgLoadBalancerNames       :: !(Maybe [Text])
-    , _casgTags                    :: !(Maybe [Tag])
-    , _casgAutoScalingGroupName    :: !Text
-    , _casgMinSize                 :: !Int
-    , _casgMaxSize                 :: !Int
+    { _casgInstanceId                       :: !(Maybe Text)
+    , _casgTerminationPolicies              :: !(Maybe [Text])
+    , _casgHealthCheckGracePeriod           :: !(Maybe Int)
+    , _casgNewInstancesProtectedFromScaleIn :: !(Maybe Bool)
+    , _casgVPCZoneIdentifier                :: !(Maybe Text)
+    , _casgDefaultCooldown                  :: !(Maybe Int)
+    , _casgAvailabilityZones                :: !(Maybe (List1 Text))
+    , _casgDesiredCapacity                  :: !(Maybe Int)
+    , _casgLaunchConfigurationName          :: !(Maybe Text)
+    , _casgHealthCheckType                  :: !(Maybe Text)
+    , _casgPlacementGroup                   :: !(Maybe Text)
+    , _casgLoadBalancerNames                :: !(Maybe [Text])
+    , _casgTags                             :: !(Maybe [Tag])
+    , _casgAutoScalingGroupName             :: !Text
+    , _casgMinSize                          :: !Int
+    , _casgMaxSize                          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAutoScalingGroup' with the minimum fields required to make a request.
@@ -91,6 +93,8 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
 -- * 'casgTerminationPolicies'
 --
 -- * 'casgHealthCheckGracePeriod'
+--
+-- * 'casgNewInstancesProtectedFromScaleIn'
 --
 -- * 'casgVPCZoneIdentifier'
 --
@@ -125,6 +129,7 @@ createAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ =
     { _casgInstanceId = Nothing
     , _casgTerminationPolicies = Nothing
     , _casgHealthCheckGracePeriod = Nothing
+    , _casgNewInstancesProtectedFromScaleIn = Nothing
     , _casgVPCZoneIdentifier = Nothing
     , _casgDefaultCooldown = Nothing
     , _casgAvailabilityZones = Nothing
@@ -164,21 +169,23 @@ casgInstanceId = lens _casgInstanceId (\ s a -> s{_casgInstanceId = a});
 casgTerminationPolicies :: Lens' CreateAutoScalingGroup [Text]
 casgTerminationPolicies = lens _casgTerminationPolicies (\ s a -> s{_casgTerminationPolicies = a}) . _Default . _Coerce;
 
--- | The amount of time, in seconds, after an EC2 instance comes into service
--- that Auto Scaling starts checking its health. During this time, any
--- health check failures for the instance are ignored.
+-- | The amount of time, in seconds, that Auto Scaling waits before checking
+-- the health status of an EC2 instance that has come into service. During
+-- this time, any health check failures for the instance are ignored. The
+-- default is 300.
 --
 -- This parameter is required if you are adding an 'ELB' health check.
--- Frequently, new instances need to warm up, briefly, before they can pass
--- a health check. To provide ample warm-up time, set the health check
--- grace period of the group to match the expected startup period of your
--- application.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-add-elb-healthcheck.html Add an Elastic Load Balancing Health Check to Your Auto Scaling Group>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks for Auto Scaling Instances>
 -- in the /Auto Scaling Developer Guide/.
 casgHealthCheckGracePeriod :: Lens' CreateAutoScalingGroup (Maybe Int)
 casgHealthCheckGracePeriod = lens _casgHealthCheckGracePeriod (\ s a -> s{_casgHealthCheckGracePeriod = a});
+
+-- | Indicates whether newly launched instances are protected from
+-- termination by Auto Scaling when scaling in.
+casgNewInstancesProtectedFromScaleIn :: Lens' CreateAutoScalingGroup (Maybe Bool)
+casgNewInstancesProtectedFromScaleIn = lens _casgNewInstancesProtectedFromScaleIn (\ s a -> s{_casgNewInstancesProtectedFromScaleIn = a});
 
 -- | A comma-separated list of subnet identifiers for your virtual private
 -- cloud (VPC).
@@ -194,9 +201,9 @@ casgVPCZoneIdentifier :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgVPCZoneIdentifier = lens _casgVPCZoneIdentifier (\ s a -> s{_casgVPCZoneIdentifier = a});
 
 -- | The amount of time, in seconds, after a scaling activity completes
--- before another scaling activity can start.
+-- before another scaling activity can start. The default is 300.
 --
--- The default is 300. For more information, see
+-- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
 -- in the /Auto Scaling Developer Guide/.
 casgDefaultCooldown :: Lens' CreateAutoScalingGroup (Maybe Int)
@@ -293,6 +300,8 @@ instance ToQuery CreateAutoScalingGroup where
                    (toQueryList "member" <$> _casgTerminationPolicies),
                "HealthCheckGracePeriod" =:
                  _casgHealthCheckGracePeriod,
+               "NewInstancesProtectedFromScaleIn" =:
+                 _casgNewInstancesProtectedFromScaleIn,
                "VPCZoneIdentifier" =: _casgVPCZoneIdentifier,
                "DefaultCooldown" =: _casgDefaultCooldown,
                "AvailabilityZones" =:

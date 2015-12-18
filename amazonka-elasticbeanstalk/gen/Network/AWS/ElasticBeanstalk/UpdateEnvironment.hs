@@ -45,8 +45,10 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     , ueVersionLabel
     , ueTier
     , ueEnvironmentName
+    , ueApplicationName
     , ueSolutionStackName
     , ueEnvironmentId
+    , ueGroupName
     , ueDescription
 
     -- * Destructuring the Response
@@ -69,6 +71,7 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     , eSolutionStackName
     , eEnvironmentId
     , eHealthStatus
+    , eEnvironmentLinks
     , eDescription
     ) where
 
@@ -79,7 +82,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | This documentation target is not reported in the API reference.
+-- |
 --
 -- /See:/ 'updateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
@@ -89,8 +92,10 @@ data UpdateEnvironment = UpdateEnvironment'
     , _ueVersionLabel      :: !(Maybe Text)
     , _ueTier              :: !(Maybe EnvironmentTier)
     , _ueEnvironmentName   :: !(Maybe Text)
+    , _ueApplicationName   :: !(Maybe Text)
     , _ueSolutionStackName :: !(Maybe Text)
     , _ueEnvironmentId     :: !(Maybe Text)
+    , _ueGroupName         :: !(Maybe Text)
     , _ueDescription       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -110,9 +115,13 @@ data UpdateEnvironment = UpdateEnvironment'
 --
 -- * 'ueEnvironmentName'
 --
+-- * 'ueApplicationName'
+--
 -- * 'ueSolutionStackName'
 --
 -- * 'ueEnvironmentId'
+--
+-- * 'ueGroupName'
 --
 -- * 'ueDescription'
 updateEnvironment
@@ -125,8 +134,10 @@ updateEnvironment =
     , _ueVersionLabel = Nothing
     , _ueTier = Nothing
     , _ueEnvironmentName = Nothing
+    , _ueApplicationName = Nothing
     , _ueSolutionStackName = Nothing
     , _ueEnvironmentId = Nothing
+    , _ueGroupName = Nothing
     , _ueDescription = Nothing
     }
 
@@ -170,6 +181,10 @@ ueTier = lens _ueTier (\ s a -> s{_ueTier = a});
 ueEnvironmentName :: Lens' UpdateEnvironment (Maybe Text)
 ueEnvironmentName = lens _ueEnvironmentName (\ s a -> s{_ueEnvironmentName = a});
 
+-- | The name of the application with which the environment is associated.
+ueApplicationName :: Lens' UpdateEnvironment (Maybe Text)
+ueApplicationName = lens _ueApplicationName (\ s a -> s{_ueApplicationName = a});
+
 -- | This specifies the platform version that the environment will run after
 -- the environment is updated.
 ueSolutionStackName :: Lens' UpdateEnvironment (Maybe Text)
@@ -185,6 +200,15 @@ ueSolutionStackName = lens _ueSolutionStackName (\ s a -> s{_ueSolutionStackName
 -- 'MissingRequiredParameter' error.
 ueEnvironmentId :: Lens' UpdateEnvironment (Maybe Text)
 ueEnvironmentId = lens _ueEnvironmentId (\ s a -> s{_ueEnvironmentId = a});
+
+-- | The name of the group to which the target environment belongs. Specify a
+-- group name only if the environment\'s name is specified in an
+-- environment manifest and not with the environment name or environment ID
+-- parameters. See
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html#environment-mgmt-compose-envyaml Environment Manifest (env.yaml)>
+-- for details.
+ueGroupName :: Lens' UpdateEnvironment (Maybe Text)
+ueGroupName = lens _ueGroupName (\ s a -> s{_ueGroupName = a});
 
 -- | If this parameter is specified, AWS Elastic Beanstalk updates the
 -- description of this environment.
@@ -217,6 +241,8 @@ instance ToQuery UpdateEnvironment where
                  toQuery (toQueryList "member" <$> _ueOptionSettings),
                "VersionLabel" =: _ueVersionLabel, "Tier" =: _ueTier,
                "EnvironmentName" =: _ueEnvironmentName,
+               "ApplicationName" =: _ueApplicationName,
                "SolutionStackName" =: _ueSolutionStackName,
                "EnvironmentId" =: _ueEnvironmentId,
+               "GroupName" =: _ueGroupName,
                "Description" =: _ueDescription]

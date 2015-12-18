@@ -30,8 +30,8 @@
 -- other than the default SOA record and NS resource record sets. If your
 -- hosted zone contains other resource record sets, you must delete them
 -- before you can delete your hosted zone. If you try to delete a hosted
--- zone that contains other resource record sets, Route 53 will deny your
--- request with a 'HostedZoneNotEmpty' error. For information about
+-- zone that contains other resource record sets, Amazon Route 53 will deny
+-- your request with a 'HostedZoneNotEmpty' error. For information about
 -- deleting records from your hosted zone, see ChangeResourceRecordSets.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html AWS API Reference> for DeleteHostedZone.

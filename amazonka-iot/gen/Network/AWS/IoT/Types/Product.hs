@@ -128,7 +128,7 @@ instance ToJSON Action where
 -- | The attribute payload, a JSON string containing up to three key-value
 -- pairs.
 --
--- For example: {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\”}}
+-- For example: {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}
 --
 -- /See:/ 'attributePayload' smart constructor.
 newtype AttributePayload = AttributePayload'
@@ -149,7 +149,7 @@ attributePayload =
 
 -- | A JSON string containing up to three key-value pair in JSON format.
 --
--- For example: {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\”}}
+-- For example: {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}
 apAttributes :: Lens' AttributePayload (HashMap Text Text)
 apAttributes = lens _apAttributes (\ s a -> s{_apAttributes = a}) . _Default . _Map;
 
@@ -364,7 +364,7 @@ dynamoDBAction pTableName_ pRoleARN_ pHashKeyField_ pHashKeyValue_ pRangeKeyFiel
     , _ddaRangeKeyValue = pRangeKeyValue_
     }
 
--- | The action payload.
+-- | The action payload, this name can be customized.
 ddaPayloadField :: Lens' DynamoDBAction (Maybe Text)
 ddaPayloadField = lens _ddaPayloadField (\ s a -> s{_ddaPayloadField = a});
 
@@ -466,7 +466,7 @@ instance ToJSON FirehoseAction where
 --
 -- /See:/ 'keyPair' smart constructor.
 data KeyPair = KeyPair'
-    { _kpPrivateKey :: !(Maybe Text)
+    { _kpPrivateKey :: !(Maybe (Sensitive Text))
     , _kpPublicKey  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -487,7 +487,7 @@ keyPair =
 
 -- | The private key.
 kpPrivateKey :: Lens' KeyPair (Maybe Text)
-kpPrivateKey = lens _kpPrivateKey (\ s a -> s{_kpPrivateKey = a});
+kpPrivateKey = lens _kpPrivateKey (\ s a -> s{_kpPrivateKey = a}) . mapping _Sensitive;
 
 -- | The public key.
 kpPublicKey :: Lens' KeyPair (Maybe Text)

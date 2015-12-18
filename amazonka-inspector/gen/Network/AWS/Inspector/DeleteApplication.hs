@@ -46,7 +46,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'deleteApplication' smart constructor.
 newtype DeleteApplication = DeleteApplication'
-    { _dApplicationARN :: Maybe Text
+    { _dApplicationARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteApplication' with the minimum fields required to make a request.
@@ -55,14 +55,15 @@ newtype DeleteApplication = DeleteApplication'
 --
 -- * 'dApplicationARN'
 deleteApplication
-    :: DeleteApplication
-deleteApplication =
+    :: Text -- ^ 'dApplicationARN'
+    -> DeleteApplication
+deleteApplication pApplicationARN_ =
     DeleteApplication'
-    { _dApplicationARN = Nothing
+    { _dApplicationARN = pApplicationARN_
     }
 
 -- | The ARN specifying the application that you want to delete.
-dApplicationARN :: Lens' DeleteApplication (Maybe Text)
+dApplicationARN :: Lens' DeleteApplication Text
 dApplicationARN = lens _dApplicationARN (\ s a -> s{_dApplicationARN = a});
 
 instance AWSRequest DeleteApplication where
@@ -87,7 +88,7 @@ instance ToJSON DeleteApplication where
         toJSON DeleteApplication'{..}
           = object
               (catMaybes
-                 [("applicationArn" .=) <$> _dApplicationARN])
+                 [Just ("applicationArn" .= _dApplicationARN)])
 
 instance ToPath DeleteApplication where
         toPath = const "/"

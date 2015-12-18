@@ -47,7 +47,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'registerCrossAccountAccessRole' smart constructor.
 newtype RegisterCrossAccountAccessRole = RegisterCrossAccountAccessRole'
-    { _rcaarRoleARN :: Maybe Text
+    { _rcaarRoleARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterCrossAccountAccessRole' with the minimum fields required to make a request.
@@ -56,15 +56,16 @@ newtype RegisterCrossAccountAccessRole = RegisterCrossAccountAccessRole'
 --
 -- * 'rcaarRoleARN'
 registerCrossAccountAccessRole
-    :: RegisterCrossAccountAccessRole
-registerCrossAccountAccessRole =
+    :: Text -- ^ 'rcaarRoleARN'
+    -> RegisterCrossAccountAccessRole
+registerCrossAccountAccessRole pRoleARN_ =
     RegisterCrossAccountAccessRole'
-    { _rcaarRoleARN = Nothing
+    { _rcaarRoleARN = pRoleARN_
     }
 
 -- | The ARN of the IAM role that Inspector uses to list your EC2 instances
 -- during the assessment.
-rcaarRoleARN :: Lens' RegisterCrossAccountAccessRole (Maybe Text)
+rcaarRoleARN :: Lens' RegisterCrossAccountAccessRole Text
 rcaarRoleARN = lens _rcaarRoleARN (\ s a -> s{_rcaarRoleARN = a});
 
 instance AWSRequest RegisterCrossAccountAccessRole
@@ -92,7 +93,7 @@ instance ToHeaders RegisterCrossAccountAccessRole
 instance ToJSON RegisterCrossAccountAccessRole where
         toJSON RegisterCrossAccountAccessRole'{..}
           = object
-              (catMaybes [("roleArn" .=) <$> _rcaarRoleARN])
+              (catMaybes [Just ("roleArn" .= _rcaarRoleARN)])
 
 instance ToPath RegisterCrossAccountAccessRole where
         toPath = const "/"

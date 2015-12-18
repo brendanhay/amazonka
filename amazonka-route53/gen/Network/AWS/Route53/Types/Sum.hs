@@ -45,6 +45,9 @@ instance ToByteString ChangeAction
 instance ToQuery      ChangeAction
 instance ToHeader     ChangeAction
 
+instance FromXML ChangeAction where
+    parseXML = parseXMLText "ChangeAction"
+
 instance ToXML ChangeAction where
     toXML = toXMLText
 

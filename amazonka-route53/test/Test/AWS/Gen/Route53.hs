@@ -31,8 +31,14 @@ import Test.AWS.Route53.Internal
 --         [ testAssociateVPCWithHostedZone $
 --             associateVPCWithHostedZone
 --
+--         , testDeleteTrafficPolicy $
+--             deleteTrafficPolicy
+--
 --         , testGetCheckerIPRanges $
 --             getCheckerIPRanges
+--
+--         , testGetTrafficPolicyInstance $
+--             getTrafficPolicyInstance
 --
 --         , testGetHealthCheckLastFailureReason $
 --             getHealthCheckLastFailureReason
@@ -49,6 +55,12 @@ import Test.AWS.Route53.Internal
 --         , testListTagsForResource $
 --             listTagsForResource
 --
+--         , testListTrafficPolicyInstances $
+--             listTrafficPolicyInstances
+--
+--         , testCreateTrafficPolicyInstance $
+--             createTrafficPolicyInstance
+--
 --         , testGetChange $
 --             getChange
 --
@@ -64,6 +76,9 @@ import Test.AWS.Route53.Internal
 --         , testCreateHostedZone $
 --             createHostedZone
 --
+--         , testListTrafficPolicyInstancesByPolicy $
+--             listTrafficPolicyInstancesByPolicy
+--
 --         , testDisassociateVPCFromHostedZone $
 --             disassociateVPCFromHostedZone
 --
@@ -75,6 +90,9 @@ import Test.AWS.Route53.Internal
 --
 --         , testListHostedZones $
 --             listHostedZones
+--
+--         , testGetTrafficPolicyInstanceCount $
+--             getTrafficPolicyInstanceCount
 --
 --         , testListGeoLocations $
 --             listGeoLocations
@@ -91,14 +109,32 @@ import Test.AWS.Route53.Internal
 --         , testCreateReusableDelegationSet $
 --             createReusableDelegationSet
 --
+--         , testListChangeBatchesByRRSet $
+--             listChangeBatchesByRRSet
+--
 --         , testGetHealthCheckCount $
 --             getHealthCheckCount
+--
+--         , testUpdateTrafficPolicyComment $
+--             updateTrafficPolicyComment
 --
 --         , testGetHostedZoneCount $
 --             getHostedZoneCount
 --
+--         , testListChangeBatchesByHostedZone $
+--             listChangeBatchesByHostedZone
+--
+--         , testGetChangeDetails $
+--             getChangeDetails
+--
 --         , testGetReusableDelegationSet $
 --             getReusableDelegationSet
+--
+--         , testDeleteTrafficPolicyInstance $
+--             deleteTrafficPolicyInstance
+--
+--         , testUpdateTrafficPolicyInstance $
+--             updateTrafficPolicyInstance
 --
 --         , testUpdateHostedZoneComment $
 --             updateHostedZoneComment
@@ -106,8 +142,17 @@ import Test.AWS.Route53.Internal
 --         , testGetHealthCheckStatus $
 --             getHealthCheckStatus
 --
+--         , testCreateTrafficPolicyVersion $
+--             createTrafficPolicyVersion
+--
 --         , testListHealthChecks $
 --             listHealthChecks
+--
+--         , testGetTrafficPolicy $
+--             getTrafficPolicy
+--
+--         , testListTrafficPolicyVersions $
+--             listTrafficPolicyVersions
 --
 --         , testDeleteHostedZone $
 --             deleteHostedZone
@@ -118,14 +163,29 @@ import Test.AWS.Route53.Internal
 --         , testListTagsForResources $
 --             listTagsForResources
 --
+--         , testCreateTrafficPolicy $
+--             createTrafficPolicy
+--
+--         , testListTrafficPolicyInstancesByHostedZone $
+--             listTrafficPolicyInstancesByHostedZone
+--
+--         , testListTrafficPolicies $
+--             listTrafficPolicies
+--
 --           ]
 
 --     , testGroup "response"
 --         [ testAssociateVPCWithHostedZoneResponse $
 --             associateVPCWithHostedZoneResponse
 --
+--         , testDeleteTrafficPolicyResponse $
+--             deleteTrafficPolicyResponse
+--
 --         , testGetCheckerIPRangesResponse $
 --             getCheckerIPRangesResponse
+--
+--         , testGetTrafficPolicyInstanceResponse $
+--             getTrafficPolicyInstanceResponse
 --
 --         , testGetHealthCheckLastFailureReasonResponse $
 --             getHealthCheckLastFailureReasonResponse
@@ -142,6 +202,12 @@ import Test.AWS.Route53.Internal
 --         , testListTagsForResourceResponse $
 --             listTagsForResourceResponse
 --
+--         , testListTrafficPolicyInstancesResponse $
+--             listTrafficPolicyInstancesResponse
+--
+--         , testCreateTrafficPolicyInstanceResponse $
+--             createTrafficPolicyInstanceResponse
+--
 --         , testGetChangeResponse $
 --             getChangeResponse
 --
@@ -157,6 +223,9 @@ import Test.AWS.Route53.Internal
 --         , testCreateHostedZoneResponse $
 --             createHostedZoneResponse
 --
+--         , testListTrafficPolicyInstancesByPolicyResponse $
+--             listTrafficPolicyInstancesByPolicyResponse
+--
 --         , testDisassociateVPCFromHostedZoneResponse $
 --             disassociateVPCFromHostedZoneResponse
 --
@@ -168,6 +237,9 @@ import Test.AWS.Route53.Internal
 --
 --         , testListHostedZonesResponse $
 --             listHostedZonesResponse
+--
+--         , testGetTrafficPolicyInstanceCountResponse $
+--             getTrafficPolicyInstanceCountResponse
 --
 --         , testListGeoLocationsResponse $
 --             listGeoLocationsResponse
@@ -184,14 +256,32 @@ import Test.AWS.Route53.Internal
 --         , testCreateReusableDelegationSetResponse $
 --             createReusableDelegationSetResponse
 --
+--         , testListChangeBatchesByRRSetResponse $
+--             listChangeBatchesByRRSetResponse
+--
 --         , testGetHealthCheckCountResponse $
 --             getHealthCheckCountResponse
+--
+--         , testUpdateTrafficPolicyCommentResponse $
+--             updateTrafficPolicyCommentResponse
 --
 --         , testGetHostedZoneCountResponse $
 --             getHostedZoneCountResponse
 --
+--         , testListChangeBatchesByHostedZoneResponse $
+--             listChangeBatchesByHostedZoneResponse
+--
+--         , testGetChangeDetailsResponse $
+--             getChangeDetailsResponse
+--
 --         , testGetReusableDelegationSetResponse $
 --             getReusableDelegationSetResponse
+--
+--         , testDeleteTrafficPolicyInstanceResponse $
+--             deleteTrafficPolicyInstanceResponse
+--
+--         , testUpdateTrafficPolicyInstanceResponse $
+--             updateTrafficPolicyInstanceResponse
 --
 --         , testUpdateHostedZoneCommentResponse $
 --             updateHostedZoneCommentResponse
@@ -199,8 +289,17 @@ import Test.AWS.Route53.Internal
 --         , testGetHealthCheckStatusResponse $
 --             getHealthCheckStatusResponse
 --
+--         , testCreateTrafficPolicyVersionResponse $
+--             createTrafficPolicyVersionResponse
+--
 --         , testListHealthChecksResponse $
 --             listHealthChecksResponse
+--
+--         , testGetTrafficPolicyResponse $
+--             getTrafficPolicyResponse
+--
+--         , testListTrafficPolicyVersionsResponse $
+--             listTrafficPolicyVersionsResponse
 --
 --         , testDeleteHostedZoneResponse $
 --             deleteHostedZoneResponse
@@ -210,6 +309,15 @@ import Test.AWS.Route53.Internal
 --
 --         , testListTagsForResourcesResponse $
 --             listTagsForResourcesResponse
+--
+--         , testCreateTrafficPolicyResponse $
+--             createTrafficPolicyResponse
+--
+--         , testListTrafficPolicyInstancesByHostedZoneResponse $
+--             listTrafficPolicyInstancesByHostedZoneResponse
+--
+--         , testListTrafficPoliciesResponse $
+--             listTrafficPoliciesResponse
 --
 --           ]
 --     ]
@@ -221,10 +329,20 @@ testAssociateVPCWithHostedZone = req
     "AssociateVPCWithHostedZone"
     "fixture/AssociateVPCWithHostedZone.yaml"
 
+testDeleteTrafficPolicy :: DeleteTrafficPolicy -> TestTree
+testDeleteTrafficPolicy = req
+    "DeleteTrafficPolicy"
+    "fixture/DeleteTrafficPolicy.yaml"
+
 testGetCheckerIPRanges :: GetCheckerIPRanges -> TestTree
 testGetCheckerIPRanges = req
     "GetCheckerIPRanges"
     "fixture/GetCheckerIPRanges.yaml"
+
+testGetTrafficPolicyInstance :: GetTrafficPolicyInstance -> TestTree
+testGetTrafficPolicyInstance = req
+    "GetTrafficPolicyInstance"
+    "fixture/GetTrafficPolicyInstance.yaml"
 
 testGetHealthCheckLastFailureReason :: GetHealthCheckLastFailureReason -> TestTree
 testGetHealthCheckLastFailureReason = req
@@ -251,6 +369,16 @@ testListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
+testListTrafficPolicyInstances :: ListTrafficPolicyInstances -> TestTree
+testListTrafficPolicyInstances = req
+    "ListTrafficPolicyInstances"
+    "fixture/ListTrafficPolicyInstances.yaml"
+
+testCreateTrafficPolicyInstance :: CreateTrafficPolicyInstance -> TestTree
+testCreateTrafficPolicyInstance = req
+    "CreateTrafficPolicyInstance"
+    "fixture/CreateTrafficPolicyInstance.yaml"
+
 testGetChange :: GetChange -> TestTree
 testGetChange = req
     "GetChange"
@@ -276,6 +404,11 @@ testCreateHostedZone = req
     "CreateHostedZone"
     "fixture/CreateHostedZone.yaml"
 
+testListTrafficPolicyInstancesByPolicy :: ListTrafficPolicyInstancesByPolicy -> TestTree
+testListTrafficPolicyInstancesByPolicy = req
+    "ListTrafficPolicyInstancesByPolicy"
+    "fixture/ListTrafficPolicyInstancesByPolicy.yaml"
+
 testDisassociateVPCFromHostedZone :: DisassociateVPCFromHostedZone -> TestTree
 testDisassociateVPCFromHostedZone = req
     "DisassociateVPCFromHostedZone"
@@ -295,6 +428,11 @@ testListHostedZones :: ListHostedZones -> TestTree
 testListHostedZones = req
     "ListHostedZones"
     "fixture/ListHostedZones.yaml"
+
+testGetTrafficPolicyInstanceCount :: GetTrafficPolicyInstanceCount -> TestTree
+testGetTrafficPolicyInstanceCount = req
+    "GetTrafficPolicyInstanceCount"
+    "fixture/GetTrafficPolicyInstanceCount.yaml"
 
 testListGeoLocations :: ListGeoLocations -> TestTree
 testListGeoLocations = req
@@ -321,20 +459,50 @@ testCreateReusableDelegationSet = req
     "CreateReusableDelegationSet"
     "fixture/CreateReusableDelegationSet.yaml"
 
+testListChangeBatchesByRRSet :: ListChangeBatchesByRRSet -> TestTree
+testListChangeBatchesByRRSet = req
+    "ListChangeBatchesByRRSet"
+    "fixture/ListChangeBatchesByRRSet.yaml"
+
 testGetHealthCheckCount :: GetHealthCheckCount -> TestTree
 testGetHealthCheckCount = req
     "GetHealthCheckCount"
     "fixture/GetHealthCheckCount.yaml"
+
+testUpdateTrafficPolicyComment :: UpdateTrafficPolicyComment -> TestTree
+testUpdateTrafficPolicyComment = req
+    "UpdateTrafficPolicyComment"
+    "fixture/UpdateTrafficPolicyComment.yaml"
 
 testGetHostedZoneCount :: GetHostedZoneCount -> TestTree
 testGetHostedZoneCount = req
     "GetHostedZoneCount"
     "fixture/GetHostedZoneCount.yaml"
 
+testListChangeBatchesByHostedZone :: ListChangeBatchesByHostedZone -> TestTree
+testListChangeBatchesByHostedZone = req
+    "ListChangeBatchesByHostedZone"
+    "fixture/ListChangeBatchesByHostedZone.yaml"
+
+testGetChangeDetails :: GetChangeDetails -> TestTree
+testGetChangeDetails = req
+    "GetChangeDetails"
+    "fixture/GetChangeDetails.yaml"
+
 testGetReusableDelegationSet :: GetReusableDelegationSet -> TestTree
 testGetReusableDelegationSet = req
     "GetReusableDelegationSet"
     "fixture/GetReusableDelegationSet.yaml"
+
+testDeleteTrafficPolicyInstance :: DeleteTrafficPolicyInstance -> TestTree
+testDeleteTrafficPolicyInstance = req
+    "DeleteTrafficPolicyInstance"
+    "fixture/DeleteTrafficPolicyInstance.yaml"
+
+testUpdateTrafficPolicyInstance :: UpdateTrafficPolicyInstance -> TestTree
+testUpdateTrafficPolicyInstance = req
+    "UpdateTrafficPolicyInstance"
+    "fixture/UpdateTrafficPolicyInstance.yaml"
 
 testUpdateHostedZoneComment :: UpdateHostedZoneComment -> TestTree
 testUpdateHostedZoneComment = req
@@ -346,10 +514,25 @@ testGetHealthCheckStatus = req
     "GetHealthCheckStatus"
     "fixture/GetHealthCheckStatus.yaml"
 
+testCreateTrafficPolicyVersion :: CreateTrafficPolicyVersion -> TestTree
+testCreateTrafficPolicyVersion = req
+    "CreateTrafficPolicyVersion"
+    "fixture/CreateTrafficPolicyVersion.yaml"
+
 testListHealthChecks :: ListHealthChecks -> TestTree
 testListHealthChecks = req
     "ListHealthChecks"
     "fixture/ListHealthChecks.yaml"
+
+testGetTrafficPolicy :: GetTrafficPolicy -> TestTree
+testGetTrafficPolicy = req
+    "GetTrafficPolicy"
+    "fixture/GetTrafficPolicy.yaml"
+
+testListTrafficPolicyVersions :: ListTrafficPolicyVersions -> TestTree
+testListTrafficPolicyVersions = req
+    "ListTrafficPolicyVersions"
+    "fixture/ListTrafficPolicyVersions.yaml"
 
 testDeleteHostedZone :: DeleteHostedZone -> TestTree
 testDeleteHostedZone = req
@@ -366,6 +549,21 @@ testListTagsForResources = req
     "ListTagsForResources"
     "fixture/ListTagsForResources.yaml"
 
+testCreateTrafficPolicy :: CreateTrafficPolicy -> TestTree
+testCreateTrafficPolicy = req
+    "CreateTrafficPolicy"
+    "fixture/CreateTrafficPolicy.yaml"
+
+testListTrafficPolicyInstancesByHostedZone :: ListTrafficPolicyInstancesByHostedZone -> TestTree
+testListTrafficPolicyInstancesByHostedZone = req
+    "ListTrafficPolicyInstancesByHostedZone"
+    "fixture/ListTrafficPolicyInstancesByHostedZone.yaml"
+
+testListTrafficPolicies :: ListTrafficPolicies -> TestTree
+testListTrafficPolicies = req
+    "ListTrafficPolicies"
+    "fixture/ListTrafficPolicies.yaml"
+
 -- Responses
 
 testAssociateVPCWithHostedZoneResponse :: AssociateVPCWithHostedZoneResponse -> TestTree
@@ -375,12 +573,26 @@ testAssociateVPCWithHostedZoneResponse = res
     route53
     (Proxy :: Proxy AssociateVPCWithHostedZone)
 
+testDeleteTrafficPolicyResponse :: DeleteTrafficPolicyResponse -> TestTree
+testDeleteTrafficPolicyResponse = res
+    "DeleteTrafficPolicyResponse"
+    "fixture/DeleteTrafficPolicyResponse.proto"
+    route53
+    (Proxy :: Proxy DeleteTrafficPolicy)
+
 testGetCheckerIPRangesResponse :: GetCheckerIPRangesResponse -> TestTree
 testGetCheckerIPRangesResponse = res
     "GetCheckerIPRangesResponse"
     "fixture/GetCheckerIPRangesResponse.proto"
     route53
     (Proxy :: Proxy GetCheckerIPRanges)
+
+testGetTrafficPolicyInstanceResponse :: GetTrafficPolicyInstanceResponse -> TestTree
+testGetTrafficPolicyInstanceResponse = res
+    "GetTrafficPolicyInstanceResponse"
+    "fixture/GetTrafficPolicyInstanceResponse.proto"
+    route53
+    (Proxy :: Proxy GetTrafficPolicyInstance)
 
 testGetHealthCheckLastFailureReasonResponse :: GetHealthCheckLastFailureReasonResponse -> TestTree
 testGetHealthCheckLastFailureReasonResponse = res
@@ -417,6 +629,20 @@ testListTagsForResourceResponse = res
     route53
     (Proxy :: Proxy ListTagsForResource)
 
+testListTrafficPolicyInstancesResponse :: ListTrafficPolicyInstancesResponse -> TestTree
+testListTrafficPolicyInstancesResponse = res
+    "ListTrafficPolicyInstancesResponse"
+    "fixture/ListTrafficPolicyInstancesResponse.proto"
+    route53
+    (Proxy :: Proxy ListTrafficPolicyInstances)
+
+testCreateTrafficPolicyInstanceResponse :: CreateTrafficPolicyInstanceResponse -> TestTree
+testCreateTrafficPolicyInstanceResponse = res
+    "CreateTrafficPolicyInstanceResponse"
+    "fixture/CreateTrafficPolicyInstanceResponse.proto"
+    route53
+    (Proxy :: Proxy CreateTrafficPolicyInstance)
+
 testGetChangeResponse :: GetChangeResponse -> TestTree
 testGetChangeResponse = res
     "GetChangeResponse"
@@ -452,6 +678,13 @@ testCreateHostedZoneResponse = res
     route53
     (Proxy :: Proxy CreateHostedZone)
 
+testListTrafficPolicyInstancesByPolicyResponse :: ListTrafficPolicyInstancesByPolicyResponse -> TestTree
+testListTrafficPolicyInstancesByPolicyResponse = res
+    "ListTrafficPolicyInstancesByPolicyResponse"
+    "fixture/ListTrafficPolicyInstancesByPolicyResponse.proto"
+    route53
+    (Proxy :: Proxy ListTrafficPolicyInstancesByPolicy)
+
 testDisassociateVPCFromHostedZoneResponse :: DisassociateVPCFromHostedZoneResponse -> TestTree
 testDisassociateVPCFromHostedZoneResponse = res
     "DisassociateVPCFromHostedZoneResponse"
@@ -479,6 +712,13 @@ testListHostedZonesResponse = res
     "fixture/ListHostedZonesResponse.proto"
     route53
     (Proxy :: Proxy ListHostedZones)
+
+testGetTrafficPolicyInstanceCountResponse :: GetTrafficPolicyInstanceCountResponse -> TestTree
+testGetTrafficPolicyInstanceCountResponse = res
+    "GetTrafficPolicyInstanceCountResponse"
+    "fixture/GetTrafficPolicyInstanceCountResponse.proto"
+    route53
+    (Proxy :: Proxy GetTrafficPolicyInstanceCount)
 
 testListGeoLocationsResponse :: ListGeoLocationsResponse -> TestTree
 testListGeoLocationsResponse = res
@@ -515,12 +755,26 @@ testCreateReusableDelegationSetResponse = res
     route53
     (Proxy :: Proxy CreateReusableDelegationSet)
 
+testListChangeBatchesByRRSetResponse :: ListChangeBatchesByRRSetResponse -> TestTree
+testListChangeBatchesByRRSetResponse = res
+    "ListChangeBatchesByRRSetResponse"
+    "fixture/ListChangeBatchesByRRSetResponse.proto"
+    route53
+    (Proxy :: Proxy ListChangeBatchesByRRSet)
+
 testGetHealthCheckCountResponse :: GetHealthCheckCountResponse -> TestTree
 testGetHealthCheckCountResponse = res
     "GetHealthCheckCountResponse"
     "fixture/GetHealthCheckCountResponse.proto"
     route53
     (Proxy :: Proxy GetHealthCheckCount)
+
+testUpdateTrafficPolicyCommentResponse :: UpdateTrafficPolicyCommentResponse -> TestTree
+testUpdateTrafficPolicyCommentResponse = res
+    "UpdateTrafficPolicyCommentResponse"
+    "fixture/UpdateTrafficPolicyCommentResponse.proto"
+    route53
+    (Proxy :: Proxy UpdateTrafficPolicyComment)
 
 testGetHostedZoneCountResponse :: GetHostedZoneCountResponse -> TestTree
 testGetHostedZoneCountResponse = res
@@ -529,12 +783,40 @@ testGetHostedZoneCountResponse = res
     route53
     (Proxy :: Proxy GetHostedZoneCount)
 
+testListChangeBatchesByHostedZoneResponse :: ListChangeBatchesByHostedZoneResponse -> TestTree
+testListChangeBatchesByHostedZoneResponse = res
+    "ListChangeBatchesByHostedZoneResponse"
+    "fixture/ListChangeBatchesByHostedZoneResponse.proto"
+    route53
+    (Proxy :: Proxy ListChangeBatchesByHostedZone)
+
+testGetChangeDetailsResponse :: GetChangeDetailsResponse -> TestTree
+testGetChangeDetailsResponse = res
+    "GetChangeDetailsResponse"
+    "fixture/GetChangeDetailsResponse.proto"
+    route53
+    (Proxy :: Proxy GetChangeDetails)
+
 testGetReusableDelegationSetResponse :: GetReusableDelegationSetResponse -> TestTree
 testGetReusableDelegationSetResponse = res
     "GetReusableDelegationSetResponse"
     "fixture/GetReusableDelegationSetResponse.proto"
     route53
     (Proxy :: Proxy GetReusableDelegationSet)
+
+testDeleteTrafficPolicyInstanceResponse :: DeleteTrafficPolicyInstanceResponse -> TestTree
+testDeleteTrafficPolicyInstanceResponse = res
+    "DeleteTrafficPolicyInstanceResponse"
+    "fixture/DeleteTrafficPolicyInstanceResponse.proto"
+    route53
+    (Proxy :: Proxy DeleteTrafficPolicyInstance)
+
+testUpdateTrafficPolicyInstanceResponse :: UpdateTrafficPolicyInstanceResponse -> TestTree
+testUpdateTrafficPolicyInstanceResponse = res
+    "UpdateTrafficPolicyInstanceResponse"
+    "fixture/UpdateTrafficPolicyInstanceResponse.proto"
+    route53
+    (Proxy :: Proxy UpdateTrafficPolicyInstance)
 
 testUpdateHostedZoneCommentResponse :: UpdateHostedZoneCommentResponse -> TestTree
 testUpdateHostedZoneCommentResponse = res
@@ -550,12 +832,33 @@ testGetHealthCheckStatusResponse = res
     route53
     (Proxy :: Proxy GetHealthCheckStatus)
 
+testCreateTrafficPolicyVersionResponse :: CreateTrafficPolicyVersionResponse -> TestTree
+testCreateTrafficPolicyVersionResponse = res
+    "CreateTrafficPolicyVersionResponse"
+    "fixture/CreateTrafficPolicyVersionResponse.proto"
+    route53
+    (Proxy :: Proxy CreateTrafficPolicyVersion)
+
 testListHealthChecksResponse :: ListHealthChecksResponse -> TestTree
 testListHealthChecksResponse = res
     "ListHealthChecksResponse"
     "fixture/ListHealthChecksResponse.proto"
     route53
     (Proxy :: Proxy ListHealthChecks)
+
+testGetTrafficPolicyResponse :: GetTrafficPolicyResponse -> TestTree
+testGetTrafficPolicyResponse = res
+    "GetTrafficPolicyResponse"
+    "fixture/GetTrafficPolicyResponse.proto"
+    route53
+    (Proxy :: Proxy GetTrafficPolicy)
+
+testListTrafficPolicyVersionsResponse :: ListTrafficPolicyVersionsResponse -> TestTree
+testListTrafficPolicyVersionsResponse = res
+    "ListTrafficPolicyVersionsResponse"
+    "fixture/ListTrafficPolicyVersionsResponse.proto"
+    route53
+    (Proxy :: Proxy ListTrafficPolicyVersions)
 
 testDeleteHostedZoneResponse :: DeleteHostedZoneResponse -> TestTree
 testDeleteHostedZoneResponse = res
@@ -577,3 +880,24 @@ testListTagsForResourcesResponse = res
     "fixture/ListTagsForResourcesResponse.proto"
     route53
     (Proxy :: Proxy ListTagsForResources)
+
+testCreateTrafficPolicyResponse :: CreateTrafficPolicyResponse -> TestTree
+testCreateTrafficPolicyResponse = res
+    "CreateTrafficPolicyResponse"
+    "fixture/CreateTrafficPolicyResponse.proto"
+    route53
+    (Proxy :: Proxy CreateTrafficPolicy)
+
+testListTrafficPolicyInstancesByHostedZoneResponse :: ListTrafficPolicyInstancesByHostedZoneResponse -> TestTree
+testListTrafficPolicyInstancesByHostedZoneResponse = res
+    "ListTrafficPolicyInstancesByHostedZoneResponse"
+    "fixture/ListTrafficPolicyInstancesByHostedZoneResponse.proto"
+    route53
+    (Proxy :: Proxy ListTrafficPolicyInstancesByHostedZone)
+
+testListTrafficPoliciesResponse :: ListTrafficPoliciesResponse -> TestTree
+testListTrafficPoliciesResponse = res
+    "ListTrafficPoliciesResponse"
+    "fixture/ListTrafficPoliciesResponse.proto"
+    route53
+    (Proxy :: Proxy ListTrafficPolicies)

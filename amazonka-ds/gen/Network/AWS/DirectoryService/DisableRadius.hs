@@ -18,8 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables multi-factor authentication (MFA) with Remote Authentication
--- Dial In User Service (RADIUS) for an AD Connector directory.
+-- Disables multi-factor authentication (MFA) with the Remote
+-- Authentication Dial In User Service (RADIUS) server for an AD Connector
+-- directory.
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DisableRadius.html AWS API Reference> for DisableRadius.
 module Network.AWS.DirectoryService.DisableRadius
@@ -64,7 +65,7 @@ disableRadius pDirectoryId_ =
     { _drDirectoryId = pDirectoryId_
     }
 
--- | The identifier of the directory to disable MFA for.
+-- | The identifier of the directory for which to disable MFA.
 drDirectoryId :: Lens' DisableRadius Text
 drDirectoryId = lens _drDirectoryId (\ s a -> s{_drDirectoryId = a});
 

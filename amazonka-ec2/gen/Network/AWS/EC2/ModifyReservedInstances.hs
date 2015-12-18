@@ -19,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the Availability Zone, instance count, instance type, or
--- network platform (EC2-Classic or EC2-VPC) of your Reserved Instances.
--- The Reserved Instances to be modified must be identical, except for
+-- network platform (EC2-Classic or EC2-VPC) of your Reserved instances.
+-- The Reserved instances to be modified must be identical, except for
 -- Availability Zone, network platform, and instance type.
 --
 -- For more information, see
@@ -84,11 +84,11 @@ modifyReservedInstances =
 mriClientToken :: Lens' ModifyReservedInstances (Maybe Text)
 mriClientToken = lens _mriClientToken (\ s a -> s{_mriClientToken = a});
 
--- | The IDs of the Reserved Instances to modify.
+-- | The IDs of the Reserved instances to modify.
 mriReservedInstancesIds :: Lens' ModifyReservedInstances [Text]
 mriReservedInstancesIds = lens _mriReservedInstancesIds (\ s a -> s{_mriReservedInstancesIds = a}) . _Coerce;
 
--- | The configuration settings for the Reserved Instances to modify.
+-- | The configuration settings for the Reserved instances to modify.
 mriTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
 mriTargetConfigurations = lens _mriTargetConfigurations (\ s a -> s{_mriTargetConfigurations = a}) . _Coerce;
 

@@ -37,6 +37,7 @@ module Network.AWS.RDS.RestoreDBClusterFromSnapshot
     , rdcfsEngineVersion
     , rdcfsDBSubnetGroupName
     , rdcfsAvailabilityZones
+    , rdcfsKMSKeyId
     , rdcfsVPCSecurityGroupIds
     , rdcfsDatabaseName
     , rdcfsOptionGroupName
@@ -68,6 +69,7 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
     { _rdcfsEngineVersion       :: !(Maybe Text)
     , _rdcfsDBSubnetGroupName   :: !(Maybe Text)
     , _rdcfsAvailabilityZones   :: !(Maybe [Text])
+    , _rdcfsKMSKeyId            :: !(Maybe Text)
     , _rdcfsVPCSecurityGroupIds :: !(Maybe [Text])
     , _rdcfsDatabaseName        :: !(Maybe Text)
     , _rdcfsOptionGroupName     :: !(Maybe Text)
@@ -87,6 +89,8 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 -- * 'rdcfsDBSubnetGroupName'
 --
 -- * 'rdcfsAvailabilityZones'
+--
+-- * 'rdcfsKMSKeyId'
 --
 -- * 'rdcfsVPCSecurityGroupIds'
 --
@@ -113,6 +117,7 @@ restoreDBClusterFromSnapshot pDBClusterIdentifier_ pSnapshotIdentifier_ pEngine_
     { _rdcfsEngineVersion = Nothing
     , _rdcfsDBSubnetGroupName = Nothing
     , _rdcfsAvailabilityZones = Nothing
+    , _rdcfsKMSKeyId = Nothing
     , _rdcfsVPCSecurityGroupIds = Nothing
     , _rdcfsDatabaseName = Nothing
     , _rdcfsOptionGroupName = Nothing
@@ -135,6 +140,30 @@ rdcfsDBSubnetGroupName = lens _rdcfsDBSubnetGroupName (\ s a -> s{_rdcfsDBSubnet
 -- restored DB cluster can be created in.
 rdcfsAvailabilityZones :: Lens' RestoreDBClusterFromSnapshot [Text]
 rdcfsAvailabilityZones = lens _rdcfsAvailabilityZones (\ s a -> s{_rdcfsAvailabilityZones = a}) . _Default . _Coerce;
+
+-- | The KMS key identifier to use when restoring an encrypted DB cluster
+-- from an encrypted DB cluster snapshot.
+--
+-- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS
+-- encryption key. If you are restoring a DB cluster with the same AWS
+-- account that owns the KMS encryption key used to encrypt the new DB
+-- cluster, then you can use the KMS key alias instead of the ARN for the
+-- KMS encryption key.
+--
+-- If you do not specify a value for the 'KmsKeyId' parameter, then the
+-- following will occur:
+--
+-- -   If the DB cluster snapshot is encrypted, then the restored DB
+--     cluster is encrypted using the KMS key that was used to encrypt the
+--     DB cluster snapshot.
+-- -   If the DB cluster snapshot is not encrypted, then the restored DB
+--     cluster is not encrypted.
+--
+-- If 'SnapshotIdentifier' refers to a DB cluster snapshot that is not
+-- encrypted, and you specify a value for the 'KmsKeyId' parameter, then
+-- the restore request is rejected.
+rdcfsKMSKeyId :: Lens' RestoreDBClusterFromSnapshot (Maybe Text)
+rdcfsKMSKeyId = lens _rdcfsKMSKeyId (\ s a -> s{_rdcfsKMSKeyId = a});
 
 -- | A list of VPC security groups that the new DB cluster will belong to.
 rdcfsVPCSecurityGroupIds :: Lens' RestoreDBClusterFromSnapshot [Text]
@@ -221,6 +250,7 @@ instance ToQuery RestoreDBClusterFromSnapshot where
                  toQuery
                    (toQueryList "AvailabilityZone" <$>
                       _rdcfsAvailabilityZones),
+               "KmsKeyId" =: _rdcfsKMSKeyId,
                "VpcSecurityGroupIds" =:
                  toQuery
                    (toQueryList "VpcSecurityGroupId" <$>

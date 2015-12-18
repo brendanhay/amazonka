@@ -22,7 +22,8 @@
 -- unique per trail. Overwrites an existing tag\'s value when a new value
 -- is specified for an existing tag key. If you specify a key without a
 -- value, the tag will be created with the specified key and a value of
--- null.
+-- null. You can tag a trail that applies to all regions only from the
+-- region in which the trail was created (that is, from its home region).
 --
 -- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AddTags.html AWS API Reference> for AddTags.
 module Network.AWS.CloudTrail.AddTags

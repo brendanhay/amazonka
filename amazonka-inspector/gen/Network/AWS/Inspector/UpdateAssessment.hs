@@ -28,8 +28,8 @@ module Network.AWS.Inspector.UpdateAssessment
     , UpdateAssessment
     -- * Request Lenses
     , uaAssessmentARN
-    , uaDurationInSeconds
     , uaAssessmentName
+    , uaDurationInSeconds
 
     -- * Destructuring the Response
     , updateAssessmentResponse
@@ -48,9 +48,9 @@ import           Network.AWS.Response
 
 -- | /See:/ 'updateAssessment' smart constructor.
 data UpdateAssessment = UpdateAssessment'
-    { _uaAssessmentARN     :: !(Maybe Text)
-    , _uaDurationInSeconds :: !(Maybe Int)
-    , _uaAssessmentName    :: !(Maybe Text)
+    { _uaAssessmentARN     :: !Text
+    , _uaAssessmentName    :: !Text
+    , _uaDurationInSeconds :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateAssessment' with the minimum fields required to make a request.
@@ -59,31 +59,34 @@ data UpdateAssessment = UpdateAssessment'
 --
 -- * 'uaAssessmentARN'
 --
--- * 'uaDurationInSeconds'
---
 -- * 'uaAssessmentName'
+--
+-- * 'uaDurationInSeconds'
 updateAssessment
-    :: UpdateAssessment
-updateAssessment =
+    :: Text -- ^ 'uaAssessmentARN'
+    -> Text -- ^ 'uaAssessmentName'
+    -> Int -- ^ 'uaDurationInSeconds'
+    -> UpdateAssessment
+updateAssessment pAssessmentARN_ pAssessmentName_ pDurationInSeconds_ =
     UpdateAssessment'
-    { _uaAssessmentARN = Nothing
-    , _uaDurationInSeconds = Nothing
-    , _uaAssessmentName = Nothing
+    { _uaAssessmentARN = pAssessmentARN_
+    , _uaAssessmentName = pAssessmentName_
+    , _uaDurationInSeconds = pDurationInSeconds_
     }
 
 -- | Asessment ARN that you want to update.
-uaAssessmentARN :: Lens' UpdateAssessment (Maybe Text)
+uaAssessmentARN :: Lens' UpdateAssessment Text
 uaAssessmentARN = lens _uaAssessmentARN (\ s a -> s{_uaAssessmentARN = a});
+
+-- | Assessment name that you want to update.
+uaAssessmentName :: Lens' UpdateAssessment Text
+uaAssessmentName = lens _uaAssessmentName (\ s a -> s{_uaAssessmentName = a});
 
 -- | Assessment duration in seconds that you want to update. The default
 -- value is 3600 seconds (one hour). The maximum value is 86400 seconds
 -- (one day).
-uaDurationInSeconds :: Lens' UpdateAssessment (Maybe Int)
+uaDurationInSeconds :: Lens' UpdateAssessment Int
 uaDurationInSeconds = lens _uaDurationInSeconds (\ s a -> s{_uaDurationInSeconds = a});
-
--- | Assessment name that you want to update.
-uaAssessmentName :: Lens' UpdateAssessment (Maybe Text)
-uaAssessmentName = lens _uaAssessmentName (\ s a -> s{_uaAssessmentName = a});
 
 instance AWSRequest UpdateAssessment where
         type Rs UpdateAssessment = UpdateAssessmentResponse
@@ -107,9 +110,9 @@ instance ToJSON UpdateAssessment where
         toJSON UpdateAssessment'{..}
           = object
               (catMaybes
-                 [("assessmentArn" .=) <$> _uaAssessmentARN,
-                  ("durationInSeconds" .=) <$> _uaDurationInSeconds,
-                  ("assessmentName" .=) <$> _uaAssessmentName])
+                 [Just ("assessmentArn" .= _uaAssessmentARN),
+                  Just ("assessmentName" .= _uaAssessmentName),
+                  Just ("durationInSeconds" .= _uaDurationInSeconds)])
 
 instance ToPath UpdateAssessment where
         toPath = const "/"

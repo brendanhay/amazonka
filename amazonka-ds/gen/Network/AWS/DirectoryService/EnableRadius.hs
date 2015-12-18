@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables multi-factor authentication (MFA) with Remote Authentication
--- Dial In User Service (RADIUS) for an AD Connector directory.
+-- Enables multi-factor authentication (MFA) with the Remote Authentication
+-- Dial In User Service (RADIUS) server for an AD Connector directory.
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_EnableRadius.html AWS API Reference> for EnableRadius.
 module Network.AWS.DirectoryService.EnableRadius
@@ -70,7 +70,7 @@ enableRadius pDirectoryId_ pRadiusSettings_ =
     , _erRadiusSettings = pRadiusSettings_
     }
 
--- | The identifier of the directory to enable MFA for.
+-- | The identifier of the directory for which to enable MFA.
 erDirectoryId :: Lens' EnableRadius Text
 erDirectoryId = lens _erDirectoryId (\ s a -> s{_erDirectoryId = a});
 

@@ -48,7 +48,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'startDataCollection' smart constructor.
 newtype StartDataCollection = StartDataCollection'
-    { _sdcAssessmentARN :: Maybe Text
+    { _sdcAssessmentARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StartDataCollection' with the minimum fields required to make a request.
@@ -57,15 +57,16 @@ newtype StartDataCollection = StartDataCollection'
 --
 -- * 'sdcAssessmentARN'
 startDataCollection
-    :: StartDataCollection
-startDataCollection =
+    :: Text -- ^ 'sdcAssessmentARN'
+    -> StartDataCollection
+startDataCollection pAssessmentARN_ =
     StartDataCollection'
-    { _sdcAssessmentARN = Nothing
+    { _sdcAssessmentARN = pAssessmentARN_
     }
 
 -- | The ARN of the assessment for which you want to start the data
 -- collection process.
-sdcAssessmentARN :: Lens' StartDataCollection (Maybe Text)
+sdcAssessmentARN :: Lens' StartDataCollection Text
 sdcAssessmentARN = lens _sdcAssessmentARN (\ s a -> s{_sdcAssessmentARN = a});
 
 instance AWSRequest StartDataCollection where
@@ -92,7 +93,7 @@ instance ToJSON StartDataCollection where
         toJSON StartDataCollection'{..}
           = object
               (catMaybes
-                 [("assessmentArn" .=) <$> _sdcAssessmentARN])
+                 [Just ("assessmentArn" .= _sdcAssessmentARN)])
 
 instance ToPath StartDataCollection where
         toPath = const "/"

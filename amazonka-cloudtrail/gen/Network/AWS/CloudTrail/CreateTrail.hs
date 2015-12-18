@@ -19,7 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a trail that specifies the settings for delivery of log data to
--- an Amazon S3 bucket.
+-- an Amazon S3 bucket. A maximum of five trails can exist in a region,
+-- irrespective of the region in which they were created.
 --
 -- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_CreateTrail.html AWS API Reference> for CreateTrail.
 module Network.AWS.CloudTrail.CreateTrail
@@ -35,6 +36,7 @@ module Network.AWS.CloudTrail.CreateTrail
     , ctKMSKeyId
     , ctIncludeGlobalServiceEvents
     , ctCloudWatchLogsRoleARN
+    , ctIsMultiRegionTrail
     , ctName
     , ctS3BucketName
 
@@ -52,6 +54,7 @@ module Network.AWS.CloudTrail.CreateTrail
     , ctrsIncludeGlobalServiceEvents
     , ctrsCloudWatchLogsRoleARN
     , ctrsS3BucketName
+    , ctrsIsMultiRegionTrail
     , ctrsResponseStatus
     ) where
 
@@ -73,6 +76,7 @@ data CreateTrail = CreateTrail'
     , _ctKMSKeyId                   :: !(Maybe Text)
     , _ctIncludeGlobalServiceEvents :: !(Maybe Bool)
     , _ctCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _ctIsMultiRegionTrail         :: !(Maybe Bool)
     , _ctName                       :: !Text
     , _ctS3BucketName               :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -95,6 +99,8 @@ data CreateTrail = CreateTrail'
 --
 -- * 'ctCloudWatchLogsRoleARN'
 --
+-- * 'ctIsMultiRegionTrail'
+--
 -- * 'ctName'
 --
 -- * 'ctS3BucketName'
@@ -111,6 +117,7 @@ createTrail pName_ pS3BucketName_ =
     , _ctKMSKeyId = Nothing
     , _ctIncludeGlobalServiceEvents = Nothing
     , _ctCloudWatchLogsRoleARN = Nothing
+    , _ctIsMultiRegionTrail = Nothing
     , _ctName = pName_
     , _ctS3BucketName = pS3BucketName_
     }
@@ -173,6 +180,11 @@ ctIncludeGlobalServiceEvents = lens _ctIncludeGlobalServiceEvents (\ s a -> s{_c
 ctCloudWatchLogsRoleARN :: Lens' CreateTrail (Maybe Text)
 ctCloudWatchLogsRoleARN = lens _ctCloudWatchLogsRoleARN (\ s a -> s{_ctCloudWatchLogsRoleARN = a});
 
+-- | Specifies whether the trail is created in the current region or in all
+-- regions. The default is false.
+ctIsMultiRegionTrail :: Lens' CreateTrail (Maybe Bool)
+ctIsMultiRegionTrail = lens _ctIsMultiRegionTrail (\ s a -> s{_ctIsMultiRegionTrail = a});
+
 -- | Specifies the name of the trail. The name must meet the following
 -- requirements:
 --
@@ -209,6 +221,7 @@ instance AWSRequest CreateTrail where
                      <*> (x .?> "IncludeGlobalServiceEvents")
                      <*> (x .?> "CloudWatchLogsRoleArn")
                      <*> (x .?> "S3BucketName")
+                     <*> (x .?> "IsMultiRegionTrail")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateTrail where
@@ -236,6 +249,7 @@ instance ToJSON CreateTrail where
                     _ctIncludeGlobalServiceEvents,
                   ("CloudWatchLogsRoleArn" .=) <$>
                     _ctCloudWatchLogsRoleARN,
+                  ("IsMultiRegionTrail" .=) <$> _ctIsMultiRegionTrail,
                   Just ("Name" .= _ctName),
                   Just ("S3BucketName" .= _ctS3BucketName)])
 
@@ -260,6 +274,7 @@ data CreateTrailResponse = CreateTrailResponse'
     , _ctrsIncludeGlobalServiceEvents :: !(Maybe Bool)
     , _ctrsCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _ctrsS3BucketName               :: !(Maybe Text)
+    , _ctrsIsMultiRegionTrail         :: !(Maybe Bool)
     , _ctrsResponseStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -287,6 +302,8 @@ data CreateTrailResponse = CreateTrailResponse'
 --
 -- * 'ctrsS3BucketName'
 --
+-- * 'ctrsIsMultiRegionTrail'
+--
 -- * 'ctrsResponseStatus'
 createTrailResponse
     :: Int -- ^ 'ctrsResponseStatus'
@@ -303,6 +320,7 @@ createTrailResponse pResponseStatus_ =
     , _ctrsIncludeGlobalServiceEvents = Nothing
     , _ctrsCloudWatchLogsRoleARN = Nothing
     , _ctrsS3BucketName = Nothing
+    , _ctrsIsMultiRegionTrail = Nothing
     , _ctrsResponseStatus = pResponseStatus_
     }
 
@@ -356,6 +374,10 @@ ctrsCloudWatchLogsRoleARN = lens _ctrsCloudWatchLogsRoleARN (\ s a -> s{_ctrsClo
 -- files.
 ctrsS3BucketName :: Lens' CreateTrailResponse (Maybe Text)
 ctrsS3BucketName = lens _ctrsS3BucketName (\ s a -> s{_ctrsS3BucketName = a});
+
+-- | Specifies whether the trail exists in one region or in all regions.
+ctrsIsMultiRegionTrail :: Lens' CreateTrailResponse (Maybe Bool)
+ctrsIsMultiRegionTrail = lens _ctrsIsMultiRegionTrail (\ s a -> s{_ctrsIsMultiRegionTrail = a});
 
 -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTrailResponse Int

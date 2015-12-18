@@ -46,7 +46,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'deleteRun' smart constructor.
 newtype DeleteRun = DeleteRun'
-    { _dRunARN :: Maybe Text
+    { _dRunARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteRun' with the minimum fields required to make a request.
@@ -55,14 +55,15 @@ newtype DeleteRun = DeleteRun'
 --
 -- * 'dRunARN'
 deleteRun
-    :: DeleteRun
-deleteRun =
+    :: Text -- ^ 'dRunARN'
+    -> DeleteRun
+deleteRun pRunARN_ =
     DeleteRun'
-    { _dRunARN = Nothing
+    { _dRunARN = pRunARN_
     }
 
 -- | The ARN specifying the assessment run that you want to delete.
-dRunARN :: Lens' DeleteRun (Maybe Text)
+dRunARN :: Lens' DeleteRun Text
 dRunARN = lens _dRunARN (\ s a -> s{_dRunARN = a});
 
 instance AWSRequest DeleteRun where
@@ -85,7 +86,7 @@ instance ToHeaders DeleteRun where
 
 instance ToJSON DeleteRun where
         toJSON DeleteRun'{..}
-          = object (catMaybes [("runArn" .=) <$> _dRunARN])
+          = object (catMaybes [Just ("runArn" .= _dRunARN)])
 
 instance ToPath DeleteRun where
         toPath = const "/"

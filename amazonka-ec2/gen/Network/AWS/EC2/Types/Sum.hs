@@ -69,6 +69,62 @@ instance ToHeader     AddressStatus
 instance FromXML AddressStatus where
     parseXML = parseXMLText "AddressStatus"
 
+data Affinity
+    = ADefault
+    | AHost
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText Affinity where
+    parser = takeLowerText >>= \case
+        "default" -> pure ADefault
+        "host" -> pure AHost
+        e -> fromTextError $ "Failure parsing Affinity from value: '" <> e
+           <> "'. Accepted values: default, host"
+
+instance ToText Affinity where
+    toText = \case
+        ADefault -> "default"
+        AHost -> "host"
+
+instance Hashable     Affinity
+instance ToByteString Affinity
+instance ToQuery      Affinity
+instance ToHeader     Affinity
+
+data AllocationState
+    = ASAvailable
+    | ASPermanentFailure
+    | ASReleased
+    | ASReleasedPermanentFailure
+    | ASUnderAssessment
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText AllocationState where
+    parser = takeLowerText >>= \case
+        "available" -> pure ASAvailable
+        "permanent-failure" -> pure ASPermanentFailure
+        "released" -> pure ASReleased
+        "released-permanent-failure" -> pure ASReleasedPermanentFailure
+        "under-assessment" -> pure ASUnderAssessment
+        e -> fromTextError $ "Failure parsing AllocationState from value: '" <> e
+           <> "'. Accepted values: available, permanent-failure, released, released-permanent-failure, under-assessment"
+
+instance ToText AllocationState where
+    toText = \case
+        ASAvailable -> "available"
+        ASPermanentFailure -> "permanent-failure"
+        ASReleased -> "released"
+        ASReleasedPermanentFailure -> "released-permanent-failure"
+        ASUnderAssessment -> "under-assessment"
+
+instance Hashable     AllocationState
+instance ToByteString AllocationState
+instance ToQuery      AllocationState
+instance ToHeader     AllocationState
+
+instance FromXML AllocationState where
+    parseXML = parseXMLText "AllocationState"
+
 data AllocationStrategy
     = Diversified
     | LowestPrice
@@ -152,6 +208,31 @@ instance ToHeader     AttachmentStatus
 
 instance FromXML AttachmentStatus where
     parseXML = parseXMLText "AttachmentStatus"
+
+data AutoPlacement
+    = ON
+    | Off
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText AutoPlacement where
+    parser = takeLowerText >>= \case
+        "on" -> pure ON
+        "off" -> pure Off
+        e -> fromTextError $ "Failure parsing AutoPlacement from value: '" <> e
+           <> "'. Accepted values: on, off"
+
+instance ToText AutoPlacement where
+    toText = \case
+        ON -> "on"
+        Off -> "off"
+
+instance Hashable     AutoPlacement
+instance ToByteString AutoPlacement
+instance ToQuery      AutoPlacement
+instance ToHeader     AutoPlacement
+
+instance FromXML AutoPlacement where
+    parseXML = parseXMLText "AutoPlacement"
 
 data AvailabilityZoneState
     = AZSAvailable
@@ -700,6 +781,28 @@ instance ToHeader     GatewayType
 instance FromXML GatewayType where
     parseXML = parseXMLText "GatewayType"
 
+data HostTenancy
+    = HTDedicated
+    | HTHost
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText HostTenancy where
+    parser = takeLowerText >>= \case
+        "dedicated" -> pure HTDedicated
+        "host" -> pure HTHost
+        e -> fromTextError $ "Failure parsing HostTenancy from value: '" <> e
+           <> "'. Accepted values: dedicated, host"
+
+instance ToText HostTenancy where
+    toText = \case
+        HTDedicated -> "dedicated"
+        HTHost -> "host"
+
+instance Hashable     HostTenancy
+instance ToByteString HostTenancy
+instance ToQuery      HostTenancy
+instance ToHeader     HostTenancy
+
 data HypervisorType
     = Ovm
     | Xen
@@ -1240,6 +1343,40 @@ instance ToHeader     MoveStatus
 instance FromXML MoveStatus where
     parseXML = parseXMLText "MoveStatus"
 
+data NatGatewayState
+    = NGSAvailable
+    | NGSDeleted
+    | NGSDeleting
+    | NGSFailed
+    | NGSPending
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText NatGatewayState where
+    parser = takeLowerText >>= \case
+        "available" -> pure NGSAvailable
+        "deleted" -> pure NGSDeleted
+        "deleting" -> pure NGSDeleting
+        "failed" -> pure NGSFailed
+        "pending" -> pure NGSPending
+        e -> fromTextError $ "Failure parsing NatGatewayState from value: '" <> e
+           <> "'. Accepted values: available, deleted, deleting, failed, pending"
+
+instance ToText NatGatewayState where
+    toText = \case
+        NGSAvailable -> "available"
+        NGSDeleted -> "deleted"
+        NGSDeleting -> "deleting"
+        NGSFailed -> "failed"
+        NGSPending -> "pending"
+
+instance Hashable     NatGatewayState
+instance ToByteString NatGatewayState
+instance ToQuery      NatGatewayState
+instance ToHeader     NatGatewayState
+
+instance FromXML NatGatewayState where
+    parseXML = parseXMLText "NatGatewayState"
+
 data NetworkInterfaceAttribute
     = NIAAttachment
     | NIADescription
@@ -1298,6 +1435,31 @@ instance ToHeader     NetworkInterfaceStatus
 
 instance FromXML NetworkInterfaceStatus where
     parseXML = parseXMLText "NetworkInterfaceStatus"
+
+data NetworkInterfaceType
+    = Interface
+    | NatGateway
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText NetworkInterfaceType where
+    parser = takeLowerText >>= \case
+        "interface" -> pure Interface
+        "natgateway" -> pure NatGateway
+        e -> fromTextError $ "Failure parsing NetworkInterfaceType from value: '" <> e
+           <> "'. Accepted values: interface, natGateway"
+
+instance ToText NetworkInterfaceType where
+    toText = \case
+        Interface -> "interface"
+        NatGateway -> "natGateway"
+
+instance Hashable     NetworkInterfaceType
+instance ToByteString NetworkInterfaceType
+instance ToQuery      NetworkInterfaceType
+instance ToHeader     NetworkInterfaceType
+
+instance FromXML NetworkInterfaceType where
+    parseXML = parseXMLText "NetworkInterfaceType"
 
 data OfferingTypeValues
     = AllUpfront
@@ -2098,19 +2260,22 @@ instance FromXML TelemetryStatus where
 data Tenancy
     = Dedicated
     | Default
+    | Host
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Tenancy where
     parser = takeLowerText >>= \case
         "dedicated" -> pure Dedicated
         "default" -> pure Default
+        "host" -> pure Host
         e -> fromTextError $ "Failure parsing Tenancy from value: '" <> e
-           <> "'. Accepted values: dedicated, default"
+           <> "'. Accepted values: dedicated, default, host"
 
 instance ToText Tenancy where
     toText = \case
         Dedicated -> "dedicated"
         Default -> "default"
+        Host -> "host"
 
 instance Hashable     Tenancy
 instance ToByteString Tenancy

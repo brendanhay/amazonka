@@ -204,6 +204,9 @@ module Network.AWS.EC2
     -- ** ReplaceNetworkACLAssociation
     , module Network.AWS.EC2.ReplaceNetworkACLAssociation
 
+    -- ** DescribeNatGateways
+    , module Network.AWS.EC2.DescribeNatGateways
+
     -- ** DescribeAddresses
     , module Network.AWS.EC2.DescribeAddresses
 
@@ -285,6 +288,9 @@ module Network.AWS.EC2
     -- ** AttachInternetGateway
     , module Network.AWS.EC2.AttachInternetGateway
 
+    -- ** ModifyInstancePlacement
+    , module Network.AWS.EC2.ModifyInstancePlacement
+
     -- ** DescribeFlowLogs
     , module Network.AWS.EC2.DescribeFlowLogs
 
@@ -296,6 +302,9 @@ module Network.AWS.EC2
 
     -- ** DescribeReservedInstances
     , module Network.AWS.EC2.DescribeReservedInstances
+
+    -- ** DescribeIdFormat
+    , module Network.AWS.EC2.DescribeIdFormat
 
     -- ** DescribeVPCs
     , module Network.AWS.EC2.DescribeVPCs
@@ -335,6 +344,9 @@ module Network.AWS.EC2
 
     -- ** ModifyVPCEndpoint
     , module Network.AWS.EC2.ModifyVPCEndpoint
+
+    -- ** AllocateHosts
+    , module Network.AWS.EC2.AllocateHosts
 
     -- ** RegisterImage
     , module Network.AWS.EC2.RegisterImage
@@ -432,6 +444,9 @@ module Network.AWS.EC2
     -- ** DescribeInstances (Paginated)
     , module Network.AWS.EC2.DescribeInstances
 
+    -- ** CreateNatGateway
+    , module Network.AWS.EC2.CreateNatGateway
+
     -- ** DescribeVPCPeeringConnections
     , module Network.AWS.EC2.DescribeVPCPeeringConnections
 
@@ -459,6 +474,9 @@ module Network.AWS.EC2
     -- ** DescribeNetworkInterfaceAttribute
     , module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
 
+    -- ** ReleaseHosts
+    , module Network.AWS.EC2.ReleaseHosts
+
     -- ** ResetNetworkInterfaceAttribute
     , module Network.AWS.EC2.ResetNetworkInterfaceAttribute
 
@@ -470,6 +488,9 @@ module Network.AWS.EC2
 
     -- ** CreateVPNConnection
     , module Network.AWS.EC2.CreateVPNConnection
+
+    -- ** DeleteNatGateway
+    , module Network.AWS.EC2.DeleteNatGateway
 
     -- ** DescribeImportSnapshotTasks
     , module Network.AWS.EC2.DescribeImportSnapshotTasks
@@ -558,6 +579,9 @@ module Network.AWS.EC2
     -- ** DescribeAccountAttributes
     , module Network.AWS.EC2.DescribeAccountAttributes
 
+    -- ** ModifyHosts
+    , module Network.AWS.EC2.ModifyHosts
+
     -- ** RebootInstances
     , module Network.AWS.EC2.RebootInstances
 
@@ -585,8 +609,14 @@ module Network.AWS.EC2
     -- ** GetConsoleOutput
     , module Network.AWS.EC2.GetConsoleOutput
 
+    -- ** DescribeHosts
+    , module Network.AWS.EC2.DescribeHosts
+
     -- ** DescribeImageAttribute
     , module Network.AWS.EC2.DescribeImageAttribute
+
+    -- ** ModifyIdFormat
+    , module Network.AWS.EC2.ModifyIdFormat
 
     -- ** DeleteRouteTable
     , module Network.AWS.EC2.DeleteRouteTable
@@ -662,6 +692,12 @@ module Network.AWS.EC2
     -- ** AddressStatus
     , AddressStatus (..)
 
+    -- ** Affinity
+    , Affinity (..)
+
+    -- ** AllocationState
+    , AllocationState (..)
+
     -- ** AllocationStrategy
     , AllocationStrategy (..)
 
@@ -670,6 +706,9 @@ module Network.AWS.EC2
 
     -- ** AttachmentStatus
     , AttachmentStatus (..)
+
+    -- ** AutoPlacement
+    , AutoPlacement (..)
 
     -- ** AvailabilityZoneState
     , AvailabilityZoneState (..)
@@ -728,6 +767,9 @@ module Network.AWS.EC2
     -- ** GatewayType
     , GatewayType (..)
 
+    -- ** HostTenancy
+    , HostTenancy (..)
+
     -- ** HypervisorType
     , HypervisorType (..)
 
@@ -764,11 +806,17 @@ module Network.AWS.EC2
     -- ** MoveStatus
     , MoveStatus (..)
 
+    -- ** NatGatewayState
+    , NatGatewayState (..)
+
     -- ** NetworkInterfaceAttribute
     , NetworkInterfaceAttribute (..)
 
     -- ** NetworkInterfaceStatus
     , NetworkInterfaceStatus (..)
+
+    -- ** NetworkInterfaceType
+    , NetworkInterfaceType (..)
 
     -- ** OfferingTypeValues
     , OfferingTypeValues (..)
@@ -948,6 +996,12 @@ module Network.AWS.EC2
     , AvailabilityZoneMessage
     , availabilityZoneMessage
     , azmMessage
+
+    -- ** AvailableCapacity
+    , AvailableCapacity
+    , availableCapacity
+    , acAvailableInstanceCapacity
+    , acAvailableVCPUs
 
     -- ** BlobAttributeValue
     , BlobAttributeValue
@@ -1184,6 +1238,33 @@ module Network.AWS.EC2
     , hrEventType
     , hrEventInformation
 
+    -- ** Host
+    , Host
+    , host
+    , hState
+    , hClientToken
+    , hHostId
+    , hAvailableCapacity
+    , hHostReservationId
+    , hHostProperties
+    , hAvailabilityZone
+    , hInstances
+    , hAutoPlacement
+
+    -- ** HostInstance
+    , HostInstance
+    , hostInstance
+    , hiInstanceId
+    , hiInstanceType
+
+    -- ** HostProperties
+    , HostProperties
+    , hostProperties
+    , hpInstanceType
+    , hpTotalVCPUs
+    , hpCores
+    , hpSockets
+
     -- ** IAMInstanceProfile
     , IAMInstanceProfile
     , iamInstanceProfile
@@ -1216,6 +1297,13 @@ module Network.AWS.EC2
     , IPRange
     , ipRange
     , irCIdRIP
+
+    -- ** IdFormat
+    , IdFormat
+    , idFormat
+    , ifUseLongIds
+    , ifDeadline
+    , ifResource
 
     -- ** Image
     , Image
@@ -1373,6 +1461,13 @@ module Network.AWS.EC2
     , ibdmsNoDevice
     , ibdmsEBS
     , ibdmsDeviceName
+
+    -- ** InstanceCapacity
+    , InstanceCapacity
+    , instanceCapacity
+    , icAvailableCapacity
+    , icInstanceType
+    , icTotalCapacity
 
     -- ** InstanceCount
     , InstanceCount
@@ -1553,6 +1648,27 @@ module Network.AWS.EC2
     , masMoveStatus
     , masPublicIP
 
+    -- ** NatGateway
+    , NatGateway
+    , natGateway
+    , ngState
+    , ngFailureCode
+    , ngVPCId
+    , ngFailureMessage
+    , ngNatGatewayId
+    , ngSubnetId
+    , ngDeleteTime
+    , ngNatGatewayAddresses
+    , ngCreateTime
+
+    -- ** NatGatewayAddress
+    , NatGatewayAddress
+    , natGatewayAddress
+    , ngaPrivateIP
+    , ngaAllocationId
+    , ngaNetworkInterfaceId
+    , ngaPublicIP
+
     -- ** NetworkACL
     , NetworkACL
     , networkACL
@@ -1588,6 +1704,7 @@ module Network.AWS.EC2
     , niStatus
     , niPrivateIPAddresses
     , niSourceDestCheck
+    , niInterfaceType
     , niVPCId
     , niTagSet
     , niRequesterManaged
@@ -1646,6 +1763,8 @@ module Network.AWS.EC2
     -- ** Placement
     , Placement
     , placement
+    , pAffinity
+    , pHostId
     , pAvailabilityZone
     , pTenancy
     , pGroupName
@@ -1850,6 +1969,7 @@ module Network.AWS.EC2
     , rInstanceId
     , rOrigin
     , rState
+    , rNatGatewayId
     , rNetworkInterfaceId
     , rGatewayId
     , rInstanceOwnerId
@@ -2314,6 +2434,7 @@ module Network.AWS.EC2
 
 import           Network.AWS.EC2.AcceptVPCPeeringConnection
 import           Network.AWS.EC2.AllocateAddress
+import           Network.AWS.EC2.AllocateHosts
 import           Network.AWS.EC2.AssignPrivateIPAddresses
 import           Network.AWS.EC2.AssociateAddress
 import           Network.AWS.EC2.AssociateDHCPOptions
@@ -2343,6 +2464,7 @@ import           Network.AWS.EC2.CreateImage
 import           Network.AWS.EC2.CreateInstanceExportTask
 import           Network.AWS.EC2.CreateInternetGateway
 import           Network.AWS.EC2.CreateKeyPair
+import           Network.AWS.EC2.CreateNatGateway
 import           Network.AWS.EC2.CreateNetworkACL
 import           Network.AWS.EC2.CreateNetworkACLEntry
 import           Network.AWS.EC2.CreateNetworkInterface
@@ -2367,6 +2489,7 @@ import           Network.AWS.EC2.DeleteDHCPOptions
 import           Network.AWS.EC2.DeleteFlowLogs
 import           Network.AWS.EC2.DeleteInternetGateway
 import           Network.AWS.EC2.DeleteKeyPair
+import           Network.AWS.EC2.DeleteNatGateway
 import           Network.AWS.EC2.DeleteNetworkACL
 import           Network.AWS.EC2.DeleteNetworkACLEntry
 import           Network.AWS.EC2.DeleteNetworkInterface
@@ -2396,6 +2519,8 @@ import           Network.AWS.EC2.DescribeCustomerGateways
 import           Network.AWS.EC2.DescribeDHCPOptions
 import           Network.AWS.EC2.DescribeExportTasks
 import           Network.AWS.EC2.DescribeFlowLogs
+import           Network.AWS.EC2.DescribeHosts
+import           Network.AWS.EC2.DescribeIdFormat
 import           Network.AWS.EC2.DescribeImageAttribute
 import           Network.AWS.EC2.DescribeImages
 import           Network.AWS.EC2.DescribeImportImageTasks
@@ -2406,6 +2531,7 @@ import           Network.AWS.EC2.DescribeInstanceStatus
 import           Network.AWS.EC2.DescribeInternetGateways
 import           Network.AWS.EC2.DescribeKeyPairs
 import           Network.AWS.EC2.DescribeMovingAddresses
+import           Network.AWS.EC2.DescribeNatGateways
 import           Network.AWS.EC2.DescribeNetworkACLs
 import           Network.AWS.EC2.DescribeNetworkInterfaceAttribute
 import           Network.AWS.EC2.DescribeNetworkInterfaces
@@ -2458,8 +2584,11 @@ import           Network.AWS.EC2.ImportInstance
 import           Network.AWS.EC2.ImportKeyPair
 import           Network.AWS.EC2.ImportSnapshot
 import           Network.AWS.EC2.ImportVolume
+import           Network.AWS.EC2.ModifyHosts
+import           Network.AWS.EC2.ModifyIdFormat
 import           Network.AWS.EC2.ModifyImageAttribute
 import           Network.AWS.EC2.ModifyInstanceAttribute
+import           Network.AWS.EC2.ModifyInstancePlacement
 import           Network.AWS.EC2.ModifyNetworkInterfaceAttribute
 import           Network.AWS.EC2.ModifyReservedInstances
 import           Network.AWS.EC2.ModifySnapshotAttribute
@@ -2475,6 +2604,7 @@ import           Network.AWS.EC2.RebootInstances
 import           Network.AWS.EC2.RegisterImage
 import           Network.AWS.EC2.RejectVPCPeeringConnection
 import           Network.AWS.EC2.ReleaseAddress
+import           Network.AWS.EC2.ReleaseHosts
 import           Network.AWS.EC2.ReplaceNetworkACLAssociation
 import           Network.AWS.EC2.ReplaceNetworkACLEntry
 import           Network.AWS.EC2.ReplaceRoute

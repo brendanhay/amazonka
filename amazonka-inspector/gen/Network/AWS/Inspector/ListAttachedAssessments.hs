@@ -29,9 +29,9 @@ module Network.AWS.Inspector.ListAttachedAssessments
     , ListAttachedAssessments
     -- * Request Lenses
     , laaNextToken
-    , laaRulesPackageARN
     , laaFilter
     , laaMaxResults
+    , laaRulesPackageARN
 
     -- * Destructuring the Response
     , listAttachedAssessmentsResponse
@@ -52,9 +52,9 @@ import           Network.AWS.Response
 -- | /See:/ 'listAttachedAssessments' smart constructor.
 data ListAttachedAssessments = ListAttachedAssessments'
     { _laaNextToken       :: !(Maybe Text)
-    , _laaRulesPackageARN :: !(Maybe Text)
     , _laaFilter          :: !(Maybe AssessmentsFilter)
     , _laaMaxResults      :: !(Maybe Int)
+    , _laaRulesPackageARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListAttachedAssessments' with the minimum fields required to make a request.
@@ -63,19 +63,20 @@ data ListAttachedAssessments = ListAttachedAssessments'
 --
 -- * 'laaNextToken'
 --
--- * 'laaRulesPackageARN'
---
 -- * 'laaFilter'
 --
 -- * 'laaMaxResults'
+--
+-- * 'laaRulesPackageARN'
 listAttachedAssessments
-    :: ListAttachedAssessments
-listAttachedAssessments =
+    :: Text -- ^ 'laaRulesPackageARN'
+    -> ListAttachedAssessments
+listAttachedAssessments pRulesPackageARN_ =
     ListAttachedAssessments'
     { _laaNextToken = Nothing
-    , _laaRulesPackageARN = Nothing
     , _laaFilter = Nothing
     , _laaMaxResults = Nothing
+    , _laaRulesPackageARN = pRulesPackageARN_
     }
 
 -- | You can use this parameter when paginating results. Set the value of
@@ -85,10 +86,6 @@ listAttachedAssessments =
 -- previous response to continue listing data.
 laaNextToken :: Lens' ListAttachedAssessments (Maybe Text)
 laaNextToken = lens _laaNextToken (\ s a -> s{_laaNextToken = a});
-
--- | The ARN specifying the rules package whose assessments you want to list.
-laaRulesPackageARN :: Lens' ListAttachedAssessments (Maybe Text)
-laaRulesPackageARN = lens _laaRulesPackageARN (\ s a -> s{_laaRulesPackageARN = a});
 
 -- | You can use this parameter to specify a subset of data to be included in
 -- the action\'s response.
@@ -103,6 +100,10 @@ laaFilter = lens _laaFilter (\ s a -> s{_laaFilter = a});
 -- want in the response. The default value is 10. The maximum value is 500.
 laaMaxResults :: Lens' ListAttachedAssessments (Maybe Int)
 laaMaxResults = lens _laaMaxResults (\ s a -> s{_laaMaxResults = a});
+
+-- | The ARN specifying the rules package whose assessments you want to list.
+laaRulesPackageARN :: Lens' ListAttachedAssessments Text
+laaRulesPackageARN = lens _laaRulesPackageARN (\ s a -> s{_laaRulesPackageARN = a});
 
 instance AWSRequest ListAttachedAssessments where
         type Rs ListAttachedAssessments =
@@ -131,9 +132,9 @@ instance ToJSON ListAttachedAssessments where
           = object
               (catMaybes
                  [("nextToken" .=) <$> _laaNextToken,
-                  ("rulesPackageArn" .=) <$> _laaRulesPackageARN,
                   ("filter" .=) <$> _laaFilter,
-                  ("maxResults" .=) <$> _laaMaxResults])
+                  ("maxResults" .=) <$> _laaMaxResults,
+                  Just ("rulesPackageArn" .= _laaRulesPackageARN)])
 
 instance ToPath ListAttachedAssessments where
         toPath = const "/"

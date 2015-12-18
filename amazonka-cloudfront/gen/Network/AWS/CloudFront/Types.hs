@@ -66,6 +66,9 @@ module Network.AWS.CloudFront.Types
     , _InvalidGeoRestrictionParameter
     , _InvalidLocationCode
 
+    -- * CertificateSource
+    , CertificateSource (..)
+
     -- * GeoRestrictionType
     , GeoRestrictionType (..)
 
@@ -115,6 +118,7 @@ module Network.AWS.CloudFront.Types
     , cacheBehavior
     , cbAllowedMethods
     , cbMaxTTL
+    , cbCompress
     , cbSmoothStreaming
     , cbDefaultTTL
     , cbPathPattern
@@ -204,6 +208,7 @@ module Network.AWS.CloudFront.Types
     , defaultCacheBehavior
     , dcbAllowedMethods
     , dcbMaxTTL
+    , dcbCompress
     , dcbSmoothStreaming
     , dcbDefaultTTL
     , dcbTargetOriginId
@@ -442,7 +447,9 @@ module Network.AWS.CloudFront.Types
     , ViewerCertificate
     , viewerCertificate
     , vcSSLSupportMethod
+    , vcCertificateSource
     , vcMinimumProtocolVersion
+    , vcCertificate
     , vcIAMCertificateId
     , vcCloudFrontDefaultCertificate
     ) where
@@ -453,14 +460,14 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-07-27' of the Amazon CloudFront SDK configuration.
+-- | API version '2015-09-17' of the Amazon CloudFront SDK configuration.
 cloudFront :: Service
 cloudFront =
     Service
     { _svcAbbrev = "CloudFront"
     , _svcSigner = v4
     , _svcPrefix = "cloudfront"
-    , _svcVersion = "2015-07-27"
+    , _svcVersion = "2015-09-17"
     , _svcEndpoint = defaultEndpoint cloudFront
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess

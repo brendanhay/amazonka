@@ -27,10 +27,10 @@ module Network.AWS.Inspector.ListAssessmentAgents
       listAssessmentAgents
     , ListAssessmentAgents
     -- * Request Lenses
-    , laasAssessmentARN
     , laasNextToken
     , laasFilter
     , laasMaxResults
+    , laasAssessmentARN
 
     -- * Destructuring the Response
     , listAssessmentAgentsResponse
@@ -50,36 +50,33 @@ import           Network.AWS.Response
 
 -- | /See:/ 'listAssessmentAgents' smart constructor.
 data ListAssessmentAgents = ListAssessmentAgents'
-    { _laasAssessmentARN :: !(Maybe Text)
-    , _laasNextToken     :: !(Maybe Text)
+    { _laasNextToken     :: !(Maybe Text)
     , _laasFilter        :: !(Maybe AgentsFilter)
     , _laasMaxResults    :: !(Maybe Int)
+    , _laasAssessmentARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListAssessmentAgents' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laasAssessmentARN'
---
 -- * 'laasNextToken'
 --
 -- * 'laasFilter'
 --
 -- * 'laasMaxResults'
+--
+-- * 'laasAssessmentARN'
 listAssessmentAgents
-    :: ListAssessmentAgents
-listAssessmentAgents =
+    :: Text -- ^ 'laasAssessmentARN'
+    -> ListAssessmentAgents
+listAssessmentAgents pAssessmentARN_ =
     ListAssessmentAgents'
-    { _laasAssessmentARN = Nothing
-    , _laasNextToken = Nothing
+    { _laasNextToken = Nothing
     , _laasFilter = Nothing
     , _laasMaxResults = Nothing
+    , _laasAssessmentARN = pAssessmentARN_
     }
-
--- | The ARN specifying the assessment whose agents you want to list.
-laasAssessmentARN :: Lens' ListAssessmentAgents (Maybe Text)
-laasAssessmentARN = lens _laasAssessmentARN (\ s a -> s{_laasAssessmentARN = a});
 
 -- | You can use this parameter when paginating results. Set the value of
 -- this parameter to \'null\' on your first call to the
@@ -102,6 +99,10 @@ laasFilter = lens _laasFilter (\ s a -> s{_laasFilter = a});
 -- want in the response. The default value is 10. The maximum value is 500.
 laasMaxResults :: Lens' ListAssessmentAgents (Maybe Int)
 laasMaxResults = lens _laasMaxResults (\ s a -> s{_laasMaxResults = a});
+
+-- | The ARN specifying the assessment whose agents you want to list.
+laasAssessmentARN :: Lens' ListAssessmentAgents Text
+laasAssessmentARN = lens _laasAssessmentARN (\ s a -> s{_laasAssessmentARN = a});
 
 instance AWSRequest ListAssessmentAgents where
         type Rs ListAssessmentAgents =
@@ -129,10 +130,10 @@ instance ToJSON ListAssessmentAgents where
         toJSON ListAssessmentAgents'{..}
           = object
               (catMaybes
-                 [("assessmentArn" .=) <$> _laasAssessmentARN,
-                  ("nextToken" .=) <$> _laasNextToken,
+                 [("nextToken" .=) <$> _laasNextToken,
                   ("filter" .=) <$> _laasFilter,
-                  ("maxResults" .=) <$> _laasMaxResults])
+                  ("maxResults" .=) <$> _laasMaxResults,
+                  Just ("assessmentArn" .= _laasAssessmentARN)])
 
 instance ToPath ListAssessmentAgents where
         toPath = const "/"

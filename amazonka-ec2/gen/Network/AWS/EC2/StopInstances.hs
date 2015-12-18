@@ -22,7 +22,7 @@
 -- instance from stopped to started, Amazon EC2 charges a full instance
 -- hour, even if transitions happen multiple times within a single hour.
 --
--- You can\'t start or stop Spot Instances.
+-- You can\'t start or stop Spot instances.
 --
 -- Instances that use Amazon EBS volumes as their root devices can be
 -- quickly stopped and started. When an instance is stopped, the compute

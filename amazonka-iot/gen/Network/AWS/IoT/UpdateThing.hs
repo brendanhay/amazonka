@@ -76,7 +76,7 @@ utThingName = lens _utThingName (\ s a -> s{_utThingName = a});
 -- | The attribute payload, a JSON string containing up to three key-value
 -- pairs.
 --
--- For example: {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\”}}
+-- For example: {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}
 utAttributePayload :: Lens' UpdateThing AttributePayload
 utAttributePayload = lens _utAttributePayload (\ s a -> s{_utAttributePayload = a});
 

@@ -131,8 +131,14 @@ module Network.AWS.CloudTrail
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
 
+    -- ** InvalidParameterCombinationException
+    , _InvalidParameterCombinationException
+
     -- ** InvalidKMSKeyIdException
     , _InvalidKMSKeyIdException
+
+    -- ** InvalidHomeRegionException
+    , _InvalidHomeRegionException
 
     -- * Waiters
     -- $waiters
@@ -232,10 +238,12 @@ module Network.AWS.CloudTrail
     , tSNSTopicName
     , tCloudWatchLogsLogGroupARN
     , tKMSKeyId
+    , tHomeRegion
     , tName
     , tIncludeGlobalServiceEvents
     , tCloudWatchLogsRoleARN
     , tS3BucketName
+    , tIsMultiRegionTrail
     ) where
 
 import           Network.AWS.CloudTrail.AddTags

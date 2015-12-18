@@ -20,11 +20,21 @@
 --
 -- Deletes the specified Auto Scaling group.
 --
--- The group must have no instances and no scaling activities in progress.
+-- If the group has instances or scaling activities in progress, you must
+-- specify the option to force the deletion in order for it to succeed.
 --
--- To remove all instances before calling 'DeleteAutoScalingGroup', call
--- UpdateAutoScalingGroup to set the minimum and maximum size of the Auto
--- Scaling group to zero.
+-- If the group has policies, deleting the group deletes the policies, the
+-- underlying alarm actions, and any alarm that no longer has an associated
+-- action.
+--
+-- To remove instances from the Auto Scaling group before deleting it, call
+-- DetachInstances with the list of instances and the option to decrement
+-- the desired capacity so that Auto Scaling does not launch replacement
+-- instances.
+--
+-- To terminate all instances before deleting the Auto Scaling group, call
+-- UpdateAutoScalingGroup and set the minimum size and desired capacity of
+-- the Auto Scaling group to zero.
 --
 -- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html AWS API Reference> for DeleteAutoScalingGroup.
 module Network.AWS.AutoScaling.DeleteAutoScalingGroup

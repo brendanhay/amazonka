@@ -46,7 +46,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'listTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
-    { _ltfrResourceARN :: Maybe Text
+    { _ltfrResourceARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
@@ -55,14 +55,15 @@ newtype ListTagsForResource = ListTagsForResource'
 --
 -- * 'ltfrResourceARN'
 listTagsForResource
-    :: ListTagsForResource
-listTagsForResource =
+    :: Text -- ^ 'ltfrResourceARN'
+    -> ListTagsForResource
+listTagsForResource pResourceARN_ =
     ListTagsForResource'
-    { _ltfrResourceARN = Nothing
+    { _ltfrResourceARN = pResourceARN_
     }
 
 -- | The ARN specifying the resource whose tags you want to list.
-ltfrResourceARN :: Lens' ListTagsForResource (Maybe Text)
+ltfrResourceARN :: Lens' ListTagsForResource Text
 ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
 
 instance AWSRequest ListTagsForResource where
@@ -88,7 +89,8 @@ instance ToHeaders ListTagsForResource where
 instance ToJSON ListTagsForResource where
         toJSON ListTagsForResource'{..}
           = object
-              (catMaybes [("resourceArn" .=) <$> _ltfrResourceARN])
+              (catMaybes
+                 [Just ("resourceArn" .= _ltfrResourceARN)])
 
 instance ToPath ListTagsForResource where
         toPath = const "/"

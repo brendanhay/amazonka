@@ -40,6 +40,15 @@ import Test.AWS.DirectoryService.Internal
 --         , testDescribeDirectories $
 --             describeDirectories
 --
+--         , testDescribeTrusts $
+--             describeTrusts
+--
+--         , testDeleteTrust $
+--             deleteTrust
+--
+--         , testCreateMicrosoftAD $
+--             createMicrosoftAD
+--
 --         , testCreateDirectory $
 --             createDirectory
 --
@@ -61,6 +70,9 @@ import Test.AWS.DirectoryService.Internal
 --         , testDeleteSnapshot $
 --             deleteSnapshot
 --
+--         , testCreateTrust $
+--             createTrust
+--
 --         , testDeleteDirectory $
 --             deleteDirectory
 --
@@ -72,6 +84,9 @@ import Test.AWS.DirectoryService.Internal
 --
 --         , testDisableSSO $
 --             disableSSO
+--
+--         , testVerifyTrust $
+--             verifyTrust
 --
 --         , testGetDirectoryLimits $
 --             getDirectoryLimits
@@ -94,6 +109,15 @@ import Test.AWS.DirectoryService.Internal
 --         , testDescribeDirectoriesResponse $
 --             describeDirectoriesResponse
 --
+--         , testDescribeTrustsResponse $
+--             describeTrustsResponse
+--
+--         , testDeleteTrustResponse $
+--             deleteTrustResponse
+--
+--         , testCreateMicrosoftADResponse $
+--             createMicrosoftADResponse
+--
 --         , testCreateDirectoryResponse $
 --             createDirectoryResponse
 --
@@ -115,6 +139,9 @@ import Test.AWS.DirectoryService.Internal
 --         , testDeleteSnapshotResponse $
 --             deleteSnapshotResponse
 --
+--         , testCreateTrustResponse $
+--             createTrustResponse
+--
 --         , testDeleteDirectoryResponse $
 --             deleteDirectoryResponse
 --
@@ -126,6 +153,9 @@ import Test.AWS.DirectoryService.Internal
 --
 --         , testDisableSSOResponse $
 --             disableSSOResponse
+--
+--         , testVerifyTrustResponse $
+--             verifyTrustResponse
 --
 --         , testGetDirectoryLimitsResponse $
 --             getDirectoryLimitsResponse
@@ -157,6 +187,21 @@ testDescribeDirectories :: DescribeDirectories -> TestTree
 testDescribeDirectories = req
     "DescribeDirectories"
     "fixture/DescribeDirectories.yaml"
+
+testDescribeTrusts :: DescribeTrusts -> TestTree
+testDescribeTrusts = req
+    "DescribeTrusts"
+    "fixture/DescribeTrusts.yaml"
+
+testDeleteTrust :: DeleteTrust -> TestTree
+testDeleteTrust = req
+    "DeleteTrust"
+    "fixture/DeleteTrust.yaml"
+
+testCreateMicrosoftAD :: CreateMicrosoftAD -> TestTree
+testCreateMicrosoftAD = req
+    "CreateMicrosoftAD"
+    "fixture/CreateMicrosoftAD.yaml"
 
 testCreateDirectory :: CreateDirectory -> TestTree
 testCreateDirectory = req
@@ -193,6 +238,11 @@ testDeleteSnapshot = req
     "DeleteSnapshot"
     "fixture/DeleteSnapshot.yaml"
 
+testCreateTrust :: CreateTrust -> TestTree
+testCreateTrust = req
+    "CreateTrust"
+    "fixture/CreateTrust.yaml"
+
 testDeleteDirectory :: DeleteDirectory -> TestTree
 testDeleteDirectory = req
     "DeleteDirectory"
@@ -212,6 +262,11 @@ testDisableSSO :: DisableSSO -> TestTree
 testDisableSSO = req
     "DisableSSO"
     "fixture/DisableSSO.yaml"
+
+testVerifyTrust :: VerifyTrust -> TestTree
+testVerifyTrust = req
+    "VerifyTrust"
+    "fixture/VerifyTrust.yaml"
 
 testGetDirectoryLimits :: GetDirectoryLimits -> TestTree
 testGetDirectoryLimits = req
@@ -252,6 +307,27 @@ testDescribeDirectoriesResponse = res
     "fixture/DescribeDirectoriesResponse.proto"
     directoryService
     (Proxy :: Proxy DescribeDirectories)
+
+testDescribeTrustsResponse :: DescribeTrustsResponse -> TestTree
+testDescribeTrustsResponse = res
+    "DescribeTrustsResponse"
+    "fixture/DescribeTrustsResponse.proto"
+    directoryService
+    (Proxy :: Proxy DescribeTrusts)
+
+testDeleteTrustResponse :: DeleteTrustResponse -> TestTree
+testDeleteTrustResponse = res
+    "DeleteTrustResponse"
+    "fixture/DeleteTrustResponse.proto"
+    directoryService
+    (Proxy :: Proxy DeleteTrust)
+
+testCreateMicrosoftADResponse :: CreateMicrosoftADResponse -> TestTree
+testCreateMicrosoftADResponse = res
+    "CreateMicrosoftADResponse"
+    "fixture/CreateMicrosoftADResponse.proto"
+    directoryService
+    (Proxy :: Proxy CreateMicrosoftAD)
 
 testCreateDirectoryResponse :: CreateDirectoryResponse -> TestTree
 testCreateDirectoryResponse = res
@@ -302,6 +378,13 @@ testDeleteSnapshotResponse = res
     directoryService
     (Proxy :: Proxy DeleteSnapshot)
 
+testCreateTrustResponse :: CreateTrustResponse -> TestTree
+testCreateTrustResponse = res
+    "CreateTrustResponse"
+    "fixture/CreateTrustResponse.proto"
+    directoryService
+    (Proxy :: Proxy CreateTrust)
+
 testDeleteDirectoryResponse :: DeleteDirectoryResponse -> TestTree
 testDeleteDirectoryResponse = res
     "DeleteDirectoryResponse"
@@ -329,6 +412,13 @@ testDisableSSOResponse = res
     "fixture/DisableSSOResponse.proto"
     directoryService
     (Proxy :: Proxy DisableSSO)
+
+testVerifyTrustResponse :: VerifyTrustResponse -> TestTree
+testVerifyTrustResponse = res
+    "VerifyTrustResponse"
+    "fixture/VerifyTrustResponse.proto"
+    directoryService
+    (Proxy :: Proxy VerifyTrust)
 
 testGetDirectoryLimitsResponse :: GetDirectoryLimitsResponse -> TestTree
 testGetDirectoryLimitsResponse = res

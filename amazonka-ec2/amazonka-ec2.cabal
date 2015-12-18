@@ -48,6 +48,7 @@ library
           Network.AWS.EC2
         , Network.AWS.EC2.AcceptVPCPeeringConnection
         , Network.AWS.EC2.AllocateAddress
+        , Network.AWS.EC2.AllocateHosts
         , Network.AWS.EC2.AssignPrivateIPAddresses
         , Network.AWS.EC2.AssociateAddress
         , Network.AWS.EC2.AssociateDHCPOptions
@@ -77,6 +78,7 @@ library
         , Network.AWS.EC2.CreateInstanceExportTask
         , Network.AWS.EC2.CreateInternetGateway
         , Network.AWS.EC2.CreateKeyPair
+        , Network.AWS.EC2.CreateNatGateway
         , Network.AWS.EC2.CreateNetworkACL
         , Network.AWS.EC2.CreateNetworkACLEntry
         , Network.AWS.EC2.CreateNetworkInterface
@@ -101,6 +103,7 @@ library
         , Network.AWS.EC2.DeleteFlowLogs
         , Network.AWS.EC2.DeleteInternetGateway
         , Network.AWS.EC2.DeleteKeyPair
+        , Network.AWS.EC2.DeleteNatGateway
         , Network.AWS.EC2.DeleteNetworkACL
         , Network.AWS.EC2.DeleteNetworkACLEntry
         , Network.AWS.EC2.DeleteNetworkInterface
@@ -130,6 +133,8 @@ library
         , Network.AWS.EC2.DescribeDHCPOptions
         , Network.AWS.EC2.DescribeExportTasks
         , Network.AWS.EC2.DescribeFlowLogs
+        , Network.AWS.EC2.DescribeHosts
+        , Network.AWS.EC2.DescribeIdFormat
         , Network.AWS.EC2.DescribeImageAttribute
         , Network.AWS.EC2.DescribeImages
         , Network.AWS.EC2.DescribeImportImageTasks
@@ -140,6 +145,7 @@ library
         , Network.AWS.EC2.DescribeInternetGateways
         , Network.AWS.EC2.DescribeKeyPairs
         , Network.AWS.EC2.DescribeMovingAddresses
+        , Network.AWS.EC2.DescribeNatGateways
         , Network.AWS.EC2.DescribeNetworkACLs
         , Network.AWS.EC2.DescribeNetworkInterfaceAttribute
         , Network.AWS.EC2.DescribeNetworkInterfaces
@@ -192,8 +198,11 @@ library
         , Network.AWS.EC2.ImportKeyPair
         , Network.AWS.EC2.ImportSnapshot
         , Network.AWS.EC2.ImportVolume
+        , Network.AWS.EC2.ModifyHosts
+        , Network.AWS.EC2.ModifyIdFormat
         , Network.AWS.EC2.ModifyImageAttribute
         , Network.AWS.EC2.ModifyInstanceAttribute
+        , Network.AWS.EC2.ModifyInstancePlacement
         , Network.AWS.EC2.ModifyNetworkInterfaceAttribute
         , Network.AWS.EC2.ModifyReservedInstances
         , Network.AWS.EC2.ModifySnapshotAttribute
@@ -209,6 +218,7 @@ library
         , Network.AWS.EC2.RegisterImage
         , Network.AWS.EC2.RejectVPCPeeringConnection
         , Network.AWS.EC2.ReleaseAddress
+        , Network.AWS.EC2.ReleaseHosts
         , Network.AWS.EC2.ReplaceNetworkACLAssociation
         , Network.AWS.EC2.ReplaceNetworkACLEntry
         , Network.AWS.EC2.ReplaceRoute

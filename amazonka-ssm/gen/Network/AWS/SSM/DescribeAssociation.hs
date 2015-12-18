@@ -72,7 +72,7 @@ describeAssociation pName_ pInstanceId_ =
 daName :: Lens' DescribeAssociation Text
 daName = lens _daName (\ s a -> s{_daName = a});
 
--- | The ID of the instance.
+-- | The Windows Server instance ID.
 daInstanceId :: Lens' DescribeAssociation Text
 daInstanceId = lens _daInstanceId (\ s a -> s{_daInstanceId = a});
 

@@ -46,7 +46,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeAssessment' smart constructor.
 newtype DescribeAssessment = DescribeAssessment'
-    { _dAssessmentARN :: Maybe Text
+    { _dAssessmentARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAssessment' with the minimum fields required to make a request.
@@ -55,14 +55,15 @@ newtype DescribeAssessment = DescribeAssessment'
 --
 -- * 'dAssessmentARN'
 describeAssessment
-    :: DescribeAssessment
-describeAssessment =
+    :: Text -- ^ 'dAssessmentARN'
+    -> DescribeAssessment
+describeAssessment pAssessmentARN_ =
     DescribeAssessment'
-    { _dAssessmentARN = Nothing
+    { _dAssessmentARN = pAssessmentARN_
     }
 
 -- | The ARN specifying the assessment that you want to describe.
-dAssessmentARN :: Lens' DescribeAssessment (Maybe Text)
+dAssessmentARN :: Lens' DescribeAssessment Text
 dAssessmentARN = lens _dAssessmentARN (\ s a -> s{_dAssessmentARN = a});
 
 instance AWSRequest DescribeAssessment where
@@ -89,7 +90,7 @@ instance ToJSON DescribeAssessment where
         toJSON DescribeAssessment'{..}
           = object
               (catMaybes
-                 [("assessmentArn" .=) <$> _dAssessmentARN])
+                 [Just ("assessmentArn" .= _dAssessmentARN)])
 
 instance ToPath DescribeAssessment where
         toPath = const "/"

@@ -171,6 +171,9 @@ module Network.AWS.AutoScaling
     -- ** PutScheduledUpdateGroupAction
     , module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
 
+    -- ** SetInstanceProtection
+    , module Network.AWS.AutoScaling.SetInstanceProtection
+
     -- ** DescribePolicies (Paginated)
     , module Network.AWS.AutoScaling.DescribePolicies
 
@@ -234,6 +237,7 @@ module Network.AWS.AutoScaling
     , asgStatus
     , asgTerminationPolicies
     , asgHealthCheckGracePeriod
+    , asgNewInstancesProtectedFromScaleIn
     , asgVPCZoneIdentifier
     , asgEnabledMetrics
     , asgLaunchConfigurationName
@@ -261,6 +265,7 @@ module Network.AWS.AutoScaling
     , asidLifecycleState
     , asidHealthStatus
     , asidLaunchConfigurationName
+    , asidProtectedFromScaleIn
 
     -- ** BlockDeviceMapping
     , BlockDeviceMapping
@@ -300,6 +305,7 @@ module Network.AWS.AutoScaling
     , iAvailabilityZone
     , iLifecycleState
     , iHealthStatus
+    , iProtectedFromScaleIn
 
     -- ** InstanceMonitoring
     , InstanceMonitoring
@@ -484,6 +490,7 @@ import           Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
 import           Network.AWS.AutoScaling.ResumeProcesses
 import           Network.AWS.AutoScaling.SetDesiredCapacity
 import           Network.AWS.AutoScaling.SetInstanceHealth
+import           Network.AWS.AutoScaling.SetInstanceProtection
 import           Network.AWS.AutoScaling.SuspendProcesses
 import           Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
 import           Network.AWS.AutoScaling.Types

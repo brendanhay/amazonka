@@ -27,9 +27,9 @@ module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
       getDevicePoolCompatibility
     , GetDevicePoolCompatibility
     -- * Request Lenses
+    , gdpcAppARN
     , gdpcTestType
     , gdpcDevicePoolARN
-    , gdpcAppARN
 
     -- * Destructuring the Response
     , getDevicePoolCompatibilityResponse
@@ -51,30 +51,33 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getDevicePoolCompatibility' smart constructor.
 data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
-    { _gdpcTestType      :: !(Maybe TestType)
+    { _gdpcAppARN        :: !(Maybe Text)
+    , _gdpcTestType      :: !(Maybe TestType)
     , _gdpcDevicePoolARN :: !Text
-    , _gdpcAppARN        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDevicePoolCompatibility' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'gdpcAppARN'
+--
 -- * 'gdpcTestType'
 --
 -- * 'gdpcDevicePoolARN'
---
--- * 'gdpcAppARN'
 getDevicePoolCompatibility
     :: Text -- ^ 'gdpcDevicePoolARN'
-    -> Text -- ^ 'gdpcAppARN'
     -> GetDevicePoolCompatibility
-getDevicePoolCompatibility pDevicePoolARN_ pAppARN_ =
+getDevicePoolCompatibility pDevicePoolARN_ =
     GetDevicePoolCompatibility'
-    { _gdpcTestType = Nothing
+    { _gdpcAppARN = Nothing
+    , _gdpcTestType = Nothing
     , _gdpcDevicePoolARN = pDevicePoolARN_
-    , _gdpcAppARN = pAppARN_
     }
+
+-- | The ARN of the app that is associated with the specified device pool.
+gdpcAppARN :: Lens' GetDevicePoolCompatibility (Maybe Text)
+gdpcAppARN = lens _gdpcAppARN (\ s a -> s{_gdpcAppARN = a});
 
 -- | The test type for the specified device pool.
 --
@@ -107,10 +110,6 @@ gdpcTestType = lens _gdpcTestType (\ s a -> s{_gdpcTestType = a});
 gdpcDevicePoolARN :: Lens' GetDevicePoolCompatibility Text
 gdpcDevicePoolARN = lens _gdpcDevicePoolARN (\ s a -> s{_gdpcDevicePoolARN = a});
 
--- | The ARN of the app that is associated with the specified device pool.
-gdpcAppARN :: Lens' GetDevicePoolCompatibility Text
-gdpcAppARN = lens _gdpcAppARN (\ s a -> s{_gdpcAppARN = a});
-
 instance AWSRequest GetDevicePoolCompatibility where
         type Rs GetDevicePoolCompatibility =
              GetDevicePoolCompatibilityResponse
@@ -137,9 +136,9 @@ instance ToJSON GetDevicePoolCompatibility where
         toJSON GetDevicePoolCompatibility'{..}
           = object
               (catMaybes
-                 [("testType" .=) <$> _gdpcTestType,
-                  Just ("devicePoolArn" .= _gdpcDevicePoolARN),
-                  Just ("appArn" .= _gdpcAppARN)])
+                 [("appArn" .=) <$> _gdpcAppARN,
+                  ("testType" .=) <$> _gdpcTestType,
+                  Just ("devicePoolArn" .= _gdpcDevicePoolARN)])
 
 instance ToPath GetDevicePoolCompatibility where
         toPath = const "/"

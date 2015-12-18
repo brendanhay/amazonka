@@ -11,9 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS IoT (Beta)
---
--- __AWS IoT is in beta and is subject to change__
+-- AWS IoT
 --
 -- AWS IoT provides secure, bi-directional communication between
 -- Internet-connected things (such as sensors, actuators, embedded devices,

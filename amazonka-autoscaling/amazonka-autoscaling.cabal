@@ -91,6 +91,7 @@ library
         , Network.AWS.AutoScaling.ResumeProcesses
         , Network.AWS.AutoScaling.SetDesiredCapacity
         , Network.AWS.AutoScaling.SetInstanceHealth
+        , Network.AWS.AutoScaling.SetInstanceProtection
         , Network.AWS.AutoScaling.SuspendProcesses
         , Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
         , Network.AWS.AutoScaling.Types

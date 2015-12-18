@@ -86,7 +86,7 @@ instance ToHeaders GetDistributionConfig where
 instance ToPath GetDistributionConfig where
         toPath GetDistributionConfig'{..}
           = mconcat
-              ["/2015-07-27/distribution/", toBS _gdcId, "/config"]
+              ["/2015-09-17/distribution/", toBS _gdcId, "/config"]
 
 instance ToQuery GetDistributionConfig where
         toQuery = const mempty

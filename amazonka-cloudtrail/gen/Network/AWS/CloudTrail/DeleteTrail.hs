@@ -19,7 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a trail. This operation must be called from the region in which
--- the trail was created.
+-- the trail was created. 'DeleteTrail' cannot be called on the shadow
+-- trails (replicated trails in other regions) of a trail that is enabled
+-- in all regions.
 --
 -- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteTrail.html AWS API Reference> for DeleteTrail.
 module Network.AWS.CloudTrail.DeleteTrail

@@ -28,8 +28,8 @@ module Network.AWS.Inspector.LocalizeText
       localizeText
     , LocalizeText
     -- * Request Lenses
-    , ltLocale
     , ltLocalizedTexts
+    , ltLocale
 
     -- * Destructuring the Response
     , localizeTextResponse
@@ -49,32 +49,33 @@ import           Network.AWS.Response
 
 -- | /See:/ 'localizeText' smart constructor.
 data LocalizeText = LocalizeText'
-    { _ltLocale         :: !(Maybe Text)
-    , _ltLocalizedTexts :: !(Maybe [LocalizedText])
+    { _ltLocalizedTexts :: ![LocalizedText]
+    , _ltLocale         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LocalizeText' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltLocale'
---
 -- * 'ltLocalizedTexts'
+--
+-- * 'ltLocale'
 localizeText
-    :: LocalizeText
-localizeText =
+    :: Text -- ^ 'ltLocale'
+    -> LocalizeText
+localizeText pLocale_ =
     LocalizeText'
-    { _ltLocale = Nothing
-    , _ltLocalizedTexts = Nothing
+    { _ltLocalizedTexts = mempty
+    , _ltLocale = pLocale_
     }
-
--- | The locale that you want to translate a textual identifier into.
-ltLocale :: Lens' LocalizeText (Maybe Text)
-ltLocale = lens _ltLocale (\ s a -> s{_ltLocale = a});
 
 -- | A list of textual identifiers.
 ltLocalizedTexts :: Lens' LocalizeText [LocalizedText]
-ltLocalizedTexts = lens _ltLocalizedTexts (\ s a -> s{_ltLocalizedTexts = a}) . _Default . _Coerce;
+ltLocalizedTexts = lens _ltLocalizedTexts (\ s a -> s{_ltLocalizedTexts = a}) . _Coerce;
+
+-- | The locale that you want to translate a textual identifier into.
+ltLocale :: Lens' LocalizeText Text
+ltLocale = lens _ltLocale (\ s a -> s{_ltLocale = a});
 
 instance AWSRequest LocalizeText where
         type Rs LocalizeText = LocalizeTextResponse
@@ -99,8 +100,8 @@ instance ToJSON LocalizeText where
         toJSON LocalizeText'{..}
           = object
               (catMaybes
-                 [("locale" .=) <$> _ltLocale,
-                  ("localizedTexts" .=) <$> _ltLocalizedTexts])
+                 [Just ("localizedTexts" .= _ltLocalizedTexts),
+                  Just ("locale" .= _ltLocale)])
 
 instance ToPath LocalizeText where
         toPath = const "/"

@@ -70,8 +70,8 @@ updateRadius pDirectoryId_ pRadiusSettings_ =
     , _urRadiusSettings = pRadiusSettings_
     }
 
--- | The identifier of the directory to update the RADIUS server information
--- for.
+-- | The identifier of the directory for which to update the RADIUS server
+-- information.
 urDirectoryId :: Lens' UpdateRadius Text
 urDirectoryId = lens _urDirectoryId (\ s a -> s{_urDirectoryId = a});
 

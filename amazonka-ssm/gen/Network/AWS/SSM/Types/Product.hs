@@ -554,10 +554,9 @@ cpResponseCode = lens _cpResponseCode (\ s a -> s{_cpResponseCode = a});
 cpOutput :: Lens' CommandPlugin (Maybe Text)
 cpOutput = lens _cpOutput (\ s a -> s{_cpOutput = a});
 
--- | The name of the plugin. Must be one of the following:
--- AWS-JoinDirectoryServiceDomain, AWS-InstallApplication,
--- AWS-RunPowerShellScript, AWS-InstallPowerShellModule,
--- AWS-ConfigureCloudWatch.
+-- | The name of the plugin. Must be one of the following: aws:updateAgent,
+-- aws:domainjoin, aws:applications, aws:runPowerShellScript, aws:psmodule,
+-- aws:cloudWatch, aws:runShellScript, or aws:updateSSMAgent.
 cpName :: Lens' CommandPlugin (Maybe Text)
 cpName = lens _cpName (\ s a -> s{_cpName = a});
 

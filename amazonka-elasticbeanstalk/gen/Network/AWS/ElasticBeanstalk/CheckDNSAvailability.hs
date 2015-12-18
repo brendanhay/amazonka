@@ -128,10 +128,6 @@ cdarsFullyQualifiedCNAME = lens _cdarsFullyQualifiedCNAME (\ s a -> s{_cdarsFull
 
 -- | Indicates if the specified CNAME is available:
 --
--- 'true' : The CNAME is available.
---
--- 'true' : The CNAME is not available.
---
 -- -   'true' : The CNAME is available.
 -- -   'false' : The CNAME is not available.
 cdarsAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)

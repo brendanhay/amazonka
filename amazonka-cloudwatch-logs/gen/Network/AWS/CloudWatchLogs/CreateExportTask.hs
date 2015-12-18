@@ -26,6 +26,11 @@
 -- task Id. Once started, 'DescribeExportTasks' can be used to get the
 -- status of an export task.
 --
+-- You can export logs from multiple log groups or multiple time ranges to
+-- the same Amazon S3 bucket. To separate out log data for each export
+-- task, you can specify a prefix that will be used as the Amazon S3 key
+-- prefix for all exported objects.
+--
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateExportTask.html AWS API Reference> for CreateExportTask.
 module Network.AWS.CloudWatchLogs.CreateExportTask
     (
@@ -120,17 +125,22 @@ cetLogStreamNamePrefix = lens _cetLogStreamNamePrefix (\ s a -> s{_cetLogStreamN
 cetLogGroupName :: Lens' CreateExportTask Text
 cetLogGroupName = lens _cetLogGroupName (\ s a -> s{_cetLogGroupName = a});
 
--- | A unix timestamp indicating the start time of the range for the request.
--- Events with a timestamp prior to this time will not be exported.
+-- | A point in time expressed as the number of milliseconds since Jan 1,
+-- 1970 00:00:00 UTC. It indicates the start time of the range for the
+-- request. Events with a timestamp prior to this time will not be
+-- exported.
 cetFrom :: Lens' CreateExportTask Natural
 cetFrom = lens _cetFrom (\ s a -> s{_cetFrom = a}) . _Nat;
 
--- | A unix timestamp indicating the end time of the range for the request.
--- Events with a timestamp later than this time will not be exported.
+-- | A point in time expressed as the number of milliseconds since Jan 1,
+-- 1970 00:00:00 UTC. It indicates the end time of the range for the
+-- request. Events with a timestamp later than this time will not be
+-- exported.
 cetTo :: Lens' CreateExportTask Natural
 cetTo = lens _cetTo (\ s a -> s{_cetTo = a}) . _Nat;
 
 -- | Name of Amazon S3 bucket to which the log data will be exported.
+--
 -- __NOTE: Only buckets in the same AWS region are supported__
 cetDestination :: Lens' CreateExportTask Text
 cetDestination = lens _cetDestination (\ s a -> s{_cetDestination = a});

@@ -60,6 +60,7 @@ module Network.AWS.AutoScaling.Types
     , asgStatus
     , asgTerminationPolicies
     , asgHealthCheckGracePeriod
+    , asgNewInstancesProtectedFromScaleIn
     , asgVPCZoneIdentifier
     , asgEnabledMetrics
     , asgLaunchConfigurationName
@@ -87,6 +88,7 @@ module Network.AWS.AutoScaling.Types
     , asidLifecycleState
     , asidHealthStatus
     , asidLaunchConfigurationName
+    , asidProtectedFromScaleIn
 
     -- * BlockDeviceMapping
     , BlockDeviceMapping
@@ -126,6 +128,7 @@ module Network.AWS.AutoScaling.Types
     , iAvailabilityZone
     , iLifecycleState
     , iHealthStatus
+    , iProtectedFromScaleIn
 
     -- * InstanceMonitoring
     , InstanceMonitoring

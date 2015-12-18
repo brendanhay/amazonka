@@ -234,14 +234,18 @@ module Network.AWS.ECS.Types
     -- * Task
     , Task
     , task
+    , tStoppedAt
     , tDesiredStatus
     , tOverrides
     , tClusterARN
+    , tCreatedAt
     , tTaskARN
     , tContainerInstanceARN
     , tLastStatus
     , tContainers
+    , tStartedAt
     , tStartedBy
+    , tStoppedReason
     , tTaskDefinitionARN
 
     -- * TaskDefinition

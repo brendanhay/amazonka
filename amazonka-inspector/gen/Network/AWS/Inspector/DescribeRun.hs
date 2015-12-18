@@ -46,7 +46,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeRun' smart constructor.
 newtype DescribeRun = DescribeRun'
-    { _drRunARN :: Maybe Text
+    { _drRunARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeRun' with the minimum fields required to make a request.
@@ -55,14 +55,15 @@ newtype DescribeRun = DescribeRun'
 --
 -- * 'drRunARN'
 describeRun
-    :: DescribeRun
-describeRun =
+    :: Text -- ^ 'drRunARN'
+    -> DescribeRun
+describeRun pRunARN_ =
     DescribeRun'
-    { _drRunARN = Nothing
+    { _drRunARN = pRunARN_
     }
 
 -- | The ARN specifying the assessment run that you want to describe.
-drRunARN :: Lens' DescribeRun (Maybe Text)
+drRunARN :: Lens' DescribeRun Text
 drRunARN = lens _drRunARN (\ s a -> s{_drRunARN = a});
 
 instance AWSRequest DescribeRun where
@@ -85,7 +86,7 @@ instance ToHeaders DescribeRun where
 
 instance ToJSON DescribeRun where
         toJSON DescribeRun'{..}
-          = object (catMaybes [("runArn" .=) <$> _drRunARN])
+          = object (catMaybes [Just ("runArn" .= _drRunARN)])
 
 instance ToPath DescribeRun where
         toPath = const "/"

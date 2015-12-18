@@ -42,6 +42,26 @@
 -- the 'SIGTERM' gracefully and exits within 30 seconds from receiving it,
 -- no 'SIGKILL' is sent.
 --
+-- When the service scheduler launches new tasks, it attempts to balance
+-- them across the Availability Zones in your cluster with the following
+-- logic:
+--
+-- -   Determine which of the container instances in your cluster can
+--     support your service\'s task definition (for example, they have the
+--     required CPU, memory, ports, and container instance attributes).
+--
+-- -   Sort the valid container instances by the fewest number of running
+--     tasks for this service in the same Availability Zone as the
+--     instance. For example, if zone A has one running service task and
+--     zones B and C each have zero, valid container instances in either
+--     zone B or C are considered optimal for placement.
+--
+-- -   Place the new service task on a valid container instance in an
+--     optimal Availability Zone (based on the previous steps), favoring
+--     container instances with the fewest number of running tasks for this
+--     service.
+--
+--
 -- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html AWS API Reference> for UpdateService.
 module Network.AWS.ECS.UpdateService
     (

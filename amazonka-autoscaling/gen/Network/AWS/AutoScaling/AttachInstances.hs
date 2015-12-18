@@ -20,6 +20,11 @@
 --
 -- Attaches one or more EC2 instances to the specified Auto Scaling group.
 --
+-- When you attach instances, Auto Scaling increases the desired capacity
+-- of the group by the number of instances being attached. If the number of
+-- instances being attached plus the desired capacity of the group exceeds
+-- the maximum size of the group, the operation fails.
+--
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html Attach EC2 Instances to Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.

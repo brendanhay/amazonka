@@ -65,7 +65,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | This documentation target is not reported in the API reference.
+-- |
 --
 -- /See:/ 'createConfigurationTemplate' smart constructor.
 data CreateConfigurationTemplate = CreateConfigurationTemplate'

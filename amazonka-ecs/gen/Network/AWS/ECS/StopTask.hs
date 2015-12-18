@@ -35,6 +35,7 @@ module Network.AWS.ECS.StopTask
     , StopTask
     -- * Request Lenses
     , stCluster
+    , stReason
     , stTask
 
     -- * Destructuring the Response
@@ -55,6 +56,7 @@ import           Network.AWS.Response
 -- | /See:/ 'stopTask' smart constructor.
 data StopTask = StopTask'
     { _stCluster :: !(Maybe Text)
+    , _stReason  :: !(Maybe Text)
     , _stTask    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -64,6 +66,8 @@ data StopTask = StopTask'
 --
 -- * 'stCluster'
 --
+-- * 'stReason'
+--
 -- * 'stTask'
 stopTask
     :: Text -- ^ 'stTask'
@@ -71,6 +75,7 @@ stopTask
 stopTask pTask_ =
     StopTask'
     { _stCluster = Nothing
+    , _stReason = Nothing
     , _stTask = pTask_
     }
 
@@ -79,6 +84,14 @@ stopTask pTask_ =
 -- cluster is assumed..
 stCluster :: Lens' StopTask (Maybe Text)
 stCluster = lens _stCluster (\ s a -> s{_stCluster = a});
+
+-- | An optional message specified when a task is stopped. For example, if
+-- you are using a custom scheduler, you can use this parameter to specify
+-- the reason for stopping the task here, and the message will appear in
+-- subsequent DescribeTasks API operations on this task. Up to 255
+-- characters are allowed in this message.
+stReason :: Lens' StopTask (Maybe Text)
+stReason = lens _stReason (\ s a -> s{_stReason = a});
 
 -- | The task ID or full Amazon Resource Name (ARN) entry of the task to
 -- stop.
@@ -109,6 +122,7 @@ instance ToJSON StopTask where
           = object
               (catMaybes
                  [("cluster" .=) <$> _stCluster,
+                  ("reason" .=) <$> _stReason,
                   Just ("task" .= _stTask)])
 
 instance ToPath StopTask where

@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the specified policy version as the default for the specified
--- policy.
+-- Sets the specified version of the specified policy as the policy\'s
+-- default (operative) version. This action affects all certificates that
+-- the policy is attached to. To list the principals the policy is attached
+-- to, use the ListPrincipalPolicy API.
 --
 -- /See:/ <https://aws.amazon.com/iot#SetDefaultPolicyVersion.html AWS API Reference> for SetDefaultPolicyVersion.
 module Network.AWS.IoT.SetDefaultPolicyVersion

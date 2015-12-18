@@ -552,17 +552,20 @@ module Network.AWS.RDS
     , dbCluster
     , dcEngineVersion
     , dcStatus
+    , dcStorageEncrypted
     , dcDBClusterIdentifier
     , dcDBClusterMembers
     , dcHostedZoneId
     , dcDBClusterParameterGroup
     , dcMasterUsername
+    , dcDBClusterResourceId
     , dcEarliestRestorableTime
     , dcEngine
     , dcLatestRestorableTime
     , dcPreferredMaintenanceWindow
     , dcAvailabilityZones
     , dcCharacterSetName
+    , dcKMSKeyId
     , dcPreferredBackupWindow
     , dcVPCSecurityGroups
     , dcBackupRetentionPeriod
@@ -604,6 +607,7 @@ module Network.AWS.RDS
     , dbClusterSnapshot
     , dcsEngineVersion
     , dcsStatus
+    , dcsStorageEncrypted
     , dcsDBClusterIdentifier
     , dcsMasterUsername
     , dcsVPCId
@@ -612,6 +616,7 @@ module Network.AWS.RDS
     , dcsLicenseModel
     , dcsAvailabilityZones
     , dcsSnapshotType
+    , dcsKMSKeyId
     , dcsSnapshotCreateTime
     , dcsAllocatedStorage
     , dcsClusterCreateTime
@@ -641,9 +646,11 @@ module Network.AWS.RDS
     , diAutoMinorVersionUpgrade
     , diMasterUsername
     , diReadReplicaDBInstanceIdentifiers
+    , diMonitoringRoleARN
     , diIOPS
     , diInstanceCreateTime
     , diReadReplicaSourceDBInstanceIdentifier
+    , diMonitoringInterval
     , diEngine
     , diLatestRestorableTime
     , diDBInstanceClass
@@ -660,6 +667,7 @@ module Network.AWS.RDS
     , diDBSubnetGroup
     , diMultiAZ
     , diOptionGroupMemberships
+    , diEnhancedMonitoringResourceARN
     , diSecondaryAvailabilityZone
     , diAllocatedStorage
     , diDBiResourceId
@@ -922,6 +930,7 @@ module Network.AWS.RDS
     , odioSupportsStorageEncryption
     , odioReadReplicaCapable
     , odioVPC
+    , odioSupportsEnhancedMonitoring
     , odioStorageType
 
     -- ** Parameter

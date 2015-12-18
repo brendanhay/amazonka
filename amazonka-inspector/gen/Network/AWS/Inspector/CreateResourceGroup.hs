@@ -49,7 +49,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'createResourceGroup' smart constructor.
 newtype CreateResourceGroup = CreateResourceGroup'
-    { _crgResourceGroupTags :: Maybe Text
+    { _crgResourceGroupTags :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateResourceGroup' with the minimum fields required to make a request.
@@ -58,17 +58,18 @@ newtype CreateResourceGroup = CreateResourceGroup'
 --
 -- * 'crgResourceGroupTags'
 createResourceGroup
-    :: CreateResourceGroup
-createResourceGroup =
+    :: Text -- ^ 'crgResourceGroupTags'
+    -> CreateResourceGroup
+createResourceGroup pResourceGroupTags_ =
     CreateResourceGroup'
-    { _crgResourceGroupTags = Nothing
+    { _crgResourceGroupTags = pResourceGroupTags_
     }
 
 -- | A collection of keys and an array of possible values in JSON format.
 --
 -- For example, [{ \"key1\" : [\"Value1\",\"Value2\"]},{\"Key2\":
 -- [\"Value3\"]}]
-crgResourceGroupTags :: Lens' CreateResourceGroup (Maybe Text)
+crgResourceGroupTags :: Lens' CreateResourceGroup Text
 crgResourceGroupTags = lens _crgResourceGroupTags (\ s a -> s{_crgResourceGroupTags = a});
 
 instance AWSRequest CreateResourceGroup where
@@ -95,7 +96,8 @@ instance ToJSON CreateResourceGroup where
         toJSON CreateResourceGroup'{..}
           = object
               (catMaybes
-                 [("resourceGroupTags" .=) <$> _crgResourceGroupTags])
+                 [Just
+                    ("resourceGroupTags" .= _crgResourceGroupTags)])
 
 instance ToPath CreateResourceGroup where
         toPath = const "/"

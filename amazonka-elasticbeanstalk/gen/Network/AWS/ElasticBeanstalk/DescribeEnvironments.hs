@@ -35,11 +35,10 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     , dIncludeDeleted
 
     -- * Destructuring the Response
-    , describeEnvironmentsResponse
-    , DescribeEnvironmentsResponse
+    , environmentDescriptionsMessage
+    , EnvironmentDescriptionsMessage
     -- * Response Lenses
-    , drsEnvironments
-    , drsResponseStatus
+    , edmEnvironments
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -49,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | This documentation target is not reported in the API reference.
+-- |
 --
 -- /See:/ 'describeEnvironments' smart constructor.
 data DescribeEnvironments = DescribeEnvironments'
@@ -124,15 +123,11 @@ dIncludeDeleted = lens _dIncludeDeleted (\ s a -> s{_dIncludeDeleted = a});
 
 instance AWSRequest DescribeEnvironments where
         type Rs DescribeEnvironments =
-             DescribeEnvironmentsResponse
+             EnvironmentDescriptionsMessage
         request = postQuery elasticBeanstalk
         response
           = receiveXMLWrapper "DescribeEnvironmentsResult"
-              (\ s h x ->
-                 DescribeEnvironmentsResponse' <$>
-                   (x .@? "Environments" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+              (\ s h x -> parseXML x)
 
 instance ToHeaders DescribeEnvironments where
         toHeaders = const mempty
@@ -154,35 +149,3 @@ instance ToQuery DescribeEnvironments where
                "ApplicationName" =: _dApplicationName,
                "IncludedDeletedBackTo" =: _dIncludedDeletedBackTo,
                "IncludeDeleted" =: _dIncludeDeleted]
-
--- | Result message containing a list of environment descriptions.
---
--- /See:/ 'describeEnvironmentsResponse' smart constructor.
-data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
-    { _drsEnvironments   :: !(Maybe [EnvironmentDescription])
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | Creates a value of 'DescribeEnvironmentsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsEnvironments'
---
--- * 'drsResponseStatus'
-describeEnvironmentsResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DescribeEnvironmentsResponse
-describeEnvironmentsResponse pResponseStatus_ =
-    DescribeEnvironmentsResponse'
-    { _drsEnvironments = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
-
--- | Returns an EnvironmentDescription list.
-drsEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
-drsEnvironments = lens _drsEnvironments (\ s a -> s{_drsEnvironments = a}) . _Default . _Coerce;
-
--- | The response status code.
-drsResponseStatus :: Lens' DescribeEnvironmentsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});

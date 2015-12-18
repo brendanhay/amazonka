@@ -23,6 +23,12 @@ module Network.AWS.EC2.Types
     -- * AddressStatus
     , AddressStatus (..)
 
+    -- * Affinity
+    , Affinity (..)
+
+    -- * AllocationState
+    , AllocationState (..)
+
     -- * AllocationStrategy
     , AllocationStrategy (..)
 
@@ -31,6 +37,9 @@ module Network.AWS.EC2.Types
 
     -- * AttachmentStatus
     , AttachmentStatus (..)
+
+    -- * AutoPlacement
+    , AutoPlacement (..)
 
     -- * AvailabilityZoneState
     , AvailabilityZoneState (..)
@@ -89,6 +98,9 @@ module Network.AWS.EC2.Types
     -- * GatewayType
     , GatewayType (..)
 
+    -- * HostTenancy
+    , HostTenancy (..)
+
     -- * HypervisorType
     , HypervisorType (..)
 
@@ -125,11 +137,17 @@ module Network.AWS.EC2.Types
     -- * MoveStatus
     , MoveStatus (..)
 
+    -- * NatGatewayState
+    , NatGatewayState (..)
+
     -- * NetworkInterfaceAttribute
     , NetworkInterfaceAttribute (..)
 
     -- * NetworkInterfaceStatus
     , NetworkInterfaceStatus (..)
+
+    -- * NetworkInterfaceType
+    , NetworkInterfaceType (..)
 
     -- * OfferingTypeValues
     , OfferingTypeValues (..)
@@ -309,6 +327,12 @@ module Network.AWS.EC2.Types
     , AvailabilityZoneMessage
     , availabilityZoneMessage
     , azmMessage
+
+    -- * AvailableCapacity
+    , AvailableCapacity
+    , availableCapacity
+    , acAvailableInstanceCapacity
+    , acAvailableVCPUs
 
     -- * BlobAttributeValue
     , BlobAttributeValue
@@ -545,6 +569,33 @@ module Network.AWS.EC2.Types
     , hrEventType
     , hrEventInformation
 
+    -- * Host
+    , Host
+    , host
+    , hState
+    , hClientToken
+    , hHostId
+    , hAvailableCapacity
+    , hHostReservationId
+    , hHostProperties
+    , hAvailabilityZone
+    , hInstances
+    , hAutoPlacement
+
+    -- * HostInstance
+    , HostInstance
+    , hostInstance
+    , hiInstanceId
+    , hiInstanceType
+
+    -- * HostProperties
+    , HostProperties
+    , hostProperties
+    , hpInstanceType
+    , hpTotalVCPUs
+    , hpCores
+    , hpSockets
+
     -- * IAMInstanceProfile
     , IAMInstanceProfile
     , iamInstanceProfile
@@ -577,6 +628,13 @@ module Network.AWS.EC2.Types
     , IPRange
     , ipRange
     , irCIdRIP
+
+    -- * IdFormat
+    , IdFormat
+    , idFormat
+    , ifUseLongIds
+    , ifDeadline
+    , ifResource
 
     -- * Image
     , Image
@@ -734,6 +792,13 @@ module Network.AWS.EC2.Types
     , ibdmsNoDevice
     , ibdmsEBS
     , ibdmsDeviceName
+
+    -- * InstanceCapacity
+    , InstanceCapacity
+    , instanceCapacity
+    , icAvailableCapacity
+    , icInstanceType
+    , icTotalCapacity
 
     -- * InstanceCount
     , InstanceCount
@@ -914,6 +979,27 @@ module Network.AWS.EC2.Types
     , masMoveStatus
     , masPublicIP
 
+    -- * NatGateway
+    , NatGateway
+    , natGateway
+    , ngState
+    , ngFailureCode
+    , ngVPCId
+    , ngFailureMessage
+    , ngNatGatewayId
+    , ngSubnetId
+    , ngDeleteTime
+    , ngNatGatewayAddresses
+    , ngCreateTime
+
+    -- * NatGatewayAddress
+    , NatGatewayAddress
+    , natGatewayAddress
+    , ngaPrivateIP
+    , ngaAllocationId
+    , ngaNetworkInterfaceId
+    , ngaPublicIP
+
     -- * NetworkACL
     , NetworkACL
     , networkACL
@@ -949,6 +1035,7 @@ module Network.AWS.EC2.Types
     , niStatus
     , niPrivateIPAddresses
     , niSourceDestCheck
+    , niInterfaceType
     , niVPCId
     , niTagSet
     , niRequesterManaged
@@ -1007,6 +1094,8 @@ module Network.AWS.EC2.Types
     -- * Placement
     , Placement
     , placement
+    , pAffinity
+    , pHostId
     , pAvailabilityZone
     , pTenancy
     , pGroupName
@@ -1211,6 +1300,7 @@ module Network.AWS.EC2.Types
     , rInstanceId
     , rOrigin
     , rState
+    , rNatGatewayId
     , rNetworkInterfaceId
     , rGatewayId
     , rInstanceOwnerId

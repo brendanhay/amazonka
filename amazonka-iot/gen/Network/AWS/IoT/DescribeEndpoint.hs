@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a unique URL specific to the AWS account making the call. The
--- URL points to the AWS IoT data plane endpoint. The customer-specific
--- endpoint should be provided to all data plane operations.
+-- Returns a unique endpoint specific to the AWS account making the call.
+-- You specify the following URI when updating state information for your
+-- thing: https:\/\//endpoint/\/things\//thingName/\/shadow.
 --
 -- /See:/ <https://aws.amazon.com/iot#DescribeEndpoint.html AWS API Reference> for DescribeEndpoint.
 module Network.AWS.IoT.DescribeEndpoint
@@ -99,7 +99,8 @@ describeEndpointResponse pResponseStatus_ =
     , _dersResponseStatus = pResponseStatus_
     }
 
--- | The address.
+-- | The endpoint. The format of the endpoint is as follows:
+-- /identifier/.iot./region/.amazonaws.com.
 dersEndpointAddress :: Lens' DescribeEndpointResponse (Maybe Text)
 dersEndpointAddress = lens _dersEndpointAddress (\ s a -> s{_dersEndpointAddress = a});
 

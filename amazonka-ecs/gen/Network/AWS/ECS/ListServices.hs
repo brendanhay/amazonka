@@ -94,9 +94,9 @@ lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 -- 'ListServices' only returns 'maxResults' results in a single page along
 -- with a 'nextToken' response element. The remaining results of the
 -- initial request can be seen by sending another 'ListServices' request
--- with the returned 'nextToken' value. This value can be between 1 and
--- 100. If this parameter is not used, then 'ListServices' returns up to
--- 100 results and a 'nextToken' value if applicable.
+-- with the returned 'nextToken' value. This value can be between 1 and 10.
+-- If this parameter is not used, then 'ListServices' returns up to 10
+-- results and a 'nextToken' value if applicable.
 lsMaxResults :: Lens' ListServices (Maybe Int)
 lsMaxResults = lens _lsMaxResults (\ s a -> s{_lsMaxResults = a});
 

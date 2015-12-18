@@ -72,7 +72,7 @@ import           Network.AWS.Route53.Types.Product
 -- parameters to control the hosted zone that the list begins with.
 --
 -- For more information about listing hosted zones, see
--- <http://docs.amazonwebservices.com/Route53/latest/DeveloperGuide/ListInfoOnHostedZone.html Listing the Hosted Zones for an AWS Account>
+-- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ListInfoOnHostedZone.html Listing the Hosted Zones for an AWS Account>
 -- in the /Amazon Route 53 Developer Guide/.
 --
 -- /See:/ 'listHostedZonesByName' smart constructor.

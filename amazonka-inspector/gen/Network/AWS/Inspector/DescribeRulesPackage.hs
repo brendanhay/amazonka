@@ -46,7 +46,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeRulesPackage' smart constructor.
 newtype DescribeRulesPackage = DescribeRulesPackage'
-    { _drpRulesPackageARN :: Maybe Text
+    { _drpRulesPackageARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeRulesPackage' with the minimum fields required to make a request.
@@ -55,14 +55,15 @@ newtype DescribeRulesPackage = DescribeRulesPackage'
 --
 -- * 'drpRulesPackageARN'
 describeRulesPackage
-    :: DescribeRulesPackage
-describeRulesPackage =
+    :: Text -- ^ 'drpRulesPackageARN'
+    -> DescribeRulesPackage
+describeRulesPackage pRulesPackageARN_ =
     DescribeRulesPackage'
-    { _drpRulesPackageARN = Nothing
+    { _drpRulesPackageARN = pRulesPackageARN_
     }
 
 -- | The ARN specifying the rules package that you want to describe.
-drpRulesPackageARN :: Lens' DescribeRulesPackage (Maybe Text)
+drpRulesPackageARN :: Lens' DescribeRulesPackage Text
 drpRulesPackageARN = lens _drpRulesPackageARN (\ s a -> s{_drpRulesPackageARN = a});
 
 instance AWSRequest DescribeRulesPackage where
@@ -89,7 +90,7 @@ instance ToJSON DescribeRulesPackage where
         toJSON DescribeRulesPackage'{..}
           = object
               (catMaybes
-                 [("rulesPackageArn" .=) <$> _drpRulesPackageARN])
+                 [Just ("rulesPackageArn" .= _drpRulesPackageARN)])
 
 instance ToPath DescribeRulesPackage where
         toPath = const "/"

@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of the Reserved Instances that you purchased.
+-- Describes one or more of the Reserved instances that you purchased.
 --
--- For more information about Reserved Instances, see
+-- For more information about Reserved instances, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
@@ -83,24 +83,24 @@ describeReservedInstances =
 -- | One or more filters.
 --
 -- -   'availability-zone' - The Availability Zone where the Reserved
---     Instance can be used.
+--     instance can be used.
 --
--- -   'duration' - The duration of the Reserved Instance (one year or
+-- -   'duration' - The duration of the Reserved instance (one year or
 --     three years), in seconds ('31536000' | '94608000').
 --
--- -   'end' - The time when the Reserved Instance expires (for example,
+-- -   'end' - The time when the Reserved instance expires (for example,
 --     2015-08-07T11:54:42.000Z).
 --
--- -   'fixed-price' - The purchase price of the Reserved Instance (for
+-- -   'fixed-price' - The purchase price of the Reserved instance (for
 --     example, 9800.0).
 --
--- -   'instance-type' - The instance type on which the Reserved Instance
---     can be used.
+-- -   'instance-type' - The instance type that is covered by the
+--     reservation.
 --
--- -   'product-description' - The Reserved Instance product platform
+-- -   'product-description' - The Reserved instance product platform
 --     description. Instances that include '(Amazon VPC)' in the product
 --     platform description will only be displayed to EC2-Classic account
---     holders and are for use with Amazon VPC. ('Linux\/UNIX' |
+--     holders and are for use with Amazon VPC ('Linux\/UNIX' |
 --     'Linux\/UNIX (Amazon VPC)' | 'SUSE Linux' |
 --     'SUSE Linux (Amazon VPC)' | 'Red Hat Enterprise Linux' |
 --     'Red Hat Enterprise Linux (Amazon VPC)' | 'Windows' |
@@ -111,12 +111,12 @@ describeReservedInstances =
 --     'Windows with SQL Server Enterprise' |
 --     'Windows with SQL Server Enterprise (Amazon VPC)').
 --
--- -   'reserved-instances-id' - The ID of the Reserved Instance.
+-- -   'reserved-instances-id' - The ID of the Reserved instance.
 --
--- -   'start' - The time at which the Reserved Instance purchase request
+-- -   'start' - The time at which the Reserved instance purchase request
 --     was placed (for example, 2014-08-07T11:54:42.000Z).
 --
--- -   'state' - The state of the Reserved Instance ('payment-pending' |
+-- -   'state' - The state of the Reserved instance ('payment-pending' |
 --     'active' | 'payment-failed' | 'retired').
 --
 -- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned
@@ -133,22 +133,22 @@ describeReservedInstances =
 -- -   'tag-value' - The value of a tag assigned to the resource. This
 --     filter is independent of the 'tag-key' filter.
 --
--- -   'usage-price' - The usage price of the Reserved Instance, per hour
+-- -   'usage-price' - The usage price of the Reserved instance, per hour
 --     (for example, 0.84).
 --
 driFilters :: Lens' DescribeReservedInstances [Filter]
 driFilters = lens _driFilters (\ s a -> s{_driFilters = a}) . _Default . _Coerce;
 
--- | One or more Reserved Instance IDs.
+-- | One or more Reserved instance IDs.
 --
--- Default: Describes all your Reserved Instances, or only those otherwise
+-- Default: Describes all your Reserved instances, or only those otherwise
 -- specified.
 driReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
 driReservedInstancesIds = lens _driReservedInstancesIds (\ s a -> s{_driReservedInstancesIds = a}) . _Default . _Coerce;
 
--- | The Reserved Instance offering type. If you are using tools that predate
+-- | The Reserved instance offering type. If you are using tools that predate
 -- the 2011-11-01 API version, you only have access to the
--- 'Medium Utilization' Reserved Instance offering type.
+-- 'Medium Utilization' Reserved instance offering type.
 driOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
 driOfferingType = lens _driOfferingType (\ s a -> s{_driOfferingType = a});
 
@@ -212,7 +212,7 @@ describeReservedInstancesResponse pResponseStatus_ =
     , _drirsResponseStatus = pResponseStatus_
     }
 
--- | A list of Reserved Instances.
+-- | A list of Reserved instances.
 drirsReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
 drirsReservedInstances = lens _drirsReservedInstances (\ s a -> s{_drirsReservedInstances = a}) . _Default . _Coerce;
 

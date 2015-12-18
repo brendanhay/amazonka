@@ -18,15 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Purchases a Reserved Instance for use with your account. With Amazon EC2
--- Reserved Instances, you obtain a capacity reservation for a certain
+-- Purchases a Reserved instance for use with your account. With Amazon EC2
+-- Reserved instances, you obtain a capacity reservation for a certain
 -- instance configuration over a specified period of time and pay a lower
--- hourly rate compared to on-Demand Instance pricing.
+-- hourly rate compared to On-Demand Instance pricing.
 --
 -- Use DescribeReservedInstancesOfferings to get a list of Reserved
--- Instance offerings that match your specifications. After you\'ve
--- purchased a Reserved Instance, you can check for your new Reserved
--- Instance with DescribeReservedInstances.
+-- instance offerings that match your specifications. After you\'ve
+-- purchased a Reserved instance, you can check for your new Reserved
+-- instance with DescribeReservedInstances.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances>
@@ -93,7 +93,7 @@ purchaseReservedInstancesOffering pReservedInstancesOfferingId_ pInstanceCount_ 
     }
 
 -- | Specified for Reserved Instance Marketplace offerings to limit the total
--- order and ensure that the Reserved Instances are not purchased at
+-- order and ensure that the Reserved instances are not purchased at
 -- unexpected prices.
 prioLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
 prioLimitPrice = lens _prioLimitPrice (\ s a -> s{_prioLimitPrice = a});
@@ -105,11 +105,11 @@ prioLimitPrice = lens _prioLimitPrice (\ s a -> s{_prioLimitPrice = a});
 prioDryRun :: Lens' PurchaseReservedInstancesOffering (Maybe Bool)
 prioDryRun = lens _prioDryRun (\ s a -> s{_prioDryRun = a});
 
--- | The ID of the Reserved Instance offering to purchase.
+-- | The ID of the Reserved instance offering to purchase.
 prioReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
 prioReservedInstancesOfferingId = lens _prioReservedInstancesOfferingId (\ s a -> s{_prioReservedInstancesOfferingId = a});
 
--- | The number of Reserved Instances to purchase.
+-- | The number of Reserved instances to purchase.
 prioInstanceCount :: Lens' PurchaseReservedInstancesOffering Int
 prioInstanceCount = lens _prioInstanceCount (\ s a -> s{_prioInstanceCount = a});
 
@@ -168,7 +168,7 @@ purchaseReservedInstancesOfferingResponse pResponseStatus_ =
     , _priorsResponseStatus = pResponseStatus_
     }
 
--- | The IDs of the purchased Reserved Instances.
+-- | The IDs of the purchased Reserved instances.
 priorsReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
 priorsReservedInstancesId = lens _priorsReservedInstancesId (\ s a -> s{_priorsReservedInstancesId = a});
 

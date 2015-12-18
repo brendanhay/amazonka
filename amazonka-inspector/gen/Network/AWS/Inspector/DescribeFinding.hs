@@ -46,7 +46,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'describeFinding' smart constructor.
 newtype DescribeFinding = DescribeFinding'
-    { _dfFindingARN :: Maybe Text
+    { _dfFindingARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeFinding' with the minimum fields required to make a request.
@@ -55,14 +55,15 @@ newtype DescribeFinding = DescribeFinding'
 --
 -- * 'dfFindingARN'
 describeFinding
-    :: DescribeFinding
-describeFinding =
+    :: Text -- ^ 'dfFindingARN'
+    -> DescribeFinding
+describeFinding pFindingARN_ =
     DescribeFinding'
-    { _dfFindingARN = Nothing
+    { _dfFindingARN = pFindingARN_
     }
 
 -- | The ARN specifying the finding that you want to describe.
-dfFindingARN :: Lens' DescribeFinding (Maybe Text)
+dfFindingARN :: Lens' DescribeFinding Text
 dfFindingARN = lens _dfFindingARN (\ s a -> s{_dfFindingARN = a});
 
 instance AWSRequest DescribeFinding where
@@ -86,7 +87,7 @@ instance ToHeaders DescribeFinding where
 instance ToJSON DescribeFinding where
         toJSON DescribeFinding'{..}
           = object
-              (catMaybes [("findingArn" .=) <$> _dfFindingARN])
+              (catMaybes [Just ("findingArn" .= _dfFindingARN)])
 
 instance ToPath DescribeFinding where
         toPath = const "/"

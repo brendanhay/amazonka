@@ -28,10 +28,10 @@ module Network.AWS.Inspector.CreateAssessment
       createAssessment
     , CreateAssessment
     -- * Request Lenses
-    , caApplicationARN
     , caUserAttributesForFindings
-    , caDurationInSeconds
+    , caApplicationARN
     , caAssessmentName
+    , caDurationInSeconds
 
     -- * Destructuring the Response
     , createAssessmentResponse
@@ -50,54 +50,57 @@ import           Network.AWS.Response
 
 -- | /See:/ 'createAssessment' smart constructor.
 data CreateAssessment = CreateAssessment'
-    { _caApplicationARN            :: !(Maybe Text)
-    , _caUserAttributesForFindings :: !(Maybe [Attribute])
-    , _caDurationInSeconds         :: !(Maybe Int)
-    , _caAssessmentName            :: !(Maybe Text)
+    { _caUserAttributesForFindings :: !(Maybe [Attribute])
+    , _caApplicationARN            :: !Text
+    , _caAssessmentName            :: !Text
+    , _caDurationInSeconds         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAssessment' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caApplicationARN'
---
 -- * 'caUserAttributesForFindings'
 --
--- * 'caDurationInSeconds'
+-- * 'caApplicationARN'
 --
 -- * 'caAssessmentName'
+--
+-- * 'caDurationInSeconds'
 createAssessment
-    :: CreateAssessment
-createAssessment =
+    :: Text -- ^ 'caApplicationARN'
+    -> Text -- ^ 'caAssessmentName'
+    -> Int -- ^ 'caDurationInSeconds'
+    -> CreateAssessment
+createAssessment pApplicationARN_ pAssessmentName_ pDurationInSeconds_ =
     CreateAssessment'
-    { _caApplicationARN = Nothing
-    , _caUserAttributesForFindings = Nothing
-    , _caDurationInSeconds = Nothing
-    , _caAssessmentName = Nothing
+    { _caUserAttributesForFindings = Nothing
+    , _caApplicationARN = pApplicationARN_
+    , _caAssessmentName = pAssessmentName_
+    , _caDurationInSeconds = pDurationInSeconds_
     }
-
--- | The ARN specifying the application for which you want to create an
--- assessment.
-caApplicationARN :: Lens' CreateAssessment (Maybe Text)
-caApplicationARN = lens _caApplicationARN (\ s a -> s{_caApplicationARN = a});
 
 -- | The user-defined attributes that are assigned to every finding generated
 -- by running this assessment.
 caUserAttributesForFindings :: Lens' CreateAssessment [Attribute]
 caUserAttributesForFindings = lens _caUserAttributesForFindings (\ s a -> s{_caUserAttributesForFindings = a}) . _Default . _Coerce;
 
--- | The duration of the assessment in seconds. The default value is 3600
--- seconds (one hour). The maximum value is 86400 seconds (one day).
-caDurationInSeconds :: Lens' CreateAssessment (Maybe Int)
-caDurationInSeconds = lens _caDurationInSeconds (\ s a -> s{_caDurationInSeconds = a});
+-- | The ARN specifying the application for which you want to create an
+-- assessment.
+caApplicationARN :: Lens' CreateAssessment Text
+caApplicationARN = lens _caApplicationARN (\ s a -> s{_caApplicationARN = a});
 
 -- | The user-defined name identifying the assessment that you want to
 -- create. You can create several assessments for an application. The names
 -- of the assessments corresponding to a particular application must be
 -- unique.
-caAssessmentName :: Lens' CreateAssessment (Maybe Text)
+caAssessmentName :: Lens' CreateAssessment Text
 caAssessmentName = lens _caAssessmentName (\ s a -> s{_caAssessmentName = a});
+
+-- | The duration of the assessment in seconds. The default value is 3600
+-- seconds (one hour). The maximum value is 86400 seconds (one day).
+caDurationInSeconds :: Lens' CreateAssessment Int
+caDurationInSeconds = lens _caDurationInSeconds (\ s a -> s{_caDurationInSeconds = a});
 
 instance AWSRequest CreateAssessment where
         type Rs CreateAssessment = CreateAssessmentResponse
@@ -121,11 +124,11 @@ instance ToJSON CreateAssessment where
         toJSON CreateAssessment'{..}
           = object
               (catMaybes
-                 [("applicationArn" .=) <$> _caApplicationARN,
-                  ("userAttributesForFindings" .=) <$>
+                 [("userAttributesForFindings" .=) <$>
                     _caUserAttributesForFindings,
-                  ("durationInSeconds" .=) <$> _caDurationInSeconds,
-                  ("assessmentName" .=) <$> _caAssessmentName])
+                  Just ("applicationArn" .= _caApplicationARN),
+                  Just ("assessmentName" .= _caAssessmentName),
+                  Just ("durationInSeconds" .= _caDurationInSeconds)])
 
 instance ToPath CreateAssessment where
         toPath = const "/"

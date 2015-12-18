@@ -92,7 +92,7 @@ describeRouteTables =
 --     association.
 --
 -- -   'association.main' - Indicates whether the route table is the main
---     route table for the VPC.
+--     route table for the VPC ('true' | 'false').
 --
 -- -   'route-table-id' - The ID of the route table.
 --
@@ -107,6 +107,8 @@ describeRouteTables =
 --
 -- -   'route.instance-id' - The ID of an instance specified in a route in
 --     the table.
+--
+-- -   'route.nat-gateway-id' - The ID of a NAT gateway.
 --
 -- -   'route.origin' - Describes how the route was created.
 --     'CreateRouteTable' indicates that the route was automatically

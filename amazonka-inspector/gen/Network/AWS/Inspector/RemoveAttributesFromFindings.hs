@@ -49,8 +49,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'removeAttributesFromFindings' smart constructor.
 data RemoveAttributesFromFindings = RemoveAttributesFromFindings'
-    { _raffFindingARNs   :: !(Maybe [Text])
-    , _raffAttributeKeys :: !(Maybe [Text])
+    { _raffFindingARNs   :: ![Text]
+    , _raffAttributeKeys :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RemoveAttributesFromFindings' with the minimum fields required to make a request.
@@ -64,19 +64,19 @@ removeAttributesFromFindings
     :: RemoveAttributesFromFindings
 removeAttributesFromFindings =
     RemoveAttributesFromFindings'
-    { _raffFindingARNs = Nothing
-    , _raffAttributeKeys = Nothing
+    { _raffFindingARNs = mempty
+    , _raffAttributeKeys = mempty
     }
 
 -- | The ARNs specifying the findings that you want to remove attributes
 -- from.
 raffFindingARNs :: Lens' RemoveAttributesFromFindings [Text]
-raffFindingARNs = lens _raffFindingARNs (\ s a -> s{_raffFindingARNs = a}) . _Default . _Coerce;
+raffFindingARNs = lens _raffFindingARNs (\ s a -> s{_raffFindingARNs = a}) . _Coerce;
 
 -- | The array of attribute keys that you want to remove from specified
 -- findings.
 raffAttributeKeys :: Lens' RemoveAttributesFromFindings [Text]
-raffAttributeKeys = lens _raffAttributeKeys (\ s a -> s{_raffAttributeKeys = a}) . _Default . _Coerce;
+raffAttributeKeys = lens _raffAttributeKeys (\ s a -> s{_raffAttributeKeys = a}) . _Coerce;
 
 instance AWSRequest RemoveAttributesFromFindings
          where
@@ -103,8 +103,8 @@ instance ToJSON RemoveAttributesFromFindings where
         toJSON RemoveAttributesFromFindings'{..}
           = object
               (catMaybes
-                 [("findingArns" .=) <$> _raffFindingARNs,
-                  ("attributeKeys" .=) <$> _raffAttributeKeys])
+                 [Just ("findingArns" .= _raffFindingARNs),
+                  Just ("attributeKeys" .= _raffAttributeKeys)])
 
 instance ToPath RemoveAttributesFromFindings where
         toPath = const "/"

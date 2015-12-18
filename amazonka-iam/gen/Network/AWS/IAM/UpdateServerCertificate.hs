@@ -20,9 +20,15 @@
 --
 -- Updates the name and\/or the path of the specified server certificate.
 --
+-- For more information about working with server certificates, including a
+-- list of AWS services that can use the server certificates that you
+-- manage with IAM, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates>
+-- in the /IAM User Guide/.
+--
 -- You should understand the implications of changing a server
 -- certificate\'s path or name. For more information, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html Managing Server Certificates>
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts Renaming a Server Certificate>
 -- in the /IAM User Guide/.
 --
 -- To change a server certificate name the requester must have appropriate
@@ -31,7 +37,8 @@
 -- making the request must have permission on ProductionCert and ProdCert,
 -- or must have permission on all (*). For more information about
 -- permissions, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies>.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html Access Management>
+-- in the /IAM User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServerCertificate.html AWS API Reference> for UpdateServerCertificate.
 module Network.AWS.IAM.UpdateServerCertificate

@@ -86,6 +86,9 @@ module Network.AWS.Config
     -- ** NoSuchConfigRuleException
     , _NoSuchConfigRuleException
 
+    -- ** InsufficientPermissionsException
+    , _InsufficientPermissionsException
+
     -- ** ResourceNotDiscoveredException
     , _ResourceNotDiscoveredException
 
@@ -303,11 +306,14 @@ module Network.AWS.Config
     , ConfigRuleEvaluationStatus
     , configRuleEvaluationStatus
     , cresLastErrorCode
+    , cresLastFailedEvaluationTime
     , cresFirstActivatedTime
+    , cresLastSuccessfulEvaluationTime
     , cresConfigRuleName
     , cresLastErrorMessage
     , cresConfigRuleId
     , cresLastFailedInvocationTime
+    , cresFirstEvaluationStarted
     , cresLastSuccessfulInvocationTime
     , cresConfigRuleARN
 
@@ -417,6 +423,7 @@ module Network.AWS.Config
     , RecordingGroup
     , recordingGroup
     , rgAllSupported
+    , rgIncludeGlobalResourceTypes
     , rgResourceTypes
 
     -- ** Relationship

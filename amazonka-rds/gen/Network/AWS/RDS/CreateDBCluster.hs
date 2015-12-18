@@ -31,10 +31,12 @@ module Network.AWS.RDS.CreateDBCluster
     , CreateDBCluster
     -- * Request Lenses
     , cdcEngineVersion
+    , cdcStorageEncrypted
     , cdcDBSubnetGroupName
     , cdcPreferredMaintenanceWindow
     , cdcAvailabilityZones
     , cdcCharacterSetName
+    , cdcKMSKeyId
     , cdcPreferredBackupWindow
     , cdcBackupRetentionPeriod
     , cdcVPCSecurityGroupIds
@@ -68,10 +70,12 @@ import           Network.AWS.Response
 -- /See:/ 'createDBCluster' smart constructor.
 data CreateDBCluster = CreateDBCluster'
     { _cdcEngineVersion               :: !(Maybe Text)
+    , _cdcStorageEncrypted            :: !(Maybe Bool)
     , _cdcDBSubnetGroupName           :: !(Maybe Text)
     , _cdcPreferredMaintenanceWindow  :: !(Maybe Text)
     , _cdcAvailabilityZones           :: !(Maybe [Text])
     , _cdcCharacterSetName            :: !(Maybe Text)
+    , _cdcKMSKeyId                    :: !(Maybe Text)
     , _cdcPreferredBackupWindow       :: !(Maybe Text)
     , _cdcBackupRetentionPeriod       :: !(Maybe Int)
     , _cdcVPCSecurityGroupIds         :: !(Maybe [Text])
@@ -92,6 +96,8 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- * 'cdcEngineVersion'
 --
+-- * 'cdcStorageEncrypted'
+--
 -- * 'cdcDBSubnetGroupName'
 --
 -- * 'cdcPreferredMaintenanceWindow'
@@ -99,6 +105,8 @@ data CreateDBCluster = CreateDBCluster'
 -- * 'cdcAvailabilityZones'
 --
 -- * 'cdcCharacterSetName'
+--
+-- * 'cdcKMSKeyId'
 --
 -- * 'cdcPreferredBackupWindow'
 --
@@ -132,10 +140,12 @@ createDBCluster
 createDBCluster pDBClusterIdentifier_ pEngine_ pMasterUsername_ pMasterUserPassword_ =
     CreateDBCluster'
     { _cdcEngineVersion = Nothing
+    , _cdcStorageEncrypted = Nothing
     , _cdcDBSubnetGroupName = Nothing
     , _cdcPreferredMaintenanceWindow = Nothing
     , _cdcAvailabilityZones = Nothing
     , _cdcCharacterSetName = Nothing
+    , _cdcKMSKeyId = Nothing
     , _cdcPreferredBackupWindow = Nothing
     , _cdcBackupRetentionPeriod = Nothing
     , _cdcVPCSecurityGroupIds = Nothing
@@ -157,6 +167,10 @@ createDBCluster pDBClusterIdentifier_ pEngine_ pMasterUsername_ pMasterUserPassw
 -- Example: '5.6.10a'
 cdcEngineVersion :: Lens' CreateDBCluster (Maybe Text)
 cdcEngineVersion = lens _cdcEngineVersion (\ s a -> s{_cdcEngineVersion = a});
+
+-- | Specifies whether the DB cluster is encrypted.
+cdcStorageEncrypted :: Lens' CreateDBCluster (Maybe Bool)
+cdcStorageEncrypted = lens _cdcStorageEncrypted (\ s a -> s{_cdcStorageEncrypted = a});
 
 -- | A DB subnet group to associate with this DB cluster.
 cdcDBSubnetGroupName :: Lens' CreateDBCluster (Maybe Text)
@@ -189,6 +203,22 @@ cdcAvailabilityZones = lens _cdcAvailabilityZones (\ s a -> s{_cdcAvailabilityZo
 -- specified CharacterSet.
 cdcCharacterSetName :: Lens' CreateDBCluster (Maybe Text)
 cdcCharacterSetName = lens _cdcCharacterSetName (\ s a -> s{_cdcCharacterSetName = a});
+
+-- | The KMS key identifier for an encrypted DB cluster.
+--
+-- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS
+-- encryption key. If you are creating a DB cluster with the same AWS
+-- account that owns the KMS encryption key used to encrypt the new DB
+-- cluster, then you can use the KMS key alias instead of the ARN for the
+-- KM encryption key.
+--
+-- If the 'StorageEncrypted' parameter is true, and you do not specify a
+-- value for the 'KmsKeyId' parameter, then Amazon RDS will use your
+-- default encryption key. AWS KMS creates the default encryption key for
+-- your AWS account. Your AWS account has a different default encryption
+-- key for each AWS region.
+cdcKMSKeyId :: Lens' CreateDBCluster (Maybe Text)
+cdcKMSKeyId = lens _cdcKMSKeyId (\ s a -> s{_cdcKMSKeyId = a});
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled using the 'BackupRetentionPeriod'
@@ -318,6 +348,7 @@ instance ToQuery CreateDBCluster where
               ["Action" =: ("CreateDBCluster" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "EngineVersion" =: _cdcEngineVersion,
+               "StorageEncrypted" =: _cdcStorageEncrypted,
                "DBSubnetGroupName" =: _cdcDBSubnetGroupName,
                "PreferredMaintenanceWindow" =:
                  _cdcPreferredMaintenanceWindow,
@@ -326,6 +357,7 @@ instance ToQuery CreateDBCluster where
                    (toQueryList "AvailabilityZone" <$>
                       _cdcAvailabilityZones),
                "CharacterSetName" =: _cdcCharacterSetName,
+               "KmsKeyId" =: _cdcKMSKeyId,
                "PreferredBackupWindow" =: _cdcPreferredBackupWindow,
                "BackupRetentionPeriod" =: _cdcBackupRetentionPeriod,
                "VpcSecurityGroupIds" =:

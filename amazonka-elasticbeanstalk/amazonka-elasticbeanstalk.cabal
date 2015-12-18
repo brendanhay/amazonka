@@ -67,6 +67,7 @@ library
           Network.AWS.ElasticBeanstalk
         , Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
         , Network.AWS.ElasticBeanstalk.CheckDNSAvailability
+        , Network.AWS.ElasticBeanstalk.ComposeEnvironments
         , Network.AWS.ElasticBeanstalk.CreateApplication
         , Network.AWS.ElasticBeanstalk.CreateApplicationVersion
         , Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate

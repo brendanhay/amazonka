@@ -532,11 +532,14 @@ instance ToJSON ConfigRule where
 -- /See:/ 'configRuleEvaluationStatus' smart constructor.
 data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
     { _cresLastErrorCode                :: !(Maybe Text)
+    , _cresLastFailedEvaluationTime     :: !(Maybe POSIX)
     , _cresFirstActivatedTime           :: !(Maybe POSIX)
+    , _cresLastSuccessfulEvaluationTime :: !(Maybe POSIX)
     , _cresConfigRuleName               :: !(Maybe Text)
     , _cresLastErrorMessage             :: !(Maybe Text)
     , _cresConfigRuleId                 :: !(Maybe Text)
     , _cresLastFailedInvocationTime     :: !(Maybe POSIX)
+    , _cresFirstEvaluationStarted       :: !(Maybe Bool)
     , _cresLastSuccessfulInvocationTime :: !(Maybe POSIX)
     , _cresConfigRuleARN                :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -547,7 +550,11 @@ data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
 --
 -- * 'cresLastErrorCode'
 --
+-- * 'cresLastFailedEvaluationTime'
+--
 -- * 'cresFirstActivatedTime'
+--
+-- * 'cresLastSuccessfulEvaluationTime'
 --
 -- * 'cresConfigRuleName'
 --
@@ -557,6 +564,8 @@ data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
 --
 -- * 'cresLastFailedInvocationTime'
 --
+-- * 'cresFirstEvaluationStarted'
+--
 -- * 'cresLastSuccessfulInvocationTime'
 --
 -- * 'cresConfigRuleARN'
@@ -565,11 +574,14 @@ configRuleEvaluationStatus
 configRuleEvaluationStatus =
     ConfigRuleEvaluationStatus'
     { _cresLastErrorCode = Nothing
+    , _cresLastFailedEvaluationTime = Nothing
     , _cresFirstActivatedTime = Nothing
+    , _cresLastSuccessfulEvaluationTime = Nothing
     , _cresConfigRuleName = Nothing
     , _cresLastErrorMessage = Nothing
     , _cresConfigRuleId = Nothing
     , _cresLastFailedInvocationTime = Nothing
+    , _cresFirstEvaluationStarted = Nothing
     , _cresLastSuccessfulInvocationTime = Nothing
     , _cresConfigRuleARN = Nothing
     }
@@ -578,9 +590,19 @@ configRuleEvaluationStatus =
 cresLastErrorCode :: Lens' ConfigRuleEvaluationStatus (Maybe Text)
 cresLastErrorCode = lens _cresLastErrorCode (\ s a -> s{_cresLastErrorCode = a});
 
+-- | The time that AWS Config last failed to evaluate your AWS resources
+-- against the rule.
+cresLastFailedEvaluationTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
+cresLastFailedEvaluationTime = lens _cresLastFailedEvaluationTime (\ s a -> s{_cresLastFailedEvaluationTime = a}) . mapping _Time;
+
 -- | The time that you first activated the AWS Config rule.
 cresFirstActivatedTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
 cresFirstActivatedTime = lens _cresFirstActivatedTime (\ s a -> s{_cresFirstActivatedTime = a}) . mapping _Time;
+
+-- | The time that AWS Config last successfully evaluated your AWS resources
+-- against the rule.
+cresLastSuccessfulEvaluationTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
+cresLastSuccessfulEvaluationTime = lens _cresLastSuccessfulEvaluationTime (\ s a -> s{_cresLastSuccessfulEvaluationTime = a}) . mapping _Time;
 
 -- | The name of the AWS Config rule.
 cresConfigRuleName :: Lens' ConfigRuleEvaluationStatus (Maybe Text)
@@ -599,6 +621,16 @@ cresConfigRuleId = lens _cresConfigRuleId (\ s a -> s{_cresConfigRuleId = a});
 cresLastFailedInvocationTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
 cresLastFailedInvocationTime = lens _cresLastFailedInvocationTime (\ s a -> s{_cresLastFailedInvocationTime = a}) . mapping _Time;
 
+-- | Indicates whether AWS Config has evaluated your resources against the
+-- rule at least once.
+--
+-- -   'true' - AWS Config has evaluated your AWS resources against the
+--     rule at least once.
+-- -   'false' - AWS Config has not once finished evaluating your AWS
+--     resources against the rule.
+cresFirstEvaluationStarted :: Lens' ConfigRuleEvaluationStatus (Maybe Bool)
+cresFirstEvaluationStarted = lens _cresFirstEvaluationStarted (\ s a -> s{_cresFirstEvaluationStarted = a});
+
 -- | The time that AWS Config last successfully invoked the AWS Config rule
 -- to evaluate your AWS resources.
 cresLastSuccessfulInvocationTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
@@ -614,11 +646,14 @@ instance FromJSON ConfigRuleEvaluationStatus where
               (\ x ->
                  ConfigRuleEvaluationStatus' <$>
                    (x .:? "LastErrorCode") <*>
-                     (x .:? "FirstActivatedTime")
+                     (x .:? "LastFailedEvaluationTime")
+                     <*> (x .:? "FirstActivatedTime")
+                     <*> (x .:? "LastSuccessfulEvaluationTime")
                      <*> (x .:? "ConfigRuleName")
                      <*> (x .:? "LastErrorMessage")
                      <*> (x .:? "ConfigRuleId")
                      <*> (x .:? "LastFailedInvocationTime")
+                     <*> (x .:? "FirstEvaluationStarted")
                      <*> (x .:? "LastSuccessfulInvocationTime")
                      <*> (x .:? "ConfigRuleArn"))
 
@@ -948,9 +983,8 @@ configurationRecorder =
 crName :: Lens' ConfigurationRecorder (Maybe Text)
 crName = lens _crName (\ s a -> s{_crName = a});
 
--- | The recording group specifies either to record configurations for all
--- supported resources or to provide a list of resource types to record.
--- The list of resource types must be a subset of supported resource types.
+-- | Specifies the types of AWS resource for which AWS Config records
+-- configuration changes.
 crRecordingGroup :: Lens' ConfigurationRecorder (Maybe RecordingGroup)
 crRecordingGroup = lens _crRecordingGroup (\ s a -> s{_crRecordingGroup = a});
 
@@ -1473,16 +1507,46 @@ instance FromJSON EvaluationResultQualifier where
                    (x .:? "ResourceId") <*> (x .:? "ResourceType") <*>
                      (x .:? "ConfigRuleName"))
 
--- | The group of AWS resource types that AWS Config records when starting
--- the configuration recorder.
+-- | Specifies the types of AWS resource for which AWS Config records
+-- configuration changes.
 --
--- __recordingGroup__ can have one and only one parameter. Choose either
--- __allSupported__ or __resourceTypes__.
+-- In the recording group, you specify whether all supported types or
+-- specific types of resources are recorded.
+--
+-- By default, AWS Config records configuration changes for all supported
+-- types of regional resources that AWS Config discovers in the region in
+-- which it is running. Regional resources are tied to a region and can be
+-- used only in that region. Examples of regional resources are EC2
+-- instances and EBS volumes.
+--
+-- You can also have AWS Config record configuration changes for supported
+-- types of global resources. Global resources are not tied to an
+-- individual region and can be used in all regions.
+--
+-- The configuration details for any global resource are the same in all
+-- regions. If you customize AWS Config in multiple regions to record
+-- global resources, it will create multiple configuration items each time
+-- a global resource changes: one configuration item for each region. These
+-- configuration items will contain identical data. To prevent duplicate
+-- configuration items, you should consider customizing AWS Config in only
+-- one region to record global resources, unless you want the configuration
+-- items to be available in multiple regions.
+--
+-- If you don\'t want AWS Config to record all resources, you can specify
+-- which types of resources it will record with the 'resourceTypes'
+-- parameter.
+--
+-- For a list of supported resource types, see
+-- <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported resource types>.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/config/latest/developerguide/select-resources.html Selecting Which Resources AWS Config Records>.
 --
 -- /See:/ 'recordingGroup' smart constructor.
 data RecordingGroup = RecordingGroup'
-    { _rgAllSupported  :: !(Maybe Bool)
-    , _rgResourceTypes :: !(Maybe [ResourceType])
+    { _rgAllSupported               :: !(Maybe Bool)
+    , _rgIncludeGlobalResourceTypes :: !(Maybe Bool)
+    , _rgResourceTypes              :: !(Maybe [ResourceType])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RecordingGroup' with the minimum fields required to make a request.
@@ -1491,28 +1555,55 @@ data RecordingGroup = RecordingGroup'
 --
 -- * 'rgAllSupported'
 --
+-- * 'rgIncludeGlobalResourceTypes'
+--
 -- * 'rgResourceTypes'
 recordingGroup
     :: RecordingGroup
 recordingGroup =
     RecordingGroup'
     { _rgAllSupported = Nothing
+    , _rgIncludeGlobalResourceTypes = Nothing
     , _rgResourceTypes = Nothing
     }
 
--- | Records all supported resource types in the recording group. For a list
--- of supported resource types, see
--- <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported resource types>.
--- If you specify __allSupported__, you cannot enumerate a list of
--- __resourceTypes__.
+-- | Specifies whether AWS Config records configuration changes for every
+-- supported type of regional resource.
+--
+-- If you set this option to 'true', when AWS Config adds support for a new
+-- type of regional resource, it automatically starts recording resources
+-- of that type.
+--
+-- If you set this option to 'true', you cannot enumerate a list of
+-- 'resourceTypes'.
 rgAllSupported :: Lens' RecordingGroup (Maybe Bool)
 rgAllSupported = lens _rgAllSupported (\ s a -> s{_rgAllSupported = a});
 
--- | A comma-separated list of strings representing valid AWS resource types
--- (for example, 'AWS::EC2::Instance' or 'AWS::CloudTrail::Trail').
--- __resourceTypes__ is only valid if you have chosen not to select
--- __allSupported__. For a list of valid __resourceTypes__ values, see the
--- __resourceType Value__ column in the following topic:
+-- | Specifies whether AWS Config includes all supported types of global
+-- resources with the resources that it records.
+--
+-- Before you can set this option to 'true', you must set the
+-- 'allSupported' option to 'true'.
+--
+-- If you set this option to 'true', when AWS Config adds support for a new
+-- type of global resource, it automatically starts recording resources of
+-- that type.
+rgIncludeGlobalResourceTypes :: Lens' RecordingGroup (Maybe Bool)
+rgIncludeGlobalResourceTypes = lens _rgIncludeGlobalResourceTypes (\ s a -> s{_rgIncludeGlobalResourceTypes = a});
+
+-- | A comma-separated list that specifies the types of AWS resources for
+-- which AWS Config records configuration changes (for example,
+-- 'AWS::EC2::Instance' or 'AWS::CloudTrail::Trail').
+--
+-- Before you can set this option to 'true', you must set the
+-- 'allSupported' option to 'false'.
+--
+-- If you set this option to 'true', when AWS Config adds support for a new
+-- type of resource, it will not record resources of that type unless you
+-- manually add that type to your recording group.
+--
+-- For a list of valid 'resourceTypes' values, see the __resourceType
+-- Value__ column in
 -- <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resource Types>.
 rgResourceTypes :: Lens' RecordingGroup [ResourceType]
 rgResourceTypes = lens _rgResourceTypes (\ s a -> s{_rgResourceTypes = a}) . _Default . _Coerce;
@@ -1523,13 +1614,16 @@ instance FromJSON RecordingGroup where
               (\ x ->
                  RecordingGroup' <$>
                    (x .:? "allSupported") <*>
-                     (x .:? "resourceTypes" .!= mempty))
+                     (x .:? "includeGlobalResourceTypes")
+                     <*> (x .:? "resourceTypes" .!= mempty))
 
 instance ToJSON RecordingGroup where
         toJSON RecordingGroup'{..}
           = object
               (catMaybes
                  [("allSupported" .=) <$> _rgAllSupported,
+                  ("includeGlobalResourceTypes" .=) <$>
+                    _rgIncludeGlobalResourceTypes,
                   ("resourceTypes" .=) <$> _rgResourceTypes])
 
 -- | The relationship of the related resource to the main resource.

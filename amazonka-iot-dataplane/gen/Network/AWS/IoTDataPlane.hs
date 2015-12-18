@@ -11,9 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS IoT (Beta)
---
--- __AWS IoT is considered a beta service as defined in the Service Terms__
+-- AWS IoT
 --
 -- AWS IoT-Data enables secure, bi-directional communication between
 -- Internet-connected things (such as sensors, actuators, embedded devices,

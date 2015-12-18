@@ -2232,6 +2232,12 @@ uMetadata = lens _uMetadata (\ s a -> s{_uMetadata = a});
 --
 -- -   XCTEST_TEST_PACKAGE: An XCode test package upload.
 --
+-- -   APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test
+--     package upload.
+--
+-- -   APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test
+--     package upload.
+--
 uType :: Lens' Upload (Maybe UploadType)
 uType = lens _uType (\ s a -> s{_uType = a});
 

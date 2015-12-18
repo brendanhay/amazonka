@@ -26,9 +26,10 @@
 -- associated with this health check. If resource record sets are
 -- associated with this health check, you must disassociate them before you
 -- can delete your health check. If you try to delete a health check that
--- is associated with resource record sets, Route 53 will deny your request
--- with a 'HealthCheckInUse' error. For information about disassociating
--- the records from your health check, see ChangeResourceRecordSets.
+-- is associated with resource record sets, Amazon Route 53 will deny your
+-- request with a 'HealthCheckInUse' error. For information about
+-- disassociating the records from your health check, see
+-- ChangeResourceRecordSets.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html AWS API Reference> for DeleteHealthCheck.
 module Network.AWS.Route53.DeleteHealthCheck

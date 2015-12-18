@@ -18,19 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds one or more egress rules to a security group for use with a VPC.
--- Specifically, this action permits instances to send traffic to one or
--- more destination CIDR IP address ranges, or to one or more destination
--- security groups for the same VPC.
+-- [EC2-VPC only] Adds one or more egress rules to a security group for use
+-- with a VPC. Specifically, this action permits instances to send traffic
+-- to one or more destination CIDR IP address ranges, or to one or more
+-- destination security groups for the same VPC. This action doesn\'t apply
+-- to security groups for use in EC2-Classic. For more information, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC>
+-- in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- You can have up to 50 rules per security group (covering both ingress
 -- and egress rules).
---
--- A security group is for use with instances either in the EC2-Classic
--- platform or in a specific VPC. This action doesn\'t apply to security
--- groups for use in EC2-Classic. For more information, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC>
--- in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- Each rule consists of the protocol (for example, TCP), plus either a
 -- CIDR range or a source group. For the TCP and UDP protocols, you must
@@ -121,7 +118,8 @@ authorizeSecurityGroupEgress pGroupId_ =
     }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
--- number. For the ICMP type number, use '-1' to specify all ICMP types.
+-- number. We recommend that you specify the port range in a set of IP
+-- permissions instead.
 asgeFromPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Int)
 asgeFromPort = lens _asgeFromPort (\ s a -> s{_asgeFromPort = a});
 
@@ -130,20 +128,19 @@ asgeFromPort = lens _asgeFromPort (\ s a -> s{_asgeFromPort = a});
 asgeIPPermissions :: Lens' AuthorizeSecurityGroupEgress [IPPermission]
 asgeIPPermissions = lens _asgeIPPermissions (\ s a -> s{_asgeIPPermissions = a}) . _Default . _Coerce;
 
--- | The IP protocol name ('tcp', 'udp', 'icmp') or number (see
--- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
--- Use '-1' to specify all.
+-- | The IP protocol name or number. We recommend that you specify the
+-- protocol in a set of IP permissions instead.
 asgeIPProtocol :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
 asgeIPProtocol = lens _asgeIPProtocol (\ s a -> s{_asgeIPProtocol = a});
 
--- | The end of port range for the TCP and UDP protocols, or an ICMP code
--- number. For the ICMP code number, use '-1' to specify all ICMP codes for
--- the ICMP type.
+-- | The end of port range for the TCP and UDP protocols, or an ICMP type
+-- number. We recommend that you specify the port range in a set of IP
+-- permissions instead.
 asgeToPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Int)
 asgeToPort = lens _asgeToPort (\ s a -> s{_asgeToPort = a});
 
--- | The CIDR IP address range. You can\'t specify this parameter when
--- specifying a source security group.
+-- | The CIDR IP address range. We recommend that you specify the CIDR range
+-- in a set of IP permissions instead.
 asgeCIdRIP :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
 asgeCIdRIP = lens _asgeCIdRIP (\ s a -> s{_asgeCIdRIP = a});
 

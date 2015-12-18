@@ -28,6 +28,7 @@ module Network.AWS.CloudTrail.DescribeTrails
       describeTrails
     , DescribeTrails
     -- * Request Lenses
+    , dtIncludeShadowTrails
     , dtTrailNameList
 
     -- * Destructuring the Response
@@ -48,27 +49,48 @@ import           Network.AWS.Response
 -- | Returns information about the trail.
 --
 -- /See:/ 'describeTrails' smart constructor.
-newtype DescribeTrails = DescribeTrails'
-    { _dtTrailNameList :: Maybe [Text]
+data DescribeTrails = DescribeTrails'
+    { _dtIncludeShadowTrails :: !(Maybe Bool)
+    , _dtTrailNameList       :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeTrails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dtIncludeShadowTrails'
+--
 -- * 'dtTrailNameList'
 describeTrails
     :: DescribeTrails
 describeTrails =
     DescribeTrails'
-    { _dtTrailNameList = Nothing
+    { _dtIncludeShadowTrails = Nothing
+    , _dtTrailNameList = Nothing
     }
+
+-- | Specifies whether to include shadow trails in the response. A shadow
+-- trail is the replication in a region of a trail that was created in a
+-- different region. The default is true.
+dtIncludeShadowTrails :: Lens' DescribeTrails (Maybe Bool)
+dtIncludeShadowTrails = lens _dtIncludeShadowTrails (\ s a -> s{_dtIncludeShadowTrails = a});
 
 -- | Specifies a list of trail names, trail ARNs, or both, of the trails to
 -- describe. The format of a trail ARN is
 -- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'. If an empty
 -- list is specified, information for the trail in the current region is
 -- returned.
+--
+-- -   If an empty list is specified and 'IncludeShadowTrails' is false,
+--     then information for all trails in the current region is returned.
+-- -   If an empty list is specified and IncludeShadowTrails is null or
+--     true, then information for all trails in the current region and any
+--     associated shadow trails in other regions is returned.
+--
+-- If one or more trail names are specified, information is returned only
+-- if the names match the names of trails belonging only to the current
+-- region. To return information about a trail in another region, you must
+-- specify its trail ARN.
 dtTrailNameList :: Lens' DescribeTrails [Text]
 dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a}) . _Default . _Coerce;
 
@@ -96,7 +118,9 @@ instance ToJSON DescribeTrails where
         toJSON DescribeTrails'{..}
           = object
               (catMaybes
-                 [("trailNameList" .=) <$> _dtTrailNameList])
+                 [("includeShadowTrails" .=) <$>
+                    _dtIncludeShadowTrails,
+                  ("trailNameList" .=) <$> _dtTrailNameList])
 
 instance ToPath DescribeTrails where
         toPath = const "/"

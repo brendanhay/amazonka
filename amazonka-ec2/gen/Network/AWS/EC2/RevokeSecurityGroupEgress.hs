@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more egress rules from a security group for EC2-VPC. The
--- values that you specify in the revoke request (for example, ports) must
--- match the existing rule\'s values for the rule to be revoked.
+-- [EC2-VPC only] Removes one or more egress rules from a security group
+-- for EC2-VPC. This action doesn\'t apply to security groups for use in
+-- EC2-Classic. The values that you specify in the revoke request (for
+-- example, ports) must match the existing rule\'s values for the rule to
+-- be revoked.
 --
 -- Each rule consists of the protocol and the CIDR range or source security
 -- group. For the TCP and UDP protocols, you must also specify the
@@ -110,7 +112,8 @@ revokeSecurityGroupEgress pGroupId_ =
     }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
--- number. For the ICMP type number, use '-1' to specify all ICMP types.
+-- number. We recommend that you specify the port range in a set of IP
+-- permissions instead.
 rsgeFromPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
 rsgeFromPort = lens _rsgeFromPort (\ s a -> s{_rsgeFromPort = a});
 
@@ -119,20 +122,19 @@ rsgeFromPort = lens _rsgeFromPort (\ s a -> s{_rsgeFromPort = a});
 rsgeIPPermissions :: Lens' RevokeSecurityGroupEgress [IPPermission]
 rsgeIPPermissions = lens _rsgeIPPermissions (\ s a -> s{_rsgeIPPermissions = a}) . _Default . _Coerce;
 
--- | The IP protocol name ('tcp', 'udp', 'icmp') or number (see
--- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
--- Use '-1' to specify all.
+-- | The IP protocol name or number. We recommend that you specify the
+-- protocol in a set of IP permissions instead.
 rsgeIPProtocol :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeIPProtocol = lens _rsgeIPProtocol (\ s a -> s{_rsgeIPProtocol = a});
 
--- | The end of port range for the TCP and UDP protocols, or an ICMP code
--- number. For the ICMP code number, use '-1' to specify all ICMP codes for
--- the ICMP type.
+-- | The end of port range for the TCP and UDP protocols, or an ICMP type
+-- number. We recommend that you specify the port range in a set of IP
+-- permissions instead.
 rsgeToPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
 rsgeToPort = lens _rsgeToPort (\ s a -> s{_rsgeToPort = a});
 
--- | The CIDR IP address range. You can\'t specify this parameter when
--- specifying a source security group.
+-- | The CIDR IP address range. We recommend that you specify the CIDR range
+-- in a set of IP permissions instead.
 rsgeCIdRIP :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeCIdRIP = lens _rsgeCIdRIP (\ s a -> s{_rsgeCIdRIP = a});
 

@@ -28,6 +28,7 @@ module Network.AWS.Config.Types
     , _InvalidResultTokenException
     , _NoSuchDeliveryChannelException
     , _NoSuchConfigRuleException
+    , _InsufficientPermissionsException
     , _ResourceNotDiscoveredException
     , _InvalidNextTokenException
     , _MaxNumberOfConfigRulesExceededException
@@ -141,11 +142,14 @@ module Network.AWS.Config.Types
     , ConfigRuleEvaluationStatus
     , configRuleEvaluationStatus
     , cresLastErrorCode
+    , cresLastFailedEvaluationTime
     , cresFirstActivatedTime
+    , cresLastSuccessfulEvaluationTime
     , cresConfigRuleName
     , cresLastErrorMessage
     , cresConfigRuleId
     , cresLastFailedInvocationTime
+    , cresFirstEvaluationStarted
     , cresLastSuccessfulInvocationTime
     , cresConfigRuleARN
 
@@ -255,6 +259,7 @@ module Network.AWS.Config.Types
     , RecordingGroup
     , recordingGroup
     , rgAllSupported
+    , rgIncludeGlobalResourceTypes
     , rgResourceTypes
 
     -- * Relationship
@@ -394,6 +399,16 @@ _NoSuchDeliveryChannelException =
 _NoSuchConfigRuleException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchConfigRuleException =
     _ServiceError . hasCode "NoSuchConfigRuleException"
+
+-- | Indicates one of the following errors:
+--
+-- -   The rule cannot be created because the IAM role assigned to AWS
+--     Config lacks permissions to perform the config:Put* action.
+-- -   The AWS Lambda function cannot be invoked. Check the function ARN,
+--     and check the function\'s permissions.
+_InsufficientPermissionsException :: AsError a => Getting (First ServiceError) a ServiceError
+_InsufficientPermissionsException =
+    _ServiceError . hasCode "InsufficientPermissionsException"
 
 -- | You have specified a resource that is either unknown or has not been
 -- discovered.

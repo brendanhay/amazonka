@@ -49,11 +49,15 @@ library
         , Network.AWS.DirectoryService.CreateAlias
         , Network.AWS.DirectoryService.CreateComputer
         , Network.AWS.DirectoryService.CreateDirectory
+        , Network.AWS.DirectoryService.CreateMicrosoftAD
         , Network.AWS.DirectoryService.CreateSnapshot
+        , Network.AWS.DirectoryService.CreateTrust
         , Network.AWS.DirectoryService.DeleteDirectory
         , Network.AWS.DirectoryService.DeleteSnapshot
+        , Network.AWS.DirectoryService.DeleteTrust
         , Network.AWS.DirectoryService.DescribeDirectories
         , Network.AWS.DirectoryService.DescribeSnapshots
+        , Network.AWS.DirectoryService.DescribeTrusts
         , Network.AWS.DirectoryService.DisableRadius
         , Network.AWS.DirectoryService.DisableSSO
         , Network.AWS.DirectoryService.EnableRadius
@@ -63,6 +67,7 @@ library
         , Network.AWS.DirectoryService.RestoreFromSnapshot
         , Network.AWS.DirectoryService.Types
         , Network.AWS.DirectoryService.UpdateRadius
+        , Network.AWS.DirectoryService.VerifyTrust
         , Network.AWS.DirectoryService.Waiters
 
     other-modules:

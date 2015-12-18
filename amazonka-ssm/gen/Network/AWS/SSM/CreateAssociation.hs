@@ -81,7 +81,7 @@ createAssociation pName_ pInstanceId_ =
     , _caInstanceId = pInstanceId_
     }
 
--- | The parameters for the document’s runtime configuration.
+-- | The parameters for the documents runtime configuration.
 caParameters :: Lens' CreateAssociation (HashMap Text [Text])
 caParameters = lens _caParameters (\ s a -> s{_caParameters = a}) . _Default . _Map;
 
@@ -89,7 +89,7 @@ caParameters = lens _caParameters (\ s a -> s{_caParameters = a}) . _Default . _
 caName :: Lens' CreateAssociation Text
 caName = lens _caName (\ s a -> s{_caName = a});
 
--- | The instance ID.
+-- | The Windows Server instance ID.
 caInstanceId :: Lens' CreateAssociation Text
 caInstanceId = lens _caInstanceId (\ s a -> s{_caInstanceId = a});
 

@@ -46,7 +46,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'stopDataCollection' smart constructor.
 newtype StopDataCollection = StopDataCollection'
-    { _sAssessmentARN :: Maybe Text
+    { _sAssessmentARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StopDataCollection' with the minimum fields required to make a request.
@@ -55,15 +55,16 @@ newtype StopDataCollection = StopDataCollection'
 --
 -- * 'sAssessmentARN'
 stopDataCollection
-    :: StopDataCollection
-stopDataCollection =
+    :: Text -- ^ 'sAssessmentARN'
+    -> StopDataCollection
+stopDataCollection pAssessmentARN_ =
     StopDataCollection'
-    { _sAssessmentARN = Nothing
+    { _sAssessmentARN = pAssessmentARN_
     }
 
 -- | The ARN of the assessment for which you want to stop the data collection
 -- process.
-sAssessmentARN :: Lens' StopDataCollection (Maybe Text)
+sAssessmentARN :: Lens' StopDataCollection Text
 sAssessmentARN = lens _sAssessmentARN (\ s a -> s{_sAssessmentARN = a});
 
 instance AWSRequest StopDataCollection where
@@ -90,7 +91,7 @@ instance ToJSON StopDataCollection where
         toJSON StopDataCollection'{..}
           = object
               (catMaybes
-                 [("assessmentArn" .=) <$> _sAssessmentARN])
+                 [Just ("assessmentArn" .= _sAssessmentARN)])
 
 instance ToPath StopDataCollection where
         toPath = const "/"

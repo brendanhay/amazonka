@@ -13,10 +13,10 @@ module Test.AWS.SQS
     , fixtures
     ) where
 
-import           Control.Lens
 import qualified Data.HashMap.Strict as Map
 import           Data.Monoid
 import           Data.Text           (Text)
+import           Network.AWS.Lens    ((&), (.~), (?~))
 import           Network.AWS.SQS
 import           Test.AWS.Gen.SQS
 import           Test.Tasty

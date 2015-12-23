@@ -42,6 +42,7 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -104,7 +105,7 @@ instance ToElement
          UpdateCloudFrontOriginAccessIdentity where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2015-07-27/}CloudFrontOriginAccessIdentityConfig"
+              "{http://cloudfront.amazonaws.com/doc/2015-09-17/}CloudFrontOriginAccessIdentityConfig"
               .
               _ucfoaiCloudFrontOriginAccessIdentityConfig
 
@@ -117,7 +118,7 @@ instance ToPath UpdateCloudFrontOriginAccessIdentity
          where
         toPath UpdateCloudFrontOriginAccessIdentity'{..}
           = mconcat
-              ["/2015-07-27/origin-access-identity/cloudfront/",
+              ["/2015-09-17/origin-access-identity/cloudfront/",
                toBS _ucfoaiId, "/config"]
 
 instance ToQuery UpdateCloudFrontOriginAccessIdentity

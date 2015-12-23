@@ -15,6 +15,7 @@
 --
 module Network.AWS.OpsWorks.Waiters where
 
+import           Network.AWS.Lens
 import           Network.AWS.OpsWorks.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

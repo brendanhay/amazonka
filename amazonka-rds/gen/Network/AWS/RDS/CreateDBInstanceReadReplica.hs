@@ -38,7 +38,9 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     , cdirrPubliclyAccessible
     , cdirrAutoMinorVersionUpgrade
     , cdirrDBSubnetGroupName
+    , cdirrMonitoringRoleARN
     , cdirrIOPS
+    , cdirrMonitoringInterval
     , cdirrDBInstanceClass
     , cdirrAvailabilityZone
     , cdirrOptionGroupName
@@ -57,6 +59,7 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     , cdirrrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
 import           Network.AWS.RDS.Types.Product
@@ -68,7 +71,9 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     { _cdirrPubliclyAccessible         :: !(Maybe Bool)
     , _cdirrAutoMinorVersionUpgrade    :: !(Maybe Bool)
     , _cdirrDBSubnetGroupName          :: !(Maybe Text)
+    , _cdirrMonitoringRoleARN          :: !(Maybe Text)
     , _cdirrIOPS                       :: !(Maybe Int)
+    , _cdirrMonitoringInterval         :: !(Maybe Int)
     , _cdirrDBInstanceClass            :: !(Maybe Text)
     , _cdirrAvailabilityZone           :: !(Maybe Text)
     , _cdirrOptionGroupName            :: !(Maybe Text)
@@ -90,7 +95,11 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 --
 -- * 'cdirrDBSubnetGroupName'
 --
+-- * 'cdirrMonitoringRoleARN'
+--
 -- * 'cdirrIOPS'
+--
+-- * 'cdirrMonitoringInterval'
 --
 -- * 'cdirrDBInstanceClass'
 --
@@ -118,7 +127,9 @@ createDBInstanceReadReplica pDBInstanceIdentifier_ pSourceDBInstanceIdentifier_ 
     { _cdirrPubliclyAccessible = Nothing
     , _cdirrAutoMinorVersionUpgrade = Nothing
     , _cdirrDBSubnetGroupName = Nothing
+    , _cdirrMonitoringRoleARN = Nothing
     , _cdirrIOPS = Nothing
+    , _cdirrMonitoringInterval = Nothing
     , _cdirrDBInstanceClass = Nothing
     , _cdirrAvailabilityZone = Nothing
     , _cdirrOptionGroupName = Nothing
@@ -178,10 +189,32 @@ cdirrAutoMinorVersionUpgrade = lens _cdirrAutoMinorVersionUpgrade (\ s a -> s{_c
 cdirrDBSubnetGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrDBSubnetGroupName = lens _cdirrDBSubnetGroupName (\ s a -> s{_cdirrDBSubnetGroupName = a});
 
+-- | The ARN for the IAM role that permits RDS to send enhanced monitoring
+-- metrics to CloudWatch Logs. For example,
+-- 'arn:aws:iam:123456789012:role\/emaccess'. For information on creating a
+-- monitoring role, go to
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole To create an IAM role for Amazon RDS Enhanced Monitoring>.
+--
+-- If 'MonitoringInterval' is set to a value other than 0, then you must
+-- supply a 'MonitoringRoleArn' value.
+cdirrMonitoringRoleARN :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdirrMonitoringRoleARN = lens _cdirrMonitoringRoleARN (\ s a -> s{_cdirrMonitoringRoleARN = a});
+
 -- | The amount of Provisioned IOPS (input\/output operations per second) to
 -- be initially allocated for the DB instance.
 cdirrIOPS :: Lens' CreateDBInstanceReadReplica (Maybe Int)
 cdirrIOPS = lens _cdirrIOPS (\ s a -> s{_cdirrIOPS = a});
+
+-- | The interval, in seconds, between points when Enhanced Monitoring
+-- metrics are collected for the Read Replica. To disable collecting
+-- Enhanced Monitoring metrics, specify 0. The default is 60.
+--
+-- If 'MonitoringRoleArn' is specified, then you must also set
+-- 'MonitoringInterval' to a value other than 0.
+--
+-- Valid Values: '0, 1, 5, 10, 15, 30, 60'
+cdirrMonitoringInterval :: Lens' CreateDBInstanceReadReplica (Maybe Int)
+cdirrMonitoringInterval = lens _cdirrMonitoringInterval (\ s a -> s{_cdirrMonitoringInterval = a});
 
 -- | The compute and memory capacity of the Read Replica.
 --
@@ -291,7 +324,9 @@ instance ToQuery CreateDBInstanceReadReplica where
                "AutoMinorVersionUpgrade" =:
                  _cdirrAutoMinorVersionUpgrade,
                "DBSubnetGroupName" =: _cdirrDBSubnetGroupName,
+               "MonitoringRoleArn" =: _cdirrMonitoringRoleARN,
                "Iops" =: _cdirrIOPS,
+               "MonitoringInterval" =: _cdirrMonitoringInterval,
                "DBInstanceClass" =: _cdirrDBInstanceClass,
                "AvailabilityZone" =: _cdirrAvailabilityZone,
                "OptionGroupName" =: _cdirrOptionGroupName,

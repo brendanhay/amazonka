@@ -17,6 +17,7 @@ module Network.AWS.EMR.Waiters where
 
 import           Network.AWS.EMR.DescribeCluster
 import           Network.AWS.EMR.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 

@@ -50,6 +50,7 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
     , lebparsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request

@@ -127,6 +127,7 @@ module Network.AWS.DataPipeline.Types
 
 import           Network.AWS.DataPipeline.Types.Product
 import           Network.AWS.DataPipeline.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

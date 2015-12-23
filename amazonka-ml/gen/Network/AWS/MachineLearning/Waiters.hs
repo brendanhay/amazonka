@@ -15,6 +15,7 @@
 --
 module Network.AWS.MachineLearning.Waiters where
 
+import           Network.AWS.Lens
 import           Network.AWS.MachineLearning.DescribeBatchPredictions
 import           Network.AWS.MachineLearning.DescribeDataSources
 import           Network.AWS.MachineLearning.DescribeEvaluations

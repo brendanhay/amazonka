@@ -17,14 +17,12 @@ module Network.AWS.Pager
     ) where
 
 import           Control.Applicative
-import           Control.Lens          hiding (index)
 import           Data.HashMap.Strict   (HashMap)
 import qualified Data.HashMap.Strict   as Map
 import           Data.Text             (Text)
 import           Network.AWS.Data.Text (ToText (..))
+import           Network.AWS.Lens      (Getter, to)
 import           Network.AWS.Types
-
-import           Prelude
 
 -- | Specify how an 'AWSRequest' and it's associated 'Rs' response can
 -- generate a subsequent request, if available.

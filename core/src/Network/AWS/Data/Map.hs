@@ -24,7 +24,6 @@ module Network.AWS.Data.Map
     ) where
 
 import           Control.Applicative
-import           Control.Lens                (Iso', iso)
 import           Data.Aeson
 import           Data.Bifunctor
 import qualified Data.ByteString             as BS
@@ -46,10 +45,9 @@ import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
+import           Network.AWS.Lens            (Iso', iso)
 import           Network.HTTP.Types          (ResponseHeaders)
 import           Text.XML                    (Node)
-
-import           Prelude
 
 newtype Map k v = Map { toMap :: HashMap k v }
     deriving

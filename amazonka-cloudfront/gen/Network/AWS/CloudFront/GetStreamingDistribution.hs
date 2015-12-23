@@ -40,6 +40,7 @@ module Network.AWS.CloudFront.GetStreamingDistribution
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -85,7 +86,7 @@ instance ToHeaders GetStreamingDistribution where
 instance ToPath GetStreamingDistribution where
         toPath GetStreamingDistribution'{..}
           = mconcat
-              ["/2015-07-27/streaming-distribution/", toBS _gsdId]
+              ["/2015-09-17/streaming-distribution/", toBS _gsdId]
 
 instance ToQuery GetStreamingDistribution where
         toQuery = const mempty

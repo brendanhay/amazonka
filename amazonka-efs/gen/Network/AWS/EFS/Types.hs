@@ -76,6 +76,7 @@ module Network.AWS.EFS.Types
 
 import           Network.AWS.EFS.Types.Product
 import           Network.AWS.EFS.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

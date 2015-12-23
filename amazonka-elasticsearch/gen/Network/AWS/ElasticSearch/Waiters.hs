@@ -16,5 +16,6 @@
 module Network.AWS.ElasticSearch.Waiters where
 
 import           Network.AWS.ElasticSearch.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

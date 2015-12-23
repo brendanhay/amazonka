@@ -85,14 +85,15 @@ module Network.AWS.SWF.PollForDecisionTask
     -- * Response Lenses
     , pfdtrsNextPageToken
     , pfdtrsPreviousStartedEventId
-    , pfdtrsResponseStatus
     , pfdtrsTaskToken
+    , pfdtrsResponseStatus
     , pfdtrsStartedEventId
     , pfdtrsWorkflowExecution
     , pfdtrsWorkflowType
     , pfdtrsEvents
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
@@ -211,8 +212,8 @@ instance AWSRequest PollForDecisionTask where
                  PollForDecisionTaskResponse' <$>
                    (x .?> "nextPageToken") <*>
                      (x .?> "previousStartedEventId")
+                     <*> (x .?> "taskToken")
                      <*> (pure (fromEnum s))
-                     <*> (x .:> "taskToken")
                      <*> (x .:> "startedEventId")
                      <*> (x .:> "workflowExecution")
                      <*> (x .:> "workflowType")
@@ -252,8 +253,8 @@ instance ToQuery PollForDecisionTask where
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
     { _pfdtrsNextPageToken          :: !(Maybe Text)
     , _pfdtrsPreviousStartedEventId :: !(Maybe Integer)
+    , _pfdtrsTaskToken              :: !(Maybe Text)
     , _pfdtrsResponseStatus         :: !Int
-    , _pfdtrsTaskToken              :: !Text
     , _pfdtrsStartedEventId         :: !Integer
     , _pfdtrsWorkflowExecution      :: !WorkflowExecution
     , _pfdtrsWorkflowType           :: !WorkflowType
@@ -268,9 +269,9 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
 --
 -- * 'pfdtrsPreviousStartedEventId'
 --
--- * 'pfdtrsResponseStatus'
---
 -- * 'pfdtrsTaskToken'
+--
+-- * 'pfdtrsResponseStatus'
 --
 -- * 'pfdtrsStartedEventId'
 --
@@ -281,17 +282,16 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
 -- * 'pfdtrsEvents'
 pollForDecisionTaskResponse
     :: Int -- ^ 'pfdtrsResponseStatus'
-    -> Text -- ^ 'pfdtrsTaskToken'
     -> Integer -- ^ 'pfdtrsStartedEventId'
     -> WorkflowExecution -- ^ 'pfdtrsWorkflowExecution'
     -> WorkflowType -- ^ 'pfdtrsWorkflowType'
     -> PollForDecisionTaskResponse
-pollForDecisionTaskResponse pResponseStatus_ pTaskToken_ pStartedEventId_ pWorkflowExecution_ pWorkflowType_ =
+pollForDecisionTaskResponse pResponseStatus_ pStartedEventId_ pWorkflowExecution_ pWorkflowType_ =
     PollForDecisionTaskResponse'
     { _pfdtrsNextPageToken = Nothing
     , _pfdtrsPreviousStartedEventId = Nothing
+    , _pfdtrsTaskToken = Nothing
     , _pfdtrsResponseStatus = pResponseStatus_
-    , _pfdtrsTaskToken = pTaskToken_
     , _pfdtrsStartedEventId = pStartedEventId_
     , _pfdtrsWorkflowExecution = pWorkflowExecution_
     , _pfdtrsWorkflowType = pWorkflowType_
@@ -315,15 +315,15 @@ pfdtrsNextPageToken = lens _pfdtrsNextPageToken (\ s a -> s{_pfdtrsNextPageToken
 pfdtrsPreviousStartedEventId :: Lens' PollForDecisionTaskResponse (Maybe Integer)
 pfdtrsPreviousStartedEventId = lens _pfdtrsPreviousStartedEventId (\ s a -> s{_pfdtrsPreviousStartedEventId = a});
 
--- | The response status code.
-pfdtrsResponseStatus :: Lens' PollForDecisionTaskResponse Int
-pfdtrsResponseStatus = lens _pfdtrsResponseStatus (\ s a -> s{_pfdtrsResponseStatus = a});
-
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the
 -- system about the task.
-pfdtrsTaskToken :: Lens' PollForDecisionTaskResponse Text
+pfdtrsTaskToken :: Lens' PollForDecisionTaskResponse (Maybe Text)
 pfdtrsTaskToken = lens _pfdtrsTaskToken (\ s a -> s{_pfdtrsTaskToken = a});
+
+-- | The response status code.
+pfdtrsResponseStatus :: Lens' PollForDecisionTaskResponse Int
+pfdtrsResponseStatus = lens _pfdtrsResponseStatus (\ s a -> s{_pfdtrsResponseStatus = a});
 
 -- | The ID of the 'DecisionTaskStarted' event recorded in the history.
 pfdtrsStartedEventId :: Lens' PollForDecisionTaskResponse Integer

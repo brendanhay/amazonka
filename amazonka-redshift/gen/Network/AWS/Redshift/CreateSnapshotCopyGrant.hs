@@ -45,6 +45,7 @@ module Network.AWS.Redshift.CreateSnapshotCopyGrant
     , cscgrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types
 import           Network.AWS.Redshift.Types.Product

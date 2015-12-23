@@ -38,6 +38,7 @@ module Network.AWS.WAF.GetSqlInjectionMatchSet
     , gsimsrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

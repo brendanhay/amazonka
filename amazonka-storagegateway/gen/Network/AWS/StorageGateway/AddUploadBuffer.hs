@@ -44,6 +44,7 @@ module Network.AWS.StorageGateway.AddUploadBuffer
     , aubrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

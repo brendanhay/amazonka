@@ -18,4 +18,5 @@
 module Network.AWS.IoTDataPlane.Types.Product where
 
 import           Network.AWS.IoTDataPlane.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude

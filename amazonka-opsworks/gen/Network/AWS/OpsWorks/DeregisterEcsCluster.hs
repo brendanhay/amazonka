@@ -42,6 +42,7 @@ module Network.AWS.OpsWorks.DeregisterEcsCluster
     , DeregisterEcsClusterResponse
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.OpsWorks.Types
 import           Network.AWS.OpsWorks.Types.Product
 import           Network.AWS.Prelude

@@ -17,6 +17,7 @@
 --
 module Network.AWS.WorkSpaces.Types.Product where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.WorkSpaces.Types.Sum
 

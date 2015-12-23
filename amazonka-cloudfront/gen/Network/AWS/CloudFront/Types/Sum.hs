@@ -19,6 +19,34 @@ module Network.AWS.CloudFront.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data CertificateSource
+    = Cloudfront
+    | IAM
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText CertificateSource where
+    parser = takeLowerText >>= \case
+        "cloudfront" -> pure Cloudfront
+        "iam" -> pure IAM
+        e -> fromTextError $ "Failure parsing CertificateSource from value: '" <> e
+           <> "'. Accepted values: cloudfront, iam"
+
+instance ToText CertificateSource where
+    toText = \case
+        Cloudfront -> "cloudfront"
+        IAM -> "iam"
+
+instance Hashable     CertificateSource
+instance ToByteString CertificateSource
+instance ToQuery      CertificateSource
+instance ToHeader     CertificateSource
+
+instance FromXML CertificateSource where
+    parseXML = parseXMLText "CertificateSource"
+
+instance ToXML CertificateSource where
+    toXML = toXMLText
+
 data GeoRestrictionType
     = Blacklist
     | None

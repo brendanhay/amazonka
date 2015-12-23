@@ -21,6 +21,8 @@
 -- List the grants for a specified key.
 --
 -- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html AWS API Reference> for ListGrants.
+--
+-- This operation returns paginated results.
 module Network.AWS.KMS.ListGrants
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ module Network.AWS.KMS.ListGrants
 
 import           Network.AWS.KMS.Types
 import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -96,6 +100,13 @@ lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
 --     12345678-1234-1234-1234-123456789012
 lgKeyId :: Lens' ListGrants Text
 lgKeyId = lens _lgKeyId (\ s a -> s{_lgKeyId = a});
+
+instance AWSPager ListGrants where
+        page rq rs
+          | stop (rs ^. lgTruncated) = Nothing
+          | isNothing (rs ^. lgNextMarker) = Nothing
+          | otherwise =
+            Just $ rq & lgMarker .~ rs ^. lgNextMarker
 
 instance AWSRequest ListGrants where
         type Rs ListGrants = ListGrantsResponse

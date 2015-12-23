@@ -31,8 +31,8 @@ module Network.AWS.Inspector.CreateApplication
       createApplication
     , CreateApplication
     -- * Request Lenses
-    , caResourceGroupARN
     , caApplicationName
+    , caResourceGroupARN
 
     -- * Destructuring the Response
     , createApplicationResponse
@@ -44,40 +44,43 @@ module Network.AWS.Inspector.CreateApplication
 
 import           Network.AWS.Inspector.Types
 import           Network.AWS.Inspector.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createApplication' smart constructor.
 data CreateApplication = CreateApplication'
-    { _caResourceGroupARN :: !(Maybe Text)
-    , _caApplicationName  :: !(Maybe Text)
+    { _caApplicationName  :: !Text
+    , _caResourceGroupARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caResourceGroupARN'
---
 -- * 'caApplicationName'
+--
+-- * 'caResourceGroupARN'
 createApplication
-    :: CreateApplication
-createApplication =
+    :: Text -- ^ 'caApplicationName'
+    -> Text -- ^ 'caResourceGroupARN'
+    -> CreateApplication
+createApplication pApplicationName_ pResourceGroupARN_ =
     CreateApplication'
-    { _caResourceGroupARN = Nothing
-    , _caApplicationName = Nothing
+    { _caApplicationName = pApplicationName_
+    , _caResourceGroupARN = pResourceGroupARN_
     }
-
--- | The ARN specifying the resource group that is used to create the
--- application.
-caResourceGroupARN :: Lens' CreateApplication (Maybe Text)
-caResourceGroupARN = lens _caResourceGroupARN (\ s a -> s{_caResourceGroupARN = a});
 
 -- | The user-defined name identifying the application that you want to
 -- create. The name must be unique within the AWS account.
-caApplicationName :: Lens' CreateApplication (Maybe Text)
+caApplicationName :: Lens' CreateApplication Text
 caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a});
+
+-- | The ARN specifying the resource group that is used to create the
+-- application.
+caResourceGroupARN :: Lens' CreateApplication Text
+caResourceGroupARN = lens _caResourceGroupARN (\ s a -> s{_caResourceGroupARN = a});
 
 instance AWSRequest CreateApplication where
         type Rs CreateApplication = CreateApplicationResponse
@@ -101,8 +104,8 @@ instance ToJSON CreateApplication where
         toJSON CreateApplication'{..}
           = object
               (catMaybes
-                 [("resourceGroupArn" .=) <$> _caResourceGroupARN,
-                  ("applicationName" .=) <$> _caApplicationName])
+                 [Just ("applicationName" .= _caApplicationName),
+                  Just ("resourceGroupArn" .= _caResourceGroupARN)])
 
 instance ToPath CreateApplication where
         toPath = const "/"

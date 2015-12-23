@@ -12,13 +12,13 @@
 --
 module Test.AWS.TH where
 
-import           Control.Lens
+import           Control.Applicative
 import           Data.Time
 import           Language.Haskell.TH
 import           Language.Haskell.TH.Syntax
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.Time
-import           Network.AWS.Prelude
+import           Network.AWS.Lens           (view)
 
 mkTime :: Text -> Q Exp
 mkTime x =

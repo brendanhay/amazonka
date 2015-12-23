@@ -23,7 +23,6 @@ module Network.AWS.Sign.V4
     ) where
 
 import           Control.Applicative
-import           Control.Lens
 import qualified Data.CaseInsensitive        as CI
 import           Data.Monoid
 import           Network.AWS.Data.Body
@@ -31,12 +30,11 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Time
+import           Network.AWS.Lens            ((.~), (<>~))
 import           Network.AWS.Request
 import           Network.AWS.Sign.V4.Base
 import           Network.AWS.Sign.V4.Chunked
 import           Network.AWS.Types
-
-import           Prelude
 
 default (ByteString)
 

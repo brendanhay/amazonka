@@ -70,6 +70,7 @@ module Network.AWS.EC2.CreateSecurityGroup
 
 import           Network.AWS.EC2.Types
 import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -123,7 +124,7 @@ csgDryRun = lens _csgDryRun (\ s a -> s{_csgDryRun = a});
 -- Constraints for EC2-Classic: ASCII characters
 --
 -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
--- ._-:\/()#,\'[]+=&;{}!$*
+-- ._-:\/()#,\'[]+=&amp;;{}!$*
 csgGroupName :: Lens' CreateSecurityGroup Text
 csgGroupName = lens _csgGroupName (\ s a -> s{_csgGroupName = a});
 
@@ -134,7 +135,7 @@ csgGroupName = lens _csgGroupName (\ s a -> s{_csgGroupName = a});
 -- Constraints for EC2-Classic: ASCII characters
 --
 -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
--- ._-:\/()#,\'[]+=&;{}!$*
+-- ._-:\/()#,\'[]+=&amp;;{}!$*
 csgDescription :: Lens' CreateSecurityGroup Text
 csgDescription = lens _csgDescription (\ s a -> s{_csgDescription = a});
 

@@ -18,6 +18,7 @@
 module Network.AWS.CloudFront.Types.Product where
 
 import           Network.AWS.CloudFront.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | A complex type that lists the AWS accounts, if any, that you included in
@@ -211,6 +212,7 @@ instance ToXML AllowedMethods where
 data CacheBehavior = CacheBehavior'
     { _cbAllowedMethods       :: !(Maybe AllowedMethods)
     , _cbMaxTTL               :: !(Maybe Integer)
+    , _cbCompress             :: !(Maybe Bool)
     , _cbSmoothStreaming      :: !(Maybe Bool)
     , _cbDefaultTTL           :: !(Maybe Integer)
     , _cbPathPattern          :: !Text
@@ -228,6 +230,8 @@ data CacheBehavior = CacheBehavior'
 -- * 'cbAllowedMethods'
 --
 -- * 'cbMaxTTL'
+--
+-- * 'cbCompress'
 --
 -- * 'cbSmoothStreaming'
 --
@@ -256,6 +260,7 @@ cacheBehavior pPathPattern_ pTargetOriginId_ pForwardedValues_ pTrustedSigners_ 
     CacheBehavior'
     { _cbAllowedMethods = Nothing
     , _cbMaxTTL = Nothing
+    , _cbCompress = Nothing
     , _cbSmoothStreaming = Nothing
     , _cbDefaultTTL = Nothing
     , _cbPathPattern = pPathPattern_
@@ -278,6 +283,26 @@ cbAllowedMethods = lens _cbAllowedMethods (\ s a -> s{_cbAllowedMethods = a});
 -- You can specify a value from 0 to 3,153,600,000 seconds (100 years).
 cbMaxTTL :: Lens' CacheBehavior (Maybe Integer)
 cbMaxTTL = lens _cbMaxTTL (\ s a -> s{_cbMaxTTL = a});
+
+-- | Whether you want CloudFront to automatically compress content for web
+-- requests that include Accept-Encoding: gzip in the request header. If
+-- so, specify true; if not, specify false. CloudFront compresses files
+-- larger than 1000 bytes and less than 1 megabyte for both Amazon S3 and
+-- custom origins. When a CloudFront edge location is unusually busy, some
+-- files might not be compressed. The value of the Content-Type header must
+-- be on the list of file types that CloudFront will compress. For the
+-- current list, see
+-- <http://docs.aws.amazon.com/console/cloudfront/compressed-content Serving Compressed Content>
+-- in the Amazon CloudFront Developer Guide. If you configure CloudFront to
+-- compress content, CloudFront removes the ETag response header from the
+-- objects that it compresses. The ETag header indicates that the version
+-- in a CloudFront edge cache is identical to the version on the origin
+-- server, but after compression the two versions are no longer identical.
+-- As a result, for compressed objects, CloudFront can\'t use the ETag
+-- header to determine whether an expired object in the CloudFront edge
+-- cache is still the latest version.
+cbCompress :: Lens' CacheBehavior (Maybe Bool)
+cbCompress = lens _cbCompress (\ s a -> s{_cbCompress = a});
 
 -- | Indicates whether you want to distribute media files in Microsoft Smooth
 -- Streaming format using the origin that is associated with this cache
@@ -355,7 +380,8 @@ instance FromXML CacheBehavior where
         parseXML x
           = CacheBehavior' <$>
               (x .@? "AllowedMethods") <*> (x .@? "MaxTTL") <*>
-                (x .@? "SmoothStreaming")
+                (x .@? "Compress")
+                <*> (x .@? "SmoothStreaming")
                 <*> (x .@? "DefaultTTL")
                 <*> (x .@ "PathPattern")
                 <*> (x .@ "TargetOriginId")
@@ -368,7 +394,7 @@ instance ToXML CacheBehavior where
         toXML CacheBehavior'{..}
           = mconcat
               ["AllowedMethods" @= _cbAllowedMethods,
-               "MaxTTL" @= _cbMaxTTL,
+               "MaxTTL" @= _cbMaxTTL, "Compress" @= _cbCompress,
                "SmoothStreaming" @= _cbSmoothStreaming,
                "DefaultTTL" @= _cbDefaultTTL,
                "PathPattern" @= _cbPathPattern,
@@ -1022,6 +1048,7 @@ instance ToXML CustomOriginConfig where
 data DefaultCacheBehavior = DefaultCacheBehavior'
     { _dcbAllowedMethods       :: !(Maybe AllowedMethods)
     , _dcbMaxTTL               :: !(Maybe Integer)
+    , _dcbCompress             :: !(Maybe Bool)
     , _dcbSmoothStreaming      :: !(Maybe Bool)
     , _dcbDefaultTTL           :: !(Maybe Integer)
     , _dcbTargetOriginId       :: !Text
@@ -1038,6 +1065,8 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
 -- * 'dcbAllowedMethods'
 --
 -- * 'dcbMaxTTL'
+--
+-- * 'dcbCompress'
 --
 -- * 'dcbSmoothStreaming'
 --
@@ -1063,6 +1092,7 @@ defaultCacheBehavior pTargetOriginId_ pForwardedValues_ pTrustedSigners_ pViewer
     DefaultCacheBehavior'
     { _dcbAllowedMethods = Nothing
     , _dcbMaxTTL = Nothing
+    , _dcbCompress = Nothing
     , _dcbSmoothStreaming = Nothing
     , _dcbDefaultTTL = Nothing
     , _dcbTargetOriginId = pTargetOriginId_
@@ -1084,6 +1114,26 @@ dcbAllowedMethods = lens _dcbAllowedMethods (\ s a -> s{_dcbAllowedMethods = a})
 -- You can specify a value from 0 to 3,153,600,000 seconds (100 years).
 dcbMaxTTL :: Lens' DefaultCacheBehavior (Maybe Integer)
 dcbMaxTTL = lens _dcbMaxTTL (\ s a -> s{_dcbMaxTTL = a});
+
+-- | Whether you want CloudFront to automatically compress content for web
+-- requests that include Accept-Encoding: gzip in the request header. If
+-- so, specify true; if not, specify false. CloudFront compresses files
+-- larger than 1000 bytes and less than 1 megabyte for both Amazon S3 and
+-- custom origins. When a CloudFront edge location is unusually busy, some
+-- files might not be compressed. The value of the Content-Type header must
+-- be on the list of file types that CloudFront will compress. For the
+-- current list, see
+-- <http://docs.aws.amazon.com/console/cloudfront/compressed-content Serving Compressed Content>
+-- in the Amazon CloudFront Developer Guide. If you configure CloudFront to
+-- compress content, CloudFront removes the ETag response header from the
+-- objects that it compresses. The ETag header indicates that the version
+-- in a CloudFront edge cache is identical to the version on the origin
+-- server, but after compression the two versions are no longer identical.
+-- As a result, for compressed objects, CloudFront can\'t use the ETag
+-- header to determine whether an expired object in the CloudFront edge
+-- cache is still the latest version.
+dcbCompress :: Lens' DefaultCacheBehavior (Maybe Bool)
+dcbCompress = lens _dcbCompress (\ s a -> s{_dcbCompress = a});
 
 -- | Indicates whether you want to distribute media files in Microsoft Smooth
 -- Streaming format using the origin that is associated with this cache
@@ -1150,7 +1200,8 @@ instance FromXML DefaultCacheBehavior where
         parseXML x
           = DefaultCacheBehavior' <$>
               (x .@? "AllowedMethods") <*> (x .@? "MaxTTL") <*>
-                (x .@? "SmoothStreaming")
+                (x .@? "Compress")
+                <*> (x .@? "SmoothStreaming")
                 <*> (x .@? "DefaultTTL")
                 <*> (x .@ "TargetOriginId")
                 <*> (x .@ "ForwardedValues")
@@ -1162,7 +1213,7 @@ instance ToXML DefaultCacheBehavior where
         toXML DefaultCacheBehavior'{..}
           = mconcat
               ["AllowedMethods" @= _dcbAllowedMethods,
-               "MaxTTL" @= _dcbMaxTTL,
+               "MaxTTL" @= _dcbMaxTTL, "Compress" @= _dcbCompress,
                "SmoothStreaming" @= _dcbSmoothStreaming,
                "DefaultTTL" @= _dcbDefaultTTL,
                "TargetOriginId" @= _dcbTargetOriginId,
@@ -3229,7 +3280,9 @@ instance ToXML TrustedSigners where
 -- /See:/ 'viewerCertificate' smart constructor.
 data ViewerCertificate = ViewerCertificate'
     { _vcSSLSupportMethod             :: !(Maybe SSLSupportMethod)
+    , _vcCertificateSource            :: !(Maybe CertificateSource)
     , _vcMinimumProtocolVersion       :: !(Maybe MinimumProtocolVersion)
+    , _vcCertificate                  :: !(Maybe Text)
     , _vcIAMCertificateId             :: !(Maybe Text)
     , _vcCloudFrontDefaultCertificate :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -3240,7 +3293,11 @@ data ViewerCertificate = ViewerCertificate'
 --
 -- * 'vcSSLSupportMethod'
 --
+-- * 'vcCertificateSource'
+--
 -- * 'vcMinimumProtocolVersion'
+--
+-- * 'vcCertificate'
 --
 -- * 'vcIAMCertificateId'
 --
@@ -3250,7 +3307,9 @@ viewerCertificate
 viewerCertificate =
     ViewerCertificate'
     { _vcSSLSupportMethod = Nothing
+    , _vcCertificateSource = Nothing
     , _vcMinimumProtocolVersion = Nothing
+    , _vcCertificate = Nothing
     , _vcIAMCertificateId = Nothing
     , _vcCloudFrontDefaultCertificate = Nothing
     }
@@ -3267,6 +3326,17 @@ viewerCertificate =
 -- SSLSupportMethod if you specified true for CloudFrontDefaultCertificate.
 vcSSLSupportMethod :: Lens' ViewerCertificate (Maybe SSLSupportMethod)
 vcSSLSupportMethod = lens _vcSSLSupportMethod (\ s a -> s{_vcSSLSupportMethod = a});
+
+-- | If you want viewers to use HTTPS to request your objects and you\'re
+-- using the CloudFront domain name of your distribution in your object
+-- URLs (for example, https:\/\/d111111abcdef8.cloudfront.net\/logo.jpg),
+-- set to \"cloudfront\". If you want viewers to use HTTPS to request your
+-- objects and you\'re using an alternate domain name in your object URLs
+-- (for example, https:\/\/example.com\/logo.jpg), set to \"iam\", and
+-- update the Certificate field with the IAM certificate identifier of the
+-- custom viewer certificate for this distribution.
+vcCertificateSource :: Lens' ViewerCertificate (Maybe CertificateSource)
+vcCertificateSource = lens _vcCertificateSource (\ s a -> s{_vcCertificateSource = a});
 
 -- | Specify the minimum version of the SSL protocol that you want CloudFront
 -- to use, SSLv3 or TLSv1, for HTTPS connections. CloudFront will serve
@@ -3285,16 +3355,27 @@ vcMinimumProtocolVersion = lens _vcMinimumProtocolVersion (\ s a -> s{_vcMinimum
 
 -- | If you want viewers to use HTTPS to request your objects and you\'re
 -- using an alternate domain name in your object URLs (for example,
+-- https:\/\/example.com\/logo.jpg), set to the IAM certificate identifier
+-- of the custom viewer certificate for this distribution.
+vcCertificate :: Lens' ViewerCertificate (Maybe Text)
+vcCertificate = lens _vcCertificate (\ s a -> s{_vcCertificate = a});
+
+-- | Note: this field is deprecated. Please use \"iam\" as CertificateSource
+-- and specify the IAM certificate Id as the Certificate. If you want
+-- viewers to use HTTPS to request your objects and you\'re using an
+-- alternate domain name in your object URLs (for example,
 -- https:\/\/example.com\/logo.jpg), specify the IAM certificate identifier
 -- of the custom viewer certificate for this distribution. Specify either
 -- this value or CloudFrontDefaultCertificate.
 vcIAMCertificateId :: Lens' ViewerCertificate (Maybe Text)
 vcIAMCertificateId = lens _vcIAMCertificateId (\ s a -> s{_vcIAMCertificateId = a});
 
--- | If you want viewers to use HTTPS to request your objects and you\'re
--- using the CloudFront domain name of your distribution in your object
--- URLs (for example, https:\/\/d111111abcdef8.cloudfront.net\/logo.jpg),
--- set to true. Omit this value if you are setting an IAMCertificateId.
+-- | Note: this field is deprecated. Please use \"cloudfront\" as
+-- CertificateSource and omit specifying a Certificate. If you want viewers
+-- to use HTTPS to request your objects and you\'re using the CloudFront
+-- domain name of your distribution in your object URLs (for example,
+-- https:\/\/d111111abcdef8.cloudfront.net\/logo.jpg), set to true. Omit
+-- this value if you are setting an IAMCertificateId.
 vcCloudFrontDefaultCertificate :: Lens' ViewerCertificate (Maybe Bool)
 vcCloudFrontDefaultCertificate = lens _vcCloudFrontDefaultCertificate (\ s a -> s{_vcCloudFrontDefaultCertificate = a});
 
@@ -3302,7 +3383,9 @@ instance FromXML ViewerCertificate where
         parseXML x
           = ViewerCertificate' <$>
               (x .@? "SSLSupportMethod") <*>
-                (x .@? "MinimumProtocolVersion")
+                (x .@? "CertificateSource")
+                <*> (x .@? "MinimumProtocolVersion")
+                <*> (x .@? "Certificate")
                 <*> (x .@? "IAMCertificateId")
                 <*> (x .@? "CloudFrontDefaultCertificate")
 
@@ -3310,8 +3393,10 @@ instance ToXML ViewerCertificate where
         toXML ViewerCertificate'{..}
           = mconcat
               ["SSLSupportMethod" @= _vcSSLSupportMethod,
+               "CertificateSource" @= _vcCertificateSource,
                "MinimumProtocolVersion" @=
                  _vcMinimumProtocolVersion,
+               "Certificate" @= _vcCertificate,
                "IAMCertificateId" @= _vcIAMCertificateId,
                "CloudFrontDefaultCertificate" @=
                  _vcCloudFrontDefaultCertificate]

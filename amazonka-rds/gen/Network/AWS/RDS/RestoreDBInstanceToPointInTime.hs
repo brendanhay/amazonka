@@ -66,6 +66,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     , rditpitrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
 import           Network.AWS.RDS.Types.Product
@@ -246,7 +247,7 @@ rditpitIOPS = lens _rditpitIOPS (\ s a -> s{_rditpitIOPS = a});
 --
 -- Valid Values: 'MySQL' | 'mariadb' | 'oracle-se1' | 'oracle-se' |
 -- 'oracle-ee' | 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' |
--- 'sqlserver-web' | 'postgres'
+-- 'sqlserver-web' | 'postgres'| 'aurora'
 rditpitEngine :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitEngine = lens _rditpitEngine (\ s a -> s{_rditpitEngine = a});
 

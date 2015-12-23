@@ -16,5 +16,6 @@
 module Network.AWS.CodeDeploy.Waiters where
 
 import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

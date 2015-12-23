@@ -18,6 +18,7 @@
 module Network.AWS.EC2.Types.Product where
 
 import           Network.AWS.EC2.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Describes an account attribute.
@@ -365,6 +366,44 @@ azmMessage = lens _azmMessage (\ s a -> s{_azmMessage = a});
 instance FromXML AvailabilityZoneMessage where
         parseXML x
           = AvailabilityZoneMessage' <$> (x .@? "message")
+
+-- | The capacity information for instances launched onto the Dedicated host.
+--
+-- /See:/ 'availableCapacity' smart constructor.
+data AvailableCapacity = AvailableCapacity'
+    { _acAvailableInstanceCapacity :: !(Maybe [InstanceCapacity])
+    , _acAvailableVCPUs            :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AvailableCapacity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acAvailableInstanceCapacity'
+--
+-- * 'acAvailableVCPUs'
+availableCapacity
+    :: AvailableCapacity
+availableCapacity =
+    AvailableCapacity'
+    { _acAvailableInstanceCapacity = Nothing
+    , _acAvailableVCPUs = Nothing
+    }
+
+-- | The total number of instances that the Dedicated host supports.
+acAvailableInstanceCapacity :: Lens' AvailableCapacity [InstanceCapacity]
+acAvailableInstanceCapacity = lens _acAvailableInstanceCapacity (\ s a -> s{_acAvailableInstanceCapacity = a}) . _Default . _Coerce;
+
+-- | The number of vCPUs available on the Dedicated host.
+acAvailableVCPUs :: Lens' AvailableCapacity (Maybe Int)
+acAvailableVCPUs = lens _acAvailableVCPUs (\ s a -> s{_acAvailableVCPUs = a});
+
+instance FromXML AvailableCapacity where
+        parseXML x
+          = AvailableCapacity' <$>
+              (x .@? "availableInstanceCapacity" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "availableVCpus")
 
 -- | /See:/ 'blobAttributeValue' smart constructor.
 newtype BlobAttributeValue = BlobAttributeValue'
@@ -2022,9 +2061,11 @@ flDeliverLogsStatus = lens _flDeliverLogsStatus (\ s a -> s{_flDeliverLogsStatus
 
 -- | Information about the error that occurred. 'Rate limited' indicates that
 -- CloudWatch logs throttling has been applied for one or more network
--- interfaces. 'Access error' indicates that the IAM role associated with
--- the flow log does not have sufficient permissions to publish to
--- CloudWatch Logs. 'Unknown error' indicates an internal error.
+-- interfaces, or that you\'ve reached the limit on the number of
+-- CloudWatch Logs log groups that you can create. 'Access error' indicates
+-- that the IAM role associated with the flow log does not have sufficient
+-- permissions to publish to CloudWatch Logs. 'Unknown error' indicates an
+-- internal error.
 flDeliverLogsErrorMessage :: Lens' FlowLog (Maybe Text)
 flDeliverLogsErrorMessage = lens _flDeliverLogsErrorMessage (\ s a -> s{_flDeliverLogsErrorMessage = a});
 
@@ -2151,6 +2192,200 @@ instance FromXML HistoryRecord where
           = HistoryRecord' <$>
               (x .@ "timestamp") <*> (x .@ "eventType") <*>
                 (x .@ "eventInformation")
+
+-- | Describes the properties of the Dedicated host.
+--
+-- /See:/ 'host' smart constructor.
+data Host = Host'
+    { _hState             :: !(Maybe AllocationState)
+    , _hClientToken       :: !(Maybe Text)
+    , _hHostId            :: !(Maybe Text)
+    , _hAvailableCapacity :: !(Maybe AvailableCapacity)
+    , _hHostReservationId :: !(Maybe Text)
+    , _hHostProperties    :: !(Maybe HostProperties)
+    , _hAvailabilityZone  :: !(Maybe Text)
+    , _hInstances         :: !(Maybe [HostInstance])
+    , _hAutoPlacement     :: !(Maybe AutoPlacement)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Host' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hState'
+--
+-- * 'hClientToken'
+--
+-- * 'hHostId'
+--
+-- * 'hAvailableCapacity'
+--
+-- * 'hHostReservationId'
+--
+-- * 'hHostProperties'
+--
+-- * 'hAvailabilityZone'
+--
+-- * 'hInstances'
+--
+-- * 'hAutoPlacement'
+host
+    :: Host
+host =
+    Host'
+    { _hState = Nothing
+    , _hClientToken = Nothing
+    , _hHostId = Nothing
+    , _hAvailableCapacity = Nothing
+    , _hHostReservationId = Nothing
+    , _hHostProperties = Nothing
+    , _hAvailabilityZone = Nothing
+    , _hInstances = Nothing
+    , _hAutoPlacement = Nothing
+    }
+
+-- | The Dedicated host\'s state.
+hState :: Lens' Host (Maybe AllocationState)
+hState = lens _hState (\ s a -> s{_hState = a});
+
+-- | Unique, case-sensitive identifier you provide to ensure idempotency of
+-- the request. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+hClientToken :: Lens' Host (Maybe Text)
+hClientToken = lens _hClientToken (\ s a -> s{_hClientToken = a});
+
+-- | The ID of the Dedicated host.
+hHostId :: Lens' Host (Maybe Text)
+hHostId = lens _hHostId (\ s a -> s{_hHostId = a});
+
+-- | The number of new instances that can be launched onto the Dedicated
+-- host.
+hAvailableCapacity :: Lens' Host (Maybe AvailableCapacity)
+hAvailableCapacity = lens _hAvailableCapacity (\ s a -> s{_hAvailableCapacity = a});
+
+-- | The reservation ID of the Dedicated host. This returns a 'null' response
+-- if the Dedicated host doesn\'t have an associated reservation.
+hHostReservationId :: Lens' Host (Maybe Text)
+hHostReservationId = lens _hHostReservationId (\ s a -> s{_hHostReservationId = a});
+
+-- | The hardware specifications of the Dedicated host.
+hHostProperties :: Lens' Host (Maybe HostProperties)
+hHostProperties = lens _hHostProperties (\ s a -> s{_hHostProperties = a});
+
+-- | The Availability Zone of the Dedicated host.
+hAvailabilityZone :: Lens' Host (Maybe Text)
+hAvailabilityZone = lens _hAvailabilityZone (\ s a -> s{_hAvailabilityZone = a});
+
+-- | The IDs and instance type that are currently running on the Dedicated
+-- host.
+hInstances :: Lens' Host [HostInstance]
+hInstances = lens _hInstances (\ s a -> s{_hInstances = a}) . _Default . _Coerce;
+
+-- | Whether auto-placement is on or off.
+hAutoPlacement :: Lens' Host (Maybe AutoPlacement)
+hAutoPlacement = lens _hAutoPlacement (\ s a -> s{_hAutoPlacement = a});
+
+instance FromXML Host where
+        parseXML x
+          = Host' <$>
+              (x .@? "state") <*> (x .@? "clientToken") <*>
+                (x .@? "hostId")
+                <*> (x .@? "availableCapacity")
+                <*> (x .@? "hostReservationId")
+                <*> (x .@? "hostProperties")
+                <*> (x .@? "availabilityZone")
+                <*>
+                (x .@? "instances" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "autoPlacement")
+
+-- | /See:/ 'hostInstance' smart constructor.
+data HostInstance = HostInstance'
+    { _hiInstanceId   :: !(Maybe Text)
+    , _hiInstanceType :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'HostInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hiInstanceId'
+--
+-- * 'hiInstanceType'
+hostInstance
+    :: HostInstance
+hostInstance =
+    HostInstance'
+    { _hiInstanceId = Nothing
+    , _hiInstanceType = Nothing
+    }
+
+-- | the IDs of instances that are running on the Dedicated host.
+hiInstanceId :: Lens' HostInstance (Maybe Text)
+hiInstanceId = lens _hiInstanceId (\ s a -> s{_hiInstanceId = a});
+
+-- | The instance type size (e.g., m3.medium) of the running instance.
+hiInstanceType :: Lens' HostInstance (Maybe Text)
+hiInstanceType = lens _hiInstanceType (\ s a -> s{_hiInstanceType = a});
+
+instance FromXML HostInstance where
+        parseXML x
+          = HostInstance' <$>
+              (x .@? "instanceId") <*> (x .@? "instanceType")
+
+-- | /See:/ 'hostProperties' smart constructor.
+data HostProperties = HostProperties'
+    { _hpInstanceType :: !(Maybe Text)
+    , _hpTotalVCPUs   :: !(Maybe Int)
+    , _hpCores        :: !(Maybe Int)
+    , _hpSockets      :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'HostProperties' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hpInstanceType'
+--
+-- * 'hpTotalVCPUs'
+--
+-- * 'hpCores'
+--
+-- * 'hpSockets'
+hostProperties
+    :: HostProperties
+hostProperties =
+    HostProperties'
+    { _hpInstanceType = Nothing
+    , _hpTotalVCPUs = Nothing
+    , _hpCores = Nothing
+    , _hpSockets = Nothing
+    }
+
+-- | The instance type size that the Dedicated host supports (e.g.,
+-- m3.medium).
+hpInstanceType :: Lens' HostProperties (Maybe Text)
+hpInstanceType = lens _hpInstanceType (\ s a -> s{_hpInstanceType = a});
+
+-- | The number of vCPUs on the Dedicated host.
+hpTotalVCPUs :: Lens' HostProperties (Maybe Int)
+hpTotalVCPUs = lens _hpTotalVCPUs (\ s a -> s{_hpTotalVCPUs = a});
+
+-- | The number of cores on the Dedicated host.
+hpCores :: Lens' HostProperties (Maybe Int)
+hpCores = lens _hpCores (\ s a -> s{_hpCores = a});
+
+-- | The number of sockets on the Dedicated host.
+hpSockets :: Lens' HostProperties (Maybe Int)
+hpSockets = lens _hpSockets (\ s a -> s{_hpSockets = a});
+
+instance FromXML HostProperties where
+        parseXML x
+          = HostProperties' <$>
+              (x .@? "instanceType") <*> (x .@? "totalVCpus") <*>
+                (x .@? "cores")
+                <*> (x .@? "sockets")
 
 -- | Describes an IAM instance profile.
 --
@@ -2336,15 +2571,11 @@ ipToPort = lens _ipToPort (\ s a -> s{_ipToPort = a});
 ipIPRanges :: Lens' IPPermission [IPRange]
 ipIPRanges = lens _ipIPRanges (\ s a -> s{_ipIPRanges = a}) . _Default . _Coerce;
 
--- | The protocol.
+-- | The IP protocol name (for 'tcp', 'udp', and 'icmp') or number (see
+-- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
 --
--- When you call DescribeSecurityGroups, the protocol value returned is the
--- number. Exception: For TCP, UDP, and ICMP, the value returned is the
--- name (for example, 'tcp', 'udp', or 'icmp'). For a list of protocol
--- numbers, see
--- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>.
--- (VPC only) When you call AuthorizeSecurityGroupIngress, you can use '-1'
--- to specify all.
+-- [EC2-VPC only] When you authorize or revoke security group rules, you
+-- can use '-1' to specify all.
 ipIPProtocol :: Lens' IPPermission Text
 ipIPProtocol = lens _ipIPProtocol (\ s a -> s{_ipIPProtocol = a});
 
@@ -2406,6 +2637,53 @@ instance FromXML IPRange where
 instance ToQuery IPRange where
         toQuery IPRange'{..}
           = mconcat ["CidrIp" =: _irCIdRIP]
+
+-- | Describes the ID format for a resource.
+--
+-- /See:/ 'idFormat' smart constructor.
+data IdFormat = IdFormat'
+    { _ifUseLongIds :: !(Maybe Bool)
+    , _ifDeadline   :: !(Maybe ISO8601)
+    , _ifResource   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'IdFormat' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ifUseLongIds'
+--
+-- * 'ifDeadline'
+--
+-- * 'ifResource'
+idFormat
+    :: IdFormat
+idFormat =
+    IdFormat'
+    { _ifUseLongIds = Nothing
+    , _ifDeadline = Nothing
+    , _ifResource = Nothing
+    }
+
+-- | Indicates whether longer IDs (17-character IDs) are enabled for the
+-- resource.
+ifUseLongIds :: Lens' IdFormat (Maybe Bool)
+ifUseLongIds = lens _ifUseLongIds (\ s a -> s{_ifUseLongIds = a});
+
+-- | The date in UTC at which you are permanently switched over to using
+-- longer IDs.
+ifDeadline :: Lens' IdFormat (Maybe UTCTime)
+ifDeadline = lens _ifDeadline (\ s a -> s{_ifDeadline = a}) . mapping _Time;
+
+-- | The type of resource.
+ifResource :: Lens' IdFormat (Maybe Text)
+ifResource = lens _ifResource (\ s a -> s{_ifResource = a});
+
+instance FromXML IdFormat where
+        parseXML x
+          = IdFormat' <$>
+              (x .@? "useLongIds") <*> (x .@? "deadline") <*>
+                (x .@? "resource")
 
 -- | Describes an image.
 --
@@ -3486,7 +3764,7 @@ insEBSOptimized = lens _insEBSOptimized (\ s a -> s{_insEBSOptimized = a});
 insStateTransitionReason :: Lens' Instance (Maybe Text)
 insStateTransitionReason = lens _insStateTransitionReason (\ s a -> s{_insStateTransitionReason = a});
 
--- | Indicates whether this is a Spot Instance.
+-- | Indicates whether this is a Spot instance.
 insInstanceLifecycle :: Lens' Instance (Maybe InstanceLifecycleType)
 insInstanceLifecycle = lens _insInstanceLifecycle (\ s a -> s{_insInstanceLifecycle = a});
 
@@ -3723,7 +4001,55 @@ instance ToQuery
                "NoDevice" =: _ibdmsNoDevice, "Ebs" =: _ibdmsEBS,
                "DeviceName" =: _ibdmsDeviceName]
 
--- | Describes a Reserved Instance listing state.
+-- | Information about the instance type that the Dedicated host supports.
+--
+-- /See:/ 'instanceCapacity' smart constructor.
+data InstanceCapacity = InstanceCapacity'
+    { _icAvailableCapacity :: !(Maybe Int)
+    , _icInstanceType      :: !(Maybe Text)
+    , _icTotalCapacity     :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceCapacity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'icAvailableCapacity'
+--
+-- * 'icInstanceType'
+--
+-- * 'icTotalCapacity'
+instanceCapacity
+    :: InstanceCapacity
+instanceCapacity =
+    InstanceCapacity'
+    { _icAvailableCapacity = Nothing
+    , _icInstanceType = Nothing
+    , _icTotalCapacity = Nothing
+    }
+
+-- | The number of instances that can still be launched onto the Dedicated
+-- host.
+icAvailableCapacity :: Lens' InstanceCapacity (Maybe Int)
+icAvailableCapacity = lens _icAvailableCapacity (\ s a -> s{_icAvailableCapacity = a});
+
+-- | The instance type size supported by the Dedicated host.
+icInstanceType :: Lens' InstanceCapacity (Maybe Text)
+icInstanceType = lens _icInstanceType (\ s a -> s{_icInstanceType = a});
+
+-- | The total number of instances that can be launched onto the Dedicated
+-- host.
+icTotalCapacity :: Lens' InstanceCapacity (Maybe Int)
+icTotalCapacity = lens _icTotalCapacity (\ s a -> s{_icTotalCapacity = a});
+
+instance FromXML InstanceCapacity where
+        parseXML x
+          = InstanceCapacity' <$>
+              (x .@? "availableCapacity") <*>
+                (x .@? "instanceType")
+                <*> (x .@? "totalCapacity")
+
+-- | Describes a Reserved instance listing state.
 --
 -- /See:/ 'instanceCount' smart constructor.
 data InstanceCount = InstanceCount'
@@ -3746,11 +4072,11 @@ instanceCount =
     , _icInstanceCount = Nothing
     }
 
--- | The states of the listed Reserved Instances.
+-- | The states of the listed Reserved instances.
 icState :: Lens' InstanceCount (Maybe ListingState)
 icState = lens _icState (\ s a -> s{_icState = a});
 
--- | The number of listed Reserved Instances in the state specified by the
+-- | The number of listed Reserved instances in the state specified by the
 -- 'state'.
 icInstanceCount :: Lens' InstanceCount (Maybe Int)
 icInstanceCount = lens _icInstanceCount (\ s a -> s{_icInstanceCount = a});
@@ -5053,6 +5379,179 @@ instance FromXML MovingAddressStatus where
           = MovingAddressStatus' <$>
               (x .@? "moveStatus") <*> (x .@? "publicIp")
 
+-- | Describes a NAT gateway.
+--
+-- /See:/ 'natGateway' smart constructor.
+data NatGateway = NatGateway'
+    { _ngState               :: !(Maybe NatGatewayState)
+    , _ngFailureCode         :: !(Maybe Text)
+    , _ngVPCId               :: !(Maybe Text)
+    , _ngFailureMessage      :: !(Maybe Text)
+    , _ngNatGatewayId        :: !(Maybe Text)
+    , _ngSubnetId            :: !(Maybe Text)
+    , _ngDeleteTime          :: !(Maybe ISO8601)
+    , _ngNatGatewayAddresses :: !(Maybe [NatGatewayAddress])
+    , _ngCreateTime          :: !(Maybe ISO8601)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NatGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ngState'
+--
+-- * 'ngFailureCode'
+--
+-- * 'ngVPCId'
+--
+-- * 'ngFailureMessage'
+--
+-- * 'ngNatGatewayId'
+--
+-- * 'ngSubnetId'
+--
+-- * 'ngDeleteTime'
+--
+-- * 'ngNatGatewayAddresses'
+--
+-- * 'ngCreateTime'
+natGateway
+    :: NatGateway
+natGateway =
+    NatGateway'
+    { _ngState = Nothing
+    , _ngFailureCode = Nothing
+    , _ngVPCId = Nothing
+    , _ngFailureMessage = Nothing
+    , _ngNatGatewayId = Nothing
+    , _ngSubnetId = Nothing
+    , _ngDeleteTime = Nothing
+    , _ngNatGatewayAddresses = Nothing
+    , _ngCreateTime = Nothing
+    }
+
+-- | The state of the NAT gateway.
+ngState :: Lens' NatGateway (Maybe NatGatewayState)
+ngState = lens _ngState (\ s a -> s{_ngState = a});
+
+-- | If the NAT gateway could not be created, specifies the error code for
+-- the failure. ('InsufficientFreeAddressesInSubnet' |
+-- 'Gateway.NotAttached' | 'InvalidAllocationID.NotFound' |
+-- 'Resource.AlreadyAssociated' | 'InternalError')
+ngFailureCode :: Lens' NatGateway (Maybe Text)
+ngFailureCode = lens _ngFailureCode (\ s a -> s{_ngFailureCode = a});
+
+-- | The ID of the VPC in which the NAT gateway is located.
+ngVPCId :: Lens' NatGateway (Maybe Text)
+ngVPCId = lens _ngVPCId (\ s a -> s{_ngVPCId = a});
+
+-- | If the NAT gateway could not be created, specifies the error message for
+-- the failure, that corresponds to the error code.
+--
+-- -   For InsufficientFreeAddressesInSubnet:
+--     'Subnet has insufficient free addresses to create this NAT gateway'
+-- -   For Gateway.NotAttached:
+--     'Network vpc-xxxxxxxx has no Internet gateway attached'
+-- -   For InvalidAllocationID.NotFound:
+--     'Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway'
+-- -   For Resource.AlreadyAssociated:
+--     'Elastic IP address eipalloc-xxxxxxxx is already associated'
+-- -   For InternalError:
+--     'Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again.'
+ngFailureMessage :: Lens' NatGateway (Maybe Text)
+ngFailureMessage = lens _ngFailureMessage (\ s a -> s{_ngFailureMessage = a});
+
+-- | The ID of the NAT gateway.
+ngNatGatewayId :: Lens' NatGateway (Maybe Text)
+ngNatGatewayId = lens _ngNatGatewayId (\ s a -> s{_ngNatGatewayId = a});
+
+-- | The ID of the subnet in which the NAT gateway is located.
+ngSubnetId :: Lens' NatGateway (Maybe Text)
+ngSubnetId = lens _ngSubnetId (\ s a -> s{_ngSubnetId = a});
+
+-- | The date and time the NAT gateway was deleted, if applicable.
+ngDeleteTime :: Lens' NatGateway (Maybe UTCTime)
+ngDeleteTime = lens _ngDeleteTime (\ s a -> s{_ngDeleteTime = a}) . mapping _Time;
+
+-- | Information about the IP addresses and network interface associated with
+-- the NAT gateway.
+ngNatGatewayAddresses :: Lens' NatGateway [NatGatewayAddress]
+ngNatGatewayAddresses = lens _ngNatGatewayAddresses (\ s a -> s{_ngNatGatewayAddresses = a}) . _Default . _Coerce;
+
+-- | The date and time the NAT gateway was created.
+ngCreateTime :: Lens' NatGateway (Maybe UTCTime)
+ngCreateTime = lens _ngCreateTime (\ s a -> s{_ngCreateTime = a}) . mapping _Time;
+
+instance FromXML NatGateway where
+        parseXML x
+          = NatGateway' <$>
+              (x .@? "state") <*> (x .@? "failureCode") <*>
+                (x .@? "vpcId")
+                <*> (x .@? "failureMessage")
+                <*> (x .@? "natGatewayId")
+                <*> (x .@? "subnetId")
+                <*> (x .@? "deleteTime")
+                <*>
+                (x .@? "natGatewayAddressSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "createTime")
+
+-- | Describes the IP addresses and network interface associated with a NAT
+-- gateway.
+--
+-- /See:/ 'natGatewayAddress' smart constructor.
+data NatGatewayAddress = NatGatewayAddress'
+    { _ngaPrivateIP          :: !(Maybe Text)
+    , _ngaAllocationId       :: !(Maybe Text)
+    , _ngaNetworkInterfaceId :: !(Maybe Text)
+    , _ngaPublicIP           :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NatGatewayAddress' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ngaPrivateIP'
+--
+-- * 'ngaAllocationId'
+--
+-- * 'ngaNetworkInterfaceId'
+--
+-- * 'ngaPublicIP'
+natGatewayAddress
+    :: NatGatewayAddress
+natGatewayAddress =
+    NatGatewayAddress'
+    { _ngaPrivateIP = Nothing
+    , _ngaAllocationId = Nothing
+    , _ngaNetworkInterfaceId = Nothing
+    , _ngaPublicIP = Nothing
+    }
+
+-- | The private IP address associated with the Elastic IP address.
+ngaPrivateIP :: Lens' NatGatewayAddress (Maybe Text)
+ngaPrivateIP = lens _ngaPrivateIP (\ s a -> s{_ngaPrivateIP = a});
+
+-- | The allocation ID of the Elastic IP address that\'s associated with the
+-- NAT gateway.
+ngaAllocationId :: Lens' NatGatewayAddress (Maybe Text)
+ngaAllocationId = lens _ngaAllocationId (\ s a -> s{_ngaAllocationId = a});
+
+-- | The ID of the network interface associated with the NAT gateway.
+ngaNetworkInterfaceId :: Lens' NatGatewayAddress (Maybe Text)
+ngaNetworkInterfaceId = lens _ngaNetworkInterfaceId (\ s a -> s{_ngaNetworkInterfaceId = a});
+
+-- | The Elastic IP address associated with the NAT gateway.
+ngaPublicIP :: Lens' NatGatewayAddress (Maybe Text)
+ngaPublicIP = lens _ngaPublicIP (\ s a -> s{_ngaPublicIP = a});
+
+instance FromXML NatGatewayAddress where
+        parseXML x
+          = NatGatewayAddress' <$>
+              (x .@? "privateIp") <*> (x .@? "allocationId") <*>
+                (x .@? "networkInterfaceId")
+                <*> (x .@? "publicIp")
+
 -- | Describes a network ACL.
 --
 -- /See:/ 'networkACL' smart constructor.
@@ -5267,6 +5766,7 @@ data NetworkInterface = NetworkInterface'
     , _niStatus             :: !(Maybe NetworkInterfaceStatus)
     , _niPrivateIPAddresses :: !(Maybe [NetworkInterfacePrivateIPAddress])
     , _niSourceDestCheck    :: !(Maybe Bool)
+    , _niInterfaceType      :: !(Maybe NetworkInterfaceType)
     , _niVPCId              :: !(Maybe Text)
     , _niTagSet             :: !(Maybe [Tag])
     , _niRequesterManaged   :: !(Maybe Bool)
@@ -5294,6 +5794,8 @@ data NetworkInterface = NetworkInterface'
 -- * 'niPrivateIPAddresses'
 --
 -- * 'niSourceDestCheck'
+--
+-- * 'niInterfaceType'
 --
 -- * 'niVPCId'
 --
@@ -5330,6 +5832,7 @@ networkInterface =
     , _niStatus = Nothing
     , _niPrivateIPAddresses = Nothing
     , _niSourceDestCheck = Nothing
+    , _niInterfaceType = Nothing
     , _niVPCId = Nothing
     , _niTagSet = Nothing
     , _niRequesterManaged = Nothing
@@ -5361,6 +5864,10 @@ niPrivateIPAddresses = lens _niPrivateIPAddresses (\ s a -> s{_niPrivateIPAddres
 -- | Indicates whether traffic to or from the instance is validated.
 niSourceDestCheck :: Lens' NetworkInterface (Maybe Bool)
 niSourceDestCheck = lens _niSourceDestCheck (\ s a -> s{_niSourceDestCheck = a});
+
+-- | The type of interface.
+niInterfaceType :: Lens' NetworkInterface (Maybe NetworkInterfaceType)
+niInterfaceType = lens _niInterfaceType (\ s a -> s{_niInterfaceType = a});
 
 -- | The ID of the VPC.
 niVPCId :: Lens' NetworkInterface (Maybe Text)
@@ -5430,6 +5937,7 @@ instance FromXML NetworkInterface where
                 (x .@? "privateIpAddressesSet" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@? "sourceDestCheck")
+                <*> (x .@? "interfaceType")
                 <*> (x .@? "vpcId")
                 <*>
                 (x .@? "tagSet" .!@ mempty >>=
@@ -5727,7 +6235,9 @@ instance ToQuery NewDHCPConfiguration where
 --
 -- /See:/ 'placement' smart constructor.
 data Placement = Placement'
-    { _pAvailabilityZone :: !(Maybe Text)
+    { _pAffinity         :: !(Maybe Text)
+    , _pHostId           :: !(Maybe Text)
+    , _pAvailabilityZone :: !(Maybe Text)
     , _pTenancy          :: !(Maybe Tenancy)
     , _pGroupName        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -5735,6 +6245,10 @@ data Placement = Placement'
 -- | Creates a value of 'Placement' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pAffinity'
+--
+-- * 'pHostId'
 --
 -- * 'pAvailabilityZone'
 --
@@ -5745,10 +6259,22 @@ placement
     :: Placement
 placement =
     Placement'
-    { _pAvailabilityZone = Nothing
+    { _pAffinity = Nothing
+    , _pHostId = Nothing
+    , _pAvailabilityZone = Nothing
     , _pTenancy = Nothing
     , _pGroupName = Nothing
     }
+
+-- | The affinity setting for the instance on the Dedicated host. This
+-- parameter is not supported for the ImportInstance command.
+pAffinity :: Lens' Placement (Maybe Text)
+pAffinity = lens _pAffinity (\ s a -> s{_pAffinity = a});
+
+-- | The ID of the Dedicted host on which the instance resides. This
+-- parameter is not support for the ImportInstance command.
+pHostId :: Lens' Placement (Maybe Text)
+pHostId = lens _pHostId (\ s a -> s{_pHostId = a});
 
 -- | The Availability Zone of the instance.
 pAvailabilityZone :: Lens' Placement (Maybe Text)
@@ -5756,6 +6282,7 @@ pAvailabilityZone = lens _pAvailabilityZone (\ s a -> s{_pAvailabilityZone = a})
 
 -- | The tenancy of the instance (if the instance is running in a VPC). An
 -- instance with a tenancy of 'dedicated' runs on single-tenant hardware.
+-- The 'host' tenancy is not supported for the ImportInstance command.
 pTenancy :: Lens' Placement (Maybe Tenancy)
 pTenancy = lens _pTenancy (\ s a -> s{_pTenancy = a});
 
@@ -5767,13 +6294,16 @@ pGroupName = lens _pGroupName (\ s a -> s{_pGroupName = a});
 instance FromXML Placement where
         parseXML x
           = Placement' <$>
-              (x .@? "availabilityZone") <*> (x .@? "tenancy") <*>
-                (x .@? "groupName")
+              (x .@? "affinity") <*> (x .@? "hostId") <*>
+                (x .@? "availabilityZone")
+                <*> (x .@? "tenancy")
+                <*> (x .@? "groupName")
 
 instance ToQuery Placement where
         toQuery Placement'{..}
           = mconcat
-              ["AvailabilityZone" =: _pAvailabilityZone,
+              ["Affinity" =: _pAffinity, "HostId" =: _pHostId,
+               "AvailabilityZone" =: _pAvailabilityZone,
                "Tenancy" =: _pTenancy, "GroupName" =: _pGroupName]
 
 -- | Describes a placement group.
@@ -5937,7 +6467,7 @@ instance ToQuery PrefixListId where
         toQuery PrefixListId'{..}
           = mconcat ["PrefixListId" =: _pliPrefixListId]
 
--- | Describes the price for a Reserved Instance.
+-- | Describes the price for a Reserved instance.
 --
 -- /See:/ 'priceSchedule' smart constructor.
 data PriceSchedule = PriceSchedule'
@@ -5968,7 +6498,7 @@ priceSchedule =
     , _psPrice = Nothing
     }
 
--- | The currency for transacting the Reserved Instance resale. At this time,
+-- | The currency for transacting the Reserved instance resale. At this time,
 -- the only supported currency is 'USD'.
 psCurrencyCode :: Lens' PriceSchedule (Maybe CurrencyCodeValues)
 psCurrencyCode = lens _psCurrencyCode (\ s a -> s{_psCurrencyCode = a});
@@ -5979,11 +6509,11 @@ psTerm :: Lens' PriceSchedule (Maybe Integer)
 psTerm = lens _psTerm (\ s a -> s{_psTerm = a});
 
 -- | The current price schedule, as determined by the term remaining for the
--- Reserved Instance in the listing.
+-- Reserved instance in the listing.
 --
 -- A specific price schedule is always in effect, but only one price
 -- schedule can be active at any time. Take, for example, a Reserved
--- Instance listing that has five months remaining in its term. When you
+-- instance listing that has five months remaining in its term. When you
 -- specify price schedules for five months and two months, this means that
 -- schedule 1, covering the first three months of the remaining term, will
 -- be active during months 5, 4, and 3. Then schedule 2, covering the last
@@ -6002,7 +6532,7 @@ instance FromXML PriceSchedule where
                 (x .@? "active")
                 <*> (x .@? "price")
 
--- | Describes the price for a Reserved Instance.
+-- | Describes the price for a Reserved instance.
 --
 -- /See:/ 'priceScheduleSpecification' smart constructor.
 data PriceScheduleSpecification = PriceScheduleSpecification'
@@ -6029,7 +6559,7 @@ priceScheduleSpecification =
     , _pssPrice = Nothing
     }
 
--- | The currency for transacting the Reserved Instance resale. At this time,
+-- | The currency for transacting the Reserved instance resale. At this time,
 -- the only supported currency is 'USD'.
 pssCurrencyCode :: Lens' PriceScheduleSpecification (Maybe CurrencyCodeValues)
 pssCurrencyCode = lens _pssCurrencyCode (\ s a -> s{_pssCurrencyCode = a});
@@ -6049,7 +6579,7 @@ instance ToQuery PriceScheduleSpecification where
               ["CurrencyCode" =: _pssCurrencyCode,
                "Term" =: _pssTerm, "Price" =: _pssPrice]
 
--- | Describes a Reserved Instance offering.
+-- | Describes a Reserved instance offering.
 --
 -- /See:/ 'pricingDetail' smart constructor.
 data PricingDetail = PricingDetail'
@@ -6072,7 +6602,7 @@ pricingDetail =
     , _pdPrice = Nothing
     }
 
--- | The number of instances available for the price.
+-- | The number of reservations available for the price.
 pdCount :: Lens' PricingDetail (Maybe Int)
 pdCount = lens _pdCount (\ s a -> s{_pdCount = a});
 
@@ -6510,7 +7040,7 @@ instance FromXML Reservation where
                 <*> (x .@ "reservationId")
                 <*> (x .@ "ownerId")
 
--- | Describes the limit price of a Reserved Instance offering.
+-- | Describes the limit price of a Reserved instance offering.
 --
 -- /See:/ 'reservedInstanceLimitPrice' smart constructor.
 data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice'
@@ -6549,7 +7079,7 @@ instance ToQuery ReservedInstanceLimitPrice where
               ["Amount" =: _rilpAmount,
                "CurrencyCode" =: _rilpCurrencyCode]
 
--- | Describes a Reserved Instance.
+-- | Describes a Reserved instance.
 --
 -- /See:/ 'reservedInstances' smart constructor.
 data ReservedInstances = ReservedInstances'
@@ -6628,37 +7158,37 @@ reservedInstances =
     , _riTags = Nothing
     }
 
--- | The state of the Reserved Instance purchase.
+-- | The state of the Reserved instance purchase.
 riState :: Lens' ReservedInstances (Maybe ReservedInstanceState)
 riState = lens _riState (\ s a -> s{_riState = a});
 
--- | The currency of the Reserved Instance. It\'s specified using ISO 4217
+-- | The currency of the Reserved instance. It\'s specified using ISO 4217
 -- standard currency codes. At this time, the only supported currency is
 -- 'USD'.
 riCurrencyCode :: Lens' ReservedInstances (Maybe CurrencyCodeValues)
 riCurrencyCode = lens _riCurrencyCode (\ s a -> s{_riCurrencyCode = a});
 
--- | The number of Reserved Instances purchased.
+-- | The number of reservations purchased.
 riInstanceCount :: Lens' ReservedInstances (Maybe Int)
 riInstanceCount = lens _riInstanceCount (\ s a -> s{_riInstanceCount = a});
 
--- | The Reserved Instance product platform description.
+-- | The Reserved instance product platform description.
 riProductDescription :: Lens' ReservedInstances (Maybe RIProductDescription)
 riProductDescription = lens _riProductDescription (\ s a -> s{_riProductDescription = a});
 
--- | The date and time the Reserved Instance started.
+-- | The date and time the Reserved instance started.
 riStart :: Lens' ReservedInstances (Maybe UTCTime)
 riStart = lens _riStart (\ s a -> s{_riStart = a}) . mapping _Time;
 
--- | The instance type on which the Reserved Instance can be used.
+-- | The instance type on which the Reserved instance can be used.
 riInstanceType :: Lens' ReservedInstances (Maybe InstanceType)
 riInstanceType = lens _riInstanceType (\ s a -> s{_riInstanceType = a});
 
--- | The time when the Reserved Instance expires.
+-- | The time when the Reserved instance expires.
 riEnd :: Lens' ReservedInstances (Maybe UTCTime)
 riEnd = lens _riEnd (\ s a -> s{_riEnd = a}) . mapping _Time;
 
--- | The Availability Zone in which the Reserved Instance can be used.
+-- | The Availability Zone in which the Reserved instance can be used.
 riAvailabilityZone :: Lens' ReservedInstances (Maybe Text)
 riAvailabilityZone = lens _riAvailabilityZone (\ s a -> s{_riAvailabilityZone = a});
 
@@ -6666,19 +7196,19 @@ riAvailabilityZone = lens _riAvailabilityZone (\ s a -> s{_riAvailabilityZone = 
 riRecurringCharges :: Lens' ReservedInstances [RecurringCharge]
 riRecurringCharges = lens _riRecurringCharges (\ s a -> s{_riRecurringCharges = a}) . _Default . _Coerce;
 
--- | The Reserved Instance offering type.
+-- | The Reserved instance offering type.
 riOfferingType :: Lens' ReservedInstances (Maybe OfferingTypeValues)
 riOfferingType = lens _riOfferingType (\ s a -> s{_riOfferingType = a});
 
--- | The usage price of the Reserved Instance, per hour.
+-- | The usage price of the Reserved instance, per hour.
 riUsagePrice :: Lens' ReservedInstances (Maybe Double)
 riUsagePrice = lens _riUsagePrice (\ s a -> s{_riUsagePrice = a});
 
--- | The purchase price of the Reserved Instance.
+-- | The purchase price of the Reserved instance.
 riFixedPrice :: Lens' ReservedInstances (Maybe Double)
 riFixedPrice = lens _riFixedPrice (\ s a -> s{_riFixedPrice = a});
 
--- | The ID of the Reserved Instance.
+-- | The ID of the Reserved instance.
 riReservedInstancesId :: Lens' ReservedInstances (Maybe Text)
 riReservedInstancesId = lens _riReservedInstancesId (\ s a -> s{_riReservedInstancesId = a});
 
@@ -6686,7 +7216,7 @@ riReservedInstancesId = lens _riReservedInstancesId (\ s a -> s{_riReservedInsta
 riInstanceTenancy :: Lens' ReservedInstances (Maybe Tenancy)
 riInstanceTenancy = lens _riInstanceTenancy (\ s a -> s{_riInstanceTenancy = a});
 
--- | The duration of the Reserved Instance, in seconds.
+-- | The duration of the Reserved instance, in seconds.
 riDuration :: Lens' ReservedInstances (Maybe Integer)
 riDuration = lens _riDuration (\ s a -> s{_riDuration = a});
 
@@ -6718,7 +7248,7 @@ instance FromXML ReservedInstances where
                    may (parseXMLList "item"))
 
 -- | Describes the configuration settings for the modified Reserved
--- Instances.
+-- instances.
 --
 -- /See:/ 'reservedInstancesConfiguration' smart constructor.
 data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
@@ -6749,20 +7279,20 @@ reservedInstancesConfiguration =
     , _ricAvailabilityZone = Nothing
     }
 
--- | The network platform of the modified Reserved Instances, which is either
+-- | The network platform of the modified Reserved instances, which is either
 -- EC2-Classic or EC2-VPC.
 ricPlatform :: Lens' ReservedInstancesConfiguration (Maybe Text)
 ricPlatform = lens _ricPlatform (\ s a -> s{_ricPlatform = a});
 
--- | The number of modified Reserved Instances.
+-- | The number of modified Reserved instances.
 ricInstanceCount :: Lens' ReservedInstancesConfiguration (Maybe Int)
 ricInstanceCount = lens _ricInstanceCount (\ s a -> s{_ricInstanceCount = a});
 
--- | The instance type for the modified Reserved Instances.
+-- | The instance type for the modified Reserved instances.
 ricInstanceType :: Lens' ReservedInstancesConfiguration (Maybe InstanceType)
 ricInstanceType = lens _ricInstanceType (\ s a -> s{_ricInstanceType = a});
 
--- | The Availability Zone for the modified Reserved Instances.
+-- | The Availability Zone for the modified Reserved instances.
 ricAvailabilityZone :: Lens' ReservedInstancesConfiguration (Maybe Text)
 ricAvailabilityZone = lens _ricAvailabilityZone (\ s a -> s{_ricAvailabilityZone = a});
 
@@ -6781,7 +7311,7 @@ instance ToQuery ReservedInstancesConfiguration where
                "InstanceType" =: _ricInstanceType,
                "AvailabilityZone" =: _ricAvailabilityZone]
 
--- | Describes the ID of a Reserved Instance.
+-- | Describes the ID of a Reserved instance.
 --
 -- /See:/ 'reservedInstancesId' smart constructor.
 newtype ReservedInstancesId = ReservedInstancesId'
@@ -6800,7 +7330,7 @@ reservedInstancesId =
     { _riiReservedInstancesId = Nothing
     }
 
--- | The ID of the Reserved Instance.
+-- | The ID of the Reserved instance.
 riiReservedInstancesId :: Lens' ReservedInstancesId (Maybe Text)
 riiReservedInstancesId = lens _riiReservedInstancesId (\ s a -> s{_riiReservedInstancesId = a});
 
@@ -6809,7 +7339,7 @@ instance FromXML ReservedInstancesId where
           = ReservedInstancesId' <$>
               (x .@? "reservedInstancesId")
 
--- | Describes a Reserved Instance listing.
+-- | Describes a Reserved instance listing.
 --
 -- /See:/ 'reservedInstancesListing' smart constructor.
 data ReservedInstancesListing = ReservedInstancesListing'
@@ -6864,7 +7394,7 @@ reservedInstancesListing =
     , _rilReservedInstancesListingId = Nothing
     }
 
--- | The status of the Reserved Instance listing.
+-- | The status of the Reserved instance listing.
 rilStatus :: Lens' ReservedInstancesListing (Maybe ListingStatus)
 rilStatus = lens _rilStatus (\ s a -> s{_rilStatus = a});
 
@@ -6882,16 +7412,16 @@ rilUpdateDate = lens _rilUpdateDate (\ s a -> s{_rilUpdateDate = a}) . mapping _
 rilCreateDate :: Lens' ReservedInstancesListing (Maybe UTCTime)
 rilCreateDate = lens _rilCreateDate (\ s a -> s{_rilCreateDate = a}) . mapping _Time;
 
--- | The price of the Reserved Instance listing.
+-- | The price of the Reserved instance listing.
 rilPriceSchedules :: Lens' ReservedInstancesListing [PriceSchedule]
 rilPriceSchedules = lens _rilPriceSchedules (\ s a -> s{_rilPriceSchedules = a}) . _Default . _Coerce;
 
--- | The reason for the current status of the Reserved Instance listing. The
+-- | The reason for the current status of the Reserved instance listing. The
 -- response can be blank.
 rilStatusMessage :: Lens' ReservedInstancesListing (Maybe Text)
 rilStatusMessage = lens _rilStatusMessage (\ s a -> s{_rilStatusMessage = a});
 
--- | The ID of the Reserved Instance.
+-- | The ID of the Reserved instance.
 rilReservedInstancesId :: Lens' ReservedInstancesListing (Maybe Text)
 rilReservedInstancesId = lens _rilReservedInstancesId (\ s a -> s{_rilReservedInstancesId = a});
 
@@ -6903,7 +7433,7 @@ rilTags = lens _rilTags (\ s a -> s{_rilTags = a}) . _Default . _Coerce;
 rilInstanceCounts :: Lens' ReservedInstancesListing [InstanceCount]
 rilInstanceCounts = lens _rilInstanceCounts (\ s a -> s{_rilInstanceCounts = a}) . _Default . _Coerce;
 
--- | The ID of the Reserved Instance listing.
+-- | The ID of the Reserved instance listing.
 rilReservedInstancesListingId :: Lens' ReservedInstancesListing (Maybe Text)
 rilReservedInstancesListingId = lens _rilReservedInstancesListingId (\ s a -> s{_rilReservedInstancesListingId = a});
 
@@ -6926,7 +7456,7 @@ instance FromXML ReservedInstancesListing where
                    may (parseXMLList "item"))
                 <*> (x .@? "reservedInstancesListingId")
 
--- | Describes a Reserved Instance modification.
+-- | Describes a Reserved instance modification.
 --
 -- /See:/ 'reservedInstancesModification' smart constructor.
 data ReservedInstancesModification = ReservedInstancesModification'
@@ -6978,11 +7508,11 @@ reservedInstancesModification =
     }
 
 -- | Contains target configurations along with their corresponding new
--- Reserved Instance IDs.
+-- Reserved instance IDs.
 rimModificationResults :: Lens' ReservedInstancesModification [ReservedInstancesModificationResult]
 rimModificationResults = lens _rimModificationResults (\ s a -> s{_rimModificationResults = a}) . _Default . _Coerce;
 
--- | The status of the Reserved Instances modification request.
+-- | The status of the Reserved instances modification request.
 rimStatus :: Lens' ReservedInstancesModification (Maybe Text)
 rimStatus = lens _rimStatus (\ s a -> s{_rimStatus = a});
 
@@ -7008,11 +7538,11 @@ rimEffectiveDate = lens _rimEffectiveDate (\ s a -> s{_rimEffectiveDate = a}) . 
 rimStatusMessage :: Lens' ReservedInstancesModification (Maybe Text)
 rimStatusMessage = lens _rimStatusMessage (\ s a -> s{_rimStatusMessage = a});
 
--- | A unique ID for the Reserved Instance modification.
+-- | A unique ID for the Reserved instance modification.
 rimReservedInstancesModificationId :: Lens' ReservedInstancesModification (Maybe Text)
 rimReservedInstancesModificationId = lens _rimReservedInstancesModificationId (\ s a -> s{_rimReservedInstancesModificationId = a});
 
--- | The IDs of one or more Reserved Instances.
+-- | The IDs of one or more Reserved instances.
 rimReservedInstancesIds :: Lens' ReservedInstancesModification [ReservedInstancesId]
 rimReservedInstancesIds = lens _rimReservedInstancesIds (\ s a -> s{_rimReservedInstancesIds = a}) . _Default . _Coerce;
 
@@ -7053,13 +7583,13 @@ reservedInstancesModificationResult =
     , _rimrTargetConfiguration = Nothing
     }
 
--- | The ID for the Reserved Instances that were created as part of the
+-- | The ID for the Reserved instances that were created as part of the
 -- modification request. This field is only available when the modification
 -- is fulfilled.
 rimrReservedInstancesId :: Lens' ReservedInstancesModificationResult (Maybe Text)
 rimrReservedInstancesId = lens _rimrReservedInstancesId (\ s a -> s{_rimrReservedInstancesId = a});
 
--- | The target Reserved Instances configurations supplied as part of the
+-- | The target Reserved instances configurations supplied as part of the
 -- modification request.
 rimrTargetConfiguration :: Lens' ReservedInstancesModificationResult (Maybe ReservedInstancesConfiguration)
 rimrTargetConfiguration = lens _rimrTargetConfiguration (\ s a -> s{_rimrTargetConfiguration = a});
@@ -7071,7 +7601,7 @@ instance FromXML ReservedInstancesModificationResult
               (x .@? "reservedInstancesId") <*>
                 (x .@? "targetConfiguration")
 
--- | Describes a Reserved Instance offering.
+-- | Describes a Reserved instance offering.
 --
 -- /See:/ 'reservedInstancesOffering' smart constructor.
 data ReservedInstancesOffering = ReservedInstancesOffering'
@@ -7144,25 +7674,25 @@ reservedInstancesOffering =
 rioMarketplace :: Lens' ReservedInstancesOffering (Maybe Bool)
 rioMarketplace = lens _rioMarketplace (\ s a -> s{_rioMarketplace = a});
 
--- | The currency of the Reserved Instance offering you are purchasing. It\'s
+-- | The currency of the Reserved instance offering you are purchasing. It\'s
 -- specified using ISO 4217 standard currency codes. At this time, the only
 -- supported currency is 'USD'.
 rioCurrencyCode :: Lens' ReservedInstancesOffering (Maybe CurrencyCodeValues)
 rioCurrencyCode = lens _rioCurrencyCode (\ s a -> s{_rioCurrencyCode = a});
 
--- | The Reserved Instance product platform description.
+-- | The Reserved instance product platform description.
 rioProductDescription :: Lens' ReservedInstancesOffering (Maybe RIProductDescription)
 rioProductDescription = lens _rioProductDescription (\ s a -> s{_rioProductDescription = a});
 
--- | The instance type on which the Reserved Instance can be used.
+-- | The instance type on which the Reserved instance can be used.
 rioInstanceType :: Lens' ReservedInstancesOffering (Maybe InstanceType)
 rioInstanceType = lens _rioInstanceType (\ s a -> s{_rioInstanceType = a});
 
--- | The Availability Zone in which the Reserved Instance can be used.
+-- | The Availability Zone in which the Reserved instance can be used.
 rioAvailabilityZone :: Lens' ReservedInstancesOffering (Maybe Text)
 rioAvailabilityZone = lens _rioAvailabilityZone (\ s a -> s{_rioAvailabilityZone = a});
 
--- | The pricing details of the Reserved Instance offering.
+-- | The pricing details of the Reserved instance offering.
 rioPricingDetails :: Lens' ReservedInstancesOffering [PricingDetail]
 rioPricingDetails = lens _rioPricingDetails (\ s a -> s{_rioPricingDetails = a}) . _Default . _Coerce;
 
@@ -7170,15 +7700,15 @@ rioPricingDetails = lens _rioPricingDetails (\ s a -> s{_rioPricingDetails = a})
 rioRecurringCharges :: Lens' ReservedInstancesOffering [RecurringCharge]
 rioRecurringCharges = lens _rioRecurringCharges (\ s a -> s{_rioRecurringCharges = a}) . _Default . _Coerce;
 
--- | The Reserved Instance offering type.
+-- | The Reserved instance offering type.
 rioOfferingType :: Lens' ReservedInstancesOffering (Maybe OfferingTypeValues)
 rioOfferingType = lens _rioOfferingType (\ s a -> s{_rioOfferingType = a});
 
--- | The usage price of the Reserved Instance, per hour.
+-- | The usage price of the Reserved instance, per hour.
 rioUsagePrice :: Lens' ReservedInstancesOffering (Maybe Double)
 rioUsagePrice = lens _rioUsagePrice (\ s a -> s{_rioUsagePrice = a});
 
--- | The purchase price of the Reserved Instance.
+-- | The purchase price of the Reserved instance.
 rioFixedPrice :: Lens' ReservedInstancesOffering (Maybe Double)
 rioFixedPrice = lens _rioFixedPrice (\ s a -> s{_rioFixedPrice = a});
 
@@ -7186,11 +7716,11 @@ rioFixedPrice = lens _rioFixedPrice (\ s a -> s{_rioFixedPrice = a});
 rioInstanceTenancy :: Lens' ReservedInstancesOffering (Maybe Tenancy)
 rioInstanceTenancy = lens _rioInstanceTenancy (\ s a -> s{_rioInstanceTenancy = a});
 
--- | The ID of the Reserved Instance offering.
+-- | The ID of the Reserved instance offering.
 rioReservedInstancesOfferingId :: Lens' ReservedInstancesOffering (Maybe Text)
 rioReservedInstancesOfferingId = lens _rioReservedInstancesOfferingId (\ s a -> s{_rioReservedInstancesOfferingId = a});
 
--- | The duration of the Reserved Instance, in seconds.
+-- | The duration of the Reserved instance, in seconds.
 rioDuration :: Lens' ReservedInstancesOffering (Maybe Integer)
 rioDuration = lens _rioDuration (\ s a -> s{_rioDuration = a});
 
@@ -7222,6 +7752,7 @@ data Route = Route'
     , _rInstanceId              :: !(Maybe Text)
     , _rOrigin                  :: !(Maybe RouteOrigin)
     , _rState                   :: !(Maybe RouteState)
+    , _rNatGatewayId            :: !(Maybe Text)
     , _rNetworkInterfaceId      :: !(Maybe Text)
     , _rGatewayId               :: !(Maybe Text)
     , _rInstanceOwnerId         :: !(Maybe Text)
@@ -7241,6 +7772,8 @@ data Route = Route'
 --
 -- * 'rState'
 --
+-- * 'rNatGatewayId'
+--
 -- * 'rNetworkInterfaceId'
 --
 -- * 'rGatewayId'
@@ -7258,6 +7791,7 @@ route =
     , _rInstanceId = Nothing
     , _rOrigin = Nothing
     , _rState = Nothing
+    , _rNatGatewayId = Nothing
     , _rNetworkInterfaceId = Nothing
     , _rGatewayId = Nothing
     , _rInstanceOwnerId = Nothing
@@ -7291,6 +7825,10 @@ rOrigin = lens _rOrigin (\ s a -> s{_rOrigin = a});
 rState :: Lens' Route (Maybe RouteState)
 rState = lens _rState (\ s a -> s{_rState = a});
 
+-- | The ID of a NAT gateway.
+rNatGatewayId :: Lens' Route (Maybe Text)
+rNatGatewayId = lens _rNatGatewayId (\ s a -> s{_rNatGatewayId = a});
+
 -- | The ID of the network interface.
 rNetworkInterfaceId :: Lens' Route (Maybe Text)
 rNetworkInterfaceId = lens _rNetworkInterfaceId (\ s a -> s{_rNetworkInterfaceId = a});
@@ -7318,6 +7856,7 @@ instance FromXML Route where
                 (x .@? "instanceId")
                 <*> (x .@? "origin")
                 <*> (x .@? "state")
+                <*> (x .@? "natGatewayId")
                 <*> (x .@? "networkInterfaceId")
                 <*> (x .@? "gatewayId")
                 <*> (x .@? "instanceOwnerId")
@@ -8293,7 +8832,9 @@ sflsNetworkInterfaces = lens _sflsNetworkInterfaces (\ s a -> s{_sflsNetworkInte
 sflsRAMDiskId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsRAMDiskId = lens _sflsRAMDiskId (\ s a -> s{_sflsRAMDiskId = a});
 
--- | The ID of the subnet in which to launch the instances.
+-- | The ID of the subnet in which to launch the instances. To specify
+-- multiple subnets, separate them using commas; for example,
+-- \"subnet-a61dafcf, subnet-65ea5f08\".
 sflsSubnetId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsSubnetId = lens _sflsSubnetId (\ s a -> s{_sflsSubnetId = a});
 
@@ -8941,7 +9482,8 @@ spotPlacement =
     , _spGroupName = Nothing
     }
 
--- | The Availability Zone.
+-- | The Availability Zones. To specify multiple Availability Zones, separate
+-- them using commas; for example, \"us-west-2a, us-west-2b\".
 spAvailabilityZone :: Lens' SpotPlacement (Maybe Text)
 spAvailabilityZone = lens _spAvailabilityZone (\ s a -> s{_spAvailabilityZone = a});
 
@@ -9054,7 +9596,7 @@ srCode = lens _srCode (\ s a -> s{_srCode = a});
 
 -- | The message for the state change.
 --
--- -   'Server.SpotInstanceTermination': A Spot Instance was terminated due
+-- -   'Server.SpotInstanceTermination': A Spot instance was terminated due
 --     to an increase in the market price.
 --
 -- -   'Server.InternalError': An internal error occurred during instance

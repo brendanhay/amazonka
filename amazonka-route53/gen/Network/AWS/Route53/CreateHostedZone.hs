@@ -26,17 +26,17 @@
 -- the 'CreateHostedZoneResponse' element that contains metadata about the
 -- hosted zone.
 --
--- Route 53 automatically creates a default SOA record and four NS records
--- for the zone. The NS records in the hosted zone are the name servers you
--- give your registrar to delegate your domain to. For more information
--- about SOA and NS records, see
--- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html NS and SOA Records that Route 53 Creates for a Hosted Zone>
+-- Amazon Route 53 automatically creates a default SOA record and four NS
+-- records for the zone. The NS records in the hosted zone are the name
+-- servers you give your registrar to delegate your domain to. For more
+-- information about SOA and NS records, see
+-- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html NS and SOA Records that Amazon Route 53 Creates for a Hosted Zone>
 -- in the /Amazon Route 53 Developer Guide/.
 --
 -- When you create a zone, its initial status is 'PENDING'. This means that
 -- it is not yet available on all DNS servers. The status of the zone
 -- changes to 'INSYNC' when the NS and SOA records are available on all
--- Route 53 DNS servers.
+-- Amazon Route 53 DNS servers.
 --
 -- When trying to create a hosted zone using a reusable delegation set, you
 -- could specify an optional DelegationSetId, and Route53 would assign
@@ -67,6 +67,7 @@ module Network.AWS.Route53.CreateHostedZone
     , chzrsLocation
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -127,10 +128,10 @@ chzHostedZoneConfig :: Lens' CreateHostedZone (Maybe HostedZoneConfig)
 chzHostedZoneConfig = lens _chzHostedZoneConfig (\ s a -> s{_chzHostedZoneConfig = a});
 
 -- | The name of the domain. This must be a fully-specified domain, for
--- example, www.example.com. The trailing dot is optional; Route 53 assumes
--- that the domain name is fully qualified. This means that Route 53 treats
--- www.example.com (without a trailing dot) and www.example.com. (with a
--- trailing dot) as identical.
+-- example, www.example.com. The trailing dot is optional; Amazon Route 53
+-- assumes that the domain name is fully qualified. This means that Amazon
+-- Route 53 treats www.example.com (without a trailing dot) and
+-- www.example.com. (with a trailing dot) as identical.
 --
 -- This is the name you have registered with your DNS registrar. You should
 -- ask your registrar to change the authoritative name servers for your

@@ -60,6 +60,7 @@ module Network.AWS.SNS.Types
     , tTopicARN
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 import           Network.AWS.SNS.Types.Product

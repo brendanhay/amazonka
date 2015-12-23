@@ -72,6 +72,7 @@ module Network.AWS.SWF.CountClosedWorkflowExecutions
     , wecCount
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

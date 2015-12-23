@@ -42,6 +42,7 @@ module Network.AWS.IoT.ListPrincipalThings
 
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -78,7 +79,7 @@ listPrincipalThings pPrincipal_ =
 lptNextToken :: Lens' ListPrincipalThings (Maybe Text)
 lptNextToken = lens _lptNextToken (\ s a -> s{_lptNextToken = a});
 
--- | Undocumented member.
+-- | The maximum number of principals to return.
 lptMaxResults :: Lens' ListPrincipalThings (Maybe Natural)
 lptMaxResults = lens _lptMaxResults (\ s a -> s{_lptMaxResults = a}) . mapping _Nat;
 

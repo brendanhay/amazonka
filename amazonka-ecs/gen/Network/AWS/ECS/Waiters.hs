@@ -19,6 +19,7 @@ import           Network.AWS.ECS.DescribeServices
 import           Network.AWS.ECS.DescribeTasks
 import           Network.AWS.ECS.DescribeTasks
 import           Network.AWS.ECS.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 

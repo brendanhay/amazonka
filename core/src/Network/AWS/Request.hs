@@ -45,7 +45,6 @@ module Network.AWS.Request
     , requestURL
     ) where
 
-import           Control.Lens
 import           Data.Maybe
 import           Data.Monoid
 import           Network.AWS.Data.Body
@@ -55,6 +54,8 @@ import           Network.AWS.Data.JSON
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.XML
+import           Network.AWS.Lens            (Lens')
+import           Network.AWS.Lens            ((%~), (&), (.~), (<&>))
 import           Network.AWS.Types
 import qualified Network.HTTP.Conduit        as Client
 import           Network.HTTP.Types          (StdMethod (..))

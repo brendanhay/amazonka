@@ -17,6 +17,7 @@
 --
 module Network.AWS.RDS.Types.Product where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types.Sum
 
@@ -212,17 +213,20 @@ instance FromXML CharacterSet where
 data DBCluster = DBCluster'
     { _dcEngineVersion                   :: !(Maybe Text)
     , _dcStatus                          :: !(Maybe Text)
+    , _dcStorageEncrypted                :: !(Maybe Bool)
     , _dcDBClusterIdentifier             :: !(Maybe Text)
     , _dcDBClusterMembers                :: !(Maybe [DBClusterMember])
     , _dcHostedZoneId                    :: !(Maybe Text)
     , _dcDBClusterParameterGroup         :: !(Maybe Text)
     , _dcMasterUsername                  :: !(Maybe Text)
+    , _dcDBClusterResourceId             :: !(Maybe Text)
     , _dcEarliestRestorableTime          :: !(Maybe ISO8601)
     , _dcEngine                          :: !(Maybe Text)
     , _dcLatestRestorableTime            :: !(Maybe ISO8601)
     , _dcPreferredMaintenanceWindow      :: !(Maybe Text)
     , _dcAvailabilityZones               :: !(Maybe [Text])
     , _dcCharacterSetName                :: !(Maybe Text)
+    , _dcKMSKeyId                        :: !(Maybe Text)
     , _dcPreferredBackupWindow           :: !(Maybe Text)
     , _dcVPCSecurityGroups               :: !(Maybe [VPCSecurityGroupMembership])
     , _dcBackupRetentionPeriod           :: !(Maybe Int)
@@ -243,6 +247,8 @@ data DBCluster = DBCluster'
 --
 -- * 'dcStatus'
 --
+-- * 'dcStorageEncrypted'
+--
 -- * 'dcDBClusterIdentifier'
 --
 -- * 'dcDBClusterMembers'
@@ -252,6 +258,8 @@ data DBCluster = DBCluster'
 -- * 'dcDBClusterParameterGroup'
 --
 -- * 'dcMasterUsername'
+--
+-- * 'dcDBClusterResourceId'
 --
 -- * 'dcEarliestRestorableTime'
 --
@@ -264,6 +272,8 @@ data DBCluster = DBCluster'
 -- * 'dcAvailabilityZones'
 --
 -- * 'dcCharacterSetName'
+--
+-- * 'dcKMSKeyId'
 --
 -- * 'dcPreferredBackupWindow'
 --
@@ -290,17 +300,20 @@ dbCluster =
     DBCluster'
     { _dcEngineVersion = Nothing
     , _dcStatus = Nothing
+    , _dcStorageEncrypted = Nothing
     , _dcDBClusterIdentifier = Nothing
     , _dcDBClusterMembers = Nothing
     , _dcHostedZoneId = Nothing
     , _dcDBClusterParameterGroup = Nothing
     , _dcMasterUsername = Nothing
+    , _dcDBClusterResourceId = Nothing
     , _dcEarliestRestorableTime = Nothing
     , _dcEngine = Nothing
     , _dcLatestRestorableTime = Nothing
     , _dcPreferredMaintenanceWindow = Nothing
     , _dcAvailabilityZones = Nothing
     , _dcCharacterSetName = Nothing
+    , _dcKMSKeyId = Nothing
     , _dcPreferredBackupWindow = Nothing
     , _dcVPCSecurityGroups = Nothing
     , _dcBackupRetentionPeriod = Nothing
@@ -320,6 +333,10 @@ dcEngineVersion = lens _dcEngineVersion (\ s a -> s{_dcEngineVersion = a});
 -- | Specifies the current state of this DB cluster.
 dcStatus :: Lens' DBCluster (Maybe Text)
 dcStatus = lens _dcStatus (\ s a -> s{_dcStatus = a});
+
+-- | Specifies whether the DB cluster is encrypted.
+dcStorageEncrypted :: Lens' DBCluster (Maybe Bool)
+dcStorageEncrypted = lens _dcStorageEncrypted (\ s a -> s{_dcStorageEncrypted = a});
 
 -- | Contains a user-supplied DB cluster identifier. This identifier is the
 -- unique key that identifies a DB cluster.
@@ -342,6 +359,12 @@ dcDBClusterParameterGroup = lens _dcDBClusterParameterGroup (\ s a -> s{_dcDBClu
 -- | Contains the master username for the DB cluster.
 dcMasterUsername :: Lens' DBCluster (Maybe Text)
 dcMasterUsername = lens _dcMasterUsername (\ s a -> s{_dcMasterUsername = a});
+
+-- | If 'StorageEncrypted' is true, the region-unique, immutable identifier
+-- for the encrypted DB cluster. This identifier is found in AWS CloudTrail
+-- log entries whenever the KMS key for the DB cluster is accessed.
+dcDBClusterResourceId :: Lens' DBCluster (Maybe Text)
+dcDBClusterResourceId = lens _dcDBClusterResourceId (\ s a -> s{_dcDBClusterResourceId = a});
 
 -- | Specifies the earliest time to which a database can be restored with
 -- point-in-time restore.
@@ -371,6 +394,11 @@ dcAvailabilityZones = lens _dcAvailabilityZones (\ s a -> s{_dcAvailabilityZones
 -- associated with.
 dcCharacterSetName :: Lens' DBCluster (Maybe Text)
 dcCharacterSetName = lens _dcCharacterSetName (\ s a -> s{_dcCharacterSetName = a});
+
+-- | If 'StorageEncrypted' is true, the KMS key identifier for the encrypted
+-- DB cluster.
+dcKMSKeyId :: Lens' DBCluster (Maybe Text)
+dcKMSKeyId = lens _dcKMSKeyId (\ s a -> s{_dcKMSKeyId = a});
 
 -- | Specifies the daily time range during which automated backups are
 -- created if automated backups are enabled, as determined by the
@@ -424,13 +452,15 @@ instance FromXML DBCluster where
         parseXML x
           = DBCluster' <$>
               (x .@? "EngineVersion") <*> (x .@? "Status") <*>
-                (x .@? "DBClusterIdentifier")
+                (x .@? "StorageEncrypted")
+                <*> (x .@? "DBClusterIdentifier")
                 <*>
                 (x .@? "DBClusterMembers" .!@ mempty >>=
                    may (parseXMLList "DBClusterMember"))
                 <*> (x .@? "HostedZoneId")
                 <*> (x .@? "DBClusterParameterGroup")
                 <*> (x .@? "MasterUsername")
+                <*> (x .@? "DbClusterResourceId")
                 <*> (x .@? "EarliestRestorableTime")
                 <*> (x .@? "Engine")
                 <*> (x .@? "LatestRestorableTime")
@@ -439,6 +469,7 @@ instance FromXML DBCluster where
                 (x .@? "AvailabilityZones" .!@ mempty >>=
                    may (parseXMLList "AvailabilityZone"))
                 <*> (x .@? "CharacterSetName")
+                <*> (x .@? "KmsKeyId")
                 <*> (x .@? "PreferredBackupWindow")
                 <*>
                 (x .@? "VpcSecurityGroups" .!@ mempty >>=
@@ -641,6 +672,7 @@ instance FromXML DBClusterParameterGroupNameMessage
 data DBClusterSnapshot = DBClusterSnapshot'
     { _dcsEngineVersion               :: !(Maybe Text)
     , _dcsStatus                      :: !(Maybe Text)
+    , _dcsStorageEncrypted            :: !(Maybe Bool)
     , _dcsDBClusterIdentifier         :: !(Maybe Text)
     , _dcsMasterUsername              :: !(Maybe Text)
     , _dcsVPCId                       :: !(Maybe Text)
@@ -649,6 +681,7 @@ data DBClusterSnapshot = DBClusterSnapshot'
     , _dcsLicenseModel                :: !(Maybe Text)
     , _dcsAvailabilityZones           :: !(Maybe [Text])
     , _dcsSnapshotType                :: !(Maybe Text)
+    , _dcsKMSKeyId                    :: !(Maybe Text)
     , _dcsSnapshotCreateTime          :: !(Maybe ISO8601)
     , _dcsAllocatedStorage            :: !(Maybe Int)
     , _dcsClusterCreateTime           :: !(Maybe ISO8601)
@@ -663,6 +696,8 @@ data DBClusterSnapshot = DBClusterSnapshot'
 -- * 'dcsEngineVersion'
 --
 -- * 'dcsStatus'
+--
+-- * 'dcsStorageEncrypted'
 --
 -- * 'dcsDBClusterIdentifier'
 --
@@ -680,6 +715,8 @@ data DBClusterSnapshot = DBClusterSnapshot'
 --
 -- * 'dcsSnapshotType'
 --
+-- * 'dcsKMSKeyId'
+--
 -- * 'dcsSnapshotCreateTime'
 --
 -- * 'dcsAllocatedStorage'
@@ -695,6 +732,7 @@ dbClusterSnapshot =
     DBClusterSnapshot'
     { _dcsEngineVersion = Nothing
     , _dcsStatus = Nothing
+    , _dcsStorageEncrypted = Nothing
     , _dcsDBClusterIdentifier = Nothing
     , _dcsMasterUsername = Nothing
     , _dcsVPCId = Nothing
@@ -703,6 +741,7 @@ dbClusterSnapshot =
     , _dcsLicenseModel = Nothing
     , _dcsAvailabilityZones = Nothing
     , _dcsSnapshotType = Nothing
+    , _dcsKMSKeyId = Nothing
     , _dcsSnapshotCreateTime = Nothing
     , _dcsAllocatedStorage = Nothing
     , _dcsClusterCreateTime = Nothing
@@ -718,6 +757,10 @@ dcsEngineVersion = lens _dcsEngineVersion (\ s a -> s{_dcsEngineVersion = a});
 -- | Specifies the status of this DB cluster snapshot.
 dcsStatus :: Lens' DBClusterSnapshot (Maybe Text)
 dcsStatus = lens _dcsStatus (\ s a -> s{_dcsStatus = a});
+
+-- | Specifies whether the DB cluster snapshot is encrypted.
+dcsStorageEncrypted :: Lens' DBClusterSnapshot (Maybe Bool)
+dcsStorageEncrypted = lens _dcsStorageEncrypted (\ s a -> s{_dcsStorageEncrypted = a});
 
 -- | Specifies the DB cluster identifier of the DB cluster that this DB
 -- cluster snapshot was created from.
@@ -753,6 +796,11 @@ dcsAvailabilityZones = lens _dcsAvailabilityZones (\ s a -> s{_dcsAvailabilityZo
 dcsSnapshotType :: Lens' DBClusterSnapshot (Maybe Text)
 dcsSnapshotType = lens _dcsSnapshotType (\ s a -> s{_dcsSnapshotType = a});
 
+-- | If 'StorageEncrypted' is true, the KMS key identifier for the encrypted
+-- DB cluster snapshot.
+dcsKMSKeyId :: Lens' DBClusterSnapshot (Maybe Text)
+dcsKMSKeyId = lens _dcsKMSKeyId (\ s a -> s{_dcsKMSKeyId = a});
+
 -- | Provides the time when the snapshot was taken, in Universal Coordinated
 -- Time (UTC).
 dcsSnapshotCreateTime :: Lens' DBClusterSnapshot (Maybe UTCTime)
@@ -781,7 +829,8 @@ instance FromXML DBClusterSnapshot where
         parseXML x
           = DBClusterSnapshot' <$>
               (x .@? "EngineVersion") <*> (x .@? "Status") <*>
-                (x .@? "DBClusterIdentifier")
+                (x .@? "StorageEncrypted")
+                <*> (x .@? "DBClusterIdentifier")
                 <*> (x .@? "MasterUsername")
                 <*> (x .@? "VpcId")
                 <*> (x .@? "DBClusterSnapshotIdentifier")
@@ -791,6 +840,7 @@ instance FromXML DBClusterSnapshot where
                 (x .@? "AvailabilityZones" .!@ mempty >>=
                    may (parseXMLList "AvailabilityZone"))
                 <*> (x .@? "SnapshotType")
+                <*> (x .@? "KmsKeyId")
                 <*> (x .@? "SnapshotCreateTime")
                 <*> (x .@? "AllocatedStorage")
                 <*> (x .@? "ClusterCreateTime")
@@ -916,9 +966,11 @@ data DBInstance = DBInstance'
     , _diAutoMinorVersionUpgrade               :: !(Maybe Bool)
     , _diMasterUsername                        :: !(Maybe Text)
     , _diReadReplicaDBInstanceIdentifiers      :: !(Maybe [Text])
+    , _diMonitoringRoleARN                     :: !(Maybe Text)
     , _diIOPS                                  :: !(Maybe Int)
     , _diInstanceCreateTime                    :: !(Maybe ISO8601)
     , _diReadReplicaSourceDBInstanceIdentifier :: !(Maybe Text)
+    , _diMonitoringInterval                    :: !(Maybe Int)
     , _diEngine                                :: !(Maybe Text)
     , _diLatestRestorableTime                  :: !(Maybe ISO8601)
     , _diDBInstanceClass                       :: !(Maybe Text)
@@ -935,6 +987,7 @@ data DBInstance = DBInstance'
     , _diDBSubnetGroup                         :: !(Maybe DBSubnetGroup)
     , _diMultiAZ                               :: !(Maybe Bool)
     , _diOptionGroupMemberships                :: !(Maybe [OptionGroupMembership])
+    , _diEnhancedMonitoringResourceARN         :: !(Maybe Text)
     , _diSecondaryAvailabilityZone             :: !(Maybe Text)
     , _diAllocatedStorage                      :: !(Maybe Int)
     , _diDBiResourceId                         :: !(Maybe Text)
@@ -970,11 +1023,15 @@ data DBInstance = DBInstance'
 --
 -- * 'diReadReplicaDBInstanceIdentifiers'
 --
+-- * 'diMonitoringRoleARN'
+--
 -- * 'diIOPS'
 --
 -- * 'diInstanceCreateTime'
 --
 -- * 'diReadReplicaSourceDBInstanceIdentifier'
+--
+-- * 'diMonitoringInterval'
 --
 -- * 'diEngine'
 --
@@ -1007,6 +1064,8 @@ data DBInstance = DBInstance'
 -- * 'diMultiAZ'
 --
 -- * 'diOptionGroupMemberships'
+--
+-- * 'diEnhancedMonitoringResourceARN'
 --
 -- * 'diSecondaryAvailabilityZone'
 --
@@ -1045,9 +1104,11 @@ dbInstance =
     , _diAutoMinorVersionUpgrade = Nothing
     , _diMasterUsername = Nothing
     , _diReadReplicaDBInstanceIdentifiers = Nothing
+    , _diMonitoringRoleARN = Nothing
     , _diIOPS = Nothing
     , _diInstanceCreateTime = Nothing
     , _diReadReplicaSourceDBInstanceIdentifier = Nothing
+    , _diMonitoringInterval = Nothing
     , _diEngine = Nothing
     , _diLatestRestorableTime = Nothing
     , _diDBInstanceClass = Nothing
@@ -1064,6 +1125,7 @@ dbInstance =
     , _diDBSubnetGroup = Nothing
     , _diMultiAZ = Nothing
     , _diOptionGroupMemberships = Nothing
+    , _diEnhancedMonitoringResourceARN = Nothing
     , _diSecondaryAvailabilityZone = Nothing
     , _diAllocatedStorage = Nothing
     , _diDBiResourceId = Nothing
@@ -1131,6 +1193,11 @@ diMasterUsername = lens _diMasterUsername (\ s a -> s{_diMasterUsername = a});
 diReadReplicaDBInstanceIdentifiers :: Lens' DBInstance [Text]
 diReadReplicaDBInstanceIdentifiers = lens _diReadReplicaDBInstanceIdentifiers (\ s a -> s{_diReadReplicaDBInstanceIdentifiers = a}) . _Default . _Coerce;
 
+-- | The ARN for the IAM role that permits RDS to send Enhanced Monitoring
+-- metrics to CloudWatch Logs.
+diMonitoringRoleARN :: Lens' DBInstance (Maybe Text)
+diMonitoringRoleARN = lens _diMonitoringRoleARN (\ s a -> s{_diMonitoringRoleARN = a});
+
 -- | Specifies the Provisioned IOPS (I\/O operations per second) value.
 diIOPS :: Lens' DBInstance (Maybe Int)
 diIOPS = lens _diIOPS (\ s a -> s{_diIOPS = a});
@@ -1143,6 +1210,11 @@ diInstanceCreateTime = lens _diInstanceCreateTime (\ s a -> s{_diInstanceCreateT
 -- a Read Replica.
 diReadReplicaSourceDBInstanceIdentifier :: Lens' DBInstance (Maybe Text)
 diReadReplicaSourceDBInstanceIdentifier = lens _diReadReplicaSourceDBInstanceIdentifier (\ s a -> s{_diReadReplicaSourceDBInstanceIdentifier = a});
+
+-- | The interval, in seconds, between points when Enhanced Monitoring
+-- metrics are collected for the DB instance.
+diMonitoringInterval :: Lens' DBInstance (Maybe Int)
+diMonitoringInterval = lens _diMonitoringInterval (\ s a -> s{_diMonitoringInterval = a});
 
 -- | Provides the name of the database engine to be used for this DB
 -- instance.
@@ -1221,6 +1293,11 @@ diMultiAZ = lens _diMultiAZ (\ s a -> s{_diMultiAZ = a});
 -- | Provides the list of option group memberships for this DB instance.
 diOptionGroupMemberships :: Lens' DBInstance [OptionGroupMembership]
 diOptionGroupMemberships = lens _diOptionGroupMemberships (\ s a -> s{_diOptionGroupMemberships = a}) . _Default . _Coerce;
+
+-- | The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream
+-- that receives the Enhanced Monitoring metrics data for the DB instance.
+diEnhancedMonitoringResourceARN :: Lens' DBInstance (Maybe Text)
+diEnhancedMonitoringResourceARN = lens _diEnhancedMonitoringResourceARN (\ s a -> s{_diEnhancedMonitoringResourceARN = a});
 
 -- | If present, specifies the name of the secondary Availability Zone for a
 -- DB instance with multi-AZ support.
@@ -1317,9 +1394,11 @@ instance FromXML DBInstance where
                 (x .@? "ReadReplicaDBInstanceIdentifiers" .!@ mempty
                    >>=
                    may (parseXMLList "ReadReplicaDBInstanceIdentifier"))
+                <*> (x .@? "MonitoringRoleArn")
                 <*> (x .@? "Iops")
                 <*> (x .@? "InstanceCreateTime")
                 <*> (x .@? "ReadReplicaSourceDBInstanceIdentifier")
+                <*> (x .@? "MonitoringInterval")
                 <*> (x .@? "Engine")
                 <*> (x .@? "LatestRestorableTime")
                 <*> (x .@? "DBInstanceClass")
@@ -1340,6 +1419,7 @@ instance FromXML DBInstance where
                 <*>
                 (x .@? "OptionGroupMemberships" .!@ mempty >>=
                    may (parseXMLList "OptionGroupMembership"))
+                <*> (x .@? "EnhancedMonitoringResourceArn")
                 <*> (x .@? "SecondaryAvailabilityZone")
                 <*> (x .@? "AllocatedStorage")
                 <*> (x .@? "DbiResourceId")
@@ -3197,17 +3277,18 @@ instance ToQuery OptionSetting where
 --
 -- /See:/ 'orderableDBInstanceOption' smart constructor.
 data OrderableDBInstanceOption = OrderableDBInstanceOption'
-    { _odioEngineVersion             :: !(Maybe Text)
-    , _odioMultiAZCapable            :: !(Maybe Bool)
-    , _odioEngine                    :: !(Maybe Text)
-    , _odioSupportsIOPS              :: !(Maybe Bool)
-    , _odioDBInstanceClass           :: !(Maybe Text)
-    , _odioLicenseModel              :: !(Maybe Text)
-    , _odioAvailabilityZones         :: !(Maybe [AvailabilityZone])
-    , _odioSupportsStorageEncryption :: !(Maybe Bool)
-    , _odioReadReplicaCapable        :: !(Maybe Bool)
-    , _odioVPC                       :: !(Maybe Bool)
-    , _odioStorageType               :: !(Maybe Text)
+    { _odioEngineVersion              :: !(Maybe Text)
+    , _odioMultiAZCapable             :: !(Maybe Bool)
+    , _odioEngine                     :: !(Maybe Text)
+    , _odioSupportsIOPS               :: !(Maybe Bool)
+    , _odioDBInstanceClass            :: !(Maybe Text)
+    , _odioLicenseModel               :: !(Maybe Text)
+    , _odioAvailabilityZones          :: !(Maybe [AvailabilityZone])
+    , _odioSupportsStorageEncryption  :: !(Maybe Bool)
+    , _odioReadReplicaCapable         :: !(Maybe Bool)
+    , _odioVPC                        :: !(Maybe Bool)
+    , _odioSupportsEnhancedMonitoring :: !(Maybe Bool)
+    , _odioStorageType                :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OrderableDBInstanceOption' with the minimum fields required to make a request.
@@ -3234,6 +3315,8 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
 --
 -- * 'odioVPC'
 --
+-- * 'odioSupportsEnhancedMonitoring'
+--
 -- * 'odioStorageType'
 orderableDBInstanceOption
     :: OrderableDBInstanceOption
@@ -3249,6 +3332,7 @@ orderableDBInstanceOption =
     , _odioSupportsStorageEncryption = Nothing
     , _odioReadReplicaCapable = Nothing
     , _odioVPC = Nothing
+    , _odioSupportsEnhancedMonitoring = Nothing
     , _odioStorageType = Nothing
     }
 
@@ -3292,6 +3376,11 @@ odioReadReplicaCapable = lens _odioReadReplicaCapable (\ s a -> s{_odioReadRepli
 odioVPC :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odioVPC = lens _odioVPC (\ s a -> s{_odioVPC = a});
 
+-- | Indicates whether the DB instance supports enhanced monitoring at
+-- intervals from 1 to 60 seconds.
+odioSupportsEnhancedMonitoring :: Lens' OrderableDBInstanceOption (Maybe Bool)
+odioSupportsEnhancedMonitoring = lens _odioSupportsEnhancedMonitoring (\ s a -> s{_odioSupportsEnhancedMonitoring = a});
+
 -- | Indicates the storage type for this orderable DB instance.
 odioStorageType :: Lens' OrderableDBInstanceOption (Maybe Text)
 odioStorageType = lens _odioStorageType (\ s a -> s{_odioStorageType = a});
@@ -3310,6 +3399,7 @@ instance FromXML OrderableDBInstanceOption where
                 <*> (x .@? "SupportsStorageEncryption")
                 <*> (x .@? "ReadReplicaCapable")
                 <*> (x .@? "Vpc")
+                <*> (x .@? "SupportsEnhancedMonitoring")
                 <*> (x .@? "StorageType")
 
 -- | This data type is used as a request parameter in the

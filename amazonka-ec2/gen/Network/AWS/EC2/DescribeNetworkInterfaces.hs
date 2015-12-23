@@ -41,6 +41,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
 
 import           Network.AWS.EC2.Types
 import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -107,23 +108,26 @@ dnisNetworkInterfaceIds = lens _dnisNetworkInterfaceIds (\ s a -> s{_dnisNetwork
 --
 -- -   'attachment.attachment-id' - The ID of the interface attachment.
 --
+-- -   'attachment.attach.time' - The time that the network interface was
+--     attached to an instance.
+--
+-- -   'attachment.delete-on-termination' - Indicates whether the
+--     attachment is deleted when an instance is terminated.
+--
+-- -   'attachment.device-index' - The device index to which the network
+--     interface is attached.
+--
 -- -   'attachment.instance-id' - The ID of the instance to which the
 --     network interface is attached.
 --
 -- -   'attachment.instance-owner-id' - The owner ID of the instance to
 --     which the network interface is attached.
 --
--- -   'attachment.device-index' - The device index to which the network
---     interface is attached.
+-- -   'attachment.nat-gateway-id' - The ID of the NAT gateway to which the
+--     network interface is attached.
 --
 -- -   'attachment.status' - The status of the attachment ('attaching' |
 --     'attached' | 'detaching' | 'detached').
---
--- -   'attachment.attach.time' - The time that the network interface was
---     attached to an instance.
---
--- -   'attachment.delete-on-termination' - Indicates whether the
---     attachment is deleted when an instance is terminated.
 --
 -- -   'availability-zone' - The Availability Zone of the network
 --     interface.
@@ -158,8 +162,8 @@ dnisNetworkInterfaceIds = lens _dnisNetworkInterfaceIds (\ s a -> s{_dnisNetwork
 -- -   'source-desk-check' - Indicates whether the network interface
 --     performs source\/destination checking. A value of 'true' means
 --     checking is enabled, and 'false' means checking is disabled. The
---     value must be 'false' for the network interface to perform Network
---     Address Translation (NAT) in your VPC.
+--     value must be 'false' for the network interface to perform network
+--     address translation (NAT) in your VPC.
 --
 -- -   'status' - The status of the network interface. If the network
 --     interface is not attached to an instance, the status is 'available';

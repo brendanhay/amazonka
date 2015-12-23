@@ -16,5 +16,6 @@
 module Network.AWS.AutoScaling.Waiters where
 
 import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

@@ -41,14 +41,15 @@ module Network.AWS.Inspector.AddAttributesToFindings
 
 import           Network.AWS.Inspector.Types
 import           Network.AWS.Inspector.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'addAttributesToFindings' smart constructor.
 data AddAttributesToFindings = AddAttributesToFindings'
-    { _aatfFindingARNs :: !(Maybe [Text])
-    , _aatfAttributes  :: !(Maybe [Attribute])
+    { _aatfFindingARNs :: ![Text]
+    , _aatfAttributes  :: ![Attribute]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddAttributesToFindings' with the minimum fields required to make a request.
@@ -62,17 +63,17 @@ addAttributesToFindings
     :: AddAttributesToFindings
 addAttributesToFindings =
     AddAttributesToFindings'
-    { _aatfFindingARNs = Nothing
-    , _aatfAttributes = Nothing
+    { _aatfFindingARNs = mempty
+    , _aatfAttributes = mempty
     }
 
 -- | The ARNs specifying the findings that you want to assign attributes to.
 aatfFindingARNs :: Lens' AddAttributesToFindings [Text]
-aatfFindingARNs = lens _aatfFindingARNs (\ s a -> s{_aatfFindingARNs = a}) . _Default . _Coerce;
+aatfFindingARNs = lens _aatfFindingARNs (\ s a -> s{_aatfFindingARNs = a}) . _Coerce;
 
 -- | The array of attributes that you want to assign to specified findings.
 aatfAttributes :: Lens' AddAttributesToFindings [Attribute]
-aatfAttributes = lens _aatfAttributes (\ s a -> s{_aatfAttributes = a}) . _Default . _Coerce;
+aatfAttributes = lens _aatfAttributes (\ s a -> s{_aatfAttributes = a}) . _Coerce;
 
 instance AWSRequest AddAttributesToFindings where
         type Rs AddAttributesToFindings =
@@ -98,8 +99,8 @@ instance ToJSON AddAttributesToFindings where
         toJSON AddAttributesToFindings'{..}
           = object
               (catMaybes
-                 [("findingArns" .=) <$> _aatfFindingARNs,
-                  ("attributes" .=) <$> _aatfAttributes])
+                 [Just ("findingArns" .= _aatfFindingARNs),
+                  Just ("attributes" .= _aatfAttributes)])
 
 instance ToPath AddAttributesToFindings where
         toPath = const "/"

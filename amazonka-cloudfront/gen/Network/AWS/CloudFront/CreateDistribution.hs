@@ -41,6 +41,7 @@ module Network.AWS.CloudFront.CreateDistribution
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -84,7 +85,7 @@ instance AWSRequest CreateDistribution where
 instance ToElement CreateDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2015-07-27/}DistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2015-09-17/}DistributionConfig"
               .
               _cdDistributionConfig
 
@@ -92,7 +93,7 @@ instance ToHeaders CreateDistribution where
         toHeaders = const mempty
 
 instance ToPath CreateDistribution where
-        toPath = const "/2015-07-27/distribution"
+        toPath = const "/2015-09-17/distribution"
 
 instance ToQuery CreateDistribution where
         toQuery = const mempty

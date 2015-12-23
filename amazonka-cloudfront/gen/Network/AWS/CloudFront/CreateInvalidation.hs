@@ -41,6 +41,7 @@ module Network.AWS.CloudFront.CreateInvalidation
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -92,7 +93,7 @@ instance AWSRequest CreateInvalidation where
 instance ToElement CreateInvalidation where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2015-07-27/}InvalidationBatch"
+              "{http://cloudfront.amazonaws.com/doc/2015-09-17/}InvalidationBatch"
               .
               _ciInvalidationBatch
 
@@ -102,7 +103,7 @@ instance ToHeaders CreateInvalidation where
 instance ToPath CreateInvalidation where
         toPath CreateInvalidation'{..}
           = mconcat
-              ["/2015-07-27/distribution/", toBS _ciDistributionId,
+              ["/2015-09-17/distribution/", toBS _ciDistributionId,
                "/invalidation"]
 
 instance ToQuery CreateInvalidation where

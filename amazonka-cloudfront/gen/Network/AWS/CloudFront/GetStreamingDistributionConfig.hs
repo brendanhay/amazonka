@@ -40,6 +40,7 @@ module Network.AWS.CloudFront.GetStreamingDistributionConfig
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -87,7 +88,7 @@ instance ToHeaders GetStreamingDistributionConfig
 instance ToPath GetStreamingDistributionConfig where
         toPath GetStreamingDistributionConfig'{..}
           = mconcat
-              ["/2015-07-27/streaming-distribution/", toBS _gsdcId,
+              ["/2015-09-17/streaming-distribution/", toBS _gsdcId,
                "/config"]
 
 instance ToQuery GetStreamingDistributionConfig where

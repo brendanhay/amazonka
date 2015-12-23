@@ -39,6 +39,15 @@ module Network.AWS.Route53
     -- ** InvalidArgument
     , _InvalidArgument
 
+    -- ** TrafficPolicyInstanceAlreadyExists
+    , _TrafficPolicyInstanceAlreadyExists
+
+    -- ** ConflictingTypes
+    , _ConflictingTypes
+
+    -- ** ConcurrentModification
+    , _ConcurrentModification
+
     -- ** DelegationSetAlreadyReusable
     , _DelegationSetAlreadyReusable
 
@@ -48,11 +57,20 @@ module Network.AWS.Route53
     -- ** InvalidChangeBatch
     , _InvalidChangeBatch
 
+    -- ** TrafficPolicyAlreadyExists
+    , _TrafficPolicyAlreadyExists
+
+    -- ** InvalidTrafficPolicyDocument
+    , _InvalidTrafficPolicyDocument
+
     -- ** DelegationSetNotReusable
     , _DelegationSetNotReusable
 
     -- ** InvalidDomainName
     , _InvalidDomainName
+
+    -- ** NoSuchTrafficPolicy
+    , _NoSuchTrafficPolicy
 
     -- ** HostedZoneNotFound
     , _HostedZoneNotFound
@@ -65,6 +83,9 @@ module Network.AWS.Route53
 
     -- ** HealthCheckAlreadyExists
     , _HealthCheckAlreadyExists
+
+    -- ** TooManyTrafficPolicies
+    , _TooManyTrafficPolicies
 
     -- ** NoSuchGeoLocation
     , _NoSuchGeoLocation
@@ -83,6 +104,12 @@ module Network.AWS.Route53
 
     -- ** LimitsExceeded
     , _LimitsExceeded
+
+    -- ** TooManyTrafficPolicyInstances
+    , _TooManyTrafficPolicyInstances
+
+    -- ** NoSuchTrafficPolicyInstance
+    , _NoSuchTrafficPolicyInstance
 
     -- ** IncompatibleVersion
     , _IncompatibleVersion
@@ -114,6 +141,9 @@ module Network.AWS.Route53
     -- ** NoSuchHealthCheck
     , _NoSuchHealthCheck
 
+    -- ** TrafficPolicyInUse
+    , _TrafficPolicyInUse
+
     -- ** InvalidVPCId
     , _InvalidVPCId
 
@@ -132,8 +162,14 @@ module Network.AWS.Route53
     -- ** AssociateVPCWithHostedZone
     , module Network.AWS.Route53.AssociateVPCWithHostedZone
 
+    -- ** DeleteTrafficPolicy
+    , module Network.AWS.Route53.DeleteTrafficPolicy
+
     -- ** GetCheckerIPRanges
     , module Network.AWS.Route53.GetCheckerIPRanges
+
+    -- ** GetTrafficPolicyInstance
+    , module Network.AWS.Route53.GetTrafficPolicyInstance
 
     -- ** GetHealthCheckLastFailureReason
     , module Network.AWS.Route53.GetHealthCheckLastFailureReason
@@ -150,6 +186,12 @@ module Network.AWS.Route53
     -- ** ListTagsForResource
     , module Network.AWS.Route53.ListTagsForResource
 
+    -- ** ListTrafficPolicyInstances
+    , module Network.AWS.Route53.ListTrafficPolicyInstances
+
+    -- ** CreateTrafficPolicyInstance
+    , module Network.AWS.Route53.CreateTrafficPolicyInstance
+
     -- ** GetChange
     , module Network.AWS.Route53.GetChange
 
@@ -165,6 +207,9 @@ module Network.AWS.Route53
     -- ** CreateHostedZone
     , module Network.AWS.Route53.CreateHostedZone
 
+    -- ** ListTrafficPolicyInstancesByPolicy
+    , module Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
+
     -- ** DisassociateVPCFromHostedZone
     , module Network.AWS.Route53.DisassociateVPCFromHostedZone
 
@@ -176,6 +221,9 @@ module Network.AWS.Route53
 
     -- ** ListHostedZones (Paginated)
     , module Network.AWS.Route53.ListHostedZones
+
+    -- ** GetTrafficPolicyInstanceCount
+    , module Network.AWS.Route53.GetTrafficPolicyInstanceCount
 
     -- ** ListGeoLocations
     , module Network.AWS.Route53.ListGeoLocations
@@ -192,14 +240,32 @@ module Network.AWS.Route53
     -- ** CreateReusableDelegationSet
     , module Network.AWS.Route53.CreateReusableDelegationSet
 
+    -- ** ListChangeBatchesByRRSet
+    , module Network.AWS.Route53.ListChangeBatchesByRRSet
+
     -- ** GetHealthCheckCount
     , module Network.AWS.Route53.GetHealthCheckCount
+
+    -- ** UpdateTrafficPolicyComment
+    , module Network.AWS.Route53.UpdateTrafficPolicyComment
 
     -- ** GetHostedZoneCount
     , module Network.AWS.Route53.GetHostedZoneCount
 
+    -- ** ListChangeBatchesByHostedZone
+    , module Network.AWS.Route53.ListChangeBatchesByHostedZone
+
+    -- ** GetChangeDetails
+    , module Network.AWS.Route53.GetChangeDetails
+
     -- ** GetReusableDelegationSet
     , module Network.AWS.Route53.GetReusableDelegationSet
+
+    -- ** DeleteTrafficPolicyInstance
+    , module Network.AWS.Route53.DeleteTrafficPolicyInstance
+
+    -- ** UpdateTrafficPolicyInstance
+    , module Network.AWS.Route53.UpdateTrafficPolicyInstance
 
     -- ** UpdateHostedZoneComment
     , module Network.AWS.Route53.UpdateHostedZoneComment
@@ -207,8 +273,17 @@ module Network.AWS.Route53
     -- ** GetHealthCheckStatus
     , module Network.AWS.Route53.GetHealthCheckStatus
 
+    -- ** CreateTrafficPolicyVersion
+    , module Network.AWS.Route53.CreateTrafficPolicyVersion
+
     -- ** ListHealthChecks (Paginated)
     , module Network.AWS.Route53.ListHealthChecks
+
+    -- ** GetTrafficPolicy
+    , module Network.AWS.Route53.GetTrafficPolicy
+
+    -- ** ListTrafficPolicyVersions
+    , module Network.AWS.Route53.ListTrafficPolicyVersions
 
     -- ** DeleteHostedZone
     , module Network.AWS.Route53.DeleteHostedZone
@@ -218,6 +293,15 @@ module Network.AWS.Route53
 
     -- ** ListTagsForResources
     , module Network.AWS.Route53.ListTagsForResources
+
+    -- ** CreateTrafficPolicy
+    , module Network.AWS.Route53.CreateTrafficPolicy
+
+    -- ** ListTrafficPolicyInstancesByHostedZone
+    , module Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone
+
+    -- ** ListTrafficPolicies
+    , module Network.AWS.Route53.ListTrafficPolicies
 
     -- * Types
 
@@ -263,6 +347,16 @@ module Network.AWS.Route53
     , changeBatch
     , cbComment
     , cbChanges
+
+    -- ** ChangeBatchRecord
+    , ChangeBatchRecord
+    , changeBatchRecord
+    , cbrChanges
+    , cbrSubmittedAt
+    , cbrSubmitter
+    , cbrComment
+    , cbrId
+    , cbrStatus
 
     -- ** ChangeInfo
     , ChangeInfo
@@ -353,6 +447,7 @@ module Network.AWS.Route53
     , rrsResourceRecords
     , rrsAliasTarget
     , rrsWeight
+    , rrsTrafficPolicyInstanceId
     , rrsSetIdentifier
     , rrsFailover
     , rrsHealthCheckId
@@ -380,6 +475,38 @@ module Network.AWS.Route53
     , tagValue
     , tagKey
 
+    -- ** TrafficPolicy
+    , TrafficPolicy
+    , trafficPolicy
+    , tpComment
+    , tpId
+    , tpVersion
+    , tpName
+    , tpType
+    , tpDocument
+
+    -- ** TrafficPolicyInstance
+    , TrafficPolicyInstance
+    , trafficPolicyInstance
+    , tpiId
+    , tpiHostedZoneId
+    , tpiName
+    , tpiTTL
+    , tpiState
+    , tpiMessage
+    , tpiTrafficPolicyId
+    , tpiTrafficPolicyVersion
+    , tpiTrafficPolicyType
+
+    -- ** TrafficPolicySummary
+    , TrafficPolicySummary
+    , trafficPolicySummary
+    , tpsId
+    , tpsName
+    , tpsType
+    , tpsLatestVersion
+    , tpsTrafficPolicyCount
+
     -- ** VPC
     , VPC
     , vpc
@@ -393,11 +520,17 @@ import           Network.AWS.Route53.ChangeTagsForResource
 import           Network.AWS.Route53.CreateHealthCheck
 import           Network.AWS.Route53.CreateHostedZone
 import           Network.AWS.Route53.CreateReusableDelegationSet
+import           Network.AWS.Route53.CreateTrafficPolicy
+import           Network.AWS.Route53.CreateTrafficPolicyInstance
+import           Network.AWS.Route53.CreateTrafficPolicyVersion
 import           Network.AWS.Route53.DeleteHealthCheck
 import           Network.AWS.Route53.DeleteHostedZone
 import           Network.AWS.Route53.DeleteReusableDelegationSet
+import           Network.AWS.Route53.DeleteTrafficPolicy
+import           Network.AWS.Route53.DeleteTrafficPolicyInstance
 import           Network.AWS.Route53.DisassociateVPCFromHostedZone
 import           Network.AWS.Route53.GetChange
+import           Network.AWS.Route53.GetChangeDetails
 import           Network.AWS.Route53.GetCheckerIPRanges
 import           Network.AWS.Route53.GetGeoLocation
 import           Network.AWS.Route53.GetHealthCheck
@@ -407,7 +540,12 @@ import           Network.AWS.Route53.GetHealthCheckStatus
 import           Network.AWS.Route53.GetHostedZone
 import           Network.AWS.Route53.GetHostedZoneCount
 import           Network.AWS.Route53.GetReusableDelegationSet
+import           Network.AWS.Route53.GetTrafficPolicy
+import           Network.AWS.Route53.GetTrafficPolicyInstance
+import           Network.AWS.Route53.GetTrafficPolicyInstanceCount
 import           Network.AWS.Route53.Internal
+import           Network.AWS.Route53.ListChangeBatchesByHostedZone
+import           Network.AWS.Route53.ListChangeBatchesByRRSet
 import           Network.AWS.Route53.ListGeoLocations
 import           Network.AWS.Route53.ListHealthChecks
 import           Network.AWS.Route53.ListHostedZones
@@ -416,9 +554,16 @@ import           Network.AWS.Route53.ListResourceRecordSets
 import           Network.AWS.Route53.ListReusableDelegationSets
 import           Network.AWS.Route53.ListTagsForResource
 import           Network.AWS.Route53.ListTagsForResources
+import           Network.AWS.Route53.ListTrafficPolicies
+import           Network.AWS.Route53.ListTrafficPolicyInstances
+import           Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone
+import           Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
+import           Network.AWS.Route53.ListTrafficPolicyVersions
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.UpdateHealthCheck
 import           Network.AWS.Route53.UpdateHostedZoneComment
+import           Network.AWS.Route53.UpdateTrafficPolicyComment
+import           Network.AWS.Route53.UpdateTrafficPolicyInstance
 import           Network.AWS.Route53.Waiters
 
 {- $errors

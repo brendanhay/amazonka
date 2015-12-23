@@ -41,6 +41,7 @@ module Network.AWS.IoT.CreateThing
 
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -71,7 +72,7 @@ createThing pThingName_ =
 
 -- | The attribute payload. Which consists of up to 3 name\/value pairs in a
 -- JSON document. For example:
--- {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\”}}
+-- {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}
 ctAttributePayload :: Lens' CreateThing (Maybe AttributePayload)
 ctAttributePayload = lens _ctAttributePayload (\ s a -> s{_ctAttributePayload = a});
 

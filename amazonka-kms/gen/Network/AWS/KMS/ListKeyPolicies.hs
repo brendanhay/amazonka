@@ -21,6 +21,8 @@
 -- Retrieves a list of policies attached to a key.
 --
 -- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeyPolicies.html AWS API Reference> for ListKeyPolicies.
+--
+-- This operation returns paginated results.
 module Network.AWS.KMS.ListKeyPolicies
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ module Network.AWS.KMS.ListKeyPolicies
 
 import           Network.AWS.KMS.Types
 import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -103,6 +107,13 @@ lkpLimit = lens _lkpLimit (\ s a -> s{_lkpLimit = a}) . mapping _Nat;
 -- -   Alias Name Example - alias\/MyAliasName
 lkpKeyId :: Lens' ListKeyPolicies Text
 lkpKeyId = lens _lkpKeyId (\ s a -> s{_lkpKeyId = a});
+
+instance AWSPager ListKeyPolicies where
+        page rq rs
+          | stop (rs ^. lkprsTruncated) = Nothing
+          | isNothing (rs ^. lkprsNextMarker) = Nothing
+          | otherwise =
+            Just $ rq & lkpMarker .~ rs ^. lkprsNextMarker
 
 instance AWSRequest ListKeyPolicies where
         type Rs ListKeyPolicies = ListKeyPoliciesResponse

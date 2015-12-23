@@ -149,6 +149,7 @@ module Network.AWS.Firehose.Types
 
 import           Network.AWS.Firehose.Types.Product
 import           Network.AWS.Firehose.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

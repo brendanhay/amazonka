@@ -17,6 +17,7 @@
 --
 module Network.AWS.WAF.Types.Product where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.WAF.Types.Sum
 

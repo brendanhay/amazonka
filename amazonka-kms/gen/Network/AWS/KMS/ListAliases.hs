@@ -21,6 +21,8 @@
 -- Lists all of the key aliases in the account.
 --
 -- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListAliases.html AWS API Reference> for ListAliases.
+--
+-- This operation returns paginated results.
 module Network.AWS.KMS.ListAliases
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ module Network.AWS.KMS.ListAliases
 
 import           Network.AWS.KMS.Types
 import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -81,6 +85,13 @@ laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
 -- 100, inclusive. If you do not include a value, it defaults to 50.
 laLimit :: Lens' ListAliases (Maybe Natural)
 laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat;
+
+instance AWSPager ListAliases where
+        page rq rs
+          | stop (rs ^. larsTruncated) = Nothing
+          | isNothing (rs ^. larsNextMarker) = Nothing
+          | otherwise =
+            Just $ rq & laMarker .~ rs ^. larsNextMarker
 
 instance AWSRequest ListAliases where
         type Rs ListAliases = ListAliasesResponse

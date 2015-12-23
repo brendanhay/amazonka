@@ -46,8 +46,6 @@ import qualified Data.Text              as Text
 import           Network.AWS.Prelude    hiding (request)
 import           Network.HTTP.Conduit
 
-import           Prelude
-
 data Dynamic
     = FWS
     -- ^ Value showing whether the customer has enabled detailed one-minute

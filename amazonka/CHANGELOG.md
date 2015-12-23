@@ -1,5 +1,36 @@
 # Change Log
 
+## [1.3.7](https://github.com/brendanhay/amazonka/tree/1.3.7)
+Released: **18 December, 2015**, Compare: [1.3.7](https://github.com/brendanhay/amazonka/compare/1.3.6...1.3.7)
+
+### Fixed
+
+- Fix SWF `PollFor{Activity,Decision}Task` response deserialisation. [\#257](https://github.com/brendanhay/amazonka/issues/257)
+
+### Changes
+
+- The `ErrorCode` type constructor is now exported. [\#258](https://github.com/brendanhay/amazonka/issues/258)
+- Add `Bounded` instances for all enumerations with stable values. [\#255](https://github.com/brendanhay/amazonka/issues/255)
+- The `AWS_PROFILE` environment variable can now be used to override the default
+  file credentials location. [\#254](https://github.com/brendanhay/amazonka/issues/254)
+
+### Updated
+
+- AutoScaling: Updated service definition.
+- CloudFront: GZip support.
+- CloudTrail: Add `isMultiRegion` flag to various operations.
+- Config: Updated service definition.
+- DirectConnect: Documentation updates.
+- DirectoryService: Updated service definition.
+- EC2: NAT Gateway updates and an updated service definition.
+- IAM: Additional resource types, documentation updates.
+- IoT: Added `RegisterCertificate` operation.
+- KMS: Updated service definition.
+- RDS: Add enchanced monitoring support, documentation updates.
+- Route53: Updated service definition.
+- SSM: Updated service definition.
+
+
 ## [1.3.6](https://github.com/brendanhay/amazonka/tree/1.3.6)
 Released: **18 November, 2015**, Compare: [1.3.6](https://github.com/brendanhay/amazonka/compare/1.3.5.1...1.3.6)
 

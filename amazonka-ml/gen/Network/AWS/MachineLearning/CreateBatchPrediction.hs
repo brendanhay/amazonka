@@ -55,6 +55,7 @@ module Network.AWS.MachineLearning.CreateBatchPrediction
     , cbprsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.MachineLearning.Types
 import           Network.AWS.MachineLearning.Types.Product
 import           Network.AWS.Prelude

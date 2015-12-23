@@ -40,6 +40,7 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -88,7 +89,7 @@ instance ToPath GetCloudFrontOriginAccessIdentity
          where
         toPath GetCloudFrontOriginAccessIdentity'{..}
           = mconcat
-              ["/2015-07-27/origin-access-identity/cloudfront/",
+              ["/2015-09-17/origin-access-identity/cloudfront/",
                toBS _gcfoaiId]
 
 instance ToQuery GetCloudFrontOriginAccessIdentity

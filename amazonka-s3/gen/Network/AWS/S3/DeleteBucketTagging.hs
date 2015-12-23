@@ -34,6 +34,7 @@ module Network.AWS.S3.DeleteBucketTagging
     , DeleteBucketTaggingResponse
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

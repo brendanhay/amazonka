@@ -17,6 +17,7 @@
 --
 module Network.AWS.MachineLearning.Types.Product where
 
+import           Network.AWS.Lens
 import           Network.AWS.MachineLearning.Types.Sum
 import           Network.AWS.Prelude
 

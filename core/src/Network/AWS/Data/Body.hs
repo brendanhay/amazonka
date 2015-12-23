@@ -20,7 +20,6 @@
 --
 module Network.AWS.Data.Body where
 
-import           Control.Lens
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import qualified Data.ByteString              as BS
@@ -41,10 +40,9 @@ import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Log
 import           Network.AWS.Data.Query       (QueryString)
 import           Network.AWS.Data.XML         (encodeXML)
+import           Network.AWS.Lens             (AReview, Lens', lens, to, un)
 import           Network.HTTP.Conduit
 import           Text.XML                     (Element)
-
-import           Prelude
 
 default (Builder)
 

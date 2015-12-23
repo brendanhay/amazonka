@@ -15,6 +15,7 @@
 --
 module Network.AWS.Route53Domains.Waiters where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Route53Domains.Types
 import           Network.AWS.Waiter

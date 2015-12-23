@@ -18,7 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns descriptions for existing application versions.
+-- Retrieve a list of application versions stored in your AWS Elastic
+-- Beanstalk storage bucket.
 --
 -- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplicationVersions.html AWS API Reference> for DescribeApplicationVersions.
 module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
@@ -40,6 +41,7 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
 
 import           Network.AWS.ElasticBeanstalk.Types
 import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -131,7 +133,8 @@ describeApplicationVersionsResponse pResponseStatus_ =
     , _davrsResponseStatus = pResponseStatus_
     }
 
--- | A list of ApplicationVersionDescription .
+-- | List of 'ApplicationVersionDescription' objects sorted by order of
+-- creation.
 davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
 davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsApplicationVersions = a}) . _Default . _Coerce;
 

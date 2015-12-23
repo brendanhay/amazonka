@@ -43,6 +43,7 @@ module Network.AWS.OpsWorks.DeleteLayer
     , DeleteLayerResponse
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.OpsWorks.Types
 import           Network.AWS.OpsWorks.Types.Product
 import           Network.AWS.Prelude

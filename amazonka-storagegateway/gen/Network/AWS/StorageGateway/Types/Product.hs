@@ -17,6 +17,7 @@
 --
 module Network.AWS.StorageGateway.Types.Product where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.StorageGateway.Types.Sum
 

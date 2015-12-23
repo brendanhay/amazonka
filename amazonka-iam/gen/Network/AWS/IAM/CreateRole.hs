@@ -26,9 +26,6 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
 -- in the /IAM User Guide/.
 --
--- The policy in the following example grants permission to an EC2 instance
--- to assume the role.
---
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html AWS API Reference> for CreateRole.
 module Network.AWS.IAM.CreateRole
     (
@@ -50,6 +47,7 @@ module Network.AWS.IAM.CreateRole
 
 import           Network.AWS.IAM.Types
 import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -94,7 +92,8 @@ crPath = lens _crPath (\ s a -> s{_crPath = a});
 crRoleName :: Lens' CreateRole Text
 crRoleName = lens _crRoleName (\ s a -> s{_crRoleName = a});
 
--- | The policy that grants an entity permission to assume the role.
+-- | The trust relationship policy document that grants an entity permission
+-- to assume the role.
 crAssumeRolePolicyDocument :: Lens' CreateRole Text
 crAssumeRolePolicyDocument = lens _crAssumeRolePolicyDocument (\ s a -> s{_crAssumeRolePolicyDocument = a});
 

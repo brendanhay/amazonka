@@ -21,7 +21,11 @@
 -- Suspends the recording of AWS API calls and log file delivery for the
 -- specified trail. Under most circumstances, there is no need to use this
 -- action. You can update a trail without stopping it first. This action is
--- the only way to stop recording.
+-- the only way to stop recording. For a trail enabled in all regions, this
+-- operation must be called from the region in which the trail was created,
+-- or an 'InvalidHomeRegionException' will occur. This operation cannot be
+-- called on the shadow trails (replicated trails in other regions) of a
+-- trail enabled in all regions.
 --
 -- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html AWS API Reference> for StopLogging.
 module Network.AWS.CloudTrail.StopLogging
@@ -41,6 +45,7 @@ module Network.AWS.CloudTrail.StopLogging
 
 import           Network.AWS.CloudTrail.Types
 import           Network.AWS.CloudTrail.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

@@ -39,13 +39,14 @@ module Network.AWS.Inspector.DeleteAssessment
 
 import           Network.AWS.Inspector.Types
 import           Network.AWS.Inspector.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteAssessment' smart constructor.
 newtype DeleteAssessment = DeleteAssessment'
-    { _daAssessmentARN :: Maybe Text
+    { _daAssessmentARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteAssessment' with the minimum fields required to make a request.
@@ -54,14 +55,15 @@ newtype DeleteAssessment = DeleteAssessment'
 --
 -- * 'daAssessmentARN'
 deleteAssessment
-    :: DeleteAssessment
-deleteAssessment =
+    :: Text -- ^ 'daAssessmentARN'
+    -> DeleteAssessment
+deleteAssessment pAssessmentARN_ =
     DeleteAssessment'
-    { _daAssessmentARN = Nothing
+    { _daAssessmentARN = pAssessmentARN_
     }
 
 -- | The ARN specifying the assessment that you want to delete.
-daAssessmentARN :: Lens' DeleteAssessment (Maybe Text)
+daAssessmentARN :: Lens' DeleteAssessment Text
 daAssessmentARN = lens _daAssessmentARN (\ s a -> s{_daAssessmentARN = a});
 
 instance AWSRequest DeleteAssessment where
@@ -86,7 +88,7 @@ instance ToJSON DeleteAssessment where
         toJSON DeleteAssessment'{..}
           = object
               (catMaybes
-                 [("assessmentArn" .=) <$> _daAssessmentARN])
+                 [Just ("assessmentArn" .= _daAssessmentARN)])
 
 instance ToPath DeleteAssessment where
         toPath = const "/"

@@ -39,6 +39,7 @@ module Network.AWS.DirectConnect.DescribeLocations
 
 import           Network.AWS.DirectConnect.Types
 import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -82,7 +83,13 @@ instance ToPath DescribeLocations where
 instance ToQuery DescribeLocations where
         toQuery = const mempty
 
--- | /See:/ 'describeLocationsResponse' smart constructor.
+-- | A location is a network facility where AWS Direct Connect routers are
+-- available to be connected. Generally, these are colocation hubs where
+-- many network providers have equipment, and where cross connects can be
+-- delivered. Locations include a name and facility code, and must be
+-- provided when creating a connection.
+--
+-- /See:/ 'describeLocationsResponse' smart constructor.
 data DescribeLocationsResponse = DescribeLocationsResponse'
     { _dlrsLocations      :: !(Maybe [Location])
     , _dlrsResponseStatus :: !Int
@@ -104,7 +111,8 @@ describeLocationsResponse pResponseStatus_ =
     , _dlrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | A list of colocation hubs where network providers have equipment. Most
+-- regions have multiple locations available.
 dlrsLocations :: Lens' DescribeLocationsResponse [Location]
 dlrsLocations = lens _dlrsLocations (\ s a -> s{_dlrsLocations = a}) . _Default . _Coerce;
 

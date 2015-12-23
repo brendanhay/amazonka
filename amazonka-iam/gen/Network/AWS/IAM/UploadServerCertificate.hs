@@ -22,9 +22,15 @@
 -- certificate entity includes a public key certificate, a private key, and
 -- an optional certificate chain, which should all be PEM-encoded.
 --
+-- For more information about working with server certificates, including a
+-- list of AWS services that can use the server certificates that you
+-- manage with IAM, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates>
+-- in the /IAM User Guide/.
+--
 -- For information about the number of server certificates you can upload,
 -- see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html Limitations on IAM Entities and Objects>
 -- in the /IAM User Guide/.
 --
 -- Because the body of the public key certificate, private key, and the
@@ -34,7 +40,7 @@
 -- <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests>
 -- in the /AWS General Reference/. For general information about using the
 -- Query API with IAM, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html Calling the API by Making HTTP Query Requests>
 -- in the /IAM User Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html AWS API Reference> for UploadServerCertificate.
@@ -60,6 +66,7 @@ module Network.AWS.IAM.UploadServerCertificate
 
 import           Network.AWS.IAM.Types
 import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

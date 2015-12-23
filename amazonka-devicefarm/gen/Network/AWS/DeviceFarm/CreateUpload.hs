@@ -42,6 +42,7 @@ module Network.AWS.DeviceFarm.CreateUpload
 
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -116,6 +117,14 @@ cuName = lens _cuName (\ s a -> s{_cuName = a});
 --
 -- -   XCTEST_TEST_PACKAGE: An XCode test package upload.
 --
+-- -   APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test
+--     package upload.
+--
+-- -   APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test
+--     package upload.
+--
+-- __Note__ If you call 'CreateUpload' with 'WEB_APP' specified, AWS Device
+-- Farm throws an ArgumentException error.
 cuType :: Lens' CreateUpload UploadType
 cuType = lens _cuType (\ s a -> s{_cuType = a});
 

@@ -15,6 +15,7 @@
 --
 module Network.AWS.SWF.Waiters where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.SWF.Types
 import           Network.AWS.Waiter

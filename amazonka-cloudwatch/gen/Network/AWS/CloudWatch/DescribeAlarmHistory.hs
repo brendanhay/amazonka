@@ -49,6 +49,7 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
 
 import           Network.AWS.CloudWatch.Types
 import           Network.AWS.CloudWatch.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request

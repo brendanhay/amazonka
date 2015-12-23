@@ -21,6 +21,8 @@
 -- Lists the customer master keys.
 --
 -- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html AWS API Reference> for ListKeys.
+--
+-- This operation returns paginated results.
 module Network.AWS.KMS.ListKeys
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ module Network.AWS.KMS.ListKeys
 
 import           Network.AWS.KMS.Types
 import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -81,6 +85,13 @@ lkMarker = lens _lkMarker (\ s a -> s{_lkMarker = a});
 -- 1000, inclusive. If you do not include a value, it defaults to 100.
 lkLimit :: Lens' ListKeys (Maybe Natural)
 lkLimit = lens _lkLimit (\ s a -> s{_lkLimit = a}) . mapping _Nat;
+
+instance AWSPager ListKeys where
+        page rq rs
+          | stop (rs ^. lkrsTruncated) = Nothing
+          | isNothing (rs ^. lkrsNextMarker) = Nothing
+          | otherwise =
+            Just $ rq & lkMarker .~ rs ^. lkrsNextMarker
 
 instance AWSRequest ListKeys where
         type Rs ListKeys = ListKeysResponse

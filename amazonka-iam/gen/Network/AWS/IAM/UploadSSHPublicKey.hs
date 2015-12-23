@@ -47,6 +47,7 @@ module Network.AWS.IAM.UploadSSHPublicKey
 
 import           Network.AWS.IAM.Types
 import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

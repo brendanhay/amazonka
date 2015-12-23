@@ -16,7 +16,6 @@
 module Network.AWS.Data.List1 where
 
 import           Control.Applicative
-import           Control.Lens         (Iso', iso)
 import           Control.Monad
 import           Data.Aeson
 import           Data.Coerce
@@ -31,9 +30,8 @@ import           Data.Traversable     (Traversable, traverse)
 import           GHC.Exts
 import           GHC.Generics         (Generic)
 import           Network.AWS.Data.XML
+import           Network.AWS.Lens     (Iso', iso)
 import           Text.XML             (Node)
-
-import           Prelude
 
 newtype List1 a = List1 { toNonEmpty :: NonEmpty a }
     deriving

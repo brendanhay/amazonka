@@ -55,6 +55,7 @@ module Network.AWS.OpsWorks.CreateApp
     , carsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.OpsWorks.Types
 import           Network.AWS.OpsWorks.Types.Product
 import           Network.AWS.Prelude

@@ -1,5 +1,5 @@
 name:                  amazonka-ds
-version:               1.3.6
+version:               1.3.7
 synopsis:              Amazon Directory Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -49,11 +49,15 @@ library
         , Network.AWS.DirectoryService.CreateAlias
         , Network.AWS.DirectoryService.CreateComputer
         , Network.AWS.DirectoryService.CreateDirectory
+        , Network.AWS.DirectoryService.CreateMicrosoftAD
         , Network.AWS.DirectoryService.CreateSnapshot
+        , Network.AWS.DirectoryService.CreateTrust
         , Network.AWS.DirectoryService.DeleteDirectory
         , Network.AWS.DirectoryService.DeleteSnapshot
+        , Network.AWS.DirectoryService.DeleteTrust
         , Network.AWS.DirectoryService.DescribeDirectories
         , Network.AWS.DirectoryService.DescribeSnapshots
+        , Network.AWS.DirectoryService.DescribeTrusts
         , Network.AWS.DirectoryService.DisableRadius
         , Network.AWS.DirectoryService.DisableSSO
         , Network.AWS.DirectoryService.EnableRadius
@@ -63,6 +67,7 @@ library
         , Network.AWS.DirectoryService.RestoreFromSnapshot
         , Network.AWS.DirectoryService.Types
         , Network.AWS.DirectoryService.UpdateRadius
+        , Network.AWS.DirectoryService.VerifyTrust
         , Network.AWS.DirectoryService.Waiters
 
     other-modules:
@@ -70,7 +75,7 @@ library
         , Network.AWS.DirectoryService.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.6.*
+          amazonka-core == 1.3.7.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ds-test
@@ -90,12 +95,11 @@ test-suite amazonka-ds-test
         , Test.AWS.DirectoryService.Internal
 
     build-depends:
-          amazonka-core == 1.3.6.*
-        , amazonka-test == 1.3.6.*
-        , amazonka-ds == 1.3.6.*
+          amazonka-core == 1.3.7.*
+        , amazonka-test == 1.3.7.*
+        , amazonka-ds == 1.3.7.*
         , base
         , bytestring
-        , lens
         , tasty
         , tasty-hunit
         , text

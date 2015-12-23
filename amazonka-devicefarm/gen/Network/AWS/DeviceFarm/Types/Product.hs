@@ -18,6 +18,7 @@
 module Network.AWS.DeviceFarm.Types.Product where
 
 import           Network.AWS.DeviceFarm.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | A container for account-level settings within AWS Device Farm.
@@ -2230,6 +2231,12 @@ uMetadata = lens _uMetadata (\ s a -> s{_uMetadata = a});
 -- -   UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.
 --
 -- -   XCTEST_TEST_PACKAGE: An XCode test package upload.
+--
+-- -   APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test
+--     package upload.
+--
+-- -   APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test
+--     package upload.
 --
 uType :: Lens' Upload (Maybe UploadType)
 uType = lens _uType (\ s a -> s{_uType = a});

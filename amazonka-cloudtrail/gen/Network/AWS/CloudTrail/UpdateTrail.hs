@@ -22,7 +22,9 @@
 -- trail do not require stopping the CloudTrail service. Use this action to
 -- designate an existing bucket for log delivery. If the existing bucket
 -- has previously been a target for CloudTrail log files, an IAM policy
--- exists for the bucket.
+-- exists for the bucket. 'UpdateTrail' must be called from the region in
+-- which the trail was created; otherwise, an 'InvalidHomeRegionException'
+-- is thrown.
 --
 -- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_UpdateTrail.html AWS API Reference> for UpdateTrail.
 module Network.AWS.CloudTrail.UpdateTrail
@@ -39,6 +41,7 @@ module Network.AWS.CloudTrail.UpdateTrail
     , utIncludeGlobalServiceEvents
     , utCloudWatchLogsRoleARN
     , utS3BucketName
+    , utIsMultiRegionTrail
     , utName
 
     -- * Destructuring the Response
@@ -55,11 +58,13 @@ module Network.AWS.CloudTrail.UpdateTrail
     , utrsIncludeGlobalServiceEvents
     , utrsCloudWatchLogsRoleARN
     , utrsS3BucketName
+    , utrsIsMultiRegionTrail
     , utrsResponseStatus
     ) where
 
 import           Network.AWS.CloudTrail.Types
 import           Network.AWS.CloudTrail.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -76,6 +81,7 @@ data UpdateTrail = UpdateTrail'
     , _utIncludeGlobalServiceEvents :: !(Maybe Bool)
     , _utCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _utS3BucketName               :: !(Maybe Text)
+    , _utIsMultiRegionTrail         :: !(Maybe Bool)
     , _utName                       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -99,6 +105,8 @@ data UpdateTrail = UpdateTrail'
 --
 -- * 'utS3BucketName'
 --
+-- * 'utIsMultiRegionTrail'
+--
 -- * 'utName'
 updateTrail
     :: Text -- ^ 'utName'
@@ -113,6 +121,7 @@ updateTrail pName_ =
     , _utIncludeGlobalServiceEvents = Nothing
     , _utCloudWatchLogsRoleARN = Nothing
     , _utS3BucketName = Nothing
+    , _utIsMultiRegionTrail = Nothing
     , _utName = pName_
     }
 
@@ -179,6 +188,16 @@ utCloudWatchLogsRoleARN = lens _utCloudWatchLogsRoleARN (\ s a -> s{_utCloudWatc
 utS3BucketName :: Lens' UpdateTrail (Maybe Text)
 utS3BucketName = lens _utS3BucketName (\ s a -> s{_utS3BucketName = a});
 
+-- | Specifies whether the trail applies only to the current region or to all
+-- regions. The default is false. If the trail exists only in the current
+-- region and this value is set to true, shadow trails (replications of the
+-- trail) will be created in the other regions. If the trail exists in all
+-- regions and this value is set to false, the trail will remain in the
+-- region where it was created, and its shadow trails in other regions will
+-- be deleted.
+utIsMultiRegionTrail :: Lens' UpdateTrail (Maybe Bool)
+utIsMultiRegionTrail = lens _utIsMultiRegionTrail (\ s a -> s{_utIsMultiRegionTrail = a});
+
 -- | Specifies the name of the trail or trail ARN. If 'Name' is a trail name,
 -- the string must meet the following requirements:
 --
@@ -212,6 +231,7 @@ instance AWSRequest UpdateTrail where
                      <*> (x .?> "IncludeGlobalServiceEvents")
                      <*> (x .?> "CloudWatchLogsRoleArn")
                      <*> (x .?> "S3BucketName")
+                     <*> (x .?> "IsMultiRegionTrail")
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders UpdateTrail where
@@ -240,6 +260,7 @@ instance ToJSON UpdateTrail where
                   ("CloudWatchLogsRoleArn" .=) <$>
                     _utCloudWatchLogsRoleARN,
                   ("S3BucketName" .=) <$> _utS3BucketName,
+                  ("IsMultiRegionTrail" .=) <$> _utIsMultiRegionTrail,
                   Just ("Name" .= _utName)])
 
 instance ToPath UpdateTrail where
@@ -263,6 +284,7 @@ data UpdateTrailResponse = UpdateTrailResponse'
     , _utrsIncludeGlobalServiceEvents :: !(Maybe Bool)
     , _utrsCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _utrsS3BucketName               :: !(Maybe Text)
+    , _utrsIsMultiRegionTrail         :: !(Maybe Bool)
     , _utrsResponseStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -290,6 +312,8 @@ data UpdateTrailResponse = UpdateTrailResponse'
 --
 -- * 'utrsS3BucketName'
 --
+-- * 'utrsIsMultiRegionTrail'
+--
 -- * 'utrsResponseStatus'
 updateTrailResponse
     :: Int -- ^ 'utrsResponseStatus'
@@ -306,6 +330,7 @@ updateTrailResponse pResponseStatus_ =
     , _utrsIncludeGlobalServiceEvents = Nothing
     , _utrsCloudWatchLogsRoleARN = Nothing
     , _utrsS3BucketName = Nothing
+    , _utrsIsMultiRegionTrail = Nothing
     , _utrsResponseStatus = pResponseStatus_
     }
 
@@ -359,6 +384,10 @@ utrsCloudWatchLogsRoleARN = lens _utrsCloudWatchLogsRoleARN (\ s a -> s{_utrsClo
 -- files.
 utrsS3BucketName :: Lens' UpdateTrailResponse (Maybe Text)
 utrsS3BucketName = lens _utrsS3BucketName (\ s a -> s{_utrsS3BucketName = a});
+
+-- | Specifies whether the trail exists in one region or in all regions.
+utrsIsMultiRegionTrail :: Lens' UpdateTrailResponse (Maybe Bool)
+utrsIsMultiRegionTrail = lens _utrsIsMultiRegionTrail (\ s a -> s{_utrsIsMultiRegionTrail = a});
 
 -- | The response status code.
 utrsResponseStatus :: Lens' UpdateTrailResponse Int

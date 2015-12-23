@@ -18,6 +18,7 @@
 module Network.AWS.ImportExport.Types.Product where
 
 import           Network.AWS.ImportExport.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | A discrete item that contains the description and URL of an artifact

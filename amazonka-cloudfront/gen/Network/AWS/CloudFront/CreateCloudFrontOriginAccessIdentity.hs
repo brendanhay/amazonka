@@ -41,6 +41,7 @@ module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -86,7 +87,7 @@ instance ToElement
          CreateCloudFrontOriginAccessIdentity where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2015-07-27/}CloudFrontOriginAccessIdentityConfig"
+              "{http://cloudfront.amazonaws.com/doc/2015-09-17/}CloudFrontOriginAccessIdentityConfig"
               .
               _ccfoaiCloudFrontOriginAccessIdentityConfig
 
@@ -98,7 +99,7 @@ instance ToPath CreateCloudFrontOriginAccessIdentity
          where
         toPath
           = const
-              "/2015-07-27/origin-access-identity/cloudfront"
+              "/2015-09-17/origin-access-identity/cloudfront"
 
 instance ToQuery CreateCloudFrontOriginAccessIdentity
          where

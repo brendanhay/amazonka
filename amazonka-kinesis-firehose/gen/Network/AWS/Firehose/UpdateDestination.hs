@@ -74,6 +74,7 @@ module Network.AWS.Firehose.UpdateDestination
 
 import           Network.AWS.Firehose.Types
 import           Network.AWS.Firehose.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

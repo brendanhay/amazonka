@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels the specified Reserved Instance listing in the Reserved Instance
+-- Cancels the specified Reserved instance listing in the Reserved Instance
 -- Marketplace.
 --
 -- For more information, see
@@ -44,6 +44,7 @@ module Network.AWS.EC2.CancelReservedInstancesListing
 
 import           Network.AWS.EC2.Types
 import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -66,7 +67,7 @@ cancelReservedInstancesListing pReservedInstancesListingId_ =
     { _crilReservedInstancesListingId = pReservedInstancesListingId_
     }
 
--- | The ID of the Reserved Instance listing.
+-- | The ID of the Reserved instance listing.
 crilReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
 crilReservedInstancesListingId = lens _crilReservedInstancesListingId (\ s a -> s{_crilReservedInstancesListingId = a});
 
@@ -121,7 +122,7 @@ cancelReservedInstancesListingResponse pResponseStatus_ =
     , _crilrsResponseStatus = pResponseStatus_
     }
 
--- | The Reserved Instance listing.
+-- | The Reserved instance listing.
 crilrsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
 crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -> s{_crilrsReservedInstancesListings = a}) . _Default . _Coerce;
 

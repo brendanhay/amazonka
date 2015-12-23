@@ -17,6 +17,7 @@
 --
 module Network.AWS.SWF.Types.Product where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.SWF.Types.Sum
 

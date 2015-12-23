@@ -76,6 +76,7 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     , rdifdsrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
 import           Network.AWS.RDS.Types.Product
@@ -229,7 +230,7 @@ rdifdsIOPS = lens _rdifdsIOPS (\ s a -> s{_rdifdsIOPS = a});
 --
 -- Valid Values: 'MySQL' | 'mariadb' | 'oracle-se1' | 'oracle-se' |
 -- 'oracle-ee' | 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' |
--- 'sqlserver-web' | 'postgres'
+-- 'sqlserver-web' | 'postgres' | 'aurora'
 rdifdsEngine :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsEngine = lens _rdifdsEngine (\ s a -> s{_rdifdsEngine = a});
 

@@ -18,6 +18,7 @@
 module Network.AWS.DirectConnect.Types.Product where
 
 import           Network.AWS.DirectConnect.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | A connection represents the physical network connection between the AWS

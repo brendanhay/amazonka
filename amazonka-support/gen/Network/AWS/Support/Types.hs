@@ -153,6 +153,7 @@ module Network.AWS.Support.Types
     , tarsResourcesSuppressed
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 import           Network.AWS.Support.Types.Product

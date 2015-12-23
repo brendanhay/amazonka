@@ -219,6 +219,7 @@ module Network.AWS.MachineLearning.Types
     , sdsDataLocationS3
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.MachineLearning.Types.Product
 import           Network.AWS.MachineLearning.Types.Sum
 import           Network.AWS.Prelude

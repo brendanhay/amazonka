@@ -27,10 +27,10 @@ module Network.AWS.DeviceFarm.ScheduleRun
       scheduleRun
     , ScheduleRun
     -- * Request Lenses
+    , srAppARN
     , srName
     , srConfiguration
     , srProjectARN
-    , srAppARN
     , srDevicePoolARN
     , srTest
 
@@ -44,6 +44,7 @@ module Network.AWS.DeviceFarm.ScheduleRun
 
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -52,10 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'scheduleRun' smart constructor.
 data ScheduleRun = ScheduleRun'
-    { _srName          :: !(Maybe Text)
+    { _srAppARN        :: !(Maybe Text)
+    , _srName          :: !(Maybe Text)
     , _srConfiguration :: !(Maybe ScheduleRunConfiguration)
     , _srProjectARN    :: !Text
-    , _srAppARN        :: !Text
     , _srDevicePoolARN :: !Text
     , _srTest          :: !ScheduleRunTest
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -64,32 +65,35 @@ data ScheduleRun = ScheduleRun'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'srAppARN'
+--
 -- * 'srName'
 --
 -- * 'srConfiguration'
 --
 -- * 'srProjectARN'
 --
--- * 'srAppARN'
---
 -- * 'srDevicePoolARN'
 --
 -- * 'srTest'
 scheduleRun
     :: Text -- ^ 'srProjectARN'
-    -> Text -- ^ 'srAppARN'
     -> Text -- ^ 'srDevicePoolARN'
     -> ScheduleRunTest -- ^ 'srTest'
     -> ScheduleRun
-scheduleRun pProjectARN_ pAppARN_ pDevicePoolARN_ pTest_ =
+scheduleRun pProjectARN_ pDevicePoolARN_ pTest_ =
     ScheduleRun'
-    { _srName = Nothing
+    { _srAppARN = Nothing
+    , _srName = Nothing
     , _srConfiguration = Nothing
     , _srProjectARN = pProjectARN_
-    , _srAppARN = pAppARN_
     , _srDevicePoolARN = pDevicePoolARN_
     , _srTest = pTest_
     }
+
+-- | The ARN of the app to schedule a run.
+srAppARN :: Lens' ScheduleRun (Maybe Text)
+srAppARN = lens _srAppARN (\ s a -> s{_srAppARN = a});
 
 -- | The name for the run to be scheduled.
 srName :: Lens' ScheduleRun (Maybe Text)
@@ -102,10 +106,6 @@ srConfiguration = lens _srConfiguration (\ s a -> s{_srConfiguration = a});
 -- | The ARN of the project for the run to be scheduled.
 srProjectARN :: Lens' ScheduleRun Text
 srProjectARN = lens _srProjectARN (\ s a -> s{_srProjectARN = a});
-
--- | The ARN of the app to schedule a run.
-srAppARN :: Lens' ScheduleRun Text
-srAppARN = lens _srAppARN (\ s a -> s{_srAppARN = a});
 
 -- | The ARN of the device pool for the run to be scheduled.
 srDevicePoolARN :: Lens' ScheduleRun Text
@@ -137,10 +137,10 @@ instance ToJSON ScheduleRun where
         toJSON ScheduleRun'{..}
           = object
               (catMaybes
-                 [("name" .=) <$> _srName,
+                 [("appArn" .=) <$> _srAppARN,
+                  ("name" .=) <$> _srName,
                   ("configuration" .=) <$> _srConfiguration,
                   Just ("projectArn" .= _srProjectARN),
-                  Just ("appArn" .= _srAppARN),
                   Just ("devicePoolArn" .= _srDevicePoolARN),
                   Just ("test" .= _srTest)])
 

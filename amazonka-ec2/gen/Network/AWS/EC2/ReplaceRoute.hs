@@ -20,7 +20,8 @@
 --
 -- Replaces an existing route within a route table in a VPC. You must
 -- provide only one of the following: Internet gateway or virtual private
--- gateway, NAT instance, VPC peering connection, or network interface.
+-- gateway, NAT instance, NAT gateway, VPC peering connection, or network
+-- interface.
 --
 -- For more information about route tables, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables>
@@ -35,6 +36,7 @@ module Network.AWS.EC2.ReplaceRoute
     -- * Request Lenses
     , rrVPCPeeringConnectionId
     , rrInstanceId
+    , rrNatGatewayId
     , rrNetworkInterfaceId
     , rrGatewayId
     , rrDryRun
@@ -48,6 +50,7 @@ module Network.AWS.EC2.ReplaceRoute
 
 import           Network.AWS.EC2.Types
 import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -56,6 +59,7 @@ import           Network.AWS.Response
 data ReplaceRoute = ReplaceRoute'
     { _rrVPCPeeringConnectionId :: !(Maybe Text)
     , _rrInstanceId             :: !(Maybe Text)
+    , _rrNatGatewayId           :: !(Maybe Text)
     , _rrNetworkInterfaceId     :: !(Maybe Text)
     , _rrGatewayId              :: !(Maybe Text)
     , _rrDryRun                 :: !(Maybe Bool)
@@ -70,6 +74,8 @@ data ReplaceRoute = ReplaceRoute'
 -- * 'rrVPCPeeringConnectionId'
 --
 -- * 'rrInstanceId'
+--
+-- * 'rrNatGatewayId'
 --
 -- * 'rrNetworkInterfaceId'
 --
@@ -88,6 +94,7 @@ replaceRoute pRouteTableId_ pDestinationCIdRBlock_ =
     ReplaceRoute'
     { _rrVPCPeeringConnectionId = Nothing
     , _rrInstanceId = Nothing
+    , _rrNatGatewayId = Nothing
     , _rrNetworkInterfaceId = Nothing
     , _rrGatewayId = Nothing
     , _rrDryRun = Nothing
@@ -102,6 +109,10 @@ rrVPCPeeringConnectionId = lens _rrVPCPeeringConnectionId (\ s a -> s{_rrVPCPeer
 -- | The ID of a NAT instance in your VPC.
 rrInstanceId :: Lens' ReplaceRoute (Maybe Text)
 rrInstanceId = lens _rrInstanceId (\ s a -> s{_rrInstanceId = a});
+
+-- | The ID of a NAT gateway.
+rrNatGatewayId :: Lens' ReplaceRoute (Maybe Text)
+rrNatGatewayId = lens _rrNatGatewayId (\ s a -> s{_rrNatGatewayId = a});
 
 -- | The ID of a network interface.
 rrNetworkInterfaceId :: Lens' ReplaceRoute (Maybe Text)
@@ -146,6 +157,7 @@ instance ToQuery ReplaceRoute where
                "VpcPeeringConnectionId" =:
                  _rrVPCPeeringConnectionId,
                "InstanceId" =: _rrInstanceId,
+               "NatGatewayId" =: _rrNatGatewayId,
                "NetworkInterfaceId" =: _rrNetworkInterfaceId,
                "GatewayId" =: _rrGatewayId, "DryRun" =: _rrDryRun,
                "RouteTableId" =: _rrRouteTableId,

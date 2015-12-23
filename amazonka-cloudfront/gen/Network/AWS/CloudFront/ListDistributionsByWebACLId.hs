@@ -42,6 +42,7 @@ module Network.AWS.CloudFront.ListDistributionsByWebACLId
 
 import           Network.AWS.CloudFront.Types
 import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -110,7 +111,7 @@ instance ToHeaders ListDistributionsByWebACLId where
 instance ToPath ListDistributionsByWebACLId where
         toPath ListDistributionsByWebACLId'{..}
           = mconcat
-              ["/2015-07-27/distributionsByWebACLId/",
+              ["/2015-09-17/distributionsByWebACLId/",
                toBS _ldbwaiWebACLId]
 
 instance ToQuery ListDistributionsByWebACLId where

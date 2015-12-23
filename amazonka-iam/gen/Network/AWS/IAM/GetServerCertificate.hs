@@ -20,6 +20,12 @@
 --
 -- Retrieves information about the specified server certificate.
 --
+-- For more information about working with server certificates, including a
+-- list of AWS services that can use the server certificates that you
+-- manage with IAM, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates>
+-- in the /IAM User Guide/.
+--
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServerCertificate.html AWS API Reference> for GetServerCertificate.
 module Network.AWS.IAM.GetServerCertificate
     (
@@ -39,6 +45,7 @@ module Network.AWS.IAM.GetServerCertificate
 
 import           Network.AWS.IAM.Types
 import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

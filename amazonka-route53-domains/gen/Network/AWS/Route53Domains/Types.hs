@@ -94,6 +94,7 @@ module Network.AWS.Route53Domains.Types
     , tagKey
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Route53Domains.Types.Product
 import           Network.AWS.Route53Domains.Types.Sum

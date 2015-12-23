@@ -41,6 +41,7 @@ module Network.AWS.IoT.DescribeThing
 
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -129,9 +130,9 @@ dtrsDefaultClientId = lens _dtrsDefaultClientId (\ s a -> s{_dtrsDefaultClientId
 
 -- | The attributes which are name\/value pairs in JSON format. For example:
 --
--- {\\\"attributes\\\":{\\\"some-name1\\\":\\\"some-value1\\”},
--- {\\\"some-name2\\\":\\\"some-value2\\”},
--- {\\\"some-name3\\\":\\\"some-value3\\”}}
+-- {\\\"attributes\\\":{\\\"some-name1\\\":\\\"some-value1\\\"},
+-- {\\\"some-name2\\\":\\\"some-value2\\\"},
+-- {\\\"some-name3\\\":\\\"some-value3\\\"}}
 dtrsAttributes :: Lens' DescribeThingResponse (HashMap Text Text)
 dtrsAttributes = lens _dtrsAttributes (\ s a -> s{_dtrsAttributes = a}) . _Default . _Map;
 

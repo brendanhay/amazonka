@@ -18,6 +18,7 @@
 module Network.AWS.Firehose.Types.Product where
 
 import           Network.AWS.Firehose.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Describes the buffering to perform before delivering data to the

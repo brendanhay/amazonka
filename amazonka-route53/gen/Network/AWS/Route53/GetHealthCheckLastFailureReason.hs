@@ -40,6 +40,7 @@ module Network.AWS.Route53.GetHealthCheckLastFailureReason
     , ghclfrrsHealthCheckObservations
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -128,7 +129,7 @@ getHealthCheckLastFailureReasonResponse pResponseStatus_ =
 ghclfrrsResponseStatus :: Lens' GetHealthCheckLastFailureReasonResponse Int
 ghclfrrsResponseStatus = lens _ghclfrrsResponseStatus (\ s a -> s{_ghclfrrsResponseStatus = a});
 
--- | A list that contains one 'HealthCheckObservation' element for each Route
--- 53 health checker.
+-- | A list that contains one 'HealthCheckObservation' element for each
+-- Amazon Route 53 health checker.
 ghclfrrsHealthCheckObservations :: Lens' GetHealthCheckLastFailureReasonResponse [HealthCheckObservation]
 ghclfrrsHealthCheckObservations = lens _ghclfrrsHealthCheckObservations (\ s a -> s{_ghclfrrsHealthCheckObservations = a}) . _Coerce;

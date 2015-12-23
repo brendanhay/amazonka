@@ -46,6 +46,7 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
     , dwdrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

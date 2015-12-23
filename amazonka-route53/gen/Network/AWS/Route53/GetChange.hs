@@ -22,8 +22,8 @@
 -- status is one of the following values:
 --
 -- - 'PENDING' indicates that the changes in this request have not
--- replicated to all Route 53 DNS servers. This is the initial status of
--- all change batch requests.
+-- replicated to all Amazon Route 53 DNS servers. This is the initial
+-- status of all change batch requests.
 --
 -- - 'INSYNC' indicates that the changes have replicated to all Amazon
 -- Route 53 DNS servers.
@@ -45,6 +45,7 @@ module Network.AWS.Route53.GetChange
     , gcrsChangeInfo
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

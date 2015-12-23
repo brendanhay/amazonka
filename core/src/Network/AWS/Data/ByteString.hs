@@ -39,8 +39,6 @@ import           Network.HTTP.Types
 import           Numeric
 import           Numeric.Natural
 
-import           Prelude
-
 type LazyByteString = LBS.ByteString
 
 showBS :: ToByteString a => a -> String

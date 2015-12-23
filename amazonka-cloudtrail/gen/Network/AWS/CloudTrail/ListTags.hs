@@ -18,6 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- Lists the tags for the specified trail or trails in the current region.
+--
 -- Lists the tags for the trail in the current region.
 --
 -- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListTags.html AWS API Reference> for ListTags.
@@ -41,6 +43,7 @@ module Network.AWS.CloudTrail.ListTags
 
 import           Network.AWS.CloudTrail.Types
 import           Network.AWS.CloudTrail.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

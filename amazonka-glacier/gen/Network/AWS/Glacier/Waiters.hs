@@ -16,5 +16,6 @@
 module Network.AWS.Glacier.Waiters where
 
 import           Network.AWS.Glacier.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

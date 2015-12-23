@@ -18,6 +18,7 @@ module Network.AWS.DynamoDB.Waiters where
 import           Network.AWS.DynamoDB.DescribeTable
 import           Network.AWS.DynamoDB.DescribeTable
 import           Network.AWS.DynamoDB.Types
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 

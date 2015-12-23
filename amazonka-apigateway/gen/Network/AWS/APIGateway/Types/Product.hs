@@ -18,6 +18,7 @@
 module Network.AWS.APIGateway.Types.Product where
 
 import           Network.AWS.APIGateway.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | A resource that can be distributed to callers for executing Method

@@ -45,6 +45,7 @@ module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
 
 import           Network.AWS.CognitoIdentity.Types
 import           Network.AWS.CognitoIdentity.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

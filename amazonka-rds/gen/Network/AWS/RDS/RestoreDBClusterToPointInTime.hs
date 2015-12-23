@@ -38,6 +38,7 @@ module Network.AWS.RDS.RestoreDBClusterToPointInTime
     -- * Request Lenses
     , rdctpitUseLatestRestorableTime
     , rdctpitDBSubnetGroupName
+    , rdctpitKMSKeyId
     , rdctpitVPCSecurityGroupIds
     , rdctpitOptionGroupName
     , rdctpitRestoreToTime
@@ -54,6 +55,7 @@ module Network.AWS.RDS.RestoreDBClusterToPointInTime
     , rdctpitrsResponseStatus
     ) where
 
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
 import           Network.AWS.RDS.Types.Product
@@ -66,6 +68,7 @@ import           Network.AWS.Response
 data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     { _rdctpitUseLatestRestorableTime   :: !(Maybe Bool)
     , _rdctpitDBSubnetGroupName         :: !(Maybe Text)
+    , _rdctpitKMSKeyId                  :: !(Maybe Text)
     , _rdctpitVPCSecurityGroupIds       :: !(Maybe [Text])
     , _rdctpitOptionGroupName           :: !(Maybe Text)
     , _rdctpitRestoreToTime             :: !(Maybe ISO8601)
@@ -82,6 +85,8 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 -- * 'rdctpitUseLatestRestorableTime'
 --
 -- * 'rdctpitDBSubnetGroupName'
+--
+-- * 'rdctpitKMSKeyId'
 --
 -- * 'rdctpitVPCSecurityGroupIds'
 --
@@ -104,6 +109,7 @@ restoreDBClusterToPointInTime pDBClusterIdentifier_ pSourceDBClusterIdentifier_ 
     RestoreDBClusterToPointInTime'
     { _rdctpitUseLatestRestorableTime = Nothing
     , _rdctpitDBSubnetGroupName = Nothing
+    , _rdctpitKMSKeyId = Nothing
     , _rdctpitVPCSecurityGroupIds = Nothing
     , _rdctpitOptionGroupName = Nothing
     , _rdctpitRestoreToTime = Nothing
@@ -126,6 +132,35 @@ rdctpitUseLatestRestorableTime = lens _rdctpitUseLatestRestorableTime (\ s a -> 
 -- | The DB subnet group name to use for the new DB cluster.
 rdctpitDBSubnetGroupName :: Lens' RestoreDBClusterToPointInTime (Maybe Text)
 rdctpitDBSubnetGroupName = lens _rdctpitDBSubnetGroupName (\ s a -> s{_rdctpitDBSubnetGroupName = a});
+
+-- | The KMS key identifier to use when restoring an encrypted DB cluster
+-- from an encrypted DB cluster.
+--
+-- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS
+-- encryption key. If you are restoring a DB cluster with the same AWS
+-- account that owns the KMS encryption key used to encrypt the new DB
+-- cluster, then you can use the KMS key alias instead of the ARN for the
+-- KMS encryption key.
+--
+-- You can restore to a new DB cluster and encrypt the new DB cluster with
+-- a KMS key that is different than the KMS key used to encrypt the source
+-- DB cluster. The new DB cluster will be encrypted with the KMS key
+-- identified by the 'KmsKeyId' parameter.
+--
+-- If you do not specify a value for the 'KmsKeyId' parameter, then the
+-- following will occur:
+--
+-- -   If the DB cluster is encrypted, then the restored DB cluster is
+--     encrypted using the KMS key that was used to encrypt the source DB
+--     cluster.
+--
+-- If the DB cluster is not encrypted, then the restored DB cluster is not
+-- encrypted.
+--
+-- If 'DBClusterIdentifier' refers to a DB cluster that is note encrypted,
+-- then the restore request is rejected.
+rdctpitKMSKeyId :: Lens' RestoreDBClusterToPointInTime (Maybe Text)
+rdctpitKMSKeyId = lens _rdctpitKMSKeyId (\ s a -> s{_rdctpitKMSKeyId = a});
 
 -- | A lst of VPC security groups that the new DB cluster belongs to.
 rdctpitVPCSecurityGroupIds :: Lens' RestoreDBClusterToPointInTime [Text]
@@ -210,6 +245,7 @@ instance ToQuery RestoreDBClusterToPointInTime where
                "UseLatestRestorableTime" =:
                  _rdctpitUseLatestRestorableTime,
                "DBSubnetGroupName" =: _rdctpitDBSubnetGroupName,
+               "KmsKeyId" =: _rdctpitKMSKeyId,
                "VpcSecurityGroupIds" =:
                  toQuery
                    (toQueryList "VpcSecurityGroupId" <$>

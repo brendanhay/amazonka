@@ -20,20 +20,16 @@
 --
 -- Deletes the specified policy.
 --
--- A policy cannot be deleted if:
+-- A policy cannot be deleted if it has non-default versions and\/or it is
+-- attached to any certificate.
 --
--- - it has non-default versions
+-- To delete a policy, delete all non-default versions of the policy using
+-- the DeletePolicyVersion API, detach the policy from any certificate
+-- using the DetachPrincipalPolicy API, and then use the DeletePolicy API
+-- to delete the policy.
 --
--- - it is attached to any certificate
---
--- To delete a policy:
---
--- - First delete all the non-default versions of the policy using the
--- DeletePolicyVersion API.
---
--- - Detach it from any certificate using the DetachPrincipalPolicy API.
---
--- When a policy is deleted, its default version is deleted with it.
+-- When a policy is deleted using DeletePolicy, its default version is
+-- deleted with it.
 --
 -- /See:/ <https://aws.amazon.com/iot#DeletePolicy.html AWS API Reference> for DeletePolicy.
 module Network.AWS.IoT.DeletePolicy
@@ -51,6 +47,7 @@ module Network.AWS.IoT.DeletePolicy
 
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response

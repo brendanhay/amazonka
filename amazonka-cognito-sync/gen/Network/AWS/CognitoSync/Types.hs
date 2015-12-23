@@ -105,6 +105,7 @@ module Network.AWS.CognitoSync.Types
 
 import           Network.AWS.CognitoSync.Types.Product
 import           Network.AWS.CognitoSync.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

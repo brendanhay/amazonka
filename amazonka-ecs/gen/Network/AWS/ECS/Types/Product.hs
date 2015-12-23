@@ -18,6 +18,7 @@
 module Network.AWS.ECS.Types.Product where
 
 import           Network.AWS.ECS.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | The attributes applicable to a container instance when it is registered.
@@ -439,6 +440,9 @@ cdVolumesFrom = lens _cdVolumesFrom (\ s a -> s{_cdVolumesFrom = a}) . _Default 
 -- <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API>
 -- and the '--env' option to
 -- <https://docs.docker.com/reference/commandline/run/ docker run>.
+--
+-- We do not recommend using plain text environment variables for sensitive
+-- information, such as credential data.
 cdEnvironment :: Lens' ContainerDefinition [KeyValuePair]
 cdEnvironment = lens _cdEnvironment (\ s a -> s{_cdEnvironment = a}) . _Default . _Coerce;
 
@@ -531,7 +535,10 @@ cdDockerLabels = lens _cdDockerLabels (\ s a -> s{_cdDockerLabels = a}) . _Defau
 cdExtraHosts :: Lens' ContainerDefinition [HostEntry]
 cdExtraHosts = lens _cdExtraHosts (\ s a -> s{_cdExtraHosts = a}) . _Default . _Coerce;
 
--- | The number of MiB of memory reserved for the container. If your
+-- | The number of MiB of memory to reserve for the container. You must
+-- specify a non-zero integer for this parameter; the Docker daemon
+-- reserves a minimum of 4 MiB of memory for a container, so you should not
+-- specify fewer than 4 MiB of memory for your containers. If your
 -- container attempts to exceed the memory allocated here, the container is
 -- killed. This parameter maps to 'Memory' in the
 -- <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container>
@@ -1839,14 +1846,18 @@ instance FromJSON ServiceEvent where
 --
 -- /See:/ 'task' smart constructor.
 data Task = Task'
-    { _tDesiredStatus        :: !(Maybe Text)
+    { _tStoppedAt            :: !(Maybe POSIX)
+    , _tDesiredStatus        :: !(Maybe Text)
     , _tOverrides            :: !(Maybe TaskOverride)
     , _tClusterARN           :: !(Maybe Text)
+    , _tCreatedAt            :: !(Maybe POSIX)
     , _tTaskARN              :: !(Maybe Text)
     , _tContainerInstanceARN :: !(Maybe Text)
     , _tLastStatus           :: !(Maybe Text)
     , _tContainers           :: !(Maybe [Container])
+    , _tStartedAt            :: !(Maybe POSIX)
     , _tStartedBy            :: !(Maybe Text)
+    , _tStoppedReason        :: !(Maybe Text)
     , _tTaskDefinitionARN    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1854,11 +1865,15 @@ data Task = Task'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'tStoppedAt'
+--
 -- * 'tDesiredStatus'
 --
 -- * 'tOverrides'
 --
 -- * 'tClusterARN'
+--
+-- * 'tCreatedAt'
 --
 -- * 'tTaskARN'
 --
@@ -1868,23 +1883,36 @@ data Task = Task'
 --
 -- * 'tContainers'
 --
+-- * 'tStartedAt'
+--
 -- * 'tStartedBy'
+--
+-- * 'tStoppedReason'
 --
 -- * 'tTaskDefinitionARN'
 task
     :: Task
 task =
     Task'
-    { _tDesiredStatus = Nothing
+    { _tStoppedAt = Nothing
+    , _tDesiredStatus = Nothing
     , _tOverrides = Nothing
     , _tClusterARN = Nothing
+    , _tCreatedAt = Nothing
     , _tTaskARN = Nothing
     , _tContainerInstanceARN = Nothing
     , _tLastStatus = Nothing
     , _tContainers = Nothing
+    , _tStartedAt = Nothing
     , _tStartedBy = Nothing
+    , _tStoppedReason = Nothing
     , _tTaskDefinitionARN = Nothing
     }
+
+-- | The Unix time in seconds and milliseconds when the task was stopped (the
+-- task transitioned from the 'RUNNING' state to the 'STOPPED' state).
+tStoppedAt :: Lens' Task (Maybe UTCTime)
+tStoppedAt = lens _tStoppedAt (\ s a -> s{_tStoppedAt = a}) . mapping _Time;
 
 -- | The desired status of the task.
 tDesiredStatus :: Lens' Task (Maybe Text)
@@ -1898,6 +1926,11 @@ tOverrides = lens _tOverrides (\ s a -> s{_tOverrides = a});
 -- task.
 tClusterARN :: Lens' Task (Maybe Text)
 tClusterARN = lens _tClusterARN (\ s a -> s{_tClusterARN = a});
+
+-- | The Unix time in seconds and milliseconds when the task was created (the
+-- task entered the 'PENDING' state).
+tCreatedAt :: Lens' Task (Maybe UTCTime)
+tCreatedAt = lens _tCreatedAt (\ s a -> s{_tCreatedAt = a}) . mapping _Time;
 
 -- | The Amazon Resource Name (ARN) of the task.
 tTaskARN :: Lens' Task (Maybe Text)
@@ -1916,11 +1949,20 @@ tLastStatus = lens _tLastStatus (\ s a -> s{_tLastStatus = a});
 tContainers :: Lens' Task [Container]
 tContainers = lens _tContainers (\ s a -> s{_tContainers = a}) . _Default . _Coerce;
 
+-- | The Unix time in seconds and milliseconds when the task was started (the
+-- task transitioned from the 'PENDING' state to the 'RUNNING' state).
+tStartedAt :: Lens' Task (Maybe UTCTime)
+tStartedAt = lens _tStartedAt (\ s a -> s{_tStartedAt = a}) . mapping _Time;
+
 -- | The tag specified when a task is started. If the task is started by an
 -- Amazon ECS service, then the 'startedBy' parameter contains the
 -- deployment ID of the service that starts it.
 tStartedBy :: Lens' Task (Maybe Text)
 tStartedBy = lens _tStartedBy (\ s a -> s{_tStartedBy = a});
+
+-- | The reason the task was stopped.
+tStoppedReason :: Lens' Task (Maybe Text)
+tStoppedReason = lens _tStoppedReason (\ s a -> s{_tStoppedReason = a});
 
 -- | The Amazon Resource Name (ARN) of the of the task definition that
 -- creates the task.
@@ -1932,13 +1974,17 @@ instance FromJSON Task where
           = withObject "Task"
               (\ x ->
                  Task' <$>
-                   (x .:? "desiredStatus") <*> (x .:? "overrides") <*>
-                     (x .:? "clusterArn")
+                   (x .:? "stoppedAt") <*> (x .:? "desiredStatus") <*>
+                     (x .:? "overrides")
+                     <*> (x .:? "clusterArn")
+                     <*> (x .:? "createdAt")
                      <*> (x .:? "taskArn")
                      <*> (x .:? "containerInstanceArn")
                      <*> (x .:? "lastStatus")
                      <*> (x .:? "containers" .!= mempty)
+                     <*> (x .:? "startedAt")
                      <*> (x .:? "startedBy")
+                     <*> (x .:? "stoppedReason")
                      <*> (x .:? "taskDefinitionArn"))
 
 -- | Details of a task definition.

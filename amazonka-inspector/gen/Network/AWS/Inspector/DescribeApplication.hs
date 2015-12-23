@@ -39,13 +39,14 @@ module Network.AWS.Inspector.DescribeApplication
 
 import           Network.AWS.Inspector.Types
 import           Network.AWS.Inspector.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeApplication' smart constructor.
 newtype DescribeApplication = DescribeApplication'
-    { _daApplicationARN :: Maybe Text
+    { _daApplicationARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeApplication' with the minimum fields required to make a request.
@@ -54,14 +55,15 @@ newtype DescribeApplication = DescribeApplication'
 --
 -- * 'daApplicationARN'
 describeApplication
-    :: DescribeApplication
-describeApplication =
+    :: Text -- ^ 'daApplicationARN'
+    -> DescribeApplication
+describeApplication pApplicationARN_ =
     DescribeApplication'
-    { _daApplicationARN = Nothing
+    { _daApplicationARN = pApplicationARN_
     }
 
 -- | The ARN specifying the application that you want to describe.
-daApplicationARN :: Lens' DescribeApplication (Maybe Text)
+daApplicationARN :: Lens' DescribeApplication Text
 daApplicationARN = lens _daApplicationARN (\ s a -> s{_daApplicationARN = a});
 
 instance AWSRequest DescribeApplication where
@@ -88,7 +90,7 @@ instance ToJSON DescribeApplication where
         toJSON DescribeApplication'{..}
           = object
               (catMaybes
-                 [("applicationArn" .=) <$> _daApplicationARN])
+                 [Just ("applicationArn" .= _daApplicationARN)])
 
 instance ToPath DescribeApplication where
         toPath = const "/"

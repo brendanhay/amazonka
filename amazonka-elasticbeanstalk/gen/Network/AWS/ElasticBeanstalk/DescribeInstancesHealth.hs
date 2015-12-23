@@ -47,6 +47,7 @@ module Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
 
 import           Network.AWS.ElasticBeanstalk.Types
 import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -91,8 +92,8 @@ dihEnvironmentName :: Lens' DescribeInstancesHealth (Maybe Text)
 dihEnvironmentName = lens _dihEnvironmentName (\ s a -> s{_dihEnvironmentName = a});
 
 -- | Specifies the response elements you wish to receive. If no attribute
--- names are specified, AWS Elastic Beanstalk returns all response
--- elements.
+-- names are specified, AWS Elastic Beanstalk only returns a list of
+-- instances.
 dihAttributeNames :: Lens' DescribeInstancesHealth [InstancesHealthAttribute]
 dihAttributeNames = lens _dihAttributeNames (\ s a -> s{_dihAttributeNames = a}) . _Default . _Coerce;
 

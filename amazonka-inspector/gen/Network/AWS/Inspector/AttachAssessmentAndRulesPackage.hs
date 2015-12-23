@@ -41,14 +41,15 @@ module Network.AWS.Inspector.AttachAssessmentAndRulesPackage
 
 import           Network.AWS.Inspector.Types
 import           Network.AWS.Inspector.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'attachAssessmentAndRulesPackage' smart constructor.
 data AttachAssessmentAndRulesPackage = AttachAssessmentAndRulesPackage'
-    { _aaarpAssessmentARN   :: !(Maybe Text)
-    , _aaarpRulesPackageARN :: !(Maybe Text)
+    { _aaarpAssessmentARN   :: !Text
+    , _aaarpRulesPackageARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AttachAssessmentAndRulesPackage' with the minimum fields required to make a request.
@@ -59,21 +60,23 @@ data AttachAssessmentAndRulesPackage = AttachAssessmentAndRulesPackage'
 --
 -- * 'aaarpRulesPackageARN'
 attachAssessmentAndRulesPackage
-    :: AttachAssessmentAndRulesPackage
-attachAssessmentAndRulesPackage =
+    :: Text -- ^ 'aaarpAssessmentARN'
+    -> Text -- ^ 'aaarpRulesPackageARN'
+    -> AttachAssessmentAndRulesPackage
+attachAssessmentAndRulesPackage pAssessmentARN_ pRulesPackageARN_ =
     AttachAssessmentAndRulesPackage'
-    { _aaarpAssessmentARN = Nothing
-    , _aaarpRulesPackageARN = Nothing
+    { _aaarpAssessmentARN = pAssessmentARN_
+    , _aaarpRulesPackageARN = pRulesPackageARN_
     }
 
 -- | The ARN specifying the assessment to which you want to attach a rules
 -- package.
-aaarpAssessmentARN :: Lens' AttachAssessmentAndRulesPackage (Maybe Text)
+aaarpAssessmentARN :: Lens' AttachAssessmentAndRulesPackage Text
 aaarpAssessmentARN = lens _aaarpAssessmentARN (\ s a -> s{_aaarpAssessmentARN = a});
 
 -- | The ARN specifying the rules package that you want to attach to the
 -- assessment.
-aaarpRulesPackageARN :: Lens' AttachAssessmentAndRulesPackage (Maybe Text)
+aaarpRulesPackageARN :: Lens' AttachAssessmentAndRulesPackage Text
 aaarpRulesPackageARN = lens _aaarpRulesPackageARN (\ s a -> s{_aaarpRulesPackageARN = a});
 
 instance AWSRequest AttachAssessmentAndRulesPackage
@@ -102,8 +105,8 @@ instance ToJSON AttachAssessmentAndRulesPackage where
         toJSON AttachAssessmentAndRulesPackage'{..}
           = object
               (catMaybes
-                 [("assessmentArn" .=) <$> _aaarpAssessmentARN,
-                  ("rulesPackageArn" .=) <$> _aaarpRulesPackageARN])
+                 [Just ("assessmentArn" .= _aaarpAssessmentARN),
+                  Just ("rulesPackageArn" .= _aaarpRulesPackageARN)])
 
 instance ToPath AttachAssessmentAndRulesPackage where
         toPath = const "/"

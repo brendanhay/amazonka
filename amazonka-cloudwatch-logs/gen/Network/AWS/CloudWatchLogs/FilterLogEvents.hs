@@ -64,6 +64,7 @@ module Network.AWS.CloudWatchLogs.FilterLogEvents
 
 import           Network.AWS.CloudWatchLogs.Types
 import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Lens
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
@@ -115,14 +116,15 @@ filterLogEvents pLogGroupName_ =
     , _fleLogGroupName = pLogGroupName_
     }
 
--- | A unix timestamp indicating the start time of the range for the request.
--- If provided, events with a timestamp prior to this time will not be
--- returned.
+-- | A point in time expressed as the number of milliseconds since Jan 1,
+-- 1970 00:00:00 UTC. If provided, events with a timestamp prior to this
+-- time are not returned.
 fleStartTime :: Lens' FilterLogEvents (Maybe Natural)
 fleStartTime = lens _fleStartTime (\ s a -> s{_fleStartTime = a}) . mapping _Nat;
 
 -- | A pagination token obtained from a 'FilterLogEvents' response to
--- continue paginating the FilterLogEvents results.
+-- continue paginating the FilterLogEvents results. This token is omitted
+-- from the response when there are no other events to display.
 fleNextToken :: Lens' FilterLogEvents (Maybe Text)
 fleNextToken = lens _fleNextToken (\ s a -> s{_fleNextToken = a});
 
@@ -131,9 +133,9 @@ fleNextToken = lens _fleNextToken (\ s a -> s{_fleNextToken = a});
 fleLogStreamNames :: Lens' FilterLogEvents (Maybe (NonEmpty Text))
 fleLogStreamNames = lens _fleLogStreamNames (\ s a -> s{_fleLogStreamNames = a}) . mapping _List1;
 
--- | A unix timestamp indicating the end time of the range for the request.
--- If provided, events with a timestamp later than this time will not be
--- returned.
+-- | A point in time expressed as the number of milliseconds since Jan 1,
+-- 1970 00:00:00 UTC. If provided, events with a timestamp later than this
+-- time are not returned.
 fleEndTime :: Lens' FilterLogEvents (Maybe Natural)
 fleEndTime = lens _fleEndTime (\ s a -> s{_fleEndTime = a}) . mapping _Nat;
 
@@ -244,7 +246,8 @@ flersSearchedLogStreams :: Lens' FilterLogEventsResponse [SearchedLogStream]
 flersSearchedLogStreams = lens _flersSearchedLogStreams (\ s a -> s{_flersSearchedLogStreams = a}) . _Default . _Coerce;
 
 -- | A pagination token obtained from a 'FilterLogEvents' response to
--- continue paginating the FilterLogEvents results.
+-- continue paginating the FilterLogEvents results. This token is omitted
+-- from the response when there are no other events to display.
 flersNextToken :: Lens' FilterLogEventsResponse (Maybe Text)
 flersNextToken = lens _flersNextToken (\ s a -> s{_flersNextToken = a});
 

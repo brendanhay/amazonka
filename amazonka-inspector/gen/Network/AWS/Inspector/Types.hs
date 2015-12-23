@@ -200,6 +200,7 @@ module Network.AWS.Inspector.Types
 
 import           Network.AWS.Inspector.Types.Product
 import           Network.AWS.Inspector.Types.Sum
+import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 

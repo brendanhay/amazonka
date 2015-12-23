@@ -154,7 +154,7 @@ module Network.AWS.KMS
     -- ** Encrypt
     , module Network.AWS.KMS.Encrypt
 
-    -- ** ListGrants
+    -- ** ListGrants (Paginated)
     , module Network.AWS.KMS.ListGrants
 
     -- ** DisableKeyRotation
@@ -172,7 +172,7 @@ module Network.AWS.KMS
     -- ** CreateGrant
     , module Network.AWS.KMS.CreateGrant
 
-    -- ** ListAliases
+    -- ** ListAliases (Paginated)
     , module Network.AWS.KMS.ListAliases
 
     -- ** ListRetirableGrants
@@ -190,7 +190,7 @@ module Network.AWS.KMS
     -- ** RetireGrant
     , module Network.AWS.KMS.RetireGrant
 
-    -- ** ListKeys
+    -- ** ListKeys (Paginated)
     , module Network.AWS.KMS.ListKeys
 
     -- ** GetKeyRotationStatus
@@ -220,7 +220,7 @@ module Network.AWS.KMS
     -- ** ReEncrypt
     , module Network.AWS.KMS.ReEncrypt
 
-    -- ** ListKeyPolicies
+    -- ** ListKeyPolicies (Paginated)
     , module Network.AWS.KMS.ListKeyPolicies
 
     -- ** ScheduleKeyDeletion

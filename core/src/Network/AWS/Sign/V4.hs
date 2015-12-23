@@ -60,7 +60,8 @@ presign ex rq a r ts = signRequest meta mempty auth
 
     digest = Tag "UNSIGNED-PAYLOAD"
 
-    prepare = rqHeaders .~ []
+    prepare = rqHeaders %~ ( hdr hHost (_endpointHost end) )
+    end     = _svcEndpoint (_rqService rq) r
 
 sign :: Algorithm a
 sign rq a r ts =

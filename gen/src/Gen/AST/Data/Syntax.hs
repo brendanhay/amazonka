@@ -332,6 +332,7 @@ responseE p r fs = app (responseF p r fs) bdy
             _ | f ^. fieldPayload -> parseOne   f
             JSON                  -> parseJSONE p pJE pJEMay pJEDef f
             RestJSON              -> parseJSONE p pJE pJEMay pJEDef f
+            APIGateway            -> parseJSONE p pJE pJEMay pJEDef f
             _                     -> parseXMLE  p f
 
     parseOne :: Field -> Exp
@@ -347,9 +348,10 @@ responseE p r fs = app (responseF p r fs) bdy
     parseAll :: Exp
     parseAll = flip app (var "x") $
         case p of
-            JSON     -> var "eitherParseJSON"
-            RestJSON -> var "eitherParseJSON"
-            _        -> var "parseXML"
+            JSON       -> var "eitherParseJSON"
+            RestJSON   -> var "eitherParseJSON"
+            APIGateway -> var "eitherParseJSON"
+            _          -> var "parseXML"
 
     body = any fieldStream fs
 

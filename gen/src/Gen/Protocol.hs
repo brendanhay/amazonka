@@ -31,11 +31,12 @@ data Level = Flat | Nest
 
 suffix :: Protocol -> Text
 suffix = \case
-    JSON     -> "JSON"
-    RestJSON -> "JSON"
-    RestXML  -> "XML"
-    Query    -> "XML"
-    EC2      -> "XML"
+    JSON       -> "JSON"
+    RestJSON   -> "JSON"
+    APIGateway -> "JSON"
+    RestXML    -> "XML"
+    Query      -> "XML"
+    EC2        -> "XML"
 
 data Names
     = NMap  (Maybe Text) Text Text Text

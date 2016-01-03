@@ -100,6 +100,7 @@ data Protocol
     | RestXML
     | Query
     | EC2
+    | APIGateway
       deriving (Eq, Show, Generic)
 
 instance FromJSON Protocol where
@@ -107,19 +108,21 @@ instance FromJSON Protocol where
 
 instance ToJSON Protocol where
     toJSON = String . \case
-        JSON     -> "JSON"
-        RestJSON -> "JSON"
-        RestXML  -> "XML"
-        Query    -> "Query"
-        EC2      -> "Query"
+        JSON       -> "JSON"
+        RestJSON   -> "JSON"
+        RestXML    -> "XML"
+        Query      -> "Query"
+        EC2        -> "Query"
+        APIGateway -> "APIGateway"
 
 timestamp :: Protocol -> Timestamp
 timestamp = \case
-    JSON     -> POSIX
-    RestJSON -> POSIX
-    RestXML  -> ISO8601
-    Query    -> ISO8601
-    EC2      -> ISO8601
+    JSON       -> POSIX
+    RestJSON   -> POSIX
+    RestXML    -> ISO8601
+    Query      -> ISO8601
+    EC2        -> ISO8601
+    APIGateway -> POSIX
 
 data Checksum
     = MD5
@@ -432,11 +435,12 @@ instance ToJSON (Metadata Identity) where
 serviceError :: HasMetadata a f => a -> Text
 serviceError m =
     case m ^. protocol of
-        JSON     -> "parseJSONError"
-        RestJSON -> "parseJSONError"
-        RestXML  -> "parseXMLError"
-        Query    -> "parseXMLError"
-        EC2      -> "parseXMLError"
+        JSON       -> "parseJSONError"
+        RestJSON   -> "parseJSONError"
+        RestXML    -> "parseXMLError"
+        Query      -> "parseXMLError"
+        EC2        -> "parseXMLError"
+        APIGateway -> "parseJSONError"
 
 serviceFunction :: HasMetadata a f => a -> Text
 serviceFunction m = lowerHead (m ^. serviceAbbrev)

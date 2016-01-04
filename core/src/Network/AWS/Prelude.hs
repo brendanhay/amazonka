@@ -13,6 +13,7 @@ module Network.AWS.Prelude
 
 import           Control.Applicative         as Export (Applicative, pure)
 import           Control.Applicative         as Export ((<$>), (<*>), (<|>))
+import           Control.Lens                as Export ((%~))
 import           Data.Data                   as Export (Data, Typeable)
 import           Data.Foldable               as Export (Foldable)
 import           Data.Hashable               as Export (Hashable)

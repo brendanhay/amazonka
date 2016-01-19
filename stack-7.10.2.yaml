@@ -2,7 +2,7 @@ resolver:   nightly-2015-09-10
 flags:      {}
 extra-deps:
   - groom-0.1.2
-  - retry-0.7.0.1
+  - retry-0.7.1
 packages:
   - core
   - test

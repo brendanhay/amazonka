@@ -50,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the TerminateJobFlows operation.
+-- | Input to the < TerminateJobFlows> operation.
 --
 -- /See:/ 'terminateJobFlows' smart constructor.
 newtype TerminateJobFlows = TerminateJobFlows'

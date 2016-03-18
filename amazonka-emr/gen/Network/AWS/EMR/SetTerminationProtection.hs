@@ -61,7 +61,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input argument to the TerminationProtection operation.
+-- | The input argument to the < TerminationProtection> operation.
 --
 -- /See:/ 'setTerminationProtection' smart constructor.
 data SetTerminationProtection = SetTerminationProtection'
@@ -86,8 +86,8 @@ setTerminationProtection pTerminationProtected_ =
     }
 
 -- | A list of strings that uniquely identify the job flows to protect. This
--- identifier is returned by RunJobFlow and can also be obtained from
--- DescribeJobFlows .
+-- identifier is returned by < RunJobFlow> and can also be obtained from
+-- < DescribeJobFlows> .
 stpJobFlowIds :: Lens' SetTerminationProtection [Text]
 stpJobFlowIds = lens _stpJobFlowIds (\ s a -> s{_stpJobFlowIds = a}) . _Coerce;
 

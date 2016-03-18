@@ -207,6 +207,30 @@ module Network.AWS.EMR
     , cClassification
     , cProperties
 
+    -- ** EBSBlockDevice
+    , EBSBlockDevice
+    , ebsBlockDevice
+    , ebdDevice
+    , ebdVolumeSpecification
+
+    -- ** EBSBlockDeviceConfig
+    , EBSBlockDeviceConfig
+    , ebsBlockDeviceConfig
+    , ebdcVolumesPerInstance
+    , ebdcVolumeSpecification
+
+    -- ** EBSConfiguration
+    , EBSConfiguration
+    , ebsConfiguration
+    , ecEBSOptimized
+    , ecEBSBlockDeviceConfigs
+
+    -- ** EBSVolume
+    , EBSVolume
+    , ebsVolume
+    , evDevice
+    , evVolumeId
+
     -- ** EC2InstanceAttributes
     , EC2InstanceAttributes
     , ec2InstanceAttributes
@@ -217,6 +241,7 @@ module Network.AWS.EMR
     , eiaIAMInstanceProfile
     , eiaEmrManagedMasterSecurityGroup
     , eiaEC2SubnetId
+    , eiaServiceAccessSecurityGroup
     , eiaEC2AvailabilityZone
 
     -- ** HadoopJARStepConfig
@@ -240,9 +265,11 @@ module Network.AWS.EMR
     , instance'
     , iStatus
     , iPublicDNSName
+    , iEBSVolumes
     , iEC2InstanceId
     , iPrivateIPAddress
     , iId
+    , iInstanceGroupId
     , iPrivateDNSName
     , iPublicIPAddress
 
@@ -255,7 +282,9 @@ module Network.AWS.EMR
     , igRunningInstanceCount
     , igConfigurations
     , igInstanceGroupType
+    , igEBSBlockDevices
     , igInstanceType
+    , igEBSOptimized
     , igMarket
     , igName
     , igId
@@ -263,6 +292,7 @@ module Network.AWS.EMR
     -- ** InstanceGroupConfig
     , InstanceGroupConfig
     , instanceGroupConfig
+    , igcEBSConfiguration
     , igcBidPrice
     , igcConfigurations
     , igcMarket
@@ -333,6 +363,7 @@ module Network.AWS.EMR
     , jficMasterInstanceType
     , jficInstanceGroups
     , jficKeepJobFlowAliveWhenNoSteps
+    , jficServiceAccessSecurityGroup
     , jficTerminationProtected
     , jficPlacement
 
@@ -409,6 +440,13 @@ module Network.AWS.EMR
     , tag
     , tagValue
     , tagKey
+
+    -- ** VolumeSpecification
+    , VolumeSpecification
+    , volumeSpecification
+    , vsIOPS
+    , vsVolumeType
+    , vsSizeInGB
     ) where
 
 import           Network.AWS.EMR.AddInstanceGroups

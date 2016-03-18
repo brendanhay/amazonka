@@ -133,6 +133,30 @@ module Network.AWS.EMR.Types
     , cClassification
     , cProperties
 
+    -- * EBSBlockDevice
+    , EBSBlockDevice
+    , ebsBlockDevice
+    , ebdDevice
+    , ebdVolumeSpecification
+
+    -- * EBSBlockDeviceConfig
+    , EBSBlockDeviceConfig
+    , ebsBlockDeviceConfig
+    , ebdcVolumesPerInstance
+    , ebdcVolumeSpecification
+
+    -- * EBSConfiguration
+    , EBSConfiguration
+    , ebsConfiguration
+    , ecEBSOptimized
+    , ecEBSBlockDeviceConfigs
+
+    -- * EBSVolume
+    , EBSVolume
+    , ebsVolume
+    , evDevice
+    , evVolumeId
+
     -- * EC2InstanceAttributes
     , EC2InstanceAttributes
     , ec2InstanceAttributes
@@ -143,6 +167,7 @@ module Network.AWS.EMR.Types
     , eiaIAMInstanceProfile
     , eiaEmrManagedMasterSecurityGroup
     , eiaEC2SubnetId
+    , eiaServiceAccessSecurityGroup
     , eiaEC2AvailabilityZone
 
     -- * HadoopJARStepConfig
@@ -166,9 +191,11 @@ module Network.AWS.EMR.Types
     , instance'
     , iStatus
     , iPublicDNSName
+    , iEBSVolumes
     , iEC2InstanceId
     , iPrivateIPAddress
     , iId
+    , iInstanceGroupId
     , iPrivateDNSName
     , iPublicIPAddress
 
@@ -181,7 +208,9 @@ module Network.AWS.EMR.Types
     , igRunningInstanceCount
     , igConfigurations
     , igInstanceGroupType
+    , igEBSBlockDevices
     , igInstanceType
+    , igEBSOptimized
     , igMarket
     , igName
     , igId
@@ -189,6 +218,7 @@ module Network.AWS.EMR.Types
     -- * InstanceGroupConfig
     , InstanceGroupConfig
     , instanceGroupConfig
+    , igcEBSConfiguration
     , igcBidPrice
     , igcConfigurations
     , igcMarket
@@ -259,6 +289,7 @@ module Network.AWS.EMR.Types
     , jficMasterInstanceType
     , jficInstanceGroups
     , jficKeepJobFlowAliveWhenNoSteps
+    , jficServiceAccessSecurityGroup
     , jficTerminationProtected
     , jficPlacement
 
@@ -335,6 +366,13 @@ module Network.AWS.EMR.Types
     , tag
     , tagValue
     , tagKey
+
+    -- * VolumeSpecification
+    , VolumeSpecification
+    , volumeSpecification
+    , vsIOPS
+    , vsVolumeType
+    , vsSizeInGB
     ) where
 
 import           Network.AWS.EMR.Types.Product
@@ -366,6 +404,7 @@ eMR =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -381,8 +420,7 @@ _InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
 -- | Indicates that an error occurred while processing the request and that
 -- the request was not completed.
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerError =
-    _ServiceError . hasStatus 500 . hasCode "InternalFailure"
+_InternalServerError = _ServiceError . hasCode "InternalServerError"
 
 -- | This exception occurs when there is an internal failure in the EMR
 -- service.

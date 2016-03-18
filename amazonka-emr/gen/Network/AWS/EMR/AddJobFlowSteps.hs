@@ -69,7 +69,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input argument to the AddJobFlowSteps operation.
+-- | The input argument to the < AddJobFlowSteps> operation.
 --
 -- /See:/ 'addJobFlowSteps' smart constructor.
 data AddJobFlowSteps = AddJobFlowSteps'
@@ -94,11 +94,11 @@ addJobFlowSteps pJobFlowId_ =
     }
 
 -- | A string that uniquely identifies the job flow. This identifier is
--- returned by RunJobFlow and can also be obtained from ListClusters.
+-- returned by < RunJobFlow> and can also be obtained from < ListClusters>.
 ajfsJobFlowId :: Lens' AddJobFlowSteps Text
 ajfsJobFlowId = lens _ajfsJobFlowId (\ s a -> s{_ajfsJobFlowId = a});
 
--- | A list of StepConfig to be executed by the job flow.
+-- | A list of < StepConfig> to be executed by the job flow.
 ajfsSteps :: Lens' AddJobFlowSteps [StepConfig]
 ajfsSteps = lens _ajfsSteps (\ s a -> s{_ajfsSteps = a}) . _Coerce;
 
@@ -133,7 +133,7 @@ instance ToPath AddJobFlowSteps where
 instance ToQuery AddJobFlowSteps where
         toQuery = const mempty
 
--- | The output for the AddJobFlowSteps operation.
+-- | The output for the < AddJobFlowSteps> operation.
 --
 -- /See:/ 'addJobFlowStepsResponse' smart constructor.
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'

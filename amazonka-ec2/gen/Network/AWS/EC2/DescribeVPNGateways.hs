@@ -84,7 +84,7 @@ describeVPNGateways =
 -- -   'attachment.vpc-id' - The ID of an attached VPC.
 --
 -- -   'availability-zone' - The Availability Zone for the virtual private
---     gateway.
+--     gateway (if applicable).
 --
 -- -   'state' - The state of the virtual private gateway ('pending' |
 --     'available' | 'deleting' | 'deleted').

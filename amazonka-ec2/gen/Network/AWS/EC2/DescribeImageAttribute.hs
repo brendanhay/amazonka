@@ -96,8 +96,8 @@ diaiImageId = lens _diaiImageId (\ s a -> s{_diaiImageId = a});
 --
 -- __Note__: Depending on your account privileges, the 'blockDeviceMapping'
 -- attribute may return a 'Client.AuthFailure' error. If this happens, use
--- DescribeImages to get information about the block device mapping for the
--- AMI.
+-- < DescribeImages> to get information about the block device mapping for
+-- the AMI.
 diaiAttribute :: Lens' DescribeImageAttribute ImageAttributeName
 diaiAttribute = lens _diaiAttribute (\ s a -> s{_diaiAttribute = a});
 

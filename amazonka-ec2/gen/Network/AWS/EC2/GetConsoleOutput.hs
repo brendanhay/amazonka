@@ -158,7 +158,8 @@ getConsoleOutputResponse pResponseStatus_ =
 gcorsInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorsInstanceId = lens _gcorsInstanceId (\ s a -> s{_gcorsInstanceId = a});
 
--- | The console output, Base64 encoded.
+-- | The console output, Base64 encoded. If using a command line tool, the
+-- tools decode the output for you.
 gcorsOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorsOutput = lens _gcorsOutput (\ s a -> s{_gcorsOutput = a});
 

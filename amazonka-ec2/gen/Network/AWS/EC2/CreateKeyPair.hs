@@ -28,7 +28,7 @@
 --
 -- The key pair returned to you is available only in the region in which
 -- you create it. To create a key pair that is available in all regions,
--- use ImportKeyPair.
+-- use < ImportKeyPair>.
 --
 -- For more information about key pairs, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs>

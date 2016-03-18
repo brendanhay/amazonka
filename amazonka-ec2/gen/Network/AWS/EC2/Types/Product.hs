@@ -607,7 +607,7 @@ instance FromXML BundleTask where
                 <*> (x .@ "storage")
                 <*> (x .@ "updateTime")
 
--- | Describes an error for BundleInstance.
+-- | Describes an error for < BundleInstance>.
 --
 -- /See:/ 'bundleTaskError' smart constructor.
 data BundleTaskError = BundleTaskError'
@@ -805,6 +805,42 @@ instance FromXML CancelledSpotInstanceRequest where
         parseXML x
           = CancelledSpotInstanceRequest' <$>
               (x .@? "state") <*> (x .@? "spotInstanceRequestId")
+
+-- | Describes the ClassicLink DNS support status of a VPC.
+--
+-- /See:/ 'classicLinkDNSSupport' smart constructor.
+data ClassicLinkDNSSupport = ClassicLinkDNSSupport'
+    { _cldsVPCId                   :: !(Maybe Text)
+    , _cldsClassicLinkDNSSupported :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ClassicLinkDNSSupport' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cldsVPCId'
+--
+-- * 'cldsClassicLinkDNSSupported'
+classicLinkDNSSupport
+    :: ClassicLinkDNSSupport
+classicLinkDNSSupport =
+    ClassicLinkDNSSupport'
+    { _cldsVPCId = Nothing
+    , _cldsClassicLinkDNSSupported = Nothing
+    }
+
+-- | The ID of the VPC.
+cldsVPCId :: Lens' ClassicLinkDNSSupport (Maybe Text)
+cldsVPCId = lens _cldsVPCId (\ s a -> s{_cldsVPCId = a});
+
+-- | Indicates whether ClassicLink DNS support is enabled for the VPC.
+cldsClassicLinkDNSSupported :: Lens' ClassicLinkDNSSupport (Maybe Bool)
+cldsClassicLinkDNSSupported = lens _cldsClassicLinkDNSSupported (\ s a -> s{_cldsClassicLinkDNSSupported = a});
+
+instance FromXML ClassicLinkDNSSupport where
+        parseXML x
+          = ClassicLinkDNSSupport' <$>
+              (x .@? "vpcId") <*> (x .@? "classicLinkDnsSupported")
 
 -- | Describes a linked EC2-Classic instance.
 --
@@ -1355,6 +1391,10 @@ dSize = lens _dSize (\ s a -> s{_dSize = a});
 -- the \"Query String Request Authentication Alternative\" section of the
 -- <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests>
 -- topic in the /Amazon Simple Storage Service Developer Guide/.
+--
+-- For information about the import manifest referenced by this API action,
+-- see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
 dImportManifestURL :: Lens' DiskImageDescription Text
 dImportManifestURL = lens _dImportManifestURL (\ s a -> s{_dImportManifestURL = a});
 
@@ -1409,6 +1449,10 @@ didBytes = lens _didBytes (\ s a -> s{_didBytes = a});
 -- String Request Authentication Alternative\" section of the
 -- <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests>
 -- topic in the /Amazon Simple Storage Service Developer Guide/.
+--
+-- For information about the import manifest referenced by this API action,
+-- see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
 didImportManifestURL :: Lens' DiskImageDetail Text
 didImportManifestURL = lens _didImportManifestURL (\ s a -> s{_didImportManifestURL = a});
 
@@ -2554,11 +2598,11 @@ ipFromPort = lens _ipFromPort (\ s a -> s{_ipFromPort = a});
 ipUserIdGroupPairs :: Lens' IPPermission [UserIdGroupPair]
 ipUserIdGroupPairs = lens _ipUserIdGroupPairs (\ s a -> s{_ipUserIdGroupPairs = a}) . _Default . _Coerce;
 
--- | (Valid for AuthorizeSecurityGroupEgress, RevokeSecurityGroupEgress and
--- DescribeSecurityGroups only) One or more prefix list IDs for an AWS
--- service. In an AuthorizeSecurityGroupEgress request, this is the AWS
--- service that you want to access through a VPC endpoint from instances
--- associated with the security group.
+-- | (Valid for < AuthorizeSecurityGroupEgress>, < RevokeSecurityGroupEgress>
+-- and < DescribeSecurityGroups> only) One or more prefix list IDs for an
+-- AWS service. In an < AuthorizeSecurityGroupEgress> request, this is the
+-- AWS service that you want to access through a VPC endpoint from
+-- instances associated with the security group.
 ipPrefixListIds :: Lens' IPPermission [PrefixListId]
 ipPrefixListIds = lens _ipPrefixListIds (\ s a -> s{_ipPrefixListIds = a}) . _Default . _Coerce;
 
@@ -2671,7 +2715,8 @@ ifUseLongIds :: Lens' IdFormat (Maybe Bool)
 ifUseLongIds = lens _ifUseLongIds (\ s a -> s{_ifUseLongIds = a});
 
 -- | The date in UTC at which you are permanently switched over to using
--- longer IDs.
+-- longer IDs. If a deadline is not yet available for this resource type,
+-- this field is not returned.
 ifDeadline :: Lens' IdFormat (Maybe UTCTime)
 ifDeadline = lens _ifDeadline (\ s a -> s{_ifDeadline = a}) . mapping _Time;
 
@@ -3764,7 +3809,7 @@ insEBSOptimized = lens _insEBSOptimized (\ s a -> s{_insEBSOptimized = a});
 insStateTransitionReason :: Lens' Instance (Maybe Text)
 insStateTransitionReason = lens _insStateTransitionReason (\ s a -> s{_insStateTransitionReason = a});
 
--- | Indicates whether this is a Spot instance.
+-- | Indicates whether this is a Spot instance or a Scheduled Instance.
 insInstanceLifecycle :: Lens' Instance (Maybe InstanceLifecycleType)
 insInstanceLifecycle = lens _insInstanceLifecycle (\ s a -> s{_insInstanceLifecycle = a});
 
@@ -4049,7 +4094,7 @@ instance FromXML InstanceCapacity where
                 (x .@? "instanceType")
                 <*> (x .@? "totalCapacity")
 
--- | Describes a Reserved instance listing state.
+-- | Describes a Reserved Instance listing state.
 --
 -- /See:/ 'instanceCount' smart constructor.
 data InstanceCount = InstanceCount'
@@ -4072,11 +4117,11 @@ instanceCount =
     , _icInstanceCount = Nothing
     }
 
--- | The states of the listed Reserved instances.
+-- | The states of the listed Reserved Instances.
 icState :: Lens' InstanceCount (Maybe ListingState)
 icState = lens _icState (\ s a -> s{_icState = a});
 
--- | The number of listed Reserved instances in the state specified by the
+-- | The number of listed Reserved Instances in the state specified by the
 -- 'state'.
 icInstanceCount :: Lens' InstanceCount (Maybe Int)
 icInstanceCount = lens _icInstanceCount (\ s a -> s{_icInstanceCount = a});
@@ -4527,8 +4572,8 @@ inisDescription :: Lens' InstanceNetworkInterfaceSpecification (Maybe Text)
 inisDescription = lens _inisDescription (\ s a -> s{_inisDescription = a});
 
 -- | The index of the device on the instance for the network interface
--- attachment. If you are specifying a network interface in a RunInstances
--- request, you must provide the device index.
+-- attachment. If you are specifying a network interface in a
+-- < RunInstances> request, you must provide the device index.
 inisDeviceIndex :: Lens' InstanceNetworkInterfaceSpecification (Maybe Int)
 inisDeviceIndex = lens _inisDeviceIndex (\ s a -> s{_inisDeviceIndex = a});
 
@@ -4784,8 +4829,8 @@ isAvailabilityZone = lens _isAvailabilityZone (\ s a -> s{_isAvailabilityZone = 
 isInstanceStatus :: Lens' InstanceStatus (Maybe InstanceStatusSummary)
 isInstanceStatus = lens _isInstanceStatus (\ s a -> s{_isInstanceStatus = a});
 
--- | The intended state of the instance. DescribeInstanceStatus requires that
--- an instance be in the 'running' state.
+-- | The intended state of the instance. < DescribeInstanceStatus> requires
+-- that an instance be in the 'running' state.
 isInstanceState :: Lens' InstanceStatus (Maybe InstanceState)
 isInstanceState = lens _isInstanceState (\ s a -> s{_isInstanceState = a});
 
@@ -5053,8 +5098,8 @@ keyPairInfo =
     , _kpiKeyName = Nothing
     }
 
--- | If you used CreateKeyPair to create the key pair, this is the SHA-1
--- digest of the DER encoded private key. If you used ImportKeyPair to
+-- | If you used < CreateKeyPair> to create the key pair, this is the SHA-1
+-- digest of the DER encoded private key. If you used < ImportKeyPair> to
 -- provide AWS the public key, this is the MD5 public key fingerprint as
 -- specified in section 4 of RFC4716.
 kpiKeyFingerprint :: Lens' KeyPairInfo (Maybe Text)
@@ -5437,7 +5482,8 @@ ngState = lens _ngState (\ s a -> s{_ngState = a});
 -- | If the NAT gateway could not be created, specifies the error code for
 -- the failure. ('InsufficientFreeAddressesInSubnet' |
 -- 'Gateway.NotAttached' | 'InvalidAllocationID.NotFound' |
--- 'Resource.AlreadyAssociated' | 'InternalError')
+-- 'Resource.AlreadyAssociated' | 'InternalError' |
+-- 'InvalidSubnetID.NotFound')
 ngFailureCode :: Lens' NatGateway (Maybe Text)
 ngFailureCode = lens _ngFailureCode (\ s a -> s{_ngFailureCode = a});
 
@@ -5458,6 +5504,8 @@ ngVPCId = lens _ngVPCId (\ s a -> s{_ngVPCId = a});
 --     'Elastic IP address eipalloc-xxxxxxxx is already associated'
 -- -   For InternalError:
 --     'Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again.'
+-- -   For InvalidSubnetID.NotFound:
+--     'The specified subnet subnet-xxxxxxxx does not exist or could not be found.'
 ngFailureMessage :: Lens' NatGateway (Maybe Text)
 ngFailureMessage = lens _ngFailureMessage (\ s a -> s{_ngFailureMessage = a});
 
@@ -6267,12 +6315,12 @@ placement =
     }
 
 -- | The affinity setting for the instance on the Dedicated host. This
--- parameter is not supported for the ImportInstance command.
+-- parameter is not supported for the < ImportInstance> command.
 pAffinity :: Lens' Placement (Maybe Text)
 pAffinity = lens _pAffinity (\ s a -> s{_pAffinity = a});
 
 -- | The ID of the Dedicted host on which the instance resides. This
--- parameter is not support for the ImportInstance command.
+-- parameter is not support for the < ImportInstance> command.
 pHostId :: Lens' Placement (Maybe Text)
 pHostId = lens _pHostId (\ s a -> s{_pHostId = a});
 
@@ -6282,7 +6330,7 @@ pAvailabilityZone = lens _pAvailabilityZone (\ s a -> s{_pAvailabilityZone = a})
 
 -- | The tenancy of the instance (if the instance is running in a VPC). An
 -- instance with a tenancy of 'dedicated' runs on single-tenant hardware.
--- The 'host' tenancy is not supported for the ImportInstance command.
+-- The 'host' tenancy is not supported for the < ImportInstance> command.
 pTenancy :: Lens' Placement (Maybe Tenancy)
 pTenancy = lens _pTenancy (\ s a -> s{_pTenancy = a});
 
@@ -6467,7 +6515,7 @@ instance ToQuery PrefixListId where
         toQuery PrefixListId'{..}
           = mconcat ["PrefixListId" =: _pliPrefixListId]
 
--- | Describes the price for a Reserved instance.
+-- | Describes the price for a Reserved Instance.
 --
 -- /See:/ 'priceSchedule' smart constructor.
 data PriceSchedule = PriceSchedule'
@@ -6498,7 +6546,7 @@ priceSchedule =
     , _psPrice = Nothing
     }
 
--- | The currency for transacting the Reserved instance resale. At this time,
+-- | The currency for transacting the Reserved Instance resale. At this time,
 -- the only supported currency is 'USD'.
 psCurrencyCode :: Lens' PriceSchedule (Maybe CurrencyCodeValues)
 psCurrencyCode = lens _psCurrencyCode (\ s a -> s{_psCurrencyCode = a});
@@ -6509,11 +6557,11 @@ psTerm :: Lens' PriceSchedule (Maybe Integer)
 psTerm = lens _psTerm (\ s a -> s{_psTerm = a});
 
 -- | The current price schedule, as determined by the term remaining for the
--- Reserved instance in the listing.
+-- Reserved Instance in the listing.
 --
 -- A specific price schedule is always in effect, but only one price
 -- schedule can be active at any time. Take, for example, a Reserved
--- instance listing that has five months remaining in its term. When you
+-- Instance listing that has five months remaining in its term. When you
 -- specify price schedules for five months and two months, this means that
 -- schedule 1, covering the first three months of the remaining term, will
 -- be active during months 5, 4, and 3. Then schedule 2, covering the last
@@ -6532,7 +6580,7 @@ instance FromXML PriceSchedule where
                 (x .@? "active")
                 <*> (x .@? "price")
 
--- | Describes the price for a Reserved instance.
+-- | Describes the price for a Reserved Instance.
 --
 -- /See:/ 'priceScheduleSpecification' smart constructor.
 data PriceScheduleSpecification = PriceScheduleSpecification'
@@ -6559,7 +6607,7 @@ priceScheduleSpecification =
     , _pssPrice = Nothing
     }
 
--- | The currency for transacting the Reserved instance resale. At this time,
+-- | The currency for transacting the Reserved Instance resale. At this time,
 -- the only supported currency is 'USD'.
 pssCurrencyCode :: Lens' PriceScheduleSpecification (Maybe CurrencyCodeValues)
 pssCurrencyCode = lens _pssCurrencyCode (\ s a -> s{_pssCurrencyCode = a});
@@ -6579,7 +6627,7 @@ instance ToQuery PriceScheduleSpecification where
               ["CurrencyCode" =: _pssCurrencyCode,
                "Term" =: _pssTerm, "Price" =: _pssPrice]
 
--- | Describes a Reserved instance offering.
+-- | Describes a Reserved Instance offering.
 --
 -- /See:/ 'pricingDetail' smart constructor.
 data PricingDetail = PricingDetail'
@@ -6720,6 +6768,45 @@ pvGatewayId = lens _pvGatewayId (\ s a -> s{_pvGatewayId = a});
 
 instance FromXML PropagatingVGW where
         parseXML x = PropagatingVGW' <$> (x .@? "gatewayId")
+
+-- | Describes a request to purchase Scheduled Instances.
+--
+-- /See:/ 'purchaseRequest' smart constructor.
+data PurchaseRequest = PurchaseRequest'
+    { _prPurchaseToken :: !Text
+    , _prInstanceCount :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PurchaseRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prPurchaseToken'
+--
+-- * 'prInstanceCount'
+purchaseRequest
+    :: Text -- ^ 'prPurchaseToken'
+    -> Int -- ^ 'prInstanceCount'
+    -> PurchaseRequest
+purchaseRequest pPurchaseToken_ pInstanceCount_ =
+    PurchaseRequest'
+    { _prPurchaseToken = pPurchaseToken_
+    , _prInstanceCount = pInstanceCount_
+    }
+
+-- | The purchase token.
+prPurchaseToken :: Lens' PurchaseRequest Text
+prPurchaseToken = lens _prPurchaseToken (\ s a -> s{_prPurchaseToken = a});
+
+-- | The number of instances.
+prInstanceCount :: Lens' PurchaseRequest Int
+prInstanceCount = lens _prInstanceCount (\ s a -> s{_prInstanceCount = a});
+
+instance ToQuery PurchaseRequest where
+        toQuery PurchaseRequest'{..}
+          = mconcat
+              ["PurchaseToken" =: _prPurchaseToken,
+               "InstanceCount" =: _prInstanceCount]
 
 -- | Describes a recurring charge.
 --
@@ -7007,7 +7094,7 @@ reservation pReservationId_ pOwnerId_ =
     , _rOwnerId = pOwnerId_
     }
 
--- | One or more security groups.
+-- | [EC2-Classic only] One or more security groups.
 rGroups :: Lens' Reservation [GroupIdentifier]
 rGroups = lens _rGroups (\ s a -> s{_rGroups = a}) . _Default . _Coerce;
 
@@ -7040,7 +7127,7 @@ instance FromXML Reservation where
                 <*> (x .@ "reservationId")
                 <*> (x .@ "ownerId")
 
--- | Describes the limit price of a Reserved instance offering.
+-- | Describes the limit price of a Reserved Instance offering.
 --
 -- /See:/ 'reservedInstanceLimitPrice' smart constructor.
 data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice'
@@ -7079,7 +7166,7 @@ instance ToQuery ReservedInstanceLimitPrice where
               ["Amount" =: _rilpAmount,
                "CurrencyCode" =: _rilpCurrencyCode]
 
--- | Describes a Reserved instance.
+-- | Describes a Reserved Instance.
 --
 -- /See:/ 'reservedInstances' smart constructor.
 data ReservedInstances = ReservedInstances'
@@ -7158,11 +7245,11 @@ reservedInstances =
     , _riTags = Nothing
     }
 
--- | The state of the Reserved instance purchase.
+-- | The state of the Reserved Instance purchase.
 riState :: Lens' ReservedInstances (Maybe ReservedInstanceState)
 riState = lens _riState (\ s a -> s{_riState = a});
 
--- | The currency of the Reserved instance. It\'s specified using ISO 4217
+-- | The currency of the Reserved Instance. It\'s specified using ISO 4217
 -- standard currency codes. At this time, the only supported currency is
 -- 'USD'.
 riCurrencyCode :: Lens' ReservedInstances (Maybe CurrencyCodeValues)
@@ -7172,23 +7259,23 @@ riCurrencyCode = lens _riCurrencyCode (\ s a -> s{_riCurrencyCode = a});
 riInstanceCount :: Lens' ReservedInstances (Maybe Int)
 riInstanceCount = lens _riInstanceCount (\ s a -> s{_riInstanceCount = a});
 
--- | The Reserved instance product platform description.
+-- | The Reserved Instance product platform description.
 riProductDescription :: Lens' ReservedInstances (Maybe RIProductDescription)
 riProductDescription = lens _riProductDescription (\ s a -> s{_riProductDescription = a});
 
--- | The date and time the Reserved instance started.
+-- | The date and time the Reserved Instance started.
 riStart :: Lens' ReservedInstances (Maybe UTCTime)
 riStart = lens _riStart (\ s a -> s{_riStart = a}) . mapping _Time;
 
--- | The instance type on which the Reserved instance can be used.
+-- | The instance type on which the Reserved Instance can be used.
 riInstanceType :: Lens' ReservedInstances (Maybe InstanceType)
 riInstanceType = lens _riInstanceType (\ s a -> s{_riInstanceType = a});
 
--- | The time when the Reserved instance expires.
+-- | The time when the Reserved Instance expires.
 riEnd :: Lens' ReservedInstances (Maybe UTCTime)
 riEnd = lens _riEnd (\ s a -> s{_riEnd = a}) . mapping _Time;
 
--- | The Availability Zone in which the Reserved instance can be used.
+-- | The Availability Zone in which the Reserved Instance can be used.
 riAvailabilityZone :: Lens' ReservedInstances (Maybe Text)
 riAvailabilityZone = lens _riAvailabilityZone (\ s a -> s{_riAvailabilityZone = a});
 
@@ -7196,27 +7283,27 @@ riAvailabilityZone = lens _riAvailabilityZone (\ s a -> s{_riAvailabilityZone = 
 riRecurringCharges :: Lens' ReservedInstances [RecurringCharge]
 riRecurringCharges = lens _riRecurringCharges (\ s a -> s{_riRecurringCharges = a}) . _Default . _Coerce;
 
--- | The Reserved instance offering type.
+-- | The Reserved Instance offering type.
 riOfferingType :: Lens' ReservedInstances (Maybe OfferingTypeValues)
 riOfferingType = lens _riOfferingType (\ s a -> s{_riOfferingType = a});
 
--- | The usage price of the Reserved instance, per hour.
+-- | The usage price of the Reserved Instance, per hour.
 riUsagePrice :: Lens' ReservedInstances (Maybe Double)
 riUsagePrice = lens _riUsagePrice (\ s a -> s{_riUsagePrice = a});
 
--- | The purchase price of the Reserved instance.
+-- | The purchase price of the Reserved Instance.
 riFixedPrice :: Lens' ReservedInstances (Maybe Double)
 riFixedPrice = lens _riFixedPrice (\ s a -> s{_riFixedPrice = a});
 
--- | The ID of the Reserved instance.
+-- | The ID of the Reserved Instance.
 riReservedInstancesId :: Lens' ReservedInstances (Maybe Text)
 riReservedInstancesId = lens _riReservedInstancesId (\ s a -> s{_riReservedInstancesId = a});
 
--- | The tenancy of the reserved instance.
+-- | The tenancy of the instance.
 riInstanceTenancy :: Lens' ReservedInstances (Maybe Tenancy)
 riInstanceTenancy = lens _riInstanceTenancy (\ s a -> s{_riInstanceTenancy = a});
 
--- | The duration of the Reserved instance, in seconds.
+-- | The duration of the Reserved Instance, in seconds.
 riDuration :: Lens' ReservedInstances (Maybe Integer)
 riDuration = lens _riDuration (\ s a -> s{_riDuration = a});
 
@@ -7248,7 +7335,7 @@ instance FromXML ReservedInstances where
                    may (parseXMLList "item"))
 
 -- | Describes the configuration settings for the modified Reserved
--- instances.
+-- Instances.
 --
 -- /See:/ 'reservedInstancesConfiguration' smart constructor.
 data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
@@ -7279,20 +7366,20 @@ reservedInstancesConfiguration =
     , _ricAvailabilityZone = Nothing
     }
 
--- | The network platform of the modified Reserved instances, which is either
+-- | The network platform of the modified Reserved Instances, which is either
 -- EC2-Classic or EC2-VPC.
 ricPlatform :: Lens' ReservedInstancesConfiguration (Maybe Text)
 ricPlatform = lens _ricPlatform (\ s a -> s{_ricPlatform = a});
 
--- | The number of modified Reserved instances.
+-- | The number of modified Reserved Instances.
 ricInstanceCount :: Lens' ReservedInstancesConfiguration (Maybe Int)
 ricInstanceCount = lens _ricInstanceCount (\ s a -> s{_ricInstanceCount = a});
 
--- | The instance type for the modified Reserved instances.
+-- | The instance type for the modified Reserved Instances.
 ricInstanceType :: Lens' ReservedInstancesConfiguration (Maybe InstanceType)
 ricInstanceType = lens _ricInstanceType (\ s a -> s{_ricInstanceType = a});
 
--- | The Availability Zone for the modified Reserved instances.
+-- | The Availability Zone for the modified Reserved Instances.
 ricAvailabilityZone :: Lens' ReservedInstancesConfiguration (Maybe Text)
 ricAvailabilityZone = lens _ricAvailabilityZone (\ s a -> s{_ricAvailabilityZone = a});
 
@@ -7311,7 +7398,7 @@ instance ToQuery ReservedInstancesConfiguration where
                "InstanceType" =: _ricInstanceType,
                "AvailabilityZone" =: _ricAvailabilityZone]
 
--- | Describes the ID of a Reserved instance.
+-- | Describes the ID of a Reserved Instance.
 --
 -- /See:/ 'reservedInstancesId' smart constructor.
 newtype ReservedInstancesId = ReservedInstancesId'
@@ -7330,7 +7417,7 @@ reservedInstancesId =
     { _riiReservedInstancesId = Nothing
     }
 
--- | The ID of the Reserved instance.
+-- | The ID of the Reserved Instance.
 riiReservedInstancesId :: Lens' ReservedInstancesId (Maybe Text)
 riiReservedInstancesId = lens _riiReservedInstancesId (\ s a -> s{_riiReservedInstancesId = a});
 
@@ -7339,7 +7426,7 @@ instance FromXML ReservedInstancesId where
           = ReservedInstancesId' <$>
               (x .@? "reservedInstancesId")
 
--- | Describes a Reserved instance listing.
+-- | Describes a Reserved Instance listing.
 --
 -- /See:/ 'reservedInstancesListing' smart constructor.
 data ReservedInstancesListing = ReservedInstancesListing'
@@ -7394,7 +7481,7 @@ reservedInstancesListing =
     , _rilReservedInstancesListingId = Nothing
     }
 
--- | The status of the Reserved instance listing.
+-- | The status of the Reserved Instance listing.
 rilStatus :: Lens' ReservedInstancesListing (Maybe ListingStatus)
 rilStatus = lens _rilStatus (\ s a -> s{_rilStatus = a});
 
@@ -7412,16 +7499,16 @@ rilUpdateDate = lens _rilUpdateDate (\ s a -> s{_rilUpdateDate = a}) . mapping _
 rilCreateDate :: Lens' ReservedInstancesListing (Maybe UTCTime)
 rilCreateDate = lens _rilCreateDate (\ s a -> s{_rilCreateDate = a}) . mapping _Time;
 
--- | The price of the Reserved instance listing.
+-- | The price of the Reserved Instance listing.
 rilPriceSchedules :: Lens' ReservedInstancesListing [PriceSchedule]
 rilPriceSchedules = lens _rilPriceSchedules (\ s a -> s{_rilPriceSchedules = a}) . _Default . _Coerce;
 
--- | The reason for the current status of the Reserved instance listing. The
+-- | The reason for the current status of the Reserved Instance listing. The
 -- response can be blank.
 rilStatusMessage :: Lens' ReservedInstancesListing (Maybe Text)
 rilStatusMessage = lens _rilStatusMessage (\ s a -> s{_rilStatusMessage = a});
 
--- | The ID of the Reserved instance.
+-- | The ID of the Reserved Instance.
 rilReservedInstancesId :: Lens' ReservedInstancesListing (Maybe Text)
 rilReservedInstancesId = lens _rilReservedInstancesId (\ s a -> s{_rilReservedInstancesId = a});
 
@@ -7433,7 +7520,7 @@ rilTags = lens _rilTags (\ s a -> s{_rilTags = a}) . _Default . _Coerce;
 rilInstanceCounts :: Lens' ReservedInstancesListing [InstanceCount]
 rilInstanceCounts = lens _rilInstanceCounts (\ s a -> s{_rilInstanceCounts = a}) . _Default . _Coerce;
 
--- | The ID of the Reserved instance listing.
+-- | The ID of the Reserved Instance listing.
 rilReservedInstancesListingId :: Lens' ReservedInstancesListing (Maybe Text)
 rilReservedInstancesListingId = lens _rilReservedInstancesListingId (\ s a -> s{_rilReservedInstancesListingId = a});
 
@@ -7456,7 +7543,7 @@ instance FromXML ReservedInstancesListing where
                    may (parseXMLList "item"))
                 <*> (x .@? "reservedInstancesListingId")
 
--- | Describes a Reserved instance modification.
+-- | Describes a Reserved Instance modification.
 --
 -- /See:/ 'reservedInstancesModification' smart constructor.
 data ReservedInstancesModification = ReservedInstancesModification'
@@ -7508,11 +7595,11 @@ reservedInstancesModification =
     }
 
 -- | Contains target configurations along with their corresponding new
--- Reserved instance IDs.
+-- Reserved Instance IDs.
 rimModificationResults :: Lens' ReservedInstancesModification [ReservedInstancesModificationResult]
 rimModificationResults = lens _rimModificationResults (\ s a -> s{_rimModificationResults = a}) . _Default . _Coerce;
 
--- | The status of the Reserved instances modification request.
+-- | The status of the Reserved Instances modification request.
 rimStatus :: Lens' ReservedInstancesModification (Maybe Text)
 rimStatus = lens _rimStatus (\ s a -> s{_rimStatus = a});
 
@@ -7538,11 +7625,11 @@ rimEffectiveDate = lens _rimEffectiveDate (\ s a -> s{_rimEffectiveDate = a}) . 
 rimStatusMessage :: Lens' ReservedInstancesModification (Maybe Text)
 rimStatusMessage = lens _rimStatusMessage (\ s a -> s{_rimStatusMessage = a});
 
--- | A unique ID for the Reserved instance modification.
+-- | A unique ID for the Reserved Instance modification.
 rimReservedInstancesModificationId :: Lens' ReservedInstancesModification (Maybe Text)
 rimReservedInstancesModificationId = lens _rimReservedInstancesModificationId (\ s a -> s{_rimReservedInstancesModificationId = a});
 
--- | The IDs of one or more Reserved instances.
+-- | The IDs of one or more Reserved Instances.
 rimReservedInstancesIds :: Lens' ReservedInstancesModification [ReservedInstancesId]
 rimReservedInstancesIds = lens _rimReservedInstancesIds (\ s a -> s{_rimReservedInstancesIds = a}) . _Default . _Coerce;
 
@@ -7583,13 +7670,13 @@ reservedInstancesModificationResult =
     , _rimrTargetConfiguration = Nothing
     }
 
--- | The ID for the Reserved instances that were created as part of the
+-- | The ID for the Reserved Instances that were created as part of the
 -- modification request. This field is only available when the modification
 -- is fulfilled.
 rimrReservedInstancesId :: Lens' ReservedInstancesModificationResult (Maybe Text)
 rimrReservedInstancesId = lens _rimrReservedInstancesId (\ s a -> s{_rimrReservedInstancesId = a});
 
--- | The target Reserved instances configurations supplied as part of the
+-- | The target Reserved Instances configurations supplied as part of the
 -- modification request.
 rimrTargetConfiguration :: Lens' ReservedInstancesModificationResult (Maybe ReservedInstancesConfiguration)
 rimrTargetConfiguration = lens _rimrTargetConfiguration (\ s a -> s{_rimrTargetConfiguration = a});
@@ -7601,7 +7688,7 @@ instance FromXML ReservedInstancesModificationResult
               (x .@? "reservedInstancesId") <*>
                 (x .@? "targetConfiguration")
 
--- | Describes a Reserved instance offering.
+-- | Describes a Reserved Instance offering.
 --
 -- /See:/ 'reservedInstancesOffering' smart constructor.
 data ReservedInstancesOffering = ReservedInstancesOffering'
@@ -7674,25 +7761,25 @@ reservedInstancesOffering =
 rioMarketplace :: Lens' ReservedInstancesOffering (Maybe Bool)
 rioMarketplace = lens _rioMarketplace (\ s a -> s{_rioMarketplace = a});
 
--- | The currency of the Reserved instance offering you are purchasing. It\'s
+-- | The currency of the Reserved Instance offering you are purchasing. It\'s
 -- specified using ISO 4217 standard currency codes. At this time, the only
 -- supported currency is 'USD'.
 rioCurrencyCode :: Lens' ReservedInstancesOffering (Maybe CurrencyCodeValues)
 rioCurrencyCode = lens _rioCurrencyCode (\ s a -> s{_rioCurrencyCode = a});
 
--- | The Reserved instance product platform description.
+-- | The Reserved Instance product platform description.
 rioProductDescription :: Lens' ReservedInstancesOffering (Maybe RIProductDescription)
 rioProductDescription = lens _rioProductDescription (\ s a -> s{_rioProductDescription = a});
 
--- | The instance type on which the Reserved instance can be used.
+-- | The instance type on which the Reserved Instance can be used.
 rioInstanceType :: Lens' ReservedInstancesOffering (Maybe InstanceType)
 rioInstanceType = lens _rioInstanceType (\ s a -> s{_rioInstanceType = a});
 
--- | The Availability Zone in which the Reserved instance can be used.
+-- | The Availability Zone in which the Reserved Instance can be used.
 rioAvailabilityZone :: Lens' ReservedInstancesOffering (Maybe Text)
 rioAvailabilityZone = lens _rioAvailabilityZone (\ s a -> s{_rioAvailabilityZone = a});
 
--- | The pricing details of the Reserved instance offering.
+-- | The pricing details of the Reserved Instance offering.
 rioPricingDetails :: Lens' ReservedInstancesOffering [PricingDetail]
 rioPricingDetails = lens _rioPricingDetails (\ s a -> s{_rioPricingDetails = a}) . _Default . _Coerce;
 
@@ -7700,27 +7787,27 @@ rioPricingDetails = lens _rioPricingDetails (\ s a -> s{_rioPricingDetails = a})
 rioRecurringCharges :: Lens' ReservedInstancesOffering [RecurringCharge]
 rioRecurringCharges = lens _rioRecurringCharges (\ s a -> s{_rioRecurringCharges = a}) . _Default . _Coerce;
 
--- | The Reserved instance offering type.
+-- | The Reserved Instance offering type.
 rioOfferingType :: Lens' ReservedInstancesOffering (Maybe OfferingTypeValues)
 rioOfferingType = lens _rioOfferingType (\ s a -> s{_rioOfferingType = a});
 
--- | The usage price of the Reserved instance, per hour.
+-- | The usage price of the Reserved Instance, per hour.
 rioUsagePrice :: Lens' ReservedInstancesOffering (Maybe Double)
 rioUsagePrice = lens _rioUsagePrice (\ s a -> s{_rioUsagePrice = a});
 
--- | The purchase price of the Reserved instance.
+-- | The purchase price of the Reserved Instance.
 rioFixedPrice :: Lens' ReservedInstancesOffering (Maybe Double)
 rioFixedPrice = lens _rioFixedPrice (\ s a -> s{_rioFixedPrice = a});
 
--- | The tenancy of the reserved instance.
+-- | The tenancy of the instance.
 rioInstanceTenancy :: Lens' ReservedInstancesOffering (Maybe Tenancy)
 rioInstanceTenancy = lens _rioInstanceTenancy (\ s a -> s{_rioInstanceTenancy = a});
 
--- | The ID of the Reserved instance offering.
+-- | The ID of the Reserved Instance offering.
 rioReservedInstancesOfferingId :: Lens' ReservedInstancesOffering (Maybe Text)
 rioReservedInstancesOfferingId = lens _rioReservedInstancesOfferingId (\ s a -> s{_rioReservedInstancesOfferingId = a});
 
--- | The duration of the Reserved instance, in seconds.
+-- | The duration of the Reserved Instance, in seconds.
 rioDuration :: Lens' ReservedInstancesOffering (Maybe Integer)
 rioDuration = lens _rioDuration (\ s a -> s{_rioDuration = a});
 
@@ -8116,6 +8203,1025 @@ instance ToQuery S3Storage where
                "UploadPolicySignature" =: _ssUploadPolicySignature,
                "AWSAccessKeyId" =: _ssAWSAccessKeyId]
 
+-- | Describes a Scheduled Instance.
+--
+-- /See:/ 'scheduledInstance' smart constructor.
+data ScheduledInstance = ScheduledInstance'
+    { _siPreviousSlotEndTime         :: !(Maybe ISO8601)
+    , _siPlatform                    :: !(Maybe Text)
+    , _siTermStartDate               :: !(Maybe ISO8601)
+    , _siInstanceCount               :: !(Maybe Int)
+    , _siScheduledInstanceId         :: !(Maybe Text)
+    , _siHourlyPrice                 :: !(Maybe Text)
+    , _siCreateDate                  :: !(Maybe ISO8601)
+    , _siSlotDurationInHours         :: !(Maybe Int)
+    , _siTotalScheduledInstanceHours :: !(Maybe Int)
+    , _siInstanceType                :: !(Maybe Text)
+    , _siRecurrence                  :: !(Maybe ScheduledInstanceRecurrence)
+    , _siAvailabilityZone            :: !(Maybe Text)
+    , _siTermEndDate                 :: !(Maybe ISO8601)
+    , _siNextSlotStartTime           :: !(Maybe ISO8601)
+    , _siNetworkPlatform             :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduledInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'siPreviousSlotEndTime'
+--
+-- * 'siPlatform'
+--
+-- * 'siTermStartDate'
+--
+-- * 'siInstanceCount'
+--
+-- * 'siScheduledInstanceId'
+--
+-- * 'siHourlyPrice'
+--
+-- * 'siCreateDate'
+--
+-- * 'siSlotDurationInHours'
+--
+-- * 'siTotalScheduledInstanceHours'
+--
+-- * 'siInstanceType'
+--
+-- * 'siRecurrence'
+--
+-- * 'siAvailabilityZone'
+--
+-- * 'siTermEndDate'
+--
+-- * 'siNextSlotStartTime'
+--
+-- * 'siNetworkPlatform'
+scheduledInstance
+    :: ScheduledInstance
+scheduledInstance =
+    ScheduledInstance'
+    { _siPreviousSlotEndTime = Nothing
+    , _siPlatform = Nothing
+    , _siTermStartDate = Nothing
+    , _siInstanceCount = Nothing
+    , _siScheduledInstanceId = Nothing
+    , _siHourlyPrice = Nothing
+    , _siCreateDate = Nothing
+    , _siSlotDurationInHours = Nothing
+    , _siTotalScheduledInstanceHours = Nothing
+    , _siInstanceType = Nothing
+    , _siRecurrence = Nothing
+    , _siAvailabilityZone = Nothing
+    , _siTermEndDate = Nothing
+    , _siNextSlotStartTime = Nothing
+    , _siNetworkPlatform = Nothing
+    }
+
+-- | The time that the previous schedule ended or will end.
+siPreviousSlotEndTime :: Lens' ScheduledInstance (Maybe UTCTime)
+siPreviousSlotEndTime = lens _siPreviousSlotEndTime (\ s a -> s{_siPreviousSlotEndTime = a}) . mapping _Time;
+
+-- | The platform ('Linux\/UNIX' or 'Windows').
+siPlatform :: Lens' ScheduledInstance (Maybe Text)
+siPlatform = lens _siPlatform (\ s a -> s{_siPlatform = a});
+
+-- | The start date for the Scheduled Instance.
+siTermStartDate :: Lens' ScheduledInstance (Maybe UTCTime)
+siTermStartDate = lens _siTermStartDate (\ s a -> s{_siTermStartDate = a}) . mapping _Time;
+
+-- | The number of instances.
+siInstanceCount :: Lens' ScheduledInstance (Maybe Int)
+siInstanceCount = lens _siInstanceCount (\ s a -> s{_siInstanceCount = a});
+
+-- | The Scheduled Instance ID.
+siScheduledInstanceId :: Lens' ScheduledInstance (Maybe Text)
+siScheduledInstanceId = lens _siScheduledInstanceId (\ s a -> s{_siScheduledInstanceId = a});
+
+-- | The hourly price for a single instance.
+siHourlyPrice :: Lens' ScheduledInstance (Maybe Text)
+siHourlyPrice = lens _siHourlyPrice (\ s a -> s{_siHourlyPrice = a});
+
+-- | The date when the Scheduled Instance was purchased.
+siCreateDate :: Lens' ScheduledInstance (Maybe UTCTime)
+siCreateDate = lens _siCreateDate (\ s a -> s{_siCreateDate = a}) . mapping _Time;
+
+-- | The number of hours in the schedule.
+siSlotDurationInHours :: Lens' ScheduledInstance (Maybe Int)
+siSlotDurationInHours = lens _siSlotDurationInHours (\ s a -> s{_siSlotDurationInHours = a});
+
+-- | The total number of hours for a single instance for the entire term.
+siTotalScheduledInstanceHours :: Lens' ScheduledInstance (Maybe Int)
+siTotalScheduledInstanceHours = lens _siTotalScheduledInstanceHours (\ s a -> s{_siTotalScheduledInstanceHours = a});
+
+-- | The instance type.
+siInstanceType :: Lens' ScheduledInstance (Maybe Text)
+siInstanceType = lens _siInstanceType (\ s a -> s{_siInstanceType = a});
+
+-- | The schedule recurrence.
+siRecurrence :: Lens' ScheduledInstance (Maybe ScheduledInstanceRecurrence)
+siRecurrence = lens _siRecurrence (\ s a -> s{_siRecurrence = a});
+
+-- | The Availability Zone.
+siAvailabilityZone :: Lens' ScheduledInstance (Maybe Text)
+siAvailabilityZone = lens _siAvailabilityZone (\ s a -> s{_siAvailabilityZone = a});
+
+-- | The end date for the Scheduled Instance.
+siTermEndDate :: Lens' ScheduledInstance (Maybe UTCTime)
+siTermEndDate = lens _siTermEndDate (\ s a -> s{_siTermEndDate = a}) . mapping _Time;
+
+-- | The time for the next schedule to start.
+siNextSlotStartTime :: Lens' ScheduledInstance (Maybe UTCTime)
+siNextSlotStartTime = lens _siNextSlotStartTime (\ s a -> s{_siNextSlotStartTime = a}) . mapping _Time;
+
+-- | The network platform ('EC2-Classic' or 'EC2-VPC').
+siNetworkPlatform :: Lens' ScheduledInstance (Maybe Text)
+siNetworkPlatform = lens _siNetworkPlatform (\ s a -> s{_siNetworkPlatform = a});
+
+instance FromXML ScheduledInstance where
+        parseXML x
+          = ScheduledInstance' <$>
+              (x .@? "previousSlotEndTime") <*> (x .@? "platform")
+                <*> (x .@? "termStartDate")
+                <*> (x .@? "instanceCount")
+                <*> (x .@? "scheduledInstanceId")
+                <*> (x .@? "hourlyPrice")
+                <*> (x .@? "createDate")
+                <*> (x .@? "slotDurationInHours")
+                <*> (x .@? "totalScheduledInstanceHours")
+                <*> (x .@? "instanceType")
+                <*> (x .@? "recurrence")
+                <*> (x .@? "availabilityZone")
+                <*> (x .@? "termEndDate")
+                <*> (x .@? "nextSlotStartTime")
+                <*> (x .@? "networkPlatform")
+
+-- | Describes a schedule that is available for your Scheduled Instances.
+--
+-- /See:/ 'scheduledInstanceAvailability' smart constructor.
+data ScheduledInstanceAvailability = ScheduledInstanceAvailability'
+    { _siaMaxTermDurationInDays       :: !(Maybe Int)
+    , _siaPlatform                    :: !(Maybe Text)
+    , _siaPurchaseToken               :: !(Maybe Text)
+    , _siaHourlyPrice                 :: !(Maybe Text)
+    , _siaAvailableInstanceCount      :: !(Maybe Int)
+    , _siaSlotDurationInHours         :: !(Maybe Int)
+    , _siaTotalScheduledInstanceHours :: !(Maybe Int)
+    , _siaInstanceType                :: !(Maybe Text)
+    , _siaRecurrence                  :: !(Maybe ScheduledInstanceRecurrence)
+    , _siaAvailabilityZone            :: !(Maybe Text)
+    , _siaMinTermDurationInDays       :: !(Maybe Int)
+    , _siaFirstSlotStartTime          :: !(Maybe ISO8601)
+    , _siaNetworkPlatform             :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduledInstanceAvailability' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'siaMaxTermDurationInDays'
+--
+-- * 'siaPlatform'
+--
+-- * 'siaPurchaseToken'
+--
+-- * 'siaHourlyPrice'
+--
+-- * 'siaAvailableInstanceCount'
+--
+-- * 'siaSlotDurationInHours'
+--
+-- * 'siaTotalScheduledInstanceHours'
+--
+-- * 'siaInstanceType'
+--
+-- * 'siaRecurrence'
+--
+-- * 'siaAvailabilityZone'
+--
+-- * 'siaMinTermDurationInDays'
+--
+-- * 'siaFirstSlotStartTime'
+--
+-- * 'siaNetworkPlatform'
+scheduledInstanceAvailability
+    :: ScheduledInstanceAvailability
+scheduledInstanceAvailability =
+    ScheduledInstanceAvailability'
+    { _siaMaxTermDurationInDays = Nothing
+    , _siaPlatform = Nothing
+    , _siaPurchaseToken = Nothing
+    , _siaHourlyPrice = Nothing
+    , _siaAvailableInstanceCount = Nothing
+    , _siaSlotDurationInHours = Nothing
+    , _siaTotalScheduledInstanceHours = Nothing
+    , _siaInstanceType = Nothing
+    , _siaRecurrence = Nothing
+    , _siaAvailabilityZone = Nothing
+    , _siaMinTermDurationInDays = Nothing
+    , _siaFirstSlotStartTime = Nothing
+    , _siaNetworkPlatform = Nothing
+    }
+
+-- | The maximum term. The only possible value is 365 days.
+siaMaxTermDurationInDays :: Lens' ScheduledInstanceAvailability (Maybe Int)
+siaMaxTermDurationInDays = lens _siaMaxTermDurationInDays (\ s a -> s{_siaMaxTermDurationInDays = a});
+
+-- | The platform ('Linux\/UNIX' or 'Windows').
+siaPlatform :: Lens' ScheduledInstanceAvailability (Maybe Text)
+siaPlatform = lens _siaPlatform (\ s a -> s{_siaPlatform = a});
+
+-- | The purchase token. This token expires in two hours.
+siaPurchaseToken :: Lens' ScheduledInstanceAvailability (Maybe Text)
+siaPurchaseToken = lens _siaPurchaseToken (\ s a -> s{_siaPurchaseToken = a});
+
+-- | The hourly price for a single instance.
+siaHourlyPrice :: Lens' ScheduledInstanceAvailability (Maybe Text)
+siaHourlyPrice = lens _siaHourlyPrice (\ s a -> s{_siaHourlyPrice = a});
+
+-- | The number of available instances.
+siaAvailableInstanceCount :: Lens' ScheduledInstanceAvailability (Maybe Int)
+siaAvailableInstanceCount = lens _siaAvailableInstanceCount (\ s a -> s{_siaAvailableInstanceCount = a});
+
+-- | The number of hours in the schedule.
+siaSlotDurationInHours :: Lens' ScheduledInstanceAvailability (Maybe Int)
+siaSlotDurationInHours = lens _siaSlotDurationInHours (\ s a -> s{_siaSlotDurationInHours = a});
+
+-- | The total number of hours for a single instance for the entire term.
+siaTotalScheduledInstanceHours :: Lens' ScheduledInstanceAvailability (Maybe Int)
+siaTotalScheduledInstanceHours = lens _siaTotalScheduledInstanceHours (\ s a -> s{_siaTotalScheduledInstanceHours = a});
+
+-- | The instance type. You can specify one of the C3, C4, M4, or R3 instance
+-- types.
+siaInstanceType :: Lens' ScheduledInstanceAvailability (Maybe Text)
+siaInstanceType = lens _siaInstanceType (\ s a -> s{_siaInstanceType = a});
+
+-- | The schedule recurrence.
+siaRecurrence :: Lens' ScheduledInstanceAvailability (Maybe ScheduledInstanceRecurrence)
+siaRecurrence = lens _siaRecurrence (\ s a -> s{_siaRecurrence = a});
+
+-- | The Availability Zone.
+siaAvailabilityZone :: Lens' ScheduledInstanceAvailability (Maybe Text)
+siaAvailabilityZone = lens _siaAvailabilityZone (\ s a -> s{_siaAvailabilityZone = a});
+
+-- | The minimum term. The only possible value is 365 days.
+siaMinTermDurationInDays :: Lens' ScheduledInstanceAvailability (Maybe Int)
+siaMinTermDurationInDays = lens _siaMinTermDurationInDays (\ s a -> s{_siaMinTermDurationInDays = a});
+
+-- | The time period for the first schedule to start.
+siaFirstSlotStartTime :: Lens' ScheduledInstanceAvailability (Maybe UTCTime)
+siaFirstSlotStartTime = lens _siaFirstSlotStartTime (\ s a -> s{_siaFirstSlotStartTime = a}) . mapping _Time;
+
+-- | The network platform ('EC2-Classic' or 'EC2-VPC').
+siaNetworkPlatform :: Lens' ScheduledInstanceAvailability (Maybe Text)
+siaNetworkPlatform = lens _siaNetworkPlatform (\ s a -> s{_siaNetworkPlatform = a});
+
+instance FromXML ScheduledInstanceAvailability where
+        parseXML x
+          = ScheduledInstanceAvailability' <$>
+              (x .@? "maxTermDurationInDays") <*>
+                (x .@? "platform")
+                <*> (x .@? "purchaseToken")
+                <*> (x .@? "hourlyPrice")
+                <*> (x .@? "availableInstanceCount")
+                <*> (x .@? "slotDurationInHours")
+                <*> (x .@? "totalScheduledInstanceHours")
+                <*> (x .@? "instanceType")
+                <*> (x .@? "recurrence")
+                <*> (x .@? "availabilityZone")
+                <*> (x .@? "minTermDurationInDays")
+                <*> (x .@? "firstSlotStartTime")
+                <*> (x .@? "networkPlatform")
+
+-- | Describes the recurring schedule for a Scheduled Instance.
+--
+-- /See:/ 'scheduledInstanceRecurrence' smart constructor.
+data ScheduledInstanceRecurrence = ScheduledInstanceRecurrence'
+    { _sirFrequency               :: !(Maybe Text)
+    , _sirOccurrenceRelativeToEnd :: !(Maybe Bool)
+    , _sirOccurrenceUnit          :: !(Maybe Text)
+    , _sirInterval                :: !(Maybe Int)
+    , _sirOccurrenceDaySet        :: !(Maybe [Int])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduledInstanceRecurrence' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sirFrequency'
+--
+-- * 'sirOccurrenceRelativeToEnd'
+--
+-- * 'sirOccurrenceUnit'
+--
+-- * 'sirInterval'
+--
+-- * 'sirOccurrenceDaySet'
+scheduledInstanceRecurrence
+    :: ScheduledInstanceRecurrence
+scheduledInstanceRecurrence =
+    ScheduledInstanceRecurrence'
+    { _sirFrequency = Nothing
+    , _sirOccurrenceRelativeToEnd = Nothing
+    , _sirOccurrenceUnit = Nothing
+    , _sirInterval = Nothing
+    , _sirOccurrenceDaySet = Nothing
+    }
+
+-- | The frequency ('Daily', 'Weekly', or 'Monthly').
+sirFrequency :: Lens' ScheduledInstanceRecurrence (Maybe Text)
+sirFrequency = lens _sirFrequency (\ s a -> s{_sirFrequency = a});
+
+-- | Indicates whether the occurrence is relative to the end of the specified
+-- week or month.
+sirOccurrenceRelativeToEnd :: Lens' ScheduledInstanceRecurrence (Maybe Bool)
+sirOccurrenceRelativeToEnd = lens _sirOccurrenceRelativeToEnd (\ s a -> s{_sirOccurrenceRelativeToEnd = a});
+
+-- | The unit for 'occurrenceDaySet' ('DayOfWeek' or 'DayOfMonth').
+sirOccurrenceUnit :: Lens' ScheduledInstanceRecurrence (Maybe Text)
+sirOccurrenceUnit = lens _sirOccurrenceUnit (\ s a -> s{_sirOccurrenceUnit = a});
+
+-- | The interval quantity. The interval unit depends on the value of
+-- 'frequency'. For example, every 2 weeks or every 2 months.
+sirInterval :: Lens' ScheduledInstanceRecurrence (Maybe Int)
+sirInterval = lens _sirInterval (\ s a -> s{_sirInterval = a});
+
+-- | The days. For a monthly schedule, this is one or more days of the month
+-- (1-31). For a weekly schedule, this is one or more days of the week
+-- (1-7, where 1 is Sunday).
+sirOccurrenceDaySet :: Lens' ScheduledInstanceRecurrence [Int]
+sirOccurrenceDaySet = lens _sirOccurrenceDaySet (\ s a -> s{_sirOccurrenceDaySet = a}) . _Default . _Coerce;
+
+instance FromXML ScheduledInstanceRecurrence where
+        parseXML x
+          = ScheduledInstanceRecurrence' <$>
+              (x .@? "frequency") <*>
+                (x .@? "occurrenceRelativeToEnd")
+                <*> (x .@? "occurrenceUnit")
+                <*> (x .@? "interval")
+                <*>
+                (x .@? "occurrenceDaySet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+
+-- | Describes the recurring schedule for a Scheduled Instance.
+--
+-- /See:/ 'scheduledInstanceRecurrenceRequest' smart constructor.
+data ScheduledInstanceRecurrenceRequest = ScheduledInstanceRecurrenceRequest'
+    { _sirrFrequency               :: !(Maybe Text)
+    , _sirrOccurrenceRelativeToEnd :: !(Maybe Bool)
+    , _sirrOccurrenceDays          :: !(Maybe [Int])
+    , _sirrOccurrenceUnit          :: !(Maybe Text)
+    , _sirrInterval                :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduledInstanceRecurrenceRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sirrFrequency'
+--
+-- * 'sirrOccurrenceRelativeToEnd'
+--
+-- * 'sirrOccurrenceDays'
+--
+-- * 'sirrOccurrenceUnit'
+--
+-- * 'sirrInterval'
+scheduledInstanceRecurrenceRequest
+    :: ScheduledInstanceRecurrenceRequest
+scheduledInstanceRecurrenceRequest =
+    ScheduledInstanceRecurrenceRequest'
+    { _sirrFrequency = Nothing
+    , _sirrOccurrenceRelativeToEnd = Nothing
+    , _sirrOccurrenceDays = Nothing
+    , _sirrOccurrenceUnit = Nothing
+    , _sirrInterval = Nothing
+    }
+
+-- | The frequency ('Daily', 'Weekly', or 'Monthly').
+sirrFrequency :: Lens' ScheduledInstanceRecurrenceRequest (Maybe Text)
+sirrFrequency = lens _sirrFrequency (\ s a -> s{_sirrFrequency = a});
+
+-- | Indicates whether the occurrence is relative to the end of the specified
+-- week or month. You can\'t specify this value with a daily schedule.
+sirrOccurrenceRelativeToEnd :: Lens' ScheduledInstanceRecurrenceRequest (Maybe Bool)
+sirrOccurrenceRelativeToEnd = lens _sirrOccurrenceRelativeToEnd (\ s a -> s{_sirrOccurrenceRelativeToEnd = a});
+
+-- | The days. For a monthly schedule, this is one or more days of the month
+-- (1-31). For a weekly schedule, this is one or more days of the week
+-- (1-7, where 1 is Sunday). You can\'t specify this value with a daily
+-- schedule. If the occurrence is relative to the end of the month, you can
+-- specify only a single day.
+sirrOccurrenceDays :: Lens' ScheduledInstanceRecurrenceRequest [Int]
+sirrOccurrenceDays = lens _sirrOccurrenceDays (\ s a -> s{_sirrOccurrenceDays = a}) . _Default . _Coerce;
+
+-- | The unit for 'OccurrenceDays' ('DayOfWeek' or 'DayOfMonth'). This value
+-- is required for a monthly schedule. You can\'t specify 'DayOfWeek' with
+-- a weekly schedule. You can\'t specify this value with a daily schedule.
+sirrOccurrenceUnit :: Lens' ScheduledInstanceRecurrenceRequest (Maybe Text)
+sirrOccurrenceUnit = lens _sirrOccurrenceUnit (\ s a -> s{_sirrOccurrenceUnit = a});
+
+-- | The interval quantity. The interval unit depends on the value of
+-- 'Frequency'. For example, every 2 weeks or every 2 months.
+sirrInterval :: Lens' ScheduledInstanceRecurrenceRequest (Maybe Int)
+sirrInterval = lens _sirrInterval (\ s a -> s{_sirrInterval = a});
+
+instance ToQuery ScheduledInstanceRecurrenceRequest
+         where
+        toQuery ScheduledInstanceRecurrenceRequest'{..}
+          = mconcat
+              ["Frequency" =: _sirrFrequency,
+               "OccurrenceRelativeToEnd" =:
+                 _sirrOccurrenceRelativeToEnd,
+               toQuery
+                 (toQueryList "OccurrenceDay" <$>
+                    _sirrOccurrenceDays),
+               "OccurrenceUnit" =: _sirrOccurrenceUnit,
+               "Interval" =: _sirrInterval]
+
+-- | Describes a block device mapping for a Scheduled Instance.
+--
+-- /See:/ 'scheduledInstancesBlockDeviceMapping' smart constructor.
+data ScheduledInstancesBlockDeviceMapping = ScheduledInstancesBlockDeviceMapping'
+    { _sibdmVirtualName :: !(Maybe Text)
+    , _sibdmNoDevice    :: !(Maybe Text)
+    , _sibdmEBS         :: !(Maybe ScheduledInstancesEBS)
+    , _sibdmDeviceName  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduledInstancesBlockDeviceMapping' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sibdmVirtualName'
+--
+-- * 'sibdmNoDevice'
+--
+-- * 'sibdmEBS'
+--
+-- * 'sibdmDeviceName'
+scheduledInstancesBlockDeviceMapping
+    :: ScheduledInstancesBlockDeviceMapping
+scheduledInstancesBlockDeviceMapping =
+    ScheduledInstancesBlockDeviceMapping'
+    { _sibdmVirtualName = Nothing
+    , _sibdmNoDevice = Nothing
+    , _sibdmEBS = Nothing
+    , _sibdmDeviceName = Nothing
+    }
+
+-- | The virtual device name ('ephemeral'N). Instance store volumes are
+-- numbered starting from 0. An instance type with two available instance
+-- store volumes can specify mappings for 'ephemeral0' and 'ephemeral1'.The
+-- number of available instance store volumes depends on the instance type.
+-- After you connect to the instance, you must mount the volume.
+--
+-- Constraints: For M3 instances, you must specify instance store volumes
+-- in the block device mapping for the instance. When you launch an M3
+-- instance, we ignore any instance store volumes specified in the block
+-- device mapping for the AMI.
+sibdmVirtualName :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe Text)
+sibdmVirtualName = lens _sibdmVirtualName (\ s a -> s{_sibdmVirtualName = a});
+
+-- | Suppresses the specified device included in the block device mapping of
+-- the AMI.
+sibdmNoDevice :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe Text)
+sibdmNoDevice = lens _sibdmNoDevice (\ s a -> s{_sibdmNoDevice = a});
+
+-- | Parameters used to set up EBS volumes automatically when the instance is
+-- launched.
+sibdmEBS :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe ScheduledInstancesEBS)
+sibdmEBS = lens _sibdmEBS (\ s a -> s{_sibdmEBS = a});
+
+-- | The device name exposed to the instance (for example, '\/dev\/sdh' or
+-- 'xvdh').
+sibdmDeviceName :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe Text)
+sibdmDeviceName = lens _sibdmDeviceName (\ s a -> s{_sibdmDeviceName = a});
+
+instance ToQuery ScheduledInstancesBlockDeviceMapping
+         where
+        toQuery ScheduledInstancesBlockDeviceMapping'{..}
+          = mconcat
+              ["VirtualName" =: _sibdmVirtualName,
+               "NoDevice" =: _sibdmNoDevice, "Ebs" =: _sibdmEBS,
+               "DeviceName" =: _sibdmDeviceName]
+
+-- | Describes an EBS volume for a Scheduled Instance.
+--
+-- /See:/ 'scheduledInstancesEBS' smart constructor.
+data ScheduledInstancesEBS = ScheduledInstancesEBS'
+    { _sieDeleteOnTermination :: !(Maybe Bool)
+    , _sieVolumeSize          :: !(Maybe Int)
+    , _sieIOPS                :: !(Maybe Int)
+    , _sieEncrypted           :: !(Maybe Bool)
+    , _sieVolumeType          :: !(Maybe Text)
+    , _sieSnapshotId          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduledInstancesEBS' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sieDeleteOnTermination'
+--
+-- * 'sieVolumeSize'
+--
+-- * 'sieIOPS'
+--
+-- * 'sieEncrypted'
+--
+-- * 'sieVolumeType'
+--
+-- * 'sieSnapshotId'
+scheduledInstancesEBS
+    :: ScheduledInstancesEBS
+scheduledInstancesEBS =
+    ScheduledInstancesEBS'
+    { _sieDeleteOnTermination = Nothing
+    , _sieVolumeSize = Nothing
+    , _sieIOPS = Nothing
+    , _sieEncrypted = Nothing
+    , _sieVolumeType = Nothing
+    , _sieSnapshotId = Nothing
+    }
+
+-- | Indicates whether the volume is deleted on instance termination.
+sieDeleteOnTermination :: Lens' ScheduledInstancesEBS (Maybe Bool)
+sieDeleteOnTermination = lens _sieDeleteOnTermination (\ s a -> s{_sieDeleteOnTermination = a});
+
+-- | The size of the volume, in GiB.
+--
+-- Default: If you\'re creating the volume from a snapshot and don\'t
+-- specify a volume size, the default is the snapshot size.
+sieVolumeSize :: Lens' ScheduledInstancesEBS (Maybe Int)
+sieVolumeSize = lens _sieVolumeSize (\ s a -> s{_sieVolumeSize = a});
+
+-- | The number of I\/O operations per second (IOPS) that the volume
+-- supports. For Provisioned IOPS (SSD) volumes, this represents the number
+-- of IOPS that are provisioned for the volume. For General Purpose (SSD)
+-- volumes, this represents the baseline performance of the volume and the
+-- rate at which the volume accumulates I\/O credits for bursting. For more
+-- information about General Purpose (SSD) baseline performance, I\/O
+-- credits, and bursting, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and
+-- 3 to 10000 for General Purpose (SSD) volumes.
+--
+-- Condition: This parameter is required for requests to create 'io1'
+-- volumes; it is not used in requests to create 'standard' or 'gp2'
+-- volumes.
+sieIOPS :: Lens' ScheduledInstancesEBS (Maybe Int)
+sieIOPS = lens _sieIOPS (\ s a -> s{_sieIOPS = a});
+
+-- | Indicates whether the volume is encrypted. You can attached encrypted
+-- volumes only to instances that support them.
+sieEncrypted :: Lens' ScheduledInstancesEBS (Maybe Bool)
+sieEncrypted = lens _sieEncrypted (\ s a -> s{_sieEncrypted = a});
+
+-- | The volume type. 'gp2' for General Purpose (SSD) volumes, 'io1' for
+-- Provisioned IOPS (SSD) volumes, and 'standard' for Magnetic volumes.
+--
+-- Default: 'standard'
+sieVolumeType :: Lens' ScheduledInstancesEBS (Maybe Text)
+sieVolumeType = lens _sieVolumeType (\ s a -> s{_sieVolumeType = a});
+
+-- | The ID of the snapshot.
+sieSnapshotId :: Lens' ScheduledInstancesEBS (Maybe Text)
+sieSnapshotId = lens _sieSnapshotId (\ s a -> s{_sieSnapshotId = a});
+
+instance ToQuery ScheduledInstancesEBS where
+        toQuery ScheduledInstancesEBS'{..}
+          = mconcat
+              ["DeleteOnTermination" =: _sieDeleteOnTermination,
+               "VolumeSize" =: _sieVolumeSize, "Iops" =: _sieIOPS,
+               "Encrypted" =: _sieEncrypted,
+               "VolumeType" =: _sieVolumeType,
+               "SnapshotId" =: _sieSnapshotId]
+
+-- | Describes an IAM instance profile for a Scheduled Instance.
+--
+-- /See:/ 'scheduledInstancesIAMInstanceProfile' smart constructor.
+data ScheduledInstancesIAMInstanceProfile = ScheduledInstancesIAMInstanceProfile'
+    { _siiapARN  :: !(Maybe Text)
+    , _siiapName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduledInstancesIAMInstanceProfile' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'siiapARN'
+--
+-- * 'siiapName'
+scheduledInstancesIAMInstanceProfile
+    :: ScheduledInstancesIAMInstanceProfile
+scheduledInstancesIAMInstanceProfile =
+    ScheduledInstancesIAMInstanceProfile'
+    { _siiapARN = Nothing
+    , _siiapName = Nothing
+    }
+
+-- | The Amazon Resource Name (ARN).
+siiapARN :: Lens' ScheduledInstancesIAMInstanceProfile (Maybe Text)
+siiapARN = lens _siiapARN (\ s a -> s{_siiapARN = a});
+
+-- | The name.
+siiapName :: Lens' ScheduledInstancesIAMInstanceProfile (Maybe Text)
+siiapName = lens _siiapName (\ s a -> s{_siiapName = a});
+
+instance ToQuery ScheduledInstancesIAMInstanceProfile
+         where
+        toQuery ScheduledInstancesIAMInstanceProfile'{..}
+          = mconcat ["Arn" =: _siiapARN, "Name" =: _siiapName]
+
+-- | Describes the launch specification for a Scheduled Instance.
+--
+-- If you are launching the Scheduled Instance in EC2-VPC, you must specify
+-- the ID of the subnet. You can specify the subnet using either 'SubnetId'
+-- or 'NetworkInterface'.
+--
+-- /See:/ 'scheduledInstancesLaunchSpecification' smart constructor.
+data ScheduledInstancesLaunchSpecification = ScheduledInstancesLaunchSpecification'
+    { _silsSecurityGroupIds    :: !(Maybe [Text])
+    , _silsKeyName             :: !(Maybe Text)
+    , _silsNetworkInterfaces   :: !(Maybe [ScheduledInstancesNetworkInterface])
+    , _silsRAMDiskId           :: !(Maybe Text)
+    , _silsSubnetId            :: !(Maybe Text)
+    , _silsKernelId            :: !(Maybe Text)
+    , _silsInstanceType        :: !(Maybe Text)
+    , _silsEBSOptimized        :: !(Maybe Bool)
+    , _silsUserData            :: !(Maybe Text)
+    , _silsMonitoring          :: !(Maybe ScheduledInstancesMonitoring)
+    , _silsIAMInstanceProfile  :: !(Maybe ScheduledInstancesIAMInstanceProfile)
+    , _silsBlockDeviceMappings :: !(Maybe [ScheduledInstancesBlockDeviceMapping])
+    , _silsPlacement           :: !(Maybe ScheduledInstancesPlacement)
+    , _silsImageId             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduledInstancesLaunchSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'silsSecurityGroupIds'
+--
+-- * 'silsKeyName'
+--
+-- * 'silsNetworkInterfaces'
+--
+-- * 'silsRAMDiskId'
+--
+-- * 'silsSubnetId'
+--
+-- * 'silsKernelId'
+--
+-- * 'silsInstanceType'
+--
+-- * 'silsEBSOptimized'
+--
+-- * 'silsUserData'
+--
+-- * 'silsMonitoring'
+--
+-- * 'silsIAMInstanceProfile'
+--
+-- * 'silsBlockDeviceMappings'
+--
+-- * 'silsPlacement'
+--
+-- * 'silsImageId'
+scheduledInstancesLaunchSpecification
+    :: Text -- ^ 'silsImageId'
+    -> ScheduledInstancesLaunchSpecification
+scheduledInstancesLaunchSpecification pImageId_ =
+    ScheduledInstancesLaunchSpecification'
+    { _silsSecurityGroupIds = Nothing
+    , _silsKeyName = Nothing
+    , _silsNetworkInterfaces = Nothing
+    , _silsRAMDiskId = Nothing
+    , _silsSubnetId = Nothing
+    , _silsKernelId = Nothing
+    , _silsInstanceType = Nothing
+    , _silsEBSOptimized = Nothing
+    , _silsUserData = Nothing
+    , _silsMonitoring = Nothing
+    , _silsIAMInstanceProfile = Nothing
+    , _silsBlockDeviceMappings = Nothing
+    , _silsPlacement = Nothing
+    , _silsImageId = pImageId_
+    }
+
+-- | The IDs of one or more security groups.
+silsSecurityGroupIds :: Lens' ScheduledInstancesLaunchSpecification [Text]
+silsSecurityGroupIds = lens _silsSecurityGroupIds (\ s a -> s{_silsSecurityGroupIds = a}) . _Default . _Coerce;
+
+-- | The name of the key pair.
+silsKeyName :: Lens' ScheduledInstancesLaunchSpecification (Maybe Text)
+silsKeyName = lens _silsKeyName (\ s a -> s{_silsKeyName = a});
+
+-- | One or more network interfaces.
+silsNetworkInterfaces :: Lens' ScheduledInstancesLaunchSpecification [ScheduledInstancesNetworkInterface]
+silsNetworkInterfaces = lens _silsNetworkInterfaces (\ s a -> s{_silsNetworkInterfaces = a}) . _Default . _Coerce;
+
+-- | The ID of the RAM disk.
+silsRAMDiskId :: Lens' ScheduledInstancesLaunchSpecification (Maybe Text)
+silsRAMDiskId = lens _silsRAMDiskId (\ s a -> s{_silsRAMDiskId = a});
+
+-- | The ID of the subnet in which to launch the instances.
+silsSubnetId :: Lens' ScheduledInstancesLaunchSpecification (Maybe Text)
+silsSubnetId = lens _silsSubnetId (\ s a -> s{_silsSubnetId = a});
+
+-- | The ID of the kernel.
+silsKernelId :: Lens' ScheduledInstancesLaunchSpecification (Maybe Text)
+silsKernelId = lens _silsKernelId (\ s a -> s{_silsKernelId = a});
+
+-- | The instance type.
+silsInstanceType :: Lens' ScheduledInstancesLaunchSpecification (Maybe Text)
+silsInstanceType = lens _silsInstanceType (\ s a -> s{_silsInstanceType = a});
+
+-- | Indicates whether the instances are optimized for EBS I\/O. This
+-- optimization provides dedicated throughput to Amazon EBS and an
+-- optimized configuration stack to provide optimal EBS I\/O performance.
+-- This optimization isn\'t available with all instance types. Additional
+-- usage charges apply when using an EBS-optimized instance.
+--
+-- Default: 'false'
+silsEBSOptimized :: Lens' ScheduledInstancesLaunchSpecification (Maybe Bool)
+silsEBSOptimized = lens _silsEBSOptimized (\ s a -> s{_silsEBSOptimized = a});
+
+-- | The base64-encoded MIME user data.
+silsUserData :: Lens' ScheduledInstancesLaunchSpecification (Maybe Text)
+silsUserData = lens _silsUserData (\ s a -> s{_silsUserData = a});
+
+-- | Enable or disable monitoring for the instances.
+silsMonitoring :: Lens' ScheduledInstancesLaunchSpecification (Maybe ScheduledInstancesMonitoring)
+silsMonitoring = lens _silsMonitoring (\ s a -> s{_silsMonitoring = a});
+
+-- | The IAM instance profile.
+silsIAMInstanceProfile :: Lens' ScheduledInstancesLaunchSpecification (Maybe ScheduledInstancesIAMInstanceProfile)
+silsIAMInstanceProfile = lens _silsIAMInstanceProfile (\ s a -> s{_silsIAMInstanceProfile = a});
+
+-- | One or more block device mapping entries.
+silsBlockDeviceMappings :: Lens' ScheduledInstancesLaunchSpecification [ScheduledInstancesBlockDeviceMapping]
+silsBlockDeviceMappings = lens _silsBlockDeviceMappings (\ s a -> s{_silsBlockDeviceMappings = a}) . _Default . _Coerce;
+
+-- | The placement information.
+silsPlacement :: Lens' ScheduledInstancesLaunchSpecification (Maybe ScheduledInstancesPlacement)
+silsPlacement = lens _silsPlacement (\ s a -> s{_silsPlacement = a});
+
+-- | The ID of the Amazon Machine Image (AMI).
+silsImageId :: Lens' ScheduledInstancesLaunchSpecification Text
+silsImageId = lens _silsImageId (\ s a -> s{_silsImageId = a});
+
+instance ToQuery
+         ScheduledInstancesLaunchSpecification where
+        toQuery ScheduledInstancesLaunchSpecification'{..}
+          = mconcat
+              [toQuery
+                 (toQueryList "SecurityGroupId" <$>
+                    _silsSecurityGroupIds),
+               "KeyName" =: _silsKeyName,
+               toQuery
+                 (toQueryList "NetworkInterface" <$>
+                    _silsNetworkInterfaces),
+               "RamdiskId" =: _silsRAMDiskId,
+               "SubnetId" =: _silsSubnetId,
+               "KernelId" =: _silsKernelId,
+               "InstanceType" =: _silsInstanceType,
+               "EbsOptimized" =: _silsEBSOptimized,
+               "UserData" =: _silsUserData,
+               "Monitoring" =: _silsMonitoring,
+               "IamInstanceProfile" =: _silsIAMInstanceProfile,
+               toQuery
+                 (toQueryList "BlockDeviceMapping" <$>
+                    _silsBlockDeviceMappings),
+               "Placement" =: _silsPlacement,
+               "ImageId" =: _silsImageId]
+
+-- | Describes whether monitoring is enabled for a Scheduled Instance.
+--
+-- /See:/ 'scheduledInstancesMonitoring' smart constructor.
+newtype ScheduledInstancesMonitoring = ScheduledInstancesMonitoring'
+    { _simEnabled :: Maybe Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduledInstancesMonitoring' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'simEnabled'
+scheduledInstancesMonitoring
+    :: ScheduledInstancesMonitoring
+scheduledInstancesMonitoring =
+    ScheduledInstancesMonitoring'
+    { _simEnabled = Nothing
+    }
+
+-- | Indicates whether monitoring is enabled.
+simEnabled :: Lens' ScheduledInstancesMonitoring (Maybe Bool)
+simEnabled = lens _simEnabled (\ s a -> s{_simEnabled = a});
+
+instance ToQuery ScheduledInstancesMonitoring where
+        toQuery ScheduledInstancesMonitoring'{..}
+          = mconcat ["Enabled" =: _simEnabled]
+
+-- | Describes a network interface for a Scheduled Instance.
+--
+-- /See:/ 'scheduledInstancesNetworkInterface' smart constructor.
+data ScheduledInstancesNetworkInterface = ScheduledInstancesNetworkInterface'
+    { _siniGroups                         :: !(Maybe [Text])
+    , _siniDeleteOnTermination            :: !(Maybe Bool)
+    , _siniAssociatePublicIPAddress       :: !(Maybe Bool)
+    , _siniPrivateIPAddressConfigs        :: !(Maybe [ScheduledInstancesPrivateIPAddressConfig])
+    , _siniNetworkInterfaceId             :: !(Maybe Text)
+    , _siniSubnetId                       :: !(Maybe Text)
+    , _siniPrivateIPAddress               :: !(Maybe Text)
+    , _siniSecondaryPrivateIPAddressCount :: !(Maybe Int)
+    , _siniDescription                    :: !(Maybe Text)
+    , _siniDeviceIndex                    :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduledInstancesNetworkInterface' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'siniGroups'
+--
+-- * 'siniDeleteOnTermination'
+--
+-- * 'siniAssociatePublicIPAddress'
+--
+-- * 'siniPrivateIPAddressConfigs'
+--
+-- * 'siniNetworkInterfaceId'
+--
+-- * 'siniSubnetId'
+--
+-- * 'siniPrivateIPAddress'
+--
+-- * 'siniSecondaryPrivateIPAddressCount'
+--
+-- * 'siniDescription'
+--
+-- * 'siniDeviceIndex'
+scheduledInstancesNetworkInterface
+    :: ScheduledInstancesNetworkInterface
+scheduledInstancesNetworkInterface =
+    ScheduledInstancesNetworkInterface'
+    { _siniGroups = Nothing
+    , _siniDeleteOnTermination = Nothing
+    , _siniAssociatePublicIPAddress = Nothing
+    , _siniPrivateIPAddressConfigs = Nothing
+    , _siniNetworkInterfaceId = Nothing
+    , _siniSubnetId = Nothing
+    , _siniPrivateIPAddress = Nothing
+    , _siniSecondaryPrivateIPAddressCount = Nothing
+    , _siniDescription = Nothing
+    , _siniDeviceIndex = Nothing
+    }
+
+-- | The IDs of one or more security groups.
+siniGroups :: Lens' ScheduledInstancesNetworkInterface [Text]
+siniGroups = lens _siniGroups (\ s a -> s{_siniGroups = a}) . _Default . _Coerce;
+
+-- | Indicates whether to delete the interface when the instance is
+-- terminated.
+siniDeleteOnTermination :: Lens' ScheduledInstancesNetworkInterface (Maybe Bool)
+siniDeleteOnTermination = lens _siniDeleteOnTermination (\ s a -> s{_siniDeleteOnTermination = a});
+
+-- | Indicates whether to assign a public IP address to instances launched in
+-- a VPC. The public IP address can only be assigned to a network interface
+-- for eth0, and can only be assigned to a new network interface, not an
+-- existing one. You cannot specify more than one network interface in the
+-- request. If launching into a default subnet, the default value is
+-- 'true'.
+siniAssociatePublicIPAddress :: Lens' ScheduledInstancesNetworkInterface (Maybe Bool)
+siniAssociatePublicIPAddress = lens _siniAssociatePublicIPAddress (\ s a -> s{_siniAssociatePublicIPAddress = a});
+
+-- | The private IP addresses.
+siniPrivateIPAddressConfigs :: Lens' ScheduledInstancesNetworkInterface [ScheduledInstancesPrivateIPAddressConfig]
+siniPrivateIPAddressConfigs = lens _siniPrivateIPAddressConfigs (\ s a -> s{_siniPrivateIPAddressConfigs = a}) . _Default . _Coerce;
+
+-- | The ID of the network interface.
+siniNetworkInterfaceId :: Lens' ScheduledInstancesNetworkInterface (Maybe Text)
+siniNetworkInterfaceId = lens _siniNetworkInterfaceId (\ s a -> s{_siniNetworkInterfaceId = a});
+
+-- | The ID of the subnet.
+siniSubnetId :: Lens' ScheduledInstancesNetworkInterface (Maybe Text)
+siniSubnetId = lens _siniSubnetId (\ s a -> s{_siniSubnetId = a});
+
+-- | The IP address of the network interface within the subnet.
+siniPrivateIPAddress :: Lens' ScheduledInstancesNetworkInterface (Maybe Text)
+siniPrivateIPAddress = lens _siniPrivateIPAddress (\ s a -> s{_siniPrivateIPAddress = a});
+
+-- | The number of secondary private IP addresses.
+siniSecondaryPrivateIPAddressCount :: Lens' ScheduledInstancesNetworkInterface (Maybe Int)
+siniSecondaryPrivateIPAddressCount = lens _siniSecondaryPrivateIPAddressCount (\ s a -> s{_siniSecondaryPrivateIPAddressCount = a});
+
+-- | The description.
+siniDescription :: Lens' ScheduledInstancesNetworkInterface (Maybe Text)
+siniDescription = lens _siniDescription (\ s a -> s{_siniDescription = a});
+
+-- | The index of the device for the network interface attachment.
+siniDeviceIndex :: Lens' ScheduledInstancesNetworkInterface (Maybe Int)
+siniDeviceIndex = lens _siniDeviceIndex (\ s a -> s{_siniDeviceIndex = a});
+
+instance ToQuery ScheduledInstancesNetworkInterface
+         where
+        toQuery ScheduledInstancesNetworkInterface'{..}
+          = mconcat
+              [toQuery (toQueryList "Group" <$> _siniGroups),
+               "DeleteOnTermination" =: _siniDeleteOnTermination,
+               "AssociatePublicIpAddress" =:
+                 _siniAssociatePublicIPAddress,
+               toQuery
+                 (toQueryList "PrivateIpAddressConfig" <$>
+                    _siniPrivateIPAddressConfigs),
+               "NetworkInterfaceId" =: _siniNetworkInterfaceId,
+               "SubnetId" =: _siniSubnetId,
+               "PrivateIpAddress" =: _siniPrivateIPAddress,
+               "SecondaryPrivateIpAddressCount" =:
+                 _siniSecondaryPrivateIPAddressCount,
+               "Description" =: _siniDescription,
+               "DeviceIndex" =: _siniDeviceIndex]
+
+-- | Describes the placement for a Scheduled Instance.
+--
+-- /See:/ 'scheduledInstancesPlacement' smart constructor.
+data ScheduledInstancesPlacement = ScheduledInstancesPlacement'
+    { _sipAvailabilityZone :: !(Maybe Text)
+    , _sipGroupName        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduledInstancesPlacement' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sipAvailabilityZone'
+--
+-- * 'sipGroupName'
+scheduledInstancesPlacement
+    :: ScheduledInstancesPlacement
+scheduledInstancesPlacement =
+    ScheduledInstancesPlacement'
+    { _sipAvailabilityZone = Nothing
+    , _sipGroupName = Nothing
+    }
+
+-- | The Availability Zone.
+sipAvailabilityZone :: Lens' ScheduledInstancesPlacement (Maybe Text)
+sipAvailabilityZone = lens _sipAvailabilityZone (\ s a -> s{_sipAvailabilityZone = a});
+
+-- | The name of the placement group.
+sipGroupName :: Lens' ScheduledInstancesPlacement (Maybe Text)
+sipGroupName = lens _sipGroupName (\ s a -> s{_sipGroupName = a});
+
+instance ToQuery ScheduledInstancesPlacement where
+        toQuery ScheduledInstancesPlacement'{..}
+          = mconcat
+              ["AvailabilityZone" =: _sipAvailabilityZone,
+               "GroupName" =: _sipGroupName]
+
+-- | Describes a private IP address for a Scheduled Instance.
+--
+-- /See:/ 'scheduledInstancesPrivateIPAddressConfig' smart constructor.
+data ScheduledInstancesPrivateIPAddressConfig = ScheduledInstancesPrivateIPAddressConfig'
+    { _sipiacPrimary          :: !(Maybe Bool)
+    , _sipiacPrivateIPAddress :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduledInstancesPrivateIPAddressConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sipiacPrimary'
+--
+-- * 'sipiacPrivateIPAddress'
+scheduledInstancesPrivateIPAddressConfig
+    :: ScheduledInstancesPrivateIPAddressConfig
+scheduledInstancesPrivateIPAddressConfig =
+    ScheduledInstancesPrivateIPAddressConfig'
+    { _sipiacPrimary = Nothing
+    , _sipiacPrivateIPAddress = Nothing
+    }
+
+-- | Indicates whether this is a primary IP address. Otherwise, this is a
+-- secondary IP address.
+sipiacPrimary :: Lens' ScheduledInstancesPrivateIPAddressConfig (Maybe Bool)
+sipiacPrimary = lens _sipiacPrimary (\ s a -> s{_sipiacPrimary = a});
+
+-- | The IP address.
+sipiacPrivateIPAddress :: Lens' ScheduledInstancesPrivateIPAddressConfig (Maybe Text)
+sipiacPrivateIPAddress = lens _sipiacPrivateIPAddress (\ s a -> s{_sipiacPrivateIPAddress = a});
+
+instance ToQuery
+         ScheduledInstancesPrivateIPAddressConfig where
+        toQuery ScheduledInstancesPrivateIPAddressConfig'{..}
+          = mconcat
+              ["Primary" =: _sipiacPrimary,
+               "PrivateIpAddress" =: _sipiacPrivateIPAddress]
+
 -- | Describes a security group
 --
 -- /See:/ 'securityGroup' smart constructor.
@@ -8216,6 +9322,86 @@ instance FromXML SecurityGroup where
                 <*> (x .@ "groupName")
                 <*> (x .@ "groupDescription")
 
+-- | Describes the time period for a Scheduled Instance to start its first
+-- schedule. The time period must span less than one day.
+--
+-- /See:/ 'slotDateTimeRangeRequest' smart constructor.
+data SlotDateTimeRangeRequest = SlotDateTimeRangeRequest'
+    { _sdtrrEarliestTime :: !ISO8601
+    , _sdtrrLatestTime   :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SlotDateTimeRangeRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdtrrEarliestTime'
+--
+-- * 'sdtrrLatestTime'
+slotDateTimeRangeRequest
+    :: UTCTime -- ^ 'sdtrrEarliestTime'
+    -> UTCTime -- ^ 'sdtrrLatestTime'
+    -> SlotDateTimeRangeRequest
+slotDateTimeRangeRequest pEarliestTime_ pLatestTime_ =
+    SlotDateTimeRangeRequest'
+    { _sdtrrEarliestTime = _Time # pEarliestTime_
+    , _sdtrrLatestTime = _Time # pLatestTime_
+    }
+
+-- | The earliest date and time, in UTC, for the Scheduled Instance to start.
+sdtrrEarliestTime :: Lens' SlotDateTimeRangeRequest UTCTime
+sdtrrEarliestTime = lens _sdtrrEarliestTime (\ s a -> s{_sdtrrEarliestTime = a}) . _Time;
+
+-- | The latest date and time, in UTC, for the Scheduled Instance to start.
+-- This value must be later than or equal to the earliest date and at most
+-- three months in the future.
+sdtrrLatestTime :: Lens' SlotDateTimeRangeRequest UTCTime
+sdtrrLatestTime = lens _sdtrrLatestTime (\ s a -> s{_sdtrrLatestTime = a}) . _Time;
+
+instance ToQuery SlotDateTimeRangeRequest where
+        toQuery SlotDateTimeRangeRequest'{..}
+          = mconcat
+              ["EarliestTime" =: _sdtrrEarliestTime,
+               "LatestTime" =: _sdtrrLatestTime]
+
+-- | Describes the time period for a Scheduled Instance to start its first
+-- schedule.
+--
+-- /See:/ 'slotStartTimeRangeRequest' smart constructor.
+data SlotStartTimeRangeRequest = SlotStartTimeRangeRequest'
+    { _sstrrLatestTime   :: !(Maybe ISO8601)
+    , _sstrrEarliestTime :: !(Maybe ISO8601)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SlotStartTimeRangeRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sstrrLatestTime'
+--
+-- * 'sstrrEarliestTime'
+slotStartTimeRangeRequest
+    :: SlotStartTimeRangeRequest
+slotStartTimeRangeRequest =
+    SlotStartTimeRangeRequest'
+    { _sstrrLatestTime = Nothing
+    , _sstrrEarliestTime = Nothing
+    }
+
+-- | The latest date and time, in UTC, for the Scheduled Instance to start.
+sstrrLatestTime :: Lens' SlotStartTimeRangeRequest (Maybe UTCTime)
+sstrrLatestTime = lens _sstrrLatestTime (\ s a -> s{_sstrrLatestTime = a}) . mapping _Time;
+
+-- | The earliest date and time, in UTC, for the Scheduled Instance to start.
+sstrrEarliestTime :: Lens' SlotStartTimeRangeRequest (Maybe UTCTime)
+sstrrEarliestTime = lens _sstrrEarliestTime (\ s a -> s{_sstrrEarliestTime = a}) . mapping _Time;
+
+instance ToQuery SlotStartTimeRangeRequest where
+        toQuery SlotStartTimeRangeRequest'{..}
+          = mconcat
+              ["LatestTime" =: _sstrrLatestTime,
+               "EarliestTime" =: _sstrrEarliestTime]
+
 -- | Describes a snapshot.
 --
 -- /See:/ 'snapshot' smart constructor.
@@ -8300,7 +9486,7 @@ snapshot pSnapshotId_ pOwnerId_ pVolumeId_ pVolumeSize_ pDescription_ pStartTime
 -- copy operation fails (for example, if the proper AWS Key Management
 -- Service (AWS KMS) permissions are not obtained) this field displays
 -- error state details to help you diagnose why the error occurred. This
--- parameter is only returned by the DescribeSnapshots API operation.
+-- parameter is only returned by the < DescribeSnapshots> API operation.
 sStateMessage :: Lens' Snapshot (Maybe Text)
 sStateMessage = lens _sStateMessage (\ s a -> s{_sStateMessage = a});
 
@@ -8315,7 +9501,7 @@ sOwnerAlias = lens _sOwnerAlias (\ s a -> s{_sOwnerAlias = a});
 -- encryption keys are inherited by volumes created from snapshots, and
 -- vice versa, if snapshots share the same data encryption key identifier,
 -- then they belong to the same volume\/snapshot lineage. This parameter is
--- only returned by the DescribeSnapshots API operation.
+-- only returned by the < DescribeSnapshots> API operation.
 sDataEncryptionKeyId :: Lens' Snapshot (Maybe Text)
 sDataEncryptionKeyId = lens _sDataEncryptionKeyId (\ s a -> s{_sDataEncryptionKeyId = a});
 
@@ -9134,8 +10320,8 @@ sfrcdTargetCapacity = lens _sfrcdTargetCapacity (\ s a -> s{_sfrcdTargetCapacity
 
 -- | Grants the Spot fleet permission to terminate Spot instances on your
 -- behalf when you cancel its Spot fleet request using
--- CancelSpotFleetRequests or when the Spot fleet request expires, if you
--- set 'terminateInstancesWithExpiration'.
+-- < CancelSpotFleetRequests> or when the Spot fleet request expires, if
+-- you set 'terminateInstancesWithExpiration'.
 sfrcdIAMFleetRole :: Lens' SpotFleetRequestConfigData Text
 sfrcdIAMFleetRole = lens _sfrcdIAMFleetRole (\ s a -> s{_sfrcdIAMFleetRole = a});
 
@@ -9482,8 +10668,10 @@ spotPlacement =
     , _spGroupName = Nothing
     }
 
--- | The Availability Zones. To specify multiple Availability Zones, separate
--- them using commas; for example, \"us-west-2a, us-west-2b\".
+-- | The Availability Zone.
+--
+-- [Spot fleet only] To specify multiple Availability Zones, separate them
+-- using commas; for example, \"us-west-2a, us-west-2b\".
 spAvailabilityZone :: Lens' SpotPlacement (Maybe Text)
 spAvailabilityZone = lens _spAvailabilityZone (\ s a -> s{_spAvailabilityZone = a});
 
@@ -9614,7 +10802,9 @@ srCode = lens _srCode (\ s a -> s{_srCode = a});
 -- -   'Client.UserInitiatedShutdown': The instance was shut down using the
 --     Amazon EC2 API.
 --
--- -   'Client.VolumeLimitExceeded': The volume limit was exceeded.
+-- -   'Client.VolumeLimitExceeded': The limit on the number of EBS volumes
+--     or total storage was exceeded. Decrease usage or request an increase
+--     in your limits.
 --
 -- -   'Client.InvalidSnapshot.NotFound': The specified snapshot was not
 --     found.
@@ -9971,7 +11161,7 @@ userBucket =
     , _ubS3Bucket = Nothing
     }
 
--- | The key for the disk image.
+-- | The file name of the disk image.
 ubS3Key :: Lens' UserBucket (Maybe Text)
 ubS3Key = lens _ubS3Key (\ s a -> s{_ubS3Key = a});
 
@@ -10007,7 +11197,7 @@ userBucketDetails =
     , _ubdS3Bucket = Nothing
     }
 
--- | The key from which the disk image was created.
+-- | The file name of the disk image.
 ubdS3Key :: Lens' UserBucketDetails (Maybe Text)
 ubdS3Key = lens _ubdS3Key (\ s a -> s{_ubdS3Key = a});
 
@@ -10050,30 +11240,50 @@ instance ToQuery UserData where
 --
 -- /See:/ 'userIdGroupPair' smart constructor.
 data UserIdGroupPair = UserIdGroupPair'
-    { _uigpUserId    :: !(Maybe Text)
-    , _uigpGroupId   :: !(Maybe Text)
-    , _uigpGroupName :: !(Maybe Text)
+    { _uigpVPCPeeringConnectionId :: !(Maybe Text)
+    , _uigpVPCId                  :: !(Maybe Text)
+    , _uigpUserId                 :: !(Maybe Text)
+    , _uigpGroupId                :: !(Maybe Text)
+    , _uigpGroupName              :: !(Maybe Text)
+    , _uigpPeeringStatus          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserIdGroupPair' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'uigpVPCPeeringConnectionId'
+--
+-- * 'uigpVPCId'
+--
 -- * 'uigpUserId'
 --
 -- * 'uigpGroupId'
 --
 -- * 'uigpGroupName'
+--
+-- * 'uigpPeeringStatus'
 userIdGroupPair
     :: UserIdGroupPair
 userIdGroupPair =
     UserIdGroupPair'
-    { _uigpUserId = Nothing
+    { _uigpVPCPeeringConnectionId = Nothing
+    , _uigpVPCId = Nothing
+    , _uigpUserId = Nothing
     , _uigpGroupId = Nothing
     , _uigpGroupName = Nothing
+    , _uigpPeeringStatus = Nothing
     }
 
--- | The ID of an AWS account. EC2-Classic only.
+-- | The ID of the VPC peering connection, if applicable.
+uigpVPCPeeringConnectionId :: Lens' UserIdGroupPair (Maybe Text)
+uigpVPCPeeringConnectionId = lens _uigpVPCPeeringConnectionId (\ s a -> s{_uigpVPCPeeringConnectionId = a});
+
+-- | The ID of the VPC for the referenced security group, if applicable.
+uigpVPCId :: Lens' UserIdGroupPair (Maybe Text)
+uigpVPCId = lens _uigpVPCId (\ s a -> s{_uigpVPCId = a});
+
+-- | The ID of an AWS account.
 uigpUserId :: Lens' UserIdGroupPair (Maybe Text)
 uigpUserId = lens _uigpUserId (\ s a -> s{_uigpUserId = a});
 
@@ -10087,17 +11297,28 @@ uigpGroupId = lens _uigpGroupId (\ s a -> s{_uigpGroupId = a});
 uigpGroupName :: Lens' UserIdGroupPair (Maybe Text)
 uigpGroupName = lens _uigpGroupName (\ s a -> s{_uigpGroupName = a});
 
+-- | The status of a VPC peering connection, if applicable.
+uigpPeeringStatus :: Lens' UserIdGroupPair (Maybe Text)
+uigpPeeringStatus = lens _uigpPeeringStatus (\ s a -> s{_uigpPeeringStatus = a});
+
 instance FromXML UserIdGroupPair where
         parseXML x
           = UserIdGroupPair' <$>
-              (x .@? "userId") <*> (x .@? "groupId") <*>
-                (x .@? "groupName")
+              (x .@? "vpcPeeringConnectionId") <*> (x .@? "vpcId")
+                <*> (x .@? "userId")
+                <*> (x .@? "groupId")
+                <*> (x .@? "groupName")
+                <*> (x .@? "peeringStatus")
 
 instance ToQuery UserIdGroupPair where
         toQuery UserIdGroupPair'{..}
           = mconcat
-              ["UserId" =: _uigpUserId, "GroupId" =: _uigpGroupId,
-               "GroupName" =: _uigpGroupName]
+              ["VpcPeeringConnectionId" =:
+                 _uigpVPCPeeringConnectionId,
+               "VpcId" =: _uigpVPCId, "UserId" =: _uigpUserId,
+               "GroupId" =: _uigpGroupId,
+               "GroupName" =: _uigpGroupName,
+               "PeeringStatus" =: _uigpPeeringStatus]
 
 -- | Describes telemetry for a VPN tunnel.
 --
@@ -10636,8 +11857,8 @@ vpnConnection pVPNConnectionId_ pCustomerGatewayId_ pState_ pType_ =
 
 -- | The configuration information for the VPN connection\'s customer gateway
 -- (in the native XML format). This element is always present in the
--- CreateVpnConnection response; however, it\'s present in the
--- DescribeVpnConnections response only if the VPN connection is in the
+-- < CreateVpnConnection> response; however, it\'s present in the
+-- < DescribeVpnConnections> response only if the VPN connection is in the
 -- 'pending' or 'available' state.
 vcCustomerGatewayConfiguration :: Lens' VPNConnection (Maybe Text)
 vcCustomerGatewayConfiguration = lens _vcCustomerGatewayConfiguration (\ s a -> s{_vcCustomerGatewayConfiguration = a});
@@ -10808,7 +12029,8 @@ vgVPCAttachments = lens _vgVPCAttachments (\ s a -> s{_vgVPCAttachments = a}) . 
 vgVPNGatewayId :: Lens' VPNGateway (Maybe Text)
 vgVPNGatewayId = lens _vgVPNGatewayId (\ s a -> s{_vgVPNGatewayId = a});
 
--- | The Availability Zone where the virtual private gateway was created.
+-- | The Availability Zone where the virtual private gateway was created, if
+-- applicable. This field may be empty or not returned.
 vgAvailabilityZone :: Lens' VPNGateway (Maybe Text)
 vgAvailabilityZone = lens _vgAvailabilityZone (\ s a -> s{_vgAvailabilityZone = a});
 

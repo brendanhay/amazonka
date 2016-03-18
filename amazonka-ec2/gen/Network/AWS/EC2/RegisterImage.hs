@@ -24,8 +24,8 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- For Amazon EBS-backed instances, CreateImage creates and registers the
--- AMI in a single request, so you don\'t have to register the AMI
+-- For Amazon EBS-backed instances, < CreateImage> creates and registers
+-- the AMI in a single request, so you don\'t have to register the AMI
 -- yourself.
 --
 -- You can also use 'RegisterImage' to create an Amazon EBS-backed Linux
@@ -44,7 +44,7 @@
 -- can\'t successfully launch an instance from the AMI.
 --
 -- To create Windows AMIs or to create AMIs for Linux operating systems
--- that must retain AMI billing codes to work properly, see CreateImage.
+-- that must retain AMI billing codes to work properly, see < CreateImage>.
 --
 -- If needed, you can deregister an AMI at any time. Any modifications you
 -- make to an AMI backed by an instance store volume invalidates its

@@ -18,24 +18,24 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes your account\'s Reserved instance listings in the Reserved
+-- Describes your account\'s Reserved Instance listings in the Reserved
 -- Instance Marketplace.
 --
 -- The Reserved Instance Marketplace matches sellers who want to resell
--- Reserved instance capacity that they no longer need with buyers who want
--- to purchase additional capacity. Reserved instances bought and sold
+-- Reserved Instance capacity that they no longer need with buyers who want
+-- to purchase additional capacity. Reserved Instances bought and sold
 -- through the Reserved Instance Marketplace work like any other Reserved
 -- Instances.
 --
--- As a seller, you choose to list some or all of your Reserved instances,
+-- As a seller, you choose to list some or all of your Reserved Instances,
 -- and you specify the upfront price to receive for them. Your Reserved
--- instances are then listed in the Reserved Instance Marketplace and are
+-- Instances are then listed in the Reserved Instance Marketplace and are
 -- available for purchase.
 --
--- As a buyer, you specify the configuration of the Reserved instance to
+-- As a buyer, you specify the configuration of the Reserved Instance to
 -- purchase, and the Marketplace matches what you\'re searching for with
 -- what\'s available. The Marketplace first sells the lowest priced
--- Reserved instances to you, and continues to sell available Reserved
+-- Reserved Instances to you, and continues to sell available Reserved
 -- Instance listings to you until your demand is met. You are charged based
 -- on the total price of all of the listings that you purchase.
 --
@@ -96,12 +96,12 @@ describeReservedInstancesListings =
 
 -- | One or more filters.
 --
--- -   'reserved-instances-id' - The ID of the Reserved instances.
+-- -   'reserved-instances-id' - The ID of the Reserved Instances.
 --
--- -   'reserved-instances-listing-id' - The ID of the Reserved instances
+-- -   'reserved-instances-listing-id' - The ID of the Reserved Instances
 --     listing.
 --
--- -   'status' - The status of the Reserved instance listing ('pending' |
+-- -   'status' - The status of the Reserved Instance listing ('pending' |
 --     'active' | 'cancelled' | 'closed').
 --
 -- -   'status-message' - The reason for the status.
@@ -109,11 +109,11 @@ describeReservedInstancesListings =
 drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
 drilFilters = lens _drilFilters (\ s a -> s{_drilFilters = a}) . _Default . _Coerce;
 
--- | One or more Reserved instance IDs.
+-- | One or more Reserved Instance IDs.
 drilReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
 drilReservedInstancesId = lens _drilReservedInstancesId (\ s a -> s{_drilReservedInstancesId = a});
 
--- | One or more Reserved instance Listing IDs.
+-- | One or more Reserved Instance listing IDs.
 drilReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
 drilReservedInstancesListingId = lens _drilReservedInstancesListingId (\ s a -> s{_drilReservedInstancesListingId = a});
 
@@ -172,7 +172,7 @@ describeReservedInstancesListingsResponse pResponseStatus_ =
     , _drilrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the Reserved instance listing.
+-- | Information about the Reserved Instance listing.
 drilrsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
 drilrsReservedInstancesListings = lens _drilrsReservedInstancesListings (\ s a -> s{_drilrsReservedInstancesListings = a}) . _Default . _Coerce;
 

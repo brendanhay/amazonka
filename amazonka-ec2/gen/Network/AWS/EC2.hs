@@ -36,8 +36,14 @@ module Network.AWS.EC2
     -- ** VolumeInUse
     , volumeInUse
 
+    -- ** NatGatewayAvailable
+    , natGatewayAvailable
+
     -- ** SubnetAvailable
     , subnetAvailable
+
+    -- ** NetworkInterfaceAvailable
+    , networkInterfaceAvailable
 
     -- ** SystemStatusOK
     , systemStatusOK
@@ -89,6 +95,9 @@ module Network.AWS.EC2
 
     -- ** ImageAvailable
     , imageAvailable
+
+    -- ** VPCPeeringConnectionExists
+    , vpcPeeringConnectionExists
 
     -- ** SnapshotCompleted
     , snapshotCompleted
@@ -173,6 +182,12 @@ module Network.AWS.EC2
 
     -- ** AttachClassicLinkVPC
     , module Network.AWS.EC2.AttachClassicLinkVPC
+
+    -- ** DescribeVPCClassicLinkDNSSupport
+    , module Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport
+
+    -- ** RunScheduledInstances
+    , module Network.AWS.EC2.RunScheduledInstances
 
     -- ** CancelSpotFleetRequests
     , module Network.AWS.EC2.CancelSpotFleetRequests
@@ -312,6 +327,9 @@ module Network.AWS.EC2
     -- ** DescribeConversionTasks
     , module Network.AWS.EC2.DescribeConversionTasks
 
+    -- ** DisableVPCClassicLinkDNSSupport
+    , module Network.AWS.EC2.DisableVPCClassicLinkDNSSupport
+
     -- ** AllocateAddress
     , module Network.AWS.EC2.AllocateAddress
 
@@ -354,8 +372,14 @@ module Network.AWS.EC2
     -- ** RevokeSecurityGroupIngress
     , module Network.AWS.EC2.RevokeSecurityGroupIngress
 
+    -- ** EnableVPCClassicLinkDNSSupport
+    , module Network.AWS.EC2.EnableVPCClassicLinkDNSSupport
+
     -- ** ModifyReservedInstances
     , module Network.AWS.EC2.ModifyReservedInstances
+
+    -- ** DescribeScheduledInstances
+    , module Network.AWS.EC2.DescribeScheduledInstances
 
     -- ** CreateFlowLogs
     , module Network.AWS.EC2.CreateFlowLogs
@@ -404,6 +428,9 @@ module Network.AWS.EC2
 
     -- ** CreateVolume
     , module Network.AWS.EC2.CreateVolume
+
+    -- ** DescribeScheduledInstanceAvailability
+    , module Network.AWS.EC2.DescribeScheduledInstanceAvailability
 
     -- ** ModifyVolumeAttribute
     , module Network.AWS.EC2.ModifyVolumeAttribute
@@ -551,6 +578,9 @@ module Network.AWS.EC2
 
     -- ** DescribePlacementGroups
     , module Network.AWS.EC2.DescribePlacementGroups
+
+    -- ** PurchaseScheduledInstances
+    , module Network.AWS.EC2.PurchaseScheduledInstances
 
     -- ** EnableVGWRoutePropagation
     , module Network.AWS.EC2.EnableVGWRoutePropagation
@@ -1058,6 +1088,12 @@ module Network.AWS.EC2
     , cancelledSpotInstanceRequest
     , csirState
     , csirSpotInstanceRequestId
+
+    -- ** ClassicLinkDNSSupport
+    , ClassicLinkDNSSupport
+    , classicLinkDNSSupport
+    , cldsVPCId
+    , cldsClassicLinkDNSSupported
 
     -- ** ClassicLinkInstance
     , ClassicLinkInstance
@@ -1832,6 +1868,12 @@ module Network.AWS.EC2
     , propagatingVGW
     , pvGatewayId
 
+    -- ** PurchaseRequest
+    , PurchaseRequest
+    , purchaseRequest
+    , prPurchaseToken
+    , prInstanceCount
+
     -- ** RecurringCharge
     , RecurringCharge
     , recurringCharge
@@ -2008,6 +2050,133 @@ module Network.AWS.EC2
     , ssUploadPolicySignature
     , ssAWSAccessKeyId
 
+    -- ** ScheduledInstance
+    , ScheduledInstance
+    , scheduledInstance
+    , siPreviousSlotEndTime
+    , siPlatform
+    , siTermStartDate
+    , siInstanceCount
+    , siScheduledInstanceId
+    , siHourlyPrice
+    , siCreateDate
+    , siSlotDurationInHours
+    , siTotalScheduledInstanceHours
+    , siInstanceType
+    , siRecurrence
+    , siAvailabilityZone
+    , siTermEndDate
+    , siNextSlotStartTime
+    , siNetworkPlatform
+
+    -- ** ScheduledInstanceAvailability
+    , ScheduledInstanceAvailability
+    , scheduledInstanceAvailability
+    , siaMaxTermDurationInDays
+    , siaPlatform
+    , siaPurchaseToken
+    , siaHourlyPrice
+    , siaAvailableInstanceCount
+    , siaSlotDurationInHours
+    , siaTotalScheduledInstanceHours
+    , siaInstanceType
+    , siaRecurrence
+    , siaAvailabilityZone
+    , siaMinTermDurationInDays
+    , siaFirstSlotStartTime
+    , siaNetworkPlatform
+
+    -- ** ScheduledInstanceRecurrence
+    , ScheduledInstanceRecurrence
+    , scheduledInstanceRecurrence
+    , sirFrequency
+    , sirOccurrenceRelativeToEnd
+    , sirOccurrenceUnit
+    , sirInterval
+    , sirOccurrenceDaySet
+
+    -- ** ScheduledInstanceRecurrenceRequest
+    , ScheduledInstanceRecurrenceRequest
+    , scheduledInstanceRecurrenceRequest
+    , sirrFrequency
+    , sirrOccurrenceRelativeToEnd
+    , sirrOccurrenceDays
+    , sirrOccurrenceUnit
+    , sirrInterval
+
+    -- ** ScheduledInstancesBlockDeviceMapping
+    , ScheduledInstancesBlockDeviceMapping
+    , scheduledInstancesBlockDeviceMapping
+    , sibdmVirtualName
+    , sibdmNoDevice
+    , sibdmEBS
+    , sibdmDeviceName
+
+    -- ** ScheduledInstancesEBS
+    , ScheduledInstancesEBS
+    , scheduledInstancesEBS
+    , sieDeleteOnTermination
+    , sieVolumeSize
+    , sieIOPS
+    , sieEncrypted
+    , sieVolumeType
+    , sieSnapshotId
+
+    -- ** ScheduledInstancesIAMInstanceProfile
+    , ScheduledInstancesIAMInstanceProfile
+    , scheduledInstancesIAMInstanceProfile
+    , siiapARN
+    , siiapName
+
+    -- ** ScheduledInstancesLaunchSpecification
+    , ScheduledInstancesLaunchSpecification
+    , scheduledInstancesLaunchSpecification
+    , silsSecurityGroupIds
+    , silsKeyName
+    , silsNetworkInterfaces
+    , silsRAMDiskId
+    , silsSubnetId
+    , silsKernelId
+    , silsInstanceType
+    , silsEBSOptimized
+    , silsUserData
+    , silsMonitoring
+    , silsIAMInstanceProfile
+    , silsBlockDeviceMappings
+    , silsPlacement
+    , silsImageId
+
+    -- ** ScheduledInstancesMonitoring
+    , ScheduledInstancesMonitoring
+    , scheduledInstancesMonitoring
+    , simEnabled
+
+    -- ** ScheduledInstancesNetworkInterface
+    , ScheduledInstancesNetworkInterface
+    , scheduledInstancesNetworkInterface
+    , siniGroups
+    , siniDeleteOnTermination
+    , siniAssociatePublicIPAddress
+    , siniPrivateIPAddressConfigs
+    , siniNetworkInterfaceId
+    , siniSubnetId
+    , siniPrivateIPAddress
+    , siniSecondaryPrivateIPAddressCount
+    , siniDescription
+    , siniDeviceIndex
+
+    -- ** ScheduledInstancesPlacement
+    , ScheduledInstancesPlacement
+    , scheduledInstancesPlacement
+    , sipAvailabilityZone
+    , sipGroupName
+
+    -- ** ScheduledInstancesPrivateIPAddressConfig
+    , ScheduledInstancesPrivateIPAddressConfig
+    , scheduledInstancesPrivateIPAddressConfig
+    , sipiacPrimary
+    , sipiacPrivateIPAddress
+
     -- ** SecurityGroup
     , SecurityGroup
     , securityGroup
@@ -2019,6 +2188,18 @@ module Network.AWS.EC2
     , sgGroupId
     , sgGroupName
     , sgDescription
+
+    -- ** SlotDateTimeRangeRequest
+    , SlotDateTimeRangeRequest
+    , slotDateTimeRangeRequest
+    , sdtrrEarliestTime
+    , sdtrrLatestTime
+
+    -- ** SlotStartTimeRangeRequest
+    , SlotStartTimeRangeRequest
+    , slotStartTimeRangeRequest
+    , sstrrLatestTime
+    , sstrrEarliestTime
 
     -- ** Snapshot
     , Snapshot
@@ -2250,9 +2431,12 @@ module Network.AWS.EC2
     -- ** UserIdGroupPair
     , UserIdGroupPair
     , userIdGroupPair
+    , uigpVPCPeeringConnectionId
+    , uigpVPCId
     , uigpUserId
     , uigpGroupId
     , uigpGroupName
+    , uigpPeeringStatus
 
     -- ** VGWTelemetry
     , VGWTelemetry
@@ -2543,6 +2727,8 @@ import           Network.AWS.EC2.DescribeReservedInstancesListings
 import           Network.AWS.EC2.DescribeReservedInstancesModifications
 import           Network.AWS.EC2.DescribeReservedInstancesOfferings
 import           Network.AWS.EC2.DescribeRouteTables
+import           Network.AWS.EC2.DescribeScheduledInstanceAvailability
+import           Network.AWS.EC2.DescribeScheduledInstances
 import           Network.AWS.EC2.DescribeSecurityGroups
 import           Network.AWS.EC2.DescribeSnapshotAttribute
 import           Network.AWS.EC2.DescribeSnapshots
@@ -2559,6 +2745,7 @@ import           Network.AWS.EC2.DescribeVolumes
 import           Network.AWS.EC2.DescribeVolumeStatus
 import           Network.AWS.EC2.DescribeVPCAttribute
 import           Network.AWS.EC2.DescribeVPCClassicLink
+import           Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport
 import           Network.AWS.EC2.DescribeVPCEndpoints
 import           Network.AWS.EC2.DescribeVPCEndpointServices
 import           Network.AWS.EC2.DescribeVPCPeeringConnections
@@ -2572,11 +2759,13 @@ import           Network.AWS.EC2.DetachVolume
 import           Network.AWS.EC2.DetachVPNGateway
 import           Network.AWS.EC2.DisableVGWRoutePropagation
 import           Network.AWS.EC2.DisableVPCClassicLink
+import           Network.AWS.EC2.DisableVPCClassicLinkDNSSupport
 import           Network.AWS.EC2.DisassociateAddress
 import           Network.AWS.EC2.DisassociateRouteTable
 import           Network.AWS.EC2.EnableVGWRoutePropagation
 import           Network.AWS.EC2.EnableVolumeIO
 import           Network.AWS.EC2.EnableVPCClassicLink
+import           Network.AWS.EC2.EnableVPCClassicLinkDNSSupport
 import           Network.AWS.EC2.GetConsoleOutput
 import           Network.AWS.EC2.GetPasswordData
 import           Network.AWS.EC2.ImportImage
@@ -2600,6 +2789,7 @@ import           Network.AWS.EC2.ModifyVPCEndpoint
 import           Network.AWS.EC2.MonitorInstances
 import           Network.AWS.EC2.MoveAddressToVPC
 import           Network.AWS.EC2.PurchaseReservedInstancesOffering
+import           Network.AWS.EC2.PurchaseScheduledInstances
 import           Network.AWS.EC2.RebootInstances
 import           Network.AWS.EC2.RegisterImage
 import           Network.AWS.EC2.RejectVPCPeeringConnection
@@ -2620,6 +2810,7 @@ import           Network.AWS.EC2.RestoreAddressToClassic
 import           Network.AWS.EC2.RevokeSecurityGroupEgress
 import           Network.AWS.EC2.RevokeSecurityGroupIngress
 import           Network.AWS.EC2.RunInstances
+import           Network.AWS.EC2.RunScheduledInstances
 import           Network.AWS.EC2.StartInstances
 import           Network.AWS.EC2.StopInstances
 import           Network.AWS.EC2.TerminateInstances

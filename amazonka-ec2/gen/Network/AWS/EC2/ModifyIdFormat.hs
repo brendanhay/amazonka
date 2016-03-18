@@ -18,19 +18,24 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Important: This command is reserved for future use, and is currently
--- not available for you to use.__
---
--- Modifies the ID format for the specified resource. You can specify that
--- resources should receive longer IDs (17-character IDs) when they are
--- created. The following resource types support longer IDs: 'instance' |
--- 'reservation'.
+-- Modifies the ID format for the specified resource on a per-region basis.
+-- You can specify that resources should receive longer IDs (17-character
+-- IDs) when they are created. The following resource types support longer
+-- IDs: 'instance' | 'reservation'.
 --
 -- This setting applies to the IAM user who makes the request; it does not
 -- apply to the entire AWS account. By default, an IAM user defaults to the
--- same settings as the root user, unless they explicitly override the
--- settings by running this request. These settings are applied on a
--- per-region basis.
+-- same settings as the root user. If you\'re using this action as the root
+-- user or as an IAM role that has permission to use this action, then
+-- these settings apply to the entire account, unless an IAM user
+-- explicitly overrides these settings for themselves. For more
+-- information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html#resource-ids-access Controlling Access to Longer ID Settings>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- Resources created with longer IDs are visible to all IAM users,
+-- regardless of these settings and provided that they have permission to
+-- use the relevant 'Describe' command for the resource type.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyIdFormat.html AWS API Reference> for ModifyIdFormat.
 module Network.AWS.EC2.ModifyIdFormat

@@ -390,6 +390,12 @@ module Network.AWS.EC2.Types
     , csirState
     , csirSpotInstanceRequestId
 
+    -- * ClassicLinkDNSSupport
+    , ClassicLinkDNSSupport
+    , classicLinkDNSSupport
+    , cldsVPCId
+    , cldsClassicLinkDNSSupported
+
     -- * ClassicLinkInstance
     , ClassicLinkInstance
     , classicLinkInstance
@@ -1163,6 +1169,12 @@ module Network.AWS.EC2.Types
     , propagatingVGW
     , pvGatewayId
 
+    -- * PurchaseRequest
+    , PurchaseRequest
+    , purchaseRequest
+    , prPurchaseToken
+    , prInstanceCount
+
     -- * RecurringCharge
     , RecurringCharge
     , recurringCharge
@@ -1339,6 +1351,133 @@ module Network.AWS.EC2.Types
     , ssUploadPolicySignature
     , ssAWSAccessKeyId
 
+    -- * ScheduledInstance
+    , ScheduledInstance
+    , scheduledInstance
+    , siPreviousSlotEndTime
+    , siPlatform
+    , siTermStartDate
+    , siInstanceCount
+    , siScheduledInstanceId
+    , siHourlyPrice
+    , siCreateDate
+    , siSlotDurationInHours
+    , siTotalScheduledInstanceHours
+    , siInstanceType
+    , siRecurrence
+    , siAvailabilityZone
+    , siTermEndDate
+    , siNextSlotStartTime
+    , siNetworkPlatform
+
+    -- * ScheduledInstanceAvailability
+    , ScheduledInstanceAvailability
+    , scheduledInstanceAvailability
+    , siaMaxTermDurationInDays
+    , siaPlatform
+    , siaPurchaseToken
+    , siaHourlyPrice
+    , siaAvailableInstanceCount
+    , siaSlotDurationInHours
+    , siaTotalScheduledInstanceHours
+    , siaInstanceType
+    , siaRecurrence
+    , siaAvailabilityZone
+    , siaMinTermDurationInDays
+    , siaFirstSlotStartTime
+    , siaNetworkPlatform
+
+    -- * ScheduledInstanceRecurrence
+    , ScheduledInstanceRecurrence
+    , scheduledInstanceRecurrence
+    , sirFrequency
+    , sirOccurrenceRelativeToEnd
+    , sirOccurrenceUnit
+    , sirInterval
+    , sirOccurrenceDaySet
+
+    -- * ScheduledInstanceRecurrenceRequest
+    , ScheduledInstanceRecurrenceRequest
+    , scheduledInstanceRecurrenceRequest
+    , sirrFrequency
+    , sirrOccurrenceRelativeToEnd
+    , sirrOccurrenceDays
+    , sirrOccurrenceUnit
+    , sirrInterval
+
+    -- * ScheduledInstancesBlockDeviceMapping
+    , ScheduledInstancesBlockDeviceMapping
+    , scheduledInstancesBlockDeviceMapping
+    , sibdmVirtualName
+    , sibdmNoDevice
+    , sibdmEBS
+    , sibdmDeviceName
+
+    -- * ScheduledInstancesEBS
+    , ScheduledInstancesEBS
+    , scheduledInstancesEBS
+    , sieDeleteOnTermination
+    , sieVolumeSize
+    , sieIOPS
+    , sieEncrypted
+    , sieVolumeType
+    , sieSnapshotId
+
+    -- * ScheduledInstancesIAMInstanceProfile
+    , ScheduledInstancesIAMInstanceProfile
+    , scheduledInstancesIAMInstanceProfile
+    , siiapARN
+    , siiapName
+
+    -- * ScheduledInstancesLaunchSpecification
+    , ScheduledInstancesLaunchSpecification
+    , scheduledInstancesLaunchSpecification
+    , silsSecurityGroupIds
+    , silsKeyName
+    , silsNetworkInterfaces
+    , silsRAMDiskId
+    , silsSubnetId
+    , silsKernelId
+    , silsInstanceType
+    , silsEBSOptimized
+    , silsUserData
+    , silsMonitoring
+    , silsIAMInstanceProfile
+    , silsBlockDeviceMappings
+    , silsPlacement
+    , silsImageId
+
+    -- * ScheduledInstancesMonitoring
+    , ScheduledInstancesMonitoring
+    , scheduledInstancesMonitoring
+    , simEnabled
+
+    -- * ScheduledInstancesNetworkInterface
+    , ScheduledInstancesNetworkInterface
+    , scheduledInstancesNetworkInterface
+    , siniGroups
+    , siniDeleteOnTermination
+    , siniAssociatePublicIPAddress
+    , siniPrivateIPAddressConfigs
+    , siniNetworkInterfaceId
+    , siniSubnetId
+    , siniPrivateIPAddress
+    , siniSecondaryPrivateIPAddressCount
+    , siniDescription
+    , siniDeviceIndex
+
+    -- * ScheduledInstancesPlacement
+    , ScheduledInstancesPlacement
+    , scheduledInstancesPlacement
+    , sipAvailabilityZone
+    , sipGroupName
+
+    -- * ScheduledInstancesPrivateIPAddressConfig
+    , ScheduledInstancesPrivateIPAddressConfig
+    , scheduledInstancesPrivateIPAddressConfig
+    , sipiacPrimary
+    , sipiacPrivateIPAddress
+
     -- * SecurityGroup
     , SecurityGroup
     , securityGroup
@@ -1350,6 +1489,18 @@ module Network.AWS.EC2.Types
     , sgGroupId
     , sgGroupName
     , sgDescription
+
+    -- * SlotDateTimeRangeRequest
+    , SlotDateTimeRangeRequest
+    , slotDateTimeRangeRequest
+    , sdtrrEarliestTime
+    , sdtrrLatestTime
+
+    -- * SlotStartTimeRangeRequest
+    , SlotStartTimeRangeRequest
+    , slotStartTimeRangeRequest
+    , sstrrLatestTime
+    , sstrrEarliestTime
 
     -- * Snapshot
     , Snapshot
@@ -1581,9 +1732,12 @@ module Network.AWS.EC2.Types
     -- * UserIdGroupPair
     , UserIdGroupPair
     , userIdGroupPair
+    , uigpVPCPeeringConnectionId
+    , uigpVPCId
     , uigpUserId
     , uigpGroupId
     , uigpGroupName
+    , uigpPeeringStatus
 
     -- * VGWTelemetry
     , VGWTelemetry
@@ -1794,6 +1948,7 @@ eC2 =
     check e
       | has (hasCode "RequestLimitExceeded" . hasStatus 503) e =
           Just "request_limit_exceeded"
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"

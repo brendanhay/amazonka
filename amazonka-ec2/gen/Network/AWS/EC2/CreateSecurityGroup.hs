@@ -29,7 +29,7 @@
 --
 -- EC2-Classic: You can have up to 500 security groups.
 --
--- EC2-VPC: You can create up to 100 security groups per VPC.
+-- EC2-VPC: You can create up to 500 security groups per VPC.
 --
 -- When you create a security group, you specify a friendly name of your
 -- choice. You can have a security group for use in EC2-Classic with the
@@ -45,8 +45,8 @@
 -- other.
 --
 -- You can add or remove rules from your security groups using
--- AuthorizeSecurityGroupIngress, AuthorizeSecurityGroupEgress,
--- RevokeSecurityGroupIngress, and RevokeSecurityGroupEgress.
+-- < AuthorizeSecurityGroupIngress>, < AuthorizeSecurityGroupEgress>,
+-- < RevokeSecurityGroupIngress>, and < RevokeSecurityGroupEgress>.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSecurityGroup.html AWS API Reference> for CreateSecurityGroup.
 module Network.AWS.EC2.CreateSecurityGroup

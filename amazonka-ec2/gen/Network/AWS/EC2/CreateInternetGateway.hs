@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an Internet gateway for use with a VPC. After creating the
--- Internet gateway, you attach it to a VPC using AttachInternetGateway.
+-- Internet gateway, you attach it to a VPC using < AttachInternetGateway>.
 --
 -- For more information about your VPC and Internet gateway, see the
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual Private Cloud User Guide>.

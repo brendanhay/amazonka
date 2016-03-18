@@ -188,7 +188,7 @@ creSnapshotId :: Lens' CreateVolume (Maybe Text)
 creSnapshotId = lens _creSnapshotId (\ s a -> s{_creSnapshotId = a});
 
 -- | The Availability Zone in which to create the volume. Use
--- DescribeAvailabilityZones to list the Availability Zones that are
+-- < DescribeAvailabilityZones> to list the Availability Zones that are
 -- currently available to you.
 creAvailabilityZone :: Lens' CreateVolume Text
 creAvailabilityZone = lens _creAvailabilityZone (\ s a -> s{_creAvailabilityZone = a});

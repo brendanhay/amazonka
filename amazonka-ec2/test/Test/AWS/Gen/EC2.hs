@@ -97,6 +97,12 @@ import Test.AWS.EC2.Internal
 --         , testAttachClassicLinkVPC $
 --             attachClassicLinkVPC
 --
+--         , testDescribeVPCClassicLinkDNSSupport $
+--             describeVPCClassicLinkDNSSupport
+--
+--         , testRunScheduledInstances $
+--             runScheduledInstances
+--
 --         , testCancelSpotFleetRequests $
 --             cancelSpotFleetRequests
 --
@@ -235,6 +241,9 @@ import Test.AWS.EC2.Internal
 --         , testDescribeConversionTasks $
 --             describeConversionTasks
 --
+--         , testDisableVPCClassicLinkDNSSupport $
+--             disableVPCClassicLinkDNSSupport
+--
 --         , testAllocateAddress $
 --             allocateAddress
 --
@@ -277,8 +286,14 @@ import Test.AWS.EC2.Internal
 --         , testRevokeSecurityGroupIngress $
 --             revokeSecurityGroupIngress
 --
+--         , testEnableVPCClassicLinkDNSSupport $
+--             enableVPCClassicLinkDNSSupport
+--
 --         , testModifyReservedInstances $
 --             modifyReservedInstances
+--
+--         , testDescribeScheduledInstances $
+--             describeScheduledInstances
 --
 --         , testCreateFlowLogs $
 --             createFlowLogs
@@ -327,6 +342,9 @@ import Test.AWS.EC2.Internal
 --
 --         , testCreateVolume $
 --             createVolume
+--
+--         , testDescribeScheduledInstanceAvailability $
+--             describeScheduledInstanceAvailability
 --
 --         , testModifyVolumeAttribute $
 --             modifyVolumeAttribute
@@ -474,6 +492,9 @@ import Test.AWS.EC2.Internal
 --
 --         , testDescribePlacementGroups $
 --             describePlacementGroups
+--
+--         , testPurchaseScheduledInstances $
+--             purchaseScheduledInstances
 --
 --         , testEnableVGWRoutePropagation $
 --             enableVGWRoutePropagation
@@ -679,6 +700,12 @@ import Test.AWS.EC2.Internal
 --         , testAttachClassicLinkVPCResponse $
 --             attachClassicLinkVPCResponse
 --
+--         , testDescribeVPCClassicLinkDNSSupportResponse $
+--             describeVPCClassicLinkDNSSupportResponse
+--
+--         , testRunScheduledInstancesResponse $
+--             runScheduledInstancesResponse
+--
 --         , testCancelSpotFleetRequestsResponse $
 --             cancelSpotFleetRequestsResponse
 --
@@ -817,6 +844,9 @@ import Test.AWS.EC2.Internal
 --         , testDescribeConversionTasksResponse $
 --             describeConversionTasksResponse
 --
+--         , testDisableVPCClassicLinkDNSSupportResponse $
+--             disableVPCClassicLinkDNSSupportResponse
+--
 --         , testAllocateAddressResponse $
 --             allocateAddressResponse
 --
@@ -859,8 +889,14 @@ import Test.AWS.EC2.Internal
 --         , testRevokeSecurityGroupIngressResponse $
 --             revokeSecurityGroupIngressResponse
 --
+--         , testEnableVPCClassicLinkDNSSupportResponse $
+--             enableVPCClassicLinkDNSSupportResponse
+--
 --         , testModifyReservedInstancesResponse $
 --             modifyReservedInstancesResponse
+--
+--         , testDescribeScheduledInstancesResponse $
+--             describeScheduledInstancesResponse
 --
 --         , testCreateFlowLogsResponse $
 --             createFlowLogsResponse
@@ -909,6 +945,9 @@ import Test.AWS.EC2.Internal
 --
 --         , testCreateVolumeResponse $
 --             volume
+--
+--         , testDescribeScheduledInstanceAvailabilityResponse $
+--             describeScheduledInstanceAvailabilityResponse
 --
 --         , testModifyVolumeAttributeResponse $
 --             modifyVolumeAttributeResponse
@@ -1056,6 +1095,9 @@ import Test.AWS.EC2.Internal
 --
 --         , testDescribePlacementGroupsResponse $
 --             describePlacementGroupsResponse
+--
+--         , testPurchaseScheduledInstancesResponse $
+--             purchaseScheduledInstancesResponse
 --
 --         , testEnableVGWRoutePropagationResponse $
 --             enableVGWRoutePropagationResponse
@@ -1309,6 +1351,16 @@ testAttachClassicLinkVPC = req
     "AttachClassicLinkVPC"
     "fixture/AttachClassicLinkVPC.yaml"
 
+testDescribeVPCClassicLinkDNSSupport :: DescribeVPCClassicLinkDNSSupport -> TestTree
+testDescribeVPCClassicLinkDNSSupport = req
+    "DescribeVPCClassicLinkDNSSupport"
+    "fixture/DescribeVPCClassicLinkDNSSupport.yaml"
+
+testRunScheduledInstances :: RunScheduledInstances -> TestTree
+testRunScheduledInstances = req
+    "RunScheduledInstances"
+    "fixture/RunScheduledInstances.yaml"
+
 testCancelSpotFleetRequests :: CancelSpotFleetRequests -> TestTree
 testCancelSpotFleetRequests = req
     "CancelSpotFleetRequests"
@@ -1539,6 +1591,11 @@ testDescribeConversionTasks = req
     "DescribeConversionTasks"
     "fixture/DescribeConversionTasks.yaml"
 
+testDisableVPCClassicLinkDNSSupport :: DisableVPCClassicLinkDNSSupport -> TestTree
+testDisableVPCClassicLinkDNSSupport = req
+    "DisableVPCClassicLinkDNSSupport"
+    "fixture/DisableVPCClassicLinkDNSSupport.yaml"
+
 testAllocateAddress :: AllocateAddress -> TestTree
 testAllocateAddress = req
     "AllocateAddress"
@@ -1609,10 +1666,20 @@ testRevokeSecurityGroupIngress = req
     "RevokeSecurityGroupIngress"
     "fixture/RevokeSecurityGroupIngress.yaml"
 
+testEnableVPCClassicLinkDNSSupport :: EnableVPCClassicLinkDNSSupport -> TestTree
+testEnableVPCClassicLinkDNSSupport = req
+    "EnableVPCClassicLinkDNSSupport"
+    "fixture/EnableVPCClassicLinkDNSSupport.yaml"
+
 testModifyReservedInstances :: ModifyReservedInstances -> TestTree
 testModifyReservedInstances = req
     "ModifyReservedInstances"
     "fixture/ModifyReservedInstances.yaml"
+
+testDescribeScheduledInstances :: DescribeScheduledInstances -> TestTree
+testDescribeScheduledInstances = req
+    "DescribeScheduledInstances"
+    "fixture/DescribeScheduledInstances.yaml"
 
 testCreateFlowLogs :: CreateFlowLogs -> TestTree
 testCreateFlowLogs = req
@@ -1693,6 +1760,11 @@ testCreateVolume :: CreateVolume -> TestTree
 testCreateVolume = req
     "CreateVolume"
     "fixture/CreateVolume.yaml"
+
+testDescribeScheduledInstanceAvailability :: DescribeScheduledInstanceAvailability -> TestTree
+testDescribeScheduledInstanceAvailability = req
+    "DescribeScheduledInstanceAvailability"
+    "fixture/DescribeScheduledInstanceAvailability.yaml"
 
 testModifyVolumeAttribute :: ModifyVolumeAttribute -> TestTree
 testModifyVolumeAttribute = req
@@ -1938,6 +2010,11 @@ testDescribePlacementGroups :: DescribePlacementGroups -> TestTree
 testDescribePlacementGroups = req
     "DescribePlacementGroups"
     "fixture/DescribePlacementGroups.yaml"
+
+testPurchaseScheduledInstances :: PurchaseScheduledInstances -> TestTree
+testPurchaseScheduledInstances = req
+    "PurchaseScheduledInstances"
+    "fixture/PurchaseScheduledInstances.yaml"
 
 testEnableVGWRoutePropagation :: EnableVGWRoutePropagation -> TestTree
 testEnableVGWRoutePropagation = req
@@ -2322,6 +2399,20 @@ testAttachClassicLinkVPCResponse = res
     eC2
     (Proxy :: Proxy AttachClassicLinkVPC)
 
+testDescribeVPCClassicLinkDNSSupportResponse :: DescribeVPCClassicLinkDNSSupportResponse -> TestTree
+testDescribeVPCClassicLinkDNSSupportResponse = res
+    "DescribeVPCClassicLinkDNSSupportResponse"
+    "fixture/DescribeVPCClassicLinkDNSSupportResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeVPCClassicLinkDNSSupport)
+
+testRunScheduledInstancesResponse :: RunScheduledInstancesResponse -> TestTree
+testRunScheduledInstancesResponse = res
+    "RunScheduledInstancesResponse"
+    "fixture/RunScheduledInstancesResponse.proto"
+    eC2
+    (Proxy :: Proxy RunScheduledInstances)
+
 testCancelSpotFleetRequestsResponse :: CancelSpotFleetRequestsResponse -> TestTree
 testCancelSpotFleetRequestsResponse = res
     "CancelSpotFleetRequestsResponse"
@@ -2644,6 +2735,13 @@ testDescribeConversionTasksResponse = res
     eC2
     (Proxy :: Proxy DescribeConversionTasks)
 
+testDisableVPCClassicLinkDNSSupportResponse :: DisableVPCClassicLinkDNSSupportResponse -> TestTree
+testDisableVPCClassicLinkDNSSupportResponse = res
+    "DisableVPCClassicLinkDNSSupportResponse"
+    "fixture/DisableVPCClassicLinkDNSSupportResponse.proto"
+    eC2
+    (Proxy :: Proxy DisableVPCClassicLinkDNSSupport)
+
 testAllocateAddressResponse :: AllocateAddressResponse -> TestTree
 testAllocateAddressResponse = res
     "AllocateAddressResponse"
@@ -2742,12 +2840,26 @@ testRevokeSecurityGroupIngressResponse = res
     eC2
     (Proxy :: Proxy RevokeSecurityGroupIngress)
 
+testEnableVPCClassicLinkDNSSupportResponse :: EnableVPCClassicLinkDNSSupportResponse -> TestTree
+testEnableVPCClassicLinkDNSSupportResponse = res
+    "EnableVPCClassicLinkDNSSupportResponse"
+    "fixture/EnableVPCClassicLinkDNSSupportResponse.proto"
+    eC2
+    (Proxy :: Proxy EnableVPCClassicLinkDNSSupport)
+
 testModifyReservedInstancesResponse :: ModifyReservedInstancesResponse -> TestTree
 testModifyReservedInstancesResponse = res
     "ModifyReservedInstancesResponse"
     "fixture/ModifyReservedInstancesResponse.proto"
     eC2
     (Proxy :: Proxy ModifyReservedInstances)
+
+testDescribeScheduledInstancesResponse :: DescribeScheduledInstancesResponse -> TestTree
+testDescribeScheduledInstancesResponse = res
+    "DescribeScheduledInstancesResponse"
+    "fixture/DescribeScheduledInstancesResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeScheduledInstances)
 
 testCreateFlowLogsResponse :: CreateFlowLogsResponse -> TestTree
 testCreateFlowLogsResponse = res
@@ -2860,6 +2972,13 @@ testCreateVolumeResponse = res
     "fixture/CreateVolumeResponse.proto"
     eC2
     (Proxy :: Proxy CreateVolume)
+
+testDescribeScheduledInstanceAvailabilityResponse :: DescribeScheduledInstanceAvailabilityResponse -> TestTree
+testDescribeScheduledInstanceAvailabilityResponse = res
+    "DescribeScheduledInstanceAvailabilityResponse"
+    "fixture/DescribeScheduledInstanceAvailabilityResponse.proto"
+    eC2
+    (Proxy :: Proxy DescribeScheduledInstanceAvailability)
 
 testModifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse -> TestTree
 testModifyVolumeAttributeResponse = res
@@ -3203,6 +3322,13 @@ testDescribePlacementGroupsResponse = res
     "fixture/DescribePlacementGroupsResponse.proto"
     eC2
     (Proxy :: Proxy DescribePlacementGroups)
+
+testPurchaseScheduledInstancesResponse :: PurchaseScheduledInstancesResponse -> TestTree
+testPurchaseScheduledInstancesResponse = res
+    "PurchaseScheduledInstancesResponse"
+    "fixture/PurchaseScheduledInstancesResponse.proto"
+    eC2
+    (Proxy :: Proxy PurchaseScheduledInstances)
 
 testEnableVGWRoutePropagationResponse :: EnableVGWRoutePropagationResponse -> TestTree
 testEnableVGWRoutePropagationResponse = res

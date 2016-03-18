@@ -23,7 +23,11 @@
 --
 -- When you launch an instance, it enters the 'pending' state. After the
 -- instance is ready for you, it enters the 'running' state. To check the
--- state of your instance, call DescribeInstances.
+-- state of your instance, call < DescribeInstances>.
+--
+-- To ensure faster instance launches, break up large requests into smaller
+-- batches. For example, create five separate launch requests for 100
+-- instances each instead of one launch request for 500 instances.
 --
 -- If you don\'t specify a security group when launching an instance,
 -- Amazon EC2 uses the default security group. For more information, see
@@ -51,9 +55,10 @@
 -- If any of the AMIs have a product code attached for which the user has
 -- not subscribed, 'RunInstances' fails.
 --
--- T2 instance types can only be launched into a VPC. If you do not have a
--- default VPC, or if you do not specify a subnet ID in the request,
--- 'RunInstances' fails.
+-- Some instance types can only be launched into a VPC. If you do not have
+-- a default VPC, or if you do not specify a subnet ID in the request,
+-- 'RunInstances' fails. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types Instance Types Available Only in a VPC>.
 --
 -- For more information about troubleshooting, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html What To Do If An Instance Immediately Terminates>,
@@ -223,7 +228,7 @@ rAdditionalInfo :: Lens' RunInstances (Maybe Text)
 rAdditionalInfo = lens _rAdditionalInfo (\ s a -> s{_rAdditionalInfo = a});
 
 -- | One or more security group IDs. You can create a security group using
--- CreateSecurityGroup.
+-- < CreateSecurityGroup>.
 --
 -- Default: Amazon EC2 uses the default security group.
 rSecurityGroupIds :: Lens' RunInstances [Text]
@@ -249,7 +254,7 @@ rClientToken = lens _rClientToken (\ s a -> s{_rClientToken = a});
 -- set this parameter to 'true' and then later want to be able to terminate
 -- the instance, you must first change the value of the
 -- 'disableApiTermination' attribute to 'false' using
--- ModifyInstanceAttribute. Alternatively, if you set
+-- < ModifyInstanceAttribute>. Alternatively, if you set
 -- 'InstanceInitiatedShutdownBehavior' to 'terminate', you can terminate
 -- the instance by running the shutdown command from the instance.
 --
@@ -257,8 +262,8 @@ rClientToken = lens _rClientToken (\ s a -> s{_rClientToken = a});
 rDisableAPITermination :: Lens' RunInstances (Maybe Bool)
 rDisableAPITermination = lens _rDisableAPITermination (\ s a -> s{_rDisableAPITermination = a});
 
--- | The name of the key pair. You can create a key pair using CreateKeyPair
--- or ImportKeyPair.
+-- | The name of the key pair. You can create a key pair using
+-- < CreateKeyPair> or < ImportKeyPair>.
 --
 -- If you do not specify a key pair, you can\'t connect to the instance
 -- unless you choose an AMI that is configured to allow users another way
@@ -310,7 +315,14 @@ rInstanceType = lens _rInstanceType (\ s a -> s{_rInstanceType = a});
 rEBSOptimized :: Lens' RunInstances (Maybe Bool)
 rEBSOptimized = lens _rEBSOptimized (\ s a -> s{_rEBSOptimized = a});
 
--- | The Base64-encoded MIME user data for the instances.
+-- | Data to configure the instance, or a script to run during instance
+-- launch. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch>
+-- (Linux) and
+-- <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data>
+-- (Windows). For API calls, the text must be base64-encoded. For command
+-- line tools, the encoding is performed for you, and you can load the text
+-- from a file.
 rUserData :: Lens' RunInstances (Maybe Text)
 rUserData = lens _rUserData (\ s a -> s{_rUserData = a});
 
@@ -358,7 +370,7 @@ rDryRun = lens _rDryRun (\ s a -> s{_rDryRun = a});
 rPlacement :: Lens' RunInstances (Maybe Placement)
 rPlacement = lens _rPlacement (\ s a -> s{_rPlacement = a});
 
--- | The ID of the AMI, which you can get by calling DescribeImages.
+-- | The ID of the AMI, which you can get by calling < DescribeImages>.
 rImageId :: Lens' RunInstances Text
 rImageId = lens _rImageId (\ s a -> s{_rImageId = a});
 
@@ -382,7 +394,7 @@ rMinCount = lens _rMinCount (\ s a -> s{_rMinCount = a});
 -- specified instance type. For more information about the default limits,
 -- and how to request an increase, see
 -- <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2>
--- in the Amazon EC2 General FAQ.
+-- in the Amazon EC2 FAQ.
 rMaxCount :: Lens' RunInstances Int
 rMaxCount = lens _rMaxCount (\ s a -> s{_rMaxCount = a});
 

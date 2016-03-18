@@ -29,12 +29,15 @@ import           Network.AWS.EC2.DescribeInstances
 import           Network.AWS.EC2.DescribeInstances
 import           Network.AWS.EC2.DescribeInstanceStatus
 import           Network.AWS.EC2.DescribeInstanceStatus
+import           Network.AWS.EC2.DescribeNatGateways
+import           Network.AWS.EC2.DescribeNetworkInterfaces
 import           Network.AWS.EC2.DescribeSnapshots
 import           Network.AWS.EC2.DescribeSpotInstanceRequests
 import           Network.AWS.EC2.DescribeSubnets
 import           Network.AWS.EC2.DescribeVolumes
 import           Network.AWS.EC2.DescribeVolumes
 import           Network.AWS.EC2.DescribeVolumes
+import           Network.AWS.EC2.DescribeVPCPeeringConnections
 import           Network.AWS.EC2.DescribeVPCs
 import           Network.AWS.EC2.DescribeVPNConnections
 import           Network.AWS.EC2.DescribeVPNConnections
@@ -92,6 +95,37 @@ volumeInUse =
                               vState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeNatGateways' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
+natGatewayAvailable :: Wait DescribeNatGateways
+natGatewayAvailable =
+    Wait
+    { _waitName = "NatGatewayAvailable"
+    , _waitAttempts = 40
+    , _waitDelay = 15
+    , _waitAcceptors = [ matchAll
+                             "available"
+                             AcceptSuccess
+                             (folding (concatOf dngrsNatGateways) .
+                              ngState . _Just . to toTextCI)
+                       , matchAny
+                             "failed"
+                             AcceptFailure
+                             (folding (concatOf dngrsNatGateways) .
+                              ngState . _Just . to toTextCI)
+                       , matchAny
+                             "deleting"
+                             AcceptFailure
+                             (folding (concatOf dngrsNatGateways) .
+                              ngState . _Just . to toTextCI)
+                       , matchAny
+                             "deleted"
+                             AcceptFailure
+                             (folding (concatOf dngrsNatGateways) .
+                              ngState . _Just . to toTextCI)
+                       , matchError "InvalidNatGatewayIDNotFound" AcceptRetry]
+    }
+
 -- | Polls 'Network.AWS.EC2.DescribeSubnets' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 subnetAvailable :: Wait DescribeSubnets
@@ -105,6 +139,24 @@ subnetAvailable =
                              AcceptSuccess
                              (folding (concatOf dsrsSubnets) .
                               subState . to toTextCI)]
+    }
+
+-- | Polls 'Network.AWS.EC2.DescribeNetworkInterfaces' every 20 seconds until a
+-- successful state is reached. An error is returned after 10 failed checks.
+networkInterfaceAvailable :: Wait DescribeNetworkInterfaces
+networkInterfaceAvailable =
+    Wait
+    { _waitName = "NetworkInterfaceAvailable"
+    , _waitAttempts = 10
+    , _waitDelay = 20
+    , _waitAcceptors = [ matchAll
+                             "available"
+                             AcceptSuccess
+                             (folding (concatOf dnirsNetworkInterfaces) .
+                              niStatus . _Just . to toTextCI)
+                       , matchError
+                             "InvalidNetworkInterfaceIDNotFound"
+                             AcceptFailure]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeInstanceStatus' every 15 seconds until a
@@ -260,7 +312,8 @@ instanceRunning =
                              AcceptFailure
                              (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
-                              insState . isName . to toTextCI)]
+                              insState . isName . to toTextCI)
+                       , matchError "InvalidInstanceIDNotFound" AcceptRetry]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeSpotInstanceRequests' every 15 seconds until a
@@ -459,6 +512,20 @@ imageAvailable =
                               iState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeVPCPeeringConnections' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
+vpcPeeringConnectionExists :: Wait DescribeVPCPeeringConnections
+vpcPeeringConnectionExists =
+    Wait
+    { _waitName = "VpcPeeringConnectionExists"
+    , _waitAttempts = 40
+    , _waitDelay = 15
+    , _waitAcceptors = [ matchStatus 200 AcceptSuccess
+                       , matchError
+                             "InvalidVpcPeeringConnectionIDNotFound"
+                             AcceptRetry]
+    }
+
 -- | Polls 'Network.AWS.EC2.DescribeSnapshots' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 snapshotCompleted :: Wait DescribeSnapshots
@@ -482,7 +549,10 @@ instanceExists =
     { _waitName = "InstanceExists"
     , _waitAttempts = 40
     , _waitDelay = 5
-    , _waitAcceptors = [ matchStatus 200 AcceptSuccess
+    , _waitAcceptors = [ matchAll
+                             True
+                             AcceptSuccess
+                             (nonEmpty (folding (concatOf dirsReservations)))
                        , matchError "InvalidInstanceIDNotFound" AcceptRetry]
     }
 
@@ -499,7 +569,8 @@ instanceStatusOK =
                              AcceptSuccess
                              (folding (concatOf disrsInstanceStatuses) .
                               isInstanceStatus .
-                              _Just . issStatus . to toTextCI)]
+                              _Just . issStatus . to toTextCI)
+                       , matchError "InvalidInstanceIDNotFound" AcceptRetry]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a

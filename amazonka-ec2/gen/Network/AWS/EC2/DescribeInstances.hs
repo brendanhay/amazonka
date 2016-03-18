@@ -142,8 +142,8 @@ describeInstances =
 --
 -- -   'instance-id' - The ID of the instance.
 --
--- -   'instance-lifecycle' - Indicates whether this is a Spot Instance
---     ('spot').
+-- -   'instance-lifecycle' - Indicates whether this is a Spot Instance or
+--     a Scheduled Instance ('spot' | 'scheduled').
 --
 -- -   'instance-state-code' - The state of the instance, as a 16-bit
 --     unsigned integer. The high byte is an opaque internal value and
@@ -287,7 +287,7 @@ describeInstances =
 -- -   'network-interface.mac-address' - The MAC address of the network
 --     interface.
 --
--- -   'network-interface-private-dns-name' - The private DNS name of the
+-- -   'network-interface.private-dns-name' - The private DNS name of the
 --     network interface.
 --
 -- -   'network-interface.source-dest-check' - Whether the network

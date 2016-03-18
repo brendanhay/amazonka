@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of ByteMatchSetSummary objects.
+-- Returns an array of < ByteMatchSetSummary> objects.
 --
 -- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_ListByteMatchSets.html AWS API Reference> for ListByteMatchSets.
 module Network.AWS.WAF.ListByteMatchSets
@@ -143,7 +143,7 @@ listByteMatchSetsResponse pResponseStatus_ =
     , _lbmsrsResponseStatus = pResponseStatus_
     }
 
--- | An array of ByteMatchSetSummary objects.
+-- | An array of < ByteMatchSetSummary> objects.
 lbmsrsByteMatchSets :: Lens' ListByteMatchSetsResponse [ByteMatchSetSummary]
 lbmsrsByteMatchSets = lens _lbmsrsByteMatchSets (\ s a -> s{_lbmsrsByteMatchSets = a}) . _Default . _Coerce;
 

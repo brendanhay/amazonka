@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the IPSet that is specified by 'IPSetId'.
+-- Returns the < IPSet> that is specified by 'IPSetId'.
 --
 -- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetIPSet.html AWS API Reference> for GetIPSet.
 module Network.AWS.WAF.GetIPSet
@@ -62,8 +62,8 @@ getIPSet pIPSetId_ =
     { _gisIPSetId = pIPSetId_
     }
 
--- | The 'IPSetId' of the IPSet that you want to get. 'IPSetId' is returned
--- by CreateIPSet and by ListIPSets.
+-- | The 'IPSetId' of the < IPSet> that you want to get. 'IPSetId' is
+-- returned by < CreateIPSet> and by < ListIPSets>.
 gisIPSetId :: Lens' GetIPSet Text
 gisIPSetId = lens _gisIPSetId (\ s a -> s{_gisIPSetId = a});
 
@@ -118,11 +118,11 @@ getIPSetResponse pResponseStatus_ =
     , _gisrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the IPSet that you specified in the 'GetIPSet'
+-- | Information about the < IPSet> that you specified in the 'GetIPSet'
 -- request. For more information, see the following topics:
 --
--- -   IPSet: Contains 'IPSetDescriptors', 'IPSetId', and 'Name'
--- -   'IPSetDescriptors': Contains an array of IPSetDescriptor objects.
+-- -   < IPSet>: Contains 'IPSetDescriptors', 'IPSetId', and 'Name'
+-- -   'IPSetDescriptors': Contains an array of < IPSetDescriptor> objects.
 --     Each 'IPSetDescriptor' object contains 'Type' and 'Value'
 gisrsIPSet :: Lens' GetIPSetResponse (Maybe IPSet)
 gisrsIPSet = lens _gisrsIPSet (\ s a -> s{_gisrsIPSet = a});

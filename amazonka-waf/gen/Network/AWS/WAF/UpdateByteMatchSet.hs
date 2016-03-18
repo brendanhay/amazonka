@@ -18,8 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Inserts or deletes ByteMatchTuple objects (filters) in a ByteMatchSet.
--- For each 'ByteMatchTuple' object, you specify the following values:
+-- Inserts or deletes < ByteMatchTuple> objects (filters) in a
+-- < ByteMatchSet>. For each 'ByteMatchTuple' object, you specify the
+-- following values:
 --
 -- -   Whether to insert or delete the object from the array. If you want
 --     to change a 'ByteMatchSetUpdate' object, you delete the existing
@@ -29,7 +30,7 @@
 -- -   The bytes (typically a string that corresponds with ASCII
 --     characters) that you want AWS WAF to look for. For more information,
 --     including how you specify the values for the AWS WAF API and the AWS
---     CLI or SDKs, see 'TargetString' in the ByteMatchTuple data type.
+--     CLI or SDKs, see 'TargetString' in the < ByteMatchTuple> data type.
 -- -   Where to look, such as at the beginning or the end of a query
 --     string.
 -- -   Whether to perform any conversions on the request, such as
@@ -43,9 +44,9 @@
 -- To create and configure a 'ByteMatchSet', perform the following steps:
 --
 -- 1.  Create a 'ByteMatchSet.' For more information, see
---     CreateByteMatchSet.
--- 2.  Use GetChangeToken to get the change token that you provide in the
---     'ChangeToken' parameter of an 'UpdateByteMatchSet' request.
+--     < CreateByteMatchSet>.
+-- 2.  Use < GetChangeToken> to get the change token that you provide in
+--     the 'ChangeToken' parameter of an 'UpdateByteMatchSet' request.
 -- 3.  Submit an 'UpdateByteMatchSet' request to specify the part of the
 --     request that you want AWS WAF to inspect (for example, the header or
 --     the URI) and the value that you want AWS WAF to watch for.
@@ -107,24 +108,24 @@ updateByteMatchSet pByteMatchSetId_ pChangeToken_ =
     , _ubmsUpdates = mempty
     }
 
--- | The 'ByteMatchSetId' of the ByteMatchSet that you want to update.
--- 'ByteMatchSetId' is returned by CreateByteMatchSet and by
--- ListByteMatchSets.
+-- | The 'ByteMatchSetId' of the < ByteMatchSet> that you want to update.
+-- 'ByteMatchSetId' is returned by < CreateByteMatchSet> and by
+-- < ListByteMatchSets>.
 ubmsByteMatchSetId :: Lens' UpdateByteMatchSet Text
 ubmsByteMatchSetId = lens _ubmsByteMatchSetId (\ s a -> s{_ubmsByteMatchSetId = a});
 
--- | The value returned by the most recent call to GetChangeToken.
+-- | The value returned by the most recent call to < GetChangeToken>.
 ubmsChangeToken :: Lens' UpdateByteMatchSet Text
 ubmsChangeToken = lens _ubmsChangeToken (\ s a -> s{_ubmsChangeToken = a});
 
 -- | An array of 'ByteMatchSetUpdate' objects that you want to insert into or
--- delete from a ByteMatchSet. For more information, see the applicable
+-- delete from a < ByteMatchSet>. For more information, see the applicable
 -- data types:
 --
--- -   ByteMatchSetUpdate: Contains 'Action' and 'ByteMatchTuple'
--- -   ByteMatchTuple: Contains 'FieldToMatch', 'PositionalConstraint',
+-- -   < ByteMatchSetUpdate>: Contains 'Action' and 'ByteMatchTuple'
+-- -   < ByteMatchTuple>: Contains 'FieldToMatch', 'PositionalConstraint',
 --     'TargetString', and 'TextTransformation'
--- -   FieldToMatch: Contains 'Data' and 'Type'
+-- -   < FieldToMatch>: Contains 'Data' and 'Type'
 ubmsUpdates :: Lens' UpdateByteMatchSet [ByteMatchSetUpdate]
 ubmsUpdates = lens _ubmsUpdates (\ s a -> s{_ubmsUpdates = a}) . _Coerce;
 
@@ -185,7 +186,7 @@ updateByteMatchSetResponse pResponseStatus_ =
 
 -- | The 'ChangeToken' that you used to submit the 'UpdateByteMatchSet'
 -- request. You can also use this value to query the status of the request.
--- For more information, see GetChangeTokenStatus.
+-- For more information, see < GetChangeTokenStatus>.
 ubmsrsChangeToken :: Lens' UpdateByteMatchSetResponse (Maybe Text)
 ubmsrsChangeToken = lens _ubmsrsChangeToken (\ s a -> s{_ubmsrsChangeToken = a});
 

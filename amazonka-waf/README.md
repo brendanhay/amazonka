@@ -17,7 +17,7 @@ This is the /AWS WAF API Reference/. This guide is for developers who
 need detailed information about the AWS WAF API actions, data types, and
 errors. For detailed information about AWS WAF features and an overview
 of how to use the AWS WAF API, see the
-<http://docs.aws.amazon.com/waf/latest/dev/ AWS WAF Developer Guide>.
+<http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-waf)
 and the [AWS API Reference](http://docs.aws.amazon.com/waf/latest/APIReference/Welcome.html).

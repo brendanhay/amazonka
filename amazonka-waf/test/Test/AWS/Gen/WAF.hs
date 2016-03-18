@@ -28,7 +28,10 @@ import Test.AWS.WAF.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testUpdateRule $
+--         [ testGetSizeConstraintSet $
+--             getSizeConstraintSet
+--
+--         , testUpdateRule $
 --             updateRule
 --
 --         , testDeleteRule $
@@ -73,6 +76,9 @@ import Test.AWS.WAF.Internal
 --         , testGetChangeToken $
 --             getChangeToken
 --
+--         , testListSizeConstraintSets $
+--             listSizeConstraintSets
+--
 --         , testGetSampledRequests $
 --             getSampledRequests
 --
@@ -103,6 +109,15 @@ import Test.AWS.WAF.Internal
 --         , testGetByteMatchSet $
 --             getByteMatchSet
 --
+--         , testDeleteSizeConstraintSet $
+--             deleteSizeConstraintSet
+--
+--         , testUpdateSizeConstraintSet $
+--             updateSizeConstraintSet
+--
+--         , testCreateSizeConstraintSet $
+--             createSizeConstraintSet
+--
 --         , testListSqlInjectionMatchSets $
 --             listSqlInjectionMatchSets
 --
@@ -115,7 +130,10 @@ import Test.AWS.WAF.Internal
 --           ]
 
 --     , testGroup "response"
---         [ testUpdateRuleResponse $
+--         [ testGetSizeConstraintSetResponse $
+--             getSizeConstraintSetResponse
+--
+--         , testUpdateRuleResponse $
 --             updateRuleResponse
 --
 --         , testDeleteRuleResponse $
@@ -160,6 +178,9 @@ import Test.AWS.WAF.Internal
 --         , testGetChangeTokenResponse $
 --             getChangeTokenResponse
 --
+--         , testListSizeConstraintSetsResponse $
+--             listSizeConstraintSetsResponse
+--
 --         , testGetSampledRequestsResponse $
 --             getSampledRequestsResponse
 --
@@ -190,6 +211,15 @@ import Test.AWS.WAF.Internal
 --         , testGetByteMatchSetResponse $
 --             getByteMatchSetResponse
 --
+--         , testDeleteSizeConstraintSetResponse $
+--             deleteSizeConstraintSetResponse
+--
+--         , testUpdateSizeConstraintSetResponse $
+--             updateSizeConstraintSetResponse
+--
+--         , testCreateSizeConstraintSetResponse $
+--             createSizeConstraintSetResponse
+--
 --         , testListSqlInjectionMatchSetsResponse $
 --             listSqlInjectionMatchSetsResponse
 --
@@ -203,6 +233,11 @@ import Test.AWS.WAF.Internal
 --     ]
 
 -- Requests
+
+testGetSizeConstraintSet :: GetSizeConstraintSet -> TestTree
+testGetSizeConstraintSet = req
+    "GetSizeConstraintSet"
+    "fixture/GetSizeConstraintSet.yaml"
 
 testUpdateRule :: UpdateRule -> TestTree
 testUpdateRule = req
@@ -279,6 +314,11 @@ testGetChangeToken = req
     "GetChangeToken"
     "fixture/GetChangeToken.yaml"
 
+testListSizeConstraintSets :: ListSizeConstraintSets -> TestTree
+testListSizeConstraintSets = req
+    "ListSizeConstraintSets"
+    "fixture/ListSizeConstraintSets.yaml"
+
 testGetSampledRequests :: GetSampledRequests -> TestTree
 testGetSampledRequests = req
     "GetSampledRequests"
@@ -329,6 +369,21 @@ testGetByteMatchSet = req
     "GetByteMatchSet"
     "fixture/GetByteMatchSet.yaml"
 
+testDeleteSizeConstraintSet :: DeleteSizeConstraintSet -> TestTree
+testDeleteSizeConstraintSet = req
+    "DeleteSizeConstraintSet"
+    "fixture/DeleteSizeConstraintSet.yaml"
+
+testUpdateSizeConstraintSet :: UpdateSizeConstraintSet -> TestTree
+testUpdateSizeConstraintSet = req
+    "UpdateSizeConstraintSet"
+    "fixture/UpdateSizeConstraintSet.yaml"
+
+testCreateSizeConstraintSet :: CreateSizeConstraintSet -> TestTree
+testCreateSizeConstraintSet = req
+    "CreateSizeConstraintSet"
+    "fixture/CreateSizeConstraintSet.yaml"
+
 testListSqlInjectionMatchSets :: ListSqlInjectionMatchSets -> TestTree
 testListSqlInjectionMatchSets = req
     "ListSqlInjectionMatchSets"
@@ -345,6 +400,13 @@ testUpdateSqlInjectionMatchSet = req
     "fixture/UpdateSqlInjectionMatchSet.yaml"
 
 -- Responses
+
+testGetSizeConstraintSetResponse :: GetSizeConstraintSetResponse -> TestTree
+testGetSizeConstraintSetResponse = res
+    "GetSizeConstraintSetResponse"
+    "fixture/GetSizeConstraintSetResponse.proto"
+    wAF
+    (Proxy :: Proxy GetSizeConstraintSet)
 
 testUpdateRuleResponse :: UpdateRuleResponse -> TestTree
 testUpdateRuleResponse = res
@@ -451,6 +513,13 @@ testGetChangeTokenResponse = res
     wAF
     (Proxy :: Proxy GetChangeToken)
 
+testListSizeConstraintSetsResponse :: ListSizeConstraintSetsResponse -> TestTree
+testListSizeConstraintSetsResponse = res
+    "ListSizeConstraintSetsResponse"
+    "fixture/ListSizeConstraintSetsResponse.proto"
+    wAF
+    (Proxy :: Proxy ListSizeConstraintSets)
+
 testGetSampledRequestsResponse :: GetSampledRequestsResponse -> TestTree
 testGetSampledRequestsResponse = res
     "GetSampledRequestsResponse"
@@ -520,6 +589,27 @@ testGetByteMatchSetResponse = res
     "fixture/GetByteMatchSetResponse.proto"
     wAF
     (Proxy :: Proxy GetByteMatchSet)
+
+testDeleteSizeConstraintSetResponse :: DeleteSizeConstraintSetResponse -> TestTree
+testDeleteSizeConstraintSetResponse = res
+    "DeleteSizeConstraintSetResponse"
+    "fixture/DeleteSizeConstraintSetResponse.proto"
+    wAF
+    (Proxy :: Proxy DeleteSizeConstraintSet)
+
+testUpdateSizeConstraintSetResponse :: UpdateSizeConstraintSetResponse -> TestTree
+testUpdateSizeConstraintSetResponse = res
+    "UpdateSizeConstraintSetResponse"
+    "fixture/UpdateSizeConstraintSetResponse.proto"
+    wAF
+    (Proxy :: Proxy UpdateSizeConstraintSet)
+
+testCreateSizeConstraintSetResponse :: CreateSizeConstraintSetResponse -> TestTree
+testCreateSizeConstraintSetResponse = res
+    "CreateSizeConstraintSetResponse"
+    "fixture/CreateSizeConstraintSetResponse.proto"
+    wAF
+    (Proxy :: Proxy CreateSizeConstraintSet)
 
 testListSqlInjectionMatchSetsResponse :: ListSqlInjectionMatchSetsResponse -> TestTree
 testListSqlInjectionMatchSetsResponse = res

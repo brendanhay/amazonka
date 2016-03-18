@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the SqlInjectionMatchSet that is specified by
+-- Returns the < SqlInjectionMatchSet> that is specified by
 -- 'SqlInjectionMatchSetId'.
 --
 -- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetSqlInjectionMatchSet.html AWS API Reference> for GetSqlInjectionMatchSet.
@@ -45,7 +45,7 @@ import           Network.AWS.Response
 import           Network.AWS.WAF.Types
 import           Network.AWS.WAF.Types.Product
 
--- | A request to get a SqlInjectionMatchSet.
+-- | A request to get a < SqlInjectionMatchSet>.
 --
 -- /See:/ 'getSqlInjectionMatchSet' smart constructor.
 newtype GetSqlInjectionMatchSet = GetSqlInjectionMatchSet'
@@ -65,9 +65,9 @@ getSqlInjectionMatchSet pSqlInjectionMatchSetId_ =
     { _gsimsSqlInjectionMatchSetId = pSqlInjectionMatchSetId_
     }
 
--- | The 'SqlInjectionMatchSetId' of the SqlInjectionMatchSet that you want
--- to get. 'SqlInjectionMatchSetId' is returned by
--- CreateSqlInjectionMatchSet and by ListSqlInjectionMatchSets.
+-- | The 'SqlInjectionMatchSetId' of the < SqlInjectionMatchSet> that you
+-- want to get. 'SqlInjectionMatchSetId' is returned by
+-- < CreateSqlInjectionMatchSet> and by < ListSqlInjectionMatchSets>.
 gsimsSqlInjectionMatchSetId :: Lens' GetSqlInjectionMatchSet Text
 gsimsSqlInjectionMatchSetId = lens _gsimsSqlInjectionMatchSetId (\ s a -> s{_gsimsSqlInjectionMatchSetId = a});
 
@@ -106,7 +106,7 @@ instance ToPath GetSqlInjectionMatchSet where
 instance ToQuery GetSqlInjectionMatchSet where
         toQuery = const mempty
 
--- | The response to a GetSqlInjectionMatchSet request.
+-- | The response to a < GetSqlInjectionMatchSet> request.
 --
 -- /See:/ 'getSqlInjectionMatchSetResponse' smart constructor.
 data GetSqlInjectionMatchSetResponse = GetSqlInjectionMatchSetResponse'
@@ -130,15 +130,15 @@ getSqlInjectionMatchSetResponse pResponseStatus_ =
     , _gsimsrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the SqlInjectionMatchSet that you specified in the
+-- | Information about the < SqlInjectionMatchSet> that you specified in the
 -- 'GetSqlInjectionMatchSet' request. For more information, see the
 -- following topics:
 --
--- -   SqlInjectionMatchSet: Contains 'Name', 'SqlInjectionMatchSetId', and
---     an array of 'SqlInjectionMatchTuple' objects
--- -   SqlInjectionMatchTuple: Each 'SqlInjectionMatchTuple' object
+-- -   < SqlInjectionMatchSet>: Contains 'Name', 'SqlInjectionMatchSetId',
+--     and an array of 'SqlInjectionMatchTuple' objects
+-- -   < SqlInjectionMatchTuple>: Each 'SqlInjectionMatchTuple' object
 --     contains 'FieldToMatch' and 'TextTransformation'
--- -   FieldToMatch: Contains 'Data' and 'Type'
+-- -   < FieldToMatch>: Contains 'Data' and 'Type'
 gsimsrsSqlInjectionMatchSet :: Lens' GetSqlInjectionMatchSetResponse (Maybe SqlInjectionMatchSet)
 gsimsrsSqlInjectionMatchSet = lens _gsimsrsSqlInjectionMatchSet (\ s a -> s{_gsimsrsSqlInjectionMatchSet = a});
 

@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the status of a 'ChangeToken' that you got by calling
--- GetChangeToken. 'ChangeTokenStatus' is one of the following values:
+-- < GetChangeToken>. 'ChangeTokenStatus' is one of the following values:
 --
 -- -   'PROVISIONED': You requested the change token by calling
 --     'GetChangeToken', but you haven\'t used it yet in a call to create,

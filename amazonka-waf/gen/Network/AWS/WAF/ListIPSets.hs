@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of IPSetSummary objects in the response.
+-- Returns an array of < IPSetSummary> objects in the response.
 --
 -- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_ListIPSets.html AWS API Reference> for ListIPSets.
 module Network.AWS.WAF.ListIPSets
@@ -150,7 +150,7 @@ listIPSetsResponse pResponseStatus_ =
 lisrsNextMarker :: Lens' ListIPSetsResponse (Maybe Text)
 lisrsNextMarker = lens _lisrsNextMarker (\ s a -> s{_lisrsNextMarker = a});
 
--- | An array of IPSetSummary objects.
+-- | An array of < IPSetSummary> objects.
 lisrsIPSets :: Lens' ListIPSetsResponse [IPSetSummary]
 lisrsIPSets = lens _lisrsIPSets (\ s a -> s{_lisrsIPSets = a}) . _Default . _Coerce;
 

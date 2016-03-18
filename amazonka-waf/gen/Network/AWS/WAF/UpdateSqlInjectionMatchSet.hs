@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Inserts or deletes SqlInjectionMatchTuple objects (filters) in a
--- SqlInjectionMatchSet. For each 'SqlInjectionMatchTuple' object, you
+-- Inserts or deletes < SqlInjectionMatchTuple> objects (filters) in a
+-- < SqlInjectionMatchSet>. For each 'SqlInjectionMatchTuple' object, you
 -- specify the following values:
 --
 -- -   'Action': Whether to insert the object into or delete the object
@@ -42,9 +42,9 @@
 -- To create and configure a 'SqlInjectionMatchSet', perform the following
 -- steps:
 --
--- 1.  Submit a CreateSqlInjectionMatchSet request.
--- 2.  Use GetChangeToken to get the change token that you provide in the
---     'ChangeToken' parameter of an UpdateIPSet request.
+-- 1.  Submit a < CreateSqlInjectionMatchSet> request.
+-- 2.  Use < GetChangeToken> to get the change token that you provide in
+--     the 'ChangeToken' parameter of an < UpdateIPSet> request.
 -- 3.  Submit an 'UpdateSqlInjectionMatchSet' request to specify the parts
 --     of web requests that you want AWS WAF to inspect for snippets of SQL
 --     code.
@@ -79,7 +79,7 @@ import           Network.AWS.Response
 import           Network.AWS.WAF.Types
 import           Network.AWS.WAF.Types.Product
 
--- | A request to update a SqlInjectionMatchSet.
+-- | A request to update a < SqlInjectionMatchSet>.
 --
 -- /See:/ 'updateSqlInjectionMatchSet' smart constructor.
 data UpdateSqlInjectionMatchSet = UpdateSqlInjectionMatchSet'
@@ -110,23 +110,23 @@ updateSqlInjectionMatchSet pSqlInjectionMatchSetId_ pChangeToken_ =
 
 -- | The 'SqlInjectionMatchSetId' of the 'SqlInjectionMatchSet' that you want
 -- to update. 'SqlInjectionMatchSetId' is returned by
--- CreateSqlInjectionMatchSet and by ListSqlInjectionMatchSets.
+-- < CreateSqlInjectionMatchSet> and by < ListSqlInjectionMatchSets>.
 usimsSqlInjectionMatchSetId :: Lens' UpdateSqlInjectionMatchSet Text
 usimsSqlInjectionMatchSetId = lens _usimsSqlInjectionMatchSetId (\ s a -> s{_usimsSqlInjectionMatchSetId = a});
 
--- | The value returned by the most recent call to GetChangeToken.
+-- | The value returned by the most recent call to < GetChangeToken>.
 usimsChangeToken :: Lens' UpdateSqlInjectionMatchSet Text
 usimsChangeToken = lens _usimsChangeToken (\ s a -> s{_usimsChangeToken = a});
 
 -- | An array of 'SqlInjectionMatchSetUpdate' objects that you want to insert
--- into or delete from a SqlInjectionMatchSet. For more information, see
+-- into or delete from a < SqlInjectionMatchSet>. For more information, see
 -- the applicable data types:
 --
--- -   SqlInjectionMatchSetUpdate: Contains 'Action' and
+-- -   < SqlInjectionMatchSetUpdate>: Contains 'Action' and
 --     'SqlInjectionMatchTuple'
--- -   SqlInjectionMatchTuple: Contains 'FieldToMatch' and
+-- -   < SqlInjectionMatchTuple>: Contains 'FieldToMatch' and
 --     'TextTransformation'
--- -   FieldToMatch: Contains 'Data' and 'Type'
+-- -   < FieldToMatch>: Contains 'Data' and 'Type'
 usimsUpdates :: Lens' UpdateSqlInjectionMatchSet [SqlInjectionMatchSetUpdate]
 usimsUpdates = lens _usimsUpdates (\ s a -> s{_usimsUpdates = a}) . _Coerce;
 
@@ -166,7 +166,7 @@ instance ToPath UpdateSqlInjectionMatchSet where
 instance ToQuery UpdateSqlInjectionMatchSet where
         toQuery = const mempty
 
--- | The response to an UpdateSqlInjectionMatchSets request.
+-- | The response to an < UpdateSqlInjectionMatchSets> request.
 --
 -- /See:/ 'updateSqlInjectionMatchSetResponse' smart constructor.
 data UpdateSqlInjectionMatchSetResponse = UpdateSqlInjectionMatchSetResponse'
@@ -193,7 +193,7 @@ updateSqlInjectionMatchSetResponse pResponseStatus_ =
 -- | The 'ChangeToken' that you used to submit the
 -- 'UpdateSqlInjectionMatchSet' request. You can also use this value to
 -- query the status of the request. For more information, see
--- GetChangeTokenStatus.
+-- < GetChangeTokenStatus>.
 usimsrsChangeToken :: Lens' UpdateSqlInjectionMatchSetResponse (Maybe Text)
 usimsrsChangeToken = lens _usimsrsChangeToken (\ s a -> s{_usimsrsChangeToken = a});
 

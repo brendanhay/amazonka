@@ -18,19 +18,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes a ByteMatchSet. You can\'t delete a 'ByteMatchSet'
--- if it\'s still used in any 'Rules' or if it still includes any
--- ByteMatchTuple objects (any filters).
+-- Permanently deletes a < ByteMatchSet>. You can\'t delete a
+-- 'ByteMatchSet' if it\'s still used in any 'Rules' or if it still
+-- includes any < ByteMatchTuple> objects (any filters).
 --
 -- If you just want to remove a 'ByteMatchSet' from a 'Rule', use
--- UpdateRule.
+-- < UpdateRule>.
 --
 -- To permanently delete a 'ByteMatchSet', perform the following steps:
 --
 -- 1.  Update the 'ByteMatchSet' to remove filters, if any. For more
---     information, see UpdateByteMatchSet.
--- 2.  Use GetChangeToken to get the change token that you provide in the
---     'ChangeToken' parameter of a 'DeleteByteMatchSet' request.
+--     information, see < UpdateByteMatchSet>.
+-- 2.  Use < GetChangeToken> to get the change token that you provide in
+--     the 'ChangeToken' parameter of a 'DeleteByteMatchSet' request.
 -- 3.  Submit a 'DeleteByteMatchSet' request.
 --
 -- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteByteMatchSet.html AWS API Reference> for DeleteByteMatchSet.
@@ -81,13 +81,13 @@ deleteByteMatchSet pByteMatchSetId_ pChangeToken_ =
     , _dbmsChangeToken = pChangeToken_
     }
 
--- | The 'ByteMatchSetId' of the ByteMatchSet that you want to delete.
--- 'ByteMatchSetId' is returned by CreateByteMatchSet and by
--- ListByteMatchSets.
+-- | The 'ByteMatchSetId' of the < ByteMatchSet> that you want to delete.
+-- 'ByteMatchSetId' is returned by < CreateByteMatchSet> and by
+-- < ListByteMatchSets>.
 dbmsByteMatchSetId :: Lens' DeleteByteMatchSet Text
 dbmsByteMatchSetId = lens _dbmsByteMatchSetId (\ s a -> s{_dbmsByteMatchSetId = a});
 
--- | The value returned by the most recent call to GetChangeToken.
+-- | The value returned by the most recent call to < GetChangeToken>.
 dbmsChangeToken :: Lens' DeleteByteMatchSet Text
 dbmsChangeToken = lens _dbmsChangeToken (\ s a -> s{_dbmsChangeToken = a});
 
@@ -147,7 +147,7 @@ deleteByteMatchSetResponse pResponseStatus_ =
 
 -- | The 'ChangeToken' that you used to submit the 'DeleteByteMatchSet'
 -- request. You can also use this value to query the status of the request.
--- For more information, see GetChangeTokenStatus.
+-- For more information, see < GetChangeTokenStatus>.
 dbmsrsChangeToken :: Lens' DeleteByteMatchSetResponse (Maybe Text)
 dbmsrsChangeToken = lens _dbmsrsChangeToken (\ s a -> s{_dbmsrsChangeToken = a});
 

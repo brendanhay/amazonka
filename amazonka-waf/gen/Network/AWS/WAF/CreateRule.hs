@@ -35,17 +35,17 @@
 -- To create and configure a 'Rule', perform the following steps:
 --
 -- 1.  Create and update the predicates that you want to include in the
---     'Rule'. For more information, see CreateByteMatchSet, CreateIPSet,
---     and CreateSqlInjectionMatchSet.
--- 2.  Use GetChangeToken to get the change token that you provide in the
---     'ChangeToken' parameter of a 'CreateRule' request.
+--     'Rule'. For more information, see < CreateByteMatchSet>,
+--     < CreateIPSet>, and < CreateSqlInjectionMatchSet>.
+-- 2.  Use < GetChangeToken> to get the change token that you provide in
+--     the 'ChangeToken' parameter of a 'CreateRule' request.
 -- 3.  Submit a 'CreateRule' request.
 -- 4.  Use 'GetChangeToken' to get the change token that you provide in the
---     'ChangeToken' parameter of an UpdateRule request.
+--     'ChangeToken' parameter of an < UpdateRule> request.
 -- 5.  Submit an 'UpdateRule' request to specify the predicates that you
 --     want to include in the 'Rule'.
 -- 6.  Create and update a 'WebACL' that contains the 'Rule'. For more
---     information, see CreateWebACL.
+--     information, see < CreateWebACL>.
 --
 -- For more information about how to use the AWS WAF API to allow or block
 -- HTTP requests, see the
@@ -106,8 +106,8 @@ createRule pName_ pMetricName_ pChangeToken_ =
     , _crChangeToken = pChangeToken_
     }
 
--- | A friendly name or description of the Rule. You can\'t change the name
--- of a 'Rule' after you create it.
+-- | A friendly name or description of the < Rule>. You can\'t change the
+-- name of a 'Rule' after you create it.
 crName :: Lens' CreateRule Text
 crName = lens _crName (\ s a -> s{_crName = a});
 
@@ -118,7 +118,7 @@ crName = lens _crName (\ s a -> s{_crName = a});
 crMetricName :: Lens' CreateRule Text
 crMetricName = lens _crMetricName (\ s a -> s{_crMetricName = a});
 
--- | The value returned by the most recent call to GetChangeToken.
+-- | The value returned by the most recent call to < GetChangeToken>.
 crChangeToken :: Lens' CreateRule Text
 crChangeToken = lens _crChangeToken (\ s a -> s{_crChangeToken = a});
 
@@ -181,13 +181,13 @@ createRuleResponse pResponseStatus_ =
     , _crrsResponseStatus = pResponseStatus_
     }
 
--- | The Rule returned in the 'CreateRule' response.
+-- | The < Rule> returned in the 'CreateRule' response.
 crrsRule :: Lens' CreateRuleResponse (Maybe Rule)
 crrsRule = lens _crrsRule (\ s a -> s{_crrsRule = a});
 
 -- | The 'ChangeToken' that you used to submit the 'CreateRule' request. You
 -- can also use this value to query the status of the request. For more
--- information, see GetChangeTokenStatus.
+-- information, see < GetChangeTokenStatus>.
 crrsChangeToken :: Lens' CreateRuleResponse (Maybe Text)
 crrsChangeToken = lens _crrsChangeToken (\ s a -> s{_crrsChangeToken = a});
 

@@ -34,6 +34,9 @@ module Network.AWS.WAF.Types
     -- * ChangeTokenStatus
     , ChangeTokenStatus (..)
 
+    -- * ComparisonOperator
+    , ComparisonOperator (..)
+
     -- * IPSetDescriptorType
     , IPSetDescriptorType (..)
 
@@ -168,6 +171,33 @@ module Network.AWS.WAF.Types
     , shttprRequest
     , shttprWeight
 
+    -- * SizeConstraint
+    , SizeConstraint
+    , sizeConstraint
+    , scFieldToMatch
+    , scTextTransformation
+    , scComparisonOperator
+    , scSize
+
+    -- * SizeConstraintSet
+    , SizeConstraintSet
+    , sizeConstraintSet
+    , scsName
+    , scsSizeConstraintSetId
+    , scsSizeConstraints
+
+    -- * SizeConstraintSetSummary
+    , SizeConstraintSetSummary
+    , sizeConstraintSetSummary
+    , scssSizeConstraintSetId
+    , scssName
+
+    -- * SizeConstraintSetUpdate
+    , SizeConstraintSetUpdate
+    , sizeConstraintSetUpdate
+    , scsuAction
+    , scsuSizeConstraint
+
     -- * SqlInjectionMatchSet
     , SqlInjectionMatchSet
     , sqlInjectionMatchSet
@@ -255,6 +285,7 @@ wAF =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -324,7 +355,7 @@ _WAFInvalidParameterException =
 -- | The operation exceeds a resource limit, for example, the maximum number
 -- of 'WebACL' objects that you can create for an AWS account. For more
 -- information, see
--- <http://docs.aws.amazon.com/waf/latest/DeveloperGuide/limits.html Limits>
+-- <http://docs.aws.amazon.com/waf/latest/developerguide/limits.html Limits>
 -- in the /AWS WAF Developer Guide/.
 _WAFLimitsExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFLimitsExceededException =

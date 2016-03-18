@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of WebACLSummary objects in the response.
+-- Returns an array of < WebACLSummary> objects in the response.
 --
 -- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_ListWebACLs.html AWS API Reference> for ListWebACLs.
 module Network.AWS.WAF.ListWebACLs
@@ -142,7 +142,7 @@ listWebACLsResponse pResponseStatus_ =
     , _lwarsResponseStatus = pResponseStatus_
     }
 
--- | An array of WebACLSummary objects.
+-- | An array of < WebACLSummary> objects.
 lwarsWebACLs :: Lens' ListWebACLsResponse [WebACLSummary]
 lwarsWebACLs = lens _lwarsWebACLs (\ s a -> s{_lwarsWebACLs = a}) . _Default . _Coerce;
 

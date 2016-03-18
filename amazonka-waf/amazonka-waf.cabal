@@ -17,7 +17,7 @@ description:
     need detailed information about the AWS WAF API actions, data types, and
     errors. For detailed information about AWS WAF features and an overview
     of how to use the AWS WAF API, see the
-    <http://docs.aws.amazon.com/waf/latest/dev/ AWS WAF Developer Guide>.
+    <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -48,11 +48,13 @@ library
         , Network.AWS.WAF.CreateByteMatchSet
         , Network.AWS.WAF.CreateIPSet
         , Network.AWS.WAF.CreateRule
+        , Network.AWS.WAF.CreateSizeConstraintSet
         , Network.AWS.WAF.CreateSqlInjectionMatchSet
         , Network.AWS.WAF.CreateWebACL
         , Network.AWS.WAF.DeleteByteMatchSet
         , Network.AWS.WAF.DeleteIPSet
         , Network.AWS.WAF.DeleteRule
+        , Network.AWS.WAF.DeleteSizeConstraintSet
         , Network.AWS.WAF.DeleteSqlInjectionMatchSet
         , Network.AWS.WAF.DeleteWebACL
         , Network.AWS.WAF.GetByteMatchSet
@@ -61,17 +63,20 @@ library
         , Network.AWS.WAF.GetIPSet
         , Network.AWS.WAF.GetRule
         , Network.AWS.WAF.GetSampledRequests
+        , Network.AWS.WAF.GetSizeConstraintSet
         , Network.AWS.WAF.GetSqlInjectionMatchSet
         , Network.AWS.WAF.GetWebACL
         , Network.AWS.WAF.ListByteMatchSets
         , Network.AWS.WAF.ListIPSets
         , Network.AWS.WAF.ListRules
+        , Network.AWS.WAF.ListSizeConstraintSets
         , Network.AWS.WAF.ListSqlInjectionMatchSets
         , Network.AWS.WAF.ListWebACLs
         , Network.AWS.WAF.Types
         , Network.AWS.WAF.UpdateByteMatchSet
         , Network.AWS.WAF.UpdateIPSet
         , Network.AWS.WAF.UpdateRule
+        , Network.AWS.WAF.UpdateSizeConstraintSet
         , Network.AWS.WAF.UpdateSqlInjectionMatchSet
         , Network.AWS.WAF.UpdateWebACL
         , Network.AWS.WAF.Waiters

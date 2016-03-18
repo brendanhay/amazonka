@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the Rule that is specified by the 'RuleId' that you included in
--- the 'GetRule' request.
+-- Returns the < Rule> that is specified by the 'RuleId' that you included
+-- in the 'GetRule' request.
 --
 -- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetRule.html AWS API Reference> for GetRule.
 module Network.AWS.WAF.GetRule
@@ -63,8 +63,8 @@ getRule pRuleId_ =
     { _grRuleId = pRuleId_
     }
 
--- | The 'RuleId' of the Rule that you want to get. 'RuleId' is returned by
--- CreateRule and by ListRules.
+-- | The 'RuleId' of the < Rule> that you want to get. 'RuleId' is returned
+-- by < CreateRule> and by < ListRules>.
 grRuleId :: Lens' GetRule Text
 grRuleId = lens _grRuleId (\ s a -> s{_grRuleId = a});
 
@@ -118,13 +118,13 @@ getRuleResponse pResponseStatus_ =
     , _grrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the Rule that you specified in the 'GetRule' request.
--- For more information, see the following topics:
+-- | Information about the < Rule> that you specified in the 'GetRule'
+-- request. For more information, see the following topics:
 --
--- -   Rule: Contains 'MetricName', 'Name', an array of 'Predicate'
+-- -   < Rule>: Contains 'MetricName', 'Name', an array of 'Predicate'
 --     objects, and 'RuleId'
--- -   Predicate: Each 'Predicate' object contains 'DataId', 'Negated', and
---     'Type'
+-- -   < Predicate>: Each 'Predicate' object contains 'DataId', 'Negated',
+--     and 'Type'
 grrsRule :: Lens' GetRuleResponse (Maybe Rule)
 grrsRule = lens _grrsRule (\ s a -> s{_grrsRule = a});
 

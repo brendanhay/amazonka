@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of RuleSummary objects.
+-- Returns an array of < RuleSummary> objects.
 --
 -- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_ListRules.html AWS API Reference> for ListRules.
 module Network.AWS.WAF.ListRules
@@ -141,7 +141,7 @@ listRulesResponse pResponseStatus_ =
     , _lrrsResponseStatus = pResponseStatus_
     }
 
--- | An array of RuleSummary objects.
+-- | An array of < RuleSummary> objects.
 lrrsRules :: Lens' ListRulesResponse [RuleSummary]
 lrrsRules = lens _lrrsRules (\ s a -> s{_lrrsRules = a}) . _Default . _Coerce;
 

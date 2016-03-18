@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the WebACL that is specified by 'WebACLId'.
+-- Returns the < WebACL> that is specified by 'WebACLId'.
 --
 -- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetWebACL.html AWS API Reference> for GetWebACL.
 module Network.AWS.WAF.GetWebACL
@@ -62,8 +62,8 @@ getWebACL pWebACLId_ =
     { _gwaWebACLId = pWebACLId_
     }
 
--- | The 'WebACLId' of the WebACL that you want to get. 'WebACLId' is
--- returned by CreateWebACL and by ListWebACLs.
+-- | The 'WebACLId' of the < WebACL> that you want to get. 'WebACLId' is
+-- returned by < CreateWebACL> and by < ListWebACLs>.
 gwaWebACLId :: Lens' GetWebACL Text
 gwaWebACLId = lens _gwaWebACLId (\ s a -> s{_gwaWebACLId = a});
 
@@ -118,12 +118,12 @@ getWebACLResponse pResponseStatus_ =
     , _gwarsResponseStatus = pResponseStatus_
     }
 
--- | Information about the WebACL that you specified in the 'GetWebACL'
+-- | Information about the < WebACL> that you specified in the 'GetWebACL'
 -- request. For more information, see the following topics:
 --
--- -   WebACL: Contains 'DefaultAction', 'MetricName', 'Name', an array of
---     'Rule' objects, and 'WebACLId'
--- -   'DefaultAction' (Data type is WafAction): Contains 'Type'
+-- -   < WebACL>: Contains 'DefaultAction', 'MetricName', 'Name', an array
+--     of 'Rule' objects, and 'WebACLId'
+-- -   'DefaultAction' (Data type is < WafAction>): Contains 'Type'
 -- -   'Rules': Contains an array of 'ActivatedRule' objects, which contain
 --     'Action', 'Priority', and 'RuleId'
 -- -   'Action': Contains 'Type'

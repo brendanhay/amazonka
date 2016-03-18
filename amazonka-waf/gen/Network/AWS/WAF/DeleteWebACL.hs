@@ -18,15 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes a WebACL. You can\'t delete a 'WebACL' if it still
--- contains any 'Rules'.
+-- Permanently deletes a < WebACL>. You can\'t delete a 'WebACL' if it
+-- still contains any 'Rules'.
 --
 -- To delete a 'WebACL', perform the following steps:
 --
 -- 1.  Update the 'WebACL' to remove 'Rules', if any. For more information,
---     see UpdateWebACL.
--- 2.  Use GetChangeToken to get the change token that you provide in the
---     'ChangeToken' parameter of a 'DeleteWebACL' request.
+--     see < UpdateWebACL>.
+-- 2.  Use < GetChangeToken> to get the change token that you provide in
+--     the 'ChangeToken' parameter of a 'DeleteWebACL' request.
 -- 3.  Submit a 'DeleteWebACL' request.
 --
 -- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteWebACL.html AWS API Reference> for DeleteWebACL.
@@ -77,12 +77,12 @@ deleteWebACL pWebACLId_ pChangeToken_ =
     , _dwaChangeToken = pChangeToken_
     }
 
--- | The 'WebACLId' of the WebACL that you want to delete. 'WebACLId' is
--- returned by CreateWebACL and by ListWebACLs.
+-- | The 'WebACLId' of the < WebACL> that you want to delete. 'WebACLId' is
+-- returned by < CreateWebACL> and by < ListWebACLs>.
 dwaWebACLId :: Lens' DeleteWebACL Text
 dwaWebACLId = lens _dwaWebACLId (\ s a -> s{_dwaWebACLId = a});
 
--- | The value returned by the most recent call to GetChangeToken.
+-- | The value returned by the most recent call to < GetChangeToken>.
 dwaChangeToken :: Lens' DeleteWebACL Text
 dwaChangeToken = lens _dwaChangeToken (\ s a -> s{_dwaChangeToken = a});
 
@@ -141,7 +141,7 @@ deleteWebACLResponse pResponseStatus_ =
 
 -- | The 'ChangeToken' that you used to submit the 'DeleteWebACL' request.
 -- You can also use this value to query the status of the request. For more
--- information, see GetChangeTokenStatus.
+-- information, see < GetChangeTokenStatus>.
 dwarsChangeToken :: Lens' DeleteWebACLResponse (Maybe Text)
 dwarsChangeToken = lens _dwarsChangeToken (\ s a -> s{_dwarsChangeToken = a});
 

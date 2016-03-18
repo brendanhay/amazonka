@@ -187,7 +187,7 @@ usChefConfiguration = lens _usChefConfiguration (\ s a -> s{_usChefConfiguration
 -- The default setting is 'LATEST'. To specify an agent version, you must
 -- use the complete version number, not the abbreviated number shown on the
 -- console. For a list of available agent version numbers, call
--- DescribeAgentVersions.
+-- < DescribeAgentVersions>.
 --
 -- You can also specify an agent version when you create or update an
 -- instance, which overrides the stack\'s default setting.
@@ -227,7 +227,7 @@ usCustomCookbooksSource = lens _usCustomCookbooksSource (\ s a -> s{_usCustomCoo
 -- region. For more information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
 -- If you also specify a value for 'DefaultSubnetId', the subnet must be in
--- the same zone. For more information, see CreateStack.
+-- the same zone. For more information, see < CreateStack>.
 usDefaultAvailabilityZone :: Lens' UpdateStack (Maybe Text)
 usDefaultAvailabilityZone = lens _usDefaultAvailabilityZone (\ s a -> s{_usDefaultAvailabilityZone = a});
 
@@ -296,9 +296,10 @@ usUseCustomCookbooks = lens _usUseCustomCookbooks (\ s a -> s{_usUseCustomCookbo
 usDefaultSubnetId :: Lens' UpdateStack (Maybe Text)
 usDefaultSubnetId = lens _usDefaultSubnetId (\ s a -> s{_usDefaultSubnetId = a});
 
--- | The configuration manager. When you clone a stack, we recommend that you
--- use the configuration manager to specify the Chef version: 0.9, 11.4, or
--- 11.10. The default value is currently 11.4.
+-- | The configuration manager. When you update a stack, we recommend that
+-- you use the configuration manager to specify the Chef version: 12,
+-- 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default
+-- value for Linux stacks is currently 11.4.
 usConfigurationManager :: Lens' UpdateStack (Maybe StackConfigurationManager)
 usConfigurationManager = lens _usConfigurationManager (\ s a -> s{_usConfigurationManager = a});
 

@@ -123,7 +123,7 @@ updateInstance pInstanceId_ =
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is 'true'. To control when updates are
 -- installed, set this value to 'false'. You must then update your
--- instances manually by using CreateDeployment to run the
+-- instances manually by using < CreateDeployment> to run the
 -- 'update_dependencies' stack command or by manually running 'yum' (Amazon
 -- Linux) or 'apt-get' (Ubuntu) on the instances.
 --
@@ -152,7 +152,7 @@ uiSSHKeyName = lens _uiSSHKeyName (\ s a -> s{_uiSSHKeyName = a});
 -- The default setting is 'INHERIT'. To specify an agent version, you must
 -- use the complete version number, not the abbreviated number shown on the
 -- console. For a list of available agent version numbers, call
--- DescribeAgentVersions.
+-- < DescribeAgentVersions>.
 uiAgentVersion :: Lens' UpdateInstance (Maybe Text)
 uiAgentVersion = lens _uiAgentVersion (\ s a -> s{_uiAgentVersion = a});
 

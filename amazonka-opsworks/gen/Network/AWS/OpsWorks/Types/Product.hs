@@ -279,7 +279,8 @@ astInstanceCount = lens _astInstanceCount (\ s a -> s{_astInstanceCount = a});
 astIgnoreMetricsTime :: Lens' AutoScalingThresholds (Maybe Natural)
 astIgnoreMetricsTime = lens _astIgnoreMetricsTime (\ s a -> s{_astIgnoreMetricsTime = a}) . mapping _Nat;
 
--- | The load threshold. For more information about how load is computed, see
+-- | The load threshold. A value of -1 disables the threshold. For more
+-- information about how load is computed, see
 -- <http://en.wikipedia.org/wiki/Load_%28computing%29 Load (computing)>.
 astLoadThreshold :: Lens' AutoScalingThresholds (Maybe Double)
 astLoadThreshold = lens _astLoadThreshold (\ s a -> s{_astLoadThreshold = a});
@@ -302,10 +303,12 @@ astAlarms :: Lens' AutoScalingThresholds [Text]
 astAlarms = lens _astAlarms (\ s a -> s{_astAlarms = a}) . _Default . _Coerce;
 
 -- | The memory utilization threshold, as a percent of the available memory.
+-- A value of -1 disables the threshold.
 astMemoryThreshold :: Lens' AutoScalingThresholds (Maybe Double)
 astMemoryThreshold = lens _astMemoryThreshold (\ s a -> s{_astMemoryThreshold = a});
 
--- | The CPU utilization threshold, as a percent of the available CPU.
+-- | The CPU utilization threshold, as a percent of the available CPU. A
+-- value of -1 disables the threshold.
 astCPUThreshold :: Lens' AutoScalingThresholds (Maybe Double)
 astCPUThreshold = lens _astCPUThreshold (\ s a -> s{_astCPUThreshold = a});
 
@@ -1207,7 +1210,7 @@ environmentVariable pKey_ pValue_ =
     }
 
 -- | (Optional) Whether the variable\'s value will be returned by the
--- DescribeApps action. To conceal an environment variable\'s value, set
+-- < DescribeApps> action. To conceal an environment variable\'s value, set
 -- 'Secure' to 'true'. 'DescribeApps' then returns '*****FILTERED*****'
 -- instead of the actual value. The default value for 'Secure' is 'false'.
 evSecure :: Lens' EnvironmentVariable (Maybe Bool)
@@ -1449,7 +1452,7 @@ iPrivateIP = lens _iPrivateIP (\ s a -> s{_iPrivateIP = a});
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is 'true'. If this value is set to
 -- 'false', you must then update your instances manually by using
--- CreateDeployment to run the 'update_dependencies' stack command or by
+-- < CreateDeployment> to run the 'update_dependencies' stack command or by
 -- manually running 'yum' (Amazon Linux) or 'apt-get' (Ubuntu) on the
 -- instances.
 --
@@ -1547,7 +1550,7 @@ iAvailabilityZone :: Lens' Instance (Maybe Text)
 iAvailabilityZone = lens _iAvailabilityZone (\ s a -> s{_iAvailabilityZone = a});
 
 -- | The ID of the last service error. For more information, call
--- DescribeServiceErrors.
+-- < DescribeServiceErrors>.
 iLastServiceErrorId :: Lens' Instance (Maybe Text)
 iLastServiceErrorId = lens _iLastServiceErrorId (\ s a -> s{_iLastServiceErrorId = a});
 
@@ -1992,7 +1995,7 @@ lCustomSecurityGroupIds = lens _lCustomSecurityGroupIds (\ s a -> s{_lCustomSecu
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is 'true'. If this value is set to
 -- 'false', you must then update your instances manually by using
--- CreateDeployment to run the 'update_dependencies' stack command or
+-- < CreateDeployment> to run the 'update_dependencies' stack command or
 -- manually running 'yum' (Amazon Linux) or 'apt-get' (Ubuntu) on the
 -- instances.
 --
@@ -3284,8 +3287,9 @@ stackConfigurationManager =
 scmName :: Lens' StackConfigurationManager (Maybe Text)
 scmName = lens _scmName (\ s a -> s{_scmName = a});
 
--- | The Chef version. This parameter must be set to 0.9, 11.4, or 11.10. The
--- default value is 11.4.
+-- | The Chef version. This parameter must be set to 12, 11.10, or 11.4 for
+-- Linux stacks, and to 12.2 for Windows stacks. The default value for
+-- Linux stacks is 11.4.
 scmVersion :: Lens' StackConfigurationManager (Maybe Text)
 scmVersion = lens _scmVersion (\ s a -> s{_scmVersion = a});
 

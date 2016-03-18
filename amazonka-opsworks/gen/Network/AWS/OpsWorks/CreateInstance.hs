@@ -153,7 +153,7 @@ createInstance pStackId_ pInstanceType_ =
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is 'true'. To control when updates are
 -- installed, set this value to 'false'. You must then update your
--- instances manually by using CreateDeployment to run the
+-- instances manually by using < CreateDeployment> to run the
 -- 'update_dependencies' stack command or by manually running 'yum' (Amazon
 -- Linux) or 'apt-get' (Ubuntu) on the instances.
 --
@@ -185,7 +185,7 @@ ciSSHKeyName = lens _ciSSHKeyName (\ s a -> s{_ciSSHKeyName = a});
 -- The default setting is 'INHERIT'. To specify an agent version, you must
 -- use the complete version number, not the abbreviated number shown on the
 -- console. For a list of available agent version numbers, call
--- DescribeAgentVersions.
+-- < DescribeAgentVersions>.
 ciAgentVersion :: Lens' CreateInstance (Maybe Text)
 ciAgentVersion = lens _ciAgentVersion (\ s a -> s{_ciAgentVersion = a});
 
@@ -212,8 +212,9 @@ ciEBSOptimized = lens _ciEBSOptimized (\ s a -> s{_ciEBSOptimized = a});
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.
 --
 -- The default option is the current Amazon Linux version. If you set this
--- parameter to 'Custom', you must use the CreateInstance action\'s AmiId
--- parameter to specify the custom AMI that you want to use. For more
+-- parameter to 'Custom', you must use the < CreateInstance> action\'s
+-- AmiId parameter to specify the custom AMI that you want to use. Block
+-- device mappings are not supported if the value is 'Custom'. For more
 -- information on the supported operating systems, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems>For
 -- more information on how to use custom AMIs with AWS OpsWorks, see
@@ -255,6 +256,7 @@ ciRootDeviceType = lens _ciRootDeviceType (\ s a -> s{_ciRootDeviceType = a});
 -- | An array of 'BlockDeviceMapping' objects that specify the instance\'s
 -- block devices. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>.
+-- Note that block device mappings are not supported for custom AMIs.
 ciBlockDeviceMappings :: Lens' CreateInstance [BlockDeviceMapping]
 ciBlockDeviceMappings = lens _ciBlockDeviceMappings (\ s a -> s{_ciBlockDeviceMappings = a}) . _Default . _Coerce;
 

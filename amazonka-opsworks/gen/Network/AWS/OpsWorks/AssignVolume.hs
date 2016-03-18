@@ -20,9 +20,9 @@
 --
 -- Assigns one of the stack\'s registered Amazon EBS volumes to a specified
 -- instance. The volume must first be registered with the stack by calling
--- RegisterVolume. After you register the volume, you must call
--- UpdateVolume to specify a mount point before calling 'AssignVolume'. For
--- more information, see
+-- < RegisterVolume>. After you register the volume, you must call
+-- < UpdateVolume> to specify a mount point before calling 'AssignVolume'.
+-- For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a

@@ -20,7 +20,7 @@
 --
 -- Associates one of the stack\'s registered Elastic IP addresses with a
 -- specified instance. The address must first be registered with the stack
--- by calling RegisterElasticIp. For more information, see
+-- by calling < RegisterElasticIp>. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a

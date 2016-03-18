@@ -214,10 +214,10 @@ csChefConfiguration = lens _csChefConfiguration (\ s a -> s{_csChefConfiguration
 --     and specify a new version. AWS OpsWorks then automatically installs
 --     that version on the stack\'s instances.
 --
--- The default setting is 'LATEST'. To specify an agent version, you must
--- use the complete version number, not the abbreviated number shown on the
--- console. For a list of available agent version numbers, call
--- DescribeAgentVersions.
+-- The default setting is the most recent release of the agent. To specify
+-- an agent version, you must use the complete version number, not the
+-- abbreviated number shown on the console. For a list of available agent
+-- version numbers, call < DescribeAgentVersions>.
 --
 -- You can also specify an agent version when you create or update an
 -- instance, which overrides the stack\'s default setting.
@@ -322,9 +322,10 @@ csUseCustomCookbooks = lens _csUseCustomCookbooks (\ s a -> s{_csUseCustomCookbo
 csDefaultSubnetId :: Lens' CreateStack (Maybe Text)
 csDefaultSubnetId = lens _csDefaultSubnetId (\ s a -> s{_csDefaultSubnetId = a});
 
--- | The configuration manager. When you clone a stack we recommend that you
--- use the configuration manager to specify the Chef version: 0.9, 11.4, or
--- 11.10. The default value is currently 11.4.
+-- | The configuration manager. When you create a stack we recommend that you
+-- use the configuration manager to specify the Chef version: 12, 11.10, or
+-- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
+-- Linux stacks is currently 11.4.
 csConfigurationManager :: Lens' CreateStack (Maybe StackConfigurationManager)
 csConfigurationManager = lens _csConfigurationManager (\ s a -> s{_csConfigurationManager = a});
 

@@ -172,7 +172,7 @@ clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\ s a -> s{_clCustomS
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is 'true'. To control when updates are
 -- installed, set this value to 'false'. You must then update your
--- instances manually by using CreateDeployment to run the
+-- instances manually by using < CreateDeployment> to run the
 -- 'update_dependencies' stack command or by manually running 'yum' (Amazon
 -- Linux) or 'apt-get' (Ubuntu) on the instances.
 --
@@ -195,6 +195,7 @@ clCustomRecipes = lens _clCustomRecipes (\ s a -> s{_clCustomRecipes = a});
 -- deployment attributes to be installed on the layer\'s instances. For
 -- more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON>.
+-- This feature is supported as of version 1.7.42 of the AWS CLI.
 clCustomJSON :: Lens' CreateLayer (Maybe Text)
 clCustomJSON = lens _clCustomJSON (\ s a -> s{_clCustomJSON = a});
 

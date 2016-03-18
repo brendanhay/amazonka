@@ -20,8 +20,8 @@
 --
 -- Registers an Elastic IP address with a specified stack. An address can
 -- be registered with only one stack at a time. If the address is already
--- registered, you must first deregister it by calling DeregisterElasticIp.
--- For more information, see
+-- registered, you must first deregister it by calling
+-- < DeregisterElasticIp>. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a

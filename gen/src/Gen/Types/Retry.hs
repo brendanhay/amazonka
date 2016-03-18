@@ -98,7 +98,9 @@ instance FromJSON (Retry -> Retry) where
     parseJSON = withObject "retry" $ \o -> do
         m <- o .:? "max_attempts"
         d <- o .:? "delay"
-        p <- o .: defKey >>= (.: "policies")
+        -- FIXME: Currently simply ignoring non '__default__' keys.
+        p <-        (o  .: defKey     <|> pure mempty) >>=
+             (\o' -> o' .: "policies" <|> pure mempty)
         return $ \r ->
             Retry' (fromMaybe (r ^. retryAttempts) m)
                    (fromMaybe (r ^. retryDelay)    d)

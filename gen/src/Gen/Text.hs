@@ -122,6 +122,7 @@ renameReserved x
         , "object"
         , "get"
         , "group"
+        , "role"
         , "GT"
         , "LT"
         , "EQ"

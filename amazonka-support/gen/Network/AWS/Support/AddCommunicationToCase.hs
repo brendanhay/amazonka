@@ -100,7 +100,7 @@ actcCcEmailAddresses :: Lens' AddCommunicationToCase [Text]
 actcCcEmailAddresses = lens _actcCcEmailAddresses (\ s a -> s{_actcCcEmailAddresses = a}) . _Default . _Coerce;
 
 -- | The ID of a set of one or more attachments for the communication to add
--- to the case. Create the set by calling AddAttachmentsToSet
+-- to the case. Create the set by calling < AddAttachmentsToSet>
 actcAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
 actcAttachmentSetId = lens _actcAttachmentSetId (\ s a -> s{_actcAttachmentSetId = a});
 
@@ -144,7 +144,7 @@ instance ToPath AddCommunicationToCase where
 instance ToQuery AddCommunicationToCase where
         toQuery = const mempty
 
--- | The result of the AddCommunicationToCase operation.
+-- | The result of the < AddCommunicationToCase> operation.
 --
 -- /See:/ 'addCommunicationToCaseResponse' smart constructor.
 data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
@@ -168,7 +168,7 @@ addCommunicationToCaseResponse pResponseStatus_ =
     , _actcrsResponseStatus = pResponseStatus_
     }
 
--- | True if AddCommunicationToCase succeeds. Otherwise, returns an error.
+-- | True if < AddCommunicationToCase> succeeds. Otherwise, returns an error.
 actcrsResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
 actcrsResult = lens _actcrsResult (\ s a -> s{_actcrsResult = a});
 

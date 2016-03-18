@@ -124,7 +124,7 @@ instance ToQuery AddAttachmentsToSet where
         toQuery = const mempty
 
 -- | The ID and expiry time of the attachment set returned by the
--- AddAttachmentsToSet operation.
+-- < AddAttachmentsToSet> operation.
 --
 -- /See:/ 'addAttachmentsToSetResponse' smart constructor.
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'

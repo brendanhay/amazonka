@@ -20,7 +20,7 @@
 --
 -- Returns the refresh status of the Trusted Advisor checks that have the
 -- specified check IDs. Check IDs can be obtained by calling
--- DescribeTrustedAdvisorChecks.
+-- < DescribeTrustedAdvisorChecks>.
 --
 -- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckRefreshStatuses.html AWS API Reference> for DescribeTrustedAdvisorCheckRefreshStatuses.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
@@ -107,7 +107,7 @@ instance ToQuery
         toQuery = const mempty
 
 -- | The statuses of the Trusted Advisor checks returned by the
--- DescribeTrustedAdvisorCheckRefreshStatuses operation.
+-- < DescribeTrustedAdvisorCheckRefreshStatuses> operation.
 --
 -- /See:/ 'describeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'

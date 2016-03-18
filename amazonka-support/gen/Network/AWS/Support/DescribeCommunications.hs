@@ -168,7 +168,7 @@ instance ToPath DescribeCommunications where
 instance ToQuery DescribeCommunications where
         toQuery = const mempty
 
--- | The communications returned by the DescribeCommunications operation.
+-- | The communications returned by the < DescribeCommunications> operation.
 --
 -- /See:/ 'describeCommunicationsResponse' smart constructor.
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse'

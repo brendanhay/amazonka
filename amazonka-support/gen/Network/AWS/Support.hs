@@ -28,32 +28,33 @@
 -- The following list describes the AWS Support case management operations:
 --
 -- -   __Service names, issue categories, and available severity levels.__
---     The DescribeServices and DescribeSeverityLevels operations return
---     AWS service names, service codes, service categories, and problem
---     severity levels. You use these values when you call the CreateCase
---     operation.
+--     The < DescribeServices> and < DescribeSeverityLevels> operations
+--     return AWS service names, service codes, service categories, and
+--     problem severity levels. You use these values when you call the
+--     < CreateCase> operation.
 -- -   __Case creation, case details, and case resolution.__ The
---     CreateCase, DescribeCases, DescribeAttachment, and ResolveCase
---     operations create AWS Support cases, retrieve information about
---     cases, and resolve cases.
--- -   __Case communication.__ The DescribeCommunications,
---     AddCommunicationToCase, and AddAttachmentsToSet operations retrieve
---     and add communications and attachments to AWS Support cases.
+--     < CreateCase>, < DescribeCases>, < DescribeAttachment>, and
+--     < ResolveCase> operations create AWS Support cases, retrieve
+--     information about cases, and resolve cases.
+-- -   __Case communication.__ The < DescribeCommunications>,
+--     < AddCommunicationToCase>, and < AddAttachmentsToSet> operations
+--     retrieve and add communications and attachments to AWS Support
+--     cases.
 --
 -- The following list describes the operations available from the AWS
 -- Support service for Trusted Advisor:
 --
--- -   DescribeTrustedAdvisorChecks returns the list of checks that run
+-- -   < DescribeTrustedAdvisorChecks> returns the list of checks that run
 --     against your AWS resources.
 -- -   Using the 'CheckId' for a specific check returned by
---     DescribeTrustedAdvisorChecks, you can call
---     DescribeTrustedAdvisorCheckResult to obtain the results for the
+--     < DescribeTrustedAdvisorChecks>, you can call
+--     < DescribeTrustedAdvisorCheckResult> to obtain the results for the
 --     check you specified.
--- -   DescribeTrustedAdvisorCheckSummaries returns summarized results for
---     one or more Trusted Advisor checks.
--- -   RefreshTrustedAdvisorCheck requests that Trusted Advisor rerun a
+-- -   < DescribeTrustedAdvisorCheckSummaries> returns summarized results
+--     for one or more Trusted Advisor checks.
+-- -   < RefreshTrustedAdvisorCheck> requests that Trusted Advisor rerun a
 --     specified check.
--- -   DescribeTrustedAdvisorCheckRefreshStatuses reports the refresh
+-- -   < DescribeTrustedAdvisorCheckRefreshStatuses> reports the refresh
 --     status of one or more checks.
 --
 -- For authentication of requests, AWS Support uses

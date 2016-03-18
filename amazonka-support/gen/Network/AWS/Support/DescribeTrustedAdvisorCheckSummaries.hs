@@ -20,9 +20,9 @@
 --
 -- Returns the summaries of the results of the Trusted Advisor checks that
 -- have the specified check IDs. Check IDs can be obtained by calling
--- DescribeTrustedAdvisorChecks.
+-- < DescribeTrustedAdvisorChecks>.
 --
--- The response contains an array of TrustedAdvisorCheckSummary objects.
+-- The response contains an array of < TrustedAdvisorCheckSummary> objects.
 --
 -- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckSummaries.html AWS API Reference> for DescribeTrustedAdvisorCheckSummaries.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
@@ -107,7 +107,7 @@ instance ToQuery DescribeTrustedAdvisorCheckSummaries
         toQuery = const mempty
 
 -- | The summaries of the Trusted Advisor checks returned by the
--- DescribeTrustedAdvisorCheckSummaries operation.
+-- < DescribeTrustedAdvisorCheckSummaries> operation.
 --
 -- /See:/ 'describeTrustedAdvisorCheckSummariesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'

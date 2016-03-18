@@ -20,8 +20,8 @@
 --
 -- Returns the current list of AWS services and a list of service
 -- categories that applies to each one. You then use service names and
--- categories in your CreateCase requests. Each AWS service has its own set
--- of categories.
+-- categories in your < CreateCase> requests. Each AWS service has its own
+-- set of categories.
 --
 -- The service codes and category codes correspond to the values that are
 -- displayed in the __Service__ and __Category__ drop-down lists on the AWS
@@ -123,7 +123,7 @@ instance ToPath DescribeServices where
 instance ToQuery DescribeServices where
         toQuery = const mempty
 
--- | The list of AWS services returned by the DescribeServices operation.
+-- | The list of AWS services returned by the < DescribeServices> operation.
 --
 -- /See:/ 'describeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'

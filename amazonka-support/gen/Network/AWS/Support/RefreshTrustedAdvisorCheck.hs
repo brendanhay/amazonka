@@ -20,10 +20,10 @@
 --
 -- Requests a refresh of the Trusted Advisor check that has the specified
 -- check ID. Check IDs can be obtained by calling
--- DescribeTrustedAdvisorChecks.
+-- < DescribeTrustedAdvisorChecks>.
 --
--- The response contains a TrustedAdvisorCheckRefreshStatus object, which
--- contains these fields:
+-- The response contains a < TrustedAdvisorCheckRefreshStatus> object,
+-- which contains these fields:
 --
 -- -   __Status.__ The refresh status of the check: \"none\", \"enqueued\",
 --     \"processing\", \"success\", or \"abandoned\".

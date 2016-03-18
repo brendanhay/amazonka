@@ -20,14 +20,14 @@
 --
 -- Returns the results of the Trusted Advisor check that has the specified
 -- check ID. Check IDs can be obtained by calling
--- DescribeTrustedAdvisorChecks.
+-- < DescribeTrustedAdvisorChecks>.
 --
--- The response contains a TrustedAdvisorCheckResult object, which contains
--- these three objects:
+-- The response contains a < TrustedAdvisorCheckResult> object, which
+-- contains these three objects:
 --
--- -   TrustedAdvisorCategorySpecificSummary
--- -   TrustedAdvisorResourceDetail
--- -   TrustedAdvisorResourcesSummary
+-- -   < TrustedAdvisorCategorySpecificSummary>
+-- -   < TrustedAdvisorResourceDetail>
+-- -   < TrustedAdvisorResourcesSummary>
 --
 -- In addition, the response contains these fields:
 --
@@ -133,7 +133,7 @@ instance ToQuery DescribeTrustedAdvisorCheckResult
         toQuery = const mempty
 
 -- | The result of the Trusted Advisor check returned by the
--- DescribeTrustedAdvisorCheckResult operation.
+-- < DescribeTrustedAdvisorCheckResult> operation.
 --
 -- /See:/ 'describeTrustedAdvisorCheckResultResponse' smart constructor.
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'

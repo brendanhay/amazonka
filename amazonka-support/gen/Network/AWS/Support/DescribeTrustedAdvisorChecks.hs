@@ -22,7 +22,7 @@
 -- including name, ID, category, description, and metadata. You must
 -- specify a language code; English (\"en\") and Japanese (\"ja\") are
 -- currently supported. The response contains a
--- TrustedAdvisorCheckDescription for each check.
+-- < TrustedAdvisorCheckDescription> for each check.
 --
 -- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorChecks.html AWS API Reference> for DescribeTrustedAdvisorChecks.
 module Network.AWS.Support.DescribeTrustedAdvisorChecks
@@ -106,7 +106,7 @@ instance ToQuery DescribeTrustedAdvisorChecks where
         toQuery = const mempty
 
 -- | Information about the Trusted Advisor checks returned by the
--- DescribeTrustedAdvisorChecks operation.
+-- < DescribeTrustedAdvisorChecks> operation.
 --
 -- /See:/ 'describeTrustedAdvisorChecksResponse' smart constructor.
 data DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse'

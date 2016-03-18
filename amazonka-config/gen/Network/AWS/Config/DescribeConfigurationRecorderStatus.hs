@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the DescribeConfigurationRecorderStatus action.
+-- | The input for the < DescribeConfigurationRecorderStatus> action.
 --
 -- /See:/ 'describeConfigurationRecorderStatus' smart constructor.
 newtype DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'
@@ -112,7 +112,7 @@ instance ToQuery DescribeConfigurationRecorderStatus
          where
         toQuery = const mempty
 
--- | The output for the DescribeConfigurationRecorderStatus action in JSON
+-- | The output for the < DescribeConfigurationRecorderStatus> action in JSON
 -- format.
 --
 -- /See:/ 'describeConfigurationRecorderStatusResponse' smart constructor.

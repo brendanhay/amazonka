@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the DescribeDeliveryChannels action.
+-- | The input for the < DescribeDeliveryChannels> action.
 --
 -- /See:/ 'describeDeliveryChannels' smart constructor.
 newtype DescribeDeliveryChannels = DescribeDeliveryChannels'
@@ -105,7 +105,7 @@ instance ToPath DescribeDeliveryChannels where
 instance ToQuery DescribeDeliveryChannels where
         toQuery = const mempty
 
--- | The output for the DescribeDeliveryChannels action.
+-- | The output for the < DescribeDeliveryChannels> action.
 --
 -- /See:/ 'describeDeliveryChannelsResponse' smart constructor.
 data DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'

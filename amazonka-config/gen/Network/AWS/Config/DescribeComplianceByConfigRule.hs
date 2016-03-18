@@ -26,7 +26,7 @@
 -- and it is noncompliant if any of these resources do not comply.
 --
 -- If AWS Config has no current evaluation results for the rule, it returns
--- 'InsufficientData'. This result might indicate one of the following
+-- 'INSUFFICIENT_DATA'. This result might indicate one of the following
 -- conditions:
 --
 -- -   AWS Config has never invoked an evaluation for the rule. To check
@@ -99,8 +99,10 @@ describeComplianceByConfigRule =
 dcbcrConfigRuleNames :: Lens' DescribeComplianceByConfigRule [Text]
 dcbcrConfigRuleNames = lens _dcbcrConfigRuleNames (\ s a -> s{_dcbcrConfigRuleNames = a}) . _Default . _Coerce;
 
--- | Filters the results by compliance. The valid values are 'Compliant' and
--- 'NonCompliant'.
+-- | Filters the results by compliance.
+--
+-- The allowed values are 'COMPLIANT', 'NON_COMPLIANT', and
+-- 'INSUFFICIENT_DATA'.
 dcbcrComplianceTypes :: Lens' DescribeComplianceByConfigRule [ComplianceType]
 dcbcrComplianceTypes = lens _dcbcrComplianceTypes (\ s a -> s{_dcbcrComplianceTypes = a}) . _Default . _Coerce;
 

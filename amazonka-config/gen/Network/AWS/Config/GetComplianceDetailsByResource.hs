@@ -82,8 +82,10 @@ getComplianceDetailsByResource pResourceType_ pResourceId_ =
     , _gcdbrResourceId = pResourceId_
     }
 
--- | Specify to filter the results by compliance. The valid values are
--- 'Compliant', 'NonCompliant', and 'NotApplicable'.
+-- | Filters the results by compliance.
+--
+-- The allowed values are 'COMPLIANT', 'NON_COMPLIANT', and
+-- 'NOT_APPLICABLE'.
 gcdbrComplianceTypes :: Lens' GetComplianceDetailsByResource [ComplianceType]
 gcdbrComplianceTypes = lens _gcdbrComplianceTypes (\ s a -> s{_gcdbrComplianceTypes = a}) . _Default . _Coerce;
 

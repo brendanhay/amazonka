@@ -64,7 +64,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the GetResourceConfigHistory action.
+-- | The input for the < GetResourceConfigHistory> action.
 --
 -- /See:/ 'getResourceConfigHistory' smart constructor.
 data GetResourceConfigHistory = GetResourceConfigHistory'
@@ -185,7 +185,7 @@ instance ToPath GetResourceConfigHistory where
 instance ToQuery GetResourceConfigHistory where
         toQuery = const mempty
 
--- | The output for the GetResourceConfigHistory action.
+-- | The output for the < GetResourceConfigHistory> action.
 --
 -- /See:/ 'getResourceConfigHistoryResponse' smart constructor.
 data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'

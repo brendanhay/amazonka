@@ -53,7 +53,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the DeliverConfigSnapshot action.
+-- | The input for the < DeliverConfigSnapshot> action.
 --
 -- /See:/ 'deliverConfigSnapshot' smart constructor.
 newtype DeliverConfigSnapshot = DeliverConfigSnapshot'
@@ -111,7 +111,7 @@ instance ToPath DeliverConfigSnapshot where
 instance ToQuery DeliverConfigSnapshot where
         toQuery = const mempty
 
--- | The output for the DeliverConfigSnapshot action in JSON format.
+-- | The output for the < DeliverConfigSnapshot> action in JSON format.
 --
 -- /See:/ 'deliverConfigSnapshotResponse' smart constructor.
 data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'

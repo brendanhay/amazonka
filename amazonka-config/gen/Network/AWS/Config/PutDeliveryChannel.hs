@@ -51,7 +51,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the PutDeliveryChannel action.
+-- | The input for the < PutDeliveryChannel> action.
 --
 -- /See:/ 'putDeliveryChannel' smart constructor.
 newtype PutDeliveryChannel = PutDeliveryChannel'

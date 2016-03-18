@@ -52,7 +52,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the PutConfigurationRecorder action.
+-- | The input for the < PutConfigurationRecorder> action.
 --
 -- /See:/ 'putConfigurationRecorder' smart constructor.
 newtype PutConfigurationRecorder = PutConfigurationRecorder'

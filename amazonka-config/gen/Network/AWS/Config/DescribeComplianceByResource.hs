@@ -27,7 +27,7 @@
 -- more of these rules.
 --
 -- If AWS Config has no current evaluation results for the resource, it
--- returns 'InsufficientData'. This result might indicate one of the
+-- returns 'INSUFFICIENT_DATA'. This result might indicate one of the
 -- following conditions about the rules that evaluate the resource:
 --
 -- -   AWS Config has never invoked an evaluation for the rule. To check
@@ -118,8 +118,10 @@ dcbrResourceId = lens _dcbrResourceId (\ s a -> s{_dcbrResourceId = a});
 dcbrResourceType :: Lens' DescribeComplianceByResource (Maybe Text)
 dcbrResourceType = lens _dcbrResourceType (\ s a -> s{_dcbrResourceType = a});
 
--- | Filters the results by compliance. The valid values are 'Compliant' and
--- 'NonCompliant'.
+-- | Filters the results by compliance.
+--
+-- The allowed values are 'COMPLIANT', 'NON_COMPLIANT', and
+-- 'INSUFFICIENT_DATA'.
 dcbrComplianceTypes :: Lens' DescribeComplianceByResource [ComplianceType]
 dcbrComplianceTypes = lens _dcbrComplianceTypes (\ s a -> s{_dcbrComplianceTypes = a}) . _Default . _Coerce;
 

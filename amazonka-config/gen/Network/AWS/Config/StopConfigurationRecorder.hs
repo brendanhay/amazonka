@@ -42,7 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the StopConfigurationRecorder action.
+-- | The input for the < StopConfigurationRecorder> action.
 --
 -- /See:/ 'stopConfigurationRecorder' smart constructor.
 newtype StopConfigurationRecorder = StopConfigurationRecorder'

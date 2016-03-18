@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the DescribeConfigurationRecorders action.
+-- | The input for the < DescribeConfigurationRecorders> action.
 --
 -- /See:/ 'describeConfigurationRecorders' smart constructor.
 newtype DescribeConfigurationRecorders = DescribeConfigurationRecorders'
@@ -107,7 +107,7 @@ instance ToPath DescribeConfigurationRecorders where
 instance ToQuery DescribeConfigurationRecorders where
         toQuery = const mempty
 
--- | The output for the DescribeConfigurationRecorders action.
+-- | The output for the < DescribeConfigurationRecorders> action.
 --
 -- /See:/ 'describeConfigurationRecordersResponse' smart constructor.
 data DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'

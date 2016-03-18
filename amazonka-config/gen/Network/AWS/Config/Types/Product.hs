@@ -46,7 +46,7 @@ compliance =
     }
 
 -- | The number of AWS resources or AWS Config rules that cause a result of
--- 'NON_COMPLIANT', up to a maximum of 25.
+-- 'NON_COMPLIANT', up to a maximum number.
 cComplianceContributorCount :: Lens' Compliance (Maybe ComplianceContributorCount)
 cComplianceContributorCount = lens _cComplianceContributorCount (\ s a -> s{_cComplianceContributorCount = a});
 
@@ -59,6 +59,13 @@ cComplianceContributorCount = lens _cComplianceContributorCount (\ s a -> s{_cCo
 -- A rule is compliant if all of the resources that the rule evaluates
 -- comply with it, and it is noncompliant if any of these resources do not
 -- comply.
+--
+-- AWS Config returns the 'INSUFFICIENT_DATA' value when no evaluation
+-- results are available for the AWS resource or Config rule.
+--
+-- For the 'Compliance' data type, AWS Config supports only 'COMPLIANT',
+-- 'NON_COMPLIANT', and 'INSUFFICIENT_DATA' values. AWS Config does not
+-- support the 'NOT_APPLICABLE' value for the 'Compliance' data type.
 cComplianceType :: Lens' Compliance (Maybe ComplianceType)
 cComplianceType = lens _cComplianceType (\ s a -> s{_cComplianceType = a});
 
@@ -371,10 +378,9 @@ instance FromJSON ConfigExportDeliveryInfo where
 
 -- | An AWS Lambda function that evaluates configuration items to assess
 -- whether your AWS resources comply with your desired configurations. This
--- function can run when AWS Config detects a configuration change or
--- delivers a configuration snapshot. This function can evaluate any
--- resource in the recording group. To define which of these are evaluated,
--- specify a value for the 'Scope' key.
+-- function can run when AWS Config detects a configuration change to an
+-- AWS resource, or when it delivers a configuration snapshot of the
+-- resources in the account.
 --
 -- For more information about developing and using AWS Config rules, see
 -- <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html Evaluating AWS Resource Configurations with AWS Config>
@@ -456,12 +462,12 @@ crMaximumExecutionFrequency = lens _crMaximumExecutionFrequency (\ s a -> s{_crM
 crConfigRuleId :: Lens' ConfigRule (Maybe Text)
 crConfigRuleId = lens _crConfigRuleId (\ s a -> s{_crConfigRuleId = a});
 
--- | Defines which resources the AWS Config rule evaluates. The scope can
--- include one or more resource types, a combination of a tag key and
--- value, or a combination of one resource type and one or more resource
--- IDs. Specify a scope to constrain the resources that are evaluated. If
--- you do not specify a scope, the AWS Config Rule evaluates all resources
--- in the recording group.
+-- | Defines which resources can trigger an evaluation for the rule. The
+-- scope can include one or more resource types, a combination of one
+-- resource type and one resource ID, or a combination of a tag key and
+-- value. Specify a scope to constrain the resources that can trigger an
+-- evaluation for the rule. If you do not specify a scope, evaluations are
+-- triggered when any resource in the recording group changes.
 crScope :: Lens' ConfigRule (Maybe Scope)
 crScope = lens _crScope (\ s a -> s{_crScope = a});
 
@@ -1299,6 +1305,15 @@ eComplianceResourceId = lens _eComplianceResourceId (\ s a -> s{_eComplianceReso
 
 -- | Indicates whether the AWS resource complies with the AWS Config rule
 -- that it was evaluated against.
+--
+-- For the 'Evaluation' data type, AWS Config supports only the
+-- 'COMPLIANT', 'NON_COMPLIANT', and 'NOT_APPLICABLE' values. AWS Config
+-- does not support the 'INSUFFICIENT_DATA' value for this data type.
+--
+-- Similarly, AWS Config does not accept 'INSUFFICIENT_DATA' as the value
+-- for 'ComplianceType' from a 'PutEvaluations' request. For example, an
+-- AWS Lambda function for a custom Config rule cannot pass an
+-- 'INSUFFICIENT_DATA' value to AWS Config.
 eComplianceType :: Lens' Evaluation ComplianceType
 eComplianceType = lens _eComplianceType (\ s a -> s{_eComplianceType = a});
 
@@ -1400,6 +1415,11 @@ erResultToken = lens _erResultToken (\ s a -> s{_erResultToken = a});
 
 -- | Indicates whether the AWS resource complies with the AWS Config rule
 -- that evaluated it.
+--
+-- For the 'EvaluationResult' data type, AWS Config supports only the
+-- 'COMPLIANT', 'NON_COMPLIANT', and 'NOT_APPLICABLE' values. AWS Config
+-- does not support the 'INSUFFICIENT_DATA' value for the
+-- 'EvaluationResult' data type.
 erComplianceType :: Lens' EvaluationResult (Maybe ComplianceType)
 erComplianceType = lens _erComplianceType (\ s a -> s{_erComplianceType = a});
 
@@ -1520,8 +1540,8 @@ instance FromJSON EvaluationResultQualifier where
 -- instances and EBS volumes.
 --
 -- You can also have AWS Config record configuration changes for supported
--- types of global resources. Global resources are not tied to an
--- individual region and can be used in all regions.
+-- types of global resources (for example, IAM resources). Global resources
+-- are not tied to an individual region and can be used in all regions.
 --
 -- The configuration details for any global resource are the same in all
 -- regions. If you customize AWS Config in multiple regions to record
@@ -1580,7 +1600,8 @@ rgAllSupported :: Lens' RecordingGroup (Maybe Bool)
 rgAllSupported = lens _rgAllSupported (\ s a -> s{_rgAllSupported = a});
 
 -- | Specifies whether AWS Config includes all supported types of global
--- resources with the resources that it records.
+-- resources (for example, IAM resources) with the resources that it
+-- records.
 --
 -- Before you can set this option to 'true', you must set the
 -- 'allSupported' option to 'true'.
@@ -1588,6 +1609,10 @@ rgAllSupported = lens _rgAllSupported (\ s a -> s{_rgAllSupported = a});
 -- If you set this option to 'true', when AWS Config adds support for a new
 -- type of global resource, it automatically starts recording resources of
 -- that type.
+--
+-- The configuration details for any global resource are the same in all
+-- regions. To prevent duplicate configuration items, you should consider
+-- customizing AWS Config in only one region to record global resources.
 rgIncludeGlobalResourceTypes :: Lens' RecordingGroup (Maybe Bool)
 rgIncludeGlobalResourceTypes = lens _rgIncludeGlobalResourceTypes (\ s a -> s{_rgIncludeGlobalResourceTypes = a});
 
@@ -1740,12 +1765,12 @@ instance FromJSON ResourceIdentifier where
                      (x .:? "resourceName")
                      <*> (x .:? "resourceDeletionTime"))
 
--- | Defines which resources AWS Config evaluates against a rule. The scope
--- can include one or more resource types, a combination of a tag key and
--- value, or a combination of one resource type and one or more resource
--- IDs. Specify a scope to constrain the resources to be evaluated. If you
--- do not specify a scope, all resources in your recording group are
--- evaluated against the rule.
+-- | Defines which resources trigger an evaluation for an AWS Config rule.
+-- The scope can include one or more resource types, a combination of a tag
+-- key and value, or a combination of one resource type and one resource
+-- ID. Specify a scope to constrain which resources trigger an evaluation
+-- for a rule. Otherwise, evaluations for the rule are triggered when any
+-- resource in your recording group changes in configuration.
 --
 -- /See:/ 'scope' smart constructor.
 data Scope = Scope'
@@ -1776,26 +1801,26 @@ scope =
     , _sTagKey = Nothing
     }
 
--- | The resource types of only those AWS resources that you want AWS Config
--- to evaluate against the rule. You can specify only one type if you also
--- specify resource IDs for 'ComplianceResourceId'.
+-- | The resource types of only those AWS resources that you want to trigger
+-- an evaluation for the rule. You can only specify one type if you also
+-- specify a resource ID for 'ComplianceResourceId'.
 sComplianceResourceTypes :: Lens' Scope [Text]
 sComplianceResourceTypes = lens _sComplianceResourceTypes (\ s a -> s{_sComplianceResourceTypes = a}) . _Default . _Coerce;
 
--- | The IDs of only those AWS resources that you want AWS Config to evaluate
--- against the rule. If you specify a resource ID, you must specify one
+-- | The IDs of the only AWS resource that you want to trigger an evaluation
+-- for the rule. If you specify a resource ID, you must specify one
 -- resource type for 'ComplianceResourceTypes'.
 sComplianceResourceId :: Lens' Scope (Maybe Text)
 sComplianceResourceId = lens _sComplianceResourceId (\ s a -> s{_sComplianceResourceId = a});
 
--- | The tag value applied to only those AWS resources that you want AWS
--- Config to evaluate against the rule. If you specify a value for
+-- | The tag value applied to only those AWS resources that you want to
+-- trigger an evaluation for the rule. If you specify a value for
 -- 'TagValue', you must also specify a value for 'TagKey'.
 sTagValue :: Lens' Scope (Maybe Text)
 sTagValue = lens _sTagValue (\ s a -> s{_sTagValue = a});
 
 -- | The tag key that is applied to only those AWS resources that you want
--- AWS Config to evaluate against the rule.
+-- you want to trigger an evaluation for the rule.
 sTagKey :: Lens' Scope (Maybe Text)
 sTagKey = lens _sTagKey (\ s a -> s{_sTagKey = a});
 

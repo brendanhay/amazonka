@@ -81,8 +81,10 @@ getComplianceDetailsByConfigRule pConfigRuleName_ =
     , _gcdbcrConfigRuleName = pConfigRuleName_
     }
 
--- | Specify to filter the results by compliance. The valid values are
--- 'Compliant', 'NonCompliant', and 'NotApplicable'.
+-- | Filters the results by compliance.
+--
+-- The allowed values are 'COMPLIANT', 'NON_COMPLIANT', and
+-- 'NOT_APPLICABLE'.
 gcdbcrComplianceTypes :: Lens' GetComplianceDetailsByConfigRule [ComplianceType]
 gcdbcrComplianceTypes = lens _gcdbcrComplianceTypes (\ s a -> s{_gcdbcrComplianceTypes = a}) . _Default . _Coerce;
 

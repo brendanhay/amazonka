@@ -45,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the StartConfigurationRecorder action.
+-- | The input for the < StartConfigurationRecorder> action.
 --
 -- /See:/ 'startConfigurationRecorder' smart constructor.
 newtype StartConfigurationRecorder = StartConfigurationRecorder'

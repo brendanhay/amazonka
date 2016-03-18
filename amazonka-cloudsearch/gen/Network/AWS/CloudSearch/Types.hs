@@ -316,6 +316,7 @@ cloudSearch =
     check e
       | has (hasCode "BandwidthLimitExceeded" . hasStatus 509) e =
           Just "request_limit_exceeded"
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"

@@ -235,7 +235,7 @@ instance FromXML IndexFieldType where
 -- | The state of processing a change to an option. One of:
 --
 -- -   RequiresIndexDocuments: The option\'s latest value will not be
---     deployed until IndexDocuments has been called and indexing is
+--     deployed until < IndexDocuments> has been called and indexing is
 --     complete.
 -- -   Processing: The option\'s latest value is in the process of being
 --     activated.

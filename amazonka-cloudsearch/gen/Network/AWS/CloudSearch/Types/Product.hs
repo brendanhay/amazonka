@@ -609,9 +609,9 @@ dsARN :: Lens' DomainStatus (Maybe Text)
 dsARN = lens _dsARN (\ s a -> s{_dsARN = a});
 
 -- | True if the search domain is created. It can take several minutes to
--- initialize a domain when CreateDomain is called. Newly created search
--- domains are returned from DescribeDomains with a false value for Created
--- until domain creation is complete.
+-- initialize a domain when < CreateDomain> is called. Newly created search
+-- domains are returned from < DescribeDomains> with a false value for
+-- Created until domain creation is complete.
 dsCreated :: Lens' DomainStatus (Maybe Bool)
 dsCreated = lens _dsCreated (\ s a -> s{_dsCreated = a});
 
@@ -628,8 +628,8 @@ dsSearchPartitionCount :: Lens' DomainStatus (Maybe Natural)
 dsSearchPartitionCount = lens _dsSearchPartitionCount (\ s a -> s{_dsSearchPartitionCount = a}) . mapping _Nat;
 
 -- | True if the search domain has been deleted. The system must clean up
--- resources dedicated to the search domain when DeleteDomain is called.
--- Newly deleted search domains are returned from DescribeDomains with a
+-- resources dedicated to the search domain when < DeleteDomain> is called.
+-- Newly deleted search domains are returned from < DescribeDomains> with a
 -- true value for IsDeleted for several minutes until resource cleanup is
 -- complete.
 dsDeleted :: Lens' DomainStatus (Maybe Bool)
@@ -648,8 +648,8 @@ dsDomainId = lens _dsDomainId (\ s a -> s{_dsDomainId = a});
 dsDomainName :: Lens' DomainStatus Text
 dsDomainName = lens _dsDomainName (\ s a -> s{_dsDomainName = a});
 
--- | True if IndexDocuments needs to be called to activate the current domain
--- configuration.
+-- | True if < IndexDocuments> needs to be called to activate the current
+-- domain configuration.
 dsRequiresIndexDocuments :: Lens' DomainStatus Bool
 dsRequiresIndexDocuments = lens _dsRequiresIndexDocuments (\ s a -> s{_dsRequiresIndexDocuments = a});
 
@@ -1624,7 +1624,7 @@ osUpdateDate = lens _osUpdateDate (\ s a -> s{_osUpdateDate = a}) . _Time;
 -- | The state of processing a change to an option. Possible values:
 --
 -- -   'RequiresIndexDocuments': the option\'s latest value will not be
---     deployed until IndexDocuments has been called and indexing is
+--     deployed until < IndexDocuments> has been called and indexing is
 --     complete.
 -- -   'Processing': the option\'s latest value is in the process of being
 --     activated.

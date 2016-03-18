@@ -22,6 +22,10 @@
 -- gateway\'s name and time zone. To specify which gateway to update, use
 -- the Amazon Resource Name (ARN) of the gateway in your request.
 --
+-- For Gateways activated after September 02, 2015, the gateway\'s ARN
+-- contains the gateway id rather than the gateway name. However changing
+-- the name of the gateway has no effect on the gateway\'s ARN.
+--
 -- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateGatewayInformation.html AWS API Reference> for UpdateGatewayInformation.
 module Network.AWS.StorageGateway.UpdateGatewayInformation
     (
@@ -122,7 +126,7 @@ instance ToPath UpdateGatewayInformation where
 instance ToQuery UpdateGatewayInformation where
         toQuery = const mempty
 
--- | A JSON object containing the of the gateway that was updated.
+-- | A JSON object containing the ARN of the gateway that was updated.
 --
 -- /See:/ 'updateGatewayInformationResponse' smart constructor.
 data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'

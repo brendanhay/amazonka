@@ -68,8 +68,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   CreateSnapshotInput$SnapshotDescription
--- -   CreateSnapshotInput$VolumeARN
+-- -   < CreateSnapshotInput$SnapshotDescription>
+-- -   < CreateSnapshotInput$VolumeARN>
 --
 -- /See:/ 'createSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
@@ -94,7 +94,7 @@ createSnapshot pVolumeARN_ pSnapshotDescription_ =
     , _csSnapshotDescription = pSnapshotDescription_
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+-- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes>
 -- operation to return a list of gateway volumes.
 csVolumeARN :: Lens' CreateSnapshot Text
 csVolumeARN = lens _csVolumeARN (\ s a -> s{_csVolumeARN = a});
@@ -176,7 +176,7 @@ csrsVolumeARN = lens _csrsVolumeARN (\ s a -> s{_csrsVolumeARN = a});
 -- | The snapshot ID that is used to refer to the snapshot in future
 -- operations such as describing snapshots (Amazon Elastic Compute Cloud
 -- API 'DescribeSnapshots') or creating a volume from a snapshot
--- (CreateStorediSCSIVolume).
+-- (< CreateStorediSCSIVolume>).
 csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 

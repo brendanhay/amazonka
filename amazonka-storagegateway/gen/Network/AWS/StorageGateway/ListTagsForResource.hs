@@ -28,9 +28,9 @@ module Network.AWS.StorageGateway.ListTagsForResource
       listTagsForResource
     , ListTagsForResource
     -- * Request Lenses
-    , ltfrResourceARN
     , ltfrMarker
     , ltfrLimit
+    , ltfrResourceARN
 
     -- * Destructuring the Response
     , listTagsForResourceResponse
@@ -53,33 +53,29 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'listTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-    { _ltfrResourceARN :: !(Maybe Text)
-    , _ltfrMarker      :: !(Maybe Text)
+    { _ltfrMarker      :: !(Maybe Text)
     , _ltfrLimit       :: !(Maybe Nat)
+    , _ltfrResourceARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrResourceARN'
---
 -- * 'ltfrMarker'
 --
 -- * 'ltfrLimit'
+--
+-- * 'ltfrResourceARN'
 listTagsForResource
-    :: ListTagsForResource
-listTagsForResource =
+    :: Text -- ^ 'ltfrResourceARN'
+    -> ListTagsForResource
+listTagsForResource pResourceARN_ =
     ListTagsForResource'
-    { _ltfrResourceARN = Nothing
-    , _ltfrMarker = Nothing
+    { _ltfrMarker = Nothing
     , _ltfrLimit = Nothing
+    , _ltfrResourceARN = pResourceARN_
     }
-
--- | The Amazon Resource Name (ARN) of the resource for which you want to
--- list tags.
-ltfrResourceARN :: Lens' ListTagsForResource (Maybe Text)
-ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
 
 -- | An opaque string that indicates the position at which to begin returning
 -- the list of tags.
@@ -90,6 +86,11 @@ ltfrMarker = lens _ltfrMarker (\ s a -> s{_ltfrMarker = a});
 -- number of items.
 ltfrLimit :: Lens' ListTagsForResource (Maybe Natural)
 ltfrLimit = lens _ltfrLimit (\ s a -> s{_ltfrLimit = a}) . mapping _Nat;
+
+-- | The Amazon Resource Name (ARN) of the resource for which you want to
+-- list tags.
+ltfrResourceARN :: Lens' ListTagsForResource Text
+ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
 
 instance AWSRequest ListTagsForResource where
         type Rs ListTagsForResource =
@@ -117,9 +118,9 @@ instance ToJSON ListTagsForResource where
         toJSON ListTagsForResource'{..}
           = object
               (catMaybes
-                 [("ResourceARN" .=) <$> _ltfrResourceARN,
-                  ("Marker" .=) <$> _ltfrMarker,
-                  ("Limit" .=) <$> _ltfrLimit])
+                 [("Marker" .=) <$> _ltfrMarker,
+                  ("Limit" .=) <$> _ltfrLimit,
+                  Just ("ResourceARN" .= _ltfrResourceARN)])
 
 instance ToPath ListTagsForResource where
         toPath = const "/"

@@ -23,7 +23,7 @@
 -- architecture.
 --
 -- Cache storage must be allocated to the gateway before you can create a
--- cached volume. Use the AddCache operation to add cache storage to a
+-- cached volume. Use the < AddCache> operation to add cache storage to a
 -- gateway.
 --
 -- In the request, you must specify the gateway, size of the volume in

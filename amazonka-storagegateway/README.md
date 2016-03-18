@@ -41,6 +41,13 @@ Service API Reference/:
     Provides a list of each of the regions and endpoints available for
     use with AWS Storage Gateway.
 
+AWS Storage Gateway resource IDs are in uppercase. When you use these
+resource IDs with the Amazon EC2 API, EC2 expects resource IDs in
+lowercase. You must change your resource ID to lowercase to use it with
+the EC2 API. For example, in Storage Gateway the ID for a volume might
+be vol-1122AABB. When you use this ID with the EC2 API, you must change
+it to vol-1122aabb. Otherwise, the EC2 API might not behave as expected.
+
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-storagegateway)
 and the [AWS API Reference](http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html).
 

@@ -71,7 +71,7 @@ deleteTape pGatewayARN_ pTapeARN_ =
     }
 
 -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
--- tape to delete is associated with. Use the ListGateways operation to
+-- tape to delete is associated with. Use the < ListGateways> operation to
 -- return a list of gateways for your account and region.
 delGatewayARN :: Lens' DeleteTape Text
 delGatewayARN = lens _delGatewayARN (\ s a -> s{_delGatewayARN = a});

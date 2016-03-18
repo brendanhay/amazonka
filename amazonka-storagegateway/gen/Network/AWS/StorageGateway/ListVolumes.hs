@@ -20,8 +20,8 @@
 --
 -- This operation lists the iSCSI stored volumes of a gateway. Results are
 -- sorted by volume ARN. The response includes only the volume ARNs. If you
--- want additional volume information, use the DescribeStorediSCSIVolumes
--- API.
+-- want additional volume information, use the
+-- < DescribeStorediSCSIVolumes> API.
 --
 -- The operation supports pagination. By default, the operation returns a
 -- maximum of up to 100 volumes. You can optionally specify the 'Limit'
@@ -63,8 +63,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object that contains one or more of the following fields:
 --
--- -   ListVolumesInput$Limit
--- -   ListVolumesInput$Marker
+-- -   < ListVolumesInput$Limit>
+-- -   < ListVolumesInput$Marker>
 --
 -- /See:/ 'listVolumes' smart constructor.
 data ListVolumes = ListVolumes'

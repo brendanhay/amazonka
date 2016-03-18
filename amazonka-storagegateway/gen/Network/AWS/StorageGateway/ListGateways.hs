@@ -62,8 +62,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing zero or more of the following fields:
 --
--- -   ListGatewaysInput$Limit
--- -   ListGatewaysInput$Marker
+-- -   < ListGatewaysInput$Limit>
+-- -   < ListGatewaysInput$Marker>
 --
 -- /See:/ 'listGateways' smart constructor.
 data ListGateways = ListGateways'

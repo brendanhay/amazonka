@@ -26,7 +26,7 @@
 -- snapshots the gateway snapshot schedule window, an activation key, and a
 -- name for your gateway. The activation process also associates your
 -- gateway with your account; for more information, see
--- UpdateGatewayInformation.
+-- < UpdateGatewayInformation>.
 --
 -- You must turn on the gateway VM before you can activate your gateway.
 --
@@ -62,13 +62,13 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   ActivateGatewayInput$ActivationKey
--- -   GatewayName
--- -   ActivateGatewayInput$GatewayRegion
--- -   ActivateGatewayInput$GatewayTimezone
--- -   ActivateGatewayInput$GatewayType
--- -   ActivateGatewayInput$TapeDriveType
--- -   ActivateGatewayInput$MediumChangerType
+-- -   < ActivateGatewayInput$ActivationKey>
+-- -   < ActivateGatewayInput$GatewayName>
+-- -   < ActivateGatewayInput$GatewayRegion>
+-- -   < ActivateGatewayInput$GatewayTimezone>
+-- -   < ActivateGatewayInput$GatewayType>
+-- -   < ActivateGatewayInput$TapeDriveType>
+-- -   < ActivateGatewayInput$MediumChangerType>
 --
 -- /See:/ 'activateGateway' smart constructor.
 data ActivateGateway = ActivateGateway'
@@ -129,9 +129,9 @@ agMediumChangerType = lens _agMediumChangerType (\ s a -> s{_agMediumChangerType
 agTapeDriveType :: Lens' ActivateGateway (Maybe Text)
 agTapeDriveType = lens _agTapeDriveType (\ s a -> s{_agTapeDriveType = a});
 
--- | One of the values that defines the type of gateway to activate. The type
--- specified is critical to all later functions of the gateway and cannot
--- be changed after activation. The default value is 'STORED'.
+-- | A value that defines the type of gateway to activate. The type specified
+-- is critical to all later functions of the gateway and cannot be changed
+-- after activation. The default value is 'STORED'.
 agGatewayType :: Lens' ActivateGateway (Maybe Text)
 agGatewayType = lens _agGatewayType (\ s a -> s{_agGatewayType = a});
 
@@ -146,20 +146,20 @@ agGatewayType = lens _agGatewayType (\ s a -> s{_agGatewayType = a});
 agActivationKey :: Lens' ActivateGateway Text
 agActivationKey = lens _agActivationKey (\ s a -> s{_agActivationKey = a});
 
--- | Undocumented member.
+-- | The name you configured for your gateway.
 agGatewayName :: Lens' ActivateGateway Text
 agGatewayName = lens _agGatewayName (\ s a -> s{_agGatewayName = a});
 
--- | One of the values that indicates the time zone you want to set for the
--- gateway. The time zone is used, for example, for scheduling snapshots
--- and your gateway\'s maintenance schedule.
+-- | A value that indicates the time zone you want to set for the gateway.
+-- The time zone is used, for example, for scheduling snapshots and your
+-- gateway\'s maintenance schedule.
 agGatewayTimezone :: Lens' ActivateGateway Text
 agGatewayTimezone = lens _agGatewayTimezone (\ s a -> s{_agGatewayTimezone = a});
 
--- | One of the values that indicates the region where you want to store the
--- snapshot backups. The gateway region specified must be the same region
--- as the region in your 'Host' header in the request. For more information
--- about available regions and endpoints for AWS Storage Gateway, see
+-- | A value that indicates the region where you want to store the snapshot
+-- backups. The gateway region specified must be the same region as the
+-- region in your 'Host' header in the request. For more information about
+-- available regions and endpoints for AWS Storage Gateway, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region Regions and Endpoints>
 -- in the /Amazon Web Services Glossary/.
 --
@@ -210,6 +210,10 @@ instance ToQuery ActivateGateway where
 -- activated gateway. It is a string made of information such as your
 -- account, gateway name, and region. This ARN is used to reference the
 -- gateway in other API operations as well as resource-based authorization.
+--
+-- For Gateways activated prior to September 02, 2015 the gateway ARN
+-- contains the gateway name rather than the gateway id. Changing the name
+-- of the gateway has no effect on the gateway ARN.
 --
 -- /See:/ 'activateGatewayResponse' smart constructor.
 data ActivateGatewayResponse = ActivateGatewayResponse'

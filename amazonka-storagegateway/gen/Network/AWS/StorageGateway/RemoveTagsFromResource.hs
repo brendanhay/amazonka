@@ -27,8 +27,8 @@ module Network.AWS.StorageGateway.RemoveTagsFromResource
       removeTagsFromResource
     , RemoveTagsFromResource
     -- * Request Lenses
-    , rtfrTagKeys
     , rtfrResourceARN
+    , rtfrTagKeys
 
     -- * Destructuring the Response
     , removeTagsFromResourceResponse
@@ -49,34 +49,35 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'removeTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-    { _rtfrTagKeys     :: !(Maybe [Text])
-    , _rtfrResourceARN :: !(Maybe Text)
+    { _rtfrResourceARN :: !Text
+    , _rtfrTagKeys     :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrTagKeys'
---
 -- * 'rtfrResourceARN'
+--
+-- * 'rtfrTagKeys'
 removeTagsFromResource
-    :: RemoveTagsFromResource
-removeTagsFromResource =
+    :: Text -- ^ 'rtfrResourceARN'
+    -> RemoveTagsFromResource
+removeTagsFromResource pResourceARN_ =
     RemoveTagsFromResource'
-    { _rtfrTagKeys = Nothing
-    , _rtfrResourceARN = Nothing
+    { _rtfrResourceARN = pResourceARN_
+    , _rtfrTagKeys = mempty
     }
+
+-- | The Amazon Resource Name (ARN) of the resource you want to remove the
+-- tags from.
+rtfrResourceARN :: Lens' RemoveTagsFromResource Text
+rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a});
 
 -- | The keys of the tags you want to remove from the specified resource. A
 -- tag is composed of a key\/value pair.
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Default . _Coerce;
-
--- | The Amazon Resource Name (ARN) of the resource you want to remove the
--- tags from.
-rtfrResourceARN :: Lens' RemoveTagsFromResource (Maybe Text)
-rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a});
+rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce;
 
 instance AWSRequest RemoveTagsFromResource where
         type Rs RemoveTagsFromResource =
@@ -102,8 +103,8 @@ instance ToJSON RemoveTagsFromResource where
         toJSON RemoveTagsFromResource'{..}
           = object
               (catMaybes
-                 [("TagKeys" .=) <$> _rtfrTagKeys,
-                  ("ResourceARN" .=) <$> _rtfrResourceARN])
+                 [Just ("ResourceARN" .= _rtfrResourceARN),
+                  Just ("TagKeys" .= _rtfrTagKeys)])
 
 instance ToPath RemoveTagsFromResource where
         toPath = const "/"

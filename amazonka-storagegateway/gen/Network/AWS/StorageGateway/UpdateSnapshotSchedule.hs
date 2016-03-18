@@ -59,10 +59,10 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   UpdateSnapshotScheduleInput$Description
--- -   UpdateSnapshotScheduleInput$RecurrenceInHours
--- -   UpdateSnapshotScheduleInput$StartAt
--- -   UpdateSnapshotScheduleInput$VolumeARN
+-- -   < UpdateSnapshotScheduleInput$Description>
+-- -   < UpdateSnapshotScheduleInput$RecurrenceInHours>
+-- -   < UpdateSnapshotScheduleInput$StartAt>
+-- -   < UpdateSnapshotScheduleInput$VolumeARN>
 --
 -- /See:/ 'updateSnapshotSchedule' smart constructor.
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
@@ -101,7 +101,7 @@ updateSnapshotSchedule pVolumeARN_ pStartAt_ pRecurrenceInHours_ =
 ussDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
 ussDescription = lens _ussDescription (\ s a -> s{_ussDescription = a});
 
--- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+-- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes>
 -- operation to return a list of gateway volumes.
 ussVolumeARN :: Lens' UpdateSnapshotSchedule Text
 ussVolumeARN = lens _ussVolumeARN (\ s a -> s{_ussVolumeARN = a});

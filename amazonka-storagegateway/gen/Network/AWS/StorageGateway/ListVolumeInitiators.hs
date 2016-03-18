@@ -66,7 +66,7 @@ listVolumeInitiators pVolumeARN_ =
     { _lviVolumeARN = pVolumeARN_
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+-- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes>
 -- operation to return a list of gateway volumes for the gateway.
 lviVolumeARN :: Lens' ListVolumeInitiators Text
 lviVolumeARN = lens _lviVolumeARN (\ s a -> s{_lviVolumeARN = a});

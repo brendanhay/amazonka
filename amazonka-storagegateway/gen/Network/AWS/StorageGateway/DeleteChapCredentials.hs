@@ -49,8 +49,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   DeleteChapCredentialsInput$InitiatorName
--- -   DeleteChapCredentialsInput$TargetARN
+-- -   < DeleteChapCredentialsInput$InitiatorName>
+-- -   < DeleteChapCredentialsInput$TargetARN>
 --
 -- /See:/ 'deleteChapCredentials' smart constructor.
 data DeleteChapCredentials = DeleteChapCredentials'
@@ -76,8 +76,8 @@ deleteChapCredentials pTargetARN_ pInitiatorName_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
--- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
--- for specified VolumeARN.
+-- < DescribeStorediSCSIVolumes> operation to return to retrieve the
+-- TargetARN for specified VolumeARN.
 dTargetARN :: Lens' DeleteChapCredentials Text
 dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
 

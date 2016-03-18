@@ -56,10 +56,10 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   UpdateChapCredentialsInput$InitiatorName
--- -   UpdateChapCredentialsInput$SecretToAuthenticateInitiator
--- -   UpdateChapCredentialsInput$SecretToAuthenticateTarget
--- -   UpdateChapCredentialsInput$TargetARN
+-- -   < UpdateChapCredentialsInput$InitiatorName>
+-- -   < UpdateChapCredentialsInput$SecretToAuthenticateInitiator>
+-- -   < UpdateChapCredentialsInput$SecretToAuthenticateTarget>
+-- -   < UpdateChapCredentialsInput$TargetARN>
 --
 -- /See:/ 'updateChapCredentials' smart constructor.
 data UpdateChapCredentials = UpdateChapCredentials'
@@ -103,7 +103,7 @@ uccSecretToAuthenticateTarget :: Lens' UpdateChapCredentials (Maybe Text)
 uccSecretToAuthenticateTarget = lens _uccSecretToAuthenticateTarget (\ s a -> s{_uccSecretToAuthenticateTarget = a});
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
--- DescribeStorediSCSIVolumes operation to return the TargetARN for
+-- < DescribeStorediSCSIVolumes> operation to return the TargetARN for
 -- specified VolumeARN.
 uccTargetARN :: Lens' UpdateChapCredentials Text
 uccTargetARN = lens _uccTargetARN (\ s a -> s{_uccTargetARN = a});

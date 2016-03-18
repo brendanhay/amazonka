@@ -19,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation deletes the specified gateway volume that you previously
--- created using the CreateCachediSCSIVolume or CreateStorediSCSIVolume
--- API. For gateway-stored volumes, the local disk that was configured as
--- the storage volume is not deleted. You can reuse the local disk to
--- create another storage volume.
+-- created using the < CreateCachediSCSIVolume> or
+-- < CreateStorediSCSIVolume> API. For gateway-stored volumes, the local
+-- disk that was configured as the storage volume is not deleted. You can
+-- reuse the local disk to create another storage volume.
 --
 -- Before you delete a gateway volume, make sure there are no iSCSI
 -- connections to the volume you are deleting. You should also make sure
@@ -59,7 +59,7 @@ import           Network.AWS.Response
 import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
--- | A JSON object containing the DeleteVolumeInput$VolumeARN to delete.
+-- | A JSON object containing the < DeleteVolumeInput$VolumeARN> to delete.
 --
 -- /See:/ 'deleteVolume' smart constructor.
 newtype DeleteVolume = DeleteVolume'
@@ -79,7 +79,7 @@ deleteVolume pVolumeARN_ =
     { _dvVolumeARN = pVolumeARN_
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+-- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes>
 -- operation to return a list of gateway volumes.
 dvVolumeARN :: Lens' DeleteVolume Text
 dvVolumeARN = lens _dvVolumeARN (\ s a -> s{_dvVolumeARN = a});

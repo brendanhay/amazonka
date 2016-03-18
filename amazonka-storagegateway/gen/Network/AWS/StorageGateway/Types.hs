@@ -183,6 +183,7 @@ storageGateway =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -195,10 +196,9 @@ storageGateway =
 -- the service. See the error and message fields for more information.
 _InvalidGatewayRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGatewayRequestException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidGatewayRequestException"
+    _ServiceError . hasCode "InvalidGatewayRequestException"
 
 -- | An internal server error has occurred during the request. See the error
 -- and message fields for more information.
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerError =
-    _ServiceError . hasStatus 500 . hasCode "InternalServerError"
+_InternalServerError = _ServiceError . hasCode "InternalServerError"

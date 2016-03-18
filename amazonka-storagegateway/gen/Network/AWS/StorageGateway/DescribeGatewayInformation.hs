@@ -174,7 +174,7 @@ describeGatewayInformationResponse pResponseStatus_ =
     , _dgirsResponseStatus = pResponseStatus_
     }
 
--- | One of the values that indicates the operating state of the gateway.
+-- | A value that indicates the operating state of the gateway.
 dgirsGatewayState :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayState = lens _dgirsGatewayState (\ s a -> s{_dgirsGatewayState = a});
 
@@ -182,7 +182,7 @@ dgirsGatewayState = lens _dgirsGatewayState (\ s a -> s{_dgirsGatewayState = a})
 dgirsGatewayARN :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayARN = lens _dgirsGatewayARN (\ s a -> s{_dgirsGatewayARN = a});
 
--- | A NetworkInterface array that contains descriptions of the gateway
+-- | A < NetworkInterface> array that contains descriptions of the gateway
 -- network interfaces.
 dgirsGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse [NetworkInterface]
 dgirsGatewayNetworkInterfaces = lens _dgirsGatewayNetworkInterfaces (\ s a -> s{_dgirsGatewayNetworkInterfaces = a}) . _Default . _Coerce;
@@ -199,11 +199,13 @@ dgirsNextUpdateAvailabilityDate = lens _dgirsNextUpdateAvailabilityDate (\ s a -
 dgirsLastSoftwareUpdate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsLastSoftwareUpdate = lens _dgirsLastSoftwareUpdate (\ s a -> s{_dgirsLastSoftwareUpdate = a});
 
--- | The gateway name.
+-- | The name you configured for your gateway.
 dgirsGatewayName :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayName = lens _dgirsGatewayName (\ s a -> s{_dgirsGatewayName = a});
 
--- | The gateway ID.
+-- | The unique identifier assigned to your gateway during activation. This
+-- id becomes part of the gateway Amazon Resources Name (ARN) which you use
+-- as input for other operations.
 dgirsGatewayId :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayId = lens _dgirsGatewayId (\ s a -> s{_dgirsGatewayId = a});
 
@@ -211,8 +213,7 @@ dgirsGatewayId = lens _dgirsGatewayId (\ s a -> s{_dgirsGatewayId = a});
 dgirsGatewayType :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayType = lens _dgirsGatewayType (\ s a -> s{_dgirsGatewayType = a});
 
--- | One of the values that indicates the time zone configured for the
--- gateway.
+-- | A value that indicates the time zone configured for the gateway.
 dgirsGatewayTimezone :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayTimezone = lens _dgirsGatewayTimezone (\ s a -> s{_dgirsGatewayTimezone = a});
 

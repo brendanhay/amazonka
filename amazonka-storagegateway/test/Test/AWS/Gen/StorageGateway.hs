@@ -127,6 +127,9 @@ import Test.AWS.StorageGateway.Internal
 --         , testDescribeSnapshotSchedule $
 --             describeSnapshotSchedule
 --
+--         , testCreateTapeWithBarcode $
+--             createTapeWithBarcode
+--
 --         , testDescribeBandwidthRateLimit $
 --             describeBandwidthRateLimit
 --
@@ -288,6 +291,9 @@ import Test.AWS.StorageGateway.Internal
 --
 --         , testDescribeSnapshotScheduleResponse $
 --             describeSnapshotScheduleResponse
+--
+--         , testCreateTapeWithBarcodeResponse $
+--             createTapeWithBarcodeResponse
 --
 --         , testDescribeBandwidthRateLimitResponse $
 --             describeBandwidthRateLimitResponse
@@ -518,6 +524,11 @@ testDescribeSnapshotSchedule :: DescribeSnapshotSchedule -> TestTree
 testDescribeSnapshotSchedule = req
     "DescribeSnapshotSchedule"
     "fixture/DescribeSnapshotSchedule.yaml"
+
+testCreateTapeWithBarcode :: CreateTapeWithBarcode -> TestTree
+testCreateTapeWithBarcode = req
+    "CreateTapeWithBarcode"
+    "fixture/CreateTapeWithBarcode.yaml"
 
 testDescribeBandwidthRateLimit :: DescribeBandwidthRateLimit -> TestTree
 testDescribeBandwidthRateLimit = req
@@ -851,6 +862,13 @@ testDescribeSnapshotScheduleResponse = res
     "fixture/DescribeSnapshotScheduleResponse.proto"
     storageGateway
     (Proxy :: Proxy DescribeSnapshotSchedule)
+
+testCreateTapeWithBarcodeResponse :: CreateTapeWithBarcodeResponse -> TestTree
+testCreateTapeWithBarcodeResponse = res
+    "CreateTapeWithBarcodeResponse"
+    "fixture/CreateTapeWithBarcodeResponse.proto"
+    storageGateway
+    (Proxy :: Proxy CreateTapeWithBarcode)
 
 testDescribeBandwidthRateLimitResponse :: DescribeBandwidthRateLimitResponse -> TestTree
 testDescribeBandwidthRateLimitResponse = res

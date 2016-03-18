@@ -51,9 +51,9 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the following fields:
 --
--- -   UpdateMaintenanceStartTimeInput$DayOfWeek
--- -   UpdateMaintenanceStartTimeInput$HourOfDay
--- -   UpdateMaintenanceStartTimeInput$MinuteOfHour
+-- -   < UpdateMaintenanceStartTimeInput$DayOfWeek>
+-- -   < UpdateMaintenanceStartTimeInput$HourOfDay>
+-- -   < UpdateMaintenanceStartTimeInput$MinuteOfHour>
 --
 -- /See:/ 'updateMaintenanceStartTime' smart constructor.
 data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'

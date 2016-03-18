@@ -21,7 +21,7 @@
 -- Returns the metadata, structure, stages, and actions of a pipeline. Can
 -- be used to return the entire structure of a pipeline in JSON format,
 -- which can then be modified and used to update the pipeline structure
--- with UpdatePipeline.
+-- with < UpdatePipeline>.
 --
 -- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_GetPipeline.html AWS API Reference> for GetPipeline.
 module Network.AWS.CodePipeline.GetPipeline

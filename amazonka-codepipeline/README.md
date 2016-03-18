@@ -29,16 +29,17 @@ uniquely named, and consists of actions, gates, and stages.
 
 You can work with pipelines by calling:
 
--   CreatePipeline, which creates a uniquely-named pipeline.
--   DeletePipeline, which deletes the specified pipeline.
--   GetPipeline, which returns information about a pipeline structure.
--   GetPipelineState, which returns information about the current state
-    of the stages and actions of a pipeline.
--   ListPipelines, which gets a summary of all of the pipelines
+-   < CreatePipeline>, which creates a uniquely-named pipeline.
+-   < DeletePipeline>, which deletes the specified pipeline.
+-   < GetPipeline>, which returns information about a pipeline
+    structure.
+-   < GetPipelineState>, which returns information about the current
+    state of the stages and actions of a pipeline.
+-   < ListPipelines>, which gets a summary of all of the pipelines
     associated with your account.
--   StartPipelineExecution, which runs the the most recent revision of
-    an artifact through the pipeline.
--   UpdatePipeline, which updates a pipeline with edits or changes to
+-   < StartPipelineExecution>, which runs the the most recent revision
+    of an artifact through the pipeline.
+-   < UpdatePipeline>, which updates a pipeline with edits or changes to
     the structure of the pipeline.
 
 Pipelines include /stages/, which are which are logical groupings of
@@ -47,9 +48,9 @@ complete before the next stage begins. A stage will result in success or
 failure. If a stage fails, then the pipeline stops at that stage and
 will remain stopped until either a new version of an artifact appears in
 the source location, or a user takes action to re-run the most recent
-artifact through the pipeline. You can call GetPipelineState, which
+artifact through the pipeline. You can call < GetPipelineState>, which
 displays the status of a pipeline, including the status of stages in the
-pipeline, or GetPipeline, which returns the entire structure of the
+pipeline, or < GetPipeline>, which returns the entire structure of the
 pipeline, including the stages of that pipeline. For more information
 about the structure of stages and actions, also refer to the AWS
 CodePipeline Pipeline Structure Reference.
@@ -59,8 +60,8 @@ such as source or build actions performed within a stage of a pipeline.
 For example, you can use a source action to import artifacts into a
 pipeline from a source such as Amazon S3. Like stages, you do not work
 with actions directly in most cases, but you do define and interact with
-actions when working with pipeline operations such as CreatePipeline and
-GetPipelineState.
+actions when working with pipeline operations such as < CreatePipeline>
+and < GetPipelineState>.
 
 Pipelines also include /transitions/, which allow the transition of
 artifacts from one stage to the next in a pipeline after the actions in
@@ -68,10 +69,10 @@ one stage complete.
 
 You can work with transitions by calling:
 
--   DisableStageTransition, which prevents artifacts from transitioning
-    to the next stage in a pipeline.
--   EnableStageTransition, which enables transition of artifacts between
-    stages in a pipeline.
+-   < DisableStageTransition>, which prevents artifacts from
+    transitioning to the next stage in a pipeline.
+-   < EnableStageTransition>, which enables transition of artifacts
+    between stages in a pipeline.
 
 __Using the API to integrate with AWS CodePipeline__
 
@@ -85,30 +86,30 @@ developers will need to work with the following items:
 
     You can work with jobs by calling:
 
-    -   AcknowledgeJob, which confirms whether a job worker has received
-        the specified job,
-    -   GetJobDetails, which returns the details of a job,
-    -   PollForJobs, which determines whether there are any jobs to act
-        upon,
-    -   PutJobFailureResult, which provides details of a job failure,
+    -   < AcknowledgeJob>, which confirms whether a job worker has
+        received the specified job,
+    -   < GetJobDetails>, which returns the details of a job,
+    -   < PollForJobs>, which determines whether there are any jobs to
+        act upon,
+    -   < PutJobFailureResult>, which provides details of a job failure,
         and
-    -   PutJobSuccessResult, which provides details of a job success.
+    -   < PutJobSuccessResult>, which provides details of a job success.
 -   Third party jobs, which are instances of an action created by a
     partner action and integrated into AWS CodePipeline. Partner actions
     are created by members of the AWS Partner Network.
 
     You can work with third party jobs by calling:
 
-    -   AcknowledgeThirdPartyJob, which confirms whether a job worker
+    -   < AcknowledgeThirdPartyJob>, which confirms whether a job worker
         has received the specified job,
-    -   GetThirdPartyJobDetails, which requests the details of a job for
-        a partner action,
-    -   PollForThirdPartyJobs, which determines whether there are any
+    -   < GetThirdPartyJobDetails>, which requests the details of a job
+        for a partner action,
+    -   < PollForThirdPartyJobs>, which determines whether there are any
         jobs to act upon,
-    -   PutThirdPartyJobFailureResult, which provides details of a job
-        failure, and
-    -   PutThirdPartyJobSuccessResult, which provides details of a job
-        success.
+    -   < PutThirdPartyJobFailureResult>, which provides details of a
+        job failure, and
+    -   < PutThirdPartyJobSuccessResult>, which provides details of a
+        job success.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-codepipeline)
 and the [AWS API Reference](http://docs.aws.amazon.com/codepipeline/latest/APIReference/Welcome.html).

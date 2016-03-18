@@ -23,11 +23,11 @@
 -- only with HTTP\/HTTPS listeners.
 --
 -- This policy is similar to the policy created by
--- CreateLBCookieStickinessPolicy, except that the lifetime of the special
--- Elastic Load Balancing cookie, 'AWSELB', follows the lifetime of the
--- application-generated cookie specified in the policy configuration. The
--- load balancer only inserts a new stickiness cookie when the application
--- response includes a new application cookie.
+-- < CreateLBCookieStickinessPolicy>, except that the lifetime of the
+-- special Elastic Load Balancing cookie, 'AWSELB', follows the lifetime of
+-- the application-generated cookie specified in the policy configuration.
+-- The load balancer only inserts a new stickiness cookie when the
+-- application response includes a new application cookie.
 --
 -- If the application cookie is explicitly removed or expires, the session
 -- stops being sticky until a new application cookie is issued.

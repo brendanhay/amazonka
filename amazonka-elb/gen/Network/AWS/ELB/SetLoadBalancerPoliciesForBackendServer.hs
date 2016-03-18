@@ -28,8 +28,8 @@
 -- the policies, use the 'PolicyNames' parameter to list the policies that
 -- you want to enable.
 --
--- You can use DescribeLoadBalancers or DescribeLoadBalancerPolicies to
--- verify that the policy is associated with the back-end server.
+-- You can use < DescribeLoadBalancers> or < DescribeLoadBalancerPolicies>
+-- to verify that the policy is associated with the back-end server.
 --
 -- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesForBackendServer.html AWS API Reference> for SetLoadBalancerPoliciesForBackendServer.
 module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer

@@ -122,7 +122,7 @@ clbSubnets = lens _clbSubnets (\ s a -> s{_clbSubnets = a}) . _Default . _Coerce
 -- You must specify at least one Availability Zone.
 --
 -- You can add more Availability Zones after you create the load balancer
--- using EnableAvailabilityZonesForLoadBalancer.
+-- using < EnableAvailabilityZonesForLoadBalancer>.
 clbAvailabilityZones :: Lens' CreateLoadBalancer [Text]
 clbAvailabilityZones = lens _clbAvailabilityZones (\ s a -> s{_clbAvailabilityZones = a}) . _Default . _Coerce;
 

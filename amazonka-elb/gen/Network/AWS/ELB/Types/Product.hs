@@ -1027,11 +1027,12 @@ policies =
 pOtherPolicies :: Lens' Policies [Text]
 pOtherPolicies = lens _pOtherPolicies (\ s a -> s{_pOtherPolicies = a}) . _Default . _Coerce;
 
--- | The stickiness policies created using CreateLBCookieStickinessPolicy.
+-- | The stickiness policies created using < CreateLBCookieStickinessPolicy>.
 pLBCookieStickinessPolicies :: Lens' Policies [LBCookieStickinessPolicy]
 pLBCookieStickinessPolicies = lens _pLBCookieStickinessPolicies (\ s a -> s{_pLBCookieStickinessPolicies = a}) . _Default . _Coerce;
 
--- | The stickiness policies created using CreateAppCookieStickinessPolicy.
+-- | The stickiness policies created using
+-- < CreateAppCookieStickinessPolicy>.
 pAppCookieStickinessPolicies :: Lens' Policies [AppCookieStickinessPolicy]
 pAppCookieStickinessPolicies = lens _pAppCookieStickinessPolicies (\ s a -> s{_pAppCookieStickinessPolicies = a}) . _Default . _Coerce;
 

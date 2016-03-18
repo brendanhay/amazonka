@@ -22,7 +22,7 @@
 -- After the instance is deregistered, it no longer receives traffic from
 -- the load balancer.
 --
--- You can use DescribeLoadBalancers to verify that the instance is
+-- You can use < DescribeLoadBalancers> to verify that the instance is
 -- deregistered from the load balancer.
 --
 -- For more information, see

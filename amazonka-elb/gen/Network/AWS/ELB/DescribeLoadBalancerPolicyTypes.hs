@@ -20,8 +20,8 @@
 --
 -- Describes the specified load balancer policy types.
 --
--- You can use these policy types with CreateLoadBalancerPolicy to create
--- policy configurations for a load balancer.
+-- You can use these policy types with < CreateLoadBalancerPolicy> to
+-- create policy configurations for a load balancer.
 --
 -- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicyTypes.html AWS API Reference> for DescribeLoadBalancerPolicyTypes.
 module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes

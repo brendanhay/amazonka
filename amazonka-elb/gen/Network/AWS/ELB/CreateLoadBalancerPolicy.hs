@@ -97,7 +97,7 @@ clbpPolicyName :: Lens' CreateLoadBalancerPolicy Text
 clbpPolicyName = lens _clbpPolicyName (\ s a -> s{_clbpPolicyName = a});
 
 -- | The name of the base policy type. To get the list of policy types, use
--- DescribeLoadBalancerPolicyTypes.
+-- < DescribeLoadBalancerPolicyTypes>.
 clbpPolicyTypeName :: Lens' CreateLoadBalancerPolicy Text
 clbpPolicyTypeName = lens _clbpPolicyTypeName (\ s a -> s{_clbpPolicyTypeName = a});
 

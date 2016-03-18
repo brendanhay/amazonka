@@ -18,7 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Renames a repository.
+-- Renames a repository. The repository name must be unique across the
+-- calling AWS account. In addition, repository names are limited to 100
+-- alphanumeric, dash, and underscore characters, and cannot include
+-- certain characters. The suffix \".git\" is prohibited. For a full
+-- description of the limits on repository names, see
+-- <http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html Limits>
+-- in the AWS CodeCommit User Guide.
 --
 -- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_UpdateRepositoryName.html AWS API Reference> for UpdateRepositoryName.
 module Network.AWS.CodeCommit.UpdateRepositoryName
@@ -67,11 +73,11 @@ updateRepositoryName pOldName_ pNewName_ =
     , _urnNewName = pNewName_
     }
 
--- | Undocumented member.
+-- | The existing name of the repository.
 urnOldName :: Lens' UpdateRepositoryName Text
 urnOldName = lens _urnOldName (\ s a -> s{_urnOldName = a});
 
--- | Undocumented member.
+-- | The new name for the repository.
 urnNewName :: Lens' UpdateRepositoryName Text
 urnNewName = lens _urnNewName (\ s a -> s{_urnNewName = a});
 

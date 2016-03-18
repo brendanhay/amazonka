@@ -59,6 +59,84 @@ instance FromJSON BranchInfo where
                  BranchInfo' <$>
                    (x .:? "commitId") <*> (x .:? "branchName"))
 
+-- | Returns information about a specific commit.
+--
+-- /See:/ 'commit' smart constructor.
+data Commit = Commit'
+    { _cCommitter      :: !(Maybe UserInfo)
+    , _cTreeId         :: !(Maybe Text)
+    , _cAdditionalData :: !(Maybe Text)
+    , _cParents        :: !(Maybe [Text])
+    , _cAuthor         :: !(Maybe UserInfo)
+    , _cMessage        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Commit' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cCommitter'
+--
+-- * 'cTreeId'
+--
+-- * 'cAdditionalData'
+--
+-- * 'cParents'
+--
+-- * 'cAuthor'
+--
+-- * 'cMessage'
+commit
+    :: Commit
+commit =
+    Commit'
+    { _cCommitter = Nothing
+    , _cTreeId = Nothing
+    , _cAdditionalData = Nothing
+    , _cParents = Nothing
+    , _cAuthor = Nothing
+    , _cMessage = Nothing
+    }
+
+-- | Information about the person who committed the specified commit, also
+-- known as the committer. For more information about the difference
+-- between an author and a committer in Git, see
+-- <http://git-scm.com/book/ch2-3.html Viewing the Commit History> in Pro
+-- Git by Scott Chacon and Ben Straub.
+cCommitter :: Lens' Commit (Maybe UserInfo)
+cCommitter = lens _cCommitter (\ s a -> s{_cCommitter = a});
+
+-- | Tree information for the specified commit.
+cTreeId :: Lens' Commit (Maybe Text)
+cTreeId = lens _cTreeId (\ s a -> s{_cTreeId = a});
+
+-- | Any additional data associated with the specified commit.
+cAdditionalData :: Lens' Commit (Maybe Text)
+cAdditionalData = lens _cAdditionalData (\ s a -> s{_cAdditionalData = a});
+
+-- | The parent list for the specified commit.
+cParents :: Lens' Commit [Text]
+cParents = lens _cParents (\ s a -> s{_cParents = a}) . _Default . _Coerce;
+
+-- | Information about the author of the specified commit.
+cAuthor :: Lens' Commit (Maybe UserInfo)
+cAuthor = lens _cAuthor (\ s a -> s{_cAuthor = a});
+
+-- | The message associated with the specified commit.
+cMessage :: Lens' Commit (Maybe Text)
+cMessage = lens _cMessage (\ s a -> s{_cMessage = a});
+
+instance FromJSON Commit where
+        parseJSON
+          = withObject "Commit"
+              (\ x ->
+                 Commit' <$>
+                   (x .:? "committer") <*> (x .:? "treeId") <*>
+                     (x .:? "additionalData")
+                     <*> (x .:? "parents" .!= mempty)
+                     <*> (x .:? "author")
+                     <*> (x .:? "message"))
+
 -- | Information about a repository.
 --
 -- /See:/ 'repositoryMetadata' smart constructor.
@@ -193,11 +271,11 @@ repositoryNameIdPair =
     , _rnipRepositoryName = Nothing
     }
 
--- | The ID associated with the repository name.
+-- | The ID associated with the repository.
 rnipRepositoryId :: Lens' RepositoryNameIdPair (Maybe Text)
 rnipRepositoryId = lens _rnipRepositoryId (\ s a -> s{_rnipRepositoryId = a});
 
--- | Undocumented member.
+-- | The name associated with the repository.
 rnipRepositoryName :: Lens' RepositoryNameIdPair (Maybe Text)
 rnipRepositoryName = lens _rnipRepositoryName (\ s a -> s{_rnipRepositoryName = a});
 
@@ -207,3 +285,171 @@ instance FromJSON RepositoryNameIdPair where
               (\ x ->
                  RepositoryNameIdPair' <$>
                    (x .:? "repositoryId") <*> (x .:? "repositoryName"))
+
+-- | Information about a trigger for a repository.
+--
+-- /See:/ 'repositoryTrigger' smart constructor.
+data RepositoryTrigger = RepositoryTrigger'
+    { _rtBranches       :: !(Maybe [Text])
+    , _rtCustomData     :: !(Maybe Text)
+    , _rtDestinationARN :: !(Maybe Text)
+    , _rtName           :: !(Maybe Text)
+    , _rtEvents         :: !(Maybe [RepositoryTriggerEventEnum])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RepositoryTrigger' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtBranches'
+--
+-- * 'rtCustomData'
+--
+-- * 'rtDestinationARN'
+--
+-- * 'rtName'
+--
+-- * 'rtEvents'
+repositoryTrigger
+    :: RepositoryTrigger
+repositoryTrigger =
+    RepositoryTrigger'
+    { _rtBranches = Nothing
+    , _rtCustomData = Nothing
+    , _rtDestinationARN = Nothing
+    , _rtName = Nothing
+    , _rtEvents = Nothing
+    }
+
+-- | The branches that will be included in the trigger configuration. If no
+-- branches are specified, the trigger will apply to all branches.
+rtBranches :: Lens' RepositoryTrigger [Text]
+rtBranches = lens _rtBranches (\ s a -> s{_rtBranches = a}) . _Default . _Coerce;
+
+-- | Any custom data associated with the trigger that will be included in the
+-- information sent to the target of the trigger.
+rtCustomData :: Lens' RepositoryTrigger (Maybe Text)
+rtCustomData = lens _rtCustomData (\ s a -> s{_rtCustomData = a});
+
+-- | The ARN of the resource that is the target for a trigger. For example,
+-- the ARN of a topic in Amazon Simple Notification Service (SNS).
+rtDestinationARN :: Lens' RepositoryTrigger (Maybe Text)
+rtDestinationARN = lens _rtDestinationARN (\ s a -> s{_rtDestinationARN = a});
+
+-- | The name of the trigger.
+rtName :: Lens' RepositoryTrigger (Maybe Text)
+rtName = lens _rtName (\ s a -> s{_rtName = a});
+
+-- | The repository events that will cause the trigger to run actions in
+-- another service, such as sending a notification through Amazon Simple
+-- Notification Service (SNS). If no events are specified, the trigger will
+-- run for all repository events.
+rtEvents :: Lens' RepositoryTrigger [RepositoryTriggerEventEnum]
+rtEvents = lens _rtEvents (\ s a -> s{_rtEvents = a}) . _Default . _Coerce;
+
+instance FromJSON RepositoryTrigger where
+        parseJSON
+          = withObject "RepositoryTrigger"
+              (\ x ->
+                 RepositoryTrigger' <$>
+                   (x .:? "branches" .!= mempty) <*>
+                     (x .:? "customData")
+                     <*> (x .:? "destinationArn")
+                     <*> (x .:? "name")
+                     <*> (x .:? "events" .!= mempty))
+
+instance ToJSON RepositoryTrigger where
+        toJSON RepositoryTrigger'{..}
+          = object
+              (catMaybes
+                 [("branches" .=) <$> _rtBranches,
+                  ("customData" .=) <$> _rtCustomData,
+                  ("destinationArn" .=) <$> _rtDestinationARN,
+                  ("name" .=) <$> _rtName,
+                  ("events" .=) <$> _rtEvents])
+
+-- | A trigger failed to run.
+--
+-- /See:/ 'repositoryTriggerExecutionFailure' smart constructor.
+data RepositoryTriggerExecutionFailure = RepositoryTriggerExecutionFailure'
+    { _rtefFailureMessage :: !(Maybe Text)
+    , _rtefTrigger        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RepositoryTriggerExecutionFailure' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtefFailureMessage'
+--
+-- * 'rtefTrigger'
+repositoryTriggerExecutionFailure
+    :: RepositoryTriggerExecutionFailure
+repositoryTriggerExecutionFailure =
+    RepositoryTriggerExecutionFailure'
+    { _rtefFailureMessage = Nothing
+    , _rtefTrigger = Nothing
+    }
+
+-- | Additional message information about the trigger that did not run.
+rtefFailureMessage :: Lens' RepositoryTriggerExecutionFailure (Maybe Text)
+rtefFailureMessage = lens _rtefFailureMessage (\ s a -> s{_rtefFailureMessage = a});
+
+-- | The name of the trigger that did not run.
+rtefTrigger :: Lens' RepositoryTriggerExecutionFailure (Maybe Text)
+rtefTrigger = lens _rtefTrigger (\ s a -> s{_rtefTrigger = a});
+
+instance FromJSON RepositoryTriggerExecutionFailure
+         where
+        parseJSON
+          = withObject "RepositoryTriggerExecutionFailure"
+              (\ x ->
+                 RepositoryTriggerExecutionFailure' <$>
+                   (x .:? "failureMessage") <*> (x .:? "trigger"))
+
+-- | Information about the user who made a specified commit.
+--
+-- /See:/ 'userInfo' smart constructor.
+data UserInfo = UserInfo'
+    { _uiEmail :: !(Maybe Text)
+    , _uiDate  :: !(Maybe Text)
+    , _uiName  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UserInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uiEmail'
+--
+-- * 'uiDate'
+--
+-- * 'uiName'
+userInfo
+    :: UserInfo
+userInfo =
+    UserInfo'
+    { _uiEmail = Nothing
+    , _uiDate = Nothing
+    , _uiName = Nothing
+    }
+
+-- | The email address associated with the user who made the commit, if any.
+uiEmail :: Lens' UserInfo (Maybe Text)
+uiEmail = lens _uiEmail (\ s a -> s{_uiEmail = a});
+
+-- | The date when the specified commit was pushed to the repository.
+uiDate :: Lens' UserInfo (Maybe Text)
+uiDate = lens _uiDate (\ s a -> s{_uiDate = a});
+
+-- | The name of the user who made the specified commit.
+uiName :: Lens' UserInfo (Maybe Text)
+uiName = lens _uiName (\ s a -> s{_uiName = a});
+
+instance FromJSON UserInfo where
+        parseJSON
+          = withObject "UserInfo"
+              (\ x ->
+                 UserInfo' <$>
+                   (x .:? "email") <*> (x .:? "date") <*>
+                     (x .:? "name"))

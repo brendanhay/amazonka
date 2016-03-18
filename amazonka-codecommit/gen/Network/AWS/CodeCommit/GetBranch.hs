@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about a repository branch, including its name and
+-- Returns information about a repository branch, including its name and
 -- the last commit ID.
 --
 -- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetBranch.html AWS API Reference> for GetBranch.
@@ -73,7 +73,8 @@ getBranch =
 gbBranchName :: Lens' GetBranch (Maybe Text)
 gbBranchName = lens _gbBranchName (\ s a -> s{_gbBranchName = a});
 
--- | Undocumented member.
+-- | The name of the repository that contains the branch for which you want
+-- to retrieve information.
 gbRepositoryName :: Lens' GetBranch (Maybe Text)
 gbRepositoryName = lens _gbRepositoryName (\ s a -> s{_gbRepositoryName = a});
 

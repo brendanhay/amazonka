@@ -73,7 +73,8 @@ updateRepositoryDescription pRepositoryName_ =
     , _urdRepositoryName = pRepositoryName_
     }
 
--- | The new comment or description for the specified repository.
+-- | The new comment or description for the specified repository. Repository
+-- descriptions are limited to 1,000 characters.
 urdRepositoryDescription :: Lens' UpdateRepositoryDescription (Maybe Text)
 urdRepositoryDescription = lens _urdRepositoryDescription (\ s a -> s{_urdRepositoryDescription = a});
 

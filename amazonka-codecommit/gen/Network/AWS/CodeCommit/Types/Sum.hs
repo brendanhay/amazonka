@@ -44,6 +44,40 @@ instance ToHeader     OrderEnum
 instance ToJSON OrderEnum where
     toJSON = toJSONText
 
+data RepositoryTriggerEventEnum
+    = All
+    | CreateReference
+    | DeleteReference
+    | UpdateReference
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText RepositoryTriggerEventEnum where
+    parser = takeLowerText >>= \case
+        "all" -> pure All
+        "createreference" -> pure CreateReference
+        "deletereference" -> pure DeleteReference
+        "updatereference" -> pure UpdateReference
+        e -> fromTextError $ "Failure parsing RepositoryTriggerEventEnum from value: '" <> e
+           <> "'. Accepted values: all, createReference, deleteReference, updateReference"
+
+instance ToText RepositoryTriggerEventEnum where
+    toText = \case
+        All -> "all"
+        CreateReference -> "createReference"
+        DeleteReference -> "deleteReference"
+        UpdateReference -> "updateReference"
+
+instance Hashable     RepositoryTriggerEventEnum
+instance ToByteString RepositoryTriggerEventEnum
+instance ToQuery      RepositoryTriggerEventEnum
+instance ToHeader     RepositoryTriggerEventEnum
+
+instance ToJSON RepositoryTriggerEventEnum where
+    toJSON = toJSONText
+
+instance FromJSON RepositoryTriggerEventEnum where
+    parseJSON = parseJSONText "RepositoryTriggerEventEnum"
+
 data SortByEnum
     = LastModifiedDate
     | RepositoryName

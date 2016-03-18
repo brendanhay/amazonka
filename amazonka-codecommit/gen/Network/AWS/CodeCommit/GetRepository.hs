@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about a repository.
+-- Returns information about a repository.
 --
 -- The description field for a repository accepts all HTML characters and
 -- all valid Unicode characters. Applications that do not HTML-encode the

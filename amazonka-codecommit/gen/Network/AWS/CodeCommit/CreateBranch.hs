@@ -85,9 +85,6 @@ cbBranchName :: Lens' CreateBranch Text
 cbBranchName = lens _cbBranchName (\ s a -> s{_cbBranchName = a});
 
 -- | The ID of the commit to point the new branch to.
---
--- If this commit ID is not specified, the new branch will point to the
--- commit that is pointed to by the repository\'s default branch.
 cbCommitId :: Lens' CreateBranch Text
 cbCommitId = lens _cbCommitId (\ s a -> s{_cbCommitId = a});
 

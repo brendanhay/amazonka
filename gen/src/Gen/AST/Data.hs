@@ -24,7 +24,8 @@ module Gen.AST.Data
 
 import           Control.Comonad.Cofree
 import           Control.Error
-import           Control.Lens                 hiding (enum, mapping, (??))
+import           Control.Lens                 hiding ((:<), List, enum, mapping,
+                                               (??))
 import           Control.Monad
 import           Control.Monad.Except
 import           Control.Monad.Trans.State

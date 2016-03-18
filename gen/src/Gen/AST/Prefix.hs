@@ -22,7 +22,7 @@ module Gen.AST.Prefix
 
 import           Control.Applicative
 import           Control.Comonad.Cofree
-import           Control.Lens
+import           Control.Lens           hiding ((:<))
 import           Control.Monad.Except
 import           Control.Monad.State
 import           Data.CaseInsensitive   (CI)

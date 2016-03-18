@@ -22,7 +22,7 @@ module Gen.AST.Override
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
-import           Control.Lens
+import           Control.Lens           hiding ((:<))
 import           Control.Monad.State
 import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map

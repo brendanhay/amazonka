@@ -89,4 +89,5 @@ executable amazonka-gen
         , text-regex-replace
         , time                 >= 1.5
         , transformers
+        , unexceptionalio
         , unordered-containers

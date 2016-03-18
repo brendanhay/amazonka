@@ -24,7 +24,7 @@ module Gen.AST.TypeOf
     ) where
 
 import           Control.Comonad.Cofree
-import           Control.Lens           hiding (enum, mapping, (??))
+import           Control.Lens           hiding ((:<), List, enum, mapping, (??))
 import           Data.Foldable          (foldr')
 import           Data.List              (intersect)
 import           Data.Monoid

@@ -21,7 +21,7 @@ module Gen.Protocol
 
 import           Control.Applicative
 import           Control.Comonad.Cofree
-import           Control.Lens
+import           Control.Lens           hiding (List)
 import           Data.Maybe
 import           Data.Text              (Text)
 import           Data.Text.Manipulate

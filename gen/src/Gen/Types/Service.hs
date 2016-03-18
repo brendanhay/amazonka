@@ -31,7 +31,7 @@ module Gen.Types.Service where
 
 import           Control.Comonad
 import           Control.Comonad.Cofree
-import           Control.Lens           hiding ((.=))
+import           Control.Lens           hiding ((:<), List, (.=))
 import           Data.Aeson             hiding (Bool)
 import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map

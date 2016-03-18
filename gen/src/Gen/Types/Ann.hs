@@ -19,7 +19,7 @@ module Gen.Types.Ann where
 
 import           Control.Comonad
 import           Control.Comonad.Cofree
-import           Control.Lens
+import           Control.Lens           hiding ((:<))
 import           Data.Aeson
 import           Data.Function          (on)
 import           Data.Hashable

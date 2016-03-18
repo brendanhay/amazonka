@@ -24,8 +24,6 @@
 -- attached policy that explicitly grants permissions. For more information
 -- on user permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateUserProfile.html AWS API Reference> for CreateUserProfile.
 module Network.AWS.OpsWorks.CreateUserProfile
     (
     -- * Creating a Request

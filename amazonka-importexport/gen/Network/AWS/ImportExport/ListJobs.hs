@@ -24,8 +24,6 @@
 -- Test2 was created 2010Feb05, the ListJobs operation would return Test2
 -- followed by Test1.
 --
--- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebListJobs.html AWS API Reference> for ListJobs.
---
 -- This operation returns paginated results.
 module Network.AWS.ImportExport.ListJobs
     (

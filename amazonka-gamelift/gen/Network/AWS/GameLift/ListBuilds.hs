@@ -23,8 +23,6 @@
 -- parameters to retrieve results in a set of sequential pages.
 --
 -- Build records are not listed in any particular order.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/ListBuilds.html AWS API Reference> for ListBuilds.
 module Network.AWS.GameLift.ListBuilds
     (
     -- * Creating a Request

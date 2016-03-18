@@ -20,8 +20,6 @@
 --
 -- Gets the configuration files necessary to connect to all high
 -- availability partition groups the client is associated with.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_GetConfig.html AWS API Reference> for GetConfig.
 module Network.AWS.CloudHSM.GetConfig
     (
     -- * Creating a Request

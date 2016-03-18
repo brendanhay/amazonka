@@ -51,8 +51,6 @@
 -- limit, see
 -- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits>
 -- in the /Amazon Web Services General Reference/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutLifecycleHook.html AWS API Reference> for PutLifecycleHook.
 module Network.AWS.AutoScaling.PutLifecycleHook
     (
     -- * Creating a Request

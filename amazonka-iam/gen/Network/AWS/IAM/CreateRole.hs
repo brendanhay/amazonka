@@ -25,8 +25,6 @@
 -- you can create, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html AWS API Reference> for CreateRole.
 module Network.AWS.IAM.CreateRole
     (
     -- * Creating a Request

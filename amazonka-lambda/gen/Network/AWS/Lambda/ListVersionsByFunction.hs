@@ -21,8 +21,6 @@
 -- List all versions of a function. For information about the versioning
 -- feature, see
 -- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_ListVersionsByFunction.html AWS API Reference> for ListVersionsByFunction.
 module Network.AWS.Lambda.ListVersionsByFunction
     (
     -- * Creating a Request

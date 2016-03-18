@@ -20,8 +20,6 @@
 --
 -- Represents the failure of a third party job as returned to the pipeline
 -- by a job worker. Only used for partner actions.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutThirdPartyJobFailureResult.html AWS API Reference> for PutThirdPartyJobFailureResult.
 module Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
     (
     -- * Creating a Request

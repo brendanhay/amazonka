@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a new invalidation.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateInvalidation.html AWS API Reference> for CreateInvalidation.
 module Network.AWS.CloudFront.CreateInvalidation
     (
     -- * Creating a Request

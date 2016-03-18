@@ -23,8 +23,6 @@
 -- /DescribeReplicationGroups/ returns information about all replication
 -- groups.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReplicationGroups.html AWS API Reference> for DescribeReplicationGroups.
---
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeReplicationGroups
     (

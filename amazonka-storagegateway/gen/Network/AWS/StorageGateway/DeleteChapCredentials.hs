@@ -20,8 +20,6 @@
 --
 -- This operation deletes Challenge-Handshake Authentication Protocol
 -- (CHAP) credentials for a specified iSCSI target and initiator pair.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteChapCredentials.html AWS API Reference> for DeleteChapCredentials.
 module Network.AWS.StorageGateway.DeleteChapCredentials
     (
     -- * Creating a Request

@@ -22,8 +22,6 @@
 -- about the credential report, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html AWS API Reference> for GenerateCredentialReport.
 module Network.AWS.IAM.GenerateCredentialReport
     (
     -- * Creating a Request

@@ -22,8 +22,6 @@
 -- you activate a gateway-VTL, you select a medium changer type for the
 -- gateway-VTL. This operation enables you to select a different type of
 -- medium changer after a gateway-VTL is activated.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateVTLDeviceType.html AWS API Reference> for UpdateVTLDeviceType.
 module Network.AWS.StorageGateway.UpdateVTLDeviceType
     (
     -- * Creating a Request

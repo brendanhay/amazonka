@@ -22,8 +22,6 @@
 -- identity was created and any associated linked logins.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DescribeIdentity.html AWS API Reference> for DescribeIdentity.
 module Network.AWS.CognitoIdentity.DescribeIdentity
     (
     -- * Creating a Request

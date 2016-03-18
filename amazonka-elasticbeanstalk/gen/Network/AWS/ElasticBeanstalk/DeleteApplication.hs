@@ -23,8 +23,6 @@
 -- Amazon S3 bucket.
 --
 -- You cannot delete an application that has a running environment.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteApplication.html AWS API Reference> for DeleteApplication.
 module Network.AWS.ElasticBeanstalk.DeleteApplication
     (
     -- * Creating a Request

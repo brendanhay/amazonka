@@ -21,8 +21,6 @@
 -- This operation lists iSCSI initiators that are connected to a volume.
 -- You can use this operation to determine whether a volume is being used
 -- or not.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumeInitiators.html AWS API Reference> for ListVolumeInitiators.
 module Network.AWS.StorageGateway.ListVolumeInitiators
     (
     -- * Creating a Request

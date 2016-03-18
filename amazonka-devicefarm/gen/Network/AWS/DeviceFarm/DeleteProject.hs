@@ -21,8 +21,6 @@
 -- Deletes an AWS Device Farm project, given the project ARN.
 --
 -- __Note__ Deleting this resource does not stop an in-progress run.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_DeleteProject.html AWS API Reference> for DeleteProject.
 module Network.AWS.DeviceFarm.DeleteProject
     (
     -- * Creating a Request

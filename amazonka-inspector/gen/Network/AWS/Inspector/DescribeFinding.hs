@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the finding specified by the finding ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DescribeFinding.html AWS API Reference> for DescribeFinding.
 module Network.AWS.Inspector.DescribeFinding
     (
     -- * Creating a Request

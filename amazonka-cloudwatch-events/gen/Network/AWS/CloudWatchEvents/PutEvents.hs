@@ -20,8 +20,6 @@
 --
 -- Sends custom events to Amazon CloudWatch Events so that they can be
 -- matched to rules.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/PutEvents.html AWS API Reference> for PutEvents.
 module Network.AWS.CloudWatchEvents.PutEvents
     (
     -- * Creating a Request

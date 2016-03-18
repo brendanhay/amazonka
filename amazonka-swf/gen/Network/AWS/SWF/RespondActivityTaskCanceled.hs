@@ -53,8 +53,6 @@
 -- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondActivityTaskCanceled.html AWS API Reference> for RespondActivityTaskCanceled.
 module Network.AWS.SWF.RespondActivityTaskCanceled
     (
     -- * Creating a Request

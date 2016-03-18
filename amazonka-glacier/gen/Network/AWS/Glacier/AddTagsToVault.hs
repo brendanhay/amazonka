@@ -25,8 +25,6 @@
 -- the vault under a specified key, the existing key value will be
 -- overwritten. For more information about tags, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-AddTagsToVault.html AWS API Reference> for AddTagsToVault.
 module Network.AWS.Glacier.AddTagsToVault
     (
     -- * Creating a Request

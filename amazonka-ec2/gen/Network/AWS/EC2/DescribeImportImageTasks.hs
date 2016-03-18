@@ -20,8 +20,6 @@
 --
 -- Displays details about an import virtual machine or import snapshot
 -- tasks that are already created.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImportImageTasks.html AWS API Reference> for DescribeImportImageTasks.
 module Network.AWS.EC2.DescribeImportImageTasks
     (
     -- * Creating a Request

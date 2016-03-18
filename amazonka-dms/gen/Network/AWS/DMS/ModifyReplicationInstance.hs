@@ -24,8 +24,6 @@
 --
 -- Some settings are applied during the maintenance window.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/ModifyReplicationInstance.html AWS API Reference> for ModifyReplicationInstance.
 module Network.AWS.DMS.ModifyReplicationInstance
     (
     -- * Creating a Request

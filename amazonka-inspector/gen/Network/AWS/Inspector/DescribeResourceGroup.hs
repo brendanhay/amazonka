@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the resource group specified by the resource group ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DescribeResourceGroup.html AWS API Reference> for DescribeResourceGroup.
 module Network.AWS.Inspector.DescribeResourceGroup
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation removes the website configuration from the bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketWebsite.html AWS API Reference> for DeleteBucketWebsite.
 module Network.AWS.S3.DeleteBucketWebsite
     (
     -- * Creating a Request

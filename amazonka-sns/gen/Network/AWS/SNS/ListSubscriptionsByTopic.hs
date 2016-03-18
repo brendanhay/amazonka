@@ -24,8 +24,6 @@
 -- parameter in a new 'ListSubscriptionsByTopic' call to get further
 -- results.
 --
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptionsByTopic.html AWS API Reference> for ListSubscriptionsByTopic.
---
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListSubscriptionsByTopic
     (

@@ -20,8 +20,6 @@
 --
 -- Lists the associations for the specified SSM document or instance.
 --
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListAssociations.html AWS API Reference> for ListAssociations.
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListAssociations
     (

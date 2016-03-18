@@ -30,8 +30,6 @@
 --
 -- This operation requires permission for the 'lambda:InvokeFunction'
 -- action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html AWS API Reference> for Invoke.
 module Network.AWS.Lambda.Invoke
     (
     -- * Creating a Request

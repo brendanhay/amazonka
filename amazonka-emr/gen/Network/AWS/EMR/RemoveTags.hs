@@ -25,8 +25,6 @@
 --
 -- The following example removes the stack tag with value Prod from a
 -- cluster:
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RemoveTags.html AWS API Reference> for RemoveTags.
 module Network.AWS.EMR.RemoveTags
     (
     -- * Creating a Request

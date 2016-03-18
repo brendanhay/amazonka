@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels an export task if it is in 'PENDING' or 'RUNNING' state.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html AWS API Reference> for CancelExportTask.
 module Network.AWS.CloudWatchLogs.CancelExportTask
     (
     -- * Creating a Request

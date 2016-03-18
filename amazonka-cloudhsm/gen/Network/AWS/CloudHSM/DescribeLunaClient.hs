@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves information about an HSM client.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DescribeLunaClient.html AWS API Reference> for DescribeLunaClient.
 module Network.AWS.CloudHSM.DescribeLunaClient
     (
     -- * Creating a Request

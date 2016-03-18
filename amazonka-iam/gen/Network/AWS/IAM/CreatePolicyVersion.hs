@@ -32,8 +32,6 @@
 -- For more information about managed policy versions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicyVersion.html AWS API Reference> for CreatePolicyVersion.
 module Network.AWS.IAM.CreatePolicyVersion
     (
     -- * Creating a Request

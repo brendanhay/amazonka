@@ -20,8 +20,6 @@
 --
 -- Creates the replication instance using the specified parameters.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateReplicationInstance.html AWS API Reference> for CreateReplicationInstance.
 module Network.AWS.DMS.CreateReplicationInstance
     (
     -- * Creating a Request

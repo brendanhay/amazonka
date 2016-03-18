@@ -34,8 +34,6 @@
 --     the 'ChangeToken' parameter of a 'DeleteSqlInjectionMatchSet'
 --     request.
 -- 3.  Submit a 'DeleteSqlInjectionMatchSet' request.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteSqlInjectionMatchSet.html AWS API Reference> for DeleteSqlInjectionMatchSet.
 module Network.AWS.WAF.DeleteSqlInjectionMatchSet
     (
     -- * Creating a Request

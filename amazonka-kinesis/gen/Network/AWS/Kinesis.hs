@@ -15,8 +15,6 @@
 --
 -- Amazon Kinesis is a managed service that scales elastically for real
 -- time processing of streaming big data.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Kinesis
     (
     -- * Service Configuration

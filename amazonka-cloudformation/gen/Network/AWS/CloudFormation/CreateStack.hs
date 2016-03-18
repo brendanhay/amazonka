@@ -21,8 +21,6 @@
 -- Creates a stack as specified in the template. After the call completes
 -- successfully, the stack creation starts. You can check the status of the
 -- stack via the < DescribeStacks> API.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStack.html AWS API Reference> for CreateStack.
 module Network.AWS.CloudFormation.CreateStack
     (
     -- * Creating a Request

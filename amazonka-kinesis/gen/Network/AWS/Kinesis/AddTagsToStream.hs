@@ -23,8 +23,6 @@
 --
 -- If tags have already been assigned to the stream, 'AddTagsToStream'
 -- overwrites any existing tags that correspond to the specified tag keys.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html AWS API Reference> for AddTagsToStream.
 module Network.AWS.Kinesis.AddTagsToStream
     (
     -- * Creating a Request

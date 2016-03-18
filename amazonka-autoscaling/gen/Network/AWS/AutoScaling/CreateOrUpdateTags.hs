@@ -27,8 +27,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Tagging Auto Scaling Groups and Instances>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateOrUpdateTags.html AWS API Reference> for CreateOrUpdateTags.
 module Network.AWS.AutoScaling.CreateOrUpdateTags
     (
     -- * Creating a Request

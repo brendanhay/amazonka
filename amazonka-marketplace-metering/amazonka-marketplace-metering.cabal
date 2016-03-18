@@ -36,7 +36,7 @@ description:
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.MarketplaceMetering" and the <http://docs.aws.amazon.com/apigateway/api-reference/ AWS API Reference>
+    See "Network.AWS.MarketplaceMetering" or <https://aws.amazon.com/documentation/ the AWS Documentation>
     to get started.
 
 source-repository head

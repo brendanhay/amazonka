@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Terminates the specified environment.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_TerminateEnvironment.html AWS API Reference> for TerminateEnvironment.
 module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     (
     -- * Creating a Request

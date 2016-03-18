@@ -24,8 +24,6 @@
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateReceiptRule.html AWS API Reference> for UpdateReceiptRule.
 module Network.AWS.SES.UpdateReceiptRule
     (
     -- * Creating a Request

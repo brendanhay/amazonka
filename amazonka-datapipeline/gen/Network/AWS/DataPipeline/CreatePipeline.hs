@@ -20,8 +20,6 @@
 --
 -- Creates a new, empty pipeline. Use < PutPipelineDefinition> to populate
 -- the pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_CreatePipeline.html AWS API Reference> for CreatePipeline.
 module Network.AWS.DataPipeline.CreatePipeline
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified cluster subnet group.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSubnetGroup.html AWS API Reference> for DeleteClusterSubnetGroup.
 module Network.AWS.Redshift.DeleteClusterSubnetGroup
     (
     -- * Creating a Request

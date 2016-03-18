@@ -38,8 +38,6 @@
 --
 -- For Windows instances, the instance console output includes output from
 -- the EC2Config service.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetConsoleOutput.html AWS API Reference> for GetConsoleOutput.
 module Network.AWS.EC2.GetConsoleOutput
     (
     -- * Creating a Request

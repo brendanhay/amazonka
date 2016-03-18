@@ -22,8 +22,6 @@
 -- results indicate which AWS resources were evaluated by the rule, when
 -- each resource was last evaluated, and whether each resource complies
 -- with the rule.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_GetComplianceDetailsByConfigRule.html AWS API Reference> for GetComplianceDetailsByConfigRule.
 module Network.AWS.Config.GetComplianceDetailsByConfigRule
     (
     -- * Creating a Request

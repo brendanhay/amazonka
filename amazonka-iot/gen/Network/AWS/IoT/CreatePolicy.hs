@@ -23,8 +23,6 @@
 -- The created policy is the default version for the policy. This operation
 -- creates a policy version with a version identifier of __1__ and sets
 -- __1__ as the policy\'s default version.
---
--- /See:/ <https://aws.amazon.com/iot#CreatePolicy.html AWS API Reference> for CreatePolicy.
 module Network.AWS.IoT.CreatePolicy
     (
     -- * Creating a Request

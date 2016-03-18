@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists of targets assigned to the rule.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/ListTargetsByRule.html AWS API Reference> for ListTargetsByRule.
 module Network.AWS.CloudWatchEvents.ListTargetsByRule
     (
     -- * Creating a Request

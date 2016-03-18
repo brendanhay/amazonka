@@ -28,8 +28,6 @@
 -- For more information about creating an update template, updating a
 -- stack, and monitoring the progress of the update, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html Updating a Stack>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStack.html AWS API Reference> for UpdateStack.
 module Network.AWS.CloudFormation.UpdateStack
     (
     -- * Creating a Request

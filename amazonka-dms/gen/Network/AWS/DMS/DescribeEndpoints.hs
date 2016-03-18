@@ -21,8 +21,6 @@
 -- Returns information about the endpoints for your account in the current
 -- region.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeEndpoints.html AWS API Reference> for DescribeEndpoints.
 module Network.AWS.DMS.DescribeEndpoints
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Cancels in-progress environment configuration update or application
 -- version deployment.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_AbortEnvironmentUpdate.html AWS API Reference> for AbortEnvironmentUpdate.
 module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
     (
     -- * Creating a Request

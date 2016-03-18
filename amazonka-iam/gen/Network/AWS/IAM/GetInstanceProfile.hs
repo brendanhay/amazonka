@@ -24,8 +24,6 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
 -- For more information about ARNs, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs ARNs>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetInstanceProfile.html AWS API Reference> for GetInstanceProfile.
 module Network.AWS.IAM.GetInstanceProfile
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified interconnect.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteInterconnect.html AWS API Reference> for DeleteInterconnect.
 module Network.AWS.DirectConnect.DeleteInterconnect
     (
     -- * Creating a Request

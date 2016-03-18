@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of your VPC endpoints.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCEndpoints.html AWS API Reference> for DescribeVPCEndpoints.
 module Network.AWS.EC2.DescribeVPCEndpoints
     (
     -- * Creating a Request

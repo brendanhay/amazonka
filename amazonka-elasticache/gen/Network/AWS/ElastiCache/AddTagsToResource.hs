@@ -30,8 +30,6 @@
 -- to organize your costs across multiple services. For more information,
 -- see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Tagging.html Using Cost Allocation Tags in Amazon ElastiCache>.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AddTagsToResource.html AWS API Reference> for AddTagsToResource.
 module Network.AWS.ElastiCache.AddTagsToResource
     (
     -- * Creating a Request

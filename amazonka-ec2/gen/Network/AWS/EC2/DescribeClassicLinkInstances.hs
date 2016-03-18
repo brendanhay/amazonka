@@ -22,8 +22,6 @@
 -- only returns information about EC2-Classic instances linked to a VPC
 -- through ClassicLink; you cannot use this request to return information
 -- about other instances.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeClassicLinkInstances.html AWS API Reference> for DescribeClassicLinkInstances.
 module Network.AWS.EC2.DescribeClassicLinkInstances
     (
     -- * Creating a Request

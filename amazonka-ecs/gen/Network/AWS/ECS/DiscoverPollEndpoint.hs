@@ -23,8 +23,6 @@
 --
 -- Returns an endpoint for the Amazon EC2 Container Service agent to poll
 -- for updates.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DiscoverPollEndpoint.html AWS API Reference> for DiscoverPollEndpoint.
 module Network.AWS.ECS.DiscoverPollEndpoint
     (
     -- * Creating a Request

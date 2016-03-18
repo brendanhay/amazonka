@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified HSM client certificate.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteHSMClientCertificate.html AWS API Reference> for DeleteHSMClientCertificate.
 module Network.AWS.Redshift.DeleteHSMClientCertificate
     (
     -- * Creating a Request

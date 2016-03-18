@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a run.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetRun.html AWS API Reference> for GetRun.
 module Network.AWS.DeviceFarm.GetRun
     (
     -- * Creating a Request

@@ -21,8 +21,6 @@
 -- This operation returns an array of Challenge-Handshake Authentication
 -- Protocol (CHAP) credentials information for a specified iSCSI target,
 -- one for each target-initiator pair.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeChapCredentials.html AWS API Reference> for DescribeChapCredentials.
 module Network.AWS.StorageGateway.DescribeChapCredentials
     (
     -- * Creating a Request

@@ -22,8 +22,6 @@
 --
 -- Calling the create branch operation does not set a repository\'s default
 -- branch. To do this, call the update default branch operation.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_CreateBranch.html AWS API Reference> for CreateBranch.
 module Network.AWS.CodeCommit.CreateBranch
     (
     -- * Creating a Request

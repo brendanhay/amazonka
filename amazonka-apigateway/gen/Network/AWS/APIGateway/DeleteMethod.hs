@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an existing < Method> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteMethod.html AWS API Reference> for DeleteMethod.
 module Network.AWS.APIGateway.DeleteMethod
     (
     -- * Creating a Request

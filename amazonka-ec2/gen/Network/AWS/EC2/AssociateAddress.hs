@@ -38,8 +38,6 @@
 --
 -- This is an idempotent operation. If you perform the operation more than
 -- once, Amazon EC2 doesn\'t return an error.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateAddress.html AWS API Reference> for AssociateAddress.
 module Network.AWS.EC2.AssociateAddress
     (
     -- * Creating a Request

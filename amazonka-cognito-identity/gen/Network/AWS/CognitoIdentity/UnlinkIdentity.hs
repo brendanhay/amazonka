@@ -23,8 +23,6 @@
 -- last linked login will make this identity inaccessible.
 --
 -- This is a public API. You do not need any credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UnlinkIdentity.html AWS API Reference> for UnlinkIdentity.
 module Network.AWS.CognitoIdentity.UnlinkIdentity
     (
     -- * Creating a Request

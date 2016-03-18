@@ -38,8 +38,6 @@
 -- the Query API with IAM, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
 -- in the /Using IAM/ guide.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutGroupPolicy.html AWS API Reference> for PutGroupPolicy.
 module Network.AWS.IAM.PutGroupPolicy
     (
     -- * Creating a Request

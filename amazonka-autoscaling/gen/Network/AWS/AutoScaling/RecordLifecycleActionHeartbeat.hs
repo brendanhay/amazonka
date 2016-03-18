@@ -42,8 +42,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_RecordLifecycleActionHeartbeat.html AWS API Reference> for RecordLifecycleActionHeartbeat.
 module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     (
     -- * Creating a Request

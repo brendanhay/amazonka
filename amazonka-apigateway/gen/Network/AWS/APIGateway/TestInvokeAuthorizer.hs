@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/TestInvokeAuthorizer.html AWS API Reference> for TestInvokeAuthorizer.
 module Network.AWS.APIGateway.TestInvokeAuthorizer
     (
     -- * Creating a Request

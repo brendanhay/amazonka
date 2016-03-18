@@ -33,8 +33,6 @@
 -- and
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-PurchaseReservedInstancesOffering.html AWS API Reference> for PurchaseReservedInstancesOffering.
 module Network.AWS.EC2.PurchaseReservedInstancesOffering
     (
     -- * Creating a Request

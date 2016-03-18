@@ -21,8 +21,6 @@
 -- Lists the policies attached to the specified principal. If you use an
 -- Cognito identity, the ID must be in
 -- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax AmazonCognito Identity format>.
---
--- /See:/ <https://aws.amazon.com/iot#ListPrincipalPolicies.html AWS API Reference> for ListPrincipalPolicies.
 module Network.AWS.IoT.ListPrincipalPolicies
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- List the grants for a specified key.
 --
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html AWS API Reference> for ListGrants.
---
 -- This operation returns paginated results.
 module Network.AWS.KMS.ListGrants
     (

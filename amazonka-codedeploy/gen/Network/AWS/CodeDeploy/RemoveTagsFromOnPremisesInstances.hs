@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes one or more tags from one or more on-premises instances.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RemoveTagsFromOnPremisesInstances.html AWS API Reference> for RemoveTagsFromOnPremisesInstances.
 module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
     (
     -- * Creating a Request

@@ -21,8 +21,6 @@
 -- Lists the identities in a pool.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_ListIdentities.html AWS API Reference> for ListIdentities.
 module Network.AWS.CognitoIdentity.ListIdentities
     (
     -- * Creating a Request

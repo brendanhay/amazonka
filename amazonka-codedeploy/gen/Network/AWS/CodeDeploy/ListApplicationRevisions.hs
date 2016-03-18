@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists information about revisions for an application.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplicationRevisions.html AWS API Reference> for ListApplicationRevisions.
 module Network.AWS.CodeDeploy.ListApplicationRevisions
     (
     -- * Creating a Request

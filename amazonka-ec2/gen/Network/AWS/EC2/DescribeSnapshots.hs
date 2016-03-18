@@ -66,8 +66,6 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html AWS API Reference> for DescribeSnapshots.
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeSnapshots
     (

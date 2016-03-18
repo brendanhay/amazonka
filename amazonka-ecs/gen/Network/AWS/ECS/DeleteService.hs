@@ -33,8 +33,6 @@
 -- however, in the future, 'INACTIVE' services may be cleaned up and purged
 -- from Amazon ECS record keeping, and < DescribeServices> API operations
 -- on those services will return a 'ServiceNotFoundException' error.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteService.html AWS API Reference> for DeleteService.
 module Network.AWS.ECS.DeleteService
     (
     -- * Creating a Request

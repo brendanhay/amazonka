@@ -23,8 +23,6 @@
 -- runner makes this call regardless of whether the task was sucessful. A
 -- task runner does not need to call 'SetTaskStatus' for tasks that are
 -- canceled by the web service during a call to < ReportTaskProgress>.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetTaskStatus.html AWS API Reference> for SetTaskStatus.
 module Network.AWS.DataPipeline.SetTaskStatus
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Deletes an existing trust relationship between your Microsoft AD in the
 -- AWS cloud and an external domain.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteTrust.html AWS API Reference> for DeleteTrust.
 module Network.AWS.DirectoryService.DeleteTrust
     (
     -- * Creating a Request

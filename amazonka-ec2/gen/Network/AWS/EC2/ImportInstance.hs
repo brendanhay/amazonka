@@ -29,8 +29,6 @@
 -- For information about the import manifest referenced by this API action,
 -- see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportInstance.html AWS API Reference> for ImportInstance.
 module Network.AWS.EC2.ImportInstance
     (
     -- * Creating a Request

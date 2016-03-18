@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables artifacts in a pipeline to transition to a stage in a pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_EnableStageTransition.html AWS API Reference> for EnableStageTransition.
 module Network.AWS.CodePipeline.EnableStageTransition
     (
     -- * Creating a Request

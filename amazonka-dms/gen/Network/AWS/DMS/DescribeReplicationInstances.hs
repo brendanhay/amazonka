@@ -21,8 +21,6 @@
 -- Returns information about replication instances for your account in the
 -- current region.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeReplicationInstances.html AWS API Reference> for DescribeReplicationInstances.
 module Network.AWS.DMS.DescribeReplicationInstances
     (
     -- * Creating a Request

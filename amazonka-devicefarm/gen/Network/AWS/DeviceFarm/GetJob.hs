@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a job.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetJob.html AWS API Reference> for GetJob.
 module Network.AWS.DeviceFarm.GetJob
     (
     -- * Creating a Request

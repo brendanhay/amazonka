@@ -26,8 +26,6 @@
 -- For information about managing security groups, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSecurityGroup.html AWS API Reference> for DeleteClusterSecurityGroup.
 module Network.AWS.Redshift.DeleteClusterSecurityGroup
     (
     -- * Creating a Request

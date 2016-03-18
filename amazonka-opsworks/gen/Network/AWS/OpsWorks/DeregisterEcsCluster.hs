@@ -27,8 +27,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html >.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterEcsCluster.html AWS API Reference> for DeregisterEcsCluster.
 module Network.AWS.OpsWorks.DeregisterEcsCluster
     (
     -- * Creating a Request

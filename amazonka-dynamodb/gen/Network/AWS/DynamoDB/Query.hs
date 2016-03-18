@@ -47,8 +47,6 @@
 -- consistent reads only, so do not specify /ConsistentRead/ when querying
 -- a global secondary index.
 --
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Query.html AWS API Reference> for Query.
---
 -- This operation returns paginated results.
 module Network.AWS.DynamoDB.Query
     (

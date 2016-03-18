@@ -26,8 +26,6 @@
 -- to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
 -- in the /Amazon Redshift Cluster Management Guide/
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RebootCluster.html AWS API Reference> for RebootCluster.
 module Network.AWS.Redshift.RebootCluster
     (
     -- * Creating a Request

@@ -32,8 +32,6 @@
 -- likely that the number of records returned is smaller than the specified
 -- 'limit'. In such cases, you can make another call, using the
 -- 'nextToken'.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html AWS API Reference> for GetResourceConfigHistory.
 module Network.AWS.Config.GetResourceConfigHistory
     (
     -- * Creating a Request

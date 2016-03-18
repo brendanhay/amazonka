@@ -36,8 +36,6 @@
 -- information, go to
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html DeleteLoadBalancerListeners>
 -- in the /Elastic Load Balancing API Reference/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServerCertificate.html AWS API Reference> for DeleteServerCertificate.
 module Network.AWS.IAM.DeleteServerCertificate
     (
     -- * Creating a Request

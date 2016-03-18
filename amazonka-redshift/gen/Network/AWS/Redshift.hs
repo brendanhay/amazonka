@@ -38,8 +38,6 @@
 -- <http://docs.aws.amazon.com/redshift/latest/dg/welcome.html Amazon Redshift Database Developer Guide>
 -- explains how to design, build, query, and maintain the databases that
 -- make up your data warehouse.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Redshift
     (
     -- * Service Configuration

@@ -27,8 +27,6 @@
 -- When you receive a successful response from this action, Amazon
 -- ElastiCache immediately begins deleting the selected resources; you
 -- cannot cancel or revert this action.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteReplicationGroup.html AWS API Reference> for DeleteReplicationGroup.
 module Network.AWS.ElastiCache.DeleteReplicationGroup
     (
     -- * Creating a Request

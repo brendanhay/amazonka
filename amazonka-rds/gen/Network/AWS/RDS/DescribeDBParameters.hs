@@ -20,8 +20,6 @@
 --
 -- Returns the detailed parameter list for a particular DB parameter group.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameters.html AWS API Reference> for DescribeDBParameters.
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBParameters
     (

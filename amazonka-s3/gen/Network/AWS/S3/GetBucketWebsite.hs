@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the website configuration for a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketWebsite.html AWS API Reference> for GetBucketWebsite.
 module Network.AWS.S3.GetBucketWebsite
     (
     -- * Creating a Request

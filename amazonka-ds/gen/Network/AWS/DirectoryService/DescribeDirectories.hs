@@ -32,8 +32,6 @@
 --
 -- You can also specify a maximum number of return results with the /Limit/
 -- parameter.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeDirectories.html AWS API Reference> for DescribeDirectories.
 module Network.AWS.DirectoryService.DescribeDirectories
     (
     -- * Creating a Request

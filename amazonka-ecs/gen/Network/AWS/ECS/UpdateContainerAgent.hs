@@ -30,8 +30,6 @@
 -- updating the Amazon ECS container agent on other operating systems, see
 -- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent Manually Updating the Amazon ECS Container Agent>
 -- in the /Amazon EC2 Container Service Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateContainerAgent.html AWS API Reference> for UpdateContainerAgent.
 module Network.AWS.ECS.UpdateContainerAgent
     (
     -- * Creating a Request

@@ -28,8 +28,6 @@
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html Creating an Instance Store-Backed Windows AMI>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-BundleInstance.html AWS API Reference> for BundleInstance.
 module Network.AWS.EC2.BundleInstance
     (
     -- * Creating a Request

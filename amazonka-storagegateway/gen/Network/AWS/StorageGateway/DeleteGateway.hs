@@ -36,8 +36,6 @@
 -- you can delete your snapshots using the Amazon EC2 console. For more
 -- information, see the
 -- <http://aws.amazon.com/storagegateway AWS Storage Gateway Detail Page>.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteGateway.html AWS API Reference> for DeleteGateway.
 module Network.AWS.StorageGateway.DeleteGateway
     (
     -- * Creating a Request

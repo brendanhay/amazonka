@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new domain name.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateDomainName.html AWS API Reference> for CreateDomainName.
 module Network.AWS.APIGateway.CreateDomainName
     (
     -- * Creating a Request

@@ -22,8 +22,6 @@
 -- prevent some messages previously sent to the topic from being delivered
 -- to subscribers. This action is idempotent, so deleting a topic that does
 -- not exist does not result in an error.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_DeleteTopic.html AWS API Reference> for DeleteTopic.
 module Network.AWS.SNS.DeleteTopic
     (
     -- * Creating a Request

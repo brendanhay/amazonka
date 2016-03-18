@@ -75,8 +75,6 @@
 -- throttling errors if you call it more than once in a minute.
 --
 -- The /DescribeLimits/ Request element has no content.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeLimits.html AWS API Reference> for DescribeLimits.
 module Network.AWS.DynamoDB.DescribeLimits
     (
     -- * Creating a Request

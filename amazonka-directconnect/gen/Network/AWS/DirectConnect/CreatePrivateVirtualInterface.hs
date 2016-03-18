@@ -21,8 +21,6 @@
 -- Creates a new private virtual interface. A virtual interface is the VLAN
 -- that transports AWS Direct Connect traffic. A private virtual interface
 -- supports sending traffic to a single virtual private cloud (VPC).
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePrivateVirtualInterface.html AWS API Reference> for CreatePrivateVirtualInterface.
 module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     (
     -- * Creating a Request

@@ -22,8 +22,6 @@
 -- virtual tapes. If a 'TapeARN' is not specified, returns a description of
 -- all virtual tapes associated with the specified gateway.
 --
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapes.html AWS API Reference> for DescribeTapes.
---
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeTapes
     (

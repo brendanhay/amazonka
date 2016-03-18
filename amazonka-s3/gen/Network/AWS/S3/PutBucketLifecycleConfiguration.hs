@@ -20,8 +20,6 @@
 --
 -- Sets lifecycle configuration for your bucket. If a lifecycle
 -- configuration exists, it replaces it.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketLifecycleConfiguration.html AWS API Reference> for PutBucketLifecycleConfiguration.
 module Network.AWS.S3.PutBucketLifecycleConfiguration
     (
     -- * Creating a Request

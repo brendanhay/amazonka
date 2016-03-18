@@ -21,8 +21,6 @@
 -- and for information about how the service works, go to
 -- <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>
 -- in the /AWS Lambda Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html AWS API Reference>
 module Network.AWS.Lambda
     (
     -- * Service Configuration

@@ -39,8 +39,6 @@
 -- -   'vpc-max-elastic-ips': The maximum number of Elastic IP addresses
 --     that you can allocate for use with EC2-VPC.
 --
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAccountAttributes.html AWS API Reference> for DescribeAccountAttributes.
 module Network.AWS.EC2.DescribeAccountAttributes
     (
     -- * Creating a Request

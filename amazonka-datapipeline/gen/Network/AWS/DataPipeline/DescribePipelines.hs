@@ -28,8 +28,6 @@
 --
 -- To retrieve the full pipeline definition instead of metadata about the
 -- pipeline, call < GetPipelineDefinition>.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribePipelines.html AWS API Reference> for DescribePipelines.
 module Network.AWS.DataPipeline.DescribePipelines
     (
     -- * Creating a Request

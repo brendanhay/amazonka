@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes the name of an application.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateApplication.html AWS API Reference> for UpdateApplication.
 module Network.AWS.CodeDeploy.UpdateApplication
     (
     -- * Creating a Request

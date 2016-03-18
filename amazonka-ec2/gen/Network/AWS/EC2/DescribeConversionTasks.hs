@@ -26,8 +26,6 @@
 -- For information about the import manifest referenced by this API action,
 -- see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeConversionTasks.html AWS API Reference> for DescribeConversionTasks.
 module Network.AWS.EC2.DescribeConversionTasks
     (
     -- * Creating a Request

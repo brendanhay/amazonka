@@ -28,8 +28,6 @@
 --
 -- Canceling a Spot instance request does not terminate running Spot
 -- instances associated with the request.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotInstanceRequests.html AWS API Reference> for CancelSpotInstanceRequests.
 module Network.AWS.EC2.CancelSpotInstanceRequests
     (
     -- * Creating a Request

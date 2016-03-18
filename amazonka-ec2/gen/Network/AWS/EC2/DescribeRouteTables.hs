@@ -28,8 +28,6 @@
 -- For more information about route tables, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRouteTables.html AWS API Reference> for DescribeRouteTables.
 module Network.AWS.EC2.DescribeRouteTables
     (
     -- * Creating a Request

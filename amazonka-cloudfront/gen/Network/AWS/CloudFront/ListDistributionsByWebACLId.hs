@@ -20,8 +20,6 @@
 --
 -- List the distributions that are associated with a specified AWS WAF web
 -- ACL.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListDistributionsByWebACLId.html AWS API Reference> for ListDistributionsByWebACLId.
 module Network.AWS.CloudFront.ListDistributionsByWebACLId
     (
     -- * Creating a Request

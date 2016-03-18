@@ -96,8 +96,6 @@
 -- 'TokenCode' parameters. The 'SerialNumber' value identifies the user\'s
 -- hardware or virtual MFA device. The 'TokenCode' is the time-based
 -- one-time password (TOTP) that the MFA devices produces.
---
--- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html AWS API Reference> for AssumeRole.
 module Network.AWS.STS.AssumeRole
     (
     -- * Creating a Request

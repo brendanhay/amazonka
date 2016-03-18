@@ -23,8 +23,6 @@
 -- any 'ACTIVE' task definitions). You can filter the results with the
 -- 'familyPrefix' parameter.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTaskDefinitionFamilies.html AWS API Reference> for ListTaskDefinitionFamilies.
---
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListTaskDefinitionFamilies
     (

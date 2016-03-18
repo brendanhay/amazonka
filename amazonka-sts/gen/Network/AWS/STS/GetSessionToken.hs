@@ -54,8 +54,6 @@
 -- credentials, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken Temporary Credentials for Users in Untrusted Environments>
 -- in the /Using IAM/.
---
--- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html AWS API Reference> for GetSessionToken.
 module Network.AWS.STS.GetSessionToken
     (
     -- * Creating a Request

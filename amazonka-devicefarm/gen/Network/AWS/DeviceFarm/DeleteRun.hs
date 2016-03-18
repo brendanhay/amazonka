@@ -21,8 +21,6 @@
 -- Deletes the run, given the run ARN.
 --
 -- __Note__ Deleting this resource does not stop an in-progress run.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_DeleteRun.html AWS API Reference> for DeleteRun.
 module Network.AWS.DeviceFarm.DeleteRun
     (
     -- * Creating a Request

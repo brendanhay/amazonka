@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the application specified by the application ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DeleteApplication.html AWS API Reference> for DeleteApplication.
 module Network.AWS.Inspector.DeleteApplication
     (
     -- * Creating a Request

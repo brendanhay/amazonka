@@ -66,8 +66,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-upload-part.html Upload Part>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-UploadMultipartPart.html AWS API Reference> for UploadMultipartPart.
 module Network.AWS.Glacier.UploadMultipartPart
     (
     -- * Creating a Request

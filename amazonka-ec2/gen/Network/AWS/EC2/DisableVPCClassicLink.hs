@@ -20,8 +20,6 @@
 --
 -- Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC
 -- that has EC2-Classic instances linked to it.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisableVPCClassicLink.html AWS API Reference> for DisableVPCClassicLink.
 module Network.AWS.EC2.DisableVPCClassicLink
     (
     -- * Creating a Request

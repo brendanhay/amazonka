@@ -22,8 +22,6 @@
 --
 -- Each tag consists of a key and a value. Tag keys must be unique per
 -- resource.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_AddTagsToResource.html AWS API Reference> for AddTagsToResource.
 module Network.AWS.CloudHSM.AddTagsToResource
     (
     -- * Creating a Request

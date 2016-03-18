@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the associations for the specified SSM document or instance.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeAssociation.html AWS API Reference> for DescribeAssociation.
 module Network.AWS.SSM.DescribeAssociation
     (
     -- * Creating a Request

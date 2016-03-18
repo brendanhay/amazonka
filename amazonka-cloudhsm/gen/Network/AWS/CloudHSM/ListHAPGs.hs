@@ -24,8 +24,6 @@
 -- member. If more results are available, the /NextToken/ member of the
 -- response contains a token that you pass in the next call to < ListHapgs>
 -- to retrieve the next set of items.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListHAPGs.html AWS API Reference> for ListHAPGs.
 module Network.AWS.CloudHSM.ListHAPGs
     (
     -- * Creating a Request

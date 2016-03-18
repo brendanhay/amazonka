@@ -23,8 +23,6 @@
 -- If there are any outstanding lifecycle actions, they are completed first
 -- ('ABANDON' for launching instances, 'CONTINUE' for terminating
 -- instances).
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLifecycleHook.html AWS API Reference> for DeleteLifecycleHook.
 module Network.AWS.AutoScaling.DeleteLifecycleHook
     (
     -- * Creating a Request

@@ -24,8 +24,6 @@
 -- requesting the download will be charged for the download. Documentation
 -- on requester pays buckets can be found at
 -- http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/RequesterPaysBuckets.html
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketRequestPayment.html AWS API Reference> for PutBucketRequestPayment.
 module Network.AWS.S3.PutBucketRequestPayment
     (
     -- * Creating a Request

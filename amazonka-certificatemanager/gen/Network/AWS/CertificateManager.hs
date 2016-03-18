@@ -22,8 +22,6 @@
 -- <http://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html AWS Certificate Manager User Guide>.
 -- For more information about using the ACM API, see the
 -- <http://docs.aws.amazon.com/acm/latest/APIReference/Welcome.html AWS Certificate Manager API Reference>.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/ AWS API Reference>
 module Network.AWS.CertificateManager
     (
     -- * Service Configuration

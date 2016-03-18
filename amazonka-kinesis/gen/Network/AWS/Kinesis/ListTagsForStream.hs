@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the tags for the specified Amazon Kinesis stream.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListTagsForStream.html AWS API Reference> for ListTagsForStream.
 module Network.AWS.Kinesis.ListTagsForStream
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Restores an archived copy of an object back into Amazon S3
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/RestoreObject.html AWS API Reference> for RestoreObject.
 module Network.AWS.S3.RestoreObject
     (
     -- * Creating a Request

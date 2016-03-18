@@ -21,8 +21,6 @@
 -- Provides information about the bootstrap actions associated with a
 -- cluster.
 --
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListBootstrapActions.html AWS API Reference> for ListBootstrapActions.
---
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListBootstrapActions
     (

@@ -21,8 +21,6 @@
 -- Starts data collection for the assessment specified by the assessment
 -- ARN. For this API to function properly, you must not exceed the limit of
 -- running up to 500 concurrent agents per AWS account.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_StartDataCollection.html AWS API Reference> for StartDataCollection.
 module Network.AWS.Inspector.StartDataCollection
     (
     -- * Creating a Request

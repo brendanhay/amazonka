@@ -46,8 +46,6 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html List Parts>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListParts.html AWS API Reference> for ListParts.
---
 -- This operation returns paginated results.
 module Network.AWS.Glacier.ListParts
     (

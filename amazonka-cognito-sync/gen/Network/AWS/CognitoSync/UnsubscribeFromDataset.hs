@@ -23,8 +23,6 @@
 --
 -- This API can only be called with temporary credentials provided by
 -- Cognito Identity. You cannot call this API with developer credentials.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_UnsubscribeFromDataset.html AWS API Reference> for UnsubscribeFromDataset.
 module Network.AWS.CognitoSync.UnsubscribeFromDataset
     (
     -- * Creating a Request

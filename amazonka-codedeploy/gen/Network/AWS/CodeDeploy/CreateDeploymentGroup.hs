@@ -20,8 +20,6 @@
 --
 -- Creates a deployment group to which application revisions will be
 -- deployed.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentGroup.html AWS API Reference> for CreateDeploymentGroup.
 module Network.AWS.CodeDeploy.CreateDeploymentGroup
     (
     -- * Creating a Request

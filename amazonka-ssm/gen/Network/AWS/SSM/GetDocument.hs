@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the contents of the specified SSM document.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_GetDocument.html AWS API Reference> for GetDocument.
 module Network.AWS.SSM.GetDocument
     (
     -- * Creating a Request

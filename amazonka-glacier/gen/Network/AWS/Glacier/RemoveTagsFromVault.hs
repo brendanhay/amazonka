@@ -23,8 +23,6 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources>.
 -- This operation is idempotent. The operation will be successful, even if
 -- there are no tags attached to the vault.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-RemoveTagsFromVault.html AWS API Reference> for RemoveTagsFromVault.
 module Network.AWS.Glacier.RemoveTagsFromVault
     (
     -- * Creating a Request

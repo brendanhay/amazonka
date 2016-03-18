@@ -30,8 +30,6 @@
 -- request with a 'HealthCheckInUse' error. For information about
 -- disassociating the records from your health check, see
 -- < ChangeResourceRecordSets>.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html AWS API Reference> for DeleteHealthCheck.
 module Network.AWS.Route53.DeleteHealthCheck
     (
     -- * Creating a Request

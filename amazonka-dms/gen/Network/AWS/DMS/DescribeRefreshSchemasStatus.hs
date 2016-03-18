@@ -20,8 +20,6 @@
 --
 -- Returns the status of the RefreshSchemas operation.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeRefreshSchemasStatus.html AWS API Reference> for DescribeRefreshSchemasStatus.
 module Network.AWS.DMS.DescribeRefreshSchemasStatus
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about samples.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListSamples.html AWS API Reference> for ListSamples.
 module Network.AWS.DeviceFarm.ListSamples
     (
     -- * Creating a Request

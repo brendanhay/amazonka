@@ -22,8 +22,6 @@
 -- pipeline. Object definitions are composed of a set of fields that define
 -- the properties of the object.
 --
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribeObjects.html AWS API Reference> for DescribeObjects.
---
 -- This operation returns paginated results.
 module Network.AWS.DataPipeline.DescribeObjects
     (

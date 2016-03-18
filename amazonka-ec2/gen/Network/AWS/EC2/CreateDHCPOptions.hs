@@ -57,8 +57,6 @@
 -- information about DHCP options, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateDHCPOptions.html AWS API Reference> for CreateDHCPOptions.
 module Network.AWS.EC2.CreateDHCPOptions
     (
     -- * Creating a Request

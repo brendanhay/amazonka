@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns an array of < IPSetSummary> objects in the response.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_ListIPSets.html AWS API Reference> for ListIPSets.
 module Network.AWS.WAF.ListIPSets
     (
     -- * Creating a Request

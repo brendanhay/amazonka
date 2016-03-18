@@ -35,8 +35,6 @@
 -- specified 'IdentityPoolId'.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdTokenForDeveloperIdentity.html AWS API Reference> for GetOpenIdTokenForDeveloperIdentity.
 module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     (
     -- * Creating a Request

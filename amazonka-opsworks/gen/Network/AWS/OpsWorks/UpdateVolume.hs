@@ -27,8 +27,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateVolume.html AWS API Reference> for UpdateVolume.
 module Network.AWS.OpsWorks.UpdateVolume
     (
     -- * Creating a Request

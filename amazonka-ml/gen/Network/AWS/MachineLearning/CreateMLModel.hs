@@ -37,8 +37,6 @@
 -- can be created by setting 'ComputeStatistics' to 'true' in
 -- < CreateDataSourceFromRDS>, < CreateDataSourceFromS3>, or
 -- < CreateDataSourceFromRedshift> operations.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateMLModel.html AWS API Reference> for CreateMLModel.
 module Network.AWS.MachineLearning.CreateMLModel
     (
     -- * Creating a Request

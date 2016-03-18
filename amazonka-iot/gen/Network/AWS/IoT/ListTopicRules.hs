@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the rules for the specific topic.
---
--- /See:/ <https://aws.amazon.com/iot#ListTopicRules.html AWS API Reference> for ListTopicRules.
 module Network.AWS.IoT.ListTopicRules
     (
     -- * Creating a Request

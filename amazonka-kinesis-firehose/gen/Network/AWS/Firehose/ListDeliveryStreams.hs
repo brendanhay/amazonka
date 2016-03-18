@@ -28,8 +28,6 @@
 -- streams to list, you can request them by specifying the name of the last
 -- delivery stream returned in the call in the
 -- 'ExclusiveStartDeliveryStreamName' parameter of a subsequent call.
---
--- /See:/ <http://docs.aws.amazon.com/firehose/latest/APIReference/API_ListDeliveryStreams.html AWS API Reference> for ListDeliveryStreams.
 module Network.AWS.Firehose.ListDeliveryStreams
     (
     -- * Creating a Request

@@ -28,8 +28,6 @@
 -- request and response parameters. If more results are available, the
 -- 'NextToken' response member contains a token that you pass in the next
 -- call to this operation to retrieve the next set of items.
---
--- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_DescribeWorkspaceBundles.html AWS API Reference> for DescribeWorkspaceBundles.
 module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
     (
     -- * Creating a Request

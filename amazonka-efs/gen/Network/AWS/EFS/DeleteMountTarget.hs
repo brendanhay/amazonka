@@ -44,8 +44,6 @@
 -- action on the mount target\'s network interface:
 --
 -- -   'ec2:DeleteNetworkInterface'
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteMountTarget.html AWS API Reference> for DeleteMountTarget.
 module Network.AWS.EFS.DeleteMountTarget
     (
     -- * Creating a Request

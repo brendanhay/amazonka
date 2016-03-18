@@ -49,8 +49,6 @@
 -- For more information about using this API, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html Working with Items>
 -- in the /Amazon DynamoDB Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html AWS API Reference> for PutItem.
 module Network.AWS.DynamoDB.PutItem
     (
     -- * Creating a Request

@@ -21,8 +21,6 @@
 -- Verifies a domain.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyDomainIdentity.html AWS API Reference> for VerifyDomainIdentity.
 module Network.AWS.SES.VerifyDomainIdentity
     (
     -- * Creating a Request

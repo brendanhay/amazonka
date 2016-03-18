@@ -21,8 +21,6 @@
 -- Deletes an analysis scheme. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteAnalysisScheme.html AWS API Reference> for DeleteAnalysisScheme.
 module Network.AWS.CloudSearch.DeleteAnalysisScheme
     (
     -- * Creating a Request

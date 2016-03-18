@@ -22,8 +22,6 @@
 -- operation is terminated.
 --
 -- The DBSnapshot must be in the 'available' state to be deleted.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSnapshot.html AWS API Reference> for DeleteDBSnapshot.
 module Network.AWS.RDS.DeleteDBSnapshot
     (
     -- * Creating a Request

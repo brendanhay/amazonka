@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of your Scheduled Instances.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeScheduledInstances.html AWS API Reference> for DescribeScheduledInstances.
 module Network.AWS.EC2.DescribeScheduledInstances
     (
     -- * Creating a Request

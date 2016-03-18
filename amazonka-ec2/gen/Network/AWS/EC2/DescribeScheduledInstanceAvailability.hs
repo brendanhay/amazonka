@@ -29,8 +29,6 @@
 -- After you find a schedule that meets your needs, call
 -- < PurchaseScheduledInstances> to purchase Scheduled Instances with that
 -- schedule.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeScheduledInstanceAvailability.html AWS API Reference> for DescribeScheduledInstanceAvailability.
 module Network.AWS.EC2.DescribeScheduledInstanceAvailability
     (
     -- * Creating a Request

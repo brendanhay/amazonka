@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetExport.html AWS API Reference> for GetExport.
 module Network.AWS.APIGateway.GetExport
     (
     -- * Creating a Request

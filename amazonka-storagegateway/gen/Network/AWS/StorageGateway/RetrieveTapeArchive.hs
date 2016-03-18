@@ -26,8 +26,6 @@
 -- Once a tape is successfully retrieved to a gateway, it cannot be
 -- retrieved again to another gateway. You must archive the tape again
 -- before you can retrieve it to another gateway.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeArchive.html AWS API Reference> for RetrieveTapeArchive.
 module Network.AWS.StorageGateway.RetrieveTapeArchive
     (
     -- * Creating a Request

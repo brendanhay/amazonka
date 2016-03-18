@@ -20,8 +20,6 @@
 --
 -- Confirms a job worker has received the specified job. Only used for
 -- partner actions.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_AcknowledgeThirdPartyJob.html AWS API Reference> for AcknowledgeThirdPartyJob.
 module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
     (
     -- * Creating a Request

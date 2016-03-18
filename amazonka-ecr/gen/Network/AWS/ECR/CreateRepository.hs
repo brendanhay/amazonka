@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an image repository.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateRepository.html AWS API Reference> for CreateRepository.
 module Network.AWS.ECR.CreateRepository
     (
     -- * Creating a Request

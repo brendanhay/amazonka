@@ -28,8 +28,6 @@
 --
 -- If the optional parameter HostedZoneId is specified, it marks the
 -- delegationSet associated with that particular hosted zone as reusable.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html AWS API Reference> for CreateReusableDelegationSet.
 module Network.AWS.Route53.CreateReusableDelegationSet
     (
     -- * Creating a Request

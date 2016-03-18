@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds a new < Model> resource to an existing < RestApi> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateModel.html AWS API Reference> for CreateModel.
 module Network.AWS.APIGateway.CreateModel
     (
     -- * Creating a Request

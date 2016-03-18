@@ -140,8 +140,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan Operations>
 -- in the /Amazon DynamoDB Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.DynamoDB
     (
     -- * Service Configuration

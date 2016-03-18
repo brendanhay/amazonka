@@ -24,8 +24,6 @@
 -- single connection to any AWS Direct Connect location in the US and use
 -- it to access public AWS services in all US Regions and AWS GovCloud
 -- (US).
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.DirectConnect
     (
     -- * Service Configuration

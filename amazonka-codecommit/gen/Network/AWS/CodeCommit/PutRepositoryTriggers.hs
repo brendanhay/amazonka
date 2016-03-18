@@ -20,8 +20,6 @@
 --
 -- Replaces all triggers for a repository. This can be used to create or
 -- delete triggers.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_PutRepositoryTriggers.html AWS API Reference> for PutRepositoryTriggers.
 module Network.AWS.CodeCommit.PutRepositoryTriggers
     (
     -- * Creating a Request

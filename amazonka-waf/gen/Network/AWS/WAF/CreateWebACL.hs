@@ -47,8 +47,6 @@
 --
 -- For more information about how to use the AWS WAF API, see the
 -- <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html AWS API Reference> for CreateWebACL.
 module Network.AWS.WAF.CreateWebACL
     (
     -- * Creating a Request

@@ -23,8 +23,6 @@
 -- Jobs that you have already submitted and that Elastic Transcoder has not
 -- started to process are affected in addition to jobs that you submit
 -- after you change settings.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipeline.html AWS API Reference> for UpdatePipeline.
 module Network.AWS.ElasticTranscoder.UpdatePipeline
     (
     -- * Creating a Request

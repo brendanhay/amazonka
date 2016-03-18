@@ -27,8 +27,6 @@
 -- You cannot delete an ACM Certificate that is being used by another AWS
 -- service. To delete a certificate that is in use, the certificate
 -- association must first be removed.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteCertificate.html AWS API Reference> for DeleteCertificate.
 module Network.AWS.CertificateManager.DeleteCertificate
     (
     -- * Creating a Request

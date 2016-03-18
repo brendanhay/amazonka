@@ -22,8 +22,6 @@
 -- network interfaces, configured time zone, and the state (whether the
 -- gateway is running or not). To specify which gateway to describe, use
 -- the Amazon Resource Name (ARN) of the gateway in your request.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeGatewayInformation.html AWS API Reference> for DescribeGatewayInformation.
 module Network.AWS.StorageGateway.DescribeGatewayInformation
     (
     -- * Creating a Request

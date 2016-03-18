@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the repository policy for a specified repository.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetRepositoryPolicy.html AWS API Reference> for GetRepositoryPolicy.
 module Network.AWS.ECR.GetRepositoryPolicy
     (
     -- * Creating a Request

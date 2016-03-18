@@ -26,8 +26,6 @@
 -- the update fails. The 'DeploymentStatus' for the draft configuration
 -- indicates whether the deployment is in process or has failed. The draft
 -- configuration remains in existence until it is deleted with this action.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteEnvironmentConfiguration.html AWS API Reference> for DeleteEnvironmentConfiguration.
 module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     (
     -- * Creating a Request

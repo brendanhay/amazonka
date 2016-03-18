@@ -20,8 +20,6 @@
 --
 -- Represents a domain name that is contained in a simpler, more intuitive
 -- URL that can be called.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetDomainName.html AWS API Reference> for GetDomainName.
 module Network.AWS.APIGateway.GetDomainName
     (
     -- * Creating a Request

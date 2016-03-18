@@ -25,8 +25,6 @@
 --
 -- Deregistered images are included in the returned results for an
 -- unspecified interval after deregistration.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImages.html AWS API Reference> for DescribeImages.
 module Network.AWS.EC2.DescribeImages
     (
     -- * Creating a Request

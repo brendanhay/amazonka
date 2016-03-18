@@ -33,8 +33,6 @@
 -- populated. You can pass these as parameters to
 -- 'StartContinentCode, StartCountryCode, StartSubdivisionCode' to control
 -- the geo location that the list begins with.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html AWS API Reference> for ListGeoLocations.
 module Network.AWS.Route53.ListGeoLocations
     (
     -- * Creating a Request

@@ -21,8 +21,6 @@
 -- Returns a unique endpoint specific to the AWS account making the call.
 -- You specify the following URI when updating state information for your
 -- thing: https:\/\//endpoint/\/things\//thingName/\/shadow.
---
--- /See:/ <https://aws.amazon.com/iot#DescribeEndpoint.html AWS API Reference> for DescribeEndpoint.
 module Network.AWS.IoT.DescribeEndpoint
     (
     -- * Creating a Request

@@ -42,8 +42,6 @@
 -- If do not intend to use the gateway again, you must delete the gateway
 -- (using < DeleteGateway>) to no longer pay software charges associated
 -- with the gateway.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ShutdownGateway.html AWS API Reference> for ShutdownGateway.
 module Network.AWS.StorageGateway.ShutdownGateway
     (
     -- * Creating a Request

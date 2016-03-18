@@ -26,7 +26,7 @@ __Submitting Metering Records__
 -   /MeterUsage/- Submits the metering record for a Marketplace product.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-marketplace-metering)
-and the [AWS API Reference](http://docs.aws.amazon.com/apigateway/api-reference/).
+and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
 which provides mechanisms for specifying AuthN/AuthZ information and sending requests.

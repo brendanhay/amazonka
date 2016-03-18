@@ -31,8 +31,6 @@
 --
 -- For more information about using notifications with Amazon SES, see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityFeedbackForwardingEnabled.html AWS API Reference> for SetIdentityFeedbackForwardingEnabled.
 module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     (
     -- * Creating a Request

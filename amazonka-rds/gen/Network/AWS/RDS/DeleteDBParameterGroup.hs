@@ -20,8 +20,6 @@
 --
 -- Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted
 -- cannot be associated with any DB instances.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBParameterGroup.html AWS API Reference> for DeleteDBParameterGroup.
 module Network.AWS.RDS.DeleteDBParameterGroup
     (
     -- * Creating a Request

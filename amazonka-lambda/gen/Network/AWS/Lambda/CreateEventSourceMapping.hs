@@ -44,8 +44,6 @@
 --
 -- This operation requires permission for the
 -- 'lambda:CreateEventSourceMapping' action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html AWS API Reference> for CreateEventSourceMapping.
 module Network.AWS.Lambda.CreateEventSourceMapping
     (
     -- * Creating a Request

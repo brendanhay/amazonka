@@ -23,8 +23,6 @@
 -- affects the use of a master key, go to
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key>
 -- in the /AWS Key Management Service Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html AWS API Reference> for DisableKey.
 module Network.AWS.KMS.DisableKey
     (
     -- * Creating a Request

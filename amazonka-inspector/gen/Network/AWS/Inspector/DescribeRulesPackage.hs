@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the rules package specified by the rules package ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DescribeRulesPackage.html AWS API Reference> for DescribeRulesPackage.
 module Network.AWS.Inspector.DescribeRulesPackage
     (
     -- * Creating a Request

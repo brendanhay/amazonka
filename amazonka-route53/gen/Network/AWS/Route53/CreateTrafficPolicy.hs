@@ -27,8 +27,6 @@
 -- include a document with a 'CreateTrafficPolicyRequest' element. The
 -- response includes the 'CreateTrafficPolicyResponse' element, which
 -- contains information about the new traffic policy.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html AWS API Reference> for CreateTrafficPolicy.
 module Network.AWS.Route53.CreateTrafficPolicy
     (
     -- * Creating a Request

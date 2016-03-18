@@ -23,8 +23,6 @@
 -- address range for the service. A prefix list ID is required for creating
 -- an outbound security group rule that allows traffic from a VPC to access
 -- an AWS service through a VPC endpoint.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePrefixLists.html AWS API Reference> for DescribePrefixLists.
 module Network.AWS.EC2.DescribePrefixLists
     (
     -- * Creating a Request

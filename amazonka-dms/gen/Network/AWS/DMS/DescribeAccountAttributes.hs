@@ -26,8 +26,6 @@
 --
 -- This command does not take any parameters.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeAccountAttributes.html AWS API Reference> for DescribeAccountAttributes.
 module Network.AWS.DMS.DescribeAccountAttributes
     (
     -- * Creating a Request

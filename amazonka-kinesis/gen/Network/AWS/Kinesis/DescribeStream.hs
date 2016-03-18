@@ -42,8 +42,6 @@
 --
 -- < DescribeStream> has a limit of 10 transactions per second per account.
 --
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStream.html AWS API Reference> for DescribeStream.
---
 -- This operation returns paginated results.
 module Network.AWS.Kinesis.DescribeStream
     (

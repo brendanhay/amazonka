@@ -24,8 +24,6 @@
 -- To delete a build, specify its ID. Deleting a build does not affect the
 -- status of any active fleets, but you can no longer create new fleets for
 -- the deleted build.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteBuild.html AWS API Reference> for DeleteBuild.
 module Network.AWS.GameLift.DeleteBuild
     (
     -- * Creating a Request

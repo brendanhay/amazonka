@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the load balancers for the specified Auto Scaling group.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLoadBalancers.html AWS API Reference> for DescribeLoadBalancers.
 module Network.AWS.AutoScaling.DescribeLoadBalancers
     (
     -- * Creating a Request

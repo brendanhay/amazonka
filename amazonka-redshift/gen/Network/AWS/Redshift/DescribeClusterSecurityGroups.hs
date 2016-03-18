@@ -36,8 +36,6 @@
 -- groups are returned regardless of whether they have tag keys or values
 -- associated with them.
 --
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSecurityGroups.html AWS API Reference> for DescribeClusterSecurityGroups.
---
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeClusterSecurityGroups
     (

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Obtains the manual snapshot limits for a directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_GetSnapshotLimits.html AWS API Reference> for GetSnapshotLimits.
 module Network.AWS.DirectoryService.GetSnapshotLimits
     (
     -- * Creating a Request

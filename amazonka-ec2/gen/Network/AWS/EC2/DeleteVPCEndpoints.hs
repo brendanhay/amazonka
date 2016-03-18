@@ -21,8 +21,6 @@
 -- Deletes one or more specified VPC endpoints. Deleting the endpoint also
 -- deletes the endpoint routes in the route tables that were associated
 -- with the endpoint.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPCEndpoints.html AWS API Reference> for DeleteVPCEndpoints.
 module Network.AWS.EC2.DeleteVPCEndpoints
     (
     -- * Creating a Request

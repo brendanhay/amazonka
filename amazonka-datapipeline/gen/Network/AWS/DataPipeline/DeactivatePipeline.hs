@@ -24,8 +24,6 @@
 -- To resume a deactivated pipeline, use < ActivatePipeline>. By default,
 -- the pipeline resumes from the last completed execution. Optionally, you
 -- can specify the date and time to resume the pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DeactivatePipeline.html AWS API Reference> for DeactivatePipeline.
 module Network.AWS.DataPipeline.DeactivatePipeline
     (
     -- * Creating a Request

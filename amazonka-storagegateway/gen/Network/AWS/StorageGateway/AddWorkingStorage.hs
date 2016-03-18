@@ -30,8 +30,6 @@
 -- In the request, you specify the gateway Amazon Resource Name (ARN) to
 -- which you want to add working storage, and one or more disk IDs that you
 -- want to configure as working storage.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddWorkingStorage.html AWS API Reference> for AddWorkingStorage.
 module Network.AWS.StorageGateway.AddWorkingStorage
     (
     -- * Creating a Request

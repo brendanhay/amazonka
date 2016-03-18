@@ -32,8 +32,6 @@
 -- parameters. If there are no inline policies embedded with the specified
 -- group, the action returns an empty list.
 --
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupPolicies.html AWS API Reference> for ListGroupPolicies.
---
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListGroupPolicies
     (

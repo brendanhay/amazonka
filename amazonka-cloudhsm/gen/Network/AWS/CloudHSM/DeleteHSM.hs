@@ -20,8 +20,6 @@
 --
 -- Deletes an HSM. After completion, this operation cannot be undone and
 -- your key material cannot be recovered.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteHSM.html AWS API Reference> for DeleteHSM.
 module Network.AWS.CloudHSM.DeleteHSM
     (
     -- * Creating a Request

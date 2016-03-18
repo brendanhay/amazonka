@@ -26,8 +26,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html Modifying Reserved Instances>
 -- in the Amazon Elastic Compute Cloud User Guide.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyReservedInstances.html AWS API Reference> for ModifyReservedInstances.
 module Network.AWS.EC2.ModifyReservedInstances
     (
     -- * Creating a Request

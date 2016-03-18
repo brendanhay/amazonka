@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Delete an origin access identity.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteCloudFrontOriginAccessIdentity.html AWS API Reference> for DeleteCloudFrontOriginAccessIdentity.
 module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     (
     -- * Creating a Request

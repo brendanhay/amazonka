@@ -21,8 +21,6 @@
 -- Returns information about the overall health of the specified
 -- environment. The __DescribeEnvironmentHealth__ operation is only
 -- available with AWS Elastic Beanstalk Enhanced Health.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentHealth.html AWS API Reference> for DescribeEnvironmentHealth.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
     (
     -- * Creating a Request

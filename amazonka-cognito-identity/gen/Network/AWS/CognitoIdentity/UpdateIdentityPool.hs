@@ -21,8 +21,6 @@
 -- Updates a user pool.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UpdateIdentityPool.html AWS API Reference> for UpdateIdentityPool.
 module Network.AWS.CognitoIdentity.UpdateIdentityPool
     (
     -- * Creating a Request

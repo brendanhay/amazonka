@@ -26,8 +26,6 @@
 --
 -- If you specify a key that already exists for the resource, the value for
 -- that key will be updated with the new value.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateTags.html AWS API Reference> for CreateTags.
 module Network.AWS.Redshift.CreateTags
     (
     -- * Creating a Request

@@ -24,8 +24,6 @@
 -- Cache storage must be allocated to the gateway before you can create
 -- virtual tapes. Use the < AddCache> operation to add cache storage to a
 -- gateway.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateTapes.html AWS API Reference> for CreateTapes.
 module Network.AWS.StorageGateway.CreateTapes
     (
     -- * Creating a Request

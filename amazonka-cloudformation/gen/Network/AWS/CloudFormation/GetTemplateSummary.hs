@@ -29,8 +29,6 @@
 -- For deleted stacks, 'GetTemplateSummary' returns the template
 -- information for up to 90 days after the stack has been deleted. If the
 -- template does not exist, a 'ValidationError' is returned.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplateSummary.html AWS API Reference> for GetTemplateSummary.
 module Network.AWS.CloudFormation.GetTemplateSummary
     (
     -- * Creating a Request

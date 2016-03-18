@@ -43,8 +43,6 @@
 --     maximum number of emails you can send in a 24-hour period. For
 --     information about your sending quota, go to the
 --     <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Amazon SES Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SendEmail.html AWS API Reference> for SendEmail.
 module Network.AWS.SES.SendEmail
     (
     -- * Creating a Request

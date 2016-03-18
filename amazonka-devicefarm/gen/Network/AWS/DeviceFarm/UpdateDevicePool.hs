@@ -21,8 +21,6 @@
 -- Modifies the name, description, and rules in a device pool given the
 -- attributes and the pool ARN. Rule updates are all-or-nothing, meaning
 -- they can only be updated as a whole (or not at all).
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_UpdateDevicePool.html AWS API Reference> for UpdateDevicePool.
 module Network.AWS.DeviceFarm.UpdateDevicePool
     (
     -- * Creating a Request

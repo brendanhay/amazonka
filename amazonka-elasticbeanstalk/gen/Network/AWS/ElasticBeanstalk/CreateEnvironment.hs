@@ -20,8 +20,6 @@
 --
 -- Launches an environment for the specified application using the
 -- specified configuration.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateEnvironment.html AWS API Reference> for CreateEnvironment.
 module Network.AWS.ElasticBeanstalk.CreateEnvironment
     (
     -- * Creating a Request

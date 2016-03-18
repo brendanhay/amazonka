@@ -24,8 +24,6 @@
 -- when instances become available to Amazon EMR to use for jobs, and the
 -- IP addresses for cluster instances, etc.
 --
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListInstances.html AWS API Reference> for ListInstances.
---
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListInstances
     (

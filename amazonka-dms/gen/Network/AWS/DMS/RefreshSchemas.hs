@@ -22,8 +22,6 @@
 -- operation and can take several minutes. You can check the status of this
 -- operation by calling the DescribeRefreshSchemasStatus operation.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/RefreshSchemas.html AWS API Reference> for RefreshSchemas.
 module Network.AWS.DMS.RefreshSchemas
     (
     -- * Creating a Request

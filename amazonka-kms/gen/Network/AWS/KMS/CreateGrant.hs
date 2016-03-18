@@ -24,8 +24,6 @@
 -- For more information about grants, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants>
 -- in the /AWS Key Management Service Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html AWS API Reference> for CreateGrant.
 module Network.AWS.KMS.CreateGrant
     (
     -- * Creating a Request

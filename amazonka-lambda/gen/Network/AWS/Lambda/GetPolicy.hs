@@ -30,8 +30,6 @@
 -- For information about adding permissions, see < AddPermission>.
 --
 -- You need permission for the 'lambda:GetPolicy action.'
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetPolicy.html AWS API Reference> for GetPolicy.
 module Network.AWS.Lambda.GetPolicy
     (
     -- * Creating a Request

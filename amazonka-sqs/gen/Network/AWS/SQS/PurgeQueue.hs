@@ -29,8 +29,6 @@
 -- deleted. While the queue is being purged, messages sent to the queue
 -- before 'PurgeQueue' was called may be received, but will be deleted
 -- within the next minute.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_PurgeQueue.html AWS API Reference> for PurgeQueue.
 module Network.AWS.SQS.PurgeQueue
     (
     -- * Creating a Request

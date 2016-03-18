@@ -25,8 +25,6 @@
 -- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html Modifying Attributes of a Stopped Instance>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyInstanceAttribute.html AWS API Reference> for ModifyInstanceAttribute.
 module Network.AWS.EC2.ModifyInstanceAttribute
     (
     -- * Creating a Request

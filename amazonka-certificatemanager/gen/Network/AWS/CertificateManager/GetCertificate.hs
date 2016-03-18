@@ -27,8 +27,6 @@
 --
 -- Currently, ACM Certificates can be used only with Elastic Load Balancing
 -- and Amazon CloudFront.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetCertificate.html AWS API Reference> for GetCertificate.
 module Network.AWS.CertificateManager.GetCertificate
     (
     -- * Creating a Request

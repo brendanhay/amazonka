@@ -20,8 +20,6 @@
 --
 -- Represents the failure of a job as returned to the pipeline by a job
 -- worker. Only used for custom actions.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutJobFailureResult.html AWS API Reference> for PutJobFailureResult.
 module Network.AWS.CodePipeline.PutJobFailureResult
     (
     -- * Creating a Request

@@ -28,8 +28,6 @@
 -- can monitor your own custom metrics. With CloudWatch, you gain
 -- system-wide visibility into resource utilization, application
 -- performance, and operational health.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudWatch
     (
     -- * Service Configuration

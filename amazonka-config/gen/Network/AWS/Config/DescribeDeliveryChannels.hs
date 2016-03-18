@@ -23,8 +23,6 @@
 -- delivery channels associated with the account.
 --
 -- Currently, you can specify only one delivery channel per account.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeDeliveryChannels.html AWS API Reference> for DescribeDeliveryChannels.
 module Network.AWS.Config.DescribeDeliveryChannels
     (
     -- * Creating a Request

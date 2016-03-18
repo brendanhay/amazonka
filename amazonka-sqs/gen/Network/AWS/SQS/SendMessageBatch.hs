@@ -49,8 +49,6 @@
 -- '&Attribute.1=this'
 --
 -- '&Attribute.2=that'
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html AWS API Reference> for SendMessageBatch.
 module Network.AWS.SQS.SendMessageBatch
     (
     -- * Creating a Request

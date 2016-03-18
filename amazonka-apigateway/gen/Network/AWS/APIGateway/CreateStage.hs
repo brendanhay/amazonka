@@ -20,8 +20,6 @@
 --
 -- Creates a new < Stage> resource that references a pre-existing
 -- < Deployment> for the API.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateStage.html AWS API Reference> for CreateStage.
 module Network.AWS.APIGateway.CreateStage
     (
     -- * Creating a Request

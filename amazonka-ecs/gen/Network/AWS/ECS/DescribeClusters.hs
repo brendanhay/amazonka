@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of your clusters.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeClusters.html AWS API Reference> for DescribeClusters.
 module Network.AWS.ECS.DescribeClusters
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Returns information about DB snapshots. This API supports pagination.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSnapshots.html AWS API Reference> for DescribeDBSnapshots.
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBSnapshots
     (

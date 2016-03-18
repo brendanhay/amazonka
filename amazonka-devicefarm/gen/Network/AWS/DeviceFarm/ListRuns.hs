@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about runs.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListRuns.html AWS API Reference> for ListRuns.
 module Network.AWS.DeviceFarm.ListRuns
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Creates a DBSnapshot. The source DBInstance must be in \"available\"
 -- state.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSnapshot.html AWS API Reference> for CreateDBSnapshot.
 module Network.AWS.RDS.CreateDBSnapshot
     (
     -- * Creating a Request

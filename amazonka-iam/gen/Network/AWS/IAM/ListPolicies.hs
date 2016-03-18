@@ -34,8 +34,6 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
 --
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicies.html AWS API Reference> for ListPolicies.
---
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListPolicies
     (

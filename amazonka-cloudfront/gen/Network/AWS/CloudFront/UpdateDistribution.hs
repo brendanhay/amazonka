@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Update a distribution.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateDistribution.html AWS API Reference> for UpdateDistribution.
 module Network.AWS.CloudFront.UpdateDistribution
     (
     -- * Creating a Request

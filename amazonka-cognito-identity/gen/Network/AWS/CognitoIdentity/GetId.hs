@@ -22,8 +22,6 @@
 -- create an implicit linked account.
 --
 -- This is a public API. You do not need any credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetId.html AWS API Reference> for GetId.
 module Network.AWS.CognitoIdentity.GetId
     (
     -- * Creating a Request

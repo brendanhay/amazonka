@@ -44,8 +44,6 @@
 -- you can use to track the progress and completion of the action. If the
 -- transfer doesn\'t complete successfully, the domain registrant will be
 -- notified by email.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-TransferDomain.html AWS API Reference> for TransferDomain.
 module Network.AWS.Route53Domains.TransferDomain
     (
     -- * Creating a Request

@@ -24,8 +24,6 @@
 --
 -- You can only describe 'INACTIVE' task definitions while an active task
 -- or service references them.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskDefinition.html AWS API Reference> for DescribeTaskDefinition.
 module Network.AWS.ECS.DescribeTaskDefinition
     (
     -- * Creating a Request

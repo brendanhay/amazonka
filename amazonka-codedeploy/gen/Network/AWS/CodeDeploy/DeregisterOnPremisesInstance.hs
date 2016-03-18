@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deregisters an on-premises instance.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeregisterOnPremisesInstance.html AWS API Reference> for DeregisterOnPremisesInstance.
 module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
     (
     -- * Creating a Request

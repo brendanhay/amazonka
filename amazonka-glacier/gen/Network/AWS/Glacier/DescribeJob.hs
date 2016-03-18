@@ -41,8 +41,6 @@
 -- For information about the underlying REST API, go to
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html Working with Archives in Amazon Glacier>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DescribeJob.html AWS API Reference> for DescribeJob.
 module Network.AWS.Glacier.DescribeJob
     (
     -- * Creating a Request

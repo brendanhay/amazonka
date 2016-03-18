@@ -25,8 +25,6 @@
 --
 -- You can optionally filter the results using the 'Filter' parameter. You
 -- can paginate the results using the 'MaxItems' and 'Marker' parameters.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html AWS API Reference> for GetAccountAuthorizationDetails.
 module Network.AWS.IAM.GetAccountAuthorizationDetails
     (
     -- * Creating a Request

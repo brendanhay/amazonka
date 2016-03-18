@@ -22,8 +22,6 @@
 -- settings of an instance group. The input parameters include the new
 -- target instance count for the group and the instance group ID. The call
 -- will either succeed or fail atomically.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ModifyInstanceGroups.html AWS API Reference> for ModifyInstanceGroups.
 module Network.AWS.EMR.ModifyInstanceGroups
     (
     -- * Creating a Request

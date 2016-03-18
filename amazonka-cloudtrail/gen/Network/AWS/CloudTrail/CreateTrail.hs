@@ -21,8 +21,6 @@
 -- Creates a trail that specifies the settings for delivery of log data to
 -- an Amazon S3 bucket. A maximum of five trails can exist in a region,
 -- irrespective of the region in which they were created.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_CreateTrail.html AWS API Reference> for CreateTrail.
 module Network.AWS.CloudTrail.CreateTrail
     (
     -- * Creating a Request

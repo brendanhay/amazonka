@@ -32,8 +32,6 @@
 --
 -- You can create a maximum of 10 tags for each resource. Virtual tapes and
 -- storage volumes that are recovered to a new gateway maintain their tags.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddTagsToResource.html AWS API Reference> for AddTagsToResource.
 module Network.AWS.StorageGateway.AddTagsToResource
     (
     -- * Creating a Request

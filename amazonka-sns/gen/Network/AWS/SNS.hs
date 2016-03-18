@@ -29,8 +29,6 @@
 -- your service requests, retrying requests, and handling error responses.
 -- For a list of available SDKs, go to
 -- <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/Welcome.html AWS API Reference>
 module Network.AWS.SNS
     (
     -- * Service Configuration

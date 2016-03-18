@@ -23,8 +23,6 @@
 -- If you use this operation to change the default branch name to the
 -- current default branch name, a success message is returned even though
 -- the default branch did not change.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_UpdateDefaultBranch.html AWS API Reference> for UpdateDefaultBranch.
 module Network.AWS.CodeCommit.UpdateDefaultBranch
     (
     -- * Creating a Request

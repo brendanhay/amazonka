@@ -42,8 +42,6 @@
 -- action are required. If successful, the policy name is returned. Scaling
 -- policies cannot be suspended or made inactive. To stop enforcing a
 -- scaling policy, call < DeleteScalingPolicy>.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/PutScalingPolicy.html AWS API Reference> for PutScalingPolicy.
 module Network.AWS.GameLift.PutScalingPolicy
     (
     -- * Creating a Request

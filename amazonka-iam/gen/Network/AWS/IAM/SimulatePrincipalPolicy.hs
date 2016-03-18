@@ -49,8 +49,6 @@
 --
 -- If the output is long, you can use the 'MaxItems' and 'Marker'
 -- parameters to paginate the results.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html AWS API Reference> for SimulatePrincipalPolicy.
 module Network.AWS.IAM.SimulatePrincipalPolicy
     (
     -- * Creating a Request

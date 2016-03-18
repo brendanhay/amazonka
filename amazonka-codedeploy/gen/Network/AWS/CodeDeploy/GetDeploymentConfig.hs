@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a deployment configuration.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentConfig.html AWS API Reference> for GetDeploymentConfig.
 module Network.AWS.CodeDeploy.GetDeploymentConfig
     (
     -- * Creating a Request

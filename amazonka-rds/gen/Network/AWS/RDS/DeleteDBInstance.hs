@@ -33,8 +33,6 @@
 -- \'failed\', \'incompatible-restore\', or \'incompatible-network\', it
 -- can only be deleted when the SkipFinalSnapshot parameter is set to
 -- \"true\".
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBInstance.html AWS API Reference> for DeleteDBInstance.
 module Network.AWS.RDS.DeleteDBInstance
     (
     -- * Creating a Request

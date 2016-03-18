@@ -26,8 +26,6 @@
 --
 -- You can also return the item\'s attribute values in the same
 -- /UpdateItem/ operation using the /ReturnValues/ parameter.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html AWS API Reference> for UpdateItem.
 module Network.AWS.DynamoDB.UpdateItem
     (
     -- * Creating a Request

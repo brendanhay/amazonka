@@ -22,8 +22,6 @@
 -- calls to 'GetCredentialsForIdentity' action.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_SetIdentityPoolRoles.html AWS API Reference> for SetIdentityPoolRoles.
 module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
     (
     -- * Creating a Request

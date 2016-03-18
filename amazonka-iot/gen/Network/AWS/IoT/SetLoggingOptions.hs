@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the logging options.
---
--- /See:/ <https://aws.amazon.com/iot#SetLoggingOptions.html AWS API Reference> for SetLoggingOptions.
 module Network.AWS.IoT.SetLoggingOptions
     (
     -- * Creating a Request

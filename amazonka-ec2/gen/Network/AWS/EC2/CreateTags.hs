@@ -30,8 +30,6 @@
 -- based on tags, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html Supported Resource-Level Permissions for Amazon EC2 API Actions>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateTags.html AWS API Reference> for CreateTags.
 module Network.AWS.EC2.CreateTags
     (
     -- * Creating a Request

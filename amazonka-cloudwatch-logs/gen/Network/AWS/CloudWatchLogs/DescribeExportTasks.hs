@@ -27,8 +27,6 @@
 -- response would contain a 'nextToken' value in the response body. You can
 -- also limit the number of export tasks returned in the response by
 -- specifying the 'limit' parameter in the request.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html AWS API Reference> for DescribeExportTasks.
 module Network.AWS.CloudWatchLogs.DescribeExportTasks
     (
     -- * Creating a Request

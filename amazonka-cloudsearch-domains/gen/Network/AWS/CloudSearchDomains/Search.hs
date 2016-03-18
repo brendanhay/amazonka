@@ -43,8 +43,6 @@
 -- endpoint for your domain, use the Amazon CloudSearch configuration
 -- service 'DescribeDomains' action. A domain\'s endpoints are also
 -- displayed on the domain dashboard in the Amazon CloudSearch console.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_Search.html AWS API Reference> for Search.
 module Network.AWS.CloudSearchDomains.Search
     (
     -- * Creating a Request

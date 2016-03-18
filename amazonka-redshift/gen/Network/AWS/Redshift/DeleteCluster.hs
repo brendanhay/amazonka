@@ -37,8 +37,6 @@
 -- For more information about managing clusters, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
 -- in the /Amazon Redshift Cluster Management Guide/ .
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteCluster.html AWS API Reference> for DeleteCluster.
 module Network.AWS.Redshift.DeleteCluster
     (
     -- * Creating a Request

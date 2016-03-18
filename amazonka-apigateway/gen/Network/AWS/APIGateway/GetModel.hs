@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes an existing model defined for a < RestApi> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetModel.html AWS API Reference> for GetModel.
 module Network.AWS.APIGateway.GetModel
     (
     -- * Creating a Request

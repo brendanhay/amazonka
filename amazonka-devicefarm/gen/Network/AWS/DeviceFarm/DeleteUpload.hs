@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an upload given the upload ARN.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_DeleteUpload.html AWS API Reference> for DeleteUpload.
 module Network.AWS.DeviceFarm.DeleteUpload
     (
     -- * Creating a Request

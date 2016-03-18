@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies a subnet attribute.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifySubnetAttribute.html AWS API Reference> for ModifySubnetAttribute.
 module Network.AWS.EC2.ModifySubnetAttribute
     (
     -- * Creating a Request

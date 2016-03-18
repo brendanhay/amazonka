@@ -38,8 +38,6 @@
 -- For more information, go to
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html Protecting a Job Flow from Termination>
 -- in the /Amazon Elastic MapReduce Developer\'s Guide./
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_SetTerminationProtection.html AWS API Reference> for SetTerminationProtection.
 module Network.AWS.EMR.SetTerminationProtection
     (
     -- * Creating a Request

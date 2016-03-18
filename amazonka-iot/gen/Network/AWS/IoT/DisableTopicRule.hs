@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables the specified rule.
---
--- /See:/ <https://aws.amazon.com/iot#DisableTopicRule.html AWS API Reference> for DisableTopicRule.
 module Network.AWS.IoT.DisableTopicRule
     (
     -- * Creating a Request

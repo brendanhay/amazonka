@@ -65,8 +65,6 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive.html Downloading an Archive>,
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-job-output-get.html Get Job Output>
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetJobOutput.html AWS API Reference> for GetJobOutput.
 module Network.AWS.Glacier.GetJobOutput
     (
     -- * Creating a Request

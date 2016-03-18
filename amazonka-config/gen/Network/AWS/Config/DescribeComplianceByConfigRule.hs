@@ -42,8 +42,6 @@
 -- -   The rule\'s AWS Lambda function has returned 'NOT_APPLICABLE' for
 --     all evaluation results. This can occur if the resources were deleted
 --     or removed from the rule\'s scope.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeComplianceByConfigRule.html AWS API Reference> for DescribeComplianceByConfigRule.
 module Network.AWS.Config.DescribeComplianceByConfigRule
     (
     -- * Creating a Request

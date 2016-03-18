@@ -20,8 +20,6 @@
 --
 -- Creates a new replication configuration (or replaces an existing one, if
 -- present).
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketReplication.html AWS API Reference> for PutBucketReplication.
 module Network.AWS.S3.PutBucketReplication
     (
     -- * Creating a Request

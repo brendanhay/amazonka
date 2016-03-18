@@ -20,8 +20,6 @@
 --
 -- Replaces a policy on a bucket. If the bucket already has a policy, the
 -- one in this request completely replaces it.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketPolicy.html AWS API Reference> for PutBucketPolicy.
 module Network.AWS.S3.PutBucketPolicy
     (
     -- * Creating a Request

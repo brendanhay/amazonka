@@ -22,8 +22,6 @@
 -- are noncompliant. You can specify one or more resource types to get
 -- these numbers for each resource type. The maximum number returned is
 -- 100.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_GetComplianceSummaryByResourceType.html AWS API Reference> for GetComplianceSummaryByResourceType.
 module Network.AWS.Config.GetComplianceSummaryByResourceType
     (
     -- * Creating a Request

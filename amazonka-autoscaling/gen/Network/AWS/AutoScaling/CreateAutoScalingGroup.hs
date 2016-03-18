@@ -27,8 +27,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroup.html Auto Scaling Groups>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateAutoScalingGroup.html AWS API Reference> for CreateAutoScalingGroup.
 module Network.AWS.AutoScaling.CreateAutoScalingGroup
     (
     -- * Creating a Request

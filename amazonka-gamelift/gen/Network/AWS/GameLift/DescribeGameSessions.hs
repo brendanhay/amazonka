@@ -29,8 +29,6 @@
 -- session status. Use the pagination parameters to retrieve results as a
 -- set of sequential pages. If successful, a < GameSession> object is
 -- returned for each session matching the request.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeGameSessions.html AWS API Reference> for DescribeGameSessions.
 module Network.AWS.GameLift.DescribeGameSessions
     (
     -- * Creating a Request

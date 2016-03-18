@@ -31,8 +31,6 @@
 -- disks, there will be no configured cache disks left in the gateway, so
 -- you must configure at least one new cache disk for your gateway to
 -- function properly.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ResetCache.html AWS API Reference> for ResetCache.
 module Network.AWS.StorageGateway.ResetCache
     (
     -- * Creating a Request

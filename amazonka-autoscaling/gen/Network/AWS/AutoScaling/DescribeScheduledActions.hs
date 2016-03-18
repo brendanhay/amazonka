@@ -22,8 +22,6 @@
 -- haven\'t run. To describe the actions that have already run, use
 -- < DescribeScalingActivities>.
 --
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScheduledActions.html AWS API Reference> for DescribeScheduledActions.
---
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeScheduledActions
     (

@@ -20,8 +20,6 @@
 --
 -- Retrieves a list of policies attached to a key.
 --
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeyPolicies.html AWS API Reference> for ListKeyPolicies.
---
 -- This operation returns paginated results.
 module Network.AWS.KMS.ListKeyPolicies
     (

@@ -35,8 +35,6 @@
 -- [Nondefault VPC] You must use < DisassociateAddress> to disassociate the
 -- Elastic IP address before you try to release it. Otherwise, Amazon EC2
 -- returns an error ('InvalidIPAddress.InUse').
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReleaseAddress.html AWS API Reference> for ReleaseAddress.
 module Network.AWS.EC2.ReleaseAddress
     (
     -- * Creating a Request

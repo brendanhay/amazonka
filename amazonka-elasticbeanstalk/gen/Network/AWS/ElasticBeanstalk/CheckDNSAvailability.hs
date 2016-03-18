@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Checks if the specified CNAME is available.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CheckDNSAvailability.html AWS API Reference> for CheckDNSAvailability.
 module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     (
     -- * Creating a Request

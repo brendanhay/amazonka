@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the < DomainName> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteDomainName.html AWS API Reference> for DeleteDomainName.
 module Network.AWS.APIGateway.DeleteDomainName
     (
     -- * Creating a Request

@@ -63,8 +63,6 @@
 -- For the underlying REST API, go to
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html List Jobs>
 --
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListJobs.html AWS API Reference> for ListJobs.
---
 -- This operation returns paginated results.
 module Network.AWS.Glacier.ListJobs
     (

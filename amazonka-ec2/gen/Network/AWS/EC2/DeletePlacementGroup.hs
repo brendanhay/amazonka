@@ -23,8 +23,6 @@
 -- more information about placement groups and cluster instances, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeletePlacementGroup.html AWS API Reference> for DeletePlacementGroup.
 module Network.AWS.EC2.DeletePlacementGroup
     (
     -- * Creating a Request

@@ -27,8 +27,6 @@
 -- -   'PENDING': AWS WAF is propagating the create, update, or delete
 --     request to all AWS WAF servers.
 -- -   'IN_SYNC': Propagation is complete.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetChangeTokenStatus.html AWS API Reference> for GetChangeTokenStatus.
 module Network.AWS.WAF.GetChangeTokenStatus
     (
     -- * Creating a Request

@@ -21,8 +21,6 @@
 -- Returns information about the replication instance types that can be
 -- created in the specified region.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeOrderableReplicationInstances.html AWS API Reference> for DescribeOrderableReplicationInstances.
 module Network.AWS.DMS.DescribeOrderableReplicationInstances
     (
     -- * Creating a Request

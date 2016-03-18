@@ -20,8 +20,6 @@
 --
 -- Returns information about the type of endpoints available.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeEndpointTypes.html AWS API Reference> for DescribeEndpointTypes.
 module Network.AWS.DMS.DescribeEndpointTypes
     (
     -- * Creating a Request

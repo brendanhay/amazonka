@@ -35,8 +35,6 @@
 -- successful, this action returns the newly created build record along
 -- with an Amazon S3 storage location and AWS account credentials. Use the
 -- location and credentials to upload your game build.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateBuild.html AWS API Reference> for CreateBuild.
 module Network.AWS.GameLift.CreateBuild
     (
     -- * Creating a Request

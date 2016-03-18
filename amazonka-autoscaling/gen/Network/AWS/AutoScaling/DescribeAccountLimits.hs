@@ -23,8 +23,6 @@
 -- For information about requesting an increase in these limits, see
 -- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits>
 -- in the /Amazon Web Services General Reference/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAccountLimits.html AWS API Reference> for DescribeAccountLimits.
 module Network.AWS.AutoScaling.DescribeAccountLimits
     (
     -- * Creating a Request

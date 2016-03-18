@@ -28,8 +28,6 @@
 -- limit, see
 -- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits>
 -- in the /Amazon Web Services General Reference/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScalingPolicy.html AWS API Reference> for PutScalingPolicy.
 module Network.AWS.AutoScaling.PutScalingPolicy
     (
     -- * Creating a Request

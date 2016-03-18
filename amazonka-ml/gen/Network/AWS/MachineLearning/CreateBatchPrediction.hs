@@ -33,8 +33,6 @@
 -- operation and checking the 'Status' parameter of the result. After the
 -- 'COMPLETED' status appears, the results are available in the location
 -- specified by the 'OutputUri' parameter.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateBatchPrediction.html AWS API Reference> for CreateBatchPrediction.
 module Network.AWS.MachineLearning.CreateBatchPrediction
     (
     -- * Creating a Request

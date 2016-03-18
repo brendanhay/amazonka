@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more on-premises instances.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetOnPremisesInstances.html AWS API Reference> for BatchGetOnPremisesInstances.
 module Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
     (
     -- * Creating a Request

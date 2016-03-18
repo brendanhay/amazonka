@@ -20,8 +20,6 @@
 --
 -- Stops the replication task.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/StopReplicationTask.html AWS API Reference> for StopReplicationTask.
 module Network.AWS.DMS.StopReplicationTask
     (
     -- * Creating a Request

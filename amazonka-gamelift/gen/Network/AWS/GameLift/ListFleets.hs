@@ -23,8 +23,6 @@
 -- retrieve results in sequential pages.
 --
 -- Fleet records are not listed in any particular order.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/ListFleets.html AWS API Reference> for ListFleets.
 module Network.AWS.GameLift.ListFleets
     (
     -- * Creating a Request

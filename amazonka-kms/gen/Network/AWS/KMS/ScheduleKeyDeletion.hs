@@ -35,8 +35,6 @@
 -- For more information about scheduling a CMK for deletion, go to
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html Deleting Customer Master Keys>
 -- in the /AWS Key Management Service Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html AWS API Reference> for ScheduleKeyDeletion.
 module Network.AWS.KMS.ScheduleKeyDeletion
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Imports a disk into an EBS snapshot.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportSnapshot.html AWS API Reference> for ImportSnapshot.
 module Network.AWS.EC2.ImportSnapshot
     (
     -- * Creating a Request

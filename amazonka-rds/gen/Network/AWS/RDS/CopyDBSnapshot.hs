@@ -23,8 +23,6 @@
 --
 -- If you are copying from a shared manual DB snapshot, the
 -- 'SourceDBSnapshotIdentifier' must be the ARN of the shared DB snapshot.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBSnapshot.html AWS API Reference> for CopyDBSnapshot.
 module Network.AWS.RDS.CopyDBSnapshot
     (
     -- * Creating a Request

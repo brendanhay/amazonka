@@ -32,8 +32,6 @@
 -- -   __IsTruncated__
 -- -   __TrafficPolicyVersionMarker__
 -- -   __MaxItems__
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicyVersions.html AWS API Reference> for ListTrafficPolicyVersions.
 module Network.AWS.Route53.ListTrafficPolicyVersions
     (
     -- * Creating a Request

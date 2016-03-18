@@ -22,8 +22,6 @@
 -- currently in that edge location, CloudFront retrieves it from an Amazon
 -- S3 bucket or an HTTP server (for example, a web server) that you have
 -- identified as the source for the definitive version of your content.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudFront
     (
     -- * Service Configuration

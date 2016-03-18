@@ -61,8 +61,6 @@
 -- A successful < CreateCase> request returns an AWS Support case number.
 -- Case numbers are used by the < DescribeCases> operation to retrieve
 -- existing AWS Support cases.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_CreateCase.html AWS API Reference> for CreateCase.
 module Network.AWS.Support.CreateCase
     (
     -- * Creating a Request

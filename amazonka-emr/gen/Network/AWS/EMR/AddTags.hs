@@ -22,8 +22,6 @@
 -- clusters in various ways, such as grouping clusters to track your Amazon
 -- EMR resource allocation costs. For more information, see
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddTags.html AWS API Reference> for AddTags.
 module Network.AWS.EMR.AddTags
     (
     -- * Creating a Request

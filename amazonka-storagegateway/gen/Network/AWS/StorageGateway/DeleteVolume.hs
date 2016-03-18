@@ -34,8 +34,6 @@
 --
 -- In the request, you must provide the Amazon Resource Name (ARN) of the
 -- storage volume you want to delete.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteVolume.html AWS API Reference> for DeleteVolume.
 module Network.AWS.StorageGateway.DeleteVolume
     (
     -- * Creating a Request

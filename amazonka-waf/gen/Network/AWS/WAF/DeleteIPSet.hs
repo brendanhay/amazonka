@@ -31,8 +31,6 @@
 -- 2.  Use < GetChangeToken> to get the change token that you provide in
 --     the 'ChangeToken' parameter of a 'DeleteIPSet' request.
 -- 3.  Submit a 'DeleteIPSet' request.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteIPSet.html AWS API Reference> for DeleteIPSet.
 module Network.AWS.WAF.DeleteIPSet
     (
     -- * Creating a Request

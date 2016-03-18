@@ -72,8 +72,6 @@
 --     in the /Using IAM/.
 -- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html Creating a Role for SAML 2.0 Federation>
 --     in the /Using IAM/.
---
--- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html AWS API Reference> for AssumeRoleWithSAML.
 module Network.AWS.STS.AssumeRoleWithSAML
     (
     -- * Creating a Request

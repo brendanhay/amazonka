@@ -26,8 +26,6 @@
 --
 -- __Caution:__ The results of the 'DeleteEvaluation' operation are
 -- irreversible.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteEvaluation.html AWS API Reference> for DeleteEvaluation.
 module Network.AWS.MachineLearning.DeleteEvaluation
     (
     -- * Creating a Request

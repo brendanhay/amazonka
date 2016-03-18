@@ -22,8 +22,6 @@
 -- of DHCP options before you can delete it. You can disassociate the set
 -- of DHCP options by associating either a new set of options or the
 -- default set of options with the VPC.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteDHCPOptions.html AWS API Reference> for DeleteDHCPOptions.
 module Network.AWS.EC2.DeleteDHCPOptions
     (
     -- * Creating a Request

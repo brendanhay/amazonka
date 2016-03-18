@@ -26,8 +26,6 @@
 -- you can use to track the progress and completion of the action. If the
 -- request is not completed successfully, the domain registrant will be
 -- notified by email.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainContact.html AWS API Reference> for UpdateDomainContact.
 module Network.AWS.Route53Domains.UpdateDomainContact
     (
     -- * Creating a Request

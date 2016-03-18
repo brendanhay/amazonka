@@ -20,8 +20,6 @@
 --
 -- Lists the set of CA certificates provided by Amazon RDS for this AWS
 -- account.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeCertificates.html AWS API Reference> for DescribeCertificates.
 module Network.AWS.RDS.DescribeCertificates
     (
     -- * Creating a Request

@@ -23,8 +23,6 @@
 -- specify a language code; English (\"en\") and Japanese (\"ja\") are
 -- currently supported. The response contains a
 -- < TrustedAdvisorCheckDescription> for each check.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorChecks.html AWS API Reference> for DescribeTrustedAdvisorChecks.
 module Network.AWS.Support.DescribeTrustedAdvisorChecks
     (
     -- * Creating a Request

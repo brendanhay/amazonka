@@ -29,8 +29,6 @@
 -- operation has been called. For example, if a stream’s retention period
 -- is set to 24 hours and is increased to 168 hours, any data that is older
 -- than 24 hours will remain inaccessible to consumer applications.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_IncreaseStreamRetentionPeriod.html AWS API Reference> for IncreaseStreamRetentionPeriod.
 module Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
     (
     -- * Creating a Request

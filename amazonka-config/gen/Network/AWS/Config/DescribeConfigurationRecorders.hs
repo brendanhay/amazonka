@@ -23,8 +23,6 @@
 -- the configuration recorders associated with the account.
 --
 -- Currently, you can specify only one configuration recorder per account.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html AWS API Reference> for DescribeConfigurationRecorders.
 module Network.AWS.Config.DescribeConfigurationRecorders
     (
     -- * Creating a Request

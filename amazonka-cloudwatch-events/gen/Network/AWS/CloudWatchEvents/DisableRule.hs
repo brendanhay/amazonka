@@ -24,8 +24,6 @@
 -- __Note:__ When you disable a rule, incoming events might still continue
 -- to match to the disabled rule. Please allow a short period of time for
 -- changes to take effect.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DisableRule.html AWS API Reference> for DisableRule.
 module Network.AWS.CloudWatchEvents.DisableRule
     (
     -- * Creating a Request

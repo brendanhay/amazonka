@@ -20,8 +20,6 @@
 --
 -- Lists the instance for a deployment associated with the applicable IAM
 -- user or AWS account.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentInstances.html AWS API Reference> for ListDeploymentInstances.
 module Network.AWS.CodeDeploy.ListDeploymentInstances
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Attaches a network interface to an instance.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachNetworkInterface.html AWS API Reference> for AttachNetworkInterface.
 module Network.AWS.EC2.AttachNetworkInterface
     (
     -- * Creating a Request

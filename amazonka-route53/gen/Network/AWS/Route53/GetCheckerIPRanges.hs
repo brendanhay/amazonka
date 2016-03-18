@@ -23,8 +23,6 @@
 -- the '\/Route 53 API version\/checkeripranges' resource. You can use
 -- these IP addresses to configure router and firewall rules to allow
 -- health checkers to check the health of your resources.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetCheckerIPRanges.html AWS API Reference> for GetCheckerIPRanges.
 module Network.AWS.Route53.GetCheckerIPRanges
     (
     -- * Creating a Request

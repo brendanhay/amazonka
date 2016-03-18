@@ -25,8 +25,6 @@
 -- Amazon CloudWatch retains the history of an alarm for two weeks, whether
 -- or not you delete the alarm.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html AWS API Reference> for DescribeAlarmHistory.
---
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.DescribeAlarmHistory
     (

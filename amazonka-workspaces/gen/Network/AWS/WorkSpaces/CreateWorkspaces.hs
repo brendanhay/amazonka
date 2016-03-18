@@ -22,8 +22,6 @@
 --
 -- This operation is asynchronous and returns before the WorkSpaces are
 -- created.
---
--- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_CreateWorkspaces.html AWS API Reference> for CreateWorkspaces.
 module Network.AWS.WorkSpaces.CreateWorkspaces
     (
     -- * Creating a Request

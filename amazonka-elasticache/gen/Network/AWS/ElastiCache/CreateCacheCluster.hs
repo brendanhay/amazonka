@@ -21,8 +21,6 @@
 -- The /CreateCacheCluster/ action creates a cache cluster. All nodes in
 -- the cache cluster run the same protocol-compliant cache engine software,
 -- either Memcached or Redis.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheCluster.html AWS API Reference> for CreateCacheCluster.
 module Network.AWS.ElastiCache.CreateCacheCluster
     (
     -- * Creating a Request

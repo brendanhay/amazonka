@@ -20,8 +20,6 @@
 --
 -- Deletes a traffic policy. To delete a traffic policy, send a 'DELETE'
 -- request to the '\/Route 53 API version\/trafficpolicy' resource.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html AWS API Reference> for DeleteTrafficPolicy.
 module Network.AWS.Route53.DeleteTrafficPolicy
     (
     -- * Creating a Request

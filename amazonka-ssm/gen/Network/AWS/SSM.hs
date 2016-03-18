@@ -134,8 +134,6 @@
 -- AWS-RunPowerShellScript document on Windows, to trusted administrators
 -- only. You can create SSM documents for specific tasks and delegate
 -- access to non-administrators.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.SSM
     (
     -- * Service Configuration

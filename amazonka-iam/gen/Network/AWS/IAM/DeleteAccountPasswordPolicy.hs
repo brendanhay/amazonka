@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the password policy for the AWS account.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountPasswordPolicy.html AWS API Reference> for DeleteAccountPasswordPolicy.
 module Network.AWS.IAM.DeleteAccountPasswordPolicy
     (
     -- * Creating a Request

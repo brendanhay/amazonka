@@ -22,8 +22,6 @@
 --
 -- The results are paginated with a default page size of 25. You can use
 -- the returned marker to retrieve additional results.
---
--- /See:/ <https://aws.amazon.com/iot#ListCertificates.html AWS API Reference> for ListCertificates.
 module Network.AWS.IoT.ListCertificates
     (
     -- * Creating a Request

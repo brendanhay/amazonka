@@ -28,8 +28,6 @@
 -- This documentation serves as reference only. For a broader overview of
 -- the Amazon SWF programming model, see the
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/ Amazon SWF Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/Welcome.html AWS API Reference>
 module Network.AWS.SWF
     (
     -- * Service Configuration

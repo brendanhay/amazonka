@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified Amazon Redshift HSM configuration.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteHSMConfiguration.html AWS API Reference> for DeleteHSMConfiguration.
 module Network.AWS.Redshift.DeleteHSMConfiguration
     (
     -- * Creating a Request

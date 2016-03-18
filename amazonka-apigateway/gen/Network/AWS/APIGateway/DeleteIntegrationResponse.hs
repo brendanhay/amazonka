@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a delete integration response.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteIntegrationResponse.html AWS API Reference> for DeleteIntegrationResponse.
 module Network.AWS.APIGateway.DeleteIntegrationResponse
     (
     -- * Creating a Request

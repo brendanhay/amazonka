@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Generates an unpredictable byte string.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateRandom.html AWS API Reference> for GenerateRandom.
 module Network.AWS.KMS.GenerateRandom
     (
     -- * Creating a Request

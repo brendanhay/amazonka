@@ -20,8 +20,6 @@
 --
 -- Modifies the settings for the specified replication subnet group.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/ModifyReplicationSubnetGroup.html AWS API Reference> for ModifyReplicationSubnetGroup.
 module Network.AWS.DMS.ModifyReplicationSubnetGroup
     (
     -- * Creating a Request

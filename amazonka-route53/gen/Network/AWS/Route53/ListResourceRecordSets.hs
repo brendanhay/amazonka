@@ -61,8 +61,6 @@
 -- effects of that change will be visible in a subsequent call to
 -- ListResourceRecordSets by that process.
 --
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html AWS API Reference> for ListResourceRecordSets.
---
 -- This operation returns paginated results.
 module Network.AWS.Route53.ListResourceRecordSets
     (

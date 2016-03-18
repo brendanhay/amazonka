@@ -20,8 +20,6 @@
 --
 -- Returns an 'Evaluation' that includes metadata as well as the current
 -- status of the 'Evaluation'.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetEvaluation.html AWS API Reference> for GetEvaluation.
 module Network.AWS.MachineLearning.GetEvaluation
     (
     -- * Creating a Request

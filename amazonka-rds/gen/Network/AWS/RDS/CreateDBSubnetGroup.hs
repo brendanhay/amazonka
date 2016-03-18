@@ -20,8 +20,6 @@
 --
 -- Creates a new DB subnet group. DB subnet groups must contain at least
 -- one subnet in at least two AZs in the region.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSubnetGroup.html AWS API Reference> for CreateDBSubnetGroup.
 module Network.AWS.RDS.CreateDBSubnetGroup
     (
     -- * Creating a Request

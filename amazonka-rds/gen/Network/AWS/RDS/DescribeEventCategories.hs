@@ -23,8 +23,6 @@
 -- categories and source types in the
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>
 -- topic in the /Amazon RDS User Guide./
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventCategories.html AWS API Reference> for DescribeEventCategories.
 module Network.AWS.RDS.DescribeEventCategories
     (
     -- * Creating a Request

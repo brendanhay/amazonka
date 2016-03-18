@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified rule.
---
--- /See:/ <https://aws.amazon.com/iot#DeleteTopicRule.html AWS API Reference> for DeleteTopicRule.
 module Network.AWS.IoT.DeleteTopicRule
     (
     -- * Creating a Request

@@ -31,8 +31,6 @@
 -- you must supply when you call < SimulateCustomPolicy>. Note that all
 -- parameters are shown in unencoded form here for clarity, but must be URL
 -- encoded to be included as a part of a real HTML request.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html AWS API Reference> for GetContextKeysForCustomPolicy.
 module Network.AWS.IAM.GetContextKeysForCustomPolicy
     (
     -- * Creating a Request

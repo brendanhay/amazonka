@@ -28,8 +28,6 @@
 --
 -- You can also specify a maximum number of return results with the /Limit/
 -- parameter.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeSnapshots.html AWS API Reference> for DescribeSnapshots.
 module Network.AWS.DirectoryService.DescribeSnapshots
     (
     -- * Creating a Request

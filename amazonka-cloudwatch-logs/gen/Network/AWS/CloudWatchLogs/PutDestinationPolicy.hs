@@ -23,8 +23,6 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html IAM policy document>
 -- that is used to authorize claims to register a subscription filter
 -- against a given destination.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html AWS API Reference> for PutDestinationPolicy.
 module Network.AWS.CloudWatchLogs.PutDestinationPolicy
     (
     -- * Creating a Request

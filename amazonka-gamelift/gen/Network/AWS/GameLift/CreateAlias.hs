@@ -31,8 +31,6 @@
 -- optional description. If successful, a new alias record is returned,
 -- including an alias ID, which you can reference when creating a game
 -- session. To reassign the alias to another fleet ID, call < UpdateAlias>.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateAlias.html AWS API Reference> for CreateAlias.
 module Network.AWS.GameLift.CreateAlias
     (
     -- * Creating a Request

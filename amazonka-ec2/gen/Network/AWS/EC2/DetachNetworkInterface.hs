@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Detaches a network interface from an instance.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachNetworkInterface.html AWS API Reference> for DetachNetworkInterface.
 module Network.AWS.EC2.DetachNetworkInterface
     (
     -- * Creating a Request

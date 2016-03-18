@@ -26,8 +26,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html Scheduled Scaling>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScheduledUpdateGroupAction.html AWS API Reference> for PutScheduledUpdateGroupAction.
 module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     (
     -- * Creating a Request

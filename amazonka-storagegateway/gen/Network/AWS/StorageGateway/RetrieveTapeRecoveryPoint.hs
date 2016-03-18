@@ -27,8 +27,6 @@
 -- The virtual tape can be retrieved to only one gateway. The retrieved
 -- tape is read-only. The virtual tape can be retrieved to only a
 -- gateway-VTL. There is no charge for retrieving recovery points.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeRecoveryPoint.html AWS API Reference> for RetrieveTapeRecoveryPoint.
 module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     (
     -- * Creating a Request

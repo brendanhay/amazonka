@@ -25,8 +25,6 @@
 -- number of signals or the timeout period is exceeded. The SignalResource
 -- API is useful in cases where you want to send signals from anywhere
 -- other than an Amazon EC2 instance.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SignalResource.html AWS API Reference> for SignalResource.
 module Network.AWS.CloudFormation.SignalResource
     (
     -- * Creating a Request

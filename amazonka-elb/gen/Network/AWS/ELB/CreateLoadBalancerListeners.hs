@@ -26,8 +26,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/us-add-listener.html Add a Listener to Your Load Balancer>
 -- in the /Elastic Load Balancing Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerListeners.html AWS API Reference> for CreateLoadBalancerListeners.
 module Network.AWS.ELB.CreateLoadBalancerListeners
     (
     -- * Creating a Request

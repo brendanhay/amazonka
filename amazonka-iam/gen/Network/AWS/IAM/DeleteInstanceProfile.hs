@@ -28,8 +28,6 @@
 --
 -- For more information about instance profiles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteInstanceProfile.html AWS API Reference> for DeleteInstanceProfile.
 module Network.AWS.IAM.DeleteInstanceProfile
     (
     -- * Creating a Request

@@ -43,8 +43,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-put.html Create Vault>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-CreateVault.html AWS API Reference> for CreateVault.
 module Network.AWS.Glacier.CreateVault
     (
     -- * Creating a Request

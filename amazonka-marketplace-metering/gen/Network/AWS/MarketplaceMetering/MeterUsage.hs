@@ -20,8 +20,6 @@
 --
 -- API to emit metering records. For identical requests, the API is
 -- idempotent. It simply returns the metering record ID.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/MeterUsage.html AWS API Reference> for MeterUsage.
 module Network.AWS.MarketplaceMetering.MeterUsage
     (
     -- * Creating a Request

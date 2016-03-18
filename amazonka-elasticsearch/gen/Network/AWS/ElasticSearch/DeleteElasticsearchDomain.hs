@@ -20,8 +20,6 @@
 --
 -- Permanently deletes the specified Elasticsearch domain and all of its
 -- data. Once a domain is deleted, it cannot be recovered.
---
--- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-DeleteElasticsearchDomain.html AWS API Reference> for DeleteElasticsearchDomain.
 module Network.AWS.ElasticSearch.DeleteElasticsearchDomain
     (
     -- * Creating a Request

@@ -26,8 +26,6 @@
 -- certificate. After receiving approval from the domain owner, the ACM
 -- Certificate is issued. For more information, see the
 -- <http://docs.aws.amazon.com/acm/latest/userguide/overview.html AWS Certificate Manager User Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/RequestCertificate.html AWS API Reference> for RequestCertificate.
 module Network.AWS.CertificateManager.RequestCertificate
     (
     -- * Creating a Request

@@ -24,8 +24,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelReservedInstancesListing.html AWS API Reference> for CancelReservedInstancesListing.
 module Network.AWS.EC2.CancelReservedInstancesListing
     (
     -- * Creating a Request

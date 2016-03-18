@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the application specified by the application ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DescribeApplication.html AWS API Reference> for DescribeApplication.
 module Network.AWS.Inspector.DescribeApplication
     (
     -- * Creating a Request

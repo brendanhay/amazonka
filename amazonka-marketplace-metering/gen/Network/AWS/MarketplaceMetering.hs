@@ -23,8 +23,6 @@
 --
 -- -   /MeterUsage/- Submits the metering record for a Marketplace product.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/ AWS API Reference>
 module Network.AWS.MarketplaceMetering
     (
     -- * Service Configuration

@@ -20,8 +20,6 @@
 --
 -- This operation cancels a specified job. Only the job owner can cancel
 -- it. The operation fails if the job has already started or is complete.
---
--- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebCancelJob.html AWS API Reference> for CancelJob.
 module Network.AWS.ImportExport.CancelJob
     (
     -- * Creating a Request

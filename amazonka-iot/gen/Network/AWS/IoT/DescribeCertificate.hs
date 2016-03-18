@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified certificate.
---
--- /See:/ <https://aws.amazon.com/iot#DescribeCertificate.html AWS API Reference> for DescribeCertificate.
 module Network.AWS.IoT.DescribeCertificate
     (
     -- * Creating a Request

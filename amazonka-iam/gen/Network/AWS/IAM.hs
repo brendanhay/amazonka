@@ -69,8 +69,6 @@
 -- -   <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests>.
 --     This set of topics walk you through the process of signing a request
 --     using an access key ID and secret access key.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.IAM
     (
     -- * Service Configuration

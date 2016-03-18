@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new option group. You can create up to 20 option groups.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateOptionGroup.html AWS API Reference> for CreateOptionGroup.
 module Network.AWS.RDS.CreateOptionGroup
     (
     -- * Creating a Request

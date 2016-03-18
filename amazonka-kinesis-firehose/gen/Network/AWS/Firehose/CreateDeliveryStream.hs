@@ -74,8 +74,6 @@
 -- allows the service to deliver the data. For more information, see
 -- <http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Amazon S3 Bucket Access>
 -- in the /Amazon Kinesis Firehose Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/firehose/latest/APIReference/API_CreateDeliveryStream.html AWS API Reference> for CreateDeliveryStream.
 module Network.AWS.Firehose.CreateDeliveryStream
     (
     -- * Creating a Request

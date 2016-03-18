@@ -20,8 +20,6 @@
 --
 -- Lists the assessments attached to the rules package specified by the
 -- rules package ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_ListAttachedAssessments.html AWS API Reference> for ListAttachedAssessments.
 module Network.AWS.Inspector.ListAttachedAssessments
     (
     -- * Creating a Request

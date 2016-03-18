@@ -34,8 +34,6 @@
 -- Related Topics
 --
 -- -   < RetrieveEnvironmentInfo>
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RequestEnvironmentInfo.html AWS API Reference> for RequestEnvironmentInfo.
 module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     (
     -- * Creating a Request

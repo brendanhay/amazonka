@@ -20,8 +20,6 @@
 --
 -- This operation is useful to determine if a bucket exists and you have
 -- permission to access it.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/HeadBucket.html AWS API Reference> for HeadBucket.
 module Network.AWS.S3.HeadBucket
     (
     -- * Creating a Request

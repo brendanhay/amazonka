@@ -21,8 +21,6 @@
 -- Removes the entire attribute (key and value pair) from the findings
 -- specified by the finding ARNs where an attribute with the specified key
 -- exists.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_RemoveAttributesFromFindings.html AWS API Reference> for RemoveAttributesFromFindings.
 module Network.AWS.Inspector.RemoveAttributesFromFindings
     (
     -- * Creating a Request

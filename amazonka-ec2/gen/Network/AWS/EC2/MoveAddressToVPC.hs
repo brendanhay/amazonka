@@ -28,8 +28,6 @@
 -- EC2-Classic platform. You cannot migrate an Elastic IP address that\'s
 -- associated with a reverse DNS record. Contact AWS account and billing
 -- support to remove the reverse DNS record.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-MoveAddressToVPC.html AWS API Reference> for MoveAddressToVPC.
 module Network.AWS.EC2.MoveAddressToVPC
     (
     -- * Creating a Request

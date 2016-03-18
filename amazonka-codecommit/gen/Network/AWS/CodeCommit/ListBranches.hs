@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more branches in a repository.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_ListBranches.html AWS API Reference> for ListBranches.
 module Network.AWS.CodeCommit.ListBranches
     (
     -- * Creating a Request

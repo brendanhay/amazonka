@@ -20,8 +20,6 @@
 --
 -- Applies a repository policy on a specified repository to control access
 -- permissions.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/SetRepositoryPolicy.html AWS API Reference> for SetRepositoryPolicy.
 module Network.AWS.ECR.SetRepositoryPolicy
     (
     -- * Creating a Request

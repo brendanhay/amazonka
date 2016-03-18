@@ -20,8 +20,6 @@
 -- For a list of Amazon SES endpoints to use in service requests, see
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html Regions and Amazon SES>
 -- in the Amazon SES Developer Guide.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.SES
     (
     -- * Service Configuration

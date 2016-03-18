@@ -26,8 +26,6 @@
 -- you are about to delete. Deleting a role or instance profile that is
 -- associated with a running instance will break any applications running
 -- on the instance.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRole.html AWS API Reference> for DeleteRole.
 module Network.AWS.IAM.DeleteRole
     (
     -- * Creating a Request

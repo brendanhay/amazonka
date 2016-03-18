@@ -25,8 +25,6 @@
 --
 -- Not all response parameters will be populated. Whether a response
 -- parameter is populated depends on the type of model requested.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_Predict.html AWS API Reference> for Predict.
 module Network.AWS.MachineLearning.Predict
     (
     -- * Creating a Request

@@ -21,8 +21,6 @@
 -- Describes Amazon EC2 Container Service container instances. Returns
 -- metadata about registered and remaining resources on each container
 -- instance requested.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html AWS API Reference> for DescribeContainerInstances.
 module Network.AWS.ECS.DescribeContainerInstances
     (
     -- * Creating a Request

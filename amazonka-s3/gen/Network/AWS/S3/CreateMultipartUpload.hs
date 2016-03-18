@@ -25,8 +25,6 @@
 -- stop getting charged for storage of the uploaded parts. Only after you
 -- either complete or abort multipart upload, Amazon S3 frees up the parts
 -- storage and stops charging you for the parts storage.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/CreateMultipartUpload.html AWS API Reference> for CreateMultipartUpload.
 module Network.AWS.S3.CreateMultipartUpload
     (
     -- * Creating a Request

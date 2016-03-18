@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a put integration.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/PutIntegration.html AWS API Reference> for PutIntegration.
 module Network.AWS.APIGateway.PutIntegration
     (
     -- * Creating a Request

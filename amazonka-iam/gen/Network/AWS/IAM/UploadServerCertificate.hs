@@ -42,8 +42,6 @@
 -- Query API with IAM, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html Calling the API by Making HTTP Query Requests>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html AWS API Reference> for UploadServerCertificate.
 module Network.AWS.IAM.UploadServerCertificate
     (
     -- * Creating a Request

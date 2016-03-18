@@ -26,8 +26,6 @@
 --
 -- __Caution:__ The results of the 'DeleteDataSource' operation are
 -- irreversible.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteDataSource.html AWS API Reference> for DeleteDataSource.
 module Network.AWS.MachineLearning.DeleteDataSource
     (
     -- * Creating a Request

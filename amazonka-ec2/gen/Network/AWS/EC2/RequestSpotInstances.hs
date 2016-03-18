@@ -25,8 +25,6 @@
 -- more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RequestSpotInstances.html AWS API Reference> for RequestSpotInstances.
 module Network.AWS.EC2.RequestSpotInstances
     (
     -- * Creating a Request

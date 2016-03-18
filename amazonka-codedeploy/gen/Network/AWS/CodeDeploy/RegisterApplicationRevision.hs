@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers with AWS CodeDeploy a revision for the specified application.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RegisterApplicationRevision.html AWS API Reference> for RegisterApplicationRevision.
 module Network.AWS.CodeDeploy.RegisterApplicationRevision
     (
     -- * Creating a Request

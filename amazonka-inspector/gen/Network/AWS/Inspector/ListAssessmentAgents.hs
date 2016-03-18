@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the agents of the assessment specified by the assessment ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_ListAssessmentAgents.html AWS API Reference> for ListAssessmentAgents.
 module Network.AWS.Inspector.ListAssessmentAgents
     (
     -- * Creating a Request

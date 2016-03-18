@@ -25,8 +25,6 @@
 -- For more information about modifying passwords, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html AWS API Reference> for ChangePassword.
 module Network.AWS.IAM.ChangePassword
     (
     -- * Creating a Request

@@ -28,8 +28,6 @@
 -- This action initiates the creation of the AWS side of a trust
 -- relationship between a Microsoft AD in the AWS cloud and an external
 -- domain.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateTrust.html AWS API Reference> for CreateTrust.
 module Network.AWS.DirectoryService.CreateTrust
     (
     -- * Creating a Request

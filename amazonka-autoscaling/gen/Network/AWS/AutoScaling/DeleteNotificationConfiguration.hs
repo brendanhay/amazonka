@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified notification.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteNotificationConfiguration.html AWS API Reference> for DeleteNotificationConfiguration.
 module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     (
     -- * Creating a Request

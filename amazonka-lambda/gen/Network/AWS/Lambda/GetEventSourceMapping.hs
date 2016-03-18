@@ -23,8 +23,6 @@
 --
 -- This operation requires permission for the
 -- 'lambda:GetEventSourceMapping' action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetEventSourceMapping.html AWS API Reference> for GetEventSourceMapping.
 module Network.AWS.Lambda.GetEventSourceMapping
     (
     -- * Creating a Request

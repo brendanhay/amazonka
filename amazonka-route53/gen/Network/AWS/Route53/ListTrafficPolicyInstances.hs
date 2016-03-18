@@ -41,8 +41,6 @@
 -- -   __MaxItems__
 -- -   __HostedZoneIdMarker__, __TrafficPolicyInstanceNameMarker__, and
 --     __TrafficPolicyInstanceTypeMarker__
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicyInstances.html AWS API Reference> for ListTrafficPolicyInstances.
 module Network.AWS.Route53.ListTrafficPolicyInstances
     (
     -- * Creating a Request

@@ -35,8 +35,6 @@
 -- AllocateConnectionOnInterconnect. The end customer can then connect to
 -- AWS resources by creating a virtual interface on their connection, using
 -- the VLAN assigned to them by the AWS Direct Connect partner.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateInterconnect.html AWS API Reference> for CreateInterconnect.
 module Network.AWS.DirectConnect.CreateInterconnect
     (
     -- * Creating a Request

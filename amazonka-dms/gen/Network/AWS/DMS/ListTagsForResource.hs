@@ -20,8 +20,6 @@
 --
 -- For internal use only
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/ListTagsForResource.html AWS API Reference> for ListTagsForResource.
 module Network.AWS.DMS.ListTagsForResource
     (
     -- * Creating a Request

@@ -26,8 +26,6 @@
 -- in the /Amazon Elastic Compute Cloud User Guide/ and
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSecurityGroups.html AWS API Reference> for DescribeSecurityGroups.
 module Network.AWS.EC2.DescribeSecurityGroups
     (
     -- * Creating a Request

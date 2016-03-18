@@ -20,8 +20,6 @@
 --
 -- Starts the analysis of the application’s behavior against selected rule
 -- packages for the assessment specified by the assessment ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_RunAssessment.html AWS API Reference> for RunAssessment.
 module Network.AWS.Inspector.RunAssessment
     (
     -- * Creating a Request

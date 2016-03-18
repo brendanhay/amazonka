@@ -37,8 +37,6 @@
 --
 -- This operation requires permission for the
 -- 'lambda:UpdateEventSourceMapping' action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateEventSourceMapping.html AWS API Reference> for UpdateEventSourceMapping.
 module Network.AWS.Lambda.UpdateEventSourceMapping
     (
     -- * Creating a Request

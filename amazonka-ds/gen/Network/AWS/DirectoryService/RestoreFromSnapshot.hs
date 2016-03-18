@@ -28,8 +28,6 @@
 -- < DescribeDirectories> operation with the directory identifier. When the
 -- __DirectoryDescription.Stage__ value changes to 'Active', the restore
 -- operation is complete.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_RestoreFromSnapshot.html AWS API Reference> for RestoreFromSnapshot.
 module Network.AWS.DirectoryService.RestoreFromSnapshot
     (
     -- * Creating a Request

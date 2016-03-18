@@ -25,8 +25,6 @@
 -- For Gateways activated after September 02, 2015, the gateway\'s ARN
 -- contains the gateway id rather than the gateway name. However changing
 -- the name of the gateway has no effect on the gateway\'s ARN.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateGatewayInformation.html AWS API Reference> for UpdateGatewayInformation.
 module Network.AWS.StorageGateway.UpdateGatewayInformation
     (
     -- * Creating a Request

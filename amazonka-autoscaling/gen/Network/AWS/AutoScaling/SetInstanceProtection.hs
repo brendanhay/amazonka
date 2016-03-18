@@ -23,8 +23,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html#instance-protection Instance Protection>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetInstanceProtection.html AWS API Reference> for SetInstanceProtection.
 module Network.AWS.AutoScaling.SetInstanceProtection
     (
     -- * Creating a Request

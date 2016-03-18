@@ -24,8 +24,6 @@
 -- call returns a maximum of 50 clusters per call, but returns a marker to
 -- track the paging of the cluster list across multiple ListClusters calls.
 --
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListClusters.html AWS API Reference> for ListClusters.
---
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListClusters
     (

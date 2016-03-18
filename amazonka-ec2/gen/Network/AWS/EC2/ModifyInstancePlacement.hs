@@ -38,8 +38,6 @@
 -- one of them must be specified in the request. Affinity and tenancy can
 -- be modified in the same request, but tenancy can only be modified on
 -- instances that are stopped.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyInstancePlacement.html AWS API Reference> for ModifyInstancePlacement.
 module Network.AWS.EC2.ModifyInstancePlacement
     (
     -- * Creating a Request

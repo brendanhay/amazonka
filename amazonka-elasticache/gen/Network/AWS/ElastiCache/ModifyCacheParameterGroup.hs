@@ -21,8 +21,6 @@
 -- The /ModifyCacheParameterGroup/ action modifies the parameters of a
 -- cache parameter group. You can modify up to 20 parameters in a single
 -- request by submitting a list parameter name and value pairs.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html AWS API Reference> for ModifyCacheParameterGroup.
 module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     (
     -- * Creating a Request

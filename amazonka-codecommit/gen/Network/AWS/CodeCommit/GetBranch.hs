@@ -20,8 +20,6 @@
 --
 -- Returns information about a repository branch, including its name and
 -- the last commit ID.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetBranch.html AWS API Reference> for GetBranch.
 module Network.AWS.CodeCommit.GetBranch
     (
     -- * Creating a Request

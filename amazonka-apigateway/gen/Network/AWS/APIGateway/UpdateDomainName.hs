@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes information about the < DomainName> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateDomainName.html AWS API Reference> for UpdateDomainName.
 module Network.AWS.APIGateway.UpdateDomainName
     (
     -- * Creating a Request

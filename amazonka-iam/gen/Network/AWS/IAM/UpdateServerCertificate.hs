@@ -39,8 +39,6 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html Access Management>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServerCertificate.html AWS API Reference> for UpdateServerCertificate.
 module Network.AWS.IAM.UpdateServerCertificate
     (
     -- * Creating a Request

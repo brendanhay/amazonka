@@ -31,8 +31,6 @@
 -- contains a marker that you can specify in your next request to fetch the
 -- next page of gateways.
 --
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListGateways.html AWS API Reference> for ListGateways.
---
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListGateways
     (

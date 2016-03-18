@@ -26,8 +26,6 @@
 -- containers are forcibly stopped. If the container handles the 'SIGTERM'
 -- gracefully and exits within 30 seconds from receiving it, no 'SIGKILL'
 -- is sent.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StopTask.html AWS API Reference> for StopTask.
 module Network.AWS.ECS.StopTask
     (
     -- * Creating a Request

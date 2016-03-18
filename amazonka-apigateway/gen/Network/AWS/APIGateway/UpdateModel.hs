@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes information about a model.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateModel.html AWS API Reference> for UpdateModel.
 module Network.AWS.APIGateway.UpdateModel
     (
     -- * Creating a Request

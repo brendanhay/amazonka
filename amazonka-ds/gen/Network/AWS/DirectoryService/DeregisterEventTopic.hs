@@ -20,8 +20,6 @@
 --
 -- Removes the specified directory as a publisher to the specified SNS
 -- topic.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeregisterEventTopic.html AWS API Reference> for DeregisterEventTopic.
 module Network.AWS.DirectoryService.DeregisterEventTopic
     (
     -- * Creating a Request

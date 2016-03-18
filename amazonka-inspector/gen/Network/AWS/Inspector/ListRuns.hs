@@ -20,8 +20,6 @@
 --
 -- Lists the assessment runs associated with the assessments specified by
 -- the assessment ARNs.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_ListRuns.html AWS API Reference> for ListRuns.
 module Network.AWS.Inspector.ListRuns
     (
     -- * Creating a Request

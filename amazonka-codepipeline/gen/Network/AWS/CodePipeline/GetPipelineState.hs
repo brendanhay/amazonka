@@ -20,8 +20,6 @@
 --
 -- Returns information about the state of a pipeline, including the stages,
 -- actions, and details about the last run of the pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_GetPipelineState.html AWS API Reference> for GetPipelineState.
 module Network.AWS.CodePipeline.GetPipelineState
     (
     -- * Creating a Request

@@ -29,8 +29,6 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
 -- For more information about instance profiles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveRoleFromInstanceProfile.html AWS API Reference> for RemoveRoleFromInstanceProfile.
 module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     (
     -- * Creating a Request

@@ -23,8 +23,6 @@
 -- <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
 --
 -- This requires permission for the lambda:UpdateAlias action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateAlias.html AWS API Reference> for UpdateAlias.
 module Network.AWS.Lambda.UpdateAlias
     (
     -- * Creating a Request

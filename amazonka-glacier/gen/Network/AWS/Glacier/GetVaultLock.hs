@@ -42,8 +42,6 @@
 -- If there is no vault lock policy set on the vault, the operation returns
 -- a '404 Not found' error. For more information about vault lock policies,
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html Amazon Glacier Access Control with Vault Lock Policies>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetVaultLock.html AWS API Reference> for GetVaultLock.
 module Network.AWS.Glacier.GetVaultLock
     (
     -- * Creating a Request

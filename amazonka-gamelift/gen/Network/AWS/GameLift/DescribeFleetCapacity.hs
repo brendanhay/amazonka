@@ -31,8 +31,6 @@
 -- Some API actions may limit the number of fleet IDs allowed in one
 -- request. If a request exceeds this limit, the request fails and the
 -- error message includes the maximum allowed.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeFleetCapacity.html AWS API Reference> for DescribeFleetCapacity.
 module Network.AWS.GameLift.DescribeFleetCapacity
     (
     -- * Creating a Request

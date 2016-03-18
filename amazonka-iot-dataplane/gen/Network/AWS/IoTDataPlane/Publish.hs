@@ -23,8 +23,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http HTTP Protocol>
 -- in the /AWS IoT Developer Guide/.
---
--- /See:/ <https://aws.amazon.com/iot#Publish.html AWS API Reference> for Publish.
 module Network.AWS.IoTDataPlane.Publish
     (
     -- * Creating a Request

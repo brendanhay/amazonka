@@ -22,8 +22,6 @@
 --
 -- This action can potentially start a workflow to install the new
 -- certificate on the client\'s HSMs.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ModifyLunaClient.html AWS API Reference> for ModifyLunaClient.
 module Network.AWS.CloudHSM.ModifyLunaClient
     (
     -- * Creating a Request

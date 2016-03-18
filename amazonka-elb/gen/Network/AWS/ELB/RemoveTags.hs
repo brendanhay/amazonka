@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes one or more tags from the specified load balancer.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_RemoveTags.html AWS API Reference> for RemoveTags.
 module Network.AWS.ELB.RemoveTags
     (
     -- * Creating a Request

@@ -23,8 +23,6 @@
 -- will return only the streams ARNs for that table.
 --
 -- You can call /ListStreams/ at a maximum rate of 5 times per second.
---
--- /See:/ <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_ListStreams.html AWS API Reference> for ListStreams.
 module Network.AWS.DynamoDBStreams.ListStreams
     (
     -- * Creating a Request

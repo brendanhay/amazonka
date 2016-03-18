@@ -21,8 +21,6 @@
 -- Returns a list of 'BatchPrediction' operations that match the search
 -- criteria in the request.
 --
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeBatchPredictions.html AWS API Reference> for DescribeBatchPredictions.
---
 -- This operation returns paginated results.
 module Network.AWS.MachineLearning.DescribeBatchPredictions
     (

@@ -35,8 +35,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html Delete Vault Notification Configuration>
 -- in the Amazon Glacier Developer Guide.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DeleteVaultNotifications.html AWS API Reference> for DeleteVaultNotifications.
 module Network.AWS.Glacier.DeleteVaultNotifications
     (
     -- * Creating a Request

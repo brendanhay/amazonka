@@ -25,8 +25,6 @@
 --
 -- The request body must include a document with an
 -- 'UpdateTrafficPolicyCommentRequest' element.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateTrafficPolicyComment.html AWS API Reference> for UpdateTrafficPolicyComment.
 module Network.AWS.Route53.UpdateTrafficPolicyComment
     (
     -- * Creating a Request

@@ -43,8 +43,6 @@
 -- If cache nodes are currently being removed from the cache cluster, no
 -- endpoint information for the removed nodes is displayed.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheClusters.html AWS API Reference> for DescribeCacheClusters.
---
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheClusters
     (

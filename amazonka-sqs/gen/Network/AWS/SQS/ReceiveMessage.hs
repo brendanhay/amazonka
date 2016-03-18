@@ -63,8 +63,6 @@
 -- Going forward, new attributes might be added. If you are writing code
 -- that calls this action, we recommend that you structure your code so
 -- that it can handle new attributes gracefully.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.html AWS API Reference> for ReceiveMessage.
 module Network.AWS.SQS.ReceiveMessage
     (
     -- * Creating a Request

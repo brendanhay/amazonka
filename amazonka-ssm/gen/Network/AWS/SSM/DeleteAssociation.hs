@@ -25,8 +25,6 @@
 -- state of an instance after you disassociate a document, you must create
 -- a new document with the desired configuration and associate it with the
 -- instance.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DeleteAssociation.html AWS API Reference> for DeleteAssociation.
 module Network.AWS.SSM.DeleteAssociation
     (
     -- * Creating a Request

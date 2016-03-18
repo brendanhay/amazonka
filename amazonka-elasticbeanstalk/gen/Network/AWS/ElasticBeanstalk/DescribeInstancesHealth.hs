@@ -22,8 +22,6 @@
 -- instances (for example, CPU utilization, load average, and causes). The
 -- __DescribeInstancesHealth__ operation is only available with AWS Elastic
 -- Beanstalk Enhanced Health.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeInstancesHealth.html AWS API Reference> for DescribeInstancesHealth.
 module Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
     (
     -- * Creating a Request

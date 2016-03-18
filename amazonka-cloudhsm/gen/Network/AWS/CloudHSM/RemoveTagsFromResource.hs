@@ -22,8 +22,6 @@
 --
 -- To remove a tag, specify only the tag key to remove (not the value). To
 -- overwrite the value for an existing tag, use < AddTagsToResource>.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_RemoveTagsFromResource.html AWS API Reference> for RemoveTagsFromResource.
 module Network.AWS.CloudHSM.RemoveTagsFromResource
     (
     -- * Creating a Request

@@ -25,8 +25,6 @@
 -- If you specify a SubscriptionName, lists the description for that
 -- subscription.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventSubscriptions.html AWS API Reference> for DescribeEventSubscriptions.
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeEventSubscriptions
     (

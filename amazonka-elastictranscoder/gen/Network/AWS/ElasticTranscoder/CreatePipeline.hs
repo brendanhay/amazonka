@@ -20,8 +20,6 @@
 --
 -- The CreatePipeline operation creates a pipeline with settings that you
 -- specify.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreatePipeline.html AWS API Reference> for CreatePipeline.
 module Network.AWS.ElasticTranscoder.CreatePipeline
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates application specified by the application ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_UpdateApplication.html AWS API Reference> for UpdateApplication.
 module Network.AWS.Inspector.UpdateApplication
     (
     -- * Creating a Request

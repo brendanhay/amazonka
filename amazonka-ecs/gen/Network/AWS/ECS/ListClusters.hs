@@ -20,8 +20,6 @@
 --
 -- Returns a list of existing clusters.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html AWS API Reference> for ListClusters.
---
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListClusters
     (

@@ -27,8 +27,6 @@
 --
 -- - 'INSYNC' indicates that the changes have replicated to all Amazon
 -- Route 53 DNS servers.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html AWS API Reference> for GetChange.
 module Network.AWS.Route53.GetChange
     (
     -- * Creating a Request

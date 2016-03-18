@@ -33,8 +33,6 @@
 -- additional technical information about a specific AWS product, you can
 -- find the product\'s technical documentation at
 -- <http://docs.aws.amazon.com/documentation/>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudFormation
     (
     -- * Service Configuration

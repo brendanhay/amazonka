@@ -21,8 +21,6 @@
 -- Queries the specified pipeline for the names of objects that match the
 -- specified set of conditions.
 --
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_QueryObjects.html AWS API Reference> for QueryObjects.
---
 -- This operation returns paginated results.
 module Network.AWS.DataPipeline.QueryObjects
     (

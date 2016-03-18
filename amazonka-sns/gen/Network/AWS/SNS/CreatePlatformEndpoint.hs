@@ -34,8 +34,6 @@
 -- provided: ChannelId and UserId. The token field must also contain the
 -- ChannelId. For more information, see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html Creating an Amazon SNS Endpoint for Baidu>.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformEndpoint.html AWS API Reference> for CreatePlatformEndpoint.
 module Network.AWS.SNS.CreatePlatformEndpoint
     (
     -- * Creating a Request

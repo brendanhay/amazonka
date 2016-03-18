@@ -21,8 +21,6 @@
 -- Describes one or more Auto Scaling groups. If a list of names is not
 -- provided, the call describes all Auto Scaling groups.
 --
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingGroups.html AWS API Reference> for DescribeAutoScalingGroups.
---
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     (

@@ -22,8 +22,6 @@
 -- action can only be used by the owner of the product code. It is useful
 -- when a product code owner needs to verify whether another user\'s
 -- instance is eligible for support.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ConfirmProductInstance.html AWS API Reference> for ConfirmProductInstance.
 module Network.AWS.EC2.ConfirmProductInstance
     (
     -- * Creating a Request

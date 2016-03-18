@@ -21,8 +21,6 @@
 -- Modifies a cluster subnet group to include the specified list of VPC
 -- subnets. The operation replaces the existing list of subnets with the
 -- new list of subnets.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterSubnetGroup.html AWS API Reference> for ModifyClusterSubnetGroup.
 module Network.AWS.Redshift.ModifyClusterSubnetGroup
     (
     -- * Creating a Request

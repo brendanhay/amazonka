@@ -23,8 +23,6 @@
 -- < DescribeTrustedAdvisorChecks>.
 --
 -- The response contains an array of < TrustedAdvisorCheckSummary> objects.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckSummaries.html AWS API Reference> for DescribeTrustedAdvisorCheckSummaries.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
     (
     -- * Creating a Request

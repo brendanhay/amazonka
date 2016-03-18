@@ -31,8 +31,6 @@
 -- the same Amazon S3 bucket. To separate out log data for each export
 -- task, you can specify a prefix that will be used as the Amazon S3 key
 -- prefix for all exported objects.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateExportTask.html AWS API Reference> for CreateExportTask.
 module Network.AWS.CloudWatchLogs.CreateExportTask
     (
     -- * Creating a Request

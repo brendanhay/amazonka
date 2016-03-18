@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describe an existing < Authorizers> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetAuthorizers.html AWS API Reference> for GetAuthorizers.
 module Network.AWS.APIGateway.GetAuthorizers
     (
     -- * Creating a Request

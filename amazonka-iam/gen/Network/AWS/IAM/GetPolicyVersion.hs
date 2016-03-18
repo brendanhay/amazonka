@@ -31,8 +31,6 @@
 -- For more information about the types of policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html AWS API Reference> for GetPolicyVersion.
 module Network.AWS.IAM.GetPolicyVersion
     (
     -- * Creating a Request

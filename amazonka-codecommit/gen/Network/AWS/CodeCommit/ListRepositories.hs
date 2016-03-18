@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more repositories.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_ListRepositories.html AWS API Reference> for ListRepositories.
 module Network.AWS.CodeCommit.ListRepositories
     (
     -- * Creating a Request

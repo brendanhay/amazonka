@@ -20,8 +20,6 @@
 --
 -- Modifies the specified project name, given the project ARN and a new
 -- name.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_UpdateProject.html AWS API Reference> for UpdateProject.
 module Network.AWS.DeviceFarm.UpdateProject
     (
     -- * Creating a Request

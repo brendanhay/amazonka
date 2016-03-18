@@ -24,8 +24,6 @@
 -- 'GetDataSource' provides results in normal or verbose format. The
 -- verbose format adds the schema description and the list of files pointed
 -- to by the DataSource to the normal format.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetDataSource.html AWS API Reference> for GetDataSource.
 module Network.AWS.MachineLearning.GetDataSource
     (
     -- * Creating a Request

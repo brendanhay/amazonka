@@ -24,8 +24,6 @@
 --
 -- The list of VTL devices must be from one gateway.
 --
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeVTLDevices.html AWS API Reference> for DescribeVTLDevices.
---
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeVTLDevices
     (

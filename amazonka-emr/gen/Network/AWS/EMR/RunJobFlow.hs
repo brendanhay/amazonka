@@ -44,8 +44,6 @@
 --
 -- For long running job flows, we recommend that you periodically store
 -- your results.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RunJobFlow.html AWS API Reference> for RunJobFlow.
 module Network.AWS.EMR.RunJobFlow
     (
     -- * Creating a Request

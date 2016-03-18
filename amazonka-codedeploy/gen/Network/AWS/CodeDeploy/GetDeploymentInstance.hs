@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an instance as part of a deployment.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentInstance.html AWS API Reference> for GetDeploymentInstance.
 module Network.AWS.CodeDeploy.GetDeploymentInstance
     (
     -- * Creating a Request

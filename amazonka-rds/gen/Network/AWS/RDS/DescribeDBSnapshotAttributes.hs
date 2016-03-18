@@ -31,8 +31,6 @@
 -- To add or remove access for an AWS account to copy or restore a manual
 -- DB snapshot, or to make the manual DB snapshot public or private, use
 -- the < ModifyDBSnapshotAttribute> API.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSnapshotAttributes.html AWS API Reference> for DescribeDBSnapshotAttributes.
 module Network.AWS.RDS.DescribeDBSnapshotAttributes
     (
     -- * Creating a Request

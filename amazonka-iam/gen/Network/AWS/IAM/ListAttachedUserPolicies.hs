@@ -32,8 +32,6 @@
 -- no policies attached to the specified group (or none that match the
 -- specified path prefix), the action returns an empty list.
 --
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedUserPolicies.html AWS API Reference> for ListAttachedUserPolicies.
---
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListAttachedUserPolicies
     (

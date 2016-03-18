@@ -20,8 +20,6 @@
 --
 -- Represents a collection of < BasePathMapping> resources.
 --
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetBasePathMappings.html AWS API Reference> for GetBasePathMappings.
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetBasePathMappings
     (

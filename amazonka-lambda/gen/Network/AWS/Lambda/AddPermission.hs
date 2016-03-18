@@ -36,8 +36,6 @@
 --
 -- This operation requires permission for the 'lambda:AddPermission'
 -- action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html AWS API Reference> for AddPermission.
 module Network.AWS.Lambda.AddPermission
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Returns the number of unmetered iOS and\/or unmetered Android devices
 -- that have been purchased by the account.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetAccountSettings.html AWS API Reference> for GetAccountSettings.
 module Network.AWS.DeviceFarm.GetAccountSettings
     (
     -- * Creating a Request

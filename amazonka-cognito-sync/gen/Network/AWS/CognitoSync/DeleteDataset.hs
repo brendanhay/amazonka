@@ -25,8 +25,6 @@
 --
 -- This API can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DeleteDataset.html AWS API Reference> for DeleteDataset.
 module Network.AWS.CognitoSync.DeleteDataset
     (
     -- * Creating a Request

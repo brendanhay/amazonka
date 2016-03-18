@@ -27,8 +27,6 @@
 -- You must wait for the attachment\'s state to switch to 'detached' before
 -- you can delete the VPC or attach a different VPC to the virtual private
 -- gateway.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVPNGateway.html AWS API Reference> for DetachVPNGateway.
 module Network.AWS.EC2.DetachVPNGateway
     (
     -- * Creating a Request

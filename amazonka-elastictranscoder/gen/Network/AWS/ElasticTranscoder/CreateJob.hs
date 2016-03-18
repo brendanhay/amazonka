@@ -26,8 +26,6 @@
 -- one output for the Kindle Fire and another output for the Apple iPhone
 -- 4s), you currently must use the Elastic Transcoder API to list the jobs
 -- (as opposed to the AWS Console).
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreateJob.html AWS API Reference> for CreateJob.
 module Network.AWS.ElasticTranscoder.CreateJob
     (
     -- * Creating a Request

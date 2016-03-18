@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new project.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateProject.html AWS API Reference> for CreateProject.
 module Network.AWS.DeviceFarm.CreateProject
     (
     -- * Creating a Request

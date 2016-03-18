@@ -20,8 +20,6 @@
 --
 -- Undocumented operation.
 --
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetClientCertificates.html AWS API Reference> for GetClientCertificates.
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetClientCertificates
     (

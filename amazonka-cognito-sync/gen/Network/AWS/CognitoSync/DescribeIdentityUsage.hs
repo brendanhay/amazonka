@@ -23,8 +23,6 @@
 --
 -- This API can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeIdentityUsage.html AWS API Reference> for DescribeIdentityUsage.
 module Network.AWS.CognitoSync.DescribeIdentityUsage
     (
     -- * Creating a Request

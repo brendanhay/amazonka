@@ -46,8 +46,6 @@
 --     creating a vault, uploading archives, creating jobs to download
 --     archives, retrieving the job output, and deleting archives.
 --
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html AWS API Reference>
 module Network.AWS.Glacier
     (
     -- * Service Configuration

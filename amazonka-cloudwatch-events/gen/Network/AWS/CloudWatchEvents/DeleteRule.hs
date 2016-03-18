@@ -24,8 +24,6 @@
 -- __Note:__ When you delete a rule, incoming events might still continue
 -- to match to the deleted rule. Please allow a short period of time for
 -- changes to take effect.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteRule.html AWS API Reference> for DeleteRule.
 module Network.AWS.CloudWatchEvents.DeleteRule
     (
     -- * Creating a Request

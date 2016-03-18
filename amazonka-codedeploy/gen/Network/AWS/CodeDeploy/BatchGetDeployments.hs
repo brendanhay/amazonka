@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more deployments.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetDeployments.html AWS API Reference> for BatchGetDeployments.
 module Network.AWS.CodeDeploy.BatchGetDeployments
     (
     -- * Creating a Request

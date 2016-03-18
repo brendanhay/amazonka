@@ -20,8 +20,6 @@
 --
 -- Applies a pending maintenance action to a resource (for example, to a DB
 -- instance).
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ApplyPendingMaintenanceAction.html AWS API Reference> for ApplyPendingMaintenanceAction.
 module Network.AWS.RDS.ApplyPendingMaintenanceAction
     (
     -- * Creating a Request

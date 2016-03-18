@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns descriptions for existing environments.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html AWS API Reference> for DescribeEnvironments.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     (
     -- * Creating a Request

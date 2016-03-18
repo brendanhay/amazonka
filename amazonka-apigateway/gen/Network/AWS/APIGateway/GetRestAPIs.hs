@@ -20,8 +20,6 @@
 --
 -- Lists the < RestApis> resources for your collection.
 --
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetRestAPIs.html AWS API Reference> for GetRestAPIs.
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetRestAPIs
     (

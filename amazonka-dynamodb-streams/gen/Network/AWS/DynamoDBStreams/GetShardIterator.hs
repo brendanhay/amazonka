@@ -25,8 +25,6 @@
 --
 -- A shard iterator expires 15 minutes after it is returned to the
 -- requester.
---
--- /See:/ <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_GetShardIterator.html AWS API Reference> for GetShardIterator.
 module Network.AWS.DynamoDBStreams.GetShardIterator
     (
     -- * Creating a Request

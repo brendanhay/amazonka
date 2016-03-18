@@ -20,8 +20,6 @@
 --
 -- The /CreateSnapshot/ action creates a copy of an entire cache cluster at
 -- a specific moment in time.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateSnapshot.html AWS API Reference> for CreateSnapshot.
 module Network.AWS.ElastiCache.CreateSnapshot
     (
     -- * Creating a Request

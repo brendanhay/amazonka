@@ -26,8 +26,6 @@
 -- and from which you can create a snapshot. To create a snapshot from a
 -- volume recovery point use the < CreateSnapshotFromVolumeRecoveryPoint>
 -- operation.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumeRecoveryPoints.html AWS API Reference> for ListVolumeRecoveryPoints.
 module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     (
     -- * Creating a Request

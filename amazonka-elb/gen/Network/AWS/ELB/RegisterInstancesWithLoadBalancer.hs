@@ -49,8 +49,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html Deregister and Register EC2 Instances>
 -- in the /Elastic Load Balancing Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_RegisterInstancesWithLoadBalancer.html AWS API Reference> for RegisterInstancesWithLoadBalancer.
 module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     (
     -- * Creating a Request

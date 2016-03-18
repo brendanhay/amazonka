@@ -22,8 +22,6 @@
 -- pairs) that are used to select the EC2 instances to be included in an
 -- Inspector application. The created resource group is then used to create
 -- an Inspector application.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_CreateResourceGroup.html AWS API Reference> for CreateResourceGroup.
 module Network.AWS.Inspector.CreateResourceGroup
     (
     -- * Creating a Request

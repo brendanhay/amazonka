@@ -23,8 +23,6 @@
 -- more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSpotDatafeedSubscription.html AWS API Reference> for CreateSpotDatafeedSubscription.
 module Network.AWS.EC2.CreateSpotDatafeedSubscription
     (
     -- * Creating a Request

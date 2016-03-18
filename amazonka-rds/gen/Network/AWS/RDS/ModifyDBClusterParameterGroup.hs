@@ -43,8 +43,6 @@
 -- <https://console.aws.amazon.com/rds/ Amazon RDS console> or the
 -- < DescribeDBClusterParameters> command to verify that your DB cluster
 -- parameter group has been created or modified.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBClusterParameterGroup.html AWS API Reference> for ModifyDBClusterParameterGroup.
 module Network.AWS.RDS.ModifyDBClusterParameterGroup
     (
     -- * Creating a Request

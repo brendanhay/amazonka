@@ -30,8 +30,6 @@
 -- Recently terminated instances might appear in the returned results. This
 -- interval is usually less than one hour.
 --
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstances.html AWS API Reference> for DescribeInstances.
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeInstances
     (

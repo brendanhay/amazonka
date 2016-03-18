@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a < Resource> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateResource.html AWS API Reference> for CreateResource.
 module Network.AWS.APIGateway.CreateResource
     (
     -- * Creating a Request

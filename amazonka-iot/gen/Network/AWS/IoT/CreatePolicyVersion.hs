@@ -28,8 +28,6 @@
 -- version. The default version is the operative version (that is, the
 -- version that is in effect for the certificates to which the policy is
 -- attached).
---
--- /See:/ <https://aws.amazon.com/iot#CreatePolicyVersion.html AWS API Reference> for CreatePolicyVersion.
 module Network.AWS.IoT.CreatePolicyVersion
     (
     -- * Creating a Request

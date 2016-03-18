@@ -20,8 +20,6 @@
 --
 -- Lists the customer master keys.
 --
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html AWS API Reference> for ListKeys.
---
 -- This operation returns paginated results.
 module Network.AWS.KMS.ListKeys
     (

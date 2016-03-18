@@ -22,8 +22,6 @@
 --
 -- All tag operations are eventually consistent; subsequent operations may
 -- not immediately represent all issued operations.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateTagsForDomain.html AWS API Reference> for UpdateTagsForDomain.
 module Network.AWS.Route53Domains.UpdateTagsForDomain
     (
     -- * Creating a Request

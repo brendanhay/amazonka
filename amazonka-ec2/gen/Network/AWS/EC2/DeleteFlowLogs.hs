@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes one or more flow logs.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteFlowLogs.html AWS API Reference> for DeleteFlowLogs.
 module Network.AWS.EC2.DeleteFlowLogs
     (
     -- * Creating a Request

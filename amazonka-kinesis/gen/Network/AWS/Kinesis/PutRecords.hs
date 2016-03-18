@@ -84,8 +84,6 @@
 -- that they are added to an Amazon Kinesis stream. This retention period
 -- can be modified using the < DecreaseStreamRetentionPeriod> and
 -- < IncreaseStreamRetentionPeriod> operations.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecords.html AWS API Reference> for PutRecords.
 module Network.AWS.Kinesis.PutRecords
     (
     -- * Creating a Request

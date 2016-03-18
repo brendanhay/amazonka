@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a device pool.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateDevicePool.html AWS API Reference> for CreateDevicePool.
 module Network.AWS.DeviceFarm.CreateDevicePool
     (
     -- * Creating a Request

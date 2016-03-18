@@ -24,8 +24,6 @@
 -- the load balancer. If instances are specified, their state is returned
 -- even if they are no longer registered with the load balancer. The state
 -- of terminated instances is not returned.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeInstanceHealth.html AWS API Reference> for DescribeInstanceHealth.
 module Network.AWS.ELB.DescribeInstanceHealth
     (
     -- * Creating a Request

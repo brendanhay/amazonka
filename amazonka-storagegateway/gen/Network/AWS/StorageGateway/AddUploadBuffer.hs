@@ -25,8 +25,6 @@
 -- In the request, you specify the gateway Amazon Resource Name (ARN) to
 -- which you want to add upload buffer, and one or more disk IDs that you
 -- want to configure as upload buffer.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddUploadBuffer.html AWS API Reference> for AddUploadBuffer.
 module Network.AWS.StorageGateway.AddUploadBuffer
     (
     -- * Creating a Request

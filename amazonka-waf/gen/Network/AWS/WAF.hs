@@ -16,8 +16,6 @@
 -- errors. For detailed information about AWS WAF features and an overview
 -- of how to use the AWS WAF API, see the
 -- <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.WAF
     (
     -- * Service Configuration

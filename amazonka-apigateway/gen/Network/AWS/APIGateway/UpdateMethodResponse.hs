@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates an existing < MethodResponse> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateMethodResponse.html AWS API Reference> for UpdateMethodResponse.
 module Network.AWS.APIGateway.UpdateMethodResponse
     (
     -- * Creating a Request

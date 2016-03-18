@@ -28,8 +28,6 @@
 -- NAT. For more information, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetInstanceAttribute.html AWS API Reference> for ResetInstanceAttribute.
 module Network.AWS.EC2.ResetInstanceAttribute
     (
     -- * Creating a Request

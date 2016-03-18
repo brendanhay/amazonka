@@ -23,8 +23,6 @@
 --
 -- For more information about using dead letter queues, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListDeadLetterSourceQueues.html AWS API Reference> for ListDeadLetterSourceQueues.
 module Network.AWS.SQS.ListDeadLetterSourceQueues
     (
     -- * Creating a Request

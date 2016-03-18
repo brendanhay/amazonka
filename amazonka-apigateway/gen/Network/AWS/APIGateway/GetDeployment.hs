@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a < Deployment> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetDeployment.html AWS API Reference> for GetDeployment.
 module Network.AWS.APIGateway.GetDeployment
     (
     -- * Creating a Request

@@ -24,8 +24,6 @@
 --
 -- After an alias has been created, it cannot be deleted or reused, so this
 -- operation should only be used when absolutely necessary.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateAlias.html AWS API Reference> for CreateAlias.
 module Network.AWS.DirectoryService.CreateAlias
     (
     -- * Creating a Request

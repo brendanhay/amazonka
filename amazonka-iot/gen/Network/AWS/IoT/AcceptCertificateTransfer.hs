@@ -23,8 +23,6 @@
 --
 -- To check for pending certificate transfers, call < ListCertificates> to
 -- enumerate your certificates.
---
--- /See:/ <https://aws.amazon.com/iot#AcceptCertificateTransfer.html AWS API Reference> for AcceptCertificateTransfer.
 module Network.AWS.IoT.AcceptCertificateTransfer
     (
     -- * Creating a Request

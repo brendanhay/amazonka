@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the specified attribute of the specified VPC.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVPCAttribute.html AWS API Reference> for ModifyVPCAttribute.
 module Network.AWS.EC2.ModifyVPCAttribute
     (
     -- * Creating a Request

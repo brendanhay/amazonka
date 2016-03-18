@@ -42,8 +42,6 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html List Vaults>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListVaults.html AWS API Reference> for ListVaults.
---
 -- This operation returns paginated results.
 module Network.AWS.Glacier.ListVaults
     (

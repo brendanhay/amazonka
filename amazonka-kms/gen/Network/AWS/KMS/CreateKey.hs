@@ -23,8 +23,6 @@
 -- commonly used to encrypt or envelope data keys that are then used to
 -- encrypt customer data. For more information about data keys, see
 -- < GenerateDataKey> and < GenerateDataKeyWithoutPlaintext>.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html AWS API Reference> for CreateKey.
 module Network.AWS.KMS.CreateKey
     (
     -- * Creating a Request

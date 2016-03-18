@@ -20,8 +20,6 @@
 --
 -- Lists the deployment configurations with the applicable IAM user or AWS
 -- account.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentConfigs.html AWS API Reference> for ListDeploymentConfigs.
 module Network.AWS.CodeDeploy.ListDeploymentConfigs
     (
     -- * Creating a Request

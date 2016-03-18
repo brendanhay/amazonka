@@ -32,8 +32,6 @@
 -- variable-length base64-encoded string. A grant ID is a 64 character
 -- unique identifier of a grant. Both are returned by the 'CreateGrant'
 -- function.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html AWS API Reference> for RetireGrant.
 module Network.AWS.KMS.RetireGrant
     (
     -- * Creating a Request

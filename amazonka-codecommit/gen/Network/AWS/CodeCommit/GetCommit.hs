@@ -20,8 +20,6 @@
 --
 -- Returns information about a commit, including commit message and
 -- committer information.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetCommit.html AWS API Reference> for GetCommit.
 module Network.AWS.CodeCommit.GetCommit
     (
     -- * Creating a Request

@@ -23,8 +23,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html DeleteThingShadow>
 -- in the /AWS IoT Developer Guide/.
---
--- /See:/ <https://aws.amazon.com/iot#DeleteThingShadow.html AWS API Reference> for DeleteThingShadow.
 module Network.AWS.IoTDataPlane.DeleteThingShadow
     (
     -- * Creating a Request

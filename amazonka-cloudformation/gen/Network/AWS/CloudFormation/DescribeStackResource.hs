@@ -22,8 +22,6 @@
 --
 -- For deleted stacks, DescribeStackResource returns resource information
 -- for up to 90 days after the stack has been deleted.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html AWS API Reference> for DescribeStackResource.
 module Network.AWS.CloudFormation.DescribeStackResource
     (
     -- * Creating a Request

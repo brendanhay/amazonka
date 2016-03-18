@@ -20,8 +20,6 @@
 --
 -- Creates a replication task using the specified parameters.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateReplicationTask.html AWS API Reference> for CreateReplicationTask.
 module Network.AWS.DMS.CreateReplicationTask
     (
     -- * Creating a Request

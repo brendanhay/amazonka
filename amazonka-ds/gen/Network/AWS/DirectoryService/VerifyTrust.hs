@@ -23,8 +23,6 @@
 --
 -- This action verifies a trust relationship between your Microsoft AD in
 -- the AWS cloud and an external domain.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_VerifyTrust.html AWS API Reference> for VerifyTrust.
 module Network.AWS.DirectoryService.VerifyTrust
     (
     -- * Creating a Request

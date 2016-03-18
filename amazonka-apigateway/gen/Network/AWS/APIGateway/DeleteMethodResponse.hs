@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an existing < MethodResponse> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteMethodResponse.html AWS API Reference> for DeleteMethodResponse.
 module Network.AWS.APIGateway.DeleteMethodResponse
     (
     -- * Creating a Request

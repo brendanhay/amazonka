@@ -20,8 +20,6 @@
 --
 -- Lists the applications registered with the applicable IAM user or AWS
 -- account.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplications.html AWS API Reference> for ListApplications.
 module Network.AWS.CodeDeploy.ListApplications
     (
     -- * Creating a Request

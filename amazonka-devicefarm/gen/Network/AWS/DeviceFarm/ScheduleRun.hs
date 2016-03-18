@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Schedules a run.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ScheduleRun.html AWS API Reference> for ScheduleRun.
 module Network.AWS.DeviceFarm.ScheduleRun
     (
     -- * Creating a Request

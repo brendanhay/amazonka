@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns details about your AWS Config rules.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigRules.html AWS API Reference> for DescribeConfigRules.
 module Network.AWS.Config.DescribeConfigRules
     (
     -- * Creating a Request

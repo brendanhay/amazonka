@@ -31,8 +31,6 @@
 --
 -- This operation requires permission for the
 -- 'lambda:UpdateFunctionConfiguration' action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateFunctionConfiguration.html AWS API Reference> for UpdateFunctionConfiguration.
 module Network.AWS.Lambda.UpdateFunctionConfiguration
     (
     -- * Creating a Request

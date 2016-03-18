@@ -60,8 +60,6 @@
 -- from the time they are added to a delivery stream as it attempts to send
 -- the records to the destination. If the destination is unreachable for
 -- more than 24 hours, the data is no longer available.
---
--- /See:/ <http://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecord.html AWS API Reference> for PutRecord.
 module Network.AWS.Firehose.PutRecord
     (
     -- * Creating a Request

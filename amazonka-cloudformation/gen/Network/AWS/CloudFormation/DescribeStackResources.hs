@@ -38,8 +38,6 @@
 --
 -- A 'ValidationError' is returned if you specify both 'StackName' and
 -- 'PhysicalResourceId' in the same request.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResources.html AWS API Reference> for DescribeStackResources.
 module Network.AWS.CloudFormation.DescribeStackResources
     (
     -- * Creating a Request

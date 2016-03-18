@@ -27,8 +27,6 @@
 -- base64 encoded string that can be decoded and used in a 'docker login'
 -- command to authenticate to a registry. The AWS CLI offers an
 -- 'aws ecr get-login' command that simplifies the login process.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetAuthorizationToken.html AWS API Reference> for GetAuthorizationToken.
 module Network.AWS.ECR.GetAuthorizationToken
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_CreatePipeline.html AWS API Reference> for CreatePipeline.
 module Network.AWS.CodePipeline.CreatePipeline
     (
     -- * Creating a Request

@@ -33,7 +33,7 @@ For more information about Amazon CloudWatch Events features, see the
 <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide Amazon CloudWatch Developer Guide>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudwatch-events)
-and the [AWS API Reference](http://docs.aws.amazon.com/apigateway/api-reference/).
+and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
 which provides mechanisms for specifying AuthN/AuthZ information and sending requests.

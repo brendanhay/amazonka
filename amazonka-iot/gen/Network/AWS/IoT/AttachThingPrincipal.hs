@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Attaches the specified principal to the specified thing.
---
--- /See:/ <https://aws.amazon.com/iot#AttachThingPrincipal.html AWS API Reference> for AttachThingPrincipal.
 module Network.AWS.IoT.AttachThingPrincipal
     (
     -- * Creating a Request

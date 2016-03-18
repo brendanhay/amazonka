@@ -22,8 +22,6 @@
 -- used to launch new instances.
 --
 -- This command does not delete the AMI.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeregisterImage.html AWS API Reference> for DeregisterImage.
 module Network.AWS.EC2.DeregisterImage
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes your Spot fleet requests.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotFleetRequests.html AWS API Reference> for DescribeSpotFleetRequests.
 module Network.AWS.EC2.DescribeSpotFleetRequests
     (
     -- * Creating a Request

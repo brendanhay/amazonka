@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a directory snapshot.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteSnapshot.html AWS API Reference> for DeleteSnapshot.
 module Network.AWS.DirectoryService.DeleteSnapshot
     (
     -- * Creating a Request

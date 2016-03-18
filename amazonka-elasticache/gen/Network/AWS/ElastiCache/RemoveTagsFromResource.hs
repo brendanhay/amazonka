@@ -20,8 +20,6 @@
 --
 -- The /RemoveTagsFromResource/ action removes the tags identified by the
 -- 'TagKeys' list from the named resource.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RemoveTagsFromResource.html AWS API Reference> for RemoveTagsFromResource.
 module Network.AWS.ElastiCache.RemoveTagsFromResource
     (
     -- * Creating a Request

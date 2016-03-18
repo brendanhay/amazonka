@@ -24,8 +24,6 @@
 -- notified if your directory goes from an Active status to an Impaired or
 -- Inoperable status. You also receive a notification when the directory
 -- returns to an Active status.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_RegisterEventTopic.html AWS API Reference> for RegisterEventTopic.
 module Network.AWS.DirectoryService.RegisterEventTopic
     (
     -- * Creating a Request

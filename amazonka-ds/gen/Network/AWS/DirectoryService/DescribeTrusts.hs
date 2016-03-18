@@ -23,8 +23,6 @@
 -- If no input parameters are provided, such as DirectoryId or TrustIds,
 -- this request describes all the trust relationships belonging to the
 -- account.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeTrusts.html AWS API Reference> for DescribeTrusts.
 module Network.AWS.DirectoryService.DescribeTrusts
     (
     -- * Creating a Request

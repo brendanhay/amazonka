@@ -32,8 +32,6 @@
 -- Always use the service codes and categories obtained programmatically.
 -- This practice ensures that you always have the most recent set of
 -- service and category codes.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeServices.html AWS API Reference> for DescribeServices.
 module Network.AWS.Support.DescribeServices
     (
     -- * Creating a Request

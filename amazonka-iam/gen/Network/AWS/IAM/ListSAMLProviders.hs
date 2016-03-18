@@ -22,8 +22,6 @@
 --
 -- This operation requires
 -- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSAMLProviders.html AWS API Reference> for ListSAMLProviders.
 module Network.AWS.IAM.ListSAMLProviders
     (
     -- * Creating a Request

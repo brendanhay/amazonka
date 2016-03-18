@@ -25,8 +25,6 @@
 -- devices, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device>
 -- in the /Using IAM/ guide.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html AWS API Reference> for DeactivateMFADevice.
 module Network.AWS.IAM.DeactivateMFADevice
     (
     -- * Creating a Request

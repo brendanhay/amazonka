@@ -27,8 +27,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/LaunchConfiguration.html Launch Configurations>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html AWS API Reference> for CreateLaunchConfiguration.
 module Network.AWS.AutoScaling.CreateLaunchConfiguration
     (
     -- * Creating a Request

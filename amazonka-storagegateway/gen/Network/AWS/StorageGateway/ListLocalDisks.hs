@@ -28,8 +28,6 @@
 -- value of present (the disk is available to use), missing (the disk is no
 -- longer connected to the gateway), or mismatch (the disk node is occupied
 -- by a disk that has incorrect metadata or the disk content is corrupted).
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListLocalDisks.html AWS API Reference> for ListLocalDisks.
 module Network.AWS.StorageGateway.ListLocalDisks
     (
     -- * Creating a Request

@@ -22,8 +22,6 @@
 -- platform, or that are being restored to the EC2-Classic platform. This
 -- request does not return information about any other Elastic IP addresses
 -- in your account.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeMovingAddresses.html AWS API Reference> for DescribeMovingAddresses.
 module Network.AWS.EC2.DescribeMovingAddresses
     (
     -- * Creating a Request

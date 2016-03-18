@@ -69,8 +69,6 @@
 --     container instances with the fewest number of running tasks for this
 --     service.
 --
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html AWS API Reference> for CreateService.
 module Network.AWS.ECS.CreateService
     (
     -- * Creating a Request

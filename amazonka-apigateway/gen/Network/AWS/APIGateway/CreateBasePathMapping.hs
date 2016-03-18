@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new < BasePathMapping> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateBasePathMapping.html AWS API Reference> for CreateBasePathMapping.
 module Network.AWS.APIGateway.CreateBasePathMapping
     (
     -- * Creating a Request

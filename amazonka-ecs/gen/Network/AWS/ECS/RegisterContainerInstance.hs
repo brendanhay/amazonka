@@ -23,8 +23,6 @@
 --
 -- Registers an EC2 instance into the specified cluster. This instance
 -- becomes available to place containers on.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterContainerInstance.html AWS API Reference> for RegisterContainerInstance.
 module Network.AWS.ECS.RegisterContainerInstance
     (
     -- * Creating a Request

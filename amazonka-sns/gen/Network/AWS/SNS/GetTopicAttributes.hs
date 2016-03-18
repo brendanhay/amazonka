@@ -20,8 +20,6 @@
 --
 -- Returns all of the properties of a topic. Topic properties returned
 -- might differ based on the authorization of the user.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_GetTopicAttributes.html AWS API Reference> for GetTopicAttributes.
 module Network.AWS.SNS.GetTopicAttributes
     (
     -- * Creating a Request

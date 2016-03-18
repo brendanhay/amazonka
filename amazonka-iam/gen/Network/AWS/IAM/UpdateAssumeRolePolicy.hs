@@ -21,8 +21,6 @@
 -- Updates the policy that grants an entity permission to assume a role.
 -- For more information about roles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html AWS API Reference> for UpdateAssumeRolePolicy.
 module Network.AWS.IAM.UpdateAssumeRolePolicy
     (
     -- * Creating a Request

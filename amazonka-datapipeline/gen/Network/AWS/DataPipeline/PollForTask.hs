@@ -33,8 +33,6 @@
 -- to 90 seconds. The task runner should not call 'PollForTask' again on
 -- the same 'workerGroup' until it receives a response, and this can take
 -- up to 90 seconds.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PollForTask.html AWS API Reference> for PollForTask.
 module Network.AWS.DataPipeline.PollForTask
     (
     -- * Creating a Request

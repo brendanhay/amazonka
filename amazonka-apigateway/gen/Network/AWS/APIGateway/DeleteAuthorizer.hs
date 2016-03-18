@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an existing < Authorizer> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteAuthorizer.html AWS API Reference> for DeleteAuthorizer.
 module Network.AWS.APIGateway.DeleteAuthorizer
     (
     -- * Creating a Request

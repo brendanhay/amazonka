@@ -23,8 +23,6 @@
 --
 -- This API can only be called with temporary credentials provided by
 -- Cognito Identity. You cannot call this API with developer credentials.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_SubscribeToDataset.html AWS API Reference> for SubscribeToDataset.
 module Network.AWS.CognitoSync.SubscribeToDataset
     (
     -- * Creating a Request

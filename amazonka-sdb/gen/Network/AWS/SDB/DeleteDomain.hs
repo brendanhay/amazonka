@@ -21,8 +21,6 @@
 -- The 'DeleteDomain' operation deletes a domain. Any items (and their
 -- attributes) in the domain are deleted as well. The 'DeleteDomain'
 -- operation might take 10 or more seconds to complete.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteDomain.html AWS API Reference> for DeleteDomain.
 module Network.AWS.SDB.DeleteDomain
     (
     -- * Creating a Request

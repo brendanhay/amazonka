@@ -24,8 +24,6 @@
 -- more information about modifying passwords, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateLoginProfile.html AWS API Reference> for UpdateLoginProfile.
 module Network.AWS.IAM.UpdateLoginProfile
     (
     -- * Creating a Request

@@ -25,8 +25,6 @@
 -- The response includes disk IDs that are configured as upload buffer
 -- space, and it includes the amount of upload buffer space allocated and
 -- used.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeUploadBuffer.html AWS API Reference> for DescribeUploadBuffer.
 module Network.AWS.StorageGateway.DescribeUploadBuffer
     (
     -- * Creating a Request

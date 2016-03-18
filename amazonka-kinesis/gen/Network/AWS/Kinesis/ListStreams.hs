@@ -36,8 +36,6 @@
 --
 -- < ListStreams> has a limit of 5 transactions per second per account.
 --
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListStreams.html AWS API Reference> for ListStreams.
---
 -- This operation returns paginated results.
 module Network.AWS.Kinesis.ListStreams
     (

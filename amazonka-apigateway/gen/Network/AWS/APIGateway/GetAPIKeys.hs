@@ -20,8 +20,6 @@
 --
 -- Gets information about the current < ApiKeys> resource.
 --
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetAPIKeys.html AWS API Reference> for GetAPIKeys.
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetAPIKeys
     (

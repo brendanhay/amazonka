@@ -25,8 +25,6 @@
 -- For an overview of CIDR ranges, go to the
 -- <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSubnetGroups.html AWS API Reference> for DescribeDBSubnetGroups.
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBSubnetGroups
     (

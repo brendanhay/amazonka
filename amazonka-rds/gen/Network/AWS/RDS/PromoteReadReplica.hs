@@ -24,8 +24,6 @@
 -- before promoting the Read Replica. This ensures that no backup is taken
 -- during the promotion process. Once the instance is promoted to a primary
 -- instance, backups are taken based on your backup settings.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PromoteReadReplica.html AWS API Reference> for PromoteReadReplica.
 module Network.AWS.RDS.PromoteReadReplica
     (
     -- * Creating a Request

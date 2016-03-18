@@ -36,8 +36,6 @@
 --
 -- You can use the < GetEvaluation> operation to check progress of the
 -- evaluation during the creation operation.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateEvaluation.html AWS API Reference> for CreateEvaluation.
 module Network.AWS.MachineLearning.CreateEvaluation
     (
     -- * Creating a Request

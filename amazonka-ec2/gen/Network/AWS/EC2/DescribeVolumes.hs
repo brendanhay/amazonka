@@ -31,8 +31,6 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html Amazon EBS Volumes>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html AWS API Reference> for DescribeVolumes.
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVolumes
     (

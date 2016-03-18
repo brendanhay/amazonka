@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables single-sign on for a directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DisableSSO.html AWS API Reference> for DisableSSO.
 module Network.AWS.DirectoryService.DisableSSO
     (
     -- * Creating a Request

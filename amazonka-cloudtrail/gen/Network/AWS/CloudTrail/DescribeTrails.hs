@@ -20,8 +20,6 @@
 --
 -- Retrieves settings for the trail associated with the current region for
 -- your account.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DescribeTrails.html AWS API Reference> for DescribeTrails.
 module Network.AWS.CloudTrail.DescribeTrails
     (
     -- * Creating a Request

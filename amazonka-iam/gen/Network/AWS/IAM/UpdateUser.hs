@@ -33,8 +33,6 @@
 -- Robert, or must have permission on all (*). For more information about
 -- permissions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateUser.html AWS API Reference> for UpdateUser.
 module Network.AWS.IAM.UpdateUser
     (
     -- * Creating a Request

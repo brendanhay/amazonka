@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a metric filter associated with the specified log group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteMetricFilter.html AWS API Reference> for DeleteMetricFilter.
 module Network.AWS.CloudWatchLogs.DeleteMetricFilter
     (
     -- * Creating a Request

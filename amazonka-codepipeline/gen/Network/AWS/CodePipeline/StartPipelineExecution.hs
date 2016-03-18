@@ -20,8 +20,6 @@
 --
 -- Starts the specified pipeline. Specifically, it begins processing the
 -- latest commit to the source location specified as part of the pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_StartPipelineExecution.html AWS API Reference> for StartPipelineExecution.
 module Network.AWS.CodePipeline.StartPipelineExecution
     (
     -- * Creating a Request

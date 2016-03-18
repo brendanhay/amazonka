@@ -31,8 +31,6 @@
 -- will not be able to call 'PutSubscriptionFilter' against this
 -- destination. To enable that, the destination owner must call
 -- 'PutDestinationPolicy' after PutDestination.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html AWS API Reference> for PutDestination.
 module Network.AWS.CloudWatchLogs.PutDestination
     (
     -- * Creating a Request

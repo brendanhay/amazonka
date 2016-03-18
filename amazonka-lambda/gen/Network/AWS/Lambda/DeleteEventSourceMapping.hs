@@ -23,8 +23,6 @@
 --
 -- This operation requires permission for the
 -- 'lambda:DeleteEventSourceMapping' action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_DeleteEventSourceMapping.html AWS API Reference> for DeleteEventSourceMapping.
 module Network.AWS.Lambda.DeleteEventSourceMapping
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- MySQL. The service supports homogeneous migrations such as Oracle to
 -- Oracle, as well as heterogeneous migrations between different database
 -- platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/ AWS API Reference>
 module Network.AWS.DMS
     (
     -- * Service Configuration

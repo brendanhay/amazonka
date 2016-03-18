@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The ReadPipeline operation gets detailed information about a pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadPipeline.html AWS API Reference> for ReadPipeline.
 module Network.AWS.ElasticTranscoder.ReadPipeline
     (
     -- * Creating a Request

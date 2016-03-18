@@ -52,8 +52,6 @@
 -- or split apart into word combinations? The recipe provides answers to
 -- these questions. For more information, see the Amazon Machine Learning
 -- Developer Guide.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateDataSourceFromRedshift.html AWS API Reference> for CreateDataSourceFromRedshift.
 module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
     (
     -- * Creating a Request

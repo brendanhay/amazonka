@@ -51,8 +51,6 @@
 -- with the < DescribeDeliveryStream> operation. The new 'VersionId' should
 -- be uses to set 'CurrentDeliveryStreamVersionId' in the next
 -- < UpdateDestination> operation.
---
--- /See:/ <http://docs.aws.amazon.com/firehose/latest/APIReference/API_UpdateDestination.html AWS API Reference> for UpdateDestination.
 module Network.AWS.Firehose.UpdateDestination
     (
     -- * Creating a Request

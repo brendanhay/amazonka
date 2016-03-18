@@ -21,8 +21,6 @@
 -- Describes the notification actions associated with the specified Auto
 -- Scaling group.
 --
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html AWS API Reference> for DescribeNotificationConfigurations.
---
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     (

@@ -34,8 +34,6 @@
 -- count. You can view a fleet\'s current capacity information by calling
 -- < DescribeFleetCapacity>. If the desired instance count is higher than
 -- the instance type\'s limit, the \"Limit Exceeded\" exception will occur.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateFleetCapacity.html AWS API Reference> for UpdateFleetCapacity.
 module Network.AWS.GameLift.UpdateFleetCapacity
     (
     -- * Creating a Request

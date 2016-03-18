@@ -24,8 +24,6 @@
 -- For more information about tags, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteTags.html AWS API Reference> for DeleteTags.
 module Network.AWS.EC2.DeleteTags
     (
     -- * Creating a Request

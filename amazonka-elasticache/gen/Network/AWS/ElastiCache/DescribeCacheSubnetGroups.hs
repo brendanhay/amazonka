@@ -22,8 +22,6 @@
 -- group descriptions. If a subnet group name is specified, the list will
 -- contain only the description of that group.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSubnetGroups.html AWS API Reference> for DescribeCacheSubnetGroups.
---
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     (

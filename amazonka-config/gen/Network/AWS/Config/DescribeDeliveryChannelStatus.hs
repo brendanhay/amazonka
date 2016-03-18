@@ -23,8 +23,6 @@
 -- status of all delivery channels associated with the account.
 --
 -- Currently, you can specify only one delivery channel per account.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeDeliveryChannelStatus.html AWS API Reference> for DescribeDeliveryChannelStatus.
 module Network.AWS.Config.DescribeDeliveryChannelStatus
     (
     -- * Creating a Request

@@ -30,8 +30,6 @@
 -- more stream records). If both 'StartingSequenceNumber' and
 -- 'EndingSequenceNumber' are present, the that shared is closed and can no
 -- longer receive more data.
---
--- /See:/ <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_DescribeStream.html AWS API Reference> for DescribeStream.
 module Network.AWS.DynamoDBStreams.DescribeStream
     (
     -- * Creating a Request

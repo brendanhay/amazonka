@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the < RestApi> resource in the collection.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetRestAPI.html AWS API Reference> for GetRestAPI.
 module Network.AWS.APIGateway.GetRestAPI
     (
     -- * Creating a Request

@@ -21,8 +21,6 @@
 -- This operation updates a gateway\'s weekly maintenance start time
 -- information, including day and time of the week. The maintenance time is
 -- the time in your gateway\'s time zone.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateMaintenanceStartTime.html AWS API Reference> for UpdateMaintenanceStartTime.
 module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     (
     -- * Creating a Request

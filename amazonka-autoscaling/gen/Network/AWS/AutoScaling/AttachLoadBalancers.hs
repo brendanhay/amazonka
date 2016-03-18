@@ -27,8 +27,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-load-balancer-asg.html Attach a Load Balancer to Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AttachLoadBalancers.html AWS API Reference> for AttachLoadBalancers.
 module Network.AWS.AutoScaling.AttachLoadBalancers
     (
     -- * Creating a Request

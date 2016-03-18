@@ -35,8 +35,6 @@
 --
 -- Currently there can only be one subscription filter associated with a
 -- log group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.html AWS API Reference> for PutSubscriptionFilter.
 module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
     (
     -- * Creating a Request

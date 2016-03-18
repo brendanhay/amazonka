@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes information about a < Stage> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateStage.html AWS API Reference> for UpdateStage.
 module Network.AWS.APIGateway.UpdateStage
     (
     -- * Creating a Request

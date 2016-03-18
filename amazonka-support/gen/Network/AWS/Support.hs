@@ -65,8 +65,6 @@
 -- in the /AWS Support User Guide/ for information about how to use this
 -- service to create and manage your support cases, and how to call Trusted
 -- Advisor for results of checks on your resources.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Support
     (
     -- * Service Configuration

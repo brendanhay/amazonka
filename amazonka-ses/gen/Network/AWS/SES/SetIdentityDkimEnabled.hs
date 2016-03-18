@@ -35,8 +35,6 @@
 --
 -- For more information about Easy DKIM signing, go to the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityDkimEnabled.html AWS API Reference> for SetIdentityDkimEnabled.
 module Network.AWS.SES.SetIdentityDkimEnabled
     (
     -- * Creating a Request

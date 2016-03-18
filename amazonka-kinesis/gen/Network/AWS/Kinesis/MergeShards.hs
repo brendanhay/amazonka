@@ -58,8 +58,6 @@
 -- will receive a 'LimitExceededException'.
 --
 -- 'MergeShards' has limit of 5 transactions per second per account.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_MergeShards.html AWS API Reference> for MergeShards.
 module Network.AWS.Kinesis.MergeShards
     (
     -- * Creating a Request

@@ -32,8 +32,6 @@
 -- lose permission to the function.
 --
 -- You need permission for the 'lambda:RemovePermission' action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_RemovePermission.html AWS API Reference> for RemovePermission.
 module Network.AWS.Lambda.RemovePermission
     (
     -- * Creating a Request

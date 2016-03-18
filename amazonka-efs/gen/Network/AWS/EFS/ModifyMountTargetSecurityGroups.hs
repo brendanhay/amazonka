@@ -34,8 +34,6 @@
 --     mount target\'s file system.
 -- -   'ec2:ModifyNetworkInterfaceAttribute' action on the mount target\'s
 --     network interface.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_ModifyMountTargetSecurityGroups.html AWS API Reference> for ModifyMountTargetSecurityGroups.
 module Network.AWS.EFS.ModifyMountTargetSecurityGroups
     (
     -- * Creating a Request

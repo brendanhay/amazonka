@@ -54,8 +54,6 @@
 -- -   256 total attribute name-value pairs per item
 -- -   One billion attributes per domain
 -- -   10 GB of total user data storage per domain
---
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_PutAttributes.html AWS API Reference> for PutAttributes.
 module Network.AWS.SDB.PutAttributes
     (
     -- * Creating a Request

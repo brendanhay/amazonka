@@ -22,8 +22,6 @@
 -- information as well as the current status of the 'MLModel'.
 --
 -- 'GetMLModel' provides results in normal or verbose format.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetMLModel.html AWS API Reference> for GetMLModel.
 module Network.AWS.MachineLearning.GetMLModel
     (
     -- * Creating a Request

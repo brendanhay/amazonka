@@ -33,8 +33,6 @@
 -- 2.  Use < GetChangeToken> to get the change token that you provide in
 --     the 'ChangeToken' parameter of a 'DeleteSizeConstraintSet' request.
 -- 3.  Submit a 'DeleteSizeConstraintSet' request.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteSizeConstraintSet.html AWS API Reference> for DeleteSizeConstraintSet.
 module Network.AWS.WAF.DeleteSizeConstraintSet
     (
     -- * Creating a Request

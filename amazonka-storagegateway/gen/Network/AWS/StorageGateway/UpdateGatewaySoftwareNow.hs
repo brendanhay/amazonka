@@ -34,8 +34,6 @@
 -- and
 -- <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing Your Linux iSCSI Settings>,
 -- respectively.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateGatewaySoftwareNow.html AWS API Reference> for UpdateGatewaySoftwareNow.
 module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the running instances for the specified Spot fleet.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotFleetInstances.html AWS API Reference> for DescribeSpotFleetInstances.
 module Network.AWS.EC2.DescribeSpotFleetInstances
     (
     -- * Creating a Request

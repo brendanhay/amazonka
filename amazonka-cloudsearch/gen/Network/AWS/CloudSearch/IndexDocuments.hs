@@ -21,8 +21,6 @@
 -- Tells the search domain to start indexing its documents using the latest
 -- indexing options. This operation must be invoked to activate options
 -- whose < OptionStatus> is 'RequiresIndexDocuments'.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_IndexDocuments.html AWS API Reference> for IndexDocuments.
 module Network.AWS.CloudSearch.IndexDocuments
     (
     -- * Creating a Request

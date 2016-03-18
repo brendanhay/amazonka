@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the current < ApiKey> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetAPIKey.html AWS API Reference> for GetAPIKey.
 module Network.AWS.APIGateway.GetAPIKey
     (
     -- * Creating a Request

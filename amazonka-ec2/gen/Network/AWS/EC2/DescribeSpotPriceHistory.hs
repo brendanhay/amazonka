@@ -30,8 +30,6 @@
 -- that you specified; the response merely indicates the last time that the
 -- price changed.
 --
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotPriceHistory.html AWS API Reference> for DescribeSpotPriceHistory.
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeSpotPriceHistory
     (

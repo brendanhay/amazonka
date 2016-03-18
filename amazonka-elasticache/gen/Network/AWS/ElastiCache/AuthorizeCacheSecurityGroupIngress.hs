@@ -25,8 +25,6 @@
 --
 -- You cannot authorize ingress from an Amazon EC2 security group in one
 -- region to an ElastiCache cluster in another region.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AuthorizeCacheSecurityGroupIngress.html AWS API Reference> for AuthorizeCacheSecurityGroupIngress.
 module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     (
     -- * Creating a Request

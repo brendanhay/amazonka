@@ -23,8 +23,6 @@
 -- desired status of the task with the 'family', 'containerInstance', and
 -- 'desiredStatus' parameters.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTasks.html AWS API Reference> for ListTasks.
---
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListTasks
     (

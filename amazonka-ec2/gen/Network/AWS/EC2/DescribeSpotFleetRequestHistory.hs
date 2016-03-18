@@ -24,8 +24,6 @@
 -- Spot fleet events are delayed by up to 30 seconds before they can be
 -- described. This ensures that you can query by the last evaluated time
 -- and not miss a recorded event.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotFleetRequestHistory.html AWS API Reference> for DescribeSpotFleetRequestHistory.
 module Network.AWS.EC2.DescribeSpotFleetRequestHistory
     (
     -- * Creating a Request

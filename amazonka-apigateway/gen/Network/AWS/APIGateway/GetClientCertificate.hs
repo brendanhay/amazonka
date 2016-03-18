@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetClientCertificate.html AWS API Reference> for GetClientCertificate.
 module Network.AWS.APIGateway.GetClientCertificate
     (
     -- * Creating a Request

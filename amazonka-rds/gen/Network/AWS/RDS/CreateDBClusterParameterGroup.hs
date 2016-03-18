@@ -49,8 +49,6 @@
 -- For more information on Amazon Aurora, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBClusterParameterGroup.html AWS API Reference> for CreateDBClusterParameterGroup.
 module Network.AWS.RDS.CreateDBClusterParameterGroup
     (
     -- * Creating a Request

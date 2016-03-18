@@ -26,8 +26,6 @@
 --
 -- For more information about using notifications with Amazon SES, see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityNotificationAttributes.html AWS API Reference> for GetIdentityNotificationAttributes.
 module Network.AWS.SES.GetIdentityNotificationAttributes
     (
     -- * Creating a Request

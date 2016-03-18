@@ -32,8 +32,6 @@
 -- 2.  Use < GetChangeToken> to get the change token that you provide in
 --     the 'ChangeToken' parameter of a 'DeleteByteMatchSet' request.
 -- 3.  Submit a 'DeleteByteMatchSet' request.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteByteMatchSet.html AWS API Reference> for DeleteByteMatchSet.
 module Network.AWS.WAF.DeleteByteMatchSet
     (
     -- * Creating a Request

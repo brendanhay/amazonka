@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the specified services running in your cluster.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html AWS API Reference> for DescribeServices.
 module Network.AWS.ECS.DescribeServices
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a client.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteLunaClient.html AWS API Reference> for DeleteLunaClient.
 module Network.AWS.CloudHSM.DeleteLunaClient
     (
     -- * Creating a Request

@@ -34,8 +34,6 @@
 -- 2.  One or more 'NextToken' values, which specify where to paginate the
 --     returned records represented by the 'CaseDetails' objects.
 --
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCases.html AWS API Reference> for DescribeCases.
---
 -- This operation returns paginated results.
 module Network.AWS.Support.DescribeCases
     (

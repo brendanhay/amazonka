@@ -28,8 +28,6 @@
 -- For information about versions for managed policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicyVersion.html AWS API Reference> for DeletePolicyVersion.
 module Network.AWS.IAM.DeletePolicyVersion
     (
     -- * Creating a Request

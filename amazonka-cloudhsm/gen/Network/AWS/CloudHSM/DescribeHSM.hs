@@ -20,8 +20,6 @@
 --
 -- Retrieves information about an HSM. You can identify the HSM by its ARN
 -- or its serial number.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DescribeHSM.html AWS API Reference> for DescribeHSM.
 module Network.AWS.CloudHSM.DescribeHSM
     (
     -- * Creating a Request

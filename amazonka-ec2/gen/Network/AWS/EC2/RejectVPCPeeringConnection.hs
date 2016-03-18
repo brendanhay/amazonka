@@ -24,8 +24,6 @@
 -- peering connection requests. To delete an active VPC peering connection,
 -- or to delete a VPC peering connection request that you initiated, use
 -- < DeleteVpcPeeringConnection>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RejectVPCPeeringConnection.html AWS API Reference> for RejectVPCPeeringConnection.
 module Network.AWS.EC2.RejectVPCPeeringConnection
     (
     -- * Creating a Request

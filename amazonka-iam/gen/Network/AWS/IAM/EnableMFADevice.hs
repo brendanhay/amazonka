@@ -21,8 +21,6 @@
 -- Enables the specified MFA device and associates it with the specified
 -- user name. When enabled, the MFA device is required for every subsequent
 -- login by the user name associated with the device.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html AWS API Reference> for EnableMFADevice.
 module Network.AWS.IAM.EnableMFADevice
     (
     -- * Creating a Request

@@ -27,8 +27,6 @@
 --
 -- __Caution:__ The result of the 'DeleteBatchPrediction' operation is
 -- irreversible.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteBatchPrediction.html AWS API Reference> for DeleteBatchPrediction.
 module Network.AWS.MachineLearning.DeleteBatchPrediction
     (
     -- * Creating a Request

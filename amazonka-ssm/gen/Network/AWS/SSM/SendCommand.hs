@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Executes commands on one or more remote instances.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_SendCommand.html AWS API Reference> for SendCommand.
 module Network.AWS.SSM.SendCommand
     (
     -- * Creating a Request

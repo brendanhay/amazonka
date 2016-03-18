@@ -20,8 +20,6 @@
 --
 -- Register the role that Inspector uses to list your EC2 instances during
 -- the assessment.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_RegisterCrossAccountAccessRole.html AWS API Reference> for RegisterCrossAccountAccessRole.
 module Network.AWS.Inspector.RegisterCrossAccountAccessRole
     (
     -- * Creating a Request

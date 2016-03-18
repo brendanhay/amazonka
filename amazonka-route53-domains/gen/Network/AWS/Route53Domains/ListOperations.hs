@@ -21,8 +21,6 @@
 -- This operation returns the operation IDs of operations that are not yet
 -- complete.
 --
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListOperations.html AWS API Reference> for ListOperations.
---
 -- This operation returns paginated results.
 module Network.AWS.Route53Domains.ListOperations
     (

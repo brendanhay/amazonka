@@ -33,8 +33,6 @@
 --
 -- This operation requires permission for the 'lambda:DeleteFunction'
 -- action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_DeleteFunction.html AWS API Reference> for DeleteFunction.
 module Network.AWS.Lambda.DeleteFunction
     (
     -- * Creating a Request

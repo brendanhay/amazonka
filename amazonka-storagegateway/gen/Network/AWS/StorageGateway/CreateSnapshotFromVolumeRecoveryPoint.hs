@@ -38,8 +38,6 @@
 --
 -- To list or delete a snapshot, you must use the Amazon EC2 API. For more
 -- information, in /Amazon Elastic Compute Cloud API Reference/.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSnapshotFromVolumeRecoveryPoint.html AWS API Reference> for CreateSnapshotFromVolumeRecoveryPoint.
 module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     (
     -- * Creating a Request

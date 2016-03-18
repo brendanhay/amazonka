@@ -20,8 +20,6 @@
 --
 -- To retrieve the health check, send a 'GET' request to the
 -- '\/Route 53 API version\/healthcheck\/health check ID' resource.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html AWS API Reference> for GetHealthCheck.
 module Network.AWS.Route53.GetHealthCheck
     (
     -- * Creating a Request

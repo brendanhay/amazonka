@@ -41,8 +41,6 @@
 -- '&Attribute.1=this'
 --
 -- '&Attribute.2=that'
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_AddPermission.html AWS API Reference> for AddPermission.
 module Network.AWS.SQS.AddPermission
     (
     -- * Creating a Request

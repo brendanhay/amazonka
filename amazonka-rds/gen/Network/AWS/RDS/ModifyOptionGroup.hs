@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies an existing option group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyOptionGroup.html AWS API Reference> for ModifyOptionGroup.
 module Network.AWS.RDS.ModifyOptionGroup
     (
     -- * Creating a Request

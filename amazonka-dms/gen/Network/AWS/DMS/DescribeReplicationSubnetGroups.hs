@@ -20,8 +20,6 @@
 --
 -- Returns information about the replication subnet groups.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeReplicationSubnetGroups.html AWS API Reference> for DescribeReplicationSubnetGroups.
 module Network.AWS.DMS.DescribeReplicationSubnetGroups
     (
     -- * Creating a Request

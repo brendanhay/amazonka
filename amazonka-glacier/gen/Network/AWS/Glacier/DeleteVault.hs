@@ -43,8 +43,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html Delete Vault>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DeleteVault.html AWS API Reference> for DeleteVault.
 module Network.AWS.Glacier.DeleteVault
     (
     -- * Creating a Request

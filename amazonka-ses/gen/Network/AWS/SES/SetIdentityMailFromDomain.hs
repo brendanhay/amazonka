@@ -28,8 +28,6 @@
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html AWS API Reference> for SetIdentityMailFromDomain.
 module Network.AWS.SES.SetIdentityMailFromDomain
     (
     -- * Creating a Request

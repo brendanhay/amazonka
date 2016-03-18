@@ -20,8 +20,6 @@
 --
 -- Deletes the specified ingress or egress entry (rule) from the specified
 -- network ACL.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkACLEntry.html AWS API Reference> for DeleteNetworkACLEntry.
 module Network.AWS.EC2.DeleteNetworkACLEntry
     (
     -- * Creating a Request

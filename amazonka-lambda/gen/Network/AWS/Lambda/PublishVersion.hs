@@ -24,8 +24,6 @@
 -- code and configuration cannot be modified after publication. For
 -- information about the versioning feature, see
 -- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_PublishVersion.html AWS API Reference> for PublishVersion.
 module Network.AWS.Lambda.PublishVersion
     (
     -- * Creating a Request

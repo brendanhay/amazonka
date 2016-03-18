@@ -20,8 +20,6 @@
 --
 -- This operation lists in-progress multipart uploads.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListMultipartUploads.html AWS API Reference> for ListMultipartUploads.
---
 -- This operation returns paginated results.
 module Network.AWS.S3.ListMultipartUploads
     (

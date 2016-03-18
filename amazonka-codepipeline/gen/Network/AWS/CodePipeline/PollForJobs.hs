@@ -25,8 +25,6 @@
 -- the action requires access to that Amazon S3 bucket for input or output
 -- artifacts. Additionally, this API returns any secret values defined for
 -- the action.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PollForJobs.html AWS API Reference> for PollForJobs.
 module Network.AWS.CodePipeline.PollForJobs
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the specified tags from a trail.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_RemoveTags.html AWS API Reference> for RemoveTags.
 module Network.AWS.CloudTrail.RemoveTags
     (
     -- * Creating a Request

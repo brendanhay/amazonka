@@ -22,8 +22,6 @@
 --
 -- If an interconnect ID is provided, it will only return this particular
 -- interconnect.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeInterconnects.html AWS API Reference> for DescribeInterconnects.
 module Network.AWS.DirectConnect.DescribeInterconnects
     (
     -- * Creating a Request

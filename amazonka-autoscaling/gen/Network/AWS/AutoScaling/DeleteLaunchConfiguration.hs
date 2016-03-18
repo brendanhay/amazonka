@@ -23,8 +23,6 @@
 -- The launch configuration must not be attached to an Auto Scaling group.
 -- When this call completes, the launch configuration is no longer
 -- available for use.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLaunchConfiguration.html AWS API Reference> for DeleteLaunchConfiguration.
 module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     (
     -- * Creating a Request

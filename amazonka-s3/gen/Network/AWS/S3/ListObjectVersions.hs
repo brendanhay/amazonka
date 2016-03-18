@@ -20,8 +20,6 @@
 --
 -- Returns metadata about all of the versions of objects in a bucket.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjectVersions.html AWS API Reference> for ListObjectVersions.
---
 -- This operation returns paginated results.
 module Network.AWS.S3.ListObjectVersions
     (

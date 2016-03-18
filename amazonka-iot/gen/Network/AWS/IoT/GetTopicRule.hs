@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified rule.
---
--- /See:/ <https://aws.amazon.com/iot#GetTopicRule.html AWS API Reference> for GetTopicRule.
 module Network.AWS.IoT.GetTopicRule
     (
     -- * Creating a Request

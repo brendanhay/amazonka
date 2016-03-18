@@ -12,8 +12,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides AWS Marketplace business intelligence data on-demand.
---
--- /See:/ <http://docs.aws.amazon.com/marketplace AWS API Reference>
 module Network.AWS.MarketplaceAnalytics
     (
     -- * Service Configuration

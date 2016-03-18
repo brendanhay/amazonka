@@ -33,8 +33,6 @@
 -- attribute for the 'CreatePlatformEndpoint' action. For more information,
 -- see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html AWS API Reference> for CreatePlatformApplication.
 module Network.AWS.SNS.CreatePlatformApplication
     (
     -- * Creating a Request

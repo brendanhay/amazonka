@@ -30,8 +30,6 @@
 --
 -- Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a
 -- value greater than 100, Amazon Route 53 returns only the first 100.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByName.html AWS API Reference> for ListHostedZonesByName.
 module Network.AWS.Route53.ListHostedZonesByName
     (
     -- * Creating a Request

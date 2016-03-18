@@ -23,8 +23,6 @@
 -- subscriptions, a 'NextToken' is also returned. Use the 'NextToken'
 -- parameter in a new 'ListSubscriptions' call to get further results.
 --
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptions.html AWS API Reference> for ListSubscriptions.
---
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListSubscriptions
     (

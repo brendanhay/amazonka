@@ -31,8 +31,6 @@
 -- If a connection ID is provided, only virtual interfaces provisioned on
 -- the specified connection will be returned. If a virtual interface ID is
 -- provided, only this particular virtual interface will be returned.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualInterfaces.html AWS API Reference> for DescribeVirtualInterfaces.
 module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     (
     -- * Creating a Request

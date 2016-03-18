@@ -22,8 +22,6 @@
 -- replication instance and an endpoint. Connections are created when you
 -- test an endpoint.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeConnections.html AWS API Reference> for DescribeConnections.
 module Network.AWS.DMS.DescribeConnections
     (
     -- * Creating a Request

@@ -22,8 +22,6 @@
 -- The information includes the date and time of last use, along with the
 -- AWS service and region that were specified in the last request made with
 -- that key.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccessKeyLastUsed.html AWS API Reference> for GetAccessKeyLastUsed.
 module Network.AWS.IAM.GetAccessKeyLastUsed
     (
     -- * Creating a Request

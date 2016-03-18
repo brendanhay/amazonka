@@ -24,8 +24,6 @@
 -- and key location, you cannot change that Amazon S3 location. If you
 -- change the Amazon S3 location, you receive an exception when you attempt
 -- to launch an environment from the application version.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplicationVersion.html AWS API Reference> for CreateApplicationVersion.
 module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     (
     -- * Creating a Request

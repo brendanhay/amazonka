@@ -26,8 +26,6 @@
 -- You can have a maximum of 10 cost allocation tags on an ElastiCache
 -- resource. For more information, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/BestPractices.html Using Cost Allocation Tags in Amazon ElastiCache>.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ListTagsForResource.html AWS API Reference> for ListTagsForResource.
 module Network.AWS.ElastiCache.ListTagsForResource
     (
     -- * Creating a Request

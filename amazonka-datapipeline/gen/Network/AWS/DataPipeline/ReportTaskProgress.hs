@@ -30,8 +30,6 @@
 -- Pipeline assumes that the task runner is unable to process the task and
 -- reassigns the task in a subsequent response to < PollForTask>. Task
 -- runners should call 'ReportTaskProgress' every 60 seconds.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ReportTaskProgress.html AWS API Reference> for ReportTaskProgress.
 module Network.AWS.DataPipeline.ReportTaskProgress
     (
     -- * Creating a Request

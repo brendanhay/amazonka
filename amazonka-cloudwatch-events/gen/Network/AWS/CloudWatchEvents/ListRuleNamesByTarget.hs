@@ -24,8 +24,6 @@
 -- given limit, the results will be paginated. In that case, use the next
 -- token returned in the response and repeat ListRulesByTarget until the
 -- NextToken in the response is returned as null.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/ListRuleNamesByTarget.html AWS API Reference> for ListRuleNamesByTarget.
 module Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
     (
     -- * Creating a Request

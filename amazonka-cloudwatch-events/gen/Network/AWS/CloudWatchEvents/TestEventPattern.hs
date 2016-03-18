@@ -25,8 +25,6 @@
 -- match in event patterns and rules. Be sure to use the correct ARN
 -- characters when creating event patterns so that they match the ARN
 -- syntax in the event you want to match.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/TestEventPattern.html AWS API Reference> for TestEventPattern.
 module Network.AWS.CloudWatchEvents.TestEventPattern
     (
     -- * Creating a Request

@@ -21,8 +21,6 @@
 -- The /DescribeReservedCacheNodesOfferings/ action lists available
 -- reserved cache node offerings.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodesOfferings.html AWS API Reference> for DescribeReservedCacheNodesOfferings.
---
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     (

@@ -22,8 +22,6 @@
 -- between an existing virtual private gateway and a VPN customer gateway.
 -- The static route allows traffic to be routed from the virtual private
 -- gateway to the VPN customer gateway.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPNConnectionRoute.html AWS API Reference> for DeleteVPNConnectionRoute.
 module Network.AWS.EC2.DeleteVPNConnectionRoute
     (
     -- * Creating a Request

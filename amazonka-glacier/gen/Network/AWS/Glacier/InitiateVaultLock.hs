@@ -51,8 +51,6 @@
 -- state, the operation returns an 'AccessDeniedException' error. When the
 -- vault lock is in the 'InProgress' state you must call < AbortVaultLock>
 -- before you can initiate a new vault lock policy.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-InitiateVaultLock.html AWS API Reference> for InitiateVaultLock.
 module Network.AWS.Glacier.InitiateVaultLock
     (
     -- * Creating a Request

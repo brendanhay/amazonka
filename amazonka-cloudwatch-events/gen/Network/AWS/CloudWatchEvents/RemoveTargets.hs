@@ -24,8 +24,6 @@
 -- __Note:__ When you remove a target, when the associated rule triggers,
 -- removed targets might still continue to be invoked. Please allow a short
 -- period of time for changes to take effect.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/RemoveTargets.html AWS API Reference> for RemoveTargets.
 module Network.AWS.CloudWatchEvents.RemoveTargets
     (
     -- * Creating a Request

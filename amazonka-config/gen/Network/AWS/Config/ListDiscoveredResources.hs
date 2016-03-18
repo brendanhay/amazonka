@@ -34,8 +34,6 @@
 -- parameter. The response includes a 'nextToken' string, and to get the
 -- next page of results, run the request again and enter this string for
 -- the 'nextToken' parameter.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_ListDiscoveredResources.html AWS API Reference> for ListDiscoveredResources.
 module Network.AWS.Config.ListDiscoveredResources
     (
     -- * Creating a Request

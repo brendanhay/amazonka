@@ -69,8 +69,6 @@
 --     'SourceIdentityArn'. For more information about sending
 --     authorization, see the
 --     <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SendRawEmail.html AWS API Reference> for SendRawEmail.
 module Network.AWS.SES.SendRawEmail
     (
     -- * Creating a Request

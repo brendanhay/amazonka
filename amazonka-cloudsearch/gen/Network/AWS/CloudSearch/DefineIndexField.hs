@@ -27,8 +27,6 @@
 -- configuration replaces the old one. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineIndexField.html AWS API Reference> for DefineIndexField.
 module Network.AWS.CloudSearch.DefineIndexField
     (
     -- * Creating a Request

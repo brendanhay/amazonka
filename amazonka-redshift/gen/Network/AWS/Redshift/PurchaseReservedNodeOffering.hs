@@ -28,8 +28,6 @@
 -- For more information about reserved node offerings, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html Purchasing Reserved Nodes>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_PurchaseReservedNodeOffering.html AWS API Reference> for PurchaseReservedNodeOffering.
 module Network.AWS.Redshift.PurchaseReservedNodeOffering
     (
     -- * Creating a Request

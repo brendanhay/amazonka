@@ -17,8 +17,6 @@
 -- capacity in the Amazon Web Services (AWS) cloud. Using Amazon EC2
 -- eliminates your need to invest in hardware up front, so you can develop
 -- and deploy applications faster.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.EC2
     (
     -- * Service Configuration

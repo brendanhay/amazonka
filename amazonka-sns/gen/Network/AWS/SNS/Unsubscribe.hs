@@ -25,8 +25,6 @@
 -- subscription owner, a final cancellation message is delivered to the
 -- endpoint, so that the endpoint owner can easily resubscribe to the topic
 -- if the 'Unsubscribe' request was unintended.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html AWS API Reference> for Unsubscribe.
 module Network.AWS.SNS.Unsubscribe
     (
     -- * Creating a Request

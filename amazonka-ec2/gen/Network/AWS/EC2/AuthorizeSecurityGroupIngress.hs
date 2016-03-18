@@ -39,8 +39,6 @@
 -- other security groups (called the /source groups/) permission to access
 -- a security group for your VPC. The security groups must all be for the
 -- same VPC.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupIngress.html AWS API Reference> for AuthorizeSecurityGroupIngress.
 module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     (
     -- * Creating a Request

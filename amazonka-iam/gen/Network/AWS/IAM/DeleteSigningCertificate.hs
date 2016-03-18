@@ -26,8 +26,6 @@
 -- this action works for access keys under the AWS account, you can use
 -- this action to manage root credentials even if the AWS account has no
 -- associated users.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSigningCertificate.html AWS API Reference> for DeleteSigningCertificate.
 module Network.AWS.IAM.DeleteSigningCertificate
     (
     -- * Creating a Request

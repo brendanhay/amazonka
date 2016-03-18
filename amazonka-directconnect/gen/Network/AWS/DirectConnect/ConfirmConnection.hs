@@ -23,8 +23,6 @@
 -- Upon creation, the hosted connection is initially in the \'Ordering\'
 -- state, and will remain in this state until the owner calls
 -- ConfirmConnection to confirm creation of the hosted connection.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmConnection.html AWS API Reference> for ConfirmConnection.
 module Network.AWS.DirectConnect.ConfirmConnection
     (
     -- * Creating a Request

@@ -28,8 +28,6 @@
 -- virtual interface owner by calling ConfirmPublicVirtualInterface. Until
 -- this step has been completed, the virtual interface will be in
 -- \'Confirming\' state, and will not be available for handling traffic.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocatePublicVirtualInterface.html AWS API Reference> for AllocatePublicVirtualInterface.
 module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     (
     -- * Creating a Request

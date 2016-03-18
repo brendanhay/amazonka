@@ -38,8 +38,6 @@
 -- Query API with IAM, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
 -- in the /Using IAM/guide.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSigningCertificate.html AWS API Reference> for UploadSigningCertificate.
 module Network.AWS.IAM.UploadSigningCertificate
     (
     -- * Creating a Request

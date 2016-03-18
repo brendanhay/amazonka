@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a copy of an object that is already stored in Amazon S3.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/CopyObject.html AWS API Reference> for CopyObject.
 module Network.AWS.S3.CopyObject
     (
     -- * Creating a Request

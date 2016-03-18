@@ -56,8 +56,6 @@
 --     instances you want the fleet to maintain.
 -- -   < UpdateFleetPortSettings> -- Change the IP addresses and ports that
 --     allow access to incoming traffic.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateFleet.html AWS API Reference> for CreateFleet.
 module Network.AWS.GameLift.CreateFleet
     (
     -- * Creating a Request

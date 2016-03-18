@@ -26,8 +26,6 @@
 --
 -- This API cannot be used to delete a cache cluster that is the last read
 -- replica of a replication group that has Multi-AZ mode enabled.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheCluster.html AWS API Reference> for DeleteCacheCluster.
 module Network.AWS.ElastiCache.DeleteCacheCluster
     (
     -- * Creating a Request

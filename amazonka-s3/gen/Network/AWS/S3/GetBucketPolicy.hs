@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the policy of a specified bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketPolicy.html AWS API Reference> for GetBucketPolicy.
 module Network.AWS.S3.GetBucketPolicy
     (
     -- * Creating a Request

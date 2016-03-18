@@ -20,8 +20,6 @@
 --
 -- Returns a 'BatchPrediction' that includes detailed metadata, status, and
 -- data file information for a 'Batch Prediction' request.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetBatchPrediction.html AWS API Reference> for GetBatchPrediction.
 module Network.AWS.MachineLearning.GetBatchPrediction
     (
     -- * Creating a Request

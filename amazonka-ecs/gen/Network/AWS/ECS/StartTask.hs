@@ -23,8 +23,6 @@
 -- to place your task, use 'RunTask' instead.
 --
 -- The list of container instances to start tasks on is limited to 10.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html AWS API Reference> for StartTask.
 module Network.AWS.ECS.StartTask
     (
     -- * Creating a Request

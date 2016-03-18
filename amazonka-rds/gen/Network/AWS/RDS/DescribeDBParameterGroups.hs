@@ -22,8 +22,6 @@
 -- 'DBParameterGroupName' is specified, the list will contain only the
 -- description of the specified DB parameter group.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameterGroups.html AWS API Reference> for DescribeDBParameterGroups.
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBParameterGroups
     (

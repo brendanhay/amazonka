@@ -20,8 +20,6 @@
 --
 -- This operation generates a pre-paid UPS shipping label that you will use
 -- to ship your device to AWS for processing.
---
--- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebGetShippingLabel.html AWS API Reference> for GetShippingLabel.
 module Network.AWS.ImportExport.GetShippingLabel
     (
     -- * Creating a Request

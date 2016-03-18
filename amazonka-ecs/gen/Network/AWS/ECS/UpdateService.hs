@@ -77,8 +77,6 @@
 --     container instances with the fewest number of running tasks for this
 --     service.
 --
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html AWS API Reference> for UpdateService.
 module Network.AWS.ECS.UpdateService
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of your network interfaces.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNetworkInterfaces.html AWS API Reference> for DescribeNetworkInterfaces.
 module Network.AWS.EC2.DescribeNetworkInterfaces
     (
     -- * Creating a Request

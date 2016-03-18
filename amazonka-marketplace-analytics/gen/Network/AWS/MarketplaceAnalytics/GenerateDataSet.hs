@@ -30,8 +30,6 @@
 -- permissions policy providing Allow permissions for the following
 -- actions: s3:PutObject, s3:GetBucketLocation, sns:GetTopicAttributes,
 -- sns:Publish, iam:GetRolePolicy.
---
--- /See:/ <http://docs.aws.amazon.com/marketplace#GenerateDataSet.html AWS API Reference> for GenerateDataSet.
 module Network.AWS.MarketplaceAnalytics.GenerateDataSet
     (
     -- * Creating a Request

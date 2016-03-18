@@ -24,8 +24,6 @@
 -- For more information on Amazon Aurora, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html AWS API Reference> for DescribeDBClusters.
 module Network.AWS.RDS.DescribeDBClusters
     (
     -- * Creating a Request

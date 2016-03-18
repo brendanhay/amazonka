@@ -29,8 +29,6 @@
 -- create a new VPN connection, you must reconfigure the customer gateway
 -- using the new configuration information returned with the new VPN
 -- connection ID.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPNConnection.html AWS API Reference> for DeleteVPNConnection.
 module Network.AWS.EC2.DeleteVPNConnection
     (
     -- * Creating a Request

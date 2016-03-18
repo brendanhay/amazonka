@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes information about the < BasePathMapping> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateBasePathMapping.html AWS API Reference> for UpdateBasePathMapping.
 module Network.AWS.APIGateway.UpdateBasePathMapping
     (
     -- * Creating a Request

@@ -25,8 +25,6 @@
 --
 -- __Caution:__ The result of the 'DeleteMLModel' operation is
 -- irreversible.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteMLModel.html AWS API Reference> for DeleteMLModel.
 module Network.AWS.MachineLearning.DeleteMLModel
     (
     -- * Creating a Request

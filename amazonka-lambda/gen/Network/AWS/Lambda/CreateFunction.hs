@@ -30,8 +30,6 @@
 --
 -- This operation requires permission for the 'lambda:CreateFunction'
 -- action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html AWS API Reference> for CreateFunction.
 module Network.AWS.Lambda.CreateFunction
     (
     -- * Creating a Request

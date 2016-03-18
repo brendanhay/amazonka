@@ -28,8 +28,6 @@
 -- This operation can only be called by the transfer destination. After it
 -- is called, the certificate will be returned to the source\'s account in
 -- the INACTIVE state.
---
--- /See:/ <https://aws.amazon.com/iot#RejectCertificateTransfer.html AWS API Reference> for RejectCertificateTransfer.
 module Network.AWS.IoT.RejectCertificateTransfer
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Unassigns one or more secondary private IP addresses from a network
 -- interface.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-UnassignPrivateIPAddresses.html AWS API Reference> for UnassignPrivateIPAddresses.
 module Network.AWS.EC2.UnassignPrivateIPAddresses
     (
     -- * Creating a Request

@@ -18,8 +18,6 @@
 -- resource-based permissions using AWS IAM so that specific users or
 -- Amazon EC2 instances can access repositories and images. Developers can
 -- use the Docker CLI to author and manage images.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/ AWS API Reference>
 module Network.AWS.ECR
     (
     -- * Service Configuration

@@ -25,8 +25,6 @@
 -- ListDatasets can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials. You should use the
 -- Cognito Identity credentials to make this API call.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListDatasets.html AWS API Reference> for ListDatasets.
 module Network.AWS.CognitoSync.ListDatasets
     (
     -- * Creating a Request

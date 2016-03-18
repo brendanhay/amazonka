@@ -24,8 +24,6 @@
 -- by the hour for a one-year term. Before you can purchase a Scheduled
 -- Instance, you must call < DescribeScheduledInstanceAvailability> to
 -- check for available schedules and obtain a purchase token.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-PurchaseScheduledInstances.html AWS API Reference> for PurchaseScheduledInstances.
 module Network.AWS.EC2.PurchaseScheduledInstances
     (
     -- * Creating a Request

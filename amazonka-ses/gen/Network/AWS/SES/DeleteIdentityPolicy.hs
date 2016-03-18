@@ -31,8 +31,6 @@
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentityPolicy.html AWS API Reference> for DeleteIdentityPolicy.
 module Network.AWS.SES.DeleteIdentityPolicy
     (
     -- * Creating a Request

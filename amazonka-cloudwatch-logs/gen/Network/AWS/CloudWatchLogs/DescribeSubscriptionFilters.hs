@@ -27,8 +27,6 @@
 -- of subscription filters returned in the response by specifying the
 -- 'limit' parameter in the request.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html AWS API Reference> for DescribeSubscriptionFilters.
---
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
     (

@@ -28,8 +28,6 @@
 -- destinations returned in the response by specifying the 'limit'
 -- parameter in the request.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDestinations.html AWS API Reference> for DescribeDestinations.
---
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeDestinations
     (

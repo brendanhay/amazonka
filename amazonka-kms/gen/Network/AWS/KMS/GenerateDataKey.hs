@@ -52,8 +52,6 @@
 -- the encryption context, if any, that you specified when you generated
 -- the key. The encryption context is logged by CloudTrail, and you can use
 -- this log to help track the use of particular data.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html AWS API Reference> for GenerateDataKey.
 module Network.AWS.KMS.GenerateDataKey
     (
     -- * Creating a Request

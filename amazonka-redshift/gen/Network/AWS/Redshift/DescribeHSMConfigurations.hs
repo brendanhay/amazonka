@@ -32,8 +32,6 @@
 -- connections are returned regardless of whether they have tag keys or
 -- values associated with them.
 --
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHSMConfigurations.html AWS API Reference> for DescribeHSMConfigurations.
---
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeHSMConfigurations
     (

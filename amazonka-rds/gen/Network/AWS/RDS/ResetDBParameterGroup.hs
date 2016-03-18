@@ -26,8 +26,6 @@
 -- dynamic parameters are updated immediately and static parameters are set
 -- to 'pending-reboot' to take effect on the next DB instance restart or
 -- 'RebootDBInstance' request.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ResetDBParameterGroup.html AWS API Reference> for ResetDBParameterGroup.
 module Network.AWS.RDS.ResetDBParameterGroup
     (
     -- * Creating a Request

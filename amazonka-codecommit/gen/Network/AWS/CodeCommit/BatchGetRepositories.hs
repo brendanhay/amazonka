@@ -26,8 +26,6 @@
 -- potentially malicious code. Make sure that you HTML-encode the
 -- description field in any application that uses this API to display the
 -- repository description on a web page.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_BatchGetRepositories.html AWS API Reference> for BatchGetRepositories.
 module Network.AWS.CodeCommit.BatchGetRepositories
     (
     -- * Creating a Request

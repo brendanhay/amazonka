@@ -23,8 +23,6 @@
 -- < GenerateDataKey>. You can use this API to, for example, satisfy an
 -- audit requirement that an encrypted key be made available without
 -- exposing the plaintext copy of that key.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.html AWS API Reference> for GenerateDataKeyWithoutPlaintext.
 module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     (
     -- * Creating a Request

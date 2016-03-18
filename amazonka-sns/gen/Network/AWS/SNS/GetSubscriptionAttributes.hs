@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns all of the properties of a subscription.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html AWS API Reference> for GetSubscriptionAttributes.
 module Network.AWS.SNS.GetSubscriptionAttributes
     (
     -- * Creating a Request

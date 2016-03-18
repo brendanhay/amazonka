@@ -27,8 +27,6 @@
 --
 -- You can check the state of a rule by using the 'DescribeConfigRules'
 -- request.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConfigRule.html AWS API Reference> for DeleteConfigRule.
 module Network.AWS.Config.DeleteConfigRule
     (
     -- * Creating a Request

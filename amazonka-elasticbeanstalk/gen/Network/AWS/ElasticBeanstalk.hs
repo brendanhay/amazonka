@@ -36,8 +36,6 @@
 -- supports, go to
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region Regions and Endpoints>
 -- in the /Amazon Web Services Glossary/.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/Welcome.html AWS API Reference>
 module Network.AWS.ElasticBeanstalk
     (
     -- * Service Configuration

@@ -33,8 +33,6 @@
 -- This operation requires permission for the
 -- 'lambda:ListEventSourceMappings' action.
 --
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_ListEventSourceMappings.html AWS API Reference> for ListEventSourceMappings.
---
 -- This operation returns paginated results.
 module Network.AWS.Lambda.ListEventSourceMappings
     (

@@ -23,8 +23,6 @@
 --
 -- __Note__ This is the only time AWS IoT issues the private key for this
 -- certificate, so it is important to keep it in a secure location.
---
--- /See:/ <https://aws.amazon.com/iot#CreateKeysAndCertificate.html AWS API Reference> for CreateKeysAndCertificate.
 module Network.AWS.IoT.CreateKeysAndCertificate
     (
     -- * Creating a Request

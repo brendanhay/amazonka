@@ -24,8 +24,6 @@
 -- Cache storage must be allocated to the gateway before you can create a
 -- virtual tape. Use the < AddCache> operation to add cache storage to a
 -- gateway.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateTapeWithBarcode.html AWS API Reference> for CreateTapeWithBarcode.
 module Network.AWS.StorageGateway.CreateTapeWithBarcode
     (
     -- * Creating a Request

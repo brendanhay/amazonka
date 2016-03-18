@@ -25,8 +25,6 @@
 -- information, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html NAT Gateways>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNatGateway.html AWS API Reference> for CreateNatGateway.
 module Network.AWS.EC2.CreateNatGateway
     (
     -- * Creating a Request

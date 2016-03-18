@@ -20,8 +20,6 @@
 --
 -- Lists the services that are running in a specified cluster.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html AWS API Reference> for ListServices.
---
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListServices
     (

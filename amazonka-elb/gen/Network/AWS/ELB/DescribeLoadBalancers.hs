@@ -21,8 +21,6 @@
 -- Describes the specified the load balancers. If no load balancers are
 -- specified, the call describes all of your load balancers.
 --
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancers.html AWS API Reference> for DescribeLoadBalancers.
---
 -- This operation returns paginated results.
 module Network.AWS.ELB.DescribeLoadBalancers
     (

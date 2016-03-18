@@ -31,8 +31,6 @@
 -- use this action to manage root credentials even if the AWS account has
 -- no associated users.
 --
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSigningCertificates.html AWS API Reference> for ListSigningCertificates.
---
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListSigningCertificates
     (

@@ -76,8 +76,6 @@
 -- according to the type of read. For more information, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations Capacity Units Calculations>
 -- in the /Amazon DynamoDB Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchGetItem.html AWS API Reference> for BatchGetItem.
 module Network.AWS.DynamoDB.BatchGetItem
     (
     -- * Creating a Request

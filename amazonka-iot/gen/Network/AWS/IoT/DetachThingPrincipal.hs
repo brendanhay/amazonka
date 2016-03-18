@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Detaches the specified principal from the specified thing.
---
--- /See:/ <https://aws.amazon.com/iot#DetachThingPrincipal.html AWS API Reference> for DetachThingPrincipal.
 module Network.AWS.IoT.DetachThingPrincipal
     (
     -- * Creating a Request

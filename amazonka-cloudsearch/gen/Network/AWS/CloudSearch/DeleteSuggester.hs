@@ -21,8 +21,6 @@
 -- Deletes a suggester. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteSuggester.html AWS API Reference> for DeleteSuggester.
 module Network.AWS.CloudSearch.DeleteSuggester
     (
     -- * Creating a Request

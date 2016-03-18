@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes information about a deployment group.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateDeploymentGroup.html AWS API Reference> for UpdateDeploymentGroup.
 module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     (
     -- * Creating a Request

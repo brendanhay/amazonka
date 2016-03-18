@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified thing from the Thing Registry.
---
--- /See:/ <https://aws.amazon.com/iot#DeleteThing.html AWS API Reference> for DeleteThing.
 module Network.AWS.IoT.DeleteThing
     (
     -- * Creating a Request

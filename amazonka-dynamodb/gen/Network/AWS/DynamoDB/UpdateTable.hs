@@ -38,8 +38,6 @@
 -- 'UPDATING', you cannot issue another /UpdateTable/ request. When the
 -- table returns to the 'ACTIVE' state, the /UpdateTable/ operation is
 -- complete.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html AWS API Reference> for UpdateTable.
 module Network.AWS.DynamoDB.UpdateTable
     (
     -- * Creating a Request

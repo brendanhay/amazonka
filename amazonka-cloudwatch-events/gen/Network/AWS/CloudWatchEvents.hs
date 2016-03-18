@@ -29,8 +29,6 @@
 --
 -- For more information about Amazon CloudWatch Events features, see the
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide Amazon CloudWatch Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/ AWS API Reference>
 module Network.AWS.CloudWatchEvents
     (
     -- * Service Configuration

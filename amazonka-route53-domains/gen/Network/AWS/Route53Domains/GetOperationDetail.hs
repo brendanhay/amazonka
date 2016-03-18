@@ -20,8 +20,6 @@
 --
 -- This operation returns the current status of an operation that is not
 -- completed.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-GetOperationDetail.html AWS API Reference> for GetOperationDetail.
 module Network.AWS.Route53Domains.GetOperationDetail
     (
     -- * Creating a Request

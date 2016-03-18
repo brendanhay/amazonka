@@ -25,8 +25,6 @@
 -- can also specify the VPC route tables that use the endpoint.
 --
 -- Currently, only endpoints to Amazon S3 are supported.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVPCEndpoint.html AWS API Reference> for CreateVPCEndpoint.
 module Network.AWS.EC2.CreateVPCEndpoint
     (
     -- * Creating a Request

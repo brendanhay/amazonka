@@ -22,8 +22,6 @@
 -- identities that you want to delete.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DeleteIdentities.html AWS API Reference> for DeleteIdentities.
 module Network.AWS.CognitoIdentity.DeleteIdentities
     (
     -- * Creating a Request

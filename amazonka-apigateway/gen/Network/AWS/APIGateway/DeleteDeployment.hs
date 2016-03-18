@@ -20,8 +20,6 @@
 --
 -- Deletes a < Deployment> resource. Deleting a deployment will only
 -- succeed if there are no < Stage> resources associated with it.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteDeployment.html AWS API Reference> for DeleteDeployment.
 module Network.AWS.APIGateway.DeleteDeployment
     (
     -- * Creating a Request

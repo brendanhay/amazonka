@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the current < Account> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetAccount.html AWS API Reference> for GetAccount.
 module Network.AWS.APIGateway.GetAccount
     (
     -- * Creating a Request

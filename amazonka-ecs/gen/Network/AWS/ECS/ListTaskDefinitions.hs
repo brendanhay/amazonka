@@ -22,8 +22,6 @@
 -- You can filter the results by family name with the 'familyPrefix'
 -- parameter or by status with the 'status' parameter.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTaskDefinitions.html AWS API Reference> for ListTaskDefinitions.
---
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListTaskDefinitions
     (

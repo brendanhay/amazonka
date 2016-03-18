@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateAuthorizer.html AWS API Reference> for CreateAuthorizer.
 module Network.AWS.APIGateway.CreateAuthorizer
     (
     -- * Creating a Request

@@ -35,8 +35,6 @@
 -- If Amazon ML cannot accept the input source, it sets the 'Status'
 -- parameter to 'FAILED' and includes an error message in the 'Message'
 -- attribute of the < GetDataSource> operation response.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateDataSourceFromRDS.html AWS API Reference> for CreateDataSourceFromRDS.
 module Network.AWS.MachineLearning.CreateDataSourceFromRDS
     (
     -- * Creating a Request

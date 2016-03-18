@@ -25,8 +25,6 @@
 -- The OpenId token is valid for 15 minutes.
 --
 -- This is a public API. You do not need any credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdToken.html AWS API Reference> for GetOpenIdToken.
 module Network.AWS.CognitoIdentity.GetOpenIdToken
     (
     -- * Creating a Request

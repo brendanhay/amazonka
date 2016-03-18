@@ -27,8 +27,6 @@
 --
 -- This operation requires permission for the
 -- 'elasticfilesystem:CreateTags' action.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateTags.html AWS API Reference> for CreateTags.
 module Network.AWS.EFS.CreateTags
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Creates an assessment for the application specified by the application
 -- ARN. You can create up to 500 assessments per AWS account.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_CreateAssessment.html AWS API Reference> for CreateAssessment.
 module Network.AWS.Inspector.CreateAssessment
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Returns the < Rule> that is specified by the 'RuleId' that you included
 -- in the 'GetRule' request.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetRule.html AWS API Reference> for GetRule.
 module Network.AWS.WAF.GetRule
     (
     -- * Creating a Request

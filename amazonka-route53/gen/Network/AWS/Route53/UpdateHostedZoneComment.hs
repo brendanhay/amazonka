@@ -25,8 +25,6 @@
 -- includes the modified 'HostedZone' element.
 --
 -- The comment can have a maximum length of 256 characters.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneComment.html AWS API Reference> for UpdateHostedZoneComment.
 module Network.AWS.Route53.UpdateHostedZoneComment
     (
     -- * Creating a Request

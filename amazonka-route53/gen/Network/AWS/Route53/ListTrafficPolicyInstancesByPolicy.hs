@@ -66,8 +66,6 @@
 --     If 'IsTruncated' is 'false', all three elements are omitted from the
 --     response.
 --
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicyInstancesByPolicy.html AWS API Reference> for ListTrafficPolicyInstancesByPolicy.
 module Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
     (
     -- * Creating a Request

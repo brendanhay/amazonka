@@ -25,8 +25,6 @@
 -- instance ID. ListCommandInvocations provide status about command
 -- execution.
 --
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListCommandInvocations.html AWS API Reference> for ListCommandInvocations.
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListCommandInvocations
     (

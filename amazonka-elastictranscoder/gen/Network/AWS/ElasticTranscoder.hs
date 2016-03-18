@@ -14,8 +14,6 @@
 -- AWS Elastic Transcoder Service
 --
 -- The AWS Elastic Transcoder Service.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html AWS API Reference>
 module Network.AWS.ElasticTranscoder
     (
     -- * Service Configuration

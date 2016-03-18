@@ -22,8 +22,6 @@
 -- push notification services, such as GCM and APNS. For more information,
 -- see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_GetEndpointAttributes.html AWS API Reference> for GetEndpointAttributes.
 module Network.AWS.SNS.GetEndpointAttributes
     (
     -- * Creating a Request

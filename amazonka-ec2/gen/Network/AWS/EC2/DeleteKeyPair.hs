@@ -20,8 +20,6 @@
 --
 -- Deletes the specified key pair, by removing the public key from Amazon
 -- EC2.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteKeyPair.html AWS API Reference> for DeleteKeyPair.
 module Network.AWS.EC2.DeleteKeyPair
     (
     -- * Creating a Request

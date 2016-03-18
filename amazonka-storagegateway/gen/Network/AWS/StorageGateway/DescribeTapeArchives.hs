@@ -25,8 +25,6 @@
 -- description of all virtual tapes found in the VTS associated with your
 -- account.
 --
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeArchives.html AWS API Reference> for DescribeTapeArchives.
---
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeTapeArchives
     (

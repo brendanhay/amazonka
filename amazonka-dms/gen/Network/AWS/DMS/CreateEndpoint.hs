@@ -20,8 +20,6 @@
 --
 -- Creates an endpoint using the provided settings.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateEndpoint.html AWS API Reference> for CreateEndpoint.
 module Network.AWS.DMS.CreateEndpoint
     (
     -- * Creating a Request

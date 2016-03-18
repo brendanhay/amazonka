@@ -48,8 +48,6 @@
 -- application, you will probably want to make API calls via the AWS Mobile
 -- SDK. To learn more, see the
 -- <http://docs.aws.amazon.com/mobile/index.html AWS Mobile SDK Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CognitoIdentity
     (
     -- * Service Configuration

@@ -28,8 +28,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html Attach EC2 Instances to Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AttachInstances.html AWS API Reference> for AttachInstances.
 module Network.AWS.AutoScaling.AttachInstances
     (
     -- * Creating a Request

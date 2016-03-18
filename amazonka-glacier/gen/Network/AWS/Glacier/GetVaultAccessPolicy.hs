@@ -25,8 +25,6 @@
 -- '404 Not found' error. For more information about vault access policies,
 -- see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetVaultAccessPolicy.html AWS API Reference> for GetVaultAccessPolicy.
 module Network.AWS.Glacier.GetVaultAccessPolicy
     (
     -- * Creating a Request

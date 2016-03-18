@@ -24,8 +24,6 @@
 -- channel and the configuration recorder is still running. To delete the
 -- delivery channel, stop the running configuration recorder using the
 -- < StopConfigurationRecorder> action.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DeleteDeliveryChannel.html AWS API Reference> for DeleteDeliveryChannel.
 module Network.AWS.Config.DeleteDeliveryChannel
     (
     -- * Creating a Request

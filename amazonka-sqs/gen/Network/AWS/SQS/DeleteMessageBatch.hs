@@ -33,8 +33,6 @@
 -- '&Attribute.1=this'
 --
 -- '&Attribute.2=that'
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html AWS API Reference> for DeleteMessageBatch.
 module Network.AWS.SQS.DeleteMessageBatch
     (
     -- * Creating a Request

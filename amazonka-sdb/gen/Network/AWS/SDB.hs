@@ -28,8 +28,6 @@
 -- pay only for what they use.
 --
 -- Visit <http://aws.amazon.com/simpledb/> for more information.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API.html AWS API Reference>
 module Network.AWS.SDB
     (
     -- * Service Configuration

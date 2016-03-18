@@ -20,8 +20,6 @@
 --
 -- To retrieve a count of all your hosted zones, send a 'GET' request to
 -- the '\/Route 53 API version\/hostedzonecount' resource.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneCount.html AWS API Reference> for GetHostedZoneCount.
 module Network.AWS.Route53.GetHostedZoneCount
     (
     -- * Creating a Request

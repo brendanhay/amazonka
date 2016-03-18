@@ -23,8 +23,6 @@
 --
 -- For more information, see the
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide Amazon CloudSearch Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html AWS API Reference>
 module Network.AWS.CloudSearchDomains
     (
     -- * Service Configuration

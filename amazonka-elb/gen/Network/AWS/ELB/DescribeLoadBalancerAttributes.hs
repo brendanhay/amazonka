@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the attributes for the specified load balancer.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerAttributes.html AWS API Reference> for DescribeLoadBalancerAttributes.
 module Network.AWS.ELB.DescribeLoadBalancerAttributes
     (
     -- * Creating a Request

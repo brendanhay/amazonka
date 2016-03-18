@@ -20,8 +20,6 @@
 --
 -- Deletes the specified subnet. You must terminate all running instances
 -- in the subnet before you can delete the subnet.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSubnet.html AWS API Reference> for DeleteSubnet.
 module Network.AWS.EC2.DeleteSubnet
     (
     -- * Creating a Request

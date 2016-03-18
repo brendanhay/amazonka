@@ -50,8 +50,6 @@
 -- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterWorkflowType.html AWS API Reference> for RegisterWorkflowType.
 module Network.AWS.SWF.RegisterWorkflowType
     (
     -- * Creating a Request

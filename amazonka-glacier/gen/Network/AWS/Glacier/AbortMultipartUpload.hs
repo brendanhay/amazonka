@@ -40,8 +40,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html Abort Multipart Upload>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-AbortMultipartUpload.html AWS API Reference> for AbortMultipartUpload.
 module Network.AWS.Glacier.AbortMultipartUpload
     (
     -- * Creating a Request

@@ -28,8 +28,6 @@
 -- HSM client certificate. For more information, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules>
 -- in the Amazon Redshift Cluster Management Guide.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHSMConfiguration.html AWS API Reference> for CreateHSMConfiguration.
 module Network.AWS.Redshift.CreateHSMConfiguration
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Returns the number of AWS Config rules that are compliant and
 -- noncompliant, up to a maximum of 25 for each.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_GetComplianceSummaryByConfigRule.html AWS API Reference> for GetComplianceSummaryByConfigRule.
 module Network.AWS.Config.GetComplianceSummaryByConfigRule
     (
     -- * Creating a Request

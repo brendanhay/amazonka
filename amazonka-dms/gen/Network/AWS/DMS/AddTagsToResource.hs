@@ -20,8 +20,6 @@
 --
 -- For internal use only
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/AddTagsToResource.html AWS API Reference> for AddTagsToResource.
 module Network.AWS.DMS.AddTagsToResource
     (
     -- * Creating a Request

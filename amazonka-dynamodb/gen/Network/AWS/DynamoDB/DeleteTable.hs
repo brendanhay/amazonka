@@ -38,8 +38,6 @@
 -- the stream is automatically deleted after 24 hours.
 --
 -- Use the /DescribeTable/ API to check the status of the table.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteTable.html AWS API Reference> for DeleteTable.
 module Network.AWS.DynamoDB.DeleteTable
     (
     -- * Creating a Request

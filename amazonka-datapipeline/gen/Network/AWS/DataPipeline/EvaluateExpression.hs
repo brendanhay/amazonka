@@ -21,8 +21,6 @@
 -- Task runners call 'EvaluateExpression' to evaluate a string in the
 -- context of the specified object. For example, a task runner can evaluate
 -- SQL queries stored in Amazon S3.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_EvaluateExpression.html AWS API Reference> for EvaluateExpression.
 module Network.AWS.DataPipeline.EvaluateExpression
     (
     -- * Creating a Request

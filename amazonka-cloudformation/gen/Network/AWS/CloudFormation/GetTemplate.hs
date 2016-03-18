@@ -25,8 +25,6 @@
 -- after the stack has been deleted.
 --
 -- If the template does not exist, a 'ValidationError' is returned.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplate.html AWS API Reference> for GetTemplate.
 module Network.AWS.CloudFormation.GetTemplate
     (
     -- * Creating a Request

@@ -48,8 +48,6 @@
 -- to
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html Amazon CloudWatch Metrics, Namespaces, and Dimensions Reference>
 -- in the /Amazon CloudWatch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html AWS API Reference> for GetMetricStatistics.
 module Network.AWS.CloudWatch.GetMetricStatistics
     (
     -- * Creating a Request

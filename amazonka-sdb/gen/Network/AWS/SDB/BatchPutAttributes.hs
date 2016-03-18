@@ -66,8 +66,6 @@
 -- -   1 billion attributes per domain
 -- -   10 GB of total user data storage per domain
 -- -   25 item limit per 'BatchPutAttributes' operation
---
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_BatchPutAttributes.html AWS API Reference> for BatchPutAttributes.
 module Network.AWS.SDB.BatchPutAttributes
     (
     -- * Creating a Request

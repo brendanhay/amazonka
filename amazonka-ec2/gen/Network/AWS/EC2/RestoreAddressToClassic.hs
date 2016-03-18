@@ -25,8 +25,6 @@
 -- You cannot restore an Elastic IP address that\'s associated with a
 -- reverse DNS record. Contact AWS account and billing support to remove
 -- the reverse DNS record.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RestoreAddressToClassic.html AWS API Reference> for RestoreAddressToClassic.
 module Network.AWS.EC2.RestoreAddressToClassic
     (
     -- * Creating a Request

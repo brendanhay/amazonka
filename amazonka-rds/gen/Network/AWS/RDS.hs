@@ -40,8 +40,6 @@
 -- applied immediately, on the next instance reboot, or during the
 -- maintenance window. For a summary of the Amazon RDS interfaces, go to
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html#Welcome.Interfaces Available RDS Interfaces>.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.RDS
     (
     -- * Service Configuration

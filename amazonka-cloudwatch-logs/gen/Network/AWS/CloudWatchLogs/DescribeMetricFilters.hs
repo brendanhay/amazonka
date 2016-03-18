@@ -27,8 +27,6 @@
 -- filters returned in the response by specifying the 'limit' parameter in
 -- the request.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeMetricFilters.html AWS API Reference> for DescribeMetricFilters.
---
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     (

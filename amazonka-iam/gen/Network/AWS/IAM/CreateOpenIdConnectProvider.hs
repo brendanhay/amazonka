@@ -36,8 +36,6 @@
 -- Because trust for the OIDC provider is ultimately derived from the IAM
 -- provider that this action creates, it is a best practice to limit access
 -- to the < CreateOpenIDConnectProvider> action to highly-privileged users.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIdConnectProvider.html AWS API Reference> for CreateOpenIdConnectProvider.
 module Network.AWS.IAM.CreateOpenIdConnectProvider
     (
     -- * Creating a Request

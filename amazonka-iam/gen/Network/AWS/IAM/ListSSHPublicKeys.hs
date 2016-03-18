@@ -30,8 +30,6 @@
 --
 -- Although each user is limited to a small number of keys, you can still
 -- paginate the results using the 'MaxItems' and 'Marker' parameters.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSSHPublicKeys.html AWS API Reference> for ListSSHPublicKeys.
 module Network.AWS.IAM.ListSSHPublicKeys
     (
     -- * Creating a Request

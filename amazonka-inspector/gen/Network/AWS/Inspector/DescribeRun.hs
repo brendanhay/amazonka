@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the assessment run specified by the run ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DescribeRun.html AWS API Reference> for DescribeRun.
 module Network.AWS.Inspector.DescribeRun
     (
     -- * Creating a Request

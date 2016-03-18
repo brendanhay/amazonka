@@ -108,8 +108,6 @@
 --         job failure, and
 --     -   < PutThirdPartyJobSuccessResult>, which provides details of a
 --         job success.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CodePipeline
     (
     -- * Service Configuration

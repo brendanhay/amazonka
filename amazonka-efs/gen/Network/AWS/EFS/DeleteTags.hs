@@ -27,8 +27,6 @@
 --
 -- This operation requires permission for the
 -- 'elasticfilesystem:DeleteTags' action.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteTags.html AWS API Reference> for DeleteTags.
 module Network.AWS.EFS.DeleteTags
     (
     -- * Creating a Request

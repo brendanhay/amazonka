@@ -16,8 +16,6 @@
 -- This is the /AWS Directory Service API Reference/. This guide provides
 -- detailed information about AWS Directory Service operations, data types,
 -- parameters, and errors.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/welcome.html AWS API Reference>
 module Network.AWS.DirectoryService
     (
     -- * Service Configuration

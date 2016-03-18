@@ -27,8 +27,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html Regions and Availability Zones>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAvailabilityZones.html AWS API Reference> for DescribeAvailabilityZones.
 module Network.AWS.EC2.DescribeAvailabilityZones
     (
     -- * Creating a Request

@@ -21,8 +21,6 @@
 -- Creates a replication subnet group given a list of the subnet IDs in a
 -- VPC.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateReplicationSubnetGroup.html AWS API Reference> for CreateReplicationSubnetGroup.
 module Network.AWS.DMS.CreateReplicationSubnetGroup
     (
     -- * Creating a Request

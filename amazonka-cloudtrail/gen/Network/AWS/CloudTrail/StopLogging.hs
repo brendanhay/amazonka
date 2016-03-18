@@ -26,8 +26,6 @@
 -- or an 'InvalidHomeRegionException' will occur. This operation cannot be
 -- called on the shadow trails (replicated trails in other regions) of a
 -- trail enabled in all regions.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html AWS API Reference> for StopLogging.
 module Network.AWS.CloudTrail.StopLogging
     (
     -- * Creating a Request

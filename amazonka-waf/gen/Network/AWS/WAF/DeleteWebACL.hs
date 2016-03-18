@@ -28,8 +28,6 @@
 -- 2.  Use < GetChangeToken> to get the change token that you provide in
 --     the 'ChangeToken' parameter of a 'DeleteWebACL' request.
 -- 3.  Submit a 'DeleteWebACL' request.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteWebACL.html AWS API Reference> for DeleteWebACL.
 module Network.AWS.WAF.DeleteWebACL
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves objects from Amazon S3.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObject.html AWS API Reference> for GetObject.
 module Network.AWS.S3.GetObject
     (
     -- * Creating a Request

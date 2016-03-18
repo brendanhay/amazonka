@@ -20,8 +20,6 @@
 --
 -- Return a list of connections that have been provisioned on the given
 -- interconnect.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnectionsOnInterconnect.html AWS API Reference> for DescribeConnectionsOnInterconnect.
 module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     (
     -- * Creating a Request

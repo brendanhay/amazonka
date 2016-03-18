@@ -21,8 +21,6 @@
 -- Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to
 -- a gateway after the retrieval process is initiated. The virtual tape is
 -- returned to the VTS.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CancelRetrieval.html AWS API Reference> for CancelRetrieval.
 module Network.AWS.StorageGateway.CancelRetrieval
     (
     -- * Creating a Request

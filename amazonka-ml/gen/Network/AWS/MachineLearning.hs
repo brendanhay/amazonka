@@ -12,8 +12,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Definition of the public APIs exposed by Amazon Machine Learning
---
--- /See:/ <http://docs.aws.amazon.com/machine-learning/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.MachineLearning
     (
     -- * Service Configuration

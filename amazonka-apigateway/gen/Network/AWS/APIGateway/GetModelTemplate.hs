@@ -20,8 +20,6 @@
 --
 -- Generates a sample mapping template that can be used to transform a
 -- payload into the structure of a model.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetModelTemplate.html AWS API Reference> for GetModelTemplate.
 module Network.AWS.APIGateway.GetModelTemplate
     (
     -- * Creating a Request

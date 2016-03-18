@@ -20,8 +20,6 @@
 --
 -- Gets information about one or more instance that are part of a
 -- deployment group.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetDeploymentInstances.html AWS API Reference> for BatchGetDeploymentInstances.
 module Network.AWS.CodeDeploy.BatchGetDeploymentInstances
     (
     -- * Creating a Request

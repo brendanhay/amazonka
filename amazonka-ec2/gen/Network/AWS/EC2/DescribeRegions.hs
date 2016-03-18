@@ -22,8 +22,6 @@
 --
 -- For a list of the regions supported by Amazon EC2, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region Regions and Endpoints>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRegions.html AWS API Reference> for DescribeRegions.
 module Network.AWS.EC2.DescribeRegions
     (
     -- * Creating a Request

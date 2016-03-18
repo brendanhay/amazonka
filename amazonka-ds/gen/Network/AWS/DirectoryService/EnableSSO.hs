@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables single-sign on for a directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_EnableSSO.html AWS API Reference> for EnableSSO.
 module Network.AWS.DirectoryService.EnableSSO
     (
     -- * Creating a Request

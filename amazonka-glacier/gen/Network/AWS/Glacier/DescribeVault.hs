@@ -41,8 +41,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-get.html Describe Vault>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DescribeVault.html AWS API Reference> for DescribeVault.
 module Network.AWS.Glacier.DescribeVault
     (
     -- * Creating a Request

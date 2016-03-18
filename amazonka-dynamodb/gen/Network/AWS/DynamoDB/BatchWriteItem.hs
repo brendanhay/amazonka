@@ -95,8 +95,6 @@
 --
 -- -   The total request size exceeds 16 MB.
 --
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchWriteItem.html AWS API Reference> for BatchWriteItem.
 module Network.AWS.DynamoDB.BatchWriteItem
     (
     -- * Creating a Request

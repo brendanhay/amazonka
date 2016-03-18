@@ -88,8 +88,6 @@
 --     -   < PutScalingPolicy>
 --     -   < DescribeScalingPolicies>
 --     -   < DeleteScalingPolicy>
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/ AWS API Reference>
 module Network.AWS.GameLift
     (
     -- * Service Configuration

@@ -20,8 +20,6 @@
 --
 -- Validates the specified pipeline definition to ensure that it is well
 -- formed and can be run without error.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ValidatePipelineDefinition.html AWS API Reference> for ValidatePipelineDefinition.
 module Network.AWS.DataPipeline.ValidatePipelineDefinition
     (
     -- * Creating a Request

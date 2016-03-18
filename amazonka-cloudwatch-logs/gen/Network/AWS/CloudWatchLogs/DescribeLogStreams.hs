@@ -29,8 +29,6 @@
 -- request. This operation has a limit of five transactions per second,
 -- after which transactions are throttled.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html AWS API Reference> for DescribeLogStreams.
---
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeLogStreams
     (

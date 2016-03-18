@@ -32,8 +32,6 @@
 -- 'NewTableName' parameter value in the call to
 -- 'RestoreTableFromClusterSnapshot'. This way, you can replace the
 -- original table with the table created from the snapshot.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RestoreTableFromClusterSnapshot.html AWS API Reference> for RestoreTableFromClusterSnapshot.
 module Network.AWS.Redshift.RestoreTableFromClusterSnapshot
     (
     -- * Creating a Request

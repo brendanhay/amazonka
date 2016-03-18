@@ -39,8 +39,6 @@
 -- you do not specify either the SourceType nor the SourceIdentifier, you
 -- will be notified of events generated from all RDS sources belonging to
 -- your customer account.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateEventSubscription.html AWS API Reference> for CreateEventSubscription.
 module Network.AWS.RDS.CreateEventSubscription
     (
     -- * Creating a Request

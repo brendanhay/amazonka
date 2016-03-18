@@ -26,8 +26,6 @@
 -- application requires a strongly consistent read, set /ConsistentRead/ to
 -- 'true'. Although a strongly consistent read might take more time than an
 -- eventually consistent read, it always returns the last updated value.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html AWS API Reference> for GetItem.
 module Network.AWS.DynamoDB.GetItem
     (
     -- * Creating a Request

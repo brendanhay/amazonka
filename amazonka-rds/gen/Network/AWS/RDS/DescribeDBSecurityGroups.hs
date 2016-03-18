@@ -22,8 +22,6 @@
 -- 'DBSecurityGroupName' is specified, the list will contain only the
 -- descriptions of the specified DB security group.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSecurityGroups.html AWS API Reference> for DescribeDBSecurityGroups.
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBSecurityGroups
     (

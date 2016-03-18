@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a deployment configuration.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentConfig.html AWS API Reference> for CreateDeploymentConfig.
 module Network.AWS.CodeDeploy.CreateDeploymentConfig
     (
     -- * Creating a Request

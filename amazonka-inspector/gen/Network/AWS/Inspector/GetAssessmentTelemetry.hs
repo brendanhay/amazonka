@@ -20,8 +20,6 @@
 --
 -- Returns the metadata about the telemetry (application behavioral data)
 -- for the assessment specified by the assessment ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_GetAssessmentTelemetry.html AWS API Reference> for GetAssessmentTelemetry.
 module Network.AWS.Inspector.GetAssessmentTelemetry
     (
     -- * Creating a Request

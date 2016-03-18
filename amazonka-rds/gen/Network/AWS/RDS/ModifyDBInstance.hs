@@ -21,8 +21,6 @@
 -- Modify settings for a DB instance. You can change one or more database
 -- configuration parameters by specifying these parameters and the new
 -- values in the request.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html AWS API Reference> for ModifyDBInstance.
 module Network.AWS.RDS.ModifyDBInstance
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the < IPSet> that is specified by 'IPSetId'.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetIPSet.html AWS API Reference> for GetIPSet.
 module Network.AWS.WAF.GetIPSet
     (
     -- * Creating a Request

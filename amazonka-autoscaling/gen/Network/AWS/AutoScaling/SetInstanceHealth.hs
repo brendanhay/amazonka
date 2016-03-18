@@ -23,8 +23,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetInstanceHealth.html AWS API Reference> for SetInstanceHealth.
 module Network.AWS.AutoScaling.SetInstanceHealth
     (
     -- * Creating a Request

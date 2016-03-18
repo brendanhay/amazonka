@@ -23,8 +23,6 @@
 --
 -- This action is idempotent; it does not fail or return an error if you
 -- add an existing client ID to the provider.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddClientIdToOpenIdConnectProvider.html AWS API Reference> for AddClientIdToOpenIdConnectProvider.
 module Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
     (
     -- * Creating a Request

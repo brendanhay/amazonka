@@ -23,8 +23,6 @@
 -- For more information about subnets, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html Your VPC and Subnets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSubnets.html AWS API Reference> for DescribeSubnets.
 module Network.AWS.EC2.DescribeSubnets
     (
     -- * Creating a Request

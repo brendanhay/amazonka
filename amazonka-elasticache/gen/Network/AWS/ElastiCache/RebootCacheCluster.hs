@@ -29,8 +29,6 @@
 -- rebooted) to be lost.
 --
 -- When the reboot is complete, a cache cluster event is created.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RebootCacheCluster.html AWS API Reference> for RebootCacheCluster.
 module Network.AWS.ElastiCache.RebootCacheCluster
     (
     -- * Creating a Request

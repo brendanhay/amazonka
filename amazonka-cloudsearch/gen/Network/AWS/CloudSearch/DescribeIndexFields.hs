@@ -25,8 +25,6 @@
 -- pending changes. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html Getting Domain Information>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeIndexFields.html AWS API Reference> for DescribeIndexFields.
 module Network.AWS.CloudSearch.DescribeIndexFields
     (
     -- * Creating a Request

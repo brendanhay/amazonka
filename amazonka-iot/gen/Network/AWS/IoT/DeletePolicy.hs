@@ -30,8 +30,6 @@
 --
 -- When a policy is deleted using DeletePolicy, its default version is
 -- deleted with it.
---
--- /See:/ <https://aws.amazon.com/iot#DeletePolicy.html AWS API Reference> for DeletePolicy.
 module Network.AWS.IoT.DeletePolicy
     (
     -- * Creating a Request

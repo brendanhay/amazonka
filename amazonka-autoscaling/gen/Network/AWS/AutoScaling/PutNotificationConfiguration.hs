@@ -27,8 +27,6 @@
 -- in the /Auto Scaling Developer Guide/.
 --
 -- This configuration overwrites an existing configuration.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutNotificationConfiguration.html AWS API Reference> for PutNotificationConfiguration.
 module Network.AWS.AutoScaling.PutNotificationConfiguration
     (
     -- * Creating a Request

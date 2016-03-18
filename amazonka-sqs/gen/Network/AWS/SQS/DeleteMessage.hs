@@ -40,8 +40,6 @@
 -- again on a subsequent receive request. You should create your system to
 -- be idempotent so that receiving a particular message more than once is
 -- not a problem.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessage.html AWS API Reference> for DeleteMessage.
 module Network.AWS.SQS.DeleteMessage
     (
     -- * Creating a Request

@@ -28,8 +28,6 @@
 -- For more information about using a password policy, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAM Password Policy>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html AWS API Reference> for UpdateAccountPasswordPolicy.
 module Network.AWS.IAM.UpdateAccountPasswordPolicy
     (
     -- * Creating a Request

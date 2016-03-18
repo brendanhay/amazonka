@@ -37,8 +37,6 @@
 -- configuration service 'DescribeDomains' action. A domain\'s endpoints
 -- are also displayed on the domain dashboard in the Amazon CloudSearch
 -- console.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_Suggest.html AWS API Reference> for Suggest.
 module Network.AWS.CloudSearchDomains.Suggest
     (
     -- * Creating a Request

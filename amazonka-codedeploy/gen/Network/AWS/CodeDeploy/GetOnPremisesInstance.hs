@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an on-premises instance.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetOnPremisesInstance.html AWS API Reference> for GetOnPremisesInstance.
 module Network.AWS.CodeDeploy.GetOnPremisesInstance
     (
     -- * Creating a Request

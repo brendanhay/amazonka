@@ -23,8 +23,6 @@
 --
 -- For more information about your VPC and Internet gateway, see the
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual Private Cloud User Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateInternetGateway.html AWS API Reference> for CreateInternetGateway.
 module Network.AWS.EC2.CreateInternetGateway
     (
     -- * Creating a Request

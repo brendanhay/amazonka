@@ -29,8 +29,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DetachInstances.html AWS API Reference> for DetachInstances.
 module Network.AWS.AutoScaling.DetachInstances
     (
     -- * Creating a Request

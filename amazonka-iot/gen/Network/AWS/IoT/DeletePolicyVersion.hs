@@ -22,8 +22,6 @@
 -- the default version of a policy using this API. To delete the default
 -- version of a policy, use < DeletePolicy>. To find out which version of a
 -- policy is marked as the default version, use ListPolicyVersions.
---
--- /See:/ <https://aws.amazon.com/iot#DeletePolicyVersion.html AWS API Reference> for DeletePolicyVersion.
 module Network.AWS.IoT.DeletePolicyVersion
     (
     -- * Creating a Request

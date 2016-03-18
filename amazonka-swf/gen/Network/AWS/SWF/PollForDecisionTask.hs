@@ -63,8 +63,6 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_PollForDecisionTask.html AWS API Reference> for PollForDecisionTask.
---
 -- This operation returns paginated results.
 module Network.AWS.SWF.PollForDecisionTask
     (

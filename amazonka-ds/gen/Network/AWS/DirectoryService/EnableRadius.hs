@@ -20,8 +20,6 @@
 --
 -- Enables multi-factor authentication (MFA) with the Remote Authentication
 -- Dial In User Service (RADIUS) server for an AD Connector directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_EnableRadius.html AWS API Reference> for EnableRadius.
 module Network.AWS.DirectoryService.EnableRadius
     (
     -- * Creating a Request

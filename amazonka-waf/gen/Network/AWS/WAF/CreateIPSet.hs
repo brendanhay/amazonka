@@ -39,8 +39,6 @@
 -- For more information about how to use the AWS WAF API to allow or block
 -- HTTP requests, see the
 -- <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_CreateIPSet.html AWS API Reference> for CreateIPSet.
 module Network.AWS.WAF.CreateIPSet
     (
     -- * Creating a Request

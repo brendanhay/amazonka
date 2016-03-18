@@ -22,8 +22,6 @@
 -- it is not intended for use outside of the agent.
 --
 -- Sent to acknowledge that a container changed states.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_SubmitContainerStateChange.html AWS API Reference> for SubmitContainerStateChange.
 module Network.AWS.ECS.SubmitContainerStateChange
     (
     -- * Creating a Request

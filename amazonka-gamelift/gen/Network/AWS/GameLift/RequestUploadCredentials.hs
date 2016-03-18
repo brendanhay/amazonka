@@ -31,8 +31,6 @@
 -- a limited lifespan. You can get fresh credentials and use them to
 -- re-upload game files until the state of that build changes to READY.
 -- Once this happens, you must create a brand new build.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/RequestUploadCredentials.html AWS API Reference> for RequestUploadCredentials.
 module Network.AWS.GameLift.RequestUploadCredentials
     (
     -- * Creating a Request

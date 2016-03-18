@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the repository policy from a specified repository.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteRepositoryPolicy.html AWS API Reference> for DeleteRepositoryPolicy.
 module Network.AWS.ECR.DeleteRepositoryPolicy
     (
     -- * Creating a Request

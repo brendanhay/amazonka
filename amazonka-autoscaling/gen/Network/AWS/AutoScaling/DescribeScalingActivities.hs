@@ -23,8 +23,6 @@
 -- from the past six weeks. Activities are sorted by the start time.
 -- Activities still in progress appear first on the list.
 --
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingActivities.html AWS API Reference> for DescribeScalingActivities.
---
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeScalingActivities
     (

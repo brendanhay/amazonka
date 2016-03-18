@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the tags for a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketTagging.html AWS API Reference> for PutBucketTagging.
 module Network.AWS.S3.PutBucketTagging
     (
     -- * Creating a Request

@@ -21,8 +21,6 @@
 -- Describes one or more launch configurations. If you omit the list of
 -- names, then the call describes all launch configurations.
 --
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLaunchConfigurations.html AWS API Reference> for DescribeLaunchConfigurations.
---
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     (

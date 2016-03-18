@@ -38,8 +38,6 @@
 -- groups are returned regardless of whether they have tag keys or values
 -- associated with them.
 --
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameterGroups.html AWS API Reference> for DescribeClusterParameterGroups.
---
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeClusterParameterGroups
     (

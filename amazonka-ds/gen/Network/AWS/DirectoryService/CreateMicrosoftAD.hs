@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a Microsoft AD in the AWS cloud.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateMicrosoftAD.html AWS API Reference> for CreateMicrosoftAD.
 module Network.AWS.DirectoryService.CreateMicrosoftAD
     (
     -- * Creating a Request

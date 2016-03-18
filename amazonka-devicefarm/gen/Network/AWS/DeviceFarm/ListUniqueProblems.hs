@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about unique problems.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListUniqueProblems.html AWS API Reference> for ListUniqueProblems.
 module Network.AWS.DeviceFarm.ListUniqueProblems
     (
     -- * Creating a Request

@@ -30,8 +30,6 @@
 -- -   Digits: 'www.digits.com'
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_CreateIdentityPool.html AWS API Reference> for CreateIdentityPool.
 module Network.AWS.CognitoIdentity.CreateIdentityPool
     (
     -- * Creating a Request

@@ -39,8 +39,6 @@
 --
 -- If you are restoring from a shared manual DB snapshot, the
 -- 'DBSnapshotIdentifier' must be the ARN of the shared DB snapshot.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceFromDBSnapshot.html AWS API Reference> for RestoreDBInstanceFromDBSnapshot.
 module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     (
     -- * Creating a Request

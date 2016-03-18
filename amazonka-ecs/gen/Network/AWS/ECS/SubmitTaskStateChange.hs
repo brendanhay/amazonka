@@ -22,8 +22,6 @@
 -- it is not intended for use outside of the agent.
 --
 -- Sent to acknowledge that a task changed states.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_SubmitTaskStateChange.html AWS API Reference> for SubmitTaskStateChange.
 module Network.AWS.ECS.SubmitTaskStateChange
     (
     -- * Creating a Request

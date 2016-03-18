@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns an array of < ByteMatchSetSummary> objects.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_ListByteMatchSets.html AWS API Reference> for ListByteMatchSets.
 module Network.AWS.WAF.ListByteMatchSets
     (
     -- * Creating a Request

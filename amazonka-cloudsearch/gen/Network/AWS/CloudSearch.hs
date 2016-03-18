@@ -24,8 +24,6 @@
 -- cloudsearch.us-east-1.amazonaws.com. For a current list of supported
 -- regions and endpoints, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region Regions and Endpoints>.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html AWS API Reference>
 module Network.AWS.CloudSearch
     (
     -- * Service Configuration

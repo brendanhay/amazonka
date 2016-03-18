@@ -21,8 +21,6 @@
 -- Gets information about a specific traffic policy version. To get the
 -- information, send a 'GET' request to the
 -- '\/Route 53 API version\/trafficpolicy' resource.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html AWS API Reference> for GetTrafficPolicy.
 module Network.AWS.Route53.GetTrafficPolicy
     (
     -- * Creating a Request

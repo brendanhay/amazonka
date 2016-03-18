@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents an update integration.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateIntegration.html AWS API Reference> for UpdateIntegration.
 module Network.AWS.APIGateway.UpdateIntegration
     (
     -- * Creating a Request

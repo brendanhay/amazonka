@@ -37,8 +37,6 @@
 --
 -- Rule changes are propagated to affected instances as quickly as
 -- possible. However, a small delay might occur.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupEgress.html AWS API Reference> for AuthorizeSecurityGroupEgress.
 module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     (
     -- * Creating a Request

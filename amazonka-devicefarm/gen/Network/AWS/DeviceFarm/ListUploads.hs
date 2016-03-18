@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about uploads.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListUploads.html AWS API Reference> for ListUploads.
 module Network.AWS.DeviceFarm.ListUploads
     (
     -- * Creating a Request

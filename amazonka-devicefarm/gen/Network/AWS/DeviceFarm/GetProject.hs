@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a project.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetProject.html AWS API Reference> for GetProject.
 module Network.AWS.DeviceFarm.GetProject
     (
     -- * Creating a Request

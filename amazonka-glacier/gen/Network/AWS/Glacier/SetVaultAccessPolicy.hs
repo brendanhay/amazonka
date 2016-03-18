@@ -25,8 +25,6 @@
 -- You can set one access policy per vault and the policy can be up to 20
 -- KB in size. For more information about vault access policies, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html AWS API Reference> for SetVaultAccessPolicy.
 module Network.AWS.Glacier.SetVaultAccessPolicy
     (
     -- * Creating a Request

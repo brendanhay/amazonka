@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes information about a < Deployment> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateDeployment.html AWS API Reference> for UpdateDeployment.
 module Network.AWS.APIGateway.UpdateDeployment
     (
     -- * Creating a Request

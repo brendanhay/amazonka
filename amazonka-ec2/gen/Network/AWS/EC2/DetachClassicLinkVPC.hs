@@ -22,8 +22,6 @@
 -- instance has been unlinked, the VPC security groups are no longer
 -- associated with it. An instance is automatically unlinked from a VPC
 -- when it\'s stopped.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachClassicLinkVPC.html AWS API Reference> for DetachClassicLinkVPC.
 module Network.AWS.EC2.DetachClassicLinkVPC
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the specified user from the specified group.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveUserFromGroup.html AWS API Reference> for RemoveUserFromGroup.
 module Network.AWS.IAM.RemoveUserFromGroup
     (
     -- * Creating a Request

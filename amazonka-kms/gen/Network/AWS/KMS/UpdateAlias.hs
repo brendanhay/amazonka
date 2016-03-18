@@ -32,8 +32,6 @@
 --
 -- The alias and the key it is mapped to must be in the same AWS account
 -- and the same region.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateAlias.html AWS API Reference> for UpdateAlias.
 module Network.AWS.KMS.UpdateAlias
     (
     -- * Creating a Request

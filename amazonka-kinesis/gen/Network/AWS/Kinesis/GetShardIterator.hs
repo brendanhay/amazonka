@@ -59,8 +59,6 @@
 --
 -- < GetShardIterator> has a limit of 5 transactions per second per account
 -- per open shard.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html AWS API Reference> for GetShardIterator.
 module Network.AWS.Kinesis.GetShardIterator
     (
     -- * Creating a Request

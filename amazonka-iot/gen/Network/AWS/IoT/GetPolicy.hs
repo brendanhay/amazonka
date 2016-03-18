@@ -20,8 +20,6 @@
 --
 -- Gets information about the specified policy with the policy document of
 -- the default version.
---
--- /See:/ <https://aws.amazon.com/iot#GetPolicy.html AWS API Reference> for GetPolicy.
 module Network.AWS.IoT.GetPolicy
     (
     -- * Creating a Request

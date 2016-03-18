@@ -26,8 +26,6 @@
 -- go to
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html Deleting Customer Master Keys>
 -- in the /AWS Key Management Service Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_CancelKeyDeletion.html AWS API Reference> for CancelKeyDeletion.
 module Network.AWS.KMS.CancelKeyDeletion
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Describes the specified attribute of the specified AMI. You can specify
 -- only one attribute at a time.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImageAttribute.html AWS API Reference> for DescribeImageAttribute.
 module Network.AWS.EC2.DescribeImageAttribute
     (
     -- * Creating a Request

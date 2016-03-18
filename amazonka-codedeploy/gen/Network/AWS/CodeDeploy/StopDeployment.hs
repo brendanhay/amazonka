@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Attempts to stop an ongoing deployment.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_StopDeployment.html AWS API Reference> for StopDeployment.
 module Network.AWS.CodeDeploy.StopDeployment
     (
     -- * Creating a Request

@@ -28,8 +28,6 @@
 -- provider, but as two different users, an exception will be thrown.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_MergeDeveloperIdentities.html AWS API Reference> for MergeDeveloperIdentities.
 module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     (
     -- * Creating a Request

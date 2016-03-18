@@ -32,8 +32,6 @@
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityPolicies.html AWS API Reference> for GetIdentityPolicies.
 module Network.AWS.SES.GetIdentityPolicies
     (
     -- * Creating a Request

@@ -18,8 +18,6 @@
 -- developers to securely connect mobile and web applications to APIs that
 -- run on AWS Lambda, Amazon EC2, or other publicly addressable web
 -- services that are hosted outside of AWS.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/ AWS API Reference>
 module Network.AWS.APIGateway
     (
     -- * Service Configuration

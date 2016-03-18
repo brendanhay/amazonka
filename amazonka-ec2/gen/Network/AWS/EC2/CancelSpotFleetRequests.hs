@@ -27,8 +27,6 @@
 -- Spot fleet request enters the 'cancelled_running' state and the
 -- instances continue to run until they are interrupted or you terminate
 -- them manually.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotFleetRequests.html AWS API Reference> for CancelSpotFleetRequests.
 module Network.AWS.EC2.CancelSpotFleetRequests
     (
     -- * Creating a Request

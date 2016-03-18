@@ -20,8 +20,6 @@
 --
 -- Returns the < SqlInjectionMatchSet> that is specified by
 -- 'SqlInjectionMatchSetId'.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetSqlInjectionMatchSet.html AWS API Reference> for GetSqlInjectionMatchSet.
 module Network.AWS.WAF.GetSqlInjectionMatchSet
     (
     -- * Creating a Request

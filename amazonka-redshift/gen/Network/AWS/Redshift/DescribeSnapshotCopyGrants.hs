@@ -24,8 +24,6 @@
 -- For more information about managing snapshot copy grants, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeSnapshotCopyGrants.html AWS API Reference> for DescribeSnapshotCopyGrants.
 module Network.AWS.Redshift.DescribeSnapshotCopyGrants
     (
     -- * Creating a Request

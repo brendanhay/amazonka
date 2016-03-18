@@ -30,8 +30,6 @@
 -- operation ID that you can use with GetOperationDetail to track the
 -- progress and completion of the action. If the request is not completed
 -- successfully, the domain registrant will be notified by email.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainContactPrivacy.html AWS API Reference> for UpdateDomainContactPrivacy.
 module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     (
     -- * Creating a Request

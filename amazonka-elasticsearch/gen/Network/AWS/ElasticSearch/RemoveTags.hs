@@ -20,8 +20,6 @@
 --
 -- Removes the specified set of tags from the specified Elasticsearch
 -- domain.
---
--- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-RemoveTags.html AWS API Reference> for RemoveTags.
 module Network.AWS.ElasticSearch.RemoveTags
     (
     -- * Creating a Request

@@ -29,8 +29,6 @@
 --
 -- The response includes disk IDs that are configured as working storage,
 -- and it includes the amount of working storage allocated and used.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeWorkingStorage.html AWS API Reference> for DescribeWorkingStorage.
 module Network.AWS.StorageGateway.DescribeWorkingStorage
     (
     -- * Creating a Request

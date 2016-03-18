@@ -22,8 +22,6 @@
 -- monitoring instances, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-MonitorInstances.html AWS API Reference> for MonitorInstances.
 module Network.AWS.EC2.MonitorInstances
     (
     -- * Creating a Request

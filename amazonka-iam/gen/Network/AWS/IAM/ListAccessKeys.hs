@@ -33,8 +33,6 @@
 -- To ensure the security of your AWS account, the secret access key is
 -- accessible only during key and user creation.
 --
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccessKeys.html AWS API Reference> for ListAccessKeys.
---
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListAccessKeys
     (

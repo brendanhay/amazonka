@@ -20,8 +20,6 @@
 --
 -- Adds a source identifier to an existing RDS event notification
 -- subscription.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddSourceIdentifierToSubscription.html AWS API Reference> for AddSourceIdentifierToSubscription.
 module Network.AWS.RDS.AddSourceIdentifierToSubscription
     (
     -- * Creating a Request

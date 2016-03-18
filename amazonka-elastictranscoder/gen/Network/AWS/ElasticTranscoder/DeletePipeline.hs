@@ -23,8 +23,6 @@
 -- You can only delete a pipeline that has never been used or that is not
 -- currently in use (doesn\'t contain any active jobs). If the pipeline is
 -- currently in use, 'DeletePipeline' returns an error.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePipeline.html AWS API Reference> for DeletePipeline.
 module Network.AWS.ElasticTranscoder.DeletePipeline
     (
     -- * Creating a Request

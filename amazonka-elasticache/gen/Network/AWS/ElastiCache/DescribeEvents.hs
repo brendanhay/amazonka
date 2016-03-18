@@ -26,8 +26,6 @@
 -- By default, only the events occurring within the last hour are returned;
 -- however, you can retrieve up to 14 days\' worth of events if necessary.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html AWS API Reference> for DescribeEvents.
---
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeEvents
     (

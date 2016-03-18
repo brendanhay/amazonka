@@ -20,8 +20,6 @@
 --
 -- Describes one or more of your SSM documents.
 --
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListDocuments.html AWS API Reference> for ListDocuments.
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListDocuments
     (

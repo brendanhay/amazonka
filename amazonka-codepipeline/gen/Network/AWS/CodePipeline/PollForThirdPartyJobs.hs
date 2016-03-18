@@ -25,8 +25,6 @@
 -- for the Amazon S3 bucket used to store artifacts for the pipeline, if
 -- the action requires access to that Amazon S3 bucket for input or output
 -- artifacts.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PollForThirdPartyJobs.html AWS API Reference> for PollForThirdPartyJobs.
 module Network.AWS.CodePipeline.PollForThirdPartyJobs
     (
     -- * Creating a Request

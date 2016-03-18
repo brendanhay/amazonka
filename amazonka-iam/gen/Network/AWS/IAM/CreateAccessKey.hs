@@ -36,8 +36,6 @@
 -- example, in a text file) if you want to be able to access it again. If a
 -- secret key is lost, you can delete the access keys for the associated
 -- user and then create new keys.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html AWS API Reference> for CreateAccessKey.
 module Network.AWS.IAM.CreateAccessKey
     (
     -- * Creating a Request

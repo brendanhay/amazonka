@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Uploads an app or test scripts.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html AWS API Reference> for CreateUpload.
 module Network.AWS.DeviceFarm.CreateUpload
     (
     -- * Creating a Request

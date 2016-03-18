@@ -26,8 +26,6 @@
 -- request and response parameters. If more results are available, the
 -- 'NextToken' response member contains a token that you pass in the next
 -- call to this operation to retrieve the next set of items.
---
--- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_DescribeWorkspaceDirectories.html AWS API Reference> for DescribeWorkspaceDirectories.
 module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
     (
     -- * Creating a Request

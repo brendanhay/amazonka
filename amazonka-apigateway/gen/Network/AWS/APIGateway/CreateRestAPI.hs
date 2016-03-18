@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new < RestApi> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateRestAPI.html AWS API Reference> for CreateRestAPI.
 module Network.AWS.APIGateway.CreateRestAPI
     (
     -- * Creating a Request

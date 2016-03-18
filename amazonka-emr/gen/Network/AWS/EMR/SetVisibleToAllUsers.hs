@@ -24,8 +24,6 @@
 -- you launch it using the 'VisibleToAllUsers' parameter of < RunJobFlow>.
 -- The SetVisibleToAllUsers action can be called only by an IAM user who
 -- created the job flow or the AWS account that owns the job flow.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_SetVisibleToAllUsers.html AWS API Reference> for SetVisibleToAllUsers.
 module Network.AWS.EMR.SetVisibleToAllUsers
     (
     -- * Creating a Request

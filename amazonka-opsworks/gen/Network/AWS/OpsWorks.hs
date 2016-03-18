@@ -56,8 +56,6 @@
 -- You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We
 -- recommend migrating your existing Linux stacks to Chef 12 as soon as
 -- possible.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.OpsWorks
     (
     -- * Service Configuration

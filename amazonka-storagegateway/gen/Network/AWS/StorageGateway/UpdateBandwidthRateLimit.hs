@@ -30,8 +30,6 @@
 --
 -- To specify which gateway to update, use the Amazon Resource Name (ARN)
 -- of the gateway in your request.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateBandwidthRateLimit.html AWS API Reference> for UpdateBandwidthRateLimit.
 module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     (
     -- * Creating a Request

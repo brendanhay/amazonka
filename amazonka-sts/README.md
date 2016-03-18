@@ -71,7 +71,7 @@ turn it on and find your log files, see the
 <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html AWS CloudTrail User Guide>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-sts)
-and the [AWS API Reference](http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html).
+and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
 which provides mechanisms for specifying AuthN/AuthZ information and sending requests.

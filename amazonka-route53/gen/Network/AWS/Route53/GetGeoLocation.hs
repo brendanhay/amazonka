@@ -21,8 +21,6 @@
 -- To retrieve a single geo location, send a 'GET' request to the
 -- '\/Route 53 API version\/geolocation' resource with one of these
 -- options: continentcode | countrycode | countrycode and subdivisioncode.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html AWS API Reference> for GetGeoLocation.
 module Network.AWS.Route53.GetGeoLocation
     (
     -- * Creating a Request

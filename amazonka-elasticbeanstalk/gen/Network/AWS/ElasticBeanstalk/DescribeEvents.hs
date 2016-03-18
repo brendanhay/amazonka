@@ -24,8 +24,6 @@
 -- This action returns the most recent 1,000 events from the specified
 -- 'NextToken'.
 --
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEvents.html AWS API Reference> for DescribeEvents.
---
 -- This operation returns paginated results.
 module Network.AWS.ElasticBeanstalk.DescribeEvents
     (

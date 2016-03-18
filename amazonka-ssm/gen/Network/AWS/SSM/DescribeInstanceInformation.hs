@@ -25,8 +25,6 @@
 -- IDs, it returns information for all your instances. If you specify an
 -- instance ID that is not valid or an instance that you do not own, you
 -- receive an error.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeInstanceInformation.html AWS API Reference> for DescribeInstanceInformation.
 module Network.AWS.SSM.DescribeInstanceInformation
     (
     -- * Creating a Request

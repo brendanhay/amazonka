@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the descriptions of existing applications.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplications.html AWS API Reference> for DescribeApplications.
 module Network.AWS.ElasticBeanstalk.DescribeApplications
     (
     -- * Creating a Request

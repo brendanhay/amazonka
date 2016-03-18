@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more application revisions.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetApplicationRevisions.html AWS API Reference> for BatchGetApplicationRevisions.
 module Network.AWS.CodeDeploy.BatchGetApplicationRevisions
     (
     -- * Creating a Request

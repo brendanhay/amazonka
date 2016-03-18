@@ -22,8 +22,6 @@
 -- is in the processing pipeline, the status of the results, and the
 -- signature value associated with the job. You can only return information
 -- about jobs you own.
---
--- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebGetStatus.html AWS API Reference> for GetStatus.
 module Network.AWS.ImportExport.GetStatus
     (
     -- * Creating a Request

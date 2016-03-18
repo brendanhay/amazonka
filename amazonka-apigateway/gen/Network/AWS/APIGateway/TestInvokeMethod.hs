@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/TestInvokeMethod.html AWS API Reference> for TestInvokeMethod.
 module Network.AWS.APIGateway.TestInvokeMethod
     (
     -- * Creating a Request

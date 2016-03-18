@@ -25,8 +25,6 @@
 -- exists for the bucket. 'UpdateTrail' must be called from the region in
 -- which the trail was created; otherwise, an 'InvalidHomeRegionException'
 -- is thrown.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_UpdateTrail.html AWS API Reference> for UpdateTrail.
 module Network.AWS.CloudTrail.UpdateTrail
     (
     -- * Creating a Request

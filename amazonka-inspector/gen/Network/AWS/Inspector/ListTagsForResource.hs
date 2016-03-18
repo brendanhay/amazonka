@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all tags associated with a resource.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_ListTagsForResource.html AWS API Reference> for ListTagsForResource.
 module Network.AWS.Inspector.ListTagsForResource
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Stops recording configurations of the AWS resources you have selected to
 -- record in your AWS account.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html AWS API Reference> for StopConfigurationRecorder.
 module Network.AWS.Config.StopConfigurationRecorder
     (
     -- * Creating a Request

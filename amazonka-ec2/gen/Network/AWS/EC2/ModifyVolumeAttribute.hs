@@ -29,8 +29,6 @@
 -- You can change the default behavior to resume I\/O operations. We
 -- recommend that you change this only for boot volumes or for volumes that
 -- are stateless or disposable.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVolumeAttribute.html AWS API Reference> for ModifyVolumeAttribute.
 module Network.AWS.EC2.ModifyVolumeAttribute
     (
     -- * Creating a Request

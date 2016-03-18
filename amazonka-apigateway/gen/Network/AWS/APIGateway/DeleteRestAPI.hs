@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified API.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteRestAPI.html AWS API Reference> for DeleteRestAPI.
 module Network.AWS.APIGateway.DeleteRestAPI
     (
     -- * Creating a Request

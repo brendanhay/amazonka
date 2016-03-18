@@ -25,8 +25,6 @@
 --
 -- When you update CHAP credentials, all existing connections on the target
 -- are closed and initiators must reconnect with the new credentials.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateChapCredentials.html AWS API Reference> for UpdateChapCredentials.
 module Network.AWS.StorageGateway.UpdateChapCredentials
     (
     -- * Creating a Request

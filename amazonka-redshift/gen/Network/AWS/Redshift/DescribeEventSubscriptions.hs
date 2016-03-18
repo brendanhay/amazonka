@@ -22,8 +22,6 @@
 -- subscription for a customer account. If you specify a subscription name,
 -- lists the description for that subscription.
 --
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventSubscriptions.html AWS API Reference> for DescribeEventSubscriptions.
---
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeEventSubscriptions
     (

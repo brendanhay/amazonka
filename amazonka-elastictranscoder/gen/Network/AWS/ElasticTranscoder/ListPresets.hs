@@ -22,8 +22,6 @@
 -- with Elastic Transcoder and the presets that you\'ve added in an AWS
 -- region.
 --
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListPresets.html AWS API Reference> for ListPresets.
---
 -- This operation returns paginated results.
 module Network.AWS.ElasticTranscoder.ListPresets
     (

@@ -22,8 +22,6 @@
 -- the request parameters as selection criteria to return a subset of the
 -- objects in a bucket.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjects.html AWS API Reference> for ListObjects.
---
 -- This operation returns paginated results.
 module Network.AWS.S3.ListObjects
     (

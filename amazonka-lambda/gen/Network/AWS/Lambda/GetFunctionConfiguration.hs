@@ -32,8 +32,6 @@
 --
 -- This operation requires permission for the
 -- 'lambda:GetFunctionConfiguration' operation.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html AWS API Reference> for GetFunctionConfiguration.
 module Network.AWS.Lambda.GetFunctionConfiguration
     (
     -- * Creating a Request

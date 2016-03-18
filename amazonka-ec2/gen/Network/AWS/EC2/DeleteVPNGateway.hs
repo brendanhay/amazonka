@@ -23,8 +23,6 @@
 -- delete the VPN connection. Note that you don\'t need to delete the
 -- virtual private gateway if you plan to delete and recreate the VPN
 -- connection between your VPC and your network.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPNGateway.html AWS API Reference> for DeleteVPNGateway.
 module Network.AWS.EC2.DeleteVPNGateway
     (
     -- * Creating a Request

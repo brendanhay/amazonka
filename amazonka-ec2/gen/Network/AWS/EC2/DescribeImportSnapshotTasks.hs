@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes your import snapshot tasks.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImportSnapshotTasks.html AWS API Reference> for DescribeImportSnapshotTasks.
 module Network.AWS.EC2.DescribeImportSnapshotTasks
     (
     -- * Creating a Request

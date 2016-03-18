@@ -23,8 +23,6 @@
 -- For more information about desired capacity, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html What Is Auto Scaling?>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetDesiredCapacity.html AWS API Reference> for SetDesiredCapacity.
 module Network.AWS.AutoScaling.SetDesiredCapacity
     (
     -- * Creating a Request

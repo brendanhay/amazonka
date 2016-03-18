@@ -35,8 +35,6 @@
 -- AWS access keys or your passwords. After you provision your virtual
 -- device, you should ensure that the information is destroyed following
 -- secure procedures.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateVirtualMFADevice.html AWS API Reference> for CreateVirtualMFADevice.
 module Network.AWS.IAM.CreateVirtualMFADevice
     (
     -- * Creating a Request

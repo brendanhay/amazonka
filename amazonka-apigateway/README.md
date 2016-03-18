@@ -22,7 +22,7 @@ run on AWS Lambda, Amazon EC2, or other publicly addressable web
 services that are hosted outside of AWS.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-apigateway)
-and the [AWS API Reference](http://docs.aws.amazon.com/apigateway/api-reference/).
+and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
 which provides mechanisms for specifying AuthN/AuthZ information and sending requests.

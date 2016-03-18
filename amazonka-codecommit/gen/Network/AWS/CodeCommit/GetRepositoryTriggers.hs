@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about triggers configured for a repository.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetRepositoryTriggers.html AWS API Reference> for GetRepositoryTriggers.
 module Network.AWS.CodeCommit.GetRepositoryTriggers
     (
     -- * Creating a Request

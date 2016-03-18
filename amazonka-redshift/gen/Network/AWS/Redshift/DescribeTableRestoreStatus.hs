@@ -24,8 +24,6 @@
 -- 'DescribeTableRestoreStatus' returns the status of all in-progress table
 -- restore requests. Otherwise 'DescribeTableRestoreStatus' returns the
 -- status of the table specified by 'TableRestoreRequestId'.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeTableRestoreStatus.html AWS API Reference> for DescribeTableRestoreStatus.
 module Network.AWS.Redshift.DescribeTableRestoreStatus
     (
     -- * Creating a Request

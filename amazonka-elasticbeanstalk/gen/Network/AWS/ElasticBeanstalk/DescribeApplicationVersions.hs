@@ -20,8 +20,6 @@
 --
 -- Retrieve a list of application versions stored in your AWS Elastic
 -- Beanstalk storage bucket.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplicationVersions.html AWS API Reference> for DescribeApplicationVersions.
 module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     (
     -- * Creating a Request

@@ -33,8 +33,6 @@
 -- 2.  Use < GetChangeToken> to get the change token that you provide in
 --     the 'ChangeToken' parameter of a 'DeleteRule' request.
 -- 3.  Submit a 'DeleteRule' request.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteRule.html AWS API Reference> for DeleteRule.
 module Network.AWS.WAF.DeleteRule
     (
     -- * Creating a Request

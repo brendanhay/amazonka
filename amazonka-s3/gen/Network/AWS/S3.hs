@@ -18,8 +18,6 @@
 -- inexpensive data storage infrastructure that Amazon uses to run its own
 -- global network of web sites. The service aims to maximize benefits of
 -- scale and to pass those benefits on to developers.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html AWS API Reference>
 module Network.AWS.S3
     (
     -- * Service Configuration

@@ -23,8 +23,6 @@
 -- count. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html Configuring Scaling Options>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeScalingParameters.html AWS API Reference> for DescribeScalingParameters.
 module Network.AWS.CloudSearch.DescribeScalingParameters
     (
     -- * Creating a Request

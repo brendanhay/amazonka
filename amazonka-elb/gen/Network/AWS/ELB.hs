@@ -28,8 +28,6 @@
 -- All Elastic Load Balancing operations are /idempotent/, which means that
 -- they complete at most one time. If you repeat an operation, it succeeds
 -- with a 200 OK response code.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.ELB
     (
     -- * Service Configuration

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified thing.
---
--- /See:/ <https://aws.amazon.com/iot#DescribeThing.html AWS API Reference> for DescribeThing.
 module Network.AWS.IoT.DescribeThing
     (
     -- * Creating a Request

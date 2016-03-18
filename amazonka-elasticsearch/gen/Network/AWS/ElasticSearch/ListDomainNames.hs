@@ -20,8 +20,6 @@
 --
 -- Returns the name of all Elasticsearch domains owned by the current
 -- user\'s account.
---
--- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-ListDomainNames.html AWS API Reference> for ListDomainNames.
 module Network.AWS.ElasticSearch.ListDomainNames
     (
     -- * Creating a Request

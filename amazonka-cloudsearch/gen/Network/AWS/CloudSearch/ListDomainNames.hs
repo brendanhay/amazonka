@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all search domains owned by an account.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ListDomainNames.html AWS API Reference> for ListDomainNames.
 module Network.AWS.CloudSearch.ListDomainNames
     (
     -- * Creating a Request

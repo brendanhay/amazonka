@@ -22,8 +22,6 @@
 -- clients attempting to access a game server using the deleted alias
 -- receive an error. To delete an alias, specify the alias ID to be
 -- deleted.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteAlias.html AWS API Reference> for DeleteAlias.
 module Network.AWS.GameLift.DeleteAlias
     (
     -- * Creating a Request

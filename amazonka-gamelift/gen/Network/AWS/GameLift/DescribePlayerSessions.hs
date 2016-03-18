@@ -31,8 +31,6 @@
 -- retrieve results as a set of sequential pages. If successful, a
 -- < PlayerSession> object is returned for each session matching the
 -- request.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribePlayerSessions.html AWS API Reference> for DescribePlayerSessions.
 module Network.AWS.GameLift.DescribePlayerSessions
     (
     -- * Creating a Request

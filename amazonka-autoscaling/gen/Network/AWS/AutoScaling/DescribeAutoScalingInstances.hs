@@ -21,8 +21,6 @@
 -- Describes one or more Auto Scaling instances. If a list is not provided,
 -- the call describes all instances.
 --
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingInstances.html AWS API Reference> for DescribeAutoScalingInstances.
---
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     (

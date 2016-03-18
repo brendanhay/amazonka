@@ -29,8 +29,6 @@
 --     mount target\'s file system.
 -- -   'ec2:DescribeNetworkInterfaceAttribute' action on the mount
 --     target\'s network interface.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeMountTargetSecurityGroups.html AWS API Reference> for DescribeMountTargetSecurityGroups.
 module Network.AWS.EFS.DescribeMountTargetSecurityGroups
     (
     -- * Creating a Request

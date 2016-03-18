@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes a specified task or tasks.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html AWS API Reference> for DescribeTasks.
 module Network.AWS.ECS.DescribeTasks
     (
     -- * Creating a Request

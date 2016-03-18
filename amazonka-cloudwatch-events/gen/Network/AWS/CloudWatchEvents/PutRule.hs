@@ -38,8 +38,6 @@
 -- match in event patterns and rules. Be sure to use the correct ARN
 -- characters when creating event patterns so that they match the ARN
 -- syntax in the event you want to match.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/PutRule.html AWS API Reference> for PutRule.
 module Network.AWS.CloudWatchEvents.PutRule
     (
     -- * Creating a Request

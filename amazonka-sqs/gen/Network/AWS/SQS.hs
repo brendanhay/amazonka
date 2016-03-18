@@ -40,8 +40,6 @@
 --
 -- For a list of available SDKs, go to
 -- <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.SQS
     (
     -- * Service Configuration

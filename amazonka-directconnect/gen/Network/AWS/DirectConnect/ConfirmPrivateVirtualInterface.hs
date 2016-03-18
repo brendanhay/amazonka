@@ -24,8 +24,6 @@
 -- After the virtual interface owner calls this function, the virtual
 -- interface will be created and attached to the given virtual private
 -- gateway, and will be available for handling traffic.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPrivateVirtualInterface.html AWS API Reference> for ConfirmPrivateVirtualInterface.
 module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     (
     -- * Creating a Request

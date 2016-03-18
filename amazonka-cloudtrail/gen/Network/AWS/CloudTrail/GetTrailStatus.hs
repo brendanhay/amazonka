@@ -23,8 +23,6 @@
 -- errors, and start and stop logging times for each trail. This operation
 -- returns trail status from a single region. To return trail status from
 -- all regions, you must call the operation on each region.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetTrailStatus.html AWS API Reference> for GetTrailStatus.
 module Network.AWS.CloudTrail.GetTrailStatus
     (
     -- * Creating a Request

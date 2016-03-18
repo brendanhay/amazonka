@@ -22,8 +22,6 @@
 -- export, including any partially-created Amazon S3 objects. If the export
 -- task is complete or is in the process of transferring the final disk
 -- image, the command fails and returns an error.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelExportTask.html AWS API Reference> for CancelExportTask.
 module Network.AWS.EC2.CancelExportTask
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an AWS Directory Service directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteDirectory.html AWS API Reference> for DeleteDirectory.
 module Network.AWS.DirectoryService.DeleteDirectory
     (
     -- * Creating a Request

@@ -31,8 +31,6 @@
 -- creates the volume and returns volume information such as the volume
 -- Amazon Resource Name (ARN), its size, and the iSCSI target ARN that
 -- initiators can use to connect to the volume target.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateStorediSCSIVolume.html AWS API Reference> for CreateStorediSCSIVolume.
 module Network.AWS.StorageGateway.CreateStorediSCSIVolume
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns an array of < RuleSummary> objects.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_ListRules.html AWS API Reference> for ListRules.
 module Network.AWS.WAF.ListRules
     (
     -- * Creating a Request

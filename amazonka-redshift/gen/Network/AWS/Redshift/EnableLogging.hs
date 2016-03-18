@@ -20,8 +20,6 @@
 --
 -- Starts logging information, such as queries and connection attempts, for
 -- the specified Amazon Redshift cluster.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableLogging.html AWS API Reference> for EnableLogging.
 module Network.AWS.Redshift.EnableLogging
     (
     -- * Creating a Request

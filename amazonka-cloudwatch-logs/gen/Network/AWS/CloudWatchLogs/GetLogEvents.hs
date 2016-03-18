@@ -28,8 +28,6 @@
 -- requests to paginate through events in either forward or backward
 -- direction. You can also limit the number of log events returned in the
 -- response by specifying the 'limit' parameter in the request.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html AWS API Reference> for GetLogEvents.
 module Network.AWS.CloudWatchLogs.GetLogEvents
     (
     -- * Creating a Request

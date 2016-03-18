@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Copies the specified option group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyOptionGroup.html AWS API Reference> for CopyOptionGroup.
 module Network.AWS.RDS.CopyOptionGroup
     (
     -- * Creating a Request

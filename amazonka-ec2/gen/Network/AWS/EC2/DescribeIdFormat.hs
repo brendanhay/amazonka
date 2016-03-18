@@ -34,8 +34,6 @@
 -- with longer IDs are visible to all IAM users, regardless of these
 -- settings and provided that they have permission to use the relevant
 -- 'Describe' command for the resource type.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeIdFormat.html AWS API Reference> for DescribeIdFormat.
 module Network.AWS.EC2.DescribeIdFormat
     (
     -- * Creating a Request

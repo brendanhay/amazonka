@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResources.html AWS API Reference> for ListTagsForResources.
 module Network.AWS.Route53.ListTagsForResources
     (
     -- * Creating a Request

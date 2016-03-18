@@ -24,8 +24,6 @@
 -- which you can use in other operations, a signature that you use to
 -- identify your storage device, and the address where you should ship your
 -- storage device.
---
--- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebCreateJob.html AWS API Reference> for CreateJob.
 module Network.AWS.ImportExport.CreateJob
     (
     -- * Creating a Request

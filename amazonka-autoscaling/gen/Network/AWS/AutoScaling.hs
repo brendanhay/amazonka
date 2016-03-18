@@ -17,8 +17,6 @@
 -- instances based on user-defined policies, schedules, and health checks.
 -- Use this service in conjunction with the Amazon CloudWatch and Elastic
 -- Load Balancing services.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.AutoScaling
     (
     -- * Service Configuration

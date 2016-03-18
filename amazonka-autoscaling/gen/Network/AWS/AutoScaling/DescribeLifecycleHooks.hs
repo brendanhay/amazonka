@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the lifecycle hooks for the specified Auto Scaling group.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLifecycleHooks.html AWS API Reference> for DescribeLifecycleHooks.
 module Network.AWS.AutoScaling.DescribeLifecycleHooks
     (
     -- * Creating a Request

@@ -22,8 +22,6 @@
 --
 -- You can use the < GetEvaluation> operation to view the contents of the
 -- updated data element.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateEvaluation.html AWS API Reference> for UpdateEvaluation.
 module Network.AWS.MachineLearning.UpdateEvaluation
     (
     -- * Creating a Request

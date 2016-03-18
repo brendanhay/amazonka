@@ -20,8 +20,6 @@
 --
 -- Describes the policies for the specified Auto Scaling group.
 --
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribePolicies.html AWS API Reference> for DescribePolicies.
---
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribePolicies
     (

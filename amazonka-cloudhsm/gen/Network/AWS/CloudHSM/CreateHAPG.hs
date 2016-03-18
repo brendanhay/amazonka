@@ -21,8 +21,6 @@
 -- Creates a high-availability partition group. A high-availability
 -- partition group is a group of partitions that spans multiple physical
 -- HSMs.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_CreateHAPG.html AWS API Reference> for CreateHAPG.
 module Network.AWS.CloudHSM.CreateHAPG
     (
     -- * Creating a Request

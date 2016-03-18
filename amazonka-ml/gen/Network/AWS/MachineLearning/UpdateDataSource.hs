@@ -22,8 +22,6 @@
 --
 -- You can use the < GetDataSource> operation to view the contents of the
 -- updated data element.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateDataSource.html AWS API Reference> for UpdateDataSource.
 module Network.AWS.MachineLearning.UpdateDataSource
     (
     -- * Creating a Request

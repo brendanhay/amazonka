@@ -35,8 +35,6 @@
 --
 -- This operation requires permission for the
 -- 'elasticfilesystem:DeleteFileSystem' action.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteFileSystem.html AWS API Reference> for DeleteFileSystem.
 module Network.AWS.EFS.DeleteFileSystem
     (
     -- * Creating a Request

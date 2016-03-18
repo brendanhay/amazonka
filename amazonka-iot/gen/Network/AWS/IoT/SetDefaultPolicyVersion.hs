@@ -22,8 +22,6 @@
 -- default (operative) version. This action affects all certificates to
 -- which the policy is attached. To list the principals the policy is
 -- attached to, use the ListPrincipalPolicy API.
---
--- /See:/ <https://aws.amazon.com/iot#SetDefaultPolicyVersion.html AWS API Reference> for SetDefaultPolicyVersion.
 module Network.AWS.IoT.SetDefaultPolicyVersion
     (
     -- * Creating a Request

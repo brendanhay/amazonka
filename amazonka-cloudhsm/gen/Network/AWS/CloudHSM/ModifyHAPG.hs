@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies an existing high-availability partition group.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ModifyHAPG.html AWS API Reference> for ModifyHAPG.
 module Network.AWS.CloudHSM.ModifyHAPG
     (
     -- * Creating a Request

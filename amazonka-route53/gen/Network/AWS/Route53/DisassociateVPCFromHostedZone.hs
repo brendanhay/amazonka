@@ -28,8 +28,6 @@
 -- 'ChangeInfo' for you to track the progress of the
 -- 'DisassociateVPCFromHostedZoneRequest' you made. See 'GetChange'
 -- operation for how to track the progress of your change.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DisassociateVPCFromHostedZone.html AWS API Reference> for DisassociateVPCFromHostedZone.
 module Network.AWS.Route53.DisassociateVPCFromHostedZone
     (
     -- * Creating a Request

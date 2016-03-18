@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the data for a thing.
---
--- /See:/ <https://aws.amazon.com/iot#UpdateThing.html AWS API Reference> for UpdateThing.
 module Network.AWS.IoT.UpdateThing
     (
     -- * Creating a Request

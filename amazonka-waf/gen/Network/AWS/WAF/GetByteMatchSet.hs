@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the < ByteMatchSet> specified by 'ByteMatchSetId'.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetByteMatchSet.html AWS API Reference> for GetByteMatchSet.
 module Network.AWS.WAF.GetByteMatchSet
     (
     -- * Creating a Request

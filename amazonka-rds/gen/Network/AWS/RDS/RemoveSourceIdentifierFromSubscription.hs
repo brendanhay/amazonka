@@ -20,8 +20,6 @@
 --
 -- Removes a source identifier from an existing RDS event notification
 -- subscription.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RemoveSourceIdentifierFromSubscription.html AWS API Reference> for RemoveSourceIdentifierFromSubscription.
 module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     (
     -- * Creating a Request

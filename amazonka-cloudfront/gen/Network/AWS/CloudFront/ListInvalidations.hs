@@ -20,8 +20,6 @@
 --
 -- List invalidation batches.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListInvalidations.html AWS API Reference> for ListInvalidations.
---
 -- This operation returns paginated results.
 module Network.AWS.CloudFront.ListInvalidations
     (

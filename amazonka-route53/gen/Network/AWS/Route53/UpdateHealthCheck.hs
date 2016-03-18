@@ -25,8 +25,6 @@
 -- request body must include a document with an 'UpdateHealthCheckRequest'
 -- element. The response returns an 'UpdateHealthCheckResponse' element,
 -- which contains metadata about the health check.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html AWS API Reference> for UpdateHealthCheck.
 module Network.AWS.Route53.UpdateHealthCheck
     (
     -- * Creating a Request

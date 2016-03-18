@@ -25,8 +25,6 @@
 -- preferred.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteVerifiedEmailAddress.html AWS API Reference> for DeleteVerifiedEmailAddress.
 module Network.AWS.SES.DeleteVerifiedEmailAddress
     (
     -- * Creating a Request

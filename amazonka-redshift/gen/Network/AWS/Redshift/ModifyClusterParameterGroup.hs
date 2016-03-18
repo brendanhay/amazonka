@@ -23,8 +23,6 @@
 -- For more information about parameters and parameter groups, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterParameterGroup.html AWS API Reference> for ModifyClusterParameterGroup.
 module Network.AWS.Redshift.ModifyClusterParameterGroup
     (
     -- * Creating a Request

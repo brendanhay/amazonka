@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of all tags for the specified resource.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListTagsForResource.html AWS API Reference> for ListTagsForResource.
 module Network.AWS.CloudHSM.ListTagsForResource
     (
     -- * Creating a Request

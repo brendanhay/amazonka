@@ -22,8 +22,6 @@
 -- longer in force and removes all record of it. To delete a scaling
 -- policy, specify both the scaling policy name and the fleet ID it is
 -- associated with.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteScalingPolicy.html AWS API Reference> for DeleteScalingPolicy.
 module Network.AWS.GameLift.DeleteScalingPolicy
     (
     -- * Creating a Request

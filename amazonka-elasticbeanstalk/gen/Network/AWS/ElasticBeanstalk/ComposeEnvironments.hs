@@ -26,8 +26,6 @@
 -- manifest named 'env.yaml'. See
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html Compose Environments>
 -- for details.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ComposeEnvironments.html AWS API Reference> for ComposeEnvironments.
 module Network.AWS.ElasticBeanstalk.ComposeEnvironments
     (
     -- * Creating a Request

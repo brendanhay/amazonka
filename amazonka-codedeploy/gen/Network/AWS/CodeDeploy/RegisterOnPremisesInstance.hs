@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers an on-premises instance.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RegisterOnPremisesInstance.html AWS API Reference> for RegisterOnPremisesInstance.
 module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
     (
     -- * Creating a Request

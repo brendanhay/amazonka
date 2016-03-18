@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a virtual interface.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteVirtualInterface.html AWS API Reference> for DeleteVirtualInterface.
 module Network.AWS.DirectConnect.DeleteVirtualInterface
     (
     -- * Creating a Request

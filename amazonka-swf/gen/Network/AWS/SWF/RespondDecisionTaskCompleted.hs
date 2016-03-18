@@ -36,8 +36,6 @@
 -- as if they were actual API calls, including applying conditions to some
 -- parameters. For more information, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondDecisionTaskCompleted.html AWS API Reference> for RespondDecisionTaskCompleted.
 module Network.AWS.SWF.RespondDecisionTaskCompleted
     (
     -- * Creating a Request

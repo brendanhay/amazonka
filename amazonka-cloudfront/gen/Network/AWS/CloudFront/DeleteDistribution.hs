@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Delete a distribution.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteDistribution.html AWS API Reference> for DeleteDistribution.
 module Network.AWS.CloudFront.DeleteDistribution
     (
     -- * Creating a Request

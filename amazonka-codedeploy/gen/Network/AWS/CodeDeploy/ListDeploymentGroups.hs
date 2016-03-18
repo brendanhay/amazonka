@@ -20,8 +20,6 @@
 --
 -- Lists the deployment groups for an application registered with the
 -- applicable IAM user or AWS account.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentGroups.html AWS API Reference> for ListDeploymentGroups.
 module Network.AWS.CodeDeploy.ListDeploymentGroups
     (
     -- * Creating a Request

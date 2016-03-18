@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an application.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteApplication.html AWS API Reference> for DeleteApplication.
 module Network.AWS.CodeDeploy.DeleteApplication
     (
     -- * Creating a Request

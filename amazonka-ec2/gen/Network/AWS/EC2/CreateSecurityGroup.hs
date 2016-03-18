@@ -47,8 +47,6 @@
 -- You can add or remove rules from your security groups using
 -- < AuthorizeSecurityGroupIngress>, < AuthorizeSecurityGroupEgress>,
 -- < RevokeSecurityGroupIngress>, and < RevokeSecurityGroupEgress>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSecurityGroup.html AWS API Reference> for CreateSecurityGroup.
 module Network.AWS.EC2.CreateSecurityGroup
     (
     -- * Creating a Request

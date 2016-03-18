@@ -21,8 +21,6 @@
 -- Attempts to cancel the command specified by the Command ID. There is no
 -- guarantee that the command will be terminated and the underlying process
 -- stopped.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CancelCommand.html AWS API Reference> for CancelCommand.
 module Network.AWS.SSM.CancelCommand
     (
     -- * Creating a Request

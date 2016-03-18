@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Return torrent files from a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObjectTorrent.html AWS API Reference> for GetObjectTorrent.
 module Network.AWS.S3.GetObjectTorrent
     (
     -- * Creating a Request

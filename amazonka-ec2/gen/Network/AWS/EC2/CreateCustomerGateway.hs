@@ -44,8 +44,6 @@
 -- gateway, and subsequent requests return information about the existing
 -- customer gateway. The subsequent requests do not create new customer
 -- gateway resources.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateCustomerGateway.html AWS API Reference> for CreateCustomerGateway.
 module Network.AWS.EC2.CreateCustomerGateway
     (
     -- * Creating a Request

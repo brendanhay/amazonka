@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new DB instance.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html AWS API Reference> for CreateDBInstance.
 module Network.AWS.RDS.CreateDBInstance
     (
     -- * Creating a Request

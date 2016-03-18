@@ -22,8 +22,6 @@
 -- access this API without authenticating. Note that if the availability
 -- status of a domain is pending, you must submit another request to
 -- determine the availability of the domain name.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-CheckDomainAvailability.html AWS API Reference> for CheckDomainAvailability.
 module Network.AWS.Route53Domains.CheckDomainAvailability
     (
     -- * Creating a Request

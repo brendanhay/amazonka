@@ -33,8 +33,6 @@
 -- certificates are returned regardless of whether they have tag keys or
 -- values associated with them.
 --
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHSMClientCertificates.html AWS API Reference> for DescribeHSMClientCertificates.
---
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeHSMClientCertificates
     (

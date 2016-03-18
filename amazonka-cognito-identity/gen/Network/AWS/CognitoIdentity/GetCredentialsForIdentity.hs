@@ -24,8 +24,6 @@
 -- Security Token Service with the appropriate role for the token.
 --
 -- This is a public API. You do not need any credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html AWS API Reference> for GetCredentialsForIdentity.
 module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
     (
     -- * Creating a Request

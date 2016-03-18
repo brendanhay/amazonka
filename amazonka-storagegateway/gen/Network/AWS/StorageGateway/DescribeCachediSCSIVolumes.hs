@@ -25,8 +25,6 @@
 -- The list of gateway volumes in the request must be from one gateway. In
 -- the response Amazon Storage Gateway returns volume information sorted by
 -- volume Amazon Resource Name (ARN).
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeCachediSCSIVolumes.html AWS API Reference> for DescribeCachediSCSIVolumes.
 module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
     (
     -- * Creating a Request

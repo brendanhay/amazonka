@@ -39,8 +39,6 @@
 -- To list or delete a snapshot, you must use the Amazon EC2 API. For more
 -- information, see DescribeSnapshots or DeleteSnapshot in the
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html EC2 API reference>.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSnapshot.html AWS API Reference> for CreateSnapshot.
 module Network.AWS.StorageGateway.CreateSnapshot
     (
     -- * Creating a Request

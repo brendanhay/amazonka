@@ -30,8 +30,6 @@
 -- parameters and parameter groups, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterParameterGroup.html AWS API Reference> for CreateClusterParameterGroup.
 module Network.AWS.Redshift.CreateClusterParameterGroup
     (
     -- * Creating a Request

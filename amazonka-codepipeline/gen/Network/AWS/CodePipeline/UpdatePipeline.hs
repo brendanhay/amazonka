@@ -22,8 +22,6 @@
 -- a JSON file with the pipeline structure in conjunction with
 -- UpdatePipeline to provide the full structure of the pipeline. Updating
 -- the pipeline increases the version number of the pipeline by 1.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_UpdatePipeline.html AWS API Reference> for UpdatePipeline.
 module Network.AWS.CodePipeline.UpdatePipeline
     (
     -- * Creating a Request

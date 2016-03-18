@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified scheduled action.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteScheduledAction.html AWS API Reference> for DeleteScheduledAction.
 module Network.AWS.AutoScaling.DeleteScheduledAction
     (
     -- * Creating a Request

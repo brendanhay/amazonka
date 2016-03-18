@@ -20,8 +20,6 @@
 --
 -- List streaming distributions.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListStreamingDistributions.html AWS API Reference> for ListStreamingDistributions.
---
 -- This operation returns paginated results.
 module Network.AWS.CloudFront.ListStreamingDistributions
     (

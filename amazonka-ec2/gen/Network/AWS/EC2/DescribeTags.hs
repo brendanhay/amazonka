@@ -24,8 +24,6 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeTags.html AWS API Reference> for DescribeTags.
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeTags
     (

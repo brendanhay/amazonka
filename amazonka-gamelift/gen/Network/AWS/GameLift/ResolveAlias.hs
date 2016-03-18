@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the fleet ID that a specified alias is currently pointing to.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/ResolveAlias.html AWS API Reference> for ResolveAlias.
 module Network.AWS.GameLift.ResolveAlias
     (
     -- * Creating a Request

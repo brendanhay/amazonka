@@ -28,8 +28,6 @@
 -- When you delete a traffic policy instance, Amazon Route 53 also deletes
 -- all of the resource record sets that were created when you created the
 -- traffic policy instance.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicyInstance.html AWS API Reference> for DeleteTrafficPolicyInstance.
 module Network.AWS.Route53.DeleteTrafficPolicyInstance
     (
     -- * Creating a Request

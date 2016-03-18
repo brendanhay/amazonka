@@ -22,8 +22,6 @@
 -- 'default' cluster when you launch your first container instance.
 -- However, you can create your own cluster with a unique name with the
 -- 'CreateCluster' action.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html AWS API Reference> for CreateCluster.
 module Network.AWS.ECS.CreateCluster
     (
     -- * Creating a Request

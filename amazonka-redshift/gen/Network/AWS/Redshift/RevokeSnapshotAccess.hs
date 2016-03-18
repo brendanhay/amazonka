@@ -25,8 +25,6 @@
 -- For more information about working with snapshots, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeSnapshotAccess.html AWS API Reference> for RevokeSnapshotAccess.
 module Network.AWS.Redshift.RevokeSnapshotAccess
     (
     -- * Creating a Request

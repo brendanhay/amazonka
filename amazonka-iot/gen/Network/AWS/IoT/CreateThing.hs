@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a thing in the Thing Registry.
---
--- /See:/ <https://aws.amazon.com/iot#CreateThing.html AWS API Reference> for CreateThing.
 module Network.AWS.IoT.CreateThing
     (
     -- * Creating a Request

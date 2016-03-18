@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified tags.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteTags.html AWS API Reference> for DeleteTags.
 module Network.AWS.AutoScaling.DeleteTags
     (
     -- * Creating a Request

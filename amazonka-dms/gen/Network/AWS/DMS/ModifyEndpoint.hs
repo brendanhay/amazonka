@@ -20,8 +20,6 @@
 --
 -- Modifies the specified endpoint.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/ModifyEndpoint.html AWS API Reference> for ModifyEndpoint.
 module Network.AWS.DMS.ModifyEndpoint
     (
     -- * Creating a Request

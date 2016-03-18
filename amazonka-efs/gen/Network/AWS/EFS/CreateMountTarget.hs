@@ -118,8 +118,6 @@
 -- -   'ec2:DescribeSubnets'
 -- -   'ec2:DescribeNetworkInterfaces'
 -- -   'ec2:CreateNetworkInterface'
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateMountTarget.html AWS API Reference> for CreateMountTarget.
 module Network.AWS.EFS.CreateMountTarget
     (
     -- * Creating a Request

@@ -33,8 +33,6 @@
 -- Password generation and encryption takes a few moments. We recommend
 -- that you wait up to 15 minutes after launching an instance before trying
 -- to retrieve the generated password.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetPasswordData.html AWS API Reference> for GetPasswordData.
 module Network.AWS.EC2.GetPasswordData
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Stop data collection for the assessment specified by the assessment ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_StopDataCollection.html AWS API Reference> for StopDataCollection.
 module Network.AWS.Inspector.StopDataCollection
     (
     -- * Creating a Request

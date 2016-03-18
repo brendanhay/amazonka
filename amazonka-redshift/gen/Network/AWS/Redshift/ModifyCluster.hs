@@ -32,8 +32,6 @@
 -- down the cluster. When resizing a cluster, you must specify both the
 -- number of nodes and the node type even if one of the parameters does not
 -- change.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyCluster.html AWS API Reference> for ModifyCluster.
 module Network.AWS.Redshift.ModifyCluster
     (
     -- * Creating a Request

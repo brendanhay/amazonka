@@ -26,8 +26,6 @@
 -- deleted pipeline. To temporarily pause a pipeline instead of deleting
 -- it, call < SetStatus> with the status set to 'PAUSE' on individual
 -- components. Components that are paused by < SetStatus> can be resumed.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DeletePipeline.html AWS API Reference> for DeletePipeline.
 module Network.AWS.DataPipeline.DeletePipeline
     (
     -- * Creating a Request

@@ -22,8 +22,6 @@
 -- to limit the result set. Use the pagination parameters to retrieve
 -- results as a set of sequential pages. If successful, a collection of
 -- event log entries matching the request are returned.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeFleetEvents.html AWS API Reference> for DescribeFleetEvents.
 module Network.AWS.GameLift.DescribeFleetEvents
     (
     -- * Creating a Request

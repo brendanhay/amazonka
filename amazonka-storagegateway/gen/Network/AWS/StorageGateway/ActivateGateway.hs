@@ -29,8 +29,6 @@
 -- < UpdateGatewayInformation>.
 --
 -- You must turn on the gateway VM before you can activate your gateway.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ActivateGateway.html AWS API Reference> for ActivateGateway.
 module Network.AWS.StorageGateway.ActivateGateway
     (
     -- * Creating a Request

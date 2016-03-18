@@ -21,8 +21,6 @@
 -- Returns the estimated monthly cost of a template. The return value is an
 -- AWS Simple Monthly Calculator URL with a query string that describes the
 -- resources required to run the template.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_EstimateTemplateCost.html AWS API Reference> for EstimateTemplateCost.
 module Network.AWS.CloudFormation.EstimateTemplateCost
     (
     -- * Creating a Request

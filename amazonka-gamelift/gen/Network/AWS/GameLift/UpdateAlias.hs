@@ -22,8 +22,6 @@
 -- ID to be updated and provide the information to be changed. To reassign
 -- an alias to another fleet, provide an updated routing strategy. If
 -- successful, the updated alias record is returned.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateAlias.html AWS API Reference> for UpdateAlias.
 module Network.AWS.GameLift.UpdateAlias
     (
     -- * Creating a Request

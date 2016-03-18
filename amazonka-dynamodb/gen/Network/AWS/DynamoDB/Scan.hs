@@ -41,8 +41,6 @@
 -- a consistent copy of the data, as of the time that the Scan begins, you
 -- can set the /ConsistentRead/ parameter to /true/.
 --
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html AWS API Reference> for Scan.
---
 -- This operation returns paginated results.
 module Network.AWS.DynamoDB.Scan
     (

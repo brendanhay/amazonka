@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds or modifies tags for the specified pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_AddTags.html AWS API Reference> for AddTags.
 module Network.AWS.DataPipeline.AddTags
     (
     -- * Creating a Request

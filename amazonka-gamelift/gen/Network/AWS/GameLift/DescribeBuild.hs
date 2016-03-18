@@ -21,8 +21,6 @@
 -- Retrieves properties for a build. To get a build record, specify a build
 -- ID. If successful, an object containing the build properties is
 -- returned.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeBuild.html AWS API Reference> for DescribeBuild.
 module Network.AWS.GameLift.DescribeBuild
     (
     -- * Creating a Request

@@ -39,8 +39,6 @@
 --
 -- This operation is asynchronous and will return before the WorkSpaces
 -- have been completely rebuilt.
---
--- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_RebuildWorkspaces.html AWS API Reference> for RebuildWorkspaces.
 module Network.AWS.WorkSpaces.RebuildWorkspaces
     (
     -- * Creating a Request

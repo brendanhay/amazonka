@@ -22,8 +22,6 @@
 -- authenticate with the pool.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DeleteIdentityPool.html AWS API Reference> for DeleteIdentityPool.
 module Network.AWS.CognitoIdentity.DeleteIdentityPool
     (
     -- * Creating a Request

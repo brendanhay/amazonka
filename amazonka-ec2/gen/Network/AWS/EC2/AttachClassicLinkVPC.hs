@@ -31,8 +31,6 @@
 --
 -- Linking your instance to a VPC is sometimes referred to as /attaching/
 -- your instance.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachClassicLinkVPC.html AWS API Reference> for AttachClassicLinkVPC.
 module Network.AWS.EC2.AttachClassicLinkVPC
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about tests.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListTests.html AWS API Reference> for ListTests.
 module Network.AWS.DeviceFarm.ListTests
     (
     -- * Creating a Request

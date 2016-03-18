@@ -21,8 +21,6 @@
 -- Returns a list of 'MLModel' that match the search criteria in the
 -- request.
 --
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeMLModels.html AWS API Reference> for DescribeMLModels.
---
 -- This operation returns paginated results.
 module Network.AWS.MachineLearning.DescribeMLModels
     (

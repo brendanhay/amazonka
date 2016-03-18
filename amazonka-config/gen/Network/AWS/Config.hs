@@ -40,8 +40,6 @@
 -- see
 -- <http://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html What Is AWS Config?>
 -- in the /AWS Config Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Config
     (
     -- * Service Configuration

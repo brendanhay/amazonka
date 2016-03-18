@@ -26,8 +26,6 @@
 -- virtual tapes that have recovery points can be recovered to a new
 -- gateway.
 --
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeRecoveryPoints.html AWS API Reference> for DescribeTapeRecoveryPoints.
---
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     (

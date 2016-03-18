@@ -38,8 +38,6 @@
 -- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeDomain.html AWS API Reference> for DescribeDomain.
 module Network.AWS.SWF.DescribeDomain
     (
     -- * Creating a Request

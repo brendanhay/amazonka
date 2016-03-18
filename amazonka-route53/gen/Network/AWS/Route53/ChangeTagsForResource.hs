@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeTagsForResource.html AWS API Reference> for ChangeTagsForResource.
 module Network.AWS.Route53.ChangeTagsForResource
     (
     -- * Creating a Request

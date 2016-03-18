@@ -33,8 +33,6 @@
 --
 -- When you terminate a container instance, it is automatically
 -- deregistered from your cluster.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterContainerInstance.html AWS API Reference> for DeregisterContainerInstance.
 module Network.AWS.ECS.DeregisterContainerInstance
     (
     -- * Creating a Request

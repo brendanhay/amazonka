@@ -20,8 +20,6 @@
 --
 -- Attaches the specified policy to the specified principal (certificate or
 -- other credential).
---
--- /See:/ <https://aws.amazon.com/iot#AttachPrincipalPolicy.html AWS API Reference> for AttachPrincipalPolicy.
 module Network.AWS.IoT.AttachPrincipalPolicy
     (
     -- * Creating a Request

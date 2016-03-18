@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all the image IDs for a given repository.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/ListImages.html AWS API Reference> for ListImages.
 module Network.AWS.ECR.ListImages
     (
     -- * Creating a Request

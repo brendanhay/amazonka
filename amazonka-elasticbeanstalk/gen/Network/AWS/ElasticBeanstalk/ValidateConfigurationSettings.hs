@@ -23,8 +23,6 @@
 --
 -- This action returns a list of messages indicating any errors or warnings
 -- associated with the selection of option values.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ValidateConfigurationSettings.html AWS API Reference> for ValidateConfigurationSettings.
 module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     (
     -- * Creating a Request

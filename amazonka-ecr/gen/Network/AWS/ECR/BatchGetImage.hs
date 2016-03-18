@@ -21,8 +21,6 @@
 -- Gets detailed information for specified images within a specified
 -- repository. Images are specified with either 'imageTag' or
 -- 'imageDigest'.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/BatchGetImage.html AWS API Reference> for BatchGetImage.
 module Network.AWS.ECR.BatchGetImage
     (
     -- * Creating a Request

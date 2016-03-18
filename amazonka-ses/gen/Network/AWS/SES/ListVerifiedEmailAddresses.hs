@@ -26,8 +26,6 @@
 -- preferred.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListVerifiedEmailAddresses.html AWS API Reference> for ListVerifiedEmailAddresses.
 module Network.AWS.SES.ListVerifiedEmailAddresses
     (
     -- * Creating a Request

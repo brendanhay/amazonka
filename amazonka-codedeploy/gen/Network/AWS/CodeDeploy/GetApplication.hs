@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an application.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplication.html AWS API Reference> for GetApplication.
 module Network.AWS.CodeDeploy.GetApplication
     (
     -- * Creating a Request

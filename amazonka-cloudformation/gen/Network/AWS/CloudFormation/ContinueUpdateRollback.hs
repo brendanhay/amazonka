@@ -33,8 +33,6 @@
 -- Because AWS CloudFormation doesn\'t know the database was deleted, it
 -- assumes that the database instance still exists and attempts to roll
 -- back to it, causing the update rollback to fail.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ContinueUpdateRollback.html AWS API Reference> for ContinueUpdateRollback.
 module Network.AWS.CloudFormation.ContinueUpdateRollback
     (
     -- * Creating a Request

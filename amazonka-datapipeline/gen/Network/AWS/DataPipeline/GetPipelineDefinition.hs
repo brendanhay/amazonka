@@ -21,8 +21,6 @@
 -- Gets the definition of the specified pipeline. You can call
 -- 'GetPipelineDefinition' to retrieve the pipeline definition that you
 -- provided using < PutPipelineDefinition>.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_GetPipelineDefinition.html AWS API Reference> for GetPipelineDefinition.
 module Network.AWS.DataPipeline.GetPipelineDefinition
     (
     -- * Creating a Request

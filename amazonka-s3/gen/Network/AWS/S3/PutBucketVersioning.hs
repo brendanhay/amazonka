@@ -20,8 +20,6 @@
 --
 -- Sets the versioning state of an existing bucket. To set the versioning
 -- state, you must be the bucket owner.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketVersioning.html AWS API Reference> for PutBucketVersioning.
 module Network.AWS.S3.PutBucketVersioning
     (
     -- * Creating a Request

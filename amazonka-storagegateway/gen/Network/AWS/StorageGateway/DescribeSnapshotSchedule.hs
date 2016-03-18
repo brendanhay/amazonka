@@ -21,8 +21,6 @@
 -- This operation describes the snapshot schedule for the specified gateway
 -- volume. The snapshot schedule information includes intervals at which
 -- snapshots are automatically initiated on the volume.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeSnapshotSchedule.html AWS API Reference> for DescribeSnapshotSchedule.
 module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     (
     -- * Creating a Request

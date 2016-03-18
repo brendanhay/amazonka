@@ -23,8 +23,6 @@
 --
 -- For more information about how AWS IoT works, see the
 -- <http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html Developer Guide>.
---
--- /See:/ <https://aws.amazon.com/iot AWS API Reference>
 module Network.AWS.IoT
     (
     -- * Service Configuration

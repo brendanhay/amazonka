@@ -21,8 +21,6 @@
 -- The ListPipelines operation gets a list of the pipelines associated with
 -- the current AWS account.
 --
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListPipelines.html AWS API Reference> for ListPipelines.
---
 -- This operation returns paginated results.
 module Network.AWS.ElasticTranscoder.ListPipelines
     (

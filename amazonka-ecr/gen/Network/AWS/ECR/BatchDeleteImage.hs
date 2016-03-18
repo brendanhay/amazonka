@@ -20,8 +20,6 @@
 --
 -- Deletes a list of specified images within a specified repository. Images
 -- are specified with either 'imageTag' or 'imageDigest'.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/BatchDeleteImage.html AWS API Reference> for BatchDeleteImage.
 module Network.AWS.ECR.BatchDeleteImage
     (
     -- * Creating a Request

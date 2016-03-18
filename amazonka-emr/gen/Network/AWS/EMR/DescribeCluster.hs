@@ -21,8 +21,6 @@
 -- Provides cluster-level details including status, hardware and software
 -- configuration, VPC settings, and so on. For information about the
 -- cluster steps, see < ListSteps>.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_DescribeCluster.html AWS API Reference> for DescribeCluster.
 module Network.AWS.EMR.DescribeCluster
     (
     -- * Creating a Request

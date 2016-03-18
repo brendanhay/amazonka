@@ -23,8 +23,6 @@
 --
 -- This action is throttled at one request per second.
 --
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentities.html AWS API Reference> for ListIdentities.
---
 -- This operation returns paginated results.
 module Network.AWS.SES.ListIdentities
     (

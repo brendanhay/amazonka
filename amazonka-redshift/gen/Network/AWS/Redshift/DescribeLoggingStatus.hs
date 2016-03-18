@@ -20,8 +20,6 @@
 --
 -- Describes whether information, such as queries and connection attempts,
 -- is being logged for the specified Amazon Redshift cluster.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeLoggingStatus.html AWS API Reference> for DescribeLoggingStatus.
 module Network.AWS.Redshift.DescribeLoggingStatus
     (
     -- * Creating a Request

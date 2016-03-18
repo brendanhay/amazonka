@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deprecated, see the GetBucketReplicationConfiguration operation.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketReplication.html AWS API Reference> for GetBucketReplication.
 module Network.AWS.S3.GetBucketReplication
     (
     -- * Creating a Request

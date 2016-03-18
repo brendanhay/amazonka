@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateAPIKey.html AWS API Reference> for CreateAPIKey.
 module Network.AWS.APIGateway.CreateAPIKey
     (
     -- * Creating a Request

@@ -29,8 +29,6 @@
 --
 -- After a certificate transfer is cancelled, the status of the certificate
 -- changes from PENDING_TRANSFER to INACTIVE.
---
--- /See:/ <https://aws.amazon.com/iot#CancelCertificateTransfer.html AWS API Reference> for CancelCertificateTransfer.
 module Network.AWS.IoT.CancelCertificateTransfer
     (
     -- * Creating a Request

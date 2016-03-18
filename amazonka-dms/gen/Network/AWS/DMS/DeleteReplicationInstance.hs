@@ -23,8 +23,6 @@
 -- You must delete any migration tasks that are associated with the
 -- replication instance before you can delete it.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteReplicationInstance.html AWS API Reference> for DeleteReplicationInstance.
 module Network.AWS.DMS.DeleteReplicationInstance
     (
     -- * Creating a Request

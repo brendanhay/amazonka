@@ -22,8 +22,6 @@
 -- its Elastic IP address, but does not release the address from your
 -- account. Deleting a NAT gateway does not delete any NAT gateway routes
 -- in your route tables.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNatGateway.html AWS API Reference> for DeleteNatGateway.
 module Network.AWS.EC2.DeleteNatGateway
     (
     -- * Creating a Request

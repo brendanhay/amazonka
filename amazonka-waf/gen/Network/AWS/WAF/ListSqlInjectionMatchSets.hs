@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns an array of < SqlInjectionMatchSet> objects.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_ListSqlInjectionMatchSets.html AWS API Reference> for ListSqlInjectionMatchSets.
 module Network.AWS.WAF.ListSqlInjectionMatchSets
     (
     -- * Creating a Request

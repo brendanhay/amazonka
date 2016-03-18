@@ -20,8 +20,6 @@
 --
 -- Returns a list of all buckets owned by the authenticated sender of the
 -- request.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListBuckets.html AWS API Reference> for ListBuckets.
 module Network.AWS.S3.ListBuckets
     (
     -- * Creating a Request

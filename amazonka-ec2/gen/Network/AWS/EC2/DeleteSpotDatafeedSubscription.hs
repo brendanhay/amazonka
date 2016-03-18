@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the data feed for Spot instances.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSpotDatafeedSubscription.html AWS API Reference> for DeleteSpotDatafeedSubscription.
 module Network.AWS.EC2.DeleteSpotDatafeedSubscription
     (
     -- * Creating a Request

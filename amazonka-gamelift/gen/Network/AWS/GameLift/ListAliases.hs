@@ -23,8 +23,6 @@
 -- the pagination parameters to retrieve results in sequential pages.
 --
 -- Aliases are not listed in any particular order.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/ListAliases.html AWS API Reference> for ListAliases.
 module Network.AWS.GameLift.ListAliases
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the < ApiKey> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteAPIKey.html AWS API Reference> for DeleteAPIKey.
 module Network.AWS.APIGateway.DeleteAPIKey
     (
     -- * Creating a Request

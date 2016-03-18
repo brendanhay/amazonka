@@ -20,8 +20,6 @@
 --
 -- The /PurchaseReservedCacheNodesOffering/ action allows you to purchase a
 -- reserved cache node offering.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html AWS API Reference> for PurchaseReservedCacheNodesOffering.
 module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     (
     -- * Creating a Request

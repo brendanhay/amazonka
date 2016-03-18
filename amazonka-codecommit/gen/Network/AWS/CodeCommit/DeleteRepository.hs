@@ -24,8 +24,6 @@
 -- Deleting a repository also deletes all associated objects and metadata.
 -- After a repository is deleted, all future push calls to the deleted
 -- repository will fail.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_DeleteRepository.html AWS API Reference> for DeleteRepository.
 module Network.AWS.CodeCommit.DeleteRepository
     (
     -- * Creating a Request

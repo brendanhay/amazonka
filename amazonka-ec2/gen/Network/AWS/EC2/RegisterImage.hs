@@ -53,8 +53,6 @@
 --
 -- You can\'t register an image where a secondary (non-root) snapshot has
 -- AWS Marketplace product codes.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RegisterImage.html AWS API Reference> for RegisterImage.
 module Network.AWS.EC2.RegisterImage
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Gets information about a < Deployments> collection.
 --
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetDeployments.html AWS API Reference> for GetDeployments.
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetDeployments
     (

@@ -22,8 +22,6 @@
 -- Aurora, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBClusterSnapshot.html AWS API Reference> for CopyDBClusterSnapshot.
 module Network.AWS.RDS.CopyDBClusterSnapshot
     (
     -- * Creating a Request

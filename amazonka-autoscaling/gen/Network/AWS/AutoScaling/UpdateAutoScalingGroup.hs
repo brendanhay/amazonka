@@ -45,8 +45,6 @@
 --
 -- -   All other optional parameters are left unchanged if not specified.
 --
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_UpdateAutoScalingGroup.html AWS API Reference> for UpdateAutoScalingGroup.
 module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     (
     -- * Creating a Request

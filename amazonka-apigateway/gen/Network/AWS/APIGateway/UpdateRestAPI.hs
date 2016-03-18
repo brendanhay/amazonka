@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes information about the specified API.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateRestAPI.html AWS API Reference> for UpdateRestAPI.
 module Network.AWS.APIGateway.UpdateRestAPI
     (
     -- * Creating a Request

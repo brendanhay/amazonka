@@ -38,8 +38,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html Get Vault Notification Configuration>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetVaultNotifications.html AWS API Reference> for GetVaultNotifications.
 module Network.AWS.Glacier.GetVaultNotifications
     (
     -- * Creating a Request

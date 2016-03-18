@@ -31,8 +31,6 @@
 -- body must include a document with a 'CreateTrafficPolicyRequest'
 -- element. The response returns the 'CreateTrafficPolicyInstanceResponse'
 -- element, which contains information about the traffic policy instance.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicyInstance.html AWS API Reference> for CreateTrafficPolicyInstance.
 module Network.AWS.Route53.CreateTrafficPolicyInstance
     (
     -- * Creating a Request

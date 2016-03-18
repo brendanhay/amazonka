@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds a < MethodResponse> to an existing < Method> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/PutMethodResponse.html AWS API Reference> for PutMethodResponse.
 module Network.AWS.APIGateway.PutMethodResponse
     (
     -- * Creating a Request

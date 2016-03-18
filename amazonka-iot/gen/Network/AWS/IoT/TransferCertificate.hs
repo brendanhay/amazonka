@@ -30,8 +30,6 @@
 --
 -- The certificate must not have any policies attached to it. You can use
 -- the DetachPrincipalPolicy API to detach them.
---
--- /See:/ <https://aws.amazon.com/iot#TransferCertificate.html AWS API Reference> for TransferCertificate.
 module Network.AWS.IoT.TransferCertificate
     (
     -- * Creating a Request

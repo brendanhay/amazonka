@@ -21,8 +21,6 @@
 -- Lists the tags for the specified trail or trails in the current region.
 --
 -- Lists the tags for the trail in the current region.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListTags.html AWS API Reference> for ListTags.
 module Network.AWS.CloudTrail.ListTags
     (
     -- * Creating a Request

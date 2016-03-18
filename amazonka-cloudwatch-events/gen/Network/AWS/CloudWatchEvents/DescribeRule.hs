@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the details of the specified rule.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeRule.html AWS API Reference> for DescribeRule.
 module Network.AWS.CloudWatchEvents.DescribeRule
     (
     -- * Creating a Request

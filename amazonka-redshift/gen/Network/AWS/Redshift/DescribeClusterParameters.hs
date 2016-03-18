@@ -32,8 +32,6 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameters.html AWS API Reference> for DescribeClusterParameters.
---
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeClusterParameters
     (

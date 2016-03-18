@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the ClassicLink status of one or more VPCs.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCClassicLink.html AWS API Reference> for DescribeVPCClassicLink.
 module Network.AWS.EC2.DescribeVPCClassicLink
     (
     -- * Creating a Request

@@ -29,8 +29,6 @@
 -- information, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules>
 -- in the Amazon Redshift Cluster Management Guide.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHSMClientCertificate.html AWS API Reference> for CreateHSMClientCertificate.
 module Network.AWS.Redshift.CreateHSMClientCertificate
     (
     -- * Creating a Request

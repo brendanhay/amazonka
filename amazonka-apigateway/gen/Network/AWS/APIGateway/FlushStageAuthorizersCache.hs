@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Flushes all authorizer cache entries on a stage.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/FlushStageAuthorizersCache.html AWS API Reference> for FlushStageAuthorizersCache.
 module Network.AWS.APIGateway.FlushStageAuthorizersCache
     (
     -- * Creating a Request

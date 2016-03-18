@@ -18,8 +18,6 @@
 -- and bypassing the Internet. For large data sets, AWS Import\/Export is
 -- often faster than Internet transfer and more cost effective than
 -- upgrading your connectivity.
---
--- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/api-reference.html AWS API Reference>
 module Network.AWS.ImportExport
     (
     -- * Service Configuration

@@ -20,8 +20,6 @@
 --
 -- Creates an application that has one configuration template named
 -- 'default' and no application versions.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplication.html AWS API Reference> for CreateApplication.
 module Network.AWS.ElasticBeanstalk.CreateApplication
     (
     -- * Creating a Request

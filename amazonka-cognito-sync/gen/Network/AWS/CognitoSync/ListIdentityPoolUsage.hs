@@ -23,8 +23,6 @@
 -- ListIdentityPoolUsage can only be called with developer credentials. You
 -- cannot make this API call with the temporary user credentials provided
 -- by Cognito Identity.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListIdentityPoolUsage.html AWS API Reference> for ListIdentityPoolUsage.
 module Network.AWS.CognitoSync.ListIdentityPoolUsage
     (
     -- * Creating a Request

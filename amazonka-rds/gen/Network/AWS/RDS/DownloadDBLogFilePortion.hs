@@ -21,8 +21,6 @@
 -- Downloads all or a portion of the specified log file, up to 1 MB in
 -- size.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DownloadDBLogFilePortion.html AWS API Reference> for DownloadDBLogFilePortion.
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DownloadDBLogFilePortion
     (

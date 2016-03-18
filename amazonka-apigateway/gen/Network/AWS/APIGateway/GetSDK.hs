@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetSDK.html AWS API Reference> for GetSDK.
 module Network.AWS.APIGateway.GetSDK
     (
     -- * Creating a Request

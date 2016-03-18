@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the specified policy from the specified certificate.
---
--- /See:/ <https://aws.amazon.com/iot#DetachPrincipalPolicy.html AWS API Reference> for DetachPrincipalPolicy.
 module Network.AWS.IoT.DetachPrincipalPolicy
     (
     -- * Creating a Request

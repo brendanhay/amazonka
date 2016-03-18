@@ -20,8 +20,6 @@
 --
 -- Updates the Remote Authentication Dial In User Service (RADIUS) server
 -- information for an AD Connector directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_UpdateRadius.html AWS API Reference> for UpdateRadius.
 module Network.AWS.DirectoryService.UpdateRadius
     (
     -- * Creating a Request

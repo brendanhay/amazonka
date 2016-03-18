@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists your policies.
---
--- /See:/ <https://aws.amazon.com/iot#ListPolicies.html AWS API Reference> for ListPolicies.
 module Network.AWS.IoT.ListPolicies
     (
     -- * Creating a Request

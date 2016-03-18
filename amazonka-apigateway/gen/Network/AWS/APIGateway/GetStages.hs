@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more < Stage> resources.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetStages.html AWS API Reference> for GetStages.
 module Network.AWS.APIGateway.GetStages
     (
     -- * Creating a Request

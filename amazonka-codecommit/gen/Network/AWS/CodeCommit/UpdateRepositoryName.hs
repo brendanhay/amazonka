@@ -25,8 +25,6 @@
 -- description of the limits on repository names, see
 -- <http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html Limits>
 -- in the AWS CodeCommit User Guide.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_UpdateRepositoryName.html AWS API Reference> for UpdateRepositoryName.
 module Network.AWS.CodeCommit.UpdateRepositoryName
     (
     -- * Creating a Request

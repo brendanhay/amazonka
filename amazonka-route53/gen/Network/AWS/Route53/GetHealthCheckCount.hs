@@ -20,8 +20,6 @@
 --
 -- To retrieve a count of all your health checks, send a 'GET' request to
 -- the '\/Route 53 API version\/healthcheckcount' resource.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckCount.html AWS API Reference> for GetHealthCheckCount.
 module Network.AWS.Route53.GetHealthCheckCount
     (
     -- * Creating a Request

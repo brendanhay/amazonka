@@ -35,8 +35,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-sticky-sessions.html#enable-sticky-sessions-application Application-Controlled Session Stickiness>
 -- in the /Elastic Load Balancing Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateAppCookieStickinessPolicy.html AWS API Reference> for CreateAppCookieStickinessPolicy.
 module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     (
     -- * Creating a Request

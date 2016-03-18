@@ -67,8 +67,6 @@
 -- receive a 'LimitExceededException'.
 --
 -- 'SplitShard' has limit of 5 transactions per second per account.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_SplitShard.html AWS API Reference> for SplitShard.
 module Network.AWS.Kinesis.SplitShard
     (
     -- * Creating a Request

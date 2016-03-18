@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a model.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteModel.html AWS API Reference> for DeleteModel.
 module Network.AWS.APIGateway.DeleteModel
     (
     -- * Creating a Request

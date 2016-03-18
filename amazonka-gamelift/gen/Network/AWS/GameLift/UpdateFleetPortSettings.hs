@@ -24,8 +24,6 @@
 -- permissions you want to remove in /InboundPermissionRevocations/.
 -- Permissions to be removed must match existing fleet permissions. If
 -- successful, the fleet ID for the updated fleet is returned.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateFleetPortSettings.html AWS API Reference> for UpdateFleetPortSettings.
 module Network.AWS.GameLift.UpdateFleetPortSettings
     (
     -- * Creating a Request

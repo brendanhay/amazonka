@@ -21,8 +21,6 @@
 -- Deletes the destination with the specified name and eventually disables
 -- all the subscription filters that publish to it. This will not delete
 -- the physical resource encapsulated by the destination.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteDestination.html AWS API Reference> for DeleteDestination.
 module Network.AWS.CloudWatchLogs.DeleteDestination
     (
     -- * Creating a Request

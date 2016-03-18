@@ -36,8 +36,6 @@
 -- given time.
 --
 -- You can use the /DescribeTable/ API to check the table status.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html AWS API Reference> for CreateTable.
 module Network.AWS.DynamoDB.CreateTable
     (
     -- * Creating a Request

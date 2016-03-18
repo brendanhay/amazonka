@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describe an existing < Method> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetMethod.html AWS API Reference> for GetMethod.
 module Network.AWS.APIGateway.GetMethod
     (
     -- * Creating a Request

@@ -31,8 +31,6 @@
 -- action. Statistics about the metric, however, are available sooner using
 -- < GetMetricStatistics>.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html AWS API Reference> for ListMetrics.
---
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.ListMetrics
     (

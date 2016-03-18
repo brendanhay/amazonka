@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The /CopySnapshot/ action makes a copy of an existing snapshot.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CopySnapshot.html AWS API Reference> for CopySnapshot.
 module Network.AWS.ElastiCache.CopySnapshot
     (
     -- * Creating a Request

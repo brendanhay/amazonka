@@ -20,8 +20,6 @@
 --
 -- Lists information about a collection of < Resource> resources.
 --
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetResources.html AWS API Reference> for GetResources.
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetResources
     (

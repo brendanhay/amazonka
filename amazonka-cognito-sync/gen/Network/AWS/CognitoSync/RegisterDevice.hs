@@ -22,8 +22,6 @@
 --
 -- This API can only be called with temporary credentials provided by
 -- Cognito Identity. You cannot call this API with developer credentials.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_RegisterDevice.html AWS API Reference> for RegisterDevice.
 module Network.AWS.CognitoSync.RegisterDevice
     (
     -- * Creating a Request

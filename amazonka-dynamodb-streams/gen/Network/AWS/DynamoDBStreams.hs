@@ -40,8 +40,6 @@
 -- -   /ListStreams/ - Returns a list of all the streams associated with
 --     the current AWS account and endpoint.
 --
---
--- /See:/ <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/Welcome.html AWS API Reference>
 module Network.AWS.DynamoDBStreams
     (
     -- * Service Configuration

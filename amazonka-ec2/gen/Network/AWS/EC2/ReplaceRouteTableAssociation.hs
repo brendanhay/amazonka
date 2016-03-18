@@ -29,8 +29,6 @@
 -- the main route table in the VPC. You just specify the main route
 -- table\'s association ID and the route table to be the new main route
 -- table.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRouteTableAssociation.html AWS API Reference> for ReplaceRouteTableAssociation.
 module Network.AWS.EC2.ReplaceRouteTableAssociation
     (
     -- * Creating a Request

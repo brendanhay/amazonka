@@ -25,8 +25,6 @@
 -- certificates, use the 'NextToken' marker from the response object in
 -- your next call to the 'ListCertificates' action to retrieve the next set
 -- of certificate ARNs.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/ListCertificates.html AWS API Reference> for ListCertificates.
 module Network.AWS.CertificateManager.ListCertificates
     (
     -- * Creating a Request

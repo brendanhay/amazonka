@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a summary of all of the pipelines associated with your account.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_ListPipelines.html AWS API Reference> for ListPipelines.
 module Network.AWS.CodePipeline.ListPipelines
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Deletes a subnet group.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteReplicationSubnetGroup.html AWS API Reference> for DeleteReplicationSubnetGroup.
 module Network.AWS.DMS.DeleteReplicationSubnetGroup
     (
     -- * Creating a Request

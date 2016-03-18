@@ -35,8 +35,6 @@
 -- '&Attribute.1=this'
 --
 -- '&Attribute.2=that'
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html AWS API Reference> for ChangeMessageVisibilityBatch.
 module Network.AWS.SQS.ChangeMessageVisibilityBatch
     (
     -- * Creating a Request

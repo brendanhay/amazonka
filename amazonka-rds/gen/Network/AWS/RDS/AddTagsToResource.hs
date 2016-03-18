@@ -25,8 +25,6 @@
 --
 -- For an overview on tagging Amazon RDS resources, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources>.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddTagsToResource.html AWS API Reference> for AddTagsToResource.
 module Network.AWS.RDS.AddTagsToResource
     (
     -- * Creating a Request

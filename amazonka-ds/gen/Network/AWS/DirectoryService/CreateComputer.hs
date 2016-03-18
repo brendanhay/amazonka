@@ -20,8 +20,6 @@
 --
 -- Creates a computer account in the specified directory, and joins the
 -- computer to the directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateComputer.html AWS API Reference> for CreateComputer.
 module Network.AWS.DirectoryService.CreateComputer
     (
     -- * Creating a Request

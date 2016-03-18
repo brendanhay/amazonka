@@ -28,8 +28,6 @@
 -- if there is no policy associated with the vault. For more information
 -- about vault access policies, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DeleteVaultAccessPolicy.html AWS API Reference> for DeleteVaultAccessPolicy.
 module Network.AWS.Glacier.DeleteVaultAccessPolicy
     (
     -- * Creating a Request

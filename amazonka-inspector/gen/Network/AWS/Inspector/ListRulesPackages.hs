@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all available Inspector rules packages.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_ListRulesPackages.html AWS API Reference> for ListRulesPackages.
 module Network.AWS.Inspector.ListRulesPackages
     (
     -- * Creating a Request

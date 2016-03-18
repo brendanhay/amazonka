@@ -20,8 +20,6 @@
 --
 -- Deletes a device pool given the pool ARN. Does not allow deletion of
 -- curated pools owned by the system.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_DeleteDevicePool.html AWS API Reference> for DeleteDevicePool.
 module Network.AWS.DeviceFarm.DeleteDevicePool
     (
     -- * Creating a Request

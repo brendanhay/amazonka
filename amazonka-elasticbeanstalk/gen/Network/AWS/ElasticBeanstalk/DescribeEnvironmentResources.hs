@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns AWS resources for this environment.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentResources.html AWS API Reference> for DescribeEnvironmentResources.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     (
     -- * Creating a Request

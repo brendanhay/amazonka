@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a Simple AD directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html AWS API Reference> for CreateDirectory.
 module Network.AWS.DirectoryService.CreateDirectory
     (
     -- * Creating a Request

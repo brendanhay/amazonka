@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the access control list (ACL) of an object.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObjectACL.html AWS API Reference> for GetObjectACL.
 module Network.AWS.S3.GetObjectACL
     (
     -- * Creating a Request

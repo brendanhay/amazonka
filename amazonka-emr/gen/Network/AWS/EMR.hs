@@ -16,8 +16,6 @@
 -- Hadoop processing combined with several AWS products to do tasks such as
 -- web indexing, data mining, log file analysis, machine learning,
 -- scientific simulation, and data warehousing.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/Welcome.html AWS API Reference>
 module Network.AWS.EMR
     (
     -- * Service Configuration

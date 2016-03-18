@@ -21,7 +21,7 @@ Use this service in conjunction with the Amazon CloudWatch and Elastic
 Load Balancing services.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-autoscaling)
-and the [AWS API Reference](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/Welcome.html).
+and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
 which provides mechanisms for specifying AuthN/AuthZ information and sending requests.

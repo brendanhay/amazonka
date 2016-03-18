@@ -22,8 +22,6 @@
 -- <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
 --
 -- This requires permission for the lambda:DeleteAlias action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_DeleteAlias.html AWS API Reference> for DeleteAlias.
 module Network.AWS.Lambda.DeleteAlias
     (
     -- * Creating a Request

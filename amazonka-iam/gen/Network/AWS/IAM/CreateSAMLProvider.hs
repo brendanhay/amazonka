@@ -42,8 +42,6 @@
 -- and
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html About SAML 2.0-based Federation>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateSAMLProvider.html AWS API Reference> for CreateSAMLProvider.
 module Network.AWS.IAM.CreateSAMLProvider
     (
     -- * Creating a Request

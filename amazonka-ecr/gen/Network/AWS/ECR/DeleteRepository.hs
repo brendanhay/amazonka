@@ -20,8 +20,6 @@
 --
 -- Deletes an existing image repository. If a repository contains images,
 -- you must use the 'force' option to delete it.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteRepository.html AWS API Reference> for DeleteRepository.
 module Network.AWS.ECR.DeleteRepository
     (
     -- * Creating a Request

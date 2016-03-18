@@ -59,8 +59,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html Upload Archive>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-UploadArchive.html AWS API Reference> for UploadArchive.
 module Network.AWS.Glacier.UploadArchive
     (
     -- * Creating a Request

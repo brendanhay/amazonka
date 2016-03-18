@@ -29,8 +29,6 @@
 --
 -- GetRecords can retrieve a maximum of 1 MB of data or 2000 stream
 -- records, whichever comes first.
---
--- /See:/ <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_GetRecords.html AWS API Reference> for GetRecords.
 module Network.AWS.DynamoDBStreams.GetRecords
     (
     -- * Creating a Request

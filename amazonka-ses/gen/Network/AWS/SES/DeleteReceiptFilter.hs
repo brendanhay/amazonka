@@ -24,8 +24,6 @@
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteReceiptFilter.html AWS API Reference> for DeleteReceiptFilter.
 module Network.AWS.SES.DeleteReceiptFilter
     (
     -- * Creating a Request

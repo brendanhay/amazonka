@@ -21,8 +21,6 @@
 -- This action can be used only with Windows stacks.
 --
 -- Grants RDP access to a Windows instance for a specified time period.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_GrantAccess.html AWS API Reference> for GrantAccess.
 module Network.AWS.OpsWorks.GrantAccess
     (
     -- * Creating a Request

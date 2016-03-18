@@ -30,8 +30,6 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates>
 -- in the /IAM User Guide/.
 --
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServerCertificates.html AWS API Reference> for ListServerCertificates.
---
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListServerCertificates
     (

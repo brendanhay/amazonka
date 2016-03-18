@@ -35,8 +35,6 @@
 -- Events that occurred during the selected time range will not be
 -- available for lookup if CloudTrail logging was not enabled when the
 -- events occurred.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_LookupEvents.html AWS API Reference> for LookupEvents.
 module Network.AWS.CloudTrail.LookupEvents
     (
     -- * Creating a Request

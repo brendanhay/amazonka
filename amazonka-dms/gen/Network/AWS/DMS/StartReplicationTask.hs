@@ -20,8 +20,6 @@
 --
 -- Starts the replication task.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/StartReplicationTask.html AWS API Reference> for StartReplicationTask.
 module Network.AWS.DMS.StartReplicationTask
     (
     -- * Creating a Request

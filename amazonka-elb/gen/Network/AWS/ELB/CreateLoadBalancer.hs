@@ -32,8 +32,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-limits.html Elastic Load Balancing Limits>
 -- in the /Elastic Load Balancing Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancer.html AWS API Reference> for CreateLoadBalancer.
 module Network.AWS.ELB.CreateLoadBalancer
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a < Stage> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteStage.html AWS API Reference> for DeleteStage.
 module Network.AWS.APIGateway.DeleteStage
     (
     -- * Creating a Request

@@ -33,8 +33,6 @@
 -- status of the change token changes to 'PENDING', which indicates that
 -- AWS WAF is propagating the change to all AWS WAF servers. Use
 -- 'GetChangeTokenStatus' to determine the status of your change token.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetChangeToken.html AWS API Reference> for GetChangeToken.
 module Network.AWS.WAF.GetChangeToken
     (
     -- * Creating a Request

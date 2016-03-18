@@ -30,8 +30,6 @@
 -- then try again.
 --
 -- Released hosts will still appear in a DescribeHosts response.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReleaseHosts.html AWS API Reference> for ReleaseHosts.
 module Network.AWS.EC2.ReleaseHosts
     (
     -- * Creating a Request

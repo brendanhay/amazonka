@@ -28,8 +28,6 @@
 --     completed.
 -- -   Notification of delivery failure, if the delivery failed to
 --     complete.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DeliverConfigSnapshot.html AWS API Reference> for DeliverConfigSnapshot.
 module Network.AWS.Config.DeliverConfigSnapshot
     (
     -- * Creating a Request

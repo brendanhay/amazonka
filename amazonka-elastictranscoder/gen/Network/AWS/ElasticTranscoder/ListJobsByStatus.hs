@@ -22,8 +22,6 @@
 -- status. The response body contains one element for each job that
 -- satisfies the search criteria.
 --
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByStatus.html AWS API Reference> for ListJobsByStatus.
---
 -- This operation returns paginated results.
 module Network.AWS.ElasticTranscoder.ListJobsByStatus
     (

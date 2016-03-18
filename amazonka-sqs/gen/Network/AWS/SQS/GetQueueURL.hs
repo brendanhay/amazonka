@@ -28,8 +28,6 @@
 -- < AddPermission> or go to
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues>
 -- in the /Amazon SQS Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueURL.html AWS API Reference> for GetQueueURL.
 module Network.AWS.SQS.GetQueueURL
     (
     -- * Creating a Request

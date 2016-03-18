@@ -25,8 +25,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineSuggester.html AWS API Reference> for DefineSuggester.
 module Network.AWS.CloudSearch.DefineSuggester
     (
     -- * Creating a Request

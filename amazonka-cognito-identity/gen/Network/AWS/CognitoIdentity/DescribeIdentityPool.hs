@@ -22,8 +22,6 @@
 -- ID description, creation date, and current number of users.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DescribeIdentityPool.html AWS API Reference> for DescribeIdentityPool.
 module Network.AWS.CognitoIdentity.DescribeIdentityPool
     (
     -- * Creating a Request

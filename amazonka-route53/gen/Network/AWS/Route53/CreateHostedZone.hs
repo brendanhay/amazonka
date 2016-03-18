@@ -41,8 +41,6 @@
 -- When trying to create a hosted zone using a reusable delegation set, you
 -- could specify an optional DelegationSetId, and Route53 would assign
 -- those 4 NS records for the zone, instead of alloting a new one.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html AWS API Reference> for CreateHostedZone.
 module Network.AWS.Route53.CreateHostedZone
     (
     -- * Creating a Request

@@ -29,8 +29,6 @@
 --
 -- To list or delete a snapshot, you must use the Amazon EC2 API. in
 -- /Amazon Elastic Compute Cloud API Reference/.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteSnapshotSchedule.html AWS API Reference> for DeleteSnapshotSchedule.
 module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     (
     -- * Creating a Request

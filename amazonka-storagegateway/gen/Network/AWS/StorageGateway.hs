@@ -45,8 +45,6 @@
 -- the EC2 API. For example, in Storage Gateway the ID for a volume might
 -- be vol-1122AABB. When you use this ID with the EC2 API, you must change
 -- it to vol-1122aabb. Otherwise, the EC2 API might not behave as expected.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.StorageGateway
     (
     -- * Service Configuration

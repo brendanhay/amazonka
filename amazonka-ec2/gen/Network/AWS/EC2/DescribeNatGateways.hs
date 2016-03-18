@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of the your NAT gateways.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNatGateways.html AWS API Reference> for DescribeNatGateways.
 module Network.AWS.EC2.DescribeNatGateways
     (
     -- * Creating a Request

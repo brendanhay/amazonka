@@ -46,8 +46,6 @@
 --
 -- This operation requires permission for the
 -- 'elasticfilesystem:DescribeFileSystems' action.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeFileSystems.html AWS API Reference> for DescribeFileSystems.
 module Network.AWS.EFS.DescribeFileSystems
     (
     -- * Creating a Request

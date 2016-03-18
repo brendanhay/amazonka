@@ -20,8 +20,6 @@
 --
 -- Returns the descriptions of the reserved nodes.
 --
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodes.html AWS API Reference> for DescribeReservedNodes.
---
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeReservedNodes
     (

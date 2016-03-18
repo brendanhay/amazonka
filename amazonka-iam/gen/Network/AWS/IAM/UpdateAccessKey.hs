@@ -31,8 +31,6 @@
 -- For information about rotating keys, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html Managing Keys and Certificates>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccessKey.html AWS API Reference> for UpdateAccessKey.
 module Network.AWS.IAM.UpdateAccessKey
     (
     -- * Creating a Request

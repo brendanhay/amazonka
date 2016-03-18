@@ -24,8 +24,6 @@
 -- <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
 --
 -- This requires permission for the 'lambda:GetAlias' action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetAlias.html AWS API Reference> for GetAlias.
 module Network.AWS.Lambda.GetAlias
     (
     -- * Creating a Request

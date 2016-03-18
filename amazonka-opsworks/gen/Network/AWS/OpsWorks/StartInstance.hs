@@ -26,8 +26,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StartInstance.html AWS API Reference> for StartInstance.
 module Network.AWS.OpsWorks.StartInstance
     (
     -- * Creating a Request

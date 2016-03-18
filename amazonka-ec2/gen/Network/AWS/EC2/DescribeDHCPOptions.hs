@@ -23,8 +23,6 @@
 -- For more information about DHCP options sets, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeDHCPOptions.html AWS API Reference> for DescribeDHCPOptions.
 module Network.AWS.EC2.DescribeDHCPOptions
     (
     -- * Creating a Request

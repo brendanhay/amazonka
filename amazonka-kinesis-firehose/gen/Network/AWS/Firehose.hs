@@ -16,8 +16,6 @@
 -- Amazon Kinesis Firehose is a fully-managed service that delivers
 -- real-time streaming data to destinations such as Amazon S3 and Amazon
 -- Redshift.
---
--- /See:/ <http://docs.aws.amazon.com/firehose/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Firehose
     (
     -- * Service Configuration

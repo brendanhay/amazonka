@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Flushes a stage\'s cache.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/FlushStageCache.html AWS API Reference> for FlushStageCache.
 module Network.AWS.APIGateway.FlushStageCache
     (
     -- * Creating a Request

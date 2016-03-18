@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Validates a specified template.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ValidateTemplate.html AWS API Reference> for ValidateTemplate.
 module Network.AWS.CloudFormation.ValidateTemplate
     (
     -- * Creating a Request

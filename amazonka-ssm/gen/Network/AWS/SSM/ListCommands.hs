@@ -20,8 +20,6 @@
 --
 -- Lists the commands requested by users of the AWS account.
 --
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListCommands.html AWS API Reference> for ListCommands.
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListCommands
     (

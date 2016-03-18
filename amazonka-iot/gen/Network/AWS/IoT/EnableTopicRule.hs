@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables the specified rule.
---
--- /See:/ <https://aws.amazon.com/iot#EnableTopicRule.html AWS API Reference> for EnableTopicRule.
 module Network.AWS.IoT.EnableTopicRule
     (
     -- * Creating a Request

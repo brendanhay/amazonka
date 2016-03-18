@@ -20,8 +20,6 @@
 --
 -- Assigns attributes (key and value pair) to the findings specified by the
 -- findings\' ARNs.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_AddAttributesToFindings.html AWS API Reference> for AddAttributesToFindings.
 module Network.AWS.Inspector.AddAttributesToFindings
     (
     -- * Creating a Request

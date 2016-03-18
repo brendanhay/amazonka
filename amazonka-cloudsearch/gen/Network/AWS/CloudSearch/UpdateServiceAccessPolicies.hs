@@ -21,8 +21,6 @@
 -- Configures the access rules that control access to the domain\'s
 -- document and search endpoints. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html Configuring Access for an Amazon CloudSearch Domain>.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateServiceAccessPolicies.html AWS API Reference> for UpdateServiceAccessPolicies.
 module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
     (
     -- * Creating a Request

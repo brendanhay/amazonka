@@ -25,8 +25,6 @@
 -- need for you to operate your own cluster management and configuration
 -- management systems or worry about scaling your management
 -- infrastructure.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.ECS
     (
     -- * Service Configuration

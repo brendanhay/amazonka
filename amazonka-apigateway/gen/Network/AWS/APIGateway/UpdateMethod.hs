@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates an existing < Method> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateMethod.html AWS API Reference> for UpdateMethod.
 module Network.AWS.APIGateway.UpdateMethod
     (
     -- * Creating a Request

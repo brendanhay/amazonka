@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Add a method to an existing < Resource> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/PutMethod.html AWS API Reference> for PutMethod.
 module Network.AWS.APIGateway.PutMethod
     (
     -- * Creating a Request

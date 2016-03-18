@@ -24,8 +24,6 @@
 -- bundle task is no longer in the list, you can still register an AMI from
 -- it. Just use 'RegisterImage' with the Amazon S3 bucket name and image
 -- manifest name you provided to the bundle task.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeBundleTasks.html AWS API Reference> for DescribeBundleTasks.
 module Network.AWS.EC2.DescribeBundleTasks
     (
     -- * Creating a Request

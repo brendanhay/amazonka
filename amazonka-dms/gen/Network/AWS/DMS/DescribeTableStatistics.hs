@@ -21,8 +21,6 @@
 -- Returns table statistics on the database migration task, including table
 -- name, rows inserted, rows updated, and rows deleted.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeTableStatistics.html AWS API Reference> for DescribeTableStatistics.
 module Network.AWS.DMS.DescribeTableStatistics
     (
     -- * Creating a Request

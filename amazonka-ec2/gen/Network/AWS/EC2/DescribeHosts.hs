@@ -24,8 +24,6 @@
 -- currently using. All listed instances consume capacity on your Dedicated
 -- host. Dedicated hosts that have recently been released will be listed
 -- with the state 'released'.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeHosts.html AWS API Reference> for DescribeHosts.
 module Network.AWS.EC2.DescribeHosts
     (
     -- * Creating a Request

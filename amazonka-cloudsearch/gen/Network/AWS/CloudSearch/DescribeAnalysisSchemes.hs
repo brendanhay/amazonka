@@ -26,8 +26,6 @@
 -- configuration and exclude pending changes. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeAnalysisSchemes.html AWS API Reference> for DescribeAnalysisSchemes.
 module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     (
     -- * Creating a Request

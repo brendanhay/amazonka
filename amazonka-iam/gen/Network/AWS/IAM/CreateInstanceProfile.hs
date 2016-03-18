@@ -26,8 +26,6 @@
 -- see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateInstanceProfile.html AWS API Reference> for CreateInstanceProfile.
 module Network.AWS.IAM.CreateInstanceProfile
     (
     -- * Creating a Request

@@ -24,8 +24,6 @@
 -- see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html AWS API Reference> for CreateUser.
 module Network.AWS.IAM.CreateUser
     (
     -- * Creating a Request

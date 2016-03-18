@@ -22,8 +22,6 @@
 --
 -- Allocates a VLAN number and a specified amount of bandwidth for use by a
 -- hosted connection on the given interconnect.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateConnectionOnInterconnect.html AWS API Reference> for AllocateConnectionOnInterconnect.
 module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     (
     -- * Creating a Request

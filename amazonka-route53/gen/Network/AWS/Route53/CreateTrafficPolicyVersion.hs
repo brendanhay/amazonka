@@ -32,8 +32,6 @@
 -- includes a document with a 'CreateTrafficPolicyVersionRequest' element.
 -- The response returns the 'CreateTrafficPolicyVersionResponse' element,
 -- which contains information about the new version of the traffic policy.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicyVersion.html AWS API Reference> for CreateTrafficPolicyVersion.
 module Network.AWS.Route53.CreateTrafficPolicyVersion
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Creates a new DB security group. DB security groups control access to a
 -- DB instance.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSecurityGroup.html AWS API Reference> for CreateDBSecurityGroup.
 module Network.AWS.RDS.CreateDBSecurityGroup
     (
     -- * Creating a Request

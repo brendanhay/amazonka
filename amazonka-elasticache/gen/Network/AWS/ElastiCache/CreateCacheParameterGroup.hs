@@ -21,8 +21,6 @@
 -- The /CreateCacheParameterGroup/ action creates a new cache parameter
 -- group. A cache parameter group is a collection of parameters that you
 -- apply to all of the nodes in a cache cluster.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheParameterGroup.html AWS API Reference> for CreateCacheParameterGroup.
 module Network.AWS.ElastiCache.CreateCacheParameterGroup
     (
     -- * Creating a Request

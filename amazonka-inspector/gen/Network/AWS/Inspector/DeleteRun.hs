@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the assessment run specified by the run ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DeleteRun.html AWS API Reference> for DeleteRun.
 module Network.AWS.Inspector.DeleteRun
     (
     -- * Creating a Request

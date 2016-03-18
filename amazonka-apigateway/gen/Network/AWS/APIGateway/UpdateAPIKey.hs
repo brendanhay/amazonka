@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes information about an < ApiKey> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateAPIKey.html AWS API Reference> for UpdateAPIKey.
 module Network.AWS.APIGateway.UpdateAPIKey
     (
     -- * Creating a Request

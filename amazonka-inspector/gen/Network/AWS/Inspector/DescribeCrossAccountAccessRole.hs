@@ -20,8 +20,6 @@
 --
 -- Describes the IAM role that enables Inspector to access your AWS
 -- account.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DescribeCrossAccountAccessRole.html AWS API Reference> for DescribeCrossAccountAccessRole.
 module Network.AWS.Inspector.DescribeCrossAccountAccessRole
     (
     -- * Creating a Request

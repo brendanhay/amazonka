@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns an array of < WebACLSummary> objects in the response.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_ListWebACLs.html AWS API Reference> for ListWebACLs.
 module Network.AWS.WAF.ListWebACLs
     (
     -- * Creating a Request

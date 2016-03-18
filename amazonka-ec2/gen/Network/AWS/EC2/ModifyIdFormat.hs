@@ -36,8 +36,6 @@
 -- Resources created with longer IDs are visible to all IAM users,
 -- regardless of these settings and provided that they have permission to
 -- use the relevant 'Describe' command for the resource type.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyIdFormat.html AWS API Reference> for ModifyIdFormat.
 module Network.AWS.EC2.ModifyIdFormat
     (
     -- * Creating a Request

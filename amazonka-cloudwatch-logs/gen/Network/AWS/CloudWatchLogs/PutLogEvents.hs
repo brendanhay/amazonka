@@ -38,8 +38,6 @@
 -- -   The maximum number of log events in a batch is 10,000.
 -- -   A batch of log events in a single PutLogEvents request cannot span
 --     more than 24 hours. Otherwise, the PutLogEvents operation will fail.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html AWS API Reference> for PutLogEvents.
 module Network.AWS.CloudWatchLogs.PutLogEvents
     (
     -- * Creating a Request

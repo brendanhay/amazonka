@@ -20,8 +20,6 @@
 --
 -- Previews the agents installed on the EC2 instances that are included in
 -- the application created with the specified resource group.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_PreviewAgentsForResourceGroup.html AWS API Reference> for PreviewAgentsForResourceGroup.
 module Network.AWS.Inspector.PreviewAgentsForResourceGroup
     (
     -- * Creating a Request

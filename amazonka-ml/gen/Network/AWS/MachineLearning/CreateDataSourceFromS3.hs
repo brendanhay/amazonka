@@ -52,8 +52,6 @@
 -- another variable, or split apart into word combinations? The recipe
 -- provides answers to these questions. For more information, see the
 -- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateDataSourceFromS3.html AWS API Reference> for CreateDataSourceFromS3.
 module Network.AWS.MachineLearning.CreateDataSourceFromS3
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more applications.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetApplications.html AWS API Reference> for BatchGetApplications.
 module Network.AWS.CodeDeploy.BatchGetApplications
     (
     -- * Creating a Request

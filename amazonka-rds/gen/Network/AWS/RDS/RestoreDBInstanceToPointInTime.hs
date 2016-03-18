@@ -30,8 +30,6 @@
 -- when the instance is a SQL Server instance that has an option group that
 -- is associated with mirroring; in this case, the instance becomes a
 -- mirrored deployment and not a single-AZ deployment.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceToPointInTime.html AWS API Reference> for RestoreDBInstanceToPointInTime.
 module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     (
     -- * Creating a Request

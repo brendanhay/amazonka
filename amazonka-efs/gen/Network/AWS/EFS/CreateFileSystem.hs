@@ -58,8 +58,6 @@
 --
 -- This operation requires permission for the
 -- 'elasticfilesystem:CreateFileSystem' action.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateFileSystem.html AWS API Reference> for CreateFileSystem.
 module Network.AWS.EFS.CreateFileSystem
     (
     -- * Creating a Request

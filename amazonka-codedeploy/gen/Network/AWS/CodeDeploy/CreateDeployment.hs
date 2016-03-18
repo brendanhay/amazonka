@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deploys an application revision through the specified deployment group.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html AWS API Reference> for CreateDeployment.
 module Network.AWS.CodeDeploy.CreateDeployment
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates an existing < Authorizer> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateAuthorizer.html AWS API Reference> for UpdateAuthorizer.
 module Network.AWS.APIGateway.UpdateAuthorizer
     (
     -- * Creating a Request

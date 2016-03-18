@@ -27,8 +27,6 @@
 -- You can\'t stop or reboot a Scheduled Instance, but you can terminate it
 -- as needed. If you terminate a Scheduled Instance before the current
 -- scheduled time period ends, you can launch it again after a few minutes.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RunScheduledInstances.html AWS API Reference> for RunScheduledInstances.
 module Network.AWS.EC2.RunScheduledInstances
     (
     -- * Creating a Request

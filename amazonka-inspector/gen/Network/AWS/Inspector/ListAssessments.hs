@@ -20,8 +20,6 @@
 --
 -- Lists the assessments corresponding to applications specified by the
 -- applications\' ARNs.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_ListAssessments.html AWS API Reference> for ListAssessments.
 module Network.AWS.Inspector.ListAssessments
     (
     -- * Creating a Request

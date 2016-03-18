@@ -22,8 +22,6 @@
 -- returned is 1000. If you specify a value for the optional
 -- 'QueueNamePrefix' parameter, only queues with a name beginning with the
 -- specified value are returned.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListQueues.html AWS API Reference> for ListQueues.
 module Network.AWS.SQS.ListQueues
     (
     -- * Creating a Request

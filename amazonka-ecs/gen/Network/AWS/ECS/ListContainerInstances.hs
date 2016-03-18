@@ -20,8 +20,6 @@
 --
 -- Returns a list of container instances in a specified cluster.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html AWS API Reference> for ListContainerInstances.
---
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListContainerInstances
     (

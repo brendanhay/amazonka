@@ -47,8 +47,6 @@
 -- '&Attribute.1=this'
 --
 -- '&Attribute.2=that'
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html AWS API Reference> for CreateQueue.
 module Network.AWS.SQS.CreateQueue
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels an in-process import virtual machine or import snapshot task.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelImportTask.html AWS API Reference> for CancelImportTask.
 module Network.AWS.EC2.CancelImportTask
     (
     -- * Creating a Request

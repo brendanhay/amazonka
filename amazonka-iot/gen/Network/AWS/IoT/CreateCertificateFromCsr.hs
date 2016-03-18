@@ -63,8 +63,6 @@
 -- > forfiles \/p my-csr-directory \/c \"cmd \/c aws iot
 -- create-certificate-from-csr --certificate-signing-request
 -- file:\/\/\'path\"
---
--- /See:/ <https://aws.amazon.com/iot#CreateCertificateFromCsr.html AWS API Reference> for CreateCertificateFromCsr.
 module Network.AWS.IoT.CreateCertificateFromCsr
     (
     -- * Creating a Request

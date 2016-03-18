@@ -25,8 +25,6 @@
 -- about half an hour to become active. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html Configuring Availability Options>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateAvailabilityOptions.html AWS API Reference> for UpdateAvailabilityOptions.
 module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     (
     -- * Creating a Request

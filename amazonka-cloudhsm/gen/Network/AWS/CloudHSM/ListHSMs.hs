@@ -25,8 +25,6 @@
 -- member. If more results are available, the /NextToken/ member of the
 -- response contains a token that you pass in the next call to < ListHsms>
 -- to retrieve the next set of items.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListHSMs.html AWS API Reference> for ListHSMs.
 module Network.AWS.CloudHSM.ListHSMs
     (
     -- * Creating a Request

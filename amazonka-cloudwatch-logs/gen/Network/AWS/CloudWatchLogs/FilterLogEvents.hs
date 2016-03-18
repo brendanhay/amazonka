@@ -34,8 +34,6 @@
 -- in the request. can be used to specify the maximum number of events to
 -- return in a page.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html AWS API Reference> for FilterLogEvents.
---
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.FilterLogEvents
     (

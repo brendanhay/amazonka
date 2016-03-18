@@ -23,8 +23,6 @@
 -- a prefix for the alarm name, the alarm state, or a prefix for any
 -- action.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html AWS API Reference> for DescribeAlarms.
---
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.DescribeAlarms
     (

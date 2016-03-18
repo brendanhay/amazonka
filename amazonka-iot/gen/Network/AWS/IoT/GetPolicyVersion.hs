@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified policy version.
---
--- /See:/ <https://aws.amazon.com/iot#GetPolicyVersion.html AWS API Reference> for GetPolicyVersion.
 module Network.AWS.IoT.GetPolicyVersion
     (
     -- * Creating a Request

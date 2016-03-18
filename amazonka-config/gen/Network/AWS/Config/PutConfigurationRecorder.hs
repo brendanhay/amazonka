@@ -30,8 +30,6 @@
 -- If 'ConfigurationRecorder' does not have the __recordingGroup__
 -- parameter specified, the default is to record all supported resource
 -- types.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html AWS API Reference> for PutConfigurationRecorder.
 module Network.AWS.Config.PutConfigurationRecorder
     (
     -- * Creating a Request

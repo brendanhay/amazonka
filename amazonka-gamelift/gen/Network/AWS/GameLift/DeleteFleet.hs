@@ -23,8 +23,6 @@
 --
 -- This action removes the fleet\'s resources and the fleet record. Once a
 -- fleet is deleted, you can no longer use that fleet.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteFleet.html AWS API Reference> for DeleteFleet.
 module Network.AWS.GameLift.DeleteFleet
     (
     -- * Creating a Request

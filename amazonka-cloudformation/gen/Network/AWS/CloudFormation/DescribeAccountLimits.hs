@@ -20,8 +20,6 @@
 --
 -- Retrieves your account\'s AWS CloudFormation limits, such as the maximum
 -- number of stacks that you can create in your account.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeAccountLimits.html AWS API Reference> for DescribeAccountLimits.
 module Network.AWS.CloudFormation.DescribeAccountLimits
     (
     -- * Creating a Request

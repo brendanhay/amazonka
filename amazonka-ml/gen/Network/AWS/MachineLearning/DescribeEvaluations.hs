@@ -21,8 +21,6 @@
 -- Returns a list of 'DescribeEvaluations' that match the search criteria
 -- in the request.
 --
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeEvaluations.html AWS API Reference> for DescribeEvaluations.
---
 -- This operation returns paginated results.
 module Network.AWS.MachineLearning.DescribeEvaluations
     (

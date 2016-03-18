@@ -27,8 +27,6 @@
 -- progress before the policy was enacted. For more information about data
 -- retrieval policies, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html Amazon Glacier Data Retrieval Policies>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetDataRetrievalPolicy.html AWS API Reference> for SetDataRetrievalPolicy.
 module Network.AWS.Glacier.SetDataRetrievalPolicy
     (
     -- * Creating a Request

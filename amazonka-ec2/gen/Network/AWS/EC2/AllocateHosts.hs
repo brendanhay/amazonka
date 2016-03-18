@@ -21,8 +21,6 @@
 -- Allocates a Dedicated host to your account. At minimum you need to
 -- specify the instance size type, Availability Zone, and quantity of hosts
 -- you want to allocate.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AllocateHosts.html AWS API Reference> for AllocateHosts.
 module Network.AWS.EC2.AllocateHosts
     (
     -- * Creating a Request

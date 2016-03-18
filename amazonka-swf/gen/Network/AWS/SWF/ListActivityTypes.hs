@@ -43,8 +43,6 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListActivityTypes.html AWS API Reference> for ListActivityTypes.
---
 -- This operation returns paginated results.
 module Network.AWS.SWF.ListActivityTypes
     (

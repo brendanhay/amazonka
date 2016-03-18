@@ -34,8 +34,6 @@
 -- < DescribeDBSnapshotAttributes> API.
 --
 -- If the manual DB snapshot is encrypted, it cannot be shared.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBSnapshotAttribute.html AWS API Reference> for ModifyDBSnapshotAttribute.
 module Network.AWS.RDS.ModifyDBSnapshotAttribute
     (
     -- * Creating a Request

@@ -23,8 +23,6 @@
 --
 -- You can\'t delete the default presets that are included with Elastic
 -- Transcoder.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePreset.html AWS API Reference> for DeletePreset.
 module Network.AWS.ElasticTranscoder.DeletePreset
     (
     -- * Creating a Request

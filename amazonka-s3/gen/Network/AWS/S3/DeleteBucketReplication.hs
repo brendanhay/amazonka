@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the replication configuration from the bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketReplication.html AWS API Reference> for DeleteBucketReplication.
 module Network.AWS.S3.DeleteBucketReplication
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a get integration.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetIntegration.html AWS API Reference> for GetIntegration.
 module Network.AWS.APIGateway.GetIntegration
     (
     -- * Creating a Request

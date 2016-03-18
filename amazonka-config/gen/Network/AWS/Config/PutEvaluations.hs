@@ -21,8 +21,6 @@
 -- Used by an AWS Lambda function to deliver evaluation results to AWS
 -- Config. This action is required in every AWS Lambda function that is
 -- invoked by an AWS Config rule.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_PutEvaluations.html AWS API Reference> for PutEvaluations.
 module Network.AWS.Config.PutEvaluations
     (
     -- * Creating a Request

@@ -30,8 +30,6 @@
 -- feature, see
 -- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_ListFunctions.html AWS API Reference> for ListFunctions.
---
 -- This operation returns paginated results.
 module Network.AWS.Lambda.ListFunctions
     (

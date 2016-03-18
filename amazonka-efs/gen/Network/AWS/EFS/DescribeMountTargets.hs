@@ -27,8 +27,6 @@
 -- 'elasticfilesystem:DescribeMountTargets' action, on either the file
 -- system id that you specify in 'FileSystemId', or on the file system of
 -- the mount target that you specify in 'MountTargetId'.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeMountTargets.html AWS API Reference> for DescribeMountTargets.
 module Network.AWS.EFS.DescribeMountTargets
     (
     -- * Creating a Request

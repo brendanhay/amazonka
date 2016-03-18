@@ -22,8 +22,6 @@
 -- the trigger target. If real data is available in the repository, the
 -- test will send data from the last commit. If no data is available,
 -- sample data will be generated.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_TestRepositoryTriggers.html AWS API Reference> for TestRepositoryTriggers.
 module Network.AWS.CodeCommit.TestRepositoryTriggers
     (
     -- * Creating a Request

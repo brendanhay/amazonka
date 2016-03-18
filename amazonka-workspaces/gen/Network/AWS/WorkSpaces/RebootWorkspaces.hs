@@ -25,8 +25,6 @@
 --
 -- This operation is asynchronous and will return before the WorkSpaces
 -- have rebooted.
---
--- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_RebootWorkspaces.html AWS API Reference> for RebootWorkspaces.
 module Network.AWS.WorkSpaces.RebootWorkspaces
     (
     -- * Creating a Request

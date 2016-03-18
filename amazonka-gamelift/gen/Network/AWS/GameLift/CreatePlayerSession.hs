@@ -26,8 +26,6 @@
 -- To create a player session, specify a game session ID and player ID. If
 -- successful, the player is added to the game session and a new
 -- < PlayerSession> object is returned.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreatePlayerSession.html AWS API Reference> for CreatePlayerSession.
 module Network.AWS.GameLift.CreatePlayerSession
     (
     -- * Creating a Request

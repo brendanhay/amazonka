@@ -35,8 +35,6 @@
 -- best practice to limit access to the
 -- 'UpdateOpenIDConnectProviderThumbprint' action to highly-privileged
 -- users.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateOpenIdConnectProviderThumbprint.html AWS API Reference> for UpdateOpenIdConnectProviderThumbprint.
 module Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
     (
     -- * Creating a Request

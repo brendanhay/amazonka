@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes a < MethodResponse> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetMethodResponse.html AWS API Reference> for GetMethodResponse.
 module Network.AWS.APIGateway.GetMethodResponse
     (
     -- * Creating a Request

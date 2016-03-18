@@ -24,8 +24,6 @@
 -- 'disableApiTermination' | 'instanceInitiatedShutdownBehavior' |
 -- 'rootDeviceName' | 'blockDeviceMapping' | 'productCodes' |
 -- 'sourceDestCheck' | 'groupSet' | 'ebsOptimized' | 'sriovNetSupport'
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceAttribute.html AWS API Reference> for DescribeInstanceAttribute.
 module Network.AWS.EC2.DescribeInstanceAttribute
     (
     -- * Creating a Request

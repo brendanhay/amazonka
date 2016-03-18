@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a policy attached to the specified key.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyPolicy.html AWS API Reference> for GetKeyPolicy.
 module Network.AWS.KMS.GetKeyPolicy
     (
     -- * Creating a Request

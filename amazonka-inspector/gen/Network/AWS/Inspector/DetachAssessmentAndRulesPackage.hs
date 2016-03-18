@@ -20,8 +20,6 @@
 --
 -- Detaches the rules package specified by the rules package ARN from the
 -- assessment specified by the assessment ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DetachAssessmentAndRulesPackage.html AWS API Reference> for DetachAssessmentAndRulesPackage.
 module Network.AWS.Inspector.DetachAssessmentAndRulesPackage
     (
     -- * Creating a Request

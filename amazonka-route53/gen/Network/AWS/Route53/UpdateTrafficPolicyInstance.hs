@@ -46,8 +46,6 @@
 -- '\/Route 53 API version\/trafficpolicyinstance\/traffic policy ID'
 -- resource. The request body must include a document with an
 -- 'UpdateTrafficPolicyInstanceRequest' element.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateTrafficPolicyInstance.html AWS API Reference> for UpdateTrafficPolicyInstance.
 module Network.AWS.Route53.UpdateTrafficPolicyInstance
     (
     -- * Creating a Request

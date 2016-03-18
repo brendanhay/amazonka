@@ -22,8 +22,6 @@
 -- reserved cache nodes for this account, or about a specified reserved
 -- cache node.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodes.html AWS API Reference> for DescribeReservedCacheNodes.
---
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     (

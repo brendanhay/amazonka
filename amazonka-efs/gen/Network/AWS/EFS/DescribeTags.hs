@@ -25,8 +25,6 @@
 --
 -- This operation requires permission for the
 -- 'elasticfilesystem:DescribeTags' action.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeTags.html AWS API Reference> for DescribeTags.
 module Network.AWS.EFS.DescribeTags
     (
     -- * Creating a Request

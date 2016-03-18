@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describe a < BasePathMapping> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetBasePathMapping.html AWS API Reference> for GetBasePathMapping.
 module Network.AWS.APIGateway.GetBasePathMapping
     (
     -- * Creating a Request

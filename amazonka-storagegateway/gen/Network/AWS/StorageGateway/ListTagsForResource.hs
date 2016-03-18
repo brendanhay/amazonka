@@ -20,8 +20,6 @@
 --
 -- This operation lists the tags that have been added to the specified
 -- resource.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListTagsForResource.html AWS API Reference> for ListTagsForResource.
 module Network.AWS.StorageGateway.ListTagsForResource
     (
     -- * Creating a Request

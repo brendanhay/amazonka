@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Purchases a reserved DB instance offering.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PurchaseReservedDBInstancesOffering.html AWS API Reference> for PurchaseReservedDBInstancesOffering.
 module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     (
     -- * Creating a Request

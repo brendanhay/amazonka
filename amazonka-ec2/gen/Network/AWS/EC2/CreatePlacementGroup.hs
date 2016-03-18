@@ -25,8 +25,6 @@
 -- For more information about placement groups and cluster instances, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreatePlacementGroup.html AWS API Reference> for CreatePlacementGroup.
 module Network.AWS.EC2.CreatePlacementGroup
     (
     -- * Creating a Request

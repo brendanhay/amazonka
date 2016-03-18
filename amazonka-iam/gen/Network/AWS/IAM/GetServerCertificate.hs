@@ -25,8 +25,6 @@
 -- manage with IAM, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServerCertificate.html AWS API Reference> for GetServerCertificate.
 module Network.AWS.IAM.GetServerCertificate
     (
     -- * Creating a Request

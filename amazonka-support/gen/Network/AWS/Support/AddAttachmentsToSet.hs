@@ -29,8 +29,6 @@
 -- hour after it is created; the 'ExpiryTime' returned in the response
 -- indicates when the set expires. The maximum number of attachments in a
 -- set is 3, and the maximum size of any attachment in the set is 5 MB.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddAttachmentsToSet.html AWS API Reference> for AddAttachmentsToSet.
 module Network.AWS.Support.AddAttachmentsToSet
     (
     -- * Creating a Request

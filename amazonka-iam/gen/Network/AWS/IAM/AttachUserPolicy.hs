@@ -26,8 +26,6 @@
 -- For more information about policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachUserPolicy.html AWS API Reference> for AttachUserPolicy.
 module Network.AWS.IAM.AttachUserPolicy
     (
     -- * Creating a Request

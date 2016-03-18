@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Update an origin access identity.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateCloudFrontOriginAccessIdentity.html AWS API Reference> for UpdateCloudFrontOriginAccessIdentity.
 module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     (
     -- * Creating a Request

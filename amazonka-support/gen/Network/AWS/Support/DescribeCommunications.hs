@@ -32,8 +32,6 @@
 -- you want displayed on each page, and use 'NextToken' to specify the
 -- resumption of pagination.
 --
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCommunications.html AWS API Reference> for DescribeCommunications.
---
 -- This operation returns paginated results.
 module Network.AWS.Support.DescribeCommunications
     (

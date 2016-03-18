@@ -28,8 +28,6 @@
 --
 -- In your request, you must also specify an IAM role that has permission
 -- to publish logs to CloudWatch Logs.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateFlowLogs.html AWS API Reference> for CreateFlowLogs.
 module Network.AWS.EC2.CreateFlowLogs
     (
     -- * Creating a Request

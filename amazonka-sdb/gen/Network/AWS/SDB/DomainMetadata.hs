@@ -21,8 +21,6 @@
 -- Returns information about the domain, including when the domain was
 -- created, the number of items and attributes in the domain, and the size
 -- of the attribute names and values.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DomainMetadata.html AWS API Reference> for DomainMetadata.
 module Network.AWS.SDB.DomainMetadata
     (
     -- * Creating a Request

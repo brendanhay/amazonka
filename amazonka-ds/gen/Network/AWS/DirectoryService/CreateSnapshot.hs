@@ -22,8 +22,6 @@
 -- cloud.
 --
 -- You cannot take snapshots of AD Connector directories.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateSnapshot.html AWS API Reference> for CreateSnapshot.
 module Network.AWS.DirectoryService.CreateSnapshot
     (
     -- * Creating a Request

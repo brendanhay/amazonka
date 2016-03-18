@@ -22,8 +22,6 @@
 --
 -- If a connection ID is provided, the call returns only that particular
 -- connection.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnections.html AWS API Reference> for DescribeConnections.
 module Network.AWS.DirectConnect.DescribeConnections
     (
     -- * Creating a Request

@@ -51,8 +51,6 @@
 -- For more information about how to use the AWS WAF API to allow or block
 -- HTTP requests, see the
 -- <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateRule.html AWS API Reference> for UpdateRule.
 module Network.AWS.WAF.UpdateRule
     (
     -- * Creating a Request

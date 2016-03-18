@@ -36,8 +36,6 @@
 -- recommend that you reduce database activities as much as possible during
 -- the reboot process to reduce rollback activity for in-transit
 -- transactions.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html AWS API Reference> for RebootDBInstance.
 module Network.AWS.RDS.RebootDBInstance
     (
     -- * Creating a Request

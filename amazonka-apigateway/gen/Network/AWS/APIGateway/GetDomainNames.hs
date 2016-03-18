@@ -20,8 +20,6 @@
 --
 -- Represents a collection of < DomainName> resources.
 --
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetDomainNames.html AWS API Reference> for GetDomainNames.
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetDomainNames
     (

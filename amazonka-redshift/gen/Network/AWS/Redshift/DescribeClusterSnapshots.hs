@@ -36,8 +36,6 @@
 -- returned regardless of whether they have tag keys or values associated
 -- with them.
 --
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSnapshots.html AWS API Reference> for DescribeClusterSnapshots.
---
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeClusterSnapshots
     (

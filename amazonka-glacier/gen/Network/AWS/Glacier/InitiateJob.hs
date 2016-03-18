@@ -146,8 +146,6 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html Initiate a Job>
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html Downloading a Vault Inventory>
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-InitiateJob.html AWS API Reference> for InitiateJob.
 module Network.AWS.Glacier.InitiateJob
     (
     -- * Creating a Request

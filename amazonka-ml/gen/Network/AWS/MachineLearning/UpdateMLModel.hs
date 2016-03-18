@@ -22,8 +22,6 @@
 --
 -- You can use the < GetMLModel> operation to view the contents of the
 -- updated data element.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateMLModel.html AWS API Reference> for UpdateMLModel.
 module Network.AWS.MachineLearning.UpdateMLModel
     (
     -- * Creating a Request

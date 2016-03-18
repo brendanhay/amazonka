@@ -25,8 +25,6 @@
 -- Alias names are unique for a given function.
 --
 -- This requires permission for the lambda:CreateAlias action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html AWS API Reference> for CreateAlias.
 module Network.AWS.Lambda.CreateAlias
     (
     -- * Creating a Request

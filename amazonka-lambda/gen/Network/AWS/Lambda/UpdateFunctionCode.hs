@@ -29,8 +29,6 @@
 --
 -- This operation requires permission for the 'lambda:UpdateFunctionCode'
 -- action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateFunctionCode.html AWS API Reference> for UpdateFunctionCode.
 module Network.AWS.Lambda.UpdateFunctionCode
     (
     -- * Creating a Request

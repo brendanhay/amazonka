@@ -27,8 +27,6 @@
 -- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift AWS Service Limits>
 -- page for maximum log file sizes. Log files that exceed this limit are
 -- not saved.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetGameSessionLogURL.html AWS API Reference> for GetGameSessionLogURL.
 module Network.AWS.GameLift.GetGameSessionLogURL
     (
     -- * Creating a Request

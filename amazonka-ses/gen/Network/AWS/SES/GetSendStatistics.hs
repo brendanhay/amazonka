@@ -25,8 +25,6 @@
 -- interval.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendStatistics.html AWS API Reference> for GetSendStatistics.
 module Network.AWS.SES.GetSendStatistics
     (
     -- * Creating a Request

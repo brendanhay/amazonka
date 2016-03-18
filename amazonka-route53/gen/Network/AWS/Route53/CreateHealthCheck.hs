@@ -25,8 +25,6 @@
 -- include a document with a 'CreateHealthCheckRequest' element. The
 -- response returns the 'CreateHealthCheckResponse' element that contains
 -- metadata about the health check.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheck.html AWS API Reference> for CreateHealthCheck.
 module Network.AWS.Route53.CreateHealthCheck
     (
     -- * Creating a Request

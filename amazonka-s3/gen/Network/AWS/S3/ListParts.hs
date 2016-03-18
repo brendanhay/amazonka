@@ -20,8 +20,6 @@
 --
 -- Lists the parts that have been uploaded for a specific multipart upload.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListParts.html AWS API Reference> for ListParts.
---
 -- This operation returns paginated results.
 module Network.AWS.S3.ListParts
     (

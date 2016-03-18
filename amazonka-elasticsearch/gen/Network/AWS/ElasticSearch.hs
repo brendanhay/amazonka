@@ -20,8 +20,6 @@
 -- es./region/.amazonaws.com. For example, es.us-east-1.amazonaws.com. For
 -- a current list of supported regions and endpoints, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region Regions and Endpoints>.
---
--- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html AWS API Reference>
 module Network.AWS.ElasticSearch
     (
     -- * Service Configuration

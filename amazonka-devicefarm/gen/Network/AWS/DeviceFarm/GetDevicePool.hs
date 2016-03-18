@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a device pool.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetDevicePool.html AWS API Reference> for GetDevicePool.
 module Network.AWS.DeviceFarm.GetDevicePool
     (
     -- * Creating a Request

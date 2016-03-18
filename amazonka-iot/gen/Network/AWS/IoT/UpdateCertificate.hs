@@ -27,8 +27,6 @@
 --
 -- The ACTIVE state is required to authenticate devices connecting to AWS
 -- IoT using a certificate.
---
--- /See:/ <https://aws.amazon.com/iot#UpdateCertificate.html AWS API Reference> for UpdateCertificate.
 module Network.AWS.IoT.UpdateCertificate
     (
     -- * Creating a Request

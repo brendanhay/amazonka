@@ -22,8 +22,6 @@
 -- stack ID or a configuration manager. 'DescribeAgentVersions' returns a
 -- list of available agent versions for the specified stack or
 -- configuration manager.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeAgentVersions.html AWS API Reference> for DescribeAgentVersions.
 module Network.AWS.OpsWorks.DescribeAgentVersions
     (
     -- * Creating a Request

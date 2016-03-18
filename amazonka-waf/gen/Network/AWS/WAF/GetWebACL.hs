@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the < WebACL> that is specified by 'WebACLId'.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetWebACL.html AWS API Reference> for GetWebACL.
 module Network.AWS.WAF.GetWebACL
     (
     -- * Creating a Request

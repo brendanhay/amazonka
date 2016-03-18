@@ -25,8 +25,6 @@
 -- policies. Use the pagination parameters to retrieve results as a set of
 -- sequential pages. If successful, set of < ScalingPolicy> objects is
 -- returned for the fleet.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeScalingPolicies.html AWS API Reference> for DescribeScalingPolicies.
 module Network.AWS.GameLift.DescribeScalingPolicies
     (
     -- * Creating a Request

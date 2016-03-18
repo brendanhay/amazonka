@@ -21,8 +21,6 @@
 -- Deletes the specified route table. You must disassociate the route table
 -- from any subnets before you can delete it. You can\'t delete the main
 -- route table.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRouteTable.html AWS API Reference> for DeleteRouteTable.
 module Network.AWS.EC2.DeleteRouteTable
     (
     -- * Creating a Request

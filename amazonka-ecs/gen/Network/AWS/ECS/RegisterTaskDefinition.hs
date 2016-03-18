@@ -24,8 +24,6 @@
 -- definition parameters and defaults, see
 -- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions>
 -- in the /Amazon EC2 Container Service Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterTaskDefinition.html AWS API Reference> for RegisterTaskDefinition.
 module Network.AWS.ECS.RegisterTaskDefinition
     (
     -- * Creating a Request

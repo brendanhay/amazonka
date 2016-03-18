@@ -25,8 +25,6 @@
 -- This operation may result in lost data. For example, if the stream\'s
 -- retention period is 48 hours and is decreased to 24 hours, any data
 -- already in the stream that is older than 24 hours is inaccessible.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.html AWS API Reference> for DecreaseStreamRetentionPeriod.
 module Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
     (
     -- * Creating a Request

@@ -31,8 +31,6 @@
 --
 -- #x9 | #xA | #xD | [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to
 -- #x10FFFF]
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html AWS API Reference> for SendMessage.
 module Network.AWS.SQS.SendMessage
     (
     -- * Creating a Request

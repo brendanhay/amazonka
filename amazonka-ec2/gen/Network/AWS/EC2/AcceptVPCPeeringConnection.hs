@@ -23,8 +23,6 @@
 -- must be the owner of the peer VPC. Use the
 -- 'DescribeVpcPeeringConnections' request to view your outstanding VPC
 -- peering connection requests.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AcceptVPCPeeringConnection.html AWS API Reference> for AcceptVPCPeeringConnection.
 module Network.AWS.EC2.AcceptVPCPeeringConnection
     (
     -- * Creating a Request

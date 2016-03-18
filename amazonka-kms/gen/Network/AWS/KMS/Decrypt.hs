@@ -33,8 +33,6 @@
 -- IAM user policy. Instead grant 'Decrypt' access only in key policies. If
 -- you must grant 'Decrypt' access in an IAM user policy, you should scope
 -- the resource to specific keys or to specific trusted accounts.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html AWS API Reference> for Decrypt.
 module Network.AWS.KMS.Decrypt
     (
     -- * Creating a Request

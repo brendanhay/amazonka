@@ -21,8 +21,6 @@
 -- Lists your things. You can pass an AttributeName or AttributeValue to
 -- filter your things (for example, \"ListThings where AttributeName=Color
 -- and AttributeValue=Red\").
---
--- /See:/ <https://aws.amazon.com/iot#ListThings.html AWS API Reference> for ListThings.
 module Network.AWS.IoT.ListThings
     (
     -- * Creating a Request

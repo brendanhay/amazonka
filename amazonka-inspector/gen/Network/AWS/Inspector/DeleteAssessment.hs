@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the assessment specified by the assessment ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DeleteAssessment.html AWS API Reference> for DeleteAssessment.
 module Network.AWS.Inspector.DeleteAssessment
     (
     -- * Creating a Request

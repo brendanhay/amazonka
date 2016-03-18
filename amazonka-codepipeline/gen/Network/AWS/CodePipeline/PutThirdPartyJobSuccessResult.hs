@@ -20,8 +20,6 @@
 --
 -- Represents the success of a third party job as returned to the pipeline
 -- by a job worker. Only used for partner actions.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutThirdPartyJobSuccessResult.html AWS API Reference> for PutThirdPartyJobSuccessResult.
 module Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
     (
     -- * Creating a Request

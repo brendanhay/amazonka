@@ -31,8 +31,6 @@
 -- and the same region.
 --
 -- To map an alias to a different key, call < UpdateAlias>.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateAlias.html AWS API Reference> for CreateAlias.
 module Network.AWS.KMS.CreateAlias
     (
     -- * Creating a Request

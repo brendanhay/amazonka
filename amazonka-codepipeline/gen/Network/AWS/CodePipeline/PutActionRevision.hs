@@ -20,8 +20,6 @@
 --
 -- Provides information to AWS CodePipeline about new revisions to a
 -- source.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutActionRevision.html AWS API Reference> for PutActionRevision.
 module Network.AWS.CodePipeline.PutActionRevision
     (
     -- * Creating a Request

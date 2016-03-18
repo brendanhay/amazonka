@@ -36,8 +36,6 @@
 -- Data that is timestamped 24 hours or more in the past may take in excess
 -- of 48 hours to become available from submission time using
 -- 'GetMetricStatistics'.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricData.html AWS API Reference> for PutMetricData.
 module Network.AWS.CloudWatch.PutMetricData
     (
     -- * Creating a Request

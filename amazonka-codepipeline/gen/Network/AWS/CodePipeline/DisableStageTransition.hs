@@ -20,8 +20,6 @@
 --
 -- Prevents artifacts in a pipeline from transitioning to the next stage in
 -- the pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_DisableStageTransition.html AWS API Reference> for DisableStageTransition.
 module Network.AWS.CodePipeline.DisableStageTransition
     (
     -- * Creating a Request

@@ -22,8 +22,6 @@
 -- specified source type. For a list of the event categories and source
 -- types, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html Amazon Redshift Event Notifications>.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventCategories.html AWS API Reference> for DescribeEventCategories.
 module Network.AWS.Redshift.DescribeEventCategories
     (
     -- * Creating a Request

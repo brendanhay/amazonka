@@ -23,8 +23,6 @@
 -- port settings, specify a fleet ID. If successful, an < IpPermission>
 -- object is returned for the requested fleet ID. If the requested fleet
 -- has been deleted, the result set will be empty.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeFleetPortSettings.html AWS API Reference> for DescribeFleetPortSettings.
 module Network.AWS.GameLift.DescribeFleetPortSettings
     (
     -- * Creating a Request

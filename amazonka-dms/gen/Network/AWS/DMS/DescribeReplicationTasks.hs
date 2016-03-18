@@ -21,8 +21,6 @@
 -- Returns information about replication tasks for your account in the
 -- current region.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeReplicationTasks.html AWS API Reference> for DescribeReplicationTasks.
 module Network.AWS.DMS.DescribeReplicationTasks
     (
     -- * Creating a Request

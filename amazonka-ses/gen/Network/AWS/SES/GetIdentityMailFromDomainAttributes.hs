@@ -23,8 +23,6 @@
 --
 -- This action is throttled at one request per second and can only get
 -- custom MAIL FROM attributes for up to 100 identities at a time.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityMailFromDomainAttributes.html AWS API Reference> for GetIdentityMailFromDomainAttributes.
 module Network.AWS.SES.GetIdentityMailFromDomainAttributes
     (
     -- * Creating a Request

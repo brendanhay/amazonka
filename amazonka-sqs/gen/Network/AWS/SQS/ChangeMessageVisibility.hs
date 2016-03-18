@@ -54,8 +54,6 @@
 -- it is received, the visibility timeout for the message the next time it
 -- is received reverts to the original timeout value, not the value you set
 -- with the 'ChangeMessageVisibility' action.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibility.html AWS API Reference> for ChangeMessageVisibility.
 module Network.AWS.SQS.ChangeMessageVisibility
     (
     -- * Creating a Request

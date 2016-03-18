@@ -22,8 +22,6 @@
 -- in the request. The list of gateway volumes in the request must be from
 -- one gateway. In the response Amazon Storage Gateway returns volume
 -- information sorted by volume ARNs.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeStorediSCSIVolumes.html AWS API Reference> for DescribeStorediSCSIVolumes.
 module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     (
     -- * Creating a Request

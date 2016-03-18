@@ -25,8 +25,6 @@
 -- balancer in the removed subnet go into the 'OutOfService' state. Then,
 -- the load balancer balances the traffic among the remaining routable
 -- subnets.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DetachLoadBalancerFromSubnets.html AWS API Reference> for DetachLoadBalancerFromSubnets.
 module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     (
     -- * Creating a Request

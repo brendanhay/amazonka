@@ -27,8 +27,6 @@
 -- creating a cache cluster inside of a VPC, use a cache subnet group
 -- instead. For more information, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html CreateCacheSubnetGroup>.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSecurityGroup.html AWS API Reference> for CreateCacheSecurityGroup.
 module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     (
     -- * Creating a Request

@@ -40,8 +40,6 @@
 -- 'GenerateDataKey' function to return a plaintext data encryption key and
 -- a copy of the key encrypted under the customer master key (CMK) of your
 -- choosing.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html AWS API Reference> for Encrypt.
 module Network.AWS.KMS.Encrypt
     (
     -- * Creating a Request

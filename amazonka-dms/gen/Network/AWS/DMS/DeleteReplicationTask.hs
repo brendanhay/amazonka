@@ -20,8 +20,6 @@
 --
 -- Deletes the specified replication task.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteReplicationTask.html AWS API Reference> for DeleteReplicationTask.
 module Network.AWS.DMS.DeleteReplicationTask
     (
     -- * Creating a Request

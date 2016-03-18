@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns an array of < SizeConstraintSetSummary> objects.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_ListSizeConstraintSets.html AWS API Reference> for ListSizeConstraintSets.
 module Network.AWS.WAF.ListSizeConstraintSets
     (
     -- * Creating a Request

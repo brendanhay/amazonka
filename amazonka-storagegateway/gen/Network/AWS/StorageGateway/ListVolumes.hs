@@ -30,8 +30,6 @@
 -- includes a Marker field. You can use this Marker value in your
 -- subsequent request to retrieve the next set of volumes.
 --
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumes.html AWS API Reference> for ListVolumes.
---
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListVolumes
     (

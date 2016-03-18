@@ -28,8 +28,6 @@
 -- to return, NextToken will be null. For more information, see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ListPlatformApplications.html AWS API Reference> for ListPlatformApplications.
---
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListPlatformApplications
     (

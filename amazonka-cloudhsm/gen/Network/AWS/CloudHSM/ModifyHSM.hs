@@ -25,8 +25,6 @@
 -- production HSM, you should ensure that your AWS CloudHSM service is
 -- configured for high availability, and consider executing this operation
 -- during a maintenance window.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ModifyHSM.html AWS API Reference> for ModifyHSM.
 module Network.AWS.CloudHSM.ModifyHSM
     (
     -- * Creating a Request

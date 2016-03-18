@@ -25,8 +25,6 @@
 -- If the item does not exist on the replica that was accessed for this
 -- operation, an empty set is returned. The system does not return an error
 -- as it cannot guarantee the item does not exist on other replicas.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_GetAttributes.html AWS API Reference> for GetAttributes.
 module Network.AWS.SDB.GetAttributes
     (
     -- * Creating a Request

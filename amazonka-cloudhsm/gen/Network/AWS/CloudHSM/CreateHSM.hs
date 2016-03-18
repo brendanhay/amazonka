@@ -30,8 +30,6 @@
 -- It can take up to 20 minutes to create and provision an HSM. You can
 -- monitor the status of the HSM with the < DescribeHsm> operation. The HSM
 -- is ready to be initialized when the status changes to 'RUNNING'.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_CreateHSM.html AWS API Reference> for CreateHSM.
 module Network.AWS.CloudHSM.CreateHSM
     (
     -- * Creating a Request

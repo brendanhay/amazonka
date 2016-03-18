@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the assessment specified by the assessment ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_UpdateAssessment.html AWS API Reference> for UpdateAssessment.
 module Network.AWS.Inspector.UpdateAssessment
     (
     -- * Creating a Request

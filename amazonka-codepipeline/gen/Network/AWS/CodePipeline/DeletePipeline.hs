@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_DeletePipeline.html AWS API Reference> for DeletePipeline.
 module Network.AWS.CodePipeline.DeletePipeline
     (
     -- * Creating a Request

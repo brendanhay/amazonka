@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the < BasePathMapping> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteBasePathMapping.html AWS API Reference> for DeleteBasePathMapping.
 module Network.AWS.APIGateway.DeleteBasePathMapping
     (
     -- * Creating a Request

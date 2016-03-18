@@ -20,8 +20,6 @@
 --
 -- For internal use only
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/RemoveTagsFromResource.html AWS API Reference> for RemoveTagsFromResource.
 module Network.AWS.DMS.RemoveTagsFromResource
     (
     -- * Creating a Request

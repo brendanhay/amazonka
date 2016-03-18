@@ -42,8 +42,6 @@
 -- you will be notified of events generated from all Amazon Redshift
 -- sources belonging to your AWS account. You must specify a source type if
 -- you specify a source ID.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateEventSubscription.html AWS API Reference> for CreateEventSubscription.
 module Network.AWS.Redshift.CreateEventSubscription
     (
     -- * Creating a Request

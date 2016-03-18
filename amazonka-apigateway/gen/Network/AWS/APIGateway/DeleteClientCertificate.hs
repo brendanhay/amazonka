@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteClientCertificate.html AWS API Reference> for DeleteClientCertificate.
 module Network.AWS.APIGateway.DeleteClientCertificate
     (
     -- * Creating a Request

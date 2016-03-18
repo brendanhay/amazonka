@@ -57,8 +57,6 @@
 -- If you are using temporary security credentials granted using the AWS
 -- Security Token Service (AWS STS), you cannot stop or terminate an Amazon
 -- EC2 instance using alarm actions.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html AWS API Reference> for PutMetricAlarm.
 module Network.AWS.CloudWatch.PutMetricAlarm
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes information about a < Resource> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateResource.html AWS API Reference> for UpdateResource.
 module Network.AWS.APIGateway.UpdateResource
     (
     -- * Creating a Request

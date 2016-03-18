@@ -24,8 +24,6 @@
 -- and known limitations for the types of instances you can export, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html Exporting EC2 Instances>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateInstanceExportTask.html AWS API Reference> for CreateInstanceExportTask.
 module Network.AWS.EC2.CreateInstanceExportTask
     (
     -- * Creating a Request

@@ -22,8 +22,6 @@
 --
 -- If a property (for example, 'description') is not provided, the value
 -- remains unchanged. To clear these properties, specify an empty string.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplication.html AWS API Reference> for UpdateApplication.
 module Network.AWS.ElasticBeanstalk.UpdateApplication
     (
     -- * Creating a Request

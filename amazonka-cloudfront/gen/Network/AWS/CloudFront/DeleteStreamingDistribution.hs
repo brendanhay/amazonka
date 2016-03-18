@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Delete a streaming distribution.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteStreamingDistribution.html AWS API Reference> for DeleteStreamingDistribution.
 module Network.AWS.CloudFront.DeleteStreamingDistribution
     (
     -- * Creating a Request

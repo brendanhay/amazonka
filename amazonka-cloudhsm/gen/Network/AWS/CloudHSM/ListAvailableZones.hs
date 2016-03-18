@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the Availability Zones that have available AWS CloudHSM capacity.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListAvailableZones.html AWS API Reference> for ListAvailableZones.
 module Network.AWS.CloudHSM.ListAvailableZones
     (
     -- * Creating a Request

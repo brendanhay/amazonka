@@ -29,8 +29,6 @@
 -- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
 --
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListEntitiesForPolicy.html AWS API Reference> for ListEntitiesForPolicy.
---
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListEntitiesForPolicy
     (

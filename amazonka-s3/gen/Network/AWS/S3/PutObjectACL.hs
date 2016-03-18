@@ -20,8 +20,6 @@
 --
 -- uses the acl subresource to set the access control list (ACL)
 -- permissions for an object that already exists in a bucket
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutObjectACL.html AWS API Reference> for PutObjectACL.
 module Network.AWS.S3.PutObjectACL
     (
     -- * Creating a Request

@@ -23,8 +23,6 @@
 -- Before you delete the SSM document, we recommend that you use
 -- DeleteAssociation to disassociate all instances that are associated with
 -- the document.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DeleteDocument.html AWS API Reference> for DeleteDocument.
 module Network.AWS.SSM.DeleteDocument
     (
     -- * Creating a Request

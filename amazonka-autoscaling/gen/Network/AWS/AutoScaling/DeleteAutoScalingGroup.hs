@@ -35,8 +35,6 @@
 -- To terminate all instances before deleting the Auto Scaling group, call
 -- < UpdateAutoScalingGroup> and set the minimum size and desired capacity
 -- of the Auto Scaling group to zero.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html AWS API Reference> for DeleteAutoScalingGroup.
 module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     (
     -- * Creating a Request

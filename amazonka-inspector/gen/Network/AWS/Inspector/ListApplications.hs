@@ -21,8 +21,6 @@
 -- Lists the ARNs of the applications within this AWS account. For more
 -- information about applications, see
 -- <https://docs.aws.amazon.com/inspector/latest/userguide//inspector_applications.html Inspector Applications>.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_ListApplications.html AWS API Reference> for ListApplications.
 module Network.AWS.Inspector.ListApplications
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- This operation returns detailed information about the domain. The
 -- domain\'s contact information is also returned as part of the output.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-GetDomainDetail.html AWS API Reference> for GetDomainDetail.
 module Network.AWS.Route53Domains.GetDomainDetail
     (
     -- * Creating a Request

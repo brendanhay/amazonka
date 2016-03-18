@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of your VPCs.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCs.html AWS API Reference> for DescribeVPCs.
 module Network.AWS.EC2.DescribeVPCs
     (
     -- * Creating a Request

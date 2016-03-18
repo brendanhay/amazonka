@@ -20,8 +20,6 @@
 --
 -- Creates a new custom action that can be used in all pipelines associated
 -- with the AWS account. Only used for custom actions.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_CreateCustomActionType.html AWS API Reference> for CreateCustomActionType.
 module Network.AWS.CodePipeline.CreateCustomActionType
     (
     -- * Creating a Request

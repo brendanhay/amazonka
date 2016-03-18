@@ -23,8 +23,6 @@
 -- previous stack configuration.
 --
 -- You can cancel only stacks that are in the UPDATE_IN_PROGRESS state.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html AWS API Reference> for CancelUpdateStack.
 module Network.AWS.CloudFormation.CancelUpdateStack
     (
     -- * Creating a Request

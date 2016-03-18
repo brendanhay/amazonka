@@ -27,8 +27,6 @@
 -- If you associate a document with an instance that already has an
 -- associated document, the system throws the AssociationAlreadyExists
 -- exception.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateAssociation.html AWS API Reference> for CreateAssociation.
 module Network.AWS.SSM.CreateAssociation
     (
     -- * Creating a Request

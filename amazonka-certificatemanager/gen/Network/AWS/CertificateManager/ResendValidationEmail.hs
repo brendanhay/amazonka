@@ -28,8 +28,6 @@
 -- requesting the ACM Certificate. If more than 72 hours have elapsed since
 -- your original request or since your last attempt to resend validation
 -- mail, you must request a new certificate.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/ResendValidationEmail.html AWS API Reference> for ResendValidationEmail.
 module Network.AWS.CertificateManager.ResendValidationEmail
     (
     -- * Creating a Request

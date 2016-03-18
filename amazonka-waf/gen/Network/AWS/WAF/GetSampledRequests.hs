@@ -30,8 +30,6 @@
 -- time range elapsed, 'GetSampledRequests' returns an updated time range.
 -- This new time range indicates the actual period during which AWS WAF
 -- selected the requests in the sample.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetSampledRequests.html AWS API Reference> for GetSampledRequests.
 module Network.AWS.WAF.GetSampledRequests
     (
     -- * Creating a Request

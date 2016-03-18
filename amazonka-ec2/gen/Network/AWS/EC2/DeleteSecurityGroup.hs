@@ -24,8 +24,6 @@
 -- instance, or is referenced by another security group, the operation
 -- fails with 'InvalidGroup.InUse' in EC2-Classic or 'DependencyViolation'
 -- in EC2-VPC.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSecurityGroup.html AWS API Reference> for DeleteSecurityGroup.
 module Network.AWS.EC2.DeleteSecurityGroup
     (
     -- * Creating a Request

@@ -53,7 +53,7 @@ description:
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.DynamoDBStreams" and the <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/Welcome.html AWS API Reference>
+    See "Network.AWS.DynamoDBStreams" or <https://aws.amazon.com/documentation/ the AWS Documentation>
     to get started.
 
 source-repository head

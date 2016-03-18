@@ -23,8 +23,6 @@
 -- For more information about key pairs, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeKeyPairs.html AWS API Reference> for DescribeKeyPairs.
 module Network.AWS.EC2.DescribeKeyPairs
     (
     -- * Creating a Request

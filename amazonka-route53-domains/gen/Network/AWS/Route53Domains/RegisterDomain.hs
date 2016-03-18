@@ -41,8 +41,6 @@
 -- -   Charges your AWS account an amount based on the top-level domain.
 --     For more information, see
 --     <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-RegisterDomain.html AWS API Reference> for RegisterDomain.
 module Network.AWS.Route53Domains.RegisterDomain
     (
     -- * Creating a Request

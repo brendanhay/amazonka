@@ -32,8 +32,6 @@
 -- For information on how to construct select expressions, see Using Select
 -- to Create Amazon SimpleDB Queries in the Developer Guide.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_Select.html AWS API Reference> for Select.
---
 -- This operation returns paginated results.
 module Network.AWS.SDB.Select
     (

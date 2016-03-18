@@ -32,8 +32,6 @@
 -- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
 -- This operation requires permission for the 'lambda:GetFunction' action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetFunction.html AWS API Reference> for GetFunction.
 module Network.AWS.Lambda.GetFunction
     (
     -- * Creating a Request

@@ -21,8 +21,6 @@
 -- Lists the pipeline identifiers for all active pipelines that you have
 -- permission to access.
 --
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ListPipelines.html AWS API Reference> for ListPipelines.
---
 -- This operation returns paginated results.
 module Network.AWS.DataPipeline.ListPipelines
     (

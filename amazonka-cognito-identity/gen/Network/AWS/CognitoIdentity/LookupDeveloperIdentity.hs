@@ -30,8 +30,6 @@
 -- 'ResourceConflictException' is thrown.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_LookupDeveloperIdentity.html AWS API Reference> for LookupDeveloperIdentity.
 module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     (
     -- * Creating a Request

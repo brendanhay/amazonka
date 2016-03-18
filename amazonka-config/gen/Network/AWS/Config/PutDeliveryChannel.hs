@@ -29,8 +29,6 @@
 -- existing value for the parameter that is not changed.
 --
 -- Currently, you can specify only one delivery channel per account.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_PutDeliveryChannel.html AWS API Reference> for PutDeliveryChannel.
 module Network.AWS.Config.PutDeliveryChannel
     (
     -- * Creating a Request

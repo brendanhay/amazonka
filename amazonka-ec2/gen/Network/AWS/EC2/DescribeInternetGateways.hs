@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of your Internet gateways.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInternetGateways.html AWS API Reference> for DescribeInternetGateways.
 module Network.AWS.EC2.DescribeInternetGateways
     (
     -- * Creating a Request

@@ -28,8 +28,6 @@
 -- eventual consistency update model, performing a < GetAttributes> or
 -- < Select> operation (read) immediately after a 'DeleteAttributes' or
 -- < PutAttributes> operation (write) might not return updated item data.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteAttributes.html AWS API Reference> for DeleteAttributes.
 module Network.AWS.SDB.DeleteAttributes
     (
     -- * Creating a Request

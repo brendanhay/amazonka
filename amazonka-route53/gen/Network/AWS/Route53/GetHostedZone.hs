@@ -22,8 +22,6 @@
 -- to the '\/Route 53 API version\/hostedzone\/hosted zone ID' resource.
 -- The delegation set is the four Amazon Route 53 name servers that were
 -- assigned to the hosted zone when you created it.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html AWS API Reference> for GetHostedZone.
 module Network.AWS.Route53.GetHostedZone
     (
     -- * Creating a Request

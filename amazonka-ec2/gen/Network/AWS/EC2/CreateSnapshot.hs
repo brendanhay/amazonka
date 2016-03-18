@@ -49,8 +49,6 @@
 -- and
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSnapshot.html AWS API Reference> for CreateSnapshot.
 module Network.AWS.EC2.CreateSnapshot
     (
     -- * Creating a Request

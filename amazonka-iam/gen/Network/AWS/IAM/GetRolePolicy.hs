@@ -32,8 +32,6 @@
 --
 -- For more information about roles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRolePolicy.html AWS API Reference> for GetRolePolicy.
 module Network.AWS.IAM.GetRolePolicy
     (
     -- * Creating a Request

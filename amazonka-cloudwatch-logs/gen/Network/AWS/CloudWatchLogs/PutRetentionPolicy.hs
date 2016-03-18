@@ -21,8 +21,6 @@
 -- Sets the retention of the specified log group. A retention policy allows
 -- you to configure the number of days you want to retain log events in the
 -- specified log group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html AWS API Reference> for PutRetentionPolicy.
 module Network.AWS.CloudWatchLogs.PutRetentionPolicy
     (
     -- * Creating a Request

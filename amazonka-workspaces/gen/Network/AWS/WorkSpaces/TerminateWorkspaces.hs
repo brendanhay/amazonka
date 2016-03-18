@@ -29,8 +29,6 @@
 --
 -- This operation is asynchronous and will return before the WorkSpaces
 -- have been completely terminated.
---
--- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_TerminateWorkspaces.html AWS API Reference> for TerminateWorkspaces.
 module Network.AWS.WorkSpaces.TerminateWorkspaces
     (
     -- * Creating a Request

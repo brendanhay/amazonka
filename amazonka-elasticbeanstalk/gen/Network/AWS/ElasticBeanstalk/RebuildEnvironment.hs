@@ -21,8 +21,6 @@
 -- Deletes and recreates all of the AWS resources (for example: the Auto
 -- Scaling group, load balancer, etc.) for a specified environment and
 -- forces a restart.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RebuildEnvironment.html AWS API Reference> for RebuildEnvironment.
 module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     (
     -- * Creating a Request

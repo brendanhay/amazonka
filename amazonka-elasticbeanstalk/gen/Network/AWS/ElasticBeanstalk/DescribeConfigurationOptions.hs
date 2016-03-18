@@ -23,8 +23,6 @@
 -- stack defines. The description includes the values the options, their
 -- default values, and an indication of the required action on a running
 -- environment if an option value is changed.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationOptions.html AWS API Reference> for DescribeConfigurationOptions.
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     (
     -- * Creating a Request

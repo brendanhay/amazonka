@@ -29,8 +29,6 @@
 -- schedule you want to update, and the schedule information, including
 -- when you want the snapshot to begin on a day and the frequency (in
 -- hours) of snapshots.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateSnapshotSchedule.html AWS API Reference> for UpdateSnapshotSchedule.
 module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     (
     -- * Creating a Request

@@ -24,8 +24,6 @@
 -- pipeline from starting to process a job while you\'re getting the job
 -- identifier, use < UpdatePipelineStatus> to temporarily pause the
 -- pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CancelJob.html AWS API Reference> for CancelJob.
 module Network.AWS.ElasticTranscoder.CancelJob
     (
     -- * Creating a Request

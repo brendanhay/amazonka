@@ -23,8 +23,6 @@
 -- __Note:__ When you enable a rule, incoming events might not immediately
 -- start matching to a newly enabled rule. Please allow a short period of
 -- time for changes to take effect.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/EnableRule.html AWS API Reference> for EnableRule.
 module Network.AWS.CloudWatchEvents.EnableRule
     (
     -- * Creating a Request

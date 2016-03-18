@@ -20,8 +20,6 @@
 --
 -- Updates the status of the SSM document associated with the specified
 -- instance.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_UpdateAssociationStatus.html AWS API Reference> for UpdateAssociationStatus.
 module Network.AWS.SSM.UpdateAssociationStatus
     (
     -- * Creating a Request

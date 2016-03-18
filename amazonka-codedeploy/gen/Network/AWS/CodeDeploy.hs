@@ -69,8 +69,6 @@
 --     You can use the AWS CodeDeploy APIs to get, list, and register
 --     application revisions.
 --
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CodeDeploy
     (
     -- * Service Configuration

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Set the website configuration for a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketWebsite.html AWS API Reference> for PutBucketWebsite.
 module Network.AWS.S3.PutBucketWebsite
     (
     -- * Creating a Request

@@ -29,8 +29,6 @@
 -- CodeCommit repository, see
 -- <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections>
 -- in the /AWS CodeCommit User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSSHPublicKey.html AWS API Reference> for UpdateSSHPublicKey.
 module Network.AWS.IAM.UpdateSSHPublicKey
     (
     -- * Creating a Request

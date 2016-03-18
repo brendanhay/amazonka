@@ -20,8 +20,6 @@
 --
 -- Lists all of the key aliases in the account.
 --
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListAliases.html AWS API Reference> for ListAliases.
---
 -- This operation returns paginated results.
 module Network.AWS.KMS.ListAliases
     (

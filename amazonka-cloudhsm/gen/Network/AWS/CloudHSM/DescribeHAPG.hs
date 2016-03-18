@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves information about a high-availability partition group.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DescribeHAPG.html AWS API Reference> for DescribeHAPG.
 module Network.AWS.CloudHSM.DescribeHAPG
     (
     -- * Creating a Request

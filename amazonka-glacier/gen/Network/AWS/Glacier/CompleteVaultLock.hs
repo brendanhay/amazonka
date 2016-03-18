@@ -35,8 +35,6 @@
 -- error. If an invalid lock ID is passed in the request when the vault
 -- lock is in the 'InProgress' state, the operation throws an
 -- 'InvalidParameter' error.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-CompleteVaultLock.html AWS API Reference> for CompleteVaultLock.
 module Network.AWS.Glacier.CompleteVaultLock
     (
     -- * Creating a Request

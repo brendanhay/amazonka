@@ -28,8 +28,6 @@
 --
 -- This operation implements a subset of the features of the AWS Support
 -- Center.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddCommunicationToCase.html AWS API Reference> for AddCommunicationToCase.
 module Network.AWS.Support.AddCommunicationToCase
     (
     -- * Creating a Request

@@ -23,8 +23,6 @@
 -- This operation is used by the Amazon ECR proxy, and it is not intended
 -- for general use by customers. Use the 'docker' CLI to pull, tag, and
 -- push images.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/PutImage.html AWS API Reference> for PutImage.
 module Network.AWS.ECR.PutImage
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Returns a list of resources (for example, DB instances) that have at
 -- least one pending maintenance action.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribePendingMaintenanceActions.html AWS API Reference> for DescribePendingMaintenanceActions.
 module Network.AWS.RDS.DescribePendingMaintenanceActions
     (
     -- * Creating a Request

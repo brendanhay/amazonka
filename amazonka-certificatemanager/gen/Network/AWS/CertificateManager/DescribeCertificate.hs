@@ -23,8 +23,6 @@
 -- indicates whether the certificate is associated with any other AWS
 -- service, and the date at which the certificate request was created. The
 -- ACM Certificate is specified on input by its Amazon Resource Name (ARN).
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeCertificate.html AWS API Reference> for DescribeCertificate.
 module Network.AWS.CertificateManager.DescribeCertificate
     (
     -- * Creating a Request

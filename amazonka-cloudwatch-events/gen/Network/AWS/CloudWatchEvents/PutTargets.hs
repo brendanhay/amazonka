@@ -49,8 +49,6 @@
 -- __Note:__ When you add targets to a rule, when the associated rule
 -- triggers, new or updated targets might not be immediately invoked.
 -- Please allow a short period of time for changes to take effect.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/PutTargets.html AWS API Reference> for PutTargets.
 module Network.AWS.CloudWatchEvents.PutTargets
     (
     -- * Creating a Request

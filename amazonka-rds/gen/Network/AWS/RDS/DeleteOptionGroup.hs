@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an existing option group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteOptionGroup.html AWS API Reference> for DeleteOptionGroup.
 module Network.AWS.RDS.DeleteOptionGroup
     (
     -- * Creating a Request

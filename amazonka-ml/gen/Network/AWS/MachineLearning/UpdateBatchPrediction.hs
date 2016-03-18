@@ -22,8 +22,6 @@
 --
 -- You can use the < GetBatchPrediction> operation to view the contents of
 -- the updated data element.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateBatchPrediction.html AWS API Reference> for UpdateBatchPrediction.
 module Network.AWS.MachineLearning.UpdateBatchPrediction
     (
     -- * Creating a Request

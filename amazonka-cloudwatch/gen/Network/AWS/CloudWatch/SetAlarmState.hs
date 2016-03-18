@@ -28,8 +28,6 @@
 -- alarm state change happens very quickly, it is typically only visibile
 -- in the alarm\'s __History__ tab in the Amazon CloudWatch console or
 -- through 'DescribeAlarmHistory'.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_SetAlarmState.html AWS API Reference> for SetAlarmState.
 module Network.AWS.CloudWatch.SetAlarmState
     (
     -- * Creating a Request

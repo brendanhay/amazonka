@@ -23,8 +23,6 @@
 --
 -- If no input parameters are provided, such as DirectoryId or TopicName,
 -- this request describes all of the associations in the account.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeEventTopics.html AWS API Reference> for DescribeEventTopics.
 module Network.AWS.DirectoryService.DescribeEventTopics
     (
     -- * Creating a Request

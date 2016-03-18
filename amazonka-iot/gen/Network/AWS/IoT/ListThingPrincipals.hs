@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the principals associated with the specified thing.
---
--- /See:/ <https://aws.amazon.com/iot#ListThingPrincipals.html AWS API Reference> for ListThingPrincipals.
 module Network.AWS.IoT.ListThingPrincipals
     (
     -- * Creating a Request

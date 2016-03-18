@@ -38,8 +38,6 @@
 -- the Query API with IAM, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
 -- in the /Using IAM/ guide.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html AWS API Reference> for PutUserPolicy.
 module Network.AWS.IAM.PutUserPolicy
     (
     -- * Creating a Request

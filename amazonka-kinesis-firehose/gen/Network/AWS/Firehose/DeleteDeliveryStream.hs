@@ -31,8 +31,6 @@
 -- respect to delivering the data. Therefore, as a best practice, you
 -- should first stop any applications that are sending records before
 -- deleting a delivery stream.
---
--- /See:/ <http://docs.aws.amazon.com/firehose/latest/APIReference/API_DeleteDeliveryStream.html AWS API Reference> for DeleteDeliveryStream.
 module Network.AWS.Firehose.DeleteDeliveryStream
     (
     -- * Creating a Request

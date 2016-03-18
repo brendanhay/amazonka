@@ -23,8 +23,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExitStandby.html AWS API Reference> for ExitStandby.
 module Network.AWS.AutoScaling.ExitStandby
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Tests the connection between the replication instance and the endpoint.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/TestConnection.html AWS API Reference> for TestConnection.
 module Network.AWS.DMS.TestConnection
     (
     -- * Creating a Request

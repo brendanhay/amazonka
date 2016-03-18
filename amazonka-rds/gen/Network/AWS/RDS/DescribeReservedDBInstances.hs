@@ -21,8 +21,6 @@
 -- Returns information about reserved DB instances for this account, or
 -- about a specified reserved DB instance.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeReservedDBInstances.html AWS API Reference> for DescribeReservedDBInstances.
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeReservedDBInstances
     (

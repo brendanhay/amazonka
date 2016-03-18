@@ -20,8 +20,6 @@
 --
 -- Gets a summary of all AWS CodePipeline action types associated with your
 -- account.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_ListActionTypes.html AWS API Reference> for ListActionTypes.
 module Network.AWS.CodePipeline.ListActionTypes
     (
     -- * Creating a Request

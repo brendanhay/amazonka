@@ -53,8 +53,6 @@
 -- <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html Evaluating AWS Resource Configurations with AWS Config>
 -- in the /AWS Config Developer Guide/.
 --
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html AWS API Reference> for PutConfigRule.
 module Network.AWS.Config.PutConfigRule
     (
     -- * Creating a Request

@@ -52,8 +52,6 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-uploads.html List Multipart Uploads>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListMultipartUploads.html AWS API Reference> for ListMultipartUploads.
---
 -- This operation returns paginated results.
 module Network.AWS.Glacier.ListMultipartUploads
     (

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation removes one or more tags from the specified resource.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RemoveTagsFromResource.html AWS API Reference> for RemoveTagsFromResource.
 module Network.AWS.StorageGateway.RemoveTagsFromResource
     (
     -- * Creating a Request

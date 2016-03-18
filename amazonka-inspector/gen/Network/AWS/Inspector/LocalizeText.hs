@@ -20,8 +20,6 @@
 --
 -- Translates a textual identifier into a user-readable text in a specified
 -- locale.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_LocalizeText.html AWS API Reference> for LocalizeText.
 module Network.AWS.Inspector.LocalizeText
     (
     -- * Creating a Request

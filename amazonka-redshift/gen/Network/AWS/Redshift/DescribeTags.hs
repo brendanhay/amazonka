@@ -40,8 +40,6 @@
 -- If both tag keys and values are omitted from the request, resources are
 -- returned regardless of whether they have tag keys or values associated
 -- with them.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeTags.html AWS API Reference> for DescribeTags.
 module Network.AWS.Redshift.DescribeTags
     (
     -- * Creating a Request

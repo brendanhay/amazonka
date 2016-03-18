@@ -24,8 +24,6 @@
 -- providing the name as a parameter. By default, the past hour of events
 -- are returned.
 --
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEvents.html AWS API Reference> for DescribeEvents.
---
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeEvents
     (

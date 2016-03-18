@@ -25,8 +25,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-groups.html#elb-vpc-security-groups Security Groups for Load Balancers in a VPC>
 -- in the /Elastic Load Balancing Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ApplySecurityGroupsToLoadBalancer.html AWS API Reference> for ApplySecurityGroupsToLoadBalancer.
 module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     (
     -- * Creating a Request

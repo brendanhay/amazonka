@@ -23,8 +23,6 @@
 -- container instance, use 'StartTask' instead.
 --
 -- The 'count' parameter is limited to 10 tasks per call.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html AWS API Reference> for RunTask.
 module Network.AWS.ECS.RunTask
     (
     -- * Creating a Request

@@ -22,8 +22,6 @@
 -- of verified identities.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentity.html AWS API Reference> for DeleteIdentity.
 module Network.AWS.SES.DeleteIdentity
     (
     -- * Creating a Request

@@ -34,8 +34,6 @@
 -- progress to the web service as it does so. When the task is done, the
 -- task runner reports the final success or failure of the task to the web
 -- service.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.DataPipeline
     (
     -- * Service Configuration

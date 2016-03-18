@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the < SizeConstraintSet> specified by 'SizeConstraintSetId'.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetSizeConstraintSet.html AWS API Reference> for GetSizeConstraintSet.
 module Network.AWS.WAF.GetSizeConstraintSet
     (
     -- * Creating a Request

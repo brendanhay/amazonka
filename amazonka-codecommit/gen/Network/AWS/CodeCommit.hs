@@ -55,8 +55,6 @@
 --
 -- For information about how to use AWS CodeCommit, see the
 -- <http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit User Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CodeCommit
     (
     -- * Service Configuration

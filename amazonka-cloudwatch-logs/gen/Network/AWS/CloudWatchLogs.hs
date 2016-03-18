@@ -48,8 +48,6 @@
 --     into the log service. You can then access the raw log data when you
 --     need it.
 --
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudWatchLogs
     (
     -- * Service Configuration

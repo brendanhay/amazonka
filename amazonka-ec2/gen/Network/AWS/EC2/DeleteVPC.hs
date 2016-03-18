@@ -24,8 +24,6 @@
 -- security groups associated with the VPC (except the default one), delete
 -- all route tables associated with the VPC (except the default one), and
 -- so on.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPC.html AWS API Reference> for DeleteVPC.
 module Network.AWS.EC2.DeleteVPC
     (
     -- * Creating a Request

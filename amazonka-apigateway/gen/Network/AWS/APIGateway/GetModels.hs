@@ -20,8 +20,6 @@
 --
 -- Describes existing < Models> defined for a < RestApi> resource.
 --
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetModels.html AWS API Reference> for GetModels.
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetModels
     (

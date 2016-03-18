@@ -23,8 +23,6 @@
 -- Note that the 'GroupStandbyInstances' metric is not returned by default.
 -- You must explicitly request this metric when calling
 -- < EnableMetricsCollection>.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeMetricCollectionTypes.html AWS API Reference> for DescribeMetricCollectionTypes.
 module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     (
     -- * Creating a Request

@@ -20,8 +20,6 @@
 --
 -- Import single or multi-volume disk images or EBS snapshots into an
 -- Amazon Machine Image (AMI).
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportImage.html AWS API Reference> for ImportImage.
 module Network.AWS.EC2.ImportImage
     (
     -- * Creating a Request

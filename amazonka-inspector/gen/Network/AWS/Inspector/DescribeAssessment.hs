@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the assessment specified by the assessment ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DescribeAssessment.html AWS API Reference> for DescribeAssessment.
 module Network.AWS.Inspector.DescribeAssessment
     (
     -- * Creating a Request

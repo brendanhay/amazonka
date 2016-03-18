@@ -24,8 +24,6 @@
 -- current usage toward that quota, and the quota\'s maximum value.
 --
 -- This command does not take any parameters.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeAccountAttributes.html AWS API Reference> for DescribeAccountAttributes.
 module Network.AWS.RDS.DescribeAccountAttributes
     (
     -- * Creating a Request

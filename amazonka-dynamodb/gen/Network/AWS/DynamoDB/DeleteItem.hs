@@ -33,8 +33,6 @@
 -- Conditional deletes are useful for deleting items only if specific
 -- conditions are met. If those conditions are met, DynamoDB performs the
 -- delete. Otherwise, the item is not deleted.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html AWS API Reference> for DeleteItem.
 module Network.AWS.DynamoDB.DeleteItem
     (
     -- * Creating a Request

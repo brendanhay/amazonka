@@ -22,8 +22,6 @@
 -- example, after your delivery stream is created, call
 -- < DescribeDeliveryStream> to see if the delivery stream is 'ACTIVE' and
 -- therefore ready for data to be sent to it.
---
--- /See:/ <http://docs.aws.amazon.com/firehose/latest/APIReference/API_DescribeDeliveryStream.html AWS API Reference> for DescribeDeliveryStream.
 module Network.AWS.Firehose.DescribeDeliveryStream
     (
     -- * Creating a Request

@@ -31,8 +31,6 @@
 -- Related Topics
 --
 -- -   < DeleteEnvironmentConfiguration>
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationSettings.html AWS API Reference> for DescribeConfigurationSettings.
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     (
     -- * Creating a Request

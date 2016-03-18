@@ -24,8 +24,6 @@
 --
 -- This action is throttled at one request per second and can only get
 -- verification attributes for up to 100 identities at a time.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityVerificationAttributes.html AWS API Reference> for GetIdentityVerificationAttributes.
 module Network.AWS.SES.GetIdentityVerificationAttributes
     (
     -- * Creating a Request

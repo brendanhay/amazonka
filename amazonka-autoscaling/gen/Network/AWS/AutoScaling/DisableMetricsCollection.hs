@@ -20,8 +20,6 @@
 --
 -- Disables monitoring of the specified metrics for the specified Auto
 -- Scaling group.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DisableMetricsCollection.html AWS API Reference> for DisableMetricsCollection.
 module Network.AWS.AutoScaling.DisableMetricsCollection
     (
     -- * Creating a Request

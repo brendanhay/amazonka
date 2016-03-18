@@ -89,8 +89,6 @@
 -- For information about using 'GetFederationToken' to create temporary
 -- security credentials, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getfederationtoken GetFederationToken—Federation Through a Custom Identity Broker>.
---
--- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html AWS API Reference> for GetFederationToken.
 module Network.AWS.STS.GetFederationToken
     (
     -- * Creating a Request

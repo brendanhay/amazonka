@@ -35,8 +35,6 @@
 --     \"warning\" (yellow), \"error\" (red), or \"not_available\".
 -- -   __Timestamp.__ The time of the last refresh of the check.
 -- -   __CheckId.__ The unique identifier for the check.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckResult.html AWS API Reference> for DescribeTrustedAdvisorCheckResult.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     (
     -- * Creating a Request

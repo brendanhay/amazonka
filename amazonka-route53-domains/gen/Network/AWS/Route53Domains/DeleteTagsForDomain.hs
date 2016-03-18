@@ -22,8 +22,6 @@
 --
 -- All tag operations are eventually consistent; subsequent operations may
 -- not immediately represent all issued operations.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-DeleteTagsForDomain.html AWS API Reference> for DeleteTagsForDomain.
 module Network.AWS.Route53Domains.DeleteTagsForDomain
     (
     -- * Creating a Request

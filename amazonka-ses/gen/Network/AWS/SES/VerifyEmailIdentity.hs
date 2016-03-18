@@ -22,8 +22,6 @@
 -- message to be sent to the specified address.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailIdentity.html AWS API Reference> for VerifyEmailIdentity.
 module Network.AWS.SES.VerifyEmailIdentity
     (
     -- * Creating a Request

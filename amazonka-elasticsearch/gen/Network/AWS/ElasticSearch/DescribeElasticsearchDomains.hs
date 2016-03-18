@@ -21,8 +21,6 @@
 -- Returns domain configuration information about the specified
 -- Elasticsearch domains, including the domain ID, domain endpoint, and
 -- domain ARN.
---
--- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-DescribeElasticsearchDomains.html AWS API Reference> for DescribeElasticsearchDomains.
 module Network.AWS.ElasticSearch.DescribeElasticsearchDomains
     (
     -- * Creating a Request

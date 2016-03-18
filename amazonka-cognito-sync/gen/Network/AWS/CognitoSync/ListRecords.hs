@@ -26,8 +26,6 @@
 -- ListRecords can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials. You should use Cognito
 -- Identity credentials to make this API call.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListRecords.html AWS API Reference> for ListRecords.
 module Network.AWS.CognitoSync.ListRecords
     (
     -- * Creating a Request

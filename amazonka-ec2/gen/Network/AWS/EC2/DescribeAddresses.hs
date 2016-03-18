@@ -24,8 +24,6 @@
 -- in a VPC. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAddresses.html AWS API Reference> for DescribeAddresses.
 module Network.AWS.EC2.DescribeAddresses
     (
     -- * Creating a Request

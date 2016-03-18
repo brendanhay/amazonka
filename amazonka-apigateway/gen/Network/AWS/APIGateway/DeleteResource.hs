@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a < Resource> resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteResource.html AWS API Reference> for DeleteResource.
 module Network.AWS.APIGateway.DeleteResource
     (
     -- * Creating a Request

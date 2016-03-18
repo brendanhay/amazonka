@@ -24,8 +24,6 @@
 -- member. If more results are available, the /NextToken/ member of the
 -- response contains a token that you pass in the next call to
 -- < ListLunaClients> to retrieve the next set of items.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListLunaClients.html AWS API Reference> for ListLunaClients.
 module Network.AWS.CloudHSM.ListLunaClients
     (
     -- * Creating a Request

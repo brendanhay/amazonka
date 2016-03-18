@@ -28,8 +28,6 @@
 -- for you to track the progress of the 'AssociateVPCWithHostedZoneRequest'
 -- you made. See 'GetChange' operation for how to track the progress of
 -- your change.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html AWS API Reference> for AssociateVPCWithHostedZone.
 module Network.AWS.Route53.AssociateVPCWithHostedZone
     (
     -- * Creating a Request

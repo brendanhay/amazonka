@@ -27,8 +27,6 @@
 --
 -- Use of this action does not change the value returned by
 -- < DescribeInstanceStatus>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReportInstanceStatus.html AWS API Reference> for ReportInstanceStatus.
 module Network.AWS.EC2.ReportInstanceStatus
     (
     -- * Creating a Request

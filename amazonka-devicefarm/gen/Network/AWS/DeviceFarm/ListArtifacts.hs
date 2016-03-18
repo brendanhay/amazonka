@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about artifacts.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListArtifacts.html AWS API Reference> for ListArtifacts.
 module Network.AWS.DeviceFarm.ListArtifacts
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the description of a key.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateKeyDescription.html AWS API Reference> for UpdateKeyDescription.
 module Network.AWS.KMS.UpdateKeyDescription
     (
     -- * Creating a Request

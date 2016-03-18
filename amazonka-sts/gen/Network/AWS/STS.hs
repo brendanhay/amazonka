@@ -67,8 +67,6 @@
 -- was made, and so on. To learn more about CloudTrail, including how to
 -- turn it on and find your log files, see the
 -- <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html AWS CloudTrail User Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.STS
     (
     -- * Service Configuration

@@ -20,8 +20,6 @@
 --
 -- Describes the scaling process types for use with < ResumeProcesses> and
 -- < SuspendProcesses>.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingProcessTypes.html AWS API Reference> for DescribeScalingProcessTypes.
 module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     (
     -- * Creating a Request

@@ -26,8 +26,6 @@
 -- functioning.
 --
 -- Once a gateway is disabled it cannot be enabled.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DisableGateway.html AWS API Reference> for DisableGateway.
 module Network.AWS.StorageGateway.DisableGateway
     (
     -- * Creating a Request

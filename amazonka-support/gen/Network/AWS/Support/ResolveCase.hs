@@ -20,8 +20,6 @@
 --
 -- Takes a 'CaseId' and returns the initial state of the case along with
 -- the state of the case after the call to < ResolveCase> completed.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_ResolveCase.html AWS API Reference> for ResolveCase.
 module Network.AWS.Support.ResolveCase
     (
     -- * Creating a Request

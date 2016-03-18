@@ -29,8 +29,6 @@
 -- for a particular tag only if it matches all the filters. If there\'s no
 -- match, no special message is returned.
 --
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTags.html AWS API Reference> for DescribeTags.
---
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeTags
     (

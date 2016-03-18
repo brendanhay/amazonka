@@ -23,8 +23,6 @@
 -- most recent failure. Send a 'GET' request to the
 -- '\/Route 53 API version\/healthcheck\/health check ID\/lastfailurereason'
 -- resource.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckLastFailureReason.html AWS API Reference> for GetHealthCheckLastFailureReason.
 module Network.AWS.Route53.GetHealthCheckLastFailureReason
     (
     -- * Creating a Request

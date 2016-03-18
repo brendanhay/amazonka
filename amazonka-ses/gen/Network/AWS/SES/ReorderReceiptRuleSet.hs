@@ -28,8 +28,6 @@
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_ReorderReceiptRuleSet.html AWS API Reference> for ReorderReceiptRuleSet.
 module Network.AWS.SES.ReorderReceiptRuleSet
     (
     -- * Creating a Request

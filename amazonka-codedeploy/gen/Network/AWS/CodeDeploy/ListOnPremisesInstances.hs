@@ -23,8 +23,6 @@
 -- Unless otherwise specified, both registered and deregistered on-premises
 -- instance names will be listed. To list only registered or deregistered
 -- on-premises instance names, use the registration status parameter.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListOnPremisesInstances.html AWS API Reference> for ListOnPremisesInstances.
 module Network.AWS.CodeDeploy.ListOnPremisesInstances
     (
     -- * Creating a Request

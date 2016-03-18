@@ -26,8 +26,6 @@
 -- You can list events for stacks that have failed to create or have been
 -- deleted by specifying the unique stack identifier (stack ID).
 --
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackEvents.html AWS API Reference> for DescribeStackEvents.
---
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.DescribeStackEvents
     (

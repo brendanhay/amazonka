@@ -21,8 +21,6 @@
 -- Gets the roles for an identity pool.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetIdentityPoolRoles.html AWS API Reference> for GetIdentityPoolRoles.
 module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
     (
     -- * Creating a Request

@@ -22,8 +22,6 @@
 -- To update metadata, specify the fleet ID and the property values you
 -- want to change. If successful, the fleet ID for the updated fleet is
 -- returned.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateFleetAttributes.html AWS API Reference> for UpdateFleetAttributes.
 module Network.AWS.GameLift.UpdateFleetAttributes
     (
     -- * Creating a Request

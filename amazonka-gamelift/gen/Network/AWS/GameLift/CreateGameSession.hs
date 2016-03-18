@@ -31,8 +31,6 @@
 -- properties, including an IP address. By default, newly created game
 -- sessions are set to accept adding any new players to the game session.
 -- Use < UpdateGameSession> to change the creation policy.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateGameSession.html AWS API Reference> for CreateGameSession.
 module Network.AWS.GameLift.CreateGameSession
     (
     -- * Creating a Request

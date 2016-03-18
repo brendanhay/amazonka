@@ -23,8 +23,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html UpdateThingShadow>
 -- in the /AWS IoT Developer Guide/.
---
--- /See:/ <https://aws.amazon.com/iot#UpdateThingShadow.html AWS API Reference> for UpdateThingShadow.
 module Network.AWS.IoTDataPlane.UpdateThingShadow
     (
     -- * Creating a Request

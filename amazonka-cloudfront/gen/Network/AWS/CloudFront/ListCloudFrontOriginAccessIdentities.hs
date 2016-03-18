@@ -20,8 +20,6 @@
 --
 -- List origin access identities.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListCloudFrontOriginAccessIdentities.html AWS API Reference> for ListCloudFrontOriginAccessIdentities.
---
 -- This operation returns paginated results.
 module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     (

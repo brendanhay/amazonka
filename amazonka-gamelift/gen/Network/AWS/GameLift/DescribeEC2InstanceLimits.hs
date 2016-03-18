@@ -26,8 +26,6 @@
 -- Service limits vary depending on region. Available regions for GameLift
 -- can be found in the AWS Management Console for GameLift (see the
 -- drop-down list in the upper right corner).
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeEC2InstanceLimits.html AWS API Reference> for DescribeEC2InstanceLimits.
 module Network.AWS.GameLift.DescribeEC2InstanceLimits
     (
     -- * Creating a Request

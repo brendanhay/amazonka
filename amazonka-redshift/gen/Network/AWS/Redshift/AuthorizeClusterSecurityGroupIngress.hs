@@ -40,8 +40,6 @@
 -- groups, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Working with Security Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeClusterSecurityGroupIngress.html AWS API Reference> for AuthorizeClusterSecurityGroupIngress.
 module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     (
     -- * Creating a Request

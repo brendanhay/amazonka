@@ -25,8 +25,6 @@
 -- the action requires access to that Amazon S3 bucket for input or output
 -- artifacts. Additionally, this API returns any secret values defined for
 -- the action.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_GetJobDetails.html AWS API Reference> for GetJobDetails.
 module Network.AWS.CodePipeline.GetJobDetails
     (
     -- * Creating a Request

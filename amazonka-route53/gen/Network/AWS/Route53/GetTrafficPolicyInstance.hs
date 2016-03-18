@@ -28,8 +28,6 @@
 -- Amazon Route 53 creates the resource record sets that are specified in
 -- the traffic policy definition. For more information, see the < State>
 -- response element.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicyInstance.html AWS API Reference> for GetTrafficPolicyInstance.
 module Network.AWS.Route53.GetTrafficPolicyInstance
     (
     -- * Creating a Request

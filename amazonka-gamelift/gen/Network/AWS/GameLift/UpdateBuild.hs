@@ -22,8 +22,6 @@
 -- version. To update the metadata, specify the build ID to update and
 -- provide the new values. If successful, a build object containing the
 -- updated metadata is returned.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateBuild.html AWS API Reference> for UpdateBuild.
 module Network.AWS.GameLift.UpdateBuild
     (
     -- * Creating a Request

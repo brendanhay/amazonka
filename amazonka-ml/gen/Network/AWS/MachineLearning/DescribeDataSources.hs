@@ -21,8 +21,6 @@
 -- Returns a list of 'DataSource' that match the search criteria in the
 -- request.
 --
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeDataSources.html AWS API Reference> for DescribeDataSources.
---
 -- This operation returns paginated results.
 module Network.AWS.MachineLearning.DescribeDataSources
     (

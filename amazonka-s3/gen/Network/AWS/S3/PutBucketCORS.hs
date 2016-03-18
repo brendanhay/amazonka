@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the cors configuration for a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketCORS.html AWS API Reference> for PutBucketCORS.
 module Network.AWS.S3.PutBucketCORS
     (
     -- * Creating a Request

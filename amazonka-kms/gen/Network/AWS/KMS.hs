@@ -84,8 +84,6 @@
 -- -   < Decrypt>
 -- -   < GenerateDataKey>
 -- -   < GenerateDataKeyWithoutPlaintext>
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.KMS
     (
     -- * Service Configuration

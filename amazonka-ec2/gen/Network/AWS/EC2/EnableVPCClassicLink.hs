@@ -27,8 +27,6 @@
 -- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the Amazon Elastic Compute Cloud User Guide.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVPCClassicLink.html AWS API Reference> for EnableVPCClassicLink.
 module Network.AWS.EC2.EnableVPCClassicLink
     (
     -- * Creating a Request

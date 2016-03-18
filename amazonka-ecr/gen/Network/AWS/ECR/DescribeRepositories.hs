@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes image repositories in a registry.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeRepositories.html AWS API Reference> for DescribeRepositories.
 module Network.AWS.ECR.DescribeRepositories
     (
     -- * Creating a Request

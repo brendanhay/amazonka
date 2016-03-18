@@ -23,8 +23,6 @@
 -- it can optionally describe a single snapshot, or just the snapshots
 -- associated with a particular cache cluster.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeSnapshots.html AWS API Reference> for DescribeSnapshots.
---
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeSnapshots
     (

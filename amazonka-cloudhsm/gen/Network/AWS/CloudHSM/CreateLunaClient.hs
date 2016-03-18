@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an HSM client.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_CreateLunaClient.html AWS API Reference> for CreateLunaClient.
 module Network.AWS.CloudHSM.CreateLunaClient
     (
     -- * Creating a Request

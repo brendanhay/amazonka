@@ -23,8 +23,6 @@
 -- account. You can run up to 500 concurrent agents per AWS account. For
 -- more information, see
 -- <https://docs.aws.amazon.com/inspector/latest/userguide//inspector_applications.html Inspector Applications.>
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_CreateApplication.html AWS API Reference> for CreateApplication.
 module Network.AWS.Inspector.CreateApplication
     (
     -- * Creating a Request

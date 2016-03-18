@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about unique device types.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListDevices.html AWS API Reference> for ListDevices.
 module Network.AWS.DeviceFarm.ListDevices
     (
     -- * Creating a Request

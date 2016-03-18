@@ -36,8 +36,6 @@
 -- information, see the International Telecommunication Union publication
 -- /Recommendation ITU-T H.264: Advanced video coding for generic
 -- audiovisual services/.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreatePreset.html AWS API Reference> for CreatePreset.
 module Network.AWS.ElasticTranscoder.CreatePreset
     (
     -- * Creating a Request

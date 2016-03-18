@@ -25,8 +25,6 @@
 -- this action works for access keys under the AWS account, you can use
 -- this action to manage root credentials even if the AWS account has no
 -- associated users.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccessKey.html AWS API Reference> for DeleteAccessKey.
 module Network.AWS.IAM.DeleteAccessKey
     (
     -- * Creating a Request

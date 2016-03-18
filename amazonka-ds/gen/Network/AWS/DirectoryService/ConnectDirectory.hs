@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an AD Connector to connect to an on-premises directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_ConnectDirectory.html AWS API Reference> for ConnectDirectory.
 module Network.AWS.DirectoryService.ConnectDirectory
     (
     -- * Creating a Request

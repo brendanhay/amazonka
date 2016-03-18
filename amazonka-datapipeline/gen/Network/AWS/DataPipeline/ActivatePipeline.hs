@@ -26,8 +26,6 @@
 --
 -- To activate a finished pipeline, modify the end date for the pipeline
 -- and then activate it.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ActivatePipeline.html AWS API Reference> for ActivatePipeline.
 module Network.AWS.DataPipeline.ActivatePipeline
     (
     -- * Creating a Request

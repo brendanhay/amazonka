@@ -22,8 +22,6 @@
 -- returns an empty map if there are no tags. For more information about
 -- tags, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListTagsForVault.html AWS API Reference> for ListTagsForVault.
 module Network.AWS.Glacier.ListTagsForVault
     (
     -- * Creating a Request

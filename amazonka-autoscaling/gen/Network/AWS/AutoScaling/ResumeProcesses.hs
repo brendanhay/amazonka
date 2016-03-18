@@ -24,8 +24,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspending and Resuming Auto Scaling Processes>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ResumeProcesses.html AWS API Reference> for ResumeProcesses.
 module Network.AWS.AutoScaling.ResumeProcesses
     (
     -- * Creating a Request

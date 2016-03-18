@@ -21,8 +21,6 @@
 -- The /RevokeCacheSecurityGroupIngress/ action revokes ingress from a
 -- cache security group. Use this action to disallow access from an Amazon
 -- EC2 security group that had been previously authorized.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RevokeCacheSecurityGroupIngress.html AWS API Reference> for RevokeCacheSecurityGroupIngress.
 module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     (
     -- * Creating a Request

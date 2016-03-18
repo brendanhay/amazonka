@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds tags to on-premises instances.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_AddTagsToOnPremisesInstances.html AWS API Reference> for AddTagsToOnPremisesInstances.
 module Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
     (
     -- * Creating a Request

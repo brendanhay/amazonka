@@ -20,8 +20,6 @@
 --
 -- Lists the versions of the specified policy, and identifies the default
 -- version.
---
--- /See:/ <https://aws.amazon.com/iot#ListPolicyVersions.html AWS API Reference> for ListPolicyVersions.
 module Network.AWS.IoT.ListPolicyVersions
     (
     -- * Creating a Request

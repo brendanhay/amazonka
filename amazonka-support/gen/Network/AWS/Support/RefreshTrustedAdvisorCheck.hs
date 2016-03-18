@@ -30,8 +30,6 @@
 -- -   __MillisUntilNextRefreshable.__ The amount of time, in milliseconds,
 --     until the check is eligible for refresh.
 -- -   __CheckId.__ The unique identifier for the check.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_RefreshTrustedAdvisorCheck.html AWS API Reference> for RefreshTrustedAdvisorCheck.
 module Network.AWS.Support.RefreshTrustedAdvisorCheck
     (
     -- * Creating a Request

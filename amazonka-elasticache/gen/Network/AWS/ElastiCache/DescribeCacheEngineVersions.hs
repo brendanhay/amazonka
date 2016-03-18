@@ -21,8 +21,6 @@
 -- The /DescribeCacheEngineVersions/ action returns a list of the available
 -- cache engines and their versions.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheEngineVersions.html AWS API Reference> for DescribeCacheEngineVersions.
---
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     (

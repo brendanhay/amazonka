@@ -31,8 +31,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_ShrinkLBApp04.html Disable an Availability Zone from a Load-Balanced Application>
 -- in the /Elastic Load Balancing Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DisableAvailabilityZonesForLoadBalancer.html AWS API Reference> for DisableAvailabilityZonesForLoadBalancer.
 module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     (
     -- * Creating a Request

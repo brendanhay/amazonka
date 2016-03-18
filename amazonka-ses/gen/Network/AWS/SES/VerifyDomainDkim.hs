@@ -34,8 +34,6 @@
 -- For more information about creating DNS records using DKIM tokens, go to
 -- the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyDomainDkim.html AWS API Reference> for VerifyDomainDkim.
 module Network.AWS.SES.VerifyDomainDkim
     (
     -- * Creating a Request

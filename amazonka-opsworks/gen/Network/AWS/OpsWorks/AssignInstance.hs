@@ -31,8 +31,6 @@
 -- or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssignInstance.html AWS API Reference> for AssignInstance.
 module Network.AWS.OpsWorks.AssignInstance
     (
     -- * Creating a Request

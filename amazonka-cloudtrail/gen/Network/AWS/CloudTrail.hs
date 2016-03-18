@@ -34,8 +34,6 @@
 --
 -- See the CloudTrail User Guide for information about the data that is
 -- included with each AWS API call listed in the log files.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudTrail
     (
     -- * Service Configuration

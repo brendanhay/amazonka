@@ -30,8 +30,6 @@
 -- 'INACTIVE' task definition (although there may be up to a 10 minute
 -- window following deregistration where these restrictions have not yet
 -- taken effect).
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html AWS API Reference> for DeregisterTaskDefinition.
 module Network.AWS.ECS.DeregisterTaskDefinition
     (
     -- * Creating a Request

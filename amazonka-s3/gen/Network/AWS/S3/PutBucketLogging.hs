@@ -21,8 +21,6 @@
 -- Set the logging parameters for a bucket and to specify permissions for
 -- who can view and modify the logging parameters. To set the logging
 -- status of a bucket, you must be the bucket owner.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketLogging.html AWS API Reference> for PutBucketLogging.
 module Network.AWS.S3.PutBucketLogging
     (
     -- * Creating a Request

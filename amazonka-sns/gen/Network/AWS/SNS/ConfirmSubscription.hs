@@ -23,8 +23,6 @@
 -- token is valid, the action creates a new subscription and returns its
 -- Amazon Resource Name (ARN). This call requires an AWS signature only
 -- when the 'AuthenticateOnUnsubscribe' flag is set to \"true\".
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html AWS API Reference> for ConfirmSubscription.
 module Network.AWS.SNS.ConfirmSubscription
     (
     -- * Creating a Request

@@ -24,8 +24,6 @@
 -- For more information about working with snapshots, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSnapshot.html AWS API Reference> for CreateClusterSnapshot.
 module Network.AWS.Redshift.CreateClusterSnapshot
     (
     -- * Creating a Request

@@ -21,8 +21,6 @@
 -- Associates, updates, or disables a policy with a listener for the
 -- specified load balancer. You can associate multiple policies with a
 -- listener.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesOfListener.html AWS API Reference> for SetLoadBalancerPoliciesOfListener.
 module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     (
     -- * Creating a Request

@@ -27,8 +27,6 @@
 -- digest file is signed with a private key unique to its region.
 -- Therefore, when you validate a digest file from a particular region, you
 -- must look in the same region for its corresponding public key.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListPublicKeys.html AWS API Reference> for ListPublicKeys.
 module Network.AWS.CloudTrail.ListPublicKeys
     (
     -- * Creating a Request

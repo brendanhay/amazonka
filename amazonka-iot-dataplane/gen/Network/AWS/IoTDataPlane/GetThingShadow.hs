@@ -23,8 +23,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html GetThingShadow>
 -- in the /AWS IoT Developer Guide/.
---
--- /See:/ <https://aws.amazon.com/iot#GetThingShadow.html AWS API Reference> for GetThingShadow.
 module Network.AWS.IoTDataPlane.GetThingShadow
     (
     -- * Creating a Request

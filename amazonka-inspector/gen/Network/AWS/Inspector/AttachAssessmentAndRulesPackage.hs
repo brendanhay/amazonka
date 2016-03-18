@@ -20,8 +20,6 @@
 --
 -- Attaches the rules package specified by the rules package ARN to the
 -- assessment specified by the assessment ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_AttachAssessmentAndRulesPackage.html AWS API Reference> for AttachAssessmentAndRulesPackage.
 module Network.AWS.Inspector.AttachAssessmentAndRulesPackage
     (
     -- * Creating a Request

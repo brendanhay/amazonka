@@ -21,8 +21,6 @@
 -- Modifies attributes of a specified VPC endpoint. You can modify the
 -- policy associated with the endpoint, and you can add and remove route
 -- tables associated with the endpoint.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVPCEndpoint.html AWS API Reference> for ModifyVPCEndpoint.
 module Network.AWS.EC2.ModifyVPCEndpoint
     (
     -- * Creating a Request

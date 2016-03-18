@@ -24,8 +24,6 @@
 -- Policies are settings that are saved for your load balancer and that can
 -- be applied to the front-end listener or the back-end application server,
 -- depending on the policy type.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerPolicy.html AWS API Reference> for CreateLoadBalancerPolicy.
 module Network.AWS.ELB.CreateLoadBalancerPolicy
     (
     -- * Creating a Request

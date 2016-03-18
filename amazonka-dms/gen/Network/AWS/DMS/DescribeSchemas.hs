@@ -20,8 +20,6 @@
 --
 -- Returns information about the schema for the specified endpoint.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeSchemas.html AWS API Reference> for DescribeSchemas.
 module Network.AWS.DMS.DescribeSchemas
     (
     -- * Creating a Request

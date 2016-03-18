@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new, empty repository.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_CreateRepository.html AWS API Reference> for CreateRepository.
 module Network.AWS.CodeCommit.CreateRepository
     (
     -- * Creating a Request

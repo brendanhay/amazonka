@@ -27,8 +27,6 @@
 -- -   Log group names can be between 1 and 512 characters long.
 -- -   Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\'
 --     (hyphen), \'\/\' (forward slash), and \'.\' (period).
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogGroup.html AWS API Reference> for CreateLogGroup.
 module Network.AWS.CloudWatchLogs.CreateLogGroup
     (
     -- * Creating a Request

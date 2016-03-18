@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists information about the OpenID Connect providers in the AWS account.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIdConnectProviders.html AWS API Reference> for ListOpenIdConnectProviders.
 module Network.AWS.IAM.ListOpenIdConnectProviders
     (
     -- * Creating a Request

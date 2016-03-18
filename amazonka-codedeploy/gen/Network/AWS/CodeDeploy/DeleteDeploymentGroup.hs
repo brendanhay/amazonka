@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a deployment group.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentGroup.html AWS API Reference> for DeleteDeploymentGroup.
 module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     (
     -- * Creating a Request

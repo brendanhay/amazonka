@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists information about a resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetResource.html AWS API Reference> for GetResource.
 module Network.AWS.APIGateway.GetResource
     (
     -- * Creating a Request

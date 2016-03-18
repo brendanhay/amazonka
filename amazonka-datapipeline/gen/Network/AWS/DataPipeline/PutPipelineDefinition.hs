@@ -33,8 +33,6 @@
 --
 -- Pipeline object definitions are passed to the 'PutPipelineDefinition'
 -- action and returned by the < GetPipelineDefinition> action.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PutPipelineDefinition.html AWS API Reference> for PutPipelineDefinition.
 module Network.AWS.DataPipeline.PutPipelineDefinition
     (
     -- * Creating a Request

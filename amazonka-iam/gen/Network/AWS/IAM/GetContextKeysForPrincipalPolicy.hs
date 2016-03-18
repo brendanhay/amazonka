@@ -38,8 +38,6 @@
 -- evaluated by using the 'Condition' element of an IAM policy. Use
 -- GetContextKeysForPrincipalPolicy to understand what key names and values
 -- you must supply when you call < SimulatePrincipalPolicy>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html AWS API Reference> for GetContextKeysForPrincipalPolicy.
 module Network.AWS.IAM.GetContextKeysForPrincipalPolicy
     (
     -- * Creating a Request

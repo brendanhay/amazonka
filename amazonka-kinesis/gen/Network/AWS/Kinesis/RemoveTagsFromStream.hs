@@ -21,8 +21,6 @@
 -- Deletes tags from the specified Amazon Kinesis stream.
 --
 -- If you specify a tag that does not exist, it is ignored.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_RemoveTagsFromStream.html AWS API Reference> for RemoveTagsFromStream.
 module Network.AWS.Kinesis.RemoveTagsFromStream
     (
     -- * Creating a Request

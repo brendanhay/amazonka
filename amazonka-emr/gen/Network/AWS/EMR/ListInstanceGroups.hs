@@ -20,8 +20,6 @@
 --
 -- Provides all available details about the instance groups in a cluster.
 --
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListInstanceGroups.html AWS API Reference> for ListInstanceGroups.
---
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListInstanceGroups
     (

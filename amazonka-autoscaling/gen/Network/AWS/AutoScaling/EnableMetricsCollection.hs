@@ -23,8 +23,6 @@
 --
 -- You can only enable metrics collection if 'InstanceMonitoring' in the
 -- launch configuration for the group is set to 'True'.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnableMetricsCollection.html AWS API Reference> for EnableMetricsCollection.
 module Network.AWS.AutoScaling.EnableMetricsCollection
     (
     -- * Creating a Request

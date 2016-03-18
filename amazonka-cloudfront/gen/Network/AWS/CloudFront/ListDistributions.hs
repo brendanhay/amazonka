@@ -20,8 +20,6 @@
 --
 -- List distributions.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListDistributions.html AWS API Reference> for ListDistributions.
---
 -- This operation returns paginated results.
 module Network.AWS.CloudFront.ListDistributions
     (

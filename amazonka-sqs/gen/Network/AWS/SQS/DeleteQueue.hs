@@ -36,8 +36,6 @@
 -- than 30 days. For more information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSConcepts.html How Amazon SQS Queues Work>
 -- in the /Amazon SQS Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteQueue.html AWS API Reference> for DeleteQueue.
 module Network.AWS.SQS.DeleteQueue
     (
     -- * Creating a Request

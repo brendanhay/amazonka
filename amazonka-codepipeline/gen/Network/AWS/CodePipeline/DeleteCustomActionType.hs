@@ -24,8 +24,6 @@
 --
 -- You cannot recreate a custom action after it has been deleted unless you
 -- increase the version number of the action.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_DeleteCustomActionType.html AWS API Reference> for DeleteCustomActionType.
 module Network.AWS.CodePipeline.DeleteCustomActionType
     (
     -- * Creating a Request

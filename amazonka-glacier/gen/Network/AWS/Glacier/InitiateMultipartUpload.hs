@@ -55,8 +55,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-initiate-upload.html Initiate Multipart Upload>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-InitiateMultipartUpload.html AWS API Reference> for InitiateMultipartUpload.
 module Network.AWS.Glacier.InitiateMultipartUpload
     (
     -- * Creating a Request

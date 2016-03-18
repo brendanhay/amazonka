@@ -26,8 +26,6 @@
 -- EC2-Classic instance. For more information about ClassicLink, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the Amazon Elastic Compute Cloud User Guide.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCClassicLinkDNSSupport.html AWS API Reference> for DescribeVPCClassicLinkDNSSupport.
 module Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport
     (
     -- * Creating a Request

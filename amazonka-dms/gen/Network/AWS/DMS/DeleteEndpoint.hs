@@ -23,8 +23,6 @@
 -- All tasks associated with the endpoint must be deleted before you can
 -- delete the endpoint.
 --
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteEndpoint.html AWS API Reference> for DeleteEndpoint.
 module Network.AWS.DMS.DeleteEndpoint
     (
     -- * Creating a Request

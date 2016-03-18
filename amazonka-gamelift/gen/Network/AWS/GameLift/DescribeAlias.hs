@@ -20,8 +20,6 @@
 --
 -- Retrieves properties for a specified alias. To get the alias, specify an
 -- alias ID. If successful, an < Alias> object is returned.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DescribeAlias.html AWS API Reference> for DescribeAlias.
 module Network.AWS.GameLift.DescribeAlias
     (
     -- * Creating a Request

@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables notifications of specified events for a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketNotificationConfiguration.html AWS API Reference> for PutBucketNotificationConfiguration.
 module Network.AWS.S3.PutBucketNotificationConfiguration
     (
     -- * Creating a Request

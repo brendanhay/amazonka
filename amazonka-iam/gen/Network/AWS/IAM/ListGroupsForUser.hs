@@ -23,8 +23,6 @@
 -- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
 --
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupsForUser.html AWS API Reference> for ListGroupsForUser.
---
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListGroupsForUser
     (

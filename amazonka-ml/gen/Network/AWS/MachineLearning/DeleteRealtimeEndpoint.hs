@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a real time endpoint of an 'MLModel'.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteRealtimeEndpoint.html AWS API Reference> for DeleteRealtimeEndpoint.
 module Network.AWS.MachineLearning.DeleteRealtimeEndpoint
     (
     -- * Creating a Request

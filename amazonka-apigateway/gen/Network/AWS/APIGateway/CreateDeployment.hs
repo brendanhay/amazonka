@@ -20,8 +20,6 @@
 --
 -- Creates a < Deployment> resource, which makes a specified < RestApi>
 -- callable over the internet.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateDeployment.html AWS API Reference> for CreateDeployment.
 module Network.AWS.APIGateway.CreateDeployment
     (
     -- * Creating a Request

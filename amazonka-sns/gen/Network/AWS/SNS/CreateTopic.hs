@@ -24,8 +24,6 @@
 -- is idempotent, so if the requester already owns a topic with the
 -- specified name, that topic\'s ARN is returned without creating a new
 -- topic.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html AWS API Reference> for CreateTopic.
 module Network.AWS.SNS.CreateTopic
     (
     -- * Creating a Request

@@ -26,8 +26,6 @@
 -- This operation is used by the Amazon ECR proxy, and it is not intended
 -- for general use by customers. Use the 'docker' CLI to pull, tag, and
 -- push images.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CompleteLayerUpload.html AWS API Reference> for CompleteLayerUpload.
 module Network.AWS.ECR.CompleteLayerUpload
     (
     -- * Creating a Request

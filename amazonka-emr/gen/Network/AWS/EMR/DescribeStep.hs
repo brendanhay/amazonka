@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides more detail about the cluster step.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_DescribeStep.html AWS API Reference> for DescribeStep.
 module Network.AWS.EMR.DescribeStep
     (
     -- * Creating a Request

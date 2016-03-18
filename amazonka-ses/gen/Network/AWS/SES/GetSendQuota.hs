@@ -21,8 +21,6 @@
 -- Returns the user\'s current sending limits.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendQuota.html AWS API Reference> for GetSendQuota.
 module Network.AWS.SES.GetSendQuota
     (
     -- * Creating a Request

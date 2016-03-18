@@ -19,8 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds the specified user to the specified group.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddUserToGroup.html AWS API Reference> for AddUserToGroup.
 module Network.AWS.IAM.AddUserToGroup
     (
     -- * Creating a Request

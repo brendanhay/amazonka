@@ -25,8 +25,6 @@
 -- join the session. To update a game session, specify the game session ID
 -- and the values you want to change. If successful, an updated
 -- < GameSession> object is returned.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateGameSession.html AWS API Reference> for UpdateGameSession.
 module Network.AWS.GameLift.UpdateGameSession
     (
     -- * Creating a Request

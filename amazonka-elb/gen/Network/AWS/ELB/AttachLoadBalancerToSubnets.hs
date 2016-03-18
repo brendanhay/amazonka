@@ -25,8 +25,6 @@
 -- subnets. For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-manage-subnets.html Add or Remove Subnets for Your Load Balancer in a VPC>
 -- in the /Elastic Load Balancing Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AttachLoadBalancerToSubnets.html AWS API Reference> for AttachLoadBalancerToSubnets.
 module Network.AWS.ELB.AttachLoadBalancerToSubnets
     (
     -- * Creating a Request

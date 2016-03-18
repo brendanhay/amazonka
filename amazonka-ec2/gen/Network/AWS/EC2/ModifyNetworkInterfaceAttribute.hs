@@ -20,8 +20,6 @@
 --
 -- Modifies the specified network interface attribute. You can specify only
 -- one attribute at a time.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyNetworkInterfaceAttribute.html AWS API Reference> for ModifyNetworkInterfaceAttribute.
 module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     (
     -- * Creating a Request

@@ -22,8 +22,6 @@
 -- see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteIndexField.html AWS API Reference> for DeleteIndexField.
 module Network.AWS.CloudSearch.DeleteIndexField
     (
     -- * Creating a Request

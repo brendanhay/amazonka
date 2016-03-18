@@ -23,8 +23,6 @@
 -- information about managing passwords, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords>
 -- in the /Using IAM/ guide.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateLoginProfile.html AWS API Reference> for CreateLoginProfile.
 module Network.AWS.IAM.CreateLoginProfile
     (
     -- * Creating a Request

@@ -73,8 +73,6 @@
 -- There are no guarantees about the timestamp accuracy, or that the
 -- timestamp is always increasing. For example, records in a shard or
 -- across a stream might have timestamps that are out of order.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html AWS API Reference> for GetRecords.
 module Network.AWS.Kinesis.GetRecords
     (
     -- * Creating a Request

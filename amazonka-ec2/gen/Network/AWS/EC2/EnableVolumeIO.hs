@@ -20,8 +20,6 @@
 --
 -- Enables I\/O operations for a volume that had I\/O operations disabled
 -- because the data on the volume was potentially inconsistent.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVolumeIO.html AWS API Reference> for EnableVolumeIO.
 module Network.AWS.EC2.EnableVolumeIO
     (
     -- * Creating a Request

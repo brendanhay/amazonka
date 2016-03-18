@@ -434,8 +434,8 @@ tKMSKeyId = lens _tKMSKeyId (\ s a -> s{_tKMSKeyId = a});
 tHomeRegion :: Lens' Trail (Maybe Text)
 tHomeRegion = lens _tHomeRegion (\ s a -> s{_tHomeRegion = a});
 
--- | Name of the trail set by calling CreateTrail. The maximum length is 128
--- characters.
+-- | Name of the trail set by calling < CreateTrail>. The maximum length is
+-- 128 characters.
 tName :: Lens' Trail (Maybe Text)
 tName = lens _tName (\ s a -> s{_tName = a});
 

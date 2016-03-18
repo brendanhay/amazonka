@@ -46,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The request that specifies the name of a trail to delete.
+-- | < The request that specifies the name of a trail to delete.>
 --
 -- /See:/ 'deleteTrail' smart constructor.
 newtype DeleteTrail = DeleteTrail'

@@ -80,10 +80,10 @@
 -- these, such as creating keys and assigning policies, by using the
 -- console.
 --
--- -   Encrypt
--- -   Decrypt
--- -   GenerateDataKey
--- -   GenerateDataKeyWithoutPlaintext
+-- -   < Encrypt>
+-- -   < Decrypt>
+-- -   < GenerateDataKey>
+-- -   < GenerateDataKeyWithoutPlaintext>
 --
 -- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.KMS

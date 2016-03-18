@@ -82,10 +82,10 @@ useful for most applications. You will likely perform actions other than
 these, such as creating keys and assigning policies, by using the
 console.
 
--   Encrypt
--   Decrypt
--   GenerateDataKey
--   GenerateDataKeyWithoutPlaintext
+-   < Encrypt>
+-   < Decrypt>
+-   < GenerateDataKey>
+-   < GenerateDataKeyWithoutPlaintext>
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-kms)
 and the [AWS API Reference](http://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html).

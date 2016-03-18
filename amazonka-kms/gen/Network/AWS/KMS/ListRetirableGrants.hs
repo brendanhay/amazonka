@@ -22,7 +22,7 @@
 -- matches the one specified.
 --
 -- A typical use is to list all grants that you are able to retire. To
--- retire a grant, use RetireGrant.
+-- retire a grant, use < RetireGrant>.
 --
 -- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListRetirableGrants.html AWS API Reference> for ListRetirableGrants.
 module Network.AWS.KMS.ListRetirableGrants

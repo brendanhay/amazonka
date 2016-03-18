@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified alias. To map an alias to a different key, call
--- UpdateAlias.
+-- < UpdateAlias>.
 --
 -- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteAlias.html AWS API Reference> for DeleteAlias.
 module Network.AWS.KMS.DeleteAlias

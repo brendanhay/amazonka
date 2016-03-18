@@ -249,8 +249,8 @@ gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . _Sensi
 -- | Ciphertext that contains the encrypted data key. You must store the blob
 -- and enough information to reconstruct the encryption context so that the
 -- data encrypted by using the key can later be decrypted. You must provide
--- both the ciphertext blob and the encryption context to the Decrypt API
--- to recover the plaintext data key and decrypt the object.
+-- both the ciphertext blob and the encryption context to the < Decrypt>
+-- API to recover the plaintext data key and decrypt the object.
 --
 -- If you are using the CLI, the value is Base64 encoded. Otherwise, it is
 -- not encoded.

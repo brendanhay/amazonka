@@ -208,8 +208,8 @@ gleGranteePrincipal :: Lens' GrantListEntry (Maybe Text)
 gleGranteePrincipal = lens _gleGranteePrincipal (\ s a -> s{_gleGranteePrincipal = a});
 
 -- | The friendly name that identifies the grant. If a name was provided in
--- the CreateGrant request, that name is returned. Otherwise this value is
--- null.
+-- the < CreateGrant> request, that name is returned. Otherwise this value
+-- is null.
 gleName :: Lens' GrantListEntry (Maybe Text)
 gleName = lens _gleName (\ s a -> s{_gleName = a});
 
@@ -275,8 +275,8 @@ instance FromJSON KeyListEntry where
 
 -- | Contains metadata about a customer master key (CMK).
 --
--- This data type is used as a response element for the CreateKey and
--- DescribeKey operations.
+-- This data type is used as a response element for the < CreateKey> and
+-- < DescribeKey> operations.
 --
 -- /See:/ 'keyMetadata' smart constructor.
 data KeyMetadata = KeyMetadata'
@@ -353,7 +353,7 @@ kmAWSAccountId = lens _kmAWSAccountId (\ s a -> s{_kmAWSAccountId = a});
 
 -- | The cryptographic operations for which you can use the key. Currently
 -- the only allowed value is 'ENCRYPT_DECRYPT', which means you can use the
--- key for the Encrypt and Decrypt operations.
+-- key for the < Encrypt> and < Decrypt> operations.
 kmKeyUsage :: Lens' KeyMetadata (Maybe KeyUsageType)
 kmKeyUsage = lens _kmKeyUsage (\ s a -> s{_kmKeyUsage = a});
 

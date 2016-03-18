@@ -82,10 +82,10 @@ description:
     these, such as creating keys and assigning policies, by using the
     console.
 
-    -   Encrypt
-    -   Decrypt
-    -   GenerateDataKey
-    -   GenerateDataKeyWithoutPlaintext
+    -   < Encrypt>
+    -   < Decrypt>
+    -   < GenerateDataKey>
+    -   < GenerateDataKeyWithoutPlaintext>
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides

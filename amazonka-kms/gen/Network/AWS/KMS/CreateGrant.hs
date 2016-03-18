@@ -100,7 +100,7 @@ createGrant pKeyId_ pGranteePrincipal_ =
     }
 
 -- | The principal that is given permission to retire the grant by using
--- RetireGrant operation.
+-- < RetireGrant> operation.
 --
 -- To specify the principal, use the
 -- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
@@ -252,8 +252,8 @@ createGrantResponse pResponseStatus_ =
 
 -- | The unique identifier for the grant.
 --
--- You can use the 'GrantId' in a subsequent RetireGrant or RevokeGrant
--- operation.
+-- You can use the 'GrantId' in a subsequent < RetireGrant> or
+-- < RevokeGrant> operation.
 cgrsGrantId :: Lens' CreateGrantResponse (Maybe Text)
 cgrsGrantId = lens _cgrsGrantId (\ s a -> s{_cgrsGrantId = a});
 

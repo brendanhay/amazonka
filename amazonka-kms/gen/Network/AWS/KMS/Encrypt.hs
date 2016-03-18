@@ -33,8 +33,8 @@
 -- Unless you are moving encrypted data from one region to another, you
 -- don\'t use this function to encrypt a generated data key within a
 -- region. You retrieve data keys already encrypted by calling the
--- GenerateDataKey or GenerateDataKeyWithoutPlaintext function. Data keys
--- don\'t need to be encrypted again by calling 'Encrypt'.
+-- < GenerateDataKey> or < GenerateDataKeyWithoutPlaintext> function. Data
+-- keys don\'t need to be encrypted again by calling 'Encrypt'.
 --
 -- If you want to encrypt data locally in your application, you can use the
 -- 'GenerateDataKey' function to return a plaintext data encryption key and

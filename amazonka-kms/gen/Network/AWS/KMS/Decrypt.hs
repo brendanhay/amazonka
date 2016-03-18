@@ -21,9 +21,9 @@
 -- Decrypts ciphertext. Ciphertext is plaintext that has been previously
 -- encrypted by using any of the following functions:
 --
--- -   GenerateDataKey
--- -   GenerateDataKeyWithoutPlaintext
--- -   Encrypt
+-- -   < GenerateDataKey>
+-- -   < GenerateDataKeyWithoutPlaintext>
+-- -   < Encrypt>
 --
 -- Note that if a caller has been granted access permissions to all keys
 -- (through, for example, IAM user policies that grant 'Decrypt' permission
@@ -87,9 +87,9 @@ decrypt pCiphertextBlob_ =
     , _decCiphertextBlob = _Base64 # pCiphertextBlob_
     }
 
--- | The encryption context. If this was specified in the Encrypt function,
--- it must be specified here or the decryption operation will fail. For
--- more information, see
+-- | The encryption context. If this was specified in the < Encrypt>
+-- function, it must be specified here or the decryption operation will
+-- fail. For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
 decEncryptionContext :: Lens' Decrypt (HashMap Text Text)
 decEncryptionContext = lens _decEncryptionContext (\ s a -> s{_decEncryptionContext = a}) . _Default . _Map;

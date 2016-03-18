@@ -30,7 +30,7 @@
 -- re-encryption from or to the key. The statement is included
 -- automatically when you authorize use of the key through the console but
 -- must be included manually when you set a policy by using the
--- PutKeyPolicy function.
+-- < PutKeyPolicy> function.
 --
 -- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html AWS API Reference> for ReEncrypt.
 module Network.AWS.KMS.ReEncrypt

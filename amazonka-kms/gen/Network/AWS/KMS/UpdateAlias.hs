@@ -93,7 +93,7 @@ uaAliasName = lens _uaAliasName (\ s a -> s{_uaAliasName = a});
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
 --
--- You can call ListAliases to verify that the alias is mapped to the
+-- You can call < ListAliases> to verify that the alias is mapped to the
 -- correct 'TargetKeyId'.
 uaTargetKeyId :: Lens' UpdateAlias Text
 uaTargetKeyId = lens _uaTargetKeyId (\ s a -> s{_uaTargetKeyId = a});

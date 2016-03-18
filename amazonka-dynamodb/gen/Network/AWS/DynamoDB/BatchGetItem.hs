@@ -181,10 +181,10 @@ bgiReturnConsumedCapacity = lens _bgiReturnConsumedCapacity (\ s a -> s{_bgiRetu
 --
 -- -   /Keys/ - An array of primary key attribute values that define
 --     specific items in the table. For each primary key, you must provide
---     /all/ of the key attributes. For example, with a hash type primary
---     key, you only need to provide the hash attribute. For a
---     hash-and-range type primary key, you must provide /both/ the hash
---     attribute and the range attribute.
+--     /all/ of the key attributes. For example, with a simple primary key,
+--     you only need to provide the partition key value. For a composite
+--     key, you must provide /both/ the partition key value and the sort
+--     key value.
 --
 -- -   /ProjectionExpression/ - A string that identifies one or more
 --     attributes to retrieve from the table. These attributes can include

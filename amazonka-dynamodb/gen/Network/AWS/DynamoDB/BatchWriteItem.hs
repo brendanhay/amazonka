@@ -173,9 +173,9 @@ bwiReturnItemCollectionMetrics = lens _bwiReturnItemCollectionMetrics (\ s a -> 
 --         identify the ! item. Each entry in this map consists of an
 --         attribute name and an attribute value. For each primary key, you
 --         must provide /all/ of the key attributes. For example, with a
---         hash type primary key, you only need to provide the hash
---         attribute. For a hash-and-range type primary key, you must
---         provide /both/ the hash attribute and the range attribute.
+--         simple primary key, you only need to provide a value for the
+--         partition key. For a composite primary key, you must provide
+--         values for /both/ the partition key and the sort key.
 --
 -- -   /PutRequest/ - Perform a /PutItem/ operation on the specified item.
 --     The item to be put is identified by an /Item/ subelement:
@@ -269,8 +269,8 @@ batchWriteItemResponse pResponseStatus_ =
 --
 -- Each entry consists of the following subelements:
 --
--- -   /ItemCollectionKey/ - The hash key value of the item collection.
---     This is the same as the hash key of the item.
+-- -   /ItemCollectionKey/ - The partition key value of the item
+--     collection. This is the same as the partition key value of the item.
 --
 -- -   /SizeEstimateRange/ - An estimate of item collection size, expressed
 --     in GB. This is a two-element array containing a lower bound and an

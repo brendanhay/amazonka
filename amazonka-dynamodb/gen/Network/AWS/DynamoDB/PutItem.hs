@@ -40,8 +40,11 @@
 -- For more information, see the /ReturnValues/ description below.
 --
 -- To prevent a new item from replacing an existing item, use a conditional
--- put operation with /ComparisonOperator/ set to 'NULL' for the primary
--- key attribute, or attributes.
+-- expression that contains the 'attribute_not_exists' function with the
+-- name of the attribute being used as the partition key for the table.
+-- Since every record must contain that attribute, the
+-- 'attribute_not_exists' function will only succeed if no matching item
+-- exists.
 --
 -- For more information about using this API, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html Working with Items>
@@ -189,7 +192,6 @@ piExpressionAttributeNames = lens _piExpressionAttributeNames (\ s a -> s{_piExp
 -- -   'ALL_OLD' - If /PutItem/ overwrote an attribute name-value pair,
 --     then the content of the old item is returned.
 --
--- Other \"Valid Values\" are not relevant to PutItem.
 piReturnValues :: Lens' PutItem (Maybe ReturnValue)
 piReturnValues = lens _piReturnValues (\ s a -> s{_piReturnValues = a});
 
@@ -236,7 +238,8 @@ piReturnItemCollectionMetrics = lens _piReturnItemCollectionMetrics (\ s a -> s{
 --
 --     These function names are case-sensitive.
 --
--- -   Comparison operators: ' = | \<> | \< | > | \<= | >= | BETWEEN | IN'
+-- -   Comparison operators:
+--     ' = | &#x3C;&#x3E; | &#x3C; | &#x3E; | &#x3C;= | &#x3E;= | BETWEEN | IN'
 --
 -- -   Logical operators: 'AND | OR | NOT'
 --
@@ -505,9 +508,9 @@ piTableName = lens _piTableName (\ s a -> s{_piTableName = a});
 -- attribute name-value pairs for the item.
 --
 -- You must provide all of the attributes for the primary key. For example,
--- with a hash type primary key, you only need to provide the hash
--- attribute. For a hash-and-range type primary key, you must provide both
--- the hash attribute and the range attribute.
+-- with a simple primary key, you only need to provide a value for the
+-- partition key. For a composite primary key, you must provide both values
+-- for both the partition key and the sort key.
 --
 -- If you specify any attributes that are part of an index key, then the
 -- data types for those attributes must match those of the schema in the
@@ -608,8 +611,9 @@ putItemResponse pResponseStatus_ =
 --
 -- Each /ItemCollectionMetrics/ element consists of:
 --
--- -   /ItemCollectionKey/ - The hash key value of the item collection.
---     This is the same as the hash key of the item.
+-- -   /ItemCollectionKey/ - The partition key value of the item
+--     collection. This is the same as the partition key value of the item
+--     itself.
 --
 -- -   /SizeEstimateRange/ - An estimate of item collection size, in
 --     gigabytes. This value is a two-element array containing a lower

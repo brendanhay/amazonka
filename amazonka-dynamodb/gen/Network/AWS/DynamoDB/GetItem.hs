@@ -194,9 +194,9 @@ giTableName = lens _giTableName (\ s a -> s{_giTableName = a});
 -- primary key of the item to retrieve.
 --
 -- For the primary key, you must provide all of the attributes. For
--- example, with a hash type primary key, you only need to provide the hash
--- attribute. For a hash-and-range type primary key, you must provide both
--- the hash attribute and the range attribute.
+-- example, with a simple primary key, you only need to provide a value for
+-- the partition key. For a composite primary key, you must provide values
+-- for both the partition key and the sort key.
 giKey :: Lens' GetItem (HashMap Text AttributeValue)
 giKey = lens _giKey (\ s a -> s{_giKey = a}) . _Map;
 

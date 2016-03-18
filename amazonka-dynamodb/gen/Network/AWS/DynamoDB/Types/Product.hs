@@ -51,7 +51,11 @@ attributeDefinition pAttributeName_ pAttributeType_ =
 adAttributeName :: Lens' AttributeDefinition Text
 adAttributeName = lens _adAttributeName (\ s a -> s{_adAttributeName = a});
 
--- | The data type for the attribute.
+-- | The data type for the attribute, where:
+--
+-- -   'S' - the attribute is of type String
+-- -   'N' - the attribute is of type Number
+-- -   'B' - the attribute is of type Binary
 adAttributeType :: Lens' AttributeDefinition ScalarAttributeType
 adAttributeType = lens _adAttributeType (\ s a -> s{_adAttributeType = a});
 
@@ -1078,7 +1082,21 @@ gsiIndexName :: Lens' GlobalSecondaryIndex Text
 gsiIndexName = lens _gsiIndexName (\ s a -> s{_gsiIndexName = a});
 
 -- | The complete key schema for a global secondary index, which consists of
--- one or more pairs of attribute names and key types ('HASH' or 'RANGE').
+-- one or more pairs of attribute names and key types:
+--
+-- -   'HASH' - partition key
+--
+-- -   'RANGE' - sort key
+--
+-- The partition key of an item is also known as its /hash attribute/. The
+-- term \"hash attribute\" derives from DynamoDB\' usage of an internal
+-- hash function to evenly distribute data items across partitions, based
+-- on their partition key values.
+--
+-- The sort key of an item is also known as its /range attribute/. The term
+-- \"range attribute\" derives from the way DynamoDB stores items with the
+-- same partition key physically close together, in sorted order by the
+-- sort key value.
 gsiKeySchema :: Lens' GlobalSecondaryIndex (NonEmpty KeySchemaElement)
 gsiKeySchema = lens _gsiKeySchema (\ s a -> s{_gsiKeySchema = a}) . _List1;
 
@@ -1155,7 +1173,7 @@ globalSecondaryIndexDescription =
 -- | Indicates whether the index is currently backfilling. /Backfilling/ is
 -- the process of reading items from the table and determining whether they
 -- can be added to the index. (Not all items will qualify: For example, a
--- hash key attribute cannot have any duplicates.) If an item can be added
+-- partition key cannot have any duplicate values.) If an item can be added
 -- to the index, DynamoDB will do so. After all items have been processed,
 -- the backfilling operation is complete and /Backfilling/ is false.
 --
@@ -1191,8 +1209,22 @@ gsidProvisionedThroughput = lens _gsidProvisionedThroughput (\ s a -> s{_gsidPro
 gsidIndexARN :: Lens' GlobalSecondaryIndexDescription (Maybe Text)
 gsidIndexARN = lens _gsidIndexARN (\ s a -> s{_gsidIndexARN = a});
 
--- | The complete key schema for the global secondary index, consisting of
--- one or more pairs of attribute names and key types ('HASH' or 'RANGE').
+-- | The complete key schema for a global secondary index, which consists of
+-- one or more pairs of attribute names and key types:
+--
+-- -   'HASH' - partition key
+--
+-- -   'RANGE' - sort key
+--
+-- The partition key of an item is also known as its /hash attribute/. The
+-- term \"hash attribute\" derives from DynamoDB\' usage of an internal
+-- hash function to evenly distribute data items across partitions, based
+-- on their partition key values.
+--
+-- The sort key of an item is also known as its /range attribute/. The term
+-- \"range attribute\" derives from the way DynamoDB stores items with the
+-- same partition key physically close together, in sorted order by the
+-- sort key value.
 gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (Maybe (NonEmpty KeySchemaElement))
 gsidKeySchema = lens _gsidKeySchema (\ s a -> s{_gsidKeySchema = a}) . mapping _List1;
 
@@ -1320,8 +1352,8 @@ itemCollectionMetrics =
     , _icmSizeEstimateRangeGB = Nothing
     }
 
--- | The hash key value of the item collection. This value is the same as the
--- hash key of the item.
+-- | The partition key value of the item collection. This value is the same
+-- as the partition key value of the item.
 icmItemCollectionKey :: Lens' ItemCollectionMetrics (HashMap Text AttributeValue)
 icmItemCollectionKey = lens _icmItemCollectionKey (\ s a -> s{_icmItemCollectionKey = a}) . _Default . _Map;
 
@@ -1350,10 +1382,14 @@ instance FromJSON ItemCollectionMetrics where
 -- attributes of an index.
 --
 -- A /KeySchemaElement/ represents exactly one attribute of the primary
--- key. For example, a hash type primary key would be represented by one
--- /KeySchemaElement/. A hash-and-range type primary key would require one
--- /KeySchemaElement/ for the hash attribute, and another
--- /KeySchemaElement/ for the range attribute.
+-- key. For example, a simple primary key would be represented by one
+-- /KeySchemaElement/ (for the partition key). A composite primary key
+-- would require one /KeySchemaElement/ for the partition key, and another
+-- /KeySchemaElement/ for the sort key.
+--
+-- A /KeySchemaElement/ must be a scalar, top-level attribute (not a nested
+-- attribute). The data type must be one of String, Number, or Binary. The
+-- attribute cannot be nested within a List or a Map.
 --
 -- /See:/ 'keySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
@@ -1382,8 +1418,21 @@ keySchemaElement pAttributeName_ pKeyType_ =
 kseAttributeName :: Lens' KeySchemaElement Text
 kseAttributeName = lens _kseAttributeName (\ s a -> s{_kseAttributeName = a});
 
--- | The attribute data, consisting of the data type and the attribute value
--- itself.
+-- | The role that this key attribute will assume:
+--
+-- -   'HASH' - partition key
+--
+-- -   'RANGE' - sort key
+--
+-- The partition key of an item is also known as its /hash attribute/. The
+-- term \"hash attribute\" derives from DynamoDB\' usage of an internal
+-- hash function to evenly distribute data items across partitions, based
+-- on their partition key values.
+--
+-- The sort key of an item is also known as its /range attribute/. The term
+-- \"range attribute\" derives from the way DynamoDB stores items with the
+-- same partition key physically close together, in sorted order by the
+-- sort key value.
 kseKeyType :: Lens' KeySchemaElement KeyType
 kseKeyType = lens _kseKeyType (\ s a -> s{_kseKeyType = a});
 
@@ -1405,9 +1454,9 @@ instance ToJSON KeySchemaElement where
 -- retrieve from the table.
 --
 -- For each primary key, you must provide /all/ of the key attributes. For
--- example, with a hash type primary key, you only need to provide the hash
--- attribute. For a hash-and-range type primary key, you must provide
--- /both/ the hash attribute and the range attribute.
+-- example, with a simple primary key, you only need to provide the
+-- partition key. For a composite primary key, you must provide /both/ the
+-- partition key and the sort key.
 --
 -- /See:/ 'keysAndAttributes' smart constructor.
 data KeysAndAttributes = KeysAndAttributes'
@@ -1577,7 +1626,21 @@ lsiIndexName :: Lens' LocalSecondaryIndex Text
 lsiIndexName = lens _lsiIndexName (\ s a -> s{_lsiIndexName = a});
 
 -- | The complete key schema for the local secondary index, consisting of one
--- or more pairs of attribute names and key types ('HASH' or 'RANGE').
+-- or more pairs of attribute names and key types:
+--
+-- -   'HASH' - partition key
+--
+-- -   'RANGE' - sort key
+--
+-- The partition key of an item is also known as its /hash attribute/. The
+-- term \"hash attribute\" derives from DynamoDB\' usage of an internal
+-- hash function to evenly distribute data items across partitions, based
+-- on their partition key values.
+--
+-- The sort key of an item is also known as its /range attribute/. The term
+-- \"range attribute\" derives from the way DynamoDB stores items with the
+-- same partition key physically close together, in sorted order by the
+-- sort key value.
 lsiKeySchema :: Lens' LocalSecondaryIndex (NonEmpty KeySchemaElement)
 lsiKeySchema = lens _lsiKeySchema (\ s a -> s{_lsiKeySchema = a}) . _List1;
 
@@ -1642,8 +1705,22 @@ lsidIndexSizeBytes = lens _lsidIndexSizeBytes (\ s a -> s{_lsidIndexSizeBytes = 
 lsidIndexARN :: Lens' LocalSecondaryIndexDescription (Maybe Text)
 lsidIndexARN = lens _lsidIndexARN (\ s a -> s{_lsidIndexARN = a});
 
--- | The complete index key schema, which consists of one or more pairs of
--- attribute names and key types ('HASH' or 'RANGE').
+-- | The complete key schema for the local secondary index, consisting of one
+-- or more pairs of attribute names and key types:
+--
+-- -   'HASH' - partition key
+--
+-- -   'RANGE' - sort key
+--
+-- The partition key of an item is also known as its /hash attribute/. The
+-- term \"hash attribute\" derives from DynamoDB\' usage of an internal
+-- hash function to evenly distribute data items across partitions, based
+-- on their partition key values.
+--
+-- The sort key of an item is also known as its /range attribute/. The term
+-- \"range attribute\" derives from the way DynamoDB stores items with the
+-- same partition key physically close together, in sorted order by the
+-- sort key value.
 lsidKeySchema :: Lens' LocalSecondaryIndexDescription (Maybe (NonEmpty KeySchemaElement))
 lsidKeySchema = lens _lsidKeySchema (\ s a -> s{_lsidKeySchema = a}) . mapping _List1;
 
@@ -2094,8 +2171,23 @@ tdTableARN = lens _tdTableARN (\ s a -> s{_tdTableARN = a});
 --
 -- -   /AttributeName/ - The name of the attribute.
 --
--- -   /KeyType/ - The key type for the attribute. Can be either 'HASH' or
---     'RANGE'.
+-- -   /KeyType/ - The role of the attribute:
+--
+--     .
+--
+--     -   'HASH' - partition key
+--
+--     -   'RANGE' - sort key
+--
+--     The partition key of an item is also known as its /hash attribute/.
+--     The term \"hash attribute\" derives from DynamoDB\' usage of an
+--     internal hash function to evenly distribute data items across
+--     partitions, based on their partition key values.
+--
+--     The sort key of an item is also known as its /range attribute/. The
+--     term \"range attribute\" derives from the way DynamoDB stores items
+--     with the same partition key physically close together, in sorted
+--     order by the sort key value.
 --
 -- For more information about primary keys, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key>
@@ -2104,7 +2196,7 @@ tdKeySchema :: Lens' TableDescription (Maybe (NonEmpty KeySchemaElement))
 tdKeySchema = lens _tdKeySchema (\ s a -> s{_tdKeySchema = a}) . mapping _List1;
 
 -- | The global secondary indexes, if any, on the table. Each index is scoped
--- to a given hash key value. Each element is composed of:
+-- to a given partition key value. Each element is composed of:
 --
 -- -   /Backfilling/ - If true, then the index is currently in the
 --     backfilling phase. Backfilling occurs only when a new global
@@ -2135,8 +2227,8 @@ tdKeySchema = lens _tdKeySchema (\ s a -> s{_tdKeySchema = a}) . mapping _List1;
 --
 -- -   /KeySchema/ - Specifies the complete index key schema. The attribute
 --     names in the key schema must be between 1 and 255 characters
---     (inclusive). The key schema must begin with the same hash key
---     attribute as the table.
+--     (inclusive). The key schema must begin with the same partition key
+--     as the table.
 --
 -- -   /Projection/ - Specifies attributes that are copied (projected) from
 --     the table into the index. These are in addition to the primary key
@@ -2188,7 +2280,7 @@ tdLatestStreamLabel :: Lens' TableDescription (Maybe Text)
 tdLatestStreamLabel = lens _tdLatestStreamLabel (\ s a -> s{_tdLatestStreamLabel = a});
 
 -- | Represents one or more local secondary indexes on the table. Each index
--- is scoped to a given hash key value. Tables with one or more local
+-- is scoped to a given partition key value. Tables with one or more local
 -- secondary indexes are subject to an item collection size limit, where
 -- the amount of data within a given item collection cannot exceed 10 GB.
 -- Each element is composed of:
@@ -2197,8 +2289,8 @@ tdLatestStreamLabel = lens _tdLatestStreamLabel (\ s a -> s{_tdLatestStreamLabel
 --
 -- -   /KeySchema/ - Specifies the complete index key schema. The attribute
 --     names in the key schema must be between 1 and 255 characters
---     (inclusive). The key schema must begin with the same hash key
---     attribute as the table.
+--     (inclusive). The key schema must begin with the same partition key
+--     as the table.
 --
 -- -   /Projection/ - Specifies attributes that are copied (projected) from
 --     the table into the index. These are in addition to the primary key

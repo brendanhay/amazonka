@@ -62,7 +62,6 @@ library
         , Network.AWS.Route53.DeleteTrafficPolicyInstance
         , Network.AWS.Route53.DisassociateVPCFromHostedZone
         , Network.AWS.Route53.GetChange
-        , Network.AWS.Route53.GetChangeDetails
         , Network.AWS.Route53.GetCheckerIPRanges
         , Network.AWS.Route53.GetGeoLocation
         , Network.AWS.Route53.GetHealthCheck
@@ -75,8 +74,6 @@ library
         , Network.AWS.Route53.GetTrafficPolicy
         , Network.AWS.Route53.GetTrafficPolicyInstance
         , Network.AWS.Route53.GetTrafficPolicyInstanceCount
-        , Network.AWS.Route53.ListChangeBatchesByHostedZone
-        , Network.AWS.Route53.ListChangeBatchesByRRSet
         , Network.AWS.Route53.ListGeoLocations
         , Network.AWS.Route53.ListHealthChecks
         , Network.AWS.Route53.ListHostedZones

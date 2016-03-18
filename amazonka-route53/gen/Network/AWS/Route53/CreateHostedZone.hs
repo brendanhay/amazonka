@@ -21,10 +21,10 @@
 -- This action creates a new hosted zone.
 --
 -- To create a new hosted zone, send a 'POST' request to the
--- '2013-04-01\/hostedzone' resource. The request body must include an XML
--- document with a 'CreateHostedZoneRequest' element. The response returns
--- the 'CreateHostedZoneResponse' element that contains metadata about the
--- hosted zone.
+-- '\/Route 53 API version\/hostedzone' resource. The request body must
+-- include a document with a 'CreateHostedZoneRequest' element. The
+-- response returns the 'CreateHostedZoneResponse' element that contains
+-- metadata about the hosted zone.
 --
 -- Amazon Route 53 automatically creates a default SOA record and four NS
 -- records for the zone. The NS records in the hosted zone are the name
@@ -248,7 +248,7 @@ chzrsHostedZone = lens _chzrsHostedZone (\ s a -> s{_chzrsHostedZone = a});
 
 -- | A complex type that contains information about the request to create a
 -- hosted zone. This includes an ID that you use when you call the
--- GetChange action to get the current status of the change request.
+-- < GetChange> action to get the current status of the change request.
 chzrsChangeInfo :: Lens' CreateHostedZoneResponse ChangeInfo
 chzrsChangeInfo = lens _chzrsChangeInfo (\ s a -> s{_chzrsChangeInfo = a});
 

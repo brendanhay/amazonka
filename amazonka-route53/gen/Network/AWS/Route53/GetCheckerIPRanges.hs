@@ -20,9 +20,9 @@
 --
 -- To retrieve a list of the IP ranges used by Amazon Route 53 health
 -- checkers to check the health of your resources, send a 'GET' request to
--- the '2013-04-01\/checkeripranges' resource. You can use these IP
--- addresses to configure router and firewall rules to allow health
--- checkers to check the health of your resources.
+-- the '\/Route 53 API version\/checkeripranges' resource. You can use
+-- these IP addresses to configure router and firewall rules to allow
+-- health checkers to check the health of your resources.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetCheckerIPRanges.html AWS API Reference> for GetCheckerIPRanges.
 module Network.AWS.Route53.GetCheckerIPRanges

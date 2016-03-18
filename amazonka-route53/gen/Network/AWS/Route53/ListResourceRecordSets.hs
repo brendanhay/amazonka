@@ -150,7 +150,7 @@ lrrsStartRecordName = lens _lrrsStartRecordName (\ s a -> s{_lrrsStartRecordName
 -- Values for Alias Resource Record Sets: 'A' | 'AAAA'
 --
 -- Constraint: Specifying 'type' without specifying 'name' returns an
--- InvalidInput error.
+-- < InvalidInput> error.
 lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
 lrrsStartRecordType = lens _lrrsStartRecordType (\ s a -> s{_lrrsStartRecordType = a});
 
@@ -269,13 +269,13 @@ listResourceRecordSetsResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
 
 -- | If the results were truncated, the type of the next record in the list.
 -- This element is present only if
--- ListResourceRecordSetsResponse$IsTruncated is true.
+-- < ListResourceRecordSetsResponse$IsTruncated> is true.
 lrrsrsNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RecordType)
 lrrsrsNextRecordType = lens _lrrsrsNextRecordType (\ s a -> s{_lrrsrsNextRecordType = a});
 
 -- | If the results were truncated, the name of the next record in the list.
 -- This element is present only if
--- ListResourceRecordSetsResponse$IsTruncated is true.
+-- < ListResourceRecordSetsResponse$IsTruncated> is true.
 lrrsrsNextRecordName :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrsNextRecordName = lens _lrrsrsNextRecordName (\ s a -> s{_lrrsrsNextRecordName = a});
 
@@ -297,7 +297,7 @@ lrrsrsResourceRecordSets = lens _lrrsrsResourceRecordSets (\ s a -> s{_lrrsrsRes
 -- | A flag that indicates whether there are more resource record sets to be
 -- listed. If your results were truncated, you can make a follow-up request
 -- for the next page of results by using the
--- ListResourceRecordSetsResponse$NextRecordName element.
+-- < ListResourceRecordSetsResponse$NextRecordName> element.
 --
 -- Valid Values: 'true' | 'false'
 lrrsrsIsTruncated :: Lens' ListResourceRecordSetsResponse Bool

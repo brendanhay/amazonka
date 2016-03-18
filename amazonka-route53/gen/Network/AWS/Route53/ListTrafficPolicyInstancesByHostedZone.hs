@@ -24,12 +24,12 @@
 -- After you submit an 'UpdateTrafficPolicyInstance' request, there\'s a
 -- brief delay while Amazon Route 53 creates the resource record sets that
 -- are specified in the traffic policy definition. For more information,
--- see the State response element.
+-- see the < State> response element.
 --
 -- To get information about the traffic policy instances that you created
 -- in a specified hosted zone, send a 'GET' request to the
--- '2013-04-01\/trafficpolicyinstance' resource and include the ID of the
--- hosted zone.
+-- '\/Route 53 API version\/trafficpolicyinstance' resource and include the
+-- ID of the hosted zone.
 --
 -- Amazon Route 53 returns a maximum of 100 items in each response. If you
 -- have a lot of traffic policy instances, you can use the 'MaxItems'

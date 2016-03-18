@@ -21,8 +21,8 @@
 -- This action associates a VPC with an hosted zone.
 --
 -- To associate a VPC with an hosted zone, send a 'POST' request to the
--- '2013-04-01\/hostedzone\/hosted zone ID\/associatevpc' resource. The
--- request body must include an XML document with a
+-- '\/Route 53 API version\/hostedzone\/hosted zone ID\/associatevpc'
+-- resource. The request body must include a document with a
 -- 'AssociateVPCWithHostedZoneRequest' element. The response returns the
 -- 'AssociateVPCWithHostedZoneResponse' element that contains 'ChangeInfo'
 -- for you to track the progress of the 'AssociateVPCWithHostedZoneRequest'

@@ -22,7 +22,8 @@
 -- that Amazon Route 53 created when you created the instance.
 --
 -- To delete a traffic policy instance, send a 'DELETE' request to the
--- '2013-04-01\/trafficpolicy\/traffic policy instance ID' resource.
+-- '\/Route 53 API version\/trafficpolicy\/traffic policy instance ID'
+-- resource.
 --
 -- When you delete a traffic policy instance, Amazon Route 53 also deletes
 -- all of the resource record sets that were created when you created the

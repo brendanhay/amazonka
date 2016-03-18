@@ -20,14 +20,14 @@
 --
 -- Use this action to create or change your authoritative DNS information.
 -- To use this action, send a 'POST' request to the
--- '2013-04-01\/hostedzone\/hosted Zone ID\/rrset' resource. The request
--- body must include an XML document with a
+-- '\/Route 53 API version\/hostedzone\/hosted Zone ID\/rrset' resource.
+-- The request body must include a document with a
 -- 'ChangeResourceRecordSetsRequest' element.
 --
 -- Changes are a list of change items and are considered transactional. For
 -- more information on transactional changes, also known as change batches,
 -- see
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/ POST ChangeResourceRecordSets>
+-- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html POST ChangeResourceRecordSets>
 -- in the /Amazon Route 53 API Reference/.
 --
 -- Due to the nature of transactional changes, you cannot delete the same
@@ -171,7 +171,7 @@ crrsrsResponseStatus = lens _crrsrsResponseStatus (\ s a -> s{_crrsrsResponseSta
 -- | A complex type that contains information about changes made to your
 -- hosted zone.
 --
--- This element contains an ID that you use when performing a GetChange
+-- This element contains an ID that you use when performing a < GetChange>
 -- action to get detailed information about the change.
 crrsrsChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrsChangeInfo = lens _crrsrsChangeInfo (\ s a -> s{_crrsrsChangeInfo = a});

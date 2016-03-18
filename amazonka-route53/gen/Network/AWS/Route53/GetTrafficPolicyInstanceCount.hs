@@ -22,7 +22,7 @@
 -- current AWS account.
 --
 -- To get the number of traffic policy instances, send a 'GET' request to
--- the '2013-04-01\/trafficpolicyinstancecount' resource.
+-- the '\/Route 53 API version\/trafficpolicyinstancecount' resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicyInstanceCount.html AWS API Reference> for GetTrafficPolicyInstanceCount.
 module Network.AWS.Route53.GetTrafficPolicyInstanceCount
@@ -47,7 +47,8 @@ import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
 -- | To retrieve a count of all your traffic policy instances, send a 'GET'
--- request to the '2013-04-01\/trafficpolicyinstancecount' resource.
+-- request to the '\/Route 53 API version\/trafficpolicyinstancecount'
+-- resource.
 --
 -- /See:/ 'getTrafficPolicyInstanceCount' smart constructor.
 data GetTrafficPolicyInstanceCount =

@@ -45,9 +45,6 @@ instance ToByteString ChangeAction
 instance ToQuery      ChangeAction
 instance ToHeader     ChangeAction
 
-instance FromXML ChangeAction where
-    parseXML = parseXMLText "ChangeAction"
-
 instance ToXML ChangeAction where
     toXML = toXMLText
 
@@ -226,6 +223,7 @@ instance ToXML TagResourceType where
 
 data VPCRegion
     = ApNortheast1
+    | ApNortheast2
     | ApSoutheast1
     | ApSoutheast2
     | CnNorth1
@@ -240,6 +238,7 @@ data VPCRegion
 instance FromText VPCRegion where
     parser = takeLowerText >>= \case
         "ap-northeast-1" -> pure ApNortheast1
+        "ap-northeast-2" -> pure ApNortheast2
         "ap-southeast-1" -> pure ApSoutheast1
         "ap-southeast-2" -> pure ApSoutheast2
         "cn-north-1" -> pure CnNorth1
@@ -250,11 +249,12 @@ instance FromText VPCRegion where
         "us-west-1" -> pure UsWest1
         "us-west-2" -> pure UsWest2
         e -> fromTextError $ "Failure parsing VPCRegion from value: '" <> e
-           <> "'. Accepted values: ap-northeast-1, ap-southeast-1, ap-southeast-2, cn-north-1, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2"
+           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-southeast-1, ap-southeast-2, cn-north-1, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2"
 
 instance ToText VPCRegion where
     toText = \case
         ApNortheast1 -> "ap-northeast-1"
+        ApNortheast2 -> "ap-northeast-2"
         ApSoutheast1 -> "ap-southeast-1"
         ApSoutheast2 -> "ap-southeast-2"
         CnNorth1 -> "cn-north-1"

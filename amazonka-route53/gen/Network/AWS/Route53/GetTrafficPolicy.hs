@@ -19,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a specific traffic policy version. To get the
--- information, send a 'GET' request to the '2013-04-01\/trafficpolicy'
--- resource.
+-- information, send a 'GET' request to the
+-- '\/Route 53 API version\/trafficpolicy' resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html AWS API Reference> for GetTrafficPolicy.
 module Network.AWS.Route53.GetTrafficPolicy
@@ -48,8 +48,9 @@ import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
 -- | Gets information about a specific traffic policy version. To get the
--- information, send a GET request to the 2013-04-01\/trafficpolicy
--- resource, and specify the ID and the version of the traffic policy.
+-- information, send a GET request to the \//Route 53 API
+-- version/\/trafficpolicy resource, and specify the ID and the version of
+-- the traffic policy.
 --
 -- /See:/ 'getTrafficPolicy' smart constructor.
 data GetTrafficPolicy = GetTrafficPolicy'

@@ -19,9 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- To update the hosted zone comment, send a 'POST' request to the
--- '2013-04-01\/hostedzone\/hosted zone ID' resource. The request body must
--- include an XML document with a 'UpdateHostedZoneCommentRequest' element.
--- The response to this request includes the modified 'HostedZone' element.
+-- '\/Route 53 API version\/hostedzone\/hosted zone ID' resource. The
+-- request body must include a document with a
+-- 'UpdateHostedZoneCommentRequest' element. The response to this request
+-- includes the modified 'HostedZone' element.
 --
 -- The comment can have a maximum length of 256 characters.
 --

@@ -21,10 +21,10 @@
 -- This action creates a new health check.
 --
 -- To create a new health check, send a 'POST' request to the
--- '2013-04-01\/healthcheck' resource. The request body must include an XML
--- document with a 'CreateHealthCheckRequest' element. The response returns
--- the 'CreateHealthCheckResponse' element that contains metadata about the
--- health check.
+-- '\/Route 53 API version\/healthcheck' resource. The request body must
+-- include a document with a 'CreateHealthCheckRequest' element. The
+-- response returns the 'CreateHealthCheckResponse' element that contains
+-- metadata about the health check.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheck.html AWS API Reference> for CreateHealthCheck.
 module Network.AWS.Route53.CreateHealthCheck

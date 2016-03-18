@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- To retrieve a count of all your hosted zones, send a 'GET' request to
--- the '2013-04-01\/hostedzonecount' resource.
+-- the '\/Route 53 API version\/hostedzonecount' resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneCount.html AWS API Reference> for GetHostedZoneCount.
 module Network.AWS.Route53.GetHostedZoneCount
@@ -44,7 +44,7 @@ import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
 -- | To retrieve a count of all your hosted zones, send a 'GET' request to
--- the '2013-04-01\/hostedzonecount' resource.
+-- the '\/Route 53 API version\/hostedzonecount' resource.
 --
 -- /See:/ 'getHostedZoneCount' smart constructor.
 data GetHostedZoneCount =

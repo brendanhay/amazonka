@@ -19,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- To retrieve a list of your hosted zones, send a 'GET' request to the
--- '2013-04-01\/hostedzone' resource. The response to this request includes
--- a 'HostedZones' element with zero, one, or multiple 'HostedZone' child
--- elements. By default, the list of hosted zones is displayed on a single
--- page. You can control the length of the page that is displayed by using
--- the 'MaxItems' parameter. You can use the 'Marker' parameter to control
--- the hosted zone that the list begins with.
+-- '\/Route 53 API version\/hostedzone' resource. The response to this
+-- request includes a 'HostedZones' element with zero, one, or multiple
+-- 'HostedZone' child elements. By default, the list of hosted zones is
+-- displayed on a single page. You can control the length of the page that
+-- is displayed by using the 'MaxItems' parameter. You can use the 'Marker'
+-- parameter to control the hosted zone that the list begins with.
 --
 -- Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a
 -- value greater than 100, Amazon Route 53 returns only the first 100.
@@ -63,13 +63,13 @@ import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
 -- | To retrieve a list of your hosted zones, send a 'GET' request to the
--- '2013-04-01\/hostedzone' resource. The response to this request includes
--- a 'HostedZones' element with zero or more 'HostedZone' child elements.
--- By default, the list of hosted zones is displayed on a single page. You
--- can control the length of the page that is displayed by using the
--- 'MaxItems' parameter. You can use the 'Marker' parameter to control the
--- hosted zone that the list begins with. For more information about
--- listing hosted zones, see
+-- '\/Route 53 API version\/hostedzone' resource. The response to this
+-- request includes a 'HostedZones' element with zero or more 'HostedZone'
+-- child elements. By default, the list of hosted zones is displayed on a
+-- single page. You can control the length of the page that is displayed by
+-- using the 'MaxItems' parameter. You can use the 'Marker' parameter to
+-- control the hosted zone that the list begins with. For more information
+-- about listing hosted zones, see
 -- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ListInfoOnHostedZone.html Listing the Hosted Zones for an AWS Account>
 -- in the /Amazon Route 53 Developer Guide/.
 --
@@ -199,9 +199,9 @@ lhzrsMarker :: Lens' ListHostedZonesResponse (Maybe Text)
 lhzrsMarker = lens _lhzrsMarker (\ s a -> s{_lhzrsMarker = a});
 
 -- | Indicates where to continue listing hosted zones. If
--- ListHostedZonesResponse$IsTruncated is 'true', make another request to
--- 'ListHostedZones' and include the value of the 'NextMarker' element in
--- the 'Marker' element to get the next page of results.
+-- < ListHostedZonesResponse$IsTruncated> is 'true', make another request
+-- to 'ListHostedZones' and include the value of the 'NextMarker' element
+-- in the 'Marker' element to get the next page of results.
 lhzrsNextMarker :: Lens' ListHostedZonesResponse (Maybe Text)
 lhzrsNextMarker = lens _lhzrsNextMarker (\ s a -> s{_lhzrsNextMarker = a});
 
@@ -224,9 +224,10 @@ lhzrsIsTruncated = lens _lhzrsIsTruncated (\ s a -> s{_lhzrsIsTruncated = a});
 
 -- | The maximum number of hosted zones to be included in the response body.
 -- If the number of hosted zones associated with this AWS account exceeds
--- 'MaxItems', the value of ListHostedZonesResponse$IsTruncated in the
+-- 'MaxItems', the value of < ListHostedZonesResponse$IsTruncated> in the
 -- response is 'true'. Call 'ListHostedZones' again and specify the value
--- of ListHostedZonesResponse$NextMarker in the
--- ListHostedZonesRequest$Marker element to get the next page of results.
+-- of < ListHostedZonesResponse$NextMarker> in the
+-- < ListHostedZonesRequest$Marker> element to get the next page of
+-- results.
 lhzrsMaxItems :: Lens' ListHostedZonesResponse Text
 lhzrsMaxItems = lens _lhzrsMaxItems (\ s a -> s{_lhzrsMaxItems = a});

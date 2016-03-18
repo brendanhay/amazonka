@@ -21,8 +21,8 @@
 -- This action disassociates a VPC from an hosted zone.
 --
 -- To disassociate a VPC to a hosted zone, send a 'POST' request to the
--- '2013-04-01\/hostedzone\/hosted zone ID\/disassociatevpc' resource. The
--- request body must include an XML document with a
+-- '\/Route 53 API version\/hostedzone\/hosted zone ID\/disassociatevpc'
+-- resource. The request body must include a document with a
 -- 'DisassociateVPCFromHostedZoneRequest' element. The response returns the
 -- 'DisassociateVPCFromHostedZoneResponse' element that contains
 -- 'ChangeInfo' for you to track the progress of the

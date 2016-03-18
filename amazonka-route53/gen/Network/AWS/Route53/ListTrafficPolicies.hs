@@ -20,7 +20,7 @@
 --
 -- Gets information about the latest version for every traffic policy that
 -- is associated with the current AWS account. To get the information, send
--- a 'GET' request to the '2013-04-01\/trafficpolicy' resource.
+-- a 'GET' request to the '\/Route 53 API version\/trafficpolicy' resource.
 --
 -- Amazon Route 53 returns a maximum of 100 items in each response. If you
 -- have a lot of traffic policies, you can use the 'maxitems' parameter to

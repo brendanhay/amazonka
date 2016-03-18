@@ -109,9 +109,6 @@ import Test.AWS.Route53.Internal
 --         , testCreateReusableDelegationSet $
 --             createReusableDelegationSet
 --
---         , testListChangeBatchesByRRSet $
---             listChangeBatchesByRRSet
---
 --         , testGetHealthCheckCount $
 --             getHealthCheckCount
 --
@@ -120,12 +117,6 @@ import Test.AWS.Route53.Internal
 --
 --         , testGetHostedZoneCount $
 --             getHostedZoneCount
---
---         , testListChangeBatchesByHostedZone $
---             listChangeBatchesByHostedZone
---
---         , testGetChangeDetails $
---             getChangeDetails
 --
 --         , testGetReusableDelegationSet $
 --             getReusableDelegationSet
@@ -256,9 +247,6 @@ import Test.AWS.Route53.Internal
 --         , testCreateReusableDelegationSetResponse $
 --             createReusableDelegationSetResponse
 --
---         , testListChangeBatchesByRRSetResponse $
---             listChangeBatchesByRRSetResponse
---
 --         , testGetHealthCheckCountResponse $
 --             getHealthCheckCountResponse
 --
@@ -267,12 +255,6 @@ import Test.AWS.Route53.Internal
 --
 --         , testGetHostedZoneCountResponse $
 --             getHostedZoneCountResponse
---
---         , testListChangeBatchesByHostedZoneResponse $
---             listChangeBatchesByHostedZoneResponse
---
---         , testGetChangeDetailsResponse $
---             getChangeDetailsResponse
 --
 --         , testGetReusableDelegationSetResponse $
 --             getReusableDelegationSetResponse
@@ -459,11 +441,6 @@ testCreateReusableDelegationSet = req
     "CreateReusableDelegationSet"
     "fixture/CreateReusableDelegationSet.yaml"
 
-testListChangeBatchesByRRSet :: ListChangeBatchesByRRSet -> TestTree
-testListChangeBatchesByRRSet = req
-    "ListChangeBatchesByRRSet"
-    "fixture/ListChangeBatchesByRRSet.yaml"
-
 testGetHealthCheckCount :: GetHealthCheckCount -> TestTree
 testGetHealthCheckCount = req
     "GetHealthCheckCount"
@@ -478,16 +455,6 @@ testGetHostedZoneCount :: GetHostedZoneCount -> TestTree
 testGetHostedZoneCount = req
     "GetHostedZoneCount"
     "fixture/GetHostedZoneCount.yaml"
-
-testListChangeBatchesByHostedZone :: ListChangeBatchesByHostedZone -> TestTree
-testListChangeBatchesByHostedZone = req
-    "ListChangeBatchesByHostedZone"
-    "fixture/ListChangeBatchesByHostedZone.yaml"
-
-testGetChangeDetails :: GetChangeDetails -> TestTree
-testGetChangeDetails = req
-    "GetChangeDetails"
-    "fixture/GetChangeDetails.yaml"
 
 testGetReusableDelegationSet :: GetReusableDelegationSet -> TestTree
 testGetReusableDelegationSet = req
@@ -755,13 +722,6 @@ testCreateReusableDelegationSetResponse = res
     route53
     (Proxy :: Proxy CreateReusableDelegationSet)
 
-testListChangeBatchesByRRSetResponse :: ListChangeBatchesByRRSetResponse -> TestTree
-testListChangeBatchesByRRSetResponse = res
-    "ListChangeBatchesByRRSetResponse"
-    "fixture/ListChangeBatchesByRRSetResponse.proto"
-    route53
-    (Proxy :: Proxy ListChangeBatchesByRRSet)
-
 testGetHealthCheckCountResponse :: GetHealthCheckCountResponse -> TestTree
 testGetHealthCheckCountResponse = res
     "GetHealthCheckCountResponse"
@@ -782,20 +742,6 @@ testGetHostedZoneCountResponse = res
     "fixture/GetHostedZoneCountResponse.proto"
     route53
     (Proxy :: Proxy GetHostedZoneCount)
-
-testListChangeBatchesByHostedZoneResponse :: ListChangeBatchesByHostedZoneResponse -> TestTree
-testListChangeBatchesByHostedZoneResponse = res
-    "ListChangeBatchesByHostedZoneResponse"
-    "fixture/ListChangeBatchesByHostedZoneResponse.proto"
-    route53
-    (Proxy :: Proxy ListChangeBatchesByHostedZone)
-
-testGetChangeDetailsResponse :: GetChangeDetailsResponse -> TestTree
-testGetChangeDetailsResponse = res
-    "GetChangeDetailsResponse"
-    "fixture/GetChangeDetailsResponse.proto"
-    route53
-    (Proxy :: Proxy GetChangeDetails)
 
 testGetReusableDelegationSetResponse :: GetReusableDelegationSetResponse -> TestTree
 testGetReusableDelegationSetResponse = res

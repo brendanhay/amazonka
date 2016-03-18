@@ -19,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- To retrieve a list of your reusable delegation sets, send a 'GET'
--- request to the '2013-04-01\/delegationset' resource. The response to
--- this request includes a 'DelegationSets' element with zero, one, or
--- multiple 'DelegationSet' child elements. By default, the list of
+-- request to the '\/Route 53 API version\/delegationset' resource. The
+-- response to this request includes a 'DelegationSets' element with zero,
+-- one, or multiple 'DelegationSet' child elements. By default, the list of
 -- delegation sets is displayed on a single page. You can control the
 -- length of the page that is displayed by using the 'MaxItems' parameter.
 -- You can use the 'Marker' parameter to control the delegation set that
@@ -60,9 +60,9 @@ import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
 -- | To retrieve a list of your reusable delegation sets, send a 'GET'
--- request to the '2013-04-01\/delegationset' resource. The response to
--- this request includes a 'DelegationSets' element with zero or more
--- 'DelegationSet' child elements. By default, the list of reusable
+-- request to the '\/Route 53 API version\/delegationset' resource. The
+-- response to this request includes a 'DelegationSets' element with zero
+-- or more 'DelegationSet' child elements. By default, the list of reusable
 -- delegation sets is displayed on a single page. You can control the
 -- length of the page that is displayed by using the 'MaxItems' parameter.
 -- You can use the 'Marker' parameter to control the delegation set that
@@ -174,9 +174,9 @@ listReusableDelegationSetsResponse pResponseStatus_ pMarker_ pIsTruncated_ pMaxI
     }
 
 -- | Indicates where to continue listing reusable delegation sets. If
--- ListReusableDelegationSetsResponse$IsTruncated is 'true', make another
--- request to 'ListReusableDelegationSets' and include the value of the
--- 'NextMarker' element in the 'Marker' element to get the next page of
+-- < ListReusableDelegationSetsResponse$IsTruncated> is 'true', make
+-- another request to 'ListReusableDelegationSets' and include the value of
+-- the 'NextMarker' element in the 'Marker' element to get the next page of
 -- results.
 lrdsrsNextMarker :: Lens' ListReusableDelegationSetsResponse (Maybe Text)
 lrdsrsNextMarker = lens _lrdsrsNextMarker (\ s a -> s{_lrdsrsNextMarker = a});
@@ -207,10 +207,10 @@ lrdsrsIsTruncated = lens _lrdsrsIsTruncated (\ s a -> s{_lrdsrsIsTruncated = a})
 -- | The maximum number of reusable delegation sets to be included in the
 -- response body. If the number of reusable delegation sets associated with
 -- this AWS account exceeds 'MaxItems', the value of
--- ListReusablDelegationSetsResponse$IsTruncated in the response is 'true'.
--- Call 'ListReusableDelegationSets' again and specify the value of
--- ListReusableDelegationSetsResponse$NextMarker in the
--- ListReusableDelegationSetsRequest$Marker element to get the next page of
--- results.
+-- < ListReusablDelegationSetsResponse$IsTruncated> in the response is
+-- 'true'. Call 'ListReusableDelegationSets' again and specify the value of
+-- < ListReusableDelegationSetsResponse$NextMarker> in the
+-- < ListReusableDelegationSetsRequest$Marker> element to get the next page
+-- of results.
 lrdsrsMaxItems :: Lens' ListReusableDelegationSetsResponse Text
 lrdsrsMaxItems = lens _lrdsrsMaxItems (\ s a -> s{_lrdsrsMaxItems = a});

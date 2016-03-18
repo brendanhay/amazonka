@@ -21,10 +21,10 @@
 -- This action creates a reusable delegationSet.
 --
 -- To create a new reusable delegationSet, send a 'POST' request to the
--- '2013-04-01\/delegationset' resource. The request body must include an
--- XML document with a 'CreateReusableDelegationSetRequest' element. The
--- response returns the 'CreateReusableDelegationSetResponse' element that
--- contains metadata about the delegationSet.
+-- '\/Route 53 API version\/delegationset' resource. The request body must
+-- include a document with a 'CreateReusableDelegationSetRequest' element.
+-- The response returns the 'CreateReusableDelegationSetResponse' element
+-- that contains metadata about the delegationSet.
 --
 -- If the optional parameter HostedZoneId is specified, it marks the
 -- delegationSet associated with that particular hosted zone as reusable.

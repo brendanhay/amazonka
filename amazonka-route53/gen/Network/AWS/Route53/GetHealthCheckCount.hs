@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- To retrieve a count of all your health checks, send a 'GET' request to
--- the '2013-04-01\/healthcheckcount' resource.
+-- the '\/Route 53 API version\/healthcheckcount' resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckCount.html AWS API Reference> for GetHealthCheckCount.
 module Network.AWS.Route53.GetHealthCheckCount
@@ -44,7 +44,7 @@ import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
 -- | To retrieve a count of all your health checks, send a 'GET' request to
--- the '2013-04-01\/healthcheckcount' resource.
+-- the '\/Route 53 API version\/healthcheckcount' resource.
 --
 -- /See:/ 'getHealthCheckCount' smart constructor.
 data GetHealthCheckCount =

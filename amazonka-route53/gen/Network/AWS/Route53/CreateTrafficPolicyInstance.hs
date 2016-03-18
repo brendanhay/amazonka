@@ -27,10 +27,10 @@
 -- 'CreateTrafficPolicyInstance' created.
 --
 -- To create a traffic policy instance, send a 'POST' request to the
--- '2013-04-01\/trafficpolicyinstance' resource. The request body must
--- include an XML document with a 'CreateTrafficPolicyRequest' element. The
--- response returns the 'CreateTrafficPolicyInstanceResponse' element,
--- which contains information about the traffic policy instance.
+-- '\/Route 53 API version\/trafficpolicyinstance' resource. The request
+-- body must include a document with a 'CreateTrafficPolicyRequest'
+-- element. The response returns the 'CreateTrafficPolicyInstanceResponse'
+-- element, which contains information about the traffic policy instance.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicyInstance.html AWS API Reference> for CreateTrafficPolicyInstance.
 module Network.AWS.Route53.CreateTrafficPolicyInstance

@@ -240,9 +240,6 @@ module Network.AWS.Route53
     -- ** CreateReusableDelegationSet
     , module Network.AWS.Route53.CreateReusableDelegationSet
 
-    -- ** ListChangeBatchesByRRSet
-    , module Network.AWS.Route53.ListChangeBatchesByRRSet
-
     -- ** GetHealthCheckCount
     , module Network.AWS.Route53.GetHealthCheckCount
 
@@ -251,12 +248,6 @@ module Network.AWS.Route53
 
     -- ** GetHostedZoneCount
     , module Network.AWS.Route53.GetHostedZoneCount
-
-    -- ** ListChangeBatchesByHostedZone
-    , module Network.AWS.Route53.ListChangeBatchesByHostedZone
-
-    -- ** GetChangeDetails
-    , module Network.AWS.Route53.GetChangeDetails
 
     -- ** GetReusableDelegationSet
     , module Network.AWS.Route53.GetReusableDelegationSet
@@ -348,16 +339,6 @@ module Network.AWS.Route53
     , cbComment
     , cbChanges
 
-    -- ** ChangeBatchRecord
-    , ChangeBatchRecord
-    , changeBatchRecord
-    , cbrChanges
-    , cbrSubmittedAt
-    , cbrSubmitter
-    , cbrComment
-    , cbrId
-    , cbrStatus
-
     -- ** ChangeInfo
     , ChangeInfo
     , changeInfo
@@ -403,6 +384,7 @@ module Network.AWS.Route53
     , healthCheckConfig
     , hccFailureThreshold
     , hccIPAddress
+    , hccEnableSNI
     , hccSearchString
     , hccHealthThreshold
     , hccResourcePath
@@ -530,7 +512,6 @@ import           Network.AWS.Route53.DeleteTrafficPolicy
 import           Network.AWS.Route53.DeleteTrafficPolicyInstance
 import           Network.AWS.Route53.DisassociateVPCFromHostedZone
 import           Network.AWS.Route53.GetChange
-import           Network.AWS.Route53.GetChangeDetails
 import           Network.AWS.Route53.GetCheckerIPRanges
 import           Network.AWS.Route53.GetGeoLocation
 import           Network.AWS.Route53.GetHealthCheck
@@ -544,8 +525,6 @@ import           Network.AWS.Route53.GetTrafficPolicy
 import           Network.AWS.Route53.GetTrafficPolicyInstance
 import           Network.AWS.Route53.GetTrafficPolicyInstanceCount
 import           Network.AWS.Route53.Internal
-import           Network.AWS.Route53.ListChangeBatchesByHostedZone
-import           Network.AWS.Route53.ListChangeBatchesByRRSet
 import           Network.AWS.Route53.ListGeoLocations
 import           Network.AWS.Route53.ListHealthChecks
 import           Network.AWS.Route53.ListHostedZones

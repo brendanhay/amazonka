@@ -19,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This action deletes a health check. To delete a health check, send a
--- 'DELETE' request to the '2013-04-01\/healthcheck\/health check ID'
--- resource.
+-- 'DELETE' request to the
+-- '\/Route 53 API version\/healthcheck\/health check ID' resource.
 --
 -- You can delete a health check only if there are no resource record sets
 -- associated with this health check. If resource record sets are
@@ -29,7 +29,7 @@
 -- is associated with resource record sets, Amazon Route 53 will deny your
 -- request with a 'HealthCheckInUse' error. For information about
 -- disassociating the records from your health check, see
--- ChangeResourceRecordSets.
+-- < ChangeResourceRecordSets>.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html AWS API Reference> for DeleteHealthCheck.
 module Network.AWS.Route53.DeleteHealthCheck

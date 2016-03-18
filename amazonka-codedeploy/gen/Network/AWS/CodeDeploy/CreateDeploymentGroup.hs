@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new deployment group for application revisions to be deployed
--- to.
+-- Creates a deployment group to which application revisions will be
+-- deployed.
 --
 -- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentGroup.html AWS API Reference> for CreateDeploymentGroup.
 module Network.AWS.CodeDeploy.CreateDeploymentGroup
@@ -31,6 +31,7 @@ module Network.AWS.CodeDeploy.CreateDeploymentGroup
     , cdgDeploymentConfigName
     , cdgEc2TagFilters
     , cdgOnPremisesInstanceTagFilters
+    , cdgTriggerConfigurations
     , cdgAutoScalingGroups
     , cdgApplicationName
     , cdgDeploymentGroupName
@@ -58,6 +59,7 @@ data CreateDeploymentGroup = CreateDeploymentGroup'
     { _cdgDeploymentConfigName         :: !(Maybe Text)
     , _cdgEc2TagFilters                :: !(Maybe [EC2TagFilter])
     , _cdgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
+    , _cdgTriggerConfigurations        :: !(Maybe [TriggerConfig])
     , _cdgAutoScalingGroups            :: !(Maybe [Text])
     , _cdgApplicationName              :: !Text
     , _cdgDeploymentGroupName          :: !Text
@@ -73,6 +75,8 @@ data CreateDeploymentGroup = CreateDeploymentGroup'
 -- * 'cdgEc2TagFilters'
 --
 -- * 'cdgOnPremisesInstanceTagFilters'
+--
+-- * 'cdgTriggerConfigurations'
 --
 -- * 'cdgAutoScalingGroups'
 --
@@ -91,68 +95,99 @@ createDeploymentGroup pApplicationName_ pDeploymentGroupName_ pServiceRoleARN_ =
     { _cdgDeploymentConfigName = Nothing
     , _cdgEc2TagFilters = Nothing
     , _cdgOnPremisesInstanceTagFilters = Nothing
+    , _cdgTriggerConfigurations = Nothing
     , _cdgAutoScalingGroups = Nothing
     , _cdgApplicationName = pApplicationName_
     , _cdgDeploymentGroupName = pDeploymentGroupName_
     , _cdgServiceRoleARN = pServiceRoleARN_
     }
 
--- | If specified, the deployment configuration name must be one of the
--- predefined values, or it can be a custom deployment configuration:
+-- | If specified, the deployment configuration name can be either one of the
+-- predefined configurations provided with AWS CodeDeploy or a custom
+-- deployment configuration that you create by calling the create
+-- deployment configuration operation.
 --
--- -   CodeDeployDefault.AllAtOnce deploys an application revision to up to
---     all of the instances at once. The overall deployment succeeds if the
---     application revision deploys to at least one of the instances. The
---     overall deployment fails after the application revision fails to
---     deploy to all of the instances. For example, for 9 instances, deploy
---     to up to all 9 instances at once. The overall deployment succeeds if
---     any of the 9 instances is successfully deployed to, and it fails if
---     all 9 instances fail to be deployed to.
--- -   CodeDeployDefault.HalfAtATime deploys to up to half of the instances
---     at a time (with fractions rounded down). The overall deployment
---     succeeds if the application revision deploys to at least half of the
---     instances (with fractions rounded up); otherwise, the deployment
---     fails. For example, for 9 instances, deploy to up to 4 instances at
---     a time. The overall deployment succeeds if 5 or more instances are
---     successfully deployed to; otherwise, the deployment fails. Note that
---     the deployment may successfully deploy to some instances, even if
---     the overall deployment fails.
--- -   CodeDeployDefault.OneAtATime deploys the application revision to
---     only one of the instances at a time. The overall deployment succeeds
---     if the application revision deploys to all of the instances. The
---     overall deployment fails after the application revision first fails
---     to deploy to any one instances. For example, for 9 instances, deploy
---     to one instance at a time. The overall deployment succeeds if all 9
---     instances are successfully deployed to, and it fails if any of one
---     of the 9 instances fail to be deployed to. Note that the deployment
---     may successfully deploy to some instances, even if the overall
---     deployment fails. This is the default deployment configuration if a
---     configuration isn\'t specified for either the deployment or the
---     deployment group.
+-- CodeDeployDefault.OneAtATime is the default deployment configuration. It
+-- is used if a configuration isn\'t specified for the deployment or the
+-- deployment group.
 --
--- To create a custom deployment configuration, call the create deployment
--- configuration operation.
+-- The predefined deployment configurations include the following:
+--
+-- -   __CodeDeployDefault.AllAtOnce__ attempts to deploy an application
+--     revision to as many instance as possible at once. The status of the
+--     overall deployment will be displayed as __Succeeded__ if the
+--     application revision is deployed to one or more of the instances.
+--     The status of the overall deployment will be displayed as __Failed__
+--     if the application revision is not deployed to any of the instances.
+--     Using an example of nine instance, CodeDeployDefault.AllAtOnce will
+--     attempt to deploy to all nine instance at once. The overall
+--     deployment will succeed if deployment to even a single instance is
+--     successful; it will fail only if deployments to all nine instance
+--     fail.
+--
+-- -   __CodeDeployDefault.HalfAtATime__ deploys to up to half of the
+--     instances at a time (with fractions rounded down). The overall
+--     deployment succeeds if the application revision is deployed to at
+--     least half of the instances (with fractions rounded up); otherwise,
+--     the deployment fails. In the example of nine instances, it will
+--     deploy to up to four instance at a time. The overall deployment
+--     succeeds if deployment to five or more instances succeed; otherwise,
+--     the deployment fails. The deployment may be successfully deployed to
+--     some instances even if the overall deployment fails.
+--
+-- -   __CodeDeployDefault.OneAtATime__ deploys the application revision to
+--     only one instance at a time.
+--
+--     For deployment groups that contain more than one instance:
+--
+--     -   The overall deployment succeeds if the application revision is
+--         deployed to all of the instances. The exception to this rule is
+--         if deployment to the last instance fails, the overall deployment
+--         still succeeds. This is because AWS CodeDeploy allows only one
+--         instance at a time to be taken offline with the
+--         CodeDeployDefault.OneAtATime configuration.
+--
+--     -   The overall deployment fails as soon as the application revision
+--         fails to be deployed to any but the last instance. The
+--         deployment may be successfully deployed to some instances even
+--         if the overall deployment fails.
+--
+--     -   In an example using nine instance, it will deploy to one
+--         instance at a time. The overall deployment succeeds if
+--         deployment to the first eight instance is successful; the
+--         overall deployment fails if deployment to any of the first eight
+--         instance fails.
+--
+--     For deployment groups that contain only one instance, the overall
+--     deployment is successful only if deployment to the single instance
+--     is successful
+--
 cdgDeploymentConfigName :: Lens' CreateDeploymentGroup (Maybe Text)
 cdgDeploymentConfigName = lens _cdgDeploymentConfigName (\ s a -> s{_cdgDeploymentConfigName = a});
 
--- | The Amazon EC2 tags to filter on.
+-- | The Amazon EC2 tags on which to filter.
 cdgEc2TagFilters :: Lens' CreateDeploymentGroup [EC2TagFilter]
 cdgEc2TagFilters = lens _cdgEc2TagFilters (\ s a -> s{_cdgEc2TagFilters = a}) . _Default . _Coerce;
 
--- | The on-premises instance tags to filter on.
+-- | The on-premises instance tags on which to filter.
 cdgOnPremisesInstanceTagFilters :: Lens' CreateDeploymentGroup [TagFilter]
 cdgOnPremisesInstanceTagFilters = lens _cdgOnPremisesInstanceTagFilters (\ s a -> s{_cdgOnPremisesInstanceTagFilters = a}) . _Default . _Coerce;
+
+-- | Information about triggers to create when the deployment group is
+-- created.
+cdgTriggerConfigurations :: Lens' CreateDeploymentGroup [TriggerConfig]
+cdgTriggerConfigurations = lens _cdgTriggerConfigurations (\ s a -> s{_cdgTriggerConfigurations = a}) . _Default . _Coerce;
 
 -- | A list of associated Auto Scaling groups.
 cdgAutoScalingGroups :: Lens' CreateDeploymentGroup [Text]
 cdgAutoScalingGroups = lens _cdgAutoScalingGroups (\ s a -> s{_cdgAutoScalingGroups = a}) . _Default . _Coerce;
 
--- | The name of an existing AWS CodeDeploy application associated with the
--- applicable IAM user or AWS account.
+-- | The name of an AWS CodeDeploy application associated with the applicable
+-- IAM user or AWS account.
 cdgApplicationName :: Lens' CreateDeploymentGroup Text
 cdgApplicationName = lens _cdgApplicationName (\ s a -> s{_cdgApplicationName = a});
 
--- | The name of an existing deployment group for the specified application.
+-- | The name of a new deployment group for the specified application.
 cdgDeploymentGroupName :: Lens' CreateDeploymentGroup Text
 cdgDeploymentGroupName = lens _cdgDeploymentGroupName (\ s a -> s{_cdgDeploymentGroupName = a});
 
@@ -190,6 +225,8 @@ instance ToJSON CreateDeploymentGroup where
                   ("ec2TagFilters" .=) <$> _cdgEc2TagFilters,
                   ("onPremisesInstanceTagFilters" .=) <$>
                     _cdgOnPremisesInstanceTagFilters,
+                  ("triggerConfigurations" .=) <$>
+                    _cdgTriggerConfigurations,
                   ("autoScalingGroups" .=) <$> _cdgAutoScalingGroups,
                   Just ("applicationName" .= _cdgApplicationName),
                   Just

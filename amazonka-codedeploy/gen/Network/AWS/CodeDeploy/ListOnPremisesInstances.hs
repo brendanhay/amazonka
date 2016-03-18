@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of one or more on-premises instance names.
+-- Gets a list of names for one or more on-premises instances.
 --
 -- Unless otherwise specified, both registered and deregistered on-premises
 -- instance names will be listed. To list only registered or deregistered
@@ -81,22 +81,22 @@ listOnPremisesInstances =
     }
 
 -- | The on-premises instance tags that will be used to restrict the
--- corresponding on-premises instance names that are returned.
+-- corresponding on-premises instance names returned.
 lopiTagFilters :: Lens' ListOnPremisesInstances [TagFilter]
 lopiTagFilters = lens _lopiTagFilters (\ s a -> s{_lopiTagFilters = a}) . _Default . _Coerce;
 
--- | An identifier that was returned from the previous list on-premises
--- instances call, which can be used to return the next set of on-premises
--- instances in the list.
+-- | An identifier returned from the previous list on-premises instances
+-- call. It can be used to return the next set of on-premises instances in
+-- the list.
 lopiNextToken :: Lens' ListOnPremisesInstances (Maybe Text)
 lopiNextToken = lens _lopiNextToken (\ s a -> s{_lopiNextToken = a});
 
--- | The on-premises instances registration status:
+-- | The registration status of the on-premises instances:
 --
--- -   Deregistered: Include in the resulting list deregistered on-premises
---     instances.
--- -   Registered: Include in the resulting list registered on-premises
---     instances.
+-- -   Deregistered: Include deregistered on-premises instances in the
+--     resulting list.
+-- -   Registered: Include registered on-premises instances in the
+--     resulting list.
 lopiRegistrationStatus :: Lens' ListOnPremisesInstances (Maybe RegistrationStatus)
 lopiRegistrationStatus = lens _lopiRegistrationStatus (\ s a -> s{_lopiRegistrationStatus = a});
 
@@ -165,10 +165,9 @@ listOnPremisesInstancesResponse pResponseStatus_ =
     , _lopirsResponseStatus = pResponseStatus_
     }
 
--- | If the amount of information that is returned is significantly large, an
--- identifier will also be returned, which can be used in a subsequent list
--- on-premises instances call to return the next set of on-premises
--- instances in the list.
+-- | If a large amount of information is returned, an identifier is also
+-- returned. It can be used in a subsequent list on-premises instances call
+-- to return the next set of on-premises instances in the list.
 lopirsNextToken :: Lens' ListOnPremisesInstancesResponse (Maybe Text)
 lopirsNextToken = lens _lopirsNextToken (\ s a -> s{_lopirsNextToken = a});
 

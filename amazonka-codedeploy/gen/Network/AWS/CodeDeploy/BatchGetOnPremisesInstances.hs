@@ -63,7 +63,7 @@ batchGetOnPremisesInstances =
     { _bgopiInstanceNames = Nothing
     }
 
--- | The names of the on-premises instances to get information about.
+-- | The names of the on-premises instances about which to get information.
 bgopiInstanceNames :: Lens' BatchGetOnPremisesInstances [Text]
 bgopiInstanceNames = lens _bgopiInstanceNames (\ s a -> s{_bgopiInstanceNames = a}) . _Default . _Coerce;
 

@@ -64,8 +64,8 @@ getDeploymentConfig pDeploymentConfigName_ =
     { _gdcDeploymentConfigName = pDeploymentConfigName_
     }
 
--- | The name of an existing deployment configuration associated with the
--- applicable IAM user or AWS account.
+-- | The name of a deployment configuration associated with the applicable
+-- IAM user or AWS account.
 gdcDeploymentConfigName :: Lens' GetDeploymentConfig Text
 gdcDeploymentConfigName = lens _gdcDeploymentConfigName (\ s a -> s{_gdcDeploymentConfigName = a});
 

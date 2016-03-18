@@ -42,7 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of register on-premises instance operation.
+-- | Represents the input of the register on-premises instance operation.
 --
 -- /See:/ 'registerOnPremisesInstance' smart constructor.
 data RegisterOnPremisesInstance = RegisterOnPremisesInstance'

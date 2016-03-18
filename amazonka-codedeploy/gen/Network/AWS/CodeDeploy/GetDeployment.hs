@@ -64,8 +64,7 @@ getDeployment pDeploymentId_ =
     { _gdDeploymentId = pDeploymentId_
     }
 
--- | An existing deployment ID associated with the applicable IAM user or AWS
--- account.
+-- | A deployment ID associated with the applicable IAM user or AWS account.
 gdDeploymentId :: Lens' GetDeployment Text
 gdDeploymentId = lens _gdDeploymentId (\ s a -> s{_gdDeploymentId = a});
 

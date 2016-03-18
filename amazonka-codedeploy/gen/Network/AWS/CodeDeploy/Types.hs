@@ -16,6 +16,7 @@ module Network.AWS.CodeDeploy.Types
       codeDeploy
 
     -- * Errors
+    , _LifecycleHookLimitExceededException
     , _InvalidTimeRangeException
     , _InvalidTagException
     , _InstanceNameAlreadyRegisteredException
@@ -37,6 +38,7 @@ module Network.AWS.CodeDeploy.Types
     , _ApplicationDoesNotExistException
     , _InvalidMinimumHealthyHostValueException
     , _InvalidTagFilterException
+    , _InvalidTriggerConfigException
     , _TagRequiredException
     , _DeploymentGroupNameRequiredException
     , _BucketNameFilterRequiredException
@@ -56,6 +58,7 @@ module Network.AWS.CodeDeploy.Types
     , _InvalidSortOrderException
     , _DeploymentAlreadyCompletedException
     , _DeploymentDoesNotExistException
+    , _BatchLimitExceededException
     , _InvalidRevisionException
     , _RevisionRequiredException
     , _InstanceDoesNotExistException
@@ -63,6 +66,7 @@ module Network.AWS.CodeDeploy.Types
     , _InvalidEC2TagException
     , _InvalidInstanceNameException
     , _InstanceNameRequiredException
+    , _TriggerTargetsLimitExceededException
     , _InvalidDeploymentStatusException
     , _InvalidRegistrationStatusException
     , _ApplicationNameRequiredException
@@ -122,6 +126,9 @@ module Network.AWS.CodeDeploy.Types
     -- * TagFilterType
     , TagFilterType (..)
 
+    -- * TriggerEventType
+    , TriggerEventType (..)
+
     -- * ApplicationInfo
     , ApplicationInfo
     , applicationInfo
@@ -153,6 +160,7 @@ module Network.AWS.CodeDeploy.Types
     , dgiEc2TagFilters
     , dgiOnPremisesInstanceTagFilters
     , dgiApplicationName
+    , dgiTriggerConfigurations
     , dgiDeploymentGroupId
     , dgiAutoScalingGroups
     , dgiDeploymentGroupName
@@ -254,6 +262,12 @@ module Network.AWS.CodeDeploy.Types
     , mhhValue
     , mhhType
 
+    -- * RevisionInfo
+    , RevisionInfo
+    , revisionInfo
+    , riGenericRevisionInfo
+    , riRevisionLocation
+
     -- * RevisionLocation
     , RevisionLocation
     , revisionLocation
@@ -288,6 +302,13 @@ module Network.AWS.CodeDeploy.Types
     , timeRange
     , trStart
     , trEnd
+
+    -- * TriggerConfig
+    , TriggerConfig
+    , triggerConfig
+    , tcTriggerName
+    , tcTriggerEvents
+    , tcTriggerTargetARN
     ) where
 
 import           Network.AWS.CodeDeploy.Types.Product
@@ -319,6 +340,7 @@ codeDeploy =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -326,6 +348,11 @@ codeDeploy =
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
+
+-- | The limit for lifecycle hooks was exceeded.
+_LifecycleHookLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_LifecycleHookLimitExceededException =
+    _ServiceError . hasCode "LifecycleHookLimitExceededException"
 
 -- | The specified time range was specified in an invalid format.
 _InvalidTimeRangeException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -351,7 +378,7 @@ _InvalidDeploymentGroupNameException :: AsError a => Getting (First ServiceError
 _InvalidDeploymentGroupNameException =
     _ServiceError . hasCode "InvalidDeploymentGroupNameException"
 
--- | The description that was provided is too long.
+-- | The description is too long.
 _DescriptionTooLongException :: AsError a => Getting (First ServiceError) a ServiceError
 _DescriptionTooLongException =
     _ServiceError . hasCode "DescriptionTooLongException"
@@ -426,7 +453,7 @@ _ApplicationDoesNotExistException :: AsError a => Getting (First ServiceError) a
 _ApplicationDoesNotExistException =
     _ServiceError . hasCode "ApplicationDoesNotExistException"
 
--- | The minimum healthy instances value was specified in an invalid format.
+-- | The minimum healthy instance value was specified in an invalid format.
 _InvalidMinimumHealthyHostValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidMinimumHealthyHostValueException =
     _ServiceError . hasCode "InvalidMinimumHealthyHostValueException"
@@ -435,6 +462,11 @@ _InvalidMinimumHealthyHostValueException =
 _InvalidTagFilterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTagFilterException =
     _ServiceError . hasCode "InvalidTagFilterException"
+
+-- | The trigger was specified in an invalid format.
+_InvalidTriggerConfigException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTriggerConfigException =
+    _ServiceError . hasCode "InvalidTriggerConfigException"
 
 -- | A tag was not specified.
 _TagRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -445,7 +477,7 @@ _DeploymentGroupNameRequiredException :: AsError a => Getting (First ServiceErro
 _DeploymentGroupNameRequiredException =
     _ServiceError . hasCode "DeploymentGroupNameRequiredException"
 
--- | A bucket name is required but was not provided.
+-- | A bucket name is required, but was not provided.
 _BucketNameFilterRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _BucketNameFilterRequiredException =
     _ServiceError . hasCode "BucketNameFilterRequiredException"
@@ -525,7 +557,7 @@ _InvalidSortOrderException :: AsError a => Getting (First ServiceError) a Servic
 _InvalidSortOrderException =
     _ServiceError . hasCode "InvalidSortOrderException"
 
--- | The deployment is already completed.
+-- | The deployment is already complete.
 _DeploymentAlreadyCompletedException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentAlreadyCompletedException =
     _ServiceError . hasCode "DeploymentAlreadyCompletedException"
@@ -535,6 +567,12 @@ _DeploymentAlreadyCompletedException =
 _DeploymentDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentDoesNotExistException =
     _ServiceError . hasCode "DeploymentDoesNotExistException"
+
+-- | The maximum number of names or IDs allowed for this request (100) was
+-- exceeded.
+_BatchLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_BatchLimitExceededException =
+    _ServiceError . hasCode "BatchLimitExceededException"
 
 -- | The revision was specified in an invalid format.
 _InvalidRevisionException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -569,6 +607,11 @@ _InvalidInstanceNameException =
 _InstanceNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _InstanceNameRequiredException =
     _ServiceError . hasCode "InstanceNameRequiredException"
+
+-- | The maximum allowed number of triggers was exceeded.
+_TriggerTargetsLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_TriggerTargetsLimitExceededException =
+    _ServiceError . hasCode "TriggerTargetsLimitExceededException"
 
 -- | The specified deployment status doesn\'t exist or cannot be determined.
 _InvalidDeploymentStatusException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -606,7 +649,7 @@ _TagLimitExceededException :: AsError a => Getting (First ServiceError) a Servic
 _TagLimitExceededException =
     _ServiceError . hasCode "TagLimitExceededException"
 
--- | More applications were attempted to be created than were allowed.
+-- | More applications were attempted to be created than are allowed.
 _ApplicationLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ApplicationLimitExceededException =
     _ServiceError . hasCode "ApplicationLimitExceededException"

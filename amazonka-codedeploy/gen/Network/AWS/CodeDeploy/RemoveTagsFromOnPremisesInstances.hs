@@ -70,7 +70,7 @@ removeTagsFromOnPremisesInstances =
 rtfopiTags :: Lens' RemoveTagsFromOnPremisesInstances [Tag]
 rtfopiTags = lens _rtfopiTags (\ s a -> s{_rtfopiTags = a}) . _Coerce;
 
--- | The names of the on-premises instances to remove tags from.
+-- | The names of the on-premises instances from which to remove tags.
 rtfopiInstanceNames :: Lens' RemoveTagsFromOnPremisesInstances [Text]
 rtfopiInstanceNames = lens _rtfopiInstanceNames (\ s a -> s{_rtfopiInstanceNames = a}) . _Coerce;
 

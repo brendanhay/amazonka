@@ -131,7 +131,7 @@ stopDeploymentResponse pResponseStatus_ =
 -- | The status of the stop deployment operation:
 --
 -- -   Pending: The stop operation is pending.
--- -   Succeeded: The stop operation succeeded.
+-- -   Succeeded: The stop operation was successful.
 sdrsStatus :: Lens' StopDeploymentResponse (Maybe StopStatus)
 sdrsStatus = lens _sdrsStatus (\ s a -> s{_sdrsStatus = a});
 

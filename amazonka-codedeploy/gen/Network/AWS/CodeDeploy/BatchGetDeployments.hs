@@ -63,8 +63,7 @@ batchGetDeployments =
     { _bgdDeploymentIds = Nothing
     }
 
--- | A list of deployment IDs, with multiple deployment IDs separated by
--- spaces.
+-- | A list of deployment IDs, separated by spaces.
 bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
 bgdDeploymentIds = lens _bgdDeploymentIds (\ s a -> s{_bgdDeploymentIds = a}) . _Default . _Coerce;
 

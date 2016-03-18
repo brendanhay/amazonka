@@ -70,8 +70,8 @@ getDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
     , _gdgDeploymentGroupName = pDeploymentGroupName_
     }
 
--- | The name of an existing AWS CodeDeploy application associated with the
--- applicable IAM user or AWS account.
+-- | The name of an AWS CodeDeploy application associated with the applicable
+-- IAM user or AWS account.
 gdgApplicationName :: Lens' GetDeploymentGroup Text
 gdgApplicationName = lens _gdgApplicationName (\ s a -> s{_gdgApplicationName = a});
 

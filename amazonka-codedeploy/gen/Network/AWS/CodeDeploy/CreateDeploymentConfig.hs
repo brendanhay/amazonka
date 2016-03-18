@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new deployment configuration.
+-- Creates a deployment configuration.
 --
 -- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentConfig.html AWS API Reference> for CreateDeploymentConfig.
 module Network.AWS.CodeDeploy.CreateDeploymentConfig
@@ -76,17 +76,17 @@ createDeploymentConfig pDeploymentConfigName_ =
 -- The type parameter takes either of the following values:
 --
 -- -   HOST_COUNT: The value parameter represents the minimum number of
---     healthy instances, as an absolute value.
+--     healthy instances as an absolute value.
 -- -   FLEET_PERCENT: The value parameter represents the minimum number of
---     healthy instances, as a percentage of the total number of instances
---     in the deployment. If you specify FLEET_PERCENT, then at the start
---     of the deployment AWS CodeDeploy converts the percentage to the
---     equivalent number of instances and rounds fractional instances up.
+--     healthy instances as a percentage of the total number of instances
+--     in the deployment. If you specify FLEET_PERCENT, at the start of the
+--     deployment, AWS CodeDeploy converts the percentage to the equivalent
+--     number of instance and rounds up fractional instances.
 --
 -- The value parameter takes an integer.
 --
--- For example, to set a minimum of 95% healthy instances, specify a type
--- of FLEET_PERCENT and a value of 95.
+-- For example, to set a minimum of 95% healthy instance, specify a type of
+-- FLEET_PERCENT and a value of 95.
 cdcMinimumHealthyHosts :: Lens' CreateDeploymentConfig (Maybe MinimumHealthyHosts)
 cdcMinimumHealthyHosts = lens _cdcMinimumHealthyHosts (\ s a -> s{_cdcMinimumHealthyHosts = a});
 

@@ -65,9 +65,9 @@ listDeploymentConfigs =
     { _ldcNextToken = Nothing
     }
 
--- | An identifier that was returned from the previous list deployment
--- configurations call, which can be used to return the next set of
--- deployment configurations in the list.
+-- | An identifier returned from the previous list deployment configurations
+-- call. It can be used to return the next set of deployment configurations
+-- in the list.
 ldcNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
 ldcNextToken = lens _ldcNextToken (\ s a -> s{_ldcNextToken = a});
 
@@ -132,15 +132,14 @@ listDeploymentConfigsResponse pResponseStatus_ =
     , _ldcrsResponseStatus = pResponseStatus_
     }
 
--- | If the amount of information that is returned is significantly large, an
--- identifier will also be returned, which can be used in a subsequent list
--- deployment configurations call to return the next set of deployment
--- configurations in the list.
+-- | If a large amount of information is returned, an identifier is also
+-- returned. It can be used in a subsequent list deployment configurations
+-- call to return the next set of deployment configurations in the list.
 ldcrsNextToken :: Lens' ListDeploymentConfigsResponse (Maybe Text)
 ldcrsNextToken = lens _ldcrsNextToken (\ s a -> s{_ldcrsNextToken = a});
 
--- | A list of deployment configurations, including the built-in
--- configurations such as CodeDeployDefault.OneAtATime.
+-- | A list of deployment configurations, including built-in configurations
+-- such as CodeDeployDefault.OneAtATime.
 ldcrsDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
 ldcrsDeploymentConfigsList = lens _ldcrsDeploymentConfigsList (\ s a -> s{_ldcrsDeploymentConfigsList = a}) . _Default . _Coerce;
 

@@ -64,7 +64,7 @@ getOnPremisesInstance pInstanceName_ =
     { _gopiInstanceName = pInstanceName_
     }
 
--- | The name of the on-premises instance to get information about
+-- | The name of the on-premises instance about which to get information.
 gopiInstanceName :: Lens' GetOnPremisesInstance Text
 gopiInstanceName = lens _gopiInstanceName (\ s a -> s{_gopiInstanceName = a});
 

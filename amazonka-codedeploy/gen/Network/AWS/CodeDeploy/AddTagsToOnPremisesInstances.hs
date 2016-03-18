@@ -42,7 +42,8 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of an adds tags to on-premises instance operation.
+-- | Represents the input of, and adds tags to, an on-premises instance
+-- operation.
 --
 -- /See:/ 'addTagsToOnPremisesInstances' smart constructor.
 data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'
@@ -67,12 +68,12 @@ addTagsToOnPremisesInstances =
 
 -- | The tag key-value pairs to add to the on-premises instances.
 --
--- Keys and values are both required. Keys cannot be nulls or empty
--- strings. Value-only tags are not allowed.
+-- Keys and values are both required. Keys cannot be null or empty strings.
+-- Value-only tags are not allowed.
 attopiTags :: Lens' AddTagsToOnPremisesInstances [Tag]
 attopiTags = lens _attopiTags (\ s a -> s{_attopiTags = a}) . _Coerce;
 
--- | The names of the on-premises instances to add tags to.
+-- | The names of the on-premises instances to which to add tags.
 attopiInstanceNames :: Lens' AddTagsToOnPremisesInstances [Text]
 attopiInstanceNames = lens _attopiInstanceNames (\ s a -> s{_attopiInstanceNames = a}) . _Coerce;
 

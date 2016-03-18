@@ -21,7 +21,7 @@
 -- Deletes a deployment configuration.
 --
 -- A deployment configuration cannot be deleted if it is currently in use.
--- Also, predefined configurations cannot be deleted.
+-- Predefined configurations cannot be deleted.
 --
 -- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentConfig.html AWS API Reference> for DeleteDeploymentConfig.
 module Network.AWS.CodeDeploy.DeleteDeploymentConfig
@@ -64,8 +64,8 @@ deleteDeploymentConfig pDeploymentConfigName_ =
     { _ddcDeploymentConfigName = pDeploymentConfigName_
     }
 
--- | The name of an existing deployment configuration associated with the
--- applicable IAM user or AWS account.
+-- | The name of a deployment configuration associated with the applicable
+-- IAM user or AWS account.
 ddcDeploymentConfigName :: Lens' DeleteDeploymentConfig Text
 ddcDeploymentConfigName = lens _ddcDeploymentConfigName (\ s a -> s{_ddcDeploymentConfigName = a});
 

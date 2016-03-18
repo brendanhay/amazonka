@@ -63,8 +63,7 @@ batchGetApplications =
     { _bgaApplicationNames = Nothing
     }
 
--- | A list of application names, with multiple application names separated
--- by spaces.
+-- | A list of application names separated by spaces.
 bgaApplicationNames :: Lens' BatchGetApplications [Text]
 bgaApplicationNames = lens _bgaApplicationNames (\ s a -> s{_bgaApplicationNames = a}) . _Default . _Coerce;
 

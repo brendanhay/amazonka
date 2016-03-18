@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes an existing application\'s name.
+-- Changes the name of an application.
 --
 -- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateApplication.html AWS API Reference> for UpdateApplication.
 module Network.AWS.CodeDeploy.UpdateApplication
@@ -65,11 +65,11 @@ updateApplication =
     , _uaApplicationName = Nothing
     }
 
--- | The new name that you want to change the application to.
+-- | The new name to give the application.
 uaNewApplicationName :: Lens' UpdateApplication (Maybe Text)
 uaNewApplicationName = lens _uaNewApplicationName (\ s a -> s{_uaNewApplicationName = a});
 
--- | The current name of the application that you want to change.
+-- | The current name of the application you want to change.
 uaApplicationName :: Lens' UpdateApplication (Maybe Text)
 uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
 

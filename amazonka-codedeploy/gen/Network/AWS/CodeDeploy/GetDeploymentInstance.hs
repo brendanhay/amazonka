@@ -74,7 +74,7 @@ getDeploymentInstance pDeploymentId_ pInstanceId_ =
 gdiDeploymentId :: Lens' GetDeploymentInstance Text
 gdiDeploymentId = lens _gdiDeploymentId (\ s a -> s{_gdiDeploymentId = a});
 
--- | The unique ID of an instance in the deployment\'s deployment group.
+-- | The unique ID of an instance in the deployment group.
 gdiInstanceId :: Lens' GetDeploymentInstance Text
 gdiInstanceId = lens _gdiInstanceId (\ s a -> s{_gdiInstanceId = a});
 

@@ -20,21 +20,21 @@
 --
 -- Writes a single data record into an Amazon Kinesis Firehose delivery
 -- stream. To write multiple data records into a delivery stream, use
--- PutRecordBatch. Applications using these operations are referred to as
--- producers.
+-- < PutRecordBatch>. Applications using these operations are referred to
+-- as producers.
 --
 -- By default, each delivery stream can take in up to 2,000 transactions
 -- per second, 5,000 records per second, or 5 MB per second. Note that if
--- you use PutRecord and PutRecordBatch, the limits are an aggregate across
--- these two operations for each delivery stream. For more information
--- about limits and how to request an increase, see
+-- you use < PutRecord> and < PutRecordBatch>, the limits are an aggregate
+-- across these two operations for each delivery stream. For more
+-- information about limits and how to request an increase, see
 -- <http://docs.aws.amazon.com/firehose/latest/dev/limits.html Amazon Kinesis Firehose Limits>.
 --
 -- You must specify the name of the delivery stream and the data record
--- when using PutRecord. The data record consists of a data blob that can
--- be up to 1,000 KB in size, and any kind of data, for example, a segment
--- from a log file, geographic location data, web site clickstream data,
--- etc.
+-- when using < PutRecord>. The data record consists of a data blob that
+-- can be up to 1,000 KB in size, and any kind of data, for example, a
+-- segment from a log file, geographic location data, web site clickstream
+-- data, etc.
 --
 -- Amazon Kinesis Firehose buffers records before delivering them to the
 -- destination. To disambiguate the data blobs at the destination, a common
@@ -48,12 +48,12 @@
 -- producer should include some form of sequence number in each data
 -- record.
 --
--- The PutRecord operation returns a 'RecordId', which is a unique string
--- assigned to each record. Producer applications can use this ID for
--- purposes such as auditability and investigation.
+-- The < PutRecord> operation returns a 'RecordId', which is a unique
+-- string assigned to each record. Producer applications can use this ID
+-- for purposes such as auditability and investigation.
 --
--- If the PutRecord operation throws a 'ServiceUnavailableException', back
--- off and retry. If the exception persists, it is possible that the
+-- If the < PutRecord> operation throws a 'ServiceUnavailableException',
+-- back off and retry. If the exception persists, it is possible that the
 -- throughput limits have been exceeded for the delivery stream.
 --
 -- Data records sent to Amazon Kinesis Firehose are stored for 24 hours
@@ -86,7 +86,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for PutRecord.
+-- | Contains the parameters for < PutRecord>.
 --
 -- /See:/ 'putRecord' smart constructor.
 data PutRecord = PutRecord'
@@ -151,7 +151,7 @@ instance ToPath PutRecord where
 instance ToQuery PutRecord where
         toQuery = const mempty
 
--- | Contains the output of PutRecord.
+-- | Contains the output of < PutRecord>.
 --
 -- /See:/ 'putRecordResponse' smart constructor.
 data PutRecordResponse = PutRecordResponse'

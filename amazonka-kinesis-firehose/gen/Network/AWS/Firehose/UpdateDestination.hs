@@ -30,13 +30,13 @@
 -- effective within a few minutes.
 --
 -- If the destination type is the same, Amazon Kinesis Firehose merges the
--- configuration parameters specified in the UpdateDestination request with
--- the destination configuration that already exists on the delivery
+-- configuration parameters specified in the < UpdateDestination> request
+-- with the destination configuration that already exists on the delivery
 -- stream. If any of the parameters are not specified in the update
 -- request, then the existing configuration parameters are retained. For
--- example, in the Amazon S3 destination, if EncryptionConfiguration is not
--- specified then the existing EncryptionConfiguration is maintained on the
--- destination.
+-- example, in the Amazon S3 destination, if < EncryptionConfiguration> is
+-- not specified then the existing < EncryptionConfiguration> is maintained
+-- on the destination.
 --
 -- If the destination type is not the same, for example, changing the
 -- destination from Amazon S3 to Amazon Redshift, Amazon Kinesis Firehose
@@ -48,9 +48,9 @@
 -- in every request and the service only updates the configuration if the
 -- existing configuration matches the 'VersionId'. After the update is
 -- applied successfully, the 'VersionId' is updated, which can be retrieved
--- with the DescribeDeliveryStream operation. The new 'VersionId' should be
--- uses to set 'CurrentDeliveryStreamVersionId' in the next
--- UpdateDestination operation.
+-- with the < DescribeDeliveryStream> operation. The new 'VersionId' should
+-- be uses to set 'CurrentDeliveryStreamVersionId' in the next
+-- < UpdateDestination> operation.
 --
 -- /See:/ <http://docs.aws.amazon.com/firehose/latest/APIReference/API_UpdateDestination.html AWS API Reference> for UpdateDestination.
 module Network.AWS.Firehose.UpdateDestination
@@ -79,7 +79,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for UpdateDestination.
+-- | Contains the parameters for < UpdateDestination>.
 --
 -- /See:/ 'updateDestination' smart constructor.
 data UpdateDestination = UpdateDestination'
@@ -130,9 +130,9 @@ udDeliveryStreamName :: Lens' UpdateDestination Text
 udDeliveryStreamName = lens _udDeliveryStreamName (\ s a -> s{_udDeliveryStreamName = a});
 
 -- | Obtain this value from the 'VersionId' result of the
--- DeliveryStreamDescription operation. This value is required, and helps
--- the service to perform conditional operations. For example, if there is
--- a interleaving update and this value is null, then the update
+-- < DeliveryStreamDescription> operation. This value is required, and
+-- helps the service to perform conditional operations. For example, if
+-- there is a interleaving update and this value is null, then the update
 -- destination fails. After the update is successful, the 'VersionId' value
 -- is updated. The service then performs a merge of the old configuration
 -- with the new configuration.
@@ -181,7 +181,7 @@ instance ToPath UpdateDestination where
 instance ToQuery UpdateDestination where
         toQuery = const mempty
 
--- | Contains the output of UpdateDestination.
+-- | Contains the output of < UpdateDestination>.
 --
 -- /See:/ 'updateDestinationResponse' smart constructor.
 newtype UpdateDestinationResponse = UpdateDestinationResponse'

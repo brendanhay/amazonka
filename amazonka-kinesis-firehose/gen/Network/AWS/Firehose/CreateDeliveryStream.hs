@@ -20,12 +20,12 @@
 --
 -- Creates a delivery stream.
 --
--- CreateDeliveryStream is an asynchronous operation that immediately
+-- < CreateDeliveryStream> is an asynchronous operation that immediately
 -- returns. The initial status of the delivery stream is 'CREATING'. After
 -- the delivery stream is created, its status is 'ACTIVE' and it now
 -- accepts data. Attempts to send data to a delivery stream that is not in
 -- the 'ACTIVE' state cause an exception. To check the state of a delivery
--- stream, use DescribeDeliveryStream.
+-- stream, use < DescribeDeliveryStream>.
 --
 -- The name of a delivery stream identifies it. You can\'t have two
 -- delivery streams with the same name in the same region. Two delivery
@@ -35,9 +35,10 @@
 -- By default, you can create up to 5 delivery streams per region.
 --
 -- A delivery stream can only be configured with a single destination,
--- Amazon S3 or Amazon Redshift. For correct CreateDeliveryStream request
--- syntax, specify only one destination configuration parameter: either
--- 'RedshiftDestinationConfiguration' or 'S3DestinationConfiguration'
+-- Amazon S3 or Amazon Redshift. For correct < CreateDeliveryStream>
+-- request syntax, specify only one destination configuration parameter:
+-- either 'RedshiftDestinationConfiguration' or
+-- 'S3DestinationConfiguration'
 --
 -- As part of 'S3DestinationConfiguration', optional values
 -- 'BufferingHints', 'EncryptionConfiguration', and 'CompressionFormat' can
@@ -100,7 +101,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for CreateDeliveryStream.
+-- | Contains the parameters for < CreateDeliveryStream>.
 --
 -- /See:/ 'createDeliveryStream' smart constructor.
 data CreateDeliveryStream = CreateDeliveryStream'
@@ -180,7 +181,7 @@ instance ToPath CreateDeliveryStream where
 instance ToQuery CreateDeliveryStream where
         toQuery = const mempty
 
--- | Contains the output of CreateDeliveryStream.
+-- | Contains the output of < CreateDeliveryStream>.
 --
 -- /See:/ 'createDeliveryStreamResponse' smart constructor.
 data CreateDeliveryStreamResponse = CreateDeliveryStreamResponse'

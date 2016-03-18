@@ -21,9 +21,9 @@
 -- Lists your delivery streams.
 --
 -- The number of delivery streams might be too large to return using a
--- single call to ListDeliveryStreams. You can limit the number of delivery
--- streams returned, using the 'Limit' parameter. To determine whether
--- there are more delivery streams to list, check the value of
+-- single call to < ListDeliveryStreams>. You can limit the number of
+-- delivery streams returned, using the 'Limit' parameter. To determine
+-- whether there are more delivery streams to list, check the value of
 -- 'HasMoreDeliveryStreams' in the output. If there are more delivery
 -- streams to list, you can request them by specifying the name of the last
 -- delivery stream returned in the call in the
@@ -55,7 +55,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for ListDeliveryStreams.
+-- | Contains the parameters for < ListDeliveryStreams>.
 --
 -- /See:/ 'listDeliveryStreams' smart constructor.
 data ListDeliveryStreams = ListDeliveryStreams'
@@ -122,7 +122,7 @@ instance ToPath ListDeliveryStreams where
 instance ToQuery ListDeliveryStreams where
         toQuery = const mempty
 
--- | Contains the output of ListDeliveryStreams.
+-- | Contains the output of < ListDeliveryStreams>.
 --
 -- /See:/ 'listDeliveryStreamsResponse' smart constructor.
 data ListDeliveryStreamsResponse = ListDeliveryStreamsResponse'

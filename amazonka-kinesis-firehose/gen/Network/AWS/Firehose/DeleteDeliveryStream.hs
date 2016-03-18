@@ -24,7 +24,7 @@
 -- state, and not in the 'CREATING' state. While the deletion request is in
 -- process, the delivery stream is in the 'DELETING' state.
 --
--- To check the state of a delivery stream, use DescribeDeliveryStream.
+-- To check the state of a delivery stream, use < DescribeDeliveryStream>.
 --
 -- While the delivery stream is 'DELETING' state, the service may continue
 -- to accept the records, but the service doesn\'t make any guarantees with
@@ -55,7 +55,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DeleteDeliveryStream.
+-- | Contains the parameters for < DeleteDeliveryStream>.
 --
 -- /See:/ 'deleteDeliveryStream' smart constructor.
 newtype DeleteDeliveryStream = DeleteDeliveryStream'
@@ -112,7 +112,7 @@ instance ToPath DeleteDeliveryStream where
 instance ToQuery DeleteDeliveryStream where
         toQuery = const mempty
 
--- | Contains the output of DeleteDeliveryStream.
+-- | Contains the output of < DeleteDeliveryStream>.
 --
 -- /See:/ 'deleteDeliveryStreamResponse' smart constructor.
 newtype DeleteDeliveryStreamResponse = DeleteDeliveryStreamResponse'

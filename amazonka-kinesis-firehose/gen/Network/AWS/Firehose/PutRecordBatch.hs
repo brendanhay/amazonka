@@ -21,24 +21,24 @@
 -- Writes multiple data records into a delivery stream in a single call,
 -- which can achieve higher throughput per producer than when writing
 -- single records. To write single data records into a delivery stream, use
--- PutRecord. Applications using these operations are referred to as
+-- < PutRecord>. Applications using these operations are referred to as
 -- producers.
 --
--- Each PutRecordBatch request supports up to 500 records. Each record in
--- the request can be as large as 1,000 KB (before 64-bit encoding), up to
--- a limit of 4 MB for the entire request. By default, each delivery stream
--- can take in up to 2,000 transactions per second, 5,000 records per
--- second, or 5 MB per second. Note that if you use PutRecord and
--- PutRecordBatch, the limits are an aggregate across these two operations
--- for each delivery stream. For more information about limits and how to
--- request an increase, see
+-- Each < PutRecordBatch> request supports up to 500 records. Each record
+-- in the request can be as large as 1,000 KB (before 64-bit encoding), up
+-- to a limit of 4 MB for the entire request. By default, each delivery
+-- stream can take in up to 2,000 transactions per second, 5,000 records
+-- per second, or 5 MB per second. Note that if you use < PutRecord> and
+-- < PutRecordBatch>, the limits are an aggregate across these two
+-- operations for each delivery stream. For more information about limits
+-- and how to request an increase, see
 -- <http://docs.aws.amazon.com/firehose/latest/dev/limits.html Amazon Kinesis Firehose Limits>.
 --
 -- You must specify the name of the delivery stream and the data record
--- when using PutRecord. The data record consists of a data blob that can
--- be up to 1,000 KB in size, and any kind of data, for example, a segment
--- from a log file, geographic location data, web site clickstream data,
--- and so on.
+-- when using < PutRecord>. The data record consists of a data blob that
+-- can be up to 1,000 KB in size, and any kind of data, for example, a
+-- segment from a log file, geographic location data, web site clickstream
+-- data, and so on.
 --
 -- Amazon Kinesis Firehose buffers records before delivering them to the
 -- destination. To disambiguate the data blobs at the destination, a common
@@ -47,7 +47,7 @@
 -- application(s) to parse individual data items when reading the data from
 -- the destination.
 --
--- The PutRecordBatch response includes a count of any failed records,
+-- The < PutRecordBatch> response includes a count of any failed records,
 -- 'FailedPutCount', and an array of responses, 'RequestResponses'. The
 -- 'FailedPutCount' value is a count of records that failed. Each entry in
 -- the 'RequestResponses' array gives additional information of the
@@ -57,7 +57,7 @@
 -- includes the same number of records as the request array.
 -- 'RequestResponses' both successfully and unsuccessfully processed
 -- records. Amazon Kinesis Firehose attempts to process all records in each
--- PutRecordBatch request. A single record failure does not stop the
+-- < PutRecordBatch> request. A single record failure does not stop the
 -- processing of subsequent records.
 --
 -- A successfully processed record includes a 'RecordId' value, which is a
@@ -73,9 +73,10 @@
 -- records that failed processing. This minimizes duplicate records and
 -- also reduces the total bytes sent (and corresponding charges).
 --
--- If the PutRecordBatch operation throws a 'ServiceUnavailableException',
--- back off and retry. If the exception persists, it is possible that the
--- throughput limits have been exceeded for the delivery stream.
+-- If the < PutRecordBatch> operation throws a
+-- 'ServiceUnavailableException', back off and retry. If the exception
+-- persists, it is possible that the throughput limits have been exceeded
+-- for the delivery stream.
 --
 -- Data records sent to Amazon Kinesis Firehose are stored for 24 hours
 -- from the time they are added to a delivery stream as it attempts to send
@@ -108,7 +109,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for PutRecordBatch.
+-- | Contains the parameters for < PutRecordBatch>.
 --
 -- /See:/ 'putRecordBatch' smart constructor.
 data PutRecordBatch = PutRecordBatch'
@@ -174,7 +175,7 @@ instance ToPath PutRecordBatch where
 instance ToQuery PutRecordBatch where
         toQuery = const mempty
 
--- | Contains the output of PutRecordBatch.
+-- | Contains the output of < PutRecordBatch>.
 --
 -- /See:/ 'putRecordBatchResponse' smart constructor.
 data PutRecordBatchResponse = PutRecordBatchResponse'

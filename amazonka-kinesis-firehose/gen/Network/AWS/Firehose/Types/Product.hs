@@ -225,7 +225,7 @@ dsdDeliveryStreamARN = lens _dsdDeliveryStreamARN (\ s a -> s{_dsdDeliveryStream
 dsdDeliveryStreamStatus :: Lens' DeliveryStreamDescription DeliveryStreamStatus
 dsdDeliveryStreamStatus = lens _dsdDeliveryStreamStatus (\ s a -> s{_dsdDeliveryStreamStatus = a});
 
--- | Used when calling the UpdateDestination operation. Each time the
+-- | Used when calling the < UpdateDestination> operation. Each time the
 -- destination is updated for the delivery stream, the VersionId is
 -- changed, and the current VersionId is required when updating the
 -- destination. This is so that the service knows it is applying the
@@ -389,7 +389,7 @@ instance ToJSON KMSEncryptionConfig where
               (catMaybes
                  [Just ("AWSKMSKeyARN" .= _kecAWSKMSKeyARN)])
 
--- | Contains the result for an individual record from a PutRecordBatch
+-- | Contains the result for an individual record from a < PutRecordBatch>
 -- request. If the record is successfully added to your delivery stream, it
 -- receives a record ID. If the record fails to be added to your delivery
 -- stream, the result includes an error code and an error message.
@@ -541,7 +541,7 @@ rdcPassword = lens _rdcPassword (\ s a -> s{_rdcPassword = a}) . _Sensitive;
 
 -- | The S3 configuration for the intermediate location from which Amazon
 -- Redshift obtains data. Restrictions are described in the topic for
--- CreateDeliveryStream.
+-- < CreateDeliveryStream>.
 --
 -- The compression formats 'SNAPPY' or 'ZIP' cannot be specified in
 -- 'RedshiftDestinationConfiguration.S3Configuration' because the Amazon

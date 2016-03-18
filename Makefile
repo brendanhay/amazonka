@@ -3,7 +3,7 @@ LIBRARIES ?= core amazonka test $(SERVICES)
 FORWARD   := sdist upload
 
 build:
-	stack build
+	stack build --fast
 
 clean:
 	stack clean
@@ -22,10 +22,10 @@ $(foreach c,$(FORWARD),$(eval $(call forward, $c)))
 .PHONY: $(LIBRARIES)
 
 amazonka:
-	stack build amazonka
+	stack build --fast amazonka
 
 core:
-	stack build amazonka-core
+	stack build --fast amazonka-core
 
 $(SERVICES):
-	stack build $@
+	stack build --fast $@

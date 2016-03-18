@@ -264,7 +264,7 @@ poGrantFullControl = lens _poGrantFullControl (\ s a -> s{_poGrantFullControl = 
 poContentEncoding :: Lens' PutObject (Maybe Text)
 poContentEncoding = lens _poContentEncoding (\ s a -> s{_poContentEncoding = a});
 
--- | Undocumented member.
+-- | The base64-encoded 128-bit MD5 digest of the part data.
 poContentMD5 :: Lens' PutObject (Maybe Text)
 poContentMD5 = lens _poContentMD5 (\ s a -> s{_poContentMD5 = a});
 
@@ -297,11 +297,11 @@ poServerSideEncryption = lens _poServerSideEncryption (\ s a -> s{_poServerSideE
 poContentType :: Lens' PutObject (Maybe Text)
 poContentType = lens _poContentType (\ s a -> s{_poContentType = a});
 
--- | Undocumented member.
+-- | Name of the bucket to which the PUT operation was initiated.
 poBucket :: Lens' PutObject BucketName
 poBucket = lens _poBucket (\ s a -> s{_poBucket = a});
 
--- | Undocumented member.
+-- | Object key for which the PUT operation was initiated.
 poKey :: Lens' PutObject ObjectKey
 poKey = lens _poKey (\ s a -> s{_poKey = a});
 

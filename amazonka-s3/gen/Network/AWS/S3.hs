@@ -28,6 +28,9 @@ module Network.AWS.S3
     -- * Errors
     -- $errors
 
+    -- ** BucketAlreadyOwnedByYou
+    , _BucketAlreadyOwnedByYou
+
     -- ** ObjectAlreadyInActiveTierError
     , _ObjectAlreadyInActiveTierError
 
@@ -297,6 +300,11 @@ module Network.AWS.S3
     -- ** Type
     , Type (..)
 
+    -- ** AbortIncompleteMultipartUpload
+    , AbortIncompleteMultipartUpload
+    , abortIncompleteMultipartUpload
+    , aimuDaysAfterInitiation
+
     -- ** AccessControlPolicy
     , AccessControlPolicy
     , accessControlPolicy
@@ -451,6 +459,7 @@ module Network.AWS.S3
     , lifecycleExpiration
     , leDays
     , leDate
+    , leExpiredObjectDeleteMarker
 
     -- ** LifecycleRule
     , LifecycleRule
@@ -460,6 +469,7 @@ module Network.AWS.S3
     , lrNoncurrentVersionTransitions
     , lrExpiration
     , lrId
+    , lrAbortIncompleteMultipartUpload
     , lrPrefix
     , lrStatus
 

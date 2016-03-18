@@ -22,6 +22,42 @@ import           Network.AWS.Prelude
 import           Network.AWS.S3.Internal
 import           Network.AWS.S3.Types.Sum
 
+-- | Specifies the days since the initiation of an Incomplete Multipart
+-- Upload that Lifecycle will wait before permanently removing all parts of
+-- the upload.
+--
+-- /See:/ 'abortIncompleteMultipartUpload' smart constructor.
+newtype AbortIncompleteMultipartUpload = AbortIncompleteMultipartUpload'
+    { _aimuDaysAfterInitiation :: Maybe Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AbortIncompleteMultipartUpload' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aimuDaysAfterInitiation'
+abortIncompleteMultipartUpload
+    :: AbortIncompleteMultipartUpload
+abortIncompleteMultipartUpload =
+    AbortIncompleteMultipartUpload'
+    { _aimuDaysAfterInitiation = Nothing
+    }
+
+-- | Indicates the number of days that must pass since initiation for
+-- Lifecycle to abort an Incomplete Multipart Upload.
+aimuDaysAfterInitiation :: Lens' AbortIncompleteMultipartUpload (Maybe Int)
+aimuDaysAfterInitiation = lens _aimuDaysAfterInitiation (\ s a -> s{_aimuDaysAfterInitiation = a});
+
+instance FromXML AbortIncompleteMultipartUpload where
+        parseXML x
+          = AbortIncompleteMultipartUpload' <$>
+              (x .@? "DaysAfterInitiation")
+
+instance ToXML AbortIncompleteMultipartUpload where
+        toXML AbortIncompleteMultipartUpload'{..}
+          = mconcat
+              ["DaysAfterInitiation" @= _aimuDaysAfterInitiation]
+
 -- | /See:/ 'accessControlPolicy' smart constructor.
 data AccessControlPolicy = AccessControlPolicy'
     { _acpGrants :: !(Maybe [Grant])
@@ -986,8 +1022,9 @@ instance ToXML LambdaFunctionConfiguration where
 
 -- | /See:/ 'lifecycleExpiration' smart constructor.
 data LifecycleExpiration = LifecycleExpiration'
-    { _leDays :: !(Maybe Int)
-    , _leDate :: !(Maybe RFC822)
+    { _leDays                      :: !(Maybe Int)
+    , _leDate                      :: !(Maybe RFC822)
+    , _leExpiredObjectDeleteMarker :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LifecycleExpiration' with the minimum fields required to make a request.
@@ -997,12 +1034,15 @@ data LifecycleExpiration = LifecycleExpiration'
 -- * 'leDays'
 --
 -- * 'leDate'
+--
+-- * 'leExpiredObjectDeleteMarker'
 lifecycleExpiration
     :: LifecycleExpiration
 lifecycleExpiration =
     LifecycleExpiration'
     { _leDays = Nothing
     , _leDate = Nothing
+    , _leExpiredObjectDeleteMarker = Nothing
     }
 
 -- | Indicates the lifetime, in days, of the objects that are subject to the
@@ -1015,24 +1055,36 @@ leDays = lens _leDays (\ s a -> s{_leDays = a});
 leDate :: Lens' LifecycleExpiration (Maybe UTCTime)
 leDate = lens _leDate (\ s a -> s{_leDate = a}) . mapping _Time;
 
+-- | Indicates whether Amazon S3 will remove a delete marker with no
+-- noncurrent versions. If set to true, the delete marker will be expired;
+-- if set to false the policy takes no action. This cannot be specified
+-- with Days or Date in a Lifecycle Expiration Policy.
+leExpiredObjectDeleteMarker :: Lens' LifecycleExpiration (Maybe Bool)
+leExpiredObjectDeleteMarker = lens _leExpiredObjectDeleteMarker (\ s a -> s{_leExpiredObjectDeleteMarker = a});
+
 instance FromXML LifecycleExpiration where
         parseXML x
           = LifecycleExpiration' <$>
-              (x .@? "Days") <*> (x .@? "Date")
+              (x .@? "Days") <*> (x .@? "Date") <*>
+                (x .@? "ExpiredObjectDeleteMarker")
 
 instance ToXML LifecycleExpiration where
         toXML LifecycleExpiration'{..}
-          = mconcat ["Days" @= _leDays, "Date" @= _leDate]
+          = mconcat
+              ["Days" @= _leDays, "Date" @= _leDate,
+               "ExpiredObjectDeleteMarker" @=
+                 _leExpiredObjectDeleteMarker]
 
 -- | /See:/ 'lifecycleRule' smart constructor.
 data LifecycleRule = LifecycleRule'
-    { _lrTransitions                  :: !(Maybe [Transition])
-    , _lrNoncurrentVersionExpiration  :: !(Maybe NoncurrentVersionExpiration)
-    , _lrNoncurrentVersionTransitions :: !(Maybe [NoncurrentVersionTransition])
-    , _lrExpiration                   :: !(Maybe LifecycleExpiration)
-    , _lrId                           :: !(Maybe Text)
-    , _lrPrefix                       :: !Text
-    , _lrStatus                       :: !ExpirationStatus
+    { _lrTransitions                    :: !(Maybe [Transition])
+    , _lrNoncurrentVersionExpiration    :: !(Maybe NoncurrentVersionExpiration)
+    , _lrNoncurrentVersionTransitions   :: !(Maybe [NoncurrentVersionTransition])
+    , _lrExpiration                     :: !(Maybe LifecycleExpiration)
+    , _lrId                             :: !(Maybe Text)
+    , _lrAbortIncompleteMultipartUpload :: !(Maybe AbortIncompleteMultipartUpload)
+    , _lrPrefix                         :: !Text
+    , _lrStatus                         :: !ExpirationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LifecycleRule' with the minimum fields required to make a request.
@@ -1049,6 +1101,8 @@ data LifecycleRule = LifecycleRule'
 --
 -- * 'lrId'
 --
+-- * 'lrAbortIncompleteMultipartUpload'
+--
 -- * 'lrPrefix'
 --
 -- * 'lrStatus'
@@ -1063,6 +1117,7 @@ lifecycleRule pPrefix_ pStatus_ =
     , _lrNoncurrentVersionTransitions = Nothing
     , _lrExpiration = Nothing
     , _lrId = Nothing
+    , _lrAbortIncompleteMultipartUpload = Nothing
     , _lrPrefix = pPrefix_
     , _lrStatus = pStatus_
     }
@@ -1088,6 +1143,10 @@ lrExpiration = lens _lrExpiration (\ s a -> s{_lrExpiration = a});
 lrId :: Lens' LifecycleRule (Maybe Text)
 lrId = lens _lrId (\ s a -> s{_lrId = a});
 
+-- | Undocumented member.
+lrAbortIncompleteMultipartUpload :: Lens' LifecycleRule (Maybe AbortIncompleteMultipartUpload)
+lrAbortIncompleteMultipartUpload = lens _lrAbortIncompleteMultipartUpload (\ s a -> s{_lrAbortIncompleteMultipartUpload = a});
+
 -- | Prefix identifying one or more objects to which the rule applies.
 lrPrefix :: Lens' LifecycleRule Text
 lrPrefix = lens _lrPrefix (\ s a -> s{_lrPrefix = a});
@@ -1106,6 +1165,7 @@ instance FromXML LifecycleRule where
                 (may (parseXMLList "NoncurrentVersionTransition") x)
                 <*> (x .@? "Expiration")
                 <*> (x .@? "ID")
+                <*> (x .@? "AbortIncompleteMultipartUpload")
                 <*> (x .@ "Prefix")
                 <*> (x .@ "Status")
 
@@ -1119,6 +1179,8 @@ instance ToXML LifecycleRule where
                  (toXMLList "NoncurrentVersionTransition" <$>
                     _lrNoncurrentVersionTransitions),
                "Expiration" @= _lrExpiration, "ID" @= _lrId,
+               "AbortIncompleteMultipartUpload" @=
+                 _lrAbortIncompleteMultipartUpload,
                "Prefix" @= _lrPrefix, "Status" @= _lrStatus]
 
 -- | /See:/ 'loggingEnabled' smart constructor.

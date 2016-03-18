@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Deletes the replication configuration from the bucket.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketReplication.html AWS API Reference> for DeleteBucketReplication.
 module Network.AWS.S3.DeleteBucketReplication

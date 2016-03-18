@@ -157,15 +157,15 @@ upRequestPayer = lens _upRequestPayer (\ s a -> s{_upRequestPayer = a});
 upSSECustomerKeyMD5 :: Lens' UploadPart (Maybe Text)
 upSSECustomerKeyMD5 = lens _upSSECustomerKeyMD5 (\ s a -> s{_upSSECustomerKeyMD5 = a});
 
--- | Undocumented member.
+-- | The base64-encoded 128-bit MD5 digest of the part data.
 upContentMD5 :: Lens' UploadPart (Maybe Text)
 upContentMD5 = lens _upContentMD5 (\ s a -> s{_upContentMD5 = a});
 
--- | Undocumented member.
+-- | Name of the bucket to which the multipart upload was initiated.
 upBucket :: Lens' UploadPart BucketName
 upBucket = lens _upBucket (\ s a -> s{_upBucket = a});
 
--- | Undocumented member.
+-- | Object key for which the multipart upload was initiated.
 upKey :: Lens' UploadPart ObjectKey
 upKey = lens _upKey (\ s a -> s{_upKey = a});
 
@@ -178,7 +178,7 @@ upPartNumber = lens _upPartNumber (\ s a -> s{_upPartNumber = a});
 upUploadId :: Lens' UploadPart Text
 upUploadId = lens _upUploadId (\ s a -> s{_upUploadId = a});
 
--- | Undocumented member.
+-- | Object data.
 upBody :: Lens' UploadPart RqBody
 upBody = lens _upBody (\ s a -> s{_upBody = a});
 

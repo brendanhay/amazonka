@@ -63,7 +63,7 @@ getBucketNotificationConfiguration pBucket_ =
     { _gbncBucket = pBucket_
     }
 
--- | Name of the buket to get the notification configuration for.
+-- | Name of the bucket to get the notification configuration for.
 gbncBucket :: Lens' GetBucketNotificationConfiguration BucketName
 gbncBucket = lens _gbncBucket (\ s a -> s{_gbncBucket = a});
 

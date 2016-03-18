@@ -16,6 +16,7 @@ module Network.AWS.S3.Types
       s3
 
     -- * Errors
+    , _BucketAlreadyOwnedByYou
     , _ObjectAlreadyInActiveTierError
     , _BucketAlreadyExists
     , _ObjectNotInActiveTierError
@@ -97,6 +98,11 @@ module Network.AWS.S3.Types
 
     -- * Type
     , Type (..)
+
+    -- * AbortIncompleteMultipartUpload
+    , AbortIncompleteMultipartUpload
+    , abortIncompleteMultipartUpload
+    , aimuDaysAfterInitiation
 
     -- * AccessControlPolicy
     , AccessControlPolicy
@@ -252,6 +258,7 @@ module Network.AWS.S3.Types
     , lifecycleExpiration
     , leDays
     , leDate
+    , leExpiredObjectDeleteMarker
 
     -- * LifecycleRule
     , LifecycleRule
@@ -261,6 +268,7 @@ module Network.AWS.S3.Types
     , lrNoncurrentVersionTransitions
     , lrExpiration
     , lrId
+    , lrAbortIncompleteMultipartUpload
     , lrPrefix
     , lrStatus
 
@@ -489,6 +497,7 @@ s3 =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -498,6 +507,10 @@ s3 =
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
+
+-- | Prism for BucketAlreadyOwnedByYou' errors.
+_BucketAlreadyOwnedByYou :: AsError a => Getting (First ServiceError) a ServiceError
+_BucketAlreadyOwnedByYou = _ServiceError . hasCode "BucketAlreadyOwnedByYou"
 
 -- | This operation is not allowed against this storage tier
 _ObjectAlreadyInActiveTierError :: AsError a => Getting (First ServiceError) a ServiceError

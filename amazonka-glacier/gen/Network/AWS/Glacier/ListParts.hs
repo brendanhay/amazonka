@@ -21,9 +21,9 @@
 -- This operation lists the parts of an archive that have been uploaded in
 -- a specific multipart upload. You can make this request at any time
 -- during an in-progress multipart upload before you complete the upload
--- (see CompleteMultipartUpload. List Parts returns an error for completed
--- uploads. The list returned in the List Parts response is sorted by part
--- range.
+-- (see < CompleteMultipartUpload>. List Parts returns an error for
+-- completed uploads. The list returned in the List Parts response is
+-- sorted by part range.
 --
 -- The List Parts operation supports pagination. By default, this operation
 -- returns up to 1,000 uploaded parts in the response. You should always

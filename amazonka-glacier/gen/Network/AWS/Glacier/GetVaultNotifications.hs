@@ -22,9 +22,9 @@
 -- the specified vault.
 --
 -- For information about setting a notification configuration on a vault,
--- see SetVaultNotifications. If a notification configuration for a vault
--- is not set, the operation returns a '404 Not Found' error. For more
--- information about vault notifications, see
+-- see < SetVaultNotifications>. If a notification configuration for a
+-- vault is not set, the operation returns a '404 Not Found' error. For
+-- more information about vault notifications, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html Configuring Vault Notifications in Amazon Glacier>.
 --
 -- An AWS account has full permission to perform all operations (actions).

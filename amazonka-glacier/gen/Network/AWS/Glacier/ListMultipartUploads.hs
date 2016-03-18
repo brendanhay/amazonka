@@ -20,7 +20,7 @@
 --
 -- This operation lists in-progress multipart uploads for the specified
 -- vault. An in-progress multipart upload is a multipart upload that has
--- been initiated by an InitiateMultipartUpload request, but has not yet
+-- been initiated by an < InitiateMultipartUpload> request, but has not yet
 -- been completed or aborted. The list returned in the List Multipart
 -- Upload response has no guaranteed order.
 --
@@ -35,7 +35,7 @@
 -- request.
 --
 -- Note the difference between this operation and listing parts
--- (ListParts). The List Multipart Uploads operation lists all multipart
+-- (< ListParts>). The List Multipart Uploads operation lists all multipart
 -- uploads for a vault and does not require a multipart upload ID. The List
 -- Parts operation requires a multipart upload ID since parts are
 -- associated with a single upload.

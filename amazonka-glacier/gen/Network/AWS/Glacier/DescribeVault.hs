@@ -25,8 +25,9 @@
 -- inventory generation. This means that if you add or remove an archive
 -- from a vault, and then immediately use Describe Vault, the change in
 -- contents will not be immediately reflected. If you want to retrieve the
--- latest inventory of the vault, use InitiateJob. Amazon Glacier generates
--- vault inventories approximately daily. For more information, see
+-- latest inventory of the vault, use < InitiateJob>. Amazon Glacier
+-- generates vault inventories approximately daily. For more information,
+-- see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html Downloading a Vault Inventory in Amazon Glacier>.
 --
 -- An AWS account has full permission to perform all operations (actions).

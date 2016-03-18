@@ -32,15 +32,15 @@
 -- a notification for the following vault events:
 --
 -- -   __ArchiveRetrievalCompleted__ This event occurs when a job that was
---     initiated for an archive retrieval is completed (InitiateJob). The
---     status of the completed job can be \"Succeeded\" or \"Failed\". The
---     notification sent to the SNS topic is the same output as returned
---     from DescribeJob.
--- -   __InventoryRetrievalCompleted__ This event occurs when a job that
---     was initiated for an inventory retrieval is completed (InitiateJob).
+--     initiated for an archive retrieval is completed (< InitiateJob>).
 --     The status of the completed job can be \"Succeeded\" or \"Failed\".
 --     The notification sent to the SNS topic is the same output as
---     returned from DescribeJob.
+--     returned from < DescribeJob>.
+-- -   __InventoryRetrievalCompleted__ This event occurs when a job that
+--     was initiated for an inventory retrieval is completed
+--     (< InitiateJob>). The status of the completed job can be
+--     \"Succeeded\" or \"Failed\". The notification sent to the SNS topic
+--     is the same output as returned from < DescribeJob>.
 --
 -- An AWS account has full permission to perform all operations (actions).
 -- However, AWS Identity and Access Management (IAM) users don\'t have any

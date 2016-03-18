@@ -25,7 +25,7 @@
 -- Aborting a completed upload fails. However, aborting an already-aborted
 -- upload will succeed, for a short time. For more information about
 -- uploading a part and completing a multipart upload, see
--- UploadMultipartPart and CompleteMultipartUpload.
+-- < UploadMultipartPart> and < CompleteMultipartUpload>.
 --
 -- This operation is idempotent.
 --

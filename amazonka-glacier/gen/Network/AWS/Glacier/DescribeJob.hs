@@ -22,7 +22,7 @@
 -- including the job initiation date, the user who initiated the job, the
 -- job status code\/message and the Amazon SNS topic to notify after Amazon
 -- Glacier completes the job. For more information about initiating a job,
--- see InitiateJob.
+-- see < InitiateJob>.
 --
 -- This operation enables you to check the status of your job. However, it
 -- is strongly recommended that you set up an Amazon SNS topic and specify

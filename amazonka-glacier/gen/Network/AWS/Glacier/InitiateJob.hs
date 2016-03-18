@@ -40,7 +40,7 @@
 -- retrieval job, Amazon Glacier creates a job and returns a job ID in the
 -- response. When Amazon Glacier completes the job, you can get the job
 -- output (archive or inventory data). For information about getting job
--- output, see GetJobOutput operation.
+-- output, see < GetJobOutput> operation.
 --
 -- The job must complete before you can get its output. To determine when a
 -- job is complete, you have the following options:
@@ -52,20 +52,20 @@
 --     Amazon Glacier completes the job. In addition to specifying an SNS
 --     topic per job request, you can configure vault notifications for a
 --     vault so that job notifications are always sent. For more
---     information, see SetVaultNotifications.
+--     information, see < SetVaultNotifications>.
 --
--- -   __Get job details__ You can make a DescribeJob request to obtain job
---     status information while a job is in progress. However, it is more
---     efficient to use an Amazon SNS notification to determine when a job
---     is complete.
+-- -   __Get job details__ You can make a < DescribeJob> request to obtain
+--     job status information while a job is in progress. However, it is
+--     more efficient to use an Amazon SNS notification to determine when a
+--     job is complete.
 --
 -- The information you get via notification is same that you get by calling
--- DescribeJob.
+-- < DescribeJob>.
 --
 -- If for a specific event, you add both the notification configuration on
 -- the vault and also specify an SNS topic in your initiate job request,
 -- Amazon Glacier sends both notifications. For more information, see
--- SetVaultNotifications.
+-- < SetVaultNotifications>.
 --
 -- An AWS account has full permission to perform all operations (actions).
 -- However, AWS Identity and Access Management (IAM) users don\'t have any
@@ -112,10 +112,10 @@
 -- 'Limit' parameter in the __InitiateJob__ request. The inventory job
 -- output will contain inventory items up to the specified 'Limit'. If
 -- there are more inventory items available, the result is paginated. After
--- a job is complete you can use the DescribeJob operation to get a marker
--- that you use in a subsequent __InitiateJob__ request. The marker will
--- indicate the starting point to retrieve the next set of inventory items.
--- You can page through your entire inventory by repeatedly making
+-- a job is complete you can use the < DescribeJob> operation to get a
+-- marker that you use in a subsequent __InitiateJob__ request. The marker
+-- will indicate the starting point to retrieve the next set of inventory
+-- items. You can page through your entire inventory by repeatedly making
 -- __InitiateJob__ requests with the marker from the previous
 -- __DescribeJob__ output, until you get a marker from __DescribeJob__ that
 -- returns null, indicating that there are no more inventory items

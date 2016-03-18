@@ -33,9 +33,9 @@
 --     state.
 --
 -- A vault lock is put into the 'InProgress' state by calling
--- InitiateVaultLock. A vault lock is put into the 'Locked' state by
--- calling CompleteVaultLock. You can abort the vault locking process by
--- calling AbortVaultLock. For more information about the vault locking
+-- < InitiateVaultLock>. A vault lock is put into the 'Locked' state by
+-- calling < CompleteVaultLock>. You can abort the vault locking process by
+-- calling < AbortVaultLock>. For more information about the vault locking
 -- process,
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock>.
 --

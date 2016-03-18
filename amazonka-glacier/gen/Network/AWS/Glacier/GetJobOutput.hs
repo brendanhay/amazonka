@@ -19,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation downloads the output of the job you initiated using
--- InitiateJob. Depending on the job type you specified when you initiated
--- the job, the output will be either the content of an archive or a vault
--- inventory.
+-- < InitiateJob>. Depending on the job type you specified when you
+-- initiated the job, the output will be either the content of an archive
+-- or a vault inventory.
 --
 -- A job ID will not expire for at least 24 hours after Amazon Glacier
 -- completes the job. That is, you can download the job output within the
@@ -47,9 +47,9 @@
 --
 -- 4.  After downloading all the parts of the job output, you have a list
 --     of eight checksum values. Compute the tree hash of these values to
---     find the checksum of the entire output. Using the DescribeJob API,
---     obtain job information of the job that provided you the output. The
---     response includes the checksum of the entire archive stored in
+--     find the checksum of the entire output. Using the < DescribeJob>
+--     API, obtain job information of the job that provided you the output.
+--     The response includes the checksum of the entire archive stored in
 --     Amazon Glacier. You compare this value with the checksum you
 --     computed to ensure you have downloaded the entire archive content
 --     with no errors.

@@ -35,8 +35,8 @@
 --
 -- -   __Part size does not match__The size of each part except the last
 --     must match the size specified in the corresponding
---     InitiateMultipartUpload request. The size of the last part must be
---     the same size as, or smaller than, the specified size.
+--     < InitiateMultipartUpload> request. The size of the last part must
+--     be the same size as, or smaller than, the specified size.
 --
 --     If you upload a part whose size is smaller than the part size you
 --     specified in your initiate multipart upload request and that part is

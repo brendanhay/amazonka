@@ -25,9 +25,9 @@
 -- removes the vault lock policy from the specified vault.
 --
 -- A vault lock is put into the 'InProgress' state by calling
--- InitiateVaultLock. A vault lock is put into the 'Locked' state by
--- calling CompleteVaultLock. You can get the state of a vault lock by
--- calling GetVaultLock. For more information about the vault locking
+-- < InitiateVaultLock>. A vault lock is put into the 'Locked' state by
+-- calling < CompleteVaultLock>. You can get the state of a vault lock by
+-- calling < GetVaultLock>. For more information about the vault locking
 -- process, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock>.
 -- For more information about vault lock policies, see

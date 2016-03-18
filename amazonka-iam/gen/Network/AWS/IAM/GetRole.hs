@@ -93,7 +93,7 @@ instance ToQuery GetRole where
                "Version" =: ("2010-05-08" :: ByteString),
                "RoleName" =: _grRoleName]
 
--- | Contains the response to a successful GetRole request.
+-- | Contains the response to a successful < GetRole> request.
 --
 -- /See:/ 'getRoleResponse' smart constructor.
 data GetRoleResponse = GetRoleResponse'

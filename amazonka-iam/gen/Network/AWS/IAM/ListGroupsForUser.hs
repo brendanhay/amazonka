@@ -137,7 +137,7 @@ instance ToQuery ListGroupsForUser where
                "Marker" =: _lgfuMarker, "MaxItems" =: _lgfuMaxItems,
                "UserName" =: _lgfuUserName]
 
--- | Contains the response to a successful ListGroupsForUser request.
+-- | Contains the response to a successful < ListGroupsForUser> request.
 --
 -- /See:/ 'listGroupsForUserResponse' smart constructor.
 data ListGroupsForUserResponse = ListGroupsForUserResponse'

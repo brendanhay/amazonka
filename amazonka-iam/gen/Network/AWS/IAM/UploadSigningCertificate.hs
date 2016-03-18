@@ -119,7 +119,8 @@ instance ToQuery UploadSigningCertificate where
                "UserName" =: _uplUserName,
                "CertificateBody" =: _uplCertificateBody]
 
--- | Contains the response to a successful UploadSigningCertificate request.
+-- | Contains the response to a successful < UploadSigningCertificate>
+-- request.
 --
 -- /See:/ 'uploadSigningCertificateResponse' smart constructor.
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse'

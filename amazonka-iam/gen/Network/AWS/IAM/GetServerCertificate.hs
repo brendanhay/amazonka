@@ -96,7 +96,7 @@ instance ToQuery GetServerCertificate where
                "Version" =: ("2010-05-08" :: ByteString),
                "ServerCertificateName" =: _gscServerCertificateName]
 
--- | Contains the response to a successful GetServerCertificate request.
+-- | Contains the response to a successful < GetServerCertificate> request.
 --
 -- /See:/ 'getServerCertificateResponse' smart constructor.
 data GetServerCertificateResponse = GetServerCertificateResponse'

@@ -71,7 +71,7 @@ addClientIdToOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ =
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to add the client ID to. You can get a list of OIDC provider ARNs by
--- using the ListOpenIDConnectProviders action.
+-- using the < ListOpenIDConnectProviders> action.
 acitoicpOpenIdConnectProviderARN :: Lens' AddClientIdToOpenIdConnectProvider Text
 acitoicpOpenIdConnectProviderARN = lens _acitoicpOpenIdConnectProviderARN (\ s a -> s{_acitoicpOpenIdConnectProviderARN = a});
 

@@ -139,7 +139,7 @@ instance ToQuery ListMFADevices where
                "UserName" =: _lmdUserName, "Marker" =: _lmdMarker,
                "MaxItems" =: _lmdMaxItems]
 
--- | Contains the response to a successful ListMFADevices request.
+-- | Contains the response to a successful < ListMFADevices> request.
 --
 -- /See:/ 'listMFADevicesResponse' smart constructor.
 data ListMFADevicesResponse = ListMFADevicesResponse'

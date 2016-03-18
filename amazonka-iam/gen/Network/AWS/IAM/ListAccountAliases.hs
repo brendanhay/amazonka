@@ -127,7 +127,7 @@ instance ToQuery ListAccountAliases where
                "Version" =: ("2010-05-08" :: ByteString),
                "Marker" =: _laaMarker, "MaxItems" =: _laaMaxItems]
 
--- | Contains the response to a successful ListAccountAliases request.
+-- | Contains the response to a successful < ListAccountAliases> request.
 --
 -- /See:/ 'listAccountAliasesResponse' smart constructor.
 data ListAccountAliasesResponse = ListAccountAliasesResponse'

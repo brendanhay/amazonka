@@ -106,7 +106,7 @@ instance ToQuery CreateGroup where
                "Version" =: ("2010-05-08" :: ByteString),
                "Path" =: _cgPath, "GroupName" =: _cgGroupName]
 
--- | Contains the response to a successful CreateGroup request.
+-- | Contains the response to a successful < CreateGroup> request.
 --
 -- /See:/ 'createGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'

@@ -179,7 +179,7 @@ instance ToQuery ListEntitiesForPolicy where
                "Marker" =: _lefpMarker, "MaxItems" =: _lefpMaxItems,
                "PolicyArn" =: _lefpPolicyARN]
 
--- | Contains the response to a successful ListEntitiesForPolicy request.
+-- | Contains the response to a successful < ListEntitiesForPolicy> request.
 --
 -- /See:/ 'listEntitiesForPolicyResponse' smart constructor.
 data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'

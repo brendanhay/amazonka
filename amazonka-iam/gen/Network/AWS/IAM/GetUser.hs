@@ -94,7 +94,7 @@ instance ToQuery GetUser where
                "Version" =: ("2010-05-08" :: ByteString),
                "UserName" =: _guUserName]
 
--- | Contains the response to a successful GetUser request.
+-- | Contains the response to a successful < GetUser> request.
 --
 -- /See:/ 'getUserResponse' smart constructor.
 data GetUserResponse = GetUserResponse'

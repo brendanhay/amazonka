@@ -82,7 +82,7 @@ instance ToQuery GetAccountSummary where
                  ["Action" =: ("GetAccountSummary" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful GetAccountSummary request.
+-- | Contains the response to a successful < GetAccountSummary> request.
 --
 -- /See:/ 'getAccountSummaryResponse' smart constructor.
 data GetAccountSummaryResponse = GetAccountSummaryResponse'

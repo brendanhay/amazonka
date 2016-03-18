@@ -145,7 +145,8 @@ instance ToQuery ListSigningCertificates where
                "UserName" =: _lUserName, "Marker" =: _lMarker,
                "MaxItems" =: _lMaxItems]
 
--- | Contains the response to a successful ListSigningCertificates request.
+-- | Contains the response to a successful < ListSigningCertificates>
+-- request.
 --
 -- /See:/ 'listSigningCertificatesResponse' smart constructor.
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse'

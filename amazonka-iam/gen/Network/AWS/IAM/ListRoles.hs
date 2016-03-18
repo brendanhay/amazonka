@@ -143,7 +143,7 @@ instance ToQuery ListRoles where
                "PathPrefix" =: _lrPathPrefix, "Marker" =: _lrMarker,
                "MaxItems" =: _lrMaxItems]
 
--- | Contains the response to a successful ListRoles request.
+-- | Contains the response to a successful < ListRoles> request.
 --
 -- /See:/ 'listRolesResponse' smart constructor.
 data ListRolesResponse = ListRolesResponse'

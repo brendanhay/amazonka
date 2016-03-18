@@ -68,7 +68,7 @@ deleteOpenIdConnectProvider pOpenIdConnectProviderARN_ =
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider to
 -- delete. You can get a list of OpenID Connect provider ARNs by using the
--- ListOpenIDConnectProviders action.
+-- < ListOpenIDConnectProviders> action.
 doicpOpenIdConnectProviderARN :: Lens' DeleteOpenIdConnectProvider Text
 doicpOpenIdConnectProviderARN = lens _doicpOpenIdConnectProviderARN (\ s a -> s{_doicpOpenIdConnectProviderARN = a});
 

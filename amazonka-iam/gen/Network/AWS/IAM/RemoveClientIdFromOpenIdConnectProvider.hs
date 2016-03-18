@@ -71,13 +71,13 @@ removeClientIdFromOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ =
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to remove the client ID from. You can get a list of OIDC provider ARNs
--- by using the ListOpenIDConnectProviders action.
+-- by using the < ListOpenIDConnectProviders> action.
 rcifoicpOpenIdConnectProviderARN :: Lens' RemoveClientIdFromOpenIdConnectProvider Text
 rcifoicpOpenIdConnectProviderARN = lens _rcifoicpOpenIdConnectProviderARN (\ s a -> s{_rcifoicpOpenIdConnectProviderARN = a});
 
 -- | The client ID (also known as audience) to remove from the IAM OpenID
 -- Connect provider. For more information about client IDs, see
--- CreateOpenIDConnectProvider.
+-- < CreateOpenIDConnectProvider>.
 rcifoicpClientId :: Lens' RemoveClientIdFromOpenIdConnectProvider Text
 rcifoicpClientId = lens _rcifoicpClientId (\ s a -> s{_rcifoicpClientId = a});
 

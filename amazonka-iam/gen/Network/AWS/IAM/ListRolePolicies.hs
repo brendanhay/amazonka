@@ -23,7 +23,8 @@
 --
 -- A role can also have managed policies attached to it. To list the
 -- managed policies that are attached to a role, use
--- ListAttachedRolePolicies. For more information about policies, refer to
+-- < ListAttachedRolePolicies>. For more information about policies, refer
+-- to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
 --
@@ -145,7 +146,7 @@ instance ToQuery ListRolePolicies where
                "Marker" =: _lrpMarker, "MaxItems" =: _lrpMaxItems,
                "RoleName" =: _lrpRoleName]
 
--- | Contains the response to a successful ListRolePolicies request.
+-- | Contains the response to a successful < ListRolePolicies> request.
 --
 -- /See:/ 'listRolePoliciesResponse' smart constructor.
 data ListRolePoliciesResponse = ListRolePoliciesResponse'

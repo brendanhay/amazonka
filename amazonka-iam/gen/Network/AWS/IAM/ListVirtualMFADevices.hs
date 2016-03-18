@@ -142,7 +142,7 @@ instance ToQuery ListVirtualMFADevices where
                "AssignmentStatus" =: _lvmdAssignmentStatus,
                "Marker" =: _lvmdMarker, "MaxItems" =: _lvmdMaxItems]
 
--- | Contains the response to a successful ListVirtualMFADevices request.
+-- | Contains the response to a successful < ListVirtualMFADevices> request.
 --
 -- /See:/ 'listVirtualMFADevicesResponse' smart constructor.
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'

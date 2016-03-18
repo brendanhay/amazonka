@@ -21,7 +21,7 @@
 -- Attaches the specified managed policy to the specified group.
 --
 -- You use this API to attach a managed policy to a group. To embed an
--- inline policy in a group, use PutGroupPolicy.
+-- inline policy in a group, use < PutGroupPolicy>.
 --
 -- For more information about policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>

@@ -115,7 +115,7 @@ instance ToQuery CreateLoginProfile where
                "UserName" =: _clpUserName,
                "Password" =: _clpPassword]
 
--- | Contains the response to a successful CreateLoginProfile request.
+-- | Contains the response to a successful < CreateLoginProfile> request.
 --
 -- /See:/ 'createLoginProfileResponse' smart constructor.
 data CreateLoginProfileResponse = CreateLoginProfileResponse'

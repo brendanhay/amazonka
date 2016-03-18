@@ -97,7 +97,7 @@ instance ToQuery GetSAMLProvider where
                "Version" =: ("2010-05-08" :: ByteString),
                "SAMLProviderArn" =: _gsamlpSAMLProviderARN]
 
--- | Contains the response to a successful GetSAMLProvider request.
+-- | Contains the response to a successful < GetSAMLProvider> request.
 --
 -- /See:/ 'getSAMLProviderResponse' smart constructor.
 data GetSAMLProviderResponse = GetSAMLProviderResponse'

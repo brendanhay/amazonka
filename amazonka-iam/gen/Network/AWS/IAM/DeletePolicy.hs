@@ -26,13 +26,13 @@
 -- for deleting a managed policy:
 --
 -- 1.  Detach the policy from all users, groups, and roles that the policy
---     is attached to, using the DetachUserPolicy, DetachGroupPolicy, or
---     DetachRolePolicy APIs. To list all the users, groups, and roles that
---     a policy is attached to, use ListEntitiesForPolicy.
--- 2.  Delete all versions of the policy using DeletePolicyVersion. To list
---     the policy\'s versions, use ListPolicyVersions. You cannot use
---     DeletePolicyVersion to delete the version that is marked as the
---     default version. You delete the policy\'s default version in the
+--     is attached to, using the < DetachUserPolicy>, < DetachGroupPolicy>,
+--     or < DetachRolePolicy> APIs. To list all the users, groups, and
+--     roles that a policy is attached to, use < ListEntitiesForPolicy>.
+-- 2.  Delete all versions of the policy using < DeletePolicyVersion>. To
+--     list the policy\'s versions, use < ListPolicyVersions>. You cannot
+--     use < DeletePolicyVersion> to delete the version that is marked as
+--     the default version. You delete the policy\'s default version in the
 --     next step of the process.
 -- 3.  Delete the policy (this automatically deletes the policy\'s default
 --     version) using this API.

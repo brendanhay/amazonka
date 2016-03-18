@@ -146,7 +146,7 @@ instance ToQuery ListAccessKeys where
                "UserName" =: _lakUserName, "Marker" =: _lakMarker,
                "MaxItems" =: _lakMaxItems]
 
--- | Contains the response to a successful ListAccessKeys request.
+-- | Contains the response to a successful < ListAccessKeys> request.
 --
 -- /See:/ 'listAccessKeysResponse' smart constructor.
 data ListAccessKeysResponse = ListAccessKeysResponse'

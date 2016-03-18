@@ -21,7 +21,7 @@
 -- Removes the specified managed policy from the specified user.
 --
 -- A user can also have inline policies embedded with it. To delete an
--- inline policy, use the DeleteUserPolicy API. For information about
+-- inline policy, use the < DeleteUserPolicy> API. For information about
 -- policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.

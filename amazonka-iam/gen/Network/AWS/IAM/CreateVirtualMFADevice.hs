@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new virtual MFA device for the AWS account. After creating the
--- virtual MFA, use EnableMFADevice to attach the MFA device to an IAM
+-- virtual MFA, use < EnableMFADevice> to attach the MFA device to an IAM
 -- user. For more information about creating and working with virtual MFA
 -- devices, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device>
@@ -123,7 +123,7 @@ instance ToQuery CreateVirtualMFADevice where
                "Path" =: _cvmdPath,
                "VirtualMFADeviceName" =: _cvmdVirtualMFADeviceName]
 
--- | Contains the response to a successful CreateVirtualMFADevice request.
+-- | Contains the response to a successful < CreateVirtualMFADevice> request.
 --
 -- /See:/ 'createVirtualMFADeviceResponse' smart constructor.
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'

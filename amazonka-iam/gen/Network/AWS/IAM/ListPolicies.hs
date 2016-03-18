@@ -180,7 +180,7 @@ instance ToQuery ListPolicies where
                "Marker" =: _lpMarker, "Scope" =: _lpScope,
                "MaxItems" =: _lpMaxItems]
 
--- | Contains the response to a successful ListPolicies request.
+-- | Contains the response to a successful < ListPolicies> request.
 --
 -- /See:/ 'listPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'

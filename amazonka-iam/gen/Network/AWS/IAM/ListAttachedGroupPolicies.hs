@@ -21,7 +21,7 @@
 -- Lists all managed policies that are attached to the specified group.
 --
 -- A group can also have inline policies embedded with it. To list the
--- inline policies for a group, use the ListGroupPolicies API. For
+-- inline policies for a group, use the < ListGroupPolicies> API. For
 -- information about policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
@@ -161,7 +161,8 @@ instance ToQuery ListAttachedGroupPolicies where
                "Marker" =: _lagpMarker, "MaxItems" =: _lagpMaxItems,
                "GroupName" =: _lagpGroupName]
 
--- | Contains the response to a successful ListAttachedGroupPolicies request.
+-- | Contains the response to a successful < ListAttachedGroupPolicies>
+-- request.
 --
 -- /See:/ 'listAttachedGroupPoliciesResponse' smart constructor.
 data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'

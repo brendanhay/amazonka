@@ -80,7 +80,7 @@ instance ToQuery ListSAMLProviders where
                  ["Action" =: ("ListSAMLProviders" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful ListSAMLProviders request.
+-- | Contains the response to a successful < ListSAMLProviders> request.
 --
 -- /See:/ 'listSAMLProvidersResponse' smart constructor.
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'

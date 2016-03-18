@@ -120,7 +120,7 @@ instance ToQuery GetSSHPublicKey where
                "SSHPublicKeyId" =: _gspkSSHPublicKeyId,
                "Encoding" =: _gspkEncoding]
 
--- | Contains the response to a successful GetSSHPublicKey request.
+-- | Contains the response to a successful < GetSSHPublicKey> request.
 --
 -- /See:/ 'getSSHPublicKeyResponse' smart constructor.
 data GetSSHPublicKeyResponse = GetSSHPublicKeyResponse'

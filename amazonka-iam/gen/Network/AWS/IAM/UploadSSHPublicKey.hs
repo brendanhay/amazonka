@@ -108,7 +108,7 @@ instance ToQuery UploadSSHPublicKey where
                "UserName" =: _usshpkUserName,
                "SSHPublicKeyBody" =: _usshpkSSHPublicKeyBody]
 
--- | Contains the response to a successful UploadSSHPublicKey request.
+-- | Contains the response to a successful < UploadSSHPublicKey> request.
 --
 -- /See:/ 'uploadSSHPublicKeyResponse' smart constructor.
 data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'

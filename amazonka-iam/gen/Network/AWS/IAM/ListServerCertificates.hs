@@ -150,7 +150,7 @@ instance ToQuery ListServerCertificates where
                "PathPrefix" =: _lscPathPrefix,
                "Marker" =: _lscMarker, "MaxItems" =: _lscMaxItems]
 
--- | Contains the response to a successful ListServerCertificates request.
+-- | Contains the response to a successful < ListServerCertificates> request.
 --
 -- /See:/ 'listServerCertificatesResponse' smart constructor.
 data ListServerCertificatesResponse = ListServerCertificatesResponse'

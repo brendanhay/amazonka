@@ -133,7 +133,7 @@ instance ToQuery CreateSAMLProvider where
                  _csamlpSAMLMetadataDocument,
                "Name" =: _csamlpName]
 
--- | Contains the response to a successful CreateSAMLProvider request.
+-- | Contains the response to a successful < CreateSAMLProvider> request.
 --
 -- /See:/ 'createSAMLProviderResponse' smart constructor.
 data CreateSAMLProviderResponse = CreateSAMLProviderResponse'

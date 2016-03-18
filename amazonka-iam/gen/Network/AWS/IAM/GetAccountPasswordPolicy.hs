@@ -79,7 +79,8 @@ instance ToQuery GetAccountPasswordPolicy where
                     ("GetAccountPasswordPolicy" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful GetAccountPasswordPolicy request.
+-- | Contains the response to a successful < GetAccountPasswordPolicy>
+-- request.
 --
 -- /See:/ 'getAccountPasswordPolicyResponse' smart constructor.
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'

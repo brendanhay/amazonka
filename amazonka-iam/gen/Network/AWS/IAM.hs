@@ -685,17 +685,20 @@ module Network.AWS.IAM
     -- ** PolicyGroup
     , PolicyGroup
     , policyGroup
+    , pgGroupId
     , pgGroupName
 
     -- ** PolicyRole
     , PolicyRole
     , policyRole
     , prRoleName
+    , prRoleId
 
     -- ** PolicyUser
     , PolicyUser
     , policyUser
     , puUserName
+    , puUserId
 
     -- ** PolicyVersion
     , PolicyVersion
@@ -722,7 +725,7 @@ module Network.AWS.IAM
 
     -- ** Role
     , Role
-    , role
+    , role'
     , rAssumeRolePolicyDocument
     , rPath
     , rRoleName

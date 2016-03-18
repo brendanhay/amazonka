@@ -21,7 +21,7 @@
 -- Removes the specified managed policy from the specified group.
 --
 -- A group can also have inline policies embedded with it. To delete an
--- inline policy, use the DeleteGroupPolicy API. For information about
+-- inline policy, use the < DeleteGroupPolicy> API. For information about
 -- policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.

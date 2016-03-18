@@ -169,7 +169,8 @@ instance ToQuery UploadServerCertificate where
                "CertificateBody" =: _uscCertificateBody,
                "PrivateKey" =: _uscPrivateKey]
 
--- | Contains the response to a successful UploadServerCertificate request.
+-- | Contains the response to a successful < UploadServerCertificate>
+-- request.
 --
 -- /See:/ 'uploadServerCertificateResponse' smart constructor.
 data UploadServerCertificateResponse = UploadServerCertificateResponse'

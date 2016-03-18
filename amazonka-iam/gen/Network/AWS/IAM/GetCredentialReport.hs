@@ -83,7 +83,7 @@ instance ToQuery GetCredentialReport where
                  ["Action" =: ("GetCredentialReport" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful GetCredentialReport request.
+-- | Contains the response to a successful < GetCredentialReport> request.
 --
 -- /See:/ 'getCredentialReportResponse' smart constructor.
 data GetCredentialReportResponse = GetCredentialReportResponse'

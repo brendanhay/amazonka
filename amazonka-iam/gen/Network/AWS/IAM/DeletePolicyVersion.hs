@@ -21,9 +21,9 @@
 -- Deletes the specified version of the specified managed policy.
 --
 -- You cannot delete the default version of a policy using this API. To
--- delete the default version of a policy, use DeletePolicy. To find out
+-- delete the default version of a policy, use < DeletePolicy>. To find out
 -- which version of a policy is marked as the default version, use
--- ListPolicyVersions.
+-- < ListPolicyVersions>.
 --
 -- For information about versions for managed policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>

@@ -21,7 +21,7 @@
 -- Lists all managed policies that are attached to the specified user.
 --
 -- A user can also have inline policies embedded with it. To list the
--- inline policies for a user, use the ListUserPolicies API. For
+-- inline policies for a user, use the < ListUserPolicies> API. For
 -- information about policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
@@ -161,7 +161,8 @@ instance ToQuery ListAttachedUserPolicies where
                "Marker" =: _laupMarker, "MaxItems" =: _laupMaxItems,
                "UserName" =: _laupUserName]
 
--- | Contains the response to a successful ListAttachedUserPolicies request.
+-- | Contains the response to a successful < ListAttachedUserPolicies>
+-- request.
 --
 -- /See:/ 'listAttachedUserPoliciesResponse' smart constructor.
 data ListAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'

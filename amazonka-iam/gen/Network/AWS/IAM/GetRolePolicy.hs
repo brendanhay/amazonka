@@ -22,8 +22,8 @@
 -- specified role.
 --
 -- A role can also have managed policies attached to it. To retrieve a
--- managed policy document that is attached to a role, use GetPolicy to
--- determine the policy\'s default version, then use GetPolicyVersion to
+-- managed policy document that is attached to a role, use < GetPolicy> to
+-- determine the policy\'s default version, then use < GetPolicyVersion> to
 -- retrieve the policy document.
 --
 -- For more information about policies, refer to
@@ -116,7 +116,7 @@ instance ToQuery GetRolePolicy where
                "RoleName" =: _grpRoleName,
                "PolicyName" =: _grpPolicyName]
 
--- | Contains the response to a successful GetRolePolicy request.
+-- | Contains the response to a successful < GetRolePolicy> request.
 --
 -- /See:/ 'getRolePolicyResponse' smart constructor.
 data GetRolePolicyResponse = GetRolePolicyResponse'

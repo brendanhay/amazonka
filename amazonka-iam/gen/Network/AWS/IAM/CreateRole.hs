@@ -121,7 +121,7 @@ instance ToQuery CreateRole where
                "AssumeRolePolicyDocument" =:
                  _crAssumeRolePolicyDocument]
 
--- | Contains the response to a successful CreateRole request.
+-- | Contains the response to a successful < CreateRole> request.
 --
 -- /See:/ 'createRoleResponse' smart constructor.
 data CreateRoleResponse = CreateRoleResponse'

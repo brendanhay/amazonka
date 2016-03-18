@@ -141,7 +141,7 @@ instance ToQuery CreatePolicy where
                "PolicyName" =: _cpPolicyName,
                "PolicyDocument" =: _cpPolicyDocument]
 
--- | Contains the response to a successful CreatePolicy request.
+-- | Contains the response to a successful < CreatePolicy> request.
 --
 -- /See:/ 'createPolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'

@@ -136,7 +136,7 @@ instance ToQuery GetGroup where
                "Marker" =: _ggMarker, "MaxItems" =: _ggMaxItems,
                "GroupName" =: _ggGroupName]
 
--- | Contains the response to a successful GetGroup request.
+-- | Contains the response to a successful < GetGroup> request.
 --
 -- /See:/ 'getGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'

@@ -141,7 +141,7 @@ instance ToQuery ListGroups where
                "PathPrefix" =: _lgPathPrefix, "Marker" =: _lgMarker,
                "MaxItems" =: _lgMaxItems]
 
--- | Contains the response to a successful ListGroups request.
+-- | Contains the response to a successful < ListGroups> request.
 --
 -- /See:/ 'listGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'

@@ -80,7 +80,7 @@ instance ToQuery ListOpenIdConnectProviders where
                     ("ListOpenIDConnectProviders" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful ListOpenIDConnectProviders
+-- | Contains the response to a successful < ListOpenIDConnectProviders>
 -- request.
 --
 -- /See:/ 'listOpenIdConnectProvidersResponse' smart constructor.

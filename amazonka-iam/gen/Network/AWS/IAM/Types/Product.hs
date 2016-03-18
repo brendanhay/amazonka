@@ -23,11 +23,11 @@ import           Network.AWS.Prelude
 
 -- | Contains information about an AWS access key.
 --
--- This data type is used as a response element in the CreateAccessKey and
--- ListAccessKeys actions.
+-- This data type is used as a response element in the < CreateAccessKey>
+-- and < ListAccessKeys> actions.
 --
 -- The 'SecretAccessKey' value is returned only in response to
--- CreateAccessKey. You can get a secret access key only when you first
+-- < CreateAccessKey>. You can get a secret access key only when you first
 -- create an access key; you cannot recover the secret access key later. If
 -- you lose a secret access key, you must create a new access key.
 --
@@ -99,8 +99,8 @@ instance FromXML AccessKey where
 
 -- | Contains information about the last time an AWS access key was used.
 --
--- This data type is used as a response element in the GetAccessKeyLastUsed
--- action.
+-- This data type is used as a response element in the
+-- < GetAccessKeyLastUsed> action.
 --
 -- /See:/ 'accessKeyLastUsed' smart constructor.
 data AccessKeyLastUsed = AccessKeyLastUsed'
@@ -181,7 +181,7 @@ instance FromXML AccessKeyLastUsed where
 
 -- | Contains information about an AWS access key, without its secret key.
 --
--- This data type is used as a response element in the ListAccessKeys
+-- This data type is used as a response element in the < ListAccessKeys>
 -- action.
 --
 -- /See:/ 'accessKeyMetadata' smart constructor.
@@ -241,8 +241,9 @@ instance FromXML AccessKeyMetadata where
 --
 -- An attached policy is a managed policy that has been attached to a user,
 -- group, or role. This data type is used as a response element in the
--- ListAttachedGroupPolicies, ListAttachedRolePolicies,
--- ListAttachedUserPolicies, and GetAccountAuthorizationDetails actions.
+-- < ListAttachedGroupPolicies>, < ListAttachedRolePolicies>,
+-- < ListAttachedUserPolicies>, and < GetAccountAuthorizationDetails>
+-- actions.
 --
 -- For more information about managed policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
@@ -414,9 +415,13 @@ erEvalResourceName :: Lens' EvaluationResult (Maybe Text)
 erEvalResourceName = lens _erEvalResourceName (\ s a -> s{_erEvalResourceName = a});
 
 -- | A list of context keys that are required by the included input policies
--- but that were not provided by one of the input parameters. To discover
--- the context keys used by a set of policies, you can call
--- GetContextKeysForCustomPolicy or GetContextKeysForPrincipalPolicy.
+-- but that were not provided by one of the input parameters. This list is
+-- used when the resource in a simulation is \"*\", either explicitly, or
+-- when the 'ResourceArns' parameter blank. If you include a list of
+-- resources, then any missing context values are instead included under
+-- the 'ResourceSpecificResults' section. To discover the context keys used
+-- by a set of policies, you can call < GetContextKeysForCustomPolicy> or
+-- < GetContextKeysForPrincipalPolicy>.
 --
 -- If the response includes any keys in this list, then the reported
 -- results might be untrustworthy because the simulation could not
@@ -451,8 +456,9 @@ instance FromXML EvaluationResult where
                 <*> (x .@ "EvalActionName")
                 <*> (x .@ "EvalDecision")
 
--- | Contains the response to a successful GetContextKeysForPrincipalPolicy
--- or GetContextKeysForCustomPolicy request.
+-- | Contains the response to a successful
+-- < GetContextKeysForPrincipalPolicy> or < GetContextKeysForCustomPolicy>
+-- request.
 --
 -- /See:/ 'getContextKeysForPolicyResponse' smart constructor.
 newtype GetContextKeysForPolicyResponse = GetContextKeysForPolicyResponse'
@@ -487,9 +493,9 @@ instance FromXML GetContextKeysForPolicyResponse
 --
 -- This data type is used as a response element in the following actions:
 --
--- -   CreateGroup
--- -   GetGroup
--- -   ListGroups
+-- -   < CreateGroup>
+-- -   < GetGroup>
+-- -   < ListGroups>
 --
 -- /See:/ 'group'' smart constructor.
 data Group = Group'
@@ -571,7 +577,7 @@ instance FromXML Group where
 -- policies.
 --
 -- This data type is used as a response element in the
--- GetAccountAuthorizationDetails action.
+-- < GetAccountAuthorizationDetails> action.
 --
 -- /See:/ 'groupDetail' smart constructor.
 data GroupDetail = GroupDetail'
@@ -667,13 +673,13 @@ instance FromXML GroupDetail where
 --
 -- This data type is used as a response element in the following actions:
 --
--- -   CreateInstanceProfile
+-- -   < CreateInstanceProfile>
 --
--- -   GetInstanceProfile
+-- -   < GetInstanceProfile>
 --
--- -   ListInstanceProfiles
+-- -   < ListInstanceProfiles>
 --
--- -   ListInstanceProfilesForRole
+-- -   < ListInstanceProfilesForRole>
 --
 --
 -- /See:/ 'instanceProfile' smart constructor.
@@ -762,8 +768,8 @@ instance FromXML InstanceProfile where
 
 -- | Contains the user name and password create date for a user.
 --
--- This data type is used as a response element in the CreateLoginProfile
--- and GetLoginProfile actions.
+-- This data type is used as a response element in the
+-- < CreateLoginProfile> and < GetLoginProfile> actions.
 --
 -- /See:/ 'loginProfile' smart constructor.
 data LoginProfile = LoginProfile'
@@ -814,7 +820,7 @@ instance FromXML LoginProfile where
 
 -- | Contains information about an MFA device.
 --
--- This data type is used as a response element in the ListMFADevices
+-- This data type is used as a response element in the < ListMFADevices>
 -- action.
 --
 -- /See:/ 'mfaDevice' smart constructor.
@@ -869,7 +875,7 @@ instance FromXML MFADevice where
 -- roles) that the policy is attached to.
 --
 -- This data type is used as a response element in the
--- GetAccountAuthorizationDetails action.
+-- < GetAccountAuthorizationDetails> action.
 --
 -- For more information about managed policies, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
@@ -1047,7 +1053,7 @@ instance FromXML OpenIdConnectProviderListEntry where
 -- | Contains information about the account password policy.
 --
 -- This data type is used as a response element in the
--- GetAccountPasswordPolicy action.
+-- < GetAccountPasswordPolicy> action.
 --
 -- /See:/ 'passwordPolicy' smart constructor.
 data PasswordPolicy = PasswordPolicy'
@@ -1164,8 +1170,8 @@ instance FromXML PasswordPolicy where
 
 -- | Contains information about a managed policy.
 --
--- This data type is used as a response element in the CreatePolicy,
--- GetPolicy, and ListPolicies actions.
+-- This data type is used as a response element in the < CreatePolicy>,
+-- < GetPolicy>, and < ListPolicies> actions.
 --
 -- For more information about managed policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
@@ -1282,8 +1288,8 @@ pAttachmentCount = lens _pAttachmentCount (\ s a -> s{_pAttachmentCount = a});
 
 -- | A friendly description of the policy.
 --
--- This element is included in the response to the GetPolicy operation. It
--- is not included in the response to the ListPolicies operation.
+-- This element is included in the response to the < GetPolicy> operation.
+-- It is not included in the response to the < ListPolicies> operation.
 pDescription :: Lens' Policy (Maybe Text)
 pDescription = lens _pDescription (\ s a -> s{_pDescription = a});
 
@@ -1303,7 +1309,7 @@ instance FromXML Policy where
 -- | Contains information about an IAM policy, including the policy document.
 --
 -- This data type is used as a response element in the
--- GetAccountAuthorizationDetails action.
+-- < GetAccountAuthorizationDetails> action.
 --
 -- /See:/ 'policyDetail' smart constructor.
 data PolicyDetail = PolicyDetail'
@@ -1342,48 +1348,62 @@ instance FromXML PolicyDetail where
 -- | Contains information about a group that a managed policy is attached to.
 --
 -- This data type is used as a response element in the
--- ListEntitiesForPolicy action.
+-- < ListEntitiesForPolicy> action.
 --
 -- For more information about managed policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
 -- /See:/ 'policyGroup' smart constructor.
-newtype PolicyGroup = PolicyGroup'
-    { _pgGroupName :: Maybe Text
+data PolicyGroup = PolicyGroup'
+    { _pgGroupId   :: !(Maybe Text)
+    , _pgGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PolicyGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'pgGroupId'
+--
 -- * 'pgGroupName'
 policyGroup
     :: PolicyGroup
 policyGroup =
     PolicyGroup'
-    { _pgGroupName = Nothing
+    { _pgGroupId = Nothing
+    , _pgGroupName = Nothing
     }
+
+-- | The stable and unique string identifying the group. For more information
+-- about IDs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers>
+-- in the /IAM User Guide/.
+pgGroupId :: Lens' PolicyGroup (Maybe Text)
+pgGroupId = lens _pgGroupId (\ s a -> s{_pgGroupId = a});
 
 -- | The name (friendly name, not ARN) identifying the group.
 pgGroupName :: Lens' PolicyGroup (Maybe Text)
 pgGroupName = lens _pgGroupName (\ s a -> s{_pgGroupName = a});
 
 instance FromXML PolicyGroup where
-        parseXML x = PolicyGroup' <$> (x .@? "GroupName")
+        parseXML x
+          = PolicyGroup' <$>
+              (x .@? "GroupId") <*> (x .@? "GroupName")
 
 -- | Contains information about a role that a managed policy is attached to.
 --
 -- This data type is used as a response element in the
--- ListEntitiesForPolicy action.
+-- < ListEntitiesForPolicy> action.
 --
 -- For more information about managed policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
 -- /See:/ 'policyRole' smart constructor.
-newtype PolicyRole = PolicyRole'
-    { _prRoleName :: Maybe Text
+data PolicyRole = PolicyRole'
+    { _prRoleName :: !(Maybe Text)
+    , _prRoleId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PolicyRole' with the minimum fields required to make a request.
@@ -1391,32 +1411,45 @@ newtype PolicyRole = PolicyRole'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'prRoleName'
+--
+-- * 'prRoleId'
 policyRole
     :: PolicyRole
 policyRole =
     PolicyRole'
     { _prRoleName = Nothing
+    , _prRoleId = Nothing
     }
 
 -- | The name (friendly name, not ARN) identifying the role.
 prRoleName :: Lens' PolicyRole (Maybe Text)
 prRoleName = lens _prRoleName (\ s a -> s{_prRoleName = a});
 
+-- | The stable and unique string identifying the role. For more information
+-- about IDs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers>
+-- in the /IAM User Guide/.
+prRoleId :: Lens' PolicyRole (Maybe Text)
+prRoleId = lens _prRoleId (\ s a -> s{_prRoleId = a});
+
 instance FromXML PolicyRole where
-        parseXML x = PolicyRole' <$> (x .@? "RoleName")
+        parseXML x
+          = PolicyRole' <$>
+              (x .@? "RoleName") <*> (x .@? "RoleId")
 
 -- | Contains information about a user that a managed policy is attached to.
 --
 -- This data type is used as a response element in the
--- ListEntitiesForPolicy action.
+-- < ListEntitiesForPolicy> action.
 --
 -- For more information about managed policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
 -- /See:/ 'policyUser' smart constructor.
-newtype PolicyUser = PolicyUser'
-    { _puUserName :: Maybe Text
+data PolicyUser = PolicyUser'
+    { _puUserName :: !(Maybe Text)
+    , _puUserId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PolicyUser' with the minimum fields required to make a request.
@@ -1424,25 +1457,37 @@ newtype PolicyUser = PolicyUser'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'puUserName'
+--
+-- * 'puUserId'
 policyUser
     :: PolicyUser
 policyUser =
     PolicyUser'
     { _puUserName = Nothing
+    , _puUserId = Nothing
     }
 
 -- | The name (friendly name, not ARN) identifying the user.
 puUserName :: Lens' PolicyUser (Maybe Text)
 puUserName = lens _puUserName (\ s a -> s{_puUserName = a});
 
+-- | The stable and unique string identifying the user. For more information
+-- about IDs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers>
+-- in the /IAM User Guide/.
+puUserId :: Lens' PolicyUser (Maybe Text)
+puUserId = lens _puUserId (\ s a -> s{_puUserId = a});
+
 instance FromXML PolicyUser where
-        parseXML x = PolicyUser' <$> (x .@? "UserName")
+        parseXML x
+          = PolicyUser' <$>
+              (x .@? "UserName") <*> (x .@? "UserId")
 
 -- | Contains information about a version of a managed policy.
 --
--- This data type is used as a response element in the CreatePolicyVersion,
--- GetPolicyVersion, ListPolicyVersions, and GetAccountAuthorizationDetails
--- actions.
+-- This data type is used as a response element in the
+-- < CreatePolicyVersion>, < GetPolicyVersion>, < ListPolicyVersions>, and
+-- < GetAccountAuthorizationDetails> actions.
 --
 -- For more information about managed policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
@@ -1492,9 +1537,10 @@ pvCreateDate = lens _pvCreateDate (\ s a -> s{_pvCreateDate = a}) . mapping _Tim
 
 -- | The policy document.
 --
--- The policy document is returned in the response to the GetPolicyVersion
--- and GetAccountAuthorizationDetails operations. It is not returned in the
--- response to the CreatePolicyVersion or ListPolicyVersions operations.
+-- The policy document is returned in the response to the
+-- < GetPolicyVersion> and < GetAccountAuthorizationDetails> operations. It
+-- is not returned in the response to the < CreatePolicyVersion> or
+-- < ListPolicyVersions> operations.
 pvDocument :: Lens' PolicyVersion (Maybe Text)
 pvDocument = lens _pvDocument (\ s a -> s{_pvDocument = a});
 
@@ -1552,7 +1598,7 @@ instance FromXML Position where
 -- | Contains the result of the simulation of a single API action call on a
 -- single resource.
 --
--- This data type is used by a member of the EvaluationResult data type.
+-- This data type is used by a member of the < EvaluationResult> data type.
 --
 -- /See:/ 'resourceSpecificResult' smart constructor.
 data ResourceSpecificResult = ResourceSpecificResult'
@@ -1606,9 +1652,14 @@ rsrEvalDecisionDetails :: Lens' ResourceSpecificResult (HashMap Text PolicyEvalu
 rsrEvalDecisionDetails = lens _rsrEvalDecisionDetails (\ s a -> s{_rsrEvalDecisionDetails = a}) . _Default . _Map;
 
 -- | A list of context keys that are required by the included input policies
--- but that were not provided by one of the input parameters. To discover
--- the context keys used by a set of policies, you can call
--- GetContextKeysForCustomPolicy or GetContextKeysForPrincipalPolicy.
+-- but that were not provided by one of the input parameters. This list is
+-- used when a list of ARNs is included in the 'ResourceArns' parameter
+-- instead of \"*\". If you do not specify individual resources, by setting
+-- 'ResourceArns' to \"*\" or by not including the 'ResourceArns'
+-- parameter, then any missing context values are instead included under
+-- the 'EvaluationResults' section. To discover the context keys used by a
+-- set of policies, you can call < GetContextKeysForCustomPolicy> or
+-- < GetContextKeysForPrincipalPolicy>.
 rsrMissingContextValues :: Lens' ResourceSpecificResult [Text]
 rsrMissingContextValues = lens _rsrMissingContextValues (\ s a -> s{_rsrMissingContextValues = a}) . _Default . _Coerce;
 
@@ -1640,14 +1691,14 @@ instance FromXML ResourceSpecificResult where
 --
 -- This data type is used as a response element in the following actions:
 --
--- -   CreateRole
+-- -   < CreateRole>
 --
--- -   GetRole
+-- -   < GetRole>
 --
--- -   ListRoles
+-- -   < ListRoles>
 --
 --
--- /See:/ 'role' smart constructor.
+-- /See:/ 'role'' smart constructor.
 data Role = Role'
     { _rAssumeRolePolicyDocument :: !(Maybe Text)
     , _rPath                     :: !Text
@@ -1672,14 +1723,14 @@ data Role = Role'
 -- * 'rARN'
 --
 -- * 'rCreateDate'
-role
+role'
     :: Text -- ^ 'rPath'
     -> Text -- ^ 'rRoleName'
     -> Text -- ^ 'rRoleId'
     -> Text -- ^ 'rARN'
     -> UTCTime -- ^ 'rCreateDate'
     -> Role
-role pPath_ pRoleName_ pRoleId_ pARN_ pCreateDate_ =
+role' pPath_ pRoleName_ pRoleId_ pARN_ pCreateDate_ =
     Role'
     { _rAssumeRolePolicyDocument = Nothing
     , _rPath = pPath_
@@ -1736,7 +1787,7 @@ instance FromXML Role where
 -- policies.
 --
 -- This data type is used as a response element in the
--- GetAccountAuthorizationDetails action.
+-- < GetAccountAuthorizationDetails> action.
 --
 -- /See:/ 'roleDetail' smart constructor.
 data RoleDetail = RoleDetail'
@@ -1897,8 +1948,8 @@ instance FromXML SAMLProviderListEntry where
 
 -- | Contains information about an SSH public key.
 --
--- This data type is used as a response element in the GetSSHPublicKey and
--- UploadSSHPublicKey actions.
+-- This data type is used as a response element in the < GetSSHPublicKey>
+-- and < UploadSSHPublicKey> actions.
 --
 -- /See:/ 'sshPublicKey' smart constructor.
 data SSHPublicKey = SSHPublicKey'
@@ -1982,7 +2033,7 @@ instance FromXML SSHPublicKey where
 -- | Contains information about an SSH public key, without the key\'s body or
 -- fingerprint.
 --
--- This data type is used as a response element in the ListSSHPublicKeys
+-- This data type is used as a response element in the < ListSSHPublicKeys>
 -- action.
 --
 -- /See:/ 'sshPublicKeyMetadata' smart constructor.
@@ -2047,8 +2098,8 @@ instance FromXML SSHPublicKeyMetadata where
 
 -- | Contains information about a server certificate.
 --
--- This data type is used as a response element in the GetServerCertificate
--- action.
+-- This data type is used as a response element in the
+-- < GetServerCertificate> action.
 --
 -- /See:/ 'serverCertificate' smart constructor.
 data ServerCertificate = ServerCertificate'
@@ -2101,7 +2152,7 @@ instance FromXML ServerCertificate where
 -- body, certificate chain, and private key.
 --
 -- This data type is used as a response element in the
--- UploadServerCertificate and ListServerCertificates actions.
+-- < UploadServerCertificate> and < ListServerCertificates> actions.
 --
 -- /See:/ 'serverCertificateMetadata' smart constructor.
 data ServerCertificateMetadata = ServerCertificateMetadata'
@@ -2189,7 +2240,7 @@ instance FromXML ServerCertificateMetadata where
 -- | Contains information about an X.509 signing certificate.
 --
 -- This data type is used as a response element in the
--- UploadSigningCertificate and ListSigningCertificates actions.
+-- < UploadSigningCertificate> and < ListSigningCertificates> actions.
 --
 -- /See:/ 'signingCertificate' smart constructor.
 data SigningCertificate = SigningCertificate'
@@ -2257,8 +2308,8 @@ instance FromXML SigningCertificate where
                 <*> (x .@ "CertificateBody")
                 <*> (x .@ "Status")
 
--- | Contains the response to a successful SimulatePrincipalPolicy or
--- SimulateCustomPolicy request.
+-- | Contains the response to a successful < SimulatePrincipalPolicy> or
+-- < SimulateCustomPolicy> request.
 --
 -- /See:/ 'simulatePolicyResponse' smart constructor.
 data SimulatePolicyResponse = SimulatePolicyResponse'
@@ -2376,11 +2427,11 @@ instance FromXML Statement where
 --
 -- This data type is used as a response element in the following actions:
 --
--- -   CreateUser
+-- -   < CreateUser>
 --
--- -   GetUser
+-- -   < GetUser>
 --
--- -   ListUsers
+-- -   < ListUsers>
 --
 --
 -- /See:/ 'user' smart constructor.
@@ -2441,7 +2492,7 @@ user pPath_ pUserName_ pUserId_ pARN_ pCreateDate_ =
 --
 -- -   there is no sign-in data associated with the user
 --
--- This value is returned only in the GetUser and ListUsers actions.
+-- This value is returned only in the < GetUser> and < ListUsers> actions.
 uPasswordLastUsed :: Lens' User (Maybe UTCTime)
 uPasswordLastUsed = lens _uPasswordLastUsed (\ s a -> s{_uPasswordLastUsed = a}) . mapping _Time;
 
@@ -2488,7 +2539,7 @@ instance FromXML User where
 -- policies and all the IAM groups the user is in.
 --
 -- This data type is used as a response element in the
--- GetAccountAuthorizationDetails action.
+-- < GetAccountAuthorizationDetails> action.
 --
 -- /See:/ 'userDetail' smart constructor.
 data UserDetail = UserDetail'

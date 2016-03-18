@@ -104,7 +104,7 @@ instance ToQuery CreateAccessKey where
                "Version" =: ("2010-05-08" :: ByteString),
                "UserName" =: _cakUserName]
 
--- | Contains the response to a successful CreateAccessKey request.
+-- | Contains the response to a successful < CreateAccessKey> request.
 --
 -- /See:/ 'createAccessKeyResponse' smart constructor.
 data CreateAccessKeyResponse = CreateAccessKeyResponse'

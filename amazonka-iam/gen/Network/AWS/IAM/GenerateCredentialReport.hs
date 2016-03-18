@@ -82,7 +82,8 @@ instance ToQuery GenerateCredentialReport where
                     ("GenerateCredentialReport" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful GenerateCredentialReport request.
+-- | Contains the response to a successful < GenerateCredentialReport>
+-- request.
 --
 -- /See:/ 'generateCredentialReportResponse' smart constructor.
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse'

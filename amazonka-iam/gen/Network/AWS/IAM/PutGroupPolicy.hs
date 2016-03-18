@@ -22,9 +22,9 @@
 -- specified group.
 --
 -- A user can also have managed policies attached to it. To attach a
--- managed policy to a group, use AttachGroupPolicy. To create a new
--- managed policy, use CreatePolicy. For information about policies, refer
--- to
+-- managed policy to a group, use < AttachGroupPolicy>. To create a new
+-- managed policy, use < CreatePolicy>. For information about policies,
+-- refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
 --

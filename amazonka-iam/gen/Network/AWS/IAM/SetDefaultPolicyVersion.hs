@@ -23,7 +23,7 @@
 --
 -- This action affects all users, groups, and roles that the policy is
 -- attached to. To list the users, groups, and roles that the policy is
--- attached to, use the ListEntitiesForPolicy API.
+-- attached to, use the < ListEntitiesForPolicy> API.
 --
 -- For information about managed policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>

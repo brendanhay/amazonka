@@ -136,7 +136,7 @@ instance ToQuery ListSSHPublicKeys where
                "UserName" =: _lspkUserName, "Marker" =: _lspkMarker,
                "MaxItems" =: _lspkMaxItems]
 
--- | Contains the response to a successful ListSSHPublicKeys request.
+-- | Contains the response to a successful < ListSSHPublicKeys> request.
 --
 -- /See:/ 'listSSHPublicKeysResponse' smart constructor.
 data ListSSHPublicKeysResponse = ListSSHPublicKeysResponse'

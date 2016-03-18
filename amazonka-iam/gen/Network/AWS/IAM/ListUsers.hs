@@ -142,7 +142,7 @@ instance ToQuery ListUsers where
                "PathPrefix" =: _luPathPrefix, "Marker" =: _luMarker,
                "MaxItems" =: _luMaxItems]
 
--- | Contains the response to a successful ListUsers request.
+-- | Contains the response to a successful < ListUsers> request.
 --
 -- /See:/ 'listUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'

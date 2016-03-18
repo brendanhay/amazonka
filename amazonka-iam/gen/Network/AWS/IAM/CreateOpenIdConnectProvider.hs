@@ -35,7 +35,7 @@
 --
 -- Because trust for the OIDC provider is ultimately derived from the IAM
 -- provider that this action creates, it is a best practice to limit access
--- to the CreateOpenIDConnectProvider action to highly-privileged users.
+-- to the < CreateOpenIDConnectProvider> action to highly-privileged users.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIdConnectProvider.html AWS API Reference> for CreateOpenIdConnectProvider.
 module Network.AWS.IAM.CreateOpenIdConnectProvider
@@ -173,7 +173,7 @@ instance ToQuery CreateOpenIdConnectProvider where
                "ThumbprintList" =:
                  toQueryList "member" _coicpThumbprintList]
 
--- | Contains the response to a successful CreateOpenIDConnectProvider
+-- | Contains the response to a successful < CreateOpenIDConnectProvider>
 -- request.
 --
 -- /See:/ 'createOpenIdConnectProviderResponse' smart constructor.
@@ -199,7 +199,8 @@ createOpenIdConnectProviderResponse pResponseStatus_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider that
--- was created. For more information, see OpenIDConnectProviderListEntry.
+-- was created. For more information, see
+-- < OpenIDConnectProviderListEntry>.
 coicprsOpenIdConnectProviderARN :: Lens' CreateOpenIdConnectProviderResponse (Maybe Text)
 coicprsOpenIdConnectProviderARN = lens _coicprsOpenIdConnectProviderARN (\ s a -> s{_coicprsOpenIdConnectProviderARN = a});
 

@@ -22,8 +22,8 @@
 -- specified group.
 --
 -- A group can also have managed policies attached to it. To retrieve a
--- managed policy document that is attached to a group, use GetPolicy to
--- determine the policy\'s default version, then use GetPolicyVersion to
+-- managed policy document that is attached to a group, use < GetPolicy> to
+-- determine the policy\'s default version, then use < GetPolicyVersion> to
 -- retrieve the policy document.
 --
 -- For more information about policies, refer to
@@ -113,7 +113,7 @@ instance ToQuery GetGroupPolicy where
                "GroupName" =: _ggpGroupName,
                "PolicyName" =: _ggpPolicyName]
 
--- | Contains the response to a successful GetGroupPolicy request.
+-- | Contains the response to a successful < GetGroupPolicy> request.
 --
 -- /See:/ 'getGroupPolicyResponse' smart constructor.
 data GetGroupPolicyResponse = GetGroupPolicyResponse'

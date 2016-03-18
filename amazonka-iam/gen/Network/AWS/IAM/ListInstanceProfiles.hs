@@ -145,7 +145,7 @@ instance ToQuery ListInstanceProfiles where
                "PathPrefix" =: _lipPathPrefix,
                "Marker" =: _lipMarker, "MaxItems" =: _lipMaxItems]
 
--- | Contains the response to a successful ListInstanceProfiles request.
+-- | Contains the response to a successful < ListInstanceProfiles> request.
 --
 -- /See:/ 'listInstanceProfilesResponse' smart constructor.
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse'

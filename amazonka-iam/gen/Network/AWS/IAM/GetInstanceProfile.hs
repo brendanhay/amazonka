@@ -94,7 +94,7 @@ instance ToQuery GetInstanceProfile where
                "Version" =: ("2010-05-08" :: ByteString),
                "InstanceProfileName" =: _gipInstanceProfileName]
 
--- | Contains the response to a successful GetInstanceProfile request.
+-- | Contains the response to a successful < GetInstanceProfile> request.
 --
 -- /See:/ 'getInstanceProfileResponse' smart constructor.
 data GetInstanceProfileResponse = GetInstanceProfileResponse'

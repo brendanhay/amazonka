@@ -23,7 +23,8 @@
 --
 -- A group can also have managed policies attached to it. To list the
 -- managed policies that are attached to a group, use
--- ListAttachedGroupPolicies. For more information about policies, refer to
+-- < ListAttachedGroupPolicies>. For more information about policies, refer
+-- to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
 --
@@ -145,7 +146,7 @@ instance ToQuery ListGroupPolicies where
                "Marker" =: _lgpMarker, "MaxItems" =: _lgpMaxItems,
                "GroupName" =: _lgpGroupName]
 
--- | Contains the response to a successful ListGroupPolicies request.
+-- | Contains the response to a successful < ListGroupPolicies> request.
 --
 -- /See:/ 'listGroupPoliciesResponse' smart constructor.
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse'

@@ -144,7 +144,7 @@ instance ToQuery ListInstanceProfilesForRole where
                "MaxItems" =: _lipfrMaxItems,
                "RoleName" =: _lipfrRoleName]
 
--- | Contains the response to a successful ListInstanceProfilesForRole
+-- | Contains the response to a successful < ListInstanceProfilesForRole>
 -- request.
 --
 -- /See:/ 'listInstanceProfilesForRoleResponse' smart constructor.

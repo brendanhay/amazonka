@@ -21,8 +21,8 @@
 -- Creates a new version of the specified managed policy. To update a
 -- managed policy, you create a new policy version. A managed policy can
 -- have up to five versions. If the policy has five versions, you must
--- delete an existing version using DeletePolicyVersion before you create a
--- new version.
+-- delete an existing version using < DeletePolicyVersion> before you
+-- create a new version.
 --
 -- Optionally, you can set the new version as the policy\'s default
 -- version. The default version is the operative version; that is, the
@@ -131,7 +131,7 @@ instance ToQuery CreatePolicyVersion where
                "PolicyArn" =: _cpvPolicyARN,
                "PolicyDocument" =: _cpvPolicyDocument]
 
--- | Contains the response to a successful CreatePolicyVersion request.
+-- | Contains the response to a successful < CreatePolicyVersion> request.
 --
 -- /See:/ 'createPolicyVersionResponse' smart constructor.
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'

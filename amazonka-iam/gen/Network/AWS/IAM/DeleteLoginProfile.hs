@@ -26,7 +26,7 @@
 -- through the command line interface or the API. To prevent all user
 -- access you must also either make the access key inactive or delete it.
 -- For more information about making keys inactive or deleting them, see
--- UpdateAccessKey and DeleteAccessKey.
+-- < UpdateAccessKey> and < DeleteAccessKey>.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteLoginProfile.html AWS API Reference> for DeleteLoginProfile.
 module Network.AWS.IAM.DeleteLoginProfile

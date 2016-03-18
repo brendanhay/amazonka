@@ -22,8 +22,8 @@
 -- specified user.
 --
 -- A user can also have managed policies attached to it. To retrieve a
--- managed policy document that is attached to a user, use GetPolicy to
--- determine the policy\'s default version, then use GetPolicyVersion to
+-- managed policy document that is attached to a user, use < GetPolicy> to
+-- determine the policy\'s default version, then use < GetPolicyVersion> to
 -- retrieve the policy document.
 --
 -- For more information about policies, refer to
@@ -113,7 +113,7 @@ instance ToQuery GetUserPolicy where
                "UserName" =: _gupUserName,
                "PolicyName" =: _gupPolicyName]
 
--- | Contains the response to a successful GetUserPolicy request.
+-- | Contains the response to a successful < GetUserPolicy> request.
 --
 -- /See:/ 'getUserPolicyResponse' smart constructor.
 data GetUserPolicyResponse = GetUserPolicyResponse'

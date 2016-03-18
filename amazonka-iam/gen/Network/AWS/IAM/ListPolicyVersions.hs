@@ -140,7 +140,7 @@ instance ToQuery ListPolicyVersions where
                "Marker" =: _lpvMarker, "MaxItems" =: _lpvMaxItems,
                "PolicyArn" =: _lpvPolicyARN]
 
--- | Contains the response to a successful ListPolicyVersions request.
+-- | Contains the response to a successful < ListPolicyVersions> request.
 --
 -- /See:/ 'listPolicyVersionsResponse' smart constructor.
 data ListPolicyVersionsResponse = ListPolicyVersionsResponse'

@@ -28,13 +28,13 @@
 -- actions.
 --
 -- If you want to simulate existing policies attached to an IAM user,
--- group, or role, use SimulatePrincipalPolicy instead.
+-- group, or role, use < SimulatePrincipalPolicy> instead.
 --
 -- Context keys are variables maintained by AWS and its services that
 -- provide details about the context of an API query request. You can use
 -- the 'Condition' element of an IAM policy to evaluate context keys. To
 -- get the list of context keys that the policies require for correct
--- simulation, use GetContextKeysForCustomPolicy.
+-- simulation, use < GetContextKeysForCustomPolicy>.
 --
 -- If the output is long, you can use 'MaxItems' and 'Marker' parameters to
 -- paginate the results.

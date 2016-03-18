@@ -107,7 +107,7 @@ instance ToQuery CreateUser where
                "Version" =: ("2010-05-08" :: ByteString),
                "Path" =: _cuPath, "UserName" =: _cuUserName]
 
--- | Contains the response to a successful CreateUser request.
+-- | Contains the response to a successful < CreateUser> request.
 --
 -- /See:/ 'createUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'

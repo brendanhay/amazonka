@@ -109,7 +109,7 @@ instance ToQuery UpdateSAMLProvider where
                  _usamlpSAMLMetadataDocument,
                "SAMLProviderArn" =: _usamlpSAMLProviderARN]
 
--- | Contains the response to a successful UpdateSAMLProvider request.
+-- | Contains the response to a successful < UpdateSAMLProvider> request.
 --
 -- /See:/ 'updateSAMLProviderResponse' smart constructor.
 data UpdateSAMLProviderResponse = UpdateSAMLProviderResponse'

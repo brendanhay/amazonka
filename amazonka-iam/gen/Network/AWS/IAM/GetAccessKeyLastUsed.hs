@@ -94,9 +94,9 @@ instance ToQuery GetAccessKeyLastUsed where
                "Version" =: ("2010-05-08" :: ByteString),
                "AccessKeyId" =: _gakluAccessKeyId]
 
--- | Contains the response to a successful GetAccessKeyLastUsed request. It
--- is also returned as a member of the AccessKeyMetaData structure returned
--- by the ListAccessKeys action.
+-- | Contains the response to a successful < GetAccessKeyLastUsed> request.
+-- It is also returned as a member of the < AccessKeyMetaData> structure
+-- returned by the < ListAccessKeys> action.
 --
 -- /See:/ 'getAccessKeyLastUsedResponse' smart constructor.
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'

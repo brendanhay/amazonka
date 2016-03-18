@@ -111,7 +111,7 @@ instance ToQuery CreateInstanceProfile where
                "Path" =: _cipPath,
                "InstanceProfileName" =: _cipInstanceProfileName]
 
--- | Contains the response to a successful CreateInstanceProfile request.
+-- | Contains the response to a successful < CreateInstanceProfile> request.
 --
 -- /See:/ 'createInstanceProfileResponse' smart constructor.
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'

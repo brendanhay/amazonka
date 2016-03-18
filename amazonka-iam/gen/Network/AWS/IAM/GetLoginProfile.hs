@@ -90,7 +90,7 @@ instance ToQuery GetLoginProfile where
                "Version" =: ("2010-05-08" :: ByteString),
                "UserName" =: _glpUserName]
 
--- | Contains the response to a successful GetLoginProfile request.
+-- | Contains the response to a successful < GetLoginProfile> request.
 --
 -- /See:/ 'getLoginProfileResponse' smart constructor.
 data GetLoginProfileResponse = GetLoginProfileResponse'

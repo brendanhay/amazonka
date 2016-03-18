@@ -22,8 +22,8 @@
 -- role.
 --
 -- A role can also have managed policies attached to it. To detach a
--- managed policy from a role, use DetachRolePolicy. For more information
--- about policies, refer to
+-- managed policy from a role, use < DetachRolePolicy>. For more
+-- information about policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
 --

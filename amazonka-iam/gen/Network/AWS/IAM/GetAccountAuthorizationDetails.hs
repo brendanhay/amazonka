@@ -148,7 +148,7 @@ instance ToQuery GetAccountAuthorizationDetails where
                "Filter" =:
                  toQuery (toQueryList "member" <$> _gaadFilter)]
 
--- | Contains the response to a successful GetAccountAuthorizationDetails
+-- | Contains the response to a successful < GetAccountAuthorizationDetails>
 -- request.
 --
 -- /See:/ 'getAccountAuthorizationDetailsResponse' smart constructor.

@@ -1,0 +1,598 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.GameLift.Types.Sum
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+module Network.AWS.GameLift.Types.Sum where
+
+import           Network.AWS.Prelude
+
+data BuildStatus
+    = Failed
+    | Initialized
+    | Ready
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText BuildStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure Failed
+        "initialized" -> pure Initialized
+        "ready" -> pure Ready
+        e -> fromTextError $ "Failure parsing BuildStatus from value: '" <> e
+           <> "'. Accepted values: FAILED, INITIALIZED, READY"
+
+instance ToText BuildStatus where
+    toText = \case
+        Failed -> "FAILED"
+        Initialized -> "INITIALIZED"
+        Ready -> "READY"
+
+instance Hashable     BuildStatus
+instance ToByteString BuildStatus
+instance ToQuery      BuildStatus
+instance ToHeader     BuildStatus
+
+instance ToJSON BuildStatus where
+    toJSON = toJSONText
+
+instance FromJSON BuildStatus where
+    parseJSON = parseJSONText "BuildStatus"
+
+data ComparisonOperatorType
+    = GreaterThanOrEqualToThreshold
+    | GreaterThanThreshold
+    | LessThanOrEqualToThreshold
+    | LessThanThreshold
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ComparisonOperatorType where
+    parser = takeLowerText >>= \case
+        "greaterthanorequaltothreshold" -> pure GreaterThanOrEqualToThreshold
+        "greaterthanthreshold" -> pure GreaterThanThreshold
+        "lessthanorequaltothreshold" -> pure LessThanOrEqualToThreshold
+        "lessthanthreshold" -> pure LessThanThreshold
+        e -> fromTextError $ "Failure parsing ComparisonOperatorType from value: '" <> e
+           <> "'. Accepted values: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanOrEqualToThreshold, LessThanThreshold"
+
+instance ToText ComparisonOperatorType where
+    toText = \case
+        GreaterThanOrEqualToThreshold -> "GreaterThanOrEqualToThreshold"
+        GreaterThanThreshold -> "GreaterThanThreshold"
+        LessThanOrEqualToThreshold -> "LessThanOrEqualToThreshold"
+        LessThanThreshold -> "LessThanThreshold"
+
+instance Hashable     ComparisonOperatorType
+instance ToByteString ComparisonOperatorType
+instance ToQuery      ComparisonOperatorType
+instance ToHeader     ComparisonOperatorType
+
+instance ToJSON ComparisonOperatorType where
+    toJSON = toJSONText
+
+instance FromJSON ComparisonOperatorType where
+    parseJSON = parseJSONText "ComparisonOperatorType"
+
+data EC2InstanceType
+    = C3_2XLarge
+    | C3_4XLarge
+    | C3_8XLarge
+    | C3_Large
+    | C3_XLarge
+    | C4_2XLarge
+    | C4_4XLarge
+    | C4_8XLarge
+    | C4_Large
+    | C4_XLarge
+    | M3_2XLarge
+    | M3_Large
+    | M3_Medium
+    | M3_XLarge
+    | M4_10XLarge
+    | M4_2XLarge
+    | M4_4XLarge
+    | M4_Large
+    | M4_XLarge
+    | R3_2XLarge
+    | R3_4XLarge
+    | R3_8XLarge
+    | R3_Large
+    | R3_XLarge
+    | T2_Large
+    | T2_Medium
+    | T2_Micro
+    | T2_Small
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText EC2InstanceType where
+    parser = takeLowerText >>= \case
+        "c3.2xlarge" -> pure C3_2XLarge
+        "c3.4xlarge" -> pure C3_4XLarge
+        "c3.8xlarge" -> pure C3_8XLarge
+        "c3.large" -> pure C3_Large
+        "c3.xlarge" -> pure C3_XLarge
+        "c4.2xlarge" -> pure C4_2XLarge
+        "c4.4xlarge" -> pure C4_4XLarge
+        "c4.8xlarge" -> pure C4_8XLarge
+        "c4.large" -> pure C4_Large
+        "c4.xlarge" -> pure C4_XLarge
+        "m3.2xlarge" -> pure M3_2XLarge
+        "m3.large" -> pure M3_Large
+        "m3.medium" -> pure M3_Medium
+        "m3.xlarge" -> pure M3_XLarge
+        "m4.10xlarge" -> pure M4_10XLarge
+        "m4.2xlarge" -> pure M4_2XLarge
+        "m4.4xlarge" -> pure M4_4XLarge
+        "m4.large" -> pure M4_Large
+        "m4.xlarge" -> pure M4_XLarge
+        "r3.2xlarge" -> pure R3_2XLarge
+        "r3.4xlarge" -> pure R3_4XLarge
+        "r3.8xlarge" -> pure R3_8XLarge
+        "r3.large" -> pure R3_Large
+        "r3.xlarge" -> pure R3_XLarge
+        "t2.large" -> pure T2_Large
+        "t2.medium" -> pure T2_Medium
+        "t2.micro" -> pure T2_Micro
+        "t2.small" -> pure T2_Small
+        e -> fromTextError $ "Failure parsing EC2InstanceType from value: '" <> e
+           <> "'. Accepted values: c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, t2.large, t2.medium, t2.micro, t2.small"
+
+instance ToText EC2InstanceType where
+    toText = \case
+        C3_2XLarge -> "c3.2xlarge"
+        C3_4XLarge -> "c3.4xlarge"
+        C3_8XLarge -> "c3.8xlarge"
+        C3_Large -> "c3.large"
+        C3_XLarge -> "c3.xlarge"
+        C4_2XLarge -> "c4.2xlarge"
+        C4_4XLarge -> "c4.4xlarge"
+        C4_8XLarge -> "c4.8xlarge"
+        C4_Large -> "c4.large"
+        C4_XLarge -> "c4.xlarge"
+        M3_2XLarge -> "m3.2xlarge"
+        M3_Large -> "m3.large"
+        M3_Medium -> "m3.medium"
+        M3_XLarge -> "m3.xlarge"
+        M4_10XLarge -> "m4.10xlarge"
+        M4_2XLarge -> "m4.2xlarge"
+        M4_4XLarge -> "m4.4xlarge"
+        M4_Large -> "m4.large"
+        M4_XLarge -> "m4.xlarge"
+        R3_2XLarge -> "r3.2xlarge"
+        R3_4XLarge -> "r3.4xlarge"
+        R3_8XLarge -> "r3.8xlarge"
+        R3_Large -> "r3.large"
+        R3_XLarge -> "r3.xlarge"
+        T2_Large -> "t2.large"
+        T2_Medium -> "t2.medium"
+        T2_Micro -> "t2.micro"
+        T2_Small -> "t2.small"
+
+instance Hashable     EC2InstanceType
+instance ToByteString EC2InstanceType
+instance ToQuery      EC2InstanceType
+instance ToHeader     EC2InstanceType
+
+instance ToJSON EC2InstanceType where
+    toJSON = toJSONText
+
+instance FromJSON EC2InstanceType where
+    parseJSON = parseJSONText "EC2InstanceType"
+
+data EventCode
+    = FleetActivationFailed
+    | FleetActivationFailedNoInstances
+    | FleetBinaryDownloadFailed
+    | FleetCreated
+    | FleetDeleted
+    | FleetInitializationFailed
+    | FleetNewGameSessionProtectionPolicyUpdated
+    | FleetScalingEvent
+    | FleetStateActivating
+    | FleetStateActive
+    | FleetStateBuilding
+    | FleetStateDownloading
+    | FleetStateError
+    | FleetStateValidating
+    | FleetValidationExecutableRuntimeFailure
+    | FleetValidationLaunchPathNotFound
+    | FleetValidationTimedOut
+    | GenericEvent
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText EventCode where
+    parser = takeLowerText >>= \case
+        "fleet_activation_failed" -> pure FleetActivationFailed
+        "fleet_activation_failed_no_instances" -> pure FleetActivationFailedNoInstances
+        "fleet_binary_download_failed" -> pure FleetBinaryDownloadFailed
+        "fleet_created" -> pure FleetCreated
+        "fleet_deleted" -> pure FleetDeleted
+        "fleet_initialization_failed" -> pure FleetInitializationFailed
+        "fleet_new_game_session_protection_policy_updated" -> pure FleetNewGameSessionProtectionPolicyUpdated
+        "fleet_scaling_event" -> pure FleetScalingEvent
+        "fleet_state_activating" -> pure FleetStateActivating
+        "fleet_state_active" -> pure FleetStateActive
+        "fleet_state_building" -> pure FleetStateBuilding
+        "fleet_state_downloading" -> pure FleetStateDownloading
+        "fleet_state_error" -> pure FleetStateError
+        "fleet_state_validating" -> pure FleetStateValidating
+        "fleet_validation_executable_runtime_failure" -> pure FleetValidationExecutableRuntimeFailure
+        "fleet_validation_launch_path_not_found" -> pure FleetValidationLaunchPathNotFound
+        "fleet_validation_timed_out" -> pure FleetValidationTimedOut
+        "generic_event" -> pure GenericEvent
+        e -> fromTextError $ "Failure parsing EventCode from value: '" <> e
+           <> "'. Accepted values: FLEET_ACTIVATION_FAILED, FLEET_ACTIVATION_FAILED_NO_INSTANCES, FLEET_BINARY_DOWNLOAD_FAILED, FLEET_CREATED, FLEET_DELETED, FLEET_INITIALIZATION_FAILED, FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED, FLEET_SCALING_EVENT, FLEET_STATE_ACTIVATING, FLEET_STATE_ACTIVE, FLEET_STATE_BUILDING, FLEET_STATE_DOWNLOADING, FLEET_STATE_ERROR, FLEET_STATE_VALIDATING, FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE, FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND, FLEET_VALIDATION_TIMED_OUT, GENERIC_EVENT"
+
+instance ToText EventCode where
+    toText = \case
+        FleetActivationFailed -> "FLEET_ACTIVATION_FAILED"
+        FleetActivationFailedNoInstances -> "FLEET_ACTIVATION_FAILED_NO_INSTANCES"
+        FleetBinaryDownloadFailed -> "FLEET_BINARY_DOWNLOAD_FAILED"
+        FleetCreated -> "FLEET_CREATED"
+        FleetDeleted -> "FLEET_DELETED"
+        FleetInitializationFailed -> "FLEET_INITIALIZATION_FAILED"
+        FleetNewGameSessionProtectionPolicyUpdated -> "FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED"
+        FleetScalingEvent -> "FLEET_SCALING_EVENT"
+        FleetStateActivating -> "FLEET_STATE_ACTIVATING"
+        FleetStateActive -> "FLEET_STATE_ACTIVE"
+        FleetStateBuilding -> "FLEET_STATE_BUILDING"
+        FleetStateDownloading -> "FLEET_STATE_DOWNLOADING"
+        FleetStateError -> "FLEET_STATE_ERROR"
+        FleetStateValidating -> "FLEET_STATE_VALIDATING"
+        FleetValidationExecutableRuntimeFailure -> "FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE"
+        FleetValidationLaunchPathNotFound -> "FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND"
+        FleetValidationTimedOut -> "FLEET_VALIDATION_TIMED_OUT"
+        GenericEvent -> "GENERIC_EVENT"
+
+instance Hashable     EventCode
+instance ToByteString EventCode
+instance ToQuery      EventCode
+instance ToHeader     EventCode
+
+instance FromJSON EventCode where
+    parseJSON = parseJSONText "EventCode"
+
+data FleetStatus
+    = FSActivating
+    | FSActive
+    | FSBuilding
+    | FSDeleting
+    | FSDownloading
+    | FSError'
+    | FSNew
+    | FSTerminated
+    | FSValidating
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText FleetStatus where
+    parser = takeLowerText >>= \case
+        "activating" -> pure FSActivating
+        "active" -> pure FSActive
+        "building" -> pure FSBuilding
+        "deleting" -> pure FSDeleting
+        "downloading" -> pure FSDownloading
+        "error" -> pure FSError'
+        "new" -> pure FSNew
+        "terminated" -> pure FSTerminated
+        "validating" -> pure FSValidating
+        e -> fromTextError $ "Failure parsing FleetStatus from value: '" <> e
+           <> "'. Accepted values: ACTIVATING, ACTIVE, BUILDING, DELETING, DOWNLOADING, ERROR, NEW, TERMINATED, VALIDATING"
+
+instance ToText FleetStatus where
+    toText = \case
+        FSActivating -> "ACTIVATING"
+        FSActive -> "ACTIVE"
+        FSBuilding -> "BUILDING"
+        FSDeleting -> "DELETING"
+        FSDownloading -> "DOWNLOADING"
+        FSError' -> "ERROR"
+        FSNew -> "NEW"
+        FSTerminated -> "TERMINATED"
+        FSValidating -> "VALIDATING"
+
+instance Hashable     FleetStatus
+instance ToByteString FleetStatus
+instance ToQuery      FleetStatus
+instance ToHeader     FleetStatus
+
+instance FromJSON FleetStatus where
+    parseJSON = parseJSONText "FleetStatus"
+
+data GameSessionStatus
+    = GSSActivating
+    | GSSActive
+    | GSSTerminated
+    | GSSTerminating
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText GameSessionStatus where
+    parser = takeLowerText >>= \case
+        "activating" -> pure GSSActivating
+        "active" -> pure GSSActive
+        "terminated" -> pure GSSTerminated
+        "terminating" -> pure GSSTerminating
+        e -> fromTextError $ "Failure parsing GameSessionStatus from value: '" <> e
+           <> "'. Accepted values: ACTIVATING, ACTIVE, TERMINATED, TERMINATING"
+
+instance ToText GameSessionStatus where
+    toText = \case
+        GSSActivating -> "ACTIVATING"
+        GSSActive -> "ACTIVE"
+        GSSTerminated -> "TERMINATED"
+        GSSTerminating -> "TERMINATING"
+
+instance Hashable     GameSessionStatus
+instance ToByteString GameSessionStatus
+instance ToQuery      GameSessionStatus
+instance ToHeader     GameSessionStatus
+
+instance FromJSON GameSessionStatus where
+    parseJSON = parseJSONText "GameSessionStatus"
+
+data IPProtocol
+    = TCP
+    | Udp
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText IPProtocol where
+    parser = takeLowerText >>= \case
+        "tcp" -> pure TCP
+        "udp" -> pure Udp
+        e -> fromTextError $ "Failure parsing IPProtocol from value: '" <> e
+           <> "'. Accepted values: TCP, UDP"
+
+instance ToText IPProtocol where
+    toText = \case
+        TCP -> "TCP"
+        Udp -> "UDP"
+
+instance Hashable     IPProtocol
+instance ToByteString IPProtocol
+instance ToQuery      IPProtocol
+instance ToHeader     IPProtocol
+
+instance ToJSON IPProtocol where
+    toJSON = toJSONText
+
+instance FromJSON IPProtocol where
+    parseJSON = parseJSONText "IPProtocol"
+
+data MetricName
+    = ActivatingGameSessions
+    | ActiveGameSessions
+    | ActiveInstances
+    | AvailablePlayerSessions
+    | CurrentPlayerSessions
+    | IdleInstances
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText MetricName where
+    parser = takeLowerText >>= \case
+        "activatinggamesessions" -> pure ActivatingGameSessions
+        "activegamesessions" -> pure ActiveGameSessions
+        "activeinstances" -> pure ActiveInstances
+        "availableplayersessions" -> pure AvailablePlayerSessions
+        "currentplayersessions" -> pure CurrentPlayerSessions
+        "idleinstances" -> pure IdleInstances
+        e -> fromTextError $ "Failure parsing MetricName from value: '" <> e
+           <> "'. Accepted values: ActivatingGameSessions, ActiveGameSessions, ActiveInstances, AvailablePlayerSessions, CurrentPlayerSessions, IdleInstances"
+
+instance ToText MetricName where
+    toText = \case
+        ActivatingGameSessions -> "ActivatingGameSessions"
+        ActiveGameSessions -> "ActiveGameSessions"
+        ActiveInstances -> "ActiveInstances"
+        AvailablePlayerSessions -> "AvailablePlayerSessions"
+        CurrentPlayerSessions -> "CurrentPlayerSessions"
+        IdleInstances -> "IdleInstances"
+
+instance Hashable     MetricName
+instance ToByteString MetricName
+instance ToQuery      MetricName
+instance ToHeader     MetricName
+
+instance ToJSON MetricName where
+    toJSON = toJSONText
+
+instance FromJSON MetricName where
+    parseJSON = parseJSONText "MetricName"
+
+data PlayerSessionCreationPolicy
+    = AcceptAll
+    | DenyAll
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PlayerSessionCreationPolicy where
+    parser = takeLowerText >>= \case
+        "accept_all" -> pure AcceptAll
+        "deny_all" -> pure DenyAll
+        e -> fromTextError $ "Failure parsing PlayerSessionCreationPolicy from value: '" <> e
+           <> "'. Accepted values: ACCEPT_ALL, DENY_ALL"
+
+instance ToText PlayerSessionCreationPolicy where
+    toText = \case
+        AcceptAll -> "ACCEPT_ALL"
+        DenyAll -> "DENY_ALL"
+
+instance Hashable     PlayerSessionCreationPolicy
+instance ToByteString PlayerSessionCreationPolicy
+instance ToQuery      PlayerSessionCreationPolicy
+instance ToHeader     PlayerSessionCreationPolicy
+
+instance ToJSON PlayerSessionCreationPolicy where
+    toJSON = toJSONText
+
+instance FromJSON PlayerSessionCreationPolicy where
+    parseJSON = parseJSONText "PlayerSessionCreationPolicy"
+
+data PlayerSessionStatus
+    = PSSActive
+    | PSSCompleted
+    | PSSReserved
+    | PSSTimedout
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PlayerSessionStatus where
+    parser = takeLowerText >>= \case
+        "active" -> pure PSSActive
+        "completed" -> pure PSSCompleted
+        "reserved" -> pure PSSReserved
+        "timedout" -> pure PSSTimedout
+        e -> fromTextError $ "Failure parsing PlayerSessionStatus from value: '" <> e
+           <> "'. Accepted values: ACTIVE, COMPLETED, RESERVED, TIMEDOUT"
+
+instance ToText PlayerSessionStatus where
+    toText = \case
+        PSSActive -> "ACTIVE"
+        PSSCompleted -> "COMPLETED"
+        PSSReserved -> "RESERVED"
+        PSSTimedout -> "TIMEDOUT"
+
+instance Hashable     PlayerSessionStatus
+instance ToByteString PlayerSessionStatus
+instance ToQuery      PlayerSessionStatus
+instance ToHeader     PlayerSessionStatus
+
+instance FromJSON PlayerSessionStatus where
+    parseJSON = parseJSONText "PlayerSessionStatus"
+
+data ProtectionPolicy
+    = FullProtection
+    | NoProtection
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ProtectionPolicy where
+    parser = takeLowerText >>= \case
+        "fullprotection" -> pure FullProtection
+        "noprotection" -> pure NoProtection
+        e -> fromTextError $ "Failure parsing ProtectionPolicy from value: '" <> e
+           <> "'. Accepted values: FullProtection, NoProtection"
+
+instance ToText ProtectionPolicy where
+    toText = \case
+        FullProtection -> "FullProtection"
+        NoProtection -> "NoProtection"
+
+instance Hashable     ProtectionPolicy
+instance ToByteString ProtectionPolicy
+instance ToQuery      ProtectionPolicy
+instance ToHeader     ProtectionPolicy
+
+instance ToJSON ProtectionPolicy where
+    toJSON = toJSONText
+
+instance FromJSON ProtectionPolicy where
+    parseJSON = parseJSONText "ProtectionPolicy"
+
+data RoutingStrategyType
+    = Simple
+    | Terminal
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText RoutingStrategyType where
+    parser = takeLowerText >>= \case
+        "simple" -> pure Simple
+        "terminal" -> pure Terminal
+        e -> fromTextError $ "Failure parsing RoutingStrategyType from value: '" <> e
+           <> "'. Accepted values: SIMPLE, TERMINAL"
+
+instance ToText RoutingStrategyType where
+    toText = \case
+        Simple -> "SIMPLE"
+        Terminal -> "TERMINAL"
+
+instance Hashable     RoutingStrategyType
+instance ToByteString RoutingStrategyType
+instance ToQuery      RoutingStrategyType
+instance ToHeader     RoutingStrategyType
+
+instance ToJSON RoutingStrategyType where
+    toJSON = toJSONText
+
+instance FromJSON RoutingStrategyType where
+    parseJSON = parseJSONText "RoutingStrategyType"
+
+data ScalingAdjustmentType
+    = ChangeInCapacity
+    | ExactCapacity
+    | PercentChangeInCapacity
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ScalingAdjustmentType where
+    parser = takeLowerText >>= \case
+        "changeincapacity" -> pure ChangeInCapacity
+        "exactcapacity" -> pure ExactCapacity
+        "percentchangeincapacity" -> pure PercentChangeInCapacity
+        e -> fromTextError $ "Failure parsing ScalingAdjustmentType from value: '" <> e
+           <> "'. Accepted values: ChangeInCapacity, ExactCapacity, PercentChangeInCapacity"
+
+instance ToText ScalingAdjustmentType where
+    toText = \case
+        ChangeInCapacity -> "ChangeInCapacity"
+        ExactCapacity -> "ExactCapacity"
+        PercentChangeInCapacity -> "PercentChangeInCapacity"
+
+instance Hashable     ScalingAdjustmentType
+instance ToByteString ScalingAdjustmentType
+instance ToQuery      ScalingAdjustmentType
+instance ToHeader     ScalingAdjustmentType
+
+instance ToJSON ScalingAdjustmentType where
+    toJSON = toJSONText
+
+instance FromJSON ScalingAdjustmentType where
+    parseJSON = parseJSONText "ScalingAdjustmentType"
+
+data ScalingStatusType
+    = Active
+    | DeleteRequested
+    | Deleted
+    | Deleting
+    | Error'
+    | UpdateRequested
+    | Updating
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ScalingStatusType where
+    parser = takeLowerText >>= \case
+        "active" -> pure Active
+        "delete_requested" -> pure DeleteRequested
+        "deleted" -> pure Deleted
+        "deleting" -> pure Deleting
+        "error" -> pure Error'
+        "update_requested" -> pure UpdateRequested
+        "updating" -> pure Updating
+        e -> fromTextError $ "Failure parsing ScalingStatusType from value: '" <> e
+           <> "'. Accepted values: ACTIVE, DELETE_REQUESTED, DELETED, DELETING, ERROR, UPDATE_REQUESTED, UPDATING"
+
+instance ToText ScalingStatusType where
+    toText = \case
+        Active -> "ACTIVE"
+        DeleteRequested -> "DELETE_REQUESTED"
+        Deleted -> "DELETED"
+        Deleting -> "DELETING"
+        Error' -> "ERROR"
+        UpdateRequested -> "UPDATE_REQUESTED"
+        Updating -> "UPDATING"
+
+instance Hashable     ScalingStatusType
+instance ToByteString ScalingStatusType
+instance ToQuery      ScalingStatusType
+instance ToHeader     ScalingStatusType
+
+instance ToJSON ScalingStatusType where
+    toJSON = toJSONText
+
+instance FromJSON ScalingStatusType where
+    parseJSON = parseJSONText "ScalingStatusType"

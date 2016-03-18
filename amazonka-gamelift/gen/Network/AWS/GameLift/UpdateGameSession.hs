@@ -1,0 +1,187 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.GameLift.UpdateGameSession
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Updates game session properties. This includes the session name, maximum
+-- player count, protection policy, which controls whether or not an active
+-- game session can be terminated during a scale-down event, and the player
+-- session creation policy, which controls whether or not new players can
+-- join the session. To update a game session, specify the game session ID
+-- and the values you want to change. If successful, an updated
+-- < GameSession> object is returned.
+--
+-- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateGameSession.html AWS API Reference> for UpdateGameSession.
+module Network.AWS.GameLift.UpdateGameSession
+    (
+    -- * Creating a Request
+      updateGameSession
+    , UpdateGameSession
+    -- * Request Lenses
+    , ugsMaximumPlayerSessionCount
+    , ugsPlayerSessionCreationPolicy
+    , ugsName
+    , ugsProtectionPolicy
+    , ugsGameSessionId
+
+    -- * Destructuring the Response
+    , updateGameSessionResponse
+    , UpdateGameSessionResponse
+    -- * Response Lenses
+    , ugsrsGameSession
+    , ugsrsResponseStatus
+    ) where
+
+import           Network.AWS.GameLift.Types
+import           Network.AWS.GameLift.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+
+-- | Represents the input for a request action.
+--
+-- /See:/ 'updateGameSession' smart constructor.
+data UpdateGameSession = UpdateGameSession'
+    { _ugsMaximumPlayerSessionCount   :: !(Maybe Nat)
+    , _ugsPlayerSessionCreationPolicy :: !(Maybe PlayerSessionCreationPolicy)
+    , _ugsName                        :: !(Maybe Text)
+    , _ugsProtectionPolicy            :: !(Maybe ProtectionPolicy)
+    , _ugsGameSessionId               :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateGameSession' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ugsMaximumPlayerSessionCount'
+--
+-- * 'ugsPlayerSessionCreationPolicy'
+--
+-- * 'ugsName'
+--
+-- * 'ugsProtectionPolicy'
+--
+-- * 'ugsGameSessionId'
+updateGameSession
+    :: Text -- ^ 'ugsGameSessionId'
+    -> UpdateGameSession
+updateGameSession pGameSessionId_ =
+    UpdateGameSession'
+    { _ugsMaximumPlayerSessionCount = Nothing
+    , _ugsPlayerSessionCreationPolicy = Nothing
+    , _ugsName = Nothing
+    , _ugsProtectionPolicy = Nothing
+    , _ugsGameSessionId = pGameSessionId_
+    }
+
+-- | Maximum number of players that can be simultaneously connected to the
+-- game session.
+ugsMaximumPlayerSessionCount :: Lens' UpdateGameSession (Maybe Natural)
+ugsMaximumPlayerSessionCount = lens _ugsMaximumPlayerSessionCount (\ s a -> s{_ugsMaximumPlayerSessionCount = a}) . mapping _Nat;
+
+-- | Policy determining whether or not the game session accepts new players.
+ugsPlayerSessionCreationPolicy :: Lens' UpdateGameSession (Maybe PlayerSessionCreationPolicy)
+ugsPlayerSessionCreationPolicy = lens _ugsPlayerSessionCreationPolicy (\ s a -> s{_ugsPlayerSessionCreationPolicy = a});
+
+-- | Descriptive label associated with this game session. Session names do
+-- not need to be unique.
+ugsName :: Lens' UpdateGameSession (Maybe Text)
+ugsName = lens _ugsName (\ s a -> s{_ugsName = a});
+
+-- | Game session protection policy to apply to this game session only.
+--
+-- -   NoProtection: The game session can be terminated during a scale-down
+--     event.
+-- -   FullProtection: If the game session is in an ACTIVE status, it
+--     cannot be terminated during a scale-down event.
+ugsProtectionPolicy :: Lens' UpdateGameSession (Maybe ProtectionPolicy)
+ugsProtectionPolicy = lens _ugsProtectionPolicy (\ s a -> s{_ugsProtectionPolicy = a});
+
+-- | Unique identifier for a game session. Specify the game session you want
+-- to update.
+ugsGameSessionId :: Lens' UpdateGameSession Text
+ugsGameSessionId = lens _ugsGameSessionId (\ s a -> s{_ugsGameSessionId = a});
+
+instance AWSRequest UpdateGameSession where
+        type Rs UpdateGameSession = UpdateGameSessionResponse
+        request = postJSON gameLift
+        response
+          = receiveJSON
+              (\ s h x ->
+                 UpdateGameSessionResponse' <$>
+                   (x .?> "GameSession") <*> (pure (fromEnum s)))
+
+instance ToHeaders UpdateGameSession where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("GameLift.UpdateGameSession" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UpdateGameSession where
+        toJSON UpdateGameSession'{..}
+          = object
+              (catMaybes
+                 [("MaximumPlayerSessionCount" .=) <$>
+                    _ugsMaximumPlayerSessionCount,
+                  ("PlayerSessionCreationPolicy" .=) <$>
+                    _ugsPlayerSessionCreationPolicy,
+                  ("Name" .=) <$> _ugsName,
+                  ("ProtectionPolicy" .=) <$> _ugsProtectionPolicy,
+                  Just ("GameSessionId" .= _ugsGameSessionId)])
+
+instance ToPath UpdateGameSession where
+        toPath = const "/"
+
+instance ToQuery UpdateGameSession where
+        toQuery = const mempty
+
+-- | Represents the returned data in response to a request action.
+--
+-- /See:/ 'updateGameSessionResponse' smart constructor.
+data UpdateGameSessionResponse = UpdateGameSessionResponse'
+    { _ugsrsGameSession    :: !(Maybe GameSession)
+    , _ugsrsResponseStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateGameSessionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ugsrsGameSession'
+--
+-- * 'ugsrsResponseStatus'
+updateGameSessionResponse
+    :: Int -- ^ 'ugsrsResponseStatus'
+    -> UpdateGameSessionResponse
+updateGameSessionResponse pResponseStatus_ =
+    UpdateGameSessionResponse'
+    { _ugsrsGameSession = Nothing
+    , _ugsrsResponseStatus = pResponseStatus_
+    }
+
+-- | Object containing the updated game session metadata.
+ugsrsGameSession :: Lens' UpdateGameSessionResponse (Maybe GameSession)
+ugsrsGameSession = lens _ugsrsGameSession (\ s a -> s{_ugsrsGameSession = a});
+
+-- | The response status code.
+ugsrsResponseStatus :: Lens' UpdateGameSessionResponse Int
+ugsrsResponseStatus = lens _ugsrsResponseStatus (\ s a -> s{_ugsrsResponseStatus = a});

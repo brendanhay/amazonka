@@ -46,14 +46,14 @@
 --
 -- The 'CreateFileSystem' call returns while the file system\'s lifecycle
 -- state is still \"creating\". You can check the file system creation
--- status by calling the DescribeFileSystems API, which among other things
--- returns the file system state.
+-- status by calling the < DescribeFileSystems> API, which among other
+-- things returns the file system state.
 --
 -- After the file system is fully created, Amazon EFS sets its lifecycle
 -- state to \"available\", at which point you can create one or more mount
--- targets for the file system (CreateMountTarget) in your VPC. You mount
--- your Amazon EFS file system on an EC2 instances in your VPC via the
--- mount target. For more information, see
+-- targets for the file system (< CreateMountTarget>) in your VPC. You
+-- mount your Amazon EFS file system on an EC2 instances in your VPC via
+-- the mount target. For more information, see
 -- <http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html Amazon EFS: How it Works>
 --
 -- This operation requires permission for the

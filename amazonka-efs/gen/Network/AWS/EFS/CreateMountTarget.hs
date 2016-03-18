@@ -31,7 +31,7 @@
 --
 -- In the request, you also specify a file system ID for which you are
 -- creating the mount target and the file system\'s lifecycle state must be
--- \"available\" (see DescribeFileSystems).
+-- \"available\" (see < DescribeFileSystems>).
 --
 -- In the request, you also provide a subnet ID, which serves several
 -- purposes:
@@ -94,7 +94,7 @@
 -- The 'CreateMountTarget' call returns only after creating the network
 -- interface, but while the mount target state is still \"creating\". You
 -- can check the mount target creation status by calling the
--- DescribeFileSystems API, which among other things returns the mount
+-- < DescribeFileSystems> API, which among other things returns the mount
 -- target state.
 --
 -- We recommend you create a mount target in each of the Availability

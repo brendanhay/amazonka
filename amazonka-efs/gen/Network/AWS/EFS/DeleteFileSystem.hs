@@ -24,13 +24,13 @@
 --
 -- You cannot delete a file system that is in use. That is, if the file
 -- system has any mount targets, you must first delete them. For more
--- information, see DescribeMountTargets and DeleteMountTarget.
+-- information, see < DescribeMountTargets> and < DeleteMountTarget>.
 --
 -- The 'DeleteFileSystem' call returns while the file system state is still
 -- \"deleting\". You can check the file system deletion status by calling
--- the DescribeFileSystems API, which returns a list of file systems in
+-- the < DescribeFileSystems> API, which returns a list of file systems in
 -- your account. If you pass file system ID or creation token for the
--- deleted file system, the DescribeFileSystems will return a 404
+-- deleted file system, the < DescribeFileSystems> will return a 404
 -- \"FileSystemNotFound\" error.
 --
 -- This operation requires permission for the

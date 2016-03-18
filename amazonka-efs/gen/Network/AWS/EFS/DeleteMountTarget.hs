@@ -37,7 +37,7 @@
 --
 -- The 'DeleteMountTarget' call returns while the mount target state is
 -- still \"deleting\". You can check the mount target deletion by calling
--- the DescribeMountTargets API, which returns a list of mount target
+-- the < DescribeMountTargets> API, which returns a list of mount target
 -- descriptions for the given file system.
 --
 -- The operation also requires permission for the following Amazon EC2

@@ -75,9 +75,9 @@ fileSystemDescription pOwnerId_ pCreationToken_ pFileSystemId_ pCreationTime_ pL
     , _fsdSizeInBytes = pSizeInBytes_
     }
 
--- | You can add tags to a file system (see CreateTags) including a \"Name\"
--- tag. If the file system has a \"Name\" tag, Amazon EFS returns the value
--- in this field.
+-- | You can add tags to a file system (see < CreateTags>) including a
+-- \"Name\" tag. If the file system has a \"Name\" tag, Amazon EFS returns
+-- the value in this field.
 fsdName :: Lens' FileSystemDescription (Maybe Text)
 fsdName = lens _fsdName (\ s a -> s{_fsdName = a});
 
@@ -105,7 +105,7 @@ fsdCreationTime = lens _fsdCreationTime (\ s a -> s{_fsdCreationTime = a}) . _Ti
 fsdLifeCycleState :: Lens' FileSystemDescription LifeCycleState
 fsdLifeCycleState = lens _fsdLifeCycleState (\ s a -> s{_fsdLifeCycleState = a});
 
--- | The current number of mount targets (see CreateMountTarget) the file
+-- | The current number of mount targets (see < CreateMountTarget>) the file
 -- system has.
 fsdNumberOfMountTargets :: Lens' FileSystemDescription Natural
 fsdNumberOfMountTargets = lens _fsdNumberOfMountTargets (\ s a -> s{_fsdNumberOfMountTargets = a}) . _Nat;

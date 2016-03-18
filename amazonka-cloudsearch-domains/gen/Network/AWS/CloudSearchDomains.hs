@@ -78,6 +78,18 @@ module Network.AWS.CloudSearchDomains
     , documentServiceWarning
     , dswMessage
 
+    -- ** FieldStats
+    , FieldStats
+    , fieldStats
+    , fsMax
+    , fsMean
+    , fsCount
+    , fsMissing
+    , fsStddev
+    , fsMin
+    , fsSumOfSquares
+    , fsSum
+
     -- ** Hit
     , Hit
     , hit

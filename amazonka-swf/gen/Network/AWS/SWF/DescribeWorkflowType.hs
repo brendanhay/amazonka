@@ -177,13 +177,14 @@ dwtrsResponseStatus = lens _dwtrsResponseStatus (\ s a -> s{_dwtrsResponseStatus
 --
 -- -   __REGISTERED__: The type is registered and available. Workers
 --     supporting this type should be running.
--- -   __DEPRECATED__: The type was deprecated using DeprecateWorkflowType,
---     but is still in use. You should keep workers supporting this type
---     running. You cannot create new workflow executions of this type.
+-- -   __DEPRECATED__: The type was deprecated using
+--     < DeprecateWorkflowType>, but is still in use. You should keep
+--     workers supporting this type running. You cannot create new workflow
+--     executions of this type.
 dwtrsTypeInfo :: Lens' DescribeWorkflowTypeResponse WorkflowTypeInfo
 dwtrsTypeInfo = lens _dwtrsTypeInfo (\ s a -> s{_dwtrsTypeInfo = a});
 
 -- | Configuration settings of the workflow type registered through
--- RegisterWorkflowType
+-- < RegisterWorkflowType>
 dwtrsConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
 dwtrsConfiguration = lens _dwtrsConfiguration (\ s a -> s{_dwtrsConfiguration = a});

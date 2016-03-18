@@ -192,7 +192,8 @@ dwersLatestActivityTaskTimestamp = lens _dwersLatestActivityTaskTimestamp (\ s a
 
 -- | The latest executionContext provided by the decider for this workflow
 -- execution. A decider can provide an executionContext (a free-form
--- string) when closing a decision task using RespondDecisionTaskCompleted.
+-- string) when closing a decision task using
+-- < RespondDecisionTaskCompleted>.
 dwersLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Text)
 dwersLatestExecutionContext = lens _dwersLatestExecutionContext (\ s a -> s{_dwersLatestExecutionContext = a});
 

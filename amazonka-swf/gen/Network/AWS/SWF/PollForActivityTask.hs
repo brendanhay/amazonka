@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Used by workers to get an ActivityTask from the specified activity
+-- Used by workers to get an < ActivityTask> from the specified activity
 -- 'taskList'. This initiates a long poll, where the service holds the HTTP
 -- connection open and responds as soon as a task becomes available. The
 -- maximum time the service holds on to the request before responding is 60

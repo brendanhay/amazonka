@@ -324,10 +324,10 @@ atseaControl :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaControl = lens _atseaControl (\ s a -> s{_atseaControl = a});
 
 -- | The maximum time before which the worker processing this task must
--- report progress by calling RecordActivityTaskHeartbeat. If the timeout
--- is exceeded, the activity task is automatically timed out. If the worker
--- subsequently attempts to record a heartbeat or return a result, it will
--- be ignored.
+-- report progress by calling < RecordActivityTaskHeartbeat>. If the
+-- timeout is exceeded, the activity task is automatically timed out. If
+-- the worker subsequently attempts to record a heartbeat or return a
+-- result, it will be ignored.
 atseaHeartbeatTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaHeartbeatTimeout = lens _atseaHeartbeatTimeout (\ s a -> s{_atseaHeartbeatTimeout = a});
 
@@ -636,7 +636,7 @@ atcDefaultTaskPriority = lens _atcDefaultTaskPriority (\ s a -> s{_atcDefaultTas
 
 -- | /Optional./ The default maximum time, in seconds, before which a worker
 -- processing a task must report progress by calling
--- RecordActivityTaskHeartbeat.
+-- < RecordActivityTaskHeartbeat>.
 --
 -- You can specify this value only when /registering/ an activity type. The
 -- registered default value can be overridden when you schedule a task
@@ -721,15 +721,16 @@ activityTypeInfo pActivityType_ pStatus_ pCreationDate_ =
     , _atiCreationDate = _Time # pCreationDate_
     }
 
--- | If DEPRECATED, the date and time DeprecateActivityType was called.
+-- | If DEPRECATED, the date and time < DeprecateActivityType> was called.
 atiDeprecationDate :: Lens' ActivityTypeInfo (Maybe UTCTime)
 atiDeprecationDate = lens _atiDeprecationDate (\ s a -> s{_atiDeprecationDate = a}) . mapping _Time;
 
--- | The description of the activity type provided in RegisterActivityType.
+-- | The description of the activity type provided in
+-- < RegisterActivityType>.
 atiDescription :: Lens' ActivityTypeInfo (Maybe Text)
 atiDescription = lens _atiDescription (\ s a -> s{_atiDescription = a});
 
--- | The ActivityType type structure representing the activity type.
+-- | The < ActivityType> type structure representing the activity type.
 atiActivityType :: Lens' ActivityTypeInfo ActivityType
 atiActivityType = lens _atiActivityType (\ s a -> s{_atiActivityType = a});
 
@@ -738,7 +739,7 @@ atiStatus :: Lens' ActivityTypeInfo RegistrationStatus
 atiStatus = lens _atiStatus (\ s a -> s{_atiStatus = a});
 
 -- | The date and time this activity type was created through
--- RegisterActivityType.
+-- < RegisterActivityType>.
 atiCreationDate :: Lens' ActivityTypeInfo UTCTime
 atiCreationDate = lens _atiCreationDate (\ s a -> s{_atiCreationDate = a}) . _Time;
 
@@ -1609,14 +1610,15 @@ continueAsNewWorkflowExecutionDecisionAttributes =
 
 -- | The list of tags to associate with the new workflow execution. A maximum
 -- of 5 tags can be specified. You can list workflow executions with a
--- specific tag by calling ListOpenWorkflowExecutions or
--- ListClosedWorkflowExecutions and specifying a TagFilter.
+-- specific tag by calling < ListOpenWorkflowExecutions> or
+-- < ListClosedWorkflowExecutions> and specifying a < TagFilter>.
 canwedaTagList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes [Text]
 canwedaTagList = lens _canwedaTagList (\ s a -> s{_canwedaTagList = a}) . _Default . _Coerce;
 
 -- | Specifies the maximum duration of decision tasks for the new workflow
 -- execution. This parameter overrides the 'defaultTaskStartToCloseTimout'
--- specified when registering the workflow type using RegisterWorkflowType.
+-- specified when registering the workflow type using
+-- < RegisterWorkflowType>.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -1680,9 +1682,9 @@ canwedaTaskPriority = lens _canwedaTaskPriority (\ s a -> s{_canwedaTaskPriority
 
 -- | If set, specifies the policy to use for the child workflow executions of
 -- the new execution if it is terminated by calling the
--- TerminateWorkflowExecution action explicitly or due to an expired
+-- < TerminateWorkflowExecution> action explicitly or due to an expired
 -- timeout. This policy overrides the default child policy specified when
--- registering the workflow type using RegisterWorkflowType.
+-- registering the workflow type using < RegisterWorkflowType>.
 --
 -- The supported child policies are:
 --
@@ -1800,7 +1802,7 @@ instance FromJSON
 --     not been assigned to a worker, then it will be canceled. If the
 --     activity task was already assigned to a worker, then the worker will
 --     be informed that cancellation has been requested in the response to
---     RecordActivityTaskHeartbeat.
+--     < RecordActivityTaskHeartbeat>.
 -- -   __RequestCancelExternalWorkflowExecution__: requests that a request
 --     be made to cancel the specified external workflow execution and
 --     records a 'RequestCancelExternalWorkflowExecutionInitiated' event in
@@ -1899,7 +1901,7 @@ instance FromJSON
 -- history while the decision task was being performed by the decider.
 -- Unlike the above situations which are logic issues, this fault is always
 -- possible because of race conditions in a distributed system. The right
--- action here is to call RespondDecisionTaskCompleted without any
+-- action here is to call < RespondDecisionTaskCompleted> without any
 -- decisions. This would result in another decision task with these new
 -- events included in the history. The decider should handle the new events
 -- and may decide to close the workflow execution.
@@ -1910,19 +1912,19 @@ instance FromJSON
 -- the above decision values, and then set the corresponding attributes
 -- field shown below:
 --
--- -   ScheduleActivityTaskDecisionAttributes
--- -   ScheduleLambdaFunctionDecisionAttributes
--- -   RequestCancelActivityTaskDecisionAttributes
--- -   CompleteWorkflowExecutionDecisionAttributes
--- -   FailWorkflowExecutionDecisionAttributes
--- -   CancelWorkflowExecutionDecisionAttributes
--- -   ContinueAsNewWorkflowExecutionDecisionAttributes
--- -   RecordMarkerDecisionAttributes
--- -   StartTimerDecisionAttributes
--- -   CancelTimerDecisionAttributes
--- -   SignalExternalWorkflowExecutionDecisionAttributes
--- -   RequestCancelExternalWorkflowExecutionDecisionAttributes
--- -   StartChildWorkflowExecutionDecisionAttributes
+-- -   < ScheduleActivityTaskDecisionAttributes>
+-- -   < ScheduleLambdaFunctionDecisionAttributes>
+-- -   < RequestCancelActivityTaskDecisionAttributes>
+-- -   < CompleteWorkflowExecutionDecisionAttributes>
+-- -   < FailWorkflowExecutionDecisionAttributes>
+-- -   < CancelWorkflowExecutionDecisionAttributes>
+-- -   < ContinueAsNewWorkflowExecutionDecisionAttributes>
+-- -   < RecordMarkerDecisionAttributes>
+-- -   < StartTimerDecisionAttributes>
+-- -   < CancelTimerDecisionAttributes>
+-- -   < SignalExternalWorkflowExecutionDecisionAttributes>
+-- -   < RequestCancelExternalWorkflowExecutionDecisionAttributes>
+-- -   < StartChildWorkflowExecutionDecisionAttributes>
 --
 -- /See:/ 'decision' smart constructor.
 data Decision = Decision'
@@ -2378,7 +2380,7 @@ domainInfo pName_ pStatus_ =
     , _diStatus = pStatus_
     }
 
--- | The description of the domain provided through RegisterDomain.
+-- | The description of the domain provided through < RegisterDomain>.
 diDescription :: Lens' DomainInfo (Maybe Text)
 diDescription = lens _diDescription (\ s a -> s{_diDescription = a});
 
@@ -2391,9 +2393,9 @@ diName = lens _diName (\ s a -> s{_diName = a});
 -- -   __REGISTERED__: The domain is properly registered and available. You
 --     can use this domain for registering types and creating new workflow
 --     executions.
--- -   __DEPRECATED__: The domain was deprecated using DeprecateDomain, but
---     is still in use. You should not create new workflow executions in
---     this domain.
+-- -   __DEPRECATED__: The domain was deprecated using < DeprecateDomain>,
+--     but is still in use. You should not create new workflow executions
+--     in this domain.
 diStatus :: Lens' DomainInfo RegistrationStatus
 diStatus = lens _diStatus (\ s a -> s{_diStatus = a});
 
@@ -2679,7 +2681,7 @@ instance FromJSON
 -- -   __DecisionTaskStarted__: The decision task was dispatched to a
 --     decider.
 -- -   __DecisionTaskCompleted__: The decider successfully completed a
---     decision task by calling RespondDecisionTaskCompleted.
+--     decision task by calling < RespondDecisionTaskCompleted>.
 -- -   __DecisionTaskTimedOut__: The decision task timed out.
 -- -   __ActivityTaskScheduled__: An activity task was scheduled for
 --     execution.
@@ -2690,9 +2692,9 @@ instance FromJSON
 -- -   __ActivityTaskStarted__: The scheduled activity task was dispatched
 --     to a worker.
 -- -   __ActivityTaskCompleted__: An activity worker successfully completed
---     an activity task by calling RespondActivityTaskCompleted.
+--     an activity task by calling < RespondActivityTaskCompleted>.
 -- -   __ActivityTaskFailed__: An activity worker failed an activity task
---     by calling RespondActivityTaskFailed.
+--     by calling < RespondActivityTaskFailed>.
 -- -   __ActivityTaskTimedOut__: The activity task timed out.
 -- -   __ActivityTaskCanceled__: The activity task was successfully
 --     canceled.
@@ -4373,11 +4375,11 @@ satdaControl = lens _satdaControl (\ s a -> s{_satdaControl = a});
 
 -- | If set, specifies the maximum time before which a worker processing a
 -- task of this type must report progress by calling
--- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
+-- < RecordActivityTaskHeartbeat>. If the timeout is exceeded, the activity
 -- task is automatically timed out. If the worker subsequently attempts to
 -- record a heartbeat or returns a result, it will be ignored. This
 -- overrides the default heartbeat timeout specified when registering the
--- activity type using RegisterActivityType.
+-- activity type using < RegisterActivityType>.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -4418,10 +4420,10 @@ satdaTaskList = lens _satdaTaskList (\ s a -> s{_satdaTaskList = a});
 
 -- | /Optional./ If set, specifies the priority with which the activity task
 -- is to be assigned to a worker. This overrides the defaultTaskPriority
--- specified when registering the activity type using RegisterActivityType.
--- Valid values are integers that range from Java\'s 'Integer.MIN_VALUE'
--- (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers
--- indicate higher priority.
+-- specified when registering the activity type using
+-- < RegisterActivityType>. Valid values are integers that range from
+-- Java\'s 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE'
+-- (2147483647). Higher numbers indicate higher priority.
 --
 -- For more information about setting task priority, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
@@ -4432,7 +4434,7 @@ satdaTaskPriority = lens _satdaTaskPriority (\ s a -> s{_satdaTaskPriority = a})
 -- | /Optional./ If set, specifies the maximum duration the activity task can
 -- wait to be assigned to a worker. This overrides the default
 -- schedule-to-start timeout specified when registering the activity type
--- using RegisterActivityType.
+-- using < RegisterActivityType>.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -4446,7 +4448,8 @@ satdaScheduleToStartTimeout = lens _satdaScheduleToStartTimeout (\ s a -> s{_sat
 
 -- | If set, specifies the maximum duration a worker may take to process this
 -- activity task. This overrides the default start-to-close timeout
--- specified when registering the activity type using RegisterActivityType.
+-- specified when registering the activity type using
+-- < RegisterActivityType>.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -5091,14 +5094,15 @@ scwedaControl = lens _scwedaControl (\ s a -> s{_scwedaControl = a});
 
 -- | The list of tags to associate with the child workflow execution. A
 -- maximum of 5 tags can be specified. You can list workflow executions
--- with a specific tag by calling ListOpenWorkflowExecutions or
--- ListClosedWorkflowExecutions and specifying a TagFilter.
+-- with a specific tag by calling < ListOpenWorkflowExecutions> or
+-- < ListClosedWorkflowExecutions> and specifying a < TagFilter>.
 scwedaTagList :: Lens' StartChildWorkflowExecutionDecisionAttributes [Text]
 scwedaTagList = lens _scwedaTagList (\ s a -> s{_scwedaTagList = a}) . _Default . _Coerce;
 
 -- | Specifies the maximum duration of decision tasks for this workflow
 -- execution. This parameter overrides the 'defaultTaskStartToCloseTimout'
--- specified when registering the workflow type using RegisterWorkflowType.
+-- specified when registering the workflow type using
+-- < RegisterWorkflowType>.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -5169,9 +5173,10 @@ scwedaTaskPriority = lens _scwedaTaskPriority (\ s a -> s{_scwedaTaskPriority = 
 
 -- | /Optional./ If set, specifies the policy to use for the child workflow
 -- executions if the workflow execution being started is terminated by
--- calling the TerminateWorkflowExecution action explicitly or due to an
+-- calling the < TerminateWorkflowExecution> action explicitly or due to an
 -- expired timeout. This policy overrides the default child policy
--- specified when registering the workflow type using RegisterWorkflowType.
+-- specified when registering the workflow type using
+-- < RegisterWorkflowType>.
 --
 -- The supported child policies are:
 --
@@ -5453,7 +5458,7 @@ scweieaDecisionTaskCompletedEventId :: Lens' StartChildWorkflowExecutionInitiate
 scweieaDecisionTaskCompletedEventId = lens _scweieaDecisionTaskCompletedEventId (\ s a -> s{_scweieaDecisionTaskCompletedEventId = a});
 
 -- | The policy to use for the child workflow executions if this execution
--- gets terminated by explicitly calling the TerminateWorkflowExecution
+-- gets terminated by explicitly calling the < TerminateWorkflowExecution>
 -- action or due to an expired timeout.
 --
 -- The supported child policies are:
@@ -6192,7 +6197,7 @@ wecTaskList :: Lens' WorkflowExecutionConfiguration TaskList
 wecTaskList = lens _wecTaskList (\ s a -> s{_wecTaskList = a});
 
 -- | The policy to use for the child workflow executions if this workflow
--- execution is terminated, by calling the TerminateWorkflowExecution
+-- execution is terminated, by calling the < TerminateWorkflowExecution>
 -- action explicitly or due to an expired timeout.
 --
 -- The supported child policies are:
@@ -6331,7 +6336,7 @@ wecaneaTaskList :: Lens' WorkflowExecutionContinuedAsNewEventAttributes TaskList
 wecaneaTaskList = lens _wecaneaTaskList (\ s a -> s{_wecaneaTaskList = a});
 
 -- | The policy to use for the child workflow executions of the new execution
--- if it is terminated by calling the TerminateWorkflowExecution action
+-- if it is terminated by calling the < TerminateWorkflowExecution> action
 -- explicitly or due to an expired timeout.
 --
 -- The supported child policies are:
@@ -6370,7 +6375,7 @@ instance FromJSON
                      <*> (x .: "workflowType"))
 
 -- | Contains the count of workflow executions returned from
--- CountOpenWorkflowExecutions or CountClosedWorkflowExecutions
+-- < CountOpenWorkflowExecutions> or < CountClosedWorkflowExecutions>
 --
 -- /See:/ 'workflowExecutionCount' smart constructor.
 data WorkflowExecutionCount = WorkflowExecutionCount'
@@ -6923,7 +6928,7 @@ weseaContinuedExecutionRunId :: Lens' WorkflowExecutionStartedEventAttributes (M
 weseaContinuedExecutionRunId = lens _weseaContinuedExecutionRunId (\ s a -> s{_weseaContinuedExecutionRunId = a});
 
 -- | The policy to use for the child workflow executions if this workflow
--- execution is terminated, by calling the TerminateWorkflowExecution
+-- execution is terminated, by calling the < TerminateWorkflowExecution>
 -- action explicitly or due to an expired timeout.
 --
 -- The supported child policies are:
@@ -7191,9 +7196,9 @@ wtcDefaultLambdaRole = lens _wtcDefaultLambdaRole (\ s a -> s{_wtcDefaultLambdaR
 
 -- | /Optional./ The default policy to use for the child workflow executions
 -- when a workflow execution of this type is terminated, by calling the
--- TerminateWorkflowExecution action explicitly or due to an expired
+-- < TerminateWorkflowExecution> action explicitly or due to an expired
 -- timeout. This default can be overridden when starting a workflow
--- execution using the StartWorkflowExecution action or the
+-- execution using the < StartWorkflowExecution> action or the
 -- 'StartChildWorkflowExecution' decision.
 --
 -- The supported child policies are:
@@ -7211,7 +7216,7 @@ wtcDefaultChildPolicy = lens _wtcDefaultChildPolicy (\ s a -> s{_wtcDefaultChild
 -- | /Optional./ The default task list, specified when registering the
 -- workflow type, for decisions tasks scheduled for workflow executions of
 -- this type. This default can be overridden when starting a workflow
--- execution using the StartWorkflowExecution action or the
+-- execution using the < StartWorkflowExecution> action or the
 -- 'StartChildWorkflowExecution' decision.
 wtcDefaultTaskList :: Lens' WorkflowTypeConfiguration (Maybe TaskList)
 wtcDefaultTaskList = lens _wtcDefaultTaskList (\ s a -> s{_wtcDefaultTaskList = a});
@@ -7219,7 +7224,7 @@ wtcDefaultTaskList = lens _wtcDefaultTaskList (\ s a -> s{_wtcDefaultTaskList = 
 -- | /Optional./ The default task priority, specified when registering the
 -- workflow type, for all decision tasks of this workflow type. This
 -- default can be overridden when starting a workflow execution using the
--- StartWorkflowExecution action or the 'StartChildWorkflowExecution'
+-- < StartWorkflowExecution> action or the 'StartChildWorkflowExecution'
 -- decision.
 --
 -- Valid values are integers that range from Java\'s 'Integer.MIN_VALUE'
@@ -7235,7 +7240,7 @@ wtcDefaultTaskPriority = lens _wtcDefaultTaskPriority (\ s a -> s{_wtcDefaultTas
 -- | /Optional./ The default maximum duration, specified when registering the
 -- workflow type, for executions of this workflow type. This default can be
 -- overridden when starting a workflow execution using the
--- StartWorkflowExecution action or the 'StartChildWorkflowExecution'
+-- < StartWorkflowExecution> action or the 'StartChildWorkflowExecution'
 -- decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
@@ -7249,7 +7254,7 @@ wtcDefaultExecutionStartToCloseTimeout = lens _wtcDefaultExecutionStartToCloseTi
 -- close in the specified time then the task is automatically timed out and
 -- rescheduled. If the decider eventually reports a completion or failure,
 -- it is ignored. This default can be overridden when starting a workflow
--- execution using the StartWorkflowExecution action or the
+-- execution using the < StartWorkflowExecution> action or the
 -- 'StartChildWorkflowExecution' decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
@@ -7353,7 +7358,7 @@ workflowTypeInfo pWorkflowType_ pStatus_ pCreationDate_ =
 wtiDeprecationDate :: Lens' WorkflowTypeInfo (Maybe UTCTime)
 wtiDeprecationDate = lens _wtiDeprecationDate (\ s a -> s{_wtiDeprecationDate = a}) . mapping _Time;
 
--- | The description of the type registered through RegisterWorkflowType.
+-- | The description of the type registered through < RegisterWorkflowType>.
 wtiDescription :: Lens' WorkflowTypeInfo (Maybe Text)
 wtiDescription = lens _wtiDescription (\ s a -> s{_wtiDescription = a});
 

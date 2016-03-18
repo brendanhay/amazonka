@@ -164,7 +164,7 @@ ratDefaultTaskPriority = lens _ratDefaultTaskPriority (\ s a -> s{_ratDefaultTas
 
 -- | If set, specifies the default maximum time before which a worker
 -- processing a task of this type must report progress by calling
--- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
+-- < RecordActivityTaskHeartbeat>. If the timeout is exceeded, the activity
 -- task is automatically timed out. This default can be overridden when
 -- scheduling an activity task using the 'ScheduleActivityTask' decision.
 -- If the activity worker subsequently attempts to record a heartbeat or

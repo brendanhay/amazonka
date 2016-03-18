@@ -31,9 +31,9 @@
 -- event is recorded in the history of the current open workflow with the
 -- matching workflowId in the domain.
 --
--- You should consider using RequestCancelWorkflowExecution action instead
--- because it allows the workflow to gracefully close while
--- TerminateWorkflowExecution does not.
+-- You should consider using < RequestCancelWorkflowExecution> action
+-- instead because it allows the workflow to gracefully close while
+-- < TerminateWorkflowExecution> does not.
 --
 -- __Access Control__
 --

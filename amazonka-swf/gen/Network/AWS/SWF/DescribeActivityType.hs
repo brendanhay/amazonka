@@ -179,9 +179,10 @@ datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus
 --
 -- -   __REGISTERED__: The type is registered and available. Workers
 --     supporting this type should be running.
--- -   __DEPRECATED__: The type was deprecated using DeprecateActivityType,
---     but is still in use. You should keep workers supporting this type
---     running. You cannot create new tasks of this type.
+-- -   __DEPRECATED__: The type was deprecated using
+--     < DeprecateActivityType>, but is still in use. You should keep
+--     workers supporting this type running. You cannot create new tasks of
+--     this type.
 datrsTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
 datrsTypeInfo = lens _datrsTypeInfo (\ s a -> s{_datrsTypeInfo = a});
 

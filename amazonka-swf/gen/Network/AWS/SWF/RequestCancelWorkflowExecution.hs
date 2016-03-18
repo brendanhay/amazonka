@@ -30,7 +30,7 @@
 --
 -- Because this action allows the workflow to properly clean up and
 -- gracefully close, it should be used instead of
--- TerminateWorkflowExecution when possible.
+-- < TerminateWorkflowExecution> when possible.
 --
 -- __Access Control__
 --

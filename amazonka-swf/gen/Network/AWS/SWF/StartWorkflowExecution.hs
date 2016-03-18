@@ -148,14 +148,15 @@ startWorkflowExecution pDomain_ pWorkflowId_ pWorkflowType_ =
 
 -- | The list of tags to associate with the workflow execution. You can
 -- specify a maximum of 5 tags. You can list workflow executions with a
--- specific tag by calling ListOpenWorkflowExecutions or
--- ListClosedWorkflowExecutions and specifying a TagFilter.
+-- specific tag by calling < ListOpenWorkflowExecutions> or
+-- < ListClosedWorkflowExecutions> and specifying a < TagFilter>.
 sTagList :: Lens' StartWorkflowExecution [Text]
 sTagList = lens _sTagList (\ s a -> s{_sTagList = a}) . _Default . _Coerce;
 
 -- | Specifies the maximum duration of decision tasks for this workflow
 -- execution. This parameter overrides the 'defaultTaskStartToCloseTimout'
--- specified when registering the workflow type using RegisterWorkflowType.
+-- specified when registering the workflow type using
+-- < RegisterWorkflowType>.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -232,9 +233,9 @@ sTaskPriority = lens _sTaskPriority (\ s a -> s{_sTaskPriority = a});
 
 -- | If set, specifies the policy to use for the child workflow executions of
 -- this workflow execution if it is terminated, by calling the
--- TerminateWorkflowExecution action explicitly or due to an expired
+-- < TerminateWorkflowExecution> action explicitly or due to an expired
 -- timeout. This policy overrides the default child policy specified when
--- registering the workflow type using RegisterWorkflowType.
+-- registering the workflow type using < RegisterWorkflowType>.
 --
 -- The supported child policies are:
 --

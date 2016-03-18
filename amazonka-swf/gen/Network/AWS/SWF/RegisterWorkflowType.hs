@@ -22,7 +22,7 @@
 -- specified domain.
 --
 -- The retention period for the workflow history is set by the
--- RegisterDomain action.
+-- < RegisterDomain> action.
 --
 -- If the type already exists, then a 'TypeAlreadyExists' fault is
 -- returned. You cannot change the configuration settings of a workflow
@@ -141,16 +141,17 @@ registerWorkflowType pDomain_ pName_ pVersion_ =
 -- type invokes AWS Lambda functions.
 --
 -- This default can be overridden when starting a workflow execution using
--- the StartWorkflowExecution action or the 'StartChildWorkflowExecution'
--- and 'ContinueAsNewWorkflowExecution' decision.
+-- the < StartWorkflowExecution> action or the
+-- 'StartChildWorkflowExecution' and 'ContinueAsNewWorkflowExecution'
+-- decision.
 rwtDefaultLambdaRole :: Lens' RegisterWorkflowType (Maybe Text)
 rwtDefaultLambdaRole = lens _rwtDefaultLambdaRole (\ s a -> s{_rwtDefaultLambdaRole = a});
 
 -- | If set, specifies the default policy to use for the child workflow
 -- executions when a workflow execution of this type is terminated, by
--- calling the TerminateWorkflowExecution action explicitly or due to an
+-- calling the < TerminateWorkflowExecution> action explicitly or due to an
 -- expired timeout. This default can be overridden when starting a workflow
--- execution using the StartWorkflowExecution action or the
+-- execution using the < StartWorkflowExecution> action or the
 -- 'StartChildWorkflowExecution' decision.
 --
 -- The supported child policies are:
@@ -168,7 +169,8 @@ rwtDefaultChildPolicy = lens _rwtDefaultChildPolicy (\ s a -> s{_rwtDefaultChild
 -- | If set, specifies the default task list to use for scheduling decision
 -- tasks for executions of this workflow type. This default is used only if
 -- a task list is not provided when starting the execution through the
--- StartWorkflowExecution action or 'StartChildWorkflowExecution' decision.
+-- < StartWorkflowExecution> action or 'StartChildWorkflowExecution'
+-- decision.
 rwtDefaultTaskList :: Lens' RegisterWorkflowType (Maybe TaskList)
 rwtDefaultTaskList = lens _rwtDefaultTaskList (\ s a -> s{_rwtDefaultTaskList = a});
 
@@ -185,7 +187,7 @@ rwtDefaultTaskPriority = lens _rwtDefaultTaskPriority (\ s a -> s{_rwtDefaultTas
 
 -- | If set, specifies the default maximum duration for executions of this
 -- workflow type. You can override this default when starting an execution
--- through the StartWorkflowExecution action or
+-- through the < StartWorkflowExecution> action or
 -- 'StartChildWorkflowExecution' decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
@@ -199,7 +201,7 @@ rwtDefaultExecutionStartToCloseTimeout = lens _rwtDefaultExecutionStartToCloseTi
 
 -- | If set, specifies the default maximum duration of decision tasks for
 -- this workflow type. This default can be overridden when starting a
--- workflow execution using the StartWorkflowExecution action or the
+-- workflow execution using the < StartWorkflowExecution> action or the
 -- 'StartChildWorkflowExecution' decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
@@ -228,7 +230,7 @@ rwtName = lens _rwtName (\ s a -> s{_rwtName = a});
 --
 -- The workflow type consists of the name and version, the combination of
 -- which must be unique within the domain. To get a list of all currently
--- registered workflow types, use the ListWorkflowTypes action.
+-- registered workflow types, use the < ListWorkflowTypes> action.
 --
 -- The specified string must not start or end with whitespace. It must not
 -- contain a ':' (colon), '\/' (slash), '|' (vertical bar), or any control

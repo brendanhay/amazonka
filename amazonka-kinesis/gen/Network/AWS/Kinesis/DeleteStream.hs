@@ -28,16 +28,16 @@
 -- until Amazon Kinesis completes the deletion.
 --
 -- __Note:__ Amazon Kinesis might continue to accept data read and write
--- operations, such as PutRecord, PutRecords, and GetRecords, on a stream
--- in the 'DELETING' state until the stream deletion is complete.
+-- operations, such as < PutRecord>, < PutRecords>, and < GetRecords>, on a
+-- stream in the 'DELETING' state until the stream deletion is complete.
 --
 -- When you delete a stream, any shards in that stream are also deleted,
 -- and any tags are dissociated from the stream.
 --
--- You can use the DescribeStream operation to check the state of the
+-- You can use the < DescribeStream> operation to check the state of the
 -- stream, which is returned in 'StreamStatus'.
 --
--- DeleteStream has a limit of 5 transactions per second per account.
+-- < DeleteStream> has a limit of 5 transactions per second per account.
 --
 -- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteStream.html AWS API Reference> for DeleteStream.
 module Network.AWS.Kinesis.DeleteStream
@@ -60,7 +60,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for DeleteStream.
+-- | Represents the input for < DeleteStream>.
 --
 -- /See:/ 'deleteStream' smart constructor.
 newtype DeleteStream = DeleteStream'

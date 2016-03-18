@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for DecreaseStreamRetentionPeriod.
+-- | Represents the input for < DecreaseStreamRetentionPeriod>.
 --
 -- /See:/ 'decreaseStreamRetentionPeriod' smart constructor.
 data DecreaseStreamRetentionPeriod = DecreaseStreamRetentionPeriod'

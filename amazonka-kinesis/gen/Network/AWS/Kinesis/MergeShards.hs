@@ -41,7 +41,7 @@
 -- stream does not exist, 'MergeShards' returns a
 -- 'ResourceNotFoundException'.
 --
--- You can use DescribeStream to check the state of the stream, which is
+-- You can use < DescribeStream> to check the state of the stream, which is
 -- returned in 'StreamStatus'.
 --
 -- 'MergeShards' is an asynchronous operation. Upon receiving a
@@ -50,12 +50,12 @@
 -- Amazon Kinesis sets the 'StreamStatus' to 'ACTIVE'. Read and write
 -- operations continue to work while the stream is in the 'UPDATING' state.
 --
--- You use DescribeStream to determine the shard IDs that are specified in
--- the 'MergeShards' request.
+-- You use < DescribeStream> to determine the shard IDs that are specified
+-- in the 'MergeShards' request.
 --
 -- If you try to operate on too many streams in parallel using
--- CreateStream, DeleteStream, 'MergeShards' or SplitShard, you will
--- receive a 'LimitExceededException'.
+-- < CreateStream>, < DeleteStream>, 'MergeShards' or < SplitShard>, you
+-- will receive a 'LimitExceededException'.
 --
 -- 'MergeShards' has limit of 5 transactions per second per account.
 --

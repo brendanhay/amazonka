@@ -376,7 +376,7 @@ instance FromJSON Shard where
                      <*> (x .: "HashKeyRange")
                      <*> (x .: "SequenceNumberRange"))
 
--- | Represents the output for DescribeStream.
+-- | Represents the output for < DescribeStream>.
 --
 -- /See:/ 'streamDescription' smart constructor.
 data StreamDescription = StreamDescription'

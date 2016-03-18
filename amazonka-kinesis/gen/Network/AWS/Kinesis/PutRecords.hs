@@ -82,8 +82,8 @@
 --
 -- By default, data records are accessible for only 24 hours from the time
 -- that they are added to an Amazon Kinesis stream. This retention period
--- can be modified using the DecreaseStreamRetentionPeriod and
--- IncreaseStreamRetentionPeriod operations.
+-- can be modified using the < DecreaseStreamRetentionPeriod> and
+-- < IncreaseStreamRetentionPeriod> operations.
 --
 -- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecords.html AWS API Reference> for PutRecords.
 module Network.AWS.Kinesis.PutRecords

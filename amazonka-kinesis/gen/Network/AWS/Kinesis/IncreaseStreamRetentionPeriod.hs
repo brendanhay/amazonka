@@ -52,7 +52,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for IncreaseStreamRetentionPeriod.
+-- | Represents the input for < IncreaseStreamRetentionPeriod>.
 --
 -- /See:/ 'increaseStreamRetentionPeriod' smart constructor.
 data IncreaseStreamRetentionPeriod = IncreaseStreamRetentionPeriod'

@@ -40,7 +40,7 @@
 -- returned. Specify this ID in the 'ExclusiveStartShardId' parameter in a
 -- subsequent request to 'DescribeStream'.
 --
--- DescribeStream has a limit of 10 transactions per second per account.
+-- < DescribeStream> has a limit of 10 transactions per second per account.
 --
 -- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStream.html AWS API Reference> for DescribeStream.
 --

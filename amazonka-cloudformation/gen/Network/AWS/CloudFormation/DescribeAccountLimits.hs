@@ -46,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the DescribeAccountLimits action.
+-- | The input for the < DescribeAccountLimits> action.
 --
 -- /See:/ 'describeAccountLimits' smart constructor.
 newtype DescribeAccountLimits = DescribeAccountLimits'
@@ -96,7 +96,7 @@ instance ToQuery DescribeAccountLimits where
                "Version" =: ("2010-05-15" :: ByteString),
                "NextToken" =: _dalNextToken]
 
--- | The output for the DescribeAccountLimits action.
+-- | The output for the < DescribeAccountLimits> action.
 --
 -- /See:/ 'describeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
@@ -124,8 +124,8 @@ describeAccountLimitsResponse pResponseStatus_ =
     , _dalrsResponseStatus = pResponseStatus_
     }
 
--- | A string that identifies the next page of limits. If no additional page
--- exists, this value is null.
+-- | If the output exceeds 1 MB in size, a string that identifies the next
+-- page of limits. If no additional page exists, this value is null.
 dalrsNextToken :: Lens' DescribeAccountLimitsResponse (Maybe Text)
 dalrsNextToken = lens _dalrsNextToken (\ s a -> s{_dalrsNextToken = a});
 

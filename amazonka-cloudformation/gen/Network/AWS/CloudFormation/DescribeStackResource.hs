@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for DescribeStackResource action.
+-- | The input for < DescribeStackResource> action.
 --
 -- /See:/ 'describeStackResource' smart constructor.
 data DescribeStackResource = DescribeStackResource'
@@ -115,7 +115,7 @@ instance ToQuery DescribeStackResource where
                "StackName" =: _desStackName,
                "LogicalResourceId" =: _desLogicalResourceId]
 
--- | The output for a DescribeStackResource action.
+-- | The output for a < DescribeStackResource> action.
 --
 -- /See:/ 'describeStackResourceResponse' smart constructor.
 data DescribeStackResourceResponse = DescribeStackResourceResponse'

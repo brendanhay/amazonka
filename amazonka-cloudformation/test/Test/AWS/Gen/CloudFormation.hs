@@ -46,6 +46,9 @@ import Test.AWS.CloudFormation.Internal
 --         , testDescribeStacks $
 --             describeStacks
 --
+--         , testContinueUpdateRollback $
+--             continueUpdateRollback
+--
 --         , testValidateTemplate $
 --             validateTemplate
 --
@@ -102,6 +105,9 @@ import Test.AWS.CloudFormation.Internal
 --
 --         , testDescribeStacksResponse $
 --             describeStacksResponse
+--
+--         , testContinueUpdateRollbackResponse $
+--             continueUpdateRollbackResponse
 --
 --         , testValidateTemplateResponse $
 --             validateTemplateResponse
@@ -173,6 +179,11 @@ testDescribeStacks :: DescribeStacks -> TestTree
 testDescribeStacks = req
     "DescribeStacks"
     "fixture/DescribeStacks.yaml"
+
+testContinueUpdateRollback :: ContinueUpdateRollback -> TestTree
+testContinueUpdateRollback = req
+    "ContinueUpdateRollback"
+    "fixture/ContinueUpdateRollback.yaml"
 
 testValidateTemplate :: ValidateTemplate -> TestTree
 testValidateTemplate = req
@@ -277,6 +288,13 @@ testDescribeStacksResponse = res
     "fixture/DescribeStacksResponse.proto"
     cloudFormation
     (Proxy :: Proxy DescribeStacks)
+
+testContinueUpdateRollbackResponse :: ContinueUpdateRollbackResponse -> TestTree
+testContinueUpdateRollbackResponse = res
+    "ContinueUpdateRollbackResponse"
+    "fixture/ContinueUpdateRollbackResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy ContinueUpdateRollback)
 
 testValidateTemplateResponse :: ValidateTemplateResponse -> TestTree
 testValidateTemplateResponse = res

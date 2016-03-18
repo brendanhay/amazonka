@@ -55,7 +55,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for DescribeStackEvents action.
+-- | The input for < DescribeStackEvents> action.
 --
 -- /See:/ 'describeStackEvents' smart constructor.
 data DescribeStackEvents = DescribeStackEvents'
@@ -78,10 +78,8 @@ describeStackEvents =
     , _dseStackName = Nothing
     }
 
--- | String that identifies the start of the next list of events, if there is
--- one.
---
--- Default: There is no default value.
+-- | A string that identifies the next page of events that you want to
+-- retrieve.
 dseNextToken :: Lens' DescribeStackEvents (Maybe Text)
 dseNextToken = lens _dseNextToken (\ s a -> s{_dseNextToken = a});
 
@@ -130,7 +128,7 @@ instance ToQuery DescribeStackEvents where
                "NextToken" =: _dseNextToken,
                "StackName" =: _dseStackName]
 
--- | The output for a DescribeStackEvents action.
+-- | The output for a < DescribeStackEvents> action.
 --
 -- /See:/ 'describeStackEventsResponse' smart constructor.
 data DescribeStackEventsResponse = DescribeStackEventsResponse'
@@ -158,8 +156,8 @@ describeStackEventsResponse pResponseStatus_ =
     , _dsersResponseStatus = pResponseStatus_
     }
 
--- | String that identifies the start of the next list of events, if there is
--- one.
+-- | If the output exceeds 1 MB in size, a string that identifies the next
+-- page of events. If no additional page exists, this value is null.
 dsersNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
 dsersNextToken = lens _dsersNextToken (\ s a -> s{_dsersNextToken = a});
 

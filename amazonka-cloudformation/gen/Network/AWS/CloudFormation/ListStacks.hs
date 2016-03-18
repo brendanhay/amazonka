@@ -53,7 +53,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for ListStacks action.
+-- | The input for < ListStacks> action.
 --
 -- /See:/ 'listStacks' smart constructor.
 data ListStacks = ListStacks'
@@ -76,17 +76,15 @@ listStacks =
     , _lsStackStatusFilter = Nothing
     }
 
--- | String that identifies the start of the next list of stacks, if there is
--- one.
---
--- Default: There is no default value.
+-- | A string that identifies the next page of stacks that you want to
+-- retrieve.
 lsNextToken :: Lens' ListStacks (Maybe Text)
 lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 
 -- | Stack status to use as a filter. Specify one or more stack status codes
 -- to list only stacks with the specified status codes. For a complete list
--- of stack status codes, see the 'StackStatus' parameter of the Stack data
--- type.
+-- of stack status codes, see the 'StackStatus' parameter of the < Stack>
+-- data type.
 lsStackStatusFilter :: Lens' ListStacks [StackStatus]
 lsStackStatusFilter = lens _lsStackStatusFilter (\ s a -> s{_lsStackStatusFilter = a}) . _Default . _Coerce;
 
@@ -125,7 +123,7 @@ instance ToQuery ListStacks where
                  toQuery
                    (toQueryList "member" <$> _lsStackStatusFilter)]
 
--- | The output for ListStacks action.
+-- | The output for < ListStacks> action.
 --
 -- /See:/ 'listStacksResponse' smart constructor.
 data ListStacksResponse = ListStacksResponse'
@@ -153,8 +151,8 @@ listStacksResponse pResponseStatus_ =
     , _lsrsResponseStatus = pResponseStatus_
     }
 
--- | String that identifies the start of the next list of stacks, if there is
--- one.
+-- | If the output exceeds 1 MB in size, a string that identifies the next
+-- page of stacks. If no additional page exists, this value is null.
 lsrsNextToken :: Lens' ListStacksResponse (Maybe Text)
 lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 

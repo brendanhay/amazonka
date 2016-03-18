@@ -43,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the SetStackPolicy action.
+-- | The input for the < SetStackPolicy> action.
 --
 -- /See:/ 'setStackPolicy' smart constructor.
 data SetStackPolicy = SetStackPolicy'

@@ -19,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a specified stack. Once the call completes successfully, stack
--- deletion starts. Deleted stacks do not show up in the DescribeStacks API
--- if the deletion has been completed successfully.
+-- deletion starts. Deleted stacks do not show up in the < DescribeStacks>
+-- API if the deletion has been completed successfully.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteStack.html AWS API Reference> for DeleteStack.
 module Network.AWS.CloudFormation.DeleteStack
@@ -29,6 +29,7 @@ module Network.AWS.CloudFormation.DeleteStack
       deleteStack
     , DeleteStack
     -- * Request Lenses
+    , dsRetainResources
     , dsStackName
 
     -- * Destructuring the Response
@@ -43,16 +44,19 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for DeleteStack action.
+-- | The input for < DeleteStack> action.
 --
 -- /See:/ 'deleteStack' smart constructor.
-newtype DeleteStack = DeleteStack'
-    { _dsStackName :: Text
+data DeleteStack = DeleteStack'
+    { _dsRetainResources :: !(Maybe [Text])
+    , _dsStackName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteStack' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsRetainResources'
 --
 -- * 'dsStackName'
 deleteStack
@@ -60,8 +64,19 @@ deleteStack
     -> DeleteStack
 deleteStack pStackName_ =
     DeleteStack'
-    { _dsStackName = pStackName_
+    { _dsRetainResources = Nothing
+    , _dsStackName = pStackName_
     }
+
+-- | For stacks in the 'DELETE_FAILED' state, a list of resource logical IDs
+-- that are associated with the resources you want to retain. During
+-- deletion, AWS CloudFormation deletes the stack but does not delete the
+-- retained resources.
+--
+-- Retaining resources is useful when you cannot delete a resource, such as
+-- a non-empty S3 bucket, but you want to delete the stack.
+dsRetainResources :: Lens' DeleteStack [Text]
+dsRetainResources = lens _dsRetainResources (\ s a -> s{_dsRetainResources = a}) . _Default . _Coerce;
 
 -- | The name or the unique stack ID that is associated with the stack.
 dsStackName :: Lens' DeleteStack Text
@@ -83,6 +98,9 @@ instance ToQuery DeleteStack where
           = mconcat
               ["Action" =: ("DeleteStack" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
+               "RetainResources" =:
+                 toQuery
+                   (toQueryList "member" <$> _dsRetainResources),
                "StackName" =: _dsStackName]
 
 -- | /See:/ 'deleteStackResponse' smart constructor.

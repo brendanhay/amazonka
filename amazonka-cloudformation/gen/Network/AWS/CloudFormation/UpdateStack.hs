@@ -20,13 +20,10 @@
 --
 -- Updates a stack as specified in the template. After the call completes
 -- successfully, the stack update starts. You can check the status of the
--- stack via the DescribeStacks action.
+-- stack via the < DescribeStacks> action.
 --
 -- To get a copy of the template for an existing stack, you can use the
--- GetTemplate action.
---
--- Tags that were associated with this stack during creation time will
--- still be associated with the stack after an 'UpdateStack' operation.
+-- < GetTemplate> action.
 --
 -- For more information about creating an update template, updating a
 -- stack, and monitoring the progress of the update, see
@@ -50,6 +47,7 @@ module Network.AWS.CloudFormation.UpdateStack
     , usTemplateURL
     , usCapabilities
     , usResourceTypes
+    , usTags
     , usStackName
 
     -- * Destructuring the Response
@@ -67,7 +65,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for UpdateStack action.
+-- | The input for < UpdateStack> action.
 --
 -- /See:/ 'updateStack' smart constructor.
 data UpdateStack = UpdateStack'
@@ -82,6 +80,7 @@ data UpdateStack = UpdateStack'
     , _usTemplateURL                 :: !(Maybe Text)
     , _usCapabilities                :: !(Maybe [Capability])
     , _usResourceTypes               :: !(Maybe [Text])
+    , _usTags                        :: !(Maybe [Tag])
     , _usStackName                   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -111,6 +110,8 @@ data UpdateStack = UpdateStack'
 --
 -- * 'usResourceTypes'
 --
+-- * 'usTags'
+--
 -- * 'usStackName'
 updateStack
     :: Text -- ^ 'usStackName'
@@ -128,6 +129,7 @@ updateStack pStackName_ =
     , _usTemplateURL = Nothing
     , _usCapabilities = Nothing
     , _usResourceTypes = Nothing
+    , _usTags = Nothing
     , _usStackName = pStackName_
     }
 
@@ -136,8 +138,9 @@ updateStack pStackName_ =
 usUsePreviousTemplate :: Lens' UpdateStack (Maybe Bool)
 usUsePreviousTemplate = lens _usUsePreviousTemplate (\ s a -> s{_usUsePreviousTemplate = a});
 
--- | Update the ARNs for the Amazon SNS topics that are associated with the
--- stack.
+-- | Amazon Simple Notification Service topic Amazon Resource Names (ARNs)
+-- that AWS CloudFormation associates with the stack. Specify an empty list
+-- to remove all notification topics.
 usNotificationARNs :: Lens' UpdateStack [Text]
 usNotificationARNs = lens _usNotificationARNs (\ s a -> s{_usNotificationARNs = a}) . _Default . _Coerce;
 
@@ -244,9 +247,19 @@ usCapabilities = lens _usCapabilities (\ s a -> s{_usCapabilities = a}) . _Defau
 -- permissions to all resource types. AWS Identity and Access Management
 -- (IAM) uses this parameter for AWS CloudFormation-specific condition keys
 -- in IAM policies. For more information, see
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with AWS Identity and Access Management>
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with AWS Identity and Access Management>.
 usResourceTypes :: Lens' UpdateStack [Text]
 usResourceTypes = lens _usResourceTypes (\ s a -> s{_usResourceTypes = a}) . _Default . _Coerce;
+
+-- | Key-value pairs to associate with this stack. AWS CloudFormation also
+-- propagates these tags to supported resources in the stack. You can
+-- specify a maximum number of 10 tags.
+--
+-- If you don\'t specify this parameter, AWS CloudFormation doesn\'t modify
+-- the stack\'s tags. If you specify an empty value, AWS CloudFormation
+-- removes all associated tags.
+usTags :: Lens' UpdateStack [Tag]
+usTags = lens _usTags (\ s a -> s{_usTags = a}) . _Default . _Coerce;
 
 -- | The name or unique stack ID of the stack to update.
 usStackName :: Lens' UpdateStack Text
@@ -290,9 +303,10 @@ instance ToQuery UpdateStack where
                  toQuery (toQueryList "member" <$> _usCapabilities),
                "ResourceTypes" =:
                  toQuery (toQueryList "member" <$> _usResourceTypes),
+               "Tags" =: toQuery (toQueryList "member" <$> _usTags),
                "StackName" =: _usStackName]
 
--- | The output for a UpdateStack action.
+-- | The output for a < UpdateStack> action.
 --
 -- /See:/ 'updateStackResponse' smart constructor.
 data UpdateStackResponse = UpdateStackResponse'

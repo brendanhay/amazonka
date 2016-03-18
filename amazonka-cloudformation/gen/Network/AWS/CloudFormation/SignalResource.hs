@@ -50,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the SignalResource action.
+-- | The input for the < SignalResource> action.
 --
 -- /See:/ 'signalResource' smart constructor.
 data SignalResource = SignalResource'

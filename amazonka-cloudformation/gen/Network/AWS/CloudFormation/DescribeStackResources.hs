@@ -34,7 +34,7 @@
 -- both. In addition, you can specify 'LogicalResourceId' to filter the
 -- returned result. For more information about resources, the
 -- 'LogicalResourceId' and 'PhysicalResourceId', go to the
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide AWS CloudFormation User Guide>.
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/ AWS CloudFormation User Guide>.
 --
 -- A 'ValidationError' is returned if you specify both 'StackName' and
 -- 'PhysicalResourceId' in the same request.
@@ -65,7 +65,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for DescribeStackResources action.
+-- | The input for < DescribeStackResources> action.
 --
 -- /See:/ 'describeStackResources' smart constructor.
 data DescribeStackResources = DescribeStackResources'
@@ -155,7 +155,7 @@ instance ToQuery DescribeStackResources where
                "PhysicalResourceId" =: _dsrPhysicalResourceId,
                "StackName" =: _dsrStackName]
 
--- | The output for a DescribeStackResources action.
+-- | The output for a < DescribeStackResources> action.
 --
 -- /See:/ 'describeStackResourcesResponse' smart constructor.
 data DescribeStackResourcesResponse = DescribeStackResourcesResponse'

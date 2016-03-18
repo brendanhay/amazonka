@@ -45,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the GetStackPolicy action.
+-- | The input for the < GetStackPolicy> action.
 --
 -- /See:/ 'getStackPolicy' smart constructor.
 newtype GetStackPolicy = GetStackPolicy'
@@ -92,7 +92,7 @@ instance ToQuery GetStackPolicy where
                "Version" =: ("2010-05-15" :: ByteString),
                "StackName" =: _gspStackName]
 
--- | The output for the GetStackPolicy action.
+-- | The output for the < GetStackPolicy> action.
 --
 -- /See:/ 'getStackPolicyResponse' smart constructor.
 data GetStackPolicyResponse = GetStackPolicyResponse'

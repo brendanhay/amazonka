@@ -50,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for a GetTemplate action.
+-- | The input for a < GetTemplate> action.
 --
 -- /See:/ 'getTemplate' smart constructor.
 newtype GetTemplate = GetTemplate'
@@ -103,7 +103,7 @@ instance ToQuery GetTemplate where
                "Version" =: ("2010-05-15" :: ByteString),
                "StackName" =: _gtStackName]
 
--- | The output for GetTemplate action.
+-- | The output for < GetTemplate> action.
 --
 -- /See:/ 'getTemplateResponse' smart constructor.
 data GetTemplateResponse = GetTemplateResponse'

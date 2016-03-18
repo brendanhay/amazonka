@@ -50,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for DescribeStacks action.
+-- | The input for < DescribeStacks> action.
 --
 -- /See:/ 'describeStacks' smart constructor.
 data DescribeStacks = DescribeStacks'
@@ -73,8 +73,8 @@ describeStacks =
     , _dStackName = Nothing
     }
 
--- | String that identifies the start of the next list of stacks, if there is
--- one.
+-- | A string that identifies the next page of stacks that you want to
+-- retrieve.
 dNextToken :: Lens' DescribeStacks (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
@@ -122,7 +122,7 @@ instance ToQuery DescribeStacks where
                "NextToken" =: _dNextToken,
                "StackName" =: _dStackName]
 
--- | The output for a DescribeStacks action.
+-- | The output for a < DescribeStacks> action.
 --
 -- /See:/ 'describeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
@@ -150,8 +150,8 @@ describeStacksResponse pResponseStatus_ =
     , _dsrsResponseStatus = pResponseStatus_
     }
 
--- | String that identifies the start of the next list of stacks, if there is
--- one.
+-- | If the output exceeds 1 MB in size, a string that identifies the next
+-- page of stacks. If no additional page exists, this value is null.
 dsrsNextToken :: Lens' DescribeStacksResponse (Maybe Text)
 dsrsNextToken = lens _dsrsNextToken (\ s a -> s{_dsrsNextToken = a});
 

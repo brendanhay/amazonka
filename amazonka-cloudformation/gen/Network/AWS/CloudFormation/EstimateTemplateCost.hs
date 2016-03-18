@@ -124,7 +124,7 @@ instance ToQuery EstimateTemplateCost where
                "TemplateBody" =: _etcTemplateBody,
                "TemplateURL" =: _etcTemplateURL]
 
--- | The output for a EstimateTemplateCost action.
+-- | The output for a < EstimateTemplateCost> action.
 --
 -- /See:/ 'estimateTemplateCostResponse' smart constructor.
 data EstimateTemplateCostResponse = EstimateTemplateCostResponse'

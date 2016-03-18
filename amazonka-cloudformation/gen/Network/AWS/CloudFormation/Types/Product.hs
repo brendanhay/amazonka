@@ -943,7 +943,7 @@ instance FromXML StackSummary where
                 <*> (x .@ "StackStatus")
 
 -- | The Tag type is used by 'CreateStack' in the 'Tags' parameter. It allows
--- you to specify a key\/value pair that can be used to store information
+-- you to specify a key-value pair that can be used to store information
 -- related to cost allocation for an AWS CloudFormation stack.
 --
 -- /See:/ 'tag' smart constructor.

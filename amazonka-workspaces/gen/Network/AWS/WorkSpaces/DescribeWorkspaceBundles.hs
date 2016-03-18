@@ -56,7 +56,7 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the DescribeWorkspaceBundles operation.
+-- | Contains the inputs for the < DescribeWorkspaceBundles> operation.
 --
 -- /See:/ 'describeWorkspaceBundles' smart constructor.
 data DescribeWorkspaceBundles = DescribeWorkspaceBundles'
@@ -140,7 +140,7 @@ instance ToPath DescribeWorkspaceBundles where
 instance ToQuery DescribeWorkspaceBundles where
         toQuery = const mempty
 
--- | Contains the results of the DescribeWorkspaceBundles operation.
+-- | Contains the results of the < DescribeWorkspaceBundles> operation.
 --
 -- /See:/ 'describeWorkspaceBundlesResponse' smart constructor.
 data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'

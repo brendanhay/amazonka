@@ -48,7 +48,7 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the CreateWorkspaces operation.
+-- | Contains the inputs for the < CreateWorkspaces> operation.
 --
 -- /See:/ 'createWorkspaces' smart constructor.
 newtype CreateWorkspaces = CreateWorkspaces'
@@ -103,7 +103,7 @@ instance ToPath CreateWorkspaces where
 instance ToQuery CreateWorkspaces where
         toQuery = const mempty
 
--- | Contains the result of the CreateWorkspaces operation.
+-- | Contains the result of the < CreateWorkspaces> operation.
 --
 -- /See:/ 'createWorkspacesResponse' smart constructor.
 data CreateWorkspacesResponse = CreateWorkspacesResponse'
@@ -139,8 +139,9 @@ cwrsFailedRequests = lens _cwrsFailedRequests (\ s a -> s{_cwrsFailedRequests = 
 -- | An array of structures that represent the WorkSpaces that were created.
 --
 -- Because this operation is asynchronous, the identifier in 'WorkspaceId'
--- is not immediately available. If you immediately call DescribeWorkspaces
--- with this identifier, no information will be returned.
+-- is not immediately available. If you immediately call
+-- < DescribeWorkspaces> with this identifier, no information will be
+-- returned.
 cwrsPendingRequests :: Lens' CreateWorkspacesResponse [Workspace]
 cwrsPendingRequests = lens _cwrsPendingRequests (\ s a -> s{_cwrsPendingRequests = a}) . _Default . _Coerce;
 

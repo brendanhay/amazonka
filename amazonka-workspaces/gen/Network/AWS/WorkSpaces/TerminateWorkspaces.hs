@@ -54,7 +54,7 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the TerminateWorkspaces operation.
+-- | Contains the inputs for the < TerminateWorkspaces> operation.
 --
 -- /See:/ 'terminateWorkspaces' smart constructor.
 newtype TerminateWorkspaces = TerminateWorkspaces'
@@ -113,7 +113,7 @@ instance ToPath TerminateWorkspaces where
 instance ToQuery TerminateWorkspaces where
         toQuery = const mempty
 
--- | Contains the results of the TerminateWorkspaces operation.
+-- | Contains the results of the < TerminateWorkspaces> operation.
 --
 -- /See:/ 'terminateWorkspacesResponse' smart constructor.
 data TerminateWorkspacesResponse = TerminateWorkspacesResponse'

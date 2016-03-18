@@ -58,7 +58,7 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the DescribeWorkspaces operation.
+-- | Contains the inputs for the < DescribeWorkspaces> operation.
 --
 -- /See:/ 'describeWorkspaces' smart constructor.
 data DescribeWorkspaces = DescribeWorkspaces'
@@ -108,10 +108,10 @@ dwDirectoryId = lens _dwDirectoryId (\ s a -> s{_dwDirectoryId = a});
 -- which to retrieve information. This parameter cannot be combined with
 -- any other filter parameter.
 --
--- Because the CreateWorkspaces operation is asynchronous, the identifier
--- returned by CreateWorkspaces is not immediately available. If you
--- immediately call DescribeWorkspaces with this identifier, no information
--- will be returned.
+-- Because the < CreateWorkspaces> operation is asynchronous, the
+-- identifier returned by < CreateWorkspaces> is not immediately available.
+-- If you immediately call < DescribeWorkspaces> with this identifier, no
+-- information will be returned.
 dwWorkspaceIds :: Lens' DescribeWorkspaces (Maybe (NonEmpty Text))
 dwWorkspaceIds = lens _dwWorkspaceIds (\ s a -> s{_dwWorkspaceIds = a}) . mapping _List1;
 
@@ -174,7 +174,7 @@ instance ToPath DescribeWorkspaces where
 instance ToQuery DescribeWorkspaces where
         toQuery = const mempty
 
--- | Contains the results for the DescribeWorkspaces operation.
+-- | Contains the results for the < DescribeWorkspaces> operation.
 --
 -- /See:/ 'describeWorkspacesResponse' smart constructor.
 data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
@@ -212,7 +212,7 @@ dwrsNextToken = lens _dwrsNextToken (\ s a -> s{_dwrsNextToken = a});
 -- | An array of structures that contain the information about the
 -- WorkSpaces.
 --
--- Because the CreateWorkspaces operation is asynchronous, some of this
+-- Because the < CreateWorkspaces> operation is asynchronous, some of this
 -- information may be incomplete for a newly-created WorkSpace.
 dwrsWorkspaces :: Lens' DescribeWorkspacesResponse [Workspace]
 dwrsWorkspaces = lens _dwrsWorkspaces (\ s a -> s{_dwrsWorkspaces = a}) . _Default . _Coerce;

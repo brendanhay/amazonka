@@ -50,7 +50,7 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the RebootWorkspaces operation.
+-- | Contains the inputs for the < RebootWorkspaces> operation.
 --
 -- /See:/ 'rebootWorkspaces' smart constructor.
 newtype RebootWorkspaces = RebootWorkspaces'
@@ -107,7 +107,7 @@ instance ToPath RebootWorkspaces where
 instance ToQuery RebootWorkspaces where
         toQuery = const mempty
 
--- | Contains the results of the RebootWorkspaces operation.
+-- | Contains the results of the < RebootWorkspaces> operation.
 --
 -- /See:/ 'rebootWorkspacesResponse' smart constructor.
 data RebootWorkspacesResponse = RebootWorkspacesResponse'

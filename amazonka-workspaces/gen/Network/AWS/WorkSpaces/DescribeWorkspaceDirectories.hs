@@ -53,7 +53,7 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the DescribeWorkspaceDirectories operation.
+-- | Contains the inputs for the < DescribeWorkspaceDirectories> operation.
 --
 -- /See:/ 'describeWorkspaceDirectories' smart constructor.
 data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
@@ -122,7 +122,7 @@ instance ToPath DescribeWorkspaceDirectories where
 instance ToQuery DescribeWorkspaceDirectories where
         toQuery = const mempty
 
--- | Contains the results of the DescribeWorkspaceDirectories operation.
+-- | Contains the results of the < DescribeWorkspaceDirectories> operation.
 --
 -- /See:/ 'describeWorkspaceDirectoriesResponse' smart constructor.
 data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'
